@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-12 00:26+0000\n"
+"PO-Revision-Date: 2011-04-18 00:42+0000\n"
 "Last-Translator: pluwen <pluwen@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1610,9 +1610,25 @@ msgstr ""
 "如果如果你在路径后面加上字符“*”或路径后面没有其它字符， 那么此路径下的所有文件及子目录也都不会显示。\r\n"
 "列表为空时表示所有路径都显示图标覆盖。"
 
+#. Resource IDs: (90)
+msgid ""
+"A relocate is only needed if the path to a repository has changed.\n"
+"Changing to a different path inside a repository is done by a switch operation.\n"
+"\n"
+"If you are not sure what to do, try a switch operation first."
+msgstr ""
+
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
 msgstr "找不到需要的资源。"
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"A valid path on windows must not contain '<>|\"\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn\n"
+"See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -2329,6 +2345,60 @@ msgstr "不能从剪贴板黏贴位图!"
 msgid "Cancel"
 msgstr "取消"
 
+#. Resource IDs: (221)
+msgid ""
+"Cancel\n"
+"Do not commit to a tag."
+msgstr ""
+
+#. Resource IDs: (119)
+msgid ""
+"Cancel\n"
+"Do not revert."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Cancel\n"
+"Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Cancel\n"
+"I will enter a different path/URL."
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Cancel\n"
+"Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (105)
+msgid ""
+"Cancel\n"
+"The items are not imported."
+msgstr ""
+
+#. Resource IDs: (107)
+msgid ""
+"Cancel\n"
+"The items are not moved."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Cancel\n"
+"You have to add the folder manually."
+msgstr ""
+
+#. Resource IDs: (100)
+msgid ""
+"Cancel\n"
+"keep the current format."
+msgstr ""
+
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
 msgstr "正在取消 SVN 追溯..."
@@ -2753,6 +2823,12 @@ msgstr "提交 - TortoiseSVN"
 msgid "Commit failed - Update needed"
 msgstr "提交失败，请先更新"
 
+#. Resource IDs: (173)
+msgid ""
+"Commit only the folder\n"
+"Files inside the folder won't get committed."
+msgstr ""
+
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "提交至: "
@@ -2760,6 +2836,12 @@ msgstr "提交至: "
 #. Resource IDs: (209)
 msgid "Commit..."
 msgstr "提交..."
+
+#. Resource IDs: (221)
+msgid ""
+"Commit\n"
+"Commit the changes to the target."
+msgstr ""
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2782,6 +2864,12 @@ msgstr "每周提交次数: "
 msgid "Commits your changes to the repository"
 msgstr "将你所做的修改提交至版本库"
 
+#. Resource IDs: (173)
+msgid ""
+"Committing an unversioned folder will not recursively add its child items!\n"
+"You might want to add these folders recursively by using the 'Add...' context menu item."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
@@ -2793,6 +2881,10 @@ msgstr ""
 "你可能需要用上下文菜单的“增加...”来递归增加这些目录。\n"
 "\n"
 "你确定要继续提交吗？"
+
+#. Resource IDs: (221)
+msgid "Committing to a tag"
+msgstr ""
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3622,6 +3714,10 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr "对下述路径，不显示上下文菜单:"
 
+#. Resource IDs: (173)
+msgid "Do this for all selected unversioned folders"
+msgstr ""
+
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
@@ -3684,6 +3780,22 @@ msgstr ""
 msgid "Do you want to remove the property %s recursively?"
 msgstr "确定要从该项目及其子项目删除属性 %s 吗？"
 
+#. Resource IDs: (120)
+#, c-format
+msgid ""
+"Do you want to revert all changes in\n"
+"%s\n"
+"and go back to this revision?"
+msgstr ""
+
+#. Resource IDs: (120)
+#, c-format
+msgid ""
+"Do you want to revert all changes in\n"
+"%s\n"
+"which were made in this revision?"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
 msgstr "是否要保存你所做的修改？"
@@ -3699,6 +3811,10 @@ msgid ""
 msgstr ""
 "Documentation : Simon Large\n"
 "Code : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (564)
+msgid "Don't ask me again"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -3723,6 +3839,10 @@ msgstr ""
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
 msgstr "不再显示此信息"
+
+#. Resource IDs: (564)
+msgid "Don't tell me again"
+msgstr ""
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -3877,14 +3997,6 @@ msgstr "启用自动属性"
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
 msgstr "启用缓存来加速日志和版本图对话框"
-
-#. Resource IDs: (196)
-msgid ""
-"Enable this only if you're working with web projects on VS.NET2003!\r\n"
-"You must restart the system for this setting to take effect."
-msgstr ""
-"仅在你使用 VS.NET 2003 开发 Web 项目时启用此选项！\r\n"
-"你必须重新启动系统使此选项生效。"
 
 #. Resource IDs: (65535)
 msgid "Enabled Overlay Handlers"
@@ -4061,6 +4173,10 @@ msgid ""
 msgstr ""
 "读写注册表键 %1!s! 时发生错误\n"
 "%2!s!"
+
+#. Resource IDs: (172)
+msgid "Every commit should be assigned to an issue."
+msgstr ""
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -5128,17 +5244,12 @@ msgstr "如果图形包含多个树，就用背景色的轻微变化来区分它
 msgid "If the repository can not be contacted"
 msgstr "如果不能连接到版本库"
 
-#. Resource IDs: (196)
+#. Resource IDs: (100)
 msgid ""
-"If you change this value, your existing working copies won't be recognized anymore!\n"
-"You must check out your working copies again.\n"
-"If you're not sure about this, then please read the docs.\n"
-"Are you absolutely sure you want to do this?"
+"If you use other SVN clients besides TortoiseSVN on this computer, you have "
+"to upgrade those clients too. Otherwise those clients won't be able to "
+"access the working copy with the new format."
 msgstr ""
-"如果你修改这个值，你现存的工作副本将再不能被识别！\n"
-"你必须重新检出工作副本。\n"
-"如果你不能确认，请阅读文档。\n"
-"你真的确认你要修改吗？"
 
 #. Resource IDs: (251)
 msgid ""
@@ -5161,6 +5272,10 @@ msgstr "忽略所有空白字符(&A)"
 #. Resource IDs: (1267)
 msgid "Ignore &ancestry"
 msgstr "忽略根源(&A)"
+
+#. Resource IDs: (564)
+msgid "Ignore all"
+msgstr ""
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5217,6 +5332,10 @@ msgid ""
 msgstr ""
 "比较差异时忽略空白字符的改变\n"
 "忽略空白字符的改变"
+
+#. Resource IDs: (89)
+msgid "Illegal path"
+msgstr ""
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5291,6 +5410,12 @@ msgstr ""
 #, c-format
 msgid "Import to %1"
 msgstr "导入到 %1"
+
+#. Resource IDs: (105)
+msgid ""
+"Import\n"
+"The items are imported, creating a new revision for each item."
+msgstr ""
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5466,6 +5591,16 @@ msgstr ""
 "不能仅仅修改文件名的大小写\n"
 "示例: 不能将 MyFile.txt 修改为 MYFILE.txt 。\n"
 "请阅读文档中关于如何在此限制下工作的部分。"
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
+"From: %1!s!\n"
+"To: %2!s!\n"
+"\n"
+"Improper use of relocate will corrupt your working copy!"
+msgstr ""
 
 #. Resource IDs: (88)
 #, c-format
@@ -6089,6 +6224,10 @@ msgstr "更多命令..."
 msgid "More colors..."
 msgstr "更多颜色..."
 
+#. Resource IDs: (105)
+msgid "More than one item dropped."
+msgstr ""
+
 #. Resource IDs: (438)
 msgid "More..."
 msgstr "更多..."
@@ -6147,6 +6286,10 @@ msgstr "移动和改名项到此"
 msgid "Move items to here"
 msgstr "移动项到此"
 
+#. Resource IDs: (106)
+msgid "Move special file or directory"
+msgstr ""
+
 #. Resource IDs: (613)
 #, c-format
 msgid "Move to %1"
@@ -6164,6 +6307,12 @@ msgstr "移动/改名"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "移动: %s  的新名称"
+
+#. Resource IDs: (106)
+msgid ""
+"Move\n"
+"The items are moved to the target path."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6371,6 +6520,10 @@ msgstr "没有这个版本 '%1!s!'"
 msgid "No thesaurus suggestions"
 msgstr "没有建议辞典"
 
+#. Resource IDs: (564)
+msgid "No to all"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Node Status:"
 msgstr "节点状态: "
@@ -6551,6 +6704,12 @@ msgstr "省略外部(&X)"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "省略外部"
+
+#. Resource IDs: (106)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk')."
+msgstr ""
 
 #. Resource IDs: (63)
 msgid ""
@@ -7003,6 +7162,22 @@ msgstr "打印机文件 (*.prn)|*.prn|所有文件 (*.*)|*.*||"
 msgid "Printing"
 msgstr "打印"
 
+#. Resource IDs: (89)
+msgid ""
+"Proceed with the entered path\n"
+"I'm aware of the possible problems."
+msgstr ""
+
+#. Resource IDs: (279)
+msgid "Proceed with the merge."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Proceed without an issue number\n"
+"The commit won't be assigned to an issue."
+msgstr ""
+
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %1!d! of %2!d!..."
@@ -7377,6 +7552,16 @@ msgstr "重新定位"
 msgid "Relocate Warning"
 msgstr "重定位警告"
 
+#. Resource IDs: (89)
+msgid "Relocate where a switch might be intended"
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Relocate\n"
+"The working copy is relocated to the new URL."
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "正在重新定位..."
@@ -7553,6 +7738,10 @@ msgstr ""
 msgid "Replacing"
 msgstr "替换"
 
+#. Resource IDs: (564)
+msgid "Report"
+msgstr ""
+
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
 msgstr "版本库"
@@ -7685,9 +7874,19 @@ msgstr "恢复 - TortoiseSVN"
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "恢复缺省设置。推荐无经验的用户使用。"
 
+#. Resource IDs: (119)
+msgid ""
+"Revert\n"
+"Changes will be applied to the working copy."
+msgstr ""
+
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "已还原"
+
+#. Resource IDs: (119)
+msgid "Reverting changes"
+msgstr ""
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8580,6 +8779,14 @@ msgstr "磁盘缓存文件的大小"
 msgid "Size of the cache if it were not compressed"
 msgstr "没有压缩时缓存的大小"
 
+#. Resource IDs: (564)
+msgid "Skip"
+msgstr ""
+
+#. Resource IDs: (564)
+msgid "Skip all"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "跳过"
@@ -8589,11 +8796,11 @@ msgid "Skipped missing target"
 msgstr "跳过丢失的目标项"
 
 #. Resource IDs: (265)
-msgid "Skipped no versioned parent"
+msgid "Skipped obstructing working copy"
 msgstr ""
 
 #. Resource IDs: (265)
-msgid "Skipped obstructing working copy"
+msgid "Skipped, no versioned parent"
 msgstr ""
 
 #. Resource IDs: (1070)
@@ -9001,6 +9208,13 @@ msgstr "文字状态: "
 msgid "Text status"
 msgstr "文字状态"
 
+#. Resource IDs: (120)
+msgid ""
+"The changes will be applied to your working copy with a reverse merge "
+"operation. The repository won't be affected. You can review the changes "
+"before you commit them."
+msgstr ""
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "区块大小与加入/删除的行数不符！"
@@ -9347,6 +9561,13 @@ msgstr ""
 "%2!s!\n"
 "行不符合！"
 
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later."
+msgstr ""
+
 #. Resource IDs: (88)
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
@@ -9474,6 +9695,17 @@ msgid ""
 msgstr ""
 "目标文件夹%s非空！\n"
 "你确定要检出/导出到该文件夹吗？"
+
+#. Resource IDs: (279)
+msgid "The target has local modifications"
+msgstr ""
+
+#. Resource IDs: (279)
+#, c-format
+msgid ""
+"The target working copy \"%s\" has local modifications. It is recommended to"
+" commit those changes first before merging new changes."
+msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -9684,6 +9916,12 @@ msgid ""
 "restore the default set of visible commands to the menus and toolbars. It "
 "will not undo any explicit customizations. Are you sure you want to do this?"
 msgstr "这会删除你在应用程序中使用的命令记录，恢复到默认菜单和工具栏的可视化命令集合。它不会撤销任何显式的的定制。你确认吗？"
+
+#. Resource IDs: (99)
+msgid ""
+"This will upgrade your working copy to the new 1.7 format and make it "
+"unusable for older clients."
+msgstr ""
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -10200,6 +10438,12 @@ msgstr "更新并重新锁定..."
 msgid "Updating log cache"
 msgstr "正在更新日志缓存"
 
+#. Resource IDs: (99)
+msgid ""
+"Upgrade the working copy\n"
+"to the new 1.7 format."
+msgstr ""
+
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
 msgstr "升级工作副本"
@@ -10250,10 +10494,6 @@ msgstr "使用工作副本的 URL 作为默认的来源 URL(&W)"
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
 msgstr "使用剪贴板上的标准差异(&C)"
-
-#. Resource IDs: (1296)
-msgid "Use \"_svn\" instead of \".svn\" directories"
-msgstr "使用“_svn”目录替代“.svn”目录"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -10641,16 +10881,6 @@ msgstr ""
 "这可能造成严重的版本库损坏！\n"
 "确定要这样做吗？"
 
-#. Resource IDs: (105)
-msgid ""
-"You are trying to move the trunk folder!\n"
-"Are you absolutely sure that you want to move\n"
-"the trunk folder?"
-msgstr ""
-"你在尝试移动 trunk 文件夹！\n"
-"你真的确认你要移动 trunk\n"
-"文件夹吗？"
-
 #. Resource IDs: (65535)
 msgid ""
 "You can disable specific Overlay handlers here.\n"
@@ -10678,6 +10908,13 @@ msgstr ""
 "你不能在文件夹上设置该属性，它只能设置在文件上！\n"
 "如果你要为该文件夹中所有文件设置该属性，\n"
 "你必须选择“递归”选项。"
+
+#. Resource IDs: (105)
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item."
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -10713,6 +10950,10 @@ msgstr ""
 "你尚未输入问题编号！\n"
 "确定要进行提交吗？"
 
+#. Resource IDs: (173)
+msgid "You haven't entered an issue number."
+msgstr ""
+
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
@@ -10729,6 +10970,10 @@ msgid ""
 msgstr ""
 "你选择了无版本控制的文件。\n"
 "它会在提交之前被加入版本控制。"
+
+#. Resource IDs: (173)
+msgid "You selected an unversioned folder for a commit!"
+msgstr ""
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -10826,6 +11071,13 @@ msgid ""
 msgstr ""
 "你的工作副本已经有本地修改。\n"
 "如果你从 HEAD 版本创建分支/标签，你的本地修改不会在分支/标签中出现！"
+
+#. Resource IDs: (221)
+#, c-format
+msgid ""
+"Your working copy points to %s which appears to be a tag!\n"
+"You should first switch to a branch or the main trunk before committing."
+msgstr ""
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"

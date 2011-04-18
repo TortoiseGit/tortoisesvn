@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-12 00:26+0000\n"
+"PO-Revision-Date: 2011-04-18 00:42+0000\n"
 "Last-Translator: el_libre <el.libre@gmail.com>\n"
 "Language-Team: Catalan <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1608,9 +1608,25 @@ msgid ""
 "An empty list will allow overlays on all paths."
 msgstr ""
 
+#. Resource IDs: (90)
+msgid ""
+"A relocate is only needed if the path to a repository has changed.\n"
+"Changing to a different path inside a repository is done by a switch operation.\n"
+"\n"
+"If you are not sure what to do, try a switch operation first."
+msgstr ""
+
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
 msgstr "No es disposa d'un recurs requerit."
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"A valid path on windows must not contain '<>|\"\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn\n"
+"See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -2339,6 +2355,60 @@ msgstr "No es pot enganxar una imatge bitmap del portapapers!"
 msgid "Cancel"
 msgstr "Cancel·la"
 
+#. Resource IDs: (221)
+msgid ""
+"Cancel\n"
+"Do not commit to a tag."
+msgstr ""
+
+#. Resource IDs: (119)
+msgid ""
+"Cancel\n"
+"Do not revert."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Cancel\n"
+"Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Cancel\n"
+"I will enter a different path/URL."
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Cancel\n"
+"Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (105)
+msgid ""
+"Cancel\n"
+"The items are not imported."
+msgstr ""
+
+#. Resource IDs: (107)
+msgid ""
+"Cancel\n"
+"The items are not moved."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Cancel\n"
+"You have to add the folder manually."
+msgstr ""
+
+#. Resource IDs: (100)
+msgid ""
+"Cancel\n"
+"keep the current format."
+msgstr ""
+
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
 msgstr "Cancel·lant Autoria..."
@@ -2779,6 +2849,12 @@ msgstr "Entrega - TortoiseSVN"
 msgid "Commit failed - Update needed"
 msgstr "Entrega fallida - Cal que actualitzeu"
 
+#. Resource IDs: (173)
+msgid ""
+"Commit only the folder\n"
+"Files inside the folder won't get committed."
+msgstr ""
+
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "Entrega a:"
@@ -2786,6 +2862,12 @@ msgstr "Entrega a:"
 #. Resource IDs: (209)
 msgid "Commit..."
 msgstr "Entrega..."
+
+#. Resource IDs: (221)
+msgid ""
+"Commit\n"
+"Commit the changes to the target."
+msgstr ""
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2808,6 +2890,12 @@ msgstr "Entregues cada setmana:"
 msgid "Commits your changes to the repository"
 msgstr "Entrega els teus canvis al repositori"
 
+#. Resource IDs: (173)
+msgid ""
+"Committing an unversioned folder will not recursively add its child items!\n"
+"You might want to add these folders recursively by using the 'Add...' context menu item."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
@@ -2819,6 +2907,10 @@ msgstr ""
 "Podeu afegir aquestes carpetes recursivament utilitzant l'ordre 'Afegeix...' del menú.\n"
 "\n"
 "Esteu segur de voler continuar amb l'entrega?"
+
+#. Resource IDs: (221)
+msgid "Committing to a tag"
+msgstr ""
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3658,6 +3750,10 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr "No mostreu el menú pels següents paths:"
 
+#. Resource IDs: (173)
+msgid "Do this for all selected unversioned folders"
+msgstr ""
+
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
@@ -3721,6 +3817,22 @@ msgstr ""
 msgid "Do you want to remove the property %s recursively?"
 msgstr "Vols esborrar la propietat %s recursivament?"
 
+#. Resource IDs: (120)
+#, c-format
+msgid ""
+"Do you want to revert all changes in\n"
+"%s\n"
+"and go back to this revision?"
+msgstr ""
+
+#. Resource IDs: (120)
+#, c-format
+msgid ""
+"Do you want to revert all changes in\n"
+"%s\n"
+"which were made in this revision?"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
 msgstr "Vols desar els canvis?"
@@ -3736,6 +3848,10 @@ msgid ""
 msgstr ""
 "Documentació : Simon Large\n"
 "Codi : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (564)
+msgid "Don't ask me again"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -3754,6 +3870,10 @@ msgstr ""
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
 msgstr "No mostrar més aquest missatge "
+
+#. Resource IDs: (564)
+msgid "Don't tell me again"
+msgstr ""
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -3907,14 +4027,6 @@ msgstr ""
 msgid "Enable log caching to speed up log and revision graph dialogs"
 msgstr ""
 "Habilita cache de log per accelerar diàlegs de log i gràfics de revisió"
-
-#. Resource IDs: (196)
-msgid ""
-"Enable this only if you're working with web projects on VS.NET2003!\r\n"
-"You must restart the system for this setting to take effect."
-msgstr ""
-"Habiliteu aquesta opció si treballeu amb projectes web amb VS.NET2003!\r\n"
-"Haureu de reiniciar el sistema perquè aquesta opció tingui efecte."
 
 #. Resource IDs: (65535)
 msgid "Enabled Overlay Handlers"
@@ -4088,6 +4200,10 @@ msgstr "Error validant certificat del servidor per %s:"
 msgid ""
 "Error while reading/writing the registry key %1!s!\n"
 "%2!s!"
+msgstr ""
+
+#. Resource IDs: (172)
+msgid "Every commit should be assigned to an issue."
 msgstr ""
 
 #. Resource IDs: (32853)
@@ -5178,17 +5294,12 @@ msgstr ""
 msgid "If the repository can not be contacted"
 msgstr "Si el repositori no pot ser contactat"
 
-#. Resource IDs: (196)
+#. Resource IDs: (100)
 msgid ""
-"If you change this value, your existing working copies won't be recognized anymore!\n"
-"You must check out your working copies again.\n"
-"If you're not sure about this, then please read the docs.\n"
-"Are you absolutely sure you want to do this?"
+"If you use other SVN clients besides TortoiseSVN on this computer, you have "
+"to upgrade those clients too. Otherwise those clients won't be able to "
+"access the working copy with the new format."
 msgstr ""
-"Canviant aquest valor, les còpies de treball existents ja no seran reconegudes!\n"
-"Has d'obtenir les teves còpies de treball un altre cop.\n"
-"Si no estàs segur sobre això, llegeix la documentació.\n"
-"Estàs absolutament segur de que ho vols fer?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -5212,6 +5323,10 @@ msgstr "ignora &tots els espais en blanc"
 #. Resource IDs: (1267)
 msgid "Ignore &ancestry"
 msgstr "Ignora &ancestrals"
+
+#. Resource IDs: (564)
+msgid "Ignore all"
+msgstr ""
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5268,6 +5383,10 @@ msgid ""
 msgstr ""
 "Ignora els canvis d'espai en blanc quan cerca diferències\n"
 "Ignora  els canvis d'espai en blanc"
+
+#. Resource IDs: (89)
+msgid "Illegal path"
+msgstr ""
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5338,6 +5457,12 @@ msgstr ""
 #, c-format
 msgid "Import to %1"
 msgstr "Importa a %1"
+
+#. Resource IDs: (105)
+msgid ""
+"Import\n"
+"The items are imported, creating a new revision for each item."
+msgstr ""
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5511,6 +5636,16 @@ msgstr ""
 "No es possible canviar el nom d'un fitxer només canviant el seu nom a majúscules.\n"
 "Per exemple, no pots fer que ElMeuFitxer.txt sigui ELMEUFITXER.txt.\n"
 "Consulta la documentació per trobar una via alternativa a aquesta limitació."
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
+"From: %1!s!\n"
+"To: %2!s!\n"
+"\n"
+"Improper use of relocate will corrupt your working copy!"
+msgstr ""
 
 #. Resource IDs: (88)
 #, c-format
@@ -6124,6 +6259,10 @@ msgstr "Més  Comandes..."
 msgid "More colors..."
 msgstr "Més colors..."
 
+#. Resource IDs: (105)
+msgid "More than one item dropped."
+msgstr ""
+
 #. Resource IDs: (438)
 msgid "More..."
 msgstr "Més"
@@ -6178,6 +6317,10 @@ msgstr "Mou i canvia el nom aquí"
 msgid "Move items to here"
 msgstr "Move items aquí"
 
+#. Resource IDs: (106)
+msgid "Move special file or directory"
+msgstr ""
+
 #. Resource IDs: (613)
 #, c-format
 msgid "Move to %1"
@@ -6195,6 +6338,12 @@ msgstr "Mou/Canvia el nom"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "Moure: Nom nou per a %s"
+
+#. Resource IDs: (106)
+msgid ""
+"Move\n"
+"The items are moved to the target path."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6408,6 +6557,10 @@ msgstr ""
 msgid "No thesaurus suggestions"
 msgstr "No hi ha cap sugerència del diccionari"
 
+#. Resource IDs: (564)
+msgid "No to all"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Node Status:"
 msgstr ""
@@ -6597,6 +6750,12 @@ msgstr "Omet e&xterns"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Omet externs"
+
+#. Resource IDs: (106)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk')."
+msgstr ""
 
 #. Resource IDs: (63)
 msgid ""
@@ -7054,6 +7213,22 @@ msgstr "Fitxers Impresora (*.prn)|*.prn|Tots els Fitxers (*.*)|*.*||"
 msgid "Printing"
 msgstr "Impimint"
 
+#. Resource IDs: (89)
+msgid ""
+"Proceed with the entered path\n"
+"I'm aware of the possible problems."
+msgstr ""
+
+#. Resource IDs: (279)
+msgid "Proceed with the merge."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Proceed without an issue number\n"
+"The commit won't be assigned to an issue."
+msgstr ""
+
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %1!d! of %2!d!..."
@@ -7427,6 +7602,16 @@ msgstr "Torna a situar"
 msgid "Relocate Warning"
 msgstr "Alerta de Torna a Situar "
 
+#. Resource IDs: (89)
+msgid "Relocate where a switch might be intended"
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Relocate\n"
+"The working copy is relocated to the new URL."
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "Tornant a situar..."
@@ -7599,6 +7784,10 @@ msgstr ""
 msgid "Replacing"
 msgstr "Reemplaçant"
 
+#. Resource IDs: (564)
+msgid "Report"
+msgstr ""
+
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
 msgstr "Repositori"
@@ -7731,9 +7920,19 @@ msgstr "Reverteix - TortoiseSVN"
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "Reverteix a valors per defecte. Recomanat per a usuaris novells."
 
+#. Resource IDs: (119)
+msgid ""
+"Revert\n"
+"Changes will be applied to the working copy."
+msgstr ""
+
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Revertit"
+
+#. Resource IDs: (119)
+msgid "Reverting changes"
+msgstr ""
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8613,6 +8812,14 @@ msgstr "Tamany del fitxer de cache al disc"
 msgid "Size of the cache if it were not compressed"
 msgstr "Tamany del cache sense comprimir"
 
+#. Resource IDs: (564)
+msgid "Skip"
+msgstr ""
+
+#. Resource IDs: (564)
+msgid "Skip all"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Ignorat"
@@ -8622,11 +8829,11 @@ msgid "Skipped missing target"
 msgstr "Objectiu no trobat ignorat"
 
 #. Resource IDs: (265)
-msgid "Skipped no versioned parent"
+msgid "Skipped obstructing working copy"
 msgstr ""
 
 #. Resource IDs: (265)
-msgid "Skipped obstructing working copy"
+msgid "Skipped, no versioned parent"
 msgstr ""
 
 #. Resource IDs: (1070)
@@ -9023,6 +9230,13 @@ msgstr "Estat del Texte:"
 msgid "Text status"
 msgstr "Estat del Texte"
 
+#. Resource IDs: (120)
+msgid ""
+"The changes will be applied to your working copy with a reverse merge "
+"operation. The repository won't be affected. You can review the changes "
+"before you commit them."
+msgstr ""
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr ""
@@ -9389,6 +9603,13 @@ msgid ""
 "do not match!"
 msgstr ""
 
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later."
+msgstr ""
+
 #. Resource IDs: (88)
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
@@ -9500,6 +9721,17 @@ msgstr ""
 "%s\n"
 "no és buida!\n"
 "Esteu segur que voleu obtenir/exportar a aquesta carpeta ?"
+
+#. Resource IDs: (279)
+msgid "The target has local modifications"
+msgstr ""
+
+#. Resource IDs: (279)
+#, c-format
+msgid ""
+"The target working copy \"%s\" has local modifications. It is recommended to"
+" commit those changes first before merging new changes."
+msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -9732,6 +9964,12 @@ msgstr ""
 "aplicació i restaurarà el conjunt per defecte  de comandes visibles als "
 "menús i barres d'eines. No desfarà cap personalització explícita. Esteu "
 "segur que voleu fer això?"
+
+#. Resource IDs: (99)
+msgid ""
+"This will upgrade your working copy to the new 1.7 format and make it "
+"unusable for older clients."
+msgstr ""
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -10256,6 +10494,12 @@ msgstr "Actualitzant i tornant a provar el bloqueig..."
 msgid "Updating log cache"
 msgstr "Actualitzant cache log"
 
+#. Resource IDs: (99)
+msgid ""
+"Upgrade the working copy\n"
+"to the new 1.7 format."
+msgstr ""
+
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
 msgstr "Actualitza la còpia de treball"
@@ -10308,10 +10552,6 @@ msgstr "Utilitza la URL de la &Còpia de Treball com la URL \"De:\" per defecte 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
 msgstr "Utilitza Diff Unificat des del p&ortapapers"
-
-#. Resource IDs: (1296)
-msgid "Use \"_svn\" instead of \".svn\" directories"
-msgstr "Utilitza \"_svn\" en lloc dels directoris \".svn\""
 
 #. Resource IDs: (2054)
 msgid ""
@@ -10703,16 +10943,6 @@ msgstr ""
 "Això podria provocar una corrupció greu del repositori!\n"
 "Teniu la seguretat de voler fer-ho?"
 
-#. Resource IDs: (105)
-msgid ""
-"You are trying to move the trunk folder!\n"
-"Are you absolutely sure that you want to move\n"
-"the trunk folder?"
-msgstr ""
-"Esteu intentant moure la carpeta tronc!\n"
-"Teniu la seguretat de voler moure\n"
-"la carpeta tronc?"
-
 #. Resource IDs: (65535)
 msgid ""
 "You can disable specific Overlay handlers here.\n"
@@ -10738,6 +10968,13 @@ msgstr ""
 "No podeu establir aquesta propietat a les carpetes, només als fitxers!\n"
 "Si voleu establir-la a tots els fitxers dins d'aquesta carpeta,\n"
 "heu de marcar la  casella 'recursivament'."
+
+#. Resource IDs: (105)
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item."
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -10772,6 +11009,10 @@ msgstr ""
 "No heu introduit un número d'emissió!\n"
 "Esteu segur que voleu fer una entrega sense número d'emissió?"
 
+#. Resource IDs: (173)
+msgid "You haven't entered an issue number."
+msgstr ""
+
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
@@ -10788,6 +11029,10 @@ msgid ""
 msgstr ""
 "Heu seleccionat un fitxer sense versionar.\n"
 "El fitxer serà afegit al control de versions quan feu una entrega."
+
+#. Resource IDs: (173)
+msgid "You selected an unversioned folder for a commit!"
+msgstr ""
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -10875,6 +11120,13 @@ msgstr ""
 "La vostra còpia de treball  té modificacions locals.\n"
 "Si feu una  branca/etiqueta de la revisió HEAD, els vostres canvis locals\n"
 "no es mostraran a la branca/etiqueta!"
+
+#. Resource IDs: (221)
+#, c-format
+msgid ""
+"Your working copy points to %s which appears to be a tag!\n"
+"You should first switch to a branch or the main trunk before committing."
+msgstr ""
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"

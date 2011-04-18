@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-12 00:26+0000\n"
+"PO-Revision-Date: 2011-04-18 00:43+0000\n"
 "Last-Translator: turambar <vuralgoze@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1619,9 +1619,25 @@ msgstr ""
 "Eğer dizin sonuna \"*\" karakteri eklerseniz veya hiç karakter eklemezseniz, o dizinin içinde bulunan dosyalar ve alt-klasörler de dahil edilmez.\r\n"
 "Boş bir liste istenilen tüm dizinlerin işaretlenebilmesini sağlar. "
 
+#. Resource IDs: (90)
+msgid ""
+"A relocate is only needed if the path to a repository has changed.\n"
+"Changing to a different path inside a repository is done by a switch operation.\n"
+"\n"
+"If you are not sure what to do, try a switch operation first."
+msgstr ""
+
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
 msgstr "Gerekli bir kaynak dosyasına erişilemedi."
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"A valid path on windows must not contain '<>|\"\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn\n"
+"See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -2365,6 +2381,60 @@ msgstr "Panodan biteşlem görüntü yapıştırılamıyor!"
 msgid "Cancel"
 msgstr "İptal"
 
+#. Resource IDs: (221)
+msgid ""
+"Cancel\n"
+"Do not commit to a tag."
+msgstr ""
+
+#. Resource IDs: (119)
+msgid ""
+"Cancel\n"
+"Do not revert."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Cancel\n"
+"Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Cancel\n"
+"I will enter a different path/URL."
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Cancel\n"
+"Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (105)
+msgid ""
+"Cancel\n"
+"The items are not imported."
+msgstr ""
+
+#. Resource IDs: (107)
+msgid ""
+"Cancel\n"
+"The items are not moved."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Cancel\n"
+"You have to add the folder manually."
+msgstr ""
+
+#. Resource IDs: (100)
+msgid ""
+"Cancel\n"
+"keep the current format."
+msgstr ""
+
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
 msgstr "TortoiseSVN \"Sorumlular...\" İptal ediliyor..."
@@ -2810,6 +2880,12 @@ msgstr "Teslim et - TortoiseSVN Hakkında"
 msgid "Commit failed - Update needed"
 msgstr "Teslim etme başarısız - Güncelleme gerekiyor"
 
+#. Resource IDs: (173)
+msgid ""
+"Commit only the folder\n"
+"Files inside the folder won't get committed."
+msgstr ""
+
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "Teslim et:"
@@ -2817,6 +2893,12 @@ msgstr "Teslim et:"
 #. Resource IDs: (209)
 msgid "Commit..."
 msgstr "Teslim et..."
+
+#. Resource IDs: (221)
+msgid ""
+"Commit\n"
+"Commit the changes to the target."
+msgstr ""
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2839,6 +2921,12 @@ msgstr "Haftalık teslim sayısı"
 msgid "Commits your changes to the repository"
 msgstr "Değişikliklerinizi depoya teslim eder"
 
+#. Resource IDs: (173)
+msgid ""
+"Committing an unversioned folder will not recursively add its child items!\n"
+"You might want to add these folders recursively by using the 'Add...' context menu item."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
@@ -2850,6 +2938,10 @@ msgstr ""
 "Bu klasörleri 'Ekle...' içerik menü seçeneğini kullanarak özyineli olarak eklemeyi isteyebilirsiniz.\n"
 "\n"
 "Teslim etme işlemine devam etmek istediğinizden emin misiniz?"
+
+#. Resource IDs: (221)
+msgid "Committing to a tag"
+msgstr ""
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3693,6 +3785,10 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr "Aşağıdaki yollar için içerik menüsünü gösterme:"
 
+#. Resource IDs: (173)
+msgid "Do this for all selected unversioned folders"
+msgstr ""
+
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
@@ -3754,6 +3850,22 @@ msgstr ""
 msgid "Do you want to remove the property %s recursively?"
 msgstr "%s özelliğini özyineli kaldırmak istediğinizden emin misiniz?"
 
+#. Resource IDs: (120)
+#, c-format
+msgid ""
+"Do you want to revert all changes in\n"
+"%s\n"
+"and go back to this revision?"
+msgstr ""
+
+#. Resource IDs: (120)
+#, c-format
+msgid ""
+"Do you want to revert all changes in\n"
+"%s\n"
+"which were made in this revision?"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
 msgstr "Değişikliklerinizi kayit etmek ister misiniz?"
@@ -3769,6 +3881,10 @@ msgid ""
 msgstr ""
 "Belgeleme : Simon Large\n"
 "Kod : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (564)
+msgid "Don't ask me again"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -3793,6 +3909,10 @@ msgstr ""
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
 msgstr "Bu mesajı tekrar gösterme"
+
+#. Resource IDs: (564)
+msgid "Don't tell me again"
+msgstr ""
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -3949,14 +4069,6 @@ msgid "Enable log caching to speed up log and revision graph dialogs"
 msgstr ""
 "Günlük ve uyarlama diyaloglarını hızlandırmak için günlüğü önbelleğe almayı "
 "etkinleştir"
-
-#. Resource IDs: (196)
-msgid ""
-"Enable this only if you're working with web projects on VS.NET2003!\r\n"
-"You must restart the system for this setting to take effect."
-msgstr ""
-"Bunu sadece VS.NET2003 te ağ projeleri ile çalişıyorsanız işaretleyin!\r\n"
-"Değişiklerin uygulanması için sisteminizi tekrar başlatmanız gerekir."
 
 #. Resource IDs: (65535)
 msgid "Enabled Overlay Handlers"
@@ -4136,6 +4248,10 @@ msgid ""
 msgstr ""
 "%1!s!\n"
 "%2!s! kütüğünün anahtarı okunurken / yazılırken hata oluştu"
+
+#. Resource IDs: (172)
+msgid "Every commit should be assigned to an issue."
+msgstr ""
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -5230,17 +5346,12 @@ msgstr ""
 msgid "If the repository can not be contacted"
 msgstr "Eğer depoya erişilemezse"
 
-#. Resource IDs: (196)
+#. Resource IDs: (100)
 msgid ""
-"If you change this value, your existing working copies won't be recognized anymore!\n"
-"You must check out your working copies again.\n"
-"If you're not sure about this, then please read the docs.\n"
-"Are you absolutely sure you want to do this?"
+"If you use other SVN clients besides TortoiseSVN on this computer, you have "
+"to upgrade those clients too. Otherwise those clients won't be able to "
+"access the working copy with the new format."
 msgstr ""
-"Bu değeri değiştirirseniz var olan çalışan kopyalarınız tanımlanamaz!\n"
-"Çalışan kopyalarınızı tekrar çıkartmanız almanız gerekecektir (depodan)\n"
-"Bu işlem hakkında emin değilseniz lütfen yardım dosyasını okuyun.\n"
-"Bu işlemi yapmak istediğinizden emin misiniz?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -5265,6 +5376,10 @@ msgstr "&Tüm boşluklara aldırma"
 #. Resource IDs: (1267)
 msgid "Ignore &ancestry"
 msgstr "Nesle &aldırma"
+
+#. Resource IDs: (564)
+msgid "Ignore all"
+msgstr ""
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5321,6 +5436,10 @@ msgid ""
 msgstr ""
 "Fark alırken boşluk karakterlerindeki değişiklere aldırmaz\n"
 "Boşluk karakteri değişikliklerine aldırma"
+
+#. Resource IDs: (89)
+msgid "Illegal path"
+msgstr ""
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5395,6 +5514,12 @@ msgstr ""
 #, c-format
 msgid "Import to %1"
 msgstr "%1 a içe aktar"
+
+#. Resource IDs: (105)
+msgid ""
+"Import\n"
+"The items are imported, creating a new revision for each item."
+msgstr ""
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5570,6 +5695,16 @@ msgstr ""
 "Bir dosyanın sadece harflerini büyülterek-küçülterek tekrar adlandıramazsınız.\n"
 "Örneğin, MyFile.txt dosyasını MYFILE.txt yapamazsınız.\n"
 "Bunun sınırlamanın üstesinden gelmek için lütfen yardım dosyasına bakın."
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
+"From: %1!s!\n"
+"To: %2!s!\n"
+"\n"
+"Improper use of relocate will corrupt your working copy!"
+msgstr ""
 
 #. Resource IDs: (88)
 #, c-format
@@ -6203,6 +6338,10 @@ msgstr "Daha fazla komut"
 msgid "More colors..."
 msgstr "Daha fazla renk..."
 
+#. Resource IDs: (105)
+msgid "More than one item dropped."
+msgstr ""
+
 #. Resource IDs: (438)
 msgid "More..."
 msgstr "Daha fazla..."
@@ -6261,6 +6400,10 @@ msgstr "Elemanı buraya taşı ve yeniden adlandır"
 msgid "Move items to here"
 msgstr "Öğeleri buraya taşı"
 
+#. Resource IDs: (106)
+msgid "Move special file or directory"
+msgstr ""
+
 #. Resource IDs: (613)
 #, c-format
 msgid "Move to %1"
@@ -6278,6 +6421,12 @@ msgstr "Taşı/Tekrar adlandır"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "Taşı : %s için yeni isim"
+
+#. Resource IDs: (106)
+msgid ""
+"Move\n"
+"The items are moved to the target path."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6492,6 +6641,10 @@ msgstr "'%1!s!' adlı bir revizyon yok"
 msgid "No thesaurus suggestions"
 msgstr "Eşanlamlı önerisi bulunmamakta"
 
+#. Resource IDs: (564)
+msgid "No to all"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Node Status:"
 msgstr "Düğüm Durumu:"
@@ -6685,6 +6838,12 @@ msgstr "H&aricileri atla"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Harici dosyaları atla"
+
+#. Resource IDs: (106)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk')."
+msgstr ""
 
 #. Resource IDs: (63)
 msgid ""
@@ -7144,6 +7303,22 @@ msgstr "Yazıcı Dosyaları (*.prn)|*.prn|Tüm dosyalar (*.*)|*.*||"
 msgid "Printing"
 msgstr "Yazdırılıyor"
 
+#. Resource IDs: (89)
+msgid ""
+"Proceed with the entered path\n"
+"I'm aware of the possible problems."
+msgstr ""
+
+#. Resource IDs: (279)
+msgid "Proceed with the merge."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Proceed without an issue number\n"
+"The commit won't be assigned to an issue."
+msgstr ""
+
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %1!d! of %2!d!..."
@@ -7526,6 +7701,16 @@ msgstr "Taşı"
 msgid "Relocate Warning"
 msgstr "Taşıma Uyarısı"
 
+#. Resource IDs: (89)
+msgid "Relocate where a switch might be intended"
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Relocate\n"
+"The working copy is relocated to the new URL."
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "Taşınıyor..."
@@ -7703,6 +7888,10 @@ msgstr ""
 msgid "Replacing"
 msgstr "Değiştiriliyor"
 
+#. Resource IDs: (564)
+msgid "Report"
+msgstr ""
+
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
 msgstr "Depo"
@@ -7835,9 +8024,19 @@ msgstr "Geri Al - TortoiseSVN"
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "Başlangıç ayarlarına geri dön. Yeni kullanıcılar için tavsiye edilir."
 
+#. Resource IDs: (119)
+msgid ""
+"Revert\n"
+"Changes will be applied to the working copy."
+msgstr ""
+
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Geridönüldü"
+
+#. Resource IDs: (119)
+msgid "Reverting changes"
+msgstr ""
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8740,6 +8939,14 @@ msgstr "Önbellek dosyasının diskteki büyüklüğü"
 msgid "Size of the cache if it were not compressed"
 msgstr "Sıkıştırılmamış önbellek boyutu"
 
+#. Resource IDs: (564)
+msgid "Skip"
+msgstr ""
+
+#. Resource IDs: (564)
+msgid "Skip all"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Atlanıldı"
@@ -8749,11 +8956,11 @@ msgid "Skipped missing target"
 msgstr "Var olmayan hedef dosyaları atlandı"
 
 #. Resource IDs: (265)
-msgid "Skipped no versioned parent"
+msgid "Skipped obstructing working copy"
 msgstr ""
 
 #. Resource IDs: (265)
-msgid "Skipped obstructing working copy"
+msgid "Skipped, no versioned parent"
 msgstr ""
 
 #. Resource IDs: (1070)
@@ -9179,6 +9386,13 @@ msgstr "Metin Durumu:"
 msgid "Text status"
 msgstr "Metin durumu"
 
+#. Resource IDs: (120)
+msgid ""
+"The changes will be applied to your working copy with a reverse merge "
+"operation. The repository won't be affected. You can review the changes "
+"before you commit them."
+msgstr ""
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr "Yığın boyutu eklenen/silinen satır sayısı ile uyuşmuyor!"
@@ -9541,6 +9755,13 @@ msgstr ""
 "%2!s!\n"
 "uyuşmuyor!"
 
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later."
+msgstr ""
+
 #. Resource IDs: (88)
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
@@ -9666,6 +9887,17 @@ msgstr ""
 "%s\n"
 "boş değil!\n"
 "Bu klasöre dışa aktarmak istediğinizden emin misiniz?"
+
+#. Resource IDs: (279)
+msgid "The target has local modifications"
+msgstr ""
+
+#. Resource IDs: (279)
+#, c-format
+msgid ""
+"The target working copy \"%s\" has local modifications. It is recommended to"
+" commit those changes first before merging new changes."
+msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -9899,6 +10131,12 @@ msgstr ""
 "araç çubuklarındaki varsayılan komut setini geri yükler. Hiçbir "
 "kişiselleştirme ayarını değiştirmez. Bunu yapmak istediğinizden emin "
 "misiniz?"
+
+#. Resource IDs: (99)
+msgid ""
+"This will upgrade your working copy to the new 1.7 format and make it "
+"unusable for older clients."
+msgstr ""
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -10426,6 +10664,12 @@ msgstr "Güncelleniyor ve kilit tekrar deneniyor..."
 msgid "Updating log cache"
 msgstr "Günlük güncelleniyor"
 
+#. Resource IDs: (99)
+msgid ""
+"Upgrade the working copy\n"
+"to the new 1.7 format."
+msgstr ""
+
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
 msgstr "Çalışan kopyayı yükselt"
@@ -10476,10 +10720,6 @@ msgstr "&Çalışan kopya dosyasından gelen URL'yi \"From:\" URL'si olarak kull
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
 msgstr "Panodaki birleştirilmiş &karşılaştırma dosyasını kullan"
-
-#. Resource IDs: (1296)
-msgid "Use \"_svn\" instead of \".svn\" directories"
-msgstr "Klasörler için \".svn\" yerine \"_svn\" kullan"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -10874,16 +11114,6 @@ msgstr ""
 "Bu işlem deponun ciddi bir şekilde tahrip olmasına neden olabilir!\n"
 "Bunu gerçekten yapmak istiyor musunuz?"
 
-#. Resource IDs: (105)
-msgid ""
-"You are trying to move the trunk folder!\n"
-"Are you absolutely sure that you want to move\n"
-"the trunk folder?"
-msgstr ""
-"Ana yol klasörünü taşımaya çalışıyorsunuz!\n"
-"Ana yol klasörünü taşımak istediğinizden kesinlikle\n"
-"emin misiniz?"
-
 #. Resource IDs: (65535)
 msgid ""
 "You can disable specific Overlay handlers here.\n"
@@ -10911,6 +11141,13 @@ msgstr ""
 "Bu özelliği klasörler için uygulayamazsınız, sadece dosyalar için geçerlidir!.\n"
 "Bir klasörün içindeki tüm dosyalara uygulamak için,\n"
 "'özyineli' seçeneğini etkinleştirmelisiniz."
+
+#. Resource IDs: (105)
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item."
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -10946,6 +11183,10 @@ msgstr ""
 "Sorun numarası eklemediniz!\n"
 "Sorun numarası olmadan teslim etmek istediğinizden emin misiniz?"
 
+#. Resource IDs: (173)
+msgid "You haven't entered an issue number."
+msgstr ""
+
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
@@ -10962,6 +11203,10 @@ msgid ""
 msgstr ""
 "Versiyonsuz bir dosya seçtiniz.\n"
 "Dosyayı teslim ettiğinizde versiyon kontrolüne eklenecektir."
+
+#. Resource IDs: (173)
+msgid "You selected an unversioned folder for a commit!"
+msgstr ""
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -11059,6 +11304,13 @@ msgstr ""
 "Çalışan kopyanız yerel değişiklikler içeriyor.\n"
 "Eğer HEAD revizyondan dallanır/etiketlerseniz, değişiklikleriniz\n"
 "dallama/etiketlemede görünmeyecek!"
+
+#. Resource IDs: (221)
+#, c-format
+msgid ""
+"Your working copy points to %s which appears to be a tag!\n"
+"You should first switch to a branch or the main trunk before committing."
+msgstr ""
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"

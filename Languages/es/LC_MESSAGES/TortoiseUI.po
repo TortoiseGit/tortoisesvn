@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-12 00:26+0000\n"
+"PO-Revision-Date: 2011-04-18 00:43+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1622,9 +1622,25 @@ msgstr ""
 "Si añade un carácter '?' al final de la ruta, entonces solo esta ruta será excluida.\r\n"
 "Si añade un carácter '*' o ningún carácter al final de la ruta, entonces todos los archivos y subdirectorios dentro de la ruta serán excluidos también.Una lista vacía permitirá íconos de estado de TortoiseSVN en todas las rutas."
 
+#. Resource IDs: (90)
+msgid ""
+"A relocate is only needed if the path to a repository has changed.\n"
+"Changing to a different path inside a repository is done by a switch operation.\n"
+"\n"
+"If you are not sure what to do, try a switch operation first."
+msgstr ""
+
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
 msgstr "Un recurso requerido no estaba disponible."
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"A valid path on windows must not contain '<>|\"\"?*:' or one of the following device names:\n"
+"com1-com9, lpt1-lpt9, prn\n"
+"See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
+msgstr ""
 
 #. Resource IDs: (79)
 msgid ""
@@ -2364,6 +2380,60 @@ msgstr "¡No se puede pegar una imagen de bitmaps desde el portapapeles!"
 msgid "Cancel"
 msgstr "Cancelar"
 
+#. Resource IDs: (221)
+msgid ""
+"Cancel\n"
+"Do not commit to a tag."
+msgstr ""
+
+#. Resource IDs: (119)
+msgid ""
+"Cancel\n"
+"Do not revert."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Cancel\n"
+"Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Cancel\n"
+"I will enter a different path/URL."
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Cancel\n"
+"Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (105)
+msgid ""
+"Cancel\n"
+"The items are not imported."
+msgstr ""
+
+#. Resource IDs: (107)
+msgid ""
+"Cancel\n"
+"The items are not moved."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Cancel\n"
+"You have to add the folder manually."
+msgstr ""
+
+#. Resource IDs: (100)
+msgid ""
+"Cancel\n"
+"keep the current format."
+msgstr ""
+
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
 msgstr "Cancelando TortoiseSVN Autoría ..."
@@ -2814,6 +2884,12 @@ msgstr "Confirmar - TortoiseSVN"
 msgid "Commit failed - Update needed"
 msgstr "Falló la Confirmación - Es necesario actualizar"
 
+#. Resource IDs: (173)
+msgid ""
+"Commit only the folder\n"
+"Files inside the folder won't get committed."
+msgstr ""
+
 #. Resource IDs: (1110)
 msgid "Commit to:"
 msgstr "Confirmar en:"
@@ -2821,6 +2897,12 @@ msgstr "Confirmar en:"
 #. Resource IDs: (209)
 msgid "Commit..."
 msgstr "Confirmar..."
+
+#. Resource IDs: (221)
+msgid ""
+"Commit\n"
+"Commit the changes to the target."
+msgstr ""
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2843,6 +2925,12 @@ msgstr "Confirmaciones cada semana:"
 msgid "Commits your changes to the repository"
 msgstr "Confirma sus cambios al repositorio"
 
+#. Resource IDs: (173)
+msgid ""
+"Committing an unversioned folder will not recursively add its child items!\n"
+"You might want to add these folders recursively by using the 'Add...' context menu item."
+msgstr ""
+
 #. Resource IDs: (170)
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
@@ -2854,6 +2942,10 @@ msgstr ""
 "Puede querer añadir estas carpetas recursivamente utilizando el ítem 'Añadir...' del meú contextual.\n"
 "\n"
 "¿Está seguro de querer continuar la confirmación?"
+
+#. Resource IDs: (221)
+msgid "Committing to a tag"
+msgstr ""
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3706,6 +3798,10 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr "No mostrar el menú contextual para las siguientes rutas:"
 
+#. Resource IDs: (173)
+msgid "Do this for all selected unversioned folders"
+msgstr ""
+
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
@@ -3770,6 +3866,22 @@ msgstr ""
 msgid "Do you want to remove the property %s recursively?"
 msgstr "¿Desea eliminar la propiedad %s recursivamente?"
 
+#. Resource IDs: (120)
+#, c-format
+msgid ""
+"Do you want to revert all changes in\n"
+"%s\n"
+"and go back to this revision?"
+msgstr ""
+
+#. Resource IDs: (120)
+#, c-format
+msgid ""
+"Do you want to revert all changes in\n"
+"%s\n"
+"which were made in this revision?"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
 msgstr "¿Desea guardar sus cambios?"
@@ -3785,6 +3897,10 @@ msgid ""
 msgstr ""
 "Documentación : Simon Large\n"
 "Código : Tobias Schäfer, Stefan Fuhrmann"
+
+#. Resource IDs: (564)
+msgid "Don't ask me again"
+msgstr ""
 
 #. Resource IDs: (94)
 msgid ""
@@ -3809,6 +3925,10 @@ msgstr ""
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
 msgstr "No mostrar este mensaje de nuevo"
+
+#. Resource IDs: (564)
+msgid "Don't tell me again"
+msgstr ""
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -3965,14 +4085,6 @@ msgid "Enable log caching to speed up log and revision graph dialogs"
 msgstr ""
 "Habilita la caché de registro para acelerar los diálogos de mostrar gráfico "
 "de revisiones y registro."
-
-#. Resource IDs: (196)
-msgid ""
-"Enable this only if you're working with web projects on VS.NET2003!\r\n"
-"You must restart the system for this setting to take effect."
-msgstr ""
-"¡Habilite ésto únicamente si está trabajando con proyectos web en VS.NET2003!\r\n"
-"Deberá reiniciar el sistema para que esta opción sea efectiva."
 
 #. Resource IDs: (65535)
 msgid "Enabled Overlay Handlers"
@@ -4151,6 +4263,10 @@ msgid ""
 msgstr ""
 "Error mientras se leía/escribía la clave del registro %1!s!\n"
 "%2!s!"
+
+#. Resource IDs: (172)
+msgid "Every commit should be assigned to an issue."
+msgstr ""
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -5245,17 +5361,12 @@ msgstr ""
 msgid "If the repository can not be contacted"
 msgstr "Si no se puede contactar con el repositorio"
 
-#. Resource IDs: (196)
+#. Resource IDs: (100)
 msgid ""
-"If you change this value, your existing working copies won't be recognized anymore!\n"
-"You must check out your working copies again.\n"
-"If you're not sure about this, then please read the docs.\n"
-"Are you absolutely sure you want to do this?"
+"If you use other SVN clients besides TortoiseSVN on this computer, you have "
+"to upgrade those clients too. Otherwise those clients won't be able to "
+"access the working copy with the new format."
 msgstr ""
-"¡Si cambia este valor, sus copias de trabajo existentes no se volverán a reconocer!\n"
-"Deberá obtener sus copias de trabajo de nuevo.\n"
-"Si no está seguro sobre esto, por favor lea la documentación.\n"
-"¿Está absolutamente seguro de que desea hacer esto?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -5279,6 +5390,10 @@ msgstr "Ignorar &todos los espacios en blanco"
 #. Resource IDs: (1267)
 msgid "Ignore &ancestry"
 msgstr "Ignorar &ancestros"
+
+#. Resource IDs: (564)
+msgid "Ignore all"
+msgstr ""
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5335,6 +5450,10 @@ msgid ""
 msgstr ""
 "Ignorar los cambios de espacios en blanco cuando se calculan diferencias\n"
 "Ignorar cambios en espacios en blanco"
+
+#. Resource IDs: (89)
+msgid "Illegal path"
+msgstr ""
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5409,6 +5528,12 @@ msgstr ""
 #, c-format
 msgid "Import to %1"
 msgstr "Importar en %1"
+
+#. Resource IDs: (105)
+msgid ""
+"Import\n"
+"The items are imported, creating a new revision for each item."
+msgstr ""
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5585,6 +5710,16 @@ msgstr ""
 "las mayúsculas y minúsculas de su nombre.\n"
 "Por ejemplo, no puede cambiar MiArchivo.txt a MIARCHIVO.txt\n"
 "Por favor consulte la documentación sobre una forma de evitar esta limitación."
+
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
+"From: %1!s!\n"
+"To: %2!s!\n"
+"\n"
+"Improper use of relocate will corrupt your working copy!"
+msgstr ""
 
 #. Resource IDs: (88)
 #, c-format
@@ -6218,6 +6353,10 @@ msgstr "Más comandos..."
 msgid "More colors..."
 msgstr "Más colores..."
 
+#. Resource IDs: (105)
+msgid "More than one item dropped."
+msgstr ""
+
 #. Resource IDs: (438)
 msgid "More..."
 msgstr "Más..."
@@ -6276,6 +6415,10 @@ msgstr "Mover aquí el ítem y renombrarlo"
 msgid "Move items to here"
 msgstr "Mover aquí los ítems"
 
+#. Resource IDs: (106)
+msgid "Move special file or directory"
+msgstr ""
+
 #. Resource IDs: (613)
 #, c-format
 msgid "Move to %1"
@@ -6293,6 +6436,12 @@ msgstr "Mover/Renombrar"
 #, c-format
 msgid "Move: New name for %s"
 msgstr "Mover: Nuevo nombre para %s"
+
+#. Resource IDs: (106)
+msgid ""
+"Move\n"
+"The items are moved to the target path."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6507,6 +6656,10 @@ msgstr "No existe la revisión '%1!s!'"
 msgid "No thesaurus suggestions"
 msgstr "No hay sugerencias de sinónimos"
 
+#. Resource IDs: (564)
+msgid "No to all"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Node Status:"
 msgstr "Estado del Nodo:"
@@ -6702,6 +6855,12 @@ msgstr "Omitir e&xternos"
 #. Resource IDs: (145)
 msgid "Omit externals"
 msgstr "Omitir referencias externas"
+
+#. Resource IDs: (106)
+msgid ""
+"One of the paths you are attempting to move appears to be a special path\n"
+"(one of 'branches', 'tags' or 'trunk')."
+msgstr ""
 
 #. Resource IDs: (63)
 msgid ""
@@ -7171,6 +7330,22 @@ msgstr "Archivos de impresión (*.prn)|*.prn|Todos los Archivos (*.*)|*.*||"
 msgid "Printing"
 msgstr "Imprimiendo"
 
+#. Resource IDs: (89)
+msgid ""
+"Proceed with the entered path\n"
+"I'm aware of the possible problems."
+msgstr ""
+
+#. Resource IDs: (279)
+msgid "Proceed with the merge."
+msgstr ""
+
+#. Resource IDs: (173)
+msgid ""
+"Proceed without an issue number\n"
+"The commit won't be assigned to an issue."
+msgstr ""
+
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %1!d! of %2!d!..."
@@ -7552,6 +7727,16 @@ msgstr "Relocalizar"
 msgid "Relocate Warning"
 msgstr "Advertencia de relocalizar"
 
+#. Resource IDs: (89)
+msgid "Relocate where a switch might be intended"
+msgstr ""
+
+#. Resource IDs: (89)
+msgid ""
+"Relocate\n"
+"The working copy is relocated to the new URL."
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Relocating..."
 msgstr "Relocalizando..."
@@ -7728,6 +7913,10 @@ msgstr ""
 msgid "Replacing"
 msgstr "Reemplazando"
 
+#. Resource IDs: (564)
+msgid "Report"
+msgstr ""
+
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
 msgstr "Repositorio"
@@ -7862,9 +8051,19 @@ msgstr ""
 "Revierte a las configuraciones por defecto. Recomendado para los usuarios "
 "sin experiencia."
 
+#. Resource IDs: (119)
+msgid ""
+"Revert\n"
+"Changes will be applied to the working copy."
+msgstr ""
+
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Revertido"
+
+#. Resource IDs: (119)
+msgid "Reverting changes"
+msgstr ""
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8772,6 +8971,14 @@ msgstr "Tamaño del archivo de caché en el disco"
 msgid "Size of the cache if it were not compressed"
 msgstr "Tamaño de la caché si no estuviera comprimida"
 
+#. Resource IDs: (564)
+msgid "Skip"
+msgstr ""
+
+#. Resource IDs: (564)
+msgid "Skip all"
+msgstr ""
+
 #. Resource IDs: (74)
 msgid "Skipped"
 msgstr "Saltado"
@@ -8781,11 +8988,11 @@ msgid "Skipped missing target"
 msgstr "Saltado objetivo no encontrado"
 
 #. Resource IDs: (265)
-msgid "Skipped no versioned parent"
+msgid "Skipped obstructing working copy"
 msgstr ""
 
 #. Resource IDs: (265)
-msgid "Skipped obstructing working copy"
+msgid "Skipped, no versioned parent"
 msgstr ""
 
 #. Resource IDs: (1070)
@@ -9216,6 +9423,13 @@ msgstr "Estado del Texto:"
 msgid "Text status"
 msgstr "Estado del texto"
 
+#. Resource IDs: (120)
+msgid ""
+"The changes will be applied to your working copy with a reverse merge "
+"operation. The repository won't be affected. You can review the changes "
+"before you commit them."
+msgstr ""
+
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
 msgstr ""
@@ -9592,6 +9806,13 @@ msgstr ""
 "%2!s!\n"
 "del parche no coinciden!"
 
+#. Resource IDs: (89)
+#, c-format
+msgid ""
+"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"You can try it anyway, but you might get an error later."
+msgstr ""
+
 #. Resource IDs: (88)
 msgid ""
 "The path/URL you've entered seems to be illegal on Windows!\n"
@@ -9721,6 +9942,17 @@ msgstr ""
 "%s\n"
 "no está vacía!\n"
 "¿Está seguro de querer obtener/exportar en esa carpeta?"
+
+#. Resource IDs: (279)
+msgid "The target has local modifications"
+msgstr ""
+
+#. Resource IDs: (279)
+#, c-format
+msgid ""
+"The target working copy \"%s\" has local modifications. It is recommended to"
+" commit those changes first before merging new changes."
+msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -9957,6 +10189,12 @@ msgstr ""
 " restaurará el conjunto por defecto de comandos visibles en los menús y "
 "barras de herramientas. Eso no deshará ninguna personalización explícita. "
 "¿Está seguro de que desea hacer esto?"
+
+#. Resource IDs: (99)
+msgid ""
+"This will upgrade your working copy to the new 1.7 format and make it "
+"unusable for older clients."
+msgstr ""
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -10485,6 +10723,12 @@ msgstr "Actualizando y reintentando el bloqueo..."
 msgid "Updating log cache"
 msgstr "Actualizando la caché de registro"
 
+#. Resource IDs: (99)
+msgid ""
+"Upgrade the working copy\n"
+"to the new 1.7 format."
+msgstr ""
+
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
 msgstr "Actualizar la copia de trabajo"
@@ -10536,10 +10780,6 @@ msgstr "Utilizar URL de la &Copia de Trabajo como la URL \"Desde:\" por defecto"
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"
 msgstr "Utilizar Diff unificado desde el &portapapeles"
-
-#. Resource IDs: (1296)
-msgid "Use \"_svn\" instead of \".svn\" directories"
-msgstr "Utilizar directorios \"_svn\" en vez de \".svn\""
 
 #. Resource IDs: (2054)
 msgid ""
@@ -10936,16 +11176,6 @@ msgstr ""
 "¡Esto puede llegar a corromper gravemente el repositorio!\n"
 "¿Está seguro de querer hacer esto?"
 
-#. Resource IDs: (105)
-msgid ""
-"You are trying to move the trunk folder!\n"
-"Are you absolutely sure that you want to move\n"
-"the trunk folder?"
-msgstr ""
-"¡Está intentando mover la carpeta tronco!\n"
-"¿Está absolutamente seguro de que quiere mover\n"
-"la carpeta tronco?"
-
 #. Resource IDs: (65535)
 msgid ""
 "You can disable specific Overlay handlers here.\n"
@@ -10974,6 +11204,13 @@ msgstr ""
 "No se puede establecer esta propiedad en carpetas, ¡sólo es posible en archivos!\n"
 "Si desea establecerla en todos los archivos dentro de esa carpeta,\n"
 "debe activar la casilla 'recursivo'."
+
+#. Resource IDs: (105)
+msgid ""
+"You dropped more than one file or folder to add to the repository.\n"
+"It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
+"individually, creating a new revision for every added item."
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -11009,6 +11246,10 @@ msgstr ""
 "No ha introducido un número de edición,\n"
 "¿ Esta seguro de efectuar la actualizacion sin número de edición ?"
 
+#. Resource IDs: (173)
+msgid "You haven't entered an issue number."
+msgstr ""
+
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
@@ -11025,6 +11266,10 @@ msgid ""
 msgstr ""
 "Usted seleccionó un archivo no versionado.\n"
 "El Archivo se añadirá al control de versiones cuando usted lo confirme."
+
+#. Resource IDs: (173)
+msgid "You selected an unversioned folder for a commit!"
+msgstr ""
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -11123,6 +11368,13 @@ msgstr ""
 "Su copia de trabajo tiene modificaciones locales.\n"
 "¡Si crea una rama/etiqueta desde la revisión HEAD, sus cambios locales\n"
 "NO se mostrarán en la rama/etiqueta!"
+
+#. Resource IDs: (221)
+#, c-format
+msgid ""
+"Your working copy points to %s which appears to be a tag!\n"
+"You should first switch to a branch or the main trunk before committing."
+msgstr ""
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
