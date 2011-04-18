@@ -120,19 +120,24 @@ public:
     bool            HasPrevInlineDiff();
 
     static const viewdata& GetEmptyLineData();
-    void            AddViewEmptyLines(int nFirstView, int nCount);
+    void            InsertViewEmptyLines(int nFirstView, int nCount);
 
-    virtual void    UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast);
-    void            UseTheirAndYourBlock();
-    void            UseYourAndTheirBlock();
-    virtual void    UseBothLeftFirst();
-    virtual void    UseBothRightFirst();
+    virtual void    UseBothLeftFirst() {return UseBothBlocks(m_pwndLeft, m_pwndRight); }
+    virtual void    UseBothRightFirst() {return UseBothBlocks(m_pwndRight, m_pwndLeft); }
+    void            UseTheirAndYourBlock() {return UseBothLeftFirst(); } ///< ! for backward compatibility
+    void            UseYourAndTheirBlock() {return UseBothRightFirst(); } ///< ! for backward compatibility
 
-    virtual void    UseLeftBlock() {};
-    virtual void    UseRightBlock() {};
-    virtual void    UseLeftFile() {};
-    virtual void    UseRightFile() {};
+    virtual void    UseLeftBlock() {return UseViewBlock(m_pwndLeft); }
+    virtual void    UseLeftFile() {return UseViewFile(m_pwndLeft); }
+    virtual void    UseRightBlock() {return UseViewBlock(m_pwndRight); }
+    virtual void    UseRightFile() {return UseViewFile(m_pwndRight); }
 
+protected:
+    virtual void    UseBothBlocks(CBaseView * /*pwndFirst*/, CBaseView * /*pwndLast*/) {};
+    virtual void    UseViewBlock(CBaseView * /*pwndView*/) {}
+    virtual void    UseViewFile(CBaseView * /*pwndView*/) {}
+
+public:
     CViewData *     m_pViewData;
     CViewData *     m_pOtherViewData;
     CBaseView *     m_pOtherView;

@@ -45,6 +45,22 @@ public:
     {
     }
 
+    viewdata(
+            const CString& sLineInit, 
+            DiffStates stateInit, 
+            int linenumberInit, 
+            EOL endingInit, 
+            HIDESTATE hideInit, 
+            int movedIndexInit)
+        : state(stateInit)
+        , linenumber(linenumberInit)
+        , movedIndex(movedIndexInit)
+        , ending(endingInit)
+        , hidestate(hideInit)
+    {
+        sLine=sLineInit;
+    }
+
     CString                     sLine;
     DiffStates                  state;
     int                         linenumber;

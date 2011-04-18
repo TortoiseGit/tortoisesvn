@@ -31,11 +31,13 @@ public:
     CRightView(void);
     ~CRightView(void);
 
-    void    UseLeftFile(); ///< Use File from Left
-    void    UseLeftBlock(); ///< Use Block from Left
-    void    UseBothRightFirst();
     void    UseBothLeftFirst();
+    void    UseBothRightFirst();
+    void    UseLeftBlock(); ///< Use Block from Left
+    void    UseLeftFile(); ///< Use File from Left
+
 protected:
     void    AddContextItems(CMenu& popup, DiffStates state);
+
     void    CleanEmptyLines();
 };

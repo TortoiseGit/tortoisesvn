@@ -30,15 +30,14 @@ public:
     CBottomView(void);
     ~CBottomView(void);
 
-    void    UseLeftBlock();     ///< Use Block from Left
-    void    UseLeftFile();      ///< Use File from Left
-    void    UseRightBlock();    ///< Use Block from Right
-    void    UseRightFile();     ///< Use File from Right
-
     void    UseMyTextBlock() {UseRightBlock(); };
     void    UseTheirTextBlock() {UseLeftBlock(); };
-protected:
+
+ protected:
     void    AddContextItems(CMenu& popup, DiffStates state);
+
+    void    CleanEmptyLines();
+    void    UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast);
     void    UseViewBlock(CBaseView * pwndView);
     void    UseViewFile(CBaseView * pwndView);
 };

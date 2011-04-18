@@ -35,6 +35,7 @@ CBottomView::~CBottomView(void)
 {
 }
 
+
 void CBottomView::AddContextItems(CMenu& popup, DiffStates state)
 {
     const UINT uFlags = GetMenuFlags( state );
@@ -52,50 +53,94 @@ void CBottomView::AddContextItems(CMenu& popup, DiffStates state)
     CBaseView::AddContextItems(popup, state);
 }
 
-void CBottomView::UseLeftBlock()
-{
-    UseViewBlock(m_pwndLeft);
-}
 
-void CBottomView::UseLeftFile()
+void CBottomView::CleanEmptyLines()
 {
-    UseViewFile(m_pwndLeft);
-}
-
-void CBottomView::UseRightBlock()
-{
-    UseViewBlock(m_pwndRight);
-}
-
-void CBottomView::UseRightFile()
-{
-    UseViewFile(m_pwndRight);
-}
-
-
-void CBottomView::UseViewFile(CBaseView * pwndView)
-{
-    for (int i = 0; i < pwndView->m_pViewData->GetCount(); i++)
+    for (int viewLine = 0; viewLine < m_pwndBottom->GetViewCount(); )
     {
-        int viewLine = i;
-        m_pwndBottom->SetViewLine(viewLine, pwndView->GetViewLine(viewLine));
-        m_pwndBottom->SetViewLineEnding(viewLine, pwndView->GetViewLineEnding(viewLine));
-        DiffStates oldViewState = pwndView->GetViewState(viewLine);
-        DiffStates newTargetState = oldViewState;
-        if (m_pwndBottom->IsViewLineConflicted(viewLine))
+        DiffStates leftState = m_pwndLeft->GetViewState(viewLine);
+        DiffStates rightState = m_pwndRight->GetViewState(viewLine);
+        DiffStates bottomState = m_pwndBottom->GetViewState(viewLine);
+        if (IsStateEmpty(leftState) && IsStateEmpty(rightState) && IsStateEmpty(bottomState))
         {
-            if (oldViewState == DIFFSTATE_CONFLICTEMPTY)
-                newTargetState = DIFFSTATE_CONFLICTRESOLVEDEMPTY;
-            else
-                newTargetState = DIFFSTATE_CONFLICTRESOLVED;
+            m_pwndLeft->RemoveViewData(viewLine);
+            m_pwndRight->RemoveViewData(viewLine);
+            m_pwndBottom->RemoveViewData(viewLine);
+            if (CUndo::GetInstance().IsGrouping()) // if use group undo -> ensure back adding goes in right (reversed) order
+            {
+                SaveUndoStep();
+            }
+            continue;
         }
-        m_pwndBottom->SetViewState(viewLine, newTargetState);
+        viewLine++;
     }
-    m_pwndBottom->SetModified();
+}
+
+void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
+{
+    if (!HasSelection())
+        return;
+
+    CUndo::GetInstance().BeginGrouping(); // start group undo
+
+    int viewIndexSelectionStart = m_Screen2View[m_nSelBlockStart];
+    int viewIndexAfterSelection = m_Screen2View.back() + 1;
+    if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
+        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+
+    // use (copy) first block
+    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
+    {
+        int viewLine = m_Screen2View[i];
+        viewdata lineData = pwndFirst->GetViewData(viewLine);
+        lineData.ending = m_pwndBottom->lineendings;
+        lineData.state = ResolveState(lineData.state);
+        m_pwndBottom->SetViewData(viewLine, lineData);
+        if (!IsStateEmpty(pwndFirst->GetViewState(viewLine)))
+        {
+            pwndFirst->SetViewState(viewLine, DIFFSTATE_YOURSADDED); // this is improper (may be DIFFSTATE_THEIRSADDED) but seems not to produce any visible bug
+        }
+    }
+    SaveUndoStep();
+
+    // use (insert) last block
+    int viewIndex = viewIndexAfterSelection;
+    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++, viewIndex++)
+    {
+        int viewLine = m_Screen2View[i];
+        viewdata lineData = pwndLast->GetViewData(viewLine);
+        lineData.state = ResolveState(lineData.state);
+        m_pwndBottom->InsertViewData(viewIndex, lineData);
+        if (!IsStateEmpty(pwndLast->GetViewState(viewLine)))
+        {
+            pwndLast->SetViewState(viewLine, DIFFSTATE_THEIRSADDED); // this is improper but seems not to produce any visible bug
+        }
+    }
+    SaveUndoStep();
+
+    // adjust line numbers in target
+    // we fix all line numbers to handle exotic cases
+    UpdateViewLineNumbers();
+    SaveUndoStep();
+
+    // now insert an empty block in both first and last
+    int nCount = m_nSelBlockEnd - m_nSelBlockStart + 1;
+    pwndLast->InsertViewEmptyLines(viewIndexSelectionStart, nCount);
+    pwndFirst->InsertViewEmptyLines(viewIndexAfterSelection, nCount);
+    SaveUndoStep();
+
+    CleanEmptyLines();
+    SaveUndoStep();	
+
+    CUndo::GetInstance().EndGrouping();
+
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
-    RefreshViews();
+    m_pwndBottom->SetModified();
+    pwndLast->SetModified();
+    pwndFirst->SetModified();
     SaveUndoStep();
+    RefreshViews();
 }
 
 // note :differs to UseViewFile in EOL source, view range and using Screen2View
@@ -103,24 +148,51 @@ void CBottomView::UseViewBlock(CBaseView * pwndView)
 {
     if (!HasSelection())
         return;
+    
+    CUndo::GetInstance().BeginGrouping(); // start group undo
 
-    bool bView = true;
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
     {
-        int viewLine = bView ? m_Screen2View[i] : i;
-        m_pwndBottom->SetViewLine(viewLine, pwndView->GetViewLine(viewLine));
-        m_pwndBottom->SetViewLineEnding(viewLine, m_pwndBottom->lineendings);
-        DiffStates oldViewState = pwndView->GetViewState(viewLine);
-        DiffStates newTargetState = oldViewState;
-        if (m_pwndBottom->IsViewLineConflicted(viewLine))
-        {
-            if (oldViewState == DIFFSTATE_CONFLICTEMPTY)
-                newTargetState = DIFFSTATE_CONFLICTRESOLVEDEMPTY;
-            else
-                newTargetState = DIFFSTATE_CONFLICTRESOLVED;
-        }
-        m_pwndBottom->SetViewState(viewLine, newTargetState);
+        int viewLine = m_Screen2View[i];
+        viewdata lineData = pwndView->GetViewData(viewLine);
+        lineData.ending = m_pwndBottom->lineendings;
+        lineData.state = ResolveState(lineData.state);
+        m_pwndBottom->SetViewData(viewLine, lineData);
     }
+
+    CleanEmptyLines();
+    SaveUndoStep();	
+    UpdateViewLineNumbers();
+    SaveUndoStep();
+
+    CUndo::GetInstance().EndGrouping();
+
+    m_pwndBottom->SetModified();
+    BuildAllScreen2ViewVector();
+    RecalcAllVertScrollBars();
+    RefreshViews();
+    SaveUndoStep();
+}
+
+void CBottomView::UseViewFile(CBaseView * pwndView)
+{
+    CUndo::GetInstance().BeginGrouping(); // start group undo
+
+    for (int i = 0; i < m_pwndBottom->GetViewCount(); i++)
+    {
+        int viewLine = i;
+        viewdata lineData = pwndView->GetViewData(viewLine);
+        lineData.state = ResolveState(lineData.state);
+        m_pwndBottom->SetViewData(viewLine, lineData);
+    }
+
+    CleanEmptyLines();
+    SaveUndoStep();	
+    UpdateViewLineNumbers();
+    SaveUndoStep();
+
+    CUndo::GetInstance().EndGrouping();
+
     m_pwndBottom->SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();

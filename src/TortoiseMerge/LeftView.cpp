@@ -36,6 +36,7 @@ CLeftView::~CLeftView(void)
 {
 }
 
+
 void CLeftView::AddContextItems(CMenu& popup, DiffStates state)
 {
     const UINT uFlags = GetMenuFlags( state );
