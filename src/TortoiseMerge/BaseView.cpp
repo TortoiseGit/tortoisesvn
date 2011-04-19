@@ -1184,40 +1184,36 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
 {
     CRect textrect(rect.left, rect.top, rect.Width(), GetLineHeight()+HEADERHEIGHT);
     COLORREF crBk, crFg;
-    CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, crBk, crFg);
-    crBk = ::GetSysColor(COLOR_SCROLLBAR);
     if (IsBottomViewGood())
     {
-        pdc->SetBkColor(crBk);
+        CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, crBk, crFg);
+        crBk = ::GetSysColor(COLOR_SCROLLBAR);
     }
     else
     {
+        DiffStates state = DIFFSTATE_REMOVED;
         if (this == m_pwndRight)
         {
-            CDiffColors::GetInstance().GetColors(DIFFSTATE_ADDED, crBk, crFg);
+            state = DIFFSTATE_ADDED;
         }
-        else
-        {
-            CDiffColors::GetInstance().GetColors(DIFFSTATE_REMOVED, crBk, crFg);
-        }
-        pdc->SetBkColor(crBk);
+        CDiffColors::GetInstance().GetColors(state, crBk, crFg);
     }
+    pdc->SetBkColor(crBk);
     pdc->FillSolidRect(textrect, crBk);
 
     pdc->SetTextColor(crFg);
 
     pdc->SelectObject(GetFont(FALSE, TRUE, FALSE));
+
+    CString sViewTitle;;
     if (IsModified())
     {
-        if (m_sWindowName.Left(2).Compare(_T("* "))!=0)
-            m_sWindowName = _T("* ") + m_sWindowName;
+         sViewTitle = _T("* ") + m_sWindowName;
     }
     else
     {
-        if (m_sWindowName.Left(2).Compare(_T("* "))==0)
-            m_sWindowName = m_sWindowName.Mid(2);
+        sViewTitle = m_sWindowName;
     }
-    CString sViewTitle = m_sWindowName;
     int nStringLength = (GetCharWidth()*m_sWindowName.GetLength());
     if (nStringLength > rect.Width())
     {
@@ -2431,14 +2427,7 @@ BOOL CBaseView::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
         return FALSE;
 
     CString strTipText;
-    if (m_sWindowName.Left(2).Compare(_T("* "))==0)
-    {
-        strTipText = m_sWindowName.Mid(2) + _T("\r\n") + m_sFullFilePath;
-    }
-    else
-    {
-        strTipText = m_sWindowName + _T("\r\n") + m_sFullFilePath;
-    }
+    strTipText = m_sWindowName + _T("\r\n") + m_sFullFilePath;
 
     *pResult = 0;
     if (strTipText.IsEmpty())
