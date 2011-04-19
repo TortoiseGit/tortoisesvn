@@ -51,9 +51,9 @@ void CRightView::UseBothLeftFirst()
     for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
     {
         int viewLine = m_Screen2View[i];
-        if (!IsStateEmpty(m_pwndRight->GetViewState(viewLine)))
+        if (!IsStateEmpty(GetViewState(viewLine)))
         {
-            m_pwndRight->SetViewState(viewLine, DIFFSTATE_YOURSADDED);
+            SetViewState(viewLine, DIFFSTATE_YOURSADDED);
         }
     }
 
@@ -69,7 +69,7 @@ void CRightView::UseBothLeftFirst()
         {
             line.state = DIFFSTATE_THEIRSADDED;
         }
-        m_pwndRight->InsertViewData(viewLine, line);
+        InsertViewData(viewLine, line);
     }
 
     // now insert an empty block in left view
@@ -77,7 +77,7 @@ void CRightView::UseBothLeftFirst()
     SaveUndoStep();
     CleanEmptyLines();
     SaveUndoStep();
-    m_pwndRight->UpdateViewLineNumbers();
+    UpdateViewLineNumbers();
     SaveUndoStep();
 
     CUndo::GetInstance().EndGrouping();
@@ -85,7 +85,7 @@ void CRightView::UseBothLeftFirst()
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     m_pwndLeft->SetModified();
-    m_pwndRight->SetModified();
+    SetModified();
     RefreshViews();
 }
 
@@ -94,19 +94,19 @@ void CRightView::UseBothRightFirst()
     if (!HasSelection())
         return;
 
-    CUndo::GetInstance().BeginGrouping();
-
     int viewIndexAfterSelection = m_Screen2View.back() + 1;
     if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
         viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+
+    CUndo::GetInstance().BeginGrouping();
 
     // right original become added
     for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
     {
         int viewLine = m_Screen2View[i];
-        if (!IsStateEmpty(m_pwndRight->GetViewState(viewLine)))
+        if (!IsStateEmpty(GetViewState(viewLine)))
         {
-            m_pwndRight->SetViewState(viewLine, DIFFSTATE_ADDED);
+            SetViewState(viewLine, DIFFSTATE_ADDED);
         }
     }
 
@@ -124,15 +124,16 @@ void CRightView::UseBothRightFirst()
         {
             line.state = DIFFSTATE_THEIRSADDED;
         }
-        m_pwndRight->InsertViewData(viewindex++, line);
+        InsertViewData(viewindex++, line);
     }
     SaveUndoStep();
 
+    // now insert an empty block in left view
     m_pwndLeft->InsertViewEmptyLines(m_Screen2View[m_nSelBlockStart], m_nSelBlockEnd - m_nSelBlockStart + 1);
     SaveUndoStep();
     CleanEmptyLines();
     SaveUndoStep();
-    m_pwndRight->UpdateViewLineNumbers();
+    UpdateViewLineNumbers();
     SaveUndoStep();
 
     CUndo::GetInstance().EndGrouping();
@@ -140,7 +141,7 @@ void CRightView::UseBothRightFirst()
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     m_pwndLeft->SetModified();
-    m_pwndRight->SetModified();
+    SetModified();
     RefreshViews();
 }
 
@@ -155,7 +156,7 @@ void CRightView::UseLeftBlock()
     {
         int viewLine = m_Screen2View[i];
         viewdata line = m_pwndLeft->GetViewData(viewLine);
-        line.ending = m_pwndRight->lineendings;
+        line.ending = lineendings;
         switch (line.state)
         {
         case DIFFSTATE_CONFLICTEMPTY:
@@ -183,17 +184,17 @@ void CRightView::UseLeftBlock()
         default:
             break;
         }
-        m_pwndRight->SetViewData(viewLine, line);
+        SetViewData(viewLine, line);
     }
 
     CleanEmptyLines();
     SaveUndoStep();
-    m_pwndRight->UpdateViewLineNumbers();
+    UpdateViewLineNumbers();
     SaveUndoStep();
 
     CUndo::GetInstance().EndGrouping();
 
-    m_pwndRight->SetModified();
+    SetModified();
     m_pwndLeft->SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
@@ -206,7 +207,7 @@ void CRightView::UseLeftFile()
 {
     CUndo::GetInstance().BeginGrouping();
 
-    for (int i = 0; i < m_pwndRight->GetViewCount(); i++)
+    for (int i = 0; i < GetViewCount(); i++)
     {
         int viewLine = i;
         viewdata line = m_pwndLeft->GetViewData(viewLine);
@@ -237,18 +238,18 @@ void CRightView::UseLeftFile()
         default:
             break;
         }
-        m_pwndRight->SetViewData(viewLine, line);
+        SetViewData(viewLine, line);
     }
     SaveUndoStep();
 
     CleanEmptyLines();
     SaveUndoStep();
-    m_pwndRight->UpdateViewLineNumbers();
+    UpdateViewLineNumbers();
     SaveUndoStep();
 
     CUndo::GetInstance().EndGrouping();
 
-    m_pwndRight->SetModified();
+    SetModified();
     m_pwndLeft->SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
@@ -264,7 +265,7 @@ void CRightView::AddContextItems(CMenu& popup, DiffStates state)
 
     CString temp;
 
-    if (m_pwndBottom->IsWindowVisible())
+    if (IsBottomViewGood())
     {
         temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
         popup.AppendMenu(uFlags, POPUPCOMMAND_USEYOURBLOCK, temp);

@@ -56,7 +56,8 @@ void CBottomView::AddContextItems(CMenu& popup, DiffStates state)
 
 void CBottomView::CleanEmptyLines()
 {
-    for (int viewLine = 0; viewLine < m_pwndBottom->GetViewCount(); )
+    bool bModified = false;
+    for (int viewLine = 0; viewLine < GetViewCount(); )
     {
         DiffStates leftState = m_pwndLeft->GetViewState(viewLine);
         DiffStates rightState = m_pwndRight->GetViewState(viewLine);
@@ -70,9 +71,16 @@ void CBottomView::CleanEmptyLines()
             {
                 SaveUndoStep();
             }
+            bModified = true;
             continue;
         }
         viewLine++;
+    }
+    if (bModified)
+    {
+        m_pwndBottom->SetModified();
+        m_pwndLeft->SetModified();
+        m_pwndRight->SetModified();
     }
 }
 
@@ -93,9 +101,9 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     {
         int viewLine = m_Screen2View[i];
         viewdata lineData = pwndFirst->GetViewData(viewLine);
-        lineData.ending = m_pwndBottom->lineendings;
+        lineData.ending = lineendings;
         lineData.state = ResolveState(lineData.state);
-        m_pwndBottom->SetViewData(viewLine, lineData);
+        SetViewData(viewLine, lineData);
         if (!IsStateEmpty(pwndFirst->GetViewState(viewLine)))
         {
             pwndFirst->SetViewState(viewLine, DIFFSTATE_YOURSADDED); // this is improper (may be DIFFSTATE_THEIRSADDED) but seems not to produce any visible bug
@@ -110,7 +118,7 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
         int viewLine = m_Screen2View[i];
         viewdata lineData = pwndLast->GetViewData(viewLine);
         lineData.state = ResolveState(lineData.state);
-        m_pwndBottom->InsertViewData(viewIndex, lineData);
+        InsertViewData(viewIndex, lineData);
         if (!IsStateEmpty(pwndLast->GetViewState(viewLine)))
         {
             pwndLast->SetViewState(viewLine, DIFFSTATE_THEIRSADDED); // this is improper but seems not to produce any visible bug
@@ -136,7 +144,7 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
 
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
-    m_pwndBottom->SetModified();
+    SetModified();
     pwndLast->SetModified();
     pwndFirst->SetModified();
     SaveUndoStep();
@@ -155,9 +163,9 @@ void CBottomView::UseViewBlock(CBaseView * pwndView)
     {
         int viewLine = m_Screen2View[i];
         viewdata lineData = pwndView->GetViewData(viewLine);
-        lineData.ending = m_pwndBottom->lineendings;
+        lineData.ending = lineendings;
         lineData.state = ResolveState(lineData.state);
-        m_pwndBottom->SetViewData(viewLine, lineData);
+        SetViewData(viewLine, lineData);
     }
 
     CleanEmptyLines();
@@ -167,7 +175,7 @@ void CBottomView::UseViewBlock(CBaseView * pwndView)
 
     CUndo::GetInstance().EndGrouping();
 
-    m_pwndBottom->SetModified();
+    SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     RefreshViews();
@@ -178,12 +186,12 @@ void CBottomView::UseViewFile(CBaseView * pwndView)
 {
     CUndo::GetInstance().BeginGrouping(); // start group undo
 
-    for (int i = 0; i < m_pwndBottom->GetViewCount(); i++)
+    for (int i = 0; i < GetViewCount(); i++)
     {
         int viewLine = i;
         viewdata lineData = pwndView->GetViewData(viewLine);
         lineData.state = ResolveState(lineData.state);
-        m_pwndBottom->SetViewData(viewLine, lineData);
+        SetViewData(viewLine, lineData);
     }
 
     CleanEmptyLines();
@@ -193,7 +201,7 @@ void CBottomView::UseViewFile(CBaseView * pwndView)
 
     CUndo::GetInstance().EndGrouping();
 
-    m_pwndBottom->SetModified();
+    SetModified();
     BuildAllScreen2ViewVector();
     RecalcAllVertScrollBars();
     RefreshViews();

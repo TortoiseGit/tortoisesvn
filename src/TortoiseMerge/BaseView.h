@@ -47,7 +47,7 @@ public:
     CBaseView();
     virtual ~CBaseView();
 
-public:
+public: // methods
     /**
      * Indicates that the underlying document has been updated. Reloads all
      * data and redraws the view.
@@ -132,12 +132,29 @@ public:
     virtual void    UseRightBlock() {return UseViewBlock(m_pwndRight); }
     virtual void    UseRightFile() {return UseViewFile(m_pwndRight); }
 
-protected:
-    virtual void    UseBothBlocks(CBaseView * /*pwndFirst*/, CBaseView * /*pwndLast*/) {};
-    virtual void    UseViewBlock(CBaseView * /*pwndView*/) {}
-    virtual void    UseViewFile(CBaseView * /*pwndView*/) {}
+    // ViewData methods
+    void            InsertViewData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline);
+    void            InsertViewData(int index, const viewdata& data);
+    void            RemoveViewData(int index);
 
-public:
+    const viewdata& GetViewData(int index) {return m_pViewData->GetData(index); }
+    const CString&  GetViewLine(int index) const {return m_pViewData->GetLine(index); }
+    DiffStates      GetViewState(int index) const {return m_pViewData->GetState(index); }
+    HIDESTATE       GetViewHideState(int index) {return m_pViewData->GetHideState(index); }
+    int             GetViewLineNumber(int index) {return m_pViewData->GetLineNumber(index); }
+    int             GetViewMovedIndex(int index) {return m_pViewData->GetMovedIndex(index); }
+    int             FindViewLineNumber(int number) {return m_pViewData->FindLineNumber(number); }
+    EOL             GetViewLineEnding(int index) const {return m_pViewData->GetLineEnding(index); }
+
+    int             GetViewCount() const {return m_pViewData->GetCount(); }
+
+    void            SetViewData(int index, const viewdata& data);
+    void            SetViewState(int index, DiffStates state);
+    void            SetViewLine(int index, const CString& sLine);
+    void            SetViewLineNumber(int index, int linenumber);
+    void            SetViewLineEnding(int index, EOL ending);
+
+public: // variables
     CViewData *     m_pViewData;
     CViewData *     m_pOtherViewData;
     CBaseView *     m_pOtherView;
@@ -161,7 +178,8 @@ public:
     void            GoToFirstDifference();
     void            GoToFirstConflict();
     void            AddEmptyLine(int nLineIndex);
-protected:
+
+protected:  // methods
     virtual BOOL    PreCreateWindow(CREATESTRUCT& cs);
     virtual void    OnDraw(CDC * pDC);
     virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
@@ -206,7 +224,6 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
-protected:
     void            DrawHeader(CDC *pdc, const CRect &rect);
     void            DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex);
     void            DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex);
@@ -293,7 +310,26 @@ protected:
     void            UpdateViewsCaretPosition();
     void            restoreLines(CBaseView* view, CViewData& viewState, int targetIndex, int sourceIndex) const;
     void            BuildMarkedWordArray();
-protected:
+
+    virtual void    UseBothBlocks(CBaseView * /*pwndFirst*/, CBaseView * /*pwndLast*/) {};
+    virtual void    UseViewBlock(CBaseView * /*pwndView*/) {}
+    virtual void    UseViewFile(CBaseView * /*pwndView*/) {}
+
+    UINT            GetMenuFlags(DiffStates state) const;
+    virtual void    AddContextItems(CMenu& popup, DiffStates state);
+    void            AddCutCopyAndPaste(CMenu& popup);
+    void            CompensateForKeyboard(CPoint& point);
+    static HICON    LoadIcon(WORD iconId);
+    void            ReleaseBitmap();
+    static bool     LinesInOneChange( int direction, DiffStates firstLineState, DiffStates currentLineState );
+    static void     FilterWhitespaces(CString& first, CString& second);
+    static void     FilterWhitespaces(CString& line);
+    int             GetButtonEventLineIndex(const POINT& point);
+
+    static void     ResetUndoStep();
+    void            SaveUndoStep();
+
+protected:  // variables
     COLORREF        m_InlineRemovedBk;
     COLORREF        m_InlineAddedBk;
     COLORREF        m_ModifiedBk;
@@ -378,86 +414,9 @@ protected:
     std::vector<int> m_Screen2View;
     std::vector<int> m_MultiLineVector;
 
-    UINT GetMenuFlags(DiffStates state) const;
-    virtual void AddContextItems(CMenu& popup, DiffStates state);
-    void AddCutCopyAndPaste(CMenu& popup);
-    void CompensateForKeyboard(CPoint& point);
-    static HICON LoadIcon(WORD iconId);
-    void ReleaseBitmap();
-    static bool LinesInOneChange( int direction, DiffStates firstLineState, DiffStates currentLineState );
-    static void FilterWhitespaces(CString& first, CString& second);
-    static void FilterWhitespaces(CString& line);
-    int GetButtonEventLineIndex(const POINT& point);
-
-
     static allviewstate m_AllState;
-    viewstate * m_pState;
-    static void     AddUndoStep(allviewstate & allviewstate, POINT & m_ptCaretPos);
-    static void     ResetUndoStep();
-    void            SaveUndoStep();
+    viewstate *     m_pState;
 
-public:
-    // view manipulation with undo saving
-    // todo: clean up this mess
-    //void            AddViewData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline);
-    //void            AddViewData(const viewdata& data);
-    void            InsertViewData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline) {
-        m_pState->addedlines.push_back(index);
-        m_pViewData->InsertData(index, sLine, state, linenumber, ending, hide, movedline);
-    }
-    void            InsertViewData(int index, const viewdata& data) {
-        m_pState->addedlines.push_back(index);
-        m_pViewData->InsertData(index, data);
-    }
-
-    void            RemoveViewData(int index) {
-        m_pState->removedlines[index] = m_pViewData->GetData(index);
-        m_pViewData->RemoveData(index);
-    }
-
-    const viewdata& GetViewData(int index) {
-        return m_pViewData->GetData(index);
-    }
-    const CString&  GetViewLine(int index) const {return m_pViewData->GetLine(index);}
-    DiffStates      GetViewState(int index) const {return m_pViewData->GetState(index);}
-    HIDESTATE       GetViewHideState(int index) {return m_pViewData->GetHideState(index);}
-    int             GetViewLineNumber(int index) {return m_pViewData->GetLineNumber(index);}
-    int             GetViewMovedIndex(int index) {return m_pViewData->GetMovedIndex(index);}
-    int             FindViewLineNumber(int number) {return m_pViewData->FindLineNumber(number);};
-    EOL             GetViewLineEnding(int index) const {return m_pViewData->GetLineEnding(index);}
-
-    int             GetViewCount() const {return m_pViewData->GetCount();}
-
-    void            SetViewData(int index, const viewdata& data) {
-        m_pState->replacedlines[index] = m_pViewData->GetData(index);
-        m_pViewData->SetData(index, data);
-    }
-    void            SetViewState(int index, DiffStates state) {
-        m_pState->linestates[index] = m_pViewData->GetState(index);
-        m_pViewData->SetState(index, state);
-    }
-    void            SetViewLine(int index, const CString& sLine) {
-        m_pState->difflines[index] = m_pViewData->GetLine(index);
-        m_pViewData->SetLine(index, sLine);
-    }
-    void            SetViewLineNumber(int index, int linenumber) {
-        int oldLineNumber = m_pViewData->GetLineNumber(index);
-        if (oldLineNumber != linenumber) {
-            m_pState->linelines[index] = oldLineNumber;
-            m_pViewData->SetLineNumber(index, linenumber);
-        }
-    }
-    void            SetViewLineEnding(int index, EOL ending) {
-        m_pState->linesEOL[index] = m_pViewData->GetLineEnding(index);
-        m_pViewData->SetLineEnding(index, ending);
-    }
-    //void            SetViewMovedIndex(int index, int movedIndex) {m_pViewData->SetMovedIndex(index, movedIndex);}
-    //void            SetViewLineHideState(int index, HIDESTATE state) {m_pViewData->SetLineHideState(index, state);}
-
-    //void            ClearView() {m_pViewData->Clear();}
-    //void            ReserveView(int length) {m_pViewData->Reserve(length);}
-
-protected:
     enum PopupCommands {
         // 2-pane view commands
         POPUPCOMMAND_USELEFTBLOCK = 1,      // 0 means the context menu was dismissed

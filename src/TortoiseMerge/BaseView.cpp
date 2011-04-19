@@ -3964,23 +3964,68 @@ BOOL CBaseView::PreTranslateMessage(MSG* pMsg)
 }
 
 
-
-void CBaseView::AddUndoStep(allviewstate & allstate, POINT & m_ptCaretPos)
-{
-    CUndo::GetInstance().AddState(allstate, m_ptCaretPos);
-}
-
 void CBaseView::ResetUndoStep()
 {
-    static const allviewstate allstate;
-    m_AllState=allstate;
+    static const allviewstate allstateclean;
+    m_AllState = allstateclean;
 }
 
 void CBaseView::SaveUndoStep()
 {
     if (!m_AllState.IsEmpty())
     {
-        AddUndoStep(m_AllState, m_ptCaretPos);
+        CUndo::GetInstance().AddState(m_AllState, m_ptCaretPos);
     }
     ResetUndoStep();
+}
+
+void CBaseView::InsertViewData( int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline )
+{
+    m_pState->addedlines.push_back(index);
+    m_pViewData->InsertData(index, sLine, state, linenumber, ending, hide, movedline);
+}
+
+void CBaseView::InsertViewData( int index, const viewdata& data )
+{
+    m_pState->addedlines.push_back(index);
+    m_pViewData->InsertData(index, data);
+}
+
+void CBaseView::RemoveViewData( int index )
+{
+    m_pState->removedlines[index] = m_pViewData->GetData(index);
+    m_pViewData->RemoveData(index);
+}
+
+void CBaseView::SetViewData( int index, const viewdata& data )
+{
+    m_pState->replacedlines[index] = m_pViewData->GetData(index);
+    m_pViewData->SetData(index, data);
+}
+
+void CBaseView::SetViewState( int index, DiffStates state )
+{
+    m_pState->linestates[index] = m_pViewData->GetState(index);
+    m_pViewData->SetState(index, state);
+}
+
+void CBaseView::SetViewLine( int index, const CString& sLine )
+{
+    m_pState->difflines[index] = m_pViewData->GetLine(index);
+    m_pViewData->SetLine(index, sLine);
+}
+
+void CBaseView::SetViewLineNumber( int index, int linenumber )
+{
+    int oldLineNumber = m_pViewData->GetLineNumber(index);
+    if (oldLineNumber != linenumber) {
+        m_pState->linelines[index] = oldLineNumber;
+        m_pViewData->SetLineNumber(index, linenumber);
+    }
+}
+
+void CBaseView::SetViewLineEnding( int index, EOL ending )
+{
+    m_pState->linesEOL[index] = m_pViewData->GetLineEnding(index);
+    m_pViewData->SetLineEnding(index, ending);
 }

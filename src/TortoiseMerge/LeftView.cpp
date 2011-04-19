@@ -43,7 +43,7 @@ void CLeftView::AddContextItems(CMenu& popup, DiffStates state)
 
     CString temp;
 
-    if (m_pwndBottom->IsWindowVisible())
+    if (IsBottomViewGood())
     {
         temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
         popup.AppendMenu(uFlags, POPUPCOMMAND_USETHEIRBLOCK, temp);
