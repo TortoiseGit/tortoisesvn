@@ -2125,7 +2125,7 @@ void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rM
         rMin = 0;
 }
 
-int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt, bool bHeader /* = true */)
+int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt, bool bHeader /* = true */) const
 {
     // the point must be relative to the upper left corner of the control
 
@@ -2137,12 +2137,11 @@ int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt, bool bHeader /* = true */
     POINT pt = *ppt;
     pt.x = 10;
     UINT flags = 0;
-    int nItem = -1;
     RECT rc;
     GetWindowRect(&rc);
     while (((flags & LVHT_BELOW) == 0)&&(pt.y < rc.bottom))
     {
-        nItem = HitTest(pt, &flags);
+        int nItem = HitTest(pt, &flags);
         if ((flags & LVHT_ONITEM)||(flags & LVHT_EX_GROUP_HEADER))
         {
             // the first item below the point
@@ -2179,19 +2178,23 @@ int CSVNStatusListCtrl::GetGroupFromPoint(POINT * ppt, bool bHeader /* = true */
             return -1;
         }
         pt.y += 2;
-    };
+    }
     return -1;
 }
 
 void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
 {
-    POINT clientpoint = point;
-    ScreenToClient(&clientpoint);
-    if ((!IsGroupViewEnabled())||(GetGroupFromPoint(&clientpoint) < 0))
-        return;
-
     if (!m_bHasCheckboxes)
         return;     // no checkboxes, so nothing to select
+
+    if (!IsGroupViewEnabled())
+        return;
+    POINT clientpoint = point;
+    ScreenToClient(&clientpoint);
+    const int group = GetGroupFromPoint(&clientpoint);
+    if (group < 0)
+        return;
+
     CAutoReadWeakLock readLock(m_guard);
     if (!readLock.IsAcquired())
         return;
@@ -2213,10 +2216,10 @@ void CSVNStatusListCtrl::OnContextMenuGroup(CWnd * /*pWnd*/, CPoint point)
         // fall through here
     case IDSVNLC_UNCHECKGROUP:
         {
-            int group = GetGroupFromPoint(&clientpoint);
             // go through all items and check/uncheck those assigned to the group
             // but block the OnLvnItemChanged handler
-            for (int i=0; i<GetItemCount(); ++i)
+            const int itemCount = GetItemCount();
+            for (int i=0; i<itemCount; ++i)
             {
                 int groupId = GetGroupId(i);
                 if (groupId != group)
@@ -4111,8 +4114,8 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
         {
             if (!IsGroupViewEnabled())
                 return;
-            POINT pt;
             DWORD ptW = GetMessagePos();
+            POINT pt;
             pt.x = GET_X_LPARAM(ptW);
             pt.y = GET_Y_LPARAM(ptW);
             ScreenToClient(&pt);
@@ -4127,27 +4130,26 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
             const int itemCount = GetItemCount();
             for (int i=0; i<itemCount; ++i)
             {
-                int groupId = GetGroupId(i);
-                if (groupId == group)
+                const int groupId = GetGroupId(i);
+                if (groupId != group)
+                    continue;
+
+                FileEntry * entry = GetListEntry(i);
+                if (!bFirst)
                 {
-                    FileEntry * entry = GetListEntry(i);
-                    if (!bFirst)
-                    {
-                        bCheck = !GetCheck(i);
-                        bFirst = true;
-                    }
-                    if (entry)
-                    {
-                        bool bOldCheck = !!GetCheck(i);
-                        SetEntryCheck(entry, i, bCheck);
-                        if (bCheck != bOldCheck)
-                        {
-                            if (bCheck)
-                                m_nSelected++;
-                            else
-                                m_nSelected--;
-                        }
-                    }
+                    bCheck = !GetCheck(i);
+                    bFirst = true;
+                }
+                if (entry == 0)
+                    continue;
+                const bool bOldCheck = !!GetCheck(i);
+                SetEntryCheck(entry, i, bCheck);
+                if (bCheck != bOldCheck)
+                {
+                    if (bCheck)
+                        m_nSelected++;
+                    else
+                        m_nSelected--;
                 }
             }
             GetStatisticsString();
