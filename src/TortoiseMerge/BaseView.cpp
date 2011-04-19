@@ -2036,7 +2036,7 @@ int CBaseView::GetLineFromPoint(CPoint point)
     return (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 }
 
-void CBaseView::OnContextMenu(CPoint point, int /*nLine*/, DiffStates state)
+void CBaseView::OnContextMenu(CPoint point, DiffStates state)
 {
     if (!this->IsWindowVisible())
         return;
@@ -2170,7 +2170,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                     break;
             }
         }
-        OnContextMenu(point, nLine, state);
+        OnContextMenu(point, state);
     }
 }
 

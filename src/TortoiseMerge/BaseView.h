@@ -275,7 +275,7 @@ protected:  // methods
     static void     GetWhitespaceBlock(CViewData *viewData, int nLineIndex, int & nStartBlock, int & nEndBlock);
     static CString  GetWhitespaceString(CViewData *viewData, int nStartBlock, int nEndBlock);
 
-    void            OnContextMenu(CPoint point, int nLine, DiffStates state);
+    void            OnContextMenu(CPoint point, DiffStates state);
     /**
      * Updates the status bar pane. Call this if the document changed.
      */
