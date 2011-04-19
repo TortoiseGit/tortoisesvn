@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -269,6 +269,7 @@ void CHistoryCombo::SetURLHistory(bool bURLHistory, bool bAutoComplete)
             SHAutoComplete(hwndEdit, SHACF_URLALL);
     }
 
+    SetExtendedStyle(CBES_EX_PATHWORDBREAKPROC|CBES_EX_CASESENSITIVE, CBES_EX_PATHWORDBREAKPROC|CBES_EX_CASESENSITIVE);
 #ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
     SetImageList(&SYS_IMAGE_LIST());
 #endif
@@ -299,6 +300,7 @@ void CHistoryCombo::SetPathHistory(BOOL bPathHistory)
             SHAutoComplete(hwndEdit, SHACF_FILESYSTEM);
     }
 
+    SetExtendedStyle(CBES_EX_PATHWORDBREAKPROC|CBES_EX_CASESENSITIVE, CBES_EX_PATHWORDBREAKPROC|CBES_EX_CASESENSITIVE);
 #ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
     SetImageList(&SYS_IMAGE_LIST());
 #endif
@@ -537,6 +539,7 @@ void CHistoryCombo::CreateToolTip()
 
 int CHistoryCombo::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
+    lpCreateStruct->dwExStyle |= CBES_EX_CASESENSITIVE;
     if (CComboBoxEx::OnCreate(lpCreateStruct) == -1)
         return -1;
 
