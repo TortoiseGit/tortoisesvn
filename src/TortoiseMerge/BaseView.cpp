@@ -3869,6 +3869,8 @@ void CBaseView::BuildScreen2ViewVector()
             }
         }
     }
+    if (m_nSelBlockEnd >= m_Screen2View.size())
+        ClearSelection();
 }
 
 // apply it on view as screen2view is not build yet in most cases
