@@ -50,6 +50,7 @@
 #include <afxctl.h>
 #include <afxext.h>         // MFC extensions
 #include <afxcontrolbars.h>     // MFC support for ribbons and control bars
+#include <afxtaskdialog.h>
 
 #ifndef LVS_EX_DOUBLEBUFFER
 #define LVS_EX_DOUBLEBUFFER     0x00010000

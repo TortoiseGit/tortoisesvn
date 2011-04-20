@@ -627,10 +627,38 @@ bool CMainFrame::LoadViews(int line)
             {
                 CString msg;
                 msg.FormatMessage(IDS_WARNBETTERPATCHPATHFOUND, (LPCTSTR)m_Data.m_sPatchPath, (LPCTSTR)betterpatchpath);
-                if (::MessageBox(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
+                if (CTaskDialog::IsSupported())
                 {
-                    m_Data.m_sPatchPath = betterpatchpath;
-                    m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
+                    CTaskDialog taskdlg(msg, 
+                                        CString(MAKEINTRESOURCE(IDS_WARNBETTERPATCHPATHFOUND_TASK2)), 
+                                        L"TortoiseSVN",
+                                        0,
+                                        TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                    CString task3;
+                    WCHAR t3[MAX_PATH] = {0};
+                    PathCompactPathEx(t3, betterpatchpath.GetBufferSetLength(MAX_PATH), 50, 0);
+                    task3.Format(IDS_WARNBETTERPATCHPATHFOUND_TASK3, t3);
+                    taskdlg.AddCommandControl(1, task3);
+                    CString task4;
+                    WCHAR t4[MAX_PATH] = {0};
+                    PathCompactPathEx(t4, m_Data.m_sPatchPath.GetBufferSetLength(MAX_PATH), 50, 0);
+                    task4.Format(IDS_WARNBETTERPATCHPATHFOUND_TASK4, t4);
+                    taskdlg.AddCommandControl(2, task4);
+                    taskdlg.SetDefaultCommandControl(1);
+                    taskdlg.SetMainIcon(TD_INFORMATION_ICON);
+                    if (taskdlg.DoModal(m_hWnd) == 1)
+                    {
+                        m_Data.m_sPatchPath = betterpatchpath;
+                        m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
+                    }
+                }
+                else
+                {
+                    if (::MessageBox(m_hWnd, msg, _T("TortoiseMerge"), MB_ICONQUESTION | MB_YESNO)==IDYES)
+                    {
+                        m_Data.m_sPatchPath = betterpatchpath;
+                        m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
+                    }
                 }
             }
             m_dlgFilePatches.Init(&m_Patch, this, m_Data.m_sPatchPath, this);
