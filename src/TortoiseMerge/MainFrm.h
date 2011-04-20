@@ -67,6 +67,7 @@ protected:
     afx_msg void    OnFileOpen();
     afx_msg void    OnFileReload();
     afx_msg void    OnClose();
+    afx_msg void    OnActivate(UINT, CWnd*, BOOL);
     afx_msg void    OnEditFind();
     afx_msg void    OnEditFindnext();
     afx_msg void    OnEditFindprev();
@@ -154,6 +155,7 @@ protected:
     /// IDCANCEL is returned if the user wants to cancel.
     /// If the user wanted to save the modifications, this method does the saving
     /// itself.
+    int             CheckForReload();
     int             CheckForSave();
     void            OnViewLineUpDown(int direction);
     void            OnViewLineLeftRight(int direction);

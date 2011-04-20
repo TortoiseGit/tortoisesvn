@@ -25,6 +25,7 @@
 
 CWorkingFile::CWorkingFile(void)
 {
+    m_bHaveData = false;
 }
 
 CWorkingFile::~CWorkingFile(void)
@@ -70,6 +71,11 @@ void CWorkingFile::TransferDetailsFrom(CWorkingFile& rightHandFile)
     m_sFilename = rightHandFile.m_sFilename;
     m_sDescriptiveName = rightHandFile.m_sDescriptiveName;
     rightHandFile.SetOutOfUse();
+
+    m_bHaveData = rightHandFile.m_bHaveData; 
+    m_nFilesize = rightHandFile.m_nFilesize;
+    m_timeCreation = rightHandFile.m_timeCreation;
+    m_timeLastWrite = rightHandFile.m_timeLastWrite;
 }
 
 CString CWorkingFile::GetWindowName() const
@@ -98,4 +104,50 @@ CString CWorkingFile::GetWindowName() const
 bool CWorkingFile::Exists() const
 {
     return (!!PathFileExists(m_sFilename));
+}
+
+void CWorkingFile::SetOutOfUse() {
+    m_sFilename.Empty();
+    m_sDescriptiveName.Empty();
+    m_bHaveData=false;
+}
+
+bool CWorkingFile::IsSourceFileChanged() const {
+    if (!InUse())
+    {
+        return false;
+    }
+    CAutoFile hFile = CreateFile(m_sFilename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+    if (!hFile || !m_bHaveData)
+    {
+        return hFile || m_bHaveData;
+    }
+    LARGE_INTEGER nFilesize;
+    nFilesize.QuadPart = -1;
+    const FILETIME timeEmpty = {0};
+    FILETIME timeCreation = timeEmpty;
+    FILETIME timeLastWrite = timeEmpty;
+
+    GetFileSizeEx(hFile, &nFilesize);
+    GetFileTime(hFile, &timeCreation, NULL, &timeLastWrite);
+    return !(nFilesize.QuadPart == m_nFilesize.QuadPart
+            && timeCreation.dwLowDateTime == m_timeCreation.dwLowDateTime
+            && timeCreation.dwHighDateTime == m_timeCreation.dwHighDateTime
+            && timeLastWrite.dwLowDateTime == m_timeLastWrite.dwLowDateTime
+            && timeLastWrite.dwHighDateTime == m_timeLastWrite.dwHighDateTime);
+}
+
+void CWorkingFile::StoreFileAttributes() {
+    m_nFilesize.QuadPart = -1;
+    const FILETIME timeEmpty = {0};
+    m_timeCreation = timeEmpty;
+    m_timeLastWrite = timeEmpty;
+
+    CAutoFile hFile = CreateFile(m_sFilename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+    m_bHaveData = hFile;
+    if (hFile)
+    {
+        GetFileSizeEx(hFile, &m_nFilesize);
+        GetFileTime(hFile, &m_timeCreation, NULL, &m_timeLastWrite);
+    }
 }

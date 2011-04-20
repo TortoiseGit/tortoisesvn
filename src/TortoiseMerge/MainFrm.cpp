@@ -65,6 +65,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI(ID_VIEW_WHITESPACES, OnUpdateViewWhitespaces)
     ON_COMMAND(ID_VIEW_OPTIONS, OnViewOptions)
     ON_WM_CLOSE()
+    ON_WM_ACTIVATE()
     ON_COMMAND(ID_EDIT_FIND, OnEditFind)
     ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage)
     ON_COMMAND(ID_EDIT_FINDNEXT, OnEditFindnext)
@@ -1036,6 +1037,22 @@ int CMainFrame::SaveFile(const CString& sFilePath)
             ::MessageBox(m_hWnd, file.GetErrorString(), _T("TortoiseMerge"), MB_ICONERROR);
             return -1;
         }
+        if (sFilePath == m_Data.m_baseFile.GetFilename())
+        {
+            m_Data.m_mergedFile.StoreFileAttributes();
+        }
+        if (sFilePath == m_Data.m_theirFile.GetFilename())
+        {
+            m_Data.m_theirFile.StoreFileAttributes();
+        }
+        if (sFilePath == m_Data.m_yourFile.GetFilename())
+        {
+            m_Data.m_yourFile.StoreFileAttributes();
+        }
+        /*if (sFilePath == m_Data.m_mergedFile.GetFilename())
+        {
+            m_Data.m_mergedFile.StoreFileAttributes();
+        }//*/
         m_dlgFilePatches.SetFileStatusAsPatched(sFilePath);
         if (m_pwndBottomView)
             m_pwndBottomView->SetModified(FALSE);
@@ -1243,6 +1260,13 @@ void CMainFrame::OnClose()
             WriteWindowPlacement(&wp);
         }
         __super::OnClose();
+    }
+}
+
+void CMainFrame::OnActivate(UINT nValue, CWnd* /*pwnd*/, BOOL /*bActivated?*/) {
+    if (nValue != 0) // activated
+    {
+        CheckForReload();
     }
 }
 
@@ -1917,6 +1941,46 @@ void CMainFrame::OnEditUndo()
 void CMainFrame::OnUpdateEditUndo(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(CUndo::GetInstance().CanUndo());
+}
+
+int CMainFrame::CheckForReload()
+{
+    static bool bLock = false; //we don't want to check when activated after MessageBox we just created ... this is simple, but we don't need multithread lock
+    if (bLock)
+    {
+        return IDNO;
+    }
+    bLock = true;
+    bool bSourceChanged = 
+            m_Data.m_baseFile.IsSourceFileChanged()
+            || m_Data.m_yourFile.IsSourceFileChanged()
+             || m_Data.m_theirFile.IsSourceFileChanged()
+             /*|| m_Data.m_mergedFile.IsSourceFileChanged()*/;
+    if (!bSourceChanged)
+    {
+        bLock = false;
+        return IDNO;
+    }
+
+    int ret = IDNO;
+    int idsMessage = HasUnsavedEdits() ? IDS_WARNMODIFIEDOUTSIDELOOSECHANGES : IDS_WARNMODIFIEDOUTSIDE;
+    ret = TSVNMessageBox(m_hWnd, idsMessage, IDS_APPNAME, MB_YESNOCANCEL | MB_ICONQUESTION);
+
+    if (ret == IDYES)
+    {
+        CDiffColors::GetInstance().LoadRegistry();
+        LoadViews(-1);
+    }
+    else
+    {
+        // no reload just store updated file time
+        m_Data.m_baseFile.StoreFileAttributes();
+        m_Data.m_theirFile.StoreFileAttributes();
+        m_Data.m_yourFile.StoreFileAttributes();
+        //m_Data.m_mergedFile.StoreFileAttributes();
+    }
+    bLock = false;
+    return ret;
 }
 
 int CMainFrame::CheckForSave()

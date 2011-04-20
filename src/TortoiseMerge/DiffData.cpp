@@ -246,6 +246,12 @@ BOOL CDiffData::Load()
     sConvertedBaseFilename = m_baseFile.GetFilename();
     sConvertedYourFilename = m_yourFile.GetFilename();
     sConvertedTheirFilename = m_theirFile.GetFilename();
+
+    m_baseFile.StoreFileAttributes();
+    m_theirFile.StoreFileAttributes();
+    m_yourFile.StoreFileAttributes();
+    //m_mergedFile.StoreFileAttributes();
+
     if (IsBaseFileInUse())
     {
         if (!m_arBaseFile.Load(m_baseFile.GetFilename()))
@@ -339,6 +345,7 @@ BOOL CDiffData::Load()
         ASSERT(FALSE);
     }
 
+    // Is this a three-way diff?
     if (IsBaseFileInUse() && IsTheirFileInUse() && IsYourFileInUse())
     {
         m_Diff3.Reserve(lengthHint);
