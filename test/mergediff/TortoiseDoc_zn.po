@@ -1336,7 +1336,7 @@ msgid ""
 " assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
 msgstr ""
-"Subversion CVS 和一些版本控制系统使用 <firstterm>复制-修改-合并</firstterm> "
+"Subversion，CVS 和一些版本控制系统使用 <firstterm>复制-修改-合并</firstterm> "
 "模型，在这种模型里，每一个客户读取项目版本库建立一个私有<firstterm>工作副本</firstterm> - "
 "版本库中文件和目录的本地映射。用户并行工作，修改各自的工作副本，最终，各个私有的复制合并在一起，成为最终的版本，这种系统通常可以辅助合并操作，但是最终要靠人工去确定正误。"
 
@@ -1638,7 +1638,7 @@ msgstr "http://"
 
 #. (entry)
 msgid "Access via WebDAV protocol to Subversion-aware Apache server."
-msgstr "
+msgstr "通过 WebDAV 协议访问支持 Subversion 的 Apache 服务器。"
 
 #. (literal)
 msgid "https://"
@@ -2175,7 +2175,7 @@ msgid ""
 "<literal>https://</literal> protocols."
 msgstr ""
 "因为兼容性问题，TortoiseSVN 不支持使用 <literal>file://</literal> 方式访问 BDB 版本库。不过通过 "
-"<literal>svn://</literal>   <literal>http://</literal> 或 "
+"<literal>svn://</literal> ， <literal>http://</literal> 或 "
 "<literal>https://</literal> 协议访问位于服务器端的 BDB 格式版本库肯定是长期支持的。"
 
 #. (para)
@@ -2226,7 +2226,7 @@ msgid ""
 "This form is still supported, but not recommended."
 msgstr ""
 "在SVN 1.2之前，UNC路径曾经是一种非常晦涩的格式<systemitem "
-"class=\"url\">file:///\\ServerName/path/to/repos</systemitem>
+"class=\"url\">file:///\\ServerName/path/to/repos</systemitem>，这种格式依然支持，但不推荐。"
 
 #. (para)
 msgid ""
@@ -2857,7 +2857,7 @@ msgstr "如果你已经安装了 Subversion，svnserve 已经运行，你需要�
 msgid ""
 "Run the Subversion installer. If you run the installer on your server "
 "(recommended) you can skip step 4."
-msgstr "
+msgstr "运行 Subversion 安装程序，如果在你的服务器上运行(推荐你这样做)，可以跳过第 4 步。"
 
 #. (para)
 msgid ""
@@ -2874,16 +2874,16 @@ msgid ""
 msgstr ""
 "打开 Windows  资源管理器，进入 Subversion 的安装目录(通常是 <filename>C:\\Program "
 "Files\\Subversion</filename>)，并在 <filename>bin</filename> 目录下找到文件  "
-"<filename>svnserve.exe</filename>  <filename>intl3_svn.dll</filename>， "
-"<filename>libapr.dll</filename>   <filename>libapriconv.dll</filename>，  "
-"<filename>libapriutil.dll</filename>  <filename>libdb*.dll</filename>， "
+"<filename>svnserve.exe</filename>， <filename>intl3_svn.dll</filename>， "
+"<filename>libapr.dll</filename>，  <filename>libapriconv.dll</filename>，  "
+"<filename>libapriutil.dll</filename>， <filename>libdb*.dll</filename>， "
 "<filename>libeay32.dll</filename> 以及 <filename>ssleay32.dll</filename> - "
 "复制这些文件，或者复制整个 <filename>bin</filename> 目录，到服务器上的某个目录中，例如 "
 "<filename>C:\\svnserver</filename>。"
 
 #. (title)
 msgid "Running svnserve"
-msgstr "
+msgstr "运行 svnserve"
 
 #. (para)
 msgid ""
@@ -3167,13 +3167,13 @@ msgid ""
 "Internet, read on."
 msgstr ""
 "要获得这一选项可用性的更充分讨论，你应该看一下 Subversion 手册中的<ulink url=\"http://svnbook.red-"
-"bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>
+"bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl\"><citetitle>通过"
 " SASL 使用 svnserve</citetitle></ulink> 。如果你仅仅是找一种简单的方法为 Windows "
 "服务器设置安全的认证和加密，因此你的版本库可以安全的通过又大又乱的互联网访问，请继续阅读。"
 
 #. (title)
 msgid "SASL Authentication"
-msgstr "SASL   "
+msgstr "SASL 认证"
 
 #. (para)
 msgid ""
@@ -3241,7 +3241,7 @@ msgid ""
 msgstr ""
 "现在所有的东西已经设置完成，你要做的事情就是创建用户和密码。你需要 <literal>saslpasswd2</literal> 程序来做这件事。如果你使用 CollabNet 安装程序，这个程序会在安装目录内。使用像这样的命令：<screen>\n"
 "saslpasswd2 -c -f C:\\TortoiseSVN\\sasldb -u realm username\n"
-"</screen>
+"</screen>选项 <literal>-f</literal> 指明数据库的位置，<literal>realm</literal> 必须与版本库的 <filename>svnserve.conf</filename> 文件中设置相同的值， username 就是你要使用的用户名。注意 realm 不允许包含空字符。"
 
 #. (para)
 msgid ""
@@ -4145,7 +4145,7 @@ msgid ""
 "matching username/password."
 msgstr ""
 "也可以为 Subversion 使用不止一个的认证源，为此，你需要将每一种认证设置为非权威(non-"
-"authoritative) 这样Apache会在多个源检查用户名/密码。"
+"authoritative)，这样Apache会在多个源检查用户名/密码。"
 
 #. (para)
 msgid ""
@@ -5254,7 +5254,7 @@ msgid ""
 msgstr ""
 "当你想要检出一个很大的文件树的某些部分而且想要方便的只更新单一的工作副本时，该功能非常有用。假设有一个很大的文件树，其中包含 99 个子文件夹从 "
 "<literal>Project01</literal> 到 <literal>Project99</literal>，你只想检出 "
-"<literal>Project03</literal> <literal>Project25</literal> 和 "
+"<literal>Project03</literal>，<literal>Project25</literal> 和 "
 "<literal>Project76/SubProj</literal>。按下列步骤操作: "
 
 #. (para)
@@ -7022,7 +7022,7 @@ msgid ""
 "use <emphasis>Revert</emphasis> to recover it."
 msgstr ""
 "你也可以还原单个文件的修改。如果不小心删除了某个文件，就会显示为 <emphasis>缺少</emphasis> 而且可以使用 "
-"<emphasis>SVN  原</emphasis> 来恢复它。"
+"<emphasis>SVN 还原</emphasis> 来恢复它。"
 
 #. (para)
 msgid ""
@@ -8368,7 +8368,7 @@ msgid ""
 "insensitive</guilabel> checkbox to control how this is handled."
 msgstr ""
 "默认统计是区别大小写的，也就是说用户 <literal>PeterEgan</literal> 与 "
-"<literal>PeteRegan</literal> 
+"<literal>PeteRegan</literal> 被认为是两个不同的作者。但在多数时候用户名并不区别大小写，有时会存在不一致，所以你可能希望 "
 "<literal>DavidMorgan</literal> 和 <literal>davidmorgan</literal> "
 "能被当成是同一个作者。使用<guilabel>作者区分大小写</guilabel>复选框来控制。"
 
@@ -10626,7 +10626,7 @@ msgid ""
 "also setting it on all files."
 msgstr ""
 "对于<literal>tsvn:</literal>属性，例如 "
-"<literal>tsvn:</literal> <literal>bugtraq:</literal> 和 "
+"<literal>tsvn:</literal>，<literal>bugtraq:</literal> 和 "
 "<literal>webviewer:</literal>，你<emphasis>只能</emphasis>对于所有子文件夹使用<guilabel>递归</guilabel>复选框设置属性，不用将这些属性设置在文件上。"
 
 #. (para)
@@ -13882,11 +13882,11 @@ msgstr "与 BUG 跟踪系统/问题跟踪集成"
 
 #. (primary)
 msgid "bug tracking"
-msgstr "BUG 
+msgstr "BUG 跟踪"
 
 #. (primary)
 msgid "bug tracker"
-msgstr "BUG 
+msgstr "BUG 跟踪者"
 
 #. (primary)
 #. (primary)
@@ -14308,7 +14308,7 @@ msgstr ""
 "有许多web为基础的版本库浏览器，例如<ulink "
 "url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> and "
 "<ulink "
-"url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink> TortoiseSVN提供了链接这些浏览器的方法。"
+"url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>，TortoiseSVN提供了链接这些浏览器的方法。"
 
 #. (para)
 msgid ""
@@ -15635,7 +15635,7 @@ msgid ""
 "Read <xref linkend=\"tsvn-dug-diff-tools\"/> for a list of some of the "
 "external diff/merge programs that people are using with TortoiseSVN."
 msgstr ""
-"   <xref linkend=\"tsvn-dug-diff-tools\"/> "
+"阅读 <xref linkend=\"tsvn-dug-diff-tools\"/> "
 "来了解人们为配合TortoiseSVN工作而使用的外部差异查看/合并程序列表。"
 
 #. (title)
@@ -17886,7 +17886,7 @@ msgid ""
 "<literal>commonRoot</literal> path."
 msgstr ""
 "<literal>commonURL</literal> 属性是所有被选中的项目的父URL（在这些项目上打开的提交对话框）。从根本上说，这个URL就是 "
-"<literal>commonRoot</literal>  径的URL。"
+"<literal>commonRoot</literal> 路径的URL。"
 
 #. (para)
 msgid ""
@@ -22184,7 +22184,7 @@ msgstr "<guibutton>保存</guibutton> 保存你所做的任何修改。"
 msgid ""
 "<guibutton>Reload</guibutton> discards any changes you have made in "
 "TortoiseMerge and reloads the files from disk."
-msgstr "<guibutton>  </guibutton> 放弃你在 TortoiseMerge 中所做的任何修改，重新载入文件。"
+msgstr "<guibutton>重载</guibutton> 放弃你在 TortoiseMerge 中所做的任何修改，重新载入文件。"
 
 #. (para)
 msgid ""
@@ -22524,7 +22524,7 @@ msgid ""
 "when conflict-editing first started."
 msgstr ""
 "注意：如果你在同一文件重新使用 TortoiseMerge，你对工作版本做的任何修改，无论是 "
-"TortoiseMerge
+"TortoiseMerge，还是手工编辑，都<emphasis>将被丢弃</emphasis>，文件恢复到开始冲突编辑时的状态。"
 
 #. (title)
 msgid "Open Files"
