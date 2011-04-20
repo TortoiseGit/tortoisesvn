@@ -281,10 +281,10 @@ protected:  // methods
      */
     void            UpdateStatusBar();
 
-    bool            IsViewGood(const CBaseView* view ) const { return (view != 0) && view->IsWindowVisible(); }
-    bool            IsLeftViewGood() const {return IsViewGood(m_pwndLeft);}
-    bool            IsRightViewGood() const {return IsViewGood(m_pwndRight);}
-    bool            IsBottomViewGood() const {return IsViewGood(m_pwndBottom);}
+    static bool     IsViewGood(const CBaseView* view ) { return (view != 0) && view->IsWindowVisible(); }
+    static bool     IsLeftViewGood() {return IsViewGood(m_pwndLeft);}
+    static bool     IsRightViewGood() {return IsViewGood(m_pwndRight);}
+    static bool     IsBottomViewGood() {return IsViewGood(m_pwndBottom);}
 
     int             CalculateActualOffset(int nLineIndex, int nCharIndex);
     int             CalculateCharIndex(int nLineIndex, int nActualOffset);

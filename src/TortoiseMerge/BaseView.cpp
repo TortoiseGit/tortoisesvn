@@ -558,12 +558,12 @@ CString CBaseView::GetLineChars(int index)
         return 0;
     if ((int)m_Screen2View.size() <= index)
         return 0;
+    int viewLine = m_Screen2View[index];
     if (m_pMainFrame->m_bWrapLines)
     {
         int subLine = GetSubLineOffset(index);
         if (subLine >= 0)
         {
-            int viewLine = m_Screen2View[index];
             if (viewLine != m_nCachedWrappedLine)
             {
                 // cache the word wrapped lines
@@ -588,7 +588,6 @@ CString CBaseView::GetLineChars(int index)
             return L"";
         }
     }
-    int viewLine = m_Screen2View[index];
     return m_pViewData->GetLine(viewLine);
 }
 
@@ -2968,7 +2967,7 @@ void CBaseView::ShowDiffLines(int nLine)
 
 const viewdata& CBaseView::GetEmptyLineData()
 {
-    static viewdata emptyLine(_T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+    static const viewdata emptyLine(_T(""), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
     return emptyLine;
 }
 
@@ -3177,15 +3176,20 @@ void CBaseView::AddEmptyLine(int nLineIndex)
     if (m_pViewData == NULL)
         return;
     int viewLine = m_Screen2View[nLineIndex];
+    EOL ending = m_pViewData->GetLineEnding(viewLine);
+    if (ending == EOL_NOENDING)
+    {
+         ending = lineendings;
+    }
+    viewdata newLine(_T(""), DIFFSTATE_EDITED, -1, ending, HIDESTATE_SHOWN, -1);
     if (!m_bCaretHidden)
     {
         CString sPartLine = GetLineChars(nLineIndex);
         m_pViewData->SetLine(viewLine, sPartLine.Left(m_ptCaretPos.x));
         sPartLine = sPartLine.Mid(m_ptCaretPos.x);
-        m_pViewData->InsertData(viewLine+1, sPartLine, DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING ? lineendings : m_pViewData->GetLineEnding(viewLine), HIDESTATE_SHOWN, -1);
+        newLine.sLine = sPartLine;
     }
-    else
-        m_pViewData->InsertData(viewLine+1, _T(""), DIFFSTATE_EDITED, -1, m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING ? lineendings : m_pViewData->GetLineEnding(viewLine), HIDESTATE_SHOWN, -1);
+    m_pViewData->InsertData(viewLine+1, newLine);
     m_Screen2View.insert(m_Screen2View.begin()+nLineIndex, viewLine+1);
 }
 
