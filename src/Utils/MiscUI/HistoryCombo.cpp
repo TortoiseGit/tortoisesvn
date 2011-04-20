@@ -286,14 +286,11 @@ void CHistoryCombo::SetPathHistory(BOOL bPathHistory)
         hwndEdit = (HWND)::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0);
         if (NULL == hwndEdit)
         {
-            //if not, try the old standby
-            if(hwndEdit==NULL)
+            // Try the unofficial way of getting the edit control CWnd*
+            CWnd* pWnd = this->GetDlgItem(1001);
+            if(pWnd)
             {
-                CWnd* pWnd = this->GetDlgItem(1001);
-                if(pWnd)
-                {
-                    hwndEdit = pWnd->GetSafeHwnd();
-                }
+                hwndEdit = pWnd->GetSafeHwnd();
             }
         }
         if (hwndEdit)
