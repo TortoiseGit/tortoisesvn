@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,7 +42,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     CCmdLineParser parser(lpCmdLine);
 
-    if (parser.HasKey(_T("?")) || parser.HasKey(_T("help")) ||(!parser.HasKey(_T("patchfile")) && !parser.HasKey(_T("p"))))
+    if (parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
     {
         TCHAR buf[1024];
         LoadString(hInstance, IDS_COMMANDLINEHELP, buf, sizeof(buf)/sizeof(TCHAR));
@@ -72,7 +72,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     if (mainWindow.RegisterAndCreateWindow())
     {
         bool bLoadedSuccessfully = false;
-        if (parser.HasKey(_T("p")))
+        if ( (parser.HasKey(_T("p"))) ||
+             (_tcslen(lpCmdLine) == 0) )
         {
             // input from console pipe
             // set console to raw mode
@@ -84,6 +85,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         }
         else if (parser.HasVal(_T("patchfile")))
             bLoadedSuccessfully = mainWindow.LoadFile(parser.GetVal(_T("patchfile")));
+        else if (_tcslen(lpCmdLine) > 0)
+            bLoadedSuccessfully = mainWindow.LoadFile(lpCmdLine);
         if (bLoadedSuccessfully)
         {
             ::ShowWindow(mainWindow.GetHWNDEdit(), SW_SHOW);
