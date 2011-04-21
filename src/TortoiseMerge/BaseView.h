@@ -301,6 +301,8 @@ protected:  // methods
 
     bool            MoveCaretLeft();
     bool            MoveCaretRight();
+    void            MoveCaretWordLeft();
+    void            MoveCaretWordRight();
     void            OnCaretMove();
     void            OnCaretMove(bool isShiftPressed);
     void            UpdateGoalPos();
