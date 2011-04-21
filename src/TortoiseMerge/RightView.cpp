@@ -41,25 +41,26 @@ void CRightView::UseBothLeftFirst()
     if (!HasSelection())
         return;
 
-    int viewIndexAfterSelection = m_Screen2View.back() + 1;
+    int nFirstViewLine = m_Screen2View[m_nSelBlockStart]; // first view line in selection
+    int nLastViewLine = m_Screen2View[m_nSelBlockEnd]; // last view line in selection
+    int nNextViewLine = m_Screen2View.back() + 1; // first view line after selected block
     if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
-        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+        nNextViewLine = m_Screen2View[m_nSelBlockEnd + 1];
 
     CUndo::GetInstance().BeginGrouping();
 
     // right original become added
-    for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        int viewLine = m_Screen2View[i];
         if (!IsStateEmpty(GetViewState(viewLine)))
         {
             SetViewState(viewLine, DIFFSTATE_YOURSADDED);
         }
     }
+    SaveUndoStep();
 
-    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        int viewLine = m_Screen2View[i];
         viewdata line = m_pwndLeft->GetViewData(viewLine);
         if (IsStateEmpty(line.state))
         {
@@ -73,7 +74,8 @@ void CRightView::UseBothLeftFirst()
     }
 
     // now insert an empty block in left view
-    m_pwndLeft->InsertViewEmptyLines(viewIndexAfterSelection, m_nSelBlockEnd - m_nSelBlockStart + 1);
+    int nCount = nLastViewLine - nFirstViewLine + 1;
+    m_pwndLeft->InsertViewEmptyLines(nNextViewLine, nCount);
     SaveUndoStep();
     CleanEmptyLines();
     SaveUndoStep();
@@ -94,27 +96,28 @@ void CRightView::UseBothRightFirst()
     if (!HasSelection())
         return;
 
-    int viewIndexAfterSelection = m_Screen2View.back() + 1;
+    int nFirstViewLine = m_Screen2View[m_nSelBlockStart]; // first view line in selection
+    int nLastViewLine = m_Screen2View[m_nSelBlockEnd]; // last view line in selection
+    int nNextViewLine = m_Screen2View.back() + 1; // first view line after selected block
     if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
-        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+        nNextViewLine = m_Screen2View[m_nSelBlockEnd + 1];
 
     CUndo::GetInstance().BeginGrouping();
 
     // right original become added
-    for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; i++)
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        int viewLine = m_Screen2View[i];
         if (!IsStateEmpty(GetViewState(viewLine)))
         {
             SetViewState(viewLine, DIFFSTATE_ADDED);
         }
     }
+    SaveUndoStep();
 
     // your block is done, now insert their block
-    int viewindex = viewIndexAfterSelection;
-    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
+    int viewindex = nNextViewLine;
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        int viewLine = m_Screen2View[i];
         viewdata line = m_pwndLeft->GetViewData(viewLine);
         if (IsStateEmpty(line.state))
         {
@@ -129,7 +132,8 @@ void CRightView::UseBothRightFirst()
     SaveUndoStep();
 
     // now insert an empty block in left view
-    m_pwndLeft->InsertViewEmptyLines(m_Screen2View[m_nSelBlockStart], m_nSelBlockEnd - m_nSelBlockStart + 1);
+    int nCount = nLastViewLine - nFirstViewLine + 1;
+    m_pwndLeft->InsertViewEmptyLines(nFirstViewLine, nCount);
     SaveUndoStep();
     CleanEmptyLines();
     SaveUndoStep();
@@ -150,11 +154,13 @@ void CRightView::UseLeftBlock()
     if (!HasSelection())
         return;
 
+    int nFirstViewLine = m_Screen2View[m_nSelBlockStart];
+    int nLastViewLine = m_Screen2View[m_nSelBlockEnd];
+
     CUndo::GetInstance().BeginGrouping();
 
-    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        int viewLine = m_Screen2View[i];
         viewdata line = m_pwndLeft->GetViewData(viewLine);
         line.ending = lineendings;
         switch (line.state)
@@ -207,9 +213,11 @@ void CRightView::UseLeftFile()
 {
     CUndo::GetInstance().BeginGrouping();
 
-    for (int i = 0; i < GetViewCount(); i++)
+    int nFirstViewLine = 0;
+    int nLastViewLine = GetViewCount()-1;
+
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        int viewLine = i;
         viewdata line = m_pwndLeft->GetViewData(viewLine);
         switch (line.state)
         {
@@ -294,7 +302,10 @@ void CRightView::AddContextItems(CMenu& popup, DiffStates state)
 
 void CRightView::CleanEmptyLines()
 {
-   for (int viewLine = 0; viewLine < m_pwndRight->GetViewCount(); )
+    int nFirstViewLine = 0;
+    int nLastViewLine = GetViewCount()-1;
+
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; )
     {
         DiffStates rightState = m_pwndRight->GetViewState(viewLine);
         DiffStates leftState = m_pwndLeft->GetViewState(viewLine);

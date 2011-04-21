@@ -89,12 +89,13 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     if (!HasSelection())
         return;
 
-    CUndo::GetInstance().BeginGrouping(); // start group undo
-
-    int viewIndexSelectionStart = m_Screen2View[m_nSelBlockStart];
-    int viewIndexAfterSelection = m_Screen2View.back() + 1;
+    int nFirstViewLine = m_Screen2View[m_nSelBlockStart]; // first view line in selection
+    int nLastViewLine = m_Screen2View[m_nSelBlockEnd]; // last view line in selection
+    int nNextViewLine = m_Screen2View.back() + 1; // first view line after selected block
     if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
-        viewIndexAfterSelection = m_Screen2View[m_nSelBlockEnd + 1];
+        nNextViewLine = m_Screen2View[m_nSelBlockEnd + 1];
+
+    CUndo::GetInstance().BeginGrouping(); // start group undo
 
     // use (copy) first block
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
@@ -112,7 +113,7 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     SaveUndoStep();
 
     // use (insert) last block
-    int viewIndex = viewIndexAfterSelection;
+    int viewIndex = nNextViewLine;
     for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++, viewIndex++)
     {
         int viewLine = m_Screen2View[i];
@@ -132,9 +133,9 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     SaveUndoStep();
 
     // now insert an empty block in both first and last
-    int nCount = m_nSelBlockEnd - m_nSelBlockStart + 1;
-    pwndLast->InsertViewEmptyLines(viewIndexSelectionStart, nCount);
-    pwndFirst->InsertViewEmptyLines(viewIndexAfterSelection, nCount);
+    int nCount = nLastViewLine - nFirstViewLine + 1;
+    pwndLast->InsertViewEmptyLines(nFirstViewLine, nCount);
+    pwndFirst->InsertViewEmptyLines(nNextViewLine, nCount);
     SaveUndoStep();
 
     CleanEmptyLines();
@@ -151,17 +152,19 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     RefreshViews();
 }
 
-// note :differs to UseViewFile in EOL source, view range and using Screen2View
+// note :differs to UseViewFile in: EOL source and view range
 void CBottomView::UseViewBlock(CBaseView * pwndView)
 {
     if (!HasSelection())
         return;
-    
+
+    int nFirstViewLine = m_Screen2View[m_nSelBlockStart];
+    int nLastViewLine = m_Screen2View[m_nSelBlockEnd];
+
     CUndo::GetInstance().BeginGrouping(); // start group undo
 
-    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        int viewLine = m_Screen2View[i];
         viewdata lineData = pwndView->GetViewData(viewLine);
         lineData.ending = lineendings;
         lineData.state = ResolveState(lineData.state);
@@ -184,11 +187,13 @@ void CBottomView::UseViewBlock(CBaseView * pwndView)
 
 void CBottomView::UseViewFile(CBaseView * pwndView)
 {
+    int nFirstViewLine = 0;
+    int nLastViewLine = GetViewCount()-1;
+
     CUndo::GetInstance().BeginGrouping(); // start group undo
 
-    for (int i = 0; i < GetViewCount(); i++)
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        int viewLine = i;
         viewdata lineData = pwndView->GetViewData(viewLine);
         lineData.state = ResolveState(lineData.state);
         SetViewData(viewLine, lineData);
