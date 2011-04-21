@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-18 00:42+0000\n"
+"PO-Revision-Date: 2011-04-19 19:07+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1621,6 +1621,10 @@ msgid ""
 "\n"
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
+"Přemístění je potřeba pouze v případě, že cesta k úložišti byla změněna.\n"
+"Změna na jinou cestu uvnitř úložiště se provádí pmocí operace překlopení.\n"
+"\n"
+"Pokud si nejste jisti, co dělat, zkuste nejdříve překlopit."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1633,6 +1637,9 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"Platná cestu ve windows nesmí obsahovat obsahovat '<>|\"\"?*:' nebo jeden z těchto názvů zařízení:\n"
+"com1-com9, lpt1-lpt9, prn\n"
+"Podívejte se na <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">dokumentaci</a> od společnosti Microsoft o tomto problému."
 
 #. Resource IDs: (79)
 msgid ""
@@ -2365,54 +2372,64 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"Zrušit\n"
+"Neodevzdávat do značky."
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"Zrušit\n"
+"Nevracet."
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"Zrušit\n"
+"Jít zpátky a zadat číslo problému."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"Zrušit\n"
+"Zadám jinou cestu/adresu URL"
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"Zrušit\n"
+"Ponechat současnou URL"
 
 #. Resource IDs: (105)
 msgid ""
 "Cancel\n"
 "The items are not imported."
-msgstr ""
+msgstr "&Zrušit"
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
-msgstr ""
+msgstr "Zrušit"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
-msgstr ""
+msgstr "Ruším TortoiseSVN obviňování..."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
-msgstr ""
+msgstr "Ruším operaci..."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2859,6 +2876,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"Odevzdat pouze adresář\n"
+"Soubory uvnitř adresáře nebudou odevzdány."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -2873,6 +2892,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"Odevzdat\n"
+"Odevzdat změny do cíle."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2900,6 +2921,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
+"Odevzdáním adresáře bez verze rekurzivně nepřidá své podřízené položky!\n"
+"Možná budete chtít přidat tyto adresáře rekurzivně pomocí položky 'Přidat ...' v kontextovém menu."
 
 #. Resource IDs: (170)
 msgid ""
@@ -2915,7 +2938,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "Odevzdávám do značky"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3756,7 +3779,7 @@ msgstr "Nezobrazovat kontextové menu pro tyto cesty:"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr ""
+msgstr "Toto udělat pro všechny vybrané adresáře bez verze"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -3828,6 +3851,9 @@ msgid ""
 "%s\n"
 "and go back to this revision?"
 msgstr ""
+"Chcete vrátit všechny změny v\n"
+"%s\n"
+"a vrátit se k této revizi?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -3836,6 +3862,9 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
+"Chcete vrátit všechny změny v\n"
+"%s\n"
+"které byly v této revizi provedeny?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -3855,7 +3884,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "Již se mě neptat"
 
 #. Resource IDs: (94)
 msgid ""
@@ -3883,7 +3912,7 @@ msgstr "Příště tuto zprávu nezobrazovat"
 
 #. Resource IDs: (564)
 msgid "Don't tell me again"
-msgstr ""
+msgstr "Již mi toto znovu neříkat"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4219,7 +4248,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr ""
+msgstr "Každé odevzdání by mělo být přiřazeno k problému."
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -5316,6 +5345,9 @@ msgid ""
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
 msgstr ""
+"Pokud používáte jiné klienty SVN kromě TortoiseSVN na tomto počítači, budete"
+" muset tyto klienty také aktualizovat. Jinak nebudou mít přístup k pracovní "
+"kopii s novým formátem."
 
 #. Resource IDs: (251)
 msgid ""
@@ -5342,7 +5374,7 @@ msgstr "Ignorovat &původ"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
-msgstr ""
+msgstr "Ignorovat vše"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5402,7 +5434,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Illegal path"
-msgstr ""
+msgstr "Neplatná cesta"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5483,6 +5515,8 @@ msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
 msgstr ""
+"Importovat\n"
+"Položky jsou importovány, vytvářejíc novou revizi pro každou položku."
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5668,6 +5702,11 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr ""
+"Zdá se, že se snažíte přemístit Vaši pracovní kopii na jinou cestu uvnitř stejného úložiště.\n"
+"Z: %1!s!\n"
+"Na: %2!s!\n"
+"\n"
+"Nesprávné použití přemístění poruší Vaši pracovní kopii!"
 
 #. Resource IDs: (88)
 #, c-format
@@ -6296,7 +6335,7 @@ msgstr "Více barev..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "Více než jedna položka zahozena."
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6358,7 +6397,7 @@ msgstr "Přesunout položky sem"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr ""
+msgstr "Přesunout zvláštní soubor nebo adresář"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6383,6 +6422,8 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr ""
+"Přesunout\n"
+"Položky jsou přesunuty do cílové cesty."
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6597,7 +6638,7 @@ msgstr "Žádné návrhy synonym"
 
 #. Resource IDs: (564)
 msgid "No to all"
-msgstr ""
+msgstr "Ne všem"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -6797,6 +6838,8 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr ""
+"Jedna z cest, kterou se pokoušíte přesunout se zdá být zvláštní cestou\n"
+"(jedna z 'větví', 'značek' nebo 'kmen')."
 
 #. Resource IDs: (63)
 msgid ""
@@ -7260,16 +7303,20 @@ msgid ""
 "Proceed with the entered path\n"
 "I'm aware of the possible problems."
 msgstr ""
+"Pokračovat se zadanou cestou\n"
+"Jsem si vědom možných problémů."
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
-msgstr ""
+msgstr "Pokračovat ve sloučení."
 
 #. Resource IDs: (173)
 msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
 msgstr ""
+"Pokračovat bez čísla problému\n"
+"K odevzdání nebude přiřazen problém."
 
 #. Resource IDs: (132)
 #, c-format
@@ -7649,13 +7696,15 @@ msgstr "Varování přemístění"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "Přemístit, kde by mohlo být zamýšleno překlopení"
 
 #. Resource IDs: (89)
 msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
 msgstr ""
+"Přemístit\n"
+"Pracovní kopie je přemístěna na novou adresu URL."
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -7835,7 +7884,7 @@ msgstr "Nahrazuji"
 
 #. Resource IDs: (564)
 msgid "Report"
-msgstr ""
+msgstr "Hlášení"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -7974,6 +8023,8 @@ msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
 msgstr ""
+"Vrátit\n"
+"Změny budou použity v pracovní kopii."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -7981,7 +8032,7 @@ msgstr "Vráceno"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
-msgstr ""
+msgstr "Vracím změny"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8879,11 +8930,11 @@ msgstr "Velikost úschovy bez komprese"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "Přeskočit"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "Přeskočit vše"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -8899,7 +8950,7 @@ msgstr "Vynechána překážející pracovní kopie"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr ""
+msgstr "Přeskočeno, žádný nadřazený bez verze"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9330,6 +9381,9 @@ msgid ""
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
 msgstr ""
+"Tyto změny budou použity ve Vaší pracovní kopii pomocí zpětného sloučení. "
+"Úložiště nebude ovlivněno. Můžete zkontrolovat změny před tím, než je "
+"odevzdáte."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -9693,6 +9747,8 @@ msgid ""
 "The path/URL \"%s\" seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"Cesta/URL \"%s\" se zdá být ve Windows neplatná!\n"
+"Můžete to přesto zkusit, ale možná že později dostanete chybu."
 
 #. Resource IDs: (88)
 msgid ""
@@ -9826,7 +9882,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "Cíl má místní změny"
 
 #. Resource IDs: (279)
 #, c-format
@@ -9834,6 +9890,8 @@ msgid ""
 "The target working copy \"%s\" has local modifications. It is recommended to"
 " commit those changes first before merging new changes."
 msgstr ""
+"Cílová pracovní kopie \"%s\" má místní změny. Doporučuje se, aby se tyto "
+"změny odevzdaly před sloučením změn nových."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -10069,6 +10127,8 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr ""
+"Toto aktualizuje Vaší pracovní kopie do nového formátu 1.7 a tím ji "
+"znepřístupní pro starší klienty."
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -10596,6 +10656,8 @@ msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
 msgstr ""
+"Aktualizovat pracovní kopii\n"
+"na nový formát 1.7."
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
@@ -11078,6 +11140,8 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
+"Přethli jste více než jeden soubor nebo adresář pro přidání do úložiště. Toto není možné udělat najednou, takže TortoiseSVN přidá každý soubor/adresář\n"
+"zvlášť, čímž vytvoří novou revize pro každou přidanou položku."
 
 #. Resource IDs: (105)
 msgid ""
@@ -11115,7 +11179,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "Nezadali jste číslo problému."
 
 #. Resource IDs: (1002)
 #, c-format
@@ -11136,7 +11200,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr ""
+msgstr "Vybrali jste k odevzdání adresář bez verze!"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -11242,6 +11306,8 @@ msgid ""
 "Your working copy points to %s which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
+"Vaše pracovní kopie ukazuje na %s, což se zdá být značka!\n"
+"Před odevzdáním byste nejprve měli překlopit na větev nebo hlavní kmen."
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"

@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-18 00:43+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-04-19 12:39+0000\n"
+"Last-Translator: mikola <mikola@tut.by>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -781,7 +781,7 @@ msgstr "Игнорировать %d &элементов по имени"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "&Игнорировать предков"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -805,7 +805,7 @@ msgstr "И&мпорт..."
 
 #. Resource IDs: (1562)
 msgid "&Include externals"
-msgstr ""
+msgstr "&Включая внешние"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
@@ -885,7 +885,7 @@ msgstr "&Mac (CR)"
 
 #. Resource IDs: (1562)
 msgid "&Make depth sticky"
-msgstr ""
+msgstr "&Сделать глубину постоянной"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -1470,7 +1470,7 @@ msgstr "(не найден)"
 
 #. Resource IDs: (176)
 msgid "(properties only)"
-msgstr ""
+msgstr "(только свойства)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -1478,7 +1478,7 @@ msgstr "(изменение только свойств)"
 
 #. Resource IDs: (176)
 msgid "(props and content)"
-msgstr ""
+msgstr "(свойства и содержимое)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -1625,6 +1625,10 @@ msgid ""
 "\n"
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
+"Перебазирование необходимо, только если путь к хранилищу был изменён.\n"
+"Изменение на другой путь внутри хранилища выполняется операцией 'переключить'.\n"
+"\n"
+"Если вы не уверены в том, что надо сделать, попробуйте сначала операцию переключения."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1637,6 +1641,9 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"Корректный путь в Windows не должен содержать '<>|\"\"?*:' или одно из следующих имён устройств:\n"
+"com1-com9, lpt1-lpt9, prn\n"
+"Читайте об этом в <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">документации</a> от Microsoft."
 
 #. Resource IDs: (79)
 msgid ""
@@ -2380,54 +2387,72 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"Отмена\n"
+"Не фиксируйте в метку."
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"Отмена\n"
+"Не убирать."
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"Отмена\n"
+"Вернитесь и введите номер проблемы."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"Отмена\n"
+"Я введу другой путь/URL."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"Отмена\n"
+"Сохраните текущий URL."
 
 #. Resource IDs: (105)
 msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"Отмена\n"
+"Элементы не импортированы."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"Отмена\n"
+"Элементы не перемещены."
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"Отмена\n"
+"Вы должны добавить папку вручную."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"Отмена\n"
+"оставить текущий формат."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2878,6 +2903,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"Фиксировать только папку\n"
+"Файлы внутри папки не будут зафиксированы."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -2892,6 +2919,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"Фиксировать\n"
+"Фиксировать изменения в место назначения."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2919,6 +2948,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
+"Фиксация неверсированной папки не добавляет рекурсивно её дочерние элементы!\n"
+"Вы можете добавить эти папки рекурсивно при помощи команды 'Добавить...' из контекстного меню."
 
 #. Resource IDs: (170)
 msgid ""
@@ -2935,7 +2966,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "Фиксация в метку"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3496,7 +3527,7 @@ msgstr "Собственные"
 
 #. Resource IDs: (17)
 msgid "Custom depths"
-msgstr ""
+msgstr "Пользовательские глубины"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -3782,7 +3813,7 @@ msgstr "Не показывать контекстное меню для сле�
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr ""
+msgstr "Сделать это для всех выбранных неверсированных папок"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -3856,6 +3887,9 @@ msgid ""
 "%s\n"
 "and go back to this revision?"
 msgstr ""
+"Вы хотите убрать все изменения в\n"
+"%s\n"
+"и вернуться к этой ревизии?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -3864,6 +3898,9 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
+"Вы хотите убрать все изменения в\n"
+"%s,\n"
+"сделанные в этой ревизии?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -3884,7 +3921,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "Не спрашивать меня снова"
 
 #. Resource IDs: (94)
 msgid ""
@@ -3912,7 +3949,7 @@ msgstr "Больше не показывать это сообщение"
 
 #. Resource IDs: (564)
 msgid "Don't tell me again"
-msgstr ""
+msgstr "Не говорить мне снова"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4062,7 +4099,7 @@ msgstr "Пусто"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
-msgstr ""
+msgstr "Включить авто-свойства"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4249,7 +4286,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr ""
+msgstr "Каждая фиксация должна быть привязана к проблеме."
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -4958,7 +4995,7 @@ msgstr "Скрыть присоединённое окно"
 
 #. Resource IDs: (1562)
 msgid "Hide non-mergeable revisions"
-msgstr ""
+msgstr "Скрыть несливаемые ревизии"
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
@@ -5143,7 +5180,7 @@ msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
-msgstr ""
+msgstr "ID:32883:V C +A"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5165,7 +5202,7 @@ msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57634; ''
 msgid "ID:57634:V CS+C"
-msgstr ""
+msgstr "ID:57634:V CS+C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
@@ -5348,6 +5385,9 @@ msgid ""
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
 msgstr ""
+"Если вы используете на этом компьютере другие клиенты SVN помимо "
+"TortoiseSVN, то вы должны также обновить эти клиенты. Иначе эти клиенты не "
+"смогут получить доступ к рабочей копии в новом формате."
 
 #. Resource IDs: (251)
 msgid ""
@@ -5375,7 +5415,7 @@ msgstr "Игнорировать &предков"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
-msgstr ""
+msgstr "Игнорировать все"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5435,7 +5475,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Illegal path"
-msgstr ""
+msgstr "Запрещенный путь"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5516,6 +5556,8 @@ msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
 msgstr ""
+"Импорт\n"
+"Элементы импортированы, для каждого создана отдельная ревизия."
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5701,6 +5743,11 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr ""
+"Похоже, что вы собираетесь перебазировать вашу рабочую копию на другой путь внутри того же хранилища.\n"
+"Из: %1!s!\n"
+"В: %2!s!\n"
+"\n"
+"Неправильное использование перебазирования испортит вашу рабочую копию!"
 
 #. Resource IDs: (88)
 #, c-format
@@ -6147,7 +6194,7 @@ msgstr "Слить все"
 
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
-msgstr ""
+msgstr "Слить изменения в рабочую копию"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -6333,7 +6380,7 @@ msgstr "Другие цвета..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "Добавлено больше одного элемента."
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6395,7 +6442,7 @@ msgstr "Переместить элементы сюда"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr ""
+msgstr "Переместить специальный файл или директорию"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6420,6 +6467,8 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr ""
+"Переместить\n"
+"Элементы перемещены по пути назначения."
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6634,7 +6683,7 @@ msgstr "Нет предложений из словаря"
 
 #. Resource IDs: (564)
 msgid "No to all"
-msgstr ""
+msgstr "Нет для всех"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -6716,6 +6765,8 @@ msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
+"Предупреждение: если вы обновите вашу рабочую копию, то вы не сможете иметь доступ к обновленной рабочей копии SVN клиентами версий до 1.7!\n"
+"Вы действительно хотите обновить эту рабочую копию?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -6835,6 +6886,8 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr ""
+"Один из путей, которые вы пытаетесь переместить, похож на особый путь\n"
+"('branches', 'tags' или 'trunk')."
 
 #. Resource IDs: (63)
 msgid ""
@@ -7301,16 +7354,20 @@ msgid ""
 "Proceed with the entered path\n"
 "I'm aware of the possible problems."
 msgstr ""
+"Продолжить с указанным путем\n"
+"Я в курсе возможных проблем."
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
-msgstr ""
+msgstr "Продолжить со слиянием."
 
 #. Resource IDs: (173)
 msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
 msgstr ""
+"Продолжить без номера проблемы\n"
+"Фиксация не будет привязана к проблеме."
 
 #. Resource IDs: (132)
 #, c-format
@@ -7692,13 +7749,15 @@ msgstr "Предупреждение перебазирования"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "Перебазировать где предполагалось переключение"
 
 #. Resource IDs: (89)
 msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
 msgstr ""
+"Перебазирование\n"
+"Рабочая копия перебазирована на новый URL."
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -7878,7 +7937,7 @@ msgstr "Перемещено"
 
 #. Resource IDs: (564)
 msgid "Report"
-msgstr ""
+msgstr "Отчет"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -7988,7 +8047,7 @@ msgstr "Повторить"
 #. Resource IDs: (286)
 #, c-format
 msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr ""
+msgstr "Слиты обратным слиянием ревизии %s из %s:\n"
 
 #. Resource IDs: (264)
 #, c-format
@@ -8018,6 +8077,8 @@ msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
 msgstr ""
+"Убрать изменения\n"
+"Изменения будут сделаны в рабочей копии."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -8025,7 +8086,7 @@ msgstr "Возвращено"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
-msgstr ""
+msgstr "Отмена изменений"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8566,7 +8627,7 @@ msgstr "Задать акселератор &для:"
 
 #. Resource IDs: (1544)
 msgid "Set explicit revision for these externals:"
-msgstr ""
+msgstr "Установить явную ревизию для этих внешних:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
@@ -8775,7 +8836,7 @@ msgstr "Показать старейшие узлы сверху"
 
 #. Resource IDs: (1229)
 msgid "Show only a&ffected paths"
-msgstr "Показать только з&тронутые пути"
+msgstr "Показать только з&атронутые пути"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -8931,11 +8992,11 @@ msgstr "Размер несжатого кэша"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "Пропустить"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "Пропустить все"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -8947,11 +9008,11 @@ msgstr "Пропущена отсутствующая цель"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr ""
+msgstr "Пропущена нарушенная рабочая копия"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr ""
+msgstr "Пропущено, нет версированного родителя"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -8976,7 +9037,7 @@ msgstr "Исходный URL:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr ""
+msgstr "Разреженное обновление %1!s!, глубина \"%2!s!\""
 
 #. Resource IDs: (196)
 msgid ""
@@ -9137,6 +9198,20 @@ msgid ""
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
+"Подстрочный фильтр:\r\n"
+"* Укажите одну или более строк, разделенных пробелами. Они будут вычисляться слева направо.\r\n"
+"* Поставьте \"-\" перед подстрокой, чтобы исключить ревизии, которые содержат эту подстроку.\r\n"
+"* Поставьте \"+\" перед подстрокой, чтобы включить ревизии, которые до сих пор возможно не совпадают с фильтром.\r\n"
+"* Заключите в кавычки \" строку, которая содержит пробелы и т.п.\r\n"
+"* Поставьте знак ! в начале строки для инверсии условия фильтра.\r\n"
+"\r\n"
+"Примеры:\r\n"
+"мое_имя  2008    : мои фиксации в 2008\r\n"
+".h  -.cpp              : фиксации, которые изменяли заголовки, но не реализации\r\n"
+".doc +.xls 2010  : фиксации 2010 с файлами .doc или .xls в них\r\n"
+"\" \"                        : фиксации с пробелами (например, когда ищем только в путях)\r\n"
+"-\"\"show all\"\"        : фиксации, которые не содержат строку \"show all\"\r\n"
+"!мое_имя  .cpp    : все кроме моих фиксаций в файлы .cpp"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -9366,6 +9441,9 @@ msgid ""
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
 msgstr ""
+"Изменения будут сделаны в вашей рабочей копии с помощью операции обратного "
+"слияния. Хранилище не будет затронуто. Вы можете просмотреть изменения перед"
+" тем как их фиксировать."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -9743,6 +9821,8 @@ msgid ""
 "The path/URL \"%s\" seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"Путь/URL \"%s\" похоже недопустим в Windows!\n"
+"Вы можете оставить его так, как есть, но в этом случае вы можете получить ошибку позже."
 
 #. Resource IDs: (88)
 msgid ""
@@ -9878,7 +9958,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "В указанном месте есть изменения"
 
 #. Resource IDs: (279)
 #, c-format
@@ -9886,6 +9966,8 @@ msgid ""
 "The target working copy \"%s\" has local modifications. It is recommended to"
 " commit those changes first before merging new changes."
 msgstr ""
+"Указанная рабочая копия \"%s\" содержит изменения. Рекомендуется "
+"зафиксировать эти изменения перед слиянием новых изменений."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -10088,6 +10170,8 @@ msgid ""
 "This product includes software from Apache™ Subversion® "
 "(http://subversion.apache.org)"
 msgstr ""
+"Этот продукт содержит программное обеспечение из Apache™ Subversion® "
+"(http://subversion.apache.org)"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -10129,6 +10213,8 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr ""
+"Это обновит вашу рабочую копию до нового формата 1.7 и сделает ее "
+"недоступной для использования клиентами старых версий."
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -10661,6 +10747,8 @@ msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
 msgstr ""
+"Обновить рабочую копию\n"
+"до нового формата 1.7."
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
@@ -11140,6 +11228,9 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
+"Вы собираетесь добавить более одного файла или папки в хранилище.\n"
+"Это невозможно сделать за один шаг, поэтому TortoiseSVN будет добавлять каждый файл/папку\n"
+"индивидуально, создавая новую ревизию для каждого добавленного объекта."
 
 #. Resource IDs: (105)
 msgid ""
@@ -11177,7 +11268,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "Вы не ввели номер проблемы."
 
 #. Resource IDs: (1002)
 #, c-format
@@ -11198,7 +11289,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr ""
+msgstr "Вы выбрали неверсированную папку для фиксации!"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -11305,6 +11396,8 @@ msgid ""
 "Your working copy points to %s which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
+"Ваша рабочая копия указывает на %s, что похоже на метку!\n"
+"Перед фиксацией вы должны сначала переключиться на ответвление или главный ствол."
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
@@ -11896,6 +11989,18 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
+"svn:externals\r\n"
+"Разделенный переводами строк список описателей модуля, каждый из которых состоит из\r\n"
+"ревизии (опционально), адреса URL с необязательной peg-ревизией и относительным путем директории. Например\r\n"
+"http://example.com/repos/zig foo\r\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
+"\r\n"
+"Адреса URL могут быть полными или относительными. Формат для\r\n"
+"относительного ареса URL:\r\n"
+"../ относительный к родительской директории внешнего включения\r\n"
+"^/ относительный к корню хранилища\r\n"
+"// относительный к схеме адреса URL\r\n"
+"/ относительный к имени сервера"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12125,6 +12230,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for imports for users to fill in."
 msgstr ""
+"tsvn:logtemplateimport\r\n"
+"Строка, которая вставляется в поле сообщения журнала в диалогах фиксации изменений.\r\n"
+"Используйте это в качестве шаблона сообщения журнала при заполнении пользователями."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12132,6 +12240,9 @@ msgid ""
 "String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
 "Use this as a log message template for get-locks for users to fill in."
 msgstr ""
+"tsvn:logtemplatelock\r\n"
+"Строка, которая вставляется в поле сообщения журнала в диалогах получения блокировки.\r\n"
+"Используйте это в качестве шаблона сообщения журнала при заполнении пользователями."
 
 #. Resource IDs: (579)
 msgid ""
