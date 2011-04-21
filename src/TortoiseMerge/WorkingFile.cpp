@@ -112,7 +112,14 @@ void CWorkingFile::SetOutOfUse() {
     m_bHaveData=false;
 }
 
-bool CWorkingFile::IsSourceFileChanged() const {
+static bool FileTimesEqual(const FILETIME& first, const FILETIME& second)
+{
+    return first.dwLowDateTime == second.dwLowDateTime &&
+        first.dwHighDateTime == second.dwHighDateTime;
+}
+
+bool CWorkingFile::IsSourceFileChanged() const
+{
     if (!InUse())
     {
         return false;
@@ -122,19 +129,20 @@ bool CWorkingFile::IsSourceFileChanged() const {
     {
         return hFile || m_bHaveData;
     }
+
     LARGE_INTEGER nFilesize;
     nFilesize.QuadPart = -1;
+    GetFileSizeEx(hFile, &nFilesize);
+    if (nFilesize.QuadPart != m_nFilesize.QuadPart)
+        return true;
+
     const FILETIME timeEmpty = {0};
     FILETIME timeCreation = timeEmpty;
     FILETIME timeLastWrite = timeEmpty;
 
-    GetFileSizeEx(hFile, &nFilesize);
     GetFileTime(hFile, &timeCreation, NULL, &timeLastWrite);
-    return !(nFilesize.QuadPart == m_nFilesize.QuadPart
-            && timeCreation.dwLowDateTime == m_timeCreation.dwLowDateTime
-            && timeCreation.dwHighDateTime == m_timeCreation.dwHighDateTime
-            && timeLastWrite.dwLowDateTime == m_timeLastWrite.dwLowDateTime
-            && timeLastWrite.dwHighDateTime == m_timeLastWrite.dwHighDateTime);
+    return !(FileTimesEqual(timeCreation, m_timeCreation)
+            && FileTimesEqual(timeLastWrite, m_timeLastWrite));
 }
 
 void CWorkingFile::StoreFileAttributes() {

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010 - TortoioseSVN
+// Copyright (C) 2003-2008, 2010-2011 - TortoioseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,6 +131,8 @@ protected:
      * the registry settings. Returns TRUE if successful.
      */
     BOOL RemoveSelectedItem();
+    void SetAutoComplete(DWORD flags);
+    void SetStylesAndImageList();
 
 protected:
     CStringArray    m_arEntries;

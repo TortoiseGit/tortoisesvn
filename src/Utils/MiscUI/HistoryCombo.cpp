@@ -252,27 +252,9 @@ void CHistoryCombo::SetURLHistory(bool bURLHistory, bool bAutoComplete)
     m_bURLHistory = bURLHistory;
 
     if ((m_bURLHistory)&&(bAutoComplete))
-    {
-        HWND hwndEdit;
-        // use for ComboEx
-        hwndEdit = (HWND)::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0);
-        if (NULL == hwndEdit)
-        {
-            // Try the unofficial way of getting the edit control CWnd*
-            CWnd* pWnd = this->GetDlgItem(1001);
-            if(pWnd)
-            {
-                hwndEdit = pWnd->GetSafeHwnd();
-            }
-        }
-        if (hwndEdit)
-            SHAutoComplete(hwndEdit, SHACF_URLALL);
-    }
+        SetAutoComplete(SHACF_URLALL);
 
-    SetExtendedStyle(CBES_EX_PATHWORDBREAKPROC|CBES_EX_CASESENSITIVE, CBES_EX_PATHWORDBREAKPROC|CBES_EX_CASESENSITIVE);
-#ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
-    SetImageList(&SYS_IMAGE_LIST());
-#endif
+    SetStylesAndImageList();
 }
 
 void CHistoryCombo::SetPathHistory(BOOL bPathHistory)
@@ -280,23 +262,30 @@ void CHistoryCombo::SetPathHistory(BOOL bPathHistory)
     m_bPathHistory = bPathHistory;
 
     if (m_bPathHistory)
-    {
-        HWND hwndEdit;
-        // use for ComboEx
-        hwndEdit = (HWND)::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0);
-        if (NULL == hwndEdit)
-        {
-            // Try the unofficial way of getting the edit control CWnd*
-            CWnd* pWnd = this->GetDlgItem(1001);
-            if(pWnd)
-            {
-                hwndEdit = pWnd->GetSafeHwnd();
-            }
-        }
-        if (hwndEdit)
-            SHAutoComplete(hwndEdit, SHACF_FILESYSTEM);
-    }
+        SetAutoComplete(SHACF_FILESYSTEM);
 
+    SetStylesAndImageList();
+}
+
+void CHistoryCombo::SetAutoComplete(DWORD flags)
+{
+    // use for ComboEx
+    HWND hwndEdit = (HWND)::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0);
+    if (NULL == hwndEdit)
+    {
+        // Try the unofficial way of getting the edit control CWnd*
+        CWnd* pWnd = this->GetDlgItem(1001);
+        if(pWnd)
+        {
+            hwndEdit = pWnd->GetSafeHwnd();
+        }
+    }
+    if (hwndEdit)
+        SHAutoComplete(hwndEdit, flags);
+}
+
+void CHistoryCombo::SetStylesAndImageList()
+{
     SetExtendedStyle(CBES_EX_PATHWORDBREAKPROC|CBES_EX_CASESENSITIVE, CBES_EX_PATHWORDBREAKPROC|CBES_EX_CASESENSITIVE);
 #ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
     SetImageList(&SYS_IMAGE_LIST());
