@@ -1980,10 +1980,10 @@ int CMainFrame::CheckForReload()
     }
     bLock = true;
     bool bSourceChanged = 
-            m_Data.m_baseFile.IsSourceFileChanged()
-            || m_Data.m_yourFile.IsSourceFileChanged()
-             || m_Data.m_theirFile.IsSourceFileChanged()
-             /*|| m_Data.m_mergedFile.IsSourceFileChanged()*/;
+            m_Data.m_baseFile.HasSourceFileChanged()
+            || m_Data.m_yourFile.HasSourceFileChanged()
+             || m_Data.m_theirFile.HasSourceFileChanged()
+             /*|| m_Data.m_mergedFile.HasSourceFileChanged()*/;
     if (!bSourceChanged)
     {
         bLock = false;

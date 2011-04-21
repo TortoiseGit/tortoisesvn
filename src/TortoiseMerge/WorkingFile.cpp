@@ -112,37 +112,24 @@ void CWorkingFile::SetOutOfUse() {
     m_bHaveData=false;
 }
 
-static bool FileTimesEqual(const FILETIME& first, const FILETIME& second)
-{
-    return first.dwLowDateTime == second.dwLowDateTime &&
-        first.dwHighDateTime == second.dwHighDateTime;
-}
 
-bool CWorkingFile::IsSourceFileChanged() const
+bool CWorkingFile::HasSourceFileChanged() const
 {
     if (!InUse())
     {
         return false;
     }
-    CAutoFile hFile = CreateFile(m_sFilename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
-    if (!hFile || !m_bHaveData)
+    WIN32_FILE_ATTRIBUTE_DATA attribs;
+    if (GetFileAttributesEx(m_sFilename, GetFileExInfoStandard, &attribs))
     {
-        return hFile || m_bHaveData;
+        if ( (m_nFilesize.HighPart != (LONG)attribs.nFileSizeHigh) ||
+             (m_nFilesize.LowPart != attribs.nFileSizeLow) )
+             return true;
+        return ( (CompareFileTime(&m_timeCreation, &attribs.ftCreationTime)!=0) ||
+                 (CompareFileTime(&m_timeLastWrite, &attribs.ftLastWriteTime)!=0) );
     }
 
-    LARGE_INTEGER nFilesize;
-    nFilesize.QuadPart = -1;
-    GetFileSizeEx(hFile, &nFilesize);
-    if (nFilesize.QuadPart != m_nFilesize.QuadPart)
-        return true;
-
-    const FILETIME timeEmpty = {0};
-    FILETIME timeCreation = timeEmpty;
-    FILETIME timeLastWrite = timeEmpty;
-
-    GetFileTime(hFile, &timeCreation, NULL, &timeLastWrite);
-    return !(FileTimesEqual(timeCreation, m_timeCreation)
-            && FileTimesEqual(timeLastWrite, m_timeLastWrite));
+    return false;
 }
 
 void CWorkingFile::StoreFileAttributes() {
@@ -151,11 +138,12 @@ void CWorkingFile::StoreFileAttributes() {
     m_timeCreation = timeEmpty;
     m_timeLastWrite = timeEmpty;
 
-    CAutoFile hFile = CreateFile(m_sFilename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
-    m_bHaveData = hFile;
-    if (hFile)
+    WIN32_FILE_ATTRIBUTE_DATA attribs;
+    if (GetFileAttributesEx(m_sFilename, GetFileExInfoStandard, &attribs))
     {
-        GetFileSizeEx(hFile, &m_nFilesize);
-        GetFileTime(hFile, &m_timeCreation, NULL, &m_timeLastWrite);
+        m_nFilesize.LowPart  = attribs.nFileSizeLow;
+        m_nFilesize.HighPart = attribs.nFileSizeHigh;
+        m_timeCreation       = attribs.ftCreationTime;
+        m_timeLastWrite      = attribs.ftLastWriteTime;
     }
 }
