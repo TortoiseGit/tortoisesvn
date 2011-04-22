@@ -91,9 +91,7 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
 
     int nFirstViewLine = m_Screen2View[m_nSelBlockStart]; // first view line in selection
     int nLastViewLine = m_Screen2View[m_nSelBlockEnd]; // last view line in selection
-    int nNextViewLine = m_Screen2View.back() + 1; // first view line after selected block
-    if (m_nSelBlockEnd + 1 < int(m_Screen2View.size()))
-        nNextViewLine = m_Screen2View[m_nSelBlockEnd + 1];
+    int nNextViewLine = nLastViewLine + 1; // first view line after selected block
 
     CUndo::GetInstance().BeginGrouping(); // start group undo
 
