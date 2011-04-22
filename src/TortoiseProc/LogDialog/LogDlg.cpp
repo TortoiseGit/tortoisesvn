@@ -442,8 +442,6 @@ BOOL CLogDlg::OnInitDialog()
     m_cFilter.SetValidator(this);
     m_cFilter.SetWindowText(m_sFilterText);
 
-    SetSplitterRange();
-
     AdjustControlSize(IDC_SHOWPATHS);
     AdjustControlSize(IDC_CHECK_STOPONCOPY);
     AdjustControlSize(IDC_INCLUDEMERGE);
@@ -486,6 +484,8 @@ BOOL CLogDlg::OnInitDialog()
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("LogDlg"));
 
+    SetSplitterRange();
+
     DWORD yPos1 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1"));
     DWORD yPos2 = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2"));
     RECT rcDlg, rcLogList, rcChgMsg;
@@ -494,7 +494,8 @@ BOOL CLogDlg::OnInitDialog()
     ScreenToClient(&rcLogList);
     m_ChangedFileListCtrl.GetWindowRect(&rcChgMsg);
     ScreenToClient(&rcChgMsg);
-    if (yPos1)
+
+    if (yPos1 && yPos1 < rcDlg.bottom - 185)
     {
         RECT rectSplitter;
         m_wndSplitter1.GetWindowRect(&rectSplitter);
@@ -507,7 +508,7 @@ BOOL CLogDlg::OnInitDialog()
             DoSizeV1(delta);
         }
     }
-    if (yPos2)
+    if (yPos2 && yPos2 < rcDlg.bottom - 153)
     {
         RECT rectSplitter;
         m_wndSplitter2.GetWindowRect(&rectSplitter);
@@ -521,7 +522,7 @@ BOOL CLogDlg::OnInitDialog()
         }
     }
 
-
+    SetSplitterRange();
     if (m_bSelect)
     {
         // the dialog is used to select revisions
@@ -1316,13 +1317,14 @@ void CLogDlg::LogThread()
                         break;
                     }
                 }
+
                 // TODO: uncomment this someday
-                //SVNLogHelper helper;
-                //CString sCopyFrom;
-                //CTSVNPath mergeUrl = CTSVNPath(GetURLFromPath(m_mergePath)+L"/");
-                //SVNRev rev = helper.GetCopyFromRev(mergeUrl, SVNRev::REV_HEAD, sCopyFrom);
-                //if (sCopyFrom.Compare(m_sURL) == 0)
-                //    m_copyfromrev = rev;
+                SVNLogHelper helper;
+                CString sCopyFrom;
+                CTSVNPath mergeUrl = CTSVNPath(GetURLFromPath(m_mergePath)+L"/");
+                SVNRev rev = helper.GetCopyFromRev(mergeUrl, SVNRev::REV_HEAD, sCopyFrom);
+                if (sCopyFrom.Compare(m_sURL) == 0)
+                    m_copyfromrev = rev;
             }
         }
     }
