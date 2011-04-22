@@ -37,25 +37,30 @@ while (fileindex < files.length)
 		if (fs.FileExists(f))
 		{
 			a = fs.OpenTextFile(f, ForReading, false);
-			var currentfound = false;
-			while ((!a.AtEndOfStream)&&(!currentfound))
+			var copyrightFound = false;
+			var yearFound = false;
+			while ((!a.AtEndOfStream)&&(!yearFound))
 			{
 				r =  a.ReadLine();
 				rv = r.match(basere);
 				if (rv != null)
 				{
 					rv = r.match(re);
-					if (rv == null)
-					{
-						if (errormsg != "")
-							errormsg += "\n";
-						errormsg += f;
-						found = false;
-					}
-					currentfound = true;
+					if (rv != null)
+						yearFound = true;
+
+					copyrightFound = true;
 				}
 			}
 			a.Close();
+
+			if (copyrightFound && (!yearFound))
+			{
+				if (errormsg != "")
+					errormsg += "\n";
+				errormsg += f;
+				found = false;
+			}
 		}
     }
     fileindex+=1;
