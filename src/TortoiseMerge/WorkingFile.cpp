@@ -25,7 +25,7 @@
 
 CWorkingFile::CWorkingFile(void)
 {
-    m_bHaveData = false;
+    ClearStoredAttributes();
 }
 
 CWorkingFile::~CWorkingFile(void)
@@ -37,6 +37,7 @@ void CWorkingFile::SetFileName(const CString& newFilename)
     m_sFilename = newFilename;
     m_sFilename.Replace('/', '\\');
     m_sDescriptiveName.Empty();
+    ClearStoredAttributes();
 }
 
 void CWorkingFile::SetDescriptiveName(const CString& newDescName)
@@ -71,11 +72,7 @@ void CWorkingFile::TransferDetailsFrom(CWorkingFile& rightHandFile)
     m_sFilename = rightHandFile.m_sFilename;
     m_sDescriptiveName = rightHandFile.m_sDescriptiveName;
     rightHandFile.SetOutOfUse();
-
-    m_bHaveData = rightHandFile.m_bHaveData; 
-    m_nFilesize = rightHandFile.m_nFilesize;
-    m_timeCreation = rightHandFile.m_timeCreation;
-    m_timeLastWrite = rightHandFile.m_timeLastWrite;
+    ClearStoredAttributes();
 }
 
 CString CWorkingFile::GetWindowName() const
@@ -106,10 +103,11 @@ bool CWorkingFile::Exists() const
     return (!!PathFileExists(m_sFilename));
 }
 
-void CWorkingFile::SetOutOfUse() {
+void CWorkingFile::SetOutOfUse()
+{
     m_sFilename.Empty();
     m_sDescriptiveName.Empty();
-    m_bHaveData=false;
+    ClearStoredAttributes();
 }
 
 
@@ -119,31 +117,33 @@ bool CWorkingFile::HasSourceFileChanged() const
     {
         return false;
     }
-    WIN32_FILE_ATTRIBUTE_DATA attribs;
+    WIN32_FILE_ATTRIBUTE_DATA attribs = {0};
     if (GetFileAttributesEx(m_sFilename, GetFileExInfoStandard, &attribs))
     {
-        if ( (m_nFilesize.HighPart != (LONG)attribs.nFileSizeHigh) ||
-             (m_nFilesize.LowPart != attribs.nFileSizeLow) )
+        if ( (m_attribs.nFileSizeHigh != attribs.nFileSizeHigh) ||
+             (m_attribs.nFileSizeLow != attribs.nFileSizeLow) )
              return true;
-        return ( (CompareFileTime(&m_timeCreation, &attribs.ftCreationTime)!=0) ||
-                 (CompareFileTime(&m_timeLastWrite, &attribs.ftLastWriteTime)!=0) );
+        return ( (CompareFileTime(&m_attribs.ftCreationTime, &attribs.ftCreationTime)!=0) ||
+                 (CompareFileTime(&m_attribs.ftLastWriteTime, &attribs.ftLastWriteTime)!=0) );
     }
 
     return false;
 }
 
-void CWorkingFile::StoreFileAttributes() {
-    m_nFilesize.QuadPart = -1;
-    const FILETIME timeEmpty = {0};
-    m_timeCreation = timeEmpty;
-    m_timeLastWrite = timeEmpty;
+void CWorkingFile::StoreFileAttributes()
+{
+    ClearStoredAttributes();
 
-    WIN32_FILE_ATTRIBUTE_DATA attribs;
+    WIN32_FILE_ATTRIBUTE_DATA attribs = {0};
     if (GetFileAttributesEx(m_sFilename, GetFileExInfoStandard, &attribs))
     {
-        m_nFilesize.LowPart  = attribs.nFileSizeLow;
-        m_nFilesize.HighPart = attribs.nFileSizeHigh;
-        m_timeCreation       = attribs.ftCreationTime;
-        m_timeLastWrite      = attribs.ftLastWriteTime;
+        m_attribs = attribs;
     }
+}
+
+void CWorkingFile::ClearStoredAttributes()
+{
+    static const WIN32_FILE_ATTRIBUTE_DATA attribsEmpty = {0};
+    m_attribs = attribsEmpty;
+
 }

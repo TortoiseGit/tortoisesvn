@@ -49,11 +49,9 @@ public:
     void TransferDetailsFrom(CWorkingFile& rightHandFile);
 
 private:
+    void ClearStoredAttributes();
+
     CString m_sFilename;
     CString m_sDescriptiveName;
-
-    BOOL m_bHaveData;
-    LARGE_INTEGER m_nFilesize;
-    FILETIME m_timeCreation;
-    FILETIME m_timeLastWrite;
+    WIN32_FILE_ATTRIBUTE_DATA m_attribs;
 };
