@@ -53,6 +53,7 @@ bool DropCopyCommand::Execute()
     progress.SetAnimation(IDR_MOVEANI);
     progress.SetTime(true);
     progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
+    UINT msgRet = IDNO;
     for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
         const CTSVNPath& sourcePath = pathList[nPath];
@@ -89,10 +90,37 @@ bool DropCopyCommand::Execute()
         {
             if ((svn.GetSVNError() && svn.GetSVNError()->apr_err == SVN_ERR_ENTRY_EXISTS) && (fullDropPath.Exists()))
             {
-                // target file already exists. Ask user if he wants to replace the file
-                CString sReplace;
-                sReplace.Format(IDS_PROC_REPLACEEXISTING, fullDropPath.GetWinPath());
-                if (MessageBox(GetExplorerHWND(), sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
+                if ((msgRet != IDYESTOALL) && (msgRet != IDNOTOALL))
+                {
+                    // target file already exists. Ask user if he wants to replace the file
+                    CString sReplace;
+                    sReplace.Format(IDS_PROC_REPLACEEXISTING, fullDropPath.GetWinPath());
+                    if (CTaskDialog::IsSupported())
+                    {
+                        CTaskDialog taskdlg(sReplace, 
+                                            CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK2)), 
+                                            L"TortoiseSVN",
+                                            0,
+                                            TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
+                        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
+                        taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK5)));
+                        taskdlg.SetVerificationCheckbox(false);
+                        taskdlg.SetDefaultCommandControl(2);
+                        taskdlg.SetMainIcon(TD_WARNING_ICON);
+                        INT_PTR ret = taskdlg.DoModal(GetExplorerHWND());
+                        if (ret == 1) // replace
+                            msgRet = taskdlg.GetVerificationCheckboxState() ? IDYES : IDYESTOALL;
+                        else
+                            msgRet = taskdlg.GetVerificationCheckboxState() ? IDNO : IDNOTOALL;
+                    }
+                    else
+                    {
+                        msgRet = TSVNMessageBox(GetExplorerHWND(), sReplace, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO|MB_YESTOALL|MB_NOTOALL);
+                    }
+                }
+
+                if ((msgRet == IDYES) || (msgRet == IDYESTOALL))
                 {
                     if (!svn.Remove(CTSVNPathList(fullDropPath), true, false))
                     {
@@ -103,11 +131,13 @@ bool DropCopyCommand::Execute()
                         svn.ShowErrorDialog(GetExplorerHWND(), pathList[nPath]);
                         return FALSE;       //get out of here
                     }
-                    return TRUE;
                 }
             }
-            svn.ShowErrorDialog(GetExplorerHWND(), sourcePath);
-            return FALSE;       //get out of here
+            else
+            {
+                svn.ShowErrorDialog(GetExplorerHWND(), sourcePath);
+                return FALSE;       //get out of here
+            }
         }
         else
             CShellUpdater::Instance().AddPathForUpdate(fullDropPath);
