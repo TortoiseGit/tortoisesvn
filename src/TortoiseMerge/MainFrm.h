@@ -146,6 +146,7 @@ protected:
     void            WriteWindowPlacement(WINDOWPLACEMENT * pwp);
     BOOL            ReadWindowPlacement(WINDOWPLACEMENT * pwp);
     bool            FileSave(bool bCheckResolved=true);
+    void            PatchSave();
     bool            FileSaveAs(bool bCheckResolved=true);
     bool            StringFound(const CString&)const;
     enum SearchDirection{SearchNext=0, SearchPrevious=1};

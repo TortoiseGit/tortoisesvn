@@ -469,7 +469,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, bool /*bContentMods*/, bool bPropM
     }
     if (bAutoPatch)
     {
-        OnFileSave();
+        PatchSave();
     }
     return TRUE;
 }
@@ -1097,6 +1097,20 @@ int CMainFrame::SaveFile(const CString& sFilePath)
 void CMainFrame::OnFileSave()
 {
     FileSave();
+}
+
+void CMainFrame::PatchSave()
+{
+    if (m_Data.m_bPatchRequired)
+    {
+        m_Patch.PatchPath(m_Data.m_mergedFile.GetFilename());
+    }
+    int saveret = SaveFile(m_Data.m_mergedFile.GetFilename());
+    if (saveret==0)
+    {
+        // file was saved with 0 lines, remove it.
+        DeleteFile(m_Data.m_mergedFile.GetFilename());
+    }
 }
 
 bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
