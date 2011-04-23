@@ -36,38 +36,6 @@
     </loadfile>
     <echo file="subversion\svn_private_config.h" message="${configfile}" />
 
-    <copy file="subversion\include\svn_version.h" tofile="subversion\include\svn_version_orig.h" overwrite="true" />
-    <loadfile file="subversion\include\svn_version.h" property="svnverfile">
-      <filterchain>
-        <replacestring from='#define SVN_VER_NUMTAG     "-dev"'         to='#define SVN_VER_NUMTAG     "-dev(r$WCREV$)"' />
-        <replacestring from='#define SVN_VER_REVISION   0'              to='#define SVN_VER_REVISION   $WCREV$' />
-      </filterchain>
-    </loadfile>
-    <echo file="subversion\include\svn_version.h" message="${svnverfile}" />
-    <if test="${not property::exists('SubWCRevFileName')}">
-      <exec program="SubWCRev.exe" failonerror="false">
-        <arg value="." />
-        <arg value="subversion\include\svn_version.h" />
-        <arg value="subversion\include\svn_version.h" />
-      </exec>
-    </if>
-    <if test="${property::exists('SubWCRevFileName')}">
-      <exec program="${SubWCRevFileName}" failonerror="false">
-        <arg value="." />
-        <arg value="subversion\include\svn_version.h" />
-        <arg value="subversion\include\svn_version.h" />
-      </exec>
-    </if>
-    <!-- just in case SubWCRev returned with an error, which happens every time
-         the wc version is increased -->
-    <loadfile file="subversion\include\svn_version.h" property="svnverfile">
-      <filterchain>
-        <replacestring from='#define SVN_VER_NUMTAG     "-dev(r$WCREV$)"' to='#define SVN_VER_NUMTAG     "-dev"' />
-        <replacestring from='#define SVN_VER_REVISION   $WCREV$'          to='#define SVN_VER_REVISION   0' />
-      </filterchain>
-    </loadfile>
-    <echo file="subversion\include\svn_version.h" message="${svnverfile}" />
-
     <exec program="python.exe">
       <arg value="build\transform_sql.py" />
       <arg value="subversion\libsvn_fs_fs\rep-cache-db.sql" />
@@ -382,8 +350,6 @@
         </exec>
       </do>
     </foreach>
-    <copy file="subversion\include\svn_version_orig.h" tofile="subversion\include\svn_version.h" overwrite="true" failonerror="false" />
-    <delete file="subversion\include\svn_version_orig.h" />
   </target>
 
 </project>
