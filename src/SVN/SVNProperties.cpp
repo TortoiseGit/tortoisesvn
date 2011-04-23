@@ -123,6 +123,20 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
 #ifdef _MFC_VER
     if (m_path.IsUrl() || (!m_rev.IsWorking() && !m_rev.IsValid()))
         CHooks::Instance().PreConnect(CTSVNPathList(m_path));
+    if (m_path.IsUrl())
+    {
+        CString msg = message ? message : _T("");
+        msg.Remove(_T('\r'));
+        log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (subpool, sizeof (*baton));
+        baton->message = apr_pstrdup(subpool, CUnicodeUtils::GetUTF8(msg));
+        baton->base_dir = "";
+        baton->message_encoding = NULL;
+        baton->tmpfile_left = NULL;
+        baton->pool = subpool;
+        m_pctx->log_msg_baton3 = baton;
+    }
+#else
+    UNREFERENCED_PARAMETER(message);
 #endif
     if ((!m_bRevProps)&&((depth != svn_depth_empty)&&IsFolderOnlyProperty(name)))
     {
@@ -141,11 +155,22 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
 #endif
                 // a versioned folder, so set the property!
                 SVNPool setPool((apr_pool_t*)subpool);
-                const char* svnPath = path.GetSVNApiPath(setPool);
-                SVNTRACE (
-                    Err = svn_client_propset4 (name.c_str(), pval, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, setPool),
-                    svnPath
-                    )
+                if (m_path.IsUrl())
+                {
+                    const char* svnPath = path.GetSVNApiPath(setPool);
+                    SVNTRACE (
+                        Err = svn_client_propset_remote(name.c_str(), pval, svnPath, false, m_rev, NULL, NULL, NULL, m_pctx, setPool),
+                        svnPath
+                        )
+                }
+                else
+                {
+                    CTSVNPathList target = CTSVNPathList(path);
+                    SVNTRACE (
+                        Err = svn_client_propset_local(name.c_str(), pval, target.MakePathArray(setPool), svn_depth_empty, false, NULL, m_pctx, setPool),
+                        NULL
+                        )
+                }
             }
             status = stat.GetNextFileStatus(path);
 #ifdef _MFC_VER
@@ -157,18 +182,6 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
     else
     {
         const char* svnPath = m_path.GetSVNApiPath(subpool);
-        if (m_path.IsUrl())
-        {
-            CString msg = message ? message : _T("");
-            msg.Remove(_T('\r'));
-            log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (subpool, sizeof (*baton));
-            baton->message = apr_pstrdup(subpool, CUnicodeUtils::GetUTF8(msg));
-            baton->base_dir = "";
-            baton->message_encoding = NULL;
-            baton->tmpfile_left = NULL;
-            baton->pool = subpool;
-            m_pctx->log_msg_baton3 = baton;
-        }
         if (m_bRevProps)
         {
             svn_revnum_t rev_set;
@@ -179,10 +192,21 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         }
         else
         {
-            SVNTRACE (
-                Err = svn_client_propset4 (name.c_str(), pval, svnPath, depth, force, m_rev, NULL, NULL, NULL, NULL, m_pctx, subpool),
-                svnPath
-            )
+            if (m_path.IsUrl())
+            {
+                SVNTRACE (
+                    Err = svn_client_propset_remote(name.c_str(), pval, svnPath, force, m_rev, NULL, NULL, NULL, m_pctx, subpool),
+                    svnPath
+                    )
+            }
+            else
+            {
+                CTSVNPathList target = CTSVNPathList(m_path);
+                SVNTRACE (
+                    Err = svn_client_propset_local(name.c_str(), pval, target.MakePathArray(subpool), depth, false, NULL, m_pctx, subpool),
+                    NULL
+                    )
+            }
         }
     }
     if (Err != NULL)
@@ -244,10 +268,21 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
 #endif
                     SVNPool setPool((apr_pool_t*)subpool);
                     const char* svnPath = path.GetSVNApiPath(setPool);
-                    SVNTRACE (
-                        Err = svn_client_propset4 (name.c_str(), NULL, svnPath, svn_depth_empty, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, setPool),
-                        svnPath
-                        )
+                    if (m_path.IsUrl())
+                    {
+                        SVNTRACE (
+                            Err = svn_client_propset_remote(name.c_str(), NULL, svnPath, false, m_rev, NULL, NULL, NULL, m_pctx, setPool),
+                            svnPath
+                            )
+                    }
+                    else
+                    {
+                        CTSVNPathList target = CTSVNPathList(path);
+                        SVNTRACE (
+                            Err = svn_client_propset_local(name.c_str(), NULL, target.MakePathArray(setPool), svn_depth_empty, false, NULL, m_pctx, setPool),
+                            NULL
+                            )
+                    }
                 }
                 status = stat.GetNextFileStatus(path);
 #ifdef _MFC_VER
@@ -258,10 +293,21 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
         }
         else
         {
-            SVNTRACE (
-                Err = svn_client_propset4 (name.c_str(), NULL, svnPath, depth, false, m_rev, NULL, NULL, NULL, NULL, m_pctx, subpool),
-                svnPath
-                )
+            if (m_path.IsUrl())
+            {
+                SVNTRACE (
+                    Err = svn_client_propset_remote(name.c_str(), NULL, svnPath, true, m_rev, NULL, NULL, NULL, m_pctx, subpool),
+                    svnPath
+                    )
+            }
+            else
+            {
+                CTSVNPathList target = CTSVNPathList(m_path);
+                SVNTRACE (
+                    Err = svn_client_propset_local(name.c_str(), NULL, target.MakePathArray(subpool), depth, false, NULL, m_pctx, subpool),
+                    NULL
+                    )
+            }
         }
     }
 
