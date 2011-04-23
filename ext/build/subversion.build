@@ -58,6 +58,15 @@
         <arg value="subversion\include\svn_version.h" />
       </exec>
     </if>
+    <!-- just in case SubWCRev returned with an error, which happens every time
+         the wc version is increased -->
+    <loadfile file="subversion\include\svn_version.h" property="svnverfile">
+      <filterchain>
+        <replacestring from='#define SVN_VER_NUMTAG     "-dev(r$WCREV$)"' to='#define SVN_VER_NUMTAG     "-dev"' />
+        <replacestring from='#define SVN_VER_REVISION   $WCREV$'          to='#define SVN_VER_REVISION   0' />
+      </filterchain>
+    </loadfile>
+    <echo file="subversion\include\svn_version.h" message="${svnverfile}" />
 
     <exec program="python.exe">
       <arg value="build\transform_sql.py" />
