@@ -636,12 +636,14 @@ bool CMainFrame::LoadViews(int line)
                                         TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
                     CString task3;
                     WCHAR t3[MAX_PATH] = {0};
-                    PathCompactPathEx(t3, betterpatchpath.GetBufferSetLength(MAX_PATH), 50, 0);
+                    CString cp = betterpatchpath.Left(MAX_PATH-1);
+                    PathCompactPathEx(t3, cp, 50, 0);
                     task3.Format(IDS_WARNBETTERPATCHPATHFOUND_TASK3, t3);
                     taskdlg.AddCommandControl(1, task3);
                     CString task4;
                     WCHAR t4[MAX_PATH] = {0};
-                    PathCompactPathEx(t4, m_Data.m_sPatchPath.GetBufferSetLength(MAX_PATH), 50, 0);
+                    cp = m_Data.m_sPatchPath.Left(MAX_PATH-1);
+                    PathCompactPathEx(t4, cp, 50, 0);
                     task4.Format(IDS_WARNBETTERPATCHPATHFOUND_TASK4, t4);
                     taskdlg.AddCommandControl(2, task4);
                     taskdlg.SetDefaultCommandControl(1);
