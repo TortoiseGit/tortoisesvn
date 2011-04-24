@@ -56,6 +56,7 @@ BEGIN_MESSAGE_MAP(CRevertDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
     ON_WM_TIMER()
     ON_BN_CLICKED(IDC_DELUNVERSIONED, &CRevertDlg::OnBnClickedDelunversioned)
+    ON_BN_CLICKED(ID_OK, &CRevertDlg::OnBnClickedOk)
 END_MESSAGE_MAP()
 
 
@@ -68,10 +69,11 @@ BOOL CRevertDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);
     m_aeroControls.SubclassControl(this, IDC_UNVERSIONEDITEMS);
     m_aeroControls.SubclassControl(this, IDC_DELUNVERSIONED);
+    m_aeroControls.SubclassControl(this, ID_OK);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     m_RevertList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS, _T("RevertDlg"));
-    m_RevertList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
+    m_RevertList.SetConfirmButton((CButton*)GetDlgItem(ID_OK));
     m_RevertList.SetSelectButton(&m_SelectAll);
     m_RevertList.SetCancelBool(&m_bCancelled);
     m_RevertList.SetBackgroundImage(IDI_REVERT_BKG);
@@ -85,7 +87,7 @@ BOOL CRevertDlg::OnInitDialog()
     AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
     AddAnchor(IDC_UNVERSIONEDITEMS, BOTTOM_RIGHT);
     AddAnchor(IDC_DELUNVERSIONED, BOTTOM_LEFT);
-    AddAnchor(IDOK, BOTTOM_RIGHT);
+    AddAnchor(ID_OK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     if (GetExplorerHWND())
@@ -113,7 +115,7 @@ UINT CRevertDlg::RevertThread()
     // get the status of all selected file/folders recursively
     // and show the ones which can be reverted to the user
     // in a list control.
-    DialogEnableWindow(IDOK, false);
+    DialogEnableWindow(ID_OK, false);
     m_bCancelled = false;
 
     if (!m_RevertList.GetStatus(m_pathList))
@@ -146,7 +148,7 @@ UINT CRevertDlg::RevertThread()
     return 0;
 }
 
-void CRevertDlg::OnOK()
+void CRevertDlg::OnBnClickedOk()
 {
     if (m_bThreadRunning)
         return;
@@ -180,7 +182,6 @@ void CRevertDlg::OnOK()
         m_RevertList.WriteCheckedNamesToPathList(m_pathList);
     }
     m_selectedPathList.SortByPathname();
-
     CResizableStandAloneDialog::OnOK();
 }
 
@@ -333,3 +334,4 @@ void CRevertDlg::OnBnClickedDelunversioned()
         (LPCTSTR)m_pathList.CreateAsteriskSeparatedString());
     CAppUtils::RunTortoiseProc(sCmd);
 }
+

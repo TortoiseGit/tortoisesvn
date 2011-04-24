@@ -39,7 +39,6 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
-    virtual void OnOK();
     virtual void OnCancel();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     afx_msg void OnBnClickedHelp();
@@ -48,6 +47,7 @@ protected:
     afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnBnClickedDelunversioned();
+    afx_msg void OnBnClickedOk();
 
     DECLARE_MESSAGE_MAP()
 
