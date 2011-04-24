@@ -40,4 +40,5 @@ protected:
     void    AddContextItems(CMenu& popup, DiffStates state);
 
     void    CleanEmptyLines();
+    void    UseBlock(int nStart, int nEnd);
 };

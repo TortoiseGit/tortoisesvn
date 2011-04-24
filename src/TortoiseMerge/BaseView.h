@@ -79,13 +79,13 @@ public: // methods
     void            UpdateCaretPosition(const POINT& pt) {m_ptCaretPos = pt; UpdateCaret();}
     void            EnsureCaretVisible();
     void            UpdateCaret();
-    void            ClearSelection();
     void            RefreshViews();
     void            BuildAllScreen2ViewVector();
     void            BuildScreen2ViewVector();
     void            UpdateViewLineNumbers();
     int             GetLineCount() const;
-    int             Screen2View(int screenLine) const { return m_Screen2View[screenLine]; }
+    int             Screen2View(int screenLine) const { return m_Screen2View[screenLine].nViewLine; }
+    int             GetViewLineForScreen(int screenLine) const { return m_Screen2View[screenLine].nViewLine; }
     int             FindScreenLineForViewLine(int viewLine);
     CString         GetMultiLine(int nLine);
     int             CountMultiLines(int nLine);
@@ -96,12 +96,16 @@ public: // methods
     inline void     SetHidden(BOOL bHidden) {m_bIsHidden = bHidden;}
     inline bool     IsModified() const  {return m_bModified;}
     void            SetModified(bool bModified = true) {m_bModified = bModified;}
-    BOOL            HasSelection() const {return (!((m_nSelBlockEnd < 0)||(m_nSelBlockStart < 0)||(m_nSelBlockStart > m_nSelBlockEnd)));}
-    BOOL            HasTextSelection() {return ((m_ptSelectionStartPos.x != m_ptSelectionEndPos.x)||(m_ptSelectionStartPos.y != m_ptSelectionEndPos.y));}
-    BOOL            GetSelection(int& start, int& end) {start=m_nSelBlockStart; end=m_nSelBlockEnd; return HasSelection();}
     void            SetInlineWordDiff(bool bWord) {m_bInlineWordDiff = bWord;}
     void            SetMarkedWord(const CString& word) {m_sMarkedWord = word; BuildMarkedWordArray();}
     LPCTSTR         GetMarkedWord() {return (LPCTSTR)m_sMarkedWord;}
+
+    // Selection methods; all public methods dealing with selection go here
+    BOOL            GetSelection(int& start, int& end) const;
+    BOOL            GetViewSelection(int& start, int& end) const;
+    void            ClearSelection();
+    BOOL            HasSelection() const {return (!((m_nSelBlockEnd < 0)||(m_nSelBlockStart < 0)||(m_nSelBlockStart > m_nSelBlockEnd)));}
+    BOOL            HasTextSelection() const {return ((m_ptSelectionStartPos.x != m_ptSelectionEndPos.x)||(m_ptSelectionStartPos.y != m_ptSelectionEndPos.y));}
 
     // state classifying methods; note: state may belong to more classes
     static bool     IsStateConflicted(DiffStates state);
@@ -357,6 +361,7 @@ protected:  // variables
     int             m_nDigits;
     bool            m_bInlineWordDiff;
 
+    // Block selection attributes
     int             m_nSelBlockStart;
     int             m_nSelBlockEnd;
 
@@ -364,9 +369,12 @@ protected:  // variables
     bool            m_mouseInMargin;
     HCURSOR         m_margincursor;
 
+    // caret
     bool            m_bCaretHidden;
     POINT           m_ptCaretPos;
     int             m_nCaretGoalPos;
+
+    // Text selection attributes
     POINT           m_ptSelectionStartPos;
     POINT           m_ptSelectionEndPos;
     POINT           m_ptSelectionOrigin;
@@ -413,7 +421,21 @@ protected:  // variables
     static CBaseView * m_pwndRight;     ///< Pointer to the right view. Must be set by the CRightView parent class.
     static CBaseView * m_pwndBottom;    ///< Pointer to the bottom view. Must be set by the CBottomView parent class.
 
-    std::vector<int> m_Screen2View;
+    struct TScreenLineInfo {
+        int nViewLine;
+        int nViewSubLine;
+        /*enum EIcon {
+            ICN_UNKNOWN,
+            ICN_NONE,
+            ICN_SAME,
+            ICN_WHITESPACEDIFF,
+            ICN_ADD,
+            ICN_REMOVED,
+            ICN_MOVED,
+       } eIcon;//*/
+
+    };
+    std::vector<TScreenLineInfo> m_Screen2View;
     std::vector<int> m_MultiLineVector;
 
     static allviewstate m_AllState;

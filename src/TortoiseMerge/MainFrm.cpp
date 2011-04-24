@@ -1518,34 +1518,25 @@ int CMainFrame::FindSearchStart(int nDefault)
     // If however no line is selected, use the default line (which could
     // be the top of the document for a new search, or the line where the
     // search was successful on)
-    int nLine = nDefault;
     int nSelStart = 0;
     int nSelEnd = 0;
     if (m_pwndLeftView)
     {
-        if (m_pwndLeftView->GetSelection(nSelStart, nSelEnd))
-        {
-            if (nSelStart == nSelEnd)
-                nLine = nSelStart;
-        }
+        m_pwndLeftView->GetViewSelection(nSelStart, nSelEnd);
     }
-    else if ((nLine == nDefault)&&(m_pwndRightView))
+    else if (m_pwndRightView)
     {
-        if (m_pwndRightView->GetSelection(nSelStart, nSelEnd))
-        {
-            if (nSelStart == nSelEnd)
-                nLine = nSelStart;
-        }
+        m_pwndRightView->GetViewSelection(nSelStart, nSelEnd);
     }
-    else if ((nLine == nDefault)&&(m_pwndBottomView))
+    else if (m_pwndBottomView)
     {
-        if (m_pwndBottomView->GetSelection(nSelStart, nSelEnd))
-        {
-            if (nSelStart == nSelEnd)
-                nLine = nSelStart;
-        }
+        m_pwndBottomView->GetViewSelection(nSelStart, nSelEnd);
     }
-    return nLine;
+    if (nSelStart == nSelEnd)
+    {
+        return nSelStart;
+    }
+    return nDefault;
 }
 
 void CMainFrame::OnViewLinedown()

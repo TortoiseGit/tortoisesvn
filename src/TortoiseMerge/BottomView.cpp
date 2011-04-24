@@ -84,21 +84,47 @@ void CBottomView::CleanEmptyLines()
     }
 }
 
+void CBottomView::UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastViewLine)
+{
+    CUndo::GetInstance().BeginGrouping(); // start group undo
+
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
+    {
+        viewdata lineData = pwndView->GetViewData(viewLine);
+        lineData.ending = lineendings;
+        lineData.state = ResolveState(lineData.state);
+        SetViewData(viewLine, lineData);
+    }
+
+    CleanEmptyLines();
+    SaveUndoStep();	
+    UpdateViewLineNumbers();
+    SaveUndoStep();
+
+    CUndo::GetInstance().EndGrouping();
+
+    SetModified();
+    BuildAllScreen2ViewVector();
+    RecalcAllVertScrollBars();
+    RefreshViews();
+    SaveUndoStep();
+}
+
 void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
 {
-    if (!HasSelection())
+    int nFirstViewLine; // first view line in selection
+    int nLastViewLine; // last view line in selection
+
+    if (!GetViewSelection(nFirstViewLine, nLastViewLine))
         return;
 
-    int nFirstViewLine = m_Screen2View[m_nSelBlockStart]; // first view line in selection
-    int nLastViewLine = m_Screen2View[m_nSelBlockEnd]; // last view line in selection
     int nNextViewLine = nLastViewLine + 1; // first view line after selected block
 
     CUndo::GetInstance().BeginGrouping(); // start group undo
 
     // use (copy) first block
-    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++)
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        int viewLine = m_Screen2View[i];
         viewdata lineData = pwndFirst->GetViewData(viewLine);
         lineData.ending = lineendings;
         lineData.state = ResolveState(lineData.state);
@@ -111,13 +137,12 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     SaveUndoStep();
 
     // use (insert) last block
-    int viewIndex = nNextViewLine;
-    for (int i = m_nSelBlockStart; i <= m_nSelBlockEnd; i++, viewIndex++)
+    int nViewIndex = nNextViewLine;
+    for (int viewLine = m_nSelBlockStart; viewLine <= m_nSelBlockEnd; viewLine++, nViewIndex++)
     {
-        int viewLine = m_Screen2View[i];
         viewdata lineData = pwndLast->GetViewData(viewLine);
         lineData.state = ResolveState(lineData.state);
-        InsertViewData(viewIndex, lineData);
+        InsertViewData(nViewIndex, lineData);
         if (!IsStateEmpty(pwndLast->GetViewState(viewLine)))
         {
             pwndLast->SetViewState(viewLine, DIFFSTATE_THEIRSADDED); // this is improper but seems not to produce any visible bug
@@ -150,37 +175,15 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     RefreshViews();
 }
 
-// note :differs to UseViewFile in: EOL source and view range
 void CBottomView::UseViewBlock(CBaseView * pwndView)
 {
-    if (!HasSelection())
+    int nFirstViewLine; // first view line in selection
+    int nLastViewLine; // last view line in selection
+
+    if (!GetViewSelection(nFirstViewLine, nLastViewLine))
         return;
 
-    int nFirstViewLine = m_Screen2View[m_nSelBlockStart];
-    int nLastViewLine = m_Screen2View[m_nSelBlockEnd];
-
-    CUndo::GetInstance().BeginGrouping(); // start group undo
-
-    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
-    {
-        viewdata lineData = pwndView->GetViewData(viewLine);
-        lineData.ending = lineendings;
-        lineData.state = ResolveState(lineData.state);
-        SetViewData(viewLine, lineData);
-    }
-
-    CleanEmptyLines();
-    SaveUndoStep();	
-    UpdateViewLineNumbers();
-    SaveUndoStep();
-
-    CUndo::GetInstance().EndGrouping();
-
-    SetModified();
-    BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
-    RefreshViews();
-    SaveUndoStep();
+    return UseBlock(pwndView, nFirstViewLine, nLastViewLine);
 }
 
 void CBottomView::UseViewFile(CBaseView * pwndView)
@@ -188,25 +191,5 @@ void CBottomView::UseViewFile(CBaseView * pwndView)
     int nFirstViewLine = 0;
     int nLastViewLine = GetViewCount()-1;
 
-    CUndo::GetInstance().BeginGrouping(); // start group undo
-
-    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
-    {
-        viewdata lineData = pwndView->GetViewData(viewLine);
-        lineData.state = ResolveState(lineData.state);
-        SetViewData(viewLine, lineData);
-    }
-
-    CleanEmptyLines();
-    SaveUndoStep();	
-    UpdateViewLineNumbers();
-    SaveUndoStep();
-
-    CUndo::GetInstance().EndGrouping();
-
-    SetModified();
-    BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
-    RefreshViews();
-    SaveUndoStep();
+    return UseBlock(pwndView, nFirstViewLine, nLastViewLine);
 }

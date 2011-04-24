@@ -22,7 +22,7 @@
 
 #include "BaseView.h"
 
-void viewstate::AddViewLineFormView(CBaseView *pView, int nLine, int nViewLine, bool bAddEmptyLine)
+void viewstate::AddViewLineFromView(CBaseView *pView, int nLine, int nViewLine, bool bAddEmptyLine)
 {
     if (!pView || !pView->m_pViewData)
         return;
@@ -34,6 +34,18 @@ void viewstate::AddViewLineFormView(CBaseView *pView, int nLine, int nViewLine, 
         addedlines.push_back(nViewLine + 1);
         pView->AddEmptyLine(nLine);
     }
+}
+
+void viewstate::Clear()
+{
+    difflines.clear();
+    linestates.clear();
+    linelines.clear();
+    linesEOL.clear();
+    addedlines.clear();
+
+    removedlines.clear();
+    replacedlines.clear();
 }
 
 CUndo& CUndo::GetInstance()
