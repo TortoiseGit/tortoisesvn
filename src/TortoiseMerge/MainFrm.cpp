@@ -437,7 +437,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, bool /*bContentMods*/, bool bPropM
     }
     else
     {
-        if (!PathFileExists(sFilePath))
+        if ((!PathFileExists(sFilePath))||(PathIsDirectory(sFilePath)))
         {
             m_Data.m_baseFile.SetFileName(CTempFiles::Instance().GetTempFilePathString());
             m_Data.m_baseFile.CreateEmptyFile();
