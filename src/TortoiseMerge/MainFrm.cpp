@@ -1111,6 +1111,7 @@ void CMainFrame::PatchSave()
         // file was saved with 0 lines, remove it.
         DeleteFile(m_Data.m_mergedFile.GetFilename());
     }
+    m_Data.m_mergedFile.StoreFileAttributes();
 }
 
 bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
@@ -1154,6 +1155,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         // error while saving the file
         return false;
     }
+    m_Data.m_mergedFile.StoreFileAttributes();
 
     if ((bDoesNotExist)&&(DWORD(CRegDWORD(_T("Software\\TortoiseMerge\\AutoAdd"), TRUE))))
     {
