@@ -43,6 +43,8 @@ public:
     CMainFrame();
     virtual ~CMainFrame();
 
+    void            ShowDiffBar(bool bShow);
+
 #ifdef _DEBUG
     virtual void    AssertValid() const;
     virtual void    Dump(CDumpContext& dc) const;
@@ -134,6 +136,8 @@ protected:
     afx_msg void    OnUpdateNavigatePrevinlinediff(CCmdUI *pCmdUI);
     afx_msg void    OnViewMovedBlocks();
     afx_msg void    OnUpdateViewMovedBlocks(CCmdUI *pCmdUI);
+    afx_msg void    OnViewWraplonglines();
+    afx_msg void    OnUpdateViewWraplonglines(CCmdUI *pCmdUI);
 
     DECLARE_MESSAGE_MAP()
 protected:
@@ -207,8 +211,4 @@ public:
     bool            m_bCollapsed;
     bool            m_bViewMovedBlocks;
     bool            m_bWrapLines;
-
-    void            ShowDiffBar(bool bShow);
-    afx_msg void OnViewWraplonglines();
-    afx_msg void OnUpdateViewWraplonglines(CCmdUI *pCmdUI);
 };
