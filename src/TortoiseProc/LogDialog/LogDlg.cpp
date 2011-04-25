@@ -495,7 +495,7 @@ BOOL CLogDlg::OnInitDialog()
     m_ChangedFileListCtrl.GetWindowRect(&rcChgMsg);
     ScreenToClient(&rcChgMsg);
 
-    if (yPos1 && yPos1 < rcDlg.bottom - 185)
+    if (yPos1 && ((LONG)yPos1 < rcDlg.bottom - 185))
     {
         RECT rectSplitter;
         m_wndSplitter1.GetWindowRect(&rectSplitter);
@@ -508,7 +508,7 @@ BOOL CLogDlg::OnInitDialog()
             DoSizeV1(delta);
         }
     }
-    if (yPos2 && yPos2 < rcDlg.bottom - 153)
+    if (yPos2 && ((LONG)yPos2 < rcDlg.bottom - 153))
     {
         RECT rectSplitter;
         m_wndSplitter2.GetWindowRect(&rectSplitter);

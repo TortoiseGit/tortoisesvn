@@ -62,5 +62,6 @@ public:
     CTSVNPath   m_wcPath;
     BOOL        m_bNoExternals;
     BOOL        m_bStickyDepth;
+    BOOL        m_bApplyLocalExtMods;
     svn_depth_t m_depth;
 };

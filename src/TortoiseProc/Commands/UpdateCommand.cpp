@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -61,6 +61,10 @@ bool UpdateCommand::Execute()
                 options |= ProgOptStickyDepth;
             else
                 options &= ~ProgOptStickyDepth;
+            if (dlg.m_bApplyLocalExtMods)
+                options |= ProgOptApplyExtMods;
+            else
+                options &= ~ProgOptApplyExtMods;
         }
         else
             return FALSE;
@@ -77,6 +81,8 @@ bool UpdateCommand::Execute()
             options &= ~ProgOptIgnoreExternals;
         if (parser.HasKey(_T("stickydepth")))
             options |= ProgOptStickyDepth;
+        if (parser.HasKey(_T("applylocalexts")))
+            options |= ProgOptApplyExtMods;
     }
 
     CSVNProgressDlg progDlg;

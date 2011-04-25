@@ -28,6 +28,7 @@ CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
     , Revision(_T("HEAD"))
     , m_bNoExternals(FALSE)
     , m_bStickyDepth(TRUE)
+    , m_bApplyLocalExtMods(FALSE)
     , m_pLogDlg(NULL)
 {
 }
@@ -44,6 +45,7 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
     DDX_Check(pDX, IDC_STICKYDEPTH, m_bStickyDepth);
     DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
+    DDX_Check(pDX, IDC_APPLYLOCALEXTMODS, m_bApplyLocalExtMods);
 }
 
 
@@ -58,12 +60,13 @@ BOOL CUpdateDlg::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
 
-    ExtendFrameIntoClientArea(IDC_GROUPMIDDLE);
+    ExtendFrameIntoClientArea(IDC_GROUPMISC);
     m_aeroControls.SubclassOkCancel(this);
 
     AdjustControlSize(IDC_NEWEST);
     AdjustControlSize(IDC_REVISION_N);
     AdjustControlSize(IDC_NOEXTERNALS);
+    AdjustControlSize(IDC_APPLYLOCALEXTMODS);
 
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_WORKING)));
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
