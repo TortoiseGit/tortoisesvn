@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-18 00:42+0000\n"
+"PO-Revision-Date: 2011-04-26 01:05+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2031,6 +2031,10 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr "Käytä paikkatiedosto..."
 
+#. Resource IDs: (1529)
+msgid "Apply local svn:externals modifications"
+msgstr ""
+
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr "Sovella unified diff"
@@ -2418,6 +2422,12 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "The items are not moved."
+msgstr ""
+
+#. Resource IDs: (147)
+msgid ""
+"Cancel\n"
+"The target file is left as is"
 msgstr ""
 
 #. Resource IDs: (173)
@@ -3776,6 +3786,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Älä näytä kontekstivalikkoa seuraaville poluille:"
+
+#. Resource IDs: (147)
+msgid "Do this for all existing items"
+msgstr ""
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -6974,6 +6988,12 @@ msgstr ""
 msgid "Overwrite"
 msgstr "Korvaa"
 
+#. Resource IDs: (147)
+msgid ""
+"Overwrite\n"
+"The target file gets replaced"
+msgstr ""
+
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
 msgstr "&Edellinen ristiriita"
@@ -7068,6 +7088,10 @@ msgstr "Paikataan tiedostoa '%1'"
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
 msgstr "Polku"
+
+#. Resource IDs: (314)
+msgid "Path found that matches the patch better."
+msgstr ""
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -8944,6 +8968,18 @@ msgstr ""
 msgid "Slide"
 msgstr "Liu’utus"
 
+#. Resource IDs: (314)
+msgid ""
+"Some File(s) has been changed outside T-Merge.\n"
+"Do you want to load the changes?"
+msgstr ""
+
+#. Resource IDs: (314)
+msgid ""
+"Some File(s) has been changed outside T-Merge.\n"
+"Would you like to reload and lose your changes?"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
 msgstr "Lajittele toimitusmäärän mukaan"
@@ -9843,6 +9879,10 @@ msgstr ""
 "Kohdepaikannin\n"
 "%s\n"
 "on jo olemassa!"
+
+#. Resource IDs: (147)
+msgid "The target already exists."
+msgstr ""
 
 #. Resource IDs: (147)
 #, c-format
@@ -10835,6 +10875,14 @@ msgstr ""
 msgid "Use th&is text block"
 msgstr "Käytä &tätä tekstilohkoa"
 
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"Use the found path.\n"
+"Apply the patch to\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (594)
 msgid ""
 "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
@@ -10848,6 +10896,14 @@ msgstr ""
 "Esimerkki: 4-7,9,11,15-HEAD\r\n"
 "\r\n"
 "Yhdistääksesi kaikki versiot jätä valinta tyhjäksi."
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"Use the original path.\n"
+"Apply the patch to\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
