@@ -72,7 +72,7 @@ void CWorkingFile::TransferDetailsFrom(CWorkingFile& rightHandFile)
     m_sFilename = rightHandFile.m_sFilename;
     m_sDescriptiveName = rightHandFile.m_sDescriptiveName;
     rightHandFile.SetOutOfUse();
-    ClearStoredAttributes();
+    m_attribs = rightHandFile.m_attribs;
 }
 
 CString CWorkingFile::GetWindowName() const

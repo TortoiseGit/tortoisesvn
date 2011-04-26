@@ -1081,49 +1081,84 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 
     if ((nLineIndex >= 0)&&(m_pViewData)&&(m_pViewData->GetCount()))
     {
-        int viewLine = GetViewLineForScreen(nLineIndex);
-        DiffStates state = m_pViewData->GetState(viewLine);
+        int nViewLine = GetViewLineForScreen(nLineIndex);
         HICON icon = NULL;
-        //TScreenLineInfo::EIcon eIcon = m_Screen2View[nLineIndex].eIcon;
-        switch (state)
+        TScreenedViewLine::EIcon eIcon = m_ScreenedViewLine[nViewLine].eIcon;
+        if (eIcon==TScreenedViewLine::ICN_UNKNOWN)
         {
-        case DIFFSTATE_ADDED:
-        case DIFFSTATE_THEIRSADDED:
-        case DIFFSTATE_YOURSADDED:
-        case DIFFSTATE_IDENTICALADDED:
-        case DIFFSTATE_CONFLICTADDED:
-            icon = m_hAddedIcon;
+            DiffStates state = m_pViewData->GetState(nViewLine);
+            switch (state)
+            {
+            case DIFFSTATE_ADDED:
+            case DIFFSTATE_THEIRSADDED:
+            case DIFFSTATE_YOURSADDED:
+            case DIFFSTATE_IDENTICALADDED:
+            case DIFFSTATE_CONFLICTADDED:
+                eIcon = TScreenedViewLine::ICN_ADD;
+                break;
+            case DIFFSTATE_REMOVED:
+            case DIFFSTATE_THEIRSREMOVED:
+            case DIFFSTATE_YOURSREMOVED:
+            case DIFFSTATE_IDENTICALREMOVED:
+                eIcon = TScreenedViewLine::ICN_REMOVED;
+                break;
+            case DIFFSTATE_CONFLICTED:
+                eIcon = TScreenedViewLine::ICN_CONFLICT;
+                break;
+            case DIFFSTATE_CONFLICTED_IGNORED:
+                eIcon = TScreenedViewLine::ICN_CONFLICTIGNORED;
+                break;
+            case DIFFSTATE_EDITED:
+                eIcon = TScreenedViewLine::ICN_EDIT;
+                break;
+            case DIFFSTATE_MOVED_TO:
+            case DIFFSTATE_MOVED_FROM:
+                eIcon = TScreenedViewLine::ICN_MOVED;
+                break;
+            default:
+                break;
+            }
+            bool bIdentical = false;
+            if ((state != DIFFSTATE_EDITED)&&(IsBlockWhitespaceOnly(nLineIndex, bIdentical)))
+            {
+                if (bIdentical)
+                    eIcon = TScreenedViewLine::ICN_SAME;
+                else
+                    eIcon = TScreenedViewLine::ICN_WHITESPACEDIFF;
+            }
+            m_ScreenedViewLine[nViewLine].eIcon = eIcon;
+        }
+        switch (eIcon)
+        {
+        case TScreenedViewLine::ICN_UNKNOWN:
+        case TScreenedViewLine::ICN_NONE:
+             break;
+        case TScreenedViewLine::ICN_SAME:
+            icon = m_hEqualIcon;
             break;
-        case DIFFSTATE_REMOVED:
-        case DIFFSTATE_THEIRSREMOVED:
-        case DIFFSTATE_YOURSREMOVED:
-        case DIFFSTATE_IDENTICALREMOVED:
-            icon = m_hRemovedIcon;
-            break;
-        case DIFFSTATE_CONFLICTED:
-            icon = m_hConflictedIcon;
-            break;
-        case DIFFSTATE_CONFLICTED_IGNORED:
-            icon = m_hConflictedIgnoredIcon;
-            break;
-        case DIFFSTATE_EDITED:
+        case TScreenedViewLine::ICN_EDIT:
             icon = m_hEditedIcon;
             break;
-        case DIFFSTATE_MOVED_TO:
-        case DIFFSTATE_MOVED_FROM:
+        case TScreenedViewLine::ICN_WHITESPACEDIFF:
+            icon = m_hWhitespaceBlockIcon;
+            break;
+        case TScreenedViewLine::ICN_ADD:
+            icon = m_hAddedIcon;
+            break;
+        case TScreenedViewLine::ICN_CONFLICT:
+            icon = m_hConflictedIcon;
+            break;
+        case TScreenedViewLine::ICN_CONFLICTIGNORED:
+            icon = m_hConflictedIgnoredIcon;
+            break;
+        case TScreenedViewLine::ICN_REMOVED:
+            icon = m_hRemovedIcon;
+            break;
+        case TScreenedViewLine::ICN_MOVED:
             icon = m_hMovedIcon;
             break;
-        default:
-            break;
         }
-        bool bIdentical = false;
-        if ((state != DIFFSTATE_EDITED)&&(IsBlockWhitespaceOnly(nLineIndex, bIdentical)))
-        {
-            if (bIdentical)
-                icon = m_hEqualIcon;
-            else
-                icon = m_hWhitespaceBlockIcon;
-        }
+
 
         if (icon)
         {
@@ -1133,7 +1168,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
         {
             int nSubLine = GetSubLineOffset(nLineIndex);
             bool bIsFirstSubline = (nSubLine == 0) || (nSubLine == -1);
-            if ((nLineIndex == 0) || bIsFirstSubline)
+            if (bIsFirstSubline)
             {
                 int nLineNumber = GetLineNumber(nLineIndex);
                 if (nLineNumber >= 0)
@@ -1157,19 +1192,18 @@ int CBaseView::GetMarginWidth()
 {
     if ((m_bViewLinenumbers)&&(m_pViewData)&&(m_pViewData->GetCount()))
     {
-        int nWidth = GetCharWidth();
         if (m_nDigits <= 0)
         {
             int nLength = (int)m_pViewData->GetCount();
             // find out how many digits are needed to show the highest line number
             int nDigits = 1;
-            while (nLength / 10)
+            while ((nLength = (nLength / 10)) != 0)
             {
                 nDigits++;
-                nLength /= 10;
             }
             m_nDigits = nDigits;
         }
+        int nWidth = GetCharWidth();
         return (MARGINWIDTH + (m_nDigits * nWidth) + 2);
     }
     return MARGINWIDTH;
@@ -2278,7 +2312,7 @@ bool CBaseView::LinesInOneChange(int direction,
     // Checks whether all the adjacent lines starting from the initial line
     // and up to the current line form the single change
 
-	// Do not distinguish between moved and added/removed lines
+    // Do not distinguish between moved and added/removed lines
     if (initialLineState == DIFFSTATE_MOVED_TO)
         initialLineState = DIFFSTATE_ADDED;
     if (initialLineState == DIFFSTATE_MOVED_FROM)
@@ -3212,7 +3246,7 @@ void CBaseView::RemoveLine(int nLineIndex)
 {
     if (m_pViewData == NULL)
         return;
-	m_pViewData->RemoveData(GetViewLineForScreen(nLineIndex));
+    m_pViewData->RemoveData(GetViewLineForScreen(nLineIndex));
     BuildScreen2ViewVector();
     if (m_ptCaretPos.y >= GetLineCount())
         m_ptCaretPos.y = GetLineCount()-1;
@@ -3229,7 +3263,7 @@ void CBaseView::RemoveSelectedText()
     std::vector<LONG> linestoremove;
     for (LONG i = m_ptSelectionStartPos.y; i <= m_ptSelectionEndPos.y; ++i)
     {
-		int viewLine = GetViewLineForScreen(i);
+        int viewLine = GetViewLineForScreen(i);
         if (i == m_ptSelectionStartPos.y)
         {
             CString sLine = GetLineChars(m_ptSelectionStartPos.y);
@@ -3850,11 +3884,38 @@ bool CBaseView::HasPrevInlineDiff()
 void CBaseView::BuildAllScreen2ViewVector()
 {
     if (IsLeftViewGood())
-        m_pwndLeft->m_MultiLineVector.clear();
+    {
+        int nOldSize = m_pwndLeft->m_ScreenedViewLine.size();
+        int nViewCount = max(m_pwndLeft->GetViewCount(), 0);
+        m_pwndLeft->m_ScreenedViewLine.resize(nViewCount);
+        int nCleanSize = min(nViewCount, nOldSize);
+        for (int i = 0; i < nCleanSize; i++)
+        {
+            m_pwndLeft->m_ScreenedViewLine[i].Clear();
+        }
+    }
     if (IsRightViewGood())
-        m_pwndRight->m_MultiLineVector.clear();
+    {
+        int nOldSize = m_pwndRight->m_ScreenedViewLine.size();
+        int nViewCount = max(m_pwndRight->GetViewCount(), 0);
+        m_pwndRight->m_ScreenedViewLine.resize(nViewCount);
+        int nCleanSize = min(nViewCount, nOldSize);
+        for (int i = 0; i < nCleanSize; i++)
+        {
+            m_pwndRight->m_ScreenedViewLine[i].Clear();
+        }
+    }
     if (IsBottomViewGood())
-        m_pwndBottom->m_MultiLineVector.clear();
+    {
+        int nOldSize = m_pwndBottom->m_ScreenedViewLine.size();
+        int nViewCount = max(m_pwndBottom->GetViewCount(), 0);
+        m_pwndBottom->m_ScreenedViewLine.resize(nViewCount);
+        int nCleanSize = min(nViewCount, nOldSize);
+        for (int i = 0; i < nCleanSize; i++)
+        {
+            m_pwndBottom->m_ScreenedViewLine[i].Clear();
+        }
+    }
 
     if (IsLeftViewGood())
         m_pwndLeft->BuildScreen2ViewVector();
@@ -3899,6 +3960,7 @@ void CBaseView::BuildScreen2ViewVector()
                         oLineInfo.nViewSubLine++;
                         m_Screen2View.push_back(oLineInfo);
                     }
+                    oLineInfo.nViewSubLine++;
                     m_nCachedWrappedLine = -1;
                 }
                 m_Screen2View.push_back(oLineInfo);
@@ -3942,20 +4004,35 @@ CString CBaseView::GetMultiLine( int nLine )
 
 int CBaseView::CountMultiLines( int nLine )
 {
-    if (nLine < (int)m_MultiLineVector.size())
-        return m_MultiLineVector[nLine];
+    if (nLine < (int)m_ScreenedViewLine.size())
+    {
+        if (m_ScreenedViewLine[nLine].bSet)
+        {
+            //return m_ScreenedViewLine[nLine].SubLines.size();
+            return m_ScreenedViewLine[nLine].nSubLineCount;
+        }
+    }
+
+    while ((int)m_ScreenedViewLine.size()-1 < nLine)
+    {
+        m_ScreenedViewLine.push_back(TScreenedViewLine());
+    }
 
     CString multiline = GetMultiLine(nLine);
     // count the newlines
     int lines = 1;
     int pos = 0;
+    int prevpos = pos;
+    TScreenedViewLine oScreenedLine;
     while ((pos = multiline.Find('\n', pos)) >= 0)
     {
         pos++;
+        //oScreenedLine.SubLines.push_back(multiline.Mid(pos, pos-prevpos)); // multiline may return vector/list of lines
         lines++;
     }
-    m_MultiLineVector.push_back(lines);
-    ASSERT((int)m_MultiLineVector.size()-1 == nLine);
+    oScreenedLine.nSubLineCount = lines;
+    oScreenedLine.bSet = true;
+    m_ScreenedViewLine[nLine] = oScreenedLine;
 
     return lines;
 }

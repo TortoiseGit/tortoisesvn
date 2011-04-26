@@ -67,8 +67,8 @@ public: // methods
     void            ScrollSide(int delta);
     void            ScrollAllSide(int delta);
     void            ScrollVertical(short delta);
-    void            RecalcAllVertScrollBars(BOOL bPositionOnly = FALSE);
-    void            RecalcAllHorzScrollBars(BOOL bPositionOnly = FALSE);
+    static void     RecalcAllVertScrollBars(BOOL bPositionOnly = FALSE);
+    static void     RecalcAllHorzScrollBars(BOOL bPositionOnly = FALSE);
     void            GoToLine(int nNewLine, BOOL bAll = TRUE);
     void            ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
     void            ScrollAllToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
@@ -80,7 +80,7 @@ public: // methods
     void            EnsureCaretVisible();
     void            UpdateCaret();
     void            RefreshViews();
-    void            BuildAllScreen2ViewVector();
+    static void     BuildAllScreen2ViewVector();
     void            BuildScreen2ViewVector();
     void            UpdateViewLineNumbers();
     int             GetLineCount() const;
@@ -141,7 +141,7 @@ public: // methods
     void            InsertViewData(int index, const viewdata& data);
     void            RemoveViewData(int index);
 
-    const viewdata& GetViewData(int index) {return m_pViewData->GetData(index); }
+    const viewdata& GetViewData(int index) const {return m_pViewData->GetData(index); }
     const CString&  GetViewLine(int index) const {return m_pViewData->GetLine(index); }
     DiffStates      GetViewState(int index) const {return m_pViewData->GetState(index); }
     HIDESTATE       GetViewHideState(int index) {return m_pViewData->GetHideState(index); }
@@ -150,7 +150,7 @@ public: // methods
     int             FindViewLineNumber(int number) {return m_pViewData->FindLineNumber(number); }
     EOL             GetViewLineEnding(int index) const {return m_pViewData->GetLineEnding(index); }
 
-    int             GetViewCount() const {return m_pViewData->GetCount(); }
+    int             GetViewCount() const {return m_pViewData ? m_pViewData->GetCount() : -1; }
 
     void            SetViewData(int index, const viewdata& data);
     void            SetViewState(int index, DiffStates state);
@@ -424,19 +424,38 @@ protected:  // variables
     struct TScreenLineInfo {
         int nViewLine;
         int nViewSubLine;
-        /*enum EIcon {
+    };
+    class TScreenedViewLine {
+     public:
+        TScreenedViewLine() {
+            Clear();
+        }
+
+        void Clear() {
+            bSet = false;
+            eIcon = ICN_UNKNOWN;
+        }
+
+        bool bSet;
+        //std::vector<CString> SubLines;
+        int nSubLineCount;
+
+        enum EIcon {
             ICN_UNKNOWN,
             ICN_NONE,
+            ICN_EDIT,
             ICN_SAME,
             ICN_WHITESPACEDIFF,
             ICN_ADD,
             ICN_REMOVED,
             ICN_MOVED,
-       } eIcon;//*/
+            ICN_CONFLICT,
+            ICN_CONFLICTIGNORED,
+       } eIcon;
 
     };
     std::vector<TScreenLineInfo> m_Screen2View;
-    std::vector<int> m_MultiLineVector;
+    std::vector<TScreenedViewLine> m_ScreenedViewLine; ///< cached data for screening
 
     static allviewstate m_AllState;
     viewstate *     m_pState;
