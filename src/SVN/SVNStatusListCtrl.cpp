@@ -2267,9 +2267,41 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
         if ((svn.GetSVNError()->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
             (svn.GetSVNError()->apr_err == SVN_ERR_CLIENT_MODIFIED))
         {
-            CString msg;
-            msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
-            if (TSVNMessageBox(m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO|MB_ICONQUESTION) == IDYES)
+            bool bForce = false;
+            if (CTaskDialog::IsSupported())
+            {
+                CString msg;
+                if (itemsToRemove.GetCount() == 1)
+                    msg.Format(IDS_PROC_REMOVEFORCE_TASK1, (LPCTSTR)svn.GetLastErrorMessage(), (LPCTSTR)itemsToRemove[0].GetFileOrDirectoryName());
+                else
+                    msg.Format(IDS_PROC_REMOVEFORCE_TASK1_1, (LPCTSTR)svn.GetLastErrorMessage(), itemsToRemove.GetCount());
+                CTaskDialog taskdlg(msg, 
+                                    CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)), 
+                                    L"TortoiseSVN",
+                                    0,
+                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
+                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
+                taskdlg.SetDefaultCommandControl(2);
+                taskdlg.SetMainIcon(TD_ERROR_ICON);
+                bForce = (taskdlg.DoModal(m_hWnd) == 1);
+            }
+            else
+            {
+                CString msg;
+                msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
+                if ((itemsToRemove.GetCount() == 1) && (itemsToRemove[0].IsDirectory()))
+                {
+                    msg.Format(IDS_PROC_REMOVEFORCEFOLDER, (LPCTSTR)itemsToRemove[0].GetFileOrDirectoryName());
+                }
+                else
+                {
+                    msg.Format(IDS_PROC_REMOVEFORCE, (LPCTSTR)svn.GetLastErrorMessage());
+                }
+                bForce = (TSVNMessageBox(m_hWnd, msg, _T("TortoiseSVN"), MB_YESNO|MB_ICONQUESTION) == IDYES);
+            }
+
+            if (bForce)
             {
                 if (!svn.Remove(itemsToRemove, TRUE, bKeepLocal))
                 {
@@ -2408,7 +2440,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
 {
     // If at least one item is not in the status "added"
     // we ask for a confirmation
-    BOOL bConfirm = FALSE;
+    bool bConfirm = FALSE;
     CAutoReadLock locker(m_guard);
     POSITION pos = GetFirstSelectedItemPosition();
     int index;
@@ -2422,16 +2454,43 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
         }
     }
 
-    CString str;
-    str.Format(IDS_PROC_WARNREVERT,GetSelectedCount());
+    CTSVNPathList targetList;
+    FillListOfSelectedItemPaths(targetList);
+    if (targetList.GetCount() == 0)
+        targetList.AddPath(filepath);
 
-    if (!bConfirm || ::MessageBox(this->m_hWnd, str, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES)
+    bool bDoRevert = false;
+    if (bConfirm)
     {
-        CTSVNPathList targetList;
-        FillListOfSelectedItemPaths(targetList);
-        if (targetList.GetCount() == 0)
-            targetList.AddPath(filepath);
+        if (CTaskDialog::IsSupported())
+        {
+            CString sInfo;
+            if (targetList.GetCount() == 1)
+                sInfo.FormatMessage(IDS_PROC_WARNREVERT_TASK1, (LPCTSTR)targetList[0].GetFileOrDirectoryName());
+            else
+                sInfo.FormatMessage(IDS_PROC_WARNREVERT, targetList.GetCount());
+            CTaskDialog taskdlg(sInfo, 
+                                CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK2)), 
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK4)));
+            taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK5)));
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            bDoRevert = (taskdlg.DoModal(m_hWnd) == 1);
+        }
+        else
+        {
+            CString str;
+            str.Format(IDS_PROC_WARNREVERT,GetSelectedCount());
+            bDoRevert = (::MessageBox(this->m_hWnd, str, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION)==IDYES);
+        }
+    }
 
+    if (bDoRevert)
+    {
         // make sure that the list is reverse sorted, so that
         // children are removed before any parents
         targetList.SortByPathname(true);
