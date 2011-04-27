@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="ssh, howto, subversion" />
+<meta name="description" content="how to set up SSH with Subversion/TortoiseSVN" />
+<meta http-equiv="content-language" content="en" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>TortoiseSVN - SSH HowTo</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+    <!--#include FILE="menu.html" -->
+	<div id="page">
+		<div id="banner">&nbsp;</div>
+		<div id="content">
+        
+			<div class="post">
+				<h1 class="title"><a href="#">SSH HowTo</a></h1>
+                $ADSENSE_TOP$
+				<div class="entry">
+                    <p>(revision 0.5 by (c) Marc Logemann)</p>
+                    <p>Because many new subversion users run into problems when 
+                    attempting to use subversion with SSH, I compiled a HowTo 
+                    for that issue. Perhaps I will expand this HowTo later on 
+                    and submit it to the Subversion or TortoiseSVN docs.</p>
+                    <p>-------------------------<br />
+                    Our Scenario:<br />
+                    -------------------------<br />
+
+                    Server: Linux or unix like system<br />
+                    Client: Windows 2000/XP (or variant)</p>
+                    <p>-----------------------------------------<br />
+                    Installing subversion (server)<br />
+                    -----------------------------------------<br />
+                    I won't go into details here, because this topic is 
+                    covered in great length in the official Subversion 
+                    documentation. But one thing I want to point out 
+                    nevertheless. If you compile subversion from source and 
+                    don't provide any argument to ./configure, Subversion 
+                    creates a "bin" directory under /usr/local and places its 
+                    binaries there. This is no problem as long as you run 
+                    subversion as daemon, but if you want to use tunnelling 
+                    mode with SSH, you have to be aware that the user logging 
+                    into via SSH can execute the svnserve program and some 
+                    other binaries. For this reason, either place /usr/local/bin 
+                    into the PATH variable or create symlinks of your binaries 
+                    to the /usr/sbin directory or any other directory which is 
+                    commonly in the PATH.</p>
+                    <p>To make sure that everything is OK. Login in with SSH 
+                    and the target user to the system later on and type: 
+                    "which svnserve". This command should tell you if svnserve 
+                    is reachable.<br />
+                    To check if svnserve is available through ssh, type: 
+                    "ssh  svnserve"</p>
+                    <p>Furthermore this document assumes that you already have 
+                    a subversion repository created with "svnadmin create". 
+                    Please pay attention to the ACL of the repository in order 
+                    to reduce possible problems. Check that each user coming 
+                    in via SSH has appropriate rights to work with the 
+                    repository.</p>
+
+                    <p>Sometimes your system has 'mesg y' put into the global 
+                    bashrc file. This will make connections with TortoisePlink 
+                    fail, since that line will make SSH throw out an error 
+                    "stdin: is not a tty". You must remove that line from 
+                    your bashrc file.<br />
+                    ------------------------------------------------<br />
+                    OpenSSH and certificates (server)<br />
+                    ------------------------------------------------<br />
+                    Again I wont go into details about OpenSSH installation as 
+                    this is covered elsewhere better. But on most systems, 
+                    enabling SSH is just a matter of installing an RPM. If you 
+                    rent a pre-installed linux server from a hosting company, 
+                    SSH is most likely already installed. To be sure everything 
+                    is in place, type: "ps xa | grep sshd" and watch out for 
+                    SSH jobs.</p>
+                    <p>Assuming OpenSSH is installed, one of the most important 
+                    steps is to create a keypair for authentication. There are 
+                    two possible ways of creating the keys. The first way is 
+                    to create the keys with puttygen (a program of the putty 
+                    family), upload the public key to your server and use the 
+                    private key with putty. Because of some problems with this 
+                    approach, I prefer the other way. This way creates the 
+                    keypair with the OpenSSH tool ssh-keygen, downloads the 
+                    private key to your client and converts the private key 
+                    to a putty-style private key.</p>
+                    <p>Lets do this step by step:</p>
+                    <p>- login to your server<br />
+                    - type: ssh-keygen -b 1024 -t dsa -N passphrase -f mykey<br />
+
+                    - change "passphrase" to a secret keyword only you know<br />
+                    - type: ls -l mykey*</p>
+                    <p>We just created a SSH2 DSA key with 1024 bit keyphrase. 
+                    You will see two files. One named "mykey" and one named 
+                    "mykey.pub". As you might guess, the .pub file is the 
+                    public key file, the other is the private one. Next create 
+                    a user on the server with a home directory:</p>
+                    <p>- type: useradd -m myuser</p>
+                    <p>You will have a directory under /home with the name 
+                    "myuser", create a new directory in "myuser" called ".ssh":</p>
+                    <p>- type: cd /home/myuser<br />
+                    - type: mkdir .ssh</p>
+                    <p>Then go to the directory where you created your keys 
+                    and copy the public key to the .ssh userfolder with the 
+                    following command:</p>
+                    <p>- type: cp mykey.pub /home/myuser/.ssh/authorized_keys</p>
+
+                    <p>or if you already have some keys in place</p>
+                    <p>- type: cat mykey.pub &gt;&gt; /home/myuser/.ssh/authorized_keys</p>
+                    <p>Please pay attention to the filename, it really must 
+                    be "authorized_keys". In some old OpenSSH implementations, 
+                    it was "authorized_keys2". Now download the private key 
+                    file to your client computer. Remember, the file was "mykey"</p>
+                    <p>------------------------------------------------------------<br />
+                    SSH key generation and connection check (client)<br />
+                    ------------------------------------------------------------<br />
+                    Grab the tools we need for doing SSH on windows on this site:<br />
+                    http://www.chiark.greenend.org.uk/~sgtatham/putty/</p>
+
+                    <p>Just go to the download section and get "Putty", "Plink", 
+                    "Pageant" and "Puttygen"</p>
+                    <p>In order to use the private key we get from the server, 
+                    we have to convert it to a putty format. This is because 
+                    the private key file format is not specified by some 
+                    standard body. To do this we simple open "puttygen" and 
+                    open the "conversions" menu and chose "Import Key". Then 
+                    browse to your file "mykey" which you got from the server 
+                    enter your provided passphrase upon creation of the key. 
+                    Finally click "Save private key" and save the file as 
+                    "mykey.PPK" somewhere on disk.</p>
+                    <p>Now we are ready to use this key for the first time to 
+                    test the connection. In order to do this, we open the 
+                    program "putty" and create a new session like this:</p>
+                    <p>Session-&gt;HostName: Hostname or IP Adress of your server<br />
+                    Session-&gt;Protocol: SSH<br />
+                    Session-&gt;Saved Sessions: MyConnection<br />
+                    SSH-&gt;Prefered SSH Protocol version: 2<br />
+
+                    SSH-&gt;Auth-&gt;Private Key file for auth: $PATH$\mykey.PKK 
+                    (replace $PATH$ with real path to the mykey.PKK file)</p>
+                    <p>Then go back to Session tab and hit "save" button. You 
+                    will see "MyConnection" in the list of available connections.</p>
+                    <p>Next click "open" and you should see a telnet login 
+                    prompt. Use "myuser" as username (without double quotes 
+                    of course) and if everything is OK, you don't have to 
+                    provide a password to your system. If the system still 
+                    requires a password, something went wrong. See Debugging 
+                    Section of this HowTo.</p>
+                    <p>-----------------------------------------------<br />
+                    Testing SSH with TortoiseSVN (client)<br />
+                    -----------------------------------------------<br />
+                    After installing TortoiseSVN right click on some folder 
+                    inside your Windows Explorer. You will see a menu item 
+                    called TortoiseSVN-&gt;RepoBrowser. After opening the 
+                    browser you have to enter a URL like this:</p>
+
+                    <p>svn+ssh://myuser@MyConnection/usr/local/repos</p>
+                    <p>Lets talk briefly about the URL (if you need more infos, 
+                    check the subversion docs). The Schema name is "svn+ssh", 
+                    this tells Tortoise how to handle the requests to the 
+                    server. After the double slashed, you can provide the 
+                    user which is trying to connect to the server, in our case 
+                    this is "myuser". After the "@", we supply our putty 
+                    session name. This session name contains all details like 
+                    where to find the private key and the servers IP or DNS. 
+                    Last we have to provide the full path to the repository. 
+                    Its assumed that a subversion repository resides at 
+                    /usr/local/repos</p>
+                    <p>If you submit the URL, you will see an opened tree on 
+                    the next screen until the node "repos". Yet, there has not 
+                    been made any connection, because the tree representation 
+                    comes from the supplied URL. When you hit the "+" button 
+                    in front of "repos", the connection will be established 
+                    and you will see the "+" sign disappearing if you don't 
+                    have anything in the repository or you will see your 
+                    already imported projects and files.</p>
+                    <p>Right now, you should have a running SSH Tunnel in 
+                    conjunction with TortoiseSVN.</p>
+                    <p>-----------------------------------------------<br />
+                    Configuration Variants (pageant)<br />
+                    -----------------------------------------------<br />
+                    Now I will continue to show some configuration variants, 
+                    that can be helpful during everyday work.</p>
+                    <p>One way to simplify the URL in TortoiseSVN is to set 
+                    the user inside the putty session. For this you have to 
+                    load your already defined session "MyConnection" in putty 
+                    make the following entry:</p>
+
+                    <p>connection-&gt;Auto Login username: myuser</p>
+                    <p>Then save your putty session as before and try the 
+                    following URL inside Tortoise:<br />
+                    svn+ssh://MyConnection/usr/local/repos</p>
+                    <p>This time we only provide the putty session "MyConnection" 
+                    to the SSH client TortoiseSVN uses (TortoisePlink.exe). 
+                    This client is capable of checking the session for all 
+                    necessary details like loginuser or server ip.</p>
+                    <p>Some people like using pageant for storing all their 
+                    keys and in fact each howto explains that it is important 
+                    to place your keys there. In fact, because a putty session 
+                    is capable of storing a key, you don't need pageant for 
+                    normal business. But imagine you want to store keys for 
+                    several users, in that case, you would have to edit the 
+                    putty session over and over again, depending on the user 
+                    you are trying to connect with. For this situation pageant 
+                    makes perfectly sense, because when putty, plink, 
+                    TortoisePlink or any other putty-based tool is trying to 
+                    connect to a SSH server, it checks all private keys that 
+                    pageant carries to initiate the connection.</p>
+                    <p>For this task, simply start pageant and add a key. It 
+                    should be the same private key you defined in the putty 
+                    session above. If you use pageant for private keys storage, 
+                    you can delete the "SSH-&gt;Auth-&gt;Private Key file for 
+                    auth" section inside your putty session. You can add more 
+                    keys for other systems or other users of course. If you 
+                    don't want to repeat this procedure after every reboot of 
+                    your client, you should place the pageant in autostart 
+                    group of your windows installation. You can append the 
+                    keys with complete paths as command line arguments to 
+                    pageant.exe</p>
+                    <p>The last way to connect to a SSH server is by just 
+                    using this URL inside TortoiseSVN:</p>
+
+                    <p>svn+ssh://myuser@100.101.102.103/usr/local/repos</p>
+                    <p>As you can see, we dont use a saved putty session but 
+                    an IP address as connection target. We also supply the 
+                    user, but you might ask how the private key file will be 
+                    found. Because TortoisePlink.exe (the standard SSH client 
+                    for TortoiseSVN) is a modified version of the plink tool 
+                    from the putty suite, also TortoiseSVN looks for a running 
+                    pageant and will try all the keys stored in pageant.</p>
+                    <p>----------------------------------------<br />
+                    Feedback<br />
+                    -------------------<br />
+
+                    For comments or corrections on this howto, please use the 
+                    <a href="community.html">TortoiseSVN mailinglist</a></p>
+                    <p>This is a copy of the original at: 
+                    <a href="http://www.logemann.org/day/archives/000099.html">http://www.logemann.org/day/archives/000099.html</a><br />
+                    Thanks to Marc!</p>
+				</div>
+			</div>
+		</div>
+		<!-- end #content -->
+        
+        <!--#include FILE="sidebar.html" -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+    <!--#include FILE="footer.html" -->
+</div>
+</body>
+</html>
