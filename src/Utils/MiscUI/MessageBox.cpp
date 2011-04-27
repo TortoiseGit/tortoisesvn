@@ -18,7 +18,7 @@ UINT TSVNMessageBox( HWND hWnd, UINT nMessage, UINT nCaption, UINT uType, LPCTST
     return TSVNMessageBox(hWnd, (LPCTSTR)CString(MAKEINTRESOURCE(nMessage)), (LPCTSTR)CString(MAKEINTRESOURCE(nCaption)), uType, sHelpPath);
 }
 
-UINT TSVNMessageBox( HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int nDef, LPCTSTR lpButton1, LPCTSTR lpButton2 /*= NULL*/, LPCTSTR lpButton3 /*= NULL*/ )
+UINT TSVNMessageBox( HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int nDef, LPCTSTR lpButton1, LPCTSTR lpButton2, LPCTSTR lpButton3 /*= NULL*/ )
 {
     CString sButtonTexts;
     if (lpButton1)
