@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-26 01:05+0000\n"
+"PO-Revision-Date: 2011-04-28 07:17+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -780,7 +780,7 @@ msgstr "&Ignorer %d elementer ved navn"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "Ignorer &opphav"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1623,6 +1623,10 @@ msgid ""
 "\n"
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
+"Omplassering kreves bare hvis stien til et depot er endret.\n"
+"Endring til en annen sti innen et depot gjøres med en bytt-operasjon.\n"
+"\n"
+"Hvis du ikke er sikker på hva du skal gjøre, prøv en bytt-operasjon først."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -2383,60 +2387,80 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"Avbryt\n"
+"Ikke send inn til et merke."
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"Avbryt\n"
+"Ikke tilbakestill."
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"Avbryt\n"
+"Gå tilbake og legg inn et saksnummer."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"Avbryt\n"
+"Angi en annen sti/URL."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"Avbryt\n"
+"Behold nåværende URL."
 
 #. Resource IDs: (105)
 msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"Avbryt\n"
+"Elementene blir ikke importert."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"Avbryt\n"
+"Elementene blir ikke flyttet."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr ""
+"Avbryt\n"
+"Målfilen forblir uendret"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"Avbryt\n"
+"Du må legge til mappen manuelt."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"Avbryt\n"
+"Behold nåværende format."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2881,6 +2905,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"Send inn bare mappen\n"
+"Filer inne i mappen blir ikke sendt inn."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -2895,6 +2921,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"Send inn\n"
+"Send inn endringene i målet"
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2937,7 +2965,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "Sender inn til et merke"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3781,11 +3809,11 @@ msgstr "Ikke vis sammenhengsmenyen for følgende stier:"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr ""
+msgstr "Gjør dette for alle eksisterende elementer"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr ""
+msgstr "Gjør dette for alle valgte ikke-versjonerte mapper"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -3814,7 +3842,7 @@ msgid ""
 "%s\n"
 "which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
-"Er du sikker på at du vil tilbakestille endringene i\n"
+"Vil du virkelig tilbakestille endringene i\n"
 "%s\n"
 "som ble gjort i denne revisjonen? Disse endringene vil tilbakestilles ved revers-fletting av revisjonen inn i arbeidskopien."
 
@@ -3857,6 +3885,9 @@ msgid ""
 "%s\n"
 "and go back to this revision?"
 msgstr ""
+"Vil du tilbakestille alle endringer i\n"
+"%s\n"
+"og gå tilbake til denne revisjonen?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -3865,6 +3896,9 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
+"Vil du tilbakestille alle endringene i\n"
+"%s\n"
+"som ble gjort i denne revisjonen?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -3884,7 +3918,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "Ikke spør meg igjen"
 
 #. Resource IDs: (94)
 msgid ""
@@ -3912,7 +3946,7 @@ msgstr "Ikke vis denne beskjeden igjen"
 
 #. Resource IDs: (564)
 msgid "Don't tell me again"
-msgstr ""
+msgstr "Ikke fortell meg igjen"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4249,7 +4283,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr ""
+msgstr "Alle innsendinger bør knyttes til en sak"
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -5372,7 +5406,7 @@ msgstr "Ignorer &opphav"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
-msgstr ""
+msgstr "Ignorer alle"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5432,7 +5466,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Illegal path"
-msgstr ""
+msgstr "Ugyldig sti"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5593,7 +5627,7 @@ msgstr "Ugyldig Valuta."
 
 #. Resource IDs: (102)
 msgid "Invalid data object dropped!"
-msgstr "Ugyldig dataobjekt utlatt!"
+msgstr "Ugyldig dataobjekt sluppet!"
 
 #. Resource IDs: (82)
 msgid ""
@@ -5698,6 +5732,11 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr ""
+"Det ser ut som du prøver å omplassere arbeidskopien til en annen sti i det samme depotet.\n"
+"Fra: %1!s!\n"
+"Til: %2!s!\n"
+"\n"
+"Uriktig bruk av omplassering vil ødelegge arbeidskopien din!"
 
 #. Resource IDs: (88)
 #, c-format
@@ -6327,7 +6366,7 @@ msgstr "Flere farger..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "Mer enn ett element sluppet."
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6629,7 +6668,7 @@ msgstr "Ingen forslag fra synonymordbok"
 
 #. Resource IDs: (564)
 msgid "No to all"
-msgstr ""
+msgstr "Nei til alle"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -6979,6 +7018,8 @@ msgid ""
 "Overwrite\n"
 "The target file gets replaced"
 msgstr ""
+"Overskriv\n"
+"Målfilen blir erstattet"
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -7306,7 +7347,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
-msgstr ""
+msgstr "Fortsett med flettingen"
 
 #. Resource IDs: (173)
 msgid ""
@@ -7690,13 +7731,15 @@ msgstr "Omplassering Advarsel"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "Omplassering der bytting kan være tiltenkt"
 
 #. Resource IDs: (89)
 msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
 msgstr ""
+"Omplasser\n"
+"Arbeidskopien omplasseres til den nye URLen."
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -8940,7 +8983,7 @@ msgstr "Hoppet over manglende mål"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr ""
+msgstr "Hoppet over hindret arbeidskopi"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -9859,7 +9902,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "Målet finnes allerede"
 
 #. Resource IDs: (147)
 #, c-format
@@ -9882,12 +9925,14 @@ msgid ""
 "is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"Målmappen 'n%s'ner ikke tom!\n"
+"Målmappen\n"
+"%s\n"
+"er ikke tom!\n"
 "Er du sikker på at du vil sjekke ut/eksportere til den mappen?"
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "Målet har lokale endringer"
 
 #. Resource IDs: (279)
 #, c-format
@@ -9895,6 +9940,8 @@ msgid ""
 "The target working copy \"%s\" has local modifications. It is recommended to"
 " commit those changes first before merging new changes."
 msgstr ""
+"Arbeidskopien \"%s\" har lokale endringer! Du bør sende inn disse endringene"
+" før du fletter inn nye endringer."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -11159,6 +11206,9 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
+"Du slapp mer enn en fil eller mappe for å legge til i depotet.\n"
+"Dette kan ikke gjøres i ett steg, så TortoiseSVN vil legge til hver fil/mappe\n"
+"for seg og lage en ny revisjon for hvert nytt element."
 
 #. Resource IDs: (105)
 msgid ""
@@ -11168,7 +11218,7 @@ msgid ""
 "\n"
 "Do you still want to do this?"
 msgstr ""
-"Du trakk inn mer enn en fil eller mappe for å legge til i depot.\n"
+"Du slapp mer enn en fil eller mappe for å legge til i depotet.\n"
 "Dette kan ikke gjøres i ett steg, så TortoiseSVN vil legge til hver fil/mappe\n"
 "for seg og lage en ny revisjon for hvert element.\n"
 "\n"
@@ -11196,7 +11246,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "Du har ikke angitt et saksnummer"
 
 #. Resource IDs: (1002)
 #, c-format

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-26 01:05+0000\n"
+"PO-Revision-Date: 2011-04-28 07:13+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1980,10 +1980,10 @@ msgstr ""
 "von Konflikten zwischen Dateien\r\n"
 "\r\n"
 "Sie können folgende Parameter für das Programm angeben:\r\n"
-"%base : Die Originaldatei ohne Ihre Änderungen\r\n"
-"%mine : Die Datei aus der Arbeitskopie mit Ihren eigenen Änderungen\r\n"
+"%merged : Die Ergebnisdatei mit den zusammengeführten Änderungen\r\n"
 "%theirs : Die Datei mit den Änderungen aus dem Projektarchiv\r\n"
-"%merged : Die Ergebnisdatei mit den zusammengeführten Änderungen"
+"%mine : Die Datei aus der Arbeitskopie mit Ihren eigenen Änderungen\r\n"
+"%base : Die Originaldatei ohne Ihre Änderungen"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2038,7 +2038,7 @@ msgstr "Patch anwenden..."
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
-msgstr ""
+msgstr "Lokale svn:externals Änderungen anwenden"
 
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
@@ -2451,6 +2451,8 @@ msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr ""
+"Abbrechen\n"
+"Die Zieldatei bleibt unverändert"
 
 #. Resource IDs: (173)
 msgid ""
@@ -3827,7 +3829,7 @@ msgstr "Für die folgenden Pfade kein Kontextmenü anzeigen:"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr ""
+msgstr "Für alle vorhandenen Objekte durchführen"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -7075,6 +7077,8 @@ msgid ""
 "Overwrite\n"
 "The target file gets replaced"
 msgstr ""
+"Überschreiben\n"
+"Die Zieldatei wird ersetzt"
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -7173,7 +7177,7 @@ msgstr "Pfad"
 
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
-msgstr ""
+msgstr "Pfad gefunden, der besser zum Patch passt."
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -9078,12 +9082,16 @@ msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
+"Einige Dateien wurden außerhalb von TortoiseMerge geändert.\n"
+"Wollen Sie die Änderungen laden?"
 
 #. Resource IDs: (314)
 msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
+"Einige Dateien wurden außerhalb von TortoiseMerge geändert.\n"
+"Wollen Sie die Dateien neu laden und ihre Änderungen verlieren?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -10017,7 +10025,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "Das Ziel ist bereits vorhanden."
 
 #. Resource IDs: (147)
 #, c-format
@@ -11039,6 +11047,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Den gefundenen Pfad verwenden.\n"
+"Den Patch anwenden auf\n"
+"%s"
 
 #. Resource IDs: (594)
 msgid ""
@@ -11061,6 +11072,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Den ursprünglichen Pfad verwenden.\n"
+"Den Patch anwenden auf\n"
+"%s"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"

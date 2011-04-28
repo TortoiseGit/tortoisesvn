@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-26 01:04+0000\n"
+"PO-Revision-Date: 2011-04-27 06:55+0000\n"
 "Last-Translator: pluwen <pluwen@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2354,24 +2354,32 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"取消\n"
+"不提交到 Tag 分支。"
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"取消\n"
+"不还原。"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"取消\n"
+"返回并输入一个错误代码。"
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"取消\n"
+"我将输入一个不同的路径/URL。"
 
 #. Resource IDs: (89)
 msgid ""
@@ -2384,6 +2392,8 @@ msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"取消\n"
+"未导入这些项目。"
 
 #. Resource IDs: (107)
 msgid ""
@@ -2402,12 +2412,16 @@ msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"取消\n"
+"你必须手动添加文件夹。"
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"取消\n"
+"保留当前格式。"
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2838,6 +2852,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"仅提交该文件夹\n"
+"该文件夹中的文件不会被提交。"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -2852,6 +2868,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"提交\n"
+"提交更改到目标位置。"
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2894,7 +2912,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "正在提交到 Tag"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3828,7 +3846,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "不再询问我"
 
 #. Resource IDs: (94)
 msgid ""
@@ -3856,7 +3874,7 @@ msgstr "不再显示此信息"
 
 #. Resource IDs: (564)
 msgid "Don't tell me again"
-msgstr ""
+msgstr "不再告诉我"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -5289,7 +5307,7 @@ msgstr "忽略根源(&A)"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
-msgstr ""
+msgstr "忽略所有"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -6302,7 +6320,7 @@ msgstr "移动项到此"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr ""
+msgstr "移动特定文件或目录"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6536,7 +6554,7 @@ msgstr "没有建议辞典"
 
 #. Resource IDs: (564)
 msgid "No to all"
-msgstr ""
+msgstr "全部选否"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7194,7 +7212,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
-msgstr ""
+msgstr "继续进行合并。"
 
 #. Resource IDs: (173)
 msgid ""
@@ -7585,6 +7603,8 @@ msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
 msgstr ""
+"迁移\n"
+"该工作副本已被迁移至新 URL。"
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -7764,7 +7784,7 @@ msgstr "替换"
 
 #. Resource IDs: (564)
 msgid "Report"
-msgstr ""
+msgstr "报告"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -7903,6 +7923,8 @@ msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
 msgstr ""
+"还原\n"
+"更改将应用到工作副本"
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -7910,7 +7932,7 @@ msgstr "已还原"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
-msgstr ""
+msgstr "还原更改"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8805,11 +8827,11 @@ msgstr "没有压缩时缓存的大小"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "跳过"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "全部跳过"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -9738,7 +9760,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "目标在本地被修改"
 
 #. Resource IDs: (279)
 #, c-format
@@ -10483,6 +10505,8 @@ msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
 msgstr ""
+"更新工作副本\n"
+"到新的 1.7 格式。"
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
@@ -11008,7 +11032,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "你没有输入错误代码。"
 
 #. Resource IDs: (1002)
 #, c-format
