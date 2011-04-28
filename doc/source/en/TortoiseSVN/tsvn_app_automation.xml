@@ -545,17 +545,22 @@ Don't touch these lines:
                                 without showing the graph window, pass <option>/output:path</option> 
                                 with the path to the output file. The output file must have
                                 an extension that the revision graph can actually
-                                export to. These are: .svg, .wmf, .png, .jpg,
-                                .bmp and .gif.
+                                export to. These are:
+                                <literal>.svg</literal>,
+                                <literal>.wmf</literal>,
+                                <literal>.png</literal>,
+                                <literal>.jpg</literal>,
+                                <literal>.bmp</literal> and 
+                                <literal>.gif</literal>.
                                 </para>
                                 <para>
                                 Since the revision graph has many options that
                                 affect how it is shown, you can also set the options
                                 to use when creating the output image file.
                                 Pass these options with <option>/options:XXXX</option>,
-                                where XXXX is a decimal value. The best way to
+                                where <literal>XXXX</literal> is a decimal value. The best way to
                                 find the required options is to start the revision
-                                graph the usual way, set all UI options and
+                                graph the usual way, set all user-interface options and
                                 close the graph. Then the options you need to
                                 pass on the command line can be read from
                                 the registry <literal>HKCU\Software\TortoiseSVN\RevisionGraphOptions</literal>.
