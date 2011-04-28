@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="ssh, howto, subversion" />
+<meta name="description" content="how to set up SSH with Subversion/TortoiseSVN" />
+<meta http-equiv="content-language" content="en" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>TortoiseSVN - Securing Svnserve with SASL</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+    <!--#include FILE="menu.html" -->
+	<div id="page">
+		<div id="banner">&nbsp;</div>
+		<div id="content">
+        
+			<div class="post">
+				<h1 class="title"><a href="#">Securing Svnserve with SASL</a></h1>
+                $ADSENSE_TOP$
+				<div class="entry">
+
+            <h3>What is SASL?</h3>
+            <p>
+                The Cyrus Simple Authentication and Security Layer is
+                open source software written by Carnegie Mellon University.
+                It adds generic authentication and encryption capabilities
+                to any network protocol, and as of Subversion 1.5 and later,
+                both the svnserve server and TortoiseSVN client know how to
+                make use of this library.
+            </p>
+            <p>
+                For a more complete discussion of the options available, you should
+                look at the Subversion book in the section
+                <a href="http://svnbook.red-bean.com/en/1.5/svn.serverconfig.svnserve.html#svn.serverconfig.svnserve.sasl">Using svnserve with SASL</a>.
+                If you are just looking for a simple way to set up secure
+                authentication and encryption on a Windows server, so that your
+                repository can be accessed safely over the big bad Internet,
+                read on.
+            </p>
+            <h3>SASL Authentication</h3>
+            <p>
+                To activate specific SASL mechanisms on the server, you'll
+                need to do three things. First, create a <code>[sasl]</code>
+                section in your repository's <cite>svnserve.conf</cite>
+                file, with this key-value pair:
+            </p>
+<pre>
+use-sasl = true
+</pre>
+            <p>
+                Second, create a file called <cite>svn.conf</cite> in a
+                convenient location - typically in the directory where subversion
+                is installed.
+            </p>
+            <p>
+                Thirdly, create two new registry entries to tell SASL where to
+                find things. Create a registry key named
+            </p>
+<pre>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Carnegie Mellon\Project Cyrus\SASL Library]
+</pre>
+            <p>
+                and place two new string values inside it:
+                <code>SearchPath</code> set to the directory path containing
+                the <cite>sasl*.dll</cite> plug-ins (normally in the
+                Subversion install directory), and <code>ConfFile</code> set
+                to the directory containing the <cite>svn.conf</cite> file.
+                If you used the CollabNet installer, these registry keys will already
+                have been created for you.
+            </p>
+            <p>
+                Edit the <cite>svn.conf</cite> file to contain the following:
+            </p>
+<pre>
+pwcheck_method: auxprop
+auxprop_plugin: sasldb
+mech_list: DIGEST-MD5
+sasldb_path: C:\TortoiseSVN\sasldb
+</pre>
+            <p>
+                The last line shows the location of the authentication database,
+                which is a file called <cite>sasldb</cite>.
+                This could go anywhere, but a convenient choice is the repository
+                parent path. Make sure that the svnserve service has read access
+                to this file.
+            </p>
+            <p>
+                If svnserve was already running, you will need to restart it to
+                ensure it reads the updated configuration.
+            </p>
+            <p>
+                Now that everything is set up, all you need to do is create some
+                users and passwords. To do this you need the
+                <code>saslpasswd2</code> program. If you used the CollabNet
+                installer, that program will be in the install directory.
+                Use a command something like this:
+            </p>
+<pre>
+saslpasswd2 -c -f C:\TortoiseSVN\sasldb -u realm username
+</pre>
+            <p>
+                The <code>-f</code> switch gives the database location,
+                <code>realm</code> must be the same as the value you
+                defined in your repository's <cite>svnserve.conf</cite>
+                file, and username is exactly what you expect it to be.
+                Note that the realm is not allowed to contain space characters.
+            </p>
+            <p>
+                You can list the usernames stored in the database using the
+                <code>sasldblistusers2</code> program.
+            </p>
+            <h3>SASL Encryption</h3>
+            <p>
+                To enable or disable different levels of encryption, you can
+                set two values in your repository's
+                <cite>svnserve.conf</cite> file:
+            </p>
+<pre>
+[sasl]
+use-sasl = true
+min-encryption = 128
+max-encryption = 256
+</pre>
+            <p>
+                The <code>min-encryption</code> and
+                <code>max-encryption</code> variables control the
+                level of encryption demanded by the server. To disable
+                encryption completely, set both values to 0. To enable
+                simple checksumming of data (i.e., prevent tampering and
+                guarantee data integrity without encryption), set both
+                values to 1. If you wish to allow (but not require) encryption,
+                set the minimum value to 0, and the maximum value to some
+                bit-length. To require encryption unconditionally, set both
+                values to numbers greater than 1. In our previous example,
+                we require clients to do at least 128-bit encryption,
+                but no more than 256-bit encryption.
+            </p>
+
+				</div>
+			</div>
+		</div>
+		<!-- end #content -->
+        <!--#include FILE="sidebar.html" -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+    <!--#include FILE="footer.html" -->
+</div>
+</body>
+</html>
