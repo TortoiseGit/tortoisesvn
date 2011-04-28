@@ -881,11 +881,14 @@ public:
      */
     LogCache::CLogCachePool* GetLogCachePool();
 
+    void SetCancelBool(bool * bCancel) { m_pbCancel = bCancel; }
+
 protected:
     apr_pool_t *                parentpool;     ///< the main memory pool
     apr_pool_t *                pool;           ///< 'root' memory pool
     SVNPrompt                   m_prompt;
     svn_revnum_t                m_commitRev;    ///< revision of the last commit/add/mkdir
+    bool *                      m_pbCancel;
 
     static LCID                 s_locale;
     static bool                 s_useSystemLocale;

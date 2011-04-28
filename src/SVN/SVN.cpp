@@ -103,6 +103,7 @@ SVN::SVN(bool suppressUI)
     , logCachePool()
     , m_commitRev(-1)
     , m_prompt(suppressUI)
+    , m_pbCancel(nullptr)
 {
     parentpool = svn_pool_create(NULL);
     svn_ra_initialize(pool);
@@ -210,7 +211,7 @@ CString SVN::CheckConfigFile()
 #pragma warning(push)
 #pragma warning(disable: 4100)  // unreferenced formal parameter
 
-BOOL SVN::Cancel() {return FALSE;}
+BOOL SVN::Cancel() { if (m_pbCancel) {return *m_pbCancel; } return FALSE;}
 
 BOOL SVN::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
                 svn_node_kind_t kind, const CString& mime_type,
