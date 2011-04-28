@@ -35,14 +35,48 @@
         hard as it sounds, and will give you better reliability and probably speed too.
     </para>
     <para>
-        The next sections are a step-by-step guide on how you can set up such
-        a server on a Windows machine. Of course you can also set up a
-        server on a Linux machine, but that is beyond the scope of this guide.
         More detailed information on the Subversion server options, and how
         to choose the best architecture for your situation, can be
         found in the Subversion book under
         <ulink url="http://svnbook.red-bean.com/en/1.5/svn.serverconfig.html">
             <citetitle>Server Configuration</citetitle>
         </ulink>.
+    </para>
+    <para>
+        In the early days of Subversion, setting up a server required a good understanding
+        of server configuration and in previous versions of this manual we included
+        detailed descriptions of how to set up a server. Since then things have become
+        easier as there are now several pre-packaged server installers available which
+        guide you through the setup and configuration process. These links are for
+        some of the installers we know about:
+        <itemizedlist>
+            <listitem>
+                <ulink url="http://www.visualsvn.com/server/">
+                    <citetitle>VisualSVN</citetitle>
+                </ulink>
+            </listitem>
+            <listitem>
+                <ulink url="http://www.open.collab.net/products/subversion/whatsnew.html">
+                    <citetitle>CollabNet</citetitle>
+                </ulink>
+            </listitem>
+            <listitem>
+                <ulink url="http://www.ubersvn.com/">
+                    <citetitle>UberSVN</citetitle>
+                </ulink>
+            </listitem>
+        </itemizedlist>
+        You can always find the latest links on the
+        <ulink url="http://subversion.apache.org/getting.html">
+            <citetitle>Subversion</citetitle>
+        </ulink>
+        website.
+    </para>
+    <para>
+        You can find further How To guides on the
+        <ulink url="http://tortoisesvn.net/usefultips.html">
+            <citetitle>TortoiseSVN</citetitle>
+        </ulink>
+        website.
     </para>
 </sect1>
