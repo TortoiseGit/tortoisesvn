@@ -1463,8 +1463,9 @@ void CLogDlg::StatusThread()
 
         svn_revnum_t minrev, maxrev;
         bool switched, modified, sparse;
-        SVN().GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse);
-        if (maxrev)
+        SVN svn;
+        svn.SetCancelBool(&m_bCancelled);
+        if ((svn.GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse))&&(maxrev))
         {
             m_wcRev = maxrev;
             // force a redraw of the log list control to make sure the wc rev is
@@ -1790,7 +1791,7 @@ void CLogDlg::OnOK()
 
     m_bCancelled = true;
     if (   !netScheduler.WaitForEmptyQueueOrTimeout(0)
-        || !diskScheduler.WaitForEmptyQueueOrTimeout(0))
+        || !diskScheduler.WaitForEmptyQueueOrTimeout(1000))
     {
         return;
     }
@@ -1800,7 +1801,7 @@ void CLogDlg::OnOK()
 
     NotifyTargetOnOk();
 
-	UpdateData();
+    UpdateData();
     if (m_bSaveStrict)
         m_regLastStrict = m_bStrict;
     CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowAllEntry"));
