@@ -25,7 +25,7 @@
  * \ingroup TortoiseProc
  * Upgrades the working copy to the new format
  */
-class WcUpgradeCommand : public Command
+class WcUpgradeCommand : public Command, SVN
 {
 public:
     /**
@@ -55,21 +55,18 @@ public:
         }
         if (bUpgrade)
         {
-            SVN svn;
-            CProgressDlg progress;
             CString tmp;
             progress.SetTitle(IDS_PROC_UPGRADE);
             progress.SetShowProgressBar(false);
             for (int i = 0; i < pathList.GetCount(); ++i)
             {
-                tmp.FormatMessage(IDS_PROC_UPGRADE_INFO, pathList[i].GetWinPath());
-                progress.SetLine(1, tmp);
-                progress.SetLine(2, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
+                progress.FormatPathLine(2, IDS_PROC_UPGRADE_INFO, pathList[i].GetWinPath());
+                progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
                 progress.ShowModeless(GetExplorerHWND());
-                if (!svn.Upgrade(pathList[i]))
+                if (!Upgrade(pathList[i]))
                 {
                     progress.Stop();
-                    svn.ShowErrorDialog(GetExplorerHWND());
+                    ShowErrorDialog(GetExplorerHWND());
                     return false;
                 }
             }
@@ -78,6 +75,23 @@ public:
         }
         return false;
     }
+
+    virtual BOOL Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
+        svn_node_kind_t kind, const CString& mime_type,
+        svn_wc_notify_state_t content_state,
+        svn_wc_notify_state_t prop_state, svn_revnum_t rev,
+        const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
+        const CString& changelistname,
+        const CString& propertyName,
+        svn_merge_range_t * range,
+        svn_error_t * err, apr_pool_t * pool)
+    {
+        progress.FormatPathLine(2, IDS_PROC_UPGRADE_INFO, path.GetWinPath());
+        return TRUE;
+    }
+
+private:
+    CProgressDlg progress;
 };
 
 
