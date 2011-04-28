@@ -598,6 +598,7 @@ bool CMainFrame::LoadViews(int line)
         m_Data.m_mergedFile.SetOutOfUse();
         return false;
     }
+    m_pwndLeftView->BuildAllScreen2ViewVector();
     m_pwndLeftView->DocumentUpdated();
     m_pwndRightView->DocumentUpdated();
     m_pwndBottomView->DocumentUpdated();
@@ -771,6 +772,7 @@ bool CMainFrame::LoadViews(int line)
     {
         m_Data.m_mergedFile.SetFileName(m_Data.m_yourFile.GetFilename());
     }
+    m_pwndLeftView->BuildAllScreen2ViewVector();
     m_pwndLeftView->DocumentUpdated();
     m_pwndRightView->DocumentUpdated();
     m_pwndBottomView->DocumentUpdated();

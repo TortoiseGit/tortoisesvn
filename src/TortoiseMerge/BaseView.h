@@ -84,8 +84,7 @@ public: // methods
     void            BuildScreen2ViewVector();
     void            UpdateViewLineNumbers();
     int             GetLineCount() const;
-    int             Screen2View(int screenLine) const { return m_Screen2View[screenLine].nViewLine; }
-    int             GetViewLineForScreen(int screenLine) const { return m_Screen2View[screenLine].nViewLine; }
+    int             GetViewLineForScreen(int screenLine) const { return m_Screen2View.GetViewLineForScreen(screenLine); }
     int             FindScreenLineForViewLine(int viewLine);
     CString         GetMultiLine(int nLine);
     int             CountMultiLines(int nLine);
@@ -421,26 +420,30 @@ protected:  // variables
     static CBaseView * m_pwndRight;     ///< Pointer to the right view. Must be set by the CRightView parent class.
     static CBaseView * m_pwndBottom;    ///< Pointer to the bottom view. Must be set by the CBottomView parent class.
 
-    struct TScreenLineInfo {
+    struct TScreenLineInfo 
+    {
         int nViewLine;
         int nViewSubLine;
     };
-    class TScreenedViewLine {
+    class TScreenedViewLine 
+    {
      public:
-        TScreenedViewLine() {
+        TScreenedViewLine()
+        {
             Clear();
         }
 
-        void Clear() {
+        void Clear()
+        {
             bSet = false;
             eIcon = ICN_UNKNOWN;
         }
 
         bool bSet;
-        //std::vector<CString> SubLines;
         int nSubLineCount;
 
-        enum EIcon {
+        enum EIcon
+        {
             ICN_UNKNOWN,
             ICN_NONE,
             ICN_EDIT,
@@ -454,13 +457,13 @@ protected:  // variables
        } eIcon;
 
     };
-    std::vector<TScreenLineInfo> m_Screen2View;
     std::vector<TScreenedViewLine> m_ScreenedViewLine; ///< cached data for screening
 
     static allviewstate m_AllState;
     viewstate *     m_pState;
 
-    enum PopupCommands {
+    enum PopupCommands
+    {
         // 2-pane view commands
         POPUPCOMMAND_USELEFTBLOCK = 1,      // 0 means the context menu was dismissed
         POPUPCOMMAND_USELEFTFILE,
@@ -474,4 +477,27 @@ protected:  // variables
         POPUPCOMMAND_USETHEIRBLOCK,
         POPUPCOMMAND_USETHEIRFILE,
     };
+
+    class Screen2View
+    {
+    public:
+        Screen2View()
+            : m_pViewData(NULL)
+        {}
+
+        int             GetViewLineForScreen(int screenLine);
+        int             GetSubLineOffset(int screenLine);
+        TScreenLineInfo GetScreenLineInfo(int screenLine);
+        int             FindScreenLineForViewLine(int viewLine);
+        void            Rebuild(CViewData * pViewData) { m_pViewData = pViewData; }
+        int             size();
+        void            push_back(TScreenLineInfo val);
+    private:
+        void            DoRebuild();
+        CViewData *                     m_pViewData;
+        std::vector<TScreenLineInfo>    m_Screen2View;
+    };
+
+    static Screen2View m_Screen2View;
+
 };

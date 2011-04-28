@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010 - TortoiseSVN
+// Copyright (C) 2006-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -95,7 +95,7 @@ void CLocatorBar::DocumentUpdated(CBaseView* view, CDWordArray& indents, CDWordA
         state = viewData->GetState(0);
     for (int i=0; i<linesInView; i++)
     {
-        const DiffStates lineState = viewData->GetState(view->Screen2View(i));
+        const DiffStates lineState = viewData->GetState(view->GetViewLineForScreen(i));
         if (state == lineState)
         {
             identcount++;

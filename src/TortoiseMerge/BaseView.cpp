@@ -60,6 +60,7 @@ CLocatorBar * CBaseView::m_pwndLocator = NULL;
 CLineDiffBar * CBaseView::m_pwndLineDiffBar = NULL;
 CMFCStatusBar * CBaseView::m_pwndStatusBar = NULL;
 CMainFrame * CBaseView::m_pMainFrame = NULL;
+CBaseView::Screen2View CBaseView::m_Screen2View;
 
 allviewstate CBaseView::m_AllState;
 
@@ -206,7 +207,6 @@ void CBaseView::DocumentUpdated()
     m_bOtherDiffChecked = false;
     m_nDigits = 0;
     m_nMouseLine = -1;
-    m_Screen2View.clear();
     m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
     m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
     m_bShowInlineDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
@@ -219,7 +219,6 @@ void CBaseView::DocumentUpdated()
     m_nSelBlockStart = -1;
     m_nSelBlockEnd = -1;
     ClearCurrentSelection();
-    BuildAllScreen2ViewVector();
     RecalcVertScrollBar();
     RecalcHorzScrollBar();
     UpdateStatusBar();
@@ -539,8 +538,7 @@ int CBaseView::GetLineCount() const
 
 int CBaseView::GetSubLineOffset(int index)
 {
-    int subLine = m_Screen2View[index].nViewSubLine;
-    return subLine;
+    return m_Screen2View.GetSubLineOffset(index);
 }
 
 CString CBaseView::GetLineChars(int index)
@@ -3378,7 +3376,7 @@ void CBaseView::PasteText()
     CViewData rightState;
     int selStartPos = m_ptSelectionStartPos.y;
     int viewLine = GetViewLineForScreen(selStartPos);
-    TScreenLineInfo oScreenLine = m_Screen2View[selStartPos];
+    TScreenLineInfo oScreenLine = m_Screen2View.GetScreenLineInfo(selStartPos);
     for (int i = selStartPos; i < (selStartPos + pasteLines); ++i)
     {
         if (m_pwndLeft)
@@ -3389,7 +3387,7 @@ void CBaseView::PasteText()
                 m_pwndLeft->m_Screen2View.push_back(oScreenLine);
             }
         }
-        if (m_pwndRight)
+        else if (m_pwndRight)
         {
             if (!m_pwndRight->HasCaret())
             {
@@ -3885,7 +3883,7 @@ void CBaseView::BuildAllScreen2ViewVector()
 {
     if (IsLeftViewGood())
     {
-        int nOldSize = m_pwndLeft->m_ScreenedViewLine.size();
+        int nOldSize = (int)m_pwndLeft->m_ScreenedViewLine.size();
         int nViewCount = max(m_pwndLeft->GetViewCount(), 0);
         m_pwndLeft->m_ScreenedViewLine.resize(nViewCount);
         int nCleanSize = min(nViewCount, nOldSize);
@@ -3896,7 +3894,7 @@ void CBaseView::BuildAllScreen2ViewVector()
     }
     if (IsRightViewGood())
     {
-        int nOldSize = m_pwndRight->m_ScreenedViewLine.size();
+        int nOldSize = (int)m_pwndRight->m_ScreenedViewLine.size();
         int nViewCount = max(m_pwndRight->GetViewCount(), 0);
         m_pwndRight->m_ScreenedViewLine.resize(nViewCount);
         int nCleanSize = min(nViewCount, nOldSize);
@@ -3907,7 +3905,7 @@ void CBaseView::BuildAllScreen2ViewVector()
     }
     if (IsBottomViewGood())
     {
-        int nOldSize = m_pwndBottom->m_ScreenedViewLine.size();
+        int nOldSize = (int)m_pwndBottom->m_ScreenedViewLine.size();
         int nViewCount = max(m_pwndBottom->GetViewCount(), 0);
         m_pwndBottom->m_ScreenedViewLine.resize(nViewCount);
         int nCleanSize = min(nViewCount, nOldSize);
@@ -3919,56 +3917,15 @@ void CBaseView::BuildAllScreen2ViewVector()
 
     if (IsLeftViewGood())
         m_pwndLeft->BuildScreen2ViewVector();
-    if (IsRightViewGood())
+    else if (IsRightViewGood())
         m_pwndRight->BuildScreen2ViewVector();
-    if (IsBottomViewGood())
+    else if (IsBottomViewGood())
         m_pwndBottom->BuildScreen2ViewVector();
 }
 
 void CBaseView::BuildScreen2ViewVector()
 {
-    m_Screen2View.clear();
-    if (m_pViewData)
-    {
-        m_Screen2View.reserve(m_pViewData->GetCount());
-        for (int i = 0; i < m_pViewData->GetCount(); ++i)
-        {
-            if (m_pMainFrame->m_bCollapsed)
-            {
-                while ((i < m_pViewData->GetCount())&&(m_pViewData->GetHideState(i) == HIDESTATE_HIDDEN))
-                    ++i;
-            }
-            if (i < m_pViewData->GetCount())
-            {
-                TScreenLineInfo oLineInfo;
-                oLineInfo.nViewLine = i;
-                oLineInfo.nViewSubLine = -1;
-                if (m_pMainFrame->m_bWrapLines)
-                {
-                    int nLinesLeft      = 0;
-                    int nLinesRight     = 0;
-                    int nLinesBottom    = 0;
-                    if (IsLeftViewGood())
-                        nLinesLeft = m_pwndLeft->CountMultiLines(i);
-                    if (IsRightViewGood())
-                        nLinesRight = m_pwndRight->CountMultiLines(i);
-                    if (IsBottomViewGood())
-                        nLinesBottom = m_pwndBottom->CountMultiLines(i);
-                    int lines = max(max(nLinesLeft, nLinesRight), nLinesBottom);
-                    for (int l = 0; l < (lines-1); ++l)
-                    {
-                        oLineInfo.nViewSubLine++;
-                        m_Screen2View.push_back(oLineInfo);
-                    }
-                    oLineInfo.nViewSubLine++;
-                    m_nCachedWrappedLine = -1;
-                }
-                m_Screen2View.push_back(oLineInfo);
-            }
-        }
-    }
-    if (m_nSelBlockEnd >= (int)m_Screen2View.size())
-        ClearSelection();
+    m_Screen2View.Rebuild(m_pViewData);
 }
 
 // apply it on view as screen2view is not build yet in most cases
@@ -3986,15 +3943,7 @@ void CBaseView::UpdateViewLineNumbers()
 
 int CBaseView::FindScreenLineForViewLine( int viewLine )
 {
-    int ScreenLine = 0;
-    for (std::vector<TScreenLineInfo>::const_iterator it = m_Screen2View.begin(); it != m_Screen2View.end(); ++it)
-    {
-        if (it->nViewLine >= viewLine)
-            return ScreenLine;
-        ScreenLine++;
-    }
-
-    return ScreenLine;
+    return m_Screen2View.FindScreenLineForViewLine(viewLine);
 }
 
 CString CBaseView::GetMultiLine( int nLine )
@@ -4022,7 +3971,6 @@ int CBaseView::CountMultiLines( int nLine )
     // count the newlines
     int lines = 1;
     int pos = 0;
-    int prevpos = pos;
     TScreenedViewLine oScreenedLine;
     while ((pos = multiline.Find('\n', pos)) >= 0)
     {
@@ -4164,4 +4112,99 @@ BOOL CBaseView::GetViewSelection( int& start, int& end ) const
         return true;
     }
     return false;
+}
+
+int CBaseView::Screen2View::GetViewLineForScreen( int screenLine )
+{
+    if (m_pViewData)
+        DoRebuild();
+    return m_Screen2View[screenLine].nViewLine;
+}
+
+int CBaseView::Screen2View::size()
+{
+    if (m_pViewData)
+        DoRebuild();
+    return (int)m_Screen2View.size();
+}
+
+int CBaseView::Screen2View::GetSubLineOffset( int screenLine )
+{
+    if (m_pViewData)
+        DoRebuild();
+    return m_Screen2View[screenLine].nViewSubLine;
+}
+
+CBaseView::TScreenLineInfo CBaseView::Screen2View::GetScreenLineInfo( int screenLine )
+{
+    if (m_pViewData)
+        DoRebuild();
+    return m_Screen2View[screenLine];
+}
+
+void CBaseView::Screen2View::push_back( TScreenLineInfo val )
+{
+    if (m_pViewData)
+        DoRebuild();
+    m_Screen2View.push_back(val);
+}
+
+void CBaseView::Screen2View::DoRebuild()
+{
+    m_Screen2View.clear();
+    if (m_pViewData)
+    {
+        m_Screen2View.reserve(m_pViewData->GetCount());
+        for (int i = 0; i < m_pViewData->GetCount(); ++i)
+        {
+            if (m_pMainFrame->m_bCollapsed)
+            {
+                while ((i < m_pViewData->GetCount())&&(m_pViewData->GetHideState(i) == HIDESTATE_HIDDEN))
+                    ++i;
+            }
+            if (i < m_pViewData->GetCount())
+            {
+                TScreenLineInfo oLineInfo;
+                oLineInfo.nViewLine = i;
+                oLineInfo.nViewSubLine = -1;
+                if (m_pMainFrame->m_bWrapLines)
+                {
+                    int nLinesLeft      = 0;
+                    int nLinesRight     = 0;
+                    int nLinesBottom    = 0;
+                    if (IsLeftViewGood())
+                        nLinesLeft = m_pwndLeft->CountMultiLines(i);
+                    if (IsRightViewGood())
+                        nLinesRight = m_pwndRight->CountMultiLines(i);
+                    if (IsBottomViewGood())
+                        nLinesBottom = m_pwndBottom->CountMultiLines(i);
+                    int lines = max(max(nLinesLeft, nLinesRight), nLinesBottom);
+                    for (int l = 0; l < (lines-1); ++l)
+                    {
+                        oLineInfo.nViewSubLine++;
+                        m_Screen2View.push_back(oLineInfo);
+                    }
+                    oLineInfo.nViewSubLine++;
+                }
+                m_Screen2View.push_back(oLineInfo);
+            }
+        }
+    }
+    m_pViewData = NULL;
+}
+
+int CBaseView::Screen2View::FindScreenLineForViewLine( int viewLine )
+{
+    if (m_pViewData)
+        DoRebuild();
+
+    int ScreenLine = 0;
+    for (std::vector<TScreenLineInfo>::const_iterator it = m_Screen2View.begin(); it != m_Screen2View.end(); ++it)
+    {
+        if (it->nViewLine >= viewLine)
+            return ScreenLine;
+        ScreenLine++;
+    }
+
+    return ScreenLine;
 }
