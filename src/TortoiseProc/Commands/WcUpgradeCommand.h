@@ -76,15 +76,15 @@ public:
         return false;
     }
 
-    virtual BOOL Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
-        svn_node_kind_t kind, const CString& mime_type,
-        svn_wc_notify_state_t content_state,
-        svn_wc_notify_state_t prop_state, svn_revnum_t rev,
-        const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
-        const CString& changelistname,
-        const CString& propertyName,
-        svn_merge_range_t * range,
-        svn_error_t * err, apr_pool_t * pool)
+    virtual BOOL Notify(const CTSVNPath& path, const CTSVNPath& /*url*/, svn_wc_notify_action_t /*action*/,
+        svn_node_kind_t /*kind*/, const CString& /*mime_type*/,
+        svn_wc_notify_state_t /*content_state*/,
+        svn_wc_notify_state_t /*prop_state*/, svn_revnum_t /*rev*/,
+        const svn_lock_t * /*lock*/, svn_wc_notify_lock_state_t /*lock_state*/,
+        const CString& /*changelistname*/,
+        const CString& /*propertyName*/,
+        svn_merge_range_t * /*range*/,
+        svn_error_t * /*err*/, apr_pool_t * /*pool*/)
     {
         progress.FormatPathLine(2, IDS_PROC_UPGRADE_INFO, path.GetWinPath());
         return TRUE;
