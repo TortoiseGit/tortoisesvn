@@ -32,6 +32,7 @@ bool DropCopyAddCommand::Execute()
 
     pathList.RemoveAdminPaths();
     CTSVNPathList copiedFiles;
+    UINT defaultRet = 0;
     for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
         if (pathList[nPath].IsEquivalentTo(CTSVNPath(droppath)))
@@ -46,11 +47,34 @@ bool DropCopyAddCommand::Execute()
                 if (pathList[nPath].IsDirectory())
                     continue;
             }
+
+            UINT ret = defaultRet;
             CString strMessage;
             strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, (LPCTSTR)(droppath+_T("\\")+name));
-            CString sBtn1(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_OVERWRITE));
-            CString sBtn2(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_CANCEL));
-            const int ret = TSVNMessageBox(GetExplorerHWND(), strMessage, _T("TortoiseSVN"), MB_DEFBUTTON1|MB_ICONQUESTION, sBtn1, sBtn2);
+            if (CTaskDialog::IsSupported() && (defaultRet == 0))
+            {
+                CTaskDialog taskdlg(strMessage, 
+                                    CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK2)), 
+                                    L"TortoiseSVN",
+                                    0,
+                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK3)));
+                taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK4)));
+                taskdlg.SetDefaultCommandControl(IDCANCEL);
+                taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK5)));
+                taskdlg.SetMainIcon(TD_WARNING_ICON);
+                ret = taskdlg.DoModal(GetExplorerHWND());
+                if (taskdlg.GetVerificationCheckboxState())
+                    defaultRet = ret;
+            }
+            else
+            {
+                CString sBtn1(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_OVERWRITE));
+                CString sBtn2(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_CANCEL));
+                ret = TSVNMessageBox(GetExplorerHWND(), strMessage, _T("TortoiseSVN"), MB_DEFBUTTON1|MB_ICONQUESTION, sBtn1, sBtn2);
+            }
+
+
             if (ret == IDCANCEL)
             {
                 return FALSE;       //cancel the whole operation

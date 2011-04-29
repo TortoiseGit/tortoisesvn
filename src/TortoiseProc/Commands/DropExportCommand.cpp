@@ -74,32 +74,58 @@ bool DropExportCommand::Execute()
     {
         bool bOverwrite = !!parser.HasKey(L"overwrite");
         bool bAutorename = !!parser.HasKey(L"autorename");
-
+        UINT retDefault = bAutorename ? IDCUSTOM1 : 0;
         for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
         {
             CString dropper = droppath + _T("\\") + pathList[nPath].GetFileOrDirectoryName();
             if ((!bOverwrite)&&(PathFileExists(dropper)))
             {
-                CString sMsg;
-                CString sBtn1(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_OVERWRITE));
-                CString sBtn2(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_RENAME));
-                CString sBtn3(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_CANCEL));
-                sMsg.Format(IDS_PROC_OVERWRITEEXPORT, (LPCTSTR)dropper);
-                UINT ret = IDCUSTOM1;
-                if (bAutorename)
-                    ret = IDCUSTOM2;
-                else
-                    ret = TSVNMessageBox(GetExplorerHWND(), sMsg, _T("TortoiseSVN"), MB_DEFBUTTON1|MB_ICONQUESTION, sBtn1, sBtn2, sBtn3);
+                CString renameddropper;
+                renameddropper.FormatMessage(IDS_PROC_EXPORTFOLDERNAME, (LPCTSTR)droppath, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
+                int exportcount = 1;
+                while (PathFileExists(renameddropper))
+                {
+                    renameddropper.FormatMessage(IDS_PROC_EXPORTFOLDERNAME2, (LPCTSTR)droppath, exportcount++, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
+                }
+
+                UINT ret = retDefault;
+                if (ret == 0)
+                {
+                    CString sMsg;
+                    sMsg.Format(IDS_PROC_OVERWRITEEXPORT, (LPCTSTR)dropper);
+                    if (CTaskDialog::IsSupported())
+                    {
+                        CTaskDialog taskdlg(sMsg, 
+                                            CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_TASK2)), 
+                                            L"TortoiseSVN",
+                                            0,
+                                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                        taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_TASK3)));
+                        CString task4;
+                        task4.Format(IDS_PROC_OVERWRITEEXPORT_TASK4, (LPCTSTR)renameddropper);
+                        taskdlg.AddCommandControl(IDCUSTOM2, task4);
+                        taskdlg.AddCommandControl(IDCUSTOM3, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_TASK5)));
+                        taskdlg.SetDefaultCommandControl(IDCUSTOM2);
+                        taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_TASK6)));
+                        taskdlg.SetMainIcon(TD_WARNING_ICON);
+                        ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
+                        if (taskdlg.GetVerificationCheckboxState())
+                            retDefault = ret;
+                    }
+                    else
+                    {
+                        CString sBtn1(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_OVERWRITE));
+                        CString sBtn2(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_RENAME));
+                        CString sBtn3(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_CANCEL));
+                        ret = TSVNMessageBox(GetExplorerHWND(), sMsg, _T("TortoiseSVN"), MB_DEFBUTTON1|MB_ICONQUESTION, sBtn1, sBtn2, sBtn3);
+                    }
+                }
+
                 if (ret == IDCUSTOM3)
                     return false;
                 if (ret==IDCUSTOM2)
                 {
-                    dropper.FormatMessage(IDS_PROC_EXPORTFOLDERNAME, (LPCTSTR)droppath, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
-                    int exportcount = 1;
-                    while (PathFileExists(dropper))
-                    {
-                        dropper.FormatMessage(IDS_PROC_EXPORTFOLDERNAME2, (LPCTSTR)droppath, exportcount++, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
-                    }
+                    dropper = renameddropper;
                 }
             }
             if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, false, false, svn_depth_infinity, GetExplorerHWND(), !!parser.HasKey(_T("extended"))))

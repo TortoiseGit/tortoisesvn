@@ -235,12 +235,31 @@ void CExportDlg::OnOK()
     // maybe the user doesn't want to overwrite the existing files.
     if (!PathIsDirectoryEmpty(m_strExportDirectory))
     {
+        bool doIt = false;
         CString message;
         message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),(LPCTSTR)m_strExportDirectory);
-        if (::MessageBox(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
+        if (CTaskDialog::IsSupported())
+        {
+            CTaskDialog taskdlg(message, 
+                                CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK2)), 
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3_1)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
+            taskdlg.SetDefaultCommandControl(2);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            doIt = (taskdlg.DoModal(GetExplorerHWND()) == 1);
+        }
+        else
+        {
+            doIt = (::MessageBox(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES);
+        }
+
+        if (!doIt)
         {
             m_bAutoCreateTargetName = bAutoCreateTargetName;
-            return;
+            return;     //don't dismiss the dialog
         }
     }
     m_eolCombo.GetWindowText(m_eolStyle);
