@@ -281,6 +281,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         }
         break;
     case svn_wc_notify_commit_added:
+    case svn_wc_notify_commit_copied:
         data->sActionColumnText.LoadString(IDS_SVNACTION_ADDING);
         data->color = m_Colors.GetColor(CColors::Added);
         break;
@@ -313,6 +314,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
         break;
     case svn_wc_notify_update_replace:
+    case svn_wc_notify_commit_copied_replaced:
         data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
         data->color = m_Colors.GetColor(CColors::Deleted);
         break;
@@ -586,6 +588,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_url_redirect:
         data->sActionColumnText.LoadString(IDS_SVNACTION_URLREDIRECT);
         data->sPathColumnText = url.GetUIPathString();
+        break;
+    case svn_wc_notify_path_nonexistent:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_PATHNOTEXIST);
+        data->color = m_Colors.GetColor(CColors::Conflict);
+        data->bConflictedActionItem = true;
+        m_nConflicts++;
+        m_bConflictWarningShown = false;
         break;
     default:
         break;
