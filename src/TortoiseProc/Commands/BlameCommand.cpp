@@ -24,7 +24,6 @@
 #include "SVN.h"
 #include "SVNInfo.h"
 #include "AppUtils.h"
-#include "MessageBox.h"
 
 
 bool BlameCommand::Execute()

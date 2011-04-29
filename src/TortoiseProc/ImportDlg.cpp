@@ -22,7 +22,6 @@
 #include "RepositoryBrowser.h"
 #include "AppUtils.h"
 #include "DirFileEnum.h"
-#include "MessageBox.h"
 #include "BrowseFolder.h"
 #include "Registry.h"
 #include "HistoryDlg.h"

@@ -22,7 +22,6 @@
 #include "CheckoutDlg.h"
 #include "SVNProgressDlg.h"
 #include "BrowseFolder.h"
-#include "MessageBox.h"
 #include "auto_buffer.h"
 
 bool CheckoutCommand::Execute()
