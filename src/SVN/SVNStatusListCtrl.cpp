@@ -3536,7 +3536,34 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         result = svn_wc_conflict_choose_merged;
                         break;
                     }
-                    if (TSVNMessageBox(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES)
+                    bool doResolve = false;
+                    if (CTaskDialog::IsSupported())
+                    {
+                        CTSVNPathList selectedList;
+                        FillListOfSelectedItemPaths(selectedList);
+
+                        CString sInfo;
+                        if (selectedList.GetCount() == 1)
+                            sInfo.FormatMessage(IDS_PROC_RESOLVE_TASK1, (LPCTSTR)selectedList[0].GetFileOrDirectoryName());
+                        else
+                            sInfo.LoadString(IDS_PROC_RESOLVE);
+                        CTaskDialog taskdlg(sInfo, 
+                                            CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK2)), 
+                                            L"TortoiseSVN",
+                                            0,
+                                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK3)));
+                        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK4)));
+                        taskdlg.SetDefaultCommandControl(2);
+                        taskdlg.SetMainIcon(TD_WARNING_ICON);
+                        doResolve = (taskdlg.DoModal(m_hWnd) == 1);
+                    }
+                    else
+                    {
+                        doResolve = (TSVNMessageBox(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES);
+                    }
+
+                    if (doResolve)
                     {
                         CAutoWriteLock locker(m_guard);
                         SVN svn;
