@@ -42,7 +42,7 @@ public:
     void                    SetParser(const CCmdLineParser& p) {parser = p;}
     void                    SetPaths(const CTSVNPathList& plist, const CTSVNPath& path) {pathList = plist; cmdLinePath = path;}
     void                    SetExplorerHwnd(HWND hWnd) {hwndExplorer = hWnd;}
-    HWND                    GetExplorerHWND() { return (::IsWindow(hwndExplorer) ? hwndExplorer : NULL); }
+    HWND                    GetExplorerHWND() const { return (::IsWindow(hwndExplorer) ? hwndExplorer : NULL); }
 protected:
     CCmdLineParser          parser;
     CTSVNPathList           pathList;
