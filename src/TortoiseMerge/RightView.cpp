@@ -84,7 +84,6 @@ void CRightView::UseBothLeftFirst()
     CUndo::GetInstance().EndGrouping();
 
     BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
     m_pwndLeft->SetModified();
     SetModified();
     RefreshViews();
@@ -141,7 +140,6 @@ void CRightView::UseBothRightFirst()
     CUndo::GetInstance().EndGrouping();
 
     BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
     m_pwndLeft->SetModified();
     SetModified();
     RefreshViews();
@@ -270,11 +268,8 @@ void CRightView::UseBlock(int nFirstViewLine, int nLastViewLine)
 
     CUndo::GetInstance().EndGrouping();
 
-    SetModified();
-    m_pwndLeft->SetModified();
     BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
-    if (m_pwndLocator)
-        m_pwndLocator->DocumentUpdated();
+    m_pwndLeft->SetModified();
+    SetModified();
     RefreshViews();
 }

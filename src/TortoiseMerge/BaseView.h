@@ -80,6 +80,8 @@ public: // methods
     void            EnsureCaretVisible();
     void            UpdateCaret();
     void            RefreshViews();
+    void            BeginBuildAllScreen2ViewVector();
+    static void     BeginBuildAllScreen2ViewVector(CBaseView* view);
     static void     BuildAllScreen2ViewVector();
     void            BuildScreen2ViewVector();
     void            UpdateViewLineNumbers();
@@ -89,6 +91,7 @@ public: // methods
     CString         GetMultiLine(int nLine);
     int             CountMultiLines(int nLine);
     int             GetSubLineOffset(int index);
+    static void     UpdateLocator() { if (m_pwndLocator) m_pwndLocator->DocumentUpdated(); }
 
     void            HiglightLines(int start, int end = -1);
     inline BOOL     IsHidden() const  {return m_bIsHidden;}
@@ -493,7 +496,7 @@ protected:  // variables
         int             size();
         void            push_back(TScreenLineInfo val);
     private:
-        void            DoRebuild();
+        void            RebuildIfNecessary();
         CViewData *                     m_pViewData;
         std::vector<TScreenLineInfo>    m_Screen2View;
     };

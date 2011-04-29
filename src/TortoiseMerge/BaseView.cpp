@@ -219,8 +219,6 @@ void CBaseView::DocumentUpdated()
     m_nSelBlockStart = -1;
     m_nSelBlockEnd = -1;
     ClearCurrentSelection();
-    RecalcVertScrollBar();
-    RecalcHorzScrollBar();
     UpdateStatusBar();
     Invalidate();
 }
@@ -1944,10 +1942,12 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
         BuildAllScreen2ViewVector();
         m_nLastScreenChars = m_nScreenChars;
     }
-    if (m_pwndLocator)
-        m_pwndLocator->DocumentUpdated();
-    RecalcVertScrollBar();
-    RecalcHorzScrollBar();
+    else
+    {
+        UpdateLocator();
+        RecalcVertScrollBar();
+        RecalcHorzScrollBar();
+    }
     CView::OnSize(nType, cx, cy);
 }
 
@@ -2662,7 +2662,7 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
             if((m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_FROM)||
                 (m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_TO))
             {
-                int screenLine = FindScreenLineForViewLine(m_pViewData->GetMovedIndex(nViewLine));
+                int screenLine = nClickedLine;
                 ScrollAllToLine(screenLine - GetScreenLines() / 2);
                 // find and select the whole moved block
                 int startSel = screenLine;
@@ -2693,9 +2693,6 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
             i++;
         }
         BuildAllScreen2ViewVector();
-        RecalcAllVertScrollBars();
-        if (m_pwndLocator)
-            m_pwndLocator->DocumentUpdated();
         if (m_pwndLeft)
             m_pwndLeft->Invalidate();
         if (m_pwndRight)
@@ -3327,7 +3324,6 @@ void CBaseView::RemoveSelectedText()
             SetModified();
         }
         BuildAllScreen2ViewVector();
-        RecalcAllVertScrollBars();
     }
     m_ptCaretPos = m_ptSelectionStartPos;
     UpdateGoalPos();
@@ -3407,7 +3403,6 @@ void CBaseView::PasteText()
         OnChar(sClipboardText[i], 0, 0);
     }
 
-    BuildAllScreen2ViewVector();
     // restore the lines in the non-editing views
     for (int i = selStartPos; i < (selStartPos + pasteLines); ++i)
     {
@@ -3416,7 +3411,6 @@ void CBaseView::PasteText()
     }
 
     BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
     CUndo::GetInstance().EndGrouping();
 }
 
@@ -3879,41 +3873,30 @@ bool CBaseView::HasPrevInlineDiff()
     return false;
 }
 
+void CBaseView::BeginBuildAllScreen2ViewVector()
+{
+    const int nOldSize = m_ScreenedViewLine.size();
+    const int nViewCount = max(GetViewCount(), 0);
+    m_ScreenedViewLine.resize(nViewCount);
+    const int nCleanSize = min(nViewCount, nOldSize);
+    for (int i = 0; i < nCleanSize; i++)
+    {
+        m_ScreenedViewLine[i].Clear();
+    }
+}
+
+void CBaseView::BeginBuildAllScreen2ViewVector(CBaseView* view)
+{
+    if (IsViewGood(view))
+        return view->BeginBuildAllScreen2ViewVector();
+}
+
+
 void CBaseView::BuildAllScreen2ViewVector()
 {
-    if (IsLeftViewGood())
-    {
-        int nOldSize = (int)m_pwndLeft->m_ScreenedViewLine.size();
-        int nViewCount = max(m_pwndLeft->GetViewCount(), 0);
-        m_pwndLeft->m_ScreenedViewLine.resize(nViewCount);
-        int nCleanSize = min(nViewCount, nOldSize);
-        for (int i = 0; i < nCleanSize; i++)
-        {
-            m_pwndLeft->m_ScreenedViewLine[i].Clear();
-        }
-    }
-    if (IsRightViewGood())
-    {
-        int nOldSize = (int)m_pwndRight->m_ScreenedViewLine.size();
-        int nViewCount = max(m_pwndRight->GetViewCount(), 0);
-        m_pwndRight->m_ScreenedViewLine.resize(nViewCount);
-        int nCleanSize = min(nViewCount, nOldSize);
-        for (int i = 0; i < nCleanSize; i++)
-        {
-            m_pwndRight->m_ScreenedViewLine[i].Clear();
-        }
-    }
-    if (IsBottomViewGood())
-    {
-        int nOldSize = (int)m_pwndBottom->m_ScreenedViewLine.size();
-        int nViewCount = max(m_pwndBottom->GetViewCount(), 0);
-        m_pwndBottom->m_ScreenedViewLine.resize(nViewCount);
-        int nCleanSize = min(nViewCount, nOldSize);
-        for (int i = 0; i < nCleanSize; i++)
-        {
-            m_pwndBottom->m_ScreenedViewLine[i].Clear();
-        }
-    }
+    BeginBuildAllScreen2ViewVector(m_pwndLeft);
+    BeginBuildAllScreen2ViewVector(m_pwndRight);
+    BeginBuildAllScreen2ViewVector(m_pwndBottom);
 
     if (IsLeftViewGood())
         m_pwndLeft->BuildScreen2ViewVector();
@@ -4116,87 +4099,85 @@ BOOL CBaseView::GetViewSelection( int& start, int& end ) const
 
 int CBaseView::Screen2View::GetViewLineForScreen( int screenLine )
 {
-    if (m_pViewData)
-        DoRebuild();
+    RebuildIfNecessary();
     return m_Screen2View[screenLine].nViewLine;
 }
 
 int CBaseView::Screen2View::size()
 {
-    if (m_pViewData)
-        DoRebuild();
+    RebuildIfNecessary();
     return (int)m_Screen2View.size();
 }
 
 int CBaseView::Screen2View::GetSubLineOffset( int screenLine )
 {
-    if (m_pViewData)
-        DoRebuild();
+    RebuildIfNecessary();
     return m_Screen2View[screenLine].nViewSubLine;
 }
 
 CBaseView::TScreenLineInfo CBaseView::Screen2View::GetScreenLineInfo( int screenLine )
 {
-    if (m_pViewData)
-        DoRebuild();
+    RebuildIfNecessary();
     return m_Screen2View[screenLine];
 }
 
 void CBaseView::Screen2View::push_back( TScreenLineInfo val )
 {
-    if (m_pViewData)
-        DoRebuild();
+    RebuildIfNecessary();
     m_Screen2View.push_back(val);
 }
 
-void CBaseView::Screen2View::DoRebuild()
+void CBaseView::Screen2View::RebuildIfNecessary()
 {
+    if (!m_pViewData)
+        return; // rebuild not necessary
+
     m_Screen2View.clear();
-    if (m_pViewData)
+    m_Screen2View.reserve(m_pViewData->GetCount());
+    for (int i = 0; i < m_pViewData->GetCount(); ++i)
     {
-        m_Screen2View.reserve(m_pViewData->GetCount());
-        for (int i = 0; i < m_pViewData->GetCount(); ++i)
+        if (m_pMainFrame->m_bCollapsed)
         {
-            if (m_pMainFrame->m_bCollapsed)
+            while ((i < m_pViewData->GetCount())&&(m_pViewData->GetHideState(i) == HIDESTATE_HIDDEN))
+                ++i;
+        }
+        if (i < m_pViewData->GetCount())
+        {
+            TScreenLineInfo oLineInfo;
+            oLineInfo.nViewLine = i;
+            oLineInfo.nViewSubLine = -1;
+            if (m_pMainFrame->m_bWrapLines)
             {
-                while ((i < m_pViewData->GetCount())&&(m_pViewData->GetHideState(i) == HIDESTATE_HIDDEN))
-                    ++i;
-            }
-            if (i < m_pViewData->GetCount())
-            {
-                TScreenLineInfo oLineInfo;
-                oLineInfo.nViewLine = i;
-                oLineInfo.nViewSubLine = -1;
-                if (m_pMainFrame->m_bWrapLines)
+                int nLinesLeft      = 0;
+                int nLinesRight     = 0;
+                int nLinesBottom    = 0;
+                if (IsLeftViewGood())
+                    nLinesLeft = m_pwndLeft->CountMultiLines(i);
+                if (IsRightViewGood())
+                    nLinesRight = m_pwndRight->CountMultiLines(i);
+                if (IsBottomViewGood())
+                    nLinesBottom = m_pwndBottom->CountMultiLines(i);
+                int lines = max(max(nLinesLeft, nLinesRight), nLinesBottom);
+                for (int l = 0; l < (lines-1); ++l)
                 {
-                    int nLinesLeft      = 0;
-                    int nLinesRight     = 0;
-                    int nLinesBottom    = 0;
-                    if (IsLeftViewGood())
-                        nLinesLeft = m_pwndLeft->CountMultiLines(i);
-                    if (IsRightViewGood())
-                        nLinesRight = m_pwndRight->CountMultiLines(i);
-                    if (IsBottomViewGood())
-                        nLinesBottom = m_pwndBottom->CountMultiLines(i);
-                    int lines = max(max(nLinesLeft, nLinesRight), nLinesBottom);
-                    for (int l = 0; l < (lines-1); ++l)
-                    {
-                        oLineInfo.nViewSubLine++;
-                        m_Screen2View.push_back(oLineInfo);
-                    }
                     oLineInfo.nViewSubLine++;
+                    m_Screen2View.push_back(oLineInfo);
                 }
-                m_Screen2View.push_back(oLineInfo);
+                oLineInfo.nViewSubLine++;
             }
+            m_Screen2View.push_back(oLineInfo);
         }
     }
     m_pViewData = NULL;
+
+    UpdateLocator();
+    RecalcAllVertScrollBars();
+    RecalcAllHorzScrollBars();
 }
 
 int CBaseView::Screen2View::FindScreenLineForViewLine( int viewLine )
 {
-    if (m_pViewData)
-        DoRebuild();
+    RebuildIfNecessary();
 
     int ScreenLine = 0;
     for (std::vector<TScreenLineInfo>::const_iterator it = m_Screen2View.begin(); it != m_Screen2View.end(); ++it)

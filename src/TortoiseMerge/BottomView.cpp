@@ -103,11 +103,9 @@ void CBottomView::UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastVi
 
     CUndo::GetInstance().EndGrouping();
 
-    SetModified();
     BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
+    SetModified();
     RefreshViews();
-    SaveUndoStep();
 }
 
 void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
@@ -167,11 +165,9 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     CUndo::GetInstance().EndGrouping();
 
     BuildAllScreen2ViewVector();
-    RecalcAllVertScrollBars();
     SetModified();
     pwndLast->SetModified();
     pwndFirst->SetModified();
-    SaveUndoStep();
     RefreshViews();
 }
 
