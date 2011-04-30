@@ -229,6 +229,15 @@
             <xref linkend="tsvn-dug-merge-tracking"/> to find out more.
         </para>
         <para>
+            When merge tracking is used, the log dialog will show previously
+            merged revisions, and revisions pre-dating the common ancestor
+            point, i.e. before the branch was copied, as greyed out.
+            The <guilabel>Hide non-mergeable revisions</guilabel>
+            checkbox allows you to filter out these revisions completely
+            so you see only the revisions which <emphasis>can</emphasis>
+            be merged.
+        </para>
+        <para>
             If other people may be committing changes then be careful
             about using the HEAD revision. It may not refer to the
             revision you think it does if someone else made a commit
