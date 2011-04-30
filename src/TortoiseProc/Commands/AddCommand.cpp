@@ -70,7 +70,7 @@ bool AddCommand::Execute()
                                     taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK5)));
                                     taskdlg.SetDefaultCommandControl(IDCUSTOM1);
                                     taskdlg.SetMainIcon(TD_WARNING_ICON);
-                                    ret = taskdlg.DoModal(GetExplorerHWND());
+                                    ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
                                 }
                                 else
                                 {

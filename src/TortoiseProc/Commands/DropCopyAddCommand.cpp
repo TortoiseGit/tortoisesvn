@@ -63,7 +63,7 @@ bool DropCopyAddCommand::Execute()
                 taskdlg.SetDefaultCommandControl(IDCANCEL);
                 taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK5)));
                 taskdlg.SetMainIcon(TD_WARNING_ICON);
-                ret = taskdlg.DoModal(GetExplorerHWND());
+                ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
                 if (taskdlg.GetVerificationCheckboxState())
                     defaultRet = ret;
             }
