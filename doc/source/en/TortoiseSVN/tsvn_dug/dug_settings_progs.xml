@@ -96,6 +96,10 @@ C:\Path-To\compare.exe /max /wait /title1:%bname /title2:%yname
 <screen>
 C:\Path-To\uc.exe %base %mine -title1 %bname -title2 %yname
 </screen>
+            or with DiffMerge:
+<screen>
+C:\Path-To\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine
+</screen>
         </para>
         <para>
             If you use the <literal>svn:keywords</literal> property to
@@ -227,6 +231,11 @@ C:\Path-To\compare.exe /max /wait /3 /title1:%tname /title2:%bname
             or with WinMerge (2.8 or later):
 <screen>
 C:\Path-To\WinMerge.exe %merged
+</screen>
+            or with DiffMerge:
+<screen>
+C:\Path-To\DiffMerge.exe -caption=%mname -result=%merged -merge
+    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs
 </screen>
         </para>
     </sect3>
