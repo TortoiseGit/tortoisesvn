@@ -761,11 +761,35 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
                     if ((lastError == ERROR_ALREADY_EXISTS)||(lastError == ERROR_FILE_EXISTS))
                     {
                         lastError = 0;
-                        CString sQuestion;
-                        sQuestion.Format(IDS_PROC_OVERWRITE_CONFIRM, it->second.GetWinPath());
-                        UINT ret = TSVNMessageBox(hWnd, sQuestion, _T("TortoiseSVN"), MB_YESNO|MB_YESTOALL|MB_ICONQUESTION);
-                        if (ret == IDYESTOALL)
-                            force = true;
+
+                        UINT ret = 0;
+                        CString strMessage;
+                        strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, it->second.GetWinPath());
+                        if (CTaskDialog::IsSupported())
+                        {
+                            CTaskDialog taskdlg(strMessage, 
+                                                CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK2)), 
+                                                L"TortoiseSVN",
+                                                0,
+                                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                            taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK3)));
+                            taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK4)));
+                            taskdlg.SetDefaultCommandControl(IDCANCEL);
+                            taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK5)));
+                            taskdlg.SetMainIcon(TD_WARNING_ICON);
+                            ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
+                            if (taskdlg.GetVerificationCheckboxState())
+                                force = true;
+                        }
+                        else
+                        {
+                            CString sBtn1(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_OVERWRITE));
+                            CString sBtn2(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_CANCEL));
+                            ret = TSVNMessageBox(GetExplorerHWND(), strMessage, _T("TortoiseSVN"), MB_DEFBUTTON1|MB_ICONQUESTION, sBtn1, sBtn2);
+                            if (ret == IDYESTOALL)
+                                force = true;
+                        }
+
                         if ((ret == IDYESTOALL)||(ret == IDYES))
                         {
                             if (!CopyFile(it->first.GetWinPath(), it->second.GetWinPath(), FALSE))

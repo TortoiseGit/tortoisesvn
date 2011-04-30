@@ -158,7 +158,26 @@ void CSettingsLogCaches::OnBnClickedDelete()
     int nSelCount = m_cRepositoryList.GetSelectedCount();
     CString sQuestion;
     sQuestion.Format(IDS_SETTINGS_CACHEDELETEQUESTION, nSelCount);
-    if (TSVNMessageBox(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES)
+    bool bDelete = false;
+    if (CTaskDialog::IsSupported())
+    {
+        CTaskDialog taskdlg(sQuestion, 
+                            CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK2)), 
+                            L"TortoiseSVN",
+                            0,
+                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)));
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        bDelete = (taskdlg.DoModal(GetExplorerHWND())==1);
+    }
+    else
+    {
+        bDelete = (TSVNMessageBox(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) == IDYES);
+    }
+
+    if (bDelete)
     {
         POSITION pos = m_cRepositoryList.GetFirstSelectedItemPosition();
         while (pos)
