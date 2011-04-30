@@ -50,8 +50,10 @@
             </itemizedlist>
             For these reasons we recommend that you do not use the import command
             at all but rather follow the two-step method described in
-            <xref linkend="tsvn-dug-import-in-place"/>.
-            But since you are here, this is how the basic import works ...
+            <xref linkend="tsvn-dug-import-in-place"/>, unless you are performing
+            the simple step of creating an initial
+            <filename>/trunk /tags /branches</filename> structure in your repository.
+            Since you are here, this is how the basic import works ...
         </para>
         <para>
             Before you import your project into a repository you should:
@@ -144,6 +146,11 @@ C:\Projects\Widget\images
                     <para>
                         Use the repository browser to create a new
                         project folder directly in the repository.
+                        If you are using one of the standard layouts you will probably
+                        want to create this as a sub-folder of trunk rather than in
+                        the repository root. The repository browser shows the repository
+                        structure just like Windows explorer, so you can see how
+                        things are organised.
                     </para>
                 </listitem>
                 <listitem>
