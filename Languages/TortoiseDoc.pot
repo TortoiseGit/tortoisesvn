@@ -4030,6 +4030,14 @@ msgid "KDiff3 is a free diff tool which can also handle directories. You can dow
 msgstr ""
 
 #. (term)
+msgid "SourceGear DiffMerge"
+msgstr ""
+
+#. (para)
+msgid "SourceGear Vault is a commercial RCS, but you can download the diff/merge tool for free. Get more information from <ulink url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
+msgstr ""
+
+#. (term)
 msgid "ExamDiff"
 msgstr ""
 
@@ -4051,14 +4059,6 @@ msgstr ""
 
 #. (para)
 msgid "Araxis Merge is a useful commercial tool for diff and merging both files and folders. It does three-way comparison in merges and has synchronization links to use if you've changed the order of functions. Download it from <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
-msgstr ""
-
-#. (term)
-msgid "SciTE"
-msgstr ""
-
-#. (para)
-msgid "This text editor includes syntax colouring for unified diffs, making them much easier to read. Download it from <ulink url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
 msgstr ""
 
 #. (para)
@@ -5509,6 +5509,10 @@ msgstr ""
 
 #. (para)
 msgid "If you are using the merge tracking features of Subversion, you do not need to remember which revisions have already been merged - Subversion will record that for you. If you leave the revision range blank, all revisions which have not yet been merged will be included. Read <xref linkend=\"tsvn-dug-merge-tracking\"/> to find out more."
+msgstr ""
+
+#. (para)
+msgid "When merge tracking is used, the log dialog will show previously merged revisions, and revisions pre-dating the common ancestor point, i.e. before the branch was copied, as greyed out. The <guilabel>Hide non-mergeable revisions</guilabel> checkbox allows you to filter out these revisions completely so you see only the revisions which <emphasis>can</emphasis> be merged."
 msgstr ""
 
 #. (para)
@@ -7801,6 +7805,8 @@ msgid ""
 "    %base %mine\n"
 "</screen> or with UltraCompare: <screen>\n"
 "C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
+"</screen> or with DiffMerge: <screen>\n"
+"C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "</screen>"
 msgstr ""
 
@@ -7860,6 +7866,9 @@ msgid ""
 "    /title3:%yname %theirs %base %mine %merged /a2\n"
 "</screen> or with WinMerge (2.8 or later): <screen>\n"
 "C:\\Path-To\\WinMerge.exe %merged\n"
+"</screen> or with DiffMerge: <screen>\n"
+"C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
+"    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "</screen>"
 msgstr ""
 
@@ -7884,11 +7893,11 @@ msgid "Unified Diff Viewer"
 msgstr ""
 
 #. (para)
-msgid "A viewer program for unified-diff files (patch files). No parameters are required. The <guilabel>Default</guilabel> option is to check for a file association for <filename>.diff</filename> files, and then for <filename>.txt</filename> files. If you don't have a viewer for <filename>.diff</filename> files, you will most likely get NotePad."
+msgid "A viewer program for unified-diff files (patch files). No parameters are required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff which is installed alongside TortoiseSVN, and colour-codes the added and removed lines."
 msgstr ""
 
 #. (para)
-msgid "The original Windows NotePad program does not behave well on files which do not have standard CR-LF line-endings. Since most unified diff files have pure LF line-endings, they do not view well in NotePad. However, you can download a free NotePad replacement <ulink url=\"http://www.flos-freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which not only displays the line-endings correctly, but also colour codes the added and removed lines."
+msgid "Since Unified Diff is just a text format, you can use your favourite text editor if you prefer."
 msgstr ""
 
 #. (title)
@@ -8786,6 +8795,17 @@ msgstr ""
 
 #. (para)
 msgid "If a source and destination files are supplied, SubWCRev copies source to destination, performing keyword substitution as follows: <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"SubWCRev does not directly support nesting of expressions, so for example you cannot use an expression like: <screen>\n"
+"#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n"
+"</screen> But you can usually work around it by other means, for example: <screen>\n"
+"#define SVN_RANGE       $WCRANGE$\n"
+"#define SVN_REV         $WCREV$\n"
+"#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
+"</screen>"
 msgstr ""
 
 #. (para)
