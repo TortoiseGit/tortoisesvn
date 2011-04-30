@@ -838,6 +838,9 @@
             particular sub-string is not found (invert matching for that term),
             and you can use <literal>!</literal> at the start of the expression
             to invert matching for the entire expression.
+            You can use a leading <literal>+</literal> to specify that a sub-string
+            should be included, even if previously excluded with a <literal>-</literal>.
+            Note that the order of inclusion/exclusion is significant here.
             You can use quote marks to surround a string which must contain spaces,
             and if you want to search for a literal quotation mark you can use two
             quotation marks together as a self-escaping sequence.
@@ -848,6 +851,16 @@
 Alice Bob -Eve
 </screen>
             searches for strings containing both Alice and Bob but not Eve
+<screen>
+Alice -Bob +Eve
+</screen>
+            searches for strings containing both Alice but not Bob, or strings
+            which contain Eve.
+<screen>
+-Case +SpecialCase
+</screen>
+            searches for strings which do not contain Case, but still include
+            strings which contain SpecialCase.
 <screen>
 !Alice Bob
 </screen>
