@@ -343,12 +343,6 @@ void CSVNPropertyPage::InitWorkfileView()
                     time = (__time64_t)svn.status->changed_date/1000000L;
                 Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
                 SetDlgItemText(m_hwnd, IDC_TEXTDATE, buf);
-                if (infodata)
-                    time = (__time64_t)infodata->proptime;
-                else
-                    time = (__time64_t)svn.status->changed_date/1000000L;
-                Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
-                SetDlgItemText(m_hwnd, IDC_PROPDATE, buf);
 
                 if (svn.status->lock && svn.status->lock->owner)
                     SetDlgItemText(m_hwnd, IDC_LOCKOWNER, CUnicodeUtils::StdGetUnicode(svn.status->lock->owner).c_str());

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,54 +25,23 @@
 #include "SVNRev.h"
 #include "SVNBase.h"
 
-/**
- * \ingroup SVN
- * data object which holds all information returned from an svn_client_info() call.
- */
-class SVNInfoData
+#include <deque>
+
+class SVNConflictData
 {
 public:
-    SVNInfoData();
+    SVNConflictData();
 
-    CTSVNPath           path;
-    CString             url;
-    SVNRev              rev;
-    svn_node_kind_t     kind;
-    CString             reposRoot;
-    CString             reposUUID;
-    SVNRev              lastchangedrev;
-    __time64_t          lastchangedtime;
-    CString             author;
+    svn_wc_conflict_kind_t kind;
 
-    CString             lock_path;
-    CString             lock_token;
-    CString             lock_owner;
-    CString             lock_comment;
-    bool                lock_davcomment;
-    __time64_t          lock_createtime;
-    __time64_t          lock_expirationtime;
-    svn_filesize_t      size64;
-
-    bool                hasWCInfo;
-    svn_wc_schedule_t   schedule;
-    CString             copyfromurl;
-    SVNRev              copyfromrev;
-    __time64_t          texttime;
-    __time64_t          proptime;
-    CString             checksum;
     CString             conflict_old;
     CString             conflict_new;
     CString             conflict_wrk;
     CString             prejfile;
 
-    CString             changelist;
-    svn_depth_t         depth;
-    svn_filesize_t      working_size64;
-
     // tree conflict data
     CString             treeconflict_path;
     svn_node_kind_t     treeconflict_nodekind;
-    svn_wc_conflict_kind_t treeconflict_kind;
     CString             treeconflict_propertyname;
     bool                treeconflict_binary;
     CString             treeconflict_mimetype;
@@ -92,7 +61,49 @@ public:
     CString             src_left_version_path;
     SVNRev              src_left_version_rev;
     svn_node_kind_t     src_left_version_kind;
+};
 
+/**
+ * \ingroup SVN
+ * data object which holds all information returned from an svn_client_info() call.
+ */
+class SVNInfoData
+{
+public:
+    SVNInfoData();
+
+    CTSVNPath           path;
+    CString             url;
+    SVNRev              rev;
+    svn_node_kind_t     kind;
+    CString             reposRoot;
+    CString             reposUUID;
+    SVNRev              lastchangedrev;
+    __time64_t          lastchangedtime;
+    CString             author;
+    CString             wcroot;
+
+    CString             lock_path;
+    CString             lock_token;
+    CString             lock_owner;
+    CString             lock_comment;
+    bool                lock_davcomment;
+    __time64_t          lock_createtime;
+    __time64_t          lock_expirationtime;
+    svn_filesize_t      size64;
+
+    bool                hasWCInfo;
+    svn_wc_schedule_t   schedule;
+    CString             copyfromurl;
+    SVNRev              copyfromrev;
+    __time64_t          texttime;
+    CString             checksum;
+
+    CString             changelist;
+    svn_depth_t         depth;
+    svn_filesize_t      working_size64;
+
+    std::deque<SVNConflictData> conflicts;
     // convenience methods:
 
     bool IsValid() {return rev.IsValid() != FALSE;}
@@ -148,7 +159,7 @@ private:
     SVNPrompt                   m_prompt;
 #endif
     static svn_error_t *        cancel(void *baton);
-    static svn_error_t *        infoReceiver(void* baton, const char * path, const svn_info_t* info, apr_pool_t * pool);
+    static svn_error_t *        infoReceiver(void* baton, const char * path, const svn_info2_t* info, apr_pool_t * pool);
 
 };
 

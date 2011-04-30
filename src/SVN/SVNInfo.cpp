@@ -31,6 +31,10 @@
 #include "PathUtils.h"
 #include "SVNTrace.h"
 
+SVNConflictData::SVNConflictData()
+{
+}
+
 SVNInfoData::SVNInfoData()
     : kind(svn_node_none)
     , lastchangedtime(0)
@@ -41,10 +45,8 @@ SVNInfoData::SVNInfoData()
     , hasWCInfo(false)
     , schedule(svn_wc_schedule_normal)
     , texttime(0)
-    , proptime(0)
     , depth(svn_depth_unknown)
     , working_size64(0)
-    , treeconflict_binary(false)
 {
 }
 
@@ -155,7 +157,7 @@ const SVNInfoData * SVNInfo::GetNextFileInfo()
     return NULL;
 }
 
-svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_info_t* info, apr_pool_t * /*pool*/)
+svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_info2_t* info, apr_pool_t * /*pool*/)
 {
     if ((path == NULL)||(info == NULL))
         return NULL;
@@ -176,8 +178,7 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
     data.lastchangedtime = info->last_changed_date/1000000L;
     if (info->last_changed_author)
         data.author = CUnicodeUtils::GetUnicode(info->last_changed_author);
-    data.depth = info->depth;
-    data.size64 = info->size64;
+    data.size64 = info->size;
 
     if (info->lock)
     {
@@ -194,69 +195,90 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
         data.lock_expirationtime = info->lock->expiration_date/1000000L;
     }
 
-    data.hasWCInfo = !!info->has_wc_info;
-    if (info->has_wc_info)
+    data.hasWCInfo = info->wc_info != NULL;
+    if (info->wc_info)
     {
-        data.schedule = info->schedule;
-        if (info->copyfrom_url)
-            data.copyfromurl = CUnicodeUtils::GetUnicode(info->copyfrom_url);
-        data.copyfromrev = SVNRev(info->copyfrom_rev);
-        data.texttime = info->text_time/1000000L;
-        data.proptime = info->prop_time/1000000L;
-        if (info->checksum)
-            data.checksum = CUnicodeUtils::GetUnicode(info->checksum);
-        if (info->conflict_new)
-            data.conflict_new = CUnicodeUtils::GetUnicode(info->conflict_new);
-        if (info->conflict_old)
-            data.conflict_old = CUnicodeUtils::GetUnicode(info->conflict_old);
-        if (info->conflict_wrk)
-            data.conflict_wrk = CUnicodeUtils::GetUnicode(info->conflict_wrk);
-        if (info->prejfile)
-            data.prejfile = CUnicodeUtils::GetUnicode(info->prejfile);
-        if (info->changelist)
-            data.changelist = CUnicodeUtils::GetUnicode(info->changelist);
-        data.working_size64 = info->working_size64;
-    }
-    if (info->tree_conflict)
-    {
-        if (info->tree_conflict->path)
-            data.treeconflict_path = CUnicodeUtils::GetUnicode(info->tree_conflict->path);
-        data.treeconflict_nodekind = info->tree_conflict->node_kind;
-        data.treeconflict_kind = info->tree_conflict->kind;
-        if (info->tree_conflict->property_name)
-            data.treeconflict_propertyname = CUnicodeUtils::GetUnicode(info->tree_conflict->property_name);
-        data.treeconflict_binary = !!info->tree_conflict->is_binary;
-        if (info->tree_conflict->mime_type)
-            data.treeconflict_mimetype = CUnicodeUtils::GetUnicode(info->tree_conflict->mime_type);
-        data.treeconflict_action = info->tree_conflict->action;
-        data.treeconflict_reason = info->tree_conflict->reason;
-        data.treeconflict_operation = info->tree_conflict->operation;
-        if (info->tree_conflict->base_file)
-            data.treeconflict_basefile = CUnicodeUtils::GetUnicode(info->tree_conflict->base_file);
-        if (info->tree_conflict->their_file)
-            data.treeconflict_theirfile = CUnicodeUtils::GetUnicode(info->tree_conflict->their_file);
-        if (info->tree_conflict->my_file)
-            data.treeconflict_myfile = CUnicodeUtils::GetUnicode(info->tree_conflict->my_file);
-        if (info->tree_conflict->merged_file)
-            data.treeconflict_mergedfile = CUnicodeUtils::GetUnicode(info->tree_conflict->merged_file);
+        data.depth = info->wc_info->depth;
+        data.schedule = info->wc_info->schedule;
+        if (info->wc_info->copyfrom_url)
+            data.copyfromurl = CUnicodeUtils::GetUnicode(info->wc_info->copyfrom_url);
+        data.copyfromrev = SVNRev(info->wc_info->copyfrom_rev);
+        data.texttime = info->wc_info->text_time/1000000L;
+        if (info->wc_info->checksum)
+            data.checksum = CUnicodeUtils::GetUnicode(info->wc_info->checksum);
+        if (info->wc_info->changelist)
+            data.changelist = CUnicodeUtils::GetUnicode(info->wc_info->changelist);
+        data.working_size64 = info->wc_info->working_size;
+        if (info->wc_info->wcroot_abspath)
+            data.wcroot = CUnicodeUtils::GetUnicode(info->wc_info->wcroot_abspath);
 
-        if (info->tree_conflict->src_right_version)
+
+        if (info->wc_info->conflicts)
         {
-            if (info->tree_conflict->src_right_version->repos_url)
-                data.src_right_version_url = CUnicodeUtils::GetUnicode(info->tree_conflict->src_right_version->repos_url);
-            if (info->tree_conflict->src_right_version->path_in_repos)
-                data.src_right_version_path = CUnicodeUtils::GetUnicode(info->tree_conflict->src_right_version->path_in_repos);
-            data.src_right_version_rev = info->tree_conflict->src_right_version->peg_rev;
-            data.src_right_version_kind = info->tree_conflict->src_right_version->node_kind;
-    }
-        if (info->tree_conflict->src_left_version)
-        {
-            if (info->tree_conflict->src_left_version->repos_url)
-                data.src_left_version_url = CUnicodeUtils::GetUnicode(info->tree_conflict->src_left_version->repos_url);
-            if (info->tree_conflict->src_left_version->path_in_repos)
-                data.src_left_version_path = CUnicodeUtils::GetUnicode(info->tree_conflict->src_left_version->path_in_repos);
-            data.src_left_version_rev = info->tree_conflict->src_left_version->peg_rev;
-            data.src_left_version_kind = info->tree_conflict->src_left_version->node_kind;
+            for (int i = 0; i < info->wc_info->conflicts->nelts; ++i)
+            {
+                const svn_wc_conflict_description2_t *conflict = APR_ARRAY_IDX(info->wc_info->conflicts, i, const svn_wc_conflict_description2_t *);
+                SVNConflictData cdata;
+                cdata.kind = conflict->kind;
+                switch (conflict->kind)
+                {
+                case svn_wc_conflict_kind_text:
+                    if (conflict->their_abspath)
+                        cdata.conflict_new = CUnicodeUtils::GetUnicode(conflict->their_abspath);
+                    if (conflict->base_abspath)
+                        cdata.conflict_old = CUnicodeUtils::GetUnicode(conflict->base_abspath);
+                    if (conflict->my_abspath)
+                        cdata.conflict_wrk = CUnicodeUtils::GetUnicode(conflict->my_abspath);
+                    break;
+                case svn_wc_conflict_kind_property:
+                    if (conflict->their_abspath)
+                        cdata.prejfile = CUnicodeUtils::GetUnicode(conflict->their_abspath);
+                    break;
+                case svn_wc_conflict_kind_tree:
+                    {
+                        if (conflict->local_abspath)
+                            cdata.treeconflict_path = CUnicodeUtils::GetUnicode(conflict->local_abspath);
+                        cdata.treeconflict_nodekind = conflict->node_kind;
+                        if (conflict->property_name)
+                            cdata.treeconflict_propertyname = CUnicodeUtils::GetUnicode(conflict->property_name);
+                        cdata.treeconflict_binary = !!conflict->is_binary;
+                        if (conflict->mime_type)
+                            cdata.treeconflict_mimetype = CUnicodeUtils::GetUnicode(conflict->mime_type);
+                        cdata.treeconflict_action = conflict->action;
+                        cdata.treeconflict_reason = conflict->reason;
+                        cdata.treeconflict_operation = conflict->operation;
+                        if (conflict->base_abspath)
+                            cdata.treeconflict_basefile = CUnicodeUtils::GetUnicode(conflict->base_abspath);
+                        if (conflict->their_abspath)
+                            cdata.treeconflict_theirfile = CUnicodeUtils::GetUnicode(conflict->their_abspath);
+                        if (conflict->my_abspath)
+                            cdata.treeconflict_myfile = CUnicodeUtils::GetUnicode(conflict->my_abspath);
+                        if (conflict->merged_file)
+                            cdata.treeconflict_mergedfile = CUnicodeUtils::GetUnicode(conflict->merged_file);
+
+                        if (conflict->src_right_version)
+                        {
+                            if (conflict->src_right_version->repos_url)
+                                cdata.src_right_version_url = CUnicodeUtils::GetUnicode(conflict->src_right_version->repos_url);
+                            if (conflict->src_right_version->path_in_repos)
+                                cdata.src_right_version_path = CUnicodeUtils::GetUnicode(conflict->src_right_version->path_in_repos);
+                            cdata.src_right_version_rev = conflict->src_right_version->peg_rev;
+                            cdata.src_right_version_kind = conflict->src_right_version->node_kind;
+                        }
+                        if (conflict->src_left_version)
+                        {
+                            if (conflict->src_left_version->repos_url)
+                                cdata.src_left_version_url = CUnicodeUtils::GetUnicode(conflict->src_left_version->repos_url);
+                            if (conflict->src_left_version->path_in_repos)
+                                cdata.src_left_version_path = CUnicodeUtils::GetUnicode(conflict->src_left_version->path_in_repos);
+                            cdata.src_left_version_rev = conflict->src_left_version->peg_rev;
+                            cdata.src_left_version_kind = conflict->src_left_version->node_kind;
+                        }
+                    }
+                    break;
+                }
+                data.conflicts.push_back(cdata);
+            }
         }
     }
     pThis->m_arInfo.push_back(data);

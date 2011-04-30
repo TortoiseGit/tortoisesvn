@@ -734,30 +734,24 @@ CSVNStatusListCtrl::AddNewFileEntry(
         const SVNInfoData * infodata = info.GetFirstFileInfo(path, SVNRev(), SVNRev());
         if (infodata)
         {
-            CTSVNPath cpath;
-            if (!infodata->conflict_wrk.IsEmpty())
+            for (auto conflIt = infodata->conflicts.cbegin(); conflIt != infodata->conflicts.cend(); ++conflIt)
             {
-                cpath = path.GetDirectory();
-                cpath.AppendPathString(infodata->conflict_wrk);
-                m_ConflictFileList.AddPath(cpath);
-            }
-            if (!infodata->conflict_old.IsEmpty())
-            {
-                cpath = path.GetDirectory();
-                cpath.AppendPathString(infodata->conflict_old);
-                m_ConflictFileList.AddPath(cpath);
-            }
-            if (!infodata->conflict_new.IsEmpty())
-            {
-                cpath = path.GetDirectory();
-                cpath.AppendPathString(infodata->conflict_new);
-                m_ConflictFileList.AddPath(cpath);
-            }
-            if (!infodata->prejfile.IsEmpty())
-            {
-                cpath = path.GetDirectory();
-                cpath.AppendPathString(infodata->prejfile);
-                m_ConflictFileList.AddPath(cpath);
+                if (!conflIt->conflict_wrk.IsEmpty())
+                {
+                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->conflict_wrk));
+                }
+                if (!conflIt->conflict_old.IsEmpty())
+                {
+                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->conflict_old));
+                }
+                if (!conflIt->conflict_new.IsEmpty())
+                {
+                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->conflict_new));
+                }
+                if (!conflIt->prejfile.IsEmpty())
+                {
+                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->prejfile));
+                }
             }
         }
     }
