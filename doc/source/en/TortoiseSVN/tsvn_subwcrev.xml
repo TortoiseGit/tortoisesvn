@@ -280,6 +280,19 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                 </tgroup>
             </table>
         </para>
+        <para>
+            SubWCRev does not directly support nesting of expressions, so for example
+            you cannot use an expression like:
+<screen>
+#define SVN_REVISION    "$WCMIXED?$WCRANGE$:$WCREV$$"
+</screen>
+            But you can usually work around it by other means, for example:
+<screen>
+#define SVN_RANGE       $WCRANGE$
+#define SVN_REV         $WCREV$
+#define SVN_REVISION    "$WCMIXED?SVN_RANGE:SVN_REV$"
+</screen>
+        </para>
         <tip>
             <para>
                 Some of these keywords apply to single files rather than to
