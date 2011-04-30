@@ -23,7 +23,6 @@
 #include "UnicodeUtils.h"
 #ifdef _MFC_VER
 #include "SVN.h"
-#include "MessageBox.h"
 #include "Hooks.h"
 #endif
 #include "registry.h"

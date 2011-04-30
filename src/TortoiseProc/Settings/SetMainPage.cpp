@@ -26,7 +26,6 @@
 #include "..\version.h"
 #include ".\setmainpage.h"
 #include "SVN.h"
-#include "MessageBox.h"
 #include "SysInfo.h"
 #include "Libraries.h"
 

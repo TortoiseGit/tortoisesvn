@@ -21,7 +21,6 @@
 
 #include "SwitchDlg.h"
 #include "SVNProgressDlg.h"
-#include "MessageBox.h"
 
 bool SwitchCommand::Execute()
 {

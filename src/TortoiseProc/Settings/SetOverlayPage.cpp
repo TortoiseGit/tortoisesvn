@@ -24,7 +24,6 @@
 #include "ShellUpdater.h"
 #include "..\TSVNCache\CacheInterface.h"
 #include ".\setoverlaypage.h"
-#include "MessageBox.h"
 
 
 IMPLEMENT_DYNAMIC(CSetOverlayPage, ISettingsPropPage)

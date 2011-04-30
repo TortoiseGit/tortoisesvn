@@ -18,7 +18,6 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "MessageBox.h"
 #include "SVNProperties.h"
 #include "UnicodeUtils.h"
 #include "Propdlg.h"
