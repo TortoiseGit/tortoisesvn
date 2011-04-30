@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-26 01:05+0000\n"
+"PO-Revision-Date: 2011-04-30 11:13+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1630,6 +1630,10 @@ msgid ""
 "\n"
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
+"O reposicionamento é necessário apenas se mudou o caminho para um "
+"repositório. Mudar para um outro caminho no interior de um repositório é "
+"executado por uma operação de troca. Se não tiveres a certeza do que queres "
+"fazer, tenta primeiro a operação trocar."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -2035,7 +2039,7 @@ msgstr "Aplicar Correcção..."
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
-msgstr ""
+msgstr "Aplicar modificações svn:externals  locais"
 
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
@@ -2396,60 +2400,80 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"Cancela\n"
+"Não submetas para uma etiqueta."
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"Cancela\n"
+"Não revertas."
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"Cancela\n"
+"Volta atrás e introduz um número de problema."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"Cancela\n"
+"Irei introduzir um caminho/URL diferente."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"Cancela\n"
+"Mantém o URL corrente."
 
 #. Resource IDs: (105)
 msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"Cancela\n"
+"Os itens não são importados."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"Cancela\n"
+"Os itens não são movidos."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr ""
+"Cancela\n"
+"O ficheiro destino será deixado como está"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"Cancela\n"
+"Terás de adicionar a pasta manualmente."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"Cancela\n"
+"Mantém o formato corrente."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2902,6 +2926,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"Submete apenas a pasta\n"
+"Os ficheiros da pasta não serão submetidos"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -2916,6 +2942,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"Submete\n"
+"submete as alterações para o destino."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2958,7 +2986,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "Submetendo para uma etiqueta"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3809,11 +3837,11 @@ msgstr "Não mostrar o menu de atalho para os seguintes caminhos:"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr ""
+msgstr "Faz isto para todos os itens existentes"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr ""
+msgstr "Faz isto para todas as pastas não versionadas e seleccionadas"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -3885,6 +3913,9 @@ msgid ""
 "%s\n"
 "and go back to this revision?"
 msgstr ""
+"Desejas reverter todas as alterações em\n"
+"%s\n"
+"e voltar para esta revisão?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -3893,6 +3924,9 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
+"Desejas reverter todas as alterações em\n"
+"%s\n"
+"que foram feitas nesta revisão?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -3912,7 +3946,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "Não me perguntes outra vez"
 
 #. Resource IDs: (94)
 msgid ""
@@ -3939,7 +3973,7 @@ msgstr "Não mostrar esta mensagem de novo"
 
 #. Resource IDs: (564)
 msgid "Don't tell me again"
-msgstr ""
+msgstr "Não me digas outra vez"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4277,7 +4311,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr ""
+msgstr "Cada submissão deve ser atribuida a um problema"
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -5381,6 +5415,9 @@ msgid ""
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
 msgstr ""
+"Se usares neste computador, outros clientes SVN para além do TortoiseSVN "
+"terás também de actualizar esses clientes. De outro modo, esses clientes não"
+" conseguiram aceder à copia de trabalho no novo formato."
 
 #. Resource IDs: (251)
 msgid ""
@@ -5407,7 +5444,7 @@ msgstr "Ignorar &ascendência"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
-msgstr ""
+msgstr "Ignorar todos"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5467,7 +5504,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Illegal path"
-msgstr ""
+msgstr "caminho ilegal"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5550,6 +5587,8 @@ msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
 msgstr ""
+"Importar\n"
+"Os itens são importados, cria uma nova revisão para cada item."
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -6374,7 +6413,7 @@ msgstr "Mais cores..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "Mais de um iten descartado."
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6436,7 +6475,7 @@ msgstr "Mover itens para aqui"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr ""
+msgstr "Move ficheiro especial ou pasta"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6461,6 +6500,8 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr ""
+"Move\n"
+"Os itens serão movidos para o caminho destino."
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6676,7 +6717,7 @@ msgstr "Sem sugestões de sinónimos"
 
 #. Resource IDs: (564)
 msgid "No to all"
-msgstr ""
+msgstr "Não para todos"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7036,6 +7077,8 @@ msgid ""
 "Overwrite\n"
 "The target file gets replaced"
 msgstr ""
+"Sobrepor\n"
+"Os ficheiros destino serão substituidos"
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -7365,7 +7408,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
-msgstr ""
+msgstr "Prosegue com a integração"
 
 #. Resource IDs: (173)
 msgid ""
@@ -7761,6 +7804,8 @@ msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
 msgstr ""
+"Reposicionar\n"
+"A cópia de trabalho será reposicionada para o novo URL."
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -7940,7 +7985,7 @@ msgstr "Substituindo"
 
 #. Resource IDs: (564)
 msgid "Report"
-msgstr ""
+msgstr "Reportar"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -8081,6 +8126,8 @@ msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
 msgstr ""
+"Reverter\n"
+"Alterações serão aplicadas na cópia de trabalho."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -8088,7 +8135,7 @@ msgstr "Revertido"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
-msgstr ""
+msgstr "Reverter alterações"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8995,11 +9042,11 @@ msgstr "Tamanho da cache se não estivesse comprimida"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "Saltar"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "Saltar todos"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -9015,7 +9062,7 @@ msgstr "Saltada cópia de trabalho obstruída"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr ""
+msgstr "Saltado, sem pai versionado"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9971,7 +10018,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "O destino tem modificações locais"
 
 #. Resource IDs: (279)
 #, c-format
@@ -10755,6 +10802,8 @@ msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
 msgstr ""
+"Actualiza a cópia de trabalho\n"
+"para o novo formato 1.7."
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
@@ -10951,6 +11000,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Usa o caminho encontrado.\n"
+"Aplica a correcção a\n"
+"%s"
 
 #. Resource IDs: (594)
 msgid ""
@@ -10973,6 +11025,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Usa o caminho original.\n"
+"Aplica a correcção a\n"
+"%s"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -11292,7 +11347,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "Não introduziste um número de problema."
 
 #. Resource IDs: (1002)
 #, c-format
@@ -11313,7 +11368,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr ""
+msgstr "Seleccionaste uma pasta não versionada para submeter!"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-26 01:05+0000\n"
+"PO-Revision-Date: 2011-04-28 17:56+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2033,7 +2033,7 @@ msgstr "Primena zakrpe..."
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
-msgstr ""
+msgstr "Примени локални свн:екстернал измене"
 
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
@@ -2441,6 +2441,8 @@ msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr ""
+"Откажи\n"
+"Циљни фајл је остао исти"
 
 #. Resource IDs: (173)
 msgid ""
@@ -3812,7 +3814,7 @@ msgstr "Ne prikazuj konetekst meni za sledeće putanje:"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr ""
+msgstr "Урадите ово за све постојеће ставке"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -7024,6 +7026,8 @@ msgid ""
 "Overwrite\n"
 "The target file gets replaced"
 msgstr ""
+"Препишите\n"
+"Циљни фајл је премештен"
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -7122,7 +7126,7 @@ msgstr "Putanja"
 
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
-msgstr ""
+msgstr "Нађена путања боље упоређује закрпу"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -9013,12 +9017,16 @@ msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
+"Неки фајл(ови) је промењен ван Т-Стопи.\n"
+"Да ли желите да унесет измене?"
 
 #. Resource IDs: (314)
 msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
+"Неки фајл(ови) је промењен ван Т-Стопи.\n"
+"Да ли желите да га поновите и изгубите измене?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9923,7 +9931,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "Циљ већ постоји."
 
 #. Resource IDs: (147)
 #, c-format
@@ -10936,6 +10944,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Користите нађену путању.\n"
+"Примените закрпу на\n"
+"%s"
 
 #. Resource IDs: (594)
 msgid ""
@@ -10958,6 +10969,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Користите оригиналну путању.\n"
+"Примените закрпу на\n"
+"%s"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
