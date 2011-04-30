@@ -259,23 +259,13 @@ C:\Path-To\WinMerge.exe %merged
         <para>
             A viewer program for unified-diff files (patch files).
             No parameters are required.
-            The <guilabel>Default</guilabel> option is to check for
-            a file association for <filename>.diff</filename> files,
-            and then for <filename>.txt</filename> files.
-            If you don't have a viewer for <filename>.diff</filename>
-            files, you will most likely get NotePad.
+            The <guilabel>Default</guilabel> setting is to use
+            TortoiseUDiff which is installed alongside TortoiseSVN,
+            and colour-codes the added and removed lines.
         </para>
         <para>
-            The original Windows NotePad program does not behave
-            well on files which do not have standard CR-LF
-            line-endings. Since most unified diff files have pure
-            LF line-endings, they do not view well in NotePad.
-            However, you can download a free NotePad replacement
-            <ulink url="http://www.flos-freeware.ch/notepad2.html">
-                <citetitle>Notepad2</citetitle>
-            </ulink>
-            which not only displays the line-endings correctly,
-            but also colour codes the added and removed lines.
+            Since Unified Diff is just a text format, you can use your
+            favourite text editor if you prefer.
         </para>
     </sect3>
 </sect2>
