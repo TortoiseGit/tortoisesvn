@@ -140,7 +140,7 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
         {ITEMIS_FOLDER|ITEMIS_ONLYONE, ITEMIS_INSVN|ITEMIS_FOLDERINSVN}, {0, 0}, {0, 0}, {0, 0}, _T("tsvn_createrepo") },
 
     { ShellMenuAdd,                         MENUADD,            IDI_ADD,                IDS_MENUADD,                IDS_MENUDESCADD,
-        {ITEMIS_INVERSIONEDFOLDER|ITEMIS_FOLDER, ITEMIS_INSVN|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_INSVN|ITEMIS_FOLDER, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_IGNORED, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_DELETED, ITEMIS_FOLDER|ITEMIS_ONLYONE|ITEMIS_UNSUPPORTEDFORMAT}, _T("tsvn_add") },
+        {ITEMIS_INVERSIONEDFOLDER|ITEMIS_FOLDER, ITEMIS_INSVN|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_INSVN|ITEMIS_FOLDER, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_IGNORED|ITEMIS_FOLDER, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_DELETED, ITEMIS_FOLDER|ITEMIS_ONLYONE|ITEMIS_UNSUPPORTEDFORMAT}, _T("tsvn_add") },
 
     { ShellMenuAdd,                         MENUADD,            IDI_ADD,                IDS_MENUADDIMMEDIATE,       IDS_MENUDESCADD,
         {ITEMIS_INVERSIONEDFOLDER, ITEMIS_INSVN|ITEMIS_FOLDER|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {ITEMIS_IGNORED, ITEMIS_FOLDER|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_DELETED, ITEMIS_FOLDER|ITEMIS_ONLYONE|ITEMIS_UNSUPPORTEDFORMAT}, _T("tsvn_add") },
@@ -462,7 +462,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         itemStates |= ITEMIS_DELETED;
                 } // for (int i = 0; i < count; ++i)
                 ItemIDList child (GetPIDLItem (cida, 0), &parent);
-                if (g_ShellCache.IsVersioned(child.toString().c_str(), false, false))
+                if (g_ShellCache.IsVersioned(child.toString().c_str(), (itemStates & ITEMIS_FOLDER) != 0, false))
                     itemStates |= ITEMIS_INVERSIONEDFOLDER;
                 GlobalUnlock(medium.hGlobal);
 
