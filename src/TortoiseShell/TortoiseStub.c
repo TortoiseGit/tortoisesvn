@@ -33,6 +33,44 @@ static LPFNCANUNLOADNOW pDllCanUnloadNow = NULL;
 
 
 
+static BOOL DebugActive(void)
+{
+    static const WCHAR TSVNRootKey[]=_T("Software\\TortoiseSVN");
+    static const WCHAR ExplorerOnlyValue[]=_T("DebugShell");
+
+
+    DWORD bDebug = 0;
+
+    HKEY hKey = HKEY_CURRENT_USER;
+    LONG Result = ERROR;
+    DWORD Type = REG_DWORD;
+    DWORD Len = sizeof(DWORD);
+
+    BOOL bDebugActive = FALSE;
+
+
+    TRACE(_T("DebugActive() - Enter\n"));
+
+    if (IsDebuggerPresent())
+    {
+        Result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, TSVNRootKey, 0, KEY_READ, &hKey);
+        if (Result == ERROR_SUCCESS)
+        {
+            Result = RegQueryValueEx(hKey, ExplorerOnlyValue, NULL, &Type, (BYTE *)&bDebug, &Len);
+            if ((Result == ERROR_SUCCESS) && (Type == REG_DWORD) && (Len == sizeof(DWORD)) && bDebug)
+            {
+                TRACE(_T("DebugActive() - debug active\n"));
+                bDebugActive = TRUE;
+            }
+
+            RegCloseKey(hKey);
+        }
+    }
+
+    TRACE(_T("WantRealVersion() - Exit\n"));
+    return bDebugActive;
+}
+
 /**
  * \ingroup TortoiseShell
  * Check whether to load the full TortoiseSVN.dll or not.
@@ -102,7 +140,7 @@ static void LoadRealLibrary(void)
 
     WCHAR ModuleName[MAX_PATH] = {0};
     DWORD Len = 0;
-
+    HINSTANCE hUseInst = hInst;;
 
     if (hTortoiseSVN)
         return;
@@ -113,8 +151,12 @@ static void LoadRealLibrary(void)
         hTortoiseSVN = NIL;
         return;
     }
-
-    Len = GetModuleFileName(hInst, ModuleName, _countof(ModuleName));
+    // if HKCU\Software\TortoiseSVN\DebugShell is set, load the dlls from the location of the current process
+    // which is for our debug purposes an instance of usually TortoiseProc. That way we can force the load
+    // of the debug dlls.
+    if (DebugActive())
+        hUseInst = NULL;
+    Len = GetModuleFileName(hUseInst, ModuleName, _countof(ModuleName));
     if (!Len)
     {
         TRACE(_T("LoadRealLibrary() - Fail\n"));
