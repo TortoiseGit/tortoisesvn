@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-26 01:05+0000\n"
+"PO-Revision-Date: 2011-05-01 01:31+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Romanian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -306,6 +306,20 @@ msgid ""
 msgstr ""
 "%s\n"
 "Chiar doriţi să-l eliminaţi?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the %d files anyway?"
+msgstr ""
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the file '%s' anyway?"
+msgstr ""
 
 #. Resource IDs: (616)
 #, c-format
@@ -1750,6 +1764,12 @@ msgstr "Adaugă program de diferenţiere specific unei extensii"
 msgid "Add extension specific merge program"
 msgstr "Adaugă program de îmbinare specific unei extensii"
 
+#. Resource IDs: (90)
+msgid ""
+"Add item\n"
+"This will lead to problems on Windows."
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Adaugă automat fişiere noi la SVN"
@@ -1827,6 +1847,12 @@ msgstr "Puneţi fişierul (sau fişierele) sub controlul Subversion"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Adaugă fişierul/fişierele sau mască de fişier la lista de ignorări"
 
+#. Resource IDs: (90)
+msgid ""
+"Adjust case\n"
+"The file is not added."
+msgstr ""
+
 #. Resource IDs: (2049)
 msgid ""
 "Adjust the settings\n"
@@ -1874,6 +1900,10 @@ msgstr "Toate fişierele (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Toate fişierele (*.*)|*.*||"
+
+#. Resource IDs: (148)
+msgid "All changes since the last update will be lost!"
+msgstr ""
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2393,16 +2423,40 @@ msgid ""
 "Do not commit to a tag."
 msgstr ""
 
+#. Resource IDs: (147)
+msgid ""
+"Cancel\n"
+"Do not remove"
+msgstr ""
+
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
 
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Do not update the working copy."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Don't resolve the item."
+msgstr ""
+
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Go back and select a different folder."
 msgstr ""
 
 #. Resource IDs: (89)
@@ -2415,6 +2469,30 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Leave all changes."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not added and not adjusted."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not copied."
+msgstr ""
+
+#. Resource IDs: (91)
+msgid ""
+"Cancel\n"
+"The folder is not exported."
 msgstr ""
 
 #. Resource IDs: (105)
@@ -2653,6 +2731,12 @@ msgstr "Adâncimea de &aducere"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "Adu de la %s, revizia %s, %s, %s"
+
+#. Resource IDs: (90)
+msgid ""
+"Checkout\n"
+"Checkout into the non empty folder."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -3041,6 +3125,10 @@ msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr ""
 "Configurează programul vizualizator pentru fişiere de diferenţiere GNU "
 "(fişiere petice)"
+
+#. Resource IDs: (147)
+msgid "Confirm revert"
+msgstr ""
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3792,6 +3880,14 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr "Nu afişa meniul contextual pentru următoarele căi:"
 
+#. Resource IDs: (90)
+msgid "Do this for all existing files"
+msgstr ""
+
+#. Resource IDs: (91)
+msgid "Do this for all existing folders"
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
 msgstr ""
@@ -3842,6 +3938,11 @@ msgstr ""
 "Acesta va elimina toate dosarele de administrare a Subversion din\n"
 "%s!"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Do you want to mark '%s' as resolved?"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "Doriţi să continuaţi?"
@@ -3862,6 +3963,11 @@ msgstr ""
 #, c-format
 msgid "Do you want to remove the property %s recursively?"
 msgstr "Doriţi să eliminaţi recursiv proprietatea %s?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid "Do you want to revert '%s'?"
+msgstr ""
 
 #. Resource IDs: (120)
 #, c-format
@@ -4343,6 +4449,12 @@ msgstr ""
 msgid "Export unversioned files too"
 msgstr "Exportă şi fişierele neversionate"
 
+#. Resource IDs: (90)
+msgid ""
+"Export\n"
+"Export into the non-empty folder."
+msgstr ""
+
 #. Resource IDs: (284)
 #, c-format
 msgid "Exporting %1!s!"
@@ -4351,6 +4463,10 @@ msgstr "Se exportă %1!s!"
 #. Resource IDs: (79)
 msgid "Exporting..."
 msgstr "Se exportă..."
+
+#. Resource IDs: (90)
+msgid "Exporting: Target folder exists."
+msgstr ""
 
 #. Resource IDs: (10)
 msgid ""
@@ -4490,6 +4606,10 @@ msgstr "Recuperează revizia %s a fişierului:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Fişier"
+
+#. Resource IDs: (90)
+msgid "File already exists"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -4733,6 +4853,10 @@ msgstr ""
 #. Resource IDs: (279)
 msgid "Force"
 msgstr "Forţează"
+
+#. Resource IDs: (147)
+msgid "Force removal"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5719,7 +5843,7 @@ msgid ""
 "It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
 "\n"
 "From:\t%1!s!\n"
-"To:\t\t%2!s!\n"
+"To:\t%2!s!\n"
 "\n"
 "A relocate is only needed if the path to a repository has changed.\n"
 "Changing to a different path inside a repository is done by a switch operation.\n"
@@ -5728,17 +5852,6 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
-"Încercaţi să relocați copia de lucru la o altă cale în acelaşi depozit.\n"
-"\n"
-"De la:\t%1!s!\n"
-"La:\t\t%2!s!\n"
-"\n"
-"Relocarea este necesară numai dacă s-a schimbat calea la un depozit.\n"
-"Schimbarea la o altă cale în depozit se face prin operaţiunea de comutare.\n"
-"\n"
-"Folosinţa greşită relocare va corupta copia de lucru!\n"
-"Dacă nu sunteţi sigur ce să faceţi, citiţi documentaţia despre relocare.\n"
-"Sigur doriţi să relocaţi copia de lucru?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6696,6 +6809,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Nerecursiv"
 
+#. Resource IDs: (265)
+msgid "Not under version control"
+msgstr ""
+
 #. Resource IDs: (3887)
 msgid ""
 "Note that if you choose to recover the auto-saved documents, you must "
@@ -7002,10 +7119,22 @@ msgstr ""
 msgid "Overwrite"
 msgstr "Suprascrie"
 
+#. Resource IDs: (91)
+msgid ""
+"Overwrite\n"
+"Replace the target folder."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Overwrite\n"
+"The target file is replaced."
 msgstr ""
 
 #. Resource IDs: (32802)
@@ -7806,6 +7935,12 @@ msgstr "Elimină unu sau mai multe cache-uri din disc"
 msgid "Remove the whole subtree(s)"
 msgstr "Elimină subarborele întreg (sau subarborile întrege)"
 
+#. Resource IDs: (147)
+msgid ""
+"Remove\n"
+"Force the removal"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "Eliminat"
@@ -7866,6 +8001,13 @@ msgstr ""
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
 msgstr "Redenumire/mutare - TortoiseSVN"
+
+#. Resource IDs: (91)
+#, c-format
+msgid ""
+"Rename\n"
+"The folder is exported as \"%s\"."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -7983,6 +8125,12 @@ msgstr "Rezolvă conflictul:"
 msgid "Resolve l&ater"
 msgstr "Rezolvă mai &târziu"
 
+#. Resource IDs: (148)
+msgid ""
+"Resolve\n"
+"The item is marked as resolved."
+msgstr ""
+
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
 msgstr "Rezolvat"
@@ -8044,6 +8192,12 @@ msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
 "Revine la preferinţele implicite. Recomandat pentru utilizatori cu puţină "
 "experienţă."
+
+#. Resource IDs: (147)
+msgid ""
+"Revert\n"
+"All changes will be lost."
+msgstr ""
 
 #. Resource IDs: (119)
 msgid ""
@@ -9385,6 +9539,10 @@ msgstr "Noduri etichete"
 msgid "Tagged the working copy to %s"
 msgstr "S-a pus etichetă pe copia de lucru %s"
 
+#. Resource IDs: (90)
+msgid "Target folder is not empty"
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Tasks"
 msgstr "Sarcini"
@@ -10667,6 +10825,12 @@ msgstr "Profunzimea actualizării"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "Actualizează copia de lucru la revizie"
+
+#. Resource IDs: (90)
+msgid ""
+"Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Updated"

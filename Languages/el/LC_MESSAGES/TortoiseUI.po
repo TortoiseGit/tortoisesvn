@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-26 01:05+0000\n"
+"PO-Revision-Date: 2011-05-01 01:31+0000\n"
 "Last-Translator: slabrou <stavros.labrou@gmail.com>\n"
 "Language-Team: Greek <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -308,6 +308,20 @@ msgid ""
 msgstr ""
 "%s\n"
 "Θέλετε να το διαγράψετε, ούτως ή αλλως;"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the %d files anyway?"
+msgstr ""
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the file '%s' anyway?"
+msgstr ""
 
 #. Resource IDs: (616)
 #, c-format
@@ -1744,6 +1758,12 @@ msgstr ""
 "Προσθήκη συγκεκριμένου προγράμματος επίβλεψης συγχώνευσης σύμφωνα με την "
 "κατάληξη του αρχείου"
 
+#. Resource IDs: (90)
+msgid ""
+"Add item\n"
+"This will lead to problems on Windows."
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Προσθήκη νέων αρχείων αυτόματα στο SVN"
@@ -1824,6 +1844,12 @@ msgstr ""
 "Προσθήκη του επιλεγμένου αρχείου() ή των διηθημένων αρχείων στη λίστα "
 "'παραβλεπομένων''"
 
+#. Resource IDs: (90)
+msgid ""
+"Adjust case\n"
+"The file is not added."
+msgstr ""
+
 #. Resource IDs: (2049)
 msgid ""
 "Adjust the settings\n"
@@ -1871,6 +1897,10 @@ msgstr "Όλα τα αρχεία (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Όλα τα αρχεία (*.*)|*.*||"
+
+#. Resource IDs: (148)
+msgid "All changes since the last update will be lost!"
+msgstr ""
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2370,16 +2400,40 @@ msgid ""
 "Do not commit to a tag."
 msgstr ""
 
+#. Resource IDs: (147)
+msgid ""
+"Cancel\n"
+"Do not remove"
+msgstr ""
+
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
 
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Do not update the working copy."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Don't resolve the item."
+msgstr ""
+
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Go back and select a different folder."
 msgstr ""
 
 #. Resource IDs: (89)
@@ -2392,6 +2446,30 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Leave all changes."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not added and not adjusted."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not copied."
+msgstr ""
+
+#. Resource IDs: (91)
+msgid ""
+"Cancel\n"
+"The folder is not exported."
 msgstr ""
 
 #. Resource IDs: (105)
@@ -2622,6 +2700,12 @@ msgstr "&Βάθος checkout"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "Checkout από %s, έκδοση %s, %s, %s"
+
+#. Resource IDs: (90)
+msgid ""
+"Checkout\n"
+"Checkout into the non empty folder."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -3001,6 +3085,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "Ρύθμιση εφαρμογής για αρχεία διαφορών GNU (αρχεία patch)."
+
+#. Resource IDs: (147)
+msgid "Confirm revert"
+msgstr ""
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3752,6 +3840,14 @@ msgid "Do not show the context menu for the following paths:"
 msgstr ""
 "Να μην εμφανίζεται το αναδυόμενο μενού για τους ακόλουθους καταλόγους:"
 
+#. Resource IDs: (90)
+msgid "Do this for all existing files"
+msgstr ""
+
+#. Resource IDs: (91)
+msgid "Do this for all existing folders"
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
 msgstr ""
@@ -3793,6 +3889,11 @@ msgid ""
 "%s!"
 msgstr ""
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Do you want to mark '%s' as resolved?"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "Θέλετε να προχωρήσετε;"
@@ -3813,6 +3914,11 @@ msgstr ""
 #, c-format
 msgid "Do you want to remove the property %s recursively?"
 msgstr "Θέλετε να καταργήσετε την ιδιότητα %s αναδρομικά?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid "Do you want to revert '%s'?"
+msgstr ""
 
 #. Resource IDs: (120)
 #, c-format
@@ -4284,6 +4390,12 @@ msgstr ""
 msgid "Export unversioned files too"
 msgstr "Εξαγωγή και των αρχείων χωρίς έκδοση"
 
+#. Resource IDs: (90)
+msgid ""
+"Export\n"
+"Export into the non-empty folder."
+msgstr ""
+
 #. Resource IDs: (284)
 #, c-format
 msgid "Exporting %1!s!"
@@ -4292,6 +4404,10 @@ msgstr "Εξαγωγή %1!s!"
 #. Resource IDs: (79)
 msgid "Exporting..."
 msgstr "Εξαγωγή..."
+
+#. Resource IDs: (90)
+msgid "Exporting: Target folder exists."
+msgstr ""
 
 #. Resource IDs: (10)
 msgid ""
@@ -4427,6 +4543,10 @@ msgstr "Ανάκτηση της έκδοσης %s του αρχείου:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Αρχείο"
+
+#. Resource IDs: (90)
+msgid "File already exists"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -4623,6 +4743,10 @@ msgstr ""
 #. Resource IDs: (279)
 msgid "Force"
 msgstr "Αναγκάσμος"
+
+#. Resource IDs: (147)
+msgid "Force removal"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5607,7 +5731,7 @@ msgid ""
 "It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
 "\n"
 "From:\t%1!s!\n"
-"To:\t\t%2!s!\n"
+"To:\t%2!s!\n"
 "\n"
 "A relocate is only needed if the path to a repository has changed.\n"
 "Changing to a different path inside a repository is done by a switch operation.\n"
@@ -5616,17 +5740,6 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
-"Φαίνεται ότι προσπαθείτε να μετακίνησετε το αντίγραφο εργασίας σας σε μία διαφορετική τοποθεσία μέσα στην ίδια αποθήκη.\n"
-"\n"
-"Από:\t%1!s!\n"
-"Σε:\t\t%2!s!\n"
-"\n"
-"Μία μετακίνηση είναι αναγκαία μόνο άν το μονοπάτι προς μία αποθήκη έχει αλλάξει.\n"
-"Η αλλάγη σε ένα διαφορετικό μονοπάτι μέσα σε μία αποθήκη γίνεται με μία επέμβαση εναλλαγής.\n"
-"\n"
-"Η εσφαλμένη χρήση της μετακίνησης θα διαφθήρει το αντίγραφο εργασίας σας!\n"
-"Αν δεν είστε σίγουροι για το τί να κάνετε, παρακαλώ απευθυνθείτε στα εγχειρίδια μας για την μετακίνηση.\n"
-"Θέλετε πραγματικά να μετακινήσετε;"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6591,6 +6704,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Μη αναδρόμενο"
 
+#. Resource IDs: (265)
+msgid "Not under version control"
+msgstr ""
+
 #. Resource IDs: (3887)
 msgid ""
 "Note that if you choose to recover the auto-saved documents, you must "
@@ -6893,10 +7010,22 @@ msgstr ""
 msgid "Overwrite"
 msgstr "Αντικατάσταση"
 
+#. Resource IDs: (91)
+msgid ""
+"Overwrite\n"
+"Replace the target folder."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Overwrite\n"
+"The target file is replaced."
 msgstr ""
 
 #. Resource IDs: (32802)
@@ -7674,6 +7803,12 @@ msgstr "Αφαίρεση των επιλεγμένων cache(s) από το δί
 msgid "Remove the whole subtree(s)"
 msgstr "Αφαίρεση ολόκληρου υπο-δένδρου(ων)"
 
+#. Resource IDs: (147)
+msgid ""
+"Remove\n"
+"Force the removal"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "Αφαιρέθηκε"
@@ -7734,6 +7869,13 @@ msgstr ""
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
 msgstr "Μετονομασία/μεταφορά - TortoiseSVN"
+
+#. Resource IDs: (91)
+#, c-format
+msgid ""
+"Rename\n"
+"The folder is exported as \"%s\"."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -7851,6 +7993,12 @@ msgstr "Επίλυση διένεξης:"
 msgid "Resolve l&ater"
 msgstr "Επίλυση αρ&γότερα"
 
+#. Resource IDs: (148)
+msgid ""
+"Resolve\n"
+"The item is marked as resolved."
+msgstr ""
+
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
 msgstr "Επίλυση"
@@ -7911,6 +8059,12 @@ msgstr "Επαναφορά - TortoiseSVN"
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
 "Επαναφορά στις αρχικές ρυθμίσεις. Προτείνετε για μη έμπειρους χρήστες."
+
+#. Resource IDs: (147)
+msgid ""
+"Revert\n"
+"All changes will be lost."
+msgstr ""
 
 #. Resource IDs: (119)
 msgid ""
@@ -9190,6 +9344,10 @@ msgstr "Ετικέτες κόμβων"
 msgid "Tagged the working copy to %s"
 msgstr ""
 
+#. Resource IDs: (90)
+msgid "Target folder is not empty"
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Tasks"
 msgstr "Εργασίες"
@@ -10314,6 +10472,12 @@ msgstr "Ενημέρωση βάθους"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "Αναβάθμιση του αντιγράφου εργασίας σε αναθεώρηση"
+
+#. Resource IDs: (90)
+msgid ""
+"Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Updated"

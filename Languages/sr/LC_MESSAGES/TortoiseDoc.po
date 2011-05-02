@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-29 00:32+0000\n"
+"PO-Revision-Date: 2011-05-01 00:25+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -729,7 +729,6 @@ msgstr ""
 "Где је изузетна брига предузета. Уништавање података или друге лоше ствари "
 "могу се јавити ако се упозорења игноришу."
 
-#. (title)
 #. (title)
 msgid "Getting Started"
 msgstr "Кренимо од почетка"
@@ -3350,6 +3349,17 @@ msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
 msgstr "Да би добили највише од Водича дневног коришћења: <placeholder-1/>"
 
 #. (title)
+msgid "General Features"
+msgstr ""
+
+#. (para)
+msgid ""
+"This section describes some of the features of TortoiseSVN which apply to "
+"just about everything in the manual. Note that many of these features will "
+"only show up within a Subversion working copy."
+msgstr ""
+
+#. (title)
 #. (title)
 #. (title)
 msgid "Icon Overlays"
@@ -3738,15 +3748,10 @@ msgid ""
 "it does the job, it has several shortcomings: <placeholder-1/> For these "
 "reasons we recommend that you do not use the import command at all but "
 "rather follow the two-step method described in <xref linkend=\"tsvn-dug-"
-"import-in-place\"/>. But since you are here, this is how the basic import "
-"works ..."
+"import-in-place\"/>, unless you are performing the simple step of creating "
+"an initial <filename>/trunk /tags /branches</filename> structure in your "
+"repository. Since you are here, this is how the basic import works ..."
 msgstr ""
-"Овај део описује Субверзиону команду увоза, која је дизајнирана за увоз "
-"хијерархију именика у спремиште у једном опаљењу. Без обзира што то  "
-"завршава посао то има више грешака: <placeholder-1/>  Из ових разлога "
-"препоручујемо да не користите команду увоза уопште већ радије пратите "
-"двостепен метод описан у <xref linkend=\"tsvn-dug-import-in-place\"/>. Али "
-"пошто сте овда, ево како основни увоз ради ..."
 
 #. (para)
 msgid ""
@@ -3849,10 +3854,11 @@ msgstr "увоз на место"
 #. (para)
 msgid ""
 "Use the repository browser to create a new project folder directly in the "
-"repository."
+"repository. If you are using one of the standard layouts you will probably "
+"want to create this as a sub-folder of trunk rather than in the repository "
+"root. The repository browser shows the repository structure just like "
+"Windows explorer, so you can see how things are organised."
 msgstr ""
-"Користите претраживач спремишта да креирате нови именик пројекта директно у "
-"спремишту."
 
 #. (para)
 msgid ""
@@ -4134,14 +4140,9 @@ msgid ""
 " then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-"
 "Browser</guimenuitem></menuchoice> to bring up the repository browser. Find "
 "the sub-folder you would like to add to your working copy, then use "
-"<menuchoice><guimenuitem>Update item to "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
 msgstr ""
-"У виндоуз  претраживачу, <action>Десни клик</action> на преузети именик,  "
-"затим користите <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Репо-"
-"Претрживач</guimenuitem></menuchoice> да позовете претраживач спремишта. "
-"Нађите субименик који желите да додате вашој радној копији, затим користите"
-"  Ажурирај ставку по ревизији...</guimenuitem></menuchoice> ."
 
 #. (para)
 msgid ""
@@ -7019,6 +7020,7 @@ msgstr ""
 "преузимање."
 
 #. (term)
+#. (term)
 msgid "Export..."
 msgstr "Извоз..."
 
@@ -7287,6 +7289,12 @@ msgid ""
 "file."
 msgstr ""
 "Сачувати изабрану ревизију фајла тако да имате стару верзију тог фајла."
+
+#. (para)
+msgid ""
+"Export the selected items in this revision to a folder, preserving the file "
+"hierarchy."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7696,9 +7704,13 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\n"
+"Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use a leading <literal>+</literal> to specify that a sub-string should be included, even if previously excluded with a <literal>-</literal>. Note that the order of inclusion/exclusion is significant here. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\n"
 "Alice Bob -Eve\n"
 "</screen> searches for strings containing both Alice and Bob but not Eve <screen>\n"
+"Alice -Bob +Eve\n"
+"</screen> searches for strings containing both Alice but not Bob, or strings which contain Eve. <screen>\n"
+"-Case +SpecialCase\n"
+"</screen> searches for strings which do not contain Case, but still include strings which contain SpecialCase. <screen>\n"
 "!Alice Bob\n"
 "</screen> searches for strings which do not contain both Alice and Bob <screen>\n"
 "!-Alice -Bob\n"
@@ -7710,19 +7722,6 @@ msgid ""
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
 msgstr ""
-"Једноставни суб-стринг претраживање ради на сличном принципу машине за претраживање. Стрингови за претраживање су раздвојени размаком и сви стрингови се морају наћи. Можете користити водећи <literal>-</literal> да специфицирате да партикуларни суб-стринг није пронађен (инверзно налажење за тај појам), и можете користити  <literal>!</literal> на почетку израза да се инвертује тражење за цео израз. Можете користити наводнике да заокружите стринг који можда садржи размаке и ако желите литералне наводнике можете користити два наводника заједно као сопствено-иззбегавајућу секвенцу. Приметимо да инверзно кроз карактер се <emphasis>не</emphasis>  користи као карактер избегавања и нема посебан значак у једноставним суб-стринг претраживањима. Примери ће то олакшати: <screen>\n"
-"Алисе Боб -Еве\n"
-"</screen> тражи стрингове који садрже Алисе и Боб али не  Еве <screen>\n"
-"!Алисе Боб\n"
-"</screen> тражи стрингове који не садрже Алисе и Боб <screen>\n"
-"!-Алисе -Боб\n"
-"</screen> сећате ли се Де Морганове теореме? NOT(NOT Алисе AND NOT Боб) редукује се у (Алисе OR Боб). <screen>\n"
-"\"Алисе и Боб\"\n"
-"</screen> тражи литерални израз  <quote>Алисе и Боб</quote><screen>\n"
-"\"\"\n"
-"</screen> тражи наводнике било где у тексту <screen>\n"
-"\"Алисе каже \"\"здраво\"\" Бобу\"\n"
-"</screen> тражи литерални израз <quote>Алиса каже \"здраво\" Бобу</quote>"
 
 #. (para)
 msgid ""
@@ -8636,6 +8635,17 @@ msgstr ""
 "url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
 
 #. (term)
+msgid "SourceGear DiffMerge"
+msgstr ""
+
+#. (para)
+msgid ""
+"SourceGear Vault is a commercial RCS, but you can download the diff/merge "
+"tool for free. Get more information from <ulink "
+"url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
+msgstr ""
+
+#. (term)
 msgid "ExamDiff"
 msgstr "ЕгзамДиф"
 
@@ -8685,20 +8695,6 @@ msgstr ""
 "именика. Он ради троструко поређење у стапању и има синхронизациону везу за "
 "коришћење ако сте изменили ред функција. Скините га са <ulink "
 "url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
-
-#. (term)
-msgid "SciTE"
-msgstr "СциТЕ"
-
-#. (para)
-msgid ""
-"This text editor includes syntax colouring for unified diffs, making them "
-"much easier to read. Download it from <ulink "
-"url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
-msgstr ""
-"Овај текст уређивач укључује бојење синтаксе за уједињенњ дифф, чинећи их "
-"много лакшим за читање. Скините га са <ulink "
-"url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -12035,6 +12031,16 @@ msgstr ""
 "ревизиони опсег празним, све ревизије које још нисте стопили биће укључене. "
 "Прочитајте <xref linkend=\"tsvn-dug-merge-tracking\"/>  да нађете више о "
 "томе."
+
+#. (para)
+msgid ""
+"When merge tracking is used, the log dialog will show previously merged "
+"revisions, and revisions pre-dating the common ancestor point, i.e. before "
+"the branch was copied, as greyed out. The <guilabel>Hide non-mergeable "
+"revisions</guilabel> checkbox allows you to filter out these revisions "
+"completely so you see only the revisions which <emphasis>can</emphasis> be "
+"merged."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15850,47 +15856,6 @@ msgstr ""
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> да нађете више о томе."
 
-#. (term)
-msgid ""
-"Use <filename>_svn</filename> instead of <filename>.svn</filename> "
-"directories"
-msgstr ""
-"Користите <filename>_svn</filename>уместо <filename>.svn</filename> именика."
-
-#. (para)
-msgid ""
-"VS.NET when used with web projects can't handle the <literal>.svn</literal> "
-"folders that Subversion uses to store its internal information. This is not "
-"a bug in Subversion. The bug is in VS.NET and the frontpage extensions it "
-"uses. Read <xref linkend=\"tsvn-dug-settings-asp-dot-net\"/> to find out "
-"more about this issue."
-msgstr ""
-"ВС.НЕТ када се користи са веб пројектима не може да рукује са  "
-"<literal>.svn</literal> именицима које Субверзија користи да смешта интерне "
-"информације. Ово није баг у Субверзији. Баг је у ВС.НЕТ и предњој страни "
-"коју користи. Прочитајте <xref linkend=\"tsvn-dug-settings-asp-dot-net\"/> "
-"да нађете више о овом проблему."
-
-#. (para)
-msgid ""
-"If you want to change the behaviour of Subversion and TortoiseSVN, you can "
-"use this checkbox to set the environment variable which controls this."
-msgstr ""
-"Ако желите да измените понашање Субверзије и ТортоисеСВН, можете користити "
-"чекбокс да подесите променљиве околине које то контролишу."
-
-#. (para)
-msgid ""
-"You should note that changing this option will not automatically convert "
-"existing working copies to use the new admin directory. You will have to do "
-"that yourself using a script (See our FAQ) or simply check out a fresh "
-"working copy."
-msgstr ""
-"Треба да приметите да измена ових опција  не конвертује аутоматски постојеће"
-" радне копије да користе нови админ именик. Имаћете да то урадите лично "
-"користећи скрипт (Видите наш ЧПП) или једноставно преузмите свежу радну "
-"копију."
-
 #. (title)
 msgid "Context Menu Settings"
 msgstr "Подешавање контекстног менија"
@@ -17314,21 +17279,10 @@ msgid ""
 "    %base %mine\n"
 "</screen> or with UltraCompare: <screen>\n"
 "C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
+"</screen> or with DiffMerge: <screen>\n"
+"C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "</screen>"
 msgstr ""
-"На пример, са ЕгзамДиффПро: <screen>\n"
-"C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
-"    --right_display_name:%yname\n"
-"</screen> or with KDiff3: <screen>\n"
-"C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
-"</screen> or with WinMerge: <screen>\n"
-"C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
-"</screen> or with Araxis: <screen>\n"
-"C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
-"    %base %mine\n"
-"</screen> или са УлтраЦомпаре: <screen>\n"
-"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
-"</screen>"
 
 #. (para)
 msgid ""
@@ -17434,19 +17388,11 @@ msgid ""
 "    /title3:%yname %theirs %base %mine %merged /a2\n"
 "</screen> or with WinMerge (2.8 or later): <screen>\n"
 "C:\\Path-To\\WinMerge.exe %merged\n"
+"</screen> or with DiffMerge: <screen>\n"
+"C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
+"    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "</screen>"
 msgstr ""
-"На пример, са Перфорце Мерге:  <screen>\n"
-"C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
-"</screen> or with KDiff3: <screen>\n"
-"C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
-"    --L1 %bname --L2 %yname --L3 %tname\n"
-"</screen> or with Araxis: <screen>\n"
-"C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
-"    /title3:%yname %theirs %base %mine %merged /a2\n"
-"</screen> or with WinMerge (2.8 or later): <screen>\n"
-"C:\\Path-To\\WinMerge.exe %merged\n"
-"</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
@@ -17490,34 +17436,16 @@ msgstr "Обједињени Разл прегледач"
 #. (para)
 msgid ""
 "A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> option is to check for a file "
-"association for <filename>.diff</filename> files, and then for "
-"<filename>.txt</filename> files. If you don't have a viewer for "
-"<filename>.diff</filename> files, you will most likely get NotePad."
+"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
+"which is installed alongside TortoiseSVN, and colour-codes the added and "
+"removed lines."
 msgstr ""
-"Програм прегледач за уједињен-дифф фајлве 8фајлове закрпа). Нису параметри "
-"потребни. <guilabel>Подразумевана</guilabel> опција је да се чекира "
-"придруживање за <filename>.diff</filename> фајлове, и затим за "
-"<filename>.txt</filename> фајлове. Ако немате прегледач за "
-"<filename>.diff</filename> фајлове, можда ће вам се допасти НотеПад."
 
 #. (para)
 msgid ""
-"The original Windows NotePad program does not behave well on files which do "
-"not have standard CR-LF line-endings. Since most unified diff files have "
-"pure LF line-endings, they do not view well in NotePad. However, you can "
-"download a free NotePad replacement <ulink url=\"http://www.flos-"
-"freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which "
-"not only displays the line-endings correctly, but also colour codes the "
-"added and removed lines."
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
 msgstr ""
-"Оригинални Виндоуз НотеПад програм није добар за фајлове који немају "
-"стандардни CR-LF завршетак-линија. Како већина уједињени дифф фајлови имају "
-"чист   LF завршетак-линије, они се неће видети добро у НотеПад. Међутим, "
-"можете скинути бесплатну замену НотеПад <ulink url=\"http://www.flos-"
-"freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> који не "
-"приказује само крај-линије коректно, већ такође бојама кодира додате и "
-"уклоњене линије."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -18437,6 +18365,13 @@ msgstr ""
 "ТортоисеБламе користи линеарну интерполацију између ових боја у складу "
 "ревизијом спремишта означену за сваку линију."
 
+#. (para)
+msgid ""
+"You can specify different colours to use for the locator bar. The default is"
+" to use strong contrast on the locator bar while keeping the main window "
+"background light so that you can still read the text."
+msgstr ""
+
 #. (term)
 msgid "Font"
 msgstr "Писмо"
@@ -18462,70 +18397,6 @@ msgid ""
 msgstr ""
 "Дефинише колико размака користити за експанзију када се таб карактер наже у "
 "садржају фајла."
-
-#. (title)
-msgid "Subversion Working Folders"
-msgstr "Субверзиони Радни Именици"
-
-#. (primary)
-msgid ".svn folder"
-msgstr ".свн именик"
-
-#. (primary)
-msgid "_svn folder"
-msgstr "_свн именик"
-
-#. (para)
-msgid ""
-"VS.NET 2003 when used with web projects can't handle the "
-"<literal>.svn</literal> folders that Subversion uses to store its internal "
-"information. This is not a bug in Subversion. The bug is in VS.NET 2003 and "
-"the frontpage extensions it uses."
-msgstr ""
-"ВС.НЕТ 2003 када се користи са веб пројектима не може руковати са "
-"<literal>.svn</literal> именицима које Субверзија користи да смести интерне "
-"информације. Ово није баг у Субверзији. Баг је у ВС.НЕТ 2003 и улазне "
-"странице које користи као проширење."
-
-#. (para)
-msgid ""
-"Note that the bug is fixed in VS2005 and later versions. Do not activate the"
-" <literal>SVN_ASP_DOT_NET_HACK</literal> if you're already using a later "
-"version of Visual Studio."
-msgstr ""
-"Приметимо да је баг фиксиран у ВС2005 и каснијим верзијама. Не активирајте "
-"<literal>SVN_ASP_DOT_NET_HACK</literal> ако већ користите каснију верзију "
-"Висуал Студио."
-
-#. (para)
-msgid ""
-"As of Version 1.3.0 of Subversion and TortoiseSVN, you can set the "
-"environment variable <literal>SVN_ASP_DOT_NET_HACK</literal>. If that "
-"variable is set, then Subversion will use <literal>_svn</literal> folders "
-"instead of <literal>.svn</literal> folders. You must restart your shell for "
-"that environment variable to take effect. Normally that means rebooting your"
-" PC. To make this easier, you can now do this from the general settings page"
-" using a simple checkbox - refer to <xref linkend=\"tsvn-dug-settings-"
-"main\"/>."
-msgstr ""
-"Од  Верзије 1.3.0 Субверзије и ТортоисеСВН, можете подесити променљиву "
-"окружења <literal>SVN_ASP_DOT_NET_HACK</literal>. Ако је та променљива "
-"подешена Субверзија ће користити <literal>_svn</literal> именик уместо "
-"<literal>.svn</literal> именик. Морате рестартовати вашу шкољку за ту "
-"променљиву околине да постане ефектна. Нормално то значи ребутовање ПЦ. Да "
-"се то олакша, можете сада урадити то са странице генералног подешавања "
-"користећи једноставан чекбокс - обратите се на <xref linkend=\"tsvn-dug-"
-"settings-main\"/>."
-
-#. (para)
-msgid ""
-"For more information, and other ways to avoid this problem in the first "
-"place, check out the article about this in our <ulink "
-"url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQ</citetitle></ulink>."
-msgstr ""
-"За више информација, и друге начине да се избегне овај проблем на прво мест,"
-" преузмите наш чланак  <ulink "
-"url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQ</citetitle></ulink>."
 
 #. (title)
 msgid "Advanced Settings"
@@ -18809,6 +18680,26 @@ msgstr ""
 "ситуацијама стварно се не захтева меморисање аутентикационих података. "
 "Подешавањем ове вредност на <literal>лаж</literal> онемогућава се "
 "<literal>сачувај аутентификацију</literal>  дугме у дијалогу аутентикације."
+
+#. (title)
+msgid "Exporting TSVN Settings"
+msgstr ""
+
+#. (para)
+msgid ""
+"If you want to export all your client settings to use on another computer "
+"you can do so using the Windows registry editor "
+"<filename>regedt32.exe</filename>. Go to the registry key "
+"<literal>HKCU\\Software\\TortoiseSVN</literal> and export it to a reg file. "
+"On the other computer, just import that file again (usually, a double click "
+"on the reg file will do that)."
+msgstr ""
+
+#. (para)
+msgid ""
+"Remember to save your Subversion settings too, located in the svn config "
+"file in <literal>%APPDATA%\\Subversion</literal>."
+msgstr ""
 
 #. (title)
 msgid "Final Step"
@@ -19224,6 +19115,17 @@ msgstr ""
 "Ако су изворни и одредишни фајлови снабдевени, SubWCRev копира извор у "
 "одредиште, извршавајући замену кључних речи на следећи начин: "
 "<placeholder-1/>"
+
+#. (para)
+msgid ""
+"SubWCRev does not directly support nesting of expressions, so for example you cannot use an expression like: <screen>\n"
+"#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n"
+"</screen> But you can usually work around it by other means, for example: <screen>\n"
+"#define SVN_RANGE       $WCRANGE$\n"
+"#define SVN_REV         $WCREV$\n"
+"#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
+"</screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -23684,20 +23586,12 @@ msgid ""
 "systems, we've created a shared component which is responsible for showing "
 "the overlay icons. The technical details are not important here, all you "
 "need to know is that this shared component allows all Tortoise clients to "
-"use the same overlays and therefore the limit 11 available slots isn't used "
-"up by installing more than one Tortoise client. Of course there's one small "
-"drawback: all Tortoise clients use the same overlay icons, so you can't "
-"figure out by the overlay icons what version control system a working copy "
-"is using."
+"use the same overlays and therefore the limit of 11 available slots isn't "
+"used up by installing more than one Tortoise client. Of course there's one "
+"small drawback: all Tortoise clients use the same overlay icons, so you "
+"can't figure out by the overlay icons what version control system a working "
+"copy is using."
 msgstr ""
-"Откад су Тортоисе клијенти доступни за друге системе контроле верзије, "
-"креирали смо дељиве компоненте које су одговорне за приказивање прекривачких"
-" икона. Технички детаљи овде нису важни, све што вам треба да знате је да  "
-"ове дељене компоненте допуштају свим Тортоисе клијентима да користе исте "
-"прекриваче и ту лимит од 11 доступних слотова није коришћен при инсталирању "
-"више од једног Тортоисе клијента. Свакако постоји један мали мана: сви "
-"Тортоисе клијенти користе исте прекривачке иконе, без обзира који систем "
-"конторле верзија користи радна копија. "
 
 #. (para)
 msgid ""

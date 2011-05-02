@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-29 00:31+0000\n"
+"PO-Revision-Date: 2011-05-01 00:25+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -764,7 +764,6 @@ msgstr ""
 "Onde tem de ser tomado extremo cuidado. Corrupção de dados ou outras coisas "
 "desagradáveis poderão acontecer se esses avisos forem ignorados."
 
-#. (title)
 #. (title)
 msgid "Getting Started"
 msgstr "Começando"
@@ -3492,6 +3491,17 @@ msgstr ""
 "<placeholder-1/>"
 
 #. (title)
+msgid "General Features"
+msgstr ""
+
+#. (para)
+msgid ""
+"This section describes some of the features of TortoiseSVN which apply to "
+"just about everything in the manual. Note that many of these features will "
+"only show up within a Subversion working copy."
+msgstr ""
+
+#. (title)
 #. (title)
 #. (title)
 msgid "Icon Overlays"
@@ -3887,16 +3897,10 @@ msgid ""
 "it does the job, it has several shortcomings: <placeholder-1/> For these "
 "reasons we recommend that you do not use the import command at all but "
 "rather follow the two-step method described in <xref linkend=\"tsvn-dug-"
-"import-in-place\"/>. But since you are here, this is how the basic import "
-"works ..."
+"import-in-place\"/>, unless you are performing the simple step of creating "
+"an initial <filename>/trunk /tags /branches</filename> structure in your "
+"repository. Since you are here, this is how the basic import works ..."
 msgstr ""
-"Esta secção descreve o comando import do Subversion, que é desenhado para "
-"importar uma hierarquia de pastas para um repositório de uma vez só. Apesar "
-"de executar o trabalho, possui no entanto algumas limitações: "
-"<placeholder-1/> Por essas razões recomendamos que não use em definitivo o "
-"comando import, mas antes, siga o método de dois passos descrito em <xref "
-"linkend=\"tsvn-dug-import-in-place\"/>. Mas como estás aqui, eis como "
-"funciona o import básico..."
 
 #. (para)
 msgid ""
@@ -4002,10 +4006,11 @@ msgstr "importar no local"
 #. (para)
 msgid ""
 "Use the repository browser to create a new project folder directly in the "
-"repository."
+"repository. If you are using one of the standard layouts you will probably "
+"want to create this as a sub-folder of trunk rather than in the repository "
+"root. The repository browser shows the repository structure just like "
+"Windows explorer, so you can see how things are organised."
 msgstr ""
-"Usa o navegador de repositório para criar uma nova pasta de projecto, "
-"directamente no repositório."
 
 #. (para)
 msgid ""
@@ -4297,17 +4302,9 @@ msgid ""
 " then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-"
 "Browser</guimenuitem></menuchoice> to bring up the repository browser. Find "
 "the sub-folder you would like to add to your working copy, then use "
-"<menuchoice><guimenuitem>Update item to "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
 msgstr ""
-"No explorador do Windows, <action>clicar à direita</action> na pasta em "
-"checkout, e usar o "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Navegador de "
-"Repositório</guimenuitem></menuchoice> para mostrar o navegador de "
-"repositório. Selecciona a subpasta que gostarias de adicionar à tua cópia de"
-" trabalho e usa então, <menuchoice><guimenu>Context "
-"menu</guimenu><guimenuitem>Actualizar item para "
-"revisão...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -7314,6 +7311,7 @@ msgstr ""
 " a revisão, e seleccionar uma localização para o SVN exportar."
 
 #. (term)
+#. (term)
 msgid "Export..."
 msgstr "Exportar..."
 
@@ -7594,6 +7592,12 @@ msgid ""
 msgstr ""
 "Guardar a revisão seleccionada num ficheiro para que tenhas uma versão "
 "antiga do mesmo."
+
+#. (para)
+msgid ""
+"Export the selected items in this revision to a folder, preserving the file "
+"hierarchy."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8020,9 +8024,13 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\n"
+"Simple sub-string search works in a manner similar to a search engine. Strings to search for are separated by spaces, and all strings must match. You can use a leading <literal>-</literal> to specify that a particular sub-string is not found (invert matching for that term), and you can use <literal>!</literal> at the start of the expression to invert matching for the entire expression. You can use a leading <literal>+</literal> to specify that a sub-string should be included, even if previously excluded with a <literal>-</literal>. Note that the order of inclusion/exclusion is significant here. You can use quote marks to surround a string which must contain spaces, and if you want to search for a literal quotation mark you can use two quotation marks together as a self-escaping sequence. Note that the backslash character is <emphasis>not</emphasis> used as an escape character and has no special significance in simple sub-string searches. Examples will make this easier: <screen>\n"
 "Alice Bob -Eve\n"
 "</screen> searches for strings containing both Alice and Bob but not Eve <screen>\n"
+"Alice -Bob +Eve\n"
+"</screen> searches for strings containing both Alice but not Bob, or strings which contain Eve. <screen>\n"
+"-Case +SpecialCase\n"
+"</screen> searches for strings which do not contain Case, but still include strings which contain SpecialCase. <screen>\n"
 "!Alice Bob\n"
 "</screen> searches for strings which do not contain both Alice and Bob <screen>\n"
 "!-Alice -Bob\n"
@@ -8034,19 +8042,6 @@ msgid ""
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
 msgstr ""
-"Uma pesquisa por sub-strings simples funciona de maneira similar a um motor de busca. As strings a procurar são separadas por espaços, e todas elas devem ter correspondência. Tu podes usar um <literal>-</literal> à frente para especificar que a sub-string em particular não deve ser encontrada (correspondência invertida desse termo), e podes usar <literal>!</literal> no início da expressão para inverter a correspondência da totalidade da expressão. Podes também usar aspas à volta da string que deve conter espaços e se queres procurar por uma citação literal, poderás usar aspas duplas como uma sequência auto-escapada. Observa que o caracter de barra invertida não é usado como um caracter de escape, e não tem significado especial em buscas de sub-strings simples. Alguns exemplos tornaram isto mais claro: <screen>\n"
-"Alice Bob -Eve\n"
-"</screen> procura por strings que contenham ambos a Alice e o Bob mas não a Eve <screen>\n"
-"!Alice Bob\n"
-"</screen> procura por strings que não contenham ambos a Alice e o Bob <screen>\n"
-"!-Alice -Bob\n"
-"</screen> lembraste do teorema do De Morgan's ? NOT(NOT Alice AND NOT Bob) reduzu para (Alice OR Bob). <screen>\n"
-"\"Alice and Bob\"\n"
-"</screen> procura pela expressão literal <quote>Alice e Bob</quote><screen>\n"
-"\"\"\n"
-"</screen> procura por uma dupla citação algures no texto <screen>\n"
-"\"Alice says \"\"hi\"\" to Bob\"\n"
-"</screen> procura pela expressão literal <quote>Alice says \"hi\" to Bob</quote>."
 
 #. (para)
 msgid ""
@@ -8994,6 +8989,17 @@ msgstr ""
 "url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
 
 #. (term)
+msgid "SourceGear DiffMerge"
+msgstr ""
+
+#. (para)
+msgid ""
+"SourceGear Vault is a commercial RCS, but you can download the diff/merge "
+"tool for free. Get more information from <ulink "
+"url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
+msgstr ""
+
+#. (term)
 msgid "ExamDiff"
 msgstr "ExamDiff"
 
@@ -9045,20 +9051,6 @@ msgstr ""
 "links de sincronização, para uso se alteraste a ordem das funções. "
 "Descarrega-a em <ulink "
 "url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
-
-#. (term)
-msgid "SciTE"
-msgstr "SciTE"
-
-#. (para)
-msgid ""
-"This text editor includes syntax colouring for unified diffs, making them "
-"much easier to read. Download it from <ulink "
-"url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
-msgstr ""
-"Este editor de texto inclui coloração de sintaxe para comparações "
-"unificadas, tornando muito fácil a sua leitura. Descarrega-a em <ulink "
-"url=\"http://www.scintilla.org/SciTEDownload.html\"><citetitle>Scintilla</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -12506,6 +12498,16 @@ msgstr ""
 "intervalo de revisões em branco, todas as revisões que não foram ainda "
 "integradas serão incluídas. Consulta <xref linkend=\"tsvn-dug-merge-"
 "tracking\"/> para saberes mais. "
+
+#. (para)
+msgid ""
+"When merge tracking is used, the log dialog will show previously merged "
+"revisions, and revisions pre-dating the common ancestor point, i.e. before "
+"the branch was copied, as greyed out. The <guilabel>Hide non-mergeable "
+"revisions</guilabel> checkbox allows you to filter out these revisions "
+"completely so you see only the revisions which <emphasis>can</emphasis> be "
+"merged."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16485,48 +16487,6 @@ msgstr ""
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> para mais informações."
 
-#. (term)
-msgid ""
-"Use <filename>_svn</filename> instead of <filename>.svn</filename> "
-"directories"
-msgstr ""
-"Usa pastas <filename>_svn</filename> em vez de <filename>.svn</filename>"
-
-#. (para)
-msgid ""
-"VS.NET when used with web projects can't handle the <literal>.svn</literal> "
-"folders that Subversion uses to store its internal information. This is not "
-"a bug in Subversion. The bug is in VS.NET and the frontpage extensions it "
-"uses. Read <xref linkend=\"tsvn-dug-settings-asp-dot-net\"/> to find out "
-"more about this issue."
-msgstr ""
-"O VS.NET quando usado com projectos web não consegue lidar com as pastas "
-"<literal>.svn</literal> que o Subversion usa para armazenar a sua informação"
-" interna. Isto não é um bug no Subversion. O bug é no VS.NET e nas extensões"
-" frontpage que usa. Consulta <xref linkend=\"tsvn-dug-settings-asp-dot-"
-"net\"/> para descobrires mais sobre este problema."
-
-#. (para)
-msgid ""
-"If you want to change the behaviour of Subversion and TortoiseSVN, you can "
-"use this checkbox to set the environment variable which controls this."
-msgstr ""
-"Se quiseres alterar o comportamento do Subversion e do TortoiseSVN, podes "
-"usar esta caixa-de-verificação para configurar a variavel de ambiente que "
-"controla isto."
-
-#. (para)
-msgid ""
-"You should note that changing this option will not automatically convert "
-"existing working copies to use the new admin directory. You will have to do "
-"that yourself using a script (See our FAQ) or simply check out a fresh "
-"working copy."
-msgstr ""
-"Deves ter em conta que ao mudar esta opção, não irás converter "
-"automaticamente as cópias de trabalho existentes, para usar a nova pasta de "
-"administração. Terás de o fazer por ti usando um script (Lê as nossas FAQ) "
-"ou simplesmente cria uma cópia de trabalho de fresco."
-
 #. (title)
 msgid "Context Menu Settings"
 msgstr "Menu de Contexto preferências"
@@ -18000,21 +17960,10 @@ msgid ""
 "    %base %mine\n"
 "</screen> or with UltraCompare: <screen>\n"
 "C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
+"</screen> or with DiffMerge: <screen>\n"
+"C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "</screen>"
 msgstr ""
-"Por exemplo, com o ExamDiffPro: <screen>\n"
-"C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
-"    --right_display_name:%yname\n"
-"</screen> or with KDiff3: <screen>\n"
-"C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
-"</screen> ou com o WinMerge: <screen>\n"
-"C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
-"</screen> ou com o Araxis: <screen>\n"
-"C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
-"    %base %mine\n"
-"</screen> ou com o UltraCompare: <screen>\n"
-"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
-"</screen>"
 
 #. (para)
 msgid ""
@@ -18124,19 +18073,11 @@ msgid ""
 "    /title3:%yname %theirs %base %mine %merged /a2\n"
 "</screen> or with WinMerge (2.8 or later): <screen>\n"
 "C:\\Path-To\\WinMerge.exe %merged\n"
+"</screen> or with DiffMerge: <screen>\n"
+"C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
+"    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "</screen>"
 msgstr ""
-"Po exemplo para o Perforce Merge: <screen>\n"
-"C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
-"</screen> ou com o KDiff3: <screen>\n"
-"C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
-"    --L1 %bname --L2 %yname --L3 %tname\n"
-"</screen> ou com o Araxis: <screen>\n"
-"C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
-"    /title3:%yname %theirs %base %mine %merged /a2\n"
-"</screen> ou com o WinMerge (2.8 ou superior): <screen>\n"
-"C:\\Path-To\\WinMerge.exe %merged\n"
-"</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
@@ -18183,36 +18124,16 @@ msgstr "Visualizador de Comparações Unificadas"
 #. (para)
 msgid ""
 "A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> option is to check for a file "
-"association for <filename>.diff</filename> files, and then for "
-"<filename>.txt</filename> files. If you don't have a viewer for "
-"<filename>.diff</filename> files, you will most likely get NotePad."
+"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
+"which is installed alongside TortoiseSVN, and colour-codes the added and "
+"removed lines."
 msgstr ""
-"Um programa de visualização para ficheiros de comparação-unificada "
-"(ficheiros remendo). Não são requeridos parâmetros. A opção <guilabel>por "
-"defeito</guilabel> verifica por uma associação para ficheiros "
-"<filename>.diff</filename>, e então para ficheiros "
-"<filename>.txt</filename>. Se não tens um visualizador para ficheiros "
-"<filename>.diff</filename> irás, com muita probabilidade, obter o Notepad."
 
 #. (para)
 msgid ""
-"The original Windows NotePad program does not behave well on files which do "
-"not have standard CR-LF line-endings. Since most unified diff files have "
-"pure LF line-endings, they do not view well in NotePad. However, you can "
-"download a free NotePad replacement <ulink url=\"http://www.flos-"
-"freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink> which "
-"not only displays the line-endings correctly, but also colour codes the "
-"added and removed lines."
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
 msgstr ""
-"O programa NotePad original do Windows não se comporta bem com ficheiros que"
-" não têm o fim-de-linha padrão CR-LF. Visto que a maioria dos ficheiros de "
-"comparação-unificada têm fins-de-linha com LF puro, eles não são "
-"visualizados correctamente no NotePad. No entanto podes descarregar uma "
-"substituição gratuita para o NotePad em <ulink url=\"http://www.flos-"
-"freeware.ch/notepad2.html\"><citetitle>Notepad2</citetitle></ulink>, que não"
-" apenas mostra os fins-de-linha correctamente, mas também colora as linhas "
-"adicionadas e removidas."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -19164,6 +19085,13 @@ msgstr ""
 "linear entre essas duas cores de acordo com a revisão do repositório, "
 "indicada para cada linha."
 
+#. (para)
+msgid ""
+"You can specify different colours to use for the locator bar. The default is"
+" to use strong contrast on the locator bar while keeping the main window "
+"background light so that you can still read the text."
+msgstr ""
+
 #. (term)
 msgid "Font"
 msgstr "Tipo de letra"
@@ -19189,71 +19117,6 @@ msgid ""
 msgstr ""
 "Define quantos espaços deverão ser usados na expansão, quando um caracter de"
 " tabulação for encontrado no conteúdo do ficheiro."
-
-#. (title)
-msgid "Subversion Working Folders"
-msgstr "Pastas de Trabalho do Subversion"
-
-#. (primary)
-msgid ".svn folder"
-msgstr "pasta .svn"
-
-#. (primary)
-msgid "_svn folder"
-msgstr "pasta _svn"
-
-#. (para)
-msgid ""
-"VS.NET 2003 when used with web projects can't handle the "
-"<literal>.svn</literal> folders that Subversion uses to store its internal "
-"information. This is not a bug in Subversion. The bug is in VS.NET 2003 and "
-"the frontpage extensions it uses."
-msgstr ""
-"O VS.NET 2003 quando usado com projectos web não consegue lidar com as "
-"pastas  <literal>.svn</literal> que o Subversion usa para armazenar a sua "
-"informação interna. Isto não é um bug do Subversion. O bug é do VS.NET 2003 "
-"e das extensões frontpage que ele usa."
-
-#. (para)
-msgid ""
-"Note that the bug is fixed in VS2005 and later versions. Do not activate the"
-" <literal>SVN_ASP_DOT_NET_HACK</literal> if you're already using a later "
-"version of Visual Studio."
-msgstr ""
-"Ter em atenção que a falha foi corrigida no VS2005 e versões posteriores. "
-"Não activar o <literal>SVN_ASP_DOT_NET_HACK</literal> se estás já a utilizar"
-" uma versão posterior do Visual Studio."
-
-#. (para)
-msgid ""
-"As of Version 1.3.0 of Subversion and TortoiseSVN, you can set the "
-"environment variable <literal>SVN_ASP_DOT_NET_HACK</literal>. If that "
-"variable is set, then Subversion will use <literal>_svn</literal> folders "
-"instead of <literal>.svn</literal> folders. You must restart your shell for "
-"that environment variable to take effect. Normally that means rebooting your"
-" PC. To make this easier, you can now do this from the general settings page"
-" using a simple checkbox - refer to <xref linkend=\"tsvn-dug-settings-"
-"main\"/>."
-msgstr ""
-"A partir da versão 1.3.0 do Subversion e TortoiseSVN, tu podes configurar a "
-"variável de ambiente <literal>SVN_ASP_DOT_NET_HACK</literal>. Se essa "
-"variável estiver configurada, o Subversion irá usar as pastas "
-"<literal>_svn</literal> em vez das <literal>.svn</literal>. Tu terás de "
-"reiniciar a tua shell para que essa variável de ambiente tome efeito. "
-"Normalmente isso significa reiniciar o PC. Para tornar isto mais fácil, tu "
-"podes fazer isto agora a partir da página de preferências gerais, usando uma"
-" simples caixa de verificação - consulta <xref linkend=\"tsvn-dug-settings-"
-"main\"/>."
-
-#. (para)
-msgid ""
-"For more information, and other ways to avoid this problem in the first "
-"place, check out the article about this in our <ulink "
-"url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQ</citetitle></ulink>."
-msgstr ""
-"Para mais informações, e outras formas de evitar este problema em primeiro "
-"lugar, verifica o artigo sobre este assunto nas nossas <ulink "
-"url=\"http://tortoisesvn.net/aspdotnethack\"><citetitle>FAQs</citetitle></ulink>."
 
 #. (title)
 msgid "Advanced Settings"
@@ -19555,6 +19418,26 @@ msgstr ""
 "Nessas situações não é desejável guardar os dados de autenticação. "
 "Configurando este valor a <literal>false</literal> desactiva o botão "
 "<literal>guardar autenticação</literal> na caixa de diálogo de autenticação."
+
+#. (title)
+msgid "Exporting TSVN Settings"
+msgstr ""
+
+#. (para)
+msgid ""
+"If you want to export all your client settings to use on another computer "
+"you can do so using the Windows registry editor "
+"<filename>regedt32.exe</filename>. Go to the registry key "
+"<literal>HKCU\\Software\\TortoiseSVN</literal> and export it to a reg file. "
+"On the other computer, just import that file again (usually, a double click "
+"on the reg file will do that)."
+msgstr ""
+
+#. (para)
+msgid ""
+"Remember to save your Subversion settings too, located in the svn config "
+"file in <literal>%APPDATA%\\Subversion</literal>."
+msgstr ""
 
 #. (title)
 msgid "Final Step"
@@ -19981,6 +19864,17 @@ msgstr ""
 "Se forem fornecidos os ficheiros de origem e destino, o SubWCRev copia da "
 "fonte para o destino, efectuando a substituição de palavras-chave da "
 "seguinte forma: <placeholder-1/>"
+
+#. (para)
+msgid ""
+"SubWCRev does not directly support nesting of expressions, so for example you cannot use an expression like: <screen>\n"
+"#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n"
+"</screen> But you can usually work around it by other means, for example: <screen>\n"
+"#define SVN_RANGE       $WCRANGE$\n"
+"#define SVN_REV         $WCREV$\n"
+"#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
+"</screen>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -24599,23 +24493,12 @@ msgid ""
 "systems, we've created a shared component which is responsible for showing "
 "the overlay icons. The technical details are not important here, all you "
 "need to know is that this shared component allows all Tortoise clients to "
-"use the same overlays and therefore the limit 11 available slots isn't used "
-"up by installing more than one Tortoise client. Of course there's one small "
-"drawback: all Tortoise clients use the same overlay icons, so you can't "
-"figure out by the overlay icons what version control system a working copy "
-"is using."
+"use the same overlays and therefore the limit of 11 available slots isn't "
+"used up by installing more than one Tortoise client. Of course there's one "
+"small drawback: all Tortoise clients use the same overlay icons, so you "
+"can't figure out by the overlay icons what version control system a working "
+"copy is using."
 msgstr ""
-"Visto existirem clientes Tortoise disponíveis para outros sistemas de "
-"controlo de versões, criámos um componente partilhado, que é responsável por"
-" mostrar os ícones de sobreposição. Os detalhes técnicos não são aqui "
-"importantes, pelo que tudo o que precisas de saber é que este componente "
-"partilhado permite que todos os clientes Tortoise usem as mesmas "
-"sobreposições, e com tal, o limite de 11 slots disponíveis não é gasto "
-"apenas por instalares mais do que um cliente Tortoise. É claro que existe "
-"uma pequena desvantagem, já que todos os clientes usam as mesmas "
-"sobreposições de ícones, não irás conseguir distinguir através dos ícones de"
-" sobreposição qual o sistema de controlo de versões que a cópia de trabalho "
-"está a usar."
 
 #. (para)
 msgid ""

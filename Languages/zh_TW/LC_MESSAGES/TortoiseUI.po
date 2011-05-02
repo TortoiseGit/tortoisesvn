@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-26 01:04+0000\n"
+"PO-Revision-Date: 2011-05-01 01:31+0000\n"
 "Last-Translator: arith <arithmandar@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -306,6 +306,20 @@ msgid ""
 msgstr ""
 "%s\n"
 "確定真的要移除嗎?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the %d files anyway?"
+msgstr ""
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the file '%s' anyway?"
+msgstr ""
 
 #. Resource IDs: (616)
 #, c-format
@@ -1737,6 +1751,12 @@ msgstr "根據副檔名加入差異比對程式"
 msgid "Add extension specific merge program"
 msgstr "根據副檔名加入合併程式"
 
+#. Resource IDs: (90)
+msgid ""
+"Add item\n"
+"This will lead to problems on Windows."
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "自動加入新檔案至 SVN"
@@ -1813,6 +1833,12 @@ msgstr "加入檔案至 Subversion 版本控制"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "將選定的檔案遮罩加入忽略列表"
 
+#. Resource IDs: (90)
+msgid ""
+"Adjust case\n"
+"The file is not added."
+msgstr ""
+
 #. Resource IDs: (2049)
 msgid ""
 "Adjust the settings\n"
@@ -1860,6 +1886,10 @@ msgstr "所有檔案 (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "所有檔案 (*.*)|*.*||"
+
+#. Resource IDs: (148)
+msgid "All changes since the last update will be lost!"
+msgstr ""
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2354,16 +2384,40 @@ msgid ""
 "Do not commit to a tag."
 msgstr ""
 
+#. Resource IDs: (147)
+msgid ""
+"Cancel\n"
+"Do not remove"
+msgstr ""
+
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
 
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Do not update the working copy."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Don't resolve the item."
+msgstr ""
+
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Go back and select a different folder."
 msgstr ""
 
 #. Resource IDs: (89)
@@ -2376,6 +2430,30 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Leave all changes."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not added and not adjusted."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not copied."
+msgstr ""
+
+#. Resource IDs: (91)
+msgid ""
+"Cancel\n"
+"The folder is not exported."
 msgstr ""
 
 #. Resource IDs: (105)
@@ -2599,6 +2677,12 @@ msgstr "取出層數(&E)"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "自 %s 取得檔案, 版本 %s, %s, %s"
+
+#. Resource IDs: (90)
+msgid ""
+"Checkout\n"
+"Checkout into the non empty folder."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -2976,6 +3060,10 @@ msgstr "設定用來解決衝突檔案的工具程式."
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "設定檢視 GNU 差異檔(補綴檔)的工具程式."
+
+#. Resource IDs: (147)
+msgid "Confirm revert"
+msgstr ""
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3721,6 +3809,14 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr "在以下路徑中不顯示快顯式選單:"
 
+#. Resource IDs: (90)
+msgid "Do this for all existing files"
+msgstr ""
+
+#. Resource IDs: (91)
+msgid "Do this for all existing folders"
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
 msgstr ""
@@ -3771,6 +3867,11 @@ msgstr ""
 "將會自 %s 移除所有的 Subversion 管理用\n"
 "資料夾!"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Do you want to mark '%s' as resolved?"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "確定要繼續嗎?"
@@ -3791,6 +3892,11 @@ msgstr ""
 #, c-format
 msgid "Do you want to remove the property %s recursively?"
 msgstr "確定真的要移除這個屬性 %s 嗎(包含子資料夾)?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid "Do you want to revert '%s'?"
+msgstr ""
 
 #. Resource IDs: (120)
 #, c-format
@@ -4267,6 +4373,12 @@ msgstr "將選擇的快取匯出為 CSV 檔案"
 msgid "Export unversioned files too"
 msgstr "匯出無版本控制的檔案"
 
+#. Resource IDs: (90)
+msgid ""
+"Export\n"
+"Export into the non-empty folder."
+msgstr ""
+
 #. Resource IDs: (284)
 #, c-format
 msgid "Exporting %1!s!"
@@ -4275,6 +4387,10 @@ msgstr "正在匯出 %1!s!"
 #. Resource IDs: (79)
 msgid "Exporting..."
 msgstr "正在匯出..."
+
+#. Resource IDs: (90)
+msgid "Exporting: Target folder exists."
+msgstr ""
 
 #. Resource IDs: (10)
 msgid ""
@@ -4410,6 +4526,10 @@ msgstr "正在取得第 %s 版的:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "檔案"
+
+#. Resource IDs: (90)
+msgid "File already exists"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -4651,6 +4771,10 @@ msgstr "要列出完整歷程記錄請勿選擇 '複製/重新命名時停止'"
 #. Resource IDs: (279)
 msgid "Force"
 msgstr "強制"
+
+#. Resource IDs: (147)
+msgid "Force removal"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5621,7 +5745,7 @@ msgid ""
 "It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
 "\n"
 "From:\t%1!s!\n"
-"To:\t\t%2!s!\n"
+"To:\t%2!s!\n"
 "\n"
 "A relocate is only needed if the path to a repository has changed.\n"
 "Changing to a different path inside a repository is done by a switch operation.\n"
@@ -5630,17 +5754,6 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
-"您正要進行的可能是在同一個檔案庫中不同路徑的重新定位動作.\n"
-"\n"
-"原始路徑:\t%1!s!\n"
-"目的路徑:\t%2!s!\n"
-"\n"
-"重新定位僅使用在檔案庫的位置發生改變時.\n"
-"在同一個檔案庫內的變更請使用切換功能.\n"
-"\n"
-"錯誤地使用重新定位功能會損壞您的工作複本\n"
-"如果您不確定該做什麼, 請參考線上文件中關於重新定位的部分.\n"
-"確定要進行重新定位嗎?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6577,6 +6690,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "非遞迴"
 
+#. Resource IDs: (265)
+msgid "Not under version control"
+msgstr ""
+
 #. Resource IDs: (3887)
 msgid ""
 "Note that if you choose to recover the auto-saved documents, you must "
@@ -6865,10 +6982,22 @@ msgstr ""
 msgid "Overwrite"
 msgstr "覆寫"
 
+#. Resource IDs: (91)
+msgid ""
+"Overwrite\n"
+"Replace the target folder."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Overwrite\n"
+"The target file is replaced."
 msgstr ""
 
 #. Resource IDs: (32802)
@@ -7660,6 +7789,12 @@ msgstr "移除選擇的快取"
 msgid "Remove the whole subtree(s)"
 msgstr "移除選擇的完整子樹"
 
+#. Resource IDs: (147)
+msgid ""
+"Remove\n"
+"Force the removal"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "移除"
@@ -7720,6 +7855,13 @@ msgstr ""
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
 msgstr "重新命名/移動 - TortoiseSVN"
+
+#. Resource IDs: (91)
+#, c-format
+msgid ""
+"Rename\n"
+"The folder is exported as \"%s\"."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -7837,6 +7979,12 @@ msgstr "解決衝突:"
 msgid "Resolve l&ater"
 msgstr "稍後解決(&A)"
 
+#. Resource IDs: (148)
+msgid ""
+"Resolve\n"
+"The item is marked as resolved."
+msgstr ""
+
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
 msgstr "衝突已解決"
@@ -7896,6 +8044,12 @@ msgstr "復原 - TortoiseSVN"
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "回復至預設設定. 建議新手使用者選用."
+
+#. Resource IDs: (147)
+msgid ""
+"Revert\n"
+"All changes will be lost."
+msgstr ""
 
 #. Resource IDs: (119)
 msgid ""
@@ -9227,6 +9381,10 @@ msgstr "標記節點"
 msgid "Tagged the working copy to %s"
 msgstr "標記工作複本為 %s"
 
+#. Resource IDs: (90)
+msgid "Target folder is not empty"
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Tasks"
 msgstr "工作"
@@ -10448,6 +10606,12 @@ msgstr "更新深度"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "更新工作複本至版本"
+
+#. Resource IDs: (90)
+msgid ""
+"Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Updated"

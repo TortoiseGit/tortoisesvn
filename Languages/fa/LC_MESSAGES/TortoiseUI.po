@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-26 01:05+0000\n"
+"PO-Revision-Date: 2011-05-01 01:31+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -304,6 +304,20 @@ msgid ""
 msgstr ""
 "%s\n"
 "گزینه مورد نظر حذف شود؟"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the %d files anyway?"
+msgstr ""
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the file '%s' anyway?"
+msgstr ""
 
 #. Resource IDs: (616)
 #, c-format
@@ -1727,6 +1741,12 @@ msgstr "Add extension specific diff program"
 msgid "Add extension specific merge program"
 msgstr "Add extension specific merge program"
 
+#. Resource IDs: (90)
+msgid ""
+"Add item\n"
+"This will lead to problems on Windows."
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "اضافه کردن فایلهای جدید بطور خودکار به SVN"
@@ -1804,6 +1824,12 @@ msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr ""
 "فایل(های) انتخاب شده یا فایل ماسک را به لیست نادیده گرفته ها اضافه میکند"
 
+#. Resource IDs: (90)
+msgid ""
+"Adjust case\n"
+"The file is not added."
+msgstr ""
+
 #. Resource IDs: (2049)
 msgid ""
 "Adjust the settings\n"
@@ -1851,6 +1877,10 @@ msgstr "تمام فایل ها (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "تمام فایل ها (*.*)|*.*||"
+
+#. Resource IDs: (148)
+msgid "All changes since the last update will be lost!"
+msgstr ""
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2357,16 +2387,40 @@ msgid ""
 "Do not commit to a tag."
 msgstr ""
 
+#. Resource IDs: (147)
+msgid ""
+"Cancel\n"
+"Do not remove"
+msgstr ""
+
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
 
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Do not update the working copy."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Don't resolve the item."
+msgstr ""
+
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Go back and select a different folder."
 msgstr ""
 
 #. Resource IDs: (89)
@@ -2379,6 +2433,30 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Leave all changes."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not added and not adjusted."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not copied."
+msgstr ""
+
+#. Resource IDs: (91)
+msgid ""
+"Cancel\n"
+"The folder is not exported."
 msgstr ""
 
 #. Resource IDs: (105)
@@ -2612,6 +2690,12 @@ msgstr "&عمق دریافت"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "دریافت از %s، اصلاحیه %s, %s, %s"
+
+#. Resource IDs: (90)
+msgid ""
+"Checkout\n"
+"Checkout into the non empty folder."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -2995,6 +3079,10 @@ msgstr "پیکربندی برنامه استفاده شده برای رفع فا
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "پیکریندی برنامه نمایشگر برای فایلهای GNU diff (فایلهای وصله)."
+
+#. Resource IDs: (147)
+msgid "Confirm revert"
+msgstr ""
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3735,6 +3823,14 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr "منوی راست کلیک برای مسیرهای مقایل نمایش نشود:"
 
+#. Resource IDs: (90)
+msgid "Do this for all existing files"
+msgstr ""
+
+#. Resource IDs: (91)
+msgid "Do this for all existing folders"
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
 msgstr ""
@@ -3785,6 +3881,11 @@ msgstr ""
 "این عمل تمامی پوشه های مدیریتی سابورژن را حذف خواهد کرد از\n"
 "%s!"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Do you want to mark '%s' as resolved?"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "آیا میخواهید ادامه بدهی؟"
@@ -3805,6 +3906,11 @@ msgstr ""
 #, c-format
 msgid "Do you want to remove the property %s recursively?"
 msgstr "آیا میخواهید خصوصیت %s بطور بازگشتی حذف گردد؟"
+
+#. Resource IDs: (147)
+#, c-format
+msgid "Do you want to revert '%s'?"
+msgstr ""
 
 #. Resource IDs: (120)
 #, c-format
@@ -4275,6 +4381,12 @@ msgstr ""
 msgid "Export unversioned files too"
 msgstr "صدور فایلهای فاقد نسخه"
 
+#. Resource IDs: (90)
+msgid ""
+"Export\n"
+"Export into the non-empty folder."
+msgstr ""
+
 #. Resource IDs: (284)
 #, c-format
 msgid "Exporting %1!s!"
@@ -4283,6 +4395,10 @@ msgstr ""
 #. Resource IDs: (79)
 msgid "Exporting..."
 msgstr "در حال صادر کردن..."
+
+#. Resource IDs: (90)
+msgid "Exporting: Target folder exists."
+msgstr ""
 
 #. Resource IDs: (10)
 msgid ""
@@ -4418,6 +4534,10 @@ msgstr "در حال دریافت اصلاحیه %s از فایل:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "فایل"
+
+#. Resource IDs: (90)
+msgid "File already exists"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -4662,6 +4782,10 @@ msgstr ""
 #. Resource IDs: (279)
 msgid "Force"
 msgstr "با اجبار"
+
+#. Resource IDs: (147)
+msgid "Force removal"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5643,7 +5767,7 @@ msgid ""
 "It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
 "\n"
 "From:\t%1!s!\n"
-"To:\t\t%2!s!\n"
+"To:\t%2!s!\n"
 "\n"
 "A relocate is only needed if the path to a repository has changed.\n"
 "Changing to a different path inside a repository is done by a switch operation.\n"
@@ -6592,6 +6716,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "غیر بازگشتی"
 
+#. Resource IDs: (265)
+msgid "Not under version control"
+msgstr ""
+
 #. Resource IDs: (3887)
 msgid ""
 "Note that if you choose to recover the auto-saved documents, you must "
@@ -6887,10 +7015,22 @@ msgstr ""
 msgid "Overwrite"
 msgstr "رونویسی"
 
+#. Resource IDs: (91)
+msgid ""
+"Overwrite\n"
+"Replace the target folder."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Overwrite\n"
+"The target file is replaced."
 msgstr ""
 
 #. Resource IDs: (32802)
@@ -7679,6 +7819,12 @@ msgstr "حذف کَشهای انتخاب شده از دیسک"
 msgid "Remove the whole subtree(s)"
 msgstr "حذف تمامی زیر شاخه (ها)"
 
+#. Resource IDs: (147)
+msgid ""
+"Remove\n"
+"Force the removal"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "حذف شده"
@@ -7737,6 +7883,13 @@ msgstr ""
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
 msgstr "تغییر نام/جابجائی - TortoiseSVN"
+
+#. Resource IDs: (91)
+#, c-format
+msgid ""
+"Rename\n"
+"The folder is exported as \"%s\"."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -7854,6 +8007,12 @@ msgstr "حل کردن برخورد/تضاد:"
 msgid "Resolve l&ater"
 msgstr ""
 
+#. Resource IDs: (148)
+msgid ""
+"Resolve\n"
+"The item is marked as resolved."
+msgstr ""
+
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
 msgstr "حل شده"
@@ -7913,6 +8072,12 @@ msgstr "بازگشت - TortoiseSVN"
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "بازگشت به تنظیمات پیش فرض. برای کاربران بی تجربه توصیه می شود."
+
+#. Resource IDs: (147)
+msgid ""
+"Revert\n"
+"All changes will be lost."
+msgstr ""
 
 #. Resource IDs: (119)
 msgid ""
@@ -9213,6 +9378,10 @@ msgstr "برچسب گره ها"
 msgid "Tagged the working copy to %s"
 msgstr "نسخه کاری نشانه گذاری شد به %s"
 
+#. Resource IDs: (90)
+msgid "Target folder is not empty"
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Tasks"
 msgstr "فعالیتها"
@@ -10441,6 +10610,12 @@ msgstr "عمق بروزرسانی"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "بروزرسانی نسخه کاری به اصلاحیه"
+
+#. Resource IDs: (90)
+msgid ""
+"Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Updated"

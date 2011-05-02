@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-28 12:53+0000\n"
+"PO-Revision-Date: 2011-05-01 08:24+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -307,6 +307,24 @@ msgid ""
 msgstr ""
 "%s\n"
 "Chcete to přeci jen odstranit?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the %d files anyway?"
+msgstr ""
+"%s\n"
+"Chcete přesto odstranit soubory %d?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the file '%s' anyway?"
+msgstr ""
+"%s\n"
+"Chcete přesto odstranit soubor '%s'?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -1748,6 +1766,14 @@ msgstr "Přidat specifický program rozdílů (diff) podle přípony"
 msgid "Add extension specific merge program"
 msgstr "Přidat specifický program slučování (merge) podle přípony"
 
+#. Resource IDs: (90)
+msgid ""
+"Add item\n"
+"This will lead to problems on Windows."
+msgstr ""
+"Přidat položku\n"
+"Toto povede k problémům ve Windows."
+
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Přidat nové soubory do SVN automaticky"
@@ -1824,6 +1850,14 @@ msgstr "Přidá soubor(y) pod správu verzí"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Přidá vybraný soubor(y) nebo masku do seznamu k ignorování"
 
+#. Resource IDs: (90)
+msgid ""
+"Adjust case\n"
+"The file is not added."
+msgstr ""
+"Upravte velikost písmen\n"
+"Soubor není přidán."
+
 #. Resource IDs: (2049)
 msgid ""
 "Adjust the settings\n"
@@ -1871,6 +1905,10 @@ msgstr "Všechny soubory (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Všechny soubory (*.*)|*.*||"
+
+#. Resource IDs: (148)
+msgid "All changes since the last update will be lost!"
+msgstr "Všechny změny od poslední aktualizace budou ztraceny!"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2379,6 +2417,14 @@ msgstr ""
 "Zrušit\n"
 "Neodevzdávat do značky."
 
+#. Resource IDs: (147)
+msgid ""
+"Cancel\n"
+"Do not remove"
+msgstr ""
+"Zrušit\n"
+"Neodstraňovat"
+
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
@@ -2387,6 +2433,22 @@ msgstr ""
 "Zrušit\n"
 "Nevracet."
 
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Do not update the working copy."
+msgstr ""
+"Zrušit\n"
+"Neaktualizovat pracovní kopii."
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Don't resolve the item."
+msgstr ""
+"Zrušit\n"
+"Neřešit položku."
+
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
@@ -2394,6 +2456,14 @@ msgid ""
 msgstr ""
 "Zrušit\n"
 "Jít zpátky a zadat číslo problému."
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Go back and select a different folder."
+msgstr ""
+"Zrušit\n"
+"Vrátit se a vybrat jiný adresář."
 
 #. Resource IDs: (89)
 msgid ""
@@ -2410,6 +2480,38 @@ msgid ""
 msgstr ""
 "Zrušit\n"
 "Ponechat současnou URL"
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Leave all changes."
+msgstr ""
+"Zrušit\n"
+"Ponechat všechny změny."
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not added and not adjusted."
+msgstr ""
+"Zrušit\n"
+"Soubor není přidán ani upraven."
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not copied."
+msgstr ""
+"Zrušit\n"
+"Soubor není zkopírován."
+
+#. Resource IDs: (91)
+msgid ""
+"Cancel\n"
+"The folder is not exported."
+msgstr ""
+"Zrušit\n"
+"Adresář není exportován."
 
 #. Resource IDs: (105)
 msgid ""
@@ -2646,6 +2748,14 @@ msgstr "Hloubka Zí&skání"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "Získat z %s, revize %s, %s, %s"
+
+#. Resource IDs: (90)
+msgid ""
+"Checkout\n"
+"Checkout into the non empty folder."
+msgstr ""
+"Získat\n"
+"Získat do neprázdného adresáře."
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -3039,6 +3149,10 @@ msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr ""
 "Nastavte program používaný pro prohlížení rozdílových souborů GNU diff "
 "(soubory oprav)."
+
+#. Resource IDs: (147)
+msgid "Confirm revert"
+msgstr "Potvrdit vrácení"
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3789,6 +3903,14 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr "Nezobrazovat kontextové menu pro tyto cesty:"
 
+#. Resource IDs: (90)
+msgid "Do this for all existing files"
+msgstr "Provést pro všechny existující soubory"
+
+#. Resource IDs: (91)
+msgid "Do this for all existing folders"
+msgstr "Provést pro všechny existující adresáře"
+
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
 msgstr "Provést pro všechny stávající položky"
@@ -3839,6 +3961,11 @@ msgstr ""
 "Všechny adresáře Subversion budou odstraněny z\n"
 "%s!"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Do you want to mark '%s' as resolved?"
+msgstr "Chcete označit '%s' jako vyřešený?"
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "Chcete pokračovat?"
@@ -3859,6 +3986,11 @@ msgstr ""
 #, c-format
 msgid "Do you want to remove the property %s recursively?"
 msgstr "Chcete odstranit vlastnost %s rekurzivně?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid "Do you want to revert '%s'?"
+msgstr "Chcete vrátit '%s'?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4346,6 +4478,14 @@ msgstr ""
 msgid "Export unversioned files too"
 msgstr "Exportovat také soubory bez verze"
 
+#. Resource IDs: (90)
+msgid ""
+"Export\n"
+"Export into the non-empty folder."
+msgstr ""
+"Export\n"
+"Export do neprázdného adresáře."
+
 #. Resource IDs: (284)
 #, c-format
 msgid "Exporting %1!s!"
@@ -4354,6 +4494,10 @@ msgstr "Exportuji %1!s!"
 #. Resource IDs: (79)
 msgid "Exporting..."
 msgstr "Exportuji..."
+
+#. Resource IDs: (90)
+msgid "Exporting: Target folder exists."
+msgstr "Exportování: Cílový adresář existuje."
 
 #. Resource IDs: (10)
 msgid ""
@@ -4492,6 +4636,10 @@ msgstr "Nahrávám revizi %s souboru:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Soubor"
+
+#. Resource IDs: (90)
+msgid "File already exists"
+msgstr "Soubor již existuje"
 
 #. Resource IDs: (247)
 #, c-format
@@ -4735,6 +4883,10 @@ msgstr ""
 #. Resource IDs: (279)
 msgid "Force"
 msgstr "Vnutit"
+
+#. Resource IDs: (147)
+msgid "Force removal"
+msgstr "Vynutit odstranění"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5730,7 +5882,7 @@ msgid ""
 "It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
 "\n"
 "From:\t%1!s!\n"
-"To:\t\t%2!s!\n"
+"To:\t%2!s!\n"
 "\n"
 "A relocate is only needed if the path to a repository has changed.\n"
 "Changing to a different path inside a repository is done by a switch operation.\n"
@@ -5739,17 +5891,16 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
-"Vypadá to, že se pokoušíte přemístit vaši pracovní kopii do jiné cesty ve stejném úložišti.\n"
+"Zdá se, že se snažíte Vaši pracovní kopii přemístit na jinou cestu uvnitř stejného úložiště.\n"
 "\n"
-"Z:\t%1!s!\n"
-"Do:\t%2!s!\n"
+"Z:\\t%1!s!\n"
+"Do:\\t%2!s!\n"
 "\n"
-"Přemístit je potřeba pouze, když se změnilo úložiště na jiné.\n"
-"Změnu cesty v rámci úložiště provedete operací Překlopit.\n"
+"Přemístění je potřeba pouze v případě, že v cestě k úložišti došlo ke změně.\n"
+"Změna na jinou cestu uvnitř úložiště se provádí překlopením.\n"
 "\n"
-"Nesprávné použití příkazu Přemístit naruší vaši pracovní kopii!\n"
-"Pokud nevíte, co dělat, podívejte se do dokumentace na Přemístit.\n"
-"Opravdu chcete provést přemístění?"
+"Nesprávné použití přemístění poškodí Vaši pracovní kopii! Pokud si nejste jisti, co udělat, podívejte se na naše dokumenty o přemístění.\n"
+"Opravdu chcete přemístit?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6699,6 +6850,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Nerekurzivně"
 
+#. Resource IDs: (265)
+msgid "Not under version control"
+msgstr "Není pod správou verzí"
+
 #. Resource IDs: (3887)
 msgid ""
 "Note that if you choose to recover the auto-saved documents, you must "
@@ -7002,6 +7157,14 @@ msgstr ""
 msgid "Overwrite"
 msgstr "Přepsat"
 
+#. Resource IDs: (91)
+msgid ""
+"Overwrite\n"
+"Replace the target folder."
+msgstr ""
+"Přepsat\n"
+"Nahradit cílový adresář."
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
@@ -7009,6 +7172,14 @@ msgid ""
 msgstr ""
 "Přepsat\n"
 "Cílový soubor bude nahrazen"
+
+#. Resource IDs: (90)
+msgid ""
+"Overwrite\n"
+"The target file is replaced."
+msgstr ""
+"Přepsat\n"
+"Cílový soubor je nahrazen."
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -7809,6 +7980,14 @@ msgstr "Odstranit vybranou úschovu(y) z disku"
 msgid "Remove the whole subtree(s)"
 msgstr "Odstraní celý podstrom(y)"
 
+#. Resource IDs: (147)
+msgid ""
+"Remove\n"
+"Force the removal"
+msgstr ""
+"Odstranit\n"
+"Vynutit odstranění"
+
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "Odstraněný"
@@ -7869,6 +8048,15 @@ msgstr ""
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
 msgstr "Přejmenovat/přesunout -  TortoiseSVN"
+
+#. Resource IDs: (91)
+#, c-format
+msgid ""
+"Rename\n"
+"The folder is exported as \"%s\"."
+msgstr ""
+"Přejmenovat\n"
+"Adresář je exportován jako \"%s\"."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -7986,6 +8174,14 @@ msgstr "Vyřešit konflikt:"
 msgid "Resolve l&ater"
 msgstr "Vyřešit &později"
 
+#. Resource IDs: (148)
+msgid ""
+"Resolve\n"
+"The item is marked as resolved."
+msgstr ""
+"Vyřešit\n"
+"Položka je označena jako vyřešená."
+
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
 msgstr "Vyřešeno"
@@ -8045,6 +8241,14 @@ msgstr "Vrátit změny - TortoiseSVN"
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "Vrátit základní nastavení. Doporučeno pro nezkušené u uživatele."
+
+#. Resource IDs: (147)
+msgid ""
+"Revert\n"
+"All changes will be lost."
+msgstr ""
+"Vrátit\n"
+"Všechny změny budou ztraceny."
 
 #. Resource IDs: (119)
 msgid ""
@@ -9399,6 +9603,10 @@ msgstr "Uzly značek"
 msgid "Tagged the working copy to %s"
 msgstr "Označkovaná pracovní kopie na %s"
 
+#. Resource IDs: (90)
+msgid "Target folder is not empty"
+msgstr "Cílový adresář není prázdný"
+
 #. Resource IDs: (80)
 msgid "Tasks"
 msgstr "Úkoly"
@@ -10665,6 +10873,14 @@ msgstr "Aktualizovat Hloubku"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "Aktualizovat pracovní kopii na revizi"
+
+#. Resource IDs: (90)
+msgid ""
+"Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr ""
+"Aktualizace\n"
+"Aktualizujte pracovní kopii a znovu otevřete dialogové okno odevzdání a zkuste to znovu."
 
 #. Resource IDs: (74)
 msgid "Updated"

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-26 01:05+0000\n"
+"PO-Revision-Date: 2011-05-01 01:31+0000\n"
 "Last-Translator: ddeguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -306,6 +306,20 @@ msgid ""
 msgstr ""
 "%s\n"
 "本当に削除してもよろしいですか？"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the %d files anyway?"
+msgstr ""
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the file '%s' anyway?"
+msgstr ""
 
 #. Resource IDs: (616)
 #, c-format
@@ -1737,6 +1751,12 @@ msgstr "拡張子に対応した差分プログラムを追加"
 msgid "Add extension specific merge program"
 msgstr "拡張子に対応したマージプログラムを追加"
 
+#. Resource IDs: (90)
+msgid ""
+"Add item\n"
+"This will lead to problems on Windows."
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "新しいファイルを自動でSVNに追加する"
@@ -1813,6 +1833,12 @@ msgstr "ファイルをバージョン管理に追加"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "選択されたファイルもしくはファイルマスクを '無視' リストに追加"
 
+#. Resource IDs: (90)
+msgid ""
+"Adjust case\n"
+"The file is not added."
+msgstr ""
+
 #. Resource IDs: (2049)
 msgid ""
 "Adjust the settings\n"
@@ -1860,6 +1886,10 @@ msgstr "すべてのファイル (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "すべてのファイル (*.*)|*.*||"
+
+#. Resource IDs: (148)
+msgid "All changes since the last update will be lost!"
+msgstr ""
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2356,16 +2386,40 @@ msgid ""
 "Do not commit to a tag."
 msgstr ""
 
+#. Resource IDs: (147)
+msgid ""
+"Cancel\n"
+"Do not remove"
+msgstr ""
+
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
 
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Do not update the working copy."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Don't resolve the item."
+msgstr ""
+
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Go back and select a different folder."
 msgstr ""
 
 #. Resource IDs: (89)
@@ -2378,6 +2432,30 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Leave all changes."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not added and not adjusted."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not copied."
+msgstr ""
+
+#. Resource IDs: (91)
+msgid ""
+"Cancel\n"
+"The folder is not exported."
 msgstr ""
 
 #. Resource IDs: (105)
@@ -2603,6 +2681,12 @@ msgstr "チェックアウトする深さ(&D)"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "%s からチェックアウト、リビジョン %s, %s, %s"
+
+#. Resource IDs: (90)
+msgid ""
+"Checkout\n"
+"Checkout into the non empty folder."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -2980,6 +3064,10 @@ msgstr "ファイルの競合を解消するために利用するプログラム
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "GNUの差分ファイル（パッチファイル）の表示に用いるプログラムの設定。"
+
+#. Resource IDs: (147)
+msgid "Confirm revert"
+msgstr ""
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3725,6 +3813,14 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr "次のパスではコンテキストメニューを表示しない:"
 
+#. Resource IDs: (90)
+msgid "Do this for all existing files"
+msgstr ""
+
+#. Resource IDs: (91)
+msgid "Do this for all existing folders"
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
 msgstr ""
@@ -3778,6 +3874,11 @@ msgstr ""
 "この操作は、すべてのサブバージョン管理情報を以下のフォルダから削除します。\n"
 "%s!"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Do you want to mark '%s' as resolved?"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "続行してもよろしいですか？"
@@ -3798,6 +3899,11 @@ msgstr ""
 #, c-format
 msgid "Do you want to remove the property %s recursively?"
 msgstr "本当に属性 %s を再帰的に削除してもよろしいですか？"
+
+#. Resource IDs: (147)
+#, c-format
+msgid "Do you want to revert '%s'?"
+msgstr ""
 
 #. Resource IDs: (120)
 #, c-format
@@ -4275,6 +4381,12 @@ msgstr "CSVファイルの集合として選択されているキャッシュを
 msgid "Export unversioned files too"
 msgstr "バージョン管理外のファイルもエクスポートする"
 
+#. Resource IDs: (90)
+msgid ""
+"Export\n"
+"Export into the non-empty folder."
+msgstr ""
+
 #. Resource IDs: (284)
 #, c-format
 msgid "Exporting %1!s!"
@@ -4283,6 +4395,10 @@ msgstr "エクスポート %1!s!"
 #. Resource IDs: (79)
 msgid "Exporting..."
 msgstr "エクスポート中 ..."
+
+#. Resource IDs: (90)
+msgid "Exporting: Target folder exists."
+msgstr ""
 
 #. Resource IDs: (10)
 msgid ""
@@ -4418,6 +4534,10 @@ msgstr "リビジョン %s のファイルを取得中:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "ファイル"
+
+#. Resource IDs: (90)
+msgid "File already exists"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -4659,6 +4779,10 @@ msgstr "すべての履歴を表示するためには 'コピー／名前の変�
 #. Resource IDs: (279)
 msgid "Force"
 msgstr "強制実行"
+
+#. Resource IDs: (147)
+msgid "Force removal"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5633,7 +5757,7 @@ msgid ""
 "It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
 "\n"
 "From:\t%1!s!\n"
-"To:\t\t%2!s!\n"
+"To:\t%2!s!\n"
 "\n"
 "A relocate is only needed if the path to a repository has changed.\n"
 "Changing to a different path inside a repository is done by a switch operation.\n"
@@ -5642,17 +5766,6 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
-"同じリポジトリ内の異なるパスに作業コピーを 再配置 しようとしています。\n"
-"\n"
-"元: %1!s!\n"
-"先: %2!s!\n"
-"\n"
-"再配置は、リポジトリのパスが変更された時にのみ必要となります。\n"
-"リポジトリ内の異なるパスへの変更は、切り替え操作で行うことができます。\n"
-"\n"
-"正しく再配置コマンドを利用しないと、作業コピーを壊してしまうかもしれません！\n"
-"どうしていいか分からない時は、ドキュメントの再配置を参照してください。\n"
-"本当に再配置を実行してもよろしいですか？"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6589,6 +6702,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "非再帰的"
 
+#. Resource IDs: (265)
+msgid "Not under version control"
+msgstr ""
+
 #. Resource IDs: (3887)
 msgid ""
 "Note that if you choose to recover the auto-saved documents, you must "
@@ -6878,10 +6995,22 @@ msgstr ""
 msgid "Overwrite"
 msgstr "上書き"
 
+#. Resource IDs: (91)
+msgid ""
+"Overwrite\n"
+"Replace the target folder."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Overwrite\n"
+"The target file is replaced."
 msgstr ""
 
 #. Resource IDs: (32802)
@@ -7674,6 +7803,12 @@ msgstr "ディスクから選択されているキャッシュを削除する"
 msgid "Remove the whole subtree(s)"
 msgstr "子階層すべてを削除"
 
+#. Resource IDs: (147)
+msgid ""
+"Remove\n"
+"Force the removal"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "削除"
@@ -7734,6 +7869,13 @@ msgstr ""
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
 msgstr "名前を変更／移動 - TortoiseSVN"
+
+#. Resource IDs: (91)
+#, c-format
+msgid ""
+"Rename\n"
+"The folder is exported as \"%s\"."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -7851,6 +7993,12 @@ msgstr "競合の解消:"
 msgid "Resolve l&ater"
 msgstr "後で解消する(&A)"
 
+#. Resource IDs: (148)
+msgid ""
+"Resolve\n"
+"The item is marked as resolved."
+msgstr ""
+
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
 msgstr "解消済にする"
@@ -7910,6 +8058,12 @@ msgstr "元に戻す - TortoiseSVN"
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "デフォルトの設定に戻す。経験のあまりないユーザーにお勧め。"
+
+#. Resource IDs: (147)
+msgid ""
+"Revert\n"
+"All changes will be lost."
+msgstr ""
 
 #. Resource IDs: (119)
 msgid ""
@@ -9246,6 +9400,10 @@ msgstr "タグノード"
 msgid "Tagged the working copy to %s"
 msgstr "作業コピーを %s へタグ付けしました。"
 
+#. Resource IDs: (90)
+msgid "Target folder is not empty"
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Tasks"
 msgstr "タスク"
@@ -10480,6 +10638,12 @@ msgstr "更新の深さ"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "WC をリビジョンに更新"
+
+#. Resource IDs: (90)
+msgid ""
+"Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Updated"

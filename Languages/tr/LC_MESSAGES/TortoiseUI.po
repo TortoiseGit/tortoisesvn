@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-04-29 13:47+0000\n"
+"PO-Revision-Date: 2011-05-01 01:31+0000\n"
 "Last-Translator: turambar <vuralgoze@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -307,6 +307,20 @@ msgid ""
 msgstr ""
 "%s\n"
 "Yine de kaldırmak istediginizden emin misiniz?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the %d files anyway?"
+msgstr ""
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"Do you want to remove the file '%s' anyway?"
+msgstr ""
 
 #. Resource IDs: (616)
 #, c-format
@@ -1746,6 +1760,12 @@ msgstr "Belirli bir uzantı için karşılaştırma programı ekle"
 msgid "Add extension specific merge program"
 msgstr "Belirli bir uzantı için birleştirme programı ekle"
 
+#. Resource IDs: (90)
+msgid ""
+"Add item\n"
+"This will lead to problems on Windows."
+msgstr ""
+
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
 msgstr "Yeni dosyaları SVNe otomatik olarak ekle"
@@ -1824,6 +1844,12 @@ msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr ""
 "'Aldırılmayanlar' listesine seçili dosya(ları) yada dosya maskelerini ekler"
 
+#. Resource IDs: (90)
+msgid ""
+"Adjust case\n"
+"The file is not added."
+msgstr ""
+
 #. Resource IDs: (2049)
 msgid ""
 "Adjust the settings\n"
@@ -1871,6 +1897,10 @@ msgstr "Tüm Dosyalar (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "Tüm Dosyalar (*.*)|*.*||"
+
+#. Resource IDs: (148)
+msgid "All changes since the last update will be lost!"
+msgstr ""
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2393,6 +2423,12 @@ msgstr ""
 "İptal Et\n"
 "Bir etiket teslim etme."
 
+#. Resource IDs: (147)
+msgid ""
+"Cancel\n"
+"Do not remove"
+msgstr ""
+
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
@@ -2401,6 +2437,18 @@ msgstr ""
 "İptal Et\n"
 "Geri dönme."
 
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Do not update the working copy."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Don't resolve the item."
+msgstr ""
+
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
@@ -2408,6 +2456,12 @@ msgid ""
 msgstr ""
 "İptal Et\n"
 "Geri git ve bir iş numarası gir."
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"Go back and select a different folder."
+msgstr ""
 
 #. Resource IDs: (89)
 msgid ""
@@ -2424,6 +2478,30 @@ msgid ""
 msgstr ""
 "İptal Et\n"
 "Şu anki URL'yi kullanmaya devam et."
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Leave all changes."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not added and not adjusted."
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Cancel\n"
+"The file is not copied."
+msgstr ""
+
+#. Resource IDs: (91)
+msgid ""
+"Cancel\n"
+"The folder is not exported."
+msgstr ""
 
 #. Resource IDs: (105)
 msgid ""
@@ -2670,6 +2748,12 @@ msgstr "Dosya Çekme D&erinliği"
 #, c-format
 msgid "Checkout from %s, revision %s, %s, %s"
 msgstr "%s'den Checkout, güncelleme %s, %s, %s"
+
+#. Resource IDs: (90)
+msgid ""
+"Checkout\n"
+"Checkout into the non empty folder."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -3062,6 +3146,10 @@ msgstr "Dosyalar arası çakışmaları çözümleyen programın ayarları."
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
 msgstr "GNU karşılaştırma dosyasi (Yama dosyası) görüntüleyicisi ayarları."
+
+#. Resource IDs: (147)
+msgid "Confirm revert"
+msgstr ""
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3815,6 +3903,14 @@ msgstr ""
 msgid "Do not show the context menu for the following paths:"
 msgstr "Aşağıdaki yollar için içerik menüsünü gösterme:"
 
+#. Resource IDs: (90)
+msgid "Do this for all existing files"
+msgstr ""
+
+#. Resource IDs: (91)
+msgid "Do this for all existing folders"
+msgstr ""
+
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
 msgstr ""
@@ -3863,6 +3959,11 @@ msgstr ""
 "Bu, \n"
 "%s den tüm Subversion yönetim klasörlerini silecektir!"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Do you want to mark '%s' as resolved?"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "Devam etmek istiyor musunuz?"
@@ -3883,6 +3984,11 @@ msgstr ""
 #, c-format
 msgid "Do you want to remove the property %s recursively?"
 msgstr "%s özelliğini özyineli kaldırmak istediğinizden emin misiniz?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid "Do you want to revert '%s'?"
+msgstr ""
 
 #. Resource IDs: (120)
 #, c-format
@@ -4368,6 +4474,12 @@ msgstr ""
 msgid "Export unversioned files too"
 msgstr "Versiyonlanmamış dosyaları da dışa aktar"
 
+#. Resource IDs: (90)
+msgid ""
+"Export\n"
+"Export into the non-empty folder."
+msgstr ""
+
 #. Resource IDs: (284)
 #, c-format
 msgid "Exporting %1!s!"
@@ -4376,6 +4488,10 @@ msgstr "Dışa aktarılıyor %1!s!"
 #. Resource IDs: (79)
 msgid "Exporting..."
 msgstr "Dışa aktarılıyor..."
+
+#. Resource IDs: (90)
+msgid "Exporting: Target folder exists."
+msgstr ""
 
 #. Resource IDs: (10)
 msgid ""
@@ -4517,6 +4633,10 @@ msgstr "Dosyanın %s revizyonuna ulaşılıyor:"
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Dosya"
+
+#. Resource IDs: (90)
+msgid "File already exists"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -4762,6 +4882,10 @@ msgstr ""
 #. Resource IDs: (279)
 msgid "Force"
 msgstr "Zorla"
+
+#. Resource IDs: (147)
+msgid "Force removal"
+msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5748,7 +5872,7 @@ msgid ""
 "It seems you are trying to relocate your working copy to a different path inside the same repository.\n"
 "\n"
 "From:\t%1!s!\n"
-"To:\t\t%2!s!\n"
+"To:\t%2!s!\n"
 "\n"
 "A relocate is only needed if the path to a repository has changed.\n"
 "Changing to a different path inside a repository is done by a switch operation.\n"
@@ -5757,17 +5881,6 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
-"Çalişan kopyanızı aynı depo içerisinde başka bir dizine taşımaya çalışıyorsunuz.\n"
-"\n"
-"Buradan:\t%1!s!\n"
-"Buraya:\t\t%2!s!\n"
-"\n"
-"Başka bir dizine taşıma sadece deponun dizini değiştiğinde gereklidir.\n"
-"Depo içerisinde başka bir dizine değiştirmek değiştir/geç işlemi ile yapılır.\n"
-"\n"
-"Başka bir dizine taşımanın yanlış kullanımı çalışan kopyanızı tahrip eder!\n"
-"Ne yapmanız gerektiğinden emin değilseniz lütfen taşı hakkındaki belgelerimize başvurun.\n"
-"Taşımak istediğinizden emin misiniz?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6725,6 +6838,10 @@ msgstr ""
 msgid "Not recursive"
 msgstr "Özyinesiz"
 
+#. Resource IDs: (265)
+msgid "Not under version control"
+msgstr ""
+
 #. Resource IDs: (3887)
 msgid ""
 "Note that if you choose to recover the auto-saved documents, you must "
@@ -7025,10 +7142,22 @@ msgstr ""
 msgid "Overwrite"
 msgstr "Üstüne yaz"
 
+#. Resource IDs: (91)
+msgid ""
+"Overwrite\n"
+"Replace the target folder."
+msgstr ""
+
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
+msgstr ""
+
+#. Resource IDs: (90)
+msgid ""
+"Overwrite\n"
+"The target file is replaced."
 msgstr ""
 
 #. Resource IDs: (32802)
@@ -7832,6 +7961,12 @@ msgstr "Seçili önbellek(ler) i diskten sil."
 msgid "Remove the whole subtree(s)"
 msgstr "Tüm alt ağaç(lar)ı kaldır"
 
+#. Resource IDs: (147)
+msgid ""
+"Remove\n"
+"Force the removal"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Removed"
 msgstr "Kaldırıldı"
@@ -7893,6 +8028,13 @@ msgstr ""
 #. Resource IDs: (221)
 msgid "Rename/move - TortoiseSVN"
 msgstr "İsim/yer değiştir - TortoiseSVN"
+
+#. Resource IDs: (91)
+#, c-format
+msgid ""
+"Rename\n"
+"The folder is exported as \"%s\"."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8010,6 +8152,12 @@ msgstr "Çakışmayı çözümle:"
 msgid "Resolve l&ater"
 msgstr "Sonra Çö&zümle"
 
+#. Resource IDs: (148)
+msgid ""
+"Resolve\n"
+"The item is marked as resolved."
+msgstr ""
+
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
 msgstr "Çözümlendi"
@@ -8069,6 +8217,12 @@ msgstr "Geri Al - TortoiseSVN"
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "Başlangıç ayarlarına geri dön. Yeni kullanıcılar için tavsiye edilir."
+
+#. Resource IDs: (147)
+msgid ""
+"Revert\n"
+"All changes will be lost."
+msgstr ""
 
 #. Resource IDs: (119)
 msgid ""
@@ -9424,6 +9578,10 @@ msgstr "Etiket düğümleri"
 msgid "Tagged the working copy to %s"
 msgstr "Çalışan kopya %s a etiketlendi"
 
+#. Resource IDs: (90)
+msgid "Target folder is not empty"
+msgstr ""
+
 #. Resource IDs: (80)
 msgid "Tasks"
 msgstr "Görevler"
@@ -10692,6 +10850,12 @@ msgstr "Derinlik Güncelleme"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "Çalışan Kopyayı revizyona göre güncelle"
+
+#. Resource IDs: (90)
+msgid ""
+"Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr ""
 
 #. Resource IDs: (74)
 msgid "Updated"
