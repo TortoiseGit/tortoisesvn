@@ -632,7 +632,7 @@ bool CMainFrame::LoadViews(int line)
                 {
                     CTaskDialog taskdlg(msg, 
                                         CString(MAKEINTRESOURCE(IDS_WARNBETTERPATCHPATHFOUND_TASK2)), 
-                                        L"TortoiseSVN",
+                                        L"TortoiseMerge",
                                         0,
                                         TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
                     CString task3;
@@ -1145,9 +1145,29 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     {
         // file was saved with 0 lines!
         // ask the user if the file should be deleted
-        CString sTemp;
-        sTemp.Format(IDS_DELETEWHENEMPTY, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
-        if (TSVNMessageBox(m_hWnd, sTemp, _T("TortoiseMerge"), MB_YESNO) == IDYES)
+        bool bDelete = false;
+        if (CTaskDialog::IsSupported())
+        {
+            CString msg;
+            msg.Format(IDS_DELETEWHENEMPTY, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
+            CTaskDialog taskdlg(msg, 
+                                CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK2)), 
+                                L"TortoiseMerge",
+                                0,
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK4)));
+            taskdlg.SetDefaultCommandControl(1);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            bDelete = (taskdlg.DoModal(m_hWnd) == 1);
+        }
+        else
+        {
+            CString sTemp;
+            sTemp.Format(IDS_DELETEWHENEMPTY, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
+            bDelete = (TSVNMessageBox(m_hWnd, sTemp, _T("TortoiseMerge"), MB_YESNO) == IDYES);
+        }
+        if (bDelete)
         {
             DeleteFile(m_Data.m_mergedFile.GetFilename());
         }
@@ -1274,12 +1294,35 @@ void CMainFrame::OnClose()
         m_pFindDialog->SendMessage(WM_CLOSE);
         return;
     }
-    int ret = IDNO;
+    UINT ret = IDNO;
     if (HasUnsavedEdits())
     {
         CString sTemp;
         sTemp.LoadString(IDS_ASKFORSAVE);
-        ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
+        if (CTaskDialog::IsSupported())
+        {
+            CTaskDialog taskdlg(sTemp, 
+                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)), 
+                                L"TortoiseMerge",
+                                0,
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+            CString sTask3;
+            if (m_Data.m_mergedFile.InUse())
+                sTask3.Format(IDS_ASKFORSAVE_TASK3, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
+            else
+                sTask3.LoadString(IDS_ASKFORSAVE_TASK6);
+            taskdlg.AddCommandControl(IDYES, sTask3);
+            taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK4)));
+            taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK5)));
+            taskdlg.SetDefaultCommandControl(IDYES);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            ret = (UINT)taskdlg.DoModal(m_hWnd);
+        }
+        else
+        {
+            ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
+        }
+
         if (ret == IDYES)
         {
             if (!FileSave())
@@ -1917,7 +1960,29 @@ void CMainFrame::OnViewSwitchleft()
     {
         CString sTemp;
         sTemp.LoadString(IDS_ASKFORSAVE);
-        ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
+        if (CTaskDialog::IsSupported())
+        {
+            CTaskDialog taskdlg(sTemp, 
+                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)), 
+                                L"TortoiseMerge",
+                                0,
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+            CString sTask3;
+            if (m_Data.m_mergedFile.InUse())
+                sTask3.Format(IDS_ASKFORSAVE_TASK3, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
+            else
+                sTask3.LoadString(IDS_ASKFORSAVE_TASK6);
+            taskdlg.AddCommandControl(IDYES, sTask3);
+            taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7)));
+            taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK8)));
+            taskdlg.SetDefaultCommandControl(IDYES);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            ret = (UINT)taskdlg.DoModal(m_hWnd);
+        }
+        else
+        {
+            ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
+        }
         if (ret == IDYES)
         {
             if (!FileSave())
@@ -2001,9 +2066,31 @@ int CMainFrame::CheckForReload()
         return IDNO;
     }
 
-    int ret = IDNO;
-    int idsMessage = HasUnsavedEdits() ? IDS_WARNMODIFIEDOUTSIDELOOSECHANGES : IDS_WARNMODIFIEDOUTSIDE;
-    ret = TSVNMessageBox(m_hWnd, idsMessage, IDS_APPNAME, MB_YESNOCANCEL | MB_ICONQUESTION);
+    UINT ret = IDNO;
+    if (CTaskDialog::IsSupported())
+    {
+        CString msg = HasUnsavedEdits() ? CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDELOOSECHANGES)) : CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE));
+        CTaskDialog taskdlg(msg, 
+                            CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE_TASK2)), 
+                            L"TortoiseMerge",
+                            0,
+                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+        CString sTask3;
+        if (HasUnsavedEdits())
+            sTask3.LoadString(IDS_WARNMODIFIEDOUTSIDE_TASK3);
+        else
+            sTask3.LoadString(IDS_WARNMODIFIEDOUTSIDE_TASK4);
+        taskdlg.AddCommandControl(IDYES, sTask3);
+        taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE_TASK5)));
+        taskdlg.SetDefaultCommandControl(IDYES);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        ret = (UINT)taskdlg.DoModal(m_hWnd);
+    }
+    else
+    {
+        int idsMessage = HasUnsavedEdits() ? IDS_WARNMODIFIEDOUTSIDELOOSECHANGES : IDS_WARNMODIFIEDOUTSIDE;
+        ret = TSVNMessageBox(m_hWnd, idsMessage, IDS_APPNAME, MB_YESNO | MB_ICONQUESTION);
+    }
 
     if (ret == IDYES)
     {
@@ -2024,12 +2111,34 @@ int CMainFrame::CheckForReload()
 
 int CMainFrame::CheckForSave()
 {
-    int ret = IDNO;
+    UINT ret = IDNO;
     if (HasUnsavedEdits())
     {
         CString sTemp;
         sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGES);
-        ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
+        if (CTaskDialog::IsSupported())
+        {
+            CTaskDialog taskdlg(sTemp, 
+                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)), 
+                                L"TortoiseMerge",
+                                0,
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+            CString sTask3;
+            if (m_Data.m_mergedFile.InUse())
+                sTask3.Format(IDS_ASKFORSAVE_TASK3, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
+            else
+                sTask3.LoadString(IDS_ASKFORSAVE_TASK6);
+            taskdlg.AddCommandControl(IDYES, sTask3);
+            taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7)));
+            taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK8)));
+            taskdlg.SetDefaultCommandControl(IDYES);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            ret = (UINT)taskdlg.DoModal(m_hWnd);
+        }
+        else
+        {
+            ret = MessageBox(sTemp, 0, MB_YESNOCANCEL | MB_ICONQUESTION);
+        }
 
         if (ret == IDYES)
         {
@@ -2218,7 +2327,26 @@ bool CMainFrame::HasConflictsWontKeep()
 
     CString sTemp;
     sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, m_pwndBottomView->m_pViewData->GetLineNumber(nConflictLine)+1);
-    if (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)==IDYES)
+    bool bSave = false;
+    if (CTaskDialog::IsSupported())
+    {
+        CTaskDialog taskdlg(sTemp, 
+                            CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)), 
+                            L"TortoiseMerge",
+                            0,
+                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)));
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_ERROR_ICON);
+        bSave = (taskdlg.DoModal(m_hWnd) == 1);
+    }
+    else
+    {
+        bSave = (MessageBox(sTemp, 0, MB_ICONERROR | MB_YESNO)==IDYES);
+    }
+
+    if (bSave)
         return false;
 
     if (m_pwndBottomView)
