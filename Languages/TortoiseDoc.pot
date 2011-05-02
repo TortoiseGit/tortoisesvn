@@ -3990,6 +3990,26 @@ msgid "Sometimes you want to see a difference rather than a blend. You might hav
 msgstr ""
 
 #. (title)
+msgid "Diffing Office Documents"
+msgstr ""
+
+#. (primary)
+msgid "Microsoft Word"
+msgstr ""
+
+#. (para)
+msgid "When you want to diff non-text documents you normally have to use the software used to create the document as it understands the file format. For the commonly used Microsoft Office and Open Office suites there is indeed some support for viewing differences and TortoiseSVN includes scripts to invoke these with the right settings when you diff files with the well-known file extensions. You can check which file extensions are supported and add your own by going to <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice> and clicking <guibutton>Advanced</guibutton> in the <guilabel>External Programs</guilabel> section."
+msgstr ""
+
+#. (title)
+msgid "Problems with Office 2010"
+msgstr ""
+
+#. (para)
+msgid "If you installed the <emphasis>Click-to-Run</emphasis> version of Office 2010 and you try to diff documents you may get an error message from Windows Script Host something like this: <quote>ActiveX component can't create object: word.Application</quote>. It seems you have to use the MSI-based version of Office to get the diff functionality."
+msgstr ""
+
+#. (title)
 msgid "External Diff/Merge Tools"
 msgstr ""
 
@@ -11961,6 +11981,14 @@ msgstr ""
 
 #. (para)
 msgid "On the left side of the window is a locator bar. This provides a quick visual reference as to where the changes lie within the file. The bar has three columns. The left column refers to the left pane, the right column to the right pane, and the centre column to the bottom pane (if present). In one-pane view only the left column is used. The locator bar can also be used as a scroll bar to scroll all the windows simultaneously."
+msgstr ""
+
+#. (para)
+msgid "If you double click on a word then every occurrence of that word will be highlighted throughout the document, both in the main panes and the locator bar. Double click on the word again to remove the highlighting."
+msgstr ""
+
+#. (para)
+msgid "If you click in the left margin, or if you triple click within a line, that whole line will be selected."
 msgstr ""
 
 #. (para)
