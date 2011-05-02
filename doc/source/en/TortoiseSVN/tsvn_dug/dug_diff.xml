@@ -370,6 +370,38 @@
             coloured.
         </para>
     </sect2>
+    <sect2 id="tsvn-dug-diff-custom">
+        <title>Diffing Office Documents</title>
+        <indexterm>
+            <primary>Microsoft Word</primary>
+        </indexterm>
+        <para>
+            When you want to diff non-text documents you normally have to use the
+            software used to create the document as it understands the file format.
+            For the commonly used Microsoft Office and Open Office suites there
+            is indeed some support for viewing differences and TortoiseSVN
+            includes scripts to invoke these with the right settings when you
+            diff files with the well-known file extensions. You can check which
+            file extensions are supported and add your own by going to
+            <menuchoice>
+                <guimenu>TortoiseSVN</guimenu>
+                <guimenuitem>Settings</guimenuitem>
+            </menuchoice>
+            and clicking <guibutton>Advanced</guibutton> in the
+            <guilabel>External Programs</guilabel> section.
+        </para>
+        <tip>
+            <title>Problems with Office 2010</title>
+            <para>
+                If you installed the <emphasis>Click-to-Run</emphasis> version of
+                Office 2010 and you try to diff documents you may get an error message
+                from Windows Script Host something like this:
+                <quote>ActiveX component can't create object: word.Application</quote>.
+                It seems you have to use the MSI-based version of Office to get
+                the diff functionality.
+            </para>
+        </tip>
+    </sect2>
     <sect2 id="tsvn-dug-diff-tools">
         <title>External Diff/Merge Tools</title>
         <indexterm>
