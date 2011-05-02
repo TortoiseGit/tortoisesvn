@@ -3875,7 +3875,7 @@ bool CBaseView::HasPrevInlineDiff()
 
 void CBaseView::BeginBuildAllScreen2ViewVector()
 {
-    const int nOldSize = m_ScreenedViewLine.size();
+    const int nOldSize = (int)m_ScreenedViewLine.size();
     const int nViewCount = max(GetViewCount(), 0);
     m_ScreenedViewLine.resize(nViewCount);
     const int nCleanSize = min(nViewCount, nOldSize);
