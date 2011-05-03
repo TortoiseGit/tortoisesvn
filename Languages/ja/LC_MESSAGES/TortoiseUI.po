@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-01 01:31+0000\n"
+"PO-Revision-Date: 2011-05-03 07:02+0000\n"
 "Last-Translator: ddeguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -313,6 +313,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
 msgstr ""
+"%s\n"
+"%d 個のファイルを削除してもよろしいですか？"
 
 #. Resource IDs: (147)
 #, c-format
@@ -320,6 +322,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
+"%s\n"
+"Do you want to remove the file '%s' anyway?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -793,7 +797,7 @@ msgstr "名前によって %d 個の項目を無視する(&I)"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "系統を無視する(&I)"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1631,6 +1635,9 @@ msgid ""
 "\n"
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
+"再配置はリポジトリへのパスが変更された時にだけ必要となります。リポジトリ内の異なるパスへの変更は切り替え操作で行えます。\n"
+"\n"
+"何をして良いか分からない場合は、まず切り替え操作を試してください。"
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1643,6 +1650,9 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"Windowsで有効なパスには、 '<>|\\\"?*:' の文字や、次に示すデバイス名のどれかを含めることはできません：\n"
+"com1-com9, lpt1-lpt9, prn\n"
+"詳しくはこれに関するMicrosoftの<a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">文書</a>をご覧ください。"
 
 #. Resource IDs: (79)
 msgid ""
@@ -1756,6 +1766,8 @@ msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"項目を追加\n"
+"Windows上では問題が発生します。"
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -1838,6 +1850,8 @@ msgid ""
 "Adjust case\n"
 "The file is not added."
 msgstr ""
+"大文字／小文字を調整する\n"
+"ファイルは追加されません。"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1889,7 +1903,7 @@ msgstr "すべてのファイル (*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
-msgstr ""
+msgstr "前回の更新以降のすべての変更が失われます！"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2037,7 +2051,7 @@ msgstr "パッチを適用 ..."
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
-msgstr ""
+msgstr "ローカルの svn:externals の変更を適用する"
 
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
@@ -2385,66 +2399,88 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"キャンセル\n"
+"タグへコミットしない。"
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "Do not remove"
 msgstr ""
+"キャンセル\n"
+"削除しない"
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"キャンセル\n"
+"元に戻さない。"
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Do not update the working copy."
 msgstr ""
+"キャンセル\n"
+"作業コピーを更新しない。"
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
 msgstr ""
+"キャンセル\n"
+"項目を解消しない。"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"キャンセル\n"
+"戻って課題番号を入力する。"
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Go back and select a different folder."
 msgstr ""
+"キャンセル\n"
+"戻って異なるフォルダを選択する。"
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"キャンセル\n"
+"異なるパス／URLを入力する。"
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"キャンセル\n"
+"現在のURLを保つ。"
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Leave all changes."
 msgstr ""
+"キャンセル\n"
+"すべての変更をそのままにする。"
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not added and not adjusted."
 msgstr ""
+"キャンセル\n"
+"ファイルは追加も調整もされません。"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2463,30 +2499,40 @@ msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"キャンセル\n"
+"項目はインポートしません。"
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"キャンセル\n"
+"項目は移動しません。"
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr ""
+"キャンセル\n"
+"ターゲットファイルはそのまま残ります。"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"キャンセル\n"
+"フォルダをマニュアル操作で追加する必要があります。"
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"キャンセル\n"
+"現在のフォーマットを保つ。"
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2923,6 +2969,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"フォルダのみコミットする\n"
+"フォルダ内のファイルはコミットされません。"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -2937,6 +2985,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"コミット\n"
+"ターゲットへの変更をコミットする。"
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -2964,6 +3014,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
+"バージョン管理外のフォルダのコミットは、その子階層の項目を再帰的に追加しません。\n"
+"再帰的にこれらのフォルダを追加したい場合は、コンテキストメニューから '追加...' を選んでください。"
 
 #. Resource IDs: (170)
 msgid ""
@@ -2979,7 +3031,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "タグへコミットする"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3823,11 +3875,11 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr ""
+msgstr "既存の項目すべてにこれを行う"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr ""
+msgstr "選択されたすべてのバージョン管理外のフォルダにこれを行う"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -3912,6 +3964,9 @@ msgid ""
 "%s\n"
 "and go back to this revision?"
 msgstr ""
+"%s\n"
+"におけるすべての変更を元に戻し、\n"
+"このリビジョンに戻してもよろしいですか？"
 
 #. Resource IDs: (120)
 #, c-format
@@ -3920,6 +3975,9 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
+"このリビジョンで行われた\n"
+"%s\n"
+"のすべての変更を元に戻してもよろしいですか？"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -3939,7 +3997,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "再び問い合わせない"
 
 #. Resource IDs: (94)
 msgid ""
@@ -3966,7 +4024,7 @@ msgstr "このメッセージを再び表示しない"
 
 #. Resource IDs: (564)
 msgid "Don't tell me again"
-msgstr ""
+msgstr "再び通知しない"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4301,7 +4359,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr ""
+msgstr "すべてのコミットは課題に割り当てられなければなりません。"
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -5399,6 +5457,7 @@ msgid ""
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
 msgstr ""
+"このコンピュータでTortoiseSVNに加えて他のSVNクライアントを使うなら、それらのクライアントもアップグレードする必要があります。そうでないと、それらのクライアントは新しいフォーマットの作業コピーにアクセスできなくなります。"
 
 #. Resource IDs: (251)
 msgid ""
@@ -5424,7 +5483,7 @@ msgstr "系統情報を無視する(&A)"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
-msgstr ""
+msgstr "すべて無視する"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5484,7 +5543,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Illegal path"
-msgstr ""
+msgstr "無効なパス"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5565,6 +5624,8 @@ msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
 msgstr ""
+"インポート\n"
+"項目をインポートし、それぞれの項目に対して新しいリビジョンを作成する。"
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5750,6 +5811,11 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr ""
+"同じリポジトリ内の異なるパスへ作業コピーを再配置使用としています。\n"
+"元: %1!s!\n"
+"先: %2!s!\n"
+"\n"
+"再配置の不適切な利用は、作業コピーを破壊します！"
 
 #. Resource IDs: (88)
 #, c-format
@@ -6362,7 +6428,7 @@ msgstr "その他の色 ..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "1つ以上の項目がドロップされました。"
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6424,7 +6490,7 @@ msgstr "ここに項目を移動"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr ""
+msgstr "特別なファイルもしくはディレクトリを移動する"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6449,6 +6515,8 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr ""
+"移動\n"
+"項目をターゲットパスへ移動する"
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6658,7 +6726,7 @@ msgstr "シソーラスからの提案はありません"
 
 #. Resource IDs: (564)
 msgid "No to all"
-msgstr ""
+msgstr "すべてに「いいえ」"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -6852,6 +6920,8 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr ""
+"移動しようとしているパスの一つは、特別なパスのようです\n"
+"('branches'、'tags'、'trunk' のいずれか)。"
 
 #. Resource IDs: (63)
 msgid ""
@@ -7006,6 +7076,8 @@ msgid ""
 "Overwrite\n"
 "The target file gets replaced"
 msgstr ""
+"上書き\n"
+"ターゲットファイルを置き換える"
 
 #. Resource IDs: (90)
 msgid ""
@@ -7108,7 +7180,7 @@ msgstr "パス"
 
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
-msgstr ""
+msgstr "パッチにより適合するパスが見つかりました。"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7333,16 +7405,20 @@ msgid ""
 "Proceed with the entered path\n"
 "I'm aware of the possible problems."
 msgstr ""
+"入力されたパスで進める\n"
+"問題の可能性を理解しています。"
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
-msgstr ""
+msgstr "マージして進める"
 
 #. Resource IDs: (173)
 msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
 msgstr ""
+"課題番号無しで進める\n"
+"コミットは課題に割り当てられません。"
 
 #. Resource IDs: (132)
 #, c-format
@@ -7720,13 +7796,15 @@ msgstr "再配置に関する注意"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "切り替えが意図されるところを置き換える"
 
 #. Resource IDs: (89)
 msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
 msgstr ""
+"再配置\n"
+"作業コピーは新しいURLで置き換えられます。"
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -7919,7 +7997,7 @@ msgstr "置換"
 
 #. Resource IDs: (564)
 msgid "Report"
-msgstr ""
+msgstr "レポート"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -8070,6 +8148,8 @@ msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
 msgstr ""
+"元に戻す\n"
+"変更を作業コピーに適用します。"
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -8077,7 +8157,7 @@ msgstr "元に戻す"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
-msgstr ""
+msgstr "変更を元に戻しています"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8971,11 +9051,11 @@ msgstr "圧縮されていない場合はキャッシュのサイズ"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "スキップ"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "すべてスキップ"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -8987,11 +9067,11 @@ msgstr "ターゲットが見つからないのでスキップ"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr ""
+msgstr "妨害している作業コピーをスキップ"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr ""
+msgstr "スキップ、バージョン管理された親が存在しない"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9002,12 +9082,16 @@ msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
+"いくつかのファイルは T-Merge の外側で変更されました。\n"
+"これらの変更を読み込みますか？"
 
 #. Resource IDs: (314)
 msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
+"いくつかのファイルは T-Merge の外側で変更されました。\n"
+"再読み込みを行い、変更を破棄してもよろしいですか？"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9429,7 +9513,7 @@ msgid ""
 "The changes will be applied to your working copy with a reverse merge "
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
-msgstr ""
+msgstr "変更は逆マージ操作によって作業コピーに適用されます。リポジトリは影響を受けません。それらをコミットする前に変更を確認できます。"
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -9784,6 +9868,8 @@ msgid ""
 "The path/URL \"%s\" seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"パス／URL \"%s\" はWindows上では無効だと思われます！\n"
+"試すことはできますが、後でエラーが発生するかもしれません。"
 
 #. Resource IDs: (88)
 msgid ""
@@ -9891,7 +9977,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "ターゲットはすでに存在します。"
 
 #. Resource IDs: (147)
 #, c-format
@@ -9921,14 +10007,14 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "ターゲットはローカルで変更されています"
 
 #. Resource IDs: (279)
 #, c-format
 msgid ""
 "The target working copy \"%s\" has local modifications. It is recommended to"
 " commit those changes first before merging new changes."
-msgstr ""
+msgstr "ターゲット作業コピー \"%s\" はローカルで変更されています。新しい変更をマージする前に、まずそれらの変更をコミットすることをお勧めします。"
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -10152,7 +10238,7 @@ msgstr ""
 msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "この操作は作業コピーを新しい1.7形式にアップグレードします。そのため、古いクライアントでは利用できなくなります。"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -10682,7 +10768,7 @@ msgstr "ログキャッシュを更新中"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
-msgstr ""
+msgstr "作業コピーを新しい1.7形式にアップグレード"
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
@@ -10878,6 +10964,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"見つかったパスを使用する。\n"
+"%s\n"
+"にパッチを適用する。\n"
 
 #. Resource IDs: (594)
 msgid ""
@@ -10900,6 +10989,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"オリジナルのパスを使用する。\n"
+"%s\n"
+"にパッチを適用する。"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -11173,6 +11265,9 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
+"リポジトリへ追加するために１つ以上のファイルもしくはフォルダがドロップされました。\n"
+"一度にすべてを処理することができないため、TortoiseSVN は個々のファイル／フォルダを\n"
+"別々に追加し、追加された項目毎に新しいリビジョンを作成します。"
 
 #. Resource IDs: (105)
 msgid ""
@@ -11210,7 +11305,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "課題番号を入力していません。"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -11231,7 +11326,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr ""
+msgstr "コミットにバージョン管理外のフォルダを選択しました！"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -11337,6 +11432,8 @@ msgid ""
 "Your working copy points to %s which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
+"作業コピーは、タグ上の %s を指しています。\n"
+"コミットする前に、ブランチもしくはメイントランクに切り替えるべきです。"
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"

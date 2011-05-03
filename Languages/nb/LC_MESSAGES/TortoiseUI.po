@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-01 01:31+0000\n"
+"PO-Revision-Date: 2011-05-02 20:40+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -314,6 +314,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
 msgstr ""
+"%s\n"
+"Vil du slette de %d filene likevel?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -321,6 +323,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
+"%s\n"
+"Vil du slette filen '%s' likevel?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -1769,6 +1773,8 @@ msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"Legg til element\n"
+"Dette vil gi problemer på Windows."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -1853,6 +1859,8 @@ msgid ""
 "Adjust case\n"
 "The file is not added."
 msgstr ""
+"Juster store/små bokstaver\n"
+"Filen blir ikke lagt til."
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1904,7 +1912,7 @@ msgstr "Alle filer (*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
-msgstr ""
+msgstr "Alle endringer siden siste oppdatering vil gå tapt!"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2428,6 +2436,8 @@ msgid ""
 "Cancel\n"
 "Do not remove"
 msgstr ""
+"Avbryt\n"
+"Ikke slett"
 
 #. Resource IDs: (119)
 msgid ""
@@ -2442,12 +2452,16 @@ msgid ""
 "Cancel\n"
 "Do not update the working copy."
 msgstr ""
+"Avbryt\n"
+"Ikke oppdater arbeidskopien"
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
 msgstr ""
+"Avbryt\n"
+"Ikke løs elementet"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2462,6 +2476,8 @@ msgid ""
 "Cancel\n"
 "Go back and select a different folder."
 msgstr ""
+"Avbryt\n"
+"Gå tilbake og velg en annen mappe"
 
 #. Resource IDs: (89)
 msgid ""
@@ -2484,24 +2500,32 @@ msgid ""
 "Cancel\n"
 "Leave all changes."
 msgstr ""
+"Avbryt\n"
+"La alle endringer være"
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not added and not adjusted."
 msgstr ""
+"Avbryt\n"
+"Filen blir ikke lagt til eller justert"
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not copied."
 msgstr ""
+"Avbryt\n"
+"Filen blir ikke kopiert"
 
 #. Resource IDs: (91)
 msgid ""
 "Cancel\n"
 "The folder is not exported."
 msgstr ""
+"Avbryt\n"
+"Mappen blir ikke eksportert"
 
 #. Resource IDs: (105)
 msgid ""
@@ -2750,6 +2774,8 @@ msgid ""
 "Checkout\n"
 "Checkout into the non empty folder."
 msgstr ""
+"Sjekk ut\n"
+"Sjekk ut til den ikke tomme mappen."
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -3148,7 +3174,7 @@ msgstr "Still inn visningsprogram for GNU diff-filer (korreksjonsfiler)."
 
 #. Resource IDs: (147)
 msgid "Confirm revert"
-msgstr ""
+msgstr "Bekreft tilbakestilling"
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3902,11 +3928,11 @@ msgstr "Ikke vis sammenhengsmenyen for følgende stier:"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
-msgstr ""
+msgstr "Gjør dette for alle eksisterende filer"
 
 #. Resource IDs: (91)
 msgid "Do this for all existing folders"
-msgstr ""
+msgstr "Gjør dette for alle eksisterende mapper"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
@@ -3961,7 +3987,7 @@ msgstr ""
 #. Resource IDs: (148)
 #, c-format
 msgid "Do you want to mark '%s' as resolved?"
-msgstr ""
+msgstr "Vil du markere '%s' som løst?"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -3987,7 +4013,7 @@ msgstr "Vil du slette egenskapen %s rekursivt?"
 #. Resource IDs: (147)
 #, c-format
 msgid "Do you want to revert '%s'?"
-msgstr ""
+msgstr "Vil du tilbakestille '%s'?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4481,6 +4507,8 @@ msgid ""
 "Export\n"
 "Export into the non-empty folder."
 msgstr ""
+"Eksporter\n"
+"Eksporter til den ikke-tomme mappen."
 
 #. Resource IDs: (284)
 #, c-format
@@ -4493,7 +4521,7 @@ msgstr "Eksporterer..."
 
 #. Resource IDs: (90)
 msgid "Exporting: Target folder exists."
-msgstr ""
+msgstr "Eksporterer: Målmappen fins."
 
 #. Resource IDs: (10)
 msgid ""
@@ -4636,7 +4664,7 @@ msgstr "Fil"
 
 #. Resource IDs: (90)
 msgid "File already exists"
-msgstr ""
+msgstr "Filen finnes allerede"
 
 #. Resource IDs: (247)
 #, c-format
@@ -4881,7 +4909,7 @@ msgstr "Tving"
 
 #. Resource IDs: (147)
 msgid "Force removal"
-msgstr ""
+msgstr "Tving sletting"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5887,6 +5915,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
+"Det ser ut som du prøver å omplassere arbeidskopien til en annen sti i det samme depotet.\n"
+"\n"
+"Fra: %1!s!\n"
+"Til: %2!s!\n"
+"\n"
+"Omplassering kreves bare hvis stien til et depot er endret.\n"
+"Endring til en annen sti innen et depot gjøres med en bytt-operasjon.\n"
+"\n"
+"Uriktig bruk av omplassering vil ødelegge arbeidskopien din!\n"
+"Hvis du ikke er sikker på hva du skal gjøre, vennligst se dokumentasjonen for omplassering.\n"
+"Vil du virkelig omplassere?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6839,7 +6878,7 @@ msgstr "Ikke rekursivt"
 
 #. Resource IDs: (265)
 msgid "Not under version control"
-msgstr ""
+msgstr "Ikke under versjonskontroll"
 
 #. Resource IDs: (3887)
 msgid ""
@@ -7149,6 +7188,8 @@ msgid ""
 "Overwrite\n"
 "Replace the target folder."
 msgstr ""
+"Overskriv\n"
+"Erstatter målmappen."
 
 #. Resource IDs: (147)
 msgid ""
@@ -7163,6 +7204,8 @@ msgid ""
 "Overwrite\n"
 "The target file is replaced."
 msgstr ""
+"Overskriv\n"
+"Erstatter målfilen."
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -7968,6 +8011,8 @@ msgid ""
 "Remove\n"
 "Force the removal"
 msgstr ""
+"Fjern\n"
+"Tving slettingen"
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8036,6 +8081,8 @@ msgid ""
 "Rename\n"
 "The folder is exported as \"%s\"."
 msgstr ""
+"Omdøp\n"
+"Mappen blir eksportert som \"%s\"."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8158,6 +8205,8 @@ msgid ""
 "Resolve\n"
 "The item is marked as resolved."
 msgstr ""
+"Løs\n"
+"Elementet markeres som løst."
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -8225,6 +8274,8 @@ msgid ""
 "Revert\n"
 "All changes will be lost."
 msgstr ""
+"Tilbakestill\n"
+"Alle endringer vil gå tapt."
 
 #. Resource IDs: (119)
 msgid ""
@@ -9583,7 +9634,7 @@ msgstr "Merket arbeidskopien til %s"
 
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
-msgstr ""
+msgstr "Målmappen er ikke tom"
 
 #. Resource IDs: (80)
 msgid "Tasks"
@@ -10864,6 +10915,8 @@ msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
 msgstr ""
+"Oppdater\n"
+"Oppdater arbeidskopien og åpne innsendingsdialogen for å prøve igjen."
 
 #. Resource IDs: (74)
 msgid "Updated"

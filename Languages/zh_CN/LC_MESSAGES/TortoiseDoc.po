@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-01 00:24+0000\n"
+"PO-Revision-Date: 2011-05-03 01:10+0000\n"
 "Last-Translator: zhugscn <huasoft@163.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7223,6 +7223,41 @@ msgid ""
 msgstr ""
 "有时你想要查看不同但不是混合图像。也许你有两个版本的印刷电路板图像文件，想查看哪些线条改变了。如果你关闭 alpha "
 "混合模式，不同之处会以像素颜色值的<emphasis>或非(XOR)</emphasis>结果显示。未修改的区域是纯白色的，修改的部分则是彩色的。"
+
+#. (title)
+msgid "Diffing Office Documents"
+msgstr ""
+
+#. (primary)
+msgid "Microsoft Word"
+msgstr ""
+
+#. (para)
+msgid ""
+"When you want to diff non-text documents you normally have to use the "
+"software used to create the document as it understands the file format. For "
+"the commonly used Microsoft Office and Open Office suites there is indeed "
+"some support for viewing differences and TortoiseSVN includes scripts to "
+"invoke these with the right settings when you diff files with the well-known"
+" file extensions. You can check which file extensions are supported and add "
+"your own by going to "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
+" and clicking <guibutton>Advanced</guibutton> in the <guilabel>External "
+"Programs</guilabel> section."
+msgstr ""
+
+#. (title)
+msgid "Problems with Office 2010"
+msgstr ""
+
+#. (para)
+msgid ""
+"If you installed the <emphasis>Click-to-Run</emphasis> version of Office "
+"2010 and you try to diff documents you may get an error message from Windows"
+" Script Host something like this: <quote>ActiveX component can't create "
+"object: word.Application</quote>. It seems you have to use the MSI-based "
+"version of Office to get the diff functionality."
+msgstr ""
 
 #. (title)
 msgid "External Diff/Merge Tools"
@@ -20265,6 +20300,19 @@ msgid ""
 " as a scroll bar to scroll all the windows simultaneously."
 msgstr ""
 "窗口的左边是定位拉杆。它提供了对文件改变的位置的快速可视化引用。这个拉杆有三列。左列引用左边的窗口，右列引用右边的窗口，中间列引用底部窗口(如果存在)。在单窗口模式下，只使用了左列。定位拉杆也可以作为滑杆使用，让所有窗口同时滑动。"
+
+#. (para)
+msgid ""
+"If you double click on a word then every occurrence of that word will be "
+"highlighted throughout the document, both in the main panes and the locator "
+"bar. Double click on the word again to remove the highlighting."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you click in the left margin, or if you triple click within a line, that "
+"whole line will be selected."
+msgstr ""
 
 #. (para)
 msgid ""

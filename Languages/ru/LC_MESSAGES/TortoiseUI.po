@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-01 01:31+0000\n"
+"PO-Revision-Date: 2011-05-03 17:44+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -315,6 +315,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
 msgstr ""
+"%s\n"
+"Вы всё равно желаете удалить %d файлов?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -322,6 +324,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
+"%s\n"
+"Вы всё равно желаете удалить файл '%s'?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -1771,6 +1775,8 @@ msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"Добавить элемент\n"
+"Это приведет к проблемам на платформе Windows."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -1854,6 +1860,8 @@ msgid ""
 "Adjust case\n"
 "The file is not added."
 msgstr ""
+"Исправить регистр\n"
+"Файл не добавлен."
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1905,7 +1913,7 @@ msgstr "Все файлы (*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
-msgstr ""
+msgstr "Все изменения с момента последного обновления будут утеряны!"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2429,6 +2437,8 @@ msgid ""
 "Cancel\n"
 "Do not remove"
 msgstr ""
+"Отменить\n"
+"Не удалять"
 
 #. Resource IDs: (119)
 msgid ""
@@ -2443,12 +2453,16 @@ msgid ""
 "Cancel\n"
 "Do not update the working copy."
 msgstr ""
+"Отменить\n"
+"Не обновлять рабочую копию."
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
 msgstr ""
+"Отменить\n"
+"Не разрешать элемент."
 
 #. Resource IDs: (173)
 msgid ""
@@ -2463,6 +2477,8 @@ msgid ""
 "Cancel\n"
 "Go back and select a different folder."
 msgstr ""
+"Отменить\n"
+"Вернуться назад и выбрать другую папку."
 
 #. Resource IDs: (89)
 msgid ""
@@ -2485,24 +2501,32 @@ msgid ""
 "Cancel\n"
 "Leave all changes."
 msgstr ""
+"Отменить\n"
+"Оставить все изменения."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not added and not adjusted."
 msgstr ""
+"Отменить\n"
+"Файл не добавлен и не исправлен."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not copied."
 msgstr ""
+"Отменить\n"
+"Файл не скопирован."
 
 #. Resource IDs: (91)
 msgid ""
 "Cancel\n"
 "The folder is not exported."
 msgstr ""
+"Отменить\n"
+"Папка не экспортирована."
 
 #. Resource IDs: (105)
 msgid ""
@@ -2756,6 +2780,8 @@ msgid ""
 "Checkout\n"
 "Checkout into the non empty folder."
 msgstr ""
+"Извлечь\n"
+"Извлечь в непустую папку."
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -3154,7 +3180,7 @@ msgstr "Настройка программы просмотра файлов р
 
 #. Resource IDs: (147)
 msgid "Confirm revert"
-msgstr ""
+msgstr "Подтвердить возврат"
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3913,11 +3939,11 @@ msgstr "Не показывать контекстное меню для сле�
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
-msgstr ""
+msgstr "Сделать это для всех существующих файлов"
 
 #. Resource IDs: (91)
 msgid "Do this for all existing folders"
-msgstr ""
+msgstr "Сделать это для всех существующих папок"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
@@ -3974,7 +4000,7 @@ msgstr ""
 #. Resource IDs: (148)
 #, c-format
 msgid "Do you want to mark '%s' as resolved?"
-msgstr ""
+msgstr "Вы хотите отметить '%s' как улаженный?"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4000,7 +4026,7 @@ msgstr "Вы действительно желаете убрать свойст
 #. Resource IDs: (147)
 #, c-format
 msgid "Do you want to revert '%s'?"
-msgstr ""
+msgstr "Вы хотите убрать изменения '%s'?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4495,6 +4521,8 @@ msgid ""
 "Export\n"
 "Export into the non-empty folder."
 msgstr ""
+"Экспорт\n"
+"Экспорт в непустую папку."
 
 #. Resource IDs: (284)
 #, c-format
@@ -4507,7 +4535,7 @@ msgstr "Экспортирование..."
 
 #. Resource IDs: (90)
 msgid "Exporting: Target folder exists."
-msgstr ""
+msgstr "Экспорт: Целевая папка существует."
 
 #. Resource IDs: (10)
 msgid ""
@@ -4649,7 +4677,7 @@ msgstr "Файл"
 
 #. Resource IDs: (90)
 msgid "File already exists"
-msgstr ""
+msgstr "Файл уже существует"
 
 #. Resource IDs: (247)
 #, c-format
@@ -4898,7 +4926,7 @@ msgstr "Принудительно"
 
 #. Resource IDs: (147)
 msgid "Force removal"
-msgstr ""
+msgstr "Принудительное удаление"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5904,6 +5932,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
+"Похоже, что вы собираетесь перебазировать вашу рабочую копию на другой путь внутри того же хранилища.\n"
+"\n"
+"Из:\t%1!s!\n"
+"В:\t%2!s!\n"
+"\n"
+"Перебазирование необходимо, только если путь к хранилищу был изменён.\n"
+"Изменение на другой путь внутри хранилища выполняется операцией 'переключить'.\n"
+"\n"
+"Неправильное использование перебазирования испортит вашу рабочую копию!\n"
+"Если вы не уверены в том, что надо сделать, обратитесь к нашей документации по операции перебазирование.\n"
+"Вы действительно хотите перебазировать?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6858,7 +6897,7 @@ msgstr "Не рекурсивно"
 
 #. Resource IDs: (265)
 msgid "Not under version control"
-msgstr ""
+msgstr "Не под управлением версиями"
 
 #. Resource IDs: (3887)
 msgid ""
@@ -7171,6 +7210,8 @@ msgid ""
 "Overwrite\n"
 "Replace the target folder."
 msgstr ""
+"Перезаписать\n"
+"Заменить целевую папку."
 
 #. Resource IDs: (147)
 msgid ""
@@ -7185,6 +7226,8 @@ msgid ""
 "Overwrite\n"
 "The target file is replaced."
 msgstr ""
+"Перезаписать\n"
+"Целевой файл заменен."
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -7996,6 +8039,8 @@ msgid ""
 "Remove\n"
 "Force the removal"
 msgstr ""
+"Удалить\n"
+"Принудительное удаление"
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8064,6 +8109,8 @@ msgid ""
 "Rename\n"
 "The folder is exported as \"%s\"."
 msgstr ""
+"Переименовать\n"
+"Папка экспортирована как \"%s\"."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8186,6 +8233,8 @@ msgid ""
 "Resolve\n"
 "The item is marked as resolved."
 msgstr ""
+"Уладить\n"
+"Элемент отмечен как улаженный."
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -8253,6 +8302,8 @@ msgid ""
 "Revert\n"
 "All changes will be lost."
 msgstr ""
+"Убрать изменения\n"
+"Все изменения будут утеряны."
 
 #. Resource IDs: (119)
 msgid ""
@@ -9615,7 +9666,7 @@ msgstr "Для рабочей копии назначена метка %s"
 
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
-msgstr ""
+msgstr "Целевая папка не пустая"
 
 #. Resource IDs: (80)
 msgid "Tasks"
@@ -10920,6 +10971,8 @@ msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
 msgstr ""
+"Обновить\n"
+"Обновить рабочую копию и повторно открыть диалог фиксации, чтобы попробовать еще раз."
 
 #. Resource IDs: (74)
 msgid "Updated"
