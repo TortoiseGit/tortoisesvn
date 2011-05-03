@@ -439,25 +439,25 @@ int CBaseView::GetScreenChars()
 
 int CBaseView::GetAllMinScreenChars() const
 {
-    int nChars = 0;
+    int nChars = INT_MAX;
     if (IsLeftViewGood())
-        nChars = m_pwndLeft->GetScreenChars();
+        nChars = min(nChars, m_pwndLeft->GetScreenChars());
     if (IsRightViewGood())
-        nChars = (nChars < m_pwndRight->GetScreenChars() ? nChars : m_pwndRight->GetScreenChars());
+        nChars = min(nChars, m_pwndRight->GetScreenChars());
     if (IsBottomViewGood())
-        nChars = (nChars < m_pwndBottom->GetScreenChars() ? nChars : m_pwndBottom->GetScreenChars());
-    return nChars;
+        nChars = min(nChars, m_pwndBottom->GetScreenChars());
+    return (nChars==INT_MAX) ? 0 : nChars;
 }
 
 int CBaseView::GetAllMaxLineLength() const
 {
     int nLength = 0;
     if (IsLeftViewGood())
-        nLength = m_pwndLeft->GetMaxLineLength();
+        nLength = max(nLength, m_pwndLeft->GetMaxLineLength());
     if (IsRightViewGood())
-        nLength = (nLength > m_pwndRight->GetMaxLineLength() ? nLength : m_pwndRight->GetMaxLineLength());
+        nLength = max(nLength, m_pwndRight->GetMaxLineLength());
     if (IsBottomViewGood())
-        nLength = (nLength > m_pwndBottom->GetMaxLineLength() ? nLength : m_pwndBottom->GetMaxLineLength());
+        nLength = max(nLength, m_pwndBottom->GetMaxLineLength());
     return nLength;
 }
 
@@ -729,14 +729,14 @@ int CBaseView::GetScreenLines()
 
 int CBaseView::GetAllMinScreenLines() const
 {
-    int nLines = 0;
+    int nLines = INT_MAX;
     if (IsLeftViewGood())
         nLines = m_pwndLeft->GetScreenLines();
     if (IsRightViewGood())
-        nLines = (nLines < m_pwndRight->GetScreenLines() ? nLines : m_pwndRight->GetScreenLines());
+        nLines = min(nLines, m_pwndRight->GetScreenLines());
     if (IsBottomViewGood())
-        nLines = (nLines < m_pwndBottom->GetScreenLines() ? nLines : m_pwndBottom->GetScreenLines());
-    return nLines;
+        nLines = min(nLines, m_pwndBottom->GetScreenLines());
+    return (nLines==INT_MAX) ? 0 : nLines;
 }
 
 int CBaseView::GetAllLineCount() const
@@ -745,9 +745,9 @@ int CBaseView::GetAllLineCount() const
     if (IsLeftViewGood())
         nLines = m_pwndLeft->GetLineCount();
     if (IsRightViewGood())
-        nLines = (nLines > m_pwndRight->GetLineCount() ? nLines : m_pwndRight->GetLineCount());
+        nLines = max(nLines, m_pwndRight->GetLineCount());
     if (IsBottomViewGood())
-        nLines = (nLines > m_pwndBottom->GetLineCount() ? nLines : m_pwndBottom->GetLineCount());
+        nLines = max(nLines, m_pwndBottom->GetLineCount());
     return nLines;
 }
 
@@ -2134,45 +2134,39 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
     int nViewBlockStart = -1;
     int nViewBlockEnd = -1;
     GetViewSelection(nViewBlockStart, nViewBlockEnd);
-    if ((point.x < 0)||(point.y < 0))
+    if ((point.x >= 0) && (point.y >= 0))
     {
-        // is unreal point - keyboard call
-    }
-    else
-    {
-        int nViewLine = -1;
-        int nLine = GetLineFromPoint(point);
-        if (true) //TODO: test conditions for next line
+        int nLine = GetLineFromPoint(point)-1;
+        if ((nLine >= 0) && (nLine < m_Screen2View.size()))
         {
-            nViewLine = GetViewLineForScreen(nLine-1) ;
-        }
-
-        if ((nViewLine < nViewBlockStart) || (nViewBlockEnd < nViewLine))
-        {
-            ClearSelection(); // Clear text-copy selection 
-            
-            nViewBlockStart = nViewLine;
-            nViewBlockEnd = nViewLine;
-            DiffStates state = m_pViewData->GetState(nViewLine);
-            while (nViewBlockStart > 0)
+            int nViewLine = GetViewLineForScreen(nLine);
+            if (((nViewLine < nViewBlockStart) || (nViewBlockEnd < nViewLine)))
             {
-                const DiffStates lineState = m_pViewData->GetState(nViewBlockStart-1);
-                if (!LinesInOneChange(-1, state, lineState))
-                    break;
-                nViewBlockStart--;
-            }
+                ClearSelection(); // Clear text-copy selection 
 
-            while (nViewBlockEnd < (m_pViewData->GetCount()-1))
-            {
-                const DiffStates lineState = m_pViewData->GetState(nViewBlockEnd+1);
-                if (!LinesInOneChange(1, state, lineState))
-                    break;
-                nViewBlockEnd++;
-            }
+                nViewBlockStart = nViewLine;
+                nViewBlockEnd = nViewLine;
+                DiffStates state = m_pViewData->GetState(nViewLine);
+                while (nViewBlockStart > 0)
+                {
+                    const DiffStates lineState = m_pViewData->GetState(nViewBlockStart-1);
+                    if (!LinesInOneChange(-1, state, lineState))
+                        break;
+                    nViewBlockStart--;
+                }
 
-            SetupAllViewSelection(nViewBlockStart, nViewBlockEnd);
-            m_ptCaretPos = point;
-            UpdateCaret();
+                while (nViewBlockEnd < (m_pViewData->GetCount()-1))
+                {
+                    const DiffStates lineState = m_pViewData->GetState(nViewBlockEnd+1);
+                    if (!LinesInOneChange(1, state, lineState))
+                        break;
+                    nViewBlockEnd++;
+                }
+
+                SetupAllViewSelection(nViewBlockStart, nViewBlockEnd);
+                m_ptCaretPos = point;
+                UpdateCaret();
+            }
         }
     }
 
@@ -2803,12 +2797,15 @@ void CBaseView::OnEditCopy()
 {
     POINT start = m_ptSelectionStartPos;
     POINT end = m_ptSelectionEndPos;
-    if ((m_ptSelectionStartPos.x == m_ptSelectionEndPos.x)&&(m_ptSelectionStartPos.y == m_ptSelectionEndPos.y))
+    if (!HasTextSelection())
     {
         if (!HasSelection())
             return;
-        start.y = m_nSelViewBlockStart; start.x = 0;
-        end.y = m_nSelViewBlockEnd; end.x = GetLineLength(m_nSelViewBlockEnd);
+        return; // for a moment Block selection is in ViewLines while text is in ScreenLine
+        //start.y = m_nSelBlockStart;
+        //start.x = 0;
+        //end.y = m_nSelBlockEnd;
+        //end.x = GetLineLength(m_nSelBlockEnd);
     }
     // first store the selected lines in one CString
     CString sCopyData;

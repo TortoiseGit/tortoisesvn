@@ -86,7 +86,7 @@ public: // methods
     void            BuildScreen2ViewVector();
     void            UpdateViewLineNumbers();
     int             GetLineCount() const;
-    int             GetViewLineForScreen(int screenLine) const { return m_Screen2View.GetViewLineForScreen(screenLine); }
+    static int      GetViewLineForScreen(int screenLine) { return m_Screen2View.GetViewLineForScreen(screenLine); }
     int             FindScreenLineForViewLine(int viewLine);
     CString         GetMultiLine(int nLine);
     int             CountMultiLines(int nLine);
@@ -103,14 +103,14 @@ public: // methods
     LPCTSTR         GetMarkedWord() {return (LPCTSTR)m_sMarkedWord;}
 
     // Selection methods; all public methods dealing with selection go here
-    void            ClearSelection();
+    static void     ClearSelection();
     BOOL            GetViewSelection(int& start, int& end) const;
     BOOL            HasSelection() const { return (!((m_nSelViewBlockEnd < 0)||(m_nSelViewBlockStart < 0)||(m_nSelViewBlockStart > m_nSelViewBlockEnd))); }
     BOOL            HasTextSelection() const { return ((m_ptSelectionStartPos.x != m_ptSelectionEndPos.x)||(m_ptSelectionStartPos.y != m_ptSelectionEndPos.y)); }
-    void            SetupAllViewSelection(int start, int end);
-    void            SetupAllSelection(int start, int end);
+    static void     SetupAllViewSelection(int start, int end);
+    static void     SetupAllSelection(int start, int end);
     void            SetupSelection(int start, int end);
-    void            SetupViewSelection(CBaseView* view, int start, int end);
+    static void     SetupViewSelection(CBaseView* view, int start, int end);
     void            SetupViewSelection(int start, int end);
 
     // state classifying methods; note: state may belong to more classes

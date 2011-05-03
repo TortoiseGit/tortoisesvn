@@ -1976,22 +1976,14 @@ void CMainFrame::OnViewSwitchleft()
 
 void CMainFrame::OnUpdateViewSwitchleft(CCmdUI *pCmdUI)
 {
-    BOOL bEnable = TRUE;
-    if (IsViewGood(m_pwndBottomView))
-    {
-        bEnable = FALSE;
-    }
+    BOOL bEnable = !IsViewGood(m_pwndBottomView);
     pCmdUI->Enable(bEnable);
 }
 
 void CMainFrame::OnUpdateViewShowfilelist(CCmdUI *pCmdUI)
 {
-    if (m_dlgFilePatches.HasFiles())
-    {
-        pCmdUI->Enable(true);
-    }
-    else
-        pCmdUI->Enable(false);
+    BOOL bEnable = m_dlgFilePatches.HasFiles();
+    pCmdUI->Enable(bEnable);
     pCmdUI->SetCheck(m_dlgFilePatches.IsWindowVisible());
 }
 
