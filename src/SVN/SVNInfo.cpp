@@ -204,7 +204,7 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
         data.copyfromrev = SVNRev(info->wc_info->copyfrom_rev);
         data.texttime = info->wc_info->text_time/1000000L;
         if (info->wc_info->checksum)
-            data.checksum = CUnicodeUtils::GetUnicode(info->wc_info->checksum);
+            data.checksum = CUnicodeUtils::GetUnicode((const char*)info->wc_info->checksum->digest);
         if (info->wc_info->changelist)
             data.changelist = CUnicodeUtils::GetUnicode(info->wc_info->changelist);
         data.working_size64 = info->wc_info->working_size;
