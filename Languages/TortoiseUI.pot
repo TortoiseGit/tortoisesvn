@@ -296,6 +296,11 @@ msgstr ""
 msgid "%s\nDo you want to remove the file '%s' anyway?"
 msgstr ""
 
+#. Resource IDs: (147)
+#, c-format
+msgid "%s\nThe folder %s\ncontains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
+
 #. Resource IDs: (616)
 #, c-format
 msgid "%s\n\nShall I update the working copy now\nand reopen the commit dialog?"
@@ -1598,6 +1603,14 @@ msgstr ""
 msgid "Accept permanently"
 msgstr ""
 
+#. Resource IDs: (148)
+msgid "Accept the certificate permanently\nYou won't get asked about this certificate again."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid "Accept the certificate\nThe certificate is accepted only this one time."
+msgstr ""
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Access to %1 was denied."
@@ -2226,8 +2239,16 @@ msgstr ""
 msgid "Cancel\nDo not update the working copy."
 msgstr ""
 
+#. Resource IDs: (315)
+msgid "Cancel\nDon't quit TortoiseMerge"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid "Cancel\nDon't resolve the item."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid "Cancel\nDon't switch the views"
 msgstr ""
 
 #. Resource IDs: (173)
@@ -2242,12 +2263,32 @@ msgstr ""
 msgid "Cancel\nI will enter a different path/URL."
 msgstr ""
 
+#. Resource IDs: (315)
+msgid "Cancel\nIgnore the outside changes."
+msgstr ""
+
 #. Resource IDs: (89)
 msgid "Cancel\nKeep the current URL."
 msgstr ""
 
+#. Resource IDs: (314)
+msgid "Cancel\nKeep the empty file."
+msgstr ""
+
 #. Resource IDs: (148)
 msgid "Cancel\nLeave all changes."
+msgstr ""
+
+#. Resource IDs: (199)
+msgid "Cancel\nLeave the cache on disk."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid "Cancel\nResolve the conflicts first."
+msgstr ""
+
+#. Resource IDs: (226)
+msgid "Cancel\nThe conflict is not resolved."
 msgstr ""
 
 #. Resource IDs: (90)
@@ -2268,6 +2309,10 @@ msgstr ""
 
 #. Resource IDs: (107)
 msgid "Cancel\nThe items are not moved."
+msgstr ""
+
+#. Resource IDs: (589)
+msgid "Cancel\nThe property is not removed."
 msgstr ""
 
 #. Resource IDs: (147)
@@ -2322,6 +2367,10 @@ msgstr ""
 #. Resource IDs: (82)
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
+msgstr ""
+
+#. Resource IDs: (148)
+msgid "Certificate validation failed"
 msgstr ""
 
 #. Resource IDs: (157)
@@ -3275,6 +3324,10 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+#. Resource IDs: (199)
+msgid "Delete Repository cache"
+msgstr ""
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr ""
@@ -3295,6 +3348,14 @@ msgstr ""
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
+msgstr ""
+
+#. Resource IDs: (199)
+msgid "Delete\nRemove the cache files."
+msgstr ""
+
+#. Resource IDs: (314)
+msgid "Delete\nThe file is removed."
 msgstr ""
 
 #. Resource IDs: (73, 264)
@@ -3467,8 +3528,16 @@ msgstr ""
 msgid "Do this for all existing items"
 msgstr ""
 
+#. Resource IDs: (589)
+msgid "Do this for all selected items"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
+msgstr ""
+
+#. Resource IDs: (148)
+msgid "Do this for all unversioned/modified items"
 msgstr ""
 
 #. Resource IDs: (1007)
@@ -3554,6 +3623,10 @@ msgstr ""
 
 #. Resource IDs: (3887)
 msgid "Don't recover the auto-saved documents\nUse the last explicitly saved versions of the documents"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid "Don't save\nReload the views without saving the modifications"
 msgstr ""
 
 #. Resource IDs: (73, 80)
@@ -4098,8 +4171,16 @@ msgstr ""
 msgid "File changes each week:"
 msgstr ""
 
+#. Resource IDs: (226)
+msgid "File contains conflict markers"
+msgstr ""
+
 #. Resource IDs: (376)
 msgid "File diffs"
+msgstr ""
+
+#. Resource IDs: (314)
+msgid "File is empty."
 msgstr ""
 
 #. Resource IDs: (213)
@@ -5221,6 +5302,10 @@ msgstr ""
 msgid "Locked by %s"
 msgstr ""
 
+#. Resource IDs: (93)
+msgid "Locking failed"
+msgstr ""
+
 #. Resource IDs: (89)
 msgid "Locking failed because a newer version exists!\nDo you want to update and try again?"
 msgstr ""
@@ -5301,6 +5386,10 @@ msgstr ""
 
 #. Resource IDs: (282)
 msgid "Mark as resolved"
+msgstr ""
+
+#. Resource IDs: (226)
+msgid "Mark as resolved\nThe conflict is resolved."
 msgstr ""
 
 #. Resource IDs: (2052)
@@ -5540,6 +5629,10 @@ msgstr ""
 
 #. Resource IDs: (208)
 msgid "Modification date"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid "Modifications detected"
 msgstr ""
 
 #. Resource IDs: (74, 264, 65535)
@@ -6048,7 +6141,7 @@ msgid "Open client certificate file"
 msgstr ""
 
 #. Resource IDs: (3601)
-msgid "Open file"
+msgid "Open files\nOpen files for diff"
 msgstr ""
 
 #. Resource IDs: (1132)
@@ -6547,6 +6640,10 @@ msgstr ""
 msgid "Quit the application; prompts to save documents\nExit"
 msgstr ""
 
+#. Resource IDs: (315)
+msgid "Quit\nExit TortoiseMerge without saving the modifications"
+msgstr ""
+
 #. Resource IDs: (1073)
 msgid "R&AM drives"
 msgstr ""
@@ -6663,6 +6760,14 @@ msgstr ""
 msgid "Recursive"
 msgstr ""
 
+#. Resource IDs: (589)
+msgid "Recursive operation"
+msgstr ""
+
+#. Resource IDs: (589)
+msgid "Recursive\nRemove the property also from items in Subfolders."
+msgstr ""
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr ""
@@ -6704,6 +6809,10 @@ msgstr ""
 msgid "Reject"
 msgstr ""
 
+#. Resource IDs: (148)
+msgid "Reject the certificate\nCancel the connection."
+msgstr ""
+
 #. Resource IDs: (7)
 #, c-format
 msgid "Rejected patch hunks for '%s'"
@@ -6727,6 +6836,14 @@ msgstr ""
 
 #. Resource IDs: (32794)
 msgid "Reload"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid "Reload\nLocal modifications are lost."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid "Reload\nThe outside changes are loaded."
 msgstr ""
 
 #. Resource IDs: (2050)
@@ -6822,6 +6939,10 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "Remove\nForce the removal"
+msgstr ""
+
+#. Resource IDs: (589)
+msgid "Remove\nRemove the property only from this item."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -7291,6 +7412,10 @@ msgstr ""
 msgid "Save as..."
 msgstr ""
 
+#. Resource IDs: (315)
+msgid "Save as\nYou're asked where to save the file"
+msgstr ""
+
 #. Resource IDs: (3857)
 #, c-format
 msgid "Save changes to %1?"
@@ -7304,6 +7429,10 @@ msgstr ""
 msgid "Save in Git format"
 msgstr ""
 
+#. Resource IDs: (314)
+msgid "Save modifications."
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Save revision &to..."
 msgstr ""
@@ -7314,6 +7443,15 @@ msgstr ""
 
 #. Resource IDs: (1132)
 msgid "Save to clipboard"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid "Save\nSave the file with the conflict markers."
+msgstr ""
+
+#. Resource IDs: (314)
+#, c-format
+msgid "Save\nThe modifications are saved to\n%s"
 msgstr ""
 
 #. Resource IDs: (108)
@@ -8978,6 +9116,10 @@ msgstr ""
 msgid "Unrecognized or invalid property file format!"
 msgstr ""
 
+#. Resource IDs: (315)
+msgid "Unresolved conflicts!"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "Untitled"
 msgstr ""
@@ -9025,6 +9167,10 @@ msgstr ""
 
 #. Resource IDs: (275)
 msgid "Update WC to revision"
+msgstr ""
+
+#. Resource IDs: (93)
+msgid "Update\nUpdate the file and try locking again."
 msgstr ""
 
 #. Resource IDs: (90)
@@ -9391,7 +9537,7 @@ msgid "Working copy: %s\n"
 msgstr ""
 
 #. Resource IDs: (2056)
-msgid "Wrap long lines"
+msgid "Wrap long lines\nWrap long lines"
 msgstr ""
 
 #. Resource IDs: (73)
