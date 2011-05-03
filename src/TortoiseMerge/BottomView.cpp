@@ -136,7 +136,7 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
 
     // use (insert) last block
     int nViewIndex = nNextViewLine;
-    for (int viewLine = m_nSelBlockStart; viewLine <= m_nSelBlockEnd; viewLine++, nViewIndex++)
+    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++, nViewIndex++)
     {
         viewdata lineData = pwndLast->GetViewData(viewLine);
         lineData.state = ResolveState(lineData.state);

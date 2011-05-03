@@ -105,8 +105,8 @@ CBaseView::CBaseView()
     m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
     m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();:.,{}!@#$%^&*-+=|/\\<>'`~\""));;
     m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
-    m_nSelBlockStart = -1;
-    m_nSelBlockEnd = -1;
+    m_nSelViewBlockStart = -1;
+    m_nSelViewBlockEnd = -1;
     m_bModified = FALSE;
     m_bOtherDiffChecked = false;
     m_bInlineWordDiff = true;
@@ -216,8 +216,6 @@ void CBaseView::DocumentUpdated()
     m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
     m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
     DeleteFonts();
-    m_nSelBlockStart = -1;
-    m_nSelBlockEnd = -1;
     ClearCurrentSelection();
     UpdateStatusBar();
     Invalidate();
@@ -1471,25 +1469,27 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
 
 void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
 {
-    if (!HasSelection())
+    if (!m_bShowSelection)
         return;
-    if ((m_nSelBlockStart >= (int)m_Screen2View.size()) || (m_nSelBlockEnd >= (int)m_Screen2View.size()))
+
+    int nSelBlockStart;
+    int nSelBlockEnd;
+    if (!GetViewSelection(nSelBlockStart, nSelBlockEnd))
         return;
 
     const int THICKNESS = 2;
     COLORREF rectcol = GetSysColor(m_bFocused ? COLOR_WINDOWTEXT : COLOR_GRAYTEXT);
-    int selStart = m_nSelBlockStart;
-    while ((selStart-1 > 0)&&(GetViewLineForScreen(selStart) == GetViewLineForScreen(selStart-1)))
-        selStart--;
-    int selEnd = m_nSelBlockEnd;
-    while ((selEnd+1 < (int)m_Screen2View.size())&&(GetViewLineForScreen(selEnd) == GetViewLineForScreen(selEnd+1)))
-        selEnd++;
 
-    if ((nLineIndex == selStart) && m_bShowSelection)
+    int nViewLineIndex = GetViewLineForScreen(nLineIndex);
+    int nSubLine = GetSubLineOffset(nLineIndex);
+    bool bFirstLineOfViewLine = (nSubLine==0 || nSubLine==-1);
+    if ((nViewLineIndex == nSelBlockStart) && bFirstLineOfViewLine)
     {
         pDC->FillSolidRect(rc.left, rc.top, rc.Width(), THICKNESS, rectcol);
     }
-    if ((nLineIndex == selEnd) && m_bShowSelection)
+
+    bool bLastLineOfViewLine = (nLineIndex+1 == m_Screen2View.size()) || (GetViewLineForScreen(nLineIndex) != GetViewLineForScreen(nLineIndex+1));
+    if ((nViewLineIndex == nSelBlockEnd) && bLastLineOfViewLine)
     {
         pDC->FillSolidRect(rc.left, rc.bottom - THICKNESS, rc.Width(), THICKNESS, rectcol);
     }
@@ -1935,10 +1935,6 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
     m_nScreenChars = -1;
     if (m_nLastScreenChars != GetScreenChars())
     {
-        // Since the line indexes change now, the
-        // selection points are no longer valid:
-        // clear the selection
-        ClearCurrentSelection();
         BuildAllScreen2ViewVector();
         m_nLastScreenChars = m_nScreenChars;
     }
@@ -2134,71 +2130,68 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
     if (!m_pViewData)
         return;
-    int nLine = -1;
-    if ((point.x < 0)||(point.y < 0))
-        nLine = m_nSelBlockStart+1;
-    else
-        nLine = GetLineFromPoint(point);
-    if ((nLine < 1) || (nLine > (int)m_Screen2View.size()))
-        return;
 
-    int viewLine = GetViewLineForScreen(nLine-1);
-    if (m_nSelBlockEnd >= GetLineCount())
-        m_nSelBlockEnd = GetLineCount()-1;
-    if ((viewLine <= m_pViewData->GetCount())&&(nLine > m_nTopLine))
+    int nViewBlockStart = -1;
+    int nViewBlockEnd = -1;
+    GetViewSelection(nViewBlockStart, nViewBlockEnd);
+    if ((point.x < 0)||(point.y < 0))
     {
-        int nIndex = viewLine;
-        int nLineIndex = nLine - 1;
-        DiffStates state = m_pViewData->GetState(nIndex);
-        // If cursor is not over selection, select the diff block under the cursor.
-        if ((m_nSelBlockEnd < nLineIndex)||(m_nSelBlockStart > nLineIndex))
+        // is unreal point - keyboard call
+    }
+    else
+    {
+        int nViewLine = -1;
+        int nLine = GetLineFromPoint(point);
+        if (true) //TODO: test conditions for next line
+        {
+            nViewLine = GetViewLineForScreen(nLine-1) ;
+        }
+
+        if ((nViewLine < nViewBlockStart) || (nViewBlockEnd < nViewLine))
         {
             ClearSelection(); // Clear text-copy selection 
-            while (nIndex >= 0)
+            
+            nViewBlockStart = nViewLine;
+            nViewBlockEnd = nViewLine;
+            DiffStates state = m_pViewData->GetState(nViewLine);
+            while (nViewBlockStart > 0)
             {
-                if (nIndex == 0)
-                {
-                    nIndex--;
-                    nLineIndex--;
-                    break;
-                }
-                const DiffStates lineState = m_pViewData->GetState(GetViewLineForScreen(--nLineIndex));
-                nIndex--;
+                const DiffStates lineState = m_pViewData->GetState(nViewBlockStart-1);
                 if (!LinesInOneChange(-1, state, lineState))
                     break;
+                nViewBlockStart--;
             }
-            m_nSelBlockStart = nLineIndex + 1;
-            if (0 <= m_nSelBlockStart && m_nSelBlockStart < (int)m_Screen2View.size()-1)
-                state = m_pViewData->GetState (GetViewLineForScreen(m_nSelBlockStart));
-            while (nIndex < (m_pViewData->GetCount()-1))
+
+            while (nViewBlockEnd < (m_pViewData->GetCount()-1))
             {
-                const DiffStates lineState = m_pViewData->GetState(GetViewLineForScreen(++nLineIndex));
-                nIndex++;
+                const DiffStates lineState = m_pViewData->GetState(nViewBlockEnd+1);
                 if (!LinesInOneChange(1, state, lineState))
                     break;
+                nViewBlockEnd++;
             }
-            if ((nIndex == (m_pViewData->GetCount()-1)) && LinesInOneChange(1, state, m_pViewData->GetState(nIndex)))
-                m_nSelBlockEnd = nLineIndex;
-            else
-                m_nSelBlockEnd = nLineIndex-1;
-            SetupSelection(m_nSelBlockStart, m_nSelBlockEnd);
-            m_ptCaretPos.x = 0;
-            m_ptCaretPos.y = nLine - 1;
+
+            SetupAllViewSelection(nViewBlockStart, nViewBlockEnd);
+            m_ptCaretPos = point;
             UpdateCaret();
         }
-        if (((state == DIFFSTATE_NORMAL)||(state == DIFFSTATE_UNKNOWN)) &&
-            HasSelection())
-        {
-            // find a more 'relevant' state in the selection
-            for (int i=m_nSelBlockStart; i<=m_nSelBlockEnd; ++i)
-            {
-                state = m_pViewData->GetState(GetViewLineForScreen(i));
-                if ((state != DIFFSTATE_NORMAL) && (state != DIFFSTATE_UNKNOWN))
-                    break;
-            }
-        }
-        OnContextMenu(point, state);
     }
+
+    // FixSelection(); fix selection range
+    /*if (m_nSelBlockEnd >= m_pViewData->GetCount())
+        m_nSelBlockEnd = m_pViewData->GetCount()-1;//*/
+
+    DiffStates state = DIFFSTATE_UNKNOWN;
+    if (GetViewSelection(nViewBlockStart, nViewBlockEnd))
+    {
+        // find a more 'relevant' state in the selection
+        for (int i=nViewBlockStart; i<=nViewBlockEnd; ++i)
+        {
+            state = m_pViewData->GetState(i);
+            if ((state != DIFFSTATE_NORMAL) && (state != DIFFSTATE_UNKNOWN))
+                break;
+        }
+    }
+    OnContextMenu(point, state);
 }
 
 void CBaseView::RefreshViews()
@@ -2234,35 +2227,50 @@ void CBaseView::GoToFirstConflict()
     SelectNextBlock(1, true, false);
 }
 
-void CBaseView::HiglightLines(int start, int end /* = -1 */)
+void CBaseView::HighlightLines(int nStart, int nEnd /* = -1 */)
 {
     ClearSelection();
-    m_nSelBlockStart = start;
-    if (end < 0)
-        end = start;
-    m_nSelBlockEnd = end;
+    SetupAllSelection(nStart, max(nStart, nEnd));
+
     m_ptCaretPos.x = 0;
-    m_ptCaretPos.y = start;
+    m_ptCaretPos.y = nStart;
     UpdateCaret();
     Invalidate();
 }
 
-void CBaseView::SetupSelection(int start, int end)
+void CBaseView::SetupAllViewSelection(int start, int end) 
 {
-    SetupSelection(m_pwndBottom, start, end);
-    SetupSelection(m_pwndLeft, start, end);
-    SetupSelection(m_pwndRight, start, end);
+    SetupViewSelection(m_pwndBottom, start, end);
+    SetupViewSelection(m_pwndLeft, start, end);
+    SetupViewSelection(m_pwndRight, start, end);
 }
 
-void CBaseView::SetupSelection(CBaseView* view, int start, int end)
+void CBaseView::SetupAllSelection(int start, int end)
+{
+    SetupAllViewSelection(GetViewLineForScreen(start), GetViewLineForScreen(end));
+}
+
+//void CBaseView::SetupSelection(CBaseView* view, int start, int end) { }
+
+void CBaseView::SetupSelection(int start, int end)
+{
+    SetupViewSelection(GetViewLineForScreen(start), GetViewLineForScreen(end));
+}
+
+void CBaseView::SetupViewSelection(CBaseView* view, int start, int end)
 {
     if (!IsViewGood(view))
         return;
-
-    view->m_nSelBlockStart = start;
-    view->m_nSelBlockEnd = end;
-    view->Invalidate();
+    view->SetupViewSelection(start, end);
 }
+
+void CBaseView::SetupViewSelection(int start, int end)
+{
+    m_nSelViewBlockStart = start;
+    m_nSelViewBlockEnd = end;
+    Invalidate();
+}
+
 
 void CBaseView::OnMergePreviousconflict()
 {
@@ -2431,7 +2439,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
     m_ptCaretPos.y = nCenterPos;
     ClearSelection();
     if (nDirection > 0)
-        SetupSelection(nCenterPos, nBlockEnd);
+        SetupAllSelection(nCenterPos, nBlockEnd);
     else
         SetupSelection(nBlockEnd, nCenterPos);
 
@@ -2756,7 +2764,7 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
             m_pwndBottom->SetMarkedWord(m_sMarkedWord);
 
 
-        SetupSelection(m_ptCaretPos.y, m_ptCaretPos.y);
+        SetupAllSelection(m_ptCaretPos.y, m_ptCaretPos.y);
 
         UpdateViewsCaretPosition();
         Invalidate();
@@ -2799,8 +2807,8 @@ void CBaseView::OnEditCopy()
     {
         if (!HasSelection())
             return;
-        start.y = m_nSelBlockStart; start.x = 0;
-        end.y = m_nSelBlockEnd; end.x = GetLineLength(m_nSelBlockEnd);
+        start.y = m_nSelViewBlockStart; start.x = 0;
+        end.y = m_nSelViewBlockEnd; end.x = GetLineLength(m_nSelViewBlockEnd);
     }
     // first store the selected lines in one CString
     CString sCopyData;
@@ -3551,8 +3559,8 @@ void CBaseView::ClearCurrentSelection()
     m_ptSelectionStartPos = m_ptCaretPos;
     m_ptSelectionEndPos = m_ptCaretPos;
     m_ptSelectionOrigin = m_ptCaretPos;
-    m_nSelBlockStart = -1;
-    m_nSelBlockEnd = -1;
+    m_nSelViewBlockStart = -1;
+    m_nSelViewBlockEnd = -1;
     Invalidate(FALSE);
 }
 
@@ -3582,7 +3590,7 @@ void CBaseView::AdjustSelection()
         m_ptSelectionEndPos = m_ptCaretPos;
     }
 
-    SetupSelection(min(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y), max(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y));
+    SetupAllSelection(min(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y), max(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y));
 
     Invalidate(FALSE);
 }
@@ -3970,12 +3978,13 @@ int CBaseView::CountMultiLines( int nLine )
 
 void CBaseView::OnEditSelectall()
 {
-    int nCount = GetLineCount();
-    int nLastLine = nCount-1;
-    SetupSelection(0, nLastLine);
+    int nLastViewLine = m_pViewData->GetCount()-1;
+    SetupAllViewSelection(0, nLastViewLine);
     m_ptSelectionStartPos.x = 0;
     m_ptSelectionStartPos.y = 0;
 
+    int nCount = GetLineCount();
+    int nLastLine = nCount-1;
     m_ptSelectionEndPos.y = nLastLine;
     CString sLine = GetLineChars(nLastLine);
     m_ptSelectionEndPos.x = sLine.GetLength();
@@ -4079,19 +4088,13 @@ void CBaseView::SetViewLineEnding( int index, EOL ending )
     m_pViewData->SetLineEnding(index, ending);
 }
 
-BOOL CBaseView::GetSelection( int& start, int& end ) const
-{
-    start=m_nSelBlockStart;
-    end=m_nSelBlockEnd;
-    return HasSelection();
-}
 
 BOOL CBaseView::GetViewSelection( int& start, int& end ) const
 {
     if (HasSelection())
     {
-        start=GetViewLineForScreen(m_nSelBlockStart); 
-        end=GetViewLineForScreen(m_nSelBlockEnd); 
+        start = m_nSelViewBlockStart;
+        end = m_nSelViewBlockEnd;
         return true;
     }
     return false;

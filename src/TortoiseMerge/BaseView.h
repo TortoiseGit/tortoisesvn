@@ -93,7 +93,7 @@ public: // methods
     int             GetSubLineOffset(int index);
     static void     UpdateLocator() { if (m_pwndLocator) m_pwndLocator->DocumentUpdated(); }
 
-    void            HiglightLines(int start, int end = -1);
+    void            HighlightLines(int start, int end = -1);
     inline BOOL     IsHidden() const  {return m_bIsHidden;}
     inline void     SetHidden(BOOL bHidden) {m_bIsHidden = bHidden;}
     inline bool     IsModified() const  {return m_bModified;}
@@ -103,11 +103,15 @@ public: // methods
     LPCTSTR         GetMarkedWord() {return (LPCTSTR)m_sMarkedWord;}
 
     // Selection methods; all public methods dealing with selection go here
-    BOOL            GetSelection(int& start, int& end) const;
-    BOOL            GetViewSelection(int& start, int& end) const;
     void            ClearSelection();
-    BOOL            HasSelection() const {return (!((m_nSelBlockEnd < 0)||(m_nSelBlockStart < 0)||(m_nSelBlockStart > m_nSelBlockEnd)));}
-    BOOL            HasTextSelection() const {return ((m_ptSelectionStartPos.x != m_ptSelectionEndPos.x)||(m_ptSelectionStartPos.y != m_ptSelectionEndPos.y));}
+    BOOL            GetViewSelection(int& start, int& end) const;
+    BOOL            HasSelection() const { return (!((m_nSelViewBlockEnd < 0)||(m_nSelViewBlockStart < 0)||(m_nSelViewBlockStart > m_nSelViewBlockEnd))); }
+    BOOL            HasTextSelection() const { return ((m_ptSelectionStartPos.x != m_ptSelectionEndPos.x)||(m_ptSelectionStartPos.y != m_ptSelectionEndPos.y)); }
+    void            SetupAllViewSelection(int start, int end);
+    void            SetupAllSelection(int start, int end);
+    void            SetupSelection(int start, int end);
+    void            SetupViewSelection(CBaseView* view, int start, int end);
+    void            SetupViewSelection(int start, int end);
 
     // state classifying methods; note: state may belong to more classes
     static bool     IsStateConflicted(DiffStates state);
@@ -159,6 +163,8 @@ public: // methods
     void            SetViewLine(int index, const CString& sLine);
     void            SetViewLineNumber(int index, int linenumber);
     void            SetViewLineEnding(int index, EOL ending);
+
+    static bool     IsViewGood(const CBaseView* view ) { return (view != 0) && view->IsWindowVisible(); }
 
 public: // variables
     CViewData *     m_pViewData;
@@ -252,8 +258,6 @@ protected:  // methods
     void            OnDoHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
     void            OnDoVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar, CBaseView * master);
 
-    void            SetupSelection(int start, int end);
-    void            SetupSelection(CBaseView* view, int start, int end);
     void            ShowDiffLines(int nLine);
 
     int             GetTabSize() const {return m_nTabSize;}
@@ -287,7 +291,6 @@ protected:  // methods
      */
     void            UpdateStatusBar();
 
-    static bool     IsViewGood(const CBaseView* view ) { return (view != 0) && view->IsWindowVisible(); }
     static bool     IsLeftViewGood() {return IsViewGood(m_pwndLeft);}
     static bool     IsRightViewGood() {return IsViewGood(m_pwndRight);}
     static bool     IsBottomViewGood() {return IsViewGood(m_pwndBottom);}
@@ -364,8 +367,8 @@ protected:  // variables
     bool            m_bInlineWordDiff;
 
     // Block selection attributes
-    int             m_nSelBlockStart;
-    int             m_nSelBlockEnd;
+    int             m_nSelViewBlockStart; 
+    int             m_nSelViewBlockEnd; 
 
     int             m_nMouseLine;
     bool            m_mouseInMargin;
@@ -443,6 +446,7 @@ protected:  // variables
         }
 
         bool bSet;
+        std::vector<CString> SubLines;
         int nSubLineCount;
 
         enum EIcon
