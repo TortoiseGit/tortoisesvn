@@ -933,7 +933,6 @@ void CMainFrame::OnViewTextFoldUnfold(CBaseView* view)
 {
     if (view == 0)
         return;
-    view->ClearSelection();
     view->BuildScreen2ViewVector();
     view->UpdateCaret();
     view->Invalidate();
@@ -998,12 +997,12 @@ int CMainFrame::SaveFile(const CString& sFilePath)
 {
     CViewData * pViewData = NULL;
     CFileTextLines * pOriginFile = &m_Data.m_arBaseFile;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()))
+    if (IsViewGood(m_pwndBottomView))
     {
         pViewData = m_pwndBottomView->m_pViewData;
         Invalidate();
     }
-    else if ((m_pwndRightView)&&(m_pwndRightView->IsWindowVisible()))
+    else if (IsViewGood(m_pwndRightView))
     {
         pViewData = m_pwndRightView->m_pViewData;
         if (m_Data.IsYourFileInUse())
@@ -1213,21 +1212,11 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
     BOOL bEnable = FALSE;
     if (m_Data.m_mergedFile.InUse())
     {
-        if (m_pwndBottomView)
-        {
-            if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_pViewData))
-            {
-                bEnable = TRUE;
-            }
-        }
-        if (m_pwndRightView)
-        {
-            if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_pViewData))
-            {
-                if (m_pwndRightView->IsModified() || (m_Data.m_yourFile.GetWindowName().Right(9).Compare(_T(": patched"))==0))
-                    bEnable = TRUE;
-            }
-        }
+        if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
+            bEnable = TRUE;
+        else if ( (IsViewGood(m_pwndRightView)&&(m_pwndRightView->m_pViewData)) &&
+                  (m_pwndRightView->IsModified() || (m_Data.m_yourFile.GetWindowName().Right(9).Compare(_T(": patched"))==0)) )
+            bEnable = TRUE;
     }
     pCmdUI->Enable(bEnable);
 }
@@ -1235,20 +1224,10 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 {
     BOOL bEnable = FALSE;
-    if (m_pwndBottomView)
-    {
-        if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_pViewData))
-        {
-            bEnable = TRUE;
-        }
-    }
-    if (m_pwndRightView)
-    {
-        if ((m_pwndRightView->IsWindowVisible())&&(m_pwndRightView->m_pViewData))
-        {
-            bEnable = TRUE;
-        }
-    }
+    if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
+        bEnable = TRUE;
+    else if (IsViewGood(m_pwndRightView)&&(m_pwndRightView->m_pViewData))
+        bEnable = TRUE;
     pCmdUI->Enable(bEnable);
 }
 
@@ -1256,10 +1235,9 @@ void CMainFrame::OnUpdateViewOnewaydiff(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(!m_bOneWay);
     BOOL bEnable = TRUE;
-    if (m_pwndBottomView)
+    if (IsViewGood(m_pwndBottomView))
     {
-        if (m_pwndBottomView->IsWindowVisible())
-            bEnable = FALSE;
+        bEnable = FALSE;
     }
     pCmdUI->Enable(bEnable);
 }
@@ -1373,11 +1351,11 @@ void CMainFrame::OnEditFind()
     m_pFindDialog = new CFindDlg();
     m_pFindDialog->Create(this);
     CString markedWord;
-    if (m_pwndLeftView && m_pwndLeftView->IsWindowVisible())
+    if (IsViewGood(m_pwndLeftView))
         markedWord = m_pwndLeftView->GetMarkedWord();
-    if (markedWord.IsEmpty() && m_pwndRightView && m_pwndRightView->IsWindowVisible())
+    if (markedWord.IsEmpty() && IsViewGood(m_pwndRightView))
         markedWord = m_pwndRightView->GetMarkedWord();
-    if (markedWord.IsEmpty() && m_pwndBottomView && m_pwndBottomView->IsWindowVisible())
+    if (markedWord.IsEmpty() && IsViewGood(m_pwndBottomView))
         markedWord = m_pwndBottomView->GetMarkedWord();
 
     m_pFindDialog->SetFindString(markedWord);
@@ -1542,17 +1520,17 @@ void CMainFrame::Search(SearchDirection srchDir)
     if (StringFound(left))
     {
         m_pwndLeftView->SetFocus();
-        m_pwndLeftView->HiglightLines(m_nSearchIndex);
+        m_pwndLeftView->HighlightLines(m_nSearchIndex);
     }
     else if (StringFound(right))
     {
         m_pwndRightView->SetFocus();
-        m_pwndRightView->HiglightLines(m_nSearchIndex);
+        m_pwndRightView->HighlightLines(m_nSearchIndex);
     }
     else if (StringFound(bottom))
     {
         m_pwndBottomView->SetFocus();
-        m_pwndBottomView->HiglightLines(m_nSearchIndex);
+        m_pwndBottomView->HighlightLines(m_nSearchIndex);
     }
     m_nMoveMovesToIgnore = MOVESTOIGNORE;
 }
@@ -1635,11 +1613,7 @@ void CMainFrame::OnEditUseTheirs()
 }
 void CMainFrame::OnUpdateEditUsetheirblock(CCmdUI *pCmdUI)
 {
-    int nSelBlockStart = -1;
-    int nSelBlockEnd = -1;
-    if (m_pwndBottomView)
-        m_pwndBottomView->GetSelection(nSelBlockStart, nSelBlockEnd);
-    pCmdUI->Enable((nSelBlockStart >= 0)&&(nSelBlockEnd >= 0));
+    pCmdUI->Enable(m_pwndBottomView && m_pwndBottomView->HasSelection());
 }
 
 void CMainFrame::OnEditUseMine()
@@ -1684,7 +1658,7 @@ void CMainFrame::OnEditUseleftblock()
 
 void CMainFrame::OnUpdateEditUseleftblock(CCmdUI *pCmdUI)
 {
-    pCmdUI->Enable(m_pwndRightView && m_pwndRightView->IsWindowVisible() && m_pwndRightView->HasCaret() && m_pwndRightView->HasSelection());
+    pCmdUI->Enable(IsViewGood(m_pwndRightView) && m_pwndRightView->HasCaret() && m_pwndRightView->HasSelection());
 }
 
 void CMainFrame::OnEditUseleftfile()
@@ -1697,7 +1671,7 @@ void CMainFrame::OnEditUseleftfile()
 
 void CMainFrame::OnUpdateEditUseleftfile(CCmdUI *pCmdUI)
 {
-    pCmdUI->Enable(m_pwndRightView && m_pwndRightView->IsWindowVisible() && m_pwndRightView->HasCaret());
+    pCmdUI->Enable(IsViewGood(m_pwndRightView) && m_pwndRightView->HasCaret());
 }
 
 void CMainFrame::OnEditUseblockfromleftbeforeright()
@@ -1808,12 +1782,9 @@ void CMainFrame::OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI)
     BOOL bEnable = FALSE;
     if ((!m_bReadOnly)&&(m_Data.m_mergedFile.InUse()))
     {
-        if (m_pwndBottomView)
+        if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
         {
-            if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_pViewData))
-            {
-                bEnable = TRUE;
-            }
+            bEnable = TRUE;
         }
     }
     pCmdUI->Enable(bEnable);
@@ -1827,12 +1798,9 @@ void CMainFrame::OnMergeMarkasresolved()
     // now check if the file has already been saved and if not, save it.
     if (m_Data.m_mergedFile.InUse())
     {
-        if (m_pwndBottomView)
+        if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
         {
-            if ((m_pwndBottomView->IsWindowVisible())&&(m_pwndBottomView->m_pViewData))
-            {
-                FileSave(false);
-            }
+            FileSave(false);
         }
     }
     MarkAsResolved();
@@ -1842,7 +1810,7 @@ BOOL CMainFrame::MarkAsResolved()
 {
     if (m_bReadOnly)
         return FALSE;
-    if ((!m_pwndBottomView)||(!m_pwndBottomView->IsWindowVisible()))
+    if (!IsViewGood(m_pwndBottomView))
         return FALSE;
 
     CString cmd = _T("/command:resolve /path:\"");
@@ -2009,14 +1977,12 @@ void CMainFrame::OnViewSwitchleft()
 void CMainFrame::OnUpdateViewSwitchleft(CCmdUI *pCmdUI)
 {
     BOOL bEnable = TRUE;
-    if (m_pwndBottomView)
+    if (IsViewGood(m_pwndBottomView))
     {
-        if (m_pwndBottomView->IsWindowVisible())
-            bEnable = FALSE;
+        bEnable = FALSE;
     }
     pCmdUI->Enable(bEnable);
 }
-
 
 void CMainFrame::OnUpdateViewShowfilelist(CCmdUI *pCmdUI)
 {
@@ -2154,11 +2120,16 @@ bool CMainFrame::HasUnsavedEdits() const
     return HasUnsavedEdits(m_pwndBottomView) || HasUnsavedEdits(m_pwndRightView);
 }
 
-bool CMainFrame::HasUnsavedEdits(const CBaseView* view) const
+bool CMainFrame::HasUnsavedEdits(const CBaseView* view)
 {
     if(view == 0)
         return false;
     return view->IsModified();
+}
+
+bool CMainFrame::IsViewGood(const CBaseView* view)
+{
+    return CBaseView::IsViewGood(view);
 }
 
 void CMainFrame::OnViewInlinediffword()
@@ -2184,8 +2155,7 @@ void CMainFrame::OnViewInlinediffword()
 
 void CMainFrame::OnUpdateViewInlinediffword(CCmdUI *pCmdUI)
 {
-    pCmdUI->Enable(m_pwndLeftView && m_pwndLeftView->IsWindowVisible() &&
-        m_pwndRightView && m_pwndRightView->IsWindowVisible());
+    pCmdUI->Enable(IsViewGood(m_pwndLeftView) && IsViewGood(m_pwndRightView));
     pCmdUI->SetCheck(m_bInlineWordDiff);
 }
 
@@ -2194,11 +2164,11 @@ void CMainFrame::OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI)
     // "create unified diff file" is only available if two files
     // are diffed, not three.
     bool bEnabled = true;
-    if ((m_pwndLeftView == NULL)||(!m_pwndLeftView->IsWindowVisible()))
+    if (!IsViewGood(m_pwndLeftView))
         bEnabled = false;
-    if ((m_pwndRightView == NULL)||(!m_pwndRightView->IsWindowVisible()))
+    else if (!IsViewGood(m_pwndRightView))
         bEnabled = false;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->IsWindowVisible()))
+    else if (IsViewGood(m_pwndBottomView)) //no negation here
         bEnabled = false;
     pCmdUI->Enable(bEnabled);
 }
@@ -2311,10 +2281,9 @@ void CMainFrame::OnUpdateViewMovedBlocks(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(m_bViewMovedBlocks);
     BOOL bEnable = TRUE;
-    if (m_pwndBottomView)
+    if (IsViewGood(m_pwndBottomView))
     {
-        if (m_pwndBottomView->IsWindowVisible())
-            bEnable = FALSE;
+        bEnable = FALSE;
     }
     pCmdUI->Enable(bEnable);
 }
