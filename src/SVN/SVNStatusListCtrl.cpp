@@ -2460,9 +2460,9 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
         {
             CString sInfo;
             if (targetList.GetCount() == 1)
-                sInfo.FormatMessage(IDS_PROC_WARNREVERT_TASK1, (LPCTSTR)targetList[0].GetFileOrDirectoryName());
+                sInfo.Format(IDS_PROC_WARNREVERT_TASK1, (LPCTSTR)targetList[0].GetFileOrDirectoryName());
             else
-                sInfo.FormatMessage(IDS_PROC_WARNREVERT, targetList.GetCount());
+                sInfo.Format(IDS_PROC_WARNREVERT, targetList.GetCount());
             CTaskDialog taskdlg(sInfo, 
                                 CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK2)), 
                                 L"TortoiseSVN",
@@ -3538,7 +3538,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 
                         CString sInfo;
                         if (selectedList.GetCount() == 1)
-                            sInfo.FormatMessage(IDS_PROC_RESOLVE_TASK1, (LPCTSTR)selectedList[0].GetFileOrDirectoryName());
+                            sInfo.Format(IDS_PROC_RESOLVE_TASK1, (LPCTSTR)selectedList[0].GetFileOrDirectoryName());
                         else
                             sInfo.LoadString(IDS_PROC_RESOLVE);
                         CTaskDialog taskdlg(sInfo, 
