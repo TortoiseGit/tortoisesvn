@@ -2273,7 +2273,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
                                     CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)), 
                                     L"TortoiseSVN",
                                     0,
-                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
                 taskdlg.SetDefaultCommandControl(2);
@@ -2467,7 +2467,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
                                 CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK2)), 
                                 L"TortoiseSVN",
                                 0,
-                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK4)));
             taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK5)));
@@ -3545,7 +3545,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                             CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK2)), 
                                             L"TortoiseSVN",
                                             0,
-                                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK3)));
                         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK4)));
                         taskdlg.SetDefaultCommandControl(2);

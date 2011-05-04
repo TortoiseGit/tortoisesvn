@@ -211,7 +211,7 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
             TASKDIALOGCONFIG tconfig = {0};
             tconfig.cbSize = sizeof(TASKDIALOGCONFIG);
             tconfig.hwndParent = hParent;
-            tconfig.dwFlags = TDF_ENABLE_HYPERLINKS | TDF_ALLOW_DIALOG_CANCELLATION;
+            tconfig.dwFlags = TDF_ENABLE_HYPERLINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW;
             tconfig.dwCommonButtons = TDCBF_CLOSE_BUTTON;
             tconfig.pszWindowTitle = L"TortoiseSVN";
             tconfig.pszMainIcon = TD_ERROR_ICON;

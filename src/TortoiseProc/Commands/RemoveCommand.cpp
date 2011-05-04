@@ -102,7 +102,7 @@ bool RemoveCommand::Execute()
                                             CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)), 
                                             L"TortoiseSVN",
                                             0,
-                                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                         taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
                         taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
                         taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK5)));

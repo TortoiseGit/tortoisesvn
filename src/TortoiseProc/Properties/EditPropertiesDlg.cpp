@@ -664,7 +664,7 @@ void CEditPropertiesDlg::RemoveProps()
                                     CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK2)), 
                                     L"TortoiseSVN",
                                     0,
-                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)));
                 taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)));
                 taskdlg.AddCommandControl(IDCUSTOM3, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK5)));

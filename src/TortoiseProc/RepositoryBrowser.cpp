@@ -2557,7 +2557,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                                         CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK2)), 
                                         L"TortoiseSVN",
                                         0,
-                                        TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                        TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK3)));
                     taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK4)));
                     taskdlg.SetDefaultCommandControl(2);
@@ -2690,7 +2690,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                                     CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK2)), 
                                     L"TortoiseSVN",
                                     0,
-                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK3)));
                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK4)));
                 taskdlg.SetDefaultCommandControl(2);
@@ -4135,7 +4135,7 @@ bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl)
                             CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK2)), 
                             L"TortoiseSVN",
                             0,
-                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK4)));
         taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK5)));

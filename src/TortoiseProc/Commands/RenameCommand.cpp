@@ -224,7 +224,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
                                 CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK2)), 
                                 L"TortoiseSVN",
                                 0,
-                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
             taskdlg.SetDefaultCommandControl(2);

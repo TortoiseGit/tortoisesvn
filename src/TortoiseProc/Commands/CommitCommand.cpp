@@ -83,7 +83,7 @@ bool CommitCommand::AskToUpdate(CSVNProgressDlg& progDlg) const
                             CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)), 
                             L"TortoiseSVN",
                             0,
-                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK4)));
         taskdlg.SetDefaultCommandControl(1);

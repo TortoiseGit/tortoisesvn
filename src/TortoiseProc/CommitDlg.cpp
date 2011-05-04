@@ -383,7 +383,7 @@ void CCommitDlg::OnOK()
                                 CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK2)), 
                                 L"TortoiseSVN",
                                 0,
-                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK4)));
             taskdlg.SetDefaultCommandControl(2);
@@ -417,7 +417,7 @@ void CCommitDlg::OnOK()
                                                 CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)), 
                                                 L"TortoiseSVN",
                                                 0,
-                                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                     taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)));
                     taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)));
                     taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK5)));

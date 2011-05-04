@@ -57,7 +57,7 @@ bool DropCopyAddCommand::Execute()
                                     CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK2)), 
                                     L"TortoiseSVN",
                                     0,
-                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK3)));
                 taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK4)));
                 taskdlg.SetDefaultCommandControl(IDCANCEL);

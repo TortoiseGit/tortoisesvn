@@ -40,7 +40,7 @@ public:
                                 CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK2)),
                                 L"TortoiseSVN",
                                 0,
-                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK4)));
             taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK5)));

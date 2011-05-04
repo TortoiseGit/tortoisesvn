@@ -2387,7 +2387,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
                                 CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK2)), 
                                 L"TortoiseSVN",
                                 0,
-                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK4)));
             taskdlg.SetDefaultCommandControl(2);
@@ -2641,7 +2641,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
                                 CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK2)), 
                                 L"TortoiseSVN",
                                 0,
-                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK4)));
             taskdlg.SetDefaultCommandControl(2);
@@ -3033,7 +3033,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
                                 CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK2)), 
                                 L"TortoiseSVN",
                                 0,
-                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK3)));
             taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK4)));
             taskdlg.SetDefaultCommandControl(IDNO);

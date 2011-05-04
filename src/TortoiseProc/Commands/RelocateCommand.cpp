@@ -131,7 +131,7 @@ bool RelocateCommand::Execute()
                                     CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK2)), 
                                     L"TortoiseSVN",
                                     0,
-                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                    TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK3)));
                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK4)));
                 taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK5)));

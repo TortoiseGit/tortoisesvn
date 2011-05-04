@@ -4579,7 +4579,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                                                     CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)), 
                                                     L"TortoiseSVN",
                                                     0,
-                                                    TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                                    TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
                                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
                                 taskdlg.SetDefaultCommandControl(2);
@@ -5887,7 +5887,7 @@ bool CLogDlg::ConfirmRevert( const CString& path, bool bToRev /*= false*/ )
                             CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK2)), 
                             L"TortoiseSVN",
                             0,
-                            TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                            TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK4)));
         taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK5)));
