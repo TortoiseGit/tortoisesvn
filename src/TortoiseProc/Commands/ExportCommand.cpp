@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,7 +102,26 @@ bool ExportCommand::Execute()
                 // remove all svn admin dirs, effectively unversion the 'exported' folder.
                 CString msg;
                 msg.Format(IDS_PROC_EXPORTUNVERSION, (LPCTSTR)saveplace);
-                if (MessageBox(GetExplorerHWND(), msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES)
+                bool bUnversion = false;
+                if (CTaskDialog::IsSupported())
+                {
+                    CTaskDialog taskdlg(msg, 
+                                        CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK2)), 
+                                        L"TortoiseSVN",
+                                        0,
+                                        TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK3)));
+                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK4)));
+                    taskdlg.SetDefaultCommandControl(1);
+                    taskdlg.SetMainIcon(TD_WARNING_ICON);
+                    bUnversion = (taskdlg.DoModal(GetExplorerHWND()) == 1);
+                }
+                else
+                {
+                    bUnversion = (MessageBox(GetExplorerHWND(), msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) == IDYES);
+                }
+
+                if (bUnversion)
                 {
                     CProgressDlg progress;
                     progress.SetTitle(IDS_PROC_UNVERSION);

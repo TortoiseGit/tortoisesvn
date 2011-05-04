@@ -38,8 +38,25 @@ bool DropExportCommand::Execute()
         // remove all svn admin dirs, effectively unversion the 'exported' folder.
         CString msg;
         msg.Format(IDS_PROC_EXPORTUNVERSION, (LPCTSTR)droppath);
-        if (MessageBox(GetExplorerHWND(), msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) != IDYES)
-            return false;
+        if (CTaskDialog::IsSupported())
+        {
+            CTaskDialog taskdlg(msg, 
+                                CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK2)), 
+                                L"TortoiseSVN",
+                                0,
+                                TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK4)));
+            taskdlg.SetDefaultCommandControl(1);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            if (taskdlg.DoModal(GetExplorerHWND()) != 1)
+                return false;
+        }
+        else
+        {
+            if (MessageBox(GetExplorerHWND(), msg, _T("TortoiseSVN"), MB_ICONQUESTION|MB_YESNO) != IDYES)
+                return false;
+        }
 
         CProgressDlg progress;
         progress.SetTitle(IDS_PROC_UNVERSION);
@@ -99,7 +116,7 @@ bool DropExportCommand::Execute()
                                             CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_TASK2)), 
                                             L"TortoiseSVN",
                                             0,
-                                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION);
+                                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                         taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_TASK3)));
                         CString task4;
                         task4.Format(IDS_PROC_OVERWRITEEXPORT_TASK4, (LPCTSTR)renameddropper);
