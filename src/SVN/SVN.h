@@ -97,7 +97,7 @@ public:
                             const CString& lockcomment, bool is_dav_comment,
                             apr_time_t lock_creationdate, apr_time_t lock_expirationdate,
                             const CString& absolutepath);
-    virtual svn_wc_conflict_choice_t ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile);
+    virtual svn_wc_conflict_choice_t ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile);
 
     struct SVNLock
     {
@@ -931,9 +931,10 @@ protected:
                     const char *abs_path,
                     apr_pool_t *pool);
     static svn_error_t* conflict_resolver(svn_wc_conflict_result_t **result,
-                    const svn_wc_conflict_description_t *description,
+                    const svn_wc_conflict_description2_t *description,
                     void *baton,
-                    apr_pool_t *pool);
+                    apr_pool_t * resultpool,
+                    apr_pool_t * scratchpool);
 
     // implement ILogReceiver
 

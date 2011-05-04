@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,7 +71,7 @@ BOOL CConflictResolveDlg::OnInitDialog()
     // without a conflict description, this dialog is useless.
     ASSERT(m_pConflictDescription);
 
-    CString filepath = CUnicodeUtils::GetUnicode(m_pConflictDescription->path);
+    CString filepath = CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath);
     CString filename = CPathUtils::GetFileNameFromPath(filepath);
 
     CString sInfoText;
@@ -199,19 +199,19 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
     }
     else
     {
-        filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->path);
+        filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath);
         filename = CPathUtils::GetFileNameFromPath(filename);
         n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)filename);
         n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)filename);
         n3.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)filename);
     }
 
-    if (m_pConflictDescription->base_file == NULL)
+    if (m_pConflictDescription->base_abspath == NULL)
     {
         CAppUtils::DiffFlags flags;
         // no base file, start TortoiseMerge in Two-way diff mode
-        CAppUtils::StartExtDiff(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
-            CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file)),
+        CAppUtils::StartExtDiff(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_abspath)),
+            CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath)),
             n3, n1, flags, 0);
     }
     else
@@ -221,14 +221,14 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
         if (m_pConflictDescription->merged_file)
             m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file);
         else
-            m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->path))).GetWinPath();
+            m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath))).GetWinPath();
         CAppUtils::MergeFlags flags;
         flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
         flags.bReadOnly = true;
         CAppUtils::StartExtMerge(flags,
-                                CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_file)),
-                                CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_file)),
-                                CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file)),
+                                CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_abspath)),
+                                CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_abspath)),
+                                CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath)),
                                 CTSVNPath(m_mergedfile),
                                 n2, n3, n1, CString());
     }
@@ -240,7 +240,7 @@ void CConflictResolveDlg::OnBnClickedResolved()
 {
     m_choice = svn_wc_conflict_choose_merged;
     if (m_mergedfile.IsEmpty())
-        m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->my_file);
+        m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath);
     EndDialog(IDOK);
 }
 

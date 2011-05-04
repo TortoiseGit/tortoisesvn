@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,7 +32,7 @@ public:
     CConflictResolveDlg(CWnd* pParent = NULL);   // standard constructor
     virtual ~CConflictResolveDlg();
 
-    void SetConflictDescription(const svn_wc_conflict_description_t * description) {m_pConflictDescription = description;}
+    void SetConflictDescription(const svn_wc_conflict_description2_t * description) {m_pConflictDescription = description;}
     svn_wc_conflict_choice_t GetResult() {return m_choice;}
     const CString& GetMergedFile() {return m_mergedfile;}
     bool IsCancelled() const {return m_bCancelled;}
@@ -53,7 +53,7 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 private:
-    const svn_wc_conflict_description_t *   m_pConflictDescription;
+    const svn_wc_conflict_description2_t *  m_pConflictDescription;
     svn_wc_conflict_choice_t                m_choice;
     CString                                 m_mergedfile;
     bool                                    m_bCancelled;

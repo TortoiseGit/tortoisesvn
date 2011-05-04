@@ -204,7 +204,7 @@ protected:
         const CString& propertyName,
         svn_merge_range_t * range,
         svn_error_t * err, apr_pool_t * pool);
-    virtual svn_wc_conflict_choice_t    ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile);
+    virtual svn_wc_conflict_choice_t    ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile);
     virtual BOOL                        OnInitDialog();
     virtual BOOL                        Cancel();
     virtual void                        OnCancel();

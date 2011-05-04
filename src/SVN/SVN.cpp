@@ -132,8 +132,10 @@ SVN::SVN(bool suppressUI)
     m_pctx->notify_baton2 = this;
     m_pctx->notify_func = NULL;
     m_pctx->notify_baton = NULL;
-    m_pctx->conflict_func = conflict_resolver;
-    m_pctx->conflict_baton = this;
+    m_pctx->conflict_func = NULL;
+    m_pctx->conflict_baton = NULL;
+    m_pctx->conflict_func2 = conflict_resolver;
+    m_pctx->conflict_baton2 = this;
     m_pctx->cancel_func = cancel;
     m_pctx->cancel_baton = this;
     m_pctx->progress_func = progress_func;
@@ -236,7 +238,7 @@ BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind,
                      const CString& lockowner, const CString& lockcomment,
                      bool is_dav_comment, apr_time_t lock_creationdate,
                      apr_time_t lock_expirationdate, const CString& absolutepath) {return TRUE;}
-svn_wc_conflict_choice_t SVN::ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile) {return svn_wc_conflict_choose_postpone;}
+svn_wc_conflict_choice_t SVN::ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile) {return svn_wc_conflict_choose_postpone;}
 
 #pragma warning(pop)
 
@@ -1735,14 +1737,15 @@ void SVN::notify( void *baton,
 }
 
 svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t **result,
-                               const svn_wc_conflict_description_t *description,
+                               const svn_wc_conflict_description2_t *description,
                                void *baton,
-                               apr_pool_t * pool)
+                               apr_pool_t * resultpool,
+                               apr_pool_t * scratchpool)
 {
     SVN * svn = (SVN *)baton;
     CString file;
     svn_wc_conflict_choice_t choice = svn->ConflictResolveCallback(description, file);
-    *result = svn_wc_create_conflict_result(choice, file.IsEmpty() ? NULL : apr_pstrdup(pool, (const char*)CUnicodeUtils::GetUTF8(file)), pool);
+    *result = svn_wc_create_conflict_result(choice, file.IsEmpty() ? NULL : apr_pstrdup(resultpool, (const char*)CUnicodeUtils::GetUTF8(file)), resultpool);
     return SVN_NO_ERROR;
 }
 

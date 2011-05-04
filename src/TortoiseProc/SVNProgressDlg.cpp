@@ -153,7 +153,7 @@ BOOL CSVNProgressDlg::Cancel()
 LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam)
 {
     CConflictResolveDlg dlg(this);
-    const svn_wc_conflict_description_t *description = (svn_wc_conflict_description_t *)lParam;
+    const svn_wc_conflict_description2_t *description = (svn_wc_conflict_description2_t *)lParam;
     if (description)
     {
         dlg.SetConflictDescription(description);
@@ -180,7 +180,7 @@ LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam
     return svn_wc_conflict_choose_postpone;
 }
 
-svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description_t *description, CString& mergedfile)
+svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile)
 {
     // we only bother the user when merging
     if (((m_Command == SVNProgress_Merge)||(m_Command == SVNProgress_MergeAll)||(m_Command == SVNProgress_MergeReintegrate))&&(!m_AlwaysConflicted)&&(description))
