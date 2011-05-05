@@ -2792,7 +2792,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
                             PLOGENTRYDATA pLogItem = logUtil.GetRevisionData(rev);
                             if (pLogItem)
                             {
-                                sLogMessages += pLogItem->GetMessageW().c_str();
+                                sLogMessages += CUnicodeUtils::StdGetUnicode(pLogItem->GetMessage()).c_str();
                                 sLogMessages += L"\n";
                                 sLogMessages += sSeparator;
                                 sLogMessages += L"\n";
