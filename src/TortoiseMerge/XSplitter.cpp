@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@ CXSplitter::~CXSplitter()
 
 
 BEGIN_MESSAGE_MAP(CXSplitter, CSplitterWnd)
+    ON_WM_LBUTTONDBLCLK()
     ON_WM_LBUTTONDOWN()
     ON_WM_MOUSEMOVE()
     ON_WM_SETCURSOR()
@@ -275,6 +276,32 @@ void CXSplitter::ShowColumn()
         m_pColInfo[nCol].nIdealSize = m_pColInfo[nCol - 1].nCurSize;
 
     m_pColInfo[nShowCol].nIdealSize = cxNew;
+    RecalcLayout();
+}
+
+void CXSplitter::OnLButtonDblClk( UINT /*nFlags*/, CPoint /*point*/ )
+{
+    // get the size of all views
+    int width = 0;
+    int height = 0;
+    for( int nRow = 0; nRow < m_nRows; ++nRow )
+    {
+        height += m_pRowInfo[nRow].nCurSize;
+    }
+    for( int nCol = 0; nCol < m_nCols; ++nCol )
+    {
+        width += m_pColInfo[nCol].nCurSize;
+    }
+
+    // now set the sizes of the views
+    for( int nRow = 0; nRow < m_nRows; ++nRow )
+    {
+        m_pRowInfo[nRow].nIdealSize = height / m_nRows;
+    }
+    for( int nCol = 0; nCol < m_nCols; ++nCol )
+    {
+        m_pColInfo[nCol].nIdealSize = width / m_nCols;
+    }
     RecalcLayout();
 }
 
