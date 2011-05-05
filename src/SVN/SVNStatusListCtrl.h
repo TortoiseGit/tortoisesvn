@@ -810,6 +810,7 @@ public:
      */
     void CheckChildrenWithParent(bool bCheck) {m_bCheckChildrenWithParent = bCheck;}
 
+    void SetRevertMode(bool bRevert) { m_bRevertMode = bRevert; }
     /**
      * Allows checking the items if change lists are present. If set to false,
      * items are not checked if at least one changelist is available.
@@ -1058,6 +1059,7 @@ private:
     bool                        m_bUnversionedRecurse;
 
     bool                        m_bCheckChildrenWithParent;
+    bool                        m_bRevertMode;
     std::auto_ptr<CSVNStatusListCtrlDropTarget> m_pDropTarget;
 
     ColumnManager               m_ColumnManager;

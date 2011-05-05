@@ -152,6 +152,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_bShowIgnores(false)
     , m_bIgnoreRemoveOnly(false)
     , m_bCheckChildrenWithParent(false)
+    , m_bRevertMode(false)
     , m_bUnversionedLast(true)
     , m_bHasChangeLists(false)
     , m_bExternalsGroups(false)
@@ -1844,7 +1845,8 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
     // if an unversioned or added item was checked, then we need to check if
     // the parent folders are unversioned/added too. If the parent folders actually
     // are unversioned/added, then check those too.
-    if ((entry->status == svn_wc_status_unversioned)||(entry->status == svn_wc_status_added))
+    if ( (entry->status == svn_wc_status_unversioned)||
+         ((entry->status == svn_wc_status_added)&&(!m_bRevertMode)) )
     {
         // we need to check the parent folder too
         const CTSVNPath& folderpath = entry->path;

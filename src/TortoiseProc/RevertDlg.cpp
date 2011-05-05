@@ -78,6 +78,7 @@ BOOL CRevertDlg::OnInitDialog()
     m_RevertList.SetCancelBool(&m_bCancelled);
     m_RevertList.SetBackgroundImage(IDI_REVERT_BKG);
     m_RevertList.EnableFileDrop();
+    m_RevertList.SetRevertMode(true);
 
     GetWindowText(m_sWindowTitle);
 
