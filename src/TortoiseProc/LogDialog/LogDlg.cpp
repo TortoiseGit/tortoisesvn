@@ -1830,6 +1830,11 @@ void CLogDlg::NotifyTargetOnOk()
     bool bSentMessage = false;
     svn_revnum_t lowerRev = m_selectedRevsOneRange.GetHighestRevision();
     svn_revnum_t higherRev = m_selectedRevsOneRange.GetLowestRevision();
+    if (m_selectedRevsOneRange.GetCount() == 0)
+    {
+        lowerRev = m_selectedRevs.GetLowestRevision();
+        higherRev = m_selectedRevs.GetHighestRevision();
+    }
     if (m_LogList.GetSelectedCount() == 1)
     {
         // if only one revision is selected, check if the path/url with which the dialog was started
@@ -1861,6 +1866,7 @@ void CLogDlg::NotifyTargetOnOk()
                 m_pNotifyWindow->SendMessage(WM_REVSELECTED, m_wParam & (MERGE_REVSELECTEND), higherRev);
                 m_pNotifyWindow->SendMessage(WM_REVLIST, m_selectedRevs.GetCount(), (LPARAM)&m_selectedRevs);
                 bSentMessage = true;
+                break;
             }
         }
     }
