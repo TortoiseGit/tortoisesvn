@@ -514,12 +514,14 @@ void TortoiseBlame::SelectLine(int yPos, bool bAlwaysSelect)
     if (line < (LONG)app.m_revs.size())
     {
         app.SetSelectedLine(line);
-        if ((bAlwaysSelect)||(app.m_revs[line] != app.m_selectedRev))
+        bool bUseMerged = ((m_mergedRevs[line] > 0)&&(m_mergedRevs[line] < m_revs[line]));
+        bool selChange = bUseMerged ? app.m_mergedRevs[line] != app.m_selectedRev : app.m_revs[line] != app.m_selectedRev;
+        if ((bAlwaysSelect)||(selChange))
         {
-            app.m_selectedRev = app.m_revs[line];
-            app.m_selectedOrigRev = app.m_revs[line];
-            app.m_selectedAuthor = app.m_authors[line];
-            app.m_selectedDate = app.m_dates[line];
+            app.m_selectedRev = bUseMerged ? app.m_mergedRevs[line] : app.m_revs[line];
+            app.m_selectedOrigRev = bUseMerged ? app.m_mergedRevs[line] : app.m_revs[line];
+            app.m_selectedAuthor = bUseMerged ? app.m_mergedAuthors[line] : app.m_authors[line];
+            app.m_selectedDate = bUseMerged ? app.m_mergedDates[line] : app.m_dates[line];
         }
         else
         {
