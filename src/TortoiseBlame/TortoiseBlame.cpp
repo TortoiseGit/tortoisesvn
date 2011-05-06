@@ -446,11 +446,13 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
     //check which lexer to use, depending on the filetype
     SetupLexer(fileName);
     ::ShowWindow(wEditor, SW_SHOW);
-    m_blameWidth = 0;
     ::InvalidateRect(wMain, NULL, TRUE);
     RECT rc;
     GetWindowRect(wMain, &rc);
     SetWindowPos(wMain, 0, rc.left, rc.top, rc.right-rc.left-1, rc.bottom - rc.top, 0);
+
+    m_blameWidth = 0;
+    InitSize();
 
     if (m_mergedPaths.size() == 0)
     {
