@@ -189,7 +189,7 @@ public: // variables
 
     void            GoToFirstDifference();
     void            GoToFirstConflict();
-    void            AddEmptyLine(int nLineIndex);
+    void            AddEmptyViewLine(int nLineIndex);
 
 protected:  // methods
     virtual BOOL    PreCreateWindow(CREATESTRUCT& cs);
@@ -269,11 +269,13 @@ protected:  // methods
     int             GetCharWidth();
     int             GetMaxLineLength();
     int             GetLineLength(int index);
+    int             GetViewLineLength(int index);
     int             GetScreenChars();
     int             GetAllMinScreenChars() const;
     int             GetAllMaxLineLength() const;
     int             GetAllLineCount() const;
     int             GetAllMinScreenLines() const;
+    CString         GetViewLineChars(int index);
     CString         GetLineChars(int index);
     int             GetLineNumber(int index) const;
     CFont *         GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
@@ -405,6 +407,7 @@ protected:  // variables
     CString         m_sConflictedText;
     CString         m_sNoLineNr;
     CString         m_sMarkedWord;
+    CString         m_sPreviousMarkedWord;
 
     CBitmap *       m_pCacheBitmap;
     CDC *           m_pDC;

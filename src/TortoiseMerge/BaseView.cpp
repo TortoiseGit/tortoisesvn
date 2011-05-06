@@ -394,10 +394,10 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/, BOOL
         CDC * pDC = GetDC();
         if (pDC)
         {
-            m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10), GetDeviceCaps(pDC->m_hDC, LOGPIXELSY), 72);
+            m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FontSize"), 10), GetDeviceCaps(pDC->m_hDC, LOGPIXELSY), 72);
             ReleaseDC(pDC);
         }
-        _tcsncpy_s(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New")), 32);
+        _tcsncpy_s(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(_T("Software\\TortoiseMerge\\FontName"), _T("Courier New")), 32);
         if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
         {
             delete m_apFonts[nIndex];
@@ -523,6 +523,17 @@ int CBaseView::GetLineLength(int index)
     return nLineLength;
 }
 
+int CBaseView::GetViewLineLength(int nViewLine)
+{
+    if (m_pViewData == NULL)
+        return 0;
+    if (m_pViewData->GetCount() <= nViewLine)
+        return 0;
+    int nLineLength = m_pViewData->GetLine(nViewLine).GetLength();
+    ASSERT(nLineLength >= 0);
+    return nLineLength;
+}
+
 int CBaseView::GetLineCount() const
 {
     if (m_pViewData == NULL)
@@ -535,6 +546,15 @@ int CBaseView::GetLineCount() const
 int CBaseView::GetSubLineOffset(int index)
 {
     return m_Screen2View.GetSubLineOffset(index);
+}
+
+CString CBaseView::GetViewLineChars(int nViewLine)
+{
+    if (m_pViewData == NULL)
+        return 0;
+    if (m_pViewData->GetCount() <= nViewLine)
+        return 0;
+    return m_pViewData->GetLine(nViewLine);
 }
 
 CString CBaseView::GetLineChars(int index)
@@ -1533,10 +1553,14 @@ void CBaseView::DrawText(
 
     COLORREF crBkgnd, crText;
     CDiffColors::GetInstance().GetColors(diffState, crBkgnd, crText);
-    if (bModified || (diffState == DIFFSTATE_EDITED))
-        crBkgnd = m_ModifiedBk;
     if (bInlineDiff)
+    {
         crBkgnd = InlineDiffColor(nLineIndex);
+    }
+    else if (bModified || (diffState == DIFFSTATE_EDITED))
+    {
+        crBkgnd = m_ModifiedBk;
+    }
     long intenseColorScale = m_bFocused ? 70 : 30;
 
     LineColors lineCols;
@@ -1581,10 +1605,14 @@ void CBaseView::DrawText(
             pDC->SetBkColor(lastIt->second.background);
             pDC->SetTextColor(lastIt->second.text);
             LPCTSTR p_zBlockText = text + lastIt->first;
-            pDC->ExtTextOut(nLeft, coords.y, ETO_CLIPPED, &rc, p_zBlockText, nBlockLength, NULL);
             SIZE Size;
             GetTextExtentPoint32(pDC->operator HDC(), p_zBlockText, nBlockLength, &Size);
-            nLeft += Size.cx;
+            int nRight = nLeft + Size.cx;
+            if ((nRight > rc.left) && (nLeft < rc.right))
+            {
+                pDC->ExtTextOut(nLeft, coords.y, ETO_CLIPPED, &rc, p_zBlockText, nBlockLength, NULL);
+            }
+            nLeft = nRight;
         }
         lastIt = it;
     }
@@ -2637,7 +2665,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
         else
         {
             ClearSelection();
-            SetupSelection(m_ptCaretPos.y, m_ptCaretPos.y);
+            SetupAllSelection(m_ptCaretPos.y, m_ptCaretPos.y);
             if (point.x < GetMarginWidth())
             {
                 // select the whole line
@@ -2729,24 +2757,23 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
         }
         m_ptSelectionEndPos = m_ptCaretPos;
 
+        m_sPreviousMarkedWord = m_sMarkedWord; // store marked word to recall in case of tripple click
         LPCTSTR line = GetLineChars(m_ptCaretPos.y);
         if ((m_ptSelectionEndPos.x - m_ptSelectionStartPos.x) > 0)
         {
-            CString sNewMarkedWord = CString(&line[m_ptSelectionStartPos.x], m_ptSelectionEndPos.x - m_ptSelectionStartPos.x);
-            if (m_sMarkedWord.Compare(sNewMarkedWord) == 0)
+            m_sMarkedWord = CString(&line[m_ptSelectionStartPos.x], m_ptSelectionEndPos.x - m_ptSelectionStartPos.x).Trim();
+            if (m_sMarkedWord.IsEmpty())
+            {
+                ClearSelection();
+            }
+            else if (m_sMarkedWord.Compare(m_sPreviousMarkedWord) == 0)
+            {
                 m_sMarkedWord.Empty();
-            else
-                m_sMarkedWord = sNewMarkedWord;
+            }
         }
         else
         {
             m_sMarkedWord.Empty();
-            ClearSelection();
-        }
-
-        m_sMarkedWord.Trim();
-        if (m_sMarkedWord.IsEmpty())
-        {
             ClearSelection();
         }
 
@@ -2775,7 +2802,7 @@ void CBaseView::OnLButtonTrippleClick( UINT /*nFlags*/, CPoint point )
     m_ptCaretPos.y = nClickedLine;
     m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
     UpdateGoalPos();
-    m_sMarkedWord.Empty();
+    m_sMarkedWord = m_sPreviousMarkedWord;     // recall previous Marked word
     if (m_pwndLeft)
         m_pwndLeft->SetMarkedWord(m_sMarkedWord);
     if (m_pwndRight)
@@ -2787,6 +2814,7 @@ void CBaseView::OnLButtonTrippleClick( UINT /*nFlags*/, CPoint point )
     m_ptSelectionStartPos.y = nClickedLine;
     m_ptSelectionEndPos.x = GetLineLength(nClickedLine);
     m_ptSelectionEndPos.y = nClickedLine;
+    SetupSelection(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y);
     UpdateViewsCaretPosition();
     Invalidate();
     if (m_pwndLocator)
@@ -3211,19 +3239,19 @@ void CBaseView::AddUndoLine(int nLine, bool bAddEmptyLine)
 {
     ResetUndoStep();
     int viewLine = GetViewLineForScreen(nLine);
-    m_AllState.left.AddViewLineFromView(m_pwndLeft, nLine, viewLine, bAddEmptyLine);
-    m_AllState.right.AddViewLineFromView(m_pwndRight, nLine, viewLine, bAddEmptyLine);
-    m_AllState.bottom.AddViewLineFromView(m_pwndBottom, nLine, viewLine, bAddEmptyLine);
+    m_AllState.left.AddViewLineFromView(m_pwndLeft, viewLine, bAddEmptyLine);
+    m_AllState.right.AddViewLineFromView(m_pwndRight, viewLine, bAddEmptyLine);
+    m_AllState.bottom.AddViewLineFromView(m_pwndBottom, viewLine, bAddEmptyLine);
     SaveUndoStep();
     RecalcAllVertScrollBars();
     Invalidate(FALSE);
 }
 
-void CBaseView::AddEmptyLine(int nLineIndex)
+void CBaseView::AddEmptyViewLine(int nViewLineIndex)
 {
     if (m_pViewData == NULL)
         return;
-    int viewLine = GetViewLineForScreen(nLineIndex);
+    int viewLine = nViewLineIndex;
     EOL ending = m_pViewData->GetLineEnding(viewLine);
     if (ending == EOL_NOENDING)
     {
@@ -3232,13 +3260,12 @@ void CBaseView::AddEmptyLine(int nLineIndex)
     viewdata newLine(_T(""), DIFFSTATE_EDITED, -1, ending, HIDESTATE_SHOWN, -1);
     if (!m_bCaretHidden)
     {
-        CString sPartLine = GetLineChars(nLineIndex);
+        CString sPartLine = GetViewLineChars(nViewLineIndex);
         m_pViewData->SetLine(viewLine, sPartLine.Left(m_ptCaretPos.x));
         sPartLine = sPartLine.Mid(m_ptCaretPos.x);
         newLine.sLine = sPartLine;
     }
     m_pViewData->InsertData(viewLine+1, newLine);
-    //m_Screen2View.insert(m_Screen2View.begin()+nLineIndex, viewLine+1);
     BuildAllScreen2ViewVector();
 }
 
@@ -3366,6 +3393,9 @@ void CBaseView::PasteText()
     sClipboardText.Replace(_T("\r\n"), _T("\r"));
     sClipboardText.Replace('\n', '\r');
 
+    // We want to undo the insertion in a single step.
+    CUndo::GetInstance().BeginGrouping();
+
     int pasteLines = 0;
     int iStart = 0;
     while ((iStart = sClipboardText.Find('\r', iStart))>=0)
@@ -3377,30 +3407,19 @@ void CBaseView::PasteText()
     CViewData rightState;
     int selStartPos = m_ptSelectionStartPos.y;
     int viewLine = GetViewLineForScreen(selStartPos);
-    TScreenLineInfo oScreenLine = m_Screen2View.GetScreenLineInfo(selStartPos);
     for (int i = selStartPos; i < (selStartPos + pasteLines); ++i)
     {
-        if (m_pwndLeft)
+        if (IsViewGood(m_pwndLeft) && !m_pwndLeft->HasCaret())
         {
-            if (!m_pwndLeft->HasCaret())
-            {
-                leftState.AddData(m_pwndLeft->m_pViewData->GetData(GetViewLineForScreen(selStartPos)));
-                m_pwndLeft->m_Screen2View.push_back(oScreenLine);
-            }
+            leftState.AddData(m_pwndLeft->m_pViewData->GetData(GetViewLineForScreen(selStartPos)));
         }
-        else if (m_pwndRight)
+        if (IsViewGood(m_pwndRight) && !m_pwndRight->HasCaret())
         {
-            if (!m_pwndRight->HasCaret())
-            {
-                rightState.AddData(m_pwndRight->m_pViewData->GetData(GetViewLineForScreen(selStartPos)));
-                m_pwndRight->m_Screen2View.push_back(oScreenLine);
-            }
+            rightState.AddData(m_pwndRight->m_pViewData->GetData(GetViewLineForScreen(selStartPos)));
         }
         viewLine++;
     }
 
-    // We want to undo the insertion in a single step.
-    CUndo::GetInstance().BeginGrouping();
     // use the easy way to insert text:
     // insert char by char, using the OnChar() method
     for (int i=0; i<sClipboardText.GetLength(); ++i)
@@ -3415,8 +3434,9 @@ void CBaseView::PasteText()
         restoreLines(m_pwndRight, rightState, i, i-m_ptSelectionStartPos.y);
     }
 
-    BuildAllScreen2ViewVector();
     CUndo::GetInstance().EndGrouping();
+
+    BuildAllScreen2ViewVector();
 }
 
 void CBaseView::OnCaretDown()
@@ -3579,15 +3599,13 @@ void CBaseView::AdjustSelection()
         m_ptSelectionStartPos = m_ptCaretPos;
         m_ptSelectionEndPos = m_ptSelectionOrigin;
     }
-
-    if ((m_ptCaretPos.y > m_ptSelectionOrigin.y) ||
-        (m_ptCaretPos.y == m_ptSelectionOrigin.y && m_ptCaretPos.x >= m_ptSelectionOrigin.x))
+    else
     {
         m_ptSelectionStartPos = m_ptSelectionOrigin;
         m_ptSelectionEndPos = m_ptCaretPos;
     }
 
-    SetupAllSelection(min(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y), max(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y));
+    SetupAllSelection(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y);
 
     Invalidate(FALSE);
 }
@@ -3916,16 +3934,15 @@ void CBaseView::BuildScreen2ViewVector()
     m_Screen2View.Rebuild(m_pViewData);
 }
 
-// apply it on view as screen2view is not build yet in most cases
 void CBaseView::UpdateViewLineNumbers()
 {
     int nLineNumber = 0;
-    for (int i = 0; i < GetViewCount(); ++i)
+    int nViewLineCount = GetViewCount(); 
+    for (int nViewLine = 0; nViewLine < nViewLineCount; nViewLine++)
     {
-        int viewLine = i;
-        int oldLine = (int)GetViewLineNumber(viewLine);
+        int oldLine = (int)GetViewLineNumber(nViewLine);
         if (oldLine >= 0)
-            SetViewLineNumber(viewLine, nLineNumber++);
+            SetViewLineNumber(nViewLine, nLineNumber++);
     }
 }
 

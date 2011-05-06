@@ -22,17 +22,16 @@
 
 #include "BaseView.h"
 
-void viewstate::AddViewLineFromView(CBaseView *pView, int nLine, int nViewLine, bool bAddEmptyLine)
+void viewstate::AddViewLineFromView(CBaseView *pView, int nViewLine, bool bAddEmptyLine)
 {
+    // is undo good place for this ?
     if (!pView || !pView->m_pViewData)
         return;
-    difflines[nViewLine] = pView->m_pViewData->GetLine(nViewLine);
-    linestates[nViewLine] = pView->m_pViewData->GetState(nViewLine);
-    linesEOL[nLine] = pView->m_pViewData->GetLineEnding(nLine);
+    replacedlines[nViewLine] = pView->m_pViewData->GetData(nViewLine);
     if (bAddEmptyLine)
     {
         addedlines.push_back(nViewLine + 1);
-        pView->AddEmptyLine(nLine);
+        pView->AddEmptyViewLine(nViewLine);
     }
 }
 
