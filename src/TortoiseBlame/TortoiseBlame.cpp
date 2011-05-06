@@ -423,7 +423,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
                     msg = msg.substr(0, MAX_LOG_LENGTH-5);
                     msg = msg + _T("\n...");
                 }
-                m_logMessages[rev] = msg;
+                m_logMessages[merged_rev] = msg;
             }
         }
 
@@ -1791,9 +1791,9 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                 SecureZeroMemory(app.m_szTip, sizeof(app.m_szTip));
                 SecureZeroMemory(app.m_wszTip, sizeof(app.m_wszTip));
                 std::map<LONG, tstring>::iterator iter;
+                tstring msg;
                 if ((iter = app.m_logMessages.find(rev)) != app.m_logMessages.end())
                 {
-                    tstring msg;
                     if (!ShowAuthor)
                     {
                         msg += app.m_authors[line];
@@ -1821,28 +1821,28 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                             msg += iter2->second;
                         }
                     }
+                }
 
-                    // an empty tooltip string will deactivate the tooltips,
-                    // which means we must make sure that the tooltip won't
-                    // be empty.
-                    if (msg.empty())
-                        msg = _T(" ");
+                // an empty tooltip string will deactivate the tooltips,
+                // which means we must make sure that the tooltip won't
+                // be empty.
+                if (msg.empty())
+                    msg = _T(" ");
 
-                    LPNMHDR pNMHDR = (LPNMHDR)lParam;
-                    if (pNMHDR->code == TTN_NEEDTEXTA)
-                    {
-                        NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
-                        lstrcpynA(app.m_szTip, CUnicodeUtils::StdGetUTF8(msg).c_str(), MAX_LOG_LENGTH*2);
-                        app.StringExpand(app.m_szTip);
-                        pTTTA->lpszText = app.m_szTip;
-                    }
-                    else
-                    {
-                        NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
-                        pTTTW->lpszText = app.m_wszTip;
-                        lstrcpyn(app.m_wszTip, msg.c_str(), MAX_LOG_LENGTH*2);
-                        app.StringExpand(app.m_wszTip);
-                    }
+                LPNMHDR pNMHDR = (LPNMHDR)lParam;
+                if (pNMHDR->code == TTN_NEEDTEXTA)
+                {
+                    NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
+                    lstrcpynA(app.m_szTip, CUnicodeUtils::StdGetUTF8(msg).c_str(), MAX_LOG_LENGTH*2);
+                    app.StringExpand(app.m_szTip);
+                    pTTTA->lpszText = app.m_szTip;
+                }
+                else
+                {
+                    NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
+                    pTTTW->lpszText = app.m_wszTip;
+                    lstrcpyn(app.m_wszTip, msg.c_str(), MAX_LOG_LENGTH*2);
+                    app.StringExpand(app.m_wszTip);
                 }
             }
             break;
