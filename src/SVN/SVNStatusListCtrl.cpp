@@ -401,6 +401,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
         m_nTargetCount = sortedPathList.GetCount();
 
         SVNStatus status(m_pbCanceled);
+        const CTSVNPath basepath = sortedPathList.GetCommonRoot();
         for(int nTarget = 0; nTarget < m_nTargetCount; nTarget++)
         {
             // check whether the path we want the status for is already fetched due to status-fetching
@@ -409,7 +410,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
             // but not recursively
             if (sortedPathList[nTarget].IsDirectory() || GetListEntry(sortedPathList[nTarget]) == NULL)
             {
-                if(!FetchStatusForSingleTarget(config, status, sortedPathList[nTarget], bUpdate, sUUID, arExtPaths, false, m_bDepthInfinity ? svn_depth_infinity : svn_depth_unknown, bShowIgnores))
+                if(!FetchStatusForSingleTarget(config, status, sortedPathList[nTarget], basepath, bUpdate, sUUID, arExtPaths, false, m_bDepthInfinity ? svn_depth_infinity : svn_depth_unknown, bShowIgnores))
                 {
                     bRet = FALSE;
                 }
@@ -561,6 +562,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
                             SVNConfig& config,
                             SVNStatus& status,
                             const CTSVNPath& target,
+                            const CTSVNPath& basepath,
                             bool bFetchStatusFromRepository,
                             CStringA& strCurrentRepositoryRoot,
                             CTSVNPathList& arExtPaths,
@@ -635,25 +637,6 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
             }
         }
     }
-    else if (strCurrentRepositoryRoot.IsEmpty() && (s->node_status == svn_wc_status_added))
-    {
-        // An added entry doesn't have an root assigned to it yet.
-        // So we fetch the status of the parent directory instead and
-        // check if that one has an repo root assigned to it.
-        svn_client_status_t * sparent;
-        CTSVNPath path = workingTarget;
-        do
-        {
-            CTSVNPath svnParentPath;
-            SVNStatus tempstatus;
-            sparent = tempstatus.GetFirstFileStatus(path.GetContainingDirectory(), svnParentPath, false, svn_depth_empty, false);
-            path = svnParentPath;
-        } while ( (sparent) && (!sparent->repos_root_url) && (sparent->node_status==svn_wc_status_added) );
-        if (sparent && sparent->repos_root_url)
-        {
-            strCurrentRepositoryRoot = sparent->repos_root_url;
-        }
-    }
 
     if ((wcFileStatus == svn_wc_status_unversioned)&& svnPath.IsDirectory())
     {
@@ -670,7 +653,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
         m_bHasExternals = TRUE;
     }
 
-    AddNewFileEntry(s, svnPath, workingTarget, true, m_bHasExternals, bEntryFromDifferentRepo);
+    AddNewFileEntry(s, svnPath, basepath, true, m_bHasExternals, bEntryFromDifferentRepo);
 
     if (((wcFileStatus == svn_wc_status_unversioned)||(wcFileStatus == svn_wc_status_none)||((wcFileStatus == svn_wc_status_ignored)&&(m_bShowIgnores))) && svnPath.IsDirectory())
     {
@@ -681,7 +664,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
     // for folders, get all statuses inside it too
     if(workingTarget.IsDirectory())
     {
-        ReadRemainingItemsStatus(status, workingTarget, strCurrentRepositoryRoot, arExtPaths, &config, bAllDirect);
+        ReadRemainingItemsStatus(status, basepath, strCurrentRepositoryRoot, arExtPaths, &config, bAllDirect);
     }
 
     for (int i=0; i<arExtPaths.GetCount(); ++i)

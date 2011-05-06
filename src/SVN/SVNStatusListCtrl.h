@@ -602,8 +602,7 @@ public:
     /**
      * Fetches the Subversion status of all files and stores the information
      * about them in an internal array.
-     * \param sFilePath path to a file which contains a list of files and/or folders for which to
-     *                  fetch the status, separated by newlines.
+     * \param pathList list of paths to fetch the status for.
      * \param bUpdate TRUE if the remote status is requested too.
      * \param bShowIgnores TRUE if ignored files and folders are requested too.
      * \param bShowUserProps TRUE if user-defined props shall be read too.
@@ -869,7 +868,7 @@ private:
     void FetchUserProperties();
 
     /// Process one line of the command file supplied to GetStatus
-    bool FetchStatusForSingleTarget(SVNConfig& config, SVNStatus& status, const CTSVNPath& target, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, svn_depth_t depth = svn_depth_infinity, bool bShowIgnores = false);
+    bool FetchStatusForSingleTarget(SVNConfig& config, SVNStatus& status, const CTSVNPath& target, const CTSVNPath& basepath, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, svn_depth_t depth = svn_depth_infinity, bool bShowIgnores = false);
 
     /// Create 'status' data for each item in an unversioned folder
     void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath, SVNConfig * config);
