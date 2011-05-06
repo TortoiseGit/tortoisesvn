@@ -1326,53 +1326,52 @@ void CSVNProgressDlg::OnCancel()
 
 void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 {
+    *pResult = 0;
+
     NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
+    if (pDispInfo == 0)
+        return;
+    if ((pDispInfo->item.mask & LVIF_TEXT) == 0)
+        return;
+    if (pDispInfo->item.iItem >= (int)m_arData.size())
+        return;
 
-    if (pDispInfo)
+    // Set text pointer, will copy text in the code below
+    m_columnbuf[0] = 0;
+    pDispInfo->item.pszText = m_columnbuf;
+
+    const NotificationData * data = m_arData[pDispInfo->item.iItem];
+    if (data == 0)
+        return;
+
+    const int maxLength = min(MAX_PATH-2, pDispInfo->item.cchTextMax);
+    switch (pDispInfo->item.iSubItem)
     {
-        if (pDispInfo->item.mask & LVIF_TEXT)
+    case 0:
+        lstrcpyn(m_columnbuf, data->sActionColumnText, maxLength);
+        break;
+    case 1:
+        lstrcpyn(m_columnbuf, data->sPathColumnText, maxLength);
+        if (!data->bAuxItem)
         {
-            if (pDispInfo->item.iItem < (int)m_arData.size())
+            int cWidth = m_ProgList.GetColumnWidth(1);
+            cWidth = max(12, cWidth-12);
+            CDC * pDC = m_ProgList.GetDC();
+            if (pDC != NULL)
             {
-                const NotificationData * data = m_arData[pDispInfo->item.iItem];
-                if (data)
-                {
-                    switch (pDispInfo->item.iSubItem)
-                    {
-                    case 0:
-                        lstrcpyn(m_columnbuf, data->sActionColumnText, min(MAX_PATH-2, pDispInfo->item.cchTextMax));
-                        break;
-                    case 1:
-                        lstrcpyn(m_columnbuf, data->sPathColumnText, min(MAX_PATH-2, pDispInfo->item.cchTextMax));
-                        if (!data->bAuxItem)
-                        {
-                            int cWidth = m_ProgList.GetColumnWidth(1);
-                            cWidth = max(12, cWidth-12);
-                            CDC * pDC = m_ProgList.GetDC();
-                            if (pDC != NULL)
-                            {
-                                CFont * pFont = pDC->SelectObject(m_ProgList.GetFont());
-                                PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
-                                pDC->SelectObject(pFont);
-                                ReleaseDC(pDC);
-                            }
-                        }
-                        break;
-                    case 2:
-                        lstrcpyn(m_columnbuf, data->mime_type, min(MAX_PATH-2, pDispInfo->item.cchTextMax));
-                        break;
-                    default:
-                        m_columnbuf[0] = 0;
-                    }
-                }
-                else
-                    m_columnbuf[0] = 0;
-
-                pDispInfo->item.pszText = m_columnbuf;
+                CFont * pFont = pDC->SelectObject(m_ProgList.GetFont());
+                PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+                pDC->SelectObject(pFont);
+                ReleaseDC(pDC);
             }
         }
+        break;
+    case 2:
+        lstrcpyn(m_columnbuf, data->mime_type, maxLength);
+        break;
+    default:
+        break;
     }
-    *pResult = 0;
 }
 
 void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
@@ -1834,75 +1833,75 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 int nItem = m_ProgList.GetNextSelectedItem(pos);
                 NotificationData * data2 = m_arData[nItem];
-                if (data2)
-                {
-                    svn_revnum_t rev = -1;
-                    StringRevMap::iterator it = m_UpdateStartRevMap.end();
-                    if (data2->basepath.IsEmpty())
-                        it = m_UpdateStartRevMap.begin();
-                    else
-                        it = m_UpdateStartRevMap.find(data2->basepath.GetSVNApiPath(pool));
-                    if (it != m_UpdateStartRevMap.end())
-                        rev = it->second;
-                    else
-                    {
-                        it = m_FinishedRevMap.find(data2->basepath.GetSVNApiPath(pool));
-                        if (it != m_FinishedRevMap.end())
-                            rev = it->second;
-                    }
-                    // if the file was merged during update, do a three way diff between OLD, MINE, THEIRS
-                    if (data2->content_state == svn_wc_notify_state_merged)
-                    {
-                        CTSVNPath basefile = SVN::GetPristinePath(data2->path);
-                        CTSVNPath theirfile = CTempFiles::Instance().GetTempFilePath(false, data2->path, SVNRev::REV_HEAD);
-                        SVN svn;
-                        if (!svn.Export(data2->path, theirfile, SVNRev(SVNRev::REV_WC), rev))
-                        {
-                            svn.ShowErrorDialog(m_hWnd, data2->path);
-                            DialogEnableWindow(IDOK, TRUE);
-                            break;
-                        }
-                        // If necessary, convert the line-endings on the file before diffing
-                        if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
-                        {
-                            CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(false, data2->path, SVNRev::REV_BASE);
-                            if (!svn.Export(data2->path, temporaryFile, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE)))
-                            {
-                                temporaryFile.Reset();
-                                break;
-                            }
-                            basefile = temporaryFile;
-                            SetFileAttributes(basefile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-                        }
+                if (data2 == 0)
+                    continue;
 
-                        SetFileAttributes(theirfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-                        CString revname, wcname, basename;
-                        revname.Format(_T("%s Revision %ld"), (LPCTSTR)data2->path.GetUIFileOrDirectoryName(), rev);
-                        wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data2->path.GetUIFileOrDirectoryName());
-                        basename.Format(IDS_DIFF_BASENAME, (LPCTSTR)data2->path.GetUIFileOrDirectoryName());
-                        CAppUtils::MergeFlags flags;
-                        flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
-                        flags.bReadOnly = true;
-                        CAppUtils::StartExtMerge(flags, basefile, theirfile, data2->path, data2->path, basename, revname, wcname);
-                    }
-                    else
+                svn_revnum_t rev = -1;
+                StringRevMap::iterator it = m_UpdateStartRevMap.end();
+                if (data2->basepath.IsEmpty())
+                    it = m_UpdateStartRevMap.begin();
+                else
+                    it = m_UpdateStartRevMap.find(data2->basepath.GetSVNApiPath(pool));
+                if (it != m_UpdateStartRevMap.end())
+                    rev = it->second;
+                else
+                {
+                    it = m_FinishedRevMap.find(data2->basepath.GetSVNApiPath(pool));
+                    if (it != m_FinishedRevMap.end())
+                        rev = it->second;
+                }
+                // if the file was merged during update, do a three way diff between OLD, MINE, THEIRS
+                if (data2->content_state == svn_wc_notify_state_merged)
+                {
+                    CTSVNPath basefile = SVN::GetPristinePath(data2->path);
+                    CTSVNPath theirfile = CTempFiles::Instance().GetTempFilePath(false, data2->path, SVNRev::REV_HEAD);
+                    SVN svn;
+                    if (!svn.Export(data2->path, theirfile, SVNRev(SVNRev::REV_WC), rev))
                     {
-                        CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, data2->path, rev);
-                        SVN svn;
-                        if (!svn.Export(data2->path, tempfile, SVNRev(SVNRev::REV_WC), rev))
+                        svn.ShowErrorDialog(m_hWnd, data2->path);
+                        DialogEnableWindow(IDOK, TRUE);
+                        break;
+                    }
+                    // If necessary, convert the line-endings on the file before diffing
+                    if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\ConvertBase"), TRUE))
+                    {
+                        CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(false, data2->path, SVNRev::REV_BASE);
+                        if (!svn.Export(data2->path, temporaryFile, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE)))
                         {
-                            svn.ShowErrorDialog(m_hWnd, data2->path);
-                            DialogEnableWindow(IDOK, TRUE);
+                            temporaryFile.Reset();
                             break;
                         }
-                        SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-                        CString revname, wcname;
-                        revname.Format(_T("%s Revision %ld"), (LPCTSTR)data2->path.GetUIFileOrDirectoryName(), rev);
-                        wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data2->path.GetUIFileOrDirectoryName());
-                        CAppUtils::StartExtDiff(
-                            tempfile, data2->path, revname, wcname,
-                            CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
+                        basefile = temporaryFile;
+                        SetFileAttributes(basefile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
                     }
+
+                    SetFileAttributes(theirfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+                    CString revname, wcname, basename;
+                    revname.Format(_T("%s Revision %ld"), (LPCTSTR)data2->path.GetUIFileOrDirectoryName(), rev);
+                    wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data2->path.GetUIFileOrDirectoryName());
+                    basename.Format(IDS_DIFF_BASENAME, (LPCTSTR)data2->path.GetUIFileOrDirectoryName());
+                    CAppUtils::MergeFlags flags;
+                    flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
+                    flags.bReadOnly = true;
+                    CAppUtils::StartExtMerge(flags, basefile, theirfile, data2->path, data2->path, basename, revname, wcname);
+                }
+                else
+                {
+                    CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, data2->path, rev);
+                    SVN svn;
+                    if (!svn.Export(data2->path, tempfile, SVNRev(SVNRev::REV_WC), rev))
+                    {
+                        svn.ShowErrorDialog(m_hWnd, data2->path);
+                        DialogEnableWindow(IDOK, TRUE);
+                        break;
+                    }
+                    SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+                    CString revname, wcname;
+                    revname.Format(_T("%s Revision %ld"), (LPCTSTR)data2->path.GetUIFileOrDirectoryName(), rev);
+                    wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data2->path.GetUIFileOrDirectoryName());
+                    CAppUtils::StartExtDiff(
+                        tempfile, data2->path, revname, wcname,
+                        CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
                 }
             }
         }
@@ -1940,35 +1939,33 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 int nItem = m_ProgList.GetNextSelectedItem(pos);
                 NotificationData * data2 = m_arData[nItem];
-                if (data2)
+                if (data2 == 0)
+                    continue;
+                if (!(data2->bConflictedActionItem))
+                    continue;
+                if (!svn.Resolve(data2->path, result, FALSE))
                 {
-                    if (data2->bConflictedActionItem)
-                    {
-                        if (!svn.Resolve(data2->path, result, FALSE))
-                        {
-                            svn.ShowErrorDialog(m_hWnd, data2->path);
-                            DialogEnableWindow(IDOK, TRUE);
-                            break;
-                        }
-                        data2->color = ::GetSysColor(COLOR_WINDOWTEXT);
-                        data2->action = svn_wc_notify_resolved;
-                        data2->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
-                        data2->bConflictedActionItem = false;
-                        m_nConflicts--;
-
-                        if (m_nConflicts==0)
-                        {
-                            // When the last conflict is resolved we remove
-                            // the warning which we assume is in the last line.
-                            int nIndex = m_ProgList.GetItemCount()-1;
-                            VERIFY(m_ProgList.DeleteItem(nIndex));
-
-                            delete m_arData[nIndex];
-                            m_arData.pop_back();
-                        }
-                        sResolvedPaths += data2->path.GetWinPathString() + _T("\n");
-                    }
+                    svn.ShowErrorDialog(m_hWnd, data2->path);
+                    DialogEnableWindow(IDOK, TRUE);
+                    break;
                 }
+                data2->color = ::GetSysColor(COLOR_WINDOWTEXT);
+                data2->action = svn_wc_notify_resolved;
+                data2->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
+                data2->bConflictedActionItem = false;
+                m_nConflicts--;
+
+                if (m_nConflicts==0)
+                {
+                    // When the last conflict is resolved we remove
+                    // the warning which we assume is in the last line.
+                    int nIndex = m_ProgList.GetItemCount()-1;
+                    VERIFY(m_ProgList.DeleteItem(nIndex));
+
+                    delete m_arData[nIndex];
+                    m_arData.pop_back();
+                }
+                sResolvedPaths += data2->path.GetWinPathString() + _T("\n");
             }
             m_ProgList.Invalidate();
             CString info = BuildInfoString();
@@ -1997,6 +1994,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         break;
     case ID_OPENWITH:
         bOpenWith = true;
+        // fall through here
     case ID_OPEN:
         {
             CString sWinPath = GetPathFromColumnText(data->sPathColumnText);
@@ -2011,6 +2009,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 }
             }
         }
+        break;
     }
     DialogEnableWindow(IDOK, TRUE);
     theApp.DoWaitCursor(-1);
@@ -2085,41 +2084,38 @@ void CSVNProgressDlg::OnSize(UINT nType, int cx, int cy)
 
 void CSVNProgressDlg::OnCommitFinished()
 {
-    if (m_BugTraqProvider)
+    if (m_BugTraqProvider == 0)
+        return;
+
+    CComPtr<IBugTraqProvider2> pProvider;
+    HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
+    if (FAILED(hr))
+        return;
+
+    ATL::CComBSTR commonRoot(m_selectedPaths.GetCommonRoot().GetDirectory().GetWinPath());
+
+    CBstrSafeVector pathList(m_selectedPaths.GetCount());
+    for (LONG index = 0; index < m_selectedPaths.GetCount(); ++index)
+        pathList.PutElement(index, m_selectedPaths[index].GetSVNPathString());
+
+    ATL::CComBSTR logMessage;
+    logMessage.Attach(m_sMessage.AllocSysString());
+
+    ATL::CComBSTR temp;
+    hr = pProvider->OnCommitFinished(GetSafeHwnd(), commonRoot, pathList,
+        logMessage, (LONG)m_RevisionEnd, &temp);
+    if (SUCCEEDED(hr))
+        return;
+
+    CString sErr = temp;
+    if (!sErr.IsEmpty())
     {
-        CComPtr<IBugTraqProvider2> pProvider;
-        HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider);
-        if (SUCCEEDED(hr))
-        {
-            ATL::CComBSTR commonRoot(m_selectedPaths.GetCommonRoot().GetDirectory().GetWinPath());
-            CBstrSafeVector pathList(m_selectedPaths.GetCount());
-
-            for (LONG index = 0; index < m_selectedPaths.GetCount(); ++index)
-                pathList.PutElement(index, m_selectedPaths[index].GetSVNPathString());
-
-            ATL::CComBSTR logMessage;
-            logMessage.Attach(m_sMessage.AllocSysString());
-
-            ATL::CComBSTR temp;
-            if (FAILED(hr = pProvider->OnCommitFinished(GetSafeHwnd(),
-                commonRoot,
-                pathList,
-                logMessage,
-                (LONG)m_RevisionEnd,
-                &temp)))
-            {
-                CString sErr = temp;
-                if (!sErr.IsEmpty())
-                    ReportError(sErr);
-                else
-                {
-                    COMError ce(hr);
-                    sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
-                    ReportError(sErr);
-                }
-            }
-        }
+        ReportError(sErr);
+        return;
     }
+    COMError ce(hr);
+    sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
+    ReportError(sErr);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -2981,11 +2977,11 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
             for (INT_PTR fileindex=0; (fileindex<m_targetPathList.GetCount()) && (bMarkers==FALSE); ++fileindex)
             {
                 CTSVNPath targetPath = m_targetPathList[fileindex];
-                bool doCheck = true;
                 if (targetPath.Exists() && !targetPath.IsDirectory())   // only check existing files
                 {
                     if (targetPath.GetFileSize() < 100*1024)            // only check files smaller than 100kBytes
                     {
+                        bool doCheck = true;
                         SVNProperties props(targetPath, SVNRev::REV_WC, false);
                         for (int i=0; i<props.GetCount(); i++)
                         {
