@@ -90,9 +90,11 @@ CBaseView::CBaseView()
     m_ptCaretPos.x = 0;
     m_ptCaretPos.y = 0;
     m_nCaretGoalPos = 0;
-    m_ptSelectionStartPos = m_ptCaretPos;
-    m_ptSelectionEndPos = m_ptCaretPos;
-    m_ptSelectionOrigin = m_ptCaretPos;
+    m_ptSelectionViewPosStart = m_ptCaretPos;
+    m_ptSelectionViewPosEnd = m_ptSelectionViewPosEnd;
+    m_ptSelectionViewPosOrigin = m_ptSelectionViewPosEnd;
+    m_nSelViewBlockStart = -1;
+    m_nSelViewBlockEnd = -1;
     m_bFocused = FALSE;
     m_bShowSelection = true;
     texttype = CFileTextLines::AUTOTYPE;
@@ -105,8 +107,6 @@ CBaseView::CBaseView()
     m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
     m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();:.,{}!@#$%^&*-+=|/\\<>'`~\""));;
     m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
-    m_nSelViewBlockStart = -1;
-    m_nSelViewBlockEnd = -1;
     m_bModified = FALSE;
     m_bOtherDiffChecked = false;
     m_bInlineWordDiff = true;
@@ -1516,38 +1516,38 @@ void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
 }
 
 void CBaseView::DrawText(
-    CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff)
+    CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff, int nLineOffset)
 {
-    int viewLine = GetViewLineForScreen(nLineIndex);
-    ASSERT(m_pViewData && (viewLine < m_pViewData->GetCount()));
-    DiffStates diffState = m_pViewData->GetState(viewLine);
+    int nViewLine = GetViewLineForScreen(nLineIndex);
+    ASSERT(m_pViewData && (nViewLine < m_pViewData->GetCount()));
+    DiffStates diffState = m_pViewData->GetState(nViewLine);
 
     // first suppose the whole line is selected
     int selectedStart = 0;
     int selectedEnd = textlength;
 
-    if ((m_ptSelectionStartPos.y > nLineIndex) || (m_ptSelectionEndPos.y < nLineIndex)
-        || ! m_bShowSelection)
+    if ((m_ptSelectionViewPosStart.y > nViewLine) || (m_ptSelectionViewPosEnd.y < nViewLine)
+        || ! m_bShowSelection || !HasTextSelection())
     {
         // this line has no selected text
-        selectedStart = textlength;
+        selectedEnd = 0;
     }
-    else if ((m_ptSelectionStartPos.y == nLineIndex) || (m_ptSelectionEndPos.y == nLineIndex))
+    else if ((m_ptSelectionViewPosStart.y == nViewLine) || (m_ptSelectionViewPosEnd.y == nViewLine))
     {
-        // the line is partially selected
-        int xoffs = m_nOffsetChar + (coords.x - GetMarginWidth()) / GetCharWidth();
-        if (m_ptSelectionStartPos.y == nLineIndex)
+        // the view line is partially selected
+        POINT ptLineStart = ConvertScreenPosToView(0, nLineIndex);
+        if (m_ptSelectionViewPosStart.y == nViewLine)
         {
             // the first line of selection
-            int nSelectionStartOffset = CalculateActualOffset(m_ptSelectionStartPos.y, m_ptSelectionStartPos.x);
-            selectedStart = max(min(nSelectionStartOffset - xoffs, textlength), 0);
+            selectedStart = m_ptSelectionViewPosStart.x - ptLineStart.x - nLineOffset;
+            selectedStart = min(max(selectedStart, 0), GetLineChars(nLineIndex).GetLength()); // textlenght ?
         }
 
-        if (m_ptSelectionEndPos.y == nLineIndex)
+        if (m_ptSelectionViewPosEnd.y == nViewLine)
         {
             // the last line of selection
-            int nSelectionEndOffset = CalculateActualOffset(m_ptSelectionEndPos.y, m_ptSelectionEndPos.x);
-            selectedEnd = max(min(nSelectionEndOffset - xoffs, textlength), 0);
+            selectedEnd =  m_ptSelectionViewPosEnd.x - ptLineStart.x - nLineOffset;
+            selectedEnd = min(max(selectedEnd, 0), GetLineChars(nLineIndex).GetLength()); // textlenght ?
         }
     }
 
@@ -1652,6 +1652,7 @@ bool CBaseView::DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const 
 
     int lineoffset = 0;
     std::deque<int> removedPositions;
+    int nTextStartOffset = 0;
     while (diff)
     {
         apr_off_t len = diff->original_length;
@@ -1663,7 +1664,9 @@ bool CBaseView::DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const 
             lineoffset++;
         }
         bool isModified = diff->type == svn_diff__type_diff_modified;
-        DrawText(pDC, rc, (LPCTSTR)s, s.GetLength(), nLineIndex, origin, true, isModified);
+        int nTextLength = s.GetLength();
+        DrawText(pDC, rc, (LPCTSTR)s, nTextLength, nLineIndex, origin, true, isModified, nTextStartOffset);
+        nTextStartOffset += nTextLength;
         origin.x += pDC->GetTextExtent(s).cx;
 
         if (isModified && (len < diff->modified_length))
@@ -2612,12 +2615,12 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
             {
                 if (m_ptCaretPos.y == 0 && m_ptCaretPos.x == 0)
                     break;
-                m_ptSelectionEndPos = m_ptCaretPos;
+                m_ptSelectionViewPosEnd = GetCaretViewPosition();
                 if (bControl)
                     MoveCaretWordLeft();
                 else
                     MoveCaretLeft();
-                m_ptSelectionStartPos = m_ptCaretPos;
+                m_ptSelectionViewPosStart = GetCaretViewPosition();
             }
             RemoveSelectedText();
         }
@@ -2631,17 +2634,17 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
             {
                 if (bControl)
                 {
-                    m_ptSelectionStartPos = m_ptCaretPos;
+                    m_ptSelectionViewPosStart = GetCaretViewPosition();
                     MoveCaretWordRight();
-                    m_ptSelectionEndPos = m_ptCaretPos;
+                    m_ptSelectionViewPosEnd = GetCaretViewPosition();
                 }
                 else
                 {
                     if (! MoveCaretRight())
                         break;
-                    m_ptSelectionEndPos = m_ptCaretPos;
+                    m_ptSelectionViewPosEnd = GetCaretViewPosition();
                     MoveCaretLeft();
-                    m_ptSelectionStartPos = m_ptCaretPos;
+                    m_ptSelectionViewPosStart = GetCaretViewPosition();
                 }
             }
             RemoveSelectedText();
@@ -2669,8 +2672,8 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
             if (point.x < GetMarginWidth())
             {
                 // select the whole line
-                m_ptSelectionStartPos = m_ptSelectionEndPos = m_ptCaretPos;
-                m_ptSelectionEndPos.x = GetLineLength(m_ptSelectionEndPos.y);
+                m_ptSelectionViewPosStart = m_ptSelectionViewPosEnd = GetCaretViewPosition();
+                m_ptSelectionViewPosEnd.x = GetViewLineLength(m_ptSelectionViewPosEnd.y);
             }
         }
 
@@ -2736,40 +2739,50 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
         m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
         UpdateGoalPos();
 
+        // as we work with caret here it is quite slow
+        // TODO: rewrite to use single line data
         ClearSelection();
-        while (!IsCaretAtWordBoundary() && (m_ptSelectionStartPos.y == m_ptCaretPos.y) && MoveCaretLeft())
+        POINT m_ptSelectionViewPosOrigin = GetCaretViewPosition();
+        POINT ptCaretTemp = GetCaretPosition();
+        m_ptSelectionViewPosStart = m_ptSelectionViewPosOrigin;
+        while (!IsCaretAtWordBoundary() && (m_ptSelectionViewPosOrigin.y == m_ptSelectionViewPosStart.y) && MoveCaretLeft())
         {
+            m_ptSelectionViewPosStart = GetCaretViewPosition();
         }
-        if (m_ptSelectionStartPos.y != m_ptCaretPos.y)
+        if (m_ptSelectionViewPosStart.y != m_ptSelectionViewPosOrigin.y)
+        {
             MoveCaretRight();
-
-        m_ptSelectionStartPos = m_ptCaretPos;
-        m_ptSelectionEndPos = m_ptCaretPos;
-        m_ptSelectionOrigin = m_ptCaretPos;
-        while (MoveCaretRight() && (m_ptSelectionStartPos.y == m_ptCaretPos.y) && !IsCaretAtWordBoundary())
-        {
+            m_ptSelectionViewPosStart = GetCaretViewPosition();
         }
-        if (m_ptSelectionStartPos.y != m_ptCaretPos.y)
+
+        SetCaretPosition(ptCaretTemp);
+        m_ptSelectionViewPosEnd = m_ptSelectionViewPosOrigin;
+        while (MoveCaretRight() && (m_ptSelectionViewPosOrigin.y == m_ptSelectionViewPosEnd.y) && !IsCaretAtWordBoundary())
+        {
+            m_ptSelectionViewPosEnd = GetCaretViewPosition();
+        }
+         m_ptSelectionViewPosEnd = GetCaretViewPosition();
+        if (m_ptSelectionViewPosOrigin.y != m_ptSelectionViewPosEnd.y)
         {
             MoveCaretLeft();
-            if (m_ptSelectionStartPos.x == m_ptCaretPos.x)
+            m_ptSelectionViewPosEnd = GetCaretViewPosition();
+            if (m_ptSelectionViewPosOrigin.x == m_ptSelectionViewPosEnd.x)
+            {
                 MoveCaretLeft();
+                m_ptSelectionViewPosEnd = GetCaretViewPosition();
+            }
         }
-        m_ptSelectionEndPos = m_ptCaretPos;
 
-        m_sPreviousMarkedWord = m_sMarkedWord; // store marked word to recall in case of tripple click
-        LPCTSTR line = GetLineChars(m_ptCaretPos.y);
-        if ((m_ptSelectionEndPos.x - m_ptSelectionStartPos.x) > 0)
+        m_sPreviousMarkedWord = m_sMarkedWord; // store marked word to recall in case of triple click
+        int nMarkWidth = m_ptSelectionViewPosEnd.x - m_ptSelectionViewPosStart.x;
+        if (nMarkWidth > 0)
         {
-            m_sMarkedWord = CString(&line[m_ptSelectionStartPos.x], m_ptSelectionEndPos.x - m_ptSelectionStartPos.x).Trim();
-            if (m_sMarkedWord.IsEmpty())
-            {
-                ClearSelection();
-            }
-            else if (m_sMarkedWord.Compare(m_sPreviousMarkedWord) == 0)
-            {
+            CString sLine = GetViewLineChars(m_ptSelectionViewPosStart.y);
+            CString sNewMarkedWord = sLine.Mid(m_ptSelectionViewPosStart.x, nMarkWidth).Trim();
+            if (m_sMarkedWord.Compare(sNewMarkedWord) == 0)
                 m_sMarkedWord.Empty();
-            }
+            else
+                m_sMarkedWord = sNewMarkedWord;
         }
         else
         {
@@ -2810,11 +2823,11 @@ void CBaseView::OnLButtonTrippleClick( UINT /*nFlags*/, CPoint point )
     if (m_pwndBottom)
         m_pwndBottom->SetMarkedWord(m_sMarkedWord);
     ClearSelection();
-    m_ptSelectionStartPos.x = 0;
-    m_ptSelectionStartPos.y = nClickedLine;
-    m_ptSelectionEndPos.x = GetLineLength(nClickedLine);
-    m_ptSelectionEndPos.y = nClickedLine;
-    SetupSelection(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y);
+    m_ptSelectionViewPosStart.x = 0;
+    m_ptSelectionViewPosStart.y = nClickedLine;
+    m_ptSelectionViewPosEnd.x = GetLineLength(nClickedLine);
+    m_ptSelectionViewPosEnd.y = nClickedLine;
+    SetupSelection(m_ptSelectionViewPosStart.y, m_ptSelectionViewPosEnd.y);
     UpdateViewsCaretPosition();
     Invalidate();
     if (m_pwndLocator)
@@ -2823,24 +2836,22 @@ void CBaseView::OnLButtonTrippleClick( UINT /*nFlags*/, CPoint point )
 
 void CBaseView::OnEditCopy()
 {
-    POINT start = m_ptSelectionStartPos;
-    POINT end = m_ptSelectionEndPos;
+    POINT start = m_ptSelectionViewPosStart;
+    POINT end = m_ptSelectionViewPosEnd;
     if (!HasTextSelection())
     {
         if (!HasSelection())
             return;
-        return; // for a moment Block selection is in ViewLines while text is in ScreenLine
-        //start.y = m_nSelBlockStart;
-        //start.x = 0;
-        //end.y = m_nSelBlockEnd;
-        //end.x = GetLineLength(m_nSelBlockEnd);
+        start.y = m_nSelViewBlockStart;
+        start.x = 0;
+        end.y = m_nSelViewBlockEnd;
+        end.x = GetViewLineLength(m_nSelViewBlockEnd);
     }
     // first store the selected lines in one CString
     CString sCopyData;
-    for (int i=start.y; i<=end.y; i++)
+    for (int nViewLine=start.y; nViewLine<=end.y; nViewLine++)
     {
-        int viewIndex = GetViewLineForScreen(i);
-        switch (m_pViewData->GetState(viewIndex))
+        switch (m_pViewData->GetState(nViewLine))
         {
         case DIFFSTATE_EMPTY:
             break;
@@ -2866,21 +2877,16 @@ void CBaseView::OnEditCopy()
         case DIFFSTATE_YOURSREMOVED:
         case DIFFSTATE_YOURSADDED:
         case DIFFSTATE_EDITED:
-            sCopyData += GetLineChars(i);
+            sCopyData += GetViewLineChars(nViewLine);
             sCopyData += _T("\r\n");
             break;
         }
     }
-    // remove the last \r\n
-    sCopyData = sCopyData.Left(sCopyData.GetLength()-2);
-    // remove the non-selected chars from the first line
-    sCopyData = sCopyData.Mid(start.x);
-    // remove the non-selected chars from the last line
-    int lastLinePos = sCopyData.ReverseFind('\n');
-    lastLinePos += 1;
-    if (lastLinePos == 0)
-        lastLinePos -= start.x;
-    sCopyData = sCopyData.Left(lastLinePos+end.x);
+    // remove the non-selected chars from the first line, last line and last \r\n
+    int nLeftCut = start.x;
+    int nRightCut = GetViewLineChars(end.y).GetLength() - end.x + 2;
+    sCopyData = sCopyData.Mid(nLeftCut, sCopyData.GetLength()-nLeftCut-nRightCut);
+
     if (!sCopyData.IsEmpty())
     {
         CStringUtils::WriteAsciiStringToClipboard(sCopyData, m_hWnd);
@@ -3081,6 +3087,61 @@ void CBaseView::UpdateCaret()
     }
 }
 
+POINT CBaseView::ConvertScreenPosToView(const POINT& pt)
+{
+    POINT ptViewPos;
+    ptViewPos.x = pt.x;
+
+    int nSubLine = GetSubLineOffset(pt.y);
+    if (nSubLine > 0) 
+        {
+            for (int nScreenLine = pt.y-1; nScreenLine >= pt.y-nSubLine; nScreenLine--)
+            {
+                ptViewPos.x += GetLineChars(nScreenLine).GetLength();
+            }
+        }
+
+    ptViewPos.y = GetViewLineForScreen(pt.y);
+    return ptViewPos; 
+}
+
+POINT CBaseView::ConvertViewPosToScreen(const POINT& pt)
+{
+    POINT ptPos;
+
+    int nX = pt.x;
+    if (GetViewLineLength(pt.y) < nX)
+    {
+        nX = GetViewLineLength(pt.y);
+    }
+
+    int nLine = FindScreenLineForViewLine(pt.y);
+    if (GetViewLineForScreen(nLine) != pt.y ) 
+    {
+        ptPos.x = 0;
+    }
+    else if (GetSubLineOffset(nLine) < 0) // no sublines
+    {
+        ptPos.x = nX;
+    }
+    else
+    {
+        ptPos.x = nX;
+        int nSubLine = 0;
+        int nSubLineLength = GetLineChars(nLine+nSubLine).GetLength();
+        while (nSubLineLength < ptPos.x) 
+        {
+            ptPos.x -= nSubLineLength;
+            nSubLine++;
+            nSubLineLength = GetLineChars(nLine+nSubLine).GetLength();
+        }
+    }
+    ptPos.y = nLine;
+
+    return ptPos; 
+}
+
+
 void CBaseView::EnsureCaretVisible()
 {
     int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
@@ -3182,21 +3243,27 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     {
         RemoveSelectedText();
         AddUndoLine(m_ptCaretPos.y);
-        CString sLine = GetLineChars(m_ptCaretPos.y);
-        sLine.Insert(m_ptCaretPos.x, (wchar_t)nChar);
+        POINT ptCaretViewPos = GetCaretViewPosition();
+        CString sLine = GetViewLineChars(ptCaretViewPos.y);
+        sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
         int viewLine = GetViewLineForScreen(m_ptCaretPos.y);
         m_pViewData->SetLine(viewLine, sLine);
         m_pViewData->SetState(viewLine, DIFFSTATE_EDITED);
         if (m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING)
             m_pViewData->SetLineEnding(viewLine, lineendings);
-        m_ptCaretPos.x++;
+        if (m_pMainFrame->m_bWrapLines)
+        {
+            BuildAllScreen2ViewVector(); // we need to rebuild vector ... quite slow but have nothing better yet
+        }
+        MoveCaretRight();
         m_nCachedWrappedLine = -1;
         UpdateGoalPos();
     }
     else if (nChar == 10)
     {
         AddUndoLine(m_ptCaretPos.y);
-        EOL eol = m_pViewData->GetLineEnding(m_ptCaretPos.y);
+        int nViewLine = GetViewLineForScreen(m_ptCaretPos.y);
+        EOL eol = m_pViewData->GetLineEnding(nViewLine);
         EOL newEOL = EOL_CRLF;
         switch (eol)
         {
@@ -3210,8 +3277,8 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
                 newEOL = EOL_CRLF;
                 break;
         }
-        m_pViewData->SetLineEnding(m_ptCaretPos.y, newEOL);
-        m_pViewData->SetState(m_ptCaretPos.y, DIFFSTATE_EDITED);
+        m_pViewData->SetLineEnding(nViewLine, newEOL);
+        m_pViewData->SetState(nViewLine, DIFFSTATE_EDITED);
         UpdateGoalPos();
     }
     else if (nChar == VK_RETURN)
@@ -3286,78 +3353,38 @@ void CBaseView::RemoveSelectedText()
     if (!HasTextSelection())
         return;
 
+    // We want to undo the insertion in a single step.
     ResetUndoStep();
-    std::vector<LONG> linestoremove;
-    for (LONG i = m_ptSelectionStartPos.y; i <= m_ptSelectionEndPos.y; ++i)
+    CUndo::GetInstance().BeginGrouping();
+
+    // combine first and last line
+    viewdata oFirstLine = GetViewData(m_ptSelectionViewPosStart.y);
+    viewdata oLastLine = GetViewData(m_ptSelectionViewPosEnd.y);
+    oFirstLine.sLine = oFirstLine.sLine.Left(m_ptSelectionViewPosStart.x) + oLastLine.sLine.Mid(m_ptSelectionViewPosEnd.x);
+    oFirstLine.ending = oLastLine.ending;
+    SetViewData(m_ptSelectionViewPosStart.y, oFirstLine);
+
+    // clean up middle lines if any
+    if (m_ptSelectionViewPosStart.y != m_ptSelectionViewPosEnd.y)
     {
-        int viewLine = GetViewLineForScreen(i);
-        if (i == m_ptSelectionStartPos.y)
+        viewdata oEmptyLine = GetEmptyLineData();
+        for (int nViewLine = m_ptSelectionViewPosStart.y+1; nViewLine <= m_ptSelectionViewPosEnd.y; nViewLine++)
         {
-            CString sLine = GetLineChars(m_ptSelectionStartPos.y);
-            CString newLine;
-            if (i == m_ptSelectionStartPos.y)
-            {
-                if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
-                {
-                    m_AllState.left.difflines[viewLine] = m_pwndLeft->m_pViewData->GetLine(viewLine);
-                    m_AllState.left.linestates[viewLine] = m_pwndLeft->m_pViewData->GetState(viewLine);
-                }
-                if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
-                {
-                    m_AllState.right.difflines[viewLine] = m_pwndRight->m_pViewData->GetLine(viewLine);
-                    m_AllState.right.linestates[viewLine] = m_pwndRight->m_pViewData->GetState(viewLine);
-                }
-                if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
-                {
-                    m_AllState.bottom.difflines[viewLine] = m_pwndBottom->m_pViewData->GetLine(viewLine);
-                    m_AllState.bottom.linestates[viewLine] = m_pwndBottom->m_pViewData->GetState(viewLine);
-                }
-                newLine = sLine.Left(m_ptSelectionStartPos.x);
-                sLine = GetLineChars(m_ptSelectionEndPos.y);
-                newLine = newLine + sLine.Mid(m_ptSelectionEndPos.x);
-            }
-            m_pViewData->SetLine(viewLine, newLine);
-            m_pViewData->SetState(viewLine, DIFFSTATE_EDITED);
-            if (m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING)
-                m_pViewData->SetLineEnding(viewLine, lineendings);
-            SetModified();
+             SetViewData(nViewLine, oEmptyLine);
         }
-        else
-        {
-            if ((m_pwndLeft)&&(m_pwndLeft->m_pViewData))
-            {
-                m_AllState.left.removedlines[viewLine] = m_pwndLeft->m_pViewData->GetData(viewLine);
-            }
-            if ((m_pwndRight)&&(m_pwndRight->m_pViewData))
-            {
-                m_AllState.right.removedlines[viewLine] = m_pwndRight->m_pViewData->GetData(viewLine);
-            }
-            if ((m_pwndBottom)&&(m_pwndBottom->m_pViewData))
-            {
-                m_AllState.bottom.removedlines[viewLine] = m_pwndBottom->m_pViewData->GetData(viewLine);
-            }
-            linestoremove.push_back(i);
-        }
+        SaveUndoStep();         
+
+        //TODO: CleanEmptyLines();
+        SaveUndoStep();
+        UpdateViewLineNumbers();
     }
+
     SaveUndoStep();
-    // remove the lines at the end, to avoid problems with line indexes
-    if (linestoremove.size())
-    {
-        std::vector<LONG>::const_iterator it = linestoremove.begin();
-        int nLineToRemove = *it;
-        for ( ; it != linestoremove.end(); ++it)
-        {
-            if (m_pwndLeft)
-                m_pwndLeft->RemoveLine(nLineToRemove);
-            if (m_pwndRight)
-                m_pwndRight->RemoveLine(nLineToRemove);
-            if (m_pwndBottom)
-                m_pwndBottom->RemoveLine(nLineToRemove);
-            SetModified();
-        }
-        BuildAllScreen2ViewVector();
-    }
-    m_ptCaretPos = m_ptSelectionStartPos;
+    CUndo::GetInstance().EndGrouping();
+
+    SetModified();
+    BuildAllScreen2ViewVector();
+    SetCaretViewPosition(m_ptSelectionViewPosStart);
     UpdateGoalPos();
     ClearSelection();
     UpdateCaret();
@@ -3394,46 +3421,78 @@ void CBaseView::PasteText()
     sClipboardText.Replace('\n', '\r');
 
     // We want to undo the insertion in a single step.
+    ResetUndoStep();
     CUndo::GetInstance().BeginGrouping();
 
-    int pasteLines = 0;
-    int iStart = 0;
-    while ((iStart = sClipboardText.Find('\r', iStart))>=0)
+    POINT ptCaretViewPos = GetCaretViewPosition();
+    int nLeft = ptCaretViewPos.x;
+    int nViewLine = ptCaretViewPos.y;
+
+    std::vector<CString> lines;
+    int nStart = 0;
+    int nEolPos = 0;
+    while ((nEolPos = sClipboardText.Find('\r', nEolPos))>=0)
     {
-        pasteLines++;
-        iStart++;
+        CString sLine = sClipboardText.Mid(nStart, nEolPos-nStart);
+        lines.push_back(sLine);
+        nEolPos++;
+        nStart = nEolPos;
     }
-    CViewData leftState;
-    CViewData rightState;
-    int selStartPos = m_ptSelectionStartPos.y;
-    int viewLine = GetViewLineForScreen(selStartPos);
-    for (int i = selStartPos; i < (selStartPos + pasteLines); ++i)
+    CString sLine = sClipboardText.Mid(nStart, sClipboardText.GetLength() - nStart);
+    lines.push_back(sLine);
+
+    int nLinesToPaste = lines.size();
+    if (nLinesToPaste > 1)
     {
-        if (IsViewGood(m_pwndLeft) && !m_pwndLeft->HasCaret())
+        CString sLine = GetViewLineChars(nViewLine);
+        CString sLineLeft = sLine.Left(nLeft);
+        CString sLineRight = sLine.Right(sLine.GetLength() - nLeft);
+        if (!lines[0].IsEmpty() || !sLineRight.IsEmpty())
         {
-            leftState.AddData(m_pwndLeft->m_pViewData->GetData(GetViewLineForScreen(selStartPos)));
+            CString sNewLine = sLineLeft + lines[0];
+            SetViewLine(nViewLine, sNewLine);
+            SetViewState(nViewLine, DIFFSTATE_EDITED);
         }
-        if (IsViewGood(m_pwndRight) && !m_pwndRight->HasCaret())
+
+        int nInsertLine = nViewLine;
+        viewdata newLine(_T(""), DIFFSTATE_EDITED, 1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+        for (int i = 1; i < nLinesToPaste-1; i++) 
         {
-            rightState.AddData(m_pwndRight->m_pViewData->GetData(GetViewLineForScreen(selStartPos)));
+            newLine.sLine = lines[i];
+            InsertViewData(++nInsertLine, newLine);
         }
-        viewLine++;
-    }
+        newLine.sLine = lines[nLinesToPaste-1] + sLineRight;
+        InsertViewData(++nInsertLine, newLine);
 
-    // use the easy way to insert text:
-    // insert char by char, using the OnChar() method
-    for (int i=0; i<sClipboardText.GetLength(); ++i)
+        SaveUndoStep();
+
+         // line into multiple lines
+        if (IsViewGood(m_pwndLeft) && m_pwndLeft!=this)
+        {
+            m_pwndLeft->InsertViewEmptyLines(nViewLine+1, nLinesToPaste-1);
+        }
+        if (IsViewGood(m_pwndRight) && m_pwndRight!=this)
+        {
+            m_pwndRight->InsertViewEmptyLines(nViewLine+1, nLinesToPaste-1);
+        }
+        if (IsViewGood(m_pwndBottom) && m_pwndBottom!=this)
+        {
+            m_pwndBottom->InsertViewEmptyLines(nViewLine+1, nLinesToPaste-1);
+        }
+        SaveUndoStep();
+
+        UpdateViewLineNumbers();
+    }
+    else
     {
-        OnChar(sClipboardText[i], 0, 0);
+         // single line text - just insert it
+        CString sLine = GetViewLineChars(nViewLine);
+        sLine.Insert(nLeft, sClipboardText);
+        SetViewLine(nViewLine, sLine);
+        SetViewState(nViewLine, DIFFSTATE_EDITED);
     }
 
-    // restore the lines in the non-editing views
-    for (int i = selStartPos; i < (selStartPos + pasteLines); ++i)
-    {
-        restoreLines(m_pwndLeft, leftState, i, i-selStartPos);
-        restoreLines(m_pwndRight, rightState, i, i-m_ptSelectionStartPos.y);
-    }
-
+    SaveUndoStep();
     CUndo::GetInstance().EndGrouping();
 
     BuildAllScreen2ViewVector();
@@ -3519,16 +3578,17 @@ bool CBaseView::IsWordSeparator(wchar_t ch) const
 
 bool CBaseView::IsCaretAtWordBoundary()
 {
-    LPCTSTR line = GetLineChars(m_ptCaretPos.y);
+    POINT ptViewCaret = GetCaretViewPosition();
+    LPCTSTR line = GetViewLineChars(ptViewCaret.y);
     if (!*line)
         return false; // no boundary at the empty lines
-    if (m_ptCaretPos.x == 0)
-        return !IsWordSeparator(line[m_ptCaretPos.x]);
-    if (m_ptCaretPos.x >= GetLineLength(m_ptCaretPos.y))
-        return !IsWordSeparator(line[m_ptCaretPos.x - 1]);
+    if (ptViewCaret.x == 0)
+        return !IsWordSeparator(line[ptViewCaret.x]);
+    if (ptViewCaret.x >= GetViewLineLength(ptViewCaret.y))
+        return !IsWordSeparator(line[ptViewCaret.x - 1]);
     return
-        IsWordSeparator(line[m_ptCaretPos.x]) !=
-        IsWordSeparator(line[m_ptCaretPos.x - 1]);
+        IsWordSeparator(line[ptViewCaret.x]) !=
+        IsWordSeparator(line[ptViewCaret.x - 1]);
 }
 
 void CBaseView::UpdateViewsCaretPosition()
@@ -3573,9 +3633,9 @@ void CBaseView::MoveCaretWordRight()
 
 void CBaseView::ClearCurrentSelection()
 {
-    m_ptSelectionStartPos = m_ptCaretPos;
-    m_ptSelectionEndPos = m_ptCaretPos;
-    m_ptSelectionOrigin = m_ptCaretPos;
+    m_ptSelectionViewPosStart = GetCaretViewPosition();
+    m_ptSelectionViewPosEnd = m_ptSelectionViewPosStart;
+    m_ptSelectionViewPosOrigin = m_ptSelectionViewPosStart;
     m_nSelViewBlockStart = -1;
     m_nSelViewBlockEnd = -1;
     Invalidate(FALSE);
@@ -3593,19 +3653,20 @@ void CBaseView::ClearSelection()
 
 void CBaseView::AdjustSelection()
 {
-    if ((m_ptCaretPos.y < m_ptSelectionOrigin.y) ||
-        (m_ptCaretPos.y == m_ptSelectionOrigin.y && m_ptCaretPos.x <= m_ptSelectionOrigin.x))
+    POINT ptCaretViewPos = GetCaretViewPosition();
+    if ((ptCaretViewPos.y < m_ptSelectionViewPosOrigin.y) ||
+        (ptCaretViewPos.y == m_ptSelectionViewPosOrigin.y && ptCaretViewPos.x <= m_ptSelectionViewPosOrigin.x))
     {
-        m_ptSelectionStartPos = m_ptCaretPos;
-        m_ptSelectionEndPos = m_ptSelectionOrigin;
+        m_ptSelectionViewPosStart = ptCaretViewPos;
+        m_ptSelectionViewPosEnd = m_ptSelectionViewPosOrigin;
     }
     else
     {
-        m_ptSelectionStartPos = m_ptSelectionOrigin;
-        m_ptSelectionEndPos = m_ptCaretPos;
+        m_ptSelectionViewPosStart = m_ptSelectionViewPosOrigin;
+        m_ptSelectionViewPosEnd = ptCaretViewPos;
     }
 
-    SetupAllSelection(m_ptSelectionStartPos.y, m_ptSelectionEndPos.y);
+    SetupAllViewSelection(m_ptSelectionViewPosStart.y, m_ptSelectionViewPosEnd.y);
 
     Invalidate(FALSE);
 }
@@ -3731,23 +3792,6 @@ void CBaseView::BuildMarkedWordArray()
         else
             m_arMarkedWordLines.push_back(0);
     }
-}
-
-void CBaseView::restoreLines(CBaseView* view, CViewData& viewState, int targetIndex, int sourceIndex) const
-{
-    if (view == 0)
-        return;
-    if (view->HasCaret())
-        return;
-
-    CViewData* targetState = view->m_pViewData;
-    int targetView = GetViewLineForScreen(targetIndex);
-    int sourceView = GetViewLineForScreen(sourceIndex);
-    targetState->SetLine(targetView, viewState.GetLine(sourceView));
-    targetState->SetLineEnding(targetView, viewState.GetLineEnding(sourceView));
-    targetState->SetLineNumber(targetView, viewState.GetLineNumber(sourceView));
-    targetState->SetState(targetView, viewState.GetState(sourceView));
-    targetState->SetLineHideState(targetView, viewState.GetHideState(sourceView));
 }
 
 bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>& positions)
@@ -3994,14 +4038,12 @@ void CBaseView::OnEditSelectall()
 {
     int nLastViewLine = m_pViewData->GetCount()-1;
     SetupAllViewSelection(0, nLastViewLine);
-    m_ptSelectionStartPos.x = 0;
-    m_ptSelectionStartPos.y = 0;
 
-    int nCount = GetLineCount();
-    int nLastLine = nCount-1;
-    m_ptSelectionEndPos.y = nLastLine;
-    CString sLine = GetLineChars(nLastLine);
-    m_ptSelectionEndPos.x = sLine.GetLength();
+    m_ptSelectionViewPosStart.x = 0;
+    m_ptSelectionViewPosStart.y = 0;
+    m_ptSelectionViewPosEnd.y = nLastViewLine;
+    CString sLine = GetViewLineChars(nLastViewLine);
+    m_ptSelectionViewPosEnd.x = sLine.GetLength();
 
     UpdateWindow();
 }
@@ -4117,6 +4159,8 @@ BOOL CBaseView::GetViewSelection( int& start, int& end ) const
 int CBaseView::Screen2View::GetViewLineForScreen( int screenLine )
 {
     RebuildIfNecessary();
+    if (size() <= screenLine)
+        return 0;
     return m_Screen2View[screenLine].nViewLine;
 }
 
@@ -4129,6 +4173,8 @@ int CBaseView::Screen2View::size()
 int CBaseView::Screen2View::GetSubLineOffset( int screenLine )
 {
     RebuildIfNecessary();
+    if (size() <= screenLine)
+        return 0;
     return m_Screen2View[screenLine].nViewSubLine;
 }
 

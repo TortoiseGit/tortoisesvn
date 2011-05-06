@@ -76,7 +76,15 @@ public: // methods
     bool            HasCaret() const {return !m_bCaretHidden;}
     void            SetCaretPosition(const POINT& pt) {m_ptCaretPos = pt; m_nCaretGoalPos = pt.x; UpdateCaret();}
     POINT           GetCaretPosition() { return m_ptCaretPos; }
-    void            UpdateCaretPosition(const POINT& pt) {m_ptCaretPos = pt; UpdateCaret();}
+    void            SetCaretViewPosition(const POINT & pt) { SetCaretPosition(ConvertViewPosToScreen(pt)); };
+    POINT           GetCaretViewPosition() { return ConvertScreenPosToView(GetCaretPosition()); };
+    void            UpdateCaretPosition(const POINT& pt) { m_ptCaretPos = pt; UpdateCaret(); }
+
+    POINT           ConvertScreenPosToView(int x, int y) { POINT pt; pt.x = x; pt.y = y; return ConvertScreenPosToView(pt); }
+    POINT           ConvertScreenPosToView(const POINT& pt);
+    POINT           ConvertViewPosToScreen(int x, int y) { POINT pt; pt.x = x; pt.y = y; return ConvertViewPosToScreen(pt); }
+    POINT           ConvertViewPosToScreen(const POINT& pt);
+
     void            EnsureCaretVisible();
     void            UpdateCaret();
     void            RefreshViews();
@@ -106,7 +114,7 @@ public: // methods
     static void     ClearSelection();
     BOOL            GetViewSelection(int& start, int& end) const;
     BOOL            HasSelection() const { return (!((m_nSelViewBlockEnd < 0)||(m_nSelViewBlockStart < 0)||(m_nSelViewBlockStart > m_nSelViewBlockEnd))); }
-    BOOL            HasTextSelection() const { return ((m_ptSelectionStartPos.x != m_ptSelectionEndPos.x)||(m_ptSelectionStartPos.y != m_ptSelectionEndPos.y)); }
+    BOOL            HasTextSelection() const { return ((m_ptSelectionViewPosStart.x != m_ptSelectionViewPosEnd.x) || (m_ptSelectionViewPosStart.y != m_ptSelectionViewPosEnd.y)); }
     static void     SetupAllViewSelection(int start, int end);
     static void     SetupAllSelection(int start, int end);
     void            SetupSelection(int start, int end);
@@ -300,7 +308,7 @@ protected:  // methods
     int             CalculateActualOffset(int nLineIndex, int nCharIndex);
     int             CalculateCharIndex(int nLineIndex, int nActualOffset);
     POINT           TextToClient(const POINT& point);
-    void            DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff);
+    void            DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff, int nLineOffset=0);
     void            ClearCurrentSelection();
     void            AdjustSelection();
     bool            SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock = true, bool dryrun = false);
@@ -321,7 +329,6 @@ protected:  // methods
     bool            IsWordSeparator(wchar_t ch) const;
     bool            IsCaretAtWordBoundary();
     void            UpdateViewsCaretPosition();
-    void            restoreLines(CBaseView* view, CViewData& viewState, int targetIndex, int sourceIndex) const;
     void            BuildMarkedWordArray();
 
     virtual void    UseBothBlocks(CBaseView * /*pwndFirst*/, CBaseView * /*pwndLast*/) {};
@@ -382,9 +389,9 @@ protected:  // variables
     int             m_nCaretGoalPos;
 
     // Text selection attributes
-    POINT           m_ptSelectionStartPos;
-    POINT           m_ptSelectionEndPos;
-    POINT           m_ptSelectionOrigin;
+    POINT           m_ptSelectionViewPosStart;
+    POINT           m_ptSelectionViewPosEnd;
+    POINT           m_ptSelectionViewPosOrigin;
 
 
     HICON           m_hAddedIcon;
