@@ -2335,7 +2335,19 @@ msgid "When the update is complete, the progress dialog shows a summary of the n
 msgstr ""
 
 #. (para)
-msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50. In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. The terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which preserves the existing depth setting. You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
+msgid "The standard Update command has no options and just updates your working copy to the HEAD revision of the repository, which is the most common use case. If you want more control over the update process, you should use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to Revision...</guimenuitem></menuchoice> instead. This allows you to update your working copy to a specific revision, not only to the most recent one. Suppose your working copy is at revision 100, but you want it to reflect the state which it had in revision 50 - then simply update to revision 50."
+msgstr ""
+
+#. (para)
+msgid "In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. The terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which preserves the existing depth setting. You can also set the depth <literal>sticky</literal> which means subsequent updates will use that new depth, i.e. that depth is then used as the default depth."
+msgstr ""
+
+#. (para)
+msgid "You can also choose whether to ignore any external projects in the update (i.e. projects referenced using <literal>svn:externals</literal>)."
+msgstr ""
+
+#. (para)
+msgid "An update by default ignores local modifications to the <literal>svn:externals</literal> property. But when you made modifications to the <literal>svn:externals</literal> property, you can force the update to use those local modifications. For example if you change an external to a new tag, you might want to first update your working copy to that new tag, build the project and only commit the change to the <literal>svn:externals</literal> if the build was successful. In that situation, you have to check the box <guilabel>Apply local svn:externals modifications</guilabel>. If you modify your externals a lot, you can make this behavior the default when updating in the settings dialog. <xref linkend=\"tsvn-dug-settings-main\"/>."
 msgstr ""
 
 #. (para)
@@ -2356,22 +2368,6 @@ msgstr ""
 
 #. (para)
 msgid "If you select multiple files and folders in the explorer and then select <menuchoice><guimenuitem>Update</guimenuitem></menuchoice>, all of those files/folders are updated one by one. TortoiseSVN makes sure that all files/folders which are from the same repository are updated to the exact same revision! Even if between those updates another commit occurred."
-msgstr ""
-
-#. (title)
-msgid "Local File Already Exists"
-msgstr ""
-
-#. (para)
-msgid "Sometimes when you try to update, the update fails with a message to say that there is already a local file of the same name. This typically happens when Subversion tries to checkout a newly versioned file, and finds that an unversioned file of the same name already exists in your working folder. Subversion will never overwrite an unversioned file - it might contain something you are working on, which coincidentally has the same filename as another developer has used for his newly committed file."
-msgstr ""
-
-#. (para)
-msgid "If you get this error message, the solution is simply to rename the local unversioned file. After completing the update, you can check whether the renamed file is still needed."
-msgstr ""
-
-#. (para)
-msgid "If you keep getting error messages, use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for Modifications</guimenuitem></menuchoice> instead to list all the problem files. That way you can deal with them all at once."
 msgstr ""
 
 #. (title)
@@ -7083,6 +7079,14 @@ msgstr ""
 
 #. (para)
 msgid "Use <guibutton>Edit</guibutton> to edit the Subversion configuration file directly. Some settings cannot be modified directly by TortoiseSVN, and need to be set here instead. For more information about the Subversion <filename>config</filename> file see the <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime Configuration Area</citetitle></ulink>. The section on <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>Automatic Property Setting</citetitle></ulink> is of particular interest, and that is configured here. Note that Subversion can read configuration information from several places, and you need to know which one takes priority. Refer to <ulink url=\"http://svnbook.red-bean.com/en/1.5/svn.advanced.confarea.html#svn.advanced.confarea.windows-registry\"><citetitle>Configuration and the Windows Registry</citetitle></ulink> to find out more."
+msgstr ""
+
+#. (term)
+msgid "Apply local modifications to svn:externals when updating"
+msgstr ""
+
+#. (para)
+msgid "This option tells TortoiseSVN to always apply local modifications to the <literal>svn:externals</literal> property when updating the working copy."
 msgstr ""
 
 #. (title)
