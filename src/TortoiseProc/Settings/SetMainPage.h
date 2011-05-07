@@ -41,6 +41,15 @@ public:
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual BOOL OnApply();
+    afx_msg void OnModified();
+    afx_msg void OnBnClickedEditconfig();
+    afx_msg void OnBnClickedChecknewerbutton();
+    afx_msg void OnBnClickedSounds();
+    afx_msg void OnBnClickedCreatelib();
+    afx_msg void OnBnClickedApplyextmods();
 
     DECLARE_MESSAGE_MAP()
 
@@ -57,14 +66,6 @@ private:
     BOOL            m_bLastCommitTime;
     CRegDWORD       m_regUseAero;
     BOOL            m_bUseAero;
-
-public:
-    virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual BOOL OnApply();
-    afx_msg void OnModified();
-    afx_msg void OnBnClickedEditconfig();
-    afx_msg void OnBnClickedChecknewerbutton();
-    afx_msg void OnBnClickedSounds();
-    afx_msg void OnBnClickedCreatelib();
+    CRegDWORD       m_regApplyExtMods;
+    BOOL            m_bApplyExtMods;
 };

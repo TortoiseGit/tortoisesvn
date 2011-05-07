@@ -83,6 +83,9 @@ bool UpdateCommand::Execute()
             options |= ProgOptStickyDepth;
         if (parser.HasKey(_T("applylocalexts")))
             options |= ProgOptApplyExtMods;
+
+        CRegDWORD applyExtMods(_T("Software\\TortoiseSVN\\applyExtMods"), false);
+        options |= DWORD(applyExtMods) ? ProgOptApplyExtMods : 0;
     }
 
     CSVNProgressDlg progDlg;
