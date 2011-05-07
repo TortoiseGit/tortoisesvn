@@ -156,6 +156,16 @@
                 </para>
             </listitem>
         </varlistentry>
+        <varlistentry>
+            <term>Apply local modifications to svn:externals when updating</term>
+            <listitem>
+                <para>
+                    This option tells TortoiseSVN to always apply local
+                    modifications to the <literal>svn:externals</literal> property
+                    when updating the working copy.
+                </para>
+            </listitem>
+        </varlistentry>
     </variablelist>
     <sect3 id="tsvn-dug-settings-look-feel">
         <title>Context Menu Settings</title>

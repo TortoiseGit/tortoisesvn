@@ -113,12 +113,30 @@
         Suppose your working copy is at revision 100, but you want it
         to reflect the state which it had in revision 50 -
         then simply update to revision 50.
+    </para>
+    <para>
         In the same dialog you can also choose the <firstterm>depth</firstterm>
         at which to update the current folder. The terms used are described
         in <xref linkend="tsvn-dug-checkout-depth"/>. The default depth is
         <guilabel>Working copy</guilabel>, which preserves the existing depth setting.
+        You can also set the depth <literal>sticky</literal> which means
+        subsequent updates will use that new depth, i.e. that depth is then
+        used as the default depth.
+    </para>
+    <para>
         You can also choose whether to ignore any external projects in the update
         (i.e. projects referenced using <literal>svn:externals</literal>).
+    </para>
+    <para>
+        An update by default ignores local modifications to the <literal>svn:externals</literal>
+        property. But when you made modifications to the <literal>svn:externals</literal>
+        property, you can force the update to use those local modifications. For example
+        if you change an external to a new tag, you might want to first update
+        your working copy to that new tag, build the project and only commit
+        the change to the <literal>svn:externals</literal> if the build was successful.
+        In that situation, you have to check the box <guilabel>Apply local svn:externals modifications</guilabel>.
+        If you modify your externals a lot, you can make this behavior the default
+        when updating in the settings dialog. <xref linkend="tsvn-dug-settings-main"/>.
     </para>
     <caution>
         <para>
@@ -165,32 +183,6 @@
             are updated one by one. TortoiseSVN makes sure that all files/folders
             which are from the same repository are updated to the exact same
             revision! Even if between those updates another commit occurred.
-        </para>
-    </tip>
-    <tip>
-        <title>Local File Already Exists</title>
-        <para>
-            Sometimes when you try to update, the update fails with a message to
-            say that there is already a local file of the same name. This typically
-            happens when Subversion tries to checkout a newly versioned file, and finds
-            that an unversioned file of the same name already exists in your working
-            folder. Subversion will never overwrite an unversioned file - it might
-            contain something you are working on, which coincidentally has the same
-            filename as another developer has used for his newly committed file.
-        </para>
-        <para>
-            If you get this error message, the solution is simply to rename the local
-            unversioned file. After completing the update, you can check whether
-            the renamed file is still needed.
-        </para>
-        <para>
-            If you keep getting error messages, use
-            <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Check for Modifications</guimenuitem>
-            </menuchoice>
-            instead to list all the problem files. That way you can deal with them
-            all at once.
         </para>
     </tip>
 </sect1>
