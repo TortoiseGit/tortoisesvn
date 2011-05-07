@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,7 +43,7 @@ public:
     virtual bool                Execute();
 protected:
     static UINT_PTR CALLBACK    CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM lParam);
-    bool                        CreatePatch(const CTSVNPath& root, const CTSVNPathList& path, const CTSVNPath& savepath);
+    bool                        CreatePatch(const CTSVNPath& root, const CTSVNPathList& path, const CString& diffoptions, const CTSVNPath& savepath);
 };
 
 

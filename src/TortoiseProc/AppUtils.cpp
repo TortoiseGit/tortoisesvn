@@ -769,7 +769,8 @@ CString CAppUtils::GetProjectNameFromURL(CString url)
 
 bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1,
                                      const CTSVNPath& url2, const SVNRev& rev2,
-                                     const SVNRev& peg /* = SVNRev */, const SVNRev& headpeg /* = SVNRev */,
+                                     const SVNRev& peg, const SVNRev& headpeg,
+                                     const CString& options,
                                      bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, bool /* blame = false */)
 {
     CString sCmd = _T("/command:showcompare /unified");
@@ -783,6 +784,9 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
         sCmd += _T(" /pegrevision:") + peg.ToString();
     if (headpeg.IsValid())
         sCmd += _T(" /headpegrevision:") + headpeg.ToString();
+
+    if (!options.IsEmpty())
+        sCmd += L" /diffoptions:\"" + options + L"\"";
 
     if (bAlternateDiff)
         sCmd += _T(" /alternatediff");
@@ -803,7 +807,8 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
 
 bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1,
                                  const CTSVNPath& url2, const SVNRev& rev2,
-                                 const SVNRev& peg /* = SVNRev */, const SVNRev& headpeg /* = SVNRev */,
+                                 const SVNRev& peg, const SVNRev& headpeg,
+                                 const CString& options,
                                  bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */,
                                  bool blame /* = false */, svn_node_kind_t nodekind /* = svn_node_unknown */,
                                  int line /* = 0 */)
@@ -820,6 +825,8 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
         sCmd += _T(" /pegrevision:") + peg.ToString();
     if (headpeg.IsValid())
         sCmd += _T(" /headpegrevision:") + headpeg.ToString();
+    if (!options.IsEmpty())
+        sCmd += L" /diffoptions:\"" + options + L"\"";
     if (bAlternateDiff)
         sCmd += _T(" /alternatediff");
     if (bIgnoreAncestry)

@@ -55,6 +55,7 @@
 #include "svntrace.h"
 #include "FormatMessageWrapper.h"
 #include "AsyncCall.h"
+#include "DiffOptionsDlg.h"
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
                     = ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -3108,12 +3109,19 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     }
                     else
                     {
+                        CString options;
+                        if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+                        {
+                            CDiffOptionsDlg dlg(this);
+                            if (dlg.DoModal() == IDOK)
+                                options = dlg.GetDiffOptionsString();
+                        }
                         SVNDiff diff(NULL, this->m_hWnd, true);
 
                         if (entry->remotestatus <= svn_wc_status_normal)
-                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC);
+                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC, SVNRev(), SVNRev(), options);
                         else
-                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD);
+                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD, SVNRev(), SVNRev(), options);
                     }
                 }
                 break;

@@ -234,7 +234,7 @@ bool SVNDiff::DiffFileAgainstBase(
     return retvalue;
 }
 
-bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg /* = SVNRev() */, bool bIgnoreAncestry /* = false */)
+bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg, const CString& options, bool bIgnoreAncestry /* = false */)
 {
     tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, CTSVNPath(_T("Test.diff")));
     bool bIsUrl = !!SVN::PathIsURL(url1);
@@ -248,7 +248,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     progDlg.ShowModeless(GetHWND());
     if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
     {
-        if (!m_pSVN->Diff(url1, rev1, url2, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, _T(""), bIgnoreAncestry, tempfile))
+        if (!m_pSVN->Diff(url1, rev1, url2, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, options, bIgnoreAncestry, tempfile))
         {
             progDlg.Stop();
             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -258,9 +258,9 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     }
     else
     {
-        if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, _T(""), false, tempfile))
+        if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, options, false, tempfile))
         {
-            if (!m_pSVN->Diff(url1, rev1, url2, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, _T(""), false, tempfile))
+            if (!m_pSVN->Diff(url1, rev1, url2, rev2, CTSVNPath(), svn_depth_infinity, true, false, false, false, false, options, false, tempfile))
             {
                 progDlg.Stop();
                 m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -283,12 +283,13 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 
 bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
                               const CTSVNPath& url2, const SVNRev& rev2,
-                              SVNRev peg /* = SVNRev() */,
+                              SVNRev peg,
+                              const CString& options,
                               bool bIgnoreAncestry /* = false */,
                               bool /*blame*/)
 {
     CTSVNPath tempfile;
-    if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, peg, bIgnoreAncestry))
+    if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, peg, options, bIgnoreAncestry))
     {
         CString title;
         CTSVNPathList list;
@@ -310,7 +311,8 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
 
 bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                           const CTSVNPath& url2, const SVNRev& rev2,
-                          SVNRev peg /* = SVNRev() */,
+                          SVNRev peg,
+                          const CString& options,
                           bool ignoreancestry /* = false */,
                           bool blame /* = false */,
                           svn_node_kind_t nodekind /* = svn_node_unknown */)
@@ -381,7 +383,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
         {
             if (rev1.IsWorking())
             {
-                if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC)))
+                if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), options))
                 {
                     CString sWC;
                     sWC.LoadString(IDS_DIFF_WORKINGCOPY);
@@ -425,11 +427,11 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
             CBlame blamer;
             if (blame)
             {
-                if (!blamer.BlameToFile(url1, 1, rev1, peg.IsValid() ? peg : rev1, tempfile1, _T(""), TRUE, TRUE))
+                if (!blamer.BlameToFile(url1, 1, rev1, peg.IsValid() ? peg : rev1, tempfile1, options, TRUE, TRUE))
                 {
                     if ((peg.IsValid())&&(blamer.GetSVNError()->apr_err != SVN_ERR_CLIENT_IS_BINARY_FILE))
                     {
-                        if (!blamer.BlameToFile(url1, 1, rev1, rev1, tempfile1, _T(""), TRUE, TRUE))
+                        if (!blamer.BlameToFile(url1, 1, rev1, rev1, tempfile1, options, TRUE, TRUE))
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -481,11 +483,11 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
             progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url2.GetUIPathString(), (LPCTSTR)rev2.ToString());
             if (blame)
             {
-                if (!blamer.BlameToFile(url2, 1, rev2, peg.IsValid() ? peg : rev2, tempfile2, _T(""), TRUE, TRUE))
+                if (!blamer.BlameToFile(url2, 1, rev2, peg.IsValid() ? peg : rev2, tempfile2, options, TRUE, TRUE))
                 {
                     if (peg.IsValid())
                     {
-                        if (!blamer.BlameToFile(url2, 1, rev2, rev2, tempfile2, _T(""), TRUE, TRUE))
+                        if (!blamer.BlameToFile(url2, 1, rev2, rev2, tempfile2, options, TRUE, TRUE))
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -563,7 +565,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
         // compare with working copy
         if (PathIsDirectory(url1.GetWinPath()))
         {
-            if (UnifiedDiff(tempfile, url1, rev1, url1, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC)))
+            if (UnifiedDiff(tempfile, url1, rev1, url1, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), options))
             {
                 CString sWC, sRev;
                 sWC.LoadString(IDS_DIFF_WORKINGCOPY);
@@ -591,11 +593,11 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
             if (blame)
             {
                 CBlame blamer;
-                if (!blamer.BlameToFile(url1, 1, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), tempfile, _T(""), TRUE, TRUE))
+                if (!blamer.BlameToFile(url1, 1, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), tempfile, options, TRUE, TRUE))
                 {
                     if (peg.IsValid())
                     {
-                        if (!blamer.BlameToFile(url1, 1, rev2, SVNRev::REV_WC, tempfile, _T(""), TRUE, TRUE))
+                        if (!blamer.BlameToFile(url1, 1, rev2, SVNRev::REV_WC, tempfile, options, TRUE, TRUE))
                         {
                             progDlg.Stop();
                             m_pSVN->SetAndClearProgressInfo((HWND)NULL);
@@ -615,7 +617,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1,
                 m_pSVN->SetAndClearProgressInfo((HWND)NULL);
                 SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
                 CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, url1);
-                if (!blamer.BlameToFile(url1, 1, SVNRev::REV_WC, SVNRev::REV_WC, tempfile2, _T(""), TRUE, TRUE))
+                if (!blamer.BlameToFile(url1, 1, SVNRev::REV_WC, SVNRev::REV_WC, tempfile2, options, TRUE, TRUE))
                 {
                     progDlg.Stop();
                     m_pSVN->SetAndClearProgressInfo((HWND)NULL);

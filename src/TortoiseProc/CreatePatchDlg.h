@@ -46,6 +46,8 @@ protected:
     afx_msg void OnBnClickedHelp();
     afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
     afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
+    afx_msg void OnTimer(UINT_PTR nIDEvent);
+    afx_msg void OnBnClickedDiffoptions();
 
     DECLARE_MESSAGE_MAP()
 
@@ -72,5 +74,6 @@ public:
      * the patch, but then must be reverted later.
      */
     CTSVNPathList       m_filesToRevert;
-    afx_msg void OnTimer(UINT_PTR nIDEvent);
+
+    CString             m_sDiffOptions;
 };

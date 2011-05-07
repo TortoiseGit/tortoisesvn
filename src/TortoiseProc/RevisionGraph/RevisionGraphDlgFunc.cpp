@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -344,12 +344,12 @@ void CRevisionGraphWnd::CompareRevs(bool bHead)
     {
         SVNDiff diff (svn.get(), this->m_hWnd);
         diff.SetAlternativeTool (alternativeTool);
-        diff.ShowCompare (url1, rev1, url2, rev2, peg);
+        diff.ShowCompare (url1, rev1, url2, rev2, peg, L"");
     }
     else
     {
         CAppUtils::StartShowCompare (m_hWnd, url1, rev1,
-            url2, rev2, peg, SVNRev(), alternativeTool);
+            url2, rev2, peg, SVNRev(), L"", alternativeTool);
     }
 }
 
@@ -374,13 +374,13 @@ void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
     {
         SVNDiff diff (svn.get(), this->m_hWnd);
         diff.SetAlternativeTool (alternativeTool);
-        diff.ShowUnifiedDiff (url1, rev1, url2, rev2, peg);
+        diff.ShowUnifiedDiff (url1, rev1, url2, rev2, peg, L"");
     }
     else
     {
         CAppUtils::StartShowUnifiedDiff(m_hWnd, url1, rev1,
             url2, rev2, peg,
-            SVNRev(), alternativeTool);
+            SVNRev(), L"", alternativeTool);
     }
 }
 

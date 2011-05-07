@@ -45,7 +45,7 @@ bool CreatePatchCommand::Execute()
         {
             cmdLinePath = pathList.GetCommonRoot();
         }
-        bRet = CreatePatch(cmdLinePath.GetDirectory(), dlg.m_pathList, CTSVNPath(savepath));
+        bRet = CreatePatch(cmdLinePath.GetDirectory(), dlg.m_pathList, dlg.m_sDiffOptions, CTSVNPath(savepath));
         SVN svn;
         svn.Revert(dlg.m_filesToRevert, CStringArray(), false);
     }
@@ -67,7 +67,7 @@ UINT_PTR CALLBACK CreatePatchCommand::CreatePatchFileOpenHook(HWND hDlg, UINT ui
     return 0;
 }
 
-bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList& paths, const CTSVNPath& cmdLineSavePath)
+bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList& paths, const CString& diffoptions, const CTSVNPath& cmdLineSavePath)
 {
     CTSVNPath savePath;
     BOOL gitFormat = false;
@@ -260,7 +260,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
     for (int fileindex = 0; fileindex < paths.GetCount(); ++fileindex)
     {
         svn_depth_t depth = paths[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
-        if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, false, false, true, false, !!gitFormat, _T(""), true, tempPatchFilePath))
+        if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, false, false, true, false, !!gitFormat, diffoptions, true, tempPatchFilePath))
         {
             progDlg.Stop();
             svn.ShowErrorDialog(GetExplorerHWND(), paths[fileindex]);

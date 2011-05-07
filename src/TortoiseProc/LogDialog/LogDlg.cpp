@@ -56,6 +56,7 @@
 #include "svntrace.h"
 #include "LogDlgFilter.h"
 #include "SVNLogHelper.h"
+#include "DiffOptionsDlg.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
 
@@ -2091,11 +2092,11 @@ void CLogDlg::DiffSelectedRevWithPrevious()
         SVNDiff diff(this, m_hWnd, true);
         diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
         diff.SetHEADPeg(m_LogRevision);
-        diff.ShowCompare(path, rev2, path, rev1, SVNRev(), false, false, m_path.IsDirectory() && (nChanged != 1) ? svn_node_dir : svn_node_file);
+        diff.ShowCompare(path, rev2, path, rev1, SVNRev(), L"", false, false, m_path.IsDirectory() && (nChanged != 1) ? svn_node_dir : svn_node_file);
     }
     else
     {
-        CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, m_path.IsDirectory() && (nChanged != 1) ? svn_node_dir : svn_node_file);
+        CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(), m_LogRevision, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, m_path.IsDirectory() && (nChanged != 1) ? svn_node_dir : svn_node_file);
     }
 
     theApp.DoWaitCursor(-1);
@@ -2159,14 +2160,21 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
     diff.SetHEADPeg(rev1);
     if (unified)
     {
+        CString options;
+        if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+        {
+            CDiffOptionsDlg dlg(this);
+            if (dlg.DoModal() == IDOK)
+                options = dlg.GetDiffOptionsString();
+        }
         if (PromptShown())
-            diff.ShowUnifiedDiff(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1);
+            diff.ShowUnifiedDiff(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), options);
         else
-            CAppUtils::StartShowUnifiedDiff(m_hWnd, CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), m_LogRevision);
+            CAppUtils::StartShowUnifiedDiff(m_hWnd, CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), m_LogRevision, options);
     }
     else
     {
-        if (diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), false, blame, nodekind))
+        if (diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), L"", false, blame, nodekind))
         {
             if (firstfile.Compare(secondfile)==0)
             {
@@ -4489,14 +4497,21 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
         {
         case ID_GNUDIFF1:
             {
+                CString options;
+                if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+                {
+                    CDiffOptionsDlg dlg(this);
+                    if (dlg.DoModal() == IDOK)
+                        options = dlg.GetDiffOptionsString();
+                }
                 if (PromptShown())
                 {
                     SVNDiff diff(this, this->m_hWnd, true);
                     diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowUnifiedDiff(m_path, revPrevious, m_path, revSelected);
+                    diff.ShowUnifiedDiff(m_path, revPrevious, m_path, revSelected, SVNRev(), options);
                 }
                 else
-                    CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, revPrevious, m_path, revSelected, SVNRev(), m_LogRevision);
+                    CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, revPrevious, m_path, revSelected, SVNRev(), m_LogRevision, options);
             }
             break;
         case ID_GNUDIFF2:
@@ -4508,14 +4523,21 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     r1 = revHighest;
                     r2 = revLowest;
                 }
+                CString options;
+                if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+                {
+                    CDiffOptionsDlg dlg(this);
+                    if (dlg.DoModal() == IDOK)
+                        options = dlg.GetDiffOptionsString();
+                }
                 if (PromptShown())
                 {
                     SVNDiff diff(this, this->m_hWnd, true);
                     diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowUnifiedDiff(m_path, r2, m_path, r1);
+                    diff.ShowUnifiedDiff(m_path, r2, m_path, r1, SVNRev(), options);
                 }
                 else
-                    CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, r2, m_path, r1, SVNRev(), m_LogRevision);
+                    CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, r2, m_path, r1, SVNRev(), m_LogRevision, options);
             }
             break;
         case ID_REVERTREV:
@@ -4671,10 +4693,10 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     SVNDiff diff(this, m_hWnd, true);
                     diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
                     diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, revSelected);
+                    diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, revSelected, SVNRev(), L"");
                 }
                 else
-                    CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_WC, m_path, revSelected, SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+                    CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_WC, m_path, revSelected, SVNRev(), m_LogRevision, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             }
             break;
         case ID_COMPARETWO:
@@ -4697,11 +4719,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     SVNDiff diff(this, m_hWnd, true);
                     diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
                     diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, SVNRev(), false, false, nodekind);
+                    diff.ShowCompare(CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, SVNRev(), L"", false, false, nodekind);
                 }
                 else
                     CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1,
-                                                SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
+                                                SVNRev(), m_LogRevision, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
                                                 false, false, nodekind);
             }
             break;
@@ -4717,11 +4739,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     SVNDiff diff(this, m_hWnd, true);
                     diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
                     diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, false, nodekind);
+                    diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), L"", false, false, nodekind);
                 }
                 else
                     CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected,
-                                                SVNRev(), m_LogRevision, !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
+                                                SVNRev(), m_LogRevision, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
                                                 false, false, nodekind);
             }
             break;
@@ -4751,11 +4773,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 {
                     SVNDiff diff(this, this->m_hWnd, true);
                     diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), false, true, nodekind);
+                    diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), L"", false, true, nodekind);
                 }
                 else
                     CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected,
-                                                SVNRev(), m_LogRevision, false, false, true, nodekind);
+                                                SVNRev(), m_LogRevision, L"", false, false, true, nodekind);
             }
             break;
         case ID_BLAMEWITHPREVIOUS:
@@ -4770,11 +4792,11 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 {
                     SVNDiff diff(this, this->m_hWnd, true);
                     diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), false, true, nodekind);
+                    diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), L"", false, true, nodekind);
                 }
                 else
                     CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected,
-                                                SVNRev(), m_LogRevision, false, false, true, nodekind);
+                                                SVNRev(), m_LogRevision, L"", false, false, true, nodekind);
             }
             break;
         case ID_SAVEAS:

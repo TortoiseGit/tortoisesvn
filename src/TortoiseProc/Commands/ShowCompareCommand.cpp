@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010 - TortoiseSVN
+// Copyright (C) 2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,6 +30,7 @@ bool ShowCompareCommand::Execute()
     SVNRev      rev2;
     SVNRev      pegrev;
     SVNRev      headpeg;
+    CString     diffoptions;
     svn_node_kind_t nodekind = svn_node_unknown;
 
     CTSVNPath   url1 = CTSVNPath(parser.GetVal(_T("url1")));
@@ -46,15 +47,17 @@ bool ShowCompareCommand::Execute()
         pegrev = SVNRev(parser.GetVal(_T("pegrevision")));
     if (parser.HasVal(_T("headpegrevision")))
         diff.SetHEADPeg(SVNRev(parser.GetVal(_T("headpegrevision"))));
+    if (parser.HasVal(L"diffoptions"))
+        diffoptions = parser.GetVal(L"diffoptions");
     diff.SetAlternativeTool(!!parser.HasKey(_T("alternatediff")));
     if (parser.HasVal(_T("nodekind")))
         nodekind = (svn_node_kind_t)parser.GetLongVal(_T("nodekind"));
     diff.SetJumpLine(parser.GetLongVal(_T("line")));
 
     if (unified)
-        bRet = diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, ignoreancestry);
+        bRet = diff.ShowUnifiedDiff(url1, rev1, url2, rev2, pegrev, diffoptions, ignoreancestry);
     else
-        bRet = diff.ShowCompare(url1, rev1, url2, rev2, pegrev, ignoreancestry, blame, nodekind);
+        bRet = diff.ShowCompare(url1, rev1, url2, rev2, pegrev, diffoptions, ignoreancestry, blame, nodekind);
 
     return bRet;
 }

@@ -51,6 +51,7 @@
 #include "RepositoryBrowserSelection.h"
 #include "Commands\EditFileCommand.h"
 #include "AsyncCall.h"
+#include "DiffOptionsDlg.h"
 
 #define OVERLAY_EXTERNAL        1
 
@@ -3586,26 +3587,32 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 const CTSVNPath& path = selection.GetURLEscaped (0, 0);
                 const SVNRev& revision = selection.GetRepository (0).revision;
-
+                CString options;
+                if (GetKeyState(VK_SHIFT)&0x8000)
+                {
+                    CDiffOptionsDlg dlg;
+                    if (dlg.DoModal() == IDOK)
+                        options = dlg.GetDiffOptionsString();
+                }
                 SVNDiff diff(this, this->m_hWnd, true);
                 if (selection.GetPathCount(0) == 1)
                 {
                     if (PromptShown())
                         diff.ShowUnifiedDiff (path, revision,
-                                            CTSVNPath(EscapeUrl(m_diffURL)), revision);
+                                            CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), options);
                     else
                         CAppUtils::StartShowUnifiedDiff(m_hWnd, path, revision,
-                                            CTSVNPath(EscapeUrl(m_diffURL)), revision);
+                                            CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), SVNRev(), options);
                 }
                 else
                 {
                     const CTSVNPath& path2 = selection.GetURLEscaped (0, 1);
                     if (PromptShown())
                         diff.ShowUnifiedDiff(path, revision,
-                                            path2, revision);
+                                            path2, revision, SVNRev(), options);
                     else
                         CAppUtils::StartShowUnifiedDiff(m_hWnd, path, revision,
-                                            path2, revision);
+                                            path2, revision, SVNRev(), SVNRev(), options);
                 }
             }
             break;
@@ -3621,10 +3628,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 {
                     if (PromptShown())
                         diff.ShowCompare(path, revision,
-                        CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
+                        CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), L"", true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
                     else
                         CAppUtils::StartShowCompare(m_hWnd, path, revision,
-                                        CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), SVNRev(),
+                                        CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), SVNRev(), L"",
                                         !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
                 }
                 else
@@ -3632,10 +3639,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     const CTSVNPath& path2 = selection.GetURLEscaped (0, 1);
                     if (PromptShown())
                         diff.ShowCompare(path, revision,
-                                        path2, revision, SVNRev(), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
+                                        path2, revision, SVNRev(), L"", true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
                     else
                         CAppUtils::StartShowCompare(m_hWnd, path, revision,
-                                        path2, revision, SVNRev(), SVNRev(),
+                                        path2, revision, SVNRev(), SVNRev(), L"", 
                                         !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
                 }
             }

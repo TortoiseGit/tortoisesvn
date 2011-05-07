@@ -22,6 +22,7 @@
 #include "MessageBox.h"
 #include "CreatePatchDlg.h"
 #include "SVN.h"
+#include "DiffOptionsDlg.h"
 
 #define REFRESHTIMER   100
 
@@ -54,6 +55,7 @@ BEGIN_MESSAGE_MAP(CCreatePatch, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
     ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
     ON_WM_TIMER()
+    ON_BN_CLICKED(IDC_DIFFOPTIONS, &CCreatePatch::OnBnClickedDiffoptions)
 END_MESSAGE_MAP()
 
 BOOL CCreatePatch::OnInitDialog()
@@ -63,6 +65,7 @@ BOOL CCreatePatch::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST);
     m_aeroControls.SubclassControl(this, IDC_SHOWUNVERSIONED);
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);
+    m_aeroControls.SubclassControl(this, IDC_DIFFOPTIONS);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
@@ -319,4 +322,13 @@ void CCreatePatch::OnTimer(UINT_PTR nIDEvent)
         break;
     }
     __super::OnTimer(nIDEvent);
+}
+
+void CCreatePatch::OnBnClickedDiffoptions()
+{
+    CDiffOptionsDlg dlg(this);
+    if (dlg.DoModal() == IDOK)
+        m_sDiffOptions = dlg.GetDiffOptionsString();
+    else
+        m_sDiffOptions.Empty();
 }
