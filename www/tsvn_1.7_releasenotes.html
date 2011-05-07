@@ -40,6 +40,8 @@
                       >Revision graph</a></li>
                   <li><a href="#branchtag"
                       >Branch/Tag dialog</a></li>
+                  <li><a href="#updateexternals"
+                      >Updating and externals</a></li>
                   <li><a href="#commitdlg"
                       >Commit dialog</a></li>
                   <li><a href="#repobrowser"
@@ -218,6 +220,21 @@
                 original value.</p>
             </div>  <!-- branchtag -->
 
+            <div class="post" id="updateexternals" title="updateexternals">
+                <h2>Updating and externals</h2>
+                <p>The default behavior when updating changed slightly
+                in 1.7. &mdash; In previous versions local modifications
+                to an <code>svn:externals</code> property were always
+                used when updating. In 1.7 however, local modifications
+                are not respected by default for performance reasons.</p>
+                <p>You have to use the <code>Update to revision</code>
+                dialog to update your working copy so that your uncomitted
+                changes to the <code>svn:externals</code> property is respected.</p>
+                <p>For those of you who often modify the externals properties,
+                there's an option in the settings dialog to change the default
+                behavior of the update.</p>
+            </div>  <!-- updateexternals -->
+            
             <div class="post" id="commitdlg" title="commitdlg">
                 <h2>Commit dialog</h2>
                 <p>The commit dialog got a few UI changes as well. The first
