@@ -53,7 +53,7 @@ END_MESSAGE_MAP()
 
 CString CDiffOptionsDlg::GetDiffOptionsString()
 {
-    return SVN::GetOptionsString(m_bIgnoreEOLs, m_bIgnoreWhitespaces, m_bIgnoreAllWhitespaces);
+    return SVN::GetOptionsString(!!m_bIgnoreEOLs, !!m_bIgnoreWhitespaces, !!m_bIgnoreAllWhitespaces);
 }
 
 BOOL CDiffOptionsDlg::OnInitDialog()
