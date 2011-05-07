@@ -293,6 +293,7 @@
     <ClCompile Include="..\Utils\JumpListHelpers.cpp" />
     <ClCompile Include="..\Utils\ListViewAccServer.cpp" />
     <ClCompile Include="Commands\CreateRepositoryCommand.cpp" />
+    <ClCompile Include="DiffOptionsDlg.cpp" />
     <ClCompile Include="LogFile.cpp" />
     <ClCompile Include="..\Utils\PathUtils.cpp" />
     <ClCompile Include="..\Utils\PathWatcher.cpp" />
@@ -772,6 +773,7 @@
     <ClInclude Include="..\Utils\JumpListHelpers.h" />
     <ClInclude Include="..\Utils\ListViewAccServer.h" />
     <ClInclude Include="Commands\WcUpgradeCommand.h" />
+    <ClInclude Include="DiffOptionsDlg.h" />
     <ClInclude Include="LogFile.h" />
     <ClInclude Include="..\Utils\PathUtils.h" />
     <ClInclude Include="..\Utils\PathWatcher.h" />
