@@ -43,7 +43,7 @@ bool PrevDiffCommand::Execute()
         st.GetStatus(cmdLinePath);
         if (st.status && st.status->changed_rev)
         {
-            bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, cmdLinePath, st.status->changed_rev - 1, st.status->changed_rev, false, false, st.status->kind);
+            bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, cmdLinePath, st.status->changed_rev - 1, st.status->changed_rev, L"", false, false, st.status->kind);
         }
         else
         {
