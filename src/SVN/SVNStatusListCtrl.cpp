@@ -2361,7 +2361,9 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
     fileop.pFrom = buf;
     fileop.pTo = NULL;
     fileop.fAnyOperationsAborted = FALSE;
-    fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | ((GetAsyncKeyState(VK_SHIFT) & 0x8000) ? 0 : FOF_ALLOWUNDO);
+    bool useTrash = DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)) != 0;
+    useTrash = useTrash && (GetAsyncKeyState(VK_SHIFT) & 0x8000) == 0;
+    fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | (useTrash ? FOF_ALLOWUNDO : 0);
     fileop.lpszProgressTitle = _T("deleting file");
     int result = SHFileOperation(&fileop);
 
