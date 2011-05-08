@@ -933,7 +933,7 @@ void CMainFrame::OnViewTextFoldUnfold(CBaseView* view)
 {
     if (view == 0)
         return;
-    view->BuildScreen2ViewVector();
+    view->BuildAllScreen2ViewVector();
     view->UpdateCaret();
     view->Invalidate();
     if (view->HasCaret())

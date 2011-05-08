@@ -88,11 +88,11 @@ public: // methods
     void            EnsureCaretVisible();
     void            UpdateCaret();
     void            RefreshViews();
-    void            BeginBuildAllScreen2ViewVector();
-    static void     BeginBuildAllScreen2ViewVector(CBaseView* view);
-    static void     BuildAllScreen2ViewVector();
-    void            BuildScreen2ViewVector();
+    static void     BuildAllScreen2ViewVector();                               ///< schedule full screen2view rebuild
+    static void     BuildAllScreen2ViewVector(int ViewLine);                   ///< schedule rebuild screen2view for single line
+    static void     BuildAllScreen2ViewVector(int FirstViewLine, int LastViewLine); ///< schedule rebuild screen2view for line range (first and last inclusive)
     void            UpdateViewLineNumbers();
+    int             CleanEmptyLines();                                         ///< remove line empty in all views
     int             GetLineCount() const;
     static int      GetViewLineForScreen(int screenLine) { return m_Screen2View.GetViewLineForScreen(screenLine); }
     int             FindScreenLineForViewLine(int viewLine);
@@ -173,6 +173,7 @@ public: // methods
     void            SetViewLineEnding(int index, EOL ending);
 
     static bool     IsViewGood(const CBaseView* view ) { return (view != 0) && view->IsWindowVisible(); }
+    static CBaseView * GetFirstGoodView();
 
 public: // variables
     CViewData *     m_pViewData;
@@ -376,8 +377,8 @@ protected:  // variables
     bool            m_bInlineWordDiff;
 
     // Block selection attributes
-    int             m_nSelViewBlockStart; 
-    int             m_nSelViewBlockEnd; 
+    int             m_nSelViewBlockStart;
+    int             m_nSelViewBlockEnd;
 
     int             m_nMouseLine;
     bool            m_mouseInMargin;
@@ -436,12 +437,12 @@ protected:  // variables
     static CBaseView * m_pwndRight;     ///< Pointer to the right view. Must be set by the CRightView parent class.
     static CBaseView * m_pwndBottom;    ///< Pointer to the bottom view. Must be set by the CBottomView parent class.
 
-    struct TScreenLineInfo 
+    struct TScreenLineInfo
     {
         int nViewLine;
         int nViewSubLine;
     };
-    class TScreenedViewLine 
+    class TScreenedViewLine
     {
      public:
         TScreenedViewLine()
@@ -500,19 +501,31 @@ protected:  // variables
     public:
         Screen2View()
             : m_pViewData(NULL)
-        {}
+        {m_bFull=false; }
 
         int             GetViewLineForScreen(int screenLine);
         int             GetSubLineOffset(int screenLine);
         TScreenLineInfo GetScreenLineInfo(int screenLine);
         int             FindScreenLineForViewLine(int viewLine);
-        void            Rebuild(CViewData * pViewData) { m_pViewData = pViewData; }
+        void            ScheduleFullRebuild(CViewData * ViewData);
+        void            ScheduleRangeRebuild(CViewData * ViewData, int FirstViewLine, int LastViewLine);
         int             size();
-        void            push_back(TScreenLineInfo val);
+
     private:
+        struct TRebuildRange
+        {
+            int FirstViewLine;
+            int LastViewLine;
+        };
+
         void            RebuildIfNecessary();
+        bool            ResetScreenedViewLineCache(CBaseView* View);
+        bool            ResetScreenedViewLineCache(CBaseView* View, const TRebuildRange& Range);
+
         CViewData *                     m_pViewData;
+        bool                            m_bFull;
         std::vector<TScreenLineInfo>    m_Screen2View;
+        std::vector<TRebuildRange>      m_RebuildRanges;
     };
 
     static Screen2View m_Screen2View;

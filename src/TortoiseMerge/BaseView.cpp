@@ -694,7 +694,7 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
         bIdentical = true;
         return false;
     }
-    
+
     if (mine == other)
     {
         bIdentical = true;
@@ -2173,7 +2173,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             int nViewLine = GetViewLineForScreen(nLine);
             if (((nViewLine < nViewBlockStart) || (nViewBlockEnd < nViewLine)))
             {
-                ClearSelection(); // Clear text-copy selection 
+                ClearSelection(); // Clear text-copy selection
 
                 nViewBlockStart = nViewLine;
                 nViewBlockEnd = nViewLine;
@@ -2263,7 +2263,7 @@ void CBaseView::HighlightLines(int nStart, int nEnd /* = -1 */)
     Invalidate();
 }
 
-void CBaseView::SetupAllViewSelection(int start, int end) 
+void CBaseView::SetupAllViewSelection(int start, int end)
 {
     SetupViewSelection(m_pwndBottom, start, end);
     SetupViewSelection(m_pwndLeft, start, end);
@@ -3093,16 +3093,16 @@ POINT CBaseView::ConvertScreenPosToView(const POINT& pt)
     ptViewPos.x = pt.x;
 
     int nSubLine = GetSubLineOffset(pt.y);
-    if (nSubLine > 0) 
+    if (nSubLine > 0)
+    {
+        for (int nScreenLine = pt.y-1; nScreenLine >= pt.y-nSubLine; nScreenLine--)
         {
-            for (int nScreenLine = pt.y-1; nScreenLine >= pt.y-nSubLine; nScreenLine--)
-            {
-                ptViewPos.x += GetLineChars(nScreenLine).GetLength();
-            }
+            ptViewPos.x += GetLineChars(nScreenLine).GetLength();
         }
+    }
 
     ptViewPos.y = GetViewLineForScreen(pt.y);
-    return ptViewPos; 
+    return ptViewPos;
 }
 
 POINT CBaseView::ConvertViewPosToScreen(const POINT& pt)
@@ -3116,7 +3116,7 @@ POINT CBaseView::ConvertViewPosToScreen(const POINT& pt)
     }
 
     int nLine = FindScreenLineForViewLine(pt.y);
-    if (GetViewLineForScreen(nLine) != pt.y ) 
+    if (GetViewLineForScreen(nLine) != pt.y )
     {
         ptPos.x = 0;
     }
@@ -3129,7 +3129,7 @@ POINT CBaseView::ConvertViewPosToScreen(const POINT& pt)
         ptPos.x = nX;
         int nSubLine = 0;
         int nSubLineLength = GetLineChars(nLine+nSubLine).GetLength();
-        while (nSubLineLength < ptPos.x) 
+        while (nSubLineLength < ptPos.x)
         {
             ptPos.x -= nSubLineLength;
             nSubLine++;
@@ -3138,7 +3138,7 @@ POINT CBaseView::ConvertViewPosToScreen(const POINT& pt)
     }
     ptPos.y = nLine;
 
-    return ptPos; 
+    return ptPos;
 }
 
 
@@ -3253,7 +3253,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
             m_pViewData->SetLineEnding(viewLine, lineendings);
         if (m_pMainFrame->m_bWrapLines)
         {
-            BuildAllScreen2ViewVector(); // we need to rebuild vector ... quite slow but have nothing better yet
+            BuildAllScreen2ViewVector(viewLine);
         }
         MoveCaretRight();
         m_nCachedWrappedLine = -1;
@@ -3336,16 +3336,6 @@ void CBaseView::AddEmptyViewLine(int nViewLineIndex)
     BuildAllScreen2ViewVector();
 }
 
-void CBaseView::RemoveLine(int nLineIndex)
-{
-    if (m_pViewData == NULL)
-        return;
-    m_pViewData->RemoveData(GetViewLineForScreen(nLineIndex));
-    BuildScreen2ViewVector();
-    if (m_ptCaretPos.y >= GetLineCount())
-        m_ptCaretPos.y = GetLineCount()-1;
-}
-
 void CBaseView::RemoveSelectedText()
 {
     if (m_pViewData == NULL)
@@ -3372,9 +3362,12 @@ void CBaseView::RemoveSelectedText()
         {
              SetViewData(nViewLine, oEmptyLine);
         }
-        SaveUndoStep();         
+        SaveUndoStep();
 
-        //TODO: CleanEmptyLines();
+        if (CleanEmptyLines())
+        {
+            BuildAllScreen2ViewVector(); // schedule full rebuild
+        }
         SaveUndoStep();
         UpdateViewLineNumbers();
     }
@@ -3383,7 +3376,7 @@ void CBaseView::RemoveSelectedText()
     CUndo::GetInstance().EndGrouping();
 
     SetModified();
-    BuildAllScreen2ViewVector();
+    BuildAllScreen2ViewVector(m_ptSelectionViewPosStart.y, m_ptSelectionViewPosEnd.y);
     SetCaretViewPosition(m_ptSelectionViewPosStart);
     UpdateGoalPos();
     ClearSelection();
@@ -3456,7 +3449,7 @@ void CBaseView::PasteText()
 
         int nInsertLine = nViewLine;
         viewdata newLine(_T(""), DIFFSTATE_EDITED, 1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
-        for (int i = 1; i < nLinesToPaste-1; i++) 
+        for (int i = 1; i < nLinesToPaste-1; i++)
         {
             newLine.sLine = lines[i];
             InsertViewData(++nInsertLine, newLine);
@@ -3940,54 +3933,104 @@ bool CBaseView::HasPrevInlineDiff()
     return false;
 }
 
-void CBaseView::BeginBuildAllScreen2ViewVector()
+CBaseView * CBaseView::GetFirstGoodView()
 {
-    const int nOldSize = (int)m_ScreenedViewLine.size();
-    const int nViewCount = max(GetViewCount(), 0);
-    m_ScreenedViewLine.resize(nViewCount);
-    const int nCleanSize = min(nViewCount, nOldSize);
-    for (int i = 0; i < nCleanSize; i++)
-    {
-        m_ScreenedViewLine[i].Clear();
-    }
+    if (IsViewGood(m_pwndLeft))
+        return m_pwndLeft;
+    if (IsViewGood(m_pwndRight))
+        return m_pwndRight;
+    if (IsViewGood(m_pwndBottom))
+        return m_pwndBottom;
+    return NULL;
 }
-
-void CBaseView::BeginBuildAllScreen2ViewVector(CBaseView* view)
-{
-    if (IsViewGood(view))
-        return view->BeginBuildAllScreen2ViewVector();
-}
-
 
 void CBaseView::BuildAllScreen2ViewVector()
 {
-    BeginBuildAllScreen2ViewVector(m_pwndLeft);
-    BeginBuildAllScreen2ViewVector(m_pwndRight);
-    BeginBuildAllScreen2ViewVector(m_pwndBottom);
-
-    if (IsLeftViewGood())
-        m_pwndLeft->BuildScreen2ViewVector();
-    else if (IsRightViewGood())
-        m_pwndRight->BuildScreen2ViewVector();
-    else if (IsBottomViewGood())
-        m_pwndBottom->BuildScreen2ViewVector();
+    CBaseView * p_pwndView = GetFirstGoodView();
+    if (p_pwndView)
+    {
+        m_Screen2View.ScheduleFullRebuild(p_pwndView->m_pViewData);
+    }
 }
 
-void CBaseView::BuildScreen2ViewVector()
+void CBaseView::BuildAllScreen2ViewVector(int nViewLine)
 {
-    m_Screen2View.Rebuild(m_pViewData);
+    BuildAllScreen2ViewVector(nViewLine, nViewLine);
+}
+
+void CBaseView::BuildAllScreen2ViewVector(int nFirstViewLine, int nLastViewLine)
+{
+    CBaseView * p_pwndView = GetFirstGoodView();
+    if (p_pwndView)
+    {
+        m_Screen2View.ScheduleRangeRebuild(p_pwndView->m_pViewData, nFirstViewLine, nLastViewLine);
+    }
 }
 
 void CBaseView::UpdateViewLineNumbers()
 {
     int nLineNumber = 0;
-    int nViewLineCount = GetViewCount(); 
+    int nViewLineCount = GetViewCount();
     for (int nViewLine = 0; nViewLine < nViewLineCount; nViewLine++)
     {
         int oldLine = (int)GetViewLineNumber(nViewLine);
         if (oldLine >= 0)
             SetViewLineNumber(nViewLine, nLineNumber++);
     }
+}
+
+int CBaseView::CleanEmptyLines()
+{
+    int nRemovedCount = 0;
+    int nViewLineCount = GetViewCount();
+    bool bCheckLeft = IsViewGood(m_pwndLeft);
+    bool bCheckRight = IsViewGood(m_pwndRight);
+    bool bCheckBottom = IsViewGood(m_pwndBottom);
+    for (int nViewLine = 0; nViewLine < nViewLineCount; )
+    {
+        bool bAllEmpty = true;
+        bAllEmpty &= !bCheckLeft || IsStateEmpty(m_pwndLeft->GetViewState(nViewLine));
+        bAllEmpty &= !bCheckRight || IsStateEmpty(m_pwndRight->GetViewState(nViewLine));
+        bAllEmpty &= !bCheckBottom || IsStateEmpty(m_pwndBottom->GetViewState(nViewLine));
+        if (bAllEmpty)
+        {
+            if (bCheckLeft)
+            {
+                m_pwndLeft->RemoveViewData(nViewLine);
+            }
+            if (bCheckRight)
+            {
+                m_pwndRight->RemoveViewData(nViewLine);
+            }
+            if (bCheckBottom)
+            {
+                m_pwndBottom->RemoveViewData(nViewLine);
+            }
+            if (CUndo::GetInstance().IsGrouping()) // if use group undo -> ensure back adding goes in right (reversed) order
+            {
+                SaveUndoStep();
+            }
+            nViewLineCount--;
+            continue;
+        }
+        nViewLine++;
+    }
+    if (nRemovedCount != 0)
+    {
+        if (bCheckLeft)
+        {
+            m_pwndLeft->SetModified();
+        }
+        if (bCheckRight)
+        {
+            m_pwndRight->SetModified();
+        }
+        if (bCheckBottom)
+        {
+            m_pwndBottom->SetModified();
+        }
+    }
+    return nRemovedCount;
 }
 
 int CBaseView::FindScreenLineForViewLine( int viewLine )
@@ -4184,52 +4227,76 @@ CBaseView::TScreenLineInfo CBaseView::Screen2View::GetScreenLineInfo( int screen
     return m_Screen2View[screenLine];
 }
 
-void CBaseView::Screen2View::push_back( TScreenLineInfo val )
-{
-    RebuildIfNecessary();
-    m_Screen2View.push_back(val);
-}
-
+/**
+    doing partial rebuild whole screen2view vector is builded, but uses ScreenedViewLine cache to do it faster
+*/
 void CBaseView::Screen2View::RebuildIfNecessary()
 {
     if (!m_pViewData)
         return; // rebuild not necessary
 
+    if (!m_bFull)
+    {
+        for (int i=0; i<(int)m_RebuildRanges.size(); i++) //TODO: use iterator if nicer, faster or ..
+        {
+            if (ResetScreenedViewLineCache(m_pwndLeft, m_RebuildRanges[i]))
+            {
+                break;
+            }
+            if (ResetScreenedViewLineCache(m_pwndRight, m_RebuildRanges[i]))
+            {
+                break;
+            }
+            if (ResetScreenedViewLineCache(m_pwndBottom, m_RebuildRanges[i]))
+            {
+                break;
+            }
+        }
+    }
+    m_RebuildRanges.clear();
+    if (m_bFull) // note: m_bFull can be changed by previous statements
+    {
+        ResetScreenedViewLineCache(m_pwndLeft);
+        ResetScreenedViewLineCache(m_pwndRight);
+        ResetScreenedViewLineCache(m_pwndBottom);
+    }
+    m_bFull = false;
+
+    size_t OldSize = m_Screen2View.size();
     m_Screen2View.clear();
-    m_Screen2View.reserve(m_pViewData->GetCount());
+    m_Screen2View.reserve(OldSize); // gues same size
     for (int i = 0; i < m_pViewData->GetCount(); ++i)
     {
         if (m_pMainFrame->m_bCollapsed)
         {
             while ((i < m_pViewData->GetCount())&&(m_pViewData->GetHideState(i) == HIDESTATE_HIDDEN))
                 ++i;
+            if (!(i < m_pViewData->GetCount()))
+                break;
         }
-        if (i < m_pViewData->GetCount())
+        TScreenLineInfo oLineInfo;
+        oLineInfo.nViewLine = i;
+        oLineInfo.nViewSubLine = -1; // no wrap
+        if (m_pMainFrame->m_bWrapLines)
         {
-            TScreenLineInfo oLineInfo;
-            oLineInfo.nViewLine = i;
-            oLineInfo.nViewSubLine = -1;
-            if (m_pMainFrame->m_bWrapLines)
+            int nLinesLeft      = 0;
+            int nLinesRight     = 0;
+            int nLinesBottom    = 0;
+            if (IsLeftViewGood())
+                nLinesLeft = m_pwndLeft->CountMultiLines(i);
+            if (IsRightViewGood())
+                nLinesRight = m_pwndRight->CountMultiLines(i);
+            if (IsBottomViewGood())
+                nLinesBottom = m_pwndBottom->CountMultiLines(i);
+            int lines = max(max(nLinesLeft, nLinesRight), nLinesBottom);
+            for (int l = 0; l < (lines-1); ++l)
             {
-                int nLinesLeft      = 0;
-                int nLinesRight     = 0;
-                int nLinesBottom    = 0;
-                if (IsLeftViewGood())
-                    nLinesLeft = m_pwndLeft->CountMultiLines(i);
-                if (IsRightViewGood())
-                    nLinesRight = m_pwndRight->CountMultiLines(i);
-                if (IsBottomViewGood())
-                    nLinesBottom = m_pwndBottom->CountMultiLines(i);
-                int lines = max(max(nLinesLeft, nLinesRight), nLinesBottom);
-                for (int l = 0; l < (lines-1); ++l)
-                {
-                    oLineInfo.nViewSubLine++;
-                    m_Screen2View.push_back(oLineInfo);
-                }
                 oLineInfo.nViewSubLine++;
+                m_Screen2View.push_back(oLineInfo);
             }
-            m_Screen2View.push_back(oLineInfo);
+            oLineInfo.nViewSubLine++;
         }
+        m_Screen2View.push_back(oLineInfo);
     }
     m_pViewData = NULL;
 
@@ -4251,4 +4318,65 @@ int CBaseView::Screen2View::FindScreenLineForViewLine( int viewLine )
     }
 
     return ScreenLine;
+}
+
+void CBaseView::Screen2View::ScheduleFullRebuild(CViewData * pViewData) {
+    m_bFull = true;
+
+    if (m_pViewData == NULL)
+        m_pViewData = pViewData;
+}
+
+void CBaseView::Screen2View::ScheduleRangeRebuild(CViewData * pViewData, int nFirstViewLine, int nLastViewLine)
+{
+    if (m_bFull)
+        return;
+
+    if (m_pViewData == NULL)
+        m_pViewData = pViewData;
+
+    TRebuildRange Range;
+    Range.FirstViewLine=nFirstViewLine;
+    Range.LastViewLine=nLastViewLine;
+    m_RebuildRanges.push_back(Range);
+}
+
+bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView)
+{
+    if (!IsViewGood(pwndView))
+    {
+        return false;
+    }
+    const int nOldSize = (int)pwndView->m_ScreenedViewLine.size();
+    const int nViewCount = max(pwndView->GetViewCount(), 0);
+    if (nOldSize != nViewCount)
+    {
+        pwndView->m_ScreenedViewLine.resize(nViewCount);
+    }
+    int nClearCount = min(nOldSize, nViewCount);
+    for (int i = 0; i < nClearCount; i++)
+    {
+        pwndView->m_ScreenedViewLine[i].Clear();
+    }
+    return true;
+}
+
+bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView, const TRebuildRange& Range)
+{
+    if (!IsViewGood(pwndView))
+    {
+        return false;
+    }
+    const int nOldSize = (int)pwndView->m_ScreenedViewLine.size();
+    const int nViewCount = max(pwndView->GetViewCount(), 0);
+    if (nOldSize != nViewCount)
+    {
+        m_bFull = true;
+        return true; // need full rebuild
+    }
+    for (int i = Range.FirstViewLine; i <= Range.LastViewLine; i++)
+    {
+        pwndView->m_ScreenedViewLine[i].Clear();
+    }
+    return false;
 }
