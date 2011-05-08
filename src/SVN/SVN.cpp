@@ -1741,7 +1741,7 @@ svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t **result,
                                const svn_wc_conflict_description2_t *description,
                                void *baton,
                                apr_pool_t * resultpool,
-                               apr_pool_t * scratchpool)
+                               apr_pool_t * /*scratchpool*/)
 {
     SVN * svn = (SVN *)baton;
     CString file;
