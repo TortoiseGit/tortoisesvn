@@ -58,6 +58,12 @@
             Read <xref linkend="tsvn-dug-wcstatus-2"/> for further details.
         </para>
         <para>
+            By clicking on the <guilabel>Options</guilabel> button you can specify
+            how the patch is created. For example you can specify that changes
+            in line endings or whitespaces are not included in the final
+            patch file.
+        </para>
+        <para>
             You can produce separate patches containing changes to different
             sets of files. Of course, if you create a patch file, make some more changes
             to the <emphasis>same</emphasis> files and then create another patch, the
