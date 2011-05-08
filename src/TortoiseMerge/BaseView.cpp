@@ -2684,6 +2684,34 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
     CView::OnLButtonDown(nFlags, point);
 }
 
+enum ECharGroup { // ordered by priority low-to-hi
+    CHG_UNKNOWN,
+    CHG_CONTROL, // x00-x08, x0a-x1f
+    CHG_WHITESPACE,
+    CHG_PUNCTUATION, // 0x21-2f, x3a-x40, x5b-x60, x7b-x7f .,:;!?(){}[]/\<> ...
+    CHG_WORDLETTER, // alpha num
+};
+
+ECharGroup GetCharGroup(wchar_t zChar)
+{
+    if (zChar == ' ' || zChar == '\t' )
+    {
+        return CHG_WHITESPACE;
+    }
+    if (zChar < 0x20)
+    {
+        return CHG_CONTROL;
+    }
+    if ((zChar >= 0x21 && zChar <= 0x2f)
+            || (zChar >= 0x3a && zChar <= 0x40)
+            || (zChar >= 0x5b && zChar <= 0x60)
+            || (zChar >= 0x7b && zChar <= 0x7f))
+    {
+        return CHG_PUNCTUATION;
+    }
+    return CHG_WORDLETTER;
+}
+
 void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
     const int nClickedLine = GetButtonEventLineIndex(point);
@@ -2737,57 +2765,56 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
     {
         m_ptCaretPos.y = nClickedLine;
         m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+        ClearSelection();
+
+        POINT ptViewCarret = GetCaretViewPosition();
+        int nViewLine = ptViewCarret.y;
+        CString sLine = GetViewLine(nViewLine);
+        int nLineLength = sLine.GetLength();
+        int nBasePos = ptViewCarret.x;
+        // get target char group
+        ECharGroup eLeft = CHG_UNKNOWN;
+        if (nBasePos > 0)
+        {
+            eLeft = GetCharGroup(sLine[nBasePos-1]);
+        }
+        ECharGroup eRight = CHG_UNKNOWN;
+        if (nBasePos < nLineLength)
+        {
+            eRight = GetCharGroup(sLine[nBasePos]);
+        }
+        ECharGroup eTarget = max(eRight, eLeft);
+        // find left margin
+        int nLeft = nBasePos;
+        while (nLeft > 0 && GetCharGroup(sLine[nLeft-1]) == eTarget)
+        {
+            nLeft--;
+        }
+        // get right margin
+        int nRight = nBasePos;
+        while (nRight < nLineLength && GetCharGroup(sLine[nRight]) == eTarget)
+        {
+            nRight++;
+        }
+        // set selection
+        m_ptSelectionViewPosStart.x = nLeft;
+        m_ptSelectionViewPosStart.y = nViewLine;
+        m_ptSelectionViewPosEnd.x = nRight;
+        m_ptSelectionViewPosEnd.y = nViewLine;
+        m_ptSelectionViewPosOrigin = m_ptSelectionViewPosStart;
+        SetupAllViewSelection(nViewLine, nViewLine);
+        // set caret
+        m_ptCaretPos = ConvertViewPosToScreen(m_ptSelectionViewPosEnd);
+        UpdateViewsCaretPosition();
         UpdateGoalPos();
 
-        // as we work with caret here it is quite slow
-        // TODO: rewrite to use single line data
-        ClearSelection();
-        POINT m_ptSelectionViewPosOrigin = GetCaretViewPosition();
-        POINT ptCaretTemp = GetCaretPosition();
-        m_ptSelectionViewPosStart = m_ptSelectionViewPosOrigin;
-        while (!IsCaretAtWordBoundary() && (m_ptSelectionViewPosOrigin.y == m_ptSelectionViewPosStart.y) && MoveCaretLeft())
-        {
-            m_ptSelectionViewPosStart = GetCaretViewPosition();
-        }
-        if (m_ptSelectionViewPosStart.y != m_ptSelectionViewPosOrigin.y)
-        {
-            MoveCaretRight();
-            m_ptSelectionViewPosStart = GetCaretViewPosition();
-        }
-
-        SetCaretPosition(ptCaretTemp);
-        m_ptSelectionViewPosEnd = m_ptSelectionViewPosOrigin;
-        while (MoveCaretRight() && (m_ptSelectionViewPosOrigin.y == m_ptSelectionViewPosEnd.y) && !IsCaretAtWordBoundary())
-        {
-            m_ptSelectionViewPosEnd = GetCaretViewPosition();
-        }
-         m_ptSelectionViewPosEnd = GetCaretViewPosition();
-        if (m_ptSelectionViewPosOrigin.y != m_ptSelectionViewPosEnd.y)
-        {
-            MoveCaretLeft();
-            m_ptSelectionViewPosEnd = GetCaretViewPosition();
-            if (m_ptSelectionViewPosOrigin.x == m_ptSelectionViewPosEnd.x)
-            {
-                MoveCaretLeft();
-                m_ptSelectionViewPosEnd = GetCaretViewPosition();
-            }
-        }
-
+        // set mark word
         m_sPreviousMarkedWord = m_sMarkedWord; // store marked word to recall in case of triple click
-        int nMarkWidth = m_ptSelectionViewPosEnd.x - m_ptSelectionViewPosStart.x;
-        if (nMarkWidth > 0)
-        {
-            CString sLine = GetViewLineChars(m_ptSelectionViewPosStart.y);
-            CString sNewMarkedWord = sLine.Mid(m_ptSelectionViewPosStart.x, nMarkWidth).Trim();
-            if (m_sMarkedWord.Compare(sNewMarkedWord) == 0)
-                m_sMarkedWord.Empty();
-            else
-                m_sMarkedWord = sNewMarkedWord;
-        }
-        else
+        int nMarkWidth = max(nRight - nLeft, 0);
+        m_sMarkedWord = sLine.Mid(m_ptSelectionViewPosStart.x, nMarkWidth).Trim();
+        if (m_sMarkedWord.Compare(m_sPreviousMarkedWord) == 0)
         {
             m_sMarkedWord.Empty();
-            ClearSelection();
         }
 
         if (m_pwndLeft)
@@ -2797,10 +2824,6 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
         if (m_pwndBottom)
             m_pwndBottom->SetMarkedWord(m_sMarkedWord);
 
-
-        SetupAllSelection(m_ptCaretPos.y, m_ptCaretPos.y);
-
-        UpdateViewsCaretPosition();
         Invalidate();
         if (m_pwndLocator)
             m_pwndLocator->Invalidate();
