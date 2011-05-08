@@ -3434,7 +3434,7 @@ void CBaseView::PasteText()
     CString sLine = sClipboardText.Mid(nStart, sClipboardText.GetLength() - nStart);
     lines.push_back(sLine);
 
-    int nLinesToPaste = lines.size();
+    int nLinesToPaste = (int)lines.size();
     if (nLinesToPaste > 1)
     {
         CString sLine = GetViewLineChars(nViewLine);
