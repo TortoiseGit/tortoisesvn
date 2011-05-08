@@ -485,6 +485,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
                                 depth,
                                 keep_locks,
                                 keepchangelist,
+                                true,       // commit_as_operations
                                 clists,
                                 revprop_table,
                                 commitcallback2,
