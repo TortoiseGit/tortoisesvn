@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,17 +73,37 @@ BOOL CBlame::BlameCallback(LONG linenumber, bool /*localchange*/, svn_revnum_t r
             authorA = authorA.Left(30);
         if (m_bNoLineNo)
         {
-            if (pathA.IsEmpty())
-                infolineA.Format("%c %6ld %6ld %-30s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
+            if (m_bIncludeMerge)
+            {
+                if (pathA.IsEmpty())
+                    infolineA.Format("%c %6ld %6ld %-30s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
+                else
+                    infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+            }
             else
-                infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+            {
+                if (pathA.IsEmpty())
+                    infolineA.Format("%6ld %-30s %-30s ", revision, (LPCSTR)dateA, (LPCSTR)authorA);
+                else
+                    infolineA.Format("%6ld %-30s %-60s %-30s ", revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+            }
         }
         else
         {
-            if (pathA.IsEmpty())
-                infolineA.Format("%c %6ld %6ld %6ld %-30s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
+            if (m_bIncludeMerge)
+            {
+                if (pathA.IsEmpty())
+                    infolineA.Format("%c %6ld %6ld %6ld %-30s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
+                else
+                    infolineA.Format("%c %6ld %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+            }
             else
-                infolineA.Format("%c %6ld %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+            {
+                if (pathA.IsEmpty())
+                    infolineA.Format("%6ld %6ld %-30s %-30s ", linenumber, revision, (LPCSTR)dateA, (LPCSTR)authorA);
+                else
+                    infolineA.Format("%6ld %6ld %-30s %-60s %-30s ", linenumber, revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+            }
         }
         fulllineA = line;
         fulllineA.TrimRight("\r\n");
@@ -165,7 +185,7 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
     // need to fetch the log later: only TortoiseBlame uses those logs to give
     // the user additional information for the blame.
     extBlame = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
-
+    m_bIncludeMerge = !!includemerge;
     CString temp;
     m_sSavePath = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
     if (m_sSavePath.IsEmpty())
@@ -247,6 +267,7 @@ bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, 
     m_nHeadRev = endrev;
     if (m_nHeadRev < 0)
         m_nHeadRev = GetHEADRevision(path);
+    m_bIncludeMerge = !!includemerge;
 
     BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, peg, options, !!ignoremimetype, !!includemerge);
     if ( !bBlameSuccesful && !peg.IsValid() )

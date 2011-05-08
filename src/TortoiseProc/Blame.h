@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -65,6 +65,7 @@ private:
     LONG        m_nHeadRev;             ///< The HEAD revision of the file
     bool        m_bNoLineNo;            ///< if true, then the line number isn't written to the file
     bool        m_bHasMerges;           ///< If the blame has merge info, this is set to true
+    bool        m_bIncludeMerge;        ///< true if merge info was requested
 
     CString     m_sSavePath;            ///< Where to save the blame data
     CStdioFileT m_saveFile;             ///< The file object to write to
