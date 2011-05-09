@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-01 01:31+0000\n"
+"PO-Revision-Date: 2011-05-09 02:12+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -317,6 +317,14 @@ msgstr ""
 msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
+msgstr ""
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -1677,6 +1685,18 @@ msgstr "მიღება ამ ჯერზე"
 msgid "Accept permanently"
 msgstr "მიღება ყოველთვის"
 
+#. Resource IDs: (148)
+msgid ""
+"Accept the certificate permanently\n"
+"You won't get asked about this certificate again."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Accept the certificate\n"
+"The certificate is accepted only this one time."
+msgstr ""
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Access to %1 was denied."
@@ -2039,6 +2059,10 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr ""
 
+#. Resource IDs: (1562)
+msgid "Apply local modifications to svn:externals when updating"
+msgstr ""
+
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
 msgstr ""
@@ -2388,6 +2412,12 @@ msgstr "გამოსახულების ჩასმა ბუფერ�
 msgid "Cancel"
 msgstr "გაუქმება"
 
+#. Resource IDs: (100)
+msgid ""
+"Cancel\n"
+"Choose a different folder to export to"
+msgstr ""
+
 #. Resource IDs: (221)
 msgid ""
 "Cancel\n"
@@ -2412,10 +2442,22 @@ msgid ""
 "Do not update the working copy."
 msgstr ""
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't quit TortoiseMerge"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't switch the views"
 msgstr ""
 
 #. Resource IDs: (173)
@@ -2436,16 +2478,46 @@ msgid ""
 "I will enter a different path/URL."
 msgstr ""
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Ignore the outside changes."
+msgstr ""
+
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
 
+#. Resource IDs: (314)
+msgid ""
+"Cancel\n"
+"Keep the empty file."
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Leave all changes."
+msgstr ""
+
+#. Resource IDs: (199)
+msgid ""
+"Cancel\n"
+"Leave the cache on disk."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Resolve the conflicts first."
+msgstr ""
+
+#. Resource IDs: (226)
+msgid ""
+"Cancel\n"
+"The conflict is not resolved."
 msgstr ""
 
 #. Resource IDs: (90)
@@ -2476,6 +2548,12 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "The items are not moved."
+msgstr ""
+
+#. Resource IDs: (589)
+msgid ""
+"Cancel\n"
+"The property is not removed."
 msgstr ""
 
 #. Resource IDs: (147)
@@ -2537,6 +2615,10 @@ msgstr "სერთიფიკატი ვადაგასულია. ვ
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "სერთიფიკატი ჯერ არაა უფლებამოსილი. ვადა: %s"
+
+#. Resource IDs: (148)
+msgid "Certificate validation failed"
+msgstr ""
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -3631,6 +3713,10 @@ msgstr "ნაგულისხმებად UTF-8 კოდირები�
 msgid "Delete"
 msgstr "წაშლა"
 
+#. Resource IDs: (199)
+msgid "Delete Repository cache"
+msgstr ""
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr "არავერსიული ელემენტების წაშლა"
@@ -3652,6 +3738,18 @@ msgstr "არავერსიული ელემენტების წ�
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "არავერსიული ელემენტების წაშლა..."
+
+#. Resource IDs: (199)
+msgid ""
+"Delete\n"
+"Remove the cache files."
+msgstr ""
+
+#. Resource IDs: (314)
+msgid ""
+"Delete\n"
+"The file is removed."
+msgstr ""
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3738,6 +3836,10 @@ msgstr ""
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "დიალოგის ზომები და მდებარეობა"
+
+#. Resource IDs: (325)
+msgid "Diff Options"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -3849,8 +3951,16 @@ msgstr ""
 msgid "Do this for all existing items"
 msgstr ""
 
+#. Resource IDs: (589)
+msgid "Do this for all selected items"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
+msgstr ""
+
+#. Resource IDs: (148)
+msgid "Do this for all unversioned/modified items"
 msgstr ""
 
 #. Resource IDs: (1007)
@@ -3978,6 +4088,12 @@ msgstr ""
 msgid ""
 "Don't recover the auto-saved documents\n"
 "Use the last explicitly saved versions of the documents"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
+"Reload the views without saving the modifications"
 msgstr ""
 
 #. Resource IDs: (73, 80)
@@ -4572,9 +4688,17 @@ msgstr "ფაილთა ცვლილებები (%s)"
 msgid "File changes each week:"
 msgstr "ფაილთა ცვლილებები კვირაში"
 
+#. Resource IDs: (226)
+msgid "File contains conflict markers"
+msgstr ""
+
 #. Resource IDs: (376)
 msgid "File diffs"
 msgstr "ფაილების შედარება"
+
+#. Resource IDs: (314)
+msgid "File is empty."
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -5448,6 +5572,10 @@ msgstr "იგნორირება"
 msgid "Ignore %d items by &extension"
 msgstr "%d ელემენტის იგნორირება &ტიპებით"
 
+#. Resource IDs: (1126)
+msgid "Ignore &EOL changes"
+msgstr ""
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "&ყველა ხარეს იგნორირება"
@@ -5483,6 +5611,10 @@ msgstr "სტრიქონის &ბოლოების იგნორი
 #. Resource IDs: (1127)
 msgid "Ignore line endings"
 msgstr "სტრიქონთა დაბოლოებების იგნორირება"
+
+#. Resource IDs: (1529)
+msgid "Ignore whitespace &changes"
+msgstr ""
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -6034,6 +6166,10 @@ msgstr ""
 msgid "Locked by %s"
 msgstr "დაბლოკილია - %s"
 
+#. Resource IDs: (93)
+msgid "Locking failed"
+msgstr ""
+
 #. Resource IDs: (89)
 msgid ""
 "Locking failed because a newer version exists!\n"
@@ -6123,6 +6259,12 @@ msgstr "მონიშვნა &მოგვარებულად"
 #. Resource IDs: (282)
 msgid "Mark as resolved"
 msgstr "მონიშვნა მოგვარებულად"
+
+#. Resource IDs: (226)
+msgid ""
+"Mark as resolved\n"
+"The conflict is resolved."
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6377,6 +6519,10 @@ msgstr "შერეული"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "შეცვლის თარიღი"
+
+#. Resource IDs: (315)
+msgid "Modifications detected"
+msgstr ""
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
@@ -6865,6 +7011,10 @@ msgstr ""
 msgid "Number of weeks:"
 msgstr "კვირების რაოდენობა:"
 
+#. Resource IDs: (1542)
+msgid "O&ptions"
+msgstr ""
+
 #. Resource IDs: (1, 73)
 msgid "OK"
 msgstr "დიახ"
@@ -6973,8 +7123,10 @@ msgid "Open client certificate file"
 msgstr "კლიენტის სერთიფიკატის ფაილის გახსნა"
 
 #. Resource IDs: (3601)
-msgid "Open file"
-msgstr "ფაილის გახსნა"
+msgid ""
+"Open files\n"
+"Open files for diff"
+msgstr ""
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7534,6 +7686,12 @@ msgstr ""
 "პროგრამის დასრულება; დოკუმენტების შენახვის მოთხოვნა\n"
 "გამოსვლა"
 
+#. Resource IDs: (315)
+msgid ""
+"Quit\n"
+"Exit TortoiseMerge without saving the modifications"
+msgstr ""
+
 #. Resource IDs: (1073)
 msgid "R&AM drives"
 msgstr "R&AM დისკები"
@@ -7656,6 +7814,16 @@ msgstr "არავერსიული დასტების ფაილ�
 msgid "Recursive"
 msgstr "რეკურსიული"
 
+#. Resource IDs: (589)
+msgid "Recursive operation"
+msgstr ""
+
+#. Resource IDs: (589)
+msgid ""
+"Recursive\n"
+"Remove the property also from items in Subfolders."
+msgstr ""
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr ""
@@ -7731,6 +7899,12 @@ msgstr "გამაერთიანებელი შერწყმა %s -
 msgid "Reject"
 msgstr "უარყოფა"
 
+#. Resource IDs: (148)
+msgid ""
+"Reject the certificate\n"
+"Cancel the connection."
+msgstr ""
+
 #. Resource IDs: (7)
 #, c-format
 msgid "Rejected patch hunks for '%s'"
@@ -7758,6 +7932,18 @@ msgstr "გადაადგი&ლება..."
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "კვლავჩატვირთვა"
+
+#. Resource IDs: (315)
+msgid ""
+"Reload\n"
+"Local modifications are lost."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Reload\n"
+"The outside changes are loaded."
+msgstr ""
 
 #. Resource IDs: (2050)
 msgid ""
@@ -7835,6 +8021,12 @@ msgstr "ამოღება სწრაფი წვდომის პულ
 msgid "Remove from changelist"
 msgstr "ამოღება ცვლილებათა სიიდან"
 
+#. Resource IDs: (100)
+msgid ""
+"Remove from version control\n"
+"All .svn folders are removed"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid ""
@@ -7864,6 +8056,12 @@ msgstr "ყველა ქვეგანტოტვის ამოღებ�
 msgid ""
 "Remove\n"
 "Force the removal"
+msgstr ""
+
+#. Resource IDs: (589)
+msgid ""
+"Remove\n"
+"Remove the property only from this item."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8399,6 +8597,12 @@ msgstr "შენახვა როგორც"
 msgid "Save as..."
 msgstr "შენახვა როგორც..."
 
+#. Resource IDs: (315)
+msgid ""
+"Save as\n"
+"You're asked where to save the file"
+msgstr ""
+
 #. Resource IDs: (3857)
 #, c-format
 msgid "Save changes to %1?"
@@ -8410,6 +8614,10 @@ msgstr "კლიენტის სერთიფიკატის გეზ�
 
 #. Resource IDs: (617)
 msgid "Save in Git format"
+msgstr ""
+
+#. Resource IDs: (314)
+msgid "Save modifications."
 msgstr ""
 
 #. Resource IDs: (76)
@@ -8427,6 +8635,20 @@ msgstr ""
 #. Resource IDs: (1132)
 msgid "Save to clipboard"
 msgstr "შენახვა გაცვლის ბუფერში"
+
+#. Resource IDs: (315)
+msgid ""
+"Save\n"
+"Save the file with the conflict markers."
+msgstr ""
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"Save\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -10658,6 +10880,10 @@ msgstr "დაბლოკვის მოხსნილია"
 msgid "Unrecognized or invalid property file format!"
 msgstr "პარამეტრების ფაილის უცნობი ან უმართებლო ფორმატი!"
 
+#. Resource IDs: (315)
+msgid "Unresolved conflicts!"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "Untitled"
 msgstr "უსახელო"
@@ -10676,6 +10902,10 @@ msgstr "ვერსიის მოხსნა"
 
 #. Resource IDs: (14)
 msgid "Unversion and add to &ignore list"
+msgstr ""
+
+#. Resource IDs: (100)
+msgid "Unversion working copy"
 msgstr ""
 
 #. Resource IDs: (1462)
@@ -10710,6 +10940,12 @@ msgstr "სიღრმის განახლება"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "სამუშაო ასლის განახლება ვერსიამდე"
+
+#. Resource IDs: (93)
+msgid ""
+"Update\n"
+"Update the file and try locking again."
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -11174,7 +11410,9 @@ msgid "Working copy: %s\n"
 msgstr "სამუშაო ასლი: %s\n"
 
 #. Resource IDs: (2056)
-msgid "Wrap long lines"
+msgid ""
+"Wrap long lines\n"
+"Wrap long lines"
 msgstr ""
 
 #. Resource IDs: (73)

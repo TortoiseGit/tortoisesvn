@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-03 01:10+0000\n"
+"PO-Revision-Date: 2011-05-08 00:34+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4403,13 +4403,39 @@ msgid ""
 "Revision...</guimenuitem></menuchoice> instead. This allows you to update "
 "your working copy to a specific revision, not only to the most recent one. "
 "Suppose your working copy is at revision 100, but you want it to reflect the"
-" state which it had in revision 50 - then simply update to revision 50. In "
-"the same dialog you can also choose the <firstterm>depth</firstterm> at "
+" state which it had in revision 50 - then simply update to revision 50."
+msgstr ""
+
+#. (para)
+msgid ""
+"In the same dialog you can also choose the <firstterm>depth</firstterm> at "
 "which to update the current folder. The terms used are described in <xref "
 "linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is "
 "<guilabel>Working copy</guilabel>, which preserves the existing depth "
-"setting. You can also choose whether to ignore any external projects in the "
-"update (i.e. projects referenced using <literal>svn:externals</literal>)."
+"setting. You can also set the depth <literal>sticky</literal> which means "
+"subsequent updates will use that new depth, i.e. that depth is then used as "
+"the default depth."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can also choose whether to ignore any external projects in the update "
+"(i.e. projects referenced using <literal>svn:externals</literal>)."
+msgstr ""
+
+#. (para)
+msgid ""
+"An update by default ignores local modifications to the "
+"<literal>svn:externals</literal> property. But when you made modifications "
+"to the <literal>svn:externals</literal> property, you can force the update "
+"to use those local modifications. For example if you change an external to a"
+" new tag, you might want to first update your working copy to that new tag, "
+"build the project and only commit the change to the "
+"<literal>svn:externals</literal> if the build was successful. In that "
+"situation, you have to check the box <guilabel>Apply local svn:externals "
+"modifications</guilabel>. If you modify your externals a lot, you can make "
+"this behavior the default when updating in the settings dialog. <xref "
+"linkend=\"tsvn-dug-settings-main\"/>."
 msgstr ""
 
 #. (para)
@@ -4460,51 +4486,6 @@ msgstr ""
 "file/folder itu dimutahirkan satu demi satu. TortoiseSVN memastikan bahwa "
 "semua file/folder itu yang dari repositori yang sama dimutahirkan ke revisi "
 "yang persis sama! Bahkan jika diantara pemutahiran itu terjadi komit lain."
-
-#. (title)
-msgid "Local File Already Exists"
-msgstr "File Lokal Sudah Ada"
-
-#. (para)
-msgid ""
-"Sometimes when you try to update, the update fails with a message to say "
-"that there is already a local file of the same name. This typically happens "
-"when Subversion tries to checkout a newly versioned file, and finds that an "
-"unversioned file of the same name already exists in your working folder. "
-"Subversion will never overwrite an unversioned file - it might contain "
-"something you are working on, which coincidentally has the same filename as "
-"another developer has used for his newly committed file."
-msgstr ""
-"Ada kalanya ketika Anda mecoba memutahirkan, pemutahiran gagal dengan pesan "
-"yang mengatakan bahwa sudah ada file lokal disana dengan nama sama. Ini "
-"biasanya terjadi ketika Subversion mencoba melakukan checkout file berversi "
-"baru, dan menemukan bahwa file tidak berversi dari nama yang sama sudah ada "
-"dalam folder copy pekerjaan Anda. Subversion tidak akan menimpa file tidak "
-"berversi - yang mungkin berisi sesuatu yang sedang Anda kerjakan, yang "
-"secara kebetulan mempunyai nama file yang sama dengan yang digunakan "
-"pengembang lain untuk file yang baru dikomitnya."
-
-#. (para)
-msgid ""
-"If you get this error message, the solution is simply to rename the local "
-"unversioned file. After completing the update, you can check whether the "
-"renamed file is still needed."
-msgstr ""
-"Jika Anda mendapatkan pesan kesalahan ini, solusinya cukup mengganti nama "
-"file lokal tidak berversi. Setelah menyelesaikan pemutahiran, Anda bisa "
-"memeriksa apakah file yang diganti nama masih diperlukan."
-
-#. (para)
-msgid ""
-"If you keep getting error messages, use "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for "
-"Modifications</guimenuitem></menuchoice> instead to list all the problem "
-"files. That way you can deal with them all at once."
-msgstr ""
-"Jika Anda terus mendapatkan pesan kesalahan, gunakan "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Periksa "
-"Modifikasi</guimenuitem></menuchoice> daripada mendaftar semua file yang "
-"bermasalah. Dengan cara itu Anda bisa menghadapinya sekaligus."
 
 #. (title)
 msgid "Resolving Conflicts"
@@ -13386,6 +13367,16 @@ msgid ""
 "bean.com/en/1.5/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
+msgstr ""
+
+#. (term)
+msgid "Apply local modifications to svn:externals when updating"
+msgstr ""
+
+#. (para)
+msgid ""
+"This option tells TortoiseSVN to always apply local modifications to the "
+"<literal>svn:externals</literal> property when updating the working copy."
 msgstr ""
 
 #. (title)

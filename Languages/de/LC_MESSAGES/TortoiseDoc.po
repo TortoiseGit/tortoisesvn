@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-03 01:10+0000\n"
+"PO-Revision-Date: 2011-05-08 00:34+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3532,7 +3532,7 @@ msgstr "Um das Beste aus dem Daily Use Guide herauszuholen: <placeholder-1/>"
 
 #. (title)
 msgid "General Features"
-msgstr ""
+msgstr "Allgemeine Eigenschaften"
 
 #. (para)
 msgid ""
@@ -3540,6 +3540,9 @@ msgid ""
 "just about everything in the manual. Note that many of these features will "
 "only show up within a Subversion working copy."
 msgstr ""
+"Dieser Abschnitt beschreibt einige Besonderheiten von TortoiseSVN die für so"
+" ziemlich alles im Handbuch gelten. Beachten Sie, dass viele dieser "
+"Funktionen nur in einer Subversion-Arbeitskopie sichtbar sind."
 
 #. (title)
 #. (title)
@@ -3942,6 +3945,15 @@ msgid ""
 "an initial <filename>/trunk /tags /branches</filename> structure in your "
 "repository. Since you are here, this is how the basic import works ..."
 msgstr ""
+"Dieser Abschnitt beschreibt den Import-Befehl von Subversion, der dazu "
+"gedacht ist, eine Verzeichnisstruktur in ein Projektarchiv zu importieren. "
+"Obwohl er für diese Aufgabe geeignet ist, besitzt er doch einige Nachteile: "
+"<placeholder-1/> Aus diesen Gründen empfehlen wir, dass Sie den Import-"
+"Befehl gar nicht nutzen, sondern die in <xref linkend=\"tsvn-dug-import-in-"
+"place\"/> beschriebene zweistufige Methode, Es sei denn, sie führen den "
+"einfachen Schritt zum Anlegen der initialen <filename>/trunk /tags "
+"/branches</filename> Struktur im Projektarchiv durch. Da sie schon diesen "
+"Abschnitt lesen, folgt nun eine kurze Einführung ..."
 
 #. (para)
 msgid ""
@@ -4051,6 +4063,12 @@ msgid ""
 "root. The repository browser shows the repository structure just like "
 "Windows explorer, so you can see how things are organised."
 msgstr ""
+"Verwenden Sie den Projektarchivbetrachter, um einen neuen Projektordner "
+"direkt im Projektarchiv zu erstellen. Wenn Sie eines der Standardlayouts "
+"verwenden, möchten Sie diesen Ordner wahrscheinlich als einen Unterordner "
+"des Stammes anstatt der Wurzel des Projektarchivs erstellen. Der "
+"Projektarchivbetrachter zeigt die Struktur des Projektarchivs wie der "
+"Windows Explorer, damit Sie sehen können, wie Dinge organisiert sind."
 
 #. (para)
 msgid ""
@@ -4344,6 +4362,11 @@ msgid ""
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
 msgstr ""
+"Rufen Sie mit einem <action>Rechtsklick</action> auf den ausgecheckten "
+"Ordner den Projektarchivbetrachter auf. Suchen Sie den Unterordner, den Sie "
+"zu Ihrer Arbeitskopie hinzufügen wollen und wählen Sie <menuchoice> "
+"<guimenu>Kontextmenü</guimenu> <guimenuitem>Aktualisiere zu "
+"Revision...</guimenuitem> </menuchoice>."
 
 #. (para)
 msgid ""
@@ -5268,29 +5291,40 @@ msgid ""
 "Revision...</guimenuitem></menuchoice> instead. This allows you to update "
 "your working copy to a specific revision, not only to the most recent one. "
 "Suppose your working copy is at revision 100, but you want it to reflect the"
-" state which it had in revision 50 - then simply update to revision 50. In "
-"the same dialog you can also choose the <firstterm>depth</firstterm> at "
+" state which it had in revision 50 - then simply update to revision 50."
+msgstr ""
+
+#. (para)
+msgid ""
+"In the same dialog you can also choose the <firstterm>depth</firstterm> at "
 "which to update the current folder. The terms used are described in <xref "
 "linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is "
 "<guilabel>Working copy</guilabel>, which preserves the existing depth "
-"setting. You can also choose whether to ignore any external projects in the "
-"update (i.e. projects referenced using <literal>svn:externals</literal>)."
+"setting. You can also set the depth <literal>sticky</literal> which means "
+"subsequent updates will use that new depth, i.e. that depth is then used as "
+"the default depth."
 msgstr ""
-"Der normale <quote>Aktualisieren</quote> Befehl hat keine Parameter und "
-"aktualisiert Ihre Arbeitskopie stets zur HEAD Revision des Projektarchivs, "
-"was der häufigste Anwendungsfall ist. Wenn Sie genau festlegen wollen, in "
-"welcher Revision sich Ihre Arbeitskopie befinden soll, sollten Sie den "
-"<menuchoice><guimenu>TortoiseSVN</guimenu> <guimenuitem>Aktualisieren zu "
-"Revision...</guimenuitem> </menuchoice> Befehl verwenden, der Ihnen genau "
-"das ermöglicht. Nehmen wir an, Ihre Arbeitskopie befindet sich in Revision "
-"100, aber sie möchten sie gerne in Revision 50 zurückversetzen - "
-"Aktualisieren sie einfach zu Revision 50. In diesem Dialog können Sie auch "
-"die <firstterm>Tiefe</firstterm> beim Aktualisieren festlegen. Die "
-"verschiedenen Tiefen werden in <xref linkend=\"tsvn-dug-checkout-depth\"/> "
-"beschrieben. Die Vorgabe ist <guilabel>Arbeitskopie</guilabel> und erhält "
-"die vorhandene Einstellung. Weiterhin können Sie wählen, ob Sie externe "
-"Projekte (auf die mittels <literal>svn:externals</literal> verwiesen wird) "
-"einschließen oder ignorieren wollen."
+
+#. (para)
+msgid ""
+"You can also choose whether to ignore any external projects in the update "
+"(i.e. projects referenced using <literal>svn:externals</literal>)."
+msgstr ""
+
+#. (para)
+msgid ""
+"An update by default ignores local modifications to the "
+"<literal>svn:externals</literal> property. But when you made modifications "
+"to the <literal>svn:externals</literal> property, you can force the update "
+"to use those local modifications. For example if you change an external to a"
+" new tag, you might want to first update your working copy to that new tag, "
+"build the project and only commit the change to the "
+"<literal>svn:externals</literal> if the build was successful. In that "
+"situation, you have to check the box <guilabel>Apply local svn:externals "
+"modifications</guilabel>. If you modify your externals a lot, you can make "
+"this behavior the default when updating in the settings dialog. <xref "
+"linkend=\"tsvn-dug-settings-main\"/>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -5363,50 +5397,6 @@ msgstr ""
 "ausführen, so werden alle Dateien und Ordner auf dieselbe Revision "
 "aktualisiert, sogar dann wenn zwischen den einzelnen Aktualisierungen jemand"
 " anders Änderungen zum Projektarchiv übertragen hat."
-
-#. (title)
-msgid "Local File Already Exists"
-msgstr "Lokale Datei existiert bereits"
-
-#. (para)
-msgid ""
-"Sometimes when you try to update, the update fails with a message to say "
-"that there is already a local file of the same name. This typically happens "
-"when Subversion tries to checkout a newly versioned file, and finds that an "
-"unversioned file of the same name already exists in your working folder. "
-"Subversion will never overwrite an unversioned file - it might contain "
-"something you are working on, which coincidentally has the same filename as "
-"another developer has used for his newly committed file."
-msgstr ""
-"Manchmal wird die Aktualisierung mit einer Fehlermeldung abbrechen welche "
-"besagt dass eine Datei mit dem selben Namen bereits existiert. Dies passiert"
-" wenn Subversion eine neu versionierte Datei auschecken möchte, aber eine "
-"Datei mit dem selben Namen und Pfad bereits in Ihrer Arbeitskopie vorhanden "
-"ist. Subversion wird niemals eine solche Datei überschreiben - Sie könnten "
-"dadurch ja wichtige Daten verlieren."
-
-#. (para)
-msgid ""
-"If you get this error message, the solution is simply to rename the local "
-"unversioned file. After completing the update, you can check whether the "
-"renamed file is still needed."
-msgstr ""
-"Wenn Sie diese Fehlermeldung erhalten ist die Lösung sehr einfach: Benennen "
-"Sie die unversionierte Datei in Ihrer Arbeitskopie um. Danach führen Sie die"
-" Aktualisierung nochmals durch."
-
-#. (para)
-msgid ""
-"If you keep getting error messages, use "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for "
-"Modifications</guimenuitem></menuchoice> instead to list all the problem "
-"files. That way you can deal with them all at once."
-msgstr ""
-"Wenn Sie diese Fehlermeldung immer wieder erhalten, benutzen Sie "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Prüfe auf "
-"Änderungen</guimenuitem></menuchoice>, um eine Liste von allen "
-"problematischen Dateien zu erhalten. Dadurch können Sie alle möglichen "
-"Konflikte im Vorfeld erkennen. "
 
 #. (title)
 msgid "Resolving Conflicts"
@@ -8974,11 +8964,11 @@ msgstr ""
 
 #. (title)
 msgid "Diffing Office Documents"
-msgstr ""
+msgstr "Office-Dokumente vergleichen"
 
 #. (primary)
 msgid "Microsoft Word"
-msgstr ""
+msgstr "Microsoft Word"
 
 #. (para)
 msgid ""
@@ -8996,7 +8986,7 @@ msgstr ""
 
 #. (title)
 msgid "Problems with Office 2010"
-msgstr ""
+msgstr "Probleme mit Office 2010"
 
 #. (para)
 msgid ""
@@ -9078,7 +9068,7 @@ msgstr ""
 
 #. (term)
 msgid "SourceGear DiffMerge"
-msgstr ""
+msgstr "SourceGear DiffMerge"
 
 #. (para)
 msgid ""
@@ -9086,6 +9076,10 @@ msgid ""
 "tool for free. Get more information from <ulink "
 "url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
 msgstr ""
+"SourceGear Vault ist ein kommerzielles Versionskontrollsystem, aber Sie "
+"können den Vergleichs- und Konflikteditor kostenlos nutzen. Weitere "
+"Informationen finden sich auf der from <ulink "
+"url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
 
 #. (term)
 msgid "ExamDiff"
@@ -16635,6 +16629,16 @@ msgstr ""
 ".windows-registry\"><citetitle>Konfiguration und die Windows-"
 "Registrierungsdatenbank</citetitle></ulink> erklärt."
 
+#. (term)
+msgid "Apply local modifications to svn:externals when updating"
+msgstr ""
+
+#. (para)
+msgid ""
+"This option tells TortoiseSVN to always apply local modifications to the "
+"<literal>svn:externals</literal> property when updating the working copy."
+msgstr ""
+
 #. (title)
 msgid "Context Menu Settings"
 msgstr "Einstellungen für das Kontextmenü"
@@ -18121,6 +18125,21 @@ msgid ""
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "</screen>"
 msgstr ""
+"Zum Beispiel für ExamDiff Pro:\n"
+"<screen>C:\\Pfad-Zu\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
+"    --right_display_name:%yname\n"
+"</screen>\n"
+"oder für KDiff3:\n"
+"<screen>C:\\Pfad-Zu\\Kdiff3.exe %base %mine --L1 %bname --L2 %yname</screen>\n"
+"oder mit WinMerge:\n"
+"<screen>C:\\Pfad-Zu\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine</screen>\n"
+"oder mit Araxis:\n"
+"<screen>C:\\Pfad-Zu\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
+"    %base %mine</screen>\n"
+"oder mit UltraCompare: <screen>C:\\Path-To\\uc.exe %base %mine\n"
+"    -title1 %bname -title2 %yname</screen>\n"
+"oder mit DiffMerge: <screen> C:\\Path-To\\DiffMerge.exe -nosplash\n"
+"    -t1=%bname -t2=%yname %base %mine</screen>"
 
 #. (para)
 msgid ""
@@ -18233,6 +18252,19 @@ msgid ""
 "    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "</screen>"
 msgstr ""
+"Zum Beispiel für Perforce Merge:\n"
+"<screen>C:\\Pfad-Zu\\P4Merge.exe %base %theirs %mine %merged</screen>\n"
+"oder für KDiff3:\n"
+"<screen>C:\\Pfad-Zu\\Kdiff3.exe %base %mine %theirs -o %merged\n"
+"        --L1 %bname --L2 %yname --L3 %tname</screen>\n"
+"oder mit Araxis:\n"
+"<screen>C:\\Pfad-Zu\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
+"        /title3:%yname %theirs %base %mine %merged /a2</screen>\n"
+"oder mit WinMerge (2.8 oder neuer):\n"
+"<screen>C:\\Path-Zu\\WinMerge.exe %merged</screen>\n"
+"oder mit DiffMerge: <screen>C:\\Path-To\\DiffMerge.exe -caption=%mname \n"
+"    -result=%merged -merge -nosplash -t1=%yname -t2=%bname\n"
+"    -t3=%tname %mine %base %theirs</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
@@ -19582,7 +19614,7 @@ msgstr ""
 
 #. (title)
 msgid "Exporting TSVN Settings"
-msgstr ""
+msgstr "Exportieren von TSVN-Einstellungen"
 
 #. (para)
 msgid ""
@@ -19599,6 +19631,9 @@ msgid ""
 "Remember to save your Subversion settings too, located in the svn config "
 "file in <literal>%APPDATA%\\Subversion</literal>."
 msgstr ""
+"Denken Sie daran, Ihre Subversion Einstellungen ebenfalls zu speichern. "
+"Diese befinden sich in der Svn-Konfigurationsdatei im "
+"<literal>%APPDATA%\\Subversion</literal> Verzeichnis."
 
 #. (title)
 msgid "Final Step"
@@ -20037,6 +20072,13 @@ msgid ""
 "#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
 "</screen>"
 msgstr ""
+"SubWCRev bietet keine direkte Unterstützung, um Ausdrücke zu verschachteln. Folgendes Konstrukt ist nicht möglich: <screen>\n"
+"#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n"
+"</screen> Aber sie können das Problem in der Regel mit anderen Mitteln umgehen:: <screen>\n"
+"#define SVN_RANGE       $WCRANGE$\n"
+"#define SVN_REV         $WCREV$\n"
+"#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -24611,6 +24653,16 @@ msgid ""
 "can't figure out by the overlay icons what version control system a working "
 "copy is using."
 msgstr ""
+"Da es auch Tortoise Clients für andere Versionskontrollsysteme gibt, haben "
+"wir eine gemeinsame Komponente entwickelt, die für die Anzeige der "
+"überlagerten Symbole zuständig ist. Die technischen Details sind hier nicht "
+"wichtig. Alles was sie wissen müssen, ist, dass diese Komponente es allen "
+"Tortoise Clients ermöglicht, dieselben überlagerten Symbole zu verwenden und"
+" dass dadurch die elf verfügbaren Plätze nicht durch die Installation "
+"mehrerer Tortoise Clients verbraucht werden. Natürlich gibt es auch einen "
+"kleinen Nachteil: Alle Tortoise Clients verwenden die selben überlagerten "
+"Symbole und sie können anhand der Symbole nicht mehr auf einen Blick "
+"erkennen, welches Versionskontrollsystem zu einer Arbeitskopie gehört."
 
 #. (para)
 msgid ""

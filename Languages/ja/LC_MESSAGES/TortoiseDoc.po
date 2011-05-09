@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-03 01:10+0000\n"
+"PO-Revision-Date: 2011-05-08 00:34+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4444,23 +4444,40 @@ msgid ""
 "Revision...</guimenuitem></menuchoice> instead. This allows you to update "
 "your working copy to a specific revision, not only to the most recent one. "
 "Suppose your working copy is at revision 100, but you want it to reflect the"
-" state which it had in revision 50 - then simply update to revision 50. In "
-"the same dialog you can also choose the <firstterm>depth</firstterm> at "
+" state which it had in revision 50 - then simply update to revision 50."
+msgstr ""
+
+#. (para)
+msgid ""
+"In the same dialog you can also choose the <firstterm>depth</firstterm> at "
 "which to update the current folder. The terms used are described in <xref "
 "linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is "
 "<guilabel>Working copy</guilabel>, which preserves the existing depth "
-"setting. You can also choose whether to ignore any external projects in the "
-"update (i.e. projects referenced using <literal>svn:externals</literal>)."
+"setting. You can also set the depth <literal>sticky</literal> which means "
+"subsequent updates will use that new depth, i.e. that depth is then used as "
+"the default depth."
 msgstr ""
-"標準の更新コマンドでは、オプションを付けず、作業コピーをリポジトリの最新 (HEAD) "
-"リビジョンに更新するだけです。これが最も一般的なケースです。更新プロセスをもっと制御したい場合は、代わりに "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>特定のリビジョンへ更新...</guimenuitem></menuchoice>"
-" を使用してください。これで作業コピーを最新のものだけでなく、指定したリビジョンに更新できます。作業コピーがリビジョン 100 だったとして、リビジョン"
-" 50 にある状態を反映したい場合、単純にリビジョン 50 へ更新します。同じダイアログで、現在のフォルダを更新する際の "
-"<firstterm>深度</firstterm> を選択できます。これは <xref linkend=\"tsvn-dug-checkout-"
-"depth\"/> で説明しています。デフォルト値は、既存の深さを変更しないように、<guilabel>作業コピー</guilabel> "
-"戸なっています。また、更新時に外部プロジェクト (<literal>svn:externals</literal> で関連づけたプロジェクト) "
-"を無視して更新できます。"
+
+#. (para)
+msgid ""
+"You can also choose whether to ignore any external projects in the update "
+"(i.e. projects referenced using <literal>svn:externals</literal>)."
+msgstr ""
+
+#. (para)
+msgid ""
+"An update by default ignores local modifications to the "
+"<literal>svn:externals</literal> property. But when you made modifications "
+"to the <literal>svn:externals</literal> property, you can force the update "
+"to use those local modifications. For example if you change an external to a"
+" new tag, you might want to first update your working copy to that new tag, "
+"build the project and only commit the change to the "
+"<literal>svn:externals</literal> if the build was successful. In that "
+"situation, you have to check the box <guilabel>Apply local svn:externals "
+"modifications</guilabel>. If you modify your externals a lot, you can make "
+"this behavior the default when updating in the settings dialog. <xref "
+"linkend=\"tsvn-dug-settings-main\"/>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -4516,43 +4533,6 @@ msgstr ""
 "エクスプローラで複数のファイルやフォルダを選択し、<menuchoice><guimenuitem>更新</guimenuitem></menuchoice>"
 " を選択した場合、そのファイルやフォルダをひとつずつ更新していきます。TortoiseSVN "
 "は同じリポジトリから持ってきたファイルやフォルダは、全く同じリビジョンに確実に更新します! この更新中に他の人からのコミットが発生してもです。"
-
-#. (title)
-msgid "Local File Already Exists"
-msgstr "既存のローカルファイル"
-
-#. (para)
-msgid ""
-"Sometimes when you try to update, the update fails with a message to say "
-"that there is already a local file of the same name. This typically happens "
-"when Subversion tries to checkout a newly versioned file, and finds that an "
-"unversioned file of the same name already exists in your working folder. "
-"Subversion will never overwrite an unversioned file - it might contain "
-"something you are working on, which coincidentally has the same filename as "
-"another developer has used for his newly committed file."
-msgstr ""
-"更新していると時々、手元に同じ名前のファイルがあるというメッセージを出して、更新が失敗することがあります。典型的には、Subversion "
-"で新しいバージョンのファイルを取得したときに、すでに作業フォルダにバージョン管理外の同じ名前のファイルがある場合に発生します。Subversion "
-"がバージョン管理外のファイルを上書きすることはありません。偶然他の開発者が同じファイル名で作成し、コミットしてしまった場合など、あなたの作業した内容が何か含まれているかもしれないからです。"
-
-#. (para)
-msgid ""
-"If you get this error message, the solution is simply to rename the local "
-"unversioned file. After completing the update, you can check whether the "
-"renamed file is still needed."
-msgstr ""
-"このエラーメッセージがでた場合、簡単な解決法は手元にあるバージョン管理外のファイル名を変更することです。名前を変更したファイルがまだ必要かどうかチェックもできます。"
-
-#. (para)
-msgid ""
-"If you keep getting error messages, use "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for "
-"Modifications</guimenuitem></menuchoice> instead to list all the problem "
-"files. That way you can deal with them all at once."
-msgstr ""
-"このエラーメッセージがまだ出続ける場合、問題のファイルの一覧を出す代わりに "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>変更をチェック</guimenuitem></menuchoice>"
-" をしてみてください。この方法で、一気にその問題に対処できます。"
 
 #. (title)
 msgid "Resolving Conflicts"
@@ -13719,6 +13699,16 @@ msgstr ""
 "bean.com/en/1.5/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> を参照してください。"
+
+#. (term)
+msgid "Apply local modifications to svn:externals when updating"
+msgstr ""
+
+#. (para)
+msgid ""
+"This option tells TortoiseSVN to always apply local modifications to the "
+"<literal>svn:externals</literal> property when updating the working copy."
+msgstr ""
 
 #. (title)
 msgid "Context Menu Settings"

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-01 01:31+0000\n"
+"PO-Revision-Date: 2011-05-09 02:12+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Hungarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -317,6 +317,14 @@ msgstr ""
 msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
+msgstr ""
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -1681,6 +1689,18 @@ msgstr "Egyszer elfogad"
 msgid "Accept permanently"
 msgstr "Végleg elfogad"
 
+#. Resource IDs: (148)
+msgid ""
+"Accept the certificate permanently\n"
+"You won't get asked about this certificate again."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Accept the certificate\n"
+"The certificate is accepted only this one time."
+msgstr ""
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Access to %1 was denied."
@@ -2045,6 +2065,10 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr ""
 
+#. Resource IDs: (1562)
+msgid "Apply local modifications to svn:externals when updating"
+msgstr ""
+
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
 msgstr ""
@@ -2389,6 +2413,12 @@ msgstr "Nem lehet a bitképet beilleszteni a vágólapról!"
 msgid "Cancel"
 msgstr "Mégse"
 
+#. Resource IDs: (100)
+msgid ""
+"Cancel\n"
+"Choose a different folder to export to"
+msgstr ""
+
 #. Resource IDs: (221)
 msgid ""
 "Cancel\n"
@@ -2413,10 +2443,22 @@ msgid ""
 "Do not update the working copy."
 msgstr ""
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't quit TortoiseMerge"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't switch the views"
 msgstr ""
 
 #. Resource IDs: (173)
@@ -2437,16 +2479,46 @@ msgid ""
 "I will enter a different path/URL."
 msgstr ""
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Ignore the outside changes."
+msgstr ""
+
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
 
+#. Resource IDs: (314)
+msgid ""
+"Cancel\n"
+"Keep the empty file."
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Leave all changes."
+msgstr ""
+
+#. Resource IDs: (199)
+msgid ""
+"Cancel\n"
+"Leave the cache on disk."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Resolve the conflicts first."
+msgstr ""
+
+#. Resource IDs: (226)
+msgid ""
+"Cancel\n"
+"The conflict is not resolved."
 msgstr ""
 
 #. Resource IDs: (90)
@@ -2477,6 +2549,12 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "The items are not moved."
+msgstr ""
+
+#. Resource IDs: (589)
+msgid ""
+"Cancel\n"
+"The property is not removed."
 msgstr ""
 
 #. Resource IDs: (147)
@@ -2538,6 +2616,10 @@ msgstr "A tanúsítvány lejárt az alábbi időpontban: %s"
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "A tanúsítvány az alábbi időponttól érvényes: %s"
+
+#. Resource IDs: (148)
+msgid "Certificate validation failed"
+msgstr ""
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -3633,6 +3715,10 @@ msgstr "UTF-8 az alapértelmezett kódolás"
 msgid "Delete"
 msgstr "Törlés"
 
+#. Resource IDs: (199)
+msgid "Delete Repository cache"
+msgstr ""
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr "Nem verziókezelt elemek törlése"
@@ -3654,6 +3740,18 @@ msgstr ""
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Nem verziókezelt elemek törlése..."
+
+#. Resource IDs: (199)
+msgid ""
+"Delete\n"
+"Remove the cache files."
+msgstr ""
+
+#. Resource IDs: (314)
+msgid ""
+"Delete\n"
+"The file is removed."
+msgstr ""
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3741,6 +3839,10 @@ msgstr ""
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "Ablakok helyzete és mérete"
+
+#. Resource IDs: (325)
+msgid "Diff Options"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -3854,8 +3956,16 @@ msgstr ""
 msgid "Do this for all existing items"
 msgstr ""
 
+#. Resource IDs: (589)
+msgid "Do this for all selected items"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
+msgstr ""
+
+#. Resource IDs: (148)
+msgid "Do this for all unversioned/modified items"
 msgstr ""
 
 #. Resource IDs: (1007)
@@ -3979,6 +4089,12 @@ msgstr ""
 msgid ""
 "Don't recover the auto-saved documents\n"
 "Use the last explicitly saved versions of the documents"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
+"Reload the views without saving the modifications"
 msgstr ""
 
 #. Resource IDs: (73, 80)
@@ -4570,9 +4686,17 @@ msgstr "Fájlváltozások minden %s"
 msgid "File changes each week:"
 msgstr "Fájlváltozások hetente:"
 
+#. Resource IDs: (226)
+msgid "File contains conflict markers"
+msgstr ""
+
 #. Resource IDs: (376)
 msgid "File diffs"
 msgstr "Fájl diff-ek"
+
+#. Resource IDs: (314)
+msgid "File is empty."
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -5453,6 +5577,10 @@ msgstr "Kihagyás"
 msgid "Ignore %d items by &extension"
 msgstr "%d fájl kizárása &kiterjesztés alapján"
 
+#. Resource IDs: (1126)
+msgid "Ignore &EOL changes"
+msgstr ""
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "Az &összes láthatatlan karakter kihagyása"
@@ -5488,6 +5616,10 @@ msgstr "Sorvég&ek figyelmen kívül hagyása (ajánlott)"
 #. Resource IDs: (1127)
 msgid "Ignore line endings"
 msgstr "Sorvégek figyelmen kívül hagyása"
+
+#. Resource IDs: (1529)
+msgid "Ignore whitespace &changes"
+msgstr ""
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -6032,6 +6164,10 @@ msgstr ""
 msgid "Locked by %s"
 msgstr "%s által zárolva"
 
+#. Resource IDs: (93)
+msgid "Locking failed"
+msgstr ""
+
 #. Resource IDs: (89)
 msgid ""
 "Locking failed because a newer version exists!\n"
@@ -6120,6 +6256,12 @@ msgstr "&Feloldottnak jelölés"
 #. Resource IDs: (282)
 msgid "Mark as resolved"
 msgstr "Feloldottnak jelölés"
+
+#. Resource IDs: (226)
+msgid ""
+"Mark as resolved\n"
+"The conflict is resolved."
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6374,6 +6516,10 @@ msgstr "Vegyes"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "Módosítás dátuma"
+
+#. Resource IDs: (315)
+msgid "Modifications detected"
+msgstr ""
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
@@ -6855,6 +7001,10 @@ msgstr ""
 msgid "Number of weeks:"
 msgstr "Hetek száma:"
 
+#. Resource IDs: (1542)
+msgid "O&ptions"
+msgstr ""
+
 #. Resource IDs: (1, 73)
 msgid "OK"
 msgstr "OK"
@@ -6963,8 +7113,10 @@ msgid "Open client certificate file"
 msgstr "Kliens tanúsítványfájl megnyitása"
 
 #. Resource IDs: (3601)
-msgid "Open file"
-msgstr "Fájl megnyitása"
+msgid ""
+"Open files\n"
+"Open files for diff"
+msgstr ""
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7524,6 +7676,12 @@ msgstr ""
 "Kilép az alkalmazásból és megkérdezi, hogy elmentse-e a dokumentumokat\n"
 "Kilépés"
 
+#. Resource IDs: (315)
+msgid ""
+"Quit\n"
+"Exit TortoiseMerge without saving the modifications"
+msgstr ""
+
 #. Resource IDs: (1073)
 msgid "R&AM drives"
 msgstr "R&AM meghajtók"
@@ -7648,6 +7806,16 @@ msgstr "Nem verziókezelt mappák felderítése"
 msgid "Recursive"
 msgstr "Rekurzívan"
 
+#. Resource IDs: (589)
+msgid "Recursive operation"
+msgstr ""
+
+#. Resource IDs: (589)
+msgid ""
+"Recursive\n"
+"Remove the property also from items in Subfolders."
+msgstr ""
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr ""
@@ -7723,6 +7891,12 @@ msgstr "%s visszaintegrálása ebbe: %s"
 msgid "Reject"
 msgstr "Elvetés"
 
+#. Resource IDs: (148)
+msgid ""
+"Reject the certificate\n"
+"Cancel the connection."
+msgstr ""
+
 #. Resource IDs: (7)
 #, c-format
 msgid "Rejected patch hunks for '%s'"
@@ -7752,6 +7926,18 @@ msgstr "Tároló át&helyezése..."
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "Újratöltés"
+
+#. Resource IDs: (315)
+msgid ""
+"Reload\n"
+"Local modifications are lost."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Reload\n"
+"The outside changes are loaded."
+msgstr ""
 
 #. Resource IDs: (2050)
 msgid ""
@@ -7829,6 +8015,12 @@ msgstr "Eltávolítás a Gyorsindító eszköztárról"
 msgid "Remove from changelist"
 msgstr "Eltávolítás a változáslistáról"
 
+#. Resource IDs: (100)
+msgid ""
+"Remove from version control\n"
+"All .svn folders are removed"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid ""
@@ -7856,6 +8048,12 @@ msgstr "A teljes részfa/fák eltávolítása"
 msgid ""
 "Remove\n"
 "Force the removal"
+msgstr ""
+
+#. Resource IDs: (589)
+msgid ""
+"Remove\n"
+"Remove the property only from this item."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8374,6 +8572,12 @@ msgstr "Mentés másként"
 msgid "Save as..."
 msgstr "Mentés másként..."
 
+#. Resource IDs: (315)
+msgid ""
+"Save as\n"
+"You're asked where to save the file"
+msgstr ""
+
 #. Resource IDs: (3857)
 #, c-format
 msgid "Save changes to %1?"
@@ -8385,6 +8589,10 @@ msgstr "Kliens tanusítvány útvonal elmentése"
 
 #. Resource IDs: (617)
 msgid "Save in Git format"
+msgstr ""
+
+#. Resource IDs: (314)
+msgid "Save modifications."
 msgstr ""
 
 #. Resource IDs: (76)
@@ -8402,6 +8610,20 @@ msgstr ""
 #. Resource IDs: (1132)
 msgid "Save to clipboard"
 msgstr "Vágólapra mentés"
+
+#. Resource IDs: (315)
+msgid ""
+"Save\n"
+"Save the file with the conflict markers."
+msgstr ""
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"Save\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -10595,6 +10817,10 @@ msgstr "Feloldva"
 msgid "Unrecognized or invalid property file format!"
 msgstr "A tulajdonság-fájl formátuma ismeretlen vagy hibás!"
 
+#. Resource IDs: (315)
+msgid "Unresolved conflicts!"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "Untitled"
 msgstr "Névtelen"
@@ -10613,6 +10839,10 @@ msgstr "Verziókezelésből kivesz"
 
 #. Resource IDs: (14)
 msgid "Unversion and add to &ignore list"
+msgstr ""
+
+#. Resource IDs: (100)
+msgid "Unversion working copy"
 msgstr ""
 
 #. Resource IDs: (1462)
@@ -10647,6 +10877,12 @@ msgstr "Frissítés mélysége"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "Munkapéldány frissítése adott verzióra"
+
+#. Resource IDs: (93)
+msgid ""
+"Update\n"
+"Update the file and try locking again."
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -11111,7 +11347,9 @@ msgid "Working copy: %s\n"
 msgstr ""
 
 #. Resource IDs: (2056)
-msgid "Wrap long lines"
+msgid ""
+"Wrap long lines\n"
+"Wrap long lines"
 msgstr ""
 
 #. Resource IDs: (73)

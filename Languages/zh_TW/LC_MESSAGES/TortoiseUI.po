@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-01 01:31+0000\n"
+"PO-Revision-Date: 2011-05-09 02:12+0000\n"
 "Last-Translator: arith <arithmandar@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -319,6 +319,14 @@ msgstr ""
 msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
+msgstr ""
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -1684,6 +1692,18 @@ msgstr "僅接受一次"
 msgid "Accept permanently"
 msgstr "永久接受"
 
+#. Resource IDs: (148)
+msgid ""
+"Accept the certificate permanently\n"
+"You won't get asked about this certificate again."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Accept the certificate\n"
+"The certificate is accepted only this one time."
+msgstr ""
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Access to %1 was denied."
@@ -2032,6 +2052,10 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr "套用補綴..."
 
+#. Resource IDs: (1562)
+msgid "Apply local modifications to svn:externals when updating"
+msgstr ""
+
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
 msgstr ""
@@ -2378,6 +2402,12 @@ msgstr "無法從剪貼簿上貼上點陣圖!"
 msgid "Cancel"
 msgstr "取消"
 
+#. Resource IDs: (100)
+msgid ""
+"Cancel\n"
+"Choose a different folder to export to"
+msgstr ""
+
 #. Resource IDs: (221)
 msgid ""
 "Cancel\n"
@@ -2402,10 +2432,22 @@ msgid ""
 "Do not update the working copy."
 msgstr ""
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't quit TortoiseMerge"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't switch the views"
 msgstr ""
 
 #. Resource IDs: (173)
@@ -2426,16 +2468,46 @@ msgid ""
 "I will enter a different path/URL."
 msgstr ""
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Ignore the outside changes."
+msgstr ""
+
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
 
+#. Resource IDs: (314)
+msgid ""
+"Cancel\n"
+"Keep the empty file."
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Leave all changes."
+msgstr ""
+
+#. Resource IDs: (199)
+msgid ""
+"Cancel\n"
+"Leave the cache on disk."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Resolve the conflicts first."
+msgstr ""
+
+#. Resource IDs: (226)
+msgid ""
+"Cancel\n"
+"The conflict is not resolved."
 msgstr ""
 
 #. Resource IDs: (90)
@@ -2466,6 +2538,12 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "The items are not moved."
+msgstr ""
+
+#. Resource IDs: (589)
+msgid ""
+"Cancel\n"
+"The property is not removed."
 msgstr ""
 
 #. Resource IDs: (147)
@@ -2527,6 +2605,10 @@ msgstr "憑證已到期. 有效期限: %s"
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "憑證尚未生效. 起始日期: %s"
+
+#. Resource IDs: (148)
+msgid "Certificate validation failed"
+msgstr ""
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -3604,6 +3686,10 @@ msgstr "預設使用 UTF-8 編碼"
 msgid "Delete"
 msgstr "刪除"
 
+#. Resource IDs: (199)
+msgid "Delete Repository cache"
+msgstr ""
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr "刪除無版本控制的檔案"
@@ -3625,6 +3711,18 @@ msgstr "刪除無版本控制的檔案"
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "刪除無版本控制的檔案..."
+
+#. Resource IDs: (199)
+msgid ""
+"Delete\n"
+"Remove the cache files."
+msgstr ""
+
+#. Resource IDs: (314)
+msgid ""
+"Delete\n"
+"The file is removed."
+msgstr ""
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3710,6 +3808,10 @@ msgstr ""
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "視窗大小與位置"
+
+#. Resource IDs: (325)
+msgid "Diff Options"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -3821,8 +3923,16 @@ msgstr ""
 msgid "Do this for all existing items"
 msgstr ""
 
+#. Resource IDs: (589)
+msgid "Do this for all selected items"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
+msgstr ""
+
+#. Resource IDs: (148)
+msgid "Do this for all unversioned/modified items"
 msgstr ""
 
 #. Resource IDs: (1007)
@@ -3952,6 +4062,12 @@ msgid ""
 msgstr ""
 "不回復自動儲存的文件\n"
 "使用最後一次手動儲存的版本"
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
+"Reload the views without saving the modifications"
+msgstr ""
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4540,9 +4656,17 @@ msgstr "每 %s 的檔案變更數"
 msgid "File changes each week:"
 msgstr "每週檔案變更:"
 
+#. Resource IDs: (226)
+msgid "File contains conflict markers"
+msgstr ""
+
 #. Resource IDs: (376)
 msgid "File diffs"
 msgstr "檔案差異"
+
+#. Resource IDs: (314)
+msgid "File is empty."
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -5402,6 +5526,10 @@ msgstr "忽略"
 msgid "Ignore %d items by &extension"
 msgstr "依副檔名忽略 %d 項(&E)"
 
+#. Resource IDs: (1126)
+msgid "Ignore &EOL changes"
+msgstr ""
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "忽略所有空白字元(&A)"
@@ -5437,6 +5565,10 @@ msgstr "(建議)忽略換行(&E)"
 #. Resource IDs: (1127)
 msgid "Ignore line endings"
 msgstr "忽略換行"
+
+#. Resource IDs: (1529)
+msgid "Ignore whitespace &changes"
+msgstr ""
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5984,6 +6116,10 @@ msgstr "鎖定"
 msgid "Locked by %s"
 msgstr "由 %s 鎖定"
 
+#. Resource IDs: (93)
+msgid "Locking failed"
+msgstr ""
+
 #. Resource IDs: (89)
 msgid ""
 "Locking failed because a newer version exists!\n"
@@ -6073,6 +6209,12 @@ msgstr "標記為已解決(&R)"
 #. Resource IDs: (282)
 msgid "Mark as resolved"
 msgstr "標記為已解決"
+
+#. Resource IDs: (226)
+msgid ""
+"Mark as resolved\n"
+"The conflict is resolved."
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6323,6 +6465,10 @@ msgstr "混合"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "修改日期"
+
+#. Resource IDs: (315)
+msgid "Modifications detected"
+msgstr ""
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
@@ -6798,6 +6944,10 @@ msgstr ""
 msgid "Number of weeks:"
 msgstr "週數:"
 
+#. Resource IDs: (1542)
+msgid "O&ptions"
+msgstr ""
+
 #. Resource IDs: (1, 73)
 msgid "OK"
 msgstr "確定"
@@ -6903,8 +7053,10 @@ msgid "Open client certificate file"
 msgstr "開啟用戶端憑證檔"
 
 #. Resource IDs: (3601)
-msgid "Open file"
-msgstr "開啟檔案"
+msgid ""
+"Open files\n"
+"Open files for diff"
+msgstr ""
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7463,6 +7615,12 @@ msgstr ""
 "結束程式; 提示儲存文件\n"
 "離開"
 
+#. Resource IDs: (315)
+msgid ""
+"Quit\n"
+"Exit TortoiseMerge without saving the modifications"
+msgstr ""
+
 #. Resource IDs: (1073)
 msgid "R&AM drives"
 msgstr "虛擬磁碟(&A)"
@@ -7587,6 +7745,16 @@ msgstr "遞迴搜尋無版本控制的目錄"
 msgid "Recursive"
 msgstr "遞迴"
 
+#. Resource IDs: (589)
+msgid "Recursive operation"
+msgstr ""
+
+#. Resource IDs: (589)
+msgid ""
+"Recursive\n"
+"Remove the property also from items in Subfolders."
+msgstr ""
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "正在導向至 URL"
@@ -7662,6 +7830,12 @@ msgstr "重新整合 %s 至 %s"
 msgid "Reject"
 msgstr "拒絕"
 
+#. Resource IDs: (148)
+msgid ""
+"Reject the certificate\n"
+"Cancel the connection."
+msgstr ""
+
 #. Resource IDs: (7)
 #, c-format
 msgid "Rejected patch hunks for '%s'"
@@ -7687,6 +7861,18 @@ msgstr "重新定位(&C)..."
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "重新載入"
+
+#. Resource IDs: (315)
+msgid ""
+"Reload\n"
+"Local modifications are lost."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Reload\n"
+"The outside changes are loaded."
+msgstr ""
 
 #. Resource IDs: (2050)
 msgid ""
@@ -7764,6 +7950,12 @@ msgstr "從快速存取工具列中移除"
 msgid "Remove from changelist"
 msgstr "自變更列表移除"
 
+#. Resource IDs: (100)
+msgid ""
+"Remove from version control\n"
+"All .svn folders are removed"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid ""
@@ -7793,6 +7985,12 @@ msgstr "移除選擇的完整子樹"
 msgid ""
 "Remove\n"
 "Force the removal"
+msgstr ""
+
+#. Resource IDs: (589)
+msgid ""
+"Remove\n"
+"Remove the property only from this item."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8328,6 +8526,12 @@ msgstr "另存新檔"
 msgid "Save as..."
 msgstr "另存新檔..."
 
+#. Resource IDs: (315)
+msgid ""
+"Save as\n"
+"You're asked where to save the file"
+msgstr ""
+
 #. Resource IDs: (3857)
 #, c-format
 msgid "Save changes to %1?"
@@ -8340,6 +8544,10 @@ msgstr "儲存用戶端憑證路徑"
 #. Resource IDs: (617)
 msgid "Save in Git format"
 msgstr "以 Git 格式儲存"
+
+#. Resource IDs: (314)
+msgid "Save modifications."
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8356,6 +8564,20 @@ msgstr ""
 #. Resource IDs: (1132)
 msgid "Save to clipboard"
 msgstr "複製至剪貼簿"
+
+#. Resource IDs: (315)
+msgid ""
+"Save\n"
+"Save the file with the conflict markers."
+msgstr ""
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"Save\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -10554,6 +10776,10 @@ msgstr "未鎖定"
 msgid "Unrecognized or invalid property file format!"
 msgstr "屬性檔案格式無法辨識或錯誤！"
 
+#. Resource IDs: (315)
+msgid "Unresolved conflicts!"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "Untitled"
 msgstr "未命名"
@@ -10573,6 +10799,10 @@ msgstr "清除版本控制"
 #. Resource IDs: (14)
 msgid "Unversion and add to &ignore list"
 msgstr "取消版本控制並加入忽略列表(&I)"
+
+#. Resource IDs: (100)
+msgid "Unversion working copy"
+msgstr ""
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -10606,6 +10836,12 @@ msgstr "更新深度"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "更新工作複本至版本"
+
+#. Resource IDs: (93)
+msgid ""
+"Update\n"
+"Update the file and try locking again."
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -11071,8 +11307,10 @@ msgid "Working copy: %s\n"
 msgstr "工作複本: %s\n"
 
 #. Resource IDs: (2056)
-msgid "Wrap long lines"
-msgstr "自動折行"
+msgid ""
+"Wrap long lines\n"
+"Wrap long lines"
+msgstr ""
 
 #. Resource IDs: (73)
 msgid "Yes"

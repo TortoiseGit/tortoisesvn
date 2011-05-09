@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-03 01:10+0000\n"
+"PO-Revision-Date: 2011-05-08 00:33+0000\n"
 "Last-Translator: zhugscn <huasoft@163.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4289,21 +4289,40 @@ msgid ""
 "Revision...</guimenuitem></menuchoice> instead. This allows you to update "
 "your working copy to a specific revision, not only to the most recent one. "
 "Suppose your working copy is at revision 100, but you want it to reflect the"
-" state which it had in revision 50 - then simply update to revision 50. In "
-"the same dialog you can also choose the <firstterm>depth</firstterm> at "
+" state which it had in revision 50 - then simply update to revision 50."
+msgstr ""
+
+#. (para)
+msgid ""
+"In the same dialog you can also choose the <firstterm>depth</firstterm> at "
 "which to update the current folder. The terms used are described in <xref "
 "linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is "
 "<guilabel>Working copy</guilabel>, which preserves the existing depth "
-"setting. You can also choose whether to ignore any external projects in the "
-"update (i.e. projects referenced using <literal>svn:externals</literal>)."
+"setting. You can also set the depth <literal>sticky</literal> which means "
+"subsequent updates will use that new depth, i.e. that depth is then used as "
+"the default depth."
 msgstr ""
-"标准的更新命令没有选项只能将工作副本更新至版本库的 HEAD 版，这是最常见的情况。如果想要对更新的过程进行更多的控制，应该使用 "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>更新至版本...</guimenuitem></menuchoice>"
-" 命令替代它。该命令允许你将工作副本更新到某个特定的版本而不是只能到最新版。假设你的工作副本的当前版本是 100，但你要查看它在 50 版的状态 - "
-"只要简单的更新到 50 版即可。在该对话框中还可以选择更新当前文件夹的 <firstterm>深度</firstterm>。该术语在 <xref "
-"linkend=\"tsvn-dug-checkout-depth\"/> 中有详细介绍。默认的深度是 "
-"<guilabel>工作副本</guilabel>，就是保留现有的设置。还可以选择在更新时是否忽略外部项目(例如那些使用 "
-"<literal>svn:extrernals</literal> 引用的项目)。"
+
+#. (para)
+msgid ""
+"You can also choose whether to ignore any external projects in the update "
+"(i.e. projects referenced using <literal>svn:externals</literal>)."
+msgstr ""
+
+#. (para)
+msgid ""
+"An update by default ignores local modifications to the "
+"<literal>svn:externals</literal> property. But when you made modifications "
+"to the <literal>svn:externals</literal> property, you can force the update "
+"to use those local modifications. For example if you change an external to a"
+" new tag, you might want to first update your working copy to that new tag, "
+"build the project and only commit the change to the "
+"<literal>svn:externals</literal> if the build was successful. In that "
+"situation, you have to check the box <guilabel>Apply local svn:externals "
+"modifications</guilabel>. If you modify your externals a lot, you can make "
+"this behavior the default when updating in the settings dialog. <xref "
+"linkend=\"tsvn-dug-settings-main\"/>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -4358,38 +4377,6 @@ msgid ""
 "same revision! Even if between those updates another commit occurred."
 msgstr ""
 "如果你在资源管理器中选择了多文件和文件夹，然后选择<menuchoice><guimenuitem>更新</guimenuitem></menuchoice>，这些文件/文件夹一个接一个的被更新。TortoiseSVN确保所有的来自同一版本库的文件/文件夹被更新到同一个版本!即使在更新过程中发生了另一个提交。"
-
-#. (title)
-msgid "Local File Already Exists"
-msgstr "本地文件已经存在"
-
-#. (para)
-msgid ""
-"Sometimes when you try to update, the update fails with a message to say "
-"that there is already a local file of the same name. This typically happens "
-"when Subversion tries to checkout a newly versioned file, and finds that an "
-"unversioned file of the same name already exists in your working folder. "
-"Subversion will never overwrite an unversioned file - it might contain "
-"something you are working on, which coincidentally has the same filename as "
-"another developer has used for his newly committed file."
-msgstr ""
-"有时在你试图更新的时候，更新失败，提示信息说已经有一个同名的本地文件。通常发生在Subversion试图检出一个新增的受控文件时，发现一个未受控的同名文件已经在工作路径中存在。Subversion绝不会覆盖一个未受控的文件——因为它有可能有你需要的东西，却碰巧与另一个开发者新提交的文件重名了。"
-
-#. (para)
-msgid ""
-"If you get this error message, the solution is simply to rename the local "
-"unversioned file. After completing the update, you can check whether the "
-"renamed file is still needed."
-msgstr "如果你得到这个错误信息，解决的方法就是把本地的未受控文件重命名。在完成更新之后，你再检查被重命名的文件是不是还需要。"
-
-#. (para)
-msgid ""
-"If you keep getting error messages, use "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for "
-"Modifications</guimenuitem></menuchoice> instead to list all the problem "
-"files. That way you can deal with them all at once."
-msgstr ""
-"如果你一直得到错误，使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>检查修改</guimenuitem></menuchoice>来列出所有有问题的文件。这样你可以一次性解决它们。"
 
 #. (title)
 msgid "Resolving Conflicts"
@@ -12895,6 +12882,16 @@ msgid ""
 "bean.com/en/1.5/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
+msgstr ""
+
+#. (term)
+msgid "Apply local modifications to svn:externals when updating"
+msgstr ""
+
+#. (para)
+msgid ""
+"This option tells TortoiseSVN to always apply local modifications to the "
+"<literal>svn:externals</literal> property when updating the working copy."
 msgstr ""
 
 #. (title)

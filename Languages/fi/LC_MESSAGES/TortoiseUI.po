@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-01 22:47+0000\n"
+"PO-Revision-Date: 2011-05-09 02:12+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -329,6 +329,14 @@ msgid ""
 msgstr ""
 "%s\n"
 "Haluatko kuitenkin poistaa tiedoston '%s'?"
+
+#. Resource IDs: (147)
+#, c-format
+msgid ""
+"%s\n"
+"The folder %s\n"
+"contains unversioned and/or modified file(s). Do you want to remove it anyway?"
+msgstr ""
 
 #. Resource IDs: (616)
 #, c-format
@@ -1711,6 +1719,18 @@ msgstr "Hyväksy kerran"
 msgid "Accept permanently"
 msgstr "Hyväksy pysyvästi"
 
+#. Resource IDs: (148)
+msgid ""
+"Accept the certificate permanently\n"
+"You won't get asked about this certificate again."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid ""
+"Accept the certificate\n"
+"The certificate is accepted only this one time."
+msgstr ""
+
 #. Resource IDs: (3867)
 #, c-format
 msgid "Access to %1 was denied."
@@ -2076,6 +2096,10 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr "Käytä paikkatiedosto..."
 
+#. Resource IDs: (1562)
+msgid "Apply local modifications to svn:externals when updating"
+msgstr ""
+
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
 msgstr "Käytä paikalliset svn:externals -muutokset"
@@ -2427,6 +2451,12 @@ msgstr "Bittikarttakuvan liimaus leikepöydältä epäonnistui!"
 msgid "Cancel"
 msgstr "Peruuta"
 
+#. Resource IDs: (100)
+msgid ""
+"Cancel\n"
+"Choose a different folder to export to"
+msgstr ""
+
 #. Resource IDs: (221)
 msgid ""
 "Cancel\n"
@@ -2459,6 +2489,12 @@ msgstr ""
 "Peruuta\n"
 "Älä päivitä työkopiota."
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't quit TortoiseMerge"
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
@@ -2466,6 +2502,12 @@ msgid ""
 msgstr ""
 "Peruuta\n"
 "Älä ratkaise ristiriitaa."
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Don't switch the views"
+msgstr ""
 
 #. Resource IDs: (173)
 msgid ""
@@ -2491,6 +2533,12 @@ msgstr ""
 "Peruuta\n"
 "Syötän toisen polun tai paikantimen."
 
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Ignore the outside changes."
+msgstr ""
+
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
@@ -2499,6 +2547,12 @@ msgstr ""
 "Peruuta\n"
 "Säilytä nykyinen paikannin."
 
+#. Resource IDs: (314)
+msgid ""
+"Cancel\n"
+"Keep the empty file."
+msgstr ""
+
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
@@ -2506,6 +2560,24 @@ msgid ""
 msgstr ""
 "Peruuta\n"
 "Jätä kaikki muutokset."
+
+#. Resource IDs: (199)
+msgid ""
+"Cancel\n"
+"Leave the cache on disk."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Cancel\n"
+"Resolve the conflicts first."
+msgstr ""
+
+#. Resource IDs: (226)
+msgid ""
+"Cancel\n"
+"The conflict is not resolved."
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -2546,6 +2618,12 @@ msgid ""
 msgstr ""
 "Peruuta\n"
 "Tiedostoja ei siirretä."
+
+#. Resource IDs: (589)
+msgid ""
+"Cancel\n"
+"The property is not removed."
+msgstr ""
 
 #. Resource IDs: (147)
 msgid ""
@@ -2614,6 +2692,10 @@ msgstr "Sertifikaatti on vanhentunut. Viimeinen voimassaolopäivä: %s"
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
 msgstr "Sertifikaatti ei ole vielä voimassa. Voimassa alkaen: %s"
+
+#. Resource IDs: (148)
+msgid "Certificate validation failed"
+msgstr ""
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -3725,6 +3807,10 @@ msgstr "Käytä oletusarvoisesti UTF-8 -koodausta"
 msgid "Delete"
 msgstr "Poista"
 
+#. Resource IDs: (199)
+msgid "Delete Repository cache"
+msgstr ""
+
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
 msgstr "Poista versioimattomat kohteet"
@@ -3746,6 +3832,18 @@ msgstr "Poista versioimattomat kohteet"
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
 msgstr "Poista versioimattomat kohteet..."
+
+#. Resource IDs: (199)
+msgid ""
+"Delete\n"
+"Remove the cache files."
+msgstr ""
+
+#. Resource IDs: (314)
+msgid ""
+"Delete\n"
+"The file is removed."
+msgstr ""
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3833,6 +3931,10 @@ msgstr ""
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "Ikkunoiden koot ja paikat"
+
+#. Resource IDs: (325)
+msgid "Diff Options"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -3946,9 +4048,17 @@ msgstr "Tee tämä kaikille olemassa oleville kansioille"
 msgid "Do this for all existing items"
 msgstr "Tee tämä kaikille jäljellä oleville tiedostoille"
 
+#. Resource IDs: (589)
+msgid "Do this for all selected items"
+msgstr ""
+
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
 msgstr "Tee tämä kaikille valituille versioimattomille kansioille"
+
+#. Resource IDs: (148)
+msgid "Do this for all unversioned/modified items"
+msgstr ""
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4084,6 +4194,12 @@ msgid ""
 msgstr ""
 "Älä palauta automaattisesti talletettuja dokumentteja\n"
 "Käytä dokumenttien viimeisintä erikseen talletettua versiota"
+
+#. Resource IDs: (315)
+msgid ""
+"Don't save\n"
+"Reload the views without saving the modifications"
+msgstr ""
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4679,9 +4795,17 @@ msgstr "Tiedostomuutoksia / %s"
 msgid "File changes each week:"
 msgstr "Tiedostomuutoksia per viikko:"
 
+#. Resource IDs: (226)
+msgid "File contains conflict markers"
+msgstr ""
+
 #. Resource IDs: (376)
 msgid "File diffs"
 msgstr "Tiedostoerot"
+
+#. Resource IDs: (314)
+msgid "File is empty."
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -5564,6 +5688,10 @@ msgstr "Hylkää"
 msgid "Ignore %d items by &extension"
 msgstr "Ohita %d kohdetta &päätteen perusteella"
 
+#. Resource IDs: (1126)
+msgid "Ignore &EOL changes"
+msgstr ""
+
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
 msgstr "Ohita &kaikki tyhjämerkit"
@@ -5599,6 +5727,10 @@ msgstr "Älä välitä &rivinvaihdoista (suositus)"
 #. Resource IDs: (1127)
 msgid "Ignore line endings"
 msgstr "Älä välitä rivinvaihdoista"
+
+#. Resource IDs: (1529)
+msgid "Ignore whitespace &changes"
+msgstr ""
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -6165,6 +6297,10 @@ msgstr "Lukittu"
 msgid "Locked by %s"
 msgstr "Lukitsija: %s"
 
+#. Resource IDs: (93)
+msgid "Locking failed"
+msgstr ""
+
 #. Resource IDs: (89)
 msgid ""
 "Locking failed because a newer version exists!\n"
@@ -6254,6 +6390,12 @@ msgstr "Merkitse &ratkaistuksi"
 #. Resource IDs: (282)
 msgid "Mark as resolved"
 msgstr "Merkitse ratkaistuksi"
+
+#. Resource IDs: (226)
+msgid ""
+"Mark as resolved\n"
+"The conflict is resolved."
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6510,6 +6652,10 @@ msgstr "Sekoitettu"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "Muutospäiväys"
+
+#. Resource IDs: (315)
+msgid "Modifications detected"
+msgstr ""
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
@@ -7008,6 +7154,10 @@ msgstr ""
 msgid "Number of weeks:"
 msgstr "Viikkoja:"
 
+#. Resource IDs: (1542)
+msgid "O&ptions"
+msgstr ""
+
 #. Resource IDs: (1, 73)
 msgid "OK"
 msgstr "OK"
@@ -7117,8 +7267,10 @@ msgid "Open client certificate file"
 msgstr "Avaa sertifikaattitiedosto"
 
 #. Resource IDs: (3601)
-msgid "Open file"
-msgstr "Avaa tiedosto"
+msgid ""
+"Open files\n"
+"Open files for diff"
+msgstr ""
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7690,6 +7842,12 @@ msgstr ""
 "Poistu sovelluksesta; pyytää tallettamaan dokumentit\n"
 "Poistu"
 
+#. Resource IDs: (315)
+msgid ""
+"Quit\n"
+"Exit TortoiseMerge without saving the modifications"
+msgstr ""
+
 #. Resource IDs: (1073)
 msgid "R&AM drives"
 msgstr "&RAM-asemat"
@@ -7816,6 +7974,16 @@ msgstr "Siirry myös versioimattomiin kansioihin"
 msgid "Recursive"
 msgstr "Palautuva"
 
+#. Resource IDs: (589)
+msgid "Recursive operation"
+msgstr ""
+
+#. Resource IDs: (589)
+msgid ""
+"Recursive\n"
+"Remove the property also from items in Subfolders."
+msgstr ""
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "Siirrytään paikantimeen"
@@ -7891,6 +8059,12 @@ msgstr "Yhdistetään haara %s takaisin työkopioon %s"
 msgid "Reject"
 msgstr "Hylkää"
 
+#. Resource IDs: (148)
+msgid ""
+"Reject the certificate\n"
+"Cancel the connection."
+msgstr ""
+
 #. Resource IDs: (7)
 #, c-format
 msgid "Rejected patch hunks for '%s'"
@@ -7917,6 +8091,18 @@ msgstr "&Sijoita työkopio uudelleen..."
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "Lataa uudelleen"
+
+#. Resource IDs: (315)
+msgid ""
+"Reload\n"
+"Local modifications are lost."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Reload\n"
+"The outside changes are loaded."
+msgstr ""
 
 #. Resource IDs: (2050)
 msgid ""
@@ -7996,6 +8182,12 @@ msgstr "Poista pikatyökalurivistä"
 msgid "Remove from changelist"
 msgstr "Poista muutoslistasta"
 
+#. Resource IDs: (100)
+msgid ""
+"Remove from version control\n"
+"All .svn folders are removed"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid ""
@@ -8028,6 +8220,12 @@ msgid ""
 msgstr ""
 "Poista\n"
 "Pakotettu poisto"
+
+#. Resource IDs: (589)
+msgid ""
+"Remove\n"
+"Remove the property only from this item."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8570,6 +8768,12 @@ msgstr "Tallenna nimellä"
 msgid "Save as..."
 msgstr "Tallenna nimellä..."
 
+#. Resource IDs: (315)
+msgid ""
+"Save as\n"
+"You're asked where to save the file"
+msgstr ""
+
 #. Resource IDs: (3857)
 #, c-format
 msgid "Save changes to %1?"
@@ -8582,6 +8786,10 @@ msgstr "Tallenna asiakkaan sertifikaattipolku"
 #. Resource IDs: (617)
 msgid "Save in Git format"
 msgstr "Tallenna Git-muodossa"
+
+#. Resource IDs: (314)
+msgid "Save modifications."
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8598,6 +8806,20 @@ msgstr ""
 #. Resource IDs: (1132)
 msgid "Save to clipboard"
 msgstr "Tallenna leikepöydälle"
+
+#. Resource IDs: (315)
+msgid ""
+"Save\n"
+"Save the file with the conflict markers."
+msgstr ""
+
+#. Resource IDs: (314)
+#, c-format
+msgid ""
+"Save\n"
+"The modifications are saved to\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -10879,6 +11101,10 @@ msgstr "Lukitus poistettu"
 msgid "Unrecognized or invalid property file format!"
 msgstr "Tuntematon tai virheellinen ominaisuustiedoston muoto!"
 
+#. Resource IDs: (315)
+msgid "Unresolved conflicts!"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "Untitled"
 msgstr "Nimetön"
@@ -10898,6 +11124,10 @@ msgstr "Poista versiointi"
 #. Resource IDs: (14)
 msgid "Unversion and add to &ignore list"
 msgstr "Poista versiointi ja lisää &ohituslistaan"
+
+#. Resource IDs: (100)
+msgid "Unversion working copy"
+msgstr ""
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -10931,6 +11161,12 @@ msgstr "Päivityksen syvyys"
 #. Resource IDs: (275)
 msgid "Update WC to revision"
 msgstr "Päivitä työkopio versioon"
+
+#. Resource IDs: (93)
+msgid ""
+"Update\n"
+"Update the file and try locking again."
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -11411,8 +11647,10 @@ msgid "Working copy: %s\n"
 msgstr "Työkopio: %s\n"
 
 #. Resource IDs: (2056)
-msgid "Wrap long lines"
-msgstr "Rivitä pitkät rivit"
+msgid ""
+"Wrap long lines\n"
+"Wrap long lines"
+msgstr ""
 
 #. Resource IDs: (73)
 msgid "Yes"
