@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-09 07:45+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1681,7 +1681,7 @@ msgid ""
 "A viewer program for GNU diff files (patch files).\r\n"
 "If you don't have one use NotePad."
 msgstr ""
-"Ein Anzeigeprogramm für GNU Standard-Diffdateien (Patchdateien).\r\n"
+"Ein Anzeigeprogramm für Standard-Diffdateien (Patchdateien).\r\n"
 "Falls Sie keines haben wählen Sie einen normalen Texteditor\r\n"
 "(z.B. Notepad.exe)."
 
@@ -2103,7 +2103,7 @@ msgstr "Patch anwenden..."
 
 #. Resource IDs: (1562)
 msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
+msgstr "Beim Aktualsieren lokale Änderungen auf svn:externals anwenden"
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
@@ -2464,6 +2464,8 @@ msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"Abbrechen\n"
+"Wählen Sie einen anderen Zielordner zum Exportieren"
 
 #. Resource IDs: (221)
 msgid ""
@@ -3288,7 +3290,7 @@ msgstr "Auflösen von Konflikten"
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Anzeigen von GNU Standard-Diffdateien"
+msgstr "Anzeigen von Standard-Diffdateien"
 
 #. Resource IDs: (147)
 msgid "Confirm revert"
@@ -3973,7 +3975,7 @@ msgstr "Dialoggrößen und -positionen"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr ""
+msgstr "Vergleichsoptionen"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4722,7 +4724,7 @@ msgstr "Externe Programme::Konflikteditor"
 
 #. Resource IDs: (194)
 msgid "External Programs::Unified Diff Viewer"
-msgstr "Externe Programme::GNU Diff-Betrachter"
+msgstr "Externe Programme::Standard-Diff Betrachter"
 
 #. Resource IDs: (263)
 msgid "External failed"
@@ -5736,7 +5738,7 @@ msgstr "Ignoriere %d Objekte nach &Erweiterung"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Ignoriere &Zeilenumbrüche"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5776,11 +5778,11 @@ msgstr "Ignoriere Zeilenenden"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "Ignoriere Änderungen in der &Anzahl von Leerzeichen"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
-msgstr "Ignoriere Änderungen in der &Anzahl von Leerzeichen"
+msgstr "Ignoriere Änderungen in der A&nzahl von Leerzeichen"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace changes"
@@ -7219,7 +7221,7 @@ msgstr "Anzahl Wochen:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "O&ptionen"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -8273,6 +8275,8 @@ msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
 msgstr ""
+"Aus der Versionskontrolle entfernen\n"
+"Alle .svn Ordner werden gelöscht"
 
 #. Resource IDs: (127)
 #, c-format
@@ -11274,7 +11278,7 @@ msgstr "Aus SVN entfernen und &ignorieren"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "Die Arbeitskopie aus der Versionskontrolle nehmen"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"

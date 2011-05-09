@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-08 00:34+0000\n"
+"PO-Revision-Date: 2011-05-09 08:00+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7637,6 +7637,8 @@ msgid ""
 "Export the selected items in this revision to a folder, preserving the file "
 "hierarchy."
 msgstr ""
+"Exportiert die gewählten Objekte in dieser Revision unter Beibehaltung der "
+"Dateihierarchie in einen Ordner."
 
 #. (para)
 msgid ""
@@ -16631,13 +16633,15 @@ msgstr ""
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
+msgstr "Lokale Änderungen beim Aktualisieren auf svn:externals anwenden"
 
 #. (para)
 msgid ""
 "This option tells TortoiseSVN to always apply local modifications to the "
 "<literal>svn:externals</literal> property when updating the working copy."
 msgstr ""
+"Diese Option weist TortoiseSVN an, stets lokale Änderungen auf die "
+"<literal>svn:externals</literal> Eigenschaft anzuwenden."
 
 #. (title)
 msgid "Context Menu Settings"
@@ -18313,12 +18317,18 @@ msgid ""
 "which is installed alongside TortoiseSVN, and colour-codes the added and "
 "removed lines."
 msgstr ""
+"Ein Betrachter für Standard-Diff Dateien (Patch-Dateien). Es sind keine "
+"Parametererforderlich. Der <guilabel>Standard</guilabel> ist TortoiseUDiff, "
+"der mit TortoiseSVN installiert wird und die hinzugefügten und entfernten "
+"Linien farbig hervorhebt."
 
 #. (para)
 msgid ""
 "Since Unified Diff is just a text format, you can use your favourite text "
 "editor if you prefer."
 msgstr ""
+"Da Standard-Diff nur ein Textformat ist, können Sie auch Ihren Lieblings "
+"Texteditor verwenden."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -19289,6 +19299,9 @@ msgid ""
 " to use strong contrast on the locator bar while keeping the main window "
 "background light so that you can still read the text."
 msgstr ""
+"Sie können verschiedene Farben für die Positionsleiste angeben. Als Vorgabe "
+"wird ein starker Kontrast verwendet, während das Hauptfenster hell gehalten "
+"wird, so dass sie den Text noch lesen können."
 
 #. (term)
 msgid "Font"
