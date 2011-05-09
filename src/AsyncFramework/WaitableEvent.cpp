@@ -41,6 +41,10 @@ namespace
 
         std::vector<HANDLE> handles;
 
+        // flag indicating that this instance has not been destroyed, yet
+
+        volatile LONG alive;
+
         // construction / destruction:
         // free all handles upon destruction at latest
 
@@ -65,12 +69,14 @@ namespace
     // construction / destruction:
 
     CWaitableEventPool::CWaitableEventPool()
+        : alive (TRUE)
     {
     }
 
     CWaitableEventPool::~CWaitableEventPool()
     {
         Clear();
+        InterlockedExchange (&alive, FALSE);
     }
 
     // Meyer's singleton
@@ -86,6 +92,7 @@ namespace
 
     HANDLE CWaitableEventPool::Alloc()
     {
+        if (InterlockedCompareExchange (&alive, TRUE, TRUE))
         {
             CCriticalSectionLock lock (mutex);
             if (!handles.empty())
@@ -101,27 +108,35 @@ namespace
 
     void CWaitableEventPool::AutoAlloc (HANDLE& handle)
     {
-        CCriticalSectionLock lock (mutex);
         if (handle != NULL)
             return;
 
-        if (!handles.empty())
+        if (InterlockedCompareExchange (&alive, TRUE, TRUE))
         {
-            handle = handles.back();
-            handles.pop_back();
+            CCriticalSectionLock lock (mutex);
+            if (!handles.empty())
+            {
+                handle = handles.back();
+                handles.pop_back();
+                return;
+            }
         }
-        else
-        {
-            handle = CreateEvent (NULL, TRUE, FALSE, NULL);
-        }
+
+        handle = CreateEvent (NULL, TRUE, FALSE, NULL);
     }
 
     void CWaitableEventPool::Release (HANDLE event)
     {
         ResetEvent (event);
-
-        CCriticalSectionLock lock (mutex);
-        handles.push_back (event);
+        if (InterlockedCompareExchange (&alive, TRUE, TRUE))
+        {
+            CCriticalSectionLock lock (mutex);
+            handles.push_back (event);
+        }
+        else
+        {
+            CloseHandle (event);
+        }
     }
 
     void CWaitableEventPool::Clear()
