@@ -20,6 +20,9 @@
 #include "TortoiseProc.h"
 #include "EditPropExternalsValue.h"
 #include "AppUtils.h"
+#include "UnicodeUtils.h"
+#include "PathUtils.h"
+#include "SVNHelpers.h"
 
 // CEditPropExternalsValue dialog
 
@@ -82,7 +85,7 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
     m_URLCombo.SetURLHistory(true, false);
-    m_URLCombo.SetWindowText(m_External.url);
+    m_URLCombo.SetWindowText(CPathUtils::PathUnescape(m_External.url));
 
     UpdateData(false);
 
@@ -139,7 +142,8 @@ void CEditPropExternalsValue::OnOK()
     }
     m_URLCombo.SaveHistory();
     m_URL = CTSVNPath(m_URLCombo.GetString());
-    m_External.url = m_URL.GetSVNPathString();
+    SVNPool pool;
+    m_External.url = CUnicodeUtils::GetUnicode(m_URL.GetSVNApiPath(pool));
     if (m_sPegRev.IsEmpty())
         m_External.pegrevision = *SVNRev(_T("HEAD"));
     else
