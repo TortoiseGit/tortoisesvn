@@ -171,7 +171,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             </entry>
                         </row>
                         <row>
-                            <entry condition="pot">$WCDATE$</entry>
+                            <entry condition="pot">$WCDATE$, $WCDATEUTC$</entry>
                             <entry>
                                 Replaced with the commit date/time of the
                                 highest commit revision. By default,
@@ -182,13 +182,13 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                                 for example:
                                 <literal>$WCDATE=%a %b %d %I:%M:%S %p$</literal>.
                                 For a list of available formatting characters, look at the
-                                <ulink url="http://msdn.microsoft.com/en-us/library/fe06s4ak%28v=VS.100%29.aspx">
+                                <ulink url="http://msdn.microsoft.com/en-us/library/fe06s4ak.aspx">
                                     <citetitle>online reference</citetitle>
                                 </ulink>.
                             </entry>
                         </row>
                         <row>
-                            <entry condition="pot">$WCNOW$</entry>
+                            <entry condition="pot">$WCNOW$, $WCNOWUTC$</entry>
                             <entry>
                                 Replaced with the current system date/time.
                                 This can be used to indicate the build time.
@@ -257,7 +257,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             </entry>
                         </row>
                         <row>
-                            <entry condition="pot">$WCLOCKDATE$</entry>
+                            <entry condition="pot">$WCLOCKDATE$, $WCLOCKDATEUTC$</entry>
                             <entry>
                                 Replaced with the lock date.
                                 Time formatting can be used as described for

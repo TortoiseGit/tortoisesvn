@@ -103,22 +103,28 @@ $WCNEEDSLOCK$   True if the svn:needs-lock property is set\n\
 $WCISLOCKED$    True if the item is locked\n"
 // End of multi-line help text.
 
-#define VERDEF      "$WCREV$"
-#define DATEDEF     "$WCDATE$"
-#define DATEWFMTDEF "$WCDATE="
-#define MODDEF      "$WCMODS?"
-#define RANGEDEF    "$WCRANGE$"
-#define MIXEDDEF    "$WCMIXED?"
-#define URLDEF      "$WCURL$"
-#define NOWDEF      "$WCNOW$"
-#define NOWWFMTDEF  "$WCNOW="
-#define ISINSVN     "$WCINSVN?"
-#define NEEDSLOCK   "$WCNEEDSLOCK?"
-#define ISLOCKED    "$WCISLOCKED?"
-#define LOCKDATE    "$WCLOCKDATE$"
-#define LOCKWFMTDEF "$WCLOCKDATE="
-#define LOCKOWNER   "$WCLOCKOWNER$"
-#define LOCKCOMMENT "$WCLOCKCOMMENT$"
+#define VERDEF           "$WCREV$"
+#define DATEDEF          "$WCDATE$"
+#define DATEDEFUTC       "$WCDATEUTC$"
+#define DATEWFMTDEF      "$WCDATE="
+#define DATEWFMTDEFUTC   "$WCDATEUTC="
+#define MODDEF           "$WCMODS?"
+#define RANGEDEF         "$WCRANGE$"
+#define MIXEDDEF         "$WCMIXED?"
+#define URLDEF           "$WCURL$"
+#define NOWDEF           "$WCNOW$"
+#define NOWDEFUTC        "$WCNOWUTC$"
+#define NOWWFMTDEF       "$WCNOW="
+#define NOWWFMTDEFUTC    "$WCNOWUTC="
+#define ISINSVN          "$WCINSVN?"
+#define NEEDSLOCK        "$WCNEEDSLOCK?"
+#define ISLOCKED         "$WCISLOCKED?"
+#define LOCKDATE         "$WCLOCKDATE$"
+#define LOCKDATEUTC      "$WCLOCKDATEUTC$"
+#define LOCKWFMTDEF      "$WCLOCKDATE="
+#define LOCKWFMTDEFUTC   "$WCLOCKDATEUTC="
+#define LOCKOWNER        "$WCLOCKOWNER$"
+#define LOCKCOMMENT      "$WCLOCKCOMMENT$"
 
 // Internal error codes
 #define ERR_SYNTAX      1   // Syntax error
@@ -216,12 +222,21 @@ int InsertDate(char * def, char * pBuf, size_t & index,
         ttime = date_svn/1000000L;
 
     struct tm newtime;
-    if (_localtime64_s(&newtime, &ttime))
-        return FALSE;
+    if (strstr(def, "UTC"))
+    {
+        if (_gmtime64_s(&newtime, &ttime))
+            return FALSE;
+    }
+    else
+    {
+        if (_localtime64_s(&newtime, &ttime))
+            return FALSE;
+    }
     char destbuf[1024];
     char * pBuild = pBuf + index;
     ptrdiff_t Expansion;
-    if ((strcmp(def,DATEWFMTDEF) == 0) || (strcmp(def,NOWWFMTDEF) == 0) || (strcmp(def,LOCKWFMTDEF) == 0))
+    if ((strcmp(def,DATEWFMTDEF) == 0) || (strcmp(def,NOWWFMTDEF) == 0) || (strcmp(def,LOCKWFMTDEF) == 0) ||
+        (strcmp(def,DATEWFMTDEFUTC) == 0) || (strcmp(def,NOWWFMTDEFUTC) == 0) || (strcmp(def,LOCKWFMTDEFUTC) == 0))
     {
         // Format the date/time according to the supplied strftime format string
         char format[1024];
@@ -688,13 +703,24 @@ int _tmain(int argc, _TCHAR* argv[])
     while (InsertDate(DATEDEF, pBuf, index, filelength, maxlength, SubStat.CmtDate));
 
     index = 0;
+    while (InsertDate(DATEDEFUTC, pBuf, index, filelength, maxlength, SubStat.CmtDate));
+
+    index = 0;
     while (InsertDate(DATEWFMTDEF, pBuf, index, filelength, maxlength, SubStat.CmtDate));
+    index = 0;
+    while (InsertDate(DATEWFMTDEFUTC, pBuf, index, filelength, maxlength, SubStat.CmtDate));
 
     index = 0;
     while (InsertDate(NOWDEF, pBuf, index, filelength, maxlength, USE_TIME_NOW));
 
     index = 0;
+    while (InsertDate(NOWDEFUTC, pBuf, index, filelength, maxlength, USE_TIME_NOW));
+
+    index = 0;
     while (InsertDate(NOWWFMTDEF, pBuf, index, filelength, maxlength, USE_TIME_NOW));
+
+    index = 0;
+    while (InsertDate(NOWWFMTDEFUTC, pBuf, index, filelength, maxlength, USE_TIME_NOW));
 
     index = 0;
     while (InsertBoolean(MODDEF, pBuf, index, filelength, SubStat.HasMods));
@@ -718,7 +744,13 @@ int _tmain(int argc, _TCHAR* argv[])
     while (InsertDate(LOCKDATE, pBuf, index, filelength, maxlength, SubStat.LockData.CreationDate));
 
     index = 0;
+    while (InsertDate(LOCKDATEUTC, pBuf, index, filelength, maxlength, SubStat.LockData.CreationDate));
+
+    index = 0;
     while (InsertDate(LOCKWFMTDEF, pBuf, index, filelength, maxlength, SubStat.LockData.CreationDate));
+
+    index = 0;
+    while (InsertDate(LOCKWFMTDEFUTC, pBuf, index, filelength, maxlength, SubStat.LockData.CreationDate));
 
     index = 0;
     while (InsertUrl(LOCKOWNER, pBuf, index, filelength, maxlength, SubStat.LockData.Owner));
