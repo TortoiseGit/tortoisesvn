@@ -2144,11 +2144,10 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
         OnEditCopy();
         break;
     case ID_EDIT_CUT:
-        OnEditCopy();
-        RemoveSelectedText();
+        OnEditCut();
         break;
     case ID_EDIT_PASTE:
-        PasteText();
+        OnEditPaste();
         break;
     default:
         return;
@@ -3158,6 +3157,7 @@ POINT CBaseView::ConvertViewPosToScreen(const POINT& pt)
             nSubLine++;
             nSubLineLength = GetLineChars(nLine+nSubLine).GetLength();
         }
+        nLine += nSubLine;
     }
     ptPos.y = nLine;
 
@@ -3230,12 +3230,10 @@ POINT CBaseView::TextToClient(const POINT& point)
     {
         pDC->SelectObject(GetFont()); // is this right font ?
         int nScreenLine = nOffsetScreenLine + m_nTopLine;
-        LPCTSTR p_sLine = GetLineChars(nScreenLine);
-        int nBlockLength = pt.x;
-        SIZE Size;
-        GetTextExtentPoint32(pDC->operator HDC(), p_sLine, nBlockLength, &Size);
+        CString sLine = GetLineChars(nScreenLine);
+        ExpandChars(sLine, 0, min(pt.x, sLine.GetLength()), sLine);
+        nLeft += pDC->GetTextExtent(sLine, pt.x).cx;
         ReleaseDC(pDC);
-        nLeft += Size.cx;
     } else {
         nLeft += pt.x * GetCharWidth();
     }
@@ -3375,6 +3373,7 @@ void CBaseView::RemoveSelectedText()
     viewdata oLastLine = GetViewData(m_ptSelectionViewPosEnd.y);
     oFirstLine.sLine = oFirstLine.sLine.Left(m_ptSelectionViewPosStart.x) + oLastLine.sLine.Mid(m_ptSelectionViewPosEnd.x);
     oFirstLine.ending = oLastLine.ending;
+    oFirstLine.state = DIFFSTATE_EDITED;
     SetViewData(m_ptSelectionViewPosStart.y, oFirstLine);
 
     // clean up middle lines if any
@@ -3436,9 +3435,7 @@ void CBaseView::PasteText()
     sClipboardText.Replace(_T("\r\n"), _T("\r"));
     sClipboardText.Replace('\n', '\r');
 
-    // We want to undo the insertion in a single step.
     ResetUndoStep();
-    CUndo::GetInstance().BeginGrouping();
 
     POINT ptCaretViewPos = GetCaretViewPosition();
     int nLeft = ptCaretViewPos.x;
@@ -3460,6 +3457,11 @@ void CBaseView::PasteText()
     int nLinesToPaste = (int)lines.size();
     if (nLinesToPaste > 1)
     {
+        // multiline text
+
+        // We want to undo the multiline insertion in a single step.
+        CUndo::GetInstance().BeginGrouping();
+
         CString sLine = GetViewLineChars(nViewLine);
         CString sLineLeft = sLine.Left(nLeft);
         CString sLineRight = sLine.Right(sLine.GetLength() - nLeft);
@@ -3482,7 +3484,6 @@ void CBaseView::PasteText()
 
         SaveUndoStep();
 
-         // line into multiple lines
         if (IsViewGood(m_pwndLeft) && m_pwndLeft!=this)
         {
             m_pwndLeft->InsertViewEmptyLines(nViewLine+1, nLinesToPaste-1);
@@ -3498,19 +3499,24 @@ void CBaseView::PasteText()
         SaveUndoStep();
 
         UpdateViewLineNumbers();
+        CUndo::GetInstance().EndGrouping();
+
+        POINT ptCaretViewPos = {lines[nLinesToPaste-1].GetLength(), nInsertLine};
+        SetCaretViewPosition(ptCaretViewPos);
     }
     else
     {
          // single line text - just insert it
         CString sLine = GetViewLineChars(nViewLine);
         sLine.Insert(nLeft, sClipboardText);
+        POINT ptCaretViewPos = {nLeft + sClipboardText.GetLength(), nViewLine};
+        SetCaretViewPosition(ptCaretViewPos);
         SetViewLine(nViewLine, sLine);
         SetViewState(nViewLine, DIFFSTATE_EDITED);
+        SaveUndoStep();
     }
 
-    SaveUndoStep();
-    CUndo::GetInstance().EndGrouping();
-
+    RefreshViews();
     BuildAllScreen2ViewVector();
 }
 
@@ -3531,6 +3537,12 @@ bool CBaseView::MoveCaretLeft()
         {
             --m_ptCaretPos.y;
             m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
+            int nViewLine = GetViewLineForScreen(m_ptCaretPos.y);
+            int nSubLineCount = m_ScreenedViewLine[nViewLine].nSubLineCount;;
+            if ((nSubLineCount!=-1)  && (GetSubLineOffset(m_ptCaretPos.y) < nSubLineCount-1))
+            {
+                --m_ptCaretPos.x;
+            }
         }
         else
             return false;
@@ -3544,7 +3556,10 @@ bool CBaseView::MoveCaretLeft()
 
 bool CBaseView::MoveCaretRight()
 {
-    if (m_ptCaretPos.x >= GetLineLength(m_ptCaretPos.y))
+    int nViewLine = GetViewLineForScreen(m_ptCaretPos.y);
+    int nSubLineCount = m_ScreenedViewLine[nViewLine].nSubLineCount;
+    int nLineLen = GetLineLength(m_ptCaretPos.y);
+    if (m_ptCaretPos.x >= nLineLen || ((nSubLineCount == GetSubLineOffset(m_ptCaretPos.y)) && (m_ptCaretPos.x >= nLineLen-1)))
     {
         if (m_ptCaretPos.y < (GetLineCount() - 1))
         {
@@ -3700,6 +3715,7 @@ void CBaseView::OnEditPaste()
 {
     if (!m_bCaretHidden)
     {
+        RemoveSelectedText();
         PasteText();
     }
 }
