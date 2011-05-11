@@ -441,11 +441,11 @@ int CBaseView::GetAllMinScreenChars() const
 {
     int nChars = INT_MAX;
     if (IsLeftViewGood())
-        nChars = min(nChars, m_pwndLeft->GetScreenChars());
+        nChars = std::min<int>(nChars, m_pwndLeft->GetScreenChars());
     if (IsRightViewGood())
-        nChars = min(nChars, m_pwndRight->GetScreenChars());
+        nChars = std::min<int>(nChars, m_pwndRight->GetScreenChars());
     if (IsBottomViewGood())
-        nChars = min(nChars, m_pwndBottom->GetScreenChars());
+        nChars = std::min<int>(nChars, m_pwndBottom->GetScreenChars());
     return (nChars==INT_MAX) ? 0 : nChars;
 }
 
@@ -453,11 +453,11 @@ int CBaseView::GetAllMaxLineLength() const
 {
     int nLength = 0;
     if (IsLeftViewGood())
-        nLength = max(nLength, m_pwndLeft->GetMaxLineLength());
+        nLength = std::max<int>(nLength, m_pwndLeft->GetMaxLineLength());
     if (IsRightViewGood())
-        nLength = max(nLength, m_pwndRight->GetMaxLineLength());
+        nLength = std::max<int>(nLength, m_pwndRight->GetMaxLineLength());
     if (IsBottomViewGood())
-        nLength = max(nLength, m_pwndBottom->GetMaxLineLength());
+        nLength = std::max<int>(nLength, m_pwndBottom->GetMaxLineLength());
     return nLength;
 }
 
@@ -753,9 +753,9 @@ int CBaseView::GetAllMinScreenLines() const
     if (IsLeftViewGood())
         nLines = m_pwndLeft->GetScreenLines();
     if (IsRightViewGood())
-        nLines = min(nLines, m_pwndRight->GetScreenLines());
+        nLines = std::min<int>(nLines, m_pwndRight->GetScreenLines());
     if (IsBottomViewGood())
-        nLines = min(nLines, m_pwndBottom->GetScreenLines());
+        nLines = std::min<int>(nLines, m_pwndBottom->GetScreenLines());
     return (nLines==INT_MAX) ? 0 : nLines;
 }
 
@@ -765,9 +765,9 @@ int CBaseView::GetAllLineCount() const
     if (IsLeftViewGood())
         nLines = m_pwndLeft->GetLineCount();
     if (IsRightViewGood())
-        nLines = max(nLines, m_pwndRight->GetLineCount());
+        nLines = std::max<int>(nLines, m_pwndRight->GetLineCount());
     if (IsBottomViewGood())
-        nLines = max(nLines, m_pwndBottom->GetLineCount());
+        nLines = std::max<int>(nLines, m_pwndBottom->GetLineCount());
     return nLines;
 }
 
@@ -1260,11 +1260,10 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
     int nStringLength = (GetCharWidth()*m_sWindowName.GetLength());
     if (nStringLength > rect.Width())
     {
-        int offset = min(m_nOffsetChar, (nStringLength-rect.Width())/GetCharWidth()+1);
-
+        int offset = std::min<int>(m_nOffsetChar, (nStringLength-rect.Width())/GetCharWidth()+1);
         sViewTitle = m_sWindowName.Mid(offset);
     }
-    pdc->ExtTextOut(max(rect.left + (rect.Width()-nStringLength)/2, 1),
+    pdc->ExtTextOut(std::max<int>(rect.left + (rect.Width()-nStringLength)/2, 1),
         rect.top+(HEADERHEIGHT/2), ETO_CLIPPED, textrect, sViewTitle, NULL);
     if (this->GetFocus() == this)
         pdc->DrawEdge(textrect, EDGE_BUMP, BF_RECT);
@@ -1540,14 +1539,14 @@ void CBaseView::DrawText(
         {
             // the first line of selection
             selectedStart = m_ptSelectionViewPosStart.x - ptLineStart.x - nLineOffset;
-            selectedStart = min(max(selectedStart, 0), GetLineChars(nLineIndex).GetLength()); // textlenght ?
+            selectedStart = std::min<int>(max(selectedStart, 0), GetLineChars(nLineIndex).GetLength()); // textlenght ?
         }
 
         if (m_ptSelectionViewPosEnd.y == nViewLine)
         {
             // the last line of selection
             selectedEnd =  m_ptSelectionViewPosEnd.x - ptLineStart.x - nLineOffset;
-            selectedEnd = min(max(selectedEnd, 0), GetLineChars(nLineIndex).GetLength()); // textlenght ?
+            selectedEnd = std::min<int>(max(selectedEnd, 0), GetLineChars(nLineIndex).GetLength()); // textlenght ?
         }
     }
 
@@ -1635,7 +1634,7 @@ bool CBaseView::DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const 
     int nDiffLength = 0;
     if (m_pOtherView)
     {
-        int index = min(nLineIndex, (int)m_Screen2View.size() - 1);
+        int index = std::min<int>(nLineIndex, (int)m_Screen2View.size() - 1);
         sDiffChars = m_pOtherView->GetLineChars(index);
         nDiffLength = sDiffChars.GetLength();
     }
@@ -1761,7 +1760,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 
     if (!bInlineDiffDrawn)
     {
-        int nCount = min(line.GetLength(), nWidth / GetCharWidth() + 1);
+        int nCount = std::min<int>(line.GetLength(), nWidth / GetCharWidth() + 1);
         DrawText(pDC, rc, line, nCount, nLineIndex, origin, false, false);
     }
 
@@ -3231,7 +3230,7 @@ POINT CBaseView::TextToClient(const POINT& point)
         pDC->SelectObject(GetFont()); // is this right font ?
         int nScreenLine = nOffsetScreenLine + m_nTopLine;
         CString sLine = GetLineChars(nScreenLine);
-        ExpandChars(sLine, 0, min(pt.x, sLine.GetLength()), sLine);
+        ExpandChars(sLine, 0, std::min<int>(pt.x, sLine.GetLength()), sLine);
         nLeft += pDC->GetTextExtent(sLine, pt.x).cx;
         ReleaseDC(pDC);
     } else {
@@ -3523,7 +3522,7 @@ void CBaseView::PasteText()
 void CBaseView::OnCaretDown()
 {
     m_ptCaretPos.y++;
-    m_ptCaretPos.y = min(m_ptCaretPos.y, GetLineCount()-1);
+    m_ptCaretPos.y = std::min<int>(m_ptCaretPos.y, GetLineCount()-1);
     m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
     OnCaretMove();
     ShowDiffLines(m_ptCaretPos.y);
@@ -3846,7 +3845,7 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
     if (m_pOtherViewData)
     {
         int viewLine = GetViewLineForScreen(lineIndex);
-        int index = min(viewLine, m_pOtherViewData->GetCount() - 1);
+        int index =std::min<int>(viewLine, m_pOtherViewData->GetCount() - 1);
         pszDiffChars = m_pOtherViewData->GetLine(index);
         nDiffLength = m_pOtherViewData->GetLine(index).GetLength();
     }
@@ -4318,17 +4317,14 @@ void CBaseView::Screen2View::RebuildIfNecessary()
         oLineInfo.nViewSubLine = -1; // no wrap
         if (m_pMainFrame->m_bWrapLines)
         {
-            int nLinesLeft      = 0;
-            int nLinesRight     = 0;
-            int nLinesBottom    = 0;
+            int nMaxLines = 0;
             if (IsLeftViewGood())
-                nLinesLeft = m_pwndLeft->CountMultiLines(i);
+                nMaxLines = std::max<int>(nMaxLines, m_pwndLeft->CountMultiLines(i));
             if (IsRightViewGood())
-                nLinesRight = m_pwndRight->CountMultiLines(i);
+                nMaxLines = std::max<int>(nMaxLines, m_pwndRight->CountMultiLines(i));
             if (IsBottomViewGood())
-                nLinesBottom = m_pwndBottom->CountMultiLines(i);
-            int lines = max(max(nLinesLeft, nLinesRight), nLinesBottom);
-            for (int l = 0; l < (lines-1); ++l)
+                nMaxLines = std::max<int>(nMaxLines, m_pwndBottom->CountMultiLines(i));
+            for (int l = 0; l < (nMaxLines-1); ++l)
             {
                 oLineInfo.nViewSubLine++;
                 m_Screen2View.push_back(oLineInfo);
@@ -4387,7 +4383,7 @@ bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView)
         return false;
     }
     const int nOldSize = (int)pwndView->m_ScreenedViewLine.size();
-    const int nViewCount = max(pwndView->GetViewCount(), 0);
+    const int nViewCount = std::max<int>(pwndView->GetViewCount(), 0);
     if (nOldSize != nViewCount)
     {
         pwndView->m_ScreenedViewLine.resize(nViewCount);
@@ -4407,7 +4403,7 @@ bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView, con
         return false;
     }
     const int nOldSize = (int)pwndView->m_ScreenedViewLine.size();
-    const int nViewCount = max(pwndView->GetViewCount(), 0);
+    const int nViewCount = std::max<int>(pwndView->GetViewCount(), 0);
     if (nOldSize != nViewCount)
     {
         m_bFull = true;
