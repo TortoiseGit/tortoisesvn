@@ -423,8 +423,6 @@ void CSVNStatusListCtrl::ColumnManager::ColumnResized (int column)
 void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
     (const std::map<CTSVNPath, PropertyList>& propertymap)
 {
-    const static CString svnPropNeedsLock (SVN_PROP_NEEDS_LOCK);
-
     // collect all user-defined props
 
     std::set<CString> aggregatedProps;
@@ -432,7 +430,6 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
     for (auto it = propertymap.cbegin(); it != propertymap.cend(); ++it)
         it->second.GetPropertyNames (aggregatedProps);
 
-    aggregatedProps.erase (svnPropNeedsLock);
     itemProps = aggregatedProps;
 
     // add new ones to the internal list
@@ -531,8 +528,6 @@ void CSVNStatusListCtrl::ColumnManager::UpdateRelevance
     , const std::vector<size_t>& visibleFiles
     , const std::map<CTSVNPath, PropertyList>& propertymap)
 {
-    const static CString svnPropNeedsLock (SVN_PROP_NEEDS_LOCK);
-
     // collect all user-defined props that belong to shown files
 
     std::set<CString> aggregatedProps;
@@ -545,7 +540,6 @@ void CSVNStatusListCtrl::ColumnManager::UpdateRelevance
         }
     }
 
-    aggregatedProps.erase (svnPropNeedsLock);
     itemProps = aggregatedProps;
 
     // invisible columns for unused props are not relevant
