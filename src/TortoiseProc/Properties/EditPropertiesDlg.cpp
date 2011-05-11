@@ -687,6 +687,8 @@ void CEditPropertiesDlg::RemoveProps()
                 ret = TSVNMessageBox(m_hWnd, sQuestion, _T("TortoiseSVN"), MB_DEFBUTTON1|MB_ICONQUESTION, sRecursive, sNotRecursive, sCancel);
             }
         }
+        else if (ret == 0)
+            ret = IDCUSTOM1;
 
         if (ret == IDCUSTOM1)
             bRecurse = true;
