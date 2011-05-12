@@ -24,6 +24,7 @@
 #include "LocatorBar.h"
 #include "LineColors.h"
 #include "TripleClick.h"
+#include "IconMenu.h"
 
 typedef struct inlineDiffPos
 {
@@ -336,11 +337,11 @@ protected:  // methods
     virtual void    UseViewBlock(CBaseView * /*pwndView*/) {}
     virtual void    UseViewFile(CBaseView * /*pwndView*/) {}
 
-    UINT            GetMenuFlags(DiffStates state) const;
-    virtual void    AddContextItems(CMenu& popup, DiffStates state);
-    void            AddCutCopyAndPaste(CMenu& popup);
+    virtual void    AddContextItems(CIconMenu& popup, DiffStates state);
+    void            AddCutCopyAndPaste(CIconMenu& popup);
     void            CompensateForKeyboard(CPoint& point);
     static HICON    LoadIcon(WORD iconId);
+    HICON           GetIconForCommand(UINT cmdId);
     void            ReleaseBitmap();
     static bool     LinesInOneChange( int direction, DiffStates firstLineState, DiffStates currentLineState );
     static void     FilterWhitespaces(CString& first, CString& second);
@@ -349,7 +350,6 @@ protected:  // methods
 
     static void     ResetUndoStep();
     void            SaveUndoStep();
-
 protected:  // variables
     COLORREF        m_InlineRemovedBk;
     COLORREF        m_InlineAddedBk;

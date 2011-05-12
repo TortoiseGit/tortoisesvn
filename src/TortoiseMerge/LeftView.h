@@ -31,6 +31,6 @@ public:
     ~CLeftView(void);
 
 protected:
-    void    AddContextItems(CMenu& popup, DiffStates state);
+    void    AddContextItems(CIconMenu& popup, DiffStates state);
 
 };

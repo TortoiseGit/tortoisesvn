@@ -36,19 +36,16 @@ CBottomView::~CBottomView(void)
 }
 
 
-void CBottomView::AddContextItems(CMenu& popup, DiffStates state)
+void CBottomView::AddContextItems(CIconMenu& popup, DiffStates state)
 {
-    const UINT uFlags = GetMenuFlags( state );
+    const bool bShow = HasSelection() && (state != DIFFSTATE_UNKNOWN);
+    if (!bShow)
+        return;
 
-    CString temp;
-    temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRBLOCK);
-    popup.AppendMenu(uFlags, POPUPCOMMAND_USETHEIRBLOCK, temp);
-    temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURBLOCK);
-    popup.AppendMenu(uFlags, POPUPCOMMAND_USEYOURBLOCK, temp);
-    temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-    popup.AppendMenu(uFlags, POPUPCOMMAND_USEYOURANDTHEIRBLOCK, temp);
-    temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-    popup.AppendMenu(uFlags, POPUPCOMMAND_USETHEIRANDYOURBLOCK, temp);
+    popup.AppendMenuIcon(POPUPCOMMAND_USETHEIRBLOCK, IDS_VIEWCONTEXTMENU_USETHEIRBLOCK);
+    popup.AppendMenuIcon(POPUPCOMMAND_USEYOURBLOCK, IDS_VIEWCONTEXTMENU_USEYOURBLOCK);
+    popup.AppendMenuIcon(POPUPCOMMAND_USEYOURANDTHEIRBLOCK, IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
+    popup.AppendMenuIcon(POPUPCOMMAND_USETHEIRANDYOURBLOCK, IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
 
     CBaseView::AddContextItems(popup, state);
 }

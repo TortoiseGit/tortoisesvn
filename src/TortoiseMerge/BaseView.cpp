@@ -2094,7 +2094,7 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
     if (!this->IsWindowVisible())
         return;
 
-    CMenu popup;
+    CIconMenu popup;
     if (!popup.CreatePopupMenu())
         return;
 
@@ -3748,25 +3748,12 @@ void CBaseView::OnCaretMove(bool isShiftPressed)
     UpdateCaret();
 }
 
-UINT CBaseView::GetMenuFlags(DiffStates state) const
-{
-    UINT uFlags = MF_ENABLED | MF_STRING;
-    if (!HasSelection())
-        uFlags |= MF_DISABLED | MF_GRAYED;
-
-    const bool bImportantBlock = state != DIFFSTATE_UNKNOWN;
-    if(bImportantBlock)
-        return uFlags | MF_ENABLED;
-
-    return uFlags | MF_DISABLED | MF_GRAYED;
-}
-
-void CBaseView::AddContextItems(CMenu& popup, DiffStates /*state*/)
+void CBaseView::AddContextItems(CIconMenu& popup, DiffStates /*state*/)
 {
     AddCutCopyAndPaste(popup);
 }
 
-void CBaseView::AddCutCopyAndPaste(CMenu& popup)
+void CBaseView::AddCutCopyAndPaste(CIconMenu& popup)
 {
     popup.AppendMenu(MF_SEPARATOR, NULL);
     CString temp;
@@ -4415,3 +4402,18 @@ bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView, con
     }
     return false;
 }
+
+HICON CBaseView::GetIconForCommand(UINT cmdId)
+{
+    if (m_pMainFrame)
+    {
+        int offset = m_pMainFrame->GetToolbar()->CommandToIndex(cmdId);
+        UINT nid, style;
+        int imgIndex = 0;
+        m_pMainFrame->GetToolbar()->GetButtonInfo(offset, nid, style, imgIndex);
+        HICON h = m_pMainFrame->GetToolbar()->GetImages()->ExtractIcon(imgIndex);
+        return h;
+    }
+    return 0;
+}
+

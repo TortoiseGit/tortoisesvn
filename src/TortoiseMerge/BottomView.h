@@ -34,7 +34,7 @@ public:
     void    UseTheirTextBlock() {UseLeftBlock(); };
 
  protected:
-    void    AddContextItems(CMenu& popup, DiffStates state);
+    void    AddContextItems(CIconMenu& popup, DiffStates state);
 
     void    CleanEmptyLines();
     void    UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastViewLine);

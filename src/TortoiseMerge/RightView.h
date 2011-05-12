@@ -37,7 +37,7 @@ public:
     void    UseLeftFile(); ///< Use File from Left
 
 protected:
-    void    AddContextItems(CMenu& popup, DiffStates state);
+    void    AddContextItems(CIconMenu& popup, DiffStates state);
 
     void    CleanEmptyLines();
     void    UseBlock(int nStart, int nEnd);

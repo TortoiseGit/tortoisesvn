@@ -37,33 +37,31 @@ CLeftView::~CLeftView(void)
 }
 
 
-void CLeftView::AddContextItems(CMenu& popup, DiffStates state)
+void CLeftView::AddContextItems(CIconMenu& popup, DiffStates state)
 {
-    const UINT uFlags = GetMenuFlags( state );
-
-    CString temp;
+    const bool bShow = HasSelection() && (state != DIFFSTATE_UNKNOWN);
 
     if (IsBottomViewGood())
     {
-        temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
-        popup.AppendMenu(uFlags, POPUPCOMMAND_USETHEIRBLOCK, temp);
-        temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
-        popup.AppendMenu(MF_STRING | MF_ENABLED, POPUPCOMMAND_USETHEIRFILE, temp);
-        temp.LoadString(IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
-        popup.AppendMenu(uFlags, POPUPCOMMAND_USEYOURANDTHEIRBLOCK, temp);
-        temp.LoadString(IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
-        popup.AppendMenu(uFlags, POPUPCOMMAND_USETHEIRANDYOURBLOCK, temp);
+        if (bShow)
+            popup.AppendMenuIcon(POPUPCOMMAND_USETHEIRBLOCK, IDS_VIEWCONTEXTMENU_USETHISBLOCK);
+        popup.AppendMenuIcon(POPUPCOMMAND_USETHEIRFILE, IDS_VIEWCONTEXTMENU_USETHISFILE);
+        if (bShow)
+        {
+            popup.AppendMenuIcon(POPUPCOMMAND_USEYOURANDTHEIRBLOCK, IDS_VIEWCONTEXTMENU_USEYOURANDTHEIRBLOCK);
+            popup.AppendMenuIcon(POPUPCOMMAND_USETHEIRANDYOURBLOCK, IDS_VIEWCONTEXTMENU_USETHEIRANDYOURBLOCK);
+        }
     }
     else
     {
-        temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISBLOCK);
-        popup.AppendMenu(uFlags, POPUPCOMMAND_USELEFTBLOCK, temp);
-        temp.LoadString(IDS_VIEWCONTEXTMENU_USETHISFILE);
-        popup.AppendMenu(MF_STRING | MF_ENABLED, POPUPCOMMAND_USELEFTFILE, temp);
-        temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST);
-        popup.AppendMenu(uFlags, POPUPCOMMAND_USEBOTHLEFTFIRST, temp);
-        temp.LoadString(IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST);
-        popup.AppendMenu(uFlags, POPUPCOMMAND_USEBOTHRIGHTFIRST, temp);
+        if (bShow)
+            popup.AppendMenuIcon(POPUPCOMMAND_USELEFTBLOCK, IDS_VIEWCONTEXTMENU_USETHISBLOCK, GetIconForCommand(ID_EDIT_USELEFTBLOCK));
+        popup.AppendMenuIcon(POPUPCOMMAND_USELEFTFILE, IDS_VIEWCONTEXTMENU_USETHISFILE);
+        if (bShow)
+        {
+            popup.AppendMenuIcon(POPUPCOMMAND_USEBOTHLEFTFIRST, IDS_VIEWCONTEXTMENU_USEBOTHTHISFIRST, GetIconForCommand(ID_EDIT_USETHEIRTHENMYBLOCK));
+            popup.AppendMenuIcon(POPUPCOMMAND_USEBOTHRIGHTFIRST, IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST, GetIconForCommand(ID_EDIT_USEMINETHENTHEIRBLOCK));
+        }
     }
 
     CBaseView::AddContextItems(popup, state);

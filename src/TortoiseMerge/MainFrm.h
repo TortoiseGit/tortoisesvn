@@ -44,7 +44,7 @@ public:
     virtual ~CMainFrame();
 
     void            ShowDiffBar(bool bShow);
-
+    const CMFCToolBar *   GetToolbar() const { return &m_wndToolBar; }
 #ifdef _DEBUG
     virtual void    AssertValid() const;
     virtual void    Dump(CDumpContext& dc) const;
