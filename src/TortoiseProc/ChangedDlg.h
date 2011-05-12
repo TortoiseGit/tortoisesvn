@@ -73,6 +73,7 @@ public:
 
 private:
     CRegDWORD               m_regAddBeforeCommit;
+    CRegDWORD               m_regShowUserProps;
     CSVNStatusListCtrl      m_FileListCtrl;
     bool                    m_bRemote;
     BOOL                    m_bShowUnversioned;

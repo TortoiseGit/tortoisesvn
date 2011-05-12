@@ -102,6 +102,8 @@ BOOL CChangedDlg::OnInitDialog()
 
     m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
     m_bShowUnversioned = m_regAddBeforeCommit;
+    m_regShowUserProps = CRegDWORD(_T("Software\\TortoiseSVN\\ShowUserProps"), TRUE);
+    m_bShowUserProps = m_regShowUserProps;
     UpdateData(FALSE);
 
     m_FileListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS |
@@ -298,6 +300,7 @@ void CChangedDlg::OnBnClickedShowUserProps()
 {
     UpdateData();
     m_bShowPropertiesClicked = true;
+    m_regShowUserProps = m_bShowUserProps;
     OnBnClickedRefresh();
 }
 
