@@ -54,8 +54,8 @@ CSetMainPage::CSetMainPage()
     m_regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
     m_regViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
     m_regStrikeout = CRegDWORD(_T("Software\\TortoiseMerge\\StrikeOut"), TRUE);
-    m_regFontName = CRegString(_T("Software\\TortoiseMerge\\LogFontName"), _T("Courier New"));
-    m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\LogFontSize"), 10);
+    m_regFontName = CRegString(_T("Software\\TortoiseMerge\\FontName"), _T("Courier New"));
+    m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\FontSize"), 10);
     m_regDisplayBinDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
     m_regCaseInsensitive = CRegDWORD(_T("Software\\TortoiseMerge\\CaseInsensitive"), FALSE);
     m_regUTF8Default = CRegDWORD(_T("Software\\TortoiseMerge\\UseUTF8"), FALSE);
