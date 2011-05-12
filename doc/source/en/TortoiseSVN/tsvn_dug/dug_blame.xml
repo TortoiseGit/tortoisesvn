@@ -51,6 +51,13 @@
             the original author, you can choose an appropriate option here.
         </para>
         <para>
+            You can include merge information as well if you wish, although this option
+            can take considerably longer to retrieve from the server. When lines are merged
+            from another source, the blame information shows the revision the change
+            was made in the original source as well as the revision when it was merged
+            into this file.
+        </para>
+        <para>
             Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving
             the data to create the blame file. Please note: This can take several
             minutes to finish, depending on how much the file has changed and
@@ -135,13 +142,16 @@
             the TortoiseBlame settings.
         </para>
         <para>
-            If you are using Merge Tracking, where lines have changed as a result of
+            If you are using Merge Tracking and you requested merge info when starting the blame,
+            merged lines are shown slightly differently. Where a line has changed as a result of
             merging from another path, TortoiseBlame will show the revision and author
             of the last change in the original file rather than the revision where the
             merge took place. These lines are indicated by showing the revision and
             author in italics.
+            The revision where the merge took place is shown separately in the tooltip
+            when you hover the mouse over the blame info columns.
             If you do not want merged lines shown in this way, uncheck the
-            <guilabel>Include merge info</guilabel> checkbox.
+            <guilabel>Include merge info</guilabel> checkbox when starting the blame.
         </para>
         <para>
             If you want to see the paths involved in the merge, select
@@ -149,6 +159,16 @@
                 <guimenu>View</guimenu>
                 <guimenuitem>Merge paths</guimenuitem>
             </menuchoice>.
+            This shows the path where the line was last changed, excluding changes resulting
+            from a merge.
+        </para>
+        <para>
+            The revision shown in the blame information represents the last revision where the
+            content of that line changed. If the file was created by copying another file, then
+            until you change a line, its blame revision will show the last change in the original
+            source file, not the revision where the copy was made. This also applies to the
+            paths shown with merge info. The path shows the repository location where the last
+            change was made to that line.
         </para>
         <para>
             The settings for TortoiseBlame can be accessed using
@@ -164,9 +184,12 @@
         <title>Blame Differences</title>
         <para>
             One of the limitations of the Blame report is that it only shows the file as
-            it was in a particular revision, and shows the last person to change each line.
-            Sometimes you want to know what change was made, as well as who made it. What
-            you need here is a combination of the diff and blame reports.
+            it was in a particular revision, and the last person to change each line.
+            Sometimes you want to know what change was made, as well as who made it.
+            If you right click on a line in TortoiseBlame you have a context menu item
+            to show the changes made in that revision. But if you want to see the changes
+            <emphasis>and</emphasis> the blame information simultaneously then you need a
+            combination of the diff and blame reports.
         </para>
         <para>
             The revision log dialog includes several options which allow you to do this.
