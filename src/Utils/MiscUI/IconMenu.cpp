@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,6 +28,8 @@ CIconMenu::CIconMenu(void) : CMenu()
 
 CIconMenu::~CIconMenu(void)
 {
+    for (auto it = iconhandles.cbegin(); it != iconhandles.cend(); ++it)
+        DestroyIcon(it->second);
 }
 
 BOOL CIconMenu::CreateMenu()
@@ -103,11 +105,45 @@ BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, UINT uIco
     return AppendMenuIcon(nIDNewItem, temp, uIcon);
 }
 
+BOOL CIconMenu::AppendMenuIcon( UINT_PTR nIDNewItem, UINT_PTR nNewItem, HICON hIcon )
+{
+    CString temp;
+    temp.LoadString((UINT)nNewItem);
+
+    TCHAR menutextbuffer[255] = {0};
+    _tcscpy_s(menutextbuffer, temp);
+
+    if ((hIcon == 0)||(!bShowIcons))
+        return CMenu::AppendMenu(MF_STRING | MF_ENABLED, nIDNewItem, menutextbuffer);
+
+    MENUITEMINFO info = {0};
+    info.cbSize = sizeof(info);
+    info.fMask = MIIM_STRING | MIIM_FTYPE | MIIM_ID | MIIM_BITMAP;
+    info.fType = MFT_STRING;
+    info.wID = (UINT)nIDNewItem;
+    info.dwTypeData = menutextbuffer;
+    if (SysInfo::Instance().IsVistaOrLater())
+    {
+        info.hbmpItem = bitmapUtils.IconToBitmapPARGB32(hIcon);
+    }
+    else
+    {
+        info.hbmpItem = HBMMENU_CALLBACK;
+    }
+    iconhandles[nIDNewItem] = hIcon;
+
+    return InsertMenuItem((UINT)nIDNewItem, &info);
+}
+
 void CIconMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
     if ((lpDrawItemStruct==NULL)||(lpDrawItemStruct->CtlType != ODT_MENU))
         return;     //not for a menu
-    HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(icons[lpDrawItemStruct->itemID]), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+    HICON hIcon = NULL;
+    if (iconhandles.find(lpDrawItemStruct->itemID) != iconhandles.end())
+        hIcon = iconhandles[lpDrawItemStruct->itemID];
+    else
+        hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(icons[lpDrawItemStruct->itemID]), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
     if (hIcon == NULL)
         return;
     DrawIconEx(lpDrawItemStruct->hDC,

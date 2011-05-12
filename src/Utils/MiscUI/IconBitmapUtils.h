@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,6 +36,7 @@ public:
     ~IconBitmapUtils(void);
 
     HBITMAP IconToBitmap(HINSTANCE hInst, UINT uIcon);
+    HBITMAP IconToBitmapPARGB32(HICON hIcon);
     HBITMAP IconToBitmapPARGB32(HINSTANCE hInst, UINT uIcon);
     HRESULT Create32BitHBITMAP(HDC hdc, const SIZE *psize, __deref_opt_out void **ppvBits, __out HBITMAP* phBmp);
     HRESULT ConvertBufferToPARGB32(HPAINTBUFFER hPaintBuffer, HDC hdc, HICON hicon, SIZE& sizIcon);

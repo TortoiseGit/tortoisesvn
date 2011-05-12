@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009 - TortoiseSVN
+// Copyright (C) 2008-2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@ public:
     BOOL CreatePopupMenu();
     BOOL AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon = 0);
     BOOL AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, UINT uIcon = 0);
+    BOOL AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, HICON hIcon);
     void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct);
     void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct);
 
@@ -47,5 +48,6 @@ private:
 private:
     IconBitmapUtils             bitmapUtils;
     std::map<UINT_PTR, UINT>    icons;
+    std::map<UINT_PTR, HICON>   iconhandles;
     bool                        bShowIcons;
 };

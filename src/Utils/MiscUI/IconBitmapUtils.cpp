@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -132,6 +132,19 @@ HBITMAP IconBitmapUtils::IconToBitmapPARGB32(HINSTANCE hInst, UINT uIcon)
         return bitmap_it->second;
 
     HICON hIcon = (HICON)LoadImage(hInst, MAKEINTRESOURCE(uIcon), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+
+    HBITMAP hBmp = IconToBitmapPARGB32(hIcon);
+
+    DestroyIcon(hIcon);
+
+    if(hBmp)
+        bitmaps.insert(bitmap_it, std::make_pair(uIcon, hBmp));
+
+    return hBmp;
+}
+
+HBITMAP IconBitmapUtils::IconToBitmapPARGB32(HICON hIcon)
+{
     if (!hIcon)
         return NULL;
 
@@ -181,10 +194,6 @@ HBITMAP IconBitmapUtils::IconToBitmapPARGB32(HINSTANCE hInst, UINT uIcon)
         DeleteDC(hdcDest);
     }
 
-    DestroyIcon(hIcon);
-
-    if(hBmp)
-        bitmaps.insert(bitmap_it, std::make_pair(uIcon, hBmp));
     return hBmp;
 }
 
