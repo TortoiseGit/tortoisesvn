@@ -63,7 +63,10 @@
             </listitem>
             <listitem>
                 <para>
-                    Save an unversioned copy of the file to your hard drive.
+                    Edit the selected file. This will checkout a temporary working copy and start the
+                    default editor for that file type. When you close the editor program, if changes
+                    were saved then a commit dialog appears, allowing you to enter a comment and commit
+                    the change.
                 </para>
             </listitem>
             <listitem>
@@ -79,7 +82,23 @@
             </listitem>
             <listitem>
                 <para>
+                    Checkout a single file. This creates a <quote>sparse</quote> working copy
+                    which contains just this one file.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
                     Delete or rename the file.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Save an unversioned copy of the file to your hard drive.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Copy the URL shown in the address bar to the clipboard.
                 </para>
             </listitem>
             <listitem>
@@ -91,6 +110,12 @@
             <listitem>
                 <para>
                     View/Edit the file's properties.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                    Create a shortcut so that you can quickly start repo browser again,
+                    opened directly at this location.
                 </para>
             </listitem>
         </itemizedlist>
@@ -121,7 +146,8 @@
             </listitem>
             <listitem>
                 <para>
-                    Add files or folders directly to the repository.
+                    Add unversioned files or folders directly to the repository.
+                    This is effectively the Subversion Import operation.
                 </para>
             </listitem>
             <listitem>
@@ -174,6 +200,11 @@
             <guimenuitem>Show Log...</guimenuitem>
         </menuchoice>
         to view the list of revisions between the two tag points.
+    </para>
+    <para>
+        External items (referenced using <literal>svn:externals</literal> are also
+        shown in the repository browser, and you can even drill down into the folder
+        contents. External items are marked with a red arrow over the item.
     </para>
     <para>
         You can use <keycap>F5</keycap> to refresh the view as usual. This will
