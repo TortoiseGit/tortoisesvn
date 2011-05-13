@@ -107,10 +107,15 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
 
         if (m_bFilesAsUrlLinks)
         {
-            filepath = CTempFiles::Instance().GetTempFilePath(true);
-            CString sTemp;
-            sTemp.Format(L"[InternetShortcut]\nURL=%s\n", (LPCWSTR)m_allPaths[pformatetcIn->lindex].infodata.url);
-            CStringUtils::WriteStringToTextFile(filepath.GetWinPath(), (LPCWSTR)sTemp);
+            if ((pformatetcIn->lindex >= 0)&&(pformatetcIn->lindex < (LONG)m_allPaths.size()))
+            {
+                filepath = CTempFiles::Instance().GetTempFilePath(true);
+                CString sTemp;
+                sTemp.Format(L"[InternetShortcut]\nURL=%s\n", (LPCWSTR)m_allPaths[pformatetcIn->lindex].infodata.url);
+                CStringUtils::WriteStringToTextFile(filepath.GetWinPath(), (LPCWSTR)sTemp);
+            }
+            else
+                return E_INVALIDARG;
         }
         else
         {
