@@ -2891,9 +2891,9 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 popup.AppendMenu(MF_SEPARATOR, NULL);
             }
 
-            // we can export files and folders alike
-
-            popup.AppendMenuIcon(ID_EXPORT, IDS_MENUEXPORT, IDI_EXPORT);        // "Export"
+            // we can export files and folders alike, but for files we have "save as"
+            if (selection.IsFolder (0, 0))
+                popup.AppendMenuIcon(ID_EXPORT, IDS_MENUEXPORT, IDI_EXPORT);        // "Export"
         }
 
         // We allow checkout of multiple paths at once (we do that one by one)
