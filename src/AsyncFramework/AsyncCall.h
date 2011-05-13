@@ -21,7 +21,7 @@
 #pragma once
 
 #include "JobBase.h"
-
+#include <functional>
 namespace async
 {
 
@@ -52,6 +52,25 @@ private:
 
         virtual ~ICall() {};
         virtual void Execute() = 0;
+    };
+
+    class CCallStd : public ICall
+    {
+    private:
+
+        std::function<void()> func;
+
+    public:
+
+        CCallStd (std::function<void()> f)
+            : func (f)
+        {
+        }
+
+        virtual void Execute()
+        {
+            func();
+        }
     };
 
     class CCall0 : public ICall
@@ -210,6 +229,13 @@ public:
         : call (NULL)
     {
         call = new CCall0 (func);
+        Schedule (true, scheduler);
+    }
+
+    CAsyncCall (std::function<void()> func, CJobScheduler* scheduler = NULL)
+        : call (NULL)
+    {
+        call = new CCallStd (func);
         Schedule (true, scheduler);
     }
 
