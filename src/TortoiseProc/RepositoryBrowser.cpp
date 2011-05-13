@@ -528,7 +528,7 @@ void CRepositoryBrowser::InitRepo()
         (m_repository.root.Left(9).CompareNoCase(_T("file:///\\")) != 0))
         m_repository.root.Replace(_T("file://"), _T("file:///\\"));
 
-    SetWindowText(m_repository.root + _T(" - ") + m_origDlgTitle);
+    SetWindowText(m_origDlgTitle + _T(" - ") + m_repository.root);
     // now check the repository root for the url type, then
     // set the corresponding background image
     if (!m_repository.root.IsEmpty())
