@@ -324,7 +324,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
     m_RepoTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
     if (SysInfo::Instance().IsVistaOrLater())
     {
-        DWORD exStyle = 0x0040 /*TVS_EX_FADEINOUTEXPANDOS*/ | 0x0020 /*TVS_EX_AUTOHSCROLL*/;
+        DWORD exStyle = TVS_EX_FADEINOUTEXPANDOS | TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;
         m_RepoTree.SetExtendedStyle(exStyle, exStyle);
     }
 
