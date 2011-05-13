@@ -458,7 +458,6 @@ protected:  // variables
 
         bool bSet;
         std::vector<CString> SubLines;
-        int nSubLineCount;
 
         enum EIcon
         {
@@ -518,6 +517,7 @@ protected:  // variables
             int LastViewLine;
         };
 
+        bool            FixScreenedCacheSize(CBaseView* View);
         void            RebuildIfNecessary();
         bool            ResetScreenedViewLineCache(CBaseView* View);
         bool            ResetScreenedViewLineCache(CBaseView* View, const TRebuildRange& Range);
