@@ -3734,7 +3734,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     {
                         tempFile.AppendRawString(_T(".url"));
                     }
-                    CString urlCmd = selection.GetURLEscaped(0, 0).GetSVNPathString() + _T("?r=") + selection.GetRepository(0).revision.ToString();
+                    CString urlCmd = selection.GetURLEscaped(0, 0).GetSVNPathString();
+                    SVNRev r = selection.GetRepository(0).revision;
+                    if (r.IsNumber())
+                        urlCmd += _T("?r=") + r.ToString();
                     CAppUtils::CreateShortcutToURL((LPCTSTR)urlCmd, tempFile.GetWinPath());
                 }
             }
