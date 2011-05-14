@@ -97,6 +97,8 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             }
             CSelectFileFilter fileFilter(IDS_PATCHFILEFILTER);
             hr = pfd->SetFileTypes(fileFilter.GetCount(), fileFilter);
+            if (paths.GetCount() == 1)
+                pfd->SetFileName(paths[0].GetFilename() + L".patch");
             // set the default folder
             if (SUCCEEDED(hr))
             {
@@ -189,6 +191,9 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             ofn.lpstrFile = szFile;
             ofn.nMaxFile = _countof(szFile);
             ofn.lpstrInitialDir = root.GetWinPath();
+
+            if (paths.GetCount() == 1)
+                wcscpy_s(szFile, paths[0].GetFilename() + L".patch");
 
             CString temp;
             temp.LoadString(IDS_REPOBROWSE_SAVEAS);
