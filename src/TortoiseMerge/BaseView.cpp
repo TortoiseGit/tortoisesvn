@@ -4074,7 +4074,7 @@ int CBaseView::CountMultiLines( int nLine )
     {
         if (m_ScreenedViewLine[nLine].bSet)
         {
-            return m_ScreenedViewLine[nLine].SubLines.size();
+            return (int)m_ScreenedViewLine[nLine].SubLines.size();
         }
     }
 
