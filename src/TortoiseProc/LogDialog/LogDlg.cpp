@@ -57,6 +57,7 @@
 #include "LogDlgFilter.h"
 #include "SVNLogHelper.h"
 #include "DiffOptionsDlg.h"
+#include "LambdaWrapper.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
 
@@ -5174,19 +5175,27 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         case ID_DIFF:
             {
                 if ((!bOneRev)|| IsDiffPossible (pLogEntry->GetChangedPaths()[changedlogpathindices[0]], rev1))
-                    DoDiffFromLog(selIndex, rev1, rev2, false, false);
+                {
+                    auto f = [&](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, false, false); this->EnableWindow(TRUE);this->SetFocus();};
+                    new async::CAsyncCall(f, &netScheduler);
+                }
                 else
-                    DiffSelectedFile();
+                {
+                    auto f = [&](){CoInitialize(NULL); this->EnableWindow(FALSE); DiffSelectedFile(); this->EnableWindow(TRUE);this->SetFocus();};
+                    new async::CAsyncCall(f, &netScheduler);
+                }
             }
             break;
         case ID_BLAMEDIFF:
             {
-                DoDiffFromLog(selIndex, rev1, rev2, true, false);
+                auto f = [&](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, true, false); this->EnableWindow(TRUE);this->SetFocus();};
+                new async::CAsyncCall(f, &netScheduler);
             }
             break;
         case ID_GNUDIFF1:
             {
-                DoDiffFromLog(selIndex, rev1, rev2, false, true);
+                auto f = [&](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, false, true); this->EnableWindow(TRUE);this->SetFocus();};
+                new async::CAsyncCall(f, &netScheduler);
             }
             break;
         case ID_REVERTREV:
@@ -5355,52 +5364,66 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 }
                 if (bTargetSelected)
                 {
-                    CProgressDlg progDlg;
-                    progDlg.SetTitle(IDS_APPNAME);
-                    progDlg.SetAnimation(IDR_DOWNLOAD);
-                    for ( size_t i = 0; i < changedlogpathindices.size(); ++i)
+                    auto f = [=]()
                     {
-                        const CLogChangedPath& changedlogpath
-                            = pLogEntry->GetChangedPaths()[changedlogpathindices[i]];
-
-                        SVNRev getrev = (changedlogpath.GetAction() == LOGACTIONS_DELETED) ? rev2 : rev1;
-
-                        CString sInfoLine;
-                        sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)filepath, (LPCTSTR)getrev.ToString());
-                        progDlg.SetLine(1, sInfoLine, true);
-                        SetAndClearProgressInfo(&progDlg);
-                        progDlg.ShowModeless(m_hWnd);
-
-                        CTSVNPath tempfile = TargetPath;
-                        if (changedpaths.size() > 1)
+                        CoInitialize(NULL); 
+                        this->EnableWindow(FALSE);
+                        CProgressDlg progDlg;
+                        progDlg.SetTitle(IDS_APPNAME);
+                        progDlg.SetAnimation(IDR_DOWNLOAD);
+                        for ( size_t i = 0; i < changedlogpathindices.size(); ++i)
                         {
-                            // if multiple items are selected, then the TargetPath
-                            // points to a folder and we have to append the filename
-                            // to save to to that folder.
-                            CString sName = changedlogpath.GetPath();
-                            int slashpos = sName.ReverseFind('/');
-                            if (slashpos >= 0)
-                                sName = sName.Mid(slashpos);
-                            tempfile.AppendPathString(sName);
+                            const CLogChangedPath& changedlogpath
+                                = pLogEntry->GetChangedPaths()[changedlogpathindices[i]];
+
+                            SVNRev getrev = (changedlogpath.GetAction() == LOGACTIONS_DELETED) ? rev2 : rev1;
+
+                            CString sInfoLine;
+                            sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)CPathUtils::GetFileNameFromPath(changedlogpath.GetPath()), (LPCTSTR)getrev.ToString());
+                            progDlg.SetLine(1, sInfoLine, true);
+                            SetAndClearProgressInfo(&progDlg);
+                            progDlg.ShowModeless(m_hWnd);
+
+                            CTSVNPath tempfile = TargetPath;
+                            if (changedpaths.size() > 1)
+                            {
+                                // if multiple items are selected, then the TargetPath
+                                // points to a folder and we have to append the filename
+                                // to save to that folder.
+                                CString sName = changedlogpath.GetPath();
+                                int slashpos = sName.ReverseFind('/');
+                                if (slashpos >= 0)
+                                    sName = sName.Mid(slashpos);
+                                tempfile.AppendPathString(sName);
+                            }
+                            CString filepath = sRoot + changedlogpath.GetPath();
+                            progDlg.SetLine(2, filepath, true);
+                            if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev))
+                            {
+                                progDlg.Stop();
+                                SetAndClearProgressInfo((HWND)NULL);
+                                ShowErrorDialog(m_hWnd);
+                                tempfile.Delete(false);
+                                EnableOKButton();
+                                theApp.DoWaitCursor(-1);
+                                break;
+                            }
+                            progDlg.SetProgress((DWORD)i+1, (DWORD)changedlogpathindices.size());
                         }
-                        filepath = sRoot + changedlogpath.GetPath();
-                        progDlg.SetLine(2, filepath, true);
-                        if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev))
-                        {
-                            progDlg.Stop();
-                            SetAndClearProgressInfo((HWND)NULL);
-                            ShowErrorDialog(m_hWnd);
-                            tempfile.Delete(false);
-                            EnableOKButton();
-                            theApp.DoWaitCursor(-1);
-                            break;
-                        }
-                    }
-                    progDlg.Stop();
-                    SetAndClearProgressInfo((HWND)NULL);
+                        progDlg.Stop();
+                        SetAndClearProgressInfo((HWND)NULL);
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                        EnableOKButton();
+                        theApp.DoWaitCursor(-1);
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
-                EnableOKButton();
-                theApp.DoWaitCursor(-1);
+                else
+                {
+                    EnableOKButton();
+                    theApp.DoWaitCursor(-1);
+                }
             }
             break;
         case ID_EXPORTTREE:
@@ -5426,44 +5449,57 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 }
                 if (bTargetSelected)
                 {
-                    CProgressDlg progDlg;
-                    progDlg.SetTitle(IDS_APPNAME);
-                    progDlg.SetAnimation(IDR_DOWNLOAD);
-                    progDlg.SetTime(true);
-                    for ( size_t i = 0; i < changedpaths.size(); ++i)
+                    auto f = [=]()
                     {
-                        const CString& changedlogpath = changedpaths[i];
-
-                        SVNRev getrev = rev1;
-
-                        CTSVNPath tempfile = TargetPath;
-                        tempfile.AppendPathString(changedlogpath);
-
-                        CString sInfoLine;
-                        sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)changedlogpath, (LPCTSTR)getrev.ToString());
-                        progDlg.SetLine(1, sInfoLine, true);
-                        progDlg.SetLine(2, tempfile.GetWinPath(), true);
-                        progDlg.SetProgress64(i, changedpaths.size());
-                        progDlg.ShowModeless(m_hWnd);
-
-                        SHCreateDirectoryEx(m_hWnd, tempfile.GetContainingDirectory().GetWinPath(), NULL);
-                        CString filepath = m_sRepositoryRoot + changedlogpath;
-                        if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev, true, true, svn_depth_empty))
+                        CoInitialize(NULL); 
+                        this->EnableWindow(FALSE);
+                        CProgressDlg progDlg;
+                        progDlg.SetTitle(IDS_APPNAME);
+                        progDlg.SetAnimation(IDR_DOWNLOAD);
+                        progDlg.SetTime(true);
+                        for ( size_t i = 0; i < changedpaths.size(); ++i)
                         {
-                            progDlg.Stop();
-                            SetAndClearProgressInfo((HWND)NULL);
-                            ShowErrorDialog(m_hWnd);
-                            tempfile.Delete(false);
-                            EnableOKButton();
-                            theApp.DoWaitCursor(-1);
-                            break;
+                            const CString& changedlogpath = changedpaths[i];
+
+                            SVNRev getrev = rev1;
+
+                            CTSVNPath tempfile = TargetPath;
+                            tempfile.AppendPathString(changedlogpath);
+
+                            CString sInfoLine;
+                            sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)changedlogpath, (LPCTSTR)getrev.ToString());
+                            progDlg.SetLine(1, sInfoLine, true);
+                            progDlg.SetLine(2, tempfile.GetWinPath(), true);
+                            progDlg.SetProgress64(i, changedpaths.size());
+                            progDlg.ShowModeless(m_hWnd);
+
+                            SHCreateDirectoryEx(m_hWnd, tempfile.GetContainingDirectory().GetWinPath(), NULL);
+                            CString filepath = m_sRepositoryRoot + changedlogpath;
+                            if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev, true, true, svn_depth_empty))
+                            {
+                                progDlg.Stop();
+                                SetAndClearProgressInfo((HWND)NULL);
+                                ShowErrorDialog(m_hWnd);
+                                tempfile.Delete(false);
+                                EnableOKButton();
+                                theApp.DoWaitCursor(-1);
+                                break;
+                            }
                         }
-                    }
-                    progDlg.Stop();
-                    SetAndClearProgressInfo((HWND)NULL);
+                        progDlg.Stop();
+                        SetAndClearProgressInfo((HWND)NULL);
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                        EnableOKButton();
+                        theApp.DoWaitCursor(-1);
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
-                EnableOKButton();
-                theApp.DoWaitCursor(-1);
+                else
+                {
+                    EnableOKButton();
+                    theApp.DoWaitCursor(-1);
+                }
             }
             break;
         case ID_OPENWITH:
@@ -5471,7 +5507,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         case ID_OPEN:
             {
                 SVNRev getrev = pLogEntry->GetChangedPaths()[selIndex].GetAction() == LOGACTIONS_DELETED ? rev2 : rev1;
-                Open(bOpenWith,changedpaths[0],getrev);
+                auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); Open(bOpenWith,changedpaths[0],getrev); this->EnableWindow(TRUE);this->SetFocus();};
+                new async::CAsyncCall(f, &netScheduler);
             }
             break;
         case ID_BLAME:
@@ -5499,29 +5536,40 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 dlg.EndRev = rev1;
                 if (dlg.DoModal() == IDOK)
                 {
-                    CBlame blame;
-                    CString tempfile;
-                    tempfile = blame.BlameToTempFile(CTSVNPath(filepath), dlg.StartRev, dlg.EndRev, dlg.EndRev, _T(""), dlg.m_bIncludeMerge, TRUE, TRUE);
-                    if (!tempfile.IsEmpty())
+                    SVNRev startrev = dlg.StartRev;
+                    SVNRev endrev = dlg.EndRev;
+                    bool includeMerge = !!dlg.m_bIncludeMerge;
+                    bool textView = !!dlg.m_bTextView;
+                    auto f = [=]()
                     {
-                        if (dlg.m_bTextView)
+                        CoInitialize(NULL); 
+                        this->EnableWindow(FALSE);
+                        CBlame blame;
+                        CString tempfile;
+                        tempfile = blame.BlameToTempFile(CTSVNPath(filepath), startrev, endrev, endrev, _T(""), includeMerge, TRUE, TRUE);
+                        if (!tempfile.IsEmpty())
                         {
-                            //open the default text editor for the result file
-                            CAppUtils::StartTextViewer(tempfile);
+                            if (textView)
+                            {
+                                //open the default text editor for the result file
+                                CAppUtils::StartTextViewer(tempfile);
+                            }
+                            else
+                            {
+                                CString sParams = _T("/path:\"") + filepath + _T("\" ");
+                                CAppUtils::LaunchTortoiseBlame(tempfile, CPathUtils::GetFileNameFromPath(filepath),sParams, startrev, endrev);
+                            }
                         }
                         else
                         {
-                            CString sParams = _T("/path:\"") + filepath + _T("\" ");
-                            if(!CAppUtils::LaunchTortoiseBlame(tempfile, CPathUtils::GetFileNameFromPath(filepath),sParams, dlg.StartRev, dlg.EndRev))
-                            {
-                                break;
-                            }
+                            blame.ShowErrorDialog(m_hWnd);
                         }
-                    }
-                    else
-                    {
-                        blame.ShowErrorDialog(m_hWnd);
-                    }
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                        EnableOKButton();
+                        theApp.DoWaitCursor(-1);
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
             }
             break;
@@ -5547,7 +5595,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     if (filepath.IsEmpty())
                     {
                         theApp.DoWaitCursor(-1);
-						ReportNoUrlOfFile(filepath);
+                        ReportNoUrlOfFile(filepath);
                         TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
