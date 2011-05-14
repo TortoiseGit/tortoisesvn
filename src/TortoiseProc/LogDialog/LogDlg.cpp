@@ -57,7 +57,6 @@
 #include "LogDlgFilter.h"
 #include "SVNLogHelper.h"
 #include "DiffOptionsDlg.h"
-#include "LambdaWrapper.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
 
@@ -5176,25 +5175,25 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             {
                 if ((!bOneRev)|| IsDiffPossible (pLogEntry->GetChangedPaths()[changedlogpathindices[0]], rev1))
                 {
-                    auto f = [&](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, false, false); this->EnableWindow(TRUE);this->SetFocus();};
+                    auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, false, false); this->EnableWindow(TRUE);this->SetFocus();};
                     new async::CAsyncCall(f, &netScheduler);
                 }
                 else
                 {
-                    auto f = [&](){CoInitialize(NULL); this->EnableWindow(FALSE); DiffSelectedFile(); this->EnableWindow(TRUE);this->SetFocus();};
+                    auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); DiffSelectedFile(); this->EnableWindow(TRUE);this->SetFocus();};
                     new async::CAsyncCall(f, &netScheduler);
                 }
             }
             break;
         case ID_BLAMEDIFF:
             {
-                auto f = [&](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, true, false); this->EnableWindow(TRUE);this->SetFocus();};
+                auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, true, false); this->EnableWindow(TRUE);this->SetFocus();};
                 new async::CAsyncCall(f, &netScheduler);
             }
             break;
         case ID_GNUDIFF1:
             {
-                auto f = [&](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, false, true); this->EnableWindow(TRUE);this->SetFocus();};
+                auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, false, true); this->EnableWindow(TRUE);this->SetFocus();};
                 new async::CAsyncCall(f, &netScheduler);
             }
             break;
