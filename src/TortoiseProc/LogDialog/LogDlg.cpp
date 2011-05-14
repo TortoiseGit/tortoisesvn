@@ -4506,9 +4506,19 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 }
                 if (PromptShown())
                 {
-                    SVNDiff diff(this, this->m_hWnd, true);
-                    diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowUnifiedDiff(m_path, revPrevious, m_path, revSelected, SVNRev(), options);
+                    auto f = [=]()
+                    {
+                        CoInitialize(NULL);
+                        this->EnableWindow(FALSE);
+
+                        SVNDiff diff(this, this->m_hWnd, true);
+                        diff.SetHEADPeg(m_LogRevision);
+                        diff.ShowUnifiedDiff(m_path, revPrevious, m_path, revSelected, SVNRev(), options);
+
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
                 else
                     CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, revPrevious, m_path, revSelected, SVNRev(), m_LogRevision, options);
@@ -4532,9 +4542,19 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 }
                 if (PromptShown())
                 {
-                    SVNDiff diff(this, this->m_hWnd, true);
-                    diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowUnifiedDiff(m_path, r2, m_path, r1, SVNRev(), options);
+                    auto f = [=]()
+                    {
+                        CoInitialize(NULL);
+                        this->EnableWindow(FALSE);
+
+                        SVNDiff diff(this, this->m_hWnd, true);
+                        diff.SetHEADPeg(m_LogRevision);
+                        diff.ShowUnifiedDiff(m_path, r2, m_path, r1, SVNRev(), options);
+
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
                 else
                     CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, r2, m_path, r1, SVNRev(), m_LogRevision, options);
@@ -4676,12 +4696,25 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 dlg.m_CopyRev = revSelected;
                 if (dlg.DoModal() == IDOK)
                 {
-                    // should we show a progress dialog here? Copies are done really fast
-                    // and without much network traffic.
-                    if (!Copy(CTSVNPathList(CTSVNPath(pathURL)), CTSVNPath(dlg.m_URL), dlg.m_CopyRev, dlg.m_CopyRev, dlg.m_sLogMessage))
-                        ShowErrorDialog(m_hWnd);
-                    else
-                        TSVNMessageBox(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
+                    CTSVNPath url = CTSVNPath(dlg.m_URL);
+                    SVNRev copyrev = dlg.m_CopyRev;
+                    CString logmsg = dlg.m_sLogMessage;
+                    auto f = [=]()
+                    {
+                        CoInitialize(NULL);
+                        this->EnableWindow(FALSE);
+
+                        // should we show a progress dialog here? Copies are done really fast
+                        // and without much network traffic.
+                        if (!Copy(CTSVNPathList(CTSVNPath(pathURL)), url, copyrev, copyrev, logmsg))
+                            ShowErrorDialog(m_hWnd);
+                        else
+                            TSVNMessageBox(this->m_hWnd, IDS_LOG_COPY_SUCCESS, IDS_APPNAME, MB_ICONINFORMATION);
+
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
             }
             break;
@@ -4690,10 +4723,20 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 //user clicked on the menu item "compare with working copy"
                 if (PromptShown())
                 {
-                    SVNDiff diff(this, m_hWnd, true);
-                    diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-                    diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, revSelected, SVNRev(), L"");
+                    auto f = [=]()
+                    {
+                        CoInitialize(NULL);
+                        this->EnableWindow(FALSE);
+
+                        SVNDiff diff(this, m_hWnd, true);
+                        diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+                        diff.SetHEADPeg(m_LogRevision);
+                        diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, revSelected, SVNRev(), L"");
+
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
                 else
                     CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_WC, m_path, revSelected, SVNRev(), m_LogRevision, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
@@ -4716,10 +4759,20 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 //user clicked on the menu item "compare revisions"
                 if (PromptShown())
                 {
-                    SVNDiff diff(this, m_hWnd, true);
-                    diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-                    diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, SVNRev(), L"", false, false, nodekind);
+                    auto f = [=]()
+                    {
+                        CoInitialize(NULL);
+                        this->EnableWindow(FALSE);
+
+                        SVNDiff diff(this, m_hWnd, true);
+                        diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+                        diff.SetHEADPeg(m_LogRevision);
+                        diff.ShowCompare(CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1, SVNRev(), L"", false, false, nodekind);
+
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
                 else
                     CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), r2, CTSVNPath(pathURL), r1,
@@ -4736,10 +4789,20 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 }
                 if (PromptShown())
                 {
-                    SVNDiff diff(this, m_hWnd, true);
-                    diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
-                    diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), L"", false, false, nodekind);
+                    auto f = [=]()
+                    {
+                        CoInitialize(NULL);
+                        this->EnableWindow(FALSE);
+
+                        SVNDiff diff(this, m_hWnd, true);
+                        diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+                        diff.SetHEADPeg(m_LogRevision);
+                        diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), L"", false, false, nodekind);
+
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
                 else
                     CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected,
@@ -4753,9 +4816,19 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 //now first get the revision which is selected
                 if (PromptShown())
                 {
-                    SVNDiff diff(this, this->m_hWnd, true);
-                    diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(m_path, SVNRev::REV_BASE, m_path, revSelected, SVNRev(), false, true);
+                    auto f = [=]()
+                    {
+                        CoInitialize(NULL);
+                        this->EnableWindow(FALSE);
+
+                        SVNDiff diff(this, this->m_hWnd, true);
+                        diff.SetHEADPeg(m_LogRevision);
+                        diff.ShowCompare(m_path, SVNRev::REV_BASE, m_path, revSelected, SVNRev(), false, true);
+
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
                 else
                     CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_BASE, m_path, revSelected, SVNRev(), m_LogRevision, false, false, true);
@@ -4771,9 +4844,19 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 }
                 if (PromptShown())
                 {
-                    SVNDiff diff(this, this->m_hWnd, true);
-                    diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), L"", false, true, nodekind);
+                    auto f = [=]()
+                    {
+                        CoInitialize(NULL);
+                        this->EnableWindow(FALSE);
+
+                        SVNDiff diff(this, this->m_hWnd, true);
+                        diff.SetHEADPeg(m_LogRevision);
+                        diff.ShowCompare(CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected, SVNRev(), L"", false, true, nodekind);
+
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
                 else
                     CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revSelected2, CTSVNPath(pathURL), revSelected,
@@ -4790,9 +4873,16 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 }
                 if (PromptShown())
                 {
-                    SVNDiff diff(this, this->m_hWnd, true);
-                    diff.SetHEADPeg(m_LogRevision);
-                    diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), L"", false, true, nodekind);
+                    auto f = [=]()
+                    {
+                        CoInitialize(NULL);
+
+                        SVNDiff diff(this, this->m_hWnd, true);
+                        diff.SetHEADPeg(m_LogRevision);
+                        diff.ShowCompare(CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected, SVNRev(), L"", false, true, nodekind);
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
+                    netScheduler.WaitForEmptyQueue();
                 }
                 else
                     CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pathURL), revPrevious, CTSVNPath(pathURL), revSelected,
@@ -4814,8 +4904,51 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 }
                 if (CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_hWnd))
                 {
-                    CTSVNPath tempfile;
-                    tempfile.SetFromWin(revFilename);
+                    auto f = [=]()
+                    {
+                        CoInitialize(NULL);
+                        this->EnableWindow(FALSE);
+
+                        CTSVNPath tempfile;
+                        tempfile.SetFromWin(revFilename);
+                        CProgressDlg progDlg;
+                        progDlg.SetTitle(IDS_APPNAME);
+                        progDlg.SetAnimation(IDR_DOWNLOAD);
+                        CString sInfoLine;
+                        sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), (LPCTSTR)revSelected.ToString());
+                        progDlg.SetLine(1, sInfoLine, true);
+                        SetAndClearProgressInfo(&progDlg);
+                        progDlg.ShowModeless(m_hWnd);
+                        if (!Export(m_path, tempfile, SVNRev(SVNRev::REV_HEAD), revSelected))
+                        {
+                            // try again with another peg revision
+                            if (!Export(m_path, tempfile, revSelected, revSelected))
+                            {
+                                progDlg.Stop();
+                                SetAndClearProgressInfo((HWND)NULL);
+                                ShowErrorDialog(m_hWnd);
+                                EnableOKButton();
+                            }
+                        }
+                        progDlg.Stop();
+                        SetAndClearProgressInfo((HWND)NULL);
+
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
+                }
+            }
+            break;
+        case ID_OPENWITH:
+            bOpenWith = true;
+        case ID_OPEN:
+            {
+                auto f = [=]()
+                {
+                    CoInitialize(NULL);
+                    this->EnableWindow(FALSE);
+
                     CProgressDlg progDlg;
                     progDlg.SetTitle(IDS_APPNAME);
                     progDlg.SetAnimation(IDR_DOWNLOAD);
@@ -4824,57 +4957,33 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     progDlg.SetLine(1, sInfoLine, true);
                     SetAndClearProgressInfo(&progDlg);
                     progDlg.ShowModeless(m_hWnd);
+                    CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, m_path, revSelected);
+                    bool bSuccess = true;
                     if (!Export(m_path, tempfile, SVNRev(SVNRev::REV_HEAD), revSelected))
                     {
-                        // try again with another peg revision
+                        bSuccess = false;
+                        // try again, but with the selected revision as the peg revision
                         if (!Export(m_path, tempfile, revSelected, revSelected))
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
                             ShowErrorDialog(m_hWnd);
                             EnableOKButton();
-                            break;
                         }
+                        else
+                            bSuccess = true;
                     }
-                    progDlg.Stop();
-                    SetAndClearProgressInfo((HWND)NULL);
-                }
-            }
-            break;
-        case ID_OPENWITH:
-            bOpenWith = true;
-        case ID_OPEN:
-            {
-                CProgressDlg progDlg;
-                progDlg.SetTitle(IDS_APPNAME);
-                progDlg.SetAnimation(IDR_DOWNLOAD);
-                CString sInfoLine;
-                sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(), (LPCTSTR)revSelected.ToString());
-                progDlg.SetLine(1, sInfoLine, true);
-                SetAndClearProgressInfo(&progDlg);
-                progDlg.ShowModeless(m_hWnd);
-                CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, m_path, revSelected);
-                bool bSuccess = true;
-                if (!Export(m_path, tempfile, SVNRev(SVNRev::REV_HEAD), revSelected))
-                {
-                    bSuccess = false;
-                    // try again, but with the selected revision as the peg revision
-                    if (!Export(m_path, tempfile, revSelected, revSelected))
+                    if (bSuccess)
                     {
                         progDlg.Stop();
                         SetAndClearProgressInfo((HWND)NULL);
-                        ShowErrorDialog(m_hWnd);
-                        EnableOKButton();
-                        break;
+                        DoOpenFileWith(bOpenWith, tempfile);
                     }
-                    bSuccess = true;
-                }
-                if (bSuccess)
-                {
-                    progDlg.Stop();
-                    SetAndClearProgressInfo((HWND)NULL);
-                    DoOpenFileWith(bOpenWith, tempfile);
-                }
+
+                    this->EnableWindow(TRUE);
+                    this->SetFocus();
+                };
+                new async::CAsyncCall(f, &netScheduler);
             }
             break;
         case ID_BLAME:
@@ -4883,29 +4992,40 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 dlg.EndRev = revSelected;
                 if (dlg.DoModal() == IDOK)
                 {
-                    CBlame blame;
-                    CString tempfile;
-                    tempfile = blame.BlameToTempFile(m_path, dlg.StartRev, dlg.EndRev, dlg.EndRev, _T(""), dlg.m_bIncludeMerge, TRUE, TRUE);
-                    if (!tempfile.IsEmpty())
+                    SVNRev startrev = dlg.StartRev;
+                    SVNRev endrev = dlg.EndRev;
+                    bool includeMerge = !!dlg.m_bIncludeMerge;
+                    bool textViewer = !!dlg.m_bTextView;
+                    auto f = [=]()
                     {
-                        if (dlg.m_bTextView)
+                        CoInitialize(NULL);
+                        this->EnableWindow(FALSE);
+
+                        CBlame blame;
+                        CString tempfile;
+                        tempfile = blame.BlameToTempFile(m_path, startrev, endrev, endrev, _T(""), includeMerge, TRUE, TRUE);
+                        if (!tempfile.IsEmpty())
                         {
-                            //open the default text editor for the result file
-                            CAppUtils::StartTextViewer(tempfile);
+                            if (textViewer)
+                            {
+                                //open the default text editor for the result file
+                                CAppUtils::StartTextViewer(tempfile);
+                            }
+                            else
+                            {
+                                CString sParams = _T("/path:\"") + m_path.GetSVNPathString() + _T("\" ");
+                                CAppUtils::LaunchTortoiseBlame(tempfile, CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),sParams, startrev, endrev);
+                            }
                         }
                         else
                         {
-                            CString sParams = _T("/path:\"") + m_path.GetSVNPathString() + _T("\" ");
-                            if(!CAppUtils::LaunchTortoiseBlame(tempfile, CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),sParams, dlg.StartRev, dlg.EndRev))
-                            {
-                                break;
-                            }
+                            blame.ShowErrorDialog(m_hWnd);
                         }
-                    }
-                    else
-                    {
-                        blame.ShowErrorDialog(m_hWnd);
-                    }
+
+                        this->EnableWindow(TRUE);
+                        this->SetFocus();
+                    };
+                    new async::CAsyncCall(f, &netScheduler);
                 }
             }
             break;
