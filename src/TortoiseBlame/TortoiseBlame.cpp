@@ -1049,7 +1049,7 @@ void TortoiseBlame::CreateFont()
     if (m_font)
         return;
     LOGFONT lf = {0};
-    lf.lfWeight = 400;
+    lf.lfWeight = FW_NORMAL;
     HDC hDC = ::GetDC(wBlame);
     lf.lfHeight = -MulDiv((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10), GetDeviceCaps(hDC, LOGPIXELSY), 72);
     lf.lfCharSet = DEFAULT_CHARSET;
@@ -1058,6 +1058,7 @@ void TortoiseBlame::CreateFont()
     m_font = ::CreateFontIndirect(&lf);
 
     lf.lfItalic = TRUE;
+    lf.lfWeight = FW_BLACK;
     m_italicFont = ::CreateFontIndirect(&lf);
 
     ReleaseDC(wBlame, hDC);
