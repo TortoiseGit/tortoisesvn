@@ -1001,7 +1001,7 @@ LONG TortoiseBlame::GetBlameWidth()
     HDC hDC = ::GetDC(wBlame);
     HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
     TCHAR buf[MAX_PATH];
-    _stprintf_s(buf, _T("%8ld "), 88888888);
+    _stprintf_s(buf, _T("*%8ld "), 88888888);
     ::GetTextExtentPoint(hDC, buf, (int)_tcslen(buf), &width);
     m_revWidth = width.cx + BLAMESPACE;
     blamewidth += m_revWidth;
@@ -1115,9 +1115,9 @@ void TortoiseBlame::DrawBlame(HDC hDC)
                 ::SetTextColor(hDC, m_textHighLightColor);
             }
             if (rev >= 0)
-                _stprintf_s(buf, _T("%8ld       "), rev);
+                _stprintf_s(buf, _T("%c%8ld       "), bUseMerged ? '*' : ' ', rev);
             else
-                _tcscpy_s(buf, L"    ----       ");
+                _tcscpy_s(buf, L"     ----       ");
             rc.right = rc.left + m_revWidth;
             ::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)_tcslen(buf), 0);
             int Left = m_revWidth;
