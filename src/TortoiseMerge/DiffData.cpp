@@ -252,6 +252,10 @@ BOOL CDiffData::Load()
     m_yourFile.StoreFileAttributes();
     //m_mergedFile.StoreFileAttributes();
 
+    bool bBaseConverted  = false;
+    bool bTheirConverted = false;
+    bool bYourConverted  = false;
+
     if (IsBaseFileInUse())
     {
         if (!m_arBaseFile.Load(m_baseFile.GetFilename()))
@@ -263,7 +267,8 @@ BOOL CDiffData::Load()
         {
             CFileTextLines converted(m_arBaseFile);
             sConvertedBaseFilename = CTempFiles::Instance().GetTempFilePathString();
-            converted.Save(sConvertedBaseFilename, m_arBaseFile.GetUnicodeType() == CFileTextLines::UNICODE_LE, dwIgnoreWS, bIgnoreCase, m_bBlame);
+            converted.Save(sConvertedBaseFilename, true, 0, bIgnoreCase, m_bBlame);
+            bBaseConverted = true;
         }
     }
 
@@ -280,7 +285,8 @@ BOOL CDiffData::Load()
         {
             CFileTextLines converted(m_arTheirFile);
             sConvertedTheirFilename = CTempFiles::Instance().GetTempFilePathString();
-            converted.Save(sConvertedTheirFilename, m_arTheirFile.GetUnicodeType() == CFileTextLines::UNICODE_LE, dwIgnoreWS, bIgnoreCase, m_bBlame);
+            converted.Save(sConvertedTheirFilename, true, 0, bIgnoreCase, m_bBlame);
+            bTheirConverted = true;
         }
     }
 
@@ -297,7 +303,37 @@ BOOL CDiffData::Load()
         {
             CFileTextLines converted(m_arYourFile);
             sConvertedYourFilename = CTempFiles::Instance().GetTempFilePathString();
-            converted.Save(sConvertedYourFilename, m_arYourFile.GetUnicodeType() == CFileTextLines::UNICODE_LE, dwIgnoreWS, bIgnoreCase, m_bBlame);
+            converted.Save(sConvertedYourFilename, true, 0, bIgnoreCase, m_bBlame);
+            bYourConverted = true;
+        }
+    }
+
+    // in case at least one of the files got converted, we have to convert all of the files
+    // otherwise one file might be in ANSI and the other in UTF8 and we'll end up
+    // with lines marked as different throughout the files even though the lines
+    // would show no change at all in the viewer.
+    if (bBaseConverted || bYourConverted || bTheirConverted)
+    {
+        if (!bBaseConverted)
+        {
+            CFileTextLines converted(m_arBaseFile);
+            sConvertedBaseFilename = CTempFiles::Instance().GetTempFilePathString();
+            converted.Save(sConvertedBaseFilename, true, 0, bIgnoreCase, m_bBlame);
+            bBaseConverted = true;
+        }
+        if (!bYourConverted)
+        {
+            CFileTextLines converted(m_arYourFile);
+            sConvertedYourFilename = CTempFiles::Instance().GetTempFilePathString();
+            converted.Save(sConvertedYourFilename, true, 0, bIgnoreCase, m_bBlame);
+            bYourConverted = true;
+        }
+        if (!bTheirConverted)
+        {
+            CFileTextLines converted(m_arTheirFile);
+            sConvertedTheirFilename = CTempFiles::Instance().GetTempFilePathString();
+            converted.Save(sConvertedTheirFilename, true, 0, bIgnoreCase, m_bBlame);
+            bTheirConverted = true;
         }
     }
 
