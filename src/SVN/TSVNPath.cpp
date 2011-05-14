@@ -991,7 +991,7 @@ CString CTSVNPathList::CreateAsteriskSeparatedString() const
     {
         if (!sRet.IsEmpty())
             sRet += _T("*");
-        sRet += it->GetWinPathString();
+        sRet += it->IsUrl() ? it->GetSVNPathString() : it->GetWinPathString();
     }
     return sRet;
 }
