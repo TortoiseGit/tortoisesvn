@@ -77,13 +77,18 @@ void CRightView::UseBothLeftFirst()
     int nCount = nLastViewLine - nFirstViewLine + 1;
     m_pwndLeft->InsertViewEmptyLines(nNextViewLine, nCount);
     SaveUndoStep();
-    CleanEmptyLines();
+
+    // clean up
+    int nRemovedLines = CleanEmptyLines();
     SaveUndoStep();
     UpdateViewLineNumbers();
     SaveUndoStep();
 
     CUndo::GetInstance().EndGrouping();
 
+    // final clean up
+    ClearSelection();
+    SetupAllViewSelection(nFirstViewLine, 2*nLastViewLine - nFirstViewLine - nRemovedLines + 1);
     BuildAllScreen2ViewVector();
     m_pwndLeft->SetModified();
     SetModified();
@@ -133,13 +138,18 @@ void CRightView::UseBothRightFirst()
     int nCount = nLastViewLine - nFirstViewLine + 1;
     m_pwndLeft->InsertViewEmptyLines(nFirstViewLine, nCount);
     SaveUndoStep();
-    CleanEmptyLines();
+
+    // clean up
+    int nRemovedLines = CleanEmptyLines();
     SaveUndoStep();
     UpdateViewLineNumbers();
     SaveUndoStep();
 
     CUndo::GetInstance().EndGrouping();
 
+    // final clean up
+    ClearSelection();
+    SetupAllViewSelection(nFirstViewLine, 2*nLastViewLine - nFirstViewLine - nRemovedLines + 1);
     BuildAllScreen2ViewVector();
     m_pwndLeft->SetModified();
     SetModified();
@@ -196,30 +206,6 @@ void CRightView::AddContextItems(CIconMenu& popup, DiffStates state)
     CBaseView::AddContextItems(popup, state);
 }
 
-
-void CRightView::CleanEmptyLines()
-{
-    int nFirstViewLine = 0;
-    int nLastViewLine = GetViewCount()-1;
-
-    for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; )
-    {
-        DiffStates rightState = m_pwndRight->GetViewState(viewLine);
-        DiffStates leftState = m_pwndLeft->GetViewState(viewLine);
-        if (IsStateEmpty(leftState) && IsStateEmpty(rightState))
-        {
-            m_pwndRight->RemoveViewData(viewLine);
-            m_pwndLeft->RemoveViewData(viewLine);
-            if (CUndo::GetInstance().IsGrouping()) // if use group undo -> ensure back adding goes in right (reversed) order
-            {
-                SaveUndoStep();
-            }
-            nLastViewLine--;
-            continue;
-        }
-        viewLine++;
-    }
-}
 
 void CRightView::UseBlock(int nFirstViewLine, int nLastViewLine)
 {

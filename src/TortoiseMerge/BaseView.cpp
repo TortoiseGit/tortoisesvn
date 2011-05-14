@@ -126,8 +126,6 @@ CBaseView::CBaseView()
     m_margincursor = (HCURSOR)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDC_MARGINCURSOR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
     m_pState = NULL;
 
-    m_nCachedWrappedLine = -1;
-
     for (int i=0; i<1024; ++i)
         m_sConflictedText += _T("??");
     m_sNoLineNr.LoadString(IDS_EMPTYLINETT);
@@ -571,27 +569,10 @@ CString CBaseView::GetLineChars(int index)
         int subLine = GetSubLineOffset(index);
         if (subLine >= 0)
         {
-            if (viewLine != m_nCachedWrappedLine)
+            if (subLine < CountMultiLines(viewLine))
             {
-                // cache the word wrapped lines
-                CString wrapedLine = CStringUtils::WordWrap(m_pViewData->GetLine(viewLine), GetScreenChars()-1, false, true, GetTabSize());
-                m_CachedWrappedLines.clear();
-                // split the line string into multiple line strings
-                int pos = 0;
-                CString temp;
-                for(;;)
-                {
-                    temp = wrapedLine.Tokenize(_T("\n"),pos);
-                    if(temp.IsEmpty())
-                    {
-                        break;
-                    }
-                    m_CachedWrappedLines.push_back(temp);
-                }
-                m_nCachedWrappedLine = viewLine;
+                return m_ScreenedViewLine[viewLine].SubLines[subLine];
             }
-            if ((int)m_CachedWrappedLines.size() > subLine)
-                return m_CachedWrappedLines[subLine];
             return L"";
         }
     }
@@ -3276,7 +3257,6 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
             BuildAllScreen2ViewVector(viewLine);
         }
         MoveCaretRight();
-        m_nCachedWrappedLine = -1;
         UpdateGoalPos();
     }
     else if (nChar == 10)
@@ -3310,7 +3290,6 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         // move the cursor to the new line
         m_ptCaretPos.y++;
         m_ptCaretPos.x = 0;
-        m_nCachedWrappedLine = -1;
         UpdateGoalPos();
     }
     else
@@ -4036,6 +4015,7 @@ int CBaseView::CleanEmptyLines()
                 SaveUndoStep();
             }
             nViewLineCount--;
+            nRemovedCount++;
             continue;
         }
         nViewLine++;
@@ -4081,13 +4061,14 @@ int CBaseView::CountMultiLines( int nLine )
     ASSERT((int)m_ScreenedViewLine.size()-1 >= nLine);
 
     CString multiline = GetMultiLine(nLine);
-    // count the newlines
+
+    TScreenedViewLine oScreenedLine;
+    // tokenize string
     int prevpos = 0;
     int pos = 0;
-    TScreenedViewLine oScreenedLine;
     while ((pos = multiline.Find('\n', pos)) >= 0)
     {
-        oScreenedLine.SubLines.push_back(multiline.Mid(prevpos, pos-prevpos)); // GetMultiLine may return vector/list of lines instead of line
+        oScreenedLine.SubLines.push_back(multiline.Mid(prevpos, pos-prevpos)); // WordWrap could return vector/list of lines instead of string
         pos++;
         prevpos = pos;
     }
@@ -4393,7 +4374,6 @@ bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView, con
     {
         pwndView->m_ScreenedViewLine[i].Clear();
     }
-    pwndView->m_nCachedWrappedLine = -1;
     return false;
 }
 

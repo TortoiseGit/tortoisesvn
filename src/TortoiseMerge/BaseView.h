@@ -422,9 +422,6 @@ protected:  // variables
     CScrollTool     m_ScrollTool;
     CString         m_sWordSeparators;
 
-    int             m_nCachedWrappedLine;
-    std::vector<CString> m_CachedWrappedLines;
-
     char            m_szTip[MAX_PATH*2+1];
     wchar_t         m_wszTip[MAX_PATH*2+1];
     // These three pointers lead to the three parent

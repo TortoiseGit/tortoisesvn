@@ -36,7 +36,6 @@ public:
  protected:
     void    AddContextItems(CIconMenu& popup, DiffStates state);
 
-    void    CleanEmptyLines();
     void    UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastViewLine);
     void    UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast);
     void    UseViewBlock(CBaseView * pwndView);

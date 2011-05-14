@@ -51,36 +51,6 @@ void CBottomView::AddContextItems(CIconMenu& popup, DiffStates state)
 }
 
 
-void CBottomView::CleanEmptyLines()
-{
-    bool bModified = false;
-    for (int viewLine = 0; viewLine < GetViewCount(); )
-    {
-        DiffStates leftState = m_pwndLeft->GetViewState(viewLine);
-        DiffStates rightState = m_pwndRight->GetViewState(viewLine);
-        DiffStates bottomState = m_pwndBottom->GetViewState(viewLine);
-        if (IsStateEmpty(leftState) && IsStateEmpty(rightState) && IsStateEmpty(bottomState))
-        {
-            m_pwndLeft->RemoveViewData(viewLine);
-            m_pwndRight->RemoveViewData(viewLine);
-            m_pwndBottom->RemoveViewData(viewLine);
-            if (CUndo::GetInstance().IsGrouping()) // if use group undo -> ensure back adding goes in right (reversed) order
-            {
-                SaveUndoStep();
-            }
-            bModified = true;
-            continue;
-        }
-        viewLine++;
-    }
-    if (bModified)
-    {
-        m_pwndBottom->SetModified();
-        m_pwndLeft->SetModified();
-        m_pwndRight->SetModified();
-    }
-}
-
 void CBottomView::UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastViewLine)
 {
     CUndo::GetInstance().BeginGrouping(); // start group undo
@@ -93,13 +63,16 @@ void CBottomView::UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastVi
         SetViewData(viewLine, lineData);
     }
 
-    CleanEmptyLines();
+    int nRemovedLines = CleanEmptyLines();
     SaveUndoStep();	
     UpdateViewLineNumbers();
     SaveUndoStep();
 
     CUndo::GetInstance().EndGrouping();
 
+    // final clean up
+    ClearSelection();
+    SetupAllViewSelection(nFirstViewLine, nLastViewLine - nRemovedLines);
     BuildAllScreen2ViewVector();
     SetModified();
     RefreshViews();
@@ -156,11 +129,14 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     pwndFirst->InsertViewEmptyLines(nNextViewLine, nCount);
     SaveUndoStep();
 
-    CleanEmptyLines();
+    int nRemovedLines = CleanEmptyLines();
     SaveUndoStep();	
 
     CUndo::GetInstance().EndGrouping();
 
+    // final clean up
+    ClearSelection();
+    SetupAllViewSelection(nFirstViewLine, 2*nLastViewLine - nFirstViewLine - nRemovedLines + 1);
     BuildAllScreen2ViewVector();
     SetModified();
     pwndLast->SetModified();
