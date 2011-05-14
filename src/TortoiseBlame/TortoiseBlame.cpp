@@ -192,6 +192,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
     svn_revnum_t rev = 0;
     svn_revnum_t merged_rev = 0;
     int strLen = 0;
+    bool bHasMergePaths = false;
     for (;;)
     {
         rev = 0;
@@ -292,6 +293,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
                 break;
             stringbuf[strLen] = 0;
             m_mergedPaths.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
+            bHasMergePaths = true;
         }
         else
             m_mergedPaths.push_back(L"");
@@ -454,7 +456,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
     m_blameWidth = 0;
     InitSize();
 
-    if (m_mergedPaths.size() == 0)
+    if (!bHasMergePaths)
     {
         HMENU hMenu = GetMenu(wMain);
         EnableMenuItem(hMenu, ID_VIEW_MERGEPATH, MF_DISABLED | MF_GRAYED | MF_BYCOMMAND);
