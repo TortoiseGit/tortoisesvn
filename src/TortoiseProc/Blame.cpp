@@ -76,16 +76,16 @@ BOOL CBlame::BlameCallback(LONG linenumber, bool /*localchange*/, svn_revnum_t r
             if (m_bIncludeMerge)
             {
                 if (pathA.IsEmpty())
-                    infolineA.Format("%c %6ld %6ld %-30s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
+                    infolineA.Format("%c %8ld %8ld %-30s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
                 else
-                    infolineA.Format("%c %6ld %6ld %-30s %-60s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+                    infolineA.Format("%c %8ld %8ld %-30s %-60s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
             }
             else
             {
                 if (pathA.IsEmpty())
-                    infolineA.Format("%6ld %-30s %-30s ", revision, (LPCSTR)dateA, (LPCSTR)authorA);
+                    infolineA.Format("%8ld %-30s %-30s ", revision, (LPCSTR)dateA, (LPCSTR)authorA);
                 else
-                    infolineA.Format("%6ld %-30s %-60s %-30s ", revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+                    infolineA.Format("%8ld %-30s %-60s %-30s ", revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
             }
         }
         else
@@ -93,16 +93,16 @@ BOOL CBlame::BlameCallback(LONG linenumber, bool /*localchange*/, svn_revnum_t r
             if (m_bIncludeMerge)
             {
                 if (pathA.IsEmpty())
-                    infolineA.Format("%c %6ld %6ld %6ld %-30s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
+                    infolineA.Format("%c %6ld %8ld %8ld %-30s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
                 else
-                    infolineA.Format("%c %6ld %6ld %6ld %-30s %-60s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+                    infolineA.Format("%c %6ld %8ld %8ld %-30s %-60s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
             }
             else
             {
                 if (pathA.IsEmpty())
-                    infolineA.Format("%6ld %6ld %-30s %-30s ", linenumber, revision, (LPCSTR)dateA, (LPCSTR)authorA);
+                    infolineA.Format("%6ld %8ld %-30s %-30s ", linenumber, revision, (LPCSTR)dateA, (LPCSTR)authorA);
                 else
-                    infolineA.Format("%6ld %6ld %-30s %-60s %-30s ", linenumber, revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+                    infolineA.Format("%6ld %8ld %-30s %-60s %-30s ", linenumber, revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
             }
         }
         fulllineA = line;
@@ -200,9 +200,9 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
     if (extBlame)
     {
         if(includemerge)
-            headline.Format(_T("%c %-6s %-6s %-6s %-30s %-60s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"), _T("path"), _T("author"), _T("content"));
+            headline.Format(_T("%c %-6s %-8s %-8s %-30s %-60s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"), _T("path"), _T("author"), _T("content"));
         else
-            headline.Format(_T("%c %-6s %-6s %-6s %-30s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"),_T("author"), _T("content"));
+            headline.Format(_T("%c %-6s %-8s %-8s %-30s %-30s %-s \n"), ' ', _T("line"), _T("rev"), _T("merged"), _T("date"),_T("author"), _T("content"));
         m_saveFile.WriteString(headline);
         m_saveFile.WriteString(_T("\n"));
     }
