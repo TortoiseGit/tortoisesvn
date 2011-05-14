@@ -378,7 +378,8 @@ int SVNPatch::CountMatches( const CString& path ) const
     {
         CString temp = GetStrippedPath(i);
         temp.Replace('/', '\\');
-        if (PathIsRelative(temp))
+        if ((PathIsRelative(temp)) || 
+            ((temp.GetLength() > 1) && (temp[0]=='\\') && (temp[1]!='\\')) )
             temp = path + _T("\\")+ temp;
         if (PathFileExists(temp))
             matches++;
