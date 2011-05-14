@@ -280,14 +280,12 @@ bool SVNLineDiff::ShowInlineDiff(svn_diff_t* diff)
 {
     svn_diff_t* tempdiff = diff;
     apr_size_t diffcounts = 0;
-    apr_size_t origcounts = 0;
     apr_off_t origsize = 0;
     apr_off_t diffsize = 0;
     while (tempdiff)
     {
         if (tempdiff->type == svn_diff__type_common)
         {
-            origcounts++;
             origsize += tempdiff->original_length;
         }
         else
@@ -298,5 +296,5 @@ bool SVNLineDiff::ShowInlineDiff(svn_diff_t* diff)
         }
         tempdiff = tempdiff->next;
     }
-    return (origcounts >= diffcounts) && (origsize > diffsize);
+    return (origsize > 0.5 * diffsize + 1.0 * diffcounts); // Multiplier values may be subject to individual preferences
 }
