@@ -59,10 +59,6 @@ CRevisionGraphDlg::CRevisionGraphDlg(CWnd* pParent /*=NULL*/)
 
     DWORD dwOpts = CRegStdDWORD(_T("Software\\TortoiseSVN\\RevisionGraphOptions"), 0x1ff199);
     m_Graph.m_state.GetOptions()->SetRegistryFlags (dwOpts, 0x407fbf);
-
-    // begin background operation
-
-    StartWorkerThread();
 }
 
 CRevisionGraphDlg::~CRevisionGraphDlg()
@@ -214,6 +210,10 @@ BOOL CRevisionGraphDlg::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
 
     EnableToolTips();
+
+    // begin background operation
+
+    StartWorkerThread();
 
     // set up the status bar
     m_StatusBar.Create(WS_CHILD|WS_VISIBLE|SBT_OWNERDRAW,
