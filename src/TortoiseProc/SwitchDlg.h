@@ -42,18 +42,6 @@ public:
     CSwitchDlg(CWnd* pParent = NULL);   // standard constructor
     virtual ~CSwitchDlg();
 
-    /**
-     * Sets the text for the dialog title.
-     * \remark this method must be called before the dialog is shown!
-     */
-    void SetDialogTitle(const CString& sTitle);
-
-    /**
-     * Sets the label in front of the URL combobox.
-     * \remark this method must be called before the dialog is shown!
-     */
-    void SetUrlLabel(const CString& sLabel);
-
 // Dialog Data
     enum { IDD = IDD_SWITCH };
 
@@ -79,7 +67,6 @@ protected:
     CHistoryCombo   m_URLCombo;
     BOOL            m_bFolder;
     CString         m_sTitle;
-    CString         m_sLabel;
     CString         m_repoRoot;
     CLogDlg *       m_pLogDlg;
     CComboBox       m_depthCombo;

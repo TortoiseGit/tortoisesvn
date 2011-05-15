@@ -22,6 +22,7 @@
 #include "messagebox.h"
 #include "cursor.h"
 #include ".\changeddlg.h"
+#include "AppUtils.h"
 
 
 IMPLEMENT_DYNAMIC(CChangedDlg, CResizableStandAloneDialog)
@@ -195,9 +196,9 @@ UINT CChangedDlg::ChangedStatusThread()
     CTSVNPath commonDir = m_FileListCtrl.GetCommonDirectory(false);
     bool bSingleFile = ((m_pathList.GetCount()==1)&&(!m_pathList[0].IsDirectory()));
     if (bSingleFile)
-        SetWindowText(m_sTitle + _T(" - ") + m_pathList[0].GetWinPathString());
+        CAppUtils::SetWindowTitle(m_hWnd, m_pathList[0].GetWinPathString(), m_sTitle);
     else
-        SetWindowText(m_sTitle + _T(" - ") + commonDir.GetWinPathString());
+        CAppUtils::SetWindowTitle(m_hWnd, commonDir.GetWinPathString(), m_sTitle);
     SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_OK)));
     DialogEnableWindow(IDC_REFRESH, TRUE);
     DialogEnableWindow(IDC_CHECKREPO, TRUE);

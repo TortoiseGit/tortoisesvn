@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "EditPropTSVNLang.h"
+#include "AppUtils.h"
 
 
 CComboBox    CEditPropTSVNLang::m_langCombo;
@@ -89,6 +90,10 @@ BOOL CEditPropTSVNLang::OnInitDialog()
             break;
         }
     }
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     UpdateData(false);
 

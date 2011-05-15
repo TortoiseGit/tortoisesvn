@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "messagebox.h"
 #include "ResolveDlg.h"
+#include "AppUtils.h"
 
 #define REFRESHTIMER   100
 
@@ -65,6 +66,10 @@ BOOL CResolveDlg::OnInitDialog()
     m_resolveListCtrl.SetCancelBool(&m_bCancelled);
     m_resolveListCtrl.SetBackgroundImage(IDI_RESOLVE_BKG);
     m_resolveListCtrl.EnableFileDrop();
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     AdjustControlSize(IDC_SELECTALL);
 

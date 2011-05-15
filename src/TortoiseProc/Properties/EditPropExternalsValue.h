@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,6 +37,7 @@ public:
     void         SetRepoRoot(const CTSVNPath& root) { m_RepoRoot = root; }
     void         SetExternal(const SVNExternal& ext) { m_External = ext; }
     SVNExternal  GetExternal() { return m_External; }
+    void         SetPathList(const CTSVNPathList& list) { m_pathList = list; }
 
     enum { IDD = IDD_EDITPROPEXTERNALSVALUE };
 
@@ -65,4 +66,5 @@ private:
     CString         m_sRevision;
     CString         m_sWCPath;
     CString         m_sPegRev;
+    CTSVNPathList   m_pathList;
 };

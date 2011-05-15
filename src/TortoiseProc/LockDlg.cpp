@@ -99,6 +99,10 @@ BOOL CLockDlg::OnInitDialog()
 
     m_SelectAll.SetCheck(BST_INDETERMINATE);
 
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
+
     AdjustControlSize(IDC_STEALLOCKS);
     AdjustControlSize(IDC_SELECTALL);
 

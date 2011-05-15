@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -67,6 +67,10 @@ BOOL CRelocateDlg::OnInitDialog()
     RECT rect;
     GetWindowRect(&rect);
     m_height = rect.bottom - rect.top;
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), sWindowTitle);
 
     AddAnchor(IDC_FROMURLLABEL, TOP_LEFT);
     AddAnchor(IDC_FROMURL, TOP_LEFT, TOP_RIGHT);

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "SVN.h"
 #include "Registry.h"
 #include "DeleteUnversionedDlg.h"
+#include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CDeleteUnversionedDlg, CResizableStandAloneDialog)
 CDeleteUnversionedDlg::CDeleteUnversionedDlg(CWnd* pParent /*=NULL*/)
@@ -117,7 +118,7 @@ UINT CDeleteUnversionedDlg::StatusThread()
         SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWIGNORED, true, true);
 
     CTSVNPath commonDir = m_StatusList.GetCommonDirectory(false);
-    SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());
+    CAppUtils::SetWindowTitle(m_hWnd, commonDir.GetWinPathString(), m_sWindowTitle);
 
     InterlockedExchange(&m_bThreadRunning, FALSE);
     RefreshCursor();

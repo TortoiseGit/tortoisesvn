@@ -159,6 +159,10 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     m_tooltips.AddTool(IDC_EDITPROPS,  IDS_PROP_TT_EDIT);
     m_tooltips.AddTool(IDC_ADDPROPS,  IDS_PROP_TT_ADD);
 
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathlist.GetCommonRoot().GetUIPathString(), sWindowTitle);
+
     AddAnchor(IDC_GROUP, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_PROPPATH, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_EDITPROPLIST, TOP_LEFT, BOTTOM_RIGHT);

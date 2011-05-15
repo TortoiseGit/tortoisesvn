@@ -24,6 +24,7 @@
 bool MergeAllCommand::Execute()
 {
     CMergeAllDlg dlg;
+    dlg.m_pathList = pathList;
     if (dlg.DoModal() == IDOK)
     {
         CSVNProgressDlg progDlg;

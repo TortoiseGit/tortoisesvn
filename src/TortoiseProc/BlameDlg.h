@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "SVNRev.h"
 #include "Registry.h"
 #include "StandAloneDlg.h"
+#include "TSVNPath.h"
 
 /**
  * \ingroup TortoiseProc
@@ -59,4 +60,5 @@ public:
     BOOL    m_bIgnoreEOL;
     BOOL    m_bIncludeMerge;
     svn_diff_file_ignore_space_t    m_IgnoreSpaces;
+    CTSVNPath m_path;
 };

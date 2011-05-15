@@ -21,6 +21,7 @@
 #include "EditPropExternals.h"
 #include "EditPropExternalsValue.h"
 #include "SVN.h"
+#include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CEditPropExternals, CResizableStandAloneDialog)
 
@@ -99,6 +100,10 @@ BOOL CEditPropExternals::OnInitDialog()
 
     m_ExtList.SetRedraw(true);
 
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
+
     AddAnchor(IDC_EXTERNALSLIST, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_ADD, BOTTOM_LEFT);
     AddAnchor(IDC_EDIT, BOTTOM_LEFT);
@@ -124,6 +129,7 @@ void CEditPropExternals::OnBnClickedAdd()
     CEditPropExternalsValue dlg;
     dlg.SetURL(m_url);
     dlg.SetRepoRoot(m_repoRoot);
+    dlg.SetPathList(m_pathList);
     if (dlg.DoModal() == IDOK)
     {
         SVNExternal ext = dlg.GetExternal();
@@ -148,6 +154,7 @@ void CEditPropExternals::OnBnClickedEdit()
         dlg.SetURL(m_url);
         dlg.SetRepoRoot(m_repoRoot);
         dlg.SetExternal(ext);
+        dlg.SetPathList(m_pathList);
         if (dlg.DoModal() == IDOK)
         {
             ext = dlg.GetExternal();
@@ -182,6 +189,7 @@ void CEditPropExternals::OnNMDblclkExternalslist(NMHDR * pNMHDR, LRESULT *pResul
         dlg.SetURL(m_url);
         dlg.SetRepoRoot(m_repoRoot);
         dlg.SetExternal(ext);
+        dlg.SetPathList(m_pathList);
         if (dlg.DoModal() == IDOK)
         {
             ext = dlg.GetExternal();

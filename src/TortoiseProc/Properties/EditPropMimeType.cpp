@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "EditPropMimeType.h"
 #include "UnicodeUtils.h"
+#include "AppUtils.h"
 
 
 // CEditPropMimeType dialog
@@ -69,6 +70,10 @@ BOOL CEditPropMimeType::OnInitDialog()
     AdjustControlSize(IDC_MIMEBIN);
     AdjustControlSize(IDC_MIMECUSTOM);
     AdjustControlSize(IDC_PROPRECURSIVE);
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     DialogEnableWindow(IDC_CUSTOMMIMETYPE, false);
     if (m_PropValue.compare("application/octet-stream") == 0)

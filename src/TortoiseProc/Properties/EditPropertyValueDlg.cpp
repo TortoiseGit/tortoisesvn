@@ -172,7 +172,7 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
     m_bChanged = false;
 
     if (!m_sTitle.IsEmpty())
-        SetWindowText(m_sTitle);
+        CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), m_sTitle);
 
     CAppUtils::CreateFontForLogs(m_valueFont);
     GetDlgItem(IDC_PROPVALUE)->SetFont(&m_valueFont);

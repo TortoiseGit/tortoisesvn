@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "BlameDlg.h"
 #include "Registry.h"
+#include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CBlameDlg, CStandAloneDialog)
 CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
@@ -74,6 +75,10 @@ BOOL CBlameDlg::OnInitDialog()
     AdjustControlSize(IDC_IGNOREWHITESPACECHANGES);
     AdjustControlSize(IDC_IGNOREALLWHITESPACES);
     AdjustControlSize(IDC_INCLUDEMERGEINFO);
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), sWindowTitle);
 
     m_bTextView = m_regTextView;
     m_bIncludeMerge = m_regIncludeMerge;

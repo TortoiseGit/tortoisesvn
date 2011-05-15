@@ -831,7 +831,7 @@ UINT CCommitDlg::StatusThread()
     }
 
     CTSVNPath commonDir = m_ListCtrl.GetCommonDirectory(false);
-    SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());
+    CAppUtils::SetWindowTitle(m_hWnd, commonDir.GetWinPathString(), m_sWindowTitle);
 
     m_autolist.clear();
     // we don't have to block the commit dialog while we fetch the

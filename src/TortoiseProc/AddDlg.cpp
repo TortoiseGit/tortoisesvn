@@ -23,6 +23,7 @@
 #include "AddDlg.h"
 #include "SVNConfig.h"
 #include "Registry.h"
+#include "AppUtils.h"
 
 #define REFRESHTIMER   100
 
@@ -75,6 +76,10 @@ BOOL CAddDlg::OnInitDialog()
     m_addListCtrl.SetCancelBool(&m_bCancelled);
     m_addListCtrl.SetBackgroundImage(IDI_ADD_BKG);
     m_addListCtrl.EnableFileDrop();
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     AdjustControlSize(IDC_SELECTALL);
 

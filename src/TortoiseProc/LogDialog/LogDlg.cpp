@@ -583,22 +583,12 @@ void CLogDlg::SetDlgTitle(bool bOffline)
     if (bOffline)
     {
         CString sTemp;
-        if (m_path.IsUrl())
-            sTemp.FormatMessage(IDS_LOG_DLGTITLEOFFLINE, (LPCTSTR)m_sTitle, (LPCTSTR)m_path.GetUIPathString());
-        else if (m_path.IsDirectory())
-            sTemp.FormatMessage(IDS_LOG_DLGTITLEOFFLINE, (LPCTSTR)m_sTitle, (LPCTSTR)m_path.GetWinPathString());
-        else
-            sTemp.FormatMessage(IDS_LOG_DLGTITLEOFFLINE, (LPCTSTR)m_sTitle, (LPCTSTR)m_path.GetFilename());
-        SetWindowText(sTemp);
+        sTemp.FormatMessage(IDS_LOG_DLGTITLEOFFLINE, (LPCTSTR)m_sTitle);
+        CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), sTemp);
     }
     else
     {
-        if (m_path.IsUrl())
-            SetWindowText(m_sTitle + _T(" - ") + m_path.GetUIPathString());
-        else if (m_path.IsDirectory())
-            SetWindowText(m_sTitle + _T(" - ") + m_path.GetWinPathString());
-        else
-            SetWindowText(m_sTitle + _T(" - ") + m_path.GetFilename());
+        CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), m_sTitle);
     }
 }
 

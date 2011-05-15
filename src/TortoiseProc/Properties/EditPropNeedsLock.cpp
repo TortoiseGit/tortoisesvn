@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "EditPropNeedsLock.h"
+#include "AppUtils.h"
 
 
 // CEditPropNeedsLock dialog
@@ -66,6 +67,11 @@ BOOL CEditPropNeedsLock::OnInitDialog()
 
     GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(m_bFolder || m_bMultiple);
     GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
+
     if (m_bFolder)
     {
         // for folders, the property can only be set recursively

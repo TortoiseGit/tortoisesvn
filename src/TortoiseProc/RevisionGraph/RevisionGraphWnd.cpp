@@ -1551,5 +1551,5 @@ void CRevisionGraphWnd::SetDlgTitle (bool offline)
     else
         newTitle = m_sTitle;
 
-    GetParent()->SetWindowText (newTitle);
+    CAppUtils::SetWindowTitle(GetParent()->GetSafeHwnd(), m_sPath, newTitle);
 }

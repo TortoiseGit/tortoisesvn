@@ -93,6 +93,9 @@ BOOL CEditPropConflictDlg::OnInitDialog()
     SetDlgItemText(IDC_PROPINFO, sInfo);
     SetDlgItemText(IDC_PROPCONFLICTINFO, m_sPrejText);
 
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_conflictItem.GetUIPathString(), sWindowTitle);
 
     AddAnchor(IDC_PROPINFO, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_PROPCONFLICTINFO, TOP_LEFT, BOTTOM_RIGHT);

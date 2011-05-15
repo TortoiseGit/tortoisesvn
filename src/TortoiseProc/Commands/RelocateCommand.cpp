@@ -31,6 +31,7 @@ bool RelocateCommand::Execute()
     bool bRet = false;
     SVN svn;
     CRelocateDlg dlg;
+    dlg.m_path = cmdLinePath;
     dlg.m_sFromUrl = CPathUtils::PathUnescape(svn.GetURLFromPath(cmdLinePath));
     dlg.m_sToUrl = dlg.m_sFromUrl;
 

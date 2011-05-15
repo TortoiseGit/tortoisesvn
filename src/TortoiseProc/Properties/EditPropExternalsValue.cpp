@@ -23,6 +23,7 @@
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
 #include "SVNHelpers.h"
+#include "AppUtils.h"
 
 // CEditPropExternalsValue dialog
 
@@ -92,6 +93,10 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     RECT rect;
     GetWindowRect(&rect);
     m_height = rect.bottom - rect.top;
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     AddAnchor(IDC_WCLABEL, TOP_LEFT);
     AddAnchor(IDC_WCPATH, TOP_LEFT, TOP_RIGHT);

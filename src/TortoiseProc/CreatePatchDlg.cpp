@@ -23,6 +23,7 @@
 #include "CreatePatchDlg.h"
 #include "SVN.h"
 #include "DiffOptionsDlg.h"
+#include "AppUtils.h"
 
 #define REFRESHTIMER   100
 
@@ -77,6 +78,10 @@ BOOL CCreatePatch::OnInitDialog()
     m_PatchList.SetSelectButton(&m_SelectAll);
     m_PatchList.SetCancelBool(&m_bCancelled);
     m_PatchList.EnableFileDrop();
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     AdjustControlSize(IDC_SELECTALL);
     AdjustControlSize(IDC_SHOWUNVERSIONED);

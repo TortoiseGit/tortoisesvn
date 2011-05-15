@@ -111,6 +111,9 @@ BOOL CCopyDlg::OnInitDialog()
     AdjustControlSize(IDC_DOSWITCH);
 
     CTSVNPath path(m_path);
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, path.GetUIPathString(), sWindowTitle);
 
     m_History.SetMaxHistoryItems((LONG)CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25));
 

@@ -21,6 +21,7 @@
 #include "UpdateDlg.h"
 #include "registry.h"
 #include "LogDialog\LogDlg.h"
+#include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CUpdateDlg, CStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
@@ -78,6 +79,11 @@ BOOL CUpdateDlg::OnInitDialog()
     m_depthCombo.SetCurSel(0);
 
     CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_wcPath.GetUIPathString(), sWindowTitle);
+
     GetDlgItem(IDC_REVNUM)->SetFocus();
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));

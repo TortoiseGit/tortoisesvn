@@ -129,7 +129,7 @@ UINT CRevertDlg::RevertThread()
                         SVNSLC_SHOWDIRECTFILES|SVNSLC_SHOWADDED, true, true);
 
     CTSVNPath commonDir = m_RevertList.GetCommonDirectory(false);
-    SetWindowText(m_sWindowTitle + _T(" - ") + commonDir.GetWinPathString());
+    CAppUtils::SetWindowTitle(m_hWnd, commonDir.GetWinPathString(), m_sWindowTitle);
 
     if (m_RevertList.HasUnversionedItems())
     {

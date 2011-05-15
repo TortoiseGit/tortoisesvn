@@ -88,6 +88,9 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
     // *can* use it, the thread will show the button again.
     GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->ShowWindow(SW_HIDE);
 
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), sWindowTitle);
 
     CString sTemp;
     sTemp.Format(_T("%s/%s@%ld"), (LPCTSTR)src_left_version_url, src_left_version_path, src_left_version_rev);

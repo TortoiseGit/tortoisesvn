@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2010 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 #include "PathEdit.h"
+#include "TSVNPath.h"
 
 /**
  * \ingroup TortoiseProc
@@ -49,6 +50,7 @@ protected:
     int             m_height;
     CPathEdit       m_FromUrl;
 public:
+    CTSVNPath       m_path;
     CHistoryCombo   m_URLCombo;
     CString         m_sToUrl;
     CString         m_sFromUrl;

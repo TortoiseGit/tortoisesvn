@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "EditPropBugtraq.h"
 #include "UnicodeUtils.h"
+#include "AppUtils.h"
 
 // CEditPropBugtraq dialog
 
@@ -137,6 +138,10 @@ BOOL CEditPropBugtraq::OnInitDialog()
                 CheckRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO, IDC_NUMERICRADIO);
         }
     }
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     UpdateData(false);
 

@@ -67,16 +67,6 @@ BEGIN_MESSAGE_MAP(CSwitchDlg, CResizableStandAloneDialog)
     ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CSwitchDlg::OnCbnEditchangeUrlcombo)
 END_MESSAGE_MAP()
 
-void CSwitchDlg::SetDialogTitle(const CString& sTitle)
-{
-    m_sTitle = sTitle;
-}
-
-void CSwitchDlg::SetUrlLabel(const CString& sLabel)
-{
-    m_sLabel = sLabel;
-}
-
 BOOL CSwitchDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
@@ -109,12 +99,8 @@ BOOL CSwitchDlg::OnInitDialog()
         SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, relPath));
     }
 
-    if (m_sTitle.IsEmpty())
-        GetWindowText(m_sTitle);
-    SetWindowText(m_sTitle);
-    if (m_sLabel.IsEmpty())
-        GetDlgItemText(IDC_URLLABEL, m_sLabel);
-    SetDlgItemText(IDC_URLLABEL, m_sLabel);
+    GetWindowText(m_sTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_path, m_sTitle);
 
     // set head revision as default revision
     SetRevision(SVNRev::REV_HEAD);

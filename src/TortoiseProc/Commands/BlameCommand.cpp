@@ -33,6 +33,7 @@ bool BlameCommand::Execute()
     CBlameDlg dlg;
     CString options;
     dlg.EndRev = SVNRev::REV_HEAD;
+    dlg.m_path = cmdLinePath;
     if (parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")))
     {
         bShowDialog = false;

@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "UnlockDlg.h"
+#include "AppUtils.h"
 
 
 #define REFRESHTIMER   100
@@ -78,6 +79,10 @@ BOOL CUnlockDlg::OnInitDialog()
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("UnlockDlg"));
+
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     //first start a thread to obtain the file list with the status without
     //blocking the dialog
