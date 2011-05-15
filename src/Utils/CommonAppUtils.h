@@ -119,6 +119,8 @@ public:
 
     static bool AddClipboardUrlToWindow(HWND hWnd);
 
+    static void SetWindowTitle(HWND hWnd, const CString& urlorpath, const CString& dialogname);
+
 protected:
     CCommonAppUtils(void){};
     ~CCommonAppUtils(void){};

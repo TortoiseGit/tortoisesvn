@@ -29,6 +29,7 @@
 #include <WinInet.h>
 #include <oleacc.h>
 #include <initguid.h>
+#include <regex>
 
 extern CString sOrigCWD;
 
@@ -643,5 +644,26 @@ bool CCommonAppUtils::AddClipboardUrlToWindow( HWND hWnd )
         }
     }
     return false;
+}
+
+void CCommonAppUtils::SetWindowTitle( HWND hWnd, const CString& urlorpath, const CString& dialogname )
+{
+    ASSERT(dialogname.GetLength() < 40);
+    WCHAR pathbuf[MAX_PATH] = {0};
+    if (urlorpath.GetLength() >= MAX_PATH)
+    {
+        std::wstring str = (LPCTSTR)urlorpath;
+        std::wregex rx(L"^(\\w+:|(?:\\\\|/+))((?:\\\\|/+)[^\\\\/]+(?:\\\\|/)[^\\\\/]+(?:\\\\|/)).*((?:\\\\|/)[^\\\\/]+(?:\\\\|/)[^\\\\/]+)$");
+        std::wstring replacement = L"$1$2...$3";
+        std::wstring str2 = std::regex_replace(str, rx, replacement);
+        PathCompactPathEx(pathbuf, str2.c_str(), 40-dialogname.GetLength(), 0);
+    }
+    else
+        PathCompactPathEx(pathbuf, urlorpath, 40-dialogname.GetLength(), 0);
+    wcscat_s(pathbuf, L" - ");
+    wcscat_s(pathbuf, dialogname);
+    wcscat_s(pathbuf, L" - ");
+    wcscat_s(pathbuf, CString(MAKEINTRESOURCE(IDS_APPNAME)));
+    SetWindowText(hWnd, pathbuf);
 }
 
