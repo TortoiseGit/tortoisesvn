@@ -15,12 +15,107 @@
     </para>
     <variablelist>
         <varlistentry>
+            <term condition="pot">AllowAuthSave</term>
+            <listitem>
+                <para>
+                    Sometimes multiple users use the same account on the same computer.
+                    In such situations it's not really wanted to save the authentication
+                    data. Setting this value to <literal>false</literal> disables the
+                    <literal>save authentication</literal> button in the authentication
+                    dialog.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">AllowUnversionedObstruction</term>
+            <listitem>
+                <para>
+                    If an update adds a new file from the repository which
+                    already exists in the local working copy as an unversioned
+                    file, the default action is to keep the local file, showing
+                    it as a (possibly) modified version of the new file from the
+                    repository.
+                    If you would prefer TortoiseSVN to create a conflict in
+                    such situations, set this value to <literal>false</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">AlwaysExtendedMenu</term>
+            <listitem>
+                <para>
+                    As with the explorer, TortoiseSVN shows additional commands
+                    if the <keycap>Shift</keycap> key is pressed while the
+                    context menu is opened.
+                    To force TortoiseSVN to always show those extended commands,
+                    set this value to <literal>true</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">AutocompleteRemovesExtensions</term>
+            <listitem>
+                <para>
+                    The auto-completion list shown in the commit message editor
+                    displays the names of files listed for commit.
+                    To also include these names with extensions removed,
+                    set this value to <literal>true</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">BlockStatus</term>
+            <listitem>
+                <para>
+                    If you don't want the explorer to update the status overlays
+                    while another TortoiseSVN command is running
+                    (e.g. Update, Commit, ...) then set this value to
+                    <literal>true</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">CacheTrayIcon</term>
+            <listitem>
+                <para>
+                    To add a cache tray icon for the TSVNCache program, set
+                    this value to <literal>true</literal>.
+                    This is really only useful for developers as it allows
+                    you to terminate the program gracefully.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">ColumnsEveryWhere</term>
+            <listitem>
+                <para>
+                    The extra columns the TortoiseSVN adds to the details view
+                    in Windows Explorer are normally only active in a working
+                    copy. If you want those to be accessible everywhere, not
+                    just in working copies, set this value to
+                    <literal>true</literal>.
+                    Note that the extra columns are only available in XP.
+                    Vista and later doesn't support that feature any more.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
             <term condition="pot">ConfigDir</term>
             <listitem>
                 <para>
                     You can specify a different location for the Subversion
                     configuration file here.
                     This will affect all TortoiseSVN operations.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">CtrlEnter</term>
+            <listitem>
+                <para>
+                    In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap>
+                    to dismiss the dialog as if you clicked on the OK button.
+                    If you don't want this, set this value to <literal>false</literal>.
                 </para>
             </listitem>
         </varlistentry>
@@ -35,13 +130,117 @@
             </listitem>
         </varlistentry>
         <varlistentry>
-            <term condition="pot">CacheTrayIcon</term>
+            <term condition="pot">DebugOutputString</term>
             <listitem>
                 <para>
-                    To add a cache tray icon for the TSVNCache program, set
-                    this value to <literal>true</literal>.
-                    This is really only useful for developers as it allows
-                    you to terminate the program gracefully.
+                    Set this to <literal>true</literal> if you want TortoiseSVN
+                    to print out debug messages during execution. The messages
+                    can be captured with special debugging tools only.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">DialogTitles</term>
+            <listitem>
+                <para>
+                    The default format (value of 0) of dialog titles is 
+                    <literal>url/path - name of dialog - TortoiseSVN</literal>.
+                    If you set this value to 1, the format changes to
+                    <literal>name of dialog - url/path - TortoiseSVN</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">DiffBlamesWithTortoiseMerge</term>
+            <listitem>
+                <para>
+                    TortoiseSVN allows you to assign an external diff viewer.
+                    Most such viewers, however, are not suited for change blaming
+                    (<xref linkend="tsvn-dug-blame-diffs"/>),
+                    so you might wish to fall back to TortoiseMerge in this case.
+                    To do so, set this value to <literal>true</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">FullRowSelect</term>
+            <listitem>
+                <para>
+                    The status list control which is used in various dialogs
+                    (e.g., commit, check-for-modifications, add, revert, ...)
+                    uses full row selection (i.e., if you select an entry, the
+                    full row is selected, not just the first column).
+                    This is fine, but the selected row then also covers the
+                    background image on the bottom right, which can look ugly.
+                    To disable full row select, set this value to
+                    <literal>false</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">IncludeExternals</term>
+            <listitem>
+                <para>
+                    By default, TortoiseSVN always runs an update with externals
+                    included. This avoids problems with inconsistent working copies.
+                    If you have however a lot of externals set, an update can
+                    take quite a while. Set this value to <literal>false</literal>
+                    to run the default update with externals excluded. To
+                    update with externals included, either run the
+                    <literal>Update to revision...</literal> dialog or set this
+                    value to <literal>true</literal> again.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">LogStatusCheck</term>
+            <listitem>
+                <para>
+                    The log dialog shows the revision the working copy path
+                    is at in bold. But this requires that the log dialog fetches
+                    the status of that path. Since for very big working copies
+                    this can take a while, you can set this value to <literal>false</literal>
+                    to deactivate this feature.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">Merge log separator</term>
+            <listitem>
+                <para>
+                    When you merge revisions from another branch, and merge tracking
+                    information is available, the log messages from the revisions
+                    you merge will be collected to make up a commit log message.
+                    A pre-defined string is used to separate the individual log
+                    messages of the merged revisions. If you prefer, you can set
+                    this to a value containing a separator string of your choice.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">OldVersionCheck</term>
+            <listitem>
+                <para>
+                    TortoiseSVN checks whether there's a new version available
+                    about once a week. If an updated version is found, the
+                    commit dialog shows a link control with that info.
+                    If you prefer the old behavior back where a dialog
+                    pops up notifying you about the update, set this value to
+                    <literal>true</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">ShellMenuAccelerators</term>
+            <listitem>
+                <para>
+                    TortoiseSVN uses accelerators for its explorer context menu
+                    entries. Since this can lead to doubled accelerators (e.g.
+                    the <literal>SVN Commit</literal> has the <keycap>Alt-C</keycap>
+                    accelerator, but so does the <literal>Copy</literal> entry
+                    of explorer).
+                    If you don't want or need the accelerators of the TortoiseSVN
+                    entries, set this value to <literal>false</literal>.
                 </para>
             </listitem>
         </varlistentry>
@@ -68,33 +267,6 @@
             </listitem>
         </varlistentry>
         <varlistentry>
-            <term condition="pot">LogStatusCheck</term>
-            <listitem>
-                <para>
-                    The log dialog shows the revision the working copy path
-                    is at in bold. But this requires that the log dialog fetches
-                    the status of that path. Since for very big working copies
-                    this can take a while, you can set this value to <literal>false</literal>
-                    to deactivate this feature.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">FullRowSelect</term>
-            <listitem>
-                <para>
-                    The status list control which is used in various dialogs
-                    (e.g., commit, check-for-modifications, add, revert, ...)
-                    uses full row selection (i.e., if you select an entry, the
-                    full row is selected, not just the first column).
-                    This is fine, but the selected row then also covers the
-                    background image on the bottom right, which can look ugly.
-                    To disable full row select, set this value to
-                    <literal>false</literal>.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
             <term condition="pot">StyleCommitMessages</term>
             <listitem>
                 <para>
@@ -103,43 +275,6 @@
                     (see <xref linkend="tsvn-dug-commit-log"/> for details).
                     If you don't want to do this, set the value to
                     <literal>false</literal>.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">ShellMenuAccelerators</term>
-            <listitem>
-                <para>
-                    TortoiseSVN uses accelerators for its explorer context menu
-                    entries. Since this can lead to doubled accelerators (e.g.
-                    the <literal>SVN Commit</literal> has the <keycap>Alt-C</keycap>
-                    accelerator, but so does the <literal>Copy</literal> entry
-                    of explorer).
-                    If you don't want or need the accelerators of the TortoiseSVN
-                    entries, set this value to <literal>false</literal>.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">AlwaysExtendedMenu</term>
-            <listitem>
-                <para>
-                    As with the explorer, TortoiseSVN shows additional commands
-                    if the <keycap>Shift</keycap> key is pressed while the
-                    context menu is opened.
-                    To force TortoiseSVN to always show those extended commands,
-                    set this value to <literal>true</literal>.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">BlockStatus</term>
-            <listitem>
-                <para>
-                    If you don't want the explorer to update the status overlays
-                    while another TortoiseSVN command is running
-                    (e.g. Update, Commit, ...) then set this value to
-                    <literal>true</literal>.
                 </para>
             </listitem>
         </varlistentry>
@@ -156,126 +291,12 @@
             </listitem>
         </varlistentry>
         <varlistentry>
-            <term condition="pot">ColumnsEveryWhere</term>
-            <listitem>
-                <para>
-                    The extra columns the TortoiseSVN adds to the details view
-                    in Windows Explorer are normally only active in a working
-                    copy. If you want those to be accessible everywhere, not
-                    just in working copies, set this value to
-                    <literal>true</literal>.
-                    Note that the extra columns are only available in XP.
-                    Vista and later doesn't support that feature any more.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">AllowUnversionedObstruction</term>
-            <listitem>
-                <para>
-                    If an update adds a new file from the repository which
-                    already exists in the local working copy as an unversioned
-                    file, the default action is to keep the local file, showing
-                    it as a (possibly) modified version of the new file from the
-                    repository.
-                    If you would prefer TortoiseSVN to create a conflict in
-                    such situations, set this value to <literal>false</literal>.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">OldVersionCheck</term>
-            <listitem>
-                <para>
-                    TortoiseSVN checks whether there's a new version available
-                    about once a week. If an updated version is found, the
-                    commit dialog shows a link control with that info.
-                    If you prefer the old behavior back where a dialog
-                    pops up notifying you about the update, set this value to
-                    <literal>true</literal>.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
             <term condition="pot">VersionCheck</term>
             <listitem>
                 <para>
                     TortoiseSVN checks whether there's a new version available
                     about once a week. If you don't want TortoiseSVN to do this
                     check, set this value to <literal>false</literal>.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">AutocompleteRemovesExtensions</term>
-            <listitem>
-                <para>
-                    The auto-completion list shown in the commit message editor
-                    displays the names of files listed for commit.
-                    To also include these names with extensions removed,
-                    set this value to <literal>true</literal>.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">Merge log separator</term>
-            <listitem>
-                <para>
-                    When you merge revisions from another branch, and merge tracking
-                    information is available, the log messages from the revisions
-                    you merge will be collected to make up a commit log message.
-                    A pre-defined string is used to separate the individual log
-                    messages of the merged revisions. If you prefer, you can set
-                    this to a value containing a separator string of your choice.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">DiffBlamesWithTortoiseMerge</term>
-            <listitem>
-                <para>
-                    TortoiseSVN allows you to assign an external diff viewer.
-                    Most such viewers, however, are not suited for change blaming
-                    (<xref linkend="tsvn-dug-blame-diffs"/>),
-                    so you might wish to fall back to TortoiseMerge in this case.
-                    To do so, set this value to <literal>true</literal>.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">IncludeExternals</term>
-            <listitem>
-                <para>
-                    By default, TortoiseSVN always runs an update with externals
-                    included. This avoids problems with inconsistent working copies.
-                    If you have however a lot of externals set, an update can
-                    take quite a while. Set this value to <literal>false</literal>
-                    to run the default update with externals excluded. To
-                    update with externals included, either run the
-                    <literal>Update to revision...</literal> dialog or set this
-                    value to <literal>true</literal> again.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">CtrlEnter</term>
-            <listitem>
-                <para>
-                    In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap>
-                    to dismiss the dialog as if you clicked on the OK button.
-                    If you don't want this, set this value to <literal>false</literal>.
-                </para>
-            </listitem>
-        </varlistentry>
-        <varlistentry>
-            <term condition="pot">AllowAuthSave</term>
-            <listitem>
-                <para>
-                    Sometimes multiple users use the same account on the same computer.
-                    In such situations it's not really wanted to save the authentication
-                    data. Setting this value to <literal>false</literal> disables the
-                    <literal>save authentication</literal> button in the authentication
-                    dialog.
                 </para>
             </listitem>
         </varlistentry>

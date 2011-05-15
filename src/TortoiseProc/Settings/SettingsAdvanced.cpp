@@ -36,6 +36,7 @@ CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] =
     { _T("CtrlEnter"), CSettingsAdvanced::SettingTypeBoolean, true },
     { _T("Debug"), CSettingsAdvanced::SettingTypeBoolean, false },
     { _T("DebugOutputString"), CSettingsAdvanced::SettingTypeBoolean, false },
+    { _T("DialogTitles"), CSettingsAdvanced::SettingTypeNumber, 0 },
     { _T("DiffBlamesWithTortoiseMerge"), CSettingsAdvanced::SettingTypeBoolean, false },
     { _T("FullRowSelect"), CSettingsAdvanced::SettingTypeBoolean, true },
     { _T("IncludeExternals"), CSettingsAdvanced::SettingTypeBoolean, true },

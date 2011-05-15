@@ -656,14 +656,23 @@ void CCommonAppUtils::SetWindowTitle( HWND hWnd, const CString& urlorpath, const
         std::wregex rx(L"^(\\w+:|(?:\\\\|/+))((?:\\\\|/+)[^\\\\/]+(?:\\\\|/)[^\\\\/]+(?:\\\\|/)).*((?:\\\\|/)[^\\\\/]+(?:\\\\|/)[^\\\\/]+)$");
         std::wstring replacement = L"$1$2...$3";
         std::wstring str2 = std::regex_replace(str, rx, replacement);
+        if (str2.size() >= MAX_PATH)
+            str2 = str2.substr(0, MAX_PATH-2);
         PathCompactPathEx(pathbuf, str2.c_str(), 40-dialogname.GetLength(), 0);
     }
     else
         PathCompactPathEx(pathbuf, urlorpath, 40-dialogname.GetLength(), 0);
-    wcscat_s(pathbuf, L" - ");
-    wcscat_s(pathbuf, dialogname);
-    wcscat_s(pathbuf, L" - ");
-    wcscat_s(pathbuf, CString(MAKEINTRESOURCE(IDS_APPNAME)));
-    SetWindowText(hWnd, pathbuf);
+    CString title;
+    switch (DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\DialogTitles", 0)))
+    {
+    case 0: // url/path - dialogname - appname
+        title  = pathbuf;
+        title += L" - " + dialogname + L" - " + CString(MAKEINTRESOURCE(IDS_APPNAME));;
+        break;
+    case 1: // dialogname - url/path - appname
+        title = dialogname + L" - " + pathbuf + L" - " + CString(MAKEINTRESOURCE(IDS_APPNAME));;
+        break;
+    }
+    SetWindowText(hWnd, title);
 }
 
