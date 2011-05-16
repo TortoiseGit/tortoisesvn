@@ -75,11 +75,16 @@ public: // methods
     void            ScrollAllToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
     void            UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
     bool            HasCaret() const {return !m_bCaretHidden;}
-    void            SetCaretPosition(const POINT& pt) {m_ptCaretPos = pt; m_nCaretGoalPos = pt.x; UpdateCaret();}
+    void            SetCaretAndGoalPosition(const POINT& pt) {m_nCaretGoalPos = pt.x; SetCaretPosition(pt);}
+    void            SetCaretPosition(const POINT& pt) {m_ptCaretPos = pt; UpdateCaret();}
     POINT           GetCaretPosition() { return m_ptCaretPos; }
-    void            SetCaretViewPosition(const POINT & pt) { SetCaretPosition(ConvertViewPosToScreen(pt)); };
-    POINT           GetCaretViewPosition() { return ConvertScreenPosToView(GetCaretPosition()); };
+    void            SetCaretViewPosition(const POINT & pt) { SetCaretPosition(ConvertViewPosToScreen(pt)); }
+    POINT           GetCaretViewPosition() { return ConvertScreenPosToView(GetCaretPosition()); }
     void            UpdateCaretPosition(const POINT& pt) { m_ptCaretPos = pt; UpdateCaret(); }
+    void            SetCaretToViewStart() { SetCaretToFirstViewLine(); SetCaretToViewLineStart(); }
+    void            SetCaretToFirstViewLine() { m_ptCaretPos.y=0; }
+    void            SetCaretToViewLineStart() { m_ptCaretPos.x=0; }
+    void            SetCaretToLineStart() { m_ptCaretPos.x = 0; m_nCaretGoalPos = 0;};
 
     POINT           ConvertScreenPosToView(int x, int y) { POINT pt; pt.x = x; pt.y = y; return ConvertScreenPosToView(pt); }
     POINT           ConvertScreenPosToView(const POINT& pt);
@@ -307,7 +312,7 @@ protected:  // methods
     static bool     IsRightViewGood() {return IsViewGood(m_pwndRight);}
     static bool     IsBottomViewGood() {return IsViewGood(m_pwndBottom);}
 
-    int             CalculateActualOffset(int nLineIndex, int nCharIndex);
+    int             CalculateActualOffset(const POINT& point);
     int             CalculateCharIndex(int nLineIndex, int nActualOffset);
     POINT           TextToClient(const POINT& point);
     void            DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff, int nLineOffset=0);
@@ -318,7 +323,7 @@ protected:  // methods
     void            RemoveLine(int nLineIndex);
     void            RemoveSelectedText();
     void            PasteText();
-    void            AddUndoLine(int nLine, bool bAddEmptyLine = false);
+    void            AddUndoViewLine(int nViewLine, bool bAddEmptyLine = false);
 
     bool            MoveCaretLeft();
     bool            MoveCaretRight();

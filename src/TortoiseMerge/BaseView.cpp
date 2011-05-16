@@ -498,7 +498,8 @@ int CBaseView::GetLineActualLength(int index)
     if (m_Screen2View.size() == 0)
         return 0;
 
-    return CalculateActualOffset(index, GetLineLength(index));
+    POINT pt = {index, GetLineLength(index)};
+    return CalculateActualOffset(pt);
 }
 
 int CBaseView::GetLineLength(int index)
@@ -2174,8 +2175,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 }
 
                 SetupAllViewSelection(nViewBlockStart, nViewBlockEnd);
-                m_ptCaretPos = point;
-                UpdateCaret();
+                SetCaretPosition(point);
             }
         }
     }
@@ -2221,13 +2221,13 @@ void CBaseView::RefreshViews()
 
 void CBaseView::GoToFirstDifference()
 {
-    m_ptCaretPos.y = 0;
+    SetCaretToFirstViewLine();
     SelectNextBlock(1, false, false);
 }
 
 void CBaseView::GoToFirstConflict()
 {
-    m_ptCaretPos.y = 0;
+    SetCaretToFirstViewLine();
     SelectNextBlock(1, true, false);
 }
 
@@ -2236,9 +2236,8 @@ void CBaseView::HighlightLines(int nStart, int nEnd /* = -1 */)
     ClearSelection();
     SetupAllSelection(nStart, max(nStart, nEnd));
 
-    m_ptCaretPos.x = 0;
-    m_ptCaretPos.y = nStart;
-    UpdateCaret();
+    POINT ptCaretPos = {0, nStart};
+    SetCaretPosition(ptCaretPos);
     Invalidate();
 }
 
@@ -2373,7 +2372,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
     if(linesCount == 0)
         return false;
 
-    int nCenterPos = m_ptCaretPos.y;
+    int nCenterPos = GetCaretPosition().y;
     int nLimit = -1;
     if (nDirection > 0)
         nLimit = linesCount;
@@ -2439,8 +2438,8 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
     if (nTopPos < 0)
         nTopPos = 0;
 
-    m_ptCaretPos.x = 0;
-    m_ptCaretPos.y = nCenterPos;
+    POINT ptCaretPos = {0, nCenterPos};
+    SetCaretPosition(ptCaretPos);
     ClearSelection();
     if (nDirection > 0)
         SetupAllSelection(nCenterPos, nBlockEnd);
@@ -2449,8 +2448,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
 
     ScrollAllToLine(nTopPos, FALSE);
     RecalcAllVertScrollBars(TRUE);
-    m_ptCaretPos.x = 0;
-    m_nCaretGoalPos = 0;
+    SetCaretToLineStart();
     EnsureCaretVisible();
     OnNavigateNextinlinediff();
 
@@ -2523,21 +2521,25 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
     {
     case VK_PRIOR:
         {
-            m_ptCaretPos.y -= GetScreenLines();
-            m_ptCaretPos.y = max(m_ptCaretPos.y, 0);
-            m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
+            POINT ptCaretPos = GetCaretPosition();
+            ptCaretPos.y -= GetScreenLines();
+            ptCaretPos.y = max(ptCaretPos.y, 0);
+            ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nCaretGoalPos);
+            SetCaretPosition(ptCaretPos);
             OnCaretMove(bShift);
-            ShowDiffLines(m_ptCaretPos.y);
+            ShowDiffLines(ptCaretPos.y);
         }
         break;
     case VK_NEXT:
         {
-            m_ptCaretPos.y += GetScreenLines();
-            if (m_ptCaretPos.y >= GetLineCount())
-                m_ptCaretPos.y = GetLineCount()-1;
-            m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
+            POINT ptCaretPos = GetCaretPosition();
+            ptCaretPos.y += GetScreenLines();
+            if (ptCaretPos.y >= GetLineCount())
+                ptCaretPos.y = GetLineCount()-1;
+            ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nCaretGoalPos);
+            SetCaretPosition(ptCaretPos);
             OnCaretMove(bShift);
-            ShowDiffLines(m_ptCaretPos.y);
+            ShowDiffLines(ptCaretPos.y);
         }
         break;
     case VK_HOME:
@@ -2545,8 +2547,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
             if (bControl)
             {
                 ScrollAllToLine(0);
-                m_ptCaretPos.x = 0;
-                m_ptCaretPos.y = 0;
+                SetCaretToViewStart();
                 m_nCaretGoalPos = 0;
                 if (bShift)
                     AdjustSelection();
@@ -2556,7 +2557,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
             }
             else
             {
-                m_ptCaretPos.x = 0;
+                SetCaretToLineStart();
                 m_nCaretGoalPos = 0;
                 OnCaretMove(bShift);
                 ScrollAllToChar(0);
@@ -2568,19 +2569,20 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
             if (bControl)
             {
                 ScrollAllToLine(GetLineCount()-GetAllMinScreenLines());
-                m_ptCaretPos.y = GetLineCount()-1;
-                m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-                UpdateGoalPos();
+                POINT ptCaretPos;
+                ptCaretPos.y = GetLineCount()-1;
+                ptCaretPos.x = GetLineLength(ptCaretPos.y);
+                SetCaretAndGoalPosition(ptCaretPos);
                 if (bShift)
                     AdjustSelection();
                 else
                     ClearSelection();
-                UpdateCaret();
             }
             else
             {
-                m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-                UpdateGoalPos();
+                POINT ptCaretPos = GetCaretPosition();
+                ptCaretPos.x = GetLineLength(ptCaretPos.y);
+                SetCaretAndGoalPosition(ptCaretPos);
                 OnCaretMove(bShift);
             }
         }
@@ -2592,7 +2594,8 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 
             if (! HasTextSelection())
             {
-                if (m_ptCaretPos.y == 0 && m_ptCaretPos.x == 0)
+                POINT ptCaretPos = GetCaretPosition();
+                if (ptCaretPos.y == 0 && ptCaretPos.x == 0)
                     break;
                 m_ptSelectionViewPosEnd = GetCaretViewPosition();
                 if (bControl)
@@ -2638,16 +2641,17 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
     const int nClickedLine = GetButtonEventLineIndex(point);
     if ((nClickedLine >= m_nTopLine)&&(nClickedLine < GetLineCount()))
     {
-        m_ptCaretPos.y = nClickedLine;
-        m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
-        UpdateGoalPos();
+        POINT ptCaretPos;
+        ptCaretPos.y = nClickedLine;
+        ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+        SetCaretAndGoalPosition(ptCaretPos);
 
         if (nFlags & MK_SHIFT)
             AdjustSelection();
         else
         {
             ClearSelection();
-            SetupAllSelection(m_ptCaretPos.y, m_ptCaretPos.y);
+            SetupAllSelection(ptCaretPos.y, ptCaretPos.y);
             if (point.x < GetMarginWidth())
             {
                 // select the whole line
@@ -2742,8 +2746,10 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
     }
     else
     {
-        m_ptCaretPos.y = nClickedLine;
-        m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+        POINT ptCaretPos;
+        ptCaretPos.y = nClickedLine;
+        ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+        SetCaretPosition(ptCaretPos);
         ClearSelection();
 
         POINT ptViewCarret = GetCaretViewPosition();
@@ -2783,7 +2789,7 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
         m_ptSelectionViewPosOrigin = m_ptSelectionViewPosStart;
         SetupAllViewSelection(nViewLine, nViewLine);
         // set caret
-        m_ptCaretPos = ConvertViewPosToScreen(m_ptSelectionViewPosEnd);
+        ptCaretPos = ConvertViewPosToScreen(m_ptSelectionViewPosEnd);
         UpdateViewsCaretPosition();
         UpdateGoalPos();
 
@@ -2814,9 +2820,10 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 void CBaseView::OnLButtonTrippleClick( UINT /*nFlags*/, CPoint point )
 {
     const int nClickedLine = GetButtonEventLineIndex(point);
-    m_ptCaretPos.y = nClickedLine;
-    m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
-    UpdateGoalPos();
+    POINT ptCaretPos;
+    ptCaretPos.y = nClickedLine;
+    ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
+    SetCaretAndGoalPosition(ptCaretPos);
     m_sMarkedWord = m_sPreviousMarkedWord;     // recall previous Marked word
     if (m_pwndLeft)
         m_pwndLeft->SetMarkedWord(m_sMarkedWord);
@@ -2919,11 +2926,9 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
         if (HasSelection() &&
             ((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())))
         {
-            m_ptCaretPos.y = nMouseLine;
-            m_ptCaretPos.x = charIndex;
-            UpdateGoalPos();
+            POINT ptCaretPos = {charIndex, nMouseLine};
+            SetCaretAndGoalPosition(ptCaretPos);
             AdjustSelection();
-            UpdateCaret();
             Invalidate();
             UpdateWindow();
         }
@@ -3062,25 +3067,21 @@ void CBaseView::InsertViewEmptyLines(int nFirstView, int nCount)
 
 void CBaseView::UpdateCaret()
 {
-    if (m_ptCaretPos.y >= GetLineCount())
-        m_ptCaretPos.y = GetLineCount()-1;
-    if (m_ptCaretPos.y < 0)
-        m_ptCaretPos.y = 0;
-    if (m_ptCaretPos.x > GetLineLength(m_ptCaretPos.y))
-        m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-    if (m_ptCaretPos.x < 0)
-        m_ptCaretPos.x = 0;
+    POINT ptCaretPos = GetCaretPosition();
+    ptCaretPos.y = std::max<int>(std::min<int>(ptCaretPos.y, GetLineCount()-1), 0);
+    ptCaretPos.x = std::max<int>(std::min<int>(ptCaretPos.x, GetLineLength(ptCaretPos.y)), 0);
+    m_ptCaretPos = ptCaretPos;
 
-    int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+    int nCaretOffset = CalculateActualOffset(ptCaretPos);
 
     if (m_bFocused && !m_bCaretHidden &&
-        m_ptCaretPos.y >= m_nTopLine &&
-        m_ptCaretPos.y < (m_nTopLine+GetScreenLines()) &&
+        ptCaretPos.y >= m_nTopLine &&
+        ptCaretPos.y < (m_nTopLine+GetScreenLines()) &&
         nCaretOffset >= m_nOffsetChar &&
         nCaretOffset < (m_nOffsetChar+GetScreenChars()))
     {
         CreateSolidCaret(2, GetLineHeight());
-        SetCaretPos(TextToClient(m_ptCaretPos));
+        SetCaretPos(TextToClient(ptCaretPos));
         ShowCaret();
     }
     else
@@ -3147,21 +3148,24 @@ POINT CBaseView::ConvertViewPosToScreen(const POINT& pt)
 
 void CBaseView::EnsureCaretVisible()
 {
-    int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+    POINT ptCaretPos = GetCaretPosition();
+    int nCaretOffset = CalculateActualOffset(ptCaretPos);
 
-    if (m_ptCaretPos.y < m_nTopLine)
-        ScrollAllToLine(m_ptCaretPos.y);
+    if (ptCaretPos.y < m_nTopLine)
+        ScrollAllToLine(ptCaretPos.y);
     int screnLines = GetScreenLines();
-    if (m_ptCaretPos.y >= (m_nTopLine+screnLines))
-        ScrollAllToLine(m_ptCaretPos.y-screnLines+1);
+    if (ptCaretPos.y >= (m_nTopLine+screnLines))
+        ScrollAllToLine(ptCaretPos.y-screnLines+1);
     if (nCaretOffset < m_nOffsetChar)
         ScrollAllToChar(nCaretOffset);
     if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
         ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
 }
 
-int CBaseView::CalculateActualOffset(int nLineIndex, int nCharIndex)
+int CBaseView::CalculateActualOffset(const POINT& point)
 {
+    int nLineIndex = point.y;
+    int nCharIndex = point.x;
     int nLength = GetLineLength(nLineIndex);
     ASSERT(nCharIndex >= 0);
     if (nCharIndex > nLength)
@@ -3202,7 +3206,7 @@ POINT CBaseView::TextToClient(const POINT& point)
     POINT pt;
     int nOffsetScreenLine = max(0, (point.y - m_nTopLine));
     pt.y = nOffsetScreenLine * GetLineHeight();
-    pt.x = CalculateActualOffset(point.y, point.x);
+    pt.x = CalculateActualOffset(point);
 
     int nLeft = GetMarginWidth() - m_nOffsetChar * GetCharWidth();
     CDC * pDC = GetDC();
@@ -3243,11 +3247,11 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     else if ((nChar > 31)||(nChar == VK_TAB))
     {
         RemoveSelectedText();
-        AddUndoLine(m_ptCaretPos.y);
         POINT ptCaretViewPos = GetCaretViewPosition();
+        int viewLine = ptCaretViewPos.y;
+        AddUndoViewLine(viewLine);
         CString sLine = GetViewLineChars(ptCaretViewPos.y);
         sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
-        int viewLine = GetViewLineForScreen(m_ptCaretPos.y);
         m_pViewData->SetLine(viewLine, sLine);
         m_pViewData->SetState(viewLine, DIFFSTATE_EDITED);
         if (m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING)
@@ -3261,8 +3265,8 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     }
     else if (nChar == 10)
     {
-        AddUndoLine(m_ptCaretPos.y);
-        int nViewLine = GetViewLineForScreen(m_ptCaretPos.y);
+        int nViewLine = GetViewLineForScreen(GetCaretPosition().y);
+        AddUndoViewLine(nViewLine);
         EOL eol = m_pViewData->GetLineEnding(nViewLine);
         EOL newEOL = EOL_CRLF;
         switch (eol)
@@ -3285,12 +3289,13 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     {
         // insert a new, fresh and empty line below the cursor
         RemoveSelectedText();
-        AddUndoLine(m_ptCaretPos.y, true);
+        POINT ptCaretPos = GetCaretPosition();
+        AddUndoViewLine(GetCaretViewPosition().y, true);
         BuildAllScreen2ViewVector();
         // move the cursor to the new line
-        m_ptCaretPos.y++;
-        m_ptCaretPos.x = 0;
-        UpdateGoalPos();
+        ptCaretPos.y++;
+        ptCaretPos.x = 0;
+        SetCaretAndGoalPosition(ptCaretPos);
     }
     else
         return; // Unknown control character -- ignore it.
@@ -3301,13 +3306,12 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     Invalidate(FALSE);
 }
 
-void CBaseView::AddUndoLine(int nLine, bool bAddEmptyLine)
+void CBaseView::AddUndoViewLine(int nViewLine, bool bAddEmptyLine)
 {
     ResetUndoStep();
-    int viewLine = GetViewLineForScreen(nLine);
-    m_AllState.left.AddViewLineFromView(m_pwndLeft, viewLine, bAddEmptyLine);
-    m_AllState.right.AddViewLineFromView(m_pwndRight, viewLine, bAddEmptyLine);
-    m_AllState.bottom.AddViewLineFromView(m_pwndBottom, viewLine, bAddEmptyLine);
+    m_AllState.left.AddViewLineFromView(m_pwndLeft, nViewLine, bAddEmptyLine);
+    m_AllState.right.AddViewLineFromView(m_pwndRight, nViewLine, bAddEmptyLine);
+    m_AllState.bottom.AddViewLineFromView(m_pwndBottom, nViewLine, bAddEmptyLine);
     SaveUndoStep();
     RecalcAllVertScrollBars();
     Invalidate(FALSE);
@@ -3327,8 +3331,9 @@ void CBaseView::AddEmptyViewLine(int nViewLineIndex)
     if (!m_bCaretHidden)
     {
         CString sPartLine = GetViewLineChars(nViewLineIndex);
-        m_pViewData->SetLine(viewLine, sPartLine.Left(m_ptCaretPos.x));
-        sPartLine = sPartLine.Mid(m_ptCaretPos.x);
+        int nPosx = GetCaretPosition().x; // should be view pos ?
+        m_pViewData->SetLine(viewLine, sPartLine.Left(nPosx));
+        sPartLine = sPartLine.Mid(nPosx);
         newLine.sLine = sPartLine;
     }
     m_pViewData->InsertData(viewLine+1, newLine);
@@ -3500,63 +3505,68 @@ void CBaseView::PasteText()
 
 void CBaseView::OnCaretDown()
 {
-    m_ptCaretPos.y++;
-    m_ptCaretPos.y = std::min<int>(m_ptCaretPos.y, GetLineCount()-1);
-    m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
+    POINT ptCaretPos = GetCaretPosition();
+    ptCaretPos.y++;
+    ptCaretPos.y = std::min<int>(ptCaretPos.y, GetLineCount()-1);
+    ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nCaretGoalPos);
+    SetCaretPosition(ptCaretPos);
     OnCaretMove();
-    ShowDiffLines(m_ptCaretPos.y);
+    ShowDiffLines(ptCaretPos.y);
 }
 
 bool CBaseView::MoveCaretLeft()
 {
-    if (m_ptCaretPos.x == 0)
+    POINT ptCaretPos = GetCaretPosition();
+    if (ptCaretPos.x == 0)
     {
-        if (m_ptCaretPos.y > 0)
+        if (ptCaretPos.y > 0)
         {
-            --m_ptCaretPos.y;
-            m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-            int nViewLine = GetViewLineForScreen(m_ptCaretPos.y);
+            --ptCaretPos.y;
+            ptCaretPos.x = GetLineLength(ptCaretPos.y);
+            int nViewLine = GetViewLineForScreen(ptCaretPos.y);
             int nSubLineCount = CountMultiLines(nViewLine);
-            if ((nSubLineCount!=-1)  && (GetSubLineOffset(m_ptCaretPos.y) < nSubLineCount-1))
+            if ((nSubLineCount!=-1)  && (GetSubLineOffset(ptCaretPos.y) < nSubLineCount-1))
             {
-                --m_ptCaretPos.x;
+                --ptCaretPos.x;
             }
         }
         else
             return false;
     }
     else
-        --m_ptCaretPos.x;
+        --ptCaretPos.x;
 
-    UpdateGoalPos();
+    SetCaretAndGoalPosition(ptCaretPos);
     return true;
 }
 
 bool CBaseView::MoveCaretRight()
 {
-    int nViewLine = GetViewLineForScreen(m_ptCaretPos.y);
+    POINT ptCaretPos = GetCaretPosition();
+
+    int nViewLine = GetViewLineForScreen(ptCaretPos.y);
     int nSubLineCount = CountMultiLines(nViewLine);
-    int nLineLen = GetLineLength(m_ptCaretPos.y);
-    if (m_ptCaretPos.x >= nLineLen || ((nSubLineCount == GetSubLineOffset(m_ptCaretPos.y)) && (m_ptCaretPos.x >= nLineLen-1)))
+    int nLineLen = GetLineLength(ptCaretPos.y);
+    if (ptCaretPos.x >= nLineLen || ((nSubLineCount == GetSubLineOffset(ptCaretPos.y)) && (ptCaretPos.x >= nLineLen-1)))
     {
-        if (m_ptCaretPos.y < (GetLineCount() - 1))
+        if (ptCaretPos.y < (GetLineCount() - 1))
         {
-            ++m_ptCaretPos.y;
-            m_ptCaretPos.x = 0;
+            ++ptCaretPos.y;
+            ptCaretPos.x = 0;
         }
         else
             return false;
     }
     else
-        ++m_ptCaretPos.x;
+        ++ptCaretPos.x;
 
-    UpdateGoalPos();
+    SetCaretAndGoalPosition(ptCaretPos);
     return true;
 }
 
 void CBaseView::UpdateGoalPos()
 {
-    m_nCaretGoalPos = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+    m_nCaretGoalPos = CalculateActualOffset(GetCaretPosition());
 }
 
 void CBaseView::OnCaretLeft()
@@ -3573,11 +3583,13 @@ void CBaseView::OnCaretRight()
 
 void CBaseView::OnCaretUp()
 {
-    m_ptCaretPos.y--;
-    m_ptCaretPos.y = max(0, m_ptCaretPos.y);
-    m_ptCaretPos.x = CalculateCharIndex(m_ptCaretPos.y, m_nCaretGoalPos);
+    POINT ptCaretPos = GetCaretPosition();
+    ptCaretPos.y--;
+    ptCaretPos.y = max(0, ptCaretPos.y);
+    ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nCaretGoalPos);
+    SetCaretPosition(ptCaretPos);
     OnCaretMove();
-    ShowDiffLines(m_ptCaretPos.y);
+    ShowDiffLines(ptCaretPos.y);
 }
 
 bool CBaseView::IsWordSeparator(wchar_t ch) const
@@ -3602,12 +3614,13 @@ bool CBaseView::IsCaretAtWordBoundary()
 
 void CBaseView::UpdateViewsCaretPosition()
 {
-    if (m_pwndBottom)
-        m_pwndBottom->UpdateCaretPosition(m_ptCaretPos);
-    if (m_pwndLeft)
-        m_pwndLeft->UpdateCaretPosition(m_ptCaretPos);
-    if (m_pwndRight)
-        m_pwndRight->UpdateCaretPosition(m_ptCaretPos);
+    POINT ptCaretPos = GetCaretPosition();
+    if (m_pwndBottom && m_pwndBottom!=this)
+        m_pwndBottom->UpdateCaretPosition(ptCaretPos);
+    if (m_pwndLeft && m_pwndLeft!=this)
+        m_pwndLeft->UpdateCaretPosition(ptCaretPos);
+    if (m_pwndRight && m_pwndRight!=this)
+        m_pwndRight->UpdateCaretPosition(ptCaretPos);
 }
 
 void CBaseView::OnCaretWordleft()
@@ -3857,16 +3870,17 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
 
 void CBaseView::OnNavigateNextinlinediff()
 {
+    POINT ptCaretPos = GetCaretPosition();
     std::vector<inlineDiffPos> positions;
-    if (GetInlineDiffPositions(m_ptCaretPos.y, positions))
+    if (GetInlineDiffPositions(ptCaretPos.y, positions))
     {
         for (std::vector<inlineDiffPos>::iterator it = positions.begin(); it != positions.end(); ++it)
         {
-            if (it->end > m_ptCaretPos.x)
+            if (it->end > ptCaretPos.x)
             {
-                m_ptCaretPos.x = (LONG)it->end;
+                ptCaretPos.x = (LONG)it->end;
                 UpdateGoalPos();
-                int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+                int nCaretOffset = CalculateActualOffset(ptCaretPos);
                 if (nCaretOffset < m_nOffsetChar)
                     ScrollAllToChar(nCaretOffset);
                 if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
@@ -3875,9 +3889,9 @@ void CBaseView::OnNavigateNextinlinediff()
                 return;
             }
         }
-        m_ptCaretPos.x = GetLineLength(m_ptCaretPos.y);
-        UpdateGoalPos();
-        int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+        ptCaretPos.x = GetLineLength(ptCaretPos.y);
+        SetCaretAndGoalPosition(ptCaretPos);
+        int nCaretOffset = CalculateActualOffset(ptCaretPos);
         if (nCaretOffset < m_nOffsetChar)
             ScrollAllToChar(nCaretOffset);
         if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
@@ -3888,16 +3902,17 @@ void CBaseView::OnNavigateNextinlinediff()
 
 void CBaseView::OnNavigatePrevinlinediff()
 {
+    POINT ptCaretPos = GetCaretPosition();
     std::vector<inlineDiffPos> positions;
-    if (GetInlineDiffPositions(m_ptCaretPos.y, positions))
+    if (GetInlineDiffPositions(ptCaretPos.y, positions))
     {
         for (std::vector<inlineDiffPos>::iterator it = positions.begin(); it != positions.end(); ++it)
         {
-            if (it->start < m_ptCaretPos.x)
+            if (it->start < ptCaretPos.x)
             {
-                m_ptCaretPos.x = (LONG)it->start;
+                ptCaretPos.x = (LONG)it->start;
                 UpdateGoalPos();
-                int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+                int nCaretOffset = CalculateActualOffset(ptCaretPos);
                 if (nCaretOffset < m_nOffsetChar)
                     ScrollAllToChar(nCaretOffset);
                 if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
@@ -3906,9 +3921,9 @@ void CBaseView::OnNavigatePrevinlinediff()
                 return;
             }
         }
-        m_ptCaretPos.x = 0;
+        ptCaretPos.x = 0;
         UpdateGoalPos();
-        int nCaretOffset = CalculateActualOffset(m_ptCaretPos.y, m_ptCaretPos.x);
+        int nCaretOffset = CalculateActualOffset(ptCaretPos);
         if (nCaretOffset < m_nOffsetChar)
             ScrollAllToChar(nCaretOffset);
         if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
@@ -3920,7 +3935,7 @@ void CBaseView::OnNavigatePrevinlinediff()
 bool CBaseView::HasNextInlineDiff()
 {
     std::vector<inlineDiffPos> positions;
-    if (GetInlineDiffPositions(m_ptCaretPos.y, positions))
+    if (GetInlineDiffPositions(GetCaretPosition().y, positions))
     {
         return true;
     }
@@ -3930,7 +3945,7 @@ bool CBaseView::HasNextInlineDiff()
 bool CBaseView::HasPrevInlineDiff()
 {
     std::vector<inlineDiffPos> positions;
-    if (GetInlineDiffPositions(m_ptCaretPos.y, positions))
+    if (GetInlineDiffPositions(GetCaretPosition().y, positions))
     {
         return true;
     }
@@ -4133,7 +4148,7 @@ void CBaseView::SaveUndoStep()
 {
     if (!m_AllState.IsEmpty())
     {
-        CUndo::GetInstance().AddState(m_AllState, m_ptCaretPos);
+        CUndo::GetInstance().AddState(m_AllState, GetCaretPosition());
     }
     ResetUndoStep();
 }
