@@ -3246,19 +3246,33 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     }
     else if ((nChar > 31)||(nChar == VK_TAB))
     {
+        ResetUndoStep();
         RemoveSelectedText();
         POINT ptCaretViewPos = GetCaretViewPosition();
-        int viewLine = ptCaretViewPos.y;
-        AddUndoViewLine(viewLine);
-        CString sLine = GetViewLineChars(ptCaretViewPos.y);
-        sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
-        m_pViewData->SetLine(viewLine, sLine);
-        m_pViewData->SetState(viewLine, DIFFSTATE_EDITED);
-        if (m_pViewData->GetLineEnding(viewLine) == EOL_NOENDING)
-            m_pViewData->SetLineEnding(viewLine, lineendings);
+        int nViewLine = ptCaretViewPos.y;
+        viewdata lineData = GetViewData(nViewLine);
+        lineData.sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
+        if (IsStateEmpty(lineData.state))
+        {
+            lineData.ending = lineendings; // todo: only if not last one
+            // todo: make sure previous (non empty) line have EOL set
+        }
+        lineData.state = DIFFSTATE_EDITED;
+        bool bNeedRenumber = false;
+        if (lineData.linenumber == -1)
+        {
+            lineData.linenumber = 0;
+            bNeedRenumber = true;
+        }
+        SetViewData(nViewLine, lineData);
+        SaveUndoStep();
         if (m_pMainFrame->m_bWrapLines)
         {
-            BuildAllScreen2ViewVector(viewLine);
+            BuildAllScreen2ViewVector(nViewLine);
+        }
+        if (bNeedRenumber)
+        {
+            UpdateViewLineNumbers();
         }
         MoveCaretRight();
         UpdateGoalPos();
@@ -4288,7 +4302,7 @@ void CBaseView::Screen2View::RebuildIfNecessary()
         TScreenLineInfo oLineInfo;
         oLineInfo.nViewLine = i;
         oLineInfo.nViewSubLine = -1; // no wrap
-        if (m_pMainFrame->m_bWrapLines)
+        if (m_pMainFrame->m_bWrapLines && (m_pViewData->GetHideState(i)==HIDESTATE_SHOWN))
         {
             int nMaxLines = 0;
             if (IsLeftViewGood())
@@ -4371,7 +4385,7 @@ bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView)
     {
         return false;
     }
-    TRebuildRange Range={0, std::max<int>(pwndView->GetViewCount()-1, 0)};
+    TRebuildRange Range={0, pwndView->GetViewCount()-1};
     ResetScreenedViewLineCache(pwndView, Range);
     return true;
 }
@@ -4379,6 +4393,10 @@ bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView)
 bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView, const TRebuildRange& Range)
 {
     if (!IsViewGood(pwndView))
+    {
+        return false;
+    }
+    if (Range.LastViewLine == -1)
     {
         return false;
     }
