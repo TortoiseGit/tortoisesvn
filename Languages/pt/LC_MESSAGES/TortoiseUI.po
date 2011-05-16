@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -104,8 +104,8 @@ msgstr "%1!ld! minuto(s) e %2!ld! segundo(s)"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (fora de linha) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -315,6 +315,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
 msgstr ""
+"%s\n"
+"Pretendes mesmo assim remover os ficheiros %d ?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -322,6 +324,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
+"%s\n"
+"Pretendes mesmo assim remover o ficheiro '%s' ?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -330,6 +334,9 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"A pasta %s\n"
+"contém ficheiros não versionados e/ou modificados. Desejas removê-la na mesma?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -1668,6 +1675,8 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"Um caminho válido em Windows não deverá conter '<>|\"\"?*:' ou um dos seguintes nomes de dispositivos:\n"
+"com1-com9, lpt1-lpt9, prn⏎ Vê a <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentação</a> da Microsoft sobre este assunto."
 
 #. Resource IDs: (79)
 msgid ""
@@ -1776,10 +1785,6 @@ msgstr "Adicionar '%s' ao dicionário"
 msgid "Add (as replacement)..."
 msgstr "Adicionar (como substituição)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Adicionar - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Adicionar Propriedades"
@@ -1797,6 +1802,8 @@ msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"Adicionar item\n"
+"Isto irá trazer problemas no Windows."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -2093,7 +2100,7 @@ msgstr "Aplicar Correcção..."
 
 #. Resource IDs: (1562)
 msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
+msgstr "Aplica ao actualizar modificações locais ao svn:externals"
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
@@ -2458,6 +2465,8 @@ msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"Cancelar\n"
+"Escolhe outra pasta para exportar"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2867,10 +2876,6 @@ msgstr "Checkout"
 msgid "Checkout &directory:"
 msgstr "&Directório de checkout:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Checkout - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "&Profundidade de Checkout"
@@ -3117,10 +3122,6 @@ msgstr "Comandos"
 msgid "Commit"
 msgstr "Submeter"
 
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Submeter - TortoiseSVN"
-
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
 msgstr "Submissão falhou - Actualização necessária"
@@ -3175,6 +3176,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
+"O submeter de uma pasta não versionada não adiciona recursivamente os seus itens filho!\n"
+"Poderás querer adicionar essas pastas recursivamente utilizando o item 'Adicionar...' do menu de contexto."
 
 #. Resource IDs: (170)
 msgid ""
@@ -3389,10 +3392,6 @@ msgstr "Copiar %s para %s, Revisão %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Copiar (Ramo / Etiqueta)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Copiar - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -3965,7 +3964,7 @@ msgstr "Dimensões e posições das caixas de diálogo"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr ""
+msgstr "Opções de Dif"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4639,10 +4638,6 @@ msgstr "Exportar"
 #. Resource IDs: (1074)
 msgid "Export &directory:"
 msgstr "Exportar &directório:"
-
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Exportar - TortoiseSVN"
 
 #. Resource IDs: (94)
 msgid "Export directory:"
@@ -5730,7 +5725,7 @@ msgstr "Ignorar %d itens por &extensão"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Ignora alterações &EOL"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5770,7 +5765,7 @@ msgstr "Ignorar fins-de-linha"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "Ignora &alterações de espaços-em-branco"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5841,10 +5836,6 @@ msgstr "Importar %s para %s%s"
 #. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "Importar &mensagem"
-
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Importar - TortoiseSVN"
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -6512,10 +6503,6 @@ msgstr "Integrar"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&Profundidade de integração:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Integrar - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -7196,7 +7183,7 @@ msgstr "Número de semanas:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "O&pções"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -7239,6 +7226,8 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr ""
+"Um dos caminhos que estás a tentar mover parece ser especial\n"
+"(um de 'ramos', 'etiquetas' ou 'trunk')."
 
 #. Resource IDs: (63)
 msgid ""
@@ -7513,7 +7502,7 @@ msgstr "Caminho"
 
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
-msgstr ""
+msgstr "Encontrado caminho que coincide melhor com a correcção."
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7740,6 +7729,8 @@ msgid ""
 "Proceed with the entered path\n"
 "I'm aware of the possible problems."
 msgstr ""
+"Prossegue com o caminho introduzido\n"
+"Estou consciente dos possiveis problemas."
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
@@ -7750,6 +7741,8 @@ msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
 msgstr ""
+"Prossegue sem um número de problema\n"
+"Não será atribuído um número de problema à submissão."
 
 #. Resource IDs: (132)
 #, c-format
@@ -8176,7 +8169,7 @@ msgstr "Reposicionar Aviso"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "A relocar onde poderá ser pretendido trocar"
 
 #. Resource IDs: (89)
 msgid ""
@@ -8241,6 +8234,8 @@ msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
 msgstr ""
+"Remover do controlo de versões\n"
+"Todas as pastas .svn serão removidas"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8341,8 +8336,8 @@ msgstr ""
 "para %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Alterar o nome/mover - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8441,10 +8436,6 @@ msgstr "Reiniciar colunas"
 msgid "Resolve"
 msgstr "Resolver"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Resolver - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Resolver Conflito"
@@ -8528,10 +8519,6 @@ msgstr "Reverter integração %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Reverter"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Reverter - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9529,12 +9516,16 @@ msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
+"Algun(s) ficheiro(s) foram modificados fora do T-Merge.\n"
+"Desejas carregar as alterações?"
 
 #. Resource IDs: (314)
 msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
+"Algun(s) ficheiro(s) foram modificados fora do T-Merge.\n"
+"Desejas recarregá-los e perder as tuas alterações?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9824,14 +9815,14 @@ msgstr "Arquivo de servidor do Subversion:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "Tro&car a cópia de trabalho para o novo ramo/etiqueta"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Trocar %s para %s, Revisão %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Trocar - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9964,6 +9955,9 @@ msgid ""
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
 msgstr ""
+"As alterações serão aplicadas à tua cópia de trabalho com uma operação de "
+"integração inversa. O repositório não será afectado. Poderás rever as "
+"alterações antes de as submeteres."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10341,6 +10335,8 @@ msgid ""
 "The path/URL \"%s\" seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"O caminho/URL \"%s\" parece ser ilegal no Windows!\n"
+"Poderás no entanto tentar, mas poderás obter postriormente um erro."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10448,7 +10444,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "O destino já existe."
 
 #. Resource IDs: (147)
 #, c-format
@@ -10486,6 +10482,8 @@ msgid ""
 "The target working copy \"%s\" has local modifications. It is recommended to"
 " commit those changes first before merging new changes."
 msgstr ""
+"A cópia de trabalho destino \"%s\" tem alterações locais. É recomendável "
+"submeter essas alterações antes de integrares novas alterações."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -10729,6 +10727,8 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr ""
+"Esta irá actualizar a tua cópia de trabalho para o novo formato 1.7 e "
+"inutiliza-la para clientes mais antigos."
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -11195,7 +11195,7 @@ msgstr "Remover controle de versão e adicionar á lista dos &ignorados"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "Cópia de trabalho não-versionada"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -11219,10 +11219,6 @@ msgstr "Subir uma pasta"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Actualizar"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Actualizar - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"
@@ -11962,6 +11958,8 @@ msgid ""
 "Your working copy points to %s which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
+"A tua cópia de trabalho aponta para %s que aparenta ser uma etiqueta!\n"
+"Deverás trocar primeiro para um ramo ou para o trunk principal antes de submeter."
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"

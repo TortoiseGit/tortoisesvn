@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,8 +102,8 @@ msgstr "%1!ld! menit dan %2!ld! detik"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (luring) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1753,10 +1753,6 @@ msgstr "Tambah '%s' ke kamus"
 msgid "Add (as replacement)..."
 msgstr "Tambah (sebagai pengganti)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Tambah - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Tambah Properti"
@@ -2784,10 +2780,6 @@ msgstr "Checkout"
 msgid "Checkout &directory:"
 msgstr "Checkout &direktori:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Checkout - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "&Kedalaman Checkout"
@@ -3031,10 +3023,6 @@ msgstr "Perintah-Perintah"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Komit"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Komit - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3301,10 +3289,6 @@ msgstr "Salin %s ke %s, Revisi %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Copy (Cabang / Tag)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Salin - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4526,10 +4510,6 @@ msgstr "Ekspor"
 msgid "Export &directory:"
 msgstr "Ekspor &direktori:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Ekspor - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Ekspor direktori:"
@@ -5718,10 +5698,6 @@ msgstr "Mengimpor %s ke %s%s"
 msgid "Import &message"
 msgstr "Impor pe&san"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Impor - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Mengimpor set properti simpanan sebelumnya dari suatu berkas"
@@ -6374,10 +6350,6 @@ msgstr "Gabung"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "Kedalaman &gabung:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Gabung - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8157,8 +8129,8 @@ msgstr ""
 "ke %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Ganti nama/pindahkan - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8255,10 +8227,6 @@ msgstr "Set ulang kolom"
 msgid "Resolve"
 msgstr "Selesaikan"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Selesaikan - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Menyelesaikan Konflik"
@@ -8340,10 +8308,6 @@ msgstr "Gabung terbalik %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Balik"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Balik - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9602,14 +9566,14 @@ msgstr "Berkas peladen Subversion:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "Tukar &salinan pekerjaan ke cabang/tag baru"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Tukar %s ke %s, Revisi %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Tukar - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -10982,10 +10946,6 @@ msgstr "Naik satu folder"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Mutakhirkan"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Mutakhirkan - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

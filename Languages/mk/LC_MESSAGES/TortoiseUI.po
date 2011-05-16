@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Macedonian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,8 +102,8 @@ msgstr "%1!ld! минути and %2!ld! секунди"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (offline) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1750,10 +1750,6 @@ msgstr "Додади '%s' во речник"
 msgid "Add (as replacement)..."
 msgstr "Додади (како замена)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Додади - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Додај особина"
@@ -2771,10 +2767,6 @@ msgstr "Превземање"
 msgid "Checkout &directory:"
 msgstr "Превземи &директориум:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Превземи - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr ""
@@ -3015,10 +3007,6 @@ msgstr "Наредби"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Изврши"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Изврши - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3280,10 +3268,6 @@ msgstr "Копирај %s во %s, Ревизија %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Копирај (Гранка / Ознака)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Копирај - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4499,10 +4483,6 @@ msgstr "Извези"
 msgid "Export &directory:"
 msgstr "Директориум за &извоз:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Извези - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Директориум за извоз:"
@@ -5688,10 +5668,6 @@ msgstr "Увезувам %s во %s%s"
 msgid "Import &message"
 msgstr "Увези &порака"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Увези - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Импортирај претходно зачувани параметри од датотека"
@@ -6336,10 +6312,6 @@ msgstr "Спој"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr ""
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Спој - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8107,8 +8079,8 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Преименувај/премести - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8205,10 +8177,6 @@ msgstr "Ресетирај ги колоните"
 msgid "Resolve"
 msgstr "Разреши"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Разреши - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Разреши конфликт"
@@ -8290,10 +8258,6 @@ msgstr "Обратно спојување %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Поврати"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Поврати - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9519,14 +9483,14 @@ msgstr "Пресвртна серверска датотека:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr ""
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Префрли %s на %s, Ревизија %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Префрли - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -10879,10 +10843,6 @@ msgstr "Нагоре еден директориум"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Обнови"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Обнови - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

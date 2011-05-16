@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Danish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,8 +103,8 @@ msgstr "%1!ld! minut(ter) and %2!ld! sekund(er)"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (offline) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1766,10 +1766,6 @@ msgstr "Føj '%s' til ordbog"
 msgid "Add (as replacement)..."
 msgstr "Tilføj (som erstatning)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Tilføj - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Tilføj egenskaber"
@@ -2791,10 +2787,6 @@ msgstr "Hent arbejdskopi"
 msgid "Checkout &directory:"
 msgstr "&Mappe til arbejdskopi:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Hent arbejdskopi - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "D&ybde af \"Hent arbejdskopi\""
@@ -3037,10 +3029,6 @@ msgstr "Kommandoer"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Arkivér"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Arkivér - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3305,10 +3293,6 @@ msgstr "Kopier %s til %s, revision %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Kopier (Forgren / Mærk)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Kopier - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4541,10 +4525,6 @@ msgstr "Eksporter"
 msgid "Export &directory:"
 msgstr "Eksporter &mappe:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Eksporter - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Mappe til eksport:"
@@ -5729,10 +5709,6 @@ msgstr "Importer %s til %s%s"
 msgid "Import &message"
 msgstr "&Logbesked for import"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Importer - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Importer et tidligere gemt sæt af indstillinger fra en fil"
@@ -6385,10 +6361,6 @@ msgstr "Flet"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "Fletnings&dybde:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Flet - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8171,8 +8143,8 @@ msgstr ""
 "til %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Omdøb/flyt - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8269,10 +8241,6 @@ msgstr "Nulstil kolonner"
 msgid "Resolve"
 msgstr "Løs"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Løs - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Løs konflikt"
@@ -8354,10 +8322,6 @@ msgstr "Fortryd fletning af %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Tilbagefør"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Tilbagefør - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9624,14 +9588,14 @@ msgstr "Subversion server-fil:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "S&kift arbejdskopi til ny gren/mærke"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Skift %s til %s, revision %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Skift - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -11006,10 +10970,6 @@ msgstr "Åbn overordnet mappe"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Opdater"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Opdater - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

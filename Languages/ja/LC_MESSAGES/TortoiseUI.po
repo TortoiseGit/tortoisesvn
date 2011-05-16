@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: ddeguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,8 +102,8 @@ msgstr "%1!ld! 分 %2!ld! 秒"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (オフライン) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1772,10 +1772,6 @@ msgstr "'%s' を辞書に追加"
 msgid "Add (as replacement)..."
 msgstr "追加（置き換え） ..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "追加 - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "属性を追加"
@@ -2824,10 +2820,6 @@ msgstr "チェックアウト"
 msgid "Checkout &directory:"
 msgstr "チェックアウトディレクトリ(&D):"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "チェックアウト - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "チェックアウトする深さ(&D)"
@@ -3066,10 +3058,6 @@ msgstr "コマンド"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "コミット"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "コミット - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3333,10 +3321,6 @@ msgstr "%s から %s へのコピー、リビジョン %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "コピー（ブランチ／タグ）"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "コピー - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4573,10 +4557,6 @@ msgstr "エクスポート"
 msgid "Export &directory:"
 msgstr "エクスポート先ディレクトリ(&D):"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "エクスポート - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "エクスポート先ディレクトリ:"
@@ -5748,10 +5728,6 @@ msgstr "%s を %s%s へインポート"
 msgid "Import &message"
 msgstr "インポートメッセージ(&M)"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "インポート - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "ファイルに保存されている属性をインポートする"
@@ -6419,10 +6395,6 @@ msgstr "マージ"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "マージする深さ(&D):"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "マージ - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8213,8 +8185,8 @@ msgstr ""
 "%2!s! に名前を変更する"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "名前を変更／移動 - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8313,10 +8285,6 @@ msgstr "列をリセット"
 msgid "Resolve"
 msgstr "競合の解消"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "競合の解消 - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "競合の解消"
@@ -8400,10 +8368,6 @@ msgstr "%ld を逆マージ"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "元に戻す"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "元に戻す - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9681,14 +9645,14 @@ msgstr "Subversion サーバファイル:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "作業コピーを新しいブランチ／タグへ切り替える(&C)"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "%s から %s への切り替え、リビジョン %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "切り替え - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -11025,10 +10989,6 @@ msgstr "1つ上のフォルダへ"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "更新"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "更新 - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

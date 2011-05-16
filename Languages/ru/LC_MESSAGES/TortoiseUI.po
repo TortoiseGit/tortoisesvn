@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -104,8 +104,8 @@ msgstr "%1!ld! мин. %2!ld! сек."
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (вне сети) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1781,10 +1781,6 @@ msgstr "Добавить '%s' в словарь"
 msgid "Add (as replacement)..."
 msgstr "Добавить (как замещение)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Добавление - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Добавить свойства"
@@ -2102,7 +2098,7 @@ msgstr "Применить за&платку..."
 
 #. Resource IDs: (1562)
 msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
+msgstr "Применить локальные изменения к svn:externals при обновлении"
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
@@ -2460,6 +2456,8 @@ msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"Отменить\n"
+"Выберите другую папку для экспорта"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2867,10 +2865,6 @@ msgstr "Извлечение"
 msgid "Checkout &directory:"
 msgstr "&Извлечь в папку:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Извлечение - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "Глу&бина охвата при извлечении"
@@ -3116,10 +3110,6 @@ msgstr "Команды"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Фиксация"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Фиксация - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3389,10 +3379,6 @@ msgstr "Копирование %s в %s, ревизия %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Копирование (Ответвление / Метка)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Копирование - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -3965,7 +3951,7 @@ msgstr "Размеры и расположение окон"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr ""
+msgstr "Параметры сравнения"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4641,10 +4627,6 @@ msgstr "Экспорт"
 #. Resource IDs: (1074)
 msgid "Export &directory:"
 msgstr "Папка &экспорта:"
-
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Экспорт - TortoiseSVN"
 
 #. Resource IDs: (94)
 msgid "Export directory:"
@@ -5728,7 +5710,7 @@ msgstr "Игнорировать %d элементов по рас&ширени�
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Игнорировать изменения &концов строк"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5768,7 +5750,7 @@ msgstr "Игнорировать завершения строк"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "Игнорировать &изменения непечатаемых знаков"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5839,10 +5821,6 @@ msgstr "Импорт %s в %s%s"
 #. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "&Сообщение импорта"
-
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Импорт - TortoiseSVN"
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -6516,10 +6494,6 @@ msgstr "Слияние"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&Глубина слияния:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Слияние - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -7196,7 +7170,7 @@ msgstr "Количество недель:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "П&араметры"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -8243,6 +8217,8 @@ msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
 msgstr ""
+"Удалить из-под управления версиями\n"
+"Все папки .svn удалены"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8343,8 +8319,8 @@ msgstr ""
 "в %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Переименование/перемещение - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8443,10 +8419,6 @@ msgstr "Сбросить колонки"
 msgid "Resolve"
 msgstr "Улаживание"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Улаживание - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Улаживание конфликта"
@@ -8530,10 +8502,6 @@ msgstr "Обратное слияние ревизии %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Убрать изменения"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Убрать изменения - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9830,14 +9798,14 @@ msgstr "Файл серверов Subversion:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "&Переключить рабочую копию на новое ответвление/метку"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Переключение %s на %s, ревизия %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Переключение - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -11213,7 +11181,7 @@ msgstr "Удалить и добавить в список &игнорирова
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "Разверсировать рабочую копию"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -11235,10 +11203,6 @@ msgstr "Вверх на одну папку"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Обновление"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Обновление - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

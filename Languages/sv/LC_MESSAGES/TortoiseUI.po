@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: fogle <johanfoglemark@gmail.com>\n"
 "Language-Team: Swedish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,8 +103,8 @@ msgstr "%1!ld! minut(er) och %2!ld! sekund(er)"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (frånkopplad) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1762,10 +1762,6 @@ msgstr "Lägg till '%s' till ordlistan"
 msgid "Add (as replacement)..."
 msgstr "Lägg till (ersätt)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Lägg till - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Lägg till egenskaper"
@@ -2782,10 +2778,6 @@ msgstr "Hämta"
 msgid "Checkout &directory:"
 msgstr "&Mapp för uthämtning:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Hämta - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "&Djup"
@@ -3028,10 +3020,6 @@ msgstr "Kommandon"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Arkivera"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Arkivera - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3293,10 +3281,6 @@ msgstr "Kopiera %s till %s, Revision %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Kopiera (gren / märke)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Kopiera - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4523,10 +4507,6 @@ msgstr "Exportera"
 msgid "Export &directory:"
 msgstr "Exportera &mapp:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Exportera - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Exportera mapp:"
@@ -5710,10 +5690,6 @@ msgstr "Importera %s till %s%s"
 msgid "Import &message"
 msgstr "Import&meddelande"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Importera - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Importera sparade egenskaper från en fil"
@@ -6363,10 +6339,6 @@ msgstr "Förena"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "Förenings&djup:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Förena - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8150,8 +8122,8 @@ msgstr ""
 "till %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Byt namn/flytta - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8248,10 +8220,6 @@ msgstr "Återställ kolumner"
 msgid "Resolve"
 msgstr "Markera konflikt som löst"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Markera konflikt som löst - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Lös konflikt"
@@ -8333,10 +8301,6 @@ msgstr "Omvänd förening %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Återställ"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Återställ - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9614,14 +9578,14 @@ msgstr "Serverkonfigurationsfil för Subversion:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "Vä&xlar arbetskopian till en ny gren/märke"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Växla %s till %s, Revision %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Växla - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -10991,10 +10955,6 @@ msgstr "Upp en katalog"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Uppdatera"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Uppdatera - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

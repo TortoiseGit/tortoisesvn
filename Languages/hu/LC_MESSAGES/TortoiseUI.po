@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Hungarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,7 +102,7 @@ msgstr ""
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
+msgid "%1!s! (offline)"
 msgstr ""
 
 #. Resource IDs: (226)
@@ -1752,10 +1752,6 @@ msgstr "\"%s\" hozzáadása a szótárhoz"
 msgid "Add (as replacement)..."
 msgstr "Hozzáadás (csereként)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Hozzáadás - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Tulajdonság hozzáadása"
@@ -2770,10 +2766,6 @@ msgstr "Lekérés"
 msgid "Checkout &directory:"
 msgstr "Lekérés i&de:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Lekérés - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "A lekérés &mélysége"
@@ -3015,10 +3007,6 @@ msgstr "Parancsok"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Beküldés"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Beküldés - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3276,10 +3264,6 @@ msgstr "%s másolása ide: %s, Verzió: %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Másolás (mellékág / kiadás)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Másolás - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4498,10 +4482,6 @@ msgstr "Exportálás"
 msgid "Export &directory:"
 msgstr "Exportálás i&de:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Exportálás - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Mappa exportálása:"
@@ -5691,10 +5671,6 @@ msgstr "%s importálása ide: %s%s"
 msgid "Import &message"
 msgstr "Importálási &megjegyzés"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Importálás - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Előzőleg elmentett tulajdonságok importálása fájlból"
@@ -6338,10 +6314,6 @@ msgstr "Egyesítés"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&Egyesítés mélysége:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Egyesítés - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8112,8 +8084,8 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Átnevezés/áthelyezés - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8210,10 +8182,6 @@ msgstr "Oszlopok visszaállítása"
 msgid "Resolve"
 msgstr "Feloldás"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Feloldás - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Feloldás"
@@ -8295,10 +8263,6 @@ msgstr "%ld egyesítés visszavonása"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Visszaállítás"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Visszaállítás - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9525,14 +9489,14 @@ msgstr "Subversion szerverfájl:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr ""
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "%s átváltása erre: %s, Verzió %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Átváltás - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -10865,10 +10829,6 @@ msgstr "Egy mappával feljebb"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Frissítés"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Frissítés - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -104,8 +104,8 @@ msgstr "%1!ld! minuten en %2!ld! seconden"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (niet verbonden) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1762,10 +1762,6 @@ msgstr "Voeg '%s' toe aan woordenboek"
 msgid "Add (as replacement)..."
 msgstr "Toevoegen (ter vervanging)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Toevoegen - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Eigenschappen toevoegen"
@@ -2785,10 +2781,6 @@ msgstr "Ophalen"
 msgid "Checkout &directory:"
 msgstr "&Ophalen naar map:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Ophalen - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "Ophaaldi&epte"
@@ -3027,10 +3019,6 @@ msgstr "Commando's"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Vastleggen"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Vastleggen - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3295,10 +3283,6 @@ msgstr "Kopiëer %s naar %s, revisie %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Kopiëren (Tak / Label)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Kopiëren - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4526,10 +4510,6 @@ msgstr "Exporteer"
 msgid "Export &directory:"
 msgstr "Export&map:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Exporteren - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Export-map:"
@@ -5718,10 +5698,6 @@ msgstr "Importeer %s in %s%s"
 msgid "Import &message"
 msgstr "&Boodschap importeren"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Importeren - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Importeert een eerder opgeslagen set eigenschappen uit een bestand"
@@ -6374,10 +6350,6 @@ msgstr "Samenvoegen"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&Samenvoegdiepte:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Samenvoegen - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8167,8 +8139,8 @@ msgstr ""
 "naar %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Hernoem/verplaats - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8265,10 +8237,6 @@ msgstr "Kolommen herstellen"
 msgid "Resolve"
 msgstr "Oplossen"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Oplossen - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Lost conflict op"
@@ -8350,10 +8318,6 @@ msgstr "Omgekeerd samenvoegen van %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Ongedaan maken"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Maak ongedaan - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9633,14 +9597,14 @@ msgstr "Subversion server bestand:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "S&chakel werkkopie naar de nieuwe tak/label"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Wissel %s naar %s, revisie %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Wisselen - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -11028,10 +10992,6 @@ msgstr "Naar bovenliggende map"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Verversen"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Bijwerken - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

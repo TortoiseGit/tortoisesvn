@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: slabrou <stavros.labrou@gmail.com>\n"
 "Language-Team: Greek <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -105,8 +105,8 @@ msgstr "%1!ld! λεπτά και %2!ld! δευτερόλεπτα"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (εκτός σύνδεσης) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1758,10 +1758,6 @@ msgstr "Προσθήκη '%s' στο λεξικό"
 msgid "Add (as replacement)..."
 msgstr "Πρόσθεση (ως αντικατάσταση)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Προσθήκη TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Ιδιότητες προσθήκης"
@@ -2770,10 +2766,6 @@ msgstr "Checkout"
 msgid "Checkout &directory:"
 msgstr "&Φάκελος checkout:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Checkout - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "&Βάθος checkout"
@@ -3012,10 +3004,6 @@ msgstr "Εντολές"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Δέσμευση"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Καταγραφή - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3274,10 +3262,6 @@ msgstr "Αντιγραφή %s από %s, Αναθεώρηση %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Αντιγραφή (Διακλάδωσης/Ετικέτας)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Αντιγραφή - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4489,10 +4473,6 @@ msgstr "Εξαγωγή"
 msgid "Export &directory:"
 msgstr "Εξαγωγή &φακέλου:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Εξαγωγή - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Εξαγωγή φακέλου:"
@@ -5626,10 +5606,6 @@ msgstr "Εισαγωγή %s στο %s%s"
 msgid "Import &message"
 msgstr "Εισαγωγή &μηνύματος"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Εισαγωγή - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Εισάγετε ένα ήδη αποθηκευμένο σύνολο ιδιοτήτων από ένα αρχείο"
@@ -6291,10 +6267,6 @@ msgstr "Συγχώνευση"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&Βάθος συγχώνευσης:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Συγχώνευση - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8065,8 +8037,8 @@ msgstr ""
 "σε %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Μετονομασία/μεταφορά - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8163,10 +8135,6 @@ msgstr "Επαναφορά στηλών"
 msgid "Resolve"
 msgstr "Επίλυση"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Επίλυση - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Επίλυση Διένεξης:"
@@ -8248,10 +8216,6 @@ msgstr "Αντιστροφή συγχώνευσης %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Επαναφορά"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Επαναφορά - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9455,14 +9419,14 @@ msgstr "Αρχείο Διακομιστή Subversion:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "Με&ταστροφή αντιγράφου εργασίας σε νέα διακλάδωση / ετικέτα"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Μεταστροφή %s σε %s, Έκδοση %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Αντιμετάθεση - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -10690,10 +10654,6 @@ msgstr "Ένας φάκελος επάνω"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Ενημέρωση"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Ενημέρωση - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,8 +103,8 @@ msgstr "%1!ld! minutt(er) og %2!ld! sekund(er)"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (frakoblet) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -288,7 +288,7 @@ msgid ""
 "%ld failed hunk(s)"
 msgstr ""
 "%s\n"
-"%ld feilede klump(er)"
+"%ld feilede avsnitt"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -333,6 +333,9 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"Mappen %s\n"
+"inneholder ikke-versjonerte og/eller endrede fil(er). Vil du fjerne den likevel?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -1714,12 +1717,16 @@ msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
 msgstr ""
+"Godta sertifikatet permanent\n"
+"Du vil ikke bli spurt om dette sertifikatet igjen."
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
+"Godta sertifikatet\n"
+"Sertifikatet blir bare godtatt denne ene gangen."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1771,10 +1778,6 @@ msgstr "Legg '%s' til ordbok"
 #. Resource IDs: (16)
 msgid "Add (as replacement)..."
 msgstr "Legg til (som erstatning)..."
-
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Legg til - TortoiseSVN"
 
 #. Resource IDs: (563)
 msgid "Add Properties"
@@ -2090,7 +2093,7 @@ msgstr "Anvend Korreksjon..."
 
 #. Resource IDs: (1562)
 msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
+msgstr "Bruk lokale endringer i svn:externals under oppdatering"
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
@@ -2452,6 +2455,8 @@ msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"Avbryt\n"
+"Velg en annen mappe å eksportere til"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2490,6 +2495,8 @@ msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr ""
+"Avbryt\n"
+"Ikke avslutt TortoiseMerge"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2504,6 +2511,8 @@ msgid ""
 "Cancel\n"
 "Don't switch the views"
 msgstr ""
+"Avbryt\n"
+"Ikke bytt visningene"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2534,6 +2543,8 @@ msgid ""
 "Cancel\n"
 "Ignore the outside changes."
 msgstr ""
+"Avbryt\n"
+"Overse de utvendige endringene."
 
 #. Resource IDs: (89)
 msgid ""
@@ -2548,6 +2559,8 @@ msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr ""
+"Avbryt\n"
+"Behold den tomme filen"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2562,18 +2575,24 @@ msgid ""
 "Cancel\n"
 "Leave the cache on disk."
 msgstr ""
+"Avbryt\n"
+"Behold mellomlageret på disken."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr ""
+"Avbryt\n"
+"Løs konfliktene først."
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
 msgstr ""
+"Avbryt\n"
+"Konflikten blir ikke løst."
 
 #. Resource IDs: (90)
 msgid ""
@@ -2620,6 +2639,8 @@ msgid ""
 "Cancel\n"
 "The property is not removed."
 msgstr ""
+"Avbryt\n"
+"Egenskapen blir ikke fjernet."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2689,7 +2710,7 @@ msgstr "Sertifikatet er ennå ikke gyldig. Gyldig fra: %s"
 
 #. Resource IDs: (148)
 msgid "Certificate validation failed"
-msgstr ""
+msgstr "Sertifikatsjekk feilet"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -2837,10 +2858,6 @@ msgstr "Hent ut"
 #. Resource IDs: (1074)
 msgid "Checkout &directory:"
 msgstr "&Uthentings-katalog:"
-
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Hent ut - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
@@ -3086,10 +3103,6 @@ msgstr "Kommandoer"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Send inn"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Send inn - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3359,10 +3372,6 @@ msgstr "Kopiér %s til %s, Revisjon %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Kopiér (Forgren / Merk)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Kopiér - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -3931,7 +3940,7 @@ msgstr "Størrelse og posisjon for dialogvinduer"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr ""
+msgstr "Forskjellsopsjoner"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4046,7 +4055,7 @@ msgstr "Gjør dette for alle eksisterende elementer"
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
-msgstr ""
+msgstr "Gjør dette for alle valgte elementer"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -4054,7 +4063,7 @@ msgstr "Gjør dette for alle valgte ikke-versjonerte mapper"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
-msgstr ""
+msgstr "Gjør dette for alle uversjonerte/modifiserte elementer"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4196,6 +4205,8 @@ msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
 msgstr ""
+"Ikke lagre\n"
+"Last visningene på nytt uten å lagre endringene"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4603,10 +4614,6 @@ msgstr "Eksportér"
 msgid "Export &directory:"
 msgstr "Eksport&katalog:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Eksport - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Eksportkatalog:"
@@ -4797,7 +4804,7 @@ msgstr "Filendringer pr. uke:"
 
 #. Resource IDs: (226)
 msgid "File contains conflict markers"
-msgstr ""
+msgstr "Filen inneholder konfliktmarkører"
 
 #. Resource IDs: (376)
 msgid "File diffs"
@@ -5686,7 +5693,7 @@ msgstr "Ignorer %d elementer etter &filendelse"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Overse endringer i &EOL"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5726,7 +5733,7 @@ msgstr "Ignorer linjeslutt (anbefales)"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "&Ignorer blanktegnsendringer"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5797,10 +5804,6 @@ msgstr "importer %s til %s%s"
 #. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "Importer &melding"
-
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Import - TortoiseSVN"
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -6393,6 +6396,8 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr ""
+"Merk som løst\n"
+"Konflikten er løst."
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6469,10 +6474,6 @@ msgstr "Flett"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "Flette&dybde:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Flett - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -7147,7 +7148,7 @@ msgstr "Antall uker:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "&Opsjoner"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -7262,6 +7263,8 @@ msgid ""
 "Open files\n"
 "Open files for diff"
 msgstr ""
+"Åpne filer\n"
+"Åpner filene for sammenligning"
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7839,6 +7842,8 @@ msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
+"Avslutt\n"
+"AvsluttTortoiseMerge uten å lagre endringene"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -7966,13 +7971,15 @@ msgstr "Alle undermapper"
 
 #. Resource IDs: (589)
 msgid "Recursive operation"
-msgstr ""
+msgstr "Rekursiv operasjon"
 
 #. Resource IDs: (589)
 msgid ""
 "Recursive\n"
 "Remove the property also from items in Subfolders."
 msgstr ""
+"Rekursiv\n"
+"Fjern egenskapen også fra elementer i undermapper."
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
@@ -8047,18 +8054,20 @@ msgstr "Reintegrer flett %s til %s"
 
 #. Resource IDs: (82)
 msgid "Reject"
-msgstr "Nekt"
+msgstr "Avvis"
 
 #. Resource IDs: (148)
 msgid ""
 "Reject the certificate\n"
 "Cancel the connection."
 msgstr ""
+"Avvis sertifikatet\n"
+"Avbryt forbindelsen."
 
 #. Resource IDs: (7)
 #, c-format
 msgid "Rejected patch hunks for '%s'"
-msgstr "Avviste korreksjonsklumper for '%s'"
+msgstr "Avviste korreksjonsavsnitt for '%s'"
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
@@ -8086,12 +8095,16 @@ msgid ""
 "Reload\n"
 "Local modifications are lost."
 msgstr ""
+"Last på nytt\n"
+"Lokale endringer vil gå tapt."
 
 #. Resource IDs: (315)
 msgid ""
 "Reload\n"
 "The outside changes are loaded."
 msgstr ""
+"Last på nytt\n"
+"De utvendige endringene blir lastet."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8176,6 +8189,8 @@ msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
 msgstr ""
+"Fjern fra versjonskontroll\n"
+"Alle .svn-mapper blir fjernet"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8215,6 +8230,8 @@ msgid ""
 "Remove\n"
 "Remove the property only from this item."
 msgstr ""
+"Fjern\n"
+"Fjern egenskapen fra bare dette elementet."
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8274,8 +8291,8 @@ msgstr ""
 " til %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Omdøp/flytt - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8374,10 +8391,6 @@ msgstr "Nullstill kolonner"
 msgid "Resolve"
 msgstr "Løs"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Løs - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Løs Konflikt"
@@ -8461,10 +8474,6 @@ msgstr "Reversfletter %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Tilbakestill"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Tilbakestill - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8763,6 +8772,8 @@ msgid ""
 "Save as\n"
 "You're asked where to save the file"
 msgstr ""
+"Lagre som\n"
+"Du vil bli spurt om hvor filen skal lagres"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -8779,7 +8790,7 @@ msgstr "Lagre i Git-format"
 
 #. Resource IDs: (314)
 msgid "Save modifications."
-msgstr ""
+msgstr "Lagre endringer."
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8802,6 +8813,8 @@ msgid ""
 "Save\n"
 "Save the file with the conflict markers."
 msgstr ""
+"Lagre\n"
+"Lagre filen med konfliktmarkørene."
 
 #. Resource IDs: (314)
 #, c-format
@@ -8810,6 +8823,9 @@ msgid ""
 "The modifications are saved to\n"
 "%s"
 msgstr ""
+"Lagre\n"
+"Endringene blir lagret på\n"
+"%s"
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -9749,14 +9765,14 @@ msgstr "Subversion tjenerfil:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "&Bytt arbeidskopi til ny gren/merke"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Bytt %s til %s, Revisjon %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Bytt - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9900,7 +9916,7 @@ msgstr ""
 #. Resource IDs: (63)
 #, c-format
 msgid "The chunk start '@@' was expected in line %d !"
-msgstr "Avsnittet som startet med '@@' var forventet i linje %d !"
+msgstr "Avsnittsmarkøren '@@' var forventet i linje %d !"
 
 #. Resource IDs: (346)
 msgid ""
@@ -11085,7 +11101,7 @@ msgstr "Ukjent eller ugyldig format på egenskapsfil!"
 
 #. Resource IDs: (315)
 msgid "Unresolved conflicts!"
-msgstr ""
+msgstr "Uløste konlikter!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -11105,11 +11121,11 @@ msgstr "Av-versjoner"
 
 #. Resource IDs: (14)
 msgid "Unversion and add to &ignore list"
-msgstr "Gjør ikke-versjonert og legg til i &ignoreringslisten"
+msgstr "Av-versjoner og legg til i &ignoreringslisten"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "Av-versjoner arbeiskopien"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -11132,10 +11148,6 @@ msgstr "Opp en mappe"
 msgid "Update"
 msgstr "Oppdater"
 
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Oppdater - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Oppdater Dybde"
@@ -11149,6 +11161,8 @@ msgid ""
 "Update\n"
 "Update the file and try locking again."
 msgstr ""
+"Oppdater\n"
+"Oppdater filen og prøv å låse på ny."
 
 #. Resource IDs: (90)
 msgid ""
@@ -11632,6 +11646,8 @@ msgid ""
 "Wrap long lines\n"
 "Wrap long lines"
 msgstr ""
+"Del lange linjer\n"
+"Del lange linjer"
 
 #. Resource IDs: (73)
 msgid "Yes"

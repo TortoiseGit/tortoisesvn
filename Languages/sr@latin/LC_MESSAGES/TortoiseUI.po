@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -104,8 +104,8 @@ msgstr "%1!ld! minut(a) i %2!ld! sekund(e)"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (isključen) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -334,6 +334,9 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"Imenik%s\n"
+"sadrži neverzionisane i/ili izmenjene fajlove. Želite li da ih svakako uklonite? "
 
 #. Resource IDs: (616)
 #, c-format
@@ -1716,12 +1719,16 @@ msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
 msgstr ""
+"Prihvatite sertifikat permanentno\n"
+"Nemojte pitati ponovo o ovom sertifikatu."
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
+"Prihvatite sertifikat\n"
+"Sertifikat je prihvaćen samo sada."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1773,10 +1780,6 @@ msgstr "Dodaj '%s' u rečnik"
 #. Resource IDs: (16)
 msgid "Add (as replacement)..."
 msgstr "Dodaj (kao zamenu)..."
-
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Dodaj - TortoiseSVN"
 
 #. Resource IDs: (563)
 msgid "Add Properties"
@@ -2091,7 +2094,7 @@ msgstr "Primena zakrpe..."
 
 #. Resource IDs: (1562)
 msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
+msgstr "Primenite lokalne izmene za svn:eksternali kada ažurirate"
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
@@ -2447,6 +2450,8 @@ msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"Otkaži\n"
+"Izaberite različit imenik za izvoz"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2485,6 +2490,8 @@ msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr ""
+"Otkaži\n"
+"Ne napuštajte TortoiseMerge"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2499,6 +2506,8 @@ msgid ""
 "Cancel\n"
 "Don't switch the views"
 msgstr ""
+"Otkaži\n"
+"Ne prebacujte na pregled"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2529,6 +2538,8 @@ msgid ""
 "Cancel\n"
 "Ignore the outside changes."
 msgstr ""
+"Otkaži\n"
+"Zanemarite spoljašnje izmene."
 
 #. Resource IDs: (89)
 msgid ""
@@ -2543,6 +2554,8 @@ msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr ""
+"Otkaži\n"
+"Držite prazan fajl."
 
 #. Resource IDs: (148)
 msgid ""
@@ -2557,18 +2570,24 @@ msgid ""
 "Cancel\n"
 "Leave the cache on disk."
 msgstr ""
+"Otkaži\n"
+"Ostavite keš na disku."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr ""
+"Otkaži\n"
+"Rešite konflikt najpre."
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
 msgstr ""
+"Otkaži\n"
+"Konflikt nije rešen."
 
 #. Resource IDs: (90)
 msgid ""
@@ -2615,6 +2634,8 @@ msgid ""
 "Cancel\n"
 "The property is not removed."
 msgstr ""
+"Otkaži\n"
+"Osobine nisu uklonjene."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2685,7 +2706,7 @@ msgstr "Sertifikat još nije važeći. Važi od: %s"
 
 #. Resource IDs: (148)
 msgid "Certificate validation failed"
-msgstr ""
+msgstr "Provera sertifikata neuspešna"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -2835,10 +2856,6 @@ msgstr "Preuzimanje"
 #. Resource IDs: (1074)
 msgid "Checkout &directory:"
 msgstr "&Imenik preuzimanja:"
-
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Preuzmi - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
@@ -3084,10 +3101,6 @@ msgstr "Komande"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Urezivanje"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Urezivanje - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3357,10 +3370,6 @@ msgstr "Kopiraj %s na %s, Revizija %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Kopiraj (Grana / Oznaka)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Kopiraj - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -3803,7 +3812,7 @@ msgstr "Obriši"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
-msgstr ""
+msgstr "Obrišite keš spremišta"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -3832,12 +3841,16 @@ msgid ""
 "Delete\n"
 "Remove the cache files."
 msgstr ""
+"Briši\n"
+"Ukloni keš fajlove."
 
 #. Resource IDs: (314)
 msgid ""
 "Delete\n"
 "The file is removed."
 msgstr ""
+"Briši\n"
+"Fajl je uklonjen."
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3927,7 +3940,7 @@ msgstr "Dijalog veličina i pozicije"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr ""
+msgstr "Dif opcije"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4042,7 +4055,7 @@ msgstr "Uradite ovo za sve postojeće stavke"
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
-msgstr ""
+msgstr "Uradite ovo za sve izabrane stavke"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -4050,7 +4063,7 @@ msgstr "Uradi ovo za sve izabrane neverzionisane imenike"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
-msgstr ""
+msgstr "Uradite ovo za sve neverzionisane/izmenjene stavke"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4192,6 +4205,8 @@ msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
 msgstr ""
+"Nemojte sačuvati\n"
+"Ponovo unesite pregled bez čuvanja izmena"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4599,10 +4614,6 @@ msgstr "Izvezi"
 msgid "Export &directory:"
 msgstr "Imenik za &izvoz:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Izvezi - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Imenik za izvoz:"
@@ -4790,7 +4801,7 @@ msgstr "Promene fajla svake nedelje:"
 
 #. Resource IDs: (226)
 msgid "File contains conflict markers"
-msgstr ""
+msgstr "Fajl sadrži konfliktne markere"
 
 #. Resource IDs: (376)
 msgid "File diffs"
@@ -4798,7 +4809,7 @@ msgstr "Razlike fajla"
 
 #. Resource IDs: (314)
 msgid "File is empty."
-msgstr ""
+msgstr "Fajl je prazan."
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -5681,7 +5692,7 @@ msgstr "Zanemariti %d stavki po &ekstenziji"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Zanemari &EOL izmene"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5721,7 +5732,7 @@ msgstr "Zanemari završetke linija"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "Zanemari &izmene belina"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5792,10 +5803,6 @@ msgstr "Uvozi %s u %s%s"
 #. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "Uvezi &poruku"
-
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Uvezi - TortoiseSVN"
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -6291,7 +6298,7 @@ msgstr "Zaključao %s"
 
 #. Resource IDs: (93)
 msgid "Locking failed"
-msgstr ""
+msgstr "Zaključavanje neispravno"
 
 #. Resource IDs: (89)
 msgid ""
@@ -6390,6 +6397,8 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr ""
+"Označeno kao rešeno\n"
+"Konflikt je rešen."
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6466,10 +6475,6 @@ msgstr "Stopi"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&Dubina stapanja:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Stopi - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -6646,7 +6651,7 @@ msgstr "Datum promene"
 
 #. Resource IDs: (315)
 msgid "Modifications detected"
-msgstr ""
+msgstr "Izmene detektovane"
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
@@ -7137,7 +7142,7 @@ msgstr "Broj nedelja:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "O&pcije"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -7252,6 +7257,8 @@ msgid ""
 "Open files\n"
 "Open files for diff"
 msgstr ""
+"Otvori fajlove\n"
+"Otvara fajlove za dif"
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7831,6 +7838,8 @@ msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
+"Napusti\n"
+"Izlazi iz TortoiseMerge bez čuvanja izmena"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -7959,13 +7968,15 @@ msgstr "Rekurzivno"
 
 #. Resource IDs: (589)
 msgid "Recursive operation"
-msgstr ""
+msgstr "Rekurzivne operacije"
 
 #. Resource IDs: (589)
 msgid ""
 "Recursive\n"
 "Remove the property also from items in Subfolders."
 msgstr ""
+"Rekurzivno\n"
+"Ukloni osobine takođe iz stavki podimenika"
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
@@ -8047,6 +8058,8 @@ msgid ""
 "Reject the certificate\n"
 "Cancel the connection."
 msgstr ""
+"Odbijen sertifikat\n"
+"Otkazana konekcija."
 
 #. Resource IDs: (7)
 #, c-format
@@ -8079,12 +8092,16 @@ msgid ""
 "Reload\n"
 "Local modifications are lost."
 msgstr ""
+"Reunos\n"
+"Lokalne izmene su izgubljene."
 
 #. Resource IDs: (315)
 msgid ""
 "Reload\n"
 "The outside changes are loaded."
 msgstr ""
+"Reunos\n"
+"Spoljašnje izmene su unete."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8169,6 +8186,8 @@ msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
 msgstr ""
+"Ukloni iz kontrole verzija\n"
+"Svi .svn imenici su uklonjeni"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8208,6 +8227,8 @@ msgid ""
 "Remove\n"
 "Remove the property only from this item."
 msgstr ""
+"Ukloni\n"
+"Ukloni osobine samo iz te stavke."
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8267,8 +8288,8 @@ msgstr ""
 "na %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Preimenuj/pomeri - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8367,10 +8388,6 @@ msgstr "Resetuj kolone"
 msgid "Resolve"
 msgstr "Reši"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Reši - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Razreši sukob"
@@ -8454,10 +8471,6 @@ msgstr "Vrati stapanje %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Vrati na staro"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Vrati na staro - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8756,6 +8769,8 @@ msgid ""
 "Save as\n"
 "You're asked where to save the file"
 msgstr ""
+"Sačuvaj kao\n"
+"Pitani ste gde sačuvati fajl"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -8772,7 +8787,7 @@ msgstr "Zapamti u Git formatu"
 
 #. Resource IDs: (314)
 msgid "Save modifications."
-msgstr ""
+msgstr "Sačuvajte izmene."
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8795,6 +8810,8 @@ msgid ""
 "Save\n"
 "Save the file with the conflict markers."
 msgstr ""
+"Sačuvaj\n"
+"Sačuvaj fajl sa konfliktnim markerima."
 
 #. Resource IDs: (314)
 #, c-format
@@ -8803,6 +8820,9 @@ msgid ""
 "The modifications are saved to\n"
 "%s"
 msgstr ""
+"Sačuvaj\n"
+"Izmene su sačuvane u\n"
+"%s"
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -9745,14 +9765,14 @@ msgstr "Subverzijin server fajl:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "Preba&ci radnu kopiju na novu granu/oznaku"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Zameni %s sa %s, Revizija %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Zameni - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -11088,7 +11108,7 @@ msgstr "Pogrešan ili nepoznat format fajlova svojstava!"
 
 #. Resource IDs: (315)
 msgid "Unresolved conflicts!"
-msgstr ""
+msgstr "Nerešen sadžaj!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -11112,7 +11132,7 @@ msgstr "Uklanjanje verzije i dodavanje na listu zanemar&ivanja"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "Neverzionisana radna kopija"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -11135,10 +11155,6 @@ msgstr "Jedan imenik gore"
 msgid "Update"
 msgstr "Ažuriranje"
 
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Ažuriranje - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Ažuriraj dubinu"
@@ -11152,6 +11168,8 @@ msgid ""
 "Update\n"
 "Update the file and try locking again."
 msgstr ""
+"Ažuriraj\n"
+"Ažuriraj fajl i pokušaj zaključavanje ponovo."
 
 #. Resource IDs: (90)
 msgid ""
@@ -11636,6 +11654,8 @@ msgid ""
 "Wrap long lines\n"
 "Wrap long lines"
 msgstr ""
+"Prelomi duge linije\n"
+"Prelomi duge linije"
 
 #. Resource IDs: (73)
 msgid "Yes"

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,8 +102,8 @@ msgstr "%1!ld! minut(a) and %2!ld! sekund"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (nepovezano) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1759,10 +1759,6 @@ msgstr "Dodaj '%s' v slovar"
 msgid "Add (as replacement)..."
 msgstr "Dodaj (kot zamenjavo) ..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Dodaj - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Dodaj lastnosti"
@@ -2782,10 +2778,6 @@ msgstr "Prevzemi"
 msgid "Checkout &directory:"
 msgstr "&Mapa prevzema:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Prevzemi - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "&Globina prevzema"
@@ -3029,10 +3021,6 @@ msgstr "Ukazi"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Objavi"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Objavi - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3293,10 +3281,6 @@ msgstr "Kopiraj %s v %s, revizija: %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Kopiraj (ustvari vejo / oznako)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Kopiraj - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4520,10 +4504,6 @@ msgstr "Izvozi"
 msgid "Export &directory:"
 msgstr "Izvozi v &mapo:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Izvozi - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Izvozi v mapo:"
@@ -5707,10 +5687,6 @@ msgstr "Uvozi %s do %s%s"
 msgid "Import &message"
 msgstr "Sporočilo ob &uvozu"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Uvozi - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Uvozi predhodno shranjen nabor lastnosti iz datoteke"
@@ -6359,10 +6335,6 @@ msgstr "Spoji"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "G&lobina spajanja:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Spoji - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8150,8 +8122,8 @@ msgstr ""
 "v %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Preimenuj/premakni - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8248,10 +8220,6 @@ msgstr "Ponastavi stolpce"
 msgid "Resolve"
 msgstr "Reši"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Reši - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Reši spor"
@@ -8333,10 +8301,6 @@ msgstr "Obrnjeno spajanje %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Povrni"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Povrni - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9614,14 +9578,14 @@ msgstr "Datoteka strežnika Subversion:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "Preklopi de&lovno kopijo na drugo vejo/oznako"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Preklopi %s v %s, revizija %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Preklopi - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -10997,10 +10961,6 @@ msgstr "Odpri nadrejeno mapo"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Posodobi"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Posodobi - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

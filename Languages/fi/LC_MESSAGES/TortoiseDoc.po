@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-08 00:34+0000\n"
+"PO-Revision-Date: 2011-05-16 00:19+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5141,6 +5141,14 @@ msgid ""
 "Suppose your working copy is at revision 100, but you want it to reflect the"
 " state which it had in revision 50 - then simply update to revision 50."
 msgstr ""
+"Normaalilla päivityskomennolla ei ole valitsimia; se päivittää työkopiosi "
+"vastaamaan arkiston HEAD-versiota, mikä onkin yleisin käyttötapaus. Jos "
+"haluat lisää kontrollia päivitykseen, käytä komentoa "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Päivitä "
+"versioon...</guimenuitem></menuchoice>. Komennon avulla voit päivittää "
+"työkopion johonkin tiettyyn versioon uusimman asemasta. Jos työkopiosi on "
+"esimerkiksi versiossa 100, mutta haluat sen versiota 50 vastaavaan tilaan, "
+"voit tehdä sen yksinkertaisesti päivittämällä versioon 50."
 
 #. (para)
 msgid ""
@@ -5152,12 +5160,20 @@ msgid ""
 "subsequent updates will use that new depth, i.e. that depth is then used as "
 "the default depth."
 msgstr ""
+"Samassa ikkunassa voit myös valita <firstterm>syvyyden</firstterm>, johon "
+"nykyinen kansio päivitetään. Vaihtoehdot on kuvattu luvussa <xref linkend"
+"=\"tsvn-dug-checkout-depth\"/>. Oletussyvyys on "
+"<guilabel>Työkopio</guilabel>, joka säilyttää työkopion nykyisen "
+"syvyysasetuksen. Voit myös asettaa syvyyden <literal>tarttuvaksi</literal>, "
+"jolloin seuraavat päivitykset muistavat käytetyn syvyyden."
 
 #. (para)
 msgid ""
 "You can also choose whether to ignore any external projects in the update "
 "(i.e. projects referenced using <literal>svn:externals</literal>)."
 msgstr ""
+"Voit myös valita, ohittaako päivitys ulkoiset viittaukset (t.s. projektit, "
+"joihin viitataan <literal>svn:externals</literal>-määreellä)."
 
 #. (para)
 msgid ""
@@ -5173,6 +5189,15 @@ msgid ""
 "this behavior the default when updating in the settings dialog. <xref "
 "linkend=\"tsvn-dug-settings-main\"/>."
 msgstr ""
+"Oletusarvoisesti päivitys ohittaa "
+"<literal>svn:externals</literal>-ominaisuuteen tehdyt paikalliset muutokset."
+" Voit kuitenkin pakottaa muutokset otettavaksi huomioon. Jos esimerkiksi "
+"vaihdat ulkoisen viitteen osoittamaan uuteen merkittyyn versioon, saatat "
+"haluta ensin päivittää työkopion ja rakentaa projektin uudelleen ennen kuin "
+"toimitat muutokset <literal>svn:externals</literal>-ominaisuuteen. Tällöin "
+"sinun on asetettava valinta <guilabel>Sovita paikalliset svn:externals-"
+"muutokset</guilabel>. Asetuksen voi myös muuttaa oletusarvoisesti päälle, "
+"ks. luku <xref linkend=\"tsvn-dug-settings-main\"/>."
 
 #. (para)
 msgid ""
@@ -6882,6 +6907,14 @@ msgstr ""
 "paikkaformaatti). Tämä näyttää vain muutokset muutaman ympäröivän rivin "
 "kera. Sitä on vaikeampaa lukea kuin visuaalista tiedostovertailua, mutta "
 "näet kaikki tiedoston muutokset yhdessä tiiviissä muodossa."
+
+#. (para)
+msgid ""
+"If you hold down the <keycap>Shift</keycap> key when clicking on the menu "
+"item, a dialog shows up first where you can set options for the unified "
+"diff. These options include the ability to ignore changes in line endings "
+"and whitespaces."
+msgstr ""
 
 #. (term)
 msgid "Compare with previous revision"
@@ -13439,6 +13472,13 @@ msgstr ""
 
 #. (para)
 msgid ""
+"By clicking on the <guilabel>Options</guilabel> button you can specify how "
+"the patch is created. For example you can specify that changes in line "
+"endings or whitespaces are not included in the final patch file."
+msgstr ""
+
+#. (para)
+msgid ""
 "You can produce separate patches containing changes to different sets of "
 "files. Of course, if you create a patch file, make some more changes to the "
 "<emphasis>same</emphasis> files and then create another patch, the second "
@@ -13676,6 +13716,15 @@ msgstr ""
 
 #. (para)
 msgid ""
+"You can include merge information as well if you wish, although this option "
+"can take considerably longer to retrieve from the server. When lines are "
+"merged from another source, the blame information shows the revision the "
+"change was made in the original source as well as the revision when it was "
+"merged into this file."
+msgstr ""
+
+#. (para)
+msgid ""
 "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the "
 "data to create the blame file. Please note: This can take several minutes to"
 " finish, depending on how much the file has changed and of course your "
@@ -13806,29 +13855,35 @@ msgstr ""
 
 #. (para)
 msgid ""
-"If you are using Merge Tracking, where lines have changed as a result of "
-"merging from another path, TortoiseBlame will show the revision and author "
-"of the last change in the original file rather than the revision where the "
-"merge took place. These lines are indicated by showing the revision and "
-"author in italics. If you do not want merged lines shown in this way, "
-"uncheck the <guilabel>Include merge info</guilabel> checkbox."
+"If you are using Merge Tracking and you requested merge info when starting "
+"the blame, merged lines are shown slightly differently. Where a line has "
+"changed as a result of merging from another path, TortoiseBlame will show "
+"the revision and author of the last change in the original file rather than "
+"the revision where the merge took place. These lines are indicated by "
+"showing the revision and author in italics. The revision where the merge "
+"took place is shown separately in the tooltip when you hover the mouse over "
+"the blame info columns. If you do not want merged lines shown in this way, "
+"uncheck the <guilabel>Include merge info</guilabel> checkbox when starting "
+"the blame."
 msgstr ""
-"Jos käytössä on yhdistämisjäljitys ja rivit ovat muuttuneet toiselta polulta"
-" tehdyn yhdistämisen seurauksena, TortoiseBlame näyttää alkuperäisen "
-"tiedoston version ja viimeisen muutoksen tekijän eikä versiota, jossa "
-"yhdistäminen tehtiin. Tällaiset rivit korostetaan näyttämällä versio ja "
-"tekijä kursivoituina. Jos et halua näyttää yhdistämistietoja tällä tavalla, "
-"poista valinta <guilabel>Sisällytä yhdistämistiedot</guilabel>."
 
 #. (para)
 msgid ""
 "If you want to see the paths involved in the merge, select "
 "<menuchoice><guimenu>View</guimenu><guimenuitem>Merge "
-"paths</guimenuitem></menuchoice>."
+"paths</guimenuitem></menuchoice>. This shows the path where the line was "
+"last changed, excluding changes resulting from a merge."
 msgstr ""
-"Jos haluat nähdä yhdistämisen liittämät polut, valitse komento "
-"<menuchoice><guimenu>Näytä</guimenu><guimenuitem>Yhdistetyt "
-"polut</guimenuitem></menuchoice>."
+
+#. (para)
+msgid ""
+"The revision shown in the blame information represents the last revision "
+"where the content of that line changed. If the file was created by copying "
+"another file, then until you change a line, its blame revision will show the"
+" last change in the original source file, not the revision where the copy "
+"was made. This also applies to the paths shown with merge info. The path "
+"shows the repository location where the last change was made to that line."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13849,15 +13904,13 @@ msgstr "Vertaa ja selvitä tekijät"
 #. (para)
 msgid ""
 "One of the limitations of the Blame report is that it only shows the file as"
-" it was in a particular revision, and shows the last person to change each "
-"line. Sometimes you want to know what change was made, as well as who made "
-"it. What you need here is a combination of the diff and blame reports."
+" it was in a particular revision, and the last person to change each line. "
+"Sometimes you want to know what change was made, as well as who made it. If "
+"you right click on a line in TortoiseBlame you have a context menu item to "
+"show the changes made in that revision. But if you want to see the changes "
+"<emphasis>and</emphasis> the blame information simultaneously then you need "
+"a combination of the diff and blame reports."
 msgstr ""
-"Yksi tekijätietoraportin rajoitus on, että se näyttää tiedostain vain "
-"sellaisena, kuin se oli tietyssä versiossa, ja näyttää viimeisen kutakin "
-"riviä muuttaneen henkilön. Joskus haluat tietää, mikä muutos tehtiin ja kuka"
-" teki sen. Tällöin tarvitaan yhdistelmä vertailusta ja "
-"tekijätietoraportista."
 
 #. (term)
 msgid "Blame Revisions"
@@ -13994,8 +14047,12 @@ msgstr ""
 "kuin Resurssienhallinassa, molemmilla paneeleilla on omat kontekstivalikot."
 
 #. (para)
-msgid "Save an unversioned copy of the file to your hard drive."
-msgstr "Tallettaa versioimattomat kopion tiedostosta paikalliselle levylle."
+msgid ""
+"Edit the selected file. This will checkout a temporary working copy and "
+"start the default editor for that file type. When you close the editor "
+"program, if changes were saved then a commit dialog appears, allowing you to"
+" enter a comment and commit the change."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14012,8 +14069,22 @@ msgstr ""
 "riviä."
 
 #. (para)
+msgid ""
+"Checkout a single file. This creates a <quote>sparse</quote> working copy "
+"which contains just this one file."
+msgstr ""
+
+#. (para)
 msgid "Delete or rename the file."
 msgstr "Poistaa tai uudelleen nimetä tiedoston."
+
+#. (para)
+msgid "Save an unversioned copy of the file to your hard drive."
+msgstr "Tallettaa versioimattomat kopion tiedostosta paikalliselle levylle."
+
+#. (para)
+msgid "Copy the URL shown in the address bar to the clipboard."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14026,6 +14097,12 @@ msgstr ""
 #. (para)
 msgid "View/Edit the file's properties."
 msgstr "Näytä/muokkaa tiedoston ominaisuuksia."
+
+#. (para)
+msgid ""
+"Create a shortcut so that you can quickly start repo browser again, opened "
+"directly at this location."
+msgstr ""
 
 #. (para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
@@ -14053,8 +14130,10 @@ msgid "Create a new folder in the repository."
 msgstr "Luoda uuden kansion arkistoon."
 
 #. (para)
-msgid "Add files or folders directly to the repository."
-msgstr "Lisätä tiedostoja tai kansioita suoraan arkistoon."
+msgid ""
+"Add unversioned files or folders directly to the repository. This is "
+"effectively the Subversion Import operation."
+msgstr ""
 
 #. (para)
 msgid "Delete or rename the folder."
@@ -14126,6 +14205,13 @@ msgstr ""
 "<menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Näytä "
 "loki...</guimenuitem></menuchoice> nähdäksesi merkittyjen versioiden välisen"
 " versiolistan."
+
+#. (para)
+msgid ""
+"External items (referenced using <literal>svn:externals</literal> are also "
+"shown in the repository browser, and you can even drill down into the folder"
+" contents. External items are marked with a red arrow over the item."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16024,6 +16110,26 @@ msgstr ""
 "<guibutton>Säädä</guibutton> vie suoraan Ohjauspaneeliin."
 
 #. (term)
+msgid "Use Aero Dialogs"
+msgstr ""
+
+#. (para)
+msgid ""
+"On Windows Vista and later systems this controls whether dialogs use the "
+"Aero styling."
+msgstr ""
+
+#. (term)
+msgid "Create Library"
+msgstr ""
+
+#. (para)
+msgid ""
+"On Windows 7 you can create a Library in which to group working copies which"
+" are scattered in various places on your system."
+msgstr ""
+
+#. (term)
 msgid "Global ignore pattern"
 msgstr "Yleinen ohituslauseke"
 
@@ -16156,12 +16262,16 @@ msgstr ""
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
 msgstr ""
+"Huomioi paikalliset muutokset svn:externals -viitteisiin päivitettäessä"
 
 #. (para)
 msgid ""
 "This option tells TortoiseSVN to always apply local modifications to the "
 "<literal>svn:externals</literal> property when updating the working copy."
 msgstr ""
+"Asetus ohjaa, että TortoiseSVN ottaa aina huomioon "
+"<literal>svn:externals</literal>-ominaisuuteen tehdyt paikalliset muutokset "
+"työkopiota päivitettäessä."
 
 #. (title)
 msgid "Context Menu Settings"
@@ -18795,11 +18905,103 @@ msgstr ""
 
 #. (para)
 msgid ""
+"Sometimes multiple users use the same account on the same computer. In such "
+"situations it's not really wanted to save the authentication data. Setting "
+"this value to <literal>false</literal> disables the <literal>save "
+"authentication</literal> button in the authentication dialog."
+msgstr ""
+"Joskus useampi käyttäjä käyttää samaa käyttäjätiliä samalla tietokoneella. "
+"Tällöin tunnistustietojen tallettaminen ei ole järkevää. Arvo "
+"<literal>false</literal> estää <literal>Talleta tunnistustiedot</literal> "
+"-valinnan käytön tunnistusikkunassa."
+
+#. (para)
+msgid ""
+"If an update adds a new file from the repository which already exists in the"
+" local working copy as an unversioned file, the default action is to keep "
+"the local file, showing it as a (possibly) modified version of the new file "
+"from the repository. If you would prefer TortoiseSVN to create a conflict in"
+" such situations, set this value to <literal>false</literal>."
+msgstr ""
+"Mikäli päivitys lisää arkistosta uuden tiedoston, joka on jo olemassa "
+"työkopiossa versioimattomana tiedostona, oletustoiminta on säilyttää "
+"paikallinen tiedosto ja näyttää se (mahdollisesti) muutettuna versiona "
+"arkiston tiedostosta. Jos haluat, että TortoiseSVN luo tällaisessa "
+"tilanteessa ristiriidan, aseta arvoksi <literal>false</literal>."
+
+#. (para)
+msgid ""
+"As with the explorer, TortoiseSVN shows additional commands if the "
+"<keycap>Shift</keycap> key is pressed while the context menu is opened. To "
+"force TortoiseSVN to always show those extended commands, set this value to "
+"<literal>true</literal>."
+msgstr ""
+"Kuten Windows-resurssienhallinta, TortoiseSVN näyttää ylimääräisiä "
+"komentoja, mikäli  <keycap>Shift</keycap>-näppäin on painettuna "
+"kontekstivalikkoa avattaessa. Pakottaaksesi TortoiseSVN:n näyttämään "
+"ylimääräiset komennot aina, aseta arvoksi <literal>true</literal>."
+
+#. (para)
+msgid ""
+"The auto-completion list shown in the commit message editor displays the "
+"names of files listed for commit. To also include these names with "
+"extensions removed, set this value to <literal>true</literal>."
+msgstr ""
+"Toimitusikkunan automaattinen täydennys näyttää arkistoon toimitettavien "
+"tiedostojen nimiä. Sisällyttääksesi mukaan myös nimet ilman päätteitä, aseta"
+" arvoksi <literal>true</literal>."
+
+#. (para)
+msgid ""
+"If you don't want the explorer to update the status overlays while another "
+"TortoiseSVN command is running (e.g. Update, Commit, ...) then set this "
+"value to <literal>true</literal>."
+msgstr ""
+"Jos et halua Resurssienhallinnan päivittävän kuvakepäällyksiä TortoiseSVN-"
+"komentojen aikana (esim. Päivitä, Toimita, ...), voit asettaa arvoksi "
+"<literal>true</literal>."
+
+#. (para)
+msgid ""
+"To add a cache tray icon for the TSVNCache program, set this value to "
+"<literal>true</literal>. This is really only useful for developers as it "
+"allows you to terminate the program gracefully."
+msgstr ""
+"Lisätäksesi ilmoitusalueelle kuvakkeen, joka kertoo TSVNCache-ohjelman "
+"tilatiedot, aseta arvoksi  <literal>true</literal>. Tästä on varsinaisesti "
+"hyötyä vain virhetilanteiden selvittämisessä."
+
+#. (para)
+msgid ""
+"The extra columns the TortoiseSVN adds to the details view in Windows "
+"Explorer are normally only active in a working copy. If you want those to be"
+" accessible everywhere, not just in working copies, set this value to "
+"<literal>true</literal>. Note that the extra columns are only available in "
+"XP. Vista and later doesn't support that feature any more."
+msgstr ""
+"TortoiseSVN:n Resurssienhallintaan lisäämät ylimääräiset sarakkeet ovat "
+"normaalisti käytettävissä vain työkopioissa. Jos haluat ne saataville "
+"kaikkialla, aseta sen arvoksi <literal>true</literal>. Huomaa, että "
+"lisäsarakkeet ovat näkyvissä vain Windows XP:ssä. Myöhemmät Windows-versiot "
+"eivät enää tue tätä ominaisuutta."
+
+#. (para)
+msgid ""
 "You can specify a different location for the Subversion configuration file "
 "here. This will affect all TortoiseSVN operations."
 msgstr ""
 "Täällä voit määritellä uuden sijainnin Subversion-määritystiedostolle. Tämä "
 "vaikuttaa kaikkiin TortoiseSVN-toimintoihin."
+
+#. (para)
+msgid ""
+"In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to "
+"dismiss the dialog as if you clicked on the OK button. If you don't want "
+"this, set this value to <literal>false</literal>."
+msgstr ""
+"Useimmissa TortoiseSVN-ikkunoissa voi käyttää näppäinyhdistelmää  "
+"<keycap>Ctrl+Enter</keycap> ikkunan sulkemiseksi (vrt. OK-painike). Mikäli "
+"haluat estää tämän, aseta arvoksi <literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -18812,13 +19014,118 @@ msgstr ""
 
 #. (para)
 msgid ""
-"To add a cache tray icon for the TSVNCache program, set this value to "
-"<literal>true</literal>. This is really only useful for developers as it "
-"allows you to terminate the program gracefully."
+"Set this to <literal>true</literal> if you want TortoiseSVN to print out "
+"debug messages during execution. The messages can be captured with special "
+"debugging tools only."
 msgstr ""
-"Lisätäksesi ilmoitusalueelle kuvakkeen, joka kertoo TSVNCache-ohjelman "
-"tilatiedot, aseta arvoksi  <literal>true</literal>. Tästä on varsinaisesti "
-"hyötyä vain virhetilanteiden selvittämisessä."
+
+#. (para)
+msgid ""
+"The default format (value of 0) of dialog titles is <literal>url/path - name"
+" of dialog - TortoiseSVN</literal>. If you set this value to 1, the format "
+"changes to <literal>name of dialog - url/path - TortoiseSVN</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"TortoiseSVN allows you to assign an external diff viewer. Most such viewers,"
+" however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-"
+"diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
+" do so, set this value to <literal>true</literal>."
+msgstr ""
+"TortoiseSVN sallii ulkoisen vertailutyökalun käytön. Useimmat tällaiset "
+"työkalut eivät kuitenkaan sovellu tekijätietojen selvittämiseen (<xref "
+"linkend=\"tsvn-dug-blame-diffs\"/>), joten saatat tällöin haluta palata "
+"käyttämään TortoiseMergeä. Tehdäksesi tämän, aseta arvoksi "
+"<literal>true</literal>."
+
+#. (para)
+msgid ""
+"The status list control which is used in various dialogs (e.g., commit, "
+"check-for-modifications, add, revert, ...) uses full row selection (i.e., if"
+" you select an entry, the full row is selected, not just the first column). "
+"This is fine, but the selected row then also covers the background image on "
+"the bottom right, which can look ugly. To disable full row select, set this "
+"value to <literal>false</literal>."
+msgstr ""
+"Useissa ikkunoissa (esim. toimitus, arkiston tilan tarkistus, lisäys, "
+"palautus jne.) käytetty tilalistakontrolli käyttää koko rivin valintaa (ts. "
+"valitessasi kohteen, koko rivi korostetaan, ei vain ensimmäistä saraketta). "
+"Joskus valittu rivi peittää oikeassa alakulmassa olevan taustakuvan, mikä "
+"voi näyttää rumalta. Poistaaksesi koko rivin valinnan käytöstä, aseta "
+"arvoksi <literal>false</literal>."
+
+#. (para)
+msgid ""
+"By default, TortoiseSVN always runs an update with externals included. This "
+"avoids problems with inconsistent working copies. If you have however a lot "
+"of externals set, an update can take quite a while. Set this value to "
+"<literal>false</literal> to run the default update with externals excluded. "
+"To update with externals included, either run the <literal>Update to "
+"revision...</literal> dialog or set this value to <literal>true</literal> "
+"again."
+msgstr ""
+"Oletusarvoisesti TortoiseSVN sisällyttää aina päivitykseen ulkoiset "
+"viittaukset (svn:external). Tämä välttää epäkonsistenteista työkopioista "
+"aiheutuvat ongelmat. Jos kuitenkin käytät useita ulkoisia viittauksia, "
+"päivitys voi kestää kauan. Aseta arvoksi <literal>false</literal>, jotta "
+"päivitys jättää ulkoiset viittaukset huomioimatta. Tämän asetuksen ollessa "
+"voimassa voit päivittää ulkoiset viittaukset komennolla <literal>Päivitä "
+"versioon...</literal> tai asettamalla arvoksi jälleen "
+"<literal>true</literal>."
+
+#. (para)
+msgid ""
+"The log dialog shows the revision the working copy path is at in bold. But "
+"this requires that the log dialog fetches the status of that path. Since for"
+" very big working copies this can take a while, you can set this value to "
+"<literal>false</literal> to deactivate this feature."
+msgstr ""
+"Loki-ikkuna näyttää työkopion polun lihavoituna. Tämä vaatii polun tilan "
+"selvittämistä arkistokyselyn avulla, mikä voi olla kallis operaatio suurille"
+" työkopioille. Mikäli haluat kytkeä ominaisuuden pois päältä, aseta arvoksi "
+"<literal>false</literal>."
+
+#. (para)
+msgid ""
+"When you merge revisions from another branch, and merge tracking information"
+" is available, the log messages from the revisions you merge will be "
+"collected to make up a commit log message. A pre-defined string is used to "
+"separate the individual log messages of the merged revisions. If you prefer,"
+" you can set this to a value containing a separator string of your choice."
+msgstr ""
+"Kun yhdistät versioita toisesta haarasta ja yhdistämisjäljitystiedot ovat "
+"saatavilla, yhdistettävien versioiden lokiviestit kerätään yhteen "
+"muodostamaan lokiviesti itse yhdistämiselle. Yhdistettyjen versioiden "
+"lokiviestit erotellaan ennalta määritellyllä merkkijonolla, jonka voit "
+"määrittää tässä."
+
+#. (para)
+msgid ""
+"TortoiseSVN checks whether there's a new version available about once a "
+"week. If an updated version is found, the commit dialog shows a link control"
+" with that info. If you prefer the old behavior back where a dialog pops up "
+"notifying you about the update, set this value to <literal>true</literal>."
+msgstr ""
+"TortoiseSVN tarkistaa kerran viikossa, onko ohjelmasta olemassa uutta "
+"versiota. Mikäli uudempi versio löytyy, toimitusikkuna näyttää linkin, jossa"
+" kerrotaan tästä. Mikäli haluat käyttää vanhaa toimintoa, jossa uudesta "
+"versiosta kerrotaan erillisessä ikkunassa, aseta arvoksi "
+"<literal>true</literal>."
+
+#. (para)
+msgid ""
+"TortoiseSVN uses accelerators for its explorer context menu entries. Since "
+"this can lead to doubled accelerators (e.g. the <literal>SVN "
+"Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the"
+" <literal>Copy</literal> entry of explorer). If you don't want or need the "
+"accelerators of the TortoiseSVN entries, set this value to "
+"<literal>false</literal>."
+msgstr ""
+"TortoiseSVN käyttää pikanäppäimiä Resurssienhallinnan kontekstivalikoiden "
+"komennoille. Tämän seurauksena joillakin komennoilla voi olla sama "
+"pikanäppäin. Mikäli et tarvitse pikanäppäimiä TortoiseSVN-komennoille, aseta"
+" arvoksi <literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -18844,34 +19151,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"The log dialog shows the revision the working copy path is at in bold. But "
-"this requires that the log dialog fetches the status of that path. Since for"
-" very big working copies this can take a while, you can set this value to "
-"<literal>false</literal> to deactivate this feature."
-msgstr ""
-"Loki-ikkuna näyttää työkopion polun lihavoituna. Tämä vaatii polun tilan "
-"selvittämistä arkistokyselyn avulla, mikä voi olla kallis operaatio suurille"
-" työkopioille. Mikäli haluat kytkeä ominaisuuden pois päältä, aseta arvoksi "
-"<literal>false</literal>."
-
-#. (para)
-msgid ""
-"The status list control which is used in various dialogs (e.g., commit, "
-"check-for-modifications, add, revert, ...) uses full row selection (i.e., if"
-" you select an entry, the full row is selected, not just the first column). "
-"This is fine, but the selected row then also covers the background image on "
-"the bottom right, which can look ugly. To disable full row select, set this "
-"value to <literal>false</literal>."
-msgstr ""
-"Useissa ikkunoissa (esim. toimitus, arkiston tilan tarkistus, lisäys, "
-"palautus jne.) käytetty tilalistakontrolli käyttää koko rivin valintaa (ts. "
-"valitessasi kohteen, koko rivi korostetaan, ei vain ensimmäistä saraketta). "
-"Joskus valittu rivi peittää oikeassa alakulmassa olevan taustakuvan, mikä "
-"voi näyttää rumalta. Poistaaksesi koko rivin valinnan käytöstä, aseta "
-"arvoksi <literal>false</literal>."
-
-#. (para)
-msgid ""
 "The commit and log dialog use styling (e.g. bold, italic) in commit messages"
 " (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't "
 "want to do this, set the value to <literal>false</literal>."
@@ -18879,42 +19158,6 @@ msgstr ""
 "Toimitus- ja loki-ikkuna käyttävät tyylejä (esim. lihavointia ja "
 "kursivointia) toimitusviesteissä (ks. <xref linkend=\"tsvn-dug-commit-"
 "log\"/>). Jos et halua tätä. aseta arvoksi <literal>false</literal>."
-
-#. (para)
-msgid ""
-"TortoiseSVN uses accelerators for its explorer context menu entries. Since "
-"this can lead to doubled accelerators (e.g. the <literal>SVN "
-"Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the"
-" <literal>Copy</literal> entry of explorer). If you don't want or need the "
-"accelerators of the TortoiseSVN entries, set this value to "
-"<literal>false</literal>."
-msgstr ""
-"TortoiseSVN käyttää pikanäppäimiä Resurssienhallinnan kontekstivalikoiden "
-"komennoille. Tämän seurauksena joillakin komennoilla voi olla sama "
-"pikanäppäin. Mikäli et tarvitse pikanäppäimiä TortoiseSVN-komennoille, aseta"
-" arvoksi <literal>false</literal>."
-
-#. (para)
-msgid ""
-"As with the explorer, TortoiseSVN shows additional commands if the "
-"<keycap>Shift</keycap> key is pressed while the context menu is opened. To "
-"force TortoiseSVN to always show those extended commands, set this value to "
-"<literal>true</literal>."
-msgstr ""
-"Kuten Windows-resurssienhallinta, TortoiseSVN näyttää ylimääräisiä "
-"komentoja, mikäli  <keycap>Shift</keycap>-näppäin on painettuna "
-"kontekstivalikkoa avattaessa. Pakottaaksesi TortoiseSVN:n näyttämään "
-"ylimääräiset komennot aina, aseta arvoksi <literal>true</literal>."
-
-#. (para)
-msgid ""
-"If you don't want the explorer to update the status overlays while another "
-"TortoiseSVN command is running (e.g. Update, Commit, ...) then set this "
-"value to <literal>true</literal>."
-msgstr ""
-"Jos et halua Resurssienhallinnan päivittävän kuvakepäällyksiä TortoiseSVN-"
-"komentojen aikana (esim. Päivitä, Toimita, ...), voit asettaa arvoksi "
-"<literal>true</literal>."
 
 #. (para)
 msgid ""
@@ -18930,47 +19173,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"The extra columns the TortoiseSVN adds to the details view in Windows "
-"Explorer are normally only active in a working copy. If you want those to be"
-" accessible everywhere, not just in working copies, set this value to "
-"<literal>true</literal>. Note that the extra columns are only available in "
-"XP. Vista and later doesn't support that feature any more."
-msgstr ""
-"TortoiseSVN:n Resurssienhallintaan lisäämät ylimääräiset sarakkeet ovat "
-"normaalisti käytettävissä vain työkopioissa. Jos haluat ne saataville "
-"kaikkialla, aseta sen arvoksi <literal>true</literal>. Huomaa, että "
-"lisäsarakkeet ovat näkyvissä vain Windows XP:ssä. Myöhemmät Windows-versiot "
-"eivät enää tue tätä ominaisuutta."
-
-#. (para)
-msgid ""
-"If an update adds a new file from the repository which already exists in the"
-" local working copy as an unversioned file, the default action is to keep "
-"the local file, showing it as a (possibly) modified version of the new file "
-"from the repository. If you would prefer TortoiseSVN to create a conflict in"
-" such situations, set this value to <literal>false</literal>."
-msgstr ""
-"Mikäli päivitys lisää arkistosta uuden tiedoston, joka on jo olemassa "
-"työkopiossa versioimattomana tiedostona, oletustoiminta on säilyttää "
-"paikallinen tiedosto ja näyttää se (mahdollisesti) muutettuna versiona "
-"arkiston tiedostosta. Jos haluat, että TortoiseSVN luo tällaisessa "
-"tilanteessa ristiriidan, aseta arvoksi <literal>false</literal>."
-
-#. (para)
-msgid ""
-"TortoiseSVN checks whether there's a new version available about once a "
-"week. If an updated version is found, the commit dialog shows a link control"
-" with that info. If you prefer the old behavior back where a dialog pops up "
-"notifying you about the update, set this value to <literal>true</literal>."
-msgstr ""
-"TortoiseSVN tarkistaa kerran viikossa, onko ohjelmasta olemassa uutta "
-"versiota. Mikäli uudempi versio löytyy, toimitusikkuna näyttää linkin, jossa"
-" kerrotaan tästä. Mikäli haluat käyttää vanhaa toimintoa, jossa uudesta "
-"versiosta kerrotaan erillisessä ikkunassa, aseta arvoksi "
-"<literal>true</literal>."
-
-#. (para)
-msgid ""
 "TortoiseSVN checks whether there's a new version available about once a "
 "week. If you don't want TortoiseSVN to do this check, set this value to "
 "<literal>false</literal>."
@@ -18978,84 +19180,6 @@ msgstr ""
 "TortoiseSVN tarkistaa kerran viikossa, onko ohjelmasta olemassa uutta "
 "versiota. Mikäli haluat estää tarkistuksen, aseta arvoksi "
 "<literal>false</literal>."
-
-#. (para)
-msgid ""
-"The auto-completion list shown in the commit message editor displays the "
-"names of files listed for commit. To also include these names with "
-"extensions removed, set this value to <literal>true</literal>."
-msgstr ""
-"Toimitusikkunan automaattinen täydennys näyttää arkistoon toimitettavien "
-"tiedostojen nimiä. Sisällyttääksesi mukaan myös nimet ilman päätteitä, aseta"
-" arvoksi <literal>true</literal>."
-
-#. (para)
-msgid ""
-"When you merge revisions from another branch, and merge tracking information"
-" is available, the log messages from the revisions you merge will be "
-"collected to make up a commit log message. A pre-defined string is used to "
-"separate the individual log messages of the merged revisions. If you prefer,"
-" you can set this to a value containing a separator string of your choice."
-msgstr ""
-"Kun yhdistät versioita toisesta haarasta ja yhdistämisjäljitystiedot ovat "
-"saatavilla, yhdistettävien versioiden lokiviestit kerätään yhteen "
-"muodostamaan lokiviesti itse yhdistämiselle. Yhdistettyjen versioiden "
-"lokiviestit erotellaan ennalta määritellyllä merkkijonolla, jonka voit "
-"määrittää tässä."
-
-#. (para)
-msgid ""
-"TortoiseSVN allows you to assign an external diff viewer. Most such viewers,"
-" however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-"
-"diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
-" do so, set this value to <literal>true</literal>."
-msgstr ""
-"TortoiseSVN sallii ulkoisen vertailutyökalun käytön. Useimmat tällaiset "
-"työkalut eivät kuitenkaan sovellu tekijätietojen selvittämiseen (<xref "
-"linkend=\"tsvn-dug-blame-diffs\"/>), joten saatat tällöin haluta palata "
-"käyttämään TortoiseMergeä. Tehdäksesi tämän, aseta arvoksi "
-"<literal>true</literal>."
-
-#. (para)
-msgid ""
-"By default, TortoiseSVN always runs an update with externals included. This "
-"avoids problems with inconsistent working copies. If you have however a lot "
-"of externals set, an update can take quite a while. Set this value to "
-"<literal>false</literal> to run the default update with externals excluded. "
-"To update with externals included, either run the <literal>Update to "
-"revision...</literal> dialog or set this value to <literal>true</literal> "
-"again."
-msgstr ""
-"Oletusarvoisesti TortoiseSVN sisällyttää aina päivitykseen ulkoiset "
-"viittaukset (svn:external). Tämä välttää epäkonsistenteista työkopioista "
-"aiheutuvat ongelmat. Jos kuitenkin käytät useita ulkoisia viittauksia, "
-"päivitys voi kestää kauan. Aseta arvoksi <literal>false</literal>, jotta "
-"päivitys jättää ulkoiset viittaukset huomioimatta. Tämän asetuksen ollessa "
-"voimassa voit päivittää ulkoiset viittaukset komennolla <literal>Päivitä "
-"versioon...</literal> tai asettamalla arvoksi jälleen "
-"<literal>true</literal>."
-
-#. (para)
-msgid ""
-"In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to "
-"dismiss the dialog as if you clicked on the OK button. If you don't want "
-"this, set this value to <literal>false</literal>."
-msgstr ""
-"Useimmissa TortoiseSVN-ikkunoissa voi käyttää näppäinyhdistelmää  "
-"<keycap>Ctrl+Enter</keycap> ikkunan sulkemiseksi (vrt. OK-painike). Mikäli "
-"haluat estää tämän, aseta arvoksi <literal>false</literal>."
-
-#. (para)
-msgid ""
-"Sometimes multiple users use the same account on the same computer. In such "
-"situations it's not really wanted to save the authentication data. Setting "
-"this value to <literal>false</literal> disables the <literal>save "
-"authentication</literal> button in the authentication dialog."
-msgstr ""
-"Joskus useampi käyttäjä käyttää samaa käyttäjätiliä samalla tietokoneella. "
-"Tällöin tunnistustietojen tallettaminen ei ole järkevää. Arvo "
-"<literal>false</literal> estää <literal>Talleta tunnistustiedot</literal> "
-"-valinnan käytön tunnistusikkunassa."
 
 #. (title)
 msgid "Exporting TSVN Settings"
@@ -19359,14 +19483,8 @@ msgid ""
 "can specify a custom format which will be used with <placeholder-2/>, for "
 "example: <placeholder-3/>. For a list of available formatting characters, "
 "look at the <ulink url=\"http://msdn.microsoft.com/en-"
-"us/library/fe06s4ak%28v=VS.100%29.aspx\"><placeholder-4/></ulink>."
+"us/library/fe06s4ak.aspx\"><placeholder-4/></ulink>."
 msgstr ""
-"Korvataan korkeimman version toimitusaikaleimalla. Oletusarvoisesti "
-"käytetään kansainvälistä muotoa <placeholder-1/>. Vaihtoehtoisesti voit "
-"määritellä oman muodon, jota käytetään funktion <placeholder-2/> kanssa. "
-"Esimerkki: <placeholder-3/>. Luettelo tuetuista ohjausmerkeistä löytyy "
-"osoitteesta  <ulink url=\"http://msdn.microsoft.com/en-"
-"us/library/fe06s4ak%28v=VS.100%29.aspx\"><placeholder-4/></ulink>."
 
 #. (literal)
 #. (literal)

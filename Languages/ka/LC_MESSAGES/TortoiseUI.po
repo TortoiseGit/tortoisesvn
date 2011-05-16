@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,8 +102,8 @@ msgstr "%1!ld! წუთი და %2!ld! წამი"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (ავტონომიური) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1748,10 +1748,6 @@ msgstr "ლექსიკონში დამატება - '%s'"
 msgid "Add (as replacement)..."
 msgstr "დამატება (ჩანაცვლებით)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "დამატება - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "პარამეტრების დამატება"
@@ -2768,10 +2764,6 @@ msgstr "გადმოტანა"
 msgid "Checkout &directory:"
 msgstr "&გადმოსატანი დასტა:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "გადმოტანა - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "გადმოტანის სი&ღრმე"
@@ -3012,10 +3004,6 @@ msgstr "ბრძანებები"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "ფიქსაცია..."
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "ფიქსაცია - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3275,10 +3263,6 @@ msgstr "კოპირება %s - %s, ვერსია %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "კოპირება (შტო / ჭდე)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "კოპირება - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4501,10 +4485,6 @@ msgstr "ექსპორტი"
 msgid "Export &directory:"
 msgstr "&დასტის ექსპორტი:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "ექსპორტი - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "საექსპორტო დასტა:"
@@ -5686,10 +5666,6 @@ msgstr "იმპორტი %s - %s%s"
 msgid "Import &message"
 msgstr "&შეტყობინების იმპორტი"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "იმპორტი - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "ადრე შენახული პარამეტრების ნაკრების ფაილიდან იმპორტი"
@@ -6341,10 +6317,6 @@ msgstr "შერწყმა"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "შერწყმის სი&ღრმე:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "შერწყმა - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8122,8 +8094,8 @@ msgstr ""
 "აქ %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "გადარქმევა/გადატანა - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8220,10 +8192,6 @@ msgstr "სვეტების აღდგენა"
 msgid "Resolve"
 msgstr "მოგვარება"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "მოგვარება - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "კონფლიქტის გადაწყვეტა"
@@ -8305,10 +8273,6 @@ msgstr "უკუშერწყმა - %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "აღდგენა"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "აღდგენა - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9563,14 +9527,14 @@ msgstr "ქვევერსიის სერვერის ფაილი"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "სამუშაო ასლის ახალ შტოზე/ჭდეზე გადარ&თვა"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "გადართვა %s - %s, ვერსია - %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "გადართვა - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -10928,10 +10892,6 @@ msgstr "ერთი დასტით ზემოთ"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "განახლება"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "განახლება - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

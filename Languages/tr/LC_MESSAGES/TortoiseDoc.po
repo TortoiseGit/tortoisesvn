@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-08 00:34+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-05-16 00:19+0000\n"
+"Last-Translator: turambar <vuralgoze@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -194,12 +194,16 @@ msgid ""
 "All Subversion commands are available from the explorer context menu. "
 "TortoiseSVN adds its own submenu there."
 msgstr ""
+"Tüm Subversion komutları Explorer sağ-tık menüsünden kullanılabilir. "
+"TortoiseSVN oraya kendi alt menüsünü ekler."
 
 #. (para)
 msgid ""
 "Since TortoiseSVN is a Subversion client, we would also like to show you "
 "some of the features of Subversion itself:"
 msgstr ""
+"TortoiseSVN bir Subversion istemcisi olduğundan, size Subversion'ın bazı "
+"özelliklerini de göstermek istiyoruz:"
 
 #. (term)
 msgid "Directory versioning"
@@ -345,7 +349,7 @@ msgstr ""
 
 #. (title)
 msgid "Acknowledgments"
-msgstr ""
+msgstr "Teşekkürler"
 
 #. (term)
 msgid "Tim Kemp"
@@ -418,6 +422,8 @@ msgid ""
 "for the patches, bug reports and new ideas, and for helping others by "
 "answering questions on our mailing list"
 msgstr ""
+"yamalar, hata raporları ve yeni fikirler, posta listemizde soruları "
+"yanıtlayarak yardım edenler için"
 
 #. (term)
 msgid "Our Donators"
@@ -425,7 +431,7 @@ msgstr "Bağışçılarımız"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
-msgstr ""
+msgstr "bize gönderdikleri müzikle yaşattıkları mutlu saatler için"
 
 #. (title)
 msgid "Reading Guide"
@@ -1006,7 +1012,7 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "repository"
-msgstr ""
+msgstr "depo"
 
 #. (para)
 msgid ""
@@ -1022,7 +1028,7 @@ msgstr ""
 
 #. (title)
 msgid "A Typical Client/Server System"
-msgstr ""
+msgstr "Tipik bir İstemci/Sunucu Sistemi"
 
 #. (para)
 msgid ""
@@ -1080,12 +1086,12 @@ msgstr ""
 
 #. (title)
 msgid "The Problem to Avoid"
-msgstr ""
+msgstr "Kaçınılacak Sorunlar"
 
 #. (title)
 #. (title)
 msgid "The Lock-Modify-Unlock Solution"
-msgstr ""
+msgstr "Kilitle-Güncelle-Kilidi-aç Çözümü"
 
 #. (para)
 msgid ""
@@ -1142,7 +1148,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "The Copy-Modify-Merge Solution"
-msgstr ""
+msgstr "Kopyala-Güncelle-Birleştir Çözümü"
 
 #. (para)
 msgid ""
@@ -1173,7 +1179,7 @@ msgstr ""
 
 #. (title)
 msgid "...Copy-Modify-Merge Continued"
-msgstr ""
+msgstr "...Kopyala-Güncelle-Birleştir Devam"
 
 #. (primary)
 #. (primary)
@@ -1990,6 +1996,9 @@ msgid ""
 "/branches\n"
 "/tags\n"
 msgstr ""
+"/trunk\n"
+"/branches\n"
+"/tags"
 
 #. (para)
 msgid ""
@@ -2366,15 +2375,15 @@ msgstr ""
 
 #. (citetitle)
 msgid "VisualSVN"
-msgstr ""
+msgstr "VisualSVN"
 
 #. (citetitle)
 msgid "CollabNet"
-msgstr ""
+msgstr "CollabNet"
 
 #. (citetitle)
 msgid "UberSVN"
-msgstr ""
+msgstr "UberSVN"
 
 #. (para)
 msgid ""
@@ -2398,7 +2407,7 @@ msgstr ""
 
 #. (title)
 msgid "Daily Use Guide"
-msgstr ""
+msgstr "Günlük Kullanım Rehberi"
 
 #. (para)
 msgid ""
@@ -2449,7 +2458,7 @@ msgstr ""
 
 #. (title)
 msgid "General Features"
-msgstr ""
+msgstr "Genel Özellikler"
 
 #. (para)
 msgid ""
@@ -2462,7 +2471,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Icon Overlays"
-msgstr ""
+msgstr "Simge Kaplamaları"
 
 #. (title)
 #. (title)
@@ -2539,7 +2548,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Drag and Drop"
-msgstr ""
+msgstr "Sürükle ve Bırak"
 
 #. (primary)
 msgid "drag handler"
@@ -2572,7 +2581,7 @@ msgstr ""
 
 #. (term)
 msgid "F1"
-msgstr ""
+msgstr "F1"
 
 #. (para)
 msgid "Help, of course."
@@ -2580,7 +2589,7 @@ msgstr ""
 
 #. (term)
 msgid "F5"
-msgstr ""
+msgstr "F5"
 
 #. (para)
 msgid ""
@@ -2593,7 +2602,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-A"
-msgstr ""
+msgstr "Ctrl-A"
 
 #. (para)
 msgid ""
@@ -2603,7 +2612,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-C"
-msgstr ""
+msgstr "Ctrl-C"
 
 #. (para)
 msgid "... Copy the selected text."
@@ -2876,11 +2885,11 @@ msgstr ""
 
 #. (title)
 msgid "Special Files"
-msgstr ""
+msgstr "Özel Dosyalar"
 
 #. (primary)
 msgid "special files"
-msgstr ""
+msgstr "özel dosyalar"
 
 #. (para)
 msgid ""
@@ -2932,7 +2941,7 @@ msgstr ""
 
 #. (primary)
 msgid "create working copy"
-msgstr ""
+msgstr "çalışan kopya oluştur"
 
 #. (para)
 msgid ""
@@ -2961,7 +2970,7 @@ msgstr ""
 
 #. (term)
 msgid "Fully recursive"
-msgstr ""
+msgstr "Tamamen özyineli"
 
 #. (para)
 msgid "Checkout the entire tree, including all child folders and sub-folders."
@@ -2989,7 +2998,7 @@ msgstr ""
 
 #. (term)
 msgid "Only this item"
-msgstr ""
+msgstr "Sadece bu öğe"
 
 #. (para)
 msgid ""
@@ -3000,7 +3009,7 @@ msgstr ""
 #. (term)
 #. (listitem)
 msgid "Working copy"
-msgstr ""
+msgstr "Çalışan kopya"
 
 #. (para)
 msgid ""
@@ -3207,11 +3216,11 @@ msgstr ""
 
 #. (title)
 msgid "The Commit Dialog"
-msgstr ""
+msgstr "Teslim Etme Diyalogu"
 
 #. (title)
 msgid "The Commit dialog"
-msgstr ""
+msgstr "Teslim etme diyalogu"
 
 #. (para)
 msgid ""
@@ -3506,7 +3515,7 @@ msgstr ""
 
 #. (title)
 msgid "Special Folder Properties"
-msgstr ""
+msgstr "Özel Klasör Özellikleri"
 
 #. (para)
 msgid ""
@@ -3546,7 +3555,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Blue"
-msgstr ""
+msgstr "Mavi"
 
 #. (para)
 msgid "Committing a modification."
@@ -3556,7 +3565,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Purple"
-msgstr ""
+msgstr "Mor"
 
 #. (para)
 msgid "Committing a new addition."
@@ -3566,7 +3575,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Dark red"
-msgstr ""
+msgstr "Koyu kırmızı"
 
 #. (para)
 msgid "Committing a deletion or a replacement."
@@ -3576,11 +3585,11 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Black"
-msgstr ""
+msgstr "Siyah"
 
 #. (para)
 msgid "All other items."
-msgstr ""
+msgstr "Tüm diğer öğeler."
 
 #. (para)
 msgid ""
@@ -3608,7 +3617,7 @@ msgstr ""
 
 #. (primary)
 msgid "fetch changes"
-msgstr ""
+msgstr "değişiklikleri al"
 
 #. (title)
 msgid "Progress dialog showing finished update"
@@ -3642,7 +3651,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Green"
-msgstr ""
+msgstr "Yeşil"
 
 #. (para)
 msgid "Changes from repository successfully merged with your local changes."
@@ -3651,7 +3660,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Bright red"
-msgstr ""
+msgstr "Parlak kırmızı"
 
 #. (para)
 msgid ""
@@ -3777,11 +3786,11 @@ msgstr ""
 
 #. (title)
 msgid "Resolving Conflicts"
-msgstr ""
+msgstr "Çakışmaları Çözümlemek"
 
 #. (primary)
 msgid "tree conflict"
-msgstr ""
+msgstr "ağaç çakışması"
 
 #. (primary)
 msgid "resolve"
@@ -3789,7 +3798,7 @@ msgstr ""
 
 #. (term)
 msgid "file conflicts"
-msgstr ""
+msgstr "dosya çakışmaları"
 
 #. (para)
 msgid ""
@@ -3817,7 +3826,7 @@ msgstr ""
 
 #. (title)
 msgid "File Conflicts"
-msgstr ""
+msgstr "Dosya Çakışmaları"
 
 #. (term)
 msgid "filename.ext.mine"
@@ -3904,7 +3913,7 @@ msgstr ""
 
 #. (title)
 msgid "Property Conflicts"
-msgstr ""
+msgstr "Özellik Çakışmaları"
 
 #. (para)
 msgid ""
@@ -3924,7 +3933,7 @@ msgstr ""
 
 #. (title)
 msgid "Tree Conflicts"
-msgstr ""
+msgstr "Ağaç Çakışmaları"
 
 #. (para)
 msgid ""
@@ -4954,6 +4963,14 @@ msgid ""
 "patch format). This shows only the differences with a few lines of context. "
 "It is harder to read than a visual file compare, but will show all file "
 "changes together in a compact format."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you hold down the <keycap>Shift</keycap> key when clicking on the menu "
+"item, a dialog shows up first where you can set options for the unified "
+"diff. These options include the ability to ignore changes in line endings "
+"and whitespaces."
 msgstr ""
 
 #. (term)
@@ -6304,7 +6321,7 @@ msgstr ""
 
 #. (primary)
 msgid "Microsoft Word"
-msgstr ""
+msgstr "Microsoft Word"
 
 #. (para)
 msgid ""
@@ -6322,7 +6339,7 @@ msgstr ""
 
 #. (title)
 msgid "Problems with Office 2010"
-msgstr ""
+msgstr "Office 2010 ile İlgili Sorunlar"
 
 #. (para)
 msgid ""
@@ -9610,6 +9627,13 @@ msgstr ""
 
 #. (para)
 msgid ""
+"By clicking on the <guilabel>Options</guilabel> button you can specify how "
+"the patch is created. For example you can specify that changes in line "
+"endings or whitespaces are not included in the final patch file."
+msgstr ""
+
+#. (para)
+msgid ""
 "You can produce separate patches containing changes to different sets of "
 "files. Of course, if you create a patch file, make some more changes to the "
 "<emphasis>same</emphasis> files and then create another patch, the second "
@@ -9772,6 +9796,15 @@ msgstr ""
 
 #. (para)
 msgid ""
+"You can include merge information as well if you wish, although this option "
+"can take considerably longer to retrieve from the server. When lines are "
+"merged from another source, the blame information shows the revision the "
+"change was made in the original source as well as the revision when it was "
+"merged into this file."
+msgstr ""
+
+#. (para)
+msgid ""
 "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the "
 "data to create the blame file. Please note: This can take several minutes to"
 " finish, depending on how much the file has changed and of course your "
@@ -9854,19 +9887,34 @@ msgstr ""
 
 #. (para)
 msgid ""
-"If you are using Merge Tracking, where lines have changed as a result of "
-"merging from another path, TortoiseBlame will show the revision and author "
-"of the last change in the original file rather than the revision where the "
-"merge took place. These lines are indicated by showing the revision and "
-"author in italics. If you do not want merged lines shown in this way, "
-"uncheck the <guilabel>Include merge info</guilabel> checkbox."
+"If you are using Merge Tracking and you requested merge info when starting "
+"the blame, merged lines are shown slightly differently. Where a line has "
+"changed as a result of merging from another path, TortoiseBlame will show "
+"the revision and author of the last change in the original file rather than "
+"the revision where the merge took place. These lines are indicated by "
+"showing the revision and author in italics. The revision where the merge "
+"took place is shown separately in the tooltip when you hover the mouse over "
+"the blame info columns. If you do not want merged lines shown in this way, "
+"uncheck the <guilabel>Include merge info</guilabel> checkbox when starting "
+"the blame."
 msgstr ""
 
 #. (para)
 msgid ""
 "If you want to see the paths involved in the merge, select "
 "<menuchoice><guimenu>View</guimenu><guimenuitem>Merge "
-"paths</guimenuitem></menuchoice>."
+"paths</guimenuitem></menuchoice>. This shows the path where the line was "
+"last changed, excluding changes resulting from a merge."
+msgstr ""
+
+#. (para)
+msgid ""
+"The revision shown in the blame information represents the last revision "
+"where the content of that line changed. If the file was created by copying "
+"another file, then until you change a line, its blame revision will show the"
+" last change in the original source file, not the revision where the copy "
+"was made. This also applies to the paths shown with merge info. The path "
+"shows the repository location where the last change was made to that line."
 msgstr ""
 
 #. (para)
@@ -9884,9 +9932,12 @@ msgstr ""
 #. (para)
 msgid ""
 "One of the limitations of the Blame report is that it only shows the file as"
-" it was in a particular revision, and shows the last person to change each "
-"line. Sometimes you want to know what change was made, as well as who made "
-"it. What you need here is a combination of the diff and blame reports."
+" it was in a particular revision, and the last person to change each line. "
+"Sometimes you want to know what change was made, as well as who made it. If "
+"you right click on a line in TortoiseBlame you have a context menu item to "
+"show the changes made in that revision. But if you want to see the changes "
+"<emphasis>and</emphasis> the blame information simultaneously then you need "
+"a combination of the diff and blame reports."
 msgstr ""
 
 #. (term)
@@ -9988,7 +10039,11 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "Save an unversioned copy of the file to your hard drive."
+msgid ""
+"Edit the selected file. This will checkout a temporary working copy and "
+"start the default editor for that file type. When you close the editor "
+"program, if changes were saved then a commit dialog appears, allowing you to"
+" enter a comment and commit the change."
 msgstr ""
 
 #. (para)
@@ -10002,7 +10057,21 @@ msgid "Blame the file, to see who changed which line and when."
 msgstr ""
 
 #. (para)
+msgid ""
+"Checkout a single file. This creates a <quote>sparse</quote> working copy "
+"which contains just this one file."
+msgstr ""
+
+#. (para)
 msgid "Delete or rename the file."
+msgstr ""
+
+#. (para)
+msgid "Save an unversioned copy of the file to your hard drive."
+msgstr ""
+
+#. (para)
+msgid "Copy the URL shown in the address bar to the clipboard."
 msgstr ""
 
 #. (para)
@@ -10013,6 +10082,12 @@ msgstr ""
 
 #. (para)
 msgid "View/Edit the file's properties."
+msgstr ""
+
+#. (para)
+msgid ""
+"Create a shortcut so that you can quickly start repo browser again, opened "
+"directly at this location."
 msgstr ""
 
 #. (para)
@@ -10039,7 +10114,9 @@ msgid "Create a new folder in the repository."
 msgstr ""
 
 #. (para)
-msgid "Add files or folders directly to the repository."
+msgid ""
+"Add unversioned files or folders directly to the repository. This is "
+"effectively the Subversion Import operation."
 msgstr ""
 
 #. (para)
@@ -10092,6 +10169,13 @@ msgid ""
 "<literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view "
 "the list of revisions between the two tag points."
+msgstr ""
+
+#. (para)
+msgid ""
+"External items (referenced using <literal>svn:externals</literal> are also "
+"shown in the repository browser, and you can even drill down into the folder"
+" contents. External items are marked with a red arrow over the item."
 msgstr ""
 
 #. (para)
@@ -11444,6 +11528,26 @@ msgid ""
 "<placeholder-1/> You can select different sounds (or turn these sounds off "
 "completely) using the Windows Control Panel. "
 "<guibutton>Configure</guibutton> is a shortcut to the Control Panel."
+msgstr ""
+
+#. (term)
+msgid "Use Aero Dialogs"
+msgstr ""
+
+#. (para)
+msgid ""
+"On Windows Vista and later systems this controls whether dialogs use the "
+"Aero styling."
+msgstr ""
+
+#. (term)
+msgid "Create Library"
+msgstr ""
+
+#. (para)
+msgid ""
+"On Windows 7 you can create a Library in which to group working copies which"
+" are scattered in various places on your system."
 msgstr ""
 
 #. (term)
@@ -13517,8 +13621,70 @@ msgstr ""
 
 #. (para)
 msgid ""
+"Sometimes multiple users use the same account on the same computer. In such "
+"situations it's not really wanted to save the authentication data. Setting "
+"this value to <literal>false</literal> disables the <literal>save "
+"authentication</literal> button in the authentication dialog."
+msgstr ""
+
+#. (para)
+msgid ""
+"If an update adds a new file from the repository which already exists in the"
+" local working copy as an unversioned file, the default action is to keep "
+"the local file, showing it as a (possibly) modified version of the new file "
+"from the repository. If you would prefer TortoiseSVN to create a conflict in"
+" such situations, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"As with the explorer, TortoiseSVN shows additional commands if the "
+"<keycap>Shift</keycap> key is pressed while the context menu is opened. To "
+"force TortoiseSVN to always show those extended commands, set this value to "
+"<literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"The auto-completion list shown in the commit message editor displays the "
+"names of files listed for commit. To also include these names with "
+"extensions removed, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you don't want the explorer to update the status overlays while another "
+"TortoiseSVN command is running (e.g. Update, Commit, ...) then set this "
+"value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"To add a cache tray icon for the TSVNCache program, set this value to "
+"<literal>true</literal>. This is really only useful for developers as it "
+"allows you to terminate the program gracefully."
+msgstr ""
+
+#. (para)
+msgid ""
+"The extra columns the TortoiseSVN adds to the details view in Windows "
+"Explorer are normally only active in a working copy. If you want those to be"
+" accessible everywhere, not just in working copies, set this value to "
+"<literal>true</literal>. Note that the extra columns are only available in "
+"XP. Vista and later doesn't support that feature any more."
+msgstr ""
+
+#. (para)
+msgid ""
 "You can specify a different location for the Subversion configuration file "
 "here. This will affect all TortoiseSVN operations."
+msgstr ""
+
+#. (para)
+msgid ""
+"In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to "
+"dismiss the dialog as if you clicked on the OK button. If you don't want "
+"this, set this value to <literal>false</literal>."
 msgstr ""
 
 #. (para)
@@ -13529,9 +13695,80 @@ msgstr ""
 
 #. (para)
 msgid ""
-"To add a cache tray icon for the TSVNCache program, set this value to "
-"<literal>true</literal>. This is really only useful for developers as it "
-"allows you to terminate the program gracefully."
+"Set this to <literal>true</literal> if you want TortoiseSVN to print out "
+"debug messages during execution. The messages can be captured with special "
+"debugging tools only."
+msgstr ""
+
+#. (para)
+msgid ""
+"The default format (value of 0) of dialog titles is <literal>url/path - name"
+" of dialog - TortoiseSVN</literal>. If you set this value to 1, the format "
+"changes to <literal>name of dialog - url/path - TortoiseSVN</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"TortoiseSVN allows you to assign an external diff viewer. Most such viewers,"
+" however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-"
+"diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
+" do so, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"The status list control which is used in various dialogs (e.g., commit, "
+"check-for-modifications, add, revert, ...) uses full row selection (i.e., if"
+" you select an entry, the full row is selected, not just the first column). "
+"This is fine, but the selected row then also covers the background image on "
+"the bottom right, which can look ugly. To disable full row select, set this "
+"value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"By default, TortoiseSVN always runs an update with externals included. This "
+"avoids problems with inconsistent working copies. If you have however a lot "
+"of externals set, an update can take quite a while. Set this value to "
+"<literal>false</literal> to run the default update with externals excluded. "
+"To update with externals included, either run the <literal>Update to "
+"revision...</literal> dialog or set this value to <literal>true</literal> "
+"again."
+msgstr ""
+
+#. (para)
+msgid ""
+"The log dialog shows the revision the working copy path is at in bold. But "
+"this requires that the log dialog fetches the status of that path. Since for"
+" very big working copies this can take a while, you can set this value to "
+"<literal>false</literal> to deactivate this feature."
+msgstr ""
+
+#. (para)
+msgid ""
+"When you merge revisions from another branch, and merge tracking information"
+" is available, the log messages from the revisions you merge will be "
+"collected to make up a commit log message. A pre-defined string is used to "
+"separate the individual log messages of the merged revisions. If you prefer,"
+" you can set this to a value containing a separator string of your choice."
+msgstr ""
+
+#. (para)
+msgid ""
+"TortoiseSVN checks whether there's a new version available about once a "
+"week. If an updated version is found, the commit dialog shows a link control"
+" with that info. If you prefer the old behavior back where a dialog pops up "
+"notifying you about the update, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"TortoiseSVN uses accelerators for its explorer context menu entries. Since "
+"this can lead to doubled accelerators (e.g. the <literal>SVN "
+"Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the"
+" <literal>Copy</literal> entry of explorer). If you don't want or need the "
+"accelerators of the TortoiseSVN entries, set this value to "
+"<literal>false</literal>."
 msgstr ""
 
 #. (para)
@@ -13551,52 +13788,9 @@ msgstr ""
 
 #. (para)
 msgid ""
-"The log dialog shows the revision the working copy path is at in bold. But "
-"this requires that the log dialog fetches the status of that path. Since for"
-" very big working copies this can take a while, you can set this value to "
-"<literal>false</literal> to deactivate this feature."
-msgstr ""
-
-#. (para)
-msgid ""
-"The status list control which is used in various dialogs (e.g., commit, "
-"check-for-modifications, add, revert, ...) uses full row selection (i.e., if"
-" you select an entry, the full row is selected, not just the first column). "
-"This is fine, but the selected row then also covers the background image on "
-"the bottom right, which can look ugly. To disable full row select, set this "
-"value to <literal>false</literal>."
-msgstr ""
-
-#. (para)
-msgid ""
 "The commit and log dialog use styling (e.g. bold, italic) in commit messages"
 " (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't "
 "want to do this, set the value to <literal>false</literal>."
-msgstr ""
-
-#. (para)
-msgid ""
-"TortoiseSVN uses accelerators for its explorer context menu entries. Since "
-"this can lead to doubled accelerators (e.g. the <literal>SVN "
-"Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the"
-" <literal>Copy</literal> entry of explorer). If you don't want or need the "
-"accelerators of the TortoiseSVN entries, set this value to "
-"<literal>false</literal>."
-msgstr ""
-
-#. (para)
-msgid ""
-"As with the explorer, TortoiseSVN shows additional commands if the "
-"<keycap>Shift</keycap> key is pressed while the context menu is opened. To "
-"force TortoiseSVN to always show those extended commands, set this value to "
-"<literal>true</literal>."
-msgstr ""
-
-#. (para)
-msgid ""
-"If you don't want the explorer to update the status overlays while another "
-"TortoiseSVN command is running (e.g. Update, Commit, ...) then set this "
-"value to <literal>true</literal>."
 msgstr ""
 
 #. (para)
@@ -13609,90 +13803,14 @@ msgstr ""
 
 #. (para)
 msgid ""
-"The extra columns the TortoiseSVN adds to the details view in Windows "
-"Explorer are normally only active in a working copy. If you want those to be"
-" accessible everywhere, not just in working copies, set this value to "
-"<literal>true</literal>. Note that the extra columns are only available in "
-"XP. Vista and later doesn't support that feature any more."
-msgstr ""
-
-#. (para)
-msgid ""
-"If an update adds a new file from the repository which already exists in the"
-" local working copy as an unversioned file, the default action is to keep "
-"the local file, showing it as a (possibly) modified version of the new file "
-"from the repository. If you would prefer TortoiseSVN to create a conflict in"
-" such situations, set this value to <literal>false</literal>."
-msgstr ""
-
-#. (para)
-msgid ""
-"TortoiseSVN checks whether there's a new version available about once a "
-"week. If an updated version is found, the commit dialog shows a link control"
-" with that info. If you prefer the old behavior back where a dialog pops up "
-"notifying you about the update, set this value to <literal>true</literal>."
-msgstr ""
-
-#. (para)
-msgid ""
 "TortoiseSVN checks whether there's a new version available about once a "
 "week. If you don't want TortoiseSVN to do this check, set this value to "
 "<literal>false</literal>."
 msgstr ""
 
-#. (para)
-msgid ""
-"The auto-completion list shown in the commit message editor displays the "
-"names of files listed for commit. To also include these names with "
-"extensions removed, set this value to <literal>true</literal>."
-msgstr ""
-
-#. (para)
-msgid ""
-"When you merge revisions from another branch, and merge tracking information"
-" is available, the log messages from the revisions you merge will be "
-"collected to make up a commit log message. A pre-defined string is used to "
-"separate the individual log messages of the merged revisions. If you prefer,"
-" you can set this to a value containing a separator string of your choice."
-msgstr ""
-
-#. (para)
-msgid ""
-"TortoiseSVN allows you to assign an external diff viewer. Most such viewers,"
-" however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-"
-"diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
-" do so, set this value to <literal>true</literal>."
-msgstr ""
-
-#. (para)
-msgid ""
-"By default, TortoiseSVN always runs an update with externals included. This "
-"avoids problems with inconsistent working copies. If you have however a lot "
-"of externals set, an update can take quite a while. Set this value to "
-"<literal>false</literal> to run the default update with externals excluded. "
-"To update with externals included, either run the <literal>Update to "
-"revision...</literal> dialog or set this value to <literal>true</literal> "
-"again."
-msgstr ""
-
-#. (para)
-msgid ""
-"In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to "
-"dismiss the dialog as if you clicked on the OK button. If you don't want "
-"this, set this value to <literal>false</literal>."
-msgstr ""
-
-#. (para)
-msgid ""
-"Sometimes multiple users use the same account on the same computer. In such "
-"situations it's not really wanted to save the authentication data. Setting "
-"this value to <literal>false</literal> disables the <literal>save "
-"authentication</literal> button in the authentication dialog."
-msgstr ""
-
 #. (title)
 msgid "Exporting TSVN Settings"
-msgstr ""
+msgstr "TSVN Ayarlarını Dışa Aktarmak"
 
 #. (para)
 msgid ""
@@ -13929,7 +14047,7 @@ msgid ""
 "can specify a custom format which will be used with <placeholder-2/>, for "
 "example: <placeholder-3/>. For a list of available formatting characters, "
 "look at the <ulink url=\"http://msdn.microsoft.com/en-"
-"us/library/fe06s4ak%28v=VS.100%29.aspx\"><placeholder-4/></ulink>."
+"us/library/fe06s4ak.aspx\"><placeholder-4/></ulink>."
 msgstr ""
 
 #. (literal)
@@ -14815,11 +14933,11 @@ msgstr ""
 
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
-msgstr ""
+msgstr "Sık Sorulan Sorular (SSS)"
 
 #. (primary)
 msgid "FAQ"
-msgstr ""
+msgstr "SSS"
 
 #. (para)
 msgid ""
@@ -14920,11 +15038,11 @@ msgstr ""
 
 #. (primary)
 msgid "commit message"
-msgstr ""
+msgstr "teslim mesajı"
 
 #. (primary)
 msgid "empty message"
-msgstr ""
+msgstr "boş mesaj"
 
 #. (para)
 msgid ""
@@ -14966,7 +15084,7 @@ msgstr ""
 
 #. (title)
 msgid "Project properties"
-msgstr ""
+msgstr "Proje özellikleri"
 
 #. (para)
 msgid ""
@@ -15019,11 +15137,11 @@ msgstr ""
 
 #. (primary)
 msgid "undo commit"
-msgstr ""
+msgstr "teslimi geri al"
 
 #. (primary)
 msgid "undo change"
-msgstr ""
+msgstr "değişikliği geri al"
 
 #. (title)
 msgid "Use the revision log dialog"
@@ -15155,15 +15273,15 @@ msgstr ""
 
 #. (primary)
 msgid "compare files"
-msgstr ""
+msgstr "dosyaları karşılaştır"
 
 #. (primary)
 msgid "compare folders"
-msgstr ""
+msgstr "klasörleri karşılaştır"
 
 #. (primary)
 msgid "changes"
-msgstr ""
+msgstr "değişiklikler"
 
 #. (para)
 msgid ""
@@ -15207,7 +15325,7 @@ msgstr ""
 
 #. (primary)
 msgid "common projects"
-msgstr ""
+msgstr "ortak projeler"
 
 #. (primary)
 msgid "vendor projects"
@@ -15309,11 +15427,11 @@ msgstr ""
 
 #. (title)
 msgid "Create a shortcut to a repository"
-msgstr ""
+msgstr "Bir depoya bir kısayol oluştur"
 
 #. (primary)
 msgid "shortcut"
-msgstr ""
+msgstr "kısayol"
 
 #. (para)
 msgid ""
@@ -15324,15 +15442,15 @@ msgstr ""
 
 #. (title)
 msgid "Ignore files which are already versioned"
-msgstr ""
+msgstr "Daha önceden versiyonlanmış dosyaları yoksay"
 
 #. (primary)
 msgid "remove versioning"
-msgstr ""
+msgstr "versiyonlandırmayı kaldır"
 
 #. (primary)
 msgid "detach from repository"
-msgstr ""
+msgstr "depodan sök"
 
 #. (para)
 msgid ""
@@ -15364,7 +15482,7 @@ msgstr ""
 
 #. (title)
 msgid "Unversion a working copy"
-msgstr ""
+msgstr "Çalışan kopyanın versiyonunu kaldır"
 
 #. (para)
 msgid ""
@@ -15376,7 +15494,7 @@ msgstr ""
 
 #. (title)
 msgid "Remove a working copy"
-msgstr ""
+msgstr "Bir çalışan kopyayı kaldır"
 
 #. (para)
 msgid ""
@@ -15388,7 +15506,7 @@ msgstr ""
 
 #. (title)
 msgid "Useful Tips For Administrators"
-msgstr ""
+msgstr "Sistem Yöneticileri İçin Yararlı İpuçları"
 
 #. (para)
 msgid ""
@@ -15403,12 +15521,12 @@ msgstr ""
 #. (primary)
 #. (primary)
 msgid "group policies"
-msgstr ""
+msgstr "grup politikaları"
 
 #. (primary)
 #. (glossterm)
 msgid "GPO"
-msgstr ""
+msgstr "GPO"
 
 #. (primary)
 msgid "msi"
@@ -15454,15 +15572,15 @@ msgstr ""
 
 #. (primary)
 msgid "upgrade check"
-msgstr ""
+msgstr "yükseltme kontrolü"
 
 #. (primary)
 msgid "check new version"
-msgstr ""
+msgstr "yeni versiyon kontrolü"
 
 #. (primary)
 msgid "version"
-msgstr ""
+msgstr "versiyon"
 
 #. (para)
 msgid ""
@@ -15503,11 +15621,11 @@ msgstr ""
 
 #. (primary)
 msgid "VS2003"
-msgstr ""
+msgstr "VS2003"
 
 #. (primary)
 msgid "ASP projects"
-msgstr ""
+msgstr "ASP projeleri"
 
 #. (para)
 msgid ""
@@ -15539,7 +15657,7 @@ msgstr ""
 
 #. (primary)
 msgid "context menu entries"
-msgstr ""
+msgstr "sağ-tık menüsü girdileri"
 
 #. (primary)
 msgid "disable functions"
@@ -15579,7 +15697,7 @@ msgstr ""
 
 #. (entry)
 msgid "Value"
-msgstr ""
+msgstr "Değer"
 
 #. (entry)
 msgid "Menu entry"
@@ -15595,62 +15713,62 @@ msgstr ""
 #. (title)
 #. (glossterm)
 msgid "Update"
-msgstr ""
+msgstr "Güncelle"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Commit"
-msgstr ""
+msgstr "Teslim Et"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Revert"
-msgstr ""
+msgstr "Geri dön"
 
 #. (entry)
 #. (glossterm)
 msgid "Resolve"
-msgstr ""
+msgstr "Çözümle"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Export"
-msgstr ""
+msgstr "Dışa Aktar"
 
 #. (entry)
 msgid "Create Repository here"
-msgstr ""
+msgstr "Burada Depo oluştur"
 
 #. (entry)
 #. (title)
 msgid "Branch/Tag"
-msgstr ""
+msgstr "Dal/Etiket"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Merge"
-msgstr ""
+msgstr "Birleştir"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 #. (entry)
 #. (title)
 msgid "Rename"
-msgstr ""
+msgstr "Yeniden Adlandır"
 
 #. (entry)
 msgid "Update to revision"
@@ -15670,25 +15788,25 @@ msgstr ""
 #. (entry)
 #. (title)
 msgid "Edit Conflicts"
-msgstr ""
+msgstr "Çakışmaları Düzenle"
 
 #. (entry)
 #. (title)
 #. (glossterm)
 msgid "Relocate"
-msgstr ""
+msgstr "Taşı"
 
 #. (entry)
 msgid "Check for modifications"
-msgstr ""
+msgstr "Değişiklikleri kontrol et"
 
 #. (entry)
 msgid "Ignore"
-msgstr ""
+msgstr "Yoksay"
 
 #. (entry)
 msgid "Repository Browser"
-msgstr ""
+msgstr "Depo Tarayıcısı"
 
 #. (entry)
 #. (title)
@@ -15699,12 +15817,12 @@ msgstr ""
 #. (entry)
 #. (title)
 msgid "Create Patch"
-msgstr ""
+msgstr "Yama Oluştur"
 
 #. (entry)
 #. (title)
 msgid "Apply Patch"
-msgstr ""
+msgstr "Yamayı Uygula"
 
 #. (entry)
 msgid "Revision graph"
@@ -15713,15 +15831,15 @@ msgstr ""
 #. (entry)
 #. (glossterm)
 msgid "Lock"
-msgstr ""
+msgstr "Kilitle"
 
 #. (entry)
 msgid "Remove Lock"
-msgstr ""
+msgstr "Kilidi Kaldır"
 
 #. (entry)
 msgid "Properties"
-msgstr ""
+msgstr "Özellikler"
 
 #. (entry)
 msgid "Diff with URL"
@@ -15733,7 +15851,7 @@ msgstr ""
 
 #. (entry)
 msgid "Merge All"
-msgstr ""
+msgstr "Tümünü Birleştir"
 
 #. (entry)
 msgid "Diff with previous version"
@@ -15741,23 +15859,23 @@ msgstr ""
 
 #. (entry)
 msgid "Paste"
-msgstr ""
+msgstr "Yapıştır"
 
 #. (entry)
 msgid "Upgrade working copy"
-msgstr ""
+msgstr "Çalışan kopyayı yükselt"
 
 #. (entry)
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 #. (entry)
 msgid "Help"
-msgstr ""
+msgstr "Yardım"
 
 #. (entry)
 msgid "About"
-msgstr ""
+msgstr "Hakkında"
 
 #. (para)
 msgid ""
@@ -15795,18 +15913,18 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "TortoiseSVN Commands"
-msgstr ""
+msgstr "TortoiseSVN Komutları"
 
 #. (primary)
 #. (primary)
 #. (primary)
 msgid "automation"
-msgstr ""
+msgstr "otomasyon"
 
 #. (primary)
 #. (primary)
 msgid "command line"
-msgstr ""
+msgstr "komut satırı"
 
 #. (para)
 msgid ""
@@ -15896,11 +16014,11 @@ msgstr ""
 
 #. (title)
 msgid "List of available commands and options"
-msgstr ""
+msgstr "Komut ve seçenek listesi"
 
 #. (entry)
 msgid "Command"
-msgstr ""
+msgstr "Komut"
 
 #. (entry)
 msgid "Shows the about dialog. This is also shown if no command is given."
@@ -16246,7 +16364,7 @@ msgstr ""
 
 #. (entry)
 msgid "Opens the settings dialog."
-msgstr ""
+msgstr "Ayarlar diyalogunu açar."
 
 #. (entry)
 msgid "Removes the file(s) in <placeholder-1/> from version control."
@@ -16316,7 +16434,7 @@ msgstr ""
 
 #. (entry)
 msgid "Opens the help file."
-msgstr ""
+msgstr "Yardım dosyasını açar."
 
 #. (option)
 msgid "/remote"
@@ -16324,7 +16442,7 @@ msgstr ""
 
 #. (guilabel)
 msgid "Check repository"
-msgstr ""
+msgstr "Depoyu kontrol et"
 
 #. (entry)
 msgid ""
@@ -16365,7 +16483,7 @@ msgstr ""
 
 #. (literal)
 msgid "svn:ignore"
-msgstr ""
+msgstr "svn:ignore"
 
 #. (entry)
 msgid ""
@@ -16569,7 +16687,7 @@ msgstr ""
 
 #. (entry)
 msgid "Option"
-msgstr ""
+msgstr "Seçenek"
 
 #. (entry)
 msgid "Path to the file shown on the left."
@@ -16598,7 +16716,7 @@ msgstr ""
 
 #. (entry)
 msgid "Shows the image info box."
-msgstr ""
+msgstr "Görsel bilgi kutusunu göster."
 
 #. (para)
 msgid ""
@@ -16615,11 +16733,11 @@ msgstr ""
 
 #. (primary)
 msgid "command line client"
-msgstr ""
+msgstr "komut satırı istemcisi"
 
 #. (primary)
 msgid "CLI"
-msgstr ""
+msgstr "CLI"
 
 #. (para)
 msgid ""
@@ -16728,7 +16846,7 @@ msgstr ""
 
 #. (title)
 msgid "Update to Revision"
-msgstr ""
+msgstr "Revizyona Güncelle"
 
 #. (screen)
 #, no-wrap
@@ -16892,7 +17010,7 @@ msgstr ""
 
 #. (title)
 msgid "Repo Browser"
-msgstr ""
+msgstr "Depo Tarayıcısı"
 
 #. (screen)
 #, no-wrap
@@ -16925,7 +17043,7 @@ msgstr ""
 
 #. (title)
 msgid "Resolved"
-msgstr ""
+msgstr "Çözümlendi"
 
 #. (screen)
 #, no-wrap
@@ -16980,7 +17098,7 @@ msgstr ""
 
 #. (title)
 msgid "Get Lock"
-msgstr ""
+msgstr "Kiliti elde et"
 
 #. (para)
 msgid ""
@@ -17010,7 +17128,7 @@ msgstr ""
 
 #. (title)
 msgid "Release Lock"
-msgstr ""
+msgstr "Kilidi Bırak"
 
 #. (screen)
 #, no-wrap
@@ -17116,7 +17234,7 @@ msgstr ""
 
 #. (title)
 msgid "Create Repository Here"
-msgstr ""
+msgstr "Burada Depo Oluştur"
 
 #. (screen)
 #, no-wrap
@@ -17155,7 +17273,7 @@ msgstr ""
 
 #. (title)
 msgid "Add to Ignore List"
-msgstr ""
+msgstr "Aldırmama Listesine Ekle"
 
 #. (screen)
 #, no-wrap
@@ -17388,15 +17506,15 @@ msgstr ""
 
 #. (title)
 msgid "Language Packs"
-msgstr ""
+msgstr "Dil Paketleri"
 
 #. (primary)
 msgid "language packs"
-msgstr ""
+msgstr "dil paketleri"
 
 #. (primary)
 msgid "translations"
-msgstr ""
+msgstr "çeviriler"
 
 #. (para)
 msgid ""
@@ -17425,15 +17543,15 @@ msgstr ""
 
 #. (title)
 msgid "Spellchecker"
-msgstr ""
+msgstr "Yazım Denetleyicisi"
 
 #. (primary)
 msgid "spellchecker"
-msgstr ""
+msgstr "yazım denetleyicisi"
 
 #. (primary)
 msgid "dictionary"
-msgstr ""
+msgstr "sözlük"
 
 #. (para)
 msgid ""
@@ -17528,7 +17646,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "BASE revision"
-msgstr ""
+msgstr "TABAN revizyonu"
 
 #. (para)
 msgid ""
@@ -17559,7 +17677,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Branch"
-msgstr ""
+msgstr "Dal"
 
 #. (para)
 msgid ""
@@ -17596,7 +17714,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Conflict"
-msgstr ""
+msgstr "Çakışma"
 
 #. (para)
 msgid ""
@@ -17609,7 +17727,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Copy"
-msgstr ""
+msgstr "Kopyala"
 
 #. (para)
 msgid ""
@@ -17657,7 +17775,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "HEAD revision"
-msgstr ""
+msgstr "BAŞ revizyon"
 
 #. (para)
 msgid ""
@@ -17690,7 +17808,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "History"
-msgstr ""
+msgstr "Tarihçe"
 
 #. (para)
 msgid ""
@@ -17715,7 +17833,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Patch"
-msgstr ""
+msgstr "Yama"
 
 #. (para)
 msgid ""
@@ -17731,7 +17849,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Property"
-msgstr ""
+msgstr "Özellik"
 
 #. (para)
 msgid ""
@@ -17762,7 +17880,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Repository"
-msgstr ""
+msgstr "Depo"
 
 #. (para)
 msgid ""
@@ -17791,7 +17909,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Revision"
-msgstr ""
+msgstr "Revizyon"
 
 #. (para)
 msgid ""
@@ -17823,7 +17941,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "SVN"
-msgstr ""
+msgstr "SVN"
 
 #. (para)
 msgid "A frequently-used abbreviation for Subversion."
@@ -17873,7 +17991,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseMerge"
-msgstr ""
+msgstr "TortoiseMerge"
 
 #. (subtitle)
 msgid "A diff/merge tool for Windows"
@@ -17890,11 +18008,11 @@ msgstr ""
 
 #. (para)
 msgid "Reviewing patches"
-msgstr ""
+msgstr "Yamaları incelemek"
 
 #. (para)
 msgid "Applying the patches"
-msgstr ""
+msgstr "Yamaları uygulamak"
 
 #. (para)
 msgid "TortoiseMerge helps you with both those tasks: <placeholder-1/>"
@@ -17909,7 +18027,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseMerge is free!"
-msgstr ""
+msgstr "TortoiseMerge bedavadır!"
 
 #. (para)
 msgid ""
@@ -17946,7 +18064,7 @@ msgstr ""
 
 #. (title)
 msgid "Introduction"
-msgstr ""
+msgstr "Giriş"
 
 #. (title)
 msgid "Overview"
@@ -17986,7 +18104,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "File Conflict"
-msgstr ""
+msgstr "Dosya Çakışması"
 
 #. (para)
 msgid ""
@@ -18008,7 +18126,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseMerge's History"
-msgstr ""
+msgstr "TortoiseMerge Tarihçesi"
 
 #. (para)
 msgid ""
@@ -18068,7 +18186,7 @@ msgstr ""
 
 #. (title)
 msgid "Viewing and Merging Differences"
-msgstr ""
+msgstr "Farkları Görüntülemek ve Birleştirmek"
 
 #. (para)
 msgid ""
@@ -18107,7 +18225,7 @@ msgstr ""
 
 #. (title)
 msgid "Editing Conflicts"
-msgstr ""
+msgstr "Çakışmaları Düzenlemek"
 
 #. (para)
 msgid ""
@@ -18142,7 +18260,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Applying Patches"
-msgstr ""
+msgstr "Yamaları Uygulamak"
 
 #. (para)
 msgid ""
@@ -18172,11 +18290,11 @@ msgstr ""
 
 #. (title)
 msgid "Using TortoiseMerge"
-msgstr ""
+msgstr "TortoiseMerge Kullanımı"
 
 #. (title)
 msgid "Viewing Modes"
-msgstr ""
+msgstr "Görüntüleme Modları"
 
 #. (para)
 msgid ""
@@ -18188,7 +18306,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Viewing / Merging"
-msgstr ""
+msgstr "Görüntülemek / Birleştirmek"
 
 #. (title)
 msgid "One Pane View"
@@ -18263,7 +18381,7 @@ msgstr ""
 
 #. (title)
 msgid "Patch File List"
-msgstr ""
+msgstr "Yama Dosyası Listesi"
 
 #. (para)
 msgid ""
@@ -18306,11 +18424,11 @@ msgstr ""
 
 #. (title)
 msgid "Buttons and Other Controls"
-msgstr ""
+msgstr "Düğmeler ve Diğer Kontroller"
 
 #. (title)
 msgid "The Toolbar"
-msgstr ""
+msgstr "Araç Çubuğu"
 
 #. (para)
 msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
@@ -18510,7 +18628,7 @@ msgstr ""
 
 #. (title)
 msgid "Line Status Icons"
-msgstr ""
+msgstr "Satır Durumu Simgeleri"
 
 #. (para)
 msgid ""
@@ -18562,7 +18680,7 @@ msgstr ""
 
 #. (title)
 msgid "Merging / Editing Conflicts"
-msgstr ""
+msgstr "Çakışmaları Birleştirmek / Düzenlemek"
 
 #. (para)
 msgid ""
@@ -18703,11 +18821,11 @@ msgstr ""
 
 #. (title)
 msgid "Main Settings Page"
-msgstr ""
+msgstr "Ana Ayarlar Sayfası"
 
 #. (title)
 msgid "The Settings Main Page"
-msgstr ""
+msgstr "Ayarlar Ana Sayfası"
 
 #. (para)
 msgid ""
@@ -18766,7 +18884,7 @@ msgstr ""
 
 #. (title)
 msgid "Colour Settings Page"
-msgstr ""
+msgstr "Renk Ayarları Sayfası"
 
 #. (title)
 msgid "The Settings Color Page"
@@ -18780,7 +18898,7 @@ msgstr ""
 
 #. (term)
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #. (listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
@@ -18788,7 +18906,7 @@ msgstr ""
 
 #. (term)
 msgid "Added"
-msgstr ""
+msgstr "Eklendi"
 
 #. (listitem)
 msgid "Lines which have been added."
@@ -18796,15 +18914,15 @@ msgstr ""
 
 #. (term)
 msgid "Removed"
-msgstr ""
+msgstr "Kaldırıldı"
 
 #. (listitem)
 msgid "Lines which have been deleted."
-msgstr ""
+msgstr "Silinmiş satırlar."
 
 #. (term)
 msgid "Modified"
-msgstr ""
+msgstr "Değiştirildi"
 
 #. (emphasis)
 msgid "unchanged"
@@ -18833,7 +18951,7 @@ msgstr ""
 
 #. (term)
 msgid "Conflict resolved"
-msgstr ""
+msgstr "Çakışma çözümlendi."
 
 #. (listitem)
 msgid ""
@@ -18843,7 +18961,7 @@ msgstr ""
 
 #. (term)
 msgid "Empty"
-msgstr ""
+msgstr "Boş"
 
 #. (listitem)
 msgid ""
@@ -18879,23 +18997,23 @@ msgstr ""
 
 #. (title)
 msgid "keyboard shortcuts"
-msgstr ""
+msgstr "klavye kısayolları"
 
 #. (para)
 msgid "List of keyboard shortcuts and commands."
-msgstr ""
+msgstr "Klavye kısayolları ve komut listesi."
 
 #. (title)
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Klavye kısayolları"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
-msgstr ""
+msgstr "Ctrl-Q, Ctrl-W, Escape"
 
 #. (para)
 msgid "Quit the program"
-msgstr ""
+msgstr "Programdan Çıkış"
 
 #. (para)
 msgid "Copy the selected text to the clipboard"
@@ -18903,7 +19021,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-X, Shift-Del"
-msgstr ""
+msgstr "Ctrl-X, Shift-Del"
 
 #. (para)
 msgid "Cut the selected text to the clipboard"
@@ -18911,7 +19029,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-V, Shift-Insert"
-msgstr ""
+msgstr "Ctrl-V, Shift-Insert"
 
 #. (para)
 msgid "Paste the selected text from the clipboard"
@@ -18919,15 +19037,15 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-Z, Alt-Backspace"
-msgstr ""
+msgstr "Ctrl-Z, Alt-Backspace"
 
 #. (para)
 msgid "Undo the last edits"
-msgstr ""
+msgstr "Son düzenlemeleri geri al"
 
 #. (term)
 msgid "Ctrl-F"
-msgstr ""
+msgstr "Ctrl-F"
 
 #. (para)
 msgid "Open the Find dialog for text searches"
@@ -18935,7 +19053,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-O"
-msgstr ""
+msgstr "Ctrl-O"
 
 #. (para)
 msgid "Open files to diff/merge"
@@ -18943,55 +19061,55 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-S"
-msgstr ""
+msgstr "Ctrl-S"
 
 #. (para)
 msgid "Save the changes"
-msgstr ""
+msgstr "Değişiklikleri kaydet"
 
 #. (term)
 msgid "Ctrl-Shift-S"
-msgstr ""
+msgstr "Ctrl-Shift-S"
 
 #. (para)
 msgid "Save as..."
-msgstr ""
+msgstr "Farklı Kaydet..."
 
 #. (term)
 msgid "F7"
-msgstr ""
+msgstr "F7"
 
 #. (para)
 msgid "Go to next difference"
-msgstr ""
+msgstr "Bir sonraki farka git"
 
 #. (term)
 msgid "Shift-F7"
-msgstr ""
+msgstr "Shift-F7"
 
 #. (para)
 msgid "Go to previous difference"
-msgstr ""
+msgstr "Bir önceki farka git"
 
 #. (term)
 msgid "F8"
-msgstr ""
+msgstr "F8"
 
 #. (para)
 msgid "Go to next conflict"
-msgstr ""
+msgstr "Bir sonraki çakışmaya git"
 
 #. (term)
 msgid "Shift-F8"
-msgstr ""
+msgstr "Shift-F8"
 
 #. (para)
 msgid "Go to previous conflict"
-msgstr ""
+msgstr "Bir önceki çakışmaya git"
 
 #. (term)
 msgid "Ctrl-D"
-msgstr ""
+msgstr "Ctrl-D"
 
 #. (para)
 msgid "Toggle between one-pane diff and two-pane diff"
@@ -18999,7 +19117,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-R"
-msgstr ""
+msgstr "Ctrl-R"
 
 #. (para)
 msgid "Reload the files and revert all changes made"
@@ -19007,7 +19125,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-T"
-msgstr ""
+msgstr "Ctrl-T"
 
 #. (para)
 msgid "Toggles between showing whitespaces or not"
@@ -19015,7 +19133,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-L"
-msgstr ""
+msgstr "Ctrl-L"
 
 #. (para)
 msgid "Toggles between collapsing unchanged sections or not"
@@ -19023,7 +19141,7 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-P"
-msgstr ""
+msgstr "Ctrl-P"
 
 #. (para)
 msgid "Toggles between line wrapping"
@@ -19062,7 +19180,7 @@ msgstr ""
 
 #. (title)
 msgid "List of available command line options"
-msgstr ""
+msgstr "Komut satırı seçenekleri listesi"
 
 #. (entry)
 msgid "Shows a dialog box with the most important command line switches."
@@ -19074,7 +19192,7 @@ msgstr ""
 
 #. (emphasis)
 msgid "base"
-msgstr ""
+msgstr "taban"
 
 #. (entry)
 msgid ""
@@ -19091,7 +19209,7 @@ msgstr ""
 
 #. (emphasis)
 msgid "theirs"
-msgstr ""
+msgstr "onların"
 
 #. (entry)
 msgid ""
@@ -19107,7 +19225,7 @@ msgstr ""
 
 #. (emphasis)
 msgid "mine"
-msgstr ""
+msgstr "benim"
 
 #. (entry)
 msgid ""
@@ -19141,7 +19259,7 @@ msgstr ""
 
 #. (emphasis)
 msgid "very long"
-msgstr ""
+msgstr "çok uzun"
 
 #. (entry)
 msgid ""

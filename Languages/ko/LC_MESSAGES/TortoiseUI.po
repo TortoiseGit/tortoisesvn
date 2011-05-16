@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"Last-Translator: fly1004 <fly1004@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,8 +102,8 @@ msgstr "%1!ld! 분, %2!ld! 초"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (오프라인) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -320,6 +320,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
+"%s\n"
+"어쨌든 '%s' 파일을 삭제하시겠습니까?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -1755,10 +1757,6 @@ msgstr "'%s' 를 사전에 추가"
 msgid "Add (as replacement)..."
 msgstr "추가 (바꾸기)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "추가 - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "속성 추가"
@@ -1776,6 +1774,8 @@ msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"아이템 추가\n"
+"이것은 윈도우에서 문제를 일으킬 것입니다."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -1858,6 +1858,8 @@ msgid ""
 "Adjust case\n"
 "The file is not added."
 msgstr ""
+"대소문자 조정\n"
+"파일이 추가되지 않았습니다."
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1909,7 +1911,7 @@ msgstr "모든 파일 (*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
-msgstr ""
+msgstr "마지막 업데이트 후의 모든 변경사항을 잃을 것입니다!"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2413,24 +2415,32 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"취소\n"
+"태그에 커밋하지 않습니다."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "Do not remove"
 msgstr ""
+"취소\n"
+"제거하지 않습니다."
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"취소\n"
+"되돌리지 않습니다."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Do not update the working copy."
 msgstr ""
+"취소\n"
+"작업사본을 업데이트하지 않습니다."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2455,18 +2465,24 @@ msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"취소\n"
+"뒤돌아가서 이슈 번호를 입력합니다."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Go back and select a different folder."
 msgstr ""
+"취소\n"
+"돌아가서 다른 폴더를 선택합니다."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"취소\n"
+"다른 경로/URL을 입력할 것입니다."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2479,6 +2495,8 @@ msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"취소\n"
+"현재 URL을 유지합니다."
 
 #. Resource IDs: (314)
 msgid ""
@@ -2491,6 +2509,8 @@ msgid ""
 "Cancel\n"
 "Leave all changes."
 msgstr ""
+"취소\n"
+"모든 변경사항을 남겨둡니다."
 
 #. Resource IDs: (199)
 msgid ""
@@ -2521,24 +2541,32 @@ msgid ""
 "Cancel\n"
 "The file is not copied."
 msgstr ""
+"취소\n"
+"파일이 복사되지 않았습니다."
 
 #. Resource IDs: (91)
 msgid ""
 "Cancel\n"
 "The folder is not exported."
 msgstr ""
+"취소\n"
+"폴더가 익스포트되지 않았습니다."
 
 #. Resource IDs: (105)
 msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"취소\n"
+"아이템들이 임포트되지 않았습니다."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"취소\n"
+"아이템들이 이동되지 않았습니다."
 
 #. Resource IDs: (589)
 msgid ""
@@ -2557,12 +2585,16 @@ msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"취소\n"
+"수동으로 폴더를 추가해야만 합니다."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"취소\n"
+"현재 형식을 유지합니다."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2753,10 +2785,6 @@ msgstr "체크아웃"
 msgid "Checkout &directory:"
 msgstr "체크아웃 받을 디렉토리(&D):"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "체크아웃 - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "체크아웃 깊이(&E)"
@@ -2771,6 +2799,8 @@ msgid ""
 "Checkout\n"
 "Checkout into the non empty folder."
 msgstr ""
+"체크아웃\n"
+"비어있지 않은 폴더로 체크아웃"
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -2994,10 +3024,6 @@ msgstr "명령들"
 msgid "Commit"
 msgstr "커밋"
 
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "커밋 - TortoiseSVN"
-
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
 msgstr "커밋 실패 - 업데이트가 필요함"
@@ -3007,6 +3033,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"폴더만 커밋합니다\n"
+"폴더내의 파일들은 커밋되지 않을 것입니다."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3021,6 +3049,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"커밋\n"
+"대상에 변경사항을 커밋."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -3063,7 +3093,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "태그에 커밋"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3151,7 +3181,7 @@ msgstr "GNU diff 파일 (패치 파일) 보기 프로그램을 설정합니다."
 
 #. Resource IDs: (147)
 msgid "Confirm revert"
-msgstr ""
+msgstr "되돌리기 확인"
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3254,10 +3284,6 @@ msgstr "%s을(를) %s(으)로 복사, 리비전: %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "복사하기 (브랜치/태그 만들기)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "복사 - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -3694,7 +3720,7 @@ msgstr "삭제"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
-msgstr ""
+msgstr "저장소 캐시 삭제"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -3723,12 +3749,16 @@ msgid ""
 "Delete\n"
 "Remove the cache files."
 msgstr ""
+"삭제\n"
+"캐시 파일 삭제"
 
 #. Resource IDs: (314)
 msgid ""
 "Delete\n"
 "The file is removed."
 msgstr ""
+"삭제\n"
+"파일이 삭제되었습니다."
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3931,7 +3961,7 @@ msgstr ""
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
-msgstr ""
+msgstr "모든 선택된 아이템에 대해서 수행"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -4012,7 +4042,7 @@ msgstr "%s 속성을 하위 디렉토리에서도 삭제하시겠습니까?"
 #. Resource IDs: (147)
 #, c-format
 msgid "Do you want to revert '%s'?"
-msgstr ""
+msgstr "'%s'를 되돌리시겠습니까?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4478,10 +4508,6 @@ msgstr "익스포트"
 msgid "Export &directory:"
 msgstr "디렉토리 익스포트(&D):"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "익스포트 - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "디렉토리 익스포트:"
@@ -4500,6 +4526,8 @@ msgid ""
 "Export\n"
 "Export into the non-empty folder."
 msgstr ""
+"익스포트\n"
+"비어있지 않은 폴더로 익스포트."
 
 #. Resource IDs: (284)
 #, c-format
@@ -4512,7 +4540,7 @@ msgstr "익스포트 중..."
 
 #. Resource IDs: (90)
 msgid "Exporting: Target folder exists."
-msgstr ""
+msgstr "익스포팅: 대상 폴더가 존재합니다."
 
 #. Resource IDs: (10)
 msgid ""
@@ -4651,7 +4679,7 @@ msgstr "파일"
 
 #. Resource IDs: (90)
 msgid "File already exists"
-msgstr ""
+msgstr "파일이 이미 존재합니다."
 
 #. Resource IDs: (247)
 #, c-format
@@ -4672,7 +4700,7 @@ msgstr "파일 비교"
 
 #. Resource IDs: (314)
 msgid "File is empty."
-msgstr ""
+msgstr "파일이 비어있습니다."
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -4904,7 +4932,7 @@ msgstr "강제로"
 
 #. Resource IDs: (147)
 msgid "Force removal"
-msgstr ""
+msgstr "강제 삭제"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5648,10 +5676,6 @@ msgstr "%s 을(를) %s%s(으)로 임포트함"
 msgid "Import &message"
 msgstr "임포트 메시지(&M)"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "임포트 - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "파일에서 이전에 저장된 속성값들을 가져옵니다."
@@ -6126,7 +6150,7 @@ msgstr "%s에 의해 잠겼습니다."
 
 #. Resource IDs: (93)
 msgid "Locking failed"
-msgstr ""
+msgstr "잠금 실패"
 
 #. Resource IDs: (89)
 msgid ""
@@ -6300,10 +6324,6 @@ msgstr "병합"
 msgid "Merge &depth:"
 msgstr "병합 깊이(&D):"
 
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "병합 - TortoiseSVN"
-
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
 msgstr "재통합 병합"
@@ -6318,7 +6338,7 @@ msgstr "전체 병합"
 
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
-msgstr ""
+msgstr "작업사본에 변경사항 병합"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -6591,6 +6611,8 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr ""
+"이동\n"
+"아이템들이 대상 경로로 이동되었습니다."
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6847,7 +6869,7 @@ msgstr "하위에 적용하지 않음"
 
 #. Resource IDs: (265)
 msgid "Not under version control"
-msgstr ""
+msgstr "버전관리되지 않는"
 
 #. Resource IDs: (3887)
 msgid ""
@@ -7070,6 +7092,8 @@ msgid ""
 "Open files\n"
 "Open files for diff"
 msgstr ""
+"파일 열기\n"
+"차이점을 보기위해 파일 열기"
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7152,6 +7176,8 @@ msgid ""
 "Overwrite\n"
 "Replace the target folder."
 msgstr ""
+"덮어쓰기\n"
+"대상 폴더를 교체합니다."
 
 #. Resource IDs: (147)
 msgid ""
@@ -7634,6 +7660,8 @@ msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
+"종료\n"
+"수정사항을 저장하지 않고 TortoiseMerge 종료"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -8065,8 +8093,8 @@ msgstr ""
 "%2!s!(으)로 아이템 이름 변경"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "이름 변경/이동 - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8163,10 +8191,6 @@ msgstr "열 리셋하기"
 msgid "Resolve"
 msgstr "충돌 해결됨"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "해결 상태로 변경 - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "충돌 상황 해결"
@@ -8249,10 +8273,6 @@ msgstr "%ld 역방향 병합"
 msgid "Revert"
 msgstr "되돌림"
 
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "되돌리기 - TortoiseSVN"
-
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "기본 설정으로 되돌립니다. 경험이 없는 사용자에게 추천됩니다."
@@ -8268,6 +8288,8 @@ msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
 msgstr ""
+"되돌리기\n"
+"변경사항이 작업사본에 적용될 것 입니다."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -8275,7 +8297,7 @@ msgstr "되돌림"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
-msgstr ""
+msgstr "변경사항 되돌리기"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8561,7 +8583,7 @@ msgstr "Git 형식으로 저장"
 
 #. Resource IDs: (314)
 msgid "Save modifications."
-msgstr ""
+msgstr "수정사항 저장"
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -9192,11 +9214,11 @@ msgstr "압축되지 않았을 때의 캐시의 사이즈"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "생략"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "모두 생략"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -9212,7 +9234,7 @@ msgstr ""
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr ""
+msgstr "생략됨. 버전관리되는 부모가 없음."
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9496,14 +9518,14 @@ msgstr "Subversion 서버 파일:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "작업 사본을 새로운 브랜치/태그로 전환(&C)"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "%s에서 %s(으)로 변경, 리비전 %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "전환 - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -10121,7 +10143,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "대상이 지역적으로 수정되었습니다."
 
 #. Resource IDs: (279)
 #, c-format
@@ -10836,10 +10858,6 @@ msgstr "상위 폴더로 이동"
 msgid "Update"
 msgstr "업데이트"
 
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "업데이트 - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "업데이트 깊이"
@@ -10897,7 +10915,7 @@ msgstr "로그 캐시 업데이트 중"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
-msgstr ""
+msgstr "작업 사본을 새로운 1.7 형식으로 업그레이드 합니다."
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
@@ -11431,7 +11449,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "이슈 번호를 입력하지 않았습니다."
 
 #. Resource IDs: (1002)
 #, c-format
@@ -11452,7 +11470,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr ""
+msgstr "커밋하기 위해서 버전관리되지 않는 폴더를 선택했습니다!"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"

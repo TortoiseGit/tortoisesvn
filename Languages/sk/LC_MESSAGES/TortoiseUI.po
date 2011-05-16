@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: otik <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,8 +103,8 @@ msgstr "%1!ld! min %2!ld! s"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (odpojené) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1774,10 +1774,6 @@ msgstr "Pridať '%s' do slovníka"
 msgid "Add (as replacement)..."
 msgstr "Pridať (ako náhradu)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Pridať - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Pridaj vlastnosť"
@@ -2850,10 +2846,6 @@ msgstr "Získať"
 msgid "Checkout &directory:"
 msgstr "Získať &adresár:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Získať - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "&Hĺbka adresárov pre získanie"
@@ -3098,10 +3090,6 @@ msgstr "Príkazy"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Odovzdať"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Odovzdať - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3365,10 +3353,6 @@ msgstr "Kopírovať %s do %s, Revízia %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Kopíruj (Vetvu / značku)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Kopírovať - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -3939,7 +3923,7 @@ msgstr "Veľkosť a poloha dialógových okien"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr ""
+msgstr "Možnosti porovnania"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4609,10 +4593,6 @@ msgstr "Exportovať"
 #. Resource IDs: (1074)
 msgid "Export &directory:"
 msgstr "Exportovať &adresár"
-
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Exportovať - TortoiseSVN"
 
 #. Resource IDs: (94)
 msgid "Export directory:"
@@ -5690,7 +5670,7 @@ msgstr "Ignorovať %d objekty podľa &prípony"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Ignorovať zmeny ukončení &riadkov"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5730,7 +5710,7 @@ msgstr "Ignorovať konce riadkov"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "Ognorovať zmeny &bielych znakov"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5801,10 +5781,6 @@ msgstr "Importovať %s do %s%s"
 #. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "Importovať &správu"
-
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Importovať - TortoiseSVN"
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -6464,10 +6440,6 @@ msgstr "Spájať"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&Hĺbka spájania:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Zlúčiť - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -7142,7 +7114,7 @@ msgstr "Počet týždňov:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "&Možnosti"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -8282,8 +8254,8 @@ msgstr ""
 "na %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Premenovať/presunúť - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8382,10 +8354,6 @@ msgstr "Prednastaviť stĺpce"
 msgid "Resolve"
 msgstr "Vyriešiť"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Vyriešiť - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Vyriešiť konflikt"
@@ -8469,10 +8437,6 @@ msgstr "Spätné zlučovanie %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Vrátiť"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Vrátiť - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8769,7 +8733,9 @@ msgstr "Uložiť ako..."
 msgid ""
 "Save as\n"
 "You're asked where to save the file"
-msgstr "Uložiť ako\n"
+msgstr ""
+"Uložiť ako\n"
+"Budete opýtaný kam súbor uložiť\n"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -9760,14 +9726,14 @@ msgstr "Súbor Subversion servera:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "&Prepnúť pracovnú kópiu na novú vetvu/značku"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Prepnúť %s na %s, Revízia %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Prepnúť - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -11116,7 +11082,7 @@ msgstr "Odverziovať a pridať do zoznamu &ignorovaných"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "Odverziovať pracovnú kópiu"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -11138,10 +11104,6 @@ msgstr "O adresár vyššie"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Aktualizácia"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Aktualizovať - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

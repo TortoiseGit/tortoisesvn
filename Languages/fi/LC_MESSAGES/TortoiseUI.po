@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,8 +103,8 @@ msgstr "%1!ld! minuuttia, %2!ld! sekuntia"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (yhteydetön) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -337,6 +337,9 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"Kansio %s\n"
+"sisältää versioimattomia ja/tai muuttuneita tiedostoja.  Haluatko silti poistaa sen?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -1724,12 +1727,16 @@ msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
 msgstr ""
+"Hyväksy sertifikaatti pysyvästi\n"
+"Tästä sertifikaatista ei kysytä enää uudelleen."
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
+"Hyväksytkö sertifikaatin?\n"
+"Sertifikaatti hyväksytään vain tämän yhden kerran."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1781,10 +1788,6 @@ msgstr "Lisää '%s' sanakirjaan"
 #. Resource IDs: (16)
 msgid "Add (as replacement)..."
 msgstr "Lisää (korvauksena)..."
-
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Lisää - TortoiseSVN"
 
 #. Resource IDs: (563)
 msgid "Add Properties"
@@ -2099,6 +2102,7 @@ msgstr "Käytä paikkatiedosto..."
 #. Resource IDs: (1562)
 msgid "Apply local modifications to svn:externals when updating"
 msgstr ""
+"Sovita paikalliset muutokset svn:externals -viitteisiin päivitettäessä"
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
@@ -2456,6 +2460,8 @@ msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"Peruuta\n"
+"Valitse toinen vientikansio"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2494,6 +2500,8 @@ msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr ""
+"Peruuta\n"
+"Älä poistu TortoiseMergestä"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2508,6 +2516,8 @@ msgid ""
 "Cancel\n"
 "Don't switch the views"
 msgstr ""
+"Peruuta\n"
+"Älä vaihda näkymiä"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2538,6 +2548,8 @@ msgid ""
 "Cancel\n"
 "Ignore the outside changes."
 msgstr ""
+"Peruuta\n"
+"Ohita ulkopuoliset muutokset."
 
 #. Resource IDs: (89)
 msgid ""
@@ -2552,6 +2564,8 @@ msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr ""
+"Peruuta\n"
+"Säilytä tyhjä tiedosto."
 
 #. Resource IDs: (148)
 msgid ""
@@ -2566,18 +2580,24 @@ msgid ""
 "Cancel\n"
 "Leave the cache on disk."
 msgstr ""
+"Peruuta\n"
+"Jätä välimuisti levylle."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr ""
+"Peruuta\n"
+"Ratko ensin ristiriidat."
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
 msgstr ""
+"Peruuta\n"
+"Ristiriitaa ei ole ratkaistu."
 
 #. Resource IDs: (90)
 msgid ""
@@ -2624,6 +2644,8 @@ msgid ""
 "Cancel\n"
 "The property is not removed."
 msgstr ""
+"Peruuta\n"
+"Ominaisuutta ei poisteta."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2695,7 +2717,7 @@ msgstr "Sertifikaatti ei ole vielä voimassa. Voimassa alkaen: %s"
 
 #. Resource IDs: (148)
 msgid "Certificate validation failed"
-msgstr ""
+msgstr "Sertifikaatin varmennus epäonnistui"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -2843,10 +2865,6 @@ msgstr "Hae työkopio"
 #. Resource IDs: (1074)
 msgid "Checkout &directory:"
 msgstr "&Työhakemisto:"
-
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Hae työkopio - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
@@ -3093,10 +3111,6 @@ msgstr "Komennot"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Toimita"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Toimita - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3365,10 +3379,6 @@ msgstr "Kopioi polku %s paikkaan %s, versio %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Kopioi (haara / merkitty versio)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Kopioi - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -3809,7 +3819,7 @@ msgstr "Poista"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
-msgstr ""
+msgstr "Poista arkistovälimuisti"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -3838,12 +3848,16 @@ msgid ""
 "Delete\n"
 "Remove the cache files."
 msgstr ""
+"Poista\n"
+"Poista välimuistitiedostot."
 
 #. Resource IDs: (314)
 msgid ""
 "Delete\n"
 "The file is removed."
 msgstr ""
+"Poista\n"
+"Tiedosto poistetaan."
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3934,7 +3948,7 @@ msgstr "Ikkunoiden koot ja paikat"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr ""
+msgstr "Vertailuasetukset"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4050,7 +4064,7 @@ msgstr "Tee tämä kaikille jäljellä oleville tiedostoille"
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
-msgstr ""
+msgstr "Tee tämä kaikille valituille tiedostoille"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -4058,7 +4072,7 @@ msgstr "Tee tämä kaikille valituille versioimattomille kansioille"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
-msgstr ""
+msgstr "Tee tämä kaikille versioimattomille/muutetuille tiedostoille"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4200,6 +4214,8 @@ msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
 msgstr ""
+"Älä talleta\n"
+"Avaa näkymät uudelleen tallettamatta muutoksia"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4608,10 +4624,6 @@ msgstr "Vie"
 msgid "Export &directory:"
 msgstr "&Vientihakemisto:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Vie - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Vientihakemisto:"
@@ -4797,7 +4809,7 @@ msgstr "Tiedostomuutoksia per viikko:"
 
 #. Resource IDs: (226)
 msgid "File contains conflict markers"
-msgstr ""
+msgstr "Tiedosto sisältää ristiriitamerkintöjä"
 
 #. Resource IDs: (376)
 msgid "File diffs"
@@ -4805,7 +4817,7 @@ msgstr "Tiedostoerot"
 
 #. Resource IDs: (314)
 msgid "File is empty."
-msgstr ""
+msgstr "Tiedosto on tyhjä."
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -5690,7 +5702,7 @@ msgstr "Ohita %d kohdetta &päätteen perusteella"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Ohita &EOL-muutokset"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5730,7 +5742,7 @@ msgstr "Älä välitä rivinvaihdoista"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "Ohita muuttuneet &tyhjämerkit"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5801,10 +5813,6 @@ msgstr "Tuo polku %s paikkaan %s%s"
 #. Resource IDs: (1386)
 msgid "Import &message"
 msgstr "&Tuontiviesti"
-
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Tuo - TortoiseSVN"
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -6299,7 +6307,7 @@ msgstr "Lukitsija: %s"
 
 #. Resource IDs: (93)
 msgid "Locking failed"
-msgstr ""
+msgstr "Lukitus epäonnistui"
 
 #. Resource IDs: (89)
 msgid ""
@@ -6396,6 +6404,8 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr ""
+"Merkitse ratkaistuksi\n"
+"Ristiriita on ratkaistu."
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6472,10 +6482,6 @@ msgstr "Yhdistä"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "Yhdistämis&syvyys:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Yhdistä - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -6655,7 +6661,7 @@ msgstr "Muutospäiväys"
 
 #. Resource IDs: (315)
 msgid "Modifications detected"
-msgstr ""
+msgstr "Muutoksia havaittu"
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
@@ -7156,7 +7162,7 @@ msgstr "Viikkoja:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "&Asetukset"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -7271,6 +7277,8 @@ msgid ""
 "Open files\n"
 "Open files for diff"
 msgstr ""
+"Avaa tiedostot\n"
+"Avaa vertailtavat tiedostot"
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7847,6 +7855,8 @@ msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
+"Poistu\n"
+"Poistu TortoiseMergestä tallettamatta muutoksia"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -7976,13 +7986,15 @@ msgstr "Palautuva"
 
 #. Resource IDs: (589)
 msgid "Recursive operation"
-msgstr ""
+msgstr "Palautuva toiminto"
 
 #. Resource IDs: (589)
 msgid ""
 "Recursive\n"
 "Remove the property also from items in Subfolders."
 msgstr ""
+"Palautuva\n"
+"Poista ominaisuus myös alikansioista."
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
@@ -8064,6 +8076,8 @@ msgid ""
 "Reject the certificate\n"
 "Cancel the connection."
 msgstr ""
+"Hylkää sertifikaatti\n"
+"Peruuta yhteys."
 
 #. Resource IDs: (7)
 #, c-format
@@ -8097,12 +8111,16 @@ msgid ""
 "Reload\n"
 "Local modifications are lost."
 msgstr ""
+"Avaa uudelleen\n"
+"Paikalliset muutokset menetetään."
 
 #. Resource IDs: (315)
 msgid ""
 "Reload\n"
 "The outside changes are loaded."
 msgstr ""
+"Avaa uudelleen\n"
+"Ulkopuoliset muutokset noudetaan."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8187,6 +8205,8 @@ msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
 msgstr ""
+"Poista versionhallinnasta\n"
+"Kaikki .svn-kansiot poistetaan"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8226,6 +8246,8 @@ msgid ""
 "Remove\n"
 "Remove the property only from this item."
 msgstr ""
+"Poista\n"
+"Poista ominaisuus vain tästä alkiosta."
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8285,8 +8307,8 @@ msgstr ""
 "uuteen nimeen %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Nimeä uudelleen/siirrä - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8385,10 +8407,6 @@ msgstr "Palauta sarakkeet"
 msgid "Resolve"
 msgstr "Merkitse ratkaistuksi"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Merkitse ratkaistuksi - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Ratkaise ristiriita"
@@ -8472,10 +8490,6 @@ msgstr "Yhdistetään käänteisesti %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Palauta"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Palauta - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8773,6 +8787,8 @@ msgid ""
 "Save as\n"
 "You're asked where to save the file"
 msgstr ""
+"Talleta nimellä\n"
+"Sinulta kysytään, minne tiedosto talletetaan"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -8789,7 +8805,7 @@ msgstr "Tallenna Git-muodossa"
 
 #. Resource IDs: (314)
 msgid "Save modifications."
-msgstr ""
+msgstr "Talleta muutokset."
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8812,6 +8828,8 @@ msgid ""
 "Save\n"
 "Save the file with the conflict markers."
 msgstr ""
+"Talleta\n"
+"Talleta tiedosto ristiriitamerkintöjen kanssa."
 
 #. Resource IDs: (314)
 #, c-format
@@ -8820,6 +8838,9 @@ msgid ""
 "The modifications are saved to\n"
 "%s"
 msgstr ""
+"Talleta\n"
+"Muutokset talletetaan tiedostoon\n"
+"%s"
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -9763,14 +9784,14 @@ msgstr "Subversion palvelintiedosto:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "Vaihda työkopio osoittamaan &uuteen haaraan / merkittyyn versioon"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Vaihda polusta %s polkuun %s, versio %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Vaihda - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -11103,7 +11124,7 @@ msgstr "Tuntematon tai virheellinen ominaisuustiedoston muoto!"
 
 #. Resource IDs: (315)
 msgid "Unresolved conflicts!"
-msgstr ""
+msgstr "Ratkaisemattomia ristiriitoja!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -11127,7 +11148,7 @@ msgstr "Poista versiointi ja lisää &ohituslistaan"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "Poista työkopion versiointi"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -11150,10 +11171,6 @@ msgstr "Avaa yläkansio"
 msgid "Update"
 msgstr "Päivitä"
 
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Päivitä - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Päivityksen syvyys"
@@ -11167,6 +11184,8 @@ msgid ""
 "Update\n"
 "Update the file and try locking again."
 msgstr ""
+"Päivitä\n"
+"Päivitä tiedosto ja yritä lukitusta uudelleen."
 
 #. Resource IDs: (90)
 msgid ""
@@ -11651,6 +11670,8 @@ msgid ""
 "Wrap long lines\n"
 "Wrap long lines"
 msgstr ""
+"Rivitä pitkät rivit\n"
+"Rivitä pitkät rivit"
 
 #. Resource IDs: (73)
 msgid "Yes"

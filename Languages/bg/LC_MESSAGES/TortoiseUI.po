@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,8 +103,8 @@ msgstr "%1!ld! минута(-и) и %2!ld! секунда(-и)"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (без връзка) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1765,10 +1765,6 @@ msgstr "Добавяне на '%s' в речника"
 msgid "Add (as replacement)..."
 msgstr "Добавяне (като заместник)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Добавяне - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Добавяне на свойства"
@@ -2796,10 +2792,6 @@ msgstr "Изписване"
 msgid "Checkout &directory:"
 msgstr "Изписване на &директория:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Изписване - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "&Дълбочина на изписване"
@@ -3046,10 +3038,6 @@ msgstr "Команди"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Поверяване"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Поверяване - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3313,10 +3301,6 @@ msgstr "Копиране на %s в %s, ревизия %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Копиране (създаване на разклонение / етикет)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Копиране - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4549,10 +4533,6 @@ msgstr "Износ"
 msgid "Export &directory:"
 msgstr "&Директория за износ:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Износ - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Директория за износ:"
@@ -5743,10 +5723,6 @@ msgstr "Внос на %s в %s%s"
 msgid "Import &message"
 msgstr "Съобщение за &внос"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "Внос - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Внася предварително записан във файл набор от свойства"
@@ -6400,10 +6376,6 @@ msgstr "Сливане"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&Дълбочина на сливане:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Сливане - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8197,8 +8169,8 @@ msgstr ""
 "на %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "Преименуване/преместване - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8295,10 +8267,6 @@ msgstr "Нулиране на колони"
 msgid "Resolve"
 msgstr "Разрешаване"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Разрешаване - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Разрешаване на конфликт"
@@ -8380,10 +8348,6 @@ msgstr "Обратно сливане на %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Отменяне"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Отмяна - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9673,14 +9637,14 @@ msgstr "Файл със сървъри на Subversion:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "Прев&ключване на работното копие към ново разклонение/етикет"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "Превключване на %s към %s, Ревизия %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Превключване - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -11058,10 +11022,6 @@ msgstr "С една папка нагоре "
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "Обновяване"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Обновяване - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: pluwen <pluwen@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,8 +102,8 @@ msgstr "%1!ld! 分 %2!ld! 秒"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s!(离线) %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1755,10 +1755,6 @@ msgstr "增加“%s”到目录"
 msgid "Add (as replacement)..."
 msgstr "增加(替换)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "增加 - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "增加属性"
@@ -2764,10 +2760,6 @@ msgstr "检出"
 msgid "Checkout &directory:"
 msgstr "检出至目录(&D): "
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "检出 - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "检出深度(&E)"
@@ -3004,10 +2996,6 @@ msgstr "命令"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "提交"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "提交 - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3269,10 +3257,6 @@ msgstr "复制 %s 到 %s，版本 %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "复制（分支/标记）"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "复制 - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4493,10 +4477,6 @@ msgstr "导出"
 msgid "Export &directory:"
 msgstr "导出目录(&D): "
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "导出 - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "导出目录: "
@@ -5659,10 +5639,6 @@ msgstr "导入%s 到 %s%s"
 msgid "Import &message"
 msgstr "导入信息(&M)"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "导入 - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "从文件导入以前保存的属性集合"
@@ -6312,10 +6288,6 @@ msgstr "合并"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "合并深度(&D):"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "合并 - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8072,8 +8044,8 @@ msgstr ""
 "为 %2!s!"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "改名/移动 - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8170,10 +8142,6 @@ msgstr "重置列"
 msgid "Resolve"
 msgstr "解决"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "解决 - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "解决冲突"
@@ -8255,10 +8223,6 @@ msgstr "撤销合并 %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "还原"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "恢复 - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9514,14 +9478,14 @@ msgstr "Subversion 服务器设置: "
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "切换工作副本至新分支/标记(&C)"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "切换 %s 到 %s，版本 %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "切换 - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -10842,10 +10806,6 @@ msgstr "进入上级目录"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "更新"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "更新 - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

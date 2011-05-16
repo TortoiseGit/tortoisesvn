@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:12+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,8 +102,8 @@ msgstr "%1!ld! دقیقه و %2!ld! ثانیه"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (خارج از خط) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -1745,10 +1745,6 @@ msgstr "اضافه کردن '%s' به فرهنگ لغت"
 msgid "Add (as replacement)..."
 msgstr "اضافه شود (بعنوان جایگزین)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "اضافه کردن - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "اضافه کردن خصوصیات"
@@ -2760,10 +2756,6 @@ msgstr "دریافت"
 msgid "Checkout &directory:"
 msgstr "دریافت &دایرکتوری: "
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "دریافت - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "&عمق دریافت"
@@ -3004,10 +2996,6 @@ msgstr "دستورها:"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "اعمال"
-
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "اعمال - لاکپشتSVN"
 
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
@@ -3263,10 +3251,6 @@ msgstr "کپی %s به %s, اصلاحیه %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "کپی (شاخه / تگ)"
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "کپی - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4479,10 +4463,6 @@ msgstr "صادر کردن"
 msgid "Export &directory:"
 msgstr "&دایرکتوری جهت صدور:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "صادر کردن - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "دایرکتوری جهت صدور:"
@@ -5666,10 +5646,6 @@ msgstr "وارد کردن %s به %s%s"
 msgid "Import &message"
 msgstr "وارد کردن &پیغام"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "وارد کردن - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Import a previously saved set of properties from a file"
@@ -6311,10 +6287,6 @@ msgstr "ادغام"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "&عمق ادغام:"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "ادغام - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -8079,8 +8051,8 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "تغییر نام/جابجائی - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8177,10 +8149,6 @@ msgstr "بازنشانی ستونها"
 msgid "Resolve"
 msgstr "حل کردن برخورد/تضاد"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "حل کردن برخورد/تضاد- TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "حل کردن برخورد/تضاد"
@@ -8262,10 +8230,6 @@ msgstr "در حال ادغام معکوس %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "بازگشت"
-
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "بازگشت - TortoiseSVN"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -9491,14 +9455,14 @@ msgstr "فایل سرویس دهنده سابورژن:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr ""
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "سوئیچ %s به %s، اصلاحیه %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "سوئیچ - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -10828,10 +10792,6 @@ msgstr "بازکردن پوشه والد"
 #. Resource IDs: (152, 230)
 msgid "Update"
 msgstr "بروزرسانی"
-
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "بروزرسانی - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"

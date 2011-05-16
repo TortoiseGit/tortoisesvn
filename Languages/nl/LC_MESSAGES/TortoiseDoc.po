@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-08 00:34+0000\n"
+"PO-Revision-Date: 2011-05-16 00:19+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6724,6 +6724,14 @@ msgstr ""
 " regels voor de context. Het is lastiger om dit te lezen dan een visuele "
 "vergelijking, maar geeft wel alle wijzigingen compact weer."
 
+#. (para)
+msgid ""
+"If you hold down the <keycap>Shift</keycap> key when clicking on the menu "
+"item, a dialog shows up first where you can set options for the unified "
+"diff. These options include the ability to ignore changes in line endings "
+"and whitespaces."
+msgstr ""
+
 #. (term)
 msgid "Compare with previous revision"
 msgstr "Vergelijk met vorige revisie"
@@ -13227,6 +13235,13 @@ msgstr ""
 
 #. (para)
 msgid ""
+"By clicking on the <guilabel>Options</guilabel> button you can specify how "
+"the patch is created. For example you can specify that changes in line "
+"endings or whitespaces are not included in the final patch file."
+msgstr ""
+
+#. (para)
+msgid ""
 "You can produce separate patches containing changes to different sets of "
 "files. Of course, if you create a patch file, make some more changes to the "
 "<emphasis>same</emphasis> files and then create another patch, the second "
@@ -13463,6 +13478,15 @@ msgstr ""
 
 #. (para)
 msgid ""
+"You can include merge information as well if you wish, although this option "
+"can take considerably longer to retrieve from the server. When lines are "
+"merged from another source, the blame information shows the revision the "
+"change was made in the original source as well as the revision when it was "
+"merged into this file."
+msgstr ""
+
+#. (para)
+msgid ""
 "Once you press <guibutton>OK</guibutton> TortoiseSVN starts retrieving the "
 "data to create the blame file. Please note: This can take several minutes to"
 " finish, depending on how much the file has changed and of course your "
@@ -13597,30 +13621,35 @@ msgstr ""
 
 #. (para)
 msgid ""
-"If you are using Merge Tracking, where lines have changed as a result of "
-"merging from another path, TortoiseBlame will show the revision and author "
-"of the last change in the original file rather than the revision where the "
-"merge took place. These lines are indicated by showing the revision and "
-"author in italics. If you do not want merged lines shown in this way, "
-"uncheck the <guilabel>Include merge info</guilabel> checkbox."
+"If you are using Merge Tracking and you requested merge info when starting "
+"the blame, merged lines are shown slightly differently. Where a line has "
+"changed as a result of merging from another path, TortoiseBlame will show "
+"the revision and author of the last change in the original file rather than "
+"the revision where the merge took place. These lines are indicated by "
+"showing the revision and author in italics. The revision where the merge "
+"took place is shown separately in the tooltip when you hover the mouse over "
+"the blame info columns. If you do not want merged lines shown in this way, "
+"uncheck the <guilabel>Include merge info</guilabel> checkbox when starting "
+"the blame."
 msgstr ""
-"Als je Samenvoeg historie gebruikt, zal TortoiseBlame, als regels gewijzigd "
-"zijn als gevolg van het samenvoegen vanaf een ander pad, de revisie en "
-"auteur van de laatste wijziging weergeven in het originele bestand in plaats"
-" van de revisie waarin de samenvoeging plaatsvond. Bij deze regels worden "
-"het revisienummer en de auteur schuin gedrukt weergegeven. Als je niet wilt "
-"dat samengevoegde regels zo worden weergegeven, haal dan het vinkje weg bij "
-"<guilabel>Samenvoeg-informatie meenemen</guilabel>."
 
 #. (para)
 msgid ""
 "If you want to see the paths involved in the merge, select "
 "<menuchoice><guimenu>View</guimenu><guimenuitem>Merge "
-"paths</guimenuitem></menuchoice>."
+"paths</guimenuitem></menuchoice>. This shows the path where the line was "
+"last changed, excluding changes resulting from a merge."
 msgstr ""
-"Als je de betrokken paden van het samenvoegen wilt zien, kies dan "
-"<menuchoice><guimenu>Bekijk</guimenu><guimenuitem>Voeg paden "
-"samen</guimenuitem></menuchoice>."
+
+#. (para)
+msgid ""
+"The revision shown in the blame information represents the last revision "
+"where the content of that line changed. If the file was created by copying "
+"another file, then until you change a line, its blame revision will show the"
+" last change in the original source file, not the revision where the copy "
+"was made. This also applies to the paths shown with merge info. The path "
+"shows the repository location where the last change was made to that line."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13641,15 +13670,13 @@ msgstr "Verklaar Verschillen"
 #. (para)
 msgid ""
 "One of the limitations of the Blame report is that it only shows the file as"
-" it was in a particular revision, and shows the last person to change each "
-"line. Sometimes you want to know what change was made, as well as who made "
-"it. What you need here is a combination of the diff and blame reports."
+" it was in a particular revision, and the last person to change each line. "
+"Sometimes you want to know what change was made, as well as who made it. If "
+"you right click on a line in TortoiseBlame you have a context menu item to "
+"show the changes made in that revision. But if you want to see the changes "
+"<emphasis>and</emphasis> the blame information simultaneously then you need "
+"a combination of the diff and blame reports."
 msgstr ""
-"Een van de beperkingen van het verklaren-rapport is dat het alleen het "
-"bestand weergeeft zoals het op het moment van een bepaalde revisie was en de"
-" laatste persoon die een regel gewijzigd heeft. Soms wil je weten welke "
-"wijziging is doorgevoerd en wie dat gedaan heeft. Hiervoor heb je een "
-"combinatie van verschil- en verklaar-rapporten nodig."
 
 #. (term)
 msgid "Blame Revisions"
@@ -13785,9 +13812,12 @@ msgstr ""
 " context menu's beschikbaar in beide deelvensters."
 
 #. (para)
-msgid "Save an unversioned copy of the file to your hard drive."
+msgid ""
+"Edit the selected file. This will checkout a temporary working copy and "
+"start the default editor for that file type. When you close the editor "
+"program, if changes were saved then a commit dialog appears, allowing you to"
+" enter a comment and commit the change."
 msgstr ""
-"Een kopie zonder versiebeheer van een bestand opslaan op je harde schijf."
 
 #. (para)
 msgid ""
@@ -13804,8 +13834,23 @@ msgstr ""
 "bestand gewijzigd heeft."
 
 #. (para)
+msgid ""
+"Checkout a single file. This creates a <quote>sparse</quote> working copy "
+"which contains just this one file."
+msgstr ""
+
+#. (para)
 msgid "Delete or rename the file."
 msgstr "Verwijderen of hernoemen van het bestand."
+
+#. (para)
+msgid "Save an unversioned copy of the file to your hard drive."
+msgstr ""
+"Een kopie zonder versiebeheer van een bestand opslaan op je harde schijf."
+
+#. (para)
+msgid "Copy the URL shown in the address bar to the clipboard."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13818,6 +13863,12 @@ msgstr ""
 #. (para)
 msgid "View/Edit the file's properties."
 msgstr "Bekijken/Wijzigen van de kenmerken van het bestand."
+
+#. (para)
+msgid ""
+"Create a shortcut so that you can quickly start repo browser again, opened "
+"directly at this location."
+msgstr ""
 
 #. (para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
@@ -13851,8 +13902,10 @@ msgid "Create a new folder in the repository."
 msgstr "Een nieuwe map aanmaken in het archief."
 
 #. (para)
-msgid "Add files or folders directly to the repository."
-msgstr "Bestanden of mappen direct in het archief zetten."
+msgid ""
+"Add unversioned files or folders directly to the repository. This is "
+"effectively the Subversion Import operation."
+msgstr ""
 
 #. (para)
 msgid "Delete or rename the folder."
@@ -13926,6 +13979,13 @@ msgstr ""
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Toon "
 "Logboek...</guimenuitem></menuchoice> de lijst met revisies zien tussen die "
 "twee labels."
+
+#. (para)
+msgid ""
+"External items (referenced using <literal>svn:externals</literal> are also "
+"shown in the repository browser, and you can even drill down into the folder"
+" contents. External items are marked with a red arrow over the item."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15801,6 +15861,26 @@ msgstr ""
 "helemaal uit te zetten) kan gebruik gemaakt worden van het standaard Windows"
 " Configuratiescherm (Control Panel). <guibutton>Instellen</guibutton> is een"
 " koppeling naar dit Configuratiescherm."
+
+#. (term)
+msgid "Use Aero Dialogs"
+msgstr ""
+
+#. (para)
+msgid ""
+"On Windows Vista and later systems this controls whether dialogs use the "
+"Aero styling."
+msgstr ""
+
+#. (term)
+msgid "Create Library"
+msgstr ""
+
+#. (para)
+msgid ""
+"On Windows 7 you can create a Library in which to group working copies which"
+" are scattered in various places on your system."
+msgstr ""
 
 #. (term)
 msgid "Global ignore pattern"
@@ -18514,17 +18594,59 @@ msgstr ""
 
 #. (para)
 msgid ""
-"You can specify a different location for the Subversion configuration file "
-"here. This will affect all TortoiseSVN operations."
+"Sometimes multiple users use the same account on the same computer. In such "
+"situations it's not really wanted to save the authentication data. Setting "
+"this value to <literal>false</literal> disables the <literal>save "
+"authentication</literal> button in the authentication dialog."
 msgstr ""
-"Hier kun je een andere map specificeren voor het Subversion "
-"configuratiebestand. Dit heeft effect op alle TortoiseSVN acties."
 
 #. (para)
 msgid ""
-"Set this to <literal>true</literal> if you want a dialog to pop up for every"
-" command showing the command line used to start TortoiseProc.exe."
+"If an update adds a new file from the repository which already exists in the"
+" local working copy as an unversioned file, the default action is to keep "
+"the local file, showing it as a (possibly) modified version of the new file "
+"from the repository. If you would prefer TortoiseSVN to create a conflict in"
+" such situations, set this value to <literal>false</literal>."
 msgstr ""
+"Als een verversing aan een werkkopie een nieuw bestand uit het archief "
+"toevoegt, van welke al een kopie aanwezig is in de werkkopie als bestand "
+"zonder versiebeheer, dan wordt standaard het lokale bestand behouden en "
+"aangegeven als (mogelijk) gewijzigd bestand. Als je prefereert dat "
+"TortoiseSVN hiervoor het bestand als conflict markeert in zulke situaties, "
+"stel deze waarde dan in op <literal>false</literal>."
+
+#. (para)
+msgid ""
+"As with the explorer, TortoiseSVN shows additional commands if the "
+"<keycap>Shift</keycap> key is pressed while the context menu is opened. To "
+"force TortoiseSVN to always show those extended commands, set this value to "
+"<literal>true</literal>."
+msgstr ""
+"Net zoals de verkenner, toont TortoiseSVN extra commando's als de "
+"<keycap>Shift</keycap> knop is ingedrukt als het context menu geopend is. Om"
+" TortoiseSVN altijd die uitgebreide commando's te laten zien, stel je deze "
+"waarde in op <literal>true</literal>."
+
+#. (para)
+msgid ""
+"The auto-completion list shown in the commit message editor displays the "
+"names of files listed for commit. To also include these names with "
+"extensions removed, set this value to <literal>true</literal>."
+msgstr ""
+"De auto-aanvul lijst die weergegeven wordt in het vastleg bericht scherm, "
+"toont de namen van bestanden die meegenomen worden bij de vastlegging. Om "
+"deze name ook mee te nemen zonder de extensies, stel je deze waarde in op "
+"<literal>true</literal>."
+
+#. (para)
+msgid ""
+"If you don't want the explorer to update the status overlays while another "
+"TortoiseSVN command is running (e.g. Update, Commit, ...) then set this "
+"value to <literal>true</literal>."
+msgstr ""
+"Als je niet wilt dat de verkenner de overlappende status pictogrammen "
+"bijwerkt terwijl er een TortoiseSVN commando loopt (bijv. Verversen, "
+"Vastleggen, ...), stel deze waarde dan in op <literal>true</literal>."
 
 #. (para)
 msgid ""
@@ -18536,6 +18658,165 @@ msgstr ""
 "pictogram toe te laten voegen voor het TSVNCache programma. Dit wordt echt "
 "alleen maar door ontwikkelaars gebruikt omdat het de mogelijkheid geeft het "
 "programma netjes af te sluiten."
+
+#. (para)
+msgid ""
+"The extra columns the TortoiseSVN adds to the details view in Windows "
+"Explorer are normally only active in a working copy. If you want those to be"
+" accessible everywhere, not just in working copies, set this value to "
+"<literal>true</literal>. Note that the extra columns are only available in "
+"XP. Vista and later doesn't support that feature any more."
+msgstr ""
+"De extra kolommen die TortoiseSVN toevoegt aan de detail weergave in de "
+"Windows verkenner, worden normaliter alleen weergegeven in een werkkopie. "
+"Als je deze overal wilt zien, niet alleen in werkkopieën, stel je deze "
+"waarde in op <literal>true</literal>. Merk op dat de extra kolommen alleen "
+"in XP beschikbaar zijn. Visa en latere versies ondersteunen deze functie "
+"niet meer."
+
+#. (para)
+msgid ""
+"You can specify a different location for the Subversion configuration file "
+"here. This will affect all TortoiseSVN operations."
+msgstr ""
+"Hier kun je een andere map specificeren voor het Subversion "
+"configuratiebestand. Dit heeft effect op alle TortoiseSVN acties."
+
+#. (para)
+msgid ""
+"In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to "
+"dismiss the dialog as if you clicked on the OK button. If you don't want "
+"this, set this value to <literal>false</literal>."
+msgstr ""
+"In de meeste schermen van TortoiseSVN kun je <keycap>Ctrl+Enter</keycap> "
+"gebruiken om het scherm te sluiten alsof je op de OK knop gedrukt hebt. Als "
+"je dit niet wilt, stel deze waarde dan in op <literal>false</literal>."
+
+#. (para)
+msgid ""
+"Set this to <literal>true</literal> if you want a dialog to pop up for every"
+" command showing the command line used to start TortoiseProc.exe."
+msgstr ""
+
+#. (para)
+msgid ""
+"Set this to <literal>true</literal> if you want TortoiseSVN to print out "
+"debug messages during execution. The messages can be captured with special "
+"debugging tools only."
+msgstr ""
+
+#. (para)
+msgid ""
+"The default format (value of 0) of dialog titles is <literal>url/path - name"
+" of dialog - TortoiseSVN</literal>. If you set this value to 1, the format "
+"changes to <literal>name of dialog - url/path - TortoiseSVN</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"TortoiseSVN allows you to assign an external diff viewer. Most such viewers,"
+" however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-"
+"diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
+" do so, set this value to <literal>true</literal>."
+msgstr ""
+"TortoiseSVN geeft de mogelijkheid om een extern diff programma in te "
+"stellen. De meeste programma's zijn echter niet geschikt voor het verklaren "
+"van verschillen (<xref linkend=\"tsvn-dug-blame-diffs\"/>), waardoor je "
+"misschien terug wilt vallen op TortoiseMerge in die gevallen. Stel hiervoor "
+"deze waarde in op <literal>true</literal>"
+
+#. (para)
+msgid ""
+"The status list control which is used in various dialogs (e.g., commit, "
+"check-for-modifications, add, revert, ...) uses full row selection (i.e., if"
+" you select an entry, the full row is selected, not just the first column). "
+"This is fine, but the selected row then also covers the background image on "
+"the bottom right, which can look ugly. To disable full row select, set this "
+"value to <literal>false</literal>."
+msgstr ""
+"De besturing van de status lijst, welke in verschillende schermen wordt "
+"gebruikt (bijv. vastleggen, kijk-of-er-updates-zijn, toevoegen, ongedaan "
+"maken, ...), selecteert altijd hele rijen (dat wil zeggen, als je een entry "
+"selecteert de hele rij geselecteerd wordt, niet alleen de eerste kolom). Op "
+"zich is dat niet erg, maar de geselecteerde rij bedekt dan ook het "
+"achtergrond plaatje aan de rechter onderzijde. Dit kan er lelijk uitzien. Om"
+" de selectie van de gehele rij uit te schakelen, stel je deze waarde in op "
+"<literal>false</literal>"
+
+#. (para)
+msgid ""
+"By default, TortoiseSVN always runs an update with externals included. This "
+"avoids problems with inconsistent working copies. If you have however a lot "
+"of externals set, an update can take quite a while. Set this value to "
+"<literal>false</literal> to run the default update with externals excluded. "
+"To update with externals included, either run the <literal>Update to "
+"revision...</literal> dialog or set this value to <literal>true</literal> "
+"again."
+msgstr ""
+"Standaard neemt TortoiseSVN ook altijd de externen mee bij het verversen. "
+"Dit voorkomt consistentie problemen met werkkopieën. Als je echter veel "
+"externen hebt ingesteld, kan een verversing erg lang duren. Stel deze waarde"
+" in op <literal>false</literal> om standaard bij de verversing de externen "
+"niet mee te nemen. Om dan externen toch te verversen gebruik je "
+"<literal>Verversen naar revisie...</literal> of stel deze waarde weer in op "
+"<literal>true</literal>."
+
+#. (para)
+msgid ""
+"The log dialog shows the revision the working copy path is at in bold. But "
+"this requires that the log dialog fetches the status of that path. Since for"
+" very big working copies this can take a while, you can set this value to "
+"<literal>false</literal> to deactivate this feature."
+msgstr ""
+"Het logboek venster toont de revisie van het pad van de werkkopie "
+"vetgedrukt, maar hiervoor moet het logboek venster de status van het pad van"
+" de werkkopie ophalen. Omdat dit voor grote werkkopieën lang kan duren, kun "
+"je deze waarde op <literal>false</literal> instellen, zodat deze functie "
+"uitgeschakeld wordt."
+
+#. (para)
+msgid ""
+"When you merge revisions from another branch, and merge tracking information"
+" is available, the log messages from the revisions you merge will be "
+"collected to make up a commit log message. A pre-defined string is used to "
+"separate the individual log messages of the merged revisions. If you prefer,"
+" you can set this to a value containing a separator string of your choice."
+msgstr ""
+"Als je revisies van een andere tak samenvoegt en samenvoeg traceer "
+"informatie is beschikbaar, dan worden de logboek berichten van de samen te "
+"voegen revisies opgehaald om een nieuw vastleg bericht te maken. Een vooraf "
+"gedefinieerde tekst wordt gebruikt om de individuele berichten van de "
+"revisies te scheiden. Je kunt deze waarde aanpassen naar een tekst of "
+"indeling die je zelf wilt."
+
+#. (para)
+msgid ""
+"TortoiseSVN checks whether there's a new version available about once a "
+"week. If an updated version is found, the commit dialog shows a link control"
+" with that info. If you prefer the old behavior back where a dialog pops up "
+"notifying you about the update, set this value to <literal>true</literal>."
+msgstr ""
+"TortoiseSVN controleert één keer per week of er een nieuwe versie "
+"beschikbaar is. Als een nieuwe versie gevonden is, dan wordt dit in het "
+"vastleg scherm aangegeven. Als je het oude gedrag terug wilt, waarbij er een"
+" apart scherm wordt weergegeven, stel deze waarde dan in op "
+"<literal>true</literal>."
+
+#. (para)
+msgid ""
+"TortoiseSVN uses accelerators for its explorer context menu entries. Since "
+"this can lead to doubled accelerators (e.g. the <literal>SVN "
+"Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the"
+" <literal>Copy</literal> entry of explorer). If you don't want or need the "
+"accelerators of the TortoiseSVN entries, set this value to "
+"<literal>false</literal>."
+msgstr ""
+"TortoiseSVN gebruikt sneltoetsen voor de opties in de context menu's. Dit "
+"kan leiden tot dubbele toewijzingen van sneltoetsen (bijv. de <literal>SVN "
+"Vastleggen</literal> het de <keycap>Alt-C</keycap> sneltoets, maar de "
+"<literal>Kopieer</literal> optie van de verkenner gebruikt die ook). Als je "
+"de sneltoetsen niet wilt gebruiken of nodig hebt voor de TortoiseSVN opties,"
+" stel deze waarde dan in op <literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -18562,37 +18843,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"The log dialog shows the revision the working copy path is at in bold. But "
-"this requires that the log dialog fetches the status of that path. Since for"
-" very big working copies this can take a while, you can set this value to "
-"<literal>false</literal> to deactivate this feature."
-msgstr ""
-"Het logboek venster toont de revisie van het pad van de werkkopie "
-"vetgedrukt, maar hiervoor moet het logboek venster de status van het pad van"
-" de werkkopie ophalen. Omdat dit voor grote werkkopieën lang kan duren, kun "
-"je deze waarde op <literal>false</literal> instellen, zodat deze functie "
-"uitgeschakeld wordt."
-
-#. (para)
-msgid ""
-"The status list control which is used in various dialogs (e.g., commit, "
-"check-for-modifications, add, revert, ...) uses full row selection (i.e., if"
-" you select an entry, the full row is selected, not just the first column). "
-"This is fine, but the selected row then also covers the background image on "
-"the bottom right, which can look ugly. To disable full row select, set this "
-"value to <literal>false</literal>."
-msgstr ""
-"De besturing van de status lijst, welke in verschillende schermen wordt "
-"gebruikt (bijv. vastleggen, kijk-of-er-updates-zijn, toevoegen, ongedaan "
-"maken, ...), selecteert altijd hele rijen (dat wil zeggen, als je een entry "
-"selecteert de hele rij geselecteerd wordt, niet alleen de eerste kolom). Op "
-"zich is dat niet erg, maar de geselecteerde rij bedekt dan ook het "
-"achtergrond plaatje aan de rechter onderzijde. Dit kan er lelijk uitzien. Om"
-" de selectie van de gehele rij uit te schakelen, stel je deze waarde in op "
-"<literal>false</literal>"
-
-#. (para)
-msgid ""
 "The commit and log dialog use styling (e.g. bold, italic) in commit messages"
 " (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't "
 "want to do this, set the value to <literal>false</literal>."
@@ -18601,44 +18851,6 @@ msgstr ""
 "bij vastleg berichten (lees <xref linkend=\"tsvn-dug-commit-log\"/> voor "
 "meer details). Als je dit niet wilt hebben, stel deze waarde dan in op "
 "<literal>false</literal>."
-
-#. (para)
-msgid ""
-"TortoiseSVN uses accelerators for its explorer context menu entries. Since "
-"this can lead to doubled accelerators (e.g. the <literal>SVN "
-"Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the"
-" <literal>Copy</literal> entry of explorer). If you don't want or need the "
-"accelerators of the TortoiseSVN entries, set this value to "
-"<literal>false</literal>."
-msgstr ""
-"TortoiseSVN gebruikt sneltoetsen voor de opties in de context menu's. Dit "
-"kan leiden tot dubbele toewijzingen van sneltoetsen (bijv. de <literal>SVN "
-"Vastleggen</literal> het de <keycap>Alt-C</keycap> sneltoets, maar de "
-"<literal>Kopieer</literal> optie van de verkenner gebruikt die ook). Als je "
-"de sneltoetsen niet wilt gebruiken of nodig hebt voor de TortoiseSVN opties,"
-" stel deze waarde dan in op <literal>false</literal>."
-
-#. (para)
-msgid ""
-"As with the explorer, TortoiseSVN shows additional commands if the "
-"<keycap>Shift</keycap> key is pressed while the context menu is opened. To "
-"force TortoiseSVN to always show those extended commands, set this value to "
-"<literal>true</literal>."
-msgstr ""
-"Net zoals de verkenner, toont TortoiseSVN extra commando's als de "
-"<keycap>Shift</keycap> knop is ingedrukt als het context menu geopend is. Om"
-" TortoiseSVN altijd die uitgebreide commando's te laten zien, stel je deze "
-"waarde in op <literal>true</literal>."
-
-#. (para)
-msgid ""
-"If you don't want the explorer to update the status overlays while another "
-"TortoiseSVN command is running (e.g. Update, Commit, ...) then set this "
-"value to <literal>true</literal>."
-msgstr ""
-"Als je niet wilt dat de verkenner de overlappende status pictogrammen "
-"bijwerkt terwijl er een TortoiseSVN commando loopt (bijv. Verversen, "
-"Vastleggen, ...), stel deze waarde dan in op <literal>true</literal>."
 
 #. (para)
 msgid ""
@@ -18654,49 +18866,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"The extra columns the TortoiseSVN adds to the details view in Windows "
-"Explorer are normally only active in a working copy. If you want those to be"
-" accessible everywhere, not just in working copies, set this value to "
-"<literal>true</literal>. Note that the extra columns are only available in "
-"XP. Vista and later doesn't support that feature any more."
-msgstr ""
-"De extra kolommen die TortoiseSVN toevoegt aan de detail weergave in de "
-"Windows verkenner, worden normaliter alleen weergegeven in een werkkopie. "
-"Als je deze overal wilt zien, niet alleen in werkkopieën, stel je deze "
-"waarde in op <literal>true</literal>. Merk op dat de extra kolommen alleen "
-"in XP beschikbaar zijn. Visa en latere versies ondersteunen deze functie "
-"niet meer."
-
-#. (para)
-msgid ""
-"If an update adds a new file from the repository which already exists in the"
-" local working copy as an unversioned file, the default action is to keep "
-"the local file, showing it as a (possibly) modified version of the new file "
-"from the repository. If you would prefer TortoiseSVN to create a conflict in"
-" such situations, set this value to <literal>false</literal>."
-msgstr ""
-"Als een verversing aan een werkkopie een nieuw bestand uit het archief "
-"toevoegt, van welke al een kopie aanwezig is in de werkkopie als bestand "
-"zonder versiebeheer, dan wordt standaard het lokale bestand behouden en "
-"aangegeven als (mogelijk) gewijzigd bestand. Als je prefereert dat "
-"TortoiseSVN hiervoor het bestand als conflict markeert in zulke situaties, "
-"stel deze waarde dan in op <literal>false</literal>."
-
-#. (para)
-msgid ""
-"TortoiseSVN checks whether there's a new version available about once a "
-"week. If an updated version is found, the commit dialog shows a link control"
-" with that info. If you prefer the old behavior back where a dialog pops up "
-"notifying you about the update, set this value to <literal>true</literal>."
-msgstr ""
-"TortoiseSVN controleert één keer per week of er een nieuwe versie "
-"beschikbaar is. Als een nieuwe versie gevonden is, dan wordt dit in het "
-"vastleg scherm aangegeven. Als je het oude gedrag terug wilt, waarbij er een"
-" apart scherm wordt weergegeven, stel deze waarde dan in op "
-"<literal>true</literal>."
-
-#. (para)
-msgid ""
 "TortoiseSVN checks whether there's a new version available about once a "
 "week. If you don't want TortoiseSVN to do this check, set this value to "
 "<literal>false</literal>."
@@ -18704,81 +18873,6 @@ msgstr ""
 "TortoiseSVN controleert één keer per week of er een nieuwe versie "
 "beschikbaar is. Als je niet wilt dat TortoiseSVN deze controle uitvoert, "
 "stel deze waarde dan in op <literal>false</literal>."
-
-#. (para)
-msgid ""
-"The auto-completion list shown in the commit message editor displays the "
-"names of files listed for commit. To also include these names with "
-"extensions removed, set this value to <literal>true</literal>."
-msgstr ""
-"De auto-aanvul lijst die weergegeven wordt in het vastleg bericht scherm, "
-"toont de namen van bestanden die meegenomen worden bij de vastlegging. Om "
-"deze name ook mee te nemen zonder de extensies, stel je deze waarde in op "
-"<literal>true</literal>."
-
-#. (para)
-msgid ""
-"When you merge revisions from another branch, and merge tracking information"
-" is available, the log messages from the revisions you merge will be "
-"collected to make up a commit log message. A pre-defined string is used to "
-"separate the individual log messages of the merged revisions. If you prefer,"
-" you can set this to a value containing a separator string of your choice."
-msgstr ""
-"Als je revisies van een andere tak samenvoegt en samenvoeg traceer "
-"informatie is beschikbaar, dan worden de logboek berichten van de samen te "
-"voegen revisies opgehaald om een nieuw vastleg bericht te maken. Een vooraf "
-"gedefinieerde tekst wordt gebruikt om de individuele berichten van de "
-"revisies te scheiden. Je kunt deze waarde aanpassen naar een tekst of "
-"indeling die je zelf wilt."
-
-#. (para)
-msgid ""
-"TortoiseSVN allows you to assign an external diff viewer. Most such viewers,"
-" however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-"
-"diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
-" do so, set this value to <literal>true</literal>."
-msgstr ""
-"TortoiseSVN geeft de mogelijkheid om een extern diff programma in te "
-"stellen. De meeste programma's zijn echter niet geschikt voor het verklaren "
-"van verschillen (<xref linkend=\"tsvn-dug-blame-diffs\"/>), waardoor je "
-"misschien terug wilt vallen op TortoiseMerge in die gevallen. Stel hiervoor "
-"deze waarde in op <literal>true</literal>"
-
-#. (para)
-msgid ""
-"By default, TortoiseSVN always runs an update with externals included. This "
-"avoids problems with inconsistent working copies. If you have however a lot "
-"of externals set, an update can take quite a while. Set this value to "
-"<literal>false</literal> to run the default update with externals excluded. "
-"To update with externals included, either run the <literal>Update to "
-"revision...</literal> dialog or set this value to <literal>true</literal> "
-"again."
-msgstr ""
-"Standaard neemt TortoiseSVN ook altijd de externen mee bij het verversen. "
-"Dit voorkomt consistentie problemen met werkkopieën. Als je echter veel "
-"externen hebt ingesteld, kan een verversing erg lang duren. Stel deze waarde"
-" in op <literal>false</literal> om standaard bij de verversing de externen "
-"niet mee te nemen. Om dan externen toch te verversen gebruik je "
-"<literal>Verversen naar revisie...</literal> of stel deze waarde weer in op "
-"<literal>true</literal>."
-
-#. (para)
-msgid ""
-"In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to "
-"dismiss the dialog as if you clicked on the OK button. If you don't want "
-"this, set this value to <literal>false</literal>."
-msgstr ""
-"In de meeste schermen van TortoiseSVN kun je <keycap>Ctrl+Enter</keycap> "
-"gebruiken om het scherm te sluiten alsof je op de OK knop gedrukt hebt. Als "
-"je dit niet wilt, stel deze waarde dan in op <literal>false</literal>."
-
-#. (para)
-msgid ""
-"Sometimes multiple users use the same account on the same computer. In such "
-"situations it's not really wanted to save the authentication data. Setting "
-"this value to <literal>false</literal> disables the <literal>save "
-"authentication</literal> button in the authentication dialog."
-msgstr ""
 
 #. (title)
 msgid "Exporting TSVN Settings"
@@ -19061,7 +19155,7 @@ msgid ""
 "can specify a custom format which will be used with <placeholder-2/>, for "
 "example: <placeholder-3/>. For a list of available formatting characters, "
 "look at the <ulink url=\"http://msdn.microsoft.com/en-"
-"us/library/fe06s4ak%28v=VS.100%29.aspx\"><placeholder-4/></ulink>."
+"us/library/fe06s4ak.aspx\"><placeholder-4/></ulink>."
 msgstr ""
 
 #. (literal)

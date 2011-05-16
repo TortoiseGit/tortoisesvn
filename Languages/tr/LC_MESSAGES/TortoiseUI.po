@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-09 02:13+0000\n"
+"PO-Revision-Date: 2011-05-16 00:33+0000\n"
 "Last-Translator: turambar <vuralgoze@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -103,8 +103,8 @@ msgstr "%1!ld! dakika ve %2!ld! saniye"
 
 #. Resource IDs: (115)
 #, c-format
-msgid "%1!s! (offline) - %2!s!"
-msgstr "%1!s! (çevrimdışı) - %2!s!"
+msgid "%1!s! (offline)"
+msgstr ""
 
 #. Resource IDs: (226)
 #, c-format
@@ -314,6 +314,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
 msgstr ""
+"%s\n"
+"%d dosyayı yine de kaldırmak istiyor musunuz?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -321,6 +323,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
+"%s\n"
+"'%s' dosyasını yine de kaldırmak istiyor musunuz?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -329,6 +333,8 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"%s klasörü versiyonlanmamış ve/veya değiştirilmiş dosya(lar) içeriyor. Yine de kaldırmak istiyor musunuz?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -385,7 +391,7 @@ msgstr "&Ekle"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
-msgstr "&Ekle>>"
+msgstr "&Ekle >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
@@ -802,7 +808,7 @@ msgstr "%d elemana isme göre al&dırma"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "&Nesli önemseme"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1502,7 +1508,7 @@ msgstr "(sadece ayar/özellik değişikliği)"
 
 #. Resource IDs: (176)
 msgid "(props and content)"
-msgstr ""
+msgstr "(özellikler ve içerik)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -1648,6 +1654,10 @@ msgid ""
 "\n"
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
+"Başka bir dizine taşıma sadece deponun dizini değiştiğinde gereklidir.\n"
+"Depo içerisinde başka bir dizine değiştirmek değiştir/geç işlemi ile yapılır.\n"
+"\n"
+"Ne yapacağınızdan emin değilseniz, önce değiştir/geç işlemini deneyin."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1660,6 +1670,9 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"Windows üzerinde geçerli bir yol '<>|\"\"?*:' karakterlerini veya şu isimlerden birini içeremez:\n"
+"com1-com9, lpt1-lpt9, prn\n"
+"Microsoft'un bu konu hakkındaki <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">ilgili belgesini</a> inceleyebilirsiniz."
 
 #. Resource IDs: (79)
 msgid ""
@@ -1706,12 +1719,16 @@ msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
 msgstr ""
+"İptal Et\n"
+"Geri döne ve farklı bir klasör seç"
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
+"İptal Et\n"
+"Tüm değişiklikleri bırak"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1764,10 +1781,6 @@ msgstr "'%s' yı sözlüğe ekle"
 msgid "Add (as replacement)..."
 msgstr "Ekle (yerine koyma)..."
 
-#. Resource IDs: (77)
-msgid "Add - TortoiseSVN"
-msgstr "Ekle - TortoiseSVN"
-
 #. Resource IDs: (563)
 msgid "Add Properties"
 msgstr "Özellik ekle"
@@ -1785,6 +1798,8 @@ msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"Öğe ekle\n"
+"Bu işlem Windows'ta sorunlara yol açacak."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -1869,6 +1884,8 @@ msgid ""
 "Adjust case\n"
 "The file is not added."
 msgstr ""
+"Durumu ayarla\n"
+"Dosya eklenmez."
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1920,7 +1937,7 @@ msgstr "Tüm Dosyalar (*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
-msgstr ""
+msgstr "Son güncellemeden itibaren yapılan değişiklikler kaybedilecek."
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2081,11 +2098,11 @@ msgstr "Yamayı Uygula..."
 
 #. Resource IDs: (1562)
 msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
+msgstr "Güncellerken yerel değişiklikleri svn:externals'a uygula"
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
-msgstr ""
+msgstr "Yerel svn:externals değişikliklerini uygula"
 
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
@@ -2444,6 +2461,8 @@ msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"İptal Et\n"
+"Dışa aktarmak için farklı bir klasör seç"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2458,6 +2477,8 @@ msgid ""
 "Cancel\n"
 "Do not remove"
 msgstr ""
+"İptal Et\n"
+"Kaldırma"
 
 #. Resource IDs: (119)
 msgid ""
@@ -2472,24 +2493,32 @@ msgid ""
 "Cancel\n"
 "Do not update the working copy."
 msgstr ""
+"İptal Et\n"
+"Çalışan kopyayı güncelleme."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr ""
+"iptal Et\n"
+"Dosya eklenmedi ve ayarlanmadı."
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
 msgstr ""
+"İptal Et\n"
+"Öğeyi çözümleme."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't switch the views"
 msgstr ""
+"İptal Et\n"
+"Dosya kopyalanmadı."
 
 #. Resource IDs: (173)
 msgid ""
@@ -2504,6 +2533,8 @@ msgid ""
 "Cancel\n"
 "Go back and select a different folder."
 msgstr ""
+"İptal Et\n"
+"Geri dön ve farklı bir klasör seç."
 
 #. Resource IDs: (89)
 msgid ""
@@ -2518,6 +2549,8 @@ msgid ""
 "Cancel\n"
 "Ignore the outside changes."
 msgstr ""
+"Depoyu İndir\n"
+"Depoyu boş olmayan bir klasöre indir"
 
 #. Resource IDs: (89)
 msgid ""
@@ -2531,49 +2564,61 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Keep the empty file."
-msgstr ""
+msgstr "Geri almayı onayla"
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Leave all changes."
 msgstr ""
+"İptal Et\n"
+"Tüm değişiklikleri bırak."
 
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
 "Leave the cache on disk."
 msgstr ""
+"İptal Et\n"
+"Önbelleği diskte bırak."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr ""
+"İptal Et\n"
+"Önce çakışmaları çözümle."
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
 msgstr ""
+"İptal Et\n"
+"Çakışma çözümlenmez."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not added and not adjusted."
 msgstr ""
+"İptal Et\n"
+"Dosya eklenmez ve ayarlanmaz."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not copied."
 msgstr ""
+"İptal Et\n"
+"Dosya kopyalanmaz."
 
 #. Resource IDs: (91)
 msgid ""
 "Cancel\n"
 "The folder is not exported."
-msgstr ""
+msgstr "Değişiklikler geri alınıyor"
 
 #. Resource IDs: (105)
 msgid ""
@@ -2596,12 +2641,16 @@ msgid ""
 "Cancel\n"
 "The property is not removed."
 msgstr ""
+"İptal Et\n"
+"Özellik kaldırılmaz."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr ""
+"İptal Et\n"
+"Hedef dosyayı olduğu gibi bırak"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2664,7 +2713,7 @@ msgstr "Sertifika daha geçerli değil. Bu tarihten itibaren geçerli: %s"
 
 #. Resource IDs: (148)
 msgid "Certificate validation failed"
-msgstr ""
+msgstr "Sertifika doğrulaması başarısız"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -2818,10 +2867,6 @@ msgstr "Çıkar(al)"
 msgid "Checkout &directory:"
 msgstr "Çıkış alınacak &Klasör:"
 
-#. Resource IDs: (77)
-msgid "Checkout - TortoiseSVN"
-msgstr "Dosya Çek - TortoiseSVN Hakkında"
-
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
 msgstr "Dosya Çekme D&erinliği"
@@ -2836,6 +2881,8 @@ msgid ""
 "Checkout\n"
 "Checkout into the non empty folder."
 msgstr ""
+"Çıkar(al)\n"
+"Boş olmayan bir klasöre al."
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -3066,10 +3113,6 @@ msgstr "Komutlar"
 msgid "Commit"
 msgstr "Teslim et"
 
-#. Resource IDs: (77)
-msgid "Commit - TortoiseSVN"
-msgstr "Teslim et - TortoiseSVN Hakkında"
-
 #. Resource IDs: (616)
 msgid "Commit failed - Update needed"
 msgstr "Teslim etme başarısız - Güncelleme gerekiyor"
@@ -3079,6 +3122,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"Sadece klasörü teslim et\n"
+"Klasördeki dosyalar teslim edilmez."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3122,6 +3167,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
+"Versiyonlanmamış bir klasörü teslim etmek alt öğeleri özyineli olarak eklemez!\n"
+"Bu klasörleri sağ-tık menüsündeki 'Add...' seçeneği ile özyineli olarak eklemeyi isteyebilirsiniz."
 
 #. Resource IDs: (170)
 msgid ""
@@ -3231,7 +3278,7 @@ msgstr "GNU karşılaştırma dosyasi (Yama dosyası) görüntüleyicisi ayarlar
 
 #. Resource IDs: (147)
 msgid "Confirm revert"
-msgstr ""
+msgstr "Geri almayı onayla"
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3334,10 +3381,6 @@ msgstr "%s ı %s a kopyala, Revizyon %s"
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
 msgstr "Kopyala (Dal / Etiket) "
-
-#. Resource IDs: (78)
-msgid "Copy - TortoiseSVN"
-msgstr "Kopyala - TortoiseSVN"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -3779,7 +3822,7 @@ msgstr "Sil"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
-msgstr ""
+msgstr "Depo önbelleğini sil"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -3808,12 +3851,16 @@ msgid ""
 "Delete\n"
 "Remove the cache files."
 msgstr ""
+"Sil\n"
+"Önbellek dosyalarını sil."
 
 #. Resource IDs: (314)
 msgid ""
 "Delete\n"
 "The file is removed."
 msgstr ""
+"Sil\n"
+"Dosya silinir."
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3904,7 +3951,7 @@ msgstr "Diyalog boyutları ve konumları"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr ""
+msgstr "Fark Seçenekleri"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4007,19 +4054,21 @@ msgstr "Aşağıdaki yollar için içerik menüsünü gösterme:"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
-msgstr ""
+msgstr "Bunu tüm varolan dosyalar için yap"
 
 #. Resource IDs: (91)
 msgid "Do this for all existing folders"
 msgstr ""
+"İptal Et\n"
+"Hedef dosyayı olduğu gibi bırak"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr ""
+msgstr "Bunu varolan tüm öğeler için yap"
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
-msgstr ""
+msgstr "Bunu tüm seçili öğeler için yap"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -4027,7 +4076,7 @@ msgstr "Bunu tüm seçili versiyonlanmamış klasörlere uygula"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
-msgstr ""
+msgstr "Bunu tüm versiyonlanmamış/değiştirilmemiş öğeler için yap"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4072,7 +4121,7 @@ msgstr ""
 #. Resource IDs: (148)
 #, c-format
 msgid "Do you want to mark '%s' as resolved?"
-msgstr ""
+msgstr "'%s' çözümlenmiş olarak işaretlensin mi?"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4098,7 +4147,7 @@ msgstr "%s özelliğini özyineli kaldırmak istediğinizden emin misiniz?"
 #. Resource IDs: (147)
 #, c-format
 msgid "Do you want to revert '%s'?"
-msgstr ""
+msgstr "'%s' geri alınsın mı?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4117,6 +4166,8 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
+"Bu revizyonda yapılmış %s değişikliklerinin tümünü geri almak istiyor "
+"musunuz?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -4163,6 +4214,8 @@ msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
 msgstr ""
+"Kaydetme\n"
+"Değişiklikleri kaydetmeden görünümleri yeniden yükle"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4572,10 +4625,6 @@ msgstr "Dışa aktar"
 msgid "Export &directory:"
 msgstr "Dışa aktarma &klasörü:"
 
-#. Resource IDs: (78)
-msgid "Export - TortoiseSVN"
-msgstr "Dışa aktar - TortoiseSVN"
-
 #. Resource IDs: (94)
 msgid "Export directory:"
 msgstr "Dışa aktarma klasörü:"
@@ -4595,6 +4644,8 @@ msgid ""
 "Export\n"
 "Export into the non-empty folder."
 msgstr ""
+"Dışa Aktar\n"
+"Boş olmayan klasöre dışa aktar."
 
 #. Resource IDs: (284)
 #, c-format
@@ -4607,7 +4658,7 @@ msgstr "Dışa aktarılıyor..."
 
 #. Resource IDs: (90)
 msgid "Exporting: Target folder exists."
-msgstr ""
+msgstr "Dışa aktarılıyor: Hedef klasör mevcut."
 
 #. Resource IDs: (10)
 msgid ""
@@ -4752,7 +4803,7 @@ msgstr "Dosya"
 
 #. Resource IDs: (90)
 msgid "File already exists"
-msgstr ""
+msgstr "Dosya zaten var"
 
 #. Resource IDs: (247)
 #, c-format
@@ -4765,7 +4816,7 @@ msgstr "Haftalık dosya değişim sayısı"
 
 #. Resource IDs: (226)
 msgid "File contains conflict markers"
-msgstr ""
+msgstr "Dosya çakışma işaretleri içeriyor"
 
 #. Resource IDs: (376)
 msgid "File diffs"
@@ -4773,7 +4824,7 @@ msgstr "Dosya farklılıkları"
 
 #. Resource IDs: (314)
 msgid "File is empty."
-msgstr ""
+msgstr "Dosya boş."
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -5009,7 +5060,7 @@ msgstr "Zorla"
 
 #. Resource IDs: (147)
 msgid "Force removal"
-msgstr ""
+msgstr "Kaldırmaya zorla"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5636,6 +5687,9 @@ msgid ""
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
 msgstr ""
+"Bu bilgisayarda TortoiseSVN yanı sıra diğer SVN istemciler kullanıyorsanız, "
+"bu istemcileri de yükseltmelisiniz. Aksi halde bu istemciler yeni biçime "
+"sahip çalışma kopyasına erişemeyecek."
 
 #. Resource IDs: (251)
 msgid ""
@@ -5655,7 +5709,7 @@ msgstr "%d elemana uzantısına göre al&dırma"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Satır &sonu karakteri değişikliklerini önemseme"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5695,7 +5749,7 @@ msgstr "Satir sonlarına aldırma"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "Boşluk &karakteri değişikliklerini önemseme"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5767,10 +5821,6 @@ msgstr "%s ı %s%s a aktar"
 msgid "Import &message"
 msgstr "İçe aktarma &mesajı"
 
-#. Resource IDs: (77)
-msgid "Import - TortoiseSVN"
-msgstr "İçe Aktarım - TortoiseSVN"
-
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
 msgstr "Daha önceden kaydedilmiş bir özellik listesini dosyadan içe aktar"
@@ -5812,6 +5862,8 @@ msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
 msgstr ""
+"İçe Aktar\n"
+"Öğeler içe aktarılır, her bir öğe için yeni bir revizyon yaratılır."
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5997,6 +6049,12 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr ""
+"Çalişan kopyanızı aynı depo içerisinde başka bir dizine taşımaya çalışıyorsunuz.\n"
+"\n"
+"Buradan:%1!s!\n"
+"Buraya: %2!s!\n"
+"\n"
+"Başka bir dizine taşımanın yanlış kullanımı çalışan kopyanızı tahrip eder!"
 
 #. Resource IDs: (88)
 #, c-format
@@ -6013,6 +6071,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
+"Çalışan kopyanızı aynı depo içerisinde başka bir dizine taşımaya çalışıyorsunuz.\n"
+"\n"
+"Buradan:%1!s!\n"
+"Buraya: %2!s!\n"
+"\n"
+"Başka bir dizine taşıma sadece deponun dizini değiştiğinde gereklidir.\n"
+"Depo içerisinde başka bir dizine değiştirmek değiştir/geç işlemi ile yapılır.\n"
+"\n"
+"Başka bir dizine taşımanın yanlış kullanımı çalışan kopyanızı tahrip eder!\n"
+"Ne yapmanız gerektiğinden emin değilseniz lütfen taşıma hakkındaki belgelerimize başvurun.\n"
+"Taşımak istediğinizden emin misiniz?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6249,7 +6318,7 @@ msgstr "%s tarafından kilitlendi"
 
 #. Resource IDs: (93)
 msgid "Locking failed"
-msgstr ""
+msgstr "Kilitleme başarısız"
 
 #. Resource IDs: (89)
 msgid ""
@@ -6349,6 +6418,8 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr ""
+"Çözüldü olarak işaretle\n"
+"Çakışma çözülür."
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6425,10 +6496,6 @@ msgstr "Birleştirme"
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
 msgstr "Birleştirme &derinliği"
-
-#. Resource IDs: (78)
-msgid "Merge - TortoiseSVN"
-msgstr "Birleştir - TortoiseSVN"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -6607,7 +6674,7 @@ msgstr "Değiştirilme tarih:"
 
 #. Resource IDs: (315)
 msgid "Modifications detected"
-msgstr ""
+msgstr "Değişiklikler saptandı"
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
@@ -6635,7 +6702,7 @@ msgstr "Daha fazla renk..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "Birden fazla öğe bırakıldı."
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6697,7 +6764,7 @@ msgstr "Öğeleri buraya taşı"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr "Özel dosya ya da klasörü taşı"
+msgstr "Özel dosya ya da dizini taşı"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6722,6 +6789,8 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr ""
+"Taşı\n"
+"Öğeler hedef adrese taşınır."
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6986,7 +7055,7 @@ msgstr "Özyinesiz"
 
 #. Resource IDs: (265)
 msgid "Not under version control"
-msgstr ""
+msgstr "Versiyon kontrolü altında değil"
 
 #. Resource IDs: (3887)
 msgid ""
@@ -7024,6 +7093,8 @@ msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
+"Dikkat: Eğer çalışan kopyayı yükseltirseniz, yükseltilmiş çalışan kopyaya 1.7 öncesi SVN istemcileri ile erişemeyeceksiniz!\n"
+"Bu çalışan kopyayı gerçekten yükseltmek istiyor musunuz?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7104,7 +7175,7 @@ msgstr "Hafta sayısı:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "Seçe&nekler"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -7147,6 +7218,8 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr ""
+"Taşımayı denediğiniz dizin yollarından biri özel bir yol olarak görünüyor.\n"
+"('branches', 'tags' veya 'trunk' isimlerinden biri)."
 
 #. Resource IDs: (63)
 msgid ""
@@ -7217,6 +7290,8 @@ msgid ""
 "Open files\n"
 "Open files for diff"
 msgstr ""
+"Dosyaları aç\n"
+"Dosyaları fark kontrolü için aç"
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7299,18 +7374,24 @@ msgid ""
 "Overwrite\n"
 "Replace the target folder."
 msgstr ""
+"Üzerine Yaz\n"
+"Hedef klasör ile değiştirilir."
 
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
 msgstr ""
+"Üzerine yaz\n"
+"Hedef dosyanın üzerine yazılır"
 
 #. Resource IDs: (90)
 msgid ""
 "Overwrite\n"
 "The target file is replaced."
 msgstr ""
+"%s\n"
+"Yine de %d dosyayı kaldırmak istiyor musunuz?"
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -7409,7 +7490,7 @@ msgstr "Dizin"
 
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
-msgstr ""
+msgstr "Yamaya daha iyi uyan dizin yolu bulundu."
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7635,16 +7716,20 @@ msgid ""
 "Proceed with the entered path\n"
 "I'm aware of the possible problems."
 msgstr ""
+"Girilen dizin yolu ile devam et\n"
+"Olası sorunların farkındayım."
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
-msgstr ""
+msgstr "Birleştirmeye devam et."
 
 #. Resource IDs: (173)
 msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
 msgstr ""
+"Bir iş numarası olmadan devam et.\n"
+"Teslim işlemi bir işle ilişkilendirilmeyecek."
 
 #. Resource IDs: (132)
 #, c-format
@@ -7785,6 +7870,8 @@ msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
+"Çık\n"
+"Değişikleri kaydetmeden TortoiseMerge uygulamasından çık"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -7915,13 +8002,15 @@ msgstr "Özyineli"
 
 #. Resource IDs: (589)
 msgid "Recursive operation"
-msgstr ""
+msgstr "Özyineli işlem"
 
 #. Resource IDs: (589)
 msgid ""
 "Recursive\n"
 "Remove the property also from items in Subfolders."
 msgstr ""
+"Özyineli\n"
+"Özelliği alt klasörlerdeki öğelerden de kaldır."
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
@@ -8003,6 +8092,8 @@ msgid ""
 "Reject the certificate\n"
 "Cancel the connection."
 msgstr ""
+"Sertifikayı reddet.\n"
+"Bağlantıyı iptal et."
 
 #. Resource IDs: (7)
 #, c-format
@@ -8039,12 +8130,16 @@ msgid ""
 "Reload\n"
 "Local modifications are lost."
 msgstr ""
+"Yeniden Yükle\n"
+"Yerel değişiklikler kaybedilir."
 
 #. Resource IDs: (315)
 msgid ""
 "Reload\n"
 "The outside changes are loaded."
 msgstr ""
+"Yeniden Yükle\n"
+"Dış değişiklikler yüklenir."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8064,13 +8159,15 @@ msgstr "Taşıma Uyarısı"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "Değiştir işlemi planlandığında taşı"
 
 #. Resource IDs: (89)
 msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
 msgstr ""
+"Taşı\n"
+"Çalışan kopya yeni URL'ye taşınır."
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -8127,6 +8224,8 @@ msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
 msgstr ""
+"Versiyon kontrolünü kaldır\n"
+"Tüm .svn klasörleri kaldırılacak"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8158,12 +8257,16 @@ msgid ""
 "Remove\n"
 "Force the removal"
 msgstr ""
+"%s\n"
+"Yine de '%s' dosyasını kaldırmak istiyor musunuz?"
 
 #. Resource IDs: (589)
 msgid ""
 "Remove\n"
 "Remove the property only from this item."
 msgstr ""
+"Kaldır\n"
+"Özelliği sadece bu öğeden kaldır."
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8224,8 +8327,8 @@ msgstr ""
 "%2!s! olarak değiştir"
 
 #. Resource IDs: (221)
-msgid "Rename/move - TortoiseSVN"
-msgstr "İsim/yer değiştir - TortoiseSVN"
+msgid "Rename/move"
+msgstr ""
 
 #. Resource IDs: (91)
 #, c-format
@@ -8233,6 +8336,8 @@ msgid ""
 "Rename\n"
 "The folder is exported as \"%s\"."
 msgstr ""
+"Yeniden Adlandır\n"
+"Klasör \"%s\" adıyla dışa aktarılır."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8322,10 +8427,6 @@ msgstr "Kolonları sıfırla"
 msgid "Resolve"
 msgstr "Çözümle"
 
-#. Resource IDs: (77)
-msgid "Resolve - TortoiseSVN"
-msgstr "Çözümle - TortoiseSVN"
-
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
 msgstr "Çakışmayı çözümle"
@@ -8355,6 +8456,8 @@ msgid ""
 "Resolve\n"
 "The item is marked as resolved."
 msgstr ""
+"Çözümle\n"
+"Öğe çözümlenmiş olarak işaretlenir."
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -8392,7 +8495,7 @@ msgstr "Tekrar"
 #. Resource IDs: (286)
 #, c-format
 msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr ""
+msgstr "Birleştirilmiş %s revizyonlarını buradan geri al %s"
 
 #. Resource IDs: (264)
 #, c-format
@@ -8408,10 +8511,6 @@ msgstr "Birleştirmeyi geri alma %ld"
 msgid "Revert"
 msgstr "Geridön"
 
-#. Resource IDs: (77)
-msgid "Revert - TortoiseSVN"
-msgstr "Geri Al - TortoiseSVN"
-
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "Başlangıç ayarlarına geri dön. Yeni kullanıcılar için tavsiye edilir."
@@ -8420,13 +8519,15 @@ msgstr "Başlangıç ayarlarına geri dön. Yeni kullanıcılar için tavsiye ed
 msgid ""
 "Revert\n"
 "All changes will be lost."
-msgstr ""
+msgstr "Son güncellemeden itibaren yapılan tüm değişiklikler kaybedilecek!"
 
 #. Resource IDs: (119)
 msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
 msgstr ""
+"Geri al\n"
+"Değişiklikler çalışan kopyaya uygulanacak"
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -8434,7 +8535,7 @@ msgstr "Geridönüldü"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
-msgstr ""
+msgstr "Değişiklikler geri alınıyor"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8704,6 +8805,8 @@ msgid ""
 "Save as\n"
 "You're asked where to save the file"
 msgstr ""
+"Farklı kaydet\n"
+"Dosyanın nereye kaydedileceği sorulacak"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -8720,7 +8823,7 @@ msgstr "Git formatında kaydet"
 
 #. Resource IDs: (314)
 msgid "Save modifications."
-msgstr ""
+msgstr "Değişiklerine kaydet."
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8743,6 +8846,8 @@ msgid ""
 "Save\n"
 "Save the file with the conflict markers."
 msgstr ""
+"Kaydet\n"
+"Dosyayı çakışma işaretleriyle kaydet"
 
 #. Resource IDs: (314)
 #, c-format
@@ -8751,6 +8856,9 @@ msgid ""
 "The modifications are saved to\n"
 "%s"
 msgstr ""
+"Kaydet\n"
+"Değişiklikler buraya kaydedilir\n"
+"%s"
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -9379,11 +9487,11 @@ msgstr "Var olmayan hedef dosyaları atlandı"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr ""
+msgstr "Çalışan kopyanın engellenmesi atlandı"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr ""
+msgstr "Atlandı, versiyonlanmış ana öğe yok."
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9394,12 +9502,16 @@ msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
+"Bazı dosya(lar) T-Merge dışında değiştirildi.\n"
+"Değişiklikleri yüklemek istiyor musunuz?"
 
 #. Resource IDs: (314)
 msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
+"Bazı dosya(lar) T-Merge dışında değiştirildi.\n"
+"Yeniden yüklemek ve değişikliklerinizi kaybetmek istiyor musunuz?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9420,7 +9532,7 @@ msgstr "Kaynak URL:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr ""
+msgstr "Seyrek güncelleme %1!s!, derinlik \"%2!s!\""
 
 #. Resource IDs: (196)
 msgid ""
@@ -9691,14 +9803,14 @@ msgstr "Subversion Sunucu dosyası:"
 msgid "Swit&ch working copy to new branch/tag"
 msgstr "Ç&alışan kopyayı yeni bir dal'a/etiket'e geçir"
 
+#. Resource IDs: (78)
+msgid "Switch"
+msgstr ""
+
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %s to %s, Revision %s"
 msgstr "%s'i %s'e dönüştür,Revizyon %s"
-
-#. Resource IDs: (78)
-msgid "Switch - TortoiseSVN"
-msgstr "Değiştir - TortoiseSVN"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9803,6 +9915,8 @@ msgstr "Çalışan kopya %s a etiketlendi"
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
 msgstr ""
+"İptal Et\n"
+"Kaldırma"
 
 #. Resource IDs: (80)
 msgid "Tasks"
@@ -9830,6 +9944,8 @@ msgid ""
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
 msgstr ""
+"Değişiklikler çalışan kopyanıza bir ters birleştirme işlemiyle uygulanacak. "
+"Depo etkilenmeyecek. Teslim etmeden önce değişiklikleri inceleyebilirsiniz."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10199,6 +10315,8 @@ msgid ""
 "The path/URL \"%s\" seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"Dizin yolu/URL \"%s\" Windows için uygunsuz görünüyor.\n"
+"Yine de deneyebilirsiniz, ancak daha sonra bir hata alabilirsiniz."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10302,7 +10420,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "Hedef zaten var."
 
 #. Resource IDs: (147)
 #, c-format
@@ -10332,7 +10450,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "Hedef yerel değişikliklere sahip"
 
 #. Resource IDs: (279)
 #, c-format
@@ -10340,6 +10458,8 @@ msgid ""
 "The target working copy \"%s\" has local modifications. It is recommended to"
 " commit those changes first before merging new changes."
 msgstr ""
+"Hedef çalışan kopya \"%s\" yerel değişikliklere sahip. Yeni değişiklikleri "
+"birleştirmeden önce bu değişiklikleri teslim etmeniz önerilir."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -10579,6 +10699,8 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr ""
+"Bu işlem çalışan kopyanızı yeni 1.7 biçimine yükseltir ve önceki istemciler "
+"için kullanılamaz hale getirir."
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -11020,7 +11142,7 @@ msgstr "Tanınamayan veya hatalı özellik dosya biçemi!"
 
 #. Resource IDs: (315)
 msgid "Unresolved conflicts!"
-msgstr ""
+msgstr "Çözülmemiş çakışmalar!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -11044,7 +11166,7 @@ msgstr "Versiyonu kaldır ve aldır&mama listesine ekle"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "Çalışan kopyanın versiyonunu kaldır"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -11069,10 +11191,6 @@ msgstr "Bir üst klasör"
 msgid "Update"
 msgstr "Güncelleme"
 
-#. Resource IDs: (77)
-msgid "Update - TortoiseSVN"
-msgstr "Güncelle - TortoiseSVN"
-
 #. Resource IDs: (1377)
 msgid "Update Depth"
 msgstr "Derinlik Güncelleme"
@@ -11086,12 +11204,16 @@ msgid ""
 "Update\n"
 "Update the file and try locking again."
 msgstr ""
+"Güncelle\n"
+"Dosyayı güncelle ve yeniden kilitlemeyi dene."
 
 #. Resource IDs: (90)
 msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
 msgstr ""
+"İptal Et\n"
+"Çalışan kopyayı güncelleme."
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -11130,7 +11252,7 @@ msgstr "Günlük güncelleniyor"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
-msgstr ""
+msgstr "Çalışan kopyayı yeni 1.7 biçimine yükselt."
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
@@ -11326,6 +11448,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Bulunan yolu kullan.\n"
+"Şuna yamayı uygula\n"
+"%s"
 
 #. Resource IDs: (594)
 msgid ""
@@ -11348,6 +11473,8 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Özgün yolu kullan.\n"
+"Şuna yamayı uygula %s"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -11479,6 +11606,8 @@ msgid ""
 "When activated, hold down the SHIFT key when right-clicking to get the "
 "TortoiseSVN menus added to the context menu"
 msgstr ""
+"Etkin hale getirildiğinde, TortoiseSVN menülerinin sağ-tık menüsüne "
+"eklenmesi için sağ tıklarken SHIFT tuşuna basılı tutun"
 
 #. Resource IDs: (344)
 msgid ""
@@ -11557,6 +11686,8 @@ msgid ""
 "Wrap long lines\n"
 "Wrap long lines"
 msgstr ""
+"Uzun satırları böl\n"
+"Uzun satırları böl"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -11628,6 +11759,8 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
+"Depoya eklemek üzere birden fazla dosya veya klasör bıraktınız.\n"
+"Bunu bir adımda yapmak mümkün değildir, bu yüzden TortoiseSVN her dosya/klasörü tek tek ekleyecek, her biri için yeni bir revizyon oluşturacak."
 
 #. Resource IDs: (105)
 msgid ""
@@ -11665,7 +11798,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "Bir iş numarası girmediniz."
 
 #. Resource IDs: (1002)
 #, c-format
@@ -11686,7 +11819,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr ""
+msgstr "Teslim etmek için versiyonlanmamış bir klasör seçtiniz!"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -11791,6 +11924,8 @@ msgid ""
 "Your working copy points to %s which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
+"Çalışan kopyanız etiket olarak görünen şuraya bakıyor: %s\n"
+"Teslim etmeden önce bir dala veya ana gövdeye dönmelisiniz."
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
@@ -12504,17 +12639,17 @@ msgstr "çakışan değişiklikler var."
 #. Resource IDs: (3845)
 #, c-format
 msgid "to %1"
-msgstr "%1 a"
+msgstr "buraya %1"
 
 #. Resource IDs: (80, 284)
 #, c-format
 msgid "to %1!s!"
-msgstr "%1!s! a"
+msgstr "buraya %1!s!"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
-msgstr "%s a"
+msgstr "buraya %s "
 
 #. Resource IDs: (208, 264)
 msgid "tree conflict"
@@ -12709,8 +12844,8 @@ msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
-"tsvn:warnifnoissue\r\n"
-"Buna teslim diyalogunda sorun girilmediğinde uyarı verilmesini istiyorsanız \"yes\" kelimesini atayın."
+"tsvn:warnifnoissue\n"
+"Buna teslim diyalogunda sorun girilmediğinde uyarı verilmesini istiyorsanız \"evet\"i seçin."
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
