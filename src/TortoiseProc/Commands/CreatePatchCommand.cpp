@@ -183,7 +183,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
         }
         else
         {
-            TCHAR szFile[MAX_PATH] = {0};   // buffer for file name
+            TCHAR szFile[MAX_PATH + 1] = {0};// buffer for file name
             OPENFILENAME ofn = {0};         // common dialog box structure
             // Initialize OPENFILENAME
             ofn.lStructSize = sizeof(OPENFILENAME);
