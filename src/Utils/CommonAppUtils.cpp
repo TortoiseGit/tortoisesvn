@@ -648,7 +648,8 @@ bool CCommonAppUtils::AddClipboardUrlToWindow( HWND hWnd )
 
 void CCommonAppUtils::SetWindowTitle( HWND hWnd, const CString& urlorpath, const CString& dialogname )
 {
-    ASSERT(dialogname.GetLength() < 40);
+#define MAX_PATH_LENGTH 80
+    ASSERT(dialogname.GetLength() < MAX_PATH_LENGTH);
     WCHAR pathbuf[MAX_PATH] = {0};
     if (urlorpath.GetLength() >= MAX_PATH)
     {
@@ -658,10 +659,10 @@ void CCommonAppUtils::SetWindowTitle( HWND hWnd, const CString& urlorpath, const
         std::wstring str2 = std::regex_replace(str, rx, replacement);
         if (str2.size() >= MAX_PATH)
             str2 = str2.substr(0, MAX_PATH-2);
-        PathCompactPathEx(pathbuf, str2.c_str(), 40-dialogname.GetLength(), 0);
+        PathCompactPathEx(pathbuf, str2.c_str(), MAX_PATH_LENGTH-dialogname.GetLength(), 0);
     }
     else
-        PathCompactPathEx(pathbuf, urlorpath, 40-dialogname.GetLength(), 0);
+        PathCompactPathEx(pathbuf, urlorpath, MAX_PATH_LENGTH-dialogname.GetLength(), 0);
     CString title;
     switch (DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\DialogTitles", 0)))
     {
