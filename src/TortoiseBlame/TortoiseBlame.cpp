@@ -1763,6 +1763,8 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
     {
     case WM_CREATE:
         return 0;
+    case WM_ERASEBKGND:
+        return 1;
     case WM_PAINT:
         hDC = BeginPaint(app.wBlame, &ps);
         app.DrawBlame(hDC);
