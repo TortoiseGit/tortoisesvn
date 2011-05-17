@@ -231,6 +231,16 @@
             </listitem>
         </varlistentry>
         <varlistentry>
+            <term condition="pot">OutOfDateRetry</term>
+            <listitem>
+                <para>
+                    If you don't want TortoiseSVN to ask you to update
+                    the working copy automatically after an <literal>Out of date</literal>
+                    error, set this value to <literal>false</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
             <term condition="pot">ShellMenuAccelerators</term>
             <listitem>
                 <para>

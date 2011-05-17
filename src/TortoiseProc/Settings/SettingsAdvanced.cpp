@@ -43,6 +43,7 @@ CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] =
     { _T("LogStatusCheck"), CSettingsAdvanced::SettingTypeBoolean, true },
     { _T("MergeLogSeparator"), CSettingsAdvanced::SettingTypeString, _T("........") },
     { _T("OldVersionCheck"), CSettingsAdvanced::SettingTypeBoolean, false },
+    { _T("OutOfDateRetry"), CSettingsAdvanced::SettingTypeBoolean, true },
     { _T("ShellMenuAccelerators"), CSettingsAdvanced::SettingTypeBoolean, true },
     { _T("ShowContextMenuIcons"), CSettingsAdvanced::SettingTypeBoolean, true },
     { _T("ShowAppContextMenuIcons"), CSettingsAdvanced::SettingTypeBoolean, true },

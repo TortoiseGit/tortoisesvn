@@ -30,7 +30,6 @@ CSetMisc::CSetMisc()
     , m_bSpell(TRUE)
     , m_bCheckRepo(FALSE)
     , m_dwMaxHistory(25)
-    , m_bCommitReopen(FALSE)
     , m_bShowLockDlg(FALSE)
     , m_bAutoSelect(TRUE)
 {
@@ -46,8 +45,6 @@ CSetMisc::CSetMisc()
     m_bCheckRepo = (DWORD)m_regCheckRepo;
     m_regMaxHistory = CRegDWORD(_T("Software\\TortoiseSVN\\MaxHistoryItems"), 25);
     m_dwMaxHistory = (DWORD)m_regMaxHistory;
-    m_regCommitReopen = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
-    m_bCommitReopen = (BOOL)(DWORD)m_regCommitReopen;
     m_regShowLockDlg = CRegDWORD(_T("Software\\TortoiseSVN\\ShowLockDlg"), TRUE);
     m_bShowLockDlg = (BOOL)(DWORD)m_regShowLockDlg;
     m_regAutoSelect = CRegDWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE);
@@ -69,7 +66,6 @@ void CSetMisc::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_REPOCHECK, m_bCheckRepo);
     DDX_Text(pDX, IDC_MAXHISTORY, m_dwMaxHistory);
     DDV_MinMaxUInt(pDX, m_dwMaxHistory, 1, 100);
-    DDX_Check(pDX, IDC_REOPENCOMMIT, m_bCommitReopen);
     DDX_Check(pDX, IDC_SHOWLOCKDLG, m_bShowLockDlg);
     DDX_Check(pDX, IDC_SELECTFILESONCOMMIT, m_bAutoSelect);
 }
@@ -102,7 +98,6 @@ BOOL CSetMisc::OnApply()
     Store (m_bSpell, m_regSpell);
     Store (m_bCheckRepo, m_regCheckRepo);
     Store (m_dwMaxHistory, m_regMaxHistory);
-    Store (m_bCommitReopen, m_regCommitReopen);
     Store (m_bShowLockDlg, m_regShowLockDlg);
     Store (m_bAutoSelect, m_regAutoSelect);
 
@@ -120,7 +115,6 @@ BOOL CSetMisc::OnInitDialog()
     m_tooltips.AddTool(IDC_AUTOCOMPLETIONTIMEOUT, IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT);
     m_tooltips.AddTool(IDC_AUTOCOMPLETIONTIMEOUTLABEL, IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT);
     m_tooltips.AddTool(IDC_SPELL, IDS_SETTINGS_SPELLCHECKER_TT);
-    m_tooltips.AddTool(IDC_REOPENCOMMIT, IDS_SETTINGS_COMMITREOPEN_TT);
     m_tooltips.AddTool(IDC_REPOCHECK, IDS_SETTINGS_REPOCHECK_TT);
     m_tooltips.AddTool(IDC_MAXHISTORY, IDS_SETTINGS_MAXHISTORY_TT);
     m_tooltips.AddTool(IDC_MAXHISTORYLABEL, IDS_SETTINGS_MAXHISTORY_TT);

@@ -192,7 +192,7 @@ bool CommitCommand::Execute()
             err = (DWORD)progDlg.DidErrorsOccur();
             bFailed = progDlg.DidErrorsOccur();
             bRet = !progDlg.DidErrorsOccur();
-            CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\CommitReopen"), FALSE);
+            CRegDWORD bFailRepeat = CRegDWORD(_T("Software\\TortoiseSVN\\OutOfDateRetry"), TRUE);
             if (DWORD(bFailRepeat)==0)
                 bFailed = false;        // do not repeat if the user chose not to in the settings.
         }
