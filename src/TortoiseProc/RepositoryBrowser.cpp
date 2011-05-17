@@ -2993,13 +2993,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 if (bWCPresent)
                 {
                     popup.AppendMenu(MF_SEPARATOR, NULL);
-                    popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATE, IDI_UPDATE);      // "Update item to revision"
+                    popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATEREV, IDI_UPDATE);      // "Update item to revision"
                 }
             }
             else
             {
                 popup.AppendMenu(MF_SEPARATOR, NULL);
-                popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATE, IDI_UPDATE);      // "Update item to revision"
+                popup.AppendMenuIcon(ID_UPDATE, IDS_LOG_POPUP_UPDATEREV, IDI_UPDATE);      // "Update item to revision"
             }
         }
         popup.AppendMenuIcon(ID_CREATELINK, IDS_REPOBROWSE_CREATELINK, IDI_LINK);
