@@ -250,6 +250,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     GetWindowText(m_origDlgTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), m_origDlgTitle);
 
     m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_REPOBROWSER));
 
@@ -528,7 +529,6 @@ void CRepositoryBrowser::InitRepo()
         (m_repository.root.Left(9).CompareNoCase(_T("file:///\\")) != 0))
         m_repository.root.Replace(_T("file://"), _T("file:///\\"));
 
-    CAppUtils::SetWindowTitle(m_hWnd, m_repository.root, m_origDlgTitle);
     // now check the repository root for the url type, then
     // set the corresponding background image
     if (!m_repository.root.IsEmpty())
