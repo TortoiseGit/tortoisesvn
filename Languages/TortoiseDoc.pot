@@ -1347,7 +1347,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
+msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from the <ulink url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink> website."
 msgstr ""
 
 #. (title)
@@ -1494,7 +1494,7 @@ msgid "UberSVN"
 msgstr ""
 
 #. (para)
-msgid "In the early days of Subversion, setting up a server required a good understanding of server configuration and in previous versions of this manual we included detailed descriptions of how to set up a server. Since then things have become easier as there are now several pre-packaged server installers available which guide you through the setup and configuration process. These links are for some of the installers we know about: <placeholder-1/> You can always find the latest links on the <ulink url=\"http://subversion.apache.org/getting.html\"><citetitle>Subversion</citetitle></ulink> website."
+msgid "In the early days of Subversion, setting up a server required a good understanding of server configuration and in previous versions of this manual we included detailed descriptions of how to set up a server. Since then things have become easier as there are now several pre-packaged server installers available which guide you through the setup and configuration process. These links are for some of the installers we know about: <placeholder-1/> You can always find the latest links on the <ulink url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink> website."
 msgstr ""
 
 #. (para)
@@ -8589,6 +8589,10 @@ msgstr ""
 
 #. (para)
 msgid "TortoiseSVN checks whether there's a new version available about once a week. If an updated version is found, the commit dialog shows a link control with that info. If you prefer the old behavior back where a dialog pops up notifying you about the update, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid "If you don't want TortoiseSVN to ask you to update the working copy automatically after an <literal>Out of date</literal> error, set this value to <literal>false</literal>."
 msgstr ""
 
 #. (para)
