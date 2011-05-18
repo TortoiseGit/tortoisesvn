@@ -417,6 +417,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
                 data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
                 data->color = m_Colors.GetColor(CColors::Conflict);
+                data->bConflictSummary = true;
                 CSoundUtils::PlayTSVNWarning();
                 m_bConflictWarningShown = true;
                 // This item will now be added after the switch statement
@@ -445,6 +446,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
                 data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
                 data->color = m_Colors.GetColor(CColors::Conflict);
+                data->bConflictSummary = true;
                 CSoundUtils::PlayTSVNWarning();
                 m_bConflictWarningShown = true;
                 // This item will now be added after the switch statement
@@ -1958,12 +1960,23 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 if (m_nConflicts==0)
                 {
                     // When the last conflict is resolved we remove
-                    // the warning which we assume is in the last line.
-                    int nIndex = m_ProgList.GetItemCount()-1;
-                    VERIFY(m_ProgList.DeleteItem(nIndex));
-
-                    delete m_arData[nIndex];
-                    m_arData.pop_back();
+                    // the warning(s).
+                    int index = 0;
+                    auto cs = m_arData.begin();
+                    while (cs != m_arData.end())
+                    {
+                        if ((*cs)->bConflictSummary)
+                        {
+                            delete (*cs);
+                            cs = m_arData.erase(cs);
+                            m_ProgList.DeleteItem(index);
+                        }
+                        else
+                        {
+                            ++cs;
+                        }
+                        ++index;
+                    }
                 }
                 sResolvedPaths += data2->path.GetWinPathString() + _T("\n");
             }

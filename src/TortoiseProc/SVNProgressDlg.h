@@ -163,7 +163,8 @@ private:
               bConflictedActionItem(false),
               bTreeConflict(false),
               bAuxItem(false),
-              lock_state(svn_wc_notify_lock_state_unchanged)
+              lock_state(svn_wc_notify_lock_state_unchanged),
+              bConflictSummary(false)
           {
               merge_range.end = 0;
               merge_range.start = 0;
@@ -190,6 +191,7 @@ private:
         bool                    bConflictedActionItem;      ///< Is this item a conflict?
         bool                    bTreeConflict;              ///< item is tree conflict
         bool                    bAuxItem;                   ///< Set if this item is not a true 'SVN action'
+        bool                    bConflictSummary;           ///< if true, the entry is "one or more items are in a conflicted state"
         CString                 sPathColumnText;
 
     };
