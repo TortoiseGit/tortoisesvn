@@ -1073,7 +1073,7 @@ int CMainFrame::SaveFile(const CString& sFilePath)
         }
         if (sFilePath == m_Data.m_baseFile.GetFilename())
         {
-            m_Data.m_mergedFile.StoreFileAttributes();
+            m_Data.m_baseFile.StoreFileAttributes();
         }
         if (sFilePath == m_Data.m_theirFile.GetFilename())
         {
@@ -1116,6 +1116,8 @@ void CMainFrame::PatchSave()
         DeleteFile(m_Data.m_mergedFile.GetFilename());
     }
     m_Data.m_mergedFile.StoreFileAttributes();
+    if (m_Data.m_mergedFile.GetFilename() == m_Data.m_yourFile.GetFilename())
+        m_Data.m_yourFile.StoreFileAttributes();
 }
 
 bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
