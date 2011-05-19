@@ -1950,12 +1950,11 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
         BuildAllScreen2ViewVector();
         m_nLastScreenChars = m_nScreenChars;
     }
-    else
-    {
-        UpdateLocator();
-        RecalcVertScrollBar();
-        RecalcHorzScrollBar();
-    }
+
+    UpdateLocator();
+    RecalcVertScrollBar();
+    RecalcHorzScrollBar();
+
     CView::OnSize(nType, cx, cy);
 }
 
@@ -4302,7 +4301,7 @@ void CBaseView::Screen2View::RebuildIfNecessary()
         TScreenLineInfo oLineInfo;
         oLineInfo.nViewLine = i;
         oLineInfo.nViewSubLine = -1; // no wrap
-        if (m_pMainFrame->m_bWrapLines)
+        if (m_pMainFrame->m_bWrapLines && (m_pViewData->GetHideState(i)==HIDESTATE_SHOWN || !m_pMainFrame->m_bCollapsed))
         {
             int nMaxLines = 0;
             if (IsLeftViewGood())
