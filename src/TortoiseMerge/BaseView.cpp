@@ -4302,7 +4302,7 @@ void CBaseView::Screen2View::RebuildIfNecessary()
         TScreenLineInfo oLineInfo;
         oLineInfo.nViewLine = i;
         oLineInfo.nViewSubLine = -1; // no wrap
-        if (m_pMainFrame->m_bWrapLines && (m_pViewData->GetHideState(i)==HIDESTATE_SHOWN))
+        if (m_pMainFrame->m_bWrapLines)
         {
             int nMaxLines = 0;
             if (IsLeftViewGood())
