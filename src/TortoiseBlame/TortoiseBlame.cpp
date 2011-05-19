@@ -1756,9 +1756,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    PAINTSTRUCT ps;
-    TRACKMOUSEEVENT mevt;
-    HDC hDC;
     switch (message)
     {
     case WM_CREATE:
@@ -1766,9 +1763,12 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
     case WM_ERASEBKGND:
         return 1;
     case WM_PAINT:
-        hDC = BeginPaint(app.wBlame, &ps);
-        app.DrawBlame(hDC);
-        EndPaint(app.wBlame, &ps);
+        {
+            PAINTSTRUCT ps;
+            HDC hDC = BeginPaint(app.wBlame, &ps);
+            app.DrawBlame(hDC);
+            EndPaint(app.wBlame, &ps);
+        }
         break;
     case WM_COMMAND:
         app.Command(LOWORD(wParam));
@@ -1868,6 +1868,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
         break;
     case WM_MOUSEMOVE:
         {
+            TRACKMOUSEEVENT mevt;
             mevt.cbSize = sizeof(TRACKMOUSEEVENT);
             mevt.dwFlags = TME_LEAVE;
             mevt.dwHoverTime = HOVER_DEFAULT;
@@ -1957,16 +1958,17 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 
 LRESULT CALLBACK WndHeaderProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    PAINTSTRUCT ps;
-    HDC hDC;
     switch (message)
     {
     case WM_CREATE:
         return 0;
     case WM_PAINT:
-        hDC = BeginPaint(app.wHeader, &ps);
-        app.DrawHeader(hDC);
-        EndPaint(app.wHeader, &ps);
+        {
+            PAINTSTRUCT ps;
+            HDC hDC = BeginPaint(app.wHeader, &ps);
+            app.DrawHeader(hDC);
+            EndPaint(app.wHeader, &ps);
+        }
         break;
     case WM_COMMAND:
         break;
@@ -1982,14 +1984,15 @@ LRESULT CALLBACK WndHeaderProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lP
 
 LRESULT CALLBACK WndLocatorProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    PAINTSTRUCT ps;
-    HDC hDC;
     switch (message)
     {
     case WM_PAINT:
-        hDC = BeginPaint(app.wLocator, &ps);
-        app.DrawLocatorBar(hDC);
-        EndPaint(app.wLocator, &ps);
+        {
+            PAINTSTRUCT ps;
+            HDC hDC = BeginPaint(app.wLocator, &ps);
+            app.DrawLocatorBar(hDC);
+            EndPaint(app.wLocator, &ps);
+        }
         break;
     case WM_LBUTTONDOWN:
     case WM_MOUSEMOVE:
