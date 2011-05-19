@@ -893,17 +893,22 @@ void CBaseView::RecalcHorzScrollBar(BOOL bPositionOnly /*= FALSE*/)
     else
     {
         EnableScrollBarCtrl(SB_HORZ, !m_pMainFrame->m_bWrapLines);
-        if (GetAllMinScreenChars() >= GetAllMaxLineLength() && m_nOffsetChar > 0)
+        if (!m_pMainFrame->m_bWrapLines)
         {
-            m_nOffsetChar = 0;
-            Invalidate();
+            int minScreenChars = GetAllMinScreenChars();
+            int maxLineLength = GetAllMaxLineLength();
+            if (minScreenChars >= maxLineLength && m_nOffsetChar > 0)
+            {
+                m_nOffsetChar = 0;
+                Invalidate();
+            }
+            si.fMask = SIF_DISABLENOSCROLL | SIF_PAGE | SIF_POS | SIF_RANGE;
+            si.nMin = 0;
+            si.nMax = m_pMainFrame->m_bWrapLines ? minScreenChars : maxLineLength;
+            si.nMax += GetMarginWidth()/GetCharWidth();
+            si.nPage = minScreenChars;
+            si.nPos = m_nOffsetChar;
         }
-        si.fMask = SIF_DISABLENOSCROLL | SIF_PAGE | SIF_POS | SIF_RANGE;
-        si.nMin = 0;
-        si.nMax = m_pMainFrame->m_bWrapLines ? GetAllMinScreenChars() : GetAllMaxLineLength();
-        si.nMax += GetMarginWidth()/GetCharWidth();
-        si.nPage = GetAllMinScreenChars();
-        si.nPos = m_nOffsetChar;
     }
     VERIFY(SetScrollInfo(SB_HORZ, &si));
 }
