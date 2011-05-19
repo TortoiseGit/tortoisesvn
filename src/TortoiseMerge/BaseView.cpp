@@ -2686,7 +2686,8 @@ ECharGroup GetCharGroup(wchar_t zChar)
     }
     if ((zChar >= 0x21 && zChar <= 0x2f)
             || (zChar >= 0x3a && zChar <= 0x40)
-            || (zChar >= 0x5b && zChar <= 0x60)
+            || (zChar >= 0x5b && zChar <= 0x5e)
+            || (zChar == 0x60)
             || (zChar >= 0x7b && zChar <= 0x7f))
     {
         return CHG_PUNCTUATION;
