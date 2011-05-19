@@ -151,6 +151,8 @@
                     <guimenuitem>Create Repository here...</guimenuitem>
                 </menuchoice>.
                 The repository is then created inside the folder, ready for you to use.
+                We will also create the default internal folder structure by clicking
+                the <guibutton>Create folder structure</guibutton> button.
             </para>
             <important>
                 <para>
@@ -177,13 +179,14 @@
                 </menuchoice> which brings up a dialog
                 <figure id="tsvn-qs-import-dia">
                     <title>The Import dialog</title>
-                    <graphic fileref="images/Import.png"/>
+                    <graphic fileref="images/QS-Import.png"/>
                 </figure>
                 A Subversion repository is referred to by URL, which allows us to specify
                 a repository anywhere on the Internet. In this case we need to point to our
-                own local repository which has a URL of <filename>file:///c:/svn_repos/Widget1</filename>
+                own local repository which has a URL of <filename>file:///c:/svn_repos/trunk</filename>,
+                and to which we add our own project name <filename>Widget1</filename>.
                 Note that there are 3 slashes after <filename>file:</filename> and that
-                the forward slashes are used throughout.
+                forward slashes are used throughout.
             </para>
             <para>
                 The other important feature of this dialog is the <guilabel>Import Message</guilabel>
@@ -208,7 +211,7 @@
                     <guimenu>TortoiseSVN</guimenu>
                     <guimenuitem>Checkout...</guimenuitem>
                 </menuchoice>.
-                Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/Widget1</filename>
+                Enter the URL to checkout, in this case <filename>file:///c:/svn_repos/trunk/Widget1</filename>
                 and click on <guibutton>OK</guibutton>. Our development folder is then populated
                 with files from the repository.
             </para>
@@ -238,7 +241,7 @@
                 changed.
                 <figure id="tsvn-qs-diff-2pane">
                     <title>File Difference Viewer</title>
-                    <graphic fileref="images/TMerge_TwoPane.png"/>
+                    <graphic fileref="images/QS-Diff.png"/>
                 </figure>
             </para>
             <para>
