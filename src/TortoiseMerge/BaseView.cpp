@@ -1950,10 +1950,12 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
         BuildAllScreen2ViewVector();
         m_nLastScreenChars = m_nScreenChars;
     }
-
-    UpdateLocator();
-    RecalcVertScrollBar();
-    RecalcHorzScrollBar();
+    else
+    {
+        UpdateLocator();
+        RecalcVertScrollBar();
+        RecalcHorzScrollBar();
+    }
 
     CView::OnSize(nType, cx, cy);
 }
