@@ -1105,6 +1105,7 @@ void CMainFrame::OnFileSave()
 
 void CMainFrame::PatchSave()
 {
+    bool bDoesNotExist = !PathFileExists(m_Data.m_mergedFile.GetFilename());
     if (m_Data.m_bPatchRequired)
     {
         m_Patch.PatchPath(m_Data.m_mergedFile.GetFilename());
@@ -1118,6 +1119,13 @@ void CMainFrame::PatchSave()
     m_Data.m_mergedFile.StoreFileAttributes();
     if (m_Data.m_mergedFile.GetFilename() == m_Data.m_yourFile.GetFilename())
         m_Data.m_yourFile.StoreFileAttributes();
+    if ((bDoesNotExist)&&(DWORD(CRegDWORD(_T("Software\\TortoiseMerge\\AutoAdd"), TRUE))))
+    {
+        // call TortoiseProc to add the new file to version control
+        CString cmd = _T("/command:add /noui /path:\"");
+        cmd += m_Data.m_mergedFile.GetFilename() + _T("\"");
+        CAppUtils::RunTortoiseProc(cmd);
+    }
 }
 
 bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
