@@ -58,6 +58,14 @@
             They must be set on Folders: (<xref linkend="tsvn-dug-propertypage"/>)
         </para>
         <para>
+            <figure id="tsvn-dug-bugtraq-dia">
+                <title>The Bugtraq Properties Dialog</title>
+                <graphic fileref="../images/Bugtraq.png"/>
+            </figure>
+            When you edit any of the bugtraq properties a special property
+            editor is used to make it easier to set appropriate values.
+        </para>
+        <para>
             There are two ways to integrate TortoiseSVN with issue trackers. One is
             based on simple strings, the other is based on
             <emphasis>regular expressions</emphasis>.
@@ -153,21 +161,6 @@
                         </listitem>
                     </varlistentry>
                     <varlistentry>
-                        <term condition="pot">bugtraq:append</term>
-                        <listitem>
-                            <para>
-                                This property defines if the bug-ID is appended (true)
-                                to the end of the log message or inserted (false) at the
-                                start of the log message. Valid values are
-                                <literal>true/false</literal>.
-                                <emphasis>
-                                    If not defined, <literal>true</literal> is assumed,
-                                    so that existing projects don't break.
-                                </emphasis>
-                            </para>
-                        </listitem>
-                    </varlistentry>
-                    <varlistentry>
                         <term condition="pot">bugtraq:label</term>
                         <listitem>
                             <para>
@@ -191,6 +184,21 @@
                                 numbers. Valid values are <literal>true/false</literal>.
                                 <emphasis>
                                     If not defined, <literal>true</literal> is assumed.
+                                </emphasis>
+                            </para>
+                        </listitem>
+                    </varlistentry>
+                    <varlistentry>
+                        <term condition="pot">bugtraq:append</term>
+                        <listitem>
+                            <para>
+                                This property defines if the bug-ID is appended (true)
+                                to the end of the log message or inserted (false) at the
+                                start of the log message. Valid values are
+                                <literal>true/false</literal>.
+                                <emphasis>
+                                    If not defined, <literal>true</literal> is assumed,
+                                    so that existing projects don't break.
                                 </emphasis>
                             </para>
                         </listitem>
