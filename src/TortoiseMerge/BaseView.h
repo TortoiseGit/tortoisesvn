@@ -106,6 +106,7 @@ public: // methods
     int             CountMultiLines(int nLine);
     int             GetSubLineOffset(int index);
     static void     UpdateLocator() { if (m_pwndLocator) m_pwndLocator->DocumentUpdated(); }
+    void            WrapChanged();
 
     void            HighlightLines(int start, int end = -1);
     inline BOOL     IsHidden() const  {return m_bIsHidden;}
@@ -278,7 +279,6 @@ protected:  // methods
     int             GetTabSize() const {return m_nTabSize;}
     void            DeleteFonts();
 
-    int             GetLineActualLength(int index);
     void            CalcLineCharDim();
     int             GetLineHeight();
     int             GetCharWidth();

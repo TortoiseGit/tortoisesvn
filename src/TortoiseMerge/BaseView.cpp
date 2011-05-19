@@ -485,21 +485,12 @@ int CBaseView::GetMaxLineLength()
         int nLineCount = GetLineCount();
         for (int i=0; i<nLineCount; i++)
         {
-            int nActualLength = GetLineActualLength(i);
+            int nActualLength = GetLineLength(i);
             if (m_nMaxLineLength < nActualLength)
                 m_nMaxLineLength = nActualLength;
         }
     }
     return m_nMaxLineLength;
-}
-
-int CBaseView::GetLineActualLength(int index)
-{
-    if (m_Screen2View.size() == 0)
-        return 0;
-
-    POINT pt = {index, GetLineLength(index)};
-    return CalculateActualOffset(pt);
 }
 
 int CBaseView::GetLineLength(int index)
@@ -721,7 +712,8 @@ int CBaseView::GetScreenLines()
         sbi.cbSize = sizeof(sbi);
         GetScrollBarInfo(OBJID_HSCROLL, &sbi);
         int scrollBarHeight = sbi.rcScrollBar.bottom - sbi.rcScrollBar.top;
-
+        if (sbi.rgstate[0] == STATE_SYSTEM_INVISIBLE)
+            scrollBarHeight = 0;
         CRect rect;
         GetClientRect(&rect);
         m_nScreenLines = (rect.Height() - HEADERHEIGHT - scrollBarHeight) / GetLineHeight();
@@ -900,7 +892,7 @@ void CBaseView::RecalcHorzScrollBar(BOOL bPositionOnly /*= FALSE*/)
     }
     else
     {
-        EnableScrollBarCtrl(SB_HORZ, TRUE);
+        EnableScrollBarCtrl(SB_HORZ, !m_pMainFrame->m_bWrapLines);
         if (GetAllMinScreenChars() >= GetAllMaxLineLength() && m_nOffsetChar > 0)
         {
             m_nOffsetChar = 0;
@@ -908,7 +900,8 @@ void CBaseView::RecalcHorzScrollBar(BOOL bPositionOnly /*= FALSE*/)
         }
         si.fMask = SIF_DISABLENOSCROLL | SIF_PAGE | SIF_POS | SIF_RANGE;
         si.nMin = 0;
-        si.nMax = GetAllMaxLineLength() + GetMarginWidth()/GetCharWidth();
+        si.nMax = m_pMainFrame->m_bWrapLines ? GetAllMinScreenChars() : GetAllMaxLineLength();
+        si.nMax += GetMarginWidth()/GetCharWidth();
         si.nPage = GetAllMinScreenChars();
         si.nPos = m_nOffsetChar;
     }
@@ -4424,5 +4417,10 @@ HICON CBaseView::GetIconForCommand(UINT cmdId)
         return h;
     }
     return 0;
+}
+
+void CBaseView::WrapChanged()
+{
+    m_nMaxLineLength = -1;
 }
 

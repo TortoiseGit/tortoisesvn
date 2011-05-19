@@ -918,6 +918,9 @@ void CMainFrame::OnViewWraplonglines()
     regViewWrapLines = !(DWORD)regViewWrapLines;
     m_bWrapLines = !!(DWORD)regViewWrapLines;
 
+    if (m_pwndLeftView)   m_pwndLeftView  ->WrapChanged();
+    if (m_pwndRightView)  m_pwndRightView ->WrapChanged();
+    if (m_pwndBottomView) m_pwndBottomView->WrapChanged();
     OnViewTextFoldUnfold();
     m_wndLocatorBar.DocumentUpdated();
 }
