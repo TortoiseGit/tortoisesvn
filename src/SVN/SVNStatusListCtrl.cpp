@@ -2441,7 +2441,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
     if (targetList.GetCount() == 0)
         targetList.AddPath(filepath);
 
-    bool bDoRevert = false;
+    bool bDoRevert = true;
     if (bConfirm)
     {
         if (CTaskDialog::IsSupported())
