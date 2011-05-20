@@ -89,10 +89,13 @@ public: // methods
     void            SetCaretToLineStart() { 
                         POINT ptCaretPos = GetCaretPosition();
                         ptCaretPos.x = 0; 
-                        UpdateCaretPosition(ptCaretPos);
+                        SetCaretPosition(ptCaretPos);
+                        m_nCaretGoalPos = 0;
                     };
     POINT           SetupPoint(int x, int y) {POINT ptRet={x, y}; return ptRet; };
+//    POINT           ConvertScreenPosToView(int x, int y) { POINT pt; pt.x = x; pt.y = y; return ConvertScreenPosToView(pt); }
     POINT           ConvertScreenPosToView(const POINT& pt);
+//    POINT           ConvertViewPosToScreen(int x, int y) { POINT pt; pt.x = x; pt.y = y; return ConvertViewPosToScreen(pt); }
     POINT           ConvertViewPosToScreen(const POINT& pt);
 
     void            EnsureCaretVisible();

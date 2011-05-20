@@ -1172,15 +1172,30 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
         {
             int nSubLine = GetSubLineOffset(nLineIndex);
             bool bIsFirstSubline = (nSubLine == 0) || (nSubLine == -1);
+            CString sLinenumber;
             if (bIsFirstSubline)
             {
+                CString sLinenumberFormat;
                 int nLineNumber = GetLineNumber(nLineIndex);
-                if (nLineNumber >= 0)
+                if (IsViewLineHiden(GetViewLineForScreen(nLineIndex)))
                 {
-                    CString sLinenumberFormat;
-                    CString sLinenumber;
+                    // TODO: do not show if there is no number hiden
+                    // TODO: show number if there is only one
+                    sLinenumberFormat.Format(_T("%%%ds"), m_nDigits);
+                    sLinenumber.Format(sLinenumberFormat, (m_nDigits>1) ? _T("↕⁞") : _T("⁞")); // alternative …
+                }
+                else if (nLineNumber >= 0)
+                {
                     sLinenumberFormat.Format(_T("%%%dd"), m_nDigits);
                     sLinenumber.Format(sLinenumberFormat, nLineNumber+1);
+                }
+                else if (m_pMainFrame->m_bWrapLines)
+                {
+                    sLinenumberFormat.Format(_T("%%%ds"), m_nDigits);
+                    sLinenumber.Format(sLinenumberFormat, _T("·"));
+                }
+                if (!sLinenumber.IsEmpty())
+                {
                     pdc->SetBkColor(::GetSysColor(COLOR_SCROLLBAR));
                     pdc->SetTextColor(::GetSysColor(COLOR_WINDOWTEXT));
 
@@ -3456,7 +3471,7 @@ void CBaseView::PasteText()
         nEolPos++;
         nStart = nEolPos;
     }
-    CString sLine = sClipboardText.Mid(nStart, sClipboardText.GetLength() - nStart);
+    CString sLine = sClipboardText.Mid(nStart);
     lines.push_back(sLine);
 
     int nLinesToPaste = (int)lines.size();
@@ -3470,21 +3485,22 @@ void CBaseView::PasteText()
         CString sLine = GetViewLineChars(nViewLine);
         CString sLineLeft = sLine.Left(nLeft);
         CString sLineRight = sLine.Right(sLine.GetLength() - nLeft);
-        if (!lines[0].IsEmpty() || !sLineRight.IsEmpty())
+        EOL eOriginalEnding = GetViewLineEnding(nViewLine);
+        viewdata newLine(_T(""), DIFFSTATE_EDITED, 1, lineendings, HIDESTATE_SHOWN, -1);
+        if (!lines[0].IsEmpty() || !sLineRight.IsEmpty() || (eOriginalEnding!=lineendings))
         {
-            CString sNewLine = sLineLeft + lines[0];
-            SetViewLine(nViewLine, sNewLine);
-            SetViewState(nViewLine, DIFFSTATE_EDITED);
+            newLine.sLine = sLineLeft + lines[0];
+            SetViewData(nViewLine, newLine);
         }
 
         int nInsertLine = nViewLine;
-        viewdata newLine(_T(""), DIFFSTATE_EDITED, 1, EOL_NOENDING, HIDESTATE_SHOWN, -1);
         for (int i = 1; i < nLinesToPaste-1; i++)
         {
             newLine.sLine = lines[i];
             InsertViewData(++nInsertLine, newLine);
         }
         newLine.sLine = lines[nLinesToPaste-1] + sLineRight;
+        newLine.ending = eOriginalEnding;
         InsertViewData(++nInsertLine, newLine);
 
         SaveUndoStep();
