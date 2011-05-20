@@ -75,20 +75,24 @@ public: // methods
     void            ScrollAllToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
     void            UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
     bool            HasCaret() const {return !m_bCaretHidden;}
-    void            SetCaretAndGoalPosition(const POINT& pt) {m_nCaretGoalPos = pt.x; SetCaretPosition(pt);}
-    void            SetCaretPosition(const POINT& pt) {m_ptCaretPos = pt; UpdateCaret();}
-    POINT           GetCaretPosition() { return m_ptCaretPos; }
-    void            SetCaretViewPosition(const POINT & pt) { SetCaretPosition(ConvertViewPosToScreen(pt)); }
-    POINT           GetCaretViewPosition() { return ConvertScreenPosToView(GetCaretPosition()); }
-    void            UpdateCaretPosition(const POINT& pt) { m_ptCaretPos = pt; UpdateCaret(); }
+    void            SetCaretAndGoalPosition(const POINT& pt) {m_nCaretGoalPos = pt.x; UpdateCaretPosition(pt);}
+    void            SetCaretAndGoalViewPosition(const POINT& pt) {m_nCaretGoalPos = ConvertViewPosToScreen(pt).x; UpdateCaretViewPosition(pt);}
+    void            SetCaretPosition(const POINT& pt) { SetCaretViewPosition(ConvertScreenPosToView(pt)); }
+    POINT           GetCaretPosition() { return ConvertViewPosToScreen(GetCaretViewPosition()); }
+    void            SetCaretViewPosition(const POINT & pt) { m_ptCaretViewPos = pt; }
+    POINT           GetCaretViewPosition() { return m_ptCaretViewPos; }
+    void            UpdateCaretPosition(const POINT& pt) { SetCaretPosition(pt); UpdateCaret(); }
+    void            UpdateCaretViewPosition(const POINT& pt) { SetCaretViewPosition(pt); UpdateCaret(); }
     void            SetCaretToViewStart() { SetCaretToFirstViewLine(); SetCaretToViewLineStart(); }
-    void            SetCaretToFirstViewLine() { m_ptCaretPos.y=0; }
-    void            SetCaretToViewLineStart() { m_ptCaretPos.x=0; }
-    void            SetCaretToLineStart() { m_ptCaretPos.x = 0; m_nCaretGoalPos = 0;};
-
-    POINT           ConvertScreenPosToView(int x, int y) { POINT pt; pt.x = x; pt.y = y; return ConvertScreenPosToView(pt); }
+    void            SetCaretToFirstViewLine() { m_ptCaretViewPos.y=0; }
+    void            SetCaretToViewLineStart() { m_ptCaretViewPos.x=0; }
+    void            SetCaretToLineStart() { 
+                        POINT ptCaretPos = GetCaretPosition();
+                        ptCaretPos.x = 0; 
+                        UpdateCaretPosition(ptCaretPos);
+                    };
+    POINT           SetupPoint(int x, int y) {POINT ptRet={x, y}; return ptRet; };
     POINT           ConvertScreenPosToView(const POINT& pt);
-    POINT           ConvertViewPosToScreen(int x, int y) { POINT pt; pt.x = x; pt.y = y; return ConvertViewPosToScreen(pt); }
     POINT           ConvertViewPosToScreen(const POINT& pt);
 
     void            EnsureCaretVisible();
@@ -301,6 +305,8 @@ protected:  // methods
     void            CheckOtherView();
     static void     GetWhitespaceBlock(CViewData *viewData, int nLineIndex, int & nStartBlock, int & nEndBlock);
     static CString  GetWhitespaceString(CViewData *viewData, int nStartBlock, int nEndBlock);
+    bool            IsViewLineHiden(int nViewLine);
+    static bool     IsViewLineHiden(CViewData * pViewData, int nViewLine);
 
     void            OnContextMenu(CPoint point, DiffStates state);
     /**
@@ -391,7 +397,7 @@ protected:  // variables
 
     // caret
     bool            m_bCaretHidden;
-    POINT           m_ptCaretPos;
+    POINT           m_ptCaretViewPos;
     int             m_nCaretGoalPos;
 
     // Text selection attributes
