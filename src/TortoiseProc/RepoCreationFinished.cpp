@@ -26,10 +26,10 @@
 #include "PathUtils.h"
 
 
-IMPLEMENT_DYNAMIC(CRepoCreationFinished, CDialogEx)
+IMPLEMENT_DYNAMIC(CRepoCreationFinished, CStandAloneDialog)
 
     CRepoCreationFinished::CRepoCreationFinished(CWnd* pParent /*=NULL*/)
-    : CDialogEx(CRepoCreationFinished::IDD, pParent)
+    : CStandAloneDialog(CRepoCreationFinished::IDD, pParent)
 {
 
 }
@@ -40,12 +40,12 @@ CRepoCreationFinished::~CRepoCreationFinished()
 
 void CRepoCreationFinished::DoDataExchange(CDataExchange* pDX)
 {
-    CDialogEx::DoDataExchange(pDX);
+    CStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_URL, m_RepoUrl);
 }
 
 
-BEGIN_MESSAGE_MAP(CRepoCreationFinished, CDialogEx)
+BEGIN_MESSAGE_MAP(CRepoCreationFinished, CStandAloneDialog)
     ON_BN_CLICKED(IDC_CREATEFOLDERS, &CRepoCreationFinished::OnBnClickedCreatefolders)
     ON_BN_CLICKED(IDC_REPOBROWSER, &CRepoCreationFinished::OnBnClickedRepobrowser)
 END_MESSAGE_MAP()
@@ -89,6 +89,7 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
         return;
     }
     MessageBox(CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTUREFINISHED)), _T("TortoiseSVN"), MB_ICONINFORMATION);
+    DialogEnableWindow(IDC_CREATEFOLDERS, FALSE);
 }
 
 
@@ -104,7 +105,7 @@ void CRepoCreationFinished::OnBnClickedRepobrowser()
 
 BOOL CRepoCreationFinished::OnInitDialog()
 {
-    CDialogEx::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
 
     CString url;
     if (m_RepoPath.GetWinPathString().GetAt(0) == '\\')    // starts with '\' means an UNC path
