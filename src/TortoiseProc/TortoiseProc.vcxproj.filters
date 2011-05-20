@@ -171,6 +171,9 @@
     <Filter Include="Misc">
       <UniqueIdentifier>{34016e48-54e6-468e-981d-9ea2a0d9ce3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Commands\RepoCreate">
+      <UniqueIdentifier>{02543189-d6fa-451f-be9e-4531c5051a70}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Utils\accHelper.cpp">
@@ -1013,9 +1016,6 @@
     <ClCompile Include="TortoiseProc.cpp">
       <Filter>Misc</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\CreateRepositoryCommand.cpp">
-      <Filter>Commands\Misc</Filter>
-    </ClCompile>
     <ClCompile Include="..\Utils\Libraries.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
@@ -1030,9 +1030,6 @@
     </ClCompile>
     <ClCompile Include="..\SVN\SVNReadProperties.cpp">
       <Filter>Subversion</Filter>
-    </ClCompile>
-    <ClCompile Include="RepoCreationFinished.cpp">
-      <Filter>Utility Dialogs</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\FileDlgEventHandler.cpp">
       <Filter>Utils\UI</Filter>
@@ -1057,6 +1054,12 @@
     </ClCompile>
     <ClCompile Include="DiffOptionsDlg.cpp">
       <Filter>Utility Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\CreateRepositoryCommand.cpp">
+      <Filter>Commands\RepoCreate</Filter>
+    </ClCompile>
+    <ClCompile Include="RepoCreationFinished.cpp">
+      <Filter>Commands\RepoCreate</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1388,9 +1391,6 @@
       <Filter>Commands\Misc</Filter>
     </ClInclude>
     <ClInclude Include="Commands\CrashCommand.h">
-      <Filter>Commands\Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\CreateRepositoryCommand.h">
       <Filter>Commands\Misc</Filter>
     </ClInclude>
     <ClInclude Include="Commands\HelpCommand.h">
@@ -1993,9 +1993,6 @@
     <ClInclude Include="..\SVN\SVNReadProperties.h">
       <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="RepoCreationFinished.h">
-      <Filter>Utility Dialogs</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\FileDlgEventHandler.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
@@ -2025,6 +2022,12 @@
     </ClInclude>
     <ClInclude Include="DiffOptionsDlg.h">
       <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\CreateRepositoryCommand.h">
+      <Filter>Commands\RepoCreate</Filter>
+    </ClInclude>
+    <ClInclude Include="RepoCreationFinished.h">
+      <Filter>Commands\RepoCreate</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
