@@ -98,6 +98,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , m_BugTraqProvider(NULL)
     , m_bHookError(false)
     , m_bNoHooks(false)
+    , m_bRetryDone(false)
     , sIgnoredIncluded(MAKEINTRESOURCE(IDS_PROGRS_IGNOREDINCLUDED))
     , sExtExcluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSEXCLUDED))
     , sExtIncluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSINCLUDED))
@@ -1295,6 +1296,8 @@ void CSVNProgressDlg::OnOK()
         // If you try to send windows messages once we're waiting here, then the thread can't finished
         // because the Window's message loop is blocked at this wait
         WaitForSingleObject(m_pThread->m_hThread, 10000);
+        if (CheckUpdateAndRetry())
+            return;
         __super::OnOK();
     }
     m_bCancelled = TRUE;
@@ -1322,7 +1325,11 @@ LRESULT CSVNProgressDlg::OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/)
 void CSVNProgressDlg::OnCancel()
 {
     if ((m_bCancelled)&&(!m_bThreadRunning))
+    {
+        if (CheckUpdateAndRetry())
+            return;
         __super::OnCancel();
+    }
     m_bCancelled = TRUE;
 }
 
@@ -3341,5 +3348,77 @@ bool CSVNProgressDlg::IsCommittingToTag(CString& url)
         break;
     }
     return isTag;
+}
+
+bool CSVNProgressDlg::CheckUpdateAndRetry()
+{
+    if (m_bRetryDone)
+        return false;
+
+    if (GetSVNError() && GetSVNError()->apr_err == SVN_ERR_CLIENT_MERGE_UPDATEREQUIRED)
+    {
+        if (CAppUtils::AskToUpdate(GetLastErrorMessage(40)))
+        {
+            // run an update
+            CSVNProgressDlg updateProgDlg;
+            updateProgDlg.SetPathList(m_targetPathList);
+            updateProgDlg.SetDepth(svn_depth_unknown);
+            updateProgDlg.SetCommand (CSVNProgressDlg::SVNProgress_Update);
+            updateProgDlg.DoModal();
+            if (!updateProgDlg.DidErrorsOccur() && !updateProgDlg.DidConflictsOccur())
+            {
+                // now retry the failed operation
+                m_Revision = SVNRev(_T("HEAD"));
+                m_RevisionEnd = 0;
+                m_bLockWarning = false;
+                m_bLockExists = false;
+                m_bCancelled = FALSE;
+                m_nConflicts = 0;
+                m_bConflictWarningShown = false;
+                m_bErrorsOccurred = FALSE;
+                m_bMergesAddsDeletesOccurred = FALSE;
+                m_bFinishedItemAdded = false;
+                m_bLastVisible = false;
+                m_itemCount = -1;
+                m_itemCountTotal = -1;
+                m_AlwaysConflicted = false;
+                m_BugTraqProvider = NULL;
+                m_bHookError = false;
+
+                m_ProgList.SetRedraw(FALSE);
+                m_ProgList.DeleteAllItems();
+                m_ProgList.SetItemCountEx (0);
+
+                for (size_t i=0; i<m_arData.size(); i++)
+                {
+                    delete m_arData[i];
+                }
+                m_arData.clear();
+                m_arData.reserve(10000);
+
+                m_ProgList.SetRedraw(TRUE);
+
+                m_bNoHooks = true;
+
+                SetTimer(VISIBLETIMER, 300, NULL);
+                SetDlgItemText(IDC_INFOTEXT, L"");
+
+                m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
+                if (m_pThread==NULL)
+                {
+                    ReportError(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)));
+                    return false;
+                }
+                else
+                {
+                    m_pThread->m_bAutoDelete = FALSE;
+                    m_pThread->ResumeThread();
+                    m_bRetryDone = true;
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 }
 

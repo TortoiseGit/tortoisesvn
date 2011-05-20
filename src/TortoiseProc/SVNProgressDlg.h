@@ -257,6 +257,7 @@ private:
     CString     GetPathFromColumnText(const CString& sColumnText);
     bool        IsCommittingToTag(CString& url);
     void        OnCommitFinished();
+    bool        CheckUpdateAndRetry();
 
     /**
      * Resizes the columns of the progress list so that the headings are visible.
@@ -322,6 +323,7 @@ private:
     DWORD                   m_dwCloseOnEnd;
     DWORD                   m_bCloseLocalOnEnd;
     bool                    m_hidden;
+    bool                    m_bRetryDone;
 
     CTSVNPath               m_basePath;
     StringRevMap            m_UpdateStartRevMap;
