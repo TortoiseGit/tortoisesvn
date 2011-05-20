@@ -1810,7 +1810,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
         }
     }
     DrawBlockLine(pDC, rc, nLineIndex);
-    DrawLineEnding(pDC, rc, nLineIndex, origin);
+    if (origin.x >= rc.left)
+        DrawLineEnding(pDC, rc, nLineIndex, origin);
 }
 
 void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line)
