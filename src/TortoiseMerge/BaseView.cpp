@@ -1987,6 +1987,8 @@ void CBaseView::OnDoMouseWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 {
     if ((GetKeyState(VK_CONTROL)&0x8000)||(GetKeyState(VK_SHIFT)&0x8000))
     {
+        if (m_pMainFrame->m_bWrapLines)
+            return;
         // Ctrl-Wheel scrolls sideways
         ScrollSide(-zDelta/30);
     }
@@ -2004,6 +2006,8 @@ void CBaseView::OnDoMouseHWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
     }
     else
     {
+        if (m_pMainFrame->m_bWrapLines)
+            return;
         // Ctrl-Wheel scrolls sideways
         ScrollSide(-zDelta/30);
     }
@@ -4427,5 +4431,6 @@ HICON CBaseView::GetIconForCommand(UINT cmdId)
 void CBaseView::WrapChanged()
 {
     m_nMaxLineLength = -1;
+    m_nOffsetChar = 0;
 }
 
