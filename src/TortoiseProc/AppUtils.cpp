@@ -979,3 +979,31 @@ void CAppUtils::SetCharFormat(CWnd* window, DWORD mask, DWORD effects )
     window->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
 }
 
+bool CAppUtils::AskToUpdate(LPCWSTR error)
+{
+    if (CTaskDialog::IsSupported())
+    {
+        CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK1)), 
+                            CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)), 
+                            L"TortoiseSVN",
+                            0,
+                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK4)));
+        taskdlg.SetDefaultCommandControl(1);
+        CString details;
+        details.Format(IDS_MSG_NEEDSUPDATE_ERRORDETAILS, error);
+        taskdlg.SetExpansionArea(details);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        return (taskdlg.DoModal(GetExplorerHWND()) == 1);
+    }
+
+    CString question;
+    question.Format (IDS_MSG_NEEDSUPDATE_QUESTION, error);
+    const UINT result = TSVNMessageBox(GetExplorerHWND(), question, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)),
+                                       MB_DEFBUTTON1|MB_ICONQUESTION, 
+                                       CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)), 
+                                       CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
+    return result == IDCUSTOM1;
+}
+

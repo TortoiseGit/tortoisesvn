@@ -167,6 +167,8 @@ public:
                               , DWORD effects 
                               , const std::vector<CHARRANGE>& positions);
 
+    static bool AskToUpdate(LPCWSTR error);
+
 private:
     static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2);
     static bool GetMimeType(const CTSVNPath& file, CString& mimetype);
