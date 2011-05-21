@@ -303,7 +303,7 @@ msgstr ""
 
 #. Resource IDs: (616)
 #, c-format
-msgid "%s\n\nShall I update the working copy now\nand reopen the commit dialog?"
+msgid "%s\n\nShall I update the working copy now\nand then retry?"
 msgstr ""
 
 #. Resource IDs: (69)
@@ -2697,6 +2697,10 @@ msgstr ""
 msgid "Command Line To Execute:"
 msgstr ""
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr ""
@@ -2707,10 +2711,6 @@ msgstr ""
 
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
-msgstr ""
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
 msgstr ""
 
 #. Resource IDs: (173)
@@ -7693,6 +7693,10 @@ msgstr ""
 msgid "Settings - TortoiseSVN"
 msgstr ""
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr ""
@@ -8615,6 +8619,11 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "The repository was successfully created.\nDo you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
+
+#. Resource IDs: (616)
+#, c-format
+msgid "The returned error was:\n%s"
 msgstr ""
 
 #. Resource IDs: (78)
