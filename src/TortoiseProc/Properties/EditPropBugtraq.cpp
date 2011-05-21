@@ -259,6 +259,8 @@ void CEditPropBugtraq::OnOK()
     int checked = GetCheckedRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO);
     if (checked == IDC_NUMERICRADIO)
         pVal.value = "true";
+    else
+        pVal.value.clear();
     pVal.remove = (pVal.value.size() == 0);
     newProps[BUGTRAQPROPNAME_NUMBER] = pVal;
 
@@ -266,6 +268,8 @@ void CEditPropBugtraq::OnOK()
     checked = GetCheckedRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO);
     if (checked == IDC_BOTTOMRADIO)
         pVal.value = "true";
+    else
+        pVal.value.clear();
     pVal.remove = (pVal.value.size() == 0);
     newProps[BUGTRAQPROPNAME_APPEND] = pVal;
 
