@@ -164,6 +164,7 @@
         </para>
     </sect2>
     <sect2 id="tsvn-dug-revgraph-views">
+        <?dbhh topicname="HIDD_REVGRAPHFILTER"?>
         <title>Changing the View</title>
         <para>
             Because a revision graph is often quite complex, there are a number
@@ -305,7 +306,7 @@
                     </listitem>
                 </varlistentry>
                 <varlistentry>
-                    <term>Hide unchanged branches</term>
+                    <term>Hide unused branches</term>
                     <listitem>
                         <para>
                             Hides branches where no changes were committed to the
@@ -349,6 +350,12 @@
                             than you want to see. This option opens a dialog which
                             allows you to restrict the range of revisions
                             displayed, and to hide particular paths by name.
+                        </para>
+                        <para>
+                            If you hide a particular path and that node has child
+                            nodes, the children will be shown as a separate tree.
+                            If you want to hide all children as well, use the
+                            <guilabel>Remove the whole subtree(s)</guilabel> checkbox.
                         </para>
                     </listitem>
                 </varlistentry>
