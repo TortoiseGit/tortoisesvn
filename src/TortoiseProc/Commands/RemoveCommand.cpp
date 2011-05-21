@@ -95,9 +95,9 @@ bool RemoveCommand::Execute()
                     {
                         CString msg;
                         if (pathList[nPath].IsDirectory())
-                            msg.Format(IDS_PROC_REMOVEFORCE_TASK1_2, (LPCTSTR)svn.GetLastErrorMessage(), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
+                            msg.Format(IDS_PROC_REMOVEFORCE_TASK1_2, (LPCTSTR)svn.GetLastErrorMessage(0), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
                         else
-                            msg.Format(IDS_PROC_REMOVEFORCE_TASK1, (LPCTSTR)svn.GetLastErrorMessage(), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
+                            msg.Format(IDS_PROC_REMOVEFORCE_TASK1, (LPCTSTR)svn.GetLastErrorMessage(0), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
                         CTaskDialog taskdlg(msg, 
                                             CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)), 
                                             L"TortoiseSVN",
