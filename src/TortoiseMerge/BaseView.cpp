@@ -4404,15 +4404,47 @@ int CBaseView::Screen2View::FindScreenLineForViewLine( int viewLine )
 {
     RebuildIfNecessary();
 
-    int ScreenLine = 0;
-    for (std::vector<TScreenLineInfo>::const_iterator it = m_Screen2View.begin(); it != m_Screen2View.end(); ++it)
+    __int32 nScreenLineCount = (__int32)m_Screen2View.size();
+
+    int nPos = 0;
+    if (nScreenLineCount>16)
     {
-        if (it->nViewLine >= viewLine)
-            return ScreenLine;
-        ScreenLine++;
+        // for enougth long data use binary search
+        __int32 nTestBit = 0x40000000; // simply max value
+#define _USE_ASM
+#ifdef _USE_ASM
+        //GetMostSignificantBitValue
+        __asm {
+            mov   eax, 1
+            bsr   ecx, nScreenLineCount
+            shl   eax, cl
+            mov nTestBit, eax
+        }
+#else
+        nTestBit = nScreenLineCount;
+        nTestBit |= nTestBit>>1;
+        nTestBit |= nTestBit>>2;
+        nTestBit |= nTestBit>>4;
+        nTestBit |= nTestBit>>8;
+        nTestBit |= nTestBit>>16;
+        nTestBit ^= (nTestBit>>1);
+#endif
+        while (nTestBit)
+        {
+            int nTestPos = nPos | nTestBit;
+            if (nTestPos < nScreenLineCount && m_Screen2View.operator[](nTestPos).nViewLine < viewLine)
+            {
+                nPos = nTestPos;
+            }
+            nTestBit >>= 1;
+        }
+    }
+    while (nPos < nScreenLineCount && m_Screen2View.operator[](nPos).nViewLine < viewLine)
+    {
+        nPos++;
     }
 
-    return ScreenLine;
+    return nPos;
 }
 
 void CBaseView::Screen2View::ScheduleFullRebuild(CViewData * pViewData) {
