@@ -4404,31 +4404,29 @@ int CBaseView::Screen2View::FindScreenLineForViewLine( int viewLine )
 {
     RebuildIfNecessary();
 
-    __int32 nScreenLineCount = (__int32)m_Screen2View.size();
+    int nScreenLineCount = (int)m_Screen2View.size();
 
     int nPos = 0;
     if (nScreenLineCount>16)
     {
-        // for enougth long data use binary search
-        __int32 nTestBit = 0x40000000; // simply max value
-#define _USE_ASM
-#ifdef _USE_ASM
+        // for enough long data search for last screen 
+        // with viewline less then one we are looking for
+        // use approximate method (based on) binary search using asymmetric start point
+        // in form 2**n (determined as MSB of length) to go around division and rounding;
+        // this effectively looks for bit values from MSB to LSB
+
+        int nTestBit;
         //GetMostSignificantBitValue
-        __asm {
-            mov   eax, 1
-            bsr   ecx, nScreenLineCount
-            shl   eax, cl
-            mov nTestBit, eax
-        }
-#else
+        // note _BitScanReverse(&nTestBit, nScreenLineCount); can be used instead
         nTestBit = nScreenLineCount;
         nTestBit |= nTestBit>>1;
         nTestBit |= nTestBit>>2;
         nTestBit |= nTestBit>>4;
         nTestBit |= nTestBit>>8;
         nTestBit |= nTestBit>>16;
+        nTestBit |= nTestBit>>32;
         nTestBit ^= (nTestBit>>1);
-#endif
+
         while (nTestBit)
         {
             int nTestPos = nPos | nTestBit;
