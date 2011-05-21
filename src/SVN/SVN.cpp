@@ -951,7 +951,7 @@ bool SVN::Merge(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath
     const char* svnPath = path1.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(path1));
     SVNTRACE (
-        Err = svn_client_merge3(svnPath,
+        Err = svn_client_merge4(svnPath,
                                 revision1,
                                 path2.GetSVNApiPath(subpool),
                                 revision2,
@@ -961,6 +961,7 @@ bool SVN::Merge(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath
                                 force,
                                 record_only,
                                 dryrun,
+                                true,
                                 opts,
                                 m_pctx,
                                 subpool),
@@ -985,7 +986,7 @@ bool SVN::PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revrangearra
     const char* svnPath = source.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(source));
     SVNTRACE (
-        Err = svn_client_merge_peg3 (svnPath,
+        Err = svn_client_merge_peg4 (svnPath,
             revrangearray.GetAprArray(subpool),
             pegrevision,
             destpath.GetSVNApiPath(subpool),
@@ -994,6 +995,7 @@ bool SVN::PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revrangearra
             force,
             record_only,
             dryrun,
+            true,
             opts,
             m_pctx,
             subpool),
