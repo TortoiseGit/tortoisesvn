@@ -5674,10 +5674,11 @@ LRESULT CSVNStatusListCtrl::DoInsertGroup(LPWSTR groupName, int groupId, int ind
 {
     LVGROUP lvgroup = {};
     lvgroup.cbSize = sizeof(LVGROUP);
-    lvgroup.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
+    lvgroup.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER | LVGF_STATE;
     lvgroup.pszHeader = groupName;
     lvgroup.iGroupId = groupId;
     lvgroup.uAlign = LVGA_HEADER_LEFT;
+    lvgroup.state = LVGS_COLLAPSIBLE;
     return InsertGroup(index, &lvgroup);
 }
 
