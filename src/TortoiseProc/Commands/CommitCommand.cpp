@@ -97,6 +97,7 @@ bool CommitCommand::Execute()
             return false;
         }
     }
+    CTSVNPathList updatelist = pathList;
     while (bFailed)
     {
         bFailed = false;
@@ -138,6 +139,7 @@ bool CommitCommand::Execute()
                     // auto-update
                     CSVNProgressDlg updateProgDlg;
                     InitProgressDialog (dlg, updateProgDlg);
+                    updateProgDlg.SetPathList(updatelist);
                     updateProgDlg.SetCommand (CSVNProgressDlg::SVNProgress_Update);
                     // always update with svn_depth_unknown (the depth of the wc).
                     // because otherwise we would change the depth here which is
