@@ -73,32 +73,6 @@ bool CommitCommand::IsOutOfDate(const svn_error_t* pErr) const
     return false;
 }
 
-bool CommitCommand::AskToUpdate(CSVNProgressDlg& progDlg) const
-{
-    CString question;
-    question.Format (IDS_MSG_NEEDSUPDATE_QUESTION, (LPCTSTR)progDlg.GetLastErrorMessage());
-    if (CTaskDialog::IsSupported())
-    {
-        CTaskDialog taskdlg(question, 
-                            CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)), 
-                            L"TortoiseSVN",
-                            0,
-                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK3)));
-        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK4)));
-        taskdlg.SetDefaultCommandControl(1);
-        taskdlg.SetMainIcon(TD_WARNING_ICON);
-        return (taskdlg.DoModal(GetExplorerHWND()) == 1);
-    }
-
-    CString title;
-    title.LoadString (IDS_MSG_NEEDSUPDATE_TITLE);
-    const UINT result = TSVNMessageBox(GetExplorerHWND(), question, title, MB_DEFBUTTON1|MB_ICONQUESTION, 
-                                       CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)), 
-                                       CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
-    return result == IDCUSTOM1;
-}
-
 bool CommitCommand::Execute()
 {
     bool bRet = false;
