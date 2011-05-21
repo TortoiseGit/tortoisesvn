@@ -3535,6 +3535,7 @@ void CBaseView::PasteText()
         SaveUndoStep();
     }
 
+    SetModified();
     RefreshViews();
     BuildAllScreen2ViewVector();
     UpdateCaretViewPosition(ptCaretViewPos);
@@ -4424,7 +4425,6 @@ int CBaseView::Screen2View::FindScreenLineForViewLine( int viewLine )
         nTestBit |= nTestBit>>4;
         nTestBit |= nTestBit>>8;
         nTestBit |= nTestBit>>16;
-        nTestBit |= nTestBit>>32;
         nTestBit ^= (nTestBit>>1);
 
         while (nTestBit)
