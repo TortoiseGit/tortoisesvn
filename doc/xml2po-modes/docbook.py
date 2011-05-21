@@ -133,7 +133,7 @@ class docbookXmlMode:
                     hash = self._md5_for_file(fullpath)
                 else:
                     hash = "THIS FILE DOESN'T EXIST"
-                    # print >>sys.stderr, "Warning: image file '%s' not found." % fullpath
+                    print >>sys.stderr, "Warning: image file '%s' not found." % fullpath
                     
                 msg.outputMessage("@@image: '%s'; md5=%s" % (attr, hash), node.lineNo(),
                                   "When image changes, this message will be marked fuzzy or untranslated for you.\n"+
@@ -148,7 +148,7 @@ class docbookXmlMode:
     def preProcessXml(self, doc, msg):
         """Add additional messages of interest here."""
         root = doc.getRootElement()
-        self._output_images(root,msg)
+        #self._output_images(root,msg)
 
     def postProcessXmlTranslation(self, doc, language, translators, translation):
         """Sets a language and translators in "doc" tree.
