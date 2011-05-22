@@ -3588,11 +3588,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 const CTSVNPath& path = selection.GetURLEscaped (0, 0);
                 const SVNRev& revision = selection.GetRepository (0).revision;
                 CString options;
-                if (GetKeyState(VK_SHIFT)&0x8000)
+                if (GetAsyncKeyState(VK_SHIFT)&0x8000)
                 {
                     CDiffOptionsDlg dlg;
                     if (dlg.DoModal() == IDOK)
                         options = dlg.GetDiffOptionsString();
+                    else
+                        break;
                 }
                 SVNDiff diff(this, this->m_hWnd, true);
                 if (selection.GetPathCount(0) == 1)

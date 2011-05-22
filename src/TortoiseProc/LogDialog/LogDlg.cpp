@@ -2156,6 +2156,12 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
             CDiffOptionsDlg dlg(this);
             if (dlg.DoModal() == IDOK)
                 options = dlg.GetDiffOptionsString();
+            else
+            {
+                theApp.DoWaitCursor(-1);
+                EnableOKButton();
+                return;
+            }
         }
         if (PromptShown())
             diff.ShowUnifiedDiff(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), options);
@@ -4493,6 +4499,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     CDiffOptionsDlg dlg(this);
                     if (dlg.DoModal() == IDOK)
                         options = dlg.GetDiffOptionsString();
+                    else
+                        break;
                 }
                 if (PromptShown())
                 {
@@ -4529,6 +4537,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                     CDiffOptionsDlg dlg(this);
                     if (dlg.DoModal() == IDOK)
                         options = dlg.GetDiffOptionsString();
+                    else
+                        break;
                 }
                 if (PromptShown())
                 {
