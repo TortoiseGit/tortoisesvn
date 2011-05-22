@@ -31,6 +31,7 @@
 #include "RevisionDlg.h"
 #include "IconMenu.h"
 #include ".\filediffdlg.h"
+#include "DiffOptionsDlg.h"
 
 #define ID_COMPARE 1
 #define ID_BLAME 2
@@ -617,6 +618,15 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         break;
     case ID_UNIFIEDDIFF:
         {
+            CString options;
+            if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+            {
+                CDiffOptionsDlg dlg(this);
+                if (dlg.DoModal() == IDOK)
+                    options = dlg.GetDiffOptionsString();
+                else
+                    break;
+            }
             CTSVNPath diffFile = CTempFiles::Instance().GetTempFilePath(false);
             POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
             while (pos)
@@ -628,11 +638,11 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 
                 if (m_bDoPegDiff)
                 {
-                    PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, CString(), true, diffFile);
+                    PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, options, true, diffFile);
                 }
                 else
                 {
-                    Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, CString(), true, diffFile);
+                    Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, options, true, diffFile);
                 }
             }
             CAppUtils::StartUnifiedDiffViewer(diffFile.GetWinPathString(), CString(), false);
