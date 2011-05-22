@@ -1526,33 +1526,63 @@ void CBaseView::DrawText(
     ASSERT(m_pViewData && (nViewLine < m_pViewData->GetCount()));
     DiffStates diffState = m_pViewData->GetState(nViewLine);
 
-    // first suppose the whole line is selected
     int selectedStart = 0;
-    int selectedEnd = textlength;
+    int selectedEnd = 0;
 
     if ((m_ptSelectionViewPosStart.y > nViewLine) || (m_ptSelectionViewPosEnd.y < nViewLine)
         || ! m_bShowSelection || !HasTextSelection())
     {
         // this line has no selected text
+        selectedStart = 0;
         selectedEnd = 0;
     }
     else if ((m_ptSelectionViewPosStart.y == nViewLine) || (m_ptSelectionViewPosEnd.y == nViewLine))
     {
         // the view line is partially selected
         POINT ptLineStart = ConvertScreenPosToView(SetupPoint(0, nLineIndex));
+        CString sLine = GetLineChars(nLineIndex);
+        int nLineLength = sLine.GetLength();
         if (m_ptSelectionViewPosStart.y == nViewLine)
         {
             // the first line of selection
             selectedStart = m_ptSelectionViewPosStart.x - ptLineStart.x - nLineOffset;
-            selectedStart = std::min<int>(max(selectedStart, 0), GetLineChars(nLineIndex).GetLength()); // textlenght ?
+            if (selectedStart<0)
+            {
+                selectedStart = 0;
+            }
+            else if (selectedStart>=nLineLength)
+            {
+                selectedEnd = ExpandChars(sLine, nLineLength);
+            }
+            else
+            {
+                selectedStart = ExpandChars(sLine, selectedStart);
+            }
         }
 
         if (m_ptSelectionViewPosEnd.y == nViewLine)
         {
             // the last line of selection
             selectedEnd =  m_ptSelectionViewPosEnd.x - ptLineStart.x - nLineOffset;
-            selectedEnd = std::min<int>(max(selectedEnd, 0), GetLineChars(nLineIndex).GetLength()); // textlenght ?
+            if (selectedEnd<0)
+            {
+                selectedEnd = 0;
+            }
+            else if (selectedEnd>=nLineLength)
+            {
+                selectedEnd = ExpandChars(sLine, nLineLength);
+            }
+            else
+            {
+                selectedEnd = ExpandChars(sLine, selectedEnd);
+            }
         }
+    }
+    else
+    {
+        CString sLine = GetLineChars(nLineIndex);
+        int nLineLength = sLine.GetLength();
+        selectedEnd = ExpandChars(sLine, nLineLength);
     }
 
     COLORREF crBkgnd, crText;
@@ -1897,6 +1927,21 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
     }
     pszBuf[nCurPos] = 0;
     line.ReleaseBuffer();
+}
+
+int CBaseView::ExpandChars(const CString &sLine, int nLength)
+{
+    int nTabSize = GetTabSize();
+
+    int nActualOffset = 0;
+    for (int i=0; i<nLength; i++)
+    {
+        if (sLine[i] == _T('\t'))
+            nActualOffset += (nTabSize - nActualOffset % nTabSize);
+        else
+            nActualOffset ++;
+    }
+    return nActualOffset;
 }
 
 void CBaseView::ScrollAllToLine(int nNewTopLine, BOOL bTrackScrollBar)
