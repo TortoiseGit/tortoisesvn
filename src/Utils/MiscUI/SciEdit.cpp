@@ -127,24 +127,27 @@ void CSciEdit::Init(LONG lLanguage)
     // look for dictionary files and use them if found
     long langId = GetUserDefaultLCID();
 
-    if ((lLanguage != 0)||(((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\Spellchecker"), FALSE))==FALSE))
+    if (lLanguage >= 0)
     {
-        if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))
+        if ((lLanguage != 0)||(((DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\Spellchecker"), FALSE))==FALSE))
         {
-            do
+            if (!((lLanguage)&&(!LoadDictionaries(lLanguage))))
             {
-                LoadDictionaries(langId);
-                DWORD lid = SUBLANGID(langId);
-                lid--;
-                if (lid > 0)
+                do
                 {
-                    langId = MAKELANGID(PRIMARYLANGID(langId), lid);
-                }
-                else if (langId == 1033)
-                    langId = 0;
-                else
-                    langId = 1033;
-            } while ((langId)&&((pChecker==NULL)||(pThesaur==NULL)));
+                    LoadDictionaries(langId);
+                    DWORD lid = SUBLANGID(langId);
+                    lid--;
+                    if (lid > 0)
+                    {
+                        langId = MAKELANGID(PRIMARYLANGID(langId), lid);
+                    }
+                    else if (langId == 1033)
+                        langId = 0;
+                    else
+                        langId = 1033;
+                } while ((langId)&&((pChecker==NULL)||(pThesaur==NULL)));
+            }
         }
     }
     Call(SCI_SETEDGEMODE, EDGE_NONE);
@@ -1355,4 +1358,14 @@ CString CSciEdit::GetWordFromSpellCkecker( const CStringA& sWordA )
     sWord.Trim(L"\'\".,");
 
     return sWord;
+}
+
+void CSciEdit::RestyleBugIDs()
+{
+    int endstylepos = (int)Call(SCI_GETLENGTH);
+    // clear all styles
+    Call(SCI_STARTSTYLING, 0, STYLE_MASK);
+    Call(SCI_SETSTYLING, endstylepos, STYLE_DEFAULT);
+    // style the bug IDs
+    MarkEnteredBugID(0, endstylepos);
 }

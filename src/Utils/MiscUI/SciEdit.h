@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -115,6 +115,7 @@ public:
 
     void        SetRepositoryRoot(const CString& url) {m_sRepositoryRoot = url;}
 
+    void        RestyleBugIDs();
 private:
     HMODULE     m_hModule;
     LRESULT     m_DirectFunction;
