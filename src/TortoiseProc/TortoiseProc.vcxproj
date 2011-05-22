@@ -266,6 +266,7 @@
     <ClCompile Include="..\Utils\Libraries.cpp" />
     <ClCompile Include="..\Utils\MiscUI\FileDlgEventHandler.cpp" />
     <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\RegexEdit.cpp" />
     <ClCompile Include="..\Utils\MiscUI\SVG.cpp" />
     <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp" />
     <ClCompile Include="..\Utils\ReaderWriterLock.cpp" />
@@ -275,6 +276,7 @@
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp" />
     <ClCompile Include="..\Utils\CmdLineParser.cpp" />
     <ClCompile Include="..\Utils\CmdUrlParser.cpp" />
+    <ClCompile Include="BugtraqRegexTestDlg.cpp" />
     <ClCompile Include="Colors.cpp" />
     <ClCompile Include="..\Utils\COMError.cpp" />
     <ClCompile Include="..\Utils\DebugOutput.cpp" />
@@ -749,6 +751,7 @@
     <ClInclude Include="..\Utils\MiscUI\ControlsBridge.h" />
     <ClInclude Include="..\Utils\MiscUI\FileDlgEventHandler.h" />
     <ClInclude Include="..\Utils\MiscUI\MessageBox.h" />
+    <ClInclude Include="..\Utils\MiscUI\RegexEdit.h" />
     <ClInclude Include="..\Utils\MiscUI\SVG.h" />
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h" />
     <ClInclude Include="..\Utils\MiscUI\XMessageBox.h" />
@@ -761,6 +764,7 @@
     <ClInclude Include="..\Utils\ClipboardHelper.h" />
     <ClInclude Include="..\Utils\CmdLineParser.h" />
     <ClInclude Include="..\Utils\CmdUrlParser.h" />
+    <ClInclude Include="BugtraqRegexTestDlg.h" />
     <ClInclude Include="Colors.h" />
     <ClInclude Include="..\Utils\COMError.h" />
     <ClInclude Include="..\Utils\CreateProcessHelper.h" />

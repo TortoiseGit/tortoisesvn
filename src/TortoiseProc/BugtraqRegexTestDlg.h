@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011 - TortoiseSVN
+// Copyright (C) 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,46 +17,39 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "EditPropBase.h"
 #include "StandAloneDlg.h"
 #include "RegexEdit.h"
+#include "SciEdit.h"
 
-class CEditPropBugtraq : public CResizableStandAloneDialog, public EditPropBase
+// CBugtraqRegexTestDlg dialog
+
+class CBugtraqRegexTestDlg : public CResizableStandAloneDialog
 {
-    DECLARE_DYNAMIC(CEditPropBugtraq)
+    DECLARE_DYNAMIC(CBugtraqRegexTestDlg)
 
 public:
-    CEditPropBugtraq(CWnd* pParent = NULL);
-    virtual ~CEditPropBugtraq();
+    CBugtraqRegexTestDlg(CWnd* pParent = NULL);   // standard constructor
+    virtual ~CBugtraqRegexTestDlg();
 
-    enum { IDD = IDD_EDITPROPBUGTRAQ };
+    // Dialog Data
+    enum { IDD = IDD_BUGTRAQREGEXTESTER };
 
-    virtual bool            HasMultipleProperties() { return true; }
+    CString     m_sBugtraqRegex1;
+    CString     m_sBugtraqRegex2;
+
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);
-    virtual void OnOK();
+    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
-    afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
-    afx_msg void OnBnClickedHelp();
-    afx_msg void OnBnClickedTestregex();
 
     DECLARE_MESSAGE_MAP()
 
-    INT_PTR DoModal() { return CResizableStandAloneDialog::DoModal(); }
+    afx_msg void OnEnChangeBugtraqlogregex1();
+    afx_msg void OnEnChangeBugtraqlogregex2();
 
 private:
-    BOOL        m_bWarnIfNoIssue;
-    CString     m_sBugtraqUrl;
-    CString     m_sBugtraqMessage;
-    CString     m_sBugtraqLabel;
-    CString     m_sBugtraqRegex1;
-    CString     m_sBugtraqRegex2;
-    CString     m_sProviderUUID;
-    CString     m_sProviderUUID64;
-    CString     m_sProviderParams;
-
+    void        UpdateLogControl();
+private:
     CRegexEdit  m_BugtraqRegex1;
     CRegexEdit  m_BugtraqRegex2;
-
-    int         m_height;
+    CSciEdit    m_cLogMessage;
 };

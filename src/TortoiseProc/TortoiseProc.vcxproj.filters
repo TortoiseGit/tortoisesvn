@@ -1061,6 +1061,12 @@
     <ClCompile Include="RepoCreationFinished.cpp">
       <Filter>Commands\RepoCreate</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\RegexEdit.cpp">
+      <Filter>Utils\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="BugtraqRegexTestDlg.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2028,6 +2034,12 @@
     </ClInclude>
     <ClInclude Include="RepoCreationFinished.h">
       <Filter>Commands\RepoCreate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\RegexEdit.h">
+      <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="BugtraqRegexTestDlg.h">
+      <Filter>Commands\Properties</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

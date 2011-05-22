@@ -21,6 +21,7 @@
 #include "EditPropBugtraq.h"
 #include "UnicodeUtils.h"
 #include "AppUtils.h"
+#include "BugtraqRegexTestDlg.h"
 
 // CEditPropBugtraq dialog
 
@@ -60,12 +61,15 @@ void CEditPropBugtraq::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_UUID32, m_sProviderUUID);
     DDX_Text(pDX, IDC_UUID64, m_sProviderUUID64);
     DDX_Text(pDX, IDC_PARAMS, m_sProviderParams);
+    DDX_Control(pDX, IDC_BUGTRAQLOGREGEX1, m_BugtraqRegex1);
+    DDX_Control(pDX, IDC_BUGTRAQLOGREGEX2, m_BugtraqRegex2);
 }
 
 
 BEGIN_MESSAGE_MAP(CEditPropBugtraq, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CEditPropBugtraq::OnBnClickedHelp)
     ON_WM_SIZING()
+    ON_BN_CLICKED(IDC_TESTREGEX, &CEditPropBugtraq::OnBnClickedTestregex)
 END_MESSAGE_MAP()
 
 
@@ -330,3 +334,17 @@ void CEditPropBugtraq::OnBnClickedHelp()
 {
     OnHelp();
 }
+
+void CEditPropBugtraq::OnBnClickedTestregex()
+{
+    CBugtraqRegexTestDlg dlg(this);
+    dlg.m_sBugtraqRegex1 = m_sBugtraqRegex1;
+    dlg.m_sBugtraqRegex2 = m_sBugtraqRegex2;
+    if (dlg.DoModal() == IDOK)
+    {
+        m_sBugtraqRegex1 = dlg.m_sBugtraqRegex1;
+        m_sBugtraqRegex2 = dlg.m_sBugtraqRegex2;
+        UpdateData(FALSE);
+    }
+}
+
