@@ -3106,6 +3106,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         CString sCmd;
                         sCmd.Format(_T("/command:createpatch /pathfile:\"%s\" /deletepathfile /noui /savepath:\"%s\""),
                             (LPCTSTR)sTempFile, (LPCTSTR)sTempFile2);
+                        if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+                        {
+                            sCmd += L" /showoptions";
+                        }
 
                         CAppUtils::RunTortoiseProc(sCmd);
                     }
@@ -3117,6 +3121,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             CDiffOptionsDlg dlg(this);
                             if (dlg.DoModal() == IDOK)
                                 options = dlg.GetDiffOptionsString();
+                            else
+                                break;
                         }
                         SVNDiff diff(NULL, this->m_hWnd, true);
 
@@ -3263,6 +3269,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     targetList.WriteToFile(sTempFile, false);
                     CString sCmd;
                     sCmd.Format(_T("/command:createpatch /pathfile:\"%s\" /deletepathfile /noui"), (LPCTSTR)sTempFile);
+                    if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+                    {
+                        sCmd += L" /showoptions";
+                    }
 
                     CAppUtils::RunTortoiseProc(sCmd);
                 }

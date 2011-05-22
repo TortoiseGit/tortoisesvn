@@ -23,6 +23,7 @@
 #include "StringUtils.h"
 #include "AppUtils.h"
 #include "CreatePatchDlg.h"
+#include "DiffOptionsDlg.h"
 #include "SVN.h"
 #include "TempFile.h"
 #include "ProgressDlg.h"
@@ -44,6 +45,14 @@ bool CreatePatchCommand::Execute()
         if (cmdLinePath.IsEmpty())
         {
             cmdLinePath = pathList.GetCommonRoot();
+        }
+        if (parser.HasKey(L"showoptions"))
+        {
+            CDiffOptionsDlg optionsdlg(CWnd::FromHandle(GetExplorerHWND()));
+            if (optionsdlg.DoModal() == IDOK)
+                dlg.m_sDiffOptions = optionsdlg.GetDiffOptionsString();
+            else
+                return false;
         }
         bRet = CreatePatch(cmdLinePath.GetDirectory(), dlg.m_pathList, dlg.m_sDiffOptions, CTSVNPath(savepath));
         SVN svn;
