@@ -170,9 +170,11 @@ public:
     /** replaces bNumer: a regular expression string to check the validity of
       * the entered bug ID. */
     const CString& GetCheckRe() const {return sCheckRe;}
+    void SetCheckRe(const CString& s) {sCheckRe = s;regExNeedUpdate=true;AutoUpdateRegex();}
 
     /** used to extract the bug ID from the string matched by sCheckRe */
     const CString& GetBugIDRe() const {return sBugIDRe;}
+    void SetBugIDRe(const CString& s) {sBugIDRe = s;regExNeedUpdate=true;AutoUpdateRegex();}
 
     const CString& GetProviderUUID() const { return (sProviderUuid64.IsEmpty() ? sProviderUuid : sProviderUuid64); }
 

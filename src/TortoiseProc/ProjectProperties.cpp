@@ -450,8 +450,14 @@ void ProjectProperties::AutoUpdateRegex()
 {
     if (regExNeedUpdate)
     {
-        regCheck = tr1::wregex (sCheckRe);
-        regBugID = tr1::wregex (sBugIDRe);
+        try
+        {
+            regCheck = tr1::wregex (sCheckRe);
+            regBugID = tr1::wregex (sBugIDRe);
+        }
+        catch (std::exception)
+        {
+        }
 
         regExNeedUpdate = false;
     }
