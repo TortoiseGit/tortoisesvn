@@ -705,14 +705,14 @@ void Editor::SetRectangularRange() {
 		if (sel.selType == Selection::selThin) {
 			xCaret = xAnchor;
 		}
-		int lineAnchor = pdoc->LineFromPosition(sel.Rectangular().anchor.Position());
+		int lineAnchorRect = pdoc->LineFromPosition(sel.Rectangular().anchor.Position());
 		int lineCaret = pdoc->LineFromPosition(sel.Rectangular().caret.Position());
-		int increment = (lineCaret > lineAnchor) ? 1 : -1;
-		for (int line=lineAnchor; line != lineCaret+increment; line += increment) {
+		int increment = (lineCaret > lineAnchorRect) ? 1 : -1;
+		for (int line=lineAnchorRect; line != lineCaret+increment; line += increment) {
 			SelectionRange range(SPositionFromLineX(line, xCaret), SPositionFromLineX(line, xAnchor));
 			if ((virtualSpaceOptions & SCVS_RECTANGULARSELECTION) == 0)
 				range.ClearVirtualSpace();
-			if (line == lineAnchor)
+			if (line == lineAnchorRect)
 				sel.SetSelection(range);
 			else
 				sel.AddSelectionWithoutTrim(range);
@@ -3055,7 +3055,7 @@ void Editor::DrawLine(Surface *surface, ViewStyle &vsDraw, int line, int lineVis
 	}
 
 	// Draw any translucent whole line states
-	rcSegment.left = xStart;
+	rcSegment.left = 0;
 	rcSegment.right = rcLine.right - 1;
 	if (caret.active && vsDraw.showCaretLineBackground && ll->containsCaret) {
 		SimpleAlphaRectangle(surface, rcSegment, vsDraw.caretLineBackground.allocated, vsDraw.caretLineAlpha);
@@ -4744,7 +4744,6 @@ void Editor::Duplicate(bool forLine) {
 		forLine = true;
 	}
 	UndoGroup ug(pdoc, sel.Count() > 1);
-	SelectionPosition last;
 	const char *eol = "";
 	int eolLen = 0;
 	if (forLine) {
