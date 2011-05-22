@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,6 +27,7 @@
 #include "Colors.h"
 #include "FilterEdit.h"
 #include "Tooltip.h"
+#include "JobScheduler.h"
 
 
 #define IDT_FILTER      101
@@ -98,6 +99,7 @@ private:
     UINT                DiffThread();
     static UINT         ExportThreadEntry(LPVOID pVoid);
     UINT                ExportThread();
+    void                GetSelectedPaths(CTSVNPathList& urls1, CTSVNPathList& urls2);
 
     virtual BOOL        Cancel() {return m_bCancelled;}
 
@@ -131,6 +133,7 @@ private:
     bool                m_bIgnoreancestry;
     bool                m_bDoPegDiff;
     volatile LONG       m_bThreadRunning;
+    async::CJobScheduler netScheduler;
 
     bool                m_bCancelled;
 

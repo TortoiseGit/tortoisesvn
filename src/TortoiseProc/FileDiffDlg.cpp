@@ -32,6 +32,7 @@
 #include "IconMenu.h"
 #include ".\filediffdlg.h"
 #include "DiffOptionsDlg.h"
+#include "AsyncCall.h"
 
 #define ID_COMPARE 1
 #define ID_BLAME 2
@@ -47,10 +48,11 @@ int     CFileDiffDlg::m_nSortedColumn = -1;
 
 IMPLEMENT_DYNAMIC(CFileDiffDlg, CResizableStandAloneDialog)
 CFileDiffDlg::CFileDiffDlg(CWnd* pParent /*=NULL*/)
-    : CResizableStandAloneDialog(CFileDiffDlg::IDD, pParent),
-    m_bBlame(false),
-    m_pProgDlg(NULL),
-    m_bCancelled(false)
+    : CResizableStandAloneDialog(CFileDiffDlg::IDD, pParent)
+    , m_bBlame(false)
+    , m_pProgDlg(NULL)
+    , m_bCancelled(false)
+    , netScheduler(1, 0, true)
 {
 }
 
@@ -612,7 +614,18 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             while (pos)
             {
                 int index = m_cFileList.GetNextSelectedItem(pos);
-                DoDiff(index, false);
+
+                auto f = [=]()
+                {
+                    CoInitialize(NULL);
+                    this->EnableWindow(FALSE);
+
+                    DoDiff(index, false);
+
+                    this->EnableWindow(TRUE);
+                    this->SetFocus();
+                };
+                new async::CAsyncCall(f, &netScheduler);
             }
         }
         break;
@@ -627,25 +640,48 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 else
                     break;
             }
+            CTSVNPathList urls1, urls2;
+            GetSelectedPaths(urls1, urls2);
             CTSVNPath diffFile = CTempFiles::Instance().GetTempFilePath(false);
-            POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
-            while (pos)
+            bool bDoPegDiff = m_bDoPegDiff;
+            auto f = [=]()
             {
-                int index = m_cFileList.GetNextSelectedItem(pos);
-                CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
-                CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
-                CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+                CoInitialize(NULL);
+                this->EnableWindow(FALSE);
 
-                if (m_bDoPegDiff)
+                CProgressDlg progDlg;
+                progDlg.SetTitle(IDS_APPNAME);
+                progDlg.SetAnimation(IDR_DOWNLOAD);
+                progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_UNIFIEDDIFF)));
+                progDlg.SetTime(false);
+                SetAndClearProgressInfo(&progDlg);
+                progDlg.SetProgress(0, urls1.GetCount());
+                progDlg.ShowModeless(m_hWnd);
+                for (int i = 0; i < urls1.GetCount(); ++i)
                 {
-                    PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, options, true, diffFile);
+                    CTSVNPath url1 = urls1[i];
+                    CTSVNPath url2 = urls2[i];
+                    progDlg.SetLine(3, (LPCTSTR)url1.GetUIFileOrDirectoryName(), true);
+                    progDlg.SetProgress(i+1, urls1.GetCount());
+                    if (bDoPegDiff)
+                    {
+                        PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, options, true, diffFile);
+                    }
+                    else
+                    {
+                        Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, options, true, diffFile);
+                    }
+                    if (progDlg.HasUserCancelled() || m_bCancelled)
+                        break;
                 }
-                else
-                {
-                    Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, options, true, diffFile);
-                }
-            }
-            CAppUtils::StartUnifiedDiffViewer(diffFile.GetWinPathString(), CString(), false);
+                progDlg.Stop();
+                CAppUtils::StartUnifiedDiffViewer(diffFile.GetWinPathString(), CString(), false);
+
+                this->EnableWindow(TRUE);
+                this->SetFocus();
+            };
+            new async::CAsyncCall(f, &netScheduler);
+
         }
         break;
     case ID_BLAME:
@@ -654,7 +690,17 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             while (pos)
             {
                 int index = m_cFileList.GetNextSelectedItem(pos);
-                DoDiff(index, true);
+                auto f = [=]()
+                {
+                    CoInitialize(NULL);
+                    this->EnableWindow(FALSE);
+
+                    DoDiff(index, true);
+
+                    this->EnableWindow(TRUE);
+                    this->SetFocus();
+                };
+                new async::CAsyncCall(f, &netScheduler);
             }
         }
         break;
@@ -949,6 +995,9 @@ void CFileDiffDlg::OnCancel()
         m_bCancelled = true;
         return;
     }
+    
+    netScheduler.WaitForEmptyQueueOrTimeout(5000);
+
     __super::OnCancel();
 }
 
@@ -1147,5 +1196,19 @@ void CFileDiffDlg::CopySelectionToClipboard()
         sTextForClipboard += _T("\r\n");
     }
     CStringUtils::WriteAsciiStringToClipboard(sTextForClipboard);
+}
+
+void CFileDiffDlg::GetSelectedPaths(CTSVNPathList& urls1, CTSVNPathList& urls2)
+{
+    POSITION pos = m_cFileList.GetFirstSelectedItemPosition();
+    while (pos)
+    {
+        int index = m_cFileList.GetNextSelectedItem(pos);
+        CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
+        CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+        urls1.AddPath(url1);
+        CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
+        urls2.AddPath(url2);
+    }
 }
 
