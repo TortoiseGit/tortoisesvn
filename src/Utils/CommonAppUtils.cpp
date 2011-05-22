@@ -252,6 +252,12 @@ bool CCommonAppUtils::RunTortoiseProc(const CString& sCommandLine)
     CString pathToExecutable = CPathUtils::GetAppDirectory()+_T("TortoiseProc.exe");
     CString sCmd;
     sCmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)sCommandLine);
+    if (AfxGetMainWnd()->GetSafeHwnd() && (sCommandLine.Find(L"/hwnd:")<0))
+    {
+        CString sCmdLine;
+        sCmdLine.Format(L"%s /hwnd:%ld", (LPCTSTR)sCommandLine, AfxGetMainWnd()->GetSafeHwnd());
+        sCmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)sCmdLine);
+    }
     return LaunchApplication(sCmd, NULL, false);
 }
 
