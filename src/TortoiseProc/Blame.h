@@ -48,17 +48,23 @@ public:
     CString     BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, const CString& options, BOOL includemerge, BOOL showprogress, BOOL ignoremimetype);
 
     bool        BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype, BOOL includemerge);
+    void        SetAndClearProgressInfo(CProgressDlg * pProgressDlg, int infoline, bool bShowProgressBar = false) { SVN::SetAndClearProgressInfo(pProgressDlg, bShowProgressBar); m_bShowProgressBar = bShowProgressBar; m_nFormatLine = infoline; }
+
 private:
     BOOL        BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision, const CString& author, const CString& date,
                                 svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
                                 const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg);
     BOOL        Cancel();
-    BOOL        Notify(const CTSVNPath& path, svn_wc_notify_action_t action,
-                        svn_node_kind_t kind, const CString& mime_type,
-                        svn_wc_notify_state_t content_state,
-                        svn_wc_notify_state_t prop_state, LONG rev,
-                        const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
-                        svn_error_t * err, apr_pool_t * pool);
+    BOOL        Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
+                       svn_node_kind_t kind, const CString& mime_type,
+                       svn_wc_notify_state_t content_state,
+                       svn_wc_notify_state_t prop_state, svn_revnum_t rev,
+                       const svn_lock_t * lock, svn_wc_notify_lock_state_t lock_state,
+                       const CString& changelistname,
+                       const CString& propertyName,
+                       svn_merge_range_t * range,
+                       svn_error_t * err, apr_pool_t * pool);
+
 private:
     BOOL        m_bCancelled;           ///< TRUE if the operation should be canceled
     LONG        m_nCounter;             ///< Counts the number of calls to the Cancel() callback (revisions?)
@@ -66,6 +72,8 @@ private:
     bool        m_bNoLineNo;            ///< if true, then the line number isn't written to the file
     bool        m_bHasMerges;           ///< If the blame has merge info, this is set to true
     bool        m_bIncludeMerge;        ///< true if merge info was requested
+    int         m_nFormatLine;          ///< the line of the progress dialog where to write the blame progress to
+    int         m_bSetProgress;         ///< whether to set the progress bar state
 
     CString     m_sSavePath;            ///< Where to save the blame data
     CStdioFileT m_saveFile;             ///< The file object to write to

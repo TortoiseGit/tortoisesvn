@@ -271,9 +271,10 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     progDlg.SetTitle(IDS_PROGRESSWAIT);
     progDlg.SetAnimation(IDR_DOWNLOAD);
     progDlg.ShowModeless(this);
-    progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)m_path1.GetUIPathString());
+    progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetUIFileOrDirectoryName());
     progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISIONTEXT, (LPCTSTR)m_rev1.ToString());
-
+    SetAndClearProgressInfo(&progDlg);
+    m_blamer.SetAndClearProgressInfo(&progDlg, 3, false);
     if ((fd.kind != svn_client_diff_summarize_kind_added)&&(!blame)&&(!Export(url1, tempfile, m_bDoPegDiff ? m_peg : m_rev1, m_rev1)))
     {
         if ((!m_bDoPegDiff)||(!Export(url1, tempfile, m_rev1, m_rev1)))
@@ -292,7 +293,7 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     }
     SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
     progDlg.SetProgress(1, 2);
-    progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url2.GetUIPathString());
+    progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url2.GetUIFileOrDirectoryName());
     progDlg.FormatNonPathLine(2, IDS_PROGRESSREVISIONTEXT, (LPCTSTR)m_rev2.ToString());
     CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, url2, m_rev2);
     if ((fd.kind != svn_client_diff_summarize_kind_deleted)&&(!blame)&&(!Export(url2, tempfile2, m_bDoPegDiff ? m_peg : m_rev2, m_rev2)))

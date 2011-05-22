@@ -26,14 +26,17 @@
 #include "TempFile.h"
 
 CBlame::CBlame()
+    : SVN()
+    , m_bCancelled(FALSE)
+    , m_lowestrev(-1)
+    , m_highestrev(-1)
+    , m_nCounter(0)
+    , m_nHeadRev(-1)
+    , m_bNoLineNo(false)
+    , extBlame(FALSE)
+    , m_nFormatLine(2)
+    , m_bSetProgress(true)
 {
-    m_bCancelled = FALSE;
-    m_lowestrev = -1;
-    m_highestrev = -1;
-    m_nCounter = 0;
-    m_nHeadRev = -1;
-    m_bNoLineNo = false;
-    extBlame = FALSE;
 }
 CBlame::~CBlame()
 {
@@ -240,19 +243,31 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev e
         DeleteFile(m_sSavePath);
         m_sSavePath.Empty();
     }
+    m_progressDlg.SetLine(2, L"");
+    if (m_pProgressDlg)
+        m_pProgressDlg->SetLine(m_nFormatLine, L"");
     m_progressDlg.Stop();
 
     return m_sSavePath;
 }
-BOOL CBlame::Notify(const CTSVNPath& /*path*/, svn_wc_notify_action_t /*action*/,
+BOOL CBlame::Notify(const CTSVNPath& /*path*/, const CTSVNPath& /*url*/, svn_wc_notify_action_t /*action*/,
                     svn_node_kind_t /*kind*/, const CString& /*mime_type*/,
                     svn_wc_notify_state_t /*content_state*/,
-                    svn_wc_notify_state_t /*prop_state*/, LONG rev,
+                    svn_wc_notify_state_t /*prop_state*/, svn_revnum_t rev,
                     const svn_lock_t * /*lock*/, svn_wc_notify_lock_state_t /*lock_state*/,
+                    const CString& /*changelistname*/,
+                    const CString& /*propertyName*/,
+                    svn_merge_range_t * /*range*/,
                     svn_error_t * /*err*/, apr_pool_t * /*pool*/)
 {
     m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSINFO2, rev, m_nHeadRev);
     m_progressDlg.SetProgress(rev, m_nHeadRev);
+    if (m_pProgressDlg)
+    {
+        m_pProgressDlg->FormatNonPathLine(m_nFormatLine, IDS_BLAME_PROGRESSINFO2, rev, m_nHeadRev);
+        if (m_bSetProgress)
+            m_pProgressDlg->SetProgress(rev, m_nHeadRev);
+    }
     return TRUE;
 }
 
@@ -279,6 +294,10 @@ bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, 
             peg = endrev;
         }
     }
+
+    m_progressDlg.SetLine(2, L"");
+    if (m_pProgressDlg)
+        m_pProgressDlg->SetLine(m_nFormatLine, L"");
 
     if (!bBlameSuccesful)
     {
