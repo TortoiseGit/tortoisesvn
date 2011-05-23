@@ -1526,14 +1526,14 @@ void CBaseView::DrawText(
     ASSERT(m_pViewData && (nViewLine < m_pViewData->GetCount()));
     DiffStates diffState = m_pViewData->GetState(nViewLine);
 
+    // first suppose the whole line is selected
     int selectedStart = 0;
-    int selectedEnd = 0;
+    int selectedEnd = textlength;
 
     if ((m_ptSelectionViewPosStart.y > nViewLine) || (m_ptSelectionViewPosEnd.y < nViewLine)
         || ! m_bShowSelection || !HasTextSelection())
     {
         // this line has no selected text
-        selectedStart = 0;
         selectedEnd = 0;
     }
     else if ((m_ptSelectionViewPosStart.y == nViewLine) || (m_ptSelectionViewPosEnd.y == nViewLine))
@@ -1545,44 +1545,32 @@ void CBaseView::DrawText(
         if (m_ptSelectionViewPosStart.y == nViewLine)
         {
             // the first line of selection
-            selectedStart = m_ptSelectionViewPosStart.x - ptLineStart.x - nLineOffset;
-            if (selectedStart<0)
+            selectedStart = m_ptSelectionViewPosStart.x - ptLineStart.x;
+            if (selectedStart <= 0)
             {
                 selectedStart = 0;
             }
-            else if (selectedStart>=nLineLength)
+            else 
             {
-                selectedEnd = ExpandChars(sLine, nLineLength);
-            }
-            else
-            {
-                selectedStart = ExpandChars(sLine, selectedStart);
+                selectedStart = CountExpandedChars(sLine, min(selectedStart, nLineLength)) - nLineOffset;
+                selectedStart = min(max(selectedStart, 0), textlength);
             }
         }
 
         if (m_ptSelectionViewPosEnd.y == nViewLine)
         {
             // the last line of selection
-            selectedEnd =  m_ptSelectionViewPosEnd.x - ptLineStart.x - nLineOffset;
-            if (selectedEnd<0)
+            selectedEnd =  m_ptSelectionViewPosEnd.x - ptLineStart.x;
+            if (selectedEnd <= 0)
             {
                 selectedEnd = 0;
             }
-            else if (selectedEnd>=nLineLength)
-            {
-                selectedEnd = ExpandChars(sLine, nLineLength);
-            }
             else
             {
-                selectedEnd = ExpandChars(sLine, selectedEnd);
+                selectedEnd = CountExpandedChars(sLine, min(selectedEnd, nLineLength)) - nLineOffset;
+                selectedEnd = min(max(selectedEnd, 0), textlength);
             }
         }
-    }
-    else
-    {
-        CString sLine = GetLineChars(nLineIndex);
-        int nLineLength = sLine.GetLength();
-        selectedEnd = ExpandChars(sLine, nLineLength);
     }
 
     COLORREF crBkgnd, crText;
@@ -1877,6 +1865,7 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
         return;
     }
 
+    // CountExpandedChars(pszChars, nOffset)
     int nTabSize = GetTabSize();
 
     int nActualOffset = 0;
@@ -1929,7 +1918,7 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
     line.ReleaseBuffer();
 }
 
-int CBaseView::ExpandChars(const CString &sLine, int nLength)
+int CBaseView::CountExpandedChars(const CString &sLine, int nLength)
 {
     int nTabSize = GetTabSize();
 
@@ -2656,6 +2645,10 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
             {
                 POINT ptCaretPos = GetCaretPosition();
                 ptCaretPos.x = GetLineLength(ptCaretPos.y);
+                if ((GetSubLineOffset(ptCaretPos.y) != -1) && (GetSubLineOffset(ptCaretPos.y) != CountMultiLines(GetViewLineForScreen(ptCaretPos.y))-1)) // not last screen line of view line
+                {
+                    ptCaretPos.x--;
+                }
                 SetCaretAndGoalPosition(ptCaretPos);
                 OnCaretMove(bShift);
             }
@@ -3254,6 +3247,10 @@ int CBaseView::CalculateActualOffset(const POINT& point)
 int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
 {
     int nLength = GetLineLength(nLineIndex);
+    if ((GetSubLineOffset(nLineIndex) != -1) && (GetSubLineOffset(nLineIndex) != CountMultiLines(GetViewLineForScreen(nLineIndex))-1)) // not last screen line of view line
+    {
+        nLength--;
+    }
     LPCTSTR pszLine = GetLineChars(nLineIndex);
     int nIndex = 0;
     int nOffset = 0;

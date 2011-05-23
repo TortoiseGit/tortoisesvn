@@ -272,7 +272,7 @@ protected:  // methods
      */
     void            DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const CPoint& origin);
     void            ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line);
-    int             ExpandChars(const CString &sLine, int nLength);
+    int             CountExpandedChars(const CString &sLine, int nLength);
 
     void            RecalcVertScrollBar(BOOL bPositionOnly = FALSE);
     void            RecalcHorzScrollBar(BOOL bPositionOnly = FALSE);
