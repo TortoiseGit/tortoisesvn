@@ -9,12 +9,13 @@
 # $Rev$
 # 
 # Authors:
+#   <paulojustino.nec@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -105,7 +106,7 @@ msgstr "%1!ld! minuto(s) e %2!ld! segundo(s)"
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline)"
-msgstr ""
+msgstr "%1!s! (fora-de-linha)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -344,12 +345,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"Actualizar a cópia de trabalho agora\n"
-"e reabrir o diálogo de submissão?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1119,12 +1116,6 @@ msgstr "&Remover"
 msgid "&Rename"
 msgstr "&Alterar nome"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr ""
-"&Reabrir a caixa de diálogo de submissão e ramificação/etiquetagem após uma "
-"submissão falhada"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "Navegador de &repositório"
@@ -1368,6 +1359,10 @@ msgstr "Dispositivos &desconhecidos"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Actualizar"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr "&Actualizar item para revisão"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -1889,6 +1884,8 @@ msgid ""
 "Adjust case\n"
 "The file is not added."
 msgstr ""
+"Ajustar altura\n"
+"O ficheiro não foi adicionado."
 
 #. Resource IDs: (2049)
 msgid ""
@@ -3110,6 +3107,10 @@ msgstr "Linha de Comando"
 msgid "Command Line To Execute:"
 msgstr "Linha de Comando A Executar:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "Comando falhou."
@@ -3121,10 +3122,6 @@ msgstr "Comandos"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Submeter"
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "Submissão falhou - Actualização necessária"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5629,14 +5626,6 @@ msgstr ""
 "Se seleccionado, um duplo clique sobre uma revisão na lista de registo "
 "compara-a com a revisão anterior"
 
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"Se seleccionado, a caixa de diálogo de submissão será reiniciada automaticamente após um erro,\r\n"
-"preservando a sua última selecção e a sua mensagem de registo."
-
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
@@ -6068,6 +6057,11 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr ""
+"Parece que estás a reposicionar a tua cópia de trabalho para um caminho diferente dentro do mesmo repositório.\n"
+"De: %1!s!\n"
+"Para: %2!s!\n"
+"\n"
+"O uso impróprio do reposicionar irá corromper tua cópia de trabalho!\n"
 
 #. Resource IDs: (88)
 #, c-format
@@ -6084,6 +6078,16 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
+"Parece que estás a reposicionar a tua cópia de trabalho para um caminho diferente dentro do mesmo repositório.\n"
+"De: %1!s!\n"
+"Para: %2!s!\n"
+"\n"
+"Um reposicionamento só é preciso se o caminho par o repositório foi alterado.\n"
+"Mudar para um caminho diferente dentro do repositório é efectuado pela operação trocar.\n"
+"\n"
+"O uso impróprio do reposicionar irá corromper tua cópia de trabalho!\n"
+"Se não tens a certeza do que fazer, consulta os nossos docs em como reposicionar.\n"
+"Queres mesmo reposicionar?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -8337,7 +8341,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move"
-msgstr ""
+msgstr "Renomear/mover"
 
 #. Resource IDs: (91)
 #, c-format
@@ -9148,6 +9152,10 @@ msgstr "Preferências"
 msgid "Settings - TortoiseSVN"
 msgstr "Preferências - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "Shell"
@@ -9817,7 +9825,7 @@ msgstr "Tro&car a cópia de trabalho para o novo ramo/etiqueta"
 
 #. Resource IDs: (78)
 msgid "Switch"
-msgstr ""
+msgstr "Trocar"
 
 #. Resource IDs: (229)
 #, c-format
@@ -10422,6 +10430,13 @@ msgid ""
 msgstr ""
 "O repositório foi criado com sucesso.\n"
 "Queres criar a estrutura de ficheiros por omissão (trunk/branches/tags) agora?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (78)
 msgid ""
@@ -11793,6 +11808,9 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
+"Largaste mais que um ficheiro ou pasta para adicionar ao repositório.\n"
+"Não é possivel efectuar isto apenas num passo, pelo que o TortoiseSVN ir´adicionar cada ficheiro/pasta\n"
+"individualmente, criando uma nova revisão por cada item adicionado."
 
 #. Resource IDs: (105)
 msgid ""
@@ -12938,3 +12956,5 @@ msgstr "sim"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+

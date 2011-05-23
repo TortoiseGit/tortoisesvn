@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
 "Last-Translator: mkrawiecki <michal.krawiecki@erlkoenig.pl>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -339,12 +339,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"Czy mam teraz uaktualnić kopię roboczą\n"
-"i ponownie otworzyć dialog zatwierdzania zmian?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1112,10 +1108,6 @@ msgstr "&Usuń"
 msgid "&Rename"
 msgstr "&Zmień nazwę"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "&Otwórz ponownie dialog zatwierdzania po nieudanym zatwierdzeniu"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "Przeglądarka &repozytorium"
@@ -1359,6 +1351,10 @@ msgstr "Dyski nieznanych &typów"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Uaktualnij"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -3023,6 +3019,10 @@ msgstr "Linia poleceń"
 msgid "Command Line To Execute:"
 msgstr "Linia komend do wykonania:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "Operacja zakończona niepowodzeniem."
@@ -3034,10 +3034,6 @@ msgstr "Polecenia"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Zatwierdź zmiany"
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "Zatwierdzenie zmian nie udało się - Uaktualnij kopię roboczą"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5514,14 +5510,6 @@ msgid ""
 msgstr ""
 "Jeśli zaznaczone, dwuklik na wersji w okienku logu porównuje ją z poprzednią"
 " wersją"
-
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"Jeśli włączone, dialog zatwierdzania będzie po błędzie uruchamiany ponownie,\r\n"
-"z zachowaniem ostatnio wybranych elementów i opisu zmian."
 
 #. Resource IDs: (195)
 msgid ""
@@ -8955,6 +8943,10 @@ msgstr "Ustawienia"
 msgid "Settings - TortoiseSVN"
 msgstr "Ustawienia - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "Powłoka"
@@ -10224,6 +10216,13 @@ msgid ""
 msgstr ""
 "Repozytorium zostało utworzone z powodzeniem.\n"
 "Czy chcesz teraz stworzyć domyślną strukturę folderu (trunk/branches/tags)?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (78)
 msgid ""
@@ -12732,3 +12731,5 @@ msgstr "tak"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+

@@ -9,13 +9,14 @@
 # $Rev$
 # 
 # Authors:
+#   <pojk3n@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
-"Last-Translator: fogle <johanfoglemark@gmail.com>\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
+"Last-Translator: p0jken <ks6g10@soton.ac.uk>\n"
 "Language-Team: Swedish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -336,12 +337,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"Ska jag uppdatera arbetskopian nu\n"
-"och öppna arkiveringsfönstret igen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -802,7 +799,7 @@ msgstr "&Ignorera %d objekt efter namn"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "&Ignorera ursprung"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1109,12 +1106,6 @@ msgstr "&Ta bort"
 msgid "&Rename"
 msgstr "&Byt namn"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr ""
-"&Öppna arkiverings- och gren/märke dialogerna igen om arkiveringen "
-"misslyckades"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "&Arkivutforskaren"
@@ -1358,6 +1349,10 @@ msgstr "&Okända enheter"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Uppdatera"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -1646,6 +1641,10 @@ msgid ""
 "\n"
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
+"En omlokalisering behövs bara om sökvägen till arkivet har förändrats. \n"
+"Byte till en annan sökväg i ett arkiv görs med en växlings operation. \n"
+"\n"
+"Om du är osäker på vad du ska göra, prova en växling först."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -2432,6 +2431,8 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"Avbryt\n"
+"Arkivera inte till ett märke."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2444,6 +2445,8 @@ msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"Avbryt\n"
+"Återställ inte ändringar"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2474,6 +2477,8 @@ msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"Avbryt\n"
+"Återvänd och ange ett ärendenummer"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2486,6 +2491,8 @@ msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"Avbryt\n"
+"Jag vill ange en annan sökväg"
 
 #. Resource IDs: (315)
 msgid ""
@@ -2498,6 +2505,8 @@ msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"Avbryt\n"
+"Behåll den nuvarande sökvägen"
 
 #. Resource IDs: (314)
 msgid ""
@@ -2552,12 +2561,16 @@ msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"Avbryt\n"
+"Objekten importeras inte."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"Avbryt\n"
+"Objekten flyttas inte."
 
 #. Resource IDs: (589)
 msgid ""
@@ -2570,18 +2583,24 @@ msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr ""
+"Avbryt\n"
+"Målfilen förblir oförändrad"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"Avbryt\n"
+"Du måste lägga till katalogen själv"
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"Avbryt\n"
+"Behåll det nuvarande formatet"
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -3009,6 +3028,10 @@ msgstr "Kommandorad"
 msgid "Command Line To Execute:"
 msgstr "Kommandoraden som skall exekveras:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "Kommandot misslyckades."
@@ -3021,15 +3044,13 @@ msgstr "Kommandon"
 msgid "Commit"
 msgstr "Arkivera"
 
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "Arkiveringen misslyckades - Uppdatering behövs"
-
 #. Resource IDs: (173)
 msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"Arkivera enbart katalogen\n"
+"Filler i katalogen arkiveras inte."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3044,6 +3065,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"Arkivera\n"
+"Arkivera ändringarna till målet."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -3086,7 +3109,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "Arkivera till märke"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3952,7 +3975,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr ""
+msgstr "Gör detta för alla befintliga objekt"
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
@@ -3960,7 +3983,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr ""
+msgstr "Gör detta för alla valda mappar som inte är versionhanterade."
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4073,7 +4096,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "Fråga mig inte igen"
 
 #. Resource IDs: (94)
 msgid ""
@@ -4107,7 +4130,7 @@ msgstr "Visa inte detta meddelande igen"
 
 #. Resource IDs: (564)
 msgid "Don't tell me again"
-msgstr ""
+msgstr "Säg inte till igen"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4257,7 +4280,7 @@ msgstr "Tom"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
-msgstr ""
+msgstr "Aktivera Auto-Egenskaper"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4444,7 +4467,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr ""
+msgstr "Varje arkivering skall vara kopplat till ett ärendenummer"
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -5171,7 +5194,7 @@ msgstr "Göm det dockade fönstret"
 
 #. Resource IDs: (1562)
 msgid "Hide non-mergeable revisions"
-msgstr ""
+msgstr "Dölj icke föreningsbara revisioner"
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
@@ -5488,14 +5511,6 @@ msgstr ""
 "Dubbelklicka på en revision i logglistan för att jämföra med föregående "
 "revision"
 
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"Öppna arkiveringsdialogen igen automatiskt efter fel med samma markeringar "
-"och loggmeddelande. "
-
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
@@ -5590,7 +5605,7 @@ msgstr "Ignorer&a ursprung"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
-msgstr ""
+msgstr "Ignorera alla"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5654,7 +5669,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Illegal path"
-msgstr ""
+msgstr "Ogiltig filväg"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -6354,7 +6369,7 @@ msgstr "Förena alla"
 
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
-msgstr ""
+msgstr "Förena ändringarna med arbetskopian"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -6543,7 +6558,7 @@ msgstr "Mer färger..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "Fler än ett objekt har övergivits."
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6605,7 +6620,7 @@ msgstr "Flytta objekten hit"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr ""
+msgstr "Flytta speciell fil eller katalog"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6629,7 +6644,7 @@ msgstr "Flytta: Nytt namn för %s"
 msgid ""
 "Move\n"
 "The items are moved to the target path."
-msgstr ""
+msgstr "Flytta Sakerna blir flyttade till specifierad plats"
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6844,7 +6859,7 @@ msgstr "Inga förslag"
 
 #. Resource IDs: (564)
 msgid "No to all"
-msgstr ""
+msgstr "Nej till alla"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7210,6 +7225,8 @@ msgid ""
 "Overwrite\n"
 "The target file gets replaced"
 msgstr ""
+"Skriv över \n"
+"Målfilen ersätts"
 
 #. Resource IDs: (90)
 msgid ""
@@ -7314,7 +7331,7 @@ msgstr "Sökväg"
 
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
-msgstr ""
+msgstr "Sökväg funnen som matchar patchen bättre."
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7538,11 +7555,11 @@ msgstr "Skriver ut"
 msgid ""
 "Proceed with the entered path\n"
 "I'm aware of the possible problems."
-msgstr ""
+msgstr "Fortsätt med det angivna sökvägen jag är medveten om möjliga problem."
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
-msgstr ""
+msgstr "Fortsätt med sammanslagn."
 
 #. Resource IDs: (173)
 msgid ""
@@ -8174,7 +8191,7 @@ msgstr "Ersätter"
 
 #. Resource IDs: (564)
 msgid "Report"
-msgstr ""
+msgstr "Rapportera"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -8317,7 +8334,7 @@ msgstr ""
 msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
-msgstr ""
+msgstr "Återställ ändringar kommer att utföras i arbetskopian."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -8325,7 +8342,7 @@ msgstr "Återställd"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
-msgstr ""
+msgstr "Återställer ändringar"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8915,6 +8932,10 @@ msgstr "Inställningar"
 msgid "Settings - TortoiseSVN"
 msgstr "Inställningar - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "Skal"
@@ -9251,11 +9272,11 @@ msgstr "Storlek på cachen om den vore okomprimerad"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "Hoppa över"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "Hoppa över alla"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -9267,7 +9288,7 @@ msgstr "Hoppade över mål som saknades"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr ""
+msgstr "Skippa hindrande arbetskopia"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -10174,6 +10195,13 @@ msgstr ""
 "Arkivet skapades.\n"
 "Vill du skapa standard katalogstrukturen (trunk/branches/tags) nu?"
 
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (78)
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
@@ -10195,7 +10223,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "Målet finns redan."
 
 #. Resource IDs: (147)
 #, c-format
@@ -11547,7 +11575,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "Du har inte angett ett ärendenummer."
 
 #. Resource IDs: (1002)
 #, c-format
@@ -11568,7 +11596,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr ""
+msgstr "Du har valt en icke versionshanterad mapp för arkivering!"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -12655,3 +12683,5 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+

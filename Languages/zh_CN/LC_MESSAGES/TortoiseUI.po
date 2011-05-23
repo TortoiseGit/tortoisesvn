@@ -9,12 +9,13 @@
 # $Rev$
 # 
 # Authors:
+#   <pluwen@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
 "Last-Translator: pluwen <pluwen@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -335,12 +336,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"要自动更新工作副本\n"
-"并重新打开提交对话框吗？"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1108,10 +1105,6 @@ msgstr "删除(&R)"
 msgid "&Rename"
 msgstr "改名(&R)"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "在提交失败后，重新打开提交或分支/标签对话框(&R)"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "版本库浏览器(&R)"
@@ -1355,6 +1348,10 @@ msgstr "未知磁盘(&U)"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "更新(&U)"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -2546,6 +2543,8 @@ msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"取消\n"
+"未移动项目。"
 
 #. Resource IDs: (589)
 msgid ""
@@ -2985,6 +2984,10 @@ msgstr "命令行"
 msgid "Command Line To Execute:"
 msgstr "要执行的命令行: "
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "命令失败。"
@@ -2996,10 +2999,6 @@ msgstr "命令"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "提交"
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "提交失败，请先更新"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5440,14 +5439,6 @@ msgid ""
 "the previous revision"
 msgstr "如果选中该项，可以在日志列表中的一个版本上双击，与其比较"
 
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"如果选中该项，则如果在提交过程中发生错误，提交对话框将自动重新\r\n"
-"打开，并保留原有的选择内容和记录日志信息。"
-
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
@@ -5680,6 +5671,8 @@ msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
 msgstr ""
+"导入\n"
+"已导入项目，正在为每个项目创建新的版本。"
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -6576,6 +6569,8 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr ""
+"移动\n"
+"这些项已被移动到目标路径。"
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -8836,6 +8831,10 @@ msgstr "设置"
 msgid "Settings - TortoiseSVN"
 msgstr "设置 - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "Windows 外壳"
@@ -10054,6 +10053,13 @@ msgid ""
 msgstr ""
 "已经成功创建版本库。\n"
 "要创建默认目录结构吗(trunk/branches/tags)?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (78)
 msgid ""
@@ -12497,3 +12503,5 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+

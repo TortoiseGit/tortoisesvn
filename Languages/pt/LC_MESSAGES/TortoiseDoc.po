@@ -9,12 +9,13 @@
 # $Rev$
 # 
 # Authors:
+#   <paulojustino.nec@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:19+0000\n"
+"PO-Revision-Date: 2011-05-21 10:42+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1000,15 +1001,10 @@ msgid ""
 "Now right click on the new folder and from the context menu choose "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository "
 "here...</guimenuitem></menuchoice>. The repository is then created inside "
-"the folder, ready for you to use."
+"the folder, ready for you to use. We will also create the default internal "
+"folder structure by clicking the <guibutton>Create folder "
+"structure</guibutton> button."
 msgstr ""
-"Primeiro cria uma nova pasta vazia no teu PC. Pode ser em qualquer sitio e "
-"com qualquer nome, mas neste tutorial iremos chamá-la "
-"<filename>C:\\svn_repos</filename>. Agora clica com o botão direito na nova "
-"pasta e a partir do menu de contexto, escolhe "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Criar Repositorio "
-"aqui...</guimenuitem></menuchoice>. É então criado o repositório dentro da "
-"pasta, pronto a ser usado."
 
 #. (para)
 msgid ""
@@ -1047,23 +1043,11 @@ msgid ""
 " which brings up a dialog <placeholder-1/> A Subversion repository is "
 "referred to by URL, which allows us to specify a repository anywhere on the "
 "Internet. In this case we need to point to our own local repository which "
-"has a URL of <filename>file:///c:/svn_repos/Widget1</filename> Note that "
-"there are 3 slashes after <filename>file:</filename> and that the forward "
-"slashes are used throughout."
+"has a URL of <filename>file:///c:/svn_repos/trunk</filename>, and to which "
+"we add our own project name <filename>Widget1</filename>. Note that there "
+"are 3 slashes after <filename>file:</filename> and that forward slashes are "
+"used throughout."
 msgstr ""
-"Agora temos um repositório, mas de momento está completamente vazio. Vamos "
-"assumir que eu tenho um conjunto de ficheiro em "
-"<filename>C:\\Projects\\Widget1</filename> que gostaria de adicionar. Navega"
-" no Explorador para a pasta <filename>Widget1</filename> e clica nela com o "
-"botão direito. Agora selecciona "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importar...</guimenuitem></menuchoice>"
-"  que faráaparecer a caixa de diálogo <placeholder-1/> Um repositório "
-"Subversion é referido por um URL, que nos permite especificar um repositório"
-" em qualquer sítio da internet. Neste caso precisamos de apontar para o "
-"nosso próprio repositório local, que tem o URL de "
-"<filename>file:///c:/svn_repos/Widget1</filename>. Repara que existem 3 "
-"barras depois do <filename>file:</filename> e que são usadas barras direitas"
-" por toda a parte."
 
 #. (para)
 msgid ""
@@ -1099,23 +1083,10 @@ msgid ""
 "right click on it and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>."
 " Enter the URL to checkout, in this case "
-"<filename>file:///c:/svn_repos/Widget1</filename> and click on "
+"<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr ""
-"Agora que temos um projecto no nosso repositório, necessitamos de criar uma "
-"cópia de trabalho para usar no trabalho diário. Tem em atenção que o acto de"
-" importar uma pasta não torna automaticamente a pasta numa cópia de "
-"trabalho. O termo Subversion para criar uma cópia de trabalho de fresco é "
-"<literal>Checkout</literal>. Nós vamos efectuar o checkout da pasta Widget1 "
-"do nosso repositório para uma pasta de desenvolvimento no PC chamada "
-"<filename>C:\\Projects\\Widget1-Dev</filename>. Cria essa pasta, então clica"
-" com o botão direito nela e selecciona "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>."
-" Introduz o URL de checkout, neste caso "
-"<filename>file:///c:/svn_repos/Widget1</filename> e clica no "
-"<guibutton>OK</guibutton>. A nossa pasta de desenvolvimento é então povoada "
-"com os ficheiros e pastas do repositório."
 
 #. (para)
 msgid ""
@@ -3099,18 +3070,10 @@ msgid ""
 "installer version. It is compressed more efficiently than the "
 "<filename>.zip</filename> version, so the download is smaller, and it takes "
 "care of setting the paths for you. You can download the latest version of "
-"the Subversion command line client from <ulink "
-"url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
+"the Subversion command line client from the <ulink "
+"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
+" website."
 msgstr ""
-"A ferramenta <literal>svnadmin</literal> é automaticamente instalada quando "
-"tu instalas o cliente de linha de comandos do Subversion. Se estás a "
-"instalar as ferramentas de linha de comandos num PC Windows, o melhor método"
-" é descarregar a versão com instalador Windows. É comprimido de modo mais "
-"eficiente do que a versão <filename>.zip</filename>, pelo que a descarga é "
-"mais pequena, e toma conta da configuração dos caminhos por ti. Tu podes "
-"descarregar a última versão do cliente de linha de comandos do Subversion a "
-"partir de <ulink "
-"url=\"http://subversion.apache.org/getting.html\"><citetitle>http://subversion.apache.org/getting.html</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -3387,6 +3350,11 @@ msgid ""
 "bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
 msgstr ""
+"Informação mais detalhada sobre as opções do servidor Subversion, e em como "
+"escolher a melhor arquitectura para o teu caso, pode ser encontrada no livro"
+" do Subversion em <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server "
+"Configuration</citetitle></ulink>."
 
 #. (citetitle)
 msgid "VisualSVN"
@@ -3409,7 +3377,7 @@ msgid ""
 "installers available which guide you through the setup and configuration "
 "process. These links are for some of the installers we know about: "
 "<placeholder-1/> You can always find the latest links on the <ulink "
-"url=\"http://subversion.apache.org/getting.html\"><citetitle>Subversion</citetitle></ulink>"
+"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
 " website."
 msgstr ""
 
@@ -3419,6 +3387,8 @@ msgid ""
 "url=\"http://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>"
 " website."
 msgstr ""
+"Poderás encontrar mais guias Como Fazer no sítio <ulink "
+"url=\"http://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>."
 
 #. (title)
 msgid "Daily Use Guide"
@@ -5245,6 +5215,8 @@ msgid ""
 "You can also choose whether to ignore any external projects in the update "
 "(i.e. projects referenced using <literal>svn:externals</literal>)."
 msgstr ""
+"Poderás escolher se queres ignorar qualquer projecto externo na actualização"
+" (i.e projectos referenciados com <literal>svn:externals</literal>)."
 
 #. (para)
 msgid ""
@@ -6524,10 +6496,9 @@ msgstr ""
 #. (para)
 msgid ""
 "If you want to examine a file in detail, you can drag it from here into "
-"another application such as a text editor or IDE."
+"another application such as a text editor or IDE, or you can save a copy "
+"simply by dragging it into a folder in explorer."
 msgstr ""
-"Se quiseres examinar um ficheiro em detalhe, podes arrasta-lo para outra "
-"aplicação como um editor de texto ou um IDE."
 
 #. (para)
 msgid ""
@@ -8901,7 +8872,7 @@ msgstr ""
 
 #. (title)
 msgid "Diffing Office Documents"
-msgstr ""
+msgstr "Comparando Documentos Office"
 
 #. (primary)
 msgid "Microsoft Word"
@@ -14315,6 +14286,8 @@ msgid ""
 "Checkout a single file. This creates a <quote>sparse</quote> working copy "
 "which contains just this one file."
 msgstr ""
+"Checkout de um único ficheiro. Isso cria uma cópia de trabalho "
+"<quote>dispersa</quote> que contém apenas este ficheiro."
 
 #. (para)
 msgid "Delete or rename the file."
@@ -14326,7 +14299,7 @@ msgstr "Guarda uma cópia não versionada do ficheiro para o teu disco rígido."
 
 #. (para)
 msgid "Copy the URL shown in the address bar to the clipboard."
-msgstr ""
+msgstr "Copia o URL da barra de endereços para o clipboard."
 
 #. (para)
 msgid ""
@@ -14345,6 +14318,8 @@ msgid ""
 "Create a shortcut so that you can quickly start repo browser again, opened "
 "directly at this location."
 msgstr ""
+"Cria um atalho para que possas rapidamente arrancar de novo o navegador de "
+"repositório, a abrir directamente nesta localização. "
 
 #. (para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
@@ -14379,6 +14354,8 @@ msgid ""
 "Add unversioned files or folders directly to the repository. This is "
 "effectively the Subversion Import operation."
 msgstr ""
+"Adicionar ficheiros e pastas não versionadas directamente para o "
+"repositório. Isto é efectivamente a operação importar do Subversion."
 
 #. (para)
 msgid "Delete or rename the folder."
@@ -15693,6 +15670,16 @@ msgstr ""
 "começam por <literal>bugtraq:</literal>. Estas deverão ser colocadas nas "
 "pastas: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
+#. (title)
+msgid "The Bugtraq Properties Dialog"
+msgstr "Caixa de diálogo de Propriedades do Bugtraq"
+
+#. (para)
+msgid ""
+"<placeholder-1/> When you edit any of the bugtraq properties a special "
+"property editor is used to make it easier to set appropriate values."
+msgstr ""
+
 #. (para)
 msgid ""
 "Set this property to the URL of your bug tracking tool. It must be properly "
@@ -15821,20 +15808,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"This property defines if the bug-ID is appended (true) to the end of the log"
-" message or inserted (false) at the start of the log message. Valid values "
-"are <literal>true/false</literal>. <emphasis> If not defined, "
-"<literal>true</literal> is assumed, so that existing projects don't break. "
-"</emphasis>"
-msgstr ""
-"Esta propriedade define se o bug-ID é anexado (true) ao fim da mensagem de "
-"registo ou inserido (false) no início da mensagem de registo. Valores "
-"válidos são <literal>true/false</literal>. <emphasis>Se não definido, é "
-"assumido o valor<literal>true</literal> para que os projectos já existentes "
-"não sejam danificados.</emphasis>"
-
-#. (para)
-msgid ""
 "This text is shown by TortoiseSVN on the commit dialog to label the edit box"
 " where you enter the issue number. If it's not set, <literal>Bug-ID / Issue-"
 "Nr:</literal> will be displayed. Keep in mind though that the window will "
@@ -15859,6 +15832,20 @@ msgstr ""
 "possas separar vários números. Valores válidos são "
 "<literal>true/false</literal>. <emphasis> Se não definido, é assumido "
 "<literal>true</literal>. </emphasis>"
+
+#. (para)
+msgid ""
+"This property defines if the bug-ID is appended (true) to the end of the log"
+" message or inserted (false) at the start of the log message. Valid values "
+"are <literal>true/false</literal>. <emphasis> If not defined, "
+"<literal>true</literal> is assumed, so that existing projects don't break. "
+"</emphasis>"
+msgstr ""
+"Esta propriedade define se o bug-ID é anexado (true) ao fim da mensagem de "
+"registo ou inserido (false) no início da mensagem de registo. Valores "
+"válidos são <literal>true/false</literal>. <emphasis>Se não definido, é "
+"assumido o valor<literal>true</literal> para que os projectos já existentes "
+"não sejam danificados.</emphasis>"
 
 #. (para)
 msgid ""
@@ -16423,23 +16410,27 @@ msgstr ""
 
 #. (term)
 msgid "Use Aero Dialogs"
-msgstr ""
+msgstr "Usar caixas de diálogo Aero"
 
 #. (para)
 msgid ""
 "On Windows Vista and later systems this controls whether dialogs use the "
 "Aero styling."
 msgstr ""
+"No Windows Vista e sistemas posteriores, isto controla se as caixas de "
+"diálogo usam o estilo Aero. "
 
 #. (term)
 msgid "Create Library"
-msgstr ""
+msgstr "Criar Biblioteca"
 
 #. (para)
 msgid ""
 "On Windows 7 you can create a Library in which to group working copies which"
 " are scattered in various places on your system."
 msgstr ""
+"No Windows 7 podes criar uma biblioteca na qual agrupas cópias de trabalho "
+"que estão espalhadas por vários locais do teu sistema."
 
 #. (term)
 msgid "Global ignore pattern"
@@ -18232,6 +18223,8 @@ msgid ""
 "Since Unified Diff is just a text format, you can use your favourite text "
 "editor if you prefer."
 msgstr ""
+"Visto que o Unified Diff é apenas um formato de texto, poderás usar o teu "
+"editor de texto preferido se preferires."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -19460,6 +19453,13 @@ msgstr ""
 
 #. (para)
 msgid ""
+"If you don't want TortoiseSVN to ask you to update the working copy "
+"automatically after an <literal>Out of date</literal> error, set this value "
+"to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
 "TortoiseSVN uses accelerators for its explorer context menu entries. Since "
 "this can lead to doubled accelerators (e.g. the <literal>SVN "
 "Commit</literal> has the <keycap>Alt-C</keycap> accelerator, but so does the"
@@ -19533,7 +19533,7 @@ msgstr ""
 
 #. (title)
 msgid "Exporting TSVN Settings"
-msgstr ""
+msgstr "Exportando preferências TSVN"
 
 #. (para)
 msgid ""
@@ -27155,3 +27155,5 @@ msgstr ""
 "Podes também fornecer na linha de comandos simples nomes de ficheiros para compatibilidade com outros programas de comparação. Nesta forma simplificada a linha de comandos é <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "</screen>  Se forem dados dois ficheiros, eles serão comparados entre si. Se forem dados três ficheiros, o primeiro é tomado como o ficheiro BASE, e os outros dois são comparados com este numa comparação a três caminhos."
+
+

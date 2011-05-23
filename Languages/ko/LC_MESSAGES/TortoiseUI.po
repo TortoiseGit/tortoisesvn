@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
 "Last-Translator: fly1004 <fly1004@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -337,12 +337,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"지금 작업 사본을 업데이트하고\n"
-"커밋 다이얼로그를 다시 열까요?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1110,10 +1106,6 @@ msgstr "삭제(&R)"
 msgid "&Rename"
 msgstr "이름 바꾸기(&R)"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "커밋이 실패하면 커밋,브랜치/태그 대화상자를 다시 엽니다(&R)"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "저장소 브라우저(&R)"
@@ -1357,6 +1349,10 @@ msgstr "알 수 없는 드라이브(&U)"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "업데이트(&U)"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -3012,6 +3008,10 @@ msgstr "명령 행"
 msgid "Command Line To Execute:"
 msgstr "실행할 명령:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "명령 오류."
@@ -3023,10 +3023,6 @@ msgstr "명령들"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "커밋"
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "커밋 실패 - 업데이트가 필요함"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5476,14 +5472,6 @@ msgid ""
 "If checked, double-clicking on a revision in the log list compares it with "
 "the previous revision"
 msgstr "로그 리스트에서 더블클릭하면 이전 리비전과 비교합니다"
-
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"커밋 오류가 발생할 경우 선택한 내용과 로그 메시지를 유지하여,\r\n"
-"다시 이 대화상자를 보여 줍니다."
 
 #. Resource IDs: (195)
 msgid ""
@@ -8883,6 +8871,10 @@ msgstr "설정"
 msgid "Settings - TortoiseSVN"
 msgstr "설정 - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "쉘"
@@ -10092,6 +10084,13 @@ msgid ""
 msgstr ""
 "저장소가 성공적으로 생성되었습니다.\n"
 "지금 기본 폴더 구조(trunk/branches/tags)를 생성하시겠습니까?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (78)
 msgid ""
@@ -12557,3 +12556,5 @@ msgstr "예"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{버그트랙}"
+
+

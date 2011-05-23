@@ -9,12 +9,13 @@
 # $Rev$
 # 
 # Authors:
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 05:43+0000\n"
+"PO-Revision-Date: 2011-05-22 11:30+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -343,12 +344,12 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
 "%s\n"
 "\n"
-"Aktualizovat pracovní kopii\n"
-"a znovu otevřít dialogové okno odevzdání?"
+"Mám teď aktualizovat pracovní kopii\n"
+"a potom opakovat?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1116,10 +1117,6 @@ msgstr "Odst&ranit"
 msgid "&Rename"
 msgstr "&Přejmenovat"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "&Znovu otevřít po neúspěchu dialogové okno pro odevzdání větví/značek"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "P&růzkumník úložiště"
@@ -1364,6 +1361,10 @@ msgstr "&Neznámé disky"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "Akt&ualizovat"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr "&Aktualizovat položku na revizi"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -3072,6 +3073,10 @@ msgstr "Příkazová řádka"
 msgid "Command Line To Execute:"
 msgstr "Příkaz ke spuštění:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr "Příkaz selhal - Je nutné aktualizovat"
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "Příkaz selhal."
@@ -3083,10 +3088,6 @@ msgstr "Příkazy"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Odevzdat"
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "Odevzdání selhalo - Nutná aktualizace"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5574,14 +5575,6 @@ msgid ""
 msgstr ""
 "Pokud zaškrtnuto, dvojklik na revizi v seznamu záznamu je porovná s "
 "předchozí revizí "
-
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"Pokud nastaveno, dialogové okno odevzdání bude opět po chybě automaticky spuštěno,\n"
-"přičemž bude zachován váš poslední výběr a zpráva záznamu."
 
 #. Resource IDs: (195)
 msgid ""
@@ -9071,6 +9064,10 @@ msgstr "Nastavení"
 msgid "Settings - TortoiseSVN"
 msgstr "Nastavení - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr "Mám aktualizovat pracovní kopii a potom opakovat?"
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "Rozhraní"
@@ -10327,6 +10324,15 @@ msgid ""
 msgstr ""
 "Úložiště bylo úspěšně vytvořeno.\n"
 "Chcete vytvořit výchozí adresářovou strukturu (kmen/větve/značky)?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
+"Vrácená chyba byla:\n"
+"%s"
 
 #. Resource IDs: (78)
 msgid ""
@@ -12831,3 +12837,5 @@ msgstr "ano"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+

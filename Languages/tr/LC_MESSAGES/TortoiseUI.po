@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
 "Last-Translator: turambar <vuralgoze@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -342,12 +342,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"Çalışan kopyayı şimdi güncelleyip\n"
-"teslim etme diyaloğunu yeniden açayım mı?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1115,11 +1111,6 @@ msgstr "&Kaldır"
 msgid "&Rename"
 msgstr "&Yeniden adlandır"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr ""
-"Teslim başarısız olduğunda teslim ve dal/etiket diyalogunu &tekrar aç."
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "&Depo tarayıcısı"
@@ -1365,6 +1356,10 @@ msgstr "&Bilinmeyen sürücüler"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Güncelle"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -3101,6 +3096,10 @@ msgstr "Komut satırı"
 msgid "Command Line To Execute:"
 msgstr "Yürütülecek komut satırı:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "Komut başarısız."
@@ -3112,10 +3111,6 @@ msgstr "Komutlar"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Teslim et"
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "Teslim etme başarısız - Güncelleme gerekiyor"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5612,14 +5607,6 @@ msgid ""
 msgstr ""
 "Eğer seçilmişse, kayıt listesindeki bir revizyonu çift tıklamak, onu önceki "
 "revizyon ile karşılaştırır"
-
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"İşaretlendiğinde, hata oluştuğu zaman son seçimleriniz ve Günlük mesajınız \r\n"
-"kaybedilmeden teslim diyalogu tekrar başlatılır."
 
 #. Resource IDs: (195)
 msgid ""
@@ -9134,6 +9121,10 @@ msgstr "Ayarlar"
 msgid "Settings - TortoiseSVN"
 msgstr "Ayarlar - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "Kabuk"
@@ -10398,6 +10389,13 @@ msgid ""
 msgstr ""
 "Depo başarıyla oluşturuldu.\n"
 "Varsayılan klasör yapısını (trunk/branches/tags) şimdi oluşturmak ister misiniz?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (78)
 msgid ""
@@ -12906,3 +12904,5 @@ msgstr "evet"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{HataTakibi}"
+
+

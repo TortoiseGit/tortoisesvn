@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -333,12 +333,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"آیا مایلید نسخه کاری بروز شده\n"
-"و پنجره اعمال مجددا باز شود؟"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1106,10 +1102,6 @@ msgstr "&حذف"
 msgid "&Rename"
 msgstr "&تغییر نام"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "بازکردن مجدد دیالوگ اعمال و شاخه/تگ پس از اعمال ناموفق&"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "&مرورگرمخزن"
@@ -1353,6 +1345,10 @@ msgstr "&درایوهای ناشناخته"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "بروزرسانی&"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -2985,6 +2981,10 @@ msgstr "خط فرمان"
 msgid "Command Line To Execute:"
 msgstr "خط فرمان جهت اجرا:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "دستور ناموفق."
@@ -2996,10 +2996,6 @@ msgstr "دستورها:"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "اعمال"
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "اعمال ناموفق - نیاز به بروزرسانی"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5441,14 +5437,6 @@ msgid ""
 msgstr ""
 "در صورت انتخاب، دوبار کلیک روی یک اصلاحیه در لیست گزارشات آن را با اصلاحیه "
 "قبل مقایسه می کند"
-
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"در صورت انتخاب، پنجره اعمال به مخزن پس از بروز خطا بطور خودکار باز شده\r\n"
-"و تمامی انتخابها و پیامهای وارد شده شما نیز حفظ خواهد شد."
 
 #. Resource IDs: (195)
 msgid ""
@@ -8825,6 +8813,10 @@ msgstr "تنظیمات"
 msgid "Settings - TortoiseSVN"
 msgstr "تنظیمات- TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "پوسته"
@@ -10014,6 +10006,13 @@ msgstr ""
 msgid ""
 "The repository was successfully created.\n"
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
 msgstr ""
 
 #. Resource IDs: (78)
@@ -12437,3 +12436,5 @@ msgstr "بله"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+

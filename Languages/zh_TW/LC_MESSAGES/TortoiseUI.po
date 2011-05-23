@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
 "Last-Translator: arith <arithmandar@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -335,12 +335,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"要立刻自動更新工作複本\n"
-"再重新執行送交嗎?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1108,10 +1104,6 @@ msgstr "移除(&R)"
 msgid "&Rename"
 msgstr "重新命名(&R)"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "送交失敗後重新顯示送交及分支/標記視窗(&R)"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "檔案庫瀏覽器(&R)"
@@ -1355,6 +1347,10 @@ msgstr "未知磁碟(&U)"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "更新(&U)"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -2968,6 +2964,10 @@ msgstr "命令列"
 msgid "Command Line To Execute:"
 msgstr "要執行的命令列:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "命令失敗."
@@ -2979,10 +2979,6 @@ msgstr "命令"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "送交"
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "送交失敗 - 請先更新"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5418,14 +5414,6 @@ msgid ""
 "If checked, double-clicking on a revision in the log list compares it with "
 "the previous revision"
 msgstr "勾選此選項時, 在記錄列表中的版本上雙擊滑鼠會自動比較該版本與前一版的差異."
-
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"勾選此選項時, 在送交中發生錯誤後, 會自動重新顯示送交視窗,\n"
-"並保留先前的選項與送交記錄訊息."
 
 #. Resource IDs: (195)
 msgid ""
@@ -8813,6 +8801,10 @@ msgstr "設定"
 msgid "Settings - TortoiseSVN"
 msgstr "設定... - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "檔案總管"
@@ -10032,6 +10024,13 @@ msgid ""
 msgstr ""
 "已成功建立檔案庫.\n"
 "要為您建立預設的目錄結構(trunk/branches/tags)嗎?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (78)
 msgid ""
@@ -12481,3 +12480,5 @@ msgstr "是"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+

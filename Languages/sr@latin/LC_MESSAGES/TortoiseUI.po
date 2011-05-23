@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -105,7 +105,7 @@ msgstr "%1!ld! minut(a) i %2!ld! sekund(e)"
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline)"
-msgstr ""
+msgstr "%1!s! (isključen)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -344,12 +344,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"Mogu li sada da ažuriram radnu kopiju\n"
-"i ponovo otvorim dijalog urezivanja?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1117,11 +1113,6 @@ msgstr "&Ukloni"
 msgid "&Rename"
 msgstr "&Preimenuj"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr ""
-"&Reotvaranje spremanja i grana/oznaka dijalog posle greške pri urezivanju"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "&Repo-pretraživač"
@@ -1365,6 +1356,10 @@ msgstr "&Nepoznati diskovi"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Ažuriraj"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -3090,6 +3085,10 @@ msgstr "Komandna linija"
 msgid "Command Line To Execute:"
 msgstr "Komandna linija za izvršenje:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "Naredba pogrešno izvršena."
@@ -3101,10 +3100,6 @@ msgstr "Komande"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Urezivanje"
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "Urezivanje neispravno - potrebno ažuriranje"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5596,14 +5591,6 @@ msgid ""
 msgstr ""
 "Ako je označeno, dvostruki klik na reviziji u popisu dnevnika će uporediti "
 "fajl s prošlom revizijom"
-
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"Ako je označeno, dijalog urezivanja će biti ponovo pokazan nakon greške,\r\n"
-"i to sa podacima koje ste prethodno upisali/odabrali."
 
 #. Resource IDs: (195)
 msgid ""
@@ -8289,7 +8276,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move"
-msgstr ""
+msgstr "Preimenuj/pomeri"
 
 #. Resource IDs: (91)
 #, c-format
@@ -9096,6 +9083,10 @@ msgstr "Postavke"
 msgid "Settings - TortoiseSVN"
 msgstr "Postavke - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "Školjka"
@@ -9767,7 +9758,7 @@ msgstr "Preba&ci radnu kopiju na novu granu/oznaku"
 
 #. Resource IDs: (78)
 msgid "Switch"
-msgstr ""
+msgstr "Prebaci"
 
 #. Resource IDs: (229)
 #, c-format
@@ -10360,6 +10351,13 @@ msgid ""
 msgstr ""
 "Spremište je sukcesivno kreirano.\n"
 "Da li sada želite da kreirate strukturu uobičajenog imenika (deblo/grane/oznake)? "
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (78)
 msgid ""
@@ -12878,3 +12876,5 @@ msgstr "da"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BagTrek}"
+
+

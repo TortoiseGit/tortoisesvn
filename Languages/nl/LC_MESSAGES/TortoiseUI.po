@@ -9,13 +9,14 @@
 # $Rev$
 # 
 # Authors:
+# Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-05-23 08:00+0000\n"
+"Last-Translator: JML <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -315,6 +316,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
 msgstr ""
+"%s\n"
+"Wilt u de %d bestanden toch verwijderen?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -322,6 +325,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
+"%s\n"
+"Wilt u het bestand '%s' toch verwijderen?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -337,12 +342,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"Zal ik de werkkopie nu verversen\n"
-"en vastleggen venster openen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -803,7 +804,7 @@ msgstr "%d zaken &negeren op naam"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "&Negeer oorsprong"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1110,10 +1111,6 @@ msgstr "&Verwijderen"
 msgid "&Rename"
 msgstr "&Hernoemen"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr "&Heropen vastleg- en tak/label-dialoog na een mislukte poging"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "&Archief-verkenner"
@@ -1359,6 +1356,10 @@ msgid "&Update"
 msgstr "&Verversen"
 
 #. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
+
+#. Resource IDs: (76)
 msgid "&Update item to revision..."
 msgstr "&Ververs onderdeel naar revisie..."
 
@@ -1492,7 +1493,7 @@ msgstr "(niet gevonden)"
 
 #. Resource IDs: (176)
 msgid "(properties only)"
-msgstr ""
+msgstr "(alleen eigenschappen)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -1500,7 +1501,7 @@ msgstr "(alleen eigenschapswijzigingen)"
 
 #. Resource IDs: (176)
 msgid "(props and content)"
-msgstr ""
+msgstr "(eigensch. en inhoud)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -1646,6 +1647,10 @@ msgid ""
 "\n"
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
+"Verhuizen is alleen nodig als het pad naar een archief is gewijzigd.\n"
+"Wisselen naar een pad binnen een archief gaat met een wisseloperatie.\n"
+"\n"
+"Als u niet zeker weet wat u moet doen, probeer dan eerst een wisseloperatie."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1658,6 +1663,9 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"Een geldig pad binnen Windows mag geen '<>|\"\"?*.' bevatten of een van de volgende namen hebben:\n"
+"com1-com9, lpt1-lpt9, prn\n"
+"Voor meer informatie, zie de Microsoft <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentatie</a>"
 
 #. Resource IDs: (79)
 msgid ""
@@ -1779,6 +1787,8 @@ msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"Object toevoegen\n"
+"Dit zal problemen onder Windows geven."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -1863,6 +1873,8 @@ msgid ""
 "Adjust case\n"
 "The file is not added."
 msgstr ""
+"Hoofd-/kleine letters aanpassen\n"
+"Het bestand wordt niet toegevoegd."
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1914,7 +1926,7 @@ msgstr "Alle Bestanden (*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
-msgstr ""
+msgstr "Alle wijzigingen sinds het bijwerken gaan verloren!"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2075,7 +2087,7 @@ msgstr ""
 
 #. Resource IDs: (1529)
 msgid "Apply local svn:externals modifications"
-msgstr ""
+msgstr "Voer lokale wijzigingen in svn:externals uit"
 
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
@@ -2435,24 +2447,32 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"Annuleer\n"
+"Niet vastleggen op een label."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "Do not remove"
 msgstr ""
+"Annuleer\n"
+"Niet verwijderen"
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"Annuleer\n"
+"Niet ongedaan maken."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Do not update the working copy."
 msgstr ""
+"Annuleer\n"
+"De werkkopie niet bijwerken."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2477,6 +2497,8 @@ msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"Annuleer\n"
+"Ga terug en voer een Issue nummer in."
 
 #. Resource IDs: (90)
 msgid ""
@@ -2489,6 +2511,8 @@ msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"Annuleer\n"
+"Een ander pad/URL opgeven."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2501,6 +2525,8 @@ msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"Annuleer\n"
+"Huidige URL behouden."
 
 #. Resource IDs: (314)
 msgid ""
@@ -2555,12 +2581,16 @@ msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"Annuleer\n"
+"De objecten worden niet geïmporteerd."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"Annuleer\n"
+"De objecten worden niet verplaatst."
 
 #. Resource IDs: (589)
 msgid ""
@@ -2573,18 +2603,24 @@ msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr ""
+"Annuleer\n"
+"Het doelbestand blijft intact"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"Annuleer\n"
+"De map moet handmatig worden toegevoegd."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"Annuleer\n"
+"Behoud het huidige formaat."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2806,7 +2842,7 @@ msgstr "Kies onderdeel:"
 
 #. Resource IDs: (1606)
 msgid "Choose items..."
-msgstr ""
+msgstr "Kies objecten..."
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
@@ -3008,6 +3044,10 @@ msgstr "Commandoregel"
 msgid "Command Line To Execute:"
 msgstr "Uit te voeren commando:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "Opdracht mislukt."
@@ -3020,15 +3060,13 @@ msgstr "Commando's"
 msgid "Commit"
 msgstr "Vastleggen"
 
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "Vastleggen mislukt - Verversen nodig"
-
 #. Resource IDs: (173)
 msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"Leg alleen de map vast\n"
+"Bestanden in de map worden niet vastgelegd."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3043,6 +3081,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"Vastleggen\n"
+"Leg de wijzigingen vast"
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -3070,6 +3110,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
+"Vastleggen van een map zonder versiebeheer zal de objecten in de map niet toevoegen!\n"
+"Wellicht wilt u deze zaken recursief toevoegen door het 'Toevoegen...' keuzemenu te selecteren."
 
 #. Resource IDs: (170)
 msgid ""
@@ -3085,7 +3127,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "Vastleggen naar een label"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3410,7 +3452,7 @@ msgstr "%1 kon niet worden gemaakt omdat de map vol is."
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr ""
+msgstr "Kon geen tijdelijke map maken!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3643,7 +3685,7 @@ msgstr "Aangepast"
 
 #. Resource IDs: (17)
 msgid "Custom depths"
-msgstr ""
+msgstr "Aangepaste dieptes"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -3956,7 +3998,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr ""
+msgstr "Doe dit voor alle bestaande objecten"
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
@@ -3964,7 +4006,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr ""
+msgstr "Doe dit voor alle geselecteerde mappen zonder versiebeheer"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4050,6 +4092,9 @@ msgid ""
 "%s\n"
 "and go back to this revision?"
 msgstr ""
+"Wilt u alle wijzigingen ongedaan maken in\n"
+"%s\n"
+"en naar deze revisie teruggaan?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4058,6 +4103,9 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
+"Wilt u alle wijzigingen ongedaan maken in\n"
+"%s\n"
+"die in deze revisie gemaakt zijn?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -4078,7 +4126,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "Vraag dit niet nogmaals"
 
 #. Resource IDs: (94)
 msgid ""
@@ -4111,7 +4159,7 @@ msgstr "Deze boodschap niet meer tonen"
 
 #. Resource IDs: (564)
 msgid "Don't tell me again"
-msgstr ""
+msgstr "Vertel dit niet nogmaals"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4261,7 +4309,7 @@ msgstr "Leeg"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
-msgstr ""
+msgstr "Activeer Auto-Eigenschappen"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4447,7 +4495,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr ""
+msgstr "Iedere vastlegging moet aan een issue zijn toegewezen."
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -5156,7 +5204,7 @@ msgstr "Verberg &verwijderde paden"
 
 #. Resource IDs: (1562)
 msgid "Hide Menus for unversioned paths"
-msgstr ""
+msgstr "Verberg menu's voor paden buiten versiebeheer"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -5176,7 +5224,7 @@ msgstr "Verberg geparkeerd venster"
 
 #. Resource IDs: (1562)
 msgid "Hide non-mergeable revisions"
-msgstr ""
+msgstr "Verberg niet-samenvoegbare revisies"
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
@@ -5359,7 +5407,7 @@ msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
-msgstr ""
+msgstr "ID:32883:V C +A"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5381,7 +5429,7 @@ msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57634; ''
 msgid "ID:57634:V CS+C"
-msgstr ""
+msgstr "ID:57634:V CS+C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
@@ -5491,14 +5539,6 @@ msgstr ""
 "Activeer deze optie om met een dubbelklik op een reviesie in de log-lijst te"
 " vergelijken met de vorige versie"
 
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"Activeer deze optie om de vastleg-dialoog opnieuw te openen na een fout.\r\n"
-"Daarbij wordt de meest recente selectie en logboek-boodschap bewaard."
-
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
@@ -5565,6 +5605,9 @@ msgid ""
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
 msgstr ""
+"Als u op deze computer andere SVN tools gebruikt naast TortoiseSVN, dan moet"
+" u die ook opwaarderen. Anders zullen deze tools de werkkopie met het nieuwe"
+" formaat niet kunnen benaderen"
 
 #. Resource IDs: (251)
 msgid ""
@@ -5596,7 +5639,7 @@ msgstr "Negeer &oorsprong"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
-msgstr ""
+msgstr "Alles negeren"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5662,7 +5705,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Illegal path"
-msgstr ""
+msgstr "Ongeldig pad"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5739,6 +5782,8 @@ msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
 msgstr ""
+"Importeer\n"
+"De objecten worden geïmporteerd, met een nieuwe revisie per object."
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5924,6 +5969,11 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr ""
+"Het lijkt er op dat de werkkopie verhuisd wordt naar een ander pad in hetzelfde archief.\n"
+"Van: %1!s!\n"
+"Naar: %2!s!\n"
+"\n"
+"Onjuist gebruik van 'verhuizen' zal de werkkopie beschadigen!"
 
 #. Resource IDs: (88)
 #, c-format
@@ -6365,7 +6415,7 @@ msgstr "Alles samenvoegen"
 
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
-msgstr ""
+msgstr "Voeg wijzigingen samen in de werkkopie"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -6555,7 +6605,7 @@ msgstr "Meer kleuren..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "Meer dan één object gesleept."
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6617,7 +6667,7 @@ msgstr "Verplaats onderdelen hierheen"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr ""
+msgstr "Verplaats speciaal bestand of map"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6642,6 +6692,8 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr ""
+"Verplaats\n"
+"De objecten worden verplaatst naar het doelpad."
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6945,6 +6997,8 @@ msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
+"Let op: als u de werkkopie opwaardeert, kunt u hem niet meer benaderen met SVN tools van voor versie 1.7!\n"
+"Wilt u deze werkkopie echt opwaarderen?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7223,6 +7277,8 @@ msgid ""
 "Overwrite\n"
 "The target file gets replaced"
 msgstr ""
+"Overschrijven\n"
+"Het doelbestand wordt vervangen"
 
 #. Resource IDs: (90)
 msgid ""
@@ -7328,7 +7384,7 @@ msgstr "Pad"
 
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
-msgstr ""
+msgstr "Pad gevonden dat beter past bij de patch."
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -8303,7 +8359,7 @@ msgstr "Opnieuw"
 #. Resource IDs: (286)
 #, c-format
 msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr ""
+msgstr "Revisie(s) %s van %s omgekeerd samengevoegd:\n"
 
 #. Resource IDs: (264)
 #, c-format
@@ -8489,7 +8545,7 @@ msgstr "Rij naar boven"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
-msgstr ""
+msgstr "Voer &nu schoonmaak uit"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -8934,6 +8990,10 @@ msgstr "Instellingen"
 msgid "Settings - TortoiseSVN"
 msgstr "Instellingen - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "Shell"
@@ -9287,7 +9347,7 @@ msgstr "Ontbrekend doel overgeslagen"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr ""
+msgstr "Versperde werkkopie overgeslagen"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -9302,12 +9362,16 @@ msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
+"Bestand(en) gewijzigd buiten T-Merge.\n"
+"Wilt u de wijzigingen laden?"
 
 #. Resource IDs: (314)
 msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
+"Bestand(en) gewijzigd buiten T-Merge.\n"
+"Wilt u herladen en uw lokale wijzigingen kwijtraken?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9328,7 +9392,7 @@ msgstr "Bron URL:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr ""
+msgstr "Gedeeltelijk ('sparse') bijwerken %1!s!, diepte \"%2!s!\""
 
 #. Resource IDs: (196)
 msgid ""
@@ -9587,7 +9651,7 @@ msgstr ""
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
-msgstr ""
+msgstr "Subversion gaf foutboodschap:"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9736,6 +9800,9 @@ msgid ""
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
 msgstr ""
+"De wijzigingen worden met een omgekeerd-samenvoegen operatie op uw werkkopie"
+" toegepast. Het archief wordt niet aangepast. U kunt de wijzigingen "
+"controleren voordat u ze vastlegt."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10116,6 +10183,8 @@ msgid ""
 "The path/URL \"%s\" seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"Het pad/URL \"%s\" lijkt niet toegestaan voor Windows!\n"
+"U kunt het proberen, maar er kan een foutmelding komen."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10202,6 +10271,13 @@ msgstr ""
 "Het archief is gemaakt.\n"
 "Wilt u nu een standaard mappenstructuur aanmaken (trunk/branches/tags)?"
 
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (78)
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
@@ -10223,7 +10299,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "Het doel bestaat al."
 
 #. Resource IDs: (147)
 #, c-format
@@ -10252,7 +10328,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "Het doel heeft lokale wijzigingen"
 
 #. Resource IDs: (279)
 #, c-format
@@ -10260,6 +10336,8 @@ msgid ""
 "The target working copy \"%s\" has local modifications. It is recommended to"
 " commit those changes first before merging new changes."
 msgstr ""
+"De doel-werkkopie \"%s\" heeft lokale wijzigingen. U wordt geadviseerd deze "
+"wijzigingen vast te leggen voordat nieuwe wijzigingen worden samengevoegd."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -10462,6 +10540,8 @@ msgid ""
 "This product includes software from Apache™ Subversion® "
 "(http://subversion.apache.org)"
 msgstr ""
+"Dit product bevat software van Apache™ Subversion® "
+"(http://subversion.apache.org)"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -10504,6 +10584,8 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr ""
+"Hiermee wordt uw werkkopie opgewaardeerd naar het nieuwe 1.7 formaat, "
+"waardoor hij onbruikbaar wordt voor oudere tools."
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -11027,7 +11109,7 @@ msgstr "Ververst de werkkopie naar de huidige revisie"
 
 #. Resource IDs: (265)
 msgid "Updating"
-msgstr ""
+msgstr "Bijwerken"
 
 #. Resource IDs: (226)
 #, c-format
@@ -11053,10 +11135,12 @@ msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
 msgstr ""
+"Werkkopie opwaarderen naar\n"
+"het nieuwe 1.7 formaat."
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
-msgstr " Werkkopie"
+msgstr "Werkkopie opwaarderen"
 
 #. Resource IDs: (99)
 #, c-format
@@ -11248,6 +11332,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Gebruik gevonden pad.\n"
+"Pas de patch toe op\n"
+"%s"
 
 #. Resource IDs: (594)
 msgid ""
@@ -11270,6 +11357,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Gebruik origineel pad.\n"
+"Pas de patch toe op\n"
+"%s"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -11401,6 +11491,8 @@ msgid ""
 "When activated, hold down the SHIFT key when right-clicking to get the "
 "TortoiseSVN menus added to the context menu"
 msgstr ""
+"Voegt ToirtoiseSVN menu's toe aan het contextmenu als de SHIFT toets "
+"ingedrukt wordt bij rechts-klikken"
 
 #. Resource IDs: (344)
 msgid ""
@@ -11550,6 +11642,8 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
+"U heeft meerdere bestanden of mappen gesleept om toe te voegen in het archief. Dat kan niet in één operatie, dus TortoiseSVN zal elk bestand/map apart toevoegen,\n"
+"waarbij een revisie voor elk bestand/map ontstaat."
 
 #. Resource IDs: (105)
 msgid ""
@@ -11587,7 +11681,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "U heeft geen issue-nummer opgegeven."
 
 #. Resource IDs: (1002)
 #, c-format
@@ -11608,7 +11702,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr ""
+msgstr "U heeft een map zonder versiebeheer gekozen om vast te leggen!"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -11714,6 +11808,8 @@ msgid ""
 "Your working copy points to %s which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
+"Uw werkkopie wijzt naar %s, wat een label lijkt te zijn!\n"
+"U zou eerst moeten wisselen naar een tak of de basislijn voordat u vastlegt."
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
@@ -11988,6 +12084,9 @@ msgid ""
 "old size: %s\r\n"
 "change: %s"
 msgstr ""
+"huidige grootte: %s\n"
+"oude grootte: %s\n"
+"wijziging: %s"
 
 #. Resource IDs: (245)
 msgid "day"
@@ -12697,3 +12796,5 @@ msgstr "ja"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+

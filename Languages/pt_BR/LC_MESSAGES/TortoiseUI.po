@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
 "Last-Translator: rmheise <rmheise@gmail.com>\n"
 "Language-Team: Portuguese (Brazilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -337,12 +337,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"Devo atualizar a cópia de trabalho agora\n"
-"e reabrir a janela de submissão?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1110,12 +1106,6 @@ msgstr "&Remover"
 msgid "&Rename"
 msgstr "&Renomear"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr ""
-"&Reabrir a janela de submissão e ramificação/rotulação após falha na "
-"submissão"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "Navegador de &repositório"
@@ -1360,6 +1350,10 @@ msgstr "&Drives desconhecidos"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "&Atualizar"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -3027,6 +3021,10 @@ msgstr "Linha de Comando"
 msgid "Command Line To Execute:"
 msgstr "Linha de Comando A Executar:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "Comando falhou."
@@ -3038,10 +3036,6 @@ msgstr "Comandos"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "Submeter"
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "Submissão falhou - Atualização necessária"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5526,14 +5520,6 @@ msgid ""
 msgstr ""
 "Se selecionado, um duplo-clique numa revisão na lista de log irá compará-la "
 "com a revisão anterior"
-
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"Se selecionado, a janela de submissão será reaberto automaticamente após um erro,\r\n"
-"preservando sua última seleção e mensagem de log."
 
 #. Resource IDs: (195)
 msgid ""
@@ -8981,6 +8967,10 @@ msgstr "Preferências"
 msgid "Settings - TortoiseSVN"
 msgstr "Preferências - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "Shell"
@@ -10236,6 +10226,13 @@ msgid ""
 msgstr ""
 "O repositório foi criado com sucesso.\n"
 "Você gostaria de criar a estrutura padrão (trunk/branches/tags) agora?"
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (78)
 msgid ""
@@ -12736,3 +12733,5 @@ msgstr "sim"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+

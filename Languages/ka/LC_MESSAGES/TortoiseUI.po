@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-16 00:33+0000\n"
+"PO-Revision-Date: 2011-05-22 00:31+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -333,12 +333,8 @@ msgid ""
 "%s\n"
 "\n"
 "Shall I update the working copy now\n"
-"and reopen the commit dialog?"
+"and then retry?"
 msgstr ""
-"%s\n"
-"\n"
-"უნდა განახლდეს სამუშაო ასლი ახლავე\n"
-"და ხელახლა გაიხსნას ფიქსაციის დიალოგი?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1106,12 +1102,6 @@ msgstr "&ამოშლა"
 msgid "&Rename"
 msgstr "&გადარქმევა"
 
-#. Resource IDs: (1316)
-msgid "&Reopen commit and branch/tag dialog after a commit failed"
-msgstr ""
-"ფიქსაციის და განშტოების/ჭდის დიალოგის &ხელახლა გახსნა წარუმატებელი "
-"ფიქსაციისა"
-
 #. Resource IDs: (13)
 msgid "&Repo-browser"
 msgstr "&საცავის ნუსხა"
@@ -1355,6 +1345,10 @@ msgstr "&უცნობი დისკები"
 #. Resource IDs: (8)
 msgid "&Update"
 msgstr "გან&ახლება"
+
+#. Resource IDs: (76)
+msgid "&Update item to revision"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -2993,6 +2987,10 @@ msgstr "ბრძანების ხაზი"
 msgid "Command Line To Execute:"
 msgstr "შესასრულებელი ბრძანება:"
 
+#. Resource IDs: (616)
+msgid "Command failed - Update needed"
+msgstr ""
+
 #. Resource IDs: (3857)
 msgid "Command failed."
 msgstr "ბრძანება არ შესრულდა."
@@ -3004,10 +3002,6 @@ msgstr "ბრძანებები"
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
 msgstr "ფიქსაცია..."
-
-#. Resource IDs: (616)
-msgid "Commit failed - Update needed"
-msgstr "ფიქსაცია ვერ მოხერხდა - საჭიროა განახლება"
 
 #. Resource IDs: (173)
 msgid ""
@@ -5462,14 +5456,6 @@ msgid ""
 msgstr ""
 "თუ ჩართულია, დავთრის სიებში ვერსიის ორმაგი დაწკაპვით იგი წინა ვერსიასთან "
 "შედარდება"
-
-#. Resource IDs: (196)
-msgid ""
-"If checked, the commit dialog will be started again automatically after an error,\r\n"
-"while preserving your last selection and log message."
-msgstr ""
-"თუ ჩართულია, ფიქსაციის დიალოგი შეცდომის შემდეგ ავტომატურად დაიწყება,\r\n"
-"ბოლო მონიშვნებისა და დავთრის ჩანაწერების შენარჩუნებით."
 
 #. Resource IDs: (195)
 msgid ""
@@ -8884,6 +8870,10 @@ msgstr "პარამეტრები"
 msgid "Settings - TortoiseSVN"
 msgstr "პარამეტრები - TortoiseSVN"
 
+#. Resource IDs: (616)
+msgid "Shall I update the working copy and retry?"
+msgstr ""
+
 #. Resource IDs: (1270)
 msgid "Shell"
 msgstr "გარსი"
@@ -10113,6 +10103,13 @@ msgstr ""
 msgid ""
 "The repository was successfully created.\n"
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
+msgstr ""
+
+#. Resource IDs: (616)
+#, c-format
+msgid ""
+"The returned error was:\n"
+"%s"
 msgstr ""
 
 #. Resource IDs: (78)
@@ -12551,3 +12548,5 @@ msgstr "დიახ"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
+
+
