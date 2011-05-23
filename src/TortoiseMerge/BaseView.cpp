@@ -1652,21 +1652,16 @@ bool CBaseView::DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const 
         return false;
     if ((m_pwndBottom != NULL) && !(m_pwndBottom->IsHidden()))
         return false;
-
-    CString sDiffChars = NULL;
-    int nDiffLength = 0;
-    if (m_pOtherView)
-    {
-        int index = std::min<int>(nLineIndex, (int)m_Screen2View.size() - 1);
-        sDiffChars = m_pOtherView->GetLineChars(index);
-        nDiffLength = sDiffChars.GetLength();
-    }
-
-    if (!sDiffChars || !*sDiffChars)
+    if (!m_pOtherView)
         return false;
 
-    CString diffline;
-    ExpandChars(sDiffChars, 0, nDiffLength, diffline);
+    int index = std::min<int>(nLineIndex, (int)m_Screen2View.size() - 1);
+    CString sDiffChars = m_pOtherView->GetLineChars(index);
+
+    if (sDiffChars.IsEmpty())
+        return false;
+
+    CString diffline = ExpandChars(sDiffChars);
     svn_diff_t * diff = NULL;
     m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
     if (!diff || !SVNLineDiff::ShowInlineDiff(diff))
@@ -1754,26 +1749,21 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
     }
 
     CPoint origin(rc.left - m_nOffsetChar * GetCharWidth(), rc.top);
-    int nLength = GetLineLength(nLineIndex);
-    if (nLength == 0)
+    CString sLine = GetLineChars(nLineIndex);
+    if (sLine.IsEmpty())
     {
-        // Draw the empty line
         pDC->FillSolidRect(rc, crBkgnd);
         DrawBlockLine(pDC, rc, nLineIndex);
         DrawLineEnding(pDC, rc, nLineIndex, origin);
         return;
     }
-    LPCTSTR pszChars = GetLineChars(nLineIndex);
-    if (pszChars == NULL)
-        return;
 
     CheckOtherView();
 
     // Draw the line
 
     pDC->SelectObject(GetFont(FALSE, FALSE, IsLineRemoved(nLineIndex)));
-    CString line;
-    ExpandChars(pszChars, 0, nLength, line);
+    CString line = ExpandChars(sLine);
 
     int nWidth = rc.right - origin.x;
     int savedx = origin.x;
@@ -1798,6 +1788,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
     if (frect.right > frect.left)
         pDC->FillSolidRect(frect, crBkgnd);
     // draw the whitespace chars
+    LPCTSTR pszChars = sLine.operator LPCWSTR();
     if (m_bViewWhitespace)
     {
         int xpos = 0;
@@ -1857,7 +1848,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
         DrawLineEnding(pDC, rc, nLineIndex, origin);
 }
 
-void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line)
+void CBaseView::ExpandChars(const CString &sLine, int nOffset, int nCount, CString &line)
 {
     if (nCount <= 0)
     {
@@ -1865,18 +1856,11 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
         return;
     }
 
-    // CountExpandedChars(pszChars, nOffset)
     int nTabSize = GetTabSize();
 
-    int nActualOffset = 0;
-    for (int i=0; i<nOffset; i++)
-    {
-        if (pszChars[i] == _T('\t'))
-            nActualOffset += (nTabSize - nActualOffset % nTabSize);
-        else
-            nActualOffset ++;
-    }
+    int nActualOffset = CountExpandedChars(sLine, nOffset);
 
+    LPCTSTR pszChars = sLine.operator LPCWSTR();
     pszChars += nOffset;
     int nLength = nCount;
 
@@ -1916,6 +1900,14 @@ void CBaseView::ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &
     }
     pszBuf[nCurPos] = 0;
     line.ReleaseBuffer();
+}
+
+CString CBaseView::ExpandChars(const CString &sLine, int nOffset)
+{
+    CString sRet;
+    int nLength = sLine.GetLength();
+    ExpandChars(sLine, nOffset, nLength, sRet);
+    return sRet;
 }
 
 int CBaseView::CountExpandedChars(const CString &sLine, int nLength)
@@ -3227,21 +3219,10 @@ int CBaseView::CalculateActualOffset(const POINT& point)
 {
     int nLineIndex = point.y;
     int nCharIndex = point.x;
-    int nLength = GetLineLength(nLineIndex);
     ASSERT(nCharIndex >= 0);
-    if (nCharIndex > nLength)
-        nCharIndex = nLength;
-    LPCTSTR pszChars = GetLineChars(nLineIndex);
-    int nOffset = 0;
-    int nTabSize = GetTabSize();
-    for (int I = 0; I < nCharIndex; I ++)
-    {
-        if (pszChars[I] == _T('\t'))
-            nOffset += (nTabSize - nOffset % nTabSize);
-        else
-            nOffset++;
-    }
-    return nOffset;
+    CString sLine = GetLineChars(nLineIndex);
+    int nLineLength = sLine.GetLength();
+    return CountExpandedChars(sLine, min(nCharIndex, nLineLength));
 }
 
 int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
@@ -3948,22 +3929,16 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
         return false;
 
     CheckOtherView();
-
-    LPCTSTR pszDiffChars = NULL;
-    int nDiffLength = 0;
-    if (m_pOtherViewData)
-    {
-        int viewLine = GetViewLineForScreen(lineIndex);
-        int index =std::min<int>(viewLine, m_pOtherViewData->GetCount() - 1);
-        pszDiffChars = m_pOtherViewData->GetLine(index);
-        nDiffLength = m_pOtherViewData->GetLine(index).GetLength();
-    }
-
-    if (!pszDiffChars || !*pszDiffChars)
+    if (!m_pOtherViewData)
         return false;
 
-    CString diffline;
-    ExpandChars(pszDiffChars, 0, nDiffLength, diffline);
+    int viewLine = GetViewLineForScreen(lineIndex);
+    int index =std::min<int>(viewLine, m_pOtherViewData->GetCount() - 1);
+    CString sDiffChars = m_pOtherViewData->GetLine(index);
+    if (sDiffChars.IsEmpty())
+        return false;
+
+    CString diffline = ExpandChars(sDiffChars);
     svn_diff_t * diff = NULL;
     m_svnlinediff.Diff(&diff, line, _tcslen(line), diffline, diffline.GetLength(), m_bInlineWordDiff);
     if (!diff || !SVNLineDiff::ShowInlineDiff(diff))

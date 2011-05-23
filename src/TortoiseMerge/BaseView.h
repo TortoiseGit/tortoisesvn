@@ -271,7 +271,8 @@ protected:  // methods
      * Draws the line ending 'char'.
      */
     void            DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const CPoint& origin);
-    void            ExpandChars(LPCTSTR pszChars, int nOffset, int nCount, CString &line);
+    void            ExpandChars(const CString &sLine, int nOffset, int nCount, CString &line);
+    CString         ExpandChars(const CString &sLine, int nOffset = 0);
     int             CountExpandedChars(const CString &sLine, int nLength);
 
     void            RecalcVertScrollBar(BOOL bPositionOnly = FALSE);
