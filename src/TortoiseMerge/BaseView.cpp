@@ -4253,7 +4253,7 @@ void CBaseView::SaveUndoStep()
 {
     if (!m_AllState.IsEmpty())
     {
-        CUndo::GetInstance().AddState(m_AllState, GetCaretPosition());
+        CUndo::GetInstance().AddState(m_AllState, GetCaretViewPosition());
     }
     ResetUndoStep();
 }

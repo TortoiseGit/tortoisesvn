@@ -179,7 +179,7 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView, const POINT& pt)
 
     if (pView->HasCaret())
     {
-        pView->SetCaretPosition(pt);
+        pView->SetCaretViewPosition(pt);
         pView->EnsureCaretVisible();
     }
 
