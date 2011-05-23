@@ -291,6 +291,11 @@ void CBaseView::UpdateStatusBar()
     case EOL_CR:
         sBarText += _T("CR ");
         break;
+#ifdef _DEBUG
+    case EOL_AUTOLINE:
+        sBarText += _T("AEOL ");
+        break;
+#endif
     }
 
     if (sBarText.IsEmpty())
@@ -1468,9 +1473,10 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
                 pDC->MoveTo(origin.x, yMiddle);
                 pDC->LineTo(origin.x+4, yMiddle-4);
                 break;
+            case EOL_AUTOLINE:
             case EOL_CRLF:
                 // arrow from top to middle+2, then left
-                pDC->MoveTo(origin.x+GetCharWidth(), rc.top);
+                pDC->MoveTo(origin.x+GetCharWidth(), rc.top+1);
                 pDC->LineTo(origin.x+GetCharWidth(), yMiddle);
                 pDC->LineTo(origin.x, yMiddle);
                 pDC->LineTo(origin.x+4, yMiddle+4);
@@ -3349,13 +3355,48 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     {
         // insert a new, fresh and empty line below the cursor
         RemoveSelectedText();
-        POINT ptCaretPos = GetCaretPosition();
-        AddUndoViewLine(GetCaretViewPosition().y, true);
+
+        CUndo::GetInstance().BeginGrouping();
+
+        POINT ptCaretViewPos = GetCaretViewPosition();
+        int nViewLine = ptCaretViewPos.y;
+        int nLeft = ptCaretViewPos.x;
+        CString sLine = GetViewLineChars(nViewLine);
+        CString sLineLeft = sLine.Left(nLeft);
+        CString sLineRight = sLine.Right(sLine.GetLength() - nLeft);
+        EOL eOriginalEnding = GetViewLineEnding(nViewLine);
+        if (!sLineRight.IsEmpty() || (eOriginalEnding!=lineendings))
+        {
+            viewdata newFirstLine(sLineLeft, DIFFSTATE_EDITED, 1, lineendings, HIDESTATE_SHOWN, -1);
+            SetViewData(nViewLine, newFirstLine);
+        }
+        viewdata newLastLine(sLineRight, DIFFSTATE_EDITED, 1, eOriginalEnding, HIDESTATE_SHOWN, -1);
+        InsertViewData(nViewLine+1, newLastLine);
+        SaveUndoStep();
+
+        // adds new line everywhere except me
+        if (IsViewGood(m_pwndLeft) && m_pwndLeft!=this)
+        {
+            m_pwndLeft->InsertViewEmptyLines(nViewLine+1, 1);
+        }
+        if (IsViewGood(m_pwndRight) && m_pwndRight!=this)
+        {
+            m_pwndRight->InsertViewEmptyLines(nViewLine+1, 1);
+        }
+        if (IsViewGood(m_pwndBottom) && m_pwndBottom!=this)
+        {
+            m_pwndBottom->InsertViewEmptyLines(nViewLine+1, 1);
+        }
+        SaveUndoStep();
+
+        UpdateViewLineNumbers();
+        SaveUndoStep();
+        CUndo::GetInstance().EndGrouping();
+
         BuildAllScreen2ViewVector();
         // move the cursor to the new line
-        ptCaretPos.y++;
-        ptCaretPos.x = 0;
-        SetCaretAndGoalPosition(ptCaretPos);
+        ptCaretViewPos = SetupPoint(0, nViewLine+1);
+        SetCaretAndGoalViewPosition(ptCaretViewPos);
     }
     else
         return; // Unknown control character -- ignore it.
@@ -3528,6 +3569,7 @@ void CBaseView::PasteText()
 
         SaveUndoStep();
 
+        // adds new lines everywhere except me
         if (IsViewGood(m_pwndLeft) && m_pwndLeft!=this)
         {
             m_pwndLeft->InsertViewEmptyLines(nViewLine+1, nLinesToPaste-1);
