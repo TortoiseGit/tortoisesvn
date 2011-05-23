@@ -207,6 +207,7 @@
             </para>
         </sect3>
         <sect3 id="tsvn-dug-bugtracker-link-regex">
+            <?dbhh topicname="HIDD_BUGTRAQREGEXTESTER"?>
             <title>Issue Numbers Using Regular Expressions</title>
             <para>
                 In the approach with <emphasis>regular expressions</emphasis>, TortoiseSVN
@@ -277,6 +278,13 @@
                                 <ulink url="http://www.regular-expressions.info/">
                                     <citetitle>http://www.regular-expressions.info/</citetitle>
                                 </ulink>.
+                            </para>
+                            <para>
+                                It's not always easy to get the regex right so to help out there is
+                                a test dialog built into the bugtraq properties dialog. Click on
+                                the button to the right of the edit boxes to bring it up. Here you
+                                can enter some test text, and change each regex to see the results.
+                                If the regex is invalid the edit box background changes to red.
                             </para>
                         </listitem>
                     </varlistentry>
