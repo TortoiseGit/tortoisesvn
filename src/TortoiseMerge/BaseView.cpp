@@ -1220,12 +1220,9 @@ int CBaseView::GetMarginWidth()
         {
             int nLength = (int)m_pViewData->GetCount();
             // find out how many digits are needed to show the highest line number
-            int nDigits = 1;
-            while ((nLength = (nLength / 10)) != 0)
-            {
-                nDigits++;
-            }
-            m_nDigits = nDigits;
+            CString sMax;
+            sMax.Format(_T("%d"), nLength);
+            m_nDigits = sMax.GetLength();
         }
         int nWidth = GetCharWidth();
         return (MARGINWIDTH + (m_nDigits * nWidth) + 2);
@@ -3344,7 +3341,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
                 newEOL = EOL_LF;
                 break;
             case EOL_LF:
-                newEOL = EOL_CRLF;
+                newEOL = (nViewLine==GetViewCount()-1) ? EOL_NOENDING : EOL_CRLF;
                 break;
         }
         m_pViewData->SetLineEnding(nViewLine, newEOL);
@@ -4143,6 +4140,7 @@ void CBaseView::UpdateViewLineNumbers()
         if (oldLine >= 0)
             SetViewLineNumber(nViewLine, nLineNumber++);
     }
+    m_nDigits = 0;
 }
 
 int CBaseView::CleanEmptyLines()

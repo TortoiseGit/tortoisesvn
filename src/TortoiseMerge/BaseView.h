@@ -82,20 +82,13 @@ public: // methods
     void            SetCaretViewPosition(const POINT & pt) { m_ptCaretViewPos = pt; }
     POINT           GetCaretViewPosition() { return m_ptCaretViewPos; }
     void            UpdateCaretPosition(const POINT& pt) { SetCaretPosition(pt); UpdateCaret(); }
-    void            UpdateCaretViewPosition(const POINT& pt) { SetCaretViewPosition(pt); UpdateCaret(); }
+    void            UpdateCaretViewPosition(const POINT& pt) { SetCaretViewPosition(pt); UpdateCaret(); EnsureCaretVisible(); }
     void            SetCaretToViewStart() { SetCaretToFirstViewLine(); SetCaretToViewLineStart(); }
     void            SetCaretToFirstViewLine() { m_ptCaretViewPos.y=0; }
     void            SetCaretToViewLineStart() { m_ptCaretViewPos.x=0; }
-    void            SetCaretToLineStart() { 
-                        POINT ptCaretPos = GetCaretPosition();
-                        ptCaretPos.x = 0; 
-                        SetCaretPosition(ptCaretPos);
-                        m_nCaretGoalPos = 0;
-                    };
+    void            SetCaretToLineStart() { SetCaretAndGoalPosition(SetupPoint(0, GetCaretPosition().y)); }
     POINT           SetupPoint(int x, int y) {POINT ptRet={x, y}; return ptRet; };
-//    POINT           ConvertScreenPosToView(int x, int y) { POINT pt; pt.x = x; pt.y = y; return ConvertScreenPosToView(pt); }
     POINT           ConvertScreenPosToView(const POINT& pt);
-//    POINT           ConvertViewPosToScreen(int x, int y) { POINT pt; pt.x = x; pt.y = y; return ConvertViewPosToScreen(pt); }
     POINT           ConvertViewPosToScreen(const POINT& pt);
 
     void            EnsureCaretVisible();
