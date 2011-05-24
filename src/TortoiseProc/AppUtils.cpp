@@ -887,7 +887,10 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
                     ((extline.Left(15).Compare(_T("// extensions: "))==0) ||
                      (extline.Left(14).Compare(_T("' extensions: "))==0)) )
                 {
-                    extline = extline.Mid(15);
+                    if (extline[0] == '/')
+                        extline = extline.Mid(15);
+                    else
+                        extline = extline.Mid(14);
                     CString sToken;
                     int curPos = 0;
                     sToken = extline.Tokenize(_T(";"), curPos);
