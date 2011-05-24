@@ -36,6 +36,7 @@ protected:
     virtual void DoDataExchange(CDataExchange* pDX);
     virtual void OnOK();
     virtual BOOL OnInitDialog();
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
     afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
     afx_msg void OnBnClickedHelp();
     afx_msg void OnBnClickedTestregex();
@@ -59,4 +60,5 @@ private:
     CRegexEdit  m_BugtraqRegex2;
 
     int         m_height;
+    CToolTips   m_tooltips;
 };

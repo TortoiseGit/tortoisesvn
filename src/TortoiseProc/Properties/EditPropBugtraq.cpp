@@ -147,6 +147,8 @@ BOOL CEditPropBugtraq::OnInitDialog()
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
+    m_tooltips.Create(this);
+    m_tooltips.AddTool(IDC_TESTREGEX, IDS_EDITPROPS_TESTREGEX_TT);
     UpdateData(false);
 
     AdjustControlSize(IDC_BUGTRAQWARN);
@@ -186,6 +188,7 @@ BOOL CEditPropBugtraq::OnInitDialog()
     AddAnchor(IDC_BUGTRAQLOGREGEX1, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_REGEXMSGLABEL, TOP_LEFT);
     AddAnchor(IDC_BUGTRAQLOGREGEX2, TOP_LEFT, TOP_RIGHT);
+    AddAnchor(IDC_TESTREGEX, TOP_RIGHT);
     AddAnchor(IDC_IBUGTRAQPROVIDERGROUP, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_UUIDLABEL32, TOP_LEFT);
     AddAnchor(IDC_UUID32, TOP_LEFT);
@@ -205,6 +208,7 @@ BOOL CEditPropBugtraq::OnInitDialog()
 
 void CEditPropBugtraq::OnOK()
 {
+    m_tooltips.Pop();   // hide the tooltips
     UpdateData();
 
     // check whether the entered regex strings are valid
@@ -337,6 +341,7 @@ void CEditPropBugtraq::OnBnClickedHelp()
 
 void CEditPropBugtraq::OnBnClickedTestregex()
 {
+    m_tooltips.Pop();   // hide the tooltips
     CBugtraqRegexTestDlg dlg(this);
     dlg.m_sBugtraqRegex1 = m_sBugtraqRegex1;
     dlg.m_sBugtraqRegex2 = m_sBugtraqRegex2;
@@ -346,5 +351,12 @@ void CEditPropBugtraq::OnBnClickedTestregex()
         m_sBugtraqRegex2 = dlg.m_sBugtraqRegex2;
         UpdateData(FALSE);
     }
+}
+
+BOOL CEditPropBugtraq::PreTranslateMessage(MSG* pMsg)
+{
+    m_tooltips.RelayEvent(pMsg);
+
+    return __super::PreTranslateMessage(pMsg);
 }
 
