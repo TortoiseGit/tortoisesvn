@@ -86,6 +86,11 @@ public:
      */
     BOOL        IsRowHidden(int nRow) const  {return (m_nHiddenRow == nRow);}
 
+    /**
+     * Centers the splitter in the middle of the views
+     */
+    void        CenterSplitter();
+
 protected:
     afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
     afx_msg void OnLButtonDown(UINT nFlags, CPoint point);

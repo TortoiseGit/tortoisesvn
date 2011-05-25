@@ -279,7 +279,7 @@ void CXSplitter::ShowColumn()
     RecalcLayout();
 }
 
-void CXSplitter::OnLButtonDblClk( UINT /*nFlags*/, CPoint /*point*/ )
+void CXSplitter::CenterSplitter()
 {
     // get the size of all views
     int width = 0;
@@ -303,5 +303,10 @@ void CXSplitter::OnLButtonDblClk( UINT /*nFlags*/, CPoint /*point*/ )
         m_pColInfo[nCol].nIdealSize = width / m_nCols;
     }
     RecalcLayout();
+}
+
+void CXSplitter::OnLButtonDblClk( UINT /*nFlags*/, CPoint /*point*/ )
+{
+    CenterSplitter();
 }
 
