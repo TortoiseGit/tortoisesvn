@@ -846,9 +846,43 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
 {
     if (m_bInitSplitter && nType != SIZE_MINIMIZED)
     {
-        UpdateLayout();
+        if (m_wndSplitter.GetSafeHwnd())
+        {
+            if (m_wndSplitter.HasOldRowSize() && (m_wndSplitter.GetOldRowCount() == 2))
+            {
+                int oldTotal = m_wndSplitter.GetOldRowSize(0) + m_wndSplitter.GetOldRowSize(1);
+                if (oldTotal)
+                {
+                    int cxCur0, cxCur1, cxMin0, cxMin1;
+                    m_wndSplitter.GetRowInfo(0, cxCur0, cxMin0);
+                    m_wndSplitter.GetRowInfo(1, cxCur1, cxMin1);
+                    cxCur0 = m_wndSplitter.GetOldRowSize(0) * (cxCur0 + cxCur1) / oldTotal;
+                    cxCur1 = m_wndSplitter.GetOldRowSize(1) * (cxCur0 + cxCur1) / oldTotal;
+                    m_wndSplitter.SetRowInfo(0, cxCur0, 0);
+                    m_wndSplitter.SetRowInfo(1, cxCur1, 0);
+                    m_wndSplitter.RecalcLayout();
+                }
+            }
+
+            if (m_wndSplitter2.HasOldColSize() && (m_wndSplitter2.GetOldColCount() == 2))
+            {
+                int oldTotal = m_wndSplitter2.GetOldColSize(0) + m_wndSplitter2.GetOldColSize(1);
+                if (oldTotal)
+                {
+                    int cyCur0, cyCur1, cyMin0, cyMin1;
+                    m_wndSplitter2.GetColumnInfo(0, cyCur0, cyMin0);
+                    m_wndSplitter2.GetColumnInfo(1, cyCur1, cyMin1);
+                    cyCur0 = m_wndSplitter2.GetOldColSize(0) * (cyCur0 + cyCur1) / oldTotal;
+                    cyCur1 = m_wndSplitter2.GetOldColSize(1) * (cyCur0 + cyCur1) / oldTotal;
+                    m_wndSplitter2.SetColumnInfo(0, cyCur0, 0);
+                    m_wndSplitter2.SetColumnInfo(1, cyCur1, 0);
+                    m_wndSplitter2.RecalcLayout();
+                }
+            }
+        }
     }
     CFrameWndEx::OnSize(nType, cx, cy);
+    
 }
 
 void CMainFrame::OnViewWhitespaces()
