@@ -171,7 +171,7 @@ protected:
     void            OnViewTextFoldUnfold(CBaseView* view);
     bool            HasUnsavedEdits() const;
     static bool     HasUnsavedEdits(const CBaseView* view);
-    static bool	    IsViewGood(const CBaseView* view);
+    static bool     IsViewGood(const CBaseView* view);
 
 protected:
     CMFCMenuBar     m_wndMenuBar;
