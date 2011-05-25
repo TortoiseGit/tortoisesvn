@@ -837,22 +837,8 @@ void CMainFrame::UpdateLayout()
 {
     if (m_bInitSplitter)
     {
-        CRect cr, rclocbar;
-        GetClientRect(&cr);
-        int width = cr.Width();
-        if (::IsWindow(m_wndLocatorBar) && m_wndLocatorBar.IsWindowVisible())
-        {
-            m_wndLocatorBar.GetWindowRect(&rclocbar);
-            width -= rclocbar.Width();
-        }
-        m_wndSplitter.SetRowInfo(0, cr.Height()/2, 0);
-        m_wndSplitter.SetRowInfo(1, cr.Height()/2, 0);
-        m_wndSplitter.SetColumnInfo(0, width / 2, 50);
-        m_wndSplitter2.SetRowInfo(0, cr.Height()/2, 0);
-        m_wndSplitter2.SetColumnInfo(0, width / 2, 50);
-        m_wndSplitter2.SetColumnInfo(1, width / 2, 50);
-
-        m_wndSplitter.RecalcLayout();
+        m_wndSplitter.CenterSplitter();
+        m_wndSplitter2.CenterSplitter();
     }
 }
 
