@@ -26,20 +26,27 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 CXSplitter::CXSplitter()
+    : m_bBarLocked(FALSE)
+    , m_nHiddenCol(-1)
+    , m_nHiddenRow(-1)
+    , m_pColOldSize(nullptr)
+    , m_pRowOldSize(nullptr)
+    , m_nOldCols(0)
+    , m_nOldRows(0)
 {
-    m_bBarLocked=FALSE;
-    m_nHiddenCol = -1;
-    m_nHiddenRow = -1;
 }
 
 CXSplitter::~CXSplitter()
 {
+    delete [] m_pRowOldSize;
+    delete [] m_pColOldSize;
 }
 
 
 BEGIN_MESSAGE_MAP(CXSplitter, CSplitterWnd)
     ON_WM_LBUTTONDBLCLK()
     ON_WM_LBUTTONDOWN()
+    ON_WM_LBUTTONUP()
     ON_WM_MOUSEMOVE()
     ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
@@ -303,10 +310,38 @@ void CXSplitter::CenterSplitter()
         m_pColInfo[nCol].nIdealSize = width / m_nCols;
     }
     RecalcLayout();
+    CopyRowAndColInfo();
 }
 
 void CXSplitter::OnLButtonDblClk( UINT /*nFlags*/, CPoint /*point*/ )
 {
     CenterSplitter();
+}
+
+void CXSplitter::OnLButtonUp(UINT nFlags, CPoint point)
+{
+    CSplitterWnd::OnLButtonUp(nFlags, point);
+    CopyRowAndColInfo();
+}
+
+void CXSplitter::CopyRowAndColInfo()
+{
+    delete [] m_pColOldSize; m_pColOldSize = nullptr;
+    delete [] m_pRowOldSize; m_pRowOldSize = nullptr;
+
+    m_nOldCols = m_nCols;
+    m_nOldRows = m_nRows;
+    if (m_nCols)
+    {
+        m_pColOldSize = new int[m_nCols];
+        for (int i = 0; i < m_nCols; ++i)
+            m_pColOldSize[i] = m_pColInfo[i].nCurSize;
+    }
+    if (m_nRows)
+    {
+        m_pRowOldSize = new int[m_nRows];
+        for (int i = 0; i < m_nRows; ++i)
+            m_pRowOldSize[i] = m_pRowInfo[i].nCurSize;
+    }
 }
 
