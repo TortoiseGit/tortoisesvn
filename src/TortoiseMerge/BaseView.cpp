@@ -3000,17 +3000,17 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
             ScrollAllToLine(m_nTopLine-1, TRUE);
             SetTimer(IDT_SCROLLTIMER, 20, NULL);
         }
-        if (nMouseLine >= m_nTopLine + GetScreenLines())
+        if (nMouseLine >= m_nTopLine + GetScreenLines() - 2)
         {
             ScrollAllToLine(m_nTopLine+1, TRUE);
             SetTimer(IDT_SCROLLTIMER, 20, NULL);
         }
-        if ((m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth()) <= m_nOffsetChar)
+        if (!m_pMainFrame->m_bWrapLines && ((m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth()) <= m_nOffsetChar))
         {
             ScrollAllSide(-1);
             SetTimer(IDT_SCROLLTIMER, 20, NULL);
         }
-        if (charIndex >= (GetScreenChars()+m_nOffsetChar-4))
+        if (!m_pMainFrame->m_bWrapLines && (charIndex >= (GetScreenChars()+m_nOffsetChar-4)))
         {
             ScrollAllSide(1);
             SetTimer(IDT_SCROLLTIMER, 20, NULL);
@@ -3060,17 +3060,17 @@ void CBaseView::OnTimer(UINT_PTR nIDEvent)
                 ScrollAllToLine(m_nTopLine-1, TRUE);
                 SetTimer(IDT_SCROLLTIMER, 20, NULL);
             }
-            if (nMouseLine >= m_nTopLine + GetScreenLines())
+            if (nMouseLine >= m_nTopLine + GetScreenLines() - 2)
             {
                 ScrollAllToLine(m_nTopLine+1, TRUE);
                 SetTimer(IDT_SCROLLTIMER, 20, NULL);
             }
-            if ((m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth()) <= m_nOffsetChar)
+            if (!m_pMainFrame->m_bWrapLines && ((m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth()) <= m_nOffsetChar))
             {
                 ScrollAllSide(-1);
                 SetTimer(IDT_SCROLLTIMER, 20, NULL);
             }
-            if (charIndex >= (GetScreenChars()+m_nOffsetChar-4))
+            if (!m_pMainFrame->m_bWrapLines && (charIndex >= (GetScreenChars()+m_nOffsetChar-4)))
             {
                 ScrollAllSide(1);
                 SetTimer(IDT_SCROLLTIMER, 20, NULL);
