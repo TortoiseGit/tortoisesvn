@@ -844,6 +844,7 @@ void CMainFrame::UpdateLayout()
 
 void CMainFrame::OnSize(UINT nType, int cx, int cy)
 {
+    CFrameWndEx::OnSize(nType, cx, cy);
     if (m_bInitSplitter && nType != SIZE_MINIMIZED)
     {
         if (m_wndSplitter.GetSafeHwnd())
@@ -881,8 +882,6 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
             }
         }
     }
-    CFrameWndEx::OnSize(nType, cx, cy);
-    
 }
 
 void CMainFrame::OnViewWhitespaces()
