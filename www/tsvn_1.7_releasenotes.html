@@ -46,6 +46,8 @@
                       >Commit dialog</a></li>
                   <li><a href="#repobrowser"
                       >Repository browser</a></li>
+                  <li><a href="#sparse"
+                      >Sparse checkouts</a></li>
                   <li><a href="#tmerge"
                       >TortoiseMerge</a></li>
                   <li><a href="#compatibility"
@@ -267,6 +269,23 @@
                 also got a lot faster in 1.7 due to heavy caching and pre-fetching
                 information in the background.</p>
             </div>  <!-- repobrowser -->
+
+            <div class="post" id="sparse" title="sparse">
+                <h2>Sparse checkouts</h2>
+                <p>If you only need a working copy that has only a few folders
+                of the project, you have to do a so called <code>sparse checkout</code>.
+                In previous versions this was done in multiple steps by first
+                checking out the parent folder with depth empty, then updating
+                the folders you want one by one with the required depth.</p>
+                <p>Now this is much easier: in the checkout dialog there's
+                a button <code>choose items...</code> which opens a new dialog
+                where you can easily check the folders and files you want and
+                uncheck those you do not need.</p>
+                <a href="http://tortoisesvn.googlecode.com/svn/trunk/www/images/sparsecheckout.png" rel="lightbox"><img src="images/sparsecheckout-small.png"></a>
+                <p>After everything is selected, the checkout will take care
+                of the rest and you'll end up with the sparse working copy
+                you want - all in one easy step.</p>
+            </div>  <!-- sparse -->
 
             <div class="post" id="tmerge" title="tmerge">
                 <h2>TortoiseMerge</h2>
