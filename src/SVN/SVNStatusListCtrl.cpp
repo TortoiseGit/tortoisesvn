@@ -5682,13 +5682,17 @@ void CSVNStatusListCtrl::NotifyCheck()
 
 LRESULT CSVNStatusListCtrl::DoInsertGroup(LPWSTR groupName, int groupId, int index)
 {
-    LVGROUP lvgroup = {};
+    LVGROUP lvgroup = {0};
     lvgroup.cbSize = sizeof(LVGROUP);
-    lvgroup.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER | LVGF_STATE;
+    lvgroup.mask = LVGF_ALIGN | LVGF_GROUPID | LVGF_HEADER;
     lvgroup.pszHeader = groupName;
     lvgroup.iGroupId = groupId;
     lvgroup.uAlign = LVGA_HEADER_LEFT;
-    lvgroup.state = LVGS_COLLAPSIBLE;
+    if (SysInfo::Instance().IsVistaOrLater())
+    {
+        lvgroup.mask |= LVGF_STATE;
+        lvgroup.state = LVGS_COLLAPSIBLE;
+    }
     return InsertGroup(index, &lvgroup);
 }
 
