@@ -9,12 +9,13 @@
 # $Rev$
 # 
 # Authors:
+# Kari Granö <kari.grano@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-22 00:31+0000\n"
+"PO-Revision-Date: 2011-05-25 21:34+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -349,6 +350,10 @@ msgid ""
 "Shall I update the working copy now\n"
 "and then retry?"
 msgstr ""
+"%s\n"
+"\n"
+"Päivitetäänkö työkopio ja\n"
+"yritetään heti uudelleen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1364,7 +1369,7 @@ msgstr "&Päivitä"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr ""
+msgstr "&Päivitä versioon"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -3096,7 +3101,7 @@ msgstr "Suoritettava komentorivi:"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
-msgstr ""
+msgstr "Komento epäonnistui - työkopio on päivitettävä"
 
 #. Resource IDs: (3857)
 msgid "Command failed."
@@ -9104,7 +9109,7 @@ msgstr "Asetukset - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
-msgstr ""
+msgstr "Päivitetäänkö työkopio ja yritetään uudelleen?"
 
 #. Resource IDs: (1270)
 msgid "Shell"
@@ -10378,6 +10383,8 @@ msgid ""
 "The returned error was:\n"
 "%s"
 msgstr ""
+"Palautettu virhe:\n"
+"%s"
 
 #. Resource IDs: (78)
 msgid ""

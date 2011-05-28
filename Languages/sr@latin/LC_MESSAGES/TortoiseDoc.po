@@ -9,12 +9,13 @@
 # $Rev$
 # 
 # Authors:
+# Milorad Popovic <MiloradSPopovic@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-21 00:03+0000\n"
+"PO-Revision-Date: 2011-05-24 00:16+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,13 +23,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr@latin\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-
-#. When image changes, this message will be marked fuzzy or untranslated for
-#. you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#. (None)
-msgid "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
-msgstr "@@image: 'images/svn_move.png'; md5=OVAJ FAJL NE POSTOJI"
 
 #. (title)
 #. (secondary)
@@ -962,6 +956,14 @@ msgid ""
 "folder structure by clicking the <guibutton>Create folder "
 "structure</guibutton> button."
 msgstr ""
+"Najpre kreirajte novi prazan imenik na vašem PC. On može biti bilo gde, ali "
+"za ovaj tutorijal zvaćemo ga <filename>C:\\svn_repos</filename>. Zatim desni"
+" klik na novi imenik i iz kontekst menija izaberite "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Kreirajte spremište "
+"ovde...</guimenuitem></menuchoice>. Spremište  tada kreirano unutar imenika "
+"spremno je za korišćenje. Takođe ćemo kreirati uobičajenu internu strukturu "
+"imenika kliknuvši na   <guibutton>Kreirajte strukturu imenika</guibutton> "
+"button."
 
 #. (para)
 msgid ""
@@ -1005,6 +1007,17 @@ msgid ""
 "are 3 slashes after <filename>file:</filename> and that forward slashes are "
 "used throughout."
 msgstr ""
+"Sada imamo spremište, ali ono je potpuno prazno u ovom trenutku. Uzmimo da "
+"imamo skup fajlova u <filename>C:\\Projects\\Widget1</filename> koje želimo "
+"dodati. Odimo do <filename>Widget1</filename>  imenika pomoću Eksplorera i "
+"desni klik na njega. Sada izaberemo "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Uvoz...</guimenuitem></menuchoice>"
+"  što daje dijalog <placeholder-1/> Subverziono spremište je referisano sa "
+"URL koji nam omogućava da specificiramo spremište bilo gde na Internetu. U "
+"ovom slučaju potrebna nam je tačka na našem lokalnom spremištu koja ima URL "
+"<filename>file:///c:/svn_repos/trunk</filename>, gde dodajemo naš projekat "
+"nazvan <filename>Widget1</filename>. Primetimo da ima 3 kosih crta  posle "
+"<filename>file:</filename> i da se prave kose crte koriste unutar."
 
 #. (para)
 msgid ""
@@ -1043,6 +1056,18 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr ""
+"Sada imamo projekat u našem spremištu, potrebno nam je da kreiramo radnu "
+"kopiju za korišćenje u svakodnevnom radu. Primetimo da čin uvoza imenika ne "
+"prebacuje taj imenik u radnu kopiju. Subverzioni termin za kreiranje sveže "
+"radne kopije je <literal>Preuzimanje</literal>.  Nameravamo da preuzmemo "
+"Widget1 imenik našeg spremišta u razvojni imenik na PC zvanom "
+"<filename>C:\\Projects\\Widget1-Dev</filename>. Kreirajte taj imenik, zatim "
+"desni klik na njega i izaberite "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Preuzimanje...</guimenuitem></menuchoice>."
+" Unesite URL preuzimanja, u ovom slučaju  "
+"<filename>file:///c:/svn_repos/trunk/Widget1</filename> i kliknite na "
+"<guibutton>OK</guibutton>.  Naš razvojni imenik je popunjen fajlovima iz tog"
+" spremišta."
 
 #. (para)
 msgid ""
@@ -2950,6 +2975,14 @@ msgid ""
 "url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
 " website."
 msgstr ""
+"Alat <literal>svnadmin</literal>  je instaliran automatski kada instalirate "
+"Subverzionog linijskog klijenta. Ako instalirate alate komandne linije na "
+"Vindous PC, najbolji način je skinuti verziju Vindous instalatera. To je "
+"efikasnije komprimovano od <filename>.zip</filename> verzije, tako da je "
+"skidanje manje i vodi brigu o podešavanju putanja za vas. Možete skinuti "
+"zadnju verziju Subverzionog linijskog klijenta sa <ulink "
+"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subverzionog</citetitle></ulink>"
+" vebsajta."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -3252,6 +3285,15 @@ msgid ""
 "url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
 " website."
 msgstr ""
+"U ranim danima Subverzije, podešavanje servera zahteva dobro razumevanje "
+"konfiguracije servera i u prethodnim verzijama ovog uputstva mi smo "
+"uključili detaljni opis kako podesiti server.od tada stvari su postale lakše"
+" jer sada postoji više prepakovanih server instalatera sposobnih da vas vode"
+" kroz podešavanje i proces konfigurisanja. Ove veze ka nekim instalaterima "
+"za koje znamo su: <placeholder-1/> Možete uvek naći poslednju vezu na <ulink"
+" "
+"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subverzioni</citetitle></ulink>"
+" vebsajt."
 
 #. (para)
 msgid ""
@@ -6316,6 +6358,9 @@ msgid ""
 "another application such as a text editor or IDE, or you can save a copy "
 "simply by dragging it into a folder in explorer."
 msgstr ""
+"Ako želite da detaljno pregledate fajl, možete ga prevući odavde u drugu "
+"aplikaciju kao što je uređivač teksta ile IDE, ili možete sačuvati kopiju "
+"jednostavnim prevlačenjem u imenik pretraživača."
 
 #. (para)
 msgid ""
@@ -14546,8 +14591,8 @@ msgstr ""
 "obrisane grane."
 
 #. (term)
-msgid "Hide unchanged branches"
-msgstr "Sakriva nepromenjene grane."
+msgid "Hide unused branches"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14605,6 +14650,13 @@ msgstr ""
 "Ponekad revizioni graf sadrži više revizija od onog što želite da vidite. "
 "Opcija otvara dijalog koji omogućava da ograničite opseg revizija koje su "
 "prikazae, i da sakrijete pojedine putanje pomoću imena."
+
+#. (para)
+msgid ""
+"If you hide a particular path and that node has child nodes, the children "
+"will be shown as a separate tree. If you want to hide all children as well, "
+"use the <guilabel>Remove the whole subtree(s)</guilabel> checkbox."
+msgstr ""
 
 #. (term)
 msgid "Tree stripes"
@@ -15262,13 +15314,15 @@ msgstr ""
 
 #. (title)
 msgid "The Bugtraq Properties Dialog"
-msgstr ""
+msgstr "Dijalog bagtrek osobina"
 
 #. (para)
 msgid ""
 "<placeholder-1/> When you edit any of the bugtraq properties a special "
 "property editor is used to make it easier to set appropriate values."
 msgstr ""
+"<placeholder-1/> Kada uređujete bagtrek osobine specijalni uređivač se "
+"koristi da olakša podešavanje odgovarajućih vrednosti."
 
 #. (para)
 msgid ""
@@ -15541,6 +15595,15 @@ msgstr ""
 " i onlajn dokumentaciju i tutorijal na <ulink url=\"http://www.regular-"
 "expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
+
+#. (para)
+msgid ""
+"It's not always easy to get the regex right so to help out there is a test "
+"dialog built into the bugtraq properties dialog. Click on the button to the "
+"right of the edit boxes to bring it up. Here you can enter some test text, "
+"and change each regex to see the results. If the regex is invalid the edit "
+"box background changes to red."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18959,6 +19022,9 @@ msgid ""
 "automatically after an <literal>Out of date</literal> error, set this value "
 "to <literal>false</literal>."
 msgstr ""
+"Ako ne želite da vas TortoiseSVN pita da ažurirate radnu kopiju "
+"automatskiposle <literal>Zastarela</literal> greške, podesite vrednost na "
+"<literal>laž</literal>."
 
 #. (para)
 msgid ""

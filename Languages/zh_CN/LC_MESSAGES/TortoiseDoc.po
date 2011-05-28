@@ -9,12 +9,17 @@
 # $Rev$
 # 
 # Authors:
+# stephen zhu <huasoft@163.com>, 2011
+# pluwen <pluwen@gmail.com>, 2011
+# Ziang Song <songziang@gmail.com>, 2011
+# Garfield Yao <field977@gmail.com>, 2011
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-21 00:03+0000\n"
+"PO-Revision-Date: 2011-05-24 00:16+0000\n"
 "Last-Translator: zhugscn <huasoft@163.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,13 +27,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-
-#. When image changes, this message will be marked fuzzy or untranslated for
-#. you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#. (None)
-msgid "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
-msgstr ""
 
 #. (title)
 #. (secondary)
@@ -11809,8 +11807,8 @@ msgid ""
 msgstr ""
 
 #. (term)
-msgid "Hide unchanged branches"
-msgstr "隐藏未更改的分支"
+msgid "Hide unused branches"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -11853,6 +11851,13 @@ msgid ""
 "Sometimes the revision graph contains more revisions than you want to see. "
 "This option opens a dialog which allows you to restrict the range of "
 "revisions displayed, and to hide particular paths by name."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you hide a particular path and that node has child nodes, the children "
+"will be shown as a separate tree. If you want to hide all children as well, "
+"use the <guilabel>Remove the whole subtree(s)</guilabel> checkbox."
 msgstr ""
 
 #. (term)
@@ -12546,6 +12551,15 @@ msgid ""
 " and the online documentation and tutorial at <ulink url=\"http://www"
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
+msgstr ""
+
+#. (para)
+msgid ""
+"It's not always easy to get the regex right so to help out there is a test "
+"dialog built into the bugtraq properties dialog. Click on the button to the "
+"right of the edit boxes to bring it up. Here you can enter some test text, "
+"and change each regex to see the results. If the regex is invalid the edit "
+"box background changes to red."
 msgstr ""
 
 #. (para)

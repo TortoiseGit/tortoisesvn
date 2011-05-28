@@ -9,12 +9,13 @@
 # $Rev$
 # 
 # Authors:
+# Alexandre Paradis <paradial@hotmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-21 00:03+0000\n"
+"PO-Revision-Date: 2011-05-24 00:16+0000\n"
 "Last-Translator: netmask <paradial@hotmail.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,13 +23,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
-
-#. When image changes, this message will be marked fuzzy or untranslated for
-#. you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#. (None)
-msgid "@@image: 'images/svn_move.png'; md5=THIS FILE DOESN'T EXIST"
-msgstr "@@image: 'images/svn_move.png'; md5=CE FICHIER N'EXISTE PAS"
 
 #. (title)
 #. (secondary)
@@ -14746,8 +14740,8 @@ msgstr ""
 "référentiel, par exemple, des branches supprimées."
 
 #. (term)
-msgid "Hide unchanged branches"
-msgstr "Cacher les branches non modifiées"
+msgid "Hide unused branches"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14810,6 +14804,13 @@ msgstr ""
 "voulez en voir. Cette option ouvre une boîte de dialogue qui vous permet de "
 "restreindre la plage des révisions affichées, et de cacher des chemins "
 "particuliers par leur nom."
+
+#. (para)
+msgid ""
+"If you hide a particular path and that node has child nodes, the children "
+"will be shown as a separate tree. If you want to hide all children as well, "
+"use the <guilabel>Remove the whole subtree(s)</guilabel> checkbox."
+msgstr ""
 
 #. (term)
 msgid "Tree stripes"
@@ -15759,6 +15760,15 @@ msgstr ""
 " et à la documentation en ligne et au didactitiel à <ulink url=\"http://www"
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
+
+#. (para)
+msgid ""
+"It's not always easy to get the regex right so to help out there is a test "
+"dialog built into the bugtraq properties dialog. Click on the button to the "
+"right of the edit boxes to bring it up. Here you can enter some test text, "
+"and change each regex to see the results. If the regex is invalid the edit "
+"box background changes to red."
+msgstr ""
 
 #. (para)
 msgid ""
