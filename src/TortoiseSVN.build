@@ -6,47 +6,6 @@
   <target name="clean">
 
     <if test="${cleanup == 'yes'}">
-      <if test="${static != 'static'}">
-        <delete>
-          <fileset>
-            <include name="..\ext\scintilla\bin\*.dll" />
-            <include name="..\ext\scintilla\bin\*.exp" />
-            <include name="..\ext\scintilla\bin\*.lib" />
-            <include name="..\ext\scintilla\bin\*.pdb" />
-            <include name="..\ext\scintilla\win32\*.obj" />
-            <include name="..\ext\scintilla\win32\*.res" />
-            <include name="..\ext\scintilla\win32\*.pdb" />
-          </fileset>
-        </delete>
-        <exec program="devenv.com" >
-          <arg value="${solutionname}" />
-          <arg value="/clean" />
-          <arg value="${configuration}|${platform}" />
-        </exec>
-      </if>
-      <if test="${static == 'static'}">
-        <exec program="devenv.com" >
-          <arg value="${solutionname}" />
-          <arg value="/clean" />
-          <arg value="${configuration}_static|${platform}" />
-        </exec>
-      </if>
-    </if>
-  </target>
-
-  <target name="scintilla">
-    <if test="${static != 'static'}">
-      <exec program="nmake" workingdir="..\ext\scintilla\win32">
-        <arg value="-f" />
-        <arg value="scintilla.mak" />
-      </exec>
-      <property name="platformfoldername" value=""   if="${platform == 'win32'}"/>
-      <property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
-      <copy
-                file="..\ext\scintilla\bin\SciLexer.dll"
-                tofile="..\bin\${configuration}${platformfoldername}\bin\SciLexer.dll"
-                overwrite="true"
-            />
       <delete>
         <fileset>
           <include name="..\ext\scintilla\bin\*.dll" />
@@ -58,7 +17,37 @@
           <include name="..\ext\scintilla\win32\*.pdb" />
         </fileset>
       </delete>
+      <exec program="devenv.com" >
+        <arg value="${solutionname}" />
+        <arg value="/clean" />
+        <arg value="${configuration}|${platform}" />
+      </exec>
     </if>
+  </target>
+
+  <target name="scintilla">
+    <exec program="nmake" workingdir="..\ext\scintilla\win32">
+      <arg value="-f" />
+      <arg value="scintilla.mak" />
+    </exec>
+    <property name="platformfoldername" value=""   if="${platform == 'win32'}"/>
+    <property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
+    <copy
+              file="..\ext\scintilla\bin\SciLexer.dll"
+              tofile="..\bin\${configuration}${platformfoldername}\bin\SciLexer.dll"
+              overwrite="true"
+            />
+    <delete>
+      <fileset>
+        <include name="..\ext\scintilla\bin\*.dll" />
+        <include name="..\ext\scintilla\bin\*.exp" />
+        <include name="..\ext\scintilla\bin\*.lib" />
+        <include name="..\ext\scintilla\bin\*.pdb" />
+        <include name="..\ext\scintilla\win32\*.obj" />
+        <include name="..\ext\scintilla\win32\*.res" />
+        <include name="..\ext\scintilla\win32\*.pdb" />
+      </fileset>
+    </delete>
   </target>
 
   <target name="versioninfo">
@@ -100,20 +89,11 @@
   </target>
 
   <target name="TortoiseSVN" depends="clean,versioninfo,scintilla">
-    <if test="${static != 'static'}">
-      <exec program="devenv.com" >
-        <arg value="${solutionname}" />
-        <arg value="/rebuild" />
-        <arg value="${configuration}|${platform}" />
-      </exec>
-    </if>
-    <if test="${static == 'static'}">
-      <exec program="devenv.com" >
-        <arg value="${solutionname}" />
-        <arg value="/rebuild" />
-        <arg value="${configuration}_static|${platform}" />
-      </exec>
-    </if>
+    <exec program="devenv.com" >
+      <arg value="${solutionname}" />
+      <arg value="/rebuild" />
+      <arg value="${configuration}|${platform}" />
+    </exec>
   </target>
 
 </project>

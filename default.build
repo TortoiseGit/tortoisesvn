@@ -14,8 +14,6 @@
   <property name="bindirextension" value="" />
   <!-- default: we don't cross-compile -->
   <property name="crosscompile" value="" />
-  <!-- default: we link dynamically -->
-  <property name="static" value="" />
   <!-- default: we don't clean first -->
   <property name="cleanup" value="" />
   <!-- default: we don't build with IPv6 support -->
@@ -65,13 +63,6 @@
     </description>
     <property name="crosscompile" value="yes" if="${platform == 'x64'}"/>
     <echo message="ignore cross-compiling (only supported for x64)" level="Warning" if="${platform != 'x64'}"/>
-  </target>
-
-  <target name="static">
-    <description>
-      compiles some projects linking statically to the CRT
-    </description>
-    <property name="static" value="static" />
   </target>
 
   <target name="ipv6">
@@ -218,62 +209,6 @@
     </description>
   </target>
 
-  <target name="statictools" depends="VSNET,env,static,Subversion,TortoiseSVN">
-    <description>
-      Builds the libraries for static linking, and all the tools
-      we ship separately from TSVN (therefore statically linked
-      to all dependend libs).
-    </description>
-    <nant target="setup">
-      <buildfiles>
-        <include name="src\TortoiseSVNSetup\staticsetup.build" />
-      </buildfiles>
-    </nant>
-    <if test="${file::exists('signinfo.txt')}">
-      <exec program="signtool">
-        <arg value="sign" />
-        <arg value="${signinfo}" />
-        <arg value="bin\releasestatic\bin\TortoiseIDiff.exe" />
-      </exec>
-    </if>
-    <zip zipfile="bin\TortoiseDiff.zip" ziplevel="9">
-      <fileset basedir="bin\releasestatic\bin">
-        <include name="TortoiseIDiff.exe" />
-      </fileset>
-    </zip>
-  </target>
-
-  <target name="staticmsi" depends="VSNET,env,static">
-    <description>
-      Builds the libraries for static linking, and all the tools
-      we ship separately from TSVN (therefore statically linked
-      to all dependend libs).
-    </description>
-    <nant target="setup">
-      <buildfiles>
-        <include name="src\TortoiseSVNSetup\staticsetup.build" />
-      </buildfiles>
-    </nant>
-    <if test="${file::exists('signinfo.txt')}">
-      <exec program="signtool">
-        <arg value="sign" />
-        <arg value="${signinfo}" />
-        <arg value="bin\releasestatic\bin\TortoiseIDiff.exe" />
-      </exec>
-      <exec program="signtool">
-        <arg value="sign" />
-        <arg value="${signinfo}" />
-        <arg value="bin\releasestatic\bin\TortoiseMerge.exe" />
-      </exec>
-    </if>
-    <zip zipfile="bin\TortoiseDiff.zip" ziplevel="9">
-      <fileset basedir="bin\releasestatic\bin">
-        <include name="TortoiseIDiff.exe" />
-        <include name="TortoiseMerge.exe" />
-      </fileset>
-    </zip>
-  </target>
-
   <target name="setup" depends="env,binaries,docs,LanguagePacks">
     <description>
       Uses WiX to create an msi installer file.
@@ -338,8 +273,6 @@
     <echo message="The following targets are available:" />
     <echo message="binaries     : builds all binaries (TortoiseSVN, Subversion, Libs)" />
     <echo message="setup        : creates an msi installer for TortoiseSVN" />
-    <echo message="statictools  : builds the statically linked tools which are" />
-    <echo message="               available separately from TortoiseSVN" />
     <echo />
     <echo message="cleanall     : clean every subproject" />
     <echo message="docs	        : builds the docs in all languages and all formats" />
