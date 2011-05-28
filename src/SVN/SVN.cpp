@@ -439,7 +439,7 @@ bool SVN::RemoveFromChangeList(const CTSVNPathList& pathList, const CStringArray
 bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision,
                  svn_depth_t depth, bool depthIsSticky,
                  bool ignoreexternals, bool bAllow_unver_obstructions,
-                 bool makeParents, bool apply_local_external_modifications)
+                 bool makeParents)
 {
     SVNPool(localpool);
     svn_error_clear(Err);
@@ -455,7 +455,6 @@ bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision,
                                 bAllow_unver_obstructions,
                                 true,       // adds_as_modifications (why would anyone want a tree conflict? Set to true unconditionally)
                                 makeParents,
-                                apply_local_external_modifications,
                                 m_pctx,
                                 localpool),
         NULL
@@ -868,7 +867,6 @@ bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
                                  ignore_externals,
                                  allow_unver_obstruction,
                                  ignore_ancestry,
-                                 false,  // apply_local_external_modifications
                                  m_pctx,
                                  subpool),
         svnPath

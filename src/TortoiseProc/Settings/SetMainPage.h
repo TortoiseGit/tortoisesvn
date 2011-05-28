@@ -49,7 +49,6 @@ protected:
     afx_msg void OnBnClickedChecknewerbutton();
     afx_msg void OnBnClickedSounds();
     afx_msg void OnBnClickedCreatelib();
-    afx_msg void OnBnClickedApplyextmods();
 
     DECLARE_MESSAGE_MAP()
 
@@ -66,6 +65,4 @@ private:
     BOOL            m_bLastCommitTime;
     CRegDWORD       m_regUseAero;
     BOOL            m_bUseAero;
-    CRegDWORD       m_regApplyExtMods;
-    BOOL            m_bApplyExtMods;
 };

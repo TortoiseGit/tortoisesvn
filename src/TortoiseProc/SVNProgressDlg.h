@@ -57,7 +57,6 @@ typedef enum
     ProgOptRecordOnly = 0x4000,
     ProgOptStickyDepth = 0x8000,
     ProgOptUseAutoprops = 0x10000,
-    ProgOptApplyExtMods = 0x20000
 } ProgressOptions;
 
 typedef enum

@@ -36,14 +36,12 @@ CSetMainPage::CSetMainPage()
     , m_sTempExtensions(_T(""))
     , m_bLastCommitTime(FALSE)
     , m_bUseAero(TRUE)
-    , m_bApplyExtMods(FALSE)
 {
     m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
     CString temp(SVN_CONFIG_DEFAULT_GLOBAL_IGNORES);
     m_regExtensions = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores"), temp);
     m_regLastCommitTime = CRegString(_T("Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times"), _T(""));
     m_regUseAero = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE);
-    m_regApplyExtMods = CRegDWORD(_T("Software\\TortoiseSVN\\applyExtMods"), FALSE);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -58,7 +56,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
     DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
     DDX_Check(pDX, IDC_AERODWM, m_bUseAero);
-    DDX_Check(pDX, IDC_APPLYEXTMODS, m_bApplyExtMods);
 }
 
 
@@ -72,7 +69,6 @@ BEGIN_MESSAGE_MAP(CSetMainPage, ISettingsPropPage)
     ON_BN_CLICKED(IDC_SOUNDS, OnBnClickedSounds)
     ON_BN_CLICKED(IDC_AERODWM, OnModified)
     ON_BN_CLICKED(IDC_CREATELIB, &CSetMainPage::OnBnClickedCreatelib)
-    ON_BN_CLICKED(IDC_APPLYEXTMODS, &CSetMainPage::OnModified)
 END_MESSAGE_MAP()
 
 BOOL CSetMainPage::OnInitDialog()
@@ -84,7 +80,6 @@ BOOL CSetMainPage::OnInitDialog()
     m_sTempExtensions = m_regExtensions;
     m_dwLanguage = m_regLanguage;
     m_bUseAero = m_regUseAero;
-    m_bApplyExtMods = m_regApplyExtMods;
 
     CDwmApiImpl dwm;
     dwm.Initialize();
@@ -170,7 +165,6 @@ BOOL CSetMainPage::OnApply()
     }
     Store ((m_bLastCommitTime ? _T("yes") : _T("no")), m_regLastCommitTime);
     Store (m_bUseAero, m_regUseAero);
-    Store (m_bApplyExtMods, m_regApplyExtMods);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();

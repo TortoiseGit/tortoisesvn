@@ -127,17 +127,6 @@
         You can also choose whether to ignore any external projects in the update
         (i.e. projects referenced using <literal>svn:externals</literal>).
     </para>
-    <para>
-        An update by default ignores local modifications to the <literal>svn:externals</literal>
-        property. But when you made modifications to the <literal>svn:externals</literal>
-        property, you can force the update to use those local modifications. For example
-        if you change an external to a new tag, you might want to first update
-        your working copy to that new tag, build the project and only commit
-        the change to the <literal>svn:externals</literal> if the build was successful.
-        In that situation, you have to check the box <guilabel>Apply local svn:externals modifications</guilabel>.
-        If you modify your externals a lot, you can make this behavior the default
-        when updating in the settings dialog. <xref linkend="tsvn-dug-settings-main"/>.
-    </para>
     <caution>
         <para>
             If you update a file or folder to a specific revision, you should not

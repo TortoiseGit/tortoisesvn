@@ -29,7 +29,6 @@ CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
     , Revision(_T("HEAD"))
     , m_bNoExternals(FALSE)
     , m_bStickyDepth(TRUE)
-    , m_bApplyLocalExtMods(FALSE)
     , m_pLogDlg(NULL)
 {
 }
@@ -46,7 +45,6 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
     DDX_Check(pDX, IDC_STICKYDEPTH, m_bStickyDepth);
     DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
-    DDX_Check(pDX, IDC_APPLYLOCALEXTMODS, m_bApplyLocalExtMods);
 }
 
 
