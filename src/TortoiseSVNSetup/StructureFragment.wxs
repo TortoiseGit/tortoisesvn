@@ -111,9 +111,11 @@
               <File Id="F__TortoiseProc" Name="TortoiseProc.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseProc.exe" KeyPath="yes" />
               <File Id="F__TortoiseShell32" Name="TortoiseSVN32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\TortoiseSVN32.dll" />
               <File Id="F__TortoiseStub32" Name="TortoiseStub32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\TortoiseStub32.dll" />
+              <File Id="F__libsvn32" Name="libsvn_tsvn32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\libsvn_tsvn32.dll" />
               <?if $(env.Platform) = "x64" ?>
               <File Id="F__TortoiseShell" Name="TortoiseSVN.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseSVN.dll" />
               <File Id="F__TortoiseStub" Name="TortoiseStub.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseStub.dll" />
+              <File Id="F__libsvn" Name="libsvn_tsvn.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\libsvn_tsvn.dll" />
               <?endif ?>
               <File Id="F__TortoisePlink" Name="TortoisePlink.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoisePlink.exe" />
               <File Id="F__TSVNCache" Name="TSVNCache.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TSVNCache.exe" />

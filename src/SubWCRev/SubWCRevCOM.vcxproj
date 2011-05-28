@@ -158,14 +158,14 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\debug_win32\libsvn_wc-nonet.lib;../../ext/Subversion\debug_win32\libsvn_ra-nonet.lib;../../ext/Subversion\debug_win32\libsvn_delta-nonet.lib;../../ext/Subversion\debug_win32\libsvn_diff-nonet.lib;../../ext/Subversion\debug_win32\libsvn_subr-nonet.lib;../../ext/Subversion\debug_win32\libsvn_client-nonet.lib;../../ext/Subversion\debug_win32\libsvn_fs_util-nonet.lib;../../ext/apr\debug_win32\libapr_tsvn.lib;../../ext/apr-util\debug_win32\libaprutil_tsvn.lib;../../ext/libintl/debug_win32/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\debug_win32\libsvn_tsvn32.lib;../../ext/apr\debug_win32\libapr_tsvn.lib;../../ext/apr-util\debug_win32\libaprutil_tsvn.lib;../../ext/libintl/debug_win32/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)SubWCRevCOM.exe</OutputFile>
       <IgnoreSpecificDefaultLibraries>LIBC.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -185,14 +185,14 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\debug_x64\libsvn_wc-nonet.lib;../../ext/Subversion\debug_x64\libsvn_ra-nonet.lib;../../ext/Subversion\debug_x64\libsvn_delta-nonet.lib;../../ext/Subversion\debug_x64\libsvn_diff-nonet.lib;../../ext/Subversion\debug_x64\libsvn_subr-nonet.lib;../../ext/Subversion\debug_x64\libsvn_client-nonet.lib;../../ext/Subversion\debug_x64\libsvn_fs_util-nonet.lib;../../ext/apr\debug_x64\libapr_tsvn.lib;../../ext/apr-util\debug_x64\libaprutil_tsvn.lib;../../ext/libintl/debug_x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\debug_x64\libsvn_tsvn.lib;../../ext/apr\debug_x64\libapr_tsvn.lib;../../ext/apr-util\debug_x64\libaprutil_tsvn.lib;../../ext/libintl/debug_x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)SubWCRevCOM.exe</OutputFile>
       <IgnoreSpecificDefaultLibraries>LIBC.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -218,7 +218,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_win32\libsvn_wc-nonet.lib;../../ext/Subversion\release_win32\libsvn_ra-nonet.lib;../../ext/Subversion\release_win32\libsvn_delta-nonet.lib;../../ext/Subversion\release_win32\libsvn_diff-nonet.lib;../../ext/Subversion\release_win32\libsvn_subr-nonet.lib;../../ext/Subversion\release_win32\libsvn_client-nonet.lib;../../ext/Subversion\release_win32\libsvn_fs_util-nonet.lib;../../ext/apr\release_win32\libapr_tsvn.lib;../../ext/apr-util\release_win32\libaprutil_tsvn.lib;../../ext/libintl/release_win32/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_win32\libsvn_tsvn32.lib;../../ext/apr\release_win32\libapr_tsvn.lib;../../ext/apr-util\release_win32\libaprutil_tsvn.lib;../../ext/libintl/release_win32/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)SubWCRevCOM.exe</OutputFile>
       <IgnoreSpecificDefaultLibraries>LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -246,7 +246,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_x64\libsvn_wc-nonet.lib;../../ext/Subversion\release_x64\libsvn_ra-nonet.lib;../../ext/Subversion\release_x64\libsvn_delta-nonet.lib;../../ext/Subversion\release_x64\libsvn_diff-nonet.lib;../../ext/Subversion\release_x64\libsvn_subr-nonet.lib;../../ext/Subversion\release_x64\libsvn_client-nonet.lib;../../ext/Subversion\release_x64\libsvn_fs_util-nonet.lib;../../ext/apr\release_x64\libapr_tsvn.lib;../../ext/apr-util\release_x64\libaprutil_tsvn.lib;../../ext/libintl/release_x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_x64\libsvn_tsvn.lib;../../ext/apr\release_x64\libapr_tsvn.lib;../../ext/apr-util\release_x64\libaprutil_tsvn.lib;../../ext/libintl/release_x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)SubWCRevCOM.exe</OutputFile>
       <IgnoreSpecificDefaultLibraries>LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -274,7 +274,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;Rpcrt4.lib;../../ext/Subversion\releasestatic_win32\libsvn_wc-nonet.lib;../../ext/Subversion\releasestatic_win32\libsvn_ra-nonet.lib;../../ext/Subversion\releasestatic_win32\libsvn_delta-nonet.lib;../../ext/Subversion\releasestatic_win32\libsvn_diff-nonet.lib;../../ext/Subversion\releasestatic_win32\libsvn_subr-nonet.lib;../../ext/Subversion\releasestatic_win32\libsvn_client-nonet.lib;../../ext/Subversion\releasestatic_win32\libsvn_fs_util-nonet.lib;../../ext/apr\releasestatic_win32\libapr_tsvn.lib;../../ext/apr-util\releasestatic_win32\libaprutil_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Ws2_32.lib;Mswsock.lib;Crypt32.lib;Secur32.lib;shlwapi.lib;Version.lib;Rpcrt4.lib;../../ext/Subversion\releasestatic_win32\libsvn_tsvn32.lib;../../ext/apr\releasestatic_win32\libapr_tsvn.lib;../../ext/apr-util\releasestatic_win32\libaprutil_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)SubWCRevCOM.exe</OutputFile>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -303,7 +303,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_x64\libsvn_wc-nonet.lib;../../ext/Subversion\release_x64\libsvn_ra-nonet.lib;../../ext/Subversion\release_x64\libsvn_delta-nonet.lib;../../ext/Subversion\release_x64\libsvn_diff-nonet.lib;../../ext/Subversion\release_x64\libsvn_subr-nonet.lib;../../ext/Subversion\release_x64\libsvn_client-nonet.lib;../../ext/Subversion\release_x64\libsvn_fs_util-nonet.lib;../../ext/apr\release_x64\libapr_tsvn.lib;../../ext/apr-util\release_x64\libaprutil_tsvn.lib;../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Ws2_32.lib;Mswsock.lib;Crypt32.lib;Secur32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_x64\libsvn_tsvn.lib;../../ext/apr\release_x64\libapr_tsvn.lib;../../ext/apr-util\release_x64\libaprutil_tsvn.lib;../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)SubWCRevCOM.exe</OutputFile>
       <IgnoreSpecificDefaultLibraries>LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -330,7 +330,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;Rpcrt4.lib;../../ext/Subversion\debugstatic_win32\libsvn_wc-nonet.lib;../../ext/Subversion\debugstatic_win32\libsvn_ra-nonet.lib;../../ext/Subversion\debugstatic_win32\libsvn_delta-nonet.lib;../../ext/Subversion\debugstatic_win32\libsvn_diff-nonet.lib;../../ext/Subversion\debugstatic_win32\libsvn_subr-nonet.lib;../../ext/Subversion\debugstatic_win32\libsvn_client-nonet.lib;../../ext/Subversion\debugstatic_win32\libsvn_fs_util-nonet.lib;../../ext/apr\debugstatic_win32\libapr_tsvn.lib;../../ext/apr-util\debugstatic_win32\libaprutil_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Ws2_32.lib;Mswsock.lib;Crypt32.lib;Secur32.lib;shlwapi.lib;Version.lib;Rpcrt4.lib;../../ext/Subversion\debugstatic_win32\libsvn_tsvn32.lib;../../ext/apr\debugstatic_win32\libapr_tsvn.lib;../../ext/apr-util\debugstatic_win32\libaprutil_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)SubWCRevCOM.exe</OutputFile>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -358,7 +358,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Ws2_32.lib;Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_x64\libsvn_wc-nonet.lib;../../ext/Subversion\release_x64\libsvn_ra-nonet.lib;../../ext/Subversion\release_x64\libsvn_delta-nonet.lib;../../ext/Subversion\release_x64\libsvn_diff-nonet.lib;../../ext/Subversion\release_x64\libsvn_subr-nonet.lib;../../ext/Subversion\release_x64\libsvn_client-nonet.lib;../../ext/Subversion\release_x64\libsvn_fs_util-nonet.lib;../../ext/apr\release_x64\libapr_tsvn.lib;../../ext/apr-util\release_x64\libaprutil_tsvn.lib;../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Ws2_32.lib;Mswsock.lib;Crypt32.lib;Secur32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_x64\libsvn_tsvn.lib;../../ext/apr\release_x64\libapr_tsvn.lib;../../ext/apr-util\release_x64\libaprutil_tsvn.lib;../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)SubWCRevCOM.exe</OutputFile>
       <IgnoreSpecificDefaultLibraries>LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>

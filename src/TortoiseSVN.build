@@ -70,10 +70,8 @@
         <include name="..\ext\apr\${configuration}_${platform}\libapr_tsvn${platext}.dll"/>
         <include name="..\ext\apr-util\${configuration}_${platform}\libaprutil_tsvn${platext}.dll" />
         <include name="..\ext\cyrus-SASL\${configuration}_${platform}\libsasl.dll" />
-        <include name="..\ext\Subversion\${configuration}_${platform}\svn.exe" />
-        <include name="..\ext\Subversion\${configuration}_${platform}\svnadmin.exe" />
-        <include name="..\ext\Subversion\${configuration}_${platform}\svnserve.exe" />
-        <include name="..\ext\Subversion\${configuration}_${platform}\svnversion.exe" />
+        <include name="..\ext\Subversion\${configuration}_${platform}\*.exe" />
+        <include name="..\ext\Subversion\${configuration}_${platform}\*.dll" />
       </fileset>
     </copy>
     <copy todir="..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false" >

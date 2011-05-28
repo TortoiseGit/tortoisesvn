@@ -235,16 +235,10 @@
         <arg value="${signinfo}" />
         <arg value="bin\releasestatic\bin\TortoiseIDiff.exe" />
       </exec>
-      <exec program="signtool">
-        <arg value="sign" />
-        <arg value="${signinfo}" />
-        <arg value="bin\releasestatic\bin\TortoiseMerge.exe" />
-      </exec>
     </if>
     <zip zipfile="bin\TortoiseDiff.zip" ziplevel="9">
       <fileset basedir="bin\releasestatic\bin">
         <include name="TortoiseIDiff.exe" />
-        <include name="TortoiseMerge.exe" />
       </fileset>
     </zip>
   </target>

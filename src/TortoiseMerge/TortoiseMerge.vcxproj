@@ -1,28 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="debug_static|Win32">
-      <Configuration>debug_static</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="debug_static|x64">
-      <Configuration>debug_static</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="release_static|Win32">
-      <Configuration>release_static</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="release_static|x64">
-      <Configuration>release_static</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
@@ -48,20 +32,6 @@
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseOfMfc>Static</UseOfMfc>
-    <CharacterSet>Unicode</CharacterSet>
-    <CLRSupport>false</CLRSupport>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseOfMfc>Static</UseOfMfc>
-    <CharacterSet>Unicode</CharacterSet>
-    <CLRSupport>false</CLRSupport>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
@@ -76,20 +46,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseOfMfc>Dynamic</UseOfMfc>
-    <CharacterSet>Unicode</CharacterSet>
-    <CLRSupport>false</CLRSupport>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseOfMfc>Dynamic</UseOfMfc>
-    <CharacterSet>Unicode</CharacterSet>
-    <CLRSupport>false</CLRSupport>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -106,12 +62,6 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
@@ -121,14 +71,6 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -145,24 +87,12 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\bin\Release\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\obj\TortoiseMerge\Release\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">..\..\bin\ReleaseStatic\bin\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">..\..\obj\TortoiseMerge\ReleaseStatic\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">..\..\bin\DebugStatic\bin\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">..\..\obj\TortoiseMerge\DebugStatic\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\bin\Debug64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\obj\TortoiseMerge\Debug64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\bin\Release64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\obj\TortoiseMerge\Release64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(Platform)\$(Configuration)\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(Platform)\$(Configuration)\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -188,7 +118,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\debug_win32\libsvn_diff-nonet.lib;../../ext/Subversion\debug_win32\libsvn_subr-nonet.lib;../../ext/Subversion\debug_win32\libsvn_client-nonet.lib;../../ext/apr\debug_win32\libapr_tsvn.lib;../../ext/apr-util\debug_win32\libaprutil_tsvn.lib;../../ext/libintl/debug_win32/lib/intl3_tsvn.lib;../../ext/Subversion\debug_win32\libsvn_wc-nonet.lib;../../ext/Subversion\debug_win32\libsvn_delta-nonet.lib;../../ext/Subversion\debug_win32\libsvn_fs_util-nonet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\debug_win32\libsvn_tsvn32.lib;../../ext/apr\debug_win32\libapr_tsvn.lib;../../ext/apr-util\debug_win32\libaprutil_tsvn.lib;../../ext/libintl/debug_win32/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -219,72 +149,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_win32\libsvn_diff-nonet.lib;../../ext/Subversion\release_win32\libsvn_subr-nonet.lib;../../ext/Subversion\release_win32\libsvn_client-nonet.lib;../../ext/apr\release_win32\libapr_tsvn.lib;../../ext/apr-util\release_win32\libaprutil_tsvn.lib;../../ext/libintl/release_win32/lib/intl3_tsvn.lib;../../ext/Subversion\release_win32\libsvn_wc-nonet.lib;../../ext/Subversion\release_win32\libsvn_delta-nonet.lib;../../ext/Subversion\release_win32\libsvn_fs_util-nonet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">
-    <Midl>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MkTypLibCompatible>false</MkTypLibCompatible>
-    </Midl>
-    <ClCompile>
-      <Optimization>Full</Optimization>
-      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>..\..\ext\apr\include;..\..\ext\apr-util\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI;..\..\ext\ResizableLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC;SVN_NONET;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Link>
-      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;Rpcrt4.lib;../../ext/Subversion\releasestatic_win32\libsvn_diff-nonet.lib;../../ext/Subversion\releasestatic_win32\libsvn_subr-nonet.lib;../../ext/Subversion\releasestatic_win32\libsvn_client-nonet.lib;../../ext/apr\releasestatic_win32\libapr_tsvn.lib;../../ext/apr-util\releasestatic_win32\libaprutil_tsvn.lib;../../ext/Subversion\releasestatic_win32\libsvn_wc-nonet.lib;../../ext/Subversion\releasestatic_win32\libsvn_delta-nonet.lib;../../ext/Subversion\releasestatic_win32\libsvn_fs_util-nonet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">
-    <Midl>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MkTypLibCompatible>false</MkTypLibCompatible>
-    </Midl>
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>..\..\ext\apr\include;..\..\ext\apr-util\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI;..\..\ext\ResizableLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC;SVN_NONET;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Link>
-      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;Rpcrt4.lib;../../ext/Subversion\debugstatic_win32\libsvn_diff-nonet.lib;../../ext/Subversion\debugstatic_win32\libsvn_subr-nonet.lib;../../ext/Subversion\debugstatic_win32\libsvn_client-nonet.lib;../../ext/apr\debugstatic_win32\libapr_tsvn.lib;../../ext/apr-util\debugstatic_win32\libaprutil_tsvn.lib;../../ext/Subversion\debugstatic_win32\libsvn_wc-nonet.lib;../../ext/Subversion\debugstatic_win32\libsvn_delta-nonet.lib;../../ext/Subversion\debugstatic_win32\libsvn_fs_util-nonet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_win32\libsvn_tsvn32.lib;../../ext/apr\release_win32\libapr_tsvn.lib;../../ext/apr-util\release_win32\libaprutil_tsvn.lib;../../ext/libintl/release_win32/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -317,7 +182,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\debug_x64\libsvn_diff-nonet.lib;../../ext/Subversion\debug_x64\libsvn_subr-nonet.lib;../../ext/Subversion\debug_x64\libsvn_client-nonet.lib;../../ext/apr\debug_x64\libapr_tsvn.lib;../../ext/apr-util\debug_x64\libaprutil_tsvn.lib;../../ext/libintl/debug_x64/lib/intl3_tsvn.lib;../../ext/Subversion\debug_x64\libsvn_wc-nonet.lib;../../ext/Subversion\debug_x64\libsvn_delta-nonet.lib;../../ext/Subversion\debug_x64\libsvn_fs_util-nonet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\debug_x64\libsvn_tsvn.lib;../../ext/apr\debug_x64\libapr_tsvn.lib;../../ext/apr-util\debug_x64\libaprutil_tsvn.lib;../../ext/libintl/debug_x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
@@ -350,74 +215,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_x64\libsvn_diff-nonet.lib;../../ext/Subversion\release_x64\libsvn_subr-nonet.lib;../../ext/Subversion\release_x64\libsvn_client-nonet.lib;../../ext/apr\release_x64\libapr_tsvn.lib;../../ext/apr-util\release_x64\libaprutil_tsvn.lib;../../ext/libintl/release_x64/lib/intl3_tsvn.lib;../../ext/Subversion\release_x64\libsvn_wc-nonet.lib;../../ext/Subversion\release_x64\libsvn_delta-nonet.lib;../../ext/Subversion\release_x64\libsvn_fs_util-nonet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">
-    <Midl>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MkTypLibCompatible>false</MkTypLibCompatible>
-      <TargetEnvironment>X64</TargetEnvironment>
-    </Midl>
-    <ClCompile>
-      <Optimization>Full</Optimization>
-      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>..\..\ext\apr\include;..\..\ext\apr-util\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI;..\..\ext\ResizableLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN64;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC;SVN_NONET;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Link>
-      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_x64\libsvn_diff-nonet.lib;../../ext/Subversion\release_x64\libsvn_subr-nonet.lib;../../ext/Subversion\release_x64\libsvn_client-nonet.lib;../../ext/apr\release_x64\libapr_tsvn.lib;../../ext/apr-util\release_x64\libaprutil_tsvn.lib;../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib;../../ext/Subversion\release_x64\libsvn_wc-nonet.lib;../../ext/Subversion\release_x64\libsvn_delta-nonet.lib;../../ext/Subversion\release_x64\libsvn_fs_util-nonet.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <TargetMachine>MachineX64</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">
-    <Midl>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MkTypLibCompatible>false</MkTypLibCompatible>
-      <TargetEnvironment>X64</TargetEnvironment>
-    </Midl>
-    <ClCompile>
-      <Optimization>Full</Optimization>
-      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
-      <AdditionalIncludeDirectories>..\..\ext\apr\include;..\..\ext\apr-util\include;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_diff;..\Utils;..\Utils\NewMenu;..\Utils\ColourPickerXP;..\TortoiseMerge;..\crashrpt;..\;..\SVN;..\Utils\MiscUI;..\..\ext\ResizableLib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN64;_WINDOWS;NDEBUG;APR_DECLARE_STATIC;APU_DECLARE_STATIC;SVN_NONET;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Link>
-      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_x64\libsvn_diff-nonet.lib;../../ext/Subversion\release_x64\libsvn_subr-nonet.lib;../../ext/Subversion\release_x64\libsvn_client-nonet.lib;../../ext/apr\release_x64\libapr_tsvn.lib;../../ext/apr-util\release_x64\libaprutil_tsvn.lib;../../ext/libintl/libintl3-x64/lib/intl3_tsvn.lib;../../ext/Subversion\release_x64\libsvn_wc-nonet.lib;../../ext/Subversion\release_x64\libsvn_delta-nonet.lib;../../ext/Subversion\release_x64\libsvn_fs_util-nonet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;shlwapi.lib;Version.lib;../../ext/Subversion\release_x64\libsvn_tsvn.lib;../../ext/apr\release_x64\libapr_tsvn.lib;../../ext/apr-util\release_x64\libaprutil_tsvn.lib;../../ext/libintl/release_x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -439,14 +237,10 @@
     <ClCompile Include="..\SVN\SVNRev.cpp" />
     <ClCompile Include="..\SVN\TSVNPath.cpp" />
     <ClCompile Include="..\Utils\accHelper.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Template|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -485,10 +279,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Svn\SVNAdminDir.cpp" />
     <ClCompile Include="..\SVN\SVNLineDiff.cpp" />
@@ -511,14 +301,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\FileDropEdit.cpp" />
