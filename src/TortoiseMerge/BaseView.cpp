@@ -1989,12 +1989,8 @@ void CBaseView::OnDestroy()
 
 void CBaseView::OnSize(UINT nType, int cx, int cy)
 {
+    CView::OnSize(nType, cx, cy);
     ReleaseBitmap();
-    // make sure the view header is redrawn
-    CRect rcScroll;
-    GetClientRect(&rcScroll);
-    rcScroll.bottom = GetLineHeight()+HEADERHEIGHT;
-    InvalidateRect(&rcScroll, FALSE);
 
     m_nScreenLines = -1;
     m_nScreenChars = -1;
@@ -2002,16 +1998,27 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
     {
         BuildAllScreen2ViewVector();
         m_nLastScreenChars = m_nScreenChars;
+        if (m_pMainFrame && m_pMainFrame->m_bWrapLines)
+        {
+            // if we're in wrap mode, the line wrapping most likely changed
+            // and that means we have to redraw the whole window, not just the
+            // scrolled part.
+            Invalidate(FALSE);
+        }
     }
     else
     {
+        // make sure the view header is redrawn
+        CRect rcScroll;
+        GetClientRect(&rcScroll);
+        rcScroll.bottom = GetLineHeight()+HEADERHEIGHT;
+        InvalidateRect(&rcScroll, FALSE);
+
         UpdateLocator();
         RecalcVertScrollBar();
         RecalcHorzScrollBar();
     }
     //TODO: EnsureCaretVisible, UpdateCaret();
-
-    CView::OnSize(nType, cx, cy);
 }
 
 BOOL CBaseView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
