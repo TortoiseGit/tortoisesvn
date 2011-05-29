@@ -3192,7 +3192,17 @@ POINT CBaseView::ConvertViewPosToScreen(const POINT& pt)
             nSubLineLength = GetLineChars(ptPos.y).GetLength();
         }
         // last pos of non last subline go to start of next screen line
-        if (nSubLineLength == ptPos.x && nViewLineLenLeft > nSubLineLength) {
+        // Note: while this works correctly, it's not what a user might expect:
+        // cursor-right when the caret is before the last char of a wrapped line
+        // now moves the caret to the next line. But users expect the caret to
+        // move to the right of the last char instead, and with another cursor-right
+        // keystroke to move the caret to the next line.
+        // Basically, this would require to handle two caret positions for the same
+        // logical position in the line string (one on the last position of the first line,
+        // one on the first position of the new line. For non-wrapped lines this works
+        // because there's an 'invisible' newline char at the end of the first line.
+        if (nSubLineLength == ptPos.x && nViewLineLenLeft > nSubLineLength)
+        {
             ptPos.x = 0;
             ptPos.y++;
         }
