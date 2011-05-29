@@ -3,7 +3,7 @@
 <sect1 id="tsvn-dug-rename">
     <title>Deleting, Moving and Renaming</title>
     <para>
-        Unlike CVS, Subversion allows renaming and moving of files and
+        Subversion allows renaming and moving of files and
         folders. So there are menu entries for delete and rename
         in the TortoiseSVN submenu.
         <figure id="tsvn-dug-renaming-dia-1">
@@ -231,71 +231,6 @@
                 and destination parent folders.
             </para>
         </caution>
-    </sect2>
-    <sect2 id="tsvn-dug-renameincase">
-        <title>Changing case in a filename</title>
-        <indexterm>
-            <primary>case change</primary>
-        </indexterm>
-        <para>
-            Making case-only changes to a filename is tricky with Subversion
-            on Windows, because for a short time during a rename, both filenames
-            have to exist. As Windows has a case-insensitive file system,
-            this does not work using the usual Rename command.
-        </para>
-        <para>
-            Fortunately there are (at least) two possible methods to rename a file
-            without losing its log history. It is important to rename it
-            within subversion. Just renaming in the explorer will corrupt
-            your working copy!
-        </para>
-        <para>
-            Solution A) (recommended)
-            <orderedlist>
-                <listitem>
-                    <para>
-                        Commit the changes in your working copy.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Rename the file from UPPERcase to upperCASE directly
-                        in the repository using the repository browser.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Update your working copy.
-                    </para>
-                </listitem>
-            </orderedlist>
-        </para>
-        <para>
-            Solution B)
-            <orderedlist>
-                <listitem>
-                    <para>
-                        Rename from UPPERcase to UPPERcase_ with the rename command
-                        in the TortoiseSVN submenu.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Commit the changes.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Rename from UPPERcase_ to upperCASE.
-                    </para>
-                </listitem>
-                <listitem>
-                    <para>
-                        Commit the changes.
-                    </para>
-                </listitem>
-            </orderedlist>
-        </para>
     </sect2>
     <sect2 id="tsvn-dug-rename-case-conflict">
         <title>Dealing with filename case conflicts</title>
