@@ -3231,10 +3231,6 @@ int CBaseView::CalculateActualOffset(const POINT& point)
 int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
 {
     int nLength = GetLineLength(nLineIndex);
-    if ((GetSubLineOffset(nLineIndex) != -1) && (GetSubLineOffset(nLineIndex) != CountMultiLines(GetViewLineForScreen(nLineIndex))-1)) // not last screen line of view line
-    {
-        nLength--;
-    }
     LPCTSTR pszLine = GetLineChars(nLineIndex);
     int nIndex = 0;
     int nOffset = 0;
