@@ -533,7 +533,10 @@ bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title,
             if (bOpen)
                 hr = pfd->SetOptions(dwOptions | FOS_FILEMUSTEXIST | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
             else
+            {
                 hr = pfd->SetOptions(dwOptions | FOS_OVERWRITEPROMPT | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
+                hr = pfd->SetFileName(CPathUtils::GetFileNameFromPath(path));
+            }
         }
 
         // Set a title
