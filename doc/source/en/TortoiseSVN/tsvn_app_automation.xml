@@ -43,17 +43,12 @@
             several paths, separated by a <literal>*</literal> character.
         </para>
         <para>
-            TortoiseSVN uses temporary files to pass multiple arguments between
-            the shell extension and the main program. From TortoiseSVN 1.5.0 on and later,
-            <option>/notempfile</option> parameter is obsolete and there is no need
-            to add it anymore.
-        </para>
-        <para>
             You can also specify a file which contains a list of paths, separated by
-            newlines. The file must be in UTF-16 format. If you pass such a file, use
-            <option>/pathfile</option> instead of <option>/path</option>. To have
-            TortoiseProc delete that file after the command is finished, you
-            can pass the parameter <option>/deletepathfile</option>.
+            newlines. The file must be in UTF-16 format, without a 
+            <ulink url="http://en.wikipedia.org/wiki/Byte-order_mark"><citetitle>BOM</citetitle></ulink>. 
+            If you pass such a file, use <option>/pathfile</option> instead of 
+            <option>/path</option>. To have TortoiseProc delete that file after 
+            the command is finished, you can pass the parameter <option>/deletepathfile</option>.
         </para>
         <para>
             The progress dialog which is used for commits, updates and many more commands
