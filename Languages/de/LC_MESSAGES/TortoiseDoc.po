@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-26 14:27+0000\n"
+"PO-Revision-Date: 2011-05-30 07:44+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -904,7 +904,7 @@ msgstr ""
 #. (term)
 #. (glossterm)
 msgid "Working Copy"
-msgstr "Die Arbeitskopie"
+msgstr "Arbeitskopie"
 
 #. (para)
 msgid ""
@@ -4247,7 +4247,7 @@ msgstr ""
 
 #. (term)
 msgid "Immediate children, including folders"
-msgstr "Direkte Kinder, inklusive Ordner"
+msgstr "Direkte Unterobjekte, einschließlich Ordnern"
 
 #. (para)
 msgid ""
@@ -4259,7 +4259,7 @@ msgstr ""
 
 #. (term)
 msgid "Only file children"
-msgstr "Nur Dateien"
+msgstr "Nur Dateiobjekte"
 
 #. (para)
 msgid ""
@@ -7139,7 +7139,7 @@ msgstr ""
 
 #. (term)
 msgid "Compare with previous revision"
-msgstr "Vergleiche mit der vorherigen Revision"
+msgstr "Vergleiche mit vorheriger Revision"
 
 #. (para)
 msgid ""
@@ -7434,7 +7434,7 @@ msgstr ""
 
 #. (term)
 msgid "Show revision properties"
-msgstr "Zeige Revisionseigenschaften"
+msgstr "Revisionseigenschaften zeigen"
 
 #. (para)
 msgid ""
@@ -7447,7 +7447,7 @@ msgstr ""
 #. (term)
 #. (term)
 msgid "Copy to clipboard"
-msgstr "In die Zwischenablage kopieren"
+msgstr "In Zwischenablage kopieren"
 
 #. (para)
 msgid ""
@@ -7664,7 +7664,7 @@ msgstr "Die Logmeldungen für die ausgewählte Datei anzeigen."
 
 #. (term)
 msgid "Get merge logs"
-msgstr "Integrationslogs anzeigen"
+msgstr "Logs vom Zusammenführen holen"
 
 #. (para)
 msgid ""
@@ -12426,9 +12426,9 @@ msgid ""
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
 msgstr ""
-"Diese Methode wird benutzt wenn Sie Änderungen an einem Zweig (branch) oder "
-"Stamm (trunk) der Entwicklung gemacht haben und diese nun mit einem anderen "
-"Zweig (bzw. Stamm) zusammenführen möchten."
+"Diese Methode deckt den Fall ab, dass Sie Änderungen an einem Zweig (oder "
+"dem Stamm) vorgenommen haben und diese Änderungen in einen anderen Zweig "
+"übertragen wollen."
 
 #. (para)
 msgid ""
@@ -17253,7 +17253,7 @@ msgstr ""
 
 #. (term)
 msgid "Max. items to keep in the log message history"
-msgstr "Maximale Anzahl zu merkender Log-Einträge"
+msgstr "Maximale Anzahl der zu merkenden Log-Einträge"
 
 #. (para)
 msgid ""
@@ -17296,7 +17296,7 @@ msgstr ""
 
 #. (term)
 msgid "Select items automatically"
-msgstr "Objekte automatisch auswählen"
+msgstr "Zu übertragende Objekte automatisch markieren"
 
 #. (para)
 msgid ""
@@ -17327,7 +17327,7 @@ msgstr ""
 
 #. (term)
 msgid "Show Lock dialog before locking files"
-msgstr "Zeige den Sperrdialog bevor Dateien gesperrt werden"
+msgstr "Sperrdialog vor dem Sperren anzeigen"
 
 #. (para)
 msgid ""
@@ -17445,7 +17445,7 @@ msgstr ""
 
 #. (term)
 msgid "Deleted node"
-msgstr "Knoten gelöscht"
+msgstr "Gelöschter Knoten"
 
 #. (para)
 msgid "An item which has been deleted from the repository."
@@ -17453,7 +17453,7 @@ msgstr "Ein Objekt, das aus dem Projektarchiv gelöscht wurde."
 
 #. (term)
 msgid "Added node"
-msgstr "Knoten hinzugefügt"
+msgstr "Hinzugefügter Knoten"
 
 #. (para)
 msgid ""
@@ -17465,7 +17465,7 @@ msgstr ""
 
 #. (term)
 msgid "Renamed node"
-msgstr "Knoten umbenannt"
+msgstr "Umbenannter Knoten"
 
 #. (para)
 msgid "An item which has been renamed within the repository."
@@ -17473,7 +17473,7 @@ msgstr "Ein Objekt, das im Projektarchiv umbenannt wurde."
 
 #. (term)
 msgid "Replaced node"
-msgstr "Knoten ersetzt"
+msgstr "Ersetzter Knoten"
 
 #. (para)
 msgid ""
@@ -17714,7 +17714,7 @@ msgstr ""
 
 #. (term)
 msgid "Stripes"
-msgstr "Streifen"
+msgstr "Streifenfarben"
 
 #. (para)
 msgid ""
@@ -17826,7 +17826,7 @@ msgstr ""
 
 #. (term)
 msgid "None"
-msgstr "Ohne"
+msgstr "Keine"
 
 #. (para)
 msgid ""
@@ -18610,7 +18610,7 @@ msgstr ""
 
 #. (term)
 msgid "Log messages (Show log dialog)"
-msgstr "Logmeldungen (Zeige Log-Dialog)"
+msgstr "Logmeldungen (Zeige Log)"
 
 #. (para)
 msgid ""
@@ -19523,7 +19523,7 @@ msgstr ""
 
 #. (term)
 msgid "Font"
-msgstr "Schrift"
+msgstr "Schriftart"
 
 #. (para)
 msgid ""
@@ -20046,7 +20046,7 @@ msgstr "Liste der Kommandozeilenoptionen"
 #. (title)
 #. (glossterm)
 msgid "Switch"
-msgstr "Wechseln zu"
+msgstr "Wechseln"
 
 #. (entry)
 #. (entry)
@@ -22647,7 +22647,7 @@ msgstr "Hinzufügen"
 #. (title)
 #. (glossterm)
 msgid "Revert"
-msgstr "Rückgängig"
+msgstr "Änderungen rückgängig"
 
 #. (entry)
 #. (glossterm)
@@ -22658,7 +22658,7 @@ msgstr "Konflikt lösen"
 #. (title)
 #. (glossterm)
 msgid "Export"
-msgstr "Exportieren"
+msgstr "Export"
 
 #. (entry)
 msgid "Create Repository here"
@@ -22714,7 +22714,7 @@ msgstr "Umplatzieren"
 
 #. (entry)
 msgid "Check for modifications"
-msgstr "Prüfe auf Änderungen"
+msgstr "Auf Änderungen überprüfen"
 
 #. (entry)
 msgid "Ignore"
@@ -22722,7 +22722,7 @@ msgstr "Ignorieren"
 
 #. (entry)
 msgid "Repository Browser"
-msgstr "Projektarchivbetrachter"
+msgstr "Projektarchiv betrachten"
 
 #. (entry)
 #. (title)
@@ -22747,7 +22747,7 @@ msgstr "Revisionsgraph"
 #. (entry)
 #. (glossterm)
 msgid "Lock"
-msgstr "Sperren"
+msgstr "Sperre"
 
 #. (entry)
 msgid "Remove Lock"
@@ -22763,7 +22763,7 @@ msgstr "Vergleiche mit URL"
 
 #. (entry)
 msgid "Delete unversioned items"
-msgstr "Nicht versionierte Dateien löschen"
+msgstr "Nicht versionierte Objekte löschen"
 
 #. (entry)
 msgid "Merge All"
@@ -25411,7 +25411,7 @@ msgstr ""
 
 #. (glossterm)
 msgid "Log"
-msgstr "Protokoll"
+msgstr "Log"
 
 #. (para)
 msgid ""
@@ -27378,7 +27378,7 @@ msgstr ""
 
 #. (emphasis)
 msgid "merged"
-msgstr "Zieldatei"
+msgstr "Zusammengeführt"
 
 #. (entry)
 msgid ""
