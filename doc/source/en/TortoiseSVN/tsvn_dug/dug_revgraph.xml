@@ -187,7 +187,7 @@
                             a branch will be shown in (often) consecutive lines.
                             Sub-branches, however, are arranged in such a way that
                             later branches will be shown in the same column above
-                            older branches to keep the graph slim. As a result, a
+                            earlier branches to keep the graph slim. As a result, a
                             given row may contain changes from different revisions.
                         </para>
                     </listitem>
@@ -219,12 +219,13 @@
                     <term>Reduce cross lines</term>
                     <listitem>
                         <para>
-                            If the layout of the graph has produced a lot of
-                            crossing lines, use this option to clean it up.
-                            This may make the layout columns appear in less
-                            logical places, for example in a diagonal line
+                            This option is normally enabled and avoids showing
+                            the graph with a lot of confused crossing lines.
+                            However this may also make the layout columns appear
+                            in less logical places, for example in a diagonal line
                             rather than a column, and the graph may require a
-                            larger area to draw.
+                            larger area to draw. If this is a problem you can disable
+                            the option from the <guilabel>View</guilabel> menu.
                         </para>
                     </listitem>
                 </varlistentry>
@@ -293,6 +294,12 @@
                             shows them instead in the tooltip for the node that
                             they were copied from. A tag icon on the right side
                             of the source node indicates that tags were made.
+                            This greatly simplifies the view.
+                        </para>
+                        <para>
+                            Note that if a tag is itself used as the source for a
+                            copy, perhaps a new branch based on a tag, then that
+                            tag will be shown as a separate node rather than folded.
                         </para>
                     </listitem>
                 </varlistentry>
@@ -302,6 +309,19 @@
                         <para>
                             Hides paths which are no longer present at the HEAD
                             revision of the repository, e.g. deleted branches.
+                        </para>
+                        <para>
+                            If you have selected the <guilabel>Fold tags</guilabel>
+                            option then a deleted branch from which tags were taken
+                            will still be shown, otherwise the tags would disappear too.
+                            The last revision that was tagged will be shown in the
+                            colour used for deleted nodes instead of showing a separate
+                            deletion revision.
+                        </para>
+                        <para>
+                            If you select the <guilabel>Hide tags</guilabel> option
+                            then these branches will disappear again as they are not
+                            needed to show the tags.
                         </para>
                     </listitem>
                 </varlistentry>
