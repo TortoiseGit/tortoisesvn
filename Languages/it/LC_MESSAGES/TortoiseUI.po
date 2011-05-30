@@ -9,12 +9,15 @@
 # $Rev$
 # 
 # Authors:
+# Roberto Casazza <roberto.casazza@alice.it>, 2011
+# Cecilia Saltori <csaltori@gmail.com>, 2011
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-22 00:31+0000\n"
+"PO-Revision-Date: 2011-05-29 00:30+0000\n"
 "Last-Translator: RobertoCaszza <roberto.casazza@alice.it>\n"
 "Language-Team: Italian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2066,14 +2069,6 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr "Applica Patch..."
 
-#. Resource IDs: (1562)
-msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
-
-#. Resource IDs: (1529)
-msgid "Apply local svn:externals modifications"
-msgstr ""
-
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr "Applica confronto unificato"
@@ -2327,6 +2322,10 @@ msgstr "Bug-ID è:"
 #. Resource IDs: (117)
 msgid "Bug-IDs"
 msgstr "Bug-ID"
+
+#. Resource IDs: (327)
+msgid "Bugtraq Regex Tester - TortoiseSVN"
+msgstr ""
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -8615,6 +8614,22 @@ msgstr "SVN mime-type"
 msgid "SVN short URL"
 msgstr "SVN URL corta"
 
+#. Resource IDs: (64)
+msgid ""
+"Sample log message to test the bugtraq: regex strings.\n"
+"\n"
+"Testing mentions of issues inside a text: Mention issue #55. Mention issues #77, #78.\n"
+"\n"
+"Update issue #101\n"
+"Fixes issue #202\n"
+"Resolves issue #88.\n"
+"Closes issue #99.\n"
+msgstr ""
+
+#. Resource IDs: (1612)
+msgid "Sample text:"
+msgstr ""
+
 #. Resource IDs: (57604)
 msgid "Save &As..."
 msgstr "Salva &come..."
@@ -9759,6 +9774,10 @@ msgstr "Pannello Task"
 #. Resource IDs: (219)
 msgid "Test Only"
 msgstr "Solo Test"
+
+#. Resource IDs: (590)
+msgid "Test the regex strings"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Text Status:"

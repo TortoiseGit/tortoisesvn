@@ -9,13 +9,14 @@
 # $Rev$
 # 
 # Authors:
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011, 2011.0
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-22 11:30+0000\n"
+"PO-Revision-Date: 2011-05-29 07:26+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2085,14 +2086,6 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr "Použít Záplatu..."
 
-#. Resource IDs: (1562)
-msgid "Apply local modifications to svn:externals when updating"
-msgstr "Použít místní změny svn:externals při aktualizaci"
-
-#. Resource IDs: (1529)
-msgid "Apply local svn:externals modifications"
-msgstr "Použít místní změny svn:externals"
-
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr "Aplikovat sjednocený rozdíl"
@@ -2343,6 +2336,10 @@ msgstr "ID chyby je:"
 #. Resource IDs: (117)
 msgid "Bug-IDs"
 msgstr "ID chyb"
+
+#. Resource IDs: (327)
+msgid "Bugtraq Regex Tester - TortoiseSVN"
+msgstr "Zkouška Regulárního Výrazu Bugtraq - TortoiseSVN"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -8717,6 +8714,30 @@ msgstr "SVN mime-typ"
 msgid "SVN short URL"
 msgstr "SVN krátké URL"
 
+#. Resource IDs: (64)
+msgid ""
+"Sample log message to test the bugtraq: regex strings.\n"
+"\n"
+"Testing mentions of issues inside a text: Mention issue #55. Mention issues #77, #78.\n"
+"\n"
+"Update issue #101\n"
+"Fixes issue #202\n"
+"Resolves issue #88.\n"
+"Closes issue #99.\n"
+msgstr ""
+"Ukázková zpráva záznamu ke zkoušce řetězců bugtraq:regulárního výrazu.\n"
+"\n"
+"Zkouška zmínky o problémech uvnitř textu: Zmínit problém #55. Zmínit problémy #77, #78.\n"
+"\n"
+"Aktualizace problému #101\n"
+"Opravuje problému #202\n"
+"Řeší problém #88.\n"
+"Uzavírá problém #99.\n"
+
+#. Resource IDs: (1612)
+msgid "Sample text:"
+msgstr "Ukázkový text:"
+
 #. Resource IDs: (57604)
 msgid "Save &As..."
 msgstr "Uložit J&ako..."
@@ -9856,6 +9877,10 @@ msgstr "Panel Úkolů"
 #. Resource IDs: (219)
 msgid "Test Only"
 msgstr "Pouze Test"
+
+#. Resource IDs: (590)
+msgid "Test the regex strings"
+msgstr "Vyzkoušet řetězce regulárního výrazu"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"

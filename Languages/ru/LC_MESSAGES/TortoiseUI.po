@@ -9,12 +9,15 @@
 # $Rev$
 # 
 # Authors:
+# _deniska <denis_levin@mail.ru>, 2011
+# sytkov <sytkov@gmail.com>, 2011
+# Nikolay Osinin <nikolay.osinin@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-22 00:31+0000\n"
+"PO-Revision-Date: 2011-05-29 00:30+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -346,6 +349,10 @@ msgid ""
 "Shall I update the working copy now\n"
 "and then retry?"
 msgstr ""
+"%s\n"
+"\n"
+"Обновить сейчас рабочую копию\n"
+"и затем повторить?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2092,14 +2099,6 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr "Применить за&платку..."
 
-#. Resource IDs: (1562)
-msgid "Apply local modifications to svn:externals when updating"
-msgstr "Применить локальные изменения к svn:externals при обновлении"
-
-#. Resource IDs: (1529)
-msgid "Apply local svn:externals modifications"
-msgstr "Применить локальные изменения svn:externals"
-
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr "Применение объединённых различий"
@@ -2352,6 +2351,10 @@ msgstr "ID ошибок:"
 #. Resource IDs: (117)
 msgid "Bug-IDs"
 msgstr "ID ошибок"
+
+#. Resource IDs: (327)
+msgid "Bugtraq Regex Tester - TortoiseSVN"
+msgstr ""
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -3097,7 +3100,7 @@ msgstr "Командная строка для выполнения:"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
-msgstr ""
+msgstr "Сбой при выполнении команды - Требуется обновление"
 
 #. Resource IDs: (3857)
 msgid "Command failed."
@@ -8767,6 +8770,22 @@ msgstr "SVN Mime-тип"
 msgid "SVN short URL"
 msgstr "SVN Краткий URL"
 
+#. Resource IDs: (64)
+msgid ""
+"Sample log message to test the bugtraq: regex strings.\n"
+"\n"
+"Testing mentions of issues inside a text: Mention issue #55. Mention issues #77, #78.\n"
+"\n"
+"Update issue #101\n"
+"Fixes issue #202\n"
+"Resolves issue #88.\n"
+"Closes issue #99.\n"
+msgstr ""
+
+#. Resource IDs: (1612)
+msgid "Sample text:"
+msgstr ""
+
 #. Resource IDs: (57604)
 msgid "Save &As..."
 msgstr "Сохранить &как..."
@@ -9119,7 +9138,7 @@ msgstr "Настройки - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
-msgstr ""
+msgstr "Обновить рабочую копию и повторить?"
 
 #. Resource IDs: (1270)
 msgid "Shell"
@@ -9914,6 +9933,10 @@ msgstr "Панель задач"
 msgid "Test Only"
 msgstr "Только проверка"
 
+#. Resource IDs: (590)
+msgid "Test the regex strings"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Text Status:"
 msgstr "Статус текста:"
@@ -10404,6 +10427,8 @@ msgid ""
 "The returned error was:\n"
 "%s"
 msgstr ""
+"Была получена ошибка:\n"
+"%s"
 
 #. Resource IDs: (78)
 msgid ""

@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-23 19:00+0000\n"
+"PO-Revision-Date: 2011-05-29 00:30+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2092,14 +2092,6 @@ msgstr ""
 msgid "Apply Patch..."
 msgstr "Primena zakrpe..."
 
-#. Resource IDs: (1562)
-msgid "Apply local modifications to svn:externals when updating"
-msgstr "Примените локалне измене за свн:екстернали када ажурирате"
-
-#. Resource IDs: (1529)
-msgid "Apply local svn:externals modifications"
-msgstr "Примени локални свн:екстернал измене"
-
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
 msgstr "Primena objedinjenih razl"
@@ -2350,6 +2342,10 @@ msgstr "Bag-ID je:"
 #. Resource IDs: (117)
 msgid "Bug-IDs"
 msgstr "ID-baga"
+
+#. Resource IDs: (327)
+msgid "Bugtraq Regex Tester - TortoiseSVN"
+msgstr ""
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -8740,6 +8736,22 @@ msgstr "SVN mime-tip"
 msgid "SVN short URL"
 msgstr "SVN kratki URL"
 
+#. Resource IDs: (64)
+msgid ""
+"Sample log message to test the bugtraq: regex strings.\n"
+"\n"
+"Testing mentions of issues inside a text: Mention issue #55. Mention issues #77, #78.\n"
+"\n"
+"Update issue #101\n"
+"Fixes issue #202\n"
+"Resolves issue #88.\n"
+"Closes issue #99.\n"
+msgstr ""
+
+#. Resource IDs: (1612)
+msgid "Sample text:"
+msgstr ""
+
 #. Resource IDs: (57604)
 msgid "Save &As..."
 msgstr "Sačuvaj &Kao..."
@@ -9886,6 +9898,10 @@ msgstr "Ploča zadataka"
 #. Resource IDs: (219)
 msgid "Test Only"
 msgstr "Samo za test"
+
+#. Resource IDs: (590)
+msgid "Test the regex strings"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
