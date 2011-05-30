@@ -50,12 +50,6 @@
             <RemoveFolder Directory="D_TortoisePrgMenu" On="uninstall" Id="RemoveFolder_PrgMenu" />
           </Component>
 
-          <Component Id="C__ASPDOTNETHACK" Guid="$(var.GuidASPNETHack)" Win64="$(var.Win64YesNo)">
-            <RegistryValue Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="ASP.NET KeyPath" Value="ASP.NET" Type="string" />
-            <!-- only used because this component needs a key path! -->
-            <Environment Id="E__ASPDOTNETHACK" Action="create" Name="SVN_ASP_DOT_NET_HACK" Value="1" Permanent="yes" System="yes" />
-          </Component>
-
           <Component Id="C__SoundsRegistry" Guid="$(var.GuidSoundsReg)" Win64="$(var.Win64YesNo)">
             <!-- only used because this component needs a key path! -->
             <RegistryValue Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="SoundUtils KeyPath" Value="keypath" Type="string" />
@@ -795,6 +789,17 @@
               <RegistryValue Root="HKLM" Key="Software\Classes\.patch" Value="unified_diff_file" Type="string" />
               <RegistryKey Root="HKLM" Key="Software\Classes\unified_diff_file\shell\open\command" Action="createAndRemoveOnUninstall" />
               <RegistryValue Root="HKLM" Key="Software\Classes\unified_diff_file\shell\open\command" Value="[INSTALLDIR]bin\TortoiseUDiff.exe /patchfile:&quot;%1&quot;" Type="string" />
+            </Component>
+
+            <Component Id="C__CLI" Guid="$(var.GuidCLI)" Win64="$(var.Win64YesNo)">
+              <File Id="F__CLIsvn" Name="svn.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svn.exe" KeyPath="yes" />
+              <File Id="F__CLIsvnadmin" Name="svnadmin.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnadmin.exe" />
+              <File Id="F__CLIsvndumpfilter" Name="svndumpfilter.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svndumpfilter.exe" />
+              <File Id="F__CLIsvnlook" Name="svnlook.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnlook.exe" />
+              <File Id="F__CLIsvnrdump" Name="svnrdump.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnrdump.exe" />
+              <File Id="F__CLIsvnserve" Name="svnserve.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnserve.exe" />
+              <File Id="F__CLIsvnsync" Name="svnsync.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnsync.exe" />
+              <File Id="F__CLIsvnversion" Name="svnversion.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnversion.exe" />
             </Component>
 
             <Component Id="C__PlainSettingsShortcuts" Guid="$(var.GuidPlainSettingsShortcuts)" Win64="$(var.Win64YesNo)">

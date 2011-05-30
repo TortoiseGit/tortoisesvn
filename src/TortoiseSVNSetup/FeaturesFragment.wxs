@@ -25,6 +25,7 @@
       <ComponentRef Id="C__Sounds" />
       <ComponentRef Id="C__SoundsRegistry" />
       <ComponentRef Id="C__DiffScripts" />
+      <ComponentRef Id="C__CLI" />
 
       <Feature Id="F_CRT" Level="1" Title="C-Runtime" Description="The Visual-C Runtime libs" TypicalDefault="install" Display="hidden" >
         <MergeRef Id="CRT" />
@@ -57,6 +58,10 @@
         <ComponentRef Id="C__iconsdechenesvista" />
       </Feature>
 
+      <Feature Id="CLI" Level="200" Title="command line client tools" Description="The svn command line client tools" TypicalDefault="install" Absent="allow">
+        <ComponentRef Id="C__CLI" />
+      </Feature>
+
       <Feature Id="UDiffAssoc" Level="1" Title="Register diff/patch files" Description="Associate .diff and .patch files with TortoiseUDiff" TypicalDefault="install" Absent="allow">
         <ComponentRef Id="C__TortoiseUDiffAssoc" />
       </Feature>
@@ -72,15 +77,6 @@
         <ComponentRef Id="C__DictionaryENUS" />
       </Feature>
       <?endif ?>
-
-      <Feature Id="ASPDOTNETHACKFEATURE" Level="1" Title="ASP.NET Hack"
-      Description="Sets the SVN_ASP_DOT_NET_HACK environment variable.
-
-DO NOT INSTALL THIS FEATURE if you don't use VS.NET with Web Projects!!!"
-      TypicalDefault="install" Absent="allow" Display="hidden" InstallDefault="source" >
-        <Condition Level="0">(NOT ASPDOTNETHACK)</Condition>
-        <ComponentRef Id="C__ASPDOTNETHACK" />
-      </Feature>
 
       <?if $(env.IncludeCrashReportDll) = 1 ?>
       <Feature Id="CrashReporter" Level="1" Title="Crash Reporter" Description="In official builds, sends crash dumps to the developers."
