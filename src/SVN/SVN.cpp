@@ -1982,7 +1982,7 @@ bool SVN::IsRepository(const CTSVNPath& path)
     if (rootPath)
     {
         svn_repos_t* pRepos = NULL;
-        Err = svn_repos_open (&pRepos, rootPath, subPool);
+        Err = svn_repos_open2 (&pRepos, rootPath, NULL, subPool);
         if ((Err)&&(Err->apr_err == SVN_ERR_FS_BERKELEY_DB))
             return true;
         if (Err == NULL)
