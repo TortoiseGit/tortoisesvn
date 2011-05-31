@@ -67,16 +67,18 @@ void CLocatorBar::DocumentUpdated()
     DocumentUpdated(m_pMainFrm->m_pwndRightView, m_arRightIdent, m_arRightState);
     DocumentUpdated(m_pMainFrm->m_pwndBottomView, m_arBottomIdent, m_arBottomState);
 
-    if ((m_pMainFrm->m_pwndBottomView) && (m_pMainFrm->m_pwndRightView))
-        m_nLines = (int)max(m_pMainFrm->m_pwndBottomView->GetLineCount(), m_pMainFrm->m_pwndRightView->GetLineCount());
-    else if (m_pMainFrm->m_pwndRightView)
-        m_nLines = (int)max(0, m_pMainFrm->m_pwndRightView->GetLineCount());
-
     if (m_pMainFrm->m_pwndLeftView)
-        m_nLines = (int)max(m_nLines, m_pMainFrm->m_pwndLeftView->GetLineCount());
-    else
-        m_nLines = 0;
-    m_nLines++;
+    {
+        m_nLines = m_pMainFrm->m_pwndLeftView->GetLineCount();
+        if (m_pMainFrm->m_pwndRightView)
+        {
+                m_nLines = std::max<int>(m_nLines, m_pMainFrm->m_pwndRightView->GetLineCount());
+            if (m_pMainFrm->m_pwndBottomView)
+            {
+                m_nLines = std::max<int>(m_nLines, m_pMainFrm->m_pwndBottomView->GetLineCount());
+            }
+        }
+    }
     Invalidate();
 }
 
@@ -93,7 +95,7 @@ void CLocatorBar::DocumentUpdated(CBaseView* view, CDWordArray& indents, CDWordA
     DiffStates state = DIFFSTATE_UNKNOWN;
     if (linesInView)
         state = viewData->GetState(0);
-    for (int i=0; i<linesInView; i++)
+    for (int i=1; i<linesInView; i++)
     {
         const DiffStates lineState = viewData->GetState(view->GetViewLineForScreen(i));
         if (state == lineState)

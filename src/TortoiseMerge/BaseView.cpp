@@ -4466,6 +4466,13 @@ void CBaseView::Screen2View::RebuildIfNecessary()
     }
     m_pViewData = NULL;
 
+    //BuildAllMarkedWordArray();
+    if (IsLeftViewGood())
+         m_pwndLeft->BuildMarkedWordArray();
+    if (IsRightViewGood())
+        m_pwndRight->BuildMarkedWordArray();
+    if (IsBottomViewGood())
+        m_pwndBottom->BuildMarkedWordArray();
     UpdateLocator();
     RecalcAllVertScrollBars();
     RecalcAllHorzScrollBars();
