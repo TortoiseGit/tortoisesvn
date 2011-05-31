@@ -97,6 +97,7 @@ public:
         SVNProgress_Resolve,
         SVNProgress_Revert,
         SVNProgress_Switch,
+        SVNProgress_SwitchBackToParent,
         SVNProgress_Unlock,
         SVNProgress_Update,
     } Command;
@@ -283,6 +284,7 @@ private:
     bool        CmdResolve(CString& sWindowTitle, bool& localoperation);
     bool        CmdRevert(CString& sWindowTitle, bool& localoperation);
     bool        CmdSwitch(CString& sWindowTitle, bool& localoperation);
+    bool        CmdSwitchBackToParent(CString& sWindowTitle, bool& localoperation);
     bool        CmdUnlock(CString& sWindowTitle, bool& localoperation);
     bool        CmdUpdate(CString& sWindowTitle, bool& localoperation);
 

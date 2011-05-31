@@ -1072,6 +1072,9 @@ UINT CSVNProgressDlg::ProgressThread()
     case SVNProgress_Switch:
         bSuccess = CmdSwitch(sWindowTitle, localoperation);
         break;
+    case SVNProgress_SwitchBackToParent:
+        bSuccess = CmdSwitchBackToParent(sWindowTitle, localoperation);
+        break;
     case SVNProgress_Unlock:
         bSuccess = CmdUnlock(sWindowTitle, localoperation);
         break;
@@ -3140,6 +3143,68 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
         &&((LONG)m_RevisionEnd > (LONG)rev))
     {
         GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
+    }
+    return true;
+}
+
+
+bool CSVNProgressDlg::CmdSwitchBackToParent( CString& sWindowTitle, bool& /*localoperation*/ )
+{
+    sWindowTitle.LoadString(IDS_PROGRS_TITLE_SWITCH);
+    CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
+    SetBackgroundImage(IDI_SWITCH_BKG);
+
+    DWORD exitcode = 0;
+    CString error;
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_targetPathList, m_depth, m_Revision, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(error);
+            return false;
+        }
+    }
+
+    CBlockCacheForPath cacheBlock (m_targetPathList.GetCommonRoot().GetWinPath());
+    for (int i = 0; i < m_targetPathList.GetCount(); ++i)
+    {
+        SVNStatus st;
+        CTSVNPath retPath;
+        svn_client_status_t * s = st.GetFirstFileStatus(m_targetPathList[i].GetContainingDirectory(), retPath, false, svn_depth_empty);
+        if (s != NULL)
+        {
+            CTSVNPath switchUrl;
+            switchUrl.SetFromSVN(s->repos_root_url);
+            switchUrl.AppendPathString(CUnicodeUtils::GetUnicode(s->repos_relpath));
+            switchUrl.AppendPathString(m_targetPathList[i].GetFileOrDirectoryName());
+            CString sCmdInfo;
+            sCmdInfo.Format(IDS_PROGRS_CMD_SWITCH,
+                m_targetPathList[i].GetWinPath(), (LPCTSTR)switchUrl.GetSVNPathString(),
+                (LPCTSTR)m_Revision.ToString());
+            ReportCmd(sCmdInfo);
+
+            if (!Switch(m_targetPathList[i], switchUrl, s->revision, s->revision, svn_depth_unknown, false, true, true, false))
+            {
+                ReportSVNError();
+                return false;
+            }
+        }
+        else
+        {
+            CString temp;
+            temp.Format(IDS_ERR_NOPARENTFOUND, m_targetPathList[i].GetWinPath());
+            ReportError(temp);
+            return false;
+        }
+    }
+
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(error);
+            return false;
+        }
     }
     return true;
 }

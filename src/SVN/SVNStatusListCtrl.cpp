@@ -106,9 +106,10 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHANGELISTCHANGED
 #define IDSVNLC_CREATEPATCH     36
 #define IDSVNLC_CHECKFORMODS    37
 #define IDSVNLC_REPAIRCOPY      38
+#define IDSVNLC_SWITCH          39
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS        39
+#define IDSVNLC_MOVETOCS        40
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -2772,6 +2773,13 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         popup.AppendMenuIcon(IDSVNLC_UPDATE, IDS_MENUUPDATE, IDI_UPDATE);
                     }
                 }
+                if (entry->switched)
+                {
+                    if (m_dwContextMenus & SVNSLC_POPSWITCH)
+                    {
+                        popup.AppendMenuIcon(IDSVNLC_SWITCH, IDS_MENUSWITCHTOPARENT, IDI_SWITCH);
+                    }
+                }
             }
             if ((selectedCount == 1)&&(wcStatus >= svn_wc_status_normal)
                 &&(wcStatus != svn_wc_status_ignored)
@@ -3163,6 +3171,22 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             (LPCTSTR)sTempFile);
 
                         CAppUtils::RunTortoiseProc(sCmd);
+                    }
+                }
+                break;
+            case IDSVNLC_SWITCH:
+                {
+                    CTSVNPathList targetList;
+                    FillListOfSelectedItemPaths(targetList);
+                    CSVNProgressDlg dlg;
+                    dlg.SetCommand(CSVNProgressDlg::SVNProgress_SwitchBackToParent);
+                    dlg.SetPathList(targetList);
+                    dlg.DoModal();
+                    // refresh!
+                    CWnd* pParent = GetParent();
+                    if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+                    {
+                        pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
                     }
                 }
                 break;
