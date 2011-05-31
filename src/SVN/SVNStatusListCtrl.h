@@ -1014,6 +1014,7 @@ private:
     LONG                        m_nConflicted;
     LONG                        m_nTotal;
     LONG                        m_nSelected;
+    LONG                        m_nSwitched;
 
     LONG                        m_nShownUnversioned;
     LONG                        m_nShownNormal;

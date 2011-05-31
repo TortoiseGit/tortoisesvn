@@ -1982,6 +1982,7 @@ bool CSVNStatusListCtrl::BuildStatistics()
     m_nConflicted = 0;
     m_nTotal = 0;
     m_nSelected = 0;
+    m_nSwitched = 0;
     for (int i=0; i < (int)m_arStatusArray.size(); ++i)
     {
         const FileEntry * entry = m_arStatusArray[i];
@@ -1992,6 +1993,8 @@ bool CSVNStatusListCtrl::BuildStatistics()
             m_nConflicted++;
             continue;
         }
+        if (entry->switched)
+            m_nSwitched++;
         switch (entry->status)
         {
         case svn_wc_status_normal:
@@ -4381,13 +4384,14 @@ CString CSVNStatusListCtrl::GetStatisticsString()
     SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_unversioned, buf, _countof(buf), langID);
     sUnversioned = buf;
     CString sToolTip;
-    sToolTip.Format(_T("%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d"),
+    sToolTip.Format(_T("%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d\n%s = %d"),
         (LPCTSTR)sNormal, m_nNormal,
         (LPCTSTR)sUnversioned, m_nUnversioned,
         (LPCTSTR)sModified, m_nModified,
         (LPCTSTR)sAdded, m_nAdded,
         (LPCTSTR)sDeleted, m_nDeleted,
-        (LPCTSTR)sConflicted, m_nConflicted
+        (LPCTSTR)sConflicted, m_nConflicted,
+        (LPCTSTR)CString(MAKEINTRESOURCE(IDS_SVNACTION_SWITCHED)), m_nSwitched
         );
     CString sStats;
     sStats.FormatMessage(IDS_COMMITDLG_STATISTICSFORMAT, m_nSelected, GetItemCount());
