@@ -3420,7 +3420,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         CProgressDlg progDlg;
                         progDlg.SetTitle(IDS_APPNAME);
                         CString sInfoLine;
-                        sInfoLine.Format(IDS_PROGRESSIMPORT, (LPCTSTR)filename);
+                        sInfoLine.FormatMessage(IDS_PROGRESSIMPORT, (LPCTSTR)filename);
                         progDlg.SetLine(1, sInfoLine, true);
                         SetAndClearProgressInfo(&progDlg);
                         progDlg.ShowModeless(m_hWnd);
