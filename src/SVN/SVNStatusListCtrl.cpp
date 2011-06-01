@@ -5008,7 +5008,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                 StrFormatByteSize64(wcSize, wcBuf, 100);
                 StrFormatByteSize64(wcSize-baseSize, changedBuf, 100);
                 CString sTemp;
-                sTemp.Format(IDS_STATUSLIST_WCBASESIZES, wcBuf, baseBuf, changedBuf);
+                sTemp.FormatMessage(IDS_STATUSLIST_WCBASESIZES, wcBuf, baseBuf, changedBuf);
                 lstrcpyn(pTTTW->szText, (LPCTSTR)sTemp, 80);
                 return TRUE;
             }

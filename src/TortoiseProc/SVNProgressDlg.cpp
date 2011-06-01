@@ -2178,7 +2178,7 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
             checkoutdir.AppendPathString(fileordir);
         }
         CString sCmdInfo;
-        sCmdInfo.Format(IDS_PROGRS_CMD_CHECKOUT,
+        sCmdInfo.FormatMessage(IDS_PROGRS_CMD_CHECKOUT,
             (LPCTSTR)urls[i].GetSVNPathString(), (LPCTSTR)m_Revision.ToString(),
             (LPCTSTR)SVNStatus::GetDepthString(m_depth),
             m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
@@ -2244,7 +2244,7 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
         else
         {
             rootUrl = it->first;
-            sCmdInfo.Format(IDS_PROGRS_CMD_CHECKOUT,
+            sCmdInfo.FormatMessage(IDS_PROGRS_CMD_CHECKOUT,
                 (LPCTSTR)url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString(),
                 (LPCTSTR)SVNStatus::GetDepthString(m_depth),
                 m_options & ProgOptIgnoreExternals ? (LPCTSTR)sExtExcluded : (LPCTSTR)sExtIncluded);
@@ -2489,7 +2489,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     }
 
     CString sCmdInfo;
-    sCmdInfo.Format(IDS_PROGRS_CMD_COPY,
+    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_COPY,
         m_targetPathList[0].IsUrl() ? (LPCTSTR)m_targetPathList[0].GetSVNPathString() : m_targetPathList[0].GetWinPath(),
         (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
     ReportCmd(sCmdInfo);
@@ -2520,7 +2520,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 
     if (m_options & ProgOptSwitchAfterCopy)
     {
-        sCmdInfo.Format(IDS_PROGRS_CMD_SWITCH,
+        sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SWITCH,
             m_targetPathList[0].GetWinPath(),
             (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
         ReportCmd(sCmdInfo);
@@ -2607,7 +2607,7 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
     }
 
     CString sCmdInfo;
-    sCmdInfo.Format(IDS_PROGRS_CMD_IMPORT,
+    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_IMPORT,
         m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(),
         m_options & ProgOptIncludeIgnored ? (LPCTSTR)(_T(", ") + sIgnoredIncluded) : _T(""));
     ReportCmd(sCmdInfo);
@@ -2726,7 +2726,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
     {
         // Merging revisions %s of %s to %s into %s, %s%s
         CString sCmdInfo;
-        sCmdInfo.Format(IDS_PROGRS_CMD_MERGEPEG,
+        sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEPEG,
             (LPCTSTR)m_revisionArray.ToListString(),
             (LPCTSTR)m_url.GetSVNPathString(),
             m_targetPathList[0].GetWinPath(),
@@ -2833,7 +2833,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
     else
     {
         CString sCmdInfo;
-        sCmdInfo.Format(IDS_PROGRS_CMD_MERGEURL,
+        sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEURL,
             (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString(),
             (LPCTSTR)m_url2.GetSVNPathString(), (LPCTSTR)m_RevisionEnd.ToString(),
             m_targetPathList[0].GetWinPath(),
@@ -2888,7 +2888,7 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
         ReportError(sErr);
         return false;
     }
-    sCmdInfo.Format(IDS_PROGRS_CMD_MERGEALL,
+    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEALL,
         (LPCTSTR)suggestedSources[0].GetSVNPathString(),
         m_targetPathList[0].GetWinPath(),
         m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
@@ -2934,7 +2934,7 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     CString sCmdInfo;
-    sCmdInfo.Format(IDS_PROGRS_CMD_MERGEREINTEGRATE,
+    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEREINTEGRATE,
         (LPCTSTR)m_url.GetSVNPathString(),
         m_targetPathList[0].GetWinPath());
     ReportCmd(sCmdInfo);
@@ -3106,7 +3106,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
     }
 
     CString sCmdInfo;
-    sCmdInfo.Format(IDS_PROGRS_CMD_SWITCH,
+    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SWITCH,
         m_targetPathList[0].GetWinPath(), (LPCTSTR)m_url.GetSVNPathString(),
         (LPCTSTR)m_Revision.ToString());
     ReportCmd(sCmdInfo);
@@ -3178,7 +3178,7 @@ bool CSVNProgressDlg::CmdSwitchBackToParent( CString& sWindowTitle, bool& /*loca
             switchUrl.AppendPathString(CUnicodeUtils::GetUnicode(s->repos_relpath));
             switchUrl.AppendPathString(m_targetPathList[i].GetFileOrDirectoryName());
             CString sCmdInfo;
-            sCmdInfo.Format(IDS_PROGRS_CMD_SWITCH,
+            sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SWITCH,
                 m_targetPathList[i].GetWinPath(), (LPCTSTR)switchUrl.GetSVNPathString(),
                 (LPCTSTR)m_Revision.ToString());
             ReportCmd(sCmdInfo);
