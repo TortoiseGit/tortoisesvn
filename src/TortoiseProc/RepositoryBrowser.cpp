@@ -3135,6 +3135,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             SetAndClearProgressInfo((HWND)NULL);
                             if (!progDlg.HasUserCancelled())
                                 ShowErrorDialog(m_hWnd);
+                            DialogEnableWindow(IDOK, TRUE);
                             return;
                         }
                         counter++;
@@ -3321,7 +3322,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     {
                         wait_cursor.Hide();
                         ShowErrorDialog(m_hWnd);
-                        return;
+                        break;
                     }
                     m_barRepository.SetHeadRevision(GetCommitRevision());
                     if (hChosenTreeItem)
@@ -3340,7 +3341,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 if (!Unlock (selection.GetURLsEscaped (0), TRUE))
                 {
                     ShowErrorDialog(m_hWnd);
-                    return;
+                    break;
                 }
                 InvalidateData (m_RepoTree.GetSelectedItem());
                 RefreshNode(m_RepoTree.GetSelectedItem(), true);
@@ -3386,7 +3387,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             SetAndClearProgressInfo((HWND)NULL);
                             wait_cursor.Hide();
                             ShowErrorDialog(m_hWnd);
-                            return;
+                            break;
                         }
                         m_barRepository.SetHeadRevision(GetCommitRevision());
                         progDlg.Stop();
@@ -3435,7 +3436,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             SetAndClearProgressInfo((HWND)NULL);
                             wait_cursor.Hide();
                             ShowErrorDialog(m_hWnd);
-                            return;
+                            break;
                         }
                         m_barRepository.SetHeadRevision(GetCommitRevision());
                         progDlg.Stop();
@@ -3501,7 +3502,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         {
                             wait_cursor.Hide();
                             ShowErrorDialog(m_hWnd);
-                            return;
+                            break;
                         }
                         if (revision.IsHead())
                         {
@@ -3537,7 +3538,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         progDlg.Stop();
                         if (!progDlg.HasUserCancelled())
                             ShowErrorDialog(m_hWnd);
-                        return;
+                        break;
                     }
                     m_barRepository.SetHeadRevision(GetCommitRevision());
                     progDlg.Stop();
@@ -3570,7 +3571,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         {
                             wait_cursor.Hide();
                             ShowErrorDialog(m_hWnd);
-                            return;
+                            break;
                         }
                         m_barRepository.SetHeadRevision(GetCommitRevision());
                         RefreshNode(m_RepoTree.GetSelectedItem(), true);
