@@ -65,7 +65,6 @@ BOOL CUpdateDlg::OnInitDialog()
     AdjustControlSize(IDC_NEWEST);
     AdjustControlSize(IDC_REVISION_N);
     AdjustControlSize(IDC_NOEXTERNALS);
-    AdjustControlSize(IDC_APPLYLOCALEXTMODS);
 
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_WORKING)));
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
