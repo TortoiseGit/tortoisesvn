@@ -25,7 +25,6 @@
       <ComponentRef Id="C__Sounds" />
       <ComponentRef Id="C__SoundsRegistry" />
       <ComponentRef Id="C__DiffScripts" />
-      <ComponentRef Id="C__CLI" />
 
       <Feature Id="F_CRT" Level="1" Title="C-Runtime" Description="The Visual-C Runtime libs" TypicalDefault="install" Display="hidden" >
         <MergeRef Id="CRT" />
