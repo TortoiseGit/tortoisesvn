@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -46,6 +46,15 @@ protected:
         m_margins.cyTopHeight = 0;
         m_margins.cxRightWidth = 0;
         m_margins.cyBottomHeight = 0;
+        m_bkgndIconWidth = 0;
+        m_bkgndIconHeight = 0;
+        m_hBkgndIcon = 0;
+        SetBackgroundIcon(IDI_AEROBACKGROUND, 256, 256);
+    }
+    ~CStandAloneDialogTmpl()
+    {
+        if (m_hBkgndIcon)
+            DestroyIcon(m_hBkgndIcon);
     }
     virtual BOOL OnInitDialog()
     {
@@ -91,10 +100,27 @@ protected:
         if ((m_Dwm.IsDwmCompositionEnabled())&&((DWORD)m_regEnableDWMFrame))
         {
             // draw the frame margins in black
-            RECT rc;
+            CRect rc;
             GetClientRect(&rc);
             if (m_margins.cxLeftWidth < 0)
+            {
                 pDC->FillSolidRect(rc.left, rc.top, rc.right-rc.left, rc.bottom-rc.top, RGB(0,0,0));
+                if (m_hBkgndIcon)
+                {
+                    // center the icon
+                    double scale = 1.0;
+                    scale = min(scale, double(rc.Width())/double(m_bkgndIconWidth));
+                    scale = min(scale, double(rc.Height())/double(m_bkgndIconHeight));
+                    if (scale > 1.0)
+                        scale = 1.0;
+                    DrawIconEx(pDC->GetSafeHdc(),
+                        int((rc.Width()-(scale*m_bkgndIconWidth))/1.0),
+                        0,
+                        m_hBkgndIcon,
+                        int(scale*m_bkgndIconWidth), int(scale*m_bkgndIconHeight),
+                        0, NULL, DI_NORMAL);
+                }
+            }
             else
             {
                 pDC->FillSolidRect(rc.left, rc.top, m_margins.cxLeftWidth, rc.bottom-rc.top, RGB(0,0,0));
@@ -359,6 +385,19 @@ protected:
         pt.y = GET_Y_LPARAM(pos);
         return (PtInRect(&wrc, pt) && !PtInRect(&crc, pt));
     }
+    void SetBackgroundIcon(HICON hIcon, int width, int height)
+    {
+        m_hBkgndIcon = hIcon;
+        m_bkgndIconWidth = width;
+        m_bkgndIconHeight = height;
+    }
+    void SetBackgroundIcon(UINT idi, int width, int height)
+    {
+        HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(idi), IMAGE_ICON, width, height, LR_DEFAULTCOLOR);
+        SetBackgroundIcon(hIcon, width, height);
+    }
+
+
 protected:
     CDwmApiImpl     m_Dwm;
     MARGINS         m_margins;
@@ -405,6 +444,9 @@ private:
     }
 
     HICON           m_hIcon;
+    HICON           m_hBkgndIcon;
+    int             m_bkgndIconWidth;
+    int             m_bkgndIconHeight;
 };
 
 class CStateDialog : public CDialog, public CResizableWndState
