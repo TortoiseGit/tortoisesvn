@@ -232,7 +232,7 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
             {
                 // run cleanup
                 CString sCmd;
-                sCmd.Format(_T("/command:cleanup /path:\"%s\" /hwnd:%ld"),
+                sCmd.Format(_T("/command:cleanup /path:\"%s\" /cleanup /nodlg /hwnd:%ld"),
                     wcPath.GetDirectory().GetWinPath(), hParent);
                 CAppUtils::RunTortoiseProc(sCmd);
             }

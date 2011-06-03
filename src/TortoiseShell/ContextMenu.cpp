@@ -103,8 +103,6 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
 
     { ShellMenuCleanup,                     MENUCLEANUP,        IDI_CLEANUP,            IDS_MENUCLEANUP,            IDS_MENUDESCCLEANUP,
         {ITEMIS_INSVN|ITEMIS_FOLDER, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_FOLDER, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, _T("tsvn_cleanup") },
-    { ShellMenuCleanupRefresh,              MENUCLEANUP,        IDI_CLEANUP,            IDS_MENUCLEANUPREFRESH,     IDS_MENUDESCCLEANUPREFRESH,
-        {ITEMIS_INSVN|ITEMIS_FOLDER|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_FOLDER|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, _T("tsvn_cleanup_refresh") },
 
     { ShellMenuLock,                        MENULOCK,           IDI_LOCK,               IDS_MENU_LOCK,              IDS_MENUDESC_LOCK,
         {ITEMIS_INSVN, ITEMIS_LOCKED|ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_LOCKED|ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, _T("tsvn_lock") },
@@ -1286,14 +1284,6 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
             svnCmd += tempfile;
             svnCmd += _T("\"");
             svnCmd += _T(" /deletepathfile");
-            break;
-        case ShellMenuCleanupRefresh:
-            tempfile = WriteFileListToTempFile();
-            svnCmd += _T("cleanup /pathfile:\"");
-            svnCmd += tempfile;
-            svnCmd += _T("\"");
-            svnCmd += _T(" /deletepathfile");
-            svnCmd += _T(" /refreshshell");
             break;
         case ShellMenuResolve:
             tempfile = WriteFileListToTempFile();

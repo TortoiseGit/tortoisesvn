@@ -1067,6 +1067,9 @@
     <ClCompile Include="BugtraqRegexTestDlg.cpp">
       <Filter>Commands\Properties</Filter>
     </ClCompile>
+    <ClCompile Include="CleanupDlg.cpp">
+      <Filter>Commands\Cleanup</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2040,6 +2043,9 @@
     </ClInclude>
     <ClInclude Include="BugtraqRegexTestDlg.h">
       <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="CleanupDlg.h">
+      <Filter>Commands\Cleanup</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
