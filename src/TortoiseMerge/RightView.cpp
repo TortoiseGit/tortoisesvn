@@ -246,13 +246,19 @@ void CRightView::UseBlock(int nFirstViewLine, int nLastViewLine)
     }
     SaveUndoStep();
 
-    CleanEmptyLines();
+    int nRemovedLines = CleanEmptyLines();
     SaveUndoStep();
     UpdateViewLineNumbers();
     SaveUndoStep();
 
     CUndo::GetInstance().EndGrouping();
 
+    if (nRemovedLines)
+    {
+        // some lines are gone update selection
+        ClearSelection();
+        SetupAllViewSelection(nFirstViewLine, nLastViewLine - nRemovedLines);
+    }
     BuildAllScreen2ViewVector();
     m_pwndLeft->SetModified();
     SetModified();
