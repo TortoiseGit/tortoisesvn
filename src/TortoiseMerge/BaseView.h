@@ -87,12 +87,13 @@ public: // methods
     void            SetCaretToFirstViewLine() { m_ptCaretViewPos.y=0; }
     void            SetCaretToViewLineStart() { m_ptCaretViewPos.x=0; }
     void            SetCaretToLineStart() { SetCaretAndGoalPosition(SetupPoint(0, GetCaretPosition().y)); }
+    void            EnsureCaretVisible();
+    void            UpdateCaret();
+
     POINT           SetupPoint(int x, int y) {POINT ptRet={x, y}; return ptRet; };
     POINT           ConvertScreenPosToView(const POINT& pt);
     POINT           ConvertViewPosToScreen(const POINT& pt);
 
-    void            EnsureCaretVisible();
-    void            UpdateCaret();
     void            RefreshViews();
     static void     BuildAllScreen2ViewVector();                               ///< schedule full screen2view rebuild
     static void     BuildAllScreen2ViewVector(int ViewLine);                   ///< schedule rebuild screen2view for single line
@@ -102,8 +103,8 @@ public: // methods
     int             GetLineCount() const;
     static int      GetViewLineForScreen(int screenLine) { return m_Screen2View.GetViewLineForScreen(screenLine); }
     int             FindScreenLineForViewLine(int viewLine);
-    CString         GetMultiLine(int nLine);
-    int             CountMultiLines(int nLine);
+    // TODO: find better consistent names for Multiline(line with sublines) and Subline, Count.. or Get..Count ?
+    int             CountMultiLines(int nViewLine);
     int             GetSubLineOffset(int index);
     static void     UpdateLocator() { if (m_pwndLocator) m_pwndLocator->DocumentUpdated(); }
     void            WrapChanged();
@@ -135,6 +136,7 @@ public: // methods
     static DiffStates  ResolveState(DiffStates state);
 
     BOOL            IsLineRemoved(int nLineIndex);
+    BOOL            IsViewLineRemoved(int nViewLine);
     bool            IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
     bool            IsViewLineConflicted(int nLineIndex);
     bool            HasNextConflict();
@@ -458,11 +460,11 @@ protected:  // variables
 
         void Clear()
         {
-            bSet = false;
+            bSublinesSet = false;
             eIcon = ICN_UNKNOWN;
         }
 
-        bool bSet;
+        bool bSublinesSet;
         std::vector<CString> SubLines;
 
         enum EIcon
@@ -477,7 +479,7 @@ protected:  // variables
             ICN_MOVED,
             ICN_CONFLICT,
             ICN_CONFLICTIGNORED,
-       } eIcon;
+        } eIcon;
 
     };
     std::vector<TScreenedViewLine> m_ScreenedViewLine; ///< cached data for screening

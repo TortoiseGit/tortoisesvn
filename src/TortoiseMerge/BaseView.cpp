@@ -1305,17 +1305,20 @@ void CBaseView::OnDraw(CDC * pDC)
     CRect rcCacheLine(GetMarginWidth(), 0, rcLine.Width(), nLineHeight);
 
     int nCurrentLine = m_nTopLine;
+    bool bBeyondFileLineCached = false;
     while (rcLine.top < rcClient.bottom)
     {
         if (nCurrentLine < nLineCount)
         {
             DrawMargin(&cacheDC, rcCacheMargin, nCurrentLine);
             DrawSingleLine(&cacheDC, rcCacheLine, nCurrentLine);
+            bBeyondFileLineCached = false;
         }
-        else
+        else if (!bBeyondFileLineCached)
         {
             DrawMargin(&cacheDC, rcCacheMargin, -1);
             DrawSingleLine(&cacheDC, rcCacheLine, -1);
+            bBeyondFileLineCached = true;
         }
 
         VERIFY(pDC->BitBlt(rcLine.left, rcLine.top, rcLine.Width(), rcLine.Height(), &cacheDC, 0, 0, SRCCOPY));
@@ -1384,8 +1387,15 @@ BOOL CBaseView::IsLineRemoved(int nLineIndex)
 {
     if (m_pViewData == 0)
         return FALSE;
-    int viewLine = GetViewLineForScreen(nLineIndex);
-    const DiffStates state = m_pViewData->GetState(viewLine);
+    int nViewLine = GetViewLineForScreen(nLineIndex);
+    return IsViewLineRemoved(nViewLine);
+}
+
+BOOL CBaseView::IsViewLineRemoved(int nViewLine)
+{
+    if (m_pViewData == 0)
+        return FALSE;
+    const DiffStates state = m_pViewData->GetState(nViewLine);
     return IsStateRemoved(state);
 }
 
@@ -1790,6 +1800,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
         CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
     if (frect.right > frect.left)
         pDC->FillSolidRect(frect, crBkgnd);
+
     // draw the whitespace chars
     LPCTSTR pszChars = sLine.operator LPCWSTR();
     if (m_bViewWhitespace)
@@ -2334,6 +2345,7 @@ void CBaseView::SetupViewSelection(CBaseView* view, int start, int end)
 
 void CBaseView::SetupViewSelection(int start, int end)
 {
+    // clear text selection before setting line selection ?
     m_nSelViewBlockStart = start;
     m_nSelViewBlockEnd = end;
     Invalidate();
@@ -4216,24 +4228,16 @@ int CBaseView::FindScreenLineForViewLine( int viewLine )
     return m_Screen2View.FindScreenLineForViewLine(viewLine);
 }
 
-CString CBaseView::GetMultiLine( int nLine )
+int CBaseView::CountMultiLines( int nViewLine )
 {
-    return CStringUtils::WordWrap(m_pViewData->GetLine(nLine), GetScreenChars()-1, false, true, GetTabSize());
-}
+    ASSERT(nViewLine < (int)m_ScreenedViewLine.size());
 
-int CBaseView::CountMultiLines( int nLine )
-{
-    if (nLine < (int)m_ScreenedViewLine.size())
+    if (m_ScreenedViewLine[nViewLine].bSublinesSet)
     {
-        if (m_ScreenedViewLine[nLine].bSet)
-        {
-            return (int)m_ScreenedViewLine[nLine].SubLines.size();
-        }
+        return (int)m_ScreenedViewLine[nViewLine].SubLines.size();
     }
 
-    ASSERT((int)m_ScreenedViewLine.size() > nLine);
-
-    CString multiline = GetMultiLine(nLine);
+    CString multiline = CStringUtils::WordWrap(m_pViewData->GetLine(nViewLine), GetScreenChars()-1, false, true, GetTabSize()); // GetMultiLine(nLine);
 
     TScreenedViewLine oScreenedLine;
     // tokenize string
@@ -4246,10 +4250,10 @@ int CBaseView::CountMultiLines( int nLine )
         prevpos = pos;
     }
     oScreenedLine.SubLines.push_back(multiline.Mid(prevpos));
-    oScreenedLine.bSet = true;
-    m_ScreenedViewLine[nLine] = oScreenedLine;
+    oScreenedLine.bSublinesSet = true;
+    m_ScreenedViewLine[nViewLine] = oScreenedLine;
 
-    return CountMultiLines(nLine);
+    return CountMultiLines(nViewLine);
 }
 
 void CBaseView::OnEditSelectall()
