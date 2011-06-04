@@ -16,11 +16,10 @@ tools\fop\		- the fop processor
 tools\xsl\		- the docbook xsl files from sourceforge
 tools\			- xsl processor, hhc.exe, ...
 
-you can download all the required tools as a zip package from our website:
-http://tortoisesvn.tigris.org/servlets/ProjectDocumentList?folderID=616
+you can download all the required tools as a 7zip package from our website:
+http://code.google.com/p/tortoisesvn/downloads/list
 
-Note that building the documentation for TSVN version 1.5 and later, you need the
-Tools-1.5.zip.
+The file is Tools-1.x.7z
 
 Currently you can build the docs using NAnt. Download a current release from:
 http://sourceforge.net/project/showfiles.php?group_id=31650
