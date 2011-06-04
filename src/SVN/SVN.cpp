@@ -292,6 +292,7 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subPool);
     
     CallPreConnectHookIfUrl(pathlist);
+    PostCommitErr.Empty();
 
     SVNTRACE(
         Err = svn_client_delete4 (pathlist.MakePathArray(subPool),
@@ -309,8 +310,6 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
     {
         return FALSE;
     }
-
-    PostCommitErr.Empty();
 
     for(int nPath = 0; nPath < pathlist.GetCount(); nPath++)
     {
@@ -477,6 +476,7 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
     m_pctx->log_msg_baton3 = logMessage(message);
 
     CHooks::Instance().PreConnect(pathlist);
+    PostCommitErr.Empty();
 
     SVNTRACE(
         Err = svn_client_commit5 (
@@ -500,7 +500,6 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
     }
 
     svn_revnum_t finrev = -1;
-    PostCommitErr.Empty();
 
     return finrev;
 }
@@ -518,6 +517,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
 
     CallPreConnectHookIfUrl(srcPathList, destPath);
+    PostCommitErr.Empty();
 
     SVNTRACE(
         Err = svn_client_copy6 (MakeCopyArray(srcPathList, revision, pegrev),
@@ -537,8 +537,6 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
         return false;
     }
 
-    PostCommitErr.Empty();
-
     return true;
 }
 
@@ -554,6 +552,7 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     m_pctx->log_msg_baton3 = logMessage(message);
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
     CallPreConnectHookIfUrl(srcPathList, destPath);
+    PostCommitErr.Empty();
     SVNTRACE (
         Err = svn_client_move6 (srcPathList.MakePathArray(subpool),
                                 destPath.GetSVNApiPath(subpool),
@@ -572,8 +571,6 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
         return false;
     }
 
-    PostCommitErr.Empty();
-
     return true;
 }
 
@@ -585,6 +582,7 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, pool);
 
     CallPreConnectHookIfUrl(pathlist);
+    PostCommitErr.Empty();
 
     SVNTRACE (
         Err = svn_client_mkdir4 (pathlist.MakePathArray(pool),
@@ -600,8 +598,6 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
     {
         return false;
     }
-
-    PostCommitErr.Empty();
 
     return true;
 }
@@ -910,6 +906,7 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
 
     const char* svnPath = path.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(path));
+    PostCommitErr.Empty();
     SVNTRACE (
         Err = svn_client_import4(svnPath,
                                 url.GetSVNApiPath(subpool),
@@ -928,8 +925,6 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
     {
         return false;
     }
-
-    PostCommitErr.Empty();
 
     return true;
 }
