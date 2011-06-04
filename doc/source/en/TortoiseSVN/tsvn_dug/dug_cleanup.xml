@@ -5,6 +5,7 @@
     <indexterm>
         <primary>cleanup</primary>
     </indexterm>
+    <?dbhh topicname="HIDD_CLEANUP"?>
     <para>
         If a Subversion command cannot complete successfully, perhaps
         due to server problems, your working copy can be left in an
@@ -17,13 +18,69 @@
         of the working copy.
     </para>
     <para>
-        Cleanup has another useful side effect. If a file date changes
-        but its content doesn't, Subversion cannot tell whether it has
-        really changed except by doing a byte-by-byte comparison with
-        the pristine copy. If you have a lot of files in this state it
-        makes acquiring status very slow, which will make many dialogs
-        slow to respond. Executing a Cleanup on your working copy will
-        repair these <quote>broken</quote> timestamps and restore
-        status checks to full speed.
+        In the cleanup dialog, there are also other useful options
+        to get the working copy into a <literal>clean</literal> state.
+        <variablelist>
+            <varlistentry>
+                <term>Clean up working copy status</term>
+                <listitem>
+                    <para>
+                        As stated above, this option tries to get an inconsistent
+                        working copy into a workable and usable state. This doesn't
+                        affect any data you have but only the internal states of
+                        the working copy database. This is the actual 
+                        <literal>Cleanup</literal> command you know from older
+                        TortoiseSVN clients or other SVN clients.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Revert all changes recursively</term>
+                <listitem>
+                    <para>
+                        This command reverts all your local modifications which
+                        are not committed yet.
+                    </para>
+                    <para>
+                        Note: it's better to use the
+                        <menuchoice>
+                            <guimenu>TortoiseSVN</guimenu>
+                            <guimenuitem>Revert</guimenuitem>
+                        </menuchoice> command instead, because there you can
+                        first see and select the files which you want to revert.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Delete ignored and unversioned files and folders</term>
+                <listitem>
+                    <para>
+                        This is a fast and easy way to remove all generated files
+                        in your working copy. All files and folders that are not
+                        versioned are moved to the trash bin.
+                    </para>
+                    <para>
+                        Note: you can also do the same from the
+                        <menuchoice>
+                            <guimenu>TortoiseSVN</guimenu>
+                            <guimenuitem>Revert</guimenuitem>
+                        </menuchoice> dialog. There you also get a list of all
+                        the unversioned files and folders to select for removal.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Refresh shell overlays</term>
+                <listitem>
+                    <para>
+                        Sometimes the shell overlays, especially on the tree view
+                        on the left side of the explorer don't show the current
+                        status, or the status cache failed to recognize changes.
+                        In this situation, you can use this command to force
+                        a refresh.
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
     </para>
 </sect1>
