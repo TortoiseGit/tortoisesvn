@@ -2446,7 +2446,12 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     }
     if (!PostCommitErr.IsEmpty())
     {
+        // post commit errors, while still errors don't make
+        // the commit itself fail. So we restore the old error
+        // state after reporting the post-commit error.
+        bool bErrState = m_bErrorsOccurred;
         ReportError(PostCommitErr);
+        m_bErrorsOccurred = bErrState;
     }
     if (commitSuccessful)
     {
