@@ -121,6 +121,8 @@ public:
 
     static void SetWindowTitle(HWND hWnd, const CString& urlorpath, const CString& dialogname);
 
+    static void MarkWindowAsUnpinnable(HWND hWnd);
+
 protected:
     CCommonAppUtils(void){};
     ~CCommonAppUtils(void){};
