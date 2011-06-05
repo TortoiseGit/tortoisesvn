@@ -94,6 +94,7 @@ END_MESSAGE_MAP()
 BOOL CCopyDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_EXTGROUP);
     m_aeroControls.SubclassControl(this, IDC_DOSWITCH);

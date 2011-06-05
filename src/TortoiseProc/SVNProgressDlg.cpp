@@ -839,6 +839,7 @@ void CSVNProgressDlg::ResizeColumns()
 BOOL CSVNProgressDlg::OnInitDialog()
 {
     __super::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_SVNPROGRESS, IDC_SVNPROGRESS, IDC_SVNPROGRESS, IDC_SVNPROGRESS);
     m_aeroControls.SubclassControl(this, IDC_PROGRESSLABEL);

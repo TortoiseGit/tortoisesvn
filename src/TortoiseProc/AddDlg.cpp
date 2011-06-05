@@ -60,6 +60,7 @@ END_MESSAGE_MAP()
 BOOL CAddDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_ADDLIST, IDC_ADDLIST, IDC_ADDLIST, IDC_ADDLIST);
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);

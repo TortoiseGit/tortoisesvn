@@ -294,6 +294,7 @@ void CLogDlg::SetSelectedRevRanges( const SVNRevRangeArray& revArray )
 BOOL CLogDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_LOGMSG, IDC_SEARCHEDIT, IDC_LOGMSG, IDC_LOGMSG);
     m_aeroControls.SubclassControl(this, IDC_LOGINFO);

@@ -68,6 +68,7 @@ END_MESSAGE_MAP()
 BOOL CTreeConflictEditorDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_SOURCEGROUP, IDC_SOURCEGROUP, IDC_SOURCEGROUP, IDC_SOURCEGROUP);
     m_aeroControls.SubclassControl(this, IDC_CONFLICTINFO);

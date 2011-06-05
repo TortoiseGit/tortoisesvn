@@ -59,6 +59,7 @@ END_MESSAGE_MAP()
 BOOL CImportDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_MSGGROUP);
     m_aeroControls.SubclassControl(this, IDC_IMPORTIGNORED);

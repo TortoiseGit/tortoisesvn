@@ -82,6 +82,7 @@ END_MESSAGE_MAP()
 BOOL CEditPropConflictDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_DIFFGROUP);
     m_aeroControls.SubclassControl(this, IDC_RESOLVE);

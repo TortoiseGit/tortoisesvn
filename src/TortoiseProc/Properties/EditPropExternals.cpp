@@ -56,6 +56,7 @@ END_MESSAGE_MAP()
 BOOL CEditPropExternals::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_EXTERNALSLIST);
     m_aeroControls.SubclassControl(this, IDC_ADD);

@@ -49,6 +49,7 @@ END_MESSAGE_MAP()
 BOOL CURLDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassOkCancel(this);

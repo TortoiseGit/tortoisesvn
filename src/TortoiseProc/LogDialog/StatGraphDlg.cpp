@@ -143,6 +143,7 @@ void CStatGraphDlg::SetSkipper (bool reloadSkiper)
 BOOL CStatGraphDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     m_pToolTip = new CToolTipCtrl;
     if (m_pToolTip->Create(this))

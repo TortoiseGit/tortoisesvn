@@ -63,6 +63,7 @@ END_MESSAGE_MAP()
 BOOL CEditPropTSVNSizes::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);

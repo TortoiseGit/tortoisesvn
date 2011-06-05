@@ -55,6 +55,7 @@ END_MESSAGE_MAP()
 BOOL CResolveDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_RESOLVELIST, IDC_RESOLVELIST, IDC_RESOLVELIST, IDC_RESOLVELIST);
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);

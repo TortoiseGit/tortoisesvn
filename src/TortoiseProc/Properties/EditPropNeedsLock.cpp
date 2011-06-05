@@ -52,6 +52,7 @@ END_MESSAGE_MAP()
 BOOL CEditPropNeedsLock::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(0,0,0,0);
     m_aeroControls.SubclassControl(this, IDC_PROPSET);

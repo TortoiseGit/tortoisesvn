@@ -80,6 +80,7 @@ END_MESSAGE_MAP()
 BOOL CChangedDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_CHANGEDLIST, IDC_CHANGEDLIST, IDC_CHANGEDLIST, IDC_CHANGEDLIST);
     m_aeroControls.SubclassControl(this, IDC_SHOWGROUP);

@@ -62,6 +62,7 @@ END_MESSAGE_MAP()
 BOOL CCreatePatch::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST);
     m_aeroControls.SubclassControl(this, IDC_SHOWUNVERSIONED);

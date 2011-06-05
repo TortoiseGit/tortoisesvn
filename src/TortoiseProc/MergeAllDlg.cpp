@@ -64,6 +64,7 @@ void CMergeAllDlg::OnBnClickedHelp()
 BOOL CMergeAllDlg::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_MERGEOPTIONS, IDC_MERGEOPTIONS, IDC_MERGEOPTIONS, IDC_MERGEOPTIONS);
     m_aeroControls.SubclassOkCancelHelp(this);

@@ -105,6 +105,7 @@ END_MESSAGE_MAP()
 BOOL CCommitDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     m_regAddBeforeCommit = CRegDWORD(_T("Software\\TortoiseSVN\\AddBeforeCommit"), TRUE);
     m_bShowUnversioned = m_regAddBeforeCommit;

@@ -74,6 +74,7 @@ END_MESSAGE_MAP()
 BOOL CExportDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_REVISIONGROUP);
     m_aeroControls.SubclassOkCancelHelp(this);

@@ -61,6 +61,7 @@ BOOL CEditPropMimeType::OnInitDialog()
     BOOL bRet = TRUE;
 
     CStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);

@@ -116,6 +116,7 @@ void CFileDiffDlg::SetDiff(const CTSVNPath& path1, SVNRev rev1, const CTSVNPath&
 BOOL CFileDiffDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
     CString temp;
 
     m_tooltips.Create(this);

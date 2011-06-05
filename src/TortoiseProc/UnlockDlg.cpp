@@ -58,6 +58,7 @@ END_MESSAGE_MAP()
 BOOL CUnlockDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     // initialize the svn status list control
     m_unlockListCtrl.Init(0, _T("UnlockDlg"), SVNSLC_POPALL);

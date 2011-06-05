@@ -58,6 +58,7 @@ END_MESSAGE_MAP()
 BOOL CUpdateDlg::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_GROUPMISC);
     m_aeroControls.SubclassOkCancel(this);

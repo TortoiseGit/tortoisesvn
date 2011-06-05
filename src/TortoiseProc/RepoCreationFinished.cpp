@@ -106,6 +106,7 @@ void CRepoCreationFinished::OnBnClickedRepobrowser()
 BOOL CRepoCreationFinished::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     CString url;
     if (m_RepoPath.GetWinPathString().GetAt(0) == '\\')    // starts with '\' means an UNC path

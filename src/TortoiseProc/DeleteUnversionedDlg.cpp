@@ -58,6 +58,7 @@ END_MESSAGE_MAP()
 BOOL CDeleteUnversionedDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_ITEMLIST, IDC_ITEMLIST, IDC_ITEMLIST, IDC_ITEMLIST);
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);

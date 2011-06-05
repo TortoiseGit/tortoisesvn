@@ -64,6 +64,7 @@ END_MESSAGE_MAP()
 BOOL CRevertDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_REVERTLIST, IDC_REVERTLIST, IDC_REVERTLIST, IDC_REVERTLIST);
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);

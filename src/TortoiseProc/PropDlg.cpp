@@ -22,6 +22,7 @@
 #include "UnicodeUtils.h"
 #include "Propdlg.h"
 #include "Registry.h"
+#include "AppUtils.h"
 
 
 IMPLEMENT_DYNAMIC(CPropDlg, CResizableStandAloneDialog)
@@ -49,6 +50,7 @@ END_MESSAGE_MAP()
 BOOL CPropDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_PROPERTYLIST, IDC_PROPERTYLIST, IDC_PROPERTYLIST, IDC_PROPERTYLIST);
     m_aeroControls.SubclassControl(this, IDOK);

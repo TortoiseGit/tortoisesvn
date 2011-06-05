@@ -178,6 +178,7 @@ END_MESSAGE_MAP()
 BOOL CSettings::OnInitDialog()
 {
     BOOL bResult = CTreePropSheet::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     SetIcon(m_hIcon, TRUE);         // Set big icon
     SetIcon(m_hIcon, FALSE);        // Set small icon

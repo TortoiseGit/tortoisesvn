@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006, 2011 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "CreateChangelistDlg.h"
+#include "AppUtils.h"
 
 
 // CCreateChangelistDlg dialog
@@ -53,6 +54,7 @@ END_MESSAGE_MAP()
 BOOL CCreateChangelistDlg::OnInitDialog()
 {
     CDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     GetDlgItem(IDOK)->EnableWindow(FALSE);
     GetDlgItem(IDC_NAME)->SetFocus();

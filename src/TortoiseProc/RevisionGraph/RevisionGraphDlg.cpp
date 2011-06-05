@@ -208,6 +208,7 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 BOOL CRevisionGraphDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     EnableToolTips();
 

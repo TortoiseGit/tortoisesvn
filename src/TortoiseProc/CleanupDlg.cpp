@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "CleanupDlg.h"
 #include "afxdialogex.h"
+#include "AppUtils.h"
 
 
 // CCleanupDlg dialog
@@ -65,6 +66,7 @@ END_MESSAGE_MAP()
 BOOL CCleanupDlg::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(0);
     m_aeroControls.SubclassControl(this, IDC_CLEANUP);

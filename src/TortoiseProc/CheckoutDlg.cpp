@@ -141,6 +141,7 @@ void CCheckoutDlg::SetRevision(const SVNRev& rev)
 BOOL CCheckoutDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_GROUPBOTTOM);
     m_aeroControls.SubclassOkCancelHelp(this);

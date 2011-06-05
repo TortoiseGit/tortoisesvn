@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "TortoiseProc.h"
 #include "AutoTextTestDlg.h"
 #include "HighResClock.h"
+#include "AppUtils.h"
 #include <regex>
 #include <string>
 
@@ -59,6 +60,7 @@ END_MESSAGE_MAP()
 BOOL CAutoTextTestDlg::OnInitDialog()
 {
     CDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     m_cContent.LimitText(200*1024);
 

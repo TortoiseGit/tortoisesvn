@@ -244,6 +244,7 @@ CString CRepositoryBrowser::GetPath() const
 BOOL CRepositoryBrowser::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_REPOS_BAR_CNR, IDC_REPOS_BAR_CNR, IDC_REPOS_BAR_CNR, IDC_REPOTREE);
     m_aeroControls.SubclassControl(this, IDC_F5HINT);

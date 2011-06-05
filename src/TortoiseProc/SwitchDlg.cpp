@@ -70,6 +70,7 @@ END_MESSAGE_MAP()
 BOOL CSwitchDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_REVGROUP);
     m_aeroControls.SubclassControl(this, IDC_IGNOREANCESTRY);

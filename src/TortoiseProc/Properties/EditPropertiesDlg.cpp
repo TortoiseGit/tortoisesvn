@@ -98,6 +98,7 @@ void CEditPropertiesDlg::OnBnClickedHelp()
 BOOL CEditPropertiesDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_GROUP, IDC_GROUP, IDC_GROUP, IDC_GROUP);
     m_aeroControls.SubclassControl(this, IDOK);

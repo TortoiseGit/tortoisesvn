@@ -59,6 +59,7 @@ END_MESSAGE_MAP()
 BOOL CEditPropertyValueDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
+    CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_PROPVALUEGROUP);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
