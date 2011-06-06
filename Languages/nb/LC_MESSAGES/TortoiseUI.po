@@ -9,13 +9,14 @@
 # $Rev$
 # 
 # Authors:
+#   <okl@sintef.no>, 2011
 # okloster <okl@sintef.no>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-29 00:30+0000\n"
+"PO-Revision-Date: 2011-06-05 00:38+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -105,7 +106,7 @@ msgstr "%1!ld! minutt(er) og %2!ld! sekund(er)"
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline)"
-msgstr ""
+msgstr "%1!s! (frakoblet)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -1359,7 +1360,7 @@ msgstr "&Oppdater"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr ""
+msgstr "&Oppdater element til revisjon"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -2347,7 +2348,7 @@ msgstr "Feil-IDer"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
-msgstr ""
+msgstr "Bugtraq Regex Tester - TortoiseSVN"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -2857,8 +2858,8 @@ msgstr "Dybde for &uthenting"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Uthenting fra %s, revisjon %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -2884,18 +2885,22 @@ msgstr "Velg elementer..."
 msgid "Classification Patterns"
 msgstr "Klassifiseringsmønstre"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "Rydder opp"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
-msgstr "Rydder opp i katalog \"%1!s!\""
+msgid "Cleaning up directory '%1!s!'"
+msgstr ""
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
-msgstr "Rydd opp og frisk opp utforsker"
+#. Resource IDs: (329)
+msgid "Cleanup"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2914,10 +2919,6 @@ msgid ""
 msgstr ""
 "Opprydding lyktes i å behandle følgende stier:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr "Rydder opp avbrutte operasjoner og frisker opp ikonlaget"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3086,7 +3087,7 @@ msgstr "Kommandolinje som skal utføres:"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
-msgstr ""
+msgstr "Kommandoen feilet - Trenger oppdatering"
 
 #. Resource IDs: (3857)
 msgid "Command failed."
@@ -3342,6 +3343,11 @@ msgstr ""
 "Kopiér %1!ld! elementer til\r\n"
 "%2!s!"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3355,11 +3361,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Kopiér %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "Kopiér %s til %s, Revisjon %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3506,6 +3507,13 @@ msgstr "Kunne ikke slette egenskapen '%1!s!' på %2!s! fordi"
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
 msgstr "Kunne ikke bestemme sist innsendte revisjon!"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3818,6 +3826,10 @@ msgstr "Slett og &ignorer %d elementer ved navn"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Slett og ignorer %d elementer etter &filendelse"
+
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4642,17 +4654,13 @@ msgstr "Eksporterer..."
 msgid "Exporting: Target folder exists."
 msgstr "Eksporterer: Målmappen fins."
 
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr ""
-"Eksporterer et depot til en ren arbeidskopi som er uten administrative "
-"Subversion-mapper"
-
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "Eksporterer en samling egenskaper til en fil"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4776,6 +4784,11 @@ msgstr "Henter fil..."
 #, c-format
 msgid "Fetching revision %s of file:"
 msgstr "Henter revisjon %s av filen:"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5775,15 +5788,15 @@ msgstr "Nærmeste under-elementer, mapper inkludert"
 msgid "Import"
 msgstr "Importer"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "Importer %ld elementer"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "importer %s til %s%s"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -5997,16 +6010,6 @@ msgstr ""
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Saksporer"
-
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"Du kan ikke døpe om en fil hvis bare store og små bokstaver forandres..\n"
-"Du kan for eksempel ikke døpe om MinFil.txt til MINFIL.txt.\n"
-"Les dokumentasjonen for å se hvordan man kan komme rundt dette."
 
 #. Resource IDs: (89)
 #, c-format
@@ -6535,8 +6538,8 @@ msgstr "Fletting"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "Fletter %s til %s, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6544,8 +6547,10 @@ msgstr "Fletter forskjeller mellom depot-URLer"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "Fletter fra %s, revisjon %s til %s, revisjon %s inn i %s, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -6566,8 +6571,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "Fletter revisjoner %s av %s inn i %s, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr ""
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7989,6 +7994,15 @@ msgstr "Minimer vinduet til et ikon"
 msgid "Refresh"
 msgstr "Gjenoppfrisk"
 
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "Regulært Uttrykk"
@@ -8033,8 +8047,8 @@ msgstr "Reintegrer flett"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "Reintegrer flett %s til %s"
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8252,6 +8266,11 @@ msgstr "Fjerner filen eller jokertegn i ignorerings-listen"
 msgid "Removes the selected properties"
 msgstr "Fjerner de valgte egenskapene"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr ""
+
 #. Resource IDs: (16616)
 msgid "Rena&me..."
 msgstr "Omdø&p..."
@@ -8276,16 +8295,14 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move"
-msgstr ""
+msgstr "Omdøp/flytt"
 
 #. Resource IDs: (91)
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
-"Omdøp\n"
-"Mappen blir eksportert som \"%s\"."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8459,6 +8476,10 @@ msgstr "Reversfletter %ld"
 msgid "Revert"
 msgstr "Tilbakestill"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
@@ -8483,6 +8504,11 @@ msgstr ""
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Tilbakestilt"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr ""
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -8746,10 +8772,18 @@ msgid ""
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
 msgstr ""
+"Eksempel på loggmelding for å teste bugtraq: regulære uttrykk.\n"
+"\n"
+"Tester saker nevnt inne i teksten: Nevn sak #55. Nevn saker #77, #78.\n"
+"\n"
+"Oppdater sak #101\n"
+"Fiks sak #202\n"
+"Retter sak #88.\n"
+"Avslutter sak #99.\n"
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
-msgstr ""
+msgstr "Eksempeltekst:"
 
 #. Resource IDs: (57604)
 msgid "Save &As..."
@@ -9101,7 +9135,7 @@ msgstr "Innstillinger - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
-msgstr ""
+msgstr "Skal jeg oppdatere arbeidskopien og prøve igjen?"
 
 #. Resource IDs: (1270)
 msgid "Shell"
@@ -9498,8 +9532,8 @@ msgstr "Kilde-URL:"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr "Glissen oppdatering %1!s!, dybde \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
+msgstr ""
 
 #. Resource IDs: (196)
 msgid ""
@@ -9771,12 +9805,12 @@ msgstr "&Bytt arbeidskopi til ny gren/merke"
 
 #. Resource IDs: (78)
 msgid "Switch"
-msgstr ""
+msgstr "Bytt"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "Bytt %s til %s, Revisjon %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9789,6 +9823,10 @@ msgstr "Bytt Venstre <-> Høyre"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "Bytt Til Gren / Merke"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr ""
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9837,6 +9875,10 @@ msgstr "Bytt arbeidskopi til en annen gren / merke"
 #. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "Bytt:"
+
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr ""
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -9896,7 +9938,7 @@ msgstr "Kun Test"
 
 #. Resource IDs: (590)
 msgid "Test the regex strings"
-msgstr ""
+msgstr "Test de regulære uttrykkene"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
@@ -10277,11 +10319,9 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
-"Stien/URL-en \"%s\" ser ut til å være ugyldig på Windows!\n"
-"Du kan forsøke likevel, men det kan føre til feil senere."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10374,6 +10414,8 @@ msgid ""
 "The returned error was:\n"
 "%s"
 msgstr ""
+"Feilen som ble returnert var:\n"
+"%s"
 
 #. Resource IDs: (78)
 msgid ""
@@ -10431,11 +10473,9 @@ msgstr "Målet har lokale endringer"
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
-"Arbeidskopien \"%s\" har lokale endringer! Du bør sende inn disse endringene"
-" før du fletter inn nye endringer."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -11234,8 +11274,8 @@ msgstr "Oppgrader arbeidskopi"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
-msgstr "Oppgraderer \"%1!s!\""
+msgid "Upgrading '%1!s!'"
+msgstr ""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11826,15 +11866,6 @@ msgstr ""
 "Det ser ut til at elementet ble omdøpt utenfor Subversion, men bare med forskjeller i små/store bokstaver.\n"
 "Vil du virkelig legge det til?"
 
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-"Du har byttet ikonsett fra %s til %s.\n"
-"Du må logge ut og inn igjen eller starte maskinen på nytt for å se forandringene."
-
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
@@ -12173,13 +12204,10 @@ msgstr "kopiert:"
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
-"ny størrelse: %s\n"
-"gammel størrelse: %s\n"
-"endring: %s"
 
 #. Resource IDs: (245)
 msgid "day"

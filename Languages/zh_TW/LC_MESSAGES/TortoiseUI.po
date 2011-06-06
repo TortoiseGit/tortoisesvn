@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-29 00:30+0000\n"
+"PO-Revision-Date: 2011-06-05 00:38+0000\n"
 "Last-Translator: arith <arithmandar@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2744,8 +2744,8 @@ msgstr "取出層數(&E)"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "自 %s 取得檔案, 版本 %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -2769,18 +2769,22 @@ msgstr "選擇項目..."
 msgid "Classification Patterns"
 msgstr "分類樣式"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "正在清除."
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
-msgstr "清理目錄:\"%1!s!\""
+msgid "Cleaning up directory '%1!s!'"
+msgstr ""
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
-msgstr "清理及更新圖示"
+#. Resource IDs: (329)
+msgid "Cleanup"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2799,10 +2803,6 @@ msgid ""
 msgstr ""
 "以下路徑已清理完成:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr "清理先前中斷的作業並重建覆蓋圖示..."
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3209,6 +3209,11 @@ msgstr ""
 "複製 %1!ld! 項至\r\n"
 " %2!s!"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3222,11 +3227,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "複製 %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "複製 %s 至 %s, 版本 %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3373,6 +3373,13 @@ msgstr "無法刪除屬性 '%1!s!' 於 '%2!s!':"
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
 msgstr "無法判斷最後送交的版本!"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3682,6 +3689,10 @@ msgstr "依名稱刪除並忽略 %d 項(&I)"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "依副檔名刪除並忽略 %d 項(&E)"
+
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4483,15 +4494,13 @@ msgstr "正在匯出..."
 msgid "Exporting: Target folder exists."
 msgstr ""
 
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr "從檔案庫中匯出乾淨的工作複本, 不含 svn 管理用目錄"
-
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "匯出一組屬性至檔案"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4613,6 +4622,11 @@ msgstr "正在取得檔案..."
 #, c-format
 msgid "Fetching revision %s of file:"
 msgstr "正在取得第 %s 版的:"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5593,15 +5607,15 @@ msgstr "第一層檔案與目錄"
 msgid "Import"
 msgstr "匯入"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "匯入 %ld 項"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "匯入 %s 至 %s%s"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -5813,16 +5827,6 @@ msgstr ""
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "問題追蹤系統"
-
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"僅修改檔名大小寫並不能修改檔名.\n"
-"例如, 不能把 MyFile.txt 改名為 MYFILE.txt.\n"
-"請查詢文件中關於此項限制的暫時解法."
 
 #. Resource IDs: (89)
 #, c-format
@@ -6329,8 +6333,8 @@ msgstr "正在合併"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "正在合併 %s 至 %s, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6338,8 +6342,10 @@ msgstr "根據檔案庫 URL 合併差異"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "正在自 %s 合併檔案, 版本 %s 至 %s, 版本 %s 併入 %s, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -6358,8 +6364,8 @@ msgstr "合併時, '從:' 和 '到:' 的 URL 或是版本不可以相同"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "合併版本 %s 至 %s, 併入 %s, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr ""
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7738,6 +7744,15 @@ msgstr "縮小視窗為圖示"
 msgid "Refresh"
 msgstr "重新整理"
 
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "正規表示式"
@@ -7782,8 +7797,8 @@ msgstr "重新整合合併"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "重新整合 %s 至 %s"
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -7987,6 +8002,11 @@ msgstr "從忽略列表中移除檔案或檔案遮罩"
 msgid "Removes the selected properties"
 msgstr "移除選擇的屬性"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr ""
+
 #. Resource IDs: (16616)
 msgid "Rena&me..."
 msgstr "重新命名(&M)"
@@ -8017,7 +8037,7 @@ msgstr ""
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8190,6 +8210,10 @@ msgstr "反向合併 %ld"
 msgid "Revert"
 msgstr "復原"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "回復至預設設定. 建議新手使用者選用."
@@ -8209,6 +8233,11 @@ msgstr ""
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "復原"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr ""
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -9206,8 +9235,8 @@ msgstr "原始碼 URL:"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr "稀疏更新 %1!s!, 深度 \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
+msgstr ""
 
 #. Resource IDs: (196)
 msgid ""
@@ -9472,8 +9501,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "切換 %s 至 %s, 版本 %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9486,6 +9515,10 @@ msgstr "左右切換"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "切換至分支/標記"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr ""
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9534,6 +9567,10 @@ msgstr "切換工作複本至其他分支/標記"
 #. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "切換:"
+
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr ""
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -9955,7 +9992,7 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
 
@@ -10107,8 +10144,8 @@ msgstr ""
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
 
 #. Resource IDs: (279)
@@ -10872,8 +10909,8 @@ msgstr "升級工作複本"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
-msgstr "正在更新 \"%1!s!\""
+msgid "Upgrading '%1!s!'"
+msgstr ""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11443,15 +11480,6 @@ msgstr ""
 "它的檔案似乎以 Subversion 之外的方式變更了, 但是只有大小寫不一樣.\n"
 "確定要新增嗎?"
 
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-"您已經將圖示組從 %s 變更為 %s.\n"
-"在重新登出登入或是重新開機之前變更並不會生效!"
-
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
@@ -11787,13 +11815,10 @@ msgstr "複製:"
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
-"目前大小: %s\n"
-"前一版大小: %s\n"
-"差異: %s"
 
 #. Resource IDs: (245)
 msgid "day"

@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-29 00:30+0000\n"
-"Last-Translator: p0jken <ks6g10@soton.ac.uk>\n"
+"PO-Revision-Date: 2011-06-05 00:38+0000\n"
+"Last-Translator: fogle <johanfoglemark@gmail.com>\n"
 "Language-Team: Swedish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2801,8 +2801,8 @@ msgstr "&Djup"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Hämtar fil %s, revision %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -2826,18 +2826,22 @@ msgstr "Välj objekt ..."
 msgid "Classification Patterns"
 msgstr "Klassificerings mönster"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "Rensar"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
-msgstr "Rensar katalog \"%1!s!\""
+msgid "Cleaning up directory '%1!s!'"
+msgstr ""
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
-msgstr "Rensa och uppdatera fönster"
+#. Resource IDs: (329)
+msgid "Cleanup"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2856,10 +2860,6 @@ msgid ""
 msgstr ""
 "Upprensning lyckades för följande sökvägar:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr "Rensa avbrutna åtgärder och uppdatera statusikoner"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3280,6 +3280,11 @@ msgstr ""
 "Kopierade %1!ld! objekt till\r\n"
 "%2!s!"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3293,11 +3298,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Kopiera %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "Kopiera %s till %s, Revision %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3444,6 +3444,13 @@ msgstr "Kunde inte ta bort egenskapen \"%1!s!\" på \"%2!s!\" på grund av"
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
 msgstr "Det gick inte att ta reda på den senaste arkiverade revisionen!"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3753,6 +3760,10 @@ msgstr "Radera och &Ignorera %d objekt efter namn"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Radera och ignorera %d objekt efter filänd&else"
+
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4067,6 +4078,9 @@ msgid ""
 "%s\n"
 "and go back to this revision?"
 msgstr ""
+"Vill du återställa alla förändringar i\n"
+"%s\n"
+"och återgå till denna revision?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4075,6 +4089,9 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
+"Vill du återställa alla förändringar i\n"
+"%s\n"
+"som gjordes i denna revision?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -4562,15 +4579,13 @@ msgstr "Exporterar..."
 msgid "Exporting: Target folder exists."
 msgstr ""
 
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr "Exporterar en 'ren' kopia från arkivet, utan .svn mappar"
-
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "Exporterar en grupp med egenskaper till fil"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4694,6 +4709,11 @@ msgstr "Hämtar fil..."
 #, c-format
 msgid "Fetching revision %s of file:"
 msgstr "Hämtar revision %s av filen:"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5689,15 +5709,15 @@ msgstr "Direkta barn, inklusive mappar"
 msgid "Import"
 msgstr "Importera"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "Importera %ld objekt"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "Importera %s till %s%s"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -5909,16 +5929,6 @@ msgstr ""
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Ärendehanterare"
-
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"Det går inte att byta namn på en fil om det enda som ändrats är stora och små bokstäver.\n"
-"Till exempel, det går inte att byta namn på MyFile.txt till MYFILE.txt.\n"
-"För instruktioner om hur man kan komma runt denna begränsning konsultera dokumentationen."
 
 #. Resource IDs: (89)
 #, c-format
@@ -6429,8 +6439,8 @@ msgstr "Förenar"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "Förenar %s till %s, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6438,8 +6448,10 @@ msgstr "Förenar skillnader mellan arkiv URLerna"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "Förenar från %s, revision %s till %s, revision %s till %s, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -6459,8 +6471,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "Förenar revision %s av %s till %s, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr ""
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7564,6 +7576,8 @@ msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
 msgstr ""
+"Fortsätta utan ett ärende nummer\n"
+"Arkiveringen kommer inte att vara en del av ett ärende."
 
 #. Resource IDs: (132)
 #, c-format
@@ -7863,6 +7877,15 @@ msgstr "Minimera fönstret till en ikon"
 msgid "Refresh"
 msgstr "Uppdatera"
 
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "Reguljära uttryck"
@@ -7907,8 +7930,8 @@ msgstr "Återintegrera förening"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "Återintegrerar %s till %s"
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -7983,6 +8006,8 @@ msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
 msgstr ""
+"Flytta arbetskopian\n"
+"Flyttas till den nya URLen"
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -8114,6 +8139,11 @@ msgstr "Tar bort filen eller filmasken från undantagslistan"
 msgid "Removes the selected properties"
 msgstr "Tar bort valda egenskaper"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr ""
+
 #. Resource IDs: (16616)
 msgid "Rena&me..."
 msgstr "Byt na&mn..."
@@ -8144,7 +8174,7 @@ msgstr ""
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8317,6 +8347,10 @@ msgstr "Omvänd förening %ld"
 msgid "Revert"
 msgstr "Återställ"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
@@ -8337,6 +8371,11 @@ msgstr "Återställ ändringar kommer att utföras i arbetskopian."
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Återställd"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr ""
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -9306,7 +9345,7 @@ msgstr "Skippa hindrande arbetskopia"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr ""
+msgstr "Skippad, ingen versionshanterad förälder"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9342,8 +9381,8 @@ msgstr "Källkod URL:"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr "Gles uppdatering %1!s!, djup \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
+msgstr ""
 
 #. Resource IDs: (196)
 msgid ""
@@ -9619,8 +9658,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "Växla %s till %s, Revision %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9633,6 +9672,10 @@ msgstr "Växla vänster<->höger"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "Växla till gren / märke"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr ""
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9681,6 +9724,10 @@ msgstr "Växlar över arbetskopian till en annan gren / märke"
 #. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "Växla:"
+
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr ""
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -10124,7 +10171,7 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
 
@@ -10271,13 +10318,13 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "Målet har lokala ändringar"
 
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
 
 #. Resource IDs: (279)
@@ -10518,6 +10565,8 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr ""
+"Detta kommer att uppgradera din arbetskopia till det nya formatet 1.7 och "
+"göra den oanvändbar för äldre klienter."
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -11060,6 +11109,8 @@ msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
 msgstr ""
+"Uppgradera arbetskopian\n"
+"till det nya 1.7-formatet."
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
@@ -11067,8 +11118,8 @@ msgstr "Uppgradera arbetskopia"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
-msgstr "Exporterar \"%1!s!\""
+msgid "Upgrading '%1!s!'"
+msgstr ""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11645,15 +11696,6 @@ msgstr ""
 "Det verkar som om objektet har blivit omdöpt utanför Subversion men endast med versala skillnader.\n"
 "Vill du verkligen lägga till det?"
 
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-"Du har ändrat statusikonuppsättningen från %s till %s.\n"
-"Det behövs en omstart eller att du loggar ut och sedan in igen för att den ska börja gälla!"
-
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
@@ -11990,13 +12032,10 @@ msgstr "kopierad:"
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
-"nuvarande storlek: %s\n"
-"gamla storlek: %s\n"
-"förändring: %s"
 
 #. Resource IDs: (245)
 msgid "day"

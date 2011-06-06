@@ -9,13 +9,13 @@
 # $Rev$
 # 
 # Authors:
-# Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011, 2011.0
+# Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-29 00:30+0000\n"
+"PO-Revision-Date: 2011-06-05 00:38+0000\n"
 "Last-Translator: JML <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -106,7 +106,7 @@ msgstr "%1!ld! minuten en %2!ld! seconden"
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline)"
-msgstr ""
+msgstr "%1!s! (offline)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -335,6 +335,9 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"De map %s\n"
+"bevat gewijzigde en/of bestanden zonder versiebeheer. Wilt u hem toch verwijderen?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -344,6 +347,10 @@ msgid ""
 "Shall I update the working copy now\n"
 "and then retry?"
 msgstr ""
+"%s\n"
+"\n"
+"Moet de werkkopie worden bijgewerkt\n"
+"en dan opnieuw proberen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -1357,7 +1364,7 @@ msgstr "&Verversen"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr ""
+msgstr "Onderdeel &bijwerken naar revisie"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -1712,12 +1719,16 @@ msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
 msgstr ""
+"Accepteer het certificaat permanent\n"
+"Over dit certificaat zullen geen vragen meer gesteld worden."
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
+"Accepteer het certificaat\n"
+"Dit certificaat wordt eenmalig geaccepteerd."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2338,7 +2349,7 @@ msgstr "Bug-IDs"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
-msgstr ""
+msgstr "Bugtraq Regex Tester - TortoiseSVN"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -2437,6 +2448,8 @@ msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"Annuleer\n"
+"Kies een andere map om naar te exporteren"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2475,18 +2488,24 @@ msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr ""
+"Annuleer\n"
+"Sluit TortoiseMerge niet af"
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
 msgstr ""
+"Annuleer\n"
+"Het onderdeel niet oplossen."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't switch the views"
 msgstr ""
+"Annuleer\n"
+"Wissel niet van beeld"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2501,6 +2520,8 @@ msgid ""
 "Cancel\n"
 "Go back and select a different folder."
 msgstr ""
+"Annuleer\n"
+"Ga terug en kies een andere map."
 
 #. Resource IDs: (89)
 msgid ""
@@ -2515,6 +2536,8 @@ msgid ""
 "Cancel\n"
 "Ignore the outside changes."
 msgstr ""
+"Annuleer\n"
+"Negeer de wijzigingen van buitenaf"
 
 #. Resource IDs: (89)
 msgid ""
@@ -2529,48 +2552,64 @@ msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr ""
+"Annuleer\n"
+"Bewaar het lege bestand."
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Leave all changes."
 msgstr ""
+"Annuleer\n"
+"Handhaaf alle wijzigingen."
 
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
 "Leave the cache on disk."
 msgstr ""
+"Annuleer\n"
+"Laat de cache op schijf."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr ""
+"Annuleer\n"
+"Los eerst de conflicten op."
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
 msgstr ""
+"Annuleer\n"
+"Het conflict wordt niet opgelost."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not added and not adjusted."
 msgstr ""
+"Annuleer\n"
+"Het bestand wordt niet toegevoegd en niet aangepast."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not copied."
 msgstr ""
+"Annuleer\n"
+"Het bestand wordt niet gekopiëerd"
 
 #. Resource IDs: (91)
 msgid ""
 "Cancel\n"
 "The folder is not exported."
 msgstr ""
+"Annuleer\n"
+"De map wordt niet geëxporteerd."
 
 #. Resource IDs: (105)
 msgid ""
@@ -2593,6 +2632,8 @@ msgid ""
 "Cancel\n"
 "The property is not removed."
 msgstr ""
+"Annuleer\n"
+"De eigenschap wordt niet verwijderd."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2664,7 +2705,7 @@ msgstr "Certificaat nog niet geldig. Geldig vanaf: %s"
 
 #. Resource IDs: (148)
 msgid "Certificate validation failed"
-msgstr ""
+msgstr "Certificaat-validatie mislukt"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -2819,14 +2860,16 @@ msgstr "Ophaaldi&epte"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Ophalen van %s, revisie %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
 "Checkout\n"
 "Checkout into the non empty folder."
 msgstr ""
+"Ophalen\n"
+"Haal op naar de niet lege map."
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -2844,18 +2887,22 @@ msgstr "Kies objecten..."
 msgid "Classification Patterns"
 msgstr "Klassificatiepatronen"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "Schonen bezig"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
-msgstr "Map \"%1!s!\" wordt geschoond"
+msgid "Cleaning up directory '%1!s!'"
+msgstr ""
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
-msgstr "Schonen en shell verversen"
+#. Resource IDs: (329)
+msgid "Cleanup"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2874,10 +2921,6 @@ msgid ""
 msgstr ""
 "Schonen heeft de volgende paden succesvol behandeld:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr "Schonen van onderbroken acties en ververs de iconen overlays"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3042,7 +3085,7 @@ msgstr "Uit te voeren commando:"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
-msgstr ""
+msgstr "Opdracht mislukt - bijwerken noodzakelijk"
 
 #. Resource IDs: (3857)
 msgid "Command failed."
@@ -3218,7 +3261,7 @@ msgstr "Programma voor het bekijken van GNU diff-bestanden (patchbestanden)."
 
 #. Resource IDs: (147)
 msgid "Confirm revert"
-msgstr ""
+msgstr "Bevestig ongedaan maken"
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3299,6 +3342,11 @@ msgstr ""
 "Kopiëer %1!ld! zaken naar\r\n"
 "%2!s!"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3312,11 +3360,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Kopieer %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "Kopiëer %s naar %s, revisie %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3463,6 +3506,13 @@ msgstr "Kon eigenschap '%1!s!' niet verwijderen van '%2!s!' omdat"
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
 msgstr "Kon de laatst vastgelegde revisie niet bepalen!"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3757,7 +3807,7 @@ msgstr "Verwijderen"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
-msgstr ""
+msgstr "Verwijder archief-cache"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -3773,6 +3823,10 @@ msgstr "%d zaken verwijderen en &negeren op naam"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Verwijder en negeer %d zaken op &extensie"
 
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
 msgstr "Verwijder objecten zonder versiebeheer..."
@@ -3786,12 +3840,16 @@ msgid ""
 "Delete\n"
 "Remove the cache files."
 msgstr ""
+"Verwijderen\n"
+"Verwijder de cache bestanden."
 
 #. Resource IDs: (314)
 msgid ""
 "Delete\n"
 "The file is removed."
 msgstr ""
+"Verwijderen\n"
+"Het bestand wordt verwijderd."
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3882,7 +3940,7 @@ msgstr "Venster afmetingen en posities"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr ""
+msgstr "Opties voor Verschillen"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -3986,11 +4044,11 @@ msgstr "Toon geen contextmenu voor de volgende paden:"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
-msgstr ""
+msgstr "Doe dit voor alle aanwezige bestanden"
 
 #. Resource IDs: (91)
 msgid "Do this for all existing folders"
-msgstr ""
+msgstr "Doe dit voor alle aanwezige mappen"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
@@ -3998,7 +4056,7 @@ msgstr "Doe dit voor alle bestaande objecten"
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
-msgstr ""
+msgstr "Doe dit voor alle geselecteerde onderdelen"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -4006,7 +4064,7 @@ msgstr "Doe dit voor alle geselecteerde mappen zonder versiebeheer"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
-msgstr ""
+msgstr "Doe dit voor alle onderdelen zonder versiebeheer of met wijzigingen"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4053,7 +4111,7 @@ msgstr ""
 #. Resource IDs: (148)
 #, c-format
 msgid "Do you want to mark '%s' as resolved?"
-msgstr ""
+msgstr "Wilt u '%s' als opgelost markeren?"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4079,7 +4137,7 @@ msgstr "Wilt u de eigenschap %s recursief verwijderen?"
 #. Resource IDs: (147)
 #, c-format
 msgid "Do you want to revert '%s'?"
-msgstr ""
+msgstr "Wilt u '%s' ongedaan maken?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4148,6 +4206,8 @@ msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
 msgstr ""
+"Niet opslaan\n"
+"Views herladen zonder de wijzigingen op te slaan"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4574,6 +4634,8 @@ msgid ""
 "Export\n"
 "Export into the non-empty folder."
 msgstr ""
+"Exporteer\n"
+"Exporteer naar de niet lege map."
 
 #. Resource IDs: (284)
 #, c-format
@@ -4586,19 +4648,15 @@ msgstr "Exporteren..."
 
 #. Resource IDs: (90)
 msgid "Exporting: Target folder exists."
-msgstr ""
-
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr ""
-"Exporteert een archief naar een schone werkkopie zonder de svn "
-"administratiemappen"
+msgstr "Exporteren: de doelmap bestaat."
 
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "Exporteert een set eigenschappen naar een bestand"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4723,13 +4781,18 @@ msgstr "Bestand ophalen..."
 msgid "Fetching revision %s of file:"
 msgstr "Revisie %s van bestand ophalen:"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr ""
+
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
 msgstr "Bestand"
 
 #. Resource IDs: (90)
 msgid "File already exists"
-msgstr ""
+msgstr "Bestand bestaat al"
 
 #. Resource IDs: (247)
 #, c-format
@@ -4742,7 +4805,7 @@ msgstr "Bestandswijzigingen per week:"
 
 #. Resource IDs: (226)
 msgid "File contains conflict markers"
-msgstr ""
+msgstr "Bestand bevat conflictmarkeringen"
 
 #. Resource IDs: (376)
 msgid "File diffs"
@@ -4750,7 +4813,7 @@ msgstr "Diff van twee bestanden"
 
 #. Resource IDs: (314)
 msgid "File is empty."
-msgstr ""
+msgstr "Bestand is leeg."
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -4983,7 +5046,7 @@ msgstr "Forceer"
 
 #. Resource IDs: (147)
 msgid "Force removal"
-msgstr ""
+msgstr "Forceer verwijderen"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5623,7 +5686,7 @@ msgstr "Negeer %d zaken op &extensie"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Negeer wijzigingen in &einde-regel-markeringen"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5663,7 +5726,7 @@ msgstr "Negeer regeleinden"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "Negeer witruimte-&wijzigingen"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5723,15 +5786,15 @@ msgstr "Enkel nivo, inclusief mappen"
 msgid "Import"
 msgstr "Importeren"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "%ld zaken importeren"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "Importeer %s in %s%s"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -5946,16 +6009,6 @@ msgstr ""
 msgid "Issue tracker"
 msgstr "Issue tracker"
 
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"Het is niet mogelijk om een bestand te hernoemen door alleen hoofd- en kleine letters te wijzigen.\n"
-"MyFile.txt kan bijvoorbeeld niet hernoemd worden in MYFILE.TXT.\n"
-"Raadpleeg de documentatie voor een oplossing om deze beperking heen."
-
 #. Resource IDs: (89)
 #, c-format
 msgid ""
@@ -5986,6 +6039,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
+"Het lijkt er op dat u de werkkopie probeert te verhuizen naar een ander pad binnen hetzelfde archief.\n"
+"\n"
+"Van:\t\t%1!s!\n"
+"Naar:\t%2!s!\n"
+"\n"
+"Verhuizen is alleen nodig als het pad naar een archief is gewijzigd.\n"
+"Wisselen naar een ander pad binnen een archief wordt gedaan met een wissel actie.\n"
+"\n"
+"Onjuist gebruik van verhuizen zal de werkkopie beschadigen!\n"
+"Als u niet zeker weet wat u moet doen, raadpleeg dan de documentatie over verhuizen.\n"
+"Wilt u echt verhuizen?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6220,7 +6284,7 @@ msgstr "Geblokkeerd door %s"
 
 #. Resource IDs: (93)
 msgid "Locking failed"
-msgstr ""
+msgstr "Blokkeren mislukt"
 
 #. Resource IDs: (89)
 msgid ""
@@ -6319,6 +6383,8 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr ""
+"Markeer als opgelost\n"
+"Het conflict is opgelost."
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6473,8 +6539,8 @@ msgstr "Samenvoegen"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "%s samenvoegen in %s, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6482,8 +6548,10 @@ msgstr "Verschillen tussen archief URLs worden samengevoegd"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "Samenvoegen van %s, revisie %s tot %s, revisie %s in %s, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -6504,8 +6572,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "Revisies %s van %s samenvoegen in %s, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr ""
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -6573,7 +6641,7 @@ msgstr "Wijzigingsdatum"
 
 #. Resource IDs: (315)
 msgid "Modifications detected"
-msgstr ""
+msgstr "Wijzigingen gedetecteerd"
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
@@ -6907,7 +6975,7 @@ msgstr "Geen suggesties"
 
 #. Resource IDs: (564)
 msgid "No to all"
-msgstr ""
+msgstr "Nee op alles"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -6953,7 +7021,7 @@ msgstr "Niet recursief"
 
 #. Resource IDs: (265)
 msgid "Not under version control"
-msgstr ""
+msgstr "Niet onder versiebeheer"
 
 #. Resource IDs: (3887)
 msgid ""
@@ -7070,7 +7138,7 @@ msgstr "Aantal weken:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "&Opties"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -7113,6 +7181,8 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr ""
+"Een van de paden die u wil verplaatsen lijkt een speciaal pad te zijn\n"
+"(een van 'branches', 'tags' of 'trunk')."
 
 #. Resource IDs: (63)
 msgid ""
@@ -7185,6 +7255,8 @@ msgid ""
 "Open files\n"
 "Open files for diff"
 msgstr ""
+"Open bestanden\n"
+"Open bestanden voor verschillen tonen"
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7267,6 +7339,8 @@ msgid ""
 "Overwrite\n"
 "Replace the target folder."
 msgstr ""
+"Overschrijven\n"
+"Vervang de doelmap."
 
 #. Resource IDs: (147)
 msgid ""
@@ -7281,6 +7355,8 @@ msgid ""
 "Overwrite\n"
 "The target file is replaced."
 msgstr ""
+"Overschrijven\n"
+"Het doelbestand wordt vervangen."
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -7607,16 +7683,20 @@ msgid ""
 "Proceed with the entered path\n"
 "I'm aware of the possible problems."
 msgstr ""
+"Gebruik het opgegeven pad\n"
+"Ik ben bekend met de mogelijke problemen."
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
-msgstr ""
+msgstr "Ga verder met het samenvoegen."
 
 #. Resource IDs: (173)
 msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
 msgstr ""
+"Ga verder zonder issue nummer\n"
+"De vastlegging zal niet aan een issue worden toegewezen."
 
 #. Resource IDs: (132)
 #, c-format
@@ -7756,6 +7836,8 @@ msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
+"Afsluiten\n"
+"Sluit TortoiseMerge af zonder de wijzigingen op te slaan"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -7884,13 +7966,15 @@ msgstr "Recursief"
 
 #. Resource IDs: (589)
 msgid "Recursive operation"
-msgstr ""
+msgstr "Recursieve operatie"
 
 #. Resource IDs: (589)
 msgid ""
 "Recursive\n"
 "Remove the property also from items in Subfolders."
 msgstr ""
+"Recursief\n"
+"Verwijder de eigenschap ook van onderliggende mappen."
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
@@ -7915,6 +7999,15 @@ msgstr "Minimaliseer het venster"
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
 msgstr "Verversen"
+
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr ""
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
@@ -7960,8 +8053,8 @@ msgstr "Reïntegreer samenvoeging"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "Reïntegreer %s in %s"
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -7972,6 +8065,8 @@ msgid ""
 "Reject the certificate\n"
 "Cancel the connection."
 msgstr ""
+"Weiger het certificaat\n"
+"Annuleer de verbinding."
 
 #. Resource IDs: (7)
 #, c-format
@@ -8007,12 +8102,16 @@ msgid ""
 "Reload\n"
 "Local modifications are lost."
 msgstr ""
+"Herladen\n"
+"Lokale wijzigingen gaan verloren."
 
 #. Resource IDs: (315)
 msgid ""
 "Reload\n"
 "The outside changes are loaded."
 msgstr ""
+"Herladen\n"
+"De wijzigingen van buitenaf worden geladen."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8032,13 +8131,15 @@ msgstr "Waarschuwing Verhuizen"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "Verhuizing waar een wisseling bedoeld zou kunnen zijn"
 
 #. Resource IDs: (89)
 msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
 msgstr ""
+"Verplaats\n"
+"De werkkopie wordt verhuisd naar de nieuwe URL."
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -8095,6 +8196,8 @@ msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
 msgstr ""
+"Verwijder uit versiebeheer\n"
+"Alle .svn mappen worden verwijderd"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8126,12 +8229,16 @@ msgid ""
 "Remove\n"
 "Force the removal"
 msgstr ""
+"Verwijder\n"
+"Forceer het verwijderen"
 
 #. Resource IDs: (589)
 msgid ""
 "Remove\n"
 "Remove the property only from this item."
 msgstr ""
+"Verwijderen\n"
+"Verwijder de eigenschap alleen van dit onderdeel."
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8168,6 +8275,11 @@ msgstr "Verwijdert bestand(en) of het bestandspatroon uit de negeerlijst"
 msgid "Removes the selected properties"
 msgstr "Verwijdert de geselecteerde eigenschappen"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr ""
+
 #. Resource IDs: (16616)
 msgid "Rena&me..."
 msgstr "&Hernoemen..."
@@ -8192,13 +8304,13 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move"
-msgstr ""
+msgstr "Verplaats/hernoem"
 
 #. Resource IDs: (91)
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8243,7 +8355,7 @@ msgstr "Vervangen"
 
 #. Resource IDs: (564)
 msgid "Report"
-msgstr ""
+msgstr "Rapporteer"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
@@ -8318,6 +8430,8 @@ msgid ""
 "Resolve\n"
 "The item is marked as resolved."
 msgstr ""
+"Oplossen\n"
+"Het onderdeel wordt gemarkeerd als opgelost."
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -8371,6 +8485,10 @@ msgstr "Omgekeerd samenvoegen van %ld"
 msgid "Revert"
 msgstr "Ongedaan maken"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
@@ -8381,20 +8499,29 @@ msgid ""
 "Revert\n"
 "All changes will be lost."
 msgstr ""
+"Ongedaan maken\n"
+"Alle wijzigingen gaan verloren."
 
 #. Resource IDs: (119)
 msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
 msgstr ""
+"Ongedaan maken\n"
+"Wijzigingen zullen in de werkkopie aangebracht worden."
 
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Ongedaan gemaakt"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr ""
+
 #. Resource IDs: (119)
 msgid "Reverting changes"
-msgstr ""
+msgstr "Wijzigingen worden ongedaan gemaakt"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
@@ -8654,10 +8781,18 @@ msgid ""
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
 msgstr ""
+"Voorbeeld logboekboodschap om de bugtraq: regex strings te testen.\n"
+"\n"
+"Testing mentions of issues inside a text: Mention issue #55. Mention issues #77, #78.\n"
+"\n"
+"Update issue #101\n"
+"Fixes issue #202\n"
+"Resolves issue #88.\n"
+"Closes issue #99.\n"
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
-msgstr ""
+msgstr "Voorbeeldtekst:"
 
 #. Resource IDs: (57604)
 msgid "Save &As..."
@@ -8680,6 +8815,8 @@ msgid ""
 "Save as\n"
 "You're asked where to save the file"
 msgstr ""
+"Opslaan als\n"
+"De lokatie voor opslaan zal gevraagd worden"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -8696,7 +8833,7 @@ msgstr "Opslaan in Git indeling"
 
 #. Resource IDs: (314)
 msgid "Save modifications."
-msgstr ""
+msgstr "Sla wijzigingen op."
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8719,6 +8856,8 @@ msgid ""
 "Save\n"
 "Save the file with the conflict markers."
 msgstr ""
+"Opslaan\n"
+"Sla het bestand op met conflictmarkeringen"
 
 #. Resource IDs: (314)
 #, c-format
@@ -8727,6 +8866,9 @@ msgid ""
 "The modifications are saved to\n"
 "%s"
 msgstr ""
+"Opslaan\n"
+"De wijzigingen worden opgeslagen in\n"
+"%s"
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -9005,6 +9147,8 @@ msgstr "Instellingen - TortoiseSVN"
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
 msgstr ""
+"Moet de werkkopie worden bijgewerkt\n"
+"en dan opnieuw proberen?"
 
 #. Resource IDs: (1270)
 msgid "Shell"
@@ -9343,11 +9487,11 @@ msgstr "Grootte van de cache als hij niet gecomprimeerd zou zijn"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "Overslaan"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "Alles overslaan"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -9363,7 +9507,7 @@ msgstr "Versperde werkkopie overgeslagen"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr ""
+msgstr "Overgeslagen, ouder-pad niet onder versiebeheer"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9403,8 +9547,8 @@ msgstr "Bron URL:"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr "Gedeeltelijk ('sparse') bijwerken %1!s!, diepte \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
+msgstr ""
 
 #. Resource IDs: (196)
 msgid ""
@@ -9675,12 +9819,12 @@ msgstr "S&chakel werkkopie naar de nieuwe tak/label"
 
 #. Resource IDs: (78)
 msgid "Switch"
-msgstr ""
+msgstr "Wissel"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "Wissel %s naar %s, revisie %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9693,6 +9837,10 @@ msgstr "Wissel links <-> rechts"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "Wissel naar tak/label"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr ""
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9742,6 +9890,10 @@ msgstr "Schakel werkkopie naar een andere tak/label"
 msgid "Switch:"
 msgstr "Wissel:"
 
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr ""
+
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
 msgstr "Wisselt links <-> rechts"
@@ -9784,7 +9936,7 @@ msgstr "Werkkopie opgenomen als label %s"
 
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
-msgstr ""
+msgstr "Doelmap is niet leeg"
 
 #. Resource IDs: (80)
 msgid "Tasks"
@@ -9800,7 +9952,7 @@ msgstr "Alleen testen"
 
 #. Resource IDs: (590)
 msgid "Test the regex strings"
-msgstr ""
+msgstr "Test de regex strings"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
@@ -10196,11 +10348,9 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
-"Het pad/URL \"%s\" lijkt niet toegestaan voor Windows!\n"
-"U kunt het proberen, maar er kan een foutmelding komen."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10293,6 +10443,8 @@ msgid ""
 "The returned error was:\n"
 "%s"
 msgstr ""
+"De foutmelding was:\n"
+"%s"
 
 #. Resource IDs: (78)
 msgid ""
@@ -10349,11 +10501,9 @@ msgstr "Het doel heeft lokale wijzigingen"
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
-"De doel-werkkopie \"%s\" heeft lokale wijzigingen. U wordt geadviseerd deze "
-"wijzigingen vast te leggen voordat nieuwe wijzigingen worden samengevoegd."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -11044,7 +11194,7 @@ msgstr "Niet herkend of ongeldig bestandsformaat!"
 
 #. Resource IDs: (315)
 msgid "Unresolved conflicts!"
-msgstr ""
+msgstr "Onopgeloste conflicten!"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -11068,7 +11218,7 @@ msgstr "Stop versiebeheer en voeg toe aan &negeerlijst"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "Versiebeheer van werkkopie opheffen"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -11104,12 +11254,16 @@ msgid ""
 "Update\n"
 "Update the file and try locking again."
 msgstr ""
+"Bijwerken\n"
+"Werk het bestand bij en probeer opnieuw te blokkeren."
 
 #. Resource IDs: (90)
 msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
 msgstr ""
+"Bijwerken\n"
+"Werk de werkkopie bij en heropen de vastleggen-dialoog om het nogmaals te proberen."
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -11160,8 +11314,8 @@ msgstr "Werkkopie opwaarderen"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
-msgstr "Opwaarderen \"%1!s!\""
+msgid "Upgrading '%1!s!'"
+msgstr ""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11587,6 +11741,8 @@ msgid ""
 "Wrap long lines\n"
 "Wrap long lines"
 msgstr ""
+"Terugloop\n"
+"Terugloop voor lange regels"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -11748,15 +11904,6 @@ msgstr ""
 "\n"
 "Het lijkt er op dat het onderdeel buiten Subversion hernoemd werd, met alleen wijzigingen in hoofd- en kleine letters.\n"
 "Wilt u het echt toevoegen?"
-
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-"De pictogrammenset is gewijzigd van %s in %s.\n"
-"Deze wijziging heeft pas effect nadat u zich opnieuw heeft aangemeld of de computer heeft herstart!"
 
 #. Resource IDs: (170)
 msgid ""
@@ -12096,13 +12243,10 @@ msgstr "gekopieerd:"
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
-"huidige grootte: %s\n"
-"oude grootte: %s\n"
-"wijziging: %s"
 
 #. Resource IDs: (245)
 msgid "day"

@@ -9,14 +9,14 @@
 # $Rev$
 # 
 # Authors:
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011, 2011.0
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-24 05:52+0000\n"
+"PO-Revision-Date: 2011-06-05 16:37+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5140,32 +5140,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"An update by default ignores local modifications to the "
-"<literal>svn:externals</literal> property. But when you made modifications "
-"to the <literal>svn:externals</literal> property, you can force the update "
-"to use those local modifications. For example if you change an external to a"
-" new tag, you might want to first update your working copy to that new tag, "
-"build the project and only commit the change to the "
-"<literal>svn:externals</literal> if the build was successful. In that "
-"situation, you have to check the box <guilabel>Apply local svn:externals "
-"modifications</guilabel>. If you modify your externals a lot, you can make "
-"this behavior the default when updating in the settings dialog. <xref "
-"linkend=\"tsvn-dug-settings-main\"/>."
-msgstr ""
-"Aktualizace ve výchozím nastavení ignoruje místní změny vlastnosti "
-"<literal>svn:externals</literal>. Ale když provedete změny vlastnosti "
-"<literal>svn:externals</literal>, můžete si aktualizaci vynutit pro použití "
-"těchto místních změn. Například pokud vlastnost změníte na novou značku, "
-"možná budete chtít nejprve aktualizovat Vaši pracovní kopii na tuto novou "
-"značku, projekt sestavit a změnu <literal>svn:externals</literal> odevzdat "
-"pouze v případě, že sestavení bylo úspěšné. V tomto případě budete muset "
-"zaškrtnout políčko <guilabel>Použít místní změny svn:externals</guilabel> . "
-"Pokud Vaše externí měníte často, můžete toto chování udělat výchozím při "
-"aktualizaci v dialogovém okně nastavení. <xref linkend=\"tsvn-dug-settings-"
-"main\"/> ."
-
-#. (para)
-msgid ""
 "If you update a file or folder to a specific revision, you should not make "
 "changes to those files. You will get <quote>out of date</quote> error "
 "messages when you try to commit them! If you want to undo changes to a file "
@@ -9411,13 +9385,12 @@ msgstr "Kontextové menu průzkumníka pro soubory s verzí"
 
 #. (para)
 msgid ""
-"Unlike CVS, Subversion allows renaming and moving of files and folders. So "
-"there are menu entries for delete and rename in the TortoiseSVN submenu. "
+"Subversion allows renaming and moving of files and folders. So there are "
+"menu entries for delete and rename in the TortoiseSVN submenu. "
 "<placeholder-1/>"
 msgstr ""
-"Na rozdíl od CVS, Subversion umožňuje přejmenování a přesun souborů a "
-"adresářů. Takže v menu TortoiseSVN existují volby pro smazání a "
-"přejmenování. <placeholder-1/>"
+"Subversion umožňuje přejmenování a přesun souborů a adresářů. Takže v menu "
+"TortoiseSVN existují volby pro smazání a přejmenování. <placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
@@ -9698,77 +9671,6 @@ msgstr ""
 "přesunout externí adresář, měli byste použít obyčejný přesun v rozhraní a "
 "poté nastavit vlastnost <literal>svn:externals</literal> v nadřazených "
 "adresářích zdroje a určení."
-
-#. (title)
-msgid "Changing case in a filename"
-msgstr "Změna velikosti písmen v souboru"
-
-#. (primary)
-msgid "case change"
-msgstr "změna velikosti písmen"
-
-#. (para)
-msgid ""
-"Making case-only changes to a filename is tricky with Subversion on Windows,"
-" because for a short time during a rename, both filenames have to exist. As "
-"Windows has a case-insensitive file system, this does not work using the "
-"usual Rename command."
-msgstr ""
-"Provádět změny velikosti písmen názvu souboru je složité se Subversion ve "
-"Windows, protože na krátkou dobu během přejmenování, oba názvy souboru musí "
-"existovat. Protože Windows má souborový systém citlivý na velikost písmen, "
-"použití obyčejného příkazu Přejmenovat nefunguje."
-
-#. (para)
-msgid ""
-"Fortunately there are (at least) two possible methods to rename a file "
-"without losing its log history. It is important to rename it within "
-"subversion. Just renaming in the explorer will corrupt your working copy!"
-msgstr ""
-"Naštěstí existují (nejméně) dva možné způsoby přejmenování souboru bez "
-"ztráty jeho záznamu historie. Je důležité ho přejmenovat v rámci Subversion."
-" Přejmenování v průzkumníku naruší Vaši pracovní kopii!"
-
-#. (para)
-msgid "Commit the changes in your working copy."
-msgstr "Odevzdat změny ve Vaší pracovní kopii."
-
-#. (para)
-msgid ""
-"Rename the file from UPPERcase to upperCASE directly in the repository using"
-" the repository browser."
-msgstr ""
-"Přejmenovat soubor z VELKÉHO písma na velká PÍSMO přímo v úložišti pomocí "
-"průzkumníka úložiště."
-
-#. (para)
-msgid "Update your working copy."
-msgstr "Aktualizovat Vaši pracovní kopii."
-
-#. (para)
-msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr "Řešeni A) (doporučeno) <placeholder-1/>"
-
-#. (para)
-msgid ""
-"Rename from UPPERcase to UPPERcase_ with the rename command in the "
-"TortoiseSVN submenu."
-msgstr ""
-"Přejmenujte z VELKÉHO písma na VELKÉ písmo_ pomocí příkazu přejmenovat v "
-"podmenu TortoiseSVN."
-
-#. (para)
-#. (para)
-msgid "Commit the changes."
-msgstr "Odevzdejte změny."
-
-#. (para)
-msgid "Rename from UPPERcase_ to upperCASE."
-msgstr "Přejmenujte z VELKÉHO písma_ na velké PÍSMO."
-
-#. (para)
-msgid "Solution B) <placeholder-1/>"
-msgstr "Řešení B) <placeholder-1/>"
 
 #. (title)
 msgid "Dealing with filename case conflicts"
@@ -10056,23 +9958,96 @@ msgstr ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vyčistit</guimenuitem></menuchoice>."
 " Je dobrý nápad toto provádět na nejvyšší úrovni v pracovní kopii."
 
+#. (term)
+msgid "Clean up working copy status"
+msgstr "Vyčistit stav pracovní kopie"
+
 #. (para)
 msgid ""
-"Cleanup has another useful side effect. If a file date changes but its "
-"content doesn't, Subversion cannot tell whether it has really changed except"
-" by doing a byte-by-byte comparison with the pristine copy. If you have a "
-"lot of files in this state it makes acquiring status very slow, which will "
-"make many dialogs slow to respond. Executing a Cleanup on your working copy "
-"will repair these <quote>broken</quote> timestamps and restore status checks"
-" to full speed."
+"As stated above, this option tries to get an inconsistent working copy into "
+"a workable and usable state. This doesn't affect any data you have but only "
+"the internal states of the working copy database. This is the actual "
+"<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
+"or other SVN clients."
 msgstr ""
-"Vyčištění má další užitečný vedlejší efekt. Pokud se změní datum souboru, "
-"ale jeho obsah ne, Subversion nemůže zjistit, zda se skutečně změnil, pokud,"
-" neporovná byte po bajtu s původní kopií. Pokud máte velké množství souborů "
-"v tomto stavu, získání stavu bude velmi pomalé, což způsobí, že mnoho "
-"dialogových oken bude pomalu reagovat. Spuštěním Vyčištění ve Vaší pracovní "
-"kopii budou tyto <quote>rozbitá</quote> časová razítka opravena a kontrolu "
-"stavu obnovena na nejvyšší rychlost."
+"Jak je uvedeno výše, tato možnost se snaží dostat praovní kopii v rozporu v "
+"rozporu do práceschopného a použitelného stavu. Toto nemá žádný vliv na "
+"data, která máte, ale pouze na vnitřní stavy databáze pracovní kopie. Toto "
+"je ve skutečnosti příkaz <literal>Vyčistit</literal>, který znáte ze "
+"starších klientů TortoiseSVN nebo jiných klientů SVN."
+
+#. (term)
+msgid "Revert all changes recursively"
+msgstr "Vrátit všechny změny rekurzivně"
+
+#. (para)
+msgid ""
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr ""
+"Tento příkaz vrátí všechny Vaše místní změny, které jste ještě neodevzdali."
+
+#. (para)
+msgid ""
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr ""
+"Poznámka: je lepší místo toho použít příkaz "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vrátit</guimenuitem></menuchoice>,"
+" protože tam můžete nejprve vidět a vybrat soubory, které chcete vrátit."
+
+#. (term)
+msgid "Delete ignored and unversioned files and folders"
+msgstr "Smazat soubory a adresáře bez verze a ignorované"
+
+#. (para)
+msgid ""
+"This is a fast and easy way to remove all generated files in your working "
+"copy. All files and folders that are not versioned are moved to the trash "
+"bin."
+msgstr ""
+"Jedná se o rychlý a snadný způsob, jak odstranit všechny vytvořené soubory "
+"ve Vaší pracovní kopii. Všechny soubory a adresáře, které nemají verzi jsou "
+"přesunuty do koše."
+
+#. (para)
+msgid ""
+"Note: you can also do the same from the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" dialog. There you also get a list of all the unversioned files and folders "
+"to select for removal."
+msgstr ""
+"Poznámka: to samé můžete také udělat z dialogového okna "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vrátit</guimenuitem></menuchoice>."
+" Tam také můžete získat seznam všech souborů a adresářů bez verze, abyste je"
+" mohli vybrat k odstranění."
+
+#. (term)
+msgid "Refresh shell overlays"
+msgstr "Obnovit překryvy rozhraní"
+
+#. (para)
+msgid ""
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr ""
+"Někdy překryvy rozhraní, zejména na stromovém zobrazení vlevo v "
+"průzkumníkovy, neukazuje aktuální stav, nebo úschova stavu nerozeznala "
+"změny. V této situaci můžete použít tento příkaz, abyste vynutili "
+"aktualizaci."
+
+#. (para)
+msgid ""
+"In the cleanup dialog, there are also other useful options to get the "
+"working copy into a <literal>clean</literal> state. <placeholder-1/>"
+msgstr ""
+"V dialogovém okně vyčištění existují i další užitečné možnosti, abyste "
+"pracovní kopii dostali do <literal>vyčištěného</literal> stavu. "
+"<placeholder-1/>"
 
 #. (title)
 msgid "Project Settings"
@@ -14489,14 +14464,14 @@ msgid ""
 "This mode groups changes by branch, so that there is no global revision "
 "ordering: Consecutive revisions on a branch will be shown in (often) "
 "consecutive lines. Sub-branches, however, are arranged in such a way that "
-"later branches will be shown in the same column above older branches to keep"
-" the graph slim. As a result, a given row may contain changes from different"
-" revisions."
+"later branches will be shown in the same column above earlier branches to "
+"keep the graph slim. As a result, a given row may contain changes from "
+"different revisions."
 msgstr ""
 "Tento režim seskupí změny podle větví, tak, že neexistuje žádné globální "
 "řazení podle revizi: Po sobě jdoucí revize ve větvi budou uvedeny v (často) "
 "po sobě jdoucích řádcích. Podvětve jsou ale uspořádány tak, aby pozdější "
-"větve budou zobrazeny ve stejném sloupci nad staršími větvemi, aby graf byl "
+"větve byli zobrazeny ve stejném sloupci nad staršími větvemi, aby graf byl "
 "štíhlý. Výsledkem je, že daný řádek může obsahovat změny z různých revizí."
 
 #. (term)
@@ -14534,15 +14509,17 @@ msgstr "Snížit zkřížení linek"
 
 #. (para)
 msgid ""
-"If the layout of the graph has produced a lot of crossing lines, use this "
-"option to clean it up. This may make the layout columns appear in less "
-"logical places, for example in a diagonal line rather than a column, and the"
-" graph may require a larger area to draw."
+"This option is normally enabled and avoids showing the graph with a lot of "
+"confused crossing lines. However this may also make the layout columns "
+"appear in less logical places, for example in a diagonal line rather than a "
+"column, and the graph may require a larger area to draw. If this is a "
+"problem you can disable the option from the <guilabel>View</guilabel> menu."
 msgstr ""
-"Pokud rozložení grafu vytvoří mnoho křížících se linií, použijte tuto volbu "
-"pro vyčištění. To může způsobit, že rozložení sloupců se objeví v méně "
-"logických místech, například v diagonální linii, spíše než ve sloupci a graf"
-" může vyžadovat větší prostor k zobrazení."
+"Tato možnost je standardně zapnuta a zamezuje zobrazení grafu s velmi "
+"matoucími zkříženými čarami. Nicméně může také zobrazit rozložení sloupců v "
+"méně logických umístěních, například v diagonální linii, spíše než ve "
+"sloupci a graf může vyžadovat větší prostor k vykreslení. Pokud je toto "
+"problém, můžete možnost vypnout z menu <guilabel>Zobrazit</guilabel>."
 
 #. (term)
 msgid "Differential path names"
@@ -14624,14 +14601,25 @@ msgid ""
 " content easily so that you can compare revisions. This option hides the "
 "nodes for tags and shows them instead in the tooltip for the node that they "
 "were copied from. A tag icon on the right side of the source node indicates "
-"that tags were made."
+"that tags were made. This greatly simplifies the view."
 msgstr ""
 "Když projekt má mnoho značek, zobrazovat každou značku jako samostatný uzel "
 "v grafu zabírá hodně prostoru a zahaluje zajímavější strukturu vývojové "
 "větve. Zároveň budete chtít mít snadný přístup k obsahu značky, abyste mohli"
 " porovnávat revize. Tato volba skryje uzly značek a zobrazí na jejich místě "
 "popisek pro uzel, z kterého byly zkopírovány. Ikona značky na pravé straně "
-"zdrojového uzlu naznačuje, že byly vyrobeny značky."
+"zdrojového uzlu naznačuje, že byly vyrobeny značky. Toto zobrazení velmi "
+"zjednodušuje."
+
+#. (para)
+msgid ""
+"Note that if a tag is itself used as the source for a copy, perhaps a new "
+"branch based on a tag, then that tag will be shown as a separate node rather"
+" than folded."
+msgstr ""
+"Všimněte si, že pokud je použita samotná značka jako zdroj pro kopírování, "
+"možná jako nová větev založená na značce, pak tato značka bude zobrazena "
+"jako samostatný uzel spíše než složená."
 
 #. (term)
 msgid "Hide deleted paths"
@@ -14644,6 +14632,27 @@ msgid ""
 msgstr ""
 "Skryje cesty, které již nesou přítomny v revizi HEAD v úložiště, např. "
 "smazané větve."
+
+#. (para)
+msgid ""
+"If you have selected the <guilabel>Fold tags</guilabel> option then a "
+"deleted branch from which tags were taken will still be shown, otherwise the"
+" tags would disappear too. The last revision that was tagged will be shown "
+"in the colour used for deleted nodes instead of showing a separate deletion "
+"revision."
+msgstr ""
+"Pokud jste zvolili volbu <guilabel>Složit značky</guilabel>, pak odstraněná "
+"větev, z které byly značky vybrány, bude stále zobrazena, jinak by také "
+"zmizely značky. Poslední revize, která byla označena bude zobrazena v barvě "
+"použité pro smazané uzly místo zobrazení samostatné revize smazání."
+
+#. (para)
+msgid ""
+"If you select the <guilabel>Hide tags</guilabel> option then these branches "
+"will disappear again as they are not needed to show the tags."
+msgstr ""
+"Pokud zvolíte možnost <guilabel>Skrýt značky</guilabel>, pak tyto větve "
+"znovu zmizí, protože nejsou potřeba k zobrazení značek."
 
 #. (term)
 msgid "Hide unused branches"
@@ -22194,28 +22203,20 @@ msgstr ""
 
 #. (para)
 msgid ""
-"TortoiseSVN uses temporary files to pass multiple arguments between the "
-"shell extension and the main program. From TortoiseSVN 1.5.0 on and later, "
-"<option>/notempfile</option> parameter is obsolete and there is no need to "
-"add it anymore."
-msgstr ""
-"TortoiseSVN používá dočasné soubory k předání více argumentů mezi rozšířením"
-" rozhraní a hlavním programem. Od TortoiseSVN 1.5.0 a později, je parametr "
-"<option>/notempfile</option> je zastaralý a není třeba už ho přidávat."
-
-#. (para)
-msgid ""
 "You can also specify a file which contains a list of paths, separated by "
-"newlines. The file must be in UTF-16 format. If you pass such a file, use "
-"<option>/pathfile</option> instead of <option>/path</option>. To have "
+"newlines. The file must be in UTF-16 format, without a <ulink "
+"url=\"http://en.wikipedia.org/wiki/Byte-"
+"order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, "
+"use <option>/pathfile</option> instead of <option>/path</option>. To have "
 "TortoiseProc delete that file after the command is finished, you can pass "
 "the parameter <option>/deletepathfile</option>."
 msgstr ""
 "Můžete také zadat soubor, který obsahuje seznam cest, oddělených novými "
-"řádky. Soubor musí být ve formátu UTF-16. Pokud předáte takový soubor, "
-"použijte <option>/pathfile</option> místo <option>/path</option>. Chcete-li,"
-" aby TortoiseProc tento soubor smazal, až bude příkaz hotov, můžete předat "
-"parametr <option>/Deletepathfile</option>."
+"řádky. Soubor musí být ve formátu UTF-16 bez <ulink "
+"url=\"http://cs.wikipedia.org/wiki/UTF-8#BOM\"><citetitle>BOM</citetitle></ulink>."
+" Pokud předáte takový soubor, použijte <option>/pathfile</option> místo "
+"<option>/path</option>. Chcete-li, aby TortoiseProc tento soubor smazal, až "
+"bude příkaz hotov, můžete předat parametr <option>/Deletepathfile</option>."
 
 #. (para)
 msgid ""

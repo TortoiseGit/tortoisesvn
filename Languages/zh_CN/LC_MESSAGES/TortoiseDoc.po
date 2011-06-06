@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-24 00:16+0000\n"
+"PO-Revision-Date: 2011-06-05 00:11+0000\n"
 "Last-Translator: zhugscn <huasoft@163.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4291,21 +4291,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"An update by default ignores local modifications to the "
-"<literal>svn:externals</literal> property. But when you made modifications "
-"to the <literal>svn:externals</literal> property, you can force the update "
-"to use those local modifications. For example if you change an external to a"
-" new tag, you might want to first update your working copy to that new tag, "
-"build the project and only commit the change to the "
-"<literal>svn:externals</literal> if the build was successful. In that "
-"situation, you have to check the box <guilabel>Apply local svn:externals "
-"modifications</guilabel>. If you modify your externals a lot, you can make "
-"this behavior the default when updating in the settings dialog. <xref "
-"linkend=\"tsvn-dug-settings-main\"/>."
-msgstr ""
-
-#. (para)
-msgid ""
 "If you update a file or folder to a specific revision, you should not make "
 "changes to those files. You will get <quote>out of date</quote> error "
 "messages when you try to commit them! If you want to undo changes to a file "
@@ -7773,12 +7758,10 @@ msgstr "版本控制文件的菜单浏览"
 
 #. (para)
 msgid ""
-"Unlike CVS, Subversion allows renaming and moving of files and folders. So "
-"there are menu entries for delete and rename in the TortoiseSVN submenu. "
+"Subversion allows renaming and moving of files and folders. So there are "
+"menu entries for delete and rename in the TortoiseSVN submenu. "
 "<placeholder-1/>"
 msgstr ""
-"不像 CVS，Subversion 允许重命名和移动文件和目录。因此在 TortoiseSVN "
-"的子菜单中有删除和更名的菜单项。<placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
@@ -8005,70 +7988,6 @@ msgstr ""
 "<literal>svn:externals</literal> "
 "创建的目录上。因为这个动作可能会导致外部元素(item)从它的父版本库中删除，这可能会使其它人烦恼。如果你需要移动外部目录，你应该使用普通的外壳移动，然后调整源和目的之父目录的"
 " <literal>svn:externals</literal> 属性。"
-
-#. (title)
-msgid "Changing case in a filename"
-msgstr "改变文件名称大小写"
-
-#. (primary)
-msgid "case change"
-msgstr "大小写改变"
-
-#. (para)
-msgid ""
-"Making case-only changes to a filename is tricky with Subversion on Windows,"
-" because for a short time during a rename, both filenames have to exist. As "
-"Windows has a case-insensitive file system, this does not work using the "
-"usual Rename command."
-msgstr ""
-"在 Windows 中，使用 Subversion 修改文件名称的大小写需要小技巧，因为在改名期间，两个文件名称需要同时存在。因为 Windows "
-"的文件系统是大小写不敏感的，所以使用平常的改名命令是不能工作的。"
-
-#. (para)
-msgid ""
-"Fortunately there are (at least) two possible methods to rename a file "
-"without losing its log history. It is important to rename it within "
-"subversion. Just renaming in the explorer will corrupt your working copy!"
-msgstr ""
-"这里(至少)有两种可能的解决方案来重命名文件而不丢失它的日志记录。在 subversion 里重命名是很重要的。仅在 Windows "
-"资源管理器中重命名将会损坏你的工作副本！"
-
-#. (para)
-msgid "Commit the changes in your working copy."
-msgstr "提交你工作副本中的改变到版本库"
-
-#. (para)
-msgid ""
-"Rename the file from UPPERcase to upperCASE directly in the repository using"
-" the repository browser."
-msgstr "使用版本库的浏览器立即重命名该文件的大写(小写)为小写(大写)"
-
-#. (para)
-msgid "Update your working copy."
-msgstr "更新你的工作副本"
-
-#. (para)
-msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr "解决方案 A)(推荐) <placeholder-1/>"
-
-#. (para)
-msgid ""
-"Rename from UPPERcase to UPPERcase_ with the rename command in the "
-"TortoiseSVN submenu."
-msgstr "使用TortoiseSVN子菜单中的重命名命令将UPPERcase重命名为UPPERcase_ 格式"
-
-#. (para)
-#. (para)
-msgid "Commit the changes."
-msgstr "提交该更改"
-
-#. (para)
-msgid "Rename from UPPERcase_ to upperCASE."
-msgstr "将UPPERcase_重命名为upperCASE格式"
-
-#. (para)
-msgid "Solution B) <placeholder-1/>"
-msgstr "解决方案 B)  <placeholder-1/>"
 
 #. (title)
 msgid "Dealing with filename case conflicts"
@@ -8307,19 +8226,73 @@ msgstr ""
 "也许由于服务器问题，一个Subversion指令不能成功地完成，你的工作副本因此被滞留在一个不一致的状态。 "
 "那样的话，你需要在该目录上使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>清理</guimenuitem></menuchoice>命令。在工作副本的根目录使用它是一个好主意。"
 
+#. (term)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. (para)
 msgid ""
-"Cleanup has another useful side effect. If a file date changes but its "
-"content doesn't, Subversion cannot tell whether it has really changed except"
-" by doing a byte-by-byte comparison with the pristine copy. If you have a "
-"lot of files in this state it makes acquiring status very slow, which will "
-"make many dialogs slow to respond. Executing a Cleanup on your working copy "
-"will repair these <quote>broken</quote> timestamps and restore status checks"
-" to full speed."
+"As stated above, this option tries to get an inconsistent working copy into "
+"a workable and usable state. This doesn't affect any data you have but only "
+"the internal states of the working copy database. This is the actual "
+"<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
+"or other SVN clients."
 msgstr ""
-"清理有另外的一个有用的副作用。如果一个文件日期变化了但是它的内容没变，Subversion "
-"除了逐字节地将该文件和原副本进行对照，不能分清它是否真的变更。 "
-"如果你有很多这种状态下的文件，将会使获得状态非常慢，还会导致许多会话响应变慢。在你的工作副本上执行一个清理命令将会修正这些<quote>坏掉的</quote>时戳，从而可以全速检查它们的状态。"
+
+#. (term)
+msgid "Revert all changes recursively"
+msgstr ""
+
+#. (para)
+msgid ""
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr ""
+
+#. (term)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
+
+#. (para)
+msgid ""
+"This is a fast and easy way to remove all generated files in your working "
+"copy. All files and folders that are not versioned are moved to the trash "
+"bin."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note: you can also do the same from the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" dialog. There you also get a list of all the unversioned files and folders "
+"to select for removal."
+msgstr ""
+
+#. (term)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. (para)
+msgid ""
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr ""
+
+#. (para)
+msgid ""
+"In the cleanup dialog, there are also other useful options to get the "
+"working copy into a <literal>clean</literal> state. <placeholder-1/>"
+msgstr ""
 
 #. (title)
 msgid "Project Settings"
@@ -11692,9 +11665,9 @@ msgid ""
 "This mode groups changes by branch, so that there is no global revision "
 "ordering: Consecutive revisions on a branch will be shown in (often) "
 "consecutive lines. Sub-branches, however, are arranged in such a way that "
-"later branches will be shown in the same column above older branches to keep"
-" the graph slim. As a result, a given row may contain changes from different"
-" revisions."
+"later branches will be shown in the same column above earlier branches to "
+"keep the graph slim. As a result, a given row may contain changes from "
+"different revisions."
 msgstr ""
 
 #. (term)
@@ -11725,10 +11698,11 @@ msgstr "减少交叉行"
 
 #. (para)
 msgid ""
-"If the layout of the graph has produced a lot of crossing lines, use this "
-"option to clean it up. This may make the layout columns appear in less "
-"logical places, for example in a diagonal line rather than a column, and the"
-" graph may require a larger area to draw."
+"This option is normally enabled and avoids showing the graph with a lot of "
+"confused crossing lines. However this may also make the layout columns "
+"appear in less logical places, for example in a diagonal line rather than a "
+"column, and the graph may require a larger area to draw. If this is a "
+"problem you can disable the option from the <guilabel>View</guilabel> menu."
 msgstr ""
 
 #. (term)
@@ -11793,7 +11767,14 @@ msgid ""
 " content easily so that you can compare revisions. This option hides the "
 "nodes for tags and shows them instead in the tooltip for the node that they "
 "were copied from. A tag icon on the right side of the source node indicates "
-"that tags were made."
+"that tags were made. This greatly simplifies the view."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note that if a tag is itself used as the source for a copy, perhaps a new "
+"branch based on a tag, then that tag will be shown as a separate node rather"
+" than folded."
 msgstr ""
 
 #. (term)
@@ -11804,6 +11785,21 @@ msgstr "隐藏已删除的路径"
 msgid ""
 "Hides paths which are no longer present at the HEAD revision of the "
 "repository, e.g. deleted branches."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you have selected the <guilabel>Fold tags</guilabel> option then a "
+"deleted branch from which tags were taken will still be shown, otherwise the"
+" tags would disappear too. The last revision that was tagged will be shown "
+"in the colour used for deleted nodes instead of showing a separate deletion "
+"revision."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you select the <guilabel>Hide tags</guilabel> option then these branches "
+"will disappear again as they are not needed to show the tags."
 msgstr ""
 
 #. (term)
@@ -17525,19 +17521,11 @@ msgstr ""
 
 #. (para)
 msgid ""
-"TortoiseSVN uses temporary files to pass multiple arguments between the "
-"shell extension and the main program. From TortoiseSVN 1.5.0 on and later, "
-"<option>/notempfile</option> parameter is obsolete and there is no need to "
-"add it anymore."
-msgstr ""
-"TortoiseSVN 使用临时文件在 shell 扩展和主程序之间传递多个参数。从 TortoiseSVN 1.5.0 "
-"开始，废弃<option>/notempfile</option>参数，不再需要增加此参数。"
-
-#. (para)
-msgid ""
 "You can also specify a file which contains a list of paths, separated by "
-"newlines. The file must be in UTF-16 format. If you pass such a file, use "
-"<option>/pathfile</option> instead of <option>/path</option>. To have "
+"newlines. The file must be in UTF-16 format, without a <ulink "
+"url=\"http://en.wikipedia.org/wiki/Byte-"
+"order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, "
+"use <option>/pathfile</option> instead of <option>/path</option>. To have "
 "TortoiseProc delete that file after the command is finished, you can pass "
 "the parameter <option>/deletepathfile</option>."
 msgstr ""

@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-29 00:30+0000\n"
+"PO-Revision-Date: 2011-06-05 00:38+0000\n"
 "Last-Translator: slabrou <stavros.labrou@gmail.com>\n"
 "Language-Team: Greek <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2763,8 +2763,8 @@ msgstr "&Βάθος checkout"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Checkout από %s, έκδοση %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -2788,17 +2788,21 @@ msgstr ""
 msgid "Classification Patterns"
 msgstr "Πρότυπο ταξινόμησης"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "Καθάρισμα"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
-msgstr "Καθάρισμα φακέλου \"%1!s!\""
+msgid "Cleaning up directory '%1!s!'"
+msgstr ""
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
+#. Resource IDs: (329)
+msgid "Cleanup"
 msgstr ""
 
 #. Resource IDs: (83)
@@ -2818,10 +2822,6 @@ msgid ""
 msgstr ""
 "Η εκκαθάριση επιτυχώς επεξεργάστηκε τους ακόλουθους καταλόγους:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr ""
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3231,6 +3231,11 @@ msgstr ""
 "Αντγραφή %1!ld! πρός\r\n"
 "%2!s!"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3244,11 +3249,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Αντιγραφή %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "Αντιγραφή %s από %s, Αναθεώρηση %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3396,6 +3396,13 @@ msgstr "Δεν μπορεί να διαγραφεί η ιδιότητα  '%1!s!'
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
 msgstr "Δεν μπορεί να προσδιοριστεί η τελευταία καταχωρημένη έκδοση!"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3707,6 +3714,10 @@ msgstr "Διέγραψε και &αγνόησε %d αντικείμενα με �
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Διαγραφή και παράβλεψη %d στοιχείων με &επέκταση"
+
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4496,15 +4507,13 @@ msgstr "Εξαγωγή..."
 msgid "Exporting: Target folder exists."
 msgstr ""
 
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr ""
-
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "Εξαγωγή ενός σετ ιδιοτήτων σε αρχείο"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4626,6 +4635,11 @@ msgstr "Ανάκτηση του αρχείου..."
 #, c-format
 msgid "Fetching revision %s of file:"
 msgstr "Ανάκτηση της έκδοσης %s του αρχείου:"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5575,15 +5589,15 @@ msgstr "Άμεσοι θυγατρικοί κόμβοι, συμπεριλαμβα
 msgid "Import"
 msgstr "Εισαγωγή"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "Εισαγωγή %ld αντικειμένων"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "Εισαγωγή %s στο %s%s"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -5795,16 +5809,6 @@ msgstr ""
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr ""
-
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"Δεν είναι δυνατόν να επανονομαστεί ένα αρχείο μόνο με την αλλαγή από κεφαλαία σε μικρά ή αντίστροφα.\n"
-"Για παράδειγμα, δεν μπορείτε να μετατρέψετε το MyFile.txt σε MYFILE.txt.\n"
-"Παρακαλώ συμβουλευτείτε τα εγχειρίδια για έναν τρόπο να αποφύγετε αυτόν τον περιορισμό."
 
 #. Resource IDs: (89)
 #, c-format
@@ -6327,8 +6331,8 @@ msgstr "Γίνεται συνένωση"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "Συγχώνευση %s σε %s, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6336,8 +6340,10 @@ msgstr "Συγχώνευση διαφορών μεταξύ διευθύνσεω�
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "Συγχώνευση από %s, αναθεώρηση %s προς %s, αναθεώρηση %s σε %s, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -6358,8 +6364,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "Συγχώνευση αναθεωρήσεων %s από %s σε %s, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr ""
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7760,6 +7766,15 @@ msgstr "Μείωση του παραθύρου σε ικονίδιο"
 msgid "Refresh"
 msgstr "Ανανέωση"
 
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr ""
@@ -7789,8 +7804,8 @@ msgstr "Επανενσωμάτωση συγχώνευσης"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "Επανενσωμάτωση συγχώνευσης %s στο %s"
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -7997,6 +8012,11 @@ msgstr "Αφαιρεί το αρχείο ή μάσκα αρχείου από τ�
 msgid "Removes the selected properties"
 msgstr "Αφαιρεί τις επιλεγμένες ιδιότητες"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr ""
+
 #. Resource IDs: (16616)
 msgid "Rena&me..."
 msgstr "Με&τονομασία..."
@@ -8027,7 +8047,7 @@ msgstr ""
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8200,6 +8220,10 @@ msgstr "Αντιστροφή συγχώνευσης %ld"
 msgid "Revert"
 msgstr "Επαναφορά"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
@@ -8220,6 +8244,11 @@ msgstr ""
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Επανήλθαν"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr ""
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -9202,7 +9231,7 @@ msgstr ""
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
 msgstr ""
 
 #. Resource IDs: (196)
@@ -9428,8 +9457,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "Μεταστροφή %s σε %s, Έκδοση %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9442,6 +9471,10 @@ msgstr "Αντιμετάθεση Αριστερά<->Δεξιά"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "Μεταστροφή σε μία άλλη διακλάδωση / δελτάριο"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr ""
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9491,6 +9524,10 @@ msgstr ""
 #. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "Μεταστροφή:"
+
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr ""
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -9899,7 +9936,7 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
 
@@ -10016,8 +10053,8 @@ msgstr ""
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
 
 #. Resource IDs: (279)
@@ -10734,7 +10771,7 @@ msgstr "Αναβάθμιση αντιγράφου εργασίας"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
+msgid "Upgrading '%1!s!'"
 msgstr ""
 
 #. Resource IDs: (16530)
@@ -11246,13 +11283,6 @@ msgid ""
 "Do you really want to add it?"
 msgstr ""
 
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
@@ -11544,9 +11574,9 @@ msgstr "αντιγράφτηκε: "
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
 
 #. Resource IDs: (245)

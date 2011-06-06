@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-29 00:30+0000\n"
+"PO-Revision-Date: 2011-06-05 00:38+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Danish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2786,8 +2786,8 @@ msgstr "D&ybde af \"Hent arbejdskopi\""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Hent arbejdskopi fra %s, revision %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -2811,18 +2811,22 @@ msgstr ""
 msgid "Classification Patterns"
 msgstr "Klassificeringsmønstre"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "Rydder op"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
-msgstr "Rydder op i mappe \"%1!s!\""
+msgid "Cleaning up directory '%1!s!'"
+msgstr ""
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
-msgstr "Ryd op og opdater visning"
+#. Resource IDs: (329)
+msgid "Cleanup"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2841,10 +2845,6 @@ msgid ""
 msgstr ""
 "Oprydning lykkedes for følgende stier:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr "Ryd op i afbrudte operationer og opdater visnings-overdækninger"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3264,6 +3264,11 @@ msgstr ""
 "Kopier %1!ld! elementer til \r\n"
 "%2!s!"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3277,11 +3282,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Kopier %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "Kopier %s til %s, revision %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3428,6 +3428,13 @@ msgstr "Kunne ikke slette egenskab '%1!s!' på '%2!s!' fordi"
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
 msgstr "Kunne ikke fastslå den sidst arkiverede revision!"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3741,6 +3748,10 @@ msgstr "Slet og &ignorer %d elementer efter navn"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Slet og ignorer %d elementer efter &filtypenavne"
+
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4550,17 +4561,13 @@ msgstr "Eksporterer..."
 msgid "Exporting: Target folder exists."
 msgstr ""
 
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr ""
-"Eksporterer et versionsarkiv til en ren arbejdskopi uden svn's "
-"administrative mapper"
-
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "Eksporterer et sæt indstillinger til en fil"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4684,6 +4691,11 @@ msgstr "Henter fil..."
 #, c-format
 msgid "Fetching revision %s of file:"
 msgstr "Henter revision %s af filen:"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5680,15 +5692,15 @@ msgstr "2 niveauer (filer, undermapper og undermappers filer)"
 msgid "Import"
 msgstr "Importer"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "Importer %ld emner"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "Importer %s til %s%s"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -5900,16 +5912,6 @@ msgstr ""
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Sagsstyrings-system"
-
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"Du kan ikke omdøbe en fil ved blot at ændre mellem store og små bogstaver.\n"
-"For eksempel kan du ikke omdøbe MyFile.txt til MYFILE.txt.\n"
-"Læs venligst i vores dokumentation, hvordan man omgår denne begrænsning."
 
 #. Resource IDs: (89)
 #, c-format
@@ -6423,8 +6425,8 @@ msgstr "Fletning"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "Fletter %s ind i %s, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6432,8 +6434,10 @@ msgstr "Fletter forskelle mellem versionsarkiv URL'er"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "Fletter fra %s, revision %s til %s, revision %s ind i  %s, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -6454,8 +6458,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "Fletter revisioner %s af %s ind i %s, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr ""
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7856,6 +7860,15 @@ msgstr "Minimer vindue til et ikon"
 msgid "Refresh"
 msgstr "Opdater"
 
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "Regulært Udtryk"
@@ -7900,8 +7913,8 @@ msgstr "Reintegrer fletning"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "Reintegreringsflet %s ind i %s"
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8105,6 +8118,11 @@ msgstr "Fjerner filen eller filmasken fra listen over ignorerede emner"
 msgid "Removes the selected properties"
 msgstr "Fjerner de markerede egenskaber"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr ""
+
 #. Resource IDs: (16616)
 msgid "Rena&me..."
 msgstr "O&mdøb..."
@@ -8135,7 +8153,7 @@ msgstr ""
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8308,6 +8326,10 @@ msgstr "Fortryd fletning af %ld"
 msgid "Revert"
 msgstr "Tilbagefør"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
@@ -8328,6 +8350,11 @@ msgstr ""
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Tilbageført"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr ""
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -9334,7 +9361,7 @@ msgstr "Kilde URL:"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
 msgstr ""
 
 #. Resource IDs: (196)
@@ -9599,8 +9626,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "Skift %s til %s, revision %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9613,6 +9640,10 @@ msgstr "Ombyt Venstre<->Højre"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "Skift til gren / mærke"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr ""
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9661,6 +9692,10 @@ msgstr "Skift arbejdskopi til en anden gren / mærke"
 #. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "Skift:"
+
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr ""
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -10104,7 +10139,7 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
 
@@ -10256,8 +10291,8 @@ msgstr ""
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
 
 #. Resource IDs: (279)
@@ -11052,8 +11087,8 @@ msgstr "Opgrader arbejdskopi"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
-msgstr "Opgraderer \"%1!s!\""
+msgid "Upgrading '%1!s!'"
+msgstr ""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11630,15 +11665,6 @@ msgstr ""
 "Det lader til at navnet på elementet blev ændret m.h.t. store/små bogstaver uden for Subversion.\n"
 "Er du helt sikker på at du vil tilføje det?"
 
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-"Du har ændret ikonerne fra %s til %s.\n"
-"Denne ændring træder ikke i kraft, før du genstarter computeren eller logger af og på igen!"
-
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
@@ -11975,9 +12001,9 @@ msgstr "kopieret:"
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
 
 #. Resource IDs: (245)

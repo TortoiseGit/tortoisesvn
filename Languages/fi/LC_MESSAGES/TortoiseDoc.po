@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-25 22:13+0000\n"
+"PO-Revision-Date: 2011-06-05 00:11+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5178,30 +5178,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"An update by default ignores local modifications to the "
-"<literal>svn:externals</literal> property. But when you made modifications "
-"to the <literal>svn:externals</literal> property, you can force the update "
-"to use those local modifications. For example if you change an external to a"
-" new tag, you might want to first update your working copy to that new tag, "
-"build the project and only commit the change to the "
-"<literal>svn:externals</literal> if the build was successful. In that "
-"situation, you have to check the box <guilabel>Apply local svn:externals "
-"modifications</guilabel>. If you modify your externals a lot, you can make "
-"this behavior the default when updating in the settings dialog. <xref "
-"linkend=\"tsvn-dug-settings-main\"/>."
-msgstr ""
-"Oletusarvoisesti päivitys ohittaa "
-"<literal>svn:externals</literal>-ominaisuuteen tehdyt paikalliset muutokset."
-" Voit kuitenkin pakottaa muutokset otettavaksi huomioon. Jos esimerkiksi "
-"vaihdat ulkoisen viitteen osoittamaan uuteen merkittyyn versioon, saatat "
-"haluta ensin päivittää työkopion ja rakentaa projektin uudelleen ennen kuin "
-"toimitat muutokset <literal>svn:externals</literal>-ominaisuuteen. Tällöin "
-"sinun on asetettava valinta <guilabel>Sovita paikalliset svn:externals-"
-"muutokset</guilabel>. Asetuksen voi myös muuttaa oletusarvoisesti päälle, "
-"ks. luku <xref linkend=\"tsvn-dug-settings-main\"/>."
-
-#. (para)
-msgid ""
 "If you update a file or folder to a specific revision, you should not make "
 "changes to those files. You will get <quote>out of date</quote> error "
 "messages when you try to commit them! If you want to undo changes to a file "
@@ -9457,13 +9433,13 @@ msgstr "Resurssienhallinnan kontekstivalikko versioiduille tiedostoille"
 
 #. (para)
 msgid ""
-"Unlike CVS, Subversion allows renaming and moving of files and folders. So "
-"there are menu entries for delete and rename in the TortoiseSVN submenu. "
+"Subversion allows renaming and moving of files and folders. So there are "
+"menu entries for delete and rename in the TortoiseSVN submenu. "
 "<placeholder-1/>"
 msgstr ""
-"Toisin kuin CVS, Subversion sallii tiedostojen ja kansioiden uudelleen "
-"nimeämisen ja siirtelyn. Tästä syystä TortoiseSVN-alivalikossa on komennot "
-"poistamista ja uudelleen nimeämistä varten. <placeholder-1/>"
+"Subversion sallii tiedostojen ja kansioiden uudelleen nimeämisen ja "
+"siirtelyn. Tästä syystä TortoiseSVN-alivalikossa on komennot poistamista ja "
+"uudelleen nimeämistä varten. <placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
@@ -9746,77 +9722,6 @@ msgstr ""
 "työt. Jos joudut siirtämään ulkoista kohdetta, se kannattaa tehdä "
 "tavallisella Resurssienhallinnan siirtokomennolla ja sitten muokata lähde- "
 "ja kohdehakemistojen <literal>svn:externals</literal>-ominaisuudet kuntoon."
-
-#. (title)
-msgid "Changing case in a filename"
-msgstr "Tiedostonimen merkkien tason muuttaminen"
-
-#. (primary)
-msgid "case change"
-msgstr "merkkitason muutos"
-
-#. (para)
-msgid ""
-"Making case-only changes to a filename is tricky with Subversion on Windows,"
-" because for a short time during a rename, both filenames have to exist. As "
-"Windows has a case-insensitive file system, this does not work using the "
-"usual Rename command."
-msgstr ""
-"Versioitujen tiedostojen nimen muuttaminen pelkästään merkkien tason osalta "
-"on hankalaa Windowsissa, koska Windowsin tiedostojärjestelmä ei, toisin kuin"
-" Subversion, välitä merkkien tasosta. Tavallinen \"Nimeä uudelleen\"-komento"
-" ei toimi."
-
-#. (para)
-msgid ""
-"Fortunately there are (at least) two possible methods to rename a file "
-"without losing its log history. It is important to rename it within "
-"subversion. Just renaming in the explorer will corrupt your working copy!"
-msgstr ""
-"Onneksi on (ainakin) kaksi tapaa nimetä tiedosto uudelleen menettämättä sen "
-"lokia. On tärkeää suorittaa uudelleennimentä Subversion-komennolla. "
-"Pelkästään Resurssienhallinnassa tehty uudelleen nimentä sotkee työkopiosi!"
-
-#. (para)
-msgid "Commit the changes in your working copy."
-msgstr "Toimita työkopiosi muutokset arkistoon."
-
-#. (para)
-msgid ""
-"Rename the file from UPPERcase to upperCASE directly in the repository using"
-" the repository browser."
-msgstr ""
-"Nimeä TIEdosto uudelleen esim. muotoon tieDOSTO suoraan arkistossa "
-"arkistoselaimen avulla."
-
-#. (para)
-msgid "Update your working copy."
-msgstr "Päivitä työkopiosi."
-
-#. (para)
-msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr "Ratkaisu A) (suositeltava) <placeholder-1/>"
-
-#. (para)
-msgid ""
-"Rename from UPPERcase to UPPERcase_ with the rename command in the "
-"TortoiseSVN submenu."
-msgstr ""
-"Nimeä TIEdosto muotoon TIEdosto_ TortoiseSVN-kontekstivalikon Nimeä "
-"uudelleen -komennolla."
-
-#. (para)
-#. (para)
-msgid "Commit the changes."
-msgstr "Toimita muutokset arkistoon."
-
-#. (para)
-msgid "Rename from UPPERcase_ to upperCASE."
-msgstr "Nimeä TIEdosto_ muotoon tieDOSTO."
-
-#. (para)
-msgid "Solution B) <placeholder-1/>"
-msgstr "Ratkaisu B) <placeholder-1/>"
 
 #. (title)
 msgid "Dealing with filename case conflicts"
@@ -10111,23 +10016,73 @@ msgstr ""
 " On suositeltavaa tehdä tämä koko työkopiolle antamalla komento työkopion "
 "juurikansiosta."
 
+#. (term)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. (para)
 msgid ""
-"Cleanup has another useful side effect. If a file date changes but its "
-"content doesn't, Subversion cannot tell whether it has really changed except"
-" by doing a byte-by-byte comparison with the pristine copy. If you have a "
-"lot of files in this state it makes acquiring status very slow, which will "
-"make many dialogs slow to respond. Executing a Cleanup on your working copy "
-"will repair these <quote>broken</quote> timestamps and restore status checks"
-" to full speed."
+"As stated above, this option tries to get an inconsistent working copy into "
+"a workable and usable state. This doesn't affect any data you have but only "
+"the internal states of the working copy database. This is the actual "
+"<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
+"or other SVN clients."
 msgstr ""
-"Siivoamisella on toinen hyödyllinen sivuvaikutus. Jos tiedoston päiväys "
-"muuttuu, mutta sisältö ei, Subversion ei tiedä, onko se todella muuttunut "
-"vertaamatta tiedostoa tavu tavulta alkuperäiseen versioon.  Jos tällaisia "
-"tiedostoja on paljon, tilatietojen haku hidastuu ja monet komennot "
-"vaikuttavat hitailta. Siivoa-komennon suoritus korjaa nämä "
-"<quote>rikkinäiset</quote> aikaleimat ja sallii tilatietojen haun täydellä "
-"vauhdilla."
+
+#. (term)
+msgid "Revert all changes recursively"
+msgstr ""
+
+#. (para)
+msgid ""
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr ""
+
+#. (term)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
+
+#. (para)
+msgid ""
+"This is a fast and easy way to remove all generated files in your working "
+"copy. All files and folders that are not versioned are moved to the trash "
+"bin."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note: you can also do the same from the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" dialog. There you also get a list of all the unversioned files and folders "
+"to select for removal."
+msgstr ""
+
+#. (term)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. (para)
+msgid ""
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr ""
+
+#. (para)
+msgid ""
+"In the cleanup dialog, there are also other useful options to get the "
+"working copy into a <literal>clean</literal> state. <placeholder-1/>"
+msgstr ""
 
 #. (title)
 msgid "Project Settings"
@@ -14598,16 +14553,16 @@ msgid ""
 "This mode groups changes by branch, so that there is no global revision "
 "ordering: Consecutive revisions on a branch will be shown in (often) "
 "consecutive lines. Sub-branches, however, are arranged in such a way that "
-"later branches will be shown in the same column above older branches to keep"
-" the graph slim. As a result, a given row may contain changes from different"
-" revisions."
+"later branches will be shown in the same column above earlier branches to "
+"keep the graph slim. As a result, a given row may contain changes from "
+"different revisions."
 msgstr ""
-"Tämä tila ryhmittelee muutokset haaroittain, eikä noudata globaalia "
-"versiojärjestystä: Haaran peräkkäiset versiot näytetään (usein) peräkkäisinä"
-" viivoina. Alihaarat järjestetään kuitenkin siten, että myöhemmät haarat "
-"näytetään samassa haarassa vanhempien haarojen päällä, jotta graafi pysyisi "
-"kapeana. Sen seurauksena jollain rivillä saattaa olla muutoksia eri "
-"versioista,"
+"Tässä tilassa muutokset ryhmitellään haaroittain ilman globaalia "
+"versiojärjestystä: Haaran perättäiset versiot näytetään (usein) "
+"peräkkäisillä riveillä. Jotta graafi pysyisi kapeana, alihaarat järjestetään"
+" siten, että myöhemmät haarat näytetään samassa sarakkeessa aiempien "
+"haarojen päällä. Tämän seurauksena jollain rivillä saattaa olla muutoksia "
+"eri versioista,"
 
 #. (term)
 msgid "Oldest on top"
@@ -14639,19 +14594,21 @@ msgstr ""
 
 #. (term)
 msgid "Reduce cross lines"
-msgstr "Vähennä kaarien ja solmujen leikkauksia"
+msgstr "Vähennä kaarien leikkauksia"
 
 #. (para)
 msgid ""
-"If the layout of the graph has produced a lot of crossing lines, use this "
-"option to clean it up. This may make the layout columns appear in less "
-"logical places, for example in a diagonal line rather than a column, and the"
-" graph may require a larger area to draw."
+"This option is normally enabled and avoids showing the graph with a lot of "
+"confused crossing lines. However this may also make the layout columns "
+"appear in less logical places, for example in a diagonal line rather than a "
+"column, and the graph may require a larger area to draw. If this is a "
+"problem you can disable the option from the <guilabel>View</guilabel> menu."
 msgstr ""
-"Jos graafin asettelu on tuottanut paljon risteäviä viivoja, käytä tätä "
-"valintaa oikaisemaan tilanne. Valinta saattaa siirtää asettelusarakkeet "
-"näkymään vähemmän loogisissa paikoissa, muuttaen esim. sarakkeen esitystavan"
-" diagonaaliseksi. Graafi saattaa myös vaatia enemmän tilaa."
+"Tämä asetus (tavallisesti päällä) koettaa vähentää versioviivojen "
+"leikkauksia. Sivuvaikutuksena graafin sarakkeet voivat sijoittua vähemmän "
+"loogisiin paikkoihin (esim. diagonaalisesti eikä sarakkeena) ja graafi "
+"saattaa vaatia enemmän piirtoalaa. Jos tämä on ongelma, voit poistaa "
+"asetuksen <guilabel>Näytä</guilabel> -valikosta."
 
 #. (term)
 msgid "Differential path names"
@@ -14731,7 +14688,7 @@ msgid ""
 " content easily so that you can compare revisions. This option hides the "
 "nodes for tags and shows them instead in the tooltip for the node that they "
 "were copied from. A tag icon on the right side of the source node indicates "
-"that tags were made."
+"that tags were made. This greatly simplifies the view."
 msgstr ""
 "Kun projektissa on useita merkittyjä versioita, niiden näyttäminen "
 "erillisinä solmuina vie paljon tilaa ja hämärtää kiinnostavamman "
@@ -14740,7 +14697,17 @@ msgstr ""
 "piilottaa merkittyjen versioiden solmut ja näyttää ne sen sijaan "
 "työkaluvihjeenä sille solmulle, josta merkintä tehtiin. Merkkikuvake "
 "lähtösolmun oikealla puolella kertoo, että solmusta on tehty yksi tai "
-"useampi merkitty versio."
+"useampi merkitty versio. Tämä yksinkertaistaa näkymää."
+
+#. (para)
+msgid ""
+"Note that if a tag is itself used as the source for a copy, perhaps a new "
+"branch based on a tag, then that tag will be shown as a separate node rather"
+" than folded."
+msgstr ""
+"Huomaa, että mikäli merkitty versio itsessään kopioidaan (esim. merkitystä "
+"versiosta tehtyyn uuteen haaraan), merkitty versio näytetään erillisenä "
+"solmuna, ei yhdistettynä lähtösolmuun."
 
 #. (term)
 msgid "Hide deleted paths"
@@ -14753,6 +14720,29 @@ msgid ""
 msgstr ""
 "Piilottaa polut, jotka eivät enää kuulu arkiston HEAD-versioon, esim. "
 "poistetut haarat."
+
+#. (para)
+msgid ""
+"If you have selected the <guilabel>Fold tags</guilabel> option then a "
+"deleted branch from which tags were taken will still be shown, otherwise the"
+" tags would disappear too. The last revision that was tagged will be shown "
+"in the colour used for deleted nodes instead of showing a separate deletion "
+"revision."
+msgstr ""
+"Mikäli asetus <guilabel>Näytä merkityt versiot lähtösolmussa</guilabel> on "
+"päällä, näytetään yhä poistetut haarat, joista on tehty merkittyjä "
+"versioita. Muussa tapauksessa myös merkityt versiot katoavat. Viimeisin "
+"merkitty versio näytetään poistetuille solmuille käytettävällä värillä sen "
+"sijaan, että näytettäisiin erillinen poistoversio."
+
+#. (para)
+msgid ""
+"If you select the <guilabel>Hide tags</guilabel> option then these branches "
+"will disappear again as they are not needed to show the tags."
+msgstr ""
+"Jos valitset asetuksen  <guilabel>Piilota merkityt versiot</guilabel>, nämä "
+"haarat katoavat uudelleen, koska niitä ei tarvita merkittyjen versioiden "
+"näyttämiseen."
 
 #. (term)
 msgid "Hide unused branches"
@@ -22226,29 +22216,22 @@ msgstr ""
 
 #. (para)
 msgid ""
-"TortoiseSVN uses temporary files to pass multiple arguments between the "
-"shell extension and the main program. From TortoiseSVN 1.5.0 on and later, "
-"<option>/notempfile</option> parameter is obsolete and there is no need to "
-"add it anymore."
-msgstr ""
-"TortoiseSVN käyttää väliaikaisia tiedostoja välittääkseen useita valitsimia "
-"komentotulkin laajennuksen ja pääohjelman välillä. Versiosta 1.5 alkaen "
-"valitsin <option>/notempfile</option> on vanhentunut, eikä sitä tarvita "
-"enää."
-
-#. (para)
-msgid ""
 "You can also specify a file which contains a list of paths, separated by "
-"newlines. The file must be in UTF-16 format. If you pass such a file, use "
-"<option>/pathfile</option> instead of <option>/path</option>. To have "
+"newlines. The file must be in UTF-16 format, without a <ulink "
+"url=\"http://en.wikipedia.org/wiki/Byte-"
+"order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, "
+"use <option>/pathfile</option> instead of <option>/path</option>. To have "
 "TortoiseProc delete that file after the command is finished, you can pass "
 "the parameter <option>/deletepathfile</option>."
 msgstr ""
-"Voit myös luoda tiedoston, jossa on joukko rivinvaihtoin eroeltuja polkuja."
-"  Tiedoston on oltava UTF-16-muodossa.  Jos välität ko. tiedoston, käytä "
-"valitsinta <option>/pathfile</option> valitsimen <option>/path</option> "
-"sijaan.  Jos haluat TortoiseSVN:n poistavan tiedoston komennon suorituksen "
-"päätyttyä, anna valitsin parameter <option>/deletepathfile</option>."
+"Voit myös luoda tiedoston, jossa on joukko rivinvaihdoin eroteltuja polkuja."
+"  Tiedoston on oltava UTF-16-muodossa, ilman <ulink "
+"url=\"http://en.wikipedia.org/wiki/Byte-"
+"order_mark\"><citetitle>BOM</citetitle></ulink> -merkintää.  Jos välität ko."
+" tiedoston, käytä valitsinta <option>/pathfile</option> valitsimen "
+"<option>/path</option> sijaan.  Jos haluat TortoiseSVN:n poistavan tiedoston"
+" komennon suorituksen päätyttyä, anna valitsin parameter "
+"<option>/deletepathfile</option>."
 
 #. (para)
 msgid ""

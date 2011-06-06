@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-30 07:57+0000\n"
+"PO-Revision-Date: 2011-06-06 07:52+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -329,7 +329,7 @@ msgid ""
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
 "%s\n"
-"Wollen Sie die Datei \"%s\" trotzdem löschen?"
+"Wollen Sie die Datei '%s' trotzdem löschen?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -1658,9 +1658,9 @@ msgid ""
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
 "Ein Umplatzieren ist nur erforderlich, wenn sich der Pfad zum Projektarchiv geändert hat.\n"
-"Innerhalb eines Projektarchivs wird der \"Wechseln zu\" Befehl verwendet.\n"
+"Innerhalb eines Projektarchivs wird der 'Wechseln zu' Befehl verwendet.\n"
 "\n"
-"Wenn Sie sich nicht sicher sind, versuchen Sie es zunächst mit \"Wechseln zu\"."
+"Wenn Sie sich nicht sicher sind, versuchen Sie es zunächst mit 'Wechseln zu'."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1779,7 +1779,7 @@ msgstr "Datei hinzu&fügen..."
 #. Resource IDs: (376)
 #, c-format
 msgid "Add '%s' to dictionary"
-msgstr "Füge \"%s\" zu Wörterbuch hinzu"
+msgstr "Füge '%s' zum Wörterbuch hinzu"
 
 #. Resource IDs: (16)
 msgid "Add (as replacement)..."
@@ -1963,7 +1963,7 @@ msgstr ""
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%s'?"
 msgstr ""
-"Alle Ihre Änderungen werden verworfen! Wollen Sie wirklich das Menü \"%s\" "
+"Alle Ihre Änderungen werden verworfen! Wollen Sie wirklich das Menü '%s' "
 "zurücksetzen?"
 
 #. Resource IDs: (1007)
@@ -1972,7 +1972,7 @@ msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
 msgstr ""
 "Alle Ihre Änderungen werden verworfen! Wollen Sie wirklich die "
-"Werkzeugleiste \"%s\" zurücksetzen?"
+"Werkzeugleiste '%s' zurücksetzen?"
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
@@ -2091,7 +2091,7 @@ msgid ""
 "Apply 'Power User' defaults. Those will provide a smoother experience.\n"
 "You should know the meaning of all the settings above."
 msgstr ""
-"Vorgabewerte für erfahrene Anwender. Diese führen zu einer flüssigeren Funktion.\n"
+"Vorgabewerte für 'erfahrene' Anwender. Diese führen zu einer flüssigeren Funktion.\n"
 "Sie sollten die Bedeutung aller obenstehenden Einstellungen kennen."
 
 #. Resource IDs: (313)
@@ -2141,7 +2141,7 @@ msgstr "Anwender fragen"
 #. Resource IDs: (264)
 #, c-format
 msgid "Assigned to changelist '%s'"
-msgstr "Der Änderungsliste \"%s\" zugewiesen"
+msgstr "Der Änderungsliste '%s' zugewiesen"
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
@@ -2874,8 +2874,8 @@ msgstr "Rekursions&tiefe"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Auschecken von %s, Revision %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr "Auschecken von %1!s!, Revision %2!s!, %3!s!, %4!s!"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2901,18 +2901,22 @@ msgstr "Objekte auswählen..."
 msgid "Classification Patterns"
 msgstr "Klassifizierungsmuster"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr "Status der Arbeitskopie bereinigen"
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "Beim Aufräumen"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
-msgstr "Räume Verzeichnis \"%1!s!\" auf"
+msgid "Cleaning up directory '%1!s!'"
+msgstr "Räume Verzeichnis '%1!s!' auf"
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
-msgstr "Aufräumen und Explorer aktualisieren"
+#. Resource IDs: (329)
+msgid "Cleanup"
+msgstr "Bereinigen"
 
 #. Resource IDs: (83)
 #, c-format
@@ -2931,12 +2935,6 @@ msgid ""
 msgstr ""
 "Die folgenden Pfade wurden erfolgreich aufgeräumt:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr ""
-"Unterbrochene Operationen aufräumen und Statussymbole aktualisieren\n"
-"Unterbrochene Aktionen aufräumen und Statussymbole aktualisieren"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3361,6 +3359,11 @@ msgstr ""
 "Kopiere %1!ld! Objekte\r\n"
 "nach %2!s!"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr "Kopiere %1!s! nach %2!s!, Revision %3!s!"
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3374,11 +3377,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Kopiere %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "Kopiere %s nach %s, Revision %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3483,7 +3481,7 @@ msgstr "Konnte %s nicht zur 'Ignorieren' Liste hinzufügen!"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not add '%s' because"
-msgstr "Datei \"%s\" konnte nicht erzeugt werden!"
+msgstr "Datei '%s' konnte nicht hinzugefügt werden weil"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3515,7 +3513,7 @@ msgstr "Temporärer Ordner konnte nicht erstellt werden!"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not delete '%s' because"
-msgstr "Konnte \"%s\" nicht löschen, weil"
+msgstr "Konnte '%s' nicht löschen, weil"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3526,6 +3524,16 @@ msgstr "Konnte Eigenschaft '%1!s!' nicht von '%2!s!' löschen, weil"
 msgid "Could not determine the last committed revision!"
 msgstr "Konnte die letzte übertragene Revision nicht ermitteln!"
 
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
+"Der übergeordnete Ordner für\n"
+"%s\n"
+"wurde nicht gefunden."
+
 #. Resource IDs: (81)
 msgid "Could not get the status!"
 msgstr "Konnte den Status nicht ermitteln!"
@@ -3533,7 +3541,7 @@ msgstr "Konnte den Status nicht ermitteln!"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not merge '%s' because"
-msgstr "Konnte \"%s\" nicht zusammenführen, weil"
+msgstr "Konnte '%s' nicht zusammenführen, weil"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3568,7 +3576,7 @@ msgstr "Konnte %s nicht aus der 'Ignorieren' Liste entfernen!"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not replace '%s' because"
-msgstr "Konnte \"%s\" nicht ersetzen, weil"
+msgstr "Konnte '%s' nicht ersetzen, weil"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3841,6 +3849,10 @@ msgstr "Lösche und &ignoriere %d Objekte nach Name"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Lösche und ignoriere %d Objekte nach &Erweiterung"
 
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr "Lösche ignorierte und nicht versionierte Dateien und Ordner"
+
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
 msgstr "Nicht versionierte Objekte löschen"
@@ -4084,7 +4096,7 @@ msgstr "Für alle nicht versionierten/geänderten Objekte durchführen"
 #. Resource IDs: (1007)
 #, c-format
 msgid "Do you really want to delete the toolbar '%s'?"
-msgstr "Wollen Sie die Werkzeugleiste \"%s\" wirklich löschen?"
+msgstr "Wollen Sie die Werkzeugleiste '%s' wirklich löschen?"
 
 #. Resource IDs: (145)
 msgid "Do you really want to move this file or folder?"
@@ -4126,7 +4138,7 @@ msgstr ""
 #. Resource IDs: (148)
 #, c-format
 msgid "Do you want to mark '%s' as resolved?"
-msgstr "Möchten Sie \"%s\" als aufgelöst markieren?"
+msgstr "Möchten Sie '%s' als aufgelöst markieren?"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4152,7 +4164,7 @@ msgstr "Wollen Sie die Eigenschaft %s rekursiv löschen?"
 #. Resource IDs: (147)
 #, c-format
 msgid "Do you want to revert '%s'?"
-msgstr "Möchten Sie \"%s\" wieder herstellen?"
+msgstr "Möchten Sie '%s' zurücknehmen?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4163,7 +4175,7 @@ msgid ""
 msgstr ""
 "Wollen Sie alle Änderungen in\n"
 "%s\n"
-"rückgängig machen und auf diese Revision zurücksetzen?"
+"zurücknehmen und auf diese Revision zurücksetzen?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4663,17 +4675,15 @@ msgstr "Exportiere..."
 msgid "Exporting: Target folder exists."
 msgstr "Exportieren: Ziel-Ordner ist bereits vorhanden."
 
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr ""
-"Exportiert ein Projektarchiv in eine 'saubere' Arbeitskopie ohne die "
-"Administrationsdateien im Ordner .svn"
-
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "Einen Satz von Eigenschaften in eine Datei exportieren"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr ""
+"Exportiert einen versionierten Ordner als einen separaten nicht "
+"versionierten Ordner"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4774,7 +4784,7 @@ msgstr "Konnte Dokument nicht speichern."
 #. Resource IDs: (264)
 #, c-format
 msgid "Failed to set/remove changelist '%s'"
-msgstr "Konnte Änderungsliste \"%s\" nicht setzen/entfernen"
+msgstr "Konnte Änderungsliste '%s' nicht setzen/entfernen"
 
 #. Resource IDs: (83)
 #, c-format
@@ -4797,6 +4807,11 @@ msgstr "Hole Datei..."
 #, c-format
 msgid "Fetching revision %s of file:"
 msgstr "Hole Revision %s der Datei:"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr "Status von %1!s! abrufen"
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5253,7 +5268,7 @@ msgstr "HEAD Knoten"
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
-msgstr "Die HEAD Revision ist: \"%s\""
+msgstr "Die HEAD Revision ist: %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5804,15 +5819,15 @@ msgstr "Direkte Unterobjekte, einschließlich Ordnern"
 msgid "Import"
 msgstr "Importieren"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr "Importiere %1!s! in %2!s!%3!s!"
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "Importiere %ld Objekte"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "Importiere %s in %s%s"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -6027,16 +6042,6 @@ msgstr ""
 msgid "Issue tracker"
 msgstr "Fehlerverfolgungssystem"
 
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"Es ist mit Subversion unter Windows nicht gestattet, beim Umbenennen nur die\n"
-"Groß-/Kleinschreibung (z.B. von datei.txt in DATEI.TXT) zu ändern!\n"
-"Bitte lesen Sie unsere Dokumentation, wie Sie diese Einschränkung umgehen können."
-
 #. Resource IDs: (89)
 #, c-format
 msgid ""
@@ -6069,11 +6074,11 @@ msgid ""
 msgstr ""
 "Es scheint, dass Sie Ihre Arbeitskopie innerhalb desselben Projektarchivs umplatzieren wollen.\n"
 "\n"
-"Von:  %1!s!\n"
-"Nach: %2!s!\n"
+"Von:\t%1!s!\n"
+"Nach:\t%2!s!\n"
 "\n"
 "Ein Umplatzieren ist nur erforderlich, wenn sich der Pfad zu einem Projektarchiv geändert hat.\n"
-"Wechseln zu einem anderen Pfad innerhalb eines Projektarchivs geschieht mit dem \"Wechseln zu\" Befehl.\n"
+"Wechseln zu einem anderen Pfad innerhalb eines Projektarchivs geschieht mit dem 'Wechseln zu' Befehl.\n"
 "\n"
 "Ein unsachgemäßes Umplatzieren wird Ihre Arbeitskopie beschädigen!\n"
 "Wenn Sie sich nicht sicher sind, was Sie tun wollen, lesen Sie zuerst unsere Dokumentation zum Umplatzieren.\n"
@@ -6535,7 +6540,7 @@ msgstr "Revisionen zusammenführen in..."
 #. Resource IDs: (610)
 #, c-format
 msgid "Merge the changes into '%s'"
-msgstr "Änderungen in \"%s\" zusammenführen"
+msgstr "Änderungen in '%s' zusammenführen"
 
 #. Resource IDs: (1470)
 msgid "Merge two different &trees"
@@ -6568,8 +6573,8 @@ msgstr "Zusammenführen"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "Zusammenführen von %s in %s, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr "Zusammenführen von %1!s! in %2!s!, %3!s!%4!s!"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6577,8 +6582,12 @@ msgstr "Führe Unterschiede zwischen Projektarchiv URLs zusammen"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "Zusammenführen von %s, Revision %s bis %s, Revision %s in %s, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
+"Zusammenführen von %1!s!, Revision %2!s! bis %3!s!, Revision %4!s! in %5!s!,"
+" %6!s!%7!s!%8!s!"
 
 #. Resource IDs: (264)
 #, c-format
@@ -6599,8 +6608,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "Führe Revision %s von %s in %s zusammen, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr "Führe Revision %1!s! von %2!s! in %3!s! zusammen, %4!s!%5!s!%6!s!"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7280,7 +7289,7 @@ msgstr "Nur dieses Objekt"
 #. Resource IDs: (1224)
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
 msgstr ""
-"&Rechtschreibkorrektur nur verwenden, wenn \"tsvn:projectlanguage\" gesetzt "
+"&Rechtschreibkorrektur nur verwenden, wenn 'tsvn:projectlanguage' gesetzt "
 "ist"
 
 #. Resource IDs: (65535)
@@ -7372,7 +7381,7 @@ msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
 msgstr ""
-"Überschreibt die \"svn:eol-style\" Eigenschaft.\n"
+"Überschreibt die 'svn:eol-style' Eigenschaft.\n"
 "Dateien, bei denen diese Eigenschaft nicht gesetzt ist, werden nicht beeinflusst."
 
 #. Resource IDs: (99)
@@ -7574,7 +7583,7 @@ msgstr ""
 "Ihre Arbeitskopie bleibt auf dem vorherigen Pfad. Wenn Sie wollen,\n"
 "dass Ihre nächsten Änderungen in die gerade erstelle Kopie übertragen\n"
 "werden, müssen Sie mit Ihrer Arbeitskopie zu der neuen URL wechseln.\n"
-"Benutzen Sie dazu den Befehl \"Wechseln zu…\"."
+"Benutzen Sie dazu den Befehl 'Wechseln zu…'."
 
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
@@ -7806,12 +7815,12 @@ msgstr "Eigenschaft %s: Arbeitskopie"
 #. Resource IDs: (262)
 #, c-format
 msgid "Property '%s' deleted"
-msgstr "Eigenschaft \"%s\" gelöscht"
+msgstr "Eigenschaft '%s' gelöscht"
 
 #. Resource IDs: (262)
 #, c-format
 msgid "Property '%s' set"
-msgstr "Eigenschaft \"%s\" gesetzt"
+msgstr "Eigenschaft '%s' gesetzt"
 
 #. Resource IDs: (107)
 msgid "Property Page"
@@ -7860,8 +7869,7 @@ msgstr "Proxy Einstellungen"
 #. Resource IDs: (1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr ""
-"Zeige \"Sperre holen\" im obersten Menü an, wenn \"svn:needs-lock\" gesetzt "
-"ist"
+"Zeige 'Sperre holen' im obersten Menü an, wenn 'svn:needs-lock' gesetzt ist"
 
 #. Resource IDs: (246)
 #, c-format
@@ -8047,6 +8055,15 @@ msgstr "Verkleinert das Fenster zu einem Symbol"
 msgid "Refresh"
 msgstr "Aktualisieren"
 
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr "Aktualisiert die überlagerten Symbole"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr "Aktualisiert die Symbole für %1!s!"
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "Regulärer Ausdruck"
@@ -8071,12 +8088,12 @@ msgid ""
 msgstr ""
 "Filtern mit regulären Ausdrücken:\r\n"
 ". : Ein beliebiges Zeichen\r\n"
-"c+ : Ein oder mehrere Vorkommen von \"c\"\r\n"
-"c* : Kein oder mehrere Vorkommen von \"c\"\r\n"
+"c+ : Ein oder mehrere Vorkommen von 'c'\r\n"
+"c* : Kein oder mehrere Vorkommen von 'c'\r\n"
 "^ : Zeilenanfang\r\n"
 "$ : Zeilenende\r\n"
-"(string){n} : N-maliges Vorkommen von \"string\"\r\n"
-"(abcd) : Unterausdruck \"abcd\"\r\n"
+"(string){n} : N-maliges Vorkommen von 'string'\r\n"
+"(abcd) : Unterausdruck 'abcd'\r\n"
 "[aei0-9] : Findet a,e,i und 0..9\r\n"
 "[^aei0-9] : Findet alles außer a,e,i und 0..9\r\n"
 "\r\n"
@@ -8091,8 +8108,8 @@ msgstr "Wiedereingliedern"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "%s wieder in %s eingliedern"
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr "%1!s! wieder in %2!s! eingliedern"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8109,7 +8126,7 @@ msgstr ""
 #. Resource IDs: (7)
 #, c-format
 msgid "Rejected patch hunks for '%s'"
-msgstr "Abgelehte Patchesegmente für \"%s\""
+msgstr "Abgelehte Patchesegmente für '%s'"
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
@@ -8170,7 +8187,7 @@ msgstr "Warnung: Umplatzieren"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr "\"Umplatzieren\" wo ein \"Wechseln zu\" gemeint sein könnte"
+msgstr "'Umplatzieren' wo ein 'Wechseln zu' gemeint sein könnte"
 
 #. Resource IDs: (89)
 msgid ""
@@ -8300,7 +8317,7 @@ msgid ""
 msgstr ""
 "Die Einträge\n"
 "%s\n"
-"wurden aus der \"Ignorieren\" Liste entfernt."
+"wurden aus der 'Ignorieren' Liste entfernt."
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
@@ -8309,11 +8326,16 @@ msgstr "Entfernt alle nicht versionierten und ignorierten Objekte"
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
 msgstr ""
-"Entfernt die gewählten Dateien oder Dateimasken aus der \"Ignorieren\" Liste"
+"Entfernt die gewählten Dateien oder Dateimasken aus der 'Ignorieren' Liste"
 
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "Entfernt die markierten Eigenschaften"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr "Entfernen von nicht versionierten Elementen in %1!s!"
 
 #. Resource IDs: (16616)
 msgid "Rena&me..."
@@ -8345,10 +8367,10 @@ msgstr "Umbenennen/verschieben"
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
 "Umbenennen\n"
-"Der Ordner wird als \"%s\" exportiert."
+"Der Ordner wird als '%s' exportiert."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8452,7 +8474,7 @@ msgstr "Löse Konflikt mit 'Meiner' Datei"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'theirs'"
-msgstr "Löse Konflikt mit \"Deren\" Datei"
+msgstr "Löse Konflikt mit 'Deren' Datei"
 
 #. Resource IDs: (1403)
 msgid "Resolve conflict:"
@@ -8523,6 +8545,10 @@ msgstr "%ld rückwärts zusammenführen"
 msgid "Revert"
 msgstr "Änderungen rückgängig"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr "Alle Änderungen rekursiv zurücknehmen"
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
@@ -8547,7 +8573,12 @@ msgstr ""
 
 #. Resource IDs: (73)
 msgid "Reverted"
-msgstr "Rückgängig gemacht"
+msgstr "Zurückgenommen"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr "%1!s! zurücknehmen"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -9336,7 +9367,7 @@ msgstr "Zeige Unterschiede als &Standard-Diff"
 
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
-msgstr "Ausgeschlossene Ordner \"normal\" anzeigen"
+msgstr "Ausgeschlossene Ordner 'normal' anzeigen"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9579,8 +9610,8 @@ msgstr "Quell URL:"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr "Dünn besetzte Aktualisierung %1!s!, Tiefe \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
+msgstr "Dünn besetzte Aktualisierung %1!s!, Tiefe '%2!s!'"
 
 #. Resource IDs: (196)
 msgid ""
@@ -9870,8 +9901,8 @@ msgstr "Wechseln"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "Wechsle %s zu %s, Revision %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr "Wechsle %1!s! zu %2!s!, Revision %3!s!"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9884,6 +9915,10 @@ msgstr "Tausche Links <-> Rechts"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "Wechsle zu Zweig / Marke"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr "Zum Elternobjekt zurück"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9932,6 +9967,10 @@ msgstr "Die Arbeitskopie zu anderem Zweig / anderer Marke wechseln"
 #. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "Wechseln:"
+
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr "Gewechselt"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -10177,142 +10216,142 @@ msgstr ""
 #. Resource IDs: (597)
 #, c-format
 msgid "The item '%s' has property conflicts:"
-msgstr "Das Objekt \"%s\" hat Eigenschaftskonflikte:"
+msgstr "Das Objekt '%s' hat Eigenschaftskonflikte:"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to add the directory '%s'"
-msgstr "Das letzte Zusammenführen versuchte das Verzeichnis \"%s\" hinzuzufügen"
+msgstr "Das letzte Zusammenführen versuchte das Verzeichnis '%s' hinzuzufügen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to add the file '%s'"
-msgstr "Das letzte Zusammenführen versuchte die Datei \"%s\" hinzuzufügen"
+msgstr "Das letzte Zusammenführen versuchte die Datei '%s' hinzuzufügen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid ""
 "The last merge operation tried to delete/move/rename the directory '%s'"
 msgstr ""
-"Das letzte Zusammenführen versuchte das Verzeichnis \"%s\" zu löschen/zu "
+"Das letzte Zusammenführen versuchte das Verzeichnis '%s' zu löschen/zu "
 "verschieben/umzubenennen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to delete/move/rename the file '%s'"
 msgstr ""
-"Das letzte Zusammenführen versuchte die Datei \"%s\" zu löschen/zu "
+"Das letzte Zusammenführen versuchte die Datei '%s' zu löschen/zu "
 "verschieben/umzubenennen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to modify the directory '%s'"
-msgstr "Das letzte Zusammenführen versuchte das Verzeichnis \"%s\" zu verändern"
+msgstr "Das letzte Zusammenführen versuchte das Verzeichnis '%s' zu verändern"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to modify the file '%s'"
-msgstr "Das letzte Zusammenführen versuchte die Datei \"%s\" zu verändern"
+msgstr "Das letzte Zusammenführen versuchte die Datei '%s' zu verändern"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to replace the directory '%s'"
-msgstr "Das letzte Zusammenführen versuchte das Verzeichnis \"%s\" zu ersetzen"
+msgstr "Das letzte Zusammenführen versuchte das Verzeichnis '%s' zu ersetzen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to replace the file '%s'"
-msgstr "Das letzte Zusammenführen versuchte die Datei \"%s\" zu ersetzen"
+msgstr "Das letzte Zusammenführen versuchte die Datei '%s' zu ersetzen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to add the directory '%s'"
-msgstr "Das letzte \"Wechseln zu\" versuchte das Verzeichnis \"%s\" hinzuzufügen"
+msgstr "Das letzte 'Wechseln zu' versuchte das Verzeichnis '%s' hinzuzufügen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to add the file '%s'"
-msgstr "Das letzte \"Wechseln zu\" versuchte die Datei \"%s\" hinzuzufügen"
+msgstr "Das letzte 'Wechseln zu' versuchte die Datei '%s' hinzuzufügen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid ""
 "The last switch operation tried to delete/move/rename the directory '%s'"
 msgstr ""
-"Das letzte \"Wechseln zu\" versuchte das Verzeichnis \"%s\" zu löschen/zu "
+"Das letzte 'Wechseln zu' versuchte das Verzeichnis '%s' zu löschen/zu "
 "verschieben/umzubenennen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to delete/move/rename the file '%s'"
 msgstr ""
-"Das letzte \"Wechseln zu\" versuchte die Datei \"%s\" zu löschen/zu "
+"Das letzte 'Wechseln zu' versuchte die Datei '%s' zu löschen/zu "
 "verschieben/umzubenennen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to modify the directory '%s'"
-msgstr "Das letzte \"Wechseln zu\" versuchte das Verzeichnis \"%s\" zu verändern"
+msgstr "Das letzte 'Wechseln zu' versuchte das Verzeichnis '%s' zu verändern"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to modify the file '%s'"
-msgstr "Das letzte \"Wechseln zu\" versuchte die Datei \"%s\" zu verändern"
+msgstr "Das letzte 'Wechseln zu' versuchte die Datei '%s' zu verändern"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to replace the directory '%s'"
-msgstr "Das letzte \"Wechseln zu\" versuchte das Verzeichnis \"%s\" zu ersetzen"
+msgstr "Das letzte 'Wechseln zu' versuchte das Verzeichnis '%s' zu ersetzen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to replace the file '%s'"
-msgstr "Das letzte \"Wechseln zu\" versuchte die Datei \"%s\" zu ersetzen"
+msgstr "Das letzte 'Wechseln zu' versuchte die Datei '%s' zu ersetzen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr "Die letzte Aktualisierung versuchte das Verzeichnis \"%s\" hinzuzufügen"
+msgstr "Die letzte Aktualisierung versuchte das Verzeichnis '%s' hinzuzufügen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the file '%s'"
-msgstr "Die letzte Aktualisierung versuchte die Datei \"%s\" hinzuzufügen"
+msgstr "Die letzte Aktualisierung versuchte die Datei '%s' hinzuzufügen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid ""
 "The last update operation tried to delete/move/rename the directory '%s'"
 msgstr ""
-"Die letzte Aktualisierung versuchte das Verzeichnis \"%s\" zu löschen/zu "
+"Die letzte Aktualisierung versuchte das Verzeichnis '%s' zu löschen/zu "
 "verschieben/umzubenennen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the file '%s'"
 msgstr ""
-"Die letzte Aktualisierung versuchte die Datei \"%s\" zu löschen/zu "
+"Die letzte Aktualisierung versuchte die Datei '%s' zu löschen/zu "
 "verschieben/umzubenennen"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr "Die letzte Aktualisierung versuchte das Verzeichnis \"%s\" zu verändern"
+msgstr "Die letzte Aktualisierung versuchte das Verzeichnis '%s' zu verändern"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
-msgstr "Die letzte Aktualisierung versuchte die Datei \"%s\" zu verändern"
+msgstr "Die letzte Aktualisierung versuchte die Datei '%s' zu verändern"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last update operation tried to replace the directory '%s'"
-msgstr "Die letzte Aktualisierung versuchte das Verzeichnis \"%s\" zu ersetzen"
+msgstr "Die letzte Aktualisierung versuchte das Verzeichnis '%s' zu ersetzen"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last update operation tried to replace the file '%s'"
-msgstr "Die letzte Aktualisierung versuchte die Datei \"%s\" zu ersetzen"
+msgstr "Die letzte Aktualisierung versuchte die Datei '%s' zu ersetzen"
 
 #. Resource IDs: (63)
 #, c-format
@@ -10388,10 +10427,10 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
-"Der Pfad/die URL \"%s\" scheint unter Windows unzulässig zu sein!\n"
+"Der Pfad/die URL '%s' scheint unter Windows unzulässig zu sein!\n"
 "Sie können es trotzdem versuchen, aber Sie können später Fehlermeldungen erhalten."
 
 #. Resource IDs: (88)
@@ -10545,11 +10584,11 @@ msgstr "Das Ziel hat lokale Änderungen"
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
-"Die Ziel-Arbeitskopie \"%s\" hat lokale Änderungen. Es wird empfohlen, diese"
-" Änderungen vor dem Zusammenführen zunächst zu übertragen."
+"Die Ziel-Arbeitskopie '%s' hat lokale Änderungen. Es wird empfohlen, diese "
+"Änderungen vor dem Zusammenführen zunächst zu übertragen."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -11365,8 +11404,8 @@ msgstr "Arbeitskopie hochstufen"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
-msgstr "\"%1!s!\" hochstufen"
+msgid "Upgrading '%1!s!'"
+msgstr "'%1!s!' hochstufen"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11957,15 +11996,6 @@ msgstr ""
 "und sich nur die Groß-/Kleinschreibung geändert hat.\n"
 "Wollen Sie es wirklich hinzufügen?"
 
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-"Sie haben den Symbolsatz von %s in %s geändert.\n"
-"Die Änderungen werden erst wirksam, nachdem Sie den Rechner neu gestartet oder sich ab- und wieder angemeldet haben!"
-
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
@@ -12306,13 +12336,13 @@ msgstr "kopiert:"
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
-"aktuelle Größe: %s\r\n"
-"alte Größe: %s\r\n"
-"Unterschied: %s"
+"aktuelle Größe: %1!s!\r\n"
+"alte Größe: %2!s!\r\n"
+"Unterschied: %3!s!"
 
 #. Resource IDs: (245)
 msgid "day"

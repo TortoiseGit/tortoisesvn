@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-29 00:30+0000\n"
+"PO-Revision-Date: 2011-06-05 00:38+0000\n"
 "Last-Translator: fly1004 <fly1004@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2785,8 +2785,8 @@ msgstr "체크아웃 깊이(&E)"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "%s에 체크아웃, 리비전 %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -2812,18 +2812,22 @@ msgstr "아이템들 선택..."
 msgid "Classification Patterns"
 msgstr "분류 패턴"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "정리중"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
-msgstr "\"%1!s!\" 디렉토리 정리중"
+msgid "Cleaning up directory '%1!s!'"
+msgstr ""
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
-msgstr "정리하고 쉘 새로고치기"
+#. Resource IDs: (329)
+msgid "Cleanup"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2842,10 +2846,6 @@ msgid ""
 msgstr ""
 "다음 경로에 대해 정리하였습니다:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr "중지된 동작을 정리하고 쉘 오버레이를 새로고칩니다"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3256,6 +3256,11 @@ msgstr ""
 "%1!ld! 개의 아이템을 다음으로 복사\r\n"
 "%2!s!"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3269,11 +3274,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "복사 %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "%s을(를) %s(으)로 복사, 리비전: %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3420,6 +3420,13 @@ msgstr "'%2!s!'의 '%1!s!' 속성을 삭제할 수 없습니다. 사유"
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
 msgstr "마지막 커밋된 리비전을 결정할 수 없습니다!"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3729,6 +3736,10 @@ msgstr "파일 이름에 따라 %d 개 아이템을 삭제하고 무시하기(&I
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "확장자에 따라 %d 개 아이템을 삭제하고 무시하기(&E)"
+
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4536,15 +4547,13 @@ msgstr "익스포트 중..."
 msgid "Exporting: Target folder exists."
 msgstr "익스포팅: 대상 폴더가 존재합니다."
 
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr "svn 관리 폴더를 제외한 깨끗한 사본 얻기"
-
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "파일에 속성값들을 내보냅니다"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4666,6 +4675,11 @@ msgstr "파일 가져오기..."
 #, c-format
 msgid "Fetching revision %s of file:"
 msgstr "리비전 %s 가져오기 파일명:"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5648,15 +5662,15 @@ msgstr "1차 파일 및 디렉토리에만 적용"
 msgid "Import"
 msgstr "임포트"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "%ld 개를 임포트함"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "%s 을(를) %s%s(으)로 임포트함"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -5868,16 +5882,6 @@ msgstr ""
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "이슈 트래커"
-
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"파일이름의 대소문자를 변경하는 것만으로 이름을 바꾸는 것은 불가능합니다.\n"
-"예를 들어, MyFile.txt 를 MYFILE.txt로 변경할 수 없습니다.\n"
-"이런 제약점에 대해서는 문서를 참고하시기 바랍니다."
 
 #. Resource IDs: (89)
 #, c-format
@@ -6384,8 +6388,8 @@ msgstr "병합"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "%s 를 %s 에 병합중, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6393,8 +6397,10 @@ msgstr "저장소 url들 사이의 차이점을 병합"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "%s(r%s) 에서 %s(r%s)까지를 %s에 병합중, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -6413,8 +6419,8 @@ msgstr "'시작:' 과 '끝:'에는 다른 리비전 혹은 URL이 들어 있어�
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "리비전 %s(%s)를 %s에 병합중, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr ""
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7807,6 +7813,15 @@ msgstr "아이콘으로 창을 최소화 시킵니다."
 msgid "Refresh"
 msgstr "새로고침"
 
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "정규 표현식"
@@ -7851,8 +7866,8 @@ msgstr "재통합 병합"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "%s를 %s에 재통합 병합합니다."
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8056,6 +8071,11 @@ msgstr "선택된 파일 또는 파일 마스크를 무시 목록에서 제거"
 msgid "Removes the selected properties"
 msgstr "선택된 속성값을 제거합니다"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr ""
+
 #. Resource IDs: (16616)
 msgid "Rena&me..."
 msgstr "이름 변경하기(&M)..."
@@ -8086,7 +8106,7 @@ msgstr ""
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8259,6 +8279,10 @@ msgstr "%ld 역방향 병합"
 msgid "Revert"
 msgstr "되돌림"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "기본 설정으로 되돌립니다. 경험이 없는 사용자에게 추천됩니다."
@@ -8280,6 +8304,11 @@ msgstr ""
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "되돌림"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr ""
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -9276,7 +9305,7 @@ msgstr "원본 URL:"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
 msgstr ""
 
 #. Resource IDs: (196)
@@ -9530,8 +9559,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "%s에서 %s(으)로 변경, 리비전 %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9544,6 +9573,10 @@ msgstr "좌우 전환"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "다른 브랜치나 태그로 전환하기"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr ""
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9592,6 +9625,10 @@ msgstr "현재 작업 사본을 생성된 브랜치나 태그로 전환"
 #. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "전환:"
+
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr ""
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -10015,7 +10052,7 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
 
@@ -10165,8 +10202,8 @@ msgstr "대상이 지역적으로 수정되었습니다."
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
 
 #. Resource IDs: (279)
@@ -10940,8 +10977,8 @@ msgstr "작업 사본 업그레이드"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
-msgstr "\"%1!s!\" 업그레이드중"
+msgid "Upgrading '%1!s!'"
+msgstr ""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11517,15 +11554,6 @@ msgstr ""
 "아마 Subversion 외부에서 아이템의 대소문자만 바뀌어서 이름이 변경된 것 같습니다.\n"
 "정말로 추가하시겠습니까?"
 
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-"아이콘 모음을 %s에서 %s로 바꾸었습니다..\n"
-"변경 내용은 컴퓨터를 재시작하거나, 로그오프후에 다시 로그인하기전까지는 반영되지 않습니다."
-
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
@@ -11862,13 +11890,10 @@ msgstr "복사됨:"
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
-"현재 사이즈: %s\n"
-"이전 사이즈: %s\n"
-"변경: %s"
 
 #. Resource IDs: (245)
 msgid "day"

@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-29 00:30+0000\n"
+"PO-Revision-Date: 2011-06-05 00:38+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2345,7 +2345,7 @@ msgstr "ID-baga"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
-msgstr ""
+msgstr "Bagtrek regeks tester - TortoiseSVN"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -2859,8 +2859,8 @@ msgstr "Dubina pr&euzimanja"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Preuzimanje od %s, revizija %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -2886,18 +2886,22 @@ msgstr "Izaberi stavke..."
 msgid "Classification Patterns"
 msgstr "Klasifikacioni Model"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "Čišćenje"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
-msgstr "Čišćenje imenika \"%1!s!\""
+msgid "Cleaning up directory '%1!s!'"
+msgstr ""
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
-msgstr "Očisti i osveži školjku"
+#. Resource IDs: (329)
+msgid "Cleanup"
+msgstr ""
 
 #. Resource IDs: (83)
 #, c-format
@@ -2916,10 +2920,6 @@ msgid ""
 msgstr ""
 "Čišćenje je uspešno završeno na sledećim putanjama:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr "Čišćenje prekinutih operacija i osvežavanje prekrivača školjke"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3344,6 +3344,11 @@ msgstr ""
 "Kopiraj %1!ld! stavki u\r\n"
 "%2!s!"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3357,11 +3362,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Kopiraj %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "Kopiraj %s na %s, Revizija %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3508,6 +3508,13 @@ msgstr "Nije bilo moguće obrisati svojstvo '%1!s!' na %2!s! zbog"
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
 msgstr "Nije bilo moguće ustanoviti zadnju urezanu reviziju!"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3823,6 +3830,10 @@ msgstr "Obrišite i &zanemariti %d stavki po imenu"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Obrišite i zanemariti %d stavki po &ekstenziji"
+
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4644,16 +4655,13 @@ msgstr "Izvozi..."
 msgid "Exporting: Target folder exists."
 msgstr "Izvoženje: Ciljni imenik postoji."
 
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr ""
-"Izvoz spremišta u čistu radnu kopiju bez administrativnih svn imenika "
-
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "Izvozi grupu svojstava u fajl"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4777,6 +4785,11 @@ msgstr "Dohvatanje fajla..."
 #, c-format
 msgid "Fetching revision %s of file:"
 msgstr "Dohvatanje revizije %s fajlova:"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5778,15 +5791,15 @@ msgstr "Neposredni potomak,  uključujući imenike"
 msgid "Import"
 msgstr "Uvezi"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "Uvezi %ld stavaka"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "Uvozi %s u %s%s"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -6000,16 +6013,6 @@ msgstr ""
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Problemt tragač"
-
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"Nije moguće promeniti ime fajlu menjajući samo velika-mala slova.\n"
-"Na primer, ne možete promeniti Mojfajl.txt u MOJfajl.txt.\n"
-"Molim, pregledajte dokumentaciju kako biste našli način da zaobiđete ovo ograničenje."
 
 #. Resource IDs: (89)
 #, c-format
@@ -6540,8 +6543,8 @@ msgstr "Spajanje"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "Stapanje %s u %s, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6549,8 +6552,10 @@ msgstr "Stapanje razlika između URL spremišta"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "Stapanje od %s, revizije %s do %s, revizija %s u %s, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -6570,8 +6575,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "Stapanje revizija %s od revizije %s u %s, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr ""
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7990,6 +7995,15 @@ msgstr "Smanji prozor u ikonu"
 msgid "Refresh"
 msgstr "Osveži"
 
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "Regularni izraz"
@@ -8034,8 +8048,8 @@ msgstr "Reintegrisanje stapanja"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "Reintegrirajuće(!?) stapanje %s u %s"
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8253,6 +8267,11 @@ msgstr "Uklanja fajl ili masku fajl s popisa zanemarenih stavki"
 msgid "Removes the selected properties"
 msgstr "Uklanja odabrana svojstva"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr ""
+
 #. Resource IDs: (16616)
 msgid "Rena&me..."
 msgstr "Prei&menuj..."
@@ -8283,10 +8302,8 @@ msgstr "Preimenuj/pomeri"
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
-"Preimenuj\n"
-"Imenik je izvezen kao  \"%s\"."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8460,6 +8477,10 @@ msgstr "Vrati stapanje %ld"
 msgid "Revert"
 msgstr "Vrati na staro"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
@@ -8484,6 +8505,11 @@ msgstr ""
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Vraćeno na staro"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr ""
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -8747,10 +8773,18 @@ msgid ""
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
 msgstr ""
+"Dnevnik probe za testiranje bagtrek: regeks stringovi.\n"
+"\n"
+"Testiranje nagoveštaja problema unutar teksta : Nagoveštaj problema #55. Nagoveštaj problema #77, #78.\n"
+"\n"
+"Ažuriran problem #101\n"
+"Fiksiran problem #202\n"
+"Rešen problem #88.\n"
+"Zatvoren problem #99.\n"
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
-msgstr ""
+msgstr "Probni tekst:"
 
 #. Resource IDs: (57604)
 msgid "Save &As..."
@@ -9501,8 +9535,8 @@ msgstr "Izvor URL:"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr "Prazno ažuriranje %1!s!, dubina \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
+msgstr ""
 
 #. Resource IDs: (196)
 msgid ""
@@ -9779,8 +9813,8 @@ msgstr "Prebaci"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "Zameni %s sa %s, Revizija %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9793,6 +9827,10 @@ msgstr "Zameni levo <-> desno"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "Prebaci na Granu / Oznaku"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr ""
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9841,6 +9879,10 @@ msgstr "Mijenja radnu kopiju drugom granom / oznakom"
 #. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "Zamena:"
+
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr ""
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -9901,7 +9943,7 @@ msgstr "Samo za test"
 
 #. Resource IDs: (590)
 msgid "Test the regex strings"
-msgstr ""
+msgstr "Testiranje regeks stringova"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
@@ -10283,11 +10325,9 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
-"putanja/URL \"%s\" izgleda da je ilegalna u Vindouzu!\n"
-"Svakako da možete pokušati, ali možda se, kasnije, pojavi greška."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10438,11 +10478,9 @@ msgstr "Cilj ima lokalne izmene"
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
-"Ciljna radna kopija \"%s\"  ima lokalne izmene. Preporučljivo je najpre "
-"urezati ove izmene  pre stapanja novih izmena."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -11247,8 +11285,8 @@ msgstr "Nadogrdnja radne kopije"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
-msgstr "Dogradnja \"%1!s!\""
+msgid "Upgrading '%1!s!'"
+msgstr ""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11840,15 +11878,6 @@ msgstr ""
 "Izgleda da je stavka preimenovana van Subverzije ali sa promenom veličine slova.\n"
 "Da li zaista želite da uradite to?"
 
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-"Promenili ste skup ikona iz %s u %s.\n"
-"Ta izmena neće stupiti na snagu dok iznova ne pokrenete vaš računar ili dok se ne odjavite i ponovo prijavite!"
-
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
@@ -12187,13 +12216,10 @@ msgstr "kopirano:"
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
-"tekuća veličina: %s\r\n"
-"stara veličina: %s\r\n"
-"izmene: %s"
 
 #. Resource IDs: (245)
 msgid "day"

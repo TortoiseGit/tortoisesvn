@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-24 00:16+0000\n"
+"PO-Revision-Date: 2011-06-05 00:11+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4440,21 +4440,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"An update by default ignores local modifications to the "
-"<literal>svn:externals</literal> property. But when you made modifications "
-"to the <literal>svn:externals</literal> property, you can force the update "
-"to use those local modifications. For example if you change an external to a"
-" new tag, you might want to first update your working copy to that new tag, "
-"build the project and only commit the change to the "
-"<literal>svn:externals</literal> if the build was successful. In that "
-"situation, you have to check the box <guilabel>Apply local svn:externals "
-"modifications</guilabel>. If you modify your externals a lot, you can make "
-"this behavior the default when updating in the settings dialog. <xref "
-"linkend=\"tsvn-dug-settings-main\"/>."
-msgstr ""
-
-#. (para)
-msgid ""
 "If you update a file or folder to a specific revision, you should not make "
 "changes to those files. You will get <quote>out of date</quote> error "
 "messages when you try to commit them! If you want to undo changes to a file "
@@ -8077,12 +8062,10 @@ msgstr "バージョン管理下のファイルに対するエクスプローラ
 
 #. (para)
 msgid ""
-"Unlike CVS, Subversion allows renaming and moving of files and folders. So "
-"there are menu entries for delete and rename in the TortoiseSVN submenu. "
+"Subversion allows renaming and moving of files and folders. So there are "
+"menu entries for delete and rename in the TortoiseSVN submenu. "
 "<placeholder-1/>"
 msgstr ""
-"CVS と違い、Subversion はファイル・フォルダの名前の変更や移動ができます。そのため TortoiseSVN "
-"のサブメニューには、削除や名前の変更のメニューエントリがあります。<placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
@@ -8313,71 +8296,6 @@ msgstr ""
 "コマンドを実行するべきでは<emphasis>ありません</emphasis>。このアクションは外部参照項目を親リポジトリから削除してしまい、おそらく他の人たちを驚かせてしまいます。外部参照フォルダを移動する必要があるときには、通常の"
 " (シェルでの) 移動を行い、移動元と異動先それぞれ親フォルダに対して <literal>svn:externals</literal> "
 "属性を調整してください。"
-
-#. (title)
-msgid "Changing case in a filename"
-msgstr "ファイル名の大文字小文字の変換"
-
-#. (primary)
-msgid "case change"
-msgstr "大/小文字の変更"
-
-#. (para)
-msgid ""
-"Making case-only changes to a filename is tricky with Subversion on Windows,"
-" because for a short time during a rename, both filenames have to exist. As "
-"Windows has a case-insensitive file system, this does not work using the "
-"usual Rename command."
-msgstr ""
-"Windows 上の Subversion "
-"で、ファイル名を文字の大小のみの変更はやりにくいです。変更中の短時間でも、両方のファイル名が同時に存在してしまうためです。Windows "
-"は、文字の大小を区別しないファイルシステムを使用しており、通常の「名前の変更」コマンドは使用できません。"
-
-#. (para)
-msgid ""
-"Fortunately there are (at least) two possible methods to rename a file "
-"without losing its log history. It is important to rename it within "
-"subversion. Just renaming in the explorer will corrupt your working copy!"
-msgstr ""
-"幸い、ログの履歴を失わずにファイルの名前を変更する、(少なくとも) 2 つの有効な解決法があります。重要なのは Subversion "
-"で名前を変更することです。単にエクスプローラで名前を変更すると、作業コピーが壊れてしまいます!"
-
-#. (para)
-msgid "Commit the changes in your working copy."
-msgstr "作業コピーの変更をコミットします。"
-
-#. (para)
-msgid ""
-"Rename the file from UPPERcase to upperCASE directly in the repository using"
-" the repository browser."
-msgstr "リポジトリブラウザを使用して、ファイル名を UPPERcase から upperCASE へ直接変更します。"
-
-#. (para)
-msgid "Update your working copy."
-msgstr "作業コピーを更新します。"
-
-#. (para)
-msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr "解決法 A) (お勧め) <placeholder-1/>"
-
-#. (para)
-msgid ""
-"Rename from UPPERcase to UPPERcase_ with the rename command in the "
-"TortoiseSVN submenu."
-msgstr "TortoiseSVN のサブメニューにある名前の変更コマンドで、UPPERcase から UPPERcase_ へ変更します。"
-
-#. (para)
-#. (para)
-msgid "Commit the changes."
-msgstr "変更をコミットします。"
-
-#. (para)
-msgid "Rename from UPPERcase_ to upperCASE."
-msgstr "UPPERcase_ から upperCASE へ名前を変更します。"
-
-#. (para)
-msgid "Solution B) <placeholder-1/>"
-msgstr "解決法 B) <placeholder-1/>"
 
 #. (title)
 msgid "Dealing with filename case conflicts"
@@ -8631,19 +8549,73 @@ msgstr ""
 "コマンドが正常に終了しなかった場合、作業コピーが矛盾した状態のままになってしまうことがあります。この場合、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>クリーンアップ</guimenuitem></menuchoice>"
 " をフォルダに対して行う必要があります。作業コピーの最上層で行うのがいいでしょう。"
 
+#. (term)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. (para)
 msgid ""
-"Cleanup has another useful side effect. If a file date changes but its "
-"content doesn't, Subversion cannot tell whether it has really changed except"
-" by doing a byte-by-byte comparison with the pristine copy. If you have a "
-"lot of files in this state it makes acquiring status very slow, which will "
-"make many dialogs slow to respond. Executing a Cleanup on your working copy "
-"will repair these <quote>broken</quote> timestamps and restore status checks"
-" to full speed."
+"As stated above, this option tries to get an inconsistent working copy into "
+"a workable and usable state. This doesn't affect any data you have but only "
+"the internal states of the working copy database. This is the actual "
+"<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
+"or other SVN clients."
 msgstr ""
-"クリーンアップには他の便利な側面もあります。ファイルの日付に変更があっても内容に変更がない場合、元のコピーとバイトごとの比較を行わない限り、Subversion"
-" は本当に変更があったかどうかわかりません。この状態になったファイルがたくさんあると、状態を取得するのが (ダイアログがたくさん表示されて) "
-"遅くなります。作業コピーでクリーンアップを行うと、<quote>壊れた</quote>タイムスタンプを修正し、状態チェックが早く終わるように戻ります。"
+
+#. (term)
+msgid "Revert all changes recursively"
+msgstr ""
+
+#. (para)
+msgid ""
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr ""
+
+#. (term)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
+
+#. (para)
+msgid ""
+"This is a fast and easy way to remove all generated files in your working "
+"copy. All files and folders that are not versioned are moved to the trash "
+"bin."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note: you can also do the same from the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" dialog. There you also get a list of all the unversioned files and folders "
+"to select for removal."
+msgstr ""
+
+#. (term)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. (para)
+msgid ""
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr ""
+
+#. (para)
+msgid ""
+"In the cleanup dialog, there are also other useful options to get the "
+"working copy into a <literal>clean</literal> state. <placeholder-1/>"
+msgstr ""
 
 #. (title)
 msgid "Project Settings"
@@ -12321,12 +12293,10 @@ msgid ""
 "This mode groups changes by branch, so that there is no global revision "
 "ordering: Consecutive revisions on a branch will be shown in (often) "
 "consecutive lines. Sub-branches, however, are arranged in such a way that "
-"later branches will be shown in the same column above older branches to keep"
-" the graph slim. As a result, a given row may contain changes from different"
-" revisions."
+"later branches will be shown in the same column above earlier branches to "
+"keep the graph slim. As a result, a given row may contain changes from "
+"different revisions."
 msgstr ""
-"このモードは変更をブランチでグループ化するため、グローバルなリビジョン順はありません。ブランチ上の連続したリビジョンは、連続した線で (大抵) "
-"表します。しかしサブブランチの場合、グラフをスリムにしておくため、古いブランチと同じ列に後から発生したブランチを配置するようにします。その結果、異なるリビジョン由来の変更を同じ行に含む可能性があります。"
 
 #. (term)
 msgid "Oldest on top"
@@ -12358,13 +12328,12 @@ msgstr "線が交差しないようにする"
 
 #. (para)
 msgid ""
-"If the layout of the graph has produced a lot of crossing lines, use this "
-"option to clean it up. This may make the layout columns appear in less "
-"logical places, for example in a diagonal line rather than a column, and the"
-" graph may require a larger area to draw."
+"This option is normally enabled and avoids showing the graph with a lot of "
+"confused crossing lines. However this may also make the layout columns "
+"appear in less logical places, for example in a diagonal line rather than a "
+"column, and the graph may require a larger area to draw. If this is a "
+"problem you can disable the option from the <guilabel>View</guilabel> menu."
 msgstr ""
-"グラフのレイアウト上で、線の交差が大量に発生した場合、このオプションで整理してください。これによりレイアウトの列はあまり論理的でない場所に配置する可能性があります"
-" (例: 列でなく対角線)。また、描画するのに大きな領域が必要です。"
 
 #. (term)
 msgid "Differential path names"
@@ -12435,9 +12404,15 @@ msgid ""
 " content easily so that you can compare revisions. This option hides the "
 "nodes for tags and shows them instead in the tooltip for the node that they "
 "were copied from. A tag icon on the right side of the source node indicates "
-"that tags were made."
+"that tags were made. This greatly simplifies the view."
 msgstr ""
-"プロジェクトにタグがたくさんある場合、すべてのタグをグラフの独立したノードとして表示するため、多くの領域を消費し、興味深い開発ブランチ構造が目立たなくなってしまいます。同時に、リビジョンを比較するため、タグの内容に簡単にアクセスする必要があるかもしれません。このオプションは、タグのノードを非表示にし、コピーしたノードにツールチップで表示するようにします。タグが作成された場合、元のノードの右側にタグアイコンを表示します。"
+
+#. (para)
+msgid ""
+"Note that if a tag is itself used as the source for a copy, perhaps a new "
+"branch based on a tag, then that tag will be shown as a separate node rather"
+" than folded."
+msgstr ""
 
 #. (term)
 msgid "Hide deleted paths"
@@ -12448,6 +12423,21 @@ msgid ""
 "Hides paths which are no longer present at the HEAD revision of the "
 "repository, e.g. deleted branches."
 msgstr "リポジトリの HEAD (最新) リビジョンに、すでにもうないパス (削除されたブランチなど) を隠します。"
+
+#. (para)
+msgid ""
+"If you have selected the <guilabel>Fold tags</guilabel> option then a "
+"deleted branch from which tags were taken will still be shown, otherwise the"
+" tags would disappear too. The last revision that was tagged will be shown "
+"in the colour used for deleted nodes instead of showing a separate deletion "
+"revision."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you select the <guilabel>Hide tags</guilabel> option then these branches "
+"will disappear again as they are not needed to show the tags."
+msgstr ""
 
 #. (term)
 msgid "Hide unused branches"
@@ -18725,19 +18715,11 @@ msgstr ""
 
 #. (para)
 msgid ""
-"TortoiseSVN uses temporary files to pass multiple arguments between the "
-"shell extension and the main program. From TortoiseSVN 1.5.0 on and later, "
-"<option>/notempfile</option> parameter is obsolete and there is no need to "
-"add it anymore."
-msgstr ""
-"TortoiseSVN は、シェル拡張とメインプログラムの間で複数の引数を渡すのに、一時ファイルを使用します。TortoiseSVN 1.5.0 "
-"以降から、<option>/notempfile</option> パラメータはサポートされなくなり、追加する必要はなくなります。"
-
-#. (para)
-msgid ""
 "You can also specify a file which contains a list of paths, separated by "
-"newlines. The file must be in UTF-16 format. If you pass such a file, use "
-"<option>/pathfile</option> instead of <option>/path</option>. To have "
+"newlines. The file must be in UTF-16 format, without a <ulink "
+"url=\"http://en.wikipedia.org/wiki/Byte-"
+"order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, "
+"use <option>/pathfile</option> instead of <option>/path</option>. To have "
 "TortoiseProc delete that file after the command is finished, you can pass "
 "the parameter <option>/deletepathfile</option>."
 msgstr ""

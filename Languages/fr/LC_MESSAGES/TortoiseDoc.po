@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-24 00:16+0000\n"
+"PO-Revision-Date: 2011-06-05 00:11+0000\n"
 "Last-Translator: netmask <paradial@hotmail.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5176,21 +5176,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"An update by default ignores local modifications to the "
-"<literal>svn:externals</literal> property. But when you made modifications "
-"to the <literal>svn:externals</literal> property, you can force the update "
-"to use those local modifications. For example if you change an external to a"
-" new tag, you might want to first update your working copy to that new tag, "
-"build the project and only commit the change to the "
-"<literal>svn:externals</literal> if the build was successful. In that "
-"situation, you have to check the box <guilabel>Apply local svn:externals "
-"modifications</guilabel>. If you modify your externals a lot, you can make "
-"this behavior the default when updating in the settings dialog. <xref "
-"linkend=\"tsvn-dug-settings-main\"/>."
-msgstr ""
-
-#. (para)
-msgid ""
 "If you update a file or folder to a specific revision, you should not make "
 "changes to those files. You will get <quote>out of date</quote> error "
 "messages when you try to commit them! If you want to undo changes to a file "
@@ -9499,13 +9484,10 @@ msgstr "Menu contextuel de l'explorateur pour les fichiers non versionnés"
 
 #. (para)
 msgid ""
-"Unlike CVS, Subversion allows renaming and moving of files and folders. So "
-"there are menu entries for delete and rename in the TortoiseSVN submenu. "
+"Subversion allows renaming and moving of files and folders. So there are "
+"menu entries for delete and rename in the TortoiseSVN submenu. "
 "<placeholder-1/>"
 msgstr ""
-"À la différence de CVS, Subversion permet de renommer et de déplacer des "
-"fichiers et des dossiers. Il y a donc des entrées de menu pour supprimer et "
-"renommer dans le sous-menu de TortoiseSVN. <placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
@@ -9770,79 +9752,6 @@ msgstr ""
 " devez utiliser un déplacement ordinaire, ajuster ensuite les propriétés "
 "<literal>svn:externals</literal> des répertoires parents de la source et de "
 "la destination."
-
-#. (title)
-msgid "Changing case in a filename"
-msgstr "Modifier la casse dans le nom d'un fichier."
-
-#. (primary)
-msgid "case change"
-msgstr "Changements de casse"
-
-#. (para)
-msgid ""
-"Making case-only changes to a filename is tricky with Subversion on Windows,"
-" because for a short time during a rename, both filenames have to exist. As "
-"Windows has a case-insensitive file system, this does not work using the "
-"usual Rename command."
-msgstr ""
-"Effectuer des modifications à un nom de fichier est plus délicat avec "
-"Subversion sous Windows, parce que pendant un court laps de temps lors du "
-"renommage, les deux noms de fichiers existent. Comme Windows a un cas de "
-"système de fichiers non sensible à la casse, cela ne fonctionne pas en "
-"utilisant la commande habituelle Renommer."
-
-#. (para)
-msgid ""
-"Fortunately there are (at least) two possible methods to rename a file "
-"without losing its log history. It is important to rename it within "
-"subversion. Just renaming in the explorer will corrupt your working copy!"
-msgstr ""
-"Heureusement, il y a (au moins) deux façons de renommer un fichier sans "
-"perdre son historique de journal. C'est important de le renommer au sein de "
-"Subversion. Le renommer seulement dans l'explorateur corrompra votre copie "
-"de travail!"
-
-#. (para)
-msgid "Commit the changes in your working copy."
-msgstr "Livrez les changements dans votre copie de travail."
-
-#. (para)
-msgid ""
-"Rename the file from UPPERcase to upperCASE directly in the repository using"
-" the repository browser."
-msgstr ""
-"Renommez le fichier MAJUScules en majusCULES directement dans le référentiel"
-" en utilisant l'explorateur de référentiel."
-
-#. (para)
-msgid "Update your working copy."
-msgstr "Mettez à jour votre copie de travail."
-
-#. (para)
-msgid "Solution A) (recommended) <placeholder-1/>"
-msgstr "Solution A) (recommandée) <placeholder-1/>"
-
-#. (para)
-msgid ""
-"Rename from UPPERcase to UPPERcase_ with the rename command in the "
-"TortoiseSVN submenu."
-msgstr ""
-"Renommer MAJUScules en MAJUScules_ avec la commande renommer du sous-menu "
-"TortoiseSVN."
-
-#. (para)
-#. (para)
-msgid "Commit the changes."
-msgstr "Livrez les changements."
-
-#. (para)
-msgid "Rename from UPPERcase_ to upperCASE."
-msgstr "Renommer de MAJUScules_ en majusCULES."
-
-#. (para)
-msgid "Solution B) <placeholder-1/>"
-msgstr "Solution B) <placeholder-1/>"
 
 #. (title)
 msgid "Dealing with filename case conflicts"
@@ -10144,24 +10053,73 @@ msgstr ""
 " sur le dossier. C'est une bonne idée de le faire au niveau supérieur de la "
 "copie de travail."
 
+#. (term)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. (para)
 msgid ""
-"Cleanup has another useful side effect. If a file date changes but its "
-"content doesn't, Subversion cannot tell whether it has really changed except"
-" by doing a byte-by-byte comparison with the pristine copy. If you have a "
-"lot of files in this state it makes acquiring status very slow, which will "
-"make many dialogs slow to respond. Executing a Cleanup on your working copy "
-"will repair these <quote>broken</quote> timestamps and restore status checks"
-" to full speed."
+"As stated above, this option tries to get an inconsistent working copy into "
+"a workable and usable state. This doesn't affect any data you have but only "
+"the internal states of the working copy database. This is the actual "
+"<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
+"or other SVN clients."
 msgstr ""
-"Le nettoyage a un autre effet secondaire utile. Si une date de fichier "
-"change mais pas son contenu, Subversion ne peut dire s'il a vraiment changé "
-"qu'en faisant une comparaison octet-par-octet avec la copie primitive. Si "
-"vous avez beaucoup de fichiers dans cet état, cela rend la récupération du "
-"statut très lente, ce qui fera que beaucoup de boîtes de dialogue seront "
-"lentes à répondre. Exécuter un nettoyage sur votre copie de travail réparera"
-" ces horodatages <quote>cassés</quote> et rendra aux contrôles de statut "
-"leur pleine vitesse."
+
+#. (term)
+msgid "Revert all changes recursively"
+msgstr ""
+
+#. (para)
+msgid ""
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr ""
+
+#. (term)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
+
+#. (para)
+msgid ""
+"This is a fast and easy way to remove all generated files in your working "
+"copy. All files and folders that are not versioned are moved to the trash "
+"bin."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note: you can also do the same from the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" dialog. There you also get a list of all the unversioned files and folders "
+"to select for removal."
+msgstr ""
+
+#. (term)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. (para)
+msgid ""
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr ""
+
+#. (para)
+msgid ""
+"In the cleanup dialog, there are also other useful options to get the "
+"working copy into a <literal>clean</literal> state. <placeholder-1/>"
+msgstr ""
 
 #. (title)
 msgid "Project Settings"
@@ -14574,17 +14532,10 @@ msgid ""
 "This mode groups changes by branch, so that there is no global revision "
 "ordering: Consecutive revisions on a branch will be shown in (often) "
 "consecutive lines. Sub-branches, however, are arranged in such a way that "
-"later branches will be shown in the same column above older branches to keep"
-" the graph slim. As a result, a given row may contain changes from different"
-" revisions."
+"later branches will be shown in the same column above earlier branches to "
+"keep the graph slim. As a result, a given row may contain changes from "
+"different revisions."
 msgstr ""
-"Ce mode regroupe les changements par branche, il n'y a alors pas de "
-"classement des révisions: des révisions consécutives sur une branche seront "
-"(souvent) affichées sur des lignes consécutives. Les sous-branches, "
-"cependant, sont disposés de telle manière que les futures branches seront "
-"affichées dans la même colonne au-dessus des plus anciennes branches pour "
-"conserver un graphique le plus léger possible. En conséquence, une ligne "
-"donnée peut contenir des modifications de différentes révisions."
 
 #. (term)
 msgid "Oldest on top"
@@ -14622,16 +14573,12 @@ msgstr "Réduire les intersections"
 
 #. (para)
 msgid ""
-"If the layout of the graph has produced a lot of crossing lines, use this "
-"option to clean it up. This may make the layout columns appear in less "
-"logical places, for example in a diagonal line rather than a column, and the"
-" graph may require a larger area to draw."
+"This option is normally enabled and avoids showing the graph with a lot of "
+"confused crossing lines. However this may also make the layout columns "
+"appear in less logical places, for example in a diagonal line rather than a "
+"column, and the graph may require a larger area to draw. If this is a "
+"problem you can disable the option from the <guilabel>View</guilabel> menu."
 msgstr ""
-"Si la mise en page du graphique a produit un grand nombre de lignes se "
-"croisant, utilisez cette option pour la nettoyer. Cela peut rendre la "
-"présentation des colonnes moins logique, par exemple dans une diagonale "
-"plutôt que dans une colonne, et le graphique peut demander une plus grande "
-"surface pour être dessiné."
 
 #. (term)
 msgid "Differential path names"
@@ -14716,16 +14663,15 @@ msgid ""
 " content easily so that you can compare revisions. This option hides the "
 "nodes for tags and shows them instead in the tooltip for the node that they "
 "were copied from. A tag icon on the right side of the source node indicates "
-"that tags were made."
+"that tags were made. This greatly simplifies the view."
 msgstr ""
-"Lorsqu'un projet a de nombreux tags, les montrer tous dans des nœuds "
-"distincts sur le graphique prend beaucoup d'espace et rend moins lisible la "
-"structure développée des branches la plus intéressante. Dans le même temps "
-"vous pourriez avoir besoin d'accéder au contenu du tag facilement afin de "
-"pouvoir comparer les révisions. Cette option cache les nœuds pour les tags "
-"et les montre plutôt dans l'info-bulle pour le nœud à partir duquel ils ont "
-"été copiés. Une icône de tag sur le côté droit du nœud de la source indique "
-"que des tags ont été créés."
+
+#. (para)
+msgid ""
+"Note that if a tag is itself used as the source for a copy, perhaps a new "
+"branch based on a tag, then that tag will be shown as a separate node rather"
+" than folded."
+msgstr ""
 
 #. (term)
 msgid "Hide deleted paths"
@@ -14738,6 +14684,21 @@ msgid ""
 msgstr ""
 "Cache les chemins qui ne sont plus présents dans la révision HEAD du "
 "référentiel, par exemple, des branches supprimées."
+
+#. (para)
+msgid ""
+"If you have selected the <guilabel>Fold tags</guilabel> option then a "
+"deleted branch from which tags were taken will still be shown, otherwise the"
+" tags would disappear too. The last revision that was tagged will be shown "
+"in the colour used for deleted nodes instead of showing a separate deletion "
+"revision."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you select the <guilabel>Hide tags</guilabel> option then these branches "
+"will disappear again as they are not needed to show the tags."
+msgstr ""
 
 #. (term)
 msgid "Hide unused branches"
@@ -22075,30 +22036,14 @@ msgstr ""
 
 #. (para)
 msgid ""
-"TortoiseSVN uses temporary files to pass multiple arguments between the "
-"shell extension and the main program. From TortoiseSVN 1.5.0 on and later, "
-"<option>/notempfile</option> parameter is obsolete and there is no need to "
-"add it anymore."
-msgstr ""
-"TortoiseSVN utilise des fichiers temporaires pour passer des arguments "
-"multiples entre l'extension du shell et le programme principal. À partir de "
-"la version 1.5.0 et supérieures, le paramètre <option>/notempfile</option> "
-"est obsolète et il est inutile de l'ajouter désormais."
-
-#. (para)
-msgid ""
 "You can also specify a file which contains a list of paths, separated by "
-"newlines. The file must be in UTF-16 format. If you pass such a file, use "
-"<option>/pathfile</option> instead of <option>/path</option>. To have "
+"newlines. The file must be in UTF-16 format, without a <ulink "
+"url=\"http://en.wikipedia.org/wiki/Byte-"
+"order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, "
+"use <option>/pathfile</option> instead of <option>/path</option>. To have "
 "TortoiseProc delete that file after the command is finished, you can pass "
 "the parameter <option>/deletepathfile</option>."
 msgstr ""
-"Vous pouvez également spécifier un fichier qui contient une liste de "
-"chemins, séparés par des retours à la ligne. Le fichier doit être dans le "
-"format UTF-16. Si vous passez un tel fichier, utilisez "
-"<option>/chemin_du_fichier</option> au lieu de <option>/chemin</option>. "
-"Pour que TortoiseProc supprime ce fichier après la fin de la commande, vous "
-"pouvez passer le paramètre <option>/deletepathfile</option>."
 
 #. (para)
 msgid ""

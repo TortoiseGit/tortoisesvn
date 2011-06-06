@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-29 00:30+0000\n"
+"PO-Revision-Date: 2011-06-05 00:38+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Macedonian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2765,8 +2765,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Превземање од %s, ревизија %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -2790,17 +2790,21 @@ msgstr ""
 msgid "Classification Patterns"
 msgstr "Шаблони за класификација"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "Чистење"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
+msgid "Cleaning up directory '%1!s!'"
 msgstr ""
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
+#. Resource IDs: (329)
+msgid "Cleanup"
 msgstr ""
 
 #. Resource IDs: (83)
@@ -2820,10 +2824,6 @@ msgid ""
 msgstr ""
 "Чистењето успешно завршено за следните патеки:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr ""
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3240,6 +3240,11 @@ msgid ""
 "%2!s!"
 msgstr ""
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3251,11 +3256,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Копирај %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "Копирај %s во %s, Ревизија %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3402,6 +3402,13 @@ msgstr ""
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
 msgstr "Не можам да ја определам последната складирана ревизија!"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3711,6 +3718,10 @@ msgstr "Избриши и  &игнорирај %d членови по име"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Избриши и занемари %d членови спор&ед наставката"
+
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4509,17 +4520,13 @@ msgstr "Извезувам..."
 msgid "Exporting: Target folder exists."
 msgstr ""
 
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr ""
-"Извоз на складиштето во чиста работна копија без svn административни "
-"директориуми"
-
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "Експортира множество на својства во датотека"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4641,6 +4648,11 @@ msgstr "Превземам датотека..."
 #, c-format
 msgid "Fetching revision %s of file:"
 msgstr "Превземам ревизија %s на датотека:"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5638,15 +5650,15 @@ msgstr "Непосредни деца, вклучувајќи ги директ�
 msgid "Import"
 msgstr "Увези"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr ""
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "Увези %ld ставки"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "Увезувам %s во %s%s"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -5854,16 +5866,6 @@ msgstr ""
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr ""
-
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"Не е возможно да се преименува датотека само со измена на големи-мали букви.\n"
-"На пример, не може MyFile.txt да стане MYFILE.txt.\n"
-"Ве молам консултирајте ја документацијата за решение на ова ограничување."
 
 #. Resource IDs: (89)
 #, c-format
@@ -6373,8 +6375,8 @@ msgstr "Спојување"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "Спојувам %s во %s, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6382,8 +6384,10 @@ msgstr "Разлики во спојување помежи URL на склад�
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "Спојувам од %s, ревизија %s во %s, ревизија %s во %s, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -6402,8 +6406,8 @@ msgstr "Спојувањето бара различни ревизии или �
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "Спојувам ревизии %s од %s во %s, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr ""
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7795,6 +7799,15 @@ msgstr "Намали го прозорецот на икона"
 msgid "Refresh"
 msgstr "Озвежи"
 
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr ""
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr ""
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr ""
@@ -7839,8 +7852,8 @@ msgstr "Реинтегрирај спојување"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "Реинтегрирај спојување %s во %s"
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8042,6 +8055,11 @@ msgstr "Отстрани ја датотеката или маската од л
 msgid "Removes the selected properties"
 msgstr "Отстрани ги избраните својства"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr ""
+
 #. Resource IDs: (16616)
 msgid "Rena&me..."
 msgstr "Преи&менувај..."
@@ -8070,7 +8088,7 @@ msgstr ""
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -8243,6 +8261,10 @@ msgstr "Обратно спојување %ld"
 msgid "Revert"
 msgstr "Поврати"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr "Врати на основните подесувања. Се препорачува за неискусни корисници."
@@ -8262,6 +8284,11 @@ msgstr ""
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Повратено"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr ""
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -9247,7 +9274,7 @@ msgstr ""
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
 msgstr ""
 
 #. Resource IDs: (196)
@@ -9493,8 +9520,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "Префрли %s на %s, Ревизија %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr ""
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9507,6 +9534,10 @@ msgstr "Префрли Лево<->Десно"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "Префрли на гранка/налепница"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr ""
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9555,6 +9586,10 @@ msgstr "Префрли работна копија на друга гранка 
 #. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "Префрли:"
+
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr ""
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -10005,7 +10040,7 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
 
@@ -10137,8 +10172,8 @@ msgstr ""
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
 
 #. Resource IDs: (279)
@@ -10924,7 +10959,7 @@ msgstr "Надгради ја работната копија"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
+msgid "Upgrading '%1!s!'"
 msgstr ""
 
 #. Resource IDs: (16530)
@@ -11489,15 +11524,6 @@ msgid ""
 "Do you really want to add it?"
 msgstr ""
 
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-"Сте го промениле множеството со икони од %s во %s.\n"
-"Оваа измена нема да има ефект се до рестартирање на компјутерот!"
-
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
@@ -11830,9 +11856,9 @@ msgstr "Ископирано"
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
 
 #. Resource IDs: (245)

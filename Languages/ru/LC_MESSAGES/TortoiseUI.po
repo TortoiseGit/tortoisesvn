@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-05-29 00:30+0000\n"
+"PO-Revision-Date: 2011-06-05 15:23+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2354,7 +2354,7 @@ msgstr "ID ошибок"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
-msgstr ""
+msgstr "Проверка регулярных выражений Bugtraq - TortoiseSVN"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -2870,8 +2870,8 @@ msgstr "Глу&бина охвата при извлечении"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Checkout from %s, revision %s, %s, %s"
-msgstr "Извлечение из %s, ревизия %s, %s, %s"
+msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
+msgstr "Извлечение из %1!s!, ревизия %2!s!, %3!s!, %4!s!"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2897,18 +2897,22 @@ msgstr "Выберите элементы..."
 msgid "Classification Patterns"
 msgstr "Шаблоны классификации"
 
+#. Resource IDs: (1562)
+msgid "Clean up working copy status"
+msgstr "Очистить статус рабочей копии"
+
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "Производится очистка"
 
 #. Resource IDs: (146)
 #, c-format
-msgid "Cleaning up directory \"%1!s!\""
-msgstr "Выполняется очистка папки \"%1!s!\""
+msgid "Cleaning up directory '%1!s!'"
+msgstr "Очистка директории '%1!s!'"
 
-#. Resource IDs: (15)
-msgid "Cleanup and refresh shell"
-msgstr "Очистка и обновление оболочки"
+#. Resource IDs: (329)
+msgid "Cleanup"
+msgstr "Очистить"
 
 #. Resource IDs: (83)
 #, c-format
@@ -2927,10 +2931,6 @@ msgid ""
 msgstr ""
 "Очистка успешно обработала следующие пути:\n"
 "%s"
-
-#. Resource IDs: (15)
-msgid "Cleanup interrupted operations and refresh the shell overlays"
-msgstr "Очистка прерванных операций и проверка ошибок среды исполнения"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -3356,6 +3356,11 @@ msgstr ""
 "Копирование %1!ld! элементов в\r\n"
 "%2!s!"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Copy %1!s! to %2!s!, Revision %3!s!"
+msgstr "Копировать %1!s! в %2!s!, Ревизия %3!s!"
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -3369,11 +3374,6 @@ msgstr ""
 #, c-format
 msgid "Copy %s"
 msgstr "Копирование %s"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Copy %s to %s, Revision %s"
-msgstr "Копирование %s в %s, ревизия %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3520,6 +3520,15 @@ msgstr "Не могу удалить свойство '%1!s!' объекта '%2
 #. Resource IDs: (83)
 msgid "Could not determine the last committed revision!"
 msgstr "Не могу определить последнюю зафиксированную ревизию!"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"Could not find a parent folder for\n"
+"%s"
+msgstr ""
+"Невозможно найти родительскую директорию для\n"
+"%s"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3836,6 +3845,10 @@ msgstr "Удалить и игнорировать %d &элементов по �
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Удалить и игнорировать %d элементов по рас&ширению"
+
+#. Resource IDs: (1613)
+msgid "Delete ignored and unversioned files and folders"
+msgstr "Удалить игнорируемые и неверсированные файлы и папки"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4200,10 +4213,10 @@ msgid ""
 "working copies next to each other.\n"
 "This works for directory URLs only."
 msgstr ""
-"Не создавать каталог проверенных редких рабочей копии.\n"
-"Вместо этого все проверенные URL-адреса получат\n"
-"отдельные рабочие копии рядом друг с другом.\n"
-"Это работает для всех адресов каталога."
+"Не создавать в директории извлечения разреженную рабочую копию.\n"
+"Вместо этого все URL-адреса извлекаются в отдельные\n"
+"рабочие копии рядом друг с другом.\n"
+"Это работает только для URL-адресов директорий."
 
 #. Resource IDs: (3887)
 msgid ""
@@ -4663,16 +4676,13 @@ msgstr "Экспортирование..."
 msgid "Exporting: Target folder exists."
 msgstr "Экспорт: Целевая папка существует."
 
-#. Resource IDs: (10)
-msgid ""
-"Exports a repository to a clean working copy without the svn administrative "
-"folders"
-msgstr ""
-"Экспортирует хранилище в чистую рабочую копию без административных svn-папок"
-
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
 msgstr "Экспортирует набор свойств в файл"
+
+#. Resource IDs: (10)
+msgid "Exports a versioned folder as a separate unversioned folder"
+msgstr "Экпортировать версированную папку в отдельную неверсированную папку"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4796,6 +4806,11 @@ msgstr "Извлечение файла..."
 #, c-format
 msgid "Fetching revision %s of file:"
 msgstr "Извлечение ревизии %s файла"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Fetching status of %1!s!"
+msgstr "Получение статуса %1!s!"
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5799,15 +5814,15 @@ msgstr "Непосредственные потомки, включая папк
 msgid "Import"
 msgstr "Импорт"
 
+#. Resource IDs: (229)
+#, c-format
+msgid "Import %1!s! to %2!s!%3!s!"
+msgstr "Импортировать %1!s! в %2!s!%3!s!"
+
 #. Resource IDs: (127)
 #, c-format
 msgid "Import %ld items"
 msgstr "Импорт %ld элементов"
-
-#. Resource IDs: (229)
-#, c-format
-msgid "Import %s to %s%s"
-msgstr "Импорт %s в %s%s"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
@@ -6021,16 +6036,6 @@ msgstr ""
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Трассир ошибок"
-
-#. Resource IDs: (145)
-msgid ""
-"It is not possible to rename a file by changing the case of its name alone.\n"
-"For example, you can't make MyFile.txt become MYFILE.txt.\n"
-"Please consult the documentation for a way to work around this limitation."
-msgstr ""
-"Невозможно переименовать файл, изменив только регистр букв в его имени.\n"
-"Например, вы не можете переименовать MyFile.txt в MYFILE.txt.\n"
-"Справьтесь в документации, как обойти это ограничение."
 
 #. Resource IDs: (89)
 #, c-format
@@ -6562,8 +6567,8 @@ msgstr "Слияние"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging %s into %s, %s%s"
-msgstr "Слияние %s с %s, %s%s"
+msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
+msgstr "Слияние %1!s! в %2!s!, %3!s!%4!s!"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6571,8 +6576,12 @@ msgstr "Слияние различий между адресами URL из х�
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging from %s, revision %s to %s, revision %s into %s, %s%s%s"
-msgstr "Слияние из %s, ревизии от %s до %s, ревизия %s в %s, %s%s%s"
+msgid ""
+"Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
+"%6!s!%7!s!%8!s!"
+msgstr ""
+"Слияние из %1!s!, ревизия %2!s! в %3!s!, ревизия %4!s! в %5!s!, "
+"%6!s!%7!s!%8!s!"
 
 #. Resource IDs: (264)
 #, c-format
@@ -6593,8 +6602,8 @@ msgstr ""
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Merging revisions %s of %s into %s, %s%s%s"
-msgstr "Слияние ревизий %s из %s в %s, %s%s%s"
+msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
+msgstr "Слияние ревизий %1!s! из %2!s! в %3!s!, %4!s!%5!s!%6!s!"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -7944,7 +7953,7 @@ msgstr "Запись mergeinfo для слияния с URL-адресами"
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for merge of r%1!ld! through r%2!ld!"
-msgstr "Обратное слияние r%1!ld! через  r%2!ld!"
+msgstr "Запись mergeinfo для слияния r%1!ld! до r%2!ld!"
 
 #. Resource IDs: (265)
 #, c-format
@@ -7954,7 +7963,7 @@ msgstr "Запись mergeinfo для слияния r%ld"
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
-msgstr "Запись mergeinfo для реверсивного слияния r%1!ld! через r%2!ld!"
+msgstr "Запись mergeinfo для реверсивного слияния r%1!ld! до r%2!ld!"
 
 #. Resource IDs: (265)
 #, c-format
@@ -8021,6 +8030,15 @@ msgstr "Уменьшает окно до иконки"
 msgid "Refresh"
 msgstr "Обновить"
 
+#. Resource IDs: (1615)
+msgid "Refresh shell overlays"
+msgstr "Обновить оверлеи оболочки"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Refreshing shell for %1!s!"
+msgstr "Обновление оболочки для %1!s!"
+
 #. Resource IDs: (1576)
 msgid "Regular Expression"
 msgstr "Регулярное выражение"
@@ -8065,8 +8083,8 @@ msgstr "Воссоединительное слияние"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Reintegrate merge %s into %s"
-msgstr "Воссоединительное слияние %s с %s"
+msgid "Reintegrate merge %1!s! into %2!s!"
+msgstr "Воссоединительное слияние %1!s! в %2!s!"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8287,6 +8305,11 @@ msgstr "Удаляет файлы или маску файлов из списк
 msgid "Removes the selected properties"
 msgstr "Удаляет выбранные свойства"
 
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr "Удаление неверсированных элементов в %1!s!"
+
 #. Resource IDs: (16616)
 msgid "Rena&me..."
 msgstr "П&ереименовать..."
@@ -8317,10 +8340,10 @@ msgstr "Переименование/перемещение"
 #, c-format
 msgid ""
 "Rename\n"
-"The folder is exported as \"%s\"."
+"The folder is exported as '%s'."
 msgstr ""
 "Переименовать\n"
-"Папка экспортирована как \"%s\"."
+"Папка экспортирована как '%s'."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8494,6 +8517,10 @@ msgstr "Обратное слияние ревизии %ld"
 msgid "Revert"
 msgstr "Убрать изменения"
 
+#. Resource IDs: (1529)
+msgid "Revert all changes recursively"
+msgstr "Убрать все изменения рекусивно"
+
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
@@ -8518,6 +8545,11 @@ msgstr ""
 #. Resource IDs: (73)
 msgid "Reverted"
 msgstr "Возвращено"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Reverting %1!s!"
+msgstr "Отмена %1!s!"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -8781,10 +8813,18 @@ msgid ""
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
 msgstr ""
+"Образец сообщения журнала для проверки строк регулярных выражений bugtraq: .\n"
+"\n"
+"Проверка упоминаний проблем внутри текста: Ссылка на проблему #55. Ссылка на проблемы #77, #78.\n"
+"\n"
+"Обновить проблему #101\n"
+"Исправляет проблему #202\n"
+"Устраняет проблему #88.\n"
+"Закрывает проблему #99.\n"
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
-msgstr ""
+msgstr "Образец текста:"
 
 #. Resource IDs: (57604)
 msgid "Save &As..."
@@ -9538,8 +9578,8 @@ msgstr "Исходный URL:"
 
 #. Resource IDs: (230)
 #, c-format
-msgid "Sparse update %1!s!, depth \"%2!s!\""
-msgstr "Разреженное обновление %1!s!, глубина \"%2!s!\""
+msgid "Sparse update %1!s!, depth '%2!s!'"
+msgstr "Разреженное обновление %1!s!, глубина '%2!s!'"
 
 #. Resource IDs: (196)
 msgid ""
@@ -9815,8 +9855,8 @@ msgstr "Переключение"
 
 #. Resource IDs: (229)
 #, c-format
-msgid "Switch %s to %s, Revision %s"
-msgstr "Переключение %s на %s, ревизия %s"
+msgid "Switch %1!s! to %2!s!, Revision %3!s!"
+msgstr "Переключить %1!s! в %2!s!, Ревизия %3!s!"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9829,6 +9869,10 @@ msgstr "Поменять местами: левая <-> правая"
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "Переключение на Ответвление / Метку"
+
+#. Resource IDs: (620)
+msgid "Switch back to parent"
+msgstr "Переключить назад на родителя"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9877,6 +9921,10 @@ msgstr "Переключить рабочую копию на другое от�
 #. Resource IDs: (1479)
 msgid "Switch:"
 msgstr "Переключение:"
+
+#. Resource IDs: (265)
+msgid "Switched"
+msgstr "Переключено"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -9935,7 +9983,7 @@ msgstr "Только проверка"
 
 #. Resource IDs: (590)
 msgid "Test the regex strings"
-msgstr ""
+msgstr "Проверить строки регулярных выражений"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
@@ -10328,11 +10376,11 @@ msgstr ""
 #. Resource IDs: (89)
 #, c-format
 msgid ""
-"The path/URL \"%s\" seems to be illegal on Windows!\n"
+"The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
-"Путь/URL \"%s\" похоже недопустим в Windows!\n"
-"Вы можете оставить его так, как есть, но в этом случае вы можете получить ошибку позже."
+"Путь/URL '%s' похоже недопустим в Windows!\n"
+"Вы все равно можете попробовать, но возможно вы получите ошибку позже."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10486,11 +10534,11 @@ msgstr "В указанном месте есть изменения"
 #. Resource IDs: (279)
 #, c-format
 msgid ""
-"The target working copy \"%s\" has local modifications. It is recommended to"
-" commit those changes first before merging new changes."
+"The target working copy '%s' has local modifications. It is recommended to "
+"commit those changes first before merging new changes."
 msgstr ""
-"Указанная рабочая копия \"%s\" содержит изменения. Рекомендуется "
-"зафиксировать эти изменения перед слиянием новых изменений."
+"Целевая рабочая копия '%s' имеет локальные модификации. Рекомендуется "
+"зафиксировать эти изменения перед тем, как сливать новые измеения."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -11299,8 +11347,8 @@ msgstr "Преобразовать рабочую копию"
 
 #. Resource IDs: (99)
 #, c-format
-msgid "Upgrading \"%1!s!\""
-msgstr "Обновляется \"%1!s!\""
+msgid "Upgrading '%1!s!'"
+msgstr "Обновление '%1!s!'"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11889,15 +11937,6 @@ msgstr ""
 "Похоже, этот элемент был переименован вне Subversion, причём с изменениями только в регистре.\n"
 "Вы действительно желаете его добавить?"
 
-#. Resource IDs: (195)
-#, c-format
-msgid ""
-"You've changed the icon set from %s to %s.\n"
-"That change won't take effect until you restart your computer or logoff and logon again!"
-msgstr ""
-"Вы изменили набор значков с %s на %s.\n"
-"Эти изменения вступят в силу только после перезагрузки, или после нового входа в операционную систему!"
-
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
@@ -12237,13 +12276,13 @@ msgstr "скопировано:"
 #. Resource IDs: (214)
 #, c-format
 msgid ""
-"current size: %s\r\n"
-"old size: %s\r\n"
-"change: %s"
+"current size: %1!s!\r\n"
+"old size: %2!s!\r\n"
+"change: %3!s!"
 msgstr ""
-"текущий размер: %s\n"
-"старый размер: %s\n"
-"изменение: %s"
+"текущий размер: %1!s!\r\n"
+"старый размер: %2!s!\r\n"
+"изменение: %3!s!"
 
 #. Resource IDs: (245)
 msgid "day"
