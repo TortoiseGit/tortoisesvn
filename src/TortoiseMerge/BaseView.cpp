@@ -26,8 +26,6 @@
 #include "StringUtils.h"
 #include "AppUtils.h"
 
-#include <deque>
-
 // Note about lines:
 // We use three different kind of lines here:
 // 1. The real lines of the original files.
@@ -1412,6 +1410,11 @@ COLORREF CBaseView::InlineDiffColor(int nLineIndex)
     return IsLineRemoved(nLineIndex) ? m_InlineRemovedBk : m_InlineAddedBk;
 }
 
+COLORREF CBaseView::InlineViewLineDiffColor(int nViewLine)
+{
+    return IsViewLineRemoved(nViewLine) ? m_InlineRemovedBk : m_InlineAddedBk;
+}
+
 void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const CPoint& origin)
 {
     if (!(m_bViewWhitespace && m_pViewData && (nLineIndex >= 0) && (nLineIndex < GetLineCount())))
@@ -1532,182 +1535,139 @@ void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
     }
 }
 
-void CBaseView::DrawText(
-    CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff, int nLineOffset)
-{
+void CBaseView::DrawTextLine(
+    CDC * pDC, const CRect &rc, int nLineIndex, POINT coords)
+ {
+    ASSERT(nLineIndex < GetLineCount());
     int nViewLine = GetViewLineForScreen(nLineIndex);
     ASSERT(m_pViewData && (nViewLine < m_pViewData->GetCount()));
-    DiffStates diffState = m_pViewData->GetState(nViewLine);
 
-    // first suppose the whole line is selected
-    int selectedStart = 0;
-    int selectedEnd = textlength;
+    LineColors lineCols = GetLineColors(nViewLine);
 
-    if ((m_ptSelectionViewPosStart.y > nViewLine) || (m_ptSelectionViewPosEnd.y < nViewLine)
-        || ! m_bShowSelection || !HasTextSelection())
+    // mark selection
+    if (m_bShowSelection && HasTextSelection())
     {
-        // this line has no selected text
-        selectedEnd = 0;
-    }
-    else if ((m_ptSelectionViewPosStart.y == nViewLine) || (m_ptSelectionViewPosEnd.y == nViewLine))
-    {
-        // the view line is partially selected
-        POINT ptLineStart = ConvertScreenPosToView(SetupPoint(0, nLineIndex));
-        CString sLine = GetLineChars(nLineIndex);
-        int nLineLength = sLine.GetLength();
-        if (m_ptSelectionViewPosStart.y == nViewLine)
+        // has this line selection ?
+        if ((m_ptSelectionViewPosStart.y <= nViewLine) && (nViewLine <= m_ptSelectionViewPosEnd.y))
         {
-            // the first line of selection
-            selectedStart = m_ptSelectionViewPosStart.x - ptLineStart.x;
-            if (selectedStart <= 0)
-            {
-                selectedStart = 0;
-            }
-            else 
-            {
-                selectedStart = CountExpandedChars(sLine, min(selectedStart, nLineLength)) - nLineOffset;
-                selectedStart = min(max(selectedStart, 0), textlength);
-            }
-        }
+            CString sViewLine = GetViewLineChars(nViewLine);
+            int nViewLineLength = sViewLine.GetLength();
 
-        if (m_ptSelectionViewPosEnd.y == nViewLine)
-        {
-            // the last line of selection
-            selectedEnd =  m_ptSelectionViewPosEnd.x - ptLineStart.x;
-            if (selectedEnd <= 0)
+            // first suppose the whole line is selected
+            int selectedStart = 0;
+            int selectedEnd = nViewLineLength;
+
+            // the view line is partially selected
+            if (m_ptSelectionViewPosStart.y == nViewLine)
             {
-                selectedEnd = 0;
+                selectedStart = m_ptSelectionViewPosStart.x;
             }
-            else
+
+            if (m_ptSelectionViewPosEnd.y == nViewLine)
             {
-                selectedEnd = CountExpandedChars(sLine, min(selectedEnd, nLineLength)) - nLineOffset;
-                selectedEnd = min(max(selectedEnd, 0), textlength);
+                selectedEnd =  m_ptSelectionViewPosEnd.x;
+            }
+            // apply selection coloring
+            // First enforce start and end point
+            lineCols.SplitBlock(selectedStart);
+            lineCols.SplitBlock(selectedEnd);
+            // change color of affected parts
+            long intenseColorScale = m_bFocused ? 70 : 30;
+            std::map<int, linecolors_t>::iterator it = lineCols.lower_bound(selectedStart);
+            for ( ; it != lineCols.end() && it->first < selectedEnd; ++it)
+            {
+                COLORREF crBk = CAppUtils::IntenseColor(intenseColorScale, it->second.background);
+                if (it->second.shot == it->second.background)
+                {
+                    it->second.shot = crBk;
+                }
+                it->second.background = crBk;
+                it->second.text = CAppUtils::IntenseColor(intenseColorScale, it->second.text);
             }
         }
     }
 
-    COLORREF crBkgnd, crText;
-    CDiffColors::GetInstance().GetColors(diffState, crBkgnd, crText);
-    if (bInlineDiff)
-    {
-        crBkgnd = InlineDiffColor(nLineIndex);
-    }
-    else if (bModified || (diffState == DIFFSTATE_EDITED))
-    {
-        crBkgnd = m_ModifiedBk;
-    }
-    long intenseColorScale = m_bFocused ? 70 : 30;
-
-    LineColors lineCols;
-    lineCols.SetColor(0, crText, crBkgnd);
-    if (selectedStart != selectedEnd)
-    {
-        lineCols.SetColor(selectedStart, CAppUtils::IntenseColor(intenseColorScale, crText), CAppUtils::IntenseColor(intenseColorScale, crBkgnd));
-        lineCols.SetColor(selectedEnd, crText, crBkgnd);
-    }
-
+    // TODO: remove duplicate from selection and mark
     if (!m_sMarkedWord.IsEmpty())
     {
+        int nMarkLength = m_sMarkedWord.GetLength();
+        CString sViewLine = GetViewLineChars(nViewLine);
+        //int nViewLineLength = sViewLine.GetLength();
+        const TCHAR * text = sViewLine;
         const TCHAR * findText = text;
         while ((findText = _tcsstr(findText, (LPCTSTR)m_sMarkedWord))!=0)
         {
-            int position = static_cast<int>(findText - text);
-            std::map<int, linecolors_t>::const_iterator replaceIt = lineCols.find(position);
-            if (replaceIt != lineCols.end())
+            int nMarkStart = static_cast<int>(findText - text);
+            int nMarkEnd = nMarkStart + nMarkLength;
+            // First enforce start and end point
+            lineCols.SplitBlock(nMarkStart);
+            lineCols.SplitBlock(nMarkEnd);
+            // change color of affected parts
+            const long int nIntenseColorScale = 200;
+            std::map<int, linecolors_t>::iterator it = lineCols.lower_bound(nMarkStart);
+            for ( ; it != lineCols.end() && it->first < nMarkEnd; ++it)
             {
-                crText = replaceIt->second.text;
-                crBkgnd = replaceIt->second.background;
+                COLORREF crBk = CAppUtils::IntenseColor(nIntenseColorScale, it->second.background);
+                if (it->second.shot == it->second.background)
+                {
+                    it->second.shot = crBk;
+                }
+                it->second.background = crBk;
+                it->second.text = CAppUtils::IntenseColor(nIntenseColorScale, it->second.text);
             }
-            lineCols.SetColor(position, CAppUtils::IntenseColor(200, crText), CAppUtils::IntenseColor(200, crBkgnd));
-            if (replaceIt == lineCols.end())
-                lineCols.SetColor(position + m_sMarkedWord.GetLength());
-            else
-            {
-                if (lineCols.find(position + m_sMarkedWord.GetLength()) == lineCols.end())
-                    lineCols.SetColor(position + m_sMarkedWord.GetLength(), crText, crBkgnd);
-            }
-            findText += m_sMarkedWord.GetLength();
+            findText += nMarkLength;
         }
     }
+    // @ this point we may cache data for next line which may be same in wraped mode
 
-    std::map<int, linecolors_t>::const_iterator lastIt = lineCols.begin();
-    int nLeft = coords.x;
-    for (std::map<int, linecolors_t>::const_iterator it = lastIt; it != lineCols.end(); ++it)
+    int nTextOffset = 0;
+    int nSubline = GetSubLineOffset(nLineIndex);
+    for (int n=0; n<nSubline; n++)
     {
-        int nBlockLength = it->first - lastIt->first;
-        if (nBlockLength > 0)
+        CString sLine = m_ScreenedViewLine[nViewLine].SubLines[n];
+        nTextOffset += sLine.GetLength();
+    }
+
+    CString sLine = GetLineChars(nLineIndex);
+    int nLineLength = sLine.GetLength();
+    CString sLineExp = ExpandChars(sLine);
+    LPCTSTR textExp = sLineExp;
+    //int nLineLengthExp = sLineExp.GetLength();
+    int nStartExp = 0;
+    int nLeft = coords.x;
+    for (std::map<int, linecolors_t>::const_iterator itStart = lineCols.begin(); itStart != lineCols.end(); itStart++)
+    {
+        std::map<int, linecolors_t>::const_iterator itEnd = itStart;
+        itEnd++;
+        int nStart = std::max<int>(0, itStart->first - nTextOffset);
+        int nEnd = nLineLength;
+        if (itEnd != lineCols.end())
         {
-            pDC->SetBkColor(lastIt->second.background);
-            pDC->SetTextColor(lastIt->second.text);
-            LPCTSTR p_zBlockText = text + lastIt->first;
+             nEnd = std::min<int>(nEnd, itEnd->first - nTextOffset);
+        }
+        int nBlockLength = nEnd - nStart;
+        if (nBlockLength > 0 && nEnd>=0)
+        {
+            pDC->SetBkColor(itStart->second.background);
+            pDC->SetTextColor(itStart->second.text);
+            int nEndExp = CountExpandedChars(sLine, nEnd);
+            int nTextLength = nEndExp - nStartExp;
+            LPCTSTR p_zBlockText = textExp + nStartExp;
             SIZE Size;
-            GetTextExtentPoint32(pDC->operator HDC(), p_zBlockText, nBlockLength, &Size);
+            GetTextExtentPoint32(pDC->operator HDC(), p_zBlockText, nTextLength, &Size); // falls time-2-tme
             int nRight = nLeft + Size.cx;
             if ((nRight > rc.left) && (nLeft < rc.right))
             {
-                pDC->ExtTextOut(nLeft, coords.y, ETO_CLIPPED, &rc, p_zBlockText, nBlockLength, NULL);
+                pDC->ExtTextOut(nLeft, coords.y, ETO_CLIPPED, &rc, p_zBlockText, nTextLength, NULL);
+                if ((itStart->second.shot != itStart->second.background) && (itStart->first == nStart + nTextOffset))
+                {
+                    pDC->FillSolidRect(nLeft-1, rc.top, 1, rc.Height(), itStart->second.shot);
+                }
             }
             nLeft = nRight;
+            nStartExp = nEndExp;
         }
-        lastIt = it;
     }
-    if (lastIt != lineCols.end())
-    {
-        pDC->SetBkColor(lastIt->second.background);
-        pDC->SetTextColor(lastIt->second.text);
-        pDC->ExtTextOut(nLeft, coords.y, ETO_CLIPPED, &rc, text + lastIt->first, textlength - lastIt->first, NULL);
-    }
-}
-
-bool CBaseView::DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const CString &line, CPoint &origin)
-{
-    if (!m_bShowInlineDiff || line.IsEmpty())
-        return false;
-    if ((m_pwndBottom != NULL) && !(m_pwndBottom->IsHidden()))
-        return false;
-    if (!m_pOtherView)
-        return false;
-
-    int index = std::min<int>(nLineIndex, (int)m_Screen2View.size() - 1);
-    CString sDiffChars = m_pOtherView->GetLineChars(index);
-
-    if (sDiffChars.IsEmpty())
-        return false;
-
-    CString diffline = ExpandChars(sDiffChars);
-    svn_diff_t * diff = NULL;
-    m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
-    if (!diff || !SVNLineDiff::ShowInlineDiff(diff))
-        return false;
-
-    int lineoffset = 0;
-    std::deque<int> removedPositions;
-    int nTextStartOffset = 0;
-    while (diff)
-    {
-        apr_off_t len = diff->original_length;
-
-        CString s;
-        for (int i = 0; i < len; ++i)
-        {
-            s += m_svnlinediff.m_line1tokens[lineoffset].c_str();
-            lineoffset++;
-        }
-        bool isModified = diff->type == svn_diff__type_diff_modified;
-        int nTextLength = s.GetLength();
-        DrawText(pDC, rc, (LPCTSTR)s, nTextLength, nLineIndex, origin, true, isModified, nTextStartOffset);
-        nTextStartOffset += nTextLength;
-        origin.x += pDC->GetTextExtent(s).cx;
-
-        if (isModified && (len < diff->modified_length))
-            removedPositions.push_back(origin.x - 1);
-
-        diff = diff->next;
-    }
-    // Draw vertical bars at removed chunks' positions.
-    for (std::deque<int>::iterator it = removedPositions.begin(); it != removedPositions.end(); ++it)
-        pDC->FillSolidRect(*it, rc.top, 1, rc.Height(), m_InlineRemovedBk);
-    return true;
 }
 
 void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
@@ -1776,28 +1736,15 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
     // Draw the line
 
     pDC->SelectObject(GetFont(FALSE, FALSE, IsLineRemoved(nLineIndex)));
-    CString line = ExpandChars(sLine);
 
-    int nWidth = rc.right - origin.x;
-    int savedx = origin.x;
-    bool bInlineDiffDrawn =
-        (nWidth > 0) && (diffState != DIFFSTATE_NORMAL) &&
-        DrawInlineDiff(pDC, rc, nLineIndex, line, origin);
-
-    if (!bInlineDiffDrawn)
-    {
-        int nCount = std::min<int>(line.GetLength(), nWidth / GetCharWidth() + 1);
-        DrawText(pDC, rc, line, nCount, nLineIndex, origin, false, false);
-    }
-
-    origin.x = savedx + pDC->GetTextExtent(line).cx;
+    DrawTextLine(pDC, rc, nLineIndex, origin);
+    CString line = ExpandChars(sLine); // note: DrawTextLine can possibly return pixel text width 
+    origin.x += pDC->GetTextExtent(line).cx;
 
     // draw white space after the end of line
     CRect frect = rc;
     if (origin.x > frect.left)
         frect.left = origin.x;
-    if (bInlineDiffDrawn)
-        CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, crBkgnd, crText);
     if (frect.right > frect.left)
         pDC->FillSolidRect(frect, crBkgnd);
 
@@ -4254,6 +4201,96 @@ int CBaseView::CountMultiLines( int nViewLine )
     m_ScreenedViewLine[nViewLine] = oScreenedLine;
 
     return CountMultiLines(nViewLine);
+}
+
+/// prepare inline diff cache */
+LineColors & CBaseView::GetLineColors(int nViewLine)
+{
+    ASSERT(nViewLine < (int)m_ScreenedViewLine.size());
+
+    if (m_ScreenedViewLine[nViewLine].bLineColorsSet)
+    {
+        return m_ScreenedViewLine[nViewLine].LineColors;
+    }
+
+    LineColors oLineColors;
+    // set main line color
+    COLORREF crBkgnd, crText;
+    DiffStates diffState = m_pViewData->GetState(nViewLine);
+    CDiffColors::GetInstance().GetColors(diffState, crBkgnd, crText);
+    oLineColors.SetColor(0, crText, crBkgnd);
+
+    // TODO move to separate method
+    do {
+        CString sLine = GetViewLineChars(nViewLine);
+        if (sLine.IsEmpty())
+            break;
+/*    if (!m_bShowInlineDiff || sLine.IsEmpty())
+        return false;
+    if ((m_pwndBottom != NULL) && !(m_pwndBottom->IsHidden()))
+        return false;//*/
+        if (!m_pOtherView)
+            break;
+
+        CString sDiffLine = m_pOtherView->GetViewLineChars(nViewLine);
+        if (sDiffLine.IsEmpty())
+            break;;
+
+        svn_diff_t * diff = NULL;
+        m_svnlinediff.Diff(&diff, sLine, sLine.GetLength(), sDiffLine, sDiffLine.GetLength(), m_bInlineWordDiff);
+        if (!diff || !SVNLineDiff::ShowInlineDiff(diff) || !diff->next)
+            break;
+
+        bool bModified = true;
+        int lineoffset = 0;
+        int nTextStartOffset = 0;
+        std::map<int, COLORREF> removedPositions;
+        while (diff)
+        {
+            apr_off_t len = diff->original_length;
+
+            CString s;
+            for (int i = 0; i < len; ++i)
+            {
+                s += m_svnlinediff.m_line1tokens[lineoffset].c_str();
+                lineoffset++;
+            }
+            bool bInlineDiff = (diff->type == svn_diff__type_diff_modified);
+            int nTextLength = s.GetLength();
+
+            COLORREF crBkgnd, crText;
+            CDiffColors::GetInstance().GetColors(diffState, crBkgnd, crText);
+            if (bInlineDiff)
+            {
+                crBkgnd = InlineViewLineDiffColor(nViewLine);
+            }
+            else if (bModified || (diffState == DIFFSTATE_EDITED))
+            {
+                crBkgnd = m_ModifiedBk;
+            }
+
+            if (bModified && (len < diff->modified_length))
+            {
+                removedPositions[nTextStartOffset] = m_InlineRemovedBk;
+            }
+            else
+            {
+                oLineColors.SetColor(nTextStartOffset, crText, crBkgnd);
+            }
+
+            nTextStartOffset += nTextLength;
+            diff = diff->next;
+        }
+        for (std::map<int, COLORREF>::const_iterator it = removedPositions.begin(); it != removedPositions.end(); ++it)      
+        {
+            oLineColors.AddShotColor(it->first, it->second);
+        }
+    } while (false); // error catch
+
+    m_ScreenedViewLine[nViewLine].LineColors = oLineColors;
+    m_ScreenedViewLine[nViewLine].bLineColorsSet = true;
+
+    return GetLineColors(nViewLine);
 }
 
 void CBaseView::OnEditSelectall()

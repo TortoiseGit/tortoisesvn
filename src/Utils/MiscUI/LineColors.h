@@ -24,34 +24,49 @@ struct linecolors_t
 {
     COLORREF text;
     COLORREF background;
+    COLORREF shot;
 };
 
 class LineColors : public std::map<int, linecolors_t>
 {
 public:
+    void AddShotColor(int pos, COLORREF b)
+    {
+         // make sure position exists
+         SplitBlock(pos);
+         // set value
+         (*this)[pos].shot = b;
+    }
+
     void SetColor(int pos, COLORREF f, COLORREF b)
     {
         linecolors_t c;
         c.text = f;
         c.background = b;
+        c.shot = b;
         (*this)[pos] = c;
     }
 
-    void SetColor(int pos)
+    void SetColor(int pos, const linecolors_t &c)
     {
-        int backpos = pos - 1;
-        std::map<int, linecolors_t>::const_reverse_iterator foundIt;
-        std::map<int, linecolors_t>::const_reverse_iterator reverseIt = this->rbegin();
-        while ((reverseIt != this->rend()) && (reverseIt->first > backpos))
-            ++reverseIt;
-        if (reverseIt != this->rend())
+        linecolors_t cNew = c;
+        cNew.shot = c.background;
+        (*this)[pos] = cNew;
+    }
+
+    void SplitBlock(int pos) /// insert colormark with same value as previous position defines
+    {
+        std::map<int, linecolors_t>::const_iterator it = this->upper_bound(pos);
+        if (it != this->begin())
         {
-            foundIt = reverseIt;
-            ++reverseIt;
-            if (reverseIt != this->rend())
-                foundIt = reverseIt;
+            if ((it == this->end()) || (it->first != pos))
+            {
+                SetColor(pos, (--it)->second);
+            }
         }
-        linecolors_t c = foundIt->second;
-        (*this)[pos] = c;
+        else if (it != this->end())
+        {
+             SetColor(pos, it->second);
+        }
     }
 };

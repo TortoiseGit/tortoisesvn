@@ -106,6 +106,7 @@ public: // methods
     // TODO: find better consistent names for Multiline(line with sublines) and Subline, Count.. or Get..Count ?
     int             CountMultiLines(int nViewLine);
     int             GetSubLineOffset(int index);
+    LineColors &    GetLineColors(int nViewLine);
     static void     UpdateLocator() { if (m_pwndLocator) m_pwndLocator->DocumentUpdated(); }
     void            WrapChanged();
 
@@ -257,7 +258,6 @@ protected:  // methods
     void            DrawHeader(CDC *pdc, const CRect &rect);
     void            DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex);
     void            DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex);
-    bool            DrawInlineDiff(CDC *pDC, const CRect &rc, int nLineIndex, const CString &line, CPoint &origin);
     /**
      * Draws the horizontal lines around current diff block or selection block.
      */
@@ -301,6 +301,7 @@ protected:  // methods
     int             GetLineFromPoint(CPoint point);
     int             GetMarginWidth();
     COLORREF        InlineDiffColor(int nLineIndex);
+    COLORREF        InlineViewLineDiffColor(int nLineIndex);
     bool            GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>& positions);
     void            CheckOtherView();
     static void     GetWhitespaceBlock(CViewData *viewData, int nLineIndex, int & nStartBlock, int & nEndBlock);
@@ -321,7 +322,7 @@ protected:  // methods
     int             CalculateActualOffset(const POINT& point);
     int             CalculateCharIndex(int nLineIndex, int nActualOffset);
     POINT           TextToClient(const POINT& point);
-    void            DrawText(CDC * pDC, const CRect &rc, LPCTSTR text, int textlength, int nLineIndex, POINT coords, bool bModified, bool bInlineDiff, int nLineOffset=0);
+    void            DrawTextLine(CDC * pDC, const CRect &rc, int nLineIndex, POINT coords);
     void            ClearCurrentSelection();
     void            AdjustSelection();
     bool            SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock = true, bool dryrun = false);
@@ -462,6 +463,7 @@ protected:  // variables
         {
             bSublinesSet = false;
             eIcon = ICN_UNKNOWN;
+            bLineColorsSet = false;
         }
 
         bool bSublinesSet;
@@ -480,6 +482,9 @@ protected:  // variables
             ICN_CONFLICT,
             ICN_CONFLICTIGNORED,
         } eIcon;
+
+        bool bLineColorsSet;
+        LineColors LineColors;
 
     };
     std::vector<TScreenedViewLine> m_ScreenedViewLine; ///< cached data for screening
