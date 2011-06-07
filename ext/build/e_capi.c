@@ -1646,7 +1646,8 @@ static int capi_load_ssl_client_cert(ENGINE *e, SSL *ssl,
 			continue;
 			}
 		if (cert_issuer_match(ca_dn, x)
-			&& X509_check_purpose(x, X509_PURPOSE_SSL_CLIENT, 0))
+			&& X509_check_purpose(x, X509_PURPOSE_SSL_CLIENT, 0)
+            && (CertVerifyTimeValidity(NULL, cert->pCertInfo)>=0))
 			{
 			key = capi_get_cert_key(ctx, cert);
 			if (!key)
