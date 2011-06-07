@@ -170,7 +170,7 @@ void CSettingsLogCaches::OnBnClickedDelete()
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)));
         taskdlg.SetDefaultCommandControl(2);
         taskdlg.SetMainIcon(TD_WARNING_ICON);
-        bDelete = (taskdlg.DoModal(GetExplorerHWND())==1);
+        bDelete = (taskdlg.DoModal(m_hWnd)==1);
     }
     else
     {
@@ -282,6 +282,7 @@ UINT CSettingsLogCaches::WorkerThread(LPVOID pVoid)
     // we have to get the log from the repository root
 
     SVN svn;
+    svn.SetPromptParentWindow(dialog->GetSafeHwnd());
     CLogCachePool* caches = svn.GetLogCachePool();
     CRepositoryInfo& info = caches->GetRepositoryInfo();
 
