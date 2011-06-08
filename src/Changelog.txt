@@ -3,6 +3,11 @@ Too many changes to list here. See the release notes for
 an overview of the most visible and important changes:
 http://tortoisesvn.net/tsvn_1.7_releasenotes.html
 
+Version 1.6.17
+- BUG: the bugtraq:number property was added to
+       new folders automatically even if not
+       needed. (Stefan)
+
 Version 1.6.16
 - BUG: The bugtraq:number property was not added
        automatically to new folders. (Stefan)

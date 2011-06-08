@@ -733,8 +733,8 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
         bRet = props.Add(BUGTRAQPROPNAME_LABEL, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLabel)) && bRet;
     if (!sMessage.IsEmpty())
         bRet = props.Add(BUGTRAQPROPNAME_MESSAGE, CUnicodeUtils::StdGetUTF8((LPCTSTR)sMessage)) && bRet;
-    if (bNumber)
-        bRet = props.Add(BUGTRAQPROPNAME_NUMBER, "true") && bRet;
+    if (!bNumber)
+        bRet = props.Add(BUGTRAQPROPNAME_NUMBER, "false") && bRet;
     if (!sCheckRe.IsEmpty())
         bRet = props.Add(BUGTRAQPROPNAME_LOGREGEX, CUnicodeUtils::StdGetUTF8((LPCTSTR)(sCheckRe + _T("\n") + sBugIDRe))) && bRet;
     if (!sUrl.IsEmpty())
