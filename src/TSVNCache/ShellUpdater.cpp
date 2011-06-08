@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2008 - TortoiseSVN
+// External Cache Copyright (C) 2005-2008, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,7 +42,7 @@ void CShellUpdater::Stop()
         SetEvent(m_hTerminationEvent);
         if(WaitForSingleObject(m_hThread, 200) != WAIT_OBJECT_0)
         {
-            ATLTRACE("Error terminating shell updater thread\n");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Error terminating shell updater thread\n");
         }
     }
     m_hThread.CloseHandle();
@@ -132,7 +132,7 @@ void CShellUpdater::WorkerThread()
             }
             if (workingPath.IsEmpty())
                 continue;
-            CTraceToOutputDebugString::Instance()(_T("ShellUpdater.cpp: shell notification for %s\n"), workingPath.GetWinPath());
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": shell notification for %s\n"), workingPath.GetWinPath());
             if (workingPath.IsDirectory())
             {
                 // first send a notification about a sub folder change, so explorer doesn't discard

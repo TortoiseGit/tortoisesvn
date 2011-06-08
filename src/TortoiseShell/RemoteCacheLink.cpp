@@ -88,7 +88,7 @@ bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe
             NULL,     // don't set maximum bytes
             NULL))    // don't set maximum time
         {
-            ATLTRACE("SetNamedPipeHandleState failed");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": SetNamedPipeHandleState failed");
             hPipe.CloseHandle();
         }
     }
@@ -110,7 +110,7 @@ bool CRemoteCacheLink::EnsurePipeOpen()
         if (m_hEvent)
             return true;
 
-        ATLTRACE("CreateEvent failed");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CreateEvent failed");
         ClosePipe();
     }
 
@@ -317,7 +317,7 @@ bool CRemoteCacheLink::RunTsvnCacheProcess()
     if (!CCreateProcessHelper::CreateProcessDetached(sCachePath, NULL))
     {
         // It's not appropriate to do a message box here, because there may be hundreds of calls
-        ATLTRACE("Failed to start cache\n");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Failed to start cache\n");
         return false;
     }
     return true;

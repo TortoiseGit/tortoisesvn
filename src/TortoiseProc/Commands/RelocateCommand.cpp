@@ -37,7 +37,7 @@ bool RelocateCommand::Execute()
 
     if (dlg.DoModal() == IDOK)
     {
-        TRACE(_T("relocate from %s to %s\n"), (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": relocate from %s to %s\n"), (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
         // crack the urls into their components
         TCHAR urlpath1[INTERNET_MAX_PATH_LENGTH+1];
         TCHAR scheme1[INTERNET_MAX_SCHEME_LENGTH+1];

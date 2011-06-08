@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -93,7 +93,7 @@ bool CLogFile::Close()
     }
     catch (CFileException* pE)
     {
-        TRACE("CFileException loading autolist regex file\n");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CFileException loading autolist regex file\n");
         pE->Delete();
         return false;
     }

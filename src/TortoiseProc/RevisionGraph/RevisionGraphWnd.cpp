@@ -194,7 +194,7 @@ void CRevisionGraphWnd::Init(CWnd * pParent, LPRECT rect)
     m_pDlgTip = new CToolTipCtrl;
     if(!m_pDlgTip->Create(this))
     {
-        TRACE("Unable to add tooltip!\n");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Unable to add tooltip!\n");
     }
     EnableToolTips();
 
@@ -443,7 +443,6 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
 
     CSyncPointer<const ILayoutNodeList> nodeList (m_state.GetNodes());
 
-    ATLTRACE("right clicked on x=%d y=%d\n", point.x, point.y);
     SetFocus();
     bool bHit = false;
     bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
@@ -499,7 +498,6 @@ void CRevisionGraphWnd::OnLButtonDown(UINT nFlags, CPoint point)
         m_SelectedEntry1 = NULL;
         m_SelectedEntry2 = NULL;
         m_bIsRubberBand = true;
-        ATLTRACE("LButtonDown: x = %ld, y = %ld\n", point.x, point.y);
         Invalidate(FALSE);
         if (m_bShowOverview && m_OverviewRect.PtInRect(point))
             m_bIsRubberBand = false;
@@ -1281,7 +1279,6 @@ void CRevisionGraphWnd::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 
     CPoint clientpoint = point;
     this->ScreenToClient(&clientpoint);
-    ATLTRACE("right clicked on x=%d y=%d\n", clientpoint.x, clientpoint.y);
 
     index_t nodeIndex = GetHitNode (clientpoint);
     const CVisibleGraphNode * clickedentry = NULL;

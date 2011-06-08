@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2007 - 2010 - TortoiseSVN
+// External Cache Copyright (C) 2007 - 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -163,13 +163,13 @@ bool CPathWatcher::AddPath(const CTSVNPath& path)
     }
     if (!newroot.IsEmpty())
     {
-        ATLTRACE(_T("add path to watch %s\n"), newroot.GetWinPath());
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": add path to watch %s\n"), newroot.GetWinPath());
         watchedPaths.AddPath(newroot);
         watchedPaths.RemoveChildren();
         m_hCompPort.CloseHandle();
         return true;
     }
-    ATLTRACE(_T("add path to watch %s\n"), path.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": add path to watch %s\n"), path.GetWinPath());
     watchedPaths.AddPath(path);
     m_hCompPort.CloseHandle();
     return true;
@@ -259,7 +259,7 @@ void CPathWatcher::WorkerThread()
                         break;
                     }
                     AutoLocker lock(m_critSec);
-                    ATLTRACE(_T("watching path %s\n"), pDirInfo->m_DirName.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": watching path %s\n"), pDirInfo->m_DirName.GetWinPath());
                     watchInfoMap[pDirInfo->m_hDir] = pDirInfo.get();
                     pDirInfo.release();
                 }
@@ -294,7 +294,7 @@ void CPathWatcher::WorkerThread()
                         }
                         buf[min(bufferSize-1, pdi->m_DirPath.GetLength()+(pnotify->FileNameLength/sizeof(WCHAR)))] = 0;
                         pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
-                        ATLTRACE(_T("change notification: %s\n"), buf);
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": change notification: %s\n"), buf);
                         m_changedPaths.AddPath(CTSVNPath(buf));
                         if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
                             break;

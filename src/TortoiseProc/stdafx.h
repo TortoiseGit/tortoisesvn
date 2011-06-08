@@ -112,6 +112,7 @@
 #define HISTORYCOMBO_WITH_SYSIMAGELIST
 
 #include "ProfilingInfo.h"
+#include "DebugOutput.h"
 
 #ifdef _WIN64
 #   define APP_X64_STRING   "x64"

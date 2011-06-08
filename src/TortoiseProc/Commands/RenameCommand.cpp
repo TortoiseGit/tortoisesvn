@@ -47,7 +47,7 @@ bool RenameCommand::Execute()
         sNewName = dlg.m_name;
     } while(PathIsRelative(sNewName) && !PathIsURL(sNewName) && (sNewName.IsEmpty() || (sNewName.Compare(filename)==0)));
 
-    TRACE(_T("rename file %s to %s\n"), (LPCTSTR)cmdLinePath.GetWinPathString(), (LPCTSTR)sNewName);
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": rename file %s to %s\n"), (LPCTSTR)cmdLinePath.GetWinPathString(), (LPCTSTR)sNewName);
     CTSVNPath destinationPath(basePath);
     if (PathIsRelative(sNewName) && !PathIsURL(sNewName))
         destinationPath.AppendPathString(sNewName);

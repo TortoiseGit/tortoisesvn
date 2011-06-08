@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2009 - Will Dean, Stefan Kueng
+// External Cache Copyright (C) 2005 - 2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -151,7 +151,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     if ((!hReloadProtection) || (GetLastError() == ERROR_ALREADY_EXISTS))
     {
         // An instance of TSVNCache is already running
-        ATLTRACE("TSVNCache ignoring restart\n");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": TSVNCache ignoring restart\n");
         return 0;
     }
 
@@ -371,19 +371,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             {
             case DBT_CUSTOMEVENT:
                 {
-                    ATLTRACE("WM_DEVICECHANGE with DBT_CUSTOMEVENT\n");
+                    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": WM_DEVICECHANGE with DBT_CUSTOMEVENT\n");
                     if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
                     {
                         DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
                         if (IsEqualGUID(phandle->dbch_eventguid, GUID_IO_VOLUME_DISMOUNT))
                         {
-                            ATLTRACE("Device to be dismounted\n");
+                            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Device to be dismounted\n");
                             CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
                             CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
                         }
                         if (IsEqualGUID(phandle->dbch_eventguid, GUID_IO_VOLUME_LOCK))
                         {
-                            ATLTRACE("Device lock event\n");
+                            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Device lock event\n");
                             CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
                             CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
                         }
@@ -393,7 +393,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             case DBT_DEVICEREMOVEPENDING:
             case DBT_DEVICEQUERYREMOVE:
             case DBT_DEVICEREMOVECOMPLETE:
-                ATLTRACE("WM_DEVICECHANGE with DBT_DEVICEREMOVEPENDING/QUERYREMOVE/REMOVECOMPLETE\n");
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": WM_DEVICECHANGE with DBT_DEVICEREMOVEPENDING/QUERYREMOVE/REMOVECOMPLETE\n");
                 if (phdr->dbch_devicetype == DBT_DEVTYP_HANDLE)
                 {
                     DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
@@ -449,12 +449,12 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 
     if (readLock.IsAcquired())
     {
-        CTraceToOutputDebugString::Instance()(_T("TSVNCache.cpp: app asked for status of %s\n"), pRequest->path);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": app asked for status of %s\n"), pRequest->path);
         CSVNStatusCache::Instance().GetStatusForPath(path, pRequest->flags, false).BuildCacheResponse(*pReply, *pResponseLength);
     }
     else
     {
-        CTraceToOutputDebugString::Instance()(_T("TSVNCache.cpp: timeout for asked status of %s\n"), pRequest->path);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": timeout for asked status of %s\n"), pRequest->path);
         CStatusCacheEntry entry;
         entry.BuildCacheResponse(*pReply, *pResponseLength);
     }
@@ -462,7 +462,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 
 unsigned int __stdcall PipeThread(LPVOID lpvParam)
 {
-    ATLTRACE("PipeThread started\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": PipeThread started\n");
     bool * bRun = (bool *)lpvParam;
     // The main loop creates an instance of the named pipe and
     // then waits for a client to connect to it. When the client
@@ -529,13 +529,13 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
             continue;   // don't end the thread!
         }
     }
-    ATLTRACE("Pipe thread exited\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Pipe thread exited\n");
     return 0;
 }
 
 unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
 {
-    ATLTRACE("CommandWaitThread started\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CommandWaitThread started\n");
     bool * bRun = (bool *)lpvParam;
     // The main loop creates an instance of the named pipe and
     // then waits for a client to connect to it. When the client
@@ -602,13 +602,13 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
             continue;   // don't end the thread!
         }
     }
-    ATLTRACE("CommandWait thread exited\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CommandWait thread exited\n");
     return 0;
 }
 
 unsigned int __stdcall InstanceThread(LPVOID lpvParam)
 {
-    ATLTRACE("InstanceThread started\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": InstanceThread started\n");
     TSVNCacheResponse response;
     DWORD cbBytesRead, cbWritten;
     BOOL fSuccess;
@@ -632,7 +632,7 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
         if (! fSuccess || cbBytesRead == 0)
         {
             DisconnectNamedPipe(hPipe);
-            ATLTRACE("Instance thread exited\n");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Instance thread exited\n");
             return 1;
         }
 
@@ -667,7 +667,7 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
         if (! fSuccess || responseLength != cbWritten)
         {
             DisconnectNamedPipe(hPipe);
-            ATLTRACE("Instance thread exited\n");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Instance thread exited\n");
             return 1;
         }
     }
@@ -678,13 +678,13 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
 
     FlushFileBuffers(hPipe);
     DisconnectNamedPipe(hPipe);
-    ATLTRACE("Instance thread exited\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Instance thread exited\n");
     return 0;
 }
 
 unsigned int __stdcall CommandThread(LPVOID lpvParam)
 {
-    ATLTRACE("CommandThread started\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CommandThread started\n");
     DWORD cbBytesRead;
     BOOL fSuccess;
     CAutoFile hPipe;
@@ -707,7 +707,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
         if (! fSuccess || cbBytesRead == 0)
         {
             DisconnectNamedPipe(hPipe);
-            ATLTRACE("Command thread exited\n");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Command thread exited\n");
             return 1;
         }
 
@@ -730,7 +730,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
             case TSVNCACHECOMMAND_END:
                 FlushFileBuffers(hPipe);
                 DisconnectNamedPipe(hPipe);
-                ATLTRACE("Command thread exited\n");
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Command thread exited\n");
                 return 0;
             case TSVNCACHECOMMAND_CRAWL:
                 {
@@ -754,7 +754,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
                 {
                     CTSVNPath changedpath;
                     changedpath.SetFromWin(CString(command.path), true);
-                    ATLTRACE(_T("release handle for path %s\n"), changedpath.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": release handle for path %s\n"), changedpath.GetWinPath());
                     CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
                     CSVNStatusCache::Instance().CloseWatcherHandles(changedpath);
                     CSVNStatusCache::Instance().RemoveCacheForPath(changedpath);
@@ -764,7 +764,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
                 {
                     CTSVNPath changedpath;
                     changedpath.SetFromWin(CString(command.path));
-                    ATLTRACE(_T("block path %s\n"), changedpath.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": block path %s\n"), changedpath.GetWinPath());
                     CSVNStatusCache::Instance().BlockPath(changedpath);
                 }
                 break;
@@ -772,7 +772,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
                 {
                     CTSVNPath changedpath;
                     changedpath.SetFromWin(CString(command.path));
-                    ATLTRACE(_T("block path %s\n"), changedpath.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": unblock path %s\n"), changedpath.GetWinPath());
                     CSVNStatusCache::Instance().UnBlockPath(changedpath);
                 }
                 break;
@@ -786,6 +786,6 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
 
     FlushFileBuffers(hPipe);
     DisconnectNamedPipe(hPipe);
-    ATLTRACE("Command thread exited\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Command thread exited\n");
     return 0;
 }

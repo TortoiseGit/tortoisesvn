@@ -142,7 +142,6 @@ BOOL CCopyDlg::OnInitDialog()
         CString temp;
         temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)Wrong_URL);
         ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-        TRACE(_T("could not retrieve the URL of the file!"));
         this->EndDialog(IDCANCEL);      //exit
     }
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoPaths\\")+sUUID, _T("url"));

@@ -127,7 +127,7 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
     }
     else
     {
-        ATLTRACE("SetNamedPipeHandleState failed");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": SetNamedPipeHandleState failed");
         return false;
     }
 

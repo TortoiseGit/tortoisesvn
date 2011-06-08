@@ -207,7 +207,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                    LPDATAOBJECT pDataObj,
                                    HKEY /* hRegKey */)
 {
-    ATLTRACE("Shell :: Initialize\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: Initialize\n");
     PreserveChdir preserveChdir;
     files_.clear();
     folder_.clear();
@@ -324,7 +324,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                     }
                     catch ( ... )
                     {
-                        ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+                        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Exception in SVNStatus::GetAllStatus()\n");
                     }
                     if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
                         itemStates |= ITEMIS_INSVN;
@@ -427,7 +427,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                     }
                     catch ( ... )
                     {
-                        ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+                        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Exception in SVNStatus::GetAllStatus()\n");
                     }
                     if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
                         itemStates |= ITEMIS_INSVN;
@@ -543,7 +543,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                 }
                 catch ( ... )
                 {
-                    ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+                    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Exception in SVNStatus::GetAllStatus()\n");
                 }
             }
             else
@@ -611,7 +611,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                     }
                     catch ( ... )
                     {
-                        ATLTRACE2(_T("Exception in SVNStatus::GetAllStatus()\n"));
+                        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Exception in SVNStatus::GetAllStatus()\n");
                     }
                 }
                 else
@@ -851,7 +851,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
                                          UINT /*idCmdLast*/,
                                          UINT uFlags)
 {
-    ATLTRACE("Shell :: QueryContextMenu\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: QueryContextMenu\n");
     PreserveChdir preserveChdir;
 
     //first check if our drop handler is called
@@ -1764,7 +1764,7 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
             if (verb_id_it != myVerbsIDMap.end() && verb_id_it->first == idCmd)
             {
                 std::wstring help = verb_id_it->second;
-                ATLTRACE("verb : %ws\n", help.c_str());
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": verb : %ws\n", help.c_str());
                 lstrcpynW((LPWSTR)pszName, help.c_str(), cchMax);
                 hr = S_OK;
             }

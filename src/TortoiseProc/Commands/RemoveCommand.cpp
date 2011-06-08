@@ -64,7 +64,7 @@ bool RemoveCommand::Execute()
     {
         for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
         {
-            TRACE(_T("remove file %s\n"), (LPCTSTR)pathList[nPath].GetUIPathString());
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": remove file %s\n"), (LPCTSTR)pathList[nPath].GetUIPathString());
             // even though SVN::Remove takes a list of paths to delete at once
             // we delete each item individually so we can prompt the user
             // if something goes wrong or unversioned/modified items are

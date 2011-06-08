@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2008 - TortoiseSVN
+// External Cache Copyright (C) 2005-2008, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,7 +131,7 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
     {
         if (GetTickCount() < blockTickCount)
         {
-            ATLTRACE(_T("Path %s prevented from being watched\n"), path.GetWinPath());
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Path %s prevented from being watched\n"), path.GetWinPath());
             return false;
         }
     }
@@ -202,7 +202,7 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
     }
     if (!newroot.IsEmpty())
     {
-        CTraceToOutputDebugString::Instance()(_T("DirectoryWatcher.cpp: AddPath for %s\n"), newroot.GetWinPath());
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": AddPath for %s\n"), newroot.GetWinPath());
         watchedPaths.AddPath(newroot);
         watchedPaths.RemoveChildren();
         if (bCloseInfoMap)
@@ -210,7 +210,7 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
 
         return true;
     }
-    CTraceToOutputDebugString::Instance()(_T("DirectoryWatcher.cpp: AddPath for %s\n"), path.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": AddPath for %s\n"), path.GetWinPath());
     watchedPaths.AddPath(path);
     if (bCloseInfoMap)
         ClearInfoMap();
@@ -262,7 +262,7 @@ void CDirectoryWatcher::WorkerThread()
                 if (!m_bRunning)
                     return;
 
-                CTraceToOutputDebugString::Instance()(_T("DirectoryWatcher.cpp: restarting watcher\n"));
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": restarting watcher\n"));
                 m_hCompPort.CloseHandle();
 
                 // We must sync the whole section because other threads may
@@ -292,7 +292,7 @@ void CDirectoryWatcher::WorkerThread()
                     if (!hDir)
                     {
                         // this could happen if a watched folder has been removed/renamed
-                        ATLTRACE(_T("CDirectoryWatcher: CreateFile failed. Can't watch directory %s\n"), watchedPaths[i].GetWinPath());
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": CreateFile failed. Can't watch directory %s\n"), watchedPaths[i].GetWinPath());
                         watchedPaths.RemovePath(watchedPath);
                         break;
                     }
@@ -329,7 +329,7 @@ void CDirectoryWatcher::WorkerThread()
                     HANDLE port = CreateIoCompletionPort(pDirInfo->m_hDir, m_hCompPort, (ULONG_PTR)pDirInfo, 0);
                     if (port == NULL)
                     {
-                        ATLTRACE(_T("CDirectoryWatcher: CreateIoCompletionPort failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": CreateIoCompletionPort failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
 
                         // we must close the directory handle to allow ClearInfoMap()
                         // to close the completion port properly
@@ -354,7 +354,7 @@ void CDirectoryWatcher::WorkerThread()
                                                 &pDirInfo->m_Overlapped,
                                                 NULL))  //no completion routine!
                     {
-                        ATLTRACE(_T("CDirectoryWatcher: ReadDirectoryChangesW failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": ReadDirectoryChangesW failed. Can't watch directory %s\n"), watchedPath.GetWinPath());
 
                         // we must close the directory handle to allow ClearInfoMap()
                         // to close the completion port properly
@@ -368,7 +368,7 @@ void CDirectoryWatcher::WorkerThread()
                         break;
                     }
 
-                    ATLTRACE(_T("watching path %s\n"), pDirInfo->m_DirName.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": watching path %s\n"), pDirInfo->m_DirName.GetWinPath());
                     watchInfoMap[pDirInfo->m_hDir] = pDirInfo;
                 }
             }
@@ -448,7 +448,7 @@ void CDirectoryWatcher::WorkerThread()
                                 // so ignore them.
                                 continue;
                             }
-                            CTraceToOutputDebugString::Instance()(_T("DirectoryWatcher.cpp: change notification for %s\n"), buf);
+                            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": change notification for %s\n"), buf);
                             m_FolderCrawler->AddPathForUpdate(CTSVNPath(buf));
                         }
                     } while (nOffset > 0);

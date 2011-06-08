@@ -918,7 +918,6 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
     }
     catch (CFileException* pE)
     {
-        TRACE("CFileException loading target file list\n");
         TCHAR error[10000] = {0};
         pE->GetErrorMessage(error, 10000);
         ::MessageBox(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
@@ -956,7 +955,7 @@ bool CTSVNPathList::WriteToFile(const CString& sFilename, bool bANSI /* = false 
     }
     catch (CFileException* pE)
     {
-        TRACE("CFileException in writing temp file\n");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CFileException in writing temp file\n");
         pE->Delete();
         return false;
     }

@@ -69,7 +69,7 @@ void CShellUpdater::Flush()
 {
     if(m_pathsForUpdating.GetCount() > 0)
     {
-        ATLTRACE("Flushing shell update list\n");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Flushing shell update list\n");
 
         UpdateShell();
         m_pathsForUpdating.Clear();
@@ -79,7 +79,7 @@ void CShellUpdater::Flush()
 void CShellUpdater::UpdateShell()
 {
     // Tell the shell extension to purge its cache
-    ATLTRACE("Setting cache invalidation event %d\n", GetTickCount());
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Setting cache invalidation event %d\n", GetTickCount());
     SetEvent(m_hInvalidationEvent);
 
     // We use the SVN 'notify' call-back to add items to the list
@@ -113,13 +113,13 @@ void CShellUpdater::UpdateShell()
          NULL,     // don't set maximum bytes
          NULL) == 0)    // don't set maximum time
     {
-        ATLTRACE("SetNamedPipeHandleState failed");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": SetNamedPipeHandleState failed");
         return;
     }
 
     for(int nPath = 0; nPath < m_pathsForUpdating.GetCount(); nPath++)
     {
-        ATLTRACE(_T("Cache Item Update for %s (%d)\n"), m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Cache Item Update for %s (%d)\n"), m_pathsForUpdating[nPath].GetDirectory().GetWinPathString(), GetTickCount());
         if (!m_pathsForUpdating[nPath].IsDirectory())
         {
             // send notifications to the shell for changed files - folders are updated by the cache itself.

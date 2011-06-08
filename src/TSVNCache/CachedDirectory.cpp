@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2010 - TortoiseSVN
+// External Cache Copyright (C) 2005-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -446,7 +446,7 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSV
                     entry_it->second.GetEffectiveStatus() != nodestatus)
                 {
                     CSVNStatusCache::Instance().UpdateShell(path);
-                    CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: shell update for %s\n"), path.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": shell update for %s\n"), path.GetWinPath());
                 }
             }
         }
@@ -487,7 +487,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
     revision.kind = svn_opt_revision_unspecified;
 
     SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
-    CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: stat for %s\n"), m_directoryPath.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": stat for %s\n"), m_directoryPath.GetWinPath());
 
     m_pCtx = CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool);
     svn_error_t* pErr = svn_client_status5 (
@@ -520,7 +520,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
         // If we allow ourselves to fall on through, then folders will be asked
         // for their own status, and will set themselves as unversioned, for the
         // benefit of future requests
-        CTraceToOutputDebugString::Instance()("CachedDirectory.cpp: svn_cli_stat error '%s'\n", pErr->message);
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": svn_cli_stat error '%s'\n", pErr->message);
         // No assert here! Since we _can_ get here, an assertion is not an option!
         // Reasons to get here:
         // - renaming a folder with many sub folders --> results in "not a working copy" if the revert
@@ -761,7 +761,7 @@ void CCachedDirectory::UpdateCurrentStatus()
         if ((m_currentFullStatus != svn_wc_status_none)&&(m_ownStatus.GetEffectiveStatus() != svn_wc_status_ignored))
         {
             // Our status has changed - tell the shell
-            CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: Dir %s, status change from %d to %d\n"), m_directoryPath.GetWinPath(), m_currentFullStatus, newStatus);
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Dir %s, status change from %d to %d\n"), m_directoryPath.GetWinPath(), m_currentFullStatus, newStatus);
             CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
         }
         if (m_ownStatus.GetEffectiveStatus() != svn_wc_status_ignored)
@@ -831,7 +831,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
 
     CTSVNPathList updatePathList;
     CTSVNPathList crawlPathList;
-    CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: RefreshStatus for %s\n"), m_directoryPath.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": RefreshStatus for %s\n"), m_directoryPath.GetWinPath());
 
     DWORD now = GetTickCount();
     {
@@ -923,7 +923,7 @@ void CCachedDirectory::RefreshMostImportant(bool bUpdateShell /* = true */)
     }
     if (bUpdateShell && newStatus != m_mostImportantFileStatus)
     {
-        CTraceToOutputDebugString::Instance()(_T("CachedDirectory.cpp: status change of path %s\n"), m_directoryPath.GetWinPath());
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": status change of path %s\n"), m_directoryPath.GetWinPath());
         CSVNStatusCache::Instance().UpdateShell(m_directoryPath);
     }
     m_mostImportantFileStatus = newStatus;

@@ -379,7 +379,7 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
 
     for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
     {
-        TRACE(_T("add file %s\n"), pathList[nItem].GetWinPath());
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": add file %s\n"), pathList[nItem].GetWinPath());
         if (Cancel())
         {
             Err = svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED))));

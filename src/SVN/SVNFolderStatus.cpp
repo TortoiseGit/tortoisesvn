@@ -145,7 +145,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     urls.clear();
     owners.clear();
 
-    ATLTRACE2(_T("building cache for %s\n"), filepath);
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": building cache for %s\n"), filepath);
     if (bIsFolder)
     {
         if (bDirectFolder)
@@ -334,12 +334,12 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(const CTSVNPath& fil
     if(m_mostRecentPath.IsEquivalentTo(CTSVNPath(sCacheKey.c_str())))
     {
         // We've hit the same result as we were asked for last time
-        ATLTRACE2(_T("fast cache hit for %s\n"), filepath);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": fast cache hit for %s\n"), filepath);
         retVal = m_mostRecentStatus;
     }
     else if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
     {
-        ATLTRACE2(_T("cache found for %s\n"), filepath);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": cache found for %s\n"), filepath);
         retVal = &iter->second;
         m_mostRecentStatus = retVal;
         m_mostRecentPath = CTSVNPath(sCacheKey.c_str());
@@ -357,14 +357,14 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(const CTSVNPath& fil
         if ((now >= m_TimeStamp)&&((now - m_TimeStamp) > GetTimeoutValue()))
         {
             // Cache is timed-out
-            ATLTRACE("Cache timed-out\n");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Cache timed-out\n");
             ClearCache();
             retVal = NULL;
         }
         else if(WaitForSingleObject(m_hInvalidationEvent, 0) == WAIT_OBJECT_0)
         {
             // TortoiseProc has just done something which has invalidated the cache
-            ATLTRACE("Cache invalidated\n");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Cache invalidated\n");
             ClearCache();
             retVal = NULL;
         }

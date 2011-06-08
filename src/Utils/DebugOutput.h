@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,10 +30,10 @@ public:
         return *m_pInstance;
     }
 
-	static bool Active()
-	{
-		return Instance().m_bActive;
-	}
+    static bool Active()
+    {
+        return Instance().m_bActive;
+    }
 
     // Non Unicode output helper
     void operator()(PCSTR pszFormat, ...)

@@ -1073,7 +1073,7 @@ LRESULT CCommitDlg::OnFileDropped(WPARAM, LPARAM lParam)
 
     // Always start the timer, since the status of an existing item might have changed
     SetTimer(REFRESHTIMER, 200, NULL);
-    ATLTRACE(_T("Item %s dropped, timer started\n"), path.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Item %s dropped, timer started\n"), path.GetWinPath());
     return 0;
 }
 
@@ -1111,7 +1111,7 @@ void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, CString>
     }
     catch (CFileException* pE)
     {
-        TRACE("CFileException loading auto list regex file\n");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CFileException loading auto list regex file\n");
         pE->Delete();
     }
 }
@@ -1209,7 +1209,7 @@ void CCommitDlg::GetAutocompletionList()
                 ScanFile(basePath.GetWinPathString(), rdata, sExt);
         }
     }
-    ATLTRACE(_T("Auto completion list loaded in %d msec\n"), GetTickCount() - starttime);
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Auto completion list loaded in %d msec\n"), GetTickCount() - starttime);
 }
 
 void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const CString& sExt)
@@ -1336,12 +1336,12 @@ void CCommitDlg::OnTimer(UINT_PTR nIDEvent)
         if (m_bThreadRunning)
         {
             SetTimer(REFRESHTIMER, 200, NULL);
-            ATLTRACE("Wait some more before refreshing\n");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
         }
         else
         {
             KillTimer(REFRESHTIMER);
-            ATLTRACE("Refreshing after items dropped\n");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
             Refresh();
         }
         break;

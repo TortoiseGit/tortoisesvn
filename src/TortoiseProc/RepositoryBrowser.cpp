@@ -2439,7 +2439,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
 {
     if (m_bSparseCheckoutMode)
         return false;
-    ATLTRACE(_T("dropped %ld items on %s, source revision is %s, dwEffect is %ld\n"), pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString(), srcRev.ToString(), dwEffect);
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": dropped %ld items on %s, source revision is %s, dwEffect is %ld\n"), pathlist.GetCount(), (LPCTSTR)target.GetSVNPathString(), srcRev.ToString(), dwEffect);
     if (pathlist.GetCount() == 0)
         return false;
 
@@ -3178,7 +3178,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         (LPCTSTR)pegRevision.ToString(), 
                         (LPCTSTR)commonSource.second.ToString());
 
-                    ATLTRACE(sCmd);
                     if (!m_path.IsUrl())
                     {
                         sCmd += _T(" /propspath:\"");

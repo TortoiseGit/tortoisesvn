@@ -73,6 +73,7 @@
 #define XMESSAGEBOX_APPREGPATH "Software\\TortoiseMerge\\"
 
 #include "ProfilingInfo.h"
+#include "DebugOutput.h"
 
 #ifdef _WIN64
 #   define APP_X64_STRING   "x64"

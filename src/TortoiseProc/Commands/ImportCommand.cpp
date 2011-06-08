@@ -43,7 +43,6 @@ bool ImportCommand::Execute()
         dlg.m_url = parser.GetVal(_T("url"));
     if (dlg.DoModal() == IDOK)
     {
-        TRACE(_T("url = %s\n"), (LPCTSTR)dlg.m_url);
         CSVNProgressDlg progDlg;
         theApp.m_pMainWnd = &progDlg;
         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Import);

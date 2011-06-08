@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2010 - TortoiseSVN
+// External Cache Copyright (C) 2005-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -50,7 +50,7 @@ void CFolderCrawler::Stop()
         SetEvent(m_hTerminationEvent);
         if(WaitForSingleObject(m_hThread, 4000) != WAIT_OBJECT_0)
         {
-            ATLTRACE("Error terminating crawler thread\n");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Error terminating crawler thread\n");
         }
     }
     m_hThread.CloseHandle();
@@ -135,7 +135,7 @@ void CFolderCrawler::WorkerThread()
             // Termination event
             break;
         }
-        CTraceToOutputDebugString::Instance()(_T("FolderCrawler.cpp: waking up crawler\n"));
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": FolderCrawler.cpp: waking up crawler\n");
 
         // If we get here, we've been woken up by something being added to the queue.
         // However, it's important that we don't do our crawling while
@@ -240,7 +240,7 @@ void CFolderCrawler::WorkerThread()
                         nCurrentCrawledpathIndex++;
                         if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
                             nCurrentCrawledpathIndex = 0;
-                        CTraceToOutputDebugString::Instance()(_T("FolderCrawler.cpp: Invalidating/refreshing folder %s\n"), workingPath.GetWinPath());
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Invalidating/refreshing folder %s\n"), workingPath.GetWinPath());
                     }
                     InvalidateRect(hWnd, NULL, FALSE);
                     {
@@ -291,7 +291,7 @@ void CFolderCrawler::WorkerThread()
                         nCurrentCrawledpathIndex++;
                         if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
                             nCurrentCrawledpathIndex = 0;
-                        CTraceToOutputDebugString::Instance()(_T("FolderCrawler.cpp: updating path %s\n"), workingPath.GetWinPath());
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": updating path %s\n"), workingPath.GetWinPath());
                     }
                     InvalidateRect(hWnd, NULL, FALSE);
                     // HasAdminDir() already checks if the path points to a dir
@@ -361,7 +361,7 @@ void CFolderCrawler::WorkerThread()
                     nCurrentCrawledpathIndex++;
                     if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
                         nCurrentCrawledpathIndex = 0;
-                    CTraceToOutputDebugString::Instance()(_T("FolderCrawler.cpp: Crawling folder %s\n"), workingPath.GetWinPath());
+                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Crawling folder %s\n"), workingPath.GetWinPath());
                 }
                 InvalidateRect(hWnd, NULL, FALSE);
                 {

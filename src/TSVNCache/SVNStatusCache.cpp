@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008-2010 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -141,7 +141,7 @@ exit:
         fclose(pFile);
     DeleteFile(path2);
     m_pInstance->watcher.ClearInfoMap();
-    ATLTRACE("cache loaded from disk successfully!\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": cache loaded from disk successfully!\n");
     return;
 error:
     fclose(pFile);
@@ -149,7 +149,7 @@ error:
     m_pInstance->watcher.ClearInfoMap();
     Destroy();
     m_pInstance = new CSVNStatusCache;
-    ATLTRACE("cache not loaded from disk\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": cache not loaded from disk\n");
 }
 
 bool CSVNStatusCache::SaveCache()
@@ -195,7 +195,7 @@ bool CSVNStatusCache::SaveCache()
             fclose(pFile);
         }
     }
-    ATLTRACE(_T("cache saved to disk at %s\n"), path);
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": cache saved to disk at %s\n"), path);
     return true;
 error:
     fclose(pFile);
@@ -282,7 +282,7 @@ bool CSVNStatusCache::IsPathGood(const CTSVNPath& path)
     {
         if (it->first.IsAncestorOf(path))
         {
-            ATLTRACE(_T("path not good: %s\n"), path.GetWinPath());
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": path not good: %s\n"), path.GetWinPath());
             return false;
         }
     }
@@ -312,7 +312,7 @@ bool CSVNStatusCache::UnBlockPath(const CTSVNPath& path)
     std::map<CTSVNPath, DWORD>::iterator it = m_NoWatchPaths.find(path);
     if (it != m_NoWatchPaths.end())
     {
-        ATLTRACE(_T("path removed from no good: %s\n"), it->first.GetWinPath());
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": path removed from no good: %s\n"), it->first.GetWinPath());
         m_NoWatchPaths.erase(it);
         ret = true;
     }
@@ -399,7 +399,7 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
         itMap = m_directoryCache.lower_bound(cdir->m_directoryPath);
     } while (itMap != m_directoryCache.end() && cdir->m_directoryPath.IsAncestorOf(itMap->first));
 
-    CTraceToOutputDebugString::Instance()(_T("SVNStatusCache.cpp: removed from cache %s\n"), cdir->m_directoryPath.GetWinPath());
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": removed from cache %s\n"), cdir->m_directoryPath.GetWinPath());
     delete cdir;
     cdir = NULL;
     return true;

@@ -2112,7 +2112,6 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
         {
             theApp.DoWaitCursor(-1);
             ReportNoUrlOfFile(filepath);
-            TRACE(_T("could not retrieve the URL of the file!\n"));
             EnableOKButton();
             return;     //exit
         }
@@ -2201,7 +2200,6 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
         {
             theApp.DoWaitCursor(-1);
             ReportNoUrlOfFile(filepath);
-            TRACE(_T("could not retrieve the URL of the file!\n"));
             EnableOKButton();
             return FALSE;
         }
@@ -2584,7 +2582,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
                     if (url.Compare(matchedRevString.c_str()) == 0)
                     {
                         svn_revnum_t rev = _ttol(matchedRevString.c_str());
-                        ATLTRACE(_T("found revision %ld\n"), rev);
+                        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": found revision %ld\n", rev);
                         // do we already show this revision? If yes, just select that revision and 'scroll' to it
                         for (size_t i=0; i<m_logEntries.GetVisibleCount(); ++i)
                         {
@@ -4567,7 +4565,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 if (pathURL.IsEmpty())
                 {
                     ReportNoUrlOfFile(m_path.GetUIPathString());
-                    TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
 
@@ -4592,7 +4589,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 if (pathURL.IsEmpty())
                 {
                     ReportNoUrlOfFile(m_path.GetUIPathString());
-                    TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
 
@@ -4661,7 +4657,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 if (pathURL.IsEmpty())
                 {
                     ReportNoUrlOfFile(m_path.GetUIPathString());
-                    TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
 
@@ -4687,7 +4682,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 if (pathURL.IsEmpty())
                 {
                     ReportNoUrlOfFile(m_path.GetUIPathString());
-                    TRACE(_T("could not retrieve the URL of the folder!\n"));
                     break;      //exit
                 }
 
@@ -5413,7 +5407,6 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     {
                         theApp.DoWaitCursor(-1);
                         ReportNoUrlOfFile(filepath);
-                        TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
                     }
@@ -5445,7 +5438,6 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     {
                         theApp.DoWaitCursor(-1);
                         ReportNoUrlOfFile(filepath);
-                        TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
                     }
@@ -5645,7 +5637,6 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     {
                         theApp.DoWaitCursor(-1);
                         ReportNoUrlOfFile(filepath);
-                        TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
                     }
@@ -5716,7 +5707,6 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     {
                         theApp.DoWaitCursor(-1);
                         ReportNoUrlOfFile(filepath);
-                        TRACE(_T("could not retrieve the URL of the file!\n"));
                         EnableOKButton();
                         break;
                     }

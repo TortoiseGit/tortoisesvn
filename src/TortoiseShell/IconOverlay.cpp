@@ -250,7 +250,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
             }
             break;
         }
-        ATLTRACE(_T("Status %d for file %s\n"), status, pwszPath);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": Status %d for file %s\n"), status, pwszPath);
     }
     g_filepath.clear();
     g_filepath = pPath;
