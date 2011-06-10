@@ -90,6 +90,7 @@ public: // methods
     void            EnsureCaretVisible();
     void            UpdateCaret();
 
+    bool            ArePointsSame(const POINT &pt1, const POINT &pt2) {return (pt1.x == pt2.x) && (pt1.y == pt2.y); };
     POINT           SetupPoint(int x, int y) {POINT ptRet={x, y}; return ptRet; };
     POINT           ConvertScreenPosToView(const POINT& pt);
     POINT           ConvertViewPosToScreen(const POINT& pt);
@@ -211,6 +212,11 @@ public: // variables
     void            AddEmptyViewLine(int nLineIndex);
 
 protected:  // methods
+    enum {
+        MOVERIGHT =0,
+        MOVELEFT = 1,
+    };
+
     virtual BOOL    PreCreateWindow(CREATESTRUCT& cs);
     virtual void    OnDraw(CDC * pDC);
     virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
@@ -324,7 +330,7 @@ protected:  // methods
     POINT           TextToClient(const POINT& point);
     void            DrawTextLine(CDC * pDC, const CRect &rc, int nLineIndex, POINT coords);
     void            ClearCurrentSelection();
-    void            AdjustSelection();
+    void            AdjustSelection(bool bMoveLeft);
     bool            SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock = true, bool dryrun = false);
 
     void            RemoveLine(int nLineIndex);
@@ -336,8 +342,8 @@ protected:  // methods
     bool            MoveCaretRight();
     void            MoveCaretWordLeft();
     void            MoveCaretWordRight();
-    void            OnCaretMove();
-    void            OnCaretMove(bool isShiftPressed);
+    void            OnCaretMove(bool bMoveLeft);
+    void            OnCaretMove(bool bMoveLeft, bool isShiftPressed);
     void            UpdateGoalPos();
 
     bool            IsWordSeparator(wchar_t ch) const;

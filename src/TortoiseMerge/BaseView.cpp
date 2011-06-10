@@ -2550,7 +2550,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
             ptCaretPos.y = max(ptCaretPos.y, 0);
             ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nCaretGoalPos);
             SetCaretPosition(ptCaretPos);
-            OnCaretMove(bShift);
+            OnCaretMove(MOVELEFT, bShift);
             ShowDiffLines(ptCaretPos.y);
         }
         break;
@@ -2562,7 +2562,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
                 ptCaretPos.y = GetLineCount()-1;
             ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nCaretGoalPos);
             SetCaretPosition(ptCaretPos);
-            OnCaretMove(bShift);
+            OnCaretMove(MOVERIGHT, bShift);
             ShowDiffLines(ptCaretPos.y);
         }
         break;
@@ -2574,7 +2574,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
                 SetCaretToViewStart();
                 m_nCaretGoalPos = 0;
                 if (bShift)
-                    AdjustSelection();
+                    AdjustSelection(MOVELEFT);
                 else
                     ClearSelection();
                 UpdateCaret();
@@ -2583,7 +2583,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
             {
                 SetCaretToLineStart();
                 m_nCaretGoalPos = 0;
-                OnCaretMove(bShift);
+                OnCaretMove(MOVERIGHT, bShift);
                 ScrollAllToChar(0);
             }
         }
@@ -2598,7 +2598,7 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
                 ptCaretPos.x = GetLineLength(ptCaretPos.y);
                 SetCaretAndGoalPosition(ptCaretPos);
                 if (bShift)
-                    AdjustSelection();
+                    AdjustSelection(MOVERIGHT);
                 else
                     ClearSelection();
             }
@@ -2675,7 +2675,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
         SetCaretAndGoalPosition(ptCaretPos);
 
         if (nFlags & MK_SHIFT)
-            AdjustSelection();
+            AdjustSelection(MOVERIGHT);
         else
         {
             ClearSelection();
@@ -2957,7 +2957,7 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
         {
             POINT ptCaretPos = {charIndex, nMouseLine};
             SetCaretAndGoalPosition(ptCaretPos);
-            AdjustSelection();
+            AdjustSelection(MOVERIGHT);
             Invalidate();
             UpdateWindow();
         }
@@ -3604,7 +3604,7 @@ void CBaseView::OnCaretDown()
     ptCaretPos.y = nNextLine;
     ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nCaretGoalPos);
     SetCaretPosition(ptCaretPos);
-    OnCaretMove();
+    OnCaretMove(MOVELEFT);
     ShowDiffLines(ptCaretPos.y);
 }
 
@@ -3672,13 +3672,13 @@ void CBaseView::UpdateGoalPos()
 void CBaseView::OnCaretLeft()
 {
     MoveCaretLeft();
-    OnCaretMove();
+    OnCaretMove(MOVELEFT);
 }
 
 void CBaseView::OnCaretRight()
 {
     MoveCaretRight();
-    OnCaretMove();
+    OnCaretMove(MOVERIGHT);
 }
 
 void CBaseView::OnCaretUp()
@@ -3710,7 +3710,7 @@ void CBaseView::OnCaretUp()
     ptCaretPos.y = nPrevLine;
     ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nCaretGoalPos);
     SetCaretPosition(ptCaretPos);
-    OnCaretMove();
+    OnCaretMove(MOVELEFT);
     ShowDiffLines(ptCaretPos.y);
 }
 
@@ -3747,18 +3747,14 @@ void CBaseView::UpdateViewsCaretPosition()
 
 void CBaseView::OnCaretWordleft()
 {
-    while (MoveCaretLeft() && !IsCaretAtWordBoundary())
-    {
-    }
-    OnCaretMove();
+    MoveCaretWordLeft();
+    OnCaretMove(MOVELEFT);
 }
 
 void CBaseView::OnCaretWordright()
 {
-    while (MoveCaretRight() && !IsCaretAtWordBoundary())
-    {
-    }
-    OnCaretMove();
+    MoveCaretWordRight();
+    OnCaretMove(MOVERIGHT);
 }
 
 void CBaseView::MoveCaretWordLeft()
@@ -3795,9 +3791,14 @@ void CBaseView::ClearSelection()
         m_pwndBottom->ClearCurrentSelection();
 }
 
-void CBaseView::AdjustSelection()
+void CBaseView::AdjustSelection(bool bMoveLeft)
 {
     POINT ptCaretViewPos = GetCaretViewPosition();
+    if (ArePointsSame(m_ptSelectionViewPosOrigin, SetupPoint(-1, -1)))
+    {
+        // select all have been used recently update origin
+        m_ptSelectionViewPosOrigin = bMoveLeft ? m_ptSelectionViewPosEnd :  m_ptSelectionViewPosStart;
+    }
     if ((ptCaretViewPos.y < m_ptSelectionViewPosOrigin.y) ||
         (ptCaretViewPos.y == m_ptSelectionViewPosOrigin.y && ptCaretViewPos.x <= m_ptSelectionViewPosOrigin.x))
     {
@@ -3846,16 +3847,16 @@ void CBaseView::DeleteFonts()
     }
 }
 
-void CBaseView::OnCaretMove()
+void CBaseView::OnCaretMove(bool bMoveLeft)
 {
     const bool isShiftPressed = (GetKeyState(VK_SHIFT)&0x8000) != 0;
-    OnCaretMove(isShiftPressed);
+    OnCaretMove(bMoveLeft, isShiftPressed);
 }
 
-void CBaseView::OnCaretMove(bool isShiftPressed)
+void CBaseView::OnCaretMove(bool bMoveLeft, bool isShiftPressed)
 {
     if(isShiftPressed)
-        AdjustSelection();
+        AdjustSelection(bMoveLeft);
     else
         ClearSelection();
     EnsureCaretVisible();
@@ -3886,7 +3887,7 @@ void CBaseView::CompensateForKeyboard(CPoint& point)
 {
     // if the context menu is invoked through the keyboard, we have to use
     // a calculated position on where to anchor the menu on
-    if ((point.x == -1) && (point.y == -1))
+    if (ArePointsSame(point, SetupPoint(-1, -1)))
     {
         CRect rect;
         GetWindowRect(&rect);
@@ -4295,11 +4296,9 @@ void CBaseView::OnEditSelectall()
     int nLastViewLine = m_pViewData->GetCount()-1;
     SetupAllViewSelection(0, nLastViewLine);
 
-    m_ptSelectionViewPosStart.x = 0;
-    m_ptSelectionViewPosStart.y = 0;
-    m_ptSelectionViewPosEnd.y = nLastViewLine;
-    CString sLine = GetViewLineChars(nLastViewLine);
-    m_ptSelectionViewPosEnd.x = sLine.GetLength();
+    m_ptSelectionViewPosStart = SetupPoint(0, 0);
+    m_ptSelectionViewPosEnd = SetupPoint(nLastViewLine, sLine.GetLength());
+    m_ptSelectionViewPosOrigin = SetupPoint(-1, -1);
 
     UpdateWindow();
 }
