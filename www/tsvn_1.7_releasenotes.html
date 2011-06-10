@@ -103,6 +103,15 @@
                 working copy, TortoiseSVN only shows you one command in the 
                 context menu: <code>Upgrade working copy</code>.</p>
                 <img src="images/upgradewc.png" />
+                <div class="tip">
+                <p>
+                To be on the safe side, you should run a <code>cleanup</code>
+                with your pre-1.7 svn client on your working copies. Because
+                if the working copy is in an inconsistent state, the upgrade
+                process might fail. Best to run cleanup before upgrading
+                the svn client.
+                </p>
+                </div>
                 <p>
                 Once you've upgraded your working copies, older SVN clients
                 won't be able to access those working copies. So make sure
