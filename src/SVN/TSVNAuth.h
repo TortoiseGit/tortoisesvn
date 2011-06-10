@@ -37,3 +37,20 @@ extern std::map<CStringA, Creds> tsvn_creds;
 
 void svn_auth_get_tsvn_simple_provider(svn_auth_provider_object_t **provider,
                                        apr_pool_t *pool);
+
+typedef svn_error_t *(*tsvn_svn_auth_ssl_client_cert_prompt_func_t)(
+    int trycount,
+    svn_auth_cred_ssl_client_cert_t **cred,
+    void *baton,
+    const char *realm,
+    svn_boolean_t may_save,
+    apr_pool_t *pool);
+
+void svn_auth_get_tsvn_ssl_client_cert_prompt_provider
+    (svn_auth_provider_object_t **provider,
+    tsvn_svn_auth_ssl_client_cert_prompt_func_t prompt_func,
+    void *prompt_baton,
+    int retry_limit,
+    apr_pool_t *pool);
+
+
