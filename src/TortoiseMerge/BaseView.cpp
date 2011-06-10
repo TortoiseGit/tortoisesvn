@@ -4296,6 +4296,7 @@ void CBaseView::OnEditSelectall()
     int nLastViewLine = m_pViewData->GetCount()-1;
     SetupAllViewSelection(0, nLastViewLine);
 
+    CString sLine = GetViewLineChars(nLastViewLine);
     m_ptSelectionViewPosStart = SetupPoint(0, 0);
     m_ptSelectionViewPosEnd = SetupPoint(nLastViewLine, sLine.GetLength());
     m_ptSelectionViewPosOrigin = SetupPoint(-1, -1);
