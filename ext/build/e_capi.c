@@ -1720,7 +1720,9 @@ static int capi_load_ssl_client_cert(ENGINE *e, SSL *ssl,
 
 static int cert_select_simple(ENGINE *e, SSL *ssl, STACK_OF(X509) *certs)
 	{
-	return 0;
+        if (sk_X509_num(certs) == 1)
+            return 0;
+        return -1; /* let TSVN decide which certificate to use */
 	}
 
 #ifdef OPENSSL_CAPIENG_DIALOG
