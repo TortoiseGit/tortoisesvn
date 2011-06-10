@@ -4273,10 +4273,7 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
             {
                 removedPositions[nTextStartOffset] = m_InlineRemovedBk;
             }
-            else
-            {
-                oLineColors.SetColor(nTextStartOffset, crText, crBkgnd);
-            }
+            oLineColors.SetColor(nTextStartOffset, crText, crBkgnd);
 
             nTextStartOffset += nTextLength;
             diff = diff->next;
