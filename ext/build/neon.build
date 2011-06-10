@@ -131,8 +131,10 @@
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
         <include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" />
-        <include name="..\..\..\common\openssl\out32\libeay32.lib" />
-        <include name="..\..\..\common\openssl\out32\ssleay32.lib" />
+        <include name="..\..\..\common\openssl\out32\libeay32.lib" if="${(configuration == 'release')}" />
+        <include name="..\..\..\common\openssl\out32\ssleay32.lib" if="${(configuration == 'release')}" />
+        <include name="..\..\..\common\openssl\out32.dbg\libeay32.lib" if="${(configuration != 'release')}" />
+        <include name="..\..\..\common\openssl\out32.dbg\ssleay32.lib" if="${(configuration != 'release')}" />
         <include name="..\gssapi\${configuration}_${platform}\gssapiu.lib" />
       </sources>
     </lib>

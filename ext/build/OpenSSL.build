@@ -22,12 +22,22 @@
     <if test="${platform == 'win32'}">
       <exec program="perl" workingdir="..\..\..\common\openssl">
         <arg value="Configure" />
-        <arg value="VC-WIN32" />
+        <arg value="VC-WIN32" if="${(configuration == 'release')}" />
+        <arg value="debug-VC-WIN32" if="${(configuration != 'release')}" />
         <arg value="no-asm" />
+        <arg value="debug" if="${(configuration != 'release')}" />
         <arg value="enable-capieng" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
-        <arg value="-DOPENSSL_CAPIENG_DIALOG" />
       </exec>
+      <if test="${cleanup == 'yes'}">
+        <!-- to prevent 'nmake clean' to choke on userinput questions, give it our own del command -->
+        <echo file="..\..\..\common\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
+        <exec program="nmake" workingdir="..\..\..\common\openssl" failonerror="false">
+          <arg value="-f" />
+          <arg value="ms\nt.mak" />
+          <arg value="clean" />
+        </exec>
+      </if>
       <exec program="cmd" workingdir="..\..\..\common\openssl">
         <arg value="/c" />
         <arg value="ms\do_ms" />
@@ -40,11 +50,11 @@
     <if test="${platform == 'x64'}">
       <exec program="perl" workingdir="..\..\..\common\openssl">
         <arg value="Configure" />
-        <arg value="VC-WIN64A" />
+        <arg value="VC-WIN64A" if="${(configuration == 'release')}" />
+        <arg value="debug-VC-WIN64A" if="${(configuration != 'release')}" />
         <arg value="no-asm" />
         <arg value="enable-capieng" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
-        <arg value="-DOPENSSL_CAPIENG_DIALOG" />
       </exec>
       <exec program="cmd" workingdir="..\..\..\common\openssl">
         <arg value="/c" />

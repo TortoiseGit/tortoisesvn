@@ -83,8 +83,10 @@
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
         <include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" />
-        <include name="..\..\..\common\openssl\out32\libeay32.lib" />
-        <include name="..\..\..\common\openssl\out32\ssleay32.lib" />
+        <include name="..\..\..\common\openssl\out32\libeay32.lib" if="${(configuration == 'release')}" />
+        <include name="..\..\..\common\openssl\out32\ssleay32.lib" if="${(configuration == 'release')}" />
+        <include name="..\..\..\common\openssl\out32.dbg\libeay32.lib" if="${(configuration != 'release')}" />
+        <include name="..\..\..\common\openssl\out32.dbg\ssleay32.lib" if="${(configuration != 'release')}" />
         <include name="..\apr-util\${configuration}_${platform}\libaprutil_tsvn.lib" />
         <include name="..\apr\${configuration}_${platform}\libapr_tsvn.lib" />
       </sources>
