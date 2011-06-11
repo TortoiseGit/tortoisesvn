@@ -9,16 +9,17 @@
 # $Rev$
 # 
 # Authors:
-#   <grokwik@gmail.com>, 2011
-# Alexandre Paradis <paradial@hotmail.com>, 2011
-# grokwik <grokwik@gmail.com>, 2011
+#   <grokwik@gmail.com>, 2011.
+# Alexandre Paradis <paradial@hotmail.com>, 2011.
+# grokwik <grokwik@gmail.com>, 2011.
+# Linus Fredrich Levisse <linukcs@live.fr>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-06 06:48+0000\n"
-"Last-Translator: grokwik <grokwik@gmail.com>\n"
+"PO-Revision-Date: 2011-06-08 13:24+0000\n"
+"Last-Translator: Linukcs <linukcs@live.fr>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2881,7 +2882,7 @@ msgstr "&Profondeur d'extraction"
 #. Resource IDs: (229)
 #, c-format
 msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
-msgstr ""
+msgstr "Vérification depuis %1!s!, révision %2!s!, %3!s!, %4!s!"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3374,7 +3375,7 @@ msgstr ""
 #. Resource IDs: (229)
 #, c-format
 msgid "Copy %1!s! to %2!s!, Revision %3!s!"
-msgstr ""
+msgstr "Copie de %1!s! vers %2!s!, Révision %3!s!"
 
 #. Resource IDs: (126)
 #, c-format
@@ -4698,7 +4699,7 @@ msgstr "Exporte un jeu de propriétés dans un fichier"
 
 #. Resource IDs: (10)
 msgid "Exports a versioned folder as a separate unversioned folder"
-msgstr ""
+msgstr "Exporte un dossier avec version comme un dossier séparé sans version."
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4827,7 +4828,7 @@ msgstr "Récupération de la révision %s du fichier :"
 #. Resource IDs: (148)
 #, c-format
 msgid "Fetching status of %1!s!"
-msgstr ""
+msgstr "Chercher le statut de %1!s!"
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5835,7 +5836,7 @@ msgstr "Importer"
 #. Resource IDs: (229)
 #, c-format
 msgid "Import %1!s! to %2!s!%3!s!"
-msgstr ""
+msgstr "Importe %1!s! vers %2!s!%3!s!"
 
 #. Resource IDs: (127)
 #, c-format
@@ -6593,7 +6594,7 @@ msgstr "Fusion"
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
-msgstr ""
+msgstr "Fusion de %1!s! dans %2!s!, %3!s!%4!s!"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6605,6 +6606,8 @@ msgid ""
 "Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
 "%6!s!%7!s!%8!s!"
 msgstr ""
+"Fusion de %1!s!, révision %2!s! vers %3!s!, révision %4!s! dans %5!s!, "
+"%6!s!%7!s!%8!s!"
 
 #. Resource IDs: (264)
 #, c-format
@@ -8203,7 +8206,7 @@ msgstr "Avertissement de relocalisation"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "Relocaliser où un switch pourrait être prévu"
 
 #. Resource IDs: (89)
 msgid ""
@@ -9583,7 +9586,7 @@ msgstr "Ignoré, cible absente "
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr ""
+msgstr "Copie de travail en cours d'obstruction évitée"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -9628,7 +9631,7 @@ msgstr "URL source :"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth '%2!s!'"
-msgstr ""
+msgstr "Mise à jour légère %1!s!, profondeur \"%2!s!\""
 
 #. Resource IDs: (196)
 msgid ""
@@ -9922,7 +9925,7 @@ msgstr "Passer sur Branch / Tag"
 
 #. Resource IDs: (620)
 msgid "Switch back to parent"
-msgstr ""
+msgstr "Revenir au parent"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9974,7 +9977,7 @@ msgstr "Basculer:"
 
 #. Resource IDs: (265)
 msgid "Switched"
-msgstr ""
+msgstr "Revenu"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -10435,6 +10438,8 @@ msgid ""
 "The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"Le chemin/URL '%s' n'a pas l'air valide sous Windows!\n"
+"Vous pouvez essayer de le conserver, mais des erreurs peuvent subvenir plus tard."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10589,6 +10594,9 @@ msgid ""
 "The target working copy '%s' has local modifications. It is recommended to "
 "commit those changes first before merging new changes."
 msgstr ""
+"La copie de travail cible '%s' possède des modifications locales. Il est "
+"recommandé de livrer ces changements avant de fusionner les nouveaux "
+"changements."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -11401,7 +11409,7 @@ msgstr "Mettre à jour la copie de travail"
 #. Resource IDs: (99)
 #, c-format
 msgid "Upgrading '%1!s!'"
-msgstr ""
+msgstr "Mise à jour de '%1!s!'"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11901,6 +11909,9 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
+"Vous avez abandonné plus d'un fichier ou dossier à ajouter au répertoire.\n"
+"Il n'est pas possible de le faire en une étape, lors TortoiseSVN ajoutera chaque fichier/dossier\n"
+"individuellement, créant une nouvelle révision pour chaque item ajouté."
 
 #. Resource IDs: (105)
 msgid ""
@@ -12332,6 +12343,9 @@ msgid ""
 "old size: %2!s!\r\n"
 "change: %3!s!"
 msgstr ""
+"Taille courante : %1!s!\n"
+"Taille précédente : %2!s!\n"
+"Changement : %3!s!"
 
 #. Resource IDs: (245)
 msgid "day"

@@ -9,14 +9,14 @@
 # $Rev$
 # 
 # Authors:
-# Kari Granö <kari.grano@gmail.com>, 2011
-# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
+# Kari Granö <kari.grano@gmail.com>, 2011.
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 00:11+0000\n"
+"PO-Revision-Date: 2011-06-06 19:46+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10018,7 +10018,7 @@ msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
-msgstr ""
+msgstr "Siivoa työkopio"
 
 #. (para)
 msgid ""
@@ -10028,16 +10028,23 @@ msgid ""
 "<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
 "or other SVN clients."
 msgstr ""
+"Kuten yllä kuvattiin, tämä valinta koettaa korjata vikaantuneen työkopion "
+"käytettävään kuntoon. Korjaukset eivät kohdistu tiedostoihin vaan "
+"työkopiotietokannan sisäiseen tilaan. Kyseessä on aiemmista TortoiseSVN-"
+"versioista ja muista SVN-asiakkaista tuttu <literal>Siivoa</literal> "
+"-komento."
 
 #. (term)
 msgid "Revert all changes recursively"
-msgstr ""
+msgstr "Palauta kaikki muutokset palautuvasti"
 
 #. (para)
 msgid ""
 "This command reverts all your local modifications which are not committed "
 "yet."
 msgstr ""
+"Tämä komento peruuttaa kaikki paikallisest muutokset, joita ei ole vielä "
+"toimitettu arkistoon."
 
 #. (para)
 msgid ""
@@ -10046,10 +10053,13 @@ msgid ""
 " command instead, because there you can first see and select the files which"
 " you want to revert."
 msgstr ""
+"Huomaa: On parempi käyttää komentoa "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Palauta</guimenuitem></menuchoice>,"
+" koska siten voit ensin nähdä ja valita palautettavat tiedostot."
 
 #. (term)
 msgid "Delete ignored and unversioned files and folders"
-msgstr ""
+msgstr "Poista ohitetut ja versioimattomat tiedostot ja kansiot"
 
 #. (para)
 msgid ""
@@ -10057,6 +10067,9 @@ msgid ""
 "copy. All files and folders that are not versioned are moved to the trash "
 "bin."
 msgstr ""
+"Tämä on nopea ja yksinkertainen tapa poistaa kaikki väliaikaiset tiedostot "
+"ja kansiot työkopiostasi. Poistettavat tiedostot ja kansiot siirretään "
+"Roskakoriin."
 
 #. (para)
 msgid ""
@@ -10065,10 +10078,14 @@ msgid ""
 " dialog. There you also get a list of all the unversioned files and folders "
 "to select for removal."
 msgstr ""
+"Huomaa: Voit tehdä saman "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Palauta</guimenuitem></menuchoice>-ikkunassa."
+" Ikkuna antaa myös mahdollisuuden luetella ja valita poistettavat tiedostot "
+"ja kansiot."
 
 #. (term)
 msgid "Refresh shell overlays"
-msgstr ""
+msgstr "Päivitä kuvakepäällykset"
 
 #. (para)
 msgid ""
@@ -10077,12 +10094,18 @@ msgid ""
 " recognize changes. In this situation, you can use this command to force a "
 "refresh."
 msgstr ""
+"Joskus Resurssienhallinnan kuvakepäällykset (erityisesti vasemman paneelin "
+"puunäkymässä) eivät näytä oikeaa tilaa. Voi myös käydä niin, ettei "
+"TortoiseSVN havaitse muutoksia. Näissä tapauksissa voit käyttää tätä "
+"komentoa pakottaaksesi päivityksen."
 
 #. (para)
 msgid ""
 "In the cleanup dialog, there are also other useful options to get the "
 "working copy into a <literal>clean</literal> state. <placeholder-1/>"
 msgstr ""
+"Siivousikkunassa on myös muita hyödyllisiä valitsimia työkopion "
+"puhdistamiseksi. <placeholder-1/>"
 
 #. (title)
 msgid "Project Settings"

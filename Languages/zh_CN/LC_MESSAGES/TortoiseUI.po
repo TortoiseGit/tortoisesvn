@@ -9,17 +9,18 @@
 # $Rev$
 # 
 # Authors:
-#   <pluwen@gmail.com>, 2011
-# pluwen <pluwen@gmail.com>, 2011
-# Garfield Yao <field977@gmail.com>, 2011
-# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
+# fang zheng <fz0000@sina.com>, 2011.
+#   <pluwen@gmail.com>, 2011.
+# pluwen <pluwen@gmail.com>, 2011.
+# Garfield Yao <field977@gmail.com>, 2011.
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 00:38+0000\n"
-"Last-Translator: pluwen <pluwen@gmail.com>\n"
+"PO-Revision-Date: 2011-06-09 10:01+0000\n"
+"Last-Translator: fz0000 <fz0000@sina.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -317,6 +318,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
 msgstr ""
+"%s\n"
+"你一定要移除这 %d 个文件吗？"
 
 #. Resource IDs: (147)
 #, c-format
@@ -324,6 +327,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
+"%s\n"
+"你一定要移除 '%s' 这个文件吗？"
 
 #. Resource IDs: (147)
 #, c-format
@@ -1854,6 +1859,8 @@ msgid ""
 "Adjust case\n"
 "The file is not added."
 msgstr ""
+"调整情况\n"
+"该文件不会被添加。"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1905,7 +1912,7 @@ msgstr "所有文件 (*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
-msgstr ""
+msgstr "自上一次更新的所有更改将会丢失！"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2414,6 +2421,8 @@ msgid ""
 "Cancel\n"
 "Do not remove"
 msgstr ""
+"取消\n"
+"不要移除"
 
 #. Resource IDs: (119)
 msgid ""
@@ -2428,6 +2437,8 @@ msgid ""
 "Cancel\n"
 "Do not update the working copy."
 msgstr ""
+"取消\n"
+"不要更新工作副本。"
 
 #. Resource IDs: (315)
 msgid ""
@@ -2460,6 +2471,8 @@ msgid ""
 "Cancel\n"
 "Go back and select a different folder."
 msgstr ""
+"取消\n"
+"返回选择一个不同的文件夹。"
 
 #. Resource IDs: (89)
 msgid ""
@@ -2492,6 +2505,8 @@ msgid ""
 "Cancel\n"
 "Leave all changes."
 msgstr ""
+"取消\n"
+"保留所有更改。"
 
 #. Resource IDs: (199)
 msgid ""
@@ -2516,12 +2531,16 @@ msgid ""
 "Cancel\n"
 "The file is not added and not adjusted."
 msgstr ""
+"取消\n"
+"文件未添加且未调整。"
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not copied."
 msgstr ""
+"取消\n"
+"文件未复制。"
 
 #. Resource IDs: (91)
 msgid ""
@@ -2556,6 +2575,8 @@ msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr ""
+"取消\n"
+"目标文件保持原样"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2772,6 +2793,8 @@ msgid ""
 "Checkout\n"
 "Checkout into the non empty folder."
 msgstr ""
+"检出\n"
+"检出到非空文件夹。"
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -3927,11 +3950,11 @@ msgstr "对下述路径，不显示上下文菜单:"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
-msgstr ""
+msgstr "应用操作到所有存在的文件"
 
 #. Resource IDs: (91)
 msgid "Do this for all existing folders"
-msgstr ""
+msgstr "应用操作到所有存在的文件夹"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
@@ -3943,7 +3966,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr ""
+msgstr "将此操作应用到所有选中未收版本控制的文件夹上"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -3993,7 +4016,7 @@ msgstr ""
 #. Resource IDs: (148)
 #, c-format
 msgid "Do you want to mark '%s' as resolved?"
-msgstr ""
+msgstr "你想将 '%s' 标记为已解决吗？"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4028,6 +4051,9 @@ msgid ""
 "%s\n"
 "and go back to this revision?"
 msgstr ""
+"你要还原所有更改\n"
+"%s\n"
+"并返回到这个版本吗？"
 
 #. Resource IDs: (120)
 #, c-format
@@ -5607,7 +5633,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Illegal path"
-msgstr ""
+msgstr "非法路径"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -9226,7 +9252,7 @@ msgstr "跳过丢失的目标项"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr ""
+msgstr "跳过有问题的工作副本"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -10937,7 +10963,7 @@ msgstr "升级工作副本"
 #. Resource IDs: (99)
 #, c-format
 msgid "Upgrading '%1!s!'"
-msgstr ""
+msgstr "正在升级'%1!s!'"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -11477,7 +11503,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr ""
+msgstr "你提交了一个未受版本控制的文件夹！"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -11846,6 +11872,9 @@ msgid ""
 "old size: %2!s!\r\n"
 "change: %3!s!"
 msgstr ""
+"当前大小: %1!s!\n"
+"旧版本大小: %2!s!\n"
+"改变: %3!s!"
 
 #. Resource IDs: (245)
 msgid "day"

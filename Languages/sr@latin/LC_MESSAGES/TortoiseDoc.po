@@ -9,13 +9,13 @@
 # $Rev$
 # 
 # Authors:
-# Milorad Popovic <MiloradSPopovic@gmail.com>, 2011
+# Milorad Popovic <MiloradSPopovic@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 00:11+0000\n"
+"PO-Revision-Date: 2011-06-06 20:16+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9329,6 +9329,8 @@ msgid ""
 "menu entries for delete and rename in the TortoiseSVN submenu. "
 "<placeholder-1/>"
 msgstr ""
+"Subverzija omogućava preimenovanje i pomeranje fajlova i imenika. Tako da "
+"ima mnogo ulaza za preimenovanje u TortoiseSVN submeni. <placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
@@ -9896,7 +9898,7 @@ msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
-msgstr ""
+msgstr "Čišćenje statusa radne kopije"
 
 #. (para)
 msgid ""
@@ -9906,16 +9908,21 @@ msgid ""
 "<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
 "or other SVN clients."
 msgstr ""
+"Kao što je gore izloženo, ova opcija pokušava da prebaci nekozistentnu radnu"
+" kopiju u radno i korisno stanje.Ovo ne utiče na podatke koje imate već samo"
+" na stanje baze podataka radne kopije. Ovo je aktuelna  komanda "
+"<literal>Čišćenje</literal>  koju znate od starih TortoiseSVN klijenata ili "
+"drugih SVN klijenata."
 
 #. (term)
 msgid "Revert all changes recursively"
-msgstr ""
+msgstr "Vraća sve izmene rekurzivno"
 
 #. (para)
 msgid ""
 "This command reverts all your local modifications which are not committed "
 "yet."
-msgstr ""
+msgstr "Ova komanda vraća sve lokalne izmene koje još nisu urezane."
 
 #. (para)
 msgid ""
@@ -9924,10 +9931,14 @@ msgid ""
 " command instead, because there you can first see and select the files which"
 " you want to revert."
 msgstr ""
+"Primedba: bolje je koristiti "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vrati</guimenuitem></menuchoice>"
+" komandu umesto toga, jer tad možete videti i izabrati fajlove koje hoćete "
+"da vratite."
 
 #. (term)
 msgid "Delete ignored and unversioned files and folders"
-msgstr ""
+msgstr "Briše zanemarene i neverzionisane fajlove i imenike"
 
 #. (para)
 msgid ""
@@ -9935,6 +9946,9 @@ msgid ""
 "copy. All files and folders that are not versioned are moved to the trash "
 "bin."
 msgstr ""
+"Ovo je brz i lak način za uklanjanje svih generisanih fajlova u vašu radnu "
+"kopiju. Svi fajlovi i imenici koji nisu verzionisani gurnuti su u kantu za "
+"đubre."
 
 #. (para)
 msgid ""
@@ -9943,10 +9957,14 @@ msgid ""
 " dialog. There you also get a list of all the unversioned files and folders "
 "to select for removal."
 msgstr ""
+"Primedba: vi možete uraditi isto od "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vrati</guimenuitem></menuchoice>"
+" dijalog. Tu dobijete listu svih neverzionisanih fajlova i imenika da birate"
+" za uklanjanje."
 
 #. (term)
 msgid "Refresh shell overlays"
-msgstr ""
+msgstr "Osvežava prekrivače školjke"
 
 #. (para)
 msgid ""
@@ -9955,12 +9973,18 @@ msgid ""
 " recognize changes. In this situation, you can use this command to force a "
 "refresh."
 msgstr ""
+"Ponekad prekrivači školjke, specijalno na stablu pregleda  sa leve strane "
+"pretraživača ne prikazuje tekući status, ili  status keš odbija da prepozna "
+"izmene. U ovoj situaciji možete koristiti ovu komandu da prisilite "
+"obnavljanje."
 
 #. (para)
 msgid ""
 "In the cleanup dialog, there are also other useful options to get the "
 "working copy into a <literal>clean</literal> state. <placeholder-1/>"
 msgstr ""
+"U dijalogu čišćenja postoje druge korisne opcije za prebacivanje radne "
+"kopije u <literal>čisto</literal> stanje. <placeholder-1/>"
 
 #. (title)
 msgid "Project Settings"
@@ -14388,6 +14412,11 @@ msgid ""
 "keep the graph slim. As a result, a given row may contain changes from "
 "different revisions."
 msgstr ""
+"Ovaj mod grupiše izmene po granama tako da nema globalnog uređenja revizija:"
+" Sledeće revizije na granama će biti prikazane u (često) sledećim linijama. "
+"Subgrane, međutim, su uređene na takav način da sledeće grane budu prikazane"
+" u istoj koloni iznad ranijih grana da zadrže vitak graf. Kao rezultat dat "
+"red sadrži izmene od različitih revizija. "
 
 #. (term)
 msgid "Oldest on top"
@@ -14429,6 +14458,12 @@ msgid ""
 "column, and the graph may require a larger area to draw. If this is a "
 "problem you can disable the option from the <guilabel>View</guilabel> menu."
 msgstr ""
+"Ova opcija normalno omogućava i izbegava prikazivanje grafa sa mnogo "
+"konfuzionih presečnih linija. Međutim ovo može takođe da napravi da se "
+"kolone pojave na manje logičnim mestima, na primer u dijagonalnim linijama "
+"pre nego u kolonama i graf može zahtevati veću površinu za prikazivanje. Ako"
+" je to problem možete onemogućiti opciju iz <guilabel>Pregled</guilabel> "
+"menija."
 
 #. (term)
 msgid "Differential path names"
@@ -14512,6 +14547,13 @@ msgid ""
 "were copied from. A tag icon on the right side of the source node indicates "
 "that tags were made. This greatly simplifies the view."
 msgstr ""
+"Kada projekat ima mnogo znački, prikazivanje svake značke kao izdvojen čvor "
+"na grafu uzima mnogo prostora i zamrači interesantniji razvoj strukture "
+"grana. U isto vreme može vam je potrbno da bude sposobni da pristupite "
+"sadržaju značke lako da možete uporediti revizije. Opcija krije čvorove za "
+"značke i prikazuje ih umesto oblačića za čvorove odakle ste kopirali. Ikona "
+"značke sa desne strane izvornog čvora ukazuje da su značke urađene. Ovo "
+"značajno uprošćava pregled."
 
 #. (para)
 msgid ""
@@ -14519,6 +14561,9 @@ msgid ""
 "branch based on a tag, then that tag will be shown as a separate node rather"
 " than folded."
 msgstr ""
+"Primetimo da ako se značka sama koristi kao izvor za kopiranje, možda je "
+"nova grana osnovana na značku, tada će značka biti prikazana kao izdvojen "
+"čvor pre nego imenik."
 
 #. (term)
 msgid "Hide deleted paths"
@@ -14540,12 +14585,19 @@ msgid ""
 "in the colour used for deleted nodes instead of showing a separate deletion "
 "revision."
 msgstr ""
+"Ako ste izabrali <guilabel>Savijena značka</guilabel> opciju tada obrisane "
+"grane od kojih su značke uzete će i dalje biti prikazane, inače će značke "
+"takođe nestati. Zadnja revizija koja je označena biće prikazana u boji "
+"korišćenoj za obrisane čvorove umesto prikazivanja izdvojenih brisanih "
+"revizija."
 
 #. (para)
 msgid ""
 "If you select the <guilabel>Hide tags</guilabel> option then these branches "
 "will disappear again as they are not needed to show the tags."
 msgstr ""
+"Ako izaberete <guilabel>Skrivena značka</guilabel> opciju onda će ove grane "
+"nestati ponovo ako nisu potrebne da prikažu značke."
 
 #. (term)
 msgid "Hide unused branches"
@@ -22011,6 +22063,13 @@ msgid ""
 "TortoiseProc delete that file after the command is finished, you can pass "
 "the parameter <option>/deletepathfile</option>."
 msgstr ""
+"Možete takođe specificirati fajl koji sadrži listu putanja razdvojenu novim "
+"linijama. Fajl mora biti UTF-16 format, bez <ulink "
+"url=\"http://en.wikipedia.org/wiki/Byte-"
+"order_mark\"><citetitle>BOM</citetitle></ulink>.  Ako prevučete takav fajl "
+"koristite <option>/pathfile</option> umesto <option>/path</option>. Da bi "
+"TortoiseSVN obrisala taj fajl posle završetka komande možete prevući "
+"parametar <option>/deletepathfile</option>."
 
 #. (para)
 msgid ""

@@ -9,14 +9,14 @@
 # $Rev$
 # 
 # Authors:
-#   <paulojustino.nec@gmail.com>, 2011
-# JustinoAveiro <paulojustino.nec@gmail.com>, 2011
+#   <paulojustino.nec@gmail.com>, 2011.
+# JustinoAveiro <paulojustino.nec@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 02:56+0000\n"
+"PO-Revision-Date: 2011-06-10 03:59+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8886,6 +8886,11 @@ msgid ""
 "object: word.Application</quote>. It seems you have to use the MSI-based "
 "version of Office to get the diff functionality."
 msgstr ""
+"Se instalaste a versão do Office 2010 <emphasis>Click-to-Run</emphasis> e "
+"tentares compara documentos, poderás obter uma mensagem de erro do Windows "
+"Script Host como esta: <quote>ActiveX component can't create object: "
+"word.Application</quote>. Parece que terás de usar a versão do Office "
+"baseada em MSI para obteres a funcionalidade de comparação."
 
 #. (title)
 msgid "External Diff/Merge Tools"
@@ -8964,6 +8969,9 @@ msgid ""
 "tool for free. Get more information from <ulink "
 "url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
 msgstr ""
+"O SourceGear Vault é um RCS comercial, mas podes descarregar gratuitamente a"
+" ferramenta de comparação/integração. Para mais informação consulta <ulink "
+"url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
 
 #. (term)
 msgid "ExamDiff"
@@ -10127,7 +10135,7 @@ msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
-msgstr ""
+msgstr "Limpar o estado da cópia de trabalho"
 
 #. (para)
 msgid ""
@@ -10140,13 +10148,15 @@ msgstr ""
 
 #. (term)
 msgid "Revert all changes recursively"
-msgstr ""
+msgstr "Reverter recursivamente todas as alterações"
 
 #. (para)
 msgid ""
 "This command reverts all your local modifications which are not committed "
 "yet."
 msgstr ""
+"Este comando reverte todas as tuas modificações locais que ainda não estão "
+"submetidas."
 
 #. (para)
 msgid ""
@@ -10158,7 +10168,7 @@ msgstr ""
 
 #. (term)
 msgid "Delete ignored and unversioned files and folders"
-msgstr ""
+msgstr "Remover ficheiros e pastas ignorados e não-versionados"
 
 #. (para)
 msgid ""
@@ -10177,7 +10187,7 @@ msgstr ""
 
 #. (term)
 msgid "Refresh shell overlays"
-msgstr ""
+msgstr "Refrescar sobreposições de shell"
 
 #. (para)
 msgid ""
@@ -14898,7 +14908,7 @@ msgstr ""
 
 #. (term)
 msgid "Hide unused branches"
-msgstr ""
+msgstr "Esconder ramos não usados"
 
 #. (para)
 msgid ""
@@ -19161,6 +19171,10 @@ msgid ""
 " to use strong contrast on the locator bar while keeping the main window "
 "background light so that you can still read the text."
 msgstr ""
+"Poderás especificar diferentes cores a usar na barra de localização. Por "
+"defeito é usado um grande contraste na barra de localização enquanto é "
+"mantido claro o fundo da janela principal, para que possas ainda ler o "
+"texto."
 
 #. (term)
 msgid "Font"
@@ -19529,6 +19543,8 @@ msgid ""
 "Remember to save your Subversion settings too, located in the svn config "
 "file in <literal>%APPDATA%\\Subversion</literal>."
 msgstr ""
+"Lembra-te de guardares também as definições do Subversion, localizadas no "
+"ficheiro de config. do svn em <literal>%APPDATA%\\Subversion</literal>."
 
 #. (title)
 msgid "Final Step"
@@ -26192,12 +26208,18 @@ msgid ""
 "highlighted throughout the document, both in the main panes and the locator "
 "bar. Double click on the word again to remove the highlighting."
 msgstr ""
+"Se efectuares duplo clique numa palavra, então todas as ocorrências dessa "
+"palavra serão destacadas em todo o documento, tanto nas páginas principais "
+"como na barra de localização. Efectua novamente duplo clique para remover o "
+"destaque. "
 
 #. (para)
 msgid ""
 "If you click in the left margin, or if you triple click within a line, that "
 "whole line will be selected."
 msgstr ""
+"Se clicares na margem direita, ou se efectuares triplo clique numa linha, "
+"será seleccionada a linha inteira."
 
 #. (para)
 msgid ""

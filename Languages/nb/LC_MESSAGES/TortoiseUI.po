@@ -9,14 +9,14 @@
 # $Rev$
 # 
 # Authors:
-#   <okl@sintef.no>, 2011
-# okloster <okl@sintef.no>, 2011
+#   <okl@sintef.no>, 2011.
+# okloster <okl@sintef.no>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 00:38+0000\n"
+"PO-Revision-Date: 2011-06-09 20:11+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2896,11 +2896,11 @@ msgstr "Rydder opp"
 #. Resource IDs: (146)
 #, c-format
 msgid "Cleaning up directory '%1!s!'"
-msgstr ""
+msgstr "Rydder opp katalog '%1!s!'"
 
 #. Resource IDs: (329)
 msgid "Cleanup"
-msgstr ""
+msgstr "Rydd opp"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3829,7 +3829,7 @@ msgstr "Slett og ignorer %d elementer etter &filendelse"
 
 #. Resource IDs: (1613)
 msgid "Delete ignored and unversioned files and folders"
-msgstr ""
+msgstr "Slett ignorerte og ikke-versjonerte filer og mapper"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4660,7 +4660,7 @@ msgstr "Eksporterer en samling egenskaper til en fil"
 
 #. Resource IDs: (10)
 msgid "Exports a versioned folder as a separate unversioned folder"
-msgstr ""
+msgstr "Eksporter en versjonert mappe som en egen ikke-versjonert mappe"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4788,7 +4788,7 @@ msgstr "Henter revisjon %s av filen:"
 #. Resource IDs: (148)
 #, c-format
 msgid "Fetching status of %1!s!"
-msgstr ""
+msgstr "Henter status til %1!s!"
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5791,7 +5791,7 @@ msgstr "Importer"
 #. Resource IDs: (229)
 #, c-format
 msgid "Import %1!s! to %2!s!%3!s!"
-msgstr ""
+msgstr "Importer %1!s! til %2!s!%3!s!"
 
 #. Resource IDs: (127)
 #, c-format
@@ -6539,7 +6539,7 @@ msgstr "Fletting"
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
-msgstr ""
+msgstr "Fletter %1!s! inn i %2!s!, %3!s!%4!s!"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6551,6 +6551,8 @@ msgid ""
 "Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
 "%6!s!%7!s!%8!s!"
 msgstr ""
+"Fletter fra %1!s!, revisjon %2!s! til %3!s!, revisjon %4!s! inn i %5!s!, "
+"%6!s!%7!s!%8!s!"
 
 #. Resource IDs: (264)
 #, c-format
@@ -6572,7 +6574,7 @@ msgstr ""
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
-msgstr ""
+msgstr "Fletter revisjoner %1!s! av %2!s! inn i %3!s!, %4!s!%5!s!%6!s!"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -8269,7 +8271,7 @@ msgstr "Fjerner de valgte egenskapene"
 #. Resource IDs: (148)
 #, c-format
 msgid "Removing unversioned items in %1!s!"
-msgstr ""
+msgstr "Fjerner ikke-versjonerte elementer i %1!s!"
 
 #. Resource IDs: (16616)
 msgid "Rena&me..."
@@ -8303,6 +8305,8 @@ msgid ""
 "Rename\n"
 "The folder is exported as '%s'."
 msgstr ""
+"Omdøp\n"
+"Mappen eksporteres som '%s'."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8478,7 +8482,7 @@ msgstr "Tilbakestill"
 
 #. Resource IDs: (1529)
 msgid "Revert all changes recursively"
-msgstr ""
+msgstr "Tilbakestill alle endringer rekursivt"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8508,7 +8512,7 @@ msgstr "Tilbakestilt"
 #. Resource IDs: (148)
 #, c-format
 msgid "Reverting %1!s!"
-msgstr ""
+msgstr "Tilbakestiller %1!s!"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -9533,7 +9537,7 @@ msgstr "Kilde-URL:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth '%2!s!'"
-msgstr ""
+msgstr "Glissen oppdatering %1!s!, dybde '%2!s!'"
 
 #. Resource IDs: (196)
 msgid ""
@@ -9810,7 +9814,7 @@ msgstr "Bytt"
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %1!s! to %2!s!, Revision %3!s!"
-msgstr ""
+msgstr "Bytt %1!s! til %2!s!, Revisjon %3!s!"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9826,7 +9830,7 @@ msgstr "Bytt Til Gren / Merke"
 
 #. Resource IDs: (620)
 msgid "Switch back to parent"
-msgstr ""
+msgstr "Bytt tilbake til elementet over"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9878,7 +9882,7 @@ msgstr "Bytt:"
 
 #. Resource IDs: (265)
 msgid "Switched"
-msgstr ""
+msgstr "Byttet"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
