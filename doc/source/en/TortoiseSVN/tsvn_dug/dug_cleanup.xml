@@ -52,7 +52,7 @@
                 </listitem>
             </varlistentry>
             <varlistentry>
-                <term>Delete ignored and unversioned files and folders</term>
+                <term>Delete unversioned files and folders, Delete ignored files and folders</term>
                 <listitem>
                     <para>
                         This is a fast and easy way to remove all generated files
@@ -78,6 +78,16 @@
                         status, or the status cache failed to recognize changes.
                         In this situation, you can use this command to force
                         a refresh.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Include externals</term>
+                <listitem>
+                    <para>
+                        If this is checked, then all actions are done for all
+                        files and folders included with the <literal>svn:externals</literal>
+                        property as well.
                     </para>
                 </listitem>
             </varlistentry>

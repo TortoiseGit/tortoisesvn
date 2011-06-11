@@ -264,6 +264,15 @@ Don't touch these lines:
                                 Use <option>/noui</option> to prevent the result
                                 dialog from popping up (either telling about
                                 the cleanup being finished or showing an error message).
+                                <option>/noprogressui</option> also disables the
+                                progress dialog. <option>/nodlg</option> disables
+                                showing the cleanup dialog where the user can
+                                choose what exactly should be done in the cleanup.
+                                The available actions can be specified with the
+                                options <option>/cleanup</option> for status cleanup,
+                                <option>/revert</option>, <option>/delunversioned</option>,
+                                <option>/delignored</option>, <option>/refreshshell</option>
+                                and <option>/externals</option>.
                             </entry>
                         </row>
                         <row>
