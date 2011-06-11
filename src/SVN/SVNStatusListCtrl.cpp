@@ -1041,6 +1041,8 @@ DWORD CSVNStatusListCtrl::GetShowFlagsFromFileEntry(const FileEntry* entry)
 
     DWORD showFlags = 0;
     svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
+    status = SVNStatus::GetMoreImportant(status, entry->textstatus);
+    status = SVNStatus::GetMoreImportant(status, entry->propstatus);
 
     switch (status)
     {
@@ -1540,7 +1542,10 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
         m_nShownConflicted++;
     else
     {
-        switch (entry->status)
+        svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
+        status = SVNStatus::GetMoreImportant(status, entry->textstatus);
+        status = SVNStatus::GetMoreImportant(status, entry->propstatus);
+        switch (status)
         {
         case svn_wc_status_normal:
             m_nShownNormal++;
@@ -1995,7 +2000,10 @@ bool CSVNStatusListCtrl::BuildStatistics()
         }
         if (entry->switched)
             m_nSwitched++;
-        switch (entry->status)
+        svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
+        status = SVNStatus::GetMoreImportant(status, entry->textstatus);
+        status = SVNStatus::GetMoreImportant(status, entry->propstatus);
+        switch (status)
         {
         case svn_wc_status_normal:
             m_nNormal++;
@@ -2318,9 +2326,9 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
         {
             FileEntry * e = GetListEntry(index);
             if (!bKeepLocal &&
-                ((e->textstatus == svn_wc_status_unversioned)||
-                (e->textstatus == svn_wc_status_none)||
-                (e->textstatus == svn_wc_status_ignored)))
+                ((e->status == svn_wc_status_unversioned)||
+                (e->status == svn_wc_status_none)||
+                (e->status == svn_wc_status_ignored)))
             {
                 if (GetCheck(index))
                     m_nSelected--;

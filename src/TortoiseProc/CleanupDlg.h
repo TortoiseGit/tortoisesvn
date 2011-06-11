@@ -38,7 +38,9 @@ public:
     BOOL m_bCleanup;
     BOOL m_bRevert;
     BOOL m_bDelUnversioned;
+    BOOL m_bDelIgnored;
     BOOL m_bRefreshShell;
+    BOOL m_bExternals;
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -53,8 +55,5 @@ private:
     CToolTips           m_tooltips;
 public:
     afx_msg void OnBnClickedHelp();
-    afx_msg void OnBnClickedCleanup();
-    afx_msg void OnBnClickedRevert();
-    afx_msg void OnBnClickedDeleteunversioned();
-    afx_msg void OnBnClickedRefreshshell();
+    afx_msg void OnBnClicked();
 };

@@ -34,7 +34,9 @@ bool CleanupCommand::Execute()
     bool bCleanup           = !!parser.HasKey(L"cleanup");
     bool bRevert            = !!parser.HasKey(L"revert");
     bool bDelUnversioned    = !!parser.HasKey(L"delunversioned");
+    bool bDelIgnored        = !!parser.HasKey(L"delignored");
     bool bRefreshShell      = !!parser.HasKey(L"refreshshell");
+    bool bIncludeExternals  = !!parser.HasKey(L"externals");
 
     if (!parser.HasKey(L"noui") && !parser.HasKey(L"nodlg"))
     {
@@ -44,10 +46,12 @@ bool CleanupCommand::Execute()
         bCleanup            = !!dlg.m_bCleanup;
         bRevert             = !!dlg.m_bRevert;
         bDelUnversioned     = !!dlg.m_bDelUnversioned;
+        bDelIgnored         = !!dlg.m_bDelIgnored;
         bRefreshShell       = !!dlg.m_bRefreshShell;
+        bIncludeExternals   = !!dlg.m_bExternals;
     }
 
-    if (!bCleanup && !bRevert && !bDelUnversioned && !bRefreshShell)
+    if (!bCleanup && !bRevert && !bDelUnversioned && !bDelIgnored && !bRefreshShell)
         return false;
 
     int actionTotal = 0;
@@ -58,6 +62,8 @@ bool CleanupCommand::Execute()
     if (bRevert)
         actionTotal++;
     if (bDelUnversioned)
+        actionTotal++;
+    if (bDelIgnored)
         actionTotal++;
     if (bRefreshShell)
         actionTotal += pathList.GetCount();
@@ -89,13 +95,30 @@ bool CleanupCommand::Execute()
             }
         }
     }
-    CTSVNPathList itemsToRevert, unversionedItems;
-    if (!bFailed && (bRevert || bDelUnversioned))
+    CTSVNPathList itemsToRevert, unversionedItems, ignoredItems, externals;
+    if (!bFailed && (bRevert || bDelUnversioned || bDelIgnored || bIncludeExternals))
     {
         progress.SetProgress(actionCounter++, actionTotal);
         progress.FormatPathLine(2, IDS_PROC_CLEANUP_INFOFETCHSTATUS, pathList.GetCommonRoot().GetWinPath());
-        strFailedString = GetUnversionedAndRevertPaths(pathList, unversionedItems, itemsToRevert);
+        strFailedString = GetCleanupPaths(pathList, unversionedItems, ignoredItems, itemsToRevert, bIncludeExternals, externals);
         bFailed = !strFailedString.IsEmpty();
+    }
+    if (!bFailed && bIncludeExternals)
+    {
+        actionTotal += externals.GetCount();
+        for (int i=0; i<externals.GetCount(); ++i)
+        {
+            SVN svn;
+            progress.FormatPathLine(2, IDS_PROC_CLEANUP_INFO1, (LPCTSTR)externals[i].GetFileOrDirectoryName());
+            progress.SetProgress(actionCounter++, actionTotal);
+            if (!svn.CleanUp(externals[i]))
+            {
+                strFailedString = externals[i].GetWinPathString();
+                strFailedString += L"\n" + svn.GetLastErrorMessage();
+                bFailed = true;
+                break;
+            }
+        }
     }
     if (!bFailed && bRevert)
     {
@@ -120,8 +143,15 @@ bool CleanupCommand::Execute()
     {
         progress.SetProgress(actionCounter++, actionTotal);
         progress.FormatPathLine(2, IDS_PROC_CLEANUP_INFODELUNVERSIONED, pathList.GetCommonRoot().GetWinPath());
-        progress.SetProgress(actionCounter+=pathList.GetCount(), actionTotal);
+        progress.SetProgress(actionCounter++, actionTotal);
         unversionedItems.DeleteAllPaths(true, false);
+    }
+    if (!bFailed && bDelIgnored)
+    {
+        progress.SetProgress(actionCounter++, actionTotal);
+        progress.FormatPathLine(2, IDS_PROC_CLEANUP_INFODELIGNORED, pathList.GetCommonRoot().GetWinPath());
+        progress.SetProgress(actionCounter++, actionTotal);
+        ignoredItems.DeleteAllPaths(true, false);
     }
     if (!bFailed && bRefreshShell)
     {
@@ -183,13 +213,13 @@ bool CleanupCommand::Execute()
     return !bFailed;
 }
 
-CString CleanupCommand::GetUnversionedAndRevertPaths( const CTSVNPathList paths, CTSVNPathList& unversioned, CTSVNPathList& reverts )
+CString CleanupCommand::GetCleanupPaths( const CTSVNPathList paths, CTSVNPathList& unversioned, CTSVNPathList& ignored, CTSVNPathList& reverts, bool includeExts, CTSVNPathList& externals )
 {
     for (int i=0; i<paths.GetCount(); ++i)
     {
         SVNStatus status;
         CTSVNPath retPath;
-        svn_client_status_t * s = status.GetFirstFileStatus(paths[i], retPath, false, svn_depth_infinity, false, true);
+        svn_client_status_t * s = status.GetFirstFileStatus(paths[i], retPath, false, svn_depth_infinity, true, !includeExts);
         if (s == NULL)
         {
             CString sErr = paths[i].GetWinPathString() + L"\n" + status.GetLastErrorMessage();
@@ -199,10 +229,15 @@ CString CleanupCommand::GetUnversionedAndRevertPaths( const CTSVNPathList paths,
         {
         case svn_wc_status_none:
         case svn_wc_status_unversioned:
-        case svn_wc_status_ignored:
             unversioned.AddPath(retPath);
             break;
+        case svn_wc_status_ignored:
+            ignored.AddPath(retPath);
+            break;
         case svn_wc_status_normal:
+            break;
+        case svn_wc_status_external:
+            externals.AddPath(retPath);
             break;
         default:
             reverts.AddPath(retPath);
@@ -214,15 +249,26 @@ CString CleanupCommand::GetUnversionedAndRevertPaths( const CTSVNPathList paths,
             {
             case svn_wc_status_none:
             case svn_wc_status_unversioned:
-            case svn_wc_status_ignored:
                 unversioned.AddPath(retPath);
                 break;
+            case svn_wc_status_ignored:
+                ignored.AddPath(retPath);
+                break;
             case svn_wc_status_normal:
+                break;
+            case svn_wc_status_external:
+                externals.AddPath(retPath);
                 break;
             default:
                 reverts.AddPath(retPath);
                 break;
             }
+        }
+        std::set<CTSVNPath> extset;
+        status.GetExternals(extset);
+        for (auto it = extset.cbegin(); it != extset.cend(); ++it)
+        {
+            externals.AddPath(*it);
         }
     }
     return L"";

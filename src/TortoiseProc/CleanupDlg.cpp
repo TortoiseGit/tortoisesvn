@@ -32,7 +32,9 @@ CCleanupDlg::CCleanupDlg(CWnd* pParent /*=NULL*/)
     , m_bCleanup(FALSE)
     , m_bRevert(FALSE)
     , m_bDelUnversioned(FALSE)
+    , m_bDelIgnored(FALSE)
     , m_bRefreshShell(FALSE)
+    , m_bExternals(FALSE)
 {
 
 }
@@ -47,16 +49,20 @@ void CCleanupDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_CLEANUP, m_bCleanup);
     DDX_Check(pDX, IDC_REVERT, m_bRevert);
     DDX_Check(pDX, IDC_DELETEUNVERSIONED, m_bDelUnversioned);
+    DDX_Check(pDX, IDC_DELETEIGNORED, m_bDelIgnored);
     DDX_Check(pDX, IDC_REFRESHSHELL, m_bRefreshShell);
+    DDX_Check(pDX, IDC_EXTERNALS, m_bExternals);
 }
 
 
 BEGIN_MESSAGE_MAP(CCleanupDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CCleanupDlg::OnBnClickedHelp)
-    ON_BN_CLICKED(IDC_CLEANUP, &CCleanupDlg::OnBnClickedCleanup)
-    ON_BN_CLICKED(IDC_REVERT, &CCleanupDlg::OnBnClickedRevert)
-    ON_BN_CLICKED(IDC_DELETEUNVERSIONED, &CCleanupDlg::OnBnClickedDeleteunversioned)
-    ON_BN_CLICKED(IDC_REFRESHSHELL, &CCleanupDlg::OnBnClickedRefreshshell)
+    ON_BN_CLICKED(IDC_CLEANUP, &CCleanupDlg::OnBnClicked)
+    ON_BN_CLICKED(IDC_REVERT, &CCleanupDlg::OnBnClicked)
+    ON_BN_CLICKED(IDC_DELETEUNVERSIONED, &CCleanupDlg::OnBnClicked)
+    ON_BN_CLICKED(IDC_DELETEIGNORED, &CCleanupDlg::OnBnClicked)
+    ON_BN_CLICKED(IDC_REFRESHSHELL, &CCleanupDlg::OnBnClicked)
+    ON_BN_CLICKED(IDC_EXTERNALS, &CCleanupDlg::OnBnClicked)
 END_MESSAGE_MAP()
 
 
@@ -72,15 +78,20 @@ BOOL CCleanupDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_CLEANUP);
     m_aeroControls.SubclassControl(this, IDC_REVERT);
     m_aeroControls.SubclassControl(this, IDC_DELETEUNVERSIONED);
+    m_aeroControls.SubclassControl(this, IDC_DELETEIGNORED);
     m_aeroControls.SubclassControl(this, IDC_REFRESHSHELL);
+    m_aeroControls.SubclassControl(this, IDC_EXTERNALS);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     AdjustControlSize(IDC_CLEANUP);
     AdjustControlSize(IDC_REVERT);
     AdjustControlSize(IDC_DELETEUNVERSIONED);
+    AdjustControlSize(IDC_DELETEIGNORED);
     AdjustControlSize(IDC_REFRESHSHELL);
+    AdjustControlSize(IDC_EXTERNALS);
 
     m_bCleanup = true;
+    m_bExternals = true;
     UpdateData(FALSE);
     EnableOKButton();
 
@@ -98,7 +109,7 @@ BOOL CCleanupDlg::PreTranslateMessage(MSG* pMsg)
 void CCleanupDlg::EnableOKButton()
 {
     UpdateData();
-    DialogEnableWindow(IDOK, m_bCleanup || m_bRevert || m_bDelUnversioned || m_bRefreshShell);
+    DialogEnableWindow(IDOK, m_bCleanup || m_bRevert || m_bDelUnversioned || m_bRefreshShell || m_bDelIgnored);
 }
 
 void CCleanupDlg::OnBnClickedHelp()
@@ -106,22 +117,8 @@ void CCleanupDlg::OnBnClickedHelp()
     OnHelp();
 }
 
-void CCleanupDlg::OnBnClickedCleanup()
+void CCleanupDlg::OnBnClicked()
 {
     EnableOKButton();
 }
 
-void CCleanupDlg::OnBnClickedRevert()
-{
-    EnableOKButton();
-}
-
-void CCleanupDlg::OnBnClickedDeleteunversioned()
-{
-    EnableOKButton();
-}
-
-void CCleanupDlg::OnBnClickedRefreshshell()
-{
-    EnableOKButton();
-}

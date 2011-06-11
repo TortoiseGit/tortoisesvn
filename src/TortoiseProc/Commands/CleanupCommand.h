@@ -31,7 +31,7 @@ public:
      */
     virtual bool            Execute();
 private:
-    CString                 GetUnversionedAndRevertPaths(const CTSVNPathList paths, CTSVNPathList& unversioned, CTSVNPathList& reverts);
+    CString                 GetCleanupPaths(const CTSVNPathList paths, CTSVNPathList& unversioned, CTSVNPathList& ignored, CTSVNPathList& reverts, bool includeExts, CTSVNPathList& externals);
 };
 
 
