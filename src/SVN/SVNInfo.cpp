@@ -156,7 +156,7 @@ const SVNInfoData * SVNInfo::GetNextFileInfo()
     return NULL;
 }
 
-svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_info2_t* info, apr_pool_t * pool)
+svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_client_info2_t* info, apr_pool_t * pool)
 {
     if ((path == NULL)||(info == NULL))
         return NULL;
@@ -202,7 +202,7 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
         if (info->wc_info->copyfrom_url)
             data.copyfromurl = CUnicodeUtils::GetUnicode(info->wc_info->copyfrom_url);
         data.copyfromrev = SVNRev(info->wc_info->copyfrom_rev);
-        data.texttime = info->wc_info->text_time/1000000L;
+        data.texttime = info->wc_info->recorded_time/1000000L;
         if (info->wc_info->checksum)
         {
             const char * cs = svn_checksum_to_cstring_display(info->wc_info->checksum, pool);
@@ -210,7 +210,7 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_in
         }
         if (info->wc_info->changelist)
             data.changelist = CUnicodeUtils::GetUnicode(info->wc_info->changelist);
-        data.working_size64 = info->wc_info->working_size;
+        data.working_size64 = info->wc_info->recorded_size;
         if (info->wc_info->wcroot_abspath)
             data.wcroot = CUnicodeUtils::GetUnicode(info->wc_info->wcroot_abspath);
 

@@ -159,7 +159,7 @@ private:
     SVNPrompt                   m_prompt;
 #endif
     static svn_error_t *        cancel(void *baton);
-    static svn_error_t *        infoReceiver(void* baton, const char * path, const svn_info2_t* info, apr_pool_t * pool);
+    static svn_error_t *        infoReceiver(void* baton, const char * path, const svn_client_info2_t* info, apr_pool_t * pool);
 
 };
 
