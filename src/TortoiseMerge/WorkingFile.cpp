@@ -50,8 +50,10 @@ CString CWorkingFile::GetDescriptiveName()
     if (m_sDescriptiveName.IsEmpty())
     {
         CString sDescriptiveName = CPathUtils::GetFileNameFromPath(m_sFilename);
-        if (sDescriptiveName.GetLength() < 20)
-            return sDescriptiveName;
+        WCHAR pathbuf[MAX_PATH] = {0};
+        PathCompactPathEx(pathbuf, sDescriptiveName, 50, 0);
+        sDescriptiveName = pathbuf;
+        return sDescriptiveName;
     }
     return m_sDescriptiveName;
 }
