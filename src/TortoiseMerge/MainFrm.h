@@ -60,6 +60,8 @@ protected:
     /// and line == -2 means do nothing or scroll to first diff depending on registry setting
     bool            LoadViews(int line = -2);
     void            ClearViewNamesAndPaths();
+    void            SetWindowTitle();
+
     afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
     afx_msg void    OnApplicationLook(UINT id);
     afx_msg void    OnUpdateApplicationLook(CCmdUI* pCmdUI);
@@ -172,7 +174,6 @@ protected:
     bool            HasUnsavedEdits() const;
     static bool     HasUnsavedEdits(const CBaseView* view);
     static bool     IsViewGood(const CBaseView* view);
-
 protected:
     CMFCMenuBar     m_wndMenuBar;
     CMFCStatusBar   m_wndStatusBar;
