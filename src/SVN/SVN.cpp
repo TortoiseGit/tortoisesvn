@@ -1742,6 +1742,12 @@ svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t **result,
     CString file;
     svn_wc_conflict_choice_t choice = svn->ConflictResolveCallback(description, file);
     *result = svn_wc_create_conflict_result(choice, file.IsEmpty() ? NULL : apr_pstrdup(resultpool, (const char*)CUnicodeUtils::GetUTF8(file)), resultpool);
+    if (svn->Cancel())
+    {
+        CString temp;
+        temp.LoadString(IDS_SVN_USERCANCELLED);
+        return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
+    }
     return SVN_NO_ERROR;
 }
 
