@@ -982,7 +982,7 @@ void CAppUtils::SetCharFormat(CWnd* window, DWORD mask, DWORD effects )
     window->SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&format);
 }
 
-bool CAppUtils::AskToUpdate(LPCWSTR error)
+bool CAppUtils::AskToUpdate(HWND hParent, LPCWSTR error)
 {
     if (CTaskDialog::IsSupported())
     {
@@ -998,12 +998,12 @@ bool CAppUtils::AskToUpdate(LPCWSTR error)
         details.Format(IDS_MSG_NEEDSUPDATE_ERRORDETAILS, error);
         taskdlg.SetExpansionArea(details);
         taskdlg.SetMainIcon(TD_WARNING_ICON);
-        return (taskdlg.DoModal(GetExplorerHWND()) == 1);
+        return (taskdlg.DoModal(hParent) == 1);
     }
 
     CString question;
     question.Format (IDS_MSG_NEEDSUPDATE_QUESTION, error);
-    const UINT result = TSVNMessageBox(GetExplorerHWND(), question, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)),
+    const UINT result = TSVNMessageBox(hParent, question, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)),
                                        MB_DEFBUTTON1|MB_ICONQUESTION, 
                                        CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)), 
                                        CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));

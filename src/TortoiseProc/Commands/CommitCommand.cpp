@@ -134,7 +134,7 @@ bool CommitCommand::Execute()
             {
                 // the commit failed at least one of the items was outdated.
                 // -> suggest to update them
-                if(CAppUtils::AskToUpdate(progDlg.GetLastErrorMessage(40)))
+                if(CAppUtils::AskToUpdate(NULL, progDlg.GetLastErrorMessage(40)))
                 {
                     // auto-update
                     CSVNProgressDlg updateProgDlg;

@@ -3428,7 +3428,7 @@ bool CSVNProgressDlg::CheckUpdateAndRetry()
 
     if (GetSVNError() && GetSVNError()->apr_err == SVN_ERR_CLIENT_MERGE_UPDATE_REQUIRED)
     {
-        if (CAppUtils::AskToUpdate(GetLastErrorMessage(40)))
+        if (CAppUtils::AskToUpdate(m_hWnd, GetLastErrorMessage(40)))
         {
             // run an update
             CSVNProgressDlg updateProgDlg;
