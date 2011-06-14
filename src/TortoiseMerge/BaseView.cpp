@@ -1381,7 +1381,23 @@ DiffStates CBaseView::ResolveState(DiffStates state)
 }
 
 
-BOOL CBaseView::IsLineRemoved(int nLineIndex)
+bool CBaseView::IsLineEmpty(int nLineIndex)
+{
+    if (m_pViewData == 0)
+        return FALSE;
+    int nViewLine = GetViewLineForScreen(nLineIndex);
+    return IsViewLineEmpty(nViewLine);
+}
+
+bool CBaseView::IsViewLineEmpty(int nViewLine)
+{
+    if (m_pViewData == 0)
+        return FALSE;
+    const DiffStates state = m_pViewData->GetState(nViewLine);
+    return IsStateEmpty(state);
+}
+
+bool CBaseView::IsLineRemoved(int nLineIndex)
 {
     if (m_pViewData == 0)
         return FALSE;
@@ -1389,7 +1405,7 @@ BOOL CBaseView::IsLineRemoved(int nLineIndex)
     return IsViewLineRemoved(nViewLine);
 }
 
-BOOL CBaseView::IsViewLineRemoved(int nViewLine)
+bool CBaseView::IsViewLineRemoved(int nViewLine)
 {
     if (m_pViewData == 0)
         return FALSE;
@@ -2629,7 +2645,11 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
                 if (bControl)
                     MoveCaretWordLeft();
                 else
-                    MoveCaretLeft();
+                {
+                    while (MoveCaretLeft() && IsViewLineEmpty(GetCaretViewPosition().y))
+                    {
+                    }
+                }
                 m_ptSelectionViewPosStart = GetCaretViewPosition();
             }
             RemoveSelectedText();
@@ -3416,6 +3436,23 @@ void CBaseView::RemoveSelectedText()
         return;
     if (!HasTextSelection())
         return;
+
+    // fix selection if starts or ends on empty line
+    SetCaretViewPosition(m_ptSelectionViewPosEnd);
+    while (IsViewLineEmpty(GetCaretViewPosition().y) && MoveCaretRight())
+    {
+    }
+    m_ptSelectionViewPosEnd = GetCaretViewPosition();
+    SetCaretViewPosition(m_ptSelectionViewPosStart);
+    while (IsViewLineEmpty(GetCaretViewPosition().y) && MoveCaretRight())
+    {
+    }
+    m_ptSelectionViewPosStart = GetCaretViewPosition();
+    if (!HasTextSelection())
+    {
+        ClearSelection();
+        return;
+    }
 
     // We want to undo the insertion in a single step.
     ResetUndoStep();

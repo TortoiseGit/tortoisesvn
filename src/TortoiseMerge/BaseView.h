@@ -137,8 +137,10 @@ public: // methods
     static bool     IsStateRemoved(DiffStates state);
     static DiffStates  ResolveState(DiffStates state);
 
-    BOOL            IsLineRemoved(int nLineIndex);
-    BOOL            IsViewLineRemoved(int nViewLine);
+    bool            IsLineEmpty(int nLineIndex);
+    bool            IsViewLineEmpty(int nViewLine);
+    bool            IsLineRemoved(int nLineIndex);
+    bool            IsViewLineRemoved(int nViewLine);
     bool            IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical);
     bool            IsViewLineConflicted(int nLineIndex);
     bool            HasNextConflict();
