@@ -9,14 +9,14 @@
 # $Rev$
 # 
 # Authors:
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011
-# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011.
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 16:23+0000\n"
+"PO-Revision-Date: 2011-06-14 06:40+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3814,9 +3814,13 @@ msgstr "Smazat a &ignorovat %d položky dle jména"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Smazat a ignorovat %d položky dl&e přípony"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr "Smazat ignorované soubory a adresáře"
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
-msgstr "Smazat soubory a adresáře bez verze a ignorované"
+msgid "Delete unversioned files and folders"
+msgstr "Odstranit soubory a adresáře bez verze"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -5842,6 +5846,10 @@ msgstr "Importuji soubor %1!s!"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "Importuje adresář do úložiště"
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr "Zahrnout externí"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8249,6 +8257,11 @@ msgstr "Odstraní soubory nebo masku ze seznamu k ignorování"
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "Odstraní vybranou vlastnost"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing ignored items. in %1!s!"
+msgstr "Odstraňuji ignorované položky v %1!s!"
 
 #. Resource IDs: (148)
 #, c-format

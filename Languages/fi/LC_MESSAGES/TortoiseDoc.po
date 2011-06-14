@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-06 19:46+0000\n"
+"PO-Revision-Date: 2011-06-12 00:22+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10058,8 +10058,8 @@ msgstr ""
 " koska siten voit ensin nähdä ja valita palautettavat tiedostot."
 
 #. (term)
-msgid "Delete ignored and unversioned files and folders"
-msgstr "Poista ohitetut ja versioimattomat tiedostot ja kansiot"
+msgid "Delete unversioned files and folders, Delete ignored files and folders"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -10098,6 +10098,16 @@ msgstr ""
 "puunäkymässä) eivät näytä oikeaa tilaa. Voi myös käydä niin, ettei "
 "TortoiseSVN havaitse muutoksia. Näissä tapauksissa voit käyttää tätä "
 "komentoa pakottaaksesi päivityksen."
+
+#. (term)
+msgid "Include externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -22606,17 +22616,50 @@ msgstr ""
 msgid "/noui"
 msgstr "/noui"
 
+#. (option)
+msgid "/noprogressui"
+msgstr ""
+
+#. (option)
+msgid "/nodlg"
+msgstr ""
+
+#. (option)
+msgid "/cleanup"
+msgstr ""
+
+#. (option)
+msgid "/revert"
+msgstr ""
+
+#. (option)
+msgid "/delunversioned"
+msgstr ""
+
+#. (option)
+msgid "/delignored"
+msgstr ""
+
+#. (option)
+msgid "/refreshshell"
+msgstr ""
+
+#. (option)
+msgid "/externals"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Cleans up interrupted or aborted operations and unlocks the working copy in "
 "<placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from "
 "popping up (either telling about the cleanup being finished or showing an "
-"error message)."
+"error message). <placeholder-3/> also disables the progress dialog. "
+"<placeholder-4/> disables showing the cleanup dialog where the user can "
+"choose what exactly should be done in the cleanup. The available actions can"
+" be specified with the options <placeholder-5/> for status cleanup, "
+"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> and "
+"<placeholder-10/>."
 msgstr ""
-"Siivoaa keskeytyneen tai keskeytetyn toiminnon ja poistaa lukituksen "
-"työkopiosta <placeholder-1/>. Käytä valitsinta<placeholder-2/> estämään "
-"tulosikkunan (joka kertoo siivouksen päättyneen tai näyttää "
-"virheilmoituksen) aukeamisen."
 
 #. (option)
 #. (option)

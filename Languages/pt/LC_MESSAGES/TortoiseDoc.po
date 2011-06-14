@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-10 03:59+0000\n"
+"PO-Revision-Date: 2011-06-12 00:22+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10167,8 +10167,8 @@ msgid ""
 msgstr ""
 
 #. (term)
-msgid "Delete ignored and unversioned files and folders"
-msgstr "Remover ficheiros e pastas ignorados e não-versionados"
+msgid "Delete unversioned files and folders, Delete ignored files and folders"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -10195,6 +10195,16 @@ msgid ""
 "of the explorer don't show the current status, or the status cache failed to"
 " recognize changes. In this situation, you can use this command to force a "
 "refresh."
+msgstr ""
+
+#. (term)
+msgid "Include externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
 msgstr ""
 
 #. (para)
@@ -22915,17 +22925,50 @@ msgstr ""
 msgid "/noui"
 msgstr "/noui"
 
+#. (option)
+msgid "/noprogressui"
+msgstr ""
+
+#. (option)
+msgid "/nodlg"
+msgstr ""
+
+#. (option)
+msgid "/cleanup"
+msgstr ""
+
+#. (option)
+msgid "/revert"
+msgstr ""
+
+#. (option)
+msgid "/delunversioned"
+msgstr ""
+
+#. (option)
+msgid "/delignored"
+msgstr ""
+
+#. (option)
+msgid "/refreshshell"
+msgstr ""
+
+#. (option)
+msgid "/externals"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Cleans up interrupted or aborted operations and unlocks the working copy in "
 "<placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from "
 "popping up (either telling about the cleanup being finished or showing an "
-"error message)."
+"error message). <placeholder-3/> also disables the progress dialog. "
+"<placeholder-4/> disables showing the cleanup dialog where the user can "
+"choose what exactly should be done in the cleanup. The available actions can"
+" be specified with the options <placeholder-5/> for status cleanup, "
+"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> and "
+"<placeholder-10/>."
 msgstr ""
-"Limpa as operações interrompidas ou abortadas e desbloqueia a cópia de "
-"trabalho em <placeholder-1/>. Usa o <placeholder-2/> para evitar que apareça"
-" a caixa de diálogo resultado (dizendo que a limpeza terminou ou mostrando "
-"uma mensagem de erro)."
 
 #. (option)
 #. (option)

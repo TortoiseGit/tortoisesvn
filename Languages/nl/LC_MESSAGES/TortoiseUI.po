@@ -9,13 +9,13 @@
 # $Rev$
 # 
 # Authors:
-# Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011
+# Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 00:38+0000\n"
+"PO-Revision-Date: 2011-06-14 00:42+0000\n"
 "Last-Translator: JML <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3823,8 +3823,12 @@ msgstr "%d zaken verwijderen en &negeren op naam"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Verwijder en negeer %d zaken op &extensie"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr ""
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
+msgid "Delete unversioned files and folders"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -5856,6 +5860,10 @@ msgstr "Bestand %1!s! importeren"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "Plaatst de map in een archief"
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8274,6 +8282,11 @@ msgstr "Verwijdert bestand(en) of het bestandspatroon uit de negeerlijst"
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "Verwijdert de geselecteerde eigenschappen"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing ignored items. in %1!s!"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format

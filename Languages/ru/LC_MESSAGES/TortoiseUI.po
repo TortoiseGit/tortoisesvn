@@ -9,15 +9,15 @@
 # $Rev$
 # 
 # Authors:
-# _deniska <denis_levin@mail.ru>, 2011
-# sytkov <sytkov@gmail.com>, 2011
-# Nikolay Osinin <nikolay.osinin@gmail.com>, 2011
+# _deniska <denis_levin@mail.ru>, 2011.
+# sytkov <sytkov@gmail.com>, 2011.
+# Nikolay Osinin <nikolay.osinin@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 15:23+0000\n"
+"PO-Revision-Date: 2011-06-14 06:47+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3846,13 +3846,17 @@ msgstr "Удалить и игнорировать %d &элементов по �
 msgid "Delete and ignore %d items by &extension"
 msgstr "Удалить и игнорировать %d элементов по рас&ширению"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr "Удалить игнорируемые файлы и папки"
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
-msgstr "Удалить игнорируемые и неверсированные файлы и папки"
+msgid "Delete unversioned files and folders"
+msgstr "Удалить неверсированные файлы и папки"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
-msgstr "Удалить неверсированные элементы..."
+msgstr "Удалить неверсированные элементы"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
@@ -5884,6 +5888,10 @@ msgstr "Импорт файла %1!s!"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "Импортирует папку в хранилище"
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr "Включая внешние"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8304,6 +8312,11 @@ msgstr "Удаляет файлы или маску файлов из списк
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "Удаляет выбранные свойства"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing ignored items. in %1!s!"
+msgstr "Удаление игнорируемых элементов. в %1!s!"
 
 #. Resource IDs: (148)
 #, c-format

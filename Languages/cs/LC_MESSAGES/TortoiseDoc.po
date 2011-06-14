@@ -9,14 +9,14 @@
 # $Rev$
 # 
 # Authors:
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011
-# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011.
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 16:37+0000\n"
+"PO-Revision-Date: 2011-06-12 11:12+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9999,8 +9999,9 @@ msgstr ""
 " protože tam můžete nejprve vidět a vybrat soubory, které chcete vrátit."
 
 #. (term)
-msgid "Delete ignored and unversioned files and folders"
-msgstr "Smazat soubory a adresáře bez verze a ignorované"
+msgid "Delete unversioned files and folders, Delete ignored files and folders"
+msgstr ""
+"Smazat soubory a adresáře bez verze, Smazat ignorované soubory a adresáře"
 
 #. (para)
 msgid ""
@@ -10039,6 +10040,19 @@ msgstr ""
 "průzkumníkovy, neukazuje aktuální stav, nebo úschova stavu nerozeznala "
 "změny. V této situaci můžete použít tento příkaz, abyste vynutili "
 "aktualizaci."
+
+#. (term)
+msgid "Include externals"
+msgstr "Zahrnout externí"
+
+#. (para)
+msgid ""
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
+msgstr ""
+"Pokud je toto zaškrtnuto, pak jsou všechny činnosti také provedeny pro "
+"všechny soubory a adresáře zahrnuté ve vlastnosti "
+"<literal>svn:externals</literal>."
 
 #. (para)
 msgid ""
@@ -22564,17 +22578,59 @@ msgstr ""
 msgid "/noui"
 msgstr "/noui"
 
+#. (option)
+msgid "/noprogressui"
+msgstr "/noprogressui"
+
+#. (option)
+msgid "/nodlg"
+msgstr "/nodlg"
+
+#. (option)
+msgid "/cleanup"
+msgstr "/cleanup"
+
+#. (option)
+msgid "/revert"
+msgstr "/revert"
+
+#. (option)
+msgid "/delunversioned"
+msgstr "/delunversioned"
+
+#. (option)
+msgid "/delignored"
+msgstr "/delignored"
+
+#. (option)
+msgid "/refreshshell"
+msgstr "/refreshshell"
+
+#. (option)
+msgid "/externals"
+msgstr "/externals"
+
 #. (entry)
 msgid ""
 "Cleans up interrupted or aborted operations and unlocks the working copy in "
 "<placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from "
 "popping up (either telling about the cleanup being finished or showing an "
-"error message)."
+"error message). <placeholder-3/> also disables the progress dialog. "
+"<placeholder-4/> disables showing the cleanup dialog where the user can "
+"choose what exactly should be done in the cleanup. The available actions can"
+" be specified with the options <placeholder-5/> for status cleanup, "
+"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> and "
+"<placeholder-10/>."
 msgstr ""
 "Vyčistí přerušené nebo zrušené operace a odemkne pracovní kopii v "
 "<placeholder-1/>. Použijte <placeholder-2/>, aby se zabránilo zobrazení "
 "dialogového okna Výsledek (buď oznámení, že vyčištění je hotové, nebo "
-"zobrazující chybové hlášení)."
+"zobrazující chybové hlášení). <placeholder-3/> také zakazuje dialogové okno "
+"průběhu. <placeholder-4/> zakáže zobrazení dialogového okna vyčištění, kde "
+"uživatel může zvolit, co přesně by ve vyčištění mělo být provedeno. Dostupné"
+" činnosti mohou být  určeny možnostmi <placeholder-5/> pro vyčištění stavu, "
+"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> a "
+"<placeholder-10/>."
 
 #. (option)
 #. (option)

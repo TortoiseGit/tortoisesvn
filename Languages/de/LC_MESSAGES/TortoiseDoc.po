@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-07 08:55+0000\n"
+"PO-Revision-Date: 2011-06-14 08:22+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10356,8 +10356,10 @@ msgstr ""
 "möchten, auswählen können."
 
 #. (term)
-msgid "Delete ignored and unversioned files and folders"
-msgstr "Lösche ignorierte und nicht versionierte Dateien und Ordner"
+msgid "Delete unversioned files and folders, Delete ignored files and folders"
+msgstr ""
+"Lösche unversionierte Dateien und Ordner, lösche ignorierte Dateien und "
+"Ordner"
 
 #. (para)
 msgid ""
@@ -10396,6 +10398,19 @@ msgstr ""
 "der linken Seite des Explorers nicht den korrekten Status an oder der "
 "Statuscache hat die Änderungen noch nicht erkannt. Dann können Sie mit "
 "diesem Befehl eine Aktualisierung erzwingen."
+
+#. (term)
+msgid "Include externals"
+msgstr "Externals einschließen"
+
+#. (para)
+msgid ""
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
+msgstr ""
+"Wenn diese Option aktiv ist, werden alle Aktionen auch für die mittels "
+"<literal>svn:externals</literal> eingeschlossenen Dateien und Ordner "
+"durchgeführt."
 
 #. (para)
 msgid ""
@@ -23302,17 +23317,59 @@ msgstr ""
 msgid "/noui"
 msgstr "/noui"
 
+#. (option)
+msgid "/noprogressui"
+msgstr "/noprogressui"
+
+#. (option)
+msgid "/nodlg"
+msgstr "/nodlg"
+
+#. (option)
+msgid "/cleanup"
+msgstr "/cleanup"
+
+#. (option)
+msgid "/revert"
+msgstr "/revert"
+
+#. (option)
+msgid "/delunversioned"
+msgstr "/delunversioned"
+
+#. (option)
+msgid "/delignored"
+msgstr "/delignored"
+
+#. (option)
+msgid "/refreshshell"
+msgstr "/refreshshell"
+
+#. (option)
+msgid "/externals"
+msgstr "/externals"
+
 #. (entry)
 msgid ""
 "Cleans up interrupted or aborted operations and unlocks the working copy in "
 "<placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from "
 "popping up (either telling about the cleanup being finished or showing an "
-"error message)."
+"error message). <placeholder-3/> also disables the progress dialog. "
+"<placeholder-4/> disables showing the cleanup dialog where the user can "
+"choose what exactly should be done in the cleanup. The available actions can"
+" be specified with the options <placeholder-5/> for status cleanup, "
+"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> and "
+"<placeholder-10/>."
 msgstr ""
-"Räumt die Hinterlassenschaften unterbrochener oder fehlgeschlagener "
-"Operationen auf und entsperrt die Arbeitskopie in <placeholder-1/>. "
-"Verwenden Sie <placeholder-2/>, damit der Bestätigungsdialog (Aufräumen "
-"erfolgreich, bzw. Fehlermeldung) nicht angezeigt wird."
+"Bereinigt die Arbeitskopie in <placeholder-1/> nach unterbrochenen oder "
+"abgebrochenen Operationen wieder auf und entsperrt sie. Mittels "
+"<placeholder-2/> sorgen Sie dafür, dass der Ergebnisdialog, der entweder "
+"eine Fehlermeldung oder den Erfolg des Bereinigens anzeigt, nicht angezeigt "
+"wird. <placeholder-3/> deaktiviert darüber hinaus den Fortschrittsdialog. "
+"<placeholder-4/> den Dialog, in dem der Anwender wählen kann, was genau "
+"bereinigt werden soll. Die verfügbaren Optionen können mittels "
+"<placeholder-5/> zum Bereinigen, <placeholder-6/>, <placeholder-7/>, "
+"<placeholder-8/>, <placeholder-9/> und <placeholder-10/> übergeben werden."
 
 #. (option)
 #. (option)

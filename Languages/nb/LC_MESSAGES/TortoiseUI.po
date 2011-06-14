@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-09 20:11+0000\n"
+"PO-Revision-Date: 2011-06-14 00:42+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3827,9 +3827,13 @@ msgstr "Slett og &ignorer %d elementer ved navn"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Slett og ignorer %d elementer etter &filendelse"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr ""
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
-msgstr "Slett ignorerte og ikke-versjonerte filer og mapper"
+msgid "Delete unversioned files and folders"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -5858,6 +5862,10 @@ msgstr "Importerer filen %1!s!"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "Importerer katalogen til et depot"
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8267,6 +8275,11 @@ msgstr "Fjerner filen eller jokertegn i ignorerings-listen"
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "Fjerner de valgte egenskapene"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing ignored items. in %1!s!"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format

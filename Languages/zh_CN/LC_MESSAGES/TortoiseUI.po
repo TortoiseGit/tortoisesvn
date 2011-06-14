@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-09 10:01+0000\n"
+"PO-Revision-Date: 2011-06-14 00:42+0000\n"
 "Last-Translator: fz0000 <fz0000@sina.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3737,8 +3737,12 @@ msgstr "根据名称删除和忽略 %d 项(&I)"
 msgid "Delete and ignore %d items by &extension"
 msgstr "根据扩展名删除和忽略 %d 项(&E)"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr ""
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
+msgid "Delete unversioned files and folders"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -5725,6 +5729,10 @@ msgstr "正在导入文件 %1!s!"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "导入目录至版本库"
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8055,6 +8063,11 @@ msgstr "将选定的文件或文件匹配列表从忽略列表删除"
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "删除选择的属性"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing ignored items. in %1!s!"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format

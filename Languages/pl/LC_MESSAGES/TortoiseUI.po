@@ -9,15 +9,15 @@
 # $Rev$
 # 
 # Authors:
-# mkrawiecki <michal.krawiecki@erlkoenig.pl>, 2011
-# kkotowicz <kkotowicz@gmail.com>, 2011
-# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
+# mkrawiecki <michal.krawiecki@erlkoenig.pl>, 2011.
+# kkotowicz <kkotowicz@gmail.com>, 2011.
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 00:38+0000\n"
+"PO-Revision-Date: 2011-06-14 00:42+0000\n"
 "Last-Translator: mkrawiecki <michal.krawiecki@erlkoenig.pl>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3756,8 +3756,12 @@ msgstr "Usuń i pom&iń %d elementów wg nazwy"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Usuwa i ignoruje %d elementy(-ów) wg &rozszerzenia"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr ""
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
+msgid "Delete unversioned files and folders"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -5772,6 +5776,10 @@ msgstr "Importuję plik %1!s!"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "Importuje katalog do repozytorium"
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8138,6 +8146,11 @@ msgstr "Usuwa zaznaczone pliki lub maski plików z listy ignorowanych."
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "Usuwa zaznaczone atrybuty"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing ignored items. in %1!s!"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format

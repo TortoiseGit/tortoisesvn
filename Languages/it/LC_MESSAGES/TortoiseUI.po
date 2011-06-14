@@ -9,15 +9,15 @@
 # $Rev$
 # 
 # Authors:
-# Roberto Casazza <roberto.casazza@alice.it>, 2011
-# Cecilia Saltori <csaltori@gmail.com>, 2011
-# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
+# Roberto Casazza <roberto.casazza@alice.it>, 2011.
+# Cecilia Saltori <csaltori@gmail.com>, 2011.
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 00:38+0000\n"
+"PO-Revision-Date: 2011-06-14 00:42+0000\n"
 "Last-Translator: RobertoCaszza <roberto.casazza@alice.it>\n"
 "Language-Team: Italian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3753,8 +3753,12 @@ msgstr "Cancella e &ignora %d elementi per nome"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Cancella e ignora %d elementi per &estensione"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr ""
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
+msgid "Delete unversioned files and folders"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -5773,6 +5777,10 @@ msgstr "Importazione del file %1!s!"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "Importa la directory in un repository"
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8151,6 +8159,11 @@ msgstr "Rimuove il/i file selezionato/i alla lista 'ingora'"
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "Rimuovi le proprietà selezionate"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing ignored items. in %1!s!"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format

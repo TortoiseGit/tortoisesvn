@@ -9,14 +9,14 @@
 # $Rev$
 # 
 # Authors:
-# TaeDong Kim <fly1004@gmail.com>, 2011
-# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
+# TaeDong Kim <fly1004@gmail.com>, 2011.
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 00:38+0000\n"
+"PO-Revision-Date: 2011-06-14 00:42+0000\n"
 "Last-Translator: fly1004 <fly1004@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3737,8 +3737,12 @@ msgstr "파일 이름에 따라 %d 개 아이템을 삭제하고 무시하기(&I
 msgid "Delete and ignore %d items by &extension"
 msgstr "확장자에 따라 %d 개 아이템을 삭제하고 무시하기(&E)"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr ""
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
+msgid "Delete unversioned files and folders"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -5730,6 +5734,10 @@ msgstr "%1!s! 파일을 임포트중"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "현재 디렉토리를 저장소에 넣습니다."
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8070,6 +8078,11 @@ msgstr "선택된 파일 또는 파일 마스크를 무시 목록에서 제거"
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "선택된 속성값을 제거합니다"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing ignored items. in %1!s!"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format

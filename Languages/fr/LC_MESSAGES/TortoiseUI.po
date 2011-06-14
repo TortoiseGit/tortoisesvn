@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-08 13:24+0000\n"
+"PO-Revision-Date: 2011-06-14 00:42+0000\n"
 "Last-Translator: Linukcs <linukcs@live.fr>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3860,9 +3860,13 @@ msgstr "Supprimer et &ignorer %d éléments par nom"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Supprimer et ignorer %d éléments par &extension"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr ""
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
-msgstr "Supprimer les fichiers et dossiers ignorés et non versionnés"
+msgid "Delete unversioned files and folders"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -5904,6 +5908,10 @@ msgstr "Import du fichier %1!s!"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "Importe le répertoire dans un référentiel"
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8349,6 +8357,11 @@ msgstr "Retire le fichier ou le filtre de fichier de la liste des ignorés"
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "Supprimer les propriétés sélectionnées"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing ignored items. in %1!s!"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format

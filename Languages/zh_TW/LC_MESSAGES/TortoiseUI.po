@@ -9,15 +9,15 @@
 # $Rev$
 # 
 # Authors:
-# Arith Hsu <arithmandar@gmail.com>, 2011
-# zcecil <zcecil@csie.org>, 2011
-# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011
+# Arith Hsu <arithmandar@gmail.com>, 2011.
+# zcecil <zcecil@csie.org>, 2011.
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 00:38+0000\n"
+"PO-Revision-Date: 2011-06-14 00:42+0000\n"
 "Last-Translator: arith <arithmandar@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3690,8 +3690,12 @@ msgstr "依名稱刪除並忽略 %d 項(&I)"
 msgid "Delete and ignore %d items by &extension"
 msgstr "依副檔名刪除並忽略 %d 項(&E)"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr ""
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
+msgid "Delete unversioned files and folders"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -5675,6 +5679,10 @@ msgstr "正在匯入檔案 %1!s!"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "匯入目錄至檔案庫"
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8001,6 +8009,11 @@ msgstr "從忽略列表中移除檔案或檔案遮罩"
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
 msgstr "移除選擇的屬性"
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing ignored items. in %1!s!"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format

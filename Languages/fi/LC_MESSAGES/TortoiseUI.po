@@ -9,13 +9,13 @@
 # $Rev$
 # 
 # Authors:
-# Kari Granö <kari.grano@gmail.com>, 2011
+# Kari Granö <kari.grano@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-05 00:38+0000\n"
+"PO-Revision-Date: 2011-06-14 00:42+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2867,7 +2867,7 @@ msgstr "Työkopion haun &syvyys"
 #. Resource IDs: (229)
 #, c-format
 msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
-msgstr ""
+msgstr "Haetaan työkopio osoitteesta %1!s!, versio %2!s!, %3!s!, %4!s!"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2895,7 +2895,7 @@ msgstr "Luokitteluhahmot"
 
 #. Resource IDs: (1562)
 msgid "Clean up working copy status"
-msgstr ""
+msgstr "... siivotaan työkopiota"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -2904,11 +2904,11 @@ msgstr "Siivoamassa"
 #. Resource IDs: (146)
 #, c-format
 msgid "Cleaning up directory '%1!s!'"
-msgstr ""
+msgstr "Siivotaan hakemistoa '%1!s!'"
 
 #. Resource IDs: (329)
 msgid "Cleanup"
-msgstr ""
+msgstr "Siivoa"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3353,7 +3353,7 @@ msgstr ""
 #. Resource IDs: (229)
 #, c-format
 msgid "Copy %1!s! to %2!s!, Revision %3!s!"
-msgstr ""
+msgstr "Kopioi polku %1!s! paikkaan %2!s!, versio %3!s!"
 
 #. Resource IDs: (126)
 #, c-format
@@ -3521,6 +3521,8 @@ msgid ""
 "Could not find a parent folder for\n"
 "%s"
 msgstr ""
+"Ylähakemistoa ei löydy:\n"
+"%s"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3835,8 +3837,12 @@ msgstr "Poista ja &ohita %d kohdetta nimen perusteella"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Poista ja ohita %d kohdetta &päätteen perusteella"
 
+#. Resource IDs: (1617)
+msgid "Delete ignored files and folders"
+msgstr ""
+
 #. Resource IDs: (1613)
-msgid "Delete ignored and unversioned files and folders"
+msgid "Delete unversioned files and folders"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -4668,7 +4674,7 @@ msgstr "Tallettaa joukon ominaisuuksia tiedostoon"
 
 #. Resource IDs: (10)
 msgid "Exports a versioned folder as a separate unversioned folder"
-msgstr ""
+msgstr "Vie versioidun kansion erilliseen, versioimattomaan kansioon"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4795,7 +4801,7 @@ msgstr "Haetaan versio %s tiedostosta:"
 #. Resource IDs: (148)
 #, c-format
 msgid "Fetching status of %1!s!"
-msgstr ""
+msgstr "Noudetaan tilaa: %1!s!"
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5802,7 +5808,7 @@ msgstr "Tuo"
 #. Resource IDs: (229)
 #, c-format
 msgid "Import %1!s! to %2!s!%3!s!"
-msgstr ""
+msgstr "Tuodaan %1!s! paikantimeen %2!s!%3!s!"
 
 #. Resource IDs: (127)
 #, c-format
@@ -5869,6 +5875,10 @@ msgstr "Tuodaan tiedostoa %1!s!"
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
 msgstr "Tuo kansion arkistoon"
+
+#. Resource IDs: (1616)
+msgid "Include externals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6549,7 +6559,7 @@ msgstr "Yhdistäminen"
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
-msgstr ""
+msgstr "Yhdistetään %1!s! kohteeseen %2!s!, %3!s!%4!s!"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6561,6 +6571,8 @@ msgid ""
 "Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
 "%6!s!%7!s!%8!s!"
 msgstr ""
+"Yhdistetään polusta %1!s! (versio %2!s!) polkuun %3!s! (versio %4!s!) "
+"kohteeseen %5!s!, %6!s!%7!s!%8!s!"
 
 #. Resource IDs: (264)
 #, c-format
@@ -6583,6 +6595,7 @@ msgstr ""
 #, c-format
 msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
 msgstr ""
+"Yhdistetään versiot %1!s! polusta %2!s! polkuun %3!s!, %4!s!%5!s!%6!s!"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -8011,12 +8024,12 @@ msgstr "Päivitä"
 
 #. Resource IDs: (1615)
 msgid "Refresh shell overlays"
-msgstr ""
+msgstr "Päivitä kuvakepäällykset"
 
 #. Resource IDs: (148)
 #, c-format
 msgid "Refreshing shell for %1!s!"
-msgstr ""
+msgstr "Päivitetään resurssienhallinta: %1!s!"
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
@@ -8063,7 +8076,7 @@ msgstr "Takaisin yhdistäminen"
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Yhdistetään haara %1!s! takaisin työkopioon %2!s!"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8284,8 +8297,13 @@ msgstr "Poistaa valitut ominaisuudet"
 
 #. Resource IDs: (148)
 #, c-format
-msgid "Removing unversioned items in %1!s!"
+msgid "Removing ignored items. in %1!s!"
 msgstr ""
+
+#. Resource IDs: (148)
+#, c-format
+msgid "Removing unversioned items in %1!s!"
+msgstr "Poistetaan versioimattomat kohteet hakemistosta %1!s!"
 
 #. Resource IDs: (16616)
 msgid "Rena&me..."
@@ -8319,6 +8337,8 @@ msgid ""
 "Rename\n"
 "The folder is exported as '%s'."
 msgstr ""
+"Nimeä uudelleen\n"
+"Kansio viedään nimellä '%s'."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8494,7 +8514,7 @@ msgstr "Palauta"
 
 #. Resource IDs: (1529)
 msgid "Revert all changes recursively"
-msgstr ""
+msgstr "Palauta kaikki muutokset palautuvasti"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8523,7 +8543,7 @@ msgstr "Palautettu"
 #. Resource IDs: (148)
 #, c-format
 msgid "Reverting %1!s!"
-msgstr ""
+msgstr "Palautetaan %1!s!"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -9551,7 +9571,7 @@ msgstr "Lähdepaikannin:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth '%2!s!'"
-msgstr ""
+msgstr "Harva päivitys %1!s!, syvyys '%2!s!'"
 
 #. Resource IDs: (196)
 msgid ""
@@ -9829,7 +9849,7 @@ msgstr "Vaihda"
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %1!s! to %2!s!, Revision %3!s!"
-msgstr ""
+msgstr "Vaihda polusta %1!s! polkuun %2!s!, versio %3!s!"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9845,7 +9865,7 @@ msgstr "Vaihda haaraan / merkittyyn versioon"
 
 #. Resource IDs: (620)
 msgid "Switch back to parent"
-msgstr ""
+msgstr "Vaihda takaisin vanhempaan"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9897,7 +9917,7 @@ msgstr "Vaihda:"
 
 #. Resource IDs: (265)
 msgid "Switched"
-msgstr ""
+msgstr "Vaihdettu"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -10345,6 +10365,8 @@ msgid ""
 "The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"Polku/paikannin '%s' on laiton Windowsissa!\n"
+"Voit jatkaa yritystä, mutta se voi johtaa virheeseen."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10499,6 +10521,8 @@ msgid ""
 "The target working copy '%s' has local modifications. It is recommended to "
 "commit those changes first before merging new changes."
 msgstr ""
+"Kohdetyökopiossa '%s' on paikallisia muutoksia. On suositeltavaa toimittaa "
+"ne arkistoon ennen yhdistämistä."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -11298,7 +11322,7 @@ msgstr "Päivitä työkopio"
 #. Resource IDs: (99)
 #, c-format
 msgid "Upgrading '%1!s!'"
-msgstr ""
+msgstr "Päivitetään '%1!s!'"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -12228,6 +12252,11 @@ msgid ""
 "old size: %2!s!\r\n"
 "change: %3!s!"
 msgstr ""
+"nykyinen koko: %1!s!\n"
+"\n"
+"vanha koko: %2!s!\n"
+"\n"
+"muutos: %3!s!"
 
 #. Resource IDs: (245)
 msgid "day"
