@@ -3295,8 +3295,27 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         lineData.sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
         if (IsStateEmpty(lineData.state))
         {
-            lineData.ending = lineendings; // todo: only if not last one
-            // todo: make sure previous (non empty) line have EOL set
+            // if not last line set EOL
+            for (int nCheckViewLine = nViewLine+1; nCheckViewLine < GetViewCount(); nCheckViewLine++)
+            {
+                if (!IsViewLineEmpty(nCheckViewLine))
+                {
+                    lineData.ending = lineendings;
+                    break;
+                }
+            }
+            // make sure previous (non empty) line have EOL set
+            for (int nCheckViewLine = nViewLine-1; nCheckViewLine > 0; nCheckViewLine--)
+            {
+                if (!IsViewLineEmpty(nCheckViewLine))
+                {
+                    if (GetViewLineEnding(nCheckViewLine) == EOL_NOENDING)
+                    {
+                        SetViewLineEnding(nCheckViewLine, lineendings);
+                    }
+                    break;
+                }
+            }
         }
         lineData.state = DIFFSTATE_EDITED;
         bool bNeedRenumber = false;
