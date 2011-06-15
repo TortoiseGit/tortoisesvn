@@ -113,13 +113,13 @@ bool SVNHelper::IsVersioned( const CTSVNPath& path, bool mustbeok )
         svn_error_clear(err);
         return false;
     }
-    int wcformat = 0;
+    svn_node_kind_t kind = svn_node_none;
     CTSVNPath pathdir = path.GetDirectory();
     const char *local_abspath = pathdir.GetSVNApiPath(pool);
     if ((local_abspath == NULL) || (local_abspath[0] == 0))
         return false;
 
-    err = svn_wc_check_wc2(&wcformat, pctx, local_abspath, pool);
+    err = svn_wc_read_kind(&kind, pctx, local_abspath, true, pool);
     if (err)
     {
         switch (err->apr_err)
@@ -165,7 +165,7 @@ bool SVNHelper::IsVersioned( const CTSVNPath& path, bool mustbeok )
 
     svn_wc_context_destroy(pctx);
 
-    return wcformat != 0;
+    return kind != svn_node_none;
 }
 
 #endif
