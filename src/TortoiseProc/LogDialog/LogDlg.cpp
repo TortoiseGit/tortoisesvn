@@ -3615,7 +3615,8 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             }
             break;
         case 1: //action -- dummy text, not drawn. Used to trick the auto-column resizing to not go below the icons
-            lstrcpyn(pItem->pszText, L"XXXXXXXXXX", pItem->cchTextMax);
+            if (pLogEntry)
+                lstrcpyn(pItem->pszText, L"XXXXXXXXXX", pItem->cchTextMax);
             break;
         case 2: //author
             if (pLogEntry)
