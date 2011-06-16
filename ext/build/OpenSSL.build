@@ -38,6 +38,7 @@
           <arg value="clean" />
         </exec>
       </if>
+      <delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
       <exec program="cmd" workingdir="..\..\..\common\openssl">
         <arg value="/c" />
         <arg value="ms\do_ms" />
