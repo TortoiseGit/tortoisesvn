@@ -72,7 +72,10 @@
             </Component>
 
             <Component Id="C__sasl" Guid="$(var.GuidSASL)" Win64="$(var.Win64YesNo)">
-              <File Id="F__libsasl" Name="libsasl.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\libsasl.dll" KeyPath="yes" />
+              <File Id="F__libsasl" Name="libsasl32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\libsasl32.dll" KeyPath="yes" />
+              <?if $(env.Platform) = "x64" ?>
+              <File Id="F__libsasl64" Name="libsasl.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\libsasl.dll" />
+              <?endif ?>
               <File Id="F__saslANONYMOUS" Name="saslANONYMOUS.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslANONYMOUS.dll" />
               <File Id="F__saslCRAMMD5" Name="saslCRAMMD5.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslCRAMMD5.dll" />
               <File Id="F__saslDIGESTMD5" Name="saslDIGESTMD5.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\saslDIGESTMD5.dll" />

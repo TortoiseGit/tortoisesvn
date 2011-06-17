@@ -115,6 +115,7 @@
         <arg value="-nologo" />
         <arg value="-sw1055" />
         <arg value="-sice:ICE03" />
+        <arg value="-sice:ICE61" />
         <arg value="-sice:ICE82" />
         <arg value="-sice:ICE83" />
         <arg value="-sval" if="${platform == 'x64'}" />
