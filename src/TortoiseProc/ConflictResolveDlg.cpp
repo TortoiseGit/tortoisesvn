@@ -211,9 +211,9 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
     {
         CAppUtils::DiffFlags flags;
         // no base file, start TortoiseMerge in Two-way diff mode
+        CTSVNPath myFile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath));
         CAppUtils::StartExtDiff(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_abspath)),
-            CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath)),
-            n3, n1, flags, 0);
+            myFile, n3, n1, myFile, myFile, SVNRev(), SVNRev::REV_WC, SVNRev(), flags, 0);
     }
     else
     {

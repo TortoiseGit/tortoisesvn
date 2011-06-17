@@ -84,6 +84,17 @@ public:
         int line);
 
     /**
+     * Starts the external diff application
+     */
+    static bool StartExtDiff(
+        const CTSVNPath& file1, const CTSVNPath& file2, 
+        const CString& sName1, const CString& sName2,
+        const CTSVNPath& url1, const CTSVNPath& url2,
+        const SVNRev& rev1, const SVNRev& rev2,
+        const SVNRev& pegRev, const DiffFlags& flags,
+        int line);
+
+    /**
      * Starts the external diff application for properties
      */
     static BOOL StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2,

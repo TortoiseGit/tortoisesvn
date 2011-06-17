@@ -4300,8 +4300,11 @@ void CSVNStatusListCtrl::StartDiff(FileEntry * entry)
         (entry->status == svn_wc_status_unversioned)||(entry->status == svn_wc_status_none))
     {
         CTSVNPath filePath = entry->path;
+        SVNRev rev = SVNRev::REV_WC;
         if (!filePath.Exists())
         {
+            rev = SVNRev::REV_HEAD;
+
             // get the remote file
             filePath = CTempFiles::Instance().GetTempFilePath(false, filePath, SVNRev::REV_HEAD);
 
@@ -4329,7 +4332,10 @@ void CSVNStatusListCtrl::StartDiff(FileEntry * entry)
         CString n1, n2;
         n1.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
         n2.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
-        CAppUtils::StartExtDiff(filePath, filePath, n1, n2, CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
+        CTSVNPath url = CTSVNPath(entry->GetURL());
+        CAppUtils::StartExtDiff(filePath, filePath, n1, n2,
+          url, url, rev, rev, rev,
+          CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
         return;
     }
 

@@ -281,6 +281,16 @@ bool CAppUtils::StartExtDiff(
     const CTSVNPath& file1, const CTSVNPath& file2,
     const CString& sName1, const CString& sName2, const DiffFlags& flags, int line)
 {
+    return StartExtDiff(file1, file2, sName1, sName2, CTSVNPath(), CTSVNPath(), SVNRev(), SVNRev(), SVNRev(), flags, line);
+}
+
+bool CAppUtils::StartExtDiff(
+    const CTSVNPath& file1, const CTSVNPath& file2,
+    const CString& sName1, const CString& sName2,
+    const CTSVNPath& url1, const CTSVNPath& url2,
+    const SVNRev& rev1, const SVNRev& rev2,
+    const SVNRev& pegRev, const DiffFlags& flags, int line)
+{
     CString viewer;
 
     CRegDWORD blamediff(_T("Software\\TortoiseSVN\\DiffBlamesWithTortoiseMerge"), FALSE);
@@ -324,7 +334,6 @@ bool CAppUtils::StartExtDiff(
     {
         viewer.Replace(_T("%mine"),  _T("\"")+file2.GetWinPathString()+_T("\""));
     }
-
     if (sName1.IsEmpty())
         viewer.Replace(_T("%bname"), _T("\"") + file1.GetUIFileOrDirectoryName() + _T("\""));
     else
@@ -334,6 +343,27 @@ bool CAppUtils::StartExtDiff(
         viewer.Replace(_T("%yname"), _T("\"") + file2.GetUIFileOrDirectoryName() + _T("\""));
     else
         viewer.Replace(_T("%yname"), _T("\"") + sName2 + _T("\""));
+
+    if (viewer.Find(_T("%burl")) >= 0)
+    {
+        viewer.Replace(_T("%burl"),  _T("\"")+url1.GetSVNPathString()+_T("\""));
+    }
+    if (viewer.Find(_T("%yurl")) >= 0)
+    {
+        viewer.Replace(_T("%yurl"),  _T("\"")+url2.GetSVNPathString()+_T("\""));
+    }
+    if (viewer.Find(_T("%brev")) >= 0)
+    {
+        viewer.Replace(_T("%brev"),  _T("\"")+rev1.ToString()+_T("\""));
+    }
+    if (viewer.Find(_T("%yrev")) >= 0)
+    {
+        viewer.Replace(_T("%yrev"),  _T("\"")+rev2.ToString()+_T("\""));
+    }
+    if (viewer.Find(_T("%peg")) >= 0)
+    {
+        viewer.Replace(_T("%peg"),  _T("\"")+pegRev.ToString()+_T("\""));
+    }
 
     if (flags.bReadOnly && bInternal)
         viewer += _T(" /readonly");

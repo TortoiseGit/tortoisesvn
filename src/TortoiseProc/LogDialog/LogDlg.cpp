@@ -1986,10 +1986,11 @@ void CLogDlg::DiffSelectedFile()
             SetAndClearProgressInfo(&progDlg);
             progDlg.ShowModeless(m_hWnd);
 
-            if (!Export(CTSVNPath(m_sRepositoryRoot + changedpath.GetPath()),tempfile, r, r))
+            CTSVNPath url = CTSVNPath(m_sRepositoryRoot + changedpath.GetPath());
+            if (!Export(url, tempfile, r, r))
             {
                 m_bCancelled = false;
-                if (!Export(CTSVNPath(m_sRepositoryRoot + changedpath.GetPath()), tempfile, SVNRev::REV_HEAD, r))
+                if (!Export(url, tempfile, SVNRev::REV_HEAD, r))
                 {
                     progDlg.Stop();
                     SetAndClearProgressInfo((HWND)NULL);
@@ -2006,9 +2007,9 @@ void CLogDlg::DiffSelectedFile()
             CAppUtils::DiffFlags flags;
             flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             if (changedpath.GetAction() == LOGACTIONS_DELETED)
-                CAppUtils::StartExtDiff(tempfile, tempfile2, sName2, sName1, flags, 0);
+                CAppUtils::StartExtDiff(tempfile, tempfile2, sName2, sName1, url, url, r, SVNRev(), r, flags, 0);
             else
-                CAppUtils::StartExtDiff(tempfile2, tempfile, sName2, sName1, flags, 0);
+                CAppUtils::StartExtDiff(tempfile2, tempfile, sName2, sName1, url, url, r, SVNRev(), r, flags, 0);
         }
     }
 }
