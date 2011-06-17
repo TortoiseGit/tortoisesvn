@@ -61,6 +61,46 @@
                         </para>
                     </listitem>
                 </varlistentry>
+                <varlistentry>
+                    <term condition="pot">%burl</term>
+                    <listitem>
+                        <para>
+                            The url of the original file, if available
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term condition="pot">%yurl</term>
+                    <listitem>
+                        <para>
+                            The url of the second file, if available
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term condition="pot">%brev</term>
+                    <listitem>
+                        <para>
+                            The revision of the original file, if available
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term condition="pot">%yrev</term>
+                    <listitem>
+                        <para>
+                            The revision of the second file, if available
+                        </para>
+                    </listitem>
+                </varlistentry>
+                <varlistentry>
+                    <term condition="pot">%peg</term>
+                    <listitem>
+                        <para>
+                            The peg revision, if available
+                        </para>
+                    </listitem>
+                </varlistentry>
             </variablelist>
         </para>
         <para>
