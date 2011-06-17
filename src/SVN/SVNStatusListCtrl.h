@@ -401,7 +401,7 @@ public:
         bool                    isNested;               ///< TRUE if the folder from a different repository and/or path
         bool                    isConflicted;           ///< TRUE if a file entry is conflicted, i.e. if it has the conflicted paths set
         svn_revnum_t            Revision;               ///< the base revision
-        apr_off_t               working_size;           ///< Size of the file after being translated into local representation or SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN
+        svn_filesize_t          working_size;           ///< Size of the file after being translated into local representation or SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN
         svn_depth_t             depth;                  ///< the depth of this entry
         bool                    file_external;          ///< if the item is a file that was added to the working copy with an svn:externals; if file_external is TRUE, then switched is always FALSE.
         CString                 copyfrom_url_string;    ///< contains the url which this item was copied from. Note: this is not filled in by the status call but only

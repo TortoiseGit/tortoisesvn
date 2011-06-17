@@ -752,7 +752,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
     else
         entry->isfolder = (pSVNStatus->kind == svn_node_dir);
     entry->Revision = pSVNStatus->revision;
-    entry->working_size = -1;    // TODO: ask the svn devs to add the working_size field
+    entry->working_size = pSVNStatus->filesize;
     entry->depth = pSVNStatus->depth;
 
     if(bDirectItem)
@@ -5006,25 +5006,28 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                     lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
                     return TRUE;
                 }
-                // show the file size changes in the tooltip
-                apr_off_t baseSize = 0;
-                apr_off_t wcSize = fentry->working_size;
-                if (fentry->working_size == SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN)
+                if (!fentry->IsFolder())
                 {
-                    wcSize = fentry->path.GetFileSize();
+                    // show the file size changes in the tooltip
+                    apr_off_t baseSize = 0;
+                    apr_off_t wcSize = fentry->working_size;
+                    if (fentry->working_size == SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN)
+                    {
+                        wcSize = fentry->path.GetFileSize();
+                    }
+                    CTSVNPath basePath = SVN::GetPristinePath(fentry->path);
+                    baseSize = basePath.GetFileSize();
+                    WCHAR baseBuf[100] = {0};
+                    WCHAR wcBuf[100] = {0};
+                    WCHAR changedBuf[100] = {0};
+                    StrFormatByteSize64(baseSize, baseBuf, 100);
+                    StrFormatByteSize64(wcSize, wcBuf, 100);
+                    StrFormatByteSize64(wcSize-baseSize, changedBuf, 100);
+                    CString sTemp;
+                    sTemp.FormatMessage(IDS_STATUSLIST_WCBASESIZES, wcBuf, baseBuf, changedBuf);
+                    lstrcpyn(pTTTW->szText, (LPCTSTR)sTemp, 80);
+                    return TRUE;
                 }
-                CTSVNPath basePath = SVN::GetPristinePath(fentry->path);
-                baseSize = basePath.GetFileSize();
-                WCHAR baseBuf[100] = {0};
-                WCHAR wcBuf[100] = {0};
-                WCHAR changedBuf[100] = {0};
-                StrFormatByteSize64(baseSize, baseBuf, 100);
-                StrFormatByteSize64(wcSize, wcBuf, 100);
-                StrFormatByteSize64(wcSize-baseSize, changedBuf, 100);
-                CString sTemp;
-                sTemp.FormatMessage(IDS_STATUSLIST_WCBASESIZES, wcBuf, baseBuf, changedBuf);
-                lstrcpyn(pTTTW->szText, (LPCTSTR)sTemp, 80);
-                return TRUE;
             }
         }
     }
