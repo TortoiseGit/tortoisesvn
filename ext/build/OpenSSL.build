@@ -9,6 +9,14 @@
         <arg value="ms\nt.mak" />
         <arg value="clean" />
       </exec>
+      <delete>
+        <fileset>
+          <include name="..\..\..\common\out32\**.*" />
+          <include name="..\..\..\common\out32.dbg\**.*" />
+          <include name="..\..\..\common\tmp32\**.*" />
+          <include name="..\..\..\common\tmp32.dbg\**.*" />
+        </fileset>
+      </delete>
     </if>
   </target>
   <target name="OpenSSL" depends="clean">
@@ -28,16 +36,6 @@
         <arg value="debug" if="${(configuration != 'release')}" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
       </exec>
-      <if test="${cleanup == 'yes'}">
-        <!-- to prevent 'nmake clean' to choke on userinput questions, give it our own del command -->
-        <echo file="..\..\..\common\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
-        <exec program="nmake" workingdir="..\..\..\common\openssl" failonerror="false">
-          <arg value="-f" />
-          <arg value="ms\nt.mak" />
-          <arg value="clean" />
-        </exec>
-      </if>
-      <delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
       <exec program="cmd" workingdir="..\..\..\common\openssl">
         <arg value="/c" />
         <arg value="ms\do_ms" />
@@ -55,16 +53,6 @@
         <arg value="no-asm" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
       </exec>
-      <if test="${cleanup == 'yes'}">
-        <!-- to prevent 'nmake clean' to choke on userinput questions, give it our own del command -->
-        <echo file="..\..\..\common\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
-        <exec program="nmake" workingdir="..\..\..\common\openssl" failonerror="false">
-          <arg value="-f" />
-          <arg value="ms\nt.mak" />
-          <arg value="clean" />
-        </exec>
-      </if>
-      <delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
       <exec program="cmd" workingdir="..\..\..\common\openssl">
         <arg value="/c" />
         <arg value="ms\do_win64a" />
