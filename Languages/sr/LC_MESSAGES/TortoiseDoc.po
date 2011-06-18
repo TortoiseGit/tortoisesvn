@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-12 00:22+0000\n"
+"PO-Revision-Date: 2011-06-14 20:22+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9922,6 +9922,7 @@ msgstr ""
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
 msgstr ""
+"Брише неверзионисане фајлове и именике. Брише занемарене фајлове и именике"
 
 #. (para)
 msgid ""
@@ -9963,13 +9964,15 @@ msgstr ""
 
 #. (term)
 msgid "Include externals"
-msgstr ""
+msgstr "Укључи екстернале"
 
 #. (para)
 msgid ""
 "If this is checked, then all actions are done for all files and folders "
 "included with the <literal>svn:externals</literal> property as well."
 msgstr ""
+"Ако је чекирано, онда све акције су дате за све фајлове и именике укључене "
+"са <literal>svn:externals</literal> особинама."
 
 #. (para)
 msgid ""
@@ -22387,35 +22390,35 @@ msgstr "/ноуи"
 
 #. (option)
 msgid "/noprogressui"
-msgstr ""
+msgstr "/noprogressui"
 
 #. (option)
 msgid "/nodlg"
-msgstr ""
+msgstr "/nodlg"
 
 #. (option)
 msgid "/cleanup"
-msgstr ""
+msgstr "/cleanup"
 
 #. (option)
 msgid "/revert"
-msgstr ""
+msgstr "/revert"
 
 #. (option)
 msgid "/delunversioned"
-msgstr ""
+msgstr "/delunversioned"
 
 #. (option)
 msgid "/delignored"
-msgstr ""
+msgstr "/delignored"
 
 #. (option)
 msgid "/refreshshell"
-msgstr ""
+msgstr "/refreshshell"
 
 #. (option)
 msgid "/externals"
-msgstr ""
+msgstr "/externals"
 
 #. (entry)
 msgid ""
@@ -22429,6 +22432,15 @@ msgid ""
 "<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> and "
 "<placeholder-10/>."
 msgstr ""
+"Чисти прекинуте или избачене операције и откључава радну копију у "
+"<placeholder-1/>. Користите <placeholder-2/> да спречите резултантни дијалог"
+" да искочи (или рећи да је завршено чишћење или приказивање поруке о "
+"грешци). <placeholder-3/> такође онемогућава дијалог напредовања. "
+"<placeholder-4/> онемогућава приказивање дијалога чишћења где корисник може "
+"изабрати шта тачно урадити при чишћењу. Доступне акције могу бити "
+"специфициране опцијама  <placeholder-5/> за чишћење статуса, "
+"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> and "
+"<placeholder-10/>."
 
 #. (option)
 #. (option)

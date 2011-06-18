@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-12 00:22+0000\n"
+"PO-Revision-Date: 2011-06-14 16:52+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10060,6 +10060,8 @@ msgstr ""
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
 msgstr ""
+"Poista versioimattomat tiedostot ja kansiot, Poista ohitetut tiedostot ja "
+"kansiot"
 
 #. (para)
 msgid ""
@@ -10101,13 +10103,16 @@ msgstr ""
 
 #. (term)
 msgid "Include externals"
-msgstr ""
+msgstr "Sisällytä ulkoiset viitteet"
 
 #. (para)
 msgid ""
 "If this is checked, then all actions are done for all files and folders "
 "included with the <literal>svn:externals</literal> property as well."
 msgstr ""
+"Kun tämä valinta on aktiivinen, toimenpiteet suoritetaan myös kaikille "
+"tiedostoille ja kansioille, jotka kuuluvat työkopioon "
+"<literal>svn:externals</literal>-ominaisuuden kautta."
 
 #. (para)
 msgid ""
@@ -22618,35 +22623,35 @@ msgstr "/noui"
 
 #. (option)
 msgid "/noprogressui"
-msgstr ""
+msgstr "/noprogressui"
 
 #. (option)
 msgid "/nodlg"
-msgstr ""
+msgstr "/nodlg"
 
 #. (option)
 msgid "/cleanup"
-msgstr ""
+msgstr "/cleanup"
 
 #. (option)
 msgid "/revert"
-msgstr ""
+msgstr "/revert"
 
 #. (option)
 msgid "/delunversioned"
-msgstr ""
+msgstr "/delunversioned"
 
 #. (option)
 msgid "/delignored"
-msgstr ""
+msgstr "/delignored"
 
 #. (option)
 msgid "/refreshshell"
-msgstr ""
+msgstr "/refreshshell"
 
 #. (option)
 msgid "/externals"
-msgstr ""
+msgstr "/externals"
 
 #. (entry)
 msgid ""
@@ -22660,6 +22665,14 @@ msgid ""
 "<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> and "
 "<placeholder-10/>."
 msgstr ""
+"Siivoaa kesken jääneet toiminnot ja poistaa lukituksen työkopiosta "
+"<placeholder-1/>. Käytä valitsinta <placeholder-2/> estääksesi tulosikkunan "
+"avaamisen (ikkunassa on viesti operaation päättymisestä tai virheilmoitus). "
+"Valitsin <placeholder-3/> estää etenemisikkunan näyttämisen. Valitsin "
+"<placeholder-4/> estää siivousikkunan asetusten näyttämisen ennen toiminnon "
+"käynnistystä. Mahdolliset toimenpiteet voidaan määritellä valitsimilla "
+"<placeholder-5/> (tilasiivous), <placeholder-6/>, <placeholder-7/>, "
+"<placeholder-8/>, <placeholder-9/> ja <placeholder-10/>."
 
 #. (option)
 #. (option)

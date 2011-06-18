@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-12 00:22+0000\n"
+"PO-Revision-Date: 2011-06-14 20:25+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9939,6 +9939,7 @@ msgstr ""
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
 msgstr ""
+"Briše neverzionisane fajlove i imenike. Briše zanemarene fajlove i imenike"
 
 #. (para)
 msgid ""
@@ -9980,13 +9981,15 @@ msgstr ""
 
 #. (term)
 msgid "Include externals"
-msgstr ""
+msgstr "Uključi eksternale"
 
 #. (para)
 msgid ""
 "If this is checked, then all actions are done for all files and folders "
 "included with the <literal>svn:externals</literal> property as well."
 msgstr ""
+"Ako je čekirano, onda sve akcije su date za sve fajlove i imenike uključene "
+"sa <literal>svn:externals</literal> osobinama."
 
 #. (para)
 msgid ""
@@ -22429,35 +22432,35 @@ msgstr "/noui"
 
 #. (option)
 msgid "/noprogressui"
-msgstr ""
+msgstr "/noprogressui"
 
 #. (option)
 msgid "/nodlg"
-msgstr ""
+msgstr "/nodlg"
 
 #. (option)
 msgid "/cleanup"
-msgstr ""
+msgstr "/cleanup"
 
 #. (option)
 msgid "/revert"
-msgstr ""
+msgstr "/revert"
 
 #. (option)
 msgid "/delunversioned"
-msgstr ""
+msgstr "/delunversioned"
 
 #. (option)
 msgid "/delignored"
-msgstr ""
+msgstr "/delignored"
 
 #. (option)
 msgid "/refreshshell"
-msgstr ""
+msgstr "/refreshshell"
 
 #. (option)
 msgid "/externals"
-msgstr ""
+msgstr "/externals"
 
 #. (entry)
 msgid ""
@@ -22471,6 +22474,15 @@ msgid ""
 "<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> and "
 "<placeholder-10/>."
 msgstr ""
+"Čisti prekinute ili izbačene operacije i otključava radnu kopiju u "
+"<placeholder-1/>. Koristite <placeholder-2/> da sprečite rezultantni dijalog"
+" da iskoči (ili reći da je završeno čišćenje ili prikazivanje poruke o "
+"grešci). <placeholder-3/> takođe onemogućava dijalog napredovanja. "
+"<placeholder-4/> onemogućava prikazivanje dijaloga čišćenja gde korisnik "
+"može izabrati šta tačno uraditi pri čišćenju. Dostupne akcije mogu biti "
+"specificirane opcijama  <placeholder-5/> za čišćenje statusa, "
+"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/> and "
+"<placeholder-10/>."
 
 #. (option)
 #. (option)

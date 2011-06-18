@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-15 21:08+0000\n"
 "Last-Translator: otik <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2878,7 +2878,7 @@ msgstr "Klasifikačné šablóny"
 
 #. Resource IDs: (1562)
 msgid "Clean up working copy status"
-msgstr ""
+msgstr "Vyčistiť stav pracovnej kópie"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -2887,11 +2887,11 @@ msgstr "Čistenie"
 #. Resource IDs: (146)
 #, c-format
 msgid "Cleaning up directory '%1!s!'"
-msgstr ""
+msgstr "Čiestenie adresára \"%1!s!\""
 
 #. Resource IDs: (329)
 msgid "Cleanup"
-msgstr ""
+msgstr "Čistenie"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3331,7 +3331,7 @@ msgstr ""
 #. Resource IDs: (229)
 #, c-format
 msgid "Copy %1!s! to %2!s!, Revision %3!s!"
-msgstr ""
+msgstr "Kopírovať %1!s! do %2!s!, revíziu %3!s!"
 
 #. Resource IDs: (126)
 #, c-format
@@ -3499,6 +3499,8 @@ msgid ""
 "Could not find a parent folder for\n"
 "%s"
 msgstr ""
+"Nepodarilo sa nájsť rodičovnký adresár k:\n"
+"%s"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3817,11 +3819,11 @@ msgstr "Vymazať a ignorovať %d objektov podľa &prípony"
 
 #. Resource IDs: (1617)
 msgid "Delete ignored files and folders"
-msgstr ""
+msgstr "Vymazať ignorované súbory a adresáre"
 
 #. Resource IDs: (1613)
 msgid "Delete unversioned files and folders"
-msgstr ""
+msgstr "Vymazať neverziované súbory a adresáre"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4647,7 +4649,7 @@ msgstr "Exportuje sadu vlastností do súboru"
 
 #. Resource IDs: (10)
 msgid "Exports a versioned folder as a separate unversioned folder"
-msgstr ""
+msgstr "Exportuje verziované adresáre ako samostatný neverziovaný adresár"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4775,7 +4777,7 @@ msgstr "Získavanie revízie %s súboru:"
 #. Resource IDs: (148)
 #, c-format
 msgid "Fetching status of %1!s!"
-msgstr ""
+msgstr "Získavanie stavu pre %1!s!"
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -5777,7 +5779,7 @@ msgstr "Importovať"
 #. Resource IDs: (229)
 #, c-format
 msgid "Import %1!s! to %2!s!%3!s!"
-msgstr ""
+msgstr "Importovať %1!s! do %2!s!%3!s!"
 
 #. Resource IDs: (127)
 #, c-format
@@ -5847,7 +5849,7 @@ msgstr "Importuje adresár do úložiska"
 
 #. Resource IDs: (1616)
 msgid "Include externals"
-msgstr ""
+msgstr "Zahrnúť externé"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6518,7 +6520,7 @@ msgstr "Zlučovanie"
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
-msgstr ""
+msgstr "Zlučovanie %1!s! do %2!s, !%3!s!%4!s!"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -7976,7 +7978,7 @@ msgstr "Obnoviť"
 
 #. Resource IDs: (1615)
 msgid "Refresh shell overlays"
-msgstr ""
+msgstr "Obnoviť všetky prekrytia"
 
 #. Resource IDs: (148)
 #, c-format
@@ -8249,12 +8251,12 @@ msgstr "Odstráni vybrané vlastnosti"
 #. Resource IDs: (148)
 #, c-format
 msgid "Removing ignored items. in %1!s!"
-msgstr ""
+msgstr "Odstraňovanie ignorovaných objektov v %1!s!"
 
 #. Resource IDs: (148)
 #, c-format
 msgid "Removing unversioned items in %1!s!"
-msgstr ""
+msgstr "Odstraňovanie neverziovaných objektov v %1!s!"
 
 #. Resource IDs: (16616)
 msgid "Rena&me..."
@@ -8288,6 +8290,8 @@ msgid ""
 "Rename\n"
 "The folder is exported as '%s'."
 msgstr ""
+"Premenovať\n"
+"Adresár je exportovaný ako \"%s\"."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8463,7 +8467,7 @@ msgstr "Vrátiť"
 
 #. Resource IDs: (1529)
 msgid "Revert all changes recursively"
-msgstr ""
+msgstr "Vrátiť všetky zmeny rekurzívne"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8492,7 +8496,7 @@ msgstr "Vrátené"
 #. Resource IDs: (148)
 #, c-format
 msgid "Reverting %1!s!"
-msgstr ""
+msgstr "Vracanie %1!s!"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -9801,7 +9805,7 @@ msgstr "Prepnúť do Vetvy / značky"
 
 #. Resource IDs: (620)
 msgid "Switch back to parent"
-msgstr ""
+msgstr "Prernúť späť na rodiča"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9853,7 +9857,7 @@ msgstr "Prepnúť:"
 
 #. Resource IDs: (265)
 msgid "Switched"
-msgstr ""
+msgstr "Prepnuté"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -10297,6 +10301,8 @@ msgid ""
 "The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"Cesta/URL \"%s\" vyzerá byť nepovolená na Windows!\n"
+"Môžete to napriek tomu skúsiť, ale neskôr sa môže objaviť chyba."
 
 #. Resource IDs: (88)
 msgid ""
@@ -11246,7 +11252,7 @@ msgstr "Vynoviť pracovnú kópiu"
 #. Resource IDs: (99)
 #, c-format
 msgid "Upgrading '%1!s!'"
-msgstr ""
+msgstr "Vylepšovanie \"%1!s!\""
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -12177,6 +12183,9 @@ msgid ""
 "old size: %2!s!\r\n"
 "change: %3!s!"
 msgstr ""
+"aktuálna veľkosť: %1!s!\n"
+"pôvodna veľkosť: %2!s!\n"
+"zmena veľkosti: %3!s!"
 
 #. Resource IDs: (245)
 msgid "day"
