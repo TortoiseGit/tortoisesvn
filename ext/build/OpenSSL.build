@@ -33,7 +33,6 @@
         <arg value="VC-WIN32" if="${(configuration == 'release')}" />
         <arg value="debug-VC-WIN32" if="${(configuration != 'release')}" />
         <arg value="no-asm" />
-        <arg value="debug" if="${(configuration != 'release')}" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
       </exec>
       <exec program="cmd" workingdir="..\..\..\common\openssl">
