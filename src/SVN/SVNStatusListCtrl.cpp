@@ -1134,7 +1134,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
     int nSelectedEntry = 0;
     if (posSelectedEntry)
         nSelectedEntry = GetNextSelectedItem(posSelectedEntry);
-    PROFILE_BLOCK;
     {
         CAutoWriteLock locker(m_guard);
         SetRedraw(FALSE);
