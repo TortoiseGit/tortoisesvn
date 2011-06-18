@@ -1134,100 +1134,98 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
     int nSelectedEntry = 0;
     if (posSelectedEntry)
         nSelectedEntry = GetNextSelectedItem(posSelectedEntry);
+    PROFILE_BLOCK;
     {
+        CAutoWriteLock locker(m_guard);
+        SetRedraw(FALSE);
+        DeleteAllItems();
+
+        m_nShownUnversioned = 0;
+        m_nShownNormal = 0;
+        m_nShownModified = 0;
+        m_nShownAdded = 0;
+        m_nShownDeleted = 0;
+        m_nShownConflicted = 0;
+        m_nShownFiles = 0;
+        m_nShownFolders = 0;
+
+        PrepareGroups();
+
+        m_arListArray.clear();
+
+        m_arListArray.reserve(m_arStatusArray.size());
+        SetItemCount (static_cast<int>(m_arStatusArray.size()));
+
+        int listIndex = 0;
+        bool bAllowCheck = (m_bCheckIfGroupsExist || (m_changelists.size()==0 || (m_changelists.size()==1 && m_bHasIgnoreGroup)));
+        for (size_t i=0; i < m_arStatusArray.size(); ++i)
         {
-            CAutoWriteLock locker(m_guard);
-            SetRedraw(FALSE);
-            DeleteAllItems();
+            FileEntry * entry = m_arStatusArray[i];
+            if ((entry->inexternal) && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
+                continue;
+            if ((entry->differentrepo) && (! (dwShow & SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO)))
+                continue;
+            if ((entry->isNested) && (! (dwShow & SVNSLC_SHOWNESTED)))
+                continue;
+            if (entry->IsFolder() && (!bShowFolders))
+                continue;   // don't show folders if they're not wanted.
+            if (!entry->IsFolder() && (!bShowFiles))
+                continue;
+            svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
+            DWORD showFlags = GetShowFlagsFromFileEntry(entry);
 
-            m_nShownUnversioned = 0;
-            m_nShownNormal = 0;
-            m_nShownModified = 0;
-            m_nShownAdded = 0;
-            m_nShownDeleted = 0;
-            m_nShownConflicted = 0;
-            m_nShownFiles = 0;
-            m_nShownFolders = 0;
-
-            PrepareGroups();
-
-            m_arListArray.clear();
-
-            m_arListArray.reserve(m_arStatusArray.size());
-            SetItemCount (static_cast<int>(m_arStatusArray.size()));
-
-            int listIndex = 0;
-            for (size_t i=0; i < m_arStatusArray.size(); ++i)
+            // status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
+            if (status != svn_wc_status_ignored || (entry->direct) || (dwShow & SVNSLC_SHOWIGNORED))
             {
-                FileEntry * entry = m_arStatusArray[i];
-                if ((entry->inexternal) && (!(dwShow & SVNSLC_SHOWINEXTERNALS)))
-                    continue;
-                if ((entry->differentrepo) && (! (dwShow & SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO)))
-                    continue;
-                if ((entry->isNested) && (! (dwShow & SVNSLC_SHOWNESTED)))
-                    continue;
-                if (entry->IsFolder() && (!bShowFolders))
-                    continue;   // don't show folders if they're not wanted.
-                if (!entry->IsFolder() && (!bShowFiles))
-                    continue;
-                svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
-                DWORD showFlags = GetShowFlagsFromFileEntry(entry);
-                bool bAllowCheck = ((entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0) && (m_bCheckIfGroupsExist || (m_changelists.size()==0 || (m_changelists.size()==1 && m_bHasIgnoreGroup))));
-
-                // status_ignored is a special case - we must have the 'direct' flag set to add a status_ignored item
-                if (status != svn_wc_status_ignored || (entry->direct) || (dwShow & SVNSLC_SHOWIGNORED))
+                for (int npath = 0; npath < checkedList.GetCount(); ++npath)
                 {
-                    for (int npath = 0; npath < checkedList.GetCount(); ++npath)
+                    if (entry->GetPath().IsEquivalentTo(checkedList[npath]))
                     {
-                        if (entry->GetPath().IsEquivalentTo(checkedList[npath]))
-                        {
-                            if (!entry->IsFromDifferentRepository())
-                                entry->checked = true;
-                            break;
-                        }
+                        if (!entry->IsFromDifferentRepository())
+                            entry->checked = true;
+                        break;
                     }
-                    if ((!entry->IsFolder()) && (status == svn_wc_status_deleted) && (dwShow & SVNSLC_SHOWREMOVEDANDPRESENT))
-                    {
-                        if (PathFileExists(entry->GetPath().GetWinPath()))
-                        {
-                            m_arListArray.push_back(i);
-                            if ((dwCheck & SVNSLC_SHOWREMOVEDANDPRESENT)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
-                            {
-                                if ((bAllowCheck)&&(!entry->IsFromDifferentRepository()))
-                                    entry->checked = true;
-                            }
-                            AddEntry(entry, listIndex++);
-                        }
-                    }
-                    else if ((dwShow & showFlags)||((dwShow & SVNSLC_SHOWDIRECTFILES)&&(entry->direct)&&(!entry->IsFolder())))
+                }
+                if ((!entry->IsFolder()) && (status == svn_wc_status_deleted) && (dwShow & SVNSLC_SHOWREMOVEDANDPRESENT))
+                {
+                    if (PathFileExists(entry->GetPath().GetWinPath()))
                     {
                         m_arListArray.push_back(i);
-                        if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
+                        if ((dwCheck & SVNSLC_SHOWREMOVEDANDPRESENT)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
                         {
-                            if ((bAllowCheck)&&(!entry->IsFromDifferentRepository()))
-                                entry->checked = true;
-                        }
-                        AddEntry(entry, listIndex++);
-                    }
-                    else if ((dwShow & showFlags)||((dwShow & SVNSLC_SHOWDIRECTFOLDER)&&(entry->direct)&&entry->IsFolder()))
-                    {
-                        m_arListArray.push_back(i);
-                        if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
-                        {
-                            if ((bAllowCheck)&&(!entry->IsFromDifferentRepository()))
+                            if ((bAllowCheck)&&(!entry->IsFromDifferentRepository())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
                                 entry->checked = true;
                         }
                         AddEntry(entry, listIndex++);
                     }
                 }
+                else if ((dwShow & showFlags)||((dwShow & SVNSLC_SHOWDIRECTFILES)&&(entry->direct)&&(!entry->IsFolder())))
+                {
+                    m_arListArray.push_back(i);
+                    if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
+                    {
+                        if ((bAllowCheck)&&(!entry->IsFromDifferentRepository())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
+                            entry->checked = true;
+                    }
+                    AddEntry(entry, listIndex++);
+                }
+                else if ((dwShow & showFlags)||((dwShow & SVNSLC_SHOWDIRECTFOLDER)&&(entry->direct)&&entry->IsFolder()))
+                {
+                    m_arListArray.push_back(i);
+                    if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
+                    {
+                        if ((bAllowCheck)&&(!entry->IsFromDifferentRepository())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
+                            entry->checked = true;
+                    }
+                    AddEntry(entry, listIndex++);
+                }
             }
-
-            SetItemCount(listIndex);
-
-            m_ColumnManager.UpdateRelevance (m_arStatusArray, m_arListArray, m_PropertyMap);
         }
 
-        CAutoReadLock locker(m_guard);
+        SetItemCount(listIndex);
+
+        m_ColumnManager.UpdateRelevance (m_arStatusArray, m_arListArray, m_PropertyMap);
+
         int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
         for (int col = 0; col <= maxcol; col++)
             SetColumnWidth (col, m_ColumnManager.GetWidth (col, true));
