@@ -62,6 +62,7 @@ bool ExportCommand::Execute()
             progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Export);
             progDlg.SetAutoClose (parser);
             DWORD options = dlg.m_bNoExternals ? ProgOptIgnoreExternals : ProgOptNone;
+            options |= dlg.m_bNoKeywords ? ProgOptIgnoreKeywords : ProgOptNone;
             if (dlg.m_eolStyle.CompareNoCase(_T("CRLF"))==0)
                 options |= ProgOptEolCRLF;
             if (dlg.m_eolStyle.CompareNoCase(_T("CR"))==0)
@@ -161,7 +162,7 @@ bool ExportCommand::Execute()
                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": export %s to %s\n"), (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveto);
                 SVN svn;
                 if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC,
-                    bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, svn_depth_infinity,
+                    bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, false, svn_depth_infinity,
                     GetExplorerHWND(), !!folderBrowser.m_bCheck))
                 {
                     svn.ShowErrorDialog(GetExplorerHWND(), cmdLinePath);

@@ -37,26 +37,27 @@ typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
  */
 typedef enum
 {
-    ProgOptNone = 0,
-    ProgOptRecursive = 0x01,
-    ProgOptNonRecursive = 0x00,
+    ProgOptNone                     = 0,
+    ProgOptRecursive                = 0x01,
+    ProgOptNonRecursive             = 0x00,
     /// Don't actually do the merge - just practice it
-    ProgOptDryRun = 0x04,
-    ProgOptIgnoreExternals = 0x08,
-    ProgOptKeeplocks = 0x10,
+    ProgOptDryRun                   = 0x04,
+    ProgOptIgnoreExternals          = 0x08,
+    ProgOptKeeplocks                = 0x10,
     /// for locking this means steal the lock, for unlocking it means breaking the lock
-    ProgOptForce = 0x20,
-    ProgOptSwitchAfterCopy = 0x40,
-    ProgOptIncludeIgnored = 0x80,
-    ProgOptIgnoreAncestry = 0x100,
-    ProgOptEolDefault = 0x200,
-    ProgOptEolCRLF = 0x400,
-    ProgOptEolLF = 0x800,
-    ProgOptEolCR = 0x1000,
-    ProgOptSkipConflictCheck = 0x2000,
-    ProgOptRecordOnly = 0x4000,
-    ProgOptStickyDepth = 0x8000,
-    ProgOptUseAutoprops = 0x10000,
+    ProgOptForce                    = 0x20,
+    ProgOptSwitchAfterCopy          = 0x40,
+    ProgOptIncludeIgnored           = 0x80,
+    ProgOptIgnoreAncestry           = 0x100,
+    ProgOptEolDefault               = 0x200,
+    ProgOptEolCRLF                  = 0x400,
+    ProgOptEolLF                    = 0x800,
+    ProgOptEolCR                    = 0x1000,
+    ProgOptSkipConflictCheck        = 0x2000,
+    ProgOptRecordOnly               = 0x4000,
+    ProgOptStickyDepth              = 0x8000,
+    ProgOptUseAutoprops             = 0x10000,
+    ProgOptIgnoreKeywords           = 0x20000,
 } ProgressOptions;
 
 typedef enum

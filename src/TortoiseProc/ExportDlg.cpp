@@ -34,6 +34,7 @@ CExportDlg::CExportDlg(CWnd* pParent /*=NULL*/)
     , m_strExportDirectory(_T(""))
     , m_sExportDirOrig(_T(""))
     , m_bNoExternals(FALSE)
+    , m_bNoKeywords(FALSE)
     , m_pLogDlg(NULL)
     , m_blockPathAdjustments(FALSE)
 {
@@ -53,6 +54,7 @@ void CExportDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_REVISION_NUM, m_sRevision);
     DDX_Text(pDX, IDC_CHECKOUTDIRECTORY, m_strExportDirectory);
     DDX_Check(pDX, IDC_NOEXTERNALS, m_bNoExternals);
+    DDX_Check(pDX, IDC_IGNOREKEYWORDS, m_bNoKeywords);
     DDX_Control(pDX, IDC_CHECKOUTDIRECTORY, m_cCheckoutEdit);
     DDX_Control(pDX, IDC_EOLCOMBO, m_eolCombo);
     DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
@@ -83,6 +85,7 @@ BOOL CExportDlg::OnInitDialog()
     m_bAutoCreateTargetName = !(PathIsDirectoryEmpty(m_sExportDirOrig) || !PathFileExists(m_sExportDirOrig));
 
     AdjustControlSize(IDC_NOEXTERNALS);
+    AdjustControlSize(IDC_IGNOREKEYWORDS);
     AdjustControlSize(IDC_REVISION_HEAD);
     AdjustControlSize(IDC_REVISION_N);
 
@@ -95,6 +98,7 @@ BOOL CExportDlg::OnInitDialog()
     AddAnchor(IDC_CHECKOUTDIRECTORY_BROWSE, TOP_RIGHT);
     AddAnchor(IDC_DEPTH, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_NOEXTERNALS, TOP_LEFT);
+    AddAnchor(IDC_IGNOREKEYWORDS, TOP_LEFT);
     AddAnchor(IDC_EOLLABEL, TOP_LEFT);
     AddAnchor(IDC_EOLCOMBO, TOP_LEFT);
 

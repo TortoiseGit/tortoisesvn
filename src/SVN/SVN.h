@@ -350,12 +350,17 @@ public:
      * \param revision  the revision that should be exported, which is only used
      *                  when exporting from a repository.
      * \param force     TRUE if existing files should be overwritten
+     * \param bIgnoreExternals does not export externals if true
+     * \param bIgnoreKeywords  does not expand svn:keywords during export - only applies when exporting from an url
+     * \param depth     the export depth
+     * \param hWnd      the handle of the parent window, used to show progress dialogs
+     * \param extended  if true, unversioned items are exported too, only applies when exporting from a working copy
      * \param eol       "", "CR", "LF" or "CRLF" - "" being the default
      * \return TRUE if successful
      */
     bool Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNRev& pegrev, const SVNRev& revision,
-        bool force = TRUE, bool bIgnoreExternals = FALSE, svn_depth_t depth = svn_depth_infinity,
-        HWND hWnd = NULL, bool extended = FALSE, const CString& eol = CString());
+        bool force = true, bool bIgnoreExternals = false, bool bIgnoreKeywords = false, svn_depth_t depth = svn_depth_infinity,
+        HWND hWnd = NULL, bool extended = false, const CString& eol = CString());
     /**
      * Switch working tree path to URL at revision
      *

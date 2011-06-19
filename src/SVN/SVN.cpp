@@ -663,7 +663,7 @@ bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool r
 }
 
 bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNRev& pegrev, const SVNRev& revision,
-                 bool force, bool bIgnoreExternals, svn_depth_t depth, HWND hWnd,
+                 bool force, bool bIgnoreExternals, bool bIgnoreKeywords, svn_depth_t depth, HWND hWnd,
                  bool extended, const CString& eol)
 {
     svn_error_clear(Err);
@@ -823,13 +823,14 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
         const char* source = srcPath.GetSVNApiPath(subpool);
         CHooks::Instance().PreConnect(CTSVNPathList(srcPath));
         SVNTRACE (
-            Err = svn_client_export4(NULL,      //no resulting revision needed
+            Err = svn_client_export5(NULL,      //no resulting revision needed
                 source,
                 destPath.GetSVNApiPath(subpool),
                 pegrev,
                 revision,
                 force,
                 bIgnoreExternals,
+                bIgnoreKeywords,
                 depth,
                 eol.IsEmpty() ? NULL : (LPCSTR)CStringA(eol),
                 m_pctx,

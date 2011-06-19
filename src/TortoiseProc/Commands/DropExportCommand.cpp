@@ -145,7 +145,7 @@ bool DropExportCommand::Execute()
                     dropper = renameddropper;
                 }
             }
-            if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, false, false, svn_depth_infinity, GetExplorerHWND(), !!parser.HasKey(_T("extended"))))
+            if (!svn.Export(pathList[nPath], CTSVNPath(dropper), SVNRev::REV_WC ,SVNRev::REV_WC, false, false, false, svn_depth_infinity, GetExplorerHWND(), !!parser.HasKey(_T("extended"))))
             {
                 svn.ShowErrorDialog(GetExplorerHWND(), pathList[nPath]);
                 bRet = false;
