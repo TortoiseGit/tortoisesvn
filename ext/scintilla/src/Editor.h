@@ -2,7 +2,7 @@
 /** @file Editor.h
  ** Defines the main editor class.
  **/
-// Copyright 1998-2003 by Neil Hodgson <neilh@scintilla.org>
+// Copyright 1998-2011 by Neil Hodgson <neilh@scintilla.org>
 // The License.txt file describes the conditions under which this software may be distributed.
 
 #ifndef EDITOR_H
@@ -138,6 +138,9 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	int printWrapState;
 	int cursorMode;
 	int controlCharSymbol;
+
+	// Highlight current folding block
+	HighlightDelimiter highlightDelimiter;
 
 	bool hasFocus;
 	bool hideSelection;
@@ -332,6 +335,9 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	virtual void ScrollText(int linesToMove);
 	void HorizontalScrollTo(int xPos);
 	void VerticalCentreCaret();
+	void MoveSelectedLines(int lineDelta);
+	void MoveSelectedLinesUp();
+	void MoveSelectedLinesDown();
 	void MoveCaretInsideView(bool ensureVisible=true);
 	int DisplayFromPosition(int pos);
 
@@ -367,6 +373,8 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 		int line, int lineEnd, int xStart, int subLine, int subLineStart,
 		bool overrideBackground, ColourAllocated background,
 		bool drawWrapMark, ColourAllocated wrapColour);
+	void DrawIndicator(int indicNum, int startPos, int endPos, Surface *surface, ViewStyle &vsDraw,
+		int xStart, PRectangle rcLine, LineLayout *ll, int subLine);
 	void DrawIndicators(Surface *surface, ViewStyle &vsDraw, int line, int xStart,
 		PRectangle rcLine, LineLayout *ll, int subLine, int lineEnd, bool under);
 	void DrawAnnotation(Surface *surface, ViewStyle &vsDraw, int line, int xStart,
@@ -415,7 +423,6 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	virtual void NotifyFocus(bool focus);
 	virtual int GetCtrlID() { return ctrlID; }
 	virtual void NotifyParent(SCNotification scn) = 0;
-	virtual void NotifyParent(SCNotification * scn) = 0;
 	virtual void NotifyStyleToNeeded(int endStyleNeeded);
 	void NotifyChar(int ch);
 	void NotifySavePoint(bool isSavePoint);
