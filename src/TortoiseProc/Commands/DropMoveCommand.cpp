@@ -70,6 +70,7 @@ bool DropMoveCommand::Execute()
                 name = sNewName;
             progress.Stop();
             CRenameDlg dlg;
+            dlg.SetInputValidator(this);
             dlg.m_name = name;
             dlg.m_windowtitle.Format(IDS_PROC_NEWNAMEMOVE, (LPCTSTR)name);
             if (dlg.DoModal() != IDOK)
@@ -157,8 +158,8 @@ CString DropMoveCommand::Validate(const int /*nID*/, const CString& input)
     CString sDroppath = parser.GetVal(_T("droptarget"));
     if (input.IsEmpty())
         sError.LoadString(IDS_ERR_NOVALIDPATH);
-    else if (PathFileExists(sDroppath+_T("\\")+input))
-        sError.LoadString(IDS_ERR_FILEEXISTS);
+    else if (!CTSVNPath(sDroppath+_T("\\")+input).IsValidOnWindows())
+        sError.LoadString(IDS_ERR_NOVALIDPATH);
 
     return sError;
 }

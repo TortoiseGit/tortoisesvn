@@ -164,8 +164,8 @@ CString DropCopyCommand::Validate(const int /*nID*/, const CString& input)
     CString sDroppath = parser.GetVal(_T("droptarget"));
     if (input.IsEmpty())
         sError.LoadString(IDS_ERR_NOVALIDPATH);
-    else if (PathFileExists(sDroppath+_T("\\")+input))
-        sError.LoadString(IDS_ERR_FILEEXISTS);
+    else if (!CTSVNPath(sDroppath+_T("\\")+input).IsValidOnWindows())
+        sError.LoadString(IDS_ERR_NOVALIDPATH);
 
     return sError;
 }
