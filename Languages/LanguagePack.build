@@ -67,7 +67,7 @@ NAnt build script for the TortoiseSVN language pack installers
     <property name="ResTextFileName" value="..\bin\release\bin\restext.exe" if="${crosscompile == 'yes'}" />
 
     <regex
-      pattern="^(?'langhelpfile'\d+);[ \t]+(?'langISO'[A-z_]+);[ \t]+(?'langWIX'[A-z\-]+);[ \t]+(?'langCC'\d+);[ \t]+(?'mergemanual'\d)(?'tsvnmanual'\d)(?'spellcheck'\d);[ \t]+(?'langUI'.+);[ \t]+(?'translatornames'.+)"
+      pattern="^(?'langhelpfile'-?\d+);[ \t]+(?'langISO'[A-z_@]+);[ \t]+(?'langWIX'[A-z\-]+);[ \t]+(?'langCC'\d+);[ \t]+(?'mergemanual'\d)(?'tsvnmanual'\d)(?'spellcheck'\d);[ \t]+(?'langUI'.+);[ \t]+(?'translatornames'.+)"
       input="${langline}"
     />
     <echo message="Building ${langUI} dlls and installer" />
