@@ -1274,6 +1274,11 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
     m_bWaitCursor = false;
     GetCursorPos(&pt);
     SetCursorPos(pt.x, pt.y);
+    CWnd* pParent = GetParent();
+    if (NULL != pParent && NULL != pParent->GetSafeHwnd())
+    {
+        pParent->SendMessage(SVNSLNM_ITEMCOUNTCHANGED);
+    }
 
     m_bEmpty = (GetItemCount() == 0);
     Invalidate();
