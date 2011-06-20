@@ -9,13 +9,14 @@
 # $Rev$
 # 
 # Authors:
+# Arkadiy Shapkin <arkadiy_s@inbox.ru>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-12 00:22+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-06-19 19:58+0000\n"
+"Last-Translator: KindDragon <arkadiy_s@inbox.ru>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -457,7 +458,7 @@ msgstr "Тиму Кемпу (Tim Kemp)"
 
 #. (para)
 msgid "for starting the TortoiseSVN project"
-msgstr ""
+msgstr "за основание проекта TortoiseSVN"
 
 #. (term)
 msgid "Stefan Küng"
@@ -708,6 +709,11 @@ msgid ""
 " the right mouse button and while holding it down <emphasis>drag</emphasis> "
 "the items to the new location."
 msgstr ""
+"Действия пользователя обозначены полужирным шрифтом.<keycap>Alt+A</keycap>: "
+"нажмите клавишу <keycap>Alt</keycap> на вашей клавиатуре и, удерживая её "
+"нажатой, нажмите клавишу <keycap>A</keycap>. <action>Перетаскивание правой "
+"кнопкой</action>: нажмите правую кнопку мыши и, удерживая её нажатой, "
+"<emphasis>перетащите</emphasis> элементы в другое место."
 
 #. (para)
 msgid ""
@@ -769,6 +775,11 @@ msgid ""
 " to install the 32-bit version separately to get the TortoiseSVN context "
 "menu and overlays in 32-bit applications."
 msgstr ""
+"TortoiseSVN работает под операционной системой Windows XP (c Service Pack 3)"
+" или выше, и доступен как в 32-битной, так и в 64-битной версии. Установщик "
+"для 64-битной Windows также включает 32-битную часть. Что означает что вы не"
+" должны устанавливать 32-битную версию отдельно чтобы контекстное меню и "
+"оверлей TortoiseSVN работало в  32-битных приложениях."
 
 #. (para)
 msgid ""
@@ -776,6 +787,9 @@ msgid ""
 "service pack 3 installed. It won't work if you haven't installed that SP "
 "yet!"
 msgstr ""
+"Если вы используете Windows XP, у вас по крайней мере "
+"<emphasis>должен</emphasis> быть установлен Service Pack 3. Он не будет "
+"работать, если у вас все еще не установлен этот SP!"
 
 #. (para)
 msgid ""
@@ -783,6 +797,9 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You "
 "can still download and install older versions if you need them."
 msgstr ""
+"Поддержка Windows 98, Windows ME и Windows NT4 была прекращена начиная с "
+"версии 1.2.0 и Windows 2000 и XP до SP2 начиная с 1.7.0. Вы все еще можете "
+"загрузить и установить старые версии, если они вам понядобятся."
 
 #. (title)
 msgid "Installation"
@@ -1793,6 +1810,11 @@ msgid ""
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
 msgstr ""
+"Для получения рабочей копии, вы должны <firstterm "
+"baseform=\"извлечение\">извлечь</firstterm> некоторое поддерево хранилища. "
+"(Термин <emphasis>извлечение</emphasis> (check out) по-английски может "
+"звучать как что-то, связанное с блокированием или резервированием ресурсов, "
+"но это не так: оно просто создаёт для вас личную копию проекта)."
 
 #. (para)
 msgid ""
@@ -2496,6 +2518,9 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository "
 "here...</guimenuitem></menuchoice>."
 msgstr ""
+"Щёлкните <action>правой кнопкой мыши</action> на вновь созданной папке, и "
+"выберите <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Создать "
+"здесь хранилище...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -3059,6 +3084,13 @@ msgid ""
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
 msgstr ""
+"Примеры скриптов ловушек вы можете найти в папке <filename>hooks</filename> хранилища. Эти скрипты подходят для серверов Unix/Linux, но они должны быть модифицированы, если у вас Windows-сервер. Ловушка может быть как пакетным, так и исполняемым файлом. Пример ниже показывает пакетный файл, который может быть использован для реализации ловушки pre-revprop-change (перед-изменением-свойства_ревизии). <screen>\n"
+"rem Only allow log messages to be changed.\n"
+"rem Допускать изменения только сообщений журнала.\n"
+"if \"%4\" == \"svn:log\" exit 0\n"
+"echo Property '%4' cannot be changed &gt;&amp;2\n"
+"exit 1\n"
+"</screen> Заметьте, что всё, посылаемое в stdout, отбрасывается. Если вы желаете, чтобы в диалоге 'Фиксация отклонена' появилось сообщение, вам надо послать его в stderr. В пакетном файле это достигается при помощи <filename>&gt;&amp;2</filename>"
 
 #. (title)
 msgid "Overriding Hooks"
@@ -3258,15 +3290,15 @@ msgstr ""
 
 #. (citetitle)
 msgid "VisualSVN"
-msgstr ""
+msgstr "VisualSVN"
 
 #. (citetitle)
 msgid "CollabNet"
-msgstr ""
+msgstr "CollabNet"
 
 #. (citetitle)
 msgid "UberSVN"
-msgstr ""
+msgstr "UberSVN"
 
 #. (para)
 msgid ""
@@ -3405,7 +3437,7 @@ msgstr "контекстное меню"
 
 #. (primary)
 msgid "right click"
-msgstr ""
+msgstr "правый щелчок"
 
 #. (title)
 msgid "Context menu for a directory under version control"
@@ -3668,6 +3700,9 @@ msgid ""
 "For more information on how to set up your server for authentication and "
 "access control, refer to <xref linkend=\"tsvn-serversetup\"/>."
 msgstr ""
+"За более полной информацией о том, как настроить ваш сервер для "
+"аутентификации и управления доступом, обращайтесь к <xref linkend=\"tsvn-"
+"serversetup\"/>"
 
 #. (title)
 msgid "Maximizing Windows"
@@ -5309,7 +5344,7 @@ msgstr ""
 
 #. (title)
 msgid "Property Conflicts"
-msgstr ""
+msgstr "Конфликт свойств"
 
 #. (para)
 msgid ""
@@ -5385,6 +5420,8 @@ msgid ""
 "Developer A modifies <filename>Foo.c</filename> and commits it to the "
 "repository."
 msgstr ""
+"Разработчик А изменяет <filename>Foo.c</filename> и фиксирует это в "
+"хранилище."
 
 #. (para)
 msgid ""
@@ -5581,6 +5618,8 @@ msgstr "Локальное удаление, поступающее при об�
 msgid ""
 "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>."
 msgstr ""
+"Разработчик Б переименовывает <filename>Foo.c</filename> в "
+"<filename>Bix.c</filename>."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
@@ -6059,11 +6098,11 @@ msgstr ""
 
 #. (title)
 msgid "Detailed Status"
-msgstr ""
+msgstr "Подробный статус"
 
 #. (primary)
 msgid "windows properties"
-msgstr ""
+msgstr "Показать свойства"
 
 #. (title)
 msgid "Explorer property page, Subversion tab"
@@ -7500,7 +7539,7 @@ msgstr ""
 
 #. (para)
 msgid "To refresh the log cache, hit the <keycap>Ctrl-F5</keycap> keys."
-msgstr ""
+msgstr "Чтобы обновить кэш журнала, нажмите <keycap> Ctrl-F5 </keycap> ключи."
 
 #. (title)
 msgid "Current Working Copy Revision"
@@ -8631,7 +8670,7 @@ msgstr ""
 
 #. (primary)
 msgid "Microsoft Word"
-msgstr ""
+msgstr "Microsoft Word"
 
 #. (para)
 msgid ""
@@ -8649,7 +8688,7 @@ msgstr ""
 
 #. (title)
 msgid "Problems with Office 2010"
-msgstr ""
+msgstr "Проблемы с Office 2010"
 
 #. (para)
 msgid ""
@@ -8731,7 +8770,7 @@ msgstr ""
 
 #. (term)
 msgid "SourceGear DiffMerge"
-msgstr ""
+msgstr "SourceGear DiffMerge"
 
 #. (para)
 msgid ""
@@ -8870,6 +8909,8 @@ msgstr "выберите файлы, которые вы хотите добав
 msgid ""
 "<action>right drag</action> them to the new location inside the working copy"
 msgstr ""
+"затем <action>перетащите правой кнопкой мыши</action> их на новое место "
+"внутри рабочей копии"
 
 #. (para)
 #. (para)
@@ -10135,7 +10176,7 @@ msgstr ""
 
 #. (title)
 msgid "Edit properties at HEAD revision"
-msgstr ""
+msgstr "Редактировать свойства HEAD ревизии"
 
 #. (para)
 msgid ""
@@ -10479,7 +10520,7 @@ msgstr ""
 
 #. (para)
 msgid "The action specific templates are: <placeholder-1/>"
-msgstr ""
+msgstr "Возможные значения: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -10797,7 +10838,7 @@ msgstr ""
 
 #. (title)
 msgid "Property Editors"
-msgstr ""
+msgstr "Свойства"
 
 #. (para)
 msgid ""
@@ -10809,11 +10850,11 @@ msgstr ""
 
 #. (title)
 msgid "External Content"
-msgstr ""
+msgstr "Внешнее содержимое"
 
 #. (title)
 msgid "svn:externals property page"
-msgstr ""
+msgstr "страница свойств svn:externals"
 
 #. (para)
 msgid ""
@@ -10839,11 +10880,11 @@ msgstr ""
 
 #. (title)
 msgid "SVN Keywords"
-msgstr ""
+msgstr "Ключевые слова SVN"
 
 #. (title)
 msgid "svn:keywords property page"
-msgstr ""
+msgstr "страница свойств svn:keywords"
 
 #. (para)
 msgid ""
@@ -10853,11 +10894,11 @@ msgstr ""
 
 #. (title)
 msgid "EOL Style"
-msgstr ""
+msgstr "Стиль переноса строк"
 
 #. (title)
 msgid "svn:eol-style property page"
-msgstr ""
+msgstr "страница свойств svn:eol-style"
 
 #. (para)
 msgid ""
@@ -10872,15 +10913,15 @@ msgstr "Интеграция с системами отслеживания пр
 
 #. (title)
 msgid "tsvn:bugtraq property page"
-msgstr ""
+msgstr "страница свойств tsvn:bugtraq"
 
 #. (title)
 msgid "Log Message Sizes"
-msgstr ""
+msgstr "Размеры журнала сообщений"
 
 #. (title)
 msgid "Size of log messages property page"
-msgstr ""
+msgstr "Страница свойств размер журнала сообщений"
 
 #. (para)
 msgid ""
@@ -10894,11 +10935,11 @@ msgstr ""
 
 #. (title)
 msgid "Project Language"
-msgstr ""
+msgstr "Язык проекта"
 
 #. (title)
 msgid "Language property page"
-msgstr ""
+msgstr "Страница свойств язык"
 
 #. (para)
 msgid ""
@@ -10912,11 +10953,11 @@ msgstr ""
 
 #. (title)
 msgid "MIME-type"
-msgstr ""
+msgstr "MIME-type"
 
 #. (title)
 msgid "svn:mime-type property page"
-msgstr ""
+msgstr "Страница свойств svn:mime-type"
 
 #. (title)
 #. (literal)
@@ -10926,7 +10967,7 @@ msgstr "svn:needs-lock"
 
 #. (title)
 msgid "svn:needs-lock property page"
-msgstr ""
+msgstr "Страница свойств svn:needs-lock"
 
 #. (para)
 msgid ""
@@ -10937,11 +10978,11 @@ msgstr ""
 
 #. (title)
 msgid "svn:executable"
-msgstr ""
+msgstr "svn:executable"
 
 #. (title)
 msgid "svn:executable property page"
-msgstr ""
+msgstr "Страница свойств svn:executable"
 
 #. (para)
 msgid ""
@@ -14442,7 +14483,7 @@ msgstr ""
 
 #. (term)
 msgid "Hide unused branches"
-msgstr ""
+msgstr "Спрятать неиспользованные ветки"
 
 #. (para)
 msgid ""
@@ -15176,7 +15217,7 @@ msgstr ""
 
 #. (title)
 msgid "The Bugtraq Properties Dialog"
-msgstr ""
+msgstr "Диалоговое окно свойств Bugtraq"
 
 #. (para)
 msgid ""
@@ -15803,7 +15844,7 @@ msgstr "Выбор языка пользовательского интерфе�
 
 #. (term)
 msgid "Check for updates"
-msgstr ""
+msgstr "Проверить наличие обновлений"
 
 #. (para)
 msgid ""
@@ -15845,7 +15886,7 @@ msgstr ""
 
 #. (term)
 msgid "Use Aero Dialogs"
-msgstr ""
+msgstr "Использовать Aero диалоги"
 
 #. (para)
 msgid ""
@@ -15855,7 +15896,7 @@ msgstr ""
 
 #. (term)
 msgid "Create Library"
-msgstr ""
+msgstr "Создать библиотеку"
 
 #. (para)
 msgid ""
@@ -15996,7 +16037,7 @@ msgstr ""
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
+msgstr "Применить локальные изменения в svn:externals при обновлении"
 
 #. (para)
 msgid ""
@@ -16146,7 +16187,7 @@ msgstr ""
 
 #. (term)
 msgid "Auto-close"
-msgstr ""
+msgstr "Авто-закрытие"
 
 #. (para)
 msgid ""
@@ -16208,7 +16249,7 @@ msgstr ""
 
 #. (term)
 msgid "Always close dialogs for local operations"
-msgstr ""
+msgstr "Всегда закрывать диалоговые окна для локальных операций"
 
 #. (para)
 msgid ""
@@ -18841,7 +18882,7 @@ msgstr ""
 
 #. (title)
 msgid "Exporting TSVN Settings"
-msgstr ""
+msgstr "Экспортировать TSVN настройки"
 
 #. (para)
 msgid ""
@@ -19466,7 +19507,7 @@ msgstr ""
 #. (row)
 #. (row)
 msgid "<placeholder-1/>."
-msgstr ""
+msgstr "<placeholder-1/>."
 
 #. (entry)
 msgid "The maximum update revision, as shown in <placeholder-1/>"
@@ -19791,7 +19832,7 @@ msgstr ""
 
 #. (title)
 msgid "Naming conventions"
-msgstr ""
+msgstr "Соглашение об именование"
 
 #. (para)
 msgid ""
@@ -19805,15 +19846,15 @@ msgstr ""
 
 #. (para)
 msgid "Gurtle - An issue tracker plugin for Google code"
-msgstr ""
+msgstr "Gurtle - плагин для отслеживания проблем в Google Code"
 
 #. (para)
 msgid "TurtleMine - An issue tracker plugin for Redmine"
-msgstr ""
+msgstr "TurtleMine - плагин для отслеживания ошибок в Redmine"
 
 #. (para)
 msgid "VurtleOne - An issue tracker plugin for VersionOne"
-msgstr ""
+msgstr "VurtleOne - плагин для отслеживания ошибок в VersionOne"
 
 #. (para)
 msgid ""
@@ -21031,6 +21072,8 @@ msgid ""
 "Create a new folder within your project to contain the common code, but do "
 "not add it to Subversion."
 msgstr ""
+"Создайте новую папку в вашем проекте, которая будет содержать общий код, но "
+"не добавляйте её в Subversion."
 
 #. (para)
 msgid ""
@@ -21572,19 +21615,19 @@ msgstr "Удалить неверсированные элементы"
 
 #. (entry)
 msgid "Merge All"
-msgstr ""
+msgstr "Объединить все"
 
 #. (entry)
 msgid "Diff with previous version"
-msgstr ""
+msgstr "Разница с предыдущей версией"
 
 #. (entry)
 msgid "Paste"
-msgstr ""
+msgstr "Вставить"
 
 #. (entry)
 msgid "Upgrade working copy"
-msgstr ""
+msgstr "Обновите рабочую копию"
 
 #. (entry)
 msgid "Settings"
@@ -21843,7 +21886,7 @@ msgstr "/strict"
 
 #. (option)
 msgid "/merge"
-msgstr ""
+msgstr "/merge"
 
 #. (option)
 msgid "/findstring:\"filterstring\""
@@ -21887,7 +21930,7 @@ msgstr "<option>/findtype:7</option>  фильтровать по ID ошибк�
 
 #. (option)
 msgid "/outfile:path\\to\\file"
-msgstr ""
+msgstr "/outfile:path\\to\\file"
 
 #. (entry)
 msgid ""
@@ -21912,11 +21955,11 @@ msgstr "/url"
 #. (option)
 #. (option)
 msgid "/blockpathadjustments"
-msgstr ""
+msgstr "/blockpathadjustments"
 
 #. (option)
 msgid "/revision:XXX"
-msgstr ""
+msgstr "/revision:XXX"
 
 #. (entry)
 msgid ""
@@ -21976,7 +22019,7 @@ msgstr "/includeexternals"
 
 #. (option)
 msgid "/stickydepth"
-msgstr ""
+msgstr "/stickydepth"
 
 #. (entry)
 msgid ""
@@ -22030,35 +22073,35 @@ msgstr "/noui"
 
 #. (option)
 msgid "/noprogressui"
-msgstr ""
+msgstr "/noprogressui"
 
 #. (option)
 msgid "/nodlg"
-msgstr ""
+msgstr "/nodlg"
 
 #. (option)
 msgid "/cleanup"
-msgstr ""
+msgstr "/cleanup"
 
 #. (option)
 msgid "/revert"
-msgstr ""
+msgstr "/revert"
 
 #. (option)
 msgid "/delunversioned"
-msgstr ""
+msgstr "/delunversioned"
 
 #. (option)
 msgid "/delignored"
-msgstr ""
+msgstr "/delignored"
 
 #. (option)
 msgid "/refreshshell"
-msgstr ""
+msgstr "/refreshshell"
 
 #. (option)
 msgid "/externals"
-msgstr ""
+msgstr "/externals"
 
 #. (entry)
 msgid ""
@@ -22111,15 +22154,15 @@ msgstr ""
 
 #. (option)
 msgid "/droptarget"
-msgstr ""
+msgstr "/droptarget"
 
 #. (option)
 msgid "/overwrite"
-msgstr ""
+msgstr "/overwrite"
 
 #. (option)
 msgid "/autorename"
-msgstr ""
+msgstr "/autorename"
 
 #. (entry)
 msgid ""
@@ -22155,7 +22198,7 @@ msgstr "/torev:xxx"
 
 #. (option)
 msgid "/reintegrate"
-msgstr ""
+msgstr "/reintegrate"
 
 #. (entry)
 msgid ""
@@ -24081,7 +24124,7 @@ msgstr ""
 
 #. (para)
 msgid "Group policy object."
-msgstr ""
+msgstr "Объект групповой политики"
 
 #. (glossterm)
 msgid "HEAD revision"
@@ -25761,7 +25804,7 @@ msgstr "Клавиатурные сокращения"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
-msgstr ""
+msgstr "Ctrl-Q, Ctrl-W, Escape"
 
 #. (para)
 msgid "Quit the program"
@@ -25773,27 +25816,27 @@ msgstr "Скопировать выбранный текст в буфер об�
 
 #. (term)
 msgid "Ctrl-X, Shift-Del"
-msgstr ""
+msgstr "Ctrl-X, Shift-Del"
 
 #. (para)
 msgid "Cut the selected text to the clipboard"
-msgstr ""
+msgstr "Вырезать выбранный текст в буфер обмена"
 
 #. (term)
 msgid "Ctrl-V, Shift-Insert"
-msgstr ""
+msgstr "Ctrl-V, Shift-Insert"
 
 #. (para)
 msgid "Paste the selected text from the clipboard"
-msgstr ""
+msgstr "Вставить выбранный текст из буфера обмена"
 
 #. (term)
 msgid "Ctrl-Z, Alt-Backspace"
-msgstr ""
+msgstr "Ctrl-Z, Alt-Backspace"
 
 #. (para)
 msgid "Undo the last edits"
-msgstr ""
+msgstr "Отменить последние изменения"
 
 #. (term)
 msgid "Ctrl-F"
@@ -25885,7 +25928,7 @@ msgstr "Переключить режим отображения непечат�
 
 #. (term)
 msgid "Ctrl-L"
-msgstr ""
+msgstr "Ctrl-L"
 
 #. (para)
 msgid "Toggles between collapsing unchanged sections or not"
@@ -25893,11 +25936,11 @@ msgstr ""
 
 #. (term)
 msgid "Ctrl-P"
-msgstr ""
+msgstr "Ctrl-P"
 
 #. (para)
 msgid "Toggles between line wrapping"
-msgstr ""
+msgstr "Переключить между способами переноса строк"
 
 #. (term)
 msgid "Ctrl-mousewheel"
