@@ -996,15 +996,15 @@ LRESULT CCommitDlg::OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM)
 {
     if ((m_ListCtrl.GetItemCount() == 0)&&(m_ListCtrl.HasUnversionedItems())&&(!m_bShowUnversioned))
     {
-        if (TSVNMessageBox(*this, IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED, IDS_APPNAME, MB_ICONINFORMATION | MB_YESNO)==IDYES)
-        {
-            m_bShowUnversioned = TRUE;
-            DWORD dwShow = SVNSLC_SHOWVERSIONEDBUTNORMAL | SVNSLC_SHOWLOCKS | SVNSLC_SHOWINCHANGELIST | SVNSLC_SHOWEXTERNAL | SVNSLC_SHOWINEXTERNALS | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWEXTDISABLED | SVNSLC_SHOWUNVERSIONED;
-            m_ListCtrl.Show(dwShow, CTSVNPathList(), 0, true, true);
-            UpdateCheckLinks();
-            UpdateData(FALSE);
-        }
+        m_ListCtrl.SetEmptyString(IDS_COMMITDLG_NOTHINGTOCOMMITUNVERSIONED);
+        m_ListCtrl.Invalidate();
     }
+    else
+    {
+        m_ListCtrl.SetEmptyString(IDS_COMMITDLG_NOTHINGTOCOMMIT);
+        m_ListCtrl.Invalidate();
+    }
+
     return 0;
 }
 
