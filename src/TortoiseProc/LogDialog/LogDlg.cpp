@@ -1454,10 +1454,9 @@ void CLogDlg::StatusThread()
             return;
 
         svn_revnum_t minrev, maxrev;
-        bool switched, modified, sparse;
         SVN svn;
         svn.SetCancelBool(&m_bCancelled);
-        if ((svn.GetWCRevisionStatus(revWCPath, true, minrev, maxrev, switched, modified, sparse))&&(maxrev))
+        if (svn.GetWCMinMaxRevs(revWCPath, true, minrev, maxrev)&&(maxrev))
         {
             m_wcRev = maxrev;
             // force a redraw of the log list control to make sure the wc rev is
