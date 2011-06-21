@@ -2354,6 +2354,22 @@ bool SVN::GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revn
     return true;
 }
 
+
+bool SVN::GetWCMinMaxRevs( const CTSVNPath& wcpath, bool committed, svn_revnum_t& minrev, svn_revnum_t& maxrev )
+{
+    SVNPool localpool(pool);
+    svn_error_clear(Err);
+    Err = NULL;
+
+    const char* svnPath = wcpath.GetSVNApiPath(localpool);
+    SVNTRACE (
+        Err = svn_client_min_max_revisions (&minrev, &maxrev, svnPath, committed, m_pctx, localpool),
+        svnPath
+        )
+
+    return (Err == NULL);
+}
+
 bool SVN::Upgrade(const CTSVNPath& wcpath)
 {
     SVNPool localpool(pool);

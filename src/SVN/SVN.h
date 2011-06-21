@@ -751,6 +751,13 @@ public:
     bool GetWCRevisionStatus(const CTSVNPath& wcpath, bool bCommitted, svn_revnum_t& minrev, svn_revnum_t& maxrev, bool& switched, bool& modified, bool& sparse);
 
     /**
+     * Set \a minrev and \a maxrev to the lowest and highest revision numbers found within \a wcpath.
+     * if \a committed is set to true, set \a minrev and \a maxrev to 
+     * the lowest and highest committed (i.e. "last changed") revision numbers.
+     */
+    bool GetWCMinMaxRevs(const CTSVNPath& wcpath, bool committed, svn_revnum_t& minrev, svn_revnum_t& maxrev);
+
+    /**
      * Upgrades the working copy at \c wcpath to the new format
      */
     bool Upgrade(const CTSVNPath& wcpath);
