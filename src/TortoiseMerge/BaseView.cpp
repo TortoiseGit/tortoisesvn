@@ -1182,7 +1182,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
                 int nLineNumber = GetLineNumber(nLineIndex);
                 if (IsViewLineHiden(GetViewLineForScreen(nLineIndex)))
                 {
-                    // TODO: do not show if there is no number hiden
+                    // TODO: do not show if there is no number hidden
                     // TODO: show number if there is only one
                     sLinenumberFormat.Format(_T("%%%ds"), m_nDigits);
                     sLinenumber.Format(sLinenumberFormat, (m_nDigits>1) ? _T("↕⁞") : _T("⁞")); // alternative …
@@ -1634,7 +1634,7 @@ void CBaseView::DrawTextLine(
             findText += nMarkLength;
         }
     }
-    // @ this point we may cache data for next line which may be same in wraped mode
+    // @ this point we may cache data for next line which may be same in wrapped mode
 
     int nTextOffset = 0;
     int nSubline = GetSubLineOffset(nLineIndex);
@@ -2173,7 +2173,7 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
     default:
         return;
     } // switch (cmd)
-    SaveUndoStep(); // all except copy, cut  paste save undo step, but this should not be harmfull as step is empty alredy and thus not saved
+    SaveUndoStep(); // all except copy, cut  paste save undo step, but this should not be harmful as step is empty already and thus not saved
     return;
 }
 
@@ -3177,7 +3177,7 @@ POINT CBaseView::ConvertViewPosToScreen(const POINT& pt)
             ptPos.y++;
             nSubLineLength = GetLineChars(ptPos.y).GetLength();
         }
-        // last pos of non last subline go to start of next screen line
+        // last pos of non last sub-line go to start of next screen line
         // Note: while this works correctly, it's not what a user might expect:
         // cursor-right when the caret is before the last char of a wrapped line
         // now moves the caret to the next line. But users expect the caret to
@@ -4263,7 +4263,7 @@ int CBaseView::CountMultiLines( int nViewLine )
     return CountMultiLines(nViewLine);
 }
 
-/// prepare inline diff cache */
+/// prepare inline diff cache
 LineColors & CBaseView::GetLineColors(int nViewLine)
 {
     ASSERT(nViewLine < (int)m_ScreenedViewLine.size());
@@ -4500,7 +4500,7 @@ CBaseView::TScreenLineInfo CBaseView::Screen2View::GetScreenLineInfo( int screen
 }
 
 /**
-    doing partial rebuild whole screen2view vector is builded, but uses ScreenedViewLine cache to do it faster
+    doing partial rebuild, whole screen2view vector is built, but uses ScreenedViewLine cache to do it faster
 */
 void CBaseView::Screen2View::RebuildIfNecessary()
 {
@@ -4530,7 +4530,7 @@ void CBaseView::Screen2View::RebuildIfNecessary()
 
     size_t OldSize = m_Screen2View.size();
     m_Screen2View.clear();
-    m_Screen2View.reserve(OldSize); // gues same size
+    m_Screen2View.reserve(OldSize); // guess same size
     for (int i = 0; i < m_pViewData->GetCount(); ++i)
     {
         if (m_pMainFrame->m_bCollapsed)
@@ -4563,7 +4563,6 @@ void CBaseView::Screen2View::RebuildIfNecessary()
     }
     m_pViewData = NULL;
 
-    //BuildAllMarkedWordArray();
     if (IsLeftViewGood())
          m_pwndLeft->BuildMarkedWordArray();
     if (IsRightViewGood())
@@ -4585,7 +4584,7 @@ int CBaseView::Screen2View::FindScreenLineForViewLine( int viewLine )
     if (nScreenLineCount>16)
     {
         // for enough long data search for last screen 
-        // with viewline less then one we are looking for
+        // with viewline less than one we are looking for
         // use approximate method (based on) binary search using asymmetric start point
         // in form 2**n (determined as MSB of length) to go around division and rounding;
         // this effectively looks for bit values from MSB to LSB
