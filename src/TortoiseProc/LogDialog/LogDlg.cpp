@@ -1933,7 +1933,8 @@ void CLogDlg::DiffSelectedFile()
         rev2--;
         // now we have both revisions selected in the log list, so we can do a diff of the selected
         // entry in the changed files list with these two revisions.
-        DoDiffFromLog(selIndex, rev1, rev2, false, false);
+        auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, false, false); this->EnableWindow(TRUE);this->SetFocus();};
+        new async::CAsyncCall(f, &netScheduler);
     }
     else
     {
@@ -1964,7 +1965,8 @@ void CLogDlg::DiffSelectedFile()
                     }
                 }
             }
-            DoDiffFromLog(selIndex, rev1, rev2, false, false);
+            auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, false, false); this->EnableWindow(TRUE);this->SetFocus();};
+            new async::CAsyncCall(f, &netScheduler);
         }
         else
         {
@@ -2433,7 +2435,7 @@ BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 
 BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-    if (m_bLogThreadRunning)
+    if ((m_bLogThreadRunning)||(netScheduler.GetRunningThreadCount()))
     {
         if (!IsCursorOverWindowBorder() && ((pWnd)&&(pWnd != GetDlgItem(IDC_LOGCANCEL))))
         {
