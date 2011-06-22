@@ -4512,11 +4512,11 @@ void CBaseView::Screen2View::RebuildIfNecessary()
     FixScreenedCacheSize(m_pwndBottom);
     if (!m_bFull)
     {
-        for (int i=0; i<(int)m_RebuildRanges.size(); i++) //TODO: use iterator if nicer, faster or ..
+        for (auto it = m_RebuildRanges.cbegin(); it != m_RebuildRanges.cend(); ++it)
         {
-            ResetScreenedViewLineCache(m_pwndLeft, m_RebuildRanges[i]);
-            ResetScreenedViewLineCache(m_pwndRight, m_RebuildRanges[i]);
-            ResetScreenedViewLineCache(m_pwndBottom, m_RebuildRanges[i]);
+            ResetScreenedViewLineCache(m_pwndLeft, *it);
+            ResetScreenedViewLineCache(m_pwndRight, *it);
+            ResetScreenedViewLineCache(m_pwndBottom, *it);
         }
     }
     else
