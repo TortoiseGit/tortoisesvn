@@ -3973,11 +3973,14 @@ void CBaseView::BuildMarkedWordArray()
     int lineCount = GetLineCount();
     m_arMarkedWordLines.clear();
     m_arMarkedWordLines.reserve(lineCount);
+    bool bDoit = !m_sMarkedWord.IsEmpty();
     for (int i = 0; i < lineCount; ++i)
     {
-        LPCTSTR line = GetLineChars(i);
-        if (line)
+        LPCTSTR line = NULL;
+        if (bDoit && ((line = GetLineChars(i))!=NULL))
+        {
             m_arMarkedWordLines.push_back(_tcsstr(line, (LPCTSTR)m_sMarkedWord) != NULL);
+        }
         else
             m_arMarkedWordLines.push_back(0);
     }
@@ -4619,8 +4622,7 @@ int CBaseView::Screen2View::FindScreenLineForViewLine( int viewLine )
 void CBaseView::Screen2View::ScheduleFullRebuild(CViewData * pViewData) {
     m_bFull = true;
 
-    if (m_pViewData == NULL)
-        m_pViewData = pViewData;
+    m_pViewData = pViewData;
 }
 
 void CBaseView::Screen2View::ScheduleRangeRebuild(CViewData * pViewData, int nFirstViewLine, int nLastViewLine)
@@ -4628,8 +4630,7 @@ void CBaseView::Screen2View::ScheduleRangeRebuild(CViewData * pViewData, int nFi
     if (m_bFull)
         return;
 
-    if (m_pViewData == NULL)
-        m_pViewData = pViewData;
+    m_pViewData = pViewData;
 
     TRebuildRange Range;
     Range.FirstViewLine=nFirstViewLine;
