@@ -169,7 +169,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_nSortedColumn(-1)
     , m_sNoPropValueText(MAKEINTRESOURCE(IDS_STATUSLIST_NOPROPVALUE))
     , m_bDepthInfinity(false)
-    , m_bInsertingItem(false)
+    , m_bBlockItemChangeHandler(false)
 {
 }
 
@@ -1577,7 +1577,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
         }
     }
 
-    m_bInsertingItem = true;
+    m_bBlockItemChangeHandler = true;
     LVITEM lvItem = {0};
     lvItem.iItem = listIndex;
     lvItem.mask = LVIF_TEXT|LVIF_IMAGE|LVIF_STATE;
@@ -1595,7 +1595,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
     else if (entry->depth == svn_depth_empty)
         lvItem.state = INDEXTOOVERLAYMASK(OVL_DEPTHEMPTY);
     InsertItem(&lvItem);
-    m_bInsertingItem = false;
+    m_bBlockItemChangeHandler = false;
 
     SetCheck(listIndex, entry->checked);
     if (entry->checked)
@@ -1746,7 +1746,7 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     *pResult = 0;
-    if ((m_bInsertingItem)||(pNMLV->uNewState==0)||(pNMLV->uNewState & LVIS_SELECTED)||(pNMLV->uNewState & LVIS_FOCUSED))
+    if ((m_bBlockItemChangeHandler)||(pNMLV->uNewState==0)||(pNMLV->uNewState & LVIS_SELECTED)||(pNMLV->uNewState & LVIS_FOCUSED))
         return FALSE;
 
     CAutoWriteWeakLock writeLock(m_guard);
@@ -1761,6 +1761,7 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
             CheckEntry(pNMLV->iItem, nListItems);
             if (bSelected)
             {
+                m_bBlockItemChangeHandler = true;
                 POSITION pos = GetFirstSelectedItemPosition();
                 int index;
                 while ((index = GetNextSelectedItem(pos)) >= 0)
@@ -1768,6 +1769,7 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
                     if (index != pNMLV->iItem)
                         CheckEntry(index, nListItems);
                 }
+                m_bBlockItemChangeHandler = false;
             }
         }
         else
@@ -1775,6 +1777,7 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
             UncheckEntry(pNMLV->iItem, nListItems);
             if (bSelected)
             {
+                m_bBlockItemChangeHandler = true;
                 POSITION pos = GetFirstSelectedItemPosition();
                 int index;
                 while ((index = GetNextSelectedItem(pos)) >= 0)
@@ -1782,6 +1785,7 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
                     if (index != pNMLV->iItem)
                         UncheckEntry(index, nListItems);
                 }
+                m_bBlockItemChangeHandler = false;
             }
         }
         GetStatisticsString();
@@ -1832,7 +1836,8 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
     ASSERT(entry != NULL);
     if (entry == NULL)
         return;
-    SetCheck(index, TRUE);
+    if (!GetCheck(index))
+        SetCheck(index, TRUE);
     entry = GetListEntry(index);
     // if an unversioned or added item was checked, then we need to check if
     // the parent folders are unversioned/added too. If the parent folders actually
@@ -4527,6 +4532,7 @@ void CSVNStatusListCtrl::Check(DWORD dwCheck, bool uncheckNonMatches)
     {
         CAutoWriteLock locker(m_guard);
         SetRedraw(FALSE);
+        m_bBlockItemChangeHandler = true;
 
         int nListItems = GetItemCount();
         m_nSelected = 0;
@@ -4551,6 +4557,7 @@ void CSVNStatusListCtrl::Check(DWORD dwCheck, bool uncheckNonMatches)
             else if (uncheckNonMatches)
                 SetEntryCheck(entry, i, false);
         }
+        m_bBlockItemChangeHandler = false;
     }
     SetRedraw(TRUE);
     GetStatisticsString();
