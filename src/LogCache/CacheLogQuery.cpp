@@ -531,6 +531,25 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* cache
 
     MergeFromUpdateCache();
 
+    // update skip ranges etc. if we are still connected
+
+    if (!repositoryInfoCache->IsOffline (uuid, root, false))
+    {
+        // do we miss some data at the end of the log?
+        // (no-op, if end-of-log was reached;
+        //  only valid for a bounded log, i.e. limit != 0)
+
+        // if we haven't received *any* data, there is no log info
+        // for this path even if we haven't been following renames
+        // (we will not get here in case of an error or user cancel)
+
+        bool limitReached = (limit > 0) && (receiveCount >= limit);
+        if ((receiveCount == 0) || !limitReached)
+        {
+            AutoAddSkipRange (max (endRevision, (revision_t)1)-1);
+        }
+    }
+
     return min (oldestReported, firstNARevision+1);
 }
 
