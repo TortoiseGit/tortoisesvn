@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2010 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -121,11 +121,11 @@ void CProgressDlg::SetShowProgressBar(bool bShow /* = true */)
         m_dwDlgFlags |= PROGDLG_NOPROGRESSBAR;
 }
 #ifdef _MFC_VER
-//HRESULT CProgressDlg::ShowModal (CWnd* pwndParent)
-//{
-//  EnsureValid();
-//  return ShowModal(pwndParent->GetSafeHwnd());
-//}
+HRESULT CProgressDlg::ShowModal (CWnd* pwndParent, BOOL immediately /* = true */)
+{
+  EnsureValid();
+  return ShowModal(pwndParent->GetSafeHwnd(), immediately);
+}
 
 HRESULT CProgressDlg::ShowModeless(CWnd* pwndParent, BOOL immediately)
 {
@@ -159,46 +159,19 @@ void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...)
 
 
 #endif
-//HRESULT CProgressDlg::ShowModal (HWND hWndParent)
-//{
-//  EnsureValid();
-//  HRESULT hr;
-//  if (IsValid())
-//  {
-//
-//      hr = m_pIDlg->StartProgressDialog(hWndParent,
-//          NULL,
-//          m_dwDlgFlags | PROGDLG_MODAL,
-//          NULL);
-//
-//      if (SUCCEEDED(hr))
-//      {
-//          m_isVisible = true;
-//      }
-//      return hr;
-//  }
-//  return E_FAIL;
-//}
-
-HRESULT CProgressDlg::ShowModeless(HWND hWndParent, BOOL immediately)
+HRESULT CProgressDlg::ShowModal(HWND hWndParent, BOOL immediately /* = true */)
 {
     EnsureValid();
     m_hWndProgDlg = NULL;
     if (!IsValid())
         return E_FAIL;
-
-    HRESULT hr = m_pIDlg->StartProgressDialog(hWndParent, NULL, m_dwDlgFlags, NULL);
+    m_hWndParent = hWndParent;
+    HRESULT hr = m_pIDlg->StartProgressDialog(hWndParent, NULL, m_dwDlgFlags | PROGDLG_MODAL, NULL);
     if(FAILED(hr))
         return hr;
 
     m_isVisible = true;
 
-    if (!immediately)
-        return hr;
-
-    // The progress window can be remarkably slow to display, particularly
-    // if its parent is blocked.
-    // This process finds the hwnd for the progress window and gives it a kick...
     ATL::CComPtr<IOleWindow> pOleWindow;
     HRESULT hr2 = m_pIDlg.QueryInterface(&pOleWindow);
     if(SUCCEEDED(hr2))
@@ -206,7 +179,58 @@ HRESULT CProgressDlg::ShowModeless(HWND hWndParent, BOOL immediately)
         hr2 = pOleWindow->GetWindow(&m_hWndProgDlg);
         if(SUCCEEDED(hr2))
         {
-            ShowWindow(m_hWndProgDlg, SW_SHOW);
+            // StartProgressDialog creates a new thread to host the progress window.
+            // When the window receives WM_DESTROY message StopProgressDialog() wrongly 
+            // attempts to re-enable the parent in the calling thread (our thread),
+            // after the progress window is destroyed and the progress thread has died.
+            // When the progress window dies, the system tries to assign a new foreground window.
+            // It cannot assign to hwndParent because StartProgressDialog (w/PROGDLG_MODAL) disabled the parent window.
+            // So the system hands the foreground activation to the next process that wants it in the
+            // system foreground queue. Thus we lose our right to recapture the foreground window.
+            // The way to fix this bug is to insert a call to EnableWindow(hWndParent) in the WM_DESTROY
+            // handler for the progress window in the progress thread.
+
+            // To do that, we Subclass the progress dialog
+            // Since the window and thread created by the progress dialog object live on a few
+            // milliseconds after calling Stop() and Release(), we must not store anything
+            // in member variables of this class but must only store everything in the window
+            // itself: thus we use SetProp()/GetProp() to store the data.
+            m_OrigProc = (WNDPROC) SetWindowLongPtr(m_hWndProgDlg, GWLP_WNDPROC, (LONG_PTR) fnSubclass);
+            SetProp(m_hWndProgDlg, L"ParentWindow", m_hWndParent);
+            SetProp(m_hWndProgDlg, L"OrigProc", m_OrigProc);
+            if(immediately)
+                ShowWindow(m_hWndProgDlg, SW_SHOW);
+        }
+    }
+    return hr;
+}
+
+HRESULT CProgressDlg::ShowModeless(HWND hWndParent, BOOL immediately)
+{
+    EnsureValid();
+    m_hWndProgDlg = NULL;
+    if (!IsValid())
+        return E_FAIL;
+    m_hWndParent = hWndParent;
+    HRESULT hr = m_pIDlg->StartProgressDialog(hWndParent, NULL, m_dwDlgFlags, NULL);
+    if(FAILED(hr))
+        return hr;
+
+    m_isVisible = true;
+
+    ATL::CComPtr<IOleWindow> pOleWindow;
+    HRESULT hr2 = m_pIDlg.QueryInterface(&pOleWindow);
+    if(SUCCEEDED(hr2))
+    {
+        hr2 = pOleWindow->GetWindow(&m_hWndProgDlg);
+        if(SUCCEEDED(hr2))
+        {
+            // see comment in ShowModal() for why we subclass the window
+            m_OrigProc = (WNDPROC) SetWindowLongPtr(m_hWndProgDlg, GWLP_WNDPROC, (LONG_PTR) fnSubclass);
+            SetProp(m_hWndProgDlg, L"ParentWindow", m_hWndParent);
+            SetProp(m_hWndProgDlg, L"OrigProc", m_OrigProc);
+            if (immediately)
+                ShowWindow(m_hWndProgDlg, SW_SHOW);
         }
     }
     return hr;
@@ -250,6 +274,7 @@ void CProgressDlg::Stop()
         }
         m_isVisible = false;
         m_pIDlg.Release();
+
         m_hWndProgDlg = NULL;
     }
 }
@@ -260,4 +285,19 @@ void CProgressDlg::ResetTimer()
     {
         m_pIDlg->Timer(PDTIMER_RESET, NULL);
     }
+}
+
+LRESULT CProgressDlg::fnSubclass(HWND hwnd,UINT uMsg,WPARAM wParam,LPARAM lParam)
+{
+    LONG_PTR origproc = (LONG_PTR)GetProp(hwnd, L"OrigProc");
+    if (uMsg == WM_DESTROY)
+    {
+        HWND hParent = (HWND)GetProp(hwnd, L"ParentWindow");
+        EnableWindow(hParent, TRUE);
+        SetWindowLongPtr (hwnd, GWLP_WNDPROC, origproc);
+        RemoveProp(hwnd, L"ParentWindow");
+        RemoveProp(hwnd, L"OrigProc");
+        return 0;
+    }
+    return CallWindowProc ((WNDPROC)origproc, hwnd, uMsg, wParam, lParam);
 }
