@@ -314,8 +314,8 @@ protected:  // methods
     void            CheckOtherView();
     static void     GetWhitespaceBlock(CViewData *viewData, int nLineIndex, int & nStartBlock, int & nEndBlock);
     static CString  GetWhitespaceString(CViewData *viewData, int nStartBlock, int nEndBlock);
-    bool            IsViewLineHiden(int nViewLine);
-    static bool     IsViewLineHiden(CViewData * pViewData, int nViewLine);
+    bool            IsViewLineHidden(int nViewLine);
+    static bool     IsViewLineHidden(CViewData * pViewData, int nViewLine);
 
     void            OnContextMenu(CPoint point, DiffStates state);
     /**

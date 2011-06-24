@@ -697,12 +697,12 @@ bool CBaseView::IsBlockWhitespaceOnly(int nLineIndex, bool& bIdentical)
     return (!mine.IsEmpty()) && (mine == other);
 }
 
-bool CBaseView::IsViewLineHiden(int nViewLine)
+bool CBaseView::IsViewLineHidden(int nViewLine)
 {
-    return IsViewLineHiden(m_pViewData, nViewLine);
+    return IsViewLineHidden(m_pViewData, nViewLine);
 }
 
-bool CBaseView::IsViewLineHiden(CViewData * pViewData, int nViewLine)
+bool CBaseView::IsViewLineHidden(CViewData * pViewData, int nViewLine)
 {
     return m_pMainFrame->m_bCollapsed && (pViewData->GetHideState(nViewLine)!=HIDESTATE_SHOWN);
 }
@@ -1090,6 +1090,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
     {
         int nViewLine = GetViewLineForScreen(nLineIndex);
         HICON icon = NULL;
+        ASSERT(nViewLine<m_ScreenedViewLine.size());
         TScreenedViewLine::EIcon eIcon = m_ScreenedViewLine[nViewLine].eIcon;
         if (eIcon==TScreenedViewLine::ICN_UNKNOWN)
         {
@@ -1180,7 +1181,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
             {
                 CString sLinenumberFormat;
                 int nLineNumber = GetLineNumber(nLineIndex);
-                if (IsViewLineHiden(GetViewLineForScreen(nLineIndex)))
+                if (IsViewLineHidden(GetViewLineForScreen(nLineIndex)))
                 {
                     // TODO: do not show if there is no number hidden
                     // TODO: show number if there is only one
@@ -3647,7 +3648,7 @@ void CBaseView::OnCaretDown()
     if (!((nNextViewLine == nViewLine) && (GetSubLineOffset(nNextLine)<CountMultiLines(nNextViewLine)))) // not on same view line
     {
         // find next suitable screen line
-        while ((nNextViewLine == nViewLine) || IsViewLineHiden(nNextViewLine))
+        while ((nNextViewLine == nViewLine) || IsViewLineHidden(nNextViewLine))
         {
             nNextLine++;
             if (nNextLine >= GetLineCount())
@@ -3680,7 +3681,7 @@ bool CBaseView::MoveCaretLeft()
                 return false;
             }
             nPrevViewLine = GetViewLineForScreen(nPrevLine);
-        } while ((GetSubLineOffset(nPrevLine) >= CountMultiLines(nPrevViewLine)) || IsViewLineHiden(nPrevViewLine)); 
+        } while ((GetSubLineOffset(nPrevLine) >= CountMultiLines(nPrevViewLine)) || IsViewLineHidden(nPrevViewLine)); 
         ptCaretViewPos = ConvertScreenPosToView(SetupPoint(GetLineLength(nPrevLine), nPrevLine));
         ShowDiffLines(nPrevLine);
     }
@@ -3708,7 +3709,7 @@ bool CBaseView::MoveCaretRight()
                 return false;
             }
             nNextViewLine = GetViewLineForScreen(nNextLine);
-        } while (nNextViewLine == nViewLine || IsViewLineHiden(nNextViewLine)); 
+        } while (nNextViewLine == nViewLine || IsViewLineHidden(nNextViewLine)); 
         ptCaretViewPos.y = nNextViewLine;
         ptCaretViewPos.x = 0;
         ShowDiffLines(nNextLine);
@@ -3753,7 +3754,7 @@ void CBaseView::OnCaretUp()
     if (!(nPrevViewLine == nViewLine)) // not on same view line
     {
         // find prev suitable screen line
-        while ((GetSubLineOffset(nPrevLine) >= CountMultiLines(nPrevViewLine)) || IsViewLineHiden(nPrevViewLine))
+        while ((GetSubLineOffset(nPrevLine) >= CountMultiLines(nPrevViewLine)) || IsViewLineHidden(nPrevViewLine))
         {
             nPrevLine--;
             if (nPrevLine < 0)
@@ -4543,7 +4544,7 @@ void CBaseView::Screen2View::RebuildIfNecessary()
         TScreenLineInfo oLineInfo;
         oLineInfo.nViewLine = i;
         oLineInfo.nViewSubLine = -1; // no wrap
-        if (m_pMainFrame->m_bWrapLines && !IsViewLineHiden(m_pViewData, i))
+        if (m_pMainFrame->m_bWrapLines && !IsViewLineHidden(m_pViewData, i))
         {
             int nMaxLines = 0;
             if (IsLeftViewGood())
