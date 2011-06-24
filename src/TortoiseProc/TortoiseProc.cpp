@@ -340,6 +340,11 @@ BOOL CTortoiseProcApp::InitInstance()
                 sPathArgument.Replace(L"\\\\", L"\\");
             }
         }
+        if (sPathArgument.IsEmpty())
+        {
+            TSVNMessageBox(GetExplorerHWND(), IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
+            return FALSE;
+        }
         int asterisk = sPathArgument.Find('*');
         cmdLinePath.SetFromUnknown(asterisk >= 0 ? sPathArgument.Left(asterisk) : sPathArgument);
         pathList.LoadFromAsteriskSeparatedString(sPathArgument);
