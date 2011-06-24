@@ -1401,6 +1401,7 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
     // first try the IBugTraqProvider2 interface
     CComPtr<IBugTraqProvider2> pProvider2 = NULL;
     HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
+    bool bugIdOutSet = false;
     if (SUCCEEDED(hr))
     {
         CString common = m_ListCtrl.GetCommonURL(false).GetSVNPathString();
@@ -1420,6 +1421,7 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
         {
             if (bugIDOut)
             {
+                bugIdOutSet = true;
                 m_sBugID = bugIDOut;
                 SetDlgItemText(IDC_BUGID, m_sBugID);
             }
@@ -1468,7 +1470,7 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
     if (!m_ProjectProperties.sMessage.IsEmpty())
     {
         CString sBugID = m_ProjectProperties.FindBugID(m_sLogMessage);
-        if (!sBugID.IsEmpty())
+        if (!sBugID.IsEmpty() && !bugIdOutSet)
         {
             SetDlgItemText(IDC_BUGID, sBugID);
         }
