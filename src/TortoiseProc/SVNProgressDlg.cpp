@@ -82,6 +82,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , m_bThreadRunning(FALSE)
     , m_nConflicts(0)
     , m_bConflictWarningShown(false)
+    , m_bWarningShown(false)
     , m_bErrorsOccurred(FALSE)
     , m_bMergesAddsDeletesOccurred(FALSE)
     , m_pThread(NULL)
@@ -283,8 +284,26 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         break;
     case svn_wc_notify_commit_added:
     case svn_wc_notify_commit_copied:
-        data->sActionColumnText.LoadString(IDS_SVNACTION_ADDING);
-        data->color = m_Colors.GetColor(CColors::Added);
+        {
+            data->sActionColumnText.LoadString(IDS_SVNACTION_ADDING);
+            data->color = m_Colors.GetColor(CColors::Added);
+            if ((m_Command == SVNProgress_Commit)&&
+                (!m_bWarningShown)&&
+                (m_depth < svn_depth_infinity)&&
+                (kind == svn_node_dir))
+            {
+                AddItemToList(data);
+
+                data = new NotificationData();
+                data->bAuxItem = true;
+                data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
+                data->sPathColumnText.Format(IDS_PROGRS_COPYDEPTH_WARNING, SVNStatus::GetDepthString(m_depth));
+                data->color = m_Colors.GetColor(CColors::Conflict);
+                CSoundUtils::PlayTSVNWarning();
+
+                m_bWarningShown = true;
+            }
+        }
         break;
     case svn_wc_notify_copy:
         data->sActionColumnText.LoadString(IDS_SVNACTION_COPY);
@@ -1229,6 +1248,7 @@ void CSVNProgressDlg::OnBnClickedRetrynohooks()
     m_bCancelled = FALSE;
     m_nConflicts = 0;
     m_bConflictWarningShown = false;
+    m_bWarningShown = false;
     m_bErrorsOccurred = FALSE;
     m_bMergesAddsDeletesOccurred = FALSE;
     m_bFinishedItemAdded = false;
@@ -3446,6 +3466,7 @@ bool CSVNProgressDlg::CheckUpdateAndRetry()
                 m_bCancelled = FALSE;
                 m_nConflicts = 0;
                 m_bConflictWarningShown = false;
+                m_bWarningShown = false;
                 m_bErrorsOccurred = FALSE;
                 m_bMergesAddsDeletesOccurred = FALSE;
                 m_bFinishedItemAdded = false;

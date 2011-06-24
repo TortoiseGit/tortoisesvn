@@ -336,6 +336,7 @@ private:
     BOOL                    m_bCancelled;
     int                     m_nConflicts;
     bool                    m_bConflictWarningShown;
+    bool                    m_bWarningShown;
     bool                    m_bErrorsOccurred;
     bool                    m_bMergesAddsDeletesOccurred;
     bool                    m_bHookError;
