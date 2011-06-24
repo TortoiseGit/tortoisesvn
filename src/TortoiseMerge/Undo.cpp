@@ -86,17 +86,17 @@ bool CUndo::Undo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
 
     CBaseView * pActiveView = NULL;
 
-    if (pBottom && pBottom->HasCaret())
+    if (pBottom && pBottom->IsTarget())
     {
         pActiveView = pBottom;
     }
     else
-    if (pRight && pRight->HasCaret())
+    if (pRight && pRight->IsTarget())
     {
         pActiveView = pRight;
     }
     else
-    //if (pLeft && pLeft->HasCaret())
+    //if (pLeft && pLeft->IsTarget())
     {
         pActiveView = pLeft;
     }
@@ -177,7 +177,7 @@ void CUndo::Undo(const viewstate& state, CBaseView * pView, const POINT& pt)
         viewData->SetData(it->first, it->second);
     }
 
-    if (pView->HasCaret())
+    if (pView->IsTarget())
     {
         pView->SetCaretViewPosition(pt);
         pView->EnsureCaretVisible();

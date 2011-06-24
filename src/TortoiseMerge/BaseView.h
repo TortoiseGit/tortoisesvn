@@ -73,8 +73,12 @@ public: // methods
     void            GoToLine(int nNewLine, BOOL bAll = TRUE);
     void            ScrollToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
     void            ScrollAllToChar(int nNewOffsetChar, BOOL bTrackScrollBar = TRUE);
-    void            UseCaret(bool bUse = true) {m_bCaretHidden = !bUse;}
-    bool            HasCaret() const {return !m_bCaretHidden;}
+    void            SetReadonly(bool bReadonly = true) {m_bReadonly = bReadonly;}
+    void            SetWritable(bool bWritable = true) {m_bReadonly = !bWritable;}
+    void            SetTarget(bool bTarget = true) {m_bTarget = bTarget;}
+    bool            IsReadonly() const {return m_bReadonly;}
+    bool            IsWritable() const {return !m_bReadonly;}
+    bool            IsTarget() const {return m_bTarget;}
     void            SetCaretAndGoalPosition(const POINT& pt) {m_nCaretGoalPos = pt.x; UpdateCaretPosition(pt);}
     void            SetCaretAndGoalViewPosition(const POINT& pt) {m_nCaretGoalPos = ConvertViewPosToScreen(pt).x; UpdateCaretViewPosition(pt);}
     void            SetCaretPosition(const POINT& pt) { SetCaretViewPosition(ConvertScreenPosToView(pt)); }
@@ -405,7 +409,8 @@ protected:  // variables
     HCURSOR         m_margincursor;
 
     // caret
-    bool            m_bCaretHidden;
+    bool            m_bReadonly;
+    bool            m_bTarget;                     ///< view intended as result
     POINT           m_ptCaretViewPos;
     int             m_nCaretGoalPos;
 

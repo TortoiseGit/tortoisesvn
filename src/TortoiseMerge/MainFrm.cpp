@@ -588,9 +588,9 @@ bool CMainFrame::LoadViews(int line)
         m_pwndRightView && m_pwndRightView->m_pViewData ?
         m_pwndRightView->m_pViewData->GetLineNumber(m_pwndRightView->m_nTopLine) : -1;
     int nOldCaretPos = -1;
-    if (m_pwndRightView && m_pwndRightView->HasCaret())
+    if (m_pwndRightView && m_pwndRightView->IsTarget())
         nOldCaretPos = m_pwndRightView->GetCaretPosition().y;
-    if (m_pwndBottomView && m_pwndBottomView->HasCaret())
+    if (m_pwndBottomView && m_pwndBottomView->IsTarget())
         nOldCaretPos = m_pwndBottomView->GetCaretPosition().y;
     if (!m_Data.Load())
     {
@@ -606,8 +606,10 @@ bool CMainFrame::LoadViews(int line)
     m_wndLocatorBar.DocumentUpdated();
     m_wndLineDiffBar.DocumentUpdated();
 
-    m_pwndRightView->UseCaret(false);
-    m_pwndBottomView->UseCaret(false);
+    m_pwndRightView->SetWritable(false);
+    m_pwndRightView->SetTarget(false);
+    m_pwndBottomView->SetWritable(false);
+    m_pwndBottomView->SetTarget(false);
 
     if (!m_Data.IsBaseFileInUse())
     {
@@ -682,7 +684,8 @@ bool CMainFrame::LoadViews(int line)
     if (m_Data.IsBaseFileInUse() && m_Data.IsYourFileInUse() && !m_Data.IsTheirFileInUse())
     {
         //diff between YOUR and BASE
-        m_pwndRightView->UseCaret();
+        m_pwndRightView->SetWritable();
+        m_pwndRightView->SetTarget();
         if (m_bOneWay)
         {
             if (!m_wndSplitter2.IsColumnHidden(1))
@@ -734,7 +737,8 @@ bool CMainFrame::LoadViews(int line)
     else if (m_Data.IsBaseFileInUse() && m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
     {
         //diff between THEIR, YOUR and BASE
-        m_pwndBottomView->UseCaret();
+        m_pwndBottomView->SetWritable();
+        m_pwndBottomView->SetTarget();
         pwndActiveView = m_pwndBottomView;
 
         m_pwndLeftView->m_pViewData = &m_Data.m_TheirBaseBoth;
@@ -959,8 +963,7 @@ void CMainFrame::OnViewTextFoldUnfold(CBaseView* view)
     view->BuildAllScreen2ViewVector();
     view->UpdateCaret();
     view->Invalidate();
-    if (view->HasCaret())
-        view->EnsureCaretVisible();
+    view->EnsureCaretVisible();
 }
 
 void CMainFrame::OnUpdateViewWraplonglines(CCmdUI *pCmdUI)
@@ -1691,7 +1694,7 @@ void CMainFrame::OnEditUseleftblock()
 
 void CMainFrame::OnUpdateEditUseleftblock(CCmdUI *pCmdUI)
 {
-    pCmdUI->Enable(IsViewGood(m_pwndRightView) && m_pwndRightView->HasCaret() && m_pwndRightView->HasSelection());
+    pCmdUI->Enable(IsViewGood(m_pwndRightView) && m_pwndRightView->IsTarget() && m_pwndRightView->HasSelection());
 }
 
 void CMainFrame::OnEditUseleftfile()
@@ -1704,7 +1707,7 @@ void CMainFrame::OnEditUseleftfile()
 
 void CMainFrame::OnUpdateEditUseleftfile(CCmdUI *pCmdUI)
 {
-    pCmdUI->Enable(IsViewGood(m_pwndRightView) && m_pwndRightView->HasCaret());
+    pCmdUI->Enable(IsViewGood(m_pwndRightView) && m_pwndRightView->IsTarget());
 }
 
 void CMainFrame::OnEditUseblockfromleftbeforeright()
@@ -1857,11 +1860,11 @@ BOOL CMainFrame::MarkAsResolved()
 void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasNextConflict()))
+    if ((m_pwndBottomView)&&(m_pwndBottomView->IsTarget())&&(m_pwndBottomView->HasNextConflict()))
         bShow = TRUE;
-    if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasNextConflict()))
+    if ((m_pwndRightView)&&(m_pwndRightView->IsTarget())&&(m_pwndRightView->HasNextConflict()))
         bShow = TRUE;
-    if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasNextConflict()))
+    if ((m_pwndLeftView)&&(m_pwndLeftView->IsTarget())&&(m_pwndLeftView->HasNextConflict()))
         bShow = TRUE;
     pCmdUI->Enable(bShow);
 }
@@ -1869,11 +1872,11 @@ void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
 void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasPrevConflict()))
+    if ((m_pwndBottomView)&&(m_pwndBottomView->IsTarget())&&(m_pwndBottomView->HasPrevConflict()))
         bShow = TRUE;
-    if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasPrevConflict()))
+    if ((m_pwndRightView)&&(m_pwndRightView->IsTarget())&&(m_pwndRightView->HasPrevConflict()))
         bShow = TRUE;
-    if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasPrevConflict()))
+    if ((m_pwndLeftView)&&(m_pwndLeftView->IsTarget())&&(m_pwndLeftView->HasPrevConflict()))
         bShow = TRUE;
     pCmdUI->Enable(bShow);
 }
@@ -1899,11 +1902,11 @@ void CMainFrame::OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI)
 void CMainFrame::OnUpdateNavigateNextinlinediff(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasNextInlineDiff()))
+    if ((m_pwndBottomView)&&(m_pwndBottomView->IsTarget())&&(m_pwndBottomView->HasNextInlineDiff()))
         bShow = TRUE;
-    if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasNextInlineDiff()))
+    if ((m_pwndRightView)&&(m_pwndRightView->IsTarget())&&(m_pwndRightView->HasNextInlineDiff()))
         bShow = TRUE;
-    if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasNextInlineDiff()))
+    if ((m_pwndLeftView)&&(m_pwndLeftView->IsTarget())&&(m_pwndLeftView->HasNextInlineDiff()))
         bShow = TRUE;
     pCmdUI->Enable(bShow);
 }
@@ -1911,11 +1914,11 @@ void CMainFrame::OnUpdateNavigateNextinlinediff(CCmdUI *pCmdUI)
 void CMainFrame::OnUpdateNavigatePrevinlinediff(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->HasCaret())&&(m_pwndBottomView->HasPrevInlineDiff()))
+    if ((m_pwndBottomView)&&(m_pwndBottomView->IsTarget())&&(m_pwndBottomView->HasPrevInlineDiff()))
         bShow = TRUE;
-    if ((m_pwndRightView)&&(m_pwndRightView->HasCaret())&&(m_pwndRightView->HasPrevInlineDiff()))
+    if ((m_pwndRightView)&&(m_pwndRightView->IsTarget())&&(m_pwndRightView->HasPrevInlineDiff()))
         bShow = TRUE;
-    if ((m_pwndLeftView)&&(m_pwndLeftView->HasCaret())&&(m_pwndLeftView->HasPrevInlineDiff()))
+    if ((m_pwndLeftView)&&(m_pwndLeftView->IsTarget())&&(m_pwndLeftView->HasPrevInlineDiff()))
         bShow = TRUE;
     pCmdUI->Enable(bShow);
 }

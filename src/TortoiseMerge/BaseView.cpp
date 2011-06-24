@@ -84,7 +84,8 @@ CBaseView::CBaseView()
     m_bMouseWithin = FALSE;
     m_bIsHidden = FALSE;
     lineendings = EOL_AUTOLINE;
-    m_bCaretHidden = true;
+    m_bReadonly = true;
+    m_bTarget = false;
     m_ptCaretViewPos.x = 0;
     m_ptCaretViewPos.y = 0;
     m_nCaretGoalPos = 0;
@@ -2078,7 +2079,7 @@ BOOL CBaseView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
             ::SetCursor(m_margincursor);
             return TRUE;
         }
-        if (HasCaret())
+        if (IsWritable()) // we show caret in all view, should we use edit cursor for all of them?
         {
             ::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_IBEAM)));    // Set To Edit Cursor
             return TRUE;
@@ -2633,10 +2634,8 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
         }
         break;
     case VK_BACK:
+        if (IsWritable())
         {
-            if (m_bCaretHidden)
-                break;
-
             if (! HasTextSelection())
             {
                 POINT ptCaretPos = GetCaretPosition();
@@ -2657,10 +2656,8 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
         }
         break;
     case VK_DELETE:
+        if (IsWritable())
         {
-            if (m_bCaretHidden)
-                break;
-
             if (! HasTextSelection())
             {
                 if (bControl)
@@ -3124,7 +3121,7 @@ void CBaseView::UpdateCaret()
 
     int nCaretOffset = CalculateActualOffset(ptCaretPos);
 
-    if (m_bFocused && !m_bCaretHidden &&
+    if (m_bFocused &&
         ptCaretPos.y >= m_nTopLine &&
         ptCaretPos.y < (m_nTopLine+GetScreenLines()) &&
         nCaretOffset >= m_nOffsetChar &&
@@ -3273,7 +3270,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
     CView::OnChar(nChar, nRepCnt, nFlags);
 
-    if (m_bCaretHidden)
+    if (IsReadonly())
         return;
 
     if ((::GetKeyState(VK_LBUTTON) & 0x8000) != 0 ||
@@ -3438,7 +3435,7 @@ void CBaseView::AddEmptyViewLine(int nViewLineIndex)
          ending = lineendings;
     }
     viewdata newLine(_T(""), DIFFSTATE_EDITED, -1, ending, HIDESTATE_SHOWN, -1);
-    if (!m_bCaretHidden)
+    if (IsTarget()) // TODO: once more wievs will writable this is not correct anymore
     {
         CString sPartLine = GetViewLineChars(nViewLineIndex);
         int nPosx = GetCaretPosition().x; // should be view pos ?
@@ -3875,7 +3872,7 @@ void CBaseView::AdjustSelection(bool bMoveLeft)
 
 void CBaseView::OnEditCut()
 {
-    if (!m_bCaretHidden)
+    if (IsWritable())
     {
         OnEditCopy();
         RemoveSelectedText();
@@ -3884,7 +3881,7 @@ void CBaseView::OnEditCut()
 
 void CBaseView::OnEditPaste()
 {
-    if (!m_bCaretHidden)
+    if (IsWritable())
     {
         RemoveSelectedText();
         PasteText();
@@ -3931,7 +3928,7 @@ void CBaseView::AddCutCopyAndPaste(CIconMenu& popup)
     CString temp;
     temp.LoadString(IDS_EDIT_COPY);
     popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_COPY, temp);
-    if (!m_bCaretHidden)
+    if (IsWritable())
     {
         temp.LoadString(IDS_EDIT_CUT);
         popup.AppendMenu(MF_STRING | (HasTextSelection() ? MF_ENABLED : MF_DISABLED|MF_GRAYED), ID_EDIT_CUT, temp);
