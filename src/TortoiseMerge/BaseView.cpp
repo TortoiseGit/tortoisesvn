@@ -2561,6 +2561,44 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
     bool bShift = !!(GetKeyState(VK_SHIFT)&0x8000);
     switch (nChar)
     {
+    case VK_TAB:
+        if ((nChar == '\t') && ((GetKeyState(VK_CONTROL)&0x8000) != 0))
+        {
+            if (this==m_pwndLeft)
+            {
+                if (IsViewGood(m_pwndRight))
+                {
+                    m_pwndRight->SetFocus();
+                }
+                else if (IsViewGood(m_pwndBottom))
+                {
+                    m_pwndBottom->SetFocus();
+                }
+            }
+            else if (this==m_pwndRight)
+            {
+                if (IsViewGood(m_pwndBottom))
+                {
+                    m_pwndBottom->SetFocus();
+                }
+                else if (IsViewGood(m_pwndLeft))
+                {
+                    m_pwndLeft->SetFocus();
+                }
+            }
+            else if (this==m_pwndBottom)
+            {
+                if (IsViewGood(m_pwndLeft))
+                {
+                    m_pwndLeft->SetFocus();
+                }
+                else if (IsViewGood(m_pwndRight))
+                {
+                    m_pwndRight->SetFocus();
+                }
+            }
+        }
+        break;
     case VK_PRIOR:
         {
             POINT ptCaretPos = GetCaretPosition();
