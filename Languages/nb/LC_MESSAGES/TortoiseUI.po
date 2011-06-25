@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-22 11:18+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -347,6 +347,10 @@ msgid ""
 "Shall I update the working copy now\n"
 "and then retry?"
 msgstr ""
+"%s\n"
+"\n"
+"Skal jeg oppdatere arbeidskopien nå\n"
+"og så prøve igjen?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -2859,7 +2863,7 @@ msgstr "Dybde for &uthenting"
 #. Resource IDs: (229)
 #, c-format
 msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
-msgstr ""
+msgstr "Utsjekk fra %1!s!, revisjon %2!s!, %3!s!, %4!s!"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2887,7 +2891,7 @@ msgstr "Klassifiseringsmønstre"
 
 #. Resource IDs: (1562)
 msgid "Clean up working copy status"
-msgstr ""
+msgstr "Rydd opp arbeidskopi-status"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3346,7 +3350,7 @@ msgstr ""
 #. Resource IDs: (229)
 #, c-format
 msgid "Copy %1!s! to %2!s!, Revision %3!s!"
-msgstr ""
+msgstr "Kopier %1!s! til %2!s!, Revisjon %3!s!"
 
 #. Resource IDs: (126)
 #, c-format
@@ -3514,6 +3518,8 @@ msgid ""
 "Could not find a parent folder for\n"
 "%s"
 msgstr ""
+"Kunne ikke finne en foreldremappe for\n"
+"%s"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3829,11 +3835,11 @@ msgstr "Slett og ignorer %d elementer etter &filendelse"
 
 #. Resource IDs: (1617)
 msgid "Delete ignored files and folders"
-msgstr ""
+msgstr "Slett ignorerte filer og mapper"
 
 #. Resource IDs: (1613)
 msgid "Delete unversioned files and folders"
-msgstr ""
+msgstr "Slett ikke-versjonerte filer og mapper"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -5865,7 +5871,7 @@ msgstr "Importerer katalogen til et depot"
 
 #. Resource IDs: (1616)
 msgid "Include externals"
-msgstr ""
+msgstr "Ta med eksterne"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -8006,12 +8012,12 @@ msgstr "Gjenoppfrisk"
 
 #. Resource IDs: (1615)
 msgid "Refresh shell overlays"
-msgstr ""
+msgstr "Oppfrisk ikonlag"
 
 #. Resource IDs: (148)
 #, c-format
 msgid "Refreshing shell for %1!s!"
-msgstr ""
+msgstr "Oppfrisker ikonlag for %1!s!"
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
@@ -8058,7 +8064,7 @@ msgstr "Reintegrer flett"
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Reintegrer flett %1!s! inn i %2!s!"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8279,7 +8285,7 @@ msgstr "Fjerner de valgte egenskapene"
 #. Resource IDs: (148)
 #, c-format
 msgid "Removing ignored items. in %1!s!"
-msgstr ""
+msgstr "Fjerner ignorerte elementer i %1!s!"
 
 #. Resource IDs: (148)
 #, c-format
@@ -10339,6 +10345,8 @@ msgid ""
 "The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"Stien/URLen '%s' ser ut til å være ulovlig på Windows!\n"
+"Du kan prøve likevel, men det kan gi en feil senere."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10493,6 +10501,8 @@ msgid ""
 "The target working copy '%s' has local modifications. It is recommended to "
 "commit those changes first before merging new changes."
 msgstr ""
+"Arbeidskopien '%s' har lokale endringer. Det anbefales å sende inn "
+"endringene først, før nye endringer blir flettet inn."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -11292,7 +11302,7 @@ msgstr "Oppgrader arbeidskopi"
 #. Resource IDs: (99)
 #, c-format
 msgid "Upgrading '%1!s!'"
-msgstr ""
+msgstr "Oppgraderer '%1!s!'"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -12225,6 +12235,9 @@ msgid ""
 "old size: %2!s!\r\n"
 "change: %3!s!"
 msgstr ""
+"nåværende størrelse: %1!s!\n"
+"gammel størrelse: %2!s!\n"
+"endring: %3!s!"
 
 #. Resource IDs: (245)
 msgid "day"
