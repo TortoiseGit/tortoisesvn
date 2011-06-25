@@ -3517,6 +3517,10 @@ msgstr ""
 msgid "Display program information, version number and copyright\nAbout"
 msgstr ""
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr ""
@@ -5242,6 +5246,10 @@ msgstr ""
 msgid "List1"
 msgstr ""
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr ""
@@ -5879,12 +5887,12 @@ msgstr ""
 msgid "No files to show with the current setting.\nCheck one or more settings below to see unversioned, ignored and/or unmodified files.\nTo see remote changes, click on 'Check Repository'"
 msgstr ""
 
-#. Resource IDs: (77)
-msgid "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here..."
+#. Resource IDs: (170)
+msgid "No files were changed or added since the last commit.\nThere's nothing for TortoiseSVN to do here...\nYou can show the unversioned items by enabling them\nwith the checkbox at the bottom."
 msgstr ""
 
-#. Resource IDs: (170)
-msgid "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here...\nDo you want to see the unversioned files?"
+#. Resource IDs: (77)
+msgid "No files were changed or added since\nthe last commit. There's nothing\nfor TortoiseSVN to do here..."
 msgstr ""
 
 #. Resource IDs: (273)
@@ -8412,6 +8420,11 @@ msgstr ""
 msgid "The default path to checkout to if nothing else is specified"
 msgstr ""
 
+#. Resource IDs: (226)
+#, c-format
+msgid "The depth of this commit is \"%s\", but copies are always performed recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid "The diffing engine aborted because of an error:\n%s"
@@ -10364,6 +10377,11 @@ msgstr ""
 
 #. Resource IDs: (577)
 msgid "tsvn:warnifnoissue\r\nSet to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
 msgstr ""
 
 #. Resource IDs: (65535)
