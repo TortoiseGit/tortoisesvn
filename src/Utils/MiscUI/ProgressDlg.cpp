@@ -294,10 +294,10 @@ LRESULT CProgressDlg::fnSubclass(HWND hwnd,UINT uMsg,WPARAM wParam,LPARAM lParam
     {
         HWND hParent = (HWND)GetProp(hwnd, L"ParentWindow");
         EnableWindow(hParent, TRUE);
+        SetFocus(hParent);
         SetWindowLongPtr (hwnd, GWLP_WNDPROC, origproc);
         RemoveProp(hwnd, L"ParentWindow");
         RemoveProp(hwnd, L"OrigProc");
-        return 0;
     }
     return CallWindowProc ((WNDPROC)origproc, hwnd, uMsg, wParam, lParam);
 }
