@@ -360,7 +360,7 @@ void CSVNPropertyPage::InitWorkfileView()
                 if (infodata)
                     SetDlgItemText(m_hwnd, IDC_CHECKSUM, (LPCTSTR)infodata->checksum);
 
-                if (svn.status->locked)
+                if (svn.status->wc_is_locked)
                     MAKESTRING(IDS_YES);
                 else
                     MAKESTRING(IDS_NO);

@@ -180,7 +180,7 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
                            patch_func,                              // patch_func
                            this,                                    // patch_baton
                            ctx,                                     // client context
-                           m_pool, scratchpool);
+                           scratchpool);
 
     m_pProgDlg = NULL;
     apr_pool_destroy(scratchpool);
@@ -235,7 +235,7 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
                                patch_func,                              // patch_func
                                this,                                    // patch_baton
                                ctx,                                     // client context
-                               m_pool, scratchpool);
+                               scratchpool);
 
         apr_pool_destroy(scratchpool);
 
@@ -279,7 +279,7 @@ bool SVNPatch::PatchPath( const CString& path )
         patchfile_func,                          // patch_func
         this,                                    // patch_baton
         ctx,                                     // client context
-        m_pool, scratchpool);
+        scratchpool);
 
     apr_pool_destroy(scratchpool);
 

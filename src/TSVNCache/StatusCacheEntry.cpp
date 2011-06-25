@@ -129,7 +129,7 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool ne
         m_svnStatus.text_status = pSVNStatus->text_status;
         m_svnStatus.prop_status = pSVNStatus->prop_status;
 
-        m_svnStatus.locked = pSVNStatus->locked;
+        m_svnStatus.locked = pSVNStatus->wc_is_locked;
         m_svnStatus.copied = pSVNStatus->copied;
         m_svnStatus.switched = pSVNStatus->switched;
 
