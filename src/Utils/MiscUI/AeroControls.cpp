@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -136,6 +136,29 @@ LRESULT AeroControlBase::StaticWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
             return res;
         }
         break;
+    case WM_ERASEBKGND:
+        {
+            LONG_PTR dwStyle = GetWindowLongPtr(hWnd, GWL_STYLE);
+
+            if (dwStyle & SS_NOTIFY)
+            {
+                // A label with SS_NOTIFY style is assumed to redraw a lot
+                // and therefore has it's own background erasing handler.
+                // but these handlers usually use COLOR_3DFACE for the background
+                // which looks ugly, so we erase the background for them here
+                // with the transparent color.
+                //
+                // doing this for normal labels would make the labels not really
+                // transparent.
+                HDC hdc = (HDC)wParam;
+                RECT rcClient;
+                VERIFY(GetClientRect(hWnd, &rcClient));
+                ::SetBkColor(hdc, RGB(0,0,0));
+                ::ExtTextOut(hdc, 0, 0, ETO_OPAQUE, &rcClient, NULL, 0, NULL);
+                return 1;
+            }
+        }
+        break;
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
@@ -153,7 +176,15 @@ LRESULT AeroControlBase::StaticWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
                 HTHEME hTheme = m_theme.OpenThemeData(NULL, L"ControlPanelStyle");
                 if(hTheme)
                 {
-                    HPAINTBUFFER hBufferedPaint = m_theme.BeginBufferedPaint(hdc, &rcClient, BPBF_TOPDOWNDIB, NULL, &hdcPaint);
+                    BP_PAINTPARAMS paintParams = {0};
+                    paintParams.cbSize = sizeof(paintParams);
+                    BLENDFUNCTION blendf = {0};
+                    blendf.BlendOp = AC_SRC_OVER;
+                    blendf.AlphaFormat = AC_SRC_ALPHA;
+                    blendf.SourceConstantAlpha = 255;
+                    paintParams.pBlendFunction = &blendf;
+
+                    HPAINTBUFFER hBufferedPaint = m_theme.BeginBufferedPaint(hdc, &rcClient, BPBF_TOPDOWNDIB, &paintParams, &hdcPaint);
                     if (hdcPaint)
                     {
                         VERIFY(PatBlt(hdcPaint, 0, 0, RECTWIDTH(rcClient), RECTHEIGHT(rcClient), BLACKNESS));
