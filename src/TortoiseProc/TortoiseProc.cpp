@@ -340,7 +340,7 @@ BOOL CTortoiseProcApp::InitInstance()
                 sPathArgument.Replace(L"\\\\", L"\\");
             }
         }
-        if (sPathArgument.IsEmpty())
+        if (sPathArgument.IsEmpty() && parser.HasKey(L"path"))
         {
             TSVNMessageBox(GetExplorerHWND(), IDS_ERR_NOPATH, IDS_APPNAME, MB_ICONERROR);
             return FALSE;
