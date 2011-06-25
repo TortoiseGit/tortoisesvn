@@ -1800,7 +1800,6 @@ void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
 {
     CRegString placement = CRegString(_T("Software\\TortoiseMerge\\WindowPos"));
     TCHAR szBuffer[_countof("-32767")*8 + sizeof("65535")*2];
-    CString s;
 
     _stprintf_s(szBuffer, _T("%u,%u,%d,%d,%d,%d,%d,%d,%d,%d"),
             pwp->flags, pwp->showCmd,
