@@ -1799,6 +1799,10 @@ void CRepositoryBrowser::OnRefresh()
     CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (hSelected);
     if (fullPrefetch && (pItem != NULL))
     {
+        // TODO: we really should just fetch the listing
+        // recursively in one step instead of fetching each
+        // folder individually...
+
         // initialize crawler with current tree node
 
         struct SEntry
@@ -1826,7 +1830,13 @@ void CRepositoryBrowser::OnRefresh()
         // This should maximize the interval between enqueueing
         // the request and fetching its result
 
-        while (!urls.empty())
+        CProgressDlg progDlg;
+        progDlg.SetTitle(IDS_APPNAME);
+        progDlg.FormatNonPathLine(1, IDS_REPOBROWSE_LISTING);
+        progDlg.SetShowProgressBar(false);
+        progDlg.ShowModal(m_hWnd, true);
+
+        while (!urls.empty() && !progDlg.HasUserCancelled())
         {
             // extract next url
 
@@ -1836,6 +1846,7 @@ void CRepositoryBrowser::OnRefresh()
             // get / query node list & externals for this node 
             // as fast as possible by preventing new queries from
             // being started in the background
+            progDlg.FormatPathLine(2, IDS_REPOBROWSE_LISTINGURL, (LPCTSTR)entry.url);
 
             std::deque<CItem> children;
             {
@@ -1843,6 +1854,7 @@ void CRepositoryBrowser::OnRefresh()
 
                 // enqueue sub-nodes for listing
 
+                AfxGetApp()->PumpMessage();
                 m_lister.GetList ( entry.url
                                  , entry.pegRev
                                  , entry.repository
@@ -1851,6 +1863,7 @@ void CRepositoryBrowser::OnRefresh()
 
                 // just prefetching -> we don't need to filter children
 
+                AfxGetApp()->PumpMessage();
                 m_lister.AddSubTreeExternals ( entry.url
                                              , entry.pegRev
                                              , entry.repository
@@ -1878,6 +1891,7 @@ void CRepositoryBrowser::OnRefresh()
                 }
             }
         }
+        progDlg.Stop();
     }
 
     // refresh the current node
