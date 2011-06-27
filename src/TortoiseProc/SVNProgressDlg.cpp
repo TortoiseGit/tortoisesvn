@@ -287,7 +287,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         {
             data->sActionColumnText.LoadString(IDS_SVNACTION_ADDING);
             data->color = m_Colors.GetColor(CColors::Added);
-            if ((m_Command == SVNProgress_Commit)&&
+            if ((data->action == svn_wc_notify_commit_copied)&&
+                (m_Command == SVNProgress_Commit)&&
                 (!m_bWarningShown)&&
                 (m_depth < svn_depth_infinity)&&
                 (kind == svn_node_dir))
@@ -337,6 +338,23 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_commit_copied_replaced:
         data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
         data->color = m_Colors.GetColor(CColors::Deleted);
+        if ((data->action == svn_wc_notify_commit_copied_replaced)&&
+            (m_Command == SVNProgress_Commit)&&
+            (!m_bWarningShown)&&
+            (m_depth < svn_depth_infinity)&&
+            (kind == svn_node_dir))
+        {
+            AddItemToList(data);
+
+            data = new NotificationData();
+            data->bAuxItem = true;
+            data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
+            data->sPathColumnText.Format(IDS_PROGRS_COPYDEPTH_WARNING, SVNStatus::GetDepthString(m_depth));
+            data->color = m_Colors.GetColor(CColors::Conflict);
+            CSoundUtils::PlayTSVNWarning();
+
+            m_bWarningShown = true;
+        }
         break;
     case svn_wc_notify_commit_replaced:
         data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
