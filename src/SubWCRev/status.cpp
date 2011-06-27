@@ -141,7 +141,7 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
     }
     if (status->changed_author)
     {
-        if ((sb->SubStat->Author[0] == 0)&&(status->repos_relpath)&&(status->repos_relpath))
+        if ((sb->SubStat->Author[0] == 0)&&(status->repos_relpath)&&(status->repos_root_url))
         {
             char EntryUrl[URL_BUF];
             UnescapeCopy(status->repos_root_url, status->repos_relpath,EntryUrl, URL_BUF);
