@@ -170,8 +170,6 @@ HRESULT CProgressDlg::ShowModal(HWND hWndParent, BOOL immediately /* = true */)
     if(FAILED(hr))
         return hr;
 
-    m_isVisible = true;
-
     ATL::CComPtr<IOleWindow> pOleWindow;
     HRESULT hr2 = m_pIDlg.QueryInterface(&pOleWindow);
     if(SUCCEEDED(hr2))
@@ -195,13 +193,18 @@ HRESULT CProgressDlg::ShowModal(HWND hWndParent, BOOL immediately /* = true */)
             // milliseconds after calling Stop() and Release(), we must not store anything
             // in member variables of this class but must only store everything in the window
             // itself: thus we use SetProp()/GetProp() to store the data.
-            m_OrigProc = (WNDPROC) SetWindowLongPtr(m_hWndProgDlg, GWLP_WNDPROC, (LONG_PTR) fnSubclass);
-            SetProp(m_hWndProgDlg, L"ParentWindow", m_hWndParent);
-            SetProp(m_hWndProgDlg, L"OrigProc", m_OrigProc);
+            if (!m_isVisible)
+            {
+                m_OrigProc = (WNDPROC) SetWindowLongPtr(m_hWndProgDlg, GWLP_WNDPROC, (LONG_PTR) fnSubclass);
+                SetProp(m_hWndProgDlg, L"ParentWindow", m_hWndParent);
+                SetProp(m_hWndProgDlg, L"OrigProc", m_OrigProc);
+            }
             if(immediately)
                 ShowWindow(m_hWndProgDlg, SW_SHOW);
         }
     }
+
+    m_isVisible = true;
     return hr;
 }
 
@@ -216,8 +219,6 @@ HRESULT CProgressDlg::ShowModeless(HWND hWndParent, BOOL immediately)
     if(FAILED(hr))
         return hr;
 
-    m_isVisible = true;
-
     ATL::CComPtr<IOleWindow> pOleWindow;
     HRESULT hr2 = m_pIDlg.QueryInterface(&pOleWindow);
     if(SUCCEEDED(hr2))
@@ -226,13 +227,17 @@ HRESULT CProgressDlg::ShowModeless(HWND hWndParent, BOOL immediately)
         if(SUCCEEDED(hr2))
         {
             // see comment in ShowModal() for why we subclass the window
-            m_OrigProc = (WNDPROC) SetWindowLongPtr(m_hWndProgDlg, GWLP_WNDPROC, (LONG_PTR) fnSubclass);
-            SetProp(m_hWndProgDlg, L"ParentWindow", m_hWndParent);
-            SetProp(m_hWndProgDlg, L"OrigProc", m_OrigProc);
+            if (!m_isVisible)
+            {
+                m_OrigProc = (WNDPROC) SetWindowLongPtr(m_hWndProgDlg, GWLP_WNDPROC, (LONG_PTR) fnSubclass);
+                SetProp(m_hWndProgDlg, L"ParentWindow", m_hWndParent);
+                SetProp(m_hWndProgDlg, L"OrigProc", m_OrigProc);
+            }
             if (immediately)
                 ShowWindow(m_hWndProgDlg, SW_SHOW);
         }
     }
+    m_isVisible = true;
     return hr;
 }
 
