@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: cuscu <agua.cuscu@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4004,6 +4004,10 @@ msgstr ""
 "Mostrar información de la aplicación, número de versión y copyright\n"
 "Acerca de"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "No mostrar el menú contextual para las siguientes rutas:"
@@ -6160,6 +6164,10 @@ msgstr ""
 msgid "List1"
 msgstr "List1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Cargar imágenes"
@@ -6859,6 +6867,14 @@ msgstr ""
 "Seleccione una o más de las opciones siguientes para ver los archivos no versionados, ignorados y/o no modificados.\n"
 "Para ver los cambios remotos, haga click en 'Comprobar Repositorio'"
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6868,18 +6884,6 @@ msgstr ""
 "No se cambiaron ni añadieron archivos desde\n"
 "la última confirmación. No hay nada\n"
 "que TortoiseSVN pueda hacer..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"No se cambiaron ni añadieron archivos desde\n"
-"la última confirmación. No hay nada\n"
-"que TortoiseSVN pueda hacer...\n"
-"¿Desea ver los archivos sin versionar?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9923,6 +9927,13 @@ msgstr ""
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "La ruta por defecto en la que obtener si no se especifica otra"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12791,6 +12802,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Márquelo a 'yes' si quiere que aparezca un mensaje de advertencia cuando no se introduzca un número de incidente en el diálogo de confirmación."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

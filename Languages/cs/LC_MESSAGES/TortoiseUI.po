@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 06:40+0000\n"
+"PO-Revision-Date: 2011-06-26 04:03+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4029,6 +4029,10 @@ msgstr ""
 "Ukáže informace o programu, číslo verze a copyright\n"
 "O aplikaci"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr "Nerozšiřovat klíčová slova"
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Nezobrazovat kontextové menu pro tyto cesty:"
@@ -6205,6 +6209,10 @@ msgstr "Seznam úložišť pro která jsou informace záznamu uchovány."
 msgid "List1"
 msgstr "Seznam1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr "Výpis úložišť rekurzivně..."
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Načíst obrázky"
@@ -6905,6 +6913,18 @@ msgstr ""
 "Zkontrolujte nastavení dole, aby byly zobrazeny soubory, bez verze, ignorované a/nebo nezměněné.\n"
 "Aby jste viděli vzdálené změny, klikněte na 'Zkontrolovat úložiště'"
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+"Žádné soubory nebyly od posledního odevzdání změněny nebo přidány.\n"
+"TortoiseSVN zde nemá co udělat...\n"
+"Položky bez verze můžete zobrazit tím, že je povolíte\n"
+"pomocí zaškrtávacího políčka na konci."
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6914,18 +6934,6 @@ msgstr ""
 "Žádné soubory nebyly změněny nebo přidány od\n"
 "posledního odevzdání. TortoiseSVN\n"
 "nemůže nic dělat..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"Žádné soubory nebyly změněny nebo přidány od\n"
-"posledního odevzdání. TortoiseSVN\n"
-"nemůže nic dělat...\n"
-"Chcete vidět soubory bez verze?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9984,6 +9992,15 @@ msgstr "Výchozí URL pro checkout, pokud není nastaveno nic jiného"
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "Výchozí cesta pro checkout, pokud není nastaveno nic jiného"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+"Hloubka tohoto odevzdání je \"%s\", ale kopie jsou vždy prováděny v úložišti"
+" rekurzivně."
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12846,6 +12863,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "Nastavte na 'yes', pokud se má zobrazit upozornění, když není vloženo žádné číslo problému dialogovém okně odevzdání."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr "url: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

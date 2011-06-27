@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 08:01+0000\n"
+"PO-Revision-Date: 2011-06-27 07:12+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4069,6 +4069,10 @@ msgstr ""
 "Zeigt Informationen übers Programm, Versionsnummer und Copyright an\n"
 "Über"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr "Schlüsselwörter nicht erweitern"
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Für die folgenden Pfade kein Kontextmenü anzeigen:"
@@ -6254,6 +6258,10 @@ msgstr "Liste der Projektarchive für die Loginformationen gepuffert werden"
 msgid "List1"
 msgstr "Liste1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr "Projektarchiv rekursiv auflisten..."
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Lade Bilder"
@@ -6962,6 +6970,18 @@ msgstr ""
 "unversionierte, ignorierte oder unmodifizierte Dateien zu sehen\n"
 "Änderungen im Projektarchiv werden erst nach 'Projektarchiv prüfen' angezeigt."
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+"Seit der letzten Übertragung wurden keine Dateien geändert oder hinzugefügt.\n"
+"Es gibt hier für TortoiseSVN nichts zu tun.\n"
+"Sie können sich die unversionierten Objekte anzeigen lassen,\n"
+"indem Sie die untenstehende Option aktivieren."
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6971,19 +6991,6 @@ msgstr ""
 "Seit der letzten Übertragung wurden keine\n"
 "Dateien / Ordner verändert oder hinzugefügt.\n"
 "Es gibt nichts zu tun für TortoiseSVN..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"Seit der letzten Übertragung wurden keine\n"
-"Dateien / Ordner verändert oder hinzugefügt.\n"
-"Es gibt nichts zu tun für TortoiseSVN...\n"
-"\n"
-"Soll TortoiseSVN die nicht versionierten Dateien anzeigen?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -10102,6 +10109,15 @@ msgid "The default path to checkout to if nothing else is specified"
 msgstr ""
 "Der Standardpfad in den ausgecheckt wird, wenn nichts anderes angegeben wird"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+"Die Tiefe der Übertragung ist \"%s\". Kopien werden im Projektarchiv stets "
+"rekursiv durchgeführt."
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -13005,6 +13021,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Auf 'yes' setzen, wenn eine Warnung ausgegeben werden soll, falls keine Problem-ID im Übertragen-Dialog eingegeben wird."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr "URL: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

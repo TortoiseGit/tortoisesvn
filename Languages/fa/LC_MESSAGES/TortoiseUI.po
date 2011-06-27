@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3912,6 +3912,10 @@ msgstr ""
 "نمایش اطلاعات برنامه ،شماره نگارش وحق نشر\n"
 "درباره"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "منوی راست کلیک برای مسیرهای مقایل نمایش نشود:"
@@ -6042,6 +6046,10 @@ msgstr "لیست مخزنهای دارای گزارشات کَش شده"
 msgid "List1"
 msgstr "List1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "بارگزاری تصاویر"
@@ -6730,6 +6738,14 @@ msgstr ""
 "یک یا چند گزینه را از پائین جهت مشاهده فایل های فاقد نسخه، نادیده گرفته شده و/یا تغییر نیافته انتخاب کنید.\n"
 "برای مشاهده تغییرات دیگران، روی 'بررسی مخزن' کلیک کنید"
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6739,18 +6755,6 @@ msgstr ""
 "از زمان آخرین اعمال\n"
 "هیچ فایلی اضافه یا تغییر داده نشده است.  هیچ کاری برای\n"
 "TortoiseSVN در اینجا وجود ندارد..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"از زمان آخرین اعمال\n"
-"هیچ فایلی اضافه یا تغییر داده نشده است.  هیچ کاری برای\n"
-"TortoiseSVN در اینجا وجود ندارد...\n"
-"آیا مایلید فایلهای فاقد نسخه را مشاهده کنید؟"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9684,6 +9688,13 @@ msgstr "آدرس پیش فرض برای دریافت از مخزن در صورت
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "مسیر پیش فرض برای دریافت به آن در صورتی که اطلاعات دیگری وارد نشود"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12433,6 +12444,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

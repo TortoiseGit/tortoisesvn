@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: slabrou <stavros.labrou@gmail.com>\n"
 "Language-Team: Greek <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3927,6 +3927,10 @@ msgstr ""
 "Εμφάνιση πληροφοριών εφαρμογής, αριθμό έκδοσης και πνευματικά δικαιώματα\n"
 "Περί του"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr ""
@@ -6011,6 +6015,10 @@ msgstr ""
 msgid "List1"
 msgstr "Απαρίθμηση1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Επιφόρτωση εικόνων"
@@ -6715,6 +6723,14 @@ msgstr ""
 "Θέστε μία ή περισσότερες από τις μεταβλητές περιβάλλοντος παρακάτω για να δείτε αρχεία χωρίς έκδοση, υπό αγνόηση και/ή χωρίς αλλαγές.\n"
 "Για να δείτε απομακρυσμένες αλλαγές, πατήστε 'Έλεγχος Αποθήκης'"
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6724,18 +6740,6 @@ msgstr ""
 "Κανένα αρχείο δεν έχει αλλαχθεί ή προστεθεί από\n"
 "την τελευταία αποθήκευση. Δεν υπάρχει τίποτα\n"
 "να κάνει το TortoiseSVN εδώ..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"Κανένα αρχείο δεν έχει αλλαχθεί ή προστεθεί από\n"
-"την τελευταία αποθήκευση. Δεν υπάρχει τίποτα\n"
-"να κάνει το TortoiseSVN εδώ...\n"
-"Θέλετε να δείτε τα αρχεία χωρίς έκδοση;"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9647,6 +9651,13 @@ msgstr ""
 msgid "The default path to checkout to if nothing else is specified"
 msgstr ""
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12139,6 +12150,11 @@ msgstr ""
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
 msgstr ""
 
 #. Resource IDs: (65535)

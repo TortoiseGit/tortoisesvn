@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3953,6 +3953,10 @@ msgstr ""
 "Menampilkan informasi program, angka versi dan hak cipta\n"
 "Tentang"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Jangan tampilkan menu konteks untuk path berikut:"
@@ -6098,6 +6102,10 @@ msgstr "Daftar repositori untuknya informasi log telah dimasukkan tembolok"
 msgid "List1"
 msgstr "Daftar1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Ambil Gambar"
@@ -6798,6 +6806,14 @@ msgstr ""
 "Periksa satu atau lebih pengaturan di bawah untuk melihat berkas-berkas yang tidak diversi, diabaikan dan/atau tidak berubah.\n"
 "Untuk melihat perubahan jauh, klik 'Periksa Repositori'"
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6807,18 +6823,6 @@ msgstr ""
 "Tidak ada berkas yang diubah atau ditambahkan sejak\n"
 "komit terakhir. Tidak ada yang perlu\n"
 "dilakukan TortoiseSVN disini..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"Tidak ada berkas yang diubah atau ditambahkan sejak\n"
-"komit terakhir. Tidak ada yang perlu\n"
-"dilakukan TortoiseSVN disini...\n"
-"Anda ingin melihat berkas tidak berversi?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9797,6 +9801,13 @@ msgid "The default path to checkout to if nothing else is specified"
 msgstr ""
 "Path bawaan untuk tujuan checkout jika tidak ada yang dispesifikasikan"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12604,6 +12615,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Set ke 'yes' jika peringatan harus ditampilkan saat tidak ada isu yang dimasukan dalam dialog komit."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

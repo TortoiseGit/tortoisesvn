@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: abuassar <abu.assar@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.net/projects/p/tortoisesvn/team/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -3792,6 +3792,10 @@ msgid ""
 "About"
 msgstr ""
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr ""
@@ -5742,6 +5746,10 @@ msgstr ""
 msgid "List1"
 msgstr ""
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr ""
@@ -6411,19 +6419,19 @@ msgid ""
 "To see remote changes, click on 'Check Repository'"
 msgstr ""
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
 "for TortoiseSVN to do here..."
-msgstr ""
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
 msgstr ""
 
 #. Resource IDs: (273)
@@ -9219,6 +9227,13 @@ msgstr ""
 msgid "The default path to checkout to if nothing else is specified"
 msgstr ""
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -11626,6 +11641,11 @@ msgstr ""
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
+msgstr ""
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
 msgstr ""
 
 #. Resource IDs: (65535)

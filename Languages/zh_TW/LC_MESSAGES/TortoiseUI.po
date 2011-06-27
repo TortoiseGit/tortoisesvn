@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: arith <arithmandar@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3901,6 +3901,10 @@ msgstr ""
 "顯示檔案資訊, 版本號碼, 以及版權宣告\n"
 "關於"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "在以下路徑中不顯示快顯式選單:"
@@ -6023,6 +6027,10 @@ msgstr "記錄訊息已快取的檔案庫列表"
 msgid "List1"
 msgstr "List1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "載入影像"
@@ -6711,6 +6719,14 @@ msgstr ""
 "勾選以下的設定以顯示無版本控制的, 忽略的, 或是無變更的檔案.\n"
 "選擇 '檢查檔案庫' 可顯示遠端變更."
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6719,17 +6735,6 @@ msgid ""
 msgstr ""
 "從上次送交以來沒有任何檔案異動或加入. \n"
 "TortoiseSVN 沒有什麼事可做."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"從上次送交以來沒有任何檔案異動或加入. \n"
-"TortoiseSVN 沒有什麼事可做...\n"
-"要檢視未加入版本控制的檔案嗎?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9688,6 +9693,13 @@ msgstr "未指定 URL 時預設的取出 URL"
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "未指定路徑時的預設取出路徑"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12477,6 +12489,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\n"
 "如果設為 'yes'', 在送交對話窗沒有輸入 bug 相關資訊時, 會顯示警告訊息."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

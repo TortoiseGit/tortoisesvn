@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:41+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3970,6 +3970,10 @@ msgstr ""
 "Информация за програмата, версията й и авторското право\n"
 "Относно"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Без контекстно меню за следните пътища:"
@@ -6120,6 +6124,10 @@ msgstr "Списък с хранилища, които имат кеширана
 msgid "List1"
 msgstr "Списък1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Зареждане на изображенията"
@@ -6815,6 +6823,14 @@ msgstr ""
 "Включете една или повече опции по-долу за да видите неконтролираните, игнорираните и/или непроменените файлове.\n"
 "За да видите отдалечените промени, щракнете на 'Проверка в хранилището'."
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6824,18 +6840,6 @@ msgstr ""
 "Няма променени или добавени файлове след\n"
 "последното поверяване. TortoiseSVN няма\n"
 "работа тук..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"Няма променени или добавени файлове след\n"
-"последното поверяване. TortoiseSVN няма\n"
-"работа тук...\n"
-"Желаете ли да видите неконтролираните файлове?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9865,6 +9869,13 @@ msgstr "URL по подразбиране при изписване"
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "Път по подразбиране за изписване, ако не е указан изрично"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12676,6 +12687,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Установете на 'yes', ако желаете да се показва предупреждение, когато в диалоговия прозорец за поверяване не е бил въведен номер на проблем."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

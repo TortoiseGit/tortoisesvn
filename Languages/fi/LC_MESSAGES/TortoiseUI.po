@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 20:46+0000\n"
+"PO-Revision-Date: 2011-06-27 00:18+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4056,6 +4056,10 @@ msgstr ""
 "Näytä ohjelman tiedot, versionumero ja tekijänoikeudet\n"
 "Tietoa"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr "Älä laajenna avainsanoja"
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Älä näytä kontekstivalikkoa seuraaville poluille:"
@@ -6236,6 +6240,10 @@ msgstr "Luettelo arkistoista, joiden lokitietoja on tallennettu välimuistiin"
 msgid "List1"
 msgstr "List1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr "Listataan arkisto palautuvasti..."
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Hae kuvat"
@@ -6937,6 +6945,17 @@ msgstr ""
 "Tarkista alla olevat asetukset nähdäksesi versioimattomat, ohitetut ja/tai muuttumattomat tiedostot.\n"
 "Nähdäksesi arkiston muutokset, napsauta 'Tarkista arkisto'."
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+"Tiedostoja ei ole muutettu tai lisätty viimeisen arkistotoimituksen jälkeen.\n"
+"TortoiseSVN ei voi tehdä mitään…\n"
+"Voit näyttää versioimattomat tiedostot alaosassa olevan valinnan avulla."
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6945,17 +6964,6 @@ msgid ""
 msgstr ""
 "Tiedostoja ei ole muutettu/lisätty viimeisen arkistotoimituksen jälkeen.\n"
 "TortoiseSVN ei löydä mitään tehtävää..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"Tiedostoja ei ole muutettu/lisätty viimeisen arkistotoimituksen jälkeen.\n"
-"TortoiseSVN ei löydä mitään tehtävää...\n"
-"Haluatko nähdä versioimattomat tiedostot?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -10029,6 +10037,15 @@ msgstr "Oletuspaikannin työkopiota varten (käytetään mikäli muuta ei annett
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "Oletuskansio työkopiota varten  (käytetään mikäli muuta ei annettu)"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+"Tämän toimituksen syvyys on \"%s\", mutta kopiot tehdään arkistossa aina "
+"palautuvasti."
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12899,6 +12916,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Aseta arvoon 'yes', mikäli haluat, että vikatunnuksen pois jättäminen toimitusikkunassa aiheuttaa varoituksen."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr "Paikannin: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

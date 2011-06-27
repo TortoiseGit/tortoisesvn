@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: el_libre <el.libre@gmail.com>\n"
 "Language-Team: Catalan <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3936,6 +3936,10 @@ msgstr ""
 "Mostra informació del programa, número de versió i copyright\n"
 "Quant a"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "No mostreu el menú pels següents paths:"
@@ -6065,6 +6069,10 @@ msgstr "Llista de repositoris pels quals la informatió de log és al cache"
 msgid "List1"
 msgstr "Llista1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Carrega Imatges"
@@ -6752,6 +6760,14 @@ msgstr ""
 "Comprova la configuració de sota per veure fitxers sense versionar, ignorats i/o sense modificar.\n"
 "Per veure canvis remots, clica a  'Comprova Repositori'"
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6761,18 +6777,6 @@ msgstr ""
 "Cap fitxer ha sigut modificat o afegit des de\n"
 "la darrera entrega. No hi ha res\n"
 "per fer aquí pel TortoiseSVN ..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"Cap fitxer s'ha modificat ni afegit des de\n"
-"la darrera entrega. No hi ha res\n"
-"per fer aquí pel TortoiseSVN...\n"
-"Vols veure els fitxers sense versionar?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9717,6 +9721,13 @@ msgstr "La URL per defecte d'on obtenir  si no s'especifica res més"
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "El path per defecte a on obtenir si no s'especifica res més"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12490,6 +12501,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Establiu-ho a  'yes ' si s'ha de mostrar un missatge quan no s'introdueix assumpte al diàleg d'entrega."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-15 07:10+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: ddeguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3996,6 +3996,10 @@ msgstr ""
 "プログラムの情報、バージョン、コピーライトを表示する\n"
 "バージョン情報"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "次のパスではコンテキストメニューを表示しない:"
@@ -6155,6 +6159,10 @@ msgstr "ログ情報をキャッシュしているリポジトリのリスト"
 msgid "List1"
 msgstr "List1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "画像を開く"
@@ -6847,6 +6855,14 @@ msgstr ""
 "バージョン管理外、無視、未変更、のファイルを見るためには以下の設定にチェックをしてください。\n"
 "リモートでの変更を見るためには、'リポジトリをチェック' をクリックしてください。"
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6855,17 +6871,6 @@ msgid ""
 msgstr ""
 "最後のコミットから変更／追加されたファイルは存在していません。\n"
 "今回は、TortoiseSVN がすることは何もありません ..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"最後のコミットから変更／追加されたファイルは存在していません。\n"
-"今回は、TortoiseSVN がすることは何もありません ...\n"
-"バージョン管理されていないファイルを確認しますか？"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9890,6 +9895,13 @@ msgstr "何も指定しない場合にチェックアウトするデフォルト
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "何も指定しない場合にチェックアウトするデフォルトのパス"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12718,6 +12730,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "コミットダイアログに課題を何も入力しない場合に警告を表示するなら、 'yes' にする。"
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

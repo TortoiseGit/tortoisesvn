@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-25 13:21+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: fly1004 <fly1004@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3960,6 +3960,10 @@ msgstr ""
 "프로그램 정보 표시, 버전 번호, 저작권\n"
 "프로그램 정보"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "다음 경로들에 대해서 컨텍스트 메뉴를 보여주지 않습니다.:"
@@ -6092,6 +6096,10 @@ msgstr "로그 정보가 캐시되어있는 저장소들의 리스트"
 msgid "List1"
 msgstr "리스트1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "이미지 불러오기"
@@ -6782,6 +6790,14 @@ msgstr ""
 "버전관리가 아니거나, 무시목록에 있는 것 혹은 수정되지 않은 파일을 보고 싶으면,\n"
 "아래 중 하나 이상을 선택하십시오. 저장소파일의 변경 상태를 보려면 '저장소 확인'을 선택하세요"
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6790,18 +6806,6 @@ msgid ""
 msgstr ""
 "마지막 커밋 이후로 추가되거나 변경된 것이 없습니다.\n"
 "이곳에 TortoiseSVN이 할 수 있는 것이 없습니다."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"마지막 커밋 이후로 추가되거나 변경된 것이\n"
-"없습니다. 이곳에 TortoiseSVN이 할 수 있는\n"
-"것이 없습니다.\n"
-"버전관리 대상이 아닌 것들을 보시겠습니까?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9762,6 +9766,13 @@ msgstr "아무것도 지정하지 않을 경우 체크아웃해 올 기본 URL"
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "아무것도 지정되지 않을 경우 체크아웃해 올 기본 경로"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12575,6 +12586,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "커밋 대화 상자에서 이슈가 입력되지 않았을 경우 경고를 보이고 싶으면 'yes'로 설정하십시오."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

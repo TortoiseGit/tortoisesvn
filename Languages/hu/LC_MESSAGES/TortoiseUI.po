@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Hungarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3929,6 +3929,10 @@ msgstr ""
 "Megjelenít információt a programról, a verziószámot és szerzői jogi megjegyzést\n"
 "Névjegy"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Ne mutassa jobbklikk-menüt az alábbi útvonalakon:"
@@ -6064,6 +6068,10 @@ msgstr "Lista azokról a tárolókról, amelyek naplói gyorsítótárazva vanna
 msgid "List1"
 msgstr "List1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Képek betöltése"
@@ -6752,6 +6760,14 @@ msgstr ""
 "Változtasd a lenti beállításokat a nem verziókezelt, kihagyott és/vagy nem változott fájlok megjelenítéséhez.\n"
 "A távoli változások megjelenítéséhez kattinst a \"Tároló ellenőrzése\" gombra."
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6760,17 +6776,6 @@ msgid ""
 msgstr ""
 "Semmi sem változott az előző\n"
 "beküldés óta, nincs teendő."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"Semmi sem változott az előző\n"
-"beküldés óta, nincs teendő.\n"
-"Meg akarod tekinteni a nem verziókezelt fájlokat?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9716,6 +9721,13 @@ msgstr "A lekérés alapértelmezett URL-je, ha nincs más megadva"
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "A munkapéldány alapértelmezett útvonala, ha nincs más megadva"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12470,6 +12482,11 @@ msgid ""
 msgstr ""
 "bugtraq:warnifnoissue\r\n"
 "Ha \"yes\"-re állítod és a beküldés ablakban nem adsz meg ügy-számot, akkor egy figyelmeztés jelenik meg."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

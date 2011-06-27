@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-19 21:40+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4078,6 +4078,10 @@ msgstr ""
 "Mostra informações sobre o programa, número de versão e direitos de autor\n"
 "Sobre"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Não mostrar o menu de atalho para os seguintes caminhos:"
@@ -6270,6 +6274,10 @@ msgstr ""
 msgid "List1"
 msgstr "Lista1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Carregar Imagens"
@@ -6975,6 +6983,14 @@ msgstr ""
 "Selecciona uma ou mais das preferências abaixo para veres os arquivos sem controlo de versão, ignorados e/ou ficheiros não alterados.\n"
 "Para veres as alterações remotas, clica em 'Verificar Repositório'"
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6984,18 +7000,6 @@ msgstr ""
 "Nenhum arquivo foi alterado ou adicionado\n"
 "desde a última submissão. Não há aqui\n"
 "nada para o TortoiseSVN fazer..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"Nenhum arquivo foi alterado ou adicionado\n"
-"desde a última submissão. Não há aqui\n"
-"nada para o TortoiseSVN fazer...\n"
-"Deseja ver os arquivos sem controlo de versão?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -10088,6 +10092,13 @@ msgstr ""
 "O caminho para o qual exportar, por omissão , caso nenhum outro tenha sido "
 "especificado"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12974,6 +12985,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Coloque 'sim' para que seja mostrado um aviso quando nenhum problema for introduzido na caixa de diálogo de submissão."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 00:42+0000\n"
+"PO-Revision-Date: 2011-06-26 00:29+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Macedonian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3934,6 +3934,10 @@ msgstr ""
 "Прикажи информација за програмата, верзија и copyright\n"
 "За програмата"
 
+#. Resource IDs: (1562)
+msgid "Do not expand keywords"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Не го прикажувај контекстното мени за следните патеки:"
@@ -6064,6 +6068,10 @@ msgstr "Листа на складишта за кои е кеширана ин�
 msgid "List1"
 msgstr "List1"
 
+#. Resource IDs: (104)
+msgid "Listing repository recursively..."
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Вчитај ги сликите"
@@ -6751,6 +6759,14 @@ msgstr ""
 "Изберете едно или повеќе подесувања за да видите неверзионирани,игнорирани или немодифицирани датотеки.\n"
 "За да ги видите измените, изберете 'Провери го складиштето'"
 
+#. Resource IDs: (170)
+msgid ""
+"No files were changed or added since the last commit.\n"
+"There's nothing for TortoiseSVN to do here...\n"
+"You can show the unversioned items by enabling them\n"
+"with the checkbox at the bottom."
+msgstr ""
+
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
@@ -6760,18 +6776,6 @@ msgstr ""
 "Ниедна датотека не е сменета или додадена од\n"
 "последното складирање. Не преостанува ништо\n"
 "за работа..."
-
-#. Resource IDs: (170)
-msgid ""
-"No files were changed or added since\n"
-"the last commit. There's nothing\n"
-"for TortoiseSVN to do here...\n"
-"Do you want to see the unversioned files?"
-msgstr ""
-"Ниедна датотека не е сменета или додадена од\n"
-"последното складирање. Не преостанува ништо\n"
-"за работа...\n"
-"Дали сакате да ги видите датотеките без верзија?"
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -9712,6 +9716,13 @@ msgstr "Номиналното URL за превземање ако ништо �
 msgid "The default path to checkout to if nothing else is specified"
 msgstr "Номиналната патека за превземање ако ништо друго е специфицирана"
 
+#. Resource IDs: (226)
+#, c-format
+msgid ""
+"The depth of this commit is \"%s\", but copies are always performed "
+"recursively in the repository."
+msgstr ""
+
 #. Resource IDs: (68)
 #, c-format
 msgid ""
@@ -12482,6 +12493,11 @@ msgid ""
 msgstr ""
 "tsvn:warnifnoissue\r\n"
 "Поставете на \"yes\" доколку е потребно да се прикаже предупредување кога ништо не е внесено за спорното прашање."
+
+#. Resource IDs: (104)
+#, c-format
+msgid "url: %1!s!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
