@@ -442,12 +442,11 @@ void CShellExt::GetExtraColumnStatus(const TCHAR * path, BOOL bIsDir)
     LoadLangDll();
 
     const FileStatusCacheEntry * status = NULL;
-    ShellCache::CacheType t = ShellCache::exe;
     AutoLocker lock(g_csGlobalCOMGuard);
-    t = g_ShellCache.GetCacheType();
+    const ShellCache::CacheType cacheType = g_ShellCache.GetCacheType();
 
     CTSVNPath tsvnPath (path);
-    switch (t)
+    switch (cacheType)
     {
     case ShellCache::exe:
         {
@@ -475,12 +474,11 @@ void CShellExt::GetMainColumnStatus(const TCHAR * path, BOOL bIsDir)
     LoadLangDll();
     maincolumnfilepath = path;
 
-    ShellCache::CacheType t = ShellCache::exe;
     AutoLocker lock(g_csGlobalCOMGuard);
-    t = g_ShellCache.GetCacheType();
+    const ShellCache::CacheType cacheType = g_ShellCache.GetCacheType();
 
     filestatus = svn_wc_status_none;
-    switch (t)
+    switch (cacheType)
     {
     case ShellCache::exe:
         {
