@@ -2754,9 +2754,9 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
 enum ECharGroup { // ordered by priority low-to-hi
     CHG_UNKNOWN,
     CHG_CONTROL, // x00-x08, x0a-x1f
-    CHG_WHITESPACE,
+    CHG_WHITESPACE, // space tab
     CHG_PUNCTUATION, // 0x21-2f, x3a-x40, x5b-x60, x7b-x7f .,:;!?(){}[]/\<> ...
-    CHG_WORDLETTER, // alpha num
+    CHG_WORDLETTER, // alpha num _ (others)
 };
 
 ECharGroup GetCharGroup(wchar_t zChar)
@@ -3362,10 +3362,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         }
         SetViewData(nViewLine, lineData);
         SaveUndoStep();
-        if (m_pMainFrame->m_bWrapLines)
-        {
-            BuildAllScreen2ViewVector(nViewLine);
-        }
+        BuildAllScreen2ViewVector(nViewLine);
         if (bNeedRenumber)
         {
             UpdateViewLineNumbers();
