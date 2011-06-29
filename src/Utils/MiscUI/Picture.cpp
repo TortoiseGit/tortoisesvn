@@ -604,9 +604,8 @@ long CPicture::SetActiveFrame(UINT frame)
     Status s = pBitmap->GetPropertyItem(PropertyTagFrameDelay, nSize, pPropertyItem);
 
     UINT prevframe = frame;
-    prevframe--;
-    if (prevframe < 0)
-        prevframe = 0;
+    if (prevframe > 0)
+        prevframe--;
     long delay = 0;
     if (s == Ok)
     {
