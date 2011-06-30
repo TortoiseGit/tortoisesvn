@@ -174,6 +174,10 @@ protected:
     bool            HasUnsavedEdits() const;
     static bool     HasUnsavedEdits(const CBaseView* view);
     static bool     IsViewGood(const CBaseView* view);
+    static bool     HasPrevConflict(CBaseView* view);
+    static bool     HasNextConflict(CBaseView* view);
+    static bool     HasPrevInlineDiff(CBaseView* view);
+    static bool     HasNextInlineDiff(CBaseView* view);
 protected:
     CMFCMenuBar     m_wndMenuBar;
     CMFCStatusBar   m_wndStatusBar;

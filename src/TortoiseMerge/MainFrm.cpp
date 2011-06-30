@@ -1859,25 +1859,43 @@ BOOL CMainFrame::MarkAsResolved()
 void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->IsTarget())&&(m_pwndBottomView->HasNextConflict()))
+    if (HasNextConflict(m_pwndBottomView))
         bShow = TRUE;
-    if ((m_pwndRightView)&&(m_pwndRightView->IsTarget())&&(m_pwndRightView->HasNextConflict()))
+    else if (HasNextConflict(m_pwndRightView))
         bShow = TRUE;
-    if ((m_pwndLeftView)&&(m_pwndLeftView->IsTarget())&&(m_pwndLeftView->HasNextConflict()))
+    else if (HasNextConflict(m_pwndLeftView))
         bShow = TRUE;
     pCmdUI->Enable(bShow);
+}
+
+bool CMainFrame::HasNextConflict(CBaseView* view)
+{
+    if (view == 0)
+        return false;
+    if (!view->IsTarget())
+        return false;
+    return view->HasNextConflict();
 }
 
 void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->IsTarget())&&(m_pwndBottomView->HasPrevConflict()))
+    if (HasPrevConflict(m_pwndBottomView))
         bShow = TRUE;
-    if ((m_pwndRightView)&&(m_pwndRightView->IsTarget())&&(m_pwndRightView->HasPrevConflict()))
+    else if (HasPrevConflict(m_pwndRightView))
         bShow = TRUE;
-    if ((m_pwndLeftView)&&(m_pwndLeftView->IsTarget())&&(m_pwndLeftView->HasPrevConflict()))
+    else if (HasPrevConflict(m_pwndLeftView))
         bShow = TRUE;
     pCmdUI->Enable(bShow);
+}
+
+bool CMainFrame::HasPrevConflict(CBaseView* view)
+{
+    if (view == 0)
+        return false;
+    if (!view->IsTarget())
+        return false;
+    return view->HasPrevConflict();
 }
 
 void CMainFrame::OnUpdateNavigateNextdifference(CCmdUI *pCmdUI)
@@ -1901,25 +1919,43 @@ void CMainFrame::OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI)
 void CMainFrame::OnUpdateNavigateNextinlinediff(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->IsTarget())&&(m_pwndBottomView->HasNextInlineDiff()))
+    if (HasNextInlineDiff(m_pwndBottomView))
         bShow = TRUE;
-    if ((m_pwndRightView)&&(m_pwndRightView->IsTarget())&&(m_pwndRightView->HasNextInlineDiff()))
+    else if (HasNextInlineDiff(m_pwndRightView))
         bShow = TRUE;
-    if ((m_pwndLeftView)&&(m_pwndLeftView->IsTarget())&&(m_pwndLeftView->HasNextInlineDiff()))
+    else if (HasNextInlineDiff(m_pwndLeftView))
         bShow = TRUE;
     pCmdUI->Enable(bShow);
+}
+
+bool CMainFrame::HasNextInlineDiff(CBaseView* view)
+{
+    if (view == 0)
+        return false;
+    if (!view->IsTarget())
+        return false;
+    return view->HasNextInlineDiff();
 }
 
 void CMainFrame::OnUpdateNavigatePrevinlinediff(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->IsTarget())&&(m_pwndBottomView->HasPrevInlineDiff()))
+    if (HasPrevInlineDiff(m_pwndBottomView))
         bShow = TRUE;
-    if ((m_pwndRightView)&&(m_pwndRightView->IsTarget())&&(m_pwndRightView->HasPrevInlineDiff()))
+    else if (HasPrevInlineDiff(m_pwndRightView))
         bShow = TRUE;
-    if ((m_pwndLeftView)&&(m_pwndLeftView->IsTarget())&&(m_pwndLeftView->HasPrevInlineDiff()))
+    else if (HasPrevInlineDiff(m_pwndLeftView))
         bShow = TRUE;
     pCmdUI->Enable(bShow);
+}
+
+bool CMainFrame::HasPrevInlineDiff(CBaseView* view)
+{
+    if (view == 0)
+        return false;
+    if (!view->IsTarget())
+        return false;
+    return view->HasPrevInlineDiff();
 }
 
 void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
