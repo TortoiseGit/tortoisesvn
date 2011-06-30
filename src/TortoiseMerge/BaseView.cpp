@@ -4026,8 +4026,9 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
     if ((m_pwndBottom != NULL) && !(m_pwndBottom->IsHidden()))
         return false;
 
-    LPCTSTR line = GetLineChars(lineIndex);
-    if (line == NULL)
+    CString sLine = GetLineChars(lineIndex);
+    CString line = ExpandChars(sLine);
+    if (line.GetLength() == 0)
         return false;
     if (line[0] == 0)
         return false;
@@ -4044,7 +4045,7 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
 
     CString diffline = ExpandChars(sDiffChars);
     svn_diff_t * diff = NULL;
-    m_svnlinediff.Diff(&diff, line, _tcslen(line), diffline, diffline.GetLength(), m_bInlineWordDiff);
+    m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
     if (!diff || !SVNLineDiff::ShowInlineDiff(diff))
         return false;
 
@@ -4053,6 +4054,7 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
     while (diff)
     {
         apr_off_t len = diff->original_length;
+        size_t oldpos = position;
 
         for (apr_off_t i = 0; i < len; ++i)
         {
@@ -4063,10 +4065,7 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
         if (diff->type == svn_diff__type_diff_modified)
         {
             inlineDiffPos p;
-            if (lineoffset > 0)
-                p.start = position - m_svnlinediff.m_line1tokens[lineoffset-1].size();
-            else
-                p.start = 0;
+            p.start = oldpos;
             p.end = position;
             positions.push_back(p);
         }
@@ -4088,13 +4087,12 @@ void CBaseView::OnNavigateNextinlinediff()
             if (it->end > ptCaretPos.x)
             {
                 ptCaretPos.x = (LONG)it->end;
-                UpdateGoalPos();
                 int nCaretOffset = CalculateActualOffset(ptCaretPos);
                 if (nCaretOffset < m_nOffsetChar)
                     ScrollAllToChar(nCaretOffset);
                 if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
                     ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
-                UpdateCaret();
+                SetCaretAndGoalPosition(ptCaretPos);
                 return;
             }
         }
@@ -4115,18 +4113,17 @@ void CBaseView::OnNavigatePrevinlinediff()
     std::vector<inlineDiffPos> positions;
     if (GetInlineDiffPositions(ptCaretPos.y, positions))
     {
-        for (std::vector<inlineDiffPos>::iterator it = positions.begin(); it != positions.end(); ++it)
+        for (auto it = positions.rbegin(); it != positions.rend(); ++it)
         {
             if (it->start < ptCaretPos.x)
             {
                 ptCaretPos.x = (LONG)it->start;
-                UpdateGoalPos();
                 int nCaretOffset = CalculateActualOffset(ptCaretPos);
                 if (nCaretOffset < m_nOffsetChar)
                     ScrollAllToChar(nCaretOffset);
                 if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
                     ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
-                UpdateCaret();
+                UpdateCaretPosition(ptCaretPos);
                 return;
             }
         }
@@ -4144,9 +4141,14 @@ void CBaseView::OnNavigatePrevinlinediff()
 bool CBaseView::HasNextInlineDiff()
 {
     std::vector<inlineDiffPos> positions;
-    if (GetInlineDiffPositions(GetCaretPosition().y, positions))
+    POINT caretpos = GetCaretPosition();
+    if (GetInlineDiffPositions(caretpos.y, positions))
     {
-        return true;
+        for (auto it = positions.cbegin(); it != positions.cend(); ++it)
+        {
+            if (it->start > caretpos.x)
+                return true;
+        }
     }
     return false;
 }
@@ -4154,9 +4156,14 @@ bool CBaseView::HasNextInlineDiff()
 bool CBaseView::HasPrevInlineDiff()
 {
     std::vector<inlineDiffPos> positions;
-    if (GetInlineDiffPositions(GetCaretPosition().y, positions))
+    POINT caretpos = GetCaretPosition();
+    if (GetInlineDiffPositions(caretpos.y, positions))
     {
-        return true;
+        for (auto it = positions.cbegin(); it != positions.cend(); ++it)
+        {
+            if (it->end < caretpos.x)
+                return true;
+        }
     }
     return false;
 }
