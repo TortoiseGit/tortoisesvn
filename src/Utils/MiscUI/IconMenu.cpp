@@ -140,8 +140,12 @@ void CIconMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
     if ((lpDrawItemStruct==NULL)||(lpDrawItemStruct->CtlType != ODT_MENU))
         return;     //not for a menu
     HICON hIcon = NULL;
+    bool bDestroyIcon = true;
     if (iconhandles.find(lpDrawItemStruct->itemID) != iconhandles.end())
+    {
         hIcon = iconhandles[lpDrawItemStruct->itemID];
+        bDestroyIcon = false;
+    }
     else
         hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(icons[lpDrawItemStruct->itemID]), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
     if (hIcon == NULL)
@@ -151,7 +155,8 @@ void CIconMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
         lpDrawItemStruct->rcItem.top + (lpDrawItemStruct->rcItem.bottom - lpDrawItemStruct->rcItem.top - 16) / 2,
         hIcon, 16, 16,
         0, NULL, DI_NORMAL);
-    DestroyIcon(hIcon);
+    if (bDestroyIcon)
+        DestroyIcon(hIcon);
 }
 
 void CIconMenu::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct)
