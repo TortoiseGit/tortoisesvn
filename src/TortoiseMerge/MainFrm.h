@@ -190,6 +190,7 @@ protected:
 
     SVNPatch        m_Patch;
     BOOL            m_bInitSplitter;
+    bool            m_bCheckReload;
 
     int             m_nSearchIndex;
     CString         m_sFindText;

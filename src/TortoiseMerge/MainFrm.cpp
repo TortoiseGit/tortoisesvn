@@ -161,6 +161,7 @@ CMainFrame::CMainFrame()
     , m_pwndBottomView(NULL)
     , m_bReadOnly(false)
     , m_bBlame(false)
+    , m_bCheckReload(false)
 {
     m_bOneWay = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"))));
     theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
@@ -887,6 +888,11 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
             }
         }
     }
+    if ((nType == SIZE_RESTORED)&&m_bCheckReload)
+    {
+        m_bCheckReload = false;
+        CheckForReload();
+    }
 }
 
 void CMainFrame::OnViewWhitespaces()
@@ -1371,7 +1377,12 @@ void CMainFrame::OnClose()
 void CMainFrame::OnActivate(UINT nValue, CWnd* /*pwnd*/, BOOL /*bActivated?*/) {
     if (nValue != 0) // activated
     {
-        CheckForReload();
+        if (IsIconic())
+        {
+            m_bCheckReload = TRUE;
+        }
+        else
+            CheckForReload();
     }
 }
 
