@@ -259,6 +259,7 @@ protected:
     void CheckTreeItem( HTREEITEM hItem );
     void HandleCheckedItemForXP( HTREEITEM item );
     bool CheckAndConfirmPath(const CTSVNPath& path);
+    void SaveDividerPosition();
 
 protected:
     bool                m_bInitDone;

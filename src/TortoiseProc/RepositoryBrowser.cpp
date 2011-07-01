@@ -641,11 +641,7 @@ void CRepositoryBrowser::OnOK()
     if (!m_bSparseCheckoutMode)
     {
         SaveColumnWidths(true);
-
-        RECT rc;
-        GetDlgItem(IDC_REPOTREE)->GetClientRect(&rc);
-        CRegDWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
-        xPos = rc.right-rc.left;
+        SaveDividerPosition();
         m_barRepository.SaveHistory();
     }
     else
@@ -695,11 +691,7 @@ void CRepositoryBrowser::OnCancel()
     if (!m_bSparseCheckoutMode)
     {
         SaveColumnWidths(true);
-
-        RECT rc;
-        GetDlgItem(IDC_REPOTREE)->GetClientRect(&rc);
-        CRegDWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
-        xPos = rc.right-rc.left;
+        SaveDividerPosition();
     }
 
     ClearUI();
@@ -4171,6 +4163,14 @@ bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl)
         return (taskdlg.DoModal(GetExplorerHWND()) == 1);
     }
     return (MessageBox(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH)), CString(MAKEINTRESOURCE(IDS_APPNAME)), MB_ICONINFORMATION|MB_YESNO) == IDYES);
+}
+
+void CRepositoryBrowser::SaveDividerPosition()
+{
+    RECT rc;
+    GetDlgItem(IDC_REPOTREE)->GetClientRect(&rc);
+    CRegDWORD xPos = CRegDWORD(_T("Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider"));
+    xPos = rc.right-rc.left;
 }
 
 int CRepositoryBrowser::SortStrCmp( PCWSTR str1, PCWSTR str2 )
