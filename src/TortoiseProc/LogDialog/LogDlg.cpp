@@ -3381,11 +3381,6 @@ LRESULT CLogDlg::OnClickedInfoIcon(WPARAM /*wParam*/, LPARAM lParam)
     CMenu popup;
     if (popup.CreatePopupMenu())
     {
-        temp.LoadString(IDS_LOG_FILTER_ALL);
-        popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_ALL), LOGFILTER_ALL, temp);
-
-        popup.AppendMenu(MF_SEPARATOR, NULL);
-
         temp.LoadString(IDS_LOG_FILTER_MESSAGES);
         popup.AppendMenu(LOGMENUFLAGS(LOGFILTER_MESSAGES), LOGFILTER_MESSAGES, temp);
         temp.LoadString(IDS_LOG_FILTER_PATHS);
