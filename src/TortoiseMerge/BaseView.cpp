@@ -1091,7 +1091,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
     {
         int nViewLine = GetViewLineForScreen(nLineIndex);
         HICON icon = NULL;
-        ASSERT(nViewLine<m_ScreenedViewLine.size());
+        ASSERT(nViewLine<(int)m_ScreenedViewLine.size());
         TScreenedViewLine::EIcon eIcon = m_ScreenedViewLine[nViewLine].eIcon;
         if (eIcon==TScreenedViewLine::ICN_UNKNOWN)
         {
@@ -4028,9 +4028,7 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
 
     CString sLine = GetLineChars(lineIndex);
     CString line = ExpandChars(sLine);
-    if (line.GetLength() == 0)
-        return false;
-    if (line[0] == 0)
+    if (line.IsEmpty())
         return false;
 
     CheckOtherView();
@@ -4082,29 +4080,19 @@ void CBaseView::OnNavigateNextinlinediff()
     std::vector<inlineDiffPos> positions;
     if (GetInlineDiffPositions(ptCaretPos.y, positions))
     {
+        POINT ptNewCaretPos = ptCaretPos;
+        ptNewCaretPos.x = GetLineLength(ptCaretPos.y);
         for (std::vector<inlineDiffPos>::iterator it = positions.begin(); it != positions.end(); ++it)
         {
             if (it->end > ptCaretPos.x)
             {
-                ptCaretPos.x = (LONG)it->end;
-                int nCaretOffset = CalculateActualOffset(ptCaretPos);
-                if (nCaretOffset < m_nOffsetChar)
-                    ScrollAllToChar(nCaretOffset);
-                if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
-                    ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
-                SetCaretAndGoalPosition(ptCaretPos);
-                return;
+                ptNewCaretPos.x = (LONG)it->end;
+                break;
             }
         }
-        ptCaretPos.x = GetLineLength(ptCaretPos.y);
-        SetCaretAndGoalPosition(ptCaretPos);
-        int nCaretOffset = CalculateActualOffset(ptCaretPos);
-        if (nCaretOffset < m_nOffsetChar)
-            ScrollAllToChar(nCaretOffset);
-        if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
-            ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
+        SetCaretAndGoalPosition(ptNewCaretPos);
+        EnsureCaretVisible();
     }
-    UpdateCaret();
 }
 
 void CBaseView::OnNavigatePrevinlinediff()
@@ -4113,29 +4101,19 @@ void CBaseView::OnNavigatePrevinlinediff()
     std::vector<inlineDiffPos> positions;
     if (GetInlineDiffPositions(ptCaretPos.y, positions))
     {
+        POINT ptNewCaretPos = ptCaretPos;
+        ptNewCaretPos.x = 0;
         for (auto it = positions.rbegin(); it != positions.rend(); ++it)
         {
             if (it->start < ptCaretPos.x)
             {
-                ptCaretPos.x = (LONG)it->start;
-                int nCaretOffset = CalculateActualOffset(ptCaretPos);
-                if (nCaretOffset < m_nOffsetChar)
-                    ScrollAllToChar(nCaretOffset);
-                if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
-                    ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
-                UpdateCaretPosition(ptCaretPos);
-                return;
+                ptNewCaretPos.x = (LONG)it->start;
+                break;
             }
         }
-        ptCaretPos.x = 0;
-        UpdateGoalPos();
-        int nCaretOffset = CalculateActualOffset(ptCaretPos);
-        if (nCaretOffset < m_nOffsetChar)
-            ScrollAllToChar(nCaretOffset);
-        if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
-            ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
+        SetCaretAndGoalPosition(ptNewCaretPos);
+        EnsureCaretVisible();
     }
-    UpdateCaret();
 }
 
 bool CBaseView::HasNextInlineDiff()
