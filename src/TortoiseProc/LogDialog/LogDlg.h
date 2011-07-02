@@ -44,7 +44,7 @@ using namespace std;
 #define MERGE_REVSELECTSTARTEND  3      ///< both
 #define MERGE_REVSELECTMINUSONE  4      ///< first with N-1
 
-#define LOGFILTER_ALL           0x000F        // 'all' means only messages, paths, authors and revisions.
+#define LOGFILTER_ALL           0xFFFF
 #define LOGFILTER_MESSAGES      0x0001
 #define LOGFILTER_PATHS         0x0002
 #define LOGFILTER_AUTHORS       0x0004
