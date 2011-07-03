@@ -4019,31 +4019,29 @@ void CBaseView::BuildMarkedWordArray()
     }
 }
 
-bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>& positions)
+bool CBaseView::GetInlineDiffPositions(int nViewLine, std::vector<inlineDiffPos>& positions)
 {
     if (!m_bShowInlineDiff)
         return false;
     if ((m_pwndBottom != NULL) && !(m_pwndBottom->IsHidden()))
         return false;
 
-    CString sLine = GetLineChars(lineIndex);
-    CString line = ExpandChars(sLine);
-    if (line.IsEmpty())
+    CString sLine = GetViewLineChars(nViewLine);
+    if (sLine.IsEmpty())
         return false;
 
     CheckOtherView();
     if (!m_pOtherViewData)
         return false;
 
-    int viewLine = GetViewLineForScreen(lineIndex);
-    int index =std::min<int>(viewLine, m_pOtherViewData->GetCount() - 1);
-    CString sDiffChars = m_pOtherViewData->GetLine(index);
-    if (sDiffChars.IsEmpty())
+    CString sDiffLine = m_pOtherViewData->GetLine(nViewLine);
+    if (sDiffLine.IsEmpty())
         return false;
 
-    CString diffline = ExpandChars(sDiffChars);
+    CString sLineExp = ExpandChars(sLine);
+    CString sDiffLineExp = ExpandChars(sDiffLine);
     svn_diff_t * diff = NULL;
-    m_svnlinediff.Diff(&diff, line, line.GetLength(), diffline, diffline.GetLength(), m_bInlineWordDiff);
+    m_svnlinediff.Diff(&diff, sLineExp, sLineExp.GetLength(), sDiffLineExp, sDiffLineExp.GetLength(), m_bInlineWordDiff);
     if (!diff || !SVNLineDiff::ShowInlineDiff(diff))
         return false;
 
@@ -4076,56 +4074,52 @@ bool CBaseView::GetInlineDiffPositions(int lineIndex, std::vector<inlineDiffPos>
 
 void CBaseView::OnNavigateNextinlinediff()
 {
-    POINT ptCaretPos = GetCaretPosition();
-    std::vector<inlineDiffPos> positions;
-    if (GetInlineDiffPositions(ptCaretPos.y, positions))
+    int nX;
+    if (GetNextInlineDiff(nX))
     {
-        POINT ptNewCaretPos = ptCaretPos;
-        ptNewCaretPos.x = GetLineLength(ptCaretPos.y);
-        for (std::vector<inlineDiffPos>::iterator it = positions.begin(); it != positions.end(); ++it)
-        {
-            if (it->end > ptCaretPos.x)
-            {
-                ptNewCaretPos.x = (LONG)it->end;
-                break;
-            }
-        }
-        SetCaretAndGoalPosition(ptNewCaretPos);
+        POINT ptCaretViewPos = GetCaretViewPosition();
+        ptCaretViewPos.x = nX;
+        SetCaretAndGoalViewPosition(ptCaretViewPos);
         EnsureCaretVisible();
     }
 }
 
 void CBaseView::OnNavigatePrevinlinediff()
 {
-    POINT ptCaretPos = GetCaretPosition();
-    std::vector<inlineDiffPos> positions;
-    if (GetInlineDiffPositions(ptCaretPos.y, positions))
+    int nX;
+    if (GetPrevInlineDiff(nX))
     {
-        POINT ptNewCaretPos = ptCaretPos;
-        ptNewCaretPos.x = 0;
-        for (auto it = positions.rbegin(); it != positions.rend(); ++it)
-        {
-            if (it->start < ptCaretPos.x)
-            {
-                ptNewCaretPos.x = (LONG)it->start;
-                break;
-            }
-        }
-        SetCaretAndGoalPosition(ptNewCaretPos);
+        POINT ptCaretViewPos = GetCaretViewPosition();
+        ptCaretViewPos.x = nX;
+        SetCaretAndGoalViewPosition(ptCaretViewPos);
         EnsureCaretVisible();
     }
 }
 
 bool CBaseView::HasNextInlineDiff()
 {
+    int nPos;
+    return GetNextInlineDiff(nPos);
+}
+
+bool CBaseView::GetNextInlineDiff(int & nPos)
+{
+    POINT ptCaretViewPos = GetCaretViewPosition();
     std::vector<inlineDiffPos> positions;
-    POINT caretpos = GetCaretPosition();
-    if (GetInlineDiffPositions(caretpos.y, positions))
+    if (GetInlineDiffPositions(ptCaretViewPos.y, positions))
     {
         for (auto it = positions.cbegin(); it != positions.cend(); ++it)
         {
-            if (it->start > caretpos.x)
+            if (it->start > ptCaretViewPos.x)
+            {
+                nPos = (LONG)it->start;
                 return true;
+            }
+            if (it->end > ptCaretViewPos.x)
+            {
+                nPos = (LONG)it->end;
+                return true;
+            }
         }
     }
     return false;
@@ -4133,14 +4127,28 @@ bool CBaseView::HasNextInlineDiff()
 
 bool CBaseView::HasPrevInlineDiff()
 {
+    int nPos;
+    return GetPrevInlineDiff(nPos);
+}
+
+bool CBaseView::GetPrevInlineDiff(int & nPos)
+{
+    POINT ptCaretViewPos = GetCaretViewPosition();
     std::vector<inlineDiffPos> positions;
-    POINT caretpos = GetCaretPosition();
-    if (GetInlineDiffPositions(caretpos.y, positions))
+    if (GetInlineDiffPositions(ptCaretViewPos.y, positions))
     {
-        for (auto it = positions.cbegin(); it != positions.cend(); ++it)
+        for (auto it = positions.crbegin(); it != positions.crend(); ++it)
         {
-            if (it->end < caretpos.x)
+            if ( it->end < ptCaretViewPos.x)
+            {
+                nPos = (LONG)it->end;
                 return true;
+            }
+            if ( it->start < ptCaretViewPos.x)
+            {
+                nPos = (LONG)it->start;
+                return true;
+            }
         }
     }
     return false;

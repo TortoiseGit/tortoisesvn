@@ -151,6 +151,8 @@ public: // methods
     bool            HasPrevConflict();
     bool            HasNextDiff();
     bool            HasPrevDiff();
+    bool            GetNextInlineDiff(int & nPos);
+    bool            GetPrevInlineDiff(int & nPos);
     bool            HasNextInlineDiff();
     bool            HasPrevInlineDiff();
 
