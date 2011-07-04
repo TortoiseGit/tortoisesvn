@@ -2144,6 +2144,11 @@ int CMainFrame::CheckForReload()
         m_Data.m_theirFile.StoreFileAttributes();
         m_Data.m_yourFile.StoreFileAttributes();
         //m_Data.m_mergedFile.StoreFileAttributes();
+
+        if (m_pwndBottomView)
+            m_pwndBottomView->SetModified();
+        if (m_pwndRightView)
+            m_pwndRightView->SetModified();
     }
     bLock = false;
     return ret;
