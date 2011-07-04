@@ -346,6 +346,10 @@ public:
         {
             return ((status != svn_wc_status_none)&&(status != svn_wc_status_unversioned));
         }
+        const bool IsCopied() const
+        {
+            return copied;
+        }
         LPCTSTR GetDisplayName() const
         {
             LPCTSTR chopped = path.GetDisplayString(&basepath);

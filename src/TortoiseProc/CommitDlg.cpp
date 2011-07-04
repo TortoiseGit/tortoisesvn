@@ -454,6 +454,7 @@ void CCommitDlg::OnOK()
 
     bool bCheckedInExternal = false;
     bool bHasConflicted = false;
+    bool bHasCopyPlus = false;
     std::set<CString> checkedLists;
     std::set<CString> uncheckedLists;
     for (int j=0; j<nListItems; j++)
@@ -484,6 +485,10 @@ void CCommitDlg::OnOK()
             if (entry->IsLocked() && entry->status == svn_wc_status_normal)
             {
                 itemsToUnlock.AddPath (entry->GetPath());
+            }
+            if (entry->IsCopied())
+            {
+                bHasCopyPlus = true;
             }
             checkedLists.insert(entry->GetChangeList());
         }
@@ -627,6 +632,37 @@ void CCommitDlg::OnOK()
         if (uncheckedLists.find(*checkedLists.begin()) == uncheckedLists.end())
             m_sChangeList = *checkedLists.begin();
     }
+
+    if ((!m_bRecursive)&&(bHasCopyPlus))
+    {
+        if (CTaskDialog::IsSupported())
+        {
+            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK1)), 
+                                CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK2)), 
+                                L"TortoiseSVN",
+                                0,
+                                TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK3)));
+            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK4)));
+            taskdlg.SetDefaultCommandControl(1);
+            taskdlg.SetMainIcon(TD_WARNING_ICON);
+            if (taskdlg.DoModal(m_hWnd) != 1)
+            {
+                InterlockedExchange(&m_bBlock, FALSE);
+                return;
+            }
+        }
+        else
+        {
+            if (TSVNMessageBox(this->m_hWnd, IDS_COMMITDLG_COPYDEPTH, IDS_APPNAME, MB_YESNO | MB_ICONWARNING)!=IDYES)
+            {
+                InterlockedExchange(&m_bBlock, FALSE);
+                return;
+            }
+        }
+
+    }
+
     UpdateData();
     m_regAddBeforeCommit = m_bShowUnversioned;
     m_regShowExternals = m_bShowExternals;
