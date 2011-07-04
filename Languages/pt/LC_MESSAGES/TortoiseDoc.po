@@ -9,6 +9,7 @@
 # $Rev$
 # 
 # Authors:
+# Sandro Amaral <sandro123iv@gmail.com>, 2011.
 #   <paulojustino.nec@gmail.com>, 2011.
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011.
 msgid ""
@@ -16,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-19 22:45+0000\n"
-"Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
+"PO-Revision-Date: 2011-07-02 12:52+0000\n"
+"Last-Translator: SandroHc <sandro123iv@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -127,7 +128,7 @@ msgid ""
 msgstr ""
 "Alguns sistemas de controlo de versões são também sistemas de software "
 "configuration management (SCM). Estes sistemas são especificamente "
-"desenhados para gerir arvores de código fonte e têm muitas funcionalidades "
+"desenhados para gerir árvores de código fonte e têm muitas funcionalidades "
 "que são específicas ao desenvolvimento de software; como compreender "
 "nativamente as linguagens de programação, ou fornecerem ferramentas para "
 "construir (build) software. O Subversion no entanto não é um desses "
@@ -153,7 +154,7 @@ msgstr "Integração na \"shell\""
 
 #. (primary)
 msgid "Windows shell"
-msgstr "\"Shell\" de Wiindows"
+msgstr "\"Shell\" de Windows"
 
 #. (primary)
 msgid "explorer"
@@ -481,7 +482,7 @@ msgid ""
 "for the hard work to get TortoiseSVN to what it is now, and his leadership "
 "of the project"
 msgstr ""
-"pelo trabalho árduo realizado para fazer o que Tortoise é hoje, e a sua "
+"pelo trabalho árduo realizado para fazer o que TortoiseSVN é hoje, e a sua "
 "liderança do projecto"
 
 #. (term)
@@ -502,7 +503,7 @@ msgstr "Simon Large"
 
 #. (para)
 msgid "for maintaining the documentation"
-msgstr "para manter a documentação"
+msgstr "por manter a documentação"
 
 #. (term)
 msgid "Stefan Fuhrmann"
@@ -510,7 +511,7 @@ msgstr "Stefan Fuhrmann"
 
 #. (para)
 msgid "for the log cache and revision graph"
-msgstr "para a cache de registo e gráfico de revisões"
+msgstr "pela cache de registo e gráfico de revisões"
 
 #. (term)
 msgid "The Subversion Book"
@@ -781,7 +782,7 @@ msgstr "Instalando o TortoiseSVN"
 
 #. (title)
 msgid "System requirements"
-msgstr "Requesitos de sistema"
+msgstr "Requisitos de sistema"
 
 #. (para)
 msgid ""
@@ -3982,6 +3983,12 @@ msgid ""
 "root. The repository browser shows the repository structure just like "
 "Windows explorer, so you can see how things are organised."
 msgstr ""
+"Usa o repositório do navegador para criar uma nova pasta de projecto "
+"directamente no repositório. Se estiveres a usar um dos layouts padrão, "
+"provavelmente vais querer criar este como uma sub-pasta do trunk em vez de "
+"na raiz do repositório. O repositório do navegador mostra a estrutura do "
+"repositório assim como o explorador do Windows, assim podes ver como as "
+"coisas são organizadas."
 
 #. (para)
 msgid ""
@@ -6227,6 +6234,12 @@ msgid ""
 "which can be used by all Tortoise clients. Check with your client provider "
 "to see if this has been integrated yet :-)"
 msgstr ""
+"Agora que existem vários clientes Tortoise (TortoiseCVS, TortoiseHg, ...) a "
+"limitação do ícone torna-se um problema real. Para contornar isso, o "
+"projecto TortoiseSVN introduziu um conjunto de ícones comuns e partilhados, "
+"carregados como uma DLL, que podem ser usados por todos os clientes "
+"Tortoise. Verifique com o seu provedor de cliente para ver se isso já foi "
+"integrado :-)"
 
 #. (para)
 msgid ""
@@ -6481,6 +6494,9 @@ msgid ""
 "another application such as a text editor or IDE, or you can save a copy "
 "simply by dragging it into a folder in explorer."
 msgstr ""
+"Se tu quiseres examinar um ficheiro em detalhe, podes arrastá-lo daqui para "
+"outro aplicativo, como um editor de texto ou IDE, ou podes salvar uma cópia "
+"simplesmente arrastando-o para uma pasta do navegador."
 
 #. (para)
 msgid ""
@@ -7973,6 +7989,23 @@ msgid ""
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
 msgstr ""
+"a Pesquisa sub-string simples funciona de forma semelhante a um motor de busca. Strings para procurar são separadas por espaços, e todas as strings devem ser iguais. Podes usar um <literal>-</literal> no inicio para especificar que um determinado sub-string não for encontrado (inverte correspondência para esse termo), e podes usar <literal>!</literal> no inicio da expressão para inverter a correspondência para a expressão inteira. Podes usar um <literal>+</literal> no inicio para especificar que uma sub-string deve ser incluída, mesmo a tenhas excluídos anteriormente com o <literal>-</literal>. Nota que a ordem de inclusão/exclusão é significativa. Podes usar aspas para cercar uma string que deve conter espaços, e se quiseres procurar literalmente com aspas, podes usar duas aspas seguidas como uma sequência de self-escaping. Nota que o carácter de barra invertida <emphasis>não</emphasis> é usado como um carácter escape e não tem nenhum significado especial na pesquisas de sub-string simples. Os exemplos tornarão mais fácil de perceberes: <screen>\n"
+"Alice Bob -Eva\n"
+"</screen>procura por strings contendo tanto Alice como Bob, mas não Eva. <screen>\n"
+"Alice -Bob +Eva\n"
+"</screen> procura por strings que contêm Alice, mas não Bob, ou strings que contêm Eva. <screen>\n"
+"-Caso +CasoEspecial\n"
+"</screen> procura por strings que não contenham Casa, mas que contenham CasoEspecial. <screen>\n"
+"!Alice Bob\n"
+"</screen> procura por strings que não contenham Alice e Bob na mesma string. <screen>\n"
+"!-Alice -Bob\n"
+"</screen> lembras-te do Teorema de Morgan? NÃO (NÃO Alice E NÃO Bob) reduz a (Alice OU Bob). <screen>\n"
+"\"Alice e Bob\"\n"
+"</screen> procura pela expressão literal <quote>Alice e Bob</quote><screen>\n"
+"\"\"\n"
+"</screen> procura por uma dupla citação em qualquer lugar do texto<screen>\n"
+"\"A Alice diz \"\"olá\"\" ao Bob\"\n"
+"</screen> procura pela expressão literal <quote>A Alice disse \"olá\" ao Bob</quote>."
 
 #. (para)
 msgid ""
@@ -9552,6 +9585,8 @@ msgid ""
 "menu entries for delete and rename in the TortoiseSVN submenu. "
 "<placeholder-1/>"
 msgstr ""
+"O Subversion permite renomear e mover ficheiro e pastas. Portanto, existem "
+"entradas para apagar e renomear no sub-menu do TortoiseSVN. <placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
@@ -10165,10 +10200,16 @@ msgid ""
 " command instead, because there you can first see and select the files which"
 " you want to revert."
 msgstr ""
+"Nota: é melhor usar o <menuchoice><guimenu>TortoiseSVN "
+"</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> comando em vez "
+"disto, porque lá podes primeiro ver e selecionar os ficheiros que você "
+"desejas reverter."
 
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
 msgstr ""
+"Apagar ficheiros e pastas não versionadas, Apagar ficheiros e pastas "
+"ignoradas"
 
 #. (para)
 msgid ""
@@ -10176,6 +10217,9 @@ msgid ""
 "copy. All files and folders that are not versioned are moved to the trash "
 "bin."
 msgstr ""
+"Esta é uma maneira rápida e fácil de remover todos os ficheiros gerados na "
+"tua cópia em funcionamento. Todos os ficheiros e pastas que não são "
+"versionados, são movidos para a reciclagem."
 
 #. (para)
 msgid ""
@@ -10184,6 +10228,10 @@ msgid ""
 " dialog. There you also get a list of all the unversioned files and folders "
 "to select for removal."
 msgstr ""
+"Nota: tu também podes fazer o mesmo a partir do do diálogo no "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice>."
+" Lá também terás uma lista de todos os ficheiros e pastas não versionadas "
+"para selecionar para a sua eliminação."
 
 #. (term)
 msgid "Refresh shell overlays"
@@ -10196,22 +10244,32 @@ msgid ""
 " recognize changes. In this situation, you can use this command to force a "
 "refresh."
 msgstr ""
+"Às vezes, as sobreposições \"shell\", especialmente na visualização da "
+"árvore no lado esquerdo do explorador não mostram o estado actual, ou o "
+"estado da cache falhada para re-organizar as alterações. Nesta situação, "
+"podes usar este comando para forçar uma atualização."
 
 #. (term)
 msgid "Include externals"
-msgstr ""
+msgstr "Incluir externos"
 
 #. (para)
 msgid ""
 "If this is checked, then all actions are done for all files and folders "
 "included with the <literal>svn:externals</literal> property as well."
 msgstr ""
+"Se esta opção estiver assinalada, então todas as acções serão feitas para "
+"todos os arquivos e pastas incluídos com a propriedade "
+"<literal>svn:externals</literal> também."
 
 #. (para)
 msgid ""
 "In the cleanup dialog, there are also other useful options to get the "
 "working copy into a <literal>clean</literal> state. <placeholder-1/>"
 msgstr ""
+"Na caixa de diálogo de limpeza, também existem outras opções úteis para "
+"obter uma cópia a funcionar no estado <literal>clean</literal>. "
+"<placeholder-1/>"
 
 #. (title)
 msgid "Project Settings"
@@ -13647,6 +13705,9 @@ msgid ""
 "the patch is created. For example you can specify that changes in line "
 "endings or whitespaces are not included in the final patch file."
 msgstr ""
+"Ao clicar no botão de <guilabel>Opções</guilabel>, podes especificar como o "
+"caminho é criado. Por exemplo, podes especificar que as mudanças no final da"
+" linha ou espaços em branco não são incluídas no arquivo do caminho final."
 
 #. (para)
 msgid ""
@@ -14059,6 +14120,11 @@ msgid ""
 "paths</guimenuitem></menuchoice>. This shows the path where the line was "
 "last changed, excluding changes resulting from a merge."
 msgstr ""
+"Se quiseres ver os caminhos envolvidos na mesclagem, selecciona "
+"<menuchoice><guimenu>Ver</guimenu><guimenuitem>Mesclar "
+"caminhos</guimenuitem></menuchoice>. Isso irá mostrar o caminho onde a linha"
+" foi modificada pela última vez, excluindo as variações resultantes de uma "
+"fusão."
 
 #. (para)
 msgid ""
@@ -14888,6 +14954,9 @@ msgid ""
 "branch based on a tag, then that tag will be shown as a separate node rather"
 " than folded."
 msgstr ""
+"Nota que, se uma etiqueta for utilizada em si como uma fonte para obter uma "
+"cópia, talvez um novo ramo baseado numa etiqueta, então essa etiqueta será "
+"mostrada como um nó separado em vez de dobrado."
 
 #. (term)
 msgid "Hide deleted paths"
@@ -14915,6 +14984,9 @@ msgid ""
 "If you select the <guilabel>Hide tags</guilabel> option then these branches "
 "will disappear again as they are not needed to show the tags."
 msgstr ""
+"Se seleccionares a opção <guilabel>Ocultar etiquetas</guilabel>, em seguida,"
+" esses ramos vão desaparecer, visto que não são necessários para mostrar as "
+"etiquetas."
 
 #. (term)
 msgid "Hide unused branches"
@@ -15475,6 +15547,15 @@ msgid ""
 "rewrites all URLs that are associated with each file and folder with the new"
 " URL."
 msgstr ""
+"<placeholder-1/> Se o teu repositório, por alguma razão, mudou a sua "
+"localização (IP/URL). Talvez estejas mesmo preso e não possas aprovar e não "
+"queres verificar a tua cópia funcional novamente a partir do novo local e "
+"para mover todos os teus dados alterados de volta para a nova cópia "
+"funcional, "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Recolocar</guimenuitem></menuchoice>"
+" é o comando que estás á procura. Ele basicamente faz muito pouco: ele "
+"reescreve todos os URLs que estão associados com cada arquivo e pasta com a "
+"nova URL."
 
 #. (para)
 msgid ""
@@ -15669,6 +15750,9 @@ msgid ""
 "<placeholder-1/> When you edit any of the bugtraq properties a special "
 "property editor is used to make it easier to set appropriate values."
 msgstr ""
+"<placeholder-1/> Quando editas qualquer uma das propriedades do bugtraq, um "
+"editor de propriedade especial será usado para tornar mais fácil definir os "
+"valores adequados."
 
 #. (para)
 msgid ""
@@ -17836,6 +17920,12 @@ msgid ""
 "TortoiseOverlays component which is shared with other Tortoise clients (e.g."
 " TortoiseCVS, TortoiseHg) this setting will affect those clients too."
 msgstr ""
+"<placeholder-1/> Porque o número de sobreposições disponíveis é severamente "
+"restrito, podes optar por desactivar alguns manipuladores para garantir que "
+"o que tu quiseres será carregado. O TortoiseSVN porque usa o componente "
+"TortoiseOverlays comum que é compartilhado com os outros clientes do "
+"Tortoise (por exemplo o TortoiseCVS e o TortoiseHg), esta configuração "
+"também irá afectar os clientes."
 
 #. (title)
 msgid "Network Settings"
@@ -18052,6 +18142,18 @@ msgid ""
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "</screen>"
 msgstr ""
+"Por exemplo, com o ExamDiff Pro: <screen>\n"
+"C:\\Caminho-Para\\ExamDiff.exe %base %mine --left_display_name:%bname⏎ --right_display_name:%yname\n"
+"</screen> ou com o KDiff3: <screen>\n"
+"C:\\Caminho-Para\\kdiff3.exe %base %mine --L1 %bname --L2 %yname⏎ </screen> ou com o WinMerge: <screen>\n"
+"C:\\Caminho-Para\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
+"</screen> ou com o Araxis: <screen>\n"
+"C:\\Caminho-Para\\compare.exe /max /wait /title1:%bname /title2:%yname⏎ %base %mine\n"
+"</screen> ou com o UltraCompare: <screen>\n"
+"C:\\Caminho-Para\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
+"</screen> ou com o DiffMerge: <screen>\n"
+"C:\\Caminho-Para\\C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -18166,6 +18268,20 @@ msgid ""
 "    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "</screen>"
 msgstr ""
+"Por exemplo, com o Perforce Merge: <screen>\n"
+"C:\\Caminho-Para\\P4Merge.exe %base %theirs %mine %merged\n"
+"</screen> ou com o KDiff3: <screen>\n"
+"C:\\Caminho-Para\\kdiff3.exe %base %mine %theirs -o %merged\n"
+"    --L1 %bname --L2 %yname --L3 %tname\n"
+"</screen> ou com o Araxis: <screen>\n"
+"C:\\Caminho-Para\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
+"    /title3:%yname %theirs %base %mine %merged /a2\n"
+"</screen> ou com o WinMerge (2.8 ou anterior): <screen>\n"
+"C:\\Caminho-Para\\WinMerge.exe %merged\n"
+"</screen> ou com o DiffMerge: <screen>\n"
+"C:\\Caminho-Para\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
+"    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
+"</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
@@ -19358,6 +19474,9 @@ msgid ""
 "debug messages during execution. The messages can be captured with special "
 "debugging tools only."
 msgstr ""
+"Coloca esta opção como <literal>verdadeira</ literal> se quiseres que o "
+"TortoiseSVN imprima mensagens de compilação durante a execução. As mensagens"
+" só podem ser capturadas com ferramentas de compilação especiais."
 
 #. (para)
 msgid ""
@@ -19365,6 +19484,10 @@ msgid ""
 " of dialog - TortoiseSVN</literal>. If you set this value to 1, the format "
 "changes to <literal>name of dialog - url/path - TortoiseSVN</literal>."
 msgstr ""
+"O formato padrão (valor 0) dos títulos do diálogo é <literal>url/caminho - "
+"nome do diálogo - TortoiseSVN</literal>. Se definires esse valor para 1, o "
+"formato é alterado para <literal>nome do diálogo - url/caminho - "
+"TortoiseSVN</literal>."
 
 #. (para)
 msgid ""
@@ -19990,6 +20113,13 @@ msgid ""
 "#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
 "</screen>"
 msgstr ""
+"O SubWCRev não suporta directamente a nidificação de expressões, então, por exemplo, não podes usar uma expressão como esta: <screen>\n"
+"#define SVN_REVISION    \"$WCMIXED?$WCRANGE$:$WCREV$$\"\n"
+"</screen> Mas podes ir lá por outros meios, por exemplo: <screen>\n"
+"#define SVN_RANGE       $WCRANGE$\n"
+"#define SVN_REV         $WCREV$\n"
+"#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -22931,35 +23061,35 @@ msgstr "/noui"
 
 #. (option)
 msgid "/noprogressui"
-msgstr ""
+msgstr "/noprogressui"
 
 #. (option)
 msgid "/nodlg"
-msgstr ""
+msgstr "/nodlg"
 
 #. (option)
 msgid "/cleanup"
-msgstr ""
+msgstr "/cleanup"
 
 #. (option)
 msgid "/revert"
-msgstr ""
+msgstr "/revert"
 
 #. (option)
 msgid "/delunversioned"
-msgstr ""
+msgstr "/delunversioned"
 
 #. (option)
 msgid "/delignored"
-msgstr ""
+msgstr "/delignored"
 
 #. (option)
 msgid "/refreshshell"
-msgstr ""
+msgstr "/refreshshell"
 
 #. (option)
 msgid "/externals"
-msgstr ""
+msgstr "/externals"
 
 #. (entry)
 msgid ""
@@ -23359,6 +23489,13 @@ msgid ""
 "<literal>.wmf</literal>, <literal>.png</literal>, <literal>.jpg</literal>, "
 "<literal>.bmp</literal> and <literal>.gif</literal>."
 msgstr ""
+"Para criar um ficheiro de imagem do gráfico de revisão para um caminho "
+"específico, mas sem mostrar a janela do gráfico, "
+"<option>/output:path</option> com o caminho para o ficheiro de saída. O "
+"ficheiro de saída deve ter uma extensão que o gráfico de revisão possa "
+"exportar. São suportados os formatos: <literal>.svg</literal>, "
+"<literal>.wmf</literal>, <literal>.png</literal>, <literal>.jpg</literal>, "
+"<literal>.bmp</literal> and <literal>.gif</literal>."
 
 #. (para)
 msgid ""

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-26 00:29+0000\n"
+"PO-Revision-Date: 2011-07-03 00:34+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4053,7 +4053,7 @@ msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
-msgstr ""
+msgstr "Ikke utvid nøkkelord"
 
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
@@ -6234,7 +6234,7 @@ msgstr "Liste1"
 
 #. Resource IDs: (104)
 msgid "Listing repository recursively..."
-msgstr ""
+msgstr "Lister depotet rekursivt..."
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -6622,10 +6622,6 @@ msgstr "Melding:"
 msgid "Messages"
 msgstr "Meldinger"
 
-#. Resource IDs: (116)
-msgid "Messages, authors, paths and revs"
-msgstr "Meldinger, forfattere, stier og revisjoner"
-
 #. Resource IDs: (78)
 msgid "Mime type"
 msgstr "MIME-type"
@@ -6945,6 +6941,9 @@ msgid ""
 "You can show the unversioned items by enabling them\n"
 "with the checkbox at the bottom."
 msgstr ""
+"Ingen filer er endret eller lagt til siden forrige innsending. Det er ingen ting å gjøre for TortoiseSVN her...\n"
+"Du kan vise ikke-versjonerte elementer ved å huke av\n"
+"i boksen nederst."
 
 #. Resource IDs: (77)
 msgid ""
@@ -10025,6 +10024,8 @@ msgid ""
 "The depth of this commit is \"%s\", but copies are always performed "
 "recursively in the repository."
 msgstr ""
+"Dybden til denne innsendingen er \"%s\", men kopiering utføres alltid "
+"rekursivt i depotet."
 
 #. Resource IDs: (68)
 #, c-format
@@ -12898,7 +12899,7 @@ msgstr ""
 #. Resource IDs: (104)
 #, c-format
 msgid "url: %1!s!"
-msgstr ""
+msgstr "url: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

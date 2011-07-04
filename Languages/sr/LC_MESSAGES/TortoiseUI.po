@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-26 00:29+0000\n"
+"PO-Revision-Date: 2011-07-03 00:34+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4052,7 +4052,7 @@ msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
-msgstr ""
+msgstr "Не прошируј кључне речи"
 
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
@@ -6233,7 +6233,7 @@ msgstr "Lista1"
 
 #. Resource IDs: (104)
 msgid "Listing repository recursively..."
-msgstr ""
+msgstr "Листање спремишта рекурзивно..."
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -6622,10 +6622,6 @@ msgstr "Poruka:"
 msgid "Messages"
 msgstr "Poruke"
 
-#. Resource IDs: (116)
-msgid "Messages, authors, paths and revs"
-msgstr "Poruke, autori, putanje i revizije"
-
 #. Resource IDs: (78)
 msgid "Mime type"
 msgstr "Mime tip"
@@ -6944,6 +6940,10 @@ msgid ""
 "You can show the unversioned items by enabling them\n"
 "with the checkbox at the bottom."
 msgstr ""
+"Ниједан фајл није измењен или додат од задњег урезивања.\n"
+"Нема ничег да ТортоисеСВН ради овде...\n"
+"Можете приказати  неверзионисане ставке омогућавајући их\n"
+"са чекбоксом на дну."
 
 #. Resource IDs: (77)
 msgid ""
@@ -10024,6 +10024,8 @@ msgid ""
 "The depth of this commit is \"%s\", but copies are always performed "
 "recursively in the repository."
 msgstr ""
+"Дубина овог урезивања је \"%s\", али копије се увек примене рекурзивно у "
+"спремишту."
 
 #. Resource IDs: (68)
 #, c-format
@@ -12906,7 +12908,7 @@ msgstr ""
 #. Resource IDs: (104)
 #, c-format
 msgid "url: %1!s!"
-msgstr ""
+msgstr "урл: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-26 15:08+0000\n"
+"PO-Revision-Date: 2011-07-03 00:34+0000\n"
 "Last-Translator: beginaFekicysym <>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1153,7 +1153,7 @@ msgstr "&Restore defaults"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
-msgstr "&Ponów bez hooków"
+msgstr "&Ponów bez przechwyceń"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -3248,7 +3248,7 @@ msgstr "Zakończono!"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
-msgstr "Konfiguruj hook-skrypty"
+msgstr "Konfiguruj skrypty przechwytujące"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
@@ -5366,19 +5366,19 @@ msgstr "Dom"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
-msgstr "Hook-skrypty"
+msgstr "Skrypty przechwytujące"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Skrypty repozytorium::Integracja z systemami śledzenia błędów"
+msgstr "Skrypty przechwytujące::Integracja z systemami śledzenia błędów"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
-msgstr "Typ hooka"
+msgstr "Typ przechwycenia"
 
 #. Resource IDs: (1334)
 msgid "Hook Type:"
-msgstr "Typ hooka:"
+msgstr "Typ przechwycenia:"
 
 #. Resource IDs: (82)
 #, c-format
@@ -5814,7 +5814,7 @@ msgstr "Obrazy"
 
 #. Resource IDs: (19)
 msgid "Immediate children, including folders"
-msgstr "Bezpośrednie dzieci, w tym foldery"
+msgstr "Bezpośrednie elementy podrzędne, w tym foldery"
 
 #. Resource IDs: (139)
 msgid "Import"
@@ -6641,10 +6641,6 @@ msgstr "Komunikat:"
 msgid "Messages"
 msgstr "Komunikaty"
 
-#. Resource IDs: (116)
-msgid "Messages, authors, paths and revs"
-msgstr "Wiadomości, autorzy, ścieżki i wersje"
-
 #. Resource IDs: (78)
 msgid "Mime type"
 msgstr "Typ MIME"
@@ -7262,7 +7258,7 @@ msgstr "Pobierz &tylko folder najwyższego poziomu"
 
 #. Resource IDs: (19)
 msgid "Only file children"
-msgstr "Tylko dzieci-pliki"
+msgstr "Tylko pliki podrzędne"
 
 #. Resource IDs: (169)
 msgid ""
@@ -7554,11 +7550,11 @@ msgstr "Wykres kołowy"
 
 #. Resource IDs: (83)
 msgid "Please enter a hook script to execute."
-msgstr "Proszę wprowadzić hook-skrypt do wykonania"
+msgstr "Proszę wprowadzić skrypt przechwytujący do wykonania"
 
 #. Resource IDs: (83)
 msgid "Please enter a path where to apply the hook script to."
-msgstr "Wpisz proszę ścieżkę do której zastosować hook-skrypt"
+msgstr "Wpisz proszę ścieżkę do której zastosować skrypt przechwytujący"
 
 #. Resource IDs: (251)
 msgid "Please execute the 'Cleanup' command."
@@ -7584,7 +7580,7 @@ msgstr "Rozwiąż konflikt, wybierając jedną z poniższych opcji:"
 
 #. Resource IDs: (83)
 msgid "Please select a hook type"
-msgstr "Proszę wybrać typ hooka"
+msgstr "Proszę wybrać typ przechwycenia"
 
 #. Resource IDs: (76)
 msgid "Please specify the certificate type"
@@ -7628,11 +7624,11 @@ msgstr "Dopuszczalne wartości: 0 (przezroczyste).. 255 (nieprzezroczyste)"
 
 #. Resource IDs: (569)
 msgid "Post-Commit Hook"
-msgstr "Hook po zatwierdzaniu"
+msgstr "Przechwycenie po zatwierdzaniu"
 
 #. Resource IDs: (570)
 msgid "Post-Update Hook"
-msgstr "Hook po uaktualnieniu"
+msgstr "Przechwycenie po uaktualnieniu"
 
 #. Resource IDs: (58115)
 msgid "Pre&v Page"
@@ -7640,15 +7636,15 @@ msgstr "&Poprzednia strona"
 
 #. Resource IDs: (569)
 msgid "Pre-Commit Hook"
-msgstr "Hook przed zatwierdzaniem"
+msgstr "Przechwycenie przed zatwierdzaniem"
 
 #. Resource IDs: (570)
 msgid "Pre-Connect Hook"
-msgstr "Hook przed połączeniem"
+msgstr "Przechwycenie przed połączeniem"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
-msgstr "Hook przed uaktualnieniem"
+msgstr "Przechwycenie przed uaktualnieniem"
 
 #. Resource IDs: (3)
 msgid "Prefer &local"
@@ -9070,7 +9066,7 @@ msgstr "Wybierz folder do którego zachować wybrane pliki"
 
 #. Resource IDs: (197)
 msgid "Select hook script file"
-msgstr "Wybierz plik hook-skryptu"
+msgstr "Wybierz plik skryptu przechwytującego"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
@@ -9676,7 +9672,7 @@ msgstr "Standard"
 
 #. Resource IDs: (569)
 msgid "Start Commit Hook"
-msgstr "Hook początku zatwierdzania"
+msgstr "Przechwycenie początku zatwierdzania"
 
 #. Resource IDs: (65535)
 msgid "Start Revision"
@@ -9684,7 +9680,7 @@ msgstr "Wersja początkowa"
 
 #. Resource IDs: (569)
 msgid "Start Update Hook"
-msgstr "Hook początku uaktualniania"
+msgstr "Przechwycenie początku uaktualniania"
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -10180,7 +10176,7 @@ msgid ""
 "The hook script returned an error:\n"
 "%s"
 msgstr ""
-"Hook-skrypt zwrócił błąd:\n"
+"Skrypt przechwytujący zwrócił błąd:\n"
 "%s"
 
 #. Resource IDs: (7)
