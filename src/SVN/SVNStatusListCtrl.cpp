@@ -1224,11 +1224,13 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
         SetItemCount(listIndex);
 
         m_ColumnManager.UpdateRelevance (m_arStatusArray, m_arListArray, m_PropertyMap);
-
-        int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
-        for (int col = 0; col <= maxcol; col++)
-            SetColumnWidth (col, m_ColumnManager.GetWidth (col, true));
     }
+
+    // resizing the columns trigger redraw messages, so we have to do
+    // this after releasing the write lock.
+    int maxcol = ((CHeaderCtrl*)(GetDlgItem(0)))->GetItemCount()-1;
+    for (int col = 0; col <= maxcol; col++)
+        SetColumnWidth (col, m_ColumnManager.GetWidth (col, true));
 
     SetRedraw(TRUE);
     GetStatisticsString();
