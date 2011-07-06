@@ -2098,8 +2098,8 @@ int CMainFrame::CheckForReload()
     bool bSourceChanged = 
             m_Data.m_baseFile.HasSourceFileChanged()
             || m_Data.m_yourFile.HasSourceFileChanged()
-             || m_Data.m_theirFile.HasSourceFileChanged()
-             /*|| m_Data.m_mergedFile.HasSourceFileChanged()*/;
+            || m_Data.m_theirFile.HasSourceFileChanged()
+            /*|| m_Data.m_mergedFile.HasSourceFileChanged()*/;
     if (!bSourceChanged)
     {
         bLock = false;
@@ -2139,16 +2139,35 @@ int CMainFrame::CheckForReload()
     }
     else
     {
+        if (IsViewGood(m_pwndBottomView)) // three pane view
+        {
+            /*if (m_Data.m_sourceFile.HasSourceFileChanged())
+                m_pwndBottomView->SetModified();
+            if (m_Data.m_mergedFile.HasSourceFileChanged())
+                m_pwndBottomView->SetModified();//*/
+            if (m_Data.m_yourFile.HasSourceFileChanged())
+                m_pwndRightView->SetModified();
+            if (m_Data.m_theirFile.HasSourceFileChanged())
+                m_pwndLeftView->SetModified();
+        }
+        else if (IsViewGood(m_pwndRightView)) // two pane view
+        {
+            if (m_Data.m_baseFile.HasSourceFileChanged())
+                m_pwndLeftView->SetModified();
+            if (m_Data.m_yourFile.HasSourceFileChanged())
+                m_pwndRightView->SetModified();
+        }
+        else
+        {
+            if (m_Data.m_yourFile.HasSourceFileChanged())
+                m_pwndLeftView->SetModified();
+        }
+
         // no reload just store updated file time
         m_Data.m_baseFile.StoreFileAttributes();
         m_Data.m_theirFile.StoreFileAttributes();
         m_Data.m_yourFile.StoreFileAttributes();
         //m_Data.m_mergedFile.StoreFileAttributes();
-
-        if (m_pwndBottomView)
-            m_pwndBottomView->SetModified();
-        if (m_pwndRightView)
-            m_pwndRightView->SetModified();
     }
     bLock = false;
     return ret;

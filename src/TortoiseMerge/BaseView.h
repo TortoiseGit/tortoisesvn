@@ -119,7 +119,7 @@ public: // methods
     inline BOOL     IsHidden() const  {return m_bIsHidden;}
     inline void     SetHidden(BOOL bHidden) {m_bIsHidden = bHidden;}
     inline bool     IsModified() const  {return m_bModified;}
-    void            SetModified(bool bModified = true) {m_bModified = bModified;}
+    void            SetModified(bool bModified = true) {m_bModified = bModified; Invalidate();}
     void            SetInlineWordDiff(bool bWord) {m_bInlineWordDiff = bWord;}
     void            SetMarkedWord(const CString& word) {m_sMarkedWord = word; BuildMarkedWordArray();}
     LPCTSTR         GetMarkedWord() {return (LPCTSTR)m_sMarkedWord;}
