@@ -7877,6 +7877,26 @@ msgid "The window title for your file"
 msgstr ""
 
 #. (para)
+msgid "The url of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The url of the second file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the second file, if available"
+msgstr ""
+
+#. (para)
+msgid "The peg revision, if available"
+msgstr ""
+
+#. (para)
 msgid "An external diff program may be used for comparing different revisions of files. The external program will need to obtain the filenames from the command line, along with any other command line options. TortoiseSVN uses substitution parameters prefixed with <literal>%</literal>. When it encounters one of these it will substitute the appropriate value. The order of the parameters will depend on the Diff program you use. <placeholder-1/>"
 msgstr ""
 
@@ -8594,6 +8614,14 @@ msgstr ""
 
 #. (para)
 msgid "By default, TortoiseSVN always runs an update with externals included. This avoids problems with inconsistent working copies. If you have however a lot of externals set, an update can take quite a while. Set this value to <literal>false</literal> to run the default update with externals excluded. To update with externals included, either run the <literal>Update to revision...</literal> dialog or set this value to <literal>true</literal> again."
+msgstr ""
+
+#. (para)
+msgid "When the log dialog is started from the merge wizard, already merged revisions are shown in gray, but revisions beyond the point where the branch was created are also shown. These revisions are shown in black because those can't be merged."
+msgstr ""
+
+#. (para)
+msgid "If this option is set to <literal>true</literal> then TortoiseSVN tries to find the revision where the branch was created from and hide all the revisions that are beyond that revision. Since this can take quite a while, this option is disabled by default. Also this option doesn't work with some SVN servers (e.g., Google Code Hosting, see <ulink url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue #5471</citetitle></ulink>)."
 msgstr ""
 
 #. (para)

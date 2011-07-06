@@ -1310,13 +1310,16 @@ void CLogDlg::LogThread()
                     }
                 }
 
-                // TODO: uncomment this someday
-                SVNLogHelper helper;
-                CString sCopyFrom;
-                CTSVNPath mergeUrl = CTSVNPath(GetURLFromPath(m_mergePath)+L"/");
-                SVNRev rev = helper.GetCopyFromRev(mergeUrl, SVNRev::REV_HEAD, sCopyFrom);
-                if (sCopyFrom.Compare(m_sURL) == 0)
-                    m_copyfromrev = rev;
+                bool bFindCopyFrom = !!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\LogFindCopyFrom"), FALSE);
+                if (bFindCopyFrom)
+                {
+                    SVNLogHelper helper;
+                    CString sCopyFrom;
+                    CTSVNPath mergeUrl = CTSVNPath(GetURLFromPath(m_mergePath)+L"/");
+                    SVNRev rev = helper.GetCopyFromRev(mergeUrl, SVNRev::REV_HEAD, sCopyFrom);
+                    if (sCopyFrom.Compare(m_sURL) == 0)
+                        m_copyfromrev = rev;
+                }
             }
         }
     }

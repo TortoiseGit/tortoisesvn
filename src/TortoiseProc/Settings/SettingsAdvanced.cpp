@@ -40,6 +40,7 @@ CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] =
     { _T("DiffBlamesWithTortoiseMerge"), CSettingsAdvanced::SettingTypeBoolean, false },
     { _T("FullRowSelect"), CSettingsAdvanced::SettingTypeBoolean, true },
     { _T("IncludeExternals"), CSettingsAdvanced::SettingTypeBoolean, true },
+    { _T("LogFindCopyFrom"), CSettingsAdvanced::SettingTypeBoolean, false },
     { _T("LogStatusCheck"), CSettingsAdvanced::SettingTypeBoolean, true },
     { _T("MergeLogSeparator"), CSettingsAdvanced::SettingTypeString, _T("........") },
     { _T("OldVersionCheck"), CSettingsAdvanced::SettingTypeBoolean, false },
