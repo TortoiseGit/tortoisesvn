@@ -1224,6 +1224,47 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
         SetItemCount(listIndex);
 
         m_ColumnManager.UpdateRelevance (m_arStatusArray, m_arListArray, m_PropertyMap);
+
+        GetStatisticsString();
+
+        CHeaderCtrl * pHeader = GetHeaderCtrl();
+        HDITEM HeaderItem = {0};
+        HeaderItem.mask = HDI_FORMAT;
+        for (int i=0; i<pHeader->GetItemCount(); ++i)
+        {
+            pHeader->GetItem(i, &HeaderItem);
+            HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
+            pHeader->SetItem(i, &HeaderItem);
+        }
+        if (m_nSortedColumn >= 0)
+        {
+            pHeader->GetItem(m_nSortedColumn, &HeaderItem);
+            HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
+            pHeader->SetItem(m_nSortedColumn, &HeaderItem);
+        }
+
+        if (nSelectedEntry)
+        {
+            SetItemState(nSelectedEntry, LVIS_SELECTED, LVIS_SELECTED);
+            EnsureVisible(nSelectedEntry, false);
+        }
+        else
+        {
+            // Restore the item at the top of the list.
+            for (int i=0;GetTopIndex() != nTopIndex;i++)
+            {
+                if ( !EnsureVisible(nTopIndex+i,false) )
+                {
+                    break;
+                }
+            }
+        }
+        if (selMark >= 0)
+        {
+            SetSelectionMark(selMark);
+            SetItemState(selMark, LVIS_FOCUSED , LVIS_FOCUSED);
+        }
+
     }
 
     // resizing the columns trigger redraw messages, so we have to do
@@ -1233,45 +1274,6 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
         SetColumnWidth (col, m_ColumnManager.GetWidth (col, true));
 
     SetRedraw(TRUE);
-    GetStatisticsString();
-
-    CHeaderCtrl * pHeader = GetHeaderCtrl();
-    HDITEM HeaderItem = {0};
-    HeaderItem.mask = HDI_FORMAT;
-    for (int i=0; i<pHeader->GetItemCount(); ++i)
-    {
-        pHeader->GetItem(i, &HeaderItem);
-        HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
-        pHeader->SetItem(i, &HeaderItem);
-    }
-    if (m_nSortedColumn >= 0)
-    {
-        pHeader->GetItem(m_nSortedColumn, &HeaderItem);
-        HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
-        pHeader->SetItem(m_nSortedColumn, &HeaderItem);
-    }
-
-    if (nSelectedEntry)
-    {
-        SetItemState(nSelectedEntry, LVIS_SELECTED, LVIS_SELECTED);
-        EnsureVisible(nSelectedEntry, false);
-    }
-    else
-    {
-        // Restore the item at the top of the list.
-        for (int i=0;GetTopIndex() != nTopIndex;i++)
-        {
-            if ( !EnsureVisible(nTopIndex+i,false) )
-            {
-                break;
-            }
-        }
-    }
-    if (selMark >= 0)
-    {
-        SetSelectionMark(selMark);
-        SetItemState(selMark, LVIS_FOCUSED , LVIS_FOCUSED);
-    }
 
     m_bWaitCursor = false;
     GetCursorPos(&pt);
@@ -1597,7 +1599,6 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
     else if (entry->depth == svn_depth_empty)
         lvItem.state = INDEXTOOVERLAYMASK(OVL_DEPTHEMPTY);
     InsertItem(&lvItem);
-    m_bBlockItemChangeHandler = false;
 
     SetCheck(listIndex, entry->checked);
     if (entry->checked)
@@ -1628,6 +1629,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
     }
 
     SetItemGroup(listIndex, groupIndex);
+    m_bBlockItemChangeHandler = false;
 }
 
 bool CSVNStatusListCtrl::SetItemGroup(int item, int groupindex)
@@ -1728,9 +1730,12 @@ void CSVNStatusListCtrl::OnLvnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
     LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     *pResult = 0;
 
+    if (m_bBlockItemChangeHandler)
+        return;
+
 #define ISCHECKED(x) ((x) ? ((((x)&LVIS_STATEIMAGEMASK)>>12)-1) : FALSE)
 
-    CAutoReadWeakLock readLock(m_guard);
+    CAutoReadWeakLock readLock(m_guard, 0);
     if (readLock.IsAcquired())
     {
         FileEntry * entry = GetListEntry(pNMLV->iItem);
@@ -4614,7 +4619,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
             // Tell Windows to paint the control itself.
             *pResult = CDRF_DODEFAULT;
 
-            CAutoReadWeakLock readLock(m_guard);
+            CAutoReadWeakLock readLock(m_guard, 0);
             if (readLock.IsAcquired())
             {
                 // Tell Windows to send draw notifications for each subitem.
@@ -4705,7 +4710,7 @@ void CSVNStatusListCtrl::OnLvnGetdispinfo(NMHDR *pNMHDR, LRESULT *pResult)
     //Create a pointer to the item
     LV_ITEM* pItem= &(pDispInfo)->item;
 
-    CAutoReadWeakLock readLock(m_guard);
+    CAutoReadWeakLock readLock(m_guard, 0);
     if (readLock.IsAcquired())
     {
         if (pItem->mask & LVIF_TEXT)
