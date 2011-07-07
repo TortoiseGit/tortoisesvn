@@ -647,6 +647,7 @@ void CRepositoryBrowser::OnOK()
     else
     {
         m_checkoutDepths.clear();
+        m_updateDepths.clear();
         HTREEITEM hRoot = m_RepoTree.GetRootItem();
         CheckoutDepthForItem(hRoot);
         // now go through the whole list and remove all children of items that have infinity depth
@@ -665,6 +666,25 @@ void CRepositoryBrowser::OnOK()
                         std::map<CString,svn_depth_t>::iterator kill = it2;
                         --it2;
                         m_checkoutDepths.erase(kill);
+                    }
+                }
+            }
+        }
+        for (std::map<CString,svn_depth_t>::iterator it = m_updateDepths.begin(); it != m_updateDepths.end(); ++it)
+        {
+            if (it->second == svn_depth_infinity)
+            {
+                for (std::map<CString,svn_depth_t>::iterator it2 = m_updateDepths.begin(); it2 != m_updateDepths.end(); ++it2)
+                {
+                    if (it->first.Compare(it2->first)==0)
+                        continue;
+
+                    CString url1 = it->first + L"/";
+                    if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
+                    {
+                        std::map<CString,svn_depth_t>::iterator kill = it2;
+                        --it2;
+                        m_updateDepths.erase(kill);
                     }
                 }
             }
@@ -4009,6 +4029,7 @@ bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
     CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (hItem);
     if (!bChecked)
     {
+        m_updateDepths[pItem->url] = svn_depth_exclude;
         HTREEITEM hParent = m_RepoTree.GetParentItem(hItem);
         while (hParent)
         {
@@ -4018,14 +4039,23 @@ bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
             {
                 if ((it->second == svn_depth_infinity)&&(pItem->kind == svn_node_dir))
                     m_checkoutDepths[pParent->url] = svn_depth_files;
-
-                m_checkoutDepths[pParent->url] = svn_depth_empty;
+                else
+                    m_checkoutDepths[pParent->url] = svn_depth_empty;
+            }
+            
+            it = m_updateDepths.find(pParent->url);
+            if (it != m_updateDepths.end())
+            {
+                m_updateDepths[pParent->url] = svn_depth_unknown;
             }
             hParent = m_RepoTree.GetParentItem(hParent);
         }
     }
     if (bChecked)
+    {
         m_checkoutDepths[pItem->url] = svn_depth_infinity;
+        m_updateDepths[pItem->url] = svn_depth_infinity;
+    }
 
     HTREEITEM hChild = m_RepoTree.GetChildItem(hItem);
     while (hChild)

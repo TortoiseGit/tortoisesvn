@@ -95,6 +95,7 @@ public:
 
     CString GetRepoRoot() { return m_repository.root; }
     std::map<CString,svn_depth_t> GetCheckoutDepths() { return m_checkoutDepths; }
+    std::map<CString,svn_depth_t> GetUpdateDepths() { return m_updateDepths; }
 
     void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult);
 
@@ -309,6 +310,7 @@ private:
 
     CRepositoryLister   m_lister;
     std::map<CString,svn_depth_t> m_checkoutDepths;
+    std::map<CString,svn_depth_t> m_updateDepths;
 
     /// used to execute user ops (e.g. context menu actions) in the background
     async::CJobScheduler m_backgroundJobs;
