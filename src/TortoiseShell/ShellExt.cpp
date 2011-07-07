@@ -112,12 +112,12 @@ void LoadLangDll()
 
             if (dwBufferSize > 0)
             {
-                LPVOID pBuffer = (void*) malloc(dwBufferSize);
+                auto_buffer<char> buffer(dwBufferSize);
 
-                if (pBuffer != (void*) NULL)
+                if (buffer.get() != 0)
                 {
-                    UINT        nInfoSize = 0,
-                        nFixedLength = 0;
+                    UINT        nInfoSize = 0;
+                    UINT        nFixedLength = 0;
                     LPSTR       lpVersion = NULL;
                     VOID*       lpFixedPointer;
                     TRANSARRAY* lpTransArray;
@@ -126,10 +126,10 @@ void LoadLangDll()
                     if (GetFileVersionInfo((LPTSTR)langDll,
                         dwReserved,
                         dwBufferSize,
-                        pBuffer))
+                        buffer.get()))
                     {
                         // Query the current language
-                        if (VerQueryValue(  pBuffer,
+                        if (VerQueryValue( buffer.get(),
                             _T("\\VarFileInfo\\Translation"),
                             &lpFixedPointer,
                             &nFixedLength))
@@ -139,7 +139,7 @@ void LoadLangDll()
                             _stprintf_s(strLangProduktVersion, _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
                                 lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
-                            if (VerQueryValue(pBuffer,
+                            if (VerQueryValue(buffer.get(),
                                 (LPTSTR)strLangProduktVersion,
                                 (LPVOID *)&lpVersion,
                                 &nInfoSize))
@@ -149,8 +149,7 @@ void LoadLangDll()
 
                         }
                     }
-                    free(pBuffer);
-                } // if (pBuffer != (void*) NULL)
+                } // if (buffer.get() != 0)
             } // if (dwBufferSize > 0)
             else
                 versionmatch = FALSE;
