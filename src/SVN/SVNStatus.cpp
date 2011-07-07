@@ -541,6 +541,7 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
 const CString& SVNStatus::GetDepthString (svn_depth_t depth)
 {
     static const CString sUnknown (MAKEINTRESOURCE(IDS_SVN_DEPTH_UNKNOWN));
+    static const CString sExclude (MAKEINTRESOURCE(IDS_SVN_DEPTH_EXCLUDE));
     static const CString sEmpty (MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY));
     static const CString sFiles (MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES));
     static const CString sImmediate (MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE));
@@ -551,6 +552,8 @@ const CString& SVNStatus::GetDepthString (svn_depth_t depth)
     {
     case svn_depth_unknown:
         return sUnknown;
+    case svn_depth_exclude:
+        return sExclude;
     case svn_depth_empty:
         return sEmpty;
     case svn_depth_files:
@@ -571,6 +574,9 @@ void SVNStatus::GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR * strin
     {
     case svn_depth_unknown:
         LoadStringEx(hInst, IDS_SVN_DEPTH_UNKNOWN, string, size, lang);
+        break;
+    case svn_depth_exclude:
+        LoadStringEx(hInst, IDS_SVN_DEPTH_EXCLUDE, string, size, lang);
         break;
     case svn_depth_empty:
         LoadStringEx(hInst, IDS_SVN_DEPTH_EMPTY, string, size, lang);
