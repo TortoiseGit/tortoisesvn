@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -119,6 +119,12 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
         }
         m_sRevRange.Replace(_T("HEAD"), m_HEAD.ToString());
     }
+    int atpos = -1;
+    if ((atpos = m_sRevRange.ReverseFind('@')) >= 0)
+    {
+        ((CMergeWizard*)GetParent())->pegRev = SVNRev(m_sRevRange.Mid(atpos+1));
+        m_sRevRange = m_sRevRange.Left(atpos);
+    }
     if (!((CMergeWizard*)GetParent())->revRangeArray.FromListString(m_sRevRange))
     {
         ShowEditBalloon(IDC_REVISION_RANGE, IDS_ERR_INVALIDREVRANGE, IDS_ERR_ERROR, TTI_ERROR);
@@ -154,6 +160,8 @@ BOOL CMergeWizardRevRange::OnInitDialog()
     if (pWizard->revRangeArray.GetCount())
     {
         m_sRevRange = pWizard->revRangeArray.ToListString();
+        if (pWizard->pegRev.IsValid())
+            m_sRevRange = m_sRevRange + L"@" + pWizard->pegRev.ToString();
         SetDlgItemText(IDC_REVISION_RANGE, m_sRevRange);
     }
 
@@ -208,7 +216,13 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
         UpdateData(TRUE);
         if (m_sRevRange.Find(_T("HEAD")) < 0)
         {
-            if (((CMergeWizard*)GetParent())->revRangeArray.FromListString(m_sRevRange))
+            CString sRevRange = m_sRevRange;
+            int atpos = -1;
+            if ((atpos = sRevRange.ReverseFind('@')) >= 0)
+            {
+                sRevRange = sRevRange.Left(atpos);
+            }
+            if (((CMergeWizard*)GetParent())->revRangeArray.FromListString(sRevRange))
             {
                 m_pLogDlg->SetSelectedRevRanges(((CMergeWizard*)GetParent())->revRangeArray);
             }
@@ -231,6 +245,8 @@ LPARAM CMergeWizardRevRange::OnRevSelected(WPARAM wParam, LPARAM lParam)
         dlg->revRangeArray = *((SVNRevRangeArray*)lParam);
         bool bReverse = !!dlg->bReverseMerge;
         m_sRevRange = dlg->revRangeArray.ToListString(bReverse);
+        if (dlg->pegRev.IsValid())
+            m_sRevRange = m_sRevRange + L"@" + dlg->pegRev.ToString();
         UpdateData(FALSE);
         SetFocus();
     }
@@ -249,6 +265,8 @@ LPARAM CMergeWizardRevRange::OnRevSelectedOneRange(WPARAM /*wParam*/, LPARAM lPa
         dlg->revRangeArray = *((SVNRevRangeArray*)lParam);
         bool bReverse = !!dlg->bReverseMerge;
         m_sRevRange = dlg->revRangeArray.ToListString(bReverse);
+        if (dlg->pegRev.IsValid())
+            m_sRevRange = m_sRevRange + L"@" + dlg->pegRev.ToString();
         UpdateData(FALSE);
         SetFocus();
     }

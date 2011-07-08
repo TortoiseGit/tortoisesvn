@@ -82,6 +82,7 @@ bool MergeCommand::Execute()
                     tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
                     progDlg.SetRevisionRanges(tempRevArray);
                 }
+                progDlg.SetPegRevision(wizard.pegRev);
             }
             break;
         case MERGEWIZARD_TREE:
