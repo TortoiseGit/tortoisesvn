@@ -119,16 +119,17 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
 {
     if (pwszPath == NULL)
         return E_INVALIDARG;
-    PreserveChdir preserveChdir;
-    svn_wc_status_kind status = svn_wc_status_none;
-    bool readonlyoverlay = false;
-    bool lockedoverlay = false;
     const TCHAR* pPath = pwszPath;
-
     // the shell sometimes asks overlays for invalid paths, e.g. for network
     // printers (in that case the path is "0", at least for me here).
     if (_tcslen(pPath)<2)
         return S_FALSE;
+
+    PreserveChdir preserveChdir;
+    svn_wc_status_kind status = svn_wc_status_none;
+    bool readonlyoverlay = false;
+    bool lockedoverlay = false;
+
     // since the shell calls each and every overlay handler with the same filepath
     // we use a small 'fast' cache of just one path here.
     // To make sure that cache expires, clear it as soon as one handler is used.
@@ -179,9 +180,10 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
                 const FileStatusCacheEntry * s = m_CachedStatus.GetCachedItem(CTSVNPath(pPath));
                 if (s)
                 {
-                    status = s->status;
                     if (s->tree_conflict)
                         status = svn_wc_status_conflicted;
+                    else
+                        status = s->status;
                 }
                 else
                 {
@@ -201,9 +203,10 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
                             else
                             {
                                 const FileStatusCacheEntry * se = m_CachedStatus.GetFullStatus(CTSVNPath(pPath), TRUE);
-                                status = se->status;
                                 if (se->tree_conflict)
                                     status = svn_wc_status_conflicted;
+                                else
+                                    status = se->status;
                                 status = SVNStatus::GetMoreImportant(svn_wc_status_normal, status);
                             }
                         }
@@ -215,16 +218,23 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
                     else
                     {
                         const FileStatusCacheEntry * se = m_CachedStatus.GetFullStatus(CTSVNPath(pPath), FALSE);
-                        status = se->status;
                         if (se->tree_conflict)
                             status = svn_wc_status_conflicted;
+                        else
+                            status = se->status;
                     }
                 }
-                if ((s)&&(status == svn_wc_status_normal)&&(s->needslock)&&((s->owner == NULL)||(s->owner[0]==0)))
-                    readonlyoverlay = true;
-                if ((s)&&(s->owner != NULL)&&(s->owner[0]!=0))
-                    lockedoverlay = true;
-
+                if (s!=0)
+                {
+                    const bool isOwnerEmpty = ((s->owner == NULL)||(s->owner[0]==0));
+                    if (isOwnerEmpty)
+                    {
+                        if ((status == svn_wc_status_normal)&&(s->needslock))
+                            readonlyoverlay = true;
+                    }
+                    else
+                        lockedoverlay = true;
+                }
             }
             break;
         default:
