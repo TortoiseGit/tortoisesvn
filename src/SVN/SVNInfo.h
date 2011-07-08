@@ -129,10 +129,12 @@ public:
      * \param path a path or an url
      * \param pegrev the peg revision to use
      * \param revision the revision to get the info for
-     * \param recurse if TRUE, then GetNextFileInfo() returns the info also
+     * \param depth how deep to fetch the info
+     * \param fetchExcluded if true, also also fetch excluded nodes in the working copy
+     * \param fetchActualOnly if true, also fetch nodes that don't exist as versioned but are still tree conflicted
      * for all children of \a path.
      */
-    const SVNInfoData * GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth = svn_depth_empty);
+    const SVNInfoData * GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth = svn_depth_empty, bool fetchExcluded  = true , bool fetchActualOnly  = true );
     size_t GetFileCount() const {return m_arInfo.size();}
     /**
      * Returns the info of the next file in the file list. If no more files are in the list then NULL is returned.

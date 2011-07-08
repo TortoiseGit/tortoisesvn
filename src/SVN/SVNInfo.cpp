@@ -126,7 +126,9 @@ svn_error_t* SVNInfo::cancel(void *baton)
     return SVN_NO_ERROR;
 }
 
-const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision, svn_depth_t depth /* = svn_depth_empty*/)
+const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision,
+                                              svn_depth_t depth /* = svn_depth_empty*/, 
+                                              bool fetchExcluded /* = true */, bool fetchActualOnly /* = true */)
 {
     svn_error_clear(Err);
     m_arInfo.clear();
@@ -138,7 +140,7 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
     SVNTRACE (
-        Err = svn_client_info3(svnPath, pegrev, revision, infoReceiver, this, depth, NULL, m_pctx, m_pool),
+        Err = svn_client_info3(svnPath, pegrev, revision, depth, fetchExcluded, fetchActualOnly, NULL, infoReceiver, this, m_pctx, m_pool),
         svnPath
     )
     if (Err != NULL)
