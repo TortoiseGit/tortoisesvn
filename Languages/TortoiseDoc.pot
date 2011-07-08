@@ -5485,6 +5485,10 @@ msgid "In the <guilabel>Revision range to merge</guilabel> field enter the list 
 msgstr ""
 
 #. (para)
+msgid "If you need to specify a peg revision for the merge, add the peg revision at the end of the revisions, e.g. <literal>5-7,10@3</literal>. In the above example, the revisions 5,6,7 and 10 would be merged, with 3 being the peg revision."
+msgstr ""
+
+#. (para)
 msgid "There is an important difference in the way a revision range is specified with TortoiseSVN compared to the command line client. The easiest way to visualise it is to think of a fence with posts and fence panels."
 msgstr ""
 
