@@ -7,7 +7,6 @@
 #include "resource.h"
 
 extern  volatile LONG       g_cRefThisDll;          // Reference count of this DLL.
-extern  HINSTANCE           g_hmodThisDll;          // Instance handle for this DLL
 
 using namespace std;
 

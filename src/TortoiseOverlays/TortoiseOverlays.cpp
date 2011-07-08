@@ -1,13 +1,11 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007, 2010 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
 #include "Guids.h"
 #include "ShellExtClassFactory.h"
 
 volatile LONG       g_cRefThisDll = 0;              ///< reference count of this DLL.
-HINSTANCE           g_hmodThisDll = NULL;           ///< handle to this DLL itself.
-
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
@@ -24,12 +22,6 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
         return FALSE;
     }
 #endif
-
-    if (dwReason == DLL_PROCESS_ATTACH)
-    {
-        // Extension DLL one-time initialization
-        g_hmodThisDll = hInstance;
-    }
     return 1;   // ok
 }
 
