@@ -44,6 +44,8 @@ bool UpdateCommand::Execute()
             return FALSE;
         }
     }
+    std::map<CString,svn_depth_t> checkoutDepths;
+    CSVNProgressDlg::Command cmd = CSVNProgressDlg::SVNProgress_Update;
     if ((parser.HasKey(_T("rev")))&&(!parser.HasVal(_T("rev"))))
     {
         CUpdateDlg dlg;
@@ -61,6 +63,12 @@ bool UpdateCommand::Execute()
                 options |= ProgOptStickyDepth;
             else
                 options &= ~ProgOptStickyDepth;
+
+            if (dlg.m_checkoutDepths.size())
+            {
+                checkoutDepths = dlg.m_checkoutDepths;
+                cmd = CSVNProgressDlg::SVNProgress_SparseCheckout;
+            }
         }
         else
             return FALSE;
@@ -81,12 +89,15 @@ bool UpdateCommand::Execute()
 
     CSVNProgressDlg progDlg;
     theApp.m_pMainWnd = &progDlg;
-    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
+    progDlg.SetCommand(cmd);
     progDlg.SetAutoClose (parser);
     progDlg.SetOptions(options);
     progDlg.SetPathList(pathList);
     progDlg.SetRevision(rev);
-    progDlg.SetDepth(depth);
+    if (checkoutDepths.size())
+        progDlg.SetPathDepths(checkoutDepths);
+    else
+        progDlg.SetDepth(depth);
     progDlg.DoModal();
     return !progDlg.DidErrorsOccur();
 }

@@ -50,6 +50,7 @@ protected:
     afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
     afx_msg void OnEnChangeRevnum();
     afx_msg void OnCbnSelchangeDepth();
+    afx_msg void OnBnClickedSparse();
 
     DECLARE_MESSAGE_MAP()
 
@@ -62,5 +63,6 @@ public:
     CTSVNPath   m_wcPath;
     BOOL        m_bNoExternals;
     BOOL        m_bStickyDepth;
+    std::map<CString,svn_depth_t> m_checkoutDepths;
     svn_depth_t m_depth;
 };

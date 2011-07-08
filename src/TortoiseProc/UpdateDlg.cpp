@@ -22,6 +22,7 @@
 #include "registry.h"
 #include "LogDialog\LogDlg.h"
 #include "AppUtils.h"
+#include "RepositoryBrowser.h"
 
 IMPLEMENT_DYNAMIC(CUpdateDlg, CStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
@@ -53,6 +54,7 @@ BEGIN_MESSAGE_MAP(CUpdateDlg, CStandAloneDialog)
     ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
     ON_EN_CHANGE(IDC_REVNUM, &CUpdateDlg::OnEnChangeRevnum)
     ON_CBN_SELCHANGE(IDC_DEPTH, &CUpdateDlg::OnCbnSelchangeDepth)
+    ON_BN_CLICKED(IDC_SPARSE, &CUpdateDlg::OnBnClickedSparse)
 END_MESSAGE_MAP()
 
 BOOL CUpdateDlg::OnInitDialog()
@@ -113,21 +115,27 @@ void CUpdateDlg::OnOK()
     {
     case 0:
         m_depth = svn_depth_unknown;
+        m_checkoutDepths.clear();
         break;
     case 1:
         m_depth = svn_depth_infinity;
+        m_checkoutDepths.clear();
         break;
     case 2:
         m_depth = svn_depth_immediates;
+        m_checkoutDepths.clear();
         break;
     case 3:
         m_depth = svn_depth_files;
+        m_checkoutDepths.clear();
         break;
     case 4:
         m_depth = svn_depth_empty;
+        m_checkoutDepths.clear();
         break;
     case 5:
         m_depth = svn_depth_exclude;
+        m_checkoutDepths.clear();
         break;
     default:
         m_depth = svn_depth_empty;
@@ -185,5 +193,33 @@ void CUpdateDlg::OnCbnSelchangeDepth()
         // because it would be a no-op.
         m_bStickyDepth = TRUE;
         CheckDlgButton(IDC_STICKYDEPTH, BST_CHECKED);
+    }
+}
+
+
+void CUpdateDlg::OnBnClickedSparse()
+{
+    UpdateData();
+
+    CString strURLs;
+
+    CTSVNPathList paths;
+    paths.LoadFromAsteriskSeparatedString (strURLs);
+
+    SVN svn;
+    CString strUrl = svn.GetURLFromPath(m_wcPath);
+
+    CRepositoryBrowser browser(strUrl, SVNRev::REV_HEAD, this);
+    browser.SetSparseCheckoutMode();
+    if (browser.DoModal() == IDOK)
+    {
+        m_checkoutDepths = browser.GetUpdateDepths();
+        CString sCustomDepth = CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_CUSTOM));
+        int customIndex = m_depthCombo.FindStringExact(-1, sCustomDepth);
+        if (customIndex == CB_ERR)
+        {
+            customIndex = m_depthCombo.AddString(sCustomDepth);
+        }
+        m_depthCombo.SetCurSel(customIndex);
     }
 }
