@@ -2774,10 +2774,13 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
     if (m_url.IsEquivalentTo(m_url2))
     {
         // Merging revisions %s of %s to %s into %s, %s%s
+        CString sReportUrl = m_url.GetSVNPathString();
+        if (m_pegRev.IsValid())
+            sReportUrl = sReportUrl + L"@" + m_pegRev.ToString();
         CString sCmdInfo;
         sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEPEG,
             (LPCTSTR)m_revisionArray.ToListString(),
-            (LPCTSTR)m_url.GetSVNPathString(),
+            (LPCTSTR)sReportUrl,
             m_targetPathList[0].GetWinPath(),
             m_options & ProgOptIgnoreAncestry ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
             m_options & ProgOptDryRun ? ((LPCTSTR)_T(", ") + sDryRun) : _T(""),
