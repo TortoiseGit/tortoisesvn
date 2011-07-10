@@ -42,6 +42,7 @@
         <include name="context.c" />
         <include name="incoming.c" />
         <include name="outgoing.c" />
+        <include name="ssltunnel.c" />
         <include name="buckets\*.c" />
         <include name="auth\*.c" />
       </sources>
