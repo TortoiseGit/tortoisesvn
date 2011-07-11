@@ -165,10 +165,11 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
                 if (m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, true))
                 {
                     status = (svn_wc_status_kind)itemStatus.m_Status;
-                    if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&((itemStatus.m_needslock && !itemStatus.m_has_lockonwner)))
-                        readonlyoverlay = true;
                     if (itemStatus.m_has_lockonwner)
                         lockedoverlay = true;
+                    else if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&(itemStatus.m_needslock))
+                        readonlyoverlay = true;
+
                     if (itemStatus.m_tree_conflict)
                         status = SVNStatus::GetMoreImportant(status, svn_wc_status_conflicted);
                 }
