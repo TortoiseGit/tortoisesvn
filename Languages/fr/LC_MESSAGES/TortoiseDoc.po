@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-30 06:20+0000\n"
+"PO-Revision-Date: 2011-07-09 00:12+0000\n"
 "Last-Translator: grokwik <grokwik@gmail.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3774,6 +3774,9 @@ msgid ""
 "For more information on how to set up your server for authentication and "
 "access control, refer to <xref linkend=\"tsvn-serversetup\"/>."
 msgstr ""
+"Pour plus d'informations sur la façon de configurer votre serveur pour "
+"l'authentification et contrôle d'accès, reportez-vous à <xref linkend"
+"=\"tsvn-serversetup\"/> ."
 
 #. (title)
 msgid "Maximizing Windows"
@@ -5424,7 +5427,7 @@ msgstr ""
 
 #. (title)
 msgid "Property Conflicts"
-msgstr ""
+msgstr "Conflits de propriété"
 
 #. (para)
 msgid ""
@@ -6189,11 +6192,11 @@ msgstr ""
 
 #. (title)
 msgid "Detailed Status"
-msgstr ""
+msgstr "État Détaillé"
 
 #. (primary)
 msgid "windows properties"
-msgstr ""
+msgstr "fenêtres de propriétés"
 
 #. (title)
 msgid "Explorer property page, Subversion tab"
@@ -6985,6 +6988,7 @@ msgstr "Annoter..."
 #. (para)
 msgid "Blame the file up to the selected revision. (files only)"
 msgstr ""
+"Annoter le fichier jusqu'à la révision sélectionnée. (Fichiers uniquement)"
 
 #. (term)
 msgid "Browse repository"
@@ -10636,12 +10640,18 @@ msgid ""
 "if set, but <literal>tsvn:logtemplate</literal> will be used if no action "
 "specific template is set."
 msgstr ""
+"Il ya aussi des modèles d'action spécifique que vous pouvez utiliser au lieu"
+" de <literal>tsvn:logtemplate</literal> . Les modèles d'actions spécifiques "
+"sont utilisés s'il sont activés, mais <literal>tsvn:logtemplate</literal> "
+"sera utilisé si aucun modèle d'action spécifique est défini."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatecommit</literal> is used for all commits from a "
 "working copy."
 msgstr ""
+"<literal>tsvn:logtemplatecommit</literal> est utilisé pour toutes les "
+"livraisons à partir d'une copie de travail."
 
 #. (para)
 msgid ""
@@ -10649,42 +10659,56 @@ msgid ""
 "branch/tag, or when you copy files or folders directly in the repository "
 "browser."
 msgstr ""
+"<literal>tsvn:logtemplatebranch</literal> est utilisé lorsque vous créez une"
+" branche / étiquette, ou lorsque vous copiez des fichiers ou des dossiers "
+"directement dans l'explorateur de référentiel."
 
 #. (para)
 msgid "<literal>tsvn:logtemplateimport</literal> is used for imports."
 msgstr ""
+"<literal>tsvn:logtemplateimport</literal> est utilisé pour les importations."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatedelete</literal> is used when deleting items "
 "directly in the repository browser."
 msgstr ""
+"<literal>tsvn:logtemplatedelete</literal> est utilisé lors de la suppression"
+" des éléments directement dans l'explorateur de référentiel."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatemove</literal> is used when renaming or moving "
 "items in the repository browser."
 msgstr ""
+"<literal>tsvn:logtemplatemove</literal> est utilisé lors du renommage ou "
+"déplacement des éléments dans l'explorateur de référentiel."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatemkdir</literal> is used when creating directories "
 "in the repository browser."
 msgstr ""
+"<literal>tsvn:logtemplatemkdir</literal> est utilisé lors de la création des"
+" répertoires dans l'explorateur de référentiel."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatepropset</literal> is used when modifying properties"
 " in the repository browser."
 msgstr ""
+"<literal>tsvn:logtemplatepropset</literal> est utilisé lors de la "
+"modification des propriétés dans l'explorateur de référentiel."
 
 #. (para)
 msgid "<literal>tsvn:logtemplatelock</literal> is used when getting a lock."
 msgstr ""
+"<literal>tsvn:logtemplatelock</literal> est utilisé lors de l pose d'un "
+"verrou."
 
 #. (para)
 msgid "The action specific templates are: <placeholder-1/>"
-msgstr ""
+msgstr "Les modèles d'action spécifiques sont les suivants: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -11018,7 +11042,7 @@ msgstr ""
 
 #. (title)
 msgid "Property Editors"
-msgstr ""
+msgstr "Éditeurs de propriétés"
 
 #. (para)
 msgid ""
@@ -11030,11 +11054,11 @@ msgstr ""
 
 #. (title)
 msgid "External Content"
-msgstr ""
+msgstr "Contenu externe"
 
 #. (title)
 msgid "svn:externals property page"
-msgstr ""
+msgstr "page des propriétés svn:externals"
 
 #. (para)
 msgid ""
@@ -11060,31 +11084,35 @@ msgstr ""
 
 #. (title)
 msgid "SVN Keywords"
-msgstr ""
+msgstr "Mots-clés SVN"
 
 #. (title)
 msgid "svn:keywords property page"
-msgstr ""
+msgstr "Page des propriétés svn:keywords"
 
 #. (para)
 msgid ""
 "<placeholder-1/> Select the keywords that you would like to be expanded in "
 "your file."
 msgstr ""
+"<placeholder-1/> Sélectionnez les mots clés que vous aimeriez être "
+"développés dans votre fichier."
 
 #. (title)
 msgid "EOL Style"
-msgstr ""
+msgstr "Style de caractère de fin de ligne"
 
 #. (title)
 msgid "svn:eol-style property page"
-msgstr ""
+msgstr "Page des propriétés svn:eol-style"
 
 #. (para)
 msgid ""
 "<placeholder-1/> Select the end-of-line style that you wish to use and "
 "TortoiseSVN will use the correct property value."
 msgstr ""
+"<placeholder-1/> Sélectionnez le style de fin de ligne que vous souhaitez "
+"utiliser et TortoiseSVN utilisera la valeur de la propriété correcte."
 
 #. (title)
 #. (title)
@@ -11093,15 +11121,15 @@ msgstr "Intégration d'un gestionnaire d'incidents"
 
 #. (title)
 msgid "tsvn:bugtraq property page"
-msgstr ""
+msgstr "Page des propriétés tsvn:bugtraq"
 
 #. (title)
 msgid "Log Message Sizes"
-msgstr ""
+msgstr "Tailles des messages de log"
 
 #. (title)
 msgid "Size of log messages property page"
-msgstr ""
+msgstr "Paage de propriété des tailles des messages de log"
 
 #. (para)
 msgid ""
@@ -11115,7 +11143,7 @@ msgstr ""
 
 #. (title)
 msgid "Project Language"
-msgstr ""
+msgstr "Langue de projet"
 
 #. (title)
 msgid "Language property page"
@@ -12167,6 +12195,14 @@ msgstr ""
 "une liste de révisions spécifiques séparées par des virgules, une plage de "
 "révisions séparées par un tiret, ou une combinaison de ces différentes "
 "notations."
+
+#. (para)
+msgid ""
+"If you need to specify a peg revision for the merge, add the peg revision at"
+" the end of the revisions, e.g. <literal>5-7,10@3</literal>. In the above "
+"example, the revisions 5,6,7 and 10 would be merged, with 3 being the peg "
+"revision."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17742,6 +17778,26 @@ msgid "The window title for your file"
 msgstr "Le titre de la fenêtre pour votre fichier"
 
 #. (para)
+msgid "The url of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The url of the second file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the second file, if available"
+msgstr ""
+
+#. (para)
+msgid "The peg revision, if available"
+msgstr ""
+
+#. (para)
 msgid ""
 "An external diff program may be used for comparing different revisions of "
 "files. The external program will need to obtain the filenames from the "
@@ -19131,6 +19187,25 @@ msgstr ""
 " comprises, exécutez soit la boîte de dialogue <literal>Mettre à jour à la "
 "révision...</literal> ou définissez cette valeur à nouveau à <literal>vrai</"
 " literal>."
+
+#. (para)
+msgid ""
+"When the log dialog is started from the merge wizard, already merged "
+"revisions are shown in gray, but revisions beyond the point where the branch"
+" was created are also shown. These revisions are shown in black because "
+"those can't be merged."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal> then TortoiseSVN tries to "
+"find the revision where the branch was created from and hide all the "
+"revisions that are beyond that revision. Since this can take quite a while, "
+"this option is disabled by default. Also this option doesn't work with some "
+"SVN servers (e.g., Google Code Hosting, see <ulink "
+"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
+" #5471</citetitle></ulink>)."
+msgstr ""
 
 #. (para)
 msgid ""

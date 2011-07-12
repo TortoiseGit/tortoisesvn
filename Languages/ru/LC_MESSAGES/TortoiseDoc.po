@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-19 19:58+0000\n"
+"PO-Revision-Date: 2011-07-09 00:12+0000\n"
 "Last-Translator: KindDragon <arkadiy_s@inbox.ru>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11976,6 +11976,14 @@ msgstr ""
 
 #. (para)
 msgid ""
+"If you need to specify a peg revision for the merge, add the peg revision at"
+" the end of the revisions, e.g. <literal>5-7,10@3</literal>. In the above "
+"example, the revisions 5,6,7 and 10 would be merged, with 3 being the peg "
+"revision."
+msgstr ""
+
+#. (para)
+msgid ""
 "There is an important difference in the way a revision range is specified "
 "with TortoiseSVN compared to the command line client. The easiest way to "
 "visualise it is to think of a fence with posts and fence panels."
@@ -17411,6 +17419,26 @@ msgid "The window title for your file"
 msgstr "Заголовок окна для вашего файла"
 
 #. (para)
+msgid "The url of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The url of the second file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the second file, if available"
+msgstr ""
+
+#. (para)
+msgid "The peg revision, if available"
+msgstr ""
+
+#. (para)
 msgid ""
 "An external diff program may be used for comparing different revisions of "
 "files. The external program will need to obtain the filenames from the "
@@ -18759,6 +18787,25 @@ msgstr ""
 "выполнить обновление с включёнными внешними объектами, используйте команду "
 "<literal>Обновить до ревизии...</literal> или верните значение "
 "<literal>true</literal>."
+
+#. (para)
+msgid ""
+"When the log dialog is started from the merge wizard, already merged "
+"revisions are shown in gray, but revisions beyond the point where the branch"
+" was created are also shown. These revisions are shown in black because "
+"those can't be merged."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal> then TortoiseSVN tries to "
+"find the revision where the branch was created from and hide all the "
+"revisions that are beyond that revision. Since this can take quite a while, "
+"this option is disabled by default. Also this option doesn't work with some "
+"SVN servers (e.g., Google Code Hosting, see <ulink "
+"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
+" #5471</citetitle></ulink>)."
+msgstr ""
 
 #. (para)
 msgid ""

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-03 00:34+0000\n"
+"PO-Revision-Date: 2011-07-09 20:13+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2449,6 +2449,14 @@ msgstr "Невозможно вставить растровое изображ�
 #. Resource IDs: (2, 73, 99, 332, 563, 1069)
 msgid "Cancel"
 msgstr "Отмена"
+
+#. Resource IDs: (170)
+msgid ""
+"Cancel\n"
+"Change the selection for the commit."
+msgstr ""
+"Отменить\n"
+"Изменить выбор для фиксации."
 
 #. Resource IDs: (100)
 msgid ""
@@ -7024,6 +7032,10 @@ msgstr "Статус узла:"
 msgid "Node colors"
 msgstr "Цвета узлов"
 
+#. Resource IDs: (170)
+msgid "Non-recursive commit of moved/renamed folders."
+msgstr "Нерекурсивная фиксация перемещенных/переименованных папок."
+
 #. Resource IDs: (1507)
 msgid "Non-versioned"
 msgstr "неверсирован"
@@ -7719,6 +7731,14 @@ msgstr "Файлы печати (*.prn)|*.prn|Все файлы (*.*)|*.*||"
 #. Resource IDs: (65535)
 msgid "Printing"
 msgstr "Идёт печать"
+
+#. Resource IDs: (170)
+msgid ""
+"Proceed with the commit\n"
+"the renamed/moved folders are committed recursively in the repository."
+msgstr ""
+"Продолжить фиксацию\n"
+"переименованные/перемещенные папки зафиксированы в хранилище рекурсивно."
 
 #. Resource IDs: (89)
 msgid ""
@@ -10704,6 +10724,30 @@ msgstr ""
 "Содержатся недавно сохранённые документы содержащие изменения, которые были "
 "сделаны до закрытия приложения."
 
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed folders selected "
+"for commit. Such moves/renames are always performed recursively in the "
+"repository. Do you want to commit anyway?"
+msgstr ""
+"Эта фиксация нерекурсивная и при этом для фиксации выбраны "
+"перемещенные/переименованные папки. Такие перемещения/переименования всегда "
+"выполняются в хранилище рекурсивно. Вы все равно хотите фиксировать?"
+
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed\n"
+"folders selected for commit. Such moves/renames\n"
+"are always performed recursively in the repository.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr ""
+"Эта фиксация нерекурсивная и при этом для фиксации выбраны\n"
+"перемещенные/переименованные папки. Такие перемещения/переименования\n"
+"всегда выполняются в хранилище рекурсивно.\n"
+"\n"
+"Вы все равно хотите фиксировать?"
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "Этот файл уже существует!"
@@ -11569,13 +11613,15 @@ msgstr ""
 msgid ""
 "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
 "\r\n"
-"Example: 4-7,9,11,15-HEAD\r\n"
+"Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"Используйте диалог журнала для выбора ревизий, с которыми вы желаете произвести слияние, или введите номера ревизий, разделённые запятыми. Диапазон ревизий указывается при помощи тире.\r\n"
-"Например: 4-7,9,11,15-HEAD\r\n"
-"Для слияния всех ревизий оставьте поле ввода пустым."
+"Используйте диалог журнала чтобы выбрать ревизии, которые вы хотите слить, или введите ревизии разделяя из запятыми. Диапазон ревизий может быть указан с помощью тире.\r\n"
+"\r\n"
+"Образец: 4-7,9,11,15-HEAD@pegrevision\r\n"
+"\r\n"
+"Для слияния всех ревизии оставьте поле пустым."
 
 #. Resource IDs: (314)
 #, c-format

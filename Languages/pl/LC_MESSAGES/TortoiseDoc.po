@@ -10,12 +10,14 @@
 # 
 # Authors:
 # Begina Felicysym <>, 2011.
+# Begina Felicysym <begina.felicysym@wp.eu>, 2011.
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-03 21:32+0000\n"
+"PO-Revision-Date: 2011-07-11 21:23+0000\n"
 "Last-Translator: beginaFekicysym <>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,6 +104,16 @@ msgid ""
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
 msgstr ""
+"TortoiseSVN jest Windowsowym klientem open-surce'owym dla systemu kontroli "
+"wersji <firstterm>Apache™ Subversion®</firstterm>. Oznacza to, że "
+"TortoiseSVN zarządza plikami i folderami w czasie. Pliki są przechowywane w "
+"centralnym <firstterm>repozytorium</firstterm>. Repozytorium przypomina "
+"najbardziej zwykły serwer plików, pozatym zapamiętuje on każdą zmianę "
+"dokonanąkiedykolwiek na plikach i katalogach. Pozwala to na przywrócenie "
+"starszych wersji plików i zweryfikować historię tego jakie dane i kiedy "
+"zostały zmienione, oraz kto je zmienił. Dlatego właśnie wielu ludzi uważa "
+"Subversion oraz ogólnie kontrolę wersjijako pewien rodzaj <quote>wechikułu "
+"czasu</quote>."
 
 #. (para)
 msgid ""
@@ -199,7 +211,7 @@ msgid ""
 "to see the comments for that commit. You can also see a list of changed "
 "files - just double click on a file to see exactly what changed."
 msgstr ""
-"Kiedy wyświetla się lista zmian pliku lub folderu, można kliknąć na rewizję "
+"Kiedy wyświetla się lista zmian pliku lub folderu, można kliknąć na wersję "
 "aby zobaczyć komentarze do tego zatwierdzenia. Można także zobaczyć listę "
 "zmienionych plików - wystarczy dwukrotnie kliknąć na plik, aby sprawdzić "
 "dokładnie co się zmieniło."
@@ -252,8 +264,8 @@ msgstr ""
 "CVS śledzi tylko historię pojedynczych plików, zaś Subversion realizuje "
 "<quote>wirtualnie</quote> wersjonowany system plików, który śledzi zmiany w "
 "czasie całego drzewa katalogów. Wersjonowane są pliki <emphasis>i</emphasis>"
-" katalogi. W rezultacie mamy prawdziwe polecenia <polecenie>move</command> i"
-" <polecenie>copy</command> dotyczące plików i katalogów po stronie klienta."
+" katalogi. W rezultacie mamy prawdziwe polecenia <command>move</command> i "
+"<command>copy</command> dotyczące plików i katalogów po stronie klienta."
 
 #. (term)
 msgid "Atomic commits"
@@ -328,7 +340,7 @@ msgstr ""
 
 #. (term)
 msgid "Efficient branching and tagging"
-msgstr "Efektywne odgałęzianie i tagowanie"
+msgstr "Efektywne odgałęzianie i etykietowanie"
 
 #. (para)
 msgid ""
@@ -338,8 +350,8 @@ msgid ""
 "very small, constant amount of time, and very little space in the "
 "repository."
 msgstr ""
-"Koszt odgałęzianie i tagowanie nie musi być proporcjonalny do wielkości "
-"projektu. Subversion tworzy gałęzie i tagi przez proste skopiowanie "
+"Koszt odgałęzianie i etykietowanie nie musi być proporcjonalny do wielkości "
+"projektu. Subversion tworzy gałęzie i etykiety przez proste skopiowanie "
 "projektu, za pomocą mechanizmu podobnego do twardego dowiązania. Stąd te "
 "czynności zabierają jedynie niewielką, stałą ilość czasu i bardzo mało "
 "miejsca w repozytorium."
@@ -405,9 +417,9 @@ msgstr ""
 "kontroli wersji, ale brakuje mu dobrego klienta GUI. Pomysł na klienta "
 "Subversion jako integrację powłoki systemu Windows została zainspirowana "
 "podobnym klientem CVS o nazwie TortoiseCVS. Tim przestudiował kod źródłowy "
-"TortoiseCVS i wykorzystał go jako podstawę TortoiseSVN. Potem rozpoczął "
-"projekt, zarejestrował domenę <literal>tortoisesvn.org</literal> i umieścił "
-"w Internecie kod źródłowy."
+"TortoiseCVS i wykorzystał go jako bazę TortoiseSVN. Potem rozpoczął projekt,"
+" zarejestrował domenę <literal>tortoisesvn.org</literal> i umieścił w "
+"Internecie kod źródłowy."
 
 #. (para)
 msgid ""
@@ -488,7 +500,7 @@ msgstr "Stefan Fuhrmann"
 
 #. (para)
 msgid "for the log cache and revision graph"
-msgstr "za dziennik bufora i graf rewizji"
+msgstr "za dziennik bufora i graf wersji"
 
 #. (term)
 msgid "The Subversion Book"
@@ -573,8 +585,8 @@ msgid ""
 "Subversion works."
 msgstr ""
 "W <xref linkend=\"tsvn-basics\"/> dajemy krótki wstęp do systemu kontroli "
-"rewizji <emphasis>Subversion</emphasis>, który stanowi podstawę TortoiseSVN."
-" Został on zapożyczony z dokumentacji projektu Subversion i wyjaśnia różne "
+"wersji <emphasis>Subversion</emphasis>, który stanowi podstawę TortoiseSVN. "
+"Został on zapożyczony z dokumentacji projektu Subversion i wyjaśnia różne "
 "podejścia do kontroli wersji oraz jak działa Subversion."
 
 #. (para)
@@ -642,7 +654,7 @@ msgid ""
 "commands and their equivalents in the Subversion command line client "
 "<literal>svn.exe</literal>."
 msgstr ""
-"<xref Linkend=\"tsvn-cli\"/> pokazuje korelację między poleceniami "
+"<xref linkend=\"tsvn-cli\"/> pokazuje korelację między poleceniami "
 "TortoiseSVN oraz ich odpowiednikami w kliencie linii poleceniach Subversion "
 "<literal>svn.exe</literal>."
 
@@ -658,7 +670,7 @@ msgid ""
 msgstr ""
 "Aby łatwiej czytać dokumentację, nazwy wszystkich ekranów i menu z "
 "TortoiseSVN są zaznaczone inną czcionką.<guilabel>Dialog "
-"Logowania</guilabel> na przykład."
+"Dziennika</guilabel> na przykład."
 
 #. (para)
 msgid ""
@@ -829,6 +841,9 @@ msgid ""
 "refer to our online FAQ at <ulink "
 "url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
 msgstr ""
+"Jeśli napotkasz problemy podczas lub po instalacji TortoiseSVN, zapoznaj się"
+" z naszym FAQ online na <ulink "
+"url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
 
 #. (title)
 msgid "Basic Concepts"
@@ -966,6 +981,15 @@ msgid ""
 "folder structure by clicking the <guibutton>Create folder "
 "structure</guibutton> button."
 msgstr ""
+"Na początku utwórz nowy, pusty folder na komputerze lokalnym. Może powstać "
+"gdziekolwiek, ale na potrzeby naszego samouczka będziemy nazywać go "
+"<filename>C:\\svn_repos</filename>. Teraz kliknij prawym przyciskiem myszy "
+"na tym nowym folderze i w menu kontekstowym wybierz "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Twórz repozytorium "
+"tutaj...</guimenuitem></menuchoice>. Repozytorium zostaje utworzone wewnątrz"
+" tego folderu i jest gotowe do pracy. Utworzymy również domyślną strukturę "
+"katalogów wciskając przycisk <guibutton>Utwórz strukturę "
+"folderów</guibutton>."
 
 #. (para)
 msgid ""
@@ -1009,6 +1033,19 @@ msgid ""
 "are 3 slashes after <filename>file:</filename> and that forward slashes are "
 "used throughout."
 msgstr ""
+"Posiadamy teraz repozytorium, ale póki co jest ono zupełnie puste. Załóżmy, "
+"że mam w <filename>C:\\Projects\\Widget1</filename> zestaw plików, które "
+"chcę dodać. Przejdź do katalogu <filename>Widget1</filename> w Eksploratorze"
+" i kliknij na nim przwym przyciskiem myszy. Wybierz teraz "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importuj...</guimenuitem></menuchoice>,"
+" co wyświetli okno dialogowe <placeholder-1/> Repozytorium Subversion jest "
+"określone przez adres URL, który pozwala nam wskazać repozytorium z "
+"dowolnego miejsca w Internecie. W tym przypadku musimy wskazać nasze własne,"
+" lokalne repozytorium, które posiada adres URL "
+"<filename>file:///c:/svn_repos/trunk</filename> i do którego dodamy własny "
+"projekt o nazwie <filename>Widget1</filename>. Zauważ, że mamy tu 3 ukośniki"
+" po <filename>file:</filename> iże w całej ścieżce używane są ukośniki a nie"
+" backslashe."
 
 #. (para)
 msgid ""
@@ -1046,6 +1083,19 @@ msgid ""
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
 msgstr ""
+"Teraz gdy już mamy projekt w naszym repozytorium, potrzebujemy utworzyć "
+"kopię roboczą do codziennej pracy. Zauważ, że sam import folderu nie zmienił"
+" go automatycznie w kopię roboczą. Terminem używanym przez Subversion dla "
+"utworzenia świeżej kopii roboczej jest <literal>Pobranie</literal>. "
+"Przejdżmy do pobrania folderu Widget1 z naszego repozytorium do folderu "
+"rozwojowego na PCcie, który nazwiemy "
+"<filename>C:\\Projects\\Widget1-Dev</filename>. Utwórz ten folder, po czym "
+"kliknij prawym przyciskiem myszy i wybierz "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pobierz...</guimenuitem></menuchoice>."
+" Wpisz adres URL do pobrania, w tym przypadku "
+"<filename>file:///c:/svn_repos/trunk/Widget1</filename> i wciśnij "
+"<guibutton>OK</guibutton>. Nasz folder rozwojowy zostaje wtedy zapełniony "
+"plikami z repozytorium."
 
 #. (para)
 msgid ""
@@ -1108,10 +1158,16 @@ msgid ""
 " change is all about and click on <guibutton>OK</guibutton>. The progress "
 "dialog shows the files being uploaded to the repository and you're done."
 msgstr ""
-"\n"
-"calc/Makefile:4\n"
-"     naturalna.c:4\n"
-"     przycisk.c:4\n"
+"OK, więc jesteśmy zadowoleni z tych zmian, zaktualizujmy repozytorium. "
+"Działanie to jest określane dalej jako<literal>Zatwierdzenie</literal> "
+"zmian. Kliknij prawym przyciskiem myszy na folder "
+"<filename>Widget1-Dev</filename> i wybierz <menuchoice><guimenu> "
+"TortoiseSVN</guimenu><guimenuitem>Zatwierdź</guimenuitem></menuchoice>. Okno"
+" dialogowe zatwierdzenia zawiera listę zmienionych plików, z polem wyboru "
+"przy każdym z nich. Możesz wybrać tylko część z plików, ale w tym przypadku "
+"mamy zamiar zatwierdzić zmiany do obu plików. Wpisz komunikat opisujący, co "
+"się zmieniło i kliknij <guibutton>OK</guibutton>. Okno dialogowe postępu "
+"pokazuje, że pliki są przesyłane do repozytorium i gotowe."
 
 #. (title)
 msgid "Adding More Files"
@@ -1158,7 +1214,7 @@ msgstr "Przeglądanie historii projektu"
 
 #. (title)
 msgid "The Log Dialog"
-msgstr "Dialog logów"
+msgstr "Dialog dziennika"
 
 #. (para)
 msgid ""
@@ -1167,11 +1223,11 @@ msgid ""
 " detailed commit messages that you entered ;-) <placeholder-1/> OK, so I "
 "cheated a little here and used a screenshot from the TortoiseSVN repository."
 msgstr ""
-"Jedną z najbardziej przydatnych funkcji TortoiseSVN jest okno logowania. To "
-"pokazuje listę wszystkich zatwierdzeń dokonanych na pliku lub folderze i "
-"pokazuje szczegółowe wiadomości zatwierdzeń, które wprowadziłeś ;-) "
-"<placeholder-1/> OK, oszukamy tu trochę i pokażemy zrzut ekranu z "
-"repozytorium TortoiseSVN."
+"Jedną z najbardziej przydatnych funkcji TortoiseSVN jest okno dziennika. "
+"Pokazuje ono listę wszystkich zatwierdzeń dokonanych na pliku lub folderze "
+"oraz wyświetla szczegółowe wiadomości odnośnie zatwierdzeń, które "
+"wprowadziłeś ;-) <placeholder-1/> OK, oszukamy tu trochę i pokażemy zrzut "
+"ekranu z repozytorium TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -1182,8 +1238,8 @@ msgid ""
 msgstr ""
 "W górnej części okna wyświetlana jest lista zatwierdzonych zmian wraz z "
 "początkiem opisu zatwierdzenia. Jeśli wybierzesz jedną z tych zmian, "
-"środkowe okienko pokaże nam pełną treść wiadomości z logu dla tej rewizji a "
-"w dolnym okienku pojawi się lista zmienionych plików i folderów."
+"środkowe okienko pokaże nam pełny opis zmian dla tej wersji a w dolnym "
+"panelu pojawi się lista zmienionych plików i folderów."
 
 #. (para)
 msgid ""
@@ -1195,7 +1251,7 @@ msgstr ""
 "Każde z tych okienek ma własne menu kontekstowe, które oferuje wiele więcej "
 "sposobów wykorzystania tych informacji. W dolnym okienku można "
 "<action>dwukliknąć</action> na plik, aby sprawdzić dokładnie, jakie zmiany "
-"zostały dokonane w tej zmianie. Przejdź do <xref linkend=\"tsvn-dug-"
+"zostały dokonane w tej wersji. Przejdź do <xref linkend=\"tsvn-dug-"
 "showlog\"/>, aby poznać całą historię."
 
 #. (title)
@@ -1237,10 +1293,10 @@ msgid ""
 " Menu</guimenu><guimenuitem>Revert changes from this "
 "revision</guimenuitem></menuchoice> and those changes will be undone."
 msgstr ""
-"Jeśli chcesz, aby cofnąć skutki poszczególnych rewizji, zacznij od okna "
-"dialogowego Logowania i odszukaj niewłaściwą rewizję. Wybierz "
-"<menuchoice><guimenu>Menu kontekstowe</guimenu> <guimenuitem>Wycofaj zmiany "
-"z tej wersji</guimenuitem></menuchoice> a zmiany te zostaną cofnięte."
+"Jeśli chcesz, aby cofnąć skutki poszczególnych wersji, zacznij od okna "
+"dialogowego dziennika i odszukaj niewłaściwą wersję. Wybierz "
+"<menuchoice><guimenu>Menu kontekstowe</guimenu><guimenuitem>Wycofaj zmiany z"
+" tej wersji</guimenuitem></menuchoice> a zmiany te zostaną cofnięte."
 
 #. (title)
 msgid "Moving On ..."
@@ -1763,7 +1819,7 @@ msgid ""
 "will usually correspond to a particular subtree of the repository."
 msgstr ""
 "Typowe repozytorium Subversion często zawiera pliki (lub kod źródłowy) kilku"
-" projektów, zazwyczaj, każdy projekt jest podkatalogiem drzewa katalogów w "
+" projektów, zazwyczaj, każdy projekt jest podfolderem drzewa katalogów w "
 "systemie plików. W tym układzie kopia robocza użytkownika zazwyczaj "
 "odpowiada szczególnemu poddrzewu repozytorium."
 
@@ -2047,12 +2103,12 @@ msgstr ""
 
 #. (title)
 msgid "Revisions"
-msgstr "Rewizje"
+msgstr "Wersje"
 
 #. (primary)
 #. (primary)
 msgid "revision"
-msgstr "rewizja"
+msgstr "wersja"
 
 #. (para)
 msgid ""
@@ -2088,9 +2144,9 @@ msgid ""
 "numbered zero, and consists of nothing but an empty root directory."
 msgstr ""
 "Za każdym razem, gdy repozytorium akceptuje zatwierdzenie, tworzy nowy stan "
-"drzewa systemu plików, zwanego <firstterm>rewizją</firstterm>. Każda rewizja"
-" ma przypisany unikalną liczbę naturalną, o jeden większą niż liczba "
-"wcześniejszej wersji. Początkowa rewizja świeżo utworzonego repozytorium ma "
+"drzewa systemu plików, zwanego <firstterm>wersją</firstterm>. Każda wersja "
+"ma przypisaną unikalną liczbę naturalną, o jeden większą niż liczba "
+"wcześniejszej wersji. Początkowa wersja świeżo utworzonego repozytorium ma "
 "numer zero i składa się wyłącznie z pustego katalogu."
 
 #. (para)
@@ -2108,7 +2164,7 @@ msgstr ""
 
 #. (title)
 msgid "Global Revision Numbers"
-msgstr "Globalne numery rewizji"
+msgstr "Globalne numery wersji"
 
 #. (para)
 msgid ""
@@ -2125,9 +2181,9 @@ msgstr ""
 "W przeciwieństwie do wielu innych systemów kontroli wersji, w Subversion "
 "numery rewizji odnoszą się do <emphasis>całego drzewa</emphasis>, a nie "
 "pojedynczych plików. Każdy numer wersji wybiera całe drzewo jako szczególny "
-"stan repozytorium po określonym zatwierdzeniu zmian. Innym sposobem myślenia"
-" o tym mówi, że wersja N reprezentuje stan systemu plików repozytorium z "
-"n-tego zatwierdzenia. Gdy użytkownik Subversion mówi o ``rewizji 5 "
+"stan repozytorium po określonym zatwierdzeniu zmian. Inny sposób myślenia o "
+"tym zakłada, że wersja N reprezentuje stan systemu plików repozytorium z "
+"N-tego zatwierdzenia. Gdy użytkownik Subversion mówi o ``wersji 5 "
 "<filename>foo.c</filename>'', tak naprawdę ma na myśli "
 "``<filename>foo.c</filename> taki, jak wyglądał w wersji 5''. Zauważ, że "
 "ogólnie rewizje N i M pliku <emphasis>nie muszą</emphasis> się różnić!"
@@ -2140,8 +2196,8 @@ msgid ""
 "a repository whose most recent revision is 4:"
 msgstr ""
 "Ważne jest, aby pamiętać, że kopie robocze nie zawsze odpowiadają "
-"pojedynczym rewizjom w repozytorium, mogą zawierać pliki z kilku różnych "
-"rewizji. Na przykład załóżmy, że pobierzesz kopię roboczą z repozytorium, "
+"pojedynczym wersjom w repozytorium, mogą zawierać pliki z kilku różnych "
+"wersji. Na przykład załóżmy, że pobierzesz kopię roboczą z repozytorium, "
 "którego najnowszą wersją jest 4:"
 
 #. (screen)
@@ -2169,7 +2225,7 @@ msgstr ""
 "repozytorium. Załóżmy jednak, że dokonujesz zmiany w "
 "<filename>przycisk.c</filename> i zatwierdzisz tą zmianę. Zakładając, że "
 "żadne inne zatwierdzenia nie miały miejsca, twoje zatwierdzenie stworzy "
-"rewizję 5 repozytorium, a twoja kopia robocza będzie teraz wyglądać tak:"
+"wersję 5 repozytorium, a twoja kopia robocza będzie teraz wyglądać tak:"
 
 #. (screen)
 #, no-wrap
@@ -2192,7 +2248,7 @@ msgid ""
 "like this:"
 msgstr ""
 "Załóżmy, że w tym momencie Agatka wprowadza zmianę w "
-"<filename>naturalna.c</filename>, tworząc rewizję 6. Jeśli użyjesz "
+"<filename>naturalna.c</filename>, tworząc wersję 6. Jeśli użyjesz "
 "<command>svn update</command>, aby zaktualizować swoją kopię roboczą, to "
 "będzie ona wyglądać tak:"
 
@@ -2223,11 +2279,11 @@ msgstr ""
 "Zmiany Agatki w <filename>naturalna.c</filename> pojawią się w twojej kopii "
 "roboczej, a twoje zmiany będą nadal obecne w "
 "<filename>przycisk.c</filename>. W tym przykładzie treść "
-"<filename>Makefile</filename> jest identyczna w rewizjach 4, 5 i 6, ale "
+"<filename>Makefile</filename> jest identyczna w wersjach 4, 5 i 6, ale "
 "Subversion zaznacza twoją kopię roboczą <filename>Makefile</filename> wersją"
 " 6 by wskazać, że jest nadal aktualny. Tak więc, po wykonaniu czystej "
-"aktualizacji na korzeniu kopii roboczej, to na ogół będzie ona odpowiadała "
-"dokładnie jednej REWIZJI w repozytorium."
+"aktualizacji na korzeniu kopii roboczej, na ogół będzie ona odpowiadała "
+"dokładnie jednej wersji w repozytorium."
 
 #. (title)
 msgid "How Working Copies Track the Repository"
@@ -2247,7 +2303,7 @@ msgid ""
 "what revision your working file is based on (this is called the file's "
 "<firstterm>working revision</firstterm>), and"
 msgstr ""
-"na jakiej wersji bazuje plikroboczy (jest to tzw <firstterm>rewizja "
+"na jakiej wersji bazuje plik roboczy (jest to tzw <firstterm>wersja "
 "robocza</firstterm> pliku) oraz"
 
 #. (para)
@@ -2279,7 +2335,7 @@ msgid ""
 "<command>update</command> of the file will do nothing."
 msgstr ""
 "Plik jest niezmieniony w katalogu roboczym, i żadne zmiany w tym pliku nie "
-"zostały zapisane w repozytorium od jego rewizji roboczej. Polecenie "
+"zostały zapisane w repozytorium od jego wersji roboczej. Polecenie "
 "<command>commit</command> na tym pliku nic nie zmieni ani "
 "<command>update</command> na pliku nic nie zdziała."
 
@@ -2296,9 +2352,9 @@ msgid ""
 "changes, and an <command>update</command> of the file will do nothing."
 msgstr ""
 "Plik został zmieniony w folderze roboczym, i żadne zmiany w tym pliku nie "
-"zostały zapisane w repozytorium od jego rewizji roboczej. Istnieją lokalne "
+"zostały zapisane w repozytorium od jego wersji roboczej. Istnieją lokalne "
 "zmiany, które nie zostały zatwierdzone do repozytorium, a tym samym "
-"polecenie<command>commit</command> na pliku powiedzie się opublikowaniem "
+"polecenie <command>commit</command> na pliku powiedzie się opublikowaniem "
 "zmian a <command>update</command> pliku nic nie zdziała."
 
 #. (term)
@@ -2315,8 +2371,8 @@ msgid ""
 msgstr ""
 "Plik nie został zmieniony w folderze roboczym, ale został zmieniony w "
 "repozytorium. Plik powinien ostatecznie zostać zaktualizowany, aby gobył "
-"zgodny z rewizją publiczną. Polecenie <command>commit</command> na pliku nie"
-" zrobi nic, a <command>update</command> pliku wprowadzi najnowsze zmiany do "
+"zgodny z wersją publiczną. Polecenie <command>commit</command> na pliku nie "
+"zrobi nic, a <command>update</command> pliku wprowadzi najnowsze zmiany do "
 "kopii roboczej."
 
 #. (term)
@@ -2356,7 +2412,7 @@ msgid ""
 "copy, and the array of repository revision trees."
 msgstr ""
 "Wprowadziliśmy pojęcia centralnego repozytorium, klienckiej kopii roboczej i"
-" tablicy drzew rewizji repozytorium."
+" tablicy drzew wersji repozytorium."
 
 #. (para)
 msgid ""
@@ -2730,8 +2786,8 @@ msgstr ""
 "repozytorium. Większość ludzi tworzy katalog <filename>trunk</filename> "
 "trzymającego <quote>główną linię</quote> rozwoju, folder "
 "<filename>branches</filename> zawierający odgałęziające się kopie i "
-"<filename>tags</filename>  zawierający otagowane kopie. Jeśli repozytorium "
-"posiada tylko jeden projekt, ludzie tworzą często katalogi najwyższego "
+"<filename>tags</filename> zawierający etykietowane kopie. Jeśli repozytorium"
+" posiada tylko jeden projekt, ludzie tworzą często katalogi najwyższego "
 "poziomu:"
 
 #. (screen)
@@ -2820,8 +2876,9 @@ msgstr ""
 " i każdy jest sprawdzany indywidualnie. Dla projektów powiązanych, na "
 "których moógłbyś chcieć sprawdzić wszystkie projekty na raz, lub gdy "
 "wszystkie projekty są ze sobą powiązane w jednym pakiecie dystrybucyjnym, "
-"często lepiej jest indeksowanie według gałęzi. W ten sposób masz tylko jeden"
-" pień do pobrania, a relacje między podprojektami są bardziej widoczne."
+"często lepiej jest indeksowanie według gałęzi. W ten sposób masz tylko jedną"
+" linię główną do pobrania, a relacje między podprojektami są bardziej "
+"widoczne."
 
 #. (para)
 msgid ""
@@ -2832,7 +2889,7 @@ msgid ""
 msgstr ""
 "Jeśli przyjąć podejście z najwyższym poziomem <filename>/trunk /tags "
 "/branches</filename>, nie potrzeba nadmieniać, że należy skopiować cały "
-"folder trunc do osobnego folderu w branch lub tags, a pod pewnymi względami "
+"folder trunk do osobnego folderu w branch lub tags, a pod pewnymi względami "
 "ta struktura oferuje wysoką elastyczność ."
 
 #. (para)
@@ -2846,8 +2903,8 @@ msgid ""
 "confusion over build numbers."
 msgstr ""
 "Dla niepowiązanych projektów wolisz może użyć oddzielnych repozytoriów. "
-"Kiedy zatwierdzasz zmiany, zmieniany jest numer rewizji całego repozytorium,"
-" a nie numer wersji projektu. Trzymanie dwóch niepowiązanych projektów "
+"Kiedy zatwierdzasz zmiany, zmieniany jest numer wersji całego repozytorium, "
+"a nie numer wersji projektu. Trzymanie dwóch niepowiązanych projektów "
 "dzielących jedno repozytorium może oznaczać duże przeskoki w numerach "
 "wersji. Projekty w Subversion i TortoiseSVN wyświetlane są pod tym samym "
 "adresem hosta, ale zupełnie niezależne repozytoria umożliwiają samodzielny "
@@ -2865,8 +2922,8 @@ msgstr ""
 " dowolne mutacje, byleby najlepiej spełniały oczekiwania Twoje i Twojego "
 "zespołu. Pamiętaj, że cokolwiek wybierzesz, nie stanowi to trwałego "
 "zobowiązania. Możesz zreorganizować repozytorium w dowolnym momencie. "
-"Ponieważ gałęzie i tagi są ​​zwykłymi folderami, TortoiseSVN można przenieść"
-" lub zmienić ich nazwy jednak chcesz."
+"Ponieważ gałęzie i etykiety są ​​zwykłymi folderami, TortoiseSVN można "
+"przenieść lub zmienić ich nazwy jednak chcesz."
 
 #. (para)
 msgid ""
@@ -3008,6 +3065,14 @@ msgid ""
 "url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
 " website."
 msgstr ""
+"Narzędzie <literal>Svnadmin</literal> jest instalowane automatycznie podczas"
+" instalacji klienta wiersza poleceń Subversion. Jeśli instalujesz narzędzia "
+"wiersza poleceń na komputerze z systemem Windows, najlepszym sposobem jest "
+"pobranie instalatora dla Windows. Jest on skompresowany wydajniej niż plik "
+"<filename>.zip</filename>, zatem pobieranie jest krótszy, poza tym ustawia "
+"za Ciebie ścieżki. Możesz pobrać najnowszą wersję klienta linii poleceń "
+"Subversion ze strony <ulink "
+"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -3098,7 +3163,7 @@ msgstr ""
 "Jeśli skrypt przechwytujący odrzuca twoje zatwierdzenie, jego decyzja jest "
 "ostateczna. Ale można zbudować mechanizm nadpisania do skryptu za pomocą "
 "techniki <emphasis>Magicznego słowa</emphasis>. Jeśli skrypt chce odrzucić "
-"operację, najpierw skanuje wiadomość dziennikaszukając specjalnego hasła, "
+"operację, najpierw skanuje wiadomość dziennika szukając specjalnego hasła, "
 "przy czym może to być stałe wyrażenie lub nazwa pliku z prefiksem. Jeśli "
 "odnajdzie magiczne słowo to pozwala zatwierdzeniu przejść dalej. Jeśli "
 "wyrażenie nie zostanie znalezione to może zablokować zatwierdzenie z "
@@ -3155,8 +3220,8 @@ msgid ""
 "&lt;/a&gt;\n"
 msgstr ""
 "\n"
-"<a href=\"tsvn:http://project.domain.org/svn/trunk\">\n"
-"</a>\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
+"&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -3174,8 +3239,8 @@ msgid ""
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 msgstr ""
 "\n"
-"<a href=\"tsvn:http://project.domain.org/svn/trunk\">\n"
-"<img src=TortoiseCheckout.png></a>\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
+"&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -3185,6 +3250,10 @@ msgid ""
 " logo</citetitle></ulink> or you can provide your own image. "
 "<placeholder-1/>"
 msgstr ""
+"Oczywiście będzie to wyglądać jeszcze lepiej, jeśli zawiera odpowiedni "
+"obraz. Możesz użyć <ulink "
+"url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>logo "
+"TortoiseSVN</citetitle></ulink> lub własnego rysunku. <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -3194,8 +3263,8 @@ msgid ""
 "&lt;/a&gt;\n"
 msgstr ""
 "\n"
-"<a href=\"tsvn:http://project.domain.org/svn/trunk?100\">\n"
-"</a>\n"
+"&lt;a href=\"tsvn:http://project.domain.org/svn/trunk?100\"&gt;\n"
+"&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -3279,18 +3348,23 @@ msgid ""
 "bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
 msgstr ""
+"Bardziej szczegółowe informacje na temat opcji serwera Subversion, a także "
+"jak dobrać najlepszą architekturę do sytuacji, można znaleźć w książce "
+"Subversion <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server "
+"Configuration</citetitle></ulink>."
 
 #. (citetitle)
 msgid "VisualSVN"
-msgstr ""
+msgstr "VisualSVN"
 
 #. (citetitle)
 msgid "CollabNet"
-msgstr ""
+msgstr "CollabNet"
 
 #. (citetitle)
 msgid "UberSVN"
-msgstr ""
+msgstr "UberSVN"
 
 #. (para)
 msgid ""
@@ -3304,6 +3378,15 @@ msgid ""
 "url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
 " website."
 msgstr ""
+"W czasach początków Subversion, konfigurowania serwera wymagała dużego "
+"zrozumienia konfiguracji serwera stąd w poprzednich wersjach ta instrukcja "
+"zawierała szczegółowe opisy, jak skonfigurować serwer. Od tego czasu "
+"wszystko stało się łatwiejsze, ponieważ istnieje co najmniej kilka "
+"dostępnych paczek instalatorów serwerów, które poprowadzi Cię przez proces "
+"budowy i konfiguracji. Podajemy tu linki do niektórych znanych nam "
+"instalatorów: <placeholder-1/> Można zawsze znaleźć najnowsze linki na "
+"stronie <ulink "
+"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -3311,6 +3394,8 @@ msgid ""
 "url=\"http://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>"
 " website."
 msgstr ""
+"Możesz znaleźć więcej przewodników \"Jak To Zrobić\" na stronie <ulink "
+"url=\"http://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>."
 
 #. (title)
 msgid "Daily Use Guide"
@@ -3381,7 +3466,7 @@ msgstr ""
 
 #. (title)
 msgid "General Features"
-msgstr ""
+msgstr "Cechy podstawowe"
 
 #. (para)
 msgid ""
@@ -3389,6 +3474,9 @@ msgid ""
 "just about everything in the manual. Note that many of these features will "
 "only show up within a Subversion working copy."
 msgstr ""
+"Ta sekcja opisuje niektóre z cech TortoiseSVN, które mają zastosowanie do "
+"prawie całej zawartości instrukcji. Zauważ, że wiele z tych funkcji ukazuje "
+"się tylko w kopii roboczej Subversion."
 
 #. (title)
 #. (title)
@@ -3425,7 +3513,7 @@ msgstr "menu kontekstowe"
 
 #. (primary)
 msgid "right click"
-msgstr "prawoklik"
+msgstr "kliknięcie prawym przyciskiem myszy"
 
 #. (title)
 msgid "Context menu for a directory under version control"
@@ -3559,7 +3647,7 @@ msgstr ""
 "poleceń wykonywanych spod jednego klawisza. Na przykład ... W Eksploratorze "
 "będzie to odświeżyć nakładki ikon na kopii roboczej. W dialogu zatwierdzenia"
 " wykona ponowne skanowanie kopii roboczej, aby zobaczyć co koniecznie "
-"powinno zostać zatwierdzone. W oknie dialogowym logowania rewizji będzie "
+"powinno zostać zatwierdzone. W oknie dialogowym dziennika wersji będzie "
 "łączyć się ponownie z repozytorium, aby sprawdzić najnowsze zmiany."
 
 #. (term)
@@ -3716,7 +3804,7 @@ msgstr ""
 " ale często przydatna jest maksymalizacja tylko wysokości, lub szerokości, a"
 " nie powiększenie tak, by wypełnić cały ekran. Dla wygody, są skróty do nich"
 " na przycisku <guilabel>Maksymalizacja</guilabel>. Użyj <action>środkowy "
-"przycisk myszy</ action>, aby maksymalizować w pionie, a <akcja>prawy "
+"przycisk myszy</action>, aby maksymalizować w pionie, a <action>prawy "
 "przycisk myszy</action> maksymalizuje poziomo."
 
 #. (title)
@@ -3787,6 +3875,14 @@ msgid ""
 "an initial <filename>/trunk /tags /branches</filename> structure in your "
 "repository. Since you are here, this is how the basic import works ..."
 msgstr ""
+"W tej sekcji opisano polecenie Subversion import, którego przeznaczeniem "
+"jest importowanie hierarchii katalogów do repozytorium w jednym ruchu. "
+"Chociaż wykonuje tą pracę, posiada kilka niedociągnięć: <placeholder-1/> Z "
+"tych powodów zaleca się nie korzystać w ogóle z polecenia import, ale raczej"
+" po dwuetapowej metody opisanej w <xref linkend=\"tsvn-dug-import-in-"
+"place\"/>, chyba że wykonujesz prosty krok tworzenia wstępnej struktury "
+"<filename>/trunk /tags /branches</filename> w repozytorium. Ponieważ to "
+"czytasz, oto w jaki sposób działa podstawowe polecenie import ..."
 
 #. (para)
 msgid ""
@@ -3855,8 +3951,8 @@ msgid ""
 msgstr ""
 "Domyślnie, pliki i foldery, które odpowiadają ogólnym wzorcom pomijania "
 "<emphasis>nie</emphasis> są importowane. Aby to zmienić należy zaznaczyć "
-"pole wyboru <guilabel>Dołącz pliki ignorowane</guilabel>. Zapoznaj się "
-"z<xref linkend=\"tsvn-dug-settings-main\"/> by uzyskać więcej informacji na "
+"pole wyboru <guilabel>Dołącz pliki ignorowane</guilabel>. Zapoznaj się z "
+"<xref linkend=\"tsvn-dug-settings-main\"/> by uzyskać więcej informacji na "
 "temat ustawienia ogólnego wzorca pomijania."
 
 #. (para)
@@ -3893,6 +3989,12 @@ msgid ""
 "root. The repository browser shows the repository structure just like "
 "Windows explorer, so you can see how things are organised."
 msgstr ""
+"Skorzystaj z przeglądarki repozytorium, aby utworzyć nowy folder projektu "
+"bezpośrednio w repozytorium. Jeśli używasz jednego ze standardowych układów "
+"będziesz prawdopodobnie chciał utworzyć go jako podfolderze linii głównej, a"
+" nie w katalogu głównym repozytorium. Przeglądarka repozytorium przedstawia "
+"strukturę repozytorium tak jak Eksplorator Windows, dzięki czemu można "
+"zobaczyć, jak foldery są zorganizowane."
 
 #. (para)
 msgid ""
@@ -4155,6 +4257,14 @@ msgid ""
 "not fetch the missing files and folders but only update what you already "
 "have in your working copy."
 msgstr ""
+"Aby łatwo wybrać tylko te elementy, które chcesz pobrać i wymusić by w "
+"wynikowej kopii roboczej utrzymać tylko te elementy, kliknij na przycisk "
+"<guibutton>wybierz elementy...</guibutton>. Otworzy się nowe okno dialogowe,"
+" w którym można wybrać wszystkie elementy, jakie mają się znaleźć wkopii "
+"roboczej i usunąć zaznaczenie wszystkich niechcianych elementów. Wynikowa "
+"kopia robocza jest nazywana <literal>płytkim pobraniem</literal>. "
+"Aktualizacja takiej kopii roboczej nie pobiera brakujących plików i "
+"folderów, a aktualizuje tylko te, które już są w twojej kopii roboczej."
 
 #. (para)
 msgid ""
@@ -4164,6 +4274,11 @@ msgid ""
 "linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog "
 "(<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 msgstr ""
+"Jeśli pobierasz płytką kopię roboczą (np. wybierając coś innego niż "
+"<literal>pełna rekursywność</literal> na głębokość pobierania), można pobrać"
+" dodatkowe podfoldery później za pomocą przeglądarki repozytorium (<xref "
+"linkend=\"tsvn-dug-repobrowser\"/>) lub okna sprawdzenia zmian (<xref "
+"linkend=\"tsvn-dug-wcstatus-2\"/>)."
 
 #. (para)
 msgid ""
@@ -4174,6 +4289,14 @@ msgid ""
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
 msgstr ""
+"W Eksploratorze Windows <action>Kliknij prawym przyciskiem myszy</action> na"
+" pobieranym folderze, a następnie "
+"użyj<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Przeglądarka "
+"repozytorium</guimenuitem></menuchoice> aby otworzyć przeglądarkę "
+"repozytorium. Znajdź podkatalog, który chcesz dodać do kopii roboczej, a "
+"następnie użyj <menuchoice><guimenu>Menu "
+"kontekstowego</guimenu><guimenuitem>Uaktualnij element do "
+"wersji...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -4191,7 +4314,7 @@ msgstr ""
 "nie zostały zaznaczone jako <literal> dodano zdalnie</literal>. "
 "<action>Kliknij prawym przyciskiem myszy</action> na folder(y), które chcesz"
 " dodać do kopii roboczej, a następnie użyi <menuchoice><guimenu> menu "
-"kontekstowego</ guimenu><guimenuitem>Uaktualnij</guimenuitem></menuchoice >."
+"kontekstowego</guimenu><guimenuitem>Uaktualnij</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -4234,9 +4357,9 @@ msgid ""
 "on <guibutton>OK</guibutton>. You now have that folder fully populated."
 msgstr ""
 "Kliknij prawym przyciskiem myszy na <literal>Project03</literal> i "
-"<menuchoice><guimenu>menu kontekstowe</guimenu>U&aktualnij element do "
-"wersji<guimenuitem></guimenuitem></menuchoice>. Zachowaj ustawienia domyślne"
-" i kliknij <guibutton>OK</guibutton>. Teraz masz ten folder w pełni "
+"<menuchoice><guimenu>menu kontekstowe</guimenu><guimenuitem>Uaktualnij "
+"element do wersji</guimenuitem></menuchoice>. Zachowaj ustawienia domyślne i"
+" kliknij <guibutton>OK</guibutton>. Teraz masz ten folder w pełni "
 "wypełniony."
 
 #. (para)
@@ -4331,7 +4454,7 @@ msgstr ""
 "Zaleca się, aby uaktualniać tylko gałąź <literal>trunk</literal> drzewa "
 "katalogów, lub folder podrzędny. Jeśli wskażesz korzeń drzewa katalogów w "
 "URL, możesz skończyć z pełnym dyskiem twardym, ponieważ dostaniesz kopię "
-"całego repozytorium, w tym drzewa każdej gałęzi i tagu projektu!"
+"całego repozytorium, w tym drzewa każdej gałęzi i etykiety projektu!"
 
 #. (title)
 msgid "Exporting"
@@ -4376,7 +4499,7 @@ msgid ""
 "changed locally or on the server."
 msgstr ""
 "Wysyłanie zmian dokonanych w kopii roboczej jest znane jako "
-"<firstterm>zatwierdzenie</ firstterm> zmiany. Ale zanim zatwierdzisz musisz "
+"<firstterm>zatwierdzenie</firstterm> zmiany. Ale zanim zatwierdzisz musisz "
 "upewnić się, że kopia robocza jest aktualna. Możesz użyć bezpośrednio "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Uaktualnij</guimenuitem></menuchoice>."
 " Można też użyć najpierw "
@@ -4429,8 +4552,8 @@ msgid ""
 msgstr ""
 "Pozycje, które zostały przełączone do innej ścieżki repozytorium są również "
 "wskazane markerem <literal>(s)</literal>. Możesz mieć coś przełączone "
-"podczas pracy na gałęzi i zapomnieć przełączyć z powrotem przy powrocie do "
-"pnia. To jest twój sygnał ostrzegawczy!"
+"podczas pracy na gałęzi i zapomnieć przełączyć z powrotem do linii głównej. "
+"To jest twój sygnał ostrzegawczy!"
 
 #. (title)
 msgid "Commit files or folders?"
@@ -4489,9 +4612,9 @@ msgid ""
 "for more information."
 msgstr ""
 "Jeśli uważasz, że okno dialogowe zatwierdzenia pokazuje zbyt wiele "
-"niewersjonowanych plików (np. generowane przez kompilator lub kopiie "
-"zapasowe edytora), istnieje kilka sposobów, aby sobie z tym poradzić. Można:"
-" <placeholder-1/> Czytaj <xref linkend=\"tsvn-dug-ignore\"/> by uzyskać "
+"niewersjonowanych plików (np. generowane przez kompilator lub kopie zapasowe"
+" edytora), istnieje kilka sposobów, aby sobie z tym poradzić. Można: "
+"<placeholder-1/> Czytaj <xref linkend=\"tsvn-dug-ignore\"/> by uzyskać "
 "więcej informacji."
 
 #. (para)
@@ -4515,7 +4638,7 @@ msgid ""
 msgstr ""
 "Można zaznaczyć lub usunąć zaznaczenie elementu klikając pole wyboru po "
 "lewej stronie pozycji. Dla katalogów można użyć "
-"<keycap>SHIFT</keycap>-<akcja>wybór</ action> by działanie wykonać "
+"<keycap>SHIFT</keycap>-<action>wybór</action> by działanie wykonać "
 "rekursywnie."
 
 #. (para)
@@ -4528,11 +4651,12 @@ msgid ""
 " the same headings next time."
 msgstr ""
 "Kolumny wyświetlane w dolnej części okna są konfigurowalne. Jeśli "
-"<akcja>klikniesz prawym przyciskiem myszy</action> na jej nagłówek pojawi "
-"się menu, które pozwala wybrać, które kolumny są wyświetlane. Można również "
-"zmienić szerokość kolumny przy użyciu uchwytu przeciągnięcia, który pojawia "
-"się po najechaniu wskaźnikiem myszy na granicę kolumny. Te dostosowania są "
-"zapamiętywane, więc następnym razem widać ten sam poprawiony układ  pozycji."
+"<action>klikniesz prawym przyciskiem myszy</action> na dowolną kolumnę z "
+"nagłówka pojawi się menu, które pozwala wybrać, które kolumny są "
+"wyświetlane. Można również zmienić szerokość kolumny przy użyciu uchwytu "
+"przeciągnięcia, który pojawia się po najechaniu wskaźnikiem myszy na granicę"
+" kolumny. Te dostosowania są zapamiętywane, więc następnym razem widać ten "
+"sam poprawiony układ pozycji."
 
 #. (para)
 msgid ""
@@ -4546,11 +4670,11 @@ msgid ""
 msgstr ""
 "Domyślnie, kiedy zatwierdzasz zmiany, wszystkie blokady,założone na pliki są"
 " automatycznie zwalniane gdy zatwierdzenie się powiedzie. Jeśli chcesz "
-"zachować te blokady, upewnij się, że pole wyboru <guilabel>Trzymaj blokady</"
-" guilabel> jest zaznaczone. Domyślny stan tego pola wyboru jest pobierany z "
-"opcji <literal>no_unlock</literal> w pliku konfiguracyjnym Subversion. "
-"Czytaj <xref linkend=\"tsvn-dug-settings-main\"/> by zyskać informacje na "
-"temat, jak edytować plik konfiguracyjny Subversion."
+"zachować te blokady, upewnij się, że pole wyboru <guilabel>Trzymaj "
+"blokady</guilabel> jest zaznaczone. Domyślny stan tego pola wyboru jest "
+"pobierany z opcji <literal>no_unlock</literal> w pliku konfiguracyjnym "
+"Subversion. Czytaj <xref linkend=\"tsvn-dug-settings-main\"/> by zyskać "
+"informacje na temat, jak edytować plik konfiguracyjny Subversion."
 
 #. (para)
 msgid ""
@@ -4701,12 +4825,12 @@ msgid ""
 " or as brief as you like; many projects have guidelines for what should be "
 "included, the language to use, and sometimes even a strict format."
 msgstr ""
-"Pamiętaj, aby podać informację dziennika, który opisuje Twoje zmiany. To "
-"pomoże ci zorientować się, co i kiedy się stało podczas przeglądania "
-"wiadomości dziennika projektu w późniejszym terminie. Wiadomość może być tak"
-" długi lub krótki, jak chcesz; wiele projektów posiada wytyczne odnośnie "
-"tego co powinno być uwzględnione, używanego języka, a czasami nawet mają "
-"ścisły format."
+"Pamiętaj, aby podać komunikat dziennika, która opisuje Twoje zmiany. To "
+"pomoże ci zorientować się, co i kiedy się stało podczas przeglądania opisów "
+"zmian projektu w późniejszym terminie. Wiadomość może być tak długi lub "
+"krótki, jak chcesz; wiele projektów posiada wytyczne odnośnie tego co "
+"powinno być uwzględnione, używanego języka, a czasami nawet mają ścisły "
+"format."
 
 #. (para)
 msgid ""
@@ -4716,11 +4840,11 @@ msgid ""
 "<literal>_text_</literal> for underlining, and <literal>^text^</literal> for"
 " italics."
 msgstr ""
-"Można zastosować proste formatowanie do wiadomości dziennika przy użyciu "
-"konwencji podobnej do tej stosowanej w wiadomości e-mail. Aby zastosować "
-"styl do <literal>zapis</literal>, użyj <literal>*zapis*</literal> dla "
-"pogrubienia, <literal>_zapis_</literal> dla podkreślenia i "
-"<literal>^zapis^</literal> by uzyskać kursywę."
+"Można zastosować proste formatowanie do opisów zmian przy użyciu konwencji "
+"podobnej do tej stosowanej w wiadomości e-mail. Aby zastosować styl do "
+"<literal>zapis</literal>, użyj <literal>*zapis*</literal> dla pogrubienia, "
+"<literal>_zapis_</literal> dla podkreślenia i <literal>^zapis^</literal> by "
+"uzyskać kursywę."
 
 #. (title)
 msgid "The Commit Dialog Spellchecker"
@@ -4736,12 +4860,12 @@ msgid ""
 "them to your personal dictionary using the context menu."
 msgstr ""
 "<placeholder-1/> TortoiseSVN zawiera moduł sprawdzania pisowni, aby pomóc Ci"
-" wpisywać poprawnie wiadomości do dziennika. W wszelkie błędnie napisane "
-"słowa zostają podkreślone. Użyj menu kontekstowego by przejść do "
-"proponowanych poprawek. Oczywiście, że nie zna on "
-"<emphasis>każdego</emphasis> terminu technicznego, którego użyjesz, więc "
-"poprawne słowa czasami pojawiają się jako błędy. Ale nie martw się. "
-"Wystarczy je dodać do słownika użytkownika za pomocą menu kontekstowego."
+" wpisywać poprawnie opisy zmian. W wszelkie błędnie napisane słowa zostają "
+"podkreślone. Użyj menu kontekstowego by przejść do proponowanych poprawek. "
+"Oczywiście, że nie zna on <emphasis>każdego</emphasis> terminu technicznego,"
+" którego użyjesz, więc poprawne słowa czasami pojawiają się jako błędy. Ale "
+"nie martw się. Wystarczy je dodać do słownika użytkownika za pomocą menu "
+"kontekstowego."
 
 #. (para)
 msgid ""
@@ -4763,15 +4887,15 @@ msgid ""
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr ""
-"Okno komunikatu dziennika posiada także usprawnienie automatycznego "
-"uzupełniania nazwy pliku i funkcji. Używa wyrażeń regularnych aby wyodrębnić"
-" nazwy klas i funkcji z (tekstowych) plików, które zatwierdzasz, jak również"
-" nazwy ich samych. Jeśli wpisywane słowo pasuje do jakiegoś wpisu z listy "
-"(po wpisaniu co najmniej 3 znaków, lub wciśnięciu <keycap>Ctrl+Spacja "
-"</keycap>), pojawia się menu rozwijane pozwalając wybrać pełną nazwę. "
-"Wyrażenia regularne dostarczany z TortoiseSVN znajdują się się w folderze "
-"instalacjyjnym TortoiseSVN <filename>bin</filename>. Można również "
-"zdefiniować własne regeksy i przechowywać je w "
+"Okno opisu zmiany posiada także usprawnienie automatycznego uzupełniania "
+"nazwy pliku i funkcji. Używa wyrażeń regularnych aby wyodrębnić nazwy klas i"
+" funkcji z (tekstowych) plików, które zatwierdzasz, jak również nazwy ich "
+"samych. Jeśli wpisywane słowo pasuje do jakiegoś wpisu z listy (po wpisaniu "
+"co najmniej 3 znaków, lub wciśnięciu <keycap>Ctrl+Spacja </keycap>), pojawia"
+" się menu rozwijane pozwalając wybrać pełną nazwę. Wyrażenia regularne "
+"dostarczany z TortoiseSVN znajdują się się w folderze instalacjyjnym "
+"TortoiseSVN <filename>bin</filename>. Można również zdefiniować własne "
+"regeksy i przechowywać je w "
 "<filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Oczywiście "
 "prywatna autolista nie zostanie nadpisana podczas aktualizacji instalacji "
 "TortoiseSVN. Jeśli nie jesteś zaznajomiony z wyrażeniami regularnymi, rzuć "
@@ -4802,11 +4926,10 @@ msgid ""
 "messages you entered for this working copy. The number of stored messages "
 "can be customized in the TortoiseSVN settings dialog."
 msgstr ""
-"Możesz ponownie wykorzystać wcześniej wprowadzone wiadomości z dziennika. "
-"Wystarczy kliknąć na <guibutton>Ostatnie komunikaty</guibutton>, aby "
-"wyświetlić listę ostatnich kilku wiadomości wprowadzonych dla tej kopii "
-"roboczej. Liczbę zapisanych wiadomości można dostosować w oknie ustawień "
-"TortoiseSVN."
+"Możesz ponownie wykorzystać wcześniej wprowadzone opisów zmian. Wystarczy "
+"kliknąć na <guibutton>Ostatnie komunikaty</guibutton>, aby wyświetlić listę "
+"ostatnich kilku wiadomości wprowadzonych dla tej kopii roboczej. Liczbę "
+"zapisanych wiadomości można dostosować w oknie ustawień TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -4826,7 +4949,7 @@ msgid ""
 "the command <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Paste "
 "filename list</guimenuitem></menuchoice> in the edit control."
 msgstr ""
-"Jeśli chcesz użyć zaznaczonych ścieżek w wiadomości dziennika, możesz użyć "
+"Jeśli chcesz użyć zaznaczonych ścieżek w opisie zmiany, możesz użyć "
 "polecenia <menuchoice><guimenu>Menu kontekstowe</guimenu><guimenuitem>Wstaw "
 "listę plików</guimenuitem></menuchoice> w polu edycji."
 
@@ -4835,7 +4958,7 @@ msgid ""
 "Another way to insert the paths into the log message is to simply drag the "
 "files from the file list onto the edit control."
 msgstr ""
-"Innym sposobem wprowadzania ścieżki do wiadomości dziennika jest po prostu "
+"Innym sposobem wprowadzania ścieżki do opisu zmiany jest po prostu "
 "przeciągnięcie plików z listy do wnętrza kontrolki."
 
 #. (title)
@@ -4869,9 +4992,9 @@ msgstr ""
 "Mając działający system śledzenia błędów, można przypisać jeden lub więcej "
 "zagadnień w polu tekstowym <guilabel>ID błędu / Nr zgłoszenia:</guilabel>. "
 "Poszczególne zgłoszenia powinny być oddzielone przecinkami. Ewentualnie, "
-"jeśli używasz poartego na wyrażeniach regularnych na wsparcia śledzenia "
-"błędów, po prostu dodaj referencje zagadnień jako część wiadomości "
-"dziennika. Dowiedz się więcej pod <xref linkend=\"tsvn-dug-bugtracker\"/>."
+"jeśli używasz opartego na wyrażeniach regularnych na wsparcia śledzenia "
+"błędów, po prostu dodaj referencje zagadnień jako część opisu zmiany. "
+"Dowiedz się więcej pod <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (title)
 msgid "Commit Progress"
@@ -5077,6 +5200,15 @@ msgid ""
 "Suppose your working copy is at revision 100, but you want it to reflect the"
 " state which it had in revision 50 - then simply update to revision 50."
 msgstr ""
+"Standardowe polecenie Uaktualnij nie ma opcji i tylko aktualizacje kopię "
+"roboczą do wersji HEAD repozytorium, co jest najczęstszym przypadkiem "
+"użycia. Jeśli chcesz mieć większą kontrolę nad procesem aktualizacji, należy"
+" zamiast tego użyć "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Uaktualnij do "
+"wersji...</guimenuitem></menuchoice>. Pozwala ono na aktualizację swojej "
+"kopii roboczej do konkretnej wersji, nie tylko do ostatniej. Załóżmy, że "
+"kopia robocza jest w wersji 100, ale chcesz by odzwierciedlała stan, który "
+"występował w wersji 50 - po prostu uaktualnij do wersji 50."
 
 #. (para)
 msgid ""
@@ -5088,12 +5220,22 @@ msgid ""
 "subsequent updates will use that new depth, i.e. that depth is then used as "
 "the default depth."
 msgstr ""
+"W tym samym oknie możesz także wybrać <firstterm>głębokość</firstterm>, na "
+"jaką zaktualizujesz bieżący folder. Użyte pojęcia zostały opisane w <xref "
+"linkend=\"tsvn-dug-checkout-depth\"/>. Głębokość domyślna to <guilabel>Kopia"
+" robocza</guilabel>, która zachowuje istniejące ustawienia głębokości. Można"
+" również ustawić głębokość <literal>ścisły</literal>, co powoduje że kolejne"
+" aktualizacje będą używać tej nowej głębokości, czyli taka głębokość jest "
+"następnie wykorzystywana jako głębokość domyślna."
 
 #. (para)
 msgid ""
 "You can also choose whether to ignore any external projects in the update "
 "(i.e. projects referenced using <literal>svn:externals</literal>)."
 msgstr ""
+"Możesz także wybrać, czy zignorować wszystkie zewnętrzne projekty podczas "
+"aktualizacji (tzn. projekty wymienione za pomocą odwołania "
+"<literal>svn:externals</literal>)."
 
 #. (para)
 msgid ""
@@ -5128,12 +5270,12 @@ msgstr ""
 "może być czasami przydatne, aby zobaczyć jaki projekt wyglądał jak na jakimś"
 " wcześniejszym etapie swojej historii. Ale ogólnie aktualizacja "
 "poszczególnych plików do wcześniejszej wersji nie jest dobrym pomysłem, "
-"ponieważ kopia robocza pozostaje w niespójnym stanie. Jeśli plik jest "
-"podczas aktualizacji zmienił nazwę, można nawet stwierdzić, że plik po "
-"prostu zniknał z kopii roboczej, ponieważ nie ma pliku o tej nazwie w "
-"poprzedniej wersji. Należy również pamiętać, że pozycja pojawi się z "
-"powrotem z zieloną nakładką, więc jest nie do odróżnienia od plików, które "
-"były do tej pory aktualne."
+"ponieważ kopia robocza pozostaje w niespójnym stanie. Jeśli plik podczas "
+"aktualizacji zmienił nazwę, można nawet stwierdzić, że plik po prostu "
+"zniknął z kopii roboczej, ponieważ nie ma pliku o tej nazwie w poprzedniej "
+"wersji. Należy również pamiętać, że pozycja pojawi się z powrotem z zieloną "
+"nakładką, więc jest nie do odróżnienia od plików, które były do tej pory "
+"aktualne."
 
 #. (para)
 msgid ""
@@ -5143,9 +5285,9 @@ msgid ""
 "that file."
 msgstr ""
 "Jeśli życzysz sobie po prostu lokalnej kopii starej wersji pliku lepiej jest"
-" użyć polecenia <menuchoice>Menu "
-"kontekstowe<guimenu></guimenu><guimenuitem>Zapisz wersję "
-"w...</guimenuitem></menuchoice>z okna logowania dla tego pliku."
+" użyć polecenia <menuchoice><guimenu>Menu "
+"kontekstowe</guimenu><guimenuitem>Zapisz wersję "
+"w...</guimenuitem></menuchoice>z okna dziennika dla tego pliku."
 
 #. (title)
 msgid "Multiple Files/Folders"
@@ -5242,9 +5384,8 @@ msgid ""
 "copy. That is, it the file that you checked out before you made your latest "
 "edits."
 msgstr ""
-"Jest to plik, który był PODSTAWĄ rewizji przed zaktualizowaniem kopii "
-"roboczej. Oznacza to, że plik, który był pobrany, zanim wprowadziłeś "
-"najnowsze zmiany."
+"Jest to plik, który był wersją BAZY przed zaktualizowaniem kopii roboczej. "
+"Oznacza to, że plik, który był pobrany, zanim wprowadziłeś najnowsze zmiany."
 
 #. (term)
 msgid "filename.ext.rNEWREV"
@@ -5257,7 +5398,7 @@ msgid ""
 "revision of the repository."
 msgstr ""
 "Jest to plik, który klient Subversion właśnie otrzymał z serwera podczas "
-"aktualizowania kopii roboczej. Ten plik odpowiada rewizji HEAD repozytorium."
+"aktualizowania kopii roboczej. Ten plik odpowiada wersji HEAD repozytorium."
 
 #. (para)
 msgid ""
@@ -5269,7 +5410,7 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-"Konflikt ma miejsce, gdy dwóch lub więcej deweloperów zmieniło te same kilka linijek pliku. Jako że Subversion nic nie wie o projekcie, pozostawia deweloperom rozwiązywanie konfliktów. W przypadku wystąpienia zgłoszenia sprzeczności, należy otworzyć dany plik, i wyszukać linie zaczynające się od łańcucha <literal><<<<<<<</literal>. Obszar oknfliktu jest oznaczony w ten sposób:: <screen>\n"
+"Konflikt ma miejsce, gdy dwóch lub więcej deweloperów zmieniło te same kilka linijek pliku. Jako że Subversion nic nie wie o projekcie, pozostawia deweloperom rozwiązywanie konfliktów. W przypadku wystąpienia zgłoszenia sprzeczności, należy otworzyć dany plik, i wyszukać linie zaczynające się od łańcucha <literal><<<<<<<</literal>. Obszar konfliktu jest oznaczony w ten sposób: <screen>\n"
 "<<<<<<< filename\n"
 "    twoje zmiany\n"
 "=======\n"
@@ -5285,7 +5426,7 @@ msgid ""
 "manually resolve the conflict. You should decide what the code should look "
 "like, do the necessary changes and save the file."
 msgstr ""
-"Można uruchomić zewnętrzne narzędzie scalenia/ edytor konflikt z "
+"Można uruchomić zewnętrzne narzędzie scalenia/edytor konflikt z "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edytuj "
 "konflikty</guimenuitem></menuchoice> Można też użyć innego edytora, aby "
 "ręcznie rozwiązać ten konflikt. Musisz podjąć decyzję, jak kod powinien "
@@ -5319,7 +5460,7 @@ msgid ""
 "repository version, use the Resolved command, then commit your version."
 msgstr ""
 "Jeśli masz konflikty w plikach binarnych, Subversion nie próbuje scalić "
-"plikiu.Lokalny plik pozostaje bez zmian (dokładnie tak, jak został ostatnio "
+"pliku.Lokalny plik pozostaje bez zmian (dokładnie tak, jak został ostatnio "
 "zmieniony) i dostajesz pliki <filename>filename.ext.r*</filename>. Jeśli "
 "chcesz odrzucić swoje zmiany i pozostawić wersję z repozytorium, użyj "
 "polecenia Przywróć. Jeśli chcesz zachować swoją wersję i zastąpić wersję z "
@@ -5334,10 +5475,16 @@ msgid ""
 " This will bring up a dialog listing all conflicted files in that folder, "
 "and you can select which ones to mark as resolved."
 msgstr ""
+"Możesz użyć polecenia Rozwiązany dla wielu plików, gdy klikniesz prawym "
+"przyciskiem myszy na folder macierzysty i wybierz "
+"<menuchoice><guimenu>TortoiseSVN</guimenu> "
+"<guimenuitem>Rozwiązany</guimenuitem></menuchoice> Wyświetlone zostanie okno"
+" zawierające wszystkie konflikty plików w tym folderze i można wybrać te, "
+"które zostaną oznaczone jako rozwiązane."
 
 #. (title)
 msgid "Property Conflicts"
-msgstr ""
+msgstr "Konflikty atrybutów"
 
 #. (para)
 msgid ""
@@ -5345,6 +5492,9 @@ msgid ""
 " property. As with file content, resolving the conflict can only be done by "
 "the developers."
 msgstr ""
+"Konflikt atrybutów występuje, gdy dwóch lub większa ilość deweloperów "
+"zmienili ten sam atrybut. Tak jak dla zawartości pliku, rozwiązanie "
+"konfliktu może być dokonane jedynie przez deweloperów."
 
 #. (para)
 msgid ""
@@ -5354,10 +5504,15 @@ msgid ""
 "<guilabel>Manually edit property</guilabel>, sort out what the property "
 "value should be and mark as resolved."
 msgstr ""
+"Jeśli jedna ze zmian musi nadpisać inne, wybierz opcję <guilabel>Rozwiąż "
+"używając atrybutu lokalnego</ guilabel> lub <guilabel>Rozwiąż używając "
+"atrybutu zdalnego</guilabel>. Jeśli zmiany muszą być scalone, wybierz "
+"<guilabel>Edytuj atrybut ręcznie</guilabel>, wprowadź wartość poprawną i "
+"oznacz atrybut jako rozwiązany."
 
 #. (title)
 msgid "Tree Conflicts"
-msgstr ""
+msgstr "Konflikty drzewa"
 
 #. (para)
 msgid ""
@@ -5366,6 +5521,11 @@ msgid ""
 "just modified. There are many different situations that can result in a tree"
 " conflict, and all of them require different steps to resolve the conflict."
 msgstr ""
+"Konflikt drzewa występuje wówczas, gdy deweloper przeniósł/ zmienił "
+"nazwę/usunął plik lub folder, który w tym czasie inny deweloper również "
+"przeniósł/przemianował/usunął lub po prostu zmodyfikował zawartość. Istnieje"
+" wiele różnych sytuacji, które mogą doprowadzić do konfliktu drzewa, a "
+"wszystkie z nich wymagają innych czynności w celu rozwiązania konfliktu."
 
 #. (para)
 msgid ""
@@ -5375,6 +5535,12 @@ msgid ""
 "conflict. Use the <guilabel>Check for Modifications</guilabel> dialog "
 "instead to access the <guilabel>Edit conflicts</guilabel> option."
 msgstr ""
+"Gdy plik zostanie usunięty lokalnie w Subversion, jest on usuwany z "
+"lokalnego systemu plików, więc nawet jeśli jest częścią konfliktu drzewa nie"
+" można pokazać nakładki konfliktu i nie można kliknąć prawym przyciskiem "
+"myszy na plik, aby konflikt rozwiązać. Użyj okna dialogowego "
+"<guilabel>Sprawdź zmiany</guilabel> zamiast eksploreta by uzyskać dostęp do "
+"opcji <guilabel>Edytuj konflikty</guilabel>."
 
 #. (para)
 msgid ""
@@ -5385,16 +5551,24 @@ msgid ""
 "updating it goes back to the repository state, not to the way it was when "
 "you started making your own local changes."
 msgstr ""
+"TortoiseSVN może wspomagać znaleźć odpowiednie miejsce do scalenia zmian, "
+"ale z reguły niezbędna jest dodatkowa praca by konflikt rozwiązać. Pamiętaj,"
+" że po aktualizacji BAZA robocza zawsze będzie zawierać wersję każdego "
+"elementu z repozytorium na ostatnią jego aktualizację. Zatem jeśli wycofasz "
+"zmiany, to po aktualizacji element wraca do aktualnego stanu z repozytorium,"
+" a nie tego, z którego rozpocząłeś robić własne, lokalne zmiany."
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
-msgstr ""
+msgstr "Lokalne usunięcie, przychodząca przy aktualizacji edycja"
 
 #. (para)
 msgid ""
 "Developer A modifies <filename>Foo.c</filename> and commits it to the "
 "repository."
 msgstr ""
+"Deweloper A zmienia zawartość <filename>Foo.c</filename> i zatwierdza plik "
+"do repozytorium."
 
 #. (para)
 msgid ""
@@ -5402,12 +5576,17 @@ msgid ""
 "<filename>Bar.c</filename> in his working copy, or simply deleted "
 "<filename>Foo.c</filename> or its parent folder."
 msgstr ""
+"Deweloper B w tym samym czasie przeniósł <filename>Foo.c</filename> do "
+"<filename>Bar.c</filename> w kopii roboczej, lub po prostu usunął "
+"<filename>Foo.c</filename> albo zawierający go folder."
 
 #. (para)
 msgid ""
 "<filename>Foo.c</filename> has been deleted from working copy, but is marked"
 " with a tree conflict."
 msgstr ""
+"<filename>Foo.c</filename> został usunięty z kopii roboczej, ale jest "
+"oznaczony jako konflikt drzewa.."
 
 #. (para)
 msgid ""
@@ -5415,6 +5594,9 @@ msgid ""
 "<filename>Bar.c</filename> is marked as added, but does not contain "
 "developer A's modifications."
 msgstr ""
+"Jeżeli konflikt wynika ze zmiany nazwy, a nie usunięcia, plik "
+"<filename>Bar.c</filename> jest oznaczony jako dodany, ale nie zawiera "
+"poprawek dewelopera A."
 
 #. (para)
 #. (para)
@@ -5422,6 +5604,8 @@ msgid ""
 "An update of developer B's working copy results in a tree conflict: "
 "<placeholder-1/>"
 msgstr ""
+"Uaktualnienie kopii roboczej przez programistę B daje w wyniku konflikt "
+"drzewa: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -5433,6 +5617,12 @@ msgid ""
 "as resolved without doing anything he effectively discards Developer A's "
 "changes."
 msgstr ""
+"Deweloper B musi teraz zdecydować, czy zachować zmiany dewelopera A. W "
+"przypadku zmiany nazwy plików, może on połączyć zmiany z pliku "
+"<filename>Foo.c</filename> do nowego <filename>Bar.c</filename>. Dla "
+"prostego usunięcia pliku lub katalogu może wybrać utrzymanie elementu ze "
+"zmianami dewelopera A i odrzucenie usunięcia. Albo, zaznaczając konflikt "
+"jako rozwiązany nie robiąc nic,  skutecznie usuwa zmiany developera A."
 
 #. (para)
 msgid ""
@@ -5440,10 +5630,14 @@ msgid ""
 " file of the renamed <filename>Bar.c</filename>. Depending on where the "
 "update was invoked, it may not be possible to find the source file."
 msgstr ""
+"Dialog edycji konfliktu oferuje scalenie zmian, jeżeli można znaleźć plik "
+"oryginalny dla przemianowanego <filename>Bar.c</filename>. W zależności od "
+"tego, gdzie aktualizacja została wywołana, znalezienie pliku źródłowego może"
+" nie być możliwe."
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
-msgstr ""
+msgstr "Lokalna edycja, przychodzące podczas aktualizacji usunięcie"
 
 #. (para)
 #. (para)
@@ -5451,58 +5645,74 @@ msgid ""
 "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> "
 "and commits it to the repository."
 msgstr ""
+"Deweloper A przenosi <filename>Foo.c</filename> do "
+"<filename>Bar.c</filename> i zatwierdza to w repozytorium."
 
 #. (para)
 #. (para)
 msgid "Developer B modifies <filename>Foo.c</filename> in his working copy."
 msgstr ""
+"Programista B zmienia zawartość <filename>Foo.c</filename> w swojej kopii "
+"roboczej."
 
 #. (para)
 msgid "Or in the case of a folder move ..."
-msgstr ""
+msgstr "Lub w przypadku przeniesienia folderu..."
 
 #. (para)
 msgid ""
 "Developer A moves parent folder <filename>FooFolder</filename> to "
 "<filename>BarFolder</filename> and commits it to the repository."
 msgstr ""
+"Programista A przenosi folder macierzysty <filename>FooFolder</filename> do "
+"<filename>BarFolder</filename> i zatwierdza to w repozytorium."
 
 #. (para)
 msgid ""
 "<filename>Bar.c</filename> is added to the working copy as a normal file."
 msgstr ""
+"<filename>Bar.c</filename> zostaje dodany do kopii roboczej jak normalny "
+"plik."
 
 #. (para)
 msgid ""
 "<filename>Foo.c</filename> is marked as added (with history) and has a tree "
 "conflict."
 msgstr ""
+"<filename>Foo.c</filename> jest oznaczony jako dodany (z historią) i posiada"
+" konflikt drzewa."
 
 #. (para)
 msgid ""
 "An update of developer B's working copy results in a tree conflict. For a "
 "simple file conflict: <placeholder-1/>"
 msgstr ""
+"Uaktualnienie kopii roboczej dewelopera B powoduje konflikt drzewa. W "
+"przypadku prostego konfliktu pliku: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "<filename>BarFolder</filename> is added to the working copy as a normal "
 "folder."
 msgstr ""
+"<filename>BarFolder</filename> zostaje dodany do kopii roboczej jako zwykły "
+"folder."
 
 #. (para)
 msgid ""
 "<filename>FooFolder</filename> is marked as added (with history) and has a "
 "tree conflict."
 msgstr ""
+"<filename>FooFolder</filename> jest oznaczony jako dodany (z historią) oraz "
+"posiada konflikt drzewa."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified."
-msgstr ""
+msgstr "<filename>Foo.c</filename> jest oznaczony jako zmieniony."
 
 #. (para)
 msgid "For a folder conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Dla konfliktu folderu: <placeholder-1/>"
 
 #. (para)
 #. (para)
@@ -5511,6 +5721,9 @@ msgid ""
 "reorganisation and merge her changes into the corresponding file in the new "
 "structure, or simply revert A's changes and keep the local file."
 msgstr ""
+"Deweloper B musi teraz zdecydować, czy zgodzić się na reorganizację A i "
+"scalenie swoich zmian do odpowiedniego pliku w nowej strukturze, albo po "
+"prostu wycofać zmiany A i zachować swój plik lokalny."
 
 #. (para)
 msgid ""
@@ -5523,6 +5736,14 @@ msgid ""
 "use the <guilabel>Remove</guilabel> button in the conflict editor dialog to "
 "clean up and mark the conflict as resolved."
 msgstr ""
+"Aby połączyć swoje lokalne zmiany z przetasowaniem plików, Deweloper B musi "
+"najpierw dowiedzieć się, dokąd został przeniesiony/przemianowany plik "
+"<filename>Foo.c</filename> w repozytorium. Można to zrobić za pomocą okna "
+"dziennika. Zmiany muszą być scalone ręcznie jako że nie ma mechanizmu "
+"automatyzacji a nawet uproszczenia tego procesu. Gdy zmiany zostały już "
+"naniesione, skonfliktowana ścieżka jest zbędna i może zostać usunięta. W tym"
+" przypadku należy użyć przycisku <guilabel>Usuń</guilabel> w oknie edytora "
+"konfliktu, aby wyczyścić i zaznaczyć konflikt jako rozwiązany."
 
 #. (para)
 msgid ""
@@ -5531,30 +5752,41 @@ msgid ""
 "the conflicted file/folder as resolved, but Developer A's changes need to be"
 " removed by hand. Again the log dialog helps to track down what was moved."
 msgstr ""
+"Jeśli Developer B zdecyduje, że zmiany A były niewłaściwe, musi wybrać "
+"przycisk <guilabel>Zachowaj</guilabel> w oknie edytora konfliktu. Zaznacza "
+"to sprzeczne pliki/foldery jako rozwiązane, ale zmiany dewelopera A trzeba "
+"usunąć ręcznie. Ponownie okno dziennika pomaga wyśledzić, co zostało "
+"przeniesione."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
-msgstr ""
+msgstr "Lokalne usunięcie, przychodzące przy uaktualnieniu usunięcie"
 
 #. (para)
 msgid ""
 "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>."
 msgstr ""
+"Deweloper B przenosi <filename>Foo.c</filename> do "
+"<filename>Bix.c</filename>."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bix.c</filename> zostaje zaznaczone jako dodany z historią."
 
 #. (para)
 msgid ""
 "<filename>Bar.c</filename> is added to the working copy with status "
 "'normal'."
 msgstr ""
+"<filename>Bar.c</filename> zostaje dodany do kopii roboczej ze statusem "
+"'zwykły'."
 
 #. (para)
 msgid ""
 "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
 msgstr ""
+"<filename>Foo.c</filename> zostaje oznaczony jako usunięty i posiada "
+"konflikt drzewa."
 
 #. (para)
 msgid ""
@@ -5562,6 +5794,10 @@ msgid ""
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
 "repository. This can be done by using the log dialog."
 msgstr ""
+"Aby rozwiązać konflikt, deweloper B musi odnaleźć, na jaką nazwę pliku "
+"został przemianowany w katalogu repozytorium plik <filename>Foo.c</filename>"
+" będący w stanie konfliktu. Można to zrobić przy użyciu okna dialogowego "
+"dziennika."
 
 #. (para)
 #. (para)
@@ -5570,6 +5806,9 @@ msgid ""
 "<filename>Foo.c</filename> to keep - the one done by developer A or the "
 "rename done by himself."
 msgstr ""
+"Następnie developer B musi wybrać który z dwóch nowych plików "
+"<filename>Foo.c</filename> pozostawić - ten wykonany przez dewelopera A, czy"
+" wykonany przez siebie poprzez zmianę nazwy."
 
 #. (para)
 #. (para)
@@ -5577,32 +5816,41 @@ msgid ""
 "After developer B has manually resolved the conflict, the tree conflict has "
 "to be marked as resolved with the button in the conflict editor dialog."
 msgstr ""
+"Po tym jak deweloper B ręcznie rozwiązał skłócenie, konflikt drzewa musi być"
+" oznaczony jako rozwiązany za pomocą przycisku w oknie edytora konfliktu."
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
-msgstr ""
+msgstr "Lokalny brak, przyjście edycji podczas aktualizacji"
 
 #. (para)
 msgid ""
 "Developer A working on trunk modifies <filename>Foo.c</filename> and commits"
 " it to the repository"
 msgstr ""
+"Deweloper A pracując na linii głównej zmienia zawartość "
+"<filename>Foo.c</filename> i zatwierdza go do repozytorium"
 
 #. (para)
 msgid ""
 "Developer B working on a branch moves <filename>Foo.c</filename> to "
 "<filename>Bar.c</filename> and commits it to the repository"
 msgstr ""
+"Deweloper B pracując na gałęzi przenosi <filename>Foo.c</filename> do "
+"<filename>Bar.c</filename> i zatwierdza to do repozytorium"
 
 #. (para)
 msgid ""
 "<filename>Bar.c</filename> is already in the working copy with status "
 "'normal'."
 msgstr ""
+"<filename>Bar.c</filename> jest już w kopii roboczej ze statusem 'zwykły'."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
 msgstr ""
+"<filename>Foo.c</filename> jest oznaczony jako brakujący z konfliktem "
+"drzewa."
 
 #. (para)
 #. (para)
@@ -5611,6 +5859,8 @@ msgid ""
 "A merge of developer A's trunk changes to developer B's branch working copy "
 "results in a tree conflict: <placeholder-1/>"
 msgstr ""
+"Scalenie ze zmianami linii głównej dewelopea A do kopii roboczej gałęzi "
+"dewelopera Bpowoduje konflikt drzewa: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -5622,6 +5872,13 @@ msgid ""
 "renamed <filename>Bar.c</filename> or whether to ignore the changes by "
 "marking the conflict as resolved and doing nothing else."
 msgstr ""
+"Aby rozwiązać ten konflikt, deweloper B musi oznaczyć plik jako rozwiązany w"
+" oknie edytora konfliktu, co usunie go z listy konfliktu. Potem musi "
+"zdecydować, czy skopiować brakujący plik <filename>Foo.c</filename>z "
+"repozytorium do kopii roboczej, czy też scalić zmiany dewelopera A z "
+"<filename>Foo.c</filename> do przemianowanego <filename>Bar.c</filename> czy"
+" też zignorować zmiany, zaznaczając konflikt jako rozwiązany i nie robiąc "
+"nic innego."
 
 #. (para)
 msgid ""
@@ -5629,10 +5886,13 @@ msgid ""
 "resolved, your copy will be removed again. You have to resolve the conflict "
 "first."
 msgstr ""
+"Zauważ, że jeśli skopiujesz brakujący plik z repozytorium, a następnie "
+"oznaczysz jako rozwiązany, kopia zostanie usunięta. Musisz rozwiązać "
+"konflikt w pierwszej kolejności."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
-msgstr ""
+msgstr "Lokalna edycja, przychodzące usunięcie podczas scalenia"
 
 #. (para)
 #. (para)
@@ -5640,18 +5900,24 @@ msgid ""
 "Developer A working on trunk moves <filename>Foo.c</filename> to "
 "<filename>Bar.c</filename> and commits it to the repository."
 msgstr ""
+"Deweloper A pracując na linii głównej przenosi <filename>Foo.c</filename> do"
+" <filename>Bar.c</filename> i zatwierdza go w repozytorium."
 
 #. (para)
 msgid ""
 "Developer B working on a branch modifies <filename>Foo.c</filename> and "
 "commits it to the repository."
 msgstr ""
+"Deweloper B pracując na gałęzi zmienia <filename>Foo.c</filename> i "
+"zatwierdza go w repozytorium."
 
 #. (para)
 msgid ""
 "There is an equivalent case for folder moves, but it is not yet detected in "
 "Subversion 1.6 ..."
 msgstr ""
+"Jest odpowiednik dla przesunięć folderu, ale jeszcze nie wykrywany w "
+"Subversion 1.6 ..."
 
 #. (para)
 msgid ""
@@ -5659,20 +5925,27 @@ msgid ""
 "<filename>FooFolder</filename> to <filename>BarFolder</filename> and commits"
 " it to the repository."
 msgstr ""
+"Deweloper A pracując na linii głównej przenosi folder nadrzędny "
+"<filename>FooFolder</filename> do <filename>BarFolder</filename> i "
+"zatwierdza to w repozytorium."
 
 #. (para)
 msgid ""
 "Developer B working on a branch modifies <filename>Foo.c</filename> in her "
 "working copy."
 msgstr ""
+"Deweloper B pracując na gałęzi zmienia  <filename>Foo.c</filename> w kopii "
+"roboczej."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
-msgstr ""
+msgstr "<filename>Bar.c</filename> zostaje zaznaczony jako dodany."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
 msgstr ""
+"<filename>Foo.c</filename> zostaje zaznaczony jako zmieniony z konfliktem "
+"drzewa."
 
 #. (para)
 msgid ""
@@ -5687,6 +5960,17 @@ msgid ""
 "deleted. In this case use the <guilabel>Remove</guilabel> button in the "
 "conflict editor dialog to clean up and mark the conflict as resolved."
 msgstr ""
+"Aby scalić miejscowe zmiany z przetasowania, deweloper B musi najpierw "
+"dowiedzieć się, na jaką nazwę plik skonfliktowany <filename>Foo.c</filename>"
+" został przemianowany/przeniesiony w repozytorium. Można to zrobić za pomocą"
+" okna dziennika dla źródła scalenia. Edytor konfliktu pokazuje tylko "
+"dziennik kopii roboczej, ponieważ nie wie, jaka ścieżka została użyta "
+"scalenia, zatem będziesz musiał znaleźć ją sam. Zmiany muszą być połączone "
+"ręcznie, jako że nie ma obecnie sposobu na zautomatyzowanie lub nawet "
+"uproszczenie tego procesu. Gdy już zmiany zostały naniesione, skonfliktowana"
+" ścieżka jest zbędna i może zostać usunięta. W tym przypadku należy użyć "
+"przycisku <guilabel>Usuń</guilabel> w oknie edytora konfliktu, aby oczyścić "
+"i zaznaczyć konflikt jako rozwiązany."
 
 #. (para)
 msgid ""
@@ -5696,29 +5980,40 @@ msgid ""
 " removed by hand. Again the log dialog for the merge source helps to track "
 "down what was moved."
 msgstr ""
+"Jeśli Developer B decyduje, że zmiana A jest niepoprawna,  musi wybrać "
+"przycisk <guilabel>Zachowaj</guilabel> w oknie edytora konfliktu. Zaznacza "
+"to skonfliktowany plik/folder jako rozwiązany, ale zmiany dewelopera A "
+"trzeba usunąć ręcznie. Ponownie okno dziennika dla źródła scalenia pomaga "
+"wyśledzić, co zostało przeniesione."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
-msgstr ""
+msgstr "Lokalne usunięcie, przychodzące usunięcie podczas scalenia"
 
 #. (para)
 msgid ""
 "Developer B working on a branch moves <filename>Foo.c</filename> to "
 "<filename>Bix.c</filename> and commits it to the repository."
 msgstr ""
+"Deweloper B pracując na kopii roboczej przenosi <filename>Foo.c</filename> "
+"do <filename>Bix.c</filename> i zatwierdza to do repozytorium."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
 msgstr ""
+"<filename>Bix.c</filename> zostaje oznaczony statusemzwykły "
+"(niezmodyfikowany)."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bar.c</filename> jest oznaczony jako dodany z historią."
 
 #. (para)
 msgid ""
 "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
 msgstr ""
+"<filename>Foo.c</filename>jest oznaczony jako brakujący i ma konflikt "
+"drzewa."
 
 #. (para)
 msgid ""
@@ -5729,10 +6024,16 @@ msgid ""
 "know which path was used in the merge, so you will have to find that "
 "yourself."
 msgstr ""
+"Aby rozwiązać ten konflikt, Developer B musi dowiedzieć, na jaką nazwę "
+"przemianowano/przeniesiono  plik konfliktu <filename>Foo.c</filename> w "
+"repozytorium. Można to zrobić za pomocą okna dziennika dla źródła scalenia. "
+"Edytor konfliktu pokazuje tylko dziennik kopii roboczej, ponieważ nie wie, "
+"jaka ścieżka została użyty do scalenia, zatem trzeba będzie znaleźć go "
+"samodzielnie."
 
 #. (title)
 msgid "Other tree conflicts"
-msgstr ""
+msgstr "Inne konflikty drzewa"
 
 #. (para)
 msgid ""
@@ -5745,23 +6046,31 @@ msgid ""
 " run the merge again. If you need anything more complicated then you have to"
 " resolve manually."
 msgstr ""
+"Istnieją inne przypadki, które są oznakowane jako konflikty drzewa tylko "
+"dlatego, że konflikt dotyczy folderu, a nie pliku. Na przykład, jeśli "
+"dodałeś folder o tej samej nazwie zarówno do linii głównej jak i gałęzi, a "
+"następnie spróbowałeś je scalić, otrzymasz konfliktu drzewa. Jeśli chcesz, "
+"zachować folder z celu scalenia, po prostu oznacz konflikt jako rozwiązany. "
+"Jeśli chcesz zachować źródło scalenia, musisz najpierw SVN usunąć ten z celu"
+" i dopiero i uruchomić ponownie scalenie. Jeśli wymagane jest cokolwiek "
+"bardziej skomplikowanego, trzeba to rozwiązać ręcznie."
 
 #. (title)
 msgid "Getting Status Information"
-msgstr ""
+msgstr "Ustalenie informacji o stanie"
 
 #. (primary)
 #. (primary)
 msgid "status"
-msgstr ""
+msgstr "stan"
 
 #. (primary)
 msgid "view changes"
-msgstr ""
+msgstr "przegląd zmian"
 
 #. (primary)
 msgid "working copy status"
-msgstr ""
+msgstr "status kopii roboczej"
 
 #. (para)
 msgid ""
@@ -5769,15 +6078,18 @@ msgid ""
 "files you have changed/added/removed or renamed, or even which files got "
 "changed and committed by others."
 msgstr ""
+"Podczas pracy na kopii roboczej często trzeba wiedzieć, które pliki zostały "
+"zmienione/dodane/usunięte lub przemianowane, a nawet pliki, które zmienione "
+"i zatwierdzone przez innych."
 
 #. (primary)
 #. (primary)
 msgid "overlays"
-msgstr ""
+msgstr "nakładki"
 
 #. (primary)
 msgid "icons"
-msgstr ""
+msgstr "ikony"
 
 #. (para)
 msgid ""
@@ -5788,6 +6100,12 @@ msgid ""
 " Depending on the Subversion status of the file the overlay icon is "
 "different."
 msgstr ""
+"Teraz, gdy już zaktualizowałeś kopię roboczą z repozytorium Subversion "
+"możesz zobaczyć swoje pliki w Eksploratorze Windows ze zmienionymi ikonami. "
+"Jest to jeden z powodów, TortoiseSVN jest tak popularny. TortoiseSVN dodaje "
+"tzw nakładkę ikony na każdej ikonie pliku, który częściowo przesłania "
+"oryginalną ikonę pliku. W zależności od stanu pliku w Subversion nakładka "
+"ikony jest inna."
 
 #. (para)
 msgid ""
@@ -5795,6 +6113,9 @@ msgid ""
 "working copy has a green checkmark as overlay. That means the Subversion "
 "status is <emphasis>normal</emphasis>."
 msgstr ""
+"<graphic fileref=\"../images/InSubVersionIcon.png\"/> nowozaktualizowane "
+"pliki kopii roboczej mają jako nakładkę zielony znacznik wyboru. Oznacza "
+"ona, że posiadają <emphasis>zwykły</emphasis> stan w Subversion."
 
 #. (para)
 msgid ""
@@ -5804,6 +6125,11 @@ msgid ""
 " see which files were changed since you last updated your working copy and "
 "need to be committed."
 msgstr ""
+"<graphic fileref=\"../images/ModifiedIcon.png\"/> Jak tylko zaczynasz "
+"edytować plik, status zmienia się na <emphasis>zmodyfikowane</emphasis> a "
+"nakładka ikony zmienia się na czerwony wykrzyknik. W ten sposób można łatwo "
+"sprawdzić, które pliki zostały zmienione od czasu ostatniej aktualizacji "
+"kopii roboczej i muszą zostać zatwierdzone."
 
 #. (para)
 msgid ""
@@ -5811,6 +6137,9 @@ msgid ""
 "<emphasis>conflict</emphasis> occurs then the icon changes to a yellow "
 "exclamation mark."
 msgstr ""
+"<graphic fileref=\"../images/ConflictIcon.png\"/> Jeśli podczas aktualizacji"
+" ma miejsce <emphasis>konflikt</emphasis>, ikona zmienia się na żółty "
+"wykrzyknik."
 
 #. (para)
 msgid ""
@@ -5820,6 +6149,11 @@ msgid ""
 "overlay to indicate that you have to get a lock first before you can edit "
 "that file."
 msgstr ""
+"<graphic fileref=\"../images/ReadOnlyIcon.png\"/> Jeśli masz ustawiony "
+"atrybut <literal>svn:needs-lock</literal> na pliku, Subversion, ustawia ​​"
+"plik w stan tylko do odczytu do czasu, aż ten plik zablokujesz. Pliki takie "
+"mają tę nakładkę aby wskazać, że trzeba nałożyć blokadę zanim można edytować"
+" pliku."
 
 #. (para)
 msgid ""
@@ -5828,6 +6162,10 @@ msgid ""
 "overlay reminds you that you should release the lock if you are not using it"
 " to allow others to commit their changes to the file."
 msgstr ""
+"<graphic fileref=\"../images/LockedIcon.png\"/> Jeśli utrzymujesz blokadę na"
+" pliku, a jego status Subversion jest <emphasis>zwykły</emphasis>, ta "
+"nakładka ikony przypomina, że ​​należy zwolnić blokadę jeśli pliku nie "
+"używasz, by inni mogli zatwierdzić na nim swoje zmiany."
 
 #. (para)
 msgid ""
@@ -5836,6 +6174,10 @@ msgid ""
 "<emphasis>deleted</emphasis> from version control or a file under version "
 "control is missing in a folder."
 msgstr ""
+"<graphic fileref=\"../images/DeletedIcon.png\"/> Ta ikona wskazuje, że "
+"niektóre pliki lub foldery w folderze bieżącym zostały zaplanowane do "
+"<emphasis>usunięcia</emphasis> z kontroli wersji lub brakuje w folderze "
+"pliku pod kontrolą wersji."
 
 #. (para)
 msgid ""
@@ -5843,6 +6185,9 @@ msgid ""
 "a file or folder has been scheduled to be <emphasis>added</emphasis> to "
 "version control."
 msgstr ""
+"<graphic fileref=\"../images/AddedIcon.png\"/>Znak plus informuje, że plik "
+"lub folder został zaplanowany na <emphasis>dodanie</emphasis> do kontroli "
+"wersji."
 
 #. (para)
 msgid ""
@@ -5850,6 +6195,9 @@ msgid ""
 " a file or folder is <emphasis>ignored</emphasis> for version control "
 "purposes. This overlay is optional."
 msgstr ""
+"<graphic fileref=\"../images/IgnoredIcon.png\"/> Znak paska informuje, że "
+"plik lub folder jest <emphasis>ignorowany</emphasis> do celów kontroli "
+"wersji. Ta nakładka jest opcjonalna."
 
 #. (para)
 msgid ""
@@ -5857,6 +6205,9 @@ msgid ""
 "and folders which are not under version control, but have not been ignored. "
 "This overlay is optional."
 msgstr ""
+"<graphic fileref=\"../images/UnversionedIcon.png\"/> Ta ikona wskazuje, "
+"pliki i foldery, które nie są pod kontrolą wersji oraz nie zostały "
+"zignorowane. Nakładka jest opcjonalna."
 
 #. (para)
 msgid ""
@@ -5867,6 +6218,12 @@ msgid ""
 "Citizen (TM)</quote> and limits its use of overlays to give other apps a "
 "chance too."
 msgstr ""
+"W rzeczywistości może się okazać, że nie wszystkie te ikony są używane w "
+"systemie. To dlatego, że liczba nakładek dozwolonych przez system Windows "
+"jest bardzo ograniczona i jeśli używasz również starszej wersji TortoiseCVS,"
+" to nie ma dostępnej wystarczającej liczby gniazd nakładek. TortoiseSVN "
+"stara się być <quote>Dobrym Obywatelem (TM)</quote> i ogranicza stosowanie "
+"swoich nakładek by dać szansę również innym aplikacjom."
 
 #. (para)
 msgid ""
@@ -5876,6 +6233,12 @@ msgid ""
 "which can be used by all Tortoise clients. Check with your client provider "
 "to see if this has been integrated yet :-)"
 msgstr ""
+"Teraz, jako że jest wokół więcej klientów Tortoise (TortoiseCVS, TortoiseHg,"
+" ...) limit ikon staje się prawdziwym problemem. Aby go obejść, projekt "
+"TortoiseSVN  wprowadził ogólnodostępny wspólny zestaw ikon, ładowany jako "
+"DLL, który może być wykorzystany przez wszystkie klienty Tortoise. "
+"Skontaktuj się z operatorem klienta aby sprawdzić, czy ta funkcja została "
+"już włączona :-)"
 
 #. (para)
 msgid ""
@@ -5883,18 +6246,21 @@ msgid ""
 "other technical details, read <xref linkend=\"tsvn-app-internals-"
 "overlays\"/>."
 msgstr ""
+"Aby poznać zależność pomiędzy nakładkami ikon i odpowiadającymi im stanami "
+"Subversion oraz inne szczegóły techniczne, przeczytaj <xref linkend=\"tsvn-"
+"app-internals-overlays\"/>."
 
 #. (title)
 msgid "Detailed Status"
-msgstr ""
+msgstr "Status szczegółowy"
 
 #. (primary)
 msgid "windows properties"
-msgstr ""
+msgstr "właściwości Windows"
 
 #. (title)
 msgid "Explorer property page, Subversion tab"
-msgstr ""
+msgstr "Strona właściwości Eksploratora, zakładka Subversion"
 
 #. (para)
 msgid ""
@@ -5909,14 +6275,25 @@ msgid ""
 "Subversion control, where you can see all relevant information about the "
 "selected file/directory."
 msgstr ""
+"<placeholder-1/> Czasami chcesz uzyskać bardziej szczegółowe informacje o "
+"pliku/katalogu niż tylko nakładka ikony. Możesz pobrać wszystkie informacje "
+"dostarczane przez Subversion w oknie dialogowym właściwości exploratora. "
+"Wystarczy wybrać plik lub katalog i wskazać <menuchoice><guimenu>Menu "
+"kontekstowe "
+"Windows</guimenu><guimenuitem>Właściwości</guimenuitem></menuchoice> (uwaga:"
+" to jest normalne wejście menu właściwości zapewniane przez Eksplorator, a "
+"nie to z podmenu TortoiseSVN!). W oknie dialogowym właściwości TortoiseSVN "
+"dodaje nową zakładkę właściwości dla plików/folderów pod kontrolą "
+"Subversion, gdzie można zobaczyć wszystkie istotne informacje o wybranym "
+"pliku/katalogu."
 
 #. (title)
 msgid "TortoiseSVN Columns In Windows Explorer"
-msgstr ""
+msgstr "Kolumny TortoiseSVN w Eksploratorze Windows"
 
 #. (primary)
 msgid "Explorer Columns"
-msgstr ""
+msgstr "Kolumny eksploratora"
 
 #. (para)
 msgid ""
@@ -5924,6 +6301,9 @@ msgid ""
 "more) can be displayed as additional columns in Windows Explorer's Details "
 "View."
 msgstr ""
+"Te same informacje, które są dostępne przez nakładki ikon (i wiele innych) "
+"mogą być wyświetlane jako dodatkowe kolumny w widoku Szczegóły Eksploratora "
+"Windows."
 
 #. (para)
 msgid ""
@@ -5936,6 +6316,15 @@ msgid ""
 "columns will be appended to the right of those currently displayed. You can "
 "reorder them by drag and drop, or resize them, so that they fit your needs."
 msgstr ""
+"Kliknij prawym przyciskiem myszy na jeden z nagłówków kolumny, wybierz "
+"<guimenuitem>Więcej…</guimenuitem> z wyświetlonego menu kontekstowego. "
+"Pojawi się okno dialogowe, w którym można określić kolumny i ich kolejność, "
+"układ jest wyświetlany na liście <quote>Szczegóły</quote>. Przewiń ją aż "
+"ukażą się do pozycje z SVN na początku. Zaznacz te, które powinny być "
+"wyświetlane i zamknij okno, naciskając <guibutton>OK</guibutton>. Kolumny "
+"zostaną dołączone z prawej strony do ych, które są obecnie wyświetlane. "
+"Można zmieniać ich kolejność przeciągając i upuszczając, a także zmieniać "
+"ich rozmiar, tak aby pasowały do ​​potrzeb."
 
 #. (para)
 msgid ""
@@ -5943,25 +6332,31 @@ msgid ""
 "since Microsoft decided to not allow such columns for "
 "<emphasis>all</emphasis> files anymore but only for specific file types."
 msgstr ""
+"Dodatkowe kolumny w Eksploratorze Windows nie są dostępne w systemie Vista, "
+"ponieważ Microsoft zdecydował się nie zezwalać już na takie kolumny dla "
+"<emphasis>wszystkich</emphasis> plików ale tylko dla określonych typów "
+"plików."
 
 #. (para)
 msgid ""
 "If you want the current layout to be displayed in all your working copies, "
 "you may want to make this the default view."
 msgstr ""
+"Jeśli chcesz by bieżący układ był wyświetlany we wszystkich kopiach "
+"roboczych, możesz chcieć uczynić ten widok domyślnym."
 
 #. (title)
 msgid "Local and Remote Status"
-msgstr ""
+msgstr "Status lokalny i zdalny"
 
 #. (primary)
 msgid "modifications"
-msgstr ""
+msgstr "zmiany"
 
 #. (title)
 #. (title)
 msgid "Check for Modifications"
-msgstr ""
+msgstr "Sprawdź zmiany"
 
 #. (para)
 msgid ""
@@ -5972,6 +6367,13 @@ msgid ""
 " show you every file that has changed in any way in your working copy, as "
 "well as any unversioned files you may have."
 msgstr ""
+"<placeholder-1/> Często warto wiedzieć, które pliki zmieniłeś, oraz które "
+"pliki zostały zmienione i zatwierdzone przez innych. To miejsce, gdzie "
+"przydatne staje się polecenie "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Sprawdź "
+"zmiany...</guimenuitem></menuchoice>. To okno pokazuje  wszystkie pliki, "
+"które zmieniły się w jakikolwiek sposób w kopii roboczej, jak również te, "
+"które możesz mieć bez kontroli wersji."
 
 #. (para)
 msgid ""
@@ -5985,10 +6387,19 @@ msgid ""
 "then you have to hold down the <keycap>Shift</keycap> key when you click on "
 "the <guibutton>Check Repository</guibutton> button."
 msgstr ""
+"Jeśli klikniesz na <guibutton>Sprawdź repozytorium</guibutton>, możesz "
+"również przeglądać zmiany w repozytorium. W ten sposób można sprawdzić przed"
+" aktualizacją, czy mamy jakiś potencjalny konflikt. Można także "
+"zaktualizować wybrane pliki z repozytorium bez aktualizowania całego "
+"folderu. Domyślnie przycisk <guibutton>Sprawdź repozytorium</guibutton> "
+"odczytuje tylko zdalny status na głębokość pobrania z kopii roboczej. Jeśli "
+"chcesz zobaczyć wszystkie pliki i foldery w repozytorium, nawet te, które "
+"nie zostały pobrane, musisz przytrzymać klawisz <keycap>Shift</keycap>, "
+"podczas kliknięcia na przycisk <guibutton>Sprawdź repozytorium</guibutton>."
 
 #. (para)
 msgid "Locally modified items."
-msgstr ""
+msgstr "Elementy zmienione lokalnie"
 
 #. (para)
 msgid ""
@@ -5996,16 +6407,22 @@ msgid ""
 "<literal>+</literal> sign in the <guilabel>Text status</guilabel> column, "
 "and a tooltip shows where the item was copied from."
 msgstr ""
+"Elementy dodane. Obiekty, które zostały dodane z historią posiadają znak "
+"<literal>+</literal> w kolumnie <guilabel>Status tekstowy</guilabel>, a "
+"podpowiedź pokazuje, skąd element został skopiowany."
 
 #. (para)
 msgid "Deleted or missing items."
-msgstr ""
+msgstr "Elementy usunięte i brakujące"
 
 #. (para)
 msgid ""
 "Items modified locally and in the repository. The changes will be merged on "
 "update. These <emphasis>may</emphasis> produce conflicts on update."
 msgstr ""
+"Pozycje zmienione lokalnie i w repozytorium. Zmiany zostaną scalone podczas "
+"aktualizacji.<emphasis>Mogą</emphasis> one powodować konflikty podczas "
+"aktualizacji."
 
 #. (para)
 msgid ""
@@ -6013,15 +6430,20 @@ msgid ""
 "and deleted locally. These <emphasis>will</emphasis> produce conflicts on "
 "update."
 msgstr ""
+"Pozycje zmienione lokalnie, usunięte w repozytorium lub zmienione w "
+"repozytorium i usunięte lokalnie. One <emphasis>muszą</emphasis> spowodować "
+"konflikty aktualizacji."
 
 #. (para)
 msgid "Unchanged and unversioned items."
-msgstr ""
+msgstr "Elementy niezmienione i niewersjonowane."
 
 #. (para)
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr ""
+"Okno dialogowe używa kodowanie kolorami aby zaznaczyć status. "
+"<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -6032,6 +6454,13 @@ msgid ""
 " others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show "
 "Differences as Unified Diff</guimenuitem></menuchoice>."
 msgstr ""
+"Z menu kontekstowego w oknie dialogowym można pokazać różnice zmian. Sprawdź"
+" lokalne zmiany, zrobione przez <emphasis>Ciebie</emphasis> korzystając z "
+"<menuchoice><guimenu>Menu kontekstowego</guimenu><guimenuitem>Porównaj z "
+"BASE</guimenuitem></menuchoice>. Sprawdź zmiany dokonane w repozytorium "
+"przez innych użytkowników <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Pokaż różnice w formacie Unified "
+"Diff</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -6039,6 +6468,9 @@ msgid ""
 "accidentally, it will show up as <emphasis>Missing</emphasis> and you can "
 "use <emphasis>Revert</emphasis> to recover it."
 msgstr ""
+"Można też zawrócić zmiany w poszczególnych plikach. Jeśli usunięto plik "
+"przypadkowo, pokaże się jako <emphasis>Nie znaleziono</emphasis> i możesz "
+"użyć <emphasis>Wycofaj zmiany</ emphasis>, aby go odzyskać."
 
 #. (para)
 msgid ""
@@ -6048,6 +6480,11 @@ msgid ""
 " delete files permanently (bypassing the recycle bin) hold the "
 "<keycap>Shift</keycap> key while clicking on <guilabel>Delete</guilabel>."
 msgstr ""
+"Niewersjonowane i ignorowane pliki mogą być wysłane do kosza przy użyciu "
+"<menuchoice><guimenu>Menu "
+"kontekstowego</guimenu><guimenuitem>Usuń</guimenuitem></menuchoice>. Jeśli "
+"chcesz usunąć pliki na stałe (z pominięciem kosza) przytrzymaj klawisz "
+"<keycap>Shift</keycap> podczas klikanięcia <guilabel>Usuń</guilabel>."
 
 #. (para)
 msgid ""
@@ -6055,6 +6492,9 @@ msgid ""
 "another application such as a text editor or IDE, or you can save a copy "
 "simply by dragging it into a folder in explorer."
 msgstr ""
+"Jeśli chcesz zbadać plik szczegółowo, możesz przeciągnąć go stąd do innych "
+"aplikacji, takich jak edytor tekstowy lub IDE, albo po prostu zapisać kopię "
+"przeciągając go do folderu w Eksploratorze."
 
 #. (para)
 msgid ""
@@ -6064,6 +6504,12 @@ msgid ""
 "handle which appears when you move the mouse over a column boundary. These "
 "customizations are preserved, so you will see the same headings next time."
 msgstr ""
+"Kolumny są konfigurowalne. Jeśli <action>klikniesz prawym przyciskiem "
+"myszy</action> na dowolny nagłówek kolumny a pojawi się menu kontekstowe, "
+"które pozwala wybrać, które kolumny są wyświetlane. Można również zmienić "
+"szerokość kolumny przy użyciu uchwytu przeciągnięcia, który pojawia się po "
+"najechaniu wskaźnikiem myszy na granicę kolumny. Te dostosowania są "
+"zapamiętywane, więc następnym razem widać ten sam poprawiony układ pozycji."
 
 #. (para)
 msgid ""
@@ -6071,6 +6517,9 @@ msgid ""
 "files together into changelists. Read <xref linkend=\"tsvn-dug-commit-"
 "changelists\"/> for more information."
 msgstr ""
+"Jeśli pracujesz nad kilkoma niepowiązanymi zadaniami jednocześnie, można "
+"także grupować pliki w listy zmian. Czytaj <xref linkend=\"tsvn-dug-commit-"
+"changelists\"/> by uzyskać więcej informacji."
 
 #. (para)
 msgid ""
@@ -6083,6 +6532,15 @@ msgid ""
 " working copy. If you want to see that information for the whole working "
 "copy you must check the <guilabel>Show unmodified files</guilabel> checkbox."
 msgstr ""
+"W dolnej części okna można zobaczyć podsumowanie zakresu wersji w "
+"repozytorium wykorzystanego w kopii roboczej. Są to rewizje "
+"<emphasis>zatwierdzeń</emphasis> wersjami, a nie wersje "
+"<emphasis>aktualizacji</emphasis>; stanowią one zakres wersji gdzie pliki "
+"zostały zatwierdzone po raz ostatni, a nie wersje do których zostały "
+"zaktualizowane. Należy pamiętać, że wyświetlany zakres wersji stosuje się "
+"tylko do elementów wyświetlanych, a nie do całej kopii roboczej. Jeśli "
+"chcesz zobaczyć, że informacje dla całej kopii roboczej należy zaznaczyć "
+"pole wyboru <guilabel>Pokaż niezmienione pliki</ guilabel>."
 
 #. (para)
 msgid ""
@@ -6092,14 +6550,19 @@ msgid ""
 "check the <guilabel>Show unmodified files</guilabel> checkbox to show all "
 "files in your working copy."
 msgstr ""
+"Jeśli chcesz płaskiego widoku kopii roboczej, czyli wyświetlania wszystkich "
+"plików i folderów na każdym szczeblu hierarchii, to okno dialogowe "
+"<guilabel>Sprawdź zmiany</guilabel> jest najprostszym sposobem, aby to "
+"osiągnąć. Wystarczy zaznaczyć pole wyboru <guilabel>Pokaż niezmienione "
+"pliki</guilabel>, aby wyświetlić wszystkie pliki w kopii roboczej."
 
 #. (title)
 msgid "Viewing Diffs"
-msgstr ""
+msgstr "Przeglądanie różnic"
 
 #. (primary)
 msgid "diffing"
-msgstr ""
+msgstr "porównywanie"
 
 #. (para)
 msgid ""
@@ -6110,12 +6573,21 @@ msgid ""
 "file with the pristine copy (<literal>BASE</literal> revision), which was "
 "stored after the last checkout or update."
 msgstr ""
+"Często chcesz zajrzeć do plików, aby zobaczyć co zmieniłeś. Można to zrobić "
+"poprzez wybranie pliku, który został zmieniony i wybierając "
+"<guimenuitem>Porównaj</ guimenuitem> z menu kontekstowego TortoiseSVN. "
+"Spowoduje to uruchomienie zewnętrznej przeglądarki diffów, która będzie "
+"następnie porównać aktualny plik z kopią pierwotną (wersją "
+"<literal>BAZY</literal>), która została zapisana podczas ostatniego pobrania"
+" lub aktualizacji."
 
 #. (para)
 msgid ""
 "Even when not inside a working copy or when you have multiple versions of "
 "the file lying around, you can still display diffs:"
 msgstr ""
+"Nawet na zewnątrz z kopii roboczej lub w przypadku wielu rozrzucenia wielu "
+"wersji pliku, nadal można wyświetlać pliki różnic:"
 
 #. (para)
 msgid ""
@@ -6125,10 +6597,15 @@ msgid ""
 "clicked last (the one with the focus, i.e. the dotted rectangle) will be "
 "regarded as the later one."
 msgstr ""
+"Wybierz dwa pliki, które chcesz porównać w Eksploratorze (np. za pomocą "
+"<keycap>Ctrl</keycap> i kliknięcia myszą) i wybierz "
+"<guimenuitem>Porównaj</guimenuitem> z menu kontekstowego TortoiseSVN. Plik "
+"kliknięty ostatni (ten z fokusem, tj. w kropkowanym prostokącie) będzie "
+"uznany jako ostatni."
 
 #. (primary)
 msgid "changelist"
-msgstr ""
+msgstr "lista zmian"
 
 #. (para)
 msgid ""
@@ -6141,6 +6618,15 @@ msgid ""
 "can only work if the changes do not overlap. If two different tasks affect "
 "the same file, there is no way to separate the changes."
 msgstr ""
+"W idealnym świecie, pracujesz zawsze tylko nad jedną rzeczą na raz, i kopia "
+"robocza zawiera tylko jeden zestaw logicznych zmian. OK, powrót do "
+"rzeczywistości. Często zdarza się, że trzeba pracować nad kilkoma "
+"niepowiązanymi zadaniami na raz, a kiedy patrzysz w dialog zatwierdzenia, "
+"wszystkie zmiany są przemieszane razem. Funkcja <firstterm>lista "
+"zmian</firstterm> umożliwia grupowanie plików, dzięki czemu można łatwiej "
+"zorientować się, co robisz. Oczywiście może to tylko wtedy, gdy zmiany nie "
+"zachodzą na siebie. Jeśli dwa różne zadania dotykają tego samego pliku, nie "
+"ma sposobu, aby oddzielić zmiany."
 
 #. (para)
 msgid ""
@@ -6151,6 +6637,11 @@ msgid ""
 "listed together. Suppose you now want to organise things and group those "
 "files according to feature."
 msgstr ""
+"Możesz zobaczyć listy zmian w kilku miejscach, ale najważniejszymi są okna "
+"dialogowe zatwierdzenia i sprawdź-zmiany. Zacznijmy od dialogu sprawdź-"
+"zmiany po pracy na kilka funkcjach i wielu plikach. Przy pierwszym otwarciu "
+"okna, wszystkie zmienione pliki są wymienione razem. Załóżmy, że teraz "
+"chcesz zorganizować rzeczy i pogrupować te pliki według funkcji."
 
 #. (para)
 msgid ""
@@ -6161,6 +6652,13 @@ msgid ""
 "describes what you are using it for, and click <guibutton>OK</guibutton>. "
 "The dialog will now change to show groups of items."
 msgstr ""
+"Wybierz jeden lub więcej plików i skorzystaj z <menuchoice><guimenu>Menu "
+"kontekstowego</guimenu><guimenuitem>Przenieś do listy "
+"zmian</guimenuitem></menuchoice>, aby dodać element do listy zmian. "
+"Początkowo nie będzie list zmian, więc gdy robisz to po raz pierwszy należy "
+"utworzyć nową listę zmian. Nadaj nazwę, opisującą to, do czego jej używasz, "
+"a następnie kliknij <guibutton>OK</guibutton>. Okno dialogowe zmienia się "
+"teraz, aby pokazać grupy elementów."
 
 #. (para)
 msgid ""
@@ -6170,10 +6668,16 @@ msgid ""
 "the file is modified. You could do that from the check-for-modifications "
 "dialog, but only by displaying all unmodified files."
 msgstr ""
+"Po utworzeniu listy zmian można przeciągać i upuszczać do niej elementy nie "
+"należące do żadnej, przynależące do innej listy zmian, lub z Eksploratora "
+"Windows. Przeciąganie z Exploratora może być przydatne, ponieważ pozwala na "
+"dodawanie elementów do listy zmian zanim jeszcze plik zostanie "
+"zmodyfikowany. Mógłbyś to zrobić również z okna dialogowego sprawdzenia "
+"modyfikacji, ale tylko przez wyświetlenie wszystkich niezmienionych plików."
 
 #. (title)
 msgid "Commit dialog with Changelists"
-msgstr ""
+msgstr "Okno dialogowe zatwierdzenia z listami zmian"
 
 #. (para)
 msgid ""
@@ -6182,6 +6686,10 @@ msgid ""
 "groupings, you can also use the group headings to select which files to "
 "commit."
 msgstr ""
+"<placeholder-1/> W oknie dialogowym zatwierdzenia można zobaczyć te same "
+"pliki, pogrupowane według listy zmian. Oprócz zapewnienia natychmiastowego "
+"wizualnego wskazania grupy, można również użyć pozycji grupy, aby wybrać "
+"pliki do zatwierdzenia."
 
 #. (para)
 msgid ""
@@ -6190,6 +6698,12 @@ msgid ""
 "however the context menu is not necessary. Click on the group header to "
 "select all entries, then check one of the selected entries to check all."
 msgstr ""
+"Na XP, jest menu kontekstowe wyświetlane po kliknięciu prawym przyciskiem "
+"myszy na pozycji grupy, które daje Ci możliwość wyboru, aby zaznaczyć lub "
+"wyczyścić zaznaczenie wszystkich wpisów w grupie. Na Vista jednak menu "
+"kontekstowe nie jest konieczne. Kliknij na nagłówku grupy, aby zaznaczyć "
+"wszystkie pozycje, a następnie zaznacz jedną z wybranych pozycji, co "
+"zaznaczy je wszystkie."
 
 #. (para)
 msgid ""
@@ -6198,6 +6712,11 @@ msgid ""
 "almost never want to commit even though they have local changes. This "
 "feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 msgstr ""
+"TortoiseSVN rezerwuje jedną nazwę listy zmian na własny użytek, a mianowicie"
+" <literal>ignore-on-commit</literal>. Jest ona używana do oznaczania "
+"wersjonowanych plików, których prawie nigdy nie masz zamiaru zatwierdzić "
+"mimo że są zmieniane lokalnie. Funkcja ta jest opisana w <xref linkend"
+"=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
 msgid ""
@@ -6207,6 +6726,8 @@ msgid ""
 "retain the file in its changelist, use the <guilabel>Keep "
 "changelists</guilabel> checkbox at the bottom of the commit dialog."
 msgstr ""
+"Kiedy zatwierdzasz pliki należące do listy zmian, to zwykle można się spodziewać, że pozostanie członkiem listy zmian nie jest już potrzebne. Stąd też domyślnie pliki są usuwane z list zmian automatycznie podczas zatwierdzenia. Jeśli chcesz zachować plik w liście zmian, należy użyć pola wyboru <guilabel>\t\n"
+"Zachowaj &listy zmian</guilabel> u dołu okna dialogowego zatwierdzenia."
 
 #. (para)
 msgid ""
@@ -6214,26 +6735,29 @@ msgid ""
 "changelists will not affect the repository, nor anyone else's working copy. "
 "They are simply a convenient way for you to organise your files."
 msgstr ""
+"Listy zmian są cechą wyłącznie lokalnego klienta. Tworzenie i usuwanie list "
+"zmian nie wpływa na repozytorium, ani niczyich innych w kopii roboczych. "
+"Stanowią po prostu wygodny sposób na zorganizowanie swoich plików."
 
 #. (title)
 msgid "Revision Log Dialog"
-msgstr ""
+msgstr "Okno dialogowe dziennika wersji"
 
 #. (primary)
 msgid "log"
-msgstr ""
+msgstr "dziennik"
 
 #. (primary)
 msgid "history"
-msgstr ""
+msgstr "historia"
 
 #. (primary)
 msgid "commit messages"
-msgstr ""
+msgstr "komunikaty zatwierdzenia"
 
 #. (primary)
 msgid "log messages"
-msgstr ""
+msgstr "komunikaty dzienika"
 
 #. (para)
 msgid ""
@@ -6241,6 +6765,10 @@ msgid ""
 "that change. That way you can later find out what changes you made and why, "
 "and you have a detailed log for your development process."
 msgstr ""
+"Dla każdej  wprowadzonej i zatwierdzonej zmiany, należy podać opis zmiany, "
+"wpisywany do dziennika. W ten sposób można później dowiedzieć się, jakie "
+"wprowadzono zmiany i dlaczego, masz też szczegółowy dziennik procesu "
+"rozwoju."
 
 #. (para)
 msgid ""
@@ -6248,22 +6776,29 @@ msgid ""
 " been committed. This summary includes the date and time, the person who "
 "committed the revision and the start of the log message."
 msgstr ""
+"Górnej części okna pokazuje lista wersji, w których zmiany pliku/folderu "
+"zostały zatwierdzone. Jej podsumowanie zawiera datę i czas, osobę, która "
+"zatwierdziła wersję oraz początek opisu zmiany."
 
 #. (para)
 msgid ""
 "Lines shown in blue indicate that something has been copied to this "
 "development line (perhaps from a branch)."
 msgstr ""
+"Linie wyświetlane na niebiesko wskazują, że coś zostało skopiowane do tej "
+"linii rozwoju (być może z gałęzi)."
 
 #. (para)
 msgid "The middle pane shows the full log message for the selected revision."
-msgstr ""
+msgstr "Środkowy panel okna pokazuje pełny opis zmian dla wybranej wersji."
 
 #. (para)
 msgid ""
 "The bottom pane shows a list of all files and folders that were changed as "
 "part of the selected revision."
 msgstr ""
+"W dolnej części okna wyświetlana jest lista wszystkich plików i folderów, "
+"które zostały zmienione w ramach wybranej wersji."
 
 #. (para)
 msgid ""
@@ -6272,34 +6807,44 @@ msgid ""
 "more than that - it provides context menu commands which you can use to get "
 "even more information about the project history."
 msgstr ""
+"Okno dialogowe dziennika wersji pobiera wszystkie te opisy zmian i pokazuje "
+"je Tobie. Wyświetlacz jest podzielony na 3 panele. <placeholder-1/> Ale na "
+"robi znacznie więcej - pozwala użyć poleceń z menu kontekstowego, co można "
+"wykorzystać, aby uzyskać jeszcze więcej informacji na temat historii "
+"projektu."
 
 #. (title)
 msgid "Invoking the Revision Log Dialog"
-msgstr ""
+msgstr "Wywołanie okna dialogowego dziennika wersji"
 
 #. (title)
 msgid "The Revision Log Dialog"
-msgstr ""
+msgstr "Okno dialogowe dziennika wersji"
 
 #. (para)
 msgid "From the TortoiseSVN context submenu"
-msgstr ""
+msgstr "Z menu kontekstowego TortoiseSVN"
 
 #. (para)
 msgid "From the property page"
-msgstr ""
+msgstr "Ze strony atrybutów"
 
 #. (para)
 msgid ""
 "From the Progress dialog after an update has finished. Then the Log dialog "
 "only shows those revisions which were changed since your last update"
 msgstr ""
+"W oknie dialogowym stanu zaawansowania po zakończeniu aktualizacji. Później "
+"okno dialogowe dziennika pokazuje tylko te wersje, które zostały zmienione "
+"od ostatniej aktualizacji"
 
 #. (para)
 msgid ""
 "<placeholder-1/> There are several places from where you can show the Log "
 "dialog: <placeholder-2/>"
 msgstr ""
+"<placeholder-1/> Jest kilka miejsc, z których można wyświetla okno dialogowe"
+" dziennika: <placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -6307,10 +6852,13 @@ msgid ""
 "offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-"
 "cache\"/>."
 msgstr ""
+"Jeśli repozytorium jest niedostępne widać okno dialogowe <guilabel>Chcesz "
+"przejść offline?</guilabel>, opisane w <xref linkend=\"tsvn-dug-showlog-"
+"cache\"/>."
 
 #. (title)
 msgid "Revision Log Actions"
-msgstr ""
+msgstr "Akcje dziennika wersji"
 
 #. (para)
 msgid ""
@@ -6318,6 +6866,9 @@ msgid ""
 "that summarize what has been done in that revision. There are four different"
 " icons, each shown in its own column."
 msgstr ""
+"Górny panel posiada kolumnę <guilabel>Akcje</guilabel> zawierającą ikony, "
+"które podsumowują to, co zostało zrobione we wskazanej wersji. Istnieją "
+"cztery różne ikony, każda zajmuje własną kolumnę."
 
 #. (para)
 msgid ""
@@ -6325,6 +6876,9 @@ msgid ""
 "modified a file or directory, the <emphasis>modified</emphasis> icon is "
 "shown in the first column."
 msgstr ""
+"<graphic fileref=\"../images/ActionModifiedIcon.png\"/> Jeśli wersja "
+"zmieniła plik lub folder, ikona <emphasis>zmodyfikowano</emphasis> pokazana "
+"jest w pierwszej kolumnie."
 
 #. (para)
 msgid ""
@@ -6332,6 +6886,9 @@ msgid ""
 "file or directory, the <emphasis>added</emphasis> icon is shown in the "
 "second column."
 msgstr ""
+"<graphic fileref=\"../images/ActionAddedIcon.png\"/> Jeśli wersja dodała "
+"plik lub folder ikona <emphasis>dodano</emphasis> pokazana jest w drugiej "
+"kolumnie."
 
 #. (para)
 msgid ""
@@ -6339,6 +6896,9 @@ msgid ""
 " a file or directory, the <emphasis>deleted</emphasis> icon is shown in the "
 "third column."
 msgstr ""
+"<graphic fileref=\"../images/ActionDeletedIcon.png\"/> Jeśli wersja usunęła "
+"plik lub folder ikona <emphasis>usunięto</emphasis> pokazana jest w trzeciej"
+" kolumnie."
 
 #. (para)
 msgid ""
@@ -6346,18 +6906,21 @@ msgid ""
 "replaced a file or directory, the <emphasis>replaced</emphasis> icon is "
 "shown in the fourth column."
 msgstr ""
+"<graphic fileref=\"../images/ActionReplacedIcon.png\"/> Jeśli wersja "
+"zastąpiła plik lub folder ikona <emphasis>zastąpiono</emphasis> pokazana "
+"jest w czwartej kolumnie."
 
 #. (title)
 msgid "Getting Additional Information"
-msgstr ""
+msgstr "Ustalenie dodatkowych informacji"
 
 #. (title)
 msgid "The Revision Log Dialog Top Pane with Context Menu"
-msgstr ""
+msgstr "Okno dialogowe dziennika wersji z menu kontekstowym"
 
 #. (term)
 msgid "Compare with working copy"
-msgstr ""
+msgstr "Porównaj z kopią roboczą"
 
 #. (para)
 msgid ""
@@ -6366,10 +6929,14 @@ msgid ""
 "for a folder, this will show you a list of changed files, and allow you to "
 "review the changes made to each file individually."
 msgstr ""
+"Porównaj wybraną wersję z kopią roboczą. Domyślne narzędzie porównywania "
+"TortoiseMerge jest dostarczane z TortoiseSVN. Jeśli okno dziennika jest "
+"otwarte dla folderu, pokaże Ci listę zmienionych plików i pozwala na "
+"przegląd zmian wprowadzonych do każdego pliku z osobna."
 
 #. (term)
 msgid "Compare and blame with working BASE"
-msgstr ""
+msgstr "Porównaj i adnotuj z roboczą BASE"
 
 #. (para)
 msgid ""
@@ -6377,10 +6944,13 @@ msgid ""
 "the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-"
 "blame-diffs\"/> for more detail. (files only)"
 msgstr ""
+"Adnotuj wybraną wersję i plik z BAZĄ roboczą oraz porównaj raporty adnotacji"
+" przy użyciu narzędzia wizualnego porównania. Czytaj <xref linkend=\"tsvn-"
+"dug-blame-diffs\"/> by uzyskać więcej szczegółów. (tylko pliki) "
 
 #. (term)
 msgid "Show changes as unified diff"
-msgstr ""
+msgstr "Pokaż zmiany jako plik różnicowy"
 
 #. (para)
 msgid ""
@@ -6389,6 +6959,10 @@ msgid ""
 "It is harder to read than a visual file compare, but will show all file "
 "changes together in a compact format."
 msgstr ""
+"Zobacz zmiany wykonane w wybranej wersji jako plik różnicowy Unified-Diff "
+"(format poprawek GNU). Pokazuje on tylko różnice w kilku liniach kontekstu. "
+"Jest to trudniejsze do odczytania niż wizualne porównywanie plików, ale "
+"pokazuje wszystkie zmiany w pliku razem w kompaktowej formie."
 
 #. (para)
 msgid ""
@@ -6397,10 +6971,13 @@ msgid ""
 "diff. These options include the ability to ignore changes in line endings "
 "and whitespaces."
 msgstr ""
+"Jeśli przytrzymasz klawisz <keycap>Shift</keycap> klikając na menu, pokaże "
+"się najpierw okno, gdzie można ustawić opcje porównywania. Opcje te obejmują"
+" zdolność do ignorowania zmian końca linii i białych znaków."
 
 #. (term)
 msgid "Compare with previous revision"
-msgstr ""
+msgstr "Porównaj z poprzednią wersją"
 
 #. (para)
 msgid ""
@@ -6409,10 +6986,14 @@ msgid ""
 "will first show the changed files dialog allowing you to select files to "
 "compare."
 msgstr ""
+"Porównuje wybraną wersję z wcześniejszą wersją. Działa w sposób podobny do "
+"porównania z kopią roboczą. W przypadku folderów ta opcja będzie najpierw "
+"pokazywać okno dialogowe zmienionych plików umożliwiające wybranie plików do"
+" porównania."
 
 #. (term)
 msgid "Compare and blame with previous revision"
-msgstr ""
+msgstr "Porównaj i adnotuj z poprzednią wersją"
 
 #. (para)
 msgid ""
@@ -6420,51 +7001,60 @@ msgid ""
 "selected revision, and the previous revision, and compare the results using "
 "a visual diff tool. (folders only)"
 msgstr ""
+"Pokazuje okno dialogowe zmienionych plików umożliwiające wybranie plików. "
+"Adnotuje wybraną wersję, a także poprzednią wersję, i porównuje wyniki, "
+"korzystając z wizualnego narzędzia porównania. (dotyczy tylko folderów)"
 
 #. (term)
 #. (term)
 msgid "Save revision to..."
-msgstr ""
+msgstr "Zapisz wersję w..."
 
 #. (para)
 msgid ""
 "Save the selected revision to a file so you have an older version of that "
 "file. (files only)"
 msgstr ""
+"Zapisz wybraną wersję do pliku, w ten sposób otrzymujesz starszą wersję tego"
+" pliku. (tylko pliki)"
 
 #. (term)
 #. (term)
 msgid "Open / Open with..."
-msgstr ""
+msgstr "Otwórz / Otwórz z..."
 
 #. (para)
 msgid ""
 "Open the selected file, either with the default viewer for that file type, "
 "or with a program you choose. (files only)"
 msgstr ""
+"Otwórz wybrany plik, albo domyślną przeglądarką dla tego typu pliku, albo w "
+"wybranym przez Ciebie programie. (tylko pliki)"
 
 #. (term)
 #. (term)
 msgid "Blame..."
-msgstr ""
+msgstr "Adnotuj..."
 
 #. (para)
 msgid "Blame the file up to the selected revision. (files only)"
-msgstr ""
+msgstr "Adnotuje plik na wybraną wersję. (tylko pliki)"
 
 #. (term)
 msgid "Browse repository"
-msgstr ""
+msgstr "Przeglądaj repozytorium"
 
 #. (para)
 msgid ""
 "Open the repository browser to examine the selected file or folder in the "
 "repository as it was at the selected revision."
 msgstr ""
+"Otwiera przeglądarkę repozytorium by sprawdzić jak wybrany plik lub folder "
+"wyglądał na wybraną wersją w repozytorium."
 
 #. (term)
 msgid "Create branch/tag from revision"
-msgstr ""
+msgstr "Tworzy gałąź/etykietę z wersji"
 
 #. (para)
 msgid ""
@@ -6472,10 +7062,13 @@ msgid ""
 "forgot to create a tag and already committed some changes which weren't "
 "supposed to get into that release."
 msgstr ""
+"Tworzenie gałęzi lub etykiety z wybranej wersji. Jest to przydatne np. jeśli"
+" zapomniałeś utworzyć etykietę i już zatwierdziłeś pewne zmiany, które nie "
+"powinny znaleźć się w tym wydaniu."
 
 #. (term)
 msgid "Update item to revision"
-msgstr ""
+msgstr "Uaktualnij element do wersji"
 
 #. (para)
 msgid ""
@@ -6485,16 +7078,24 @@ msgid ""
 "one step at a time. It is best to update a whole directory in your working "
 "copy, not just one file, otherwise your working copy could be inconsistent."
 msgstr ""
+"Aktualizuje kopię roboczą do wybranej wersji. Przydatne jeśli chcesz mieć "
+"kopię roboczą odzwierciedlającą pewien okres w przeszłości, lub jeśli "
+"zostały już wykonane kolejne zatwierdzenia do repozytorium a Ty chcesz "
+"aktualizować kopię roboczą krok po kroku. Najlepiej jest zaktualizować cały "
+"katalog w kopii roboczej, a nie pojedynczy plik, w przeciwnym razie kopia "
+"robocza może być niespójna."
 
 #. (para)
 msgid ""
 "If you want to undo an earlier change permanently, use <guilabel>Revert to "
 "this revision</guilabel> instead."
 msgstr ""
+"Jeśli chcesz cofnąć wcześniejsze zmiany na stałe, należy zamiast tego użyć "
+"<guilabel>Wycofaj zmiany do tej wersji</guilabel>."
 
 #. (term)
 msgid "Revert to this revision"
-msgstr ""
+msgstr "Wycofaj zmiany do tej wersji"
 
 #. (para)
 msgid ""
@@ -6506,6 +7107,13 @@ msgid ""
 "changes made after the selected revision, replacing the file/folder with the"
 " earlier version."
 msgstr ""
+"Powraca do wcześniejszej wersji. Jeśli wprowadzono kilka zmian, a następnie "
+"zdecydowałeś, że naprawdę chcesz, aby wrócić do tego, jak wszystko wyglądało"
+" w wersji N, jest to polecenie, którego potrzebujesz. Zmiany zostają "
+"cofnięte w kopii roboczej więc ta operacja <emphasis>nie</emphasis> wpływa "
+"na repozytorium dopóki nie zatwierdzisz zmian. Zauważ, że to spowoduje "
+"cofnięcie <emphasis>wszystkich</emphasis> zmian dokonanych po wybranej "
+"wersji przez zastąpienie pliku/folderu przez poprzednią wersję."
 
 #. (para)
 #. (para)
@@ -6515,6 +7123,9 @@ msgid ""
 "changes, this command will merge the <emphasis>undo</emphasis> changes into "
 "your working copy."
 msgstr ""
+"Jeśli kopia robocza jest w niezmienionym stanie, po wykonaniu tej czynności "
+"kopia robocza pojawi się jako zmodyfikowana. Jeśli masz już lokalne zmiany, "
+"polecenie scali <emphasis>wycofane</emphasis> zmian do kopii roboczej."
 
 #. (para)
 msgid ""
@@ -6522,6 +7133,9 @@ msgid ""
 "all the changes made after the selected revision, undoing the effect of "
 "those previous commits."
 msgstr ""
+"To co się dzieje wewnątrz opisujemy jako przeprowadzenie przez Subversion "
+"odwrotnego scalenia wszystkich zmian wprowadzonych po wybranej wersji, "
+"cofając wpływ tych ostatnich zatwierdzeń."
 
 #. (para)
 msgid ""
@@ -6532,6 +7146,12 @@ msgid ""
 " from within Windows Explorer, which will discard the local modifications "
 "made by this reverse merge action."
 msgstr ""
+"Jeśli po wykonaniu tej czynności zdecydujesz, że chcesz <emphasis>cofnąć to "
+"wycofanie</emphasis> i uzyskać dostęp do kopii roboczej z powrotem do "
+"poprzedniego niezmienionego staniu, powinieneś użyć "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Wycofaj "
+"zmiany</guimenuitem></menuchoice> w Eksploratorze Windows, co odrzuci "
+"lokalne modyfikacje dokonana przez działanie odwrotnego scalenia."
 
 #. (para)
 msgid ""
@@ -6539,11 +7159,14 @@ msgid ""
 "revision, use <guilabel>Update to revision</guilabel> or <guilabel>Save "
 "revision as...</guilabel> instead."
 msgstr ""
+"Jeśli chcesz po prostu zobaczyć, jak plik lub folder wyglądał jak w "
+"poprzedniej wersji, należy zamiast tego użyć <guilabel>Uaktualnij do "
+"wersji</guilabel> lub  <guilabel>Zapisz wersję jako...</guilabel>."
 
 #. (term)
 #. (term)
 msgid "Revert changes from this revision"
-msgstr ""
+msgstr "Wycofaj zmiany z tej wersji"
 
 #. (para)
 msgid ""
@@ -6554,22 +7177,34 @@ msgid ""
 "file at the earlier revision. This is very useful for undoing an earlier "
 "change when other unrelated changes have been made since."
 msgstr ""
+"Wycofanie zmian, które zostały wykonane w wybranej wersji. Zmiany są "
+"cofnięte w kopii roboczej więc ta operacja <emphasis>nie</emphasis> ma "
+"zupełnie wpływu na repozytorium! Zauważ, że zostaną cofnięte zmiany "
+"wprowadzone tylko w tej wersji; nie zamieni kopii roboczej całego pliku na "
+"jego wcześniejszą wersję. Jest to bardzo przydatne dla wycofania "
+"wcześniejszej zmiany, gdy już jakieś inne zmiany zostały dokonane od tego "
+"czasu."
 
 #. (para)
 msgid ""
 "What is happening internally is that Subversion performs a reverse merge of "
 "that one revision, undoing its effect from a previous commit."
 msgstr ""
+"To co się dzieje wewnątrz opisujemy jako przeprowadzenie przez Subversion "
+"odwrotnego scalenia wszystkich zmian wprowadzonych w tej jednej rewizji, "
+"wycofując jej efekty z poprzedniego zatwierdzenia."
 
 #. (para)
 msgid ""
 "You can <emphasis>undo the undo</emphasis> as described above in "
 "<guilabel>Revert to this revision</guilabel>."
 msgstr ""
+"Możesz <emphasis>cofnąć wycofanie</emphasis> jak to opisano powyżej przez "
+"<guilabel>Wycofaj zmiany do tej wersji</guilabel>."
 
 #. (term)
 msgid "Merge revision to..."
-msgstr ""
+msgstr "Scal wersję do..."
 
 #. (para)
 msgid ""
@@ -6580,10 +7215,16 @@ msgid ""
 "that you can revert the changes if it doesn't work out! This is a useful "
 "feature if you want to merge selected revisions from one branch to another."
 msgstr ""
+"Scalanie wybraej(ych) wersji do innej kopii roboczej. Okno wyboru folderu "
+"pozwala wybrać kopię roboczą jako cel scalenia, ale po nim nie ma dialogu "
+"potwierdzenia, ani możliwości przetestowania wyniku scalenia. Dobrym "
+"pomysłem jest, by scalać do niezmodyfikowanej kopii roboczej, dzięki czemu "
+"można cofnąć zmiany, jeśli coś nie wyjdzie! Jest to przydatna funkcja, jeśli"
+" chcesz scalić wybrane wersje z jednej gałęzi do drugiej."
 
 #. (term)
 msgid "Checkout..."
-msgstr ""
+msgstr "Pobierz..."
 
 #. (para)
 msgid ""
@@ -6591,11 +7232,14 @@ msgid ""
 "brings up a dialog for you to confirm the URL and revision, and select a "
 "location for the checkout."
 msgstr ""
+"Dodaje świeże pobranie wybranego folderu na wybranej wersji. Pojawi się "
+"okienko do potwierdzenia adresu URL i wersji, a następnie wyboru lokalizacji"
+" docelowej pobrania."
 
 #. (term)
 #. (term)
 msgid "Export..."
-msgstr ""
+msgstr "Eksport..."
 
 #. (para)
 msgid ""
@@ -6603,31 +7247,38 @@ msgid ""
 "dialog for you to confirm the URL and revision, and select a location for "
 "the export."
 msgstr ""
+"Eksportuje wybrane pliki/foldery w wybranej wersji. Pojawi się okienko do "
+"potwierdzenia adresu URL i wersji, a następnie wyboru lokalizacji docelowej."
 
 #. (term)
 msgid "Edit author / log message"
-msgstr ""
+msgstr "Edytuj autora / opis zmian"
 
 #. (para)
 msgid ""
 "Edit the log message or author attached to a previous commit. Read <xref "
 "linkend=\"tsvn-dug-showlog-4\"/> to find out how this works."
 msgstr ""
+"Edytuje opis zmian lub autora dołączone do poprzedniego zatwierdzenia. "
+"Czytaj <xref linkend=\"tsvn-dug-showlog-4\"/>, aby dowiedzieć się jak to "
+"działa."
 
 #. (term)
 msgid "Show revision properties"
-msgstr ""
+msgstr "Pokaż atrybuty wersji"
 
 #. (para)
 msgid ""
 "View and edit any revision property, not just log message and author. Refer "
 "to <xref linkend=\"tsvn-dug-showlog-4\"/>."
 msgstr ""
+"Wyświetla i modyfikuje atrybut zmiany, nie tylko opis zmian i autora. "
+"Zapoznaj się z <xref linkend=\"tsvn-dug-showlog-4\"/>."
 
 #. (term)
 #. (term)
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Kopiuj do schowka"
 
 #. (para)
 msgid ""
@@ -6635,11 +7286,14 @@ msgid ""
 "copy the revision number, author, date, log message and the list of changed "
 "items for each revision."
 msgstr ""
+"Kopiowanie szczegóły dziennika z zaznaczonych wersji do schowka. Spowoduje "
+"to skopiowanie numeru wersji, autora, daty, opisu zmian i listy zmienionych "
+"elementów dla każdej rewizji."
 
 #. (term)
 #. (term)
 msgid "Search log messages..."
-msgstr ""
+msgstr "Szukaj w opisach zmian..."
 
 #. (para)
 msgid ""
@@ -6647,6 +7301,10 @@ msgid ""
 "that you entered and also the action summaries created by Subversion (shown "
 "in the bottom pane). The search is not case sensitive."
 msgstr ""
+"Wyszukiwanie opisów zmian na podstawie wprowadzonego tekstu. Przeszukiwane "
+"są wprowadzone przez deweloperów opisy zmian, a także podsumowania akcji "
+"stworzone przez Subversion (wyświetlane w dolnym panelu). Wyszukiwanie jest "
+"niewrażliwe na wielkość liter."
 
 #. (para)
 msgid ""
@@ -6655,20 +7313,26 @@ msgid ""
 "appear only when the log is shown for a file, and some only when the log is "
 "shown for a folder. <placeholder-2/>"
 msgstr ""
+"<placeholder-1/> Górny panel okna dziennika posiada menu kontekstowe, które "
+"pozwala na dostęp do znacznie większej liczby informacji. Niektóre z pozycji"
+" menu pojawiają się tylko wtedy, gdy dziennik wyświetlany jest dla pliku, a "
+"niektóre tylko wtedy, gdy dla folderu. <placeholder-2/>"
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
-msgstr ""
+msgstr "Menu kontekstowe górnego panelu dla dwóch wybranych wersji"
 
 #. (term)
 msgid "Compare revisions"
-msgstr ""
+msgstr "Porównaj wersje"
 
 #. (para)
 msgid ""
 "Compare the two selected revisions using a visual difference tool. The "
 "default Diff-Tool is TortoiseMerge which is supplied with TortoiseSVN."
 msgstr ""
+"Porównuje dwie wybrane rewizje używając narzędzia wizualnego porównania. "
+"Domyślną porównywarką jest TortoiseMerge, dostarczany wraz z TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -6676,10 +7340,14 @@ msgid ""
 " changed files and offering you further diff options. Read more about the "
 "Compare Revisions dialog in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr ""
+"Jeśli wybierzesz tę opcję dla folderu, pojawi się następne okno, a w nim "
+"lista zmienionych plików, oferując dodatkowe opcje diff. Przeczytaj więcej o"
+" oknie dialogowym Porównaj Wersje w <xref linkend=\"tsvn-dug-compare-"
+"revs\"/>."
 
 #. (term)
 msgid "Blame revisions"
-msgstr ""
+msgstr "Adnotuj wersje"
 
 #. (para)
 msgid ""
@@ -6687,24 +7355,29 @@ msgid ""
 "difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more "
 "detail."
 msgstr ""
+"Adnotuje dwie wersje i porównuje raporty adnotacji przy użyciu narzędzia "
+"wizualnego porównania. Przeczytaj <xref linkend=\"tsvn-dug-blame-diffs\"/> "
+"by uzyskać dodatkowe indormacje."
 
 #. (term)
 msgid "Show differences as unified diff"
-msgstr ""
+msgstr "Pokaż różnice w formacie unified diff"
 
 #. (para)
 msgid ""
 "View the differences between the two selected revisions as a Unified-Diff "
 "file. This works for files and folders."
 msgstr ""
+"Wyświetla różnice między dwiema wybranymi wersjami wybrane jako plik "
+"różnicowy Unified-Diff. Polecenie działa dla plików i folderów."
 
 #. (para)
 msgid "Copy log messages to clipboard as described above."
-msgstr ""
+msgstr "Kopiuj opisy zmian do schowka jak opisano powyżej."
 
 #. (para)
 msgid "Search log messages as described above."
-msgstr ""
+msgstr "Szukaj w opisach zmian jak opisano powyżej."
 
 #. (para)
 msgid ""
@@ -6712,6 +7385,9 @@ msgid ""
 "<keycap>Ctrl</keycap>-modifier), the context menu changes and gives you "
 "fewer options: <placeholder-2/>"
 msgstr ""
+"<placeholder-1/> Jeśli wybierzesz dwie wersje na raz (przy użyciu zwykłego "
+"modyfikatora <keycap>Ctrl</keycap>), menu kontekstowe zmieni się i daje "
+"mniej opcji: <placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -6720,34 +7396,43 @@ msgid ""
 " to Revert all changes which were made in the selected revisions. This is "
 "the easiest way to rollback a group of revisions in one go."
 msgstr ""
+"W przypadku wybrania dwie lub więcej wersji (przy użyciu zwykłych "
+"modyfikatorów <keycap>Ctrl</keycap> lub <keycap>Shift</keycap>), menu "
+"kontekstowe będzie zawierać wpis do Przywróć wszystkie zmiany, które zostały"
+" dokonane w wybranych wersjach. Jest to najprostszy sposób wycofywania grupy"
+" zmian w jednym ruchu."
 
 #. (para)
 msgid ""
 "You can also choose to merge the selected revisions to another working copy,"
 " as described above."
 msgstr ""
+"Możesz także wybrać scalenie wybranych wersji do innej kopii roboczej, jak "
+"opisano powyżej."
 
 #. (para)
 msgid ""
 "If all selected revisions have the same author, you can edit the author of "
 "all those revisions in one go."
 msgstr ""
+"Jeżeli wszystkie wybrane wersje mają tego samego autora, można edytować "
+"autora wszystkich tych zmian w jednym kroku."
 
 #. (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
-msgstr ""
+msgstr "Dolny panel okna dialogowego dziennika wersji z menu kontekstowym"
 
 #. (term)
 msgid "Show changes"
-msgstr ""
+msgstr "Pokaż zmiany"
 
 #. (para)
 msgid "Show changes made in the selected revision for the selected file."
-msgstr ""
+msgstr "Pokazuje zmiany wykonane w wybranej wersji na wskazanym pliku"
 
 #. (term)
 msgid "Blame changes"
-msgstr ""
+msgstr "Adnotuj zmiany"
 
 #. (para)
 msgid ""
@@ -6755,16 +7440,22 @@ msgid ""
 " and compare the blame reports using a visual diff tool. Read <xref linkend"
 "=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr ""
+"Adnotuje wersje wybraną i poprzednią dla wybranego pliku i porównuje raporty"
+" adnotacji za pomocą wizualnego narzędzia porównywania. Czytaj <xref linkend"
+"=\"tsvn-dug-blame-diffs\"/> by uzyskać więcej szczegółów."
 
 #. (term)
 msgid "Show as unified diff"
-msgstr ""
+msgstr "Pokaż w formacie unified diff"
 
 #. (para)
 msgid ""
 "Show file changes in unified diff format. This context menu is only "
 "available for files shown as <emphasis>modified</emphasis>."
 msgstr ""
+"Pokazuje zmiany pliku w standardowym formacie porównywania. To menu "
+"kontekstowe jest dostępne tylko dla plików oznaczonych jako "
+"<emphasis>zmienione</emphasis>."
 
 #. (para)
 #. (para)
@@ -6772,65 +7463,79 @@ msgid ""
 "Open the selected file, either with the default viewer for that file type, "
 "or with a program you choose."
 msgstr ""
+"Otwiera wybrany plik, albo przy użyciu domyślnej dla tego typu pliku "
+"przeglądarki, albo w wybranym przez Ciebie programie."
 
 #. (para)
 msgid ""
 "Opens the Blame dialog, allowing you to blame up to the selected revision."
 msgstr ""
+"Otwiera okno dialogowe adnotacji, pozwalając adnotować wybraną wersję."
 
 #. (para)
 msgid "Revert the changes made to the selected file in that revision."
-msgstr ""
+msgstr "Wycofuje zmiany dokonane w wybranym pliku w tej wersji."
 
 #. (term)
 msgid "Show properties"
-msgstr ""
+msgstr "Pokaż atrybuty"
 
 #. (para)
 msgid "View the Subversion properties for the selected item."
-msgstr ""
+msgstr "Wyświetla atrybuty Subversion dla wybranego elementu."
 
 #. (term)
 msgid "Show log"
-msgstr ""
+msgstr "Pokaż &dziennik"
 
 #. (para)
 msgid "Show the revision log for the selected single file."
-msgstr ""
+msgstr "Pokazuje dziennik zmian dla wybranego pojedynczego pliku."
 
 #. (term)
 msgid "Get merge logs"
-msgstr ""
+msgstr "Pobierz dziennik scalania"
 
 #. (para)
 msgid ""
 "Show the revision log for the selected single file, including merged "
 "changes. Find out more in <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
 msgstr ""
+"Pokazuje dziennik zmian dla wybranego pojedynczego pliku, w tym scalone "
+"zmiany. Dowiedz się więcej w <xref linkend=\"tsvn-dug-showlog-"
+"mergetrack\"/>."
 
 #. (para)
 msgid ""
 "Save the selected revision to a file so you have an older version of that "
 "file."
 msgstr ""
+"Zapisuje wybraną wersję do pliku, dzięki czemu masz starszą wersję tego "
+"pliku."
 
 #. (para)
 msgid ""
 "Export the selected items in this revision to a folder, preserving the file "
 "hierarchy."
 msgstr ""
+"Eksport wybranych pozycji z tej wersji do folderu, z zachowaniem hierarchii "
+"plików."
 
 #. (para)
 msgid ""
 "<placeholder-1/> The bottom pane of the Log dialog also has a context menu "
 "that allows you to <placeholder-2/>"
 msgstr ""
+"<placeholder-1/> Dolny panel okna dialogowego dziennika posiada również menu"
+" kontekstowe, które pozwala <placeholder-2/>"
 
 #. (para)
 msgid ""
 "You may notice that sometimes we refer to changes and other times to "
 "differences. What's the difference?"
 msgstr ""
+"Zauważyłeś że czasem odwołujemy się do zmian a kiedy indziej do różnic. Jaka"
+" jest różnica?"
 
 #. (para)
 msgid ""
@@ -6841,6 +7546,12 @@ msgid ""
 "implement feature X. To make it clearer which sense is being used, we use "
 "two different terms."
 msgstr ""
+"Subversion wykorzystuje numery rewizji by określić 2 różne rzeczy. Rewizja "
+"zwykle oznacza stan repozytorium w pewnym punkcie czasu, ale może być "
+"również używana jako reprezentacja zestawu zmian który wprowadziła dana "
+"wersja, np. <quote>Wprowadzone w r1234</quote> oznacza, że zmiany "
+"zatwierdzone w r1234 realizują funkcję X. Aby stało się jasne, jakie "
+"znaczenie zostało użyte, stosujemy dwa różne terminy."
 
 #. (para)
 msgid ""
@@ -6848,6 +7559,9 @@ msgid ""
 " <emphasis>difference</emphasis> between those two revisions. In Subversion "
 "terms this is <literal>diff -r M:N</literal>."
 msgstr ""
+"Jeśli wybierzesz dwie wersje N i M, menu kontekstowe pozwoli pokazać "
+"<emphasis>różnicę</emphasis> pomiędzy tymi dwiema wersjami. W kategoriach "
+"Subversion to <literal>diff -r M:N</literal>."
 
 #. (para)
 msgid ""
@@ -6855,16 +7569,21 @@ msgid ""
 "<emphasis>changes</emphasis> made in that revision. In Subversion terms this"
 " is <literal>diff -r N-1:N</literal> or <literal>diff -c N</literal>."
 msgstr ""
+"Po wybraniu jednej wersji N, menu kontekstowe pozwoli pokazać "
+"<emphasis>zmiany</emphasis> wykonane w tej wersji. W kategoriach Subversion "
+"to <literal>diff -r N-1:N</literal> lub <literal>diff -c N</literal>."
 
 #. (para)
 msgid ""
 "The bottom pane shows the files changed in all selected revisions, so the "
 "context menu always offers to show <emphasis>changes</emphasis>."
 msgstr ""
+"Dolny panel pokazuje pliki zmienione we wszystkich zaznaczonych wersjach, "
+"więc w menu kontekstowym zawsze pozwala pokazać <emphasis>zmiany</emphasis>."
 
 #. (title)
 msgid "Getting more log messages"
-msgstr ""
+msgstr "Otrzymywanie dokładniejszych wiadomości dziennika"
 
 #. (para)
 msgid ""
@@ -6875,6 +7594,12 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
 " (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
 msgstr ""
+"Dla dużego repozytorium mogą być setki lub nawet tysiące zmian a pobieranie "
+"ich wszystkich może zająć dużo czasu. Zazwyczaj jesteś zainteresowany "
+"jedynie najnowszymi zmianami. Domyślnie, liczba wczytywanych wiadomości "
+"dziennika jest ograniczona do 100, ale można zmienić tę wartość w "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ustawienia</guimenuitem></menuchoice>"
+" (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
 
 #. (para)
 msgid ""
@@ -6884,12 +7609,20 @@ msgid ""
 "branches (or tags) as it stops at the root of that branch, and gives a quick"
 " indication of changes made in that branch only."
 msgstr ""
+"Przy zaznaczeniu pola wyboru <guilabel>Zatrzymaj na kopii/zmianie "
+"nazwy</guilabel>, Pokaż dziennik zatrzyma się w miejscu, gdy wybrany plik "
+"lub folder został skopiowany z innego miejsca w repozytorium. Może to być "
+"przydatne, gdy przeglądasz gałęzie (lub etykiety), ponieważ zatrzymuje się "
+"na folderze głównym tej gałęzi i daje szybkie wskazanie zmian tylko dla tej "
+"gałęzi."
 
 #. (para)
 msgid ""
 "Normally you will want to leave this option unchecked. TortoiseSVN remembers"
 " the state of the checkbox, so it will respect your preference."
 msgstr ""
+"Zwykle chcesz zostawić tą opcję niezaznaczoną. TortoiseSVN pamięta stan pola"
+" wyboru, więc uszanuje twoje preferencje."
 
 #. (para)
 msgid ""
@@ -6898,6 +7631,10 @@ msgid ""
 " changes on branches, and going back beyond the root of the branch does not "
 "make sense in that instance."
 msgstr ""
+"Gdy okno dialogowe Pokaż dziennik jest wywoływane z poziomu okna Scalania, "
+"pole jest zawsze domyślnie zaznaczone. To dlatego, że połączenie często "
+"przegląda  zmiany w gałęziach i cofnięcie poza podstawę gałęzi nie ma sensu "
+"w tej instancji."
 
 #. (para)
 msgid ""
@@ -6905,12 +7642,17 @@ msgid ""
 " renaming a file or folder will also cause the log display to stop if this "
 "option is checked."
 msgstr ""
+"Należy pamiętać, że Subversion obecnie wdraża zmianę nazwy jako "
+"kopia/usuięcie pary, więc zmiana nazwy pliku lub folderu spowoduje także "
+"wyświetlanie dziennika zatrzymać, jeśli opcja ta jest zaznaczona."
 
 #. (para)
 msgid ""
 "The Log dialog does not always show all changes ever made for a number of "
 "reasons: <placeholder-1/>"
 msgstr ""
+"Okno dialogowe dziennika nie zawsze pokazuje wszystkie zmiany w historii z "
+"wielu powodów: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -6918,6 +7660,9 @@ msgid ""
 "100</guibutton> to retrieve the next 100 log messages. You can repeat this "
 "as many times as needed."
 msgstr ""
+"Jeśli chcesz zobaczyć więcej opisów zmian, kliknij <guibutton>Następne "
+"100</guibutton> by pobrać kolejne 100 opisów zmian z dziennika. Można to "
+"powtarzać tyle razy, ile potrzeba."
 
 #. (para)
 msgid ""
@@ -6925,6 +7670,9 @@ msgid ""
 "last option you used it for. Click on the arrow to see the other options "
 "offered."
 msgstr ""
+"Obok tego przycisku znajduje się kolejny przycisk wielofunkcyjny, który "
+"pamięta ostatni sposób wykorzystania. Kliknij na strzałkę aby zobaczyć inne "
+"oferowane opcje."
 
 #. (para)
 msgid ""
@@ -6932,26 +7680,34 @@ msgid ""
 "range of revisions. A dialog will then prompt you to enter the start and end"
 " revision."
 msgstr ""
+"Użyj <guibutton>Pokaż zakres...</guibutton> jeśli chcesz przejrzeć określony"
+" zakres zmian. Okno dialogowe wyświetli monit o podanie zmiany początkowej i"
+" końcowej."
 
 #. (para)
 msgid ""
 "Use <guibutton>Show All</guibutton> if you want to see "
 "<emphasis>all</emphasis> log messages from HEAD right back to revision 1."
 msgstr ""
+"Użyj <guibutton>Wszystkie</guibutton> jeśli chcesz zobaczyć "
+"<emphasis>wszystkie</emphasis> wiadomości dziennika od HEAD z do rewizji 1."
 
 #. (para)
 msgid ""
 "To refresh the latest revision in case there were other commits while the "
 "log dialog was open, hit the <keycap>F5</keycap> key."
 msgstr ""
+"Aby odświeżyć najnowszą wersję jeśli wystąpiły inne zatwierdzenia, podczas "
+"otwarcia okna dziennika wciśnij klawisz <keycap>F5</keycap>."
 
 #. (para)
 msgid "To refresh the log cache, hit the <keycap>Ctrl-F5</keycap> keys."
 msgstr ""
+"Aby odświeżyć bufor dziennika, wciśnij klawisze <keycap>Ctrl-F5</keycap>."
 
 #. (title)
 msgid "Current Working Copy Revision"
-msgstr ""
+msgstr "Bieżąca wersja kopii roboczej"
 
 #. (para)
 msgid ""
@@ -6961,6 +7717,11 @@ msgid ""
 "make this clearer, the commit message which corresponds to the revision you "
 "have in your working copy is shown in bold."
 msgstr ""
+"Ponieważ okno dziennika pokazuje opis zmian z wersji HEAD, nie z aktualnej "
+"wersji kopii roboczej, często zdarza się, że są tam opisy dotyczące treści, "
+"które nie zostały jeszcze zaktualizowane w kopii roboczej. Aby lepiej to "
+"uwidocznić, opis zmiany, który odpowiada wersji z Twojej w kopii roboczej "
+"wyświetlana jest pogrubioną czcionką."
 
 #. (para)
 msgid ""
@@ -6970,14 +7731,19 @@ msgid ""
 "delay showing the log, but as a result highlighting for folders may not "
 "appear immediately."
 msgstr ""
+"Kiedy pokazujesz dziennik dla folderu zaznaczona jest najwyższa wersja "
+"znaleziona gdziekolwiek w tym folderze, co wymaga zindeksowania kopii "
+"roboczej. Indeksowanie odbywa się w osobnym wątku aby nie opóźnić "
+"wyświetlenia dziennika, jednak w wyniku podświetlanie folderu może nie być "
+"widoczne od razu."
 
 #. (title)
 msgid "Merge Tracking Features"
-msgstr ""
+msgstr "Funkcje śledzenia scaleń"
 
 #. (primary)
 msgid "merge tracking log"
-msgstr ""
+msgstr "dziennik śledzenia scaleń"
 
 #. (para)
 msgid ""
@@ -6988,10 +7754,16 @@ msgid ""
 "commit for the merge, even though there may have been 1000 commits during "
 "branch development."
 msgstr ""
+"Subversion 1.5 i kolejne rejestruje scalenia za pomocą atrybutów. Pozwala "
+"nam to uzyskać bardziej szczegółową historię scalonych zmian. Na przykład, w"
+" jeśli rozwijasz nową funkcję w gałęzi, a następnie scalasz gałąź z powrotem"
+" do linii głównej, rozwój funkcji pojawi się w dzienniku linii głównej jako "
+"jedno zatwierdzenie dla scalenia, chociaż mogło być 1000 zatwierdzeń w "
+"czasie rozwoju gałęzi."
 
 #. (title)
 msgid "The Log Dialog Showing Merge Tracking Revisions"
-msgstr ""
+msgstr "Okno dziennika pokazujące wersje śledzenia scaleń "
 
 #. (para)
 msgid ""
@@ -7001,6 +7773,12 @@ msgid ""
 "messages from revisions which were merged. Merged revisions are shown in "
 "grey because they represent changes made on a different part of the tree."
 msgstr ""
+"Jeśli chcesz, aby zobaczyć szczegóły, które wersje zostały scalone w ramach "
+"tego zatwierdzenia, użyj pola wyboru <guilabel>Włącznie z wersjami "
+"scalonymi</guilabel>. Powoduje to ponowne pobranie dziennika, tym razem "
+"przeplecione opisami zmian z wersji, z których pliki zostały scalone. "
+"Połączone wersje są wyświetlane w kolorze szarym, ponieważ stanowią one "
+"zmiany dokonane w innej części drzewa."
 
 #. (para)
 msgid ""
@@ -7010,22 +7788,27 @@ msgid ""
 "also include another layer of merge history. These different layers are "
 "shown in the log dialog using indentation levels."
 msgstr ""
+"Oczywiście, scalenie nigdy nie jest proste! Podczas rozwoju funkcji na "
+"gałęzi występowały będą prawdopodobnie okazjonalne scalenia z linią główną, "
+"aby utrzymać gałąź w synchronizacji z główną linią kodu. Tak więc historia "
+"scaleń gałęzi będzie również kolejną warstwą historii scalenia. Te inne "
+"warstwy są wyświetlane w oknie dziennika przy użyciu poziomów wcięć."
 
 #. (title)
 msgid "Changing the Log Message and Author"
-msgstr ""
+msgstr "Zmiana opisu zmiany i autora"
 
 #. (primary)
 msgid "edit log/author"
-msgstr ""
+msgstr "edytuj dziennik/autora"
 
 #. (primary)
 msgid "revision properties"
-msgstr ""
+msgstr "atrybuty wersji"
 
 #. (primary)
 msgid "revprops"
-msgstr ""
+msgstr "revprops"
 
 #. (para)
 msgid ""
@@ -7034,6 +7817,10 @@ msgid ""
 "specific revision number in the repository, such as log message, commit date"
 " and committer name (author)."
 msgstr ""
+"Atrybuty edycji są całkowicie różne od atrybutów Subversion dla każdego "
+"elementu. Revprops opisują elementy, które są związane z jednym konkretnym "
+"numerem wersji w repozytorium, takich jak opis zmiany, data zatwierdzenia i "
+"nazwa zatwierdzającego (autora)."
 
 #. (para)
 msgid ""
@@ -7042,6 +7829,10 @@ msgid ""
 " change it for other reasons. Or you want to change the author of the commit"
 " because you forgot to set up authentication or..."
 msgstr ""
+"Czasami chcesz zmienić opis zmiany wprowadzony już raz, może dlatego, że "
+"wystąpił w nim błąd pisowni lub chcesz poprawić wiadomość lub zmienić go z "
+"innych powodów. Albo też chcesz zmienić autora zatwierdzenia, bo zapomniałeś"
+" skonfigurować uwierzytelnianie lub..."
 
 #. (para)
 msgid ""
@@ -7054,6 +7845,16 @@ msgid ""
 " do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some "
 "further notes on implementing hooks on a Windows machine."
 msgstr ""
+"Subversion umożliwia zmianę atrybutów zmiany w dowolnym momencie. Ale "
+"ponieważ takich zmian nie można cofnąć (zmiany te nie są wersjonowane) ta "
+"funkcja jest domyślnie wyłączona. Aby zaczęła działać, należy skonfigurować "
+"przechwycenie pre-revprop-change. Proszę odnieść się do rozdziału na temat "
+"<ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Skrypty"
+" przechwytujące</citetitle></ulink> w Księdze Subversion by poznać dokładnie"
+" jak to zrobić. Czytaj <xref linkend=\"tsvn-repository-hooks\"/> by znaleźć "
+"dodatkowe uwagi dotyczące wykonania przechwyceń na komputerze z systemem "
+"Windows."
 
 #. (para)
 msgid ""
@@ -7062,6 +7863,10 @@ msgid ""
 "context menu from the top pane of the Log dialog. You can also edit a log "
 "message using the context menu for the middle pane."
 msgstr ""
+"Po skonfigurowaniu serwera z wymaganymi przechwyceniami, można zmienić "
+"autora i opis zmiany (lub dowolną inną revprop) dowolnej wersji, za pomocą "
+"menu kontekstowego z górnego panelu w oknie dziennika. Można także edytować "
+"opis zmiany przy użyciu menu kontekstowego ze środkowego panelu."
 
 #. (para)
 msgid ""
@@ -7070,6 +7875,10 @@ msgid ""
 "<literal>svn:log</literal> commit message property) will overwrite the "
 "previous value of that property <emphasis>forever</emphasis>."
 msgstr ""
+"Ponieważ atrybuty wersji Subversion nie są wersjonowane, wprowadzenie zmian "
+"do tych atrybutów (na przykład, atrybut <literal>svn:log</literal> opisu "
+"zmiany) spowoduje nadpisanie poprzedniej wartości tego atrybutu <emphasis>na"
+" zawsze</emphasis>."
 
 #. (para)
 msgid ""
@@ -7078,14 +7887,19 @@ msgid ""
 "users using TortoiseSVN will still see the cached (old) authors and log "
 "messages until they refresh the log cache."
 msgstr ""
+"Ponieważ TortoiseSVN trzyma bufor wszystkich informacji dziennika, zmiany w "
+"odniesieniu do autora i opisu zmiany pojawiają się tylko na lokalnej "
+"instalacji. Inni użytkownicy za pomocą TortoiseSVN nadal będdą widzieli w "
+"zbuforowane (stare) zapisy autorów i opisów zmian do czasu odświeżenia "
+"bufora dziennika."
 
 #. (title)
 msgid "Filtering Log Messages"
-msgstr ""
+msgstr "Filtrowanie dziennika"
 
 #. (primary)
 msgid "filter"
-msgstr ""
+msgstr "filtr"
 
 #. (para)
 msgid ""
@@ -7095,6 +7909,11 @@ msgid ""
 "controls allow you to restrict the output to a known date range. The search "
 "box allows you to show only messages which contain a particular phrase."
 msgstr ""
+"Jeśli chcesz ograniczyć komunikaty dziennika, aby pokazać tylko te, które są"
+" interesujące, a nie przewijać listę z setkami pozycji, możesz użyć "
+"kontrolki filtru na górze okna dziennika. Data początkowa i końcowa pozwala "
+"ograniczyć listę pozycji do znanego zakresu dat. Pole wyszukiwania umożliwia"
+" wyświetlanie tylko wiadomości, które zawierają konkretne wyrażenie."
 
 #. (para)
 msgid ""
@@ -7107,6 +7926,14 @@ msgid ""
 "the log entries, and then only those entries which "
 "<emphasis>match</emphasis> the filter string are shown."
 msgstr ""
+"Kliknij na ikonie wyszukiwania, aby wybrać, jakie informacje chcesz "
+"odnaleźć, i do wyboru tryb <emphasis>regeksu</emphasis>. Zwykle wystarczy "
+"proste wyszukiwanie podciągu, ale jeśli potrzebujesz bardziej elastycznych "
+"warunków wyszukiwania, można użyć wyrażeń regularnych. Po najechaniu myszką "
+"na pole, pojawia się podpowiedź ze wskazówkami, jak korzystać z funkcji "
+"regeksu lub podciągu. Filtr działa poprzez sprawdzenie, czy wpisany szablon "
+"pasuje do wpisów w dzienniku, a następnie tylko te pozycje, które "
+"<emphasis>pasują</emphasis> do szablonu są widoczne."
 
 #. (para)
 msgid ""
@@ -7128,6 +7955,23 @@ msgid ""
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
 msgstr ""
+"Proste podciąg wyszukiwania działa w sposób podobny do wyszukiwarki. Ciągi znaków do wyszukiwania są oddzielone spacjami, a wszystkie ciągi muszą być zgodne. Możesz użyć wiodącego <literal>-</literal>, aby określić, że dany podciąg nie zostanie znaleziony (odwrócić pasujące do tego terminu), i można użyć <literal>!</literal> na początku wyrażenia, aby odwrócić spasowanie dla całego wyrażenia. Możesz użyć wiodącego <literal>+</literal>, aby określić, że podciąg powinien być włączony, nawet jeśli wcześniej był wyłączony przez <literal>-</literal>. Należy pamiętać, że kolejność włączenia/wyłączenia jest tutaj istotna. Możesz używać cudzysłowu, aby otoczyć łańcuch, który musi zawierać spacje oraz jeśli chcesz szukać użycia cudzysłów można użyć dwóch cudzysłowów razem jako własną sekwencję ucieczki. Zauważ, że znak odwrotnego ukośnika <emphasis>nie</emphasis> jest znakiem ucieczki i nie ma specjalnego znaczenia w wyszukiwaniu prostego podciągu. Przykłady ułatwią zrozumienie: <screen>\n"
+"Alicja Robert -Ewa\n"
+"</screen> wyszukuje ciągi znaków zawierające zarówno Alicja jak i Robert, ale nie Ewa. <screen>\n"
+"Alicja -Robert +Ewa\n"
+"</screen> wyszukuje ciągi znaków zawierające Alicja ale nie Robert lub ciągi zawierające Ewa. <screen>\n"
+"-Case +SpecialCase\n"
+"</screen> wyszukuje ciągi nie zawierające Case, ale wciąż dołącza ciągi zawierające SpecialCase. <screen>\n"
+"!Alicja Robert\n"
+"</screen> wyszukuje ciągów, które nie zawierają ani Alicja ani Robert <screen>\n"
+"!-Alicja -Robert\n"
+"</screen> czy pamiętasz prawa De Morgana? NOT(NOT Alicja AND NOT Robert) redukuje się do (Alice OR Bob). <screen>\n"
+"\"Alicja i Robert\"\n"
+"</screen> wyszukuje dosłownego wyrażenia <quote>Alicja i Robert</quote><screen>\n"
+"\"\"\n"
+"</screen> wyszukuje cudzysłowuwszędzie w treści <screen>\n"
+"\"Alicja mówi \"\"cześć\"\" do Roberta\"\n"
+"</screen> wyszukuje dosłownego wyrażenia <quote>Alicja mówi \"cześć\" do Roberta</quote>."
 
 #. (para)
 msgid ""
@@ -7136,12 +7980,18 @@ msgid ""
 "url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr ""
+"Opis użycia wyszukiwania przy pomocy wyrażeń regularnych wykracza poza "
+"zakres tego podręcznika, ale można znaleźć dokumentację online i samouczek "
+"na <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www"
+".regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid ""
 "Note that these filters act on the messages already retrieved. They do not "
 "control downloading of messages from the repository."
 msgstr ""
+"Należy pamiętać, że filtry te działają na wiadomości już dostępne. Nie "
+"kontrolują pobierania wiadomości z repozytorium."
 
 #. (para)
 msgid ""
@@ -7153,6 +8003,13 @@ msgid ""
 " are affected by the same commit, but in grey. If the box is checked, those "
 "paths are hidden."
 msgstr ""
+"Można także filtrować nazwy ścieżek w panelu na dole przy użyciu pola wyboru"
+" <guilabel>Pokaż tylko powiązane ścieżki</guilabel>. Powiązane ścieżki to "
+"te, które zawierają ścieżkę użytą w wyświetlanym opisie zmiany. Jeśli "
+"pobieramy dziennik folderu, oznacza to cokolwiek w tym folderze lub poniżej."
+" W przypadku pliku, oznacza to tylko ten jeden plik. Normalnie listy ścieżek"
+" pokazuje wszystkie inne drogi, które są dotknięte tym samym zatwierdzeniem,"
+" ale w kolorze szarym. Jeśli pole jest zaznaczone, te ścieżki są ukryte."
 
 #. (para)
 msgid ""
@@ -7163,10 +8020,16 @@ msgid ""
 "log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-"
 "propertypage-tsvn-props\"/> to find out how to use this property."
 msgstr ""
+"Czasami metody pracy wymagają by opisy zmian były w określonym formacie, co "
+"oznacza, że ​​tekst opisujący zmiany nie jest widoczny w skróconym "
+"podsumowaniu widocznym w górnym panelu. Przez atrybut "
+"<literal>tsvn:logsummary</literal> można wyodrębnić część opisu zmiany do "
+"wyświetlenia w górnym panelu. Czytaj <xref linkend=\"tsvn-dug-propertypage-"
+"tsvn-props\"/>, aby dowiedzieć się jak korzystać z tego atrybutu."
 
 #. (title)
 msgid "No Log Formatting from Repository Browser"
-msgstr ""
+msgstr "Brak Formatowania dziennika z przeglądarki repozytorium"
 
 #. (para)
 msgid ""
@@ -7175,14 +8038,18 @@ msgid ""
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
 msgstr ""
+"Ponieważ formatowanie zależy od dostępu do atrybutów subversion zobaczysz "
+"wyniki tylko podczas korzystania z pobrania kopii roboczej. Wczytywanie "
+"atrybutów zdalnie jest działaniem powolnym, więc nie będzie widać tej "
+"funkcji w akcji z przeglądarki repozytorium."
 
 #. (title)
 msgid "Statistical Information"
-msgstr ""
+msgstr "Informacje statystyczne"
 
 #. (primary)
 msgid "statistics"
-msgstr ""
+msgstr "statystyka"
 
 #. (para)
 msgid ""
@@ -7192,28 +8059,36 @@ msgid ""
 "progress by week, and much more. Now you can see at a glance who has been "
 "working hardest and who is slacking ;-)"
 msgstr ""
+"Przycisk <guibutton>Statystyka</guibutton> wyświetla pole pokazujące kilka "
+"ciekawych informacji na temat wersji przedstawionych w oknie dziennika. "
+"Pokazuje ono, jak wielu autorów było w pracy, ile zatwierdzeń zrobili, "
+"tygodniowe postępy i wiele innych. Teraz widać na pierwszy rzut oka, który "
+"pracuje najciężej, a kto się obija ;-)"
 
 #. (title)
 msgid "Statistics Page"
-msgstr ""
+msgstr "Strona statystyk"
 
 #. (para)
 msgid ""
 "This page gives you all the numbers you can think of, in particular the "
 "period and number of revisions covered, and some min/max/average values."
 msgstr ""
+"Ta strona zawiera wszystkie liczby jakie można wymyślić, w szczególności "
+"okres i liczbę objętych nim wersji, a także niektóre minima/maksima/wartości"
+" średnie."
 
 #. (title)
 msgid "Commits by Author Page"
-msgstr ""
+msgstr "Strona zatwierdzeń według autorów"
 
 #. (title)
 msgid "Commits-by-Author Histogram"
-msgstr ""
+msgstr "Histogram zatwierdzenia-wg-autorów"
 
 #. (title)
 msgid "Commits-by-Author Pie Chart"
-msgstr ""
+msgstr "Wykres kołowy zatwierdzenia-wg-autorów"
 
 #. (para)
 msgid ""
@@ -7221,6 +8096,9 @@ msgid ""
 "project as a simple histogram, stacked histogram or pie chart. "
 "<placeholder-2/>"
 msgstr ""
+"<placeholder-1/> Ten wykres pokazuje, które autorzy pracują nad projektem w "
+"formie wykresu prostego słupkowego, skumulowanego słupkowego lub kołowego. "
+"<placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -7230,14 +8108,19 @@ msgid ""
 "below which any activity is grouped into an <emphasis>Others</emphasis> "
 "category."
 msgstr ""
+"W przypadku, gdy istnieje kilku głównych autorów i wielu pomniejszych "
+"współpracowników, liczba małych segmentów może sprawić, że wykres bardzo "
+"trudny do odczytania. Suwak na dole pozwala na ustawienie progu (jako "
+"procent wszystkich zatwierdzeń), poniżej którego wszelkie działania są "
+"przydzielone do kategorii inne <emphasis>Innych</emphasis>."
 
 #. (title)
 msgid "Commits by date Page"
-msgstr ""
+msgstr "Strona zatwierdzeń według daty"
 
 #. (title)
 msgid "Commits-by-date Graph"
-msgstr ""
+msgstr "Wykres zatwierdzeń według daty"
 
 #. (para)
 msgid ""
@@ -7246,6 +8129,10 @@ msgid ""
 " gives some idea of when a project is being worked on, and who was working "
 "at which time."
 msgstr ""
+"<placeholder-1/> Na tej stronie znajduje się graficzna reprezentacja działań"
+" związanych z projektem pod względem liczby zatwierdzeń "
+"<emphasis>i</emphasis> autorów. To daje pewne wyobrażenie, kiedy pracowano "
+"nad projektem i kto pracował w jakim czasie."
 
 #. (para)
 msgid ""
@@ -7257,6 +8144,13 @@ msgid ""
 " can make the graph easier to read, but less easy to see one author's "
 "output."
 msgstr ""
+"Kiedy jest wielu autorów, otrzymasz dużo linii na wykresie. Istnieją dwa "
+"dostępne tutaj widoki: <emphasis>normalne</emphasis>, gdzie aktywność "
+"każdego autora jest względna w stosunku do linii bazowej, a "
+"<emphasis>skumulowane</emphasis>, gdzie aktywność każdego autora mierzona "
+"jest w stosunku do linii poniżej. Ta druga opcja pozwala na uniknięcie "
+"przecinania się linii, co czynić może wykres bardziej czytelnym, ale "
+"trudniej znaleźć pracę jednego autora."
 
 #. (para)
 msgid ""
@@ -7268,6 +8162,13 @@ msgid ""
 "treated as the same person. Use the <guilabel>Authors case "
 "insensitive</guilabel> checkbox to control how this is handled."
 msgstr ""
+"Domyślnie analiza uwzględnia wielkość liter, więc użytkownicy "
+"<literal>PeterEgan</literal> i <literal>PeteRegan</literal> są traktowani "
+"jako różni autorzy. Jednak w wielu przypadkach nazwy użytkowników nie "
+"rozróżniają wielkości liter, a czasami są wprowadzone niekonsekwentnie, więc"
+" możesz <literal>DavidMorgan</literal> i <literal>davidmorgan</literal> "
+"traktować jako tą samą osobę. Użyj pola wyboru <guilabel>Autorzy bez "
+"uwzględnienia wielkości liter</guilabel>, aby kontrolować sposób obsługi."
 
 #. (para)
 msgid ""
@@ -7275,14 +8176,17 @@ msgid ""
 " only displaying one revision then the statistics will not tell you very "
 "much."
 msgstr ""
+"Należy pamiętać, że statystyki dotyczą tego samego okresu co okno dziennika."
+" Jeśli jest ono wyświetlanie tylko dla jednej wersji, to statystyki nie "
+"powiem wam zbyt wiele."
 
 #. (title)
 msgid "Offline Mode"
-msgstr ""
+msgstr "Tryb offline"
 
 #. (title)
 msgid "Go Offline Dialog"
-msgstr ""
+msgstr "Okno dialogowe przejścia offline"
 
 #. (para)
 msgid ""
@@ -7291,40 +8195,50 @@ msgid ""
 "uses data from the cache, which allows you to continue working although the "
 "information may not be up-to-date or even complete."
 msgstr ""
+"<placeholder-1/> Jeśli serwer jest nieosiągalny, a masz włączone buforowanie"
+" dziennika, możesz użyć okna dziennika i wykresu wersji w trybie offline. "
+"Używa on danych z pamięci podręcznej, co pozwala na kontynuowanie pracy mimo"
+" że informacje mogą nie być aktualne lub nawet pełne."
 
 #. (term)
 msgid "Offline for now"
-msgstr ""
+msgstr "Na razie offline"
 
 #. (para)
 msgid ""
 "Complete the current operation in offline mode, but retry the repository "
 "next time log data is requested."
 msgstr ""
+"Wykonuje bieżącą operację w trybie offline, ale spróbuje połączyć się do "
+"repozytorium następnym razem, gdy wymagane są dane dziennika."
 
 #. (term)
 msgid "Permanently offline"
-msgstr ""
+msgstr "Zawsze offline"
 
 #. (para)
 msgid ""
 "Remain in offline mode until a repository check is specifically requested. "
 "See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 msgstr ""
+"Pozostanie w trybie offline do czasu żądane jest sprawdzenie repozytorium. "
+"Zobacz <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 
 #. (term)
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #. (para)
 msgid ""
 "If you don't want to continue the operation with possibly stale data, just "
 "cancel."
 msgstr ""
+"Jeśli nie chcesz kontynuować operacji na prawdopodobnie nieaktualnych "
+"danych, po prostu anuluj."
 
 #. (para)
 msgid "Here you have three options: <placeholder-1/>"
-msgstr ""
+msgstr "Są tutaj trzy opcje: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -7333,11 +8247,15 @@ msgid ""
 "still change (or remove) the default after doing this from "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
 msgstr ""
+"Pole wyboru <guilabel>Zapisz jako domyślny</ guilabel> zapobiega ponownemu "
+"pojawieniu się tego okna i zawsze stosuje opcję, którą teraz wybierzesz. "
+"Możesz jeszcze zmienić (lub usunąć) to domyślne ustawienie w korzystając z "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ustawienia</guimenuitem></menuchoice>."
 
 #. (title)
 #. (title)
 msgid "Refreshing the View"
-msgstr ""
+msgstr "Odświeżanie widoku"
 
 #. (para)
 msgid ""
@@ -7347,6 +8265,11 @@ msgid ""
 "fetch only the new ones. If the log cache was in offline mode, this will "
 "also attempt to go back online."
 msgstr ""
+"Jeśli chcesz ponownie sprawdzić serwer czy są nowe opisy zmian, można po "
+"prostu odświeżyć widok używając przycisku <keycap>F5</keycap>. Jeśli używasz"
+" bufora dziennika (domyślnie włączonego), repozytorium zostanie sprawdzone "
+"czy są nowe opisy i pobieramy tylko nowe. Jeśli bufor dziennika w trybie "
+"offline, nastąpi próba powrotu do trybu online."
 
 #. (para)
 msgid ""
@@ -7356,19 +8279,24 @@ msgid ""
 "and update the log cache. Note that this only affects messages currently "
 "shown and does not invalidate the entire cache for that repository."
 msgstr ""
+"Jeśli używasz buforu dziennika i uważasz, że treści opisu lub autor mógł się"
+" zmienić, można użyć <keycap>Shift-F5</keycap> lub <keycap>Ctrl-F5</keycap> "
+"by ponownie pobrać wyświetlane opisy z serwera i zaktualizować bufor "
+"dziennika. Zauważ, że dotyczy to tylko wiadomości aktualnie wyświetlanych i "
+"nie unieważnia całej zawartości bufora dla tego repozytorium."
 
 #. (title)
 msgid "Viewing Differences"
-msgstr ""
+msgstr "Przeglądanie różnic"
 
 #. (primary)
 #. (primary)
 msgid "diff"
-msgstr ""
+msgstr "różnica"
 
 #. (primary)
 msgid "compare"
-msgstr ""
+msgstr "porównanie"
 
 #. (para)
 msgid ""
@@ -7380,14 +8308,22 @@ msgid ""
 "TortoiseSVN also has a tool named <application>TortoiseIDiff</application>. "
 "Of course, you can use your own favourite diff program if you like."
 msgstr ""
+"Jednym z najczęstszych wymagań w rozwoju projektu jest możliwość przeglądu "
+"modyfikacji. Warto przejrzeć różnice między dwiema wersjami tego samego "
+"pliku, czy też różnice między dwoma oddzielnymi plikami. TortoiseSVN posiada"
+" wbudowane narzędzie o nazwie <application>TortoiseMerge</application> do "
+"przeglądania różnic w plikach tekstowych. Do oglądania różnic plików "
+"graficznych, TortoiseSVN posiada również narzędzie o nazwie "
+"<application>TortoiseIDiff</ application>. Oczywiście, można użyć własnego "
+"ulubionego programu porównującego, jeśli chcesz."
 
 #. (title)
 msgid "File Differences"
-msgstr ""
+msgstr "Różnice pliku"
 
 #. (term)
 msgid "Local changes"
-msgstr ""
+msgstr "Zmiany lokalne"
 
 #. (para)
 msgid ""
@@ -7395,10 +8331,14 @@ msgid ""
 "working copy, just use the explorer context menu and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
 msgstr ""
+"Jeśli chcesz zobaczyć, jakie zmiany <emphasis>sam</emphasis> dokonałeś w "
+"kopii roboczej, wystarczy skorzystać z menu kontekstowego Eksploratora i "
+"wybrać "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Porównaj</guimenuitem></menuchoice>."
 
 #. (term)
 msgid "Difference to another branch/tag"
-msgstr ""
+msgstr "Różnica w stosunku do innej gałęzi/etykiety"
 
 #. (para)
 msgid ""
@@ -7410,6 +8350,14 @@ msgid ""
 "URL</guimenuitem></menuchoice>. In the following dialog, specify the URL in "
 "the repository with which you want to compare your local file to."
 msgstr ""
+"Jeśli chcesz zobaczyć co się zmieniło w linii głównej (podczas gdy pracujesz"
+" na gałęzi) lub konkretnej gałęzi (jeśli pracujesz na linii głównej), możesz"
+" skorzystać z menu kontekstowego Eksploratora. Wystarczy przytrzymać klawisz"
+" <keycap>Shift</keycap>, podczas kliknięcia prawym przyciskiem myszy na "
+"pliku. A następnie wybrać "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Porównaj z "
+"URL</guimenuitem></menuchoice>. W następnym oknie określ URL w repozytorium,"
+" z którym chcesz porównać lokalny plik."
 
 #. (para)
 msgid ""
@@ -7418,10 +8366,15 @@ msgid ""
 "you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read"
 " more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr ""
+"Można również użyć przeglądarki repozytorium i wybrać dwa drzewa do "
+"porównania, można dwie etykiety, lub gałąź/etykietę i linię główną. Menu "
+"kontekstowym pozwala porównać je za pomocą <guimenuitem>Porównaj "
+"wersje</guimenuitem>. Czytaj więcej w <xref linkend=\"tsvn-dug-compare-"
+"revs\"/>."
 
 #. (term)
 msgid "Difference from a previous revision"
-msgstr ""
+msgstr "Różnice w stosunku do wersji poprzedniej"
 
 #. (para)
 msgid ""
@@ -7430,6 +8383,10 @@ msgid ""
 "then select <guimenuitem>Compare with working copy</guimenuitem> from the "
 "context menu."
 msgstr ""
+"Jeśli chcesz zobaczyć różnicę między określoną wersją i kopią roboczą, "
+"należy użyć okna dialogowego Dziennika wersji, wybierz interesującą Cię "
+"wersję, a następnie opcję <guimenuitem>Porównaj z kopią "
+"roboczą</guimenuitem> z menu kontekstowego."
 
 #. (para)
 msgid ""
@@ -7443,10 +8400,19 @@ msgid ""
 "it to the state you now see in your working copy. It will not show changes "
 "newer than your working copy."
 msgstr ""
+"Jeśli chcesz zobaczyć różnicę między ostatniej ostatnio zatwerdzoną wersją i"
+" kopią roboczą, przy założeniu, że kopia robocza nie została zmodyfikowana, "
+"wystarczy kliknąć prawym przyciskiem myszy na pliku. Następnie wybrać "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Porównaj z poprzednią"
+" wersją</guimenuitem></menuchoice>. Zostanie wykonane porównanie między "
+"wersją sprzed \"datą ostatniego zatwierdzenia\" (jaką zapisano w kopii "
+"roboczej) oraz BAZĄ roboczą. Zostaną wyświetlone ostatnie zmiany wprowadzone"
+" do tego pliku w doprowadzenia go do stanu widocznego teraz w kopii "
+"roboczej. Nie pokażą się zmiany nowsze niż w kopii roboczej."
 
 #. (term)
 msgid "Difference between two previous revisions"
-msgstr ""
+msgstr "Różnice pomiędzy dwiema wcześniejszymi wersjami"
 
 #. (para)
 msgid ""
@@ -7455,6 +8421,11 @@ msgid ""
 " to compare (using the usual <keycap>Ctrl</keycap>-modifier). Then select "
 "<guimenuitem>Compare revisions</guimenuitem> from the context menu."
 msgstr ""
+"Jeśli chcesz zobaczyć różnicę pomiędzy dwiema wersjami, które są już "
+"zatwierdzone, skorzystaj z okna dialogowego Dziennika edycji i wybierz dwie "
+"wersje, które chcesz porównać (przy użyciu zwykłego modyfikatora "
+"<keycap>Ctrl</keycap>). Następnie wybierz <guimenuitem>Porównaj "
+"wersje</guimenuitem> z menu kontekstowego."
 
 #. (para)
 msgid ""
@@ -7462,10 +8433,13 @@ msgid ""
 "dialog appears, showing a list of changed files in that folder. Read more in"
 " <xref linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr ""
+"Jeśli zrobiłeś to z dziennika wersji dla folderu, pojawi się okno dialogowe "
+"Porównaj Wersje, pokazując listę zmienionych plików w tym folderze. Czytaj "
+"więcej w <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "All changes made in a commit"
-msgstr ""
+msgstr "Wszystkie zmiany dokonane w zatwierdzeniu"
 
 #. (para)
 msgid ""
@@ -7477,10 +8451,17 @@ msgid ""
 "<guimenuitem>Show Differences as Unified-Diff</guimenuitem> from the context"
 " menu."
 msgstr ""
+"Jeśli chcesz zobaczyć zmiany wprowadzone do wszystkich plików w określonej "
+"wersji w jednym widoku, można użyć wyjścia Unified-Diff (format poprawek "
+"GNU). Pokazuje on tylko różnice z kilkoma liniami kontekstu. Jest to "
+"trudniejsze do odczytania niż w wizualnej porównywarce plików, ale pokazuje "
+"wszystkie zmiany razem. W oknie dialogowym Dziennika wersji wybierz "
+"interesującą Cię wersję, a następnie wybierz <guimenuitem>Pokaż różnice w "
+"formacie Unified Diff</guimenuitem> z menu kontekstowego."
 
 #. (term)
 msgid "Difference between files"
-msgstr ""
+msgstr "Różnice między plikami"
 
 #. (para)
 msgid ""
@@ -7489,10 +8470,15 @@ msgid ""
 "<keycap>Ctrl</keycap>-modifier). Then from the explorer context menu select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
 msgstr ""
+"Jeśli chcesz zobaczyć różnice między dwoma różnymi plikami, możesz to zrobić"
+" bezpośrednio w Eksploratorze wybierając oba pliki (za pomocą zwykłego "
+"modyfikatora <keycap>Ctrl</keycap>). Następnie z menu kontekstowego "
+"Eksploratora wybierz "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Porównaj</guimenuitem></menuchoice>."
 
 #. (term)
 msgid "Difference between WC file/folder and a URL"
-msgstr ""
+msgstr "Różnica między plikiem/folderem KR i URL"
 
 #. (para)
 msgid ""
@@ -7505,10 +8491,18 @@ msgid ""
 " folder. TortoiseMerge shows these differences in the same way as it shows a"
 " patch file - a list of changed files which you can view one at a time."
 msgstr ""
+"Jeśli chcesz zobaczyć różnice pomiędzy plikiem z kopii roboczej, a plikiem w"
+" dowolnym repozytorium, możesz to zrobić bezpośrednio w Eksploratorze "
+"wybierając plik następnie przytrzymując klawisz <keycap>Shift</keycap>, "
+"podczas kliknięcia prawym przyciskiem myszy by uzyskać menu kontekstowe. "
+"Wybierz <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Porównaj z "
+"URL</guimenuitem></menuchoice>. Możesz zrobić to samo dla folderu w kopii "
+"roboczej. TortoiseMerge pokazuje te różnice w ten sam sposób, jak plik "
+"poprawek - lista zmienionych plików, które można zobaczyć po jednym na raz."
 
 #. (term)
 msgid "Difference with blame information"
-msgstr ""
+msgstr "Różnice z informacjami adnotacji"
 
 #. (para)
 msgid ""
@@ -7517,10 +8511,14 @@ msgid ""
 "from within the revision log dialog. Read <xref linkend=\"tsvn-dug-blame-"
 "diffs\"/> for more detail."
 msgstr ""
+"Jeśli chcesz zobaczyć nie tylko różnice, ale także autora, wersję i datę, "
+"kiedy zmiany zostały wprowadzone, można połączyć porównanie i raporty "
+"adnotacji w oknie dialogowym dziennika wersji. Czytaj <xref linkend=\"tsvn-"
+"dug-blame-diffs\"/> by poznać więcej szczegółów."
 
 #. (term)
 msgid "Difference between folders"
-msgstr ""
+msgstr "Różnice między folderami"
 
 #. (para)
 msgid ""
@@ -7529,6 +8527,10 @@ msgid ""
 "which does support that feature, you can use that instead. In <xref linkend"
 "=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
 msgstr ""
+"Wbudowane narzędzia dostarczane z TortoiseSVN nie obsługują wyświetlania "
+"różnic między hierarchiami katalogów. Ale jeśli masz zewnętrzne narzędzie, "
+"które ma takie możliwości, możesz go użyć w tym miejscu. W <xref linkend"
+"=\"tsvn-dug-diff-tools\"/> mówimy o kilku narzędziach, których używaliśmy."
 
 #. (para)
 msgid ""
@@ -7537,10 +8539,14 @@ msgid ""
 "tool. Read <xref linkend=\"tsvn-dug-settings-progs\"/> to find out about "
 "configuring other diff tools."
 msgstr ""
+"Jeśli skonfigurowano zewnętrzne narzędzie porównywania, można użyć "
+"<keycap>Shift</keycap> podczas wybierania polecenia Porównaj by skorzystać z"
+" alternatywnych narzędzi. Czytaj <xref linkend=\"tsvn-dug-settings-"
+"progs\"/>, aby dowiedzieć się na temat konfigurowania innych narzędzi diff."
 
 #. (title)
 msgid "Line-end and Whitespace Options"
-msgstr ""
+msgstr "Opcje końca linii i białych znaków"
 
 #. (para)
 msgid ""
@@ -7553,18 +8559,30 @@ msgid ""
 "<guilabel>Merge</guilabel> and <guilabel>Blame</guilabel> dialogs, as well "
 "as in the settings for TortoiseMerge."
 msgstr ""
+"Czasem w życiu danego projektu może zmienić znaki końca linii z "
+"<literal>CRLF</literal> do <literal>LF</literal>, lub możesz zmienić wcięcia"
+" sekcji. Niestety działanie to oznaczy dużą liczbę linii jako zmienioną, "
+"chociaż nie wprowadza żadnych zmian znaczenia dla kodu. Wymienione tu opcje "
+"pomagają zarządzać takimi zmianami, jeśli chodzi o porównanie i stosowanie "
+"różnic. Zobaczysz te ustawienia w oknach dialogowych "
+"<guilabel>Scalanie</guilabel> i <guilabel>Adnotuj</guilabel>, jak również w "
+"ustawieniach TortoiseMerge."
 
 #. (para)
 msgid ""
 "<guilabel>Ignore line endings</guilabel> excludes changes which are due "
 "solely to difference in line-end style."
 msgstr ""
+"<guilabel>Ignoruj zakończenia linii</guilabel> wyklucza zmiany, które "
+"wynikają wyłącznie z powodu różnicy w znaku końca linii."
 
 #. (para)
 msgid ""
 "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation"
 " and inline whitespace as added/removed lines."
 msgstr ""
+"<guilabel>Porównuj białe znaki</guilabel> dołącza wszystkie zmiany wcięcia i"
+" odstępy inline jak dodawane/usuwane linie."
 
 #. (para)
 msgid ""
@@ -7574,33 +8592,42 @@ msgid ""
 "was none before, or removing a whitespace completely is still shown as a "
 "change."
 msgstr ""
+"<guilabel>Ignoruj zmiany białych znaków</guilabel> wyklucza zmiany, które "
+"nastąpiły wyłącznie z powodu zmiany ilości lub rodzaju białych znaków, np. "
+"zmiany wcięcia lub zmiany tabulacji na spacje. Dodawanie białych znaków, "
+"gdzie nie było przedtem żadnego lub usuwanie wszystkich białych znaków jest "
+"nadal wyświetlane jako zmiana."
 
 #. (para)
 msgid ""
 "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only "
 "changes."
 msgstr ""
+"<guilabel>Ignoruj wszystkie zmiany białych znaków</guilabel> wyklucza "
+"wszystkie zmiany białych znaków."
 
 #. (para)
 msgid ""
 "Naturally, any line with changed content is always included in the diff."
 msgstr ""
+"Oczywiście, każda linia ze zmienioną treścią jest zawsze wliczana do "
+"porównania."
 
 #. (title)
 msgid "Comparing Folders"
-msgstr ""
+msgstr "Porównanie folderów"
 
 #. (primary)
 msgid "compare revisions"
-msgstr ""
+msgstr "porównaj wersje"
 
 #. (primary)
 msgid "export changes"
-msgstr ""
+msgstr "eksportuj zmiany"
 
 #. (title)
 msgid "The Compare Revisions Dialog"
-msgstr ""
+msgstr "Okno dialogowe Porównania wersji"
 
 #. (para)
 msgid ""
@@ -7609,12 +8636,18 @@ msgid ""
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare "
 "revisions</guimenuitem></menuchoice>."
 msgstr ""
+"<placeholder-1/> Po wybraniu dwóch drzew w przeglądarce repozytorium lub po "
+"wybraniu dwóch wersji folderu w oknie dziennika, można wykonać "
+"<menuchoice><guimenu>Mmenu kontekstowe</guimenu><guimenuitem>Porównaj "
+"wersje</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
 "This dialog shows a list of all files which have changed and allows you to "
 "compare or blame them individually using context menu."
 msgstr ""
+"To okno pokazuje listę wszystkich plików, które się zmieniły i pozwala "
+"porównać lub je lub adnotować indywidualnie za pomocą menu kontekstowego."
 
 #. (para)
 msgid ""
@@ -7627,6 +8660,14 @@ msgid ""
 "to...</guimenuitem></menuchoice>. You will be prompted for a location to "
 "save the change tree."
 msgstr ""
+"Można eksportować <emphasis>drzewo zmian</emphasis>, co jest przydatne, gdy "
+"trzeba wysłać komuś innmu swoją strukturę drzewa projektu, ale dołączając "
+"tylko pliki, które uległy zmianie. Operacja ta działa na tylko wybranych "
+"plikach, więc musisz wybrać interesujące Cię pliki - zwykle oznacza, że "
+"wszystkie - a następnie <menuchoice><guimenu>Menu "
+"kontekstowe</guimenu><guimenuitem>Eksportuj wybrane elementy "
+"do...</guimenuitem></menuchoice>. Pojawi się monit o lokalizację do "
+"zapisania drzewa zmian."
 
 #. (para)
 msgid ""
@@ -7634,6 +8675,10 @@ msgid ""
 " file using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Save "
 "list of selected files to...</guimenuitem></menuchoice>."
 msgstr ""
+"Możesz także wyeksportować <emphasis>listę</emphasis> zmienionych plików do "
+"pliku tekstowego za pomocą <menuchoice><guimenu>Menu "
+"kontekstowego</guimenu><guimenuitem>Zapisz listę wybranych plików "
+"do...</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -7642,12 +8687,18 @@ msgid ""
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Copy selection to "
 "clipboard</guimenuitem></menuchoice>."
 msgstr ""
+"Jeśli chcesz wyeksportować listę plików <emphasis>oraz</emphasis> akcje "
+"(zmodyfikowany, dodany, usunięty), można to zrobić za pomocą "
+"<menuchoice><guimenu>Menu kontekstowego</guimenu><guimenuitem>Kopiuj "
+"zaznaczenie do schowka</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
 "The button at the top allows you to change the direction of comparison. You "
 "can show the changes need to get from A to B, or if you prefer, from B to A."
 msgstr ""
+"Przycisk u góry pozwala na zmianę kierunku porównania. Można pokazać że "
+"zmiany muszą mieć kierunek z punktu A do B, lub jeśli wolisz, od B do A."
 
 #. (para)
 msgid ""
@@ -7655,6 +8706,9 @@ msgid ""
 "different revision range. When you change the range, the list of items which"
 " differ between the two revisions will be updated automatically."
 msgstr ""
+"Przyciski z numerami wersji można zmienić na inny zakres wersji. Po zmianie "
+"zakresu, lista elementów, które różnią się pomiędzy dwiema wersjami zostanie"
+" automatycznie zaktualizowana."
 
 #. (para)
 msgid ""
@@ -7663,18 +8717,23 @@ msgid ""
 "search is used, so if you want to restrict the list to C source files you "
 "should enter <filename>.c</filename> rather than <filename>*.c</filename>."
 msgstr ""
+"Jeśli lista plików jest bardzo długa, można użyć pola wyszukiwania do "
+"ograniczenia listy nazw plików zawierających określony tekst. Należy "
+"pamiętać, że używane jest  proste wyszukiwanie tekstowe, więc jeśli chcesz "
+"ograniczyć listę do plików źródłowych w C powinieneś wpisać "
+"<filename>.c</filename>, a nie <filename>*.c</filename>."
 
 #. (title)
 msgid "Diffing Images Using TortoiseIDiff"
-msgstr ""
+msgstr "Porównywanie obrazków przy użyciu TortoiseIDiff"
 
 #. (primary)
 msgid "image diff"
-msgstr ""
+msgstr "porównanie obrazów"
 
 #. (primary)
 msgid "TortoiseIDiff"
-msgstr ""
+msgstr "TortoiseIDiff"
 
 #. (para)
 msgid ""
@@ -7682,10 +8741,13 @@ msgid ""
 "TortoiseMerge, but we often find ourselves wanting to see how an image file "
 "has changed too. That's why we created TortoiseIDiff."
 msgstr ""
+"Istnieje wiele dostępnych narzędzi do porównywania plików tekstowych, w tym "
+"własne TortoiseMerge, ale często sami chcemy zobaczyć, jak plik zmienił się "
+"plik obrazu. Dlatego stworzyliśmy TortoiseIDiff."
 
 #. (title)
 msgid "The image difference viewer"
-msgstr ""
+msgstr "Przeglądarka różnic obrazu"
 
 #. (para)
 msgid ""
@@ -7696,6 +8758,12 @@ msgid ""
 "if you prefer, you can overlay the images and pretend you are using a "
 "lightbox."
 msgstr ""
+"<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Porównaj</guimenuitem></menuchoice>"
+" dla każdego z popularnych formatów plików obrazu uruchamia TortoiseIDiff by"
+" pokazać różnice obrazu. Domyślnieobrazy są wyświetlane obok siebie, ale "
+"można skorzystać z menu Widok lub paska narzędzi, aby przejść do widoku góra"
+" - dół, lub jeśli wolisz, możesz nałożyć obrazy i udawać, że korzystasz z "
+"wyświetlarki Lightbox."
 
 #. (para)
 msgid ""
@@ -7704,6 +8772,11 @@ msgid ""
 "<guilabel>Link images together</guilabel> option, then the pan controls "
 "(scrollbars, mousewheel) on both images are linked."
 msgstr ""
+"Oczywiście można także powiększać i pomniejszać i przesuwać okno obrazu. "
+"Można również przesunąć obraz przeciągając go lewym klawiszem myszki. Jeśli "
+"wybierzesz Opcję <guilabel>Powiąż zdjęcia razem</guilabel>, a następnie "
+"wykonujesz przesuwanie (pasków przewijania, kółka myszy) oba obrazy są "
+"połączone."
 
 #. (para)
 msgid ""
@@ -7713,6 +8786,12 @@ msgid ""
 "Info</guimenuitem></menuchoice> to hide it. You can get the same information"
 " in a tooltip if you hover the mouse over the image title bar."
 msgstr ""
+"Pole informacyjne obrazu pokazuje szczegółowe informacje o pliku obrazu, "
+"takie jak rozmiar w pikselach, rozdzielczość i głębia kolorów. Jeśli to pole"
+" zasłania widok, użyj "
+"<menuchoice><guimenu>Widok</guimenu><guimenuitem>Informacja o "
+"obrazie</guimenuitem></menuchoice> aby je ukryć. Możesz uzyskać te same "
+"informacje w dymku po najechaniu myszką na pasku tytułu obrazu."
 
 #. (para)
 msgid ""
@@ -7722,6 +8801,11 @@ msgid ""
 " to change the blend interactively. "
 "<keycap>Ctrl+Shift</keycap>-<action>Wheel</action> to change the blend."
 msgstr ""
+"Kiedy obrazy są nakładane, względna intensywność obrazów (alpha blend) jest "
+"kontrolowana przez suwak po lewej stronie. Możesz kliknąć w dowolnym miejscu"
+" na suwak, aby ustawić mieszanie bezpośrednio, lub przeciągać suwak, aby "
+"zmienić mieszanie interaktywnie. "
+"<keycap>Ctrl+Shift</keycap>-<action>kółko</action> by zmienić mieszanie."
 
 #. (para)
 msgid ""
@@ -7730,6 +8814,10 @@ msgid ""
 "you click the button again. This can be useful when looking for multiple "
 "small changes."
 msgstr ""
+"Przycisk powyżej suwaka przełącza pomiędzy 0% i 100% krycia, a jeśli "
+"dwukrotnie kliknąć przycisk, mieszanie przełącza automatycznie co sekundę aż"
+" do momentu ponownego kliknięcia przycisku. Może to być przydatne przy "
+"poszukiwaniu wielu małych zmian."
 
 #. (para)
 msgid ""
@@ -7739,14 +8827,19 @@ msgid ""
 "will be shown as an <emphasis>XOR</emphasis> of the pixel colour values. "
 "Unchanged areas will be plain white and changes will be coloured."
 msgstr ""
+"Czasami chcesz zobaczyć różnicę, a nie mieszankę. Możesz mieć pliki obrazów "
+"dla dwóch wersji płytki drukowanej i chcesz sprawdzić, które ścieżki zostały"
+" zmienione. Jeśli wyłączysz tryb alfa blend, różnica będzie wyświetlany jako"
+" <emphasis>XOR</emphasis> z wartości koloru pikseli. Obszary niezmienione "
+"będą zupełnie białe, a zmiany będą kolorowe."
 
 #. (title)
 msgid "Diffing Office Documents"
-msgstr ""
+msgstr "Porównywanie Dokumentów Office"
 
 #. (primary)
 msgid "Microsoft Word"
-msgstr ""
+msgstr "Microsoft Word"
 
 #. (para)
 msgid ""
@@ -7761,10 +8854,20 @@ msgid ""
 " and clicking <guibutton>Advanced</guibutton> in the <guilabel>External "
 "Programs</guilabel> section."
 msgstr ""
+"Jeśli chcesz porównać nietekstowe dokumenty, normalnie należałoby skorzystać"
+" z oprogramowania używanego do tworzenia dokumentu gdyż rozumie on format "
+"pliku. Do najczęściej używanych Microsoft Office i Open Office mamy jednak "
+"pewne wsparcie dla wyświetlania różnic i TortoiseSVN zawiera skrypty "
+"wywoływane przy odpowiednich ustawieniach, gdy porównujemy pliki z dobrze "
+"znanymi rozszerzeniami. Możesz sprawdzić, które rozszerzenia plików są "
+"obsługiwane i dodawać własne, wchodząc w "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ustawienia</guimenuitem></menuchoice>"
+" i klikając <guibutton> Zaawansowane</guibutton> w sekcji <guilabel>Program "
+"zewnętrzny</guilabel>."
 
 #. (title)
 msgid "Problems with Office 2010"
-msgstr ""
+msgstr "Problemy z Office 2010"
 
 #. (para)
 msgid ""
@@ -7774,18 +8877,23 @@ msgid ""
 "object: word.Application</quote>. It seems you have to use the MSI-based "
 "version of Office to get the diff functionality."
 msgstr ""
+"Jeśli zainstalowałeś wersję <emphasis>Click-to-Run</emphasis> pakietu Office"
+" 2010 i próbujesz porównać dokumenty może pojawić się komunikat o błędzie "
+"systemu Windows Script Host w stylu: <quote>Składnik ActiveX nie może "
+"utworzyć obiektu : Word.Application</quote>. Wydaje się, musisz użyć opartej"
+" na MSI wersji pakietu Office, aby uzyskać funkcjonalność porównywania."
 
 #. (title)
 msgid "External Diff/Merge Tools"
-msgstr ""
+msgstr "Zewnętrzne narzędzia porównywania/scalania"
 
 #. (primary)
 msgid "diff tools"
-msgstr ""
+msgstr "narzędzia porównywania"
 
 #. (primary)
 msgid "merge tools"
-msgstr ""
+msgstr "narzędzia scalania"
 
 #. (para)
 msgid ""
@@ -7794,10 +8902,14 @@ msgid ""
 "and this list is by no means complete, but here are a few that you might "
 "consider:"
 msgstr ""
+"Jeśli dostarczone przez nas narzędzia nie robią tego, czego potrzebujesz, "
+"spróbuj jednego z wielu dostępnych programów open-source lub komercyjnych. "
+"Każdy ma swoje ulubione i ta lista wcale nie jest kompletna, ale zawiera "
+"kilka, które warto rozważyć:"
 
 #. (term)
 msgid "WinMerge"
-msgstr ""
+msgstr "WinMerge"
 
 #. (para)
 msgid ""
@@ -7805,10 +8917,14 @@ msgid ""
 "url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink>"
 " is a great open-source diff tool which can also handle directories."
 msgstr ""
+"<ulink "
+"url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink>"
+" jest doskonałym opensursowym narzędziem porównywania, które obsługuje także"
+" katalogi."
 
 #. (term)
 msgid "Perforce Merge"
-msgstr ""
+msgstr "Perforce Merge"
 
 #. (para)
 msgid ""
@@ -7816,10 +8932,14 @@ msgid ""
 "free. Get more information from <ulink "
 "url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
 msgstr ""
+"Perforce jest komercyjnym RCS, ale można pobrać narzędzie "
+"porównywania/scalenia narzędzie za darmo. Więcej informacji można uzyskać z "
+"<ulink "
+"url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
 
 #. (term)
 msgid "KDiff3"
-msgstr ""
+msgstr "KDiff3"
 
 #. (para)
 msgid ""
@@ -7827,10 +8947,13 @@ msgid ""
 "download it from <ulink "
 "url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
 msgstr ""
+"KDiff3 jest darmowym narzędziem porównywania, które obsługuje także foldery."
+" Można go pobrać <ulink "
+"url=\"http://kdiff3.sf.net/\"><citetitle>stąd</citetitle></ulink>."
 
 #. (term)
 msgid "SourceGear DiffMerge"
-msgstr ""
+msgstr "SourceGear DiffMerge"
 
 #. (para)
 msgid ""
@@ -7838,10 +8961,14 @@ msgid ""
 "tool for free. Get more information from <ulink "
 "url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
 msgstr ""
+"SourceGear Vault jest komercyjnym RCS, ale można pobrać narzędzie "
+"porównywania/scalenia narzędzie za darmo. Więcej informacji można uzyskać z "
+"<ulink "
+"url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
 
 #. (term)
 msgid "ExamDiff"
-msgstr ""
+msgstr "ExamDiff"
 
 #. (para)
 msgid ""
@@ -7851,10 +8978,15 @@ msgid ""
 "handle unicode. You can download them from <ulink "
 "url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
 msgstr ""
+"ExamDiff Standard jest programem bezpłatnym. Obsługuje on pliki, ale nie "
+"foldery. ExamDiff Pro jest shareware i dodaje kilka bajerów w tym "
+"porównywanie katalogu i możliwość edycji. W obu smakach, wersja 3.2 i "
+"powyżej mogą obsługiwać unicode. Można je pobrać z <ulink "
+"url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
 
 #. (term)
 msgid "Beyond Compare"
-msgstr ""
+msgstr "Beyond Compare"
 
 #. (para)
 msgid ""
@@ -7863,10 +8995,14 @@ msgid ""
 "url=\"http://www.scootersoftware.com/\"><citetitle>Scooter "
 "Software</citetitle></ulink>."
 msgstr ""
+"Podobnie do ExamDiff Pro jest to wspaniałe narzędzie shareware do "
+"porównywania obsługujące zarówno foldery jak i unicode. Do pobrania ze "
+"<ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter "
+"Software</citetitle></ulink>."
 
 #. (term)
 msgid "Araxis Merge"
-msgstr ""
+msgstr "Araxis Merge"
 
 #. (para)
 msgid ""
@@ -7876,29 +9012,36 @@ msgid ""
 "<ulink "
 "url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
 msgstr ""
+"Araxis Merge jest użytecznym komercyjnym narzędziem do porównywania i "
+"scalania zarówno plików i folderów. Wykonuje on trójdrożny porównanie "
+"podczas scalania i ma wiązania synchronizacji do użycia jeśli zmienisz "
+"kolejność funkcji. Pobierz go z <ulink "
+"url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
 
 #. (para)
 msgid ""
 "Read <xref linkend=\"tsvn-dug-settings-progs\"/> for information on how to "
 "set up TortoiseSVN to use these tools."
 msgstr ""
+"Czytaj <xref linkend=\"tsvn-dug-settings-progs\"/> by uzyskać informacje jak"
+" skonfigurować TortoiseSVN by używać tych narzędzi."
 
 #. (title)
 msgid "Adding New Files And Directories"
-msgstr ""
+msgstr "Dodawanie nowych plików i folderów"
 
 #. (primary)
 msgid "add"
-msgstr ""
+msgstr "dodaj"
 
 #. (primary)
 msgid "version new files"
-msgstr ""
+msgstr "wersjonuj nowe pliki "
 
 #. (title)
 #. (title)
 msgid "Explorer context menu for unversioned files"
-msgstr ""
+msgstr "Menu kontekstowe Eksploratora dla niewersjonowanych plików"
 
 #. (para)
 msgid ""
@@ -7907,6 +9050,10 @@ msgid ""
 "the file(s) and/or directory and use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
 msgstr ""
+"<placeholder-1/> Jeśli utworzyłeś nowe pliki i/lub katalogi w trakcie "
+"procesu rozwoju, musisz dodać je również do kontroli wersji. Wybierz plik(i)"
+" i/lub folder(y) i skorzystaj z "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Dodaj</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -7916,10 +9063,15 @@ msgid ""
 "developers. Adding a file/directory does <emphasis>not</emphasis> affect the"
 " repository!"
 msgstr ""
+"Po dodaniu plików/katalogów do kontroli wersji, plik pojawia się z nakładką "
+"ikony <literal>dodane</literal> co oznacza, że ​​teraz trzeba zatwierdzić "
+"kopię roboczą, aby te pliki/katalogi stały się dostępne dla innych "
+"deweloperów. Dodanie pliku/katalogu <emphasis>nie</emphasis> wpływa na "
+"repozytorium!"
 
 #. (title)
 msgid "Many Adds"
-msgstr ""
+msgstr "Wiele dodań"
 
 #. (para)
 msgid ""
@@ -7928,21 +9080,27 @@ msgid ""
 "folder. This helps if you have many new files and need to add them all at "
 "once."
 msgstr ""
+"Można również użyć polecenia Dodaj na już wersjonowanych folderach. W tym "
+"przypadku okno dodawania pokaże wszystkie pliki bez informacji o wersji "
+"wewnątrz tego wersjonowanego folderu. Jest to pomocne, jeśli masz wiele "
+"nowych plików i trzeba dodać je wszystkie naraz."
 
 #. (para)
 msgid "select the files you want to add"
-msgstr ""
+msgstr "wybierz pliki, które chcesz dodać"
 
 #. (para)
 #. (para)
 msgid ""
 "<action>right drag</action> them to the new location inside the working copy"
 msgstr ""
+"<action>przeciągnij prawym przyciskiem</action> do nowej lokalizacji "
+"wewnątrz kopii roboczej"
 
 #. (para)
 #. (para)
 msgid "release the right mouse button"
-msgstr ""
+msgstr "puść prawy przycisk myszy"
 
 #. (para)
 msgid ""
@@ -7950,18 +9108,25 @@ msgid ""
 " to this WC</guimenuitem></menuchoice>. The files will then be copied to the"
 " working copy and added to version control."
 msgstr ""
+"wybierz <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN kopiuj i"
+" dodaj pliki do tej kopii roboczej</guimenuitem></menuchoice>. Pliki zostaną"
+" skopiowane do kopii roboczej i dodane do kontroli wersji."
 
 #. (para)
 msgid ""
 "To add files from outside your working copy you can use the drag-and-drop "
 "handler: <placeholder-1/>"
 msgstr ""
+"Aby dodać pliki spoza kopii roboczej można użyć funkcji obsługi przeciągnij "
+"i upuść: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "You can also add files within a working copy simply by left-dragging and "
 "dropping them onto the commit dialog."
 msgstr ""
+"Możesz również dodać pliki z kopii roboczej po prostu klikając i "
+"przeciągając lewym je klawiszem na okno dialogowe zatwierdzenia."
 
 #. (para)
 msgid ""
@@ -7969,32 +9134,36 @@ msgid ""
 " commit using <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo "
 "add...</guimenuitem></menuchoice>."
 msgstr ""
+"Jeśli dodałeś plik lub folder przez pomyłkę, można cofnąć dodanie, zanim je "
+"zatwierdzisz za pomocą "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cofnij "
+"dodanie...</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Copying/Moving/Renaming Files and Folders"
-msgstr ""
+msgstr "Kopiowanie/przenoszenie/zmiana nazwy plików i folderów"
 
 #. (primary)
 msgid "copy files"
-msgstr ""
+msgstr "kopiuj pliki"
 
 #. (primary)
 msgid "rename files"
-msgstr ""
+msgstr "zmień nazwę plików"
 
 #. (primary)
 msgid "move files"
-msgstr ""
+msgstr "przenieś pliki"
 
 #. (primary)
 #. (primary)
 msgid "branch"
-msgstr ""
+msgstr "gałąź"
 
 #. (primary)
 #. (primary)
 msgid "tag"
-msgstr ""
+msgstr "etykieta"
 
 #. (para)
 msgid ""
@@ -8005,6 +9174,12 @@ msgid ""
 "files, you can only merge the fix automatically if the new copy is related "
 "to the original in Subversion."
 msgstr ""
+"Często zdarza się, że masz już potrzebne pliki w innym projekcie w "
+"repozytorium i chcesz po prostu skopiować stamtąd. Możesz po prostu "
+"skopiować pliki i dodać je w sposób opisany powyżej, ale ten sposób nie "
+"dołączy żadnej historii. A jeśli później naprawisz błąd w oryginalnych "
+"plikach, można scalić korektę automatycznie tylko wtedy, gdy nowa kopia jest"
+" powiązanych z oryginałem w Subversion."
 
 #. (para)
 msgid ""
@@ -8015,6 +9190,13 @@ msgid ""
 "can copy existing versioned content to a new location, possibly renaming it "
 "at the same time."
 msgstr ""
+"Najprostszym sposobem kopiowania plików i folderów w kopii roboczej jest "
+"wykorzystanie prawego menu przeciągania. Kiedy <action>przeciągasz prawym "
+"przyciskiem</action> plik lub folder w jednej kopii roboczej do innego, lub "
+"nawet tego samego folderu, pojawi się menu kontekstowe po zwolnieniu "
+"przycisku myszy. <placeholder-1/> Teraz możesz skopiować istniejącą "
+"wersjonowaną zawartość do nowej lokalizacji, być może zmieniając nazwę w tym"
+" samym czasie."
 
 #. (para)
 msgid ""
@@ -8027,6 +9209,16 @@ msgid ""
 " (note: not the standard Windows <action>Paste</action>) to copy or move "
 "those items to the new working copy location."
 msgstr ""
+"Możesz również skopiować lub przenieść wersjonowane pliki wewnątrz kopii "
+"roboczej, lub między dwiema kopiami roboczymi, za pomocą znanej metody "
+"wytnij i wklej. Wykorzystaj Windowsowy standard <action>Kopiuj</action> lub "
+"<action>Wytnij</action> by skopiować jeden lub więcej wersjonowanych "
+"elementów do schowka. Jeśli w schowek zawiera takie wersjonowane elementy, "
+"można użyć "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Wklej</guimenuitem></menuchoice>"
+" (uwaga: nie standardowego Windowsowego <action>Wklej</action>) do "
+"skopiowania lub przeniesienia tych elementów na nowe miejsce w kopii "
+"roboczej."
 
 #. (para)
 msgid ""
@@ -8035,6 +9227,11 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag</guimenuitem></menuchoice>."
 " Refer to <xref linkend=\"tsvn-dug-branch-1\"/> to find out more."
 msgstr ""
+"Można kopiować pliki i foldery z kopii roboczej do innej lokalizacji w "
+"repozytorium przez "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Gałąź/etykieta</guimenuitem></menuchoice>."
+" Zapoznaj się z <xref linkend=\"tsvn-dug-branch-1\"/> by dowiedzieć się "
+"więcej."
 
 #. (para)
 msgid ""
@@ -8044,6 +9241,11 @@ msgid ""
 "branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend"
 "=\"tsvn-dug-showlog-2\"/> to find out more."
 msgstr ""
+"Można znaleźć starszą wersję pliku lub folderu w oknie dziennika i skopiować"
+" ją do nowej lokalizacji w repozytorium bezpośrednio z okna dziennika przy "
+"użyciu <menuchoice><guimenu>Menu kontekstowego</guimenu><guimenuitem>Utwórz "
+"gałąź/&etykietę z wersji</guimenuitem></menuchoice>. Zapoznaj się z <xref "
+"linkend=\"tsvn-dug-showlog-2\"/> by dowiedzieć się więcej."
 
 #. (para)
 msgid ""
@@ -8052,10 +9254,14 @@ msgid ""
 " locations within the repository. Refer to <xref linkend=\"tsvn-dug-"
 "repobrowser\"/> to find out more."
 msgstr ""
+"Można również użyć przeglądarki repozytorium, aby zlokalizować dane, które "
+"chcesz, i skopiować je do swojej kopii roboczej bezpośrednio z repozytorium,"
+" albo skopiować pomiędzy dwiema lokalizacjami w repozytorium. Zapoznaj się z"
+" <xref linkend=\"tsvn-dug-repobrowser\"/> aby dowiedzieć się więcej."
 
 #. (title)
 msgid "Cannot copy between repositories"
-msgstr ""
+msgstr "Nie można kopiować pomiędzy repozytoriami"
 
 #. (para)
 msgid ""
@@ -8065,6 +9271,12 @@ msgid ""
 "repositories live on the same server. All you can do is copy the content in "
 "its current state and add it as new content to the second repository."
 msgstr ""
+"Chociaż można kopiować lub przenosić pliki i foldery "
+"<emphasis>wewnątrz</emphasis> repozytorium, <emphasis>nie</emphasis> można "
+"kopiować i przenosić z jednego repozytorium do drugiego z zachowaniem "
+"historii za pomocą TortoiseSVN. Nawet jeśli w repozytoria leżą na tym samym "
+"serwerze. Wszystko, co możesz zrobić, to skopiować zawartość w jej obecnym "
+"stanie i dodać ją jako nową zawartość do drugiego repozytorium."
 
 #. (para)
 msgid ""
@@ -8073,18 +9285,23 @@ msgid ""
 " where the repository root is. If you can see both locations in one repo "
 "browser window then they are in the same repository."
 msgstr ""
+"Jeśli nie jesteś pewien czy dwa adresy URL na tym samym serwerze wskazują na"
+" to samo czy dwa różne repozytoria , należy użyć przeglądarki repozytorium "
+"otworzyć jeden z adresów URL i dowiedzieć się, gdzie znajduje się folder "
+"główny repozytorium. Jeśli widzisz obie lokalizacje w jednym oknie "
+"przeglądarki to są one w tym samym repozytorium."
 
 #. (title)
 msgid "Ignoring Files And Directories"
-msgstr ""
+msgstr "Ignorowanie plików i folderów"
 
 #. (primary)
 msgid "ignore"
-msgstr ""
+msgstr "ignoruj"
 
 #. (primary)
 msgid "unversioned files/folders"
-msgstr ""
+msgstr "niewersjonowane pliki i foldery"
 
 #. (para)
 msgid ""
@@ -8096,6 +9313,13 @@ msgid ""
 "Of course you can turn off this display, but then you might forget to add a "
 "new source file."
 msgstr ""
+"<placeholder-1/> W większości projektów występować będą pliki i foldery, "
+"które nie powinny podlegać kontroli wersji. Mogą to być pliki utworzone "
+"przez kompilator, <filename>*.obj, *.lst</filename>, albo folder wyjściowy "
+"używany do przechowywania pliku wykonywalnego. Kiedykolwiek zatwierdzasz "
+"zmiany, TortoiseSVN pokazuje niewersjonowane plikói, które zapełniają listę "
+"plików w oknie dialogowym zatwierdzenia. Oczywiście można wyłączyć ich "
+"wyświetlanie, ale wtedy można zapomnieć o dodaniu nowego pliku źródłowego."
 
 #. (para)
 msgid ""
@@ -8103,6 +9327,10 @@ msgid ""
 "project's ignore list. That way they will never show up in the commit "
 "dialog, but genuine unversioned source files will still be flagged up."
 msgstr ""
+"Najlepszym sposobem na uniknięcie tych problemów jest dodanie plików "
+"pochodnych do listy ignorowanych projektu. W ten sposób nigdy nie pojawi się"
+" w oknie dialogowym zatwierdzenia, a niewersjonowane oryginalne pliki "
+"źródłowe nadal będą oznakowane."
 
 #. (para)
 msgid ""
@@ -8113,6 +9341,13 @@ msgid ""
 "extension. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
 msgstr ""
+"Jeśli <action>klikniesz prawym przyciskiem myszy</action> na jednym pliku "
+"bez informacji o wersji i wybierzesz polecenie "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Dodaj do listy "
+"&ignorowanych</guimenuitem></menuchoice> z menu kontekstowego, pojawi się "
+"podmenu umożliwiające wybranie dokładnie tego pliku lub wszystkich plików z "
+"tym samym rozszerzeniem. W przypadku wybrania wielu plików, nie ma podmenu, "
+"można dodać tylko te konkretne pliki/foldery."
 
 #. (para)
 msgid ""
@@ -8126,10 +9361,21 @@ msgid ""
 "on setting properties directly. Please be aware that each ignore pattern has"
 " to be placed on a separate line. Separating them by spaces does not work."
 msgstr ""
+"Jeśli chcesz usunąć jeden lub więcej elementów z listy ignorowanych, "
+"<action>kliknij prawym przyciskiem myszy</action> na te elementy, a "
+"następnie wybierz "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Usuń z listy "
+"ignorowanych</guimenuitem></menuchoice> Możesz również uzyskać dostęp do "
+"atrybutu folderu <literal>svn:ignore</literal> bezpośrednio. To pozwala "
+"określić bardziej ogólne wzorce przy użyciu masek pliku, opisanych w "
+"rozdziale poniżej. Czytaj <xref linkend=\"tsvn-dug-propertypage\"/> by "
+"uzyskać więcej informacji na temat ustawiania właściwości bezpośrednio. "
+"Należy pamiętać, że każdy wzorzec ignorować musi być umieszczony w osobnej "
+"linii. Oddzielanie ich spacjami nie działa."
 
 #. (title)
 msgid "The Global Ignore List"
-msgstr ""
+msgstr "Globalna lista ignorowania"
 
 #. (para)
 msgid ""
@@ -8142,10 +9388,19 @@ msgid ""
 "the project. Read <xref linkend=\"tsvn-dug-settings-main\"/> for more "
 "information."
 msgstr ""
+"Innym sposobem na ignorowanie plików, jest dodanie ich do "
+"<firstterm>globalnej listy ignorowania</firstterm>. Największą różnicą jest "
+"to, że globalne listy ignorowania są własnością klienta. Dotyczy to "
+"<emphasis>wszystkich</emphasis> projektów Subversion, ale tylko na kliencie "
+"PC. Ogólnie lepiej jest używać w miarę możliwości atrybutu "
+"<filename>svn:ignore</filename>, ponieważ może być stosowany do określonych "
+"obszarów projektu, i to działa dla każdego, kto pobierze projektu. Czytaj "
+"<xref linkend=\"tsvn-dug-settings-main\"/> dla uzyskania dokładniejszych "
+"informacji."
 
 #. (title)
 msgid "Ignoring Versioned Items"
-msgstr ""
+msgstr "Ignorowanie elementów wersjonowanych"
 
 #. (para)
 msgid ""
@@ -8153,40 +9408,44 @@ msgid ""
 "Subversion. If you versioned a file by mistake, read <xref linkend=\"tsvn-"
 "howto-unversion\"/> for instructions on how to <quote>unversion</quote> it."
 msgstr ""
+"Wersjonowane pliki i foldery nie mogą być ignorowane - to cecha Subversion. "
+"Jeśli włączyłeś plik do kontroli wersji przez pomyłkę, czytaj <xref linkend"
+"=\"tsvn-howto-unversion\"/> by uzyskać instrukcję "
+"<quote>odwersjonowania</quote> go."
 
 #. (title)
 msgid "Pattern Matching in Ignore Lists"
-msgstr ""
+msgstr "Dopasowanie wzorców w listach ignorowania"
 
 #. (primary)
 msgid "globbing"
-msgstr ""
+msgstr "obsługa masek"
 
 #. (primary)
 msgid "pattern matching"
-msgstr ""
+msgstr "Dopasowanie wyrażeń regularnych"
 
 #. (term)
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #. (para)
 msgid ""
 "Matches any string of characters, including the empty string (no "
 "characters)."
-msgstr ""
+msgstr "Pasuje do dowolnego ciągu znaków, w tym ciągu pustego (bez znaków)."
 
 #. (term)
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #. (para)
 msgid "Matches any single character."
-msgstr ""
+msgstr "Zastępuje dowolny pojedynczy znak "
 
 #. (term)
 msgid "[...]"
-msgstr ""
+msgstr "[...]"
 
 #. (para)
 msgid ""
@@ -8197,6 +9456,12 @@ msgid ""
 "<literal>m</literal>, <literal>n</literal>, <literal>o</literal> or "
 "<literal>p</literal>."
 msgstr ""
+"Pasuje do każdego ze znaków zamkniętych w nawiasach kwadratowych. Wewnątrz "
+"nawiasów, para znaków oddzielonych <quote>-</quote> pasuje do dowolnego "
+"znaku leksykalnego pomiędzy nimi. Na przykład <literal>[AGM-p]</literal> "
+"pasuje do każdego pojedynczego znaku z <literal>A</literal>, "
+"<literal>G</literal>, <literal>m</literal>, <literal>n</literal>, "
+"<literal>o</literal> lub <literal>p</literal>."
 
 #. (para)
 msgid ""
@@ -8204,6 +9469,9 @@ msgid ""
 "originally used in Unix to specify files using meta-characters as wildcards."
 " The following characters have special meaning: <placeholder-1/>"
 msgstr ""
+"Wzorce ignorowania Subversion wykorzystują z obsługę masek pliku, technikę "
+"pierwotnie używaną w Unixie by określić pliki za pomocą wieloznacznych meta-"
+"znaków. Następujące znaki mają specjalne znaczenie: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8212,6 +9480,10 @@ msgid ""
 "ignore <literal>*.tmp</literal> regardless of case, you could use a pattern "
 "like <literal>*.[Tt][Mm][Pp]</literal>."
 msgstr ""
+"Pasowanie do wzorca jest wrażliwe na wielkość liter, co może powodować "
+"problemy w systemie Windows. Możesz wymusić niewrażliwości na krótko przez "
+"parowanie znaków, np. by zignorować <literal>*. tmp</literal>, niezależnie "
+"od przypadku, należy użyć wzoru jak <literal>*.[Tt][Mm][Pp]</literal>."
 
 #. (para)
 msgid ""
@@ -8220,10 +9492,14 @@ msgid ""
 "url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern"
 " Matching Notation</citetitle></ulink>."
 msgstr ""
+"Jeśli chcesz oficjalnej definicji dla obsługa masek, można go znaleźć w "
+"specyfikacji IEEE dla języka powłoki poleceń <ulink "
+"url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern"
+" Matching Notation</citetitle></ulink>."
 
 #. (title)
 msgid "No Paths in Global Ignore List"
-msgstr ""
+msgstr "Brak ścieżek w globalnej liście ignorowanych"
 
 #. (para)
 msgid ""
@@ -8237,14 +9513,24 @@ msgid ""
 "folder you should use the <literal>svn:ignore</literal> property instead. "
 "There is no reliable way to achieve this using global ignore patterns."
 msgstr ""
+"Nie powinno się zawierać informacje o ścieżce we wzorcu. Wzorzec dopasowania"
+" ma być użyte na pełnych nazwach plików i folderów. Jeśli chcesz, aby "
+"ignorować wszystkie foldery <literal>CVS</literal>, po prostu dodaj "
+"<literal>CVS</literal> do listy ignorowanych. Nie ma potrzeby, aby określić "
+"<literal>CVS */CVS </literal>, tak jak w poprzednich wersjach. Jeśli chcesz,"
+" aby ignorować wszystkie foldery <literal>tmp</ literal>, gdy znajdują się w"
+" folderach  <literal>prog</literal>, ale nie w folderach "
+"<literal>doc</literal> należy użyć atrybutu <literal>svn:ignore</literal>. "
+"Nie ma niezawodnego sposobu osiągnięcia tego celu za pomocą globalnego "
+"wzorca ignorowania."
 
 #. (title)
 msgid "Deleting, Moving and Renaming"
-msgstr ""
+msgstr "Usuwanie, przenoszenie i zmiana nazwy"
 
 #. (title)
 msgid "Explorer context menu for versioned files"
-msgstr ""
+msgstr "Menu kontekstowe Eksploratora dla wersjonowanych plików"
 
 #. (para)
 msgid ""
@@ -8252,18 +9538,21 @@ msgid ""
 "menu entries for delete and rename in the TortoiseSVN submenu. "
 "<placeholder-1/>"
 msgstr ""
+"Subversion umożliwia zmianę nazwy i przenoszenie plików i folderów. Dlatego "
+"są wpisy menu pozwalające usuwać i zmieniać nazwy w submenu TortoiseSVN. "
+"<placeholder-1/>"
 
 #. (title)
 msgid "Deleting files and folders"
-msgstr ""
+msgstr "Usuwanie plików i katalogów"
 
 #. (primary)
 msgid "delete"
-msgstr ""
+msgstr "usuń"
 
 #. (primary)
 msgid "remove"
-msgstr ""
+msgstr "usuń"
 
 #. (para)
 msgid ""
@@ -8271,6 +9560,9 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>"
 " to remove files or folders from subversion."
 msgstr ""
+"Użyj "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Usuń</guimenuitem></menuchoice>"
+" by usunąć pliki lub foldery z subversion."
 
 #. (para)
 msgid ""
@@ -10194,6 +11486,14 @@ msgid ""
 "revisions you want to merge. This can be a single revision, a list of "
 "specific revisions separated by commas, or a range of revisions separated by"
 " a dash, or any combination of these."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you need to specify a peg revision for the merge, add the peg revision at"
+" the end of the revisions, e.g. <literal>5-7,10@3</literal>. In the above "
+"example, the revisions 5,6,7 and 10 would be merged, with 3 being the peg "
+"revision."
 msgstr ""
 
 #. (para)
@@ -14173,6 +15473,26 @@ msgid "The window title for your file"
 msgstr ""
 
 #. (para)
+msgid "The url of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The url of the second file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the second file, if available"
+msgstr ""
+
+#. (para)
+msgid "The peg revision, if available"
+msgstr ""
+
+#. (para)
 msgid ""
 "An external diff program may be used for comparing different revisions of "
 "files. The external program will need to obtain the filenames from the "
@@ -15215,6 +16535,25 @@ msgid ""
 "To update with externals included, either run the <literal>Update to "
 "revision...</literal> dialog or set this value to <literal>true</literal> "
 "again."
+msgstr ""
+
+#. (para)
+msgid ""
+"When the log dialog is started from the merge wizard, already merged "
+"revisions are shown in gray, but revisions beyond the point where the branch"
+" was created are also shown. These revisions are shown in black because "
+"those can't be merged."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal> then TortoiseSVN tries to "
+"find the revision where the branch was created from and hide all the "
+"revisions that are beyond that revision. Since this can take quite a while, "
+"this option is disabled by default. Also this option doesn't work with some "
+"SVN servers (e.g., Google Code Hosting, see <ulink "
+"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
+" #5471</citetitle></ulink>)."
 msgstr ""
 
 #. (para)

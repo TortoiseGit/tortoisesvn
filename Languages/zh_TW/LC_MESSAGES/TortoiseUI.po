@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-03 00:34+0000\n"
+"PO-Revision-Date: 2011-07-09 00:41+0000\n"
 "Last-Translator: arith <arithmandar@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2392,6 +2392,12 @@ msgstr "無法從剪貼簿上貼上點陣圖!"
 #. Resource IDs: (2, 73, 99, 332, 563, 1069)
 msgid "Cancel"
 msgstr "取消"
+
+#. Resource IDs: (170)
+msgid ""
+"Cancel\n"
+"Change the selection for the commit."
+msgstr ""
 
 #. Resource IDs: (100)
 msgid ""
@@ -6776,6 +6782,10 @@ msgstr "節點狀態:"
 msgid "Node colors"
 msgstr "節點顏色"
 
+#. Resource IDs: (170)
+msgid "Non-recursive commit of moved/renamed folders."
+msgstr ""
+
 #. Resource IDs: (1507)
 msgid "Non-versioned"
 msgstr "無版本控制"
@@ -7439,6 +7449,12 @@ msgstr "印表檔案 (*.prn)|*.prn|全部檔案 (*.*)|*.*||"
 #. Resource IDs: (65535)
 msgid "Printing"
 msgstr "列印中"
+
+#. Resource IDs: (170)
+msgid ""
+"Proceed with the commit\n"
+"the renamed/moved folders are committed recursively in the repository."
+msgstr ""
 
 #. Resource IDs: (89)
 msgid ""
@@ -10299,6 +10315,22 @@ msgid ""
 "changes that were made before the application closed."
 msgstr "這些是比目前版本還要更新的儲存檔, 並含有程式關閉前留下的變更."
 
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed folders selected "
+"for commit. Such moves/renames are always performed recursively in the "
+"repository. Do you want to commit anyway?"
+msgstr ""
+
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed\n"
+"folders selected for commit. Such moves/renames\n"
+"are always performed recursively in the repository.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "檔案已經存在!"
@@ -11123,15 +11155,10 @@ msgstr ""
 msgid ""
 "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
 "\r\n"
-"Example: 4-7,9,11,15-HEAD\r\n"
+"Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"這個視窗用來選擇您想要合併的版本, 或是輸入以逗號分隔的版本列表. 版本範圍可以使用 - 號表示.\r\n"
-"\r\n"
-"例如: 4-7,9,11,15-HEAD\r\n"
-"\r\n"
-"如果不輸入, 表示合併所有版本."
 
 #. Resource IDs: (314)
 #, c-format

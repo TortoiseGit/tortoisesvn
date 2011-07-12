@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-14 08:22+0000\n"
+"PO-Revision-Date: 2011-07-12 06:03+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -12573,6 +12573,18 @@ msgstr ""
 
 #. (para)
 msgid ""
+"If you need to specify a peg revision for the merge, add the peg revision at"
+" the end of the revisions, e.g. <literal>5-7,10@3</literal>. In the above "
+"example, the revisions 5,6,7 and 10 would be merged, with 3 being the peg "
+"revision."
+msgstr ""
+"Wenn Sie eine fixe Revision für das Zusammenführen benötigen, geben Sie "
+"diese am Ende der Revisionen an, z.B.<literal>5-7,10@3</literal>. Im diesem "
+"Beispiel werden die Revisionen 6,5,7 und 10 zusammengeführt wobei 3 die fixe"
+" Revision darstellt."
+
+#. (para)
+msgid ""
 "There is an important difference in the way a revision range is specified "
 "with TortoiseSVN compared to the command line client. The easiest way to "
 "visualise it is to think of a fence with posts and fence panels."
@@ -18356,6 +18368,26 @@ msgid "The window title for your file"
 msgstr "Der Fenstertitel für Ihre Datei"
 
 #. (para)
+msgid "The url of the original file, if available"
+msgstr "Die URL der ursprünglichen Datei, falls vorhanden"
+
+#. (para)
+msgid "The url of the second file, if available"
+msgstr "Die URL der zweiten Datei, falls vorhanden"
+
+#. (para)
+msgid "The revision of the original file, if available"
+msgstr "Die Revision der ursprünglichen Datei, falls vorhanden"
+
+#. (para)
+msgid "The revision of the second file, if available"
+msgstr "Die Revision der zweiten Datei, falls vorhanden"
+
+#. (para)
+msgid "The peg revision, if available"
+msgstr "Die fixe Revision, falls verfügbar"
+
+#. (para)
 msgid ""
 "An external diff program may be used for comparing different revisions of "
 "files. The external program will need to obtain the filenames from the "
@@ -19806,6 +19838,37 @@ msgstr ""
 "standardmäßig nicht aktualisiert. Um diese zu aktualisieren, rufen Sie "
 "entweder die Funktion <literal>Aktualisiere zu Revision ...</literal> auf "
 "oder setzen Sie den Wert wieder auf <literal>true</literal>."
+
+#. (para)
+msgid ""
+"When the log dialog is started from the merge wizard, already merged "
+"revisions are shown in gray, but revisions beyond the point where the branch"
+" was created are also shown. These revisions are shown in black because "
+"those can't be merged."
+msgstr ""
+"Wenn der Log-Dialog aus dem Zusammenführen-Assistenten heraus gestartet "
+"wird, werden bereits zusammengeführte Revisionen in grau angezeigt. "
+"Revisionen die vor dem Punkt liegen, an dem der Zweig angelegt wurde, sind "
+"ebenfalls sichtbar. Diese Revisionen werden schwarz angezeigt, da sie nicht "
+"zusammengeführt werden können."
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal> then TortoiseSVN tries to "
+"find the revision where the branch was created from and hide all the "
+"revisions that are beyond that revision. Since this can take quite a while, "
+"this option is disabled by default. Also this option doesn't work with some "
+"SVN servers (e.g., Google Code Hosting, see <ulink "
+"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
+" #5471</citetitle></ulink>)."
+msgstr ""
+"Wenn diese Option auf <literal>True</literal> gesetzt wird, versucht "
+"TortoiseSVN die Revision zu finden, in welcher der Zweig angelegt wurde und "
+"alle Revisionen davor zu verbergen. Da dies eine Weile in Anspruch nehmen "
+"kann, ist die Option standardmäßig abgeschaltet. Außerdem funktioniert sie "
+"nicht bei jedem SVN Server (z.B. Google Code Hosting, siehe <ulink "
+"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>Issue"
+" #5471</citetitle></ulink>)."
 
 #. (para)
 msgid ""

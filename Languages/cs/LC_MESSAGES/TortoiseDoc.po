@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-12 11:12+0000\n"
+"PO-Revision-Date: 2011-07-09 13:19+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11958,7 +11958,7 @@ msgid ""
 msgstr ""
 "Existují tři běžné případy použití slučování, které jsou provedeny mírně "
 "odlišnými způsoby, jak je popsáno níže. Na první straně Vás průvodce "
-"sloučení vyzve k výběru metody, kterou potřebujete."
+"sloučením vyzve k výběru metody, kterou potřebujete."
 
 #. (term)
 msgid "Merge a range of revisions"
@@ -12115,6 +12115,17 @@ msgstr ""
 " které chcete sloučit. To může být jedna revize, seznam konkrétních revizí "
 "oddělených čárkami nebo rozsah revizí oddělených pomlčkou, nebo jakákoliv "
 "jíná kombinace těchto možností."
+
+#. (para)
+msgid ""
+"If you need to specify a peg revision for the merge, add the peg revision at"
+" the end of the revisions, e.g. <literal>5-7,10@3</literal>. In the above "
+"example, the revisions 5,6,7 and 10 would be merged, with 3 being the peg "
+"revision."
+msgstr ""
+"Pokud potřebujete zadat zavěšenou revizi pro sloučení, přidejte ji na konci "
+"revizí, např. <literal>5-7,10@3</literal>. Ve výše uvedeném příkladu by "
+"revize 5,6,7 a 10 byly sloučeny a 3 by byla zavěšená revize."
 
 #. (para)
 msgid ""
@@ -17687,6 +17698,26 @@ msgid "The window title for your file"
 msgstr "Název okna pro Váš soubor"
 
 #. (para)
+msgid "The url of the original file, if available"
+msgstr "URL původního souboru, pokud je k dispozici"
+
+#. (para)
+msgid "The url of the second file, if available"
+msgstr "URL druhého souboru, pokud je k dispozici"
+
+#. (para)
+msgid "The revision of the original file, if available"
+msgstr "Revize původního souboru, pokud je k dispozici"
+
+#. (para)
+msgid "The revision of the second file, if available"
+msgstr "Revize druhého souboru, pokud je k dispozici"
+
+#. (para)
+msgid "The peg revision, if available"
+msgstr "Zavěšená revize, pokud je k dispozici"
+
+#. (para)
 msgid ""
 "An external diff program may be used for comparing different revisions of "
 "files. The external program will need to obtain the filenames from the "
@@ -19094,6 +19125,36 @@ msgstr ""
 "vynechanými externími. Chcete-li aktualizovat i s vnějšími spusťte dialogové"
 " okno <literal>Aktualizovat na revizi...</literal> nebo nastavte znovu tuto "
 "hodnotu na <literal>true</literal>."
+
+#. (para)
+msgid ""
+"When the log dialog is started from the merge wizard, already merged "
+"revisions are shown in gray, but revisions beyond the point where the branch"
+" was created are also shown. These revisions are shown in black because "
+"those can't be merged."
+msgstr ""
+"Když je dialogové okno záznamu spuštěno z průvodce sloučením, již sloučené "
+"revize jsou uvedeny v šedé barvě, ale jsou také zobrazeny i revize za bodem,"
+" kde byla větev vytvořena. Tyto revize jsou uvedeny v černé barvě, protože "
+"ty nelze sloučit."
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal> then TortoiseSVN tries to "
+"find the revision where the branch was created from and hide all the "
+"revisions that are beyond that revision. Since this can take quite a while, "
+"this option is disabled by default. Also this option doesn't work with some "
+"SVN servers (e.g., Google Code Hosting, see <ulink "
+"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
+" #5471</citetitle></ulink>)."
+msgstr ""
+"Pokud je tato možnost nastavena na <literal>true</literal>, TortoiseSVN se "
+"bude snažit najít revizi, z které byla větev vytvořena a skrýt všechny "
+"revize, které jsou za touto revizí. Protože to může trvat dost dlouho, tato "
+"možnost je ve výchozím nastavení zakázána. Tato volba také nefunguje s "
+"některými SVN servery (např. Google Code Hosting, viz <ulink "
+"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>problém"
+" #5471 </citetitle></ulink>)."
 
 #. (para)
 msgid ""

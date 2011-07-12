@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-03 00:34+0000\n"
+"PO-Revision-Date: 2011-07-09 00:41+0000\n"
 "Last-Translator: otik <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2431,6 +2431,12 @@ msgstr "Nie je možné vložiť obrázok zo schránky!"
 #. Resource IDs: (2, 73, 99, 332, 563, 1069)
 msgid "Cancel"
 msgstr "Zrušiť"
+
+#. Resource IDs: (170)
+msgid ""
+"Cancel\n"
+"Change the selection for the commit."
+msgstr ""
 
 #. Resource IDs: (100)
 msgid ""
@@ -6962,6 +6968,10 @@ msgstr "Stav uzla:"
 msgid "Node colors"
 msgstr "Farby uzlov"
 
+#. Resource IDs: (170)
+msgid "Non-recursive commit of moved/renamed folders."
+msgstr ""
+
 #. Resource IDs: (1507)
 msgid "Non-versioned"
 msgstr "Neverziované"
@@ -7651,6 +7661,12 @@ msgstr "Súbory tlačiarne (*.prn)|*.prn|Všetky súbory (*.*)|*.*||"
 #. Resource IDs: (65535)
 msgid "Printing"
 msgstr "Tlačenie"
+
+#. Resource IDs: (170)
+msgid ""
+"Proceed with the commit\n"
+"the renamed/moved folders are committed recursively in the repository."
+msgstr ""
 
 #. Resource IDs: (89)
 msgid ""
@@ -10599,6 +10615,22 @@ msgstr ""
 "Tieto sú neskôr uložené ako práve otvorené dokumenty a obsahujú zmeny, ktoré"
 " boli urobené pred zatvorením aplikácie."
 
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed folders selected "
+"for commit. Such moves/renames are always performed recursively in the "
+"repository. Do you want to commit anyway?"
+msgstr ""
+
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed\n"
+"folders selected for commit. Such moves/renames\n"
+"are always performed recursively in the repository.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "Tento súbor už existuje!"
@@ -11453,15 +11485,10 @@ msgstr ""
 msgid ""
 "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
 "\r\n"
-"Example: 4-7,9,11,15-HEAD\r\n"
+"Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"Použite dialógové okno denníka na vybranie revízií, ktoré chcete zlúčiť, alebo revízie zadajte oddelené čiarkami. Rozsah revízií môže byť zadaný pomlčkami.\r\n"
-"\r\n"
-"Príklad: 4-7,9,11,15-HEAD\r\n"
-"\r\n"
-"Na zlúčenie všetkých revízií nechajte nevyplnené."
 
 #. Resource IDs: (314)
 #, c-format

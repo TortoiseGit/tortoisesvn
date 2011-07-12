@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-03 00:34+0000\n"
+"PO-Revision-Date: 2011-07-11 19:32+0000\n"
 "Last-Translator: beginaFekicysym <>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -691,7 +691,7 @@ msgstr "Użyj serwera Pro&xy"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
-msgstr "&Włącz buforowanie logów"
+msgstr "&Włącz buforowanie dziennika"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -747,7 +747,7 @@ msgstr "&Pływające"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
-msgstr "&Czcionka dla opisów zmian::"
+msgstr "&Czcionka dla dziennika zmian:"
 
 #. Resource IDs: (65535)
 msgid "&Font:"
@@ -908,7 +908,7 @@ msgstr "&Wymagający blokady (update tylko do odczytu)"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
-msgstr "Rozmiar &logów"
+msgstr "Rozmiar &dziennika"
 
 #. Resource IDs: (65535)
 msgid "&Luminence:"
@@ -1209,7 +1209,7 @@ msgstr "&Pokaż wersje HEAD"
 
 #. Resource IDs: (1132)
 msgid "&Show Log"
-msgstr "Pokaż &log"
+msgstr "Pokaż &dziennik"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
@@ -1269,7 +1269,7 @@ msgstr "&Dokument z zakładkami"
 
 #. Resource IDs: (65535)
 msgid "&Tags"
-msgstr "&Tagi"
+msgstr "E&tykiety"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
@@ -1521,7 +1521,7 @@ msgstr "(zmień nazwę)"
 
 #. Resource IDs: (276)
 msgid "(tagged)"
-msgstr "(otagowano)"
+msgstr "(zaetykietowano)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -1753,7 +1753,7 @@ msgstr "Akcja"
 
 #. Resource IDs: (65535)
 msgid "Action log"
-msgstr "Log akcji"
+msgstr "Dziennik akcji"
 
 #. Resource IDs: (117)
 msgid "Actions"
@@ -2414,12 +2414,13 @@ msgstr "Buforowane repozytoria"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
-msgstr "Buforuje opisy zmian, aby przyspieszyć pobieranie logów."
+msgstr "Buforuje opisy zmian, aby przyspieszyć pobieranie dziennika."
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
 msgstr ""
-"Można kliknąć podwójnie na liście zdarzeń, aby porównać z poprzednią wersją"
+"Można kliknąć podwójnie na dzienniku zdarzeń, aby porównać z poprzednią "
+"wersją"
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
@@ -2458,6 +2459,14 @@ msgstr "Nie można wkleić obrazu ze schowka!"
 msgid "Cancel"
 msgstr "Anuluj"
 
+#. Resource IDs: (170)
+msgid ""
+"Cancel\n"
+"Change the selection for the commit."
+msgstr ""
+"Anuluj\n"
+"Zmień elementy wybrane do zatwierdzenia."
+
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
@@ -2472,7 +2481,7 @@ msgid ""
 "Do not commit to a tag."
 msgstr ""
 "Anuluj\n"
-"Nie zatwierdzaj do tagu."
+"Nie zatwierdzaj do etykiety."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2847,7 +2856,8 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "Zaznacz, by użyć krótszego formatu daty i czasu w opisach zmian"
+msgstr ""
+"Zaznacz, by użyć krótszego formatu daty i czasu w komunikatach dziennika"
 
 #. Resource IDs: (2052)
 msgid "Check working copy for modifications"
@@ -2961,7 +2971,8 @@ msgstr "Czyści %1!ld! URLi zapisanych dla %2!ld! kopii roboczych"
 #. Resource IDs: (196)
 #, c-format
 msgid "Clears %1!ld! log messages stored for %2!ld! working copies"
-msgstr "Czyści %1!ld! opisów zmian zapisanych dla %2!ld! kopii roboczych"
+msgstr ""
+"Czyści %1!ld! komunikaty dziennika zapisane dla %2!ld! kopii roboczych"
 
 #. Resource IDs: (196)
 #, c-format
@@ -2975,7 +2986,7 @@ msgstr ""
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr "Czyści zbuforowane logi  z repozytoriów %ld"
+msgstr "Czyści zbuforowany dziennik  z repozytoriów %ld"
 
 #. Resource IDs: (195)
 msgid ""
@@ -3183,7 +3194,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr "Zatwierdzenie do tagu"
+msgstr "Zatwierdzenie do etykiety"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3299,7 +3310,7 @@ msgstr "Konflikty: %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
-msgstr "Połącz z repozytorium i ściągnij brakujące dane logu."
+msgstr "Połącz z repozytorium i ściągnij brakujące dane dziennika."
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -3903,7 +3914,7 @@ msgstr "Usuwa pliki / foldery z kontroli wersji nie usuwając ich z dysku"
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
-msgstr "Usuwa plik z logiem akcji"
+msgstr "Usuwa plik z dziennikiem akcji"
 
 #. Resource IDs: (263)
 msgid "Deleting"
@@ -4400,7 +4411,7 @@ msgstr "Uaktywnij Auto-Właściwości"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
-msgstr "Włącz buforowanie logów, aby przyspieszyć działanie programu"
+msgstr "Włącz buforowanie dziennika, aby przyspieszyć działanie programu"
 
 #. Resource IDs: (65535)
 msgid "Enabled Overlay Handlers"
@@ -4519,7 +4530,7 @@ msgstr "Podaj poniżej zawartość pliku do przetestowania:"
 
 #. Resource IDs: (1065)
 msgid "Enter log &message:"
-msgstr "Wprowadź tekst ko&munikatu w logu:"
+msgstr "Wprowadź tekst ko&munikatu w dzienniku:"
 
 #. Resource IDs: (126)
 msgid "Enter log message:"
@@ -5052,7 +5063,7 @@ msgstr "Zwiń &etykiety"
 
 #. Resource IDs: (65535)
 msgid "Folded tag"
-msgstr "Zwinięty tag"
+msgstr "Zwinięta etykieta"
 
 #. Resource IDs: (1002)
 msgid "Folder"
@@ -5147,7 +5158,7 @@ msgstr "Zablo&kuj..."
 
 #. Resource IDs: (114)
 msgid "Get merge logs"
-msgstr "Pobierz logi scalania"
+msgstr "Pobierz dziennik scalania"
 
 #. Resource IDs: (89)
 msgid ""
@@ -5185,7 +5196,7 @@ msgstr "Pobieranie informacji..."
 
 #. Resource IDs: (132)
 msgid "Getting log info..."
-msgstr "Pobieranie informacji o logu..."
+msgstr "Pobieranie informacji o dzienniku..."
 
 #. Resource IDs: (220)
 msgid "Getting required information..."
@@ -5633,8 +5644,8 @@ msgid ""
 "If checked, double-clicking on a revision in the log list compares it with "
 "the previous revision"
 msgstr ""
-"Jeśli zaznaczone, dwuklik na wersji w okienku logu porównuje ją z poprzednią"
-" wersją"
+"Jeśli zaznaczone, dwuklik na wersji w okienku dziennika porównuje ją z "
+"poprzednią wersją"
 
 #. Resource IDs: (195)
 msgid ""
@@ -6246,7 +6257,7 @@ msgstr ""
 
 #. Resource IDs: (344)
 msgid "List of repositories for which log information has been cached"
-msgstr "Lista repozytoriów, dla których zbuforowano informację z logów."
+msgstr "Lista repozytoriów, dla których zbuforowano informację z dziennika."
 
 #. Resource IDs: (16631, 16992)
 msgid "List1"
@@ -6345,23 +6356,23 @@ msgstr ""
 
 #. Resource IDs: (126)
 msgid "Log"
-msgstr "Log"
+msgstr "Dziennik"
 
 #. Resource IDs: (282)
 msgid "Log Cache Statistics"
-msgstr "Statystyki bufora logów"
+msgstr "Statystyki bufora dziennika"
 
 #. Resource IDs: (281)
 msgid "Log Caching"
-msgstr "Buforowanie logu"
+msgstr "Buforowanie dziennika"
 
 #. Resource IDs: (295)
 msgid "Log Caching::Cached Repositories"
-msgstr "Buforowanie logu::Buforowane repozytoria"
+msgstr "Buforowanie dziennika::Buforowane repozytoria"
 
 #. Resource IDs: (211)
 msgid "Log History"
-msgstr "Historia logów"
+msgstr "Historia dziennika"
 
 #. Resource IDs: (130)
 msgid "Log Messages"
@@ -6475,7 +6486,7 @@ msgstr "Max ilość elementów przechowywanych w historii opisów zmian"
 
 #. Resource IDs: (65535)
 msgid "Max. lines in action log"
-msgstr "Maks. liczba linii w logu akcji"
+msgstr "Maks. liczba linii w dzienniku akcji"
 
 #. Resource IDs: (1487)
 msgid "Maximum number of tool &failures until cache removal"
@@ -7022,6 +7033,11 @@ msgstr "Status węzła"
 msgid "Node colors"
 msgstr "Kolory węzłów"
 
+#. Resource IDs: (170)
+msgid "Non-recursive commit of moved/renamed folders."
+msgstr ""
+"Nierekursywne zatwierdzenie na przemianowanych/przeniesionych folderach"
+
 #. Resource IDs: (1507)
 msgid "Non-versioned"
 msgstr "Poza kontrolą wersji"
@@ -7147,7 +7163,7 @@ msgstr ""
 msgid ""
 "Number of different paths shown in the log dialog, including parent paths"
 msgstr ""
-"Liczba różnych ścieżek pokazanych w oknie logu, włącznie z ścieżkami "
+"Liczba różnych ścieżek pokazanych w oknie dziennika, włącznie z ścieżkami "
 "nadrzędnymi"
 
 #. Resource IDs: (338)
@@ -7331,7 +7347,7 @@ msgstr ""
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
-msgstr "Rozpocznij działanie tylko na buforze logu"
+msgstr "Rozpocznij działanie tylko na buforze dziennika"
 
 #. Resource IDs: (348)
 msgid "Option"
@@ -7719,6 +7735,14 @@ msgstr "Pliki wydruku (*.prn)|*.prn|Wszystkie pliki (*.*)|*.*||"
 #. Resource IDs: (65535)
 msgid "Printing"
 msgstr "Drukowanie"
+
+#. Resource IDs: (170)
+msgid ""
+"Proceed with the commit\n"
+"the renamed/moved folders are committed recursively in the repository."
+msgstr ""
+"Przystąpić do zatwierdzenia\n"
+"przemianowane/przeniesione foldery są zatwierdzane rekurencyjnie w repozytorium."
 
 #. Resource IDs: (89)
 msgid ""
@@ -8666,14 +8690,14 @@ msgid ""
 "Logmessage:\r\n"
 "%9!s!"
 msgstr ""
-"Wersja: %1!ld! %2!s!\r\n"
-"URL: %3!s!\r\n"
-"%4!s!Autor: %5!s!\r\n"
-"Data: %6!s!\r\n"
-"\r\n"
-"Tagi (%7!d!):%8!s!\r\n"
-"\r\n"
-"Opis zmian:\r\n"
+"Wersja: %1!ld! %2!s!\n"
+"URL: %3!s!\n"
+"%4!s!Autor: %5!s!\n"
+"Data: %6!s!\n"
+"\n"
+"Etykiety (%7!d!):%8!s!\n"
+"\n"
+"Opis zmian:\n"
 "%9!s!"
 
 #. Resource IDs: (116, 65535)
@@ -9215,7 +9239,7 @@ msgstr "Pokaż &atrybuty"
 
 #. Resource IDs: (1105)
 msgid "Short &date/time format in log messages"
-msgstr "Użyj krótkiego formatu &daty / czasu w opisach zmian"
+msgstr "Użyj krótkiego formatu &daty/czasu w opisach zmian"
 
 #. Resource IDs: (12)
 msgid "Short URL of Subversion items"
@@ -9239,7 +9263,7 @@ msgstr "&Wszystkie"
 
 #. Resource IDs: (1132)
 msgid "Show &Log"
-msgstr "Pokaż &log"
+msgstr "Pokaż &dziennik"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -9260,11 +9284,11 @@ msgstr "Pokaż &zmiany"
 #. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
 #. 32784)
 msgid "Show &log"
-msgstr "Pokaż &log"
+msgstr "Pokaż &dziennik"
 
 #. Resource IDs: (1031)
 msgid "Show &log..."
-msgstr "Pokaż &log..."
+msgstr "Pokaż &dziennik..."
 
 #. Resource IDs: (1088)
 msgid "Show &overlays and context menu only in explorer"
@@ -9440,7 +9464,7 @@ msgstr "Pokaż statystyki dla wybranego bufora logów"
 
 #. Resource IDs: (2052)
 msgid "Show tags on the copy source, not as separate nodes"
-msgstr "Pokaż tagi w ich źródle, nie jako osobne węzły"
+msgstr "Pokaż etykiety w ich źródle, nie jako osobne węzły"
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
@@ -9519,7 +9543,7 @@ msgstr "Rozmiar wszystkich buforowanych informacji"
 
 #. Resource IDs: (320)
 msgid "Size of log messages"
-msgstr "Wielkość wiadomości logów"
+msgstr "Wielkość opisów zmian"
 
 #. Resource IDs: (339)
 msgid "Size of the cache file on disk"
@@ -9985,7 +10009,7 @@ msgstr "Rozmiar tabulatora:"
 
 #. Resource IDs: (65535)
 msgid "Tag nodes"
-msgstr "Elementy-tagi"
+msgstr "Elementy-etykiety"
 
 #. Resource IDs: (79)
 #, c-format
@@ -10362,7 +10386,7 @@ msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
 msgstr ""
-"Maksymalna liczba linii dziennika zdarzeń.\n"
+"Maksymalna liczba linii dziennika akcji.\n"
 "Jakiekolwiek linie dodane powyżej tego limitu usuną stare z pliku."
 
 #. Resource IDs: (63)
@@ -10701,6 +10725,32 @@ msgid ""
 msgstr ""
 "Te dokumenty są aktualniejsze niż obecnie otwarte i zawierają zmiany, które "
 "zostały wprowadzone przed zamknięciem aplikacji."
+
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed folders selected "
+"for commit. Such moves/renames are always performed recursively in the "
+"repository. Do you want to commit anyway?"
+msgstr ""
+"To zatwierdzenie nie jest cykliczne, a zaznaczono do niego  "
+"przenoszone/przemianowane foldery. Takie przeniesienia/zmiany nazwy są "
+"zawsze wykonywane rekurencyjnie w repozytorium. Czy chcesz zatwierdzić mimo "
+"wszystko?"
+
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed\n"
+"folders selected for commit. Such moves/renames\n"
+"are always performed recursively in the repository.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr ""
+"To zatwierdzenie nie jest cykliczne, \n"
+"a zaznaczono do niego  przenoszone/przemianowane foldery. \n"
+"Takie przeniesienia/zmiany nazwy \n"
+"są zawsze wykonywane rekurencyjnie w repozytorium. \n"
+"\n"
+"Czy chcesz zatwierdzić mimo wszystko?"
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
@@ -11145,7 +11195,7 @@ msgid ""
 msgstr ""
 "Nie udało się zrekonstruować ścieżko kopii roboczej!\n"
 "To może się zdarzyć jeżeli plik został przemianowany.\n"
-"Uruchom okno logu na samym tym pliku a następnie cofnij zmiany\n"
+"Uruchom okno dziennika na samym tym pliku a następnie cofnij zmiany\n"
 "z górnego panelu w oknie logu."
 
 #. Resource IDs: (3865)
@@ -11349,7 +11399,7 @@ msgstr "Uaktualnianie i ponawianie próby blokady..."
 
 #. Resource IDs: (199)
 msgid "Updating log cache"
-msgstr "Uaktualnianie bufora logów"
+msgstr "Uaktualnianie bufora dziennika"
 
 #. Resource IDs: (99)
 msgid ""
@@ -11561,15 +11611,15 @@ msgstr ""
 msgid ""
 "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
 "\r\n"
-"Example: 4-7,9,11,15-HEAD\r\n"
+"Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"Użyj okienka logów, aby zaznaczyć wersje, które chcesz scalić, lub podaj numery wersji do scalenia, oddzielone przecinkami. Zakres wersji może być podany z użyciem myślnika.\r\n"
-"\r\n"
-"Przykład: 4-7,9,11,15-HEAD\r\n"
-"\r\n"
-"Aby scalić wszystkie wersje, pozostaw puste pole."
+"Użyj okna dziennika by wybrać dwie wersje do scalenia, lub wprowadź wersje do scalania, oddzielone przecinkami. Zakres wersji może być określony przez myślnik.\n"
+"\n"
+"Przykład: 4-7,9,11,15-HEAD@pegrevision\n"
+"\n"
+"Aby scalić wszystkie poprawki, pozostaw to pole puste."
 
 #. Resource IDs: (314)
 #, c-format
@@ -11704,7 +11754,7 @@ msgid ""
 "When a small log cache has not been used for the given\n"
 "number of days, it will be removed automatically."
 msgstr ""
-"Kiedy mały bufor logów nie był używany przez podaną\n"
+"Kiedy mały bufor dziennika nie był używany przez podaną\n"
 "liczbę dni, będzie usunięty automatycznie."
 
 #. Resource IDs: (198)
@@ -12026,8 +12076,8 @@ msgid ""
 "Your working copy points to %s which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
-"Twoja kopia robocza wskazuje na %s, który okazuje się być tagiem!\n"
-"Musisz najpierw przełączyć na gałąź lub podstawowy trunk przed zatwierdzeniem zmian."
+"Twoja kopia robocza wskazuje na %s, który okazuje się być etykietą!\n"
+"Musisz najpierw przełączyć na gałąź lub linię główną przed zatwierdzeniem zmian."
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"

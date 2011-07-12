@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-03 00:34+0000\n"
+"PO-Revision-Date: 2011-07-09 00:41+0000\n"
 "Last-Translator: rmheise <rmheise@gmail.com>\n"
 "Language-Team: Portuguese (Brazilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2427,6 +2427,12 @@ msgstr "Não foi possível colar a imagem de bitmap da área de transferência!"
 #. Resource IDs: (2, 73, 99, 332, 563, 1069)
 msgid "Cancel"
 msgstr "Cancelar"
+
+#. Resource IDs: (170)
+msgid ""
+"Cancel\n"
+"Change the selection for the commit."
+msgstr ""
 
 #. Resource IDs: (100)
 msgid ""
@@ -6925,6 +6931,10 @@ msgstr "Situação do Nó:"
 msgid "Node colors"
 msgstr "Cores dos nós"
 
+#. Resource IDs: (170)
+msgid "Non-recursive commit of moved/renamed folders."
+msgstr ""
+
 #. Resource IDs: (1507)
 msgid "Non-versioned"
 msgstr "Não versionado"
@@ -7619,6 +7629,12 @@ msgstr "Arquivos de Impressora (*.prn)|*.prn|Todos os Arquivos (*.*)|*.*||"
 #. Resource IDs: (65535)
 msgid "Printing"
 msgstr "Imprimindo"
+
+#. Resource IDs: (170)
+msgid ""
+"Proceed with the commit\n"
+"the renamed/moved folders are committed recursively in the repository."
+msgstr ""
 
 #. Resource IDs: (89)
 msgid ""
@@ -10534,6 +10550,22 @@ msgstr ""
 " abertos e possuem alterações que foram feitas antes da aplicação ser "
 "fechada."
 
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed folders selected "
+"for commit. Such moves/renames are always performed recursively in the "
+"repository. Do you want to commit anyway?"
+msgstr ""
+
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed\n"
+"folders selected for commit. Such moves/renames\n"
+"are always performed recursively in the repository.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "O arquivo já existe!"
@@ -11394,15 +11426,10 @@ msgstr ""
 msgid ""
 "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
 "\r\n"
-"Example: 4-7,9,11,15-HEAD\r\n"
+"Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"Utilize o histórico para selecionar as revisões que você quer combinar, ou digite o número das revisões, separadas por vírgulas. Um intervalo de revisões pode ser especificado por um hífen.\r\n"
-"\r\n"
-"Exemplo: 4-7,9,11,15-HEAD\r\n"
-"\r\n"
-"Para combinar todas as revisões, deixe a caixa vazia."
 
 #. Resource IDs: (314)
 #, c-format

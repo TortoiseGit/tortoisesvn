@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-03 00:34+0000\n"
+"PO-Revision-Date: 2011-07-09 00:41+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Hungarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2398,6 +2398,12 @@ msgstr "Nem lehet a bitképet beilleszteni a vágólapról!"
 #. Resource IDs: (2, 73, 99, 332, 563, 1069)
 msgid "Cancel"
 msgstr "Mégse"
+
+#. Resource IDs: (170)
+msgid ""
+"Cancel\n"
+"Change the selection for the commit."
+msgstr ""
 
 #. Resource IDs: (100)
 msgid ""
@@ -6819,6 +6825,10 @@ msgstr ""
 msgid "Node colors"
 msgstr "Csomópontok színei"
 
+#. Resource IDs: (170)
+msgid "Non-recursive commit of moved/renamed folders."
+msgstr ""
+
 #. Resource IDs: (1507)
 msgid "Non-versioned"
 msgstr ""
@@ -7493,6 +7503,12 @@ msgstr "Nyomtatási fájlok (*.prn)|*.prn|Minden fájl (*.*)|*.*||"
 #. Resource IDs: (65535)
 msgid "Printing"
 msgstr "Nyomtatás"
+
+#. Resource IDs: (170)
+msgid ""
+"Proceed with the commit\n"
+"the renamed/moved folders are committed recursively in the repository."
+msgstr ""
 
 #. Resource IDs: (89)
 msgid ""
@@ -10315,6 +10331,22 @@ msgid ""
 "changes that were made before the application closed."
 msgstr ""
 
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed folders selected "
+"for commit. Such moves/renames are always performed recursively in the "
+"repository. Do you want to commit anyway?"
+msgstr ""
+
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed\n"
+"folders selected for commit. Such moves/renames\n"
+"are always performed recursively in the repository.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr ""
@@ -11157,15 +11189,10 @@ msgstr ""
 msgid ""
 "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
 "\r\n"
-"Example: 4-7,9,11,15-HEAD\r\n"
+"Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"Használd a naplót az egyesítendő verziók kijelöléséhez, vagy írd be a verziókat kézzel, vesszővel elválasztva. Intervallumot kötőjellel adhatsz meg.\r\n"
-"Például: 4-7,9,11,15-HEAD\r\n"
-"\r\n"
-"Az összes verzió egyesítéséhez hagyd üresen a mezőt.\r\n"
-"A fő verziót a HEAD kulcsszóval adhatod meg."
 
 #. Resource IDs: (314)
 #, c-format

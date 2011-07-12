@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-03 00:34+0000\n"
+"PO-Revision-Date: 2011-07-10 06:39+0000\n"
 "Last-Translator: fly1004 <fly1004@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2400,6 +2400,12 @@ msgstr "클립보드로부터 비트맵 이미지를 붙여 넣을 수 없습니
 msgid "Cancel"
 msgstr "취소"
 
+#. Resource IDs: (170)
+msgid ""
+"Cancel\n"
+"Change the selection for the commit."
+msgstr ""
+
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
@@ -3653,7 +3659,7 @@ msgstr "커스텀"
 
 #. Resource IDs: (17)
 msgid "Custom depths"
-msgstr ""
+msgstr "사용자 깊이"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -6847,6 +6853,10 @@ msgstr "노드 상태:"
 msgid "Node colors"
 msgstr "노드 색깔"
 
+#. Resource IDs: (170)
+msgid "Non-recursive commit of moved/renamed folders."
+msgstr ""
+
 #. Resource IDs: (1507)
 msgid "Non-versioned"
 msgstr "버전관리대상 아님"
@@ -7519,6 +7529,12 @@ msgstr "프린터 파일들 (*.prn)|*.prn|모든 파일들 (*.*)|*.*||"
 #. Resource IDs: (65535)
 msgid "Printing"
 msgstr "프린팅"
+
+#. Resource IDs: (170)
+msgid ""
+"Proceed with the commit\n"
+"the renamed/moved folders are committed recursively in the repository."
+msgstr ""
 
 #. Resource IDs: (89)
 msgid ""
@@ -10375,6 +10391,22 @@ msgid ""
 msgstr ""
 "이 문서는 최근에 열린 문서보다 저 최근에 저장되었습니다. 그리고 어플리케이션이 닫히기전에 만들어진 변경사항을 포함하고 있습니다."
 
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed folders selected "
+"for commit. Such moves/renames are always performed recursively in the "
+"repository. Do you want to commit anyway?"
+msgstr ""
+
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed\n"
+"folders selected for commit. Such moves/renames\n"
+"are always performed recursively in the repository.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "이 파일이 이미 존재합니다!"
@@ -11208,15 +11240,10 @@ msgstr ""
 msgid ""
 "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
 "\r\n"
-"Example: 4-7,9,11,15-HEAD\r\n"
+"Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"병합하기 위한 리비전을 선택하기 위해 로그 대화상자를 이용하거나, 쉼표(,)로 구분된 리비전을 입력하세요. 리비전 구간은 대시(-)를 이용하여 표현할 수 있습니다.\r\n"
-"\r\n"
-"예: 4-7,9,11,15-HEAD\r\n"
-"\r\n"
-"모든 리비전을 병합하려면, 빈 칸으로 두십시오."
 
 #. Resource IDs: (314)
 #, c-format

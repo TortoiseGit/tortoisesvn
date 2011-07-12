@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-03 00:34+0000\n"
+"PO-Revision-Date: 2011-07-09 13:17+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2433,6 +2433,14 @@ msgstr "Není možno vložit obrázek ze schránky!"
 #. Resource IDs: (2, 73, 99, 332, 563, 1069)
 msgid "Cancel"
 msgstr "Storno"
+
+#. Resource IDs: (170)
+msgid ""
+"Cancel\n"
+"Change the selection for the commit."
+msgstr ""
+"Zrušit\n"
+"Změnit výběr odevzdání."
 
 #. Resource IDs: (100)
 msgid ""
@@ -6977,6 +6985,10 @@ msgstr "Stav Uzlu:"
 msgid "Node colors"
 msgstr "Barvy uzlu"
 
+#. Resource IDs: (170)
+msgid "Non-recursive commit of moved/renamed folders."
+msgstr "Nerekurzivní odevzdání přesunutých/přejmenovaných adresářů."
+
 #. Resource IDs: (1507)
 msgid "Non-versioned"
 msgstr "Bez verze"
@@ -7666,6 +7678,14 @@ msgstr "Tiskové soubory (*.prn)|*.prn|Všechny soubory (*.*)|*.*||"
 #. Resource IDs: (65535)
 msgid "Printing"
 msgstr "Tisk"
+
+#. Resource IDs: (170)
+msgid ""
+"Proceed with the commit\n"
+"the renamed/moved folders are committed recursively in the repository."
+msgstr ""
+"Pokračovat v odevzdání\n"
+"přejmenované/přesunuté adresáře jsou rekurzivně odevzdány do úložiště."
 
 #. Resource IDs: (89)
 msgid ""
@@ -10620,6 +10640,30 @@ msgstr ""
 "Tyto jsou uloženy později než právě otevřené dokumenty a obsahují změny, "
 "které byly udělány před zavřením aplickace."
 
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed folders selected "
+"for commit. Such moves/renames are always performed recursively in the "
+"repository. Do you want to commit anyway?"
+msgstr ""
+"Toto odevzdání není rekurzivní a existují přesunuté/přejmenované adresáře, "
+"které jsou vybrány pro odevzdání. Takovéto přesuny/přejmenování se v "
+"úložišti vždy provádějí rekurzivně. Chcete přesto odevzdávat?"
+
+#. Resource IDs: (170)
+msgid ""
+"This commit is not recursive, and there are moved/renamed\n"
+"folders selected for commit. Such moves/renames\n"
+"are always performed recursively in the repository.\n"
+"\n"
+"Do you want to commit anyway?"
+msgstr ""
+"Toto odevzdání není rekurzivní a existují přesunuté/přejmenované\n"
+"adresáře, které jsou vybrány pro odevzdání. Takovéto přesuny/přejmenování\n"
+"se v úložišti vždy provádějí rekurzivně.\n"
+"\n"
+"Chcete přesto odevzdávat?"
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "Tento soubor již existuje!"
@@ -11476,13 +11520,13 @@ msgstr ""
 msgid ""
 "Use the log dialog to select the revisions you want to merge, or enter the revisions to merge, separated by commas. A revision range can be specified by a dash.\r\n"
 "\r\n"
-"Example: 4-7,9,11,15-HEAD\r\n"
+"Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"Použít dialogové okno záznamu k výběru revizí, které chcete sloučit, nebo zadejte revize oddělené čárkami. Rozsah může být zadán pomlčkou.\n"
+"Použít dialogové okno záznamu k výběru revizí, které chcete sloučit, nebo zadejte revize ke sloučení oddělené čárkami. Rozsah může být zadán pomlčkou.\n"
 "\n"
-"Příklad: 4-7,9,11,15-HEAD\n"
+"Příklad: 4-7,9,11,15-HEAD@zavěšená revize\n"
 "\n"
 "Pro sloučení všech revizí nechejte rámeček prázdný."
 

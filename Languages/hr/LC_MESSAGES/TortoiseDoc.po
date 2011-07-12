@@ -9,13 +9,14 @@
 # $Rev$
 # 
 # Authors:
+#   <ivan@vucica.net>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-06-12 00:22+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-07-09 00:12+0000\n"
+"Last-Translator: ivucica <ivan@vucica.net>\n"
 "Language-Team: Croatian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,11 +27,11 @@ msgstr ""
 #. (title)
 #. (secondary)
 msgid "TortoiseSVN"
-msgstr ""
+msgstr "TortoiseSVN"
 
 #. (subtitle)
 msgid "A Subversion client for Windows"
-msgstr ""
+msgstr "Subversion klijent za Windowse"
 
 #. (edition)
 msgid "First"
@@ -58,7 +59,7 @@ msgstr "Simon"
 
 #. (surname)
 msgid "Large"
-msgstr ""
+msgstr "Large"
 
 #. (title)
 msgid "Preface"
@@ -66,7 +67,7 @@ msgstr "Uvod"
 
 #. (primary)
 msgid "version control"
-msgstr ""
+msgstr "kontrola revizija"
 
 #. (para)
 msgid ""
@@ -80,7 +81,7 @@ msgstr ""
 
 #. (title)
 msgid "What is TortoiseSVN?"
-msgstr ""
+msgstr "Što je TortoiseSVN"
 
 #. (para)
 msgid ""
@@ -118,15 +119,15 @@ msgstr ""
 
 #. (term)
 msgid "Shell integration"
-msgstr ""
+msgstr "Integracija ljuske"
 
 #. (primary)
 msgid "Windows shell"
-msgstr ""
+msgstr "Windows ljuska"
 
 #. (primary)
 msgid "explorer"
-msgstr ""
+msgstr "explorer"
 
 #. (para)
 msgid ""
@@ -135,6 +136,10 @@ msgid ""
 "familiar with. And you do not have to change into a different application "
 "each time you need the functions of version control."
 msgstr ""
+"TortoiseSVN se integrira u Windows ljusku (dakle, u Explorer). Ovo znači da "
+"možete nastaviti raditi s alatima s kojima ste već upoznati. I ne morate se "
+"prebacivati u drugu aplikaciju svaki put kad trebate funkcionalnost kontrole"
+" revizija."
 
 #. (para)
 msgid ""
@@ -145,10 +150,17 @@ msgid ""
 " the Windows Explorer. Thus it is possible that in other applications the "
 "integration is not as complete and e.g. the icon overlays may not be shown."
 msgstr ""
+"I niste ograničeni na korištenje Windows Explorera; TortoiseSVNovi "
+"kontekstni izbornici rade i u mnogim drugim upraviteljima datoteka, kao i u "
+"Datoteka/Otvori dijalozima koji su uobičajeni u mnogim uobičajenim Windows "
+"aplikacijama. Trebali biste, ipak, paziti na to da je TortoiseSVN namjerno "
+"razvijan kao proširenje za Windows Explorer. Stoga je moguće da u drugim "
+"aplikacijama integracija ne bude potpuna i, primjerice, sličice nad ikonama "
+"možda neće biti prikazane."
 
 #. (term)
 msgid "Icon overlays"
-msgstr ""
+msgstr "Sličice nad ikonama"
 
 #. (para)
 msgid ""
@@ -156,10 +168,12 @@ msgid ""
 "icons. That way you can see right away what the status of your working copy "
 "is."
 msgstr ""
+"Stanje svake verzionirane datoteke i mape je označeno malim sličicama nad "
+"ikonama. Na taj način možete odmah vidjeti koje je stanje vaše radne kopije."
 
 #. (term)
 msgid "Graphical User Interface"
-msgstr ""
+msgstr "Grafičko korisničko sučelje"
 
 #. (para)
 msgid ""
@@ -167,6 +181,10 @@ msgid ""
 "to see the comments for that commit. You can also see a list of changed "
 "files - just double click on a file to see exactly what changed."
 msgstr ""
+"Kada ispišete sve promjene nad datotekom ili mapom, možete kliknuti na "
+"reviziju kako biste vidjeli komentare za tu pohranu. Također možete vidjeti "
+"spisak svih promijenjenih datoteka - jednostavno dvostruko kliknite na "
+"datoteku kako biste vidjeli što se točno promijenilo."
 
 #. (para)
 msgid ""
@@ -175,26 +193,34 @@ msgid ""
 " Unversioned files can also be listed, in case you forgot to add that new "
 "file."
 msgstr ""
+"Dijalog za pohranu ispisuje sve stavke koje će se uključiti u pohranu, i "
+"svaka stavka ima checkbox kako biste mogli odabrati koje stavke želite "
+"uključiti. Neverzionirane datoteke također se mogu ispisati za slučaj da ste"
+" zaboravili dodati onu novu datoteku."
 
 #. (term)
 msgid "Easy access to Subversion commands"
-msgstr ""
+msgstr "Lagan pristup Subversion naredbama"
 
 #. (para)
 msgid ""
 "All Subversion commands are available from the explorer context menu. "
 "TortoiseSVN adds its own submenu there."
 msgstr ""
+"Sve Subversion naredbe dostupne su iz kontekstnog izbornika u Exploreru. "
+"TortoiseSVN tamo dodaje svoj podizbornik."
 
 #. (para)
 msgid ""
 "Since TortoiseSVN is a Subversion client, we would also like to show you "
 "some of the features of Subversion itself:"
 msgstr ""
+"Budući da je TortoiseSVN klijent za Subversion, htjeli bismo vam pokazati "
+"neke od mogućnosti samog Subversiona:"
 
 #. (term)
 msgid "Directory versioning"
-msgstr ""
+msgstr "Verzioniranje direktorija"
 
 #. (para)
 msgid ""
@@ -204,20 +230,28 @@ msgid ""
 "versioned. As a result, there are real client-side <command>move</command> "
 "and <command>copy</command> commands that operate on files and directories."
 msgstr ""
+"CVS prati samo povijest pojedinih datoteka, ali Subversion implementira "
+"<quote>virtualni</quote> verzionirani datotečni sustav koji prati promjene "
+"nad cijelim stablima direktorija tijekom vremena. Datoteke <emphasis>kao "
+"i</emphasis> direktoriji su verzionirani. Posljedica toga je da postoje "
+"stvarne naredbe na klijentu: <command>premjesti</command> i "
+"<command>kopiraj</command>, a koje rade nad datotekama i direktorijima."
 
 #. (term)
 msgid "Atomic commits"
-msgstr ""
+msgstr "Atomičke pohrane"
 
 #. (para)
 msgid ""
 "A commit either goes into the repository completely, or not at all. This "
 "allows developers to construct and commit changes as logical chunks."
 msgstr ""
+"Pohrana ide u skladište ili u potpunosti, ili uopće ne ide. Ovo omogućuje "
+"programerima da izgrade i pohrane promjene kao logičke nakupine."
 
 #. (term)
 msgid "Versioned metadata"
-msgstr ""
+msgstr "Verzionirani metapodaci"
 
 #. (para)
 msgid ""
@@ -225,10 +259,13 @@ msgid ""
 "attached. You can invent and store any arbitrary key/value pairs you wish. "
 "Properties are versioned over time, just like file contents."
 msgstr ""
+"Svaka datoteka i direktorij imaju nevidljivi skup <quote>svojstava</quote>. "
+"Možete izmisliti i spremiti bilo koji željeni par ključ/vrijednost. Svojstva"
+" su verzionirana tijekom vremena, baš kao sadržaji datoteka."
 
 #. (term)
 msgid "Choice of network layers"
-msgstr ""
+msgstr "Odabir mrežnih slojeva"
 
 #. (para)
 msgid ""
@@ -242,10 +279,19 @@ msgid ""
 "Subversion server process is also available. This server speaks a custom "
 "protocol which can be easily tunneled over ssh."
 msgstr ""
+"Subversion ima apstrahirano shvaćanje pristupa do skladišta, što znači da "
+"ljudi lako mogu implementirati nove mrežne mehanizme. Subversionov "
+"<quote>napredni</quote> mrežni poslužitelj je modul za Apache web "
+"poslužitelj, koji priča varijantu HTTPa zvanu WebDAV/DeltaV. Ovo daje "
+"Subversionu veliku prednost u stabilnosti i interoperabilnosti, i pruža "
+"razne ključne mogućnosti besplatno: primjerice, autentikaciju, autorizaciju,"
+" kompresiju na mreži, te pregledavanje skladišta. Manji, samostalni "
+"Subversion poslužitelj je također dostupan. Ovaj poslužitelj koristi "
+"vlastiti protokol koji se lako može provlačiti kroz ssh."
 
 #. (term)
 msgid "Consistent data handling"
-msgstr ""
+msgstr "Konzistentno rukovanje podacima"
 
 #. (para)
 msgid ""
@@ -255,10 +301,14 @@ msgid ""
 "repository, and differences are transmitted in both directions across the "
 "network."
 msgstr ""
+"Subversion izražava razlike u datotekama koristeći binarni diferencirajući "
+"algoritam, koji radi identično i na tekstu (ljudski-čitljivo) i na binarnim "
+"datotekama (ljudski-nečitljivo). Obje vrste datoteka spremaju se jednako "
+"komprimirano u repozitoriju, te se razlike prenose u oba smjera preko mreže."
 
 #. (term)
 msgid "Efficient branching and tagging"
-msgstr ""
+msgstr "Efikasno grananje i označavanje"
 
 #. (para)
 msgid ""
@@ -268,10 +318,14 @@ msgid ""
 "very small, constant amount of time, and very little space in the "
 "repository."
 msgstr ""
+"Cijena grananja i označavanja ne treba biti proporcionalna veličini "
+"projekta. Subversion stvara grane i oznake kopirajući projekt, koristeći "
+"mehanizam sličan hard-linku. Stoga ove radnje troše samo vrlo malo vremena i"
+" vrlo malu količinu prostora u repozitoriju."
 
 #. (title)
 msgid "License"
-msgstr ""
+msgstr "Licenca"
 
 #. (para)
 msgid ""
@@ -279,6 +333,9 @@ msgid ""
 " License (GPL). It is free to download and free to use, either personally or"
 " commercially, on any number of PCs."
 msgstr ""
+"TortoiseSVN je projekt Otvorenog Koda razvijen pod GNU Općom Javnom Licencom"
+" (GNU GPL). Besplatan je za preuzimanje i korištenje, i osobno i "
+"komercijalno, na bilo kojem broju računala."
 
 #. (para)
 msgid ""
@@ -289,10 +346,16 @@ msgid ""
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
 msgstr ""
+"Iako većina ljudi jednostavno preuzme installer, imate i potpuni pristup "
+"čitanju izvornog koda ovog programa. Možete ga pregledavati na ovom linku "
+"<ulink "
+"url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>."
+" Trenutni razvoj se radi u mapi <filename>/trunk/</filename>, a objavljene "
+"verzije nalaze se pod <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
-msgstr ""
+msgstr "Razvoj"
 
 #. (para)
 msgid ""
@@ -300,10 +363,13 @@ msgid ""
 "are working on those projects. They come from different countries all over "
 "the world, working together to create great software."
 msgstr ""
+"I TortoiseSVN i Subversion razvijeni su od strane zajednice ljudi koji rade "
+"na tim projektima. Oni dolaze iz mnogih različitih zemalja svijeta, te rade "
+"zajedno na stvaranju odličnog softvera."
 
 #. (title)
 msgid "TortoiseSVN's History"
-msgstr ""
+msgstr "Povijest TortoiseSVNa"
 
 #. (para)
 msgid ""
@@ -314,6 +380,13 @@ msgid ""
 " a base for TortoiseSVN. He then started the project, registered the domain "
 "<literal>tortoisesvn.org</literal> and put the source code online."
 msgstr ""
+"U 2002., Tim Kemp je ustvrdio da je Subversion vrlo dobar sustav za "
+"upravljanje revizijama, ali nedostajao mu je dobar GUI klijent. Ideja za "
+"Subversion klijent integriran u Windows shell je inspirirana sličnim "
+"klijentom za CVS imena TortoiseCVS. Tim je proučio zvorni kod TortoiseCVS i "
+"koristio ga kao osnovu za TortoiseSVN. On je tada započeo projekt, "
+"registrirao domenu <literal>tortoisesvn.org</literal> i stavio izvorni kod "
+"online."
 
 #. (para)
 msgid ""
@@ -324,6 +397,12 @@ msgid ""
 "commands and features, up to a point where nothing of the original code "
 "remained."
 msgstr ""
+"U to vrijeme, Stefan Küng je tražio dobar i besplatan sustav za kontrolu "
+"revizija i pronašao je Subversion i izvorni kod za TortoiseSVN. Budući da "
+"TortoiseSVN još uvijek nije bio spreman za uporabu, on se pridružio projektu"
+" i počeo programirati. Ubrzo je ponovo napisao većinu postojećeg koda i "
+"počeo dodavati naredbe i mogućnosti, do točke u kojoj ništa izvornog koda "
+"ostao."
 
 #. (para)
 msgid ""
@@ -333,6 +412,12 @@ msgid ""
 " help out with some nice icons and a logo for TortoiseSVN. He now takes care"
 " of the website and manages the many translations."
 msgstr ""
+"Kako je s vremenom Subversion postao stabilniji, privukao je sve više i više"
+" korisnika koji su također počeli koristiti TortoiseSVN kao svoj Subversion "
+"klijent. Korisnička baza brzo rasla (i još uvijek raste svaki dan). Tada je "
+"Lübbe Onken ponudio da pomogne s nekim lijepim ikonama i logotip za "
+"TortoiseSVN. On sada vodi brigu o web stranice i upravlja mnogim "
+"prijevodima."
 
 #. (title)
 msgid "Acknowledgments"
@@ -340,11 +425,11 @@ msgstr "Priznanja"
 
 #. (term)
 msgid "Tim Kemp"
-msgstr ""
+msgstr "Tim Kemp"
 
 #. (para)
 msgid "for starting the TortoiseSVN project"
-msgstr ""
+msgstr "za započinjanje TortoiseSVN projekta"
 
 #. (term)
 msgid "Stefan Küng"
@@ -355,6 +440,8 @@ msgid ""
 "for the hard work to get TortoiseSVN to what it is now, and his leadership "
 "of the project"
 msgstr ""
+"za težak rad kako bi TortoiseSVN postao ono što je danas, te za njegovo "
+"vodstvo projekta"
 
 #. (term)
 msgid "Lübbe Onken"
@@ -365,36 +452,39 @@ msgid ""
 "for the beautiful icons, logo, bug hunting, translating and managing the "
 "translations"
 msgstr ""
+"za prekrasne ikone, logotip, traženje bugova, prevođenje i upravljanje "
+"prijevodima"
 
 #. (term)
 msgid "Simon Large"
-msgstr ""
+msgstr "Simon Large"
 
 #. (para)
 msgid "for maintaining the documentation"
-msgstr ""
+msgstr "za održavanje dokumentacije"
 
 #. (term)
 msgid "Stefan Fuhrmann"
-msgstr ""
+msgstr "Stefan Fuhrmann"
 
 #. (para)
 msgid "for the log cache and revision graph"
-msgstr ""
+msgstr "za međuspremnik dnevnika i graf revizija"
 
 #. (term)
 msgid "The Subversion Book"
-msgstr ""
+msgstr "The Subversion Book"
 
 #. (para)
 msgid ""
 "for the great introduction to Subversion and its chapter 2 which we copied "
 "here"
 msgstr ""
+"za odličan uvod u Subversion i njeno poglavlje 2 koje smo ovdje kopirali"
 
 #. (term)
 msgid "The Tigris Style project"
-msgstr "The Tigris Style projektu"
+msgstr "The Tigris Style projekt"
 
 #. (para)
 msgid "for some of the styles which are reused in this documentation"
@@ -409,6 +499,8 @@ msgid ""
 "for the patches, bug reports and new ideas, and for helping others by "
 "answering questions on our mailing list"
 msgstr ""
+"za zakrpe, izvješća o greškama i nove ideje, te za pomaganje drugima "
+"odgovaranjem na pitanja na našoj mailing listi"
 
 #. (term)
 msgid "Our Donators"
@@ -420,7 +512,7 @@ msgstr "za mnoge sate veselja i uživanja u glazbi koju su nam poslali"
 
 #. (title)
 msgid "Reading Guide"
-msgstr ""
+msgstr "Vodič za čitanje"
 
 #. (para)
 msgid ""
@@ -8745,6 +8837,14 @@ msgstr ""
 
 #. (para)
 msgid ""
+"If you need to specify a peg revision for the merge, add the peg revision at"
+" the end of the revisions, e.g. <literal>5-7,10@3</literal>. In the above "
+"example, the revisions 5,6,7 and 10 would be merged, with 3 being the peg "
+"revision."
+msgstr ""
+
+#. (para)
+msgid ""
 "There is an important difference in the way a revision range is specified "
 "with TortoiseSVN compared to the command line client. The easiest way to "
 "visualise it is to think of a fence with posts and fence panels."
@@ -12720,6 +12820,26 @@ msgid "The window title for your file"
 msgstr ""
 
 #. (para)
+msgid "The url of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The url of the second file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the original file, if available"
+msgstr ""
+
+#. (para)
+msgid "The revision of the second file, if available"
+msgstr ""
+
+#. (para)
+msgid "The peg revision, if available"
+msgstr ""
+
+#. (para)
 msgid ""
 "An external diff program may be used for comparing different revisions of "
 "files. The external program will need to obtain the filenames from the "
@@ -13762,6 +13882,25 @@ msgid ""
 "To update with externals included, either run the <literal>Update to "
 "revision...</literal> dialog or set this value to <literal>true</literal> "
 "again."
+msgstr ""
+
+#. (para)
+msgid ""
+"When the log dialog is started from the merge wizard, already merged "
+"revisions are shown in gray, but revisions beyond the point where the branch"
+" was created are also shown. These revisions are shown in black because "
+"those can't be merged."
+msgstr ""
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal> then TortoiseSVN tries to "
+"find the revision where the branch was created from and hide all the "
+"revisions that are beyond that revision. Since this can take quite a while, "
+"this option is disabled by default. Also this option doesn't work with some "
+"SVN servers (e.g., Google Code Hosting, see <ulink "
+"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
+" #5471</citetitle></ulink>)."
 msgstr ""
 
 #. (para)
