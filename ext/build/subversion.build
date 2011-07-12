@@ -30,11 +30,6 @@
     </exec>
     <exec program="python.exe">
       <arg value="build\transform_sql.py" />
-      <arg value="subversion\libsvn_fs_fs\revprops-db.sql" />
-      <arg value="subversion\libsvn_fs_fs\revprops-db.h" />
-    </exec>
-    <exec program="python.exe">
-      <arg value="build\transform_sql.py" />
       <arg value="subversion\libsvn_wc\wc-metadata.sql" />
       <arg value="subversion\libsvn_wc\wc-metadata.h" />
     </exec>
