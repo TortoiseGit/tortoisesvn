@@ -79,7 +79,11 @@ bool MergeCommand::Execute()
                 else
                 {
                     SVNRevRangeArray tempRevArray;
-                    tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
+                    if (wizard.pegRev.IsValid())
+                        // only merge up to the peg rev is no rev range is specified.
+                        tempRevArray.AddRevRange(1, wizard.pegRev);
+                    else
+                        tempRevArray.AddRevRange(1, SVNRev::REV_HEAD);
                     progDlg.SetRevisionRanges(tempRevArray);
                 }
                 progDlg.SetPegRevision(wizard.pegRev);
