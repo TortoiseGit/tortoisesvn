@@ -61,6 +61,8 @@ private:
 
     // Update our composite status and deal with things if it's changed
     void UpdateCurrentStatus();
+    void SetChildStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus);
+    void SetChildStatus(const CStringA& childPath, svn_wc_status_kind childStatus);
 
 
 private:

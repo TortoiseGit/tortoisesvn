@@ -394,26 +394,22 @@ void CTSVNPath::UpdateAttributes() const
     else
     {
         DWORD err = GetLastError();
+        m_lastWriteTime = 0;
+        m_fileSize = 0;
         if ((err == ERROR_FILE_NOT_FOUND)||(err == ERROR_PATH_NOT_FOUND)||(err == ERROR_INVALID_NAME))
         {
             m_bIsDirectory = false;
-            m_lastWriteTime = 0;
-            m_fileSize = 0;
             m_bExists = false;
         }
         else if (err == ERROR_NOT_READY)
         {
             // this is a device root (e.g. a DVD drive with no media in it)
             m_bIsDirectory = true;
-            m_lastWriteTime = 0;
-            m_fileSize = 0;
             m_bExists = true;
         }
         else
         {
             m_bIsDirectory = false;
-            m_lastWriteTime = 0;
-            m_fileSize = 0;
             m_bExists = true;
             return;
         }

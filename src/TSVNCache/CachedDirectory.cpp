@@ -577,21 +577,21 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
     bool forceNormal = false;
     bool needsLock = false;
 
+    const svn_wc_status_kind nodeStatus = status->node_status;
     if(status->versioned)
     {
-        if ((status->node_status != svn_wc_status_none)&&(status->node_status != svn_wc_status_ignored))
+        if ((nodeStatus != svn_wc_status_none)&&(nodeStatus != svn_wc_status_ignored))
             svnPath.SetFromSVN(path, (status->kind == svn_node_dir));
         else
             svnPath.SetFromSVN(path);
 
         if(svnPath.IsDirectory())
         {
-            CStringA winPath = CUnicodeUtils::GetUTF8 (svnPath.GetWinPathString());
             if(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))
             {
                 // Make sure we know about this child directory
                 // This initial status value is likely to be overwritten from below at some point
-                svn_wc_status_kind s = status->node_status;
+                svn_wc_status_kind s = nodeStatus;
                 if (status->conflicted)
                     s = SVNStatus::GetMoreImportant(s, svn_wc_status_conflicted);
                 CCachedDirectory * cdir = CSVNStatusCache::Instance().GetDirectoryCacheEntryNoCreate(svnPath);
@@ -600,8 +600,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                     // This child directory is already in our cache!
                     // So ask this dir about its recursive status
                     svn_wc_status_kind st = SVNStatus::GetMoreImportant(s, cdir->GetCurrentFullStatus());
-                    AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[winPath] = st;
+                    pThis->SetChildStatus(svnPath, st);
                 }
                 else
                 {
@@ -609,8 +608,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                     // initially 'unversioned'. But we added that directory to the crawling list above, which
                     // means the cache will be updated soon.
                     CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
-                    AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[winPath] = s;
+                    pThis->SetChildStatus(svnPath, s);
                 }
             }
         }
@@ -618,7 +616,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
         {
             // only fetch the svn:needs-lock property if the status of this file is 'normal', because
             // if the status is something else, the needs-lock overlay won't show up anyway
-            if ((pThis->m_pCtx)&&(status->node_status == svn_wc_status_normal))
+            if ((pThis->m_pCtx)&&(nodeStatus == svn_wc_status_normal))
             {
                 const svn_string_t * value = NULL;
                 svn_wc_prop_get2(&value, pThis->m_pCtx->wc_ctx, path, "svn:needs-lock", pool, pool);
@@ -630,23 +628,19 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
     else
     {
         svnPath.SetFromSVN(path, status->kind == svn_node_dir);
-        CStringA winPath = CUnicodeUtils::GetUTF8 (svnPath.GetWinPathString());
 
         // Subversion returns no 'entry' field for versioned folders if they're
         // part of another working copy (nested layouts).
         // So we have to make sure that such an 'unversioned' folder really
         // is unversioned.
-        if (((status->node_status == svn_wc_status_unversioned)||(status->node_status == svn_wc_status_ignored))&&(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
+        if (((nodeStatus == svn_wc_status_unversioned)||(nodeStatus == svn_wc_status_ignored))&&(!svnPath.IsEquivalentToWithoutCase(pThis->m_directoryPath))&&(svnPath.IsDirectory()))
         {
             if (svnPath.IsWCRoot())
             {
                 CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
                 // Mark the directory as 'versioned' (status 'normal' for now).
                 // This initial value will be overwritten from below some time later
-                {
-                    AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[winPath] = svn_wc_status_normal;
-                }
+                pThis->SetChildStatus(svnPath, svn_wc_status_normal);
                 // Make sure the entry is also in the cache
                 CSVNStatusCache::Instance().GetDirectoryCacheEntry(svnPath);
                 // also mark the status in the status object as normal
@@ -654,25 +648,17 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
             }
             else
             {
-                if (svnPath.IsDirectory())
-                {
-                    AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[winPath] = status->node_status;
-                }
+                pThis->SetChildStatus(svnPath, nodeStatus);
             }
         }
-        else if (status->node_status == svn_wc_status_external)
+        else if (nodeStatus == svn_wc_status_external)
         {
-            if ((status->kind == svn_node_dir) ||
-                (svnPath.IsDirectory()))
+            if ((status->kind == svn_node_dir) || (svnPath.IsDirectory()))
             {
                 CSVNStatusCache::Instance().AddFolderForCrawling(svnPath);
                 // Mark the directory as 'versioned' (status 'normal' for now).
                 // This initial value will be overwritten from below some time later
-                {
-                    AutoLocker lock(pThis->m_critSec);
-                    pThis->m_childDirectories[winPath] = svn_wc_status_normal;
-                }
+                pThis->SetChildStatus(svnPath, svn_wc_status_normal);
                 // we have added a directory to the child-directory list of this
                 // directory. We now must make sure that this directory also has
                 // an entry in the cache.
@@ -685,11 +671,10 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
         {
             if (svnPath.IsDirectory())
             {
-                AutoLocker lock(pThis->m_critSec);
-                svn_wc_status_kind s = status->node_status;
+                svn_wc_status_kind s = nodeStatus;
                 if (status->conflicted)
                     s = SVNStatus::GetMoreImportant(s, svn_wc_status_conflicted);
-                pThis->m_childDirectories[winPath] = s;
+                pThis->SetChildStatus(svnPath, s);
             }
         }
     }
@@ -800,12 +785,21 @@ void CCachedDirectory::UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn
     }
     if ((currentStatus != childStatus)||(!IsOwnStatusValid()))
     {
-        {
-            AutoLocker lock(m_critSec);
-            m_childDirectories[winPath] = childStatus;
-        }
+        SetChildStatus(winPath, childStatus);
         UpdateCurrentStatus();
     }
+}
+
+void CCachedDirectory::SetChildStatus(const CTSVNPath& childDir, svn_wc_status_kind childStatus)
+{
+    CStringA winPath = CUnicodeUtils::GetUTF8(childDir.GetWinPathString());
+    SetChildStatus(winPath, childStatus);
+}
+
+void CCachedDirectory::SetChildStatus(const CStringA& winPath, svn_wc_status_kind childStatus)
+{
+    AutoLocker lock(m_critSec);
+    m_childDirectories[winPath] = childStatus;
 }
 
 CStatusCacheEntry CCachedDirectory::GetOwnStatus(bool bRecursive)
