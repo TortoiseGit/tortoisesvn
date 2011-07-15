@@ -78,6 +78,7 @@
                         <li><a href="#releases">I was told that issue/bug X was fixed in rXXX, but the latest release still doesn't has this implemented/fixed?</a></li>
                         <li><a href="#svnbinaries">Will you add the standard subversion client to the installer?</a></li>
                         <li><a href="#eclipse">TortoiseSVN does not work well with Eclipse</a></li>
+                        <li><a href="#iesecurity">Security warnings when uploading files in IE</a></li>
                     </ul>
 
                     <h3>How can I...</h3>
@@ -734,6 +735,23 @@ force security mode = 0600
                         <p>But Eclipse has its very own subversion plugin called Subclipse, which makes Eclipse SVN-aware and fixes the problem at source. You can find it at
                         <a href="http://subclipse.tigris.org/">http://subclipse.tigris.org/</a>.
                         After you install Subclipse you need to make a fresh checkout. It will not fix checkouts that were made before it was installed.</p>
+                        </div>
+
+                        <div class="h3" id="iesecurity" title="iesecurity">
+                        <h3>Security warnings when uploading files in IE</h3>
+                        <p>When you select files to upload using a web form in Internet Explorer,
+                        you may get security warnings saying that a program is trying to open web content,
+                        identifying TortoiseSVN as the culprit.</p>
+                        <p>Don't panic! This is a (mis) feature of the IE security model. Since
+                        TortoiseSVN is a shell extension it loads automatically whenever a file-open
+                        dialog is created, in order to provide the icon overlays and context menus.</p>
+                        <p>There are two ways to stop the warnings:
+                        <ol>
+                        <li>In TortoiseSVN's settings go to the Icon Overlay section and check the box
+                        <i>Show overlays and context menu only in Explorer</i>.</li>
+                        <li>When the warning appears, check the box marked
+                        <i>never show for this application again</i>.</li>
+                        </ol></p>
                         </div>
                     </div>
                     
