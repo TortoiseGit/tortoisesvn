@@ -83,6 +83,13 @@
             you want to transfer changes from one to the other, a patch on the
             clipboard is a convenient way of doing this.
         </para>
+        <para>
+            If you prefer, you can create a patch file from within the
+            <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel>
+            dialogs. Just select the files and use the context menu item to create
+            a patch from those files. If you want to see the <guilabel>Options</guilabel>
+            dialog you have to hold <keycap>shift</keycap> when you <action>right click</action>.
+        </para>
     </sect2>
     <sect2 id="tsvn-dug-patch-2">
         <title>Applying a Patch File</title>
