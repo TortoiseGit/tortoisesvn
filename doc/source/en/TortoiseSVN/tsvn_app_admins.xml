@@ -48,6 +48,15 @@
             first install the MFC and CRT package version 10 from Microsoft on each
             computer you want to install TortoiseSVN as per user.
         </para>
+        <para>
+            You can customize the MSI file if you wish so that all your users end up
+            with the same settings. TSVN settings are stored in the registry under
+            <filename>HKEY_CURRENT_USER\Software\TortoiseSVN</filename> and general
+            Subversion settings (which affect all subversion clients) are stored in
+            config files under  <filename>%APPDATA%\Subversion</filename>.
+            If you need help with MSI customization, try one of the MSI transform forums
+            or search the web for <quote>MSI transform</quote>.
+        </para>
     </sect1>
     <sect1 id="tsvn-admins-upgradecheck">
         <title>Redirect the upgrade check</title>
