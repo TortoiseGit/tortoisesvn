@@ -1969,7 +1969,7 @@ bool CShellExt::IsIllegalFolder(std::wstring folder, int * csidlarray)
             continue;
         }
         CoTaskMemFree(pidl);
-        if (_tcslen(buf)==0)
+        if (buf[0]==0)
             continue;
         if (_tcscmp(buf, folder.c_str())==0)
             return true;

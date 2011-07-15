@@ -212,9 +212,9 @@ void CSettingsAdvanced::OnLvnEndlabeledit(NMHDR *pNMHDR, LRESULT *pResult)
     {
     case SettingTypeBoolean:
         {
-            if ( (_tcscmp(pDispInfo->item.pszText, _T("true")) == 0)  ||
-                 (_tcscmp(pDispInfo->item.pszText, _T("false")) == 0) ||
-                 (_tcslen(pDispInfo->item.pszText) == 0) )
+            if ( (pDispInfo->item.pszText[0] == 0) ||
+                 (_tcscmp(pDispInfo->item.pszText, _T("true")) == 0) ||
+                 (_tcscmp(pDispInfo->item.pszText, _T("false")) == 0) )
             {
                 allowEdit = true;
             }
@@ -227,7 +227,10 @@ void CSettingsAdvanced::OnLvnEndlabeledit(NMHDR *pNMHDR, LRESULT *pResult)
             while (*pChar)
             {
                 if (!_istdigit(*pChar))
+                {
                     allowEdit = false;
+                    break;
+                }
                 pChar++;
             }
         }
