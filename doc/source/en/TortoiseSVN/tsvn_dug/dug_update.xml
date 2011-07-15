@@ -124,6 +124,12 @@
         used as the default depth.
     </para>
     <para>
+        To make it easier to include or exclude specific items from the checkout
+        click the <guibutton>Choose items...</guibutton> button. This opens a new dialog
+        where you can check all items you want in your working copy and uncheck
+        all the items you don't want.
+    </para>
+    <para>
         You can also choose whether to ignore any external projects in the update
         (i.e. projects referenced using <literal>svn:externals</literal>).
     </para>
