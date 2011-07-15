@@ -1935,7 +1935,7 @@ msgid "You can choose the <firstterm>depth</firstterm> you want to checkout, whi
 msgstr ""
 
 #. (para)
-msgid "To easily select only the items you want for the checkout and force the resulting working copy to keep only those items , click the <guibutton>Choose items...</guibutton> button. This opens a new dialog where you can check all items you want in your working copy and uncheck all the items you don't want. The resulting working copy is then known as a <literal>sparse checkout</literal>. An update of such a working copy will not fetch the missing files and folders but only update what you already have in your working copy."
+msgid "To easily select only the items you want for the checkout and force the resulting working copy to keep only those items, click the <guibutton>Choose items...</guibutton> button. This opens a new dialog where you can check all items you want in your working copy and uncheck all the items you don't want. The resulting working copy is then known as a <literal>sparse checkout</literal>. An update of such a working copy will not fetch the missing files and folders but only update what you already have in your working copy."
 msgstr ""
 
 #. (para)
@@ -2046,7 +2046,6 @@ msgstr ""
 msgid "The commit dialog will show you every changed file, including added, deleted and unversioned files. If you don't want a changed file to be committed, just uncheck that file. If you want to include an unversioned file, just check that file to add it to the commit."
 msgstr ""
 
-#. (para)
 #. (para)
 msgid "Items which have been switched to a different repository path are also indicated using an <literal>(s)</literal> marker. You may have switched something while working on a branch and forgotten to switch back to trunk. This is your warning sign!"
 msgstr ""
@@ -2334,6 +2333,10 @@ msgstr ""
 
 #. (para)
 msgid "In the same dialog you can also choose the <firstterm>depth</firstterm> at which to update the current folder. The terms used are described in <xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is <guilabel>Working copy</guilabel>, which preserves the existing depth setting. You can also set the depth <literal>sticky</literal> which means subsequent updates will use that new depth, i.e. that depth is then used as the default depth."
+msgstr ""
+
+#. (para)
+msgid "To make it easier to include or exclude specific items from the checkout click the <guibutton>Choose items...</guibutton> button. This opens a new dialog where you can check all items you want in your working copy and uncheck all the items you don't want."
 msgstr ""
 
 #. (para)
@@ -2881,6 +2884,10 @@ msgstr ""
 
 #. (para)
 msgid "The dialog uses colour coding to highlight the status. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid "Items which have been switched to a different repository path are also indicated using an <literal>(s)</literal> marker. You may have switched something while working on a branch and forgotten to switch back to trunk. This is your warning sign! The context menu allows you to switch them back to the normal path again."
 msgstr ""
 
 #. (para)
@@ -5964,6 +5971,10 @@ msgstr ""
 msgid "You can also save the patch to the clipboard instead of to a file. You might want to do this so that you can paste it into an email for review by others. Or if you have two working copies on one machine and you want to transfer changes from one to the other, a patch on the clipboard is a convenient way of doing this."
 msgstr ""
 
+#. (para)
+msgid "If you prefer, you can create a patch file from within the <guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> dialogs. Just select the files and use the context menu item to create a patch from those files. If you want to see the <guilabel>Options</guilabel> dialog you have to hold <keycap>shift</keycap> when you <action>right click</action>."
+msgstr ""
+
 #. (title)
 msgid "Applying a Patch File"
 msgstr ""
@@ -7881,11 +7892,11 @@ msgid "The window title for your file"
 msgstr ""
 
 #. (para)
-msgid "The url of the original file, if available"
+msgid "The URL of the original file, if available"
 msgstr ""
 
 #. (para)
-msgid "The url of the second file, if available"
+msgid "The URL of the second file, if available"
 msgstr ""
 
 #. (para)
@@ -9954,6 +9965,10 @@ msgstr ""
 
 #. (para)
 msgid "TortoiseSVN must be installed under <emphasis>Computer Configuration</emphasis> and not under <emphasis>User Configuration</emphasis>. This is because TortoiseSVN needs the CRT and MFC DLLs, which can only be deployed <emphasis>per computer</emphasis> and not <emphasis>per user</emphasis>. If you really must install TortoiseSVN on a per user basis, then you must first install the MFC and CRT package version 10 from Microsoft on each computer you want to install TortoiseSVN as per user."
+msgstr ""
+
+#. (para)
+msgid "You can customize the MSI file if you wish so that all your users end up with the same settings. TSVN settings are stored in the registry under <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general Subversion settings (which affect all subversion clients) are stored in config files under <filename>%APPDATA%\\Subversion</filename>. If you need help with MSI customization, try one of the MSI transform forums or search the web for <quote>MSI transform</quote>."
 msgstr ""
 
 #. (title)
