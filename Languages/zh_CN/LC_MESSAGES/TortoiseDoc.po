@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-09 00:12+0000\n"
+"PO-Revision-Date: 2011-07-16 00:14+0000\n"
 "Last-Translator: zhugscn <huasoft@163.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3501,17 +3501,14 @@ msgstr ""
 #. (para)
 msgid ""
 "To easily select only the items you want for the checkout and force the "
-"resulting working copy to keep only those items , click the "
-"<guibutton>Choose items...</guibutton> button. This opens a new dialog where"
-" you can check all items you want in your working copy and uncheck all the "
-"items you don't want. The resulting working copy is then known as a "
-"<literal>sparse checkout</literal>. An update of such a working copy will "
-"not fetch the missing files and folders but only update what you already "
-"have in your working copy."
+"resulting working copy to keep only those items, click the <guibutton>Choose"
+" items...</guibutton> button. This opens a new dialog where you can check "
+"all items you want in your working copy and uncheck all the items you don't "
+"want. The resulting working copy is then known as a <literal>sparse "
+"checkout</literal>. An update of such a working copy will not fetch the "
+"missing files and folders but only update what you already have in your "
+"working copy."
 msgstr ""
-"要想在检出时只选择想要的内容并使得工作副本只保留这些内容，单击 <guibutton>选择项目...</guibutton> "
-"按钮。这样就会打开一个新的对话框，在这里你可以选中所用你想要签入工作副本的内容，不要选中那些你不想要的。这种生成工作副本的操作叫做 "
-"<literal>稀疏检出</literal>。更新这样的工作副本不会抓取缺失的文件和文件夹，只更新已经位于版本库中的内容。"
 
 #. (para)
 msgid ""
@@ -3740,7 +3737,6 @@ msgid ""
 msgstr ""
 "提交对话框将显示每个被改动过的文件，包括新增的、删除的和未受控的文件。如果你不想改动被提交，只要将该文件的复选框的勾去掉就可以了。如果你要加入未受控的文件，只要勾选该文件把它加入提交列表就可以了。"
 
-#. (para)
 #. (para)
 msgid ""
 "Items which have been switched to a different repository path are also "
@@ -4281,6 +4277,14 @@ msgid ""
 "setting. You can also set the depth <literal>sticky</literal> which means "
 "subsequent updates will use that new depth, i.e. that depth is then used as "
 "the default depth."
+msgstr ""
+
+#. (para)
+msgid ""
+"To make it easier to include or exclude specific items from the checkout "
+"click the <guibutton>Choose items...</guibutton> button. This opens a new "
+"dialog where you can check all items you want in your working copy and "
+"uncheck all the items you don't want."
 msgstr ""
 
 #. (para)
@@ -5274,6 +5278,15 @@ msgstr "未修改和未受控的项。"
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "对话框使用颜色代码来高亮显示状态。 <placeholder-1/>"
+
+#. (para)
+msgid ""
+"Items which have been switched to a different repository path are also "
+"indicated using an <literal>(s)</literal> marker. You may have switched "
+"something while working on a branch and forgotten to switch back to trunk. "
+"This is your warning sign! The context menu allows you to switch them back "
+"to the normal path again."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -10899,6 +10912,16 @@ msgid ""
 msgstr ""
 "你也可以将补丁保存到剪贴板，而不是文件。这样你可以粘贴到电子邮件中，让他人审核。或者你在机器上有两个工作副本，想将修改传递到另外的副本。在剪贴板上的补丁就是为这些操作提供便利。"
 
+#. (para)
+msgid ""
+"If you prefer, you can create a patch file from within the "
+"<guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> "
+"dialogs. Just select the files and use the context menu item to create a "
+"patch from those files. If you want to see the <guilabel>Options</guilabel> "
+"dialog you have to hold <keycap>shift</keycap> when you <action>right "
+"click</action>."
+msgstr ""
+
 #. (title)
 msgid "Applying a Patch File"
 msgstr "应用一个补丁文件"
@@ -14100,11 +14123,11 @@ msgid "The window title for your file"
 msgstr "你新文件的窗口标题"
 
 #. (para)
-msgid "The url of the original file, if available"
+msgid "The URL of the original file, if available"
 msgstr ""
 
 #. (para)
-msgid "The url of the second file, if available"
+msgid "The URL of the second file, if available"
 msgstr ""
 
 #. (para)
@@ -17190,6 +17213,17 @@ msgid ""
 "per user basis, then you must first install the MFC and CRT package version "
 "10 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can customize the MSI file if you wish so that all your users end up "
+"with the same settings. TSVN settings are stored in the registry under "
+"<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
+"Subversion settings (which affect all subversion clients) are stored in "
+"config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
+"help with MSI customization, try one of the MSI transform forums or search "
+"the web for <quote>MSI transform</quote>."
 msgstr ""
 
 #. (title)

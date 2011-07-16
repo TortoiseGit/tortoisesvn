@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-12 06:03+0000\n"
+"PO-Revision-Date: 2011-07-16 00:14+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4325,22 +4325,14 @@ msgstr ""
 #. (para)
 msgid ""
 "To easily select only the items you want for the checkout and force the "
-"resulting working copy to keep only those items , click the "
-"<guibutton>Choose items...</guibutton> button. This opens a new dialog where"
-" you can check all items you want in your working copy and uncheck all the "
-"items you don't want. The resulting working copy is then known as a "
-"<literal>sparse checkout</literal>. An update of such a working copy will "
-"not fetch the missing files and folders but only update what you already "
-"have in your working copy."
+"resulting working copy to keep only those items, click the <guibutton>Choose"
+" items...</guibutton> button. This opens a new dialog where you can check "
+"all items you want in your working copy and uncheck all the items you don't "
+"want. The resulting working copy is then known as a <literal>sparse "
+"checkout</literal>. An update of such a working copy will not fetch the "
+"missing files and folders but only update what you already have in your "
+"working copy."
 msgstr ""
-"Um einfach nur die Elemente, die Sie auschecken wollen, auszuwählen und "
-"dafür zu sorgen, dass die resultierende Arbeitskopie nur die gewählten "
-"Objekte enthält, klicken Sie auf die <guibutton>Wähle Objekte...</guibutton>"
-" Schaltfläche. Diese öffnet einen neuen Dialog, in dem Sie die gewünschten "
-"Objekte markieren können. Die resultierende Arbeitskopie wird als "
-"<literal>dünn besetzte Arbeitskopie</literal> bezeichnet. Wenn sie diese "
-"Arbeitskopie aktualisieren, werden nur die gewählten Dateien und Ordner "
-"aktualisiert und die fehlenden Objekte ignoriert."
 
 #. (para)
 msgid ""
@@ -4625,7 +4617,6 @@ msgstr ""
 "nicht unter Versionskontrolle stehen, können Sie durch Markieren vor dem "
 "Übertragen hinzufügen."
 
-#. (para)
 #. (para)
 msgid ""
 "Items which have been switched to a different repository path are also "
@@ -5325,6 +5316,14 @@ msgstr ""
 "beibehält. Sie können die Tiefe auch <literal>merken</literal> lassen, was "
 "bedeutet, dass diese Tiefe von nun an als Vorgabe verwendet wird und dass "
 "nachfolgende Aktualisierungen diese Einstellung verwenden."
+
+#. (para)
+msgid ""
+"To make it easier to include or exclude specific items from the checkout "
+"click the <guibutton>Choose items...</guibutton> button. This opens a new "
+"dialog where you can check all items you want in your working copy and "
+"uncheck all the items you don't want."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -6560,6 +6559,15 @@ msgid ""
 msgstr ""
 "Der Dialog verwendet eine Farbcodierung, um verschiedene Status anzuzeigen. "
 "<placeholder-1/>"
+
+#. (para)
+msgid ""
+"Items which have been switched to a different repository path are also "
+"indicated using an <literal>(s)</literal> marker. You may have switched "
+"something while working on a branch and forgotten to switch back to trunk. "
+"This is your warning sign! The context menu allows you to switch them back "
+"to the normal path again."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -13955,6 +13963,16 @@ msgstr ""
 "haben und gezielt Änderungen von einer in die andere übertragen wollen, ist "
 "ein Patch in der Zwischenablage der bequemste Weg."
 
+#. (para)
+msgid ""
+"If you prefer, you can create a patch file from within the "
+"<guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> "
+"dialogs. Just select the files and use the context menu item to create a "
+"patch from those files. If you want to see the <guilabel>Options</guilabel> "
+"dialog you have to hold <keycap>shift</keycap> when you <action>right "
+"click</action>."
+msgstr ""
+
 #. (title)
 msgid "Applying a Patch File"
 msgstr "Eine Patchdatei anwenden"
@@ -18368,12 +18386,12 @@ msgid "The window title for your file"
 msgstr "Der Fenstertitel für Ihre Datei"
 
 #. (para)
-msgid "The url of the original file, if available"
-msgstr "Die URL der ursprünglichen Datei, falls vorhanden"
+msgid "The URL of the original file, if available"
+msgstr ""
 
 #. (para)
-msgid "The url of the second file, if available"
-msgstr "Die URL der zweiten Datei, falls vorhanden"
+msgid "The URL of the second file, if available"
+msgstr ""
 
 #. (para)
 msgid "The revision of the original file, if available"
@@ -22556,6 +22574,17 @@ msgstr ""
 "Benutzer installieren wollen, müssen Sie zunächst die MFC and CRT Pakete in "
 "der Version 10 von Microsoft auf jedem davon betroffenen Rechner "
 "installieren."
+
+#. (para)
+msgid ""
+"You can customize the MSI file if you wish so that all your users end up "
+"with the same settings. TSVN settings are stored in the registry under "
+"<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
+"Subversion settings (which affect all subversion clients) are stored in "
+"config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
+"help with MSI customization, try one of the MSI transform forums or search "
+"the web for <quote>MSI transform</quote>."
+msgstr ""
 
 #. (title)
 msgid "Redirect the upgrade check"

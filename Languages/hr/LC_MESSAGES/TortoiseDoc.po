@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-09 00:12+0000\n"
+"PO-Revision-Date: 2011-07-16 00:14+0000\n"
 "Last-Translator: ivucica <ivan@vucica.net>\n"
 "Language-Team: Croatian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3118,13 +3118,13 @@ msgstr ""
 #. (para)
 msgid ""
 "To easily select only the items you want for the checkout and force the "
-"resulting working copy to keep only those items , click the "
-"<guibutton>Choose items...</guibutton> button. This opens a new dialog where"
-" you can check all items you want in your working copy and uncheck all the "
-"items you don't want. The resulting working copy is then known as a "
-"<literal>sparse checkout</literal>. An update of such a working copy will "
-"not fetch the missing files and folders but only update what you already "
-"have in your working copy."
+"resulting working copy to keep only those items, click the <guibutton>Choose"
+" items...</guibutton> button. This opens a new dialog where you can check "
+"all items you want in your working copy and uncheck all the items you don't "
+"want. The resulting working copy is then known as a <literal>sparse "
+"checkout</literal>. An update of such a working copy will not fetch the "
+"missing files and folders but only update what you already have in your "
+"working copy."
 msgstr ""
 
 #. (para)
@@ -3317,7 +3317,6 @@ msgid ""
 "check that file to add it to the commit."
 msgstr ""
 
-#. (para)
 #. (para)
 msgid ""
 "Items which have been switched to a different repository path are also "
@@ -3795,6 +3794,14 @@ msgid ""
 "setting. You can also set the depth <literal>sticky</literal> which means "
 "subsequent updates will use that new depth, i.e. that depth is then used as "
 "the default depth."
+msgstr ""
+
+#. (para)
+msgid ""
+"To make it easier to include or exclude specific items from the checkout "
+"click the <guibutton>Choose items...</guibutton> button. This opens a new "
+"dialog where you can check all items you want in your working copy and "
+"uncheck all the items you don't want."
 msgstr ""
 
 #. (para)
@@ -4660,6 +4667,15 @@ msgstr ""
 #. (para)
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"Items which have been switched to a different repository path are also "
+"indicated using an <literal>(s)</literal> marker. You may have switched "
+"something while working on a branch and forgotten to switch back to trunk. "
+"This is your warning sign! The context menu allows you to switch them back "
+"to the normal path again."
 msgstr ""
 
 #. (para)
@@ -9736,6 +9752,16 @@ msgid ""
 "convenient way of doing this."
 msgstr ""
 
+#. (para)
+msgid ""
+"If you prefer, you can create a patch file from within the "
+"<guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> "
+"dialogs. Just select the files and use the context menu item to create a "
+"patch from those files. If you want to see the <guilabel>Options</guilabel> "
+"dialog you have to hold <keycap>shift</keycap> when you <action>right "
+"click</action>."
+msgstr ""
+
 #. (title)
 msgid "Applying a Patch File"
 msgstr ""
@@ -12820,11 +12846,11 @@ msgid "The window title for your file"
 msgstr ""
 
 #. (para)
-msgid "The url of the original file, if available"
+msgid "The URL of the original file, if available"
 msgstr ""
 
 #. (para)
-msgid "The url of the second file, if available"
+msgid "The URL of the second file, if available"
 msgstr ""
 
 #. (para)
@@ -15741,6 +15767,17 @@ msgid ""
 "per user basis, then you must first install the MFC and CRT package version "
 "10 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can customize the MSI file if you wish so that all your users end up "
+"with the same settings. TSVN settings are stored in the registry under "
+"<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
+"Subversion settings (which affect all subversion clients) are stored in "
+"config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
+"help with MSI customization, try one of the MSI transform forums or search "
+"the web for <quote>MSI transform</quote>."
 msgstr ""
 
 #. (title)

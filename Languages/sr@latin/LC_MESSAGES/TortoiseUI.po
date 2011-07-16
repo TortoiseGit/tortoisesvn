@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-09 00:41+0000\n"
+"PO-Revision-Date: 2011-07-12 19:02+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2446,6 +2446,8 @@ msgid ""
 "Cancel\n"
 "Change the selection for the commit."
 msgstr ""
+"Odustani\n"
+"Izmeni izbor za urezivanje."
 
 #. Resource IDs: (100)
 msgid ""
@@ -7009,7 +7011,7 @@ msgstr "Boja čvora"
 
 #. Resource IDs: (170)
 msgid "Non-recursive commit of moved/renamed folders."
-msgstr ""
+msgstr "Nerekurzivno urezivanje pomerenih/preimenovanih imenika."
 
 #. Resource IDs: (1507)
 msgid "Non-versioned"
@@ -7702,6 +7704,8 @@ msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
 msgstr ""
+"Nastavite sa urezivanjem\n"
+"preimenovani/pomereni imenici su urezani rekurzivno u spremištu."
 
 #. Resource IDs: (89)
 msgid ""
@@ -10676,6 +10680,9 @@ msgid ""
 "for commit. Such moves/renames are always performed recursively in the "
 "repository. Do you want to commit anyway?"
 msgstr ""
+"Urezivanje nije rekurzivno, i postoje pomereni/preimenovani imenici izabrani"
+" za urezivanje. Takvo pomeranja/preimenovanja su uvek izvršena u spremištu. "
+"Da li  svakako želite da urežete?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10685,6 +10692,11 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
+"Urezivanje nije rekurzivno, i postoje pomereni/preimenovani\n"
+"imenici izabrani za urezivanje. Takva pomeranja/preimenovanja\n"
+"su uvek urađena rekurzivno u spremištu.\n"
+"\n"
+"Da li svakako želite da urežete?"
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
@@ -11554,6 +11566,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"Koristite dijalog dnevnika da izaberete reviziju koju želite da stopite, ili unesite revizije za stapanje, odvojene zapetama. Revizioni opseg specificirajte crticom.\r\n"
+"\r\n"
+"Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
+"\r\n"
+"Da stopite sve revizije ostavite boks prazan."
 
 #. Resource IDs: (314)
 #, c-format

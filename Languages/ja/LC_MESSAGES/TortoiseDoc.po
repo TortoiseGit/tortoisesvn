@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-09 00:12+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-07-16 00:14+0000\n"
+"Last-Translator: ddeguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2680,6 +2680,12 @@ msgid ""
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
 msgstr ""
+"フックスクリプトのサンプルは、リポジトリの <filename>hooks</filename> ディレクトリにあります。これらのサンプルスクリプトは Unix/Linux サーバ用であり、Windows ベースのサーバの場合は修正が必要となります。フックはバッチファイルもしくは実行形式です。以下のサンプルは pre-revprop-change フックを実装したバッチファイルの例です。<screen>\n"
+"rem Only allow log messages to be changed.\n"
+"if \"%4\" == \"svn:log\" exit 0\n"
+"echo Property '%4' cannot be changed &gt;&amp;2\n"
+"exit 1\n"
+"</screen> 標準出力へ送られた物はすべて破棄されてしまうことに注意してください。コミットリジェクトダイアログにメッセージを表示したい場合は、標準エラー出力に送らなくてはなりません。このバッチファイルでは <filename>&gt;&amp;2</filename> を使用しています。"
 
 #. (title)
 msgid "Overriding Hooks"
@@ -2696,6 +2702,9 @@ msgid ""
 "it can block the commit with a message like <quote>You didn't say the magic "
 "word</quote>. :-)"
 msgstr ""
+"フックスクリプトがあなたのコミットを拒否した場合、それが最終決定となります。　"
+"しかし、スクリプトの中に<emphasis>合言葉</emphasis>を埋め込むことで、その操作を上書きすることができます。スクリプトが処理を拒否したい場合は、まず特殊なパスフレーズ、固定長のフレーズもしくはプリフィックス付きのファイル名をログメッセージからスキャンします。もし合言葉を見つけた場合は、コミットを実行することができます。もしフレーズが見つからない場合は、<quote>You"
+" didn't say the magic word</quote>. :-) というメッセージを表示してブロックします。"
 
 #. (title)
 msgid "Checkout Links"
@@ -3227,6 +3236,10 @@ msgid ""
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
 msgstr ""
+"Windows のログオフ時やシャットダウン時に、認証データを削除したいと言う人もいます。そうするためには、<filename>%APPDATA%\\Subversion\\auth</filename> ディレクトリを削除するシャットダウンスクリプトを使用します。例えば、<screen>\n"
+"@echo off\n"
+"rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
+"</screen> このようなスクリプトをインストールする方法は、<ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink> に説明があります。"
 
 #. (para)
 msgid ""
@@ -3287,6 +3300,8 @@ msgid ""
 "time to think about how it will be organised. Read <xref linkend=\"tsvn-"
 "repository-layout\"/> for further advice."
 msgstr ""
+"すでにいくつかのプロジェクトが登録されている既存リポジトリにインポートする場合、リポジトリ構造はすでに決まっていることでしょう。新しいリポジトリにデータをインポートする場合には、どのようにリポジトリを構成するかを考えるのに、時間を費やす価値はあります。もっと深いアドバイスが必要であれば、<xref"
+" linkend=\"tsvn-repository-layout\"/> をお読みください。"
 
 #. (para)
 msgid ""
@@ -3624,13 +3639,13 @@ msgstr ""
 #. (para)
 msgid ""
 "To easily select only the items you want for the checkout and force the "
-"resulting working copy to keep only those items , click the "
-"<guibutton>Choose items...</guibutton> button. This opens a new dialog where"
-" you can check all items you want in your working copy and uncheck all the "
-"items you don't want. The resulting working copy is then known as a "
-"<literal>sparse checkout</literal>. An update of such a working copy will "
-"not fetch the missing files and folders but only update what you already "
-"have in your working copy."
+"resulting working copy to keep only those items, click the <guibutton>Choose"
+" items...</guibutton> button. This opens a new dialog where you can check "
+"all items you want in your working copy and uncheck all the items you don't "
+"want. The resulting working copy is then known as a <literal>sparse "
+"checkout</literal>. An update of such a working copy will not fetch the "
+"missing files and folders but only update what you already have in your "
+"working copy."
 msgstr ""
 
 #. (para)
@@ -3738,6 +3753,9 @@ msgid ""
 "revision...</guimenuitem></menuchoice>. In that dialog, be sure to check the"
 " <guilabel>Make depth sticky</guilabel> checkbox."
 msgstr ""
+"一度、作業コピーを特定の深さでチェックアウトした場合、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>項目を特定リビジョンへ更新...</guimenuitem></menuchoice>"
+" を使用することで後から深さを変更できます。そのダイアログにおいて、<guilabel>深さを固定する</guilabel> "
+"のチェックボックスにチェックしてください。"
 
 #. (title)
 msgid "Using an older server"
@@ -3751,6 +3769,9 @@ msgid ""
 "what is not required, which may mean a lot of network traffic. If possible "
 "you should upgrade your server to at least 1.5."
 msgstr ""
+"1.5 "
+"以前のサーバは、作業コピーの深さに対するリクエストを理解しないため、常にリクエストを効果的に処理できません。コマンドは動作しますが、旧式のサーバは、クライアントが必要でなくフィルタしたままにしているすべてのデータを送ってしまいます。そのため大量のネットワークトラフィックが発生するかもしれません。可能であれば、サーバを少なくとも"
+" 1.5 にアップグレードするべきです。"
 
 #. (para)
 msgid ""
@@ -3862,7 +3883,6 @@ msgid ""
 msgstr ""
 "コミットダイアログには変更したファイルが、追加・削除・バージョン管理外を含め表示されます。変更したファイルをコミットしたくない場合は、ファイルのチェックをはずしてください。バージョン管理外のファイルを含める場合は、追加・コミットするファイルのチェックをつけてください。"
 
-#. (para)
 #. (para)
 msgid ""
 "Items which have been switched to a different repository path are also "
@@ -4434,6 +4454,14 @@ msgstr ""
 
 #. (para)
 msgid ""
+"To make it easier to include or exclude specific items from the checkout "
+"click the <guibutton>Choose items...</guibutton> button. This opens a new "
+"dialog where you can check all items you want in your working copy and "
+"uncheck all the items you don't want."
+msgstr ""
+
+#. (para)
+msgid ""
 "You can also choose whether to ignore any external projects in the update "
 "(i.e. projects referenced using <literal>svn:externals</literal>)."
 msgstr ""
@@ -4584,6 +4612,13 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
+"競合は、複数の開発者があるファイルの同じ行を変更した際に発生します。Subversion はプロジェクトについて何も知らないため、開発者間の競合については解決できません。競合が報告されたら、問題のファイルを開き、<literal><<<<<<<</literal> で始まる行を探してください。競合のある箇所は以下のようにマークがつけられています。<screen>\n"
+"<<<<<<< filename\n"
+"    your changes\n"
+"=======\n"
+"    code merged from repository\n"
+">>>>>>> revision\n"
+"</screen> また、競合のあるファイルごとに Subversion はディレクトリにファイルを 3 つ追加します。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -4646,7 +4681,7 @@ msgid ""
 "A property conflict occurs when two or more developers have changed the same"
 " property. As with file content, resolving the conflict can only be done by "
 "the developers."
-msgstr ""
+msgstr "複数の開発者が同じ属性を変更した場合、属性の競合が発生します。ファイルの内容と同様に、強豪の解消は開発者によってのみ行うことが可能です。"
 
 #. (para)
 msgid ""
@@ -4703,7 +4738,7 @@ msgstr "ローカルで削除、更新により編集を受信"
 msgid ""
 "Developer A modifies <filename>Foo.c</filename> and commits it to the "
 "repository."
-msgstr ""
+msgstr "開発者Aが<filename>Foo.c</filename> を変更し、リポジトリにコミットします。"
 
 #. (para)
 msgid ""
@@ -4871,7 +4906,7 @@ msgstr "ローカルで削除、更新により削除を受信"
 #. (para)
 msgid ""
 "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>."
-msgstr ""
+msgstr "開発者Bが <filename>Foo.c</filename> を <filename>Bix.c</filename> に移動します。"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
@@ -4985,6 +5020,8 @@ msgid ""
 "Developer A working on trunk moves <filename>Foo.c</filename> to "
 "<filename>Bar.c</filename> and commits it to the repository."
 msgstr ""
+"トランクで作業している開発者Aが、<filename>Foo.c</filename> を <filename>Bar.c</filename> "
+"に移動し、リポジトリにコミットします。"
 
 #. (para)
 msgid ""
@@ -5059,6 +5096,8 @@ msgid ""
 "Developer B working on a branch moves <filename>Foo.c</filename> to "
 "<filename>Bix.c</filename> and commits it to the repository."
 msgstr ""
+"ブランチで作業している開発者Bが、<filename>Foo.c</filename> を <filename>Bix.c</filename> "
+"に移動し、リポジトリにコミットします。"
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
@@ -5436,6 +5475,15 @@ msgstr "更新がなくバージョン管理外の項目"
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "このダイアログでは、状態を色分けで表示します。<placeholder-1/>"
+
+#. (para)
+msgid ""
+"Items which have been switched to a different repository path are also "
+"indicated using an <literal>(s)</literal> marker. You may have switched "
+"something while working on a branch and forgotten to switch back to trunk. "
+"This is your warning sign! The context menu allows you to switch them back "
+"to the normal path again."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8017,6 +8065,10 @@ msgid ""
 "ignore <literal>*.tmp</literal> regardless of case, you could use a pattern "
 "like <literal>*.[Tt][Mm][Pp]</literal>."
 msgstr ""
+"パターンマッチングは大文字小文字を区別しますが、これは Windows "
+"で問題の原因になるかもしれません。両方指定すれば、強制的に大文字小文字を区別しないようにできます。例えば、大文字小文字に関わらず "
+"<literal>*.tmp</literal> を無視するには、<literal>*.[Tt][Mm][Pp]</literal> "
+"といったパターンで指定できます。"
 
 #. (para)
 msgid ""
@@ -8434,7 +8486,7 @@ msgstr "取り消し"
 
 #. (primary)
 msgid "clean"
-msgstr ""
+msgstr "クリーン"
 
 #. (title)
 msgid "Revert dialog"
@@ -8752,6 +8804,9 @@ msgid ""
 "dialog. These specific property dialogs are described in more detail in "
 "<xref linkend=\"tsvn-dug-propertypage-editors\"/>."
 msgstr ""
+"<placeholder-1/> 新しい属性をセットするには、まず <guilabel>新規...</guilabel> "
+"をクリックしてください。メニューから必要な属性名を選択し、属性ダイアログに必要な情報を入力します。これらの属性ダイアログの詳細は <xref "
+"linkend=\"tsvn-dug-propertypage-editors\"/> を御覧ください。"
 
 #. (para)
 msgid ""
@@ -8767,6 +8822,8 @@ msgid ""
 "files/folders in explorer, then select <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
 msgstr ""
+"一度にたくさんの項目に対して属性を設定する場合は、エクスプローラでファイル/フォルダを選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>属性</guimenuitem></menuchoice>"
+" を選択してください。"
 
 #. (para)
 msgid ""
@@ -8955,6 +9012,9 @@ msgid ""
 "applied to files at the time they are added to the working copy. Auto-props "
 "will never change the properties of files which are already versioned."
 msgstr ""
+"どちらの方法を選択しても、auto-props "
+"はファイルが作業コピーに追加された時にのみ適用されることに注意してください。すでにバージョン管理下にあるファイルには、auto-props "
+"で属性を変更することはありません。"
 
 #. (para)
 msgid ""
@@ -9300,6 +9360,13 @@ msgid ""
 "you will get different results depending on where you click in the folder "
 "structure."
 msgstr ""
+"これらの 特殊なプロジェクト属性は、動作するシステムの <emphasis>フォルダ</emphasis> "
+"に設定しなければなりません。これらの属性を使用するために TortoiseSVN "
+"のコマンドを利用する場合は、クリックしたフォルダから属性を読み取ります。属性が見つからない場合、TortoiseSVN "
+"はフォルダツリーを上位階層に向かって検索します。これはバージョン管理外フォルダに到達するか、ツリーのルート（例: "
+"<literal>C:\\</literal>）に到達するまで行います。各ユーザが <filename>trunk/</filename> "
+"からチェックアウトしていて、サブフォルダからチェックアウトしていないことが確認できるのであれば、<filename>trunk/</filename> "
+"にその属性を設定するだけで十分です。確認できない場合、各サブフォルダに対し再帰的に属性を設定するべきです。もし同じ属性で異なる値をプロジェクト階層の異なる深さに対して用いるなら、フォルダ構造のクリックした位置に依存して結果が異なります。"
 
 #. (para)
 #. (para)
@@ -9311,6 +9378,10 @@ msgid ""
 " checkbox to set the property to all sub-folders in the hierarchy, without "
 "also setting it on all files."
 msgstr ""
+"プロジェクト属性 <emphasis>だけ</emphasis> "
+"ですが（例：<literal>tsvn:</literal>、<literal>bugtraq:</literal>、<literal>webviewer:</literal>）、"
+" <guilabel>再帰</guilabel> "
+"チェックボックスを使うことで、全てのファイルに設定することなく階層的に全てのサブフォルダに属性を設定することができます。"
 
 #. (para)
 #. (para)
@@ -9320,6 +9391,8 @@ msgid ""
 "project properties present in the parent folder will automatically be added "
 "to the new child folder too."
 msgstr ""
+"TortoiseSVN "
+"で新しいサブフォルダを作業コピーに追加する際、親フォルダに設定されているプロジェクト属性は、新しいサブフォルダにも自動的に追加されます。"
 
 #. (title)
 #. (title)
@@ -9399,6 +9472,9 @@ msgid ""
 "to pull in other projects from the same repository or a completely different"
 " repository as described in <xref linkend=\"tsvn-dug-externals\"/>."
 msgstr ""
+"<placeholder-1/> <literal>svn:externals</literal> "
+"属性は、同じリポジトリもしくは完全に異なるリポジトリから、他のプロジェクトを取得するのに使用できます。詳細は <xref linkend=\"tsvn-"
+"dug-externals\"/> をご覧ください。"
 
 #. (para)
 msgid ""
@@ -9417,7 +9493,7 @@ msgstr ""
 
 #. (title)
 msgid "SVN Keywords"
-msgstr ""
+msgstr "SVN キーワード"
 
 #. (title)
 msgid "svn:keywords property page"
@@ -11433,6 +11509,16 @@ msgid ""
 msgstr ""
 "また、ファイルに保存せずクリップボードに保存することもできます。電子メールに貼り付けて誰かにレビューしてもらう際に、そうしたくなると思います。また、1 "
 "つのマシンに 2 つ作業コピーがあり、片方からもう片方へ変更を持っていくときに、クリップボードにパッチがあるとべんりです。"
+
+#. (para)
+msgid ""
+"If you prefer, you can create a patch file from within the "
+"<guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> "
+"dialogs. Just select the files and use the context menu item to create a "
+"patch from those files. If you want to see the <guilabel>Options</guilabel> "
+"dialog you have to hold <keycap>shift</keycap> when you <action>right "
+"click</action>."
+msgstr ""
 
 #. (title)
 msgid "Applying a Patch File"
@@ -15009,11 +15095,11 @@ msgid "The window title for your file"
 msgstr "あなたのファイルのウィンドウタイトル"
 
 #. (para)
-msgid "The url of the original file, if available"
+msgid "The URL of the original file, if available"
 msgstr ""
 
 #. (para)
-msgid "The url of the second file, if available"
+msgid "The URL of the second file, if available"
 msgstr ""
 
 #. (para)
@@ -18359,6 +18445,17 @@ msgid ""
 "user."
 msgstr ""
 
+#. (para)
+msgid ""
+"You can customize the MSI file if you wish so that all your users end up "
+"with the same settings. TSVN settings are stored in the registry under "
+"<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
+"Subversion settings (which affect all subversion clients) are stored in "
+"config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
+"help with MSI customization, try one of the MSI transform forums or search "
+"the web for <quote>MSI transform</quote>."
+msgstr ""
+
 #. (title)
 msgid "Redirect the upgrade check"
 msgstr "更新チェックのリダイレクト"
@@ -18658,7 +18755,7 @@ msgstr "バージョン管理外のファイルを削除する"
 
 #. (entry)
 msgid "Merge All"
-msgstr ""
+msgstr "すべてマージ"
 
 #. (entry)
 msgid "Diff with previous version"
@@ -19086,35 +19183,35 @@ msgstr "/noui"
 
 #. (option)
 msgid "/noprogressui"
-msgstr ""
+msgstr "/noprogressui"
 
 #. (option)
 msgid "/nodlg"
-msgstr ""
+msgstr "/nodlg"
 
 #. (option)
 msgid "/cleanup"
-msgstr ""
+msgstr "/cleanup"
 
 #. (option)
 msgid "/revert"
-msgstr ""
+msgstr "/revert"
 
 #. (option)
 msgid "/delunversioned"
-msgstr ""
+msgstr "/delunversioned"
 
 #. (option)
 msgid "/delignored"
-msgstr ""
+msgstr "/delignored"
 
 #. (option)
 msgid "/refreshshell"
-msgstr ""
+msgstr "/refreshshell"
 
 #. (option)
 msgid "/externals"
-msgstr ""
+msgstr "/externals"
 
 #. (entry)
 msgid ""

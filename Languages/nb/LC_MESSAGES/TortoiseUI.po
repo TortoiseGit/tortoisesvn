@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-09 00:41+0000\n"
+"PO-Revision-Date: 2011-07-13 07:56+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2452,6 +2452,8 @@ msgid ""
 "Cancel\n"
 "Change the selection for the commit."
 msgstr ""
+"Avbryt\n"
+"Endre hva som er markert for innsending."
 
 #. Resource IDs: (100)
 msgid ""
@@ -7009,7 +7011,7 @@ msgstr "Nodefarger"
 
 #. Resource IDs: (170)
 msgid "Non-recursive commit of moved/renamed folders."
-msgstr ""
+msgstr "Ikke-rekursiv innsending av flyttete/omdøpte mapper."
 
 #. Resource IDs: (1507)
 msgid "Non-versioned"
@@ -7707,6 +7709,8 @@ msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
 msgstr ""
+"Fortsett med innsendingen\n"
+"de omdøpte/flyttete mappene sendes inn rekursivt til depotet."
 
 #. Resource IDs: (89)
 msgid ""
@@ -10674,6 +10678,9 @@ msgid ""
 "for commit. Such moves/renames are always performed recursively in the "
 "repository. Do you want to commit anyway?"
 msgstr ""
+"Denne innsendingen er ikke rekursiv, og flyttete/omdøpte mapper er valgt for"
+" innsending. Slike flyttinger/omdøpinger blir alltid gjort rekursivt i "
+"depotet. Vil du sende inn likevel?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10683,6 +10690,11 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
+"Denne innsendingen er ikke rekursiv, og flyttete/omdøpte\n"
+"mapper er valgt for innsending. Slike flyttinger/omdøpinger\n"
+"blir alltid gjort rekursivt i depotet.\n"
+"\n"
+"Vil du sende inn likevel?"
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
@@ -11545,6 +11557,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"Bruk loggdialogen til å velge de revisjonene du vil flette, eller skriv inn revisjonene som skal flettes, skilt av kommaer. Et revisjonsintervall kan angis med bindestrek.\n"
+"\n"
+"Eksempel: 4-7,9,11,15-HEAD@spikerrevisjon\n"
+"\n"
+"For å flette alle revisjoner, la boksen stå tom."
 
 #. Resource IDs: (314)
 #, c-format

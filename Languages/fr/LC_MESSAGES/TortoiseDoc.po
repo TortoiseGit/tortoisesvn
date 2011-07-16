@@ -9,6 +9,7 @@
 # $Rev$
 # 
 # Authors:
+#   <christophe@xhaleera.com>, 2011.
 # Alexandre Paradis <paradial@hotmail.com>, 2011.
 #   <grokwik@gmail.com>, 2011.
 msgid ""
@@ -16,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-09 00:12+0000\n"
-"Last-Translator: grokwik <grokwik@gmail.com>\n"
+"PO-Revision-Date: 2011-07-16 00:14+0000\n"
+"Last-Translator: chsxf <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3531,6 +3532,10 @@ msgid ""
 "context menu. To bring up the extended context menu, hold down the "
 "<keycap>Shift</keycap> key when you <action>right click</action>."
 msgstr ""
+"Certaines commandes, qui sont très rarement utilisés sont uniquement "
+"disponibles dans le menu contextuel étendu. Pour faire apparaître le menu "
+"contextuel étendu, maintenez enfoncée la touche <keycap>Maj</keycap> lorsque"
+" vous faites un <action>clic droit</action> ."
 
 #. (title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
@@ -4234,13 +4239,13 @@ msgstr ""
 #. (para)
 msgid ""
 "To easily select only the items you want for the checkout and force the "
-"resulting working copy to keep only those items , click the "
-"<guibutton>Choose items...</guibutton> button. This opens a new dialog where"
-" you can check all items you want in your working copy and uncheck all the "
-"items you don't want. The resulting working copy is then known as a "
-"<literal>sparse checkout</literal>. An update of such a working copy will "
-"not fetch the missing files and folders but only update what you already "
-"have in your working copy."
+"resulting working copy to keep only those items, click the <guibutton>Choose"
+" items...</guibutton> button. This opens a new dialog where you can check "
+"all items you want in your working copy and uncheck all the items you don't "
+"want. The resulting working copy is then known as a <literal>sparse "
+"checkout</literal>. An update of such a working copy will not fetch the "
+"missing files and folders but only update what you already have in your "
+"working copy."
 msgstr ""
 
 #. (para)
@@ -4501,7 +4506,6 @@ msgstr ""
 "inclure un fichier non versionné, cochez juste ce fichier pour l'ajouter à "
 "la livraison."
 
-#. (para)
 #. (para)
 msgid ""
 "Items which have been switched to a different repository path are also "
@@ -5177,6 +5181,14 @@ msgstr ""
 
 #. (para)
 msgid ""
+"To make it easier to include or exclude specific items from the checkout "
+"click the <guibutton>Choose items...</guibutton> button. This opens a new "
+"dialog where you can check all items you want in your working copy and "
+"uncheck all the items you don't want."
+msgstr ""
+
+#. (para)
+msgid ""
 "You can also choose whether to ignore any external projects in the update "
 "(i.e. projects referenced using <literal>svn:externals</literal>)."
 msgstr ""
@@ -5435,6 +5447,9 @@ msgid ""
 " property. As with file content, resolving the conflict can only be done by "
 "the developers."
 msgstr ""
+"Un conflit de propriété se produit lorsque deux ou plusieurs développeurs "
+"ont changé la même propriété. Comme avec le contenu des fichiers, la "
+"résolution du conflit ne peut être fait que par les développeurs."
 
 #. (para)
 msgid ""
@@ -5706,6 +5721,8 @@ msgstr "Suppression locale, suppression dans la mise à jour"
 msgid ""
 "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>."
 msgstr ""
+"Développeur B déplace <filename>Foo.c</filename> vers "
+"<filename>Bix.c</filename> ."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
@@ -6389,6 +6406,15 @@ msgstr ""
 
 #. (para)
 msgid ""
+"Items which have been switched to a different repository path are also "
+"indicated using an <literal>(s)</literal> marker. You may have switched "
+"something while working on a branch and forgotten to switch back to trunk. "
+"This is your warning sign! The context menu allows you to switch them back "
+"to the normal path again."
+msgstr ""
+
+#. (para)
+msgid ""
 "From the context menu of the dialog you can show a diff of the changes. "
 "Check the local changes <emphasis>you</emphasis> made using "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare with "
@@ -6957,6 +6983,10 @@ msgid ""
 "selected revision, and the previous revision, and compare the results using "
 "a visual diff tool. (folders only)"
 msgstr ""
+"Affiche la boîte de dialogue des fichiers modifiés vous permettant de "
+"sélectionner les fichiers. Sélectionnez la révision sélectionnée, et la "
+"révision précédente, et comparez les résultats en utilisant un outil de "
+"différenciation visuel. (Dossiers seulement)"
 
 #. (term)
 #. (term)
@@ -6968,6 +6998,8 @@ msgid ""
 "Save the selected revision to a file so you have an older version of that "
 "file. (files only)"
 msgstr ""
+"Sauvegarde la révision sélectionnée dans un fichier pour conserver une "
+"ancienne version de ce fichier. (Fichiers uniquement)"
 
 #. (term)
 #. (term)
@@ -11161,7 +11193,7 @@ msgstr ""
 
 #. (title)
 msgid "MIME-type"
-msgstr ""
+msgstr "MIME-type"
 
 #. (title)
 msgid "svn:mime-type property page"
@@ -11189,7 +11221,7 @@ msgstr ""
 
 #. (title)
 msgid "svn:executable"
-msgstr ""
+msgstr "svn:executable"
 
 #. (title)
 msgid "svn:executable property page"
@@ -11259,6 +11291,8 @@ msgid ""
 "URLs must be properly escaped or they will not work, e.g. you must replace "
 "each space with <literal>%20</literal>."
 msgstr ""
+"Les URLs doivent être correctement échappées pour fonctionner, par exemple "
+"vous devez remplacer chaque espace par <literal>%20</literal>."
 
 #. (para)
 msgid ""
@@ -13529,6 +13563,16 @@ msgstr ""
 " copies de travail sur une machine et que vous vouliez reporter des "
 "changements de l'une à l'autre, copier le patch dans le presse-papier est un"
 " moyen commode pour le faire. "
+
+#. (para)
+msgid ""
+"If you prefer, you can create a patch file from within the "
+"<guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> "
+"dialogs. Just select the files and use the context menu item to create a "
+"patch from those files. If you want to see the <guilabel>Options</guilabel> "
+"dialog you have to hold <keycap>shift</keycap> when you <action>right "
+"click</action>."
+msgstr ""
 
 #. (title)
 msgid "Applying a Patch File"
@@ -17778,11 +17822,11 @@ msgid "The window title for your file"
 msgstr "Le titre de la fenêtre pour votre fichier"
 
 #. (para)
-msgid "The url of the original file, if available"
+msgid "The URL of the original file, if available"
 msgstr ""
 
 #. (para)
-msgid "The url of the second file, if available"
+msgid "The URL of the second file, if available"
 msgstr ""
 
 #. (para)
@@ -21686,6 +21730,17 @@ msgid ""
 "per user basis, then you must first install the MFC and CRT package version "
 "10 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can customize the MSI file if you wish so that all your users end up "
+"with the same settings. TSVN settings are stored in the registry under "
+"<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
+"Subversion settings (which affect all subversion clients) are stored in "
+"config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
+"help with MSI customization, try one of the MSI transform forums or search "
+"the web for <quote>MSI transform</quote>."
 msgstr ""
 
 #. (title)

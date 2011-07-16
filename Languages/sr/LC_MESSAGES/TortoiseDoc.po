@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-09 00:12+0000\n"
+"PO-Revision-Date: 2011-07-16 00:14+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4136,22 +4136,14 @@ msgstr ""
 #. (para)
 msgid ""
 "To easily select only the items you want for the checkout and force the "
-"resulting working copy to keep only those items , click the "
-"<guibutton>Choose items...</guibutton> button. This opens a new dialog where"
-" you can check all items you want in your working copy and uncheck all the "
-"items you don't want. The resulting working copy is then known as a "
-"<literal>sparse checkout</literal>. An update of such a working copy will "
-"not fetch the missing files and folders but only update what you already "
-"have in your working copy."
+"resulting working copy to keep only those items, click the <guibutton>Choose"
+" items...</guibutton> button. This opens a new dialog where you can check "
+"all items you want in your working copy and uncheck all the items you don't "
+"want. The resulting working copy is then known as a <literal>sparse "
+"checkout</literal>. An update of such a working copy will not fetch the "
+"missing files and folders but only update what you already have in your "
+"working copy."
 msgstr ""
-"Да би се лако изабрале само ставке које желите да преузмете и натерате радну"
-" копију да задржи само те ставке кликните на guibutton>Изабери "
-"ставке...</guibutton> button.  Овим се отвара нови дијалог где можете "
-"чекирати све ставке које желите у вашој радној копији и отчекирати све "
-"ставке које не желите. Резултантна радна копија је тада позната као "
-"<literal>празно преузимање</literal>.  Ажурирање такве радне копије неће "
-"пронаћи недостајуће фајлове и именикевећ само ажурира оно што имате у радној"
-" копији."
 
 #. (para)
 msgid ""
@@ -4424,7 +4416,6 @@ msgstr ""
 " отчекирјте те фајлове. Ако желите да укључите неверзионисани фајл, само "
 "чекирајте тај фајл да га додате у урезивање."
 
-#. (para)
 #. (para)
 msgid ""
 "Items which have been switched to a different repository path are also "
@@ -5094,6 +5085,14 @@ msgstr ""
 "подесити дубину <literal>прилепљиво</literal> што значи да сукцесивна "
 "ажурирања користе нове дубине, тј. дубина је тада коришћена као уобичајена "
 "дубина. "
+
+#. (para)
+msgid ""
+"To make it easier to include or exclude specific items from the checkout "
+"click the <guibutton>Choose items...</guibutton> button. This opens a new "
+"dialog where you can check all items you want in your working copy and "
+"uncheck all the items you don't want."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -6269,6 +6268,15 @@ msgstr "Непромењен и неверзионисане ставке."
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "Дијалог користи колор кодирање да осветли сатус. <placeholder-1/>"
+
+#. (para)
+msgid ""
+"Items which have been switched to a different repository path are also "
+"indicated using an <literal>(s)</literal> marker. You may have switched "
+"something while working on a branch and forgotten to switch back to trunk. "
+"This is your warning sign! The context menu allows you to switch them back "
+"to the normal path again."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12037,6 +12045,9 @@ msgid ""
 "example, the revisions 5,6,7 and 10 would be merged, with 3 being the peg "
 "revision."
 msgstr ""
+"Ако вам је потребно да специфицирате пег ревизију за стапање, додајте пег "
+"ревизију на крај ревизија, нпр.<literal>5-7,10@3</literal>. У горњем "
+"примеру, ревизије 5,6,7 и 10 ће бити стопљене, са 3 која је пег ревизија."
 
 #. (para)
 msgid ""
@@ -13332,6 +13343,16 @@ msgstr ""
 "да то урадите тако да га налепите у епошту да га прегледају остали. Или ако "
 "имате радну копију на једној машини и желите да пренесете измене са једне на"
 " другу, закрпа на клипборду је конвенционални начин да то урадите."
+
+#. (para)
+msgid ""
+"If you prefer, you can create a patch file from within the "
+"<guilabel>Commit</guilabel> or <guilabel>Check for Modifications</guilabel> "
+"dialogs. Just select the files and use the context menu item to create a "
+"patch from those files. If you want to see the <guilabel>Options</guilabel> "
+"dialog you have to hold <keycap>shift</keycap> when you <action>right "
+"click</action>."
+msgstr ""
 
 #. (title)
 msgid "Applying a Patch File"
@@ -17581,24 +17602,24 @@ msgid "The window title for your file"
 msgstr "Виндоуз наслов за ваш фајл"
 
 #. (para)
-msgid "The url of the original file, if available"
+msgid "The URL of the original file, if available"
 msgstr ""
 
 #. (para)
-msgid "The url of the second file, if available"
+msgid "The URL of the second file, if available"
 msgstr ""
 
 #. (para)
 msgid "The revision of the original file, if available"
-msgstr ""
+msgstr "Ревизија оригиналног фајла, ако је доступна"
 
 #. (para)
 msgid "The revision of the second file, if available"
-msgstr ""
+msgstr "Ревизија другог фајла, ако је доступна"
 
 #. (para)
 msgid "The peg revision, if available"
-msgstr ""
+msgstr "Пег ревизија, ако је доступна"
 
 #. (para)
 msgid ""
@@ -19003,6 +19024,9 @@ msgid ""
 " was created are also shown. These revisions are shown in black because "
 "those can't be merged."
 msgstr ""
+"Када крене дијалог дневника из чаробњака стапања, већ стопљене ревизије су "
+"приказане сиво, али ревизије ипод тачке где је грана креирана такође су "
+"приказане. Ове ревизије су приказане црно јер оне не могу бити стопљене."
 
 #. (para)
 msgid ""
@@ -19014,6 +19038,13 @@ msgid ""
 "url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
 " #5471</citetitle></ulink>)."
 msgstr ""
+"Ако је ова опција подешена на <literal>истина</literal> тада ТортоисеСВН "
+"покушава да нађе ревизију где је грана креирана и сакрива све ревизије испод"
+" те ревизије. Одавде може узети мало, опција је онемогућена уобичајено. Ова "
+"опција, такође, не ради са неким СВН серверима (нпр. Гугле Код Хостинг, види"
+" <ulink "
+"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
+" #5471</citetitle></ulink>)."
 
 #. (para)
 msgid ""
@@ -21627,6 +21658,17 @@ msgstr ""
 "ТортоисеСВН по основи за корисника, онда морате најпре инсталирати МФЦ и ЦРТ"
 " пакет верзиу 10 од Микрософта на сваки компјутер на који желите да "
 "инсталирате ТортоисеСВН по кориснику."
+
+#. (para)
+msgid ""
+"You can customize the MSI file if you wish so that all your users end up "
+"with the same settings. TSVN settings are stored in the registry under "
+"<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
+"Subversion settings (which affect all subversion clients) are stored in "
+"config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
+"help with MSI customization, try one of the MSI transform forums or search "
+"the web for <quote>MSI transform</quote>."
+msgstr ""
 
 #. (title)
 msgid "Redirect the upgrade check"
