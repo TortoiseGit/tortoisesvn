@@ -161,7 +161,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
                 }
                 psiResult->Release();
 
-                IFileDialogCustomize *  pfdCustomize;
+                IFileDialogCustomize* pfdCustomize = 0;
                 hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
                 if (SUCCEEDED(hr))
                 {
@@ -180,10 +180,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
     }
     else
     {
-        LPITEMIDLIST itemIDList;
-
-        BROWSEINFO browseInfo;
-
+        BROWSEINFO browseInfo       = {};
         browseInfo.hwndOwner        = parent;
         browseInfo.pidlRoot         = m_root;
         browseInfo.pszDisplayName   = m_displayName;
@@ -197,7 +194,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
             browseInfo.lpfn = BrowseCallBackProc;
         }
 
-        itemIDList = SHBrowseForFolder(&browseInfo);
+        LPITEMIDLIST itemIDList = SHBrowseForFolder(&browseInfo);
 
         //is the dialog canceled?
         if (!itemIDList)
@@ -210,11 +207,8 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
 
             path.ReleaseBuffer();
 
-            LPMALLOC    shellMalloc;
-            HRESULT     hr;
-
-            hr = SHGetMalloc(&shellMalloc);
-
+            LPMALLOC shellMalloc = 0;
+            HRESULT hr = SHGetMalloc(&shellMalloc);
             if (SUCCEEDED(hr))
             {
                 //free memory

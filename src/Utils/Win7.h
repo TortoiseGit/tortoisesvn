@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1238,7 +1238,7 @@ __inline HRESULT SHLoadLibraryFromItem(__in IShellItem *psiLibrary, __in DWORD g
     if (ppv == 0)
         return E_POINTER;
     *ppv = NULL;
-    IShellLibrary *plib;
+    IShellLibrary *plib = 0;
     HRESULT hr = CoCreateInstance(CLSID_ShellLibrary, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&plib));
     if (SUCCEEDED(hr))
     {
@@ -1257,7 +1257,7 @@ __inline HRESULT SHLoadLibraryFromKnownFolder(__in REFKNOWNFOLDERID kfidLibrary,
     if (ppv == 0)
         return E_POINTER;
     *ppv = NULL;
-    IShellLibrary *plib;
+    IShellLibrary *plib = 0;
     HRESULT hr = CoCreateInstance(CLSID_ShellLibrary, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&plib));
     if (SUCCEEDED(hr))
     {
@@ -1288,6 +1288,8 @@ __inline HRESULT SHLoadLibraryFromParsingName(__in PCWSTR pszParsingName, __in D
 
 __inline HRESULT SHAddFolderPathToLibrary(__in IShellLibrary *plib, __in PCWSTR pszFolderPath)
 {
+    if(plib == 0)
+        return E_INVALIDARG;
     IShellItem *psiFolder = NULL;
     HRESULT hr = SHCreateItemFromParsingName(pszFolderPath, NULL, IID_PPV_ARGS(&psiFolder));
     if (SUCCEEDED(hr))
@@ -1300,11 +1302,14 @@ __inline HRESULT SHAddFolderPathToLibrary(__in IShellLibrary *plib, __in PCWSTR 
 
 __inline HRESULT SHRemoveFolderPathFromLibrary(__in IShellLibrary *plib, __in PCWSTR pszFolderPath)
 {
+    if(plib == 0)
+        return E_INVALIDARG;
+
     PIDLIST_ABSOLUTE pidlFolder = SHSimpleIDListFromPath(pszFolderPath);
     HRESULT hr = pidlFolder ? S_OK : E_INVALIDARG;
     if (SUCCEEDED(hr))
     {
-        IShellItem *psiFolder;
+        IShellItem *psiFolder = 0;
         hr = SHCreateItemFromIDList(pidlFolder, IID_PPV_ARGS(&psiFolder));
         if (SUCCEEDED(hr))
         {
@@ -1320,6 +1325,8 @@ __inline HRESULT SHResolveFolderPathInLibrary(__in IShellLibrary *plib, __in PCW
 {
     if (ppszResolvedPath == 0)
         return E_POINTER;
+    if(plib == 0)
+        return E_INVALIDARG;
 
     *ppszResolvedPath = NULL;
     PIDLIST_ABSOLUTE pidlFolder = SHSimpleIDListFromPath(pszFolderPath);
@@ -1346,6 +1353,9 @@ __inline HRESULT SHResolveFolderPathInLibrary(__in IShellLibrary *plib, __in PCW
 
 __inline HRESULT SHSaveLibraryInFolderPath(__in IShellLibrary *plib, __in PCWSTR pszFolderPath, __in PCWSTR pszLibraryName, __in LIBRARYSAVEFLAGS lsf, __deref_opt_out PWSTR *ppszSavedToPath)
 {
+    if(plib == 0)
+        return E_INVALIDARG;
+
     if (ppszSavedToPath)
     {
         *ppszSavedToPath = NULL;
