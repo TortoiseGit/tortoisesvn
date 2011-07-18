@@ -33,6 +33,7 @@
 #include "SVNDiff.h"
 #include "Hooks.h"
 #include "SVNLogHelper.h"
+#include "SVNHelpers.h"
 #include "RegHistory.h"
 #include "ConflictResolveDlg.h"
 #include "LogFile.h"
@@ -2277,7 +2278,7 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
         CTSVNPath url = CTSVNPath(it->first);
         CAppUtils::SetWindowTitle(m_hWnd, url.GetUIFileOrDirectoryName(), sWindowTitle);
         CTSVNPath checkoutdir = m_targetPathList[0];
-        if ((index >= 1)||(PathFileExists(checkoutdir.GetWinPath())))
+        if ((index >= 1)||(SVNHelper::IsVersioned(checkoutdir, false)))
         {
             CString fileordir = it->first.Mid(rootUrl.GetLength());
             fileordir = CPathUtils::PathUnescape(fileordir);
@@ -2296,7 +2297,7 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
         }
 
         CBlockCacheForPath cacheBlock (checkoutdir.GetWinPath());
-        if ((index == 0)&&(!PathFileExists(checkoutdir.GetWinPath())))
+        if ((index == 0)&&(!SVNHelper::IsVersioned(checkoutdir, false)))
         {
             if (!Checkout(url, checkoutdir, m_Revision, m_Revision, it->second, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(REG_KEY_ALLOW_UNV_OBSTRUCTIONS, true))))
             {
