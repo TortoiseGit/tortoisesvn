@@ -2539,8 +2539,11 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     }
 
     CString sCmdInfo;
+    CString sUrl = m_targetPathList[0].IsUrl() ? (LPCTSTR)m_targetPathList[0].GetSVNPathString() : m_targetPathList[0].GetWinPath();
+    if (m_targetPathList[0].IsUrl() && m_pegRev.IsValid())
+        sUrl += L"@" + m_pegRev.ToString();
     sCmdInfo.FormatMessage(IDS_PROGRS_CMD_COPY,
-        m_targetPathList[0].IsUrl() ? (LPCTSTR)m_targetPathList[0].GetSVNPathString() : m_targetPathList[0].GetWinPath(),
+        (LPCTSTR)sUrl,
         (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
     ReportCmd(sCmdInfo);
 
