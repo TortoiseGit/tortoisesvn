@@ -1106,7 +1106,7 @@ void CTSVNPathList::DeleteAllPaths(bool bTrash, bool bFilesOnly)
     CString sPaths;
     for (it = m_paths.begin(); it != m_paths.end(); ++it)
     {
-        if ((it->Exists())&&(it->IsDirectory() != bFilesOnly))
+        if ((it->Exists())&&((it->IsDirectory() != bFilesOnly)||!bFilesOnly))
         {
             if (!it->IsDirectory())
                 ::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
