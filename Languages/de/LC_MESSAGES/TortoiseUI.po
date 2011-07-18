@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-12 05:56+0000\n"
+"PO-Revision-Date: 2011-07-18 07:48+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -540,8 +540,8 @@ msgid "&Choose commands from:"
 msgstr "&Wähle Befehle von:"
 
 #. Resource IDs: (8)
-msgid "&Clean up"
-msgstr "&Arbeitskopie aufräumen"
+msgid "&Clean up..."
+msgstr "&Bereinigen..."
 
 #. Resource IDs: (58112)
 msgid "&Close"
@@ -2915,12 +2915,12 @@ msgstr "Status der Arbeitskopie bereinigen"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
-msgstr "Beim Aufräumen"
+msgstr "Beim Bereinigen"
 
 #. Resource IDs: (146)
 #, c-format
 msgid "Cleaning up directory '%1!s!'"
-msgstr "Räume Verzeichnis '%1!s!' auf"
+msgstr "Bereinige Verzeichnis '%1!s!'"
 
 #. Resource IDs: (329)
 msgid "Cleanup"
@@ -2932,7 +2932,7 @@ msgid ""
 "Cleanup failed to process the following paths:\n"
 "%s"
 msgstr ""
-"Die folgenden Pfade konnten nicht aufgeräumt werden:\n"
+"Die folgenden Pfade konnten nicht bereinigt werden:\n"
 "%s"
 
 #. Resource IDs: (79)
@@ -2941,7 +2941,7 @@ msgid ""
 "Cleanup has successfully processed the following paths:\n"
 "%s"
 msgstr ""
-"Die folgenden Pfade wurden erfolgreich aufgeräumt:\n"
+"Die folgenden Pfade wurden erfolgreich bereinigt:\n"
 "%s"
 
 #. Resource IDs: (9)
@@ -7592,7 +7592,7 @@ msgstr "Bitte geben Sie einen Pfad an auf den das Skript angewendet wird."
 
 #. Resource IDs: (251)
 msgid "Please execute the 'Cleanup' command."
-msgstr "Bitte führen Sie den Befehl 'Arbeitskopie aufräumen' aus."
+msgstr "Bitte führen Sie den Befehl 'Bereinigen' aus."
 
 #. Resource IDs: (78)
 msgid ""
@@ -8765,7 +8765,7 @@ msgstr "Zeile hoch"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
-msgstr "Cleanup &jetzt ausführen"
+msgstr "&Jetzt bereinigen"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9916,7 +9916,7 @@ msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "%s"
 msgstr ""
-"Subversion hat während des Aufräumens einen Fehler gemeldet!\n"
+"Subversion hat während des Bereinigens einen Fehler gemeldet!\n"
 "%s"
 
 #. Resource IDs: (15)
@@ -11165,8 +11165,8 @@ msgstr "Stamm"
 #. Resource IDs: (251)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr ""
-"Versuchen Sie ein 'Aufräumen'. Falls dies nicht hilft, müssen Sie von neuem "
-"Auschecken."
+"Versuchen Sie die Arbeitskopie zu 'bereinigen'. Falls dies nicht hilft, "
+"müssen Sie von neuem auschecken."
 
 #. Resource IDs: (73)
 msgid "Try again"
