@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-17 22:53+0000\n"
+"PO-Revision-Date: 2011-07-18 22:19+0000\n"
 "Last-Translator: beginaFekicysym <>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4257,6 +4257,14 @@ msgid ""
 "missing files and folders but only update what you already have in your "
 "working copy."
 msgstr ""
+"Aby łatwo wybrać tylko te elementy, które chcesz pobrać i wymusić by w "
+"wynikowej kopii roboczej utrzymać tylko te elementy, kliknij na przycisk "
+"<guibutton>Wybierz elementy...</guibutton>. Otworzy się nowe okno dialogowe,"
+" w którym można wybrać wszystkie elementy, jakie mają się znaleźć w kopii "
+"roboczej i usunąć zaznaczenie wszystkich niechcianych elementów. Wynikowa "
+"kopia robocza jest nazywana <literal>płytkim pobraniem</literal>. "
+"Aktualizacja takiej kopii roboczej nie pobiera brakujących plików i "
+"folderów, a aktualizuje tylko te, które już są w twojej kopii roboczej."
 
 #. (para)
 msgid ""
@@ -5226,6 +5234,11 @@ msgid ""
 "dialog where you can check all items you want in your working copy and "
 "uncheck all the items you don't want."
 msgstr ""
+"Aby ułatwić celu dołączyć lub pominąć określone elementy z pobrania kliknij "
+"przycisk <guibutton>Wybierz elementy...</guibutton>. Otworzy się nowe okno "
+"dialogowe, w którym można sprawdzić wszystkie elementy, których życzysz "
+"sobie w swojej kopii roboczej i usunąć zaznaczenie wszystkich elementów, "
+"których nie chcesz."
 
 #. (para)
 msgid ""
@@ -6452,6 +6465,11 @@ msgid ""
 "This is your warning sign! The context menu allows you to switch them back "
 "to the normal path again."
 msgstr ""
+"Pozycje, które zostały przełączone do innej ścieżki repozytorium są również "
+"wskazane markerem <literal>(s)</literal>. Możesz mieć coś przełączone "
+"podczas pracy na gałęzi i zapomnieć przełączyć z powrotem do linii głównej. "
+"To jest twój sygnał ostrzegawczy! Menu kontekstowe pozwala na przełączanie "
+"ich z powrotem do zwykłej ścieżki."
 
 #. (para)
 msgid ""
@@ -13657,6 +13675,12 @@ msgid ""
 "dialog you have to hold <keycap>shift</keycap> when you <action>right "
 "click</action>."
 msgstr ""
+"Jeśli wolisz, możesz utworzyć plik poprawki z okien dialogowych "
+"<guilabel>Zatwierdź zmiany</guilabel> oraz <guilabel>Sprawdź "
+"zmiany</guilabel>. Wystarczy wybrać pliki i skorzystać z menu kontekstowego "
+"by stworzyć poprawkę z tych plików. Jeśli chcesz zobaczyć okno "
+"<guilabel>Opcje</guilabel> musisz przytrzymać <keycap>shift</keycap> podczas"
+" <action>kliknięcia prawym przyciskiem myszy</action>."
 
 #. (title)
 msgid "Applying a Patch File"
@@ -14614,7 +14638,7 @@ msgstr ""
 
 #. (term)
 msgid "Branch tip revision"
-msgstr ""
+msgstr "Rewizja wskazówki gałęzi"
 
 #. (para)
 msgid ""
@@ -17912,6 +17936,12 @@ msgid ""
 "standard Plink. When everything is working, you can use TortoisePlink with "
 "exactly the same parameters."
 msgstr ""
+"Jednym z efektów ubocznych braku okna jest to, że nie ma miejsca na "
+"komunikaty o błędach, więc jeśli uwierzytelnianie nie powiedzie, pojawi się "
+"po prostu komunikat w stylu <quote>Nie można pisać do standardowego "
+"wyjścia</quote>. Z tego powodu zalecamy, aby na początku ustawić połączenie "
+"pomocy standardowego Plink. Kiedy wszystko działa, można użyć TortoisePlink "
+"z dokładnie takimi samymi parametrami."
 
 #. (para)
 msgid ""
@@ -17921,6 +17951,11 @@ msgid ""
 "url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY "
 "website</citetitle></ulink>."
 msgstr ""
+"TortoisePlink nie posiada żadnej własnej dokumentacji, ponieważ jest to "
+"tylko drobna poprawka Plink. Dowiedz się o parametrach linii poleceń ze "
+"<ulink "
+"url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>strony"
+" PuTTY</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -17928,6 +17963,9 @@ msgid ""
 "using a password caching tool such as Pageant. This is also available for "
 "download from the PuTTY website."
 msgstr ""
+"Aby uniknąć wielokrotnego monitu o hasło, można również rozważyć użycie "
+"narzędzia buforowania haseł, takich jak Pageant. Ono także dostępne jest do "
+"pobrania ze strony PuTTY."
 
 #. (para)
 msgid ""
@@ -17937,14 +17975,19 @@ msgid ""
 "url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN "
 "SSH How-To</citetitle></ulink>."
 msgstr ""
+"Na koniec, ustanowienie SSH na serwerze i na klientach jest nietrywialnym "
+"procesem, który pozostaje poza zakresem tego pliku pomocy. Można jednak "
+"znaleźć przewodnik w FAQ TortoiseSVN opisany w <ulink "
+"url=\"http://tortoisesvn.net/ssh_howto\"><citetitle>Subversion/TortoiseSVN "
+"SSH How-To</citetitle></ulink>."
 
 #. (title)
 msgid "External Program Settings"
-msgstr ""
+msgstr "Ustawienia programów zewnętrznych"
 
 #. (title)
 msgid "The Settings Dialog, Diff Viewer Page"
-msgstr ""
+msgstr "Okno dialogowe ustawień, strona Przeglądarka DIFFów"
 
 #. (para)
 msgid ""
@@ -17952,38 +17995,45 @@ msgid ""
 "TortoiseSVN should use. The default setting is to use TortoiseMerge which is"
 " installed alongside TortoiseSVN."
 msgstr ""
+"<placeholder-1/> Tutaj możesz zdefiniować własne narzędzie "
+"porównania/scalenia, którego powinien używać TortoiseSVN. Domyślnym "
+"ustawieniem jest korzystanie z TortoiseMerge, który jest instalowany wraz z "
+"TortoiseSVN."
 
 #. (para)
 msgid ""
 "Read <xref linkend=\"tsvn-dug-diff-tools\"/> for a list of some of the "
 "external diff/merge programs that people are using with TortoiseSVN."
 msgstr ""
+"Czytaj <xref linkend=\"tsvn-dug-diff-tools\"/>, gdzie znajduje się lista "
+"niektórych zewnętrznych programów do porównania/scalania z jakich lidzie "
+"korzystają z TortoiseSVN."
 
 #. (title)
 msgid "Diff Viewer"
-msgstr ""
+msgstr "Przeglądarka diffów"
 
 #. (para)
 msgid "The original file without your changes"
-msgstr ""
+msgstr "Oryginalny plik bez zmian"
 
 #. (para)
 #. (para)
 msgid "The window title for the base file"
-msgstr ""
+msgstr "Tytuł okna dla pliku bazowego"
 
 #. (para)
 msgid "Your own file, with your changes"
-msgstr ""
+msgstr "Twój plik, z wprowadzonymi zmianami"
 
 #. (para)
 #. (para)
 msgid "The window title for your file"
-msgstr ""
+msgstr "Tytuł okna dla twojego pliku"
 
 #. (para)
 msgid "The URL of the original file, if available"
-msgstr ""
+msgstr "Adres URL oryginalnego pliku, jeśli dostępny"
 
 #. (para)
 msgid "The URL of the second file, if available"
@@ -17991,15 +18041,15 @@ msgstr ""
 
 #. (para)
 msgid "The revision of the original file, if available"
-msgstr ""
+msgstr "Rewizja oryginalnego pliku, jeśli dostępna"
 
 #. (para)
 msgid "The revision of the second file, if available"
-msgstr ""
+msgstr "Rewizja drugiego pliku, jeśli dostępna"
 
 #. (para)
 msgid "The peg revision, if available"
-msgstr ""
+msgstr "Rewizja peg, jeśli dostępna"
 
 #. (para)
 msgid ""
@@ -18010,6 +18060,12 @@ msgid ""
 "encounters one of these it will substitute the appropriate value. The order "
 "of the parameters will depend on the Diff program you use. <placeholder-1/>"
 msgstr ""
+"Zewnętrzny program do porównywania może być używany do porównywania różnych "
+"wersji plików. Zewnętrzny program będzie musiał uzyskać nazwy plików z "
+"wiersza poleceń, wraz z innymi opcjami wiersza poleceń. TortoiseSVN używa "
+"podstawienia parametrów poprzedzonych <literal>%</literal>. Gdy napotkany "
+"jeden z nich, zastąpi go odpowiednią wartością. Kolejność parametrów zależy "
+"od użytego programu porównującego. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -18019,6 +18075,11 @@ msgid ""
 "will be <filename>filename : revision 123</filename> and <filename>filename "
 ": working copy</filename>."
 msgstr ""
+"Tytuły okien nie są czystymi nazwami plików. TortoiseSVN traktuje ją jako "
+"nazwę do wyświetlenia i odpowiednio tworzy nazwy. Tak więc np. jeśli robisz "
+"porównanie  pliku w wersji 123 z plikiem w kopii roboczej, nazwami będą "
+"<filename>nazwa_pliku : wersja 123</filename> i  <filename>nazwa_pliku : "
+"kopia robocza</filename>."
 
 #. (para)
 msgid ""
@@ -18038,6 +18099,21 @@ msgid ""
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "</screen>"
 msgstr ""
+"Przykład, dla ExamDiff Pro: <screen>\n"
+"C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
+"    --right_display_name:%yname\n"
+"</screen> lub dla KDiff3: <screen>\n"
+"C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
+"</screen> lub dla WinMerge: <screen>\n"
+"C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
+"</screen> lub dla Araxis: <screen>\n"
+"C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
+"    %base %mine\n"
+"</screen> lub dla UltraCompare: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
+"</screen> lub dla DiffMerge: <screen>\n"
+"C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -18053,6 +18129,18 @@ msgid ""
 "files when diffing against BASE</guilabel> is unchecked then TortoiseSVN "
 "will skip pre-processing the files."
 msgstr ""
+"Jeśli używasz atrybutu <literal>svn:keywords</literal> by rozszerzyć słowa "
+"kluczowe, a w szczególności <emphasis>rewizję</emphasis> z pliku, może być "
+"różnica między plikami, która wynika wyłącznie z obecności bieżącej wartości"
+" słowa kluczowego. Również w przypadku korzystania <literal>svn:eol-style = "
+"native</literal> w pliku BASE będą czyste zakończenia linii "
+"<literal>LF</literal> natomiast Twój plik będzie miał zakończenia <literal"
+">CR-LF</literal>. TortoiseSVN zwykle ukrywa te różnice automatycznie przez "
+"początkową analizę pliku BASE z rozszerzeniem słów kluczowych i zakończeń "
+"linii przed wykonaniem operacji diff. Jednakże może to zająć dużo czasu w "
+"przypadku dużych plików. Jeśli <guilabel>Konwertuj pliki w trakcie "
+"porównywania z BASE</guilabel> nie jest zaznaczone, TortoiseSVN pominie "
+"wstępne przetwarzanie plików."
 
 #. (para)
 msgid ""
@@ -18060,6 +18148,9 @@ msgid ""
 "Since these tend to be short simple text strings, you may want to use a "
 "simpler more compact viewer."
 msgstr ""
+"Możesz także określić inne narzędzia porównywania do wykorzystania przy "
+"pomocy atrybutów Subversion. O ile te zwykle stosujesz krótkie, proste ciągi"
+" znaków, możesz chcieć użyć prostszej i bardziej kompaktowej przeglądarki."
 
 #. (para)
 msgid ""
@@ -18071,34 +18162,42 @@ msgid ""
 "menu</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> uses the "
 "secondary diff tool."
 msgstr ""
+"Jeśli skonfigurowano alternatywne narzędzie porównywania, można uzyskać "
+"dostęp do TortoiseMerge <emphasis>i</emphasis> narzędzia firm trzecich z "
+"menu kontekstowego. <menuchoice><guimenu>Menu "
+"kontekstowe</guimenu><guimenuitem>Porównaj</guimenuitem></menuchoice> "
+"wykorzystuje podstawowe narzędzie porównania, a "
+"<keycap>SHIFT</keycap>+<menuchoice><guimenu>Menu "
+"kontekstowe</guimenu><guimenuitem>Porównaj</guimenuitem></menuchoice> używa "
+"drugorzędnego narzędzia porównania."
 
 #. (title)
 msgid "Merge Tool"
-msgstr ""
+msgstr "Narzędzie do scalania"
 
 #. (para)
 msgid "the original file without your or the others changes"
-msgstr ""
+msgstr "Oryginalny plik bez zmian własnych ani cudzych"
 
 #. (para)
 msgid "your own file, with your changes"
-msgstr ""
+msgstr "Twój plik, z wprowadzonymi zmianami"
 
 #. (para)
 msgid "the file as it is in the repository"
-msgstr ""
+msgstr "plik jaki znajduje się w repozytorium"
 
 #. (para)
 msgid "The window title for the file in the repository"
-msgstr ""
+msgstr "Tytuł okna dla pliku z repozytorium"
 
 #. (para)
 msgid "the conflicted file, the result of the merge operation"
-msgstr ""
+msgstr "plik w stanie konfliktu, wynik operacji scalenia"
 
 #. (para)
 msgid "The window title for the merged file"
-msgstr ""
+msgstr "Tytuł okna dla scalonego pliku"
 
 #. (para)
 msgid ""
@@ -18106,6 +18205,9 @@ msgid ""
 "substitution is used in the same way as with the Diff Program. "
 "<placeholder-1/>"
 msgstr ""
+"Zewnętrzny program scalania użyty do rozwiązania konfliktu plików. "
+"Podstawianie parametrów jest używane w taki sam sposób jak w programie "
+"porównującym. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -18124,14 +18226,29 @@ msgid ""
 "    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "</screen>"
 msgstr ""
+"Przykład, dla Perforce Merge: <screen>\n"
+"C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
+"</screen> lub dla KDiff3: <screen>\n"
+"C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
+"    --L1 %bname --L2 %yname --L3 %tname\n"
+"</screen> lub dla Araxis: <screen>\n"
+"C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
+"    /title3:%yname %theirs %base %mine %merged /a2\n"
+"</screen> lub dla WinMerge (2.8 or later): <screen>\n"
+"C:\\Path-To\\WinMerge.exe %merged\n"
+"</screen> lub dla DiffMerge: <screen>\n"
+"C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
+"    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
+"</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
-msgstr ""
+msgstr "Zaawansowane ustawienia porównywania/scalania"
 
 #. (title)
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
 msgstr ""
+"Okno dialogowe ustawień, okno Zaawansowane opcje porównywania/scalania"
 
 #. (para)
 msgid ""
@@ -18141,6 +18258,11 @@ msgid ""
 "files :-) You can also associate the <literal>svn:mime-type</literal> "
 "property with a diff or merge program."
 msgstr ""
+"<placeholder-1/> W zaawansowanych ustawieniach, można zdefiniować różne "
+"programy porównywania i scalania dla każdego rozszerzenia pliku. Na przykład"
+" można skojarzyć Photoshop jako program <quote>porównania</quote> dla plików"
+" <filename>.jpg</filename> :-) Można także powiązać atrybut <literal>svn"
+":mime-type</literal> z programem porównywania i scalania."
 
 #. (para)
 msgid ""
@@ -18149,10 +18271,14 @@ msgid ""
 " the <literal>svn:mime-type</literal> property, specify the mime type, "
 "including a slash, for example <literal>text/xml</literal>."
 msgstr ""
+"Aby skojarzyć za pomocą rozszerzenia pliku, musisz podać rozszerzenie. Użyj "
+"<literal>.bmp</literal> do opisania pliki map bitowych Windows. Aby "
+"skojarzyć za pomocą atrybutu <literal>svn:mime-type</literal>, określ typ "
+"MIME, w tym ukośnik, na przykład <literal>text/xml</literal>."
 
 #. (title)
 msgid "Unified Diff Viewer"
-msgstr ""
+msgstr "Przeglądarka zunifikowanych DIFFów"
 
 #. (para)
 msgid ""
@@ -18161,20 +18287,26 @@ msgid ""
 "which is installed alongside TortoiseSVN, and colour-codes the added and "
 "removed lines."
 msgstr ""
+"Program do przeglądania plików różnicowych unified-diff (pliki poprawek). "
+"Nie są wymagane parametry. Ustawieniem <guilabel>Domyślny</guilabel> oznacza"
+" użycie TortoiseUDiff który jest instalowany wraz z TortoiseSVN oraz kodów "
+"kolorów dodanych i usuniętych linii."
 
 #. (para)
 msgid ""
 "Since Unified Diff is just a text format, you can use your favourite text "
 "editor if you prefer."
 msgstr ""
+"Ponieważ Unified Diff jest tylko formatem tekstowym, można użyć ulubionego "
+"edytora tekstu, jeśli wolisz."
 
 #. (title)
 msgid "Saved Data Settings"
-msgstr ""
+msgstr "Ustawienia zapisanych danych"
 
 #. (title)
 msgid "The Settings Dialog, Saved Data Page"
-msgstr ""
+msgstr "Okno dialogowe ustawień, strona Zapisane dane"
 
 #. (para)
 msgid ""
@@ -18182,10 +18314,13 @@ msgid ""
 "settings you use, and remembers where you have been lately. If you want to "
 "clear out that cache of data, you can do it here."
 msgstr ""
+"<placeholder-1/> Dla Twojej wygody, TortoiseSVN zapisuje wiele używanych "
+"ustawień i pamięta, gdzie byłeś ostatnio. Jeśli chcesz wyczyścić ten bufor "
+"danych, możesz to zrobić tutaj."
 
 #. (term)
 msgid "URL history"
-msgstr ""
+msgstr "Historia URL"
 
 #. (para)
 msgid ""
@@ -18194,6 +18329,10 @@ msgid ""
 " a combo box. Sometimes that list gets cluttered with outdated URLs so it is"
 " useful to flush it out periodically."
 msgstr ""
+"Gdy pobierasz kopię roboczą, scalasz zmiany lub korzystasz z przeglądarki "
+"repozytorium, TortoiseSVN prowadzi rejestr ostatnio używanych adresów URL i "
+"podpowiada je w menu rozwijalnym. Czasem lista ta jest zaśmiecona "
+"nieaktualnymi adresami więc warto przeczyścić ją okresowo."
 
 #. (para)
 msgid ""
@@ -18201,10 +18340,14 @@ msgid ""
 "that in-place. Just click on the arrow to drop the combo box down, move the "
 "mouse over the item you want to remove and type <keycap>Shift+Del</keycap>."
 msgstr ""
+"Jeśli chcesz usunąć pojedynczy element z jednej z list rozwijalnych można to"
+" zrobić na miejscu. Wystarczy kliknąć na strzałkę by upuścić menu rozwijalne"
+" na dół, przesunąć kursor myszy nad element, który chcesz usunąć i wcisnąć "
+"<keycap>Shift+Del</keycap>."
 
 #. (term)
 msgid "Log messages (Input dialog)"
-msgstr ""
+msgstr "Opisy zmian (okno wprowadzania)"
 
 #. (para)
 msgid ""
@@ -18212,10 +18355,13 @@ msgid ""
 "stored per repository, so if you access many repositories this list can grow"
 " quite large."
 msgstr ""
+"TortoiseSVN przechowuje ostatnie opisy zmian z zatwierdzeń, który zostały "
+"wprowadzone. Są one przechowywane dla repozytorium, więc jeśli łączysz się "
+"do wielu repozytoriów lista ta może się pokaźnie rozwinąć."
 
 #. (term)
 msgid "Log messages (Show log dialog)"
-msgstr ""
+msgstr "Opisy zmian (Pokaż okienko dialogowe logu)"
 
 #. (para)
 msgid ""
@@ -18225,18 +18371,25 @@ msgid ""
 "clear the cache. Log message caching is enabled on the <guilabel>Log "
 "Cache</guilabel> tab."
 msgstr ""
+"TortoiseSVN buforuje opisy zmian wczytywane przez okno Pokaż dziennik, aby "
+"zaoszczędzić czas przy następnym wyświetleniu dziennika. Jeśli ktoś edytuje "
+"opis zmiany i już masz ten opis w buforze, nie będzie widać zmiany do chwili"
+" wyczyszczenia bufora. Buforowanie opisów zmian włącza się na karcie "
+"<guilabel>Bufor dziennika</guilabel>."
 
 #. (term)
 msgid "Dialog sizes and positions"
-msgstr ""
+msgstr "Wielkości i położenia okien dialogowych"
 
 #. (para)
 msgid "Many dialogs remember the size and screen position that you last used."
 msgstr ""
+"Wiele okien dialogowych zapamiętuje rozmiar i pozycję, w której zostały "
+"ostatnio użyte."
 
 #. (term)
 msgid "Authentication data"
-msgstr ""
+msgstr "Dane uwierzytelniania"
 
 #. (para)
 msgid ""
@@ -18246,6 +18399,11 @@ msgid ""
 "repository under a different username ... does John know you are using his "
 "PC?"
 msgstr ""
+"Podczas uwierzytelniania wobec serwera Subversion, nazwa użytkownika i hasło"
+" są buforowane lokalnie, więc nie trzeba wpisywać ich za każdym razem. "
+"Możesz usunąć ze względów bezpieczeństwa, lub dlatego, że chcesz uzyskać "
+"dostęp do repozytorium pod inną nazwą użytkownika ... czy Andrzej wie, że "
+"używasz jego komputera?"
 
 #. (para)
 msgid ""
@@ -18253,10 +18411,13 @@ msgid ""
 "read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to "
 "find the cached data."
 msgstr ""
+"Jeśli chcesz wyczyścić dane uwierzytelniania tylko dla jednego konkretnego "
+"serwera, czytaj <xref linkend=\"tsvn-dug-general-auth\"/> by uzyskać "
+"instrukcje, jak przeszukiwać bufor danych."
 
 #. (term)
 msgid "Action log"
-msgstr ""
+msgstr "Dziennik akcji"
 
 #. (para)
 msgid ""
@@ -18264,6 +18425,9 @@ msgid ""
 "can be useful when, for example, you want to check what happened in a recent"
 " update command."
 msgstr ""
+"TortoiseSVN prowadzi dziennik wszystkiego, co napisano na jego dialogach "
+"postępu. Może to być przydatne, gdy na przykład chcesz sprawdzić, co się "
+"stało podczas ostatnich poleceń aktualizacji."
 
 #. (para)
 msgid ""
@@ -18271,22 +18435,26 @@ msgid ""
 "content is discarded. By default 4000 lines are kept, but you can customize "
 "that number."
 msgstr ""
+"Plik dziennika ma ograniczoną długość, a gdy rozrośnie się zbyt bardzo, "
+"najstarsze treści zostaną odrzucone. Domyślnie przechowywane jest 4000 "
+"linii, ale można dostosować tę liczbę."
 
 #. (para)
 msgid "From here you can view the log file content, and also clear it."
 msgstr ""
+"Stąd można przeglądać zawartość pliku dziennika, a także go wyczyścić."
 
 #. (title)
 msgid "Log Caching"
-msgstr ""
+msgstr "Buforowanie dziennika"
 
 #. (primary)
 msgid "log cache"
-msgstr ""
+msgstr "bufor dziennika"
 
 #. (title)
 msgid "The Settings Dialog, Log Cache Page"
-msgstr ""
+msgstr "Okno dialogowe ustawień, strona Bufor Dziennika"
 
 #. (para)
 msgid ""
@@ -18296,10 +18464,16 @@ msgid ""
 " can dramatically speed up the log dialog and the revision graph. Another "
 "useful feature is that the log messages can still be accessed when offline."
 msgstr ""
+"<placeholder-1/> To okno pozwala na skonfigurowanie funkcję buforowania "
+"dziennika z TortoiseSVN, który utrzymuje lokalną kopię opisów zmian i "
+"zmienionych ścieżek by uniknąć czasochłonnych wczytań danych z serwera. "
+"Korzystanie z bufora dziennika może znacznie przyspieszyć okno dziennika "
+"oraz wykres wersji. Kolejną przydatną funkcją jest to, że opisy zmian są "
+"nadal dostępne w trybie offline."
 
 #. (term)
 msgid "Enable log caching"
-msgstr ""
+msgstr "Włącz buforowanie dziennika"
 
 #. (para)
 msgid ""
@@ -18307,16 +18481,22 @@ msgid ""
 " retrieved from the cache when available, and any messages not in the cache "
 "will be retrieved from the server and added to the cache."
 msgstr ""
+"Umożliwia buforowanie danych dziennika, gdy jest wymagane. Jeśli jest "
+"zaznaczone, dane będą pobierane z bufora, gdy dostępne, a wszystkie "
+"wiadomości w buforze spoza bufora zostaną pobrane z serwera i dodane do "
+"pamięci podręcznej."
 
 #. (para)
 msgid ""
 "If caching is disabled, data will always be retrieved directly from the "
 "server and not stored locally."
 msgstr ""
+"Jeżeli buforowanie jest wyłączone, dane zawsze będą pobierane bezpośrednio z"
+" serwera, a nie przechowywane lokalnie."
 
 #. (term)
 msgid "Allow ambiguous URLs"
-msgstr ""
+msgstr "Zezwól na niejednoznaczne URLe"
 
 #. (para)
 msgid ""
@@ -18325,10 +18505,15 @@ msgid ""
 "this. If you need to access such repositories you will have to check this "
 "option. If you don't, leave it unchecked to improve performance."
 msgstr ""
+"Czasami może być potrzebne połączenie z serwerem, które używa tego samego "
+"adresu URL dla wszystkich repozytoriów. Starsze wersje "
+"<literal>svnbridge</literal> poradziłyby sobie z tym. Jeśli potrzebny jest "
+"dostęp do takich repozytoriów trzeba zaznaczyć tę opcję. Jeśli nie, lepiej "
+"zostawić to pole puste w celu zwiększenia wydajności."
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
-msgstr ""
+msgstr "Zezwól na niejednoznaczne &UUIDy"
 
 #. (para)
 msgid ""
@@ -18339,10 +18524,16 @@ msgid ""
 "situation if you check this box. If you don't need it, leave it unchecked to"
 " improve performance."
 msgstr ""
+"Niektóre usługi hostingowe nadają wszystkim repozytoriom ten sam UUID. Można"
+" nawet zrobić to samemu, kopiując folder repozytorium, aby utworzyć nowy. Z "
+"różnych powodów jest to zły pomysł - UUID musi być <emphasis>unikalny "
+"</emphasis>. Jednak bufor dziennika będzie nadal działać w tej sytuacji, "
+"jeśli zaznaczysz to pole. Jeśli nie potrzebujesz, zostaw to pole "
+"niezaznaczone dla poprawy wydajności."
 
 #. (term)
 msgid "If the repository cannot be contacted"
-msgstr ""
+msgstr "Jeśli nie można połączyć się z repozytorium"
 
 #. (para)
 msgid ""
@@ -18351,16 +18542,22 @@ msgid ""
 " course the cache may not be up-to-date, so there are options to allow you "
 "to select whether this feature should be used."
 msgstr ""
+"Jeśli pracujesz w trybie offline, lub serwer repozytorium jest wyłączony, "
+"bufor dziennika może być nadal używany do dostarczania opisów zmian "
+"znajdujących się już w buforze. Oczywiście pamięć podręczna może nie być na "
+"bieżąco, występują więc opcje sterujące, czy funkcja powinna być używana."
 
 #. (para)
 msgid ""
 "When log data is being taken from the cache without contacting the server, "
 "the dialog using those message will show the offline state in its title bar."
 msgstr ""
+"Kiedy dane dziennika są pobierane z bufora bez kontaktu z serwerem, okno "
+"dialogowe używające tych wiadomości pokaże stan offline na pasku tytułu."
 
 #. (term)
 msgid "Timeout before updating the HEAD revision"
-msgstr ""
+msgstr "Czas przed uaktualnieniem wersji HEAD"
 
 #. (para)
 msgid ""
@@ -18372,10 +18569,18 @@ msgid ""
 "completely up-to-date. If you want to use this feature we suggest using a "
 "value of 300 (5 minutes) as a compromise."
 msgstr ""
+"Po wywołaniu okna dziennika należy zwykle połączyć się z serwerem w celu "
+"sprawdzenia ewentualnych nowych opisów zmian. Jeśli omawiany limit czasu "
+"jest różny od zera, kontakt z serwerem zostanie nawiązany tylko wtedy, gdy "
+"rzeczony okres czasu upłynął już od ostatniego kontaktu. Może to zmniejszyć "
+"komunikację z serwerem, jeśli często otwiera się okno dziennika a serwer "
+"jest wolny, przy czym przedstawione dane mogą nie być całkowicie aktualne. "
+"Jeśli chcesz korzystać z tej funkcji zalecamy użycie kompromisowej wartości "
+"300 (5 minut)."
 
 #. (term)
 msgid "Days of inactivity until small caches get removed"
-msgstr ""
+msgstr "Dni nieaktywności zanim małe bufory są usuwane"
 
 #. (para)
 msgid ""
@@ -18384,20 +18589,26 @@ msgid ""
 " so TortoiseSVN purges them after a set time by default. Use this item to "
 "control cache purging."
 msgstr ""
+"Podczas przeglądania wielu repozytoriów można zgromadzić wiele buforów "
+"dziennika. Jeśli korzysta się z nich aktywnie, bufory nie rozrastają się "
+"zbytnio, więc TortoiseSVN czyści je domyślnie po ustalonym czasie. Użyj tej "
+"pozycji do kontroli oczyszczania bufora."
 
 #. (term)
 msgid "Maximum size of removed inactive caches"
-msgstr ""
+msgstr "Maksymalny rozmiar usuwanych nieaktywnych buforów"
 
 #. (para)
 msgid ""
 "Larger caches are more expensive to reacquire, so TortoiseSVN only purges "
 "small caches. Fine tune the threshold with this value."
 msgstr ""
+"Większej pamięci podręczne są trudniejsze do odzyskania, więc TortoiseSVN "
+"czyści tylko małe bufory. Dostrajanie progu wykonuje się tą wartością."
 
 #. (term)
 msgid "Maximum number of tool failures before cache removal"
-msgstr ""
+msgstr "Maksymalna liczba błędów przed usunięciem bufora"
 
 #. (para)
 msgid ""
@@ -18406,10 +18617,14 @@ msgid ""
 "recurrence of the problem. If you use the less stable nightly build you may "
 "opt to keep the cache anyway."
 msgstr ""
+"Czasami coś pójdzie nie tak z buforowaniem i spowoduje awarię. W takim "
+"przypadku pamięć podręczna jest zwykle automatycznie usuwana, aby zapobiec "
+"powtórzeniu się problemu. Jeśli używasz mniej stabilnego nocnego wydania "
+"testowego, możesz zdecydować się zachować mimo wszystko bufor."
 
 #. (title)
 msgid "Cached Repositories"
-msgstr ""
+msgstr "Buforowane repozytoria"
 
 #. (para)
 msgid ""
@@ -18417,6 +18632,9 @@ msgid ""
 " and the space used for the cache. If you select one of the repositories you"
 " can then use the buttons underneath."
 msgstr ""
+"Na tej stronie można zobaczyć listę repozytoriów, które są przechowywane w "
+"buforze lokalnym, oraz wielkość używanego bufora. Po wybraniu jednego z tych"
+" repozytoriów można użyć przycisków opisanych poniżej."
 
 #. (para)
 msgid ""
@@ -18425,6 +18643,10 @@ msgid ""
 "consuming, but useful if you are about to go offline and want the best "
 "available cache."
 msgstr ""
+"Kliknij na <guibutton>Uaktualnij</guibutton> aby całkowicie odświeżyć bufor "
+"i wypełnić wszystkie luki. Dla dużego repozytorium może to być bardzo "
+"czasochłonne, ale przydatne, jeśli masz zamiar przejść do trybu offline i "
+"chcesz mieć bufor najpełniej odwzorowujący stan serwera."
 
 #. (para)
 msgid ""
@@ -18433,6 +18655,10 @@ msgid ""
 "data using an external program, although it is mainly useful to the "
 "developers."
 msgstr ""
+"Kliknij na <guibutton>eksport</guibutton> aby wyeksportować cały bufor jako "
+"zbiór plików CSV. Może to być przydatne, jeśli chcesz do przetwarzać opisy "
+"zmian przy użyciu programu zewnętrznego, mimo że jest przydatne głównie dla "
+"programistów."
 
 #. (para)
 msgid ""
@@ -18440,79 +18666,88 @@ msgid ""
 "selected repositories. This does not disable caching for the repository so "
 "the next time you request log data, a new cache will be created."
 msgstr ""
+"Kliknij na <guibutton>Usuń</guibutton> aby usunąć wszystkie buforowane dane "
+"dla wybranych repozytoriów. Nie wyłącza to buforowania dla repozytorium więc"
+" wraz z następnym żądaniem danych z dziennika, zostanie utworzony nowy "
+"bufor."
 
 #. (title)
 msgid "Log Cache Statistics"
-msgstr ""
+msgstr "Statystyki bufora dziennika"
 
 #. (title)
 msgid "The Settings Dialog, Log Cache Statistics"
-msgstr ""
+msgstr "Okno dialogowe ustawień, Statystyki bufora dziennika"
 
 #. (term)
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #. (para)
 msgid "The amount of memory required to service this cache."
-msgstr ""
+msgstr "Wielkość pamięci potrzebnej do obsługi tego bufora."
 
 #. (term)
 msgid "Disk"
-msgstr ""
+msgstr "Dysk"
 
 #. (para)
 msgid ""
 "The amount of disk space used for the cache. Data is compressed, so disk "
 "usage is generally fairly modest."
 msgstr ""
+"Ilość miejsca na dysku zużywanego na bufor. Dane są kompresowane, więc "
+"wykorzystanie dysku jest zwykle dość skromne."
 
 #. (term)
 msgid "Connection"
-msgstr ""
+msgstr "Połączenie"
 
 #. (para)
 msgid ""
 "Shows whether the repository was available last time the cache was used."
 msgstr ""
+"Pokazuje, czy repozytorium było dostępne podczas ostatniego użycia bufora."
 
 #. (term)
 msgid "Last update"
-msgstr ""
+msgstr "Ostatnie uaktualnienie"
 
 #. (para)
 msgid "The last time the cache content was changed."
-msgstr ""
+msgstr "Czas ostatniej zmiany zawartości bufora."
 
 #. (term)
 msgid "Last head update"
-msgstr ""
+msgstr "Ostatnie uaktualnienie HEAD"
 
 #. (para)
 msgid "The last time we requested the HEAD revision from the server."
-msgstr ""
+msgstr "Czas ostatniego żądania rewizji HEAD z serwera."
 
 #. (term)
 msgid "Authors"
-msgstr ""
+msgstr "Autorzy"
 
 #. (para)
 msgid "The number of different authors with messages recorded in the cache."
-msgstr ""
+msgstr "Liczba różnych autorów z wiadomości zapisanych w buforze."
 
 #. (term)
 msgid "Paths"
-msgstr ""
+msgstr "Ścieżki"
 
 #. (para)
 msgid ""
 "The number of paths listed, as you would see using <literal>svn log "
 "-v</literal>."
 msgstr ""
+"Liczba ścieżek na liście, jak to można zobaczyć za pomocą <literal>svn log "
+"-v</literal>."
 
 #. (term)
 msgid "Skip ranges"
-msgstr ""
+msgstr "Pomiń zakresy"
 
 #. (para)
 msgid ""
@@ -18520,24 +18755,28 @@ msgid ""
 " haven't been requested. This is a measure of the number of holes in the "
 "cache."
 msgstr ""
+"Liczba zakresów rewizji, które nie zostały wczytane tylko dlatego, że nie "
+"były wymagane. Jest to miara liczby luk w buforze."
 
 #. (term)
 msgid "Max revision"
-msgstr ""
+msgstr "Wersja maks."
 
 #. (para)
 msgid "The highest revision number stored in the cache."
-msgstr ""
+msgstr "Najwyższy numer rewizji zapisany w buforze."
 
 #. (term)
 msgid "Revision count"
-msgstr ""
+msgstr "Liczba wersji"
 
 #. (para)
 msgid ""
 "The number of revisions stored in the cache. This is another measure of "
 "cache completeness."
 msgstr ""
+"Liczba rewizji w pamięci podręcznej. Jest to kolejny miernik kompletności "
+"bufora."
 
 #. (para)
 msgid ""
@@ -18546,18 +18785,22 @@ msgid ""
 "are mainly of interest to the developers of TortoiseSVN, so they are not all"
 " described in detail. <placeholder-2/>"
 msgstr ""
+"<placeholder-1/> Kliknij przycisk <guibutton>Szczegóły</guibutton> aby "
+"zobaczyć szczegółowe statystyki dla danego bufora. Wiele pól pokazanych "
+"tutaj jest w obszarze zainteresowań głównie twórców TortoiseSVN, więc nie "
+"wszystkie są szczegółowo opisane. <placeholder-2/>"
 
 #. (title)
 msgid "Client Side Hook Scripts"
-msgstr ""
+msgstr "Skrypty przechwytujące po stronie klienta"
 
 #. (primary)
 msgid "client hooks"
-msgstr ""
+msgstr "przechwycenia klienta"
 
 #. (title)
 msgid "The Settings Dialog, Hook Scripts Page"
-msgstr ""
+msgstr "Okno dialogowe ustawień, strona Skrypty przechwytujące"
 
 #. (para)
 msgid ""
@@ -18566,6 +18809,11 @@ msgid ""
 "opposed to the hook scripts explained in <xref linkend=\"tsvn-repository-"
 "hooks\"/>, these scripts are executed locally on the client."
 msgstr ""
+"<placeholder-1/> To okno dialogowe pozwala skonfigurować skrypty "
+"przechwytujące, które zostaną wykonane automatycznie, gdy wykonywane są "
+"pewne działania Subversion. W przeciwieństwie do skryptów przechwytujących "
+"opisanych w <xref linkend=\"tsvn-repository-hooks\"/>, te skrypty są "
+"wykonywane lokalnie na komputerze klienta."
 
 #. (para)
 msgid ""
@@ -18573,6 +18821,9 @@ msgid ""
 "<literal>SubWCRev.exe</literal> to update version numbers after a commit, "
 "and perhaps to trigger a rebuild."
 msgstr ""
+"Jedna aplikacja dla takich przechwyceń może służyć do wywołania programu jak"
+" <literal>SubWCRev.exe</literal>, aby zaktualizować numery wersji po "
+"zatwierdzeniu, a może wyzwolić rekompilację."
 
 #. (para)
 msgid ""
@@ -18582,21 +18833,28 @@ msgid ""
 "you can always choose to call a script which is itself under version "
 "control."
 msgstr ""
+"Z różnych powodów bezpieczeństwa i implementacji, skrypty przechwyceń "
+"zdefiniowane są lokalnie na komputerze, a nie jako atrybuty projektu. "
+"Zdefiniuje się zdarzenia, bez względu na to, co ktoś inny zobowiązuje się do"
+" repozytorium. Oczywiście zawsze możesz wybrać wywołanie skryptu, który sam "
+"jest pod kontrolą wersji."
 
 #. (title)
 msgid "The Settings Dialog, Configure Hook Scripts"
-msgstr ""
+msgstr "Okno dialogowe ustawień, Konfiguruj skrypty przechwytujące"
 
 #. (para)
 msgid ""
 "<placeholder-1/> To add a new hook script, simply click "
 "<guibutton>Add</guibutton> and fill in the details."
 msgstr ""
+"<placeholder-1/> Aby dodać nowy skrypt, po prostu kliknij "
+"<guibutton>Dodaj</guibutton> i wypełnij szczegóły."
 
 #. (term)
 #. (term)
 msgid "Start-commit"
-msgstr ""
+msgstr "Start-commit"
 
 #. (para)
 msgid ""
@@ -18606,11 +18864,16 @@ msgid ""
 "hook is called at an early stage, the full list of objects selected for "
 "commit is not available."
 msgstr ""
+"Wykonywany zanim zostanie wyświetlone okno dialogowe zatwierdzenia. Można go"
+" użyć jeśli przechwycenie modyfikuje wersjonowany plik i wpływa na listę "
+"plików, które muszą być zatwierdzone i/lub opis zmiany. Należy jednak "
+"pamiętać, że ponieważ przechwycenie jest wywołane na wczesnym etapie, pełna "
+"lista elementów wybranych do zatwierdzenia nie jest dostępna."
 
 #. (term)
 #. (term)
 msgid "Pre-commit"
-msgstr ""
+msgstr "Pre-commit"
 
 #. (para)
 msgid ""
@@ -18618,60 +18881,69 @@ msgid ""
 " and before the actual commit begins. This hook has a list of exactly what "
 "will be committed."
 msgstr ""
+"Wywoływany po kliknięciu przez użytkownika <guibutton>OK</guibutton> w oknie"
+" zatwierdzenia, a przed faktycznym początkiem zatwierdzenia. To "
+"przechwycenie dysponuje listę dokładnie tego, co zostanie zatwierdzone."
 
 #. (term)
 #. (term)
 msgid "Post-commit"
-msgstr ""
+msgstr "Post-commit"
 
 #. (para)
 msgid "Called after the commit finishes (whether successful or not)."
-msgstr ""
+msgstr "Wywoływany po zakończeniu zatwierdzenia (zarówno udany, jak i nie)."
 
 #. (term)
 #. (term)
 msgid "Start-update"
-msgstr ""
+msgstr "Start-update"
 
 #. (para)
 msgid "Called before the update-to-revision dialog is shown."
-msgstr ""
+msgstr "Wywoływany przed wyświetleniem okna dialogowego uaktualnij-do-wersji."
 
 #. (term)
 #. (term)
 msgid "Pre-update"
-msgstr ""
+msgstr "Pre-update"
 
 #. (para)
 msgid "Called before the actual Subversion update or switch begins."
-msgstr ""
+msgstr "Wywoływany zanim rozpocznie się aktualizacja lub przełączenie."
 
 #. (term)
 #. (term)
 msgid "Post-update"
-msgstr ""
+msgstr "Post-update"
 
 #. (para)
 msgid ""
 "Called after the update, switch or checkout finishes (whether successful or "
 "not)."
 msgstr ""
+"Wywoływany po aktualizacji, przełączeniu lub pobraniu (zarówno udanym jak i "
+"nie)."
 
 #. (term)
 #. (term)
 msgid "Pre-connect"
-msgstr ""
+msgstr "Pre-connect"
 
 #. (para)
 msgid ""
 "Called before an attempt to contact the repository. Called at most once in "
 "five minutes."
 msgstr ""
+"Wywoływany przed próbą połączenia się z repozytorium. Wywoływany co najwyżej"
+" raz na pięć minut."
 
 #. (para)
 msgid ""
 "There are currently six types of hook script available <placeholder-1/>"
 msgstr ""
+"Obecnie dostępne jest sześć rodzajów skryptów przechwytujących "
+"<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -18679,6 +18951,10 @@ msgid ""
 "specify the top level path; if you perform an operation in a sub-folder, "
 "TortoiseSVN will automatically search upwards for a matching path."
 msgstr ""
+"Przechwycenie jest zdefiniowane dla danej ścieżki kopii roboczej. Wystarczy "
+"tylko określić ścieżkę najwyższego poziomu; jeśli wykonujje się operację na "
+"podkatalogu, TortoiseSVN będzie automatycznie wyszukiwać w górę do pasującej"
+" ścieżki."
 
 #. (para)
 msgid ""
@@ -18689,6 +18965,12 @@ msgid ""
 "Windows shell execute will not allow such scripts to run due to security "
 "restrictions."
 msgstr ""
+"Następnie należy określić z wiersz polecenia do wykonania, począwszy od "
+"ścieżki do skrypt u przechwytującego lub pliku wykonywalnego. Może to być "
+"plik wsadowy, plik wykonywalny lub dowolny inny plik, który ma ważne "
+"skojarzenie w Windows, np. skrypt. Zauważ, że skrypt nie może być określony "
+"przy użyciu ścieżki UNC gdyż powłoka systemu Windows nie pozwala na "
+"wykonanie takie skrypty ze względu na ograniczenia bezpieczeństwa."
 
 #. (para)
 msgid ""
@@ -18697,32 +18979,39 @@ msgid ""
 "hook has its own parameters which are passed in the following order: "
 "<placeholder-1/>"
 msgstr ""
+"Wiersz polecenia zawiera kilka parametrów, które wypełnia TortoiseSVN. "
+"Przekazywane parametry zależą od wywoływanego rodzaju przechwycenia. Każde "
+"przechwycenie ma swoje własne parametry, które są przekazywane w "
+"następującym porządku: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "A path to a temporary file which contains all the paths for which the "
 "operation was started. Each path is on a separate line in the temp file."
 msgstr ""
+"Ścieżka do pliku tymczasowego, który zawiera wszystkie ścieżki, dla których "
+"operacja została uruchomiona. Każda ścieżka jest w osobnej linii w pliku "
+"tymczasowym."
 
 #. (para)
 msgid "The depth with which the commit/update is done."
-msgstr ""
+msgstr "Głębokość, z którą zatwierdzenie/aktualizacja jest wykonywana."
 
 #. (literal)
 msgid "svn_depth_unknown"
-msgstr ""
+msgstr "svn_depth_unknown"
 
 #. (literal)
 msgid "svn_depth_exclude"
-msgstr ""
+msgstr "svn_depth_exclude"
 
 #. (literal)
 msgid "svn_depth_empty"
-msgstr ""
+msgstr "svn_depth_empty"
 
 #. (literal)
 msgid "svn_depth_files"
-msgstr ""
+msgstr "svn_depth_files"
 
 #. (literal)
 msgid "svn_depth_immediates"
@@ -18730,11 +19019,11 @@ msgstr ""
 
 #. (literal)
 msgid "svn_depth_infinity"
-msgstr ""
+msgstr "svn_depth_infinity"
 
 #. (para)
 msgid "Possible values are: <placeholder-1/>"
-msgstr ""
+msgstr "Dozwolonymi wartościami są: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -18742,29 +19031,40 @@ msgid ""
 "the text in UTF-8 encoding. After successful execution of the start-commit "
 "hook, the log message is read back, giving the hook a chance to modify it."
 msgstr ""
+"Ścieżka do pliku zawierającego opis zatwierdzanej zmiany. Plik zawiera tekst"
+" w formacie  UTF-8. Po pomyślnym wykonaniu przechwycenia start-commit, opis "
+"zmiany jest ponownie odczytywany, dając przechwyceniu szansę, aby go "
+"zmodyfikować."
 
 #. (para)
 msgid ""
 "The repository revision to which the update should be done or after a commit"
 " completes."
 msgstr ""
+"Rewizja repozytorium, do której aktualizację należy wykonać lub po "
+"zatwierdzeniu."
 
 #. (para)
 msgid ""
 "Path to a file containing the error message. If there was no error, the file"
 " will be empty."
 msgstr ""
+"Ścieżka do pliku zawierającego komunikat o błędzie. Jeśli nie było błędu, "
+"plik będzie pusty."
 
 #. (para)
 msgid ""
 "The current working directory with which the script is run. This is set to "
 "the common root directory of all affected paths."
 msgstr ""
+"Bieżący katalog roboczy, w którym skrypt jest uruchamiany. Jest ustawiony na"
+" wspólny katalog główny wszystkich dotkniętych ścieżek."
 
 #. (para)
 msgid ""
 "The meaning of each of these parameters is described here: <placeholder-1/>"
 msgstr ""
+"Znaczenie każdego z tych parametrów jest opisane tutaj: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -18773,18 +19073,27 @@ msgid ""
 "listed for a particular hook are always passed, whether you want them or not"
 " ;-)"
 msgstr ""
+"Zauważ, że chociaż nadaliśmy te nazwy parametrów dla wygody, nie musisz "
+"odwoływać się do tych nazw w ustawieniach przechwycenia. Wszystkie parametry"
+" podane dla danego haka są zawsze przekazywane, czy chcesz ich, czy nie ;-)"
 
 #. (para)
 msgid ""
 "If you want the Subversion operation to hold off until the hook has "
 "completed, check <guilabel>Wait for the script to finish</guilabel>."
 msgstr ""
+"Jeśli chcesz by operacja Subversion została wstrzymana się do zakończenia "
+"wykonania przechwycenia, zaznacz <guilabel>Czekaj na zakończenie "
+"skryptu</guilabel>."
 
 #. (para)
 msgid ""
 "Normally you will want to hide ugly DOS boxes when the script runs, so "
 "<guilabel>Hide the script while running</guilabel> is checked by default."
 msgstr ""
+"Zwykle chcesz ukryć brzydkie okienka DOS, podczas działania skryptu, więc "
+"<guilabel>Ukryj skrypt kiedy jest wykonywany</guilabel> jest domyślnie "
+"zaznaczone."
 
 #. (para)
 msgid ""
@@ -18794,6 +19103,12 @@ msgid ""
 "scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref "
 "linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
 msgstr ""
+"Przykładowe skrypty przechwytujące klienta można znaleźć w folderze "
+"<literal>contrib</literal> w <ulink "
+"url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-"
+"scripts\"><citetitle>repozytorium TortoiseSVN</citetitle></ulink>. (<xref "
+"linkend=\"tsvn-preface-source\"/> wyjaśnia, jak uzyskać dostęp do "
+"repozytorium.)"
 
 #. (para)
 msgid ""
@@ -18803,6 +19118,11 @@ msgid ""
 "tries to connect to a repository. Just pass the name of the VPN connection "
 "as the first parameter to the tool."
 msgstr ""
+"W folderze instalacji TortoiseSVN znajduje się małe narzędzie o nazwie "
+"<literal>ConnectVPN.exe</literal>. Możesz użyć tego narzędzia skonfigurowany"
+" jako przechwycenie pre-connect do automatycznego połączenia z sieci VPN "
+"zanim TortoiseSVN spróbuje połączyć się z repozytorium. Wystarczy podać "
+"nazwę połączenia VPN jako pierwszy parametr narzędzia."
 
 #. (para)
 msgid ""
@@ -18812,10 +19132,16 @@ msgid ""
 "plugin, which you have already installed and registered, this is the place "
 "to specify how it integrates with your working copy."
 msgstr ""
+"TortoiseSVN może użyć wtyczki COM by wykonywać zapytania do trackerów wydań,"
+" podczas wejścia okno zatwierdzenia. Korzystanie z takich wtyczek jest "
+"opisane w <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. Jeśli administrator "
+"systemu przekazał Ci wtyczki i są już zainstalowane i zarejestrowane, jest "
+"to miejsce, aby określić w jaki sposób integrują się one z kopią roboczą."
 
 #. (title)
 msgid "The Settings Dialog, Issue Tracker Integration Page"
 msgstr ""
+"Okno dialogowe ustawień, strona Integracja z systemami śledzenia błędów"
 
 #. (para)
 msgid ""
@@ -18826,6 +19152,12 @@ msgid ""
 " to the plugin, but might include your user name on the issue tracker so "
 "that the plugin can query for issues which are assigned to you."
 msgstr ""
+"<placeholder-1/> Kliknij na <guibutton>Dodaj...</guibutton> by użyć wtyczki "
+"z określonej kopii roboczej. Tutaj możesz określić ścieżkę kopii roboczej, "
+"wybrać wykorzystaną wtyczkę z rozwijanej listy wszystkich zarejestrowanych "
+"wtyczek trackera wydań, oraz wszelkie parametry do przekazania. Parametry "
+"będą specyficzne dla wtyczki, ale powinien zawierać nazwę użytkownika "
+"trackera, aby plugin mógł odnaleźć problemy, które są przypisane do Ciebie."
 
 #. (para)
 msgid ""

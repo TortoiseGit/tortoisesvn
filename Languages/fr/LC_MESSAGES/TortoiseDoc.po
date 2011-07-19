@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-16 00:14+0000\n"
+"PO-Revision-Date: 2011-07-18 12:15+0000\n"
 "Last-Translator: chsxf <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3353,15 +3353,15 @@ msgstr ""
 
 #. (citetitle)
 msgid "VisualSVN"
-msgstr ""
+msgstr "VisualSVN"
 
 #. (citetitle)
 msgid "CollabNet"
-msgstr ""
+msgstr "CollabNet"
 
 #. (citetitle)
 msgid "UberSVN"
-msgstr ""
+msgstr "UberSVN"
 
 #. (para)
 msgid ""
@@ -5518,6 +5518,8 @@ msgid ""
 "Developer A modifies <filename>Foo.c</filename> and commits it to the "
 "repository."
 msgstr ""
+"Le développeur A modifie <filename>Foo.c</filename> et le livre sur le "
+"référentiel."
 
 #. (para)
 msgid ""
@@ -5859,6 +5861,9 @@ msgid ""
 "Developer A working on trunk moves <filename>Foo.c</filename> to "
 "<filename>Bar.c</filename> and commits it to the repository."
 msgstr ""
+"Le développeur A qui travaille sur le tronc déplace "
+"<filename>Foo.c</filename> vers <filename>Bar.c</filename> et le livre sur "
+"le référentiel."
 
 #. (para)
 msgid ""
@@ -5954,6 +5959,9 @@ msgid ""
 "Developer B working on a branch moves <filename>Foo.c</filename> to "
 "<filename>Bix.c</filename> and commits it to the repository."
 msgstr ""
+"Le développeur B qui travaille sur une branche déplace "
+"<filename>Foo.c</filename> vers <filename>Bix.c</filename> et le livre sur "
+"le référentiel."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
@@ -7518,6 +7526,8 @@ msgid ""
 "Export the selected items in this revision to a folder, preserving the file "
 "hierarchy."
 msgstr ""
+"Exporte les éléments sélectionnés dans cette révision vers un dossier, en "
+"préservant la hiérarchie des fichiers."
 
 #. (para)
 msgid ""
@@ -7695,6 +7705,9 @@ msgid ""
 "To refresh the latest revision in case there were other commits while the "
 "log dialog was open, hit the <keycap>F5</keycap> key."
 msgstr ""
+"Pour actualiser la dernière révision dans le cas où d'autres livraisons "
+"auraient eu lieu pendant que la boîte de dialogue du journal était ouverte, "
+"pressez la touche <keycap>F5</keycap>."
 
 #. (para)
 msgid "To refresh the log cache, hit the <keycap>Ctrl-F5</keycap> keys."
@@ -8849,7 +8862,7 @@ msgstr ""
 
 #. (primary)
 msgid "Microsoft Word"
-msgstr ""
+msgstr "Microsoft Word"
 
 #. (para)
 msgid ""
@@ -8867,7 +8880,7 @@ msgstr ""
 
 #. (title)
 msgid "Problems with Office 2010"
-msgstr ""
+msgstr "Problèmes avec Office 2010"
 
 #. (para)
 msgid ""
@@ -8948,7 +8961,7 @@ msgstr ""
 
 #. (term)
 msgid "SourceGear DiffMerge"
-msgstr ""
+msgstr "SourceGear DiffMerge"
 
 #. (para)
 msgid ""
@@ -9089,6 +9102,8 @@ msgstr "sélectionnez les fichiers que vous voulez ajouter"
 msgid ""
 "<action>right drag</action> them to the new location inside the working copy"
 msgstr ""
+"<action>glissez-déplacez les avec le bouton droit</action> vers le nouvel "
+"emplacement dans la copie de travail"
 
 #. (para)
 #. (para)
@@ -9986,6 +10001,9 @@ msgid ""
 "If you want to undo a deletion or a rename, you need to use Revert on the "
 "parent folder as the deleted item does not exist for you to right click on."
 msgstr ""
+"Si vous voulez annuler une suppression ou un renommage, vous devez utiliser "
+"Revenir en arrière sur le dossier parent puisque les éléments supprimés "
+"n'existent plus pour que vous puissiez cliquer-droit dessus."
 
 #. (para)
 msgid ""
@@ -10116,6 +10134,8 @@ msgid ""
 "This command reverts all your local modifications which are not committed "
 "yet."
 msgstr ""
+"Cette commande annule toutes vos modifications locales qui n'ont pas encore "
+"été livrées."
 
 #. (para)
 msgid ""
@@ -11179,7 +11199,7 @@ msgstr "Langue de projet"
 
 #. (title)
 msgid "Language property page"
-msgstr ""
+msgstr "Page des propriétés de langue"
 
 #. (para)
 msgid ""
@@ -12386,6 +12406,8 @@ msgid ""
 "Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
 "options\"/>."
 msgstr ""
+"Cliquez sur <guibutton>Suivant</guibutton> et aller à <xref linkend=\"tsvn-"
+"dug-merge-options\"/>."
 
 #. (secondary)
 msgid "reintegrate"
@@ -14153,7 +14175,7 @@ msgstr "Récupérer une copie non versionnée du fichier sur votre disque dur."
 
 #. (para)
 msgid "Copy the URL shown in the address bar to the clipboard."
-msgstr ""
+msgstr "Copie l'URL affichée dans la barre d'adresse vers le presse-papiers."
 
 #. (para)
 msgid ""
@@ -16225,13 +16247,15 @@ msgstr ""
 
 #. (term)
 msgid "Use Aero Dialogs"
-msgstr ""
+msgstr "Utiliser des Boîtes de Dialogue Aero"
 
 #. (para)
 msgid ""
 "On Windows Vista and later systems this controls whether dialogs use the "
 "Aero styling."
 msgstr ""
+"Sur Windows Vista et les systèmes ultérieurs, cela détermine si les boîtes "
+"de dialogue utilisent le style Aero."
 
 #. (term)
 msgid "Create Library"
@@ -16379,6 +16403,7 @@ msgstr ""
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
 msgstr ""
+"Appliquer les modifications locales à svn:externals lors d'une mise à jour"
 
 #. (para)
 msgid ""
@@ -17823,19 +17848,19 @@ msgstr "Le titre de la fenêtre pour votre fichier"
 
 #. (para)
 msgid "The URL of the original file, if available"
-msgstr ""
+msgstr "L'URL du fichier original, si disponible"
 
 #. (para)
 msgid "The URL of the second file, if available"
-msgstr ""
+msgstr "L'URL du second fichier, si disponible"
 
 #. (para)
 msgid "The revision of the original file, if available"
-msgstr ""
+msgstr "La révision du fichier original, si disponible"
 
 #. (para)
 msgid "The revision of the second file, if available"
-msgstr ""
+msgstr "La révision du second fichier, si disponible"
 
 #. (para)
 msgid "The peg revision, if available"
@@ -19376,7 +19401,7 @@ msgstr ""
 
 #. (title)
 msgid "Exporting TSVN Settings"
-msgstr ""
+msgstr "Exportation des Paramètres de TSVN"
 
 #. (para)
 msgid ""
@@ -19968,12 +19993,16 @@ msgid ""
 "The highest commit revision in the working copy. Equivalent to "
 "<placeholder-1/>."
 msgstr ""
+"La plus haute révision de livraison dans la copie de travail. Equivalent à "
+"<placeholder-1/>."
 
 #. (entry)
 msgid ""
 "The commit date/time of the highest commit revision. Equivalent to "
 "<placeholder-1/>."
 msgstr ""
+"La date/heure de livraison de la plus haute révision de livraison. "
+"Equivalent à <placeholder-1/>."
 
 #. (entry)
 msgid ""
@@ -20246,7 +20275,7 @@ msgstr ""
 
 #. (title)
 msgid "Naming conventions"
-msgstr ""
+msgstr "Conventions de nommage"
 
 #. (para)
 msgid ""
@@ -21103,6 +21132,8 @@ msgid ""
 "For detailed information on those project properties, please refer to <xref "
 "linkend=\"tsvn-dug-propertypage\"/>."
 msgstr ""
+"Pour des informations détaillées sur ces propriétés de projet, veuillez vous"
+" référer à <xref linkend=\"tsvn-dug-propertypage\"/>."
 
 #. (title)
 msgid "Update selected files from the repository"
@@ -21769,6 +21800,7 @@ msgstr ""
 #. (title)
 msgid "The commit dialog, showing the upgrade notification"
 msgstr ""
+"La boîte de dialogue de livraison, montrant la notification de mise à jour"
 
 #. (para)
 msgid ""
@@ -22057,19 +22089,19 @@ msgstr "Supprimer les éléments non versionnés"
 
 #. (entry)
 msgid "Merge All"
-msgstr ""
+msgstr "Fusionner Tous"
 
 #. (entry)
 msgid "Diff with previous version"
-msgstr ""
+msgstr "Différences avec la version précédente"
 
 #. (entry)
 msgid "Paste"
-msgstr ""
+msgstr "Coller"
 
 #. (entry)
 msgid "Upgrade working copy"
-msgstr ""
+msgstr "Mettre à jour la copie de travail"
 
 #. (entry)
 msgid "Settings"
@@ -22337,7 +22369,7 @@ msgstr "/strict"
 
 #. (option)
 msgid "/merge"
-msgstr ""
+msgstr "/merge"
 
 #. (option)
 msgid "/findstring:\"filterstring\""
@@ -22381,7 +22413,7 @@ msgstr "<option>/findtype:7</option> filtrer par bug ID"
 
 #. (option)
 msgid "/outfile:path\\to\\file"
-msgstr ""
+msgstr "/outfile:chemin\\vers\\le\\fichier"
 
 #. (entry)
 msgid ""
@@ -22406,11 +22438,11 @@ msgstr "/url"
 #. (option)
 #. (option)
 msgid "/blockpathadjustments"
-msgstr ""
+msgstr "/blockpathadjustments"
 
 #. (option)
 msgid "/revision:XXX"
-msgstr ""
+msgstr "/revision:XXX"
 
 #. (entry)
 msgid ""
@@ -22470,7 +22502,7 @@ msgstr "/includeexternals"
 
 #. (option)
 msgid "/stickydepth"
-msgstr ""
+msgstr "/stickydepth"
 
 #. (entry)
 msgid ""
@@ -22524,35 +22556,35 @@ msgstr "/noui"
 
 #. (option)
 msgid "/noprogressui"
-msgstr ""
+msgstr "/noprogressui"
 
 #. (option)
 msgid "/nodlg"
-msgstr ""
+msgstr "/nodlg"
 
 #. (option)
 msgid "/cleanup"
-msgstr ""
+msgstr "/cleanup"
 
 #. (option)
 msgid "/revert"
-msgstr ""
+msgstr "/revert"
 
 #. (option)
 msgid "/delunversioned"
-msgstr ""
+msgstr "/delunversioned"
 
 #. (option)
 msgid "/delignored"
-msgstr ""
+msgstr "/delignored"
 
 #. (option)
 msgid "/refreshshell"
-msgstr ""
+msgstr "/refreshshell"
 
 #. (option)
 msgid "/externals"
-msgstr ""
+msgstr "/externals"
 
 #. (entry)
 msgid ""
@@ -22605,15 +22637,15 @@ msgstr ""
 
 #. (option)
 msgid "/droptarget"
-msgstr ""
+msgstr "/droptarget"
 
 #. (option)
 msgid "/overwrite"
-msgstr ""
+msgstr "/overwrite"
 
 #. (option)
 msgid "/autorename"
-msgstr ""
+msgstr "/autorename"
 
 #. (entry)
 msgid ""
@@ -22908,6 +22940,8 @@ msgstr "Crée un patch pour le chemin donné dans <placeholder-1/>."
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."
 msgstr ""
+"Montre le graphe de révision pour le chemin donné dans "
+"<option>/path</option>."
 
 #. (para)
 msgid ""
@@ -26325,7 +26359,7 @@ msgstr ""
 
 #. (para)
 msgid "Cut the selected text to the clipboard"
-msgstr ""
+msgstr "Coupe le texte sélectionné dans le presse-papiers"
 
 #. (term)
 msgid "Ctrl-V, Shift-Insert"
@@ -26333,7 +26367,7 @@ msgstr ""
 
 #. (para)
 msgid "Paste the selected text from the clipboard"
-msgstr ""
+msgstr "Colle le texte sélectionné depuis presse-papiers"
 
 #. (term)
 msgid "Ctrl-Z, Alt-Backspace"
@@ -26341,7 +26375,7 @@ msgstr ""
 
 #. (para)
 msgid "Undo the last edits"
-msgstr ""
+msgstr "Annule les derniers modifications"
 
 #. (term)
 msgid "Ctrl-F"
