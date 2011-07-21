@@ -3518,7 +3518,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     input.SetUUID(selection.GetRepository(0).uuid);
                     input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEBRANCH);
                     CString sHint;
-                    sHint.FormatMessage(IDS_INPUT_COPY, (LPCTSTR)path.GetSVNPathString(), (LPCTSTR)dlg.m_name);
+                    CString sCopyUrl = path.GetSVNPathString() + L"@" + revision.ToString();
+                    sHint.FormatMessage(IDS_INPUT_COPY, (LPCTSTR)sCopyUrl, (LPCTSTR)dlg.m_name);
                     input.SetActionText(sHint);
                     if (input.DoModal() == IDOK)
                     {
