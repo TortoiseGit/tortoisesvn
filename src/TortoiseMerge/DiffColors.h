@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,10 @@
 #pragma once
 #include "DiffStates.h"
 #include "registry.h"
+
+#define INLINEADDED_COLOR                           RGB(255, 255, 150)
+#define INLINEREMOVED_COLOR                         RGB(200, 100, 100)
+#define MODIFIED_COLOR                              RGB(220, 220, 255)
 
 
 #define DIFFSTATE_UNKNOWN_DEFAULT_FG                ::GetSysColor(COLOR_WINDOWTEXT)
@@ -67,7 +71,7 @@
 #define DIFFSTATE_YOURSREMOVED_DEFAULT_BG           DIFFSTATE_REMOVED_DEFAULT_BG
 #define DIFFSTATE_YOURSADDED_DEFAULT_BG             DIFFSTATE_ADDED_DEFAULT_BG
 #define DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG       RGB(200,255,200)
-#define DIFFSTATE_EDITED_DEFAULT_BG                 ::GetSysColor(COLOR_WINDOW)
+#define DIFFSTATE_EDITED_DEFAULT_BG                 MODIFIED_COLOR
 
 /**
  * \ingroup TortoiseMerge

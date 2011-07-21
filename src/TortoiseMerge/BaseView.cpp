@@ -45,10 +45,6 @@
 #define MARGINWIDTH 20
 #define HEADERHEIGHT 10
 
-#define INLINEADDED_COLOR           RGB(255, 255, 150)
-#define INLINEREMOVED_COLOR         RGB(200, 100, 100)
-#define MODIFIED_COLOR              RGB(220, 220, 255)
-
 #define IDT_SCROLLTIMER 101
 
 CBaseView * CBaseView::m_pwndLeft = NULL;
@@ -4308,13 +4304,11 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
 
     // TODO move to separate method
     do {
+        if (!m_bShowInlineDiff)
+            break;
         CString sLine = GetViewLineChars(nViewLine);
         if (sLine.IsEmpty())
             break;
-/*    if (!m_bShowInlineDiff || sLine.IsEmpty())
-        return false;
-    if ((m_pwndBottom != NULL) && !(m_pwndBottom->IsHidden()))
-        return false;//*/
         if (!m_pOtherView)
             break;
 
@@ -4346,7 +4340,7 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
 
             COLORREF crBkgnd, crText;
             CDiffColors::GetInstance().GetColors(diffState, crBkgnd, crText);
-            if (bInlineDiff)
+            if ((m_bShowInlineDiff)&&(bInlineDiff))
             {
                 crBkgnd = InlineViewLineDiffColor(nViewLine);
             }
