@@ -1040,3 +1040,25 @@ bool CAppUtils::AskToUpdate(HWND hParent, LPCWSTR error)
     return result == IDCUSTOM1;
 }
 
+void CAppUtils::ReportFailedHook( HWND hWnd, const CString& sError )
+{
+    std::wstring str = (LPCTSTR)sError;
+    std::wregex rx(L"((https?|ftp|file)://[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])", std::regex_constants::icase | std::regex_constants::ECMAScript);
+    std::wstring replacement = L"<A HREF=\"$1\">$1</A>";
+    std::wstring str2 = std::regex_replace(str, rx, replacement);
+
+    if (CTaskDialog::IsSupported())
+    {
+        CTaskDialog taskdlg(str2.c_str(), 
+            CString(MAKEINTRESOURCE(IDS_COMMITDLG_CHECKCOMMIT_TASK1)),
+            L"TortoiseSVN",
+            0,
+            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.SetCommonButtons(TDCBF_OK_BUTTON);
+        taskdlg.SetMainIcon(TD_ERROR_ICON);
+        taskdlg.DoModal(hWnd);
+    }
+    else
+        ::MessageBox(hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);
+}
+
