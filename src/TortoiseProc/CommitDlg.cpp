@@ -718,7 +718,7 @@ void CCommitDlg::OnOK()
                 CString sError = temp == 0 ? _T("") : temp;
                 if (!sError.IsEmpty())
                 {
-                    ::MessageBox(m_hWnd, sError, _T("TortoiseSVN"), MB_ICONERROR);
+                    CAppUtils::ReportFailedHook(m_hWnd, sError);
                     return;
                 }
             }
