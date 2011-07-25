@@ -40,7 +40,7 @@ fileGui  = 'TortoiseUI'
 fileDoc  = 'TortoiseDoc'
 
 langList = os.path.join(wrkDir, 'Languages.txt')
-langFields = ['Tag','LangCC','LangWiX','LangID','FlagByte','LangName','Translators']
+langFields = ['LangCC','LangWiX','LangID','FlagByte','LangName','Translators']
 Sep75 = '==========================================================================='
 
 def usage_and_exit(errmsg=None):
@@ -211,8 +211,7 @@ class transReport:
           # Ignore lines beginning with:
           # '\xef' = UTF-8 BOM
           # '#' = comment line
-          # Ignore .pot file (Tag=0)
-          if row['Tag'][0] != '\xef' and row['Tag'][0] != '#' and row['Tag'] != '0':
+          if row['LangCC'][0] != '\xef' and row['LangCC'][0] != '#':
             langCC = row['LangCC'].strip()
             statusGui = self.checkStatus(wrkDir, langCC, fileGui, totGui, True)
             statusDoc = self.checkStatus(wrkDir, langCC, fileDoc, totDoc, False)
