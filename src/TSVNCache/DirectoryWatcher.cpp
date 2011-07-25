@@ -386,7 +386,7 @@ void CDirectoryWatcher::WorkerThread()
 
                     {
                         AutoLocker lock(m_critSec);
-                        if (   (!pdi->m_hDir)
+                        if (   (!pdi->m_hDir) || (watchInfoMap.size()==0)
                             || (watchInfoMap.find(pdi->m_hDir) == watchInfoMap.end()))
                         {
                             continue;
