@@ -197,6 +197,12 @@ bool CRevisionGraphWnd::FetchRevisionData
     , HWND hWnd)
 {
     // (re-)fetch the data
+    SVN svn;
+    if (svn.GetRepositoryRoot(CTSVNPath(path)) == svn.GetURLFromPath(CTSVNPath(path)))
+    {
+        m_state.SetLastErrorMessage(CString(MAKEINTRESOURCE(IDS_REVGRAPH_ERR_NOGRAPHFORROOT)));
+        return false;
+    }
 
     std::auto_ptr<CFullHistory> newFullHistory (new CFullHistory());
 
