@@ -274,7 +274,7 @@ def main():
 
     report = transReport()
 
-    [info_out, info_err] = report.safe_command(['svnversion', '.'])
+    [info_out, info_err] = report.safe_command(['svnversion', wrkDir])
     if info_err:
         print >> sys.stderr, '\nError: %s' % (info_err)
         sys.exit(0)
