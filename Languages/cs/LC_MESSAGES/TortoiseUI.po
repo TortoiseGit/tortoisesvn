@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-19 06:04+0000\n"
+"PO-Revision-Date: 2011-07-24 20:25+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1284,8 +1284,7 @@ msgstr "Časový limi&t v sekundách před aktualizací HEAD revize"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
-msgstr ""
-"Časový limi&t v sekundách pro zastavení zpracování automatického dokončení"
+msgstr "Časový limi&t v sekundách pro zast. zpracování auto. dokončení"
 
 #. Resource IDs: (65535)
 msgid "&To Revision"
@@ -2067,7 +2066,7 @@ msgid ""
 "Applies the properties recursively to all files/folders.\r\n"
 "bugtraq:, tsvn: and webviewer: properties are only applied to folders."
 msgstr ""
-"Aplikuje vlastnosti rekurzivně na všechny soubory/adresáře.\n"
+"Použije vlastnosti rekurzivně na všechny soubory/adresáře.\n"
 "bugtraq:, tsvn: a webviewer: vlastnosti jsou aplikovány pouze na adresáře."
 
 #. Resource IDs: (13)
@@ -2263,7 +2262,7 @@ msgstr ""
 
 #. Resource IDs: (162)
 msgid "Blame"
-msgstr "Obvinit..."
+msgstr "Obvinit"
 
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
@@ -2652,7 +2651,7 @@ msgstr "Ruším operaci..."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr "Stornuji TortoiseSVN obviňování..."
+msgstr "Ruším TortoiseSVN obviňování..."
 
 #. Resource IDs: (270)
 msgid "Cancelling operation..."
@@ -5349,6 +5348,10 @@ msgstr "Typ Háku"
 msgid "Hook Type:"
 msgstr "Typ Háku:"
 
+#. Resource IDs: (173)
+msgid "Hook script failed!"
+msgstr "Hákový skript selhal!"
+
 #. Resource IDs: (82)
 #, c-format
 msgid "Hostname mismatch (%s)"
@@ -7817,7 +7820,7 @@ msgstr "Poskytovatel:"
 
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
-msgstr "Časový limi&t proxy v sekundách:"
+msgstr "Časový limi&t v sekundách:"
 
 #. Resource IDs: (1080)
 msgid "Proxy Settings"
@@ -7966,7 +7969,7 @@ msgstr ""
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
-msgstr "Rekurzivně do adresářu bez verze"
+msgstr "Rekurzivně do adresářů bez verze"
 
 #. Resource IDs: (563)
 msgid "Recursive"
@@ -7982,7 +7985,7 @@ msgid ""
 "Remove the property also from items in Subfolders."
 msgstr ""
 "Rekurzivní\n"
-"Odstraní vlastnost také z položek v Poadresářích."
+"Odstraní vlastnost také z položek v Podadresářích."
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
@@ -10002,11 +10005,11 @@ msgstr ""
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
-msgstr "Výchozí URL pro checkout, pokud není nastaveno nic jiného"
+msgstr "Výchozí URL pro získání, pokud není nastaveno nic jiného"
 
 #. Resource IDs: (196)
 msgid "The default path to checkout to if nothing else is specified"
-msgstr "Výchozí cesta pro checkout, pokud není nastaveno nic jiného"
+msgstr "Výchozí cesta pro získání, pokud není nastaveno nic jiného"
 
 #. Resource IDs: (226)
 #, c-format
@@ -12234,7 +12237,7 @@ msgstr "v konfliktu"
 
 #. Resource IDs: (65535)
 msgid "connection: "
-msgstr "spojení"
+msgstr "spojení: "
 
 #. Resource IDs: (208)
 #, c-format
@@ -12428,7 +12431,7 @@ msgstr "k tomuto příkazu není k dispozici nápověda"
 
 #. Resource IDs: (10)
 msgid "non-versioned"
-msgstr "bez verzí"
+msgstr "bez verze"
 
 #. Resource IDs: (10)
 msgid "normal"

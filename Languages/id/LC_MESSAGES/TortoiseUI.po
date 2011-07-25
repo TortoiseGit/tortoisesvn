@@ -9,14 +9,15 @@
 # $Rev$
 # 
 # Authors:
+#   <omixen@gmail.com>, 2011.
 # andreas88 <andreaspower@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-17 00:33+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-07-24 00:35+0000\n"
+"Last-Translator: omixen <omixen@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -209,77 +210,83 @@ msgstr "%s : Copy Pekerjaan"
 #. Resource IDs: (3887)
 #, c-format
 msgid "%s [Recovered]"
-msgstr ""
+msgstr "%s : [Dipulihkan]"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory already exists unversioned locally."
 msgstr ""
+"%s, tetapi direktori tersebut sudah ada di lokal dan tidak mempunyai versi"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
-msgstr ""
+msgstr "%s, tetapi direktori tersebut tidak ada di lokal."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already added locally."
-msgstr ""
+msgstr "%s, tetapi direktori tersebut sudah ditambahkan di lokal."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already edited."
-msgstr ""
+msgstr "%s, tetapi direktori tersebut sudah diedit."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr ""
+"%s, tetapi direktori tersebut sudah dihapus, dipindahkan atau diganti nama "
+"di lokal."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
-msgstr ""
+msgstr "%s, tetapi direktori tersebut terhalang dalam salinan bekerja."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was replaced"
-msgstr ""
+msgstr "%s, tetapi direktori tersebut sudah di ganti"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
 msgstr ""
+"%s, tetapi berkas tersebut sudah ada di lokal dan tidak mempunyai versi"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file is missing locally."
-msgstr ""
+msgstr "%s, tetapi berkas tersebut tidak ada di lokal."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already added locally."
-msgstr ""
+msgstr "%s, tetapi berkas tersebut sudah ditambahkan di lokal."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already edited."
-msgstr ""
+msgstr "%s, tetapi berkas tersebut sudah diedit."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr ""
+"%s, tetapi berkas tersebut sudah dihapus, dipindahkan atau diganti nama di "
+"lokal."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
-msgstr ""
+msgstr "%s, tetapi berkas tersebut terhalang dalam salinan bekerja."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was replaced"
-msgstr ""
+msgstr "%s, tetapi berkas tersebut sudah di ganti"
 
 #. Resource IDs: (376)
 #, c-format
@@ -287,6 +294,8 @@ msgid ""
 "%s\n"
 "%ld failed hunk(s)"
 msgstr ""
+"%s \n"
+"%ld potongan gagal"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -443,7 +452,7 @@ msgstr "Cadangkan &berkas asli"
 
 #. Resource IDs: (1559)
 msgid "&Binary"
-msgstr ""
+msgstr "&Biner"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
@@ -471,11 +480,11 @@ msgstr "&Biru:"
 
 #. Resource IDs: (65535)
 msgid "&Border:"
-msgstr ""
+msgstr "&Perbatasan"
 
 #. Resource IDs: (1568)
 msgid "&Bottom"
-msgstr "Paling &Bawah"
+msgstr "&Paling Bawah"
 
 #. Resource IDs: (65535)
 msgid "&Branches"
@@ -491,19 +500,19 @@ msgstr "&Browse..."
 
 #. Resource IDs: (32850)
 msgid "&Bugtraq (Issue tracker integration)"
-msgstr ""
+msgstr "&Pencatat Kesalahan (Integrasi pencatat kesalahan)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
-msgstr "Penampilan Tom&bol..."
+msgstr "&Penampilan Tombol..."
 
 #. Resource IDs: (65535)
 msgid "&Button text:"
-msgstr "Teks tom&bol:"
+msgstr "&Teks tombol:"
 
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
-msgstr "CD-&ROM"
+msgstr "&CD-ROM"
 
 #. Resource IDs: (2)
 msgid "&Cancel"
@@ -591,7 +600,7 @@ msgstr "&Copy ke..."
 
 #. Resource IDs: (1542)
 msgid "&Create folder structure"
-msgstr ""
+msgstr "&Buat struktur folder"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -599,7 +608,7 @@ msgstr "&Kustom"
 
 #. Resource IDs: (1610, 1613)
 msgid "&Date"
-msgstr ""
+msgstr "&Tanggal"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
@@ -739,7 +748,7 @@ msgstr "&Dari URL:"
 
 #. Resource IDs: (1259)
 msgid "&From WC / URL:"
-msgstr ""
+msgstr "&Dari WC / URL:"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
@@ -820,19 +829,19 @@ msgstr "&Impor..."
 
 #. Resource IDs: (1562)
 msgid "&Include externals"
-msgstr ""
+msgstr "&Muat item-item luaran"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
-msgstr "Masukkan &info penggabungan"
+msgstr "&Muat info penggabungan"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
-msgstr "D&irektori awal:"
+msgstr "&Direktori awal:"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
-msgstr "D&iff dalam baris per kata"
+msgstr "&Diff dalam baris per kata"
 
 #. Resource IDs: (275)
 msgid "&Join all"
@@ -884,15 +893,15 @@ msgstr "&Ambil..."
 
 #. Resource IDs: (1554)
 msgid "&Locking required (read-only update)"
-msgstr ""
+msgstr "&Kunci diperlukan (update hanya untuk baca)"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
-msgstr ""
+msgstr "&Ukuran-ukuran log"
 
 #. Resource IDs: (65535)
 msgid "&Luminence:"
-msgstr ""
+msgstr "&Pencahayaan"
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
@@ -900,7 +909,7 @@ msgstr "&Mac (CR)"
 
 #. Resource IDs: (1562)
 msgid "&Make depth sticky"
-msgstr ""
+msgstr "&Buat kedalaman yg lengket/terikat"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -952,7 +961,7 @@ msgstr "&Ubah warna untuk salinan-salinan batang"
 
 #. Resource IDs: (32880)
 msgid "&Moved blocks"
-msgstr ""
+msgstr "&Blok-blok yg tergerakkan"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
@@ -973,11 +982,11 @@ msgstr "&Baru..."
 #. Resource IDs: (115, 1208)
 #, c-format
 msgid "&Next %ld"
-msgstr "%ld Berikut&nya"
+msgstr "%ld &Berikutnya"
 
 #. Resource IDs: (332)
 msgid "&Next >"
-msgstr "Berikut&nya >"
+msgstr "&Berikutnya >"
 
 #. Resource IDs: (32779)
 msgid "&Next Difference"
@@ -985,23 +994,23 @@ msgstr "&Perbedaan Berikutnya"
 
 #. Resource IDs: (58114)
 msgid "&Next Page"
-msgstr "Halama&n Berikutnya"
+msgstr "&Halaman Berikutnya"
 
 #. Resource IDs: (16632)
 msgid "&No double-click event"
-msgstr "Tidak ada peristiwa klik-ga&nda"
+msgstr "&Tidak ada peristiwa klik-ganda"
 
 #. Resource IDs: (1555)
 msgid "&No locking required"
-msgstr ""
+msgstr "&Tidak perlu kunci"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
-msgstr ""
+msgstr "&Tidak bisa di eksekusi"
 
 #. Resource IDs: (1566)
 msgid "&Numeric"
-msgstr ""
+msgstr "&Angka"
 
 #. Resource IDs: (1)
 msgid "&OK"
@@ -1037,7 +1046,7 @@ msgstr "&Paste"
 
 #. Resource IDs: (1600)
 msgid "&Peg revision:"
-msgstr ""
+msgstr "&Pasak revisi:"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -1045,7 +1054,7 @@ msgstr "Luring secara &permanen"
 
 #. Resource IDs: (1588)
 msgid "&Platform dependent (native)"
-msgstr ""
+msgstr "&Tergantung Platform (asli)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
@@ -1093,7 +1102,7 @@ msgstr "Sega&rkan"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr ""
+msgstr "&Ingatkan saya untuk memasukkan ID kesalahan"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
@@ -1133,7 +1142,7 @@ msgstr "&Kembalikan bawaan"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
-msgstr ""
+msgstr "&Coba lagi tanpa kait"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1157,7 +1166,7 @@ msgstr "&SVN"
 
 #. Resource IDs: (65535)
 msgid "&Saturation:"
-msgstr ""
+msgstr "&Saturasi"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
@@ -1177,15 +1186,15 @@ msgstr "&Simpan daftar berkas pilihan ke..."
 
 #. Resource IDs: (1308)
 msgid "&Save value..."
-msgstr ""
+msgstr "&Simpan nilai ..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
-msgstr "&Seting"
+msgstr "&Pengaturan"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
-msgstr "Tampilkan revi&si HEAD"
+msgstr "&Tampilkan revisi HEAD"
 
 #. Resource IDs: (1132)
 msgid "&Show Log"
@@ -1213,7 +1222,7 @@ msgstr "Grup &Awal"
 
 #. Resource IDs: (1605)
 msgid "&Start Repobrowser"
-msgstr ""
+msgstr "&Nyalakan Repobrowser"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
@@ -1346,7 +1355,7 @@ msgstr "Pemacu &tidak dikenal"
 
 #. Resource IDs: (8)
 msgid "&Update"
-msgstr "&Mutakhirkan"
+msgstr "&Perbarui"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
@@ -1354,11 +1363,11 @@ msgstr ""
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
-msgstr ""
+msgstr "&Perbarui item sampai revisi ..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
-msgstr "&Mutakhirkan ke revisi..."
+msgstr "&Perbarui sampai revisi..."
 
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -5256,6 +5265,10 @@ msgstr "Tipe Hook"
 #. Resource IDs: (1334)
 msgid "Hook Type:"
 msgstr "Tipe Hook:"
+
+#. Resource IDs: (173)
+msgid "Hook script failed!"
+msgstr ""
 
 #. Resource IDs: (82)
 #, c-format

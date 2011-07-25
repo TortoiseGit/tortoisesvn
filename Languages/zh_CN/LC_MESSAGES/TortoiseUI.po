@@ -9,9 +9,11 @@
 # $Rev$
 # 
 # Authors:
+# Nick Vrvilo <nick@vrvilo.com>, 2011.
+# Entong Shen <dexter_shen@hotmail.com>, 2011.
 # fang zheng <fz0000@sina.com>, 2011.
-#   <pluwen@gmail.com>, 2011.
 # pluwen <pluwen@gmail.com>, 2011.
+#   <pluwen@gmail.com>, 2011.
 # Garfield Yao <field977@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
@@ -19,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-17 00:33+0000\n"
-"Last-Translator: fz0000 <fz0000@sina.com>\n"
+"PO-Revision-Date: 2011-07-24 05:56+0000\n"
+"Last-Translator: DaoWen <nick@vrvilo.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,7 +110,7 @@ msgstr "%1!ld! 分 %2!ld! 秒"
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline)"
-msgstr ""
+msgstr "%1!s! (离线)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -337,6 +339,9 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"该文件夹包含着未版本控制或变更过的文件。\n"
+"您还要删除该文件夹吗？"
 
 #. Resource IDs: (616)
 #, c-format
@@ -346,6 +351,10 @@ msgid ""
 "Shall I update the working copy now\n"
 "and then retry?"
 msgstr ""
+"%s\n"
+"\n"
+"是否现在更新工作副本\n"
+"并重试？"
 
 #. Resource IDs: (69)
 #, c-format
@@ -533,7 +542,7 @@ msgstr "选择命令(&C):"
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
-msgstr ""
+msgstr "清理(&C)"
 
 #. Resource IDs: (58112)
 msgid "&Close"
@@ -806,7 +815,7 @@ msgstr "按照名称忽略 %d 项(&I)"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "忽略根源(&I)"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1359,7 +1368,7 @@ msgstr "更新(&U)"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr ""
+msgstr "更新项目至版本(&U)"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -1644,6 +1653,10 @@ msgid ""
 "\n"
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
+"只有在版本库路径变动的时候才需要重新定位。\n"
+"请用切换操作以改到同一版本库的不同路径。\n"
+"\n"
+"不确定该做什么的话，请先试着用切换操作。"
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1656,6 +1669,10 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"正确的 Windows 路径不能包含 “<>|\\\"?*:” 或以下设备名: \n"
+"com1-com9，lpt1-lpt9，prn，aux，con，nul，clock$\n"
+"\n"
+"请见微软的<a href=\\\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\\\">在线文档</a>以获得更多信息。"
 
 #. Resource IDs: (79)
 msgid ""
@@ -1702,12 +1719,16 @@ msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
 msgstr ""
+"永久接受凭证\n"
+"不会再问你要不要接受此凭证。"
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
+"接受凭证\n"
+"仅在本次接受此凭证。"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1777,6 +1798,8 @@ msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"增加项目\n"
+"在 Windows 会导致问题。"
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -2307,7 +2330,7 @@ msgstr "Bug-ID"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
-msgstr ""
+msgstr "Bugtraq 正则表达式测试器 - TortoiseSVN"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -2407,12 +2430,16 @@ msgid ""
 "Cancel\n"
 "Change the selection for the commit."
 msgstr ""
+"取消\n"
+"改变要提交的选择"
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"取消\n"
+"重新选择要导出至的文件夹。"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2451,18 +2478,24 @@ msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr ""
+"取消\n"
+"不要退出 TortoiseMerge"
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
 msgstr ""
+"取消\n"
+"不解决该项目。"
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't switch the views"
 msgstr ""
+"取消\n"
+"不切换视图"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2493,18 +2526,24 @@ msgid ""
 "Cancel\n"
 "Ignore the outside changes."
 msgstr ""
+"取消\n"
+"忽略外部改变。"
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"取消\n"
+"保留当前 URL。"
 
 #. Resource IDs: (314)
 msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr ""
+"取消\n"
+"保留空文件。"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2519,18 +2558,24 @@ msgid ""
 "Cancel\n"
 "Leave the cache on disk."
 msgstr ""
+"取消\n"
+"在磁盘上保留缓存。"
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr ""
+"取消\n"
+"首先解决冲突。"
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
 msgstr ""
+"取消\n"
+"冲突未解决。"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2553,6 +2598,8 @@ msgid ""
 "Cancel\n"
 "The folder is not exported."
 msgstr ""
+"取消\n"
+"文件夹未导出。"
 
 #. Resource IDs: (105)
 msgid ""
@@ -2575,6 +2622,8 @@ msgid ""
 "Cancel\n"
 "The property is not removed."
 msgstr ""
+"取消\n"
+"属性未移除。"
 
 #. Resource IDs: (147)
 msgid ""
@@ -2644,7 +2693,7 @@ msgstr "凭证尚未生效。起始日期: %s"
 
 #. Resource IDs: (148)
 msgid "Certificate validation failed"
-msgstr ""
+msgstr "证书认证失败"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -2792,7 +2841,7 @@ msgstr "检出深度(&E)"
 #. Resource IDs: (229)
 #, c-format
 msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
-msgstr ""
+msgstr "从 %1!s! 取出, 版本 %2!s!, %3!s!, %4!s!"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2820,7 +2869,7 @@ msgstr "分类模式"
 
 #. Resource IDs: (1562)
 msgid "Clean up working copy status"
-msgstr ""
+msgstr "清理工作副本状态"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -2829,11 +2878,11 @@ msgstr "清理"
 #. Resource IDs: (146)
 #, c-format
 msgid "Cleaning up directory '%1!s!'"
-msgstr ""
+msgstr "正在清理目录  '%1!s!'"
 
 #. Resource IDs: (329)
 msgid "Cleanup"
-msgstr ""
+msgstr "清理"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3014,7 +3063,7 @@ msgstr "要执行的命令行: "
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
-msgstr ""
+msgstr "命令失败 - 需要先更新"
 
 #. Resource IDs: (3857)
 msgid "Command failed."
@@ -3078,6 +3127,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
+"提交未版本控制的目录不会递归增加它的子孙！\n"
+"你可能需要用上下文菜单的“增加...”来递归增加这些目录。"
 
 #. Resource IDs: (170)
 msgid ""
@@ -3181,7 +3232,7 @@ msgstr "设置查看 GNU 差异文件（补丁文件）的程序。"
 
 #. Resource IDs: (147)
 msgid "Confirm revert"
-msgstr ""
+msgstr "确认恢复"
 
 #. Resource IDs: (1503)
 msgid "Conflict Sources"
@@ -3265,7 +3316,7 @@ msgstr ""
 #. Resource IDs: (229)
 #, c-format
 msgid "Copy %1!s! to %2!s!, Revision %3!s!"
-msgstr ""
+msgstr "复制 %1!s! 到 %2!s!, 版本 %3!s!"
 
 #. Resource IDs: (126)
 #, c-format
@@ -3433,6 +3484,8 @@ msgid ""
 "Could not find a parent folder for\n"
 "%s"
 msgstr ""
+"无法找到 %s \n"
+"的上级文件夹"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3727,7 +3780,7 @@ msgstr "删除"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
-msgstr ""
+msgstr "删除版本库缓存"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -3745,11 +3798,11 @@ msgstr "根据扩展名删除和忽略 %d 项(&E)"
 
 #. Resource IDs: (1617)
 msgid "Delete ignored files and folders"
-msgstr ""
+msgstr "删除已忽略的文件和文件夹"
 
 #. Resource IDs: (1613)
 msgid "Delete unversioned files and folders"
-msgstr ""
+msgstr "删除无版本控制的文件和文件夹"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -3764,12 +3817,16 @@ msgid ""
 "Delete\n"
 "Remove the cache files."
 msgstr ""
+"删除\n"
+"删除缓存文件。"
 
 #. Resource IDs: (314)
 msgid ""
 "Delete\n"
 "The file is removed."
 msgstr ""
+"删除\n"
+"此文件已删除。"
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
@@ -3858,7 +3915,7 @@ msgstr "窗口大小及位置"
 
 #. Resource IDs: (325)
 msgid "Diff Options"
-msgstr ""
+msgstr "差异 选项"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -3956,7 +4013,7 @@ msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
-msgstr ""
+msgstr "不展开关键词"
 
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
@@ -3972,11 +4029,11 @@ msgstr "应用操作到所有存在的文件夹"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr ""
+msgstr "应用操作到所有存在的项目"
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
-msgstr ""
+msgstr "应用到所有已选项目"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -3984,7 +4041,7 @@ msgstr "将此操作应用到所有选中未收版本控制的文件夹上"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
-msgstr ""
+msgstr "应用到所有无版本控制/已修改的项目"
 
 #. Resource IDs: (1007)
 #, c-format
@@ -4056,7 +4113,7 @@ msgstr "确定要从该项目及其子项目删除属性 %s 吗？"
 #. Resource IDs: (147)
 #, c-format
 msgid "Do you want to revert '%s'?"
-msgstr ""
+msgstr "您要恢复 %s  吗？"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4076,6 +4133,9 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
+"你确定要恢复此版本对\n"
+"%s\n"
+"的所有修改吗？"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -4122,6 +4182,8 @@ msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
 msgstr ""
+"不保存\n"
+"不保存修改并重新载入视图"
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4463,7 +4525,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr ""
+msgstr "每个提交都需要分配到一个问题。"
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -4544,6 +4606,8 @@ msgid ""
 "Export\n"
 "Export into the non-empty folder."
 msgstr ""
+"导出\n"
+"导出至非空的文件夹。"
 
 #. Resource IDs: (284)
 #, c-format
@@ -4556,7 +4620,7 @@ msgstr "正在导出..."
 
 #. Resource IDs: (90)
 msgid "Exporting: Target folder exists."
-msgstr ""
+msgstr "正在导出：目标文件夹已经存在。"
 
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
@@ -4564,7 +4628,7 @@ msgstr "导出属性集合到文件"
 
 #. Resource IDs: (10)
 msgid "Exports a versioned folder as a separate unversioned folder"
-msgstr ""
+msgstr "导出一个已经版本控制的文件夹为无版本控制的文件夹"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4690,7 +4754,7 @@ msgstr "正在获取文件的 %s 版本: "
 #. Resource IDs: (148)
 #, c-format
 msgid "Fetching status of %1!s!"
-msgstr ""
+msgstr "获取 %1!s! 的状态"
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -4698,7 +4762,7 @@ msgstr "文件"
 
 #. Resource IDs: (90)
 msgid "File already exists"
-msgstr ""
+msgstr "文件已经存在。"
 
 #. Resource IDs: (247)
 #, c-format
@@ -4711,7 +4775,7 @@ msgstr "每周修改次数: "
 
 #. Resource IDs: (226)
 msgid "File contains conflict markers"
-msgstr ""
+msgstr "文件存在冲突标记"
 
 #. Resource IDs: (376)
 msgid "File diffs"
@@ -4719,7 +4783,7 @@ msgstr "文件差异比较"
 
 #. Resource IDs: (314)
 msgid "File is empty."
-msgstr ""
+msgstr "文件是空的。"
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -4949,7 +5013,7 @@ msgstr "强制"
 
 #. Resource IDs: (147)
 msgid "Force removal"
-msgstr ""
+msgstr "强制删除"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5242,6 +5306,10 @@ msgstr "钩子类型"
 #. Resource IDs: (1334)
 msgid "Hook Type:"
 msgstr "钩子类型:"
+
+#. Resource IDs: (173)
+msgid "Hook script failed!"
+msgstr "钩子脚本失败！"
 
 #. Resource IDs: (82)
 #, c-format
@@ -5553,7 +5621,7 @@ msgid ""
 "If you use other SVN clients besides TortoiseSVN on this computer, you have "
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
-msgstr ""
+msgstr "如果在这台电脑上使用TortoiseSVN以外的SVN客户端，您也需要升级其版本，否则该客户端将不能访问新格式的工作副本。"
 
 #. Resource IDs: (251)
 msgid ""
@@ -5571,7 +5639,7 @@ msgstr "根据扩展名忽略 %d 项(&E)"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "忽略行尾改变"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5611,7 +5679,7 @@ msgstr "忽略 CRLF"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "忽略空格改变(&c)"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5672,7 +5740,7 @@ msgstr "导入"
 #. Resource IDs: (229)
 #, c-format
 msgid "Import %1!s! to %2!s!%3!s!"
-msgstr ""
+msgstr "导入 %1!s! 至 %2!s!%3!s!"
 
 #. Resource IDs: (127)
 #, c-format
@@ -5742,7 +5810,7 @@ msgstr "导入目录至版本库"
 
 #. Resource IDs: (1616)
 msgid "Include externals"
-msgstr ""
+msgstr "包含外部定义"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -5905,6 +5973,11 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr ""
+"好像您想把工作副本重定位于同一版本库的不同路径。\n"
+"从： %1!s!\n"
+"至： %2!s!\n"
+"\n"
+"不当使用重定位会造成工作副本损坏！"
 
 #. Resource IDs: (88)
 #, c-format
@@ -5921,6 +5994,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
+"好像您想把工作副本重定位于同一版本库的不同路径。\n"
+"\n"
+"从：\t%1!s!\n"
+"至：\t%2!s!\n"
+"\n"
+"只有在版本库路径变动的时候才需要重新定位。\n"
+"请用切换操作以改到同一版本库的不同路径。\n"
+"\n"
+"不当使用重定位会造成工作副本损坏！\n"
+"不确定该做什么的话，请参看关于重新定位的文档。\n"
+"您真的要进行重新定位吗？"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6085,7 +6169,7 @@ msgstr "列表一"
 
 #. Resource IDs: (104)
 msgid "Listing repository recursively..."
-msgstr ""
+msgstr "正在递归显示版本库..."
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -6159,7 +6243,7 @@ msgstr "被%s锁定"
 
 #. Resource IDs: (93)
 msgid "Locking failed"
-msgstr ""
+msgstr "锁定失败"
 
 #. Resource IDs: (89)
 msgid ""
@@ -6256,6 +6340,8 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr ""
+"标记为已解决\n"
+"冲突已经解决好了。"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6408,7 +6494,7 @@ msgstr "正在合并"
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
-msgstr ""
+msgstr "正在合并 %1!s! 到 %2!s!, %3!s!%4!s!"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6419,7 +6505,7 @@ msgstr "正在不同的版本库 URL 之间合并差异"
 msgid ""
 "Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
 "%6!s!%7!s!%8!s!"
-msgstr ""
+msgstr "正从 %1!s!, 版本 %2!s! ~ %3!s!, revision %4!s! 合并至 %5!s!, %6!s!%7!s!%8!s!"
 
 #. Resource IDs: (264)
 #, c-format
@@ -6439,7 +6525,7 @@ msgstr "合并指定的不同版本差异或从“起始: ” URL 到“结束: 
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
-msgstr ""
+msgstr "正在合并 %2!s! 的 %1!s!  至 %3!s!, %4!s!%5!s!%6!s!"
 
 #. Resource IDs: (76, 1359)
 msgid "Message"
@@ -6503,7 +6589,7 @@ msgstr "修改日期"
 
 #. Resource IDs: (315)
 msgid "Modifications detected"
-msgstr ""
+msgstr "监测到改变"
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
@@ -6531,7 +6617,7 @@ msgstr "更多颜色..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "拖动了多个项目。"
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6782,6 +6868,9 @@ msgid ""
 "You can show the unversioned items by enabling them\n"
 "with the checkbox at the bottom."
 msgstr ""
+"自从上次提交没有添加或改变的文件。\n"
+"TortoiseSVN不需要做任何事情...\n"
+"你可以通过底部的选择框激活显示无版本控制的文件"
 
 #. Resource IDs: (77)
 msgid ""
@@ -6838,7 +6927,7 @@ msgstr "节点颜色"
 
 #. Resource IDs: (170)
 msgid "Non-recursive commit of moved/renamed folders."
-msgstr ""
+msgstr "非递归提交已移动/重命名的文件夹。"
 
 #. Resource IDs: (1507)
 msgid "Non-versioned"
@@ -6875,7 +6964,7 @@ msgstr "非递归"
 
 #. Resource IDs: (265)
 msgid "Not under version control"
-msgstr ""
+msgstr "未版本控制"
 
 #. Resource IDs: (3887)
 msgid ""
@@ -6983,7 +7072,7 @@ msgstr "周数"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "选项(&p)"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -7026,6 +7115,8 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr ""
+"您想移动的其中一个路径是一个特定的路径\n"
+"（'branches'， 'tags'，或 'trunk' 之一）"
 
 #. Resource IDs: (63)
 msgid ""
@@ -7093,6 +7184,8 @@ msgid ""
 "Open files\n"
 "Open files for diff"
 msgstr ""
+"打开文件\n"
+"打开文件并比较差异"
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7175,18 +7268,24 @@ msgid ""
 "Overwrite\n"
 "Replace the target folder."
 msgstr ""
+"覆盖\n"
+"替换目标文件夹"
 
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
 msgstr ""
+"覆盖\n"
+"目标文件会被替换"
 
 #. Resource IDs: (90)
 msgid ""
 "Overwrite\n"
 "The target file is replaced."
 msgstr ""
+"覆盖\n"
+"替换目标文件。"
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -7283,7 +7382,7 @@ msgstr "路径"
 
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
-msgstr ""
+msgstr "找到了更符合补丁的路径。"
 
 #. Resource IDs: (116)
 msgid "Paths"
@@ -7507,12 +7606,16 @@ msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
 msgstr ""
+"继续提交\n"
+"已移动/重命名的文件夹在版本库中递归提交"
 
 #. Resource IDs: (89)
 msgid ""
 "Proceed with the entered path\n"
 "I'm aware of the possible problems."
 msgstr ""
+"用已输入的路径继续进行\n"
+"我了解可能会出现的问题。"
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
@@ -7523,6 +7626,8 @@ msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
 msgstr ""
+"以空白的问题编号继续进行\n"
+"本提交就不分配到一个问题。"
 
 #. Resource IDs: (132)
 #, c-format
@@ -7662,6 +7767,8 @@ msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
+"退出\n"
+"不保存修改并退出TortoiseMerge"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -7789,13 +7896,15 @@ msgstr "递归"
 
 #. Resource IDs: (589)
 msgid "Recursive operation"
-msgstr ""
+msgstr "递归操作"
 
 #. Resource IDs: (589)
 msgid ""
 "Recursive\n"
 "Remove the property also from items in Subfolders."
 msgstr ""
+"递归\n"
+"同时从子文件中移除属性。"
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
@@ -7823,12 +7932,12 @@ msgstr "重新整理"
 
 #. Resource IDs: (1615)
 msgid "Refresh shell overlays"
-msgstr ""
+msgstr "刷新图标覆盖层"
 
 #. Resource IDs: (148)
 #, c-format
 msgid "Refreshing shell for %1!s!"
-msgstr ""
+msgstr "正在刷新 %1!s! 的图标"
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
@@ -7875,7 +7984,7 @@ msgstr "复兴合并"
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %1!s! into %2!s!"
-msgstr ""
+msgstr "重新合并  %1!s! 至 %2!s!"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -7886,6 +7995,8 @@ msgid ""
 "Reject the certificate\n"
 "Cancel the connection."
 msgstr ""
+"拒绝凭证\n"
+"取消连接"
 
 #. Resource IDs: (7)
 #, c-format
@@ -7918,12 +8029,16 @@ msgid ""
 "Reload\n"
 "Local modifications are lost."
 msgstr ""
+"重新加载\n"
+"本地修改将丢失"
 
 #. Resource IDs: (315)
 msgid ""
 "Reload\n"
 "The outside changes are loaded."
 msgstr ""
+"重新加载\n"
+"外部修改将被加载"
 
 #. Resource IDs: (2050)
 msgid ""
@@ -7943,7 +8058,7 @@ msgstr "重定位警告"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "执行了重定位却可能要进行切换操作"
 
 #. Resource IDs: (89)
 msgid ""
@@ -8008,6 +8123,8 @@ msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
 msgstr ""
+"移除版本控制\n"
+"所有.svn文件夹已被移除"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8039,12 +8156,16 @@ msgid ""
 "Remove\n"
 "Force the removal"
 msgstr ""
+"删除\n"
+"强制删除"
 
 #. Resource IDs: (589)
 msgid ""
 "Remove\n"
 "Remove the property only from this item."
 msgstr ""
+"移除\n"
+"仅此项移除该属性"
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8084,12 +8205,12 @@ msgstr "删除选择的属性"
 #. Resource IDs: (148)
 #, c-format
 msgid "Removing ignored items. in %1!s!"
-msgstr ""
+msgstr "在 %1!s!s 中移除已忽略的项"
 
 #. Resource IDs: (148)
 #, c-format
 msgid "Removing unversioned items in %1!s!"
-msgstr ""
+msgstr "正在移除 %1!s! 中无版本控制的文件"
 
 #. Resource IDs: (16616)
 msgid "Rena&me..."
@@ -8115,7 +8236,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move"
-msgstr ""
+msgstr "重命名/移动"
 
 #. Resource IDs: (91)
 #, c-format
@@ -8123,6 +8244,8 @@ msgid ""
 "Rename\n"
 "The folder is exported as '%s'."
 msgstr ""
+"改名\n"
+"文件夹导出为 %s。"
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8241,6 +8364,8 @@ msgid ""
 "Resolve\n"
 "The item is marked as resolved."
 msgstr ""
+"解决\n"
+"标记为已解决。"
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
@@ -8296,7 +8421,7 @@ msgstr "还原"
 
 #. Resource IDs: (1529)
 msgid "Revert all changes recursively"
-msgstr ""
+msgstr "递归复原所有修改"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8307,6 +8432,8 @@ msgid ""
 "Revert\n"
 "All changes will be lost."
 msgstr ""
+"恢复\n"
+"放弃所有的变更。"
 
 #. Resource IDs: (119)
 msgid ""
@@ -8323,7 +8450,7 @@ msgstr "已还原"
 #. Resource IDs: (148)
 #, c-format
 msgid "Reverting %1!s!"
-msgstr ""
+msgstr "正在恢复 %1!s!"
 
 #. Resource IDs: (119)
 msgid "Reverting changes"
@@ -8587,10 +8714,18 @@ msgid ""
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
 msgstr ""
+"测试Bugtraq的样本日志消息:正则表达式字符串。\n"
+"\n"
+"测试文本中提及的问题:提及问题#55. 提及问题#77,#78\n"
+"\n"
+"更新问题#101\n"
+"修正问题#202\n"
+"解决问题#88\n"
+"关闭问题#99"
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
-msgstr ""
+msgstr "范例文字:"
 
 #. Resource IDs: (57604)
 msgid "Save &As..."
@@ -8613,6 +8748,8 @@ msgid ""
 "Save as\n"
 "You're asked where to save the file"
 msgstr ""
+"另存为\n"
+"你将选择保存路径"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -8629,7 +8766,7 @@ msgstr "使用 Git 格式保存"
 
 #. Resource IDs: (314)
 msgid "Save modifications."
-msgstr ""
+msgstr "保存修改。"
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8652,6 +8789,8 @@ msgid ""
 "Save\n"
 "Save the file with the conflict markers."
 msgstr ""
+"保存\n"
+"保存文件和冲突标记"
 
 #. Resource IDs: (314)
 #, c-format
@@ -8660,6 +8799,8 @@ msgid ""
 "The modifications are saved to\n"
 "%s"
 msgstr ""
+"保存\n"
+"修改已保存至%s"
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -8933,7 +9074,7 @@ msgstr "设置 - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
-msgstr ""
+msgstr "是否更新工作副本并重试？"
 
 #. Resource IDs: (1270)
 msgid "Shell"
@@ -9286,7 +9427,7 @@ msgstr "跳过有问题的工作副本"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr ""
+msgstr "跳过了，没有版本控制的父目条"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9297,12 +9438,16 @@ msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
+"有的文件在 T-Merge 之外改过。\n"
+"您想加载改过的文件吗？"
 
 #. Resource IDs: (314)
 msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
+"有的文件在 T-Merge 之外改过。\n"
+"您想重新加载改过的文件并放弃您所修改的吗？"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9323,7 +9468,7 @@ msgstr "源URL:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth '%2!s!'"
-msgstr ""
+msgstr "部分更新 %1!s!, 层数 '%2!s!'"
 
 #. Resource IDs: (196)
 msgid ""
@@ -9579,12 +9724,12 @@ msgstr "切换工作副本至新分支/标记(&C)"
 
 #. Resource IDs: (78)
 msgid "Switch"
-msgstr ""
+msgstr "切换"
 
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %1!s! to %2!s!, Revision %3!s!"
-msgstr ""
+msgstr "切换%1!s! 到 %2!s!, 版本 %3!s!"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9600,7 +9745,7 @@ msgstr "切换至分支/标记"
 
 #. Resource IDs: (620)
 msgid "Switch back to parent"
-msgstr ""
+msgstr "切换回上层"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9652,7 +9797,7 @@ msgstr "切换: "
 
 #. Resource IDs: (265)
 msgid "Switched"
-msgstr ""
+msgstr "已切换"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -9695,7 +9840,7 @@ msgstr "标记工作副本为 %s"
 
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
-msgstr ""
+msgstr "目标文件夹非空"
 
 #. Resource IDs: (80)
 msgid "Tasks"
@@ -9711,7 +9856,7 @@ msgstr "仅测试"
 
 #. Resource IDs: (590)
 msgid "Test the regex strings"
-msgstr ""
+msgstr "测试正则表达式"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
@@ -9726,7 +9871,7 @@ msgid ""
 "The changes will be applied to your working copy with a reverse merge "
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
-msgstr ""
+msgstr "更改将会以反向合并操作应用到工作副本。版本库还不会被影响到。您可以先查看该合并的结果再提交。"
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -9762,7 +9907,7 @@ msgstr "没有指定时默认要取出的路径"
 msgid ""
 "The depth of this commit is \"%s\", but copies are always performed "
 "recursively in the repository."
-msgstr ""
+msgstr "此次提交深度为 \"%s\", 但是版本库中的复制始终是递归的"
 
 #. Resource IDs: (68)
 #, c-format
@@ -10087,6 +10232,8 @@ msgid ""
 "The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"路径 '%s' 在Windows里可能是非法的！\n"
+"你可以继续，但有可能导致错误。"
 
 #. Resource IDs: (88)
 msgid ""
@@ -10179,6 +10326,8 @@ msgid ""
 "The returned error was:\n"
 "%s"
 msgstr ""
+"返回的错误:\n"
+"%s"
 
 #. Resource IDs: (78)
 msgid ""
@@ -10201,7 +10350,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "目标已经存在。"
 
 #. Resource IDs: (147)
 #, c-format
@@ -10236,7 +10385,7 @@ msgstr "目标在本地被修改"
 msgid ""
 "The target working copy '%s' has local modifications. It is recommended to "
 "commit those changes first before merging new changes."
-msgstr ""
+msgstr "目标工作副本 '%s' 有本地修改。建议先提交这些更改，然后再合并新的修改。"
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -10372,7 +10521,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed folders selected "
 "for commit. Such moves/renames are always performed recursively in the "
 "repository. Do you want to commit anyway?"
-msgstr ""
+msgstr "已经选择提交已移动/重命名的文件夹，然而这次提交是非递归的。已移动/重命名的文件夹在版本库中始终是递归提交的。您是否确定要提交？"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10382,6 +10531,8 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
+"已经选择提交已移动/重命名的文件夹，然而这次提交是非递归的。已移动/重命名的文件夹在版本库中始终是递归提交的。\n"
+"您是否确定要提交？"
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
@@ -10468,7 +10619,7 @@ msgstr "这会删除你在应用程序中使用的命令记录，恢复到默认
 msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "这会升级您的工作副本到新的 1.7 格式并让旧版的客户端不能访问。"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -10901,7 +11052,7 @@ msgstr "不可识别或无效的属性文件格式！"
 
 #. Resource IDs: (315)
 msgid "Unresolved conflicts!"
-msgstr ""
+msgstr "未解决的冲突！"
 
 #. Resource IDs: (3841)
 msgid "Untitled"
@@ -10925,7 +11076,7 @@ msgstr "去除版本控制并增加到忽略列表(&I)"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "取消工作副本的版本控制"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -10961,12 +11112,16 @@ msgid ""
 "Update\n"
 "Update the file and try locking again."
 msgstr ""
+"更新\n"
+"更新文件并再次尝试锁定。"
 
 #. Resource IDs: (90)
 msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
 msgstr ""
+"升级\n"
+"升级工作副本"
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -11203,6 +11358,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"用新找的路径。\n"
+"应用补丁于\n"
+"%s"
 
 #. Resource IDs: (594)
 msgid ""
@@ -11212,6 +11370,10 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"用日志对话框选择您需要合并的版本，或者输入要合并的版本号，用逗号隔开。可以用减号指定版本号范围。\n"
+"比如: 4-7,9,11,15-HEAD@pegrevision\n"
+"\n"
+"要合并所有版本，就不要填写版本信息。"
 
 #. Resource IDs: (314)
 #, c-format
@@ -11220,6 +11382,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"用原始的路径。\n"
+"应用补丁于\n"
+"%s"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -11422,6 +11587,8 @@ msgid ""
 "Wrap long lines\n"
 "Wrap long lines"
 msgstr ""
+"拆开长行\n"
+"拆开长行"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -11493,6 +11660,9 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
+"你拖动了多个文件或文件夹以增加到仓库中。\n"
+"在一个操作步骤中无法实现该操作，所以 TortoiseSVN 将单独增加每一个文件/文件夹，\n"
+"并为每一个新增加的文件/文件夹创建一个新的版本号。"
 
 #. Resource IDs: (105)
 msgid ""
@@ -11646,7 +11816,7 @@ msgstr ""
 msgid ""
 "Your working copy points to %s which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
-msgstr ""
+msgstr "您的工作副本指向着 %s，好像是标记！您应该先切换倒分支或主干再提交。"
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
@@ -12568,7 +12738,7 @@ msgstr ""
 #. Resource IDs: (104)
 #, c-format
 msgid "url: %1!s!"
-msgstr ""
+msgstr "url: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

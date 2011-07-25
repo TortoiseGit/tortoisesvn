@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-18 22:13+0000\n"
+"PO-Revision-Date: 2011-07-24 00:35+0000\n"
 "Last-Translator: beginaFekicysym <>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3708,8 +3708,7 @@ msgstr "Folder utworzony zdalnie"
 msgid ""
 "Creates a 'cheap' copy inside the repository used for branches or tagging"
 msgstr ""
-"Tworzy w repozytorium 'quasi' kopię używaną przy tworzeniu gałęzi lub "
-"etykiet"
+"Tworzy w repozytorium tanią kopię używaną przy tworzeniu gałęzi lub etykiet"
 
 #. Resource IDs: (199)
 msgid ""
@@ -5391,6 +5390,10 @@ msgstr "Typ przechwycenia"
 msgid "Hook Type:"
 msgstr "Typ przechwycenia:"
 
+#. Resource IDs: (173)
+msgid "Hook script failed!"
+msgstr ""
+
 #. Resource IDs: (82)
 #, c-format
 msgid "Hostname mismatch (%s)"
@@ -5652,7 +5655,7 @@ msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"Przy włączonej opcji, przy uruchamianiu okna Scalaj pole 'Od:' jest wypełniane adresem URL wybranej kopii roboczej\r\n"
+"Przy włączonej opcji, przy uruchamianiu okna Scalaj pole 'Z:' jest wypełniane adresem URL wybranej kopii roboczej\n"
 "zamiast ostatnio używanym adresem."
 
 #. Resource IDs: (195)
@@ -11454,7 +11457,7 @@ msgstr "Użyj okienek Aero"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr "Użyj adresu URL kopii roboczej jako &wartości domyślnej dla pola \"Od:\""
+msgstr "Użyj adresu URL kopii roboczej jako &wartości domyślnej dla pola \"Z:\""
 
 #. Resource IDs: (1064)
 msgid "Use Unified Diff from &clipboard"

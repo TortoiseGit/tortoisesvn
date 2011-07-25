@@ -9,14 +9,16 @@
 # $Rev$
 # 
 # Authors:
+#   <edson.chen@gmail.com>, 2011.
+# Edson Chen <edson.chen@gmail.com>, 2011.
 # Crhistian  <crhistian.ti@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-16 00:14+0000\n"
-"Last-Translator: crhisghama <crhistian.ti@gmail.com>\n"
+"PO-Revision-Date: 2011-07-19 22:05+0000\n"
+"Last-Translator: ecce <edson.chen@gmail.com>\n"
 "Language-Team: Portuguese (Brazilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,7 +84,7 @@ msgstr ""
 " é uma ferramenta crítica para programadores, que normalmente gastam horas "
 "fazendo pequenas modificações em seus aplicativos e então desfazem ou "
 "verificam algumas dessas modificações no dia seguinte. Imagine uma equipe de"
-" várias desenvolvedores trabalhando juntos - e talvez simultaneamente em "
+" vários desenvolvedores trabalhando juntos - e talvez simultaneamente em "
 "mesmos arquivos! - e você precisa ver porque um bom controle é necessário "
 "para <emphasis>controlar uma possível desordem</emphasis>."
 
@@ -371,10 +373,13 @@ msgid ""
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
 msgstr ""
+"Embora a maioria das pessoas baixem apenas o instalador, você também tem total acesso de leitura do código fonte deste programa. Você pode navegar até o código através do link <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>. \n"
+"A linha de desenvolvimento atual está localizado sob \n"
+"<filename>/trunk/</filename>, e as versões publicadas em <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
-msgstr ""
+msgstr "Desenvolvimento"
 
 #. (para)
 msgid ""
@@ -382,6 +387,9 @@ msgid ""
 "are working on those projects. They come from different countries all over "
 "the world, working together to create great software."
 msgstr ""
+"TortoiseSVN e Subversion são desenvolvidos por uma comunidade de pessoas que"
+" estão trabalhando nestes projetos. Eles vêm de diferentes países pelo "
+"mundo, trabalhando juntos para criar um ótimo software."
 
 #. (title)
 msgid "TortoiseSVN's History"
@@ -396,6 +404,13 @@ msgid ""
 " a base for TortoiseSVN. He then started the project, registered the domain "
 "<literal>tortoisesvn.org</literal> and put the source code online."
 msgstr ""
+"Em 2002, Tim Kemp achou que o Subversion era um sistema de controle de "
+"versão muito bom mas que faltava uma boa interface gráfica GUI. A idéia para"
+" um programa cliente do Subversion integrado ao shell do Windows foi "
+"inpirado num programa similar para CVS de nome TortoiseCVS. Tim estudou o "
+"código fonte do TortoiseCVS e o usou como base para o TortoiseSVN. Ele então"
+" começou o projeto, registrando o domínio <literal>tortoisesvn.org</literal>"
+" e colocando o código fonte online."
 
 #. (para)
 msgid ""
@@ -406,6 +421,12 @@ msgid ""
 "commands and features, up to a point where nothing of the original code "
 "remained."
 msgstr ""
+"Por volta daquela época, Stefan Küng estava procurando por um bom e gratuito"
+" sistema de controle de versão, encontrando assim o Subversion e o código do"
+" TortoiseSVN. Como o TortoiseSVN ainda não estava pronto para o uso, ele se "
+"juntou ao projeto e começou a programar. Ele, em pouco tempo, reescreveu "
+"grande parte do código existente e começou a adicionar comandos e features, "
+"até o ponto em que nada do código original restou."
 
 #. (para)
 msgid ""
@@ -415,6 +436,12 @@ msgid ""
 " help out with some nice icons and a logo for TortoiseSVN. He now takes care"
 " of the website and manages the many translations."
 msgstr ""
+"À medida que o Subversion se tornou mais estável, mais e mais usuários foram"
+" atraídos, os quais também começaram a usar o TortoiseSVN como seu programa "
+"cliente Subversion. A base de usuários cresceu rapidamente (e ainda está "
+"crescendo todos os dias). Foi então que Lübbe Onken ofereceu ajuda com "
+"alguns belos ícones e a logomarca para o TortoiseSVN. Ele agora toma conta "
+"do website e administra muitas traduções."
 
 #. (title)
 msgid "Acknowledgments"
@@ -426,7 +453,7 @@ msgstr "Tim Kemp"
 
 #. (para)
 msgid "for starting the TortoiseSVN project"
-msgstr ""
+msgstr "por iniciar o projeto TortoiseSVN"
 
 #. (term)
 msgid "Stefan Küng"
@@ -437,6 +464,8 @@ msgid ""
 "for the hard work to get TortoiseSVN to what it is now, and his leadership "
 "of the project"
 msgstr ""
+"pelo trabalho manual para tornar o TortoiseSVN o que é agora, e sua "
+"liderança no projeto"
 
 #. (term)
 msgid "Lübbe Onken"
@@ -464,7 +493,7 @@ msgstr "Stefan Fuhrmann"
 
 #. (para)
 msgid "for the log cache and revision graph"
-msgstr ""
+msgstr "pelo cache de log e o gráfico de revisionamento"
 
 #. (term)
 msgid "The Subversion Book"
@@ -493,6 +522,8 @@ msgid ""
 "for the patches, bug reports and new ideas, and for helping others by "
 "answering questions on our mailing list"
 msgstr ""
+"pelos patches, relatório de erros e novas idéias, e por ajudar outros, "
+"respondendo perguntas na nossa lista de discussão"
 
 #. (term)
 msgid "Our Donators"
@@ -500,7 +531,7 @@ msgstr "Nossos Contribuidores"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
-msgstr "por muitas horas de diversão com a música que nos enviaram"
+msgstr "por muitas horas de diversão com as músicas que nos enviaram"
 
 #. (title)
 msgid "Reading Guide"
@@ -513,6 +544,11 @@ msgid ""
 "line client. TortoiseSVN is a windows shell extension and it is assumed that"
 " the user is familiar with the windows explorer and how to use it."
 msgstr ""
+"Este livro é escrito para o pessoal letrado em computação que querem usar o "
+"Subversion para administrar seus dados, mas preferem usar uma cliente GUI do"
+" que usar um cliente por linhas de comando. TortoiseSVN é uma extensão do "
+"shell do windows e se supõe que o usuário esteja familiarizado com o windows"
+" explorer e saiba usá-lo."
 
 #. (para)
 msgid ""
@@ -520,12 +556,17 @@ msgid ""
 " about the TortoiseSVN project and the community of people who work on it, "
 "and the licensing conditions for using it and distributing it."
 msgstr ""
+"Este <xref linkend=\"tsvn-preface\"/> explica o que TortoiseSVN é, um pouco "
+"sobre o projeto TortoiseSVN, a comunidade de pessoas que trabalham nele, as "
+"condições de licenciamento para seu uso e sua distribuição."
 
 #. (para)
 msgid ""
 "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN"
 " on your PC, and how to start using it straight away."
 msgstr ""
+"O <xref linkend=\"tsvn-quick-start\"/>explica como instalar TortoiseSVN no "
+"seu computador, e como começar a usá-lo de imediato."
 
 #. (para)
 msgid ""
@@ -662,6 +703,11 @@ msgid ""
 " the right mouse button and while holding it down <emphasis>drag</emphasis> "
 "the items to the new location."
 msgstr ""
+"Ações de Usuários são indicados por uma fonte em negrito. "
+"<keycap>Alt+A</keycap>: pressione a tecla <keycap>Alt</keycap> no seu "
+"teclado e enquanto a aperta, pressione também a tecla <keycap>A</keycap>. "
+"<action>Right drag</action>: aperte o botão direito do mouse e enquanto "
+"segura, <emphasis>arraste</emphasis> os itens para o novo local."
 
 #. (para)
 msgid ""
@@ -688,6 +734,8 @@ msgid ""
 "Where extreme care has to be taken. Data corruption or other nasty things "
 "may occur if these warnings are ignored."
 msgstr ""
+"Onde é preciso cuidado extremo. Corrupção de dados e outras coisas "
+"desagradáveis podem ocorrer se estes avisos forem ignorados."
 
 #. (title)
 msgid "Getting Started"
@@ -700,6 +748,10 @@ msgid ""
 "TortoiseSVN and set up a local repository, and it walks you through the most"
 " commonly used operations."
 msgstr ""
+"Esta seção é voltada às pessoas que gostariam de saber do que se trata o "
+"TortoiseSVN e fazer um teste. Ela explica como instalar o TortoiseSVN e "
+"configurar um repositório local, e dá o passo-a-passo para a maioria das "
+"operações mais comuns."
 
 #. (title)
 msgid "Installing TortoiseSVN"
@@ -717,6 +769,11 @@ msgid ""
 " to install the 32-bit version separately to get the TortoiseSVN context "
 "menu and overlays in 32-bit applications."
 msgstr ""
+"TortoiseSVN roda em Windows XP com service pack 3 ou mais recente e está "
+"disponível em versões de 32 bits e 64 bits. O instalador para o Windows 64 "
+"bits também inclui as extensões da versão de 32 bits.  Portanto você não "
+"precisa instalar a versão de 32 bits em separado para ter o menu de contexto"
+" do TortoiseSVN e sobreposições nas aplicações de 32 bits."
 
 #. (para)
 msgid ""
@@ -724,6 +781,9 @@ msgid ""
 "service pack 3 installed. It won't work if you haven't installed that SP "
 "yet!"
 msgstr ""
+"Se você está usando o Windows XP, <emphasis>deverá</emphasis> ter pelo menos"
+" o Service Pack 3 instalado. O programa não funcionará se você ainda não "
+"instalou este SP!"
 
 #. (para)
 msgid ""
@@ -731,6 +791,10 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. You "
 "can still download and install older versions if you need them."
 msgstr ""
+"Suporte para Windows 98, Windows ME and Windows NT4 foram abandonados na "
+"versão 1.2.0, e para o Windows 2000 e XP até SP2 foram abandonados na versão"
+" 1.7.0. Você ainda pode baixar e instalar as versões antigas se precisar "
+"delas."
 
 #. (title)
 msgid "Installation"
@@ -746,6 +810,9 @@ msgid ""
 "installer file and follow the instructions. The installer will take care of "
 "the rest. Don't forget to reboot after installation."
 msgstr ""
+"TortoiseSVN vem com um instalador fácil de usar. Clique duas vezes no "
+"arquivo de instalação e siga as instruções. O instalador cuidará de todo o "
+"resto. Não se esqueça de reiniciar após a instalação."
 
 #. (para)
 msgid "You need Administrator privileges to install TortoiseSVN."
@@ -757,6 +824,9 @@ msgid ""
 "into many different languages. Please check <xref linkend=\"tsvn-lang\"/> "
 "for more information on how to install these."
 msgstr ""
+"Pacotes de linguagens estão disponíveis, podendo traduzir a interface do "
+"TortoiseSVN para muitas diferentes línguas. Por favor, dê uma olhada em "
+"<xref linkend=\"tsvn-lang\"/> para mais informações em como as instalar."
 
 #. (para)
 msgid ""
@@ -774,6 +844,8 @@ msgid ""
 "Before we get stuck into working with some real files, it is important to "
 "get an overview of how subversion works and the terms that are used."
 msgstr ""
+"Antes de ficarmos presos manejando arquivos reais, é importanto ter uma "
+"visão geral de como o subversion funciona e os termos que são usados."
 
 #. (term)
 #. (title)
@@ -792,6 +864,13 @@ msgid ""
 "thing, back up your repository as it is the definitive master copy of all "
 "your data."
 msgstr ""
+"Subversion usa um banco de dados central que contem todos os arquivos "
+"versionados com seu histórico completo. Esse banco de dados é referenciado "
+"como  <emphasis>repositório</emphasis>. O repositório normalmente está "
+"alocado num servidor de arquivos rodando o servidor Subversion, abastecendo "
+"clientes do Subversion (como o TortoiseSVN) quando requisitado. Se você faz "
+"backup de apenas uma coisa, faça o backup do seu repositório pois é a cópia "
+"mestre definitiva de todos os seus dados."
 
 #. (term)
 #. (glossterm)
@@ -806,6 +885,11 @@ msgid ""
 "anyone else, then when you are happy with the changes you made commit them "
 "back to the repository."
 msgstr ""
+"Aqui é onde você faz o trabalho de verdade. Todo desenvolvedor tem sua "
+"própria cópia de trabalho, algumas vezes conhecido como sandbox, no seu PC "
+"local. Você pode baixar a última versão do repositório, trabalhar nele "
+"localmente sem afetar os outros e então, quando estiver feliz com as "
+"mudanças que fez, enviá-las de volta ao repositório."
 
 #. (para)
 msgid ""
@@ -814,6 +898,10 @@ msgid ""
 "started making changes. This means that it is easy to check exactly what "
 "changes you have made."
 msgstr ""
+"Uma cópia de trabalho do Subversion não possui todo o histórico do projeto, "
+"mas mantem uma cópia dos arquivos como estavam no repositório antes de você "
+"começar a fazer modificações. Isto quer dizer que é fácil fazer a checagem "
+"das modificações que você realizou."
 
 #. (title)
 #. (title)
@@ -828,10 +916,15 @@ msgid ""
 " and you should see some new entries in the context menu like this: "
 "<placeholder-1/>"
 msgstr ""
+"Você também tem que saber onde encontrar o TortoiseSVN, pois não há muito do"
+" que se ver no Menu Inicial. Isso é porque o TortoiseSVN é uma extensão "
+"Shell, portanto, primeiro de tudo, inicie o Windows Explorer. Clique com o "
+"botão direito numa pasta no Explorer e você deverá ver umas entradas novas "
+"no menu de contexto como este: <placeholder-1/>"
 
 #. (title)
 msgid "Go for a Test Drive"
-msgstr ""
+msgstr "Vá em frente para um Teste"
 
 #. (para)
 msgid ""
@@ -842,6 +935,12 @@ msgid ""
 "you through things in much more detail. It also explains more about setting "
 "up a proper Subversion server."
 msgstr ""
+"Esta seção mostra como experimetar as features mais usadas em um repositório"
+" pequeno. Naturalmente, não se explica tudo - este é apenas um Guia Rápido "
+"apesar de tudo. Uma vez que você estiver com tudo rodando, deverá pegar um "
+"tempinho e ler o resto deste guia, que o leva a coisas com muito mais "
+"detalhes. Também é explicado mais sobre como configurar um servidor "
+"Subversion."
 
 #. (title)
 msgid "Creating a Repository"
@@ -1010,7 +1109,7 @@ msgstr ""
 
 #. (title)
 msgid "Viewing the Project History"
-msgstr ""
+msgstr "Vendo o Histórico do Projeto"
 
 #. (title)
 msgid "The Log Dialog"
@@ -1072,7 +1171,7 @@ msgstr ""
 
 #. (title)
 msgid "Moving On ..."
-msgstr "Movendo..."
+msgstr "Continuando..."
 
 #. (para)
 msgid ""
@@ -3208,7 +3307,7 @@ msgstr "menu do contexto"
 
 #. (primary)
 msgid "right click"
-msgstr ""
+msgstr "clique do botão direito"
 
 #. (title)
 msgid "Context menu for a directory under version control"
@@ -5330,6 +5429,8 @@ msgid ""
 "Developer A working on trunk moves <filename>Foo.c</filename> to "
 "<filename>Bar.c</filename> and commits it to the repository."
 msgstr ""
+"Desenvolvedor A trabalhando em trunk move <filename>Foo.c</filename> para "
+"<filename>Bar.c</filename> e o submete para o repositório."
 
 #. (para)
 msgid ""
@@ -18176,7 +18277,7 @@ msgstr "/torev:xxx"
 
 #. (option)
 msgid "/reintegrate"
-msgstr ""
+msgstr "/reintegrate"
 
 #. (entry)
 msgid ""

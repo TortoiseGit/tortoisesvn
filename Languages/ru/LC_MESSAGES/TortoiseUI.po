@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-17 08:38+0000\n"
+"PO-Revision-Date: 2011-07-24 12:36+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5390,6 +5390,10 @@ msgstr "Тип ловушки"
 msgid "Hook Type:"
 msgstr "Тип ловушки:"
 
+#. Resource IDs: (173)
+msgid "Hook script failed!"
+msgstr "Скрипт ловушки завершился неуспешно!"
+
 #. Resource IDs: (82)
 #, c-format
 msgid "Hostname mismatch (%s)"
@@ -7652,7 +7656,7 @@ msgstr "Ловушка перед-фиксацией"
 
 #. Resource IDs: (570)
 msgid "Pre-Connect Hook"
-msgstr "Ловушка перед-фиксацией"
+msgstr "Ловушка перед-соединением"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"

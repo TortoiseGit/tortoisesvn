@@ -9,6 +9,7 @@
 # $Rev$
 # 
 # Authors:
+# Entong Shen <dexter_shen@hotmail.com>, 2011.
 # stephen zhu <huasoft@163.com>, 2011.
 # pluwen <pluwen@gmail.com>, 2011.
 # Ziang Song <songziang@gmail.com>, 2011.
@@ -19,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-16 00:14+0000\n"
-"Last-Translator: zhugscn <huasoft@163.com>\n"
+"PO-Revision-Date: 2011-07-22 17:02+0000\n"
+"Last-Translator: entong <dexter_shen@hotmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4085,6 +4086,9 @@ msgid ""
 "based bug tracking support, just add your issue references as part of the "
 "log message. Learn more in <xref linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr ""
+"如果你激活了一个bug跟踪系统，你可以在<guilabel>Bug-ID / Issue-"
+"Nr:</guilabel>文本框中设置一个或多个问题。多个问题应该用逗号分割。或者，如果你使用基于正则表达式的bug跟踪支持，只要将你的问题引用作为日志信息的一部分加入就可以了。详情请见<xref"
+" linkend=\"tsvn-dug-bugtracker\"/>。"
 
 #. (title)
 msgid "Commit Progress"
@@ -7012,6 +7016,8 @@ msgid ""
 "was none before, or removing a whitespace completely is still shown as a "
 "change."
 msgstr ""
+"<guilabel>忽略空白修改</guilabel> 排除那些完全是针对空白数量或类型的修改，例如，修改缩进或者将 tab "
+"改为空格。在原来没有空白的地方增加空白或删除全部空白仍然会显示为修改。"
 
 #. (para)
 msgid ""
@@ -7367,7 +7373,7 @@ msgstr "增加"
 
 #. (primary)
 msgid "version new files"
-msgstr ""
+msgstr "给新文件添加版本控制"
 
 #. (title)
 #. (title)
@@ -7414,7 +7420,7 @@ msgstr "选择你要添加的文件"
 #. (para)
 msgid ""
 "<action>right drag</action> them to the new location inside the working copy"
-msgstr ""
+msgstr "用<action>鼠标右键拖拽</action>它们到工作副本的新位置"
 
 #. (para)
 #. (para)
@@ -7497,6 +7503,8 @@ msgid ""
 "can copy existing versioned content to a new location, possibly renaming it "
 "at the same time."
 msgstr ""
+"在工作副本中复制文件和目录的最简单的方法是使用右拖菜单。当你从一个工作副本&lt;action&gt;右拖&lt;/action&gt;文件或目录到另一个工作副本，甚至是在同一个目录中，当你释放鼠标时，就会出现一个上下文菜单。&lt;placeholder-1/&gt;"
+" 现在你可以复制受版本控制的内容到新位置，可能同时有改名操作。"
 
 #. (para)
 msgid ""
@@ -7727,6 +7735,9 @@ msgid ""
 "ignore <literal>*.tmp</literal> regardless of case, you could use a pattern "
 "like <literal>*.[Tt][Mm][Pp]</literal>."
 msgstr ""
+"模式匹配是大小写敏感的，这在 Windows 平台下会出问题。你可以使用成对的字符来强制忽略大小写。例如，忽略不记 "
+"<literal>*.tmp</literal> 的大小写，那么你可以使用像 <literal>*.[Tt][Mm][Pp]</literal> "
+"这样的模式。"
 
 #. (para)
 msgid ""
@@ -7891,6 +7902,10 @@ msgid ""
 "to...</guimenuitem></menuchoice> as the target for that copy operation "
 "select the path to your working copy."
 msgstr ""
+"如果你删除了一个文件或目录并已经提交该删除操作到版本库，那么 "
+"一个常规的<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>复原</guimenuitem></menuchoice>已不能再将其找回。但是该文件或目录并没有完全丢失。如果你知道该被删除文件或目录的版本(如果不能，使用日志对话框来查找出来)，打开数据仓库的浏览器，并选择那个版本。然后选择你删除的文件或目录，右键并选择<menuchoice><guimenu>Context"
+" "
+"Menu</guimenu><guimenuitem>复制到...</guimenuitem></menuchoice>作为目标执行复制操作，然后选择你的工作副本的路径。"
 
 #. (title)
 msgid "Moving files and folders"
@@ -7935,7 +7950,7 @@ msgid ""
 "If you want to move files around inside your working copy, perhaps to a "
 "different sub-folder, use the right mouse drag-and-drop handler: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "如果你想在工作副本中移动文件，比如移动到一个不同的子文件夹下，那么使用鼠标右键拖拽: <placeholder-1/>"
 
 #. (title)
 msgid "Commit the parent folder"
@@ -7973,6 +7988,12 @@ msgid ""
 "<menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
 msgstr ""
+"另外一种复制或移动文件的方法是通过Windows 的复制/移动命令. 首先选择你需要复制的文件, "
+"在资源管理器中右键点击并选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>复制</guimenuitem></menuchoice>."
+" "
+"然后进入目标文件夹，右键点击并选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>粘贴</guimenuitem></menuchoice>."
+" 对于移动文件，选择 "
+"<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>剪切</guimenuitem></menuchoice>而不是<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>复制</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -8448,6 +8469,8 @@ msgid ""
 "menu. Then either select an existing property in the combo box or enter a "
 "custom property name."
 msgstr ""
+"想添加没有自己的对话框的属性，从<guilabel>新建...</guilabel> "
+"菜单中选择<guimenuitem>高级</guimenuitem> 。然后从组合框中选择已经存在的属性或者输入自定义的属性名称。"
 
 #. (para)
 msgid ""
@@ -8455,6 +8478,7 @@ msgid ""
 "files/folders in explorer, then select <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
 msgstr ""
+"如果你想一次性设置许多文件的属性，在资源管理器中选择文件/文件夹，然后选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>属性</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -9643,6 +9667,8 @@ msgid ""
 "earlier revision), right click and choose <menuchoice><guimenuitem>create "
 "branch/tag from revision...</guimenuitem></menuchoice>."
 msgstr ""
+"还有一个方法就是从日志对话框。你可以显示某个文件夹，例如 "
+"trunk，的日志对话框，选择一个版本(可以是位于顶端的最新版本，也可以是先前的版本)，右键单击并选择<menuchoice><guimenuitem>从版本创建分支/标记</guimenuitem></menuchoice>。"
 
 #. (title)
 msgid "To Checkout or to Switch..."
@@ -10685,6 +10711,8 @@ msgid ""
 "is the way to do it, but you could become very unpopular with your co-"
 "workers if you lock them out of the whole project. Use with care ..."
 msgstr ""
+"如果你选择一个文件夹，使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>获取锁定...</guimenuitem></menuchoice>锁定对话框将显示<emphasis>所有</emphasis>子文件夹中的<emphasis>所有</emphasis>文件"
+" 。如果你真的要锁定整个目录，就这么做，但如果你这么做，可能会很不受你的合作者的欢迎。小心使用..."
 
 #. (title)
 msgid "Releasing a Lock"
@@ -10962,6 +10990,9 @@ msgid ""
 "Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from "
 "another app will not make the button appear."
 msgstr ""
+"从那个目录的右键菜单，点击<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>应用补丁...</guimenuitem></menuchoice>"
+" "
+"系统会弹出一个打开文件的对话框，让你选择要应用的补丁文件。默认情况下只显示<filename>.patch</filename>或者<filename>.diff</filename>文件，但是你可以选择\"所有文件\"。如果你以前将补丁保存到了剪贴板，可以使用打开文件对话框的<guibutton>从剪贴板打开...</guibutton>"
 
 #. (para)
 msgid ""
@@ -11248,6 +11279,7 @@ msgid ""
 "selected revision and the previous revision, then use the diff viewer to "
 "compare the two blame files."
 msgstr ""
+"在上面的面板里选择一个版本，然后在下面的面板选择一个文件然后选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>追溯改变</guimenuitem></menuchoice>。这会为选定版本及其上一个版本获取追溯数据，然后用差异阅读器比较两份追溯文件。"
 
 #. (term)
 msgid "Compare and Blame with Working BASE"
@@ -11521,6 +11553,7 @@ msgid ""
 "Menu</guimenu><guimenuitem>Copy error message to "
 "clipboard</guimenuitem></menuchoice>, or simply use <keycap>Ctrl+C</keycap>."
 msgstr ""
+"有时候当你访问一个路径时，会跳出一个错误信息。也许是不可用的URL，也许是你没有访问权限，或者其他的一些原因，如果你要把这些信息发送出去，只用点击它然后<menuchoice><guimenu>右键</guimenu><guimenuitem>复制错误信息到剪贴板</guimenuitem></menuchoice>，或者简单地用<action>CTRL+C</action>。"
 
 #. (title)
 msgid "Revision Graphs"
@@ -12793,6 +12826,7 @@ msgid ""
 "Menu</guimenu><guimenuitem>View revision in "
 "webviewer</guimenuitem></menuchoice>."
 msgstr ""
+"将这个属性设置为版本库浏览器显示所有本版本修改内容的url，它必须是URI编码的，也必须包含<literal>%REVISION%</literal>。在问题单中<literal>%REVISION%</literal>将会被替换成版本号。这允许TortoiseSVN在日志对话框的增加这样的条目<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>在版浏览器中查看此修订</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""
@@ -13112,6 +13146,10 @@ msgid ""
 "always use <guibutton>Show All</guibutton> or <guibutton>Next "
 "100</guibutton> to get more messages."
 msgstr ""
+"限制你首次选择 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>显示日志</guimenuitem></menuchoice>"
+" 时，TortoiseSVN 从服务器获取的日志信息数。在服务器连接缓慢时很有用。你可以使用 <guibutton>全部获取</guibutton> 或"
+" <guibutton>下100条</guibutton> 来获得更多信息。"
 
 #. (term)
 msgid "Font for log messages"
@@ -16654,6 +16692,11 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
 msgstr ""
+"推荐的方法是: "
+"用鼠标<action>右键拖拽</action>这些文件到新的位置。就是用鼠标<action>右键选中</action>想要移动或复制的文件，不要释放鼠标右键。把选中的文件拖拽到新的位置后释放鼠标右键。在出现的右键菜单里可以选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>SVN"
+" "
+"复制版本控制文件到当前位置</guimenuitem></menuchoice>或<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>SVN"
+" 移动版本控制文件到当前位置</guimenuitem></menuchoice>。"
 
 #. (title)
 msgid "Force users to enter a log message"
@@ -16805,6 +16848,8 @@ msgid ""
 "to use <guibutton>Show All</guibutton> or <guibutton>Next 100</guibutton> to"
 " show the revision(s) you are interested in."
 msgstr ""
+"选择<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>显示日志</guimenuitem></menuchoice>，显示出版本列表。有可能需要使用<guibutton>全部显示</guibutton>或者<guibutton>下100(条)</guibutton>"
+" 按钮，把想要恢复的版本显示出来。"
 
 #. (para)
 msgid ""
@@ -16816,6 +16861,7 @@ msgid ""
 "Menu</guimenu><guimenuitem>Revert changes from this "
 "revision</guimenuitem></menuchoice>."
 msgstr ""
+"选中想要恢复的版本。如果想要恢复一个版本范围，选中想要恢复的第一个版本，按住shift键，然后选中想要恢复的最后一个版本。注意，当恢复多个版本的时候，这些版本必须在列表中是连续的。用鼠标<action>右键点击</action>选中的版本(段)，然后选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>恢复这些版本的变更</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -16825,6 +16871,7 @@ msgid ""
 "revision</guimenuitem></menuchoice>. This will discard "
 "<emphasis>all</emphasis> changes after the selected revision."
 msgstr ""
+"如果想要把以前的某个版本变成最新版本，<action>右键点击</action>选中的版本，然后选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>恢复到此版本</guimenuitem></menuchoice>。就能够撤销被选中版本后面<emphasis>所有</emphasis>的变更。"
 
 #. (para)
 #. (para)
@@ -16934,6 +16981,7 @@ msgid ""
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare "
 "Revisions</guimenuitem></menuchoice>."
 msgstr ""
+"如果希望比较某个文件的两个历史版本，比如同一个文件修订版本100和200，可以用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>显示日志</guimenuitem></menuchoice>列出这个文件的历史版本纪录，选择希望比较的两个版本，然后使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>比较版本差异</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -16942,6 +16990,8 @@ msgid ""
 "trees, select the file in both places, then use <menuchoice><guimenu>Context"
 " Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
 msgstr ""
+"如果希望比较两个不同目录树下的同一个文件，比如主干和分支，可以使用版本库浏览器打开两个目录树，在两个目录树下选择同一个文件，然后使用 "
+"<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>比较版本差异</guimenuitem></menuchoice>。"
 
 #. (para)
 msgid ""
@@ -16959,6 +17009,8 @@ msgid ""
 " Revisions</guimenuitem></menuchoice> to see a summary of all differences, "
 "with minimal context."
 msgstr ""
+"如果希望比较两个目录树下的所有变化，比如主干和某个发布标签，可以使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>版本分支图</guimenuitem></menuchoice>。选择两个想要比较的节点，然后使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>比较最新版本</guimenuitem></menuchoice>，就会列出一个变更文件列表。在列表上选择单个文件就能够浏览该文件的具体变更内容。另外一个方法是使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>最新版本的标准差异(Unified"
+" diff)</guimenuitem></menuchoice>显示所有变更的汇总和最少限度的上下文。"
 
 #. (title)
 msgid "Include a common sub-project"

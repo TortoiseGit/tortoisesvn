@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-17 00:33+0000\n"
+"PO-Revision-Date: 2011-07-24 00:35+0000\n"
 "Last-Translator: benwfelt <benwfelt@gmail.com>\n"
 "Language-Team: Romanian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -810,7 +810,7 @@ msgstr "&Ignoră %d elemente după nume"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "&Ignoră ascendenţa"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -914,7 +914,7 @@ msgstr "&Mac (CR)"
 
 #. Resource IDs: (1562)
 msgid "&Make depth sticky"
-msgstr ""
+msgstr "Adânci&me persisentă"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
@@ -1417,7 +1417,7 @@ msgstr "&Copia de lucru"
 
 #. Resource IDs: (32881)
 msgid "&Wrap long lines"
-msgstr ""
+msgstr "Î&ncadrează linii lungi"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -1427,7 +1427,7 @@ msgstr "control pentru lista de &fișiere"
 msgid ""
 "'skip ranges' are used to mark revision ranges that have not been cached yet"
 msgstr ""
-"'intervale de saltare' sunt folosite pentru a marca intervale de revizii "
+"'intervale de omitere' sunt folosite pentru a marca intervale de revizii "
 "care încă nu au fost salvate în cache"
 
 #. Resource IDs: (272)
@@ -1509,7 +1509,7 @@ msgstr "(Numai schimbare de proprietate)"
 
 #. Resource IDs: (176)
 msgid "(props and content)"
-msgstr ""
+msgstr "(proprietăți și conținut)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -2115,7 +2115,7 @@ msgstr "Aranjează &vertical"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
-msgstr ""
+msgstr "Astfel cum este (fără EOL specific)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2240,7 +2240,7 @@ msgstr "Înapoi"
 
 #. Resource IDs: (65535)
 msgid "Background"
-msgstr ""
+msgstr "Fundal"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2470,6 +2470,8 @@ msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"Anulează\n"
+"Nu inversează."
 
 #. Resource IDs: (90)
 msgid ""
@@ -2500,6 +2502,8 @@ msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"Anulează\n"
+"Reveniți și înregistrați un număr de bug"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2512,6 +2516,8 @@ msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"Anulează\n"
+"Voi înregistra altă cale/URL."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2726,6 +2732,8 @@ msgstr "Se modifică referințele externe la revizia fixă"
 #. Resource IDs: (65535)
 msgid "Char position where to show a border line in commit text boxes:"
 msgstr ""
+"Poziția de caracter unde se afișează o linie de bordură în dialog de "
+"transmitere:"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -3081,6 +3089,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"Transmite numai dosarul\n"
+"Fișierele din dosar nu vor fi transmise."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3139,7 +3149,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "Transmitere la un tag"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3655,6 +3665,8 @@ msgstr ""
 msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr ""
+"Creează un dosar librărie cu opțiuni speciale pentru copii de lucru din "
+"Subversion"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3705,7 +3717,7 @@ msgstr "Personalizat"
 
 #. Resource IDs: (17)
 msgid "Custom depths"
-msgstr ""
+msgstr "Adâncimi personalizate"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -3765,7 +3777,7 @@ msgstr "Meniu implicit de aplicaţie. Apare când nu sunt documente deschise."
 
 #. Resource IDs: (81)
 msgid "Default directory structure successfully created!"
-msgstr ""
+msgstr "S-a creat sctructura implicită de dosare,"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4319,7 +4331,7 @@ msgstr "Sau numele sau IP-ul serverului proxy"
 
 #. Resource IDs: (265)
 msgid "Eliding mergeinfo"
-msgstr ""
+msgstr "Se elimină mergeinfo"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4335,7 +4347,7 @@ msgstr "Gol"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
-msgstr ""
+msgstr "Activează auto-proprietăți"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4345,7 +4357,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Enabled Overlay Handlers"
-msgstr ""
+msgstr "Suprapuneri active de iconițe"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4523,7 +4535,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr ""
+msgstr "Fiecare transmitere ar trebui să fie atribuit unui bug"
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -4926,7 +4938,7 @@ msgstr ""
 
 #. Resource IDs: (117)
 msgid "Filter by"
-msgstr ""
+msgstr "Filtrează după"
 
 #. Resource IDs: (65535)
 msgid "Filter match"
@@ -5253,7 +5265,7 @@ msgstr "Ascunde fereastră ataşată"
 
 #. Resource IDs: (1562)
 msgid "Hide non-mergeable revisions"
-msgstr ""
+msgstr "Ascunde revizii ne-îmbinabile"
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
@@ -5314,6 +5326,10 @@ msgstr "Tip hook"
 #. Resource IDs: (1334)
 msgid "Hook Type:"
 msgstr "Tip hook:"
+
+#. Resource IDs: (173)
+msgid "Hook script failed!"
+msgstr ""
 
 #. Resource IDs: (82)
 #, c-format
@@ -5500,7 +5516,7 @@ msgstr "Suprapuneri de iconiţe::Set de iconiţe"
 
 #. Resource IDs: (308)
 msgid "Icon Overlays::Overlay Handlers"
-msgstr ""
+msgstr "Suprapuneri de iconițe::Manageri de suprapunere"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5657,7 +5673,7 @@ msgstr "Ignoră %d elemente după &extensie"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Ignoră modificări de &EOL"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5665,7 +5681,7 @@ msgstr "Ignoră &toate spaţiile goale"
 
 #. Resource IDs: (1267)
 msgid "Ignore &ancestry"
-msgstr "Ignoră &ascendenţă"
+msgstr "Ignoră &ascendenţa"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
@@ -7656,6 +7672,8 @@ msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
 msgstr ""
+"Procedează fără număr de bug\n"
+"Transmiterea nu va fi atribuit unui bug"
 
 #. Resource IDs: (132)
 #, c-format
@@ -7937,7 +7955,7 @@ msgstr ""
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
-msgstr ""
+msgstr "Redirecționare la url"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -8028,7 +8046,7 @@ msgstr ""
 #. Resource IDs: (7)
 #, c-format
 msgid "Rejected patch hunks for '%s'"
-msgstr ""
+msgstr "Bucăți de petic respinse pentru '%s'"
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
@@ -8101,7 +8119,7 @@ msgstr "Se relocează..."
 
 #. Resource IDs: (501)
 msgid "Remember the depth for this working copy"
-msgstr ""
+msgstr "Adu-ți aminte de adâncimea acestei copii de lucru"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -8420,7 +8438,7 @@ msgstr "Reîncearcă"
 #. Resource IDs: (286)
 #, c-format
 msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr ""
+msgstr "Revizii invers-îmbinate %s din %s:"
 
 #. Resource IDs: (264)
 #, c-format
@@ -8709,7 +8727,7 @@ msgstr "URL SVN"
 
 #. Resource IDs: (17)
 msgid "SVN eol-style"
-msgstr "Stil eol SVN"
+msgstr "SVN eol-style"
 
 #. Resource IDs: (14)
 msgid "SVN mime-type"
@@ -9383,7 +9401,7 @@ msgstr "Afişează fişierul jurnalului de acţiune în editorul implicit de tex
 
 #. Resource IDs: (17)
 msgid "Shows the eol-style property value"
-msgstr "Afişează valoarea proprietăţii stilul eol"
+msgstr "Afişează valoarea proprietăţii eol-style"
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
@@ -9423,27 +9441,27 @@ msgstr "Mărimea cache-ului dacă acesta nu ar fi fost compresat"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "Omite"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "Omite tot"
 
 #. Resource IDs: (74)
 msgid "Skipped"
-msgstr "Sărit peste"
+msgstr "Omis"
 
 #. Resource IDs: (263)
 msgid "Skipped missing target"
-msgstr "S-a sărit peste destinaţia care lipseşte"
+msgstr "S-a omis destinaţia care lipseşte"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr ""
+msgstr "S-a omis copia de lucru obstructivă"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr ""
+msgstr "Omis, nu are părinte versionat"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9724,7 +9742,7 @@ msgstr ""
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
-msgstr ""
+msgstr "Subversion a raportat o eroare:"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -10149,6 +10167,7 @@ msgstr "Ultima operaţie de comutare a încercat să înlocuiască dosarul '%s'"
 #, c-format
 msgid "The last switch operation tried to replace the file '%s'"
 msgstr ""
+"Operația anterioară de comutare a încercat să înlocuiască fișierul '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -10640,6 +10659,8 @@ msgid ""
 "This product includes software from Apache™ Subversion® "
 "(http://subversion.apache.org)"
 msgstr ""
+"Aacest produs conține software din Apache™ Subversion® "
+"(http://subversion.apache.org)"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -11695,6 +11716,8 @@ msgid ""
 "You can disable specific Overlay handlers here.\n"
 "Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
 msgstr ""
+"Puteți dezactiva manageri specifice de suprapunere aici.\n"
+"Manageri dezactivate nu vor folosi un loc de suprapunere și vor da o șansa altor extensii shell să afișeze suprapunerile lor."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -11760,7 +11783,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "Nu ați înregistrat un număr de bug."
 
 #. Resource IDs: (1002)
 #, c-format
@@ -12386,7 +12409,7 @@ msgstr "înlocuit"
 
 #. Resource IDs: (220)
 msgid "respecting ancestry"
-msgstr "se respectă originile"
+msgstr "se respectă scendenţa"
 
 #. Resource IDs: (326)
 #, c-format
@@ -12420,7 +12443,7 @@ msgstr "se scanează calea:"
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
-msgstr "sare peste intervalele:"
+msgstr "omite intervalele:"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -12468,6 +12491,17 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
+"svn:externals\n"
+"O listă de module separate de linii noi, fiecare conținând\n"
+"o revizie opțională, un URL cu o revizie peg opțională și o cale relativă. De exemplu\n"
+"http://example.com/repos/zig foo\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\n"
+"\n"
+"URL-urile pot fi complete sau relative. Formatul unui URL relativ este:\n"
+"../ relativ la dosarul părinte a elementului extern\n"
+"^/ relativ la rădăcina depozitului\n"
+"// relativ la schema URL-ului\n"
+"/ relativ la nume de gazdă a server-ului"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12665,6 +12699,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for branch/tags/copies for users to fill in."
 msgstr ""
+"tsvn:logtemplatebranch\n"
+"Textul inserat în mesjul de jurnal în dialogurile de transmitere.\n"
+"Folosește acesta ca șablon pentru mesaj de branch/tag/copies."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12672,6 +12709,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for commits for users to fill in."
 msgstr ""
+"tsvn:logtemplatecommit\n"
+"Textul inserat în mesjul de jurnal în dialogurile de transmitere.\n"
+"Folosește acesta ca șablon pentru mesaj de transmitere."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12679,6 +12719,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for deletes for users to fill in."
 msgstr ""
+"tsvn:logtemplatedelete\n"
+"Textul inserat în mesjul de jurnal în dialogurile de transmitere.\n"
+"Folosește acesta ca șablon pentru mesaj de ștergere."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12686,6 +12729,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for imports for users to fill in."
 msgstr ""
+"tsvn:logtemplateimport\n"
+"Textul inserat în mesjul de jurnal în dialogurile de transmitere.\n"
+"Folosește acesta ca șablon pentru mesaj de importare."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12693,6 +12739,9 @@ msgid ""
 "String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
 "Use this as a log message template for get-locks for users to fill in."
 msgstr ""
+"tsvn:logtemplatelock\n"
+"Textul inserat în mesjul de jurnal în dialogurile de transmitere.\n"
+"Folosește acesta ca șablon pentru mesaj de get-lock."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12710,6 +12759,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for moves/renames for users to fill in."
 msgstr ""
+"tsvn:logtemplatemove\n"
+"Textul inserat în mesjul de jurnal în dialogurile de transmitere.\n"
+"Folosește acesta ca șablon pentru mesaj de mutare/redenumire."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12717,6 +12769,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
 msgstr ""
+"tsvn:logtemplatepropset\n"
+"Textul inserat în mesjul de jurnal în dialogurile de transmitere.\n"
+"Folosește acesta ca șablon pentru modificări de preferințe."
 
 #. Resource IDs: (578)
 msgid ""
