@@ -389,6 +389,15 @@ BOOL CEditPropertyValueDlg::PreTranslateMessage(MSG* pMsg)
             if (OnEnterPressed())
                 return TRUE;
             break;
+        case 'A':
+        case 'a':
+            if (GetKeyState(VK_CONTROL)&0x8000)
+            {
+                // select the whole text
+                SendDlgItemMessage(IDC_PROPVALUE, EM_SETSEL, 0, -1);
+                return TRUE;
+            }
+            break;
         default:
             break;
         }
