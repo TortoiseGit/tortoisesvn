@@ -102,6 +102,9 @@
     <ClCompile Include="zlib\zutil.c">
       <Filter>zlib</Filter>
     </ClCompile>
+    <ClCompile Include="APIHook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CrashRpt.rc">
@@ -189,6 +192,15 @@
     </ClInclude>
     <ClInclude Include="zlib\zutil.h">
       <Filter>zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="CmnHdr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Toolhelp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="APIHook.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

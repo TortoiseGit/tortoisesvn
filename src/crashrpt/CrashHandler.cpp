@@ -15,6 +15,7 @@
 #include "maindlg.h"
 #include "mailmsg.h"
 #include "WriteRegistry.h"
+#include "APIHook.h"
 #include "resource.h"
 
 #include <windows.h>
@@ -120,57 +121,7 @@ void CCrashHandler::Install(LPGETLOGFILE lpfn, LPCTSTR lpcszTo, LPCTSTR lpcszSub
     m_oldFilter = SetUnhandledExceptionFilter(CustomUnhandledExceptionFilter);
     /*m_oldErrorMode=*/ SetErrorMode( SEM_FAILCRITICALERRORS );
 
-
-    HMODULE hKernel32 = LoadLibrary(_T("kernel32.dll"));
-    if (hKernel32)
-    {
-        void *pOrgEntry = GetProcAddress(hKernel32, "SetUnhandledExceptionFilter");
-        if (pOrgEntry)
-        {
-            DWORD dwOldProtect = 0;
-            SIZE_T jmpSize = 5;
-#ifdef _M_X64
-            jmpSize = 13;
-#endif
-            BOOL bProt = VirtualProtect(pOrgEntry, jmpSize, 
-                PAGE_EXECUTE_READWRITE, &dwOldProtect);
-            BYTE newJump[20];
-            void *pNewFunc = &MyDummySetUnhandledExceptionFilter;
-#ifdef _M_IX86
-            DWORD dwOrgEntryAddr = (DWORD) pOrgEntry;
-            dwOrgEntryAddr += jmpSize; // add 5 for 5 op-codes for jmp rel32
-            DWORD dwNewEntryAddr = (DWORD) pNewFunc;
-            DWORD dwRelativeAddr = dwNewEntryAddr - dwOrgEntryAddr;
-            // JMP rel32: Jump near, relative, displacement relative to next instruction.
-            newJump[0] = 0xE9;  // JMP rel32
-            memcpy(&newJump[1], &dwRelativeAddr, sizeof(pNewFunc));
-#elif _M_X64
-            // We must use R10 or R11, because these are "scratch" registers 
-            // which need not to be preserved accross function calls
-            // For more info see: Register Usage for x64 64-Bit
-            // http://msdn.microsoft.com/en-us/library/ms794547.aspx
-            // Thanks to Matthew Smith!!!
-            newJump[0] = 0x49;  // MOV R11, ...
-            newJump[1] = 0xBB;  // ...
-            memcpy(&newJump[2], &pNewFunc, sizeof (pNewFunc));
-            //pCur += sizeof (ULONG_PTR);
-            newJump[10] = 0x41;  // JMP R11, ...
-            newJump[11] = 0xFF;  // ...
-            newJump[12] = 0xE3;  // ...
-#endif
-            SIZE_T bytesWritten;
-            BOOL bRet = WriteProcessMemory(GetCurrentProcess(),
-                pOrgEntry, newJump, jmpSize, &bytesWritten);
-
-            if (bProt != FALSE)
-            {
-                DWORD dwBuf;
-                VirtualProtect(pOrgEntry, jmpSize, dwOldProtect, &dwBuf);
-            }
-
-        }
-    }
-
+    m_APIHook.Install("kernel32.dll", "SetUnhandledExceptionFilter", (PROC)MyDummySetUnhandledExceptionFilter);
     m_installed = true;
 }
 
@@ -179,6 +130,7 @@ void CCrashHandler::Uninstall()
 #ifdef _DEBUG
     OutputDebugString("Uninstall\n");
 #endif
+    m_APIHook.Uninstall();
     // reset exception callback (to previous filter, which can be NULL)
     SetUnhandledExceptionFilter(m_oldFilter);
     m_installed = false;

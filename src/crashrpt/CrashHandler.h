@@ -14,6 +14,7 @@
 
 #include "crashrpt.h"      // defines LPGETLOGFILE callback
 #include "excprpt.h"       // bulk of crash report generation
+#include "APIHook.h"
 
 #ifndef TStrStrVector
 #include <vector>
@@ -405,5 +406,6 @@ protected:
    string                        m_userDataFile;   // file to save user input when m_sTo is empty
    bool                          m_wantDebug;      // user pushed Debug button
    BOOL                          m_bUseUI;         // use an UI or print to the error output
+   CAPIHook                      m_APIHook;
 };
 

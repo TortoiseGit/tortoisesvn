@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="APIHook.cpp" />
     <ClCompile Include="BaseDialog.cpp" />
     <ClCompile Include="CrashHandler.cpp" />
     <ClCompile Include="CrashRpt.cpp" />
@@ -306,7 +307,9 @@
     <ResourceCompile Include="CrashRpt.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="APIHook.h" />
     <ClInclude Include="BaseDialog.h" />
+    <ClInclude Include="CmnHdr.h" />
     <ClInclude Include="CrashHandler.h" />
     <ClInclude Include="CrashReport.h" />
     <ClInclude Include="CrashRpt.h" />
@@ -317,6 +320,7 @@
     <ClInclude Include="StackTrace.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="SymbolEngine.h" />
+    <ClInclude Include="Toolhelp.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="WriteRegistry.h" />
     <ClInclude Include="zlib\deflate.h" />
