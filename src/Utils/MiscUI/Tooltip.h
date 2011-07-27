@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008, 2010 - TortoiseSVN
+// Copyright (C) 2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,6 +51,7 @@ public:
 
     static BOOL ShowBalloon(CWnd* pWnd, UINT nIDText, UINT nIDTitle, UINT icon = 0);
     void ShowBalloon(int nIdWnd, UINT nIdText, UINT nIDTitle, UINT icon = 0);
+    void RelayEvent(LPMSG lpMsg, CWnd * dlgWnd = NULL);
 
     DECLARE_MESSAGE_MAP()
     afx_msg BOOL OnTtnNeedText(NMHDR *pNMHDR, LRESULT *pResult);

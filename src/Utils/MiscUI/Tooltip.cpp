@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010 - TortoiseSVN
+// Copyright (C) 2008-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -133,4 +133,52 @@ CString CToolTips::LoadTooltip( UINT nIDText )
     sTemp.Replace(_T("\r\n"), _T("\n"));
     sTemp.Replace(_T("\n"), _T("\r\n"));
     return sTemp;
+}
+
+void CToolTips::RelayEvent( LPMSG lpMsg, CWnd * dlgWnd )
+{
+    if(dlgWnd && ((lpMsg->message == WM_MOUSEMOVE) || (lpMsg->message == WM_NCMOUSEMOVE)) && (lpMsg->hwnd == dlgWnd->m_hWnd))
+    {
+        // allow tooltips for disabled controls
+        CRect  rect;
+        POINT  pt;
+
+        pt.x = LOWORD(lpMsg->lParam);
+        pt.y = HIWORD(lpMsg->lParam);
+
+        for (auto it = toolTextMap.cbegin(); it != toolTextMap.cend(); ++it)
+        {
+            CWnd * pWndCtrl = dlgWnd->GetDlgItem(it->first);
+            pWndCtrl->GetWindowRect(&rect);
+            if (lpMsg->message == WM_MOUSEMOVE)
+                dlgWnd->ScreenToClient(&rect);
+
+            if(rect.PtInRect(pt) )
+            {
+                // save the original parameters
+                HWND origHwnd = lpMsg->hwnd;
+                LPARAM origLParam = lpMsg->lParam;
+
+                // translate and relay the mouse move message to
+                // the tooltip control as if they were sent
+                // by the disabled control
+                lpMsg->hwnd = pWndCtrl->m_hWnd;
+
+                if (lpMsg->message == WM_MOUSEMOVE)
+                    dlgWnd->ClientToScreen(&pt);
+                pWndCtrl->ScreenToClient(&pt);
+                lpMsg->lParam = MAKELPARAM(pt.x, pt.y);
+
+                __super::RelayEvent(lpMsg);
+
+                // restore the original parameters
+                lpMsg->hwnd = origHwnd;
+                lpMsg->lParam = origLParam;
+                return;
+            }
+        }
+    }
+
+    // Let the ToolTip process this message.
+   __super::RelayEvent(lpMsg);
 }
