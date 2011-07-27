@@ -80,6 +80,11 @@ void CToolTips::DelTool( CWnd* pWnd, UINT_PTR nIDTool /* = 0 */)
     return CToolTipCtrl::DelTool(pWnd, nIDTool);
 }
 
+void CToolTips::DelTool( int nIdWnd, UINT_PTR nIDTool /* = 0 */)
+{
+    return DelTool(((CDialog*)m_pParentWnd)->GetDlgItem(nIdWnd), nIDTool);
+}
+
 BOOL CToolTips::ShowBalloon(CWnd *pWnd, UINT nIDText, UINT nIDTitle, UINT icon /* = 0 */)
 {
     CString sTemp = LoadTooltip(nIDText);
