@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-24 00:35+0000\n"
+"PO-Revision-Date: 2011-07-25 19:53+0000\n"
 "Last-Translator: ivucica <ivan@vucica.net>\n"
 "Language-Team: Croatian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -537,7 +537,7 @@ msgstr "&Izaberi komande od:"
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
-msgstr ""
+msgstr "&Počisti..."
 
 #. Resource IDs: (58112)
 msgid "&Close"
@@ -5375,7 +5375,7 @@ msgstr "Vrsta skripte:"
 
 #. Resource IDs: (173)
 msgid "Hook script failed!"
-msgstr ""
+msgstr "Zakačena skripta nije uspjela!"
 
 #. Resource IDs: (82)
 #, c-format
@@ -11591,6 +11591,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"Upotrijebite dnevnički prozor kako biste odabrali revizije koje želite stopiti, ili unesite revizije za stapanje odvojene razmacima. Raspon revizija možete odrediti crticom.\n"
+"\n"
+"Primjer: 4-7,9,11,15-HEAD@pegrevision\n"
+"\n"
+"Kako biste stopili sve revizije, ostavite kućicu za unos praznom."
 
 #. Resource IDs: (314)
 #, c-format
