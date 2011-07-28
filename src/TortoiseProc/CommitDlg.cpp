@@ -156,12 +156,11 @@ BOOL CCommitDlg::OnInitDialog()
     CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKFILES)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
     CAppUtils::SetAccProperty(GetDlgItem(IDC_CHECKDIRECTORIES)->GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
 
-    OnEnChangeLogmessage();
-
     m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_EXTERNALWARNING, IDS_COMMITDLG_EXTERNALS);
     m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 
+    OnEnChangeLogmessage();
 
     GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
@@ -946,7 +945,7 @@ void CCommitDlg::OnCancel()
 BOOL CCommitDlg::PreTranslateMessage(MSG* pMsg)
 {
     if (!m_bBlock)
-        m_tooltips.RelayEvent(pMsg);
+        m_tooltips.RelayEvent(pMsg, this);
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)
@@ -1560,6 +1559,13 @@ void CCommitDlg::UpdateOKButton()
         bValidLogSize = !m_bBlock;
 
     LONG nSelectedItems = m_ListCtrl.GetSelected();
+    if (!bValidLogSize)
+        m_tooltips.AddTool(IDOK, IDS_COMMITDLG_MSGLENGTH);
+    else if (nSelectedItems == 0)
+        m_tooltips.AddTool(IDOK, IDS_COMMITDLG_NOTHINGSELECTED);
+    else
+        m_tooltips.DelTool(IDOK);
+
     DialogEnableWindow(IDOK, bValidLogSize && nSelectedItems>0);
 }
 
