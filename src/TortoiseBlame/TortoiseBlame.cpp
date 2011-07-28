@@ -1301,6 +1301,15 @@ void TortoiseBlame::RunCommand(const tstring& command)
     CCreateProcessHelper::CreateProcessDetached(tortoiseProcPath.c_str(), const_cast<TCHAR*>(command.c_str()));
 }
 
+static void ProcessWindowsMessage(HWND window, HACCEL table, MSG& message)
+{
+    if (TranslateAccelerator(window, table, &message) == 0)
+    {
+        TranslateMessage(&message);
+        DispatchMessage(&message);
+    }
+}
+
 // Forward declarations of functions included in this code module:
 ATOM                MyRegisterClass(HINSTANCE hResource);
 ATOM                MyRegisterBlameClass(HINSTANCE hResource);
@@ -1319,8 +1328,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                      int       nCmdShow)
 {
     app.hInstance = hInstance;
-    MSG msg;
-    HACCEL hAccelTable;
 
     SetDllDirectory(L"");
     if (::LoadLibrary(_T("SciLexer.DLL")) == NULL)
@@ -1397,32 +1404,19 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     CheckMenuItem(GetMenu(app.wMain), ID_VIEW_COLORAGEOFLINES, MF_CHECKED|MF_BYCOMMAND);
 
-
-    hAccelTable = LoadAccelerators(app.hResource, (LPCTSTR)IDC_TORTOISEBLAME);
-
-    BOOL going = TRUE;
-    msg.wParam = 0;
-    while (going)
+    HACCEL hAccelTable = LoadAccelerators(app.hResource, (LPCTSTR)IDC_TORTOISEBLAME);
+    MSG msg = {};
+    while (GetMessage(&msg, NULL, 0, 0) > 0)
     {
-        going = GetMessage(&msg, NULL, 0, 0);
-        if (app.currentDialog && going)
+        if (app.currentDialog == 0)
         {
-            if (!IsDialogMessage(app.currentDialog, &msg))
-            {
-                if (TranslateAccelerator(msg.hwnd, hAccelTable, &msg) == 0)
-                {
-                    TranslateMessage(&msg);
-                    DispatchMessage(&msg);
-                }
-            }
+            ProcessWindowsMessage(app.wMain, hAccelTable, msg);
+            continue;
         }
-        else if (going)
+
+        if (!IsDialogMessage(app.currentDialog, &msg))
         {
-            if (TranslateAccelerator(app.wMain, hAccelTable, &msg) == 0)
-            {
-                TranslateMessage(&msg);
-                DispatchMessage(&msg);
-            }
+            ProcessWindowsMessage(msg.hwnd, hAccelTable, msg);
         }
     }
     langDLL.Close();
