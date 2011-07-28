@@ -43,33 +43,34 @@ STDAPI DllRegisterServer();
 STDAPI DllUnregisterServer();
 static void AutomationMain();
 static void RunOutprocServer();
+static void ImplWinMain();
 
 int APIENTRY _tWinMain(HINSTANCE /*hInstance*/,
                        HINSTANCE /*hPrevInstance*/,
                        LPTSTR    /*lpCmdLine*/,
                        int       /*nCmdShow*/)
 {
+    ImplWinMain();
+    return 0;
+}
+
+static void ImplWinMain()
+{
     int argc = 0;
     LPWSTR * argv = CommandLineToArgvW(GetCommandLine(), &argc);
-    if ((NULL != argv) && (argc >= 2) && (argc <= 5))
+    if (argv == 0)
+        return;
+
+    if ((argc >= 2) && (argc <= 5))
     {
         if (_tcscmp(argv[1], _T("/automation"))==0)
-        {
             AutomationMain();
-            return 0;
-        }
         else if (_tcscmp(argv[1], _T("unregserver"))==0)
-        {
             DllUnregisterServer();
-            return 0;
-        }
         else if (_tcscmp(argv[1], _T("regserver"))==0)
-        {
             DllRegisterServer();
-            return 0;
-        }
     }
-    return 0;
+    LocalFree(argv);
 }
 
 static void AutomationMain()

@@ -309,8 +309,6 @@ BOOL CTortoiseProcApp::InitInstance()
             // and that means the value of /expaths is the current directory, and
             // the selected paths are then added as additional parameters but without a key, only a value
 
-            LPWSTR *szArglist;
-            int nArgs;
             // because of the "strange treatment of quotation marks and backslashes by CommandLineToArgvW"
             // we have to escape the backslashes first. Since we're only dealing with paths here, that's
             // a save bet.
@@ -323,7 +321,8 @@ BOOL CTortoiseProcApp::InitInstance()
             // See here for more details: http://blogs.msdn.com/b/oldnewthing/archive/2010/09/17/10063629.aspx
             CString cmdLine = GetCommandLineW();
             cmdLine.Replace(L"\\", L"\\\\");
-            szArglist = CommandLineToArgvW(cmdLine, &nArgs);
+            int nArgs = 0;
+            LPWSTR *szArglist = CommandLineToArgvW(cmdLine, &nArgs);
             if (szArglist)
             {
                 // argument 0 is the process path, so start with 1
@@ -339,6 +338,7 @@ BOOL CTortoiseProcApp::InitInstance()
                 }
                 sPathArgument.Replace(L"\\\\", L"\\");
             }
+            LocalFree(szArglist);
         }
         if (sPathArgument.IsEmpty() && parser.HasKey(L"path"))
         {
