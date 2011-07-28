@@ -179,7 +179,7 @@ ULONG __stdcall SubWCRev::Release()
 HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL folders, /*[in]*/VARIANT_BOOL externals)
 {
     if (wcPath==NULL)
-        return ERROR_INVALID_PARAMETER;
+        return E_INVALIDARG;
 
     memset (&SubStat, 0, sizeof (SubStat));
     SubStat.bFolders = folders;
