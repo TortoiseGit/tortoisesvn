@@ -9,6 +9,7 @@
 # $Rev$
 # 
 # Authors:
+#   <cool.dark.nexus@gmail.com>, 2011.
 #   <gdelahuebra@hotmail.com>, 2011.
 #   <luiceur@gmail.com>, 2011.
 # cuscu <agua.cuscu@gmail.com>, 2011.
@@ -18,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-27 00:18+0000\n"
-"Last-Translator: ggh <gdelahuebra@hotmail.com>\n"
+"PO-Revision-Date: 2011-07-28 08:02+0000\n"
+"Last-Translator: dark_nexus <cool.dark.nexus@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13251,6 +13252,14 @@ msgid ""
 "that same image file, because the lock for that file resides in his working "
 "copy in the office."
 msgstr ""
+"Por poner un ejemplo, imagina que el usuario Jon tiene un copia de trabajo "
+"en el PC de su oficina. Allí empieza a trabajar en una imagen, y por lo "
+"tanto adquiere el bloqueo de ese fichero. Cuando deja su oficina aún no ha "
+"terminado con ese fichero, por lo que no libera dicho bloqueo. De vuelta a "
+"casa Jon también tiene una copia de trabajo y decide trabajar un poco más en"
+" el proyecto. Pero no puede modificar o hacer un commit de ese fichero de "
+"imagen, puesto que el bloqueo para el fichero se encuentra en la copia de "
+"trabajo de su oficina."
 
 #. (para)
 msgid ""
@@ -13359,6 +13368,10 @@ msgid ""
 "to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
 "properties."
 msgstr ""
+"Puede activar la propiedad <literal>tsvn:logtemplatelock</literal> para "
+"proporcionar una plantilla de mensaje para que la rellenen los usuarios como"
+" el mensaje del bloqueo. Consulte <xref linkend=\"tsvn-dug-propertypage\"/> "
+"para las instrucciones sobre cómo activar las propiedades."
 
 #. (para)
 msgid ""
@@ -14213,6 +14226,10 @@ msgid ""
 " on them to indicate that they are not part of the repository structure, "
 "just links."
 msgstr ""
+"Las carpetas que contienen la propiedad <literal>svn:externals</literal> "
+"también se muestran en el navegador del repositorio. Estas carpetas se "
+"muestran con una pequeña flecha sobre ellas para indicar que no son parte de"
+" la estructura del repositorio, sino simplemente enlaces."
 
 #. (para)
 msgid ""
@@ -14567,6 +14584,11 @@ msgid ""
 " the "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
 msgstr ""
+"Los objetos que se han añadido, o creado al copiar otro fichero/carpeta, se "
+"muestran empleando un rectángulo redondeado. El color por defecto es el "
+"verde. Etiquetas y trunks se tratan como un caso especial y utilizan un tono"
+" diferente, dependiendo de "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
 
 #. (term)
 msgid "Deleted items"
@@ -14577,6 +14599,9 @@ msgid ""
 "Deleted items e.g. a branch which is no longer required, are shown using an "
 "octagon (rectangle with corners cut off). The default colour is red."
 msgstr ""
+"Objetos eliminados, por ejemplo una rama que ya no es necesaria, se muestran"
+" usando un octágono (rectángulo con las esquinas recortadas). El color por "
+"defecto es el rojo."
 
 #. (term)
 msgid "Renamed items"
@@ -15334,6 +15359,11 @@ msgid ""
 "option to overwrite the existing content, or to create a new folder with an "
 "automatically generated name, e.g. <literal>Target (1)</literal>."
 msgstr ""
+"Cuando se exporta de una copia de trabajo, si la carpeta objetivo una "
+"carpeta con el mismo nombre que aquella que estás exportando, se te dará la "
+"opción de sobreescribir el contenido existente, o crear una nueva carpeta "
+"con un nombre generado de manera automática, por ejemplo <literal>Objetivo "
+"(1)</literal>."
 
 #. (title)
 msgid "Exporting single files"
@@ -15456,6 +15486,9 @@ msgid ""
 "This operation only works on working copy <emphasis>roots</emphasis>. So the"
 " context menu entry is only shown for working copy roots."
 msgstr ""
+"Esta operación sólo funciona para <emphasis>raíces</emphasis> de la copia de"
+" trabajo. Así que la entrada del menu contextual sólo se muestra para raíces"
+" de la copia de trabajo."
 
 #. (para)
 msgid ""
@@ -16611,6 +16644,11 @@ msgid ""
 "process, and many people prefer to avoid the wait after an accidental double"
 " click, which is why this option is not enabled by default."
 msgstr ""
+"Si con frecuencia te encuentras comparando revisiones en el panel superior "
+"del diálogo del log, puedes usar esta opción para permitir dicha acción con "
+"un doble clic. No se permite por defecto porque adquirir el diff es con "
+"frecuencia un proceso prolongado, y muchos prefieren evitar la espera tras "
+"un doble clic, por este motivo esta opción no está activada por defecto."
 
 #. (term)
 msgid "Auto-close"
@@ -16889,6 +16927,10 @@ msgid ""
 " hook rejects commit, network error, etc), you can select this option to "
 "keep the commit dialog open ready to try again."
 msgstr ""
+"Cuando una confirmación falla por alguna razón (la copia de trabajo necesita"
+" actualizarse, gancho pre-confirmación rechaza la confirmación, error de "
+"red, etc), puede seleccionar esta opción para mantener el diálogo de "
+"confirmación abierto y listo para intentarlo de nuevo."
 
 #. (term)
 msgid "Select items automatically"
@@ -20281,6 +20323,13 @@ msgid ""
 "required include files you need to build your plugin. (<xref linkend=\"tsvn-"
 "preface-source\"/> explains how to access the repository.)"
 msgstr ""
+"No podemos proporcionar información y tutoriales acerca de cómo implementar "
+"un objeto COM en tu lenguaje de programación favorito, pero tenemos ejemplos"
+" de plugins en C++/ALT y C# en nuestro repositorio en la carpeta "
+"<filename>contrib/issue-tracker-plugins</filename>. En esa carpeta también "
+"puede encontrar los ficheros de include necesarios para construir tu plugin."
+" (<xref linkend=\"tsvn-preface-source\"/> explica cómo acceder al "
+"repositorio.)"
 
 #. (para)
 msgid ""

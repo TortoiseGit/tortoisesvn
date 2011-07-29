@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-26 21:38+0000\n"
+"PO-Revision-Date: 2011-07-29 00:29+0000\n"
 "Last-Translator: beginaFekicysym <>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5253,6 +5253,10 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Typ wykresu:"
 
+#. Resource IDs: (273)
+msgid "Graphs for repository roots are always empty!"
+msgstr ""
+
 #. Resource IDs: (16972)
 msgid "Gray"
 msgstr "Szary"
@@ -5722,8 +5726,9 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid ""
-"If you want to break the lock, use the 'Check For Modifications' dialog."
-msgstr "Jeżeli chcesz złamać blokadę, użyj okna 'Sprawdź zmiany'."
+"If you want to break the lock, use the 'Check For Modifications' dialog or "
+"the repository browser."
+msgstr ""
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -6384,6 +6389,10 @@ msgstr "Opisy zmian"
 #. Resource IDs: (1386)
 msgid "Log message"
 msgstr "Opis zmian"
+
+#. Resource IDs: (173)
+msgid "Log message is too short!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Log messages"
@@ -7107,7 +7116,11 @@ msgstr ""
 
 #. Resource IDs: (1557)
 msgid "Note: this property has no effect on Windows"
-msgstr "Uwaga: ta właściwość nie przynosi efektu w systemie Windows"
+msgstr "Uwaga: ten atrybut nie ma zastosowania w systemie Windows"
+
+#. Resource IDs: (173)
+msgid "Nothing is selected for commit!"
+msgstr ""
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -8458,7 +8471,7 @@ msgstr "Żądanie anulowane przez TSVN"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
-msgstr "Żąda nazwy użytkownika i hasła"
+msgstr "Prośba o nazwę użytkownika i hasło"
 
 #. Resource IDs: (8)
 msgid "Res&olved..."

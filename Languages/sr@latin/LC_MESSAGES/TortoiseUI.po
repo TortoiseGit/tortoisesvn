@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-25 17:53+0000\n"
+"PO-Revision-Date: 2011-07-29 00:29+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "%.2f MBajta preneto"
 #. Resource IDs: (357)
 #, c-format
 msgid "%.2f kBytes/s"
-msgstr "%.2f kBajta/s"
+msgstr "%.2f kBajt/a"
 
 #. Resource IDs: (3868)
 #, c-format
@@ -166,7 +166,7 @@ msgstr "%I64d Bajta preneto"
 #. Resource IDs: (357)
 #, c-format
 msgid "%I64d Bytes/s"
-msgstr "%I64d Bajta/s"
+msgstr "%I64d Bajt/a"
 
 #. Resource IDs: (357)
 #, c-format
@@ -5232,6 +5232,10 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Vrsta grafa:"
 
+#. Resource IDs: (273)
+msgid "Graphs for repository roots are always empty!"
+msgstr ""
+
 #. Resource IDs: (16972)
 msgid "Gray"
 msgstr "Siva"
@@ -5701,8 +5705,9 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid ""
-"If you want to break the lock, use the 'Check For Modifications' dialog."
-msgstr "Ako želite ukloniti katanac koristite dijalog 'Provera izmena'."
+"If you want to break the lock, use the 'Check For Modifications' dialog or "
+"the repository browser."
+msgstr ""
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -6361,6 +6366,10 @@ msgstr "Poruke dnevnika"
 #. Resource IDs: (1386)
 msgid "Log message"
 msgstr "Poruka dnevnika"
+
+#. Resource IDs: (173)
+msgid "Log message is too short!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Log messages"
@@ -7080,6 +7089,10 @@ msgstr "Primedba: ovo se odnosinasveTortoise kliente, nesamoTortoiseSVN"
 #. Resource IDs: (1557)
 msgid "Note: this property has no effect on Windows"
 msgstr "Primedba: ova osobina ne utiče na Vindouz"
+
+#. Resource IDs: (173)
+msgid "Nothing is selected for commit!"
+msgstr ""
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -11008,7 +11021,7 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr ""
-"TortoiseSVNje proširenje programske školjke.\n"
+"TortoiseSVNJe proširenje programske školjke.\n"
 "To znači da je integrisan u  Windows explorer.\n"
 "Da biste koristili TortoiseSVNmolim vas otvorite pretraživač i kliknite desnim tasterom na željeni imenik\n"
 "da biste dobili konekstni meni gde ćete naći sve TortozSVN komande.\n"

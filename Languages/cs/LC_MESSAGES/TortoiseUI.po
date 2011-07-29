@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-24 20:25+0000\n"
+"PO-Revision-Date: 2011-07-29 14:12+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1192,7 +1192,7 @@ msgstr "Uložit &seznam vybraných souborů do..."
 
 #. Resource IDs: (1308)
 msgid "&Save value..."
-msgstr "&Uložit hodnotu..."
+msgstr "&Ulož hodnotu..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1268,7 +1268,7 @@ msgstr "&Značky"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
-msgstr "&Testovat sloučení"
+msgstr "&Test sloučení"
 
 #. Resource IDs: (16915)
 msgid "&Text"
@@ -1420,7 +1420,7 @@ msgstr "&Zalomit dlouhé řádky"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
-msgstr "&ovládání seznamu soborů"
+msgstr "&ovládání seznamu souborů"
 
 #. Resource IDs: (338)
 msgid ""
@@ -1689,7 +1689,7 @@ msgstr "Zrušit"
 
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
-msgstr "Zrušit &slučování"
+msgstr "Zrušit &Slučování"
 
 #. Resource IDs: (9)
 msgid "About"
@@ -3229,7 +3229,7 @@ msgstr "Nastavit Hákové Skripty"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
-msgstr "Konfigurace Integrace s  hlídačem problémů"
+msgstr "Nastavit Integraci se Sledovačem Problémů"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
@@ -4310,7 +4310,7 @@ msgstr "Upravit jméno autora"
 
 #. Resource IDs: (315)
 msgid "Edit bugtraq properties"
-msgstr "Upravit Vlastnosti slodavače problémů"
+msgstr "Upravit vlastnosti sledovače problémů"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
@@ -4322,7 +4322,7 @@ msgstr "Upravit určený program dle přípony pro sloučení"
 
 #. Resource IDs: (321)
 msgid "Edit language properties"
-msgstr "Upravit jazykové Vlastnosti"
+msgstr "Upravit jazykové vlastnosti"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -5211,6 +5211,10 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Typ grafu:"
 
+#. Resource IDs: (273)
+msgid "Graphs for repository roots are always empty!"
+msgstr "Grafy pro kořeny úložiště jsou vždy prázdné!"
+
 #. Resource IDs: (16972)
 msgid "Gray"
 msgstr "Šedá"
@@ -5317,7 +5321,7 @@ msgid ""
 "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
 "children too"
 msgstr ""
-"Tip: Zmáčkněte F5 pro znovunačtení vybraného podstromu a Ctrl-F5 pro načtení"
+"Tip: Stiskněte F5 pro znovunačtení vybraného podstromu a Ctrl-F5 pro načtení"
 " všech podvětví"
 
 #. Resource IDs: (16519)
@@ -5678,9 +5682,11 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid ""
-"If you want to break the lock, use the 'Check For Modifications' dialog."
+"If you want to break the lock, use the 'Check For Modifications' dialog or "
+"the repository browser."
 msgstr ""
-"Pokud chcete rozbít zámek, použijte dialogové okno 'Zkontrolovat změny'."
+"Pokud chcete rozbít zámek, použijte dialogové okno \"Zkontrolovat změny\", "
+"nebo průzkumníka úložiště."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5803,7 +5809,7 @@ msgstr "Importovat %ld položek"
 
 #. Resource IDs: (1386)
 msgid "Import &message"
-msgstr "I&mportovat zprávu"
+msgstr "Zpráva &importu"
 
 #. Resource IDs: (581)
 msgid "Import a previously saved set of properties from a file"
@@ -6338,6 +6344,10 @@ msgstr "Zprávy záznamu"
 msgid "Log message"
 msgstr "Zpráva záznamu"
 
+#. Resource IDs: (173)
+msgid "Log message is too short!"
+msgstr "Zpráva záznamu je příliš krátká!"
+
 #. Resource IDs: (65535)
 msgid "Log messages"
 msgstr "Zprávy záznamu"
@@ -6591,7 +6601,7 @@ msgstr "Zpráva"
 
 #. Resource IDs: (1574)
 msgid "Message &label:"
-msgstr "&Śtítek zprávy:"
+msgstr "Štítek &zprávy:"
 
 #. Resource IDs: (1573)
 msgid "Message &pattern:"
@@ -7056,6 +7066,10 @@ msgstr "Poznámka: toto ovlivní všecny Tortoise klienty, ne pouze TortoiseSVN!
 #. Resource IDs: (1557)
 msgid "Note: this property has no effect on Windows"
 msgstr "Poznámka: tato vlastnost nemá ve Windows význam"
+
+#. Resource IDs: (173)
+msgid "Nothing is selected for commit!"
+msgstr "Pro odevzdání není nic vybráno!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7905,7 +7919,7 @@ msgstr "Obnovit &výchozí"
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
-msgstr "Na&vrátit..."
+msgstr "&Vrátit..."
 
 #. Resource IDs: (1033)
 msgid "Re&vision"
@@ -8436,7 +8450,7 @@ msgstr "Vyřešit konflikt použitím 'jejich verze'"
 
 #. Resource IDs: (1403)
 msgid "Resolve conflict:"
-msgstr "Vyřešit konflikt:"
+msgstr "Vyřešte konflikt:"
 
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
@@ -8797,7 +8811,7 @@ msgid ""
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
 msgstr ""
-"Ukázková zpráva záznamu ke zkoušce řetězců bugtraq:regulárního výrazu.\n"
+"Ukázková zpráva záznamu ke zkoušce řetězců bugtraq: regulárního výrazu.\n"
 "\n"
 "Zkouška zmínky o problémech uvnitř textu: Zmínit problém #55. Zmínit problémy #77, #78.\n"
 "\n"
@@ -9415,18 +9429,18 @@ msgid ""
 "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld!"
 " revision(s) selected, showing %5!ld! changed paths"
 msgstr ""
-"Ukazuji %1!ld! revize, od revize %2!ld! do revize %3!ld! - vybráno %4!ld! "
+"Zobrazuji %1!ld! revizí, od revize %2!ld! do revize %3!ld! - vybráno %4!ld! "
 "revizí, zobrazuji %5!ld! změněných cest"
 
 #. Resource IDs: (272)
 #, c-format
 msgid "Showing %ld nodes"
-msgstr "Ukazuji %ld uzlů"
+msgstr "Zobrazuji %ld uzlů"
 
 #. Resource IDs: (272)
 #, c-format
 msgid "Showing graph for %s"
-msgstr "Ukazuji graf pro %s"
+msgstr "Zobrazuji graf pro %s"
 
 #. Resource IDs: (15)
 msgid "Shows a graphical representation of copies/tags/branches"
@@ -9571,16 +9585,16 @@ msgid ""
 "empty, TortoiseSVN will use the regular expressions instead."
 msgstr ""
 "Určuje jakým způsobem bude vytvořena odevzdávací zpráva ze zadaného ID "
-"chyby. Použijte placeholder %BUGID% for skutečné ID chyby. Pokud toto "
-"nastavení ponecháte prázdné, použije TortoiseSVN regulární výrazy."
+"chyby. Použijte místo %BUGID% pro skutečné ID chyby. Pokud toto nastavení "
+"ponecháte prázdné, použije TortoiseSVN regulární výrazy."
 
 #. Resource IDs: (1305)
 msgid ""
 "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder "
 "for the real issue number."
 msgstr ""
-"Určuje URL pro přístup do sledovače problémů. Použijte %BUGID% jako "
-"placeholder pro reálné číslo problému."
+"Určuje URL pro přístup do sledovače problémů. Použijte %BUGID% jako místo "
+"pro skutečné číslo problému."
 
 #. Resource IDs: (79)
 msgid ""
@@ -10575,7 +10589,7 @@ msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
-"Existují změny nebo položky bez verze v rámci jednoho nebo více adrresářů, které jste připojil pomocí svn:externals.\n"
+"Existují změny nebo položky bez verze v rámci jednoho nebo více adresářů, které jste připojil pomocí svn:externals.\n"
 "Tyto soubory nejsou vypsány pro odevzdání. Musíte je odevzdat zvlášť."
 
 #. Resource IDs: (64)
@@ -10705,7 +10719,7 @@ msgid ""
 "different branch."
 msgstr ""
 "Tato metoda pokrývá případ, kdy jste vytvořili jednu nebo více revizí do "
-"větve (nebo kmene) a chcete portovat tyto změny do jiné větve."
+"větve (nebo kmene) a chcete přenést tyto změny do jiné větve."
 
 #. Resource IDs: (594)
 msgid ""
@@ -11012,7 +11026,7 @@ msgstr "Konflikt stromu"
 
 #. Resource IDs: (595)
 msgid "Tree merge"
-msgstr "Stromové slučování"
+msgstr "Sloučení stromů"
 
 #. Resource IDs: (65535)
 msgid "Trunk nodes"
@@ -12338,7 +12352,7 @@ msgstr "položka ponechána lokálně"
 
 #. Resource IDs: (1562)
 msgid "keep the file lists in English"
-msgstr "udržet seznam souborů v angličtine"
+msgstr "udržet seznam souborů v Angličtině"
 
 #. Resource IDs: (65535)
 msgid "last head update: "

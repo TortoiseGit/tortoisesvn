@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-25 06:02+0000\n"
+"PO-Revision-Date: 2011-07-29 06:13+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5253,6 +5253,10 @@ msgstr ""
 msgid "Graph type:"
 msgstr "Diagrammtyp:"
 
+#. Resource IDs: (273)
+msgid "Graphs for repository roots are always empty!"
+msgstr "Graphen für die Wurzel des Projektarchivs sind immer leer!"
+
 #. Resource IDs: (16972)
 msgid "Gray"
 msgstr "Grau"
@@ -5727,8 +5731,11 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid ""
-"If you want to break the lock, use the 'Check For Modifications' dialog."
-msgstr "Sie können die Sperre im 'Auf Änderungen prüfen' Dialog aufbrechen."
+"If you want to break the lock, use the 'Check For Modifications' dialog or "
+"the repository browser."
+msgstr ""
+"Sie können die Sperre im 'Auf Änderungen prüfen' Dialog oder im "
+"Projektarchiv-Betrachter aufbrechen."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -6389,6 +6396,10 @@ msgstr "Logmeldungen"
 #. Resource IDs: (1386)
 msgid "Log message"
 msgstr "Logmeldung"
+
+#. Resource IDs: (173)
+msgid "Log message is too short!"
+msgstr "Logmeldung ist zu kurz!"
 
 #. Resource IDs: (65535)
 msgid "Log messages"
@@ -7121,6 +7132,10 @@ msgstr ""
 #. Resource IDs: (1557)
 msgid "Note: this property has no effect on Windows"
 msgstr "Hinweis: Diese Eigenschaft hat unter Windows keine Funktion"
+
+#. Resource IDs: (173)
+msgid "Nothing is selected for commit!"
+msgstr "Es ist nichts zum Übertragen ausgewählt!"
 
 #. Resource IDs: (88)
 msgid "Notice"
