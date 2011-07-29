@@ -35,7 +35,7 @@ import time
 import subprocess
 
 urlTrunk = 'trunk/Languages'
-wrkDir   = 'Languages'
+wrkDir   = '.'
 fileGui  = 'TortoiseUI'
 fileDoc  = 'TortoiseDoc'
 
