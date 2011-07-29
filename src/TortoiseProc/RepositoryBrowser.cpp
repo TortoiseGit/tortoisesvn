@@ -1555,7 +1555,7 @@ void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
     for (size_t i = 0, count = pTreeItem->children.size(); i < count; ++i)
     {
         const CItem& item = pTreeItem->children[i];
-        if (item.kind == svn_node_dir)
+        if ((item.kind == svn_node_dir)&&(item.absolutepath.GetLength() > 0))
         {
             pTreeItem->has_child_folders = true;
             m_lister.Enqueue ( item.absolutepath
