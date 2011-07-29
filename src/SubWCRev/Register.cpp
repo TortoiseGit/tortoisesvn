@@ -338,7 +338,7 @@ BOOL setKeyAndValue(const TCHAR* szKey,
     {
         RegSetValueEx(hKey, NULL, 0, REG_SZ,
                       (BYTE *)szValue,
-                      DWORD( 1+(_tcslen(szValue)*sizeof(TCHAR)) )
+                      DWORD( (1 + _tcslen(szValue))*sizeof(TCHAR) )
         ) ;
     }
 
@@ -369,7 +369,7 @@ BOOL setValue(const TCHAR* szKey,
     {
         RegSetValueEx(hKey, szEntry, 0, REG_SZ,
                       (BYTE *)szValue,
-                      DWORD( 1+(_tcslen(szValue)*sizeof(TCHAR)) )
+                      DWORD( (1 + _tcslen(szValue))*sizeof(TCHAR) )
         ) ;
     }
 

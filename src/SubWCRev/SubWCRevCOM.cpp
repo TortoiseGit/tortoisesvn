@@ -123,11 +123,12 @@ static void LockServer(bool doLock)
 //
 // Constructor
 //
-SubWCRev::SubWCRev() : m_cRef(1)
+SubWCRev::SubWCRev() :
+    m_cRef(1),
+    SubStat(),
+    m_ptinfo(0)
 {
     LockServer(true);
-
-    m_ptinfo = NULL;
     LoadTypeInfo(&m_ptinfo, LIBID_LibSubWCRev, IID_ISubWCRev, 0);
 }
 
@@ -137,6 +138,8 @@ SubWCRev::SubWCRev() : m_cRef(1)
 SubWCRev::~SubWCRev()
 {
     LockServer(false);
+    if (m_ptinfo != 0)
+        m_ptinfo->Release();
 }
 
 //
@@ -479,6 +482,9 @@ HRESULT __stdcall SubWCRev::GetTypeInfo(UINT itinfo, LCID /*lcid*/, ITypeInfo** 
 
     if(itinfo != 0)
         return ResultFromScode(DISP_E_BADINDEX);
+
+    if (m_ptinfo == 0)
+        return E_UNEXPECTED;
 
     m_ptinfo->AddRef();      // AddRef and return pointer to cached
     // typeinfo for this object.
