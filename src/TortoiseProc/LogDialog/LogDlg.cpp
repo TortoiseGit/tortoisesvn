@@ -4363,7 +4363,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos2));
             revisions.push_back (pLogEntry->GetRevision());
             selEntries.push_back(pLogEntry);
-            if (firstAuthor == pLogEntry->GetAuthor())
+            if (firstAuthor != pLogEntry->GetAuthor())
                 bAllFromTheSameAuthor = false;
         }
 
