@@ -77,7 +77,10 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
     } while ((!hPipe) && (retrycount));
 
     if (!hPipe)
+    {
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Could not connect to pipe\n");
         return false;
+    }
 
     // The pipe connected; change to message-read mode.
     DWORD dwMode = PIPE_READMODE_MESSAGE;
@@ -111,6 +114,7 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
 
         if (! fSuccess || sizeof(cmd) != cbWritten)
         {
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Could not write to pipe\n");
             DisconnectNamedPipe(hPipe);
             return false;
         }
@@ -144,5 +148,7 @@ CBlockCacheForPath::CBlockCacheForPath(const WCHAR * aPath)
 
 CBlockCacheForPath::~CBlockCacheForPath()
 {
-    SendCacheCommand (TSVNCACHECOMMAND_UNBLOCK, path);
+    int retry = 3;
+    while (retry-- && !SendCacheCommand (TSVNCACHECOMMAND_UNBLOCK, path))
+        Sleep(10);
 }
