@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -538,15 +538,15 @@ void CRevisionGraphWnd::DrawGlyph
     }
     else if (graphics.pSVG)
     {
-        // instead of inserting a reference to a bitmap,
-        // draw a round rectangle instead.
-        // The problem with bitmaps in svg is that I 
-        // haven't found a way to embed the bitmaps inside
-        // the svg file, but only a way to reference
-        // the bitmaps from other places.
-        // TODO: if we find a way to embed bitmaps in an svg file
-        // change this to use the real bitmaps instead of
-        // the replacement recangle
+        // instead of inserting a bitmap, draw a
+        // round rectangle instead.
+        // Embedding images would blow up the resulting
+        // svg file a lot, and the round rectangle
+        // is enough IMHO.
+        // Note:
+        // images could be embedded like this:
+        // <image y="100" x="100" id="imgId1234" xlink:href="data:image/png;base64,...base64endodeddata..." height="16" width="16" />
+
         graphics.pSVG->RoundedRectangle((int)target.X, (int)target.Y, (int)target.Width, (int)target.Height, 
                                         Color(0,0,0), 2, Color(255,255,255), (int)(target.Width/3.0));
     }

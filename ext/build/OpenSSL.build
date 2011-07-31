@@ -23,9 +23,9 @@
     <delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
     <copy file="e_os.h" tofile="..\..\..\common\openssl\e_os.h" overwrite="true" />
     <!-- patch the capi engine so that we can configure it whether it will load or not.
-         TODO: once we have a release and people don't have problems with CAPI enabled
-       or can resolve their issues by removing a duplicate certifcate from their CA store,
-       we can remove our patching and just leave CAPI enabled permanently. -->
+         the patch also changes the CAPI engine so that when showing the cert selection
+         dialog is disabled, it only uses certs from the store if only one cert matches
+         and not just return always the first matching cert if there are more of them. -->
     <copy file="e_capi.c" tofile="..\..\..\common\openssl\engines\e_capi.c" overwrite="true" />
     <if test="${platform == 'win32'}">
       <exec program="perl" workingdir="..\..\..\common\openssl">

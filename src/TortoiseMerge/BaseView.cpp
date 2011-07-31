@@ -4302,7 +4302,6 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
     CDiffColors::GetInstance().GetColors(diffState, crBkgnd, crText);
     oLineColors.SetColor(0, crText, crBkgnd);
 
-    // TODO move to separate method
     do {
         if (!m_bShowInlineDiff)
             break;
