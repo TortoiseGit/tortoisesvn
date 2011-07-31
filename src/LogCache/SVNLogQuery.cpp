@@ -279,6 +279,10 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
             || !standardRevProps.GetAuthor().empty()
             || !standardRevProps.GetMessage().empty())
         {
+            MergeInfo mergeInfo = { log_entry->has_children != FALSE
+                                  , log_entry->non_inheritable != FALSE
+                                  , log_entry->subtractive_merge != FALSE };
+
             receiver->ReceiveLog ( receiverBaton->includeChanges
                                        ? &changedPaths
                                        : NULL
@@ -289,7 +293,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
                                  , receiverBaton->includeUserRevProps
                                        ? &userRevProps
                                        : NULL
-                                 , log_entry->has_children != FALSE);
+                                 , &mergeInfo);
         }
     }
     catch (SVNError& e)

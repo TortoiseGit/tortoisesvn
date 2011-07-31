@@ -93,7 +93,7 @@ public:
 
 protected:
     //implement the virtual methods from SVN base class
-    virtual BOOL Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, BOOL haschildren);
+    virtual BOOL Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, const MergeInfo* mergeInfo);
     virtual BOOL Cancel();
     virtual bool Validate(LPCTSTR string);
     virtual bool FilterConditionChanged();

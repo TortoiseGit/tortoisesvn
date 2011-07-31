@@ -224,7 +224,7 @@ BOOL SVN::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_acti
                 const CString& propertyName,
                 svn_merge_range_t * range,
                 svn_error_t * err, apr_pool_t * pool) {return TRUE;};
-BOOL SVN::Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, BOOL haschildren) {return TRUE;}
+BOOL SVN::Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, const MergeInfo* mergeInfo) {return TRUE;}
 BOOL SVN::BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision, 
                         const CString& author, const CString& date, svn_revnum_t merged_revision, 
                         const CString& merged_author, const CString& merged_date, 
@@ -1687,7 +1687,7 @@ void SVN::ReceiveLog ( TChangedPaths* /* changes */
                      , svn_revnum_t rev
                      , const StandardRevProps* stdRevProps
                      , UserRevPropArray* /* userRevProps*/
-                     , bool mergesFollow)
+                     , const MergeInfo* mergeInfo)
 {
     // check for user pressing "Cancel" somewhere
 
@@ -1700,7 +1700,7 @@ void SVN::ReceiveLog ( TChangedPaths* /* changes */
         , stdRevProps == NULL ? emptyString : stdRevProps->GetAuthor()
         , stdRevProps == NULL ? emptyString : stdRevProps->GetMessage()
         , stdRevProps == NULL ? apr_time_t(0) : stdRevProps->GetTimeStamp()
-        , mergesFollow);
+        , mergeInfo);
 }
 
 void SVN::notify( void *baton,

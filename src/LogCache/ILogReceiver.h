@@ -142,6 +142,21 @@ public:
     const UserRevProp& operator[] (size_t index) const {return at (index);}
 };
 
+/**
+ * Various flags used when merge info is included in the log.
+ */
+
+struct MergeInfo
+{
+    /// pre-1.7 merge-related flags
+
+    bool mergesFollow;
+
+    /// 1.7 merge-related flags
+
+    bool nonInheritable;
+    bool subtractiveMerge;
+};
 
 /**
  * Interface for receiving log information. It will be used as a callback
@@ -167,5 +182,5 @@ public:
                             , svn_revnum_t rev
                             , const StandardRevProps* stdRevProps
                             , UserRevPropArray* userRevProps
-                            , bool mergesFollow) = 0;
+                            , const MergeInfo* mergeInfo) = 0;
 };

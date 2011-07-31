@@ -215,7 +215,7 @@ private:
                                 , svn_revnum_t rev
                                 , const StandardRevProps* stdRevProps
                                 , UserRevPropArray* userRevProps
-                                , bool mergesFollow);
+                                , const MergeInfo* mergeInfo);
 
     public:
 
@@ -258,7 +258,7 @@ private:
                                 , svn_revnum_t rev
                                 , const StandardRevProps* stdRevProps
                                 , UserRevPropArray* userRevProps
-                                , bool mergesFollow);
+                                , const MergeInfo* mergeInfo);
 
     public:
 
@@ -323,7 +323,7 @@ private:
     /// relay an existing cache entry to the receiver
     void SendToReceiver ( revision_t revision
                         , const CLogOptions& options
-                        , bool mergesFollow);
+                        , const MergeInfo* mergeInfo);
 
     /// clear string translating caches
     void ResetObjectTranslations();
@@ -394,7 +394,7 @@ public:
     /// (if the latter is not NULL)
     void LogRevision ( revision_t revision
                      , const CLogOptions& options
-                     , bool mergesFollow);
+                     , const MergeInfo* mergeInfo);
 
     /// access to the cache
     /// (only valid after calling Log())

@@ -306,9 +306,13 @@ CLogEntryData::CLogEntryData
     , __time64_t tmDate
     , const std::string& author
     , const std::string& message
-    , ProjectProperties* projectProperties)
+    , ProjectProperties* projectProperties
+    , const MergeInfo* mergeInfo)
     : parent (parent)
-    , hasChildren (false)
+    , hasChildren (false)   // we don't read that from the "mergesFollow" flag
+                            // (just to be sure that we actually have sub-nodes)
+    , nonInheritable (mergeInfo && mergeInfo->nonInheritable)
+    , subtractiveMerge (mergeInfo && mergeInfo->subtractiveMerge)
     , childStackDepth (parent == NULL ? 0 : parent->childStackDepth+1)
     , revision (revision)
     , tmDate (tmDate)
@@ -497,7 +501,7 @@ void CLogDataVector::Add ( svn_revnum_t revision
                          , const std::string& author
                          , const std::string& message
                          , ProjectProperties* projectProperties
-                         , bool childrenFollow)
+                         , const MergeInfo* mergeInfo)
 {
     // end of child list?
 
@@ -517,6 +521,7 @@ void CLogDataVector::Add ( svn_revnum_t revision
             , author
             , message
             , projectProperties
+            , mergeInfo
             );
 
     visible.push_back (size());
@@ -534,7 +539,7 @@ void CLogDataVector::Add ( svn_revnum_t revision
 
     // update parent info
 
-    if (childrenFollow)
+    if (mergeInfo && mergeInfo->mergesFollow)
         logParents.push_back (item);
 }
 

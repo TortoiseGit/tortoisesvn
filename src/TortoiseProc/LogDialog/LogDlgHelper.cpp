@@ -171,6 +171,7 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
             , author != NULL ? author : ""
             , message
             , projectProperties
+            , NULL
             )
         );
 

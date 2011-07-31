@@ -333,7 +333,7 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
     , svn_revnum_t rev
     , const StandardRevProps* stdRevProps
     , UserRevPropArray* userRevProps
-    , bool mergesFollow)
+    , const MergeInfo* mergeInfo)
 {
     try
     {
@@ -389,7 +389,7 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
                                                       , rev
                                                       , NULL
                                                       , NULL
-                                                      , mergesFollow);
+                                                      , mergeInfo);
                 }
                 else
                 {
@@ -397,7 +397,7 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
                                                       , rev
                                                       , stdRevProps
                                                       , userRevProps
-                                                      , mergesFollow);
+                                                      , mergeInfo);
                 }
             }
         }
@@ -564,7 +564,7 @@ void CCacheLogQuery::CMergeLogger::ReceiveLog
     , svn_revnum_t rev
     , const StandardRevProps* stdRevProps
     , UserRevPropArray* userRevProps
-    , bool mergesFollow)
+    , const MergeInfo* mergeInfo)
 {
     // we want to receive revision numbers and "mergesFollow" only
 
@@ -586,14 +586,14 @@ void CCacheLogQuery::CMergeLogger::ReceiveLog
                                               , NO_REVISION
                                               , NULL
                                               , NULL
-                                              , mergesFollow);
+                                              , mergeInfo);
         }
     }
     else
     {
         parentQuery->LogRevision ( static_cast<revision_t>(rev)
                                  , options
-                                 , mergesFollow);
+                                 , mergeInfo);
     }
 }
 
@@ -844,7 +844,7 @@ void CCacheLogQuery::GetUserRevProps
 
 void CCacheLogQuery::SendToReceiver ( revision_t revision
                                     , const CLogOptions& options
-                                    , bool mergesFollow)
+                                    , const MergeInfo* mergeInfo)
 {
     // special cases
 
@@ -859,7 +859,7 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
                                           , revision
                                           , NULL
                                           , NULL
-                                          , mergesFollow);
+                                          , mergeInfo);
         return;
     }
 
@@ -934,7 +934,7 @@ void CCacheLogQuery::SendToReceiver ( revision_t revision
                      , options.GetIncludeUserRevProps()
                            ? &userRevProps
                            : NULL
-                     , mergesFollow);
+                     , mergeInfo);
 
     // clean-up
 
@@ -1510,7 +1510,7 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 
 void CCacheLogQuery::LogRevision ( revision_t revision
                                  , const CLogOptions& options
-                                 , bool mergesFollow)
+                                 , const MergeInfo* mergeInfo)
 {
     // make sure the data is in our cache
 
@@ -1534,7 +1534,7 @@ void CCacheLogQuery::LogRevision ( revision_t revision
 
     // send it to the receiver
 
-    SendToReceiver (revision, options, mergesFollow);
+    SendToReceiver (revision, options, mergeInfo);
 }
 
 // access to the cache

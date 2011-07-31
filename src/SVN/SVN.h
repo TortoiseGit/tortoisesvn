@@ -84,7 +84,7 @@ public:
                             const CString& propertyName,
                             svn_merge_range_t * range,
                             svn_error_t * err, apr_pool_t * pool);
-    virtual BOOL Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, BOOL haschildren);
+    virtual BOOL Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, const MergeInfo* mergeInfo);
     virtual BOOL BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision, const CString& author, const CString& date,
                             svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
                             const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg);
@@ -951,7 +951,7 @@ protected:
                     , svn_revnum_t rev
                     , const StandardRevProps* stdRevProps
                     , UserRevPropArray* userRevProps
-                    , bool mergesFollow);
+                    , const MergeInfo* mergeInfo);
 
     // logCachePool management utilities
 

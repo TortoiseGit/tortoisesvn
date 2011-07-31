@@ -1108,7 +1108,7 @@ void CLogDlg::OnCancel()
     }
 }
 
-BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, BOOL haschildren)
+BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, const MergeInfo* mergeInfo)
 {
     // this is the callback function which receives the data for every revision we ask the log for
     // we store this information here one by one.
@@ -1119,7 +1119,7 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string
                      , author
                      , message
                      , &m_ProjectProperties
-                     , haschildren != FALSE);
+                     , mergeInfo);
 
     // end of child list
 

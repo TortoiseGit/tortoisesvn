@@ -167,6 +167,8 @@ private:
         unsigned childStackDepth:24;
         int checked:1;
         int hasChildren:1;
+        int nonInheritable:1;
+        int subtractiveMerge:1;
         mutable int bugIDsPending:1;
     };
 
@@ -188,7 +190,8 @@ public:
                   , __time64_t tmDate
                   , const std::string& sAuthor
                   , const std::string& sMessage
-                  , ProjectProperties* projectProperties);
+                  , ProjectProperties* projectProperties
+                  , const MergeInfo* mergeInfo );
 
     /// destruction
 
@@ -214,6 +217,8 @@ public:
     CLogEntryData* GetParent() {return parent;}
     const CLogEntryData* GetParent() const {return parent;}
     bool HasChildren() const {return hasChildren != FALSE;}
+    bool IsNonInheritable() const {return nonInheritable != FALSE;}
+    bool IsSubtractiveMerge() const {return subtractiveMerge != FALSE;}
     DWORD GetDepth() const {return childStackDepth;}
 
     svn_revnum_t GetRevision() const {return revision;}
@@ -289,7 +294,7 @@ public:
              , const std::string& author
              , const std::string& message
              , ProjectProperties* projectProperties
-             , bool childrenFollow);
+             , const MergeInfo* mergeInfo );
 
     void AddSorted ( PLOGENTRYDATA item
                    , ProjectProperties* projectProperties);

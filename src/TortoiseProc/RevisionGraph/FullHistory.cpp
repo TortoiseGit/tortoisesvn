@@ -145,14 +145,14 @@ void CFullHistory::ReceiveLog ( TChangedPaths* changes
                               , svn_revnum_t rev
                               , const StandardRevProps* stdRevProps
                               , UserRevPropArray* userRevProps
-                              , bool mergesFollow)
+                              , const MergeInfo* mergeInfo)
 {
     // fix release mode compiler warning
 
     UNREFERENCED_PARAMETER(changes);
     UNREFERENCED_PARAMETER(stdRevProps);
     UNREFERENCED_PARAMETER(userRevProps);
-    UNREFERENCED_PARAMETER(mergesFollow);
+    UNREFERENCED_PARAMETER(mergeInfo);
 
     // update internal data
 

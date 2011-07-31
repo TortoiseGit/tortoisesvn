@@ -238,7 +238,7 @@ void CSettingsLogCaches::ReceiveLog ( TChangedPaths*
                                     , svn_revnum_t rev
                                     , const StandardRevProps*
                                     , UserRevPropArray*
-                                    , bool )
+                                    , const MergeInfo*)
 {
     // update internal data
 
