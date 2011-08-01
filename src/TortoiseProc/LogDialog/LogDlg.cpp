@@ -5906,7 +5906,7 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
         }
 
         sToolTipText = CUnicodeUtils::GetUnicode (actionText.c_str());
-        if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) == m_mergedRevs.end()))
+        if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
         {
             if (!sToolTipText.IsEmpty())
                 sToolTipText += _T("\r\n");
