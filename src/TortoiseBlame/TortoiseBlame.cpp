@@ -1377,7 +1377,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
             _tcscat_s(szViewtitle, parser.GetVal(_T("revrange")));
         }
     }
-    if ((_tcslen(blamefile)==0) || parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
+    if ((blamefile[0]==0) || parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
     {
         TCHAR szInfo[MAX_LOADSTRING];
         LoadString(app.hResource, IDS_COMMANDLINE_INFO, szInfo, MAX_LOADSTRING);
@@ -1933,7 +1933,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
             HMENU hMenu = LoadMenu(app.hResource, MAKEINTRESOURCE(IDR_BLAMEPOPUP));
             HMENU hPopMenu = GetSubMenu(hMenu, 0);
 
-            if ( _tcslen(szOrigPath)==0 )
+            if ( szOrigPath[0]==0 )
             {
                 // Without knowing the original path we cannot blame the previous revision
                 // because we don't know which filename to pass to tortoiseproc.

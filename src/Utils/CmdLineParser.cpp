@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2009 - TortoiseSVN
+// Copyright (C) 2003-2006,2009, 2011- TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -56,7 +56,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
     {
         //format is  -Key:"arg"
 
-        if (_tcslen(sCurrent) == 0)
+        if (sCurrent[0] == 0)
             break;      // no more data, leave loop
 
         LPCTSTR sArg = _tcspbrk(sCurrent, m_sDelims);
@@ -64,7 +64,7 @@ BOOL CCmdLineParser::Parse(LPCTSTR sCmdLine)
             break; // no (more) delimiters found
         sArg =  _tcsinc(sArg);
 
-        if(_tcslen(sArg) == 0)
+        if(sArg[0] == 0)
             break; // ends with delim
 
         LPCTSTR sVal = _tcspbrk(sArg, m_sValueSep);

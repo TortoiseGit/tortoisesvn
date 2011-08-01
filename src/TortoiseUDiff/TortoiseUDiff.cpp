@@ -72,8 +72,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     if (mainWindow.RegisterAndCreateWindow())
     {
         bool bLoadedSuccessfully = false;
-        if ( (parser.HasKey(_T("p"))) ||
-             (_tcslen(lpCmdLine) == 0) )
+        if ( (lpCmdLine[0] == 0) ||
+            (parser.HasKey(_T("p"))) )
         {
             // input from console pipe
             // set console to raw mode
@@ -85,7 +85,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         }
         else if (parser.HasVal(_T("patchfile")))
             bLoadedSuccessfully = mainWindow.LoadFile(parser.GetVal(_T("patchfile")));
-        else if (_tcslen(lpCmdLine) > 0)
+        else if (lpCmdLine[0] != 0)
             bLoadedSuccessfully = mainWindow.LoadFile(lpCmdLine);
         if (bLoadedSuccessfully)
         {

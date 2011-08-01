@@ -369,8 +369,8 @@ HRESULT CCommonAppUtils::CreateShortCut(LPCTSTR pszTargetfile, LPCTSTR pszTarget
                        int iShowmode, LPCTSTR pszCurdir,
                        LPCTSTR pszIconfile, int iIconindex)
 {
-    if ((pszTargetfile == NULL) || (_tcslen(pszTargetfile) == 0) ||
-        (pszLinkfile == NULL) || (_tcslen(pszLinkfile) == 0))
+    if ((pszTargetfile == NULL) || (pszTargetfile[0] == 0) ||
+        (pszLinkfile == NULL) || (pszLinkfile[0] == 0))
     {
         return E_INVALIDARG;
     }
@@ -381,7 +381,7 @@ HRESULT CCommonAppUtils::CreateShortCut(LPCTSTR pszTargetfile, LPCTSTR pszTarget
 
     hRes = pShellLink->SetPath(pszTargetfile);
     hRes = pShellLink->SetArguments(pszTargetargs);
-    if (_tcslen(pszDescription) > 0)
+    if (pszDescription[0] != 0)
     {
         hRes = pShellLink->SetDescription(pszDescription);
     }
@@ -389,11 +389,11 @@ HRESULT CCommonAppUtils::CreateShortCut(LPCTSTR pszTargetfile, LPCTSTR pszTarget
     {
         hRes = pShellLink->SetShowCmd(iShowmode);
     }
-    if (_tcslen(pszCurdir) > 0)
+    if (pszCurdir[0] != 0)
     {
         hRes = pShellLink->SetWorkingDirectory(pszCurdir);
     }
-    if (_tcslen(pszIconfile) > 0 && iIconindex >= 0)
+    if (pszIconfile[0] != 0 && iIconindex >= 0)
     {
         hRes = pShellLink->SetIconLocation(pszIconfile, iIconindex);
     }

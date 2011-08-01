@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007,2009 - TortoiseSVN
+// Copyright (C) 2007,2009, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,7 +32,7 @@ CRegHistory::~CRegHistory()
 
 bool CRegHistory::AddEntry(LPCTSTR szText)
 {
-    if (_tcslen(szText) == 0)
+    if (szText[0] == 0)
         return false;
 
     if ((!m_sSection.empty())&&(!m_sKeyPrefix.empty()))

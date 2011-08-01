@@ -127,7 +127,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
             }
         }
 
-        if (_tcslen(m_CheckText))
+        if (m_CheckText[0] != 0)
         {
             IFileDialogCustomize* pfdCustomize = 0;
             hr = pfd->QueryInterface(IID_PPV_ARGS(&pfdCustomize));
@@ -135,7 +135,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
             {
                 pfdCustomize->StartVisualGroup(100, L"");
                 pfdCustomize->AddCheckButton(101, m_CheckText, FALSE);
-                if (_tcslen(m_CheckText2))
+                if (m_CheckText2[0] != 0)
                 {
                     pfdCustomize->AddCheckButton(102, m_CheckText2, FALSE);
                 }
@@ -189,7 +189,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         browseInfo.lpfn             = NULL;
         browseInfo.lParam           = (LPARAM)this;
 
-        if ((_tcslen(m_CheckText) > 0)||(!m_sDefaultPath.IsEmpty()))
+        if ((m_CheckText[0] != 0)||(!m_sDefaultPath.IsEmpty()))
         {
             browseInfo.lpfn = BrowseCallBackProc;
         }
@@ -266,13 +266,12 @@ void CBrowseFolder::SetFont(HWND hwnd,LPTSTR FontName,int FontSize)
 
 int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARAM /*lpData*/)
 {
-    RECT ListViewRect,Dialog;
     //Initialization callback message
     if (uMsg == BFFM_INITIALIZED)
     {
-        if (_tcslen(m_CheckText) > 0)
+        if (m_CheckText[0] != 0)
         {
-            bool bSecondCheckbox = (_tcslen(m_CheckText2)!=0);
+            bool bSecondCheckbox = (m_CheckText2[0] != 0);
             //Rectangles for getting the positions
             checkbox = CreateWindowEx(  0,
                 _T("BUTTON"),
@@ -311,36 +310,36 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
 
             //Gets the dimensions of the windows
             const int controlHeight = ::GetSystemMetrics(SM_CYMENUCHECK) + 4;
-            GetWindowRect(hwnd,&Dialog);
-            GetWindowRect(ListView,&ListViewRect);
+            RECT listViewRect;
+            GetWindowRect(ListView,&listViewRect);
             POINT pt;
-            pt.x = ListViewRect.left;
-            pt.y = ListViewRect.top;
+            pt.x = listViewRect.left;
+            pt.y = listViewRect.top;
             ScreenToClient(hwnd, &pt);
-            ListViewRect.top = pt.y;
-            ListViewRect.left = pt.x;
-            pt.x = ListViewRect.right;
-            pt.y = ListViewRect.bottom;
+            listViewRect.top = pt.y;
+            listViewRect.left = pt.x;
+            pt.x = listViewRect.right;
+            pt.y = listViewRect.bottom;
             ScreenToClient(hwnd, &pt);
-            ListViewRect.bottom = pt.y;
-            ListViewRect.right = pt.x;
+            listViewRect.bottom = pt.y;
+            listViewRect.right = pt.x;
             //Sets the list view controls dimensions
-            SetWindowPos(ListView,0,ListViewRect.left,
-                bSecondCheckbox ? ListViewRect.top+(2*controlHeight) : ListViewRect.top+controlHeight,
-                (ListViewRect.right-ListViewRect.left),
-                bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-(2*controlHeight) : (ListViewRect.bottom - ListViewRect.top)-controlHeight,
+            SetWindowPos(ListView,0,listViewRect.left,
+                bSecondCheckbox ? listViewRect.top+(2*controlHeight) : listViewRect.top+controlHeight,
+                (listViewRect.right-listViewRect.left),
+                bSecondCheckbox ? (listViewRect.bottom - listViewRect.top)-(2*controlHeight) : (listViewRect.bottom - listViewRect.top)-controlHeight,
                 SWP_NOZORDER);
             //Sets the window positions of checkbox and dialog controls
-            SetWindowPos(checkbox,HWND_BOTTOM,ListViewRect.left,
-                ListViewRect.top,
-                (ListViewRect.right-ListViewRect.left),
+            SetWindowPos(checkbox,HWND_BOTTOM,listViewRect.left,
+                listViewRect.top,
+                (listViewRect.right-listViewRect.left),
                 controlHeight,
                 SWP_NOZORDER);
             if (bSecondCheckbox)
             {
-                SetWindowPos(checkbox2,HWND_BOTTOM,ListViewRect.left,
-                    ListViewRect.top+controlHeight,
-                    (ListViewRect.right-ListViewRect.left),
+                SetWindowPos(checkbox2,HWND_BOTTOM,listViewRect.left,
+                    listViewRect.top+controlHeight,
+                    (listViewRect.right-listViewRect.left),
                     controlHeight,
                     SWP_NOZORDER);
             }
@@ -374,7 +373,7 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
             }
             // send a resize message to the resized list view control. Otherwise it won't show
             // up properly until the user resizes the window!
-            SendMessage(ListView, WM_SIZE, SIZE_RESTORED, MAKELONG(ListViewRect.right-ListViewRect.left, bSecondCheckbox ? (ListViewRect.bottom - ListViewRect.top)-40 : (ListViewRect.bottom - ListViewRect.top)-20));
+            SendMessage(ListView, WM_SIZE, SIZE_RESTORED, MAKELONG(listViewRect.right-listViewRect.left, bSecondCheckbox ? (listViewRect.bottom - listViewRect.top)-40 : (listViewRect.bottom - listViewRect.top)-20));
         }
 
         // now set the default directory

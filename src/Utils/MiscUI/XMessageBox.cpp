@@ -522,7 +522,8 @@ static TCHAR *szAlphabet = _T("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 static LPTSTR encode(LPTSTR str)
 {
 #ifndef XMESSAGEBOX_DO_NOT_ENCODE
-    for (UINT i = 0; i < _tcslen(str); i++)
+    const size_t length = _tcslen(str);
+    for (size_t i = 0; i < length; i++)
     {
         UINT n = (UINT) str[i];
         str[i] = szAlphabet[(n + (5*i)) % 64];
