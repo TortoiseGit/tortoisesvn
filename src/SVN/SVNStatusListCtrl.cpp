@@ -4964,6 +4964,10 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
     UINT_PTR row = ((nID-1) >> 10) & 0x3fffff;
     UINT_PTR col = (nID-1) & 0x3ff;
 
+    // in case the request came from an outside tooltip control, ignore that request
+    if (GetToolTips()->GetSafeHwnd() != pNMHDR->hwndFrom)
+        return FALSE;
+
     if (nID == 0)
     {
         LVHITTESTINFO lvhti = {0};
