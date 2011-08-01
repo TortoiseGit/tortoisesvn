@@ -181,6 +181,7 @@ CLogDlg::~CLogDlg()
     DestroyIcon(m_hAddedIcon);
     DestroyIcon(m_hDeletedIcon);
     DestroyIcon(m_hMergedIcon);
+    DestroyIcon(m_hReverseMergedIcon);
     if ( m_pStoreSelection )
     {
         delete m_pStoreSelection;
@@ -366,6 +367,7 @@ BOOL CLogDlg::OnInitDialog()
     m_hAddedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONADDED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
     m_hDeletedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONDELETED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
     m_hMergedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONMERGED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
+    m_hReverseMergedIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_ACTIONREVERSEMERGED), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE);
     // if there is a working copy, load the project properties
     // to get information about the bugtraq: integration
     if (m_hasWC)
@@ -2853,7 +2855,12 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                     nIcons++;
 
                     if ((pLogEntry->GetDepth())||(m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
-                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hMergedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+                    {
+                        if (pLogEntry->IsSubtractiveMerge())
+                            ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hReverseMergedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+                        else
+                            ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER, rect.top, m_hMergedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
+                    }
                     nIcons++;
 
                     *pResult = CDRF_SKIPDEFAULT;
@@ -5910,7 +5917,10 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
         {
             if (!sToolTipText.IsEmpty())
                 sToolTipText += _T("\r\n");
-            sToolTipText += CString(MAKEINTRESOURCE(IDS_LOG_ALREADYMERGED));
+            if (pLogEntry->IsSubtractiveMerge())
+                sToolTipText += CString(MAKEINTRESOURCE(IDS_LOG_ALREADYMERGEDREVERSED));
+            else
+                sToolTipText += CString(MAKEINTRESOURCE(IDS_LOG_ALREADYMERGED));
         }
 
         if (!sToolTipText.IsEmpty())

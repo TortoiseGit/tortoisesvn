@@ -305,6 +305,7 @@ private:
     HICON               m_hAddedIcon;
     HICON               m_hDeletedIcon;
     HICON               m_hMergedIcon;
+    HICON               m_hReverseMergedIcon;
     int                 m_nIconFolder;
 
     HACCEL              m_hAccel;
