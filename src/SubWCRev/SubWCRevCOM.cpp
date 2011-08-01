@@ -243,7 +243,7 @@ HRESULT __stdcall SubWCRev::get_Date(/*[out, retval]*/VARIANT* date)
     date->vt = VT_BSTR;
 
     WCHAR destbuf[32];
-    HRESULT result = CopyDateToString(destbuf, 32, SubStat.CmtDate) ? S_OK : S_FALSE;
+    HRESULT result = CopyDateToString(destbuf, _countof(destbuf), SubStat.CmtDate) ? S_OK : S_FALSE;
     if(S_FALSE == result)
     {
         _stprintf_s(destbuf, _T(""));
@@ -331,7 +331,7 @@ HRESULT __stdcall SubWCRev::get_LockCreationDate(/*[out, retval]*/VARIANT* date)
     }
     else
     {
-        result = CopyDateToString(destbuf, 32, SubStat.LockData.CreationDate) ? S_OK : S_FALSE;
+        result = CopyDateToString(destbuf, _countof(destbuf), SubStat.LockData.CreationDate) ? S_OK : S_FALSE;
         if(S_FALSE == result)
         {
             _stprintf_s(destbuf, _T(""));
@@ -419,8 +419,7 @@ BOOL SubWCRev::CopyDateToString(WCHAR *destbuf, int buflen, apr_time_t time)
         return FALSE;
     }
 
-    __time64_t ttime;
-    ttime = time/1000000L;
+    const __time64_t ttime = time/1000000L;
 
     struct tm newtime;
     if (_localtime64_s(&newtime, &ttime))
@@ -532,15 +531,14 @@ HRESULT __stdcall CFactory::QueryInterface(const IID& iid, void** ppv)
 
 ULONG __stdcall CFactory::AddRef()
 {
-    return InterlockedIncrement(&m_cRef) ;
+    // No true reference counting in global object
+    return 1;
 }
 
 ULONG __stdcall CFactory::Release()
 {
-    const LONG refCount = InterlockedDecrement(&m_cRef);
-    if (refCount == 0)
-        delete this;
-    return refCount;
+    // No true reference counting in global object
+    return 1;
 }
 
 //

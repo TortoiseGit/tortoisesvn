@@ -97,6 +97,7 @@ private:
 /**
  * \ingroup SubWCRev
  * Implements the IClassFactory interface of the SubWCRev COM object.
+ * Used as global object only - no true reference counting in this class.
  */
 class CFactory : public IClassFactory
 {
@@ -112,12 +113,6 @@ public:
         void** ppv) ;
     virtual HRESULT __stdcall LockServer(BOOL bLock) ;
 
-    // Constructor
-    CFactory() : m_cRef(1) {}
-
-    // Destructor
+    CFactory() {}
     ~CFactory() {;}
-
-private:
-    long m_cRef ;
 } ;
