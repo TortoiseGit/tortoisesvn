@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
+"PO-Revision-Date: 2011-07-31 21:06+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -4698,16 +4698,16 @@ msgstr ""
 
 #. Resource IDs: (220)
 msgid "Failed!"
-msgstr ""
+msgstr "Thất bại!"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
-msgstr ""
+msgstr "Đang nạp tập tin..."
 
 #. Resource IDs: (313)
 #, c-format
 msgid "Fetching revision %s of file:"
-msgstr ""
+msgstr "Đang nạp bản chỉnh sửa %s của tập tin:"
 
 #. Resource IDs: (148)
 #, c-format
@@ -4716,7 +4716,7 @@ msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
-msgstr ""
+msgstr "Tập tin"
 
 #. Resource IDs: (90)
 msgid "File already exists"
@@ -4725,11 +4725,11 @@ msgstr ""
 #. Resource IDs: (247)
 #, c-format
 msgid "File changes each %s"
-msgstr ""
+msgstr "Thay đổi của tập tin mỗi %s"
 
 #. Resource IDs: (1138)
 msgid "File changes each week:"
-msgstr ""
+msgstr "Thay đổi của tập tin mỗituần:"
 
 #. Resource IDs: (226)
 msgid "File contains conflict markers"
@@ -4737,7 +4737,7 @@ msgstr ""
 
 #. Resource IDs: (376)
 msgid "File diffs"
-msgstr ""
+msgstr "Khác biệt của tập tin"
 
 #. Resource IDs: (314)
 msgid "File is empty."
@@ -4745,11 +4745,11 @@ msgstr ""
 
 #. Resource IDs: (213)
 msgid "File list is empty"
-msgstr ""
+msgstr "Danh sách tập tin đang trống"
 
 #. Resource IDs: (135, 376)
 msgid "File patches"
-msgstr ""
+msgstr "Các bản vá tập tin"
 
 #. Resource IDs: (7)
 #, c-format
@@ -4762,6 +4762,13 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
+"Kích thước tập tin:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%s (%s)\n"
+"Chiều rộng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Chiều cao:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Độ phân giải ngang:<span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ phân giải dọc:<span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ sâu:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d bit\n"
+"Phóng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d%%"
 
 #. Resource IDs: (8)
 #, c-format
@@ -4782,6 +4789,21 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
+"Kích thước tập tin:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%s (%s)\n"
+"Độ rộng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Chiều cao:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Độ phân giải ngang:<span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ phân giải dọc:<span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ sâu:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d bit\n"
+"Phóng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d%%\n"
+"\n"
+"Kích thước tập tin:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%s (%s)\n"
+"Độ rộng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Chiều cao:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Độ phân giải ngang:<span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ phân giải dọc:<span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ sâu:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d bit\n"
+"Phóng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d%%"
 
 #. Resource IDs: (7)
 #, c-format
@@ -4794,6 +4816,13 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
+"Kích thước tập tin:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%s (%s)\n"
+"Độ rộng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Chiều cao:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Độ phân giải ngang:<span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ phân giải dọc:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ sâu:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d bit\n"
+"Phóng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d%%"
 
 #. Resource IDs: (7)
 #, c-format
@@ -4814,112 +4843,133 @@ msgid ""
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
 msgstr ""
+"Kích thước tập tin:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%s (%s)\n"
+"Độ rộng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Chiều cao:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Độ phân giải ngang:<span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ phân giải dọc:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ sâu:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d bit\n"
+"Phóng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d%%\n"
+"\n"
+"Kích thước tập tin:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%s (%s)\n"
+"Độ rộng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Chiều cao:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%ld pixel\n"
+"Độ phân giải ngang:<span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ phân giải dọc:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%.1f dpi\n"
+"Độ sâu:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d bit\n"
+"Phóng:<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>%d%%"
 
 #. Resource IDs: (208)
 msgid "Filename"
-msgstr ""
+msgstr "Tên tập tin"
 
 #. Resource IDs: (65535)
 msgid "Filename, extension or mime-type:"
-msgstr ""
+msgstr "Tên tập tin, phần mở rộng hoặc kiểu mime:"
 
 #. Resource IDs: (74)
 msgid "Filename/Extension"
-msgstr ""
+msgstr "Tên tập tin/Phần mở rộng"
 
 #. Resource IDs: (1512)
 msgid "Files"
-msgstr ""
+msgstr "Các tập tin"
 
 #. Resource IDs: (1057)
 msgid ""
 "Fill Tool\n"
 "Fill"
 msgstr ""
+"Công cụ lấp đầy\n"
+"Lấp đầy"
 
 #. Resource IDs: (117)
 msgid "Filter by"
-msgstr ""
+msgstr "Lọc bởi"
 
 #. Resource IDs: (65535)
 msgid "Filter match"
-msgstr ""
+msgstr "Lọc khớp"
 
 #. Resource IDs: (65535)
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
 msgstr ""
+"Lọc ra các đường dẫn chứa một trong những chuỗi sau\n"
+"(ngăn cách các đường dẫn với ký tự '*'):"
 
 #. Resource IDs: (321)
 msgid "Filter paths"
-msgstr ""
+msgstr "Lọc đường dẫn"
 
 #. Resource IDs: (139)
 msgid "Find"
-msgstr ""
+msgstr "Tìm"
 
 #. Resource IDs: (3603)
 msgid ""
 "Find the specified text\n"
 "Find"
 msgstr ""
+"Tìm các dòng chữ đã chỉ ra\n"
+"Tìm"
 
 #. Resource IDs: (77, 219)
 msgid "Finished!"
-msgstr ""
+msgstr "Hoàn tất!"
 
 #. Resource IDs: (32804)
 msgid "Fit graph"
-msgstr ""
+msgstr "Làm cho vừa biểu đồ"
 
 #. Resource IDs: (32802)
 msgid "Fit height"
-msgstr ""
+msgstr "Làm cho vừa chiều cao"
 
 #. Resource IDs: (32810)
 msgid "Fit image &sizes"
-msgstr ""
+msgstr "Làm cho vừa ảnh và &kích thước"
 
 #. Resource IDs: (32803)
 msgid "Fit width"
-msgstr ""
+msgstr "Làm cho vừa chiều rộng"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
-msgstr ""
+msgstr "Sửa chữ hoa của các món và không thêm nó vào"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
-msgstr ""
+msgstr "Được sửa tại bản chỉnh sửa"
 
 #. Resource IDs: (32818)
 msgid "Fold &tags"
-msgstr ""
+msgstr "Gấp và đánh &thẻ"
 
 #. Resource IDs: (65535)
 msgid "Folded tag"
-msgstr ""
+msgstr "Gấp thẻ"
 
 #. Resource IDs: (1002)
 msgid "Folder"
-msgstr ""
+msgstr "Thư mục"
 
 #. Resource IDs: (65535)
 msgid "Font"
-msgstr ""
+msgstr "Phông chữ"
 
 #. Resource IDs: (3585)
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
-msgstr ""
+msgstr "Để giúp đỡ, nhấn F1. Cuộn ngang với Ctrl-bánh xe cuộn"
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
-msgstr ""
+msgstr "Để xem toàn bộ lịch sửa bỏ lựa chọn 'Dừng tại sao chép/đổi tên'"
 
 #. Resource IDs: (279)
 msgid "Force"
-msgstr ""
+msgstr "Ép"
 
 #. Resource IDs: (147)
 msgid "Force removal"
@@ -4927,68 +4977,68 @@ msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Forward"
-msgstr ""
+msgstr "Tiến tới"
 
 #. Resource IDs: (65535)
 msgid "Found auto words:"
-msgstr ""
+msgstr "Tìm thấy từ tự động:"
 
 #. Resource IDs: (1200, 65535)
 msgid "From:"
-msgstr ""
+msgstr "Từ"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
-msgstr ""
+msgstr "Toàn màn hình"
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
-msgstr ""
+msgstr "Đệ quy hoàn toàn"
 
 #. Resource IDs: (273)
 msgid "GDI+ couldn't be initialized!"
-msgstr ""
+msgstr "Không thể khởi hoạt GDI+!"
 
 #. Resource IDs: (273)
 msgid ""
 "GDI+ couldn't create a bitmap object. You probably don't have enough memory."
-msgstr ""
+msgstr "GDI+ không thể tạo được đối tượng ảnh. Có lẽ bạn không có đủ bộ nhớ."
 
 #. Resource IDs: (284)
 msgid "Gathering information. Please wait..."
-msgstr ""
+msgstr "Đang thu thập thông tin. Vui lòng chờ..."
 
 #. Resource IDs: (107, 143)
 msgid "General"
-msgstr ""
+msgstr "Tổng quát"
 
 #. Resource IDs: (212)
 msgid "General::Colors"
-msgstr ""
+msgstr "Tổng quát::Màu"
 
 #. Resource IDs: (195)
 msgid "General::Context Menu"
-msgstr ""
+msgstr "Tổng quát::Thực đơn ngữ cảnh"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
-msgstr ""
+msgstr "Tổng quát::Hộp thoại 1"
 
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
-msgstr ""
+msgstr "Tổng quát::Hộp thoại 2"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
-msgstr ""
+msgstr "Đang sinh tập tin vá..."
 
 #. Resource IDs: (16)
 msgid "Get loc&k..."
-msgstr ""
+msgstr "Lấy &khoá..."
 
 #. Resource IDs: (114)
 msgid "Get merge logs"
-msgstr ""
+msgstr "Lấy khoá tường trình"
 
 #. Resource IDs: (89)
 msgid ""
@@ -4997,80 +5047,92 @@ msgid ""
 "Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
 "Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
+"Lấy khoá cho tập tin mà không cần thuộc tính 'svn:needs-lock' sẽ không ngăn người khác biên tập bản sao đang làm của họ.\n"
+"Để bật việc khoá nghiêm ngặt xin vui lòng thêm thuộc tính 'svn:needs-lock'  vào tất cả các tập tin cần khóa, và cam kết những tập tin đó.\n"
+"Mỗi tập tin sẽ có cờ tập tin hệ thống chỉ đọc bật, và lấy được khoá sẽ làm cho tập tin có thể ghi được.\n"
+"Ghi nhớ rằng những người dùng khác sẽ cần cập nhật bản đang làm của họ trước khi họ thấy những tập tin chỉ đọc."
 
 #. Resource IDs: (119)
 #, c-format
 msgid "Getting file %1!s!"
-msgstr ""
+msgstr "Đang lấy tập tin %1!s!"
 
 #. Resource IDs: (120)
 #, c-format
 msgid "Getting file %1!s!, revision %2!s!"
-msgstr ""
+msgstr "Đang lấy tập tin %1!s!, bản chỉnh sửa %2!s!"
 
 #. Resource IDs: (132)
 msgid "Getting file info..."
-msgstr ""
+msgstr "Đang lấy thông tin về tập tin..."
 
 #. Resource IDs: (269)
 msgid "Getting information from repository..."
-msgstr ""
+msgstr "Đang lấy thông tin từ kho chứa..."
 
 #. Resource IDs: (120)
 msgid "Getting information..."
-msgstr ""
+msgstr "Đang lấy thông tin..."
 
 #. Resource IDs: (132)
 msgid "Getting log info..."
-msgstr ""
+msgstr "Đang lấy thông tin tường trình..."
 
 #. Resource IDs: (220)
 msgid "Getting required information..."
-msgstr ""
+msgstr "Đang lấy thông tin cần thiết..."
 
 #. Resource IDs: (119)
 msgid "Getting unified diff"
-msgstr ""
+msgstr "Đang lấy khác biệt thống nhất"
 
 #. Resource IDs: (1517)
 msgid "Global ignore &pattern:"
-msgstr ""
+msgstr "Các &mẫu bỏ qua toàn cục:"
 
 #. Resource IDs: (65535)
 msgid "Global settings"
-msgstr ""
+msgstr "Thiết lập toàn cục"
 
 #. Resource IDs: (130)
 msgid "Go to line"
-msgstr ""
+msgstr "Đi đến dòng"
 
 #. Resource IDs: (2051)
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr ""
+"Đi đến mâu thuẫn tiếp theo\n"
+"Mâu thuẫn tiếp theo"
 
 #. Resource IDs: (2049)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr ""
+"Đi đến khác biệt tiếp theo\n"
+"Khác biệt tiếp theo"
 
 #. Resource IDs: (2051)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr ""
+"Đi đến mâu thuẫn trước đó\n"
+"Mâu thuẫn trước đó"
 
 #. Resource IDs: (2049)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr ""
+"Đi đến khác biệt trước đó\n"
+"Khác biệt trước đó"
 
 #. Resource IDs: (1134)
 msgid "Graph type:"
-msgstr ""
+msgstr "Kiểu biểu đồ:"
 
 #. Resource IDs: (273)
 msgid "Graphs for repository roots are always empty!"
@@ -5078,56 +5140,56 @@ msgstr ""
 
 #. Resource IDs: (16972)
 msgid "Gray"
-msgstr ""
+msgstr "Xám"
 
 #. Resource IDs: (2050)
 msgid "Group by branch"
-msgstr ""
+msgstr "Nhóm bởi nhánh"
 
 #. Resource IDs: (214)
 msgid "Group changelists"
-msgstr ""
+msgstr "Nhóm danh sách thay đổi"
 
 #. Resource IDs: (1032)
 msgid "H&EAD Revision"
-msgstr ""
+msgstr "Bản chỉnh sửa &CHÍNH"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
-msgstr ""
+msgstr "&Màu sắc"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
-msgstr ""
+msgstr "CHÍNH"
 
 #. Resource IDs: (65535)
 msgid "HEAD node"
-msgstr ""
+msgstr "Nút CHÍNH"
 
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
-msgstr ""
+msgstr "Bản chỉnh sửa chính là %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
-msgstr ""
+msgstr "Thông tin đầu"
 
 #. Resource IDs: (9, 73, 332, 1004)
 msgid "Help"
-msgstr ""
+msgstr "Giúp đỡ"
 
 #. Resource IDs: (16982)
 msgid "Help Keyboard"
-msgstr ""
+msgstr "Bàn phím giúp đỡ "
 
 #. Resource IDs: (16974)
 msgid "Hex"
-msgstr ""
+msgstr "Hex"
 
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
-msgstr ""
+msgstr "Ẩn các đường dẫn bị xóa"
 
 #. Resource IDs: (1562)
 msgid "Hide Menus for unversioned paths"
@@ -5135,19 +5197,19 @@ msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
-msgstr ""
+msgstr "Ẩn các nhánh không sửa đổi món"
 
 #. Resource IDs: (2053)
 msgid "Hide all tags"
-msgstr ""
+msgstr "Ẩn các thẻ"
 
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
-msgstr ""
+msgstr "Ẩn các nhánh và thẻ bị xóa"
 
 #. Resource IDs: (1001)
 msgid "Hide docked window"
-msgstr ""
+msgstr "Ẩn cửa sổ gắn"
 
 #. Resource IDs: (1562)
 msgid "Hide non-mergeable revisions"
@@ -5155,57 +5217,62 @@ msgstr ""
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
-msgstr ""
+msgstr "Ẩn các &thẻ"
 
 #. Resource IDs: (1326)
 msgid "Hide the script while running"
-msgstr ""
+msgstr "Ẩn kịch bản khi chạy"
 
 #. Resource IDs: (32830)
 msgid "Hide unused &branches"
-msgstr ""
+msgstr "Ẩn các nhánh không dùng"
 
 #. Resource IDs: (2052)
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
 msgstr ""
+"Ẩn/Hiện danh sách tập tin vá\n"
+"Ẩn hoặc hiện danh sách tập tin vá"
 
 #. Resource IDs: (339)
 msgid "Highest revision number in the cache"
-msgstr ""
+msgstr "Số chỉnh sửa cao nhất trong bộ lưu trữ"
 
 #. Resource IDs: (1127)
 msgid ""
 "Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
 "children too"
 msgstr ""
+"Gợi ý: Nhấn F5 để làm mới cây con được chọn và Ctrl-F5 để tải lại các con"
 
 #. Resource IDs: (16519)
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
 "toolbar buttons into the menu window."
 msgstr ""
+"Gợi ý: chọn thực đơn ngư cảnh, thay đổi trang sang 'Lệnh' và kéo lê các nút "
+"bấm của thanh công cụ vào cửa sổ thực đơn."
 
 #. Resource IDs: (1064)
 msgid "Home"
-msgstr ""
+msgstr "Trang Chủ"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
-msgstr ""
+msgstr "Kịch bản móc "
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr ""
+msgstr "Kịch bản móc::Tích hợp bộ theo dõi vấn đề"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
-msgstr ""
+msgstr "Kiểu móc"
 
 #. Resource IDs: (1334)
 msgid "Hook Type:"
-msgstr ""
+msgstr "Kiểu móc:"
 
 #. Resource IDs: (173)
 msgid "Hook script failed!"
@@ -5214,123 +5281,123 @@ msgstr ""
 #. Resource IDs: (82)
 #, c-format
 msgid "Hostname mismatch (%s)"
-msgstr ""
+msgstr "Tên máy chủ không khớp (%s)"
 
 #. Resource IDs: (65535)
 msgid "How do you want to resolve this conflict?"
-msgstr ""
+msgstr "Bạn muốn giải quyết mâu thuẫn này thế nào?"
 
 #. Resource IDs: (1392)
 msgid "I&gnore all whitespaces"
-msgstr ""
+msgstr "&Bỏ qua tất cả khoảng trắng"
 
 #. Resource IDs: (1264)
 msgid "I&gnored"
-msgstr ""
+msgstr "&Bỏ qua"
 
 #. Resource IDs: (1519)
 msgid "I&nclude paths:"
-msgstr ""
+msgstr "Đường dẫn bao gồm:"
 
 #. Resource IDs: (1580)
 msgid "IBugTraqProvider"
-msgstr ""
+msgstr "IBugTraqProvider"
 
 #. Resource IDs: (1592)
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
-msgstr ""
+msgstr "ID:32771:V C +F"
 
 #. Accelerator Entry for Menu ID:32772; '&Overlap images'
 msgid "ID:32772:V   +O"
-msgstr ""
+msgstr "ID:32772:V   +O"
 
 #. Accelerator Entry for Menu ID:32773; '&Open'
 msgid "ID:32773:V C +O"
-msgstr ""
+msgstr "ID:32773:V C +O"
 
 #. Accelerator Entry for Menu ID:32774; '&Whitespaces'
 msgid "ID:32774:V C +T"
-msgstr ""
+msgstr "ID:32774:V C +T"
 
 #. Accelerator Entry for Menu ID:32775; 'Single/&double-pane view'
 msgid "ID:32775:V C +D"
-msgstr ""
+msgstr "ID:32775:V C +D"
 
 #. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
 msgid "ID:32778:V   +F"
-msgstr ""
+msgstr "ID:32778:V   +F"
 
 #. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
 msgid "ID:32779:V   +S"
-msgstr ""
+msgstr "ID:32779:V   +S"
 
 #. Accelerator Entry for Menu ID:32779; '&Go To Line...'
 msgid "ID:32779:V C +G"
-msgstr ""
+msgstr "ID:32779:V C +G"
 
 #. Accelerator Entry for Menu ID:32785; '&Color age of lines'
 msgid "ID:32785:V C +O"
-msgstr ""
+msgstr "ID:32785:V C +O"
 
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 msgid "ID:32793:V C +V"
-msgstr ""
+msgstr "ID:32793:V C +V"
 
 #. Accelerator Entry for Menu ID:32794; 'Reload'
 msgid "ID:32794:V C +R"
-msgstr ""
+msgstr "ID:32794:V C +R"
 
 #. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
 msgid "ID:32796:V C +A"
-msgstr ""
+msgstr "ID:32796:V C +A"
 
 #. Accelerator Entry for Menu ID:32809; '&Filter'
 msgid "ID:32809:V C +F"
-msgstr ""
+msgstr "ID:32809:V C +F"
 
 #. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 msgid "ID:32810:V   +T"
-msgstr ""
+msgstr "ID:32810:V   +T"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
-msgstr ""
+msgstr "ID:32814:V C +L"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
-msgstr ""
+msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
-msgstr ""
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +E"
-msgstr ""
+msgstr "ID:32825:V C +E"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
-msgstr ""
+msgstr "ID:32825:V C +K"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
-msgstr ""
+msgstr "ID:32825:V C +L"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
-msgstr ""
+msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:32870; 'Collapsed'
 msgid "ID:32870:V C +L"
-msgstr ""
+msgstr "ID:32870:V C +L"
 
 #. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
 msgid "ID:32881:V C +P"
-msgstr ""
+msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
@@ -5338,21 +5405,21 @@ msgstr ""
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
-msgstr ""
+msgstr "ID:57601:V C +O"
 
 #. Accelerator Entry for Menu ID:57603; '&Save'
 msgid "ID:57603:V C +S"
-msgstr ""
+msgstr "ID:57603:V C +S"
 
 #. Accelerator Entry for Menu ID:57604; 'Save &As...'
 msgid "ID:57604:V CS+S"
-msgstr ""
+msgstr "ID:57604:V CS+S"
 
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 msgid "ID:57634:V C +C"
-msgstr ""
+msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57634; ''
 msgid "ID:57634:V CS+C"
@@ -5360,77 +5427,90 @@ msgstr ""
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
-msgstr ""
+msgstr "ID:57635:V C +X"
 
 #. Accelerator Entry for Menu ID:57636; '&Find'
 msgid "ID:57636:V C +F"
-msgstr ""
+msgstr "ID:57636:V C +F"
 
 #. Accelerator Entry for Menu ID:57637; ''
 msgid "ID:57637:V C +V"
-msgstr ""
+msgstr "ID:57637:V C +V"
 
 #. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
-msgstr ""
+msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
-msgstr ""
+msgstr "ID:57665:V C +Q"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +W"
-msgstr ""
+msgstr "ID:57665:V C +W"
 
 #. Resource IDs: (106)
 msgid "Icon Overlays"
-msgstr ""
+msgstr "Biểu tượng nạp chồng"
 
 #. Resource IDs: (65535)
 msgid "Icon Overlays / Status Columns"
-msgstr ""
+msgstr "Biểu tượng nạp chồng / Cột trạng thái"
 
 #. Resource IDs: (184)
 msgid "Icon Overlays::Icon Set"
-msgstr ""
+msgstr "Biểu tượng nạp chồng::Tập hợp biểu tượng"
 
 #. Resource IDs: (308)
 msgid "Icon Overlays::Overlay Handlers"
-msgstr ""
+msgstr "Biểu tượng nạp chồng::Xử lý nạp chồng"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
 msgstr ""
+"Biểu tượng/Mã thiết kế:<span class=\"whitespace other\" "
+"title=\"Tab\">»</span><span class=\"whitespace other\" "
+"title=\"Tab\">»</span>Luebbe Onken"
 
 #. Resource IDs: (346)
 msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'branch'."
 msgstr ""
+"Có phải một thành phần (một phần hoặc giữa 2 '/') của một đường dẫn cho sẵn khớp một\n"
+"trong những mẫu này, nó được xem là một 'nhánh'."
 
 #. Resource IDs: (346)
 msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'tag'."
 msgstr ""
+"Có phải một thành phần (một phần hoặc giữa 2 '/') của một đường dẫn cho sẵn khớp một\n"
+"trong những mẫu này, nó được xem là một 'thẻ'."
 
 #. Resource IDs: (346)
 msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'trunk'."
 msgstr ""
+"Có phải một thành phần (một phần hoặc giữa 2 '/') của một đường dẫn cho sẵn khớp một\n"
+"trong những mẫu này, nó được xem là một 'cột'."
 
 #. Resource IDs: (194)
 msgid ""
 "If activated, prevents the overlays and the context menu from showing in "
 "'save as...' or 'open' dialogs"
 msgstr ""
+"Nếu được kích hoạt, ngăn chặn nạp chồng và thực đơn ngữ cảnh không cho xuất "
+"hiện trong 'lưu như là...' hoặc hộp thoại 'mở'"
 
 #. Resource IDs: (198)
 msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
+"lựa chọn 'Lấy Khoá' trong thực đơn luôn luôn hiện trong thực đơn cấp cao nhất\n"
+"Nếu tập tin được chọn có thuộc tính svn:needs-lock bật"
 
 #. Resource IDs: (95)
 msgid ""
