@@ -867,7 +867,7 @@ void TortoiseBlame::Notify(SCNotification *notification)
 
             auto_buffer<char> seltextbuffer(selTextLen + 1);
             SendEditor(SCI_GETSELTEXT, 0, (LPARAM)(char*)seltextbuffer);
-            if (strlen(seltextbuffer) == 0)
+            if (seltextbuffer[0] == 0)
                 break;
 
             LRESULT firstline = SendEditor(SCI_GETFIRSTVISIBLELINE);

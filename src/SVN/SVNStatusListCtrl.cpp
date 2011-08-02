@@ -577,9 +577,9 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
 
     CTSVNPath workingTarget(target);
 
-    svn_client_status_t * s;
     CTSVNPath svnPath;
-    s = status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, depth, bShowIgnores);
+    svn_client_status_t * s =
+        status.GetFirstFileStatus(workingTarget, svnPath, bFetchStatusFromRepository, depth, bShowIgnores);
     status.GetExternals(m_externalSet);
 
     CAutoWriteLock locker(m_guard);
@@ -4958,15 +4958,14 @@ int CSVNStatusListCtrl::CellRectFromPoint(CPoint& point, RECT *cellrect, int *co
 BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
 {
     *pResult = 0;
-    TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
+    // in case the request came from an outside tooltip control, ignore that request
+    if (GetToolTips()->GetSafeHwnd() != pNMHDR->hwndFrom)
+        return FALSE;
+
     UINT_PTR nID = pNMHDR->idFrom;
 
     UINT_PTR row = ((nID-1) >> 10) & 0x3fffff;
     UINT_PTR col = (nID-1) & 0x3ff;
-
-    // in case the request came from an outside tooltip control, ignore that request
-    if (GetToolTips()->GetSafeHwnd() != pNMHDR->hwndFrom)
-        return FALSE;
 
     if (nID == 0)
     {
@@ -5002,6 +5001,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
             FileEntry *fentry = GetListEntry(row);
             if (fentry)
             {
+                TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
                 if (fentry->copied)
                 {
                     // show the copyfrom url in the tooltip
@@ -5728,7 +5728,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
         std::map<CString,int>::iterator it = m_changelists.find(SVNSLC_IGNORECHANGELIST);
         if (it != m_changelists.end())
         {
-            _tcsncpy_s(groupname, 1024, SVNSLC_IGNORECHANGELIST, 1023);
+            _tcsncpy_s(groupname, _countof(groupname), SVNSLC_IGNORECHANGELIST, _countof(groupname)-1);
             it->second = (int)DoInsertGroup(groupname, groupindex);
         }
     }
