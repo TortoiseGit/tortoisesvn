@@ -29,6 +29,7 @@
 #include "TSVNPath.h"
 #include "PathUtils.h"
 #include "SVNTrace.h"
+#include "..\version.h"
 
 SVNConflictData::SVNConflictData()
 {
@@ -77,6 +78,9 @@ SVNInfo::SVNInfo (bool)
 #endif
     m_pctx->cancel_func = cancel;
     m_pctx->cancel_baton = this;
+    char namestring[MAX_PATH] = {0};
+    sprintf_s(namestring, "TortoiseSVN-%d.%d.%d.%d", TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
+    m_pctx->client_name = apr_pstrdup(m_pool, namestring);
 
 
     if (Err)

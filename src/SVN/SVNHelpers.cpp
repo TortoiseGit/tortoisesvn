@@ -18,6 +18,7 @@
 #include "StdAfx.h"
 #include "SVNHelpers.h"
 #include "TSVNPath.h"
+#include "..\version.h"
 #pragma warning(push)
 #include "svn_config.h"
 #include "svn_pools.h"
@@ -56,6 +57,9 @@ SVNHelper::SVNHelper(void)
     svn_error_clear(svn_client_create_context(&m_ctx, m_pool));
     m_ctx->cancel_func = cancelfunc;
     m_ctx->cancel_baton = this;
+    char namestring[MAX_PATH] = {0};
+    sprintf_s(namestring, "TortoiseSVN-%d.%d.%d.%d", TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
+    m_ctx->client_name = apr_pstrdup(m_pool, namestring);
     svn_error_clear(svn_config_get_config(&(m_config), NULL, m_pool));
 }
 
