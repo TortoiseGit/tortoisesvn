@@ -102,7 +102,6 @@ svn_error_t * SVNHelper::cancelfunc(void * cancelbaton)
     return NULL;
 }
 
-#ifndef SVN_NONET
 bool SVNHelper::IsVersioned( const CTSVNPath& path, bool mustbeok )
 {
     if (!path.Exists())
@@ -177,4 +176,3 @@ const char * SVNHelper::GetUserAgentString( apr_pool_t * pool )
     return apr_pstrdup(pool, namestring);
 }
 
-#endif

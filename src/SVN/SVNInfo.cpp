@@ -20,6 +20,7 @@
 #include "resource.h"
 
 #include "SVNInfo.h"
+#include "SVNHelpers.h"
 #include "UnicodeUtils.h"
 #ifdef _MFC_VER
 #include "SVN.h"

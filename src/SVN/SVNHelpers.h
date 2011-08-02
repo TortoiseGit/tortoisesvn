@@ -73,9 +73,7 @@ public:
     void                Cancel(bool bCancelled = true) {m_bCancelled = bCancelled;}
     void                ReloadConfig();
     static const char * GetUserAgentString(apr_pool_t * pool);
-#ifndef SVN_NONET
     static bool         IsVersioned(const CTSVNPath& path, bool mustbeok);
-#endif
 protected:
     apr_pool_t *        m_pool;
     svn_client_ctx_t *  m_ctx;
