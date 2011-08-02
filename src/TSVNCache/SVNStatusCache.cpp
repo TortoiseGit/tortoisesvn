@@ -309,14 +309,14 @@ bool CSVNStatusCache::UnBlockPath(const CTSVNPath& path)
 {
     bool ret = false;
     AutoLocker lock(m_NoWatchPathCritSec);
-    std::map<CTSVNPath, DWORD>::iterator it = m_NoWatchPaths.find(path);
+    std::map<CTSVNPath, DWORD>::iterator it = m_NoWatchPaths.find(path.GetDirectory());
     if (it != m_NoWatchPaths.end())
     {
         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": path removed from no good: %s\n"), it->first.GetWinPath());
         m_NoWatchPaths.erase(it);
         ret = true;
     }
-    AddFolderForCrawling(path);
+    AddFolderForCrawling(path.GetDirectory());
 
     return ret;
 }
