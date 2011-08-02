@@ -72,6 +72,7 @@ public:
     svn_client_ctx_t*   ClientContext(apr_pool_t * pool) const;
     void                Cancel(bool bCancelled = true) {m_bCancelled = bCancelled;}
     void                ReloadConfig();
+    static const char * GetUserAgentString(apr_pool_t * pool);
 #ifndef SVN_NONET
     static bool         IsVersioned(const CTSVNPath& path, bool mustbeok);
 #endif

@@ -47,7 +47,6 @@
 #include "MessageBox.h"
 #include "LogCacheSettings.h"
 #include "CriticalSection.h"
-#include "..\version.h"
 #include "SVNTrace.h"
 #include "FormatMessageWrapper.h"
 #include "Hooks.h"
@@ -140,9 +139,7 @@ SVN::SVN(bool suppressUI)
     m_pctx->cancel_baton = this;
     m_pctx->progress_func = progress_func;
     m_pctx->progress_baton = this;
-    char namestring[MAX_PATH] = {0};
-    sprintf_s(namestring, "TortoiseSVN-%d.%d.%d.%d", TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
-    m_pctx->client_name = apr_pstrdup(pool, namestring);
+    m_pctx->client_name = SVNHelper::GetUserAgentString(pool);
 
 
     //set up the SVN_SSH param

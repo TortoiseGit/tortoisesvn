@@ -28,7 +28,6 @@
 #include "SVNGlobal.h"
 #include "SVNHelpers.h"
 #include "SVNTrace.h"
-#include "..\version.h"
 #ifdef _MFC_VER
 #   include "SVN.h"
 #   include "registry.h"
@@ -57,9 +56,7 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
         m_pctx->cancel_func = cancel;
         m_pctx->cancel_baton = pbCancelled;
     }
-    char namestring[MAX_PATH] = {0};
-    sprintf_s(namestring, "TortoiseSVN-%d.%d.%d.%d", TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
-    m_pctx->client_name = apr_pstrdup(m_pool, namestring);
+    m_pctx->client_name = SVNHelper::GetUserAgentString(m_pool);
 
 
 #ifdef _MFC_VER
