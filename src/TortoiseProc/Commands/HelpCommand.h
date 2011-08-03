@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,6 +34,7 @@ public:
     {
         return ((int)ShellExecute(GetExplorerHWND(), _T("open"), theApp.m_pszHelpFilePath, NULL, NULL, SW_SHOWNORMAL) > 32);
     }
+    virtual bool            CheckPaths() {return true;}
 };
 
 

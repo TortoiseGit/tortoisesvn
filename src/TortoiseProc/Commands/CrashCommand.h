@@ -41,6 +41,7 @@ public:
         TSVNMessageBox(NULL, IDS_ERR_NOCOMMAND, IDS_APPNAME, MB_ICONERROR);
         return true;
     }
+    virtual bool            CheckPaths() {return true;}
 
     void CrashProgram()
     {

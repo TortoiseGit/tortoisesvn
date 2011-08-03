@@ -38,6 +38,7 @@ public:
      * Executes the command.
      */
     virtual bool            Execute() = 0;
+    virtual bool            CheckPaths();
 
     void                    SetParser(const CCmdLineParser& p) {parser = p;}
     void                    SetPaths(const CTSVNPathList& plist, const CTSVNPath& path) {pathList = plist; cmdLinePath = path;}

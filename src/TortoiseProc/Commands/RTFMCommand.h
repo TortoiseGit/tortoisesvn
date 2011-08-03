@@ -42,6 +42,7 @@ public:
         ShellExecute(0, _T("explore"), path, NULL, NULL, SW_SHOWNORMAL);
         return true;
     }
+    virtual bool            CheckPaths() {return true;}
 };
 
 

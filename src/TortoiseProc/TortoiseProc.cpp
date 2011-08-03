@@ -413,7 +413,8 @@ BOOL CTortoiseProcApp::InitInstance()
         cmd->SetExplorerHwnd(hWndExplorer);
         cmd->SetParser(parser);
         cmd->SetPaths(pathList, cmdLinePath);
-        retSuccess = cmd->Execute();
+        if (cmd->CheckPaths())
+            retSuccess = cmd->Execute();
         delete cmd;
     }
 
