@@ -79,6 +79,7 @@ bool RepositoryBrowserCommand::Execute()
             return false;
         }
         url = urldlg.m_url;
+        cmdLinePath = CTSVNPath(url);
     }
 
     CString val = parser.GetVal(_T("rev"));
