@@ -36,7 +36,6 @@ bool ExportCommand::Execute()
     // If however the user clicked on an unversioned folder, we assume that
     // this is where the export should go to and have to ask from where
     // the export should be done from.
-    TCHAR saveto[MAX_PATH];
     bool bURL = !!SVN::PathIsURL(cmdLinePath);
     svn_wc_status_kind s = SVNStatus::GetAllStatus(cmdLinePath);
     if ((bURL)||(s == svn_wc_status_unversioned)||(s == svn_wc_status_none))
@@ -93,6 +92,7 @@ bool ExportCommand::Execute()
         folderBrowser.DisableCheckBox2WhenCheckbox1IsEnabled(true);
         CRegDWORD regExtended = CRegDWORD(_T("Software\\TortoiseSVN\\ExportExtended"), FALSE);
         CBrowseFolder::m_bCheck = regExtended;
+        TCHAR saveto[MAX_PATH];
         if (folderBrowser.Show(GetExplorerHWND(), saveto, _countof(saveto))==CBrowseFolder::OK)
         {
             CString saveplace = CString(saveto);
