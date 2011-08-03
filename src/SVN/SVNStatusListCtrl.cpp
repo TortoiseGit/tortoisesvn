@@ -1329,7 +1329,9 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
                 (entry->status != svn_wc_status_unversioned)&&
                 (entry->status != svn_wc_status_none)&&
                 (!SVNStatus::IsImportant(entry->textstatus)))
+            {
                 _tcscat_s(buf, ponly);
+            }
             if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
             {
                 _tcscat_s(buf, _T(", "));
@@ -1351,7 +1353,9 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
                 (entry->remotestatus != svn_wc_status_normal)&&
                 (entry->remotestatus != svn_wc_status_unversioned)&&
                 (!SVNStatus::IsImportant(entry->remotetextstatus)))
+            {
                 _tcscat_s(buf, ponly);
+            }
             return buf;
 
         case 5: // SVNSLC_COLTEXTSTATUS
@@ -1485,7 +1489,7 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
                 __int64 filesize = entry->working_size != (-1) 
                                  ? entry->working_size 
                                  : entry->GetPath().GetFileSize();
-                StrFormatByteSize64(filesize, buf, 100);
+                StrFormatByteSize64(filesize, buf, _countof(buf));
                 return buf;
             }
 
@@ -5040,9 +5044,9 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                     WCHAR baseBuf[100] = {0};
                     WCHAR wcBuf[100] = {0};
                     WCHAR changedBuf[100] = {0};
-                    StrFormatByteSize64(baseSize, baseBuf, 100);
-                    StrFormatByteSize64(wcSize, wcBuf, 100);
-                    StrFormatByteSize64(wcSize-baseSize, changedBuf, 100);
+                    StrFormatByteSize64(baseSize, baseBuf, _countof(baseBuf));
+                    StrFormatByteSize64(wcSize, wcBuf, _countof(wcBuf));
+                    StrFormatByteSize64(wcSize-baseSize, changedBuf, _countof(changedBuf));
                     CString sTemp;
                     sTemp.FormatMessage(IDS_STATUSLIST_WCBASESIZES, wcBuf, baseBuf, changedBuf);
                     lstrcpyn(pTTTW->szText, (LPCTSTR)sTemp, 80);
@@ -5348,13 +5352,15 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 {
     static CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
     static HINSTANCE hResourceHandle(AfxGetResourceHandle());
+
+    if (GetSelectedCount() == 0)
+        return false;
+
     WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
 
     CString sClipboard;
     CString temp;
     TCHAR buf[100];
-    if (GetSelectedCount() == 0)
-        return false;
 
     // count the bits
     int c = 0;
@@ -5367,6 +5373,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
     // first add the column titles as the first line
     DWORD selection = 0;
     for (int i = 0, count = m_ColumnManager.GetColumnCount(); i < count; ++i)
+    {
         if (   ((dwCols == -1) && m_ColumnManager.IsVisible (i))
             || ((i < SVNSLC_NUMCOLUMNS) && (dwCols & (1 << i))))
         {
@@ -5378,12 +5385,13 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
                 sClipboard += m_ColumnManager.GetName(i);
             }
 
-            if (i < 32)
+            if (i < sizeof(selection)*CHAR_BIT)
                 selection += 1 << i;
         }
+    }
 
-        if (c > 1)
-            sClipboard += _T("\r\n");
+    if (c > 1)
+        sClipboard += _T("\r\n");
 
 #define ADDTOCLIPBOARDSTRING(x) sClipboard += sClipboard.IsEmpty() ? x : L"\t" + x
 
@@ -5563,11 +5571,13 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             ADDTOCLIPBOARDSTRING(entry->lock_comment);
         if (selection & SVNSLC_COLLOCKDATE)
         {
-            TCHAR datebuf[SVN_DATE_BUFFER];
             apr_time_t date = entry->lock_date;
-            SVN::formatDate(datebuf, date, true);
             if (date)
+            {
+                TCHAR datebuf[SVN_DATE_BUFFER];
+                SVN::formatDate(datebuf, date, true);
                 temp = datebuf;
+            }
             else
                 temp.Empty();
             ADDTOCLIPBOARDSTRING(temp);
@@ -5577,35 +5587,39 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             ADDTOCLIPBOARDSTRING(entry->last_commit_author);
         if (selection & SVNSLC_COLREVISION)
         {
-            temp.Format(_T("%ld"), entry->last_commit_rev);
             if (entry->last_commit_rev == 0)
                 temp.Empty();
+            else
+                temp.Format(_T("%ld"), entry->last_commit_rev);
             ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLREMOTEREVISION)
         {
-            temp.Format(_T("%ld"), entry->remoterev);
             if (entry->remoterev <= 0)
                 temp.Empty();
+            else
+                temp.Format(_T("%ld"), entry->remoterev);
             ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLDATE)
         {
-            TCHAR datebuf[SVN_DATE_BUFFER];
             apr_time_t date = entry->last_commit_date;
-            SVN::formatDate(datebuf, date, true);
             if (date)
+            {
+                TCHAR datebuf[SVN_DATE_BUFFER];
+                SVN::formatDate(datebuf, date, true);
                 temp = datebuf;
+            }
             else
                 temp.Empty();
             ADDTOCLIPBOARDSTRING(temp);
         }
         if (selection & SVNSLC_COLMODIFICATIONDATE)
         {
-            TCHAR datebuf[SVN_DATE_BUFFER];
             __int64 filetime = entry->GetPath().GetLastWriteTime();
             if ( (filetime) && (entry->textstatus!=svn_wc_status_deleted) )
             {
+                TCHAR datebuf[SVN_DATE_BUFFER];
                 FILETIME* f = (FILETIME*)(__int64*)&filetime;
                 SVN::formatDate(datebuf,*f,true);
                 temp = datebuf;
@@ -5620,7 +5634,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
             {
                 TCHAR buf[100];
                 __int64 filesize = entry->working_size != (-1) ? entry->working_size : entry->GetPath().GetFileSize();
-                StrFormatByteSize64(filesize, buf, 100);
+                StrFormatByteSize64(filesize, buf, _countof(buf));
                 temp = buf;
             }
             else
