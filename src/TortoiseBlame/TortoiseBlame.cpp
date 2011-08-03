@@ -1370,7 +1370,10 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     }
     if (__argc > 2)
     {
-        _tcscpy_s(szViewtitle, __wargv[3]);
+        if ( parser.HasKey(_T("path")) )
+            _tcscpy_s(szViewtitle, parser.GetVal(_T("path")));
+        else
+            _tcscpy_s(szViewtitle, __wargv[3]);
         if (parser.HasVal(_T("revrange")))
         {
             _tcscat_s(szViewtitle, _T(" : "));
