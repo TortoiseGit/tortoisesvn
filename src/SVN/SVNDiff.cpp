@@ -679,6 +679,21 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
     SVNProperties propswc(filePath, rev1, false);
     SVNProperties propsbase(filePath, rev2, false);
 
+#define MAX_PATH_LENGTH 80
+    WCHAR pathbuf1[MAX_PATH] = {0};
+    if (filePath.GetWinPathString().GetLength() >= MAX_PATH)
+    {
+        std::wstring str = filePath.GetWinPath();
+        std::wregex rx(L"^(\\w+:|(?:\\\\|/+))((?:\\\\|/+)[^\\\\/]+(?:\\\\|/)[^\\\\/]+(?:\\\\|/)).*((?:\\\\|/)[^\\\\/]+(?:\\\\|/)[^\\\\/]+)$");
+        std::wstring replacement = L"$1$2...$3";
+        std::wstring str2 = std::regex_replace(str, rx, replacement);
+        if (str2.size() >= MAX_PATH)
+            str2 = str2.substr(0, MAX_PATH-2);
+        PathCompactPathEx(pathbuf1, str2.c_str(), MAX_PATH_LENGTH, 0);
+    }
+    else
+        PathCompactPathEx(pathbuf1, filePath.GetWinPath(), MAX_PATH_LENGTH, 0);
+
     if ((baseRev == 0) && (!filePath.IsUrl()) && (rev1.IsBase() || rev2.IsBase()))
     {
         SVNStatus stat;
@@ -747,6 +762,10 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
                 n1 += _T(" ") + temp;
                 bSwitch = true;
             }
+            else
+            {
+                n1 = CString(pathbuf1) + L" - " + n1;
+            }
             if (rev2.IsWorking())
                 n2.Format(IDS_DIFF_PROP_WCNAME, basenameU.c_str());
             if (rev2.IsBase())
@@ -765,6 +784,10 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
                 n2 = basenameU.c_str();
                 n2 += _T(" ") + temp;
                 bSwitch = true;
+            }
+            else
+            {
+                n2 = CString(pathbuf1) + L" - " + n2;
             }
             if (bSwitch)
             {
@@ -835,6 +858,10 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
                 n1.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcnameU.c_str(), (LPCTSTR)rev1.ToString());
                 bSwitch = true;
             }
+            else
+            {
+                n1 = CString(pathbuf1) + L" - " + n1;
+            }
             if (rev2.IsWorking())
                 n2.Format(IDS_DIFF_WCNAME, wcnameU.c_str());
             if (rev2.IsBase())
@@ -845,6 +872,10 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
             {
                 n2.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcnameU.c_str(), (LPCTSTR)rev2.ToString());
                 bSwitch = true;
+            }
+            else
+            {
+                n2 = CString(pathbuf1) + L" - " + n2;
             }
             if (bSwitch)
             {
