@@ -67,7 +67,7 @@ BOOL CEditPropNeedsLock::OnInitDialog()
     CheckRadioButton(IDC_PROPSET, IDC_PROPNOTSET, m_PropValue.size() ? IDC_PROPSET : IDC_PROPNOTSET);
 
     GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(!m_bFolder || m_bMultiple);
-    GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps ? SW_HIDE : SW_SHOW);
+    GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps || (!m_bFolder && !m_bMultiple) ? SW_HIDE : SW_SHOW);
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
