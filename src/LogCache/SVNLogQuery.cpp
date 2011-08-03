@@ -259,7 +259,7 @@ svn_error_t* CSVNLogQuery::LogReceiver ( void *baton
                     entry.copyFromRev = 0;
                 }
 
-                entry.text_modified = svn_tristate_unknown;;
+                entry.text_modified = svn_tristate_unknown;
                 entry.props_modified = svn_tristate_unknown;
             }
         }

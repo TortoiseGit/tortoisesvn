@@ -679,10 +679,10 @@ void CCommonAppUtils::SetWindowTitle( HWND hWnd, const CString& urlorpath, const
     {
     case 0: // url/path - dialogname - appname
         title  = pathbuf;
-        title += L" - " + dialogname + L" - " + CString(MAKEINTRESOURCE(IDS_APPNAME));;
+        title += L" - " + dialogname + L" - " + CString(MAKEINTRESOURCE(IDS_APPNAME));
         break;
     case 1: // dialogname - url/path - appname
-        title = dialogname + L" - " + pathbuf + L" - " + CString(MAKEINTRESOURCE(IDS_APPNAME));;
+        title = dialogname + L" - " + pathbuf + L" - " + CString(MAKEINTRESOURCE(IDS_APPNAME));
         break;
     }
     SetWindowText(hWnd, title);

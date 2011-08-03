@@ -733,7 +733,7 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
     switch (nSBCode)
     {
     case SB_BOTTOM:
-        nVScrollPos = LONG(double(picture.GetHeight())*picscale);;
+        nVScrollPos = LONG(double(picture.GetHeight())*picscale);
         break;
     case SB_TOP:
         nVScrollPos = 0;

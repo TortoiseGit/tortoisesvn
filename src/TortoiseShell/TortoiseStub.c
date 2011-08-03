@@ -140,7 +140,7 @@ static void LoadRealLibrary(void)
 
     WCHAR ModuleName[MAX_PATH] = {0};
     DWORD Len = 0;
-    HINSTANCE hUseInst = hInst;;
+    HINSTANCE hUseInst = hInst;
 
     if (hTortoiseSVN)
         return;

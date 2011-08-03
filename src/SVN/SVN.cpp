@@ -1444,7 +1444,7 @@ bool SVN::CreateRepository(const CTSVNPath& path, const CString& fstype)
 
     SVNPool localpool;
 
-    apr_hash_t *fs_config = apr_hash_make (localpool);;
+    apr_hash_t *fs_config = apr_hash_make (localpool);
 
     apr_hash_set (fs_config, SVN_FS_CONFIG_BDB_TXN_NOSYNC,
         APR_HASH_KEY_STRING, "0");

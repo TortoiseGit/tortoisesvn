@@ -1960,7 +1960,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
             ScreenToClient(app.wBlame, &yPt);
             app.SelectLine(yPt.y, true);
             if (app.m_selectedRev <= 0)
-                break;;
+                break;
 
             HMENU hMenu = LoadMenu(app.hResource, MAKEINTRESOURCE(IDR_BLAMEPOPUP));
             HMENU hPopMenu = GetSubMenu(hMenu, 0);

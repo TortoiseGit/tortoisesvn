@@ -214,7 +214,7 @@ void CSetProgsAdvDlg::EnableBtns()
 
 void CSetProgsAdvDlg::OnBnClickedAddtool()
 {
-    CToolAssocDlg dlg(m_sType, true);;
+    CToolAssocDlg dlg(m_sType, true);
     dlg.m_sExtension = _T("");
     dlg.m_sTool = _T("");
     if (dlg.DoModal() == IDOK)
@@ -233,7 +233,7 @@ void CSetProgsAdvDlg::OnBnClickedEdittool()
     int selected = m_ToolListCtrl.GetSelectionMark();
     if (selected >= 0)
     {
-        CToolAssocDlg dlg(m_sType, false);;
+        CToolAssocDlg dlg(m_sType, false);
         dlg.m_sExtension = m_ToolListCtrl.GetItemText(selected, 0);
         dlg.m_sTool = m_ToolListCtrl.GetItemText(selected, 1);
         if (dlg.DoModal() == IDOK)

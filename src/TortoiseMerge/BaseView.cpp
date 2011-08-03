@@ -100,7 +100,7 @@ CBaseView::CBaseView()
     m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
     m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
     m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
-    m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();:.,{}!@#$%^&*-+=|/\\<>'`~\""));;
+    m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();:.,{}!@#$%^&*-+=|/\\<>'`~\""));
     m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
     m_bModified = FALSE;
     m_bOtherDiffChecked = false;
@@ -1251,7 +1251,7 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
 
     pdc->SelectObject(GetFont(FALSE, TRUE, FALSE));
 
-    CString sViewTitle;;
+    CString sViewTitle;
     if (IsModified())
     {
          sViewTitle = _T("* ") + m_sWindowName;
@@ -4313,7 +4313,7 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
 
         CString sDiffLine = m_pOtherView->GetViewLineChars(nViewLine);
         if (sDiffLine.IsEmpty())
-            break;;
+            break;
 
         svn_diff_t * diff = NULL;
         m_svnlinediff.Diff(&diff, sLine, sLine.GetLength(), sDiffLine, sDiffLine.GetLength(), m_bInlineWordDiff);
