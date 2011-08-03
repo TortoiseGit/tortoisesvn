@@ -28,12 +28,14 @@
 
 #include <algorithm>
 #include <cctype>
+#include <regex>
 
 #define MAX_LOADSTRING 1000
 
 #define STYLE_MARK 11
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#pragma comment(lib, "Shlwapi.lib")
 
 #pragma warning(push)
 #pragma warning(disable:4127)       // conditional expression is constant
@@ -150,11 +152,38 @@ LRESULT TortoiseBlame::SendEditor(UINT Msg, WPARAM wParam, LPARAM lParam)
 
 void TortoiseBlame::SetTitle()
 {
-    TCHAR title[MAX_PATH + 100];
-    _tcscpy_s(title, szTitle);
-    _tcscat_s(title, _T(" - "));
-    _tcscat_s(title, szViewtitle);
-    ::SetWindowText(wMain, title);
+#define MAX_PATH_LENGTH 80
+    ASSERT(dialogname.GetLength() < MAX_PATH_LENGTH);
+    WCHAR pathbuf[MAX_PATH] = {0};
+    if (_tcslen(szViewtitle) >= MAX_PATH)
+    {
+        std::wstring str = (LPCTSTR)szViewtitle;
+        std::wregex rx(L"^(\\w+:|(?:\\\\|/+))((?:\\\\|/+)[^\\\\/]+(?:\\\\|/)[^\\\\/]+(?:\\\\|/)).*((?:\\\\|/)[^\\\\/]+(?:\\\\|/)[^\\\\/]+)$");
+        std::wstring replacement = L"$1$2...$3";
+        std::wstring str2 = std::regex_replace(str, rx, replacement);
+        if (str2.size() >= MAX_PATH)
+            str2 = str2.substr(0, MAX_PATH-2);
+        PathCompactPathEx(pathbuf, str2.c_str(), MAX_PATH_LENGTH-(UINT)_tcslen(szTitle), 0);
+    }
+    else
+        PathCompactPathEx(pathbuf, szViewtitle, MAX_PATH_LENGTH-(UINT)_tcslen(szTitle), 0);
+    std::wstring title;
+    switch (DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\DialogTitles", 0)))
+    {
+    case 0: // url/path - dialogname - appname
+        title  = pathbuf;
+        title += L" - ";
+        title += szTitle;
+        title += L" - TortoiseSVN";
+        break;
+    case 1: // dialogname - url/path - appname
+        title = szTitle;
+        title += L" - ";
+        title += pathbuf;
+        title += L" - TortoiseSVN";
+        break;
+    }
+    SetWindowText(wMain, title.c_str());
 }
 
 BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
