@@ -1749,14 +1749,13 @@ void CLogDlg::UpdateSelectedRevs()
     m_selectedRevs.Clear();
     m_selectedRevsOneRange.Clear();
 
-    int selIndex = m_LogList.GetSelectionMark();
-    if (selIndex >= 0)
-    {
-        std::vector<svn_revnum_t> revisions;
-        revisions.reserve (m_logEntries.GetVisibleCount());
+    std::vector<svn_revnum_t> revisions;
+    revisions.reserve (m_logEntries.GetVisibleCount());
 
-        PLOGENTRYDATA pLogEntry = NULL;
-        POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    PLOGENTRYDATA pLogEntry = NULL;
+    POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    if (pos)
+    {
         pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
         revisions.push_back (pLogEntry->GetRevision());
         while (pos)
@@ -1817,10 +1816,6 @@ void CLogDlg::OnOK()
 void CLogDlg::NotifyTargetOnOk()
 {
     if (m_pNotifyWindow == 0)
-        return;
-
-    const int selIndex = m_LogList.GetSelectionMark();
-    if (selIndex < 0)
         return;
 
     bool bSentMessage = false;
