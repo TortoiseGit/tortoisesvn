@@ -27,12 +27,11 @@ CStoreSelection::CStoreSelection(CLogDlg* dlg)
 {
     m_logdlg = dlg;
 
-    int selIndex = m_logdlg->m_LogList.GetSelectionMark();
-    if ( selIndex>=0 )
-    {
-        int shownRows = static_cast<int>(m_logdlg->m_logEntries.GetVisibleCount());
+    int shownRows = static_cast<int>(m_logdlg->m_logEntries.GetVisibleCount());
 
-        POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
+    POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
+    if (pos)
+    {
         int nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
         if ( nIndex!=-1 && nIndex < shownRows )
         {
