@@ -29,7 +29,6 @@
 bool RepositoryBrowserCommand::Execute()
 {
     CString url;
-    BOOL bFile = FALSE;
     SVN svn;
     if (!cmdLinePath.IsEmpty())
     {
@@ -69,7 +68,6 @@ bool RepositoryBrowserCommand::Execute()
     {
         cmdLinePath.SetFromUnknown(cmdLinePath.GetUIPathString().Mid(7));
     }
-    bFile = PathFileExists(cmdLinePath.GetWinPath()) ? !cmdLinePath.IsDirectory() : FALSE;
 
     if (url.IsEmpty())
     {

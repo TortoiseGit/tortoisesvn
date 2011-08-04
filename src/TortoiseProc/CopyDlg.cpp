@@ -130,7 +130,6 @@ BOOL CCopyDlg::OnInitDialog()
         SetDlgItemText(IDC_COPYSTARTLABEL, CString(MAKEINTRESOURCE(IDS_COPYDLG_FROMURL)));
     }
 
-    m_bFile = !path.IsDirectory();
     SVN svn;
     CString sUUID;
     m_repoRoot = svn.GetRepositoryRootAndUUID(path, true, sUUID);
