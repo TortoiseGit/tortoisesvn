@@ -1,0 +1,63 @@
+Debugging hints
+
+Since TortoiseSVN is a shell extension it's not
+as easy to debug as normal applications. The
+TortoiseShell part is only a dll which is 
+loaded by the windows explorer. So the first
+thing you need to do is:
+
+- register the TortoiseShell dll so that
+  the windows explorer loads it. There are
+  three files in the folder src\TortoiseShell
+  with extension *.registry. Make a copy of
+  those files and change the extension to
+  *.reg. Then you have to edit those three
+  files so that the paths in it reflects
+  your source paths exactly.
+  Now if you doubleclick on register.reg 
+  the debug version of the TortoiseSVN.dll
+  gets registered. registerrelease.reg 
+  registers the release version of the
+  TortoiseSVN.dll. Don't do it right now!
+  Or just have TortoiseSVN installed and
+  registered properly.
+- Create the registry DWORD entry
+  HKLM\Software\TortoiseSVN\DebugShell
+  and set it to 1. This then forces the
+  TortoiseStub dll to load the extension
+  dlls from the same directory the test
+  application starts. This means that if
+  you then start e.g. TortoiseProc from
+  directory 'debug' and TortoiseSVN.dll
+  is also in the directory 'debug', that
+  dll is loaded instead of the 'real'
+  registered dll.
+- Start VS.NET and load the TortoiseSVN
+  solution file. Set the TortoiseProc
+  project as "startup project".
+  In the properties page of the project,
+  add the following command line:
+  /command:createpatch /path:"path/to/wc"
+  (substitute "path/to/wc" with a path
+  to an existing working copy).
+- Hit F5 in the VS.NET IDE (or start
+  debugging via menu).
+- Now you can set breakpoints and debug
+  as you like.
+- Click "Ok" in the create patch dialog, that
+  will then open a "file save" dialog and
+  this is where the shell extension dll
+  is now loaded and can be debugged.
+- After debugging, set the registry DWORD
+  value back to 0 or remove it completely.
+
+To debug the TortoiseProc part of TortoiseSVN
+proceed as with any normal application.
+
+To debug the TSVNCache exit the TSVNCache.exe
+process and proceed as with any normal
+application. Exiting TSVNCache.exe is necessary
+because only one instance of TSVNCache may run
+at a time. To exit the TSVNCache process set
+HKCU\Software\TortoiseSVN\CacheTrayIcon to 1 and
+call "Exit" in the context menu of the tray icon.
