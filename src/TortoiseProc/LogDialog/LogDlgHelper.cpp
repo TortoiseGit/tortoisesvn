@@ -110,6 +110,7 @@ CStoreSelection::~CStoreSelection()
 
         m_logdlg->FillLogMessageCtrl (false);
         m_logdlg->UpdateLogInfoLabel();
+        m_logdlg->m_LogList.Invalidate();
     }
 }
 
