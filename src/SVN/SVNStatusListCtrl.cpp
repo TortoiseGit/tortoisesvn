@@ -325,6 +325,8 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
     GetCursorPos(&pt);
     SetCursorPos(pt.x, pt.y);
 
+    ClearSortsFromHeaders();
+
     m_mapFilenameToChecked.clear();
     m_StatusUrlList.Clear();
     m_externalSet.clear();
@@ -1227,15 +1229,11 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 
         GetStatisticsString();
 
+        ClearSortsFromHeaders();
+
         CHeaderCtrl * pHeader = GetHeaderCtrl();
         HDITEM HeaderItem = {0};
         HeaderItem.mask = HDI_FORMAT;
-        for (int i=0; i<pHeader->GetItemCount(); ++i)
-        {
-            pHeader->GetItem(i, &HeaderItem);
-            HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
-            pHeader->SetItem(i, &HeaderItem);
-        }
         if (m_nSortedColumn >= 0)
         {
             pHeader->GetItem(m_nSortedColumn, &HeaderItem);
@@ -1706,15 +1704,10 @@ void CSVNStatusListCtrl::OnHdnItemclick(NMHDR *pNMHDR, LRESULT *pResult)
         m_mapFilenameToChecked.clear();
         Sort();
 
+        ClearSortsFromHeaders();
         CHeaderCtrl * pHeader = GetHeaderCtrl();
         HDITEM HeaderItem = {0};
         HeaderItem.mask = HDI_FORMAT;
-        for (int i=0; i<pHeader->GetItemCount(); ++i)
-        {
-            pHeader->GetItem(i, &HeaderItem);
-            HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
-            pHeader->SetItem(i, &HeaderItem);
-        }
         pHeader->GetItem(m_nSortedColumn, &HeaderItem);
         HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
         pHeader->SetItem(m_nSortedColumn, &HeaderItem);
@@ -5838,6 +5831,19 @@ CString CSVNStatusListCtrl::BuildIgnoreList(const CString& name,
         value.Remove('\r');
     }
     return value;
+}
+
+void CSVNStatusListCtrl::ClearSortsFromHeaders()
+{
+    CHeaderCtrl * pHeader = GetHeaderCtrl();
+    HDITEM HeaderItem = {0};
+    HeaderItem.mask = HDI_FORMAT;
+    for (int i=0; i<pHeader->GetItemCount(); ++i)
+    {
+        pHeader->GetItem(i, &HeaderItem);
+        HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
+        pHeader->SetItem(i, &HeaderItem);
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////

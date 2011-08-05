@@ -952,6 +952,17 @@ private:
     void OnContextMenuGroup(CWnd * pWnd, CPoint point);
     void OnContextMenuHeader(CWnd * pWnd, CPoint point);
 
+    void ClearSortsFromHeaders();
+    void CreateChangeList(const CString& name);
+    void ShowErrorMessage();
+    LRESULT DoInsertGroup(LPWSTR groupName, int groupId, int index);
+    LRESULT DoInsertGroup(LPWSTR groupName, int groupId);
+    int GetGroupId(int itemIndex) const;
+    void RemoveListEntries(const std::vector<CString>& paths);
+    void RemoveListEntries(const std::vector<int>& indices);
+    CString BuildIgnoreList(const CString& fileOrDirectoryName,
+        SVNProperties& properties, const CString& ignoreProperty);
+
     virtual void PreSubclassWindow();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
@@ -963,9 +974,6 @@ private:
     afx_msg void OnColumnResized(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnColumnMoved(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
-
-    void CreateChangeList(const CString& name);
-
     afx_msg void OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult);
@@ -978,14 +986,6 @@ private:
     afx_msg void OnHdnBegintrack(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnDestroy();
-    void ShowErrorMessage();
-    LRESULT DoInsertGroup(LPWSTR groupName, int groupId, int index);
-    LRESULT DoInsertGroup(LPWSTR groupName, int groupId);
-    int GetGroupId(int itemIndex) const;
-    void RemoveListEntries(const std::vector<CString>& paths);
-    void RemoveListEntries(const std::vector<int>& indices);
-    CString BuildIgnoreList(const CString& fileOrDirectoryName,
-        SVNProperties& properties, const CString& ignoreProperty);
 
 private:
     bool *                      m_pbCanceled;
