@@ -41,6 +41,7 @@ ProjectProperties::ProjectProperties(void)
     , bFileListInEnglish (TRUE)
     , bAppend (TRUE)
     , lProjectLanguage (0)
+    , nBugIdPos(-1)
 {
 }
 
@@ -115,6 +116,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             if ((!bFoundBugtraqMessage)&&(sPropName.compare(BUGTRAQPROPNAME_MESSAGE)==0))
             {
                 sMessage = sPropVal;
+                nBugIdPos = sMessage.Find(L"%BUGID%");
                 bFoundBugtraqMessage = TRUE;
             }
             if ((!bFoundBugtraqNumber)&&(sPropName.compare(BUGTRAQPROPNAME_NUMBER)==0))
@@ -376,10 +378,10 @@ CString ProjectProperties::GetBugIDFromLog(CString& msg)
         CString sFirstPart;
         CString sLastPart;
         BOOL bTop = FALSE;
-        if (sMessage.Find(_T("%BUGID%"))<0)
+        if (nBugIdPos<0)
             return sBugID;
-        sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
-        sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
+        sFirstPart = sMessage.Left(nBugIdPos);
+        sLastPart = sMessage.Mid(nBugIdPos+7);
         msg.TrimRight('\n');
         if (msg.ReverseFind('\n')>=0)
         {
@@ -529,11 +531,11 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
         CString sFirstPart;
         CString sLastPart;
         BOOL bTop = FALSE;
-        if (sMessage.Find(_T("%BUGID%"))<0)
+        if (nBugIdPos<0)
             return result;
 
-        sFirstPart = sMessage.Left(sMessage.Find(_T("%BUGID%")));
-        sLastPart = sMessage.Mid(sMessage.Find(_T("%BUGID%"))+7);
+        sFirstPart = sMessage.Left(nBugIdPos);
+        sLastPart = sMessage.Mid(nBugIdPos+7);
         CString sMsg = msg;
         sMsg.TrimRight('\n');
         if (sMsg.ReverseFind('\n')>=0)
@@ -617,7 +619,7 @@ std::set<CString> ProjectProperties::FindBugIDs (const CString& msg)
 CString ProjectProperties::FindBugID(const CString& msg)
 {
     CString sRet;
-    if (!sCheckRe.IsEmpty() || (sMessage.Find(_T("%BUGID%")) >= 0))
+    if (!sCheckRe.IsEmpty() || (nBugIdPos >= 0))
     {
         std::set<CString> bugIDs = FindBugIDs(msg);
 
@@ -634,7 +636,7 @@ CString ProjectProperties::FindBugID(const CString& msg)
 
 bool ProjectProperties::MightContainABugID()
 {
-    return !sCheckRe.IsEmpty() || (sMessage.Find(L"%BUGID%") >= 0);
+    return !sCheckRe.IsEmpty() || (nBugIdPos >= 0);
 }
 
 CString ProjectProperties::GetBugIDUrl(const CString& sBugID)

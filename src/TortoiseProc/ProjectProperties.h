@@ -290,4 +290,5 @@ private:
     CString     sLogTemplateMkDir;
     CString     sLogTemplatePropset;
     CString     sLogTemplateLock;
+    int         nBugIdPos;              ///< result of sMessage.Find(L"%BUGID%");
 };
