@@ -108,9 +108,8 @@ public:
      * Check whether calling \ref FindBugID or \ref FindBugIDPositions
      * is worthwhile. If the result is @a false, those functions would
      * return empty strings or sets, respectively.
-     * \param msg the log message
      */
-    bool MightContainABugID(const std::string& msg);
+    bool MightContainABugID();
 
     /**
      * Searches for the BugID inside a log message. If one is found,

@@ -632,9 +632,9 @@ CString ProjectProperties::FindBugID(const CString& msg)
     return sRet;
 }
 
-bool ProjectProperties::MightContainABugID(const std::string& msg)
+bool ProjectProperties::MightContainABugID()
 {
-    return !sCheckRe.IsEmpty() || (msg.find("%BUGID%") != std::string::npos);
+    return !sCheckRe.IsEmpty() || (sMessage.Find(L"%BUGID%") >= 0);
 }
 
 CString ProjectProperties::GetBugIDUrl(const CString& sBugID)

@@ -422,7 +422,7 @@ void CLogEntryData::InitDateStrings() const
 
 void CLogEntryData::InitBugIDs() const
 {
-    if (projectProperties && projectProperties->MightContainABugID (sMessage))
+    if (projectProperties && projectProperties->MightContainABugID ())
     {
         CString unicodeMessage = CUnicodeUtils::GetUnicode (sMessage.c_str());
         CString unicodeBugIDs = projectProperties->FindBugID (unicodeMessage);
