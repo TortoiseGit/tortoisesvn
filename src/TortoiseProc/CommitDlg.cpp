@@ -160,8 +160,6 @@ BOOL CCommitDlg::OnInitDialog()
     m_tooltips.AddTool(IDC_EXTERNALWARNING, IDS_COMMITDLG_EXTERNALS);
     m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 
-    OnEnChangeLogmessage();
-
     GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
 
@@ -220,6 +218,7 @@ BOOL CCommitDlg::OnInitDialog()
         m_cLogMessage.SetText(m_sLogMessage);
     else
         m_cLogMessage.SetText(m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATECOMMIT));
+    OnEnChangeLogmessage();
 
     GetWindowText(m_sWindowTitle);
 
