@@ -84,8 +84,8 @@ BOOL CEditPropBugtraq::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    CheckRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO, IDC_TOPRADIO);
-    CheckRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO, IDC_TEXTRADIO);
+    CheckRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO, IDC_BOTTOMRADIO);
+    CheckRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO, IDC_NUMERICRADIO);
 
     for (IT it = m_properties.begin(); it != m_properties.end(); ++it)
     {
@@ -133,14 +133,14 @@ BOOL CEditPropBugtraq::OnInitDialog()
         else if (it->first.compare(BUGTRAQPROPNAME_APPEND) == 0)
         {
             CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
-            if ((sYesNo.CompareNoCase(_T("yes")) == 0)||((sYesNo.CompareNoCase(_T("true")) == 0)))
-                CheckRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO, IDC_BOTTOMRADIO);
+            if ((sYesNo.CompareNoCase(_T("no")) == 0)||((sYesNo.CompareNoCase(_T("false")) == 0)))
+                CheckRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO, IDC_TOPRADIO);
         }
         else if (it->first.compare(BUGTRAQPROPNAME_NUMBER) == 0)
         {
             CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
-            if ((sYesNo.CompareNoCase(_T("yes")) == 0)||((sYesNo.CompareNoCase(_T("true")) == 0)))
-                CheckRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO, IDC_NUMERICRADIO);
+            if ((sYesNo.CompareNoCase(_T("no")) == 0)||((sYesNo.CompareNoCase(_T("false")) == 0)))
+                CheckRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO, IDC_TEXTRADIO);
         }
     }
 
@@ -266,8 +266,8 @@ void CEditPropBugtraq::OnOK()
 
     // bugtraq:number
     int checked = GetCheckedRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO);
-    if (checked == IDC_NUMERICRADIO)
-        pVal.value = "true";
+    if (checked == IDC_TEXTRADIO)
+        pVal.value = "false";
     else
         pVal.value.clear();
     pVal.remove = (pVal.value.size() == 0);
@@ -275,8 +275,8 @@ void CEditPropBugtraq::OnOK()
 
     // bugtraq:append
     checked = GetCheckedRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO);
-    if (checked == IDC_BOTTOMRADIO)
-        pVal.value = "true";
+    if (checked == IDC_TOPRADIO)
+        pVal.value = "false";
     else
         pVal.value.clear();
     pVal.remove = (pVal.value.size() == 0);
