@@ -376,6 +376,8 @@ void CDirectoryWatcher::WorkerThread()
             {
                 if (!m_bRunning)
                     return;
+                if (watchInfoMap.size()==0)
+                    continue;
 
                 // NOTE: the longer this code takes to execute until ReadDirectoryChangesW
                 // is called again, the higher the chance that we miss some
