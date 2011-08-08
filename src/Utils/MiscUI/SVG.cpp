@@ -39,7 +39,7 @@ bool SVG::Save( const CString& path )
         return false;
 
     CStringA header;
-    header.Format("<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"%d\" height=\"%d\">\r\n", viewportWidth, viewportHeight);
+    header.Format("<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\">\r\n", viewportWidth, viewportHeight, viewportWidth, viewportHeight);
     CStringA footer = "\r\n</svg>";
 
     if (!WriteFile(hFile, header, (DWORD)header.GetLength(), &dwWritten, NULL))
