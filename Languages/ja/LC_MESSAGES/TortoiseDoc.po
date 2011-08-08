@@ -9,14 +9,15 @@
 # $Rev$
 # 
 # Authors:
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011.
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-27 00:18+0000\n"
-"Last-Translator: ddeguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
+"PO-Revision-Date: 2011-08-07 18:25+0000\n"
+"Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +32,7 @@ msgstr "TortoiseSVN"
 
 #. (subtitle)
 msgid "A Subversion client for Windows"
-msgstr "Subversion クライアント for Windows"
+msgstr "Windows 用 Subversion クライアント"
 
 #. (edition)
 msgid "First"
@@ -78,13 +79,11 @@ msgid ""
 "perhaps even simultaneously on the very same files! - and you can see why a "
 "good system is needed to <emphasis>manage the potential chaos</emphasis>."
 msgstr ""
-"バージョン管理は情報の変更を管理する技術です。これは (小さな変更を加えては、次の日にそれをチェックしたり取り消したりといった) "
-"プログラマにとって長い間重要なツールであり続けました。同時に働いている (もっといえば全く同じファイルを同時に変更を加える) "
-"プログラマチームを想像してみてください。こんな<emphasis>潜在的な混沌</emphasis>を管理する良いシステムがなぜ必要なのかお判りになると思います。"
+"バージョン管理は、情報の変更を管理する技術です。これは、たとえばソフトウェアにいくつもの小さい変更を加えたり、その翌日にはその変更を取り消したりチェックしたりすることに時間を費やしてきたようなプログラマたちに、長い間待望されてきたツールでした。そのような開発者たちが同時に働くチームを想像してみてください。恐らく同じファイルに同時に変更を加える場面があるでしょう。なぜ、<emphasis>このような潜在的な混沌を管理</emphasis>する良いシステムが求められているかがわかるでしょう。"
 
 #. (title)
 msgid "What is TortoiseSVN?"
-msgstr "TortoiseSVN とは?"
+msgstr "TortoiseSVN とは"
 
 #. (para)
 msgid ""
@@ -98,6 +97,10 @@ msgid ""
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
 msgstr ""
+"TortoiseSVN は、 <firstterm>Apache™ Subversion®</firstterm> "
+"バージョン管理システムの無料でオープンソースの Windows 版クライアントです。すなわち、 TortoiseSVN "
+"はファイルやディレクトリを時間を超えて管理します。ファイルは<firstterm>リポジトリ</firstterm>に集中的に格納されます。リポジトリは普通のファイルサーバとよく似ていますが、ファイルを古いバージョンに戻したり、いつ、だれがデータに変更を加えたのかを履歴から確認したりすることができます。このため、"
+" Subversion などのバージョン管理システムは、一般的に <quote>タイムマシン</quote> のようなものと考えられています。"
 
 #. (para)
 msgid ""
@@ -348,7 +351,9 @@ msgid ""
 "Both TortoiseSVN and Subversion are developed by a community of people who "
 "are working on those projects. They come from different countries all over "
 "the world, working together to create great software."
-msgstr "TortoiseSVN と Subversion のどちらも、世界中の人々が自発的に参加している「コミュニティ」で開発を行っています。"
+msgstr ""
+"TortoiseSVN や Subversion "
+"は、開発者のコミュニティによって開発されています。世界中の様々な国の出身者が、偉大なソフトウェアを開発するために協力しています。"
 
 #. (title)
 msgid "TortoiseSVN's History"
@@ -739,6 +744,8 @@ msgid ""
 "refer to our online FAQ at <ulink "
 "url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
 msgstr ""
+"TortoiseSVNをインストールした後に何か問題が発生した場合は、 <ulink "
+"url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>からオンラインFAQを参照して下さい。"
 
 #. (title)
 msgid "Basic Concepts"
@@ -2782,6 +2789,9 @@ msgid ""
 " logo</citetitle></ulink> or you can provide your own image. "
 "<placeholder-1/>"
 msgstr ""
+"もちろん、適切な画像を含めれば、もっと見栄えが良くなるでしょう。<ulink "
+"url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN"
+" のロゴ</citetitle></ulink>を利用したり、あなた自身のイメージを提供することができます。 <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -2869,18 +2879,22 @@ msgid ""
 "bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
 msgstr ""
+"Subversion サーバのオプションの詳細や、あなたの状況でどれが最適な構造なのかについては、Subversion book の <ulink "
+"url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.serverconfig.html\"><citetitle>Server "
+"Configuration</citetitle></ulink> を参照してください。"
 
 #. (citetitle)
 msgid "VisualSVN"
-msgstr ""
+msgstr "VisualSVN"
 
 #. (citetitle)
 msgid "CollabNet"
-msgstr ""
+msgstr "CollabNet"
 
 #. (citetitle)
 msgid "UberSVN"
-msgstr ""
+msgstr "UberSVN"
 
 #. (para)
 msgid ""
@@ -2901,6 +2915,8 @@ msgid ""
 "url=\"http://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>"
 " website."
 msgstr ""
+"それ以上の小技は、<ulink "
+"url=\"http://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>のウェブサイトで説明されています。。"
 
 #. (title)
 msgid "Daily Use Guide"
@@ -3656,6 +3672,9 @@ msgid ""
 "linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog "
 "(<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 msgstr ""
+"部分的な作業コピーをチェックアウトした場合（つまり、チェックアウトする深さとして<literal>再帰的</literal>以外を選択した場合）、その下のサブフォルダを後から追加するには、リポジトリブラウザを使用するか（<xref"
+" linkend=\"tsvn-dug-repobrowser\"/>）、ダイアログ（<xref linkend=\"tsvn-dug-"
+"wcstatus-2\"/>）で変更をチェックすること行うことができます。"
 
 #. (para)
 msgid ""
@@ -4016,6 +4035,7 @@ msgid ""
 "This is useful if you want to write commit log messages that include the "
 "paths that are affected by the commit."
 msgstr ""
+"ファイルをコミットダイアログの下部のリストからログメッセージのエディットボックスにドラッグすると、そのエディットボックスに各ファイルのパスがプレーンテキストとして挿入されます。コミット時のログメッセージを、コミットにより影響を受けるパスを含めて作成したい場合に便利です。"
 
 #. (title)
 #. (title)
@@ -4186,6 +4206,8 @@ msgid ""
 "command prompt using the command <literal>TortoiseProc.exe "
 "/command:autotexttest</literal>."
 msgstr ""
+"完全に正しい正規表現を書くのは難しいので、式の組み合わせを整理しやすくするために、式を入力し、ファイル名を入力すれば、それが対応するかどうかをテストできるテストダイアログを用意しています。コマンドプロンプトから、<literal>TortoiseProc.exe"
+" /command:autotexttest</literal>とコマンドを入力すれば起動します。"
 
 #. (para)
 msgid ""
@@ -4251,7 +4273,7 @@ msgid ""
 "based bug tracking support, just add your issue references as part of the "
 "log message. Learn more in <xref linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr ""
-"バグ追跡システムが有効なら、<guilabel>Bug-ID / Issue-Nr:</guilabel> "
+"バグ追跡ツールが有効なら、<guilabel>Bug-ID / Issue-Nr:</guilabel> "
 "テキストボックスで課題を複数設定できます。複数の課題はコンマで区切らなければなりません。そうでなければ、正規表現ベースのバグ追跡サポートを使用して、ログメッセージの一部として課題への参照を追加してください。詳細は"
 " <xref linkend=\"tsvn-dug-bugtracker\"/> をご覧ください。"
 
@@ -4691,6 +4713,8 @@ msgid ""
 "<guilabel>Manually edit property</guilabel>, sort out what the property "
 "value should be and mark as resolved."
 msgstr ""
+"一方の変更を取り消してもう一方で上書きする場合は、<guilabel>ローカルの属性を用いて解消する</guilabel>か<guilabel>リモートの属性を用いて解消する</guilabel>を選択してください。変更をマージする必要がある場合は、<guilabel>手動で属性を編集</guilabel>"
+" を選択し、どの属性をどうするかをマークして解決してください。"
 
 #. (title)
 msgid "Tree Conflicts"
@@ -5139,6 +5163,8 @@ msgid ""
 " run the merge again. If you need anything more complicated then you have to"
 " resolve manually."
 msgstr ""
+"他にも、競合がフォルダではなくファイルが含まれるために、単純にツリーの競合としてラベル付けされている場合があります。例えば、あなたがトランクとブランチの両方に同じ名前のフォルダを追加してからマージしようとした場合には、ツリーの競合と表示されます。マージ対象のフォルダを維持したい場合は、単に競合解消としてマークするしてください。マージ元のどちらか一方を使用する場合は、最初のターゲットの1つに対してSVN"
+" 削除を実行し、再びマージを実行する必要があります。もっと複雑な場合は、手動で解決する必要があります。"
 
 #. (title)
 msgid "Getting Status Information"
@@ -5301,6 +5327,10 @@ msgid ""
 "which can be used by all Tortoise clients. Check with your client provider "
 "to see if this has been integrated yet :-)"
 msgstr ""
+"Tortoise "
+"クライアントが今より増えた場合（TortoiseCVS、TortoiseHg、...）、アイコンの限界は現実的な問題になります。この問題を回避するために、"
+" TortoiseSVN プロジェクトではすべての Tortoise クライアントで共通に使用できる、 DLL "
+"で読み込むアイコンセットを導入しました。すでに統合されているかどうかを確認するには、クライアントの供給元に確認してください。 :-)"
 
 #. (para)
 msgid ""
@@ -6437,6 +6467,9 @@ msgid ""
 "implement feature X. To make it clearer which sense is being used, we use "
 "two different terms."
 msgstr ""
+"Subversion "
+"では、リビジョン番号を2つの異なる意味で使用しています。一般的にリビジョンといえば、その時点でのリポジトリの状態を表しますが、一方ではリビジョンを作成した際の一連の変更を表す場合に使用することもあります。例えば、<quote>r1234での変更</quote>といえば、r1234の変更のコミットで実装された機能"
+" X のことを表します。どちらの意味で使用されているかを明確にするために、2つの用語を使い分けます。"
 
 #. (para)
 msgid ""
@@ -6727,6 +6760,8 @@ msgid ""
 "users using TortoiseSVN will still see the cached (old) authors and log "
 "messages until they refresh the log cache."
 msgstr ""
+"TortoiseSVN "
+"はすべてのログ情報のキャッシュを保持しているため、変更を行った作者やログメッセージはローカル環境でのみ表示されます。ログキャッシュが更新されるまでの間、他のユーザーには、キャッシュされた（古い）作者やログメッセージが表示されます。"
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -6757,6 +6792,7 @@ msgid ""
 "the log entries, and then only those entries which "
 "<emphasis>match</emphasis> the filter string are shown."
 msgstr ""
+"検索アイコンクリックすると、を検索対象の情報の種類、または<emphasis>正規表現を使用する</emphasis>を選択できます。通常は、単純な文字列検索で充分でしょうが、より複雑に検索用語を設定したい場合は、正規表現を使用することができます。検索ボックスの上にマウスを置くと、正規表現の記号や特殊文字の使い方がツールチップで表示されます。フィルタは、フィルタ文字列がログ項目と一致するかどうかをチェックし、フィルタ文字列と<emphasis>一致</emphasis>した項目のみを表示します。"
 
 #. (para)
 msgid ""
@@ -6786,6 +6822,10 @@ msgid ""
 "url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr ""
+"正規表現についての説明はこのマニュアルの範囲外です。<ulink "
+"url=\"http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE\"><citetitle>http://ja.wikipedia.org/wiki/正規表現</citetitle></ulink>にある導入や、<ulink"
+" url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
+"expressions.info/</citetitle></ulink>にあるオンラインのドキュメントやチュートリアルをご覧ください。"
 
 #. (para)
 msgid ""
@@ -6804,6 +6844,7 @@ msgid ""
 " are affected by the same commit, but in grey. If the box is checked, those "
 "paths are hidden."
 msgstr ""
+"また、<guilabel>影響を受けるパスのみ表示</guilabel>を使用すると、下部ペインのパス名をフィルタリングすることもできます。影響を受けるパスとは、ログを表示するために使われたパスを含むパスです。フォルダのログを取得する場合は、そのフォルダ以下すべてが対象になります。ファイルの場合は、そのファイルのみが対象になります。通常、パスのリストには影響を受けるパス以外にも、同時にコミットされたパスが灰色で表示されます。ボックスをチェックすると、それらのパスは非表示になります。"
 
 #. (para)
 msgid ""
@@ -6829,8 +6870,8 @@ msgid ""
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
 msgstr ""
-"ログのフォーマット変更は、subversion "
-"の属性にアクセスできることに依存しているため、チェックアウトした作業コピーを使用するときにだけ、結果を目にするでしょう。リモートから属性を取得するのは遅い操作ですので、作動中のこの機能をリポジトリブラウザから目にすることはないでしょう。"
+"ログのフォーマット変更は、Subversion "
+"の属性として保持されているため、チェックアウトした作業コピーを使用するときのみ表示されます。リモートから属性を取得するのには時間がかかるため、リポジトリブラウザを起動した場合はこの機能が表示されません。"
 
 #. (title)
 msgid "Statistical Information"
@@ -7309,6 +7350,7 @@ msgid ""
 "was none before, or removing a whitespace completely is still shown as a "
 "change."
 msgstr ""
+"<guilabel>空白の変更を無視する</guilabel>は、空白の数や種類（インデントや、タブとスペースの変更など）のみの変更を無視します。空白がないところに追加されたり、存在する空白が完全に削除されたりした場合は、変更として表示します。"
 
 #. (para)
 msgid ""
@@ -7546,11 +7588,11 @@ msgstr ""
 
 #. (title)
 msgid "External Diff/Merge Tools"
-msgstr "外部 Diff/Merge ツール"
+msgstr "外部差分・マージツール"
 
 #. (primary)
 msgid "diff tools"
-msgstr "diff ツール"
+msgstr "差分ツール"
 
 #. (primary)
 msgid "merge tools"
@@ -7577,7 +7619,7 @@ msgid ""
 msgstr ""
 "<ulink "
 "url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink>"
-" は、ディレクトリも扱えるすばらしいオープンソース差分ツールです。"
+" は、ディレクトリも扱える画期的なオープンソースの差分ツールです。"
 
 #. (term)
 msgid "Perforce Merge"
@@ -7591,7 +7633,7 @@ msgid ""
 msgstr ""
 "Perforce は商用の RCS ですが、差分・マージツールは無料でダウンロードできます。詳細な情報は <ulink "
 "url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>"
-" から取得してください。"
+" をご覧ください。"
 
 #. (term)
 msgid "KDiff3"
@@ -7616,6 +7658,9 @@ msgid ""
 "tool for free. Get more information from <ulink "
 "url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
 msgstr ""
+"SourceGear Vault は商用の RCS ですが、差分・マージツールは無料でダウンロードできます。詳細な情報は <ulink "
+"url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>"
+" をご覧ください。"
 
 #. (term)
 msgid "ExamDiff"
@@ -7630,7 +7675,7 @@ msgid ""
 "url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
 msgstr ""
 "ExamDiff Standard はフリーウェアです。ファイルを扱えますが、ディレクトリは扱えません。ExamDiff Pro "
-"はシェアウェアでディレクトリに対する diff/編集機能などたくさん追加されています。どちらもバージョン 3.2 以降なら unicode "
+"はシェアウェアで、ディレクトリに対する差分や編集機能などたくさん追加されています。どちらもバージョン 3.2 以降なら unicode "
 "を扱えます。<ulink "
 "url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>"
 " からダウンロードできます。"
@@ -7821,6 +7866,7 @@ msgid ""
 "can copy existing versioned content to a new location, possibly renaming it "
 "at the same time."
 msgstr ""
+"作業コピーの中にあるファイルやフォルダをコピーするには、右ドラッグメニューを使うのがもっとも簡単です。ファイルやフォルダを<action>右ドラッグ</action>で、作業コピーから他のフォルダ、または同じフォルダ内に向けてドラッグすると、マウスのボタンを放すと同時にコンテキストメニューが現れます。<placeholder-1/>これで既存のバージョン管理下の内容を、新しい場所にコピーできます。必要なら同時に名前を変更することもできます。"
 
 #. (para)
 msgid ""
@@ -7885,6 +7931,7 @@ msgid ""
 "repositories live on the same server. All you can do is copy the content in "
 "its current state and add it as new content to the second repository."
 msgstr ""
+"TortoiseSVNでは、リポジトリの<emphasis>内部</emphasis>でファイルやフォルダはコピーや移動を行うと履歴が保持されますが、リポジトリ間をまたがってファイルやフォルダをコピーや移動すると、履歴が保持されません。リポジトリが同じサーバ上にあったとしても同様です。コンテンツの現在の状態をコピーし、別なリポジトリに新しいコンテンツとして追加することはできます。"
 
 #. (para)
 msgid ""
@@ -8237,6 +8284,9 @@ msgid ""
 "to...</guimenuitem></menuchoice> as the target for that copy operation "
 "select the path to your working copy."
 msgstr ""
+"ファイルやフォルダを削除した後で、それをリポジトリにコミットすると、通常の<menuchoice><guimenu> "
+"TortoiseSVNの</guimenu><guimenuitem>元に戻す</guimenuitem></menuchoice>コマンド元に戻せなくなります。しかし、ファイルやフォルダが全く失われてしまった訳ではありません。もしファイルやフォルダを削除したリビジョンが分かるのであれば（分からない場合は、ログダイアログから探し出せば）、リポジトリブラウザを開いてそのリビジョンに切り替えます。そして、削除されたファイルやフォルダを選択して、右クリックして<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>コピー..."
+" </guimenuitem></menuchoice>を実行し、コピー先として作業コピーのパスを指定してください。"
 
 #. (title)
 msgid "Moving files and folders"
@@ -8319,6 +8369,7 @@ msgid ""
 "<menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Copy</guimenuitem></menuchoice>."
 msgstr ""
+"ファイルの移動やコピーは、他にもWindowsの切り取り／コピーコマンドを使って行うこともできます。コピーしたいファイルを選択し、右クリックして選択してエクスプローラのコンテキストメニューを表示し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>コピー</guimenuitem></menuchoice>を実行します。それからコピー先のフォルダを開いて右クリックし、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>貼り付け</guimenuitem></menuchoice>を選択します。ファイルを移動する場合は、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>コピー</guimenuitem></menuchoice>の代わりに<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>切り取り</guimenuitem></menuchoice>を使用します。"
 
 #. (para)
 msgid ""
@@ -8343,7 +8394,7 @@ msgid ""
 "<literal>svn:externals</literal> properties of the source and destination "
 "parent folders."
 msgstr ""
-"<literal>svn:externals</literal> で作成したフォルダに対して、TortoiseSVN "
+"<literal>svn:externals</literal> で作成したフォルダに対して、TortoiseSVN の "
 "<guilabel>移動</guilabel> や <guilabel>名前の変更</guilabel> "
 "コマンドを実行するべきでは<emphasis>ありません</emphasis>。このアクションは外部参照項目を親リポジトリから削除してしまい、おそらく他の人たちを驚かせてしまいます。外部参照フォルダを移動する必要があるときには、通常の"
 " (シェルでの) 移動を行い、移動元と異動先それぞれ親フォルダに対して <literal>svn:externals</literal> "
@@ -8542,6 +8593,7 @@ msgid ""
 " this button another dialog comes up listing all the unversioned items, "
 "which you can then select for deletion."
 msgstr ""
+"「元に戻す」が、作業コピーをクリーンアップするために使用されることがあるので、バージョン管理されていないファイルを削除するために使用することができるボタンがあります。このボタンをクリックすると、バージョン管理されていないすべてのアイテムを表示し、削除するアイテムを選択できるダイアログを表示します。"
 
 #. (title)
 msgid "Undoing Changes which have been Committed"
@@ -8815,6 +8867,8 @@ msgid ""
 "menu. Then either select an existing property in the combo box or enter a "
 "custom property name."
 msgstr ""
+"独自のダイアログを持たないプロパティを追加するには、<guilabel>新規... "
+"</guilabel>メニューの<guimenuitem>高度な設定</guimenuitem>を選択します。そして、既存のプロパティをコンボボックスから選択するか、カスタムプロパティの名前を入力するかします。"
 
 #. (para)
 msgid ""
@@ -9120,6 +9174,7 @@ msgid ""
 "if set, but <literal>tsvn:logtemplate</literal> will be used if no action "
 "specific template is set."
 msgstr ""
+"<literal>tsvn:logtemplate</literal>の代わりに使用できる、操作に依存するテンプレートもあります。操作に依存するテンプレートが設定されている場合はそれが使用されます。しかし、操作に依存するテンプレートが何も設定されていない場合は、<literal>tsvn:logtemplate</literal>が使用されます。"
 
 #. (para)
 msgid ""
@@ -9405,6 +9460,7 @@ msgid ""
 "described above will not work in the repository browser as they do in a "
 "working copy."
 msgstr ""
+"リモートから属性を取得するのは時間がかかります。そのため、上記の機能のうちいくつかは、作業コピーで使用しているリポジトリブラウザでは動作しません。"
 
 #. (para)
 msgid ""
@@ -9412,6 +9468,7 @@ msgid ""
 "<literal>svn:</literal> properties are offered in the pre-defined list. Any "
 "other property name must be entered manually."
 msgstr ""
+"リポジトリブラウザを使用してプロパティを追加する場合、標準的なliteral>svn:</literal>プロパティは、あらかじめ定義されたリストで提供されます。それ以外のプロパティ名は手動で入力する必要があります。"
 
 #. (para)
 msgid ""
@@ -9457,10 +9514,12 @@ msgid ""
 "TortoiseSVN presents edit dialogs for some particular properties which show "
 "the possible values or break the property into its individual components."
 msgstr ""
+"一部のプロパティは、自動処理に使用されるため、特定の値や特定の書式にする必要があります。正しい書式を設定やすくするため、 TortoiseSVN "
+"では幾つかの特定のプロパティについて、設定可能な値を表示したり、独立コンポーネントに分配したりするための編集ダイアログを提供しています。"
 
 #. (title)
 msgid "External Content"
-msgstr "外部コンテンツ"
+msgstr "外部参照項目"
 
 #. (title)
 msgid "svn:externals property page"
@@ -9490,6 +9549,9 @@ msgid ""
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
 msgstr ""
+"チェックアウトした外部フォルダや、外部項目のSubversionのURLのサブフォルダの名前を設定する必要があります。外部フォルダに最新のリビジョンをチェックアウトしておけば、外部項目がリポジトリの中で変更されたときに、作業コピーを更新させることができます。しかし、特定の安定した時点のものを外部で参照できるようにするには、使用する特定のリビジョンを指定することもできます。また、この場合、ペグリビジョンと同じリビジョンを指定したいかもしれません。"
+" "
+"外部の項目が将来何らかの時点で改名されると、Subversionは作業コピーでこの項目を更新できなくなります。ペグリビジョンを指定することで、最新版ではなくペグリビジョンの時の名前をSubversionに検索させることができます。"
 
 #. (title)
 msgid "SVN Keywords"
@@ -9503,7 +9565,7 @@ msgstr "svn:keywords プロパティページ"
 msgid ""
 "<placeholder-1/> Select the keywords that you would like to be expanded in "
 "your file."
-msgstr ""
+msgstr "<placeholder-1/>ファイル内に展開したいキーワードを選択してください。"
 
 #. (title)
 msgid "EOL Style"
@@ -9518,6 +9580,7 @@ msgid ""
 "<placeholder-1/> Select the end-of-line style that you wish to use and "
 "TortoiseSVN will use the correct property value."
 msgstr ""
+"<placeholder-1/>使用したい行末のスタイルを選択します。それで、 TortoiseSVN は適切なプロパティ値を使用することができます。"
 
 #. (title)
 #. (title)
@@ -9545,6 +9608,9 @@ msgid ""
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
 msgstr ""
+"<placeholder-1/>これら3つのプロパティは、ログメッセージの書式を制御します。最初の2は、コミットダイアログやロックダイアログの<guibutton>OK</guibutton>"
+" "
+"OKボタンを無効にしてメッセージを表示する最短時間です。境界の位置は、それらのログメッセージの幅制限が設定されているプロジェクトのためのガイドとして指定されたカラム幅でマーカーを示しています。値をゼロに設定すると、プロパティが削除されます。"
 
 #. (title)
 msgid "Project Language"
@@ -9563,6 +9629,9 @@ msgid ""
 "local language. When this box is checked the status is always given in "
 "English, for projects which require English-only log messages."
 msgstr ""
+"<placeholder-1/>コミットダイアログのログメッセージのスペルチェックに使用する言語を選択してください。右のログメッセージのペインでクリックして選択すると、ファイルリストのチェックボックスが有効になりますので、<guilabel>ファイル名のリストを貼付</guilabel>を選択してください。デフォルトでは"
+" Subversion "
+"の状態が、既定の言語で表示されます。このボックスがチェックされるとステータスが常に英語のみになります。英語のログメッセージを必要とするプロジェクトで有効です。"
 
 #. (title)
 msgid "MIME-type"
@@ -9588,6 +9657,7 @@ msgid ""
 "checked out as read-only if there is no lock held for it in the working "
 "copy."
 msgstr ""
+"<placeholder-1/>このプロパティは、作業コピーがロックされていない場合、ファイルを読み取り専用の状態でチェックアウトするかどうかを制御します。"
 
 #. (title)
 msgid "svn:executable"
@@ -9603,6 +9673,8 @@ msgid ""
 "executable status when checked out on a Unix/Linux system. It has no effect "
 "on a Windows checkout."
 msgstr ""
+"<placeholder-1/>このプロパティは、Unix / "
+"Linuxシステム上で、チェックアウト時にファイルに実行属性を付与するかどうかを指定します。これは、Windowsでチェックアウトする場合には影響しません。"
 
 #. (title)
 msgid "External Items"
@@ -9649,12 +9721,21 @@ msgid ""
 "<guibutton>New...</guibutton> and then fill in the required information in "
 "the shown dialog."
 msgstr ""
+"さて、ここで<filename>/project1</filename>の作業コピーを<filename>D:\\dev\\project1</filename>にチェックアウトとするとしましょう。<filename>D:\\dev\\project1</filename>フォルダを選択して<action>右クリック</action>し、コンテキストメニューから<menuchoice><guimenu>Windows"
+" "
+"メニューの</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice>を選択します。プロパティダイアログが表示されます。次に"
+" Subversion タブに移動すると、属性を設定することができます。<guibutton>属性... "
+"</guibutton>をクリックして表示されるダイアログで、<literal>svn:externals</literal>が既に存在すればそれをダブルクリックし、そうでなければ<guibutton>新規..."
+" "
+"</guibutton>ボタンを押し、メニューから<literal>svn:externals</literal>を選択します。新たな外部項目を追加するには、<guibutton>新規..."
+" </guibutton>ボタンをクリックしてから、表示されるダイアログで必要な情報を入力します。"
 
 #. (para)
 msgid ""
 "URLs must be properly escaped or they will not work, e.g. you must replace "
 "each space with <literal>%20</literal>."
 msgstr ""
+"正しく動作させるためには、URLを適切にエスケープする必要があります。例えば、空白文字は<literal>%20</literal>に置き換えなければなりません。"
 
 #. (para)
 msgid ""
@@ -9698,7 +9779,7 @@ msgstr ""
 msgid ""
 "If the external project is in the same repository, any changes you make "
 "there will be included in the commit list when you commit your main project."
-msgstr ""
+msgstr "外部プロジェクトが同じリポジトリにある場合、メインプロジェクトの変更をコミットすると、変更がコミットリストに含まれます。"
 
 #. (para)
 #. (para)
@@ -9816,7 +9897,7 @@ msgstr ""
 
 #. (para)
 msgid "You can also specify a peg revision for the URL if required."
-msgstr ""
+msgstr "また、必要に応じて、URLのペグリビジョンを指定することができます。"
 
 #. (para)
 msgid ""
@@ -9922,7 +10003,7 @@ msgid ""
 "take up almost no extra space in the repository."
 msgstr ""
 "Subversion には、ブランチ付けやタグ付け用の特別なコマンドはありませんが、代わりに <quote>簡易コピー</quote> "
-"と呼ばれるものを使用できます。チープコピーは、Unix "
+"と呼ばれるものを使用できます。簡易コピーは、Unix "
 "のハードリンクと似ています。つまりリポジトリの完全なコピーを作成する代わりに、指定したツリーやリビジョンを指す内部リンクを作成します。そのため、ブランチやタグの作成は、非常に高速で、リポジトリに余分なスペースをほとんど使用しません。"
 
 #. (title)
@@ -10025,6 +10106,7 @@ msgid ""
 "determined from the working copy, which means it shows the revision that "
 "external actually points to."
 msgstr ""
+"もし、作業コピーが<literal>svn:externals</literal>属性の指定によって他のプロジェクトに含まれていると、外部項目はブランチ／タグダイアログの下部に表示されます。各外部項目とそのターゲットパス、ソースURL、リビジョンが表示されます。外部項目のリビジョンは、作業コピーから決定されますつまり、外部項目が指している先のリビジョンです。"
 
 #. (para)
 msgid ""
@@ -10036,6 +10118,7 @@ msgid ""
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
 msgstr ""
+"新しいタグを常に一貫した状態にするためには、すべての外部項目の持つリビジョンが、現在の作業コピーのリビジョンで固定されていることを確認する必要があります。外部項目を確認せずにいると、将来最新リビジョンが更新されたときに、新しいタグをチェックアウトする際に、外部項目はその時点での最新リビジョンを取得してしまい、コンパイルに失敗する可能性があります。そのため、タグを作成するときには、常に明示的なリビジョン番号を外部項目に設定することをお勧めします。"
 
 #. (para)
 msgid ""
@@ -10048,6 +10131,8 @@ msgid ""
 "first, then the branch/tag is created and then the properties are changed "
 "back to their original value."
 msgstr ""
+"ブランチやタグを作成するとき、外部項目に明示的なリビジョンが設定されていた場合、TortoiseSVN "
+"は自動的に<literal>svn:externals</literal>属性を更新します。リポジトリの最新リビジョンや特定のリビジョンからブランチやタグが作成された場合、TortoiseSVNはまずブランチやタグを作成し、属性を調整します。そしてそれぞれの属性を追加コミットします。ブランチやタグが作業コピーから作成された場合は、先にプロパティを更新し、それからブランチやタグを作成し、そして属性値を元の値に戻します。"
 
 #. (para)
 msgid ""
@@ -10073,7 +10158,7 @@ msgstr ""
 
 #. (title)
 msgid "Other ways to create a branch or tag"
-msgstr ""
+msgstr "ブランチやタグを作成するその他の方法"
 
 #. (para)
 msgid ""
@@ -10082,6 +10167,7 @@ msgid ""
 "location. You have to hold down the <keycap>Ctrl</keycap> key while you drag"
 " to create a copy, otherwise the folder gets moved, not copied."
 msgstr ""
+"また、作業コピーがなくてもブランチやタグを作成する方法もあります。リポジトリブラウザを開き、フォルダを新しい場所にドラッグします。<keycap>Ctrl/keycap>キーを押しながらドラッグするとコピーになり、そうでなければフォルダはコピーされずに移動します。"
 
 #. (para)
 msgid ""
@@ -10090,6 +10176,7 @@ msgid ""
 "folder to be moved or copied. Of course to create a branch or tag you must "
 "copy the folder, not move it."
 msgstr ""
+"マウスの右ボタンでフォルダをドラッグする方法もあります。マウスのボタンを離すと、コンテキストメニューでフォルダを移動するかコピーするかを選択することができます。もちろん、ブランチやタグを作成するときは、フォルダを移動ではなくコピーしてください。"
 
 #. (para)
 msgid ""
@@ -10098,6 +10185,7 @@ msgid ""
 "earlier revision), right click and choose <menuchoice><guimenuitem>create "
 "branch/tag from revision...</guimenuitem></menuchoice>."
 msgstr ""
+"ログダイアログから行う方法もあります。例えばトランクの、特定のリビジョン（最新のリビジョンでも古いリビジョンでも良い）のログダイアログを表示し、右クリックして<menuchoice><guimenuitem>リビジョンからブランチ／タグを生成</guimenuitem></menuchoice>を選択します。"
 
 #. (title)
 msgid "To Checkout or to Switch..."
@@ -10198,6 +10286,9 @@ msgid ""
 "to a path in the repository which contains <filename>/tags/</filename>, "
 "TortoiseSVN will warn you."
 msgstr ""
+"タグは通常、プロジェクトの特定の場面の静的なスナップショットとして作られます。通常は開発には使用しません（それはブランチの役割であり、最初に<filename>/trunk"
+" /branches "
+"/tags</filename>というリポジトリ構造を推奨する理由です）。タグのリビジョンで作業することは<emphasis>よくありません</emphasis>が、ローカルファイルが書き込み保護されていないので、間違った操作を止める方法はありません。但し、リポジトリ内の<filename>/tags/</filename>以下のパスにコミットしようとした場合、TortoiseSVNは警告するようになっています。"
 
 #. (para)
 msgid ""
@@ -10563,6 +10654,8 @@ msgid ""
 "Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
 "options\"/>."
 msgstr ""
+"<guibutton>次へ &lt;</guibutton>をクリックすると、<xref linkend=\"tsvn-dug-merge-"
+"options\"/> に進みます。"
 
 #. (secondary)
 msgid "reintegrate"
@@ -10698,6 +10791,10 @@ msgid ""
 "bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
 msgstr ""
+"大抵の場合、マージ時にはファイルの履歴を考慮した方が好ましいので、共通の祖先からの変更がマージされます。時には、リポジトリに入っていなくても、関連している可能性が高いファイル同士ををマージする必要もあるでしょう。例えば、第三者が作成したライブラリのバージョン1と2が、別々なディレクトリに入れられていた場合です。理屈からみれば両者は関連していますが、Subversionにはそれが別個にインポートされたファイルの集合としか認識できず、両者が関連しているとは分かりません。この2つのツリーの差分をマージしようとすると、全体を追加して全体を削除する操作になってしまいます。Subversionが履歴の差分を無視して現状の差分のみを使用するようにするには、<guilabel>履歴を無視する</guilabel>をチェックしてください。本件についての詳細な説明は、Subversion"
+" bookの<ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
+" or Ignoring Ancestry</citetitle></ulink> を参照してください。"
 
 #. (para)
 msgid ""
@@ -10716,6 +10813,7 @@ msgid ""
 "modified locally or not versioned at all. If the file is deleted then there "
 "is no way to recover it, which is why that option is not checked by default."
 msgstr ""
+"<guilabel>強制的にマージする</guilabel>をチェックすると、ローカルで変更されたファイルやバージョン管理されていないファイルに対して削除を行うようなツリーの競合を無視します。こうしたファイルが削除されると復元する方法がないので、このオプションはデフォルトではチェックされていません。"
 
 #. (para)
 msgid ""
@@ -10744,6 +10842,7 @@ msgid ""
 " in advance whether the merge will complete without conflicts, so files "
 "marked as conflicted in a test merge may in fact merge without any problem."
 msgstr ""
+"すべての設定が終われば、あとは<guibutton>マージ</guibutton>ボタンを押すだけです。このとき<guibutton>マージのテスト</guibutton>を押すと、作業コピーを<emphasis>変更せずに</emphasis>マージ結果をプレビューすることができます。これでマージを実行した時に変更が入るファイルの一覧や、競合が発生する<emphasis>可能性のある</emphasis>ファイルを見ることができます。マージ処理はマージを追跡することではるかに複雑になるため、あらかじめマージが競合なしで完了するかを確実に判断する方法がないので、実際には問題なくマージできるようなファイルであっても、マージのテストでは競合すると表示される場合もあります。"
 
 #. (para)
 msgid ""
@@ -10913,6 +11012,10 @@ msgid ""
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
 msgstr ""
+"マージ追跡についてそれ以外のことについては、 Subversion の<ulink "
+"url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-"
+"tracking/index.html\"><citetitle>Merge Tracking</citetitle></ulink> "
+"の説明をご覧ください。"
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -10946,6 +11049,7 @@ msgid ""
 "conflicts often cover more lines than you think they will and you may get "
 "unexpected results."
 msgstr ""
+"<emphasis>ローカルを優先する</emphasis>を実行すると、すべての競合点でローカルの変更が選択されます。同様に、<emphasis>リポジトリを優先する</emphasis>を実行すると、すべての競合点でリポジトリが選択されます。簡単なようですが、競合が想定外に多くの行を上書きしてしまい、予期しない結果をもたらすことがあります。"
 
 #. (para)
 msgid ""
@@ -10954,6 +11058,7 @@ msgid ""
 "start up your merge tool. When you are satisfied with the result, click "
 "<guibutton>Resolved</guibutton>."
 msgstr ""
+"通常は、自分で競合を確認して解決すると思います。この場合、マージツールが起動する際に<guibutton>競合の編集</guibutton>を選択してください。結果に問題がなければ、<guibutton>解消済みにする</guibutton>をクリックしてください。"
 
 #. (para)
 msgid ""
@@ -10972,6 +11077,7 @@ msgid ""
 "dialog gives you three different ways of handling the lines which are in "
 "conflict. <placeholder-1/>"
 msgstr ""
+"リポジトリにコミット済みの他の変更と、ローカルでの他の変更が競合した場合は、円滑にマージされている可能性が高いです。マージ可能なすべての変更がマージされます。マージ競合コールバックダイアログは、競合を解決する3つの異なる方法を提供します。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -11147,6 +11253,7 @@ msgid ""
 "working copy. Having a lock in one working copy also prevents the same user "
 "from committing the locked file from another working copy."
 msgstr ""
+"ロックはユーザー単位ではなく、特定のユーザーと作業コピーに結び付けられています。ある作業コピーでロックを獲得すると、同じユーザーでも別な作業コピーをコミットすることはできなくなります。"
 
 #. (para)
 msgid ""
@@ -11158,6 +11265,10 @@ msgid ""
 "that same image file, because the lock for that file resides in his working "
 "copy in the office."
 msgstr ""
+"例えば、 John "
+"というユーザーがオフィスのPCで作業コピーを持っていたとします。そこに彼は、ある画像ファイルの作業を開始し、そのファイルのロックを獲得したとします。オフィスを離れるとき、そのファイルをまだ終えていないので、彼はそのロックを解放しませんでした。家に帰って、"
+" John "
+"はこちらでも作業コピーを持ち、プロジェクトの作業をもう少しすることにしました。しかし、オフィスの作業コピーでロックを獲得していたため、同じ画像ファイルを変更したりコミットしたりすることはできません。"
 
 #. (para)
 msgid ""
@@ -11244,6 +11355,9 @@ msgid ""
 "to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
 "properties."
 msgstr ""
+"プロジェクトのプロパティの<literal> TSVN：logtemplatelock "
+"</literal>を設定すると、ロック時のメッセージを記入するユーザーにメッセージのひな形を提供することができます。プロパティを設定する方法は、<xref"
+" linkend=\"tsvn-dug-propertypage\"/>を参照してください。"
 
 #. (para)
 msgid ""
@@ -11567,6 +11681,13 @@ msgid ""
 "Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from "
 "another app will not make the button appear."
 msgstr ""
+"フォルダのコンテキストメニューから、&lt;menuchoice&gt;&lt;guimenu&gt;TortoiseSVN&lt;/guimenu&gt;&lt;guimenuitem&gt;パッチを適用...&lt;/guimenuitem&gt;&lt;/menuchoice&gt;"
+" をクリックしてください。すると&lt;quote&gt;ファイルを開く&lt;/quote&gt; "
+"ダイアログボックスが現れ、適用するパッチファイルを選択できます。デフォルトでは "
+"&lt;filename&gt;.patch&lt;/filename&gt; ファイルか "
+"&lt;filename&gt;.diff&lt;/filename&gt; "
+"ファイルのみが表示されていますが、&lt;quote&gt;すべてのファイル&lt;/quote&gt;を選択できます。あらかじめパッチをクリップボードに保存していれば、&lt;quote&gt;ファイルを開く&lt;/quote&gt;"
+" ダイアログの &lt;guibutton&gt;クリップボードから開く...&lt;/guibutton&gt; を使用できます。"
 
 #. (para)
 msgid ""
@@ -11665,6 +11786,9 @@ msgid ""
 "revisions to make it easier to read. If you wish to print or edit the blame "
 "file, select <guilabel>Use Text viewer to view blames</guilabel>."
 msgstr ""
+"デフォルトでは、&lt;firstterm&gt;TortoiseBlame&lt;/firstterm&gt; "
+"を使用して注釈を見ます。これは、異なるリビジョンを色分けして、見やすくしてくれます。注釈を印刷したり編集したりしたければ、&lt;guilabel&gt;注釈履歴を見るためにテキストビューアを用いる&lt;/guilabel&gt;"
+" を選択してください。"
 
 #. (para)
 msgid ""
@@ -11957,6 +12081,7 @@ msgid ""
 " on them to indicate that they are not part of the repository structure, "
 "just links."
 msgstr ""
+"<literal>svn:externals</literal>属性に含まれるフォルダは、リポジトリブラウザからも見ることができます。この場合、フォルダには、リポジトリ構造の一部ではなくリンクであることを示す、小さい矢印が表示されます。"
 
 #. (para)
 msgid ""
@@ -12058,6 +12183,8 @@ msgid ""
 "to a working copy rooted in the same repository. This can also be used to "
 "create a branch/tag without the need to have a working copy checked out."
 msgstr ""
+"リポジトリの別の部分か、同じリポジトリに属する​​"
+"作業コピーのどちらかに、フォルダのコピーを作成します。これは、チェックアウトされた作業コピーを作成せずにブランチ/タグを作成するために使用することもできます。"
 
 #. (para)
 msgid "View/Edit the folder's properties."
@@ -12259,6 +12386,7 @@ msgid ""
 " the "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
 msgstr ""
+"追加されたり、他のファイルやフォルダによって作られたりしたアイテムは、四角形で囲んで表示されます。デフォルトの色は緑色です。タグやトランクでは特別なものとして扱われ、異なる影を使って表示されます。これは<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>設定</guimenuitem></menuchoice>で設定することができます。"
 
 #. (term)
 msgid "Deleted items"
@@ -12268,7 +12396,7 @@ msgstr "削除した項目"
 msgid ""
 "Deleted items e.g. a branch which is no longer required, are shown using an "
 "octagon (rectangle with corners cut off). The default colour is red."
-msgstr ""
+msgstr "必要のなくなったブランチなど削除された項目は、八角形 (角を落とした矩形) で表します。デフォルト色は赤です。"
 
 #. (term)
 msgid "Renamed items"
@@ -12905,6 +13033,8 @@ msgid ""
 "option to overwrite the existing content, or to create a new folder with an "
 "automatically generated name, e.g. <literal>Target (1)</literal>."
 msgstr ""
+"作業コピーからエクスポートする際、ターゲットフォルダにエクスポートするフォルダと同じ名前が存在する場合は、既存のフォルダを上書きするか、自動的に名前を生成して新しいフォルダを作成するか（<literal>Target"
+" (1)</literal>など）を選択できます。"
 
 #. (title)
 msgid "Exporting single files"
@@ -13011,12 +13141,15 @@ msgid ""
 "rewrites all URLs that are associated with each file and folder with the new"
 " URL."
 msgstr ""
+"<placeholder-1/> "
+"もしリポジトリの位置（IP/URL）が何らかの理由で変更された場合、たぶん作業が止まってしまうでしょう。コミットができなくなり、新しい場所から再び作業コピーをチェックアウトして、変更したデータをすべて新しい作業コピーに書き戻すということはしたくないでしょう。その時に使うのは、<menuchoice><guimenu>TortoiseSVNの</guimenu><guimenuitem>再配置</guimenuitem></menuchoice>コマンドです。ここで行われることは少しだけです。新しいURLで各ファイルとフォルダに関連付けられているすべてのURLを書き換えます。"
 
 #. (para)
 msgid ""
 "This operation only works on working copy <emphasis>roots</emphasis>. So the"
 " context menu entry is only shown for working copy roots."
 msgstr ""
+"この操作は作業コピーの<emphasis>ルート</emphasis>でのみ実行できます。そのため、コンテキストメニュー項目は作業コピーのルートでのみ表示されます。"
 
 #. (para)
 msgid ""
@@ -13084,7 +13217,7 @@ msgstr ""
 
 #. (title)
 msgid "Integration with Bug Tracking Systems / Issue Trackers"
-msgstr "バグ追跡システム / 課題追跡システムとの統合"
+msgstr "バグ追跡ツール / 課題追跡システムとの統合"
 
 #. (primary)
 msgid "bug tracking"
@@ -13114,11 +13247,11 @@ msgid ""
 " on the user to write the log message properly so that the pre-commit hook "
 "script can parse it correctly."
 msgstr ""
-"変更が特定のバグ ID や課題 ID に関連するのは、ソフトウェア開発では非常に一般的です。バグ追跡システム (課題追跡システム) "
-"のユーザは、課題追跡システムの特定の ID と Subversion "
-"で行った変更を関連付けたいと思っています。そのため、ほとんどの課題追跡システムは、コミットに関連するバグ ID を探すためにログメッセージを解釈する"
-"、pre-commit フックスクリプトを提供しています。これは、pre-commit "
-"フックスクリプトが正しく解釈できるよう、適切なログメッセージを書くようユーザに頼っています。これはいくらか誤る傾向があります。"
+"ソフトウェア開発では一般的に、変更を特定のバグ ID や課題 ID "
+"に関連づけます。バグ追跡ツール（課題追跡システム）を使用している場合、課題追跡システムの特定の ID と Subversion "
+"で行った変更を関連付けできると便利です。そのため、多くの課題追跡システムでは、コミットに関連するバグ ID を探すために、ログメッセージを解釈する"
+"、pre-commit フックスクリプトを提供しています。しかし、ログメッセージを書くときに、pre-commit "
+"フックスクリプトから正しく解釈できるよう書けるかどうかはユーザ次第であるため、この方法はときどき失敗するという傾向があります。"
 
 #. (para)
 msgid ""
@@ -13127,7 +13260,7 @@ msgid ""
 "the risk that the user enters the issue number in a way the bug tracking "
 "tools can't parse correctly."
 msgstr ""
-"ユーザがログメッセージを入力すると、コミットに関連付けられた課題番号を含む、よく定義された行が自動で追加されます。これにより、バグ追跡ツールが正しく解釈できない方法で、ユーザが課題番号を入力してしまう危険を減らせます。"
+"ユーザがログメッセージを入力すると、定義された書式に従ってコミットに関連付けられた課題番号を含む行が自動で追加されます。これによって、バグ追跡ツールが正しく解釈できない書式で、ユーザが課題番号を入力してしまう危険を減らせます。"
 
 #. (para)
 msgid ""
@@ -13188,6 +13321,13 @@ msgid ""
 " using <systemitem "
 "class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>."
 msgstr ""
+"バグ追跡ツールのURLを設定します。適切にURIエンコードし、中に <literal>%BUGID%</literal> を含んでいなければなりません。"
+" <literal>%BUGID%</literal>は入力した課題番号に置き換えられます。これによって  TortoiseSVN "
+"のログダイアログ上にリンクを表示し、リビジョンログを参照する際に、バグ追跡ツールに直接ジャンプできるようになります。この属性がないと、 "
+"TortoiseSVN は課題番号を表示するだけで、リンクを表示しません。例えば、 TortoiseSVN の開発プロジェクトでは、 "
+"<systemitem "
+"class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
+" と設定しています。"
 
 #. (para)
 msgid ""
@@ -13270,12 +13410,11 @@ msgid ""
 "example you might use <literal>Issue : %BUGID%</literal>, but this depends "
 "on your Tool."
 msgstr ""
-"この属性は、<emphasis>入力フィールド</emphasis>モードでバグ追跡システムを有効にします。この属性が設定されると、変更をコミットする際に、TortoiseSVN"
+"<emphasis>入力フィールド</emphasis>モードでバグ追跡システムを有効にします。この属性を設定すると、変更をコミットする際に、TortoiseSVN"
+" に課題番号を入力するよう促されます。これはログメッセージの最後に行を追加するのに使用します。中に <literal>%BUGID%</literal>"
 " "
-"は課題番号を入力するよううながします。これはログメッセージの最後に行を追加するのに使用します。コミットの際に課題番号に置換される、<literal>%BUGID%</literal>"
-" "
-"を含まねばなりません。コミットログが課題番号への参照を含むのを確実に行います。課題番号は常に一貫した形式で、特殊なコミットで課題番号を関連付けるよう、バグ追跡ツールが解釈できます。例えば"
-" <literal>Issue : %BUGID%</literal> を使用するはずですが、これは自分のツールに依存します。"
+"を含んでいなければなりません。これはコミットの際に課題番号に置換されます。この機能を使用することで、確実にコミットログに課題番号への参照を一定の書式で含め、バグ管理ツールがこれを解釈して課題番号と特定のコミットを関連付けることができるようになります。例えば"
+" <literal>Issue : %BUGID%</literal> などと設定できますが、これは使用するツールに依存します。"
 
 #. (para)
 msgid ""
@@ -13345,6 +13484,10 @@ msgid ""
 "e.g. you might fix several bugs and include a string something like this: "
 "<quote>This change resolves issues #23, #24 and #25</quote>."
 msgstr ""
+"正規表現を2つ設定した場合、最初の正規表現は、含まれているバグ ID "
+"を探すための前処理フィルタとして使用します。2つ目の正規表現は、最初の正規表現の結果から、生のバグ ID "
+"を抽出します。これにより、必要に応じてバグIDの一覧や自然言語表現を使用することができます。例えば、いくつかのバグを修正し、 <quote>This "
+"change resolves issues #23, #24 and #25</quote> といった文字列を入れたとします。"
 
 #. (para)
 msgid ""
@@ -13354,6 +13497,10 @@ msgid ""
 "<literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and "
 "<literal>(\\d+)</literal>."
 msgstr ""
+"このログメッセージの中にある表現からバグ ID "
+"を抽出するには、<literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> と "
+"<literal>(\\d+)</literal>というような正規表現を使用することができます（TortoiseSVN "
+"プロジェクトでも使用しているものひとつです）。"
 
 #. (para)
 msgid ""
@@ -13486,6 +13633,12 @@ msgid ""
 "project hierarchy overrides settings on higher levels (closer to "
 "<filename>trunk/</filename>)."
 msgstr ""
+"上記の属性はフォルダに設定する必要があります。ファイルやフォルダをコミットする際に、このフォルダから属性が読み取られます。フォルダに属性が設定されていない場合、TortoiseSVN"
+" はフォルダツリーをさかのぼり、バージョン管理外フォルダかツリーのルート (例: <literal>C:\\</literal>) "
+"に行き着くまで属性を探します。すべてのユーザが、例えば<filename>trunk/</filename> "
+"からのみチェックアウトすることが確実なのであれば、 <filename>trunk/</filename> "
+"にのみ設定すれば充分です。サブフォルダからもチェックアウトする可能性があるのであれば、属性を各サブフォルダに再帰的に設定する必要があります。プロジェクトの深い階層で設定された属性は、高いレベルの（<filename>trunk/</filename>"
+" に近い）ものを上書きします。"
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
@@ -13500,13 +13653,15 @@ msgid ""
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
 msgstr ""
+"バグ追跡システムとの統合は、Subversion "
+"の属性として保持されているため、チェックアウトした作業コピーを使用するときのみ表示されます。リモートから属性を取得するのには時間がかかるため、作業コピーからリポジトリブラウザを起動しなければ表示されません。リポジトリのURLを入力してリポジトリブラウザを起動した場合は表示されません。"
 
 #. (para)
 #. (para)
 msgid ""
 "For the same reason, project properties will not be propagated automatically"
 " when a child folder is added using the repo browser."
-msgstr ""
+msgstr "同じ理由で、プロジェクトの属性は、リポジトリブラウザを使用して子フォルダを追加しても、自動的には継承されません。"
 
 #. (para)
 msgid ""
@@ -13517,6 +13672,12 @@ msgid ""
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
 msgstr ""
+"この課題追跡システムとの統合は、TortoiseSVN に限定されたものではなく、どの Subversion "
+"クライアントでも共通で使用できます。これについての詳細は、TortoiseSVN のソースリポジトリにある、<ulink "
+"url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue"
+" Tracker Integration "
+"Specification</citetitle></ulink>の全文をお読みください（リポジトリへのアクセスのしかたは、<xref linkend"
+"=\"tsvn-preface-source\"/>で説明します）。"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -13552,6 +13713,16 @@ msgid ""
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker."
 msgstr ""
+"そのようなインタフェースはいずれも、あなたの課題追跡システムに強く依存しているので、私たちはこの部分を提供することはできませんし、そのようなプログラムの作成方法について説明することは、このマニュアルの範疇を超えてしまいます。インターフェースの定義や、C#やC++/ATLで書かれたサンプルプラグインは、<ulink"
+" url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-"
+"plugins\"><citetitle>TortoiseSVN リポジトリ</citetitle></ulink>の "
+"<literal>contrib</literal> フォルダから取得できます（リポジトリのアクセスの仕方は、<xref linkend=\"tsvn-"
+"preface-source\"/>で説明します）。API の概要も <xref linkend=\"tsvn-ibugtraqprovider\"/>"
+" で得られます。それ以外の（動作する）サンプルプラグインとして、 C# では <ulink "
+"url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>"
+" があり、これは課題管理システム <ulink "
+"url=\"http://code.google.com/hosting/\"><citetitle>Google "
+"Code</citetitle></ulink> と連動するために必要な COM インタフェースを実装しています。"
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -13573,7 +13744,7 @@ msgstr ""
 
 #. (title)
 msgid "Integration with Web-based Repository Viewers"
-msgstr "Web ベースリポジトリビューアとの統合"
+msgstr "Web ベースのリポジトリビューアとの統合"
 
 #. (primary)
 msgid "web view"
@@ -13600,11 +13771,11 @@ msgid ""
 "url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>. "
 "TortoiseSVN provides a means to link with these viewers."
 msgstr ""
-"<ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> "
-"や <ulink "
+"Subversion のリポジトリビューアとして使用することができるウェブベースのシステムとして、<ulink "
+"url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> や "
+"<ulink "
 "url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink> "
-"のような、Subversion と共に使用する Web ベースのリポジトリビューアがいくつかあります。TortoiseSVN "
-"は、そういったビューアとのリンクを提供します。"
+"などがあります。TortoiseSVN は、そういったビューアと連携することができます。"
 
 #. (para)
 msgid ""
@@ -13626,6 +13797,11 @@ msgid ""
 "Menu</guimenu><guimenuitem>View revision in "
 "webviewer</guimenuitem></menuchoice>."
 msgstr ""
+"リビジョンを指定して、その変更点を表示させるために使用する  URL を指定します。適切に URI "
+"エンコードし、<literal>%REVISION%</literal> という文字列を含んでいる必要があります。 "
+"<literal>%REVISION%</literal> "
+"の部分は、リビジョン番号に置き換わります。この属性を設定すると、ログダイアログのコンテキストメニューに、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンをウェブビューアで表示</guimenuitem></menuchoice>"
+" が表示されるようになります。"
 
 #. (para)
 msgid ""
@@ -13640,6 +13816,13 @@ msgid ""
 "<literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the"
 " URL will be replaced with <literal>/trunk/src/file</literal>."
 msgstr ""
+"ファイルとリビジョンを指定して、その変更点を表示させるために使用する URL を指定します。適切に URI "
+"エンコードし、<literal>%REVISION%</literal> と <literal>%PATH%</literal> "
+"という文字列を含んでいる必要があります。 <literal>%PATH%</literal> "
+"の部分は、リポジトリのルートからの相対パスに置き換わります。この属性を設定すると、ログダイアログのコンテキストメニューに、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>パスのリビジョンをウェブビューアで表示</guimenuitem></menuchoice>"
+" が表示されるようになります。例えば、ログダイアログ上の下部ペインに表示された <literal>/trunk/src/file</literal> "
+"を右クリックすると、 URL の中の <literal>%PATH%</literal> の部分が "
+"<literal>/trunk/src/file</literal> に置き換わります。"
 
 #. (para)
 msgid ""
@@ -13666,6 +13849,8 @@ msgid ""
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
 msgstr ""
+"リポジトリビューアとの統合は、Subversion "
+"の属性として保持されているため、チェックアウトした作業コピーを使用するときのみ表示されます。リモートから属性を取得するのには時間がかかるため、作業コピーからリポジトリブラウザを起動しなければ表示されません。リポジトリのURLを入力してリポジトリブラウザを起動した場合は表示されません。"
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -13722,6 +13907,9 @@ msgid ""
 "you simply receive an information dialog telling you that the new version is"
 " available."
 msgstr ""
+"チェックすると、TortoiseSVN "
+"は週に一度、ダウンロードサイトに接続して、プログラムの新バージョンがリリースされているかを調べます。結果をすぐに知りたければ、<guibutton>今すぐチェック</guibutton>"
+" を押してください。新バージョンがダウンロードされるわけではありません。単に新バージョンがあるという、情報ダイアログが表示されるだけです。"
 
 #. (term)
 msgid "System sounds"
@@ -13942,6 +14130,11 @@ msgid ""
 "folders by holding the <keycap>Shift</keycap> key down while showing the "
 "context menu."
 msgstr ""
+"Subversionのバージョン管理下にあるフォルダを離れているときは、ほとんどの場合、 TortoiseSVN "
+"のコンテキストメニューを使用しません。バージョン管理外のフォルダでは、本当にコンテキストメニューを必要とするのはチェックアウト時くらいでしょう。<literal>バージョン管理されていないパスでメニューを隠す</literal>"
+" のオプションをチェックすると、 バージョン管理外フォルダのコンテキストメニューでは、TortoiseSVN "
+"のメニュー項目が表示されなくなります。ただし、バージョン管理下のフォルダでは、すべての項目を表示します。　<keycap>Shift</keycap>　"
+"を押しながらコンテキストメニューを表示させると、バージョン管理外のフォルダでもすべてのメニュー項目を表示させることができます。"
 
 #. (para)
 msgid ""
@@ -14975,9 +15168,9 @@ msgid ""
 "bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink> for details on how to use this file."
 msgstr ""
-"リポジトリごとにプロキシの設定をする必要がある場合、設定に Subversion <filename>servers</filename> "
-"ファイルを使用する必要があります。直接行う場合 <guibutton>編集</guibutton> "
-"を使用してください。このファイルの使用法の詳細は、<ulink url=\"http://svnbook.red-"
+"リポジトリごとにプロキシの設定をする必要がある場合、　Subversion の <filename>servers</filename> "
+"ファイルを直接編集する必要があります。直接編集する場合は <guibutton>編集</guibutton> "
+"ボタンを押してください。このファイルの使用法の詳細は、<ulink url=\"http://svnbook.red-"
 "bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle>Runtime "
 "Configuration Area</citetitle></ulink> で説明しています。"
 
@@ -15024,6 +15217,9 @@ msgid ""
 "url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY "
 "website</citetitle></ulink>."
 msgstr ""
+"TortoisePlink は、Plink の派生物のためドキュメントがありません。コマンドラインパラメータは <ulink "
+"url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY "
+"のウェブサイト</citetitle></ulink> で参照してください。"
 
 #. (para)
 msgid ""
@@ -15061,7 +15257,7 @@ msgid ""
 "TortoiseSVN should use. The default setting is to use TortoiseMerge which is"
 " installed alongside TortoiseSVN."
 msgstr ""
-"<placeholder-1/> ここでは、TortoiseSVN が使用する 差分/マージプログラムを定義できます。基本設定では "
+"<placeholder-1/> ここでは、TortoiseSVN が使用する外部の差分・マージツールを定義できます。デフォルトでは "
 "TortoiseSVN と一緒にインストールされる TortoiseMerge が使われます。"
 
 #. (para)
@@ -15069,7 +15265,7 @@ msgid ""
 "Read <xref linkend=\"tsvn-dug-diff-tools\"/> for a list of some of the "
 "external diff/merge programs that people are using with TortoiseSVN."
 msgstr ""
-"TortoiseSVN と一緒に使用する外部 差分/マージプログラムの一覧は、<xref linkend=\"tsvn-dug-diff-"
+"TortoiseSVN の外部の差分・マージツールとしてよく使われているものの一覧は、<xref linkend=\"tsvn-dug-diff-"
 "tools\"/> をご覧ください。"
 
 #. (title)
@@ -15078,21 +15274,21 @@ msgstr "差分ビューア"
 
 #. (para)
 msgid "The original file without your changes"
-msgstr "変更していないオリジナルのファイル"
+msgstr "変更前のファイル"
 
 #. (para)
 #. (para)
 msgid "The window title for the base file"
-msgstr "BASE ファイルのウィンドウタイトル"
+msgstr "変更前ファイルのウィンドウタイトル"
 
 #. (para)
 msgid "Your own file, with your changes"
-msgstr "変更を行ったあなたのファイル"
+msgstr "変更後のファイル"
 
 #. (para)
 #. (para)
 msgid "The window title for your file"
-msgstr "あなたのファイルのウィンドウタイトル"
+msgstr "変更後ファイルのウィンドウタイトル"
 
 #. (para)
 msgid "The URL of the original file, if available"
@@ -15123,9 +15319,9 @@ msgid ""
 "encounters one of these it will substitute the appropriate value. The order "
 "of the parameters will depend on the Diff program you use. <placeholder-1/>"
 msgstr ""
-"外部差分プログラムは、ファイルを異なるリビジョン間で比較するのに使用します。外部プログラムは、それぞれのコマンドラインオプションに従って、コマンドラインからファイル名を取得する必要があります。TortoiseSVN"
+"外部の差分ツールは、ファイルを異なるリビジョン間で比較するのに使用します。外部ツールは、それぞれのコマンドラインオプションに従って、コマンドラインからファイル名を取得する必要があります。TortoiseSVN"
 " は <literal>%</literal> "
-"が先頭についた置換パラメータを使用します。このパラメータが現れると、適切な値に置換されます。パラメータの順番はお使いの差分ツールに依存しています。<placeholder-1/>"
+"が先頭についた置換パラメータを使用します。このパラメータが現れると、適切な値に置換されます。パラメータの順番はお使いの差分ツールに合わせてください。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -15135,6 +15331,10 @@ msgid ""
 "will be <filename>filename : revision 123</filename> and <filename>filename "
 ": working copy</filename>."
 msgstr ""
+"ウィンドウタイトルは単なるファイル名ではありません。 TortoiseSVN "
+"は、それを表示名として扱うため、それにふさわしい名前を作成します。たとえば、あるファイルのリビジョン 123 "
+"と作業コピーの差分を表示する場合、それぞれの名前は <filename>filename : リビジョン 123<filename> と "
+"<filename>filename : 作業コピー</filename> となります。"
 
 #. (para)
 msgid ""
@@ -15154,6 +15354,21 @@ msgid ""
 "C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
 "</screen>"
 msgstr ""
+"ExamDiff Pro の設定例: <screen>\n"
+"C:\\Path-To\\ExamDiff.exe %base %mine --left_display_name:%bname\n"
+"    --right_display_name:%yname\n"
+"</screen> KDiff3 の設定例: <screen>\n"
+"C:\\Path-To\\kdiff3.exe %base %mine --L1 %bname --L2 %yname\n"
+"</screen> WinMerge の設定例:<screen>\n"
+"C:\\Path-To\\WinMerge.exe -e -ub -dl %bname -dr %yname %base %mine\n"
+"</screen> Araxis の設定例: <screen>\n"
+"C:\\Path-To\\compare.exe /max /wait /title1:%bname /title2:%yname\n"
+"    %base %mine\n"
+"</screen> UltraCompare の設定例: <screen>\n"
+"C:\\Path-To\\uc.exe %base %mine -title1 %bname -title2 %yname\n"
+"</screen> DiffMerge の設定例: <screen>\n"
+"C:\\Path-To\\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -15255,14 +15470,28 @@ msgid ""
 "    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
 "</screen>"
 msgstr ""
+"Perforce Merge の設定例: <screen>\n"
+"C:\\Path-To\\P4Merge.exe %base %theirs %mine %merged\n"
+"</screen> KDiff3 の設定例: <screen>\n"
+"C:\\Path-To\\kdiff3.exe %base %mine %theirs -o %merged\n"
+"    --L1 %bname --L2 %yname --L3 %tname\n"
+"</screen> Araxis の設定例: <screen>\n"
+"C:\\Path-To\\compare.exe /max /wait /3 /title1:%tname /title2:%bname\n"
+"    /title3:%yname %theirs %base %mine %merged /a2\n"
+"</screen> WinMerge (2.8 以降) の設定例: <screen>\n"
+"C:\\Path-To\\WinMerge.exe %merged\n"
+"</screen> DiffMerge の設定例: <screen>\n"
+"C:\\Path-To\\DiffMerge.exe -caption=%mname -result=%merged -merge\n"
+"    -nosplash -t1=%yname -t2=%bname -t3=%tname %mine %base %theirs\n"
+"</screen>"
 
 #. (title)
 msgid "Diff/Merge Advanced Settings"
-msgstr "差分 / マージの高度な設定"
+msgstr "差分・マージの高度な設定"
 
 #. (title)
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
-msgstr "設定ダイアログの差分／マージ の高度な設定ダイアログ"
+msgstr "設定ダイアログの差分・マージの高度な設定ダイアログ"
 
 #. (para)
 msgid ""
@@ -15860,18 +16089,18 @@ msgstr "更新、切り替え、チェックアウト、が終了した後に（
 #. (term)
 #. (term)
 msgid "Pre-connect"
-msgstr ""
+msgstr "Pre-connect"
 
 #. (para)
 msgid ""
 "Called before an attempt to contact the repository. Called at most once in "
 "five minutes."
-msgstr ""
+msgstr "リポジトリに接続を試みる前に呼び出されます。通常、およそ5分に1度の割合で呼び出されます。"
 
 #. (para)
 msgid ""
 "There are currently six types of hook script available <placeholder-1/>"
-msgstr "現在、6 種類のフックスクリプトが使用できます。<placeholder-1/>"
+msgstr "現在、6種類のフックスクリプトが使用できます。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -15891,6 +16120,9 @@ msgid ""
 "Windows shell execute will not allow such scripts to run due to security "
 "restrictions."
 msgstr ""
+"次に、実行するコマンドラインを、フックスクリプトや実行ファイルのパスから始めて指定する必要があります。ここではバッチファイルや実行可能ファイル、その他の"
+" Windows と関連付けられたファイル（例えば Perl スクリプト）を指定します。なお、Windows のセキュリティ上の制限で、Windows "
+"は UNC パスで指定されたスクリプトを実行しないため、この形式で指定することはできません。"
 
 #. (para)
 msgid ""
@@ -16007,6 +16239,11 @@ msgid ""
 "scripts\"><citetitle>TortoiseSVN repository</citetitle></ulink>. (<xref "
 "linkend=\"tsvn-preface-source\"/> explains how to access the repository.)"
 msgstr ""
+"クライアントフックスクリプトのサンプルは、 <ulink "
+"url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-"
+"scripts\"><citetitle>TortoiseSVN リポジトリ</citetitle></ulink> サイトの "
+"<literal>contrib</literal> フォルダから入手できます（リポジトリへのアクセス方法は、 <xref linkend"
+"=\"tsvn-preface-source\"/> をご覧ください。）"
 
 #. (para)
 msgid ""
@@ -16016,6 +16253,10 @@ msgid ""
 "tries to connect to a repository. Just pass the name of the VPN connection "
 "as the first parameter to the tool."
 msgstr ""
+"TortoiseSVN のインストールディレクトリに、 <literal>ConnectVPN.exe</literal> "
+"という小さいツールが含まれています。このツールを pre-connect フックとして使用すると、 TortoiseSVN "
+"がリポジトリにアクセスしようとする前に、自動的に VPN に接続できるようになります。ツールの最初の引数として、 VPN "
+"接続の名前を渡すようにしてください。"
 
 #. (para)
 msgid ""
@@ -16055,12 +16296,20 @@ msgid ""
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker.)"
 msgstr ""
+"IBugtraqProvider の COM UUID （例えば、<literal>{91974081-2DC7-4FB1-B3BE-"
+"0DE1C8D6CE4E}</literal>）を指定します。（この例は <ulink "
+"url=\"http://code.google.com/hosting/\"><citetitle>Google "
+"Code</citetitle></ulink> の課題管理システム向けプロバイダである <ulink "
+"url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle bugtraq "
+"provider</citetitle></ulink> の UUID です）。"
 
 #. (para)
 msgid ""
 "This is the same as <literal>bugtraq:provideruuid</literal>, but for the "
 "64-bit version of the IBugtraqProvider."
 msgstr ""
+"これは <literal>bugtraq:provideruuid</literal> と同様ですが、64ビット版の IBugtraqProvider "
+"です。"
 
 #. (para)
 msgid "This property specifies the parameters passed to the IBugtraqProvider."
@@ -16076,6 +16325,9 @@ msgid ""
 " documentation of your IBugtraqProvider plugin to find out what to specify "
 "in these two properties."
 msgstr ""
+"プロジェクトのすべてのユーザで同じ COM "
+"プラグインを使用する場合は、<literal>bugtraq:provideruuid</literal>、<literal>bugtraq:provideruuid64</literal>、<literal>bugtraq:providerparams</literal>を属性として設定することができます。<placeholder-1/>"
+" 2つの属性に何を設定するか調べるには、 IBugtraqProvider プラグインのドキュメントを参照してください。"
 
 #. (title)
 msgid "TortoiseBlame Settings"
@@ -16083,15 +16335,15 @@ msgstr "TortoiseBlame の設定"
 
 #. (title)
 msgid "The Settings Dialog, TortoiseBlame Page"
-msgstr "設定ダイアログ、TortoiseBlame ページ"
+msgstr "設定ダイアログの TortoiseBlame ページ"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The settings used by TortoiseBlame are controlled from the "
 "main context menu, not directly with TortoiseBlame itself."
 msgstr ""
-"<placeholder-1/> TortoiseBlame "
-"で使用する設定は、メインのコンテキストメニューから制御できますが、TortoiseBlame 自体では直接できません。"
+"<placeholder-1/> TortoiseBlame で使用する設定は、TortoiseBlame "
+"自体ではなく、メインのコンテキストメニューから設定します。"
 
 #. (term)
 msgid "Colors"
@@ -16104,9 +16356,8 @@ msgid ""
 "oldest revisions, and TortoiseBlame uses a linear interpolation between "
 "these colours according to the repository revision indicated for each line."
 msgstr ""
-"TortoiseBlame "
-"は、ファイルにある行の歴史を背景色で表現できます。ここでは、最新と最古の色を指定して両端を設定でき、TortoiseBlame はこの 2 "
-"色を補間して、行ごとのリポジトリのリビジョンを表現します。"
+"TortoiseBlame では、ファイルにある行の古さを背景色で表現します。ここでは、最新と最古の両端のリビジョンの色を指定します。 "
+"TortoiseBlame はこの 2 色の中間色を使用して、行単位のリポジトリのリビジョンを表現します。"
 
 #. (para)
 msgid ""
@@ -16125,7 +16376,7 @@ msgid ""
 " This applies both to the file content, and to the author and revision "
 "information shown in the left pane."
 msgstr ""
-"ここでは、テキストを表示するフォントとポイントサイズを指定できます。ここで指定したものを、ファイルの内容と、左ペインに表示する作者とリビジョンの両方に使用します。"
+"ここでは、テキストを表示するフォントとポイントサイズを指定できます。ここで指定されたフォントは、ファイルの内容と、左ペインに表示する作者とリビジョンの両方に使用されます。"
 
 #. (term)
 msgid "Tabs"
@@ -16152,6 +16403,7 @@ msgid ""
 "have to know what each of these settings is used for and what it does. Do "
 "not modify these settings unless you are sure you need to change them."
 msgstr ""
+"使用頻度の低い一部の設定は、設定ダイアログの高度な設定ページでのみ設定できます。これらの設定はレジストリを直接操作するので、それぞれの設定が何をするのかを理解しておく必要があります。これらの変更がどうしても必要な場合を除いて、これらの設定を変更しないでください。"
 
 #. (para)
 msgid ""
@@ -16160,6 +16412,9 @@ msgid ""
 "this value to <literal>false</literal> disables the <literal>save "
 "authentication</literal> button in the authentication dialog."
 msgstr ""
+"同じコンピュータ上で、複数のユーザーが同じアカウントを使用していることがあります。このような場合、認証データを保存すべきでないことがあります。この値を "
+"<literal>false</literal> "
+"にせ底すると、認証ダイアログの<literal>認証を保存</literal>ボタンを無効にすることができます。"
 
 #. (para)
 msgid ""
@@ -16169,6 +16424,8 @@ msgid ""
 "from the repository. If you would prefer TortoiseSVN to create a conflict in"
 " such situations, set this value to <literal>false</literal>."
 msgstr ""
+"アップデートによって、すでにローカルの作業コピーに同じ名前が存在する新しいファイルを取得したとき、デフォルトの動作はローカルファイルを保持し、リポジトリからの新しいファイルは（可能ならば）変更後のバージョンとして表示します。"
+"  <literal>false</literal> に設定すると、 TortoiseSVN がこれを競合として扱うようになります。"
 
 #. (para)
 msgid ""
@@ -16177,6 +16434,8 @@ msgid ""
 "force TortoiseSVN to always show those extended commands, set this value to "
 "<literal>true</literal>."
 msgstr ""
+"エクスプローラでは <keycap>Shift</keycap> キーを押しながらコンテキストメニューを開くと、 TortoiseSVN "
+"の追加コマンドが表示されます。常に追加コマンドを表示させたい場合は、 <literal>true</literal> に設定してください。"
 
 #. (para)
 msgid ""
@@ -16184,6 +16443,8 @@ msgid ""
 "names of files listed for commit. To also include these names with "
 "extensions removed, set this value to <literal>true</literal>."
 msgstr ""
+"コミットメッセージのエディタでは、コミットするファイルが自動保管リストで表示されます。 <literal>true</literal> "
+"に設定すると、拡張子を除外した名前を表示するようになります。"
 
 #. (para)
 msgid ""
@@ -16191,6 +16452,9 @@ msgid ""
 "TortoiseSVN command is running (e.g. Update, Commit, ...) then set this "
 "value to <literal>true</literal>."
 msgstr ""
+"TortoiseSVN "
+"の他のコマンド（例えば更新、コミット、など）が動作している間、エクスプローラのステータスオーバーレイを更新したくない場合は、この値を "
+"<literal>true</literal> に設定してください。"
 
 #. (para)
 msgid ""
@@ -16198,6 +16462,8 @@ msgid ""
 "<literal>true</literal>. This is really only useful for developers as it "
 "allows you to terminate the program gracefully."
 msgstr ""
+"TSVNCache にトレイアイコンのキャッシュを追加するには、この値を　<literal>true</literal> "
+"に設定してください。これはプログラムを正規に終了させるために必要なもので、開発者にのみ有用な設定です。"
 
 #. (para)
 msgid ""
@@ -16207,12 +16473,15 @@ msgid ""
 "<literal>true</literal>. Note that the extra columns are only available in "
 "XP. Vista and later doesn't support that feature any more."
 msgstr ""
+"作業コピーを Windows エクスプローラの詳細表示で表示させたとき、 TortoiseSVN "
+"が列を追加します。作業コピーばかりでなくどこでも列を追加したい場合、この値を <literal>true</literal> "
+"に設定してください。なお、列の追加は Windows XP でしか行われず、 Vista 以降ではこの機能はサポートされていません。"
 
 #. (para)
 msgid ""
 "You can specify a different location for the Subversion configuration file "
 "here. This will affect all TortoiseSVN operations."
-msgstr ""
+msgstr "Subversion の設定ファイルを別な場所に設定することができます。これはすべての TortoiseSVN の操作に影響します。"
 
 #. (para)
 msgid ""
@@ -16220,12 +16489,17 @@ msgid ""
 "dismiss the dialog as if you clicked on the OK button. If you don't want "
 "this, set this value to <literal>false</literal>."
 msgstr ""
+"TortoiseSVN の多くのダイアログでは、 <keycap>Ctrl+Enter</keycap> を押すことで OK "
+"ボタンを押したときと同様にダイアログを閉じることができます。 この値を<literal>false</literal> "
+"に設定すると、この機能は無効になります。"
 
 #. (para)
 msgid ""
 "Set this to <literal>true</literal> if you want a dialog to pop up for every"
 " command showing the command line used to start TortoiseProc.exe."
 msgstr ""
+"<literal>true</literal>に設定すると、 TortoiseProc.exe "
+"を使用して開始されるたびにあらゆるコマンドについて、ポップアップダイアログでコマンドラインの内容を表示できます。"
 
 #. (para)
 msgid ""
@@ -16248,6 +16522,9 @@ msgid ""
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
 msgstr ""
+"TortoiseSVN は外部の差分ビューアを使用することができます。しかし、多くのビューアには注釈履歴（<xref linkend=\"tsvn-"
+"dug-blame-diffs\"/>）が統合されていませんので、その場合はTortoiseMerge "
+"に戻したくなることもあるでしょう。そのためには、この値を<literal>true</literal>に設定してください。"
 
 #. (para)
 msgid ""
@@ -16258,6 +16535,8 @@ msgid ""
 "the bottom right, which can look ugly. To disable full row select, set this "
 "value to <literal>false</literal>."
 msgstr ""
+"様々なダイアログ（例えばコミット、変更をチェック、追加、元に戻す、など）のリストコントロールを、全行選択（つまり、項目を選択する際に、最初のカラムではなく行全体を選択すること）にします。これは使いやすいのですが、行全体が反転するため、右下の背景画像に重なると醜くなってしまうことがあります。全行選択を解除する場合は、この値を"
+" <literal>false</literal> に設定してください。"
 
 #. (para)
 msgid ""
@@ -16269,6 +16548,11 @@ msgid ""
 "revision...</literal> dialog or set this value to <literal>true</literal> "
 "again."
 msgstr ""
+"デフォルトでは、 TortoiseSVN "
+"は常に外部参照を含めて更新を行います。これは作業コピーの一貫性の問題を回避することができます。しかし、外部参照のセットが多い場合、更新に時間がかかるようになります。この値を"
+" <literal>false</literal> "
+"に設定すると、デフォルトで外部参照を含めずに更新するようになります。外部参照を含めて更新するには、<literal>特定のリビジョンへ更新...</literal>を実行するか、この値を再び"
+" <literal>true</literal> に設定します。"
 
 #. (para)
 msgid ""
@@ -16296,6 +16580,8 @@ msgid ""
 " very big working copies this can take a while, you can set this value to "
 "<literal>false</literal> to deactivate this feature."
 msgstr ""
+"ログダイアログでは、作業コピーのリビジョンを太字で表示します。しかし、ログダイアログがパスの状態を確認する必要があります。そのため、非常に大きい作業コピーでは時間がかかります。この値を"
+" <literal>false</literal> に設定すると、この機能を無効にすることができます。"
 
 #. (para)
 msgid ""
@@ -16305,6 +16591,7 @@ msgid ""
 "separate the individual log messages of the merged revisions. If you prefer,"
 " you can set this to a value containing a separator string of your choice."
 msgstr ""
+"別のブランチからのリビジョンをマージし、マージ追跡情報が使用可能になると、マージされたリビジョンのログメッセージは、コミット時のログメッセージを構成するために収集されます。各リビジョンの個々のログメッセージは、あらかじめ定義された区切り文字列で区切られます。必要に応じて、任意の区切り文字列を指定してください。"
 
 #. (para)
 msgid ""
@@ -16313,6 +16600,9 @@ msgid ""
 " with that info. If you prefer the old behavior back where a dialog pops up "
 "notifying you about the update, set this value to <literal>true</literal>."
 msgstr ""
+"TortoiseSVN "
+"は週に一度、新しいバージョンが出ているかどうかをチェックします。新しいバージョンが見つかると、コミットダイアログにリンクコントロールが表示されます。 "
+"<literal>true</literal> に設定すると、以前のようにアップデートを通知ダイアログで行うようになります。"
 
 #. (para)
 msgid ""
@@ -16330,6 +16620,10 @@ msgid ""
 "accelerators of the TortoiseSVN entries, set this value to "
 "<literal>false</literal>."
 msgstr ""
+"TortoiseSVN はエクスプローラのコンテキストメニュー項目に設定されているアクセラレータを使用します（例えば <literal>SVN "
+"コミット</literal> のアクセラレータは <keycap>Alt-C</keycap> ですが、エクスプローラの "
+"<literal>コピー</literal> 項目と重複します）。 TortoiseSVN のエントリでアクセラレータを設定する必要がない場合は "
+"<literal>false</literal> に設定してください。"
 
 #. (para)
 msgid ""
@@ -16339,12 +16633,17 @@ msgid ""
 "icons for the shell context menu items. Set this value to "
 "<literal>true</literal> to show the icons again."
 msgstr ""
+"これは Windows エクスプローラ以外のものを使用したり、コンテキストメニューが正しく表示できないといった問題が発生したりしたときに便利です。 "
+"<literal>false</literal> に設定すると、シェルのコンテキストメニューに TortoiseSVN "
+"のアイコンが表示されなくなります。アイコンを表示する場合は、<literal>true</literal> を設定してください。"
 
 #. (para)
 msgid ""
 "If you don't want TortoiseSVN to show icons for the context menus in its own"
 " dialogs, set this value to <literal>false</literal>."
 msgstr ""
+"<literal>false</literal> に設定すると TortoiseSVN "
+"のダイアログで、コンテキストメニューのアイコンが表示されなくなります。."
 
 #. (para)
 msgid ""
@@ -16352,6 +16651,9 @@ msgid ""
 " (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't "
 "want to do this, set the value to <literal>false</literal>."
 msgstr ""
+"コミットダイアログとログダイアログでは、コミットメッセージに装飾（例えばボールド、イタリックなど）を使います（詳しくは <xref linkend"
+"=\"tsvn-dug-commit-log\"/> を参照してください）。これを無効にしたい場合は <literal>false</literal> "
+"に設定してください。"
 
 #. (para)
 msgid ""
@@ -16360,6 +16662,8 @@ msgid ""
 "company admins who don't want their users to update TortoiseSVN until they "
 "approve it."
 msgstr ""
+"この値は、TortoiseSVN が有効なアップデートがあるかどうかを検査するためのテキストファイルをダウンロードする URL "
+"です。企業の管理者が通知するまでユーザに TortoiseSVN をアップデートさせたくない場合などに有効です。"
 
 #. (para)
 msgid ""
@@ -16367,6 +16671,8 @@ msgid ""
 "week. If you don't want TortoiseSVN to do this check, set this value to "
 "<literal>false</literal>."
 msgstr ""
+"TortoiseSVN は週に一回程度、利用可能な新しいバージョンがあるかどうかを確認します。  TortoiseSVN "
+"にこのチェックを行わせたくない場合は、この値を <literal>false</literal> に設定してください。"
 
 #. (title)
 msgid "Exporting TSVN Settings"
@@ -16416,6 +16722,10 @@ msgid ""
 " Please also have a look at the list of people who contributed to the "
 "project by sending in patches or translations."
 msgstr ""
+"TortoiseSVNで作業している間、私たちは音楽を聴くのが大好きです。我々はプロジェクトに多くの時間を費やしているため、<emphasis>多くの</emphasis>音楽が必要です。そこで、私たちの好きな音楽のCDやDVDのウィッシュリストを、"
+" <ulink "
+"url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink>"
+" で公開しています。また、パッチや翻訳を提供してプロジェクトに貢献している人のリストもご覧ください。"
 
 #. (title)
 msgid "The SubWCRev Program"
@@ -16465,6 +16775,8 @@ msgid ""
 "revisions. The revision number, update revision range and modification "
 "status are displayed on stdout."
 msgstr ""
+"SubWCRevは、デフォルトで作業コピーの外部参照を除いた全ファイルの Subversion "
+"の状態を読み込みます。検出した最も大きいコミットリビジョン番号を記録し、そのリビジョンのコミットのタイムスタンプが、それはまた、作業コピーの変更、または更新リビジョンが混在しているかどうかを記録します。リビジョン番号や更新リビジョン範囲、変更状態を標準出力に出力します。"
 
 #. (para)
 msgid ""
@@ -16593,6 +16905,8 @@ msgid ""
 " If you use more than one, they must be specified as a single group, e.g. "
 "<literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
 msgstr ""
+"SubWCRev の動作に影響を与えるオプションスイッチが多数あります。複数を使用する場合は、1つにグループ化して指定する必要があります。例えば、 "
+"<literal>-n -m</literal> ではなく、 <literal>-nm</literal>と指定します。<placeholder-1/>"
 
 #. (title)
 msgid "Keyword Substitution"
@@ -16643,7 +16957,7 @@ msgid ""
 "Replaced with the current system date/time. This can be used to indicate the"
 " build time. Time formatting can be used as described for <placeholder-1/>."
 msgstr ""
-"現在のシステム日時を置き換わります。ビルド時間を表示するにに使用できます。<placeholder-1/> で説明したフォーマットが使われます。"
+"現在のシステム日時に置き換わります。ビルド時間を表示するにに使用できます。<placeholder-1/> で説明したフォーマットが使われます。"
 
 #. (entry)
 msgid ""
@@ -16653,6 +16967,7 @@ msgid ""
 "due to a deliberate update-to-revision, then the range will be shown in the "
 "form 100:200."
 msgstr ""
+"作業コピーの更新リビジョンの範囲に置き換わります。もし作業コピーが単一の状態ならば、単一のリビジョンになります。作業コピーに複数のリビジョン、例えば最新版と特定のリビジョンに更新したファイルが混在している場合、リビジョンの範囲は100:200のような形式になります。"
 
 #. (literal)
 msgid "$WCMIXED?TText:FText$"
@@ -16894,7 +17209,7 @@ msgstr "COM SubWCRev インターフェース"
 
 #. (title)
 msgid "COM/automation methods supported"
-msgstr "COM・オートメーションのサポート"
+msgstr "COM オートメーションのサポート"
 
 #. (entry)
 msgid "Method"
@@ -16930,13 +17245,13 @@ msgstr "$WCREV$"
 msgid ""
 "The highest commit revision in the working copy. Equivalent to "
 "<placeholder-1/>."
-msgstr ""
+msgstr "最新コミット時の作業コピーのリビジョンです。<placeholder-1/>と同じです。"
 
 #. (entry)
 msgid ""
 "The commit date/time of the highest commit revision. Equivalent to "
 "<placeholder-1/>."
-msgstr ""
+msgstr "最新コミット時のコミット日時です。<placeholder-1/> と同じです。"
 
 #. (entry)
 msgid ""
@@ -16979,19 +17294,19 @@ msgstr "$WCURL$"
 msgid ""
 "Replaced with the repository URL of the working copy path used in "
 "<placeholder-1/>. Equivalent to <placeholder-2/>."
-msgstr ""
+msgstr "<placeholder-1/>で使用された作業コピーのリポジトリ上のURLに置き換わります。<placeholder-2/>と同じです。"
 
 #. (entry)
 msgid "True if the item is versioned."
-msgstr "項目がバージョン管理下にあると True です。"
+msgstr "項目がバージョン管理下にあると True になります。"
 
 #. (entry)
 msgid "True if the item has the <placeholder-1/> property set."
-msgstr "項目に <placeholder-1/> 属性がセットされていれば True です。"
+msgstr "項目に <placeholder-1/> 属性がセットされていれば True になります。"
 
 #. (entry)
 msgid "True if the item is locked."
-msgstr "項目がロックされていると True です。"
+msgstr "項目がロックされていると True になります。"
 
 #. (entry)
 msgid ""
@@ -17102,6 +17417,84 @@ msgid ""
 "WScript.Echo(wcInfoString4);\n"
 "\n"
 msgstr ""
+"\n"
+"// testCOM.js - javascript file\n"
+"// test script for the SubWCRev COM/Automation-object\n"
+"\n"
+"filesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n"
+"\n"
+"revObject1 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject2 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject3 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject4 = new ActiveXObject(\"SubWCRev.object\");\n"
+"\n"
+"revObject1.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\".\"), 1, 1);\n"
+"revObject2.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\n"
+"revObject3.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\n"
+"revObject4.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n"
+"\n"
+"wcInfoString1 = \"Revision = \" + revObject1.Revision +\n"
+"                \"\\nMin Revision = \" + revObject1.MinRev +\n"
+"                \"\\nMax Revision = \" + revObject1.MaxRev +\n"
+"                \"\\nDate = \" + revObject1.Date +\n"
+"                \"\\nURL = \" + revObject1.Url + \"\\nAuthor = \" +\n"
+"                revObject1.Author + \"\\nHasMods = \" +\n"
+"                revObject1.HasModifications + \"\\nIsSvnItem = \" +\n"
+"                revObject1.IsSvnItem + \"\\nNeedsLocking = \" +\n"
+"                revObject1.NeedsLocking + \"\\nIsLocked = \" +\n"
+"                revObject1.IsLocked + \"\\nLockCreationDate = \" +\n"
+"                revObject1.LockCreationDate + \"\\nLockOwner = \" +\n"
+"                revObject1.LockOwner + \"\\nLockComment = \" +\n"
+"                revObject1.LockComment;\n"
+"wcInfoString2 = \"Revision = \" + revObject2.Revision +\n"
+"                \"\\nMin Revision = \" + revObject2.MinRev +\n"
+"                \"\\nMax Revision = \" + revObject2.MaxRev +\n"
+"                \"\\nDate = \" + revObject2.Date +\n"
+"                \"\\nURL = \" + revObject2.Url + \"\\nAuthor = \" +\n"
+"                revObject2.Author + \"\\nHasMods = \" +\n"
+"                revObject2.HasModifications + \"\\nIsSvnItem = \" +\n"
+"                revObject2.IsSvnItem + \"\\nNeedsLocking = \" +\n"
+"                revObject2.NeedsLocking + \"\\nIsLocked = \" +\n"
+"                revObject2.IsLocked + \"\\nLockCreationDate = \" +\n"
+"                revObject2.LockCreationDate + \"\\nLockOwner = \" +\n"
+"                revObject2.LockOwner + \"\\nLockComment = \" +\n"
+"                revObject2.LockComment;\n"
+"wcInfoString3 = \"Revision = \" + revObject3.Revision +\n"
+"                \"\\nMin Revision = \" + revObject3.MinRev +\n"
+"                \"\\nMax Revision = \" + revObject3.MaxRev +\n"
+"                \"\\nDate = \" + revObject3.Date +\n"
+"                \"\\nURL = \" + revObject3.Url + \"\\nAuthor = \" +\n"
+"                revObject3.Author + \"\\nHasMods = \" +\n"
+"                revObject3.HasModifications + \"\\nIsSvnItem = \" +\n"
+"                revObject3.IsSvnItem + \"\\nNeedsLocking = \" +\n"
+"                revObject3.NeedsLocking + \"\\nIsLocked = \" +\n"
+"                revObject3.IsLocked + \"\\nLockCreationDate = \" +\n"
+"                revObject3.LockCreationDate + \"\\nLockOwner = \" +\n"
+"                revObject3.LockOwner + \"\\nLockComment = \" +\n"
+"                revObject3.LockComment;\n"
+"wcInfoString4 = \"Revision = \" + revObject4.Revision +\n"
+"                \"\\nMin Revision = \" + revObject4.MinRev +\n"
+"                \"\\nMax Revision = \" + revObject4.MaxRev +\n"
+"                \"\\nDate = \" + revObject4.Date +\n"
+"                \"\\nURL = \" + revObject4.Url + \"\\nAuthor = \" +\n"
+"                revObject4.Author + \"\\nHasMods = \" +\n"
+"                revObject4.HasModifications + \"\\nIsSvnItem = \" +\n"
+"                revObject4.IsSvnItem + \"\\nNeedsLocking = \" +\n"
+"                revObject4.NeedsLocking + \"\\nIsLocked = \" +\n"
+"                revObject4.IsLocked + \"\\nLockCreationDate = \" +\n"
+"                revObject4.LockCreationDate + \"\\nLockOwner = \" +\n"
+"                revObject4.LockOwner + \"\\nLockComment = \" +\n"
+"                revObject4.LockComment;\n"
+"\n"
+"WScript.Echo(wcInfoString1);\n"
+"WScript.Echo(wcInfoString2);\n"
+"WScript.Echo(wcInfoString3);\n"
+"WScript.Echo(wcInfoString4);\n"
+"\n"
 
 #. (para)
 msgid ""
@@ -17125,12 +17518,24 @@ msgid ""
 "    MessageBox.Show(\"not versioned\");\n"
 "}\n"
 msgstr ""
+"\n"
+"using LibSubWCRev;\n"
+"SubWCRev sub = new SubWCRev();\n"
+"sub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\n"
+"if (sub.IsSvnItem == true)\n"
+"{\n"
+"    MessageBox.Show(\"バージョン管理対象\");\n"
+"}\n"
+"else\n"
+"{\n"
+"    MessageBox.Show(\"バージョン管理対象外\");\n"
+"}\n"
 
 #. (para)
 msgid ""
 "The following listing is an example on how to use the SubWCRev COM object "
 "from C#: <placeholder-1/>"
-msgstr ""
+msgstr "C# から SubWCRev の COM オブジェクトを使用する方法の例を次に示します。 <placeholder-1/>"
 
 #. (title)
 msgid "IBugtraqProvider interface"
@@ -17167,16 +17572,23 @@ msgid ""
 "required include files you need to build your plugin. (<xref linkend=\"tsvn-"
 "preface-source\"/> explains how to access the repository.)"
 msgstr ""
+"私たちは、各プログラミング言語で COM オブジェクトを実装する方法について、情報やチュートリアルを提供することはできませんが、 C++/ATL と "
+"C# で書かれたプラグインのサンプルを、私たちのリポジトリの <filename>contrib/issue-tracker-"
+"plugins</filename> "
+"フォルダで提供しています。そのフォルダからも、プラグインを作成するのに必要なインクルードファイルを入手することができます（リポジトリにアクセスする方法は、"
+" <xref linkend=\"tsvn-preface-source\"/> を参照してください）。"
 
 #. (para)
 msgid ""
 "You should provide both a 32-bit and 64-bit version of your plugin. Because "
 "the x64-Version of TortoiseSVN can not use a 32-bit plugin and vice-versa."
 msgstr ""
+"プラグインは32ビット版と64ビット版の両方を提供する必要があります。 TortoiseSVN の x64 "
+"バージョンでは32ビットのプラグインを使用することができませんし、その逆も同様です。"
 
 #. (title)
 msgid "Naming conventions"
-msgstr ""
+msgstr "命名規則"
 
 #. (para)
 msgid ""
@@ -17187,18 +17599,22 @@ msgid ""
 " into the windows shell. For example: TortoiseCVS, TortoiseSVN, TortoiseHg, "
 "TortoiseGit and TortoiseBzr are all version control clients."
 msgstr ""
+"もし TortoiseSVN "
+"の問題追跡プラグインをリリースするならば、<emphasis>Tortoise&lt;Something&gt;</emphasis>という名前は<emphasis>使用しない</emphasis>でください。私たちは<emphasis>Tortoise</emphasis>というプレフィックスを、"
+" Windows に統合するバージョン管理クライアントのために予約しておきたいのです。例えば、TortoiseCVS や "
+"TortoiseSVN、TortoiseHg、TortoiseGit、TortoiseBzrなど、いずれもバージョン管理クライアントです。"
 
 #. (para)
 msgid "Gurtle - An issue tracker plugin for Google code"
-msgstr ""
+msgstr "Gurtle - Google code のための問題追跡プラグイン"
 
 #. (para)
 msgid "TurtleMine - An issue tracker plugin for Redmine"
-msgstr ""
+msgstr "TurtleMine - Redmine のための問題追跡プラグイン"
 
 #. (para)
 msgid "VurtleOne - An issue tracker plugin for VersionOne"
-msgstr ""
+msgstr "VurtleOne - VirsionOne のための問題追跡プラグイン"
 
 #. (para)
 msgid ""
@@ -17209,6 +17625,10 @@ msgid ""
 "<emphasis>Turtle</emphasis> but has a different first letter. Nice examples "
 "are: <placeholder-1/>"
 msgstr ""
+"Tortoise クライアントのプラグインは、<emphasis>Turtle&lt;Something&gt;</emphasis> "
+"と命名してください。 <emphasis>&lt;Something&gt;</emphasis> "
+"は、接続する問題解決システムの名前になります。または、 <emphasis>Turtle</emphasis> "
+"と似た発音で、頭文字が異なる言葉を使用しても結構です。例えば、<placeholder-1/>が良い例です。"
 
 #. (title)
 msgid "The IBugtraqProvider interface"
@@ -17220,6 +17640,8 @@ msgid ""
 "IBugtraqProvider interface. The interface provides a few methods which "
 "plugins can use to interact with the issue tracker."
 msgstr ""
+"TortoiseSVN 1.5 以降では、 IBugtraqProvider "
+"インタフェースを実装するプラグインを使用することができます。このインタフェースでは、プラグインが課題追跡を操作するために使用できるいくつかのメソッドが用意されています。"
 
 #. (programlisting)
 #, no-wrap
@@ -17263,6 +17685,12 @@ msgid ""
 "successful. If the plugin returns FALSE, the settings dialog won't allow the"
 " user to add the plugin to a working copy path."
 msgstr ""
+"このメソッドは、ユーザーがプラグインを追加・設定できる設定ダイアログから呼び出されます。 <literal>parameters</literal> "
+"の文字列は、プラグインに追加情報（例えば問題追跡ツールのURLや、ログイン情報など）を伝えるために使用することができます。プラグインは "
+"<literal>parameters</literal> の文字列を検査し、文字列が有効でなければエラーダイアログを表示する必要すべきです。 "
+"<literal>hParentWnd</literal> はプラグインが表示する各ダイアログの親ウィンドウとして使用します。プラグインは、 "
+"<literal>parameters</literal> の文字列の検査に成功した場合は、 TRUE を返さなければなりません。プラグインが "
+"FALSE を返すと、設定ダイアログはユーザが作業コピーのパスにプラグインを追加することを許可しません。"
 
 #. (programlisting)
 #, no-wrap
@@ -17303,6 +17731,9 @@ msgid ""
 "not fit into the button. If the method returns an error (e.g., "
 "<literal>E_NOTIMPL</literal>), a default text is used for the button."
 msgstr ""
+"プラグインは、TortoiseSVN "
+"のコミットダイアログでプラグインを起動するためのボタン、例えば「問題を選択」や「チケットを選択」などの文字列を提供することができます。文字列がボタン内に収まらないほど長くならないように注意してください。このメソッドがエラーを返した場合（たとえば"
+" <literal>E_NOTIMPL</literal> を返した場合）は、ボタンにはデフォルトのテキストが使用されます。"
 
 #. (programlisting)
 #, no-wrap
@@ -17352,6 +17783,8 @@ msgid ""
 "This is the main method of the plugin. This method is called from the "
 "TortoiseSVN commit dialog when the user clicks on the plugin button."
 msgstr ""
+"これは、プラグインの中心的なメソッドです。このメソッドは、 TortoiseSVN "
+"のコミットダイアログでユーザーがプラグイン用のボタンをクリックしたときに呼び出されます。"
 
 #. (para)
 msgid ""
@@ -17360,6 +17793,9 @@ msgid ""
 "would use this to find the URL of the issue tracker and/or login information"
 " or more."
 msgstr ""
+"<literal>parameters</literal> "
+"の文字列は、設定ダイアログでプラグインの設定を行った際に、ユーザーが設定した文字列です。通常は、プラグインはこの情報を、問題追跡ツールの URL "
+"を指定したり、ログイン情報を指定したりするために使用します。"
 
 #. (para)
 msgid ""
@@ -17369,12 +17805,15 @@ msgid ""
 "selected in the commit dialog. For the branch/tag dialog, this is the path "
 "which is to be copied."
 msgstr ""
+"<literal>commonRoot</literal> "
+"の文字列は、コミットダイアログを表示するために選択されたすべての項目の親のパスが入っています。これは、ユーザーがコミットダイアログで選択した全項目のルートパス<emphasis>ではない</emphasis>ことに注意してください。ブランチ／タグダイアログの場合、これはコピーされるパスです。"
 
 #. (para)
 msgid ""
 "The <literal>pathList</literal> parameter contains an array of paths (as "
 "strings) which the user has selected for the commit."
 msgstr ""
+"<literal>pathList</literal> パラメータは、ユーザーがコミットのために選択したパス（文字列）の配列をが含まれています。"
 
 #. (para)
 msgid ""
@@ -17382,6 +17821,7 @@ msgid ""
 "in the log message box in the commit dialog. If the user has not yet entered"
 " any text, this string will be empty."
 msgstr ""
+"<literal>originalMessage</literal>パラメータは、コミットダイアログのログメッセージボックスに入力したテキストが含まれています。ユーザーはまだ何もテキストを入力していない場合、この文字列は空になります。"
 
 #. (para)
 msgid ""
@@ -17391,6 +17831,9 @@ msgid ""
 "it must return the same string again here, otherwise any text the user has "
 "entered will be lost."
 msgstr ""
+"<literal>newMessage</literal>に返された文字列は、コミットダイアログのログメッセージのエディットボックスにコピーされ、すでに何が書かれていてもそれを置き換えます。プラグインが"
+" <literal>originalMessage</literal>　"
+"を変更しなかった場合、ここでは同じ文字列を返却する必要があります。そうしなければ、ユーザーが入力した文字列は失われます。"
 
 #. (title)
 msgid "The IBugtraqProvider2 interface"
@@ -17494,6 +17937,9 @@ msgid ""
 " <literal>GetCommitMessage</literal> for the parameters that are also used "
 "there."
 msgstr ""
+"このメソッドは、TortoiseSVNのコミットダイアログでユーザーがプラグインボタンをクリックした時に呼び出されます。このメソッドは、 "
+"<literal>GetCommitMessage()</literal> の代わりに呼び出されます。ここで使用されるパラメータについては、 "
+"<literal>GetCommitMessage</literal>のドキュメントを参照してください。"
 
 #. (para)
 msgid ""
@@ -17501,6 +17947,8 @@ msgid ""
 "selected to bring up the commit dialog. This is basically the URL of the "
 "<literal>commonRoot</literal> path."
 msgstr ""
+"<literal>commonURL</literal>パラメータは、コミットダイアログを表示するために選択されたすべての項目の親URLです。これは基本的には"
+" <literal>commonRoot</literal> パスのURLです。 "
 
 #. (para)
 msgid ""
@@ -17508,12 +17956,15 @@ msgid ""
 "field (if it is shown, configured with the property "
 "<literal>bugtraq:message</literal>)."
 msgstr ""
+"<literal>bugID</literal> パラメータは、 bug-ID "
+"フィールドの内容が内容が含まれています（<literal>bugtraq:message</literal>属性の設定により、表示される場合）。"
 
 #. (para)
 msgid ""
 "The return parameter <literal>bugIDOut</literal> is used to fill the bug-ID "
 "field when the method returns."
 msgstr ""
+"返却パラメータ<literal>bugIDOut</literal>は、メソッドから戻るときにbug-ID フィールドを埋めるために使用されます。"
 
 #. (para)
 msgid ""
@@ -17524,6 +17975,8 @@ msgid ""
 "must also have a corresponding value in <literal>revPropValues</literal>. If"
 " no revision properties are to be set, the plugin must return empty arrays."
 msgstr ""
+"<literal>revPropNames</literal> や <literal>revPropValues</literal> "
+"出力パラメータには、コミット時に設定されるリビジョンの属性の名前と値のペアを入れることができます。プラグインは、両方の配列が同じサイズであることを確認する必要があります。<literal>revPropNames</literal>には各プロパティの名前、<literal>revPropValues</literal>には関連付けられた値を格納します。リビジョンのプロパティが設定される存在しない場合、プラグインが空の配列を返す必要があります。"
 
 #. (programlisting)
 #, no-wrap
@@ -17560,6 +18013,9 @@ msgid ""
 "of all <emphasis>checked</emphasis> items, and <literal>commonRoot</literal>"
 " the root path of all checked items."
 msgstr ""
+"このメソッドは、コミットダイアログが閉じられ、コミットが開始される直前に呼び出されます。プラグインは、コミットのために選択されたファイル・フォルダや、ユーザが入力したコミットメッセージを検証するためにこのメソッドを使用することができます。パラメータには<literal>GetCommitMessage2()</literal>の場合と同様で、<literal>commonURL</literal>"
+" についてはすべての<emphasis>チェックした</emphasis>項目であり、 <literal>commonRoot</literal> "
+"はすべてのチェックした項目のルートパスであるということです。"
 
 #. (para)
 msgid ""
@@ -17567,6 +18023,8 @@ msgid ""
 "URL of the copy, and <literal>commonRoot</literal> is set to the target URL "
 "of the copy."
 msgstr ""
+"ブランチ／タグダイアログの場合、 <literal>commonURL</literal> はコピー元のURLであり、 "
+"<literal>commonRoot</literal> はコピー先のURLが設定されています。"
 
 #. (para)
 msgid ""
@@ -17577,6 +18035,10 @@ msgid ""
 "whatever is wrong. A plugin should therefore return an error string which "
 "informs the user <emphasis>what</emphasis> is wrong and how to correct it."
 msgstr ""
+"出力パラメータ <literal>errorMessage</literal> "
+"は、TortoiseSVNがユーザに示すエラーメッセージを設定し、コミットを開始する場合は空にする必要があります。エラーメッセージを返した場合、 "
+"TortoiseSVN はダイア​​"
+"ログにエラー文字列を表示し、ユーザーが間違いを訂正できるようにコミットダイアログは開いたままにします。したがってプラグインはユーザーに、<emphasis>何が</emphasis>間違っているのかと、それを修正する方法を通知する必要があります。"
 
 #. (programlisting)
 #, no-wrap
@@ -17636,6 +18098,8 @@ msgid ""
 " to the issue. The parameters are the same as for "
 "<literal>GetCommitMessage2</literal>."
 msgstr ""
+"このメソッドは、コミットに成功した時に呼び出されます。プラグインは、例えば、選択した問題を閉じるか、または問題にコミットに関する情報を追加する場合は、このメソッドを使用することができます。パラメータは、"
+" <literal>GetCommitMessage2</literal> の場合と同じです。。"
 
 #. (programlisting)
 #, no-wrap
@@ -17659,6 +18123,8 @@ msgid ""
 "<literal>ShowOptionsDialog</literal>, it must return TRUE here, otherwise it"
 " must return FALSE."
 msgstr ""
+"このメソッドは、ユーザーがプラグインを設定する設定ダイアログから呼び出されます。プラグインが<literal>ShowOptionsDialog</literal>で独自の設定ダイアログを提供している場合"
+" 、TRUE を返し、それ以外の場合は FALSE を返す必要があります。"
 
 #. (programlisting)
 #, no-wrap
@@ -17694,12 +18160,15 @@ msgid ""
 "TRUE. A plugin can show an options dialog to make it easier for the user to "
 "configure the plugin."
 msgstr ""
+"このメソッドは設定ダイアログ上で、 <literal>HasOptions</literal> が TRUE "
+"を返したときに表示される「オプション」ボタンをユーザがクリックした時に呼び出されます。プラグインは動作を容易に設定させるために、オプションダイアログを表示することができます。"
 
 #. (para)
 msgid ""
 "The <literal>parameters</literal> string contains the plugin parameters "
 "string that is already set/entered."
 msgstr ""
+"<literal>parameters</literal> 文字列には、すでに設定／入力されているプラ​​グインのパラメータの文字列が含まれています。"
 
 #. (para)
 msgid ""
@@ -17708,6 +18177,10 @@ msgid ""
 "its options dialog. That <literal>paramameters</literal> string is passed to"
 " all other IBugtraqProvider and IBugtraqProvider2 methods."
 msgstr ""
+"<literal>newparameters</literal> "
+"出力パラメータには、プラグインが、オプションダイアログで収集した情報から構築されたパラメータ文字列を設定する必要があります。その "
+"<literal>paramameters</literal> 文字列は、他のすべての IBugtraqProvider と "
+"IBugtraqProvider2 のメソッドに渡されます。"
 
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
@@ -17727,6 +18200,11 @@ msgid ""
 "<email>dev@tortoisesvn.tigris.org</email> and "
 "<email>users@tortoisesvn.tigris.org</email>."
 msgstr ""
+"TortoiseSVNは全力を費やして開発しているので、ドキュメントを完全な状態で維持し続けるのは困難です。私たちは TortoiseSVN "
+"のメーリングリストである<email>dev@tortoisesvn.tigris.org</email> や "
+"<email>users@tortoisesvn.tigris.org</email> でよく尋ねられる質問を、 <ulink "
+"url=\"http://tortoisesvn.net/faq.html\"><citetitle>オンラインFAQ "
+"</citetitle></ulink> に公開しています。"
 
 #. (para)
 msgid ""
@@ -17737,18 +18215,26 @@ msgid ""
 " you have found a bug, or want to request a new feature, check here first to"
 " see if someone else got there before you."
 msgstr ""
+"私たちは、プロジェクトの <ulink "
+"url=\"http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\"><citetitle>課題追跡ツール</citetitle></ulink>"
+" も維持管理しています。これで私たちのTo-"
+"Doリスト上にあるものの一部や、既に修正されたバグについて説明しています。バグを発見した場合や、新しい機能を要求する場合、他の誰かがあなたの前にそこに着いたかどうかを確認するためにまずここをチェックしてください。"
 
 #. (para)
 msgid ""
 "<email>users@tortoisesvn.tigris.org</email> is the one to use if you have "
 "questions about using TortoiseSVN."
 msgstr ""
+"TortoiseSVN を利用するにあたって質問がある場合に使用する場合は、 "
+"<email>users@tortoisesvn.tigris.org</email> にメールを送付してください。"
 
 #. (para)
 msgid ""
 "If you want to help out with the development of TortoiseSVN, then you should"
 " take part in discussions on <email>dev@tortoisesvn.tigris.org</email>."
 msgstr ""
+"TortoiseSVN の開発に協力したいなら、 <email>dev@tortoisesvn.tigris.org</email> "
+"上で議論に参加してください 。"
 
 #. (para)
 msgid ""
@@ -17756,12 +18242,17 @@ msgid ""
 "or the documentation, send an e-mail to "
 "<email>translators@tortoisesvn.tigris.org</email>."
 msgstr ""
+"あなたが TortoiseSVN "
+"のユーザインタフェースやドキュメントの翻訳を支援する場合、<email>translators@tortoisesvn.tigris.org</email>に電子メールを送信"
+" してください。"
 
 #. (para)
 msgid ""
 "If you have a question which is not answered anywhere else, the best place "
 "to ask it is on one of the mailing lists: <placeholder-1/>"
 msgstr ""
+"回答が得られていない質問がある場合は、次のメーリングリストのいずれかに質問をしてください。\n"
+"<placeholder-1/>"
 
 #. (title)
 msgid "How Do I..."
@@ -17771,7 +18262,7 @@ msgstr "どうしたら……"
 msgid ""
 "This appendix contains solutions to problems/questions you might have when "
 "using TortoiseSVN."
-msgstr "この付録には TortoiseSVN を使用する上での 問題や疑問に対する解決法があります。"
+msgstr "この付録には TortoiseSVN を使用する際の問題や疑問に対する解決法があります。"
 
 #. (title)
 msgid "Move/copy a lot of files at once"
@@ -17807,6 +18298,10 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
 msgstr ""
+"お勧めの方法は、ファイルを新しい場所に<action>右ドラッグ</action>することです。単にファイルの上で<action>右クリック</action>し、マウスボタンを押したままにします。その後、新しい場所にファイルをドラッグし、マウスボタンを離します。コンテキストメニューが表示されるので、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN"
+" バージョン管理下の項目をここにコピーする</guimenuitem></menuchoice> か "
+"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN "
+"バージョン管理下の項目をここに移動する</guimenuitem></menuchoice> を選択します。"
 
 #. (title)
 msgid "Force users to enter a log message"
@@ -17897,7 +18392,7 @@ msgstr ""
 msgid ""
 "For detailed information on those project properties, please refer to <xref "
 "linkend=\"tsvn-dug-propertypage\"/>."
-msgstr ""
+msgstr "これらのプロジェクト属性の詳細については、<xref linkend=\"tsvn-dug-propertypage\"/>を参照してください。"
 
 #. (title)
 msgid "Update selected files from the repository"
@@ -18236,7 +18731,7 @@ msgstr "ネストした作業コピーの利用"
 msgid ""
 "Create a new folder within your project to contain the common code, but do "
 "not add it to Subversion."
-msgstr ""
+msgstr "プロジェクトに共通コードを格納する新しいフォルダを作成してください。ですがまだ Subversion に追加しないでください。"
 
 #. (para)
 msgid ""
@@ -18271,6 +18766,14 @@ msgid ""
 "C:\\Projects\\Common\n"
 "</screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
 msgstr ""
+"同じ共通コアコードを複数のプロジェクトで使用するが、使用するプロジェクトごとに複数の同じ作業コピーを維持したくなければ、使用するその他のプロジェクトと関連する、独立した場所にチェックアウトできます。例えば以下のようになります。\n"
+"<screen>\n"
+"C:\\Projects\\Proj1\n"
+"C:\\Projects\\Proj2\n"
+"C:\\Projects\\Proj3\n"
+"C:\\Projects\\Common\n"
+"</screen>\n"
+"その上で、共通コードには相対パスで参照してください。例: <filename>..\\..\\Common\\DSPcore</filename>"
 
 #. (para)
 msgid ""
@@ -18280,6 +18783,11 @@ msgid ""
 "#include \"X:\\superio\\superio.h\"\n"
 "</screen>"
 msgstr ""
+"プロジェクトが関係ない場所に散乱している場合、以下のバリエーションを使用できます。共通コードを一カ所に置き、その場所をプロジェクト内でハードコードしているものになるようドライブレター変換を使用します。例えば、共通コードを <filename>D:\\Documents\\Framework</filename> か <filename>C:\\Documents and Settings\\{login}\\My Documents\\framework</filename> にチェックアウトし、<screen>\n"
+"SUBST X: \"D:\\Documents\\framework\"\n"
+"</screen> として自分のソースコード内で使用するドライブマッピングを作成してください。自分のコードでは絶対パスを指定できます。<screen>\n"
+"#include \"X:\\superio\\superio.h\"\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -18338,6 +18846,9 @@ msgid ""
 "Add...</guimenuitem></menuchoice> to undo the add. You should then add the "
 "file(s) to the ignore list so they don't get added again later by mistake."
 msgstr ""
+"まだ追加をコミットしていない場合は、<menuchoice><guimenu> "
+"TortoiseSVNの</guimenu><guimenuitem>追加を元に戻す... "
+"</guimenuitem></menuchoice>を使用することで追加を取り消すことができます。その後、誤って後で再び追加しないように、無視リストにファイル（複数可）を追加する必要があります。"
 
 #. (para)
 msgid ""
@@ -18350,6 +18861,12 @@ msgid ""
 " to the ignore list so that it will not be added back into Subversion again "
 "by mistake. Once this is done you just need to commit the parent folder."
 msgstr ""
+"ファイルがリポジトリ内に既にある場合は、リポジトリから削除する必要がありますし、無視リストに追加します。幸いなことに TortoiseSVN "
+"にはこれを行うための便利なショートカットがあります。 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>バージョン管理から除外し、無視リストに追加</guimenuitem></menuchoice>"
+" "
+"を実行すれば、まずリポジトリからファイルやフォルダを削除するようにマークし、ローカルコピーを保持します。そして、アイテムを無視リストに追加し、誤って再び"
+" Subversion に追加されないようにします。この後、必要があるのは親フォルダをコミットすることだけです。"
 
 #. (title)
 msgid "Unversion a working copy"
@@ -18377,6 +18894,9 @@ msgid ""
 "private local entities, and they are self-contained. Deleting a working copy"
 " in Windows Explorer does not affect the data in the repository at all."
 msgstr ""
+"不要になった作業コピーをきれいに削除するには、どのようにすればよいのでしょうか。簡単です。 Windows "
+"エクスプローラで、フォルダごと削除するだけです。作業コピーはプライベートな存在であり、内部で自己完結しています。  Windows "
+"エクスプローラで作業コピーを削除しても、リポジトリ内のデータにはまったく影響しません。"
 
 #. (title)
 msgid "Useful Tips For Administrators"
@@ -18444,6 +18964,11 @@ msgid ""
 "10 from Microsoft on each computer you want to install TortoiseSVN as per "
 "user."
 msgstr ""
+"TortoiseSVNは、<emphasis>ユーザーの構成</emphasis>ではなく<emphasis>コンピュータの構成</emphasis>の下にインストールする必要があります。"
+"  TortoiseSVN は CRT と MFC DLL "
+"を必要としており、それは<emphasis>ユーザーごと</emphasis>ではなく<emphasis>コンピュータごと</emphasis>に配布されるからです。どうしてもユーザーごとに"
+" TortoiseSVN をインストールする必要がある場合は、TortoiseSVN をインストールするすべてのコンピュータに対して、Microsoft"
+" から MFC と CRT のパッケージのバージョン10をインストールする必要があります。"
 
 #. (para)
 msgid ""
@@ -18478,10 +19003,12 @@ msgid ""
 "there is a newer version available, a notification is shown in the commit "
 "dialog."
 msgstr ""
+"TortoiseSVN "
+"は数日おきに、新しいバージョンが出ているかをばチェックします。利用可能な新しいバージョンがある場合は、コミットダイアログに通知が表示されます。"
 
 #. (title)
 msgid "The commit dialog, showing the upgrade notification"
-msgstr ""
+msgstr "アップグレードの通知を表示するコミットダイアログ"
 
 #. (para)
 msgid ""
@@ -18490,6 +19017,7 @@ msgid ""
 "always the latest version. You probably don't want that upgrade notification"
 " to show up so your users don't go and upgrade immediately."
 msgstr ""
+"自分のドメインにいるたくさんのユーザに対して責任を負っているなら、確認をとった特定バージョンのみ使用させ、最新版をインストールさせたくないでしょう。おそらくユーザがすぐにアップグレードしないよう、アップグレードダイアログを表示させたくないことでしょう。"
 
 #. (para)
 msgid ""
@@ -18499,6 +19027,10 @@ msgid ""
 "http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi\n"
 "</screen> The first line in that file is the version string. You must make sure that it matches the exact version string of the TortoiseSVN installation package. The second line is a custom text, shown in the commit dialog. You can write there whatever you want. Just note that the space in the commit dialog is limited. Too long messages will get truncated! The third line is the URL to the new installation package. This URL is opened when the user clicks on the custom message label in the commit dialog. You can also just point the user to a web page instead of the MSI file directly. The URL is opened with the default web browser, so if you specify a web page, that page is opened and shown to the user. If you specify the MSI package, the browser will ask the user to save the MSI file locally."
 msgstr ""
+"TortoiseSVN 1.4.0 以降では、イントラネットのサーバにその更新チェックのリダイレクトすることができます。レジストリキーの<filename>HKCU\\Software\\TortoiseSVN\\UpdateCheckURL</filename> （文字列値）をご使用のイントラネット内のテキストフ​​ァイルを指すURLに設定してください。そのテキストフ​​ァイルには、次の形式である必要があります。 <screen>\n"
+"1.4.1.6000\n"
+"TortoiseSVNの新しいバージョンが利用可能です！\n"
+"http://192.168.2.1/downloads/TortoiseSVN-1.4.1.6000-svn-1.4.0.msi</screen>ファイルの最初の行はバージョン文字列です。TortoiseSVNのインストールパッケージの正確なバージョン文字列と一致していることを確認する必要があります。2行目は、コミットダイアログに表示する文字列です。任意の文字列を設定することができます。ただし、コミットダイアログの容量が制限されていることに注意してください。メッセージが長すぎると、切り捨てられてしまいます。3行目は、新しいインストールパッケージへのURLです。コミットダイアログでカスタムメッセージラベルをユーザーがクリックすると、このURLが開かれます。また、単に直接ではなく、MSIファイルのWebページを指すことができます。 URLは、Webページを指定した場合には、そのページが開かれ、ユーザに表示される、デフォルトのWebブラウザで開かれます。 MSIパッケージを指定した場合、ブラウザはローカルでMSIファイルを保存するようにユーザーに要求します。"
 
 #. (title)
 msgid ""
@@ -18525,6 +19057,8 @@ msgid ""
 "for users who always install <emphasis>everything</emphasis> no matter "
 "whether they know what it is for."
 msgstr ""
+"何でもかんでも<emphasis>すべて</emphasis>を選択してしまうユーザーに多くの問題と混乱を発生させたので、バージョン1.4.0以降では、TortoiseSVNのインストーラが<literal>SVN_ASP_DOT_NET_HACK</literal>"
+" 環境変数を設定するオプションを提供していません。"
 
 #. (para)
 msgid ""
@@ -18543,6 +19077,8 @@ msgid ""
 "require this hack to be activated! So unless you're using that ancient tool,"
 " DO NOT USE THIS!"
 msgstr ""
+"これは今で VS.NET2002 を使用している人にのみ必要であることに注意してください。 Visual Studio "
+"のそれ以降のバージョンでは、この対策は<emphasis>必要ありません</emphasis>。それよりも古いツールを使用している人は、使用をやめるべきです！"
 
 #. (title)
 msgid "Disable context menu entries"
@@ -19062,6 +19598,8 @@ msgid ""
 "file when the log dialog is closed. The revisions are written in the same "
 "format as is used to specify revisions in the merge dialog."
 msgstr ""
+"ログダイアログを開きます。<placeholder-1/>ログを表示するファイルまたはフォルダを指定します。次のような追加のオプションを設定することができます。\n"
+"<placeholder-2/> 、 <placeholder-3/> 、 <placeholder-4/> は「コピー中に停止」チェックボックスを有効にし、 <placeholder-5/>  は「マージされたリビジョンを含める」を有効にし、 <placeholder-6/>はフィルタテキストを入力し、 <placeholder-7/> は正規表現ではなく強制的にテキストを使用し、また <placeholder-8/> は単純なテキストではなく強制的に正規表現を使用し、 <placeholder-9/> では X は1〜7の番号です。番号は、<placeholder-10/>に対応しています。もし <placeholder-11/> が設定されていた場合、選択されたリビジョンは、ログダイアログを閉じたときにファイルに書き込まれます。リビジョンはマージダイアログでリビジョンを特定するために、同じ書式で書かれます。"
 
 #. (option)
 #. (option)
@@ -19085,6 +19623,8 @@ msgid ""
 "adjustments are blocked. The <placeholder-4/> specifies the revision to "
 "check out."
 msgstr ""
+"チェックアウトダイアログを開きます。<placeholder-1/>でターゲットディレクトリと指定します。 "
+"<placeholder-2/>でチェックアウト元のURLを指定します。<placeholder-3/>でキーを指定すると、チェックアウトパスの自動的な調整がブロックされます。<placeholder-4/>でチェックアウトするリビジョンを指定します。"
 
 #. (option)
 #. (option)
@@ -19112,6 +19652,8 @@ msgid ""
 "pass the log message on the command line, use <placeholder-3/>, where "
 "<placeholder-4/> points to a file containing the log message."
 msgstr ""
+"インポートダイアログを開きます。<placeholder-1/>でインポートするデータのディレクトリを指定します。<placeholder-2/>を指定すると、インポートダイアログのログメッセージに渡す初期値を指定することができます。また、コマンドラインからログメッセージを渡したくない場合は、<placeholder-3/>を使用し、"
+" <placeholder-4/>でログメッセージを含むファイルの場所を示します。"
 
 #. (option)
 msgid "/rev"
@@ -19146,6 +19688,9 @@ msgid ""
 "<placeholder-6/>. The <placeholder-7/> indicates that the specified depth "
 "should be sticky, creating a sparse checkout."
 msgstr ""
+"<placeholder-1/> で指定した作業コピーを最新に更新します。<placeholder-2/> "
+"を与えると、どのリビジョンに更新するかをユーザに尋ねるダイアログを表示します。リビジョン番号を指定するダイアログを表示しないようにするには、<placeholder-3/>"
+" としてください。その他のオプションには <placeholder-4/> や <placeholder-5/> があります。"
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -19258,18 +19803,20 @@ msgid ""
 "an URL to export to the directory in <placeholder-3/>. If you specify the "
 "key <placeholder-4/>, the automatic export path adjustments are blocked."
 msgstr ""
+"<placeholder-1/> の作業コピーを別のディレクトリにエクスポートします。<placeholder-2/> "
+"がバージョン管理外ディレクトリを指定していれば、<placeholder-3/>のディレクトリにエクスポートする URL を尋ねてきます。"
 
 #. (option)
 msgid "/droptarget"
-msgstr ""
+msgstr "/droptarget"
 
 #. (option)
 msgid "/overwrite"
-msgstr ""
+msgstr "/overwrite"
 
 #. (option)
 msgid "/autorename"
-msgstr ""
+msgstr "/autorename"
 
 #. (entry)
 msgid ""
@@ -19280,6 +19827,7 @@ msgid ""
 "specifies that if files already exist, the exported files get automatically "
 "renamed to avoid overwriting them."
 msgstr ""
+"作業コピーを<placeholder-1/>から特定のディレクトリ<placeholder-2/>にエクスポートします。このエクスポートではエクスポートダイアログを使用せず、直接実行されます。<placeholder-3/>オプションは存在するファイルを確認なしで上書きするか、<placeholder-4/>はファイルが既に存在するとき、上書きせずにエクスポートされたファイルの名前を変更するかを設定します。"
 
 #. (option)
 #. (option)
@@ -19317,6 +19865,12 @@ msgid ""
 "the following options: <placeholder-8/> and <placeholder-9/>. These pre-fill"
 " the relevant fields in the merge dialog."
 msgstr ""
+"マージダイアログを開きます。<placeholder-1/> "
+"にはターゲットディレクトリを指定します。マージするリビジョン範囲は以下のオプションを利用できます。<placeholder-2/>, "
+"<placeholder-3/> 2 つのリポジトリツリーをマージするには、以下のオプションを利用できます。<placeholder-4/>, "
+"<placeholder-5/>, <placeholder-6/>, "
+"<placeholder-7/>。再統合マージをするとき、次のオプションを要します。<placeholder-8/>  と "
+"<placeholder-9/>。以上はマージダイアログにあらかじめ設定した状態になります。"
 
 #. (entry)
 msgid ""
@@ -19382,6 +19936,12 @@ msgid ""
 "files with the given revisions. The parameter <placeholder-9/> specifies the"
 " line to jump to when the diff is shown."
 msgstr ""
+"TortoiseSVN の設定で指定した外部差分ビューアを起動します。<placeholder-1/> "
+"には始めのファイルを指定します。<placeholder-2/> オプションを設定すると、その 2 "
+"ファイルに対して差分ビューアが起動します。<placeholder-3/> を省略すると、<placeholder-4/> とその BASE "
+"に対する差分を行います。リビジョン番号を明示するには、 <placeholder-5/> や <placeholder-6/> "
+"を使用してください。<placeholder-7/> を設定し、<placeholder-8/> "
+"を設定しない場合、差分は与えられたリビジョンのファイルの first blaming を行います。"
 
 #. (para)
 msgid ""
@@ -19447,6 +20007,8 @@ msgid ""
 "copy given in <option>/path</option> or <option>/path</option> points "
 "directly to an URL."
 msgstr ""
+"<option>/path</option> で示された作業コピーから得られる URL、または <option>/path</option> が直接指すURLの\n"
+"場所から、リポジトリブラウザダイアログを起動します。"
 
 #. (para)
 msgid ""
@@ -19454,6 +20016,8 @@ msgid ""
 "revision which the repository browser should show. If the "
 "<option>/rev:xxx</option> is omitted, it defaults to HEAD."
 msgstr ""
+"追加オプション <option>/rev:xxx</option> は、リポジトリブラウザが表示するリビジョンを特定するために使用します。 "
+"<option>/rev:xxx</option> が省略されると、デフォルトは最新版になります。"
 
 #. (para)
 msgid ""
@@ -19461,6 +20025,9 @@ msgid ""
 "<option>/projectpropertiespath:path/to/wc</option> specifies the path from "
 "where to read and use the project properties."
 msgstr ""
+"<option>/path</option> がURLを指している場合、 "
+"<option>/projectpropertiespath:path/to/wc</option> "
+"でプロジェクトのプロパティを読み出したり使用したりする場所のパスを指定します。"
 
 #. (para)
 msgid ""
@@ -19469,6 +20036,8 @@ msgid ""
 " The first line in that text file contains the URL, the second line the "
 "revision in text format."
 msgstr ""
+"<option>/outfile:path\\to\\file</option> が指定されている場合、リポジトリブラウザを閉じたときに、選択された "
+"URL とリビジョンがファイルに書き出されます。テキストファイルの1行目には URL が入り、2行目にはリビジョン番号がテキストで記述されます。"
 
 #. (literal)
 msgid "svn:ignore"
@@ -19533,7 +20102,7 @@ msgstr "<placeholder-1/> で与えたパスのパッチファイルを作成し�
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."
-msgstr ""
+msgstr "<option>/path</option> で指定されたパスのリビジョングラフを表示します。"
 
 #. (para)
 msgid ""
@@ -19649,6 +20218,9 @@ msgid ""
 "<literal>paramvalue</literal> being the value to use for that parameter. The"
 " list of parameters allowed depends on the command used."
 msgstr ""
+"<literal>cmd</literal> は許可されたコマンドの一つ、 <literal>parameter</literal> は "
+"<literal>path</literal> や <literal>revision</literal> のような引数の名前、そして "
+"<literal>paramvalue</literal> は引数に設定される値です。引数のリストの数は、使われるコマンドに依存します。"
 
 #. (para)
 msgid ""
@@ -19685,6 +20257,10 @@ msgid ""
 "A simple example URL might look like this: <placeholder-1/> or in a more "
 "complex case: <placeholder-2/>"
 msgstr ""
+"簡単な URL の例としては、次のものがあります。\n"
+"<placeholder-1/>\n"
+"また、より複雑なケースでは次のものがあります。\n"
+"<placeholder-2/>"
 
 #. (title)
 msgid "TortoiseIDiff Commands"
@@ -19810,6 +20386,11 @@ msgid ""
 " working copy path is shown simply as <literal>PATH</literal>, and an "
 "example might be <filename>C:\\TortoiseSVN\\trunk</filename>."
 msgstr ""
+"以下の説明では、リポジトリの位置を表す URL （例: <systemitem "
+"class=\"url\">http://tortoisesvn.googlecode.com/svn/trunk/</systemitem>）は、単に"
+" <literal>URL</literal> と表します。作業コピーのパス（例: "
+"<filename>C:\\TortoiseSVN\\trunk</filename>）は、単に <literal>PATH</literal> "
+"と表します。"
 
 #. (para)
 msgid ""
@@ -19842,7 +20423,7 @@ msgstr ""
 #. (para)
 msgid ""
 "The depth combo box items relate to the <literal>-depth</literal> argument."
-msgstr ""
+msgstr "<literal>depth</literal>の引数は、「チェックアウトする深さ」コンボボックスに関連します。"
 
 #. (para)
 #. (para)
@@ -20148,8 +20729,8 @@ msgid ""
 "3-way diff/merge tool to look at the files involved in the conflict and sort"
 " out which lines to use."
 msgstr ""
-"このコマンドには、同等の CLI がありません。競合したファイルを見て、どの行を使用するか整理するのに、TortoiseMerge や、その他の "
-"diff/merge ツールを起動します。"
+"このコマンドには、同等の CLI がありません。競合したファイルを見て、どの行を使用するか整理するのに、TortoiseMerge "
+"や、その他の3画面差分・マージツールを起動します。"
 
 #. (title)
 msgid "Resolved"
@@ -20581,6 +21162,9 @@ msgid ""
 "Lock</emphasis> overlay is used to indicate when a file has the <literal>svn"
 ":needs-lock</literal> property set."
 msgstr ""
+"<graphic "
+"fileref=\"images/ReadOnlyIcon.png\"/><emphasis>要ロック</emphasis>オーバーレイは、 "
+"<literal>svn:needs-lock</literal> 属性が設定されているファイルに表示されます。"
 
 #. (para)
 msgid ""
@@ -20660,6 +21244,10 @@ msgid ""
 "tries to be a <emphasis>Good Citizen (TM)</emphasis> and limits its use of "
 "overlays to give other apps a chance."
 msgstr ""
+"実はシステムで使用できるアイコンのすべてを見ることはありません。Windows で使用できるオーバーレイの数は 15 "
+"個に制限されているからです。Windows は 4 個使用し、残りの 11 個を他のアプリケーションで使用できるようにしています。TortoiseCVS"
+" も使用していると、使用できるオーバーレイスロットが足らなくならないように、TortoiseSVN は<quote>Good Citizen "
+"(TM)</quote> に徹し、オーバーレイを他のアプリケーションが使用できるように制限しているのです。"
 
 #. (para)
 msgid ""
@@ -20703,12 +21291,16 @@ msgid ""
 "<emphasis>Locked</emphasis> is loaded if possible, but falls back to "
 "<emphasis>Normal</emphasis> if there are not enough slots."
 msgstr ""
+"<emphasis>ロック</emphasis>は可能ならばロードしますが、スロットが足りなければ <emphasis>通常</emphasis> "
+"にフォールバックします。"
 
 #. (para)
 msgid ""
 "<emphasis>Added</emphasis> is loaded if possible, but falls back to "
 "<emphasis>Modified</emphasis> if there are not enough slots."
 msgstr ""
+"<emphasis>追加</emphasis> は可能ならばロードしますが、スロットが足りなければ <emphasis>変更</emphasis> "
+"にフォールバックします。"
 
 #. (title)
 msgid "Language Packs and Spell Checkers"
@@ -20719,7 +21311,7 @@ msgid ""
 "The standard installer has support only for English, but you can download "
 "separate language packs and spell check dictionaries separately after "
 "installation."
-msgstr ""
+msgstr "標準のインストーラは英語のみをサポートしていますが、個別に言語パックやスペルチェック辞書をダウンロードし、インストールすることができます。"
 
 #. (title)
 msgid "Language Packs"
@@ -20742,6 +21334,11 @@ msgid ""
 "status page</citetitle></ulink>. And if there is no language pack available,"
 " why not join the team and submit your own translation ;-)"
 msgstr ""
+"TortoiseSVN "
+"のユーザインタフェースはたくさんの言語に翻訳されており、ご希望の言語パックをダウンロードできるでしょう。言語パックは私たちの翻訳ページ <ulink "
+"url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation "
+"status page</citetitle></ulink> "
+"で見つけられると思います。まだ言語パックが用意されていないのなら、チームに参加して翻訳をしてみましょう ;-)"
 
 #. (para)
 msgid ""
@@ -20749,6 +21346,7 @@ msgid ""
 "run the install program and follow the instructions. After the installation "
 "finishes, the translation will be available."
 msgstr ""
+"各言語パックは、<literal>.msi</literal>インストーラとしてパッケージ化されています。インストールプログラムを実行し、指示に従うだけです。インストールが完了したら、翻訳版が利用できるようになります。"
 
 #. (para)
 msgid ""
@@ -20757,6 +21355,8 @@ msgid ""
 "url=\"http://tortoisesvn.net/support\"><citetitle>support "
 "page</citetitle></ulink> on our website."
 msgstr ""
+"ドキュメントは、いくつかの言語に翻訳されています。私たちのウェブサイトの<ulink "
+"url=\"http://tortoisesvn.net/support\"><citetitle>サポートページ</citetitle></ulink>から翻訳されたマニュアルをダウンロードすることができます。"
 
 #. (title)
 msgid "Spellchecker"
@@ -20793,6 +21393,9 @@ msgid ""
 "files as well as the TortoiseSVN local user interface. After the "
 "installation finishes, the dictionary will be available too."
 msgstr ""
+"インストーラは自動でUS ないし UK の英語辞書を追加します。その他の言語を使用したければ、一番簡単なのは TortoiseSVN "
+"の言語パックをインストールすることです。TortoiseSVN "
+"のローカルユーザインターフェースと同様に、適当なディレクトリにインストールされます。再起動するとこの辞書が有効になります。"
 
 #. (para)
 msgid ""
@@ -20802,6 +21405,11 @@ msgid ""
 "download the required dictionary files from <ulink "
 "url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>."
 msgstr ""
+"もしくは辞書を自分でインストールすることもできます。OpenOffice か Mozilla "
+"がすでにインストールされていれば、そのアプリケーションがインストールされているフォルダにある辞書をコピーできます。そうでなければ、辞書ファイルを "
+"<ulink "
+"url=\"http://wiki.services.openoffice.org/wiki/Dictionaries\"><citetitle>http://wiki.services.openoffice.org/wiki/Dictionaries</citetitle></ulink>"
+" からダウンロードする必要があります。"
 
 #. (filename)
 msgid "en_US.aff"
@@ -20852,12 +21460,15 @@ msgid ""
 "language, e.g. <literal>de_CH</literal> (Swiss-German) falls back to "
 "<literal>de_DE</literal> (German)."
 msgstr ""
+"Windows のロケールが正確に機能しない場合、<quote>基本</quote>言語を試してみてください。例えば、 "
+"<literal>de_CH</literal> （スイス - ドイツ語）を<literal>de_DE</literal> "
+"（ドイツ語）にフォールバックするなど。"
 
 #. (para)
 msgid ""
 "If none of the above works, then the default language is English, which is "
 "included with the standard installation."
-msgstr "上記のどれも動作しなければ、デフォルトの言語は (標準インストールに含まれている) 英語になります。"
+msgstr "上記のどれも動作しなければ、デフォルトの言語は（標準インストールに含まれている）英語になります。"
 
 #. (para)
 msgid ""
@@ -21285,7 +21896,7 @@ msgstr "TortoiseMerge"
 
 #. (subtitle)
 msgid "A diff/merge tool for Windows"
-msgstr "diff/merge ツール for Windows"
+msgstr "Windows 用の差分・マージツール"
 
 #. (para)
 msgid ""
@@ -21327,8 +21938,8 @@ msgid ""
 "TortoiseMerge is free. You don't have to pay for it, you can use it any way "
 "you want. It is developed under the GP license (GPL)."
 msgstr ""
-"TortoiseMerge はフリーです。お金を払う必要はありませんし、どんな用途にも使用できます。GP ライセンス (GPL) "
-"のもと開発されています。"
+"TortoiseMerge はフリーです。お金を払う必要はありませんし、どんな用途にも使用できます。GNU Public ライセンス (GPL) "
+"のもとで開発されています。"
 
 #. (para)
 msgid ""
@@ -21340,6 +21951,11 @@ msgid ""
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
 msgstr ""
+"TortoiseMergeはオープンソースプロジェクトです。あなたが完全なこのプログラムのソースコードへの読み取りアクセス権を持っていることを意味します。このリンク上で閲覧することができます<ulink"
+" url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle> "
+"http://code.google.com/p/tortoisesvn/source/browse/ </citetitle></ulink> "
+"。最新バージョンは、（私たちが現在作業している）の下にあります。 <filename> /トランク/ </filename> "
+"、およびリリースされたバージョンは下に配置されています<filename> /タグ/ </filename> 。"
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
@@ -21449,6 +22065,12 @@ msgid ""
 " because we were working on those files and had sometimes changed those "
 "files already."
 msgstr ""
+"<ulink "
+"url=\"http://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> "
+"の作業をしていると、プロジェクトの拡張やバグの修正のためのパッチを送ってもらったときにはいつも、そのパッチを適用するのに大量の作業を行わなければなりませんでした。また多くの場合、既にファイルを更新してしまっていたために、そのパッチは時代遅れになっており、コマンドラインパッチツール"
+" <ulink "
+"url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink>"
+" では適用できませんでした。"
 
 #. (para)
 msgid ""
@@ -21709,7 +22331,7 @@ msgstr ""
 
 #. (title)
 msgid "Three Pane View"
-msgstr "3 ペイン画面"
+msgstr "3 ペイン表示"
 
 #. (para)
 msgid ""
@@ -21773,6 +22395,8 @@ msgid ""
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr ""
+"パッチファイルウィンドウにはコンテキストメニューがあり、現在のファイルにパッチを適用した結果をプレビュー (保存せず適用) "
+"したり、選択したファイルのみ適用して保存したり、一覧にあるファイルすべてに適用・保存を行うといった操作ができます。ダブルクリックするとプレビューします。"
 
 #. (para)
 msgid ""
@@ -21879,6 +22503,8 @@ msgid ""
 "the view border are wrapped around, i.e., one long line is split into "
 "several lines."
 msgstr ""
+"<guibutton>長い行を折り返す/guibutton> "
+"は、ビューの行末行を折り返すかどうかをを切り替えます。オンにした場合、ビューの境界を越えるような長い行は折り返され、複数行に分割されます。"
 
 #. (para)
 msgid ""
@@ -21887,7 +22513,7 @@ msgid ""
 "whole word is highlighted. In char-wise mode, each individual changed "
 "character is highlighted."
 msgstr ""
-"<guibutton>行内差分 (単語単位)</guibutton> "
+"<guibutton>行内差分（単語単位）</guibutton> "
 "は、行内差分の表示を切り換えます。単語単位モードでは、文字が変更されていると、その単語全体を強調表示します。文字単位モードでは、変更のあった各単語ごとに強調表示します。"
 
 #. (para)
@@ -21908,6 +22534,8 @@ msgid ""
 "and inline whitespace as added/removed lines (which is how Subversion treats"
 " such changes)."
 msgstr ""
+"<guibutton>空白を比較</guibutton> "
+"では、インデントや行内の空白が追加・削除された場合すべてのインデントの変化とインラインの空白は、追加/削除された行（Subversionはそのような変更をどのように扱うかである）を示しています。"
 
 #. (para)
 msgid ""
@@ -21916,12 +22544,14 @@ msgid ""
 "indentation or changing tabs to spaces. Adding whitespace where there was "
 "none before, or removing a whitespace completely is still shown as a change."
 msgstr ""
+"<guibutton>空白の変更は無視する</guibutton> "
+"は、空白の数や種類だけの変更（例えばインデントの変更や、タブとスペースの変更など）を非表示にします。何もないところに空白を追加したり、空白が完全に除去されたりした場合は変更として表示します。"
 
 #. (para)
 msgid ""
 "<guibutton>Ignore all whitespaces</guibutton> hides all whitespace-only "
 "changes."
-msgstr ""
+msgstr "<guibutton>すべての空白を無視する</guibutton> は、空白のみの差異を非表示にします。"
 
 #. (para)
 msgid ""
@@ -21959,6 +22589,8 @@ msgid ""
 " collapsed areas by double clicking on the collapse line, but you cannot "
 "then re-collapse them unless you reload the file."
 msgstr ""
+"<guibutton>折りたたむ</guibutton> "
+"は、変更されていない部分を1行に折りたたみ、変更された部分のみを表示する最小の表示にします。折りたたまれた部分は、ダブルクリックすることで展開できますが、再度の折りたたみはファイルを読み込みなおさない限りできません。"
 
 #. (para)
 msgid ""
@@ -21969,7 +22601,7 @@ msgstr "<guibutton>設定</guibutton> TortoiseMerge 設定ダイアログを表�
 #. (para)
 msgid ""
 "<guibutton>Help</guibutton> opens the TortoiseMerge help file, of course."
-msgstr ""
+msgstr "<guibutton>ヘルプ</guibutton> はもちろん、 TortoiseMerge のヘルプファイルを開きます。"
 
 #. (para)
 msgid ""
@@ -22098,6 +22730,11 @@ msgid ""
 " text block from 'theirs' </guimenuitem></menuchoice>. Then the changes from"
 " the left file are added to the right file."
 msgstr ""
+"2 ペインビューの場合、右ペイン (<literal>Mine</literal>) のみ編集できます。左のファイル "
+"(<literal>Theirs</literal>) に変更を加えるには、変更する行で <action>右クリック</action> "
+"し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>’theirs' "
+"のテキストブロックを利用</guimenuitem></menuchoice> "
+"を選択してください。その後、左のファイルの変更を右のファイルに加えてください。"
 
 #. (para)
 msgid ""
@@ -22142,6 +22779,19 @@ msgid ""
 "command you've selected, the changes are used in the resulting "
 "<literal>Merged</literal> file."
 msgstr ""
+"3 ペインビュー（<emphasis>マージビュー</emphasis> "
+"とも呼ぶ）の場合、下部ビューにあるファイル（<literal>Merged</literal>）のみ編集できます。2 ペインビューと同様に、競合した行で"
+" <action>右クリック</action> "
+"し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>'theirs' "
+"のテキストブロックを利用</guimenuitem></menuchoice> と "
+"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>'mine' "
+"のテキストブロックを利用</guimenuitem></menuchoice> のどちらかを選択してください。さらに "
+"<emphasis>両方</emphasis> "
+"のブロックを使用したい場合は、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>'theirs'"
+" の前に 'mine' のテキストブロックを利用</guimenuitem></menuchoice> と "
+"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>'mine' の前に 'theirs' "
+"のテキストブロックを利用</guimenuitem></menuchoice> "
+"のどちらかを選択してください。選択したコマンドの結果、<literal>Merged</literal> ファイルを変更します。"
 
 #. (para)
 msgid ""
@@ -22313,6 +22963,8 @@ msgid ""
 "indentation or changing tabs to spaces. Adding whitespace where there was "
 "none before, or removing a whitespace completely is still shown as a change."
 msgstr ""
+"<guilabel>空白の変更は無視する</guilabel> 空白の種類や数しか変わらない変更（例: "
+"インデントの変更や、タブとスペースの変更など）を非表示にします。但し、何もないところへの空白の追加や、空白の完全削除は表示します。"
 
 #. (para)
 msgid ""
@@ -22454,11 +23106,11 @@ msgstr "Ctrl-Q, Ctrl-W, Escape"
 
 #. (para)
 msgid "Quit the program"
-msgstr "プログラムの終了"
+msgstr "プログラムを終了する"
 
 #. (para)
 msgid "Copy the selected text to the clipboard"
-msgstr "選択したテキストをクリップボードへコピーします"
+msgstr "選択したテキストをクリップボードへコピーする"
 
 #. (term)
 msgid "Ctrl-X, Shift-Del"
@@ -22498,7 +23150,7 @@ msgstr "Ctrl-O"
 
 #. (para)
 msgid "Open files to diff/merge"
-msgstr "diff/merge 用にファイルを開く"
+msgstr "差分・マージ用にファイルを開く"
 
 #. (term)
 msgid "Ctrl-S"
@@ -22522,7 +23174,7 @@ msgstr "F7"
 
 #. (para)
 msgid "Go to next difference"
-msgstr "次の相違へ移動"
+msgstr "次の相違点へ移動"
 
 #. (term)
 msgid "Shift-F7"
@@ -22530,7 +23182,7 @@ msgstr "Shift-F7"
 
 #. (para)
 msgid "Go to previous difference"
-msgstr "前の相違へ移動"
+msgstr "前の相違点へ移動"
 
 #. (term)
 msgid "F8"
@@ -22586,7 +23238,7 @@ msgstr "Ctrl-P"
 
 #. (para)
 msgid "Toggles between line wrapping"
-msgstr "行の折り返しのオン／オフを切り替えます"
+msgstr "行の折り返しのオン／オフを切り替える"
 
 #. (term)
 msgid "Ctrl-mousewheel"
@@ -22594,7 +23246,7 @@ msgstr "Ctrl-マウスホイール"
 
 #. (para)
 msgid "Scroll the display left/right"
-msgstr "左右の表示をスクロールします。"
+msgstr "左右の表示をスクロールする"
 
 #. (title)
 msgid "Automating TortoiseMerge"
@@ -22607,8 +23259,9 @@ msgid ""
 "yourself. This is useful also if you want to use TortoiseMerge from another "
 "application."
 msgstr ""
-"TortoiseMerge は、ファイルを選択する <guilabel>開く</guilabel> "
-"ダイアログを出さずに、コマンドラインパラメータを指定して起動できます。TortoiseMerge を他のアプリケーションから使用する際に便利です。"
+"TortoiseMerge "
+"は、コマンドラインパラメータを指定すると、ファイルを選択する<guilabel>開く</guilabel>ダイアログを表示せずに起動できます。TortoiseMerge"
+" を他のアプリケーションから使用する際に便利です。"
 
 #. (title)
 msgid "TortoiseMerge Command Line Switches"
@@ -22620,17 +23273,17 @@ msgid ""
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 msgstr ""
-"ほとんどのスイッチには、パスやその他の文字列といった追加情報が必要です。この場合、スイッチの後に ':' に続けて文字列・パスを指定してください。例: <screen>\n"
+"ほとんどのスイッチには、パスやその他の文字列といった追加情報が必要です。この場合、スイッチの後に ':' に続けて文字列やパスを指定してください。例: <screen>\n"
 "/base:\"c:\\folder\\my base file.txt\"\n"
 "</screen>"
 
 #. (title)
 msgid "List of available command line options"
-msgstr "有効なコマンドライン一覧"
+msgstr "有効なコマンドラインオプションの一覧"
 
 #. (entry)
 msgid "Shows a dialog box with the most important command line switches."
-msgstr "非常に重要なコマンドラインスイッチをダイアログに表示します。"
+msgstr "主要なコマンドラインスイッチをダイアログで表示します。"
 
 #. (entry)
 msgid "The same as <placeholder-1/>."
@@ -22746,15 +23399,15 @@ msgstr "差分を取るよう指定した 2 ファイルの左右のビューを
 
 #. (literal)
 msgid "/origfile:\"path_to_original_file\""
-msgstr "/origfile:\"path_to_original_file\""
+msgstr "/origfile:\"<変更前ファイルへのパス>\""
 
 #. (literal)
 msgid "/modifiedfile:\"path_to_modified_file\""
-msgstr "/modifiedfile:\"path_to_modified_file\""
+msgstr "/modifiedfile:\"<変更後ファイルへのパス>\""
 
 #. (literal)
 msgid "/outfile:\"path_to_resulting_patchfile\""
-msgstr "/outfile:\"path_to_resulting_patchfile\""
+msgstr "/outfile:\"<結果のパッチファイルのパス>\""
 
 #. (literal)
 msgid "/outfile"
@@ -22785,7 +23438,7 @@ msgstr "ファイルを読み込んだ後にジャンプする行番号を指定
 msgid ""
 "Prevents the file from being edited. That means the editing capabilities of "
 "TortoiseMerge are disabled."
-msgstr ""
+msgstr "ファイルが編集されるのを防止します。つまり、 TortoiseMerge の編集機能が無効になっていることを意味します。"
 
 #. (para)
 msgid ""

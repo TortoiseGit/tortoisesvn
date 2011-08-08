@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-31 20:31+0000\n"
+"PO-Revision-Date: 2011-08-07 10:22+0000\n"
 "Last-Translator: beginaFekicysym <>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11268,7 +11268,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Issue Tracker Integration"
-msgstr "Integracja ze śledzeniem błędów"
+msgstr "Integracja ze śledzeniem problemów"
 
 #. (title)
 msgid "tsvn:bugtraq property page"
@@ -15674,7 +15674,7 @@ msgstr ""
 
 #. (title)
 msgid "Integration with Bug Tracking Systems / Issue Trackers"
-msgstr "Integracja z systemami śledzenia błędów / śledzenia zgłoszeń"
+msgstr "Integracja z systemami śledzenia błędów / śledzenia problemów"
 
 #. (primary)
 msgid "bug tracking"
@@ -15687,7 +15687,7 @@ msgstr "śledzenie błędów"
 #. (primary)
 #. (primary)
 msgid "issue tracker"
-msgstr "śledzenie zgłoszeń"
+msgstr "śledzenie problemów"
 
 #. (primary)
 msgid "bugtracker"
@@ -15706,7 +15706,7 @@ msgid ""
 msgstr ""
 "Bardzo często w rozwoju oprogramowania zmiany powinny być związane z "
 "konkretnym błędem lub ID problemu. Użytkownicy systemów śledzenia błędów "
-"(trackerów zgłoszeń) chcieliby powiązać zmiany wykonane w Subversion z "
+"(trackerów problemów) chcieliby powiązać zmiany wykonane w Subversion z "
 "określonym ID w ich systemie śledzenia błędów. Większość trackerów "
 "przewiduje zatem dołączenie skryptu przechwytującego pre-commit, który "
 "przetwarza opisy zmian by znaleźć ID błędu, z którym wiąże się "
@@ -15733,8 +15733,8 @@ msgid ""
 "message can be parsed correctly."
 msgstr ""
 "Lub TortoiseSVN może wyróżnić część wpisanego opisu zmiany, który jest "
-"uznawany przez tracker wydań. W ten sposób użytkownik wie, że komunikat w "
-"dzienniku może być przetworzony prawidłowo."
+"uznawany przez tracker problemów. W ten sposób użytkownik wie, że komunikat "
+"w dzienniku może być przetworzony prawidłowo."
 
 #. (para)
 msgid ""
@@ -15752,7 +15752,7 @@ msgstr "TortoiseSVN wspomaga użytkownika na dwa sposoby: <placeholder-1/>"
 
 #. (title)
 msgid "Adding Issue Numbers to Log Messages"
-msgstr "Dodając numery wydań do opisów zmian"
+msgstr "Dodawanie numerów wydań do opisów zmian"
 
 #. (para)
 msgid ""
@@ -15809,7 +15809,7 @@ msgid ""
 "relative URL:"
 msgstr ""
 "Można również używać względnych adresów URL zamiast bezwzględnych. Jest to "
-"przydatne, gdy tracker wydań jest w tej samej domenie/serwerze jak "
+"przydatne, gdy tracker problemów jest w tej samej domenie/serwerze jak "
 "repozytorium kodu źródłowego. W przypadku, gdy nazwa domeny się nie zmienia,"
 " nie musicie dostosować atrybutu <literal>bugtraq:url</literal>. Istnieją "
 "dwa sposoby na określenie względnego adresu URL:"
@@ -15868,8 +15868,8 @@ msgid ""
 "expressions</emphasis>. The properties used by both approaches are: "
 "<placeholder-1/>"
 msgstr ""
-"Istnieją dwa sposoby integracji TortoiseSVN z trackerami wydań. Jednym z "
-"nich jest oparty na prostych ciągach znaków, drugi jest oparty na "
+"Istnieją dwa sposoby integracji TortoiseSVN z trackerami problemów. Jednym z"
+" nich jest oparty na prostych ciągach znaków, drugi jest oparty na "
 "<emphasis>wyrażeniach regularnych</emphasis>. Atrybuty używane przez oba "
 "przypadki są: <placeholder-1/>"
 
@@ -16039,7 +16039,7 @@ msgstr ""
 "Jeśli tylko jedno wyrażenie jest ustawione, to odsłonięte identyfikatory "
 "błędu muszą być dopasowany do grup ciągu regex. Przykład: "
 "<literal>[Pp]roblem(?:y) #?(\\d+)</literal> Ta metoda jest wymagana przez "
-"kilka trackerów wydań, np. trac, ale trudniej jest zbudować wyrażenie. "
+"kilka trackerów problemów, np. trac, ale trudniej jest zbudować wyrażenie. "
 "Zalecamy używanie tej metody wyłącznie, jeśli w dokumentacja systemu "
 "śledzenia błędów to zaleca."
 
@@ -16085,10 +16085,10 @@ msgstr ""
 "W podejściu <emphasis>wyrażeń regularnych</emphasis>, TortoiseSVN nie "
 "pokazuje oddzielnego pola wprowadzania, ale oznacza część opisu zmiany "
 "wprowadzonego przez użytkownika, który jest rozpoznawany przez tracker "
-"wydań. Jest to wykonywane, gdy użytkownik zapisuje opis zmiany w dzienniku. "
-"Oznacza to także, że ID błędu może być w dowolnym miejscu w wiadomości "
-"dziennika! Metoda ta jest znacznie bardziej elastyczna i jest użyta w samym "
-"projekcie TortoiseSVN. <placeholder-1/>"
+"problemów. Jest to wykonywane, gdy użytkownik zapisuje opis zmiany w "
+"dzienniku. Oznacza to także, że ID błędu może być w dowolnym miejscu w "
+"wiadomości dziennika! Metoda ta jest znacznie bardziej elastyczna i została "
+"użyta w samym projekcie TortoiseSVN. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -16106,9 +16106,9 @@ msgid ""
 "log messages, you still can use this to turn the issues mentioned in your "
 "log messages into links!"
 msgstr ""
-"Nawet jeśli nie masz trackera wydań z przechwyceniem pre-commit parsującym "
-"opis zmiany, nadal można korzystać z niego, aby przekształcić zagadnienia "
-"wymienione w opisie zmiany na linki!"
+"Nawet jeśli nie masz trackera problemów z przechwyceniem pre-commit "
+"parsującym opis zmiany, nadal można korzystać z niego, aby przekształcić "
+"zagadnienia wymienione w opisie zmiany na linki!"
 
 #. (para)
 msgid ""
@@ -16167,7 +16167,7 @@ msgstr ""
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
-msgstr "Brak informacji o trackerze wydań z przeglądarki repozytorium"
+msgstr "Brak informacji o trackerze problemów z przeglądarki repozytorium"
 
 #. (para)
 msgid ""
@@ -16178,12 +16178,13 @@ msgid ""
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
 msgstr ""
-"Ponieważ integracja trackera wydań zależy od dostępu do atrybutów subversion"
-" można będzie zobaczyć wyniki tylko podczas korzystania z pobranej kopii "
-"roboczej. Pobieranie atrybutów zdalnie jest działaniem powolnym, więc nie "
-"będzie widać tej cechy w akcji z przeglądarki repo, chyba że uruchomiono "
-"przeglądarkę repozytorium z kopii roboczej. Jeśli uruchomiono przeglądarkę "
-"repo, wpisując adres URL repozytorium, nie będzie widać tej funkcji."
+"Ponieważ integracja trackera problemów zależy od dostępu do atrybutów "
+"subversion można będzie zobaczyć wyniki tylko podczas korzystania z pobranej"
+" kopii roboczej. Pobieranie atrybutów zdalnie jest działaniem powolnym, więc"
+" nie będzie widać tej cechy w akcji z przeglądarki repo, chyba że "
+"uruchomiono przeglądarkę repozytorium z kopii roboczej. Jeśli uruchomiono "
+"przeglądarkę repo, wpisując adres URL repozytorium, nie będzie widać tej "
+"funkcji."
 
 #. (para)
 #. (para)
@@ -16214,7 +16215,7 @@ msgstr ""
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
-msgstr "Pobieranie informacji z trackera wydań"
+msgstr "Pobieranie informacji z trackera problemów"
 
 #. (para)
 msgid ""
@@ -16226,11 +16227,11 @@ msgid ""
 "the issues that are being addressed in this commit."
 msgstr ""
 "Poprzednia część poświęcona była dodawaniu informacji o wydaniu do opisów "
-"zmian. Ale co, jeśli chcecie uzyskać informacje od trackera wydań? Okno "
+"zmian. Ale co, jeśli chcecie uzyskać informacje od trackera problemów? Okno "
 "dialogowe zatwierdzenia posiada interfejs COM, który pozwala na integrację "
-"zewnętrznych programów, które mogą łączyć się z trackerem. Zazwyczaj "
-"wykonane będzie zapytanie do trackera, aby uzyskać listę przypisanych do Was"
-" otwartych zagadnień, tak aby można było wybrać zagadnienia, które są "
+"zewnętrznych programów mogących łączyć się z trackerem. Zazwyczaj wykonane "
+"będzie zapytanie do trackera, aby uzyskać listę przypisanych do Was "
+"otwartych zagadnień, tak aby można było wybrać zagadnienia, które są "
 "przedmiotem niniejszego zatwierdzenia."
 
 #. (para)
@@ -16267,7 +16268,7 @@ msgstr ""
 
 #. (title)
 msgid "Example issue tracker query dialog"
-msgstr "Przykładowe okno dialogowe zapytania trackera wydań"
+msgstr "Przykładowe okno dialogowe zapytania trackera problemów"
 
 #. (para)
 msgid ""
@@ -16281,7 +16282,7 @@ msgid ""
 "formatted text which it adds to your log message."
 msgstr ""
 "Dla celów ilustracji, załóżmy, że administrator systemu pod zapewnił dostęp "
-"do wtyczki trackera wydań, które masz zainstalowane oraz zostały już "
+"do wtyczki trackera problemów, które masz zainstalowane oraz zostały już "
 "skonfigurowane niektóre z kopii roboczych do korzystania z wtyczki w oknie "
 "ustawień TortoiseSVN. Po otwarciu okna dialogowego zatwierdzenia z kopii "
 "roboczej, do której wtyczka została przypisana, pojawi się nowy przycisk w "
@@ -19201,11 +19202,12 @@ msgid ""
 "plugin, which you have already installed and registered, this is the place "
 "to specify how it integrates with your working copy."
 msgstr ""
-"TortoiseSVN może użyć wtyczki COM by wykonywać zapytania do trackerów wydań,"
-" podczas wejścia okno zatwierdzenia. Korzystanie z takich wtyczek jest "
-"opisane w <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. Jeśli administrator "
-"systemu przekazał Wam wtyczki i są już zainstalowane i zarejestrowane, jest "
-"to miejsce, aby określić w jaki sposób integrują się one z kopią roboczą."
+"TortoiseSVN może użyć wtyczki COM by wykonywać zapytania do trackerów "
+"problemów, podczas wejścia okno zatwierdzenia. Korzystanie z takich wtyczek "
+"jest opisane w <xref linkend=\"tsvn-dug-bugtracker-ref\"/>. Jeśli "
+"administrator systemu przekazał Wam wtyczki i są już zainstalowane i "
+"zarejestrowane, jest to miejsce, aby określić w jaki sposób integrują się "
+"one z kopią roboczą."
 
 #. (title)
 msgid "The Settings Dialog, Issue Tracker Integration Page"
@@ -19224,7 +19226,7 @@ msgstr ""
 "<placeholder-1/> Kliknijcie na <guibutton>Dodaj...</guibutton> by użyć "
 "wtyczki z określonej kopii roboczej. Tutaj możecie określić ścieżkę kopii "
 "roboczej, wybrać wykorzystaną wtyczkę z rozwijanej listy wszystkich "
-"zarejestrowanych wtyczek trackera wydań, oraz wszelkie parametry do "
+"zarejestrowanych wtyczek trackera problemów, oraz wszelkie parametry do "
 "przekazania. Parametry będą specyficzne dla wtyczki, ale powinien zawierać "
 "nazwę użytkownika trackera, aby plugin mógł odnaleźć problemy, które są "
 "przypisane do Ciebie."
@@ -20668,8 +20670,8 @@ msgid ""
 "TortoiseSVN about open issues, verify log messages entered by the user and "
 "even run actions after a successful commit to e.g, close an issue."
 msgstr ""
-"Aby uzyskać ściślejszą integrację z trackerami wydań niż po prostu za pomocą"
-" atrybutów <literal>bugtraq:</literal>, TortoiseSVN daje możliwość "
+"Aby uzyskać ściślejszą integrację z trackerami problemów niż po prostu za "
+"pomocą atrybutów <literal>bugtraq:</literal>, TortoiseSVN daje możliwość "
 "skorzystania z wtyczek COM. Za pomocą takich wtyczek jest możliwe pobieranie"
 " informacji bezpośrednio z systemu śledzenia błędów, interakcja z "
 "użytkownikiem i przekazywanie informacji o otwartych wydaniach z powrotem do"
@@ -20713,7 +20715,7 @@ msgid ""
 " into the windows shell. For example: TortoiseCVS, TortoiseSVN, TortoiseHg, "
 "TortoiseGit and TortoiseBzr are all version control clients."
 msgstr ""
-"Jeśli wydajecie wtyczkę trackera wydań dla TortoiseSVN, prosimy "
+"Jeśli wydajecie wtyczkę trackera problemów dla TortoiseSVN, prosimy "
 "<emphasis>nie</emphasis> nazywać jej "
 "<emphasis>Tortoise&lt;Cośtam&gt;</emphasis>. Chcielibyśmy zarezerwować "
 "przedrostek <emphasis>Tortoise</emphasis> dla klienta kontroli wersji "
@@ -20722,15 +20724,15 @@ msgstr ""
 
 #. (para)
 msgid "Gurtle - An issue tracker plugin for Google code"
-msgstr "Gurtle - Plugin trackera wydań dla Google code"
+msgstr "Gurtle - Plugin trackera problemów dla Google code"
 
 #. (para)
 msgid "TurtleMine - An issue tracker plugin for Redmine"
-msgstr "TurtleMine - Plugin trackera wydań dla Redmine"
+msgstr "TurtleMine - Plugin trackera problemów dla Redmine"
 
 #. (para)
 msgid "VurtleOne - An issue tracker plugin for VersionOne"
-msgstr "VurtleOne - Plugin trackera wydań dla VersionOne"
+msgstr "VurtleOne - Plugin trackera problemów dla VersionOne"
 
 #. (para)
 msgid ""
@@ -21382,8 +21384,8 @@ msgid ""
 msgstr ""
 "Prowadzimy także projekt <ulink "
 "url=\"http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\"><citetitle>Tracker"
-" Wydań</citetitle></ulink>, który zawiera lwią część naszej listy rzeczy do "
-"zrobienia, i błędy, które zostały już poprawione. Jeżeli uważasz, że "
+" Problemów</citetitle></ulink>, który zawiera lwią część naszej listy rzeczy"
+" do zrobienia, i błędy, które zostały już poprawione. Jeżeli uważasz, że "
 "znalazłeś błąd lub chcesz poprosić o nową funkcję, sprawdź najpierw tutaj, "
 "czy ktoś inny był tu już przed tobą."
 
@@ -21392,8 +21394,8 @@ msgid ""
 "<email>users@tortoisesvn.tigris.org</email> is the one to use if you have "
 "questions about using TortoiseSVN."
 msgstr ""
-"<email>users@tortoisesvn.tigris.org</email> jest z tym do użycia, jeśli "
-"macie pytania dotyczące korzystania z TortoiseSVN."
+"Użyjcie adresu <email>users@tortoisesvn.tigris.org</email>, jeśli macie "
+"pytania dotyczące korzystania z TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -21482,7 +21484,7 @@ msgstr ""
 
 #. (title)
 msgid "Force users to enter a log message"
-msgstr "Zmuś użytkowników do wprowadzenia opisu zmiany"
+msgstr "Zmuszenie użytkowników do wprowadzenia opisu zmiany"
 
 #. (primary)
 msgid "log message"

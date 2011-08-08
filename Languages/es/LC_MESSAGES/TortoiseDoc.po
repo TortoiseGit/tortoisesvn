@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-28 08:02+0000\n"
-"Last-Translator: dark_nexus <cool.dark.nexus@gmail.com>\n"
+"PO-Revision-Date: 2011-08-06 15:32+0000\n"
+"Last-Translator: tommybrc <tommychristie@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3444,7 +3444,7 @@ msgstr "Para aprovechar al máximo la Guía de uso diario: <placeholder-1/>"
 
 #. (title)
 msgid "General Features"
-msgstr ""
+msgstr "Características generales"
 
 #. (para)
 msgid ""
@@ -7522,6 +7522,8 @@ msgid ""
 "Export the selected items in this revision to a folder, preserving the file "
 "hierarchy."
 msgstr ""
+"Exportar los elementos seleccionados en esta revisión a una carpeta, "
+"preservando la jerarquía de archivos."
 
 #. (para)
 msgid ""
@@ -8854,11 +8856,11 @@ msgstr ""
 
 #. (title)
 msgid "Diffing Office Documents"
-msgstr ""
+msgstr "Diferenciando los documentos de Office"
 
 #. (primary)
 msgid "Microsoft Word"
-msgstr ""
+msgstr "Microsoft Word"
 
 #. (para)
 msgid ""
@@ -8876,7 +8878,7 @@ msgstr ""
 
 #. (title)
 msgid "Problems with Office 2010"
-msgstr ""
+msgstr "Problemas con Office 2010"
 
 #. (para)
 msgid ""
@@ -10136,7 +10138,7 @@ msgstr ""
 
 #. (term)
 msgid "Clean up working copy status"
-msgstr ""
+msgstr "Limpie el estado copia de trabajo"
 
 #. (para)
 msgid ""
@@ -10149,13 +10151,15 @@ msgstr ""
 
 #. (term)
 msgid "Revert all changes recursively"
-msgstr ""
+msgstr "Revertir todos los cambios de forma recursiva"
 
 #. (para)
 msgid ""
 "This command reverts all your local modifications which are not committed "
 "yet."
 msgstr ""
+"Este comando revierte todas las modificaciones locales que no se han "
+"confirmado todavía."
 
 #. (para)
 msgid ""
@@ -10168,6 +10172,8 @@ msgstr ""
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
 msgstr ""
+"Eliminar archivos y carpetas no versionados, borrar archivos y carpetas "
+"ignorado"
 
 #. (para)
 msgid ""
@@ -10198,7 +10204,7 @@ msgstr ""
 
 #. (term)
 msgid "Include externals"
-msgstr ""
+msgstr "Incluir externos"
 
 #. (para)
 msgid ""
@@ -12667,6 +12673,20 @@ msgid ""
 "bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
 msgstr ""
+"La mayoría del tiempo desea fusionar para tener en cuenta el historial del "
+"archivo, de modo que los cambios relativos a un ancestro común se fusionen. "
+"A veces puede necesitar fusionar ficheros que quizás estén relacionados, "
+"pero no en su repositorio. Por ejemplo, puede haber importado las versiones "
+"1 y 2 de una biblioteca de terceros en dos directorios separados. A pesar de"
+" que están relacionados de forma lógica, subversion no tiene conocimiento de"
+" ello porque sólo ve los ficheros que ha importado. Si intenta fusionar las "
+"diferencias entre estos dos arboles vería un borrado completo seguido de un "
+"añadir completo. Para hacer que Subversion utilice únicamente las "
+"diferencias basadas en camino en vez de diferencias basadas en la historia, "
+"marque la caja <guilabel>Ignorar ancestros </guilabel>. Lea más acerca de "
+"este tema en el libro de Subversion, <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
+" or Ignoring Ancestry</citetitle></ulink> ."
 
 #. (para)
 msgid ""
@@ -13883,6 +13903,11 @@ msgid ""
 "revisions to make it easier to read. If you wish to print or edit the blame "
 "file, select <guilabel>Use Text viewer to view blames</guilabel>."
 msgstr ""
+"Por defecto, el fichero de autoría se ve utilizando "
+"<firstterm>TortoiseBlame</firstterm>, que resalta las diferentes revisiones "
+"para que sea más fácil de leer. Si desea imprimir o editar el fichero de "
+"autoría, seleccione <guilabel>Utilizar visor de textos para ver "
+"autorías</guilabel> ."
 
 #. (para)
 msgid ""
@@ -14278,7 +14303,7 @@ msgstr "Guardar una copia no versionada del archivo en su disco duro."
 
 #. (para)
 msgid "Copy the URL shown in the address bar to the clipboard."
-msgstr ""
+msgstr "Copia la URL que aparece en la barra de direcciones al portapapeles."
 
 #. (para)
 msgid ""
@@ -14297,6 +14322,8 @@ msgid ""
 "Create a shortcut so that you can quickly start repo browser again, opened "
 "directly at this location."
 msgstr ""
+"Crear un acceso directo para que usted pueda comenzar de nuevo el navegador "
+"de repositorios, abierto directamente en esta ubicacion."
 
 #. (para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
@@ -14923,7 +14950,7 @@ msgstr ""
 
 #. (term)
 msgid "Hide unused branches"
-msgstr ""
+msgstr "Ocultar ramas sin usar"
 
 #. (para)
 msgid ""
@@ -15666,7 +15693,7 @@ msgstr ""
 
 #. (title)
 msgid "The Bugtraq Properties Dialog"
-msgstr ""
+msgstr "El diálogo de propiedades de Bugtraq"
 
 #. (para)
 msgid ""
@@ -16340,17 +16367,19 @@ msgstr ""
 
 #. (term)
 msgid "Use Aero Dialogs"
-msgstr ""
+msgstr "Utilizar los diálogos de Aero"
 
 #. (para)
 msgid ""
 "On Windows Vista and later systems this controls whether dialogs use the "
 "Aero styling."
 msgstr ""
+"En Windows Vista y posteriores esto controla si los cuadros de diálogo "
+"utilizan el estilo Aero."
 
 #. (term)
 msgid "Create Library"
-msgstr ""
+msgstr "Crear libreria"
 
 #. (para)
 msgid ""
@@ -16496,7 +16525,7 @@ msgstr ""
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
+msgstr "Aplicar modificaciones locales a svn:externals al actualizar"
 
 #. (para)
 msgid ""
@@ -17924,23 +17953,23 @@ msgstr "El título de la ventana para su archivo"
 
 #. (para)
 msgid "The URL of the original file, if available"
-msgstr ""
+msgstr "La dirección URL del archivo original, si está disponible"
 
 #. (para)
 msgid "The URL of the second file, if available"
-msgstr ""
+msgstr "La dirección URL del segundo archivo, si está disponible"
 
 #. (para)
 msgid "The revision of the original file, if available"
-msgstr ""
+msgstr "La revisión del archivo original, si está disponible"
 
 #. (para)
 msgid "The revision of the second file, if available"
-msgstr ""
+msgstr "La revisión del segundo archivo, si está disponible"
 
 #. (para)
 msgid "The peg revision, if available"
-msgstr ""
+msgstr "La revisión de paridad, si está disponible"
 
 #. (para)
 msgid ""
@@ -18154,6 +18183,8 @@ msgid ""
 "Since Unified Diff is just a text format, you can use your favourite text "
 "editor if you prefer."
 msgstr ""
+"Ya que Unified Diff es solo un formato de texto, usted puede utilizar su "
+"editor de texto favorito si lo prefiere."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -19459,7 +19490,7 @@ msgstr ""
 
 #. (title)
 msgid "Exporting TSVN Settings"
-msgstr ""
+msgstr "Configuración de exportación TSVN"
 
 #. (para)
 msgid ""
@@ -20238,6 +20269,84 @@ msgid ""
 "WScript.Echo(wcInfoString4);\n"
 "\n"
 msgstr ""
+"\n"
+"// testCOM.js - javascript file\n"
+"// test script for the SubWCRev COM/Automation-object\n"
+"\n"
+"filesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n"
+"\n"
+"revObject1 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject2 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject3 = new ActiveXObject(\"SubWCRev.object\");\n"
+"revObject4 = new ActiveXObject(\"SubWCRev.object\");\n"
+"\n"
+"revObject1.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\".\"), 1, 1);\n"
+"revObject2.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\n"
+"revObject3.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\n"
+"revObject4.GetWCInfo(\n"
+"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n"
+"\n"
+"wcInfoString1 = \"Revision = \" + revObject1.Revision +\n"
+"                \"\\nMin Revision = \" + revObject1.MinRev +\n"
+"                \"\\nMax Revision = \" + revObject1.MaxRev +\n"
+"                \"\\nDate = \" + revObject1.Date +\n"
+"                \"\\nURL = \" + revObject1.Url + \"\\nAuthor = \" +\n"
+"                revObject1.Author + \"\\nHasMods = \" +\n"
+"                revObject1.HasModifications + \"\\nIsSvnItem = \" +\n"
+"                revObject1.IsSvnItem + \"\\nNeedsLocking = \" +\n"
+"                revObject1.NeedsLocking + \"\\nIsLocked = \" +\n"
+"                revObject1.IsLocked + \"\\nLockCreationDate = \" +\n"
+"                revObject1.LockCreationDate + \"\\nLockOwner = \" +\n"
+"                revObject1.LockOwner + \"\\nLockComment = \" +\n"
+"                revObject1.LockComment;\n"
+"wcInfoString2 = \"Revision = \" + revObject2.Revision +\n"
+"                \"\\nMin Revision = \" + revObject2.MinRev +\n"
+"                \"\\nMax Revision = \" + revObject2.MaxRev +\n"
+"                \"\\nDate = \" + revObject2.Date +\n"
+"                \"\\nURL = \" + revObject2.Url + \"\\nAuthor = \" +\n"
+"                revObject2.Author + \"\\nHasMods = \" +\n"
+"                revObject2.HasModifications + \"\\nIsSvnItem = \" +\n"
+"                revObject2.IsSvnItem + \"\\nNeedsLocking = \" +\n"
+"                revObject2.NeedsLocking + \"\\nIsLocked = \" +\n"
+"                revObject2.IsLocked + \"\\nLockCreationDate = \" +\n"
+"                revObject2.LockCreationDate + \"\\nLockOwner = \" +\n"
+"                revObject2.LockOwner + \"\\nLockComment = \" +\n"
+"                revObject2.LockComment;\n"
+"wcInfoString3 = \"Revision = \" + revObject3.Revision +\n"
+"                \"\\nMin Revision = \" + revObject3.MinRev +\n"
+"                \"\\nMax Revision = \" + revObject3.MaxRev +\n"
+"                \"\\nDate = \" + revObject3.Date +\n"
+"                \"\\nURL = \" + revObject3.Url + \"\\nAuthor = \" +\n"
+"                revObject3.Author + \"\\nHasMods = \" +\n"
+"                revObject3.HasModifications + \"\\nIsSvnItem = \" +\n"
+"                revObject3.IsSvnItem + \"\\nNeedsLocking = \" +\n"
+"                revObject3.NeedsLocking + \"\\nIsLocked = \" +\n"
+"                revObject3.IsLocked + \"\\nLockCreationDate = \" +\n"
+"                revObject3.LockCreationDate + \"\\nLockOwner = \" +\n"
+"                revObject3.LockOwner + \"\\nLockComment = \" +\n"
+"                revObject3.LockComment;\n"
+"wcInfoString4 = \"Revision = \" + revObject4.Revision +\n"
+"                \"\\nMin Revision = \" + revObject4.MinRev +\n"
+"                \"\\nMax Revision = \" + revObject4.MaxRev +\n"
+"                \"\\nDate = \" + revObject4.Date +\n"
+"                \"\\nURL = \" + revObject4.Url + \"\\nAuthor = \" +\n"
+"                revObject4.Author + \"\\nHasMods = \" +\n"
+"                revObject4.HasModifications + \"\\nIsSvnItem = \" +\n"
+"                revObject4.IsSvnItem + \"\\nNeedsLocking = \" +\n"
+"                revObject4.NeedsLocking + \"\\nIsLocked = \" +\n"
+"                revObject4.IsLocked + \"\\nLockCreationDate = \" +\n"
+"                revObject4.LockCreationDate + \"\\nLockOwner = \" +\n"
+"                revObject4.LockOwner + \"\\nLockComment = \" +\n"
+"                revObject4.LockComment;\n"
+"\n"
+"WScript.Echo(wcInfoString1);\n"
+"WScript.Echo(wcInfoString2);\n"
+"WScript.Echo(wcInfoString3);\n"
+"WScript.Echo(wcInfoString4);\n"
+"\n"
 
 #. (para)
 msgid ""
@@ -20342,7 +20451,7 @@ msgstr ""
 
 #. (title)
 msgid "Naming conventions"
-msgstr ""
+msgstr "Convenciones de nombres"
 
 #. (para)
 msgid ""
@@ -22135,19 +22244,19 @@ msgstr "Eliminar ítems no versionados"
 
 #. (entry)
 msgid "Merge All"
-msgstr ""
+msgstr "Fusionar todo"
 
 #. (entry)
 msgid "Diff with previous version"
-msgstr ""
+msgstr "Dif con version anterior"
 
 #. (entry)
 msgid "Paste"
-msgstr ""
+msgstr "Pegar"
 
 #. (entry)
 msgid "Upgrade working copy"
-msgstr ""
+msgstr "Actualizar copia de trabajo"
 
 #. (entry)
 msgid "Settings"
@@ -22409,7 +22518,7 @@ msgstr "/strict"
 
 #. (option)
 msgid "/merge"
-msgstr ""
+msgstr "/merge"
 
 #. (option)
 msgid "/findstring:\"filterstring\""
@@ -22453,7 +22562,7 @@ msgstr "<option>/findtype:7</option> filtrar por ID de error"
 
 #. (option)
 msgid "/outfile:path\\to\\file"
-msgstr ""
+msgstr "/outfile:path\\to\\file"
 
 #. (entry)
 msgid ""
@@ -22478,11 +22587,11 @@ msgstr "/url"
 #. (option)
 #. (option)
 msgid "/blockpathadjustments"
-msgstr ""
+msgstr "/blockpathadjustments"
 
 #. (option)
 msgid "/revision:XXX"
-msgstr ""
+msgstr "/revision:XXX"
 
 #. (entry)
 msgid ""
@@ -22542,7 +22651,7 @@ msgstr "/includeexternals"
 
 #. (option)
 msgid "/stickydepth"
-msgstr ""
+msgstr "/stickydepth"
 
 #. (entry)
 msgid ""
@@ -22596,35 +22705,35 @@ msgstr "/noui"
 
 #. (option)
 msgid "/noprogressui"
-msgstr ""
+msgstr "/noprogressui"
 
 #. (option)
 msgid "/nodlg"
-msgstr ""
+msgstr "/nodlg"
 
 #. (option)
 msgid "/cleanup"
-msgstr ""
+msgstr "/cleanup"
 
 #. (option)
 msgid "/revert"
-msgstr ""
+msgstr "/revert"
 
 #. (option)
 msgid "/delunversioned"
-msgstr ""
+msgstr "/delunversioned"
 
 #. (option)
 msgid "/delignored"
-msgstr ""
+msgstr "/delignored"
 
 #. (option)
 msgid "/refreshshell"
-msgstr ""
+msgstr "/refreshshell"
 
 #. (option)
 msgid "/externals"
-msgstr ""
+msgstr "/externals"
 
 #. (entry)
 msgid ""
@@ -22677,15 +22786,15 @@ msgstr ""
 
 #. (option)
 msgid "/droptarget"
-msgstr ""
+msgstr "/droptarget"
 
 #. (option)
 msgid "/overwrite"
-msgstr ""
+msgstr "/overwrite"
 
 #. (option)
 msgid "/autorename"
-msgstr ""
+msgstr "/autorename"
 
 #. (entry)
 msgid ""
@@ -22721,7 +22830,7 @@ msgstr "/torev:xxx"
 
 #. (option)
 msgid "/reintegrate"
-msgstr ""
+msgstr "/reintegrate"
 
 #. (entry)
 msgid ""
@@ -23118,6 +23227,8 @@ msgid ""
 "\n"
 "&lt;a href=\"tsvncmd:command:update?path:c:\\svn_wc?rev:1234\"&gt;Update&lt;/a&gt;\n"
 msgstr ""
+"\n"
+"<a href=\"tsvncmd:command:update?path:c:\\svn_wc?rev:1234\">Update</a>\n"
 
 #. (programlisting)
 #, no-wrap
@@ -24649,7 +24760,7 @@ msgstr ""
 
 #. (para)
 msgid "Group policy object."
-msgstr ""
+msgstr "Objeto de políticas de grupo."
 
 #. (glossterm)
 msgid "HEAD revision"
@@ -25830,6 +25941,8 @@ msgid ""
 "If you click in the left margin, or if you triple click within a line, that "
 "whole line will be selected."
 msgstr ""
+"Si hace clic en el margen izquierdo, o si hace triple clic dentro de una "
+"línea, esa línea entera se seleccionará."
 
 #. (para)
 msgid ""
@@ -26349,7 +26462,7 @@ msgstr "Atajos de teclado"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
-msgstr ""
+msgstr "Ctrl-Q, Ctrl-W, Escape"
 
 #. (para)
 msgid "Quit the program"
@@ -26361,27 +26474,27 @@ msgstr "Copia el texto seleccionado al portapapeles"
 
 #. (term)
 msgid "Ctrl-X, Shift-Del"
-msgstr ""
+msgstr "Ctrl-X, Shift-Sup"
 
 #. (para)
 msgid "Cut the selected text to the clipboard"
-msgstr ""
+msgstr "Cortar el texto seleccionado al portapapeles"
 
 #. (term)
 msgid "Ctrl-V, Shift-Insert"
-msgstr ""
+msgstr "Ctrl-V, Shift-Insertar"
 
 #. (para)
 msgid "Paste the selected text from the clipboard"
-msgstr ""
+msgstr "Copiar el texto seleccionado desde el portapapeles"
 
 #. (term)
 msgid "Ctrl-Z, Alt-Backspace"
-msgstr ""
+msgstr "Ctrl-Z, Alt-Borrar"
 
 #. (para)
 msgid "Undo the last edits"
-msgstr ""
+msgstr "Deshacer las ultimas ediciones"
 
 #. (term)
 msgid "Ctrl-F"
@@ -26473,19 +26586,19 @@ msgstr "Cambia entre mostrar espacios en blanco o no"
 
 #. (term)
 msgid "Ctrl-L"
-msgstr ""
+msgstr "Ctrl-L"
 
 #. (para)
 msgid "Toggles between collapsing unchanged sections or not"
-msgstr ""
+msgstr "Alterna entre colapsar las secciones sin cambios o no"
 
 #. (term)
 msgid "Ctrl-P"
-msgstr ""
+msgstr "Ctrl-P"
 
 #. (para)
 msgid "Toggles between line wrapping"
-msgstr ""
+msgstr "Alterna entre el ajuste de línea"
 
 #. (term)
 msgid "Ctrl-mousewheel"
@@ -26718,6 +26831,8 @@ msgid ""
 "Prevents the file from being edited. That means the editing capabilities of "
 "TortoiseMerge are disabled."
 msgstr ""
+"Impide que el archivo sea editado. Esto significa que las capacidades de "
+"edición de TortoiseMerge estan deshabilitadas."
 
 #. (para)
 msgid ""

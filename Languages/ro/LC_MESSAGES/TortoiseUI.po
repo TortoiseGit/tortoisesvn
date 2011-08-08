@@ -9,14 +9,15 @@
 # $Rev$
 # 
 # Authors:
+#   <zveriu@gmail.com>, 2011.
 # Ben Felt <benwfelt@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
-"Last-Translator: benwfelt <benwfelt@gmail.com>\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
+"Last-Translator: zveriu <zveriu@gmail.com>\n"
 "Language-Team: Romanian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,7 +107,7 @@ msgstr "%1!ld! minut(e) şi %2!ld! secundă(e)"
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline)"
-msgstr ""
+msgstr "%1!s! (deconectat)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -532,9 +533,17 @@ msgstr "&Categorie:"
 msgid "&Choose commands from:"
 msgstr "Alege &comenzi din:"
 
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "&Clean up..."
-msgstr ""
+msgstr "&Curăţă..."
 
 #. Resource IDs: (58112)
 msgid "&Close"
@@ -1149,6 +1158,10 @@ msgstr "&Restabileşte implicitele"
 msgid "&Retry without hooks"
 msgstr "&Reîncearcă fară hook-uri"
 
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
 msgstr "In&versează schimbările din aceste revizii"
@@ -1364,7 +1377,7 @@ msgstr "&Actualizează"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr ""
+msgstr "Act&ualizează elementul la nivelul reviziei"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
@@ -1717,12 +1730,16 @@ msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
 msgstr ""
+"Acceptă permanent certificatul\n"
+"Nu veţi mai fi întrebat despre acest certificat vreodată."
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
+"Acceptă certificatul\n"
+"Certificatul este acceptat doar pentru această dată."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1792,6 +1809,8 @@ msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"Adaugă element\n"
+"Această acţiune generează probleme în Windows."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -1875,6 +1894,8 @@ msgid ""
 "Adjust case\n"
 "The file is not added."
 msgstr ""
+"Ajustează capitalizarea literelor\n"
+"Fişierul nu este adăugat."
 
 #. Resource IDs: (2049)
 msgid ""
@@ -1926,7 +1947,7 @@ msgstr "Toate fişierele (*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
-msgstr ""
+msgstr "Toate schimbările de la ultima actualizare vor fi pierdute!"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -1980,6 +2001,10 @@ msgstr ""
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "Îmbinare deja efectuată"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2453,6 +2478,8 @@ msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"Anulează\n"
+"Alege un alt dosar în care să se facă exportarea"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2507,6 +2534,8 @@ msgid ""
 "Cancel\n"
 "Don't switch the views"
 msgstr ""
+"Anulare\n"
+"Nu comuta modul de vizualizare0"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2537,6 +2566,8 @@ msgid ""
 "Cancel\n"
 "Ignore the outside changes."
 msgstr ""
+"Anulare\n"
+"Ignoră schimbările din exterior."
 
 #. Resource IDs: (89)
 msgid ""
@@ -2567,6 +2598,8 @@ msgid ""
 "Cancel\n"
 "Leave the cache on disk."
 msgstr ""
+"Anulare\n"
+"Păstrează cache-ul pe disc."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2870,6 +2903,8 @@ msgid ""
 "Checkout\n"
 "Checkout into the non empty folder."
 msgstr ""
+"Adu\n"
+"Adu în dosarul care nu este gol."
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -2886,10 +2921,6 @@ msgstr "Selectează elemente..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Modele de clasificare"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr ""
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3089,7 +3120,7 @@ msgstr "Linia de comandă pentru executare:"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
-msgstr ""
+msgstr "Comanda a eşuat - Reactualizare necesară"
 
 #. Resource IDs: (3857)
 msgid "Command failed."
@@ -3810,9 +3841,17 @@ msgstr "Codează cu UTF-8 implicit"
 msgid "Delete"
 msgstr "Şterge"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
-msgstr ""
+msgstr "Şterge cache-ul Depozitului"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -3828,14 +3867,6 @@ msgstr "Şterge şi &ignoră %d elemente după nume"
 msgid "Delete and ignore %d items by &extension"
 msgstr "Şterge şi ignoră %d elemente după &extensie"
 
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "Șterge fișiere și dosare ignorate"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr "Șterge fișiere și dosare neversionate"
-
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
 msgstr "Şterge elementele neversionate"
@@ -3849,6 +3880,8 @@ msgid ""
 "Delete\n"
 "Remove the cache files."
 msgstr ""
+"Ştergere\n"
+"Şterge fişierele din cache."
 
 #. Resource IDs: (314)
 msgid ""
@@ -4046,7 +4079,7 @@ msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
-msgstr ""
+msgstr "Nu desfăşura cuvintele cheie"
 
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
@@ -4215,6 +4248,8 @@ msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
 msgstr ""
+"Nu salva\n"
+"Reîncarcă modul de vizualizare fără a salva modificările."
 
 #. Resource IDs: (73, 80)
 msgid "Don't show this message again"
@@ -4369,6 +4404,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Gol"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -4642,6 +4681,8 @@ msgid ""
 "Export\n"
 "Export into the non-empty folder."
 msgstr ""
+"Exportă\n"
+"Exportă în dosarul care nu este gol."
 
 #. Resource IDs: (284)
 #, c-format
@@ -4662,7 +4703,7 @@ msgstr "Exportă un şir de proprietăţi într-un fişier"
 
 #. Resource IDs: (10)
 msgid "Exports a versioned folder as a separate unversioned folder"
-msgstr ""
+msgstr "Exportă un dosar versionat ca un dosar neversionat separat"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4790,7 +4831,7 @@ msgstr "Recuperează revizia %s a fişierului:"
 #. Resource IDs: (148)
 #, c-format
 msgid "Fetching status of %1!s!"
-msgstr ""
+msgstr "Se încarcă starea %1!s!"
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
@@ -4811,7 +4852,7 @@ msgstr "Schimbări de fişieri pe săptămână:"
 
 #. Resource IDs: (226)
 msgid "File contains conflict markers"
-msgstr ""
+msgstr "Fişierul conţine marcaje de conflict."
 
 #. Resource IDs: (376)
 msgid "File diffs"
@@ -5217,7 +5258,7 @@ msgstr "Tipul graficului:"
 
 #. Resource IDs: (273)
 msgid "Graphs for repository roots are always empty!"
-msgstr ""
+msgstr "Graficele pentru rădăcinile depozitelor sunt mereu goale!"
 
 #. Resource IDs: (16972)
 msgid "Gray"
@@ -5358,7 +5399,7 @@ msgstr "Tip hook:"
 
 #. Resource IDs: (173)
 msgid "Hook script failed!"
-msgstr ""
+msgstr "Scriptul de hook a eşuat!"
 
 #. Resource IDs: (82)
 #, c-format
@@ -5720,10 +5761,6 @@ msgstr "Ignoră tot"
 msgid "Ignore all whitespace changes"
 msgstr "Ignoră schimbările în spaţii goale"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Ignoră toate spaţiile goale"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Ignoră schimbările de &majuscule"
@@ -5736,13 +5773,9 @@ msgstr "Ignoră caracterele de &linie nouă"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignoră caracterele de &linie nouă (recomandat)"
 
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Ignoră caracterele de linie nouă"
-
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
-msgstr ""
+msgstr "Ignoră &schimbările de spaţii goale"
 
 #. Resource IDs: (1391)
 msgid "Ignore whitespace c&hanges"
@@ -5855,6 +5888,8 @@ msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
 msgstr ""
+"Importare\n"
+"Elementele sunt importate, creându-se o nouă revizie pentru fiecare element."
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5870,8 +5905,8 @@ msgid "Imports the directory to a repository"
 msgstr "Importă dosarul într-un depozit"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
-msgstr "Include referințe externe"
+msgid "Include e&xternals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6216,7 +6251,7 @@ msgstr "Lista1"
 
 #. Resource IDs: (104)
 msgid "Listing repository recursively..."
-msgstr ""
+msgstr "Listare recursivă a depozitului..."
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -6336,7 +6371,7 @@ msgstr "Mesaj de jurnal"
 
 #. Resource IDs: (173)
 msgid "Log message is too short!"
-msgstr ""
+msgstr "Mesajul de jurnalizare este prea scurt!"
 
 #. Resource IDs: (65535)
 msgid "Log messages"
@@ -6394,6 +6429,8 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr ""
+"Marchează rezovat\n"
+"Conflictul este rezolvat."
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6828,6 +6865,11 @@ msgstr "Are nevoie de b&locare"
 msgid "Needs-lock"
 msgstr "Are nevoie de blocare"
 
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Imbricat"
@@ -6990,7 +7032,7 @@ msgstr "Culori de nod"
 
 #. Resource IDs: (170)
 msgid "Non-recursive commit of moved/renamed folders."
-msgstr ""
+msgstr "Transmitere non-recursivă a dosarelor mutate/redenumite."
 
 #. Resource IDs: (1507)
 msgid "Non-versioned"
@@ -7061,7 +7103,7 @@ msgstr "Aceasta proprietate nu are nici un efect în Windows"
 
 #. Resource IDs: (173)
 msgid "Nothing is selected for commit!"
-msgstr ""
+msgstr "Nimic nu a fost selectat pentru a fi transmitere!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7155,7 +7197,7 @@ msgstr "Numărul de săptămâni:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "O&pţiuni"
 
 #. Resource IDs: (1, 73)
 msgid "OK"
@@ -7272,6 +7314,8 @@ msgid ""
 "Open files\n"
 "Open files for diff"
 msgstr ""
+"Deschide fişiere\n"
+"Deschide fişiere pentru diferenţe"
 
 #. Resource IDs: (1132)
 msgid "Open from clipboard"
@@ -7354,12 +7398,16 @@ msgid ""
 "Overwrite\n"
 "Replace the target folder."
 msgstr ""
+"Suprascriere\n"
+"Înlocuieşte dosar ţintă."
 
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
 msgstr ""
+"Suprascriere\n"
+"Fişierul ţintă va fi înlocuit"
 
 #. Resource IDs: (90)
 msgid ""
@@ -7854,6 +7902,8 @@ msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
+"Ieşire\n"
+"Iese din TortoiseMerge fără a salva modificările."
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -7991,6 +8041,8 @@ msgid ""
 "Recursive\n"
 "Remove the property also from items in Subfolders."
 msgstr ""
+"Recursiv\n"
+"Şterge totodată proprietatea de la elementele din sub-dosare."
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
@@ -8017,7 +8069,7 @@ msgid "Refresh"
 msgstr "Actualizează"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
+msgid "Refresh &shell overlays"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -8081,6 +8133,8 @@ msgid ""
 "Reject the certificate\n"
 "Cancel the connection."
 msgstr ""
+"Rejectează certificat\n"
+"Anulează conexiunea."
 
 #. Resource IDs: (7)
 #, c-format
@@ -8117,12 +8171,16 @@ msgid ""
 "Reload\n"
 "Local modifications are lost."
 msgstr ""
+"Reîncărcare\n"
+"Modificările locale sunt pierdute."
 
 #. Resource IDs: (315)
 msgid ""
 "Reload\n"
 "The outside changes are loaded."
 msgstr ""
+"Reîncărcare\n"
+"Schimbările din exterior sunt încărcate."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8246,6 +8304,8 @@ msgid ""
 "Remove\n"
 "Remove the property only from this item."
 msgstr ""
+"Ştergere\n"
+"Şterge proprietatea doar de la acest element."
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8290,7 +8350,7 @@ msgstr "Se elimină elementele ignorate în %1!s!"
 #. Resource IDs: (148)
 #, c-format
 msgid "Removing unversioned items in %1!s!"
-msgstr ""
+msgstr "Se elimină elementele neversionate din %1!s!"
 
 #. Resource IDs: (16616)
 msgid "Rena&me..."
@@ -8316,7 +8376,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move"
-msgstr ""
+msgstr "Redenumeşte/mută"
 
 #. Resource IDs: (91)
 #, c-format
@@ -8324,6 +8384,8 @@ msgid ""
 "Rename\n"
 "The folder is exported as '%s'."
 msgstr ""
+"Redenumire\n"
+"Dosarul este exportat drept '%s'."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8496,10 +8558,6 @@ msgstr "Îmbinare inversă %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Inversează"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr "Inversează toate modificările recursiv"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8821,6 +8879,8 @@ msgid ""
 "Save as\n"
 "You're asked where to save the file"
 msgstr ""
+"Salvează ca\n"
+"Veţi fi întrebat unde să fie salvat fişierul"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -8860,6 +8920,8 @@ msgid ""
 "Save\n"
 "Save the file with the conflict markers."
 msgstr ""
+"Salvare\n"
+"Salvează fişierul împreună cu marcajele de conflict."
 
 #. Resource IDs: (314)
 #, c-format
@@ -9149,7 +9211,7 @@ msgstr "Preferinţe - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
-msgstr ""
+msgstr "Să reactulizez copia de lucru şi să repete încercarea?"
 
 #. Resource IDs: (1270)
 msgid "Shell"
@@ -9519,12 +9581,16 @@ msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
+"Unele fişiere au fost modificate din exteriorul T-Merge.\n"
+"Doriţi să încărcaţi modificările respective?"
 
 #. Resource IDs: (314)
 msgid ""
 "Some File(s) has been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
+"Unele fişiere au fost modificate din exteriorul T-Merge.\n"
+"Doriţi să reîncărcaţi fişierele şi să abandonaţi modificările respective?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9801,12 +9867,12 @@ msgstr "&Comută copia de lucru la o ramură nouă sau etichetă nou"
 
 #. Resource IDs: (78)
 msgid "Switch"
-msgstr ""
+msgstr "Comută"
 
 #. Resource IDs: (229)
 #, c-format
 msgid "Switch %1!s! to %2!s!, Revision %3!s!"
-msgstr ""
+msgstr "Comută %1!s! către %2!s!, Revizia %3!s!"
 
 #. Resource IDs: (1377)
 msgid "Switch Depth"
@@ -9822,7 +9888,7 @@ msgstr "Comută cu ramură / etichetă"
 
 #. Resource IDs: (620)
 msgid "Switch back to parent"
-msgstr ""
+msgstr "Comută înapoi la părinte"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9874,7 +9940,7 @@ msgstr "Comută:"
 
 #. Resource IDs: (265)
 msgid "Switched"
-msgstr ""
+msgstr "Comutat"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
@@ -10430,6 +10496,8 @@ msgid ""
 "The returned error was:\n"
 "%s"
 msgstr ""
+"Eroarea returnată a fost:\n"
+"%s"
 
 #. Resource IDs: (78)
 msgid ""
@@ -10452,7 +10520,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "Obiectul ţintă deja există."
 
 #. Resource IDs: (147)
 #, c-format
@@ -10751,6 +10819,8 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr ""
+"Această acţiune va actualiza copia de lucru la noul format 1.7 şi o va face "
+"neutilizabilă pentru versiunile de client mai vechi."
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -11217,7 +11287,7 @@ msgstr "Elimină versionarea şi adaugă la lista de &ignorări"
 
 #. Resource IDs: (100)
 msgid "Unversion working copy"
-msgstr ""
+msgstr "Deversionează copia de lucru"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
@@ -11253,12 +11323,16 @@ msgid ""
 "Update\n"
 "Update the file and try locking again."
 msgstr ""
+"Actualizează\n"
+"Actualizează fişierul şi încearcă blocarea din nou."
 
 #. Resource IDs: (90)
 msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
 msgstr ""
+"Actualizare\n"
+"Actualizează copia de lucru şi redeschide dialogul de transmitere pentru a încerca din nou."
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -11495,6 +11569,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Foloseşte calea găsită.\n"
+"Aplică petic peste\n"
+"%s"
 
 #. Resource IDs: (594)
 msgid ""
@@ -11512,6 +11589,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Foloseşte calea originală.\n"
+"Aplică petic peste\n"
+"%s"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -11721,6 +11801,8 @@ msgid ""
 "Wrap long lines\n"
 "Wrap long lines"
 msgstr ""
+"Încadrează linii lungi\n"
+"Încadrează linii lungi"
 
 #. Resource IDs: (73)
 msgid "Yes"
@@ -12222,6 +12304,9 @@ msgid ""
 "old size: %2!s!\r\n"
 "change: %3!s!"
 msgstr ""
+"dimensiunea curentă: %1!s!\n"
+"dimensiunea veche: %2!s!\n"
+"diferenţa: %3!s!"
 
 #. Resource IDs: (245)
 msgid "day"

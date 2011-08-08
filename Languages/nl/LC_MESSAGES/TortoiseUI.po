@@ -13,13 +13,14 @@
 # W VB <vanbeirendonck.willem@gmail.com>, 2011.
 # Maarten Hilferink <mhilferink@objectvision.nl>, 2011.
 # Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011.
+# Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 22:52+0000\n"
-"Last-Translator: WillemVB <vanbeirendonck.willem@gmail.com>\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
+"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -538,6 +539,14 @@ msgstr "&Categorie:"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "Kies &commando's uit:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1152,6 +1161,10 @@ msgstr "Standaard &herstellen"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "&Opnieuw zonder hooks proberen"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1994,6 +2007,10 @@ msgstr ""
 msgid "Already merged"
 msgstr "Al samengevoegd"
 
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr ""
+
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
 msgstr "Vensters altijd automatisch sluiten bij lokale handelingen"
@@ -2130,7 +2147,7 @@ msgstr "&Vertikaal rangschikken"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
-msgstr "Huidig (geen specifieke EOL)"
+msgstr "Hu&idig (geen specifieke EOL)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2897,10 +2914,6 @@ msgstr "Kies objecten..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Klassificatiepatronen"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr "Schoon de werkkopie status"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3818,6 +3831,14 @@ msgstr "Gebruik standaard UTF-8 codering"
 msgid "Delete"
 msgstr "Verwijderen"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Verwijder archief-cache"
@@ -3835,14 +3856,6 @@ msgstr "%d zaken verwijderen en &negeren op naam"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Verwijder en negeer %d zaken op &extensie"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "Verwijder genegeerde bestanden en mappen"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr "Verwijder bestanden en mappen zonder versiebeheer"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4383,6 +4396,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Leeg"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5734,10 +5751,6 @@ msgstr "Alles negeren"
 msgid "Ignore all whitespace changes"
 msgstr "Negeer alle wijzigingen in spaties en witregels"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Alle spaties en witregels negeren"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Negeer wijzigingen in &hoofd- en kleine letters"
@@ -5749,10 +5762,6 @@ msgstr "Negeer &regeleinden"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Negeer &regeleinden (aanbevolen)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Negeer regeleinden"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5888,8 +5897,8 @@ msgid "Imports the directory to a repository"
 msgstr "Plaatst de map in een archief"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
-msgstr "Externe bestanden meenemen"
+msgid "Include e&xternals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6862,6 +6871,11 @@ msgstr "Heeft &blokkade nodig"
 #. Resource IDs: (1550)
 msgid "Needs-lock"
 msgstr "Heeft blokkade nodig"
+
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -8057,8 +8071,8 @@ msgid "Refresh"
 msgstr "Verversen"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
-msgstr "Ververs shell-overlays"
+msgid "Refresh &shell overlays"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format
@@ -8547,10 +8561,6 @@ msgstr "Omgekeerd samenvoegen van %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Ongedaan maken"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr "Maak recursief alle wijzigingen ongedaan"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

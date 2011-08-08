@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -535,6 +535,14 @@ msgstr "&Kategorija:"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "&Izaberi komande od:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1149,6 +1157,10 @@ msgstr "V&rati podrazumevane vrednosti"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "P&robajte bez zakačaljki"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1990,6 +2002,10 @@ msgstr ""
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "Već stopljeno"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2893,10 +2909,6 @@ msgstr "Izaberi stavke..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Klasifikacioni Model"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr "Čišćenje statusa radne kopije"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3823,6 +3835,14 @@ msgstr "Obično u UTF-8 kodiranje "
 msgid "Delete"
 msgstr "Obriši"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Obrišite keš spremišta"
@@ -3840,14 +3860,6 @@ msgstr "Obrišite i &zanemariti %d stavki po imenu"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Obrišite i zanemariti %d stavki po &ekstenziji"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "Briše zanemarene fajlove i imenike"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr "Briše neverzionisane fajlove i imenike"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4386,6 +4398,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Prazan"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5234,7 +5250,7 @@ msgstr "Vrsta grafa:"
 
 #. Resource IDs: (273)
 msgid "Graphs for repository roots are always empty!"
-msgstr ""
+msgstr "Grafovi korena stabla su uvek prazni!"
 
 #. Resource IDs: (16972)
 msgid "Gray"
@@ -5708,6 +5724,8 @@ msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
 msgstr ""
+"Ako želite da otključate koristite  'Čekiranje za izmene' dijalog ili "
+"pretraživač spremišta."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5738,10 +5756,6 @@ msgstr "Zanemari sve"
 msgid "Ignore all whitespace changes"
 msgstr "Zanemaruje sve izmene beline"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Zanemari sve beline"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Zanemari prome&ne velikih i malih slova"
@@ -5753,10 +5767,6 @@ msgstr "Zanemari završetk&e linija"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Zanemari završetke &linija (preporučeno)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Zanemari završetke linija"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5890,8 +5900,8 @@ msgid "Imports the directory to a repository"
 msgstr "Uvoz imenika u spremište"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
-msgstr "Uključi eksternale"
+msgid "Include e&xternals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6369,7 +6379,7 @@ msgstr "Poruka dnevnika"
 
 #. Resource IDs: (173)
 msgid "Log message is too short!"
-msgstr ""
+msgstr "Poruke dnevnika su suviše kratke!"
 
 #. Resource IDs: (65535)
 msgid "Log messages"
@@ -6860,6 +6870,11 @@ msgstr "Zahteva-za&ključavanje"
 msgid "Needs-lock"
 msgstr "Zahteva-zaključavanje"
 
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Ugneždeno"
@@ -7092,7 +7107,7 @@ msgstr "Primedba: ova osobina ne utiče na Vindouz"
 
 #. Resource IDs: (173)
 msgid "Nothing is selected for commit!"
-msgstr ""
+msgstr "Ništa nije izabrano za urezivanje!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -8049,8 +8064,8 @@ msgid "Refresh"
 msgstr "Osveži"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
-msgstr "Osvežava prekrivače školjke"
+msgid "Refresh &shell overlays"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format
@@ -8536,10 +8551,6 @@ msgstr "Vrati stapanje %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Vrati na staro"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr "Vraća sve izmene rekurzivno"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

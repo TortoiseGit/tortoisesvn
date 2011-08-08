@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -536,6 +536,14 @@ msgstr "&Kategori:"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "&Velg kommandoer fra:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1150,6 +1158,10 @@ msgstr "&Gjenopprett standard"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "&Prøv igjen uten påhakinger"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1991,6 +2003,10 @@ msgstr ""
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "Allerede flettet"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr "Allerede reversflettet"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2897,10 +2913,6 @@ msgstr "Velg elementer..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Klassifiseringsmønstre"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr "Rydd opp arbeidskopi-status"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3824,6 +3836,14 @@ msgstr "Bruk UTF-8-kode som standard"
 msgid "Delete"
 msgstr "Slett"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Slett Depot-mellomlager"
@@ -3841,14 +3861,6 @@ msgstr "Slett og &ignorer %d elementer ved navn"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Slett og ignorer %d elementer etter &filendelse"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "Slett ignorerte filer og mapper"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr "Slett ikke-versjonerte filer og mapper"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4388,6 +4400,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Tom"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5237,7 +5253,7 @@ msgstr "Diagramtype:"
 
 #. Resource IDs: (273)
 msgid "Graphs for repository roots are always empty!"
-msgstr ""
+msgstr "Grafer for depot-roten er alltid tomme!"
 
 #. Resource IDs: (16972)
 msgid "Gray"
@@ -5710,6 +5726,8 @@ msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
 msgstr ""
+"Hvis du vil bryte låsen, bruk 'Se etter endringer'-dialogen eller depot-"
+"utforskeren."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5740,10 +5758,6 @@ msgstr "Ignorer alle"
 msgid "Ignore all whitespace changes"
 msgstr "Ignorer alle endringer i blanktegn"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Ignorer alle blanktegn"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Ignore&r endringer mellom store og små tegn"
@@ -5755,10 +5769,6 @@ msgstr "Ignorer linje&slutt"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorer &linjeslutt (anbefales)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Ignorer linjeslutt (anbefales)"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5892,8 +5902,8 @@ msgid "Imports the directory to a repository"
 msgstr "Importerer katalogen til et depot"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
-msgstr "Ta med eksterne"
+msgid "Include e&xternals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6370,7 +6380,7 @@ msgstr "Loggmelding"
 
 #. Resource IDs: (173)
 msgid "Log message is too short!"
-msgstr ""
+msgstr "Loggmeldingen er for kort!"
 
 #. Resource IDs: (65535)
 msgid "Log messages"
@@ -6861,6 +6871,11 @@ msgstr "Needs-&Lock"
 msgid "Needs-lock"
 msgstr "Needs-lock"
 
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Nøstet"
@@ -7093,7 +7108,7 @@ msgstr "Merk: Denne egenskapen har ingen effekt under Windows"
 
 #. Resource IDs: (173)
 msgid "Nothing is selected for commit!"
-msgstr ""
+msgstr "Ingenting er valgt for innsending!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -8052,8 +8067,8 @@ msgid "Refresh"
 msgstr "Gjenoppfrisk"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
-msgstr "Oppfrisk ikonlag"
+msgid "Refresh &shell overlays"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format
@@ -8539,10 +8554,6 @@ msgstr "Reversfletter %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Tilbakestill"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr "Tilbakestill alle endringer rekursivt"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

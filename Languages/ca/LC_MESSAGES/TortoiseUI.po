@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: el_libre <el.libre@gmail.com>\n"
 "Language-Team: Catalan <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -520,6 +520,14 @@ msgstr "&Categoria:"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "&Escull comandes de:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1134,6 +1142,10 @@ msgstr "&Restaura valor per defecte"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
+msgstr ""
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
 msgstr ""
 
 #. Resource IDs: (114)
@@ -1951,6 +1963,10 @@ msgstr ""
 
 #. Resource IDs: (119)
 msgid "Already merged"
+msgstr ""
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
 msgstr ""
 
 #. Resource IDs: (1480)
@@ -2795,10 +2811,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Patrons de Classificació"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr ""
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3708,6 +3720,14 @@ msgstr "Escull per defecte codificació UTF-8"
 msgid "Delete"
 msgstr "Suprimeix"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr ""
@@ -3725,14 +3745,6 @@ msgstr "Esborra i &ignora %d els items pel seu  nom"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Esborra i ignora %d items per &extensió"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr ""
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4254,6 +4266,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Buit"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5595,10 +5611,6 @@ msgstr ""
 msgid "Ignore all whitespace changes"
 msgstr "Ignora tots els canvis d'espais en blanc"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Ignora tots els espais en blanc"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr ""
@@ -5610,10 +5622,6 @@ msgstr ""
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignora &finals de línea (recomanat)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Ignora finals de línea"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5741,7 +5749,7 @@ msgid "Imports the directory to a repository"
 msgstr "Importa el directori al repositori"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
+msgid "Include e&xternals"
 msgstr ""
 
 #. Resource IDs: (1266)
@@ -6677,6 +6685,11 @@ msgstr ""
 
 #. Resource IDs: (1550)
 msgid "Needs-lock"
+msgstr ""
+
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
 msgstr ""
 
 #. Resource IDs: (213)
@@ -7840,7 +7853,7 @@ msgid "Refresh"
 msgstr "Refresca"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
+msgid "Refresh &shell overlays"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -8306,10 +8319,6 @@ msgstr "Reverteix Fusió %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Reverteix"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr ""
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

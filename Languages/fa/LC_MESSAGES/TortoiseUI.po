@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -519,6 +519,14 @@ msgstr "&طبقه:"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "&انتخاب دستور از:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1132,6 +1140,10 @@ msgstr "&بازنشانی پیش فرض"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
+msgstr ""
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
 msgstr ""
 
 #. Resource IDs: (114)
@@ -1944,6 +1956,10 @@ msgstr "اجازه استفاده مخزنهای مختلف از UUIDهای یک
 
 #. Resource IDs: (119)
 msgid "Already merged"
+msgstr ""
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
 msgstr ""
 
 #. Resource IDs: (1480)
@@ -2784,10 +2800,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "الگوهای طبقه بندی"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr ""
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3688,6 +3700,14 @@ msgstr "تنظیم به کدگزاری UTF-8 بصورت پیش فرض"
 msgid "Delete"
 msgstr "حذف کردن"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr ""
@@ -3705,14 +3725,6 @@ msgstr "حذف و &نادیده گرفتن %d قلم با نام"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "حذف و نادیده گرفتن %d قلم با &پسوند"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr ""
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4230,6 +4242,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "خالی"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5572,10 +5588,6 @@ msgstr ""
 msgid "Ignore all whitespace changes"
 msgstr "نادیده گرفتن همه تغییرات فضاهای خالی"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "نادیده گرفتن تمام حروف خالی"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr ""
@@ -5587,10 +5599,6 @@ msgstr "نادیده گرفتن حروف &پایان خط"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "نادیده گرفتن حروف &پایان خط (توصیه شده)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "نادیده گرفتن حروف پایان خط"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5718,7 +5726,7 @@ msgid "Imports the directory to a repository"
 msgstr "وارد کردن دایرکتوری به یک پوشه"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
+msgid "Include e&xternals"
 msgstr ""
 
 #. Resource IDs: (1266)
@@ -6655,6 +6663,11 @@ msgstr ""
 
 #. Resource IDs: (1550)
 msgid "Needs-lock"
+msgstr ""
+
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
 msgstr ""
 
 #. Resource IDs: (213)
@@ -7813,7 +7826,7 @@ msgid "Refresh"
 msgstr "بازیابی مجدد"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
+msgid "Refresh &shell overlays"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -8279,10 +8292,6 @@ msgstr "در حال ادغام معکوس %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "بازگشت"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr ""
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

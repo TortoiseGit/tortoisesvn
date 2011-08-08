@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -522,6 +522,14 @@ msgstr "&Kategorija"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "&Izberi ukaze iz:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1136,6 +1144,10 @@ msgstr "Obnovi p&rivzeto"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "&Poizkusi ponovno brez akcij"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1957,6 +1969,10 @@ msgstr ""
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "Že spojeno"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2806,10 +2822,6 @@ msgstr "Izberi predmete ..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Vzorec razvrstitve"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr ""
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3721,6 +3733,14 @@ msgstr "Privzeto kodiranje UTF-8"
 msgid "Delete"
 msgstr "Izbriši"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr ""
@@ -3738,14 +3758,6 @@ msgstr "Izbriši in prezr&i  elemente (%d) po imenu"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Izbriši in prezri &elemente (%d) po tipu"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr ""
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4270,6 +4282,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Prazno"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5613,10 +5629,6 @@ msgstr ""
 msgid "Ignore all whitespace changes"
 msgstr "Prezri razlike v presledkih"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Prezri vse presledke"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Prezri spre&membe velikih/malih črk"
@@ -5628,10 +5640,6 @@ msgstr "Prezri &zaključke vrstic"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Prezri &zaključke vrstic (priporočeno)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Prezri zaključke vrstic"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5763,7 +5771,7 @@ msgid "Imports the directory to a repository"
 msgstr "Uvozi mapo v skladišče"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
+msgid "Include e&xternals"
 msgstr ""
 
 #. Resource IDs: (1266)
@@ -6708,6 +6716,11 @@ msgstr "Zahteva-Zak&lep"
 #. Resource IDs: (1550)
 msgid "Needs-lock"
 msgstr "Potrebuje zaklep"
+
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -7882,7 +7895,7 @@ msgid "Refresh"
 msgstr "Osveži"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
+msgid "Refresh &shell overlays"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -8351,10 +8364,6 @@ msgstr "Obrnjeno spajanje %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Povrni"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr ""
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

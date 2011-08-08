@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 06:13+0000\n"
+"PO-Revision-Date: 2011-08-08 08:10+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -538,6 +538,14 @@ msgstr "&Kategorie:"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "&Wähle Befehle von:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr "&Objekte auswählen..."
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr "Status der Arbeitskopie &bereinigen"
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1154,6 +1162,10 @@ msgstr "Auf &Standardwerte setzen"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "&Ohne Aktionsskripte erneut versuchen"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr "Alle Änderungen &rekursiv zurücknehmen"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1996,6 +2008,10 @@ msgstr ""
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "Bereits zusammengeführt"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr "Bereits rückwärts zusammengeführt"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2908,10 +2924,6 @@ msgstr "Objekte auswählen..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Klassifizierungsmuster"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr "Status der Arbeitskopie bereinigen"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3839,6 +3851,14 @@ msgstr "UTF-8 Codierung als Vorgabe"
 msgid "Delete"
 msgstr "&Löschen"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr "Lösche &ignorierte Dateien und Ordner"
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr "Lösche &nicht versionierte Dateien und Ordner"
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Puffer des Projektarchivs löschen"
@@ -3856,14 +3876,6 @@ msgstr "Lösche und &ignoriere %d Objekte nach Name"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Lösche und ignoriere %d Objekte nach &Erweiterung"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "Lösche ignorierte Dateien und Ordner"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr "Lösche nicht versionierte Dateien und Ordner"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4405,6 +4417,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Leer"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr "Auto-&Eigenschaften aktivieren"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5766,10 +5782,6 @@ msgstr "Alle ignorieren"
 msgid "Ignore all whitespace changes"
 msgstr "Ignoriere alle Änderungen an Leerzeichen"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Ignoriere alle Leerzeichen"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Ignoriere &Groß-/Kleinschreibung"
@@ -5781,10 +5793,6 @@ msgstr "Ignoriere &Zeilenenden"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignoriere &Zeilenenden (empfohlen)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Ignoriere Zeilenenden"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5918,8 +5926,8 @@ msgid "Imports the directory to a repository"
 msgstr "Importiert eine Arbeitskopie in ein Projektarchiv"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
-msgstr "Externals einschließen"
+msgid "Include e&xternals"
+msgstr "E&xternals einschließen"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6892,6 +6900,12 @@ msgstr "&Dateisperre"
 #. Resource IDs: (1550)
 msgid "Needs-lock"
 msgstr "Benötigt Sperre"
+
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
+"Weder/path noch /pathfile wurde angegeben bzw. enthält keinen gültigen Pfad!"
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -8106,8 +8120,8 @@ msgid "Refresh"
 msgstr "Aktualisieren"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
-msgstr "Aktualisiert die überlagerten Symbole"
+msgid "Refresh &shell overlays"
+msgstr "Aktualisiert die überlagerten &Symbole"
 
 #. Resource IDs: (148)
 #, c-format
@@ -8599,10 +8613,6 @@ msgstr "%ld rückwärts zusammenführen"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Änderungen rückgängig"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr "Alle Änderungen rekursiv zurücknehmen"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

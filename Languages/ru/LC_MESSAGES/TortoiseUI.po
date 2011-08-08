@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 07:21+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -539,6 +539,14 @@ msgstr "&Категория:"
 msgid "&Choose commands from:"
 msgstr "Вы&берите команды:"
 
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "&Clean up..."
 msgstr "&Очистить..."
@@ -669,7 +677,7 @@ msgstr "&EOL"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
-msgstr "&Правка"
+msgstr "&Редактировать"
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
@@ -1152,6 +1160,10 @@ msgstr "Восстановить ис&ходные"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "&Повторить без хуков"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1837,7 +1849,7 @@ msgstr ""
 
 #. Resource IDs: (73, 264, 65535)
 msgid "Added"
-msgstr "Добавлено"
+msgstr "Добавленные"
 
 #. Resource IDs: (126)
 msgid "Added a file remotely"
@@ -1996,6 +2008,10 @@ msgstr ""
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "Уже слиты"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr "Уже слито обратным слиянием"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2905,10 +2921,6 @@ msgstr "Выберите элементы..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Шаблоны классификации"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr "Очистить статус рабочей копии"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3837,6 +3849,14 @@ msgstr "Применять кодировку UTF-8 по умолчанию"
 msgid "Delete"
 msgstr "Удалить"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Удалить кэш Хранилища"
@@ -3854,14 +3874,6 @@ msgstr "Удалить и игнорировать %d &элементов по �
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Удалить и игнорировать %d элементов по рас&ширению"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "Удалить игнорируемые файлы и папки"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr "Удалить неверсированные файлы и папки"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -3889,7 +3901,7 @@ msgstr ""
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
-msgstr "Удалено"
+msgstr "Удалённые"
 
 #. Resource IDs: (65535)
 msgid "Deleted node"
@@ -4318,7 +4330,7 @@ msgstr "EXT"
 
 #. Resource IDs: (1237)
 msgid "Edit"
-msgstr "Поправить"
+msgstr "Редактировать"
 
 #. Resource IDs: (16133)
 msgid "Edit Button Image"
@@ -4404,6 +4416,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Пусто"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5760,10 +5776,6 @@ msgstr "Игнорировать все"
 msgid "Ignore all whitespace changes"
 msgstr "Игнорировать все изменения непечатаемых знаков"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Игнорировать все непечатаемые знаки"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Игнорировать изме&нения регистра"
@@ -5775,10 +5787,6 @@ msgstr "Игнорировать &завершения строк"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Игнорировать &завершения строк(рекомендуется)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Игнорировать завершения строк"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5912,8 +5920,8 @@ msgid "Imports the directory to a repository"
 msgstr "Импортирует папку в хранилище"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
-msgstr "Включая внешние"
+msgid "Include e&xternals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6709,7 +6717,7 @@ msgstr "Обнаружены модификации"
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
-msgstr "Изменено"
+msgstr "Изменённые"
 
 #. Resource IDs: (65535)
 msgid "Modified node"
@@ -6884,6 +6892,11 @@ msgstr "Необходима &блокировка"
 msgid "Needs-lock"
 msgstr "Необходима блокировка"
 
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Вложен"
@@ -7052,11 +7065,11 @@ msgstr "Нерекурсивная фиксация перемещенных/п�
 
 #. Resource IDs: (1507)
 msgid "Non-versioned"
-msgstr "неверсирован"
+msgstr "Неверсированные"
 
 #. Resource IDs: (1271)
 msgid "None"
-msgstr "Без кэширования"
+msgstr "Ничего"
 
 #. Resource IDs: (264, 65535)
 msgid "Normal"
@@ -8081,8 +8094,8 @@ msgid "Refresh"
 msgstr "Обновить"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
-msgstr "Обновить оверлеи оболочки"
+msgid "Refresh &shell overlays"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format
@@ -8571,10 +8584,6 @@ msgstr "Обратное слияние ревизии %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Убрать изменения"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr "Убрать все изменения рекусивно"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -11709,7 +11718,7 @@ msgstr "Информация о версии"
 
 #. Resource IDs: (264)
 msgid "Versioned"
-msgstr "Версировано"
+msgstr "Версированные"
 
 #. Resource IDs: (65535)
 msgid "View"

@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Danish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -523,6 +523,14 @@ msgstr "&Kategori:"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "&Vælg kommandoer fra:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1137,6 +1145,10 @@ msgstr "Gendan &standardindstillinger"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "&Forsøg igen uden tilkobling"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1969,6 +1981,10 @@ msgstr ""
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "Allerede flettet"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2816,10 +2832,6 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Klassificeringsmønstre"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr ""
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3737,6 +3749,14 @@ msgstr "Sæt UFT-8 tegnsæt som standard"
 msgid "Delete"
 msgstr "Slet"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr ""
@@ -3754,14 +3774,6 @@ msgstr "Slet og &ignorer %d elementer efter navn"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Slet og ignorer %d elementer efter &filtypenavne"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr ""
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4289,6 +4301,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Tom"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5633,10 +5649,6 @@ msgstr ""
 msgid "Ignore all whitespace changes"
 msgstr "Ignorer alle ændringer i blanktegn"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Ignorer alle blanktegn"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Ignorer &store/små bogstaver"
@@ -5648,10 +5660,6 @@ msgstr "Ignorer linje&afslutninger"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorer linje&afslutninger (anbefales)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Ignorer linjeafslutninger"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5783,7 +5791,7 @@ msgid "Imports the directory to a repository"
 msgstr "Importerer mappen til et versionsarkiv"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
+msgid "Include e&xternals"
 msgstr ""
 
 #. Resource IDs: (1266)
@@ -6732,6 +6740,11 @@ msgstr "Kræver-&Lås"
 #. Resource IDs: (1550)
 msgid "Needs-lock"
 msgstr "Kræver-lås"
+
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -7900,7 +7913,7 @@ msgid "Refresh"
 msgstr "Opdater"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
+msgid "Refresh &shell overlays"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -8369,10 +8382,6 @@ msgstr "Fortryd fletning af %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Tilbagefør"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr ""
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

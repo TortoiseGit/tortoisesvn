@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -534,6 +534,14 @@ msgstr "&Категорија:"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "&Изабери команде од:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1148,6 +1156,10 @@ msgstr "В&рати подразумеване вредности"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "П&робајте без закачаљки"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1988,6 +2000,10 @@ msgstr ""
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "Већ стопљено"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2891,10 +2907,6 @@ msgstr "Изабери ставке..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Класификациони Модел"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr "Чишћење статуса радне копије"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3820,6 +3832,14 @@ msgstr "Обично у УТФ-8 кодирање "
 msgid "Delete"
 msgstr "Обриши"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Обришите кеш спремишта"
@@ -3837,14 +3857,6 @@ msgstr "Обришите и &занемарити %d ставки по имен�
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Обришите и занемарити %d ставки по &екстензији"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "Брише занемарене фајлове и именике"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr "Брише неверзионисане фајлове и именике"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4382,6 +4394,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Празан"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5230,7 +5246,7 @@ msgstr "Врста графа:"
 
 #. Resource IDs: (273)
 msgid "Graphs for repository roots are always empty!"
-msgstr ""
+msgstr "Графови корена стабла су увек празни!"
 
 #. Resource IDs: (16972)
 msgid "Gray"
@@ -5704,6 +5720,8 @@ msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
 msgstr ""
+"Ако желите да откључате користите  'Чекирање за измене' дијалог или "
+"претраживач спремишта."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5734,10 +5752,6 @@ msgstr "Занемари све"
 msgid "Ignore all whitespace changes"
 msgstr "Занемарује све измене белине"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Занемари све белине"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Занемари проме&не великих и малих слова"
@@ -5749,10 +5763,6 @@ msgstr "Занемари завршетк&е линија"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Занемари завршетке &линија (препоручено)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Занемари завршетке линија"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5886,8 +5896,8 @@ msgid "Imports the directory to a repository"
 msgstr "Увоз именика у спремиште"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
-msgstr "Укључи екстернале"
+msgid "Include e&xternals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6364,7 +6374,7 @@ msgstr "Порука дневника"
 
 #. Resource IDs: (173)
 msgid "Log message is too short!"
-msgstr ""
+msgstr "Поруке дневника су сувише кратке!"
 
 #. Resource IDs: (65535)
 msgid "Log messages"
@@ -6855,6 +6865,11 @@ msgstr "Захтева-за&кључавање"
 msgid "Needs-lock"
 msgstr "Захтева-закључавање"
 
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Угнеждено"
@@ -7087,7 +7102,7 @@ msgstr "Примедба: ова особина не утиче на Виндо�
 
 #. Resource IDs: (173)
 msgid "Nothing is selected for commit!"
-msgstr ""
+msgstr "Ништа није изабрано за урезивање!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -8044,8 +8059,8 @@ msgid "Refresh"
 msgstr "Освежи"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
-msgstr "Освежава прекриваче шкољке"
+msgid "Refresh &shell overlays"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format
@@ -8531,10 +8546,6 @@ msgstr "Врати стапање %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Врати на старо"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr "Враћа све измене рекурзивно"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

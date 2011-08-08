@@ -9,6 +9,7 @@
 # $Rev$
 # 
 # Authors:
+#   <kmkh12@paran.com>, 2011.
 # TaeDong Kim <fly1004@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
@@ -16,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
-"Last-Translator: fly1004 <fly1004@gmail.com>\n"
+"PO-Revision-Date: 2011-08-08 03:55+0000\n"
+"Last-Translator: kmkh12 <kmkh12@paran.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -527,6 +528,14 @@ msgstr "카테고리(&C):"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "다음으로부터 명령 선택하기(&C):"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1141,6 +1150,10 @@ msgstr "기본값으로 복원(&R)"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "훅 없이 재시도하기(&R)"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1955,6 +1968,10 @@ msgstr "다른 저장소들에 대해서 같은 UUID를 사용하는 것을 허�
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "이미 병합됨"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2826,10 +2843,6 @@ msgstr "아이템들 선택..."
 msgid "Classification Patterns"
 msgstr "분류 패턴"
 
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr "작업 사본의 상태 정리하기"
-
 #. Resource IDs: (145)
 msgid "Cleaning up"
 msgstr "정리중"
@@ -3397,7 +3410,7 @@ msgstr "'%s' 을/를 추가할 수 없습니다. 사유:"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not add property '%1!s!' on '%2!s!' because"
-msgstr ""
+msgstr "이유로 '%2!s!'에 속성 '%1!s!'를 추가할 수 없었다."
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
@@ -3733,6 +3746,14 @@ msgstr "기본적으로 UTF-8 인코딩"
 msgid "Delete"
 msgstr "삭제"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "저장소 캐시 삭제"
@@ -3750,14 +3771,6 @@ msgstr "파일 이름에 따라 %d 개 아이템을 삭제하고 무시하기(&I
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "확장자에 따라 %d 개 아이템을 삭제하고 무시하기(&E)"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "무시되는 파일과 폴더 삭제하기"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr "버전관리되지 않는 파일과 폴더 삭제하기"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4291,6 +4304,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "비어있음"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5619,10 +5636,6 @@ msgstr "모든것 무시하기"
 msgid "Ignore all whitespace changes"
 msgstr "모든 공백문자의 변경을 무시"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "모든 공백 무시"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "대소문자 변경 무시(&N)"
@@ -5634,10 +5647,6 @@ msgstr "줄 바꿈 문자 무시(&E)"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "줄바꿈 문자 무시(권장)(&E)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "줄바꿈 문자 무시"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5769,7 +5778,7 @@ msgid "Imports the directory to a repository"
 msgstr "현재 디렉토리를 저장소에 넣습니다."
 
 #. Resource IDs: (1616)
-msgid "Include externals"
+msgid "Include e&xternals"
 msgstr ""
 
 #. Resource IDs: (1266)
@@ -6711,6 +6720,11 @@ msgstr "잠금 요구(&L)"
 #. Resource IDs: (1550)
 msgid "Needs-lock"
 msgstr "잠금 요구"
+
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -7846,7 +7860,7 @@ msgstr ""
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
-msgstr ""
+msgstr "URL로 리디렉션"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7869,8 +7883,8 @@ msgid "Refresh"
 msgstr "새로고침"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
-msgstr "쉘 오버래이 새로고침"
+msgid "Refresh &shell overlays"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format
@@ -7997,6 +8011,8 @@ msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
 msgstr ""
+"재배치\n"
+"현재작업중인 복사본은 새로운 URL로 재배치되었습니다."
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -8338,10 +8354,6 @@ msgstr "%ld 역방향 병합"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "되돌림"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr "모든 변경사항을 재귀적으로 되돌리기"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

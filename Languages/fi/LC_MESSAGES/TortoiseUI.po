@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -539,9 +539,17 @@ msgstr "&Kategoria:"
 msgid "&Choose commands from:"
 msgstr "&Valitse komennot:"
 
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "&Clean up..."
-msgstr ""
+msgstr "&Siivoa..."
 
 #. Resource IDs: (58112)
 msgid "&Close"
@@ -1154,6 +1162,10 @@ msgstr "&Palauta oletusarvot"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "&Yritä uudelleen ilman toimintokomentoja"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1997,6 +2009,10 @@ msgstr "Salli eri arkistojen käyttää samaa UUID:ta, esim. kopioidut arkistot.
 msgid "Already merged"
 msgstr "Yhdistetty aiemmin"
 
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr "Käänteinen yhdistäminen tehty aiemmin"
+
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
 msgstr "Sulje aina ikkunat paikallisten toimintojen yhteydessä"
@@ -2192,7 +2208,7 @@ msgstr "Tekijöitä"
 
 #. Resource IDs: (1265)
 msgid "Authors case sensitive"
-msgstr "Tekijät kirjaintaso huomioiden"
+msgstr "Tekijät kirjainkoko huomioiden"
 
 #. Resource IDs: (1444)
 msgid "Authors:"
@@ -2454,6 +2470,8 @@ msgid ""
 "Cancel\n"
 "Change the selection for the commit."
 msgstr ""
+"Peruuta\n"
+"Muuta toimitettavien tiedostojen valintaa"
 
 #. Resource IDs: (100)
 msgid ""
@@ -2695,7 +2713,7 @@ msgstr "Kontekstivalikko"
 
 #. Resource IDs: (117)
 msgid "Case-sensitive"
-msgstr "Huomioi kirjaintaso"
+msgstr "Huomioi kirjainkoko"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -2898,10 +2916,6 @@ msgstr "Valitse kohteet ..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Luokitteluhahmot"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr "... siivotaan työkopiota"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3825,6 +3839,14 @@ msgstr "Käytä oletusarvoisesti UTF-8 -koodausta"
 msgid "Delete"
 msgstr "Poista"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Poista arkistovälimuisti"
@@ -3842,14 +3864,6 @@ msgstr "Poista ja &ohita %d kohdetta nimen perusteella"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Poista ja ohita %d kohdetta &päätteen perusteella"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "Poista ohitetut tiedostot ja kansiot"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr "Poista versioimattomat tiedostot ja kansiot"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4390,6 +4404,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Tyhjä"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5240,7 +5258,7 @@ msgstr "Graafin tyyppi:"
 
 #. Resource IDs: (273)
 msgid "Graphs for repository roots are always empty!"
-msgstr ""
+msgstr "Arkiston juuren graafi on aina tyhjä!"
 
 #. Resource IDs: (16972)
 msgid "Gray"
@@ -5381,7 +5399,7 @@ msgstr "Toimintotyyppi:"
 
 #. Resource IDs: (173)
 msgid "Hook script failed!"
-msgstr ""
+msgstr "Toimintokomento epäonnistui!"
 
 #. Resource IDs: (82)
 #, c-format
@@ -5714,6 +5732,8 @@ msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
 msgstr ""
+"Jos haluat rikkoa lukon, käytä 'Tarkista muutokset'-toimintoa tai "
+"arkistoselainta."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5744,10 +5764,6 @@ msgstr "Ohita kaikki"
 msgid "Ignore all whitespace changes"
 msgstr "Ohita kaikki muutokset tyhjämerkeissä"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Ohita kaikki tyhjämerkit"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Älä välitä &kirjainkoosta"
@@ -5759,10 +5775,6 @@ msgstr "Älä välitä &rivinvaihdoista"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Älä välitä &rivinvaihdoista (suositus)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Älä välitä rivinvaihdoista"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5896,8 +5908,8 @@ msgid "Imports the directory to a repository"
 msgstr "Tuo kansion arkistoon"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
-msgstr "Sisällytä ulkoiset viitteet"
+msgid "Include e&xternals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6373,7 +6385,7 @@ msgstr "Lokiviesti"
 
 #. Resource IDs: (173)
 msgid "Log message is too short!"
-msgstr ""
+msgstr "Lokiviesti on liian lyhyt!"
 
 #. Resource IDs: (65535)
 msgid "Log messages"
@@ -6865,6 +6877,11 @@ msgstr "Lukitustarve (svn:needs-&lock)"
 msgid "Needs-lock"
 msgstr "Tarvitsee lukon"
 
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
+
 #. Resource IDs: (213)
 msgid "Nested"
 msgstr "Sisäkkäinen"
@@ -7029,6 +7046,7 @@ msgstr "Solmujen värit"
 #. Resource IDs: (170)
 msgid "Non-recursive commit of moved/renamed folders."
 msgstr ""
+"Siirrettyjen tai uudelleen nimettyjen kansioiden ei-palautuva toimitus."
 
 #. Resource IDs: (1507)
 msgid "Non-versioned"
@@ -7100,7 +7118,7 @@ msgstr "Huomaa: Tämä ominaisuus ei toimi Windowsissa"
 
 #. Resource IDs: (173)
 msgid "Nothing is selected for commit!"
-msgstr ""
+msgstr "Yhtään tiedostoa ei ole valittu toimitettavaksi!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7735,6 +7753,8 @@ msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
 msgstr ""
+"Jatka toimitusta\n"
+"Uudelleen nimetyt ja siirretyt kansiot toimitetaan arkistoon palautuvasti."
 
 #. Resource IDs: (89)
 msgid ""
@@ -8060,8 +8080,8 @@ msgid "Refresh"
 msgstr "Päivitä"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
-msgstr "Päivitä kuvakepäällykset"
+msgid "Refresh &shell overlays"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format
@@ -8548,10 +8568,6 @@ msgstr "Yhdistetään käänteisesti %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Palauta"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr "Palauta kaikki muutokset palautuvasti"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -10712,6 +10728,9 @@ msgid ""
 "for commit. Such moves/renames are always performed recursively in the "
 "repository. Do you want to commit anyway?"
 msgstr ""
+"Tämä toimitus ei ole palautuva, ja toimitettavaksi on valittu siirrettyjä "
+"tai uudelleen nimettyjä kansioita. Tällaiset operaatiot suoritetaan aina "
+"palautuvasti arkistossa. Haluatko jatkaa toimitusta?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10721,6 +10740,11 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
+"Tämä toimitus ei ole palautuva, ja toimitettavaksi on valittu\n"
+"siirrettyjä tai uudelleen nimettyjä kansioita. Tällaiset operaatiot\n"
+"suoritetaan aina palautuvasti arkistossa.\n"
+"\n"
+"Haluatko jatkaa toimitusta?"
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
@@ -10825,7 +10849,7 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr ""
-"Työkopiosi päivitetään uuteen 1.7-muotoon, jolloin vanhemmat SVN-ohjelmat "
+"Työkopiosi muunnetaan uuteen 1.7-muotoon, jolloin vanhemmat SVN-ohjelmat "
 "eivät enää voi käyttää sitä."
 
 #. Resource IDs: (16928)
@@ -11374,12 +11398,12 @@ msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
 msgstr ""
-"Päivitä työkopio\n"
+"Muunna työkopio\n"
 "uuteen 1.7-muotoon."
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"
-msgstr "Päivitä työkopio"
+msgstr "Muunna työkopio uuteen muotoon"
 
 #. Resource IDs: (99)
 #, c-format
@@ -11583,6 +11607,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"Käytä loki-ikkunaa valitaksesi yhdistettävät versiot tai anna ne suoraan pilkuin erotettuina. Versioväli voidaan antaa väliviivan avulla.\r\n"
+"\r\n"
+"Esimerkki: 4-7,9,11,15-HEAD@pegrevision\r\n"
+"\r\n"
+"Yhdistääksesi kaikki versiot jätä valinta tyhjäksi."
 
 #. Resource IDs: (314)
 #, c-format

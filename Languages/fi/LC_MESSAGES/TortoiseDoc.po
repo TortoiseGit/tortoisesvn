@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-27 00:18+0000\n"
+"PO-Revision-Date: 2011-08-01 23:24+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4213,6 +4213,13 @@ msgid ""
 "missing files and folders but only update what you already have in your "
 "working copy."
 msgstr ""
+"Voit helposti muodostaa työkopion vain osasta arkistoa siten, että työkopio "
+"muistaa valitut osat. Tämä tapahtuu napsauttamalla painiketta "
+"<guibutton>Valitse kohteet...</guibutton> ja valitsemalla avautuvasta "
+"ikkunasta työkopioon lisättävät kohteet. Tällaista työkopiota kutsutaan "
+"<literal>epätäydelliseksi</literal> (engl. sparse). Kun päivität "
+"epätäydellisen työkopion, puuttuvia kohteita ei lisätä, vaan päivitys koskee"
+" pelkästään jo olemassa olevaa työkopion sisältöä."
 
 #. (para)
 msgid ""
@@ -5167,6 +5174,9 @@ msgid ""
 "dialog where you can check all items you want in your working copy and "
 "uncheck all the items you don't want."
 msgstr ""
+"Valitaksesi tai jättääksesi pois tiettyjä osia työkopiosta anna komento  "
+"<guibutton>Valitse kohteet…</guibutton>. Esiin aukeavasta ikkunasta voit "
+"valita ja jättää pois haluamasi alkiot."
 
 #. (para)
 msgid ""
@@ -6382,6 +6392,11 @@ msgid ""
 "This is your warning sign! The context menu allows you to switch them back "
 "to the normal path again."
 msgstr ""
+"Kohteet, jotka on vaihdettu osoittamaan toiseen arkistopolkuun, on merkitty "
+"<literal>(s)</literal>-merkillä. Olet saattanut esim. vaihtaa työkopion "
+"polkuja työskennellessäsi haarassa ja unohtanut vaihtaa ne takaisin "
+"päähaaraan. Tämä on varoitus siitä! Konstekstivalikon avulla voit vaihtaa "
+"takaisin tavallisiin polkuihin."
 
 #. (para)
 msgid ""
@@ -12208,6 +12223,9 @@ msgid ""
 "example, the revisions 5,6,7 and 10 would be merged, with 3 being the peg "
 "revision."
 msgstr ""
+"Mikäli joudut määrittämään yhdistämistä varten ankkuriversion, lisää se "
+"versioiden jälkeen, esim. <literal>5-7,10@3</literal>. Tässä esimerkissä "
+"yhdistetään versiot 5, 6, 7 ja 10 ankkuriversiolla 3."
 
 #. (para)
 msgid ""
@@ -13545,6 +13563,11 @@ msgid ""
 "dialog you have to hold <keycap>shift</keycap> when you <action>right "
 "click</action>."
 msgstr ""
+"Jos haluat, voit luoda paikkatiedoston <guilabel>Toimita</guilabel> tai "
+"<guilabel>Tarkista muutokset</guilabel> -ikkunoista. Valitse haluamasi "
+"tiedostot ja luo paikkatiedosto kontekstivalikon avulla. Mikäli haluat nähdä"
+" <guilabel>Asetukset</guilabel> -ikkunan, pidä <keycap>shift</keycap> "
+"-näppäin painettuna napsauttaessasi hiiren oikeaa näppäintä."
 
 #. (title)
 msgid "Applying a Patch File"
@@ -17817,23 +17840,23 @@ msgstr "Sinun tiedostosi ikkunaotsikko"
 
 #. (para)
 msgid "The URL of the original file, if available"
-msgstr ""
+msgstr "Tiedoston paikannin, mikäli saatavilla"
 
 #. (para)
 msgid "The URL of the second file, if available"
-msgstr ""
+msgstr "Toisen tiedoston paikannin, mikäli saatavilla"
 
 #. (para)
 msgid "The revision of the original file, if available"
-msgstr ""
+msgstr "Alkuperäisen tiedoston versio mikäli saatavilla"
 
 #. (para)
 msgid "The revision of the second file, if available"
-msgstr ""
+msgstr "Toisen tiedoston versio, mikäli saatavilla"
 
 #. (para)
 msgid "The peg revision, if available"
-msgstr ""
+msgstr "Ankkuriversio, mikäli saatavilla"
 
 #. (para)
 msgid ""
@@ -19257,6 +19280,9 @@ msgid ""
 " was created are also shown. These revisions are shown in black because "
 "those can't be merged."
 msgstr ""
+"Kun loki-ikkuna avataan yhdistämisen aikana, aiemmin yhdistetyt versiot "
+"näytetään harmaannutettuna. Haaran luontia edeltävät versiot näytetään myös."
+" Nämä versiot näytetään mustina, koska niitä ei voi yhdistää."
 
 #. (para)
 msgid ""
@@ -19268,6 +19294,13 @@ msgid ""
 "url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
 " #5471</citetitle></ulink>)."
 msgstr ""
+"Mikäli tämä valinta on asetettu arvoon <literal>true</literal>, TortoiseSVN "
+"koettaa löytää version, jollon haara luotiin, ja piilottaa kaikki sitä "
+"edeltävät versiot. Koska tähän voi mennä aikaa, valinta on oletusarvoisesti "
+"kytketty pois. Valinta ei myöskään toimi kaikkien SVN-palvelimien kanssa "
+"(esim. Google Code Hosting, ks. <ulink "
+"url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
+" #5471</citetitle></ulink>)."
 
 #. (para)
 msgid ""
@@ -21885,6 +21918,14 @@ msgid ""
 "help with MSI customization, try one of the MSI transform forums or search "
 "the web for <quote>MSI transform</quote>."
 msgstr ""
+"Voit halutessasi mukauttaa MSI-tiedoston siten, että kaikilla käyttäjilla on"
+" samat asetukset. TSVN-astukset talletetaan Windows-rekisterin haaraan "
+"<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> ja yleiset "
+"Subversion-asetukset (jotka vaikuttavat kaikkiin Subversion-asiakkaisiin) "
+"tallettuvat asetustiedostoihin hakemistossa "
+"<filename>%APPDATA%\\Subversion</filename>. Jos tarvitset apua MSI-"
+"mukautuksessa, koeta jotain MSI-uutisryhmää tai hae verkosta avainsanoilla "
+"<quote>MSI transform</quote>."
 
 #. (title)
 msgid "Redirect the upgrade check"

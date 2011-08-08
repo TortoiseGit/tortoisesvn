@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 14:12+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -535,6 +535,14 @@ msgstr "&Kategorie:"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "&Vyberte příkazy z:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1150,6 +1158,10 @@ msgstr "&Obnovit výchozí"
 msgid "&Retry without hooks"
 msgstr "&Znovu zkusit bez háků"
 
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
+
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
 msgstr "V&rátit změny z těchto revizí"
@@ -1609,8 +1621,8 @@ msgid ""
 "A newer version is available.\r\n"
 "Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
-"Je dostupná nová verze.\r\n"
-"Jděte na http://tortoisesvn.net a stáhněte si aktuální verzi."
+"Je dostupná nová verze.\n"
+"Jděte prosím na http://tortoisesvn.net a stáhněte si aktuální verzi."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1983,6 +1995,10 @@ msgstr ""
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "Již sloučen"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr "Již zpětně sloučeno"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2876,10 +2892,6 @@ msgstr "Vyberte položky..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Klasifikační Vzory"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr "Vyčistit stav pracovní kopie"
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3803,6 +3815,14 @@ msgstr "Implicitně kódování UTF-8 "
 msgid "Delete"
 msgstr "Smazat"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr "Odstranit úschovu Úložiště"
@@ -3820,14 +3840,6 @@ msgstr "Smazat a &ignorovat %d položky dle jména"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Smazat a ignorovat %d položky dl&e přípony"
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "Smazat ignorované soubory a adresáře"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr "Odstranit soubory a adresáře bez verze"
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4364,6 +4376,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Prázdný"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5717,10 +5733,6 @@ msgstr "Ignorovat vše"
 msgid "Ignore all whitespace changes"
 msgstr "Ignorovat všechny změny mezer"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Ignorovat všechny mezery"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Ig&norovat změny velikosti"
@@ -5732,10 +5744,6 @@ msgstr "Ignorovat konc&e řádků"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorovat konc&e řádků (doporučeno)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Ignorovat konce řádků"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5869,8 +5877,8 @@ msgid "Imports the directory to a repository"
 msgstr "Importuje adresář do úložiště"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
-msgstr "Zahrnout externí"
+msgid "Include e&xternals"
+msgstr ""
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6835,6 +6843,11 @@ msgstr "Potřebuje &zámek"
 #. Resource IDs: (1550)
 msgid "Needs-lock"
 msgstr "Potřebuje zámek"
+
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -8026,8 +8039,8 @@ msgid "Refresh"
 msgstr "Obnovit"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
-msgstr "Obnovit překryvy rozhraní"
+msgid "Refresh &shell overlays"
+msgstr ""
 
 #. Resource IDs: (148)
 #, c-format
@@ -8515,10 +8528,6 @@ msgstr "Zpětně slučuji %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Vrátit"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr "Vrátit všechny změny rekurzivně"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."

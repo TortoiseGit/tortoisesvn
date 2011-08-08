@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-29 00:29+0000\n"
+"PO-Revision-Date: 2011-08-08 00:34+0000\n"
 "Last-Translator: ecce <edson.chen@gmail.com>\n"
 "Language-Team: Portuguese (Brazilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -527,6 +527,14 @@ msgstr "&Categoria:"
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
 msgstr "Selecionar &comandos de:"
+
+#. Resource IDs: (1606)
+msgid "&Choose items..."
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "&Clean up working copy status"
+msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1141,6 +1149,10 @@ msgstr "&Restaurar valores padrão"
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
 msgstr "Tenta&r novamente sem os scripts"
+
+#. Resource IDs: (1529)
+msgid "&Revert all changes recursively"
+msgstr ""
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1972,6 +1984,10 @@ msgstr ""
 #. Resource IDs: (119)
 msgid "Already merged"
 msgstr "Já combinado"
+
+#. Resource IDs: (119)
+msgid "Already reverse merged"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2850,10 +2866,6 @@ msgstr "Escolha itens..."
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
 msgstr "Padrões de Classificação"
-
-#. Resource IDs: (1562)
-msgid "Clean up working copy status"
-msgstr ""
 
 #. Resource IDs: (145)
 msgid "Cleaning up"
@@ -3778,6 +3790,14 @@ msgstr "Usar codificação UTF-8 por padrão"
 msgid "Delete"
 msgstr "Excluir"
 
+#. Resource IDs: (1617)
+msgid "Delete &ignored files and folders"
+msgstr ""
+
+#. Resource IDs: (1613)
+msgid "Delete &unversioned files and folders"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
 msgstr ""
@@ -3795,14 +3815,6 @@ msgstr "Excluir e &ignorar %d itens por nome"
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Excluir e ignorar %d itens por &extensão "
-
-#. Resource IDs: (1617)
-msgid "Delete ignored files and folders"
-msgstr "Apagar arquivos e diretórios ignorados"
-
-#. Resource IDs: (1613)
-msgid "Delete unversioned files and folders"
-msgstr ""
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
@@ -4331,6 +4343,10 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "Empty"
 msgstr "Vazio"
+
+#. Resource IDs: (1562)
+msgid "Enable Auto-&Properties"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5688,10 +5704,6 @@ msgstr "Ignorar todos"
 msgid "Ignore all whitespace changes"
 msgstr "Ignorar todas as alterações de caracteres especiais"
 
-#. Resource IDs: (1392)
-msgid "Ignore all whitespaces"
-msgstr "Ignorar todos os espaços em branco"
-
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Ig&norar alterações de caixa (maiúsculas/minúsculas)"
@@ -5703,10 +5715,6 @@ msgstr "Ignorar fins-d&e-linha"
 #. Resource IDs: (1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorar fins-d&e-linha (recomendado)"
-
-#. Resource IDs: (1127)
-msgid "Ignore line endings"
-msgstr "Ignorar fins-de-linha"
 
 #. Resource IDs: (1529)
 msgid "Ignore whitespace &changes"
@@ -5840,7 +5848,7 @@ msgid "Imports the directory to a repository"
 msgstr "Importa o diretório para um repositório"
 
 #. Resource IDs: (1616)
-msgid "Include externals"
+msgid "Include e&xternals"
 msgstr ""
 
 #. Resource IDs: (1266)
@@ -6791,6 +6799,11 @@ msgstr "Requer b&loqueio"
 #. Resource IDs: (1550)
 msgid "Needs-lock"
 msgstr "Requer bloqueio"
+
+#. Resource IDs: (84)
+msgid ""
+"Neither /path nor /pathfile was specified or does not contain a valid path!"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -7976,7 +7989,7 @@ msgid "Refresh"
 msgstr "Atualizar"
 
 #. Resource IDs: (1615)
-msgid "Refresh shell overlays"
+msgid "Refresh &shell overlays"
 msgstr ""
 
 #. Resource IDs: (148)
@@ -8447,10 +8460,6 @@ msgstr "Reverter combinação %ld"
 #. Resource IDs: (175, 229)
 msgid "Revert"
 msgstr "Reverter"
-
-#. Resource IDs: (1529)
-msgid "Revert all changes recursively"
-msgstr ""
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
