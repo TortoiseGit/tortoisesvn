@@ -400,7 +400,8 @@ Don't touch these lines:
                                 <option>/path</option> and its BASE.
                                 To explicitly set the revision numbers use
                                 <option>/startrev:xxx</option> and
-                                <option>/endrev:xxx</option>.
+                                <option>/endrev:xxx</option>, and for the optional
+                                peg revision use <option>/pegrevision:xxx</option>.
                                 If <option>/blame</option> is set and <option>/path2</option>
                                 is not set, then the diff is done by first blaming
                                 the files with the given revisions.

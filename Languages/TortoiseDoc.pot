@@ -10666,6 +10666,10 @@ msgid "/path2"
 msgstr ""
 
 #. (option)
+msgid "/pegrevision:xxx"
+msgstr ""
+
+#. (option)
 msgid "/blame"
 msgstr ""
 
@@ -10674,7 +10678,7 @@ msgid "/line:xxx"
 msgstr ""
 
 #. (entry)
-msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and <placeholder-8/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-9/> specifies the line to jump to when the diff is shown."
+msgid "Starts the external diff program specified in the TortoiseSVN settings. The <placeholder-1/> specifies the first file. If the option <placeholder-2/> is set, then the diff program is started with those two files. If <placeholder-3/> is omitted, then the diff is done between the file in <placeholder-4/> and its BASE. To explicitly set the revision numbers use <placeholder-5/> and <placeholder-6/>, and for the optional peg revision use <placeholder-7/>. If <placeholder-8/> is set and <placeholder-9/> is not set, then the diff is done by first blaming the files with the given revisions. The parameter <placeholder-10/> specifies the line to jump to when the diff is shown."
 msgstr ""
 
 #. (para)
