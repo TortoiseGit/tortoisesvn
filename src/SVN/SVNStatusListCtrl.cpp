@@ -2585,6 +2585,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
                     }
                 }
             }
+            BuildStatistics();
             SetRedraw(TRUE);
             SaveColumnWidths();
             Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
