@@ -4506,9 +4506,11 @@ CTSVNPath CSVNStatusListCtrl::GetCommonURL(bool bStrict)
 void CSVNStatusListCtrl::SelectAll(bool bSelect, bool bIncludeNoCommits)
 {
     CWaitCursor waitCursor;
-    // block here so the LVN_ITEMCHANGED messages
-    // get ignored
     {
+        // block here so the LVN_ITEMCHANGED messages
+        // get ignored
+        m_bBlockItemChangeHandler = true;
+
         CAutoWriteLock locker(m_guard);
         SetRedraw(FALSE);
 
@@ -4526,6 +4528,7 @@ void CSVNStatusListCtrl::SelectAll(bool bSelect, bool bIncludeNoCommits)
             if ((bIncludeNoCommits)||(entry->GetChangeList().Compare(SVNSLC_IGNORECHANGELIST)))
                 SetEntryCheck(entry,i,bSelect);
         }
+        m_bBlockItemChangeHandler = false;
     }
     SetRedraw(TRUE);
     GetStatisticsString();
@@ -4782,6 +4785,7 @@ void CSVNStatusListCtrl::SetCheckOnAllDescendentsOf(const FileEntry* parentEntry
 {
     CAutoWriteLock locker(m_guard);
     int nListItems = GetItemCount();
+    m_bBlockItemChangeHandler = true;
     for (int j=0; j< nListItems ; ++j)
     {
         FileEntry * childEntry = GetListEntry(j);
@@ -4804,6 +4808,7 @@ void CSVNStatusListCtrl::SetCheckOnAllDescendentsOf(const FileEntry* parentEntry
             m_nSelected--;
         }
     }
+    m_bBlockItemChangeHandler = false;
 }
 
 void CSVNStatusListCtrl::WriteCheckedNamesToPathList(CTSVNPathList& pathList)
