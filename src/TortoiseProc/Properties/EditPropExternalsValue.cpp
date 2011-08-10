@@ -149,7 +149,10 @@ void CEditPropExternalsValue::OnOK()
     m_URLCombo.SaveHistory();
     m_URL = CTSVNPath(m_URLCombo.GetString());
     SVNPool pool;
-    m_External.url = CUnicodeUtils::GetUnicode(m_URL.GetSVNApiPath(pool));
+    if (m_URL.IsUrl())
+        m_External.url = CUnicodeUtils::GetUnicode(m_URL.GetSVNApiPath(pool));
+    else
+        m_External.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(m_URL.GetSVNApiPath(pool)));
     if (m_sPegRev.IsEmpty())
         m_External.pegrevision = *SVNRev(_T("HEAD"));
     else
