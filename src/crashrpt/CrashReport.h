@@ -121,6 +121,11 @@ public:
     }
     ~CCrashReport()
     {
+        Uninstall();
+    }
+
+    void Uninstall()
+    {
         UninstallEx pfnUninstallEx;
         if (m_hDll)
         {
@@ -130,8 +135,10 @@ public:
                 pfnUninstallEx(m_lpvState);
             }
             FreeLibrary(m_hDll);
+            m_hDll = NULL;
         }
     }
+
     /**
      * Adds a file which will be included in the crash report. Use this
      * if your application generates log-files or the like.
