@@ -1283,6 +1283,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
     }
 
     m_bEmpty = (GetItemCount() == 0);
+    if (m_pSelectButton)
+        m_pSelectButton->EnableWindow(!m_bEmpty);
     Invalidate();
 }
 
