@@ -2012,8 +2012,11 @@ bool CSVNStatusListCtrl::BuildStatistics()
         if (entry->switched)
             m_nSwitched++;
         svn_wc_status_kind status = SVNStatus::GetMoreImportant(entry->status, entry->remotestatus);
-        status = SVNStatus::GetMoreImportant(status, entry->textstatus);
-        status = SVNStatus::GetMoreImportant(status, entry->propstatus);
+        if ((status == svn_wc_status_normal)||(status == svn_wc_status_none))
+        {
+            status = SVNStatus::GetMoreImportant(status, entry->textstatus);
+            status = SVNStatus::GetMoreImportant(status, entry->propstatus);
+        }
         switch (status)
         {
         case svn_wc_status_normal:
