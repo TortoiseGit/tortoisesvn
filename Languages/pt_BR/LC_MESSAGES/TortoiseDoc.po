@@ -12,13 +12,14 @@
 #   <edson.chen@gmail.com>, 2011.
 # Edson Chen <edson.chen@gmail.com>, 2011.
 # Crhistian  <crhistian.ti@gmail.com>, 2011.
+# Rafael Heise <rmheise@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-27 00:18+0000\n"
-"Last-Translator: ecce <edson.chen@gmail.com>\n"
+"PO-Revision-Date: 2011-08-10 13:32+0000\n"
+"Last-Translator: rmheise <rmheise@gmail.com>\n"
 "Language-Team: Portuguese (Brazilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -954,6 +955,11 @@ msgid ""
 "access to a repository created on your hard drive without needing a server "
 "at all."
 msgstr ""
+"Para um projeto real você terá um repositório configurado em algum lugar "
+"seguro e um servidor do Subversion para ser controlado. Para os propósitos "
+"deste tutorial nós usaremos um repositório local do Subversion que tem como "
+"característica o acesso direto ao repositório criado no seu disco sem a "
+"necessidade de um servidor."
 
 #. (para)
 msgid ""
@@ -977,6 +983,14 @@ msgid ""
 "repository-local-share\"/> to find out why this is a bad idea, and how to "
 "set up a server."
 msgstr ""
+"A característica do repositório local é muito útil para testes e avaliações "
+"mas exceto se você é um desenvolver individual em um único computador você "
+"deverá sempre utilizar um servidor do Subversion devidamente configurado. É "
+"tentador para uma pequena empresa evitar o trabalho de configurar um "
+"servidor e simplesmente acessar seu repositório em uma rede compartilhada. "
+"Nunca faça isso. Você perderá dados. Leia <xref linkend=\"tsvn-repository-"
+"local-share\"/> para descobrir porque fazer isso é uma má idéia, e como "
+"configurar um servidor."
 
 #. (title)
 msgid "Importing a Project"
@@ -1012,7 +1026,7 @@ msgid ""
 " In this case we can say something simple like <quote>Import the Widget1 "
 "project</quote>. Click on <guibutton>OK</guibutton> and the folder is added "
 "to your repository."
-msgstr ""
+msgstr "Outra importante característica desta janela é a <giu"
 
 #. (title)
 msgid "Checking out a Working Copy"

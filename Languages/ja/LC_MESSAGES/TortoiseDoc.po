@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-07 18:25+0000\n"
+"PO-Revision-Date: 2011-08-08 18:44+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2982,7 +2982,7 @@ msgstr "日常操作ガイドを最大限に活用するには、以下を前提
 
 #. (title)
 msgid "General Features"
-msgstr ""
+msgstr "一般的な特機能"
 
 #. (para)
 msgid ""
@@ -2990,6 +2990,8 @@ msgid ""
 "just about everything in the manual. Note that many of these features will "
 "only show up within a Subversion working copy."
 msgstr ""
+"この章では、マニュアルのほぼすべてに適用される TortoiseSVNのいくつかの機能を説明します。多くの機能は、Subversion "
+"の作業コピーに反映されることに注意してください。"
 
 #. (title)
 #. (title)
@@ -15140,6 +15142,9 @@ msgid ""
 "TortoiseOverlays component which is shared with other Tortoise clients (e.g."
 " TortoiseCVS, TortoiseHg) this setting will affect those clients too."
 msgstr ""
+"<placeholder-1/> 使用可能なオーバーレイの数が厳しく制限されているため、任意のものがロードされることを保証するために、いくつかのハンドラを無効にすることができます。 \n"
+"TortoiseSVN は他の Tortoise クライアント（例えば TortoiseCVS や TortoiseHg ）と共用される TortoiseOverlays コンポーネント\n"
+"を使用しているため、この設定はそれらのクライアントに影響します。"
 
 #. (title)
 msgid "Network Settings"
@@ -20113,6 +20118,10 @@ msgid ""
 "<literal>.wmf</literal>, <literal>.png</literal>, <literal>.jpg</literal>, "
 "<literal>.bmp</literal> and <literal>.gif</literal>."
 msgstr ""
+"グラフウィンドウを表示せずに、特定のパスのリビジョングラフのイメージファイルを作成するには、 <option>/output:path</option>"
+" で出力ファイルのパスを渡してください。出力ファイルはリビジョングラフを実際に出力できるファイルの拡張子を付与する必要があります。出力できるのは "
+"<literal>.svg</literal>、<literal>.wmf</literal>、<literal>.png</literal>、<literal>.jpg</literal>、<literal>.bmp</literal>、<literal>.gif</literal>"
+" のいずれかです。"
 
 #. (para)
 msgid ""
@@ -20125,6 +20134,10 @@ msgid ""
 "the command line can be read from the registry "
 "<literal>HKCU\\Software\\TortoiseSVN\\RevisionGraphOptions</literal>."
 msgstr ""
+"リビジョングラフは、表示方法を設定するための多くのオプションがあるので、出力イメージファイルを作成するときにこれらのオプションを設定できます。オプションの設定には"
+" <option>/option:XXXX</option> を指定します。 <literal>XXXX</literal> "
+"は十進数の数値です。オプションの値を知るには、リビジョングラフを通常の方法で起動して、ユーザーインタフェースからオプションを指定し、グラフを終了させます。そうすれば、コマンドラインに渡す必要のある値は、レジストリの次の項目に書き込まれています。"
+" <literal>HKCU\\Software\\TortoiseSVN\\RevisionGraphOptions</literal>"
 
 #. (entry)
 msgid ""

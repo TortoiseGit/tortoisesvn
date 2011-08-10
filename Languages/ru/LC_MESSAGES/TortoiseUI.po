@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-08 00:34+0000\n"
+"PO-Revision-Date: 2011-08-09 10:20+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -541,11 +541,11 @@ msgstr "Вы&берите команды:"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
-msgstr ""
+msgstr "&Выберите элементы..."
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
-msgstr ""
+msgstr "Очистить &статус рабочей копии"
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1163,7 +1163,7 @@ msgstr "&Повторить без хуков"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
-msgstr ""
+msgstr "Убрать &все изменения рекусивно"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -3851,11 +3851,11 @@ msgstr "Удалить"
 
 #. Resource IDs: (1617)
 msgid "Delete &ignored files and folders"
-msgstr ""
+msgstr "Удалить &игнорируемые файлы и папки"
 
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
-msgstr ""
+msgstr "Удалить &неверсированные файлы и папки"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4419,7 +4419,7 @@ msgstr "Пусто"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-&Properties"
-msgstr ""
+msgstr "Включить &авто-свойства"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5921,7 +5921,7 @@ msgstr "Импортирует папку в хранилище"
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
-msgstr ""
+msgstr "В&ключая внешние"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6896,6 +6896,8 @@ msgstr "Необходима блокировка"
 msgid ""
 "Neither /path nor /pathfile was specified or does not contain a valid path!"
 msgstr ""
+"Не указан ни параметр /path, ни параметр /pathfile, или не содежит "
+"корректный путь! "
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -7143,8 +7145,8 @@ msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
-"Предупреждение: если вы обновите вашу рабочую копию, то вы не сможете иметь доступ к обновленной рабочей копии SVN клиентами версий до 1.7!\n"
-"Вы действительно хотите обновить эту рабочую копию?"
+"Предупреждение: если вы преобразуете вашу рабочую копию, то вы не сможете иметь доступ к этой рабочей копии SVN клиентами версий до 1.7!\n"
+"Вы действительно хотите преобразовать эту рабочую копию?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -8095,7 +8097,7 @@ msgstr "Обновить"
 
 #. Resource IDs: (1615)
 msgid "Refresh &shell overlays"
-msgstr ""
+msgstr "Обновить &оверлеи оболочки"
 
 #. Resource IDs: (148)
 #, c-format
@@ -10881,7 +10883,7 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr ""
-"Это обновит вашу рабочую копию до нового формата 1.7 и сделает ее "
+"Это преобразует вашу рабочую копию в новый формат 1.7 и сделает ее "
 "недоступной для использования клиентами старых версий."
 
 #. Resource IDs: (16928)
@@ -11435,8 +11437,8 @@ msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
 msgstr ""
-"Обновить рабочую копию\n"
-"до нового формата 1.7."
+"Преобразовать рабочую копию\n"
+"в новый формат 1.7."
 
 #. Resource IDs: (15)
 msgid "Upgrade working copy"

@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-08 00:34+0000\n"
+"PO-Revision-Date: 2011-08-09 19:01+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -7941,7 +7941,7 @@ msgstr ""
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
-msgstr ""
+msgstr "Biểu thức thông thường"
 
 #. Resource IDs: (117)
 msgid ""
@@ -7961,10 +7961,25 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr ""
+"Lọc biểu thức thông thường:\n"
+".   : bất kỳ ký tự nào\n"
+"c+   : khớp ký tự c một hoặc nhiều lần\n"
+"c*   : khớp ký tự c không hoặc nhiều lần\n"
+"^   : bắt đầu dòng\n"
+"$   : cuối dòng\n"
+"(string){n} : khớp chuỗi n lần\n"
+"(abcd)   : biểu thức con\n"
+"[aei0-9]   : khớp a,e,i và 0..9\n"
+"[^aei0-9] : mọi thứ trừ a,e,i và 0..9\n"
+"\n"
+"\\w   : khớp a-z,A-Z,0-9 và _\n"
+"\\W   : bất ký ký tự không phải chữ\n"
+"\\d   : chữ số 0-9\n"
+"\\s   : khoảng trắng"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
-msgstr ""
+msgstr "Tái tích hợp việc hợp nhất"
 
 #. Resource IDs: (230)
 #, c-format
@@ -7973,7 +7988,7 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
-msgstr ""
+msgstr "Bác bỏ"
 
 #. Resource IDs: (148)
 msgid ""
@@ -7984,28 +7999,29 @@ msgstr ""
 #. Resource IDs: (7)
 #, c-format
 msgid "Rejected patch hunks for '%s'"
-msgstr ""
+msgstr "Bác bỏ khối vá cho '%s'"
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
-msgstr ""
+msgstr "Thả &khóa..."
 
 #. Resource IDs: (16)
 msgid ""
 "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr ""
+msgstr "Thả khóa ngay cả nếu bạn không phải là chủ của các khóa (phá chúng)."
 
 #. Resource IDs: (16)
 msgid "Releases locks on files so other users can edit them again."
 msgstr ""
+"Thả khóa trên tập tin để các người dùng khác có thể biên tập chúng lần nữa."
 
 #. Resource IDs: (12)
 msgid "Relo&cate..."
-msgstr ""
+msgstr "&Tái định vị..."
 
 #. Resource IDs: (32794)
 msgid "Reload"
-msgstr ""
+msgstr "Tải lại"
 
 #. Resource IDs: (315)
 msgid ""
@@ -8024,14 +8040,16 @@ msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
 msgstr ""
+"Tải lại các tập tin được mở và quay lui tất cả thay đổi.\n"
+"Tải lại"
 
 #. Resource IDs: (157)
 msgid "Relocate"
-msgstr ""
+msgstr "Tái định vị"
 
 #. Resource IDs: (89)
 msgid "Relocate Warning"
-msgstr ""
+msgstr "Tái định vị cảnh báo"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -8045,53 +8063,53 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Relocating..."
-msgstr ""
+msgstr "Tái định vị..."
 
 #. Resource IDs: (501)
 msgid "Remember the depth for this working copy"
-msgstr ""
+msgstr "Ghi nhớ độ sâu của bản làm việc này"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
-msgstr ""
+msgstr "Trạng thái của thuộc tính từ xa"
 
 #. Resource IDs: (208)
 msgid "Remote revision"
-msgstr ""
+msgstr "Bản chỉnh sửa từ xa"
 
 #. Resource IDs: (63, 207)
 msgid "Remote status"
-msgstr ""
+msgstr "Trạng thái từ xa"
 
 #. Resource IDs: (207)
 msgid "Remote text status"
-msgstr ""
+msgstr "Trạng thái chữ từ xa"
 
 #. Resource IDs: (1332, 1470)
 msgid "Remove"
-msgstr ""
+msgstr "Loại bỏ"
 
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %ld items"
-msgstr ""
+msgstr "Loại bỏ %ld món"
 
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %s"
-msgstr ""
+msgstr "Loại bỏ %s"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
-msgstr ""
+msgstr "Loại bỏ khỏi danh sách &bỏ qua"
 
 #. Resource IDs: (1068)
 msgid "Remove from Quick Access Toolbar"
-msgstr ""
+msgstr "Loại bỏ khỏi Thanh Truy Cập Nhanh"
 
 #. Resource IDs: (209)
 msgid "Remove from changelist"
-msgstr ""
+msgstr "Loại bỏ khỏi danh sách bỏ qua"
 
 #. Resource IDs: (100)
 msgid ""
@@ -8105,22 +8123,24 @@ msgid ""
 "Remove property '%1!S!' from\r\n"
 "%2!s!"
 msgstr ""
+"Loại bỏ thuộc tính '%1!S!' khỏi\n"
+"%2!s!"
 
 #. Resource IDs: (610)
 msgid "Remove the directory"
-msgstr ""
+msgstr "Loại bỏ thư mục"
 
 #. Resource IDs: (610)
 msgid "Remove the file"
-msgstr ""
+msgstr "Loại bỏ tập tin"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
-msgstr ""
+msgstr "Loại bỏ bộ nhớ tạm được lựa chọn khỏi đĩa"
 
 #. Resource IDs: (1352)
 msgid "Remove the whole subtree(s)"
-msgstr ""
+msgstr "Loại bỏ toàn bộ cây con"
 
 #. Resource IDs: (147)
 msgid ""
@@ -8136,15 +8156,15 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Removed"
-msgstr ""
+msgstr "Đã loại bỏ"
 
 #. Resource IDs: (126)
 msgid "Removed file/folder"
-msgstr ""
+msgstr "Tập tin/thư mục đã loại bỏ"
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
-msgstr ""
+msgstr "Đã loại bỏ khỏi danh sách thay đổi"
 
 #. Resource IDs: (145)
 #, c-format
@@ -8153,18 +8173,21 @@ msgid ""
 "%s\n"
 "from the ignore list."
 msgstr ""
+"Đã loại bỏ mẫu tập tin(s)\n"
+"%s\n"
+"khỏi danh sách bỏ qua."
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
-msgstr ""
+msgstr "Loại bỏ tất cả các món không được đánh phiên bản và bị bỏ qua"
 
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
-msgstr ""
+msgstr "Loại bỏ tập tin hoặc tập tin mask khỏi danh sách các món bị bỏ qua"
 
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
-msgstr ""
+msgstr "Loại bỏ thuộc tính được chọn"
 
 #. Resource IDs: (148)
 #, c-format
@@ -8178,16 +8201,16 @@ msgstr ""
 
 #. Resource IDs: (16616)
 msgid "Rena&me..."
-msgstr ""
+msgstr "Đổi &tên..."
 
 #. Resource IDs: (151)
 msgid "Rename"
-msgstr ""
+msgstr "Đổi tên"
 
 #. Resource IDs: (97)
 #, c-format
 msgid "Rename %s"
-msgstr ""
+msgstr "Đổi tên %s"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8195,6 +8218,8 @@ msgid ""
 "Rename item from %1!s!\r\n"
 "to %2!s!"
 msgstr ""
+"Đổi tên item món từ %1!s!\n"
+"sang %2!s!"
 
 #. Resource IDs: (221)
 msgid "Rename/move"
@@ -8209,39 +8234,43 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
-msgstr ""
+msgstr "Đã đổi tên nút"
 
 #. Resource IDs: (126)
 msgid "Renamed remotely"
-msgstr ""
+msgstr "Đã đổi từ xa"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
-msgstr ""
+msgstr "Đổi tên tập tin/thư mục trong kiểm soát phiên bản"
 
 #. Resource IDs: (209)
 msgid "Repair copy"
-msgstr ""
+msgstr "Sửa chữa sao chép"
 
 #. Resource IDs: (209)
 msgid "Repair move"
-msgstr ""
+msgstr "Sửa chữa di chuyển"
 
 #. Resource IDs: (3603)
 msgid ""
 "Repeat the last action\n"
 "Repeat"
 msgstr ""
+"Lập lại hành động cuối cùng\n"
+"Lập lại"
 
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
 "Replace"
 msgstr ""
+"Thay thế văn bản được chỉ ra với văn bản khác\n"
+"Thay thế"
 
 #. Resource IDs: (74)
 msgid "Replacing"
-msgstr ""
+msgstr "Đang thay thế"
 
 #. Resource IDs: (564)
 msgid "Report"
@@ -8249,7 +8278,7 @@ msgstr ""
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
-msgstr ""
+msgstr "Kho chứa"
 
 #. Resource IDs: (153)
 msgid "Repository Browser"
@@ -8261,59 +8290,59 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
-msgstr ""
+msgstr "UUID của kho chứa:"
 
 #. Resource IDs: (324)
 msgid "Repository created"
-msgstr ""
+msgstr "Kho chứa đã được tạo"
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
-msgstr ""
+msgstr "Yêu cầu bị huỷ bởi TSVN"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
-msgstr ""
+msgstr "Yêu cầu một tên đăng nhập và mật khẩu"
 
 #. Resource IDs: (8)
 msgid "Res&olved..."
-msgstr ""
+msgstr "Đã &giải quyết..."
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
-msgstr ""
+msgstr "Đặt lại &tất cả"
 
 #. Resource IDs: (214)
 msgid "Reset columns"
-msgstr ""
+msgstr "Đặt lại các cột"
 
 #. Resource IDs: (207, 229)
 msgid "Resolve"
-msgstr ""
+msgstr "Giải quyết"
 
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
-msgstr ""
+msgstr "Giải quyết mâu thuẫn"
 
 #. Resource IDs: (1382)
 msgid "Resolve all la&ter"
-msgstr ""
+msgstr "Giải quyết tất cả &sau"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'mine'"
-msgstr ""
+msgstr "Giải quyết mâu thuẫn sử dụng 'của tôi'"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'theirs'"
-msgstr ""
+msgstr "Giải quyết mâu thuẫn sử dụng 'của họ'"
 
 #. Resource IDs: (1403)
 msgid "Resolve conflict:"
-msgstr ""
+msgstr "Giải quyết mâu thuẫn:"
 
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
-msgstr ""
+msgstr "Giải quyết &sau"
 
 #. Resource IDs: (148)
 msgid ""
@@ -8323,7 +8352,7 @@ msgstr ""
 
 #. Resource IDs: (74, 209, 1400)
 msgid "Resolved"
-msgstr ""
+msgstr "Đã giải quyết"
 
 #. Resource IDs: (282)
 #, c-format
@@ -8331,26 +8360,28 @@ msgid ""
 "Resolved:\n"
 "%s"
 msgstr ""
+"Đã giải quyết:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Resolves conflicted files"
-msgstr ""
+msgstr "Đã giải quyết các tập tin bị mâu thuẫn"
 
 #. Resource IDs: (1254)
 msgid "Restore Default"
-msgstr ""
+msgstr "Khôi phục mặc định"
 
 #. Resource IDs: (3826)
 msgid "Restore the window to normal size"
-msgstr ""
+msgstr "Khôi phục cửa sổ về kích thước bình thường"
 
 #. Resource IDs: (73)
 msgid "Restored"
-msgstr ""
+msgstr "Khôi phục"
 
 #. Resource IDs: (73)
 msgid "Retry"
-msgstr ""
+msgstr "Thử lại"
 
 #. Resource IDs: (286)
 #, c-format
@@ -8360,20 +8391,21 @@ msgstr ""
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %1!ld! through %2!ld!"
-msgstr ""
+msgstr "Đảo hợp nhất %1!ld! đến %2!ld!"
 
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
-msgstr ""
+msgstr "Đảo hợp nhất %ld"
 
 #. Resource IDs: (175, 229)
 msgid "Revert"
-msgstr ""
+msgstr "Quay lui"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
+"Quay lui về thiết lập mặc định. Nên dùng cho người dùng có kinh nghiệm."
 
 #. Resource IDs: (147)
 msgid ""
@@ -8389,7 +8421,7 @@ msgstr ""
 
 #. Resource IDs: (73)
 msgid "Reverted"
-msgstr ""
+msgstr "Đã quay lui"
 
 #. Resource IDs: (148)
 #, c-format
@@ -8402,66 +8434,66 @@ msgstr ""
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
-msgstr ""
+msgstr "Quay lui tất cả thay đổi bạn làm kể từ lần cập nhất cuối cùng"
 
 #. Resource IDs: (14)
 msgid "Reverts an addition to version control"
-msgstr ""
+msgstr "Quay lui việc thêm vào kiểm soát phiên bản"
 
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 65535)
 msgid "Revision"
-msgstr ""
+msgstr "Bản chỉnh sửa"
 
 #. Resource IDs: (119)
 #, c-format
 msgid "Revision %1!d!"
-msgstr ""
+msgstr "Bản chỉnh sửa %1!d!"
 
 #. Resource IDs: (120)
 #, c-format
 msgid "Revision %1!s!"
-msgstr ""
+msgstr "Bản chỉnh sửa %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
-msgstr ""
+msgstr "Bản chỉnh sửa %ld"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
-msgstr ""
+msgstr "Biểu đồ &bản chỉnh sửa"
 
 #. Resource IDs: (65535)
 msgid "Revision / Author:"
-msgstr ""
+msgstr "Bản chỉnh sửa / Tác giả:"
 
 #. Resource IDs: (182, 296)
 msgid "Revision Graph"
-msgstr ""
+msgstr "Biểu đồ bản chỉnh sửa"
 
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
-msgstr ""
+msgstr "Lọc biểu đồ bản chỉnh sửa"
 
 #. Resource IDs: (299)
 msgid "Revision Graph::Colors"
-msgstr ""
+msgstr "Biểu đồ bản chỉnh sửa::Màu"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
-msgstr ""
+msgstr "Phạm vi bản chỉnh sửa"
 
 #. Resource IDs: (269, 65535)
 msgid "Revision graph"
-msgstr ""
+msgstr "Biểu đồ bản chỉnh sửa"
 
 #. Resource IDs: (1492)
 msgid "Revision r&ange to merge"
-msgstr ""
+msgstr "Phạm vi chỉnh sửa để hợp nhất"
 
 #. Resource IDs: (75)
 msgid "Revision: "
-msgstr ""
+msgstr "Bản chỉnh sửa: "
 
 #. Resource IDs: (272)
 #, c-format
@@ -8474,6 +8506,13 @@ msgid ""
 "Logmessage:\r\n"
 "%7!s!"
 msgstr ""
+"Bản chỉnh sửa: %1!ld! %2!s!\n"
+"URL: %3!s!\n"
+"%4!s!Tác giả: %5!s!\n"
+"Ngày tháng: %6!s!\n"
+"\n"
+"Thông điệp tường trình:\n"
+"%7!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -8488,42 +8527,53 @@ msgid ""
 "Logmessage:\r\n"
 "%9!s!"
 msgstr ""
+"Bản chỉnh sửa: %1!ld! %2!s!\n"
+"URL: %3!s!\n"
+"%4!s!Tác giả: %5!s!\n"
+"Ngày tháng: %6!s!\n"
+"\n"
+"Thẻ (%7!d!):%8!s!\n"
+"\n"
+"Thông điệp tường trình:\n"
+"%9!s!"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
-msgstr ""
+msgstr "Các bản chỉnh sửa"
 
 #. Resource IDs: (3850)
 msgid ""
 "Rich Text (RTF)\n"
 "text with font and paragraph formatting"
 msgstr ""
+"Giàu văn bản (RTF)\n"
+"chữ với phông và định dạng đoạn văn"
 
 #. Resource IDs: (188)
 msgid "Right View: "
-msgstr ""
+msgstr "Xem bên phải: "
 
 #. Resource IDs: (65535)
 msgid "Right image"
-msgstr ""
+msgstr "Ảnh bên phải"
 
 #. Resource IDs: (1070)
 #, c-format
 msgid "Row %d of %d"
-msgstr ""
+msgstr "Dòng %d của %d"
 
 #. Resource IDs: (1070)
 #, c-format
 msgid "Row %d-%d of %d"
-msgstr ""
+msgstr "Dòng %d-%d của %d"
 
 #. Resource IDs: (1070)
 msgid "Row Down"
-msgstr ""
+msgstr "Dòng xuống"
 
 #. Resource IDs: (1070)
 msgid "Row Up"
-msgstr ""
+msgstr "Dòng lên"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
@@ -8531,103 +8581,103 @@ msgstr ""
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
-msgstr ""
+msgstr "&Chọn..."
 
 #. Resource IDs: (32782)
 msgid "S&ettings"
-msgstr ""
+msgstr "&Thiết lập"
 
 #. Resource IDs: (1065)
 msgid "S&how Buttons on One Row"
-msgstr ""
+msgstr "&Hiện nút bấm trên một dòng"
 
 #. Resource IDs: (1065)
 msgid "S&how Buttons on Two Rows"
-msgstr ""
+msgstr "Hiện nút bấm trên hai dòng"
 
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr ""
+msgstr "&Hiện Thanh Công Cụ Truy Cập Nhanh dưới Ribbon"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
-msgstr ""
+msgstr "&Số liệu"
 
 #. Resource IDs: (9)
 msgid "S&witch..."
-msgstr ""
+msgstr "&Chuyển sang..."
 
 #. Resource IDs: (3697)
 msgid "SCRL"
-msgstr ""
+msgstr "SCRL"
 
 #. Resource IDs: (1081)
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
-msgstr ""
+msgstr "Tác giả SVN"
 
 #. Resource IDs: (12)
 msgid "SVN Copy and add files to this WC"
-msgstr ""
+msgstr "SVN sao chép và thêm tập tin vào WC này"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned item here"
-msgstr ""
+msgstr "SVN sao chép và đổi tên các món có phiên bản ở đây"
 
 #. Resource IDs: (13)
 msgid "SVN Copy versioned item(s) here"
-msgstr ""
+msgstr "SVN sao chép các món có phiên bản ở đây"
 
 #. Resource IDs: (14)
 msgid "SVN Export all items here"
-msgstr ""
+msgstr "SVN xuất tất cả các món ở đây"
 
 #. Resource IDs: (14)
 msgid "SVN Export versioned items here"
-msgstr ""
+msgstr "SVN xuất các món có phiên bản ở đây"
 
 #. Resource IDs: (16)
 msgid "SVN Local lock owner"
-msgstr ""
+msgstr "Chủ SVN khóa địa phương"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned item here"
-msgstr ""
+msgstr "SVN di chuyển và đổi tên các món có phiên bản ở đây"
 
 #. Resource IDs: (12)
 msgid "SVN Move versioned item(s) here"
-msgstr ""
+msgstr "SVN di chuyển các món có phiên bản ở đây"
 
 #. Resource IDs: (11)
 msgid "SVN Revision"
-msgstr ""
+msgstr "SVN bản chỉnh sửa"
 
 #. Resource IDs: (11)
 msgid "SVN Status"
-msgstr ""
+msgstr "Trạng thái SVN"
 
 #. Resource IDs: (20)
 msgid "SVN Statusnumber"
-msgstr ""
+msgstr "Số trạng thái SVN"
 
 #. Resource IDs: (12)
 msgid "SVN URL"
-msgstr ""
+msgstr "SVN URL"
 
 #. Resource IDs: (17)
 msgid "SVN eol-style"
-msgstr ""
+msgstr "Kiểu SVN eol"
 
 #. Resource IDs: (14)
 msgid "SVN mime-type"
-msgstr ""
+msgstr "Kiểu SVN mime"
 
 #. Resource IDs: (12)
 msgid "SVN short URL"
-msgstr ""
+msgstr "URL SVN ngắn"
 
 #. Resource IDs: (64)
 msgid ""
@@ -8647,19 +8697,19 @@ msgstr ""
 
 #. Resource IDs: (57604)
 msgid "Save &As..."
-msgstr ""
+msgstr "Lưu như &Là..."
 
 #. Resource IDs: (101)
 msgid "Save &as..."
-msgstr ""
+msgstr "Lưu như &là..."
 
 #. Resource IDs: (3841)
 msgid "Save As"
-msgstr ""
+msgstr "Lưu như là"
 
 #. Resource IDs: (313)
 msgid "Save as..."
-msgstr ""
+msgstr "Lưu như là..."
 
 #. Resource IDs: (315)
 msgid ""
@@ -8670,15 +8720,15 @@ msgstr ""
 #. Resource IDs: (3857)
 #, c-format
 msgid "Save changes to %1?"
-msgstr ""
+msgstr "Lưu thay đổi sang %1?"
 
 #. Resource IDs: (232)
 msgid "Save client certificate path"
-msgstr ""
+msgstr "Lưu đường dẫn chứng thực máy khách"
 
 #. Resource IDs: (617)
 msgid "Save in Git format"
-msgstr ""
+msgstr "Lưu trong định dạng Git"
 
 #. Resource IDs: (314)
 msgid "Save modifications."
@@ -8686,17 +8736,19 @@ msgstr ""
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
-msgstr ""
+msgstr "Lưu chỉnh sửa &vào..."
 
 #. Resource IDs: (3601)
 msgid ""
 "Save the modified file\n"
 "Save file"
 msgstr ""
+"Lưu tập tin được sửa đổi\n"
+"Lưu tập tin"
 
 #. Resource IDs: (1132)
 msgid "Save to clipboard"
-msgstr ""
+msgstr "Lưu vào clipboard"
 
 #. Resource IDs: (315)
 msgid ""
@@ -8714,218 +8766,228 @@ msgstr ""
 
 #. Resource IDs: (108)
 msgid "Saved Data"
-msgstr ""
+msgstr "Dữ liệu được lưu"
 
 #. Resource IDs: (344)
 msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
 msgstr ""
+"Lưu lại các chuyến đi vòng mất nhiều thời gian tới máy chủ khi đặt lâu hơn 0"
+" giây"
 
 #. Resource IDs: (581)
 msgid "Saves the selected property value to a file"
-msgstr ""
+msgstr "Lưu các thuộc tính được lựa chọn vào một tập tin"
 
 #. Resource IDs: (103)
 #, c-format
 msgid "Saving file %s"
-msgstr ""
+msgstr "Đang lưu tập tin %s"
 
 #. Resource IDs: (103)
 msgid "Saving files"
-msgstr ""
+msgstr "Đang lưu các tập tin"
 
 #. Resource IDs: (144)
 msgid "Saving patchfile to:"
-msgstr ""
+msgstr "Đang lưu các tập tin vá vào:"
 
 #. Resource IDs: (1522)
 msgid "Scan"
-msgstr ""
+msgstr "Quét"
 
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
-msgstr ""
+msgstr "Một ít"
 
 #. Resource IDs: (1003)
 msgid "Scroll Left"
-msgstr ""
+msgstr "Cuộn Trái"
 
 #. Resource IDs: (1003)
 msgid "Scroll Right"
-msgstr ""
+msgstr "Cuộn Phải"
 
 #. Resource IDs: (113)
 msgid "Search &log messages..."
-msgstr ""
+msgstr "Tìm kiếm trên các &thông điệp tường trình..."
 
 #. Resource IDs: (65535)
 msgid "Search for:"
-msgstr ""
+msgstr "Tìm kiếm cho:"
 
 #. Resource IDs: (7)
 msgid "Search string not found!"
-msgstr ""
+msgstr "Tìm kiếm chuỗi không thấy!"
 
 #. Resource IDs: (169)
 msgid "Searching for better path to apply patch..."
-msgstr ""
+msgstr "Tìm đường dẫn tốt hơn để áp dụng bản vá..."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "Seek failed on %1"
-msgstr ""
+msgstr "Việc tìm bị thất bại %1"
 
 #. Resource IDs: (376)
 msgid "Select &All"
-msgstr ""
+msgstr "Chọn &tất cả"
 
 #. Resource IDs: (16529)
 msgid "Select &User-defined Image: "
-msgstr ""
+msgstr "Chọn ảnh do &người dùng định nghĩa: "
 
 #. Resource IDs: (16508)
 msgid "Select &context menu:"
-msgstr ""
+msgstr "Chọn &thực đơn ngữ cảnh:"
 
 #. Resource IDs: (65535)
 msgid "Select &window:"
-msgstr ""
+msgstr "Chọn &cửa sổ:"
 
 #. Resource IDs: (1067)
 msgid "Select / deselect &all"
-msgstr ""
+msgstr "Chọn / bỏ chọn &tất cả"
 
 #. Resource IDs: (1057)
 msgid ""
 "Select Color Tool\n"
 "Select Color"
 msgstr ""
+"Chọn công cụ màu\n"
+"Chọn màu"
 
 #. Resource IDs: (13)
 msgid "Select File..."
-msgstr ""
+msgstr "Chọn tập tin..."
 
 #. Resource IDs: (173)
 msgid "Select Revision"
-msgstr ""
+msgstr "Chọn bản chỉnh sửa"
 
 #. Resource IDs: (78)
 msgid "Select SSH client"
-msgstr ""
+msgstr "Chọn máy khách SSH"
 
 #. Resource IDs: (3858)
 msgid "Select a button."
-msgstr ""
+msgstr "Chọn nút bấm."
 
 #. Resource IDs: (3585)
 msgid "Select an object on which to get Help"
-msgstr ""
+msgstr "Chọn một đối tượng để được Giúp đỡ"
 
 #. Resource IDs: (213)
 msgid "Select changelist"
-msgstr ""
+msgstr "Chọn danh sách thay đổi"
 
 #. Resource IDs: (78)
 msgid "Select diff application"
-msgstr ""
+msgstr "Chọn ứng dụng tìm khác biệt"
 
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
-msgstr ""
+msgstr "Chọn thư mục để lấy ra"
 
 #. Resource IDs: (276)
 msgid "Select end revision"
-msgstr ""
+msgstr "Chọn bản chỉnh sửa cuối"
 
 #. Resource IDs: (64)
 msgid "Select folder to associate with this issue tracker"
-msgstr ""
+msgstr "Chọn thư mục để gắn với bộ theo dõi vấn đề này"
 
 #. Resource IDs: (79)
 msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
 msgstr ""
+"Chọn thư mục để xuất.\n"
+"Bạn có lẽ cần tạo một thư mục mới trước khi thi hành việc xuất này."
 
 #. Resource IDs: (197)
 msgid "Select folder to run script for"
-msgstr ""
+msgstr "Chọn thư mục để chạy kịch bản cho"
 
 #. Resource IDs: (119)
 msgid "Select folder to save the selected files to"
-msgstr ""
+msgstr "Chọn thư mục để lưu các tập tin được chọn vào"
 
 #. Resource IDs: (197)
 msgid "Select hook script file"
-msgstr ""
+msgstr "Chọn tập tin kịch bản móc"
 
 #. Resource IDs: (1405)
 msgid "Select items automatically"
-msgstr ""
+msgstr "Chọn các món một cách tự động"
 
 #. Resource IDs: (78)
 msgid "Select merge application"
-msgstr ""
+msgstr "Chọn ứng dụng hợp nhất"
 
 #. Resource IDs: (119)
 msgid "Select merge target"
-msgstr ""
+msgstr "Chọn đối tượng hợp nhất"
 
 #. Resource IDs: (13)
 msgid "Select patch file..."
-msgstr ""
+msgstr "Chọn tập tin vá..."
 
 #. Resource IDs: (276)
 msgid "Select revision range"
-msgstr ""
+msgstr "Chọn phạm vi chỉnh sửa"
 
 #. Resource IDs: (276)
 msgid "Select start revision"
-msgstr ""
+msgstr "Chọn bản chỉnh sửa bắt đầu"
 
 #. Resource IDs: (79)
 msgid "Select text editor application"
-msgstr ""
+msgstr "Chọn ứng dụng biên tập văn bản"
 
 #. Resource IDs: (595)
 msgid "Select the URL from which to reintegrate"
-msgstr ""
+msgstr "Chọn URL để tích hợp"
 
 #. Resource IDs: (595)
 msgid "Select the URLs for the tree merge"
-msgstr ""
+msgstr "Chọn các URL cho cây hợp nhất"
 
 #. Resource IDs: (79)
 msgid ""
 "Select the behaviour of the progress dialog at the end of the operation."
-msgstr ""
+msgstr "Chọn biểu hiện của hộp thoại tiến triển vào cuối tác vụ."
 
 #. Resource IDs: (3603)
 msgid ""
 "Select the entire document\n"
 "Select All"
 msgstr ""
+"Chọn toàn bộ tài liệu\n"
+"Chọn tất cả"
 
 #. Resource IDs: (65535)
 msgid ""
 "Select the language this project is using. This settings affects the spell "
 "checker used for commit messages."
 msgstr ""
+"Chọn ngôn ngữ đề án này đang dùng. Thiết lập này sẽ ảnh hưởng bộ kiểm tra "
+"chính tả dùng cho các thông điệp cam kết."
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
-msgstr ""
+msgstr "Chọn các tùy chọn hợp nhất"
 
 #. Resource IDs: (595)
 msgid "Select the revisions to merge"
-msgstr ""
+msgstr "Chọn các bản chỉnh sửa để hợp nhất"
 
 #. Resource IDs: (595)
 msgid "Select the type of merge"
-msgstr ""
+msgstr "Chọn kiểu hợp nhất"
 
 #. Resource IDs: (78)
 msgid "Select viewer for diff-files"
-msgstr ""
+msgstr "Chọn chương trình xem cho các tập tin chứa khác biệt"
 
 #. Resource IDs: (65535)
 msgid "Selected node"
@@ -8933,27 +8995,27 @@ msgstr ""
 
 #. Resource IDs: (3866)
 msgid "Send Mail failed to send message."
-msgstr ""
+msgstr "Gửi Thư thất bại trong việc gửi thông điệp."
 
 #. Resource IDs: (74)
 msgid "Sending content"
-msgstr ""
+msgstr "Đang gửi nội dung"
 
 #. Resource IDs: (1409)
 msgid "Server &address:"
-msgstr ""
+msgstr "&Địa chỉ máy chủ:"
 
 #. Resource IDs: (65535)
 msgid "Set Accelerator &for:"
-msgstr ""
+msgstr "Đặt Tăng Tốc &cho:"
 
 #. Resource IDs: (1544)
 msgid "Set explicit revision for these externals:"
-msgstr ""
+msgstr "Đặt chỉnh sửa rõ ràng cho các phần bên ngoài này:"
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
-msgstr ""
+msgstr "Đặt ngày tháng tập tin về \"&lần cam kết cuối\""
 
 #. Resource IDs: (127)
 #, c-format
@@ -8961,18 +9023,20 @@ msgid ""
 "Set property '%1!S!' on\r\n"
 "%2!s!"
 msgstr ""
+"Bật thuộc tính '%1!S!' trên\n"
+"%2!s!"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
-msgstr ""
+msgstr "Đặt thuộc tính..."
 
 #. Resource IDs: (107)
 msgid "Settings"
-msgstr ""
+msgstr "Thiết lập"
 
 #. Resource IDs: (80)
 msgid "Settings - TortoiseSVN"
-msgstr ""
+msgstr "Thiết lập - TortoiseSVN"
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
@@ -8980,227 +9044,241 @@ msgstr ""
 
 #. Resource IDs: (1270)
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 #. Resource IDs: (145)
 msgid "Shell Icon Cache was rebuilt!"
-msgstr ""
+msgstr "Bản nhớ cho biểu tượng Shell đã được tạo!"
 
 #. Resource IDs: (2052)
 msgid ""
 "Shift trees to the top of the window. Alignment to other trees will be lost."
-msgstr ""
+msgstr "Đẩy cây tới đầu cửa sổ. Việc dóng hàng theo các cây khác sẽ bị mất."
 
 #. Resource IDs: (101)
 msgid "Sho&w properties"
-msgstr ""
+msgstr "&Hiển thị thuộc tính"
 
 #. Resource IDs: (1105)
 msgid "Short &date/time format in log messages"
-msgstr ""
+msgstr "Hiển thị định dạng &ngày tháng trong các thông điệp tường trình"
 
 #. Resource IDs: (12)
 msgid "Short URL of Subversion items"
-msgstr ""
+msgstr "URL ngắn của các món trong Subversion"
 
 #. Resource IDs: (214)
 msgid "Shorten property list"
-msgstr ""
+msgstr "Danh sách thuộc tính thu gọn"
 
 #. Resource IDs: (1382)
 msgid "Show"
-msgstr ""
+msgstr "Hiển thị"
 
 #. Resource IDs: (16996)
 msgid "Show &Accelerator for:"
-msgstr ""
+msgstr "Hiển thị &Tăng Tốc cho"
 
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
-msgstr ""
+msgstr "Hiển thị &Tất cả"
 
 #. Resource IDs: (1132)
 msgid "Show &Log"
-msgstr ""
+msgstr "Hiển thị &Tường trình"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
-msgstr ""
+msgstr "Hiển thị &Phạm vi..."
 
 #. Resource IDs: (32826)
 msgid "Show &WC revision"
-msgstr ""
+msgstr "Hiển thị bản chỉnh sửa &WC"
 
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
-msgstr ""
+msgstr "Hiển thị &tất cả bản chỉnh sửa"
 
 #. Resource IDs: (113, 32783)
 msgid "Show &changes"
-msgstr ""
+msgstr "Hiển thị các &thay đổi"
 
 #. Resource IDs: (12, 101, 1016, 1031, 1034, 1037, 1132, 1228, 1420, 1467,
 #. 32784)
 msgid "Show &log"
-msgstr ""
+msgstr "Hiển thị &tường trình"
 
 #. Resource IDs: (1031)
 msgid "Show &log..."
-msgstr ""
+msgstr "Hiển thị &tường trình..."
 
 #. Resource IDs: (1088)
 msgid "Show &overlays and context menu only in explorer"
-msgstr ""
+msgstr "Chỉ hiển thị nạp chồng và thực đơn ngữ cảnh trong trình khám phá"
 
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
-msgstr ""
+msgstr "Hiển thị các tập tin không được đánh &phiên bản"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
-msgstr ""
+msgstr "Hiển thị phía trên Ribbon"
 
 #. Resource IDs: (1069)
 msgid "Show Below the Ribbon"
-msgstr ""
+msgstr "Hiển thị phía dưới Ribbon"
 
 #. Resource IDs: (1542)
 msgid "Show Branch L&og"
-msgstr ""
+msgstr "Hiển thị Nhánh và &Tường trình"
 
 #. Resource IDs: (1065)
 msgid "Show Fewer Buttons"
-msgstr ""
+msgstr "Hiển thị ít Nút Bấm hơn"
 
 #. Resource IDs: (32817)
 msgid "Show File List"
-msgstr ""
+msgstr "Hiển thị danh sách tập tin"
 
 #. Resource IDs: (2051)
 msgid "Show HEAD revision nodes"
-msgstr ""
+msgstr "Hiển thị các nút của bản chỉnh sửa CHÍNH"
 
 #. Resource IDs: (2052)
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr ""
+"Hiển thị khác biệt trong dòng từng từ một\n"
+"Hướng theo khác biệt từng từ trong dòng"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
-msgstr ""
+msgstr "Hiển thị hộp thoại khóa trước khi khóa tập tin"
 
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
-msgstr ""
+msgstr "Hiển thị nhiều Nút Bấm hơn"
 
 #. Resource IDs: (32813)
 msgid "Show Ove&rview"
-msgstr ""
+msgstr "Hiển thị Xem &Tổng Quát"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr ""
+msgstr "Hiển thị Thanh Công Cụ Truy Cập Nhanh phía trên Ribbon"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr ""
+msgstr "Hiển thị Thanh Công Cụ Truy Cập Nhanh phía dưới Ribbon"
 
 #. Resource IDs: (16651)
 msgid "Show Screen&Tips on toolbars"
-msgstr ""
+msgstr "Hiển thị các &mẹo màn hình trên thanh công cụ"
 
 #. Resource IDs: (32831)
 msgid "Show WC &modifications"
-msgstr ""
+msgstr "Hiển thị các &chỉnh sửa WC"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
-msgstr ""
+msgstr "Hiển thị tổng quát của toàn bộ biểu đồ"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
-msgstr ""
+msgstr "Hiển thị các thay đổi dưới dạng khác biệt &thống nhất"
 
 #. Resource IDs: (113)
 msgid "Show differences as &unified diff"
-msgstr ""
+msgstr "Hiển thị các khác biệt dưới dạng khác biệt &thống nhất"
 
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
-msgstr ""
+msgstr "Hiển thị các thư mục bị loại ra như là bình thường"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
-msgstr ""
+msgstr "Hiển thị các phần bên ngoài từ các kho chứa khác nhau"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
-msgstr ""
+msgstr "Hiển thị đầy đủ thực đơn sau một khoảng chờ ngắn"
 
 #. Resource IDs: (1034, 1037)
 msgid "Show l&og"
-msgstr ""
+msgstr "Hiển thị &tường trình"
 
 #. Resource IDs: (1063)
 msgid "Show linenumber&s"
-msgstr ""
+msgstr "Hiển thị số thứ tự &dòng"
 
 #. Resource IDs: (1037)
 msgid "Show lo&g"
-msgstr ""
+msgstr "Hiển thị t&ường trình"
 
 #. Resource IDs: (2051)
 msgid "Show oldest node at top"
-msgstr ""
+msgstr "Hiển thị nút cũ nhất trên cùng"
 
 #. Resource IDs: (1229)
 msgid "Show only a&ffected paths"
-msgstr ""
+msgstr "Chỉ hiển thị các đường dẫn bị &ảnh hưởng"
 
 #. Resource IDs: (2052)
 msgid ""
 "Show only the changed parts of the path name. Replace unchanged elements "
 "with dots."
 msgstr ""
+"Chỉ hiển thị phần thay đổi trong tên đường dẫn. Thay thế các yếu tố không "
+"đổi với các dấu chấm."
 
 #. Resource IDs: (2054)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr ""
+"Ẩn hoặc hiện thanh khác biệt dòng\n"
+"Đảo hiện thanh khác biệt dòng"
 
 #. Resource IDs: (2054)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr ""
+"Ẩn hoặc hiện thanh địa chỉ\n"
+"Đảo hiện thanh địa chỉ"
 
 #. Resource IDs: (3713)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
 msgstr ""
+"Ẩn hoặc hiện thanh trạng thái\n"
+"Đảo hiện thanh trạng thái"
 
 #. Resource IDs: (3713)
 msgid ""
 "Show or hide the toolbar\n"
 "Toggle ToolBar"
 msgstr ""
+"Ẩn hoặc hiện thanh công cụ\n"
+"Đảo hiện thanh công cụ"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
-msgstr ""
+msgstr "Hiện thuộc tính chỉnh sửa"
 
 #. Resource IDs: (16652)
 msgid "Show shortcut &keys in ScreenTips"
-msgstr ""
+msgstr "Hiện &phím tắt trong Mẹo Màn Hình"
 
 #. Resource IDs: (2049)
 msgid ""
 "Show special characters for whitespaces\n"
 "Show Whitespaces"
 msgstr ""
+"Hiện ký tự đặc biệt cho khoảng trắng\n"
+"Hiện khoảng trắng"
 
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-08 00:34+0000\n"
+"PO-Revision-Date: 2011-08-08 18:22+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -537,11 +537,11 @@ msgstr "コマンドを選択(&C):"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
-msgstr ""
+msgstr "アイテムを選択(&C)..."
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
-msgstr ""
+msgstr "作業コピーの状態をクリーンアップ(&C)"
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1159,7 +1159,7 @@ msgstr "フック無しでリトライ(&R)"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
-msgstr ""
+msgstr "すべての変更を再帰的に取り消す(&R)"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -3786,11 +3786,11 @@ msgstr "削除"
 
 #. Resource IDs: (1617)
 msgid "Delete &ignored files and folders"
-msgstr ""
+msgstr "無視するファイルやフォルダを削除(&I)"
 
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
-msgstr ""
+msgstr "バージョン管理されていないファイルやフォルダを削除(&U)"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4351,7 +4351,7 @@ msgstr "空"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-&Properties"
-msgstr ""
+msgstr "自動属性を有効にする(&P)"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5828,7 +5828,7 @@ msgstr "ディレクトリをリポジトリにインポート"
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
-msgstr ""
+msgstr "外部参照を含める(&X)"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6791,7 +6791,7 @@ msgstr "ロックが必要"
 #. Resource IDs: (84)
 msgid ""
 "Neither /path nor /pathfile was specified or does not contain a valid path!"
-msgstr ""
+msgstr "/path と /pathfile のいずれもが設定されていないか、正しいパスではありません。"
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -7966,7 +7966,7 @@ msgstr "最新に更新"
 
 #. Resource IDs: (1615)
 msgid "Refresh &shell overlays"
-msgstr ""
+msgstr "シェルのオーバーレイを更新(&S)"
 
 #. Resource IDs: (148)
 #, c-format
@@ -8039,16 +8039,16 @@ msgstr "'%s' のためのパッチをリジェクト"
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
-msgstr "ロックを開放(&K) ..."
+msgstr "ロックを解放(&K) ..."
 
 #. Resource IDs: (16)
 msgid ""
 "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr "ロックの保持者でなくてもロックを開放する。"
+msgstr "ロックの保持者でなくてもロックを解放する。"
 
 #. Resource IDs: (16)
 msgid "Releases locks on files so other users can edit them again."
-msgstr "他のユーザが再び編集できるようにファイルのロックを開放（解除）する。"
+msgstr "他のユーザが再び編集できるようにファイルのロックを解放（解除）する。"
 
 #. Resource IDs: (12)
 msgid "Relo&cate..."
