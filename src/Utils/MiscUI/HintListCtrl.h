@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "HintCtrl.h"
 
 class IListCtrlTooltipProvider
 {
@@ -30,25 +31,21 @@ public:
  * content. Can be used for example during lengthy operations (showing "please wait")
  * or to indicate why the list control is empty (showing "no data available").
  */
-class CHintListCtrl : public CListCtrl
+class CHintListCtrl : public CHintCtrl<CListCtrl>
 {
 public:
     CHintListCtrl();
     ~CHintListCtrl();
 
-    void ShowText(const CString& sText, bool forceupdate = false);
-    void ClearText();
-    bool HasText() const {return !m_sText.IsEmpty();}
     void SetTooltipProvider(IListCtrlTooltipProvider * provider) {pProvider = provider;}
 
+    DECLARE_DYNAMIC(CHintListCtrl)
 
 protected:
-    DECLARE_MESSAGE_MAP()
-    afx_msg void OnPaint();
+    //DECLARE_MESSAGE_MAP()
     virtual afx_msg BOOL OnToolTipText(UINT id, NMHDR * pNMHDR, LRESULT * pResult);
     virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO * pTI) const;
 
 private:
-    CString         m_sText;
     IListCtrlTooltipProvider * pProvider;
 };
