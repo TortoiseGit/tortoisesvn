@@ -193,13 +193,8 @@ BOOL CCommonAppUtils::StartTextViewer(CString file)
     CString viewer = GetAppForFile (file, _T(".txt"), _T("open"), false);
     if (viewer.IsEmpty())
     {
-        int ret = (int)ShellExecute(NULL, _T("openas"), file, NULL, NULL, SW_SHOWNORMAL);
-        if (ret <= HINSTANCE_ERROR)
-        {
-            CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-            c += file + _T(" ");
-            LaunchApplication(c, IDS_ERR_TEXTVIEWSTART, false);
-        }
+        viewer = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+        viewer += file;
     }
     return LaunchApplication (viewer, IDS_ERR_TEXTVIEWSTART, false)
         ? TRUE

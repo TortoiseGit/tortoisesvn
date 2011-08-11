@@ -2085,18 +2085,20 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
     // set the file as read-only to tell the app which opens the file that it's only
     // a temporary file and must not be edited.
     SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-    int ret = (int)ShellExecute ( NULL
-        , bOpenWith ? _T("openas") : _T("open")
-        , tempfile.GetWinPathString()
-        , NULL
-        , NULL
-        , SW_SHOWNORMAL);
-
-    if (ret <= HINSTANCE_ERROR)
+    if (bOpenWith)
     {
         CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-        c += tempfile.GetWinPathString() + _T(" ");
+        c += tempfile.GetWinPathString();
         CAppUtils::LaunchApplication(c, NULL, false);
+    }
+    else
+    {
+        ShellExecute ( NULL
+                      , _T("open")
+                      , tempfile.GetWinPathString()
+                      , NULL
+                      , NULL
+                      , SW_SHOWNORMAL);
     }
 }
 
