@@ -322,7 +322,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
             exStyle |= LVS_EX_FULLROWSELECT;
         m_RepoList.SetExtendedStyle(exStyle);
         m_RepoList.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
-        m_RepoList.ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_INITWAIT)));
+        ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_INITWAIT)));
     }
     m_RepoTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
     if (SysInfo::Instance().IsVistaOrLater())
@@ -417,7 +417,7 @@ void CRepositoryBrowser::InitRepo()
     {
         CString sError;
         sError.Format(IDS_ERR_MUSTBEURLORPATH, (LPCTSTR)m_InitialUrl);
-        m_RepoList.ShowText(sError, true);
+        ShowText(sError, true);
         m_InitialUrl.Empty();
         return;
     }
@@ -469,7 +469,7 @@ void CRepositoryBrowser::InitRepo()
     if (m_cancelled)
     {
         m_InitialUrl.Empty();
-        m_RepoList.ShowText(error, true);
+        ShowText(error, true);
         return;
     }
 
@@ -518,7 +518,7 @@ void CRepositoryBrowser::InitRepo()
         if (data == NULL)
         {
             m_InitialUrl.Empty();
-            m_RepoList.ShowText(error, true);
+            ShowText(error, true);
             return;
         }
         else if (m_repository.revision.IsHead())
@@ -781,47 +781,47 @@ void CRepositoryBrowser::OnMouseMove(UINT nFlags, CPoint point)
     if (bDragMode == FALSE)
         return;
 
-    if (!m_bSparseCheckoutMode)
-    {
-        RECT rect, tree, list, treelist, treelistclient;
-        // create an union of the tree and list control rectangle
-        GetDlgItem(IDC_REPOLIST)->GetWindowRect(&list);
-        GetDlgItem(IDC_REPOTREE)->GetWindowRect(&tree);
+    RECT rect, tree, list, treelist, treelistclient;
+    // create an union of the tree and list control rectangle
+    GetDlgItem(IDC_REPOLIST)->GetWindowRect(&list);
+    GetDlgItem(IDC_REPOTREE)->GetWindowRect(&tree);
+    if (m_bSparseCheckoutMode)
+        treelist = tree;
+    else
         UnionRect(&treelist, &tree, &list);
-        treelistclient = treelist;
-        ScreenToClient(&treelistclient);
+    treelistclient = treelist;
+    ScreenToClient(&treelistclient);
 
-        //convert the mouse coordinates relative to the top-left of
-        //the window
-        ClientToScreen(&point);
-        GetClientRect(&rect);
-        ClientToScreen(&rect);
-        point.x -= rect.left;
-        point.y -= treelist.top;
+    //convert the mouse coordinates relative to the top-left of
+    //the window
+    ClientToScreen(&point);
+    GetClientRect(&rect);
+    ClientToScreen(&rect);
+    point.x -= rect.left;
+    point.y -= treelist.top;
 
-        //same for the window coordinates - make them relative to 0,0
-        OffsetRect(&treelist, -treelist.left, -treelist.top);
+    //same for the window coordinates - make them relative to 0,0
+    OffsetRect(&treelist, -treelist.left, -treelist.top);
 
-        if (point.x < treelist.left+REPOBROWSER_CTRL_MIN_WIDTH)
-            point.x = treelist.left+REPOBROWSER_CTRL_MIN_WIDTH;
-        if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH)
-            point.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
+    if (point.x < treelist.left+REPOBROWSER_CTRL_MIN_WIDTH)
+        point.x = treelist.left+REPOBROWSER_CTRL_MIN_WIDTH;
+    if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH)
+        point.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
 
-        if ((nFlags & MK_LBUTTON) && (point.x != oldx))
+    if ((nFlags & MK_LBUTTON) && (point.x != oldx))
+    {
+        CDC * pDC = GetDC();
+
+        if (pDC)
         {
-            CDC * pDC = GetDC();
+            DrawXorBar(pDC, oldx+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
+            DrawXorBar(pDC, point.x+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
 
-            if (pDC)
-            {
-                DrawXorBar(pDC, oldx+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
-                DrawXorBar(pDC, point.x+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
-
-                ReleaseDC(pDC);
-            }
-
-            oldx = point.x;
-            oldy = point.y;
+            ReleaseDC(pDC);
         }
+
+        oldx = point.x;
+        oldy = point.y;
     }
 
     CStandAloneDialogTmpl<CResizableDialog>::OnMouseMove(nFlags, point);
@@ -1020,7 +1020,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
     {
         // if the revision changed, then invalidate everything
         ClearUI();
-        m_RepoList.ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_WAIT)), true);
+        ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_WAIT)), true);
 
         // if the repository root has changed, initialize all data from scratch
         // and clear the project properties we might have loaded previously
@@ -1045,7 +1045,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
         return FALSE;
 
     if (!m_RepoList.HasText())
-        m_RepoList.ShowText(_T(" "), true);
+        ShowText(_T(" "), true);
 
     RefreshNode(hItem);
     m_RepoTree.Expand(hItem, TVE_EXPAND);
@@ -1115,7 +1115,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
 
     if (!pTreeItem->error.IsEmpty() && pTreeItem->children.empty())
     {
-        m_RepoList.ShowText (pTreeItem->error, true);
+        ShowText (pTreeItem->error, true);
     }
     else
     {
@@ -4221,4 +4221,12 @@ int CRepositoryBrowser::SortStrCmp( PCWSTR str1, PCWSTR str2 )
     if (s_bSortLogical)
         return StrCmpLogicalW(str1, str2);
     return StrCmpI(str1, str2);
+}
+
+void CRepositoryBrowser::ShowText( const CString& sText, bool forceupdate /*= false*/ )
+{
+    if (m_bSparseCheckoutMode)
+        m_RepoTree.ShowText(sText, forceupdate);
+    else
+        m_RepoList.ShowText(sText, forceupdate);
 }

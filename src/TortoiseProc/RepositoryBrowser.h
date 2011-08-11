@@ -262,12 +262,14 @@ protected:
     bool CheckAndConfirmPath(const CTSVNPath& path);
     void SaveDividerPosition();
 
+    void ShowText(const CString& sText, bool forceupdate = false);
+
 protected:
     bool                m_bInitDone;
     CRepositoryBar      m_barRepository;
     CRepositoryBarCnr   m_cnrRepositoryBar;
 
-    CTreeCtrl           m_RepoTree;
+    CHintCtrl<CTreeCtrl> m_RepoTree;
     CHintListCtrl       m_RepoList;
 
     SRepositoryInfo     m_repository;
