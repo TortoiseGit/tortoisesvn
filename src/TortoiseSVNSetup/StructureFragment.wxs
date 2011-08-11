@@ -960,7 +960,34 @@
                     <File Id="F__DechenesVistaUnversionedIcon" Name="UnversionedIcon.ico" DiskId="1" Source="..\Resources\Icons\DechenesVista\UnversionedIcon.ico" />
                   </Component>
                 </Directory>
-              
+
+                <Directory Id="D__iconsblip" Name="Blip" >
+                  <Component Id="C__iconsblip" Guid="$(var.GuidIconsBlip)" Win64="$(var.Win64YesNo)">
+                    <File Id="F__BlipConflictIcon" Name="ConflictIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip\ConflictIcon.ico" KeyPath="yes" />
+                    <File Id="F__BlipInSubversionIcon" Name="NormalIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip\NormalIcon.ico" />
+                    <File Id="F__BlipModifiedIcon" Name="ModifiedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip\ModifiedIcon.ico" />
+                    <File Id="F__BlipReadOnlyIcon" Name="ReadOnlyIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip\ReadOnlyIcon.ico" />
+                    <File Id="F__BlipDeletedIcon" Name="DeletedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip\DeletedIcon.ico" />
+                    <File Id="F__BlipLockedIcon" Name="LockedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip\LockedIcon.ico" />
+                    <File Id="F__BlipAddedIcon" Name="AddedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip\AddedIcon.ico" />
+                    <File Id="F__BlipIgnoredIcon" Name="IgnoredIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip\IgnoredIcon.ico" />
+                    <File Id="F__BlipUnversionedIcon" Name="UnversionedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip\UnversionedIcon.ico" />
+                  </Component>
+                </Directory>
+
+                <Directory Id="D__iconsblipclean" Name="BlipClean" >
+                  <Component Id="C__iconsblipclean" Guid="$(var.GuidIconsBlipClean)" Win64="$(var.Win64YesNo)">
+                    <File Id="F__BlipCleanConflictIcon" Name="ConflictIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip Clean\ConflictIcon.ico" KeyPath="yes" />
+                    <File Id="F__BlipCleanInSubversionIcon" Name="NormalIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip Clean\NormalIcon.ico" />
+                    <File Id="F__BlipCleanModifiedIcon" Name="ModifiedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip Clean\ModifiedIcon.ico" />
+                    <File Id="F__BlipCleanReadOnlyIcon" Name="ReadOnlyIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip Clean\ReadOnlyIcon.ico" />
+                    <File Id="F__BlipCleanDeletedIcon" Name="DeletedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip Clean\DeletedIcon.ico" />
+                    <File Id="F__BlipCleanLockedIcon" Name="LockedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip Clean\LockedIcon.ico" />
+                    <File Id="F__BlipCleanAddedIcon" Name="AddedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip Clean\AddedIcon.ico" />
+                    <File Id="F__BlipCleanIgnoredIcon" Name="IgnoredIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip Clean\IgnoredIcon.ico" />
+                    <File Id="F__BlipCleanUnversionedIcon" Name="UnversionedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip Clean\UnversionedIcon.ico" />
+                  </Component>
+                </Directory>
               </Directory>
             </Directory>
           </Directory>

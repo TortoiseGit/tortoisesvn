@@ -55,6 +55,8 @@
         <ComponentRef Id="C__iconsfunction" />
         <ComponentRef Id="C__iconsdechenesxp" />
         <ComponentRef Id="C__iconsdechenesvista" />
+        <ComponentRef Id="C__iconsblip" />
+        <ComponentRef Id="C__iconsblipclean" />
       </Feature>
 
       <Feature Id="CLI" Level="200" Title="command line client tools" Description="The svn command line client tools" TypicalDefault="install" Absent="allow">
