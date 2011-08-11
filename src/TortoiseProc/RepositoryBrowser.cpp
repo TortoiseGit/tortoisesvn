@@ -256,7 +256,8 @@ BOOL CRepositoryBrowser::OnInitDialog()
     m_hAccel = LoadAccelerators(AfxGetResourceHandle(),MAKEINTRESOURCE(IDR_ACC_REPOBROWSER));
 
     m_nExternalOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EXTERNALOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
-    SYS_IMAGE_LIST().SetOverlayImage(m_nExternalOvl, OVERLAY_EXTERNAL);
+    if (m_nExternalOvl >= 0)
+        SYS_IMAGE_LIST().SetOverlayImage(m_nExternalOvl, OVERLAY_EXTERNAL);
 
     m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
     m_barRepository.Create(&m_cnrRepositoryBar, 12345);
