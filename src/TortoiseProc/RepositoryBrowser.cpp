@@ -411,6 +411,15 @@ void CRepositoryBrowser::InitRepo()
         m_InitialUrl = m_InitialUrl.Left(questionMarkIndex);
     }
 
+    if (!svn_dirent_is_absolute(CUnicodeUtils::GetUTF8(m_InitialUrl)) &&
+        !svn_path_is_url(CUnicodeUtils::GetUTF8(m_InitialUrl)))
+    {
+        CString sError;
+        sError.Format(IDS_ERR_MUSTBEURLORPATH, (LPCTSTR)m_InitialUrl);
+        m_RepoList.ShowText(sError, true);
+        m_InitialUrl.Empty();
+        return;
+    }
     m_repository.root
         = CPathUtils::PathUnescape(GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), true, m_repository.uuid));
 
