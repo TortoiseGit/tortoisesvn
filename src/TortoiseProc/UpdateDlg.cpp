@@ -84,6 +84,8 @@ BOOL CUpdateDlg::OnInitDialog()
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_wcPath.GetUIPathString(), sWindowTitle);
 
+    DialogEnableWindow(IDC_SPARSE, m_wcPath.Exists());
+
     GetDlgItem(IDC_REVNUM)->SetFocus();
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
