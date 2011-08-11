@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,16 +131,12 @@ bool EditFileCommand::Edit()
         = CAppUtils::GetAppForFile ( path.GetWinPathString()
                                    , _T("")
                                    , _T("edit")
-                                   , true);
-
+                                   , true );
     if (cmdLine.IsEmpty())
     {
-        int ret = (int)ShellExecute(NULL, _T("openas"), path.GetWinPath(), NULL, NULL, SW_SHOWNORMAL);
-        if (ret <= HINSTANCE_ERROR)
+        if (CAppUtils::FileOpenSave(cmdLine, NULL, IDS_REPOBROWSE_OPEN, IDS_PROGRAMSFILEFILTER, true, FindParentWindow(NULL)))
         {
-            CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-            c += path.GetWinPathString() + _T(" ");
-            CAppUtils::LaunchApplication(c, NULL, false);
+            cmdLine = cmdLine + L" \"" + path.GetWinPathString() + L"\"";
         }
     }
 
