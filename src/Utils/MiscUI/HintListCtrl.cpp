@@ -20,10 +20,10 @@
 #include "stdafx.h"
 #include "HintListCtrl.h"
 
-//BEGIN_MESSAGE_MAP(CHintListCtrl, CHintCtrl<CListCtrl>)
-//    ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, &CHintListCtrl::OnToolTipText)
-//    ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, &CHintListCtrl::OnToolTipText)
-//END_MESSAGE_MAP()
+BEGIN_MESSAGE_MAP(CHintListCtrl, CHintCtrl<CListCtrl>)
+    ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, &CHintListCtrl::OnToolTipText)
+    ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, &CHintListCtrl::OnToolTipText)
+END_MESSAGE_MAP()
 
 IMPLEMENT_DYNAMIC(CHintListCtrl, CHintCtrl<CListCtrl>)
 

@@ -42,7 +42,7 @@ public:
     DECLARE_DYNAMIC(CHintListCtrl)
 
 protected:
-    //DECLARE_MESSAGE_MAP()
+    DECLARE_MESSAGE_MAP()
     virtual afx_msg BOOL OnToolTipText(UINT id, NMHDR * pNMHDR, LRESULT * pResult);
     virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO * pTI) const;
 
