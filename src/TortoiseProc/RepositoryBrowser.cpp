@@ -660,41 +660,47 @@ void CRepositoryBrowser::OnOK()
         m_updateDepths.clear();
         HTREEITEM hRoot = m_RepoTree.GetRootItem();
         CheckoutDepthForItem(hRoot);
-        // now go through the whole list and remove all children of items that have infinity depth
-        for (std::map<CString,svn_depth_t>::iterator it = m_checkoutDepths.begin(); it != m_checkoutDepths.end(); ++it)
+        if (m_checkoutDepths.size())
         {
-            if (it->second == svn_depth_infinity)
+            // now go through the whole list and remove all children of items that have infinity depth
+            for (std::map<CString,svn_depth_t>::iterator it = m_checkoutDepths.begin(); it != m_checkoutDepths.end(); ++it)
             {
-                for (std::map<CString,svn_depth_t>::iterator it2 = m_checkoutDepths.begin(); it2 != m_checkoutDepths.end(); ++it2)
+                if (it->second == svn_depth_infinity)
                 {
-                    if (it->first.Compare(it2->first)==0)
-                        continue;
-
-                    CString url1 = it->first + L"/";
-                    if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
+                    for (std::map<CString,svn_depth_t>::iterator it2 = m_checkoutDepths.begin(); it2 != m_checkoutDepths.end(); ++it2)
                     {
-                        std::map<CString,svn_depth_t>::iterator kill = it2;
-                        --it2;
-                        m_checkoutDepths.erase(kill);
+                        if (it->first.Compare(it2->first)==0)
+                            continue;
+
+                        CString url1 = it->first + L"/";
+                        if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
+                        {
+                            std::map<CString,svn_depth_t>::iterator kill = it2;
+                            --it2;
+                            m_checkoutDepths.erase(kill);
+                        }
                     }
                 }
             }
         }
-        for (std::map<CString,svn_depth_t>::iterator it = m_updateDepths.begin(); it != m_updateDepths.end(); ++it)
+        if (m_updateDepths.size())
         {
-            if (it->second == svn_depth_infinity)
+            for (std::map<CString,svn_depth_t>::iterator it = m_updateDepths.begin(); it != m_updateDepths.end(); ++it)
             {
-                for (std::map<CString,svn_depth_t>::iterator it2 = m_updateDepths.begin(); it2 != m_updateDepths.end(); ++it2)
+                if (it->second == svn_depth_infinity)
                 {
-                    if (it->first.Compare(it2->first)==0)
-                        continue;
-
-                    CString url1 = it->first + L"/";
-                    if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
+                    for (std::map<CString,svn_depth_t>::iterator it2 = m_updateDepths.begin(); it2 != m_updateDepths.end(); ++it2)
                     {
-                        std::map<CString,svn_depth_t>::iterator kill = it2;
-                        --it2;
-                        m_updateDepths.erase(kill);
+                        if (it->first.Compare(it2->first)==0)
+                            continue;
+
+                        CString url1 = it->first + L"/";
+                        if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
+                        {
+                            std::map<CString,svn_depth_t>::iterator kill = it2;
+                            --it2;
+                            m_updateDepths.erase(kill);
+                        }
                     }
                 }
             }
