@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-08 00:34+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-08-11 21:01+0000\n"
+"Last-Translator: mikkele <mikkel@elmholdt.dk>\n"
 "Language-Team: Danish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -322,6 +322,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
+"%s\n"
+"Vil du fjerne filen '%s' alligevel?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -526,7 +528,7 @@ msgstr "&Vælg kommandoer fra:"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
-msgstr ""
+msgstr "&Vælg elementer..."
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
@@ -534,7 +536,7 @@ msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
-msgstr ""
+msgstr "&Ryd op..."
 
 #. Resource IDs: (58112)
 msgid "&Close"
@@ -807,7 +809,7 @@ msgstr "&Ignorer %d emner efter navn"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "&Ignorer nedarvning"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1500,7 +1502,7 @@ msgstr "(ikke fundet)"
 
 #. Resource IDs: (176)
 msgid "(properties only)"
-msgstr ""
+msgstr "(kun egenskaber)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -1508,7 +1510,7 @@ msgstr "(kun ændring af egenskab)"
 
 #. Resource IDs: (176)
 msgid "(props and content)"
-msgstr ""
+msgstr "(egenskaber og indhold)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -1792,6 +1794,8 @@ msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"Tilføj element\n"
+"Dette vil give problemer på Windows."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -2455,18 +2459,24 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"Fortryd\n"
+"Arkiver ikke til et mærke."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "Do not remove"
 msgstr ""
+"Fortryd\n"
+"Fjern ikke"
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"Fortryd\n"
+"Gå ikke tilbage."
 
 #. Resource IDs: (90)
 msgid ""
@@ -2497,6 +2507,8 @@ msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"Fortryd\n"
+"Gå tilbage og indtast et emne-nummer."
 
 #. Resource IDs: (90)
 msgid ""
@@ -2509,6 +2521,8 @@ msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"Fortryd\n"
+"Jeg vil indtaste en anden sti/URL."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2521,6 +2535,8 @@ msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"Fortryd\n"
+"Behold den nuværende URL."
 
 #. Resource IDs: (314)
 msgid ""
@@ -2575,12 +2591,16 @@ msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"Fortryd\n"
+"Elementerne er ikke importeret."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"Fortryd\n"
+"Elementerne er ikke blevet flyttet."
 
 #. Resource IDs: (589)
 msgid ""
@@ -2599,12 +2619,16 @@ msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"Fortryd\n"
+"Du må tilføje folderen manuelt."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"Fortryd\n"
+"behold det nuværende format."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2827,7 +2851,7 @@ msgstr "Vælg emne:"
 
 #. Resource IDs: (1606)
 msgid "Choose items..."
-msgstr ""
+msgstr "Vælg elementer..."
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
@@ -2844,7 +2868,7 @@ msgstr ""
 
 #. Resource IDs: (329)
 msgid "Cleanup"
-msgstr ""
+msgstr "Oprydning"
 
 #. Resource IDs: (83)
 #, c-format
@@ -3050,6 +3074,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"Arkiver kun folderen\n"
+"Filer inden i folderen vil ikke blive arkiveret."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3064,6 +3090,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"Arkiver\n"
+"Arkiver ændringerne til kilden."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -3431,7 +3459,7 @@ msgstr "Kunne ikke oprette %1, fordi mappen er fyldt op."
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr ""
+msgstr "Kunne ikke oprette midlertidig folder!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3983,7 +4011,7 @@ msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
-msgstr ""
+msgstr "Ekspander ikke nøgleord"
 
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
@@ -3991,11 +4019,11 @@ msgstr "Vis ikke højrekliksmenuer for følgende stier:"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
-msgstr ""
+msgstr "Gør dette for alle eksisterende filer"
 
 #. Resource IDs: (91)
 msgid "Do this for all existing folders"
-msgstr ""
+msgstr "Gør dette for alle eksisterende foldere"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
@@ -4007,7 +4035,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr ""
+msgstr "Gør dette for alle valgte uversionerede foldere"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4120,7 +4148,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "Spørg mig ikke igen"
 
 #. Resource IDs: (94)
 msgid ""
@@ -4308,7 +4336,7 @@ msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
-msgstr ""
+msgstr "Aktiver auto-egenskaber"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4733,7 +4761,7 @@ msgstr "Fil"
 
 #. Resource IDs: (90)
 msgid "File already exists"
-msgstr ""
+msgstr "Filen eksisterer allerede"
 
 #. Resource IDs: (247)
 #, c-format
@@ -4984,7 +5012,7 @@ msgstr "Tving"
 
 #. Resource IDs: (147)
 msgid "Force removal"
-msgstr ""
+msgstr "Gennemtving fjernelse"
 
 #. Resource IDs: (1064)
 msgid "Forward"
@@ -5206,7 +5234,7 @@ msgstr "Skjul &slettede stier"
 
 #. Resource IDs: (1562)
 msgid "Hide Menus for unversioned paths"
-msgstr ""
+msgstr "Skjul menuer for uversionerede stier"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -5226,7 +5254,7 @@ msgstr "Skjul fastgjort vindue"
 
 #. Resource IDs: (1562)
 msgid "Hide non-mergeable revisions"
-msgstr ""
+msgstr "Skjul ikke-fletbare revisioner"
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
@@ -5415,7 +5443,7 @@ msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
-msgstr ""
+msgstr "ID:32883:V C +A"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5437,7 +5465,7 @@ msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57634; ''
 msgid "ID:57634:V CS+C"
-msgstr ""
+msgstr "ID:57634:V CS+C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
@@ -6162,7 +6190,7 @@ msgstr "Lokationsbar"
 
 #. Resource IDs: (65535)
 msgid "Locator bar"
-msgstr ""
+msgstr "Lokationsbar"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -6256,7 +6284,7 @@ msgstr "Logbesked"
 
 #. Resource IDs: (173)
 msgid "Log message is too short!"
-msgstr ""
+msgstr "Log besked er for kort!"
 
 #. Resource IDs: (65535)
 msgid "Log messages"
@@ -6404,7 +6432,7 @@ msgstr "Flet alle"
 
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
-msgstr ""
+msgstr "Flet ændringer ind i arbejdskopien"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -6564,7 +6592,7 @@ msgstr "Ændringsdato"
 
 #. Resource IDs: (315)
 msgid "Modifications detected"
-msgstr ""
+msgstr "Ændringer detekteret"
 
 #. Resource IDs: (74, 264, 65535)
 msgid "Modified"
@@ -6946,7 +6974,7 @@ msgstr "Ikke-rekursivt"
 
 #. Resource IDs: (265)
 msgid "Not under version control"
-msgstr ""
+msgstr "Ikke under versionskontrol"
 
 #. Resource IDs: (3887)
 msgid ""
@@ -7880,7 +7908,7 @@ msgstr "Rekursivt"
 
 #. Resource IDs: (589)
 msgid "Recursive operation"
-msgstr ""
+msgstr "Rekursiv operation"
 
 #. Resource IDs: (589)
 msgid ""
@@ -8558,7 +8586,7 @@ msgstr "Række Op"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
-msgstr ""
+msgstr "Foretag oprydning &nu"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -8674,7 +8702,7 @@ msgstr ""
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
-msgstr ""
+msgstr "Eksempel tekst:"
 
 #. Resource IDs: (57604)
 msgid "Save &As..."
@@ -8713,7 +8741,7 @@ msgstr "Gem i Git format"
 
 #. Resource IDs: (314)
 msgid "Save modifications."
-msgstr ""
+msgstr "Gem ændringer"
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -9578,6 +9606,20 @@ msgid ""
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
+"Del-streng filter:\n"
+"* Specificer en eller flere strenge, adskilt af mellemrum. Alle del-strenge skal matche.\n"
+"* Placer et '-' tegn foran en del-streng for at udelukke revisioner med denne del-streng.\n"
+"* Placer et '+' tegn foran en del-streng for at inkludere revisioner som måske ellers ikke matcher dette filter.\n"
+"* Omgiv strenge der indeholder mellemrum med \".\n"
+"* Placer et '!' tegn foran en linie for at invertere hele filter betingelsen.\n"
+"\n"
+"Eksempler:\n"
+"mitname  2008    : mine commits fra 2008\n"
+".h  -.cpp              : commits som ændrede headerfiler men ikke implementationsfiler\n"
+".doc +.xls 2010    : commits fra 2010 indeholdende .doc eller .xls filer.\n"
+"\" \"                        : commits med mellemrum (f.eks. når man søger i stier)\n"
+"-\"\"show all\"\"        : commits som ikke indeholder strengen '\"show all\"'\n"
+"!mitname  .cpp    : alt undtagen mine commits til .cpp filer"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -9663,7 +9705,7 @@ msgstr ""
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
-msgstr ""
+msgstr "Subversion rapporterede en fejl"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9675,7 +9717,7 @@ msgstr "S&kift arbejdskopi til ny gren/mærke"
 
 #. Resource IDs: (78)
 msgid "Switch"
-msgstr ""
+msgstr "Skift"
 
 #. Resource IDs: (229)
 #, c-format
@@ -10570,6 +10612,8 @@ msgid ""
 "This product includes software from Apache™ Subversion® "
 "(http://subversion.apache.org)"
 msgstr ""
+"Dette produkt indeholder software fre Apache™ Subversion® "
+"(http://subversion.apache.org)"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -11132,7 +11176,7 @@ msgstr "Opdaterer arbejdskopien til den nyeste revision"
 
 #. Resource IDs: (265)
 msgid "Updating"
-msgstr ""
+msgstr "Opdaterer"
 
 #. Resource IDs: (226)
 #, c-format
@@ -11499,6 +11543,8 @@ msgid ""
 "When activated, hold down the SHIFT key when right-clicking to get the "
 "TortoiseSVN menus added to the context menu"
 msgstr ""
+"Hvis aktiveret, hold SHIFT-tasten nede mens der højre-klikkes for at få "
+"TortoiseSVN menuer tilføjet til context menuen"
 
 #. Resource IDs: (344)
 msgid ""
@@ -12392,6 +12438,18 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
+"svn:externals\n"
+"En linjesepareret liste af modulspecifikationer, hver indeholdende\n"
+"en relativ mappesti, eventuelle revisionargumenter, og en URL. Eksempel:\n"
+"http://eksempel.dk/arkiv/zig foo\n"
+"-r 1234 http://eksempel.dk/arkiv/zag foo/bar\n"
+"\n"
+"URL'erne kan enten være fulde URL'er eller relative. Formatet for\n"
+"relative URL'er er:\n"
+"../ relativt til mappen med svn:externals-egenskaben\n"
+"^/ relativt til versionsarkivroden\n"
+"// relativt til URL-opbygningen\n"
+"/ relativt til serverens værtsnavn"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12589,6 +12647,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for branch/tags/copies for users to fill in."
 msgstr ""
+"tsvn:logtemplatebranch:\n"
+"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\n"
+"Benyt denne funktion til at lave skabeloner til logbeskeder for sidegrene/mærker/kopier."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12596,6 +12657,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for commits for users to fill in."
 msgstr ""
+"tsvn:logtemplatecommit:\n"
+"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\n"
+"Benyt denne funktion til at lave skabeloner til logbeskeder for arkiveringer."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12638,6 +12702,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
 msgstr ""
+"tsvn:logtemplatepropset:\n"
+"Angiver en streng, som indsættes i logbesked-tekstfeltet i arkiveringsdialogen.\n"
+"Benyt denne funktion til at lave skabeloner til logbeskeder for ændringer til egenskaber."
 
 #. Resource IDs: (578)
 msgid ""
@@ -12690,7 +12757,7 @@ msgstr ""
 #. Resource IDs: (104)
 #, c-format
 msgid "url: %1!s!"
-msgstr ""
+msgstr "url: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

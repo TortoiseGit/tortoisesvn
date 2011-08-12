@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-07-27 00:18+0000\n"
+"PO-Revision-Date: 2011-08-11 00:08+0000\n"
 "Last-Translator: omixen <omixen@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -18692,6 +18692,10 @@ msgid "/path2"
 msgstr "/path2"
 
 #. (option)
+msgid "/pegrevision:xxx"
+msgstr ""
+
+#. (option)
 msgid "/blame"
 msgstr "/blame"
 
@@ -18706,10 +18710,11 @@ msgid ""
 " set, then the diff program is started with those two files. If "
 "<placeholder-3/> is omitted, then the diff is done between the file in "
 "<placeholder-4/> and its BASE. To explicitly set the revision numbers use "
-"<placeholder-5/> and <placeholder-6/>. If <placeholder-7/> is set and "
-"<placeholder-8/> is not set, then the diff is done by first blaming the "
-"files with the given revisions. The parameter <placeholder-9/> specifies the"
-" line to jump to when the diff is shown."
+"<placeholder-5/> and <placeholder-6/>, and for the optional peg revision use"
+" <placeholder-7/>. If <placeholder-8/> is set and <placeholder-9/> is not "
+"set, then the diff is done by first blaming the files with the given "
+"revisions. The parameter <placeholder-10/> specifies the line to jump to "
+"when the diff is shown."
 msgstr ""
 
 #. (para)
