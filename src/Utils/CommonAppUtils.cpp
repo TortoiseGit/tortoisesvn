@@ -642,7 +642,18 @@ bool CCommonAppUtils::AddClipboardUrlToWindow( HWND hWnd )
             GlobalUnlock(hglb);
 
             sUrl.Trim();
-            if (PathIsURL(sUrl))
+            CString sLowerCaseUrl = sUrl;
+            sLowerCaseUrl.MakeLower();
+            // check for illegal chars: they might be allowed in a regular url, e.g. '?',
+            // but not in an url to an svn repository!
+            if (sLowerCaseUrl.FindOneOf(L"\n\r?;=+$,<>#") >= 0)
+                return false;
+
+            if ((sLowerCaseUrl.Find(L"http://")==0) ||
+                (sLowerCaseUrl.Find(L"https://")==0) ||
+                (sLowerCaseUrl.Find(L"svn://")==0) ||
+                (sLowerCaseUrl.Find(L"svn+ssh://")==0) ||
+                (sLowerCaseUrl.Find(L"file://")==0))
             {
                 ::SetWindowText(hWnd, (LPCTSTR)sUrl);
                 return true;
