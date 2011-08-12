@@ -1055,7 +1055,7 @@ void CLogDlg::OnLogCancel()
     if ((temp.Compare(temp2)==0) && !GetDlgItem(IDOK)->IsWindowVisible())
         return;
 
-    // we actually want to close the dialoag.
+    // we actually want to close the dialog.
 
     OnCancel();
 }
@@ -1068,7 +1068,7 @@ void CLogDlg::OnCancel()
     m_bCancelled = true;
 
     // We want to close the dialog -> give the background threads some time 
-    // to actually finish. Otherwise, we might not save the lastest data.
+    // to actually finish. Otherwise, we might not save the latest data.
 
     bool threadsStillRunning
         =    !netScheduler.WaitForEmptyQueueOrTimeout(5000)
@@ -1779,10 +1779,13 @@ void CLogDlg::OnOK()
 {
     // since the log dialog is also used to select revisions for other
     // dialogs, we have to do some work before closing this dialog
-    if ((GetDlgItem(IDOK)->IsWindowVisible()) && (GetFocus() != GetDlgItem(IDOK)))
-        return; // if the "OK" button doesn't have the focus, do nothing: this prevents closing the dialog when pressing enter
-    if (!GetDlgItem(IDOK)->IsWindowVisible() && GetFocus() != GetDlgItem(IDC_LOGCANCEL))
-        return; // the Cancel button works as the OK button. But if the cancel button has not the focus, do nothing.
+    if ((GetKeyState(VK_MENU)&0x8000) == 0) // if the ALT key is pressed, we get here because of an accelerator
+    {
+        if ((GetDlgItem(IDOK)->IsWindowVisible()) && (GetFocus() != GetDlgItem(IDOK)))
+            return; // if the "OK" button doesn't have the focus, do nothing: this prevents closing the dialog when pressing enter
+        if (!GetDlgItem(IDOK)->IsWindowVisible() && GetFocus() != GetDlgItem(IDC_LOGCANCEL))
+            return; // the Cancel button works as the OK button. But if the cancel button has not the focus, do nothing.
+    }
 
     m_bCancelled = true;
     if (   !netScheduler.WaitForEmptyQueueOrTimeout(0)

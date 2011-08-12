@@ -1329,8 +1329,11 @@ void CSVNProgressDlg::OnClose()
 
 void CSVNProgressDlg::OnOK()
 {
-    if (GetFocus() != GetDlgItem(IDOK))
-        return; // if the "OK" button doesn't have the focus, do nothing: this prevents closing the dialog when pressing enter
+    if ((GetKeyState(VK_MENU)&0x8000) == 0) // if the ALT key is pressed, we get here because of an accelerator
+    {
+        if (GetFocus() != GetDlgItem(IDOK))
+            return; // if the "OK" button doesn't have the focus, do nothing: this prevents closing the dialog when pressing enter
+    }
     if ((m_bCancelled)&&(!m_bThreadRunning))
     {
         // I have made this wait a sensible amount of time (10 seconds) for the thread to finish
