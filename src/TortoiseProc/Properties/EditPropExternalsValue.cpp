@@ -152,7 +152,15 @@ void CEditPropExternalsValue::OnOK()
     if (m_URL.IsUrl())
         m_External.url = CUnicodeUtils::GetUnicode(m_URL.GetSVNApiPath(pool));
     else
-        m_External.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(m_URL.GetSVNApiPath(pool)));
+    {
+        CStringA url = m_URL.GetSVNApiPath(pool);
+        m_External.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(url));
+        if (url.GetLength() && (url[0] == '^'))
+        {
+            m_External.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(url.Mid(1)));
+            m_External.url = '^' + m_External.url;
+        }
+    }
     if (m_sPegRev.IsEmpty())
         m_External.pegrevision = *SVNRev(_T("HEAD"));
     else
