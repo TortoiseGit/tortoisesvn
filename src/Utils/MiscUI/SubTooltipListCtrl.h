@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "HintCtrl.h"
 
 class IListCtrlTooltipProvider
 {
@@ -27,19 +26,17 @@ public:
 
 /**
  * \ingroup Utils
- * Allows to show a hint text on a list control, basically hiding the list control
- * content. Can be used for example during lengthy operations (showing "please wait")
- * or to indicate why the list control is empty (showing "no data available").
+ * Extends the list control to provide sub-item tooltips.
  */
-class CHintListCtrl : public CHintCtrl<CListCtrl>
+class CSubTooltipListCtrl : public CListCtrl
 {
 public:
-    CHintListCtrl();
-    ~CHintListCtrl();
+    CSubTooltipListCtrl();
+    ~CSubTooltipListCtrl();
 
     void SetTooltipProvider(IListCtrlTooltipProvider * provider) {pProvider = provider;}
 
-    DECLARE_DYNAMIC(CHintListCtrl)
+    DECLARE_DYNAMIC(CSubTooltipListCtrl)
 
 protected:
     DECLARE_MESSAGE_MAP()

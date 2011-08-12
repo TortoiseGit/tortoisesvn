@@ -23,7 +23,7 @@
 #include "TSVNPath.h"
 #include "Blame.h"
 #include "SVN.h"
-#include "HintListCtrl.h"
+#include "HintCtrl.h"
 #include "Colors.h"
 #include "FilterEdit.h"
 #include "Tooltip.h"
@@ -111,7 +111,7 @@ private:
 
     CMFCButton          m_SwitchButton;
     CColors             m_colors;
-    CHintListCtrl       m_cFileList;
+    CHintCtrl<CListCtrl> m_cFileList;
     TCHAR               m_columnbuf[MAX_PATH];
     bool                m_bBlame;
     CBlame              m_blamer;

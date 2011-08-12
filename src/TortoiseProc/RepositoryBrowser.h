@@ -23,7 +23,7 @@
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
 #include "LogDialog\LogDlg.h"
-#include "HintListCtrl.h"
+#include "HintCtrl.h"
 #include "RepositoryLister.h"
 
 #define REPOBROWSER_CTRL_MIN_WIDTH  20
@@ -270,7 +270,7 @@ protected:
     CRepositoryBarCnr   m_cnrRepositoryBar;
 
     CHintCtrl<CTreeCtrl> m_RepoTree;
-    CHintListCtrl       m_RepoList;
+    CHintCtrl<CListCtrl> m_RepoList;
 
     SRepositoryInfo     m_repository;
 

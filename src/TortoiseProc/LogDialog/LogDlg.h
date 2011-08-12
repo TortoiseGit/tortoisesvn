@@ -31,7 +31,8 @@
 #include "LogDlgFilter.h"
 #include "SVNRev.h"
 #include "Tooltip.h"
-#include "HintListCtrl.h"
+#include "SubTooltipListCtrl.h"
+#include "HintCtrl.h"
 #include "JobScheduler.h"
 #include "ListViewAccServer.h"
 #include "Win7.h"
@@ -205,7 +206,7 @@ private:
     virtual CString GetToolTipText(int nItem, int nSubItem);
     bool DoFindItemLogList(LPNMLVFINDITEM pFindInfo, size_t startIndex, size_t endIndex,
         const CString& whatToFind, LRESULT *pResult);
-	void NotifyTargetOnOk();
+    void NotifyTargetOnOk();
     void CreateFindDialog();
     void DoOpenFileWith(bool bOpenWith, const CTSVNPath& tempfile);
     bool ConfirmRevert(const CString& path, bool bToRev = false);
@@ -227,7 +228,7 @@ private:
     CString             m_sRepositoryRoot;
     CString             m_sURL;
     CString             m_sUUID;    ///< empty if the log cache is not used
-    CHintListCtrl       m_LogList;
+    CHintCtrl<CSubTooltipListCtrl> m_LogList;
     CListCtrl           m_ChangedFileListCtrl;
     CFilterEdit         m_cFilter;
     CLogDlgFilter       m_filter;

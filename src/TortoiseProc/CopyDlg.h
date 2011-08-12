@@ -28,7 +28,7 @@
 #include "Tooltip.h"
 #include "PathEdit.h"
 #include "SVNExternals.h"
-#include "HintListCtrl.h"
+#include "HintCtrl.h"
 #include "LinkControl.h"
 #include "BugTraqAssociations.h"
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
@@ -112,7 +112,7 @@ private:
     CToolTips       m_tooltips;
     CPathEdit       m_FromUrl;
     CPathEdit       m_DestUrl;
-    CHintListCtrl   m_ExtList;
+    CHintCtrl<CListCtrl> m_ExtList;
     TCHAR           m_columnbuf[MAX_PATH];
     CBugTraqAssociation m_bugtraq_association;
     CComPtr<IBugTraqProvider> m_BugTraqProvider;

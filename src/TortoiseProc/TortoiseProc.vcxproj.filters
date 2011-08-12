@@ -299,9 +299,6 @@
     <ClCompile Include="..\Utils\MiscUI\Gradient.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\MiscUI\HintListCtrl.cpp">
-      <Filter>Utils\UI</Filter>
-    </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\HistoryCombo.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
@@ -1070,6 +1067,9 @@
     <ClCompile Include="CleanupDlg.cpp">
       <Filter>Commands\Cleanup</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\SubTooltipListCtrl.cpp">
+      <Filter>Utils\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -1223,9 +1223,6 @@
       <Filter>Utils\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\Gradient.h">
-      <Filter>Utils\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\MiscUI\HintListCtrl.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\HistoryCombo.h">
@@ -2048,6 +2045,9 @@
       <Filter>Commands\Cleanup</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\HintCtrl.h">
+      <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\SubTooltipListCtrl.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
   </ItemGroup>

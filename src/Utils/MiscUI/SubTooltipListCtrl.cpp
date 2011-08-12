@@ -18,25 +18,25 @@
 //
 
 #include "stdafx.h"
-#include "HintListCtrl.h"
+#include "SubTooltipListCtrl.h"
 
-BEGIN_MESSAGE_MAP(CHintListCtrl, CHintCtrl<CListCtrl>)
-    ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, &CHintListCtrl::OnToolTipText)
-    ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, &CHintListCtrl::OnToolTipText)
+BEGIN_MESSAGE_MAP(CSubTooltipListCtrl, CListCtrl)
+    ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTW, 0, 0xFFFF, &CSubTooltipListCtrl::OnToolTipText)
+    ON_NOTIFY_EX_RANGE(TTN_NEEDTEXTA, 0, 0xFFFF, &CSubTooltipListCtrl::OnToolTipText)
 END_MESSAGE_MAP()
 
-IMPLEMENT_DYNAMIC(CHintListCtrl, CHintCtrl<CListCtrl>)
+IMPLEMENT_DYNAMIC(CSubTooltipListCtrl, CListCtrl)
 
-CHintListCtrl::CHintListCtrl() : CHintCtrl<CListCtrl>()
+CSubTooltipListCtrl::CSubTooltipListCtrl() : CListCtrl()
     , pProvider(NULL)
 {
 }
 
-CHintListCtrl::~CHintListCtrl()
+CSubTooltipListCtrl::~CSubTooltipListCtrl()
 {
 }
 
-INT_PTR CHintListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const
+INT_PTR CSubTooltipListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const
 {
     if (pProvider == NULL)
         return -1;
@@ -81,7 +81,7 @@ INT_PTR CHintListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const
     }
 }
 
-BOOL CHintListCtrl::OnToolTipText(UINT /*id*/, NMHDR * pNMHDR, LRESULT * pResult)
+BOOL CSubTooltipListCtrl::OnToolTipText(UINT /*id*/, NMHDR * pNMHDR, LRESULT * pResult)
 {
     if (pProvider == NULL)
         return FALSE;

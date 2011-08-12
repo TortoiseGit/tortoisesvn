@@ -267,6 +267,7 @@
     <ClCompile Include="..\Utils\MiscUI\FileDlgEventHandler.cpp" />
     <ClCompile Include="..\Utils\MiscUI\MessageBox.cpp" />
     <ClCompile Include="..\Utils\MiscUI\RegexEdit.cpp" />
+    <ClCompile Include="..\Utils\MiscUI\SubTooltipListCtrl.cpp" />
     <ClCompile Include="..\Utils\MiscUI\SVG.cpp" />
     <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp" />
     <ClCompile Include="..\Utils\ReaderWriterLock.cpp" />
@@ -324,7 +325,6 @@
     <ClCompile Include="..\Utils\MiscUI\FileDropEdit.cpp" />
     <ClCompile Include="..\Utils\MiscUI\FilterEdit.cpp" />
     <ClCompile Include="..\Utils\MiscUI\Gradient.cpp" />
-    <ClCompile Include="..\Utils\MiscUI\HintListCtrl.cpp" />
     <ClCompile Include="..\Utils\MiscUI\HistoryCombo.cpp" />
     <ClCompile Include="..\Utils\MiscUI\HyperLink.cpp" />
     <ClCompile Include="..\Utils\MiscUI\IconBitmapUtils.cpp" />
@@ -754,6 +754,7 @@
     <ClInclude Include="..\Utils\MiscUI\HintCtrl.h" />
     <ClInclude Include="..\Utils\MiscUI\MessageBox.h" />
     <ClInclude Include="..\Utils\MiscUI\RegexEdit.h" />
+    <ClInclude Include="..\Utils\MiscUI\SubTooltipListCtrl.h" />
     <ClInclude Include="..\Utils\MiscUI\SVG.h" />
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h" />
     <ClInclude Include="..\Utils\MiscUI\XMessageBox.h" />
@@ -815,7 +816,6 @@
     <ClInclude Include="..\Utils\MiscUI\FileDropEdit.h" />
     <ClInclude Include="..\Utils\MiscUI\FilterEdit.h" />
     <ClInclude Include="..\Utils\MiscUI\Gradient.h" />
-    <ClInclude Include="..\Utils\MiscUI\HintListCtrl.h" />
     <ClInclude Include="..\Utils\MiscUI\HistoryCombo.h" />
     <ClInclude Include="..\Utils\MiscUI\HyperLink.h" />
     <ClInclude Include="..\Utils\MiscUI\IconBitmapUtils.h" />
