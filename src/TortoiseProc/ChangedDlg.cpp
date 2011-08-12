@@ -348,6 +348,9 @@ BOOL CChangedDlg::PreTranslateMessage(MSG* pMsg)
                 OnBnClickedRefresh();
             }
             break;
+        case VK_RETURN:
+            if(OnEnterPressed())
+                return TRUE;
         }
     }
 
