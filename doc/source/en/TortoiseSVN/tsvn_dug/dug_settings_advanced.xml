@@ -178,6 +178,84 @@
             </listitem>
         </varlistentry>
         <varlistentry>
+            <term condition="pot">GroupTaskbarIconsPerRepo</term>
+            <listitem>
+                <para>
+                    This option determines how the Win7 taskbar icons of the various
+                    TortoiseSVN dialogs and windows are grouped together. This
+                    option has no effect on Windows XP or Vista!
+                </para>
+                <para>
+                    <orderedlist>
+                        <listitem>
+                            <para>
+                                The default value is 0. With this setting, the
+                                icons are grouped together by application type.
+                                All dialogs from TortoiseSVN are grouped together,
+                                all windows from TortoiseMerge are grouped together, ...
+                                <figure id="tsvn-dug-settings-registry-task0-1">
+                                    <title>Taskbar with default grouping</title>
+                                    <graphic fileref="../images/TaskbarGroup0.png"/>
+                                </figure>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                If set to 1, then instead of all dialogs in one
+                                single group per applicaton, they're grouped
+                                together by repository. For example, if you have
+                                a log dialog and a commit dialog open for repository
+                                <literal>A</literal>, and a check-for-modifications
+                                dialog and a log dialog for repository <literal>B</literal>,
+                                then there are two application icon groups shown
+                                in the Win7 taskbar, one group for each repository.
+                                But TortoiseMerge windows are not grouped together
+                                with TortoiseSVN dialogs.
+                                <figure id="tsvn-dug-settings-registry-task1-1">
+                                    <title>Taskbar with repository grouping</title>
+                                    <graphic fileref="../images/TaskbarGroup1.png"/>
+                                </figure>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                If set to 2, then the grouping works as with
+                                the setting set to 1, except that TortoiseSVN, TortoiseMerge,
+                                TortoiseBlame, TortoiseIDiff and TortoiseUDiff windows
+                                are all grouped together. For example, if you have
+                                the commit dialog open and then doubleclick on
+                                a modified file, the opened TortoiseMerge diff window
+                                will be put in the same icon group on the taskbar
+                                as the commit dialog icon.
+                                <figure id="tsvn-dug-settings-registry-task2-1">
+                                    <title>Taskbar with repository grouping</title>
+                                    <graphic fileref="../images/TaskbarGroup2.png"/>
+                                </figure>
+                            </para>
+                        </listitem>
+                    </orderedlist>
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">GroupTaskbarIconsPerRepoOverlay</term>
+            <listitem>
+                <para>
+                    This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>
+                    is set to 0 (see above).
+                </para>
+                <para>
+                    If this option is set to <literal>true</literal>, then every
+                    icon on the Win7 taskbar shows a small colored rectangle overlay,
+                    indicating the repository the dialogs/windows are used for.
+                    <figure id="tsvn-dug-settings-registry-overlay-1">
+                        <title>Taskbar grouping with repository color overlays</title>
+                        <graphic fileref="../images/TaskbarGroupOverlay.png"/>
+                    </figure>
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
             <term condition="pot">IncludeExternals</term>
             <listitem>
                 <para>
