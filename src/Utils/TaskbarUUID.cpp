@@ -76,16 +76,26 @@ std::wstring GetTaskIDPerUUID(LPCTSTR uuid /*= NULL */)
     return id;
 }
 
+#ifdef _MFC_VER
+extern CString g_sRepoUUID;
+#endif
+
 void SetUUIDOverlayIcon( HWND hWnd )
 {
     if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), FALSE))
     {
         if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepoOverlay"), FALSE))
         {
+            std::wstring uuid;
+#ifdef _MFC_VER
+            uuid = g_sRepoUUID;
+#else
             CCmdLineParser parser(GetCommandLine());
             if (parser.HasVal(L"repouuid"))
-            {
                 std::wstring uuid = parser.GetVal(L"repouuid");
+#endif
+            if (!uuid.empty())
+            {
                 ITaskbarList3 * pTaskbarInterface = NULL;
                 HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_ITaskbarList3, reinterpret_cast<void**> (&(pTaskbarInterface)));  
 
