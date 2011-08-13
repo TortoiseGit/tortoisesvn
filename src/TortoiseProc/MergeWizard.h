@@ -46,6 +46,7 @@ protected:
     afx_msg void OnPaint();
     afx_msg BOOL OnEraseBkgnd(CDC* pDC);
     afx_msg HCURSOR OnQueryDragIcon();
+    afx_msg LRESULT OnTaskbarButtonCreated(WPARAM wParam, LPARAM lParam);
 
     CMergeWizardStart               page1;
     CMergeWizardTree                tree;

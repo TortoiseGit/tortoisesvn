@@ -21,8 +21,11 @@
 #include "MergeWizard.h"
 #include "SVN.h"
 #include "Registry.h"
+#include "TaskbarUUID.h"
 
 #define BOTTOMMARG 48
+
+const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
 IMPLEMENT_DYNAMIC(CMergeWizard, CResizableSheetEx)
 
@@ -60,6 +63,7 @@ BEGIN_MESSAGE_MAP(CMergeWizard, CResizableSheetEx)
     ON_WM_PAINT()
     ON_WM_QUERYDRAGICON()
     ON_WM_ERASEBKGND()
+    ON_REGISTERED_MESSAGE( TaskBarButtonCreated, OnTaskbarButtonCreated )
 END_MESSAGE_MAP()
 
 
@@ -180,4 +184,10 @@ BOOL CMergeWizard::OnEraseBkgnd(CDC* pDC)
         pDC->FillSolidRect(rc.left, rc.bottom-BOTTOMMARG, rc.right-rc.left, BOTTOMMARG, RGB(0,0,0));
     }
     return TRUE;
+}
+
+LRESULT CMergeWizard::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    SetUUIDOverlayIcon(m_hWnd);
+    return 0;
 }
