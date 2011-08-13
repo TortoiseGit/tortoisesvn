@@ -10,7 +10,7 @@ volatile LONG       g_cRefThisDll = 0;              ///< reference count of this
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 extern "C" int APIENTRY
-DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
+DllMain(HINSTANCE /*hInstance*/, DWORD /*dwReason*/, LPVOID /* lpReserved */)
 {
 #ifdef _DEBUG
     // if no debugger is present, then don't load the dll.
