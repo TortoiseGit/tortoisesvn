@@ -280,6 +280,8 @@ BOOL CTortoiseProcApp::InitInstance()
 
     CTSVNPath cmdLinePath;
     CTSVNPathList pathList;
+    if (g_sRepoUUID.IsEmpty())
+        g_sRepoUUID = parser.GetVal(L"repouuid");
     if ( parser.HasKey(_T("pathfile")) )
     {
         CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
@@ -332,19 +334,7 @@ BOOL CTortoiseProcApp::InitInstance()
                     {
                         if (!sPathArgument.IsEmpty())
                             sPathArgument += '*';
-                        else
-                        {
-                            if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), FALSE))
-                            {
-                                // when started from the win7 library buttons, we don't get the /repouuid:xxx parameter
-                                // passed to us. In that case we have to fetch the uuid (or try to) here,
-                                // otherwise the grouping wouldn't work.
-                                SVN svn;
-                                g_sRepoUUID = svn.GetUUIDFromPath(CTSVNPath(szArglist[i]));
-                            }
-                        }
                         sPathArgument += szArglist[i];
-
                     }
                 }
                 sPathArgument.Replace(L"\\\\", L"\\");
@@ -359,10 +349,16 @@ BOOL CTortoiseProcApp::InitInstance()
         int asterisk = sPathArgument.Find('*');
         cmdLinePath.SetFromUnknown(asterisk >= 0 ? sPathArgument.Left(asterisk) : sPathArgument);
         pathList.LoadFromAsteriskSeparatedString(sPathArgument);
+        if (g_sRepoUUID.IsEmpty() && !cmdLinePath.IsEmpty() && (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), FALSE)))
+        {
+            // when started from the win7 library buttons, we don't get the /repouuid:xxx parameter
+            // passed to us. In that case we have to fetch the uuid (or try to) here,
+            // otherwise the grouping wouldn't work.
+            SVN svn;
+            g_sRepoUUID = svn.GetUUIDFromPath(cmdLinePath);
+        }
     }
 
-    if (g_sRepoUUID.IsEmpty())
-        g_sRepoUUID = parser.GetVal(L"repouuid");
     CString sAppID = GetTaskIDPerUUID(g_sRepoUUID).c_str();
     InitializeJumpList(sAppID);
 
