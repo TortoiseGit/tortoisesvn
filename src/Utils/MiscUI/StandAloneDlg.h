@@ -23,6 +23,7 @@
 #include "AeroGlass.h"
 #include "AeroControls.h"
 #include "CreateProcessHelper.h"
+#include "TaskbarUUID.h"
 #pragma comment(lib, "htmlhelp.lib")
 
 /**
@@ -443,6 +444,11 @@ private:
         BaseType::OnCompositionChanged();
     }
 
+    afx_msg LRESULT OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
+    {
+        SetUUIDOverlayIcon(m_hWnd);
+        return 0;
+    }
     HICON           m_hIcon;
     HICON           m_hBkgndIcon;
     int             m_bkgndIconWidth;

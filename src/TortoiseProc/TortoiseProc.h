@@ -56,8 +56,8 @@ public:
     virtual int ExitInstance();
 
     void CheckUpgrade();
-    void InitializeJumpList();
-    void DoInitializeJumpList();
+    void InitializeJumpList(const CString& appid);
+    void DoInitializeJumpList(const CString& appid);
 
     HWND GetExplorerHWND() { return (::IsWindow(hWndExplorer) ? hWndExplorer : NULL); }
 
@@ -73,6 +73,7 @@ private:
 
 extern CTortoiseProcApp theApp;
 extern CString sOrigCWD;
+extern CString g_sRepoUUID;
 HWND GetExplorerHWND();
 HWND FindParentWindow(HWND hWnd);
 

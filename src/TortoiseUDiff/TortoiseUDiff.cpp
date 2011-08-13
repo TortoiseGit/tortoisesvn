@@ -20,6 +20,7 @@
 #include "TortoiseUDiff.h"
 #include "MainWindow.h"
 #include "CmdLineParser.h"
+#include "TaskbarUUID.h"
 
 #include <commctrl.h>
 #pragma comment(lib, "comctl32.lib")
@@ -37,6 +38,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(nCmdShow);
 
     SetDllDirectory(L"");
+    SetTaskIDPerUUID();
     MSG msg;
     HACCEL hAccelTable;
 

@@ -21,6 +21,9 @@
 #include "UnicodeUtils.h"
 #include "StringUtils.h"
 #include "auto_buffer.h"
+#include "TaskbarUUID.h"
+
+const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
 CMainWindow::CMainWindow(HINSTANCE hInst, const WNDCLASSEX* wcx /* = NULL*/)
     : CWindow(hInst, wcx)
@@ -65,6 +68,10 @@ bool CMainWindow::RegisterAndCreateWindow()
 
 LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+    if (uMsg == TaskBarButtonCreated)
+    {
+        SetUUIDOverlayIcon(hwnd);
+    }
     switch (uMsg)
     {
     case WM_CREATE:

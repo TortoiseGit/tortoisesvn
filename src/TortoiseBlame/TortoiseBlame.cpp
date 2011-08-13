@@ -25,6 +25,7 @@
 #include "CreateProcessHelper.h"
 #include "UnicodeUtils.h"
 #include <ClipboardHelper.h>
+#include "TaskbarUUID.h"
 
 #include <algorithm>
 #include <cctype>
@@ -54,6 +55,7 @@ bool ShowPath = false;
 
 static TortoiseBlame app;
 long TortoiseBlame::m_gotoLine = 0;
+std::wstring        uuid;
 
 TortoiseBlame::TortoiseBlame()
 {
@@ -822,6 +824,12 @@ void TortoiseBlame::BlamePreviousRevision()
         svnCmd += _T(" /ignorespaces");
     if (bIgnoreAllSpaces)
         svnCmd += _T(" /ignoreallspaces");
+    if (!uuid.empty())
+    {
+        svnCmd += L" /repouuid:\"";
+        svnCmd += uuid;
+        svnCmd += L"\"";
+    }
     RunCommand(svnCmd);
 }
 
@@ -849,6 +857,12 @@ void TortoiseBlame::DiffPreviousRevision()
     svnCmd += bufStartRev;
     svnCmd += _T(" /endrev:");
     svnCmd += bufEndRev;
+    if (!uuid.empty())
+    {
+        svnCmd += L" /repouuid:\"";
+        svnCmd += uuid;
+        svnCmd += L"\"";
+    }
     RunCommand(svnCmd);
 }
 
@@ -865,6 +879,12 @@ void TortoiseBlame::ShowLog()
     svnCmd += bufRev;
     svnCmd += _T(" /pegrev:");
     svnCmd += bufRev;
+    if (!uuid.empty())
+    {
+        svnCmd += L" /repouuid:\"";
+        svnCmd += uuid;
+        svnCmd += L"\"";
+    }
     RunCommand(svnCmd);
 }
 
@@ -1351,6 +1371,9 @@ LRESULT CALLBACK    WndHeaderProc(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK    WndLocatorProc(HWND, UINT, WPARAM, LPARAM);
 UINT                uFindReplaceMsg;
 
+//Get the message identifier
+const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
+
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE /*hPrevInstance*/,
                      LPTSTR    lpCmdLine,
@@ -1361,6 +1384,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     SetDllDirectory(L"");
     if (::LoadLibrary(_T("SciLexer.DLL")) == NULL)
         return FALSE;
+
+    SetTaskIDPerUUID();
 
     CRegStdDWORD loc = CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
     long langId = loc;
@@ -1392,6 +1417,10 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     CCmdLineParser parser(lpCmdLine);
 
+    if (parser.HasVal(L"repouuid"))
+    {
+        uuid = parser.GetVal(L"repouuid");
+    }
 
     if (__argc > 1)
     {
@@ -1683,6 +1712,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             app.DoSearch(lpfr->lpstrFindWhat, lpfr->Flags);
         }
         return 0;
+    }
+    if (message == TaskBarButtonCreated)
+    {
+        SetUUIDOverlayIcon(hWnd);
     }
     switch (message)
     {

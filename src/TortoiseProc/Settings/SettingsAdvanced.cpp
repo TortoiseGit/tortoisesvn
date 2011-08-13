@@ -39,6 +39,8 @@ CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] =
     { _T("DialogTitles"), CSettingsAdvanced::SettingTypeNumber, 0 },
     { _T("DiffBlamesWithTortoiseMerge"), CSettingsAdvanced::SettingTypeBoolean, false },
     { _T("FullRowSelect"), CSettingsAdvanced::SettingTypeBoolean, true },
+    { _T("GroupTaskbarIconsPerRepo"), CSettingsAdvanced::SettingTypeNumber, 0 },
+    { _T("GroupTaskbarIconsPerRepoOverlay"), CSettingsAdvanced::SettingTypeBoolean, false },
     { _T("IncludeExternals"), CSettingsAdvanced::SettingTypeBoolean, true },
     { _T("LogFindCopyFrom"), CSettingsAdvanced::SettingTypeBoolean, false },
     { _T("LogStatusCheck"), CSettingsAdvanced::SettingTypeBoolean, true },

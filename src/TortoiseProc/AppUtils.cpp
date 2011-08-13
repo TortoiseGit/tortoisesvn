@@ -106,6 +106,12 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
         com = _T("\"") + com + _T("\"");
         com = com + _T(" /base:%base /theirs:%theirs /mine:%mine /merged:%merged");
         com = com + _T(" /basename:%bname /theirsname:%tname /minename:%yname /mergedname:%mname");
+        if (!g_sRepoUUID.IsEmpty())
+        {
+            com += L" /repouuid:\"";
+            com += g_sRepoUUID;
+            com += L"\"";
+        }
     }
     // check if the params are set. If not, just add the files to the command line
     if ((com.Find(_T("%merged"))<0)&&(com.Find(_T("%base"))<0)&&(com.Find(_T("%theirs"))<0)&&(com.Find(_T("%mine"))<0))
@@ -227,6 +233,12 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
         viewer = viewer + _T(" /patchoriginal:\"") + sOriginalDescription + _T("\"");
     if (!sPatchedDescription.IsEmpty())
         viewer = viewer + _T(" /patchpatched:\"") + sPatchedDescription + _T("\"");
+    if (!g_sRepoUUID.IsEmpty())
+    {
+        viewer += L" /repouuid:\"";
+        viewer += g_sRepoUUID;
+        viewer += L"\"";
+    }
     if(!LaunchApplication(viewer, IDS_ERR_DIFFVIEWSTART, !!bWait))
     {
         return FALSE;
@@ -268,7 +280,8 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
         {
             return
                 _T("\"") + CPathUtils::GetAppDirectory() + _T("TortoiseIDiff.exe") + _T("\"") +
-                _T(" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname");
+                _T(" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname") +
+                L" /repouuid:\"" + g_sRepoUUID + L"\"";
         }
     }
 
@@ -319,6 +332,12 @@ bool CAppUtils::StartExtDiff(
             _T(" /base:%base /mine:%mine /basename:%bname /minename:%yname");
         if (flags.bBlame)
             viewer += _T(" /blame");
+        if (!g_sRepoUUID.IsEmpty())
+        {
+            viewer += L" /repouuid:\"";
+            viewer += g_sRepoUUID;
+            viewer += L"\"";
+        }
     }
     // check if the params are set. If not, just add the files to the command line
     if ((viewer.Find(_T("%base"))<0)&&(viewer.Find(_T("%mine"))<0))
@@ -392,6 +411,12 @@ BOOL CAppUtils::StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2
         viewer += _T("TortoiseMerge.exe");
         viewer = _T("\"") + viewer + _T("\"");
         viewer = viewer + _T(" /base:%base /mine:%mine /basename:%bname /minename:%yname");
+        if (!g_sRepoUUID.IsEmpty())
+        {
+            viewer += L" /repouuid:\"";
+            viewer += g_sRepoUUID;
+            viewer += L"\"";
+        }
     }
     // check if the params are set. If not, just add the files to the command line
     if ((viewer.Find(_T("%base"))<0)&&(viewer.Find(_T("%mine"))<0))
@@ -475,6 +500,12 @@ bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sO
     viewer += _T(" ")+sParams;
     if (startrev.IsValid() && endrev.IsValid())
         viewer += _T(" /revrange:\"") + startrev.ToString() + _T("-") + endrev.ToString() + _T("\"");
+    if (!g_sRepoUUID.IsEmpty())
+    {
+        viewer += L" /repouuid:\"";
+        viewer += g_sRepoUUID;
+        viewer += L"\"";
+    }
 
     return LaunchApplication(viewer, IDS_ERR_EXTDIFFSTART, false);
 }

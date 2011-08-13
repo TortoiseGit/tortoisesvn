@@ -1070,6 +1070,9 @@
     <ClCompile Include="..\Utils\MiscUI\SubTooltipListCtrl.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\TaskbarUUID.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2049,6 +2052,9 @@
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\SubTooltipListCtrl.h">
       <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\TaskbarUUID.h">
+      <Filter>Utils\General</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

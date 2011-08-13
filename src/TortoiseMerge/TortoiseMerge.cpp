@@ -31,6 +31,7 @@
 #include "SelectFileFilter.h"
 #include "FileDlgEventHandler.h"
 #include "TempFile.h"
+#include "TaskbarUUID.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -74,11 +75,14 @@ CTortoiseMergeApp::CTortoiseMergeApp()
 CTortoiseMergeApp theApp;
 CString sOrigCWD;
 CCrashReport g_crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseMerge " APP_X64_STRING " : " STRPRODUCTVER, TRUE);
+CString g_sRepoUUID;
 
 // CTortoiseMergeApp initialization
 BOOL CTortoiseMergeApp::InitInstance()
 {
     SetDllDirectory(L"");
+    SetTaskIDPerUUID();
+
     CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
     CMFCButton::EnableWindowsTheming();
 
@@ -187,6 +191,8 @@ BOOL CTortoiseMergeApp::InitInstance()
     InitKeyboardManager();
 
     CCmdLineParser parser = CCmdLineParser(this->m_lpCmdLine);
+
+    g_sRepoUUID = parser.GetVal(L"repouuid");
 
     if (parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
     {

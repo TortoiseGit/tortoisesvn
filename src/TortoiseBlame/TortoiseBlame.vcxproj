@@ -198,6 +198,7 @@
   <ItemGroup>
     <ClCompile Include="..\Utils\CmdLineParser.cpp" />
     <ClCompile Include="..\Utils\LangDll.cpp" />
+    <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
     <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="..\Utils\Registry.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -213,6 +214,7 @@
     <ClInclude Include="..\Utils\CmdLineParser.h" />
     <ClInclude Include="..\Utils\LangDll.h" />
     <ClInclude Include="..\Utils\registry.h" />
+    <ClInclude Include="..\Utils\TaskbarUUID.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TortoiseBlame.h" />

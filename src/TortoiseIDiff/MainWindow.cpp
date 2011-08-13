@@ -22,6 +22,7 @@
 #include "TortoiseIDiff.h"
 #include "MainWindow.h"
 #include "AboutDlg.h"
+#include "TaskbarUUID.h"
 
 #pragma comment(lib, "comctl32.lib")
 
@@ -30,6 +31,8 @@ tstring CMainWindow::leftpictitle;
 
 tstring CMainWindow::rightpicpath;
 tstring CMainWindow::rightpictitle;
+
+const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
 bool CMainWindow::RegisterAndCreateWindow()
 {
@@ -107,6 +110,10 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = NULL */)
 
 LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+    if (uMsg == TaskBarButtonCreated)
+    {
+        SetUUIDOverlayIcon(hwnd);
+    }
     switch (uMsg)
     {
     case WM_CREATE:

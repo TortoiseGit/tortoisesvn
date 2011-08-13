@@ -34,6 +34,7 @@
 #include <propkey.h>
 
 extern CString sOrigCWD;
+extern CString g_sRepoUUID;
 
 BOOL CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CString& title, BOOL bWait)
 {
@@ -49,7 +50,12 @@ BOOL CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CSt
         viewer = _T("\"") + viewer + _T("\"");
         // add the params
         viewer = viewer + _T(" /patchfile:%1 /title:\"%title\"");
-
+        if (!g_sRepoUUID.IsEmpty())
+        {
+            viewer += L" /repouuid:\"";
+            viewer += g_sRepoUUID;
+            viewer += L"\"";
+        }
     }
     if (viewer.Find(_T("%1"))>=0)
     {
@@ -255,6 +261,13 @@ bool CCommonAppUtils::RunTortoiseProc(const CString& sCommandLine)
         sCmdLine.Format(L"%s /hwnd:%ld", (LPCTSTR)sCommandLine, AfxGetMainWnd()->GetSafeHwnd());
         sCmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)sCmdLine);
     }
+    if (!g_sRepoUUID.IsEmpty())
+    {
+        sCmd += L" /repouuid:\"";
+        sCmd += g_sRepoUUID;
+        sCmd += L"\"";
+    }
+
     return LaunchApplication(sCmd, NULL, false);
 }
 

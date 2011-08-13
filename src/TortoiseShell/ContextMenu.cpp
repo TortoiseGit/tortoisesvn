@@ -211,7 +211,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
     PreserveChdir preserveChdir;
     files_.clear();
     folder_.clear();
-    repoRootSource.clear();
+    uuidSource.clear();
     uuidTarget.clear();
     itemStates = 0;
     itemStatesFolder = 0;
@@ -300,8 +300,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                 if (strpath.IsWCRoot())
                                     itemStates |= ITEMIS_WCROOT;
                             }
-                            if (stat.status->repos_root_url)
-                                repoRootSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
+                            if (stat.status->repos_uuid)
+                                uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_uuid);
                             if (stat.status->file_external)
                                 itemStates |= ITEMIS_FILEEXTERNAL;
                             if (stat.status->conflicted)
@@ -383,8 +383,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                                 itemStates |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
                             if (stat.status->conflicted)
                                 itemStates |= ITEMIS_CONFLICTED;
-                            if (stat.status->repos_root_url)
-                                repoRootSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
+                            if (stat.status->repos_uuid)
+                                uuidSource = CUnicodeUtils::StdGetUnicode(stat.status->repos_uuid);
                             if (stat.status->file_external)
                                 itemStates |= ITEMIS_FILEEXTERNAL;
                             if (stat.status->copied)
@@ -509,8 +509,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         itemStatesFolder |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
                         if (stat.status->lock && stat.status->lock->token)
                             itemStatesFolder |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
-                        if (stat.status->repos_root_url)
-                            uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
+                        if (stat.status->repos_uuid)
+                            uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->repos_uuid);
                         if (stat.status->conflicted)
                             itemStates |= ITEMIS_CONFLICTED;
                         if ((status != svn_wc_status_unversioned)&&(status != svn_wc_status_ignored)&&(status != svn_wc_status_none))
@@ -596,8 +596,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             itemStates |= stat.status->prop_status > svn_wc_status_normal ? ITEMIS_PROPMODIFIED : 0;
                             if (stat.status->lock && stat.status->lock->token)
                                 itemStates |= (stat.status->lock->token[0] != 0) ? ITEMIS_LOCKED : 0;
-                            if (stat.status->repos_root_url)
-                                uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->repos_root_url);
+                            if (stat.status->repos_uuid)
+                                uuidTarget = CUnicodeUtils::StdGetUnicode(stat.status->repos_uuid);
                             if (stat.status->copied)
                                 itemStates |= ITEMIS_ADDEDWITHHISTORY;
                         }
@@ -785,7 +785,7 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
     if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
         return S_OK;
 
-    bool bSourceAndTargetFromSameRepository = (repoRootSource.compare(uuidTarget) == 0) || repoRootSource.empty() || uuidTarget.empty();
+    bool bSourceAndTargetFromSameRepository = (uuidSource.compare(uuidTarget) == 0) || uuidSource.empty() || uuidTarget.empty();
 
     //the drop handler only has eight commands, but not all are visible at the same time:
     //if the source file(s) are under version control then those files can be moved
@@ -1608,6 +1608,11 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
                     svnCmd += folder_;
                 svnCmd += _T("\"");
             }
+            if (!uuidSource.empty())
+            {
+                svnCmd += _T(" /repouuid:");
+                svnCmd += uuidSource;
+            }
             myIDMap.clear();
             myVerbsIDMap.clear();
             myVerbsMap.clear();
@@ -1693,6 +1698,11 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
         TCHAR buf[30];
         _stprintf_s(buf, _T("%ld"), (LONG_PTR)lpcmi->hwnd);
         svnCmd += buf;
+        if (!uuidSource.empty())
+        {
+            svnCmd += _T(" /repouuid:");
+            svnCmd += uuidSource;
+        }
         myIDMap.clear();
         myVerbsIDMap.clear();
         myVerbsMap.clear();

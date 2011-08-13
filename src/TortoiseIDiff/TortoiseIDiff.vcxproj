@@ -171,6 +171,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
     <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BaseDialog.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BaseWindow.cpp" />
@@ -192,6 +193,7 @@
     <ClCompile Include="TortoiseIDiff.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Utils\TaskbarUUID.h" />
     <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="..\Utils\MiscUI\BaseDialog.h" />
     <ClInclude Include="..\Utils\MiscUI\BaseWindow.h" />

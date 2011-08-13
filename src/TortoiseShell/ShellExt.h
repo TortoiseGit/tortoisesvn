@@ -184,7 +184,7 @@ protected:
     std::vector<tstring> files_;
     DWORD itemStates;               ///< see the globals.h file for the ITEMIS_* defines
     DWORD itemStatesFolder;         ///< used for states of the folder_ (folder background and/or drop target folder)
-    tstring repoRootSource;
+    tstring uuidSource;
     tstring uuidTarget;
     int space;
     TCHAR stringtablebuffer[255];

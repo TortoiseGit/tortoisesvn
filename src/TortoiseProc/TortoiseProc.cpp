@@ -46,8 +46,7 @@
 #include "Libraries.h"
 #include "TempFile.h"
 #include "SmartHandle.h"
-
-#define APPID (_T("TSVN.TSVN.1") _T(TSVN_PLATFORM))
+#include "TaskbarUUID.h"
 
 
 #define STRUCT_IOVEC_DEFINED
@@ -109,6 +108,7 @@ CTortoiseProcApp::~CTortoiseProcApp()
 // The one and only CTortoiseProcApp object
 CTortoiseProcApp theApp;
 CString sOrigCWD;
+CString g_sRepoUUID;
 HWND GetExplorerHWND()
 {
     return theApp.GetExplorerHWND();
@@ -128,7 +128,6 @@ HWND FindParentWindow(HWND hWnd)
 BOOL CTortoiseProcApp::InitInstance()
 {
     CAppUtils::SetupDiffScripts(false, CString());
-    InitializeJumpList();
     svn_error_set_malfunction_handler(svn_error_handle_malfunction);
     CheckUpgrade();
     CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
@@ -333,6 +332,17 @@ BOOL CTortoiseProcApp::InitInstance()
                     {
                         if (!sPathArgument.IsEmpty())
                             sPathArgument += '*';
+                        else
+                        {
+                            if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), FALSE))
+                            {
+                                // when started from the win7 library buttons, we don't get the /repouuid:xxx parameter
+                                // passed to us. In that case we have to fetch the uuid (or try to) here,
+                                // otherwise the grouping wouldn't work.
+                                SVN svn;
+                                g_sRepoUUID = svn.GetUUIDFromPath(CTSVNPath(szArglist[i]));
+                            }
+                        }
                         sPathArgument += szArglist[i];
 
                     }
@@ -350,6 +360,11 @@ BOOL CTortoiseProcApp::InitInstance()
         cmdLinePath.SetFromUnknown(asterisk >= 0 ? sPathArgument.Left(asterisk) : sPathArgument);
         pathList.LoadFromAsteriskSeparatedString(sPathArgument);
     }
+
+    if (g_sRepoUUID.IsEmpty())
+        g_sRepoUUID = parser.GetVal(L"repouuid");
+    CString sAppID = GetTaskIDPerUUID(g_sRepoUUID).c_str();
+    InitializeJumpList(sAppID);
 
 
     // Subversion sometimes writes temp files to the current directory!
@@ -500,24 +515,24 @@ void CTortoiseProcApp::CheckUpgrade()
     regVersion = _T(STRPRODUCTVER);
 }
 
-void CTortoiseProcApp::InitializeJumpList()
+void CTortoiseProcApp::InitializeJumpList(const CString& appid)
 {
     // for Win7 : use a custom jump list
     CoInitialize(NULL);
-    SetAppID(APPID);
-    DeleteJumpList(APPID);
-    DoInitializeJumpList();
+    SetAppID(appid);
+    DeleteJumpList(appid);
+    DoInitializeJumpList(appid);
     CoUninitialize();
 }
 
-void CTortoiseProcApp::DoInitializeJumpList()
+void CTortoiseProcApp::DoInitializeJumpList(const CString& appid)
 {
     ATL::CComPtr<ICustomDestinationList> pcdl;
     HRESULT hr = pcdl.CoCreateInstance(CLSID_DestinationList, NULL, CLSCTX_INPROC_SERVER);
     if (FAILED(hr))
         return;
 
-    hr = pcdl->SetAppID(APPID);
+    hr = pcdl->SetAppID(appid);
     if (FAILED(hr))
         return;
 

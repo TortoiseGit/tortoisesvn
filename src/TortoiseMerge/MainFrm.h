@@ -63,6 +63,7 @@ protected:
     void            SetWindowTitle();
 
     afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
+    afx_msg LRESULT OnTaskbarButtonCreated(WPARAM wParam, LPARAM lParam);
     afx_msg void    OnApplicationLook(UINT id);
     afx_msg void    OnUpdateApplicationLook(CCmdUI* pCmdUI);
 

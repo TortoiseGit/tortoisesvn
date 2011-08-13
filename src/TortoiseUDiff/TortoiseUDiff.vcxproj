@@ -155,6 +155,7 @@
     <ClCompile Include="..\Utils\MiscUI\BaseDialog.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BaseWindow.cpp" />
     <ClCompile Include="..\Utils\CmdLineParser.cpp" />
+    <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
     <ClCompile Include="FindBar.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="..\Utils\Registry.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="..\Utils\MiscUI\BaseDialog.h" />
     <ClInclude Include="..\Utils\MiscUI\BaseWindow.h" />
     <ClInclude Include="..\Utils\CmdLineParser.h" />
+    <ClInclude Include="..\Utils\TaskbarUUID.h" />
     <ClInclude Include="FindBar.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="..\Utils\registry.h" />

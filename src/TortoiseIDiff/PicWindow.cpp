@@ -1241,7 +1241,7 @@ void CPicWindow::Paint(HWND hwnd)
             #if (WINVER >= 0x600)
                 if (!SysInfo::Instance().IsVistaOrLater())
                 {
-                    ncm.cbSize -= sizeof(int);  // subtract the size of the iPaddedBorderWidth member which is not available on XP
+                    metrics.cbSize -= sizeof(int);  // subtract the size of the iPaddedBorderWidth member which is not available on XP
                 }
             #endif
 

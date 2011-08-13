@@ -34,6 +34,7 @@
 #include "SelectFileFilter.h"
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
+#include "TaskbarUUID.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -41,6 +42,7 @@
 
 // CMainFrame
 const UINT CMainFrame::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
+const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
 IMPLEMENT_DYNCREATE(CMainFrame, CFrameWndEx)
 
@@ -128,6 +130,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI(ID_NAVIGATE_PREVINLINEDIFF, &CMainFrame::OnUpdateNavigatePrevinlinediff)
     ON_COMMAND(ID_VIEW_WRAPLONGLINES, &CMainFrame::OnViewWraplonglines)
     ON_UPDATE_COMMAND_UI(ID_VIEW_WRAPLONGLINES, &CMainFrame::OnUpdateViewWraplonglines)
+    ON_REGISTERED_MESSAGE( TaskBarButtonCreated, CMainFrame::OnTaskbarButtonCreated )
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -173,6 +176,13 @@ CMainFrame::CMainFrame()
 CMainFrame::~CMainFrame()
 {
 }
+
+LRESULT CMainFrame::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    SetUUIDOverlayIcon(m_hWnd);
+    return 0;
+}
+
 
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {

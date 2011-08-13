@@ -272,6 +272,7 @@
     <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp" />
     <ClCompile Include="..\Utils\ReaderWriterLock.cpp" />
     <ClCompile Include="..\Utils\StringBuffer.cpp" />
+    <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
     <ClCompile Include="AppUtils.cpp" />
     <ClCompile Include="..\Utils\BugTraqAssociations.cpp" />
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp" />
@@ -761,6 +762,7 @@
     <ClInclude Include="..\Utils\ReaderWriterLock.h" />
     <ClInclude Include="..\Utils\SmartHandle.h" />
     <ClInclude Include="..\Utils\StringBuffer.h" />
+    <ClInclude Include="..\Utils\TaskbarUUID.h" />
     <ClInclude Include="AppUtils.h" />
     <ClInclude Include="..\Utils\auto_buffer.h" />
     <ClInclude Include="..\Utils\BugTraqAssociations.h" />
