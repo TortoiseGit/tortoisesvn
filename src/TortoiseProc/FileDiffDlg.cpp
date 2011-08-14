@@ -997,7 +997,7 @@ void CFileDiffDlg::OnCancel()
         m_bCancelled = true;
         return;
     }
-    
+
     netScheduler.WaitForEmptyQueueOrTimeout(5000);
 
     __super::OnCancel();

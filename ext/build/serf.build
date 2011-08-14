@@ -2,7 +2,7 @@
 <project name="serf" default="build" basedir="..\serf">
 
   <!-- ====================================================================== -->
-  <!-- Project targets														-->
+  <!-- Project targets                                                        -->
   <!-- ====================================================================== -->
   <target name="rebuild" depends="clean,build" />
 

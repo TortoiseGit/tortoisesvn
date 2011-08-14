@@ -501,7 +501,7 @@ void CRevisionGraphWnd::DrawSquare
     }
     else if (graphics.pSVG)
     {
-        graphics.pSVG->GradientRectangle((int)square.X, (int)square.Y, (int)square.Width, (int)square.Height, 
+        graphics.pSVG->GradientRectangle((int)square.X, (int)square.Y, (int)square.Width, (int)square.Height,
                                         lightColor, darkColor, penColor);
     }
 }
@@ -547,7 +547,7 @@ void CRevisionGraphWnd::DrawGlyph
         // images could be embedded like this:
         // <image y="100" x="100" id="imgId1234" xlink:href="data:image/png;base64,...base64endodeddata..." height="16" width="16" />
 
-        graphics.pSVG->RoundedRectangle((int)target.X, (int)target.Y, (int)target.Width, (int)target.Height, 
+        graphics.pSVG->RoundedRectangle((int)target.X, (int)target.Y, (int)target.Width, (int)target.Height,
                                         Color(0,0,0), 2, Color(255,255,255), (int)(target.Width/3.0));
     }
 }
@@ -712,7 +712,7 @@ void CRevisionGraphWnd::IndicateGlyphDirection
         if (graphics.graphics)
             graphics.graphics->FillRectangle (&brush, branchCover);
         else if (graphics.pSVG)
-            graphics.pSVG->RoundedRectangle((int)branchCover.X, (int)branchCover.Y, (int)branchCover.Width, (int)branchCover.Height, 
+            graphics.pSVG->RoundedRectangle((int)branchCover.X, (int)branchCover.Y, (int)branchCover.Width, (int)branchCover.Height,
                                             color, 1, color);
     }
 
@@ -728,7 +728,7 @@ void CRevisionGraphWnd::IndicateGlyphDirection
             if (graphics.graphics)
                 graphics.graphics->FillRectangle (&brush, branchCover);
             else if (graphics.pSVG)
-                graphics.pSVG->RoundedRectangle((int)branchCover.X, (int)branchCover.Y, (int)branchCover.Width, (int)branchCover.Height, 
+                graphics.pSVG->RoundedRectangle((int)branchCover.X, (int)branchCover.Y, (int)branchCover.Width, (int)branchCover.Height,
                                                 color, 1, color);
         }
     }
@@ -745,7 +745,7 @@ void CRevisionGraphWnd::IndicateGlyphDirection
         if (graphics.graphics)
             graphics.graphics->FillRectangle (&brush, branchCover);
         else if (graphics.pSVG)
-            graphics.pSVG->RoundedRectangle((int)branchCover.X, (int)branchCover.Y, (int)branchCover.Width, (int)branchCover.Height, 
+            graphics.pSVG->RoundedRectangle((int)branchCover.X, (int)branchCover.Y, (int)branchCover.Width, (int)branchCover.Height,
                                             color, 1, color);
     }
 }
@@ -825,7 +825,7 @@ void CRevisionGraphWnd::DrawStripes (GraphicsDevice& graphics, const CSize& offs
                 graphics.graphics->FillRectangle (&brush, rect);
             }
             else if (graphics.pSVG)
-                graphics.pSVG->RoundedRectangle((int)rect.X, (int)rect.Y, (int)rect.Width, (int)rect.Height, 
+                graphics.pSVG->RoundedRectangle((int)rect.X, (int)rect.Y, (int)rect.Width, (int)rect.Height,
                                                 color, 1, color);
         }
     }
@@ -988,7 +988,7 @@ void CRevisionGraphWnd::DrawTexts (GraphicsDevice& graphics, const CRect& logRec
         }
         else if (graphics.pSVG)
         {
-            graphics.pSVG->CenteredText((textRect.left + textRect.right)/2, textRect.top+m_nFontSize+3, "Arial", m_nFontSize, 
+            graphics.pSVG->CenteredText((textRect.left + textRect.right)/2, textRect.top+m_nFontSize+3, "Arial", m_nFontSize,
                 false, text.style != ILayoutTextList::SText::STYLE_DEFAULT,
                 text.style == ILayoutTextList::SText::STYLE_WARNING
                 ? m_Colors.GetColor (CColors::gdpWCNodeBorder)

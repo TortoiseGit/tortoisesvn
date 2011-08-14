@@ -43,7 +43,7 @@ public:
     SVNRev GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyfromURL);
 
     /**
-     * Finds all copy-from (path,rev) pairs along the history. 
+     * Finds all copy-from (path,rev) pairs along the history.
      * The first entry will contain the parameters passed to this function.
      * \param url           the url of the branch/tag to find the copy from data for
      * \param pegrev        the peg revision to use to find the copy from data
@@ -61,7 +61,7 @@ public:
      * \param pegrev2       the peg and start revision for the search at @a url2
      * \return              latest common (path,rev) pair. Empty, if none found.
      */
-    std::pair<CTSVNPath, SVNRev> 
-    GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1, 
+    std::pair<CTSVNPath, SVNRev>
+    GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1,
                     const CTSVNPath& url2, const SVNRev& pegrev2);
 };

@@ -16,7 +16,7 @@
 // http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
-// You may not use this file except in compliance with the License. 
+// You may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
 // http://www.opensource.org/licenses/artistic-license.html
 //
@@ -31,15 +31,15 @@
 // CResizablePage window
 
 class CResizablePage : public CPropertyPage, public CResizableLayout,
-						public CResizableMinMax
+                        public CResizableMinMax
 {
-	DECLARE_DYNCREATE(CResizablePage)
+    DECLARE_DYNCREATE(CResizablePage)
 
 // Construction
 public:
-	CResizablePage();
-	CResizablePage(UINT nIDTemplate, UINT nIDCaption = 0);
-	CResizablePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0);
+    CResizablePage();
+    CResizablePage(UINT nIDTemplate, UINT nIDCaption = 0);
+    CResizablePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0);
 
 // Attributes
 public:
@@ -48,35 +48,35 @@ public:
 public:
 
 // Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CResizablePage)
-	protected:
-	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
-	//}}AFX_VIRTUAL
+    // ClassWizard generated virtual function overrides
+    //{{AFX_VIRTUAL(CResizablePage)
+    protected:
+    virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
+    //}}AFX_VIRTUAL
 
 // Implementation
 public:
-	virtual ~CResizablePage();
+    virtual ~CResizablePage();
 
 // callable from derived classes
 protected:
 
-	virtual CWnd* GetResizableWnd() const
-	{
-		// make the layout know its parent window
-		return CWnd::FromHandle(m_hWnd);
-	};
+    virtual CWnd* GetResizableWnd() const
+    {
+        // make the layout know its parent window
+        return CWnd::FromHandle(m_hWnd);
+    };
 
 // Generated message map functions
 protected:
-	//{{AFX_MSG(CResizablePage)
-	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
-	afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
-	virtual BOOL OnInitDialog();
-	afx_msg void OnDestroy();
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
+    //{{AFX_MSG(CResizablePage)
+    afx_msg void OnSize(UINT nType, int cx, int cy);
+    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+    afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
+    virtual BOOL OnInitDialog();
+    afx_msg void OnDestroy();
+    //}}AFX_MSG
+    DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////

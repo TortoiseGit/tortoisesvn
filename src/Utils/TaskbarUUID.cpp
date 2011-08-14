@@ -97,9 +97,9 @@ void SetUUIDOverlayIcon( HWND hWnd )
             if (!uuid.empty())
             {
                 ITaskbarList3 * pTaskbarInterface = NULL;
-                HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_ITaskbarList3, reinterpret_cast<void**> (&(pTaskbarInterface)));  
+                HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_ITaskbarList3, reinterpret_cast<void**> (&(pTaskbarInterface)));
 
-                if (SUCCEEDED(hr)) 
+                if (SUCCEEDED(hr))
                 {
                     int foundUUIDIndex = 0;
                     do
@@ -141,7 +141,7 @@ void SetUUIDOverlayIcon( HWND hWnd )
                     pTaskbarInterface->SetOverlayIcon(hWnd, icon, uuid.c_str());
                     pTaskbarInterface->Release();
                     DestroyIcon(icon);
-                }  
+                }
             }
         }
     }

@@ -507,7 +507,7 @@ void ShellCache::CPathFilter::AddEntry (const tstring& s, bool include)
     entry.recursive = lastChar != _T('?');
     entry.included = include ? svn_tristate_true : svn_tristate_false;
     entry.subPathIncluded = include == entry.recursive
-                          ? svn_tristate_true 
+                          ? svn_tristate_true
                           : svn_tristate_false;
 
     entry.path = s;
@@ -577,7 +577,7 @@ void ShellCache::CPathFilter::PostProcessData()
 
                 if (source->included == svn_tristate_true)
                     dest->included = svn_tristate_true;
-                if (source->recursive 
+                if (source->recursive
                     && source->subPathIncluded == svn_tristate_true)
                 {
                     dest->subPathIncluded = svn_tristate_true;

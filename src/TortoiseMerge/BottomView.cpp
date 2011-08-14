@@ -64,7 +64,7 @@ void CBottomView::UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastVi
     }
 
     int nRemovedLines = CleanEmptyLines();
-    SaveUndoStep();	
+    SaveUndoStep();
     UpdateViewLineNumbers();
     SaveUndoStep();
 
@@ -130,7 +130,7 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     SaveUndoStep();
 
     int nRemovedLines = CleanEmptyLines();
-    SaveUndoStep();	
+    SaveUndoStep();
 
     CUndo::GetInstance().EndGrouping();
 

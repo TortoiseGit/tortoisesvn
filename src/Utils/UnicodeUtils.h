@@ -51,7 +51,7 @@ public:
     static std::wstring StdGetUnicode(const std::string& utf8);
 };
 
-// necessary whenever an explict *A Windows API function needs to be 
+// necessary whenever an explict *A Windows API function needs to be
 // interacted with
 
 std::string WideToMultibyte(const std::wstring& wide);

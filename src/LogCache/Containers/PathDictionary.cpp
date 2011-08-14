@@ -419,7 +419,7 @@ void CDictionaryBasedPath::ValidatePath() const
     }
 }
 
-size_t CDictionaryBasedPath::CollectPathElements 
+size_t CDictionaryBasedPath::CollectPathElements
     ( const char** pathElements
     , index_t* sizes
     , size_t& depth) const
@@ -450,7 +450,7 @@ size_t CDictionaryBasedPath::CollectPathElements
     return size + currentDepth;
 }
 
-void CDictionaryBasedPath::CopyPathElements 
+void CDictionaryBasedPath::CopyPathElements
     ( const char** pathElements
     , index_t* sizes
     , size_t depth

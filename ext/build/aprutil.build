@@ -2,7 +2,7 @@
 <project name="aprutil" default="build" basedir="..\apr-util">
 
   <!-- ====================================================================== -->
-  <!-- Configuration targets													-->
+  <!-- Configuration targets                                                  -->
   <!-- ====================================================================== -->
   <target name="debug">
     <description>
@@ -12,7 +12,7 @@
   </target>
 
   <!-- ====================================================================== -->
-  <!-- Project targets														-->
+  <!-- Project targets                                                        -->
   <!-- ====================================================================== -->
   <target name="rebuild" depends="clean,build" />
 

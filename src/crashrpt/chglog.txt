@@ -8,10 +8,10 @@
       needs to be shipped.
     * added german language
   Minor Changes:
-    * 
+    *
   Bugs Fixed:
     * the symbol information wasn't shown sometimes (Stacktrace).
-    
+
 04/08/2003 Grant McDorman
   Version ID: 3.0.2.3
   Major Changes:
@@ -21,7 +21,7 @@
       CrashRpt; by using these, your application can run without CrashRpt
       available. See the header file for more details.
     * A 'Debug' button is available. It is normally invisible, but will
-      become visible by setting 
+      become visible by setting
         HKEY_CURRENT_USER\Software\Carruth\CrashRpt\EnableDebug
       to a DWORD value of 1. Pressing this button will discard the
       crash report and drop into the debugger. (On an explicit
@@ -63,7 +63,7 @@
     * Minor internal design changes
     * Package now includes Zlib 1.1.4 and dbghelp.dll 6.1.17.2.
   Bugs Fixed:
-    * MAPI mailing fixed to work on Win2K with Outlook 98 and Exchange 2000 
+    * MAPI mailing fixed to work on Win2K with Outlook 98 and Exchange 2000
     * User cancelling MAPI e-mail will no longer cause CMC e-mailing to be
       attempted
     * Did not properly check for file existence when adding to report
@@ -76,16 +76,16 @@
 03/13/2003
   Major Changes:
     * Replaced MFC with WTL
-	* Changed install() API
-	* Major refactoring
+    * Changed install() API
+    * Major refactoring
   Minor Chages:
     * Details dialog preview window now uses system
-	  defined window color instead of white.
-	* Directory structure not saved in zip.
+      defined window color instead of white.
+    * Directory structure not saved in zip.
   Bugs Fixed:
     * Support for use by multiple apps
-	* Buffer overrun error when previewing files > 32k
-	* Main dialog now displays app icon
+    * Buffer overrun error when previewing files > 32k
+    * Main dialog now displays app icon
 
 01/12/2003
   New:

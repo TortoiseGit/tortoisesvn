@@ -147,7 +147,7 @@ static UINT indicators[] =
 
 // CMainFrame construction/destruction
 
-CMainFrame::CMainFrame() 
+CMainFrame::CMainFrame()
     : m_pFindDialog(NULL)
     , m_nSearchIndex(0)
     , m_bInitSplitter(FALSE)
@@ -644,8 +644,8 @@ bool CMainFrame::LoadViews(int line)
                 msg.FormatMessage(IDS_WARNBETTERPATCHPATHFOUND, (LPCTSTR)m_Data.m_sPatchPath, (LPCTSTR)betterpatchpath);
                 if (CTaskDialog::IsSupported())
                 {
-                    CTaskDialog taskdlg(msg, 
-                                        CString(MAKEINTRESOURCE(IDS_WARNBETTERPATCHPATHFOUND_TASK2)), 
+                    CTaskDialog taskdlg(msg,
+                                        CString(MAKEINTRESOURCE(IDS_WARNBETTERPATCHPATHFOUND_TASK2)),
                                         L"TortoiseMerge",
                                         0,
                                         TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -1201,8 +1201,8 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         {
             CString msg;
             msg.Format(IDS_DELETEWHENEMPTY, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
-            CTaskDialog taskdlg(msg, 
-                                CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK2)), 
+            CTaskDialog taskdlg(msg,
+                                CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK2)),
                                 L"TortoiseMerge",
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -1331,8 +1331,8 @@ void CMainFrame::OnClose()
         sTemp.LoadString(IDS_ASKFORSAVE);
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(sTemp, 
-                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)), 
+            CTaskDialog taskdlg(sTemp,
+                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)),
                                 L"TortoiseMerge",
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -2022,8 +2022,8 @@ void CMainFrame::OnViewSwitchleft()
         sTemp.LoadString(IDS_ASKFORSAVE);
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(sTemp, 
-                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)), 
+            CTaskDialog taskdlg(sTemp,
+                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)),
                                 L"TortoiseMerge",
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -2105,7 +2105,7 @@ int CMainFrame::CheckForReload()
         return IDNO;
     }
     bLock = true;
-    bool bSourceChanged = 
+    bool bSourceChanged =
             m_Data.m_baseFile.HasSourceFileChanged()
             || m_Data.m_yourFile.HasSourceFileChanged()
             || m_Data.m_theirFile.HasSourceFileChanged()
@@ -2120,8 +2120,8 @@ int CMainFrame::CheckForReload()
     if (CTaskDialog::IsSupported())
     {
         CString msg = HasUnsavedEdits() ? CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDELOOSECHANGES)) : CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE));
-        CTaskDialog taskdlg(msg, 
-                            CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE_TASK2)), 
+        CTaskDialog taskdlg(msg,
+                            CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE_TASK2)),
                             L"TortoiseMerge",
                             0,
                             TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -2192,8 +2192,8 @@ int CMainFrame::CheckForSave()
         sTemp.LoadString(IDS_WARNMODIFIEDLOOSECHANGES);
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(sTemp, 
-                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)), 
+            CTaskDialog taskdlg(sTemp,
+                                CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK2)),
                                 L"TortoiseMerge",
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -2407,8 +2407,8 @@ bool CMainFrame::HasConflictsWontKeep()
     bool bSave = false;
     if (CTaskDialog::IsSupported())
     {
-        CTaskDialog taskdlg(sTemp, 
-                            CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)), 
+        CTaskDialog taskdlg(sTemp,
+                            CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)),
                             L"TortoiseMerge",
                             0,
                             TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

@@ -30,7 +30,7 @@
 class SVNExternal
 {
 public:
-    SVNExternal() : adjust(false) 
+    SVNExternal() : adjust(false)
     {
         revision.kind = svn_opt_revision_unspecified;
         origrevision.kind = svn_opt_revision_unspecified;

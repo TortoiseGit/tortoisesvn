@@ -752,7 +752,7 @@ public:
 
     /**
      * Set \a minrev and \a maxrev to the lowest and highest revision numbers found within \a wcpath.
-     * if \a committed is set to true, set \a minrev and \a maxrev to 
+     * if \a committed is set to true, set \a minrev and \a maxrev to
      * the lowest and highest committed (i.e. "last changed") revision numbers.
      */
     bool GetWCMinMaxRevs(const CTSVNPath& wcpath, bool committed, svn_revnum_t& minrev, svn_revnum_t& maxrev);
@@ -921,17 +921,17 @@ protected:
                         apr_pool_t *pool);
     static svn_error_t* summarize_func(const svn_client_diff_summarize_t *diff,
                     void *baton, apr_pool_t *pool);
-    static svn_error_t* blameReceiver(void *baton, 
+    static svn_error_t* blameReceiver(void *baton,
                                       svn_revnum_t start_revnum,
                                       svn_revnum_t end_revnum,
-                                      apr_int64_t line_no, 
-                                      svn_revnum_t revision, 
-                                      apr_hash_t *rev_props, 
-                                      svn_revnum_t merged_revision, 
-                                      apr_hash_t *merged_rev_props, 
-                                      const char *merged_path, 
-                                      const char *line, 
-                                      svn_boolean_t local_change, 
+                                      apr_int64_t line_no,
+                                      svn_revnum_t revision,
+                                      apr_hash_t *rev_props,
+                                      svn_revnum_t merged_revision,
+                                      apr_hash_t *merged_rev_props,
+                                      const char *merged_path,
+                                      const char *line,
+                                      svn_boolean_t local_change,
                     apr_pool_t *pool);
     static svn_error_t* listReceiver(void* baton,
                     const char* path,

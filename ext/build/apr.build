@@ -2,7 +2,7 @@
 <project name="apr" default="build" basedir="..\apr">
 
   <!-- ====================================================================== -->
-  <!-- Project targets														-->
+  <!-- Project targets                                                        -->
   <!-- ====================================================================== -->
   <target name="rebuild" depends="clean,build" />
 

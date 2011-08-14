@@ -7,7 +7,7 @@
 // http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
-// You may not use this file except in compliance with the License. 
+// You may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
 // http://www.opensource.org/licenses/artistic-license.html
 //
@@ -40,22 +40,22 @@
  *  This class is used in the provided resizable counterparts of
  *  the standard MFC property sheet classes.
  */
-class CResizableSheetState : public CResizableWndState  
+class CResizableSheetState : public CResizableWndState
 {
 protected:
 
-	//! @brief Load and set the active property page 
-	BOOL LoadPage(LPCTSTR pszName);
+    //! @brief Load and set the active property page
+    BOOL LoadPage(LPCTSTR pszName);
 
-	//! @brief Save the current active property page 
-	BOOL SavePage(LPCTSTR pszName);
+    //! @brief Save the current active property page
+    BOOL SavePage(LPCTSTR pszName);
 
-	//! @brief Override to provide the parent window
-	virtual CWnd* GetResizableWnd() const = 0;
+    //! @brief Override to provide the parent window
+    virtual CWnd* GetResizableWnd() const = 0;
 
 public:
-	CResizableSheetState();
-	virtual ~CResizableSheetState();
+    CResizableSheetState();
+    virtual ~CResizableSheetState();
 };
 
 // @}

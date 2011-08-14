@@ -176,7 +176,7 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath, LPCTSTR lpszHeaderFile)
         inFile.open(lpszHeaderFile, std::ios_base::binary);
 
         wchar_t ch;
-        while(inFile && inFile.get(ch)) 
+        while(inFile && inFile.get(ch))
             File.put(ch);
         inFile.close();
     }
@@ -266,12 +266,12 @@ void CPOFile::AdjustEOLs(std::wstring& str)
     {
         std::wstring::size_type next = str.find(L"\\r\\n", pos);
         result.append(str, pos, next-pos);
-        if( next != std::string::npos ) 
+        if( next != std::string::npos )
         {
             result.append(L"\\n");
             pos = next + 4; // 4 = sizeof("\\r\\n")
-        } 
-        else 
+        }
+        else
         {
             break;  // exit loop
         }
@@ -284,12 +284,12 @@ void CPOFile::AdjustEOLs(std::wstring& str)
     {
         std::wstring::size_type next = str.find(L"\\n", pos);
         result.append(str, pos, next-pos);
-        if( next != std::string::npos ) 
+        if( next != std::string::npos )
         {
             result.append(L"\\r\\n");
             pos = next + 2; // 2 = sizeof("\\n")
-        } 
-        else 
+        }
+        else
         {
             break;  // exit loop
         }

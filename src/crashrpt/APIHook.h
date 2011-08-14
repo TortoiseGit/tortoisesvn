@@ -23,14 +23,14 @@ public:
    operator PROC() { return(m_pfnOrig); }
 
    // Hook module w/CAPIHook implementation?
-   // I have to make it static because I need to use it 
+   // I have to make it static because I need to use it
    // in ReplaceIATEntryInAllMods
-   static BOOL ExcludeAPIHookMod; 
+   static BOOL ExcludeAPIHookMod;
 
    void Install(PSTR pszCalleeModName, PSTR pszFuncName, PROC pfnHook);
    void Uninstall();
 public:
-   // Calls the real GetProcAddress 
+   // Calls the real GetProcAddress
    static FARPROC WINAPI GetProcAddressRaw(HMODULE hmod, PCSTR pszProcName);
 
 private:
@@ -45,11 +45,11 @@ private:
 
 private:
    // Replaces a symbol's address in a module's import section
-   static void WINAPI ReplaceIATEntryInAllMods(PCSTR pszCalleeModName, 
+   static void WINAPI ReplaceIATEntryInAllMods(PCSTR pszCalleeModName,
       PROC pfnOrig, PROC pfnHook);
 
    // Replaces a symbol's address in all modules' import sections
-   static void WINAPI ReplaceIATEntryInOneMod(PCSTR pszCalleeModName, 
+   static void WINAPI ReplaceIATEntryInOneMod(PCSTR pszCalleeModName,
       PROC pfnOrig, PROC pfnHook, HMODULE hmodCaller);
 
    // Replaces a symbol's address in a module's export sections
@@ -62,9 +62,9 @@ private:
    // Used to trap when DLLs are newly loaded
    static HMODULE WINAPI LoadLibraryA(PCSTR pszModulePath);
    static HMODULE WINAPI LoadLibraryW(PCWSTR pszModulePath);
-   static HMODULE WINAPI LoadLibraryExA(PCSTR pszModulePath, 
+   static HMODULE WINAPI LoadLibraryExA(PCSTR pszModulePath,
       HANDLE hFile, DWORD dwFlags);
-   static HMODULE WINAPI LoadLibraryExW(PCWSTR pszModulePath, 
+   static HMODULE WINAPI LoadLibraryExW(PCWSTR pszModulePath,
       HANDLE hFile, DWORD dwFlags);
 
    // Returns address of replacement function if hooked function is requested

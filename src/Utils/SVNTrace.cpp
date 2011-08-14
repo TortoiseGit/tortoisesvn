@@ -36,8 +36,8 @@ CSVNTrace::CSVNTrace
     : id (InterlockedIncrement (&counter))
     , threadID (GetCurrentThreadId())
 {
-	if (!CTraceToOutputDebugString::Active())
-		return;
+    if (!CTraceToOutputDebugString::Active())
+        return;
 
     CString svnAPI = line;
     int assignPos = svnAPI.Find ('=');

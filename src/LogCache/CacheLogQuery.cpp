@@ -310,7 +310,7 @@ void CCacheLogQuery::CLogFiller::WriteToCache
         }
     }
 
-    // Update our path info, if we are still within the requested log range. 
+    // Update our path info, if we are still within the requested log range.
     // Sometimes, SVN seems to send more than what was requested.
 
     if (currentPath.get() && !currentPath->IsFullyCachedPath())

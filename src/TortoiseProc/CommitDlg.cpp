@@ -378,8 +378,8 @@ void CCommitDlg::OnOK()
     {
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK1)), 
-                                CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK2)), 
+            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK1)),
+                                CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -412,8 +412,8 @@ void CCommitDlg::OnOK()
             {
                 if (CTaskDialog::IsSupported())
                 {
-                    CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK1)), 
-                                                CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)), 
+                    CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK1)),
+                                                CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)),
                                                 L"TortoiseSVN",
                                                 0,
                                                 TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -635,8 +635,8 @@ void CCommitDlg::OnOK()
     {
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK1)), 
-                                CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK2)), 
+            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK1)),
+                                CString(MAKEINTRESOURCE(IDS_COMMITDLG_COPYDEPTH_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

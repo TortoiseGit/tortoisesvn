@@ -8,25 +8,25 @@
 #define _WIN32_IE 0x600
 
 #ifdef UNICODE
-#	ifndef WINVER
-#		define WINVER 0x0501
-#	endif
-#	ifndef _WIN32_WINNT
-#		define _WIN32_WINNT 0x0501
-#	endif						
-#	ifndef _WIN32_WINDOWS
-#		define _WIN32_WINDOWS 0x0501
-#	endif
+#   ifndef WINVER
+#       define WINVER 0x0501
+#   endif
+#   ifndef _WIN32_WINNT
+#       define _WIN32_WINNT 0x0501
+#   endif
+#   ifndef _WIN32_WINDOWS
+#       define _WIN32_WINDOWS 0x0501
+#   endif
 #else
-#	ifndef WINVER
-#		define WINVER 0x0410
-#	endif
-#	ifndef _WIN32_WINNT
-#		define _WIN32_WINNT 0x0500
-#	endif						
-#	ifndef _WIN32_WINDOWS
-#		define _WIN32_WINDOWS 0x0410
-#	endif
+#   ifndef WINVER
+#       define WINVER 0x0410
+#   endif
+#   ifndef _WIN32_WINNT
+#       define _WIN32_WINNT 0x0500
+#   endif
+#   ifndef _WIN32_WINDOWS
+#       define _WIN32_WINDOWS 0x0410
+#   endif
 #endif
 
 #define _AFX_ALL_WARNINGS
@@ -34,9 +34,9 @@
 #include <afxwin.h>         // MFC core and standard components
 #include <afxext.h>         // MFC extensions
 
-#include <afxdtctl.h>		// MFC support for Internet Explorer 4 Common Controls
+#include <afxdtctl.h>       // MFC support for Internet Explorer 4 Common Controls
 #ifndef _AFX_NO_AFXCMN_SUPPORT
-#include <afxcmn.h>			// MFC support for Windows Common Controls
+#include <afxcmn.h>         // MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 #include <afxdlgs.h>
 #include <afxctl.h>
@@ -45,7 +45,7 @@
 
 
 #include <tchar.h>
-#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS  // some CString constructors will be explicit
 
 #include <atlbase.h>
 
@@ -59,7 +59,7 @@
 using namespace ATL;
 
 #pragma warning(push)
-#pragma warning(disable: 4702)	// Unreachable code warnings in xtree
+#pragma warning(disable: 4702)  // Unreachable code warnings in xtree
 #include <string>
 #include <vector>
 #include <map>

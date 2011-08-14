@@ -40,7 +40,7 @@
  *                                as one, e.g., a TortoiseMerge instance showing
  *                                a diff from repo X is grouped together with
  *                                a log dialog instance for repo X.
- * 
+ *
  * The repository uuid is used by examining the command line of the process:
  * it must be set with /repouuid:"uuid".
  */

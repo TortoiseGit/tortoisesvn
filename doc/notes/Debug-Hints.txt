@@ -2,7 +2,7 @@ Debugging hints
 
 Since TortoiseSVN is a shell extension it's not
 as easy to debug as normal applications. The
-TortoiseShell part is only a dll which is 
+TortoiseShell part is only a dll which is
 loaded by the windows explorer. So the first
 thing you need to do is:
 
@@ -14,9 +14,9 @@ thing you need to do is:
   *.reg. Then you have to edit those three
   files so that the paths in it reflects
   your source paths exactly.
-  Now if you doubleclick on register.reg 
+  Now if you doubleclick on register.reg
   the debug version of the TortoiseSVN.dll
-  gets registered. registerrelease.reg 
+  gets registered. registerrelease.reg
   registers the release version of the
   TortoiseSVN.dll. Don't do it right now!
   Or just have TortoiseSVN installed and

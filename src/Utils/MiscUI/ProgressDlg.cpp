@@ -178,7 +178,7 @@ HRESULT CProgressDlg::ShowModal(HWND hWndParent, BOOL immediately /* = true */)
         if(SUCCEEDED(hr2))
         {
             // StartProgressDialog creates a new thread to host the progress window.
-            // When the window receives WM_DESTROY message StopProgressDialog() wrongly 
+            // When the window receives WM_DESTROY message StopProgressDialog() wrongly
             // attempts to re-enable the parent in the calling thread (our thread),
             // after the progress window is destroyed and the progress thread has died.
             // When the progress window dies, the system tries to assign a new foreground window.

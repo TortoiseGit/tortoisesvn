@@ -121,7 +121,7 @@ void CRevisionInfoContainer::UpdateChanges
     std::vector<unsigned char> oldPropsModifies;
     propsModifies.swap (oldPropsModifies);
     propsModifies.reserve (oldPropsModifies.size());
-    
+
 
     // the container sizes must match
 
@@ -1090,7 +1090,7 @@ void CRevisionInfoContainer::CalculateSumChanges()
 
 // stream I/O
 
-template<class T> 
+template<class T>
 void ReadOrDefault ( IHierarchicalInStream& stream
                    , SUB_STREAM_ID id
                    , typename std::vector<T>& container

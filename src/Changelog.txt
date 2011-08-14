@@ -39,7 +39,7 @@ Version 1.6.11
        the parent folder wasn't checked automatically if
        it was added too. (Stefan)
 - BUG: when passing /tourl: to the merge command, the
-       revision range page was shown instead of 
+       revision range page was shown instead of
        the tree page. (Stefan)
 
 Version 1.6.10
@@ -55,16 +55,16 @@ Version 1.6.9
 - BUG: the menu icons on XP were not shown correctly. (Stefan)
 - BUG: the overlay icons could dissapear after upgrading from
        a previous version, a 'repair install' however would
-	   fix this issue. (Stefan)
+       fix this issue. (Stefan)
 - BUG: Ignoring directories with a dot and extension in the name
        didn't work. (Stefan)
 - BUG: Comparing an updated item in the update-progress dialog
-       didn't work properly for items in an external 
+       didn't work properly for items in an external
        directory. (Stefan)
 
 Version 1.6.8
-- BUG: Exporting via DnD from the repository browser could 
-       create garbled paths if the urls of the files 
+- BUG: Exporting via DnD from the repository browser could
+       create garbled paths if the urls of the files
        required escaping. (Stefan)
 - BUG: Properties loaded from a file were not changed or
        added without a manual edit of the loaded content. (Stefan)
@@ -83,12 +83,12 @@ Version 1.6.8
 - BUG: Adjusting the case of filenames could lead to those
        files getting deleted instead of fixed. (Stefan)
 - BUG: When right-dragging and copying files over already existing
-       files, an empty error dialog was shown 
+       files, an empty error dialog was shown
        in case of success. (Stefan)
 - CHG: Various adjustments for Windows 7. (Stefan)
 - CHG: The "show excluded folders as normal" setting is
        changed to false by default. (Stefan)
-- CHG: On W2k, don't update to incompatible (future) TSVN versions. 
+- CHG: On W2k, don't update to incompatible (future) TSVN versions.
        (Stefan Fuhrmann)
 
 Version 1.6.7
@@ -111,7 +111,7 @@ Version 1.6.7
        application. (Jonathan Potter, GP Software and Stefan)
 - BUG: The "commonURL" parameter in the CheckCommit() method of the
        IBugtraqProvider2 interface was sometimes wrong. (Stefan)
-- BUG: Revision graph won't show w/c revision under certain 
+- BUG: Revision graph won't show w/c revision under certain
        conditions. (Stefan Fuhrmann)
 - BUG: Revision graph would segfault for small repositories
        (Stefan Fuhrmann)
@@ -120,7 +120,7 @@ Version 1.6.7
 - BUG: Text files dragged from the repository browser to the explorer
        got truncated if they had the svn:eol-style property set. (Stefan)
 - BUG: Resizing the dialogs with right/middle click didn't respect
-       the current monitor but always moved the dialogs to the 
+       the current monitor but always moved the dialogs to the
        primary monitor. (Stefan)
 
 Version 1.6.6
@@ -137,7 +137,7 @@ Version 1.6.6
 Version 1.6.5
 - BUG: fixed access to freed memory which could crash
        the 'resolve' command. (Stefan)
-- BUG: Y coordinate in log statistics graph Repository had 
+- BUG: Y coordinate in log statistics graph Repository had
        inconsistent scaling. (Stefan Fuhrmann)
 - BUG: the ssl certificate files weren't saved. (Stefan)
 - BUG: The language for the dialogs was always in English on
@@ -174,7 +174,7 @@ Version 1.6.3
 - CHG: Deleted folders are not removed from the filesystem but only marked
        as deleted so they can be committed separately. (Stefan)
 - CHG: Change merges to be non-forced. (Stefan)
-- CHG: Performance improvment in TortoiseMerge when showing 
+- CHG: Performance improvment in TortoiseMerge when showing
        long lines. (Stefan)
 - BUG: If a commit failed, TSVN could crash in case the svn library returned
        an empty error object. (Stefan)
@@ -189,7 +189,7 @@ Version 1.6.3
 - BUG: A checkout could fail due to a wrong peg revision. (Stefan)
 - BUG: The status cache could fail to monitor working copies
        for changes. (Stefan)
-- BUG: An incomplete info text was shown for tree conflicts 
+- BUG: An incomplete info text was shown for tree conflicts
        "incoming add upon merge". (Stefan)
 - BUG: The status cache exclude list wasn't used the first five minutes
        after a restart. (Stefan)
@@ -201,7 +201,7 @@ Version 1.6.3
 - BUG: A failed merge could have restarted without notice. (Stefan)
 - BUG: Diffing a file added remotely in the Check-for-modifications dialog
        did not work. (Stefan)
-- BUG: EOLs could be lost when editing removed lines 
+- BUG: EOLs could be lost when editing removed lines
        in TortoiseMerge. (Stefan)
 
 Version 1.6.3
@@ -383,11 +383,11 @@ Version 1.6.0
        to checkout/export aynmore but silently create it. (Stefan)
 
 Version 1.5.10
-- SEC: Security update. Please see 
+- SEC: Security update. Please see
        http://subversion.tigris.org/security/CVE-2009-2411-advisory.txt
-	   for details.
-	   Note: the 1.5.x branch of TortoiseSVN is no longer maintained. Only
-	   use this if you really have to. Otherwise please update to version 1.6.4.
+       for details.
+       Note: the 1.5.x branch of TortoiseSVN is no longer maintained. Only
+       use this if you really have to. Otherwise please update to version 1.6.4.
 
 Version 1.5.9
 - BUG: Broken registry settings may prevent Check for Modifications dialog

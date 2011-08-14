@@ -133,7 +133,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
             lstrcpynW(psci->wszDescription, stringtablebuffer, MAX_COLUMN_DESC_LEN);
             break;
         default:
-			// SVN custom properties
+            // SVN custom properties
             if (dwIndex - 9 > columnuserprops.size())
                 return S_FALSE;
             psci->scid.fmtid = FMTID_UserDefinedProperties;
@@ -147,7 +147,7 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
             break;
     }
 
-	return S_OK;
+    return S_OK;
 }
 
 void CShellExt::GetColumnInfo(SHCOLUMNINFO* psci, DWORD dwIndex, UINT charactersCount, UINT titleId, UINT descriptionId)
@@ -264,18 +264,18 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
         V_BSTR(pvarData) = SysAllocString(wsInfo.c_str());
         return S_OK;
     }
-	if(pscid->fmtid == FMTID_UserDefinedProperties && pscid->pid < columnuserprops.size())
-	{
-		// SVN custom properties
+    if(pscid->fmtid == FMTID_UserDefinedProperties && pscid->pid < columnuserprops.size())
+    {
+        // SVN custom properties
         tstring szInfo;
         const TCHAR * path = (TCHAR *)pscd->wszFile;
-		if (g_ShellCache.IsPathAllowed(path))
+        if (g_ShellCache.IsPathAllowed(path))
             ExtractProperty(path, columnuserprops.at(pscid->pid).second.c_str(), szInfo);
         const WCHAR * wsInfo = szInfo.c_str();
         V_VT(pvarData) = VT_BSTR;
         V_BSTR(pvarData) = SysAllocString(wsInfo);
         return S_OK;
-	}
+    }
 
     return S_FALSE;
 }
@@ -489,7 +489,7 @@ void CShellExt::GetMainColumnStatus(const TCHAR * path, BOOL bIsDir)
         break;
     case ShellCache::dll:
         {
-            const FileStatusCacheEntry * status 
+            const FileStatusCacheEntry * status
                 = m_CachedStatus.GetFullStatus(CTSVNPath(path), bIsDir, TRUE);
 
             filestatus = status->status;

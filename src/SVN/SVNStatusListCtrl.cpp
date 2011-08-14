@@ -533,7 +533,7 @@ void CSVNStatusListCtrl::FetchUserProperties (size_t first, size_t last)
 
     for (size_t i = first; i < last; ++i)
     {
-        svn_client_proplist3(m_targetPathList[i].GetSVNApiPath(pool), SVNRev(), SVNRev(), 
+        svn_client_proplist3(m_targetPathList[i].GetSVNApiPath(pool), SVNRev(), SVNRev(),
                              svn_depth_infinity, NULL, proplist_receiver, &m_PropertyMap, pCtx, pool);
     }
 
@@ -796,7 +796,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
         m_changelists[entry->changelist] = -1;
         m_bHasChangeLists = true;
     }
-    
+
     if (pSVNStatus->repos_lock)
     {
         if (pSVNStatus->repos_lock->owner)
@@ -1486,8 +1486,8 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
         case 19: // SVNSLC_COLSIZE
             if (!entry->IsFolder())
             {
-                __int64 filesize = entry->working_size != (-1) 
-                                 ? entry->working_size 
+                __int64 filesize = entry->working_size != (-1)
+                                 ? entry->working_size
                                  : entry->GetPath().GetFileSize();
                 StrFormatByteSize64(filesize, buf, _countof(buf));
                 return buf;
@@ -2283,8 +2283,8 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
                     msg.Format(IDS_PROC_REMOVEFORCE_TASK1, (LPCTSTR)svn.GetLastErrorMessage(), (LPCTSTR)itemsToRemove[0].GetFileOrDirectoryName());
                 else
                     msg.Format(IDS_PROC_REMOVEFORCE_TASK1_1, (LPCTSTR)svn.GetLastErrorMessage(), itemsToRemove.GetCount());
-                CTaskDialog taskdlg(msg, 
-                                    CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)), 
+                CTaskDialog taskdlg(msg,
+                                    CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)),
                                     L"TortoiseSVN",
                                     0,
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -2479,8 +2479,8 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
                 sInfo.Format(IDS_PROC_WARNREVERT_TASK1, (LPCTSTR)targetList[0].GetFileOrDirectoryName());
             else
                 sInfo.Format(IDS_PROC_WARNREVERT, targetList.GetCount());
-            CTaskDialog taskdlg(sInfo, 
-                                CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK2)), 
+            CTaskDialog taskdlg(sInfo,
+                                CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -3598,8 +3598,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             sInfo.Format(IDS_PROC_RESOLVE_TASK1, (LPCTSTR)selectedList[0].GetFileOrDirectoryName());
                         else
                             sInfo.LoadString(IDS_PROC_RESOLVE);
-                        CTaskDialog taskdlg(sInfo, 
-                                            CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK2)), 
+                        CTaskDialog taskdlg(sInfo,
+                                            CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK2)),
                                             L"TortoiseSVN",
                                             0,
                                             TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -5324,8 +5324,8 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
 
                     switch (entry->status)
                     {
-                        case svn_wc_status_unversioned: 
-                        case svn_wc_status_ignored: 
+                        case svn_wc_status_unversioned:
+                        case svn_wc_status_ignored:
                             Delete (entry->path, selIndex);
                             return TRUE;
 

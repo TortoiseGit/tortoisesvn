@@ -90,8 +90,8 @@ bool DropMoveCommand::Execute()
                     sReplace.Format(IDS_PROC_REPLACEEXISTING, destPath.GetWinPath());
                     if (CTaskDialog::IsSupported())
                     {
-                        CTaskDialog taskdlg(sReplace, 
-                                            CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK2)), 
+                        CTaskDialog taskdlg(sReplace,
+                                            CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK2)),
                                             L"TortoiseSVN",
                                             0,
                                             TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

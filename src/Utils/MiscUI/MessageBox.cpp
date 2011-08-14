@@ -34,7 +34,7 @@ UINT TSVNMessageBox( HWND hWnd, LPCTSTR lpMessage, LPCTSTR lpCaption, int nDef, 
         sButtonTexts += lpButton3;
     }
     XMSGBOXPARAMS xmsg;
-    _tcscpy_s(xmsg.szCustomButtons, (LPCTSTR)sButtonTexts); 
+    _tcscpy_s(xmsg.szCustomButtons, (LPCTSTR)sButtonTexts);
 
     return XMessageBox(hWnd, lpMessage, lpCaption, nDef, &xmsg);
 }

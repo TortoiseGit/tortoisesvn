@@ -9,7 +9,7 @@
 // http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
-// You may not use this file except in compliance with the License. 
+// You may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
 // http://www.opensource.org/licenses/artistic-license.html
 //
@@ -32,11 +32,11 @@
 // CResizableMDIFrame frame
 
 class CResizableMDIFrame : public CMDIFrameWnd, public CResizableMinMax,
-						public CResizableWndState, public CResizableLayout
+                        public CResizableWndState, public CResizableLayout
 {
-	DECLARE_DYNCREATE(CResizableMDIFrame)
+    DECLARE_DYNCREATE(CResizableMDIFrame)
 protected:
-	CResizableMDIFrame();		// protected constructor used by dynamic creation
+    CResizableMDIFrame();       // protected constructor used by dynamic creation
 
 // Attributes
 protected:
@@ -45,41 +45,41 @@ protected:
 public:
 
 // Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CResizableMDIFrame)
-	protected:
-	virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
-	//}}AFX_VIRTUAL
+    // ClassWizard generated virtual function overrides
+    //{{AFX_VIRTUAL(CResizableMDIFrame)
+    protected:
+    virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
+    //}}AFX_VIRTUAL
 
 // Implementation
 protected:
-	virtual ~CResizableMDIFrame();
+    virtual ~CResizableMDIFrame();
 
-	BOOL EnableSaveRestore(LPCTSTR pszSection, BOOL bRectOnly = FALSE);
+    BOOL EnableSaveRestore(LPCTSTR pszSection, BOOL bRectOnly = FALSE);
 
-	virtual CWnd* GetResizableWnd() const
-	{
-		// make the layout know its parent window
-		return CWnd::FromHandle(m_hWnd);
-	};
+    virtual CWnd* GetResizableWnd() const
+    {
+        // make the layout know its parent window
+        return CWnd::FromHandle(m_hWnd);
+    };
 
 private:
-	// flags
-	BOOL m_bEnableSaveRestore;
-	BOOL m_bRectOnly;
+    // flags
+    BOOL m_bEnableSaveRestore;
+    BOOL m_bRectOnly;
 
-	// internal status
-	CString m_sSection;			// section name (identifies a parent window)
+    // internal status
+    CString m_sSection;         // section name (identifies a parent window)
 
 protected:
-	// Generated message map functions
-	//{{AFX_MSG(CResizableMDIFrame)
-	afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
-	afx_msg void OnDestroy();
-	afx_msg BOOL OnNcCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg void OnWindowPosChanging(WINDOWPOS FAR* lpwndpos);
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
+    // Generated message map functions
+    //{{AFX_MSG(CResizableMDIFrame)
+    afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
+    afx_msg void OnDestroy();
+    afx_msg BOOL OnNcCreate(LPCREATESTRUCT lpCreateStruct);
+    afx_msg void OnWindowPosChanging(WINDOWPOS FAR* lpwndpos);
+    //}}AFX_MSG
+    DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////

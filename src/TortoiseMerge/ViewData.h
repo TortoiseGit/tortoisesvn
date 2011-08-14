@@ -46,11 +46,11 @@ public:
     }
 
     viewdata(
-            const CString& sLineInit, 
-            DiffStates stateInit, 
-            int linenumberInit, 
-            EOL endingInit, 
-            HIDESTATE hideInit, 
+            const CString& sLineInit,
+            DiffStates stateInit,
+            int linenumberInit,
+            EOL endingInit,
+            HIDESTATE hideInit,
             int movedIndexInit)
         : state(stateInit)
         , linenumber(linenumberInit)

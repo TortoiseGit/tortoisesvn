@@ -40,7 +40,7 @@ public:
 
     /// adds a possible wc path. If the path itself is not a WC root,
     /// this method tries to find the wc root itself.
-    /// returns true if the path was added, i.e., a WC root was 
+    /// returns true if the path was added, i.e., a WC root was
     /// found for it. Returns false otherwise.
     bool AddPath(const CTSVNPath& path);
 

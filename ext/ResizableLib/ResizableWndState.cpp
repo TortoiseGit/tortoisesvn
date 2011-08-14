@@ -9,7 +9,7 @@
 // Copyright (C) 2011 TortoiseSVN
 //
 // The contents of this file are subject to the Artistic License (the "License").
-// You may not use this file except in compliance with the License. 
+// You may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
 // http://www.opensource.org/licenses/artistic-license.html
 //
@@ -43,8 +43,8 @@ CResizableWndState::~CResizableWndState()
 // either in the registry or a private .INI file
 // depending on your application settings
 
-#define PLACEMENT_ENT	_T("WindowPlacement")
-#define PLACEMENT_FMT 	_T("%d,%d,%d,%d,%d,%d,%d,%d")
+#define PLACEMENT_ENT   _T("WindowPlacement")
+#define PLACEMENT_FMT   _T("%d,%d,%d,%d,%d,%d,%d,%d")
 
 /*!
  *  This function saves the current window position and size using the base
@@ -53,39 +53,39 @@ CResizableWndState::~CResizableWndState()
  *  @sa CResizableState::WriteState
  *  @note Window coordinates are in the form used by the system functions
  *  GetWindowPlacement and SetWindowPlacement.
- *  
+ *
  *  @param pszName String that identifies stored settings
  *  @param bRectOnly Flag that specifies wether to ignore min/max state
- *  
+ *
  *  @return Returns @a TRUE if successful, @a FALSE otherwise
  */
 BOOL CResizableWndState::SaveWindowRect(LPCTSTR pszName, BOOL bRectOnly)
 {
-	CString data, id;
-	WINDOWPLACEMENT wp;
+    CString data, id;
+    WINDOWPLACEMENT wp;
 
-	SecureZeroMemory(&wp, sizeof(WINDOWPLACEMENT));
-	wp.length = sizeof(WINDOWPLACEMENT);
-	if (!GetResizableWnd()->GetWindowPlacement(&wp))
-		return FALSE;
-	
-	// use workspace coordinates
-	RECT& rc = wp.rcNormalPosition;
+    SecureZeroMemory(&wp, sizeof(WINDOWPLACEMENT));
+    wp.length = sizeof(WINDOWPLACEMENT);
+    if (!GetResizableWnd()->GetWindowPlacement(&wp))
+        return FALSE;
 
-	if (bRectOnly)	// save size/pos only (normal state)
-	{
-		data.Format(PLACEMENT_FMT, rc.left, rc.top,
-			rc.right, rc.bottom, SW_SHOWNORMAL, 0, 0, 0);
-	}
-	else	// save also min/max state
-	{
-		data.Format(PLACEMENT_FMT, rc.left, rc.top,
-			rc.right, rc.bottom, wp.showCmd, wp.flags,
-			wp.ptMinPosition.x, wp.ptMinPosition.y);
-	}
+    // use workspace coordinates
+    RECT& rc = wp.rcNormalPosition;
 
-	id = CString(pszName) + PLACEMENT_ENT;
-	return WriteState(id, data);
+    if (bRectOnly)  // save size/pos only (normal state)
+    {
+        data.Format(PLACEMENT_FMT, rc.left, rc.top,
+            rc.right, rc.bottom, SW_SHOWNORMAL, 0, 0, 0);
+    }
+    else    // save also min/max state
+    {
+        data.Format(PLACEMENT_FMT, rc.left, rc.top,
+            rc.right, rc.bottom, wp.showCmd, wp.flags,
+            wp.ptMinPosition.x, wp.ptMinPosition.y);
+    }
+
+    id = CString(pszName) + PLACEMENT_ENT;
+    return WriteState(id, data);
 }
 
 /*!
@@ -95,33 +95,33 @@ BOOL CResizableWndState::SaveWindowRect(LPCTSTR pszName, BOOL bRectOnly)
  *  @sa CResizableState::WriteState
  *  @note Window coordinates are in the form used by the system functions
  *  GetWindowPlacement and SetWindowPlacement.
- *  
+ *
  *  @param pszName String that identifies stored settings
  *  @param bRectOnly Flag that specifies wether to ignore min/max state
- *  
+ *
  *  @return Returns @a TRUE if successful, @a FALSE otherwise
  */
 BOOL CResizableWndState::LoadWindowRect(LPCTSTR pszName, BOOL bRectOnly)
 {
-	CString data, id;
-	WINDOWPLACEMENT wp;
+    CString data, id;
+    WINDOWPLACEMENT wp;
 
-	id = CString(pszName) + PLACEMENT_ENT;
-	if (!ReadState(id, data))	// never saved before
-		return FALSE;
-	
-	SecureZeroMemory(&wp, sizeof(WINDOWPLACEMENT));
-	wp.length = sizeof(WINDOWPLACEMENT);
-	if (!GetResizableWnd()->GetWindowPlacement(&wp))
-		return FALSE;
+    id = CString(pszName) + PLACEMENT_ENT;
+    if (!ReadState(id, data))   // never saved before
+        return FALSE;
 
-	// use workspace coordinates
-	RECT& rc = wp.rcNormalPosition;
+    SecureZeroMemory(&wp, sizeof(WINDOWPLACEMENT));
+    wp.length = sizeof(WINDOWPLACEMENT);
+    if (!GetResizableWnd()->GetWindowPlacement(&wp))
+        return FALSE;
 
-	if (_stscanf(data, PLACEMENT_FMT, &rc.left, &rc.top,
-		&rc.right, &rc.bottom, &wp.showCmd, &wp.flags,
-		&wp.ptMinPosition.x, &wp.ptMinPosition.y) == 8)
-	{
+    // use workspace coordinates
+    RECT& rc = wp.rcNormalPosition;
+
+    if (_stscanf(data, PLACEMENT_FMT, &rc.left, &rc.top,
+        &rc.right, &rc.bottom, &wp.showCmd, &wp.flags,
+        &wp.ptMinPosition.x, &wp.ptMinPosition.y) == 8)
+    {
         // get screen size
 
         int screenWidth = GetSystemMetrics(SM_CXSCREEN);
@@ -141,18 +141,18 @@ BOOL CResizableWndState::LoadWindowRect(LPCTSTR pszName, BOOL bRectOnly)
         wp.ptMaxPosition.x = min (wp.ptMaxPosition.x, screenWidth - 1);
         wp.ptMaxPosition.y = min (wp.ptMaxPosition.y, screenHeight - 1);
 
-		if (bRectOnly)	// restore size/pos only
-		{
-			wp.showCmd = SW_SHOWNORMAL;
-			wp.flags = 0;
-		}
-		else	// restore also max state
-		{
-			if (wp.showCmd == SW_SHOWMINIMIZED)
-				wp.showCmd = SW_SHOWNORMAL;
-		}
+        if (bRectOnly)  // restore size/pos only
+        {
+            wp.showCmd = SW_SHOWNORMAL;
+            wp.flags = 0;
+        }
+        else    // restore also max state
+        {
+            if (wp.showCmd == SW_SHOWMINIMIZED)
+                wp.showCmd = SW_SHOWNORMAL;
+        }
 
         return GetResizableWnd()->SetWindowPlacement(&wp);
-	}
-	return FALSE;
+    }
+    return FALSE;
 }

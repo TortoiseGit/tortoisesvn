@@ -912,7 +912,7 @@ private:
 
     /// Returns the file entry data for the specified path.
     CSVNStatusListCtrl::FileEntry * GetListEntry(const CTSVNPath& path) const;
-    
+
     void SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck);
 
     /// Adjust the checkbox-state on all descendants of a specific item

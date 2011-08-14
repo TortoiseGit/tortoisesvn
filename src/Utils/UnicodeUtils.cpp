@@ -72,7 +72,7 @@ char* CUnicodeUtils::UTF16ToUTF8
 
             if (zero_flags != 0)
             {
-                // terminator has already been written, we only need to update 
+                // terminator has already been written, we only need to update
                 // the target pointer
 
                 if ((zero_flags & 0xff) == 0)
@@ -197,7 +197,7 @@ wchar_t* CUnicodeUtils::UTF8ToUTF16
 
             if (zero_flags != 0)
             {
-                // terminator has already been written, we only need to update 
+                // terminator has already been written, we only need to update
                 // the target pointer
 
                 if ((zero_flags & 0xff) == 0)
@@ -288,7 +288,7 @@ wchar_t* CUnicodeUtils::UTF8ToUTF16
     return target-1;
 }
 
-namespace 
+namespace
 {
     // simple utility class that provides an efficient
     // writable string buffer. std::basic_string<> could
@@ -390,7 +390,7 @@ std::string WideToMultibyte(const std::wstring& wide)
     return std::string (narrow.get(), ret);
 }
 
-// load a string resource 
+// load a string resource
 
 #pragma warning(push)
 #pragma warning(disable: 4200)

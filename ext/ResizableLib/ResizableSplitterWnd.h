@@ -9,7 +9,7 @@
 // http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
-// You may not use this file except in compliance with the License. 
+// You may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
 // http://www.opensource.org/licenses/artistic-license.html
 //
@@ -31,11 +31,11 @@
 
 class CResizableSplitterWnd : public CSplitterWnd, public CResizableMinMax
 {
-	DECLARE_DYNAMIC(CResizableSplitterWnd)
+    DECLARE_DYNAMIC(CResizableSplitterWnd)
 
 // Construction
 public:
-	CResizableSplitterWnd();
+    CResizableSplitterWnd();
 
 // Attributes
 public:
@@ -44,20 +44,20 @@ public:
 public:
 
 // Overrides
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CResizableSplitterWnd)
-	protected:
-	//}}AFX_VIRTUAL
+    // ClassWizard generated virtual function overrides
+    //{{AFX_VIRTUAL(CResizableSplitterWnd)
+    protected:
+    //}}AFX_VIRTUAL
 
 // Implementation
 public:
-	virtual ~CResizableSplitterWnd();
+    virtual ~CResizableSplitterWnd();
 
-	// Generated message map functions
-	//{{AFX_MSG(CResizableSplitterWnd)
-	afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
+    // Generated message map functions
+    //{{AFX_MSG(CResizableSplitterWnd)
+    afx_msg void OnGetMinMaxInfo(MINMAXINFO FAR* lpMMI);
+    //}}AFX_MSG
+    DECLARE_MESSAGE_MAP()
 };
 
 /////////////////////////////////////////////////////////////////////////////

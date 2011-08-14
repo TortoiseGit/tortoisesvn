@@ -219,8 +219,8 @@ bool CCommonAppUtils::LaunchApplication
 
     size_t bufferLen = sCommandLine.GetLength()+1;
     auto_buffer<TCHAR> cleanCommandLine (bufferLen);
-    memcpy (cleanCommandLine.get(), 
-            (LPCTSTR)sCommandLine, 
+    memcpy (cleanCommandLine.get(),
+            (LPCTSTR)sCommandLine,
             sizeof (TCHAR) * bufferLen);
 
     if (!CCreateProcessHelper::CreateProcess(NULL, cleanCommandLine.get(), sOrigCWD, &process))
@@ -529,7 +529,7 @@ void CCommonAppUtils::ExtendControlOverHiddenControl(CWnd* parent, UINT controlT
 
 bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title, UINT filterId, bool bOpen, HWND hwndOwner)
 {
-    HRESULT hr; 
+    HRESULT hr;
     // Create a new common save file dialog
     CComPtr<IFileDialog> pfd = NULL;
 

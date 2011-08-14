@@ -98,8 +98,8 @@ SVNLogHelper::GetCopyHistory(const CTSVNPath& url, const SVNRev& pegrev)
     return result;
 }
 
-std::pair<CTSVNPath, SVNRev> 
-SVNLogHelper::GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1, 
+std::pair<CTSVNPath, SVNRev>
+SVNLogHelper::GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1,
                               const CTSVNPath& url2, const SVNRev& pegrev2)
 {
     // get the full copy histories of both urls
@@ -112,7 +112,7 @@ SVNLogHelper::GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1,
 
     auto iter1 = copyHistory1.rbegin(), end1 = copyHistory1.rend();
     auto iter2 = copyHistory2.rbegin(), end2 = copyHistory2.rend();
-    for (;    iter1 != end1 && iter2 != end2 
+    for (;    iter1 != end1 && iter2 != end2
            && iter1->first.IsEquivalentTo (iter2->first)
          ; ++iter1, ++iter2 )
     {

@@ -74,7 +74,7 @@ public:
     CLogDlg(CWnd* pParent = NULL);   // standard constructor
     virtual ~CLogDlg();
 
-    void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, 
+    void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
         BOOL bStrict = CRegDWORD(_T("Software\\TortoiseSVN\\LastLogStrict"), FALSE), BOOL bSaveStrict = TRUE,
         int limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100));
     void SetFilter(const CString& findstr, LONG findtype, bool findregex);

@@ -566,7 +566,7 @@ bool CAppUtils::FormatTextInRichEditControl(CWnd * pWnd)
     return bStyled;
 }
 
-std::vector<CHARRANGE> 
+std::vector<CHARRANGE>
 CAppUtils::FindRegexMatches
     ( const wstring& text
     , const CString& matchstring
@@ -621,7 +621,7 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
 
         if ((c == stylechar) && (c != nextChar))
         {
-            if (   IsCharAlphaNumeric(nextChar) 
+            if (   IsCharAlphaNumeric(nextChar)
                 && !IsCharAlphaNumeric(prevChar))
             {
                 start = ++i;
@@ -644,7 +644,7 @@ bool CAppUtils::FindStyleChars(const CString& sText, TCHAR stylechar, int& start
         c = sText[i];
         if (c == stylechar)
         {
-            if ((i == last) || (   !IsCharAlphaNumeric(sText[i+1]) 
+            if ((i == last) || (   !IsCharAlphaNumeric(sText[i+1])
                                 && IsCharAlphaNumeric(prevChar)))
             {
                 end = i;
@@ -1013,7 +1013,7 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
 void CAppUtils::SetCharFormat
     ( CWnd* window
     , DWORD mask
-    , DWORD effects 
+    , DWORD effects
     , const std::vector<CHARRANGE>& positions)
 {
     CHARFORMAT2 format;
@@ -1047,8 +1047,8 @@ bool CAppUtils::AskToUpdate(HWND hParent, LPCWSTR error)
 {
     if (CTaskDialog::IsSupported())
     {
-        CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK1)), 
-                            CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)), 
+        CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK1)),
+                            CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)),
                             L"TortoiseSVN",
                             0,
                             TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -1065,8 +1065,8 @@ bool CAppUtils::AskToUpdate(HWND hParent, LPCWSTR error)
     CString question;
     question.Format (IDS_MSG_NEEDSUPDATE_QUESTION, error);
     const UINT result = TSVNMessageBox(hParent, question, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TITLE)),
-                                       MB_DEFBUTTON1|MB_ICONQUESTION, 
-                                       CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)), 
+                                       MB_DEFBUTTON1|MB_ICONQUESTION,
+                                       CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)),
                                        CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
     return result == IDCUSTOM1;
 }
@@ -1080,7 +1080,7 @@ void CAppUtils::ReportFailedHook( HWND hWnd, const CString& sError )
 
     if (CTaskDialog::IsSupported())
     {
-        CTaskDialog taskdlg(str2.c_str(), 
+        CTaskDialog taskdlg(str2.c_str(),
             CString(MAKEINTRESOURCE(IDS_COMMITDLG_CHECKCOMMIT_TASK1)),
             L"TortoiseSVN",
             0,

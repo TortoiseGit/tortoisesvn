@@ -62,7 +62,7 @@ bool SVNExternals::Add(const CTSVNPath& path, const std::string& extvalue, bool 
                 ext.path = path;
                 ext.pathurl = pathurl;
                 ext.pegrevision = e->peg_revision;
-                if ((e->peg_revision.kind != svn_opt_revision_unspecified) && 
+                if ((e->peg_revision.kind != svn_opt_revision_unspecified) &&
                     (e->revision.kind == svn_opt_revision_unspecified))
                 {
                     ext.revision = e->peg_revision;

@@ -106,7 +106,7 @@ BOOL CMergeWizardTree::OnInitDialog()
 
     if (!(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\MergeWCURL"), FALSE))
         m_URLCombo.SetCurSel(0);
-    else 
+    else
     {
         if (!sMergeUrlForWCFrom.IsEmpty())
             m_URLCombo.SetWindowText(CPathUtils::PathUnescape(sMergeUrlForWCFrom));

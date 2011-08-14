@@ -31,7 +31,7 @@
  * myQueue.Push(CString(L"one"));  // "one" already exists, so moved to the end of the queue
  * myQueue.Push(CString(L"three"));
  * myQueue.Push(CString(L"three"));
- * 
+ *
  * ATLASSERT(myQueue.Pop().Compare(L"two") == 0);   // because "one" got moved
  * ATLASSERT(myQueue.Pop().Compare(L"one") == 0);
  * ATLASSERT(myQueue.Pop().Compare(L"three") == 0);

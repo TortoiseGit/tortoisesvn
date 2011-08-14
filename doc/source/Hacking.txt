@@ -5,7 +5,7 @@ While you are working on the docs, please oberve the following rules for your ma
 The markup is processed by XSL Transformations, FO Processors and the like. Always
 remember that you define the structure and leave the formatting to the processors
 For more information about tags in docbook read http://www.docbook.org/tdg/index.html.
-If you want to translate the German or French docs you have to enable UTF-8 BOM's in 
+If you want to translate the German or French docs you have to enable UTF-8 BOM's in
 your editor.
 
 Rules
@@ -63,12 +63,12 @@ Rules
       <guimenu>Context Menu</guimenu>
       <guimenuitem>Commit</guimenuitem>
   </menuchoice>
-  
+
 - Gui Labels / Fields
   If you want to say: "Select the URL from the URL Combobox", use the following markup:
   "Select the URL from the <guilabel>URL</guilabel> Combobox"
 
-- User input, system output and properties are marked with <literal> like: 
+- User input, system output and properties are marked with <literal> like:
   "Enter <literal>something</literal> to continue"
   "The <literal>svn:ignore</literal> property"
 
@@ -164,7 +164,7 @@ Require valid-user
 - Don't use literal '<' and '>' marks
   The XML interpreter will get confused as they look like tag chars.
   Use &lt; for < and &gt; for >
-  
+
 Use the out of line info boxes:
 ===============================
 like:

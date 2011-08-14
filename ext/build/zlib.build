@@ -2,7 +2,7 @@
 <project name="zlib" default="build" basedir="..\..\..\common\zlib">
 
   <!-- ====================================================================== -->
-  <!-- Project targets														-->
+  <!-- Project targets                                                        -->
   <!-- ====================================================================== -->
   <target name="rebuild" depends="clean,build" />
 

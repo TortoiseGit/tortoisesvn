@@ -23,8 +23,8 @@
  * \ingroup Utils
  * Helper classes for handles.
  */
-template <typename HandleType, 
-    template <class> class CloseFunction, 
+template <typename HandleType,
+    template <class> class CloseFunction,
     HandleType NULL_VALUE = NULL>
 class CSmartHandle : public CloseFunction<HandleType>
 {
@@ -39,7 +39,7 @@ public:
         m_Handle = h;
     }
 
-    HandleType operator=(HandleType h) 
+    HandleType operator=(HandleType h)
     {
         if (m_Handle != h)
         {
@@ -47,7 +47,7 @@ public:
             m_Handle = h;
         }
 
-        return(*this);  
+        return(*this);
     }
 
     bool CloseHandle()

@@ -7,7 +7,7 @@
 // http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
-// You may not use this file except in compliance with the License. 
+// You may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
 // http://www.opensource.org/licenses/artistic-license.html
 //
@@ -35,59 +35,59 @@
 /*!
  *  long_description
  */
-class CResizableGrip  
+class CResizableGrip
 {
 private:
-	class CSizeGrip : public CScrollBar
-	{
-	public:
-		CSizeGrip()
-		{
-			m_bTransparent = FALSE;
-			m_bTriangular = FALSE;
-		}
+    class CSizeGrip : public CScrollBar
+    {
+    public:
+        CSizeGrip()
+        {
+            m_bTransparent = FALSE;
+            m_bTriangular = FALSE;
+        }
 
-		void SetTriangularShape(BOOL bEnable);
-		void SetTransparency(BOOL bActivate);
+        void SetTriangularShape(BOOL bEnable);
+        void SetTransparency(BOOL bActivate);
 
-		BOOL IsRTL();			// right-to-left layout support
+        BOOL IsRTL();           // right-to-left layout support
 
-		virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
+        virtual LRESULT WindowProc(UINT message, WPARAM wParam, LPARAM lParam);
 
-		SIZE m_size;			// holds grip size
+        SIZE m_size;            // holds grip size
 
-	protected:
-		virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+    protected:
+        virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 
-		BOOL m_bTriangular;		// triangular shape active
-		BOOL m_bTransparent;	// transparency active
+        BOOL m_bTriangular;     // triangular shape active
+        BOOL m_bTransparent;    // transparency active
 
-		// memory DCs and bitmaps for transparent grip
-		CDC m_dcGrip, m_dcMask;
-		CBitmap m_bmGrip, m_bmMask;
-	};
+        // memory DCs and bitmaps for transparent grip
+        CDC m_dcGrip, m_dcMask;
+        CBitmap m_bmGrip, m_bmMask;
+    };
 
-	CSizeGrip m_wndGrip;		// grip control
-	int m_nShowCount;			// support for hiding the grip
+    CSizeGrip m_wndGrip;        // grip control
+    int m_nShowCount;           // support for hiding the grip
 
 protected:
-	// create a size grip, with options
-	BOOL CreateSizeGrip(BOOL bVisible = TRUE,
-		BOOL bTriangular = TRUE, BOOL bTransparent = FALSE);
+    // create a size grip, with options
+    BOOL CreateSizeGrip(BOOL bVisible = TRUE,
+        BOOL bTriangular = TRUE, BOOL bTransparent = FALSE);
 
-	BOOL IsSizeGripVisible();	// TRUE if grip is set to be visible
-	void SetSizeGripVisibility(BOOL bVisible);	// set default visibility
-	void UpdateSizeGrip();		// update the grip's visibility and position
-	void ShowSizeGrip(DWORD* pStatus, DWORD dwMask = 1);	// temp show the size grip
-	void HideSizeGrip(DWORD* pStatus, DWORD dwMask = 1);	// temp hide the size grip
-	BOOL SetSizeGripBkMode(int nBkMode);		// like CDC::SetBkMode
-	void SetSizeGripShape(BOOL bTriangular);
+    BOOL IsSizeGripVisible();   // TRUE if grip is set to be visible
+    void SetSizeGripVisibility(BOOL bVisible);  // set default visibility
+    void UpdateSizeGrip();      // update the grip's visibility and position
+    void ShowSizeGrip(DWORD* pStatus, DWORD dwMask = 1);    // temp show the size grip
+    void HideSizeGrip(DWORD* pStatus, DWORD dwMask = 1);    // temp hide the size grip
+    BOOL SetSizeGripBkMode(int nBkMode);        // like CDC::SetBkMode
+    void SetSizeGripShape(BOOL bTriangular);
 
-	virtual CWnd* GetResizableWnd() const = 0;
+    virtual CWnd* GetResizableWnd() const = 0;
 
 public:
-	CResizableGrip();
-	virtual ~CResizableGrip();
+    CResizableGrip();
+    virtual ~CResizableGrip();
     void HideGrip() { m_wndGrip.ShowWindow(SW_HIDE); m_nShowCount = -100; }
 };
 

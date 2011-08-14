@@ -34,7 +34,7 @@ private:
      */
     enum {ALIGNMENT = sizeof (__m128)};
 
-    /// the buffer that was allocated     
+    /// the buffer that was allocated
     char* memory;
 
     /// the aligned start of our data buffer (memory + 0..15 bytes)

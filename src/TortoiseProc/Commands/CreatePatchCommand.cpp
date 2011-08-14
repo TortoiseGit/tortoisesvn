@@ -83,7 +83,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 
     if (cmdLineSavePath.IsEmpty())
     {
-        HRESULT hr; 
+        HRESULT hr;
         // Create a new common save file dialog
         CComPtr<IFileSaveDialog> pfd = NULL;
         hr = pfd.CoCreateInstance(CLSID_FileSaveDialog, NULL, CLSCTX_INPROC_SERVER);

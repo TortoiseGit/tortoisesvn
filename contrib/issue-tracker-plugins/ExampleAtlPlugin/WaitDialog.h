@@ -5,7 +5,7 @@
 const UINT WM_PROCESS_STARTING = WM_APP + 42;
 const UINT WM_PROCESS_COMPLETED = WM_APP + 43;
 
-class CWaitDialog : 
+class CWaitDialog :
     public CDialogImpl<CWaitDialog>
 {
     HANDLE m_hThread;

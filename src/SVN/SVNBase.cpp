@@ -37,7 +37,7 @@
 #include "svn_client.h"
 #pragma warning(pop)
 
-SVNBase::SVNBase() 
+SVNBase::SVNBase()
     : Err(NULL)
     , m_pctx(NULL)
 {

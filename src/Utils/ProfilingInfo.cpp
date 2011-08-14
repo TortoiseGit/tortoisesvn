@@ -208,7 +208,7 @@ std::string CProfilingInfo::GetReport() const
     // convert the processor ticks to seconds
     HKEY hKey;
     // open the key where the proc speed is hidden:
-    long lError = RegOpenKeyEx(HKEY_LOCAL_MACHINE, 
+    long lError = RegOpenKeyEx(HKEY_LOCAL_MACHINE,
                                 L"HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0",
                                 0,
                                 KEY_READ,

@@ -281,7 +281,7 @@ BOOL CTortoiseMergeApp::InitInstance()
         // the patchfile itself was not.
         // So ask the user for that patchfile
 
-        HRESULT hr; 
+        HRESULT hr;
         // Create a new common save file dialog
         CComPtr<IFileOpenDialog> pfd = NULL;
         hr = pfd.CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER);

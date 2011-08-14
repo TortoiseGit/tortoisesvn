@@ -123,7 +123,7 @@ bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll)
                 &nFixedLength);
             lpTransArray = (TRANSARRAY*) lpFixedPointer;
 
-            _stprintf_s(strLangProduktVersion, 
+            _stprintf_s(strLangProduktVersion,
                         _T("\\StringFileInfo\\%04x%04x\\ProductVersion"),
                         lpTransArray[0].wLanguageID,
                         lpTransArray[0].wCharacterSet);

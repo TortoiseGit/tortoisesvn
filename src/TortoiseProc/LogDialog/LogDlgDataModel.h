@@ -46,7 +46,7 @@ private:
         DWORD action:8;
         svn_tristate_t textModifies:2;
         svn_tristate_t propsModifies:2;
-        int relevantForStartPath:1;     // we can't use bool here 
+        int relevantForStartPath:1;     // we can't use bool here
                                         // (takes an additional 4 bytes)
     } flags;
 

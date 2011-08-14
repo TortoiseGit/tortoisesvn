@@ -86,16 +86,16 @@ void EnsureSVNLibrary()
 }
 
 /**
- * Open the shell library under the user's Libraries folder according to the 
+ * Open the shell library under the user's Libraries folder according to the
  * specified library name with both read and write permissions.
- * 
+ *
  * \param pwszLibraryName
  * The name of the shell library to be opened.
- * 
+ *
  * \param ppShellLib
- * If the open operation succeeds, ppShellLib outputs the IShellLibrary 
+ * If the open operation succeeds, ppShellLib outputs the IShellLibrary
  * interface of the shell library object. The caller is responsible for calling
- * Release on the shell library. If the function fails, NULL is returned from 
+ * Release on the shell library. If the function fails, NULL is returned from
  * *ppShellLib.
  */
 HRESULT OpenShellLibrary(LPWSTR pwszLibraryName, IShellLibrary** ppShellLib)
@@ -118,14 +118,14 @@ HRESULT OpenShellLibrary(LPWSTR pwszLibraryName, IShellLibrary** ppShellLib)
 
 /**
  * Get the shell item that represents the library.
- * 
+ *
  * \param pwszLibraryName
  * The name of the shell library
- * 
+ *
  * \param ppShellItem
- * If the operation succeeds, ppShellItem outputs the IShellItem2 interface  
- * that represents the library. The caller is responsible for calling 
- * Release on the shell item. If the function fails, NULL is returned from 
+ * If the operation succeeds, ppShellItem outputs the IShellItem2 interface
+ * that represents the library. The caller is responsible for calling
+ * Release on the shell item. If the function fails, NULL is returned from
  * *ppShellItem.
  */
 HRESULT GetShellLibraryItem(LPWSTR pwszLibraryName, IShellItem2** ppShellItem)

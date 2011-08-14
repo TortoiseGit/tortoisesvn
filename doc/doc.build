@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!--
-============================================================ 
+============================================================
  $Date$
  $Author$
  $Rev$
-============================================================ 
+============================================================
 
 NAnt build script for the TortoiseSVN documentation
 
@@ -250,7 +250,7 @@ All user/site specific configuration is stored in doc.build.user.
     </foreach>
 
     <!-- Create a common .pot file for both applications -->
-    <!-- Could be smart to replace the comma delimiters in potemplates by spaces 
+    <!-- Could be smart to replace the comma delimiters in potemplates by spaces
          and use this instead on the command line -->
     <exec program="msgcat"
           commandline="../Languages/TortoiseDocPotHeader.txt TortoiseSVN.pot TortoiseMerge.pot --use-first --no-wrap -o ../Languages/TortoiseDoc.pot"

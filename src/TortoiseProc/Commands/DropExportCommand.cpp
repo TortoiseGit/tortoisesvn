@@ -40,8 +40,8 @@ bool DropExportCommand::Execute()
         msg.Format(IDS_PROC_EXPORTUNVERSION, (LPCTSTR)droppath);
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(msg, 
-                                CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK2)), 
+            CTaskDialog taskdlg(msg,
+                                CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -112,8 +112,8 @@ bool DropExportCommand::Execute()
                     sMsg.Format(IDS_PROC_OVERWRITEEXPORT, (LPCTSTR)dropper);
                     if (CTaskDialog::IsSupported())
                     {
-                        CTaskDialog taskdlg(sMsg, 
-                                            CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_TASK2)), 
+                        CTaskDialog taskdlg(sMsg,
+                                            CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_TASK2)),
                                             L"TortoiseSVN",
                                             0,
                                             TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

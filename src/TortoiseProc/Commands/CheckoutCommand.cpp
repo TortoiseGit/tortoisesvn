@@ -124,8 +124,8 @@ bool CheckoutCommand::Execute()
 
         progDlg.SetCommand
             (useStandardCheckout
-                ? dlg.m_checkoutDepths.size() 
-                    ? CSVNProgressDlg::SVNProgress_SparseCheckout 
+                ? dlg.m_checkoutDepths.size()
+                    ? CSVNProgressDlg::SVNProgress_SparseCheckout
                     : CSVNProgressDlg::SVNProgress_Checkout
                 : dlg.m_parentExists && (dlg.m_URLs.GetCount() == 1)
                     ? CSVNProgressDlg::SVNProgress_Update

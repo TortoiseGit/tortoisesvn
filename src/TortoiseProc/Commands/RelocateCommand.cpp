@@ -128,8 +128,8 @@ bool RelocateCommand::Execute()
             {
                 CString sInfo;
                 sInfo.FormatMessage(IDS_WARN_RELOCATEREALLY_TASK1, (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
-                CTaskDialog taskdlg(sInfo, 
-                                    CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK2)), 
+                CTaskDialog taskdlg(sInfo,
+                                    CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK2)),
                                     L"TortoiseSVN",
                                     0,
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

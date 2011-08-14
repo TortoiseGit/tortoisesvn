@@ -327,10 +327,10 @@ private:
         bool operator<(const SPathAndRev& rhs) const
         {
             int pathDiff = CTSVNPath::Compare (path, rhs.path);
-            return (pathDiff < 0) 
-                || (   (pathDiff == 0) 
-                    && (   (rev < rhs.rev) 
-                        || (   (rev == rhs.rev) 
+            return (pathDiff < 0)
+                || (   (pathDiff == 0)
+                    && (   (rev < rhs.rev)
+                        || (   (rev == rhs.rev)
                             && (peg_rev < rhs.peg_rev))));
         }
     };
@@ -417,11 +417,11 @@ public:
 
     void WaitForJobsToFinish();
 
-    /// return a RAII object that suspends job scheduling for its 
+    /// return a RAII object that suspends job scheduling for its
     /// lifetime (jobs already being processed will not be affected)
 
     std::auto_ptr<async::CSchedulerSuspension> SuspendJobs();
-    
+
     /// don't return results from previous or still running requests
     /// the next time \ref GetList() gets called
 

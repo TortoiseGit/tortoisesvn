@@ -59,8 +59,8 @@ bool AddCommand::Execute()
                                 sMessage.FormatMessage(IDS_WARN_ADDCASERENAMED, (LPCTSTR)pathList[i].GetFileOrDirectoryName(), (LPCTSTR)retPath.GetFileOrDirectoryName());
                                 if (CTaskDialog::IsSupported())
                                 {
-                                    CTaskDialog taskdlg(sMessage, 
-                                                        CString(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_TASK2)), 
+                                    CTaskDialog taskdlg(sMessage,
+                                                        CString(MAKEINTRESOURCE(IDS_WARN_ADDCASERENAMED_TASK2)),
                                                         L"TortoiseSVN",
                                                         0,
                                                         TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

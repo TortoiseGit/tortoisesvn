@@ -21,7 +21,7 @@
         <![CDATA[
           class SubWCRev
           {
-            public static void ScriptMain(Project project) 
+            public static void ScriptMain(Project project)
             {
                             Console.WriteLine(project.Properties["SubWCRevPath"]);
               object objSubWCRev;
@@ -30,7 +30,7 @@
               typeSubWCRev = Type.GetTypeFromProgID("SubWCRev.object");
               objSubWCRev = Activator.CreateInstance(typeSubWCRev);
               typeSubWCRev.InvokeMember("GetWCInfo", BindingFlags.Default | BindingFlags.InvokeMethod, null, objSubWCRev, arrayInputParams);
-              
+
 
               project.Properties["SubWCRev_Revision"] = typeSubWCRev.InvokeMember("Revision", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
               project.Properties["SubWCRev_MinRev"] = typeSubWCRev.InvokeMember("MinRev", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
@@ -45,7 +45,7 @@
               project.Properties["SubWCRev_IsLocked"] = typeSubWCRev.InvokeMember("IsLocked", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
               project.Properties["SubWCRev_LockCreationDate"] = typeSubWCRev.InvokeMember("LockCreationDate", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
               project.Properties["SubWCRev_LockOwner"] = typeSubWCRev.InvokeMember("LockOwner", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
-              project.Properties["SubWCRev_LockComment"] = typeSubWCRev.InvokeMember("LockComment", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();							
+              project.Properties["SubWCRev_LockComment"] = typeSubWCRev.InvokeMember("LockComment", BindingFlags.Default | BindingFlags.GetProperty, null, objSubWCRev, new object[]{}).ToString();
             }
           }
         ]]>

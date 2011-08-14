@@ -129,7 +129,7 @@ svn_error_t* SVNInfo::cancel(void *baton)
 }
 
 const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegrev, SVNRev revision,
-                                              svn_depth_t depth /* = svn_depth_empty*/, 
+                                              svn_depth_t depth /* = svn_depth_empty*/,
                                               bool fetchExcluded /* = true */, bool fetchActualOnly /* = true */)
 {
     svn_error_clear(Err);

@@ -128,7 +128,7 @@ svn_error_t*    SVNReadProperties::Refresh()
     }
     if(Err != NULL)
         return Err;
-    
+
     if (m_props)
         m_propCount = apr_hash_count(m_props);
 

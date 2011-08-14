@@ -464,7 +464,7 @@ CCachedDirectory::GetCacheKey(const CTSVNPath& path)
 {
     // All we put into the cache as a key is just the end portion of the pathname
     // There's no point storing the path of the containing directory for every item
-    CString lastElement 
+    CString lastElement
         = path.GetWinPathString().Mid(m_directoryPath.GetWinPathString().GetLength());
     return CUnicodeUtils::GetUTF8 (lastElement);
 }
@@ -472,7 +472,7 @@ CCachedDirectory::GetCacheKey(const CTSVNPath& path)
 CString
 CCachedDirectory::GetFullPathString(const CStringA& cacheKey)
 {
-    return m_directoryPath.GetWinPathString() 
+    return m_directoryPath.GetWinPathString()
         + CUnicodeUtils::GetUnicode (cacheKey);
 }
 
@@ -835,7 +835,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
         std::map<CStringA, ULONGLONG> filetimes;
         WIN32_FIND_DATA FindFileData;
         CAutoFindFile hFind = FindFirstFile(m_directoryPath.GetWinPathString() + L"\\*.*", &FindFileData);
-        if (hFind) 
+        if (hFind)
         {
             while (FindNextFile(hFind, &FindFileData))
             {

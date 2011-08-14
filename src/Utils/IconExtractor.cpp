@@ -44,9 +44,9 @@ DWORD CIconExtractor::ExtractIcon(HINSTANCE hResource, LPCTSTR id, LPCTSTR Targe
 
     if ((lpIcon = (LPMEMICONDIR)LockResource(hGlobal)) == NULL)
         return GetLastError();
- 
+
     if ((lpIR = (LPICONRESOURCE) malloc(sizeof(ICONRESOURCE) + ((lpIcon->idCount-1) * sizeof(ICONIMAGE)))) == NULL)
-        return GetLastError(); 
+        return GetLastError();
 
     lpIR->nNumImages = lpIcon->idCount;
 
@@ -127,7 +127,7 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
             ide.bColorCount = 1 << (ide.wPlanes * ide.wBitCount);
         ide.dwBytesInRes = lpIR->IconImages[i].dwNumBytes;
         ide.dwImageOffset = CalculateImageOffset( lpIR, i );
- 
+
         // Write the ICONDIRENTRY to disk
         if (!WriteFile(hFile, &ide, sizeof(ICONDIRENTRY), &dwBytesWritten, NULL))
             return GetLastError();

@@ -91,7 +91,7 @@ SVN::SVNProgress::SVNProgress()
 }
 
 
-SVN::SVN(bool suppressUI) 
+SVN::SVN(bool suppressUI)
     : SVNBase()
     , m_progressWnd(0)
     , m_pProgressDlg(NULL)
@@ -222,10 +222,10 @@ BOOL SVN::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_acti
                 svn_merge_range_t * range,
                 svn_error_t * err, apr_pool_t * pool) {return TRUE;};
 BOOL SVN::Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, const MergeInfo* mergeInfo) {return TRUE;}
-BOOL SVN::BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision, 
-                        const CString& author, const CString& date, svn_revnum_t merged_revision, 
-                        const CString& merged_author, const CString& merged_date, 
-                        const CString& merged_path, const CStringA& line, 
+BOOL SVN::BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision,
+                        const CString& author, const CString& date, svn_revnum_t merged_revision,
+                        const CString& merged_author, const CString& merged_date,
+                        const CString& merged_path, const CStringA& line,
                         const CStringA& log_msg, const CStringA& merged_log_msg) {return TRUE;}
 svn_error_t* SVN::DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node) {return SVN_NO_ERROR;}
 BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind,
@@ -287,7 +287,7 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
     m_pctx->log_msg_baton3 = logMessage(message);
 
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subPool);
-    
+
     CallPreConnectHookIfUrl(pathlist);
     PostCommitErr.Empty();
 
@@ -762,8 +762,8 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
                         strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, it->second.GetWinPath());
                         if (CTaskDialog::IsSupported())
                         {
-                            CTaskDialog taskdlg(strMessage, 
-                                                CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK2)), 
+                            CTaskDialog taskdlg(strMessage,
+                                                CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK2)),
                                                 L"TortoiseSVN",
                                                 0,
                                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -1531,17 +1531,17 @@ bool SVN::Blame(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& end
     return (Err == NULL);
 }
 
-svn_error_t* SVN::blameReceiver(void *baton, 
+svn_error_t* SVN::blameReceiver(void *baton,
                                 svn_revnum_t /*start_revnum*/,
                                 svn_revnum_t /*end_revnum*/,
-                                apr_int64_t line_no, 
-                                svn_revnum_t revision, 
-                                apr_hash_t *rev_props, 
-                                svn_revnum_t merged_revision, 
-                                apr_hash_t *merged_rev_props, 
-                                const char *merged_path, 
-                                const char *line, 
-                                svn_boolean_t local_change, 
+                                apr_int64_t line_no,
+                                svn_revnum_t revision,
+                                apr_hash_t *rev_props,
+                                svn_revnum_t merged_revision,
+                                apr_hash_t *merged_rev_props,
+                                const char *merged_path,
+                                const char *line,
+                                svn_boolean_t local_change,
                                 apr_pool_t *pool)
 {
     svn_error_t * error = NULL;
@@ -2695,7 +2695,7 @@ CString SVN::GetOptionsString(bool bIgnoreEOL, svn_diff_file_ignore_space_t spac
 }
 
 /**
- * Note that this is TSVN's global CLogCachePool creation / 
+ * Note that this is TSVN's global CLogCachePool creation /
  * destruction mutex. Don't access logCachePool or create a
  * CLogCachePool directly anywhere else in TSVN.
  */
@@ -2972,7 +2972,7 @@ void SVN::CallPreConnectHookIfUrl( const CTSVNPathList& pathList, const CTSVNPat
         if (pathList[0].IsUrl())
             CHooks::Instance().PreConnect(pathList);
         else if (path.IsUrl())
-            CHooks::Instance().PreConnect(pathList);            
+            CHooks::Instance().PreConnect(pathList);
     }
 }
 

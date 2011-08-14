@@ -448,14 +448,14 @@ const std::string& CLogEntryData::GetBugIDs() const
 {
     if (bugIDsPending)
         InitBugIDs();
-        
+
     return sBugIDs;
 }
 
 CString CLogEntryData::GetShortMessageUTF16() const
 {
     return projectProperties
-        ? projectProperties->MakeShortMessage 
+        ? projectProperties->MakeShortMessage
             (CUnicodeUtils::GetUnicode (sMessage.c_str()))
         : CString();
 }

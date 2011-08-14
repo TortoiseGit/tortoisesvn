@@ -82,7 +82,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         m_sDefaultPath = path;
     }
 
-    HRESULT hr; 
+    HRESULT hr;
 
     // Create a new common open file dialog
     IFileOpenDialog* pfd = NULL;
@@ -218,7 +218,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
             }
         }
     }
-    
+
     return ret;
 }
 

@@ -288,7 +288,7 @@ void CLogDlg::SetSelectedRevRanges( const SVNRevRangeArray& revArray )
 {
     delete m_pStoreSelection;
     m_pStoreSelection = NULL;
-    
+
     m_pStoreSelection = new CStoreSelection(this, revArray);
 }
 
@@ -1067,7 +1067,7 @@ void CLogDlg::OnCancel()
 
     m_bCancelled = true;
 
-    // We want to close the dialog -> give the background threads some time 
+    // We want to close the dialog -> give the background threads some time
     // to actually finish. Otherwise, we might not save the latest data.
 
     bool threadsStillRunning
@@ -2354,7 +2354,7 @@ void CLogDlg::EditLogMessage(int index)
         }
         else
         {
-            pLogEntry->SetMessage (CUnicodeUtils::StdGetUTF8 
+            pLogEntry->SetMessage (CUnicodeUtils::StdGetUTF8
                                      ( (LPCTSTR)dlg.m_sInputText));
 
             CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
@@ -3721,7 +3721,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
         case 1: //Action
             lstrcpyn ( pItem->pszText
                      , m_currentChangedArray.GetCount() > (size_t)pItem->iItem
-                           ? (LPCTSTR)CUnicodeUtils::GetUnicode 
+                           ? (LPCTSTR)CUnicodeUtils::GetUnicode
                                 (m_currentChangedArray[pItem->iItem].GetActionString().c_str())
                            : _T("")
                      , pItem->cchTextMax);
@@ -4627,8 +4627,8 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                             {
                                 CString sTask1;
                                 sTask1.Format(IDS_MERGE_WCDIRTYASK_TASK1, (LPCTSTR)path);
-                                CTaskDialog taskdlg(sTask1, 
-                                                    CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)), 
+                                CTaskDialog taskdlg(sTask1,
+                                                    CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)),
                                                     L"TortoiseSVN",
                                                     0,
                                                     TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -5485,7 +5485,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 {
                     auto f = [=]()
                     {
-                        CoInitialize(NULL); 
+                        CoInitialize(NULL);
                         this->EnableWindow(FALSE);
                         CProgressDlg progDlg;
                         progDlg.SetTitle(IDS_APPNAME);
@@ -5570,7 +5570,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 {
                     auto f = [=]()
                     {
-                        CoInitialize(NULL); 
+                        CoInitialize(NULL);
                         this->EnableWindow(FALSE);
                         CProgressDlg progDlg;
                         progDlg.SetTitle(IDS_APPNAME);
@@ -5660,7 +5660,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     bool textView = !!dlg.m_bTextView;
                     auto f = [=]()
                     {
-                        CoInitialize(NULL); 
+                        CoInitialize(NULL);
                         this->EnableWindow(FALSE);
                         CBlame blame;
                         CString tempfile;
@@ -6079,8 +6079,8 @@ bool CLogDlg::ConfirmRevert( const CString& path, bool bToRev /*= false*/ )
             msg.Format(IDS_LOG_REVERT_CONFIRM_TASK6, (LPCTSTR)path);
         else
             msg.Format(IDS_LOG_REVERT_CONFIRM_TASK1, (LPCTSTR)path);
-        CTaskDialog taskdlg(msg, 
-                            CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK2)), 
+        CTaskDialog taskdlg(msg,
+                            CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK2)),
                             L"TortoiseSVN",
                             0,
                             TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

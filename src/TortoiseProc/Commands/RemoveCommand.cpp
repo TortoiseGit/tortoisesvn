@@ -98,8 +98,8 @@ bool RemoveCommand::Execute()
                             msg.Format(IDS_PROC_REMOVEFORCE_TASK1_2, (LPCTSTR)svn.GetLastErrorMessage(0), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
                         else
                             msg.Format(IDS_PROC_REMOVEFORCE_TASK1, (LPCTSTR)svn.GetLastErrorMessage(0), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
-                        CTaskDialog taskdlg(msg, 
-                                            CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)), 
+                        CTaskDialog taskdlg(msg,
+                                            CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)),
                                             L"TortoiseSVN",
                                             0,
                                             TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

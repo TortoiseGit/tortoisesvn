@@ -24,7 +24,7 @@ void CStringBuffer::Reserve (size_t newCapacity)
     assert (newCapacity >= capacity);
 
     // allocate new buffer and align it.
-    // Add one ALIGNMENT for the start address alignment 
+    // Add one ALIGNMENT for the start address alignment
     // plus one for the sloppy copies beyond newCapacity.
 
     char *newMemory = new char[newCapacity + 2 * ALIGNMENT];

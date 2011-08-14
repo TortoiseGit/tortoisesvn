@@ -1808,7 +1808,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
             if (lpmis==NULL)
                 break;
             lpmis->itemWidth = 16;
-			lpmis->itemHeight = 16;
+            lpmis->itemHeight = 16;
             *pResult = TRUE;
         }
         break;

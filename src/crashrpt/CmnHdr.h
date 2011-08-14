@@ -14,7 +14,7 @@ Purpose: Common header file containing handy macros and definitions
 
 #pragma warning(push, 3)
 #include <Windows.h>
-#pragma warning(pop) 
+#pragma warning(pop)
 #pragma warning(push, 4)
 #include <CommCtrl.h>
 #include <process.h>       // For _beginthreadex
@@ -38,7 +38,7 @@ Purpose: Common header file containing handy macros and definitions
 // unreferenced formal parameter
 #pragma warning(disable:4100)
 
-// Note: Creating precompiled header 
+// Note: Creating precompiled header
 #pragma warning(disable:4699)
 
 // function not inlined
@@ -74,7 +74,7 @@ Purpose: Common header file containing handy macros and definitions
 ///////////////////////// Pragma message helper macro /////////////////////////
 
 
-/* 
+/*
 When the compiler sees a line like this:
    #pragma chMSG(Fix this later)
 
@@ -119,7 +119,7 @@ inline TV chROUNDDOWN(TV Value, TM Multiple) {
 // This inline function rounds a value down to the nearest multiple
 template <class TV, class TM>
 inline TV chROUNDUP(TV Value, TM Multiple) {
-   return(chROUNDDOWN(Value, Multiple) + 
+   return(chROUNDDOWN(Value, Multiple) +
       (((Value % Multiple) > 0) ? Multiple : 0));
 }
 
@@ -128,10 +128,10 @@ inline TV chROUNDUP(TV Value, TM Multiple) {
 ///////////////////////////// chBEGINTHREADEX Macro ///////////////////////////
 
 
-// This macro function calls the C runtime's _beginthreadex function. 
-// The C runtime library doesn't want to have any reliance on Windows' data 
+// This macro function calls the C runtime's _beginthreadex function.
+// The C runtime library doesn't want to have any reliance on Windows' data
 // types such as HANDLE. This means that a Windows programmer needs to cast
-// values when using _beginthreadex. Since this is terribly inconvenient, 
+// values when using _beginthreadex. Since this is terribly inconvenient,
 // I created this macro to perform the casting.
 typedef unsigned (__stdcall *PTHREAD_START) (void *);
 
@@ -226,14 +226,14 @@ inline void chASSERTFAIL(LPCSTR file, int line, PCSTR expr) {
 
 // Sets the dialog box icons
 inline void chSETDLGICONS(HWND hWnd, int idi) {
-   SendMessage(hWnd, WM_SETICON, ICON_BIG,  (LPARAM) 
-      LoadIcon((HINSTANCE) GetWindowLongPtr(hWnd, GWLP_HINSTANCE), 
+   SendMessage(hWnd, WM_SETICON, ICON_BIG,  (LPARAM)
+      LoadIcon((HINSTANCE) GetWindowLongPtr(hWnd, GWLP_HINSTANCE),
          MAKEINTRESOURCE(idi)));
-   SendMessage(hWnd, WM_SETICON, ICON_SMALL, (LPARAM) 
-      LoadIcon((HINSTANCE) GetWindowLongPtr(hWnd, GWLP_HINSTANCE), 
+   SendMessage(hWnd, WM_SETICON, ICON_SMALL, (LPARAM)
+      LoadIcon((HINSTANCE) GetWindowLongPtr(hWnd, GWLP_HINSTANCE),
       MAKEINTRESOURCE(idi)));
 }
-    
+
 
 /////////////////////////// Common Linker Settings ////////////////////////////
 

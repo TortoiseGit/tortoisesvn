@@ -33,7 +33,7 @@ typedef struct
     DWORD   dwBytesInRes;         // how many bytes in this resource?
     WORD    nID;                  // the ID
 } MEMICONDIRENTRY, *LPMEMICONDIRENTRY;
-typedef struct 
+typedef struct
 {
     WORD            idReserved;   // Reserved
     WORD            idType;       // resource type (1 for icons)
@@ -72,7 +72,7 @@ typedef struct
     DWORD   dwBytesInRes;         // how many bytes in this resource?
     DWORD   dwImageOffset;        // where in the file is this image
 } ICONDIRENTRY, *LPICONDIRENTRY;
-typedef struct 
+typedef struct
 {
     WORD            idReserved;   // Reserved
     WORD            idType;       // resource type (1 for icons)

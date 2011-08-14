@@ -106,8 +106,8 @@ bool ExportCommand::Execute()
                 bool bUnversion = false;
                 if (CTaskDialog::IsSupported())
                 {
-                    CTaskDialog taskdlg(msg, 
-                                        CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK2)), 
+                    CTaskDialog taskdlg(msg,
+                                        CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK2)),
                                         L"TortoiseSVN",
                                         0,
                                         TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

@@ -397,7 +397,7 @@ void CRepositoryBrowser::InitRepo()
         int ampPos = revString.Find(_T('&'));
         if (ampPos >= 0)
         {
-            revString = revString.Mid (ampPos+1); 
+            revString = revString.Mid (ampPos+1);
             pegRevString = pegRevString.Left (ampPos);
         }
 
@@ -1255,7 +1255,7 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
     children.clear();
     pTreeItem->has_child_folders = false;
     pTreeItem->error = m_lister.GetList ( pTreeItem->url
-                                        , pTreeItem->is_external 
+                                        , pTreeItem->is_external
                                              ? pTreeItem->repository.peg_revision
                                              : SVNRev()
                                         , pTreeItem->repository
@@ -1271,7 +1271,7 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
     {
         CTreeItem* parentItem = (CTreeItem *)m_RepoTree.GetItemData (node);
         pTreeItem->error = m_lister.AddSubTreeExternals ( parentItem->url
-                                                        , parentItem->is_external 
+                                                        , parentItem->is_external
                                                              ? parentItem->repository.peg_revision
                                                              : SVNRev()
                                                         , parentItem->repository
@@ -1416,7 +1416,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
         CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
         if ((pTreeItem != NULL) && !pTreeItem->children_fetched)
             m_lister.Enqueue ( pTreeItem->url
-                             , pTreeItem->is_external 
+                             , pTreeItem->is_external
                                   ? pTreeItem->repository.peg_revision
                                   : SVNRev()
                              , pTreeItem->repository
@@ -1575,7 +1575,7 @@ void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
         {
             pTreeItem->has_child_folders = true;
             m_lister.Enqueue ( item.absolutepath
-                             , item.is_external 
+                             , item.is_external
                                   ? item.repository.peg_revision
                                   : SVNRev()
                              , item.repository
@@ -1843,7 +1843,7 @@ void CRepositoryBrowser::OnRefresh()
         std::deque<SEntry> urls;
 
         SEntry initial = { pItem->url
-                         , pItem->is_external 
+                         , pItem->is_external
                               ? pItem->repository.peg_revision
                               : SVNRev()
                          , pItem->repository };
@@ -1871,7 +1871,7 @@ void CRepositoryBrowser::OnRefresh()
             SEntry entry = urls.front();
             urls.pop_front();
 
-            // get / query node list & externals for this node 
+            // get / query node list & externals for this node
             // as fast as possible by preventing new queries from
             // being started in the background
             progDlg.FormatPathLine(2, IDS_REPOBROWSE_LISTINGURL, (LPCTSTR)entry.url);
@@ -1907,7 +1907,7 @@ void CRepositoryBrowser::OnRefresh()
                 if (item.kind == svn_node_dir)
                 {
                     SEntry entry = { url
-                                   , item.is_external 
+                                   , item.is_external
                                         ? item.repository.peg_revision
                                         : SVNRev()
                                    , item.repository };
@@ -2111,7 +2111,7 @@ void CRepositoryBrowser::OpenFile(const CTSVNPath& url, const CTSVNPath& urlEsca
 void CRepositoryBrowser::EditFile(CTSVNPath url, CTSVNPath urlEscaped)
 {
     SVNRev revision = GetRevision();
-    CString paramString 
+    CString paramString
         = _T("/closeonend:1 /closeforlocal /hideprogress /revision:");
     CCmdLineParser parameters (paramString + revision.ToString());
 
@@ -2599,8 +2599,8 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
             {
                 if (CTaskDialog::IsSupported())
                 {
-                    CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK1)), 
-                                        CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK2)), 
+                    CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK1)),
+                                        CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK2)),
                                         L"TortoiseSVN",
                                         0,
                                         TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -2732,8 +2732,8 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
         {
             if (CTaskDialog::IsSupported())
             {
-                CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK1)), 
-                                    CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK2)), 
+                CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK1)),
+                                    CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK2)),
                                     L"TortoiseSVN",
                                     0,
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -3204,7 +3204,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                                         : m_diffURL;
 
                     // get last common URL and revision
-                    auto commonSource = SVNLogHelper().GetCommonSource 
+                    auto commonSource = SVNLogHelper().GetCommonSource
                                             (firstPath, pegRevision, secondUrl, pegRevision);
                     if (!commonSource.second.IsNumber())
                     {
@@ -3218,8 +3218,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 
                     CString sCmd;
                     sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%s /endrev:%s"),
-                        (LPCTSTR)firstPath.GetSVNPathString(), 
-                        (LPCTSTR)pegRevision.ToString(), 
+                        (LPCTSTR)firstPath.GetSVNPathString(),
+                        (LPCTSTR)pegRevision.ToString(),
                         (LPCTSTR)commonSource.second.ToString());
 
                     if (!m_path.IsUrl())
@@ -3690,7 +3690,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                                         path2, revision, SVNRev(), L"", true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
                     else
                         CAppUtils::StartShowCompare(m_hWnd, path, revision,
-                                        path2, revision, SVNRev(), SVNRev(), L"", 
+                                        path2, revision, SVNRev(), SVNRev(), L"",
                                         !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), true, false, nFolders > 0 ? svn_node_dir : svn_node_file);
                 }
             }
@@ -3995,7 +3995,7 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
         return; // No change
 
     BOOL bPrevState = (BOOL)(((pNMTVItemChange->uStateOld & TVIS_STATEIMAGEMASK)>>12)-1);   // Old check box state
-    if (bPrevState < 0) // On startup there's no previous state 
+    if (bPrevState < 0) // On startup there's no previous state
         bPrevState = 0; // so assign as false (unchecked)
 
     // New check box state
@@ -4061,7 +4061,7 @@ bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
                 else
                     m_checkoutDepths[pParent->url] = svn_depth_empty;
             }
-            
+
             it = m_updateDepths.find(pParent->url);
             if (it != m_updateDepths.end())
             {
@@ -4162,7 +4162,7 @@ void CRepositoryBrowser::OnTvnKeydownRepotree(NMHDR *pNMHDR, LRESULT *pResult)
     }
 }
 
-void CRepositoryBrowser::HandleCheckedItemForXP( HTREEITEM item ) 
+void CRepositoryBrowser::HandleCheckedItemForXP( HTREEITEM item )
 {
     if (item == m_RepoTree.GetRootItem())
         m_RepoTree.SetCheck(item, FALSE);
@@ -4199,8 +4199,8 @@ bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl)
     {
         CString sInfo;
         sInfo.Format(IDS_WARN_NOVALIDPATH_TASK1, (LPCTSTR)targetUrl.GetUIPathString());
-        CTaskDialog taskdlg(sInfo, 
-                            CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK2)), 
+        CTaskDialog taskdlg(sInfo,
+                            CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK2)),
                             L"TortoiseSVN",
                             0,
                             TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

@@ -61,7 +61,7 @@ bool CStatusCacheEntry::SaveToDisk(FILE * pFile)
     WRITECOPYVALUETOFILE(m_bSet);
     WRITECOPYVALUETOFILE(m_bSVNEntryFieldSet);
     WRITEVALUETOFILE(m_commitRevision);
-    WRITECOPYVALUETOFILE(m_bHasOwner);   
+    WRITECOPYVALUETOFILE(m_bHasOwner);
     WRITECOPYVALUETOFILE(m_kind);
     WRITECOPYVALUETOFILE(m_needsLock);
 

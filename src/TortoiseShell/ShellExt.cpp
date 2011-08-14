@@ -92,7 +92,7 @@ void LoadLangDll()
 
         BOOL bIsWow = FALSE;
         IsWow64Process(GetCurrentProcess(), &bIsWow);
-        
+
         do
         {
             if (bIsWow)

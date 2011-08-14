@@ -161,11 +161,11 @@ private:
     /// GetPath() utilities
 
     void ValidatePath() const;
-    size_t CollectPathElements 
+    size_t CollectPathElements
         ( const char** pathElements
         , index_t* sizes
         , size_t& depth) const;
-    void CopyPathElements 
+    void CopyPathElements
         ( const char** pathElements
         , index_t* sizes
         , size_t depth

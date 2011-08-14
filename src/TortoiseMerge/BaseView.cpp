@@ -1752,7 +1752,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
     pDC->SelectObject(GetFont(FALSE, FALSE, IsLineRemoved(nLineIndex)));
 
     DrawTextLine(pDC, rc, nLineIndex, origin);
-    CString line = ExpandChars(sLine); // note: DrawTextLine can possibly return pixel text width 
+    CString line = ExpandChars(sLine); // note: DrawTextLine can possibly return pixel text width
     origin.x += pDC->GetTextExtent(line).cx;
 
     // draw white space after the end of line
@@ -3709,7 +3709,7 @@ bool CBaseView::MoveCaretLeft()
                 return false;
             }
             nPrevViewLine = GetViewLineForScreen(nPrevLine);
-        } while ((GetSubLineOffset(nPrevLine) >= CountMultiLines(nPrevViewLine)) || IsViewLineHidden(nPrevViewLine)); 
+        } while ((GetSubLineOffset(nPrevLine) >= CountMultiLines(nPrevViewLine)) || IsViewLineHidden(nPrevViewLine));
         ptCaretViewPos = ConvertScreenPosToView(SetupPoint(GetLineLength(nPrevLine), nPrevLine));
         ShowDiffLines(nPrevLine);
     }
@@ -3737,7 +3737,7 @@ bool CBaseView::MoveCaretRight()
                 return false;
             }
             nNextViewLine = GetViewLineForScreen(nNextLine);
-        } while (nNextViewLine == nViewLine || IsViewLineHidden(nNextViewLine)); 
+        } while (nNextViewLine == nViewLine || IsViewLineHidden(nNextViewLine));
         ptCaretViewPos.y = nNextViewLine;
         ptCaretViewPos.x = 0;
         ShowDiffLines(nNextLine);
@@ -4357,7 +4357,7 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
             nTextStartOffset += nTextLength;
             diff = diff->next;
         }
-        for (std::map<int, COLORREF>::const_iterator it = removedPositions.begin(); it != removedPositions.end(); ++it)      
+        for (std::map<int, COLORREF>::const_iterator it = removedPositions.begin(); it != removedPositions.end(); ++it)
         {
             oLineColors.AddShotColor(it->first, it->second);
         }
@@ -4602,7 +4602,7 @@ int CBaseView::Screen2View::FindScreenLineForViewLine( int viewLine )
     int nPos = 0;
     if (nScreenLineCount>16)
     {
-        // for enough long data search for last screen 
+        // for enough long data search for last screen
         // with viewline less than one we are looking for
         // use approximate method (based on) binary search using asymmetric start point
         // in form 2**n (determined as MSB of length) to go around division and rounding;

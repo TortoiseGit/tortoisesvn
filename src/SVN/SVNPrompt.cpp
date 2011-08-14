@@ -259,8 +259,8 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
             UINT ret = 0;
             if (CTaskDialog::IsSupported())
             {
-                CTaskDialog taskdlg(msg, 
-                                    CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTQUESTION_TASK)), 
+                CTaskDialog taskdlg(msg,
+                                    CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTQUESTION_TASK)),
                                     L"TortoiseSVN",
                                     0,
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -297,8 +297,8 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
             bool bAccept = false;
             if (CTaskDialog::IsSupported())
             {
-                CTaskDialog taskdlg(msg, 
-                                    CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTQUESTION_TASK)), 
+                CTaskDialog taskdlg(msg,
+                                    CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTQUESTION_TASK)),
                                     L"TortoiseSVN",
                                     0,
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

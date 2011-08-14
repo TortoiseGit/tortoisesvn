@@ -87,7 +87,7 @@ public:
      * Starts the external diff application
      */
     static bool StartExtDiff(
-        const CTSVNPath& file1, const CTSVNPath& file2, 
+        const CTSVNPath& file1, const CTSVNPath& file2,
         const CString& sName1, const CString& sName2,
         const CTSVNPath& url1, const CTSVNPath& url2,
         const SVNRev& rev1, const SVNRev& rev2,
@@ -175,7 +175,7 @@ public:
      */
     static void SetCharFormat ( CWnd* window
                               , DWORD mask
-                              , DWORD effects 
+                              , DWORD effects
                               , const std::vector<CHARRANGE>& positions);
 
     static bool AskToUpdate(HWND hParent, LPCWSTR error);

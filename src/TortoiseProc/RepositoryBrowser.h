@@ -104,8 +104,8 @@ public:
     /// overwrite SVN callbacks
     virtual BOOL Cancel();
 
-    enum 
-    { 
+    enum
+    {
         IDD = IDD_REPOSITORY_BROWSER,
         WM_REFRESHURL = WM_USER + 10
     };

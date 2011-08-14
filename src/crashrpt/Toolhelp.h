@@ -27,7 +27,7 @@ public:
    ~CToolhelp();
 
    BOOL CreateSnapshot(DWORD dwFlags, DWORD dwProcessID = 0);
-   
+
    BOOL ProcessFirst(PPROCESSENTRY32 ppe) const;
    BOOL ProcessNext(PPROCESSENTRY32 ppe) const;
    BOOL ProcessFind(DWORD dwProcessId, PPROCESSENTRY32 ppe) const;
@@ -36,19 +36,19 @@ public:
    BOOL ModuleNext(PMODULEENTRY32 pme) const;
    BOOL ModuleFind(PVOID pvBaseAddr, PMODULEENTRY32 pme) const;
    BOOL ModuleFind(PTSTR pszModName, PMODULEENTRY32 pme) const;
-   
+
    BOOL ThreadFirst(PTHREADENTRY32 pte) const;
    BOOL ThreadNext(PTHREADENTRY32 pte) const;
-   
+
    BOOL HeapListFirst(PHEAPLIST32 phl) const;
    BOOL HeapListNext(PHEAPLIST32 phl) const;
    int  HowManyHeaps() const;
 
    // Note: The heap block functions do not reference a snapshot and
-   // just walk the process's heap from the beginning each time. Infinite 
+   // just walk the process's heap from the beginning each time. Infinite
    // loops can occur if the target process changes its heap while the
    // functions below are enumerating the blocks in the heap.
-   BOOL HeapFirst(PHEAPENTRY32 phe, DWORD dwProcessID, 
+   BOOL HeapFirst(PHEAPENTRY32 phe, DWORD dwProcessID,
       UINT_PTR dwHeapID) const;
    BOOL HeapNext(PHEAPENTRY32 phe) const;
    int  HowManyBlocksInHeap(DWORD dwProcessID, DWORD dwHeapId) const;
@@ -56,7 +56,7 @@ public:
 
 public:
    static BOOL EnablePrivilege(PCTSTR szPrivilege, BOOL fEnable = TRUE);
-   static BOOL ReadProcessMemory(DWORD dwProcessID, LPCVOID pvBaseAddress, 
+   static BOOL ReadProcessMemory(DWORD dwProcessID, LPCVOID pvBaseAddress,
       PVOID pvBuffer, SIZE_T cbRead, SIZE_T* pNumberOfBytesRead = NULL);
 };
 
@@ -109,7 +109,7 @@ inline BOOL CToolhelp::EnablePrivilege(PCTSTR szPrivilege, BOOL fEnable) {
    HANDLE hToken;
 
    // Try to open this process's access token
-   if (OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES, 
+   if (OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES,
       &hToken)) {
 
       // Attempt to modify the given privilege
@@ -130,11 +130,11 @@ inline BOOL CToolhelp::EnablePrivilege(PCTSTR szPrivilege, BOOL fEnable) {
 ///////////////////////////////////////////////////////////////////////////////
 
 
-inline BOOL CToolhelp::ReadProcessMemory(DWORD dwProcessID, 
-   LPCVOID pvBaseAddress, PVOID pvBuffer, SIZE_T cbRead, 
+inline BOOL CToolhelp::ReadProcessMemory(DWORD dwProcessID,
+   LPCVOID pvBaseAddress, PVOID pvBuffer, SIZE_T cbRead,
    SIZE_T* pNumberOfBytesRead) {
 
-   return(Toolhelp32ReadProcessMemory(dwProcessID, pvBaseAddress, pvBuffer, 
+   return(Toolhelp32ReadProcessMemory(dwProcessID, pvBaseAddress, pvBuffer,
       cbRead, pNumberOfBytesRead));
 }
 
@@ -160,7 +160,7 @@ inline BOOL CToolhelp::ProcessNext(PPROCESSENTRY32 ppe) const {
 }
 
 
-inline BOOL CToolhelp::ProcessFind(DWORD dwProcessId, PPROCESSENTRY32 ppe) 
+inline BOOL CToolhelp::ProcessFind(DWORD dwProcessId, PPROCESSENTRY32 ppe)
    const {
 
    BOOL fFound = FALSE;
@@ -198,7 +198,7 @@ inline BOOL CToolhelp::ModuleFind(PVOID pvBaseAddr, PMODULEENTRY32 pme) const {
 inline BOOL CToolhelp::ModuleFind(PTSTR pszModName, PMODULEENTRY32 pme) const {
    BOOL fFound = FALSE;
    for (BOOL fOk = ModuleFirst(pme); fOk; fOk = ModuleNext(pme)) {
-      fFound = (lstrcmpi(pme->szModule,  pszModName) == 0) || 
+      fFound = (lstrcmpi(pme->szModule,  pszModName) == 0) ||
                (lstrcmpi(pme->szExePath, pszModName) == 0);
       if (fFound) break;
    }
@@ -234,7 +234,7 @@ inline int CToolhelp::HowManyHeaps() const {
 }
 
 
-inline int CToolhelp::HowManyBlocksInHeap(DWORD dwProcessID, 
+inline int CToolhelp::HowManyBlocksInHeap(DWORD dwProcessID,
    DWORD dwHeapID) const {
 
    int nHowManyBlocksInHeap = 0;
@@ -258,7 +258,7 @@ inline BOOL CToolhelp::HeapListNext(PHEAPLIST32 phl) const {
 }
 
 
-inline BOOL CToolhelp::HeapFirst(PHEAPENTRY32 phe, DWORD dwProcessID, 
+inline BOOL CToolhelp::HeapFirst(PHEAPENTRY32 phe, DWORD dwProcessID,
    UINT_PTR dwHeapID) const {
 
    return(Heap32First(phe, dwProcessID, dwHeapID));
@@ -271,7 +271,7 @@ inline BOOL CToolhelp::HeapNext(PHEAPENTRY32 phe) const {
 }
 
 
-inline BOOL CToolhelp::IsAHeap(HANDLE hProcess, PVOID pvBlock, 
+inline BOOL CToolhelp::IsAHeap(HANDLE hProcess, PVOID pvBlock,
    PDWORD pdwFlags) const {
 
    HEAPLIST32 hl = { sizeof(hl) };
@@ -281,7 +281,7 @@ inline BOOL CToolhelp::IsAHeap(HANDLE hProcess, PVOID pvBlock,
       for (; fOkHE; fOkHE = HeapNext(&he)) {
          MEMORY_BASIC_INFORMATION mbi;
          VirtualQueryEx(hProcess, (PVOID) he.dwAddress, &mbi, sizeof(mbi));
-         if (chINRANGE(mbi.AllocationBase, pvBlock, 
+         if (chINRANGE(mbi.AllocationBase, pvBlock,
             (PBYTE) mbi.AllocationBase + mbi.RegionSize)) {
 
             *pdwFlags = hl.dwFlags;

@@ -1,7 +1,7 @@
 HowTo build the docs
 ====================
 
-Since you are already reading this, I assume that you have succeeded in checking 
+Since you are already reading this, I assume that you have succeeded in checking
 out the TortoiseSVN or just the doc sources.
 
 Tools needed:
@@ -12,9 +12,9 @@ Scripts and dtd are included, but the executables (formatting processor, microso
 help compiler, translation tools) have to be installed separately.
 You will also need to have a Java Runtime Environment version 1.3.x or above.
 
-tools\fop\		- the fop processor
-tools\xsl\		- the docbook xsl files from sourceforge
-tools\			- xsl processor, hhc.exe, ...
+tools\fop\      - the fop processor
+tools\xsl\      - the docbook xsl files from sourceforge
+tools\          - xsl processor, hhc.exe, ...
 
 you can download all the required tools as a 7zip package from our website:
 http://code.google.com/p/tortoisesvn/downloads/list
@@ -45,18 +45,18 @@ Structure:
 ==========
 The most important directories for you are:
 source\en - contains the english XML text source.
-images\en - contains the base (english) images for the docs. If you don't localize 
-	    your screenshots, these will be used instead.
+images\en - contains the base (english) images for the docs. If you don't localize
+        your screenshots, these will be used instead.
 images\*  - contains the localized screenshots for other languages.
 po\*      - contains the translations for each language. Best edited with poEdit.
-xsl\	  - contains the stylesheets for the doc creation
+xsl\      - contains the stylesheets for the doc creation
 dtd\      - contains the tools and the dtd to validate and build the docs.
-	    You might want to place your tools directory somewhere else on your 
-            harddisk, if you want to use it to build other docs too. This will 
+        You might want to place your tools directory somewhere else on your
+            harddisk, if you want to use it to build other docs too. This will
             however require tweaking the build scripts.
-            I'd recommend to leave dtd in place, so the source stays 
+            I'd recommend to leave dtd in place, so the source stays
             compatible between TSVN doc developers.
-            
+
 Building the docs:
 ==================
 
@@ -85,8 +85,8 @@ If you want to translate the docs into a new language (assume french), just go a
 and copy po\doc.pot to po\fr.po. Start to translate phrases and test your translation
 with "TranslateDoc fr" and "makedoc tortoisesvn fr".
 
-Place localized screenshots in images\fr. The file "screenshots.txt" contains some 
-instructions on how/where the images have been captured. 
+Place localized screenshots in images\fr. The file "screenshots.txt" contains some
+instructions on how/where the images have been captured.
 
 Now go ahead and translate the rest.
 

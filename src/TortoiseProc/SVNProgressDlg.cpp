@@ -1356,7 +1356,7 @@ LRESULT CSVNProgressDlg::OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/)
     // always wait for the thread to truely terminate.
     // (this function can only be triggered from that thread)
 
-    if (   (m_pThread != NULL) 
+    if (   (m_pThread != NULL)
         && (WaitForSingleObject(m_pThread->m_hThread, 1000) != WAIT_OBJECT_0))
     {
         // end the process the hard way
@@ -2265,7 +2265,7 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
     ASSERT(m_targetPathList.GetCount() == 1);
     sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
     SetBackgroundImage(IDI_CHECKOUT_BKG);
-    
+
     CString sCmdInfo;
     int index = 0;
     CString rootUrl;
@@ -2444,8 +2444,8 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
             WCHAR outUrl[MAX_PATH] = {0};
             PathCompactPathEx(outUrl, commitUrl.GetBufferSetLength(MAX_PATH), 50, 0);
             sTask1.Format(IDS_PROGRS_COMMITT_TRUNK_TASK1, outUrl);
-            CTaskDialog taskdlg(sTask1, 
-                                CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK2)), 
+            CTaskDialog taskdlg(sTask1,
+                                CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -2704,8 +2704,8 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
         bool bDoIt = false;
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED)), 
-                                CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK2)), 
+            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED)),
+                                CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -3099,8 +3099,8 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
     {
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS)), 
-                                CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK2)), 
+            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS)),
+                                CString(MAKEINTRESOURCE(IDS_PROGRS_REVERTMARKERS_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -3306,7 +3306,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             if ((targetcount > 1)&&((headrev = st.GetStatus(targetPath, true)) != (-2)))
             {
                 m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
-                
+
                 uuid = GetUUIDFromPath(targetPath);
                 if (!uuid.IsEmpty())
                 {

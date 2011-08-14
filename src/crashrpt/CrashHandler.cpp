@@ -32,7 +32,7 @@ BOOL g_bNoCrashHandler;// don't use the crash handler but let the system handle 
 map<DWORD, CCrashHandler*> _crashStateMap;
 
 #if defined _M_X64 || defined _M_IX86
-LPTOP_LEVEL_EXCEPTION_FILTER WINAPI 
+LPTOP_LEVEL_EXCEPTION_FILTER WINAPI
     MyDummySetUnhandledExceptionFilter(
     LPTOP_LEVEL_EXCEPTION_FILTER lpTopLevelExceptionFilter)
 {

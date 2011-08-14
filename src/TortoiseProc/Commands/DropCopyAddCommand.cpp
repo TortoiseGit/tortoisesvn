@@ -53,8 +53,8 @@ bool DropCopyAddCommand::Execute()
             strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, (LPCTSTR)(droppath+_T("\\")+name));
             if (CTaskDialog::IsSupported() && (defaultRet == 0))
             {
-                CTaskDialog taskdlg(strMessage, 
-                                    CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK2)), 
+                CTaskDialog taskdlg(strMessage,
+                                    CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK2)),
                                     L"TortoiseSVN",
                                     0,
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

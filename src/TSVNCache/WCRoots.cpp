@@ -85,7 +85,7 @@ std::map<CTSVNPath, WCRootsTimes>::iterator CWCRoots::AddPathInternal( const CTS
 {
     AutoLocker lock(m_critSec);
     CTSVNPath p(path);
-    do 
+    do
     {
         CTSVNPath dbPath(p);
         dbPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\wc.db"));

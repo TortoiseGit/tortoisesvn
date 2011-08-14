@@ -441,7 +441,7 @@
               <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Action="createAndRemoveOnUninstall" />
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TopViews" Name="OverrideParentTopViews" Value="1" Type="integer" />
 
-              <!-- no need to create these on x64 in the Wow6432Node too: these are only used by the explorer, and that one is 64-bit. If 
+              <!-- no need to create these on x64 in the Wow6432Node too: these are only used by the explorer, and that one is 64-bit. If
                    a user really starts the 32-bit explorer on win64 and these buttons aren't there, it won't be that bad -->
               <RegistryKey   Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TasksItemsSelected\0\$(var.GuidFolderTypeCmd0)" Action="createAndRemoveOnUninstall" />
               <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\FolderTypes\$(var.GuidLibraryFolderSVN)\TasksItemsSelected\0\$(var.GuidFolderTypeCmd0)" Name="Icon" Value="[INSTALLDIR]bin\TortoiseProc.exe,-123" Type="string" />

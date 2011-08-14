@@ -72,7 +72,7 @@ bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe
             if (!WaitNamedPipe (pipeName, 50))
             {
                 continue;
-            } 
+            }
         }
     }
 

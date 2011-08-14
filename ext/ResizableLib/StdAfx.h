@@ -10,7 +10,7 @@
 // http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
-// You may not use this file except in compliance with the License. 
+// You may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
 // http://www.opensource.org/licenses/artistic-license.html
 //
@@ -39,11 +39,11 @@
 #define _SECURE_SCL_DEPRECATE 0
 #define _HAS_ITERATOR_DEBUGGING 0
 
-#define VC_EXTRALEAN		// Exclude rarely-used stuff from Windows headers
+#define VC_EXTRALEAN        // Exclude rarely-used stuff from Windows headers
 
 #include <afxwin.h>         // MFC core and standard components
 #include <afxext.h>         // MFC extensions
-#include <afxcmn.h>			// MFC support for Windows Common Controls
+#include <afxcmn.h>         // MFC support for Windows Common Controls
 #include <WinSock2.h>
 #include <Ws2tcpip.h>
 #include <Wspiapi.h>
@@ -52,19 +52,19 @@
 #pragma message("Please update your Windows header files, get the latest SDK")
 #pragma message("WinUser.h is out of date!")
 
-#define WS_EX_LAYOUTRTL		0x00400000
+#define WS_EX_LAYOUTRTL     0x00400000
 #endif
 
 #ifndef WC_BUTTON
 #pragma message("Please update your Windows header files, get the latest SDK")
 #pragma message("CommCtrl.h is out of date!")
 
-#define WC_BUTTON			TEXT("Button")
-#define WC_STATIC			TEXT("Static")
-#define WC_EDIT				TEXT("Edit")
-#define WC_LISTBOX			TEXT("ListBox")
-#define WC_COMBOBOX			TEXT("ComboBox")
-#define WC_SCROLLBAR		TEXT("ScrollBar")
+#define WC_BUTTON           TEXT("Button")
+#define WC_STATIC           TEXT("Static")
+#define WC_EDIT             TEXT("Edit")
+#define WC_LISTBOX          TEXT("ListBox")
+#define WC_COMBOBOX         TEXT("ComboBox")
+#define WC_SCROLLBAR        TEXT("ScrollBar")
 #endif
 
 #define RSZLIB_NO_XP_DOUBLE_BUFFER

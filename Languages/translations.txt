@@ -12,7 +12,7 @@ normal text editor. The only thing you have to take care of is that the
 editor can handle the UTF-8 charset. There is a wide range of tools out
 there that can handle and manipulate PO files.
 We recommend that you use Poedit (http://poedit.sourceforge.net) on Windows
-or Virtaal (http://translate.sourceforge.net/wiki/virtaal/index) 
+or Virtaal (http://translate.sourceforge.net/wiki/virtaal/index)
 which is platform independent.
 
 This description assumes that you use poEdit.
@@ -44,7 +44,7 @@ If you want to implement a new language for TortoiseSVN do the following.
    But if it's necessary like in Chinese, sure go ahead. We are happy with
    simplified (zh_CN) and traditional (zh_TW) Chinese.
 
-3) Now translate what you can using your po editor. If you are not sure 
+3) Now translate what you can using your po editor. If you are not sure
    with one or the other translation, mark it as "fuzzy". You can enter
    a comment in poEdit to give some information about your thoughts to
    other translators.
@@ -95,15 +95,15 @@ Adding to an existing translation
 
 Important
 ---------
-Please pay special attention to cases where placeholders for variables like 
+Please pay special attention to cases where placeholders for variables like
 "%s" or "%d" appear in the original text. They have to be in the exact
 same order in the translation, which means that you sometimes have to
 use "bad" grammar  in your language. If you reverse the parameters
 it may crash the translated application.
-   
+
 We have a very nice consistency checker for translations at http://tsvn.e-posta.sk
-This tool highlights cases where it thinks there may be a problem.   
-   
+This tool highlights cases where it thinks there may be a problem.
+
 Format your translation
 --------------------------
 Please format your translation before send Tortoise_xx.po to the

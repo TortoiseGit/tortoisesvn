@@ -236,7 +236,7 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& textUTF16) const
         auto begin = ranges.begin();
         auto end = ranges.end();
 
-        std::sort(begin, end, 
+        std::sort(begin, end,
                     [] (const CHARRANGE& lhs, const CHARRANGE& rhs) -> bool
                         {return lhs.cpMin < rhs.cpMin;}
                  );
@@ -412,15 +412,15 @@ CLogDlgFilter::CLogDlgFilter
             // has it a prefix?
 
             Prefix prefix = and;
-            if (curPos < length) 
+            if (curPos < length)
                 switch (filterText[curPos])
                 {
-                    case '-' : 
+                    case '-' :
                         prefix = and_not;
                         ++curPos;
                         break;
 
-                    case '+' : 
+                    case '+' :
                         prefix = or;
                         ++curPos;
                         break;
@@ -627,8 +627,8 @@ bool CLogDlgFilter::operator== (const CLogDlgFilter& rhs) const
 
     // compare global flags
 
-    if (   negate != rhs.negate 
-        || attributeSelector != rhs.attributeSelector 
+    if (   negate != rhs.negate
+        || attributeSelector != rhs.attributeSelector
         || caseSensitive != rhs.caseSensitive
         || from != rhs.from
         || to != rhs.to

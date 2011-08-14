@@ -245,8 +245,8 @@ void CExportDlg::OnOK()
         message.Format(CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY)),(LPCTSTR)m_strExportDirectory);
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(message, 
-                                CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK2)), 
+            CTaskDialog taskdlg(message,
+                                CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

@@ -632,7 +632,7 @@ void CTokenizedStringContainer::GetAt (index_t index, std::string& result) const
 
     result.resize (length);
     char* buffer = "";
-    
+
     if (length)
         buffer = &result[0];
     for (TSDIterator iter = first; (iter != last) && IsToken (*iter); ++iter)

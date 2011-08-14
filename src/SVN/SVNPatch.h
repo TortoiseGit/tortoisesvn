@@ -113,13 +113,13 @@ private:
     CString                 GetErrorMessageForNode(svn_error_t* Err) const;
 
     static int              abort_on_pool_failure (int retcode);
-    static svn_error_t *    patch_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile, 
-                                        const char *patch_abspath, 
-                                        const char *reject_abspath, 
+    static svn_error_t *    patch_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile,
+                                        const char *patch_abspath,
+                                        const char *reject_abspath,
                                         apr_pool_t * scratch_pool );
-    static svn_error_t *    patchfile_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile, 
-                                            const char *patch_abspath, 
-                                            const char *reject_abspath, 
+    static svn_error_t *    patchfile_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile,
+                                            const char *patch_abspath,
+                                            const char *reject_abspath,
                                             apr_pool_t * scratch_pool );
     static void             notify(void *baton,
                                    const svn_wc_notify_t *notify,

@@ -60,7 +60,7 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
 {
     int retrycount = 2;
     CAutoFile hPipe;
-    do 
+    do
     {
         hPipe = CreateFile(
             GetCacheCommandPipeName(),      // pipe name
@@ -99,7 +99,7 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
 
         retrycount = 2;
         BOOL fSuccess = FALSE;
-        do 
+        do
         {
             fSuccess = WriteFile(
                 hPipe,          // handle to pipe

@@ -73,7 +73,7 @@ struct TSVNCacheResponse
     INT8 m_kind;
     bool m_needslock;       ///< whether the file has the svn:needs-lock property set or not (only works with the new working copy version)
     bool m_tree_conflict;   ///< whether the item has a tree conflict
-    bool m_has_lockonwner;  
+    bool m_has_lockonwner;
     INT8 m_textStatus;
     INT8 m_propStatus;
     INT8 m_Status;

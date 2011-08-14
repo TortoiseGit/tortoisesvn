@@ -363,8 +363,8 @@ void CCopyDlg::OnOK()
     {
         if (CTaskDialog::IsSupported())
         {
-            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK1)), 
-                                        CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK2)), 
+            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK1)),
+                                        CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK2)),
                                         L"TortoiseSVN",
                                         0,
                                         TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
@@ -416,8 +416,8 @@ void CCopyDlg::OnOK()
         {
             CString sInfo;
             sInfo.Format(IDS_WARN_NOVALIDPATH_TASK1, (LPCTSTR)m_URL);
-            CTaskDialog taskdlg(sInfo, 
-                                CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK2)), 
+            CTaskDialog taskdlg(sInfo,
+                                CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);

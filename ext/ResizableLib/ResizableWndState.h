@@ -7,7 +7,7 @@
 // http://www.geocities.com/ppescher - mailto:ppescher@hotmail.com
 //
 // The contents of this file are subject to the Artistic License (the "License").
-// You may not use this file except in compliance with the License. 
+// You may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:
 // http://www.opensource.org/licenses/artistic-license.html
 //
@@ -40,22 +40,22 @@
  *  This class is used in the provided resizable counterparts of
  *  the standard MFC window and dialog classes.
  */
-class CResizableWndState : public CResizableState  
+class CResizableWndState : public CResizableState
 {
 protected:
 
-	//! @brief Load and set the window position and size
-	BOOL LoadWindowRect(LPCTSTR pszName, BOOL bRectOnly);
+    //! @brief Load and set the window position and size
+    BOOL LoadWindowRect(LPCTSTR pszName, BOOL bRectOnly);
 
-	//! @brief Save the current window position and size
-	BOOL SaveWindowRect(LPCTSTR pszName, BOOL bRectOnly);
+    //! @brief Save the current window position and size
+    BOOL SaveWindowRect(LPCTSTR pszName, BOOL bRectOnly);
 
-	//! @brief Override to provide the parent window
-	virtual CWnd* GetResizableWnd() const = 0;
+    //! @brief Override to provide the parent window
+    virtual CWnd* GetResizableWnd() const = 0;
 
 public:
-	CResizableWndState();
-	virtual ~CResizableWndState();
+    CResizableWndState();
+    virtual ~CResizableWndState();
 };
 
 // @}

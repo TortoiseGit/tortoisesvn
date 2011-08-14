@@ -62,7 +62,7 @@ class CReaderWriterLock;
 //////////////////////////////////////////////////////////////////
 // CReaderWriterLockNonReentrance class
 // NOTE: This class doesn't support reentrance & lock escalation.
-// May be deadlock in one of following situations: 
+// May be deadlock in one of following situations:
 //  1) Call AcquireReaderLock twice (reentrance)
 //     --> Revise execution flow.
 //  2) Call AcquireWriterLock twice (reentrance)

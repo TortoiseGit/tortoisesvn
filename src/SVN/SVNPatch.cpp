@@ -39,7 +39,7 @@ int SVNPatch::abort_on_pool_failure (int /*retcode*/)
     return -1;
 }
 
-SVNPatch::SVNPatch() 
+SVNPatch::SVNPatch()
     : m_pool(NULL)
     , m_nStrip(0)
 {
@@ -51,7 +51,7 @@ SVNPatch::SVNPatch()
 
 SVNPatch::~SVNPatch()
 {
-    apr_pool_destroy (m_pool); 
+    apr_pool_destroy (m_pool);
     g_SVNAdminDir.Close();
     apr_terminate();
 }
@@ -85,9 +85,9 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
     }
 }
 
-svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile, 
-                                    const char *patch_abspath, 
-                                    const char *reject_abspath, 
+svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile,
+                                    const char *patch_abspath,
+                                    const char *reject_abspath,
                                     apr_pool_t * /*scratch_pool*/ )
 {
     SVNPatch * pThis = (SVNPatch*)baton;
@@ -124,9 +124,9 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
     return NULL;
 }
 
-svn_error_t * SVNPatch::patchfile_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile, 
-                                        const char * /*patch_abspath*/, 
-                                        const char * /*reject_abspath*/, 
+svn_error_t * SVNPatch::patchfile_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile,
+                                        const char * /*patch_abspath*/,
+                                        const char * /*reject_abspath*/,
                                         apr_pool_t * /*scratch_pool*/ )
 {
     SVNPatch * pThis = (SVNPatch*)baton;
@@ -192,7 +192,7 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
         svn_error_clear(err);
         return 0;
     }
-    
+
     if ((m_nRejected > ((int)m_filePaths.size() / 3)) && !m_testPath.IsEmpty())
     {
         m_nStrip++;
@@ -378,7 +378,7 @@ int SVNPatch::CountMatches( const CString& path ) const
     {
         CString temp = GetStrippedPath(i);
         temp.Replace('/', '\\');
-        if ((PathIsRelative(temp)) || 
+        if ((PathIsRelative(temp)) ||
             ((temp.GetLength() > 1) && (temp[0]=='\\') && (temp[1]!='\\')) )
             temp = path + _T("\\")+ temp;
         if (PathFileExists(temp))

@@ -15,8 +15,8 @@ var message = "list of paths selected for commit:\n";
 var i = 0;
 while (i < paths.length)
 {
-	message = message + paths[i] + "\n";
-	i = i + 1;
+    message = message + paths[i] + "\n";
+    i = i + 1;
 }
 message = message + "depth is: " + objArgs(1) + "\n";
 message = message + "result revision is: " + objArgs(2) + "\n";
@@ -29,20 +29,20 @@ WScript.Quit(0);
 
 function readPaths(path)
 {
-	var retPaths = new Array();
-	var fs = new ActiveXObject("Scripting.FileSystemObject");
-	if (fs.FileExists(path))
-	{
-		var a = fs.OpenTextFile(path, 1, false);
-		var i = 0;
-		while (!a.AtEndOfStream)
-		{
-			var line = a.ReadLine();
-			retPaths[i] = line;
-			i = i + 1;
-		}
-		a.Close();
-	}
-	return retPaths;
-	
+    var retPaths = new Array();
+    var fs = new ActiveXObject("Scripting.FileSystemObject");
+    if (fs.FileExists(path))
+    {
+        var a = fs.OpenTextFile(path, 1, false);
+        var i = 0;
+        while (!a.AtEndOfStream)
+        {
+            var line = a.ReadLine();
+            retPaths[i] = line;
+            i = i + 1;
+        }
+        a.Close();
+    }
+    return retPaths;
+
 }
