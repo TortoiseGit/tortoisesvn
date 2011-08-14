@@ -31,14 +31,13 @@ for %%? in (%1) do Call :ProcAdjustFile %%?
 endlocal & goto:EOF
 ::
 :DoDefault
+for %%? in (cs\*.png) do Call :ProcAdjustFile %%?
 for %%? in (de\*.png) do Call :ProcAdjustFile %%?
 for %%? in (en\*.png) do Call :ProcAdjustFile %%?
 for %%? in (es\*.png) do Call :ProcAdjustFile %%?
 for %%? in (fi\*.png) do Call :ProcAdjustFile %%?
 for %%? in (fr\*.png) do Call :ProcAdjustFile %%?
-for %%? in (id\*.png) do Call :ProcAdjustFile %%?
-for %%? in (ja\*.png) do Call :ProcAdjustFile %%?
-for %%? in (pt_PT\*.png) do Call :ProcAdjustFile %%?
+for %%? in (pl\*.png) do Call :ProcAdjustFile %%?
 for %%? in (ru\*.png) do Call :ProcAdjustFile %%?
 for %%? in (sl\*.png) do Call :ProcAdjustFile %%?
 for %%? in (sr_spc\*.png) do Call :ProcAdjustFile %%?
