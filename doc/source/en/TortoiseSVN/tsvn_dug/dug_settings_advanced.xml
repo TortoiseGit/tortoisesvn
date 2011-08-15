@@ -233,6 +233,24 @@
                                 </figure>
                             </para>
                         </listitem>
+                        <listitem>
+                            <para>
+                                If set to 3, then the grouping works as with
+                                the setting set to 1, but the grouping isn't done
+                                according to the repository but according to the
+                                working copy. This is useful if you have all your
+                                projects in the same repository but different
+                                working copies for each project.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                If set to 4, then the grouping works as with
+                                the setting set to 2, but the grouping isn't done
+                                according to the repository but according to the
+                                working copy.
+                            </para>
+                        </listitem>
                     </orderedlist>
                 </para>
             </listitem>

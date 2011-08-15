@@ -1,14 +1,14 @@
-# 
+#
 # Translation of the TortoiseSVN manuals
 # Copyright (C) 2004-2011 the TortoiseSVN team
-# 
+#
 # This file is distributed under the same license as TortoiseSVN
-# 
+#
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-# 
+#
 # Authors:
 msgid ""
 msgstr ""
@@ -8650,6 +8650,14 @@ msgstr ""
 
 #. (para)
 msgid "If set to 2, then the grouping works as with the setting set to 1, except that TortoiseSVN, TortoiseMerge, TortoiseBlame, TortoiseIDiff and TortoiseUDiff windows are all grouped together. For example, if you have the commit dialog open and then doubleclick on a modified file, the opened TortoiseMerge diff window will be put in the same icon group on the taskbar as the commit dialog icon. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid "If set to 3, then the grouping works as with the setting set to 1, but the grouping isn't done according to the repository but according to the working copy. This is useful if you have all your projects in the same repository but different working copies for each project."
+msgstr ""
+
+#. (para)
+msgid "If set to 4, then the grouping works as with the setting set to 2, but the grouping isn't done according to the repository but according to the working copy."
 msgstr ""
 
 #. (para)
