@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-12 11:58+0000\n"
+"PO-Revision-Date: 2011-08-14 00:36+0000\n"
 "Last-Translator: rmheise <rmheise@gmail.com>\n"
 "Language-Team: Portuguese (Brazilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4593,6 +4593,14 @@ msgid ""
 "open the commit dialog for one folder and drag in items from the other "
 "windows to include within the same atomic commit."
 msgstr ""
+"Você pode arrastar arquivos para dentro da janela de submissão de qualquer "
+"lugar, desde que as cópias de trabalho tenham sido obtidas do mesmo "
+"repositório. Por exemplo, você pode ter uma grande cópia de trabalho com "
+"inúmeras janelas do windows explorer abertas para olhar em pastas em "
+"diferentes lugares. Se você quiser evitar submeter do nível mais alto da "
+"estrutura de pastas (com uma longa lista de modificações) você pode abrir a "
+"janela de submissão para uma pasta e então arrastar os itens de outras "
+"janelas para incluir na mesma submissão atômica."
 
 #. (para)
 msgid ""
@@ -4610,6 +4618,11 @@ msgid ""
 "This is useful if you want to write commit log messages that include the "
 "paths that are affected by the commit."
 msgstr ""
+"Arrastando arquivos da lista na parte de baixo da janela de submissão para o"
+" campo para edição da mensagem de log irá inserir os caminhos como texto "
+"dentro da caixa de edição. Isto é muito útil se você quer escrever mensagens"
+" de log da submissão que incluem os caminhos que foram afetados pela "
+"submissão."
 
 #. (title)
 #. (title)
@@ -4626,6 +4639,14 @@ msgid ""
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair "
 "Move</guimenuitem></menuchoice> to pair the two files as a rename."
 msgstr ""
+"Algumas vezes arquivos são renomeados fora do Subversion, e eles aparecem na"
+" lista de arquivos como arquivos perdidos e como arquivos não versionados. "
+"Para evitar a perca do histório você precisa notificar o Subversion sobre a "
+"conexão entre os arquivos. Simplesmente selecione o arquivo antigo (perdido)"
+" e o arquivo nome (não versionado) e use a opção <menuchoice><guimenu>Menu "
+"de Contexto</guimenu><guimenuitem>Reparar "
+"movimento</guimenuitem></menuchoice> para identificar os dois arquivos como "
+"uma renomeação."
 
 #. (title)
 #. (title)
@@ -4642,6 +4663,12 @@ msgid ""
 "Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair "
 "the two files as a copy."
 msgstr ""
+"Se você fez uma cópia de um arquivo e esqueceu de usar o comando do SVN na "
+"cópia, você pode reparar a cópia e assim o novo arquivo não perderá seu "
+"histórico. Simplesmente selecione o arquivo antigo (normal ou modificado) e "
+"o nome arquivo (não versionado) e use <menuchoice><guimenu>Menu de "
+"Contexto</guimenu><guimenuitem>Reparar Cópia</guimenuitem></menuchoice> para"
+" identificar os dois arquivos como um cópia."
 
 #. (title)
 #. (title)
@@ -4654,6 +4681,10 @@ msgid ""
 "grouping related files together. Find out about this feature in <xref "
 "linkend=\"tsvn-dug-changelists\"/>."
 msgstr ""
+"A janela de submissão suporta a funcionalidade lista de alterações do "
+"Subversion para ajudar a agrupar arquivos com modificações relacionadas. "
+"Saiba mais sobre essa funcionalidade em <xref linkend=\"tsvn-dug-"
+"changelists\"/>."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -4669,6 +4700,14 @@ msgid ""
 "file has to be versioned as it includes all the build settings, but it "
 "doesn't need to be committed just because the timestamp changed."
 msgstr ""
+"Agumas vezes você tem arquivos versionados que são alterados frequentemente "
+"mas que você de verdade não quer controlar. Algumas vezes isto indica uma "
+"falha no seu processo de desenvolvimento - por que esses arquivos são "
+"controlados? deveriam ser arquivos modelos? Mas ocasionalmente isto é "
+"inevitável. Uma razão clássica é que seu IDE muda a data/hora do arquivo em "
+"seu projeto cada vez que você compila. O arquivo do projeto tem que ser "
+"controlado já que ele inclui todas as configurações de compilação, mas você "
+"não precisa submeter apenas porque mudou a data/hora do arquivo."
 
 #. (para)
 msgid ""
@@ -4677,6 +4716,11 @@ msgid ""
 " automatically be unchecked in the commit dialog. You can still commit "
 "changes, but you have to select it manually in the commit dialog."
 msgstr ""
+"Para ajudar nessas situações incomuns, nós temos uma lista de alterações "
+"específica chamada <literal>ignore-on-commit</literal>. Qualquer arquivo "
+"adicionado neste lista de alterações ficará automaticamente desmarcado na "
+"janela de submissão. Você pode ainda submeter as alterações, mas você terá "
+"que selecionar manualmente na janela de submissão."
 
 #. (title)
 msgid "Commit Log Messages"
@@ -4690,6 +4734,12 @@ msgid ""
 " or as brief as you like; many projects have guidelines for what should be "
 "included, the language to use, and sometimes even a strict format."
 msgstr ""
+"Tenha a certeza de digitar uma mensagem de log que descreva as aterações que"
+" você está submetendo. Isto ajudará você a ver o que aconteceu e quando, ao "
+"navegador pelas mensagens de auditoria do projeto dias mais tarde. A "
+"mensagem pode ser tanto longa quanto curta; muitos projetos tem diretivas "
+"para o que será incluido, o idioma a ser usado, e algumas vezes até a "
+"formatação exigida."
 
 #. (para)
 msgid ""
@@ -4699,6 +4749,11 @@ msgid ""
 "<literal>_text_</literal> for underlining, and <literal>^text^</literal> for"
 " italics."
 msgstr ""
+"Você pode formatar de forma simples sua mensagem de log usando a convenção "
+"similar ao que é usado nos e-mails. Para aplicar estilos para "
+"<literal>texto</literal>, use <literal>*texto*</literal> para negrito, "
+"<literal>_texto_</literal> para sublinhado, e <literal>^texto^</literal> "
+"para itálico."
 
 #. (title)
 msgid "The Commit Dialog Spellchecker"
@@ -4713,6 +4768,13 @@ msgid ""
 "words will sometimes show up as errors. But don't worry. You can just add "
 "them to your personal dictionary using the context menu."
 msgstr ""
+"<placeholder-1/> TortoiseSVN inclui um corretor ortográfico para lhe ajudar "
+"a escrever a sua mensagem de log corretamente. Ele irá descatar palavras "
+"erradas. Use o menu de contexto para acessar as sugestões de correção. É "
+"claro, ele não conhece <emphasis>todos</emphasis> os termos técnicos que "
+"você conhece, então palavras digitadas corretamente irão algumas vezes "
+"aparecer como erro. Mas você não deve se preocupar. Você pode simplesmente "
+"adicionar a palavra ao seu dicionário pessoal usando o menu de contexto."
 
 #. (para)
 msgid ""
@@ -4751,6 +4813,10 @@ msgid ""
 "messages you entered for this working copy. The number of stored messages "
 "can be customized in the TortoiseSVN settings dialog."
 msgstr ""
+"Voce pode reutilizar mensagens já digitados. Apenas clique sobre "
+"<guibutton>Mensagens recentes</guibutton> para ver a lista das últimas "
+"mensagens digitas para a cópia de trabalho. O número de mensagens gravadas "
+"pode ser configurado na janela de configurações do TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -4759,6 +4825,10 @@ msgid ""
 "messages from within the <guilabel>Recent messages</guilabel> dialog using "
 "the <keycap>Delete</keycap> key."
 msgstr ""
+"Você pode apagar as mensagens de submissão gravadas usando a tela "
+"<guilabel>Dados salvos</guilabel> das configurações do TortoiseSVN, ou você "
+"pode apagar as mensagens uma a uma usnado a janela <guilabel>Mensagens "
+"recentes</guilabel> usando a tecla <keycap>Delete</keycap>."
 
 #. (para)
 msgid ""
@@ -4790,6 +4860,10 @@ msgid ""
 "used by the spellchecker module. Read <xref linkend=\"tsvn-dug-"
 "propertypage\"/> for further information."
 msgstr ""
+"Existem muitas propriedades especiais nos diretórios que podem ser usados "
+"para dar mais controle sobre a formatação das mensagens de log na submissão "
+"e o idioma usado pelo módulo de correção ortográfica. Leia <xref linkend"
+"=\"tsvn-dug-propertypage\"/> para mais informações."
 
 #. (title)
 msgid "Integration with Bug Tracking Tools"
@@ -15857,6 +15931,67 @@ msgid ""
 "This is fine, but the selected row then also covers the background image on "
 "the bottom right, which can look ugly. To disable full row select, set this "
 "value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"This option determines how the Win7 taskbar icons of the various TortoiseSVN"
+" dialogs and windows are grouped together. This option has no effect on "
+"Windows XP or Vista!"
+msgstr ""
+
+#. (title)
+msgid "Taskbar with default grouping"
+msgstr ""
+
+#. (para)
+msgid ""
+"The default value is 0. With this setting, the icons are grouped together by"
+" application type. All dialogs from TortoiseSVN are grouped together, all "
+"windows from TortoiseMerge are grouped together, ... <placeholder-1/>"
+msgstr ""
+
+#. (title)
+#. (title)
+msgid "Taskbar with repository grouping"
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 1, then instead of all dialogs in one single group per applicaton,"
+" they're grouped together by repository. For example, if you have a log "
+"dialog and a commit dialog open for repository <literal>A</literal>, and a "
+"check-for-modifications dialog and a log dialog for repository "
+"<literal>B</literal>, then there are two application icon groups shown in "
+"the Win7 taskbar, one group for each repository. But TortoiseMerge windows "
+"are not grouped together with TortoiseSVN dialogs. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 2, then the grouping works as with the setting set to 1, except "
+"that TortoiseSVN, TortoiseMerge, TortoiseBlame, TortoiseIDiff and "
+"TortoiseUDiff windows are all grouped together. For example, if you have the"
+" commit dialog open and then doubleclick on a modified file, the opened "
+"TortoiseMerge diff window will be put in the same icon group on the taskbar "
+"as the commit dialog icon. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
+" is set to 0 (see above)."
+msgstr ""
+
+#. (title)
+msgid "Taskbar grouping with repository color overlays"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal>, then every icon on the "
+"Win7 taskbar shows a small colored rectangle overlay, indicating the "
+"repository the dialogs/windows are used for. <placeholder-1/>"
 msgstr ""
 
 #. (para)

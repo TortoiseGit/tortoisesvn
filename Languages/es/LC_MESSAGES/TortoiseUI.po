@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-08 00:34+0000\n"
+"PO-Revision-Date: 2011-08-13 01:05+0000\n"
 "Last-Translator: tommybrc <tommychristie@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr ""
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
-msgstr ""
+msgstr " "
 
 #. Resource IDs: (188)
 #, c-format
@@ -542,15 +542,15 @@ msgstr "Elegir &comandos de::"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
-msgstr ""
+msgstr "&Seleccione los elementos..."
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
-msgstr ""
+msgstr "&Limpiar estado copia de trabajo"
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
-msgstr ""
+msgstr "&Limpiar..."
 
 #. Resource IDs: (58112)
 msgid "&Close"
@@ -1166,7 +1166,7 @@ msgstr "&Reintentar sin ganchos"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
-msgstr ""
+msgstr "&Revertir todos los cambios recursivamente"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1439,6 +1439,15 @@ msgstr "&Envolver líneas largas"
 #. Resource IDs: (1540)
 msgid "&file list control"
 msgstr "&control de lista de archivos"
+
+#. Resource IDs: (84)
+#, c-format
+msgid ""
+"'%s'\n"
+"is not a valid URL or path!"
+msgstr ""
+"'%s'\n"
+"no es una URL o la ruta válida!"
 
 #. Resource IDs: (338)
 msgid ""
@@ -2007,15 +2016,15 @@ msgstr ""
 
 #. Resource IDs: (119)
 msgid "Already merged"
-msgstr "Ya fusiónado"
+msgstr "Ya fusionados"
 
 #. Resource IDs: (119)
 msgid "Already reverse merged"
-msgstr ""
+msgstr "Revertir ya fusionados"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
-msgstr "Cerrar siempre los diálogos para operaciones locales"
+msgstr "Siempre cerrar los diálogos para operaciones locales"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -3192,6 +3201,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
+"¡Confirmar una carpeta no versionada no añadirá recursivamente sus ítems hijos!\n"
+"Puede querer añadir estas carpetas recursivamente utilizando el ítem 'Añadir...' del meú contextual."
 
 #. Resource IDs: (170)
 msgid ""
@@ -3860,11 +3871,11 @@ msgstr "Eliminar"
 
 #. Resource IDs: (1617)
 msgid "Delete &ignored files and folders"
-msgstr ""
+msgstr "Eliminar archivos y carpetas &ignorados"
 
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
-msgstr ""
+msgstr "Eliminar archivos y carpetas no &versionados"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4429,7 +4440,7 @@ msgstr "Vacío"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-&Properties"
-msgstr ""
+msgstr "Activar &Propiedades Automáticas"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5285,6 +5296,7 @@ msgstr "Tipo de gráfico:"
 #. Resource IDs: (273)
 msgid "Graphs for repository roots are always empty!"
 msgstr ""
+"Los gráficos para las raíces de los repositorios están siempre vacíos!"
 
 #. Resource IDs: (16972)
 msgid "Gray"
@@ -5425,7 +5437,7 @@ msgstr "Tipo de gancho:"
 
 #. Resource IDs: (173)
 msgid "Hook script failed!"
-msgstr ""
+msgstr "Falló el script gancho!"
 
 #. Resource IDs: (82)
 #, c-format
@@ -5757,6 +5769,8 @@ msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
 msgstr ""
+"Si quiere romper el bloqueo, utilice el diálogo 'Comprobar Modificaciones' o"
+" el navegador de repositorios."
 
 #. Resource IDs: (73)
 msgid "Ignore"
@@ -5765,11 +5779,11 @@ msgstr "Ignorar"
 #. Resource IDs: (14)
 #, c-format
 msgid "Ignore %d items by &extension"
-msgstr "Igorar %d ítems por &extensión"
+msgstr "Ignorar %d ítems por &extensión"
 
 #. Resource IDs: (1126)
 msgid "Ignore &EOL changes"
-msgstr ""
+msgstr "Ignorar cambios de &Fin de línea"
 
 #. Resource IDs: (1020)
 msgid "Ignore &all whitespaces"
@@ -5932,7 +5946,7 @@ msgstr "Importa el directorio a un repositorio"
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
-msgstr ""
+msgstr "Incluir e&xternos"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6116,6 +6130,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
+"Parece que está intentando relocalizar su copia de trabajo a una ruta diferente dentro del mismo repositorio.\n"
+"\n"
+"De:\t%1!s!\n"
+"A:\t%2!s!\n"
+"\n"
+"Sólo se necesita relocalizar si la ruta de acceso al repositorio ha cambiado.\n"
+"El cambio a una ruta diferente dentro del mismo repositorio se hace con una operación Cambiar.\n"
+"\n"
+"¡El uso inapropiado de relocalizar corromperá su copia de trabajo!\n"
+"Si no está seguro de lo que quiere hacer, por favor lea en nuestra documentación sobre relocalizar.\n"
+"¿Realmente desea relocalizar?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6403,7 +6428,7 @@ msgstr "Mensaje de registro"
 
 #. Resource IDs: (173)
 msgid "Log message is too short!"
-msgstr ""
+msgstr "El mensaje de registro es demasiado corto!"
 
 #. Resource IDs: (65535)
 msgid "Log messages"
@@ -6899,7 +6924,7 @@ msgstr "Necesita bloqueo"
 #. Resource IDs: (84)
 msgid ""
 "Neither /path nor /pathfile was specified or does not contain a valid path!"
-msgstr ""
+msgstr "No se ha especificado /path ni /pathfile o la ruta no es válida!"
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -7138,7 +7163,7 @@ msgstr "Nta: esta propiedad no tiene efecto en Windows"
 
 #. Resource IDs: (173)
 msgid "Nothing is selected for commit!"
-msgstr ""
+msgstr "No hay nada seleccionado para confirmar!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -8114,12 +8139,12 @@ msgstr "Actualizar"
 
 #. Resource IDs: (1615)
 msgid "Refresh &shell overlays"
-msgstr ""
+msgstr "Actualizar capas del &shell"
 
 #. Resource IDs: (148)
 #, c-format
 msgid "Refreshing shell for %1!s!"
-msgstr ""
+msgstr "Actualizando shell para %1!s!"
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
@@ -8243,7 +8268,7 @@ msgstr "Advertencia de relocalizar"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "Reubicar donde un intercambio pueda haber sido la intención"
 
 #. Resource IDs: (89)
 msgid ""
@@ -8898,6 +8923,14 @@ msgid ""
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
 msgstr ""
+"Ejemplo de mensaje de registro para testear el seguimiento de errores: regex strings.\n"
+"\n"
+"Probando menciones de temas dentro de un texto: Mención tema #55. Mención tema #77, #78.\n"
+"\n"
+"Actualiza tema #101\n"
+"Arregla tema #202\n"
+"Resuelve tema #88.\n"
+"Cierra tema #99.\n"
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
@@ -11946,7 +11979,8 @@ msgid ""
 "Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
 msgstr ""
 "Usted puede deshabilitar manejadores sobrepuestos específicos aquí.\n"
-"Los manejadores deshabilitados no utilizaran un espacio de sobreimpresionado y permiten que otra extensión de shell pueda mostrar su sobreimpreso"
+"Los manejadores deshabilitados no utilizaran un espacio de sobreimpresionado y permiten que otras extensiones\n"
+"de shell puedan mostrar su sobreimpreso."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -11975,6 +12009,9 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
+"Ha soltado más de un archivo o carpeta para añadirlos al repositorio.\n"
+"No es posible hacer eso en un único paso, por lo que TortoiseSVN añadirá cada\n"
+"archivo/carpeta individualmente, creando una nueva revisión para cada ítem añadido."
 
 #. Resource IDs: (105)
 msgid ""
@@ -11985,8 +12022,8 @@ msgid ""
 "Do you still want to do this?"
 msgstr ""
 "Ha soltado más de un archivo o carpeta para añadirlos al repositorio.\n"
-"No es posible hacer eso en un único paso, por lo que TortoiseSVN añadirá\n"
-"cada archivo/carpeta individualmente, creando una nueva revisión para cada ítem añadido.\n"
+"No es posible hacer eso en un único paso, por lo que TortoiseSVN añadirá cada\n"
+"archivo/carpeta individualmente, creando una nueva revisión para cada ítem añadido.\n"
 "\n"
 "¿Aun así desea realizar la operación?"
 

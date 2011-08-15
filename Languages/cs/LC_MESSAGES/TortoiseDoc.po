@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-11 06:06+0000\n"
+"PO-Revision-Date: 2011-08-14 06:39+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -19148,6 +19148,92 @@ msgstr ""
 "sloupec). To je v pořádku, ale vybraný řádek pak zahrnuje také obrázek na "
 "pozadí v pravém dolním rohu, což může vypadat ošklivě. Chcete-li úplný výběr"
 " řádku zakázat, nastavte tuto hodnotu na <literal>false</literal>."
+
+#. (para)
+msgid ""
+"This option determines how the Win7 taskbar icons of the various TortoiseSVN"
+" dialogs and windows are grouped together. This option has no effect on "
+"Windows XP or Vista!"
+msgstr ""
+"Tato volba určuje, jak jsou ikony a okna rázných dialogů TortoiseSVN "
+"seskupeny na hlavním panelu ve Win7. Tato volba nemá žádný vliv na Windows "
+"XP nebo Vista!"
+
+#. (title)
+msgid "Taskbar with default grouping"
+msgstr "Hlavní panel s výchozím seskupením"
+
+#. (para)
+msgid ""
+"The default value is 0. With this setting, the icons are grouped together by"
+" application type. All dialogs from TortoiseSVN are grouped together, all "
+"windows from TortoiseMerge are grouped together, ... <placeholder-1/>"
+msgstr ""
+"Výchozí hodnota je 0. Při tomto nastavení jsou ikony seskupeny podle typu "
+"aplikace. Všechny dialogová okna z TortoiseSVN jsou seskupena, všechna okna "
+"z TortoiseMerge jsou seskupena, ... <placeholder-1/>"
+
+#. (title)
+#. (title)
+msgid "Taskbar with repository grouping"
+msgstr "Seskupení v hlavním panelu podle úložiště"
+
+#. (para)
+msgid ""
+"If set to 1, then instead of all dialogs in one single group per applicaton,"
+" they're grouped together by repository. For example, if you have a log "
+"dialog and a commit dialog open for repository <literal>A</literal>, and a "
+"check-for-modifications dialog and a log dialog for repository "
+"<literal>B</literal>, then there are two application icon groups shown in "
+"the Win7 taskbar, one group for each repository. But TortoiseMerge windows "
+"are not grouped together with TortoiseSVN dialogs. <placeholder-1/>"
+msgstr ""
+"Pokud nastaveno na 1, pak místo veškerých dialogových oken v jedné skupině "
+"podle aplikace, jsou seskupena podle úložiště. Například, pokud máte "
+"otevřené dialogové okno záznamu a odevzdání pro úložiště "
+"<literal>A</literal> a dialogové okno zjištění změn a záznamu pro úložiště "
+"<literal>B</literal>, pak jsou v hlavním panelu Win7 zobrazeny dvě skupiny "
+"ikon, jeden pro každou skupinu úložiště. Ale okna TortoiseMerge nejsou "
+"seskupena s dialogovými okny TortoiseSVN. <placeholder-1/>"
+
+#. (para)
+msgid ""
+"If set to 2, then the grouping works as with the setting set to 1, except "
+"that TortoiseSVN, TortoiseMerge, TortoiseBlame, TortoiseIDiff and "
+"TortoiseUDiff windows are all grouped together. For example, if you have the"
+" commit dialog open and then doubleclick on a modified file, the opened "
+"TortoiseMerge diff window will be put in the same icon group on the taskbar "
+"as the commit dialog icon. <placeholder-1/>"
+msgstr ""
+"Pokud nastavena na 2, pak seskupení funguje jako když nastaveno na 1, kromě "
+"toho, že okna TortoiseSVN, TortoiseMerge, TortoiseBlame, TortoiseIDiff a "
+"TortoiseUDiff jsou seskupena dohromady. Například, pokud máte otevřeno "
+"dialogové okno odevzdání a pak kliknete dvakrát na upravený soubor, otevřené"
+" okno porovnání TortoiseMerge bude umístěno do stejné skupiny ikon na "
+"hlavním panelu jako ikona dialogového okna odevzdání. <placeholder-1/>"
+
+#. (para)
+msgid ""
+"This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
+" is set to 0 (see above)."
+msgstr ""
+"Toto nemá žádný vliv, pokud je možnost "
+"<literal>GroupTaskbarIconsPerRepo</literal> nastavena na 0 (viz výše)."
+
+#. (title)
+msgid "Taskbar grouping with repository color overlays"
+msgstr "Seskupení v hlavním panelu s překryvnými barvami úložiště"
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal>, then every icon on the "
+"Win7 taskbar shows a small colored rectangle overlay, indicating the "
+"repository the dialogs/windows are used for. <placeholder-1/>"
+msgstr ""
+"Pokud je tato možnost nastavena na <literal>true</literal>, pak každá ikona "
+"na hlavním panelu Win7 bude zobrazena s malým překryvným barevným "
+"obdélníkem, označující úložiště, pro které jsou dialogová okna/okna použita."
+" <placeholder-1/>"
 
 #. (para)
 msgid ""

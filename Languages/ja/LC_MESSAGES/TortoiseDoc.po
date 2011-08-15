@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-11 00:08+0000\n"
+"PO-Revision-Date: 2011-08-14 00:36+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3348,6 +3348,8 @@ msgid ""
 "an initial <filename>/trunk /tags /branches</filename> structure in your "
 "repository. Since you are here, this is how the basic import works ..."
 msgstr ""
+"この章では、 Subversion の import コマンドについて解説しています。このコマンドは、ディレクトリ階層を一度にリポジトリにインポートするよう設計されています。それはそのように動作しますが、いくつか欠点もあります。\n"
+"<placeholder-1/> このような理由から、リポジトリに初期構造である <filename>/trunk /tags /branches</filename>　を作成する場合を除いて、import コマンドを使用するよりも、 <xref linkend=\"tsvn-dug-import-in-place\"/> で説明している2段階の手順で実行することをお勧めします。ここで、基本的なインポートの動作を示します。"
 
 #. (para)
 msgid ""
@@ -3443,6 +3445,9 @@ msgid ""
 "root. The repository browser shows the repository structure just like "
 "Windows explorer, so you can see how things are organised."
 msgstr ""
+"リポジトリブラウザを使用して、リポジトリに新しいプロジェクトフォルダを直接作成します。標準的なレイアウトを使用している場合は、恐らく trunk "
+"のサブフォルダではなく、リポジトリのルートでこれを作成したくなるでしょう。リポジトリブラウザは、ちょうど Windows "
+"のエクスプローラのようなリポジトリ構造を表示しますので、どのように整理されているかを見ることができます。"
 
 #. (para)
 msgid ""
@@ -3687,6 +3692,7 @@ msgid ""
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
 msgstr ""
+"Windowsのエクスプローラでは、チェックアウトされたフォルダで<action>右クリック</action>し、それから<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>リポジトリブラウザ</guimenuitem></menuchoice>でリポジトリブラウザを起動します。作業コピーを追加しようとしているサブフォルダを選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>特定のリビジョンへ更新...<//guimenuitem></menuchoice>を実行します。"
 
 #. (para)
 msgid ""
@@ -4489,6 +4495,8 @@ msgid ""
 "You can also choose whether to ignore any external projects in the update "
 "(i.e. projects referenced using <literal>svn:externals</literal>)."
 msgstr ""
+"更新時には、特定の外部プロジェクトを無視するかどうかを選択できます（つまり、プロジェクトは<literal>svn:externals</literal>"
+" を使用して参照します ）。"
 
 #. (para)
 msgid ""
@@ -5964,6 +5972,8 @@ msgid ""
 "diff. These options include the ability to ignore changes in line endings "
 "and whitespaces."
 msgstr ""
+"<keycap>Shift</keycap> キーを押しながらメニュー項目をクリックすると、Unified-Diff "
+"のためのオプションを設定するためのダイアログが最初に開きます。これらのオプションの中に、行末文字や空白文字の変更を無視するものが含まれています。"
 
 #. (term)
 msgid "Compare with previous revision"
@@ -6445,7 +6455,7 @@ msgstr "そのファイルがまだ古いバージョンの場合、選択した
 msgid ""
 "Export the selected items in this revision to a folder, preserving the file "
 "hierarchy."
-msgstr ""
+msgstr "このリビジョンの選択されたファイルを、ファイルの階層を保持したままエクスポートする。"
 
 #. (para)
 msgid ""
@@ -6816,6 +6826,23 @@ msgid ""
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "</screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
 msgstr ""
+"単純な部分文字列での検索のやり方は、検索エンジンと似ています。複数の文字列を空白で区切って入力すると、すべての文字列を含むものが検索されます。文字列の前に <literal>-</literal> を付けると、その文字列が含まれないものが検索されます（語句の否定検索）。そして、最初に <literal>!</literal> を付けると、検索文字列全体が否定になります。前に <literal>+</literal> を付けた文字列は、以前に <literal>-</literal> を付けて除外した文字列であっても、含まれるものが検索されます。なお、含まれる・除外される指示の順番が重要であることに気を付けてください。空白を含む文字列を検索する場合は、文字列を引用符で囲んでください。引用符の文字を含む文字列を検索する場合は、引用符を2つ並べてエスケープしてください。なお、バックスラッシュ文字はエスケープ文字<emphasis>ではない</emphasis>こと、単純な部分文字列の検索では特別な意味を持たないことに注意してください。次のサンプルを見たほうが簡単でしょう。<screen>\n"
+"Alice Bob -Eve\n"
+"</screen> は、 Alice と Bob を含み、 Eve を含ま内文字列を検索します。 <screen>\n"
+"Alice -Bob +Eve\n"
+"</screen> は、 Alice を含んでかつ Bob を含まないか、 Eve を含む文字列を検索します。 <screen>\n"
+"-Case +SpecialCase\n"
+"</screen> は、 Case という文字列を含まないが、 SpecialCase という文字列は含む文字列を検索します。 <screen>\n"
+"!Alice Bob\n"
+"</screen> は、 Alice も　Bob も含まない文字列を検索します。<screen>\n"
+"!-Alice -Bob\n"
+"</screen> は、ド・モルガンの法則を思い出してください。 NOT(NOT Alice AND NOT Bob) なので、 (Alice OR Bob) となります。 <screen>\n"
+"\"Alice and Bob\"\n"
+"</screen> は、 <quote>Alice and Bob</quote> という文字列を検索します。<screen>\n"
+"\"\"\n"
+"</screen> は、テキストのどこかに二重引用符が含まれている文字列を検索します。 <screen>\n"
+"\"Alice says \"\"hi\"\" to Bob\"\n"
+"</screen> は、 <quote>Alice says \"hi\" to Bob</quote>　という文字列を検索します。"
 
 #. (para)
 msgid ""
@@ -7555,11 +7582,11 @@ msgstr ""
 
 #. (title)
 msgid "Diffing Office Documents"
-msgstr ""
+msgstr "Office ドキュメントの差分"
 
 #. (primary)
 msgid "Microsoft Word"
-msgstr ""
+msgstr "Microsoft Word"
 
 #. (para)
 msgid ""
@@ -7652,7 +7679,7 @@ msgstr ""
 
 #. (term)
 msgid "SourceGear DiffMerge"
-msgstr ""
+msgstr "SourceGear による差分マージ"
 
 #. (para)
 msgid ""
@@ -10641,6 +10668,7 @@ msgid ""
 "completely so you see only the revisions which <emphasis>can</emphasis> be "
 "merged."
 msgstr ""
+"マージ追跡機能を使用する場合は、ログダイアログには前回マージされたリビジョンや、共通の祖先以前の時点（つまりブランチがコピーされる以前）のリビジョンが、グレーで表示されます。<guilabel>マージ不可能なリビジョンを隠す</guilabel>チェックボックスを使用すると、こうしたリビジョンを隠し、マージすることが<emphasis>できる</emphasis>リビジョンだけを表示することができます。"
 
 #. (para)
 msgid ""
@@ -11594,6 +11622,7 @@ msgid ""
 "the patch is created. For example you can specify that changes in line "
 "endings or whitespaces are not included in the final patch file."
 msgstr ""
+"<guilabel>オプション</guilabel>ボタンはをクリックすると、パッチの作り方を指定できます。たとえば、出力するパッチファイルで行末文字や空白文字の変更を含めないようにすることができます。"
 
 #. (para)
 msgid ""
@@ -11813,6 +11842,7 @@ msgid ""
 "change was made in the original source as well as the revision when it was "
 "merged into this file."
 msgstr ""
+"このオプションには、サーバから取得するためかなり時間がかかる可能性はありますが、必要に応じてマージ情報を含めることができます。行が別のソースからマージされると、注釈履歴情報は、変更が元のソースだけでなく、それがこのファイルにマージされたリビジョンで作成されたリビジョンを表示します。。"
 
 #. (para)
 msgid ""
@@ -11933,6 +11963,8 @@ msgid ""
 "uncheck the <guilabel>Include merge info</guilabel> checkbox when starting "
 "the blame."
 msgstr ""
+"注釈履歴を起動するときにマージ追跡を使用していると、マージされた行が若干異なって表示されます。行が別のパスからマージした結果として変更された場合には、TortoiseBlameは元のファイルの最後の変更ではなく、マージが行われたリビジョンと作者を表示します。これらの行は、リビジョンと作者をイタリック体で示すことで示されています。注釈履歴情報の列の上にマウスを移動させると、マージした場所のリビジョンが別々に表示されます。マージした行をこのような形で表示させたくない場合、"
+" 注釈履歴を起動するときに<guilabel>マージ情報を含める</guilabel>チェックボックスをオフにしてください。"
 
 #. (para)
 msgid ""
@@ -11941,6 +11973,8 @@ msgid ""
 "paths</guimenuitem></menuchoice>. This shows the path where the line was "
 "last changed, excluding changes resulting from a merge."
 msgstr ""
+"マージに関係するパスを表示したい場合は、<menuchoice><guimenu>表示</guimenu><guimenuitem>パスをマージ</guimenuitem></menuchoice>"
+" 。これは、マージ以外の変更による行のパスを表示します。"
 
 #. (para)
 msgid ""
@@ -11951,6 +11985,7 @@ msgid ""
 "was made. This also applies to the paths shown with merge info. The path "
 "shows the repository location where the last change was made to that line."
 msgstr ""
+"注釈履歴情報の中のリビジョンは、その行の内容が変更された最後のリビジョンを表します。ファイルを他からコピーして作成したとき、それから行を変更するまで、その行の注釈履歴のリビジョンは元のソースファイルの最後の変更であり、コピーが作成されたリビジョンではありません。これはマージ情報と共に表示されるパスにも適用されます。パスは、最後の変更がその行に作成されたリポジトリの場所を示しています。"
 
 #. (para)
 msgid ""
@@ -11978,6 +12013,9 @@ msgid ""
 "<emphasis>and</emphasis> the blame information simultaneously then you need "
 "a combination of the diff and blame reports."
 msgstr ""
+"注釈履歴レポートの限界の一つは、ファイルを特定のリビジョンにおける、各行を変更した最後の人しか見ることができません。時には、誰が変更したかと同様に、誰が作成したかを知りたいことがあります。"
+" TortoiseBlame "
+"の行を右クリックしてコンテキストメニューを表示しすると、そのリビジョンでの変更を見ることができます。しかし、変更点と注釈履歴を<emphatsis>同時に</emphasis>確認したい場合は、差分と注釈履歴のレポートを組み合わせなければなりません。"
 
 #. (term)
 msgid "Blame Revisions"
@@ -14076,13 +14114,15 @@ msgstr ""
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
-msgstr ""
+msgstr "更新時に svn:externals にローカルの変更を適用する"
 
 #. (para)
 msgid ""
 "This option tells TortoiseSVN to always apply local modifications to the "
 "<literal>svn:externals</literal> property when updating the working copy."
 msgstr ""
+"このオプションは、 TortoiseSVN が作業コピーを更新する時に、 <literal>svn:externals</literal> "
+"属性にローカルで行われた変更を常に適用することを示します。"
 
 #. (title)
 msgid "Context Menu Settings"
@@ -15534,12 +15574,15 @@ msgid ""
 "which is installed alongside TortoiseSVN, and colour-codes the added and "
 "removed lines."
 msgstr ""
+"Unified-Diff "
+"ファイル（パッチファイル）のビューアです。パラメータは必要ありません。<guilabel>デフォルト</guilabel>の設定では、 "
+"TortoiseSVN と一緒にインストールされる TortoiseUDiff を使用するよう設定され、追加・削除された行を色分け表示します。"
 
 #. (para)
 msgid ""
 "Since Unified Diff is just a text format, you can use your favourite text "
 "editor if you prefer."
-msgstr ""
+msgstr "Unified-Diff ファイルはテキストファイルなので、お好みのテキストエディタを使用しても結構です。"
 
 #. (title)
 msgid "Saved Data Settings"
@@ -16370,6 +16413,8 @@ msgid ""
 " to use strong contrast on the locator bar while keeping the main window "
 "background light so that you can still read the text."
 msgstr ""
+"表示位置調整バーで使用する差分の色を指定することができます。デフォルトでは、メインウィンドウで文字を読みやすいよう背景の明るさを維持​​"
+"しながら、表示位置調整バーと強いコントラストをなす色が使われています。"
 
 #. (term)
 msgid "Font"
@@ -16545,6 +16590,67 @@ msgstr ""
 
 #. (para)
 msgid ""
+"This option determines how the Win7 taskbar icons of the various TortoiseSVN"
+" dialogs and windows are grouped together. This option has no effect on "
+"Windows XP or Vista!"
+msgstr ""
+
+#. (title)
+msgid "Taskbar with default grouping"
+msgstr ""
+
+#. (para)
+msgid ""
+"The default value is 0. With this setting, the icons are grouped together by"
+" application type. All dialogs from TortoiseSVN are grouped together, all "
+"windows from TortoiseMerge are grouped together, ... <placeholder-1/>"
+msgstr ""
+
+#. (title)
+#. (title)
+msgid "Taskbar with repository grouping"
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 1, then instead of all dialogs in one single group per applicaton,"
+" they're grouped together by repository. For example, if you have a log "
+"dialog and a commit dialog open for repository <literal>A</literal>, and a "
+"check-for-modifications dialog and a log dialog for repository "
+"<literal>B</literal>, then there are two application icon groups shown in "
+"the Win7 taskbar, one group for each repository. But TortoiseMerge windows "
+"are not grouped together with TortoiseSVN dialogs. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 2, then the grouping works as with the setting set to 1, except "
+"that TortoiseSVN, TortoiseMerge, TortoiseBlame, TortoiseIDiff and "
+"TortoiseUDiff windows are all grouped together. For example, if you have the"
+" commit dialog open and then doubleclick on a modified file, the opened "
+"TortoiseMerge diff window will be put in the same icon group on the taskbar "
+"as the commit dialog icon. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
+" is set to 0 (see above)."
+msgstr ""
+
+#. (title)
+msgid "Taskbar grouping with repository color overlays"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal>, then every icon on the "
+"Win7 taskbar shows a small colored rectangle overlay, indicating the "
+"repository the dialogs/windows are used for. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
 "By default, TortoiseSVN always runs an update with externals included. This "
 "avoids problems with inconsistent working copies. If you have however a lot "
 "of externals set, an update can take quite a while. Set this value to "
@@ -16681,7 +16787,7 @@ msgstr ""
 
 #. (title)
 msgid "Exporting TSVN Settings"
-msgstr ""
+msgstr "TortoiseSVN の設定のエクスポート"
 
 #. (para)
 msgid ""
@@ -16692,12 +16798,18 @@ msgid ""
 "On the other computer, just import that file again (usually, a double click "
 "on the reg file will do that)."
 msgstr ""
+"複数のコンピュータで同じクライアント設定を使用したい場合、 Windows のレジストリエディタ "
+"<filename>regedit32.exe</filename> を使用することができます。レジストリキーの "
+"<literal>HKCU\\Software\\TortoiseSVN</literal> を開き、 reg "
+"ファイルにえくうぽーとしてください。他のコンピュータでは、そのファイルをインポートしてください（通常は、 reg ファイルをダブルクリックします）。"
 
 #. (para)
 msgid ""
 "Remember to save your Subversion settings too, located in the svn config "
 "file in <literal>%APPDATA%\\Subversion</literal>."
 msgstr ""
+"Subversion の設定も保存する場合は、 <literal>%APPDATA%\\Subversion</literal> にある "
+"Subversion の設定ファイルも保存してください。"
 
 #. (title)
 msgid "Final Step"
@@ -17088,6 +17200,12 @@ msgid ""
 "#define SVN_REVISION    \"$WCMIXED?SVN_RANGE:SVN_REV$\"\n"
 "</screen>"
 msgstr ""
+"SubWCRev は式のネストを直接サポートしていません。たとえば、次のような式は使用することができません。 <screen>⏎ #define SVN_REVISION \"$WCMIXED?$WCRANGE$:$WCREV$$\"⏎ \n"
+"</screen> しかし、次のように形式を変更すれば使用することができます。 <screen>⏎ \n"
+"#define SVN_RANGE $WCRANGE$⏎ \n"
+"#define SVN_REV $WCREV$⏎ \n"
+"#define SVN_REVISION \"$WCMIXED?SVN_RANGE:SVN_REV$\"⏎ \n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -21273,6 +21391,12 @@ msgid ""
 "can't figure out by the overlay icons what version control system a working "
 "copy is using."
 msgstr ""
+"他のバージョン管理システムのための Tortoise "
+"クライアントがあるため、オーバーレイアイコンの表示を共有するコンポーネントを作成しました。ここでは技術的な細部は重要ではありませんが、知っておいてほしいのは、共有コンポーネントによってすべての"
+" Tortoise クライアントが同じオーバーレイを使用することができ、 複数の Tortoise "
+"クライアントをインストールしたとき、オーバーレイの最大数である11個を超えずに使うことができる点です。もちろん、若干の欠点もあります。すべての "
+"Tortoise "
+"クライアントが同じオーバーレイを使用するため、作業コピーが使用しているバージョン管理システムをオーバーレイアイコンで見分けることができません。"
 
 #. (para)
 msgid ""

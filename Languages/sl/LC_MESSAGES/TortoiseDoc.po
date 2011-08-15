@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-11 00:08+0000\n"
+"PO-Revision-Date: 2011-08-14 00:36+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -17113,6 +17113,67 @@ msgid ""
 "This is fine, but the selected row then also covers the background image on "
 "the bottom right, which can look ugly. To disable full row select, set this "
 "value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"This option determines how the Win7 taskbar icons of the various TortoiseSVN"
+" dialogs and windows are grouped together. This option has no effect on "
+"Windows XP or Vista!"
+msgstr ""
+
+#. (title)
+msgid "Taskbar with default grouping"
+msgstr ""
+
+#. (para)
+msgid ""
+"The default value is 0. With this setting, the icons are grouped together by"
+" application type. All dialogs from TortoiseSVN are grouped together, all "
+"windows from TortoiseMerge are grouped together, ... <placeholder-1/>"
+msgstr ""
+
+#. (title)
+#. (title)
+msgid "Taskbar with repository grouping"
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 1, then instead of all dialogs in one single group per applicaton,"
+" they're grouped together by repository. For example, if you have a log "
+"dialog and a commit dialog open for repository <literal>A</literal>, and a "
+"check-for-modifications dialog and a log dialog for repository "
+"<literal>B</literal>, then there are two application icon groups shown in "
+"the Win7 taskbar, one group for each repository. But TortoiseMerge windows "
+"are not grouped together with TortoiseSVN dialogs. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 2, then the grouping works as with the setting set to 1, except "
+"that TortoiseSVN, TortoiseMerge, TortoiseBlame, TortoiseIDiff and "
+"TortoiseUDiff windows are all grouped together. For example, if you have the"
+" commit dialog open and then doubleclick on a modified file, the opened "
+"TortoiseMerge diff window will be put in the same icon group on the taskbar "
+"as the commit dialog icon. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
+" is set to 0 (see above)."
+msgstr ""
+
+#. (title)
+msgid "Taskbar grouping with repository color overlays"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this option is set to <literal>true</literal>, then every icon on the "
+"Win7 taskbar shows a small colored rectangle overlay, indicating the "
+"repository the dialogs/windows are used for. <placeholder-1/>"
 msgstr ""
 
 #. (para)
