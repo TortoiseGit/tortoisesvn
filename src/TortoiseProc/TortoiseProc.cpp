@@ -108,7 +108,7 @@ CTortoiseProcApp::~CTortoiseProcApp()
 // The one and only CTortoiseProcApp object
 CTortoiseProcApp theApp;
 CString sOrigCWD;
-CString g_sRepoUUID;
+CString g_sGroupingUUID;
 HWND GetExplorerHWND()
 {
     return theApp.GetExplorerHWND();
@@ -280,8 +280,8 @@ BOOL CTortoiseProcApp::InitInstance()
 
     CTSVNPath cmdLinePath;
     CTSVNPathList pathList;
-    if (g_sRepoUUID.IsEmpty())
-        g_sRepoUUID = parser.GetVal(L"repouuid");
+    if (g_sGroupingUUID.IsEmpty())
+        g_sGroupingUUID = parser.GetVal(L"groupuuid");
     if ( parser.HasKey(_T("pathfile")) )
     {
         CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(_T("pathfile")));
@@ -349,17 +349,33 @@ BOOL CTortoiseProcApp::InitInstance()
         int asterisk = sPathArgument.Find('*');
         cmdLinePath.SetFromUnknown(asterisk >= 0 ? sPathArgument.Left(asterisk) : sPathArgument);
         pathList.LoadFromAsteriskSeparatedString(sPathArgument);
-        if (g_sRepoUUID.IsEmpty() && !cmdLinePath.IsEmpty() && (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), FALSE)))
+        if (g_sGroupingUUID.IsEmpty() && !cmdLinePath.IsEmpty())
         {
-            // when started from the win7 library buttons, we don't get the /repouuid:xxx parameter
+            // when started from the win7 library buttons, we don't get the /groupuuid:xxx parameter
             // passed to us. In that case we have to fetch the uuid (or try to) here,
             // otherwise the grouping wouldn't work.
-            SVN svn;
-            g_sRepoUUID = svn.GetUUIDFromPath(cmdLinePath);
+            CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 0);
+            switch (DWORD(groupSetting))
+            {
+            case 1:
+            case 2:
+                {
+                    SVN svn;
+                    g_sGroupingUUID = svn.GetUUIDFromPath(cmdLinePath);
+                }
+                break;
+            case 3:
+            case 4:
+                {
+                    SVN svn;
+                    CString wcroot = svn.GetWCRootFromPath(cmdLinePath).GetWinPathString();
+                    g_sGroupingUUID = svn.GetChecksumString(svn_checksum_md5, wcroot);
+                }
+            }
         }
     }
 
-    CString sAppID = GetTaskIDPerUUID(g_sRepoUUID).c_str();
+    CString sAppID = GetTaskIDPerUUID(g_sGroupingUUID).c_str();
     InitializeJumpList(sAppID);
 
 

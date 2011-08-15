@@ -47,9 +47,9 @@ void SetTaskIDPerUUID()
 
 std::wstring GetTaskIDPerUUID(LPCTSTR uuid /*= NULL */)
 {
-    CRegStdDWORD r = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), FALSE);
+    CRegStdDWORD r = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 0);
     std::wstring id = APPID;
-    if (r < 2)
+    if ((r < 2)||(r == 3))
     {
         wchar_t buf[MAX_PATH] = {0};
         GetModuleFileName(NULL, buf, MAX_PATH);
@@ -67,9 +67,9 @@ std::wstring GetTaskIDPerUUID(LPCTSTR uuid /*= NULL */)
         else
         {
             CCmdLineParser parser(GetCommandLine());
-            if (parser.HasVal(L"repouuid"))
+            if (parser.HasVal(L"groupuuid"))
             {
-                id += parser.GetVal(L"repouuid");
+                id += parser.GetVal(L"groupuuid");
             }
         }
     }
@@ -77,22 +77,22 @@ std::wstring GetTaskIDPerUUID(LPCTSTR uuid /*= NULL */)
 }
 
 #ifdef _MFC_VER
-extern CString g_sRepoUUID;
+extern CString g_sGroupingUUID;
 #endif
 
 void SetUUIDOverlayIcon( HWND hWnd )
 {
-    if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), FALSE))
+    if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 0))
     {
         if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepoOverlay"), FALSE))
         {
             std::wstring uuid;
 #ifdef _MFC_VER
-            uuid = g_sRepoUUID;
+            uuid = g_sGroupingUUID;
 #else
             CCmdLineParser parser(GetCommandLine());
-            if (parser.HasVal(L"repouuid"))
-                std::wstring uuid = parser.GetVal(L"repouuid");
+            if (parser.HasVal(L"groupuuid"))
+                std::wstring uuid = parser.GetVal(L"groupuuid");
 #endif
             if (!uuid.empty())
             {

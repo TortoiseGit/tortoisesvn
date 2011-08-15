@@ -1610,8 +1610,17 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
             }
             if (!uuidSource.empty())
             {
-                svnCmd += _T(" /repouuid:");
-                svnCmd += uuidSource;
+                CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 0);
+                switch (DWORD(groupSetting))
+                {
+                case 1:
+                case 2:
+                    {
+                        svnCmd += _T(" /groupuuid:");
+                        svnCmd += uuidSource;
+                    }
+                    break;
+                }
             }
             myIDMap.clear();
             myVerbsIDMap.clear();
@@ -1700,8 +1709,17 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
         svnCmd += buf;
         if (!uuidSource.empty())
         {
-            svnCmd += _T(" /repouuid:");
-            svnCmd += uuidSource;
+            CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 0);
+            switch (DWORD(groupSetting))
+            {
+            case 1:
+            case 2:
+                {
+                    svnCmd += _T(" /groupuuid:");
+                    svnCmd += uuidSource;
+                }
+                break;
+            }
         }
         myIDMap.clear();
         myVerbsIDMap.clear();

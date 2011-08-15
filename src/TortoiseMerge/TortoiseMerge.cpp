@@ -75,7 +75,7 @@ CTortoiseMergeApp::CTortoiseMergeApp()
 CTortoiseMergeApp theApp;
 CString sOrigCWD;
 CCrashReport g_crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseMerge " APP_X64_STRING " : " STRPRODUCTVER, TRUE);
-CString g_sRepoUUID;
+CString g_sGroupingUUID;
 
 // CTortoiseMergeApp initialization
 BOOL CTortoiseMergeApp::InitInstance()
@@ -192,7 +192,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 
     CCmdLineParser parser = CCmdLineParser(this->m_lpCmdLine);
 
-    g_sRepoUUID = parser.GetVal(L"repouuid");
+    g_sGroupingUUID = parser.GetVal(L"groupuuid");
 
     if (parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
     {

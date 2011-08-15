@@ -73,7 +73,7 @@ private:
 
 extern CTortoiseProcApp theApp;
 extern CString sOrigCWD;
-extern CString g_sRepoUUID;
+extern CString g_sGroupingUUID;
 HWND GetExplorerHWND();
 HWND FindParentWindow(HWND hWnd);
 

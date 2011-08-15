@@ -34,7 +34,7 @@
 #include <propkey.h>
 
 extern CString sOrigCWD;
-extern CString g_sRepoUUID;
+extern CString g_sGroupingUUID;
 
 BOOL CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CString& title, BOOL bWait)
 {
@@ -50,10 +50,10 @@ BOOL CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CSt
         viewer = _T("\"") + viewer + _T("\"");
         // add the params
         viewer = viewer + _T(" /patchfile:%1 /title:\"%title\"");
-        if (!g_sRepoUUID.IsEmpty())
+        if (!g_sGroupingUUID.IsEmpty())
         {
-            viewer += L" /repouuid:\"";
-            viewer += g_sRepoUUID;
+            viewer += L" /groupuuid:\"";
+            viewer += g_sGroupingUUID;
             viewer += L"\"";
         }
     }
@@ -261,10 +261,10 @@ bool CCommonAppUtils::RunTortoiseProc(const CString& sCommandLine)
         sCmdLine.Format(L"%s /hwnd:%ld", (LPCTSTR)sCommandLine, AfxGetMainWnd()->GetSafeHwnd());
         sCmd.Format(_T("\"%s\" %s"), (LPCTSTR)pathToExecutable, (LPCTSTR)sCmdLine);
     }
-    if (!g_sRepoUUID.IsEmpty())
+    if (!g_sGroupingUUID.IsEmpty())
     {
-        sCmd += L" /repouuid:\"";
-        sCmd += g_sRepoUUID;
+        sCmd += L" /groupuuid:\"";
+        sCmd += g_sGroupingUUID;
         sCmd += L"\"";
     }
 

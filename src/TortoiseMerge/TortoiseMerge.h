@@ -56,4 +56,4 @@ private:
 
 extern CTortoiseMergeApp theApp;
 extern CCrashReport g_crasher;
-extern CString g_sRepoUUID;
+extern CString g_sGroupingUUID;

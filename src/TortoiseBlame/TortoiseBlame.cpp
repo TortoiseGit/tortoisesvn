@@ -826,7 +826,7 @@ void TortoiseBlame::BlamePreviousRevision()
         svnCmd += _T(" /ignoreallspaces");
     if (!uuid.empty())
     {
-        svnCmd += L" /repouuid:\"";
+        svnCmd += L" /groupuuid:\"";
         svnCmd += uuid;
         svnCmd += L"\"";
     }
@@ -859,7 +859,7 @@ void TortoiseBlame::DiffPreviousRevision()
     svnCmd += bufEndRev;
     if (!uuid.empty())
     {
-        svnCmd += L" /repouuid:\"";
+        svnCmd += L" /groupuuid:\"";
         svnCmd += uuid;
         svnCmd += L"\"";
     }
@@ -881,7 +881,7 @@ void TortoiseBlame::ShowLog()
     svnCmd += bufRev;
     if (!uuid.empty())
     {
-        svnCmd += L" /repouuid:\"";
+        svnCmd += L" /groupuuid:\"";
         svnCmd += uuid;
         svnCmd += L"\"";
     }
@@ -1417,9 +1417,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     CCmdLineParser parser(lpCmdLine);
 
-    if (parser.HasVal(L"repouuid"))
+    if (parser.HasVal(L"groupuuid"))
     {
-        uuid = parser.GetVal(L"repouuid");
+        uuid = parser.GetVal(L"groupuuid");
     }
 
     if (__argc > 1)

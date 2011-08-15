@@ -42,7 +42,7 @@
  *                                a log dialog instance for repo X.
  *
  * The repository uuid is used by examining the command line of the process:
- * it must be set with /repouuid:"uuid".
+ * it must be set with /groupuuid:"uuid".
  */
 void SetTaskIDPerUUID();
 
@@ -62,7 +62,7 @@ std::wstring GetTaskIDPerUUID(LPCTSTR uuid = NULL);
  * \endcode
  *
  * The repository uuid is used by examining the command line of the process:
- * it must be set with /repouuid:"uuid".
+ * it must be set with /groupuuid:"uuid".
  */
 void SetUUIDOverlayIcon(HWND hWnd);
 
