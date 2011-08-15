@@ -1917,6 +1917,27 @@ svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
     return SVN_NO_ERROR;
 }
 
+CTSVNPath SVN::GetWCRootFromPath(const CTSVNPath& path)
+{
+    const char * wcroot = NULL;
+    svn_error_clear(Err);
+    Err = NULL;
+    SVNPool subpool(pool);
+    const char* svnPath = path.GetSVNApiPath(subpool);
+    SVNTRACE (
+        Err = svn_client_get_wc_root (&wcroot, svnPath, m_pctx, subpool, subpool),
+        svnPath
+        )
+
+   if (Err)
+        return CTSVNPath();
+    if (wcroot == NULL)
+        return CTSVNPath();
+    CTSVNPath ret;
+    ret.SetFromSVN(wcroot);
+    return ret;
+}
+
 bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks)
 {
     SVNPool subpool(pool);
@@ -2974,6 +2995,16 @@ void SVN::CallPreConnectHookIfUrl( const CTSVNPathList& pathList, const CTSVNPat
         else if (path.IsUrl())
             CHooks::Instance().PreConnect(pathList);
     }
+}
+
+CString SVN::GetChecksumString( svn_checksum_kind_t type, const CString& s )
+{
+    svn_checksum_t *checksum;
+    CStringA sa = CUnicodeUtils::GetUTF8(s);
+    svn_checksum(&checksum, type, s, s.GetLength(), pool);
+    const char * hexname = svn_checksum_to_cstring(checksum, pool);
+    CString hex = CUnicodeUtils::GetUnicode(hexname);
+    return hex;
 }
 
 svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,

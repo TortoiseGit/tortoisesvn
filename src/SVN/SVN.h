@@ -770,6 +770,16 @@ public:
      * Returns the repository UUID for the \c path.
      */
     CString GetUUIDFromPath(const CTSVNPath& path);
+    /**
+     * Returns the wc root of the specified \c path.
+     */
+    CTSVNPath GetWCRootFromPath(const CTSVNPath& path);
+
+    /**
+     * Returns the checksum of the passed string.
+     * type is either svn_checksum_md5 or svn_checksum_sha1.
+     */
+    CString GetChecksumString(svn_checksum_kind_t type, const CString& s);
 
     /**
      * Checks if the configuration file is present and valid.
