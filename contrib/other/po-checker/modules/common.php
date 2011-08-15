@@ -318,9 +318,9 @@ $list=BuildLanguageList("$dirLocation/Languages.txt");
 		$author=findCoutriesParam($countries, $code, 4, $author);
 
 		$pos[$code]=NULL;
-		$file=$dirLocation."/$code/LC_MESSAGES/TortoiseUI.po";
+		$file=$dirLocation."/$code/TortoiseUI.po";
 		$pot=$potGui;
-		$fileDoc=$dirLocation."/$code/LC_MESSAGES/TortoiseDoc.po";
+		$fileDoc=$dirLocation."/$code/TortoiseDoc.po";
 		$fileGui=$dirLocation."/Tortoise_$code.po";
 		$fileSvn=$dirDoc."/TortoiseSVN_$code.po";
 		$fileMerge=$dirDoc."/TortoiseMerge_$code.po";

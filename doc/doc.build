@@ -56,7 +56,7 @@ All user/site specific configuration is stored in doc.build.user.
       <property name="doc.target.name" value="${app}_${lang.target}"/>
       <property name="doc.target.work" value="output/${doc.target.name}"/>
       <property name="doc.target.source" value="source/${lang.target}/${app}/${app}.xml"/>
-      <property name="lang.pofile" value="../Languages/${lang.target}/LC_MESSAGES/TortoiseDoc.po" />
+      <property name="lang.pofile" value="../Languages/${lang.target}/TortoiseDoc.po" />
 
       <echo message="------------------------------------------------------------"/>
       <echo message="Creating '${doc.target.name}' documentation"/>

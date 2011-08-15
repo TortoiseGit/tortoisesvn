@@ -150,7 +150,7 @@ class transReport:
         Calculates the statistics for the given translation."""
 
         potFile = os.path.join(wrkDir, fileMask + '.pot')
-        poFile = os.path.join(wrkDir, langCC, 'LC_MESSAGES', fileMask + '.po')
+        poFile = os.path.join(wrkDir, langCC,  fileMask + '.po')
 
         if not os.path.isfile(poFile):
           # No need to write status for non-existent .po files
