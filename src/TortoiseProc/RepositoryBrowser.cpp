@@ -300,6 +300,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
         // reposition the buttons
         CRect rect_cancel;
         GetDlgItem(IDCANCEL)->GetWindowRect(rect_cancel);
+        GetDlgItem(IDCANCEL)->ShowWindow(SW_HIDE);
         ScreenToClient(rect_cancel);
         GetDlgItem(IDOK)->MoveWindow(rect_cancel);
     }
@@ -1643,8 +1644,12 @@ BOOL CRepositoryBrowser::PreTranslateMessage(MSG* pMsg)
         if (hWndFocus && ((hWndFocus == m_RepoTree.GetSafeHwnd())||(hWndFocus == m_RepoList.GetSafeHwnd())))
         {
             // Do a direct translation.
-            ::TranslateMessage(pMsg);
-            ::DispatchMessage(pMsg);
+            if (!::IsDialogMessage(m_hWnd, pMsg) &&
+                !::TranslateAccelerator(m_hWnd, m_hAccel, pMsg))
+            {
+                ::TranslateMessage(pMsg);
+                ::DispatchMessage(pMsg);
+            }
             return TRUE;
         }
         if (m_hAccel)
