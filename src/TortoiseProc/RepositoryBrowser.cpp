@@ -635,7 +635,7 @@ void CRepositoryBrowser::OnOK()
         return;
 
     StoreSelectedURLs();
-    if (GetFocus() == &m_RepoList)
+    if ((GetFocus() == &m_RepoList)&&((GetKeyState(VK_MENU)&0x8000) == 0))
     {
         // list control has focus: 'enter' the folder
 
