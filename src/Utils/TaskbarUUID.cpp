@@ -92,7 +92,7 @@ void SetUUIDOverlayIcon( HWND hWnd )
 #else
             CCmdLineParser parser(GetCommandLine());
             if (parser.HasVal(L"groupuuid"))
-                std::wstring uuid = parser.GetVal(L"groupuuid");
+                uuid = parser.GetVal(L"groupuuid");
 #endif
             if (!uuid.empty())
             {
