@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-15 08:46+0000\n"
-"Last-Translator: KindDragon <arkadiy_s@inbox.ru>\n"
+"PO-Revision-Date: 2011-08-16 08:39+0000\n"
+"Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -694,7 +694,7 @@ msgstr "&Исправить..."
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
-msgstr "Использовать &сервер-посредник"
+msgstr "Включить &прокси-сервер"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -754,7 +754,7 @@ msgstr "П&лавающее"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
-msgstr "&Шрифт сообщений журнала:"
+msgstr "&Шрифт сообщений:"
 
 #. Resource IDs: (65535)
 msgid "&Font:"
@@ -1859,7 +1859,7 @@ msgstr ""
 
 #. Resource IDs: (73, 264, 65535)
 msgid "Added"
-msgstr "Добавленные"
+msgstr "Добавленный"
 
 #. Resource IDs: (126)
 msgid "Added a file remotely"
@@ -3286,22 +3286,20 @@ msgstr "Настройка интеграции с системой отслеж
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
-msgstr ""
-"Настройка программы, используемой для сравнения различных ревизий файлов"
+msgstr "Настройка программы сравнения различных ревизий файлов"
 
 #. Resource IDs: (65535)
 msgid ""
 "Configure the program used for comparing different revisions of properties"
-msgstr ""
-"Настройка программы, используемой для сравнения различных ревизий свойств"
+msgstr "Настройка программы сравнения различных ревизий свойств"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used to resolve conflicted files."
-msgstr "Настройка программы, используемой для улаживания конфликтов в файлах"
+msgstr "Настройка программы улаживания конфликтов в файлах."
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "Настройка программы просмотра файлов различий GNU (файлов заплаток)"
+msgstr "Настройка программы просмотра файлов различий GNU (файлов заплаток)."
 
 #. Resource IDs: (147)
 msgid "Confirm revert"
@@ -3911,7 +3909,7 @@ msgstr ""
 
 #. Resource IDs: (73, 264)
 msgid "Deleted"
-msgstr "Удалённые"
+msgstr "Удалённый"
 
 #. Resource IDs: (65535)
 msgid "Deleted node"
@@ -4409,7 +4407,7 @@ msgstr "Редактирует значение выбранного свойс�
 
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
-msgstr "Введите имя либо IP-адрес сервера-посредника"
+msgstr "Введите имя либо IP-адрес прокси-сервера"
 
 #. Resource IDs: (265)
 msgid "Eliding mergeinfo"
@@ -5030,7 +5028,7 @@ msgstr "Фильтр по"
 
 #. Resource IDs: (65535)
 msgid "Filter match"
-msgstr "Соответ. фильтру"
+msgstr "Соответствует фильтру"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -5812,7 +5810,7 @@ msgstr "Игнорировать изменения непечатаемых з�
 
 #. Resource IDs: (1432)
 msgid "Ignored"
-msgstr "Игнорирован"
+msgstr "Игнорируемый"
 
 #. Resource IDs: (226)
 msgid "Ignored items included"
@@ -6356,7 +6354,7 @@ msgstr "%s перехватил блокировку"
 
 #. Resource IDs: (1529)
 msgid "Locked"
-msgstr "заблокирован"
+msgstr "Заблокированный"
 
 #. Resource IDs: (263)
 #, c-format
@@ -7913,11 +7911,11 @@ msgstr "Поставщик:"
 
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
-msgstr "&Таймаут посредника (сек):"
+msgstr "&Таймаут прокси (сек):"
 
 #. Resource IDs: (1080)
 msgid "Proxy Settings"
-msgstr "Настройки сервера-посредника"
+msgstr "Настройки прокси-сервера"
 
 #. Resource IDs: (1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
@@ -11366,7 +11364,7 @@ msgstr "Разверсировать рабочую копию"
 
 #. Resource IDs: (1462)
 msgid "Unversioned"
-msgstr "Неверсированные"
+msgstr "Неверсируемый"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -11491,7 +11489,7 @@ msgstr ""
 
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
-msgstr "Использовать диалоги Aero."
+msgstr "Использовать диалоги Aero"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11927,8 +11925,8 @@ msgid ""
 "You can disable specific Overlay handlers here.\n"
 "Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
 msgstr ""
-"Здесь вы можете отключить обработчики наложений.\n"
-"Отключенные обработчики не будет использовать слоты наложения и предоставлять другие расширения оболочки."
+"Здесь вы можете отключить отдельные обработчики наложений.\n"
+"Отключенные обработчики не будут использовать оверлейные слоты и предоставляют другим расширениям оболочки возможность отобразить их оверлейные значки."
 
 #. Resource IDs: (1001)
 #, c-format
@@ -12225,7 +12223,7 @@ msgstr "добавлен"
 
 #. Resource IDs: (65535)
 msgid "added files"
-msgstr "Добавленные файлы"
+msgstr "добавленные файлы"
 
 #. Resource IDs: (272)
 #, c-format
@@ -12509,7 +12507,7 @@ msgstr "макс. зафиксир. ревизия"
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
-msgstr "слит"
+msgstr "объединённый"
 
 #. Resource IDs: (65535)
 msgid "merges total: "
@@ -12529,7 +12527,7 @@ msgstr "отсутствует"
 
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
-msgstr "Отсутствует / удалён / замещён"
+msgstr "отсутствующий / удалённый / замещённый"
 
 #. Resource IDs: (65535)
 msgid "missing in: "
@@ -12541,7 +12539,7 @@ msgstr "изменён"
 
 #. Resource IDs: (65535)
 msgid "modified / copied"
-msgstr "Изменён / скопирован"
+msgstr "изменённый / скопированный"
 
 #. Resource IDs: (245)
 msgid "month"
@@ -12607,7 +12605,7 @@ msgstr "пикселы"
 
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
-msgstr "Конфликтующий/препятствующий"
+msgstr "конфликтующий / препятствующий"
 
 #. Resource IDs: (3845)
 msgid "prn"

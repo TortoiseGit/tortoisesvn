@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-13 00:32+0000\n"
+"PO-Revision-Date: 2011-08-16 18:49+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgstr "%.2f Mバイトを転送しました"
 #. Resource IDs: (357)
 #, c-format
 msgid "%.2f kBytes/s"
-msgstr "%.2f kBytes/s"
+msgstr "%.2f Kバイト/秒"
 
 #. Resource IDs: (3868)
 #, c-format
@@ -335,7 +335,7 @@ msgid ""
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
-"フォルダ %s\n"
+"フォルダー %s\n"
 "はバージョン管理外のファイルもしくは変更されたファイルを含んでいます。本当に削除してもよろしいですか？"
 
 #. Resource IDs: (616)
@@ -537,7 +537,7 @@ msgstr "コマンドを選択(&C):"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
-msgstr "アイテムを選択(&C)..."
+msgstr "項目を選択(&C)..."
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
@@ -613,7 +613,7 @@ msgstr "コピー(&C) ..."
 
 #. Resource IDs: (1542)
 msgid "&Create folder structure"
-msgstr "フォルダ構造を作成(&C)"
+msgstr "フォルダー構造を作成(&C)"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -785,15 +785,15 @@ msgstr "ブランチでグループ化する(&G)"
 
 #. Resource IDs: (1115)
 msgid "&HEAD Revision"
-msgstr "最新のリビジョン(&H)"
+msgstr "最新リビジョン(&H)"
 
 #. Resource IDs: (1019, 1032, 1034)
 msgid "&HEAD revision"
-msgstr "最新のリビジョン(&H)"
+msgstr "最新リビジョン(&H)"
 
 #. Resource IDs: (1182)
 msgid "&HEAD revision in the repository"
-msgstr "リポジトリ内で最新のリビジョン(&H)"
+msgstr "リポジトリ内で最新リビジョン(&H)"
 
 #. Resource IDs: (12, 32781, 57670, 65535)
 msgid "&Help"
@@ -958,7 +958,7 @@ msgstr "マージ(&M)"
 
 #. Resource IDs: (32847)
 msgid "&Mime-Type"
-msgstr "Mime タイプ(&M)"
+msgstr "MIME タイプ(&M)"
 
 #. Resource IDs: (16925)
 msgid "&Minimize"
@@ -1195,11 +1195,11 @@ msgstr "認証を保存(&S)"
 
 #. Resource IDs: (272, 32771, 32806)
 msgid "&Save graph as..."
-msgstr "グラフを別名で保存(&S) ..."
+msgstr "グラフを名前を付けて保存(&S)..."
 
 #. Resource IDs: (322)
 msgid "&Save list of selected files to..."
-msgstr "選択ファイルのリストを保存(&S) ..."
+msgstr "選択ファイルのリストを保存(&S)..."
 
 #. Resource IDs: (1308)
 msgid "&Save value..."
@@ -1211,7 +1211,7 @@ msgstr "設定(&S)"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
-msgstr "最新のリビジョンを表示する(&S)"
+msgstr "最新リビジョンを表示する(&S)"
 
 #. Resource IDs: (1132)
 msgid "&Show Log"
@@ -1255,11 +1255,11 @@ msgstr "コピー／名前の変更が発生したら停止(&S)"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
-msgstr "WC を指定したパスとリビジョンに切り替える(&S)"
+msgstr "作業コピーをこのパスのこのリビジョンに切り替え(&S)"
 
 #. Resource IDs: (275)
 msgid "&Switch WC to path@HEAD"
-msgstr "WC を path@HEAD に切り替え(&S)"
+msgstr "作業コピーをこのパスの最新リビジョンに切り替え(&S)"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -1291,7 +1291,7 @@ msgstr "テキストのみ表示(&T)"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
-msgstr "最新のリビジョンへの更新がタイムアウトになるまでの秒数(&T)"
+msgstr "最新リビジョンへの更新がタイムアウトになるまでの秒数(&T)"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
@@ -1375,15 +1375,15 @@ msgstr "更新(&U)"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr "項目をリビジョンへ更新(&U)"
+msgstr "項目を特定リビジョンへ更新(&U)"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
-msgstr "項目をリビジョンへ更新...(&U)"
+msgstr "項目を特定リビジョンへ更新(&U)..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
-msgstr "特定のリビジョンへ更新(&U) ..."
+msgstr "特定リビジョンへ更新(&U) ..."
 
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1399,11 +1399,11 @@ msgstr "ユーザー名(&U):"
 
 #. Resource IDs: (65535)
 msgid "&View"
-msgstr "ビュー(&V)"
+msgstr "表示(&V)"
 
 #. Resource IDs: (65535)
 msgid "&View:"
-msgstr "ビュー(&V):"
+msgstr "表示(&V):"
 
 #. Resource IDs: (32774)
 msgid "&Whitespaces"
@@ -1438,7 +1438,7 @@ msgstr "ファイルリストコントロール(&F)"
 msgid ""
 "'%s'\n"
 "is not a valid URL or path!"
-msgstr ""
+msgstr "'%s'は有効な URL でもパスでもありません。"
 
 #. Resource IDs: (338)
 msgid ""
@@ -1508,7 +1508,7 @@ msgstr "(変更されているが作業コピーと関連あり)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
-msgstr "(no value)"
+msgstr "（値なし）"
 
 #. Resource IDs: (314)
 msgid "(not found)"
@@ -1516,7 +1516,7 @@ msgstr "(見つかりません)"
 
 #. Resource IDs: (176)
 msgid "(properties only)"
-msgstr "(properties only)"
+msgstr "（属性のみ）"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -1618,7 +1618,7 @@ msgstr "コンボボックスに表示するファイルに対するユーザー
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr "コンボボックスに表示するフォルダに対するユーザー定義の属性のリスト"
+msgstr "コンボボックスに表示するフォルダーに対するユーザー定義の属性のリスト"
 
 #. Resource IDs: (201)
 msgid ""
@@ -1696,7 +1696,7 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "A&dd folder..."
-msgstr "フォルダを追加(&D) ..."
+msgstr "フォルダーを追加(&D) ..."
 
 #. Resource IDs: (73)
 msgid "Abort"
@@ -1852,7 +1852,7 @@ msgstr "リモート操作によるファイルの追加"
 
 #. Resource IDs: (126)
 msgid "Added a folder remotely"
-msgstr "リモート操作によるフォルダの追加"
+msgstr "リモート操作によるフォルダーの追加"
 
 #. Resource IDs: (126)
 msgid "Added items remotely"
@@ -2078,8 +2078,8 @@ msgid ""
 "Applies the properties recursively to all files/folders.\r\n"
 "bugtraq:, tsvn: and webviewer: properties are only applied to folders."
 msgstr ""
-"すべてのファイル／フォルダに対して、再帰的に属性を適用する。\r\n"
-"bugtraq: と tsvn: と webviewer: 属性はフォルダに対してのみ適用されます。"
+"すべてのファイル／フォルダーに対して、再帰的に属性を適用する。\r\n"
+"bugtraq: と tsvn: と webviewer: 属性はフォルダーに対してのみ適用されます。"
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -2376,7 +2376,7 @@ msgstr "リビジョンからブランチ／タグを生成(&R)"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
-msgstr "フォルダを作成(&R) ..."
+msgstr "フォルダーを作成(&R) ..."
 
 #. Resource IDs: (65535)
 msgid "C&urrent Keys:"
@@ -2456,7 +2456,7 @@ msgid ""
 "Choose a different folder to export to"
 msgstr ""
 "キャンセル\n"
-"エクスポートするために異なるフォルダを選択する"
+"エクスポートするために異なるフォルダーを選択する"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2528,7 +2528,7 @@ msgid ""
 "Go back and select a different folder."
 msgstr ""
 "キャンセル\n"
-"戻って異なるフォルダを選択する。"
+"戻って異なるフォルダーを選択する。"
 
 #. Resource IDs: (89)
 msgid ""
@@ -2656,7 +2656,7 @@ msgid ""
 "You have to add the folder manually."
 msgstr ""
 "キャンセル\n"
-"フォルダをマニュアル操作で追加する必要があります。"
+"フォルダーをマニュアル操作で追加する必要があります。"
 
 #. Resource IDs: (100)
 msgid ""
@@ -2807,7 +2807,7 @@ msgid ""
 "whether you want to keep your rename/move or the one from the repository. "
 "Then mark the conflict as resolved."
 msgstr ""
-"ファイル／フォルダの名前の変更／移動がどのようになされたかをログでチェックし、名前の変更／移動もしくはそれらの1つをリポジトリに保持するかどうかを決めてください。そして、競合を解消済みとしてマークしてください。"
+"ファイル／フォルダーの名前の変更／移動がどのようになされたかをログでチェックし、名前の変更／移動もしくはそれらの1つをリポジトリに保持するかどうかを決めてください。そして、競合を解消済みとしてマークしてください。"
 
 #. Resource IDs: (612)
 msgid ""
@@ -2815,7 +2815,7 @@ msgid ""
 "whether you want to merge the change into your renamed file, or restore the "
 "original file."
 msgstr ""
-"ファイル／フォルダの名前の変更／移動がどのようになされたかをログでチェックし、名前を変更したファイルにあなたが加えた変更をマージする、もしくはオリジナルのファイルを復元するかどうかを決めてください。"
+"ファイル／フォルダーの名前の変更／移動がどのようになされたかをログでチェックし、名前を変更したファイルにあなたが加えた変更をマージする、もしくはオリジナルのファイルを復元するかどうかを決めてください。"
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2866,7 +2866,7 @@ msgid ""
 "Checkout into the non empty folder."
 msgstr ""
 "チェックアウト\n"
-"空でないフォルダにチェックアウトする。"
+"空でないフォルダーにチェックアウトする。"
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -3095,8 +3095,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
-"フォルダのみコミットする\n"
-"フォルダ内のファイルはコミットされません。"
+"フォルダーのみコミットする\n"
+"フォルダー内のファイルはコミットされません。"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3140,8 +3140,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
-"バージョン管理外のフォルダのコミットは、その子階層の項目を再帰的に追加しません。\n"
-"再帰的にこれらのフォルダを追加したい場合は、コンテキストメニューから '追加...' を選んでください。"
+"バージョン管理外のフォルダーのコミットは、その子階層の項目を再帰的に追加しません。\n"
+"再帰的にこれらのフォルダーを追加したい場合は、コンテキストメニューから '追加...' を選んでください。"
 
 #. Resource IDs: (170)
 msgid ""
@@ -3150,8 +3150,8 @@ msgid ""
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
-"バージョン管理外のフォルダをコミットする場合は、子階層の項目は再帰的に追加されません！\n"
-"コンテキストメニュー '追加...' を利用してそれらのフォルダを再帰的に追加してください。\n"
+"バージョン管理外のフォルダーをコミットする場合は、子階層の項目は再帰的に追加されません！\n"
+"コンテキストメニュー '追加...' を利用してそれらのフォルダーを再帰的に追加してください。\n"
 "\n"
 "本当にコミットを続行してもよろしいですか？"
 
@@ -3161,7 +3161,7 @@ msgstr "タグへコミットする"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
-msgstr "最新のリビジョンを比較(&H)"
+msgstr "最新リビジョンを比較(&H)"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
@@ -3237,11 +3237,11 @@ msgstr "異なるリビジョンの属性の比較に利用するプログラム
 
 #. Resource IDs: (65535)
 msgid "Configure the program used to resolve conflicted files."
-msgstr "ファイルの競合を解消するために利用するプログラムの設定。"
+msgstr "ファイルの競合を解消するために利用するプログラムを設定してください。"
 
 #. Resource IDs: (65535)
 msgid "Configure viewer program for GNU diff files (patch files)."
-msgstr "GNUの差分ファイル（パッチファイル）の表示に用いるプログラムの設定。"
+msgstr "GNUの差分ファイル（パッチファイル）の表示に用いるプログラムを設定してください"
 
 #. Resource IDs: (147)
 msgid "Confirm revert"
@@ -3475,7 +3475,7 @@ msgstr "ディレクトリがいっぱいなので %1 を作成できません�
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr "一時フォルダを作成できませんでした！"
+msgstr "一時フォルダーを作成できませんでした！"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3497,7 +3497,7 @@ msgid ""
 "Could not find a parent folder for\n"
 "%s"
 msgstr ""
-"親フォルダを見つけることができませんでした\n"
+"親フォルダーを見つけることができませんでした\n"
 "%s"
 
 #. Resource IDs: (81)
@@ -3658,7 +3658,7 @@ msgstr "Unified Diff ファイルを作成"
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
-msgstr "リモート操作によってフォルダを作成しました"
+msgstr "リモート操作によってフォルダーを作成しました"
 
 #. Resource IDs: (10)
 msgid ""
@@ -3668,7 +3668,7 @@ msgstr "ブランチやタグ用にリポジトリ内に簡易コピーを作成
 #. Resource IDs: (199)
 msgid ""
 "Creates a library folder with special settings for Subversion working copies"
-msgstr "Subversion の作業コピーのために、特殊な設定のライブラリフォルダを作成する"
+msgstr "Subversion の作業コピーのために、特殊な設定のライブラリフォルダーを作成する"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3793,11 +3793,11 @@ msgstr "削除"
 
 #. Resource IDs: (1617)
 msgid "Delete &ignored files and folders"
-msgstr "無視するファイルやフォルダを削除(&I)"
+msgstr "無視するファイルやフォルダーを削除(&I)"
 
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
-msgstr "バージョン管理されていないファイルやフォルダを削除(&U)"
+msgstr "バージョン管理外のファイルやフォルダーを削除(&U)"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -3856,11 +3856,11 @@ msgstr "削除した後、選択されたファイルもしくはファイルマ
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
-msgstr "バージョン管理からファイル／フォルダを削除する"
+msgstr "バージョン管理からファイル／フォルダーを削除する"
 
 #. Resource IDs: (18)
 msgid "Deletes files / folders from version control but keeps the file"
-msgstr "バージョン管理からファイル／フォルダを削除し、ファイル自体は保持する"
+msgstr "バージョン管理からファイル／フォルダーを削除し、ファイル自体は保持する"
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
@@ -4038,7 +4038,7 @@ msgstr "既存のファイルすべてにこれを行う"
 
 #. Resource IDs: (91)
 msgid "Do this for all existing folders"
-msgstr "既存のフォルダすべてにこれを行う"
+msgstr "既存のフォルダーすべてにこれを行う"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
@@ -4050,7 +4050,7 @@ msgstr "選択された項目すべてにこれを行う"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr "選択されたすべてのバージョン管理外のフォルダにこれを行う"
+msgstr "選択されたすべてのバージョン管理外のフォルダーにこれを行う"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4063,7 +4063,7 @@ msgstr "本当にこのツールバー '%s' を削除してもよろしいです
 
 #. Resource IDs: (145)
 msgid "Do you really want to move this file or folder?"
-msgstr "本当にこのファイルもしくはフォルダを移動させてもよろしいですか？"
+msgstr "本当にこのファイルもしくはフォルダーを移動させてもよろしいですか？"
 
 #. Resource IDs: (119)
 #, c-format
@@ -4098,7 +4098,7 @@ msgid ""
 "%s!"
 msgstr ""
 "この作業コピーのバージョン管理を解除してもよろしいですか？\n"
-"この操作は、すべてのサブバージョン管理情報を以下のフォルダから削除します。\n"
+"この操作は、すべてのサブバージョン管理情報を以下のフォルダーから削除します。\n"
 "%s!"
 
 #. Resource IDs: (148)
@@ -4120,7 +4120,7 @@ msgid ""
 "Note: you will lose all changes you've made!"
 msgstr ""
 "設定の変更を反映させるために、ドキュメントの再読み込みを行いますか？\n"
-"注意書き: 行ったすべての変更が失われます！"
+"注意：行ったすべての変更が失われます！"
 
 #. Resource IDs: (563)
 #, c-format
@@ -4300,7 +4300,7 @@ msgstr "作者名を編集"
 
 #. Resource IDs: (315)
 msgid "Edit bugtraq properties"
-msgstr "課題追跡の属性を編集"
+msgstr "課題追跡システムの属性を編集"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
@@ -4628,7 +4628,7 @@ msgid ""
 "Export into the non-empty folder."
 msgstr ""
 "エクスポート\n"
-"空でないフォルダにエクスポートする。"
+"空でないフォルダーにエクスポートする。"
 
 #. Resource IDs: (284)
 #, c-format
@@ -4641,7 +4641,7 @@ msgstr "エクスポート中 ..."
 
 #. Resource IDs: (90)
 msgid "Exporting: Target folder exists."
-msgstr "エクスポート: ターゲットフォルダが存在します。"
+msgstr "エクスポート: ターゲットフォルダーが存在します。"
 
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
@@ -4649,7 +4649,7 @@ msgstr "ファイルに属性をエクスポートする"
 
 #. Resource IDs: (10)
 msgid "Exports a versioned folder as a separate unversioned folder"
-msgstr "バージョン管理下のフォルダを別のバージョン管理外のフォルダとしてエクスポート"
+msgstr "バージョン管理下のフォルダーを別のバージョン管理外のフォルダーとしてエクスポート"
 
 #. Resource IDs: (74, 207)
 msgid "Extension"
@@ -4657,7 +4657,7 @@ msgstr "拡張子"
 
 #. Resource IDs: (1287)
 msgid "Extension/mime-type specific programs"
-msgstr "拡張子／Mime タイプに対応するプログラム"
+msgstr "拡張子／MIME タイプに対応するプログラム"
 
 #. Resource IDs: (74)
 msgid "External"
@@ -5016,7 +5016,7 @@ msgstr "折りたたまれたタグ"
 
 #. Resource IDs: (1002)
 msgid "Folder"
-msgstr "フォルダ"
+msgstr "フォルダー"
 
 #. Resource IDs: (65535)
 msgid "Font"
@@ -5232,7 +5232,7 @@ msgstr "最新ノード"
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
-msgstr "最新のリビジョンは %s"
+msgstr "最新リビジョンは %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5572,7 +5572,7 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"チェックすると、リポジトリに新しいフォルダが作られる。\n"
+"チェックすると、リポジトリに新しいフォルダーが作られる。\n"
 "チェックしなければ、指定したURLへ直接インポートする。"
 
 #. Resource IDs: (79)
@@ -5610,7 +5610,7 @@ msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
 msgstr ""
-"有効にすると、オーバーレイの対象から除外されている作業コピーのフォルダは、\n"
+"有効にすると、オーバーレイの対象から除外されている作業コピーのフォルダーは、\n"
 "'通常' の状態としてオーバーレイ表示されます。"
 
 #. Resource IDs: (195)
@@ -5618,7 +5618,7 @@ msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\r\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
 msgstr ""
-"チェックすると、TortoiseSVN はファイルの日付を最終コミット日に設定します。\r\n"
+"チェックすると、TortoiseSVN はファイルの日付を最終コミット時に設定します。\r\n"
 "チェックしなければ、TortoiseSVN は現在の日時を使用します。"
 
 #. Resource IDs: (196)
@@ -5626,7 +5626,7 @@ msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\r\n"
 "The status control is used for example in the commit dialog."
 msgstr ""
-"設定すると、バージョン管理外フォルダに存在するファイルが状態表示コントロールに表示されます。\r\n"
+"設定すると、バージョン管理外のフォルダーに存在するファイルが状態表示コントロールに表示されます。\n"
 "状態表示コントロールは、コミットダイアログなどで利用されています。"
 
 #. Resource IDs: (196)
@@ -5634,7 +5634,7 @@ msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
-"設定すると、バージョン管理外のファイルを含むフォルダの状態を変更としてマークします。\r\n"
+"設定すると、バージョン管理外のファイルを含むフォルダーの状態を変更としてマークします。\n"
 "例えば、変更のオーバーレイアイコンが付きます。"
 
 #. Resource IDs: (2052)
@@ -5756,7 +5756,7 @@ msgstr "画像"
 
 #. Resource IDs: (19)
 msgid "Immediate children, including folders"
-msgstr "直接の子階層（フォルダを含む）"
+msgstr "直接の子階層（フォルダーを含む）"
 
 #. Resource IDs: (139)
 msgid "Import"
@@ -5804,7 +5804,7 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr ""
-"フォルダ %1!s! を\r\n"
+"フォルダー %1!s! を\r\n"
 "%2!s! にインポート"
 
 #. Resource IDs: (613)
@@ -6121,7 +6121,7 @@ msgstr "キャッシュにアクセスした最後の日時"
 
 #. Resource IDs: (338)
 msgid "Last time the repository was asked for the HEAD revision number"
-msgstr "リポジトリへ最新のリビジョン番号を問い合わせた最後の日時"
+msgstr "リポジトリへ最新リビジョン番号を問い合わせた最後の日時"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -6881,7 +6881,7 @@ msgstr "外部参照は見つかりませんでした"
 msgid ""
 "No files or folders were modified. There is nothing for TortoiseSVN to "
 "revert!"
-msgstr "ファイルやフォルダは何も変更されていません。TortoiseSVN が元に戻すものは何もありません！"
+msgstr "ファイルやフォルダーは何も変更されていません。TortoiseSVN が元に戻すものは何もありません！"
 
 #. Resource IDs: (239)
 msgid ""
@@ -6935,7 +6935,7 @@ msgstr "スペルの訂正はありません"
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
 "overlay"
-msgstr "状態をキャッシュしません。バージョン管理されたフォルダのみオーバーレイされ、ファイルはオーバーレイ表示されません。"
+msgstr "状態をキャッシュしません。バージョン管理されたフォルダーのみオーバーレイされ、ファイルはオーバーレイ表示されません。"
 
 #. Resource IDs: (84)
 #, c-format
@@ -6960,7 +6960,7 @@ msgstr "ノードの色"
 
 #. Resource IDs: (170)
 msgid "Non-recursive commit of moved/renamed folders."
-msgstr "移動／名前の変更がされたフォルダの非再帰的なコミット"
+msgstr "移動／名前の変更がされたフォルダーの非再帰的なコミット"
 
 #. Resource IDs: (1507)
 msgid "Non-versioned"
@@ -7010,19 +7010,19 @@ msgstr ""
 
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
-msgstr "注意書き: フォルダはバージョン管理外の項目を含んでいます"
+msgstr "注意：フォルダーはバージョン管理外の項目を含んでいます"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
-msgstr "注意： フォントの設定は TortoiseUDiff ビューアにも影響します"
+msgstr "注意：フォントの設定は TortoiseUDiff ビューアにも影響します"
 
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
-msgstr "注意: これは TortoiseSVN だけでなく、すべての Tortoise クライアントに影響を与えます！"
+msgstr "注意：これは TortoiseSVN だけでなく、すべての Tortoise クライアントに影響を与えます！"
 
 #. Resource IDs: (1557)
 msgid "Note: this property has no effect on Windows"
-msgstr "注意: この属性は Windows では効果がありません"
+msgstr "注意：この属性は Windows では効果がありません"
 
 #. Resource IDs: (173)
 msgid "Nothing is selected for commit!"
@@ -7095,7 +7095,7 @@ msgstr "キャッシュされていないマージされたリビジョンの数
 msgid ""
 "Number of path elements. A path element is a folder or file name like "
 "'foo.txt' or 'mybranch'."
-msgstr "パス要素の数。パス要素はフォルダ名やファイル名であり、'foo.txt' や 'mybranch' に対応します。"
+msgstr "パス要素の数。パス要素はフォルダー名やファイル名であり、'foo.txt' や 'mybranch' に対応します。"
 
 #. Resource IDs: (345)
 msgid ""
@@ -7183,7 +7183,7 @@ msgstr "マージのみ記録する（マージされるもののリビジョン
 
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
-msgstr "トップフォルダのみチェックアウトする(&T)"
+msgstr "トップフォルダーのみチェックアウトする(&T)"
 
 #. Resource IDs: (19)
 msgid "Only file children"
@@ -7237,7 +7237,7 @@ msgstr "画像ファイルを開く ..."
 
 #. Resource IDs: (282)
 msgid "Open parent folder"
-msgstr "親フォルダを開く"
+msgstr "親フォルダーを開く"
 
 #. Resource IDs: (113)
 msgid "Open with..."
@@ -7309,7 +7309,7 @@ msgid ""
 "Replace the target folder."
 msgstr ""
 "上書き\n"
-"ターゲットフォルダを置き換える。"
+"ターゲットフォルダーを置き換える。"
 
 #. Resource IDs: (147)
 msgid ""
@@ -7492,7 +7492,7 @@ msgid ""
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
 msgstr ""
-"注意書き：\n"
+"注意：\n"
 "作業コピーは従来のパスのままです。もし、今作成したコピーもしくはブランチに\n"
 "今後の変更をコミットする場合は、そのコピー先の新しいURLに作業コピー全体を\n"
 "切り替える必要があります。\n"
@@ -7648,7 +7648,7 @@ msgid ""
 "the renamed/moved folders are committed recursively in the repository."
 msgstr ""
 "コミットを続行する\n"
-"名前の変更／移動されたフォルダは、リポジトリに再帰的にコミットされます。"
+"名前の変更／移動されたフォルダーは、リポジトリに再帰的にコミットされます。"
 
 #. Resource IDs: (89)
 msgid ""
@@ -7929,7 +7929,7 @@ msgstr ""
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
-msgstr "バージョン管理外のフォルダを再帰的に調べる"
+msgstr "バージョン管理外のフォルダーを再帰的に調べる"
 
 #. Resource IDs: (563)
 msgid "Recursive"
@@ -7945,7 +7945,7 @@ msgid ""
 "Remove the property also from items in Subfolders."
 msgstr ""
 "再帰的\n"
-"サブフォルダ内の項目からも属性を削除する。"
+"サブフォルダー内の項目からも属性を削除する。"
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
@@ -8046,16 +8046,16 @@ msgstr "'%s' のためのパッチをリジェクト"
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
-msgstr "ロックを解放(&K) ..."
+msgstr "ロックを解除(&K) ..."
 
 #. Resource IDs: (16)
 msgid ""
 "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr "ロックの保持者でなくてもロックを解放する。"
+msgstr "ロックの保持者でなくてもロックを解除する（破る）。"
 
 #. Resource IDs: (16)
 msgid "Releases locks on files so other users can edit them again."
-msgstr "他のユーザが再び編集できるようにファイルのロックを解放（解除）する。"
+msgstr "他のユーザが再び編集できるようにファイルのロックを解除する。"
 
 #. Resource IDs: (12)
 msgid "Relo&cate..."
@@ -8165,7 +8165,7 @@ msgid ""
 "All .svn folders are removed"
 msgstr ""
 "バージョン管理から削除する\n"
-"すべての .svn フォルダが削除されます"
+"すべての .svn フォルダーが削除されます"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8214,7 +8214,7 @@ msgstr "削除"
 
 #. Resource IDs: (126)
 msgid "Removed file/folder"
-msgstr "ファイル／フォルダを削除"
+msgstr "ファイル／フォルダーを削除"
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
@@ -8286,7 +8286,7 @@ msgid ""
 "The folder is exported as '%s'."
 msgstr ""
 "名前を変更\n"
-"フォルダは '%s' としてエクスポートされる。"
+"フォルダーは '%s' としてエクスポートされる。"
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8298,7 +8298,7 @@ msgstr "リモート操作による名前の変更"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
-msgstr "バージョン管理内のファイル／フォルダの名前を変更"
+msgstr "バージョン管理内のファイル／フォルダーの名前を変更"
 
 #. Resource IDs: (209)
 msgid "Repair copy"
@@ -8968,23 +8968,23 @@ msgstr "終了リビジョンを選択"
 
 #. Resource IDs: (64)
 msgid "Select folder to associate with this issue tracker"
-msgstr "課題追跡システムに関連付けるフォルダを選択してください"
+msgstr "課題追跡システムに関連付けるフォルダーを選択してください"
 
 #. Resource IDs: (79)
 msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
 msgstr ""
-"エクスポート先のフォルダを選択してください。\n"
-"これを実行する前に新しいフォルダを作成する必要があるかもしれません。"
+"エクスポート先のフォルダーを選択してください。\n"
+"これを実行する前に新しいフォルダーを作成する必要があるかもしれません。"
 
 #. Resource IDs: (197)
 msgid "Select folder to run script for"
-msgstr "スクリプトを実行するフォルダを選択"
+msgstr "スクリプトを実行するフォルダーを選択"
 
 #. Resource IDs: (119)
 msgid "Select folder to save the selected files to"
-msgstr "選択したファイルを保存するフォルダを選択してください"
+msgstr "選択したファイルを保存するフォルダーを選択してください"
 
 #. Resource IDs: (197)
 msgid "Select hook script file"
@@ -9165,7 +9165,7 @@ msgstr "範囲を表示(&R) ..."
 
 #. Resource IDs: (32826)
 msgid "Show &WC revision"
-msgstr "作業コピーのリビジョンを表示する(&W)"
+msgstr "作業コピーのリビジョンを表示(&W)"
 
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
@@ -9266,7 +9266,7 @@ msgstr "&Unified Diff 形式で差分を表示"
 
 #. Resource IDs: (1126)
 msgid "Show excluded folders as normal"
-msgstr "除外フォルダを通常として表示する"
+msgstr "除外フォルダーを通常として表示する"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9408,7 +9408,7 @@ msgstr "eol-style 属性値を表示する"
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
-msgstr "選択したファイル／フォルダのログを表示"
+msgstr "選択したファイル／フォルダーのログを表示"
 
 #. Resource IDs: (14)
 msgid "Shows the mime type of the versioned file"
@@ -9535,7 +9535,7 @@ msgid ""
 "Separate the patterns with a space."
 msgstr ""
 "TortoiseSVN がすべての作業コピーで無視すべき\r\n"
-"ファイルやフォルダを指定してください。\r\n"
+"ファイルやフォルダーを指定してください。\r\n"
 "各パターンは空白で区切ってください。"
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
@@ -9621,7 +9621,7 @@ msgstr "外部プロセスで保持している状態キャッシュは再帰的
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "１つのフォルダに対してのみ状態をキャッシュし、再帰的なオーバーレイは行いません"
+msgstr "１つのフォルダーに対してのみ状態をキャッシュし、再帰的なオーバーレイは行いません"
 
 #. Resource IDs: (11)
 msgid "Status of item in SVN"
@@ -9746,7 +9746,7 @@ msgid ""
 "Make sure the folder is empty and not write protected."
 msgstr ""
 "リポジトリ作成中に Subversion はエラーを返しました！\n"
-"フォルダが空か書込み禁止でないかを確認してください。"
+"フォルダーが空か書込み禁止でないかを確認してください。"
 
 #. Resource IDs: (81)
 #, c-format
@@ -9887,7 +9887,7 @@ msgstr "作業コピーを %s へタグ付けしました。"
 
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
-msgstr "ターゲットフォルダは空ではありません"
+msgstr "ターゲットフォルダーは空ではありません"
 
 #. Resource IDs: (80)
 msgid "Tasks"
@@ -10026,7 +10026,7 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
-"フォルダ %s\n"
+"フォルダー %s\n"
 "は、バージョン管理外のファイルもしくは変更されたファイルを含んでいます。本当に削除してもよろしいですか？"
 
 #. Resource IDs: (88)
@@ -10037,7 +10037,7 @@ msgid ""
 "does not exist.\n"
 "Would you like to create it first?"
 msgstr ""
-"フォルダ \n"
+"フォルダー \n"
 "%s\n"
 "は存在していません。\n"
 "作成しますか？"
@@ -10049,7 +10049,7 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr ""
-"フォルダ\n"
+"フォルダー\n"
 "%s\n"
 "はすでに存在しています！"
 
@@ -10366,7 +10366,7 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr ""
 "リポジトリは正しく作成されました。\n"
-"デフォルトのフォルダ構造（trunk/branches/tags）を今すぐ作成しますか？"
+"デフォルトのフォルダー構造（trunk/branches/tags）を今すぐ作成しますか？"
 
 #. Resource IDs: (616)
 #, c-format
@@ -10421,10 +10421,10 @@ msgid ""
 "is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"ターゲットフォルダ\n"
+"ターゲットフォルダー\n"
 "%s\n"
 "は空ではありません！\n"
-"本当にそのフォルダにチェックアウト／エクスポートしてもよろしいですか？"
+"本当にそのフォルダーにチェックアウト／エクスポートしてもよろしいですか？"
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
@@ -10553,7 +10553,7 @@ msgid ""
 "control or have been ignored using the svn:ignore property or the global "
 "ignore configuration setting."
 msgstr ""
-"追加するものが何もありません。すべてのファイルとフォルダがバージョン管理下にある、svn:ignore "
+"追加するものが何もありません。すべてのファイルとフォルダーがバージョン管理下にある、svn:ignore "
 "属性で無視されている、もしくはグローバルに無視するよう設定されています。"
 
 #. Resource IDs: (83)
@@ -10576,7 +10576,7 @@ msgid ""
 "for commit. Such moves/renames are always performed recursively in the "
 "repository. Do you want to commit anyway?"
 msgstr ""
-"このコミットは再帰的ではなく、コミットには移動／名前の変更を行ったフォルダが含まれています。これらの移動／名前の変更は、常にリポジトリで再帰的に実行されます。本当にコミットしてもよろしいですか？"
+"このコミットは再帰的ではなく、コミットには移動／名前の変更を行ったフォルダーが含まれています。これらの移動／名前の変更は、常にリポジトリで再帰的に実行されます。本当にコミットしてもよろしいですか？"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10587,7 +10587,7 @@ msgid ""
 "Do you want to commit anyway?"
 msgstr ""
 "このコミットは再帰的ではなく、コミットには移動／名前の変更を\n"
-"行ったフォルダが含まれています。これらの移動／名前の変更は、\n"
+"行ったフォルダーが含まれています。これらの移動／名前の変更は、\n"
 "常にリポジトリで再帰的に実行されます。\n"
 "\n"
 "本当にコミットしてもよろしいですか？"
@@ -10664,7 +10664,7 @@ msgstr "このプログラムはファイル %s を必要としますが、こ�
 
 #. Resource IDs: (15)
 msgid "This property is only allowed on folders, not files."
-msgstr "このプロパティはフォルダに対してのみ有効で、ファイルに対しては有効ではありません。"
+msgstr "このプロパティはフォルダーに対してのみ有効で、ファイルに対しては有効ではありません。"
 
 #. Resource IDs: (15)
 msgid "This property must not have multiple lines. Only one line is allowed."
@@ -10705,7 +10705,7 @@ msgid ""
 "which does not allow directory deletion."
 msgstr ""
 "このエラーを回避して再帰的にコミットを行うためには、\n"
-"チェックされているフォルダに含まれるすべての項目も、\n"
+"チェックされているフォルダーに含まれるすべての項目も、\n"
 "コミットダイアログでチェックしてください。\n"
 "そうでない場合は、ディレクトリの削除を行うことができない\n"
 "非再帰的なコミットをTortoiseSVN は実行します。"
@@ -10715,7 +10715,7 @@ msgid ""
 "To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
-"ロックを横取りするために、この項目の親フォルダ上で右クリックし、コンテキストメニューから 'ロックを取得' を選択してください。\n"
+"ロックを横取りするために、この項目の親フォルダー上で右クリックし、コンテキストメニューから 'ロックを取得' を選択してください。\n"
 "これにより、ロックを実行する際にロックダイアログが表示されます（例えば、現在ロックを保持している人からロックを '横取り' など）。"
 
 #. Resource IDs: (1201, 65535)
@@ -10881,7 +10881,7 @@ msgid ""
 msgstr ""
 "TortoiseSVN はシェル拡張です。\n"
 "つまり、エクスプローラに統合されます。\n"
-"TortoiseSVN を利用するために、エクスプローラを開いて適当なフォルダ上で右クリックして\n"
+"TortoiseSVN を利用するために、エクスプローラを開いて適当なフォルダー上で右クリックして\n"
 "コンテキストメニューを表示させてください。そこから TortoiseSVN のすべてのコマンドが利用できます。\n"
 "あと、 マニュアルも読んでね！！"
 
@@ -11079,7 +11079,7 @@ msgstr ""
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
-msgstr "最新のリビジョンに対する Unified 形式での差分(&D)"
+msgstr "最新リビジョンに対する Unified 形式での差分(&D)"
 
 #. Resource IDs: (81)
 #, c-format
@@ -11150,7 +11150,7 @@ msgstr "バージョン管理外"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
-msgstr "バージョン管理外のファイルを含むフォルダに変更マークを付ける"
+msgstr "バージョン管理外のファイルを含むフォルダーに変更マークを付ける"
 
 #. Resource IDs: (286)
 #, c-format
@@ -11159,7 +11159,7 @@ msgstr "%1!s! をバージョン管理から除外中"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
-msgstr "1つ上のフォルダへ"
+msgstr "1つ上のフォルダーへ"
 
 #. Resource IDs: (152, 230)
 msgid "Update"
@@ -11171,7 +11171,7 @@ msgstr "更新の深さ"
 
 #. Resource IDs: (275)
 msgid "Update WC to revision"
-msgstr "WC をリビジョンに更新"
+msgstr "作業コピーをこのリビジョンへ更新"
 
 #. Resource IDs: (93)
 msgid ""
@@ -11195,11 +11195,11 @@ msgstr "更新"
 
 #. Resource IDs: (11)
 msgid "Updates the working copy to a specific revision"
-msgstr "特定のリビジョンへ作業コピーを更新"
+msgstr "作業コピーを特定のリビジョンへ更新"
 
 #. Resource IDs: (9)
 msgid "Updates the working copy to the current revision"
-msgstr "現在のリビジョンに作業コピーを更新"
+msgstr "作業コピーを現在のリビジョンへ更新"
 
 #. Resource IDs: (265)
 msgid "Updating"
@@ -11542,11 +11542,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "WC node"
-msgstr "WC ノード"
+msgstr "作業コピーノード"
 
 #. Resource IDs: (65535)
 msgid "WC node border"
-msgstr "WC ノードの縁"
+msgstr "作業コピーノードの縁"
 
 #. Resource IDs: (198)
 msgid "Wait"
@@ -11718,8 +11718,8 @@ msgid ""
 "If you want to set it on all files within that folder,\n"
 "you must activate the 'recursive' checkbox."
 msgstr ""
-"この属性をファイルに対してのみ設定可能であり、フォルダに対して設定することはできません！\n"
-"フォルダ内のすべてのファイルに設定したい場合は、'再帰' チェックボックスをアクティブにしてください。"
+"この属性をファイルに対してのみ設定可能であり、フォルダーに対して設定することはできません！\n"
+"フォルダー内のすべてのファイルに設定したい場合は、'再帰' チェックボックスをアクティブにしてください。"
 
 #. Resource IDs: (105)
 msgid ""
@@ -11727,8 +11727,8 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
-"リポジトリへ追加するために１つ以上のファイルもしくはフォルダがドロップされました。\n"
-"一度にすべてを処理することができないため、TortoiseSVN は個々のファイル／フォルダを\n"
+"リポジトリへ追加するために１つ以上のファイルもしくはフォルダーがドロップされました。\n"
+"一度にすべてを処理することができないため、TortoiseSVN は個々のファイル／フォルダーを\n"
 "別々に追加し、追加された項目毎に新しいリビジョンを作成します。"
 
 #. Resource IDs: (105)
@@ -11739,8 +11739,8 @@ msgid ""
 "\n"
 "Do you still want to do this?"
 msgstr ""
-"リポジトリへ追加するために１つ以上のファイルもしくはフォルダがドロップされました。\n"
-"一度にすべてを処理することができないため、TortoiseSVN は個々のファイル／フォルダを\n"
+"リポジトリへ追加するために１つ以上のファイルもしくはフォルダーがドロップされました。\n"
+"一度にすべてを処理することができないため、TortoiseSVN は個々のファイル／フォルダーを\n"
 "別々に追加し、追加された項目毎に新しいリビジョンを作成します。\n"
 "\n"
 "この処理を実行してもよろしいですか？"
@@ -11788,7 +11788,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr "コミットにバージョン管理外のフォルダを選択しました！"
+msgstr "コミットにバージョン管理外のフォルダーを選択しました！"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -11866,7 +11866,7 @@ msgid ""
 "won't look exactly as it was in the revision you're updating to!"
 msgstr ""
 "作業コピーはローカルで変更されています！\n"
-"注意: 他のリビジョンへ更新する際に、これらの変更は失われません！\n"
+"注意：他のリビジョンへ更新する際に、これらの変更は失われません！\n"
 "そのため、更新しようとしているリビジョンとは同じにはなりません。"
 
 #. Resource IDs: (89)
@@ -12796,7 +12796,7 @@ msgid ""
 "be shown in the property dialog to choose from."
 msgstr ""
 "tsvn:userfolderproperties\r\n"
-"改行で分けられたフォルダに対するユーザー定義属性のリスト。\r\n"
+"改行で分けられたフォルダーに対するユーザー定義属性のリスト。\r\n"
 "属性ダイアログ内で確認することができます。"
 
 #. Resource IDs: (577)

@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-14 00:36+0000\n"
+"PO-Revision-Date: 2011-08-17 03:30+0000\n"
 "Last-Translator: tommybrc <tommychristie@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -331,7 +331,9 @@ msgstr ""
 
 #. (term)
 msgid "Consistent data handling"
-msgstr "Manejo de datos consistente"
+msgstr ""
+"Un ejemplo simple de URL podría tener este aspecto: <placeholder-1/> o en un"
+" caso más complejo: <placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -341,12 +343,9 @@ msgid ""
 "repository, and differences are transmitted in both directions across the "
 "network."
 msgstr ""
-"Subversion expresa las diferencias entre archivos usando un algoritmo de "
-"diferenciación binario, que funciona exactamente igual tanto en archivos de "
-"texto (legibles por los humanos) como en archivos binarios (que no son "
-"legibles por nosotros). Ambos tipos de archivos se almacenan igualmente "
-"comprimidos en el repositorio, y las diferencias se transmiten en ambas "
-"direcciones por la red."
+"<graphic fileref=\"images/ReadOnlyIcon.png\"/> La superposición "
+"<emphasis>Necesita bloqueo</emphasis> se utiliza para indicar cuando un "
+"archivo tiene el conjunto de propiedades <literal>svn:needs-lock</literal>."
 
 #. (term)
 msgid "Efficient branching and tagging"
@@ -360,15 +359,14 @@ msgid ""
 "very small, constant amount of time, and very little space in the "
 "repository."
 msgstr ""
-"El costo de crear una rama o una etiqueta no necesita ser proporcional al "
-"tamaño del proyecto. Subversion crea ramas y etiquetas simplemente copiando "
-"el proyecto, utilizando un mecanismo similar a los vínculos duros. Por tanto"
-" estas operaciones llevan un tiempo pequeño y constante, y muy poco espacio "
-"en el repositorio."
+"<emphasis>Cerrado</emphasis> se carga si es posible, pero vuelve a "
+"<emphasis>Normal</emphasis> si no hay suficientes huecos."
 
 #. (title)
 msgid "License"
-msgstr "Licencia"
+msgstr ""
+"<emphasis>Añadido</emphasis> se carga si es posible, pero vuelve a "
+"<emphasis>Modificado</emphasis> si no hay suficientes huecos."
 
 #. (para)
 msgid ""
@@ -19412,6 +19410,21 @@ msgstr ""
 
 #. (para)
 msgid ""
+"If set to 3, then the grouping works as with the setting set to 1, but the "
+"grouping isn't done according to the repository but according to the working"
+" copy. This is useful if you have all your projects in the same repository "
+"but different working copies for each project."
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 4, then the grouping works as with the setting set to 2, but the "
+"grouping isn't done according to the repository but according to the working"
+" copy."
+msgstr ""
+
+#. (para)
+msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr ""
@@ -20185,12 +20198,16 @@ msgid ""
 "The highest commit revision in the working copy. Equivalent to "
 "<placeholder-1/>."
 msgstr ""
+"La revisión de confirmación más alta de la copia de trabajo. Equivalente a "
+"<placeholder-1/> ."
 
 #. (entry)
 msgid ""
 "The commit date/time of the highest commit revision. Equivalent to "
 "<placeholder-1/>."
 msgstr ""
+"La fecha/hora de la revisión de confirmación más alta. Equivalente a "
+"<placeholder-1/> ."
 
 #. (entry)
 msgid ""
@@ -21400,6 +21417,8 @@ msgid ""
 "For detailed information on those project properties, please refer to <xref "
 "linkend=\"tsvn-dug-propertypage\"/>."
 msgstr ""
+"Para obtener información detallada sobre esas propiedades del proyecto, por "
+"favor consulte <xref linkend=\"tsvn-dug-propertypage\"/> ."
 
 #. (title)
 msgid "Update selected files from the repository"
@@ -21788,6 +21807,8 @@ msgid ""
 "Create a new folder within your project to contain the common code, but do "
 "not add it to Subversion."
 msgstr ""
+"Cree una nueva carpeta dentro de su proyecto para contener el código común, "
+"pero no la añada a Subversion."
 
 #. (para)
 msgid ""
@@ -22052,6 +22073,7 @@ msgstr ""
 #. (title)
 msgid "The commit dialog, showing the upgrade notification"
 msgstr ""
+"El diálogo de confirmación, mostrando la notificación de actualización"
 
 #. (para)
 msgid ""
@@ -23089,6 +23111,9 @@ msgid ""
 "copy given in <option>/path</option> or <option>/path</option> points "
 "directly to an URL."
 msgstr ""
+"Inicia el diálogo del navegador de repositorios, apuntando a la URL de la "
+"copia de trabajo dada en <option>/path</option> o <option>/path</option> "
+"apunta directamente a una URL."
 
 #. (para)
 msgid ""

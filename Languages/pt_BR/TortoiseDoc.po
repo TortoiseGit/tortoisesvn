@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-14 00:36+0000\n"
+"PO-Revision-Date: 2011-08-16 20:41+0000\n"
 "Last-Translator: rmheise <rmheise@gmail.com>\n"
 "Language-Team: Portuguese (Brazilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4877,6 +4877,13 @@ msgid ""
 "based bug tracking support, just add your issue references as part of the "
 "log message. Learn more in <xref linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr ""
+"se você ativou o sistema de rastreamento de erros, você pode configurar um "
+"ou mais Controles no campo do texto <guilabel>Bug-ID / Issue-Nr:</guilabel>."
+" Multiplos controles devem ser separados com virgula. Uma alternativa, se "
+"você está usando um controle de rastreamento de erros baseado em expressões "
+"regulares, você pode adicionar a referência ao seu controle como parte da "
+"mensagem de log. Aprenda mais sobre isso em <xref linkend=\"tsvn-dug-"
+"bugtracker\"/>."
 
 #. (title)
 msgid "Commit Progress"
@@ -4949,6 +4956,9 @@ msgid ""
 " the settings dialog. Read <xref linkend=\"tsvn-dug-settings-colours\"/> for"
 " more information."
 msgstr ""
+"Este é o esquema padrão de cores, mas você pode personalizar as cores usando"
+" a janela de configurações. Acesse <xref linkend=\"tsvn-dug-settings-"
+"colours\"/> para mais informações."
 
 #. (title)
 msgid "Update Your Working Copy With Changes From Others"
@@ -5350,7 +5360,7 @@ msgstr ""
 
 #. (title)
 msgid "Property Conflicts"
-msgstr ""
+msgstr "Conflitos de Propriedade"
 
 #. (para)
 msgid ""
@@ -5358,6 +5368,9 @@ msgid ""
 " property. As with file content, resolving the conflict can only be done by "
 "the developers."
 msgstr ""
+"Um conflito de propriedade acontece quando dois ou mais desenvolvedores "
+"mudaram a mesma propriedade. Assim como para o conteúdo, resolver conflitos "
+"pode ser feito apenas pelos desenvolvedores."
 
 #. (para)
 msgid ""
@@ -5367,6 +5380,12 @@ msgid ""
 "<guilabel>Manually edit property</guilabel>, sort out what the property "
 "value should be and mark as resolved."
 msgstr ""
+"Se uma das alterações deve sobreescrever outra então escolha a opção "
+"<guilabel>Resolver usando a propriedade local</guilabel> ou a opção "
+"<guilabel>Resolver usando a propriedade remota</guilabel>. Se as alterações "
+"devem ser combinadas então selecione <guilabel>Editar a propriedade "
+"manualmente</guilabel>, altere o valor da propridade como ela deve ser e "
+"marque como resolvido."
 
 #. (title)
 msgid "Tree Conflicts"
@@ -5427,6 +5446,8 @@ msgid ""
 "Developer A modifies <filename>Foo.c</filename> and commits it to the "
 "repository."
 msgstr ""
+"Desenvolvedor A modifica <filename>Foo.c</filename> e o submete para o "
+"repositório."
 
 #. (para)
 msgid ""
@@ -5630,6 +5651,8 @@ msgstr "Exclusão local, exclusão na atualização"
 msgid ""
 "Developer B moves <filename>Foo.c</filename> to <filename>Bix.c</filename>."
 msgstr ""
+"Desenvolvedor B move o arquivo <filename>Foo.c</filename> para "
+"<filename>Bix.c</filename>."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
@@ -5862,6 +5885,9 @@ msgid ""
 "Developer B working on a branch moves <filename>Foo.c</filename> to "
 "<filename>Bix.c</filename> and commits it to the repository."
 msgstr ""
+"Desenvolvedor B trabalhando em um ramo, move e renomeia o arquivo "
+"<filename>Foo.c</filename> para <filename>Bix.c</filename> e submete a "
+"alteração para o repositório."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
@@ -5910,6 +5936,10 @@ msgid ""
 " run the merge again. If you need anything more complicated then you have to"
 " resolve manually."
 msgstr ""
+"Há outros casos em que são identificados como conflitos de estrutura "
+"simplesmente porque o conflito envolve  um diretório ao invés de um arquivo."
+" Por exemplo, se você adicionar um diretório com o mesmo nome no tronco e no"
+" ramo e então tentar combiná-los você terá um conflito de estrutura."
 
 #. (title)
 msgid "Getting Status Information"
@@ -6103,7 +6133,7 @@ msgstr ""
 
 #. (title)
 msgid "Detailed Status"
-msgstr ""
+msgstr "Situação Detalhada"
 
 #. (primary)
 msgid "windows properties"
@@ -6111,7 +6141,7 @@ msgstr ""
 
 #. (title)
 msgid "Explorer property page, Subversion tab"
-msgstr ""
+msgstr "Página de propriedade do explorador, aba do Subversion"
 
 #. (para)
 msgid ""
@@ -6538,6 +6568,10 @@ msgid ""
 "groupings, you can also use the group headings to select which files to "
 "commit."
 msgstr ""
+"<placeholder-1/> Na janela de submissão você pode ver os mesmos arquivos, "
+"agrupados pela lista de alterações. Além de visualizar de forma imediata a "
+"indicação visual dos agrupamentos, você também pode usar os grupos para "
+"selecionar quais arquivos submeter."
 
 #. (para)
 msgid ""
@@ -6617,6 +6651,10 @@ msgid ""
 "that change. That way you can later find out what changes you made and why, "
 "and you have a detailed log for your development process."
 msgstr ""
+"Para cada mudança feita e submetida, você deverá prover uma mensagem de "
+"auditoria para cada mudança. Desta maneira você pode mais tarde encontrar o "
+"que foi feito e porque, e você terá um log detalhado para cada processo de "
+"desenvolvimento."
 
 #. (para)
 msgid ""
@@ -6624,22 +6662,32 @@ msgid ""
 " been committed. This summary includes the date and time, the person who "
 "committed the revision and the start of the log message."
 msgstr ""
+"O painel superior mostra uma lista de revisões onde alterações para o "
+"arquivo/diretório foi submetido. Este resumo inclui a data e a hora, a "
+"pessoa que submeteu a revisão e os primeiros caracteres da mensagem de "
+"auditoria."
 
 #. (para)
 msgid ""
 "Lines shown in blue indicate that something has been copied to this "
 "development line (perhaps from a branch)."
 msgstr ""
+"Linhas mostradas em azul indicam que alguma coisa foi copiada para esta "
+"linha de desenvolvimento (talvez de um ramo)."
 
 #. (para)
 msgid "The middle pane shows the full log message for the selected revision."
 msgstr ""
+"O painel do meio mostra a mensagem de auditoria completa da revisão "
+"selecionada."
 
 #. (para)
 msgid ""
 "The bottom pane shows a list of all files and folders that were changed as "
 "part of the selected revision."
 msgstr ""
+"O painel inferior mostra a lista de todos os arquivos e diretórios que foram"
+" modificados para a revisão selecionada."
 
 #. (para)
 msgid ""
@@ -6648,6 +6696,11 @@ msgid ""
 "more than that - it provides context menu commands which you can use to get "
 "even more information about the project history."
 msgstr ""
+"A Janela de Auditoria da Revisão recupera todas as mensagens de log e as "
+"mostra para você. A visualização é dividida em 3 painéis. <placeholder-1/> "
+"Mas isto é muito mais que isso - a janela provê um menu de contexto com "
+"comandos que podem ser usados para obter ainda mais informações sobre o "
+"histórico do projeto."
 
 #. (title)
 msgid "Invoking the Revision Log Dialog"
@@ -6670,12 +6723,17 @@ msgid ""
 "From the Progress dialog after an update has finished. Then the Log dialog "
 "only shows those revisions which were changed since your last update"
 msgstr ""
+"Da janela de Progresso depois que uma atualização foi encerrada. Então a "
+"janela de Auditoria somente mostra tas revisões que foram alteradas desde a "
+"sua última atualização."
 
 #. (para)
 msgid ""
 "<placeholder-1/> There are several places from where you can show the Log "
 "dialog: <placeholder-2/>"
 msgstr ""
+"</placeholder-1/> Existem vários lugares de onde você pode ver a janela de "
+"Auditoria: <placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -6683,6 +6741,9 @@ msgid ""
 "offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-"
 "cache\"/>."
 msgstr ""
+"Se o repositório está indisponível você verá a janela <guilabel>Deseja "
+"continuar desconectado?</guilabel>, descrito em <xref linkend=\"tsvn-dug-"
+"showlog-cache\"/>."
 
 #. (title)
 msgid "Revision Log Actions"
@@ -6694,6 +6755,9 @@ msgid ""
 "that summarize what has been done in that revision. There are four different"
 " icons, each shown in its own column."
 msgstr ""
+"o painel superior tem uma coluna <guilabel>Ações</guilabel> contendo ícones "
+"que resumem o que foi feito na revisão. Existem quatro diferentes ícones, "
+"cada um apresentado na sua própria coluna."
 
 #. (para)
 msgid ""
@@ -6701,6 +6765,9 @@ msgid ""
 "modified a file or directory, the <emphasis>modified</emphasis> icon is "
 "shown in the first column."
 msgstr ""
+"<graphic fileref=\"../images/ActionModifiedIcon.png\"/> Se uma revisão "
+"modificou algum arquivo ou diretório, o ícone "
+"<emphasis>modificado</emphasis> é apresentado na primeira coluna."
 
 #. (para)
 msgid ""
@@ -6708,6 +6775,9 @@ msgid ""
 "file or directory, the <emphasis>added</emphasis> icon is shown in the "
 "second column."
 msgstr ""
+"<graphic fileref=\"../images/ActionAddedIcon.png\"/> Se uma revisão "
+"adicionou algum arquivo ou diretório, o ícone "
+"<emphasis>adicionado</emphasis> é apresentado na segunda coluna."
 
 #. (para)
 msgid ""
@@ -6715,6 +6785,9 @@ msgid ""
 " a file or directory, the <emphasis>deleted</emphasis> icon is shown in the "
 "third column."
 msgstr ""
+"<graphic fileref=\"../images/ActionDeletedIcon.png\"/> Se uma revisão apagou"
+" algum arquivo ou diretório, o ícone <emphasis>apagado</emphasis> é "
+"apresentado na terceira coluna."
 
 #. (para)
 msgid ""
@@ -6722,6 +6795,9 @@ msgid ""
 "replaced a file or directory, the <emphasis>replaced</emphasis> icon is "
 "shown in the fourth column."
 msgstr ""
+"<graphic fileref=\"../images/ActionReplacedIcon.png\"/> Se uma revisão "
+"sobrepôs algum arquivo ou diretório, o ícone "
+"<emphasis>substituído</emphasis> é apresentado na quarta coluna."
 
 #. (title)
 msgid "Getting Additional Information"
@@ -6730,6 +6806,7 @@ msgstr "Recuperando Informações Adicionais"
 #. (title)
 msgid "The Revision Log Dialog Top Pane with Context Menu"
 msgstr ""
+"O Menu de Contexto do Painel Superior da Janela de Auditoria da Revisão"
 
 #. (term)
 msgid "Compare with working copy"
@@ -6742,10 +6819,15 @@ msgid ""
 "for a folder, this will show you a list of changed files, and allow you to "
 "review the changes made to each file individually."
 msgstr ""
+"Compara a revisão selecionada com a cópia de trabalho. A ferramenta padrão "
+"Diff é o TortoiseMerge o qual é um suplemento do TortoiseSVN. Se a janela de"
+" auditoria é para um diretório, ela mostrará a você a lista dos arquivos "
+"alterados, e permitirá a você rever as alterações feitas em cada arquivo "
+"individualmente."
 
 #. (term)
 msgid "Compare and blame with working BASE"
-msgstr ""
+msgstr "Comparar e ver autoria em relação à BASE de trabalho"
 
 #. (para)
 msgid ""
@@ -6753,6 +6835,10 @@ msgid ""
 "the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-"
 "blame-diffs\"/> for more detail. (files only)"
 msgstr ""
+"Veja a autori da revisão selecionada, e o arquivo BASE na sua cópia de "
+"trabalho e compare o relatório de autoria usando a ferramenta visual diff. "
+"Leia <xref linkend=\"tsvn-dug-blame-diffs\"/> para mais detalhes. (somente "
+"arquivos)"
 
 #. (term)
 msgid "Show changes as unified diff"
@@ -6765,6 +6851,11 @@ msgid ""
 "It is harder to read than a visual file compare, but will show all file "
 "changes together in a compact format."
 msgstr ""
+"Visualizar as alterações feitas em uma revisão selecionada como um arquivo "
+"Unificado-Diff (formato de correção GNU). Isto mostrará somente as "
+"diferenças com algumas linhas do contexto. É algo mais complicado de ler que"
+" o arquivo de comparação visual, mas mostrará todas as alterações juntas em "
+"um formato compactado."
 
 #. (para)
 msgid ""
@@ -6785,10 +6876,14 @@ msgid ""
 "will first show the changed files dialog allowing you to select files to "
 "compare."
 msgstr ""
+"Compara a revisão selecionada com a revisão anterior. Isto funciona de "
+"maneira similar à comparação com sua cópia de trabalho. Para diretórios esta"
+" opção mostrará primeiro os arquivos alterados permitindo a você selecionar "
+"os arquivos para comparar."
 
 #. (term)
 msgid "Compare and blame with previous revision"
-msgstr ""
+msgstr "Comparar e ver autoria em relação à revisão anterior"
 
 #. (para)
 msgid ""
@@ -6796,6 +6891,10 @@ msgid ""
 "selected revision, and the previous revision, and compare the results using "
 "a visual diff tool. (folders only)"
 msgstr ""
+"Mostra uma janela com os arquivos alterados permitindo a você selecionar os "
+"arquivos. Mostra a autoria da revisão selecionada, e a revisão anterior, e "
+"compara os resultados usando uma ferramenta visual diff. (somente "
+"diretórios)"
 
 #. (term)
 #. (term)
@@ -6807,6 +6906,8 @@ msgid ""
 "Save the selected revision to a file so you have an older version of that "
 "file. (files only)"
 msgstr ""
+"Salva a revisão selecionada para um arquivo e então você terá uma versão "
+"antiga do arquivo. (somente arquivos)"
 
 #. (term)
 #. (term)
@@ -6818,6 +6919,8 @@ msgid ""
 "Open the selected file, either with the default viewer for that file type, "
 "or with a program you choose. (files only)"
 msgstr ""
+"Abre o arquivo selecionado, tanto com o visualizador padrão para aquele tipo"
+" de arquivo, como com o programa que você escolheu. (somente arquivos)"
 
 #. (term)
 #. (term)
@@ -6826,7 +6929,7 @@ msgstr "Autoria..."
 
 #. (para)
 msgid "Blame the file up to the selected revision. (files only)"
-msgstr ""
+msgstr "Autorias do arquivo até a revisão selecionada (apenas arquivos)."
 
 #. (term)
 msgid "Browse repository"
@@ -6837,6 +6940,8 @@ msgid ""
 "Open the repository browser to examine the selected file or folder in the "
 "repository as it was at the selected revision."
 msgstr ""
+"Abre o navegador de repositório para examinar o arquivo selecionado ou "
+"diretório dentro do repositório como ele estava na revisão selecionada."
 
 #. (term)
 msgid "Create branch/tag from revision"
@@ -6848,6 +6953,9 @@ msgid ""
 "forgot to create a tag and already committed some changes which weren't "
 "supposed to get into that release."
 msgstr ""
+"Criar um ramo ou um rótulo de uma revisão selecionada. Isto é muito útil, "
+"por exemplo, se você esqueceu de criar um rótulo e já submeteu outras "
+"alterações que supostamente não deveriam fazer parte da liberação."
 
 #. (term)
 msgid "Update item to revision"
@@ -6867,6 +6975,8 @@ msgid ""
 "If you want to undo an earlier change permanently, use <guilabel>Revert to "
 "this revision</guilabel> instead."
 msgstr ""
+"Se você quer desfazer uma alteração mais recente permanentemente, use "
+"alternativamente a opção <guilabel>Reverter para esta revisão</guilabel>."
 
 #. (term)
 msgid "Revert to this revision"
@@ -6882,6 +6992,13 @@ msgid ""
 "changes made after the selected revision, replacing the file/folder with the"
 " earlier version."
 msgstr ""
+"Reverter para uma revisão mais recente. Se você fez várias alterações, e "
+"então decidiu que você quer voltar atrás para como as coisas eram na revisão"
+" N, este é  comando que você precisa. As alterações serão desfeitas em sua "
+"cópia de trabalho, assim esta operação <emphasis>não</emphasis> afetará seu "
+"repositório até que você submeta as alterações. Note que isto irá desfazer "
+"<emphasis>todas</emphasis> as alterações feitas depois da revisão "
+"selecionada, substituindo o arquivo/diretório com a revisão mais recente."
 
 #. (para)
 #. (para)
@@ -6891,6 +7008,10 @@ msgid ""
 "changes, this command will merge the <emphasis>undo</emphasis> changes into "
 "your working copy."
 msgstr ""
+"Se sua cópia de trabalho está em um estado de não modificada, depois que "
+"você realizou a operação sua cópia de trabalho aparecerá como modificada. Se"
+" você já tem alterações locais, este comando combinará o "
+"<emphasis>desfazimento</emphasis> das alterações na sua cópia de trabalho."
 
 #. (para)
 msgid ""
@@ -6898,6 +7019,9 @@ msgid ""
 "all the changes made after the selected revision, undoing the effect of "
 "those previous commits."
 msgstr ""
+"O que está acontecendo internamente é que o Subversion realiza uma "
+"combinação reversa das alterações feitas depois da revisão selecionada, "
+"desfazendo o que foi feito dessas submissões anteriores."
 
 #. (para)
 msgid ""
@@ -7077,10 +7201,11 @@ msgstr ""
 #. (para)
 msgid "Copy log messages to clipboard as described above."
 msgstr ""
+"Copia mensagens de log para a área de transferência como descrito acima."
 
 #. (para)
 msgid "Search log messages as described above."
-msgstr ""
+msgstr "Procura mensagens de log como descrito acima."
 
 #. (para)
 msgid ""
@@ -7102,16 +7227,20 @@ msgid ""
 "You can also choose to merge the selected revisions to another working copy,"
 " as described above."
 msgstr ""
+"Você pode também escolher combinar as revisões selecionadas para outra cópia"
+" de trabalho, como descrito acima."
 
 #. (para)
 msgid ""
 "If all selected revisions have the same author, you can edit the author of "
 "all those revisions in one go."
 msgstr ""
+"Se todas as revisões selecionadas são do mesmo autor, você pode editar o "
+"autor de todas as revisões de uma vez só."
 
 #. (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
-msgstr ""
+msgstr "O Painel Inferior da Janela de Auditoria com Menu de Contexto"
 
 #. (term)
 msgid "Show changes"
@@ -7120,6 +7249,8 @@ msgstr "Mostrar alterações"
 #. (para)
 msgid "Show changes made in the selected revision for the selected file."
 msgstr ""
+"Mostra as alterações feitas na revisão selecionada para o arquivo "
+"selecionado."
 
 #. (term)
 msgid "Blame changes"
@@ -7141,6 +7272,9 @@ msgid ""
 "Show file changes in unified diff format. This context menu is only "
 "available for files shown as <emphasis>modified</emphasis>."
 msgstr ""
+"Mostra as alterações do arquivo em um formato unificado diff. Este menu de "
+"contexto está disponível apenas para arquivos apresentados como "
+"<emphasis>modificado</emphasis>."
 
 #. (para)
 #. (para)
@@ -7148,15 +7282,19 @@ msgid ""
 "Open the selected file, either with the default viewer for that file type, "
 "or with a program you choose."
 msgstr ""
+"Abre o arquivo selecionado, tanto com o visualizar padrão para o tipo de "
+"arquivo, ou com o programa que você escolheu."
 
 #. (para)
 msgid ""
 "Opens the Blame dialog, allowing you to blame up to the selected revision."
 msgstr ""
+"Abre a janela de Autoria, permitindo a você verificar a autoria até a "
+"revisão selecionada."
 
 #. (para)
 msgid "Revert the changes made to the selected file in that revision."
-msgstr ""
+msgstr "Reverter as alterações feitas para o arquivo selecionado na revisão."
 
 #. (term)
 msgid "Show properties"
@@ -7164,7 +7302,7 @@ msgstr "Mostrar propriedades"
 
 #. (para)
 msgid "View the Subversion properties for the selected item."
-msgstr ""
+msgstr "Visualizar as propriedades do Subversion para o item selecionado."
 
 #. (term)
 msgid "Show log"
@@ -7172,7 +7310,7 @@ msgstr "Mostrar log"
 
 #. (para)
 msgid "Show the revision log for the selected single file."
-msgstr ""
+msgstr "Mostrar o log de revisões para um único arquivo selecionado."
 
 #. (term)
 msgid "Get merge logs"
@@ -15975,6 +16113,21 @@ msgid ""
 " commit dialog open and then doubleclick on a modified file, the opened "
 "TortoiseMerge diff window will be put in the same icon group on the taskbar "
 "as the commit dialog icon. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 3, then the grouping works as with the setting set to 1, but the "
+"grouping isn't done according to the repository but according to the working"
+" copy. This is useful if you have all your projects in the same repository "
+"but different working copies for each project."
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 4, then the grouping works as with the setting set to 2, but the "
+"grouping isn't done according to the repository but according to the working"
+" copy."
 msgstr ""
 
 #. (para)

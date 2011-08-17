@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-14 00:36+0000\n"
+"PO-Revision-Date: 2011-08-16 00:18+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -19027,10 +19027,13 @@ msgid ""
 " dialogs and windows are grouped together. This option has no effect on "
 "Windows XP or Vista!"
 msgstr ""
+"Ова опција одређује Вин7 иконе алатног панела разних ТортоисеСВН дијалога и "
+"прозора су груписане заједно. Ова опција нема ефекта на Виндоусу ХП или "
+"Висти!"
 
 #. (title)
 msgid "Taskbar with default grouping"
-msgstr ""
+msgstr "Алатни панел са уобичајеним груписањем"
 
 #. (para)
 msgid ""
@@ -19038,11 +19041,14 @@ msgid ""
 " application type. All dialogs from TortoiseSVN are grouped together, all "
 "windows from TortoiseMerge are grouped together, ... <placeholder-1/>"
 msgstr ""
+"Уобичајена вредност је 0. Са овим подешавањем, иконе су груписане заједно са"
+" типом апликације. Сви дијалози ТортоисеСВН су груписани заједно, сви "
+"прозори ТортоисеСВН су груписани заједно, ... <placeholder-1/>"
 
 #. (title)
 #. (title)
 msgid "Taskbar with repository grouping"
-msgstr ""
+msgstr "Алатни пулт са груписањем спремишта"
 
 #. (para)
 msgid ""
@@ -19054,6 +19060,13 @@ msgid ""
 "the Win7 taskbar, one group for each repository. But TortoiseMerge windows "
 "are not grouped together with TortoiseSVN dialogs. <placeholder-1/>"
 msgstr ""
+"Ако се сетује 1, онда уместо свих дијалога у једној појединачној групи по "
+"апликацији, групишу се заједно спремиштем. На пример, ако имате дијалог "
+"дневника и отворен дијалог урезивања за спремиште <literal>A</literal>, и "
+"дијалог провера-измена и дијалог дневника за спремиште <literal>Б</literal>,"
+"  онда постоје две групе апликационих икона приказаних у Вин7, једна група "
+"за за свако спремиште. Али Тортоисемерге прозори нису груписани заједно са "
+"ТортоисеСВН дијалозима. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -19064,16 +19077,39 @@ msgid ""
 "TortoiseMerge diff window will be put in the same icon group on the taskbar "
 "as the commit dialog icon. <placeholder-1/>"
 msgstr ""
+"Ако се сетује 2, онда груписање ради као да је сетовано 1, осим што "
+"ТортоисеСВН, ТортоисеМерге, ТортоисеБламе, ТортоисеИДифф и ТортоисеУДифф "
+"прозори су груписани заједно. На пример, ако имате отворен дијалог урезивања"
+" и двоструко кликнете измењен фајл, отворени ТортоисеМерге диф прозор ће "
+"поставити исту групу иконе на алатном панелу као икона дијалога урезивања. "
+"<placeholder-1/>"
+
+#. (para)
+msgid ""
+"If set to 3, then the grouping works as with the setting set to 1, but the "
+"grouping isn't done according to the repository but according to the working"
+" copy. This is useful if you have all your projects in the same repository "
+"but different working copies for each project."
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 4, then the grouping works as with the setting set to 2, but the "
+"grouping isn't done according to the repository but according to the working"
+" copy."
+msgstr ""
 
 #. (para)
 msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr ""
+"Ово нема утицаја ако је опција <literal>GroupTaskbarIconsPerRepo</literal>  "
+"сетована на 0 (види горе)."
 
 #. (title)
 msgid "Taskbar grouping with repository color overlays"
-msgstr ""
+msgstr "Алатни пулт груписање са колор прекривачима спремишта"
 
 #. (para)
 msgid ""
@@ -19081,6 +19117,9 @@ msgid ""
 "Win7 taskbar shows a small colored rectangle overlay, indicating the "
 "repository the dialogs/windows are used for. <placeholder-1/>"
 msgstr ""
+"Ова опција је подешена на <literal>истина</literal>, онда свака икона на "
+"Вин7 алат пулту приказује мали обојени квадратни прекривач, означавајући да "
+"су дијалози/прозори заузети.  <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -22779,7 +22818,7 @@ msgstr "/патх2"
 
 #. (option)
 msgid "/pegrevision:xxx"
-msgstr ""
+msgstr "/pegrevision:xxx"
 
 #. (option)
 msgid "/blame"
@@ -22802,6 +22841,15 @@ msgid ""
 "revisions. The parameter <placeholder-10/> specifies the line to jump to "
 "when the diff is shown."
 msgstr ""
+"Покреће спољашњи диф програм означен у ТортоисеСВН подешавању. "
+"<placeholder-1/> специфицира први фајл. Ако је опција <placeholder-2/> "
+"подешена, онда је диф програм покренут са та два фајла. Ако <placeholder-3/>"
+" недостаје онда је диф урађен између фајлова у <placeholder-4/>  и ОСНОВЕ. "
+"Да се експлицитно подеси ревизиони број користите <placeholder-5/> и "
+"<placeholder-6/>, и за опционалну пег ревизију користите <placeholder-7/>. "
+"Ако је <placeholder-8/> подешен и <placeholder-9/> није подешен, онда диф "
+"најпре окриви фајлове са датом ревизијом. Параметар <placeholder-10/> "
+"специфицира линију на кују ће скочити када је диф приказан."
 
 #. (para)
 msgid ""

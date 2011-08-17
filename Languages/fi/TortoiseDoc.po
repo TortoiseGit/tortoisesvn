@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-14 00:36+0000\n"
+"PO-Revision-Date: 2011-08-16 00:18+0000\n"
 "Last-Translator: kgrano <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -19260,10 +19260,13 @@ msgid ""
 " dialogs and windows are grouped together. This option has no effect on "
 "Windows XP or Vista!"
 msgstr ""
+"Tämä valinta määrittää, TortoiseSVN-ikkunoiden kuvakkeet ryhmitellään miten "
+"Windows 7 -tehtäväpalkissa (toiminto ei ole käytettävissä Windows XP- tai "
+"Vista-ympäristöissä)."
 
 #. (title)
 msgid "Taskbar with default grouping"
-msgstr ""
+msgstr "Tehtäväpalkki oletusryhmityksellä"
 
 #. (para)
 msgid ""
@@ -19271,11 +19274,14 @@ msgid ""
 " application type. All dialogs from TortoiseSVN are grouped together, all "
 "windows from TortoiseMerge are grouped together, ... <placeholder-1/>"
 msgstr ""
+"Oletusarvo on 0. Tällöin kuvakkeet ryhmitellään sovellustyypin perusteella. "
+"Kaikki TortoiseSVN-ikkunat kuuluvat omaan ryhmäänsä, kaikki TortoiseMerge-"
+"ikkunat kuuluvat omaan ryhmäänsä, ... <placeholder-1/>"
 
 #. (title)
 #. (title)
 msgid "Taskbar with repository grouping"
-msgstr ""
+msgstr "Tehtäväpalkki arkistoryhmityksellä"
 
 #. (para)
 msgid ""
@@ -19287,6 +19293,13 @@ msgid ""
 "the Win7 taskbar, one group for each repository. But TortoiseMerge windows "
 "are not grouped together with TortoiseSVN dialogs. <placeholder-1/>"
 msgstr ""
+"Mikäli arvona on 1, sovelluksen ikkunat ryhmitellään yhteen arkiston mukaan."
+" Jos sinulla on esimerkiksi avoinna loki-ikkuna ja toimitusikkuna arkistoon "
+"<literal>A</literal> sekä tarkista muutokset -ikkuna arkistoon "
+"<literal>B</literal>, Windows 7 -tehtäväpalkissa näytetään kaksi "
+"sovelluskuvakeryhmää, yksi kummallekin arkistolle. TortoiseMerge-ikkunoita "
+"ei kuitenkaan ryhmitellä yhteen TortoiseSVN-ikkunoiden kanssa. "
+"<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -19297,16 +19310,39 @@ msgid ""
 "TortoiseMerge diff window will be put in the same icon group on the taskbar "
 "as the commit dialog icon. <placeholder-1/>"
 msgstr ""
+"Mikäli arvona on 2, ryhmittely toimii samoin kuin arvolla 1, sillä "
+"poikkeuksella että TortoiseSVN, TortoiseMerge, TortoiseBlame, TortoiseIDiff "
+"ja TortoiseUDiff -ikkunat ryhmitellään yhteen. Jos sinulla on esimerkiksi "
+"toimitusikkuna avoinna ja kaksoisnapsautat muuttunutta tiedostoa, vertailun "
+"suorittava TortoiseMerge-ikkuna sijoitetaan tehtäväpalkissa samaan "
+"kuvakeryhmään kuin toimitusikkuna.  <placeholder-1/>"
+
+#. (para)
+msgid ""
+"If set to 3, then the grouping works as with the setting set to 1, but the "
+"grouping isn't done according to the repository but according to the working"
+" copy. This is useful if you have all your projects in the same repository "
+"but different working copies for each project."
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to 4, then the grouping works as with the setting set to 2, but the "
+"grouping isn't done according to the repository but according to the working"
+" copy."
+msgstr ""
 
 #. (para)
 msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr ""
+"Tällä ei kuitenkaan ole merkitystä, mikäli valinnan "
+"<literal>GroupTaskbarIconsPerRepo</literal> arvona on 0 (ks. yllä)."
 
 #. (title)
 msgid "Taskbar grouping with repository color overlays"
-msgstr ""
+msgstr "Tehtäväpalkin ryhmittely arkistoväripäällyksillä"
 
 #. (para)
 msgid ""
@@ -19314,6 +19350,9 @@ msgid ""
 "Win7 taskbar shows a small colored rectangle overlay, indicating the "
 "repository the dialogs/windows are used for. <placeholder-1/>"
 msgstr ""
+"Kun tämä valitsin on asetettu arvoon <literal>true</literal>, Windows 7 "
+"-ympäristön tehtäväpalkin kuvakkeisiin lisätään pieni värillinen päällys, "
+"joka kertoo, mihin arkistoon ikkunat liittyvät. <placeholder-1/>"
 
 #. (para)
 msgid ""
