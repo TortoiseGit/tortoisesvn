@@ -40,10 +40,8 @@ protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual void OnOK();
     virtual BOOL OnInitDialog();
-    afx_msg void OnBnClickedBrowse();
     afx_msg void OnBnClickedHelp();
     afx_msg void OnSizing(UINT fwSide, LPRECT pRect);
-    afx_msg void OnCbnEditchangeTourl();
 
     DECLARE_MESSAGE_MAP()
 

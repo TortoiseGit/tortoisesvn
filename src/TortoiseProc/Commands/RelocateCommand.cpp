@@ -32,7 +32,7 @@ bool RelocateCommand::Execute()
     SVN svn;
     CRelocateDlg dlg;
     dlg.m_path = cmdLinePath;
-    dlg.m_sFromUrl = CPathUtils::PathUnescape(svn.GetURLFromPath(cmdLinePath));
+    dlg.m_sFromUrl = CPathUtils::PathUnescape(svn.GetRepositoryRoot(cmdLinePath));
     dlg.m_sToUrl = dlg.m_sFromUrl;
 
     if (dlg.DoModal() == IDOK)

@@ -19,8 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "RelocateDlg.h"
-#include "RepositoryBrowser.h"
-#include "BrowseFolder.h"
 #include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CRelocateDlg, CResizableStandAloneDialog)
@@ -46,10 +44,8 @@ void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CRelocateDlg, CResizableStandAloneDialog)
-    ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
     ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
     ON_WM_SIZING()
-    ON_CBN_EDITCHANGE(IDC_TOURL, &CRelocateDlg::OnCbnEditchangeTourl)
 END_MESSAGE_MAP()
 
 BOOL CRelocateDlg::OnInitDialog()
@@ -61,8 +57,7 @@ BOOL CRelocateDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_INCLUDEEXTERNALS);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    m_URLCombo.SetURLHistory(true, false);
-    m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
+    m_URLCombo.SetURLHistory(true, true);
     m_URLCombo.SetCurSel(0);
 
     RECT rect;
@@ -77,7 +72,6 @@ BOOL CRelocateDlg::OnInitDialog()
     AddAnchor(IDC_FROMURL, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_TOURLLABEL, TOP_LEFT);
     AddAnchor(IDC_TOURL, TOP_LEFT, TOP_RIGHT);
-    AddAnchor(IDC_BROWSE, TOP_RIGHT);
     AddAnchor(IDC_DWM, TOP_LEFT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -85,23 +79,15 @@ BOOL CRelocateDlg::OnInitDialog()
 
     SetDlgItemText(IDC_FROMURL, m_sFromUrl);
     m_URLCombo.SetWindowText(m_sFromUrl);
-    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("RelocateDlg"));
     return TRUE;
 }
 
-void CRelocateDlg::OnBnClickedBrowse()
-{
-    SVNRev rev(SVNRev::REV_HEAD);
-    CAppUtils::BrowseRepository(m_URLCombo, this, rev);
-}
-
 void CRelocateDlg::OnOK()
 {
     UpdateData(TRUE);
-    m_URLCombo.SaveHistory();
     m_sToUrl = m_URLCombo.GetString();
     UpdateData(FALSE);
 
@@ -130,9 +116,4 @@ void CRelocateDlg::OnSizing(UINT fwSide, LPRECT pRect)
         break;
     }
     CResizableStandAloneDialog::OnSizing(fwSide, pRect);
-}
-
-void CRelocateDlg::OnCbnEditchangeTourl()
-{
-    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
 }
