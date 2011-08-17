@@ -2514,7 +2514,10 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
         while ((index = GetNextSelectedItem(pos)) >= 0)
         {
             FileEntry * entry2 = GetListEntry(index);
-            if ((entry2->status != svn_wc_status_added)&&(entry2->status != svn_wc_status_none)&&(entry2->status != svn_wc_status_unversioned))
+            if ((entry2->status != svn_wc_status_added)&&
+                (entry2->status != svn_wc_status_none)&&
+                (entry2->status != svn_wc_status_unversioned)&&
+                (entry2->status != svn_wc_status_missing))
                 delList.AddPath(entry2->GetPath());
         }
         if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
@@ -2784,14 +2787,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 {
                     if (m_dwContextMenus & SVNSLC_POPREVERT)
                     {
-                        // reverting missing folders is not possible
-                        if (!entry->IsFolder() || (wcStatus != svn_wc_status_missing))
-                        {
-                            if (wcStatus == svn_wc_status_added)
-                                popup.AppendMenuIcon(IDSVNLC_REVERT, IDS_MENUUNDOADD, IDI_REVERT);
-                            else
-                                popup.AppendMenuIcon(IDSVNLC_REVERT, IDS_MENUREVERT, IDI_REVERT);
-                        }
+                        if (wcStatus == svn_wc_status_added)
+                            popup.AppendMenuIcon(IDSVNLC_REVERT, IDS_MENUUNDOADD, IDI_REVERT);
+                        else
+                            popup.AppendMenuIcon(IDSVNLC_REVERT, IDS_MENUREVERT, IDI_REVERT);
                     }
                 }
                 if (entry->remotestatus > svn_wc_status_normal)
