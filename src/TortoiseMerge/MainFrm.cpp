@@ -131,6 +131,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_COMMAND(ID_VIEW_WRAPLONGLINES, &CMainFrame::OnViewWraplonglines)
     ON_UPDATE_COMMAND_UI(ID_VIEW_WRAPLONGLINES, &CMainFrame::OnUpdateViewWraplonglines)
     ON_REGISTERED_MESSAGE( TaskBarButtonCreated, CMainFrame::OnTaskbarButtonCreated )
+    ON_UPDATE_COMMAND_UI(ID_EDIT_PASTE, &CMainFrame::OnUpdateEditPaste)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -2013,6 +2014,18 @@ void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
     pCmdUI->Enable(bShow);
 }
 
+void CMainFrame::OnUpdateEditPaste(CCmdUI *pCmdUI)
+{
+    BOOL bWritable = FALSE;
+    if ((m_pwndBottomView)&&(m_pwndBottomView->IsWritable()))
+        bWritable = TRUE;
+    if ((m_pwndRightView)&&(m_pwndRightView->IsWritable()))
+        bWritable = TRUE;
+    if ((m_pwndLeftView)&&(m_pwndLeftView->IsWritable()))
+        bWritable = TRUE;
+    pCmdUI->Enable(bWritable && ::IsClipboardFormatAvailable(CF_TEXT));
+}
+
 void CMainFrame::OnViewSwitchleft()
 {
     int ret = IDNO;
@@ -2482,4 +2495,6 @@ void CMainFrame::SetWindowTitle()
     else
         SetWindowText(L"TortoiseMerge");
 }
+
+
 

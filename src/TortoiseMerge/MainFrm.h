@@ -102,6 +102,7 @@ protected:
     afx_msg void    OnUpdateMergeNextconflict(CCmdUI *pCmdUI);
     afx_msg void    OnUpdateMergePreviousconflict(CCmdUI *pCmdUI);
     afx_msg void    OnUpdateEditCopy(CCmdUI *pCmdUI);
+    afx_msg void    OnUpdateEditPaste(CCmdUI *pCmdUI);
     afx_msg void    OnMoving(UINT fwSide, LPRECT pRect);
     afx_msg void    OnViewSwitchleft();
     afx_msg void    OnUpdateViewSwitchleft(CCmdUI *pCmdUI);
