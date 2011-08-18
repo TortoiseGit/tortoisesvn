@@ -3914,8 +3914,10 @@ void CBaseView::OnEditPaste()
 {
     if (IsWritable())
     {
+        CUndo::GetInstance().BeginGrouping();
         RemoveSelectedText();
         PasteText();
+        CUndo::GetInstance().EndGrouping();
     }
 }
 
