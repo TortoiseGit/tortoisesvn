@@ -72,8 +72,8 @@ public:
     bool CanUndo() {return (m_viewstates.size() > 0);}
 
     bool IsGrouping() { return m_groups.size() % 2 == 1; }
-    void BeginGrouping() { ASSERT(!IsGrouping()); m_groups.push_back(m_caretpoints.size()); }
-    void EndGrouping(){ ASSERT(IsGrouping()); m_groups.push_back(m_caretpoints.size()); }
+    void BeginGrouping() { if (m_groupCount==0) m_groups.push_back(m_caretpoints.size()); m_groupCount++; }
+    void EndGrouping(){ m_groupCount--; if (m_groupCount==0) m_groups.push_back(m_caretpoints.size()); }
     void Clear();
     void MarkAsOriginalState() { m_originalstate = m_viewstates.size(); }
 protected:
@@ -83,6 +83,7 @@ protected:
     std::list<POINT> m_caretpoints;
     std::list< std::list<int>::size_type > m_groups;
     size_t m_originalstate;
+    int m_groupCount;
 private:
     CUndo();
     ~CUndo();

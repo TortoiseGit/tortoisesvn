@@ -56,6 +56,7 @@ CUndo& CUndo::GetInstance()
 CUndo::CUndo()
 {
     m_originalstate = 0;
+    m_groupCount = 0;
 }
 
 CUndo::~CUndo()
@@ -192,4 +193,5 @@ void CUndo::Clear()
     m_caretpoints.clear();
     m_groups.clear();
     m_originalstate = 0;
+    m_groupCount = 0;
 }
