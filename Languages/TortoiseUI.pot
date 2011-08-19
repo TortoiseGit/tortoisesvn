@@ -1,14 +1,14 @@
-# 
+#
 # Translation of the TortoiseSVN user interface
 # Copyright (C) 2004-2011 the TortoiseSVN team
-# 
+#
 # This file is distributed under the same license as TortoiseSVN
-# 
+#
 # Last commit by:
 # $Author$
 # $Date$
 # $Rev$
-# 
+#
 # Authors:
 msgid ""
 msgstr ""
@@ -1581,7 +1581,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 #, c-format
-msgid "A valid path on windows must not contain '<>|\"\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn\nSee the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
+msgid "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\nSee the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
 
 #. Resource IDs: (79)
