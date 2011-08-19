@@ -1185,18 +1185,16 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     }
 
     CRegString regColWidths(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
-    if (!CString(regColWidths).IsEmpty())
-    {
-        StringToWidthArray(regColWidths, m_arColumnWidths);
 
-        int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
-        for (int col = 0; col <= maxcol; col++)
-        {
-            if (m_arColumnWidths[col] == 0)
-                m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
-            else
-                m_RepoList.SetColumnWidth(col, m_arColumnWidths[col]);
-        }
+    StringToWidthArray(regColWidths, m_arColumnWidths);
+
+    int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
+    for (int col = 0; col <= maxcol; col++)
+    {
+        if (m_arColumnWidths[col] == 0)
+            m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+        else
+            m_RepoList.SetColumnWidth(col, m_arColumnWidths[col]);
     }
 
     m_RepoList.SetRedraw(true);
@@ -3835,7 +3833,9 @@ bool CRepositoryBrowser::StringToWidthArray(const CString& WidthString, int Widt
     TCHAR * endchar;
     for (int i=0; i<7; ++i)
     {
-        CString hex = WidthString.Mid(i*8, 8);
+        CString hex;
+        if (WidthString.GetLength() >= i*8+8)
+            hex = WidthString.Mid(i*8, 8);
         if ( hex.IsEmpty() )
         {
             // This case only occurs when upgrading from an older
