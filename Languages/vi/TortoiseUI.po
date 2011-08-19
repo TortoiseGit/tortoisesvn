@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-17 07:35+0000\n"
+"PO-Revision-Date: 2011-08-18 21:07+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -807,7 +807,7 @@ msgstr "&Bỏ qua %d món bằng tên"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "&Bỏ qua tổ tiên"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
@@ -1507,7 +1507,7 @@ msgstr "(không tìm thấy)"
 
 #. Resource IDs: (176)
 msgid "(properties only)"
-msgstr ""
+msgstr "(chỉ các thuộc tính)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -1515,7 +1515,7 @@ msgstr "(chỉ có thuộc tính thay đổi)"
 
 #. Resource IDs: (176)
 msgid "(props and content)"
-msgstr ""
+msgstr "(thuộc tính và nội dung)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
@@ -1663,6 +1663,10 @@ msgid ""
 "\n"
 "If you are not sure what to do, try a switch operation first."
 msgstr ""
+"Việc tái định vị chỉ cần thiết nếu đường dẫn tới kho chứa bị thay đổi.\n"
+"Thay đổi tới một đường dẫn khác bên trong kho chứa được thực hiện bởi tác vụ xoay nhanh.\n"
+"\n"
+"Nếu bạn không chắc phải làm gì, thử một tác vụ xoay nhanh trước."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1675,6 +1679,9 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"Một đường dẫn hợp lệ trên Windows không được chứa '<>|\"\"?*:' hoặc một trong các tên thiết bị sau:\n"
+"com1-com9, lpt1-lpt9, prn\n"
+"Xem <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> từ Microsoft về việc này."
 
 #. Resource IDs: (79)
 msgid ""
@@ -2462,6 +2469,8 @@ msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"Hủy bỏ\n"
+"Không được cam kết vào thẻ."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2474,6 +2483,8 @@ msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"Hủy bỏ\n"
+"Không được quay lui."
 
 #. Resource IDs: (90)
 msgid ""
@@ -2504,6 +2515,8 @@ msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"Hủy bỏ\n"
+"Đi lui và nhập vào số cho vấn đề."
 
 #. Resource IDs: (90)
 msgid ""
@@ -2516,6 +2529,8 @@ msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"Hủy bỏ\n"
+"Tôi sẽ nhập vào một đường dẫn/URL khác."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2528,6 +2543,8 @@ msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"Hủy bỏ\n"
+"Giữ đường dẫn hiện thời."
 
 #. Resource IDs: (314)
 msgid ""
@@ -2582,12 +2599,16 @@ msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"Hủy bỏ\n"
+"Các món không được nhập khẩu."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"Hủy bỏ\n"
+"Các món không được di dời."
 
 #. Resource IDs: (589)
 msgid ""
@@ -2606,12 +2627,16 @@ msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"Hủy bỏ\n"
+"Bạn phải thêm thư mục vào một cách thủ công."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"Hủy bỏ\n"
+"giữ định dạng hiện thời."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2836,7 +2861,7 @@ msgstr "Chọn một món:"
 
 #. Resource IDs: (1606)
 msgid "Choose items..."
-msgstr ""
+msgstr "Chọn món..."
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
@@ -3061,6 +3086,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
+"Chỉ cam kết thư mục\n"
+"Các tập tin bên trong thư mục sẽ không được cam kết."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3075,6 +3102,8 @@ msgid ""
 "Commit\n"
 "Commit the changes to the target."
 msgstr ""
+"Cam kết\n"
+"Cam kết các thay đổi vào mục tiêu."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -3102,6 +3131,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
+"Cam kết một thư mục không phiên bản sẽ không thêm các món con của nó theo cách đệ quy!\n"
+"Bạn có lẽ muốn thêm các thư mục này theo cách đệ quy bằng cách dùng lựa chọn 'Thêm...' trong thưc đơn ngữ cảnh."
 
 #. Resource IDs: (170)
 msgid ""
@@ -3117,7 +3148,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
-msgstr ""
+msgstr "Đang cam kết vào một thẻ"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
@@ -3441,7 +3472,7 @@ msgstr "Không thể tạo %1 bởi vì thư mục đã đầy."
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr ""
+msgstr "Không thể tạo được thư mục tạm!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3684,7 +3715,7 @@ msgstr "Thay đổi"
 
 #. Resource IDs: (17)
 msgid "Custom depths"
-msgstr ""
+msgstr "Tuỳ biến độ sâu"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -4016,7 +4047,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr ""
+msgstr "Làm việc này với tất cả các thư mục không phiên bản"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4102,6 +4133,9 @@ msgid ""
 "%s\n"
 "and go back to this revision?"
 msgstr ""
+"Bạn có muốn quay lui tất cả thay đổi trong\n"
+"%s\n"
+"và quay lui lại bản chỉnh sửa này?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4110,6 +4144,9 @@ msgid ""
 "%s\n"
 "which were made in this revision?"
 msgstr ""
+"Bạn có muốn quay lui tất cả thay đổi trong\n"
+"%s\n"
+"được làm trong bản chỉnh sửa này?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -4129,7 +4166,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "Đừng hỏi tôi nữa"
 
 #. Resource IDs: (94)
 msgid ""
@@ -4163,7 +4200,7 @@ msgstr "Đừng hiện lại thông điệp này nữa"
 
 #. Resource IDs: (564)
 msgid "Don't tell me again"
-msgstr ""
+msgstr "Đừng nói cho tôi nữa"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
@@ -4318,7 +4355,7 @@ msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
-msgstr ""
+msgstr "Cho phép các Thuộc tính Tự động"
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -4506,7 +4543,7 @@ msgstr ""
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr ""
+msgstr "Mọi cam kết nên được gắn với một vấn đề"
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -5216,7 +5253,7 @@ msgstr "Ẩn các đường dẫn bị xóa"
 
 #. Resource IDs: (1562)
 msgid "Hide Menus for unversioned paths"
-msgstr ""
+msgstr "Ẩn thực đơn cho các đường dẫn chưa phiên bản"
 
 #. Resource IDs: (2052)
 msgid "Hide all branches that did not modify the item"
@@ -5236,7 +5273,7 @@ msgstr "Ẩn cửa sổ gắn"
 
 #. Resource IDs: (1562)
 msgid "Hide non-mergeable revisions"
-msgstr ""
+msgstr "Ẩn các bản chỉnh sửa không hợp nhất được"
 
 #. Resource IDs: (32832)
 msgid "Hide ta&gs"
@@ -5424,7 +5461,7 @@ msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
-msgstr ""
+msgstr "ID:32883:V C +A"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5446,7 +5483,7 @@ msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57634; ''
 msgid "ID:57634:V CS+C"
-msgstr ""
+msgstr "ID:57634:V CS+C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
@@ -5624,6 +5661,9 @@ msgid ""
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
 msgstr ""
+"Nếu bạn dùng các chương trình SVN khách ngoài TortoiseSVN trên máy này, bạn "
+"sẽ phải nâng cấp các trình khách đó. Nếu không các trình khách đó sẽ không "
+"thể truy cập các bản làm việc với định dạng mới"
 
 #. Resource IDs: (251)
 msgid ""
@@ -5654,7 +5694,7 @@ msgstr "Bỏ qua &tổ tiên"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
-msgstr ""
+msgstr "Bỏ qua tất cả"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5710,7 +5750,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Illegal path"
-msgstr ""
+msgstr "Đường dẫn không hợp lệ"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5787,6 +5827,8 @@ msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
 msgstr ""
+"Nhập khẩu\n"
+"Các món này được nhập khẩu, tạo một bản chỉnh sửa mới cho mỗi món."
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -5966,6 +6008,11 @@ msgid ""
 "\n"
 "Improper use of relocate will corrupt your working copy!"
 msgstr ""
+"cCó vẻ như bạn đang cố tái định vị bản làm việc của bạn sang một đường dẫn khác trong cùng một kho chứa.\n"
+"Từ: %1!s!\n"
+"sang: %2!s!\n"
+"\n"
+"Việc dùng sai chức năng tái định vị có thể làm hỏng bản làm việc của bản!"
 
 #. Resource IDs: (88)
 #, c-format
@@ -6417,7 +6464,7 @@ msgstr "Hợp nhất tất cả"
 
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
-msgstr ""
+msgstr "Hợp nhất các thay đổi vào bản làm việc"
 
 #. Resource IDs: (1432)
 msgid "Merge non-interactive"
@@ -6605,7 +6652,7 @@ msgstr "Thêm màu..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "Nhiều hơn một món bị bỏ."
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6667,7 +6714,7 @@ msgstr "Chuyển các món tới đây"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr ""
+msgstr "Di chuyển tập tin hay thư mục đặc biệt"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6692,6 +6739,8 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr ""
+"Di chuyển\n"
+"Các món được di chuyển tới đường dẫn đích."
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6911,7 +6960,7 @@ msgstr "Không có đề nghị nào từ bộ từ điển"
 
 #. Resource IDs: (564)
 msgid "No to all"
-msgstr ""
+msgstr "Không với tất cả"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7006,6 +7055,8 @@ msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
+"Ghi chú: Nếu bạn nâng cấp bản làm việc của bạn, bạn sẽ không thể truy cập bản làm việc được nâng cấp với các máy khách SVN bản trước 1.7!!\n"
+"Bạn có thật sự muốn nâng cấp bản làm việc này không?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7133,6 +7184,8 @@ msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
 msgstr ""
+"Một trong các đường dẫn bạn đang thử di chuyển có vẻ là một đường dẫn đặc biệt\n"
+"(một trong các 'nhánh', 'thẻ' hoặc 'thân')."
 
 #. Resource IDs: (63)
 msgid ""
@@ -8393,7 +8446,7 @@ msgstr "Thử lại"
 #. Resource IDs: (286)
 #, c-format
 msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr ""
+msgstr "Đảo hợp nhất bản chỉnh sửa %s từ %s:\n"
 
 #. Resource IDs: (264)
 #, c-format
@@ -8584,7 +8637,7 @@ msgstr "Dòng lên"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
-msgstr ""
+msgstr "Chạy trình dọn dẹp ngay &bây giờ"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9403,7 +9456,7 @@ msgstr "Bỏ qua đích bị thiếu"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr ""
+msgstr "Bỏ qua các bản làm việc cản trở"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -9704,7 +9757,7 @@ msgstr ""
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
-msgstr ""
+msgstr "Subversion báo lỗi"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -10598,6 +10651,8 @@ msgid ""
 "This product includes software from Apache™ Subversion® "
 "(http://subversion.apache.org)"
 msgstr ""
+"Sản phẩm này bao gồm phần mềm từ Apache™ Subversion® "
+"(http://subversion.apache.org)"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -11160,7 +11215,7 @@ msgstr "Cập nhật bản đang làm tới một bản chỉnh sửa hiện th�
 
 #. Resource IDs: (265)
 msgid "Updating"
-msgstr ""
+msgstr "Đang cập nhật"
 
 #. Resource IDs: (226)
 #, c-format
@@ -11527,6 +11582,8 @@ msgid ""
 "When activated, hold down the SHIFT key when right-clicking to get the "
 "TortoiseSVN menus added to the context menu"
 msgstr ""
+"Khi được kích hoạt, nhấn giữ phím SHIFT khi nhấp chuột phải để thêm thục đơn"
+" TortoiseSVN vào thực đơn ngữ cảnh"
 
 #. Resource IDs: (344)
 msgid ""
@@ -12198,197 +12255,199 @@ msgstr "lần cập nhật cuối: "
 
 #. Resource IDs: (11, 195)
 msgid "locked"
-msgstr ""
+msgstr "đã khóa"
 
 #. Resource IDs: (65535)
 msgid "locked:"
-msgstr ""
+msgstr "đã khóa:"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"
-msgstr ""
+msgstr "trình biên tập tường trình"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
-msgstr ""
+msgstr "số bản chỉnh sửa tối đa: "
 
 #. Resource IDs: (278)
 msgid "max. at this revision"
-msgstr ""
+msgstr "số tối đa tại bản chỉnh sửa "
 
 #. Resource IDs: (278)
 msgid "max. committed revision"
-msgstr ""
+msgstr "số bản chỉnh sửa được cam kết tối đa"
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
-msgstr ""
+msgstr "đã hợp nhất"
 
 #. Resource IDs: (65535)
 msgid "merges total: "
-msgstr ""
+msgstr "hợp nhất tổng cộng: "
 
 #. Resource IDs: (278)
 msgid "min. at this revision"
-msgstr ""
+msgstr "số tối thiểu tại bản chỉnh sửa "
 
 #. Resource IDs: (278)
 msgid "min. committed revision"
-msgstr ""
+msgstr "số bản chỉnh sửa được cam kết tối thiểu"
 
 #. Resource IDs: (10)
 msgid "missing"
-msgstr ""
+msgstr "thiếu"
 
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
-msgstr ""
+msgstr "thiếu / xóa / thay thế"
 
 #. Resource IDs: (65535)
 msgid "missing in: "
-msgstr ""
+msgstr "thiếu trong: "
 
 #. Resource IDs: (10, 272)
 msgid "modified"
-msgstr ""
+msgstr "đã sửa đổi"
 
 #. Resource IDs: (65535)
 msgid "modified / copied"
-msgstr ""
+msgstr "đã sửa đổi / sao chép"
 
 #. Resource IDs: (245)
 msgid "month"
-msgstr ""
+msgstr "tháng"
 
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
-msgstr ""
+msgstr "nhiều URLs (ví dụ: %s)"
 
 #. Resource IDs: (18)
 msgid "no"
-msgstr ""
+msgstr "không"
 
 #. Resource IDs: (10)
 msgid "no description for this command is available"
-msgstr ""
+msgstr "không có mô tả nào cho lệnh này"
 
 #. Resource IDs: (10)
 msgid "non-versioned"
-msgstr ""
+msgstr "không có phiên bản"
 
 #. Resource IDs: (10)
 msgid "normal"
-msgstr ""
+msgstr "bình thường"
 
 #. Resource IDs: (11)
 msgid "obstructed"
-msgstr ""
+msgstr "bị cản trở"
 
 #. Resource IDs: (601)
 msgid "offline"
-msgstr ""
+msgstr "ngoại tuyến"
 
 #. Resource IDs: (3845)
 #, c-format
 msgid "on %1"
-msgstr ""
+msgstr "trên %1"
 
 #. Resource IDs: (601)
 msgid "online"
-msgstr ""
+msgstr "trực tuyến"
 
 #. Resource IDs: (1406, 1407)
 msgid "or"
-msgstr ""
+msgstr "hay"
 
 #. Resource IDs: (65535)
 msgid "pair tokens: "
-msgstr ""
+msgstr "bằng chứng cặp: "
 
 #. Resource IDs: (65535)
 msgid "path elements: "
-msgstr ""
+msgstr "các thành phần đường dẫn: "
 
 #. Resource IDs: (65535)
 msgid "paths: "
-msgstr ""
+msgstr "đường dẫn: "
 
 #. Resource IDs: (3869)
 msgid "pixels"
-msgstr ""
+msgstr "điểm ảnh"
 
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
-msgstr ""
+msgstr "mâu thuẫn có khả năng hoặc có thật / cản trở"
 
 #. Resource IDs: (3845)
 msgid "prn"
-msgstr ""
+msgstr "prn"
 
 #. Resource IDs: (245)
 msgid "quarter of year"
-msgstr ""
+msgstr "quý của năm"
 
 #. Resource IDs: (195)
 msgid "readonly"
-msgstr ""
+msgstr "chỉ đọc"
 
 #. Resource IDs: (10)
 msgid "replaced"
-msgstr ""
+msgstr "đã thay thế"
 
 #. Resource IDs: (220)
 msgid "respecting ancestry"
-msgstr ""
+msgstr "tôn trọng tổ tiên"
 
 #. Resource IDs: (326)
 #, c-format
 msgid "revision %1!s!-%2!s!, revision %3!s!-%4!s!"
-msgstr ""
+msgstr "bản chỉnh sửa %1!s!-%2!s!, bản chỉnh sửa %3!s!-%4!s!"
 
 #. Resource IDs: (65535)
 msgid "revision count: "
-msgstr ""
+msgstr "số lượng bản chỉnh sửa: "
 
 #. Resource IDs: (626)
 msgid "revision has already been merged"
-msgstr ""
+msgstr "bản chỉnh sửa đã được hợp nhất"
 
 #. Resource IDs: (326)
 #, c-format
 msgid "revisions %1!s!-%2!s!, %3!s!"
-msgstr ""
+msgstr "bản chỉnh sửa %1!s!-%2!s!, %3!s!"
 
 #. Resource IDs: (65535)
 msgid "revisions: "
-msgstr ""
+msgstr "các bản chỉnh sửa: "
 
 #. Resource IDs: (214)
 msgid "root project"
-msgstr ""
+msgstr "đề án gốc"
 
 #. Resource IDs: (169)
 msgid "scanning path:"
-msgstr ""
+msgstr "đường dẫn đang quét"
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
-msgstr ""
+msgstr "bỏ qua các phạm vi: "
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
-msgstr ""
+msgstr "kiểu svn:eol"
 
 #. Resource IDs: (576)
 msgid ""
 "svn:eol-style\r\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
+"kiểu svn:eol\n"
+"một trong 'native', 'LF', 'CR', 'CRLF'."
 
 #. Resource IDs: (312)
 msgid "svn:executable"
-msgstr ""
+msgstr "svn:executable"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12396,10 +12455,13 @@ msgid ""
 "If present, make the file executable. This property cannot be set on a directory.\r\n"
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
+"svn:executable\n"
+"Nếu có mặt, làm cho tập tin thi hành được. Thuộc tính này không thể đặt được trên thư mục.\n"
+"Một sự thử không đệ quy sẽ thất bại, và một sự thử đệ quy sẽ đặt thuộc tính chỉ trên các tập tin con của thư mục."
 
 #. Resource IDs: (318)
 msgid "svn:externals"
-msgstr ""
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12416,16 +12478,29 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
+"svn:externals\n"
+"Một danh sách ngăn cách bởi dòng mới cho các phần các định mô-đun, một cái bao gồm\n"
+"một bản chỉnh sửa không bắt buộc, một URL với một bản chỉnh sửa chốt không bắt buộc và một đường dẫn thư mục tương đối. Ví dụ\n"
+"http://example.com/repos/zig foo\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\n"
+"\n"
+"Các đường dẫn có thể đầy đủ hoặc tương đối. Định dạng của URL tương đối là:\n"
+"../ tương đối theo thư mục cha của phần bên ngoài\n"
+"^/ tương đối theo kho chứa gốc\n"
+"// tương đối theo giản đồ URL\n"
+"/ tương đối theo tên máy chủ"
 
 #. Resource IDs: (576)
 msgid ""
 "svn:ignore\r\n"
 "A newline separated list of file patterns to ignore."
 msgstr ""
+"svn:ignore\n"
+"Một danh sách ngăn cách bởi dòng mới của các mẫu tập tin cần bỏ qua."
 
 #. Resource IDs: (317)
 msgid "svn:keywords"
-msgstr ""
+msgstr "svn:keywords"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12437,6 +12512,13 @@ msgid ""
 "Rev, LastChangedRevision : The last revision the object changed.\r\n"
 "Id : A compressed summary of the previous 4 keywords."
 msgstr ""
+"svn:keywords\n"
+"Các từ khóa cần mở rộng. Các từ khóa hợp lệ là:\n"
+"URL, HeadURL : URL cho bản chỉnh sửa chính của đối tượng.\n"
+"Author, LastChangedBy : Người cuối cùng chỉnh sửa tập tin.\n"
+"Date, LastChangedDate : Ngày/tháng đối tượng được sửa đổi lần cuối.\n"
+"Rev, LastChangedRevision : Bản chỉnh sửa cuối mà đối tượng được thay đổi.\n"
+"Id : Bản tóm tắt nén của 4 từ khóa trước."
 
 #. Resource IDs: (576)
 msgid ""
@@ -12446,10 +12528,15 @@ msgid ""
 "For example\r\n"
 "/trunk:123-125,129"
 msgstr ""
+"svn:mergeinfo\n"
+"Một danh sách ngăn cách bởi dòng mới của thông tin theo dõi hợp nhất. Mỗi dòng gồm có một \n"
+"đường dẫn tuyệt đối theo sau bởi dấu hai chấm và một danh sách các số chỉnh sửa ngăn cách bởi dấu phẩy.\n"
+"Ví dụ\n"
+"/trunk:123-125,129"
 
 #. Resource IDs: (314)
 msgid "svn:mime-type"
-msgstr ""
+msgstr "svn:mime-type"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12458,10 +12545,14 @@ msgid ""
 "A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
 msgstr ""
+"svn:mime-type\n"
+"Kiểu mime của tập tin. Dùng để xác định có hợp nhất tập tin không, và làm sao để phục vụ nó từ Apache.\n"
+"Một kiểu mime bắt đầu với 'text/' (hoặc một kiểu mime thiếu vắng) được xử như văn bản.\n"
+"Mọi thứ khác được xử như nhị phân."
 
 #. Resource IDs: (313)
 msgid "svn:needs-lock"
-msgstr ""
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12471,6 +12562,10 @@ msgid ""
 "indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
 msgstr ""
+"svn:needs-lock\n"
+"Đặt cái này thành bất kỳ giá trị nào (ví dụ: '*') để bắt buộc việc khóa cho tập tin này.\n"
+"Tập tin này sẽ được đặt về chỉ đọc khi lấy ra hoặc cập nhật,\n"
+"dấu hiệu cho thấy người dùng phải giành được khóa trên tập tin trước khi họ có thể biên tập hoặc cam kết các thay đổi."
 
 #. Resource IDs: (208)
 #, c-format
@@ -12478,45 +12573,47 @@ msgid ""
 "switched to\r\n"
 "%s"
 msgstr ""
+"chuyển sang\n"
+"%s"
 
 #. Resource IDs: (65535)
 msgid "switched:"
-msgstr ""
+msgstr "đã chuyển sang:"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
-msgstr ""
+msgstr "tạm thời ngoại tuyến"
 
 #. Resource IDs: (65535)
 msgid "text [token count]: "
-msgstr ""
+msgstr "văn bản [số dấu hiệu]: "
 
 #. Resource IDs: (626)
 msgid "the working copy is at this revision"
-msgstr ""
+msgstr "bản làm việc ở tại bản chỉnh sửa này"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
-msgstr ""
+msgstr "có các sửa đổi mâu thuẫn."
 
 #. Resource IDs: (3845)
 #, c-format
 msgid "to %1"
-msgstr ""
+msgstr "sang %1"
 
 #. Resource IDs: (80, 284)
 #, c-format
 msgid "to %1!s!"
-msgstr ""
+msgstr "sang %1!s!"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
-msgstr ""
+msgstr "sang %s"
 
 #. Resource IDs: (208, 264)
 msgid "tree conflict"
-msgstr ""
+msgstr "mâu thuẫn cây"
 
 #. Resource IDs: (578)
 msgid ""
@@ -12525,12 +12622,18 @@ msgid ""
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 msgstr ""
+"tsvn:autoprops\n"
+"Danh sách các thuộc tính ngăn cách bởi các dòng mới được áp dụng một cách tự động khi thêm/nhập khẩu các tập tin.\n"
+"Định dạng: <filemask> = property=value;property=value\n"
+"Ví dụ: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:lockmsgminsize\r\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
 msgstr ""
+"tsvn:lockmsgminsize\n"
+"Kích thước nhỏ nhất đếm bằng ký tự một thông điệp khóa phải có trước khi khóa được cho phép."
 
 #. Resource IDs: (578)
 msgid ""
@@ -12538,24 +12641,33 @@ msgid ""
 "Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
 msgstr ""
+"tsvn:logfilelistenglish\n"
+"Đặt thành 'sai' nếu bạn không muốn danh sách các tập tin bị thay đổi được dán bằng tiếng Anh\n"
+"trong hộp thoại cam kết."
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logminsize\r\n"
 "Minimum size in chars a log message must have before a commit is allowed."
 msgstr ""
+"tsvn:logminsize\n"
+"Kích thước nhỏ nhất đếm bằng ký tự một thông điệp tường trình phải có trước khi khóa được cho phép.."
 
 #. Resource IDs: (579)
 msgid ""
 "tsvn:logrevregex\r\n"
 "A regular expression matching revision numbers in a log message"
 msgstr ""
+"tsvn:logrevregex\n"
+"Một biểu thức thông thường khớp các số chỉnh sửa trong một thông điệp tường trình"
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logsummary\r\n"
 "A regex string which extracts a summary from a log message in its first group."
 msgstr ""
+"tsvn:logsummary\n"
+"Một chuỗi regex trích xuất tóm tắt từ một thông điệp tường trình trong nhóm đầu tiên của nó."
 
 #. Resource IDs: (578)
 msgid ""
@@ -12563,6 +12675,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for users to fill in."
 msgstr ""
+"tsvn:logtemplate\n"
+"Chuỗi được chèn trong các hộp thông điệp tường trình trong hộp thoại cam kết.\n"
+"Dùng cái này như một bản mẫu thông điệp tường trình để các người dùng điền vào."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12570,6 +12685,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for branch/tags/copies for users to fill in."
 msgstr ""
+"tsvn:logtemplatebranch\n"
+"Chuỗi được chèn trong các hộp thông điệp tường trình trong hộp thoại cam kết.\n"
+"Dùng cái này như một bản mẫu thông điệp tường trình cho nhánh/thẻ/bản sao để các người dùng điền vào."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12577,6 +12695,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for commits for users to fill in."
 msgstr ""
+"tsvn:logtemplatecommit\n"
+"Chuỗi được chèn trong các hộp thông điệp tường trình trong hộp thoại cam kết.\n"
+"Dùng cái này như một bản mẫu thông điệp tường trình cho các cam kết để các người dùng điền vào."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12584,6 +12705,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for deletes for users to fill in."
 msgstr ""
+"tsvn:logtemplatedelete\n"
+"Chuỗi được chèn trong các hộp thông điệp tường trình trong hộp thoại cam kết.\n"
+"Dùng cái này như một bản mẫu thông điệp tường trình cho việc xóa để các người dùng điền vào."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12591,6 +12715,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for imports for users to fill in."
 msgstr ""
+"tsvn:logtemplateimport\n"
+"Chuỗi được chèn trong các hộp thông điệp tường trình trong hộp thoại cam kết.\n"
+"Dùng cái này như một bản mẫu thông điệp tường trình cho việc nhập khẩu để các người dùng điền vào."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12598,6 +12725,9 @@ msgid ""
 "String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
 "Use this as a log message template for get-locks for users to fill in."
 msgstr ""
+"tsvn:logtemplatelock\n"
+"Chuỗi được chèn trong các hộp thông điệp tường trình trong hộp thoại lấy khóa.\n"
+"Dùng cái này như một bản mẫu thông điệp tường trình cho việc lấy khóa để các người dùng điền vào."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12605,6 +12735,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for directory creations for users to fill in."
 msgstr ""
+"tsvn:logtemplatemkdir\n"
+"Chuỗi được chèn trong các hộp thông điệp tường trình trong hộp thoại lấy khóa.\n"
+"Dùng cái này như một bản mẫu thông điệp tường trình cho việc tạo thư mục để các người dùng điền vào."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12612,6 +12745,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for moves/renames for users to fill in."
 msgstr ""
+"tsvn:logtemplatemove\n"
+"Chuỗi được chèn trong các hộp thông điệp tường trình trong hộp thoại lấy khóa.\n"
+"Dùng cái này như một bản mẫu thông điệp tường trình cho việc di chuyển/đổi tên để các người dùng điền vào."
 
 #. Resource IDs: (579)
 msgid ""
@@ -12619,6 +12755,9 @@ msgid ""
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
 msgstr ""
+"tsvn:logtemplatepropset\n"
+"Chuỗi được chèn trong các hộp thông điệp tường trình trong hộp thoại lấy khóa.\n"
+"Dùng cái này như một bản mẫu thông điệp tường trình cho việc sửa đổi thuộc tính để các người dùng điền vào."
 
 #. Resource IDs: (578)
 msgid ""
@@ -12626,6 +12765,9 @@ msgid ""
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
 msgstr ""
+"tsvn:logwidthmarker\n"
+"Đặt nó về số lượng ký tự mà thông điệp tường trình không nên vượt quá chiều rộng của nó.\n"
+"Một dòng mờ đi được hiển thị trong hộp thoại cam kết tại vị trí này. Mặc định là 80 ký tự."
 
 #. Resource IDs: (578)
 msgid ""
@@ -12633,6 +12775,9 @@ msgid ""
 "Set this to the language number you want your log messages written in.\r\n"
 "TortoiseSVN will then load the appropriate spell checker module if available."
 msgstr ""
+"tsvn:projectlanguage\n"
+"Đặt nó thành số ngôn ngữ mà bạn muốn thông điệp tường trình của bạn được viết.\n"
+"TortoiseSVN sẽ tải bộ kiểm tra lỗi chính tả phù hợp nếu tìm được."
 
 #. Resource IDs: (581)
 msgid ""
@@ -12640,6 +12785,9 @@ msgid ""
 "Newline separated list of user defined properties for files which will\r\n"
 "be shown in the property dialog to choose from."
 msgstr ""
+"tsvn:userfileproperties\n"
+"Danh sách các thuộc tính do người dùng định nghĩa phân cách bởi các dòng mới cho các tập tin\n"
+"được hiển thị trong hộp thoại thuộc tính để chọn."
 
 #. Resource IDs: (581)
 msgid ""
@@ -12647,12 +12795,17 @@ msgid ""
 "Newline separated list of user defined properties for folders which will\r\n"
 "be shown in the property dialog to choose from."
 msgstr ""
+"tsvn:userfolderproperties\n"
+"Danh sách các thuộc tính do người dùng định nghĩa phân cách bởi các dòng mới cho các thư mục\n"
+"được hiển thị trong hộp thoại thuộc tính để chọn."
 
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
 msgstr ""
+"tsvn:warnifnoissue\n"
+"Đặt thành 'có' nếu một cảnh báo phải được hiển thị khi không có vấn đề nào được nhập vào trong hộp thoại cam kết."
 
 #. Resource IDs: (104)
 #, c-format
@@ -12661,15 +12814,15 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
-msgstr ""
+msgstr "tổng cộng revprops người dùng: "
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"
-msgstr ""
+msgstr "uuid x6&4:"
 
 #. Resource IDs: (563)
 msgid "values are different"
-msgstr ""
+msgstr "các giá trị là khác nhau"
 
 #. Resource IDs: (579)
 #, c-format
@@ -12679,6 +12832,10 @@ msgid ""
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
 msgstr ""
+"webviewer:pathrevision\n"
+"URL chỉ đến trình xem web cho kho chứa cho một tập tin hay bản chỉnh sửa cụ thể.\n"
+"Chuỗi %REVISION% trong URL được thay thế bằng số chỉnh sửa,\n"
+"chuỗi %PATH% được thay thế bằng đường dẫn tới tập tin tương đối với gốc kho chứa."
 
 #. Resource IDs: (579)
 #, c-format
@@ -12687,29 +12844,32 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
 msgstr ""
+"webviewer:revision\n"
+"URL chỉ đến trình xem web cho kho chứa cho một bản chỉnh sửa cụ thể.\n"
+"Chuỗi %REVISION% trong URL được thay thế bằng số chỉnh sửa."
 
 #. Resource IDs: (245)
 msgid "week"
-msgstr ""
+msgstr "tuần"
 
 #. Resource IDs: (65535)
 msgid "word tokens: "
-msgstr ""
+msgstr "các từ dấu hiệu: "
 
 #. Resource IDs: (65535)
 msgid "words [uncompressed]: "
-msgstr ""
+msgstr "các từ [không nén]: "
 
 #. Resource IDs: (245)
 msgid "year"
-msgstr ""
+msgstr "năm"
 
 #. Resource IDs: (18, 1002, 1011, 1012, 1013, 1014)
 msgid "yes"
-msgstr ""
+msgstr "vâng"
 
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
-msgstr ""
+msgstr "{BugTraq}"
 
 

@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-17 03:30+0000\n"
+"PO-Revision-Date: 2011-08-18 13:09+0000\n"
 "Last-Translator: tommybrc <tommychristie@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3379,15 +3379,15 @@ msgstr ""
 
 #. (citetitle)
 msgid "VisualSVN"
-msgstr ""
+msgstr "VisualSVN"
 
 #. (citetitle)
 msgid "CollabNet"
-msgstr ""
+msgstr "CollabNet"
 
 #. (citetitle)
 msgid "UberSVN"
-msgstr ""
+msgstr "UberSVN"
 
 #. (para)
 msgid ""
@@ -8993,7 +8993,7 @@ msgstr ""
 
 #. (term)
 msgid "SourceGear DiffMerge"
-msgstr ""
+msgstr "SourceGear DiffMerge"
 
 #. (para)
 msgid ""
@@ -10227,7 +10227,7 @@ msgstr ""
 
 #. (term)
 msgid "Refresh shell overlays"
-msgstr ""
+msgstr "Actualizar las superposiciones del shell"
 
 #. (para)
 msgid ""
@@ -19373,7 +19373,7 @@ msgstr ""
 
 #. (title)
 msgid "Taskbar with default grouping"
-msgstr ""
+msgstr "Barra de tareas con agrupamiento por defecto"
 
 #. (para)
 msgid ""
@@ -19381,11 +19381,14 @@ msgid ""
 " application type. All dialogs from TortoiseSVN are grouped together, all "
 "windows from TortoiseMerge are grouped together, ... <placeholder-1/>"
 msgstr ""
+"El valor predeterminado es 0. Con este ajuste, los íconos se agrupan por "
+"tipo de aplicación. Todos los diálogos de TortoiseSVN se agrupan, todas las "
+"ventanas de TortoiseMerge se agrupan, ... <placeholder-1/>"
 
 #. (title)
 #. (title)
 msgid "Taskbar with repository grouping"
-msgstr ""
+msgstr "Barra de tareas con agrupamiento por repositorio"
 
 #. (para)
 msgid ""
@@ -19397,6 +19400,15 @@ msgid ""
 "the Win7 taskbar, one group for each repository. But TortoiseMerge windows "
 "are not grouped together with TortoiseSVN dialogs. <placeholder-1/>"
 msgstr ""
+"Si se establece en 1, entonces en vez de todos los diálogos en un solo grupo"
+" por Applicaton, están agrupados por repositorio. Por ejemplo, si usted "
+"tiene abierto un diálogo de registro y uno de confirmación para el "
+"repositorio <literal>A</literal>, y un cuadro de diálogo de verificación "
+"para la modificación y uno de registro para el repositorio "
+"<literal>B</literal>, entonces hay dos iconos de la aplicación agrupados que"
+" se muestran en la barra de tareas de Win7, uno para cada repositorio. Pero "
+"las ventanas TortoiseMerge no se agrupan junto con los diálogos de "
+"TortoiseSVN. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -19407,6 +19419,13 @@ msgid ""
 "TortoiseMerge diff window will be put in the same icon group on the taskbar "
 "as the commit dialog icon. <placeholder-1/>"
 msgstr ""
+"Si se establece en 2, el grupo funciona como si la configuración se "
+"establece en 1, excepto que las ventanas deTortoiseSVN, TortoiseMerge, "
+"TortoiseBlame, TortoiseIDiff y TortoiseUDiff están todas agrupadas. Por "
+"ejemplo, si usted tiene el cuadro de diálogo de confirmación abierto y luego"
+" hace doble clic sobre un archivo modificado, la ventana de diferencia de "
+"TortoiseMerge abierta será puesta en el mismo icono agrupado en la barra de "
+"tareas que el diálogo de confirmación. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -19428,10 +19447,13 @@ msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr ""
+"Esto no tiene efecto si la opción "
+"<literal>GroupTaskbarIconsPerRepo</literal> se establece en 0 (ver arriba)."
 
 #. (title)
 msgid "Taskbar grouping with repository color overlays"
 msgstr ""
+"Agrupamiento de barra de tareas con superposición de colores de repositorio"
 
 #. (para)
 msgid ""
@@ -20581,14 +20603,15 @@ msgstr ""
 #. (para)
 msgid "Gurtle - An issue tracker plugin for Google code"
 msgstr ""
+"Gurtle - Un plugin de seguimiento de incidencias para el código de Google"
 
 #. (para)
 msgid "TurtleMine - An issue tracker plugin for Redmine"
-msgstr ""
+msgstr "TurtleMine - Un plugin de seguimiento de incidencias para Redmine"
 
 #. (para)
 msgid "VurtleOne - An issue tracker plugin for VersionOne"
-msgstr ""
+msgstr "VurtleOne - Un plugin de seguimiento de incidencias de VersionOne"
 
 #. (para)
 msgid ""
@@ -23015,7 +23038,7 @@ msgstr "/path2"
 
 #. (option)
 msgid "/pegrevision:xxx"
-msgstr ""
+msgstr "/pegrevision:xxx"
 
 #. (option)
 msgid "/blame"
@@ -23207,6 +23230,8 @@ msgstr "Crea un archivo de parte para la ruta dada en <placeholder-1/>."
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."
 msgstr ""
+"Muestra el gráfico de revisiones para la ruta dada en <option>/path</option>"
+" ."
 
 #. (para)
 msgid ""
@@ -24500,12 +24525,16 @@ msgid ""
 "<emphasis>Locked</emphasis> is loaded if possible, but falls back to "
 "<emphasis>Normal</emphasis> if there are not enough slots."
 msgstr ""
+"<emphasis>Cerrado</emphasis> se carga si es posible, pero vuelve a "
+"<emphasis>Normal</emphasis> si no hay suficientes huecos."
 
 #. (para)
 msgid ""
 "<emphasis>Added</emphasis> is loaded if possible, but falls back to "
 "<emphasis>Modified</emphasis> if there are not enough slots."
 msgstr ""
+"<emphasis>Añadido</emphasis> se carga si es posible, pero vuevle a "
+"<emphasis>Modificado</emphasis> si no hay suficientes huecos."
 
 #. (title)
 msgid "Language Packs and Spell Checkers"
@@ -24664,6 +24693,9 @@ msgid ""
 "language, e.g. <literal>de_CH</literal> (Swiss-German) falls back to "
 "<literal>de_DE</literal> (German)."
 msgstr ""
+"Si el idioma exacto de Windows no funciona, pruebe el <quote>Base</quote>, "
+"por ejemplo, <literal>es_AR</literal> (Español Argentina) cae de nuevo a "
+"<literal>es</literal> (Español)."
 
 #. (para)
 msgid ""

@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-13 00:32+0000\n"
-"Last-Translator: zveriu <zveriu@gmail.com>\n"
+"PO-Revision-Date: 2011-08-18 19:09+0000\n"
+"Last-Translator: benwfelt <benwfelt@gmail.com>\n"
 "Language-Team: Romanian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -395,7 +395,7 @@ msgstr "&Adaugă >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
-msgstr "&Adaugă sau şterge butoane"
+msgstr "&Adaugă sau elimină butoane"
 
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
@@ -535,7 +535,7 @@ msgstr "Alege &comenzi din:"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
-msgstr ""
+msgstr "&Selectează elemente..."
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
@@ -1112,11 +1112,11 @@ msgstr "&Refă"
 
 #. Resource IDs: (1382)
 msgid "&Refresh"
-msgstr "&Actualizează"
+msgstr "&Reîmprospătează"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr "Aminteşte-mi să introduc ID-ul bug-ului"
+msgstr "Aminteşte-mi să int&roduc ID-ul bug-ului"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
@@ -1160,7 +1160,7 @@ msgstr "&Reîncearcă fară hook-uri"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
-msgstr ""
+msgstr "Inversează toate schimbările &recursiv"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1442,6 +1442,8 @@ msgid ""
 "'%s'\n"
 "is not a valid URL or path!"
 msgstr ""
+"'%s'\n"
+"nu este o cale validă!"
 
 #. Resource IDs: (338)
 msgid ""
@@ -1643,8 +1645,8 @@ msgid ""
 "If you add an '?' char at the end of a path, then only this path will be included.\r\n"
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
-"O listă de căi, separate de linie nouă, pentru care sunt afişate suprapuneri de iconiţe.\r\n"
-"Dacă adăugați un '?' la sfârșitul unei căi, numai aceasta va fi inclusă.\r\n"
+"O listă de căi, separate de linie nouă, pentru care sunt afişate suprapuneri de iconiţe.\n"
+"Dacă adăugați un '?' la sfârșitul unei căi, numai aceasta va fi inclusă.\n"
 "Dacă nu adăugați nimic sau adăugaţi un '*'  la sfârşitul unei căi, toate fişierele şi sub-dosarele în acea cale vor fi incluse de asemenea."
 
 #. Resource IDs: (197)
@@ -2011,7 +2013,7 @@ msgstr "Îmbinare deja efectuată"
 
 #. Resource IDs: (119)
 msgid "Already reverse merged"
-msgstr ""
+msgstr "S-a îmbinat invers deja"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2150,7 +2152,7 @@ msgstr "Aranjează &vertical"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
-msgstr "Astfel cum este (fără EOL specific)"
+msgstr "Astfel cum este (fără EOL spec&ific)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2373,7 +2375,7 @@ msgstr "Bug ID-uri"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
-msgstr ""
+msgstr "Bugtraq Regex Tester - TortoiseSVN"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
@@ -2903,7 +2905,7 @@ msgstr "Adâncimea de &aducere"
 #. Resource IDs: (229)
 #, c-format
 msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
-msgstr ""
+msgstr "Adu din %1!s!, revizia %2!s!, %3!s!, %4!s!"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3850,11 +3852,11 @@ msgstr "Şterge"
 
 #. Resource IDs: (1617)
 msgid "Delete &ignored files and folders"
-msgstr ""
+msgstr "Șterge fișierele și dosarele &ignorate"
 
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
-msgstr ""
+msgstr "Șterge fișierele și dosarele &neversionate"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -5913,7 +5915,7 @@ msgstr "Importă dosarul într-un depozit"
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
-msgstr ""
+msgstr "Include elemente e&xterne"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -7748,6 +7750,8 @@ msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
 msgstr ""
+"Procedează cu transmitere\n"
+"dosarele redenumite/mutate vor fi transmise recursiv"
 
 #. Resource IDs: (89)
 msgid ""
@@ -8073,16 +8077,16 @@ msgstr "Micşorează fereastră în iconiţă"
 
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
-msgstr "Actualizează"
+msgstr "Reîmprospătează"
 
 #. Resource IDs: (1615)
 msgid "Refresh &shell overlays"
-msgstr ""
+msgstr "Reîmprospătează suprapuneri &shell"
 
 #. Resource IDs: (148)
 #, c-format
 msgid "Refreshing shell for %1!s!"
-msgstr ""
+msgstr "Reîmprospătare shell pentru %1!s!"
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
@@ -8129,7 +8133,7 @@ msgstr "Reintegrează îmbinarea"
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Reintegrează îmbinarea %1!s! în %2!s!"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8272,6 +8276,8 @@ msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
 msgstr ""
+"Scoate de sub control de versiune\n"
+"Toate dosarele .svn sunt eliminate"
 
 #. Resource IDs: (127)
 #, c-format
@@ -10067,6 +10073,8 @@ msgid ""
 "The depth of this commit is \"%s\", but copies are always performed "
 "recursively in the repository."
 msgstr ""
+"Adincimea acestei transmitere este \"%s\" dar acțiune de copiere este "
+"întotdeaună făcută recursiv în depozit."
 
 #. Resource IDs: (68)
 #, c-format

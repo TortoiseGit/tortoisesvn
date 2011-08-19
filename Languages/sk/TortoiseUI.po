@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-13 00:32+0000\n"
+"PO-Revision-Date: 2011-08-17 12:15+0000\n"
 "Last-Translator: otik <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1439,6 +1439,8 @@ msgid ""
 "'%s'\n"
 "is not a valid URL or path!"
 msgstr ""
+"\"%s\"\n"
+"nie je platná URL adresa ani cesta!"
 
 #. Resource IDs: (338)
 msgid ""
@@ -6080,6 +6082,17 @@ msgid ""
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
 msgstr ""
+"Vyzerá že sa pokúšate Premiestniť vašu pracovnú kópiu na iné miesto v tom istom úložisku\n"
+"\n"
+"Z: %1!s!\n"
+"Do: %2!s!\n"
+"\n"
+"Premiestnenie je potrebné len ak sa zmenila cesta k úložisku.\n"
+"Zmena cesty vramci úložiska sa vykonáva pomocou príkazu Prepnúť.\n"
+"\n"
+"Zlé použitie príkazu Premiestniť poškodí vašu pracovnú kópiu!\n"
+"Ak si nie ste istý čo robiť prosím pozrite si našu dokumentáciu o tomto príkaze.\n"
+"Chcete naozaj premiestniť?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6961,6 +6974,10 @@ msgid ""
 "You can show the unversioned items by enabling them\n"
 "with the checkbox at the bottom."
 msgstr ""
+"Od poslednho dodvzdania neboli zmenené ani pridané žiadne súbory.\n"
+"TortoiseSVN nemá čo by tu robil...\n"
+"Môžete povoliť neverziované objekty povolením ich\n"
+"pomocou zakrtávacieho políčka dole."
 
 #. Resource IDs: (77)
 msgid ""
@@ -9373,7 +9390,7 @@ msgstr "Zobraziť najstarší vrchol na vrchu"
 
 #. Resource IDs: (1229)
 msgid "Show only a&ffected paths"
-msgstr "Zobraziť iba &ovlyvnené cesty"
+msgstr "Zobraziť iba &ovplyvnené cesty"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -10685,6 +10702,9 @@ msgid ""
 "for commit. Such moves/renames are always performed recursively in the "
 "repository. Do you want to commit anyway?"
 msgstr ""
+"Toto odovzdanie nie je rekurzívne a obsahuje resunuté/premenované adresáre k"
+" odovzdaniu. Takéto premenovanie/presunutie je vždy v úložisku urobené "
+"rekurzívne. Chcete napriek tomu odovzdať?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -11557,6 +11577,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
+"Použite dialóg denníka na výber revízií, ktoré chcete zlúčiť, alebo revizie zdajte oddelené čiarkami. Rozsah revízií môžete zadať pomocou pomlčky.\n"
+"\n"
+"Príklad: 4-7,9,11,15-HEAD@pegrevision\n"
+"\n"
+"K zlúčeniu všetkých revízií ponechajte poličko prázdne."
 
 #. Resource IDs: (314)
 #, c-format
