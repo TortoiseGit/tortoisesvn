@@ -212,6 +212,8 @@ BOOL CCopyDlg::OnInitDialog()
     else
         m_cLogMessage.SetText(m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH));
 
+    OnEnChangeLogmessage();
+
     m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKALL);
     m_linkControl.ConvertStaticToLink(m_hWnd, IDC_CHECKNONE);
 

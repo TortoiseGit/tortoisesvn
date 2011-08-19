@@ -93,6 +93,8 @@ BOOL CImportDlg::OnInitDialog()
     else
         m_cMessage.SetText(m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEIMPORT));
 
+    OnEnChangeLogmessage();
+
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), sWindowTitle);

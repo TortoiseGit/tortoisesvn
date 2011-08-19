@@ -97,6 +97,8 @@ BOOL CInputLogDlg::OnInitDialog()
         m_cInput.SetText(m_pProjectProperties->GetLogMsgTemplate(m_sSVNAction));
     }
 
+    UpdateOKButton();
+
     CAppUtils::SetAccProperty(m_cInput.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
     CAppUtils::SetAccProperty(m_cInput.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
 
