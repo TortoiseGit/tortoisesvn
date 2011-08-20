@@ -69,10 +69,11 @@ BEGIN
     "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
     VK_F3,          ID_EDIT_FIND,           VIRTKEY, NOINVERT
     "G",            ID_EDIT_GOTOLINE,       VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_VIEW_COLORAGEOFLINES, VIRTKEY, CONTROL, NOINVERT
     "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
     "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
     VK_ESCAPE,      IDM_EXIT,               VIRTKEY, NOINVERT
-    "O",            ID_VIEW_COLORAGEOFLINES, VIRTKEY, CONTROL, NOINVERT
+    "W",            IDM_EXIT,               VIRTKEY, CONTROL, NOINVERT
 END
 
 
