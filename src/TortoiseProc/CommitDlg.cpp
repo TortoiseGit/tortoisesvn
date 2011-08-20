@@ -855,9 +855,7 @@ UINT CCommitDlg::StatusThread()
             }
         }
     }
-    CString logmsg;
-    GetDlgItemText(IDC_LOGMESSAGE, logmsg);
-    DialogEnableWindow(IDOK, logmsg.GetLength() >= m_ProjectProperties.nMinLogSize);
+    UpdateOKButton();
     if (!success)
     {
         if (!m_ListCtrl.GetLastErrorMessage().IsEmpty())
@@ -1555,7 +1553,7 @@ void CCommitDlg::UpdateOKButton()
     BOOL bValidLogSize = FALSE;
 
     if (m_cLogMessage.GetText().GetLength() >= m_ProjectProperties.nMinLogSize)
-        bValidLogSize = !m_bBlock;
+        bValidLogSize = TRUE;
 
     LONG nSelectedItems = m_ListCtrl.GetSelected();
     if (!bValidLogSize)
@@ -1565,7 +1563,7 @@ void CCommitDlg::UpdateOKButton()
     else
         m_tooltips.DelTool(IDOK);
 
-    DialogEnableWindow(IDOK, bValidLogSize && nSelectedItems>0);
+    DialogEnableWindow(IDOK, !m_bBlock && bValidLogSize && nSelectedItems>0);
 }
 
 void CCommitDlg::OnComError( HRESULT hr )
