@@ -170,6 +170,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_sNoPropValueText(MAKEINTRESOURCE(IDS_STATUSLIST_NOPROPVALUE))
     , m_bDepthInfinity(false)
     , m_bBlockItemChangeHandler(false)
+    , m_nSelected(0)
 {
 }
 
@@ -326,6 +327,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
     SetCursorPos(pt.x, pt.y);
 
     ClearSortsFromHeaders();
+    m_nSelected = 0;
 
     m_mapFilenameToChecked.clear();
     m_StatusUrlList.Clear();
