@@ -17,20 +17,18 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
 //
 
-IDC_TORTOISEBLAME MENU 
+IDC_TORTOISEBLAME MENU
 BEGIN
     POPUP "&File"
     BEGIN
@@ -41,14 +39,14 @@ BEGIN
         MENUITEM "&Find...",                    ID_EDIT_FIND
         MENUITEM "&Go To Line...",              ID_EDIT_GOTOLINE
     END
-    POPUP "View"
+    POPUP "&View"
     BEGIN
         MENUITEM "&Color age of lines",         ID_VIEW_COLORAGEOFLINES
         MENUITEM "&Merge paths",                ID_VIEW_MERGEPATH
     END
 END
 
-IDR_BLAMEPOPUP MENU 
+IDR_BLAMEPOPUP MENU
 BEGIN
     POPUP "&Copy to clipboard"
     BEGIN
@@ -66,7 +64,7 @@ END
 // Accelerator
 //
 
-IDC_TORTOISEBLAME ACCELERATORS 
+IDC_TORTOISEBLAME ACCELERATORS
 BEGIN
     "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
     VK_F3,          ID_EDIT_FIND,           VIRTKEY, NOINVERT
@@ -101,7 +99,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_GOTODLG, DIALOG
     BEGIN
@@ -121,19 +119,19 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_APP_TITLE           "TortoiseBlame"
     IDS_SEARCHNOTFOUND      "Search string not found!"
     IDC_TORTOISEBLAME       "TORTOISEBLAME"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_COMMANDLINE_INFO    "TortoiseBlame should not be started directly! Use\nTortoiseProc.exe /command:blame /path:""path\\to\\file""\ninstead.\n\nTortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_HEADER_REVISION     "Revision"
     IDS_HEADER_DATE         "Date"
@@ -141,12 +139,12 @@ BEGIN
     IDS_HEADER_LINE         "Line"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_HEADER_PATH         "Path"
 END
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -154,10 +152,8 @@ END
 // German (Switzerland) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DES)
-#ifdef _WIN32
 LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -191,7 +187,8 @@ END
 
 3 TEXTINCLUDE 
 BEGIN
-    "\r\n\0"
+    "\r\n"
+    "\0"
 END
 
 #endif    // APSTUDIO_INVOKED
