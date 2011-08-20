@@ -58,11 +58,11 @@ BOOL CRevisionDlg::OnInitDialog()
 
     if (IsHead())
     {
-        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
     }
     else
     {
-        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
         CString sRev;
         if (IsDate())
             sRev = GetDateString();
@@ -86,7 +86,7 @@ void CRevisionDlg::OnOK()
 
     SVNRev::Create(m_sRevision);
     // if head revision, set revision as -1
-    if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
+    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
     {
         SVNRev::Create(_T("HEAD"));
         m_sRevision = _T("HEAD");
@@ -108,11 +108,11 @@ void CRevisionDlg::OnEnChangeRevnum()
     GetDlgItemText(IDC_REVNUM, sText);
     if (sText.IsEmpty())
     {
-        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
     }
     else
     {
-        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     }
 }
 

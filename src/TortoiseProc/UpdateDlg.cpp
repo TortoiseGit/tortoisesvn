@@ -65,7 +65,7 @@ BOOL CUpdateDlg::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_GROUPMISC);
     m_aeroControls.SubclassOkCancel(this);
 
-    AdjustControlSize(IDC_NEWEST);
+    AdjustControlSize(IDC_REVISION_HEAD);
     AdjustControlSize(IDC_REVISION_N);
     AdjustControlSize(IDC_NOEXTERNALS);
 
@@ -78,7 +78,7 @@ BOOL CUpdateDlg::OnInitDialog()
         m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EXCLUDE)));
     m_depthCombo.SetCurSel(0);
 
-    CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+    CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
@@ -104,7 +104,7 @@ void CUpdateDlg::OnOK()
     }
 
     Revision = SVNRev(m_sRevision);
-    if (GetCheckedRadioButton(IDC_NEWEST, IDC_REVISION_N) == IDC_NEWEST)
+    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
     {
         Revision = SVNRev(_T("HEAD"));
     }
@@ -174,7 +174,7 @@ LPARAM CUpdateDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
     CString temp;
     temp.Format(_T("%ld"), lParam);
     SetDlgItemText(IDC_REVNUM, temp);
-    CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+    CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     return 0;
 }
 
@@ -182,9 +182,9 @@ void CUpdateDlg::OnEnChangeRevnum()
 {
     UpdateData();
     if (m_sRevision.IsEmpty())
-        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_NEWEST);
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
     else
-        CheckRadioButton(IDC_NEWEST, IDC_REVISION_N, IDC_REVISION_N);
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 }
 
 void CUpdateDlg::OnCbnSelchangeDepth()

@@ -63,19 +63,19 @@ BOOL CRevisionRangeDlg::OnInitDialog()
 
     if (m_StartRev.IsHead())
     {
-        CheckRadioButton(IDC_NEWEST, IDC_DATEREV, IDC_NEWEST);
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_REVISION_HEAD);
     }
     else
     {
         CString sRev;
         if (m_StartRev.IsDate())
         {
-            CheckRadioButton(IDC_NEWEST, IDC_DATEREV, IDC_DATEREV);
+            CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_DATEREV);
             sRev = m_StartRev.GetDateString();
         }
         else
         {
-            CheckRadioButton(IDC_NEWEST, IDC_DATEREV, IDC_REVISION_N);
+            CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_REVISION_N);
             sRev.Format(_T("%ld"), (LONG)(m_StartRev));
         }
         if (!sRev.IsEmpty())
@@ -83,19 +83,19 @@ BOOL CRevisionRangeDlg::OnInitDialog()
     }
     if (m_EndRev.IsHead())
     {
-        CheckRadioButton(IDC_NEWEST2, IDC_DATEREV2, IDC_NEWEST2);
+        CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_REVISION_HEAD1);
     }
     else
     {
         CString sRev;
         if (m_EndRev.IsDate())
         {
-            CheckRadioButton(IDC_NEWEST2, IDC_DATEREV2, IDC_DATEREV2);
+            CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_DATEREV2);
             sRev = m_EndRev.GetDateString();
         }
         else
         {
-            CheckRadioButton(IDC_NEWEST2, IDC_DATEREV2, IDC_REVISION_N2);
+            CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_REVISION_N2);
             sRev.Format(_T("%ld"), (LONG)(m_EndRev));
         }
         if (!sRev.IsEmpty())
@@ -117,12 +117,12 @@ void CRevisionRangeDlg::OnOK()
         return; // don't dismiss dialog (error message already shown by MFC framework)
 
     m_StartRev = SVNRev(m_sStartRevision);
-    if (GetCheckedRadioButton(IDC_NEWEST, IDC_DATEREV) == IDC_NEWEST)
+    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_DATEREV) == IDC_REVISION_HEAD)
     {
         m_StartRev = SVNRev(_T("HEAD"));
         m_sStartRevision = _T("HEAD");
     }
-    if (GetCheckedRadioButton(IDC_NEWEST, IDC_DATEREV) == IDC_DATEREV)
+    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_DATEREV) == IDC_DATEREV)
     {
         CTime _time;
         m_DateFrom.GetTime(_time);
@@ -143,12 +143,12 @@ void CRevisionRangeDlg::OnOK()
     }
 
     m_EndRev = SVNRev(m_sEndRevision);
-    if (GetCheckedRadioButton(IDC_NEWEST2, IDC_DATEREV2) == IDC_NEWEST2)
+    if (GetCheckedRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2) == IDC_REVISION_HEAD1)
     {
         m_EndRev = SVNRev(_T("HEAD"));
         m_sEndRevision = _T("HEAD");
     }
-    if (GetCheckedRadioButton(IDC_NEWEST2, IDC_DATEREV2) == IDC_DATEREV2)
+    if (GetCheckedRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2) == IDC_DATEREV2)
     {
         CTime _time;
         m_DateTo.GetTime(_time);
@@ -179,11 +179,11 @@ void CRevisionRangeDlg::OnEnChangeRevnum()
     GetDlgItemText(IDC_REVNUM, sText);
     if (sText.IsEmpty())
     {
-        CheckRadioButton(IDC_NEWEST, IDC_DATEREV, IDC_NEWEST);
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_REVISION_HEAD);
     }
     else
     {
-        CheckRadioButton(IDC_NEWEST, IDC_DATEREV, IDC_REVISION_N);
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_REVISION_N);
     }
 }
 
@@ -193,24 +193,24 @@ void CRevisionRangeDlg::OnEnChangeRevnum2()
     GetDlgItemText(IDC_REVNUM2, sText);
     if (sText.IsEmpty())
     {
-        CheckRadioButton(IDC_NEWEST2, IDC_DATEREV2, IDC_NEWEST2);
+        CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_REVISION_HEAD1);
     }
     else
     {
-        CheckRadioButton(IDC_NEWEST2, IDC_DATEREV2, IDC_REVISION_N2);
+        CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_REVISION_N2);
     }
 }
 
 void CRevisionRangeDlg::OnDtnDatetimechangeDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-    CheckRadioButton(IDC_NEWEST2, IDC_DATEREV2, IDC_DATEREV2);
+    CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_DATEREV2);
 
     *pResult = 0;
 }
 
 void CRevisionRangeDlg::OnDtnDatetimechangeDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-    CheckRadioButton(IDC_NEWEST, IDC_DATEREV, IDC_DATEREV);
+    CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_DATEREV);
 
     *pResult = 0;
 }
