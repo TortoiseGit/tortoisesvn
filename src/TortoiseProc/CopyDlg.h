@@ -127,4 +127,6 @@ private:
     volatile LONG   m_bThreadRunning;
     SVNExternals    m_externals;
     CLinkControl    m_linkControl;
+public:
+    afx_msg void OnEnChangeCopyrevtext();
 };

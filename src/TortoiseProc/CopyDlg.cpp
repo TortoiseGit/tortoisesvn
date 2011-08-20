@@ -88,6 +88,7 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(CLinkControl::LK_LINKITEMCLICKED, &CCopyDlg::OnCheck)
     ON_BN_CLICKED(IDC_BUGTRAQBUTTON, &CCopyDlg::OnBnClickedBugtraqbutton)
     ON_NOTIFY(NM_CUSTOMDRAW, IDC_EXTERNALSLIST, &CCopyDlg::OnNMCustomdrawExternalslist)
+    ON_EN_CHANGE(IDC_COPYREVTEXT, &CCopyDlg::OnEnChangeCopyrevtext)
 END_MESSAGE_MAP()
 
 
@@ -691,7 +692,6 @@ LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
     temp.Format(_T("%ld"), lParam);
     SetDlgItemText(IDC_COPYREVTEXT, temp);
     CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
-    DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
     return 0;
 }
 
@@ -699,21 +699,18 @@ void CCopyDlg::OnBnClickedCopyhead()
 {
     m_tooltips.Pop();   // hide the tooltips
     m_bSettingChanged = true;
-    DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
 }
 
 void CCopyDlg::OnBnClickedCopyrev()
 {
     m_tooltips.Pop();   // hide the tooltips
     m_bSettingChanged = true;
-    DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
 }
 
 void CCopyDlg::OnBnClickedCopywc()
 {
     m_tooltips.Pop();   // hide the tooltips
     m_bSettingChanged = true;
-    DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
 }
 
 void CCopyDlg::OnBnClickedHistory()
@@ -761,7 +758,6 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
                 temp.Format(_T("%ld"), m_maxrev);
                 SetDlgItemText(IDC_COPYREVTEXT, temp);
                 CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
-                DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
             }
         }
     }
@@ -808,20 +804,31 @@ void CCopyDlg::SetRevision(const SVNRev& rev)
     if (rev.IsHead())
     {
         CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYHEAD);
-        DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
     }
     else if (rev.IsWorking())
     {
         CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYWC);
-        DialogEnableWindow(IDC_COPYREVTEXT, FALSE);
     }
     else
     {
         CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
-        DialogEnableWindow(IDC_COPYREVTEXT, TRUE);
         CString temp;
         temp.Format(_T("%ld"), (LONG)rev);
         SetDlgItemText(IDC_COPYREVTEXT, temp);
+    }
+}
+
+void CCopyDlg::OnEnChangeCopyrevtext()
+{
+    CString sText;
+    GetDlgItemText(IDC_COPYREVTEXT, sText);
+    if (sText.IsEmpty())
+    {
+        CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYHEAD);
+    }
+    else
+    {
+        CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
     }
 }
 
