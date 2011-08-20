@@ -131,6 +131,15 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
             SetDlgItemText(IDC_INFOLABEL, CString(MAKEINTRESOURCE(IDS_TREECONFLICT_RESOLVE_HINT_DELETEUPONDELETE)));
         GetDlgItem(IDC_RESOLVEUSINGMINE)->ShowWindow(SW_SHOW);
     }
+    else if (conflict_reason == svn_wc_conflict_reason_edited)
+    {
+        SetDlgItemText(IDC_INFOLABEL, CString(MAKEINTRESOURCE(IDC_TREECONFLICT_HOWTORESOLVE)));
+        GetDlgItem(IDC_RESOLVEUSINGMINE)->ShowWindow(SW_SHOW);
+        if (conflict_action == svn_wc_conflict_action_delete)
+        {
+            GetDlgItem(IDC_RESOLVEUSINGTHEIRS)->ShowWindow(SW_SHOW);
+        }
+    }
     else
     {
         SetDlgItemText(IDC_INFOLABEL, CString(MAKEINTRESOURCE(IDC_TREECONFLICT_HOWTORESOLVE)));
