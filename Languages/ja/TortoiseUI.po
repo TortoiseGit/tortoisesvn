@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-20 15:33+0000\n"
+"PO-Revision-Date: 2011-08-21 08:08+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1158,7 +1158,7 @@ msgstr "フック無しでリトライ(&R)"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
-msgstr "再帰的にすべての変更を取り消す(&R)"
+msgstr "すべての変更を再帰的に取り消す(&R)"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -2916,7 +2916,7 @@ msgstr ""
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
-msgstr "中断した処理、ロックファイル、... をクリーンアップする"
+msgstr "中断した処理、ロックされたファイル、などをクリーンアップする"
 
 #. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
@@ -5107,7 +5107,7 @@ msgid ""
 "Note that other users will need to update their working copies before they see the files as read-only."
 msgstr ""
 "「svn:needs-lock」プロパティを設定していないファイルをロックしたとしても、他の作業コピーでそのファイルを編集することができます。\n"
-"ロックを正しく動作させるためには、ロックが必要なすべてのファイルに対して「svn:needs-lock」プロパティを追加し、それらをコミットしてください。\n"
+"ロックを正しく動作させるためには、ロックが必要なすべてのファイルに「svn:needs-lock」プロパティを追加し、それらをコミットしてください。\n"
 "それぞれのファイルは、ファイルシステム上で読み取り専用のフラグが設定され、ロックすることでファイルが書き込み可能になります。\n"
 "他のユーザーは、ファイルを読み取り専用として開く前に、作業コピーの更新が必要なことに注意してください。"
 
@@ -6229,7 +6229,7 @@ msgstr "ファイルをロック"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
-msgstr "ロックは解除されました！"
+msgstr "ロックは破壊されました。"
 
 #. Resource IDs: (207)
 msgid "Lock comment"
@@ -6270,7 +6270,7 @@ msgid ""
 "Locking failed because a newer version exists!\n"
 "Do you want to update and try again?"
 msgstr ""
-"新しいバージョンが存在するため、ファイルのロックに失敗しました！\n"
+"新しいバージョンが存在するため、ファイルのロックに失敗しました。\n"
 "更新を実行し、再度ファイルのロックを試みますか？"
 
 #. Resource IDs: (16)
@@ -6957,7 +6957,7 @@ msgstr "ノードの色"
 
 #. Resource IDs: (170)
 msgid "Non-recursive commit of moved/renamed folders."
-msgstr "移動／名前の変更がされたフォルダーの非再帰的なコミット"
+msgstr "移動や名前の変更がされたフォルダーの非再帰的なコミット"
 
 #. Resource IDs: (1507)
 msgid "Non-versioned"
@@ -7785,7 +7785,7 @@ msgstr "プロキシの設定"
 
 #. Resource IDs: (1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr "svn:needs-lock が設定されている場合は、トップメニューに \"ロックを取得\" を表示する"
+msgstr "svn:needs-lock が設定されている場合は、トップメニューに「ロックを取得」を表示する"
 
 #. Resource IDs: (246)
 #, c-format
@@ -8043,12 +8043,12 @@ msgstr "「%s」のためのパッチをリジェクト"
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
-msgstr "ロックを解除(&K) ..."
+msgstr "ロックを解除(&K)..."
 
 #. Resource IDs: (16)
 msgid ""
 "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr "ロックの保持者でなくてもロックを解除する（破る）。"
+msgstr "ロックの保持者でなくてもロックを解除する（破壊する）。"
 
 #. Resource IDs: (16)
 msgid "Releases locks on files so other users can edit them again."
@@ -9950,7 +9950,7 @@ msgstr "何も指定しない場合にチェックアウトするデフォルト
 msgid ""
 "The depth of this commit is \"%s\", but copies are always performed "
 "recursively in the repository."
-msgstr "このコミットの深さは \"%s\" ですが、コピーは常にリポジトリにおいて再帰的に実行されます。"
+msgstr "このコミットは「%s」の深さで行われますが、リポジトリ上でのコピーは常に再帰的に行われます。"
 
 #. Resource IDs: (68)
 #, c-format
@@ -10571,7 +10571,7 @@ msgid ""
 "for commit. Such moves/renames are always performed recursively in the "
 "repository. Do you want to commit anyway?"
 msgstr ""
-"このコミットは再帰的ではなく、コミットには移動／名前の変更を行ったフォルダーが含まれています。これらの移動／名前の変更は、常にリポジトリで再帰的に実行されます。本当にコミットしてもよろしいですか？"
+"このコミットは再帰的ではありませんが、コミット対象に移動や名前の変更を行ったフォルダーが含まれています。移動や名前の変更は、リポジトリ上では常に再帰的に実行されます。本当にコミットしてもよろしいですか？"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10581,9 +10581,9 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"このコミットは再帰的ではなく、コミットには移動／名前の変更を\n"
-"行ったフォルダーが含まれています。これらの移動／名前の変更は、\n"
-"常にリポジトリで再帰的に実行されます。\n"
+"このコミットは再帰的ではありませんが、コミット対象に移動や名前\n"
+"の変更を行ったフォルダーが含まれています。これらの移動や\n"
+"名前の変更は、リポジトリ上では常に再帰的に実行されます。\n"
 "\n"
 "本当にコミットしてもよろしいですか？"
 
@@ -10702,8 +10702,8 @@ msgstr ""
 "このエラーを回避して再帰的にコミットを行うためには、\n"
 "チェックされているフォルダーに含まれるすべての項目も、\n"
 "コミットダイアログでチェックしてください。\n"
-"そうでない場合は、ディレクトリの削除を行うことができない\n"
-"非再帰的なコミットをTortoiseSVN は実行します。"
+"そうでない場合、TortoiseSVN はディレクトリの削除を\n"
+"行わない非再帰的なコミットを実行します。"
 
 #. Resource IDs: (284)
 msgid ""
@@ -11101,7 +11101,7 @@ msgstr "ロック解除"
 
 #. Resource IDs: (264)
 msgid "Unlock failed"
-msgstr "ロック解除に失敗"
+msgstr "ロックの解除に失敗"
 
 #. Resource IDs: (263)
 msgid "Unlocked"
@@ -11211,7 +11211,7 @@ msgstr "ActiveX オブジェクトを更新しています"
 
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
-msgstr "更新とロックの取得中 ..."
+msgstr "更新してロックを再試行しています..."
 
 #. Resource IDs: (199)
 msgid "Updating log cache"
@@ -11384,19 +11384,19 @@ msgstr ""
 
 #. Resource IDs: (32820)
 msgid "Use text block from \"&mine\""
-msgstr "\"&mine\" のテキストブロックを利用"
+msgstr "「mine」のテキストブロックを利用(&M)"
 
 #. Resource IDs: (32819)
 msgid "Use text block from \"&theirs\""
-msgstr "\"&theirs\" のテキストブロックを利用"
+msgstr "「theirs」のテキストブロックを利用(&T)"
 
 #. Resource IDs: (32822)
 msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "\"theirs\" の前に \"m&ine\" のテキストブロックを利用"
+msgstr "「theirs」の前に「mine」のテキストブロックを利用(&I)"
 
 #. Resource IDs: (32821)
 msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "\"mine\" の前に \"t&heirs\" のテキストブロックを利用"
+msgstr "「mine」の前に「theirs」のテキストブロックを利用(&H)"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -11994,7 +11994,7 @@ msgstr "追加ファイル"
 #. Resource IDs: (272)
 #, c-format
 msgid "alias (%1!s!): %2!s!"
-msgstr "エイリアス（%1!s!）：%2!s"
+msgstr "エイリアス (%1!s!): %2!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -12557,7 +12557,7 @@ msgid ""
 "before they can edit it and commit changes."
 msgstr ""
 "svn:needs-lock\n"
-"このファイルをロックするために、任意の値（例えば「*」）を設定する。\n"
+"このファイルに対してロックを強制するために、任意の値（例えば「*」）を設定する。\n"
 "ファイルはチェックアウトや更新を行ったときに読み取り専用になり、\n"
 "ファイルを編集する場合やコミットする場合には、\n"
 "ユーザーはロックを取得しなくてはならなくなります。"
@@ -12627,7 +12627,7 @@ msgid ""
 "tsvn:lockmsgminsize\r\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
 msgstr ""
-"tsvn:lockmsgminsize\r\n"
+"tsvn:lockmsgminsize\n"
 "ロックする前に入力する必要のあるロックメッセージの最小文字数。"
 
 #. Resource IDs: (578)
