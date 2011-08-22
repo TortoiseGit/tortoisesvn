@@ -1488,16 +1488,6 @@ void CMainFrame::Search(SearchDirection srchDir)
     if(!m_pwndLeftView->m_pViewData)
         return;
 
-    bool bFound = FALSE;
-
-    CString left;
-    CString right;
-    CString bottom;
-    DiffStates leftstate = DIFFSTATE_NORMAL;
-    DiffStates rightstate = DIFFSTATE_NORMAL;
-    DiffStates bottomstate = DIFFSTATE_NORMAL;
-    int i = 0;
-
     m_nSearchIndex = FindSearchStart(m_nSearchIndex);
     m_nSearchIndex++;
     if (m_nSearchIndex >= m_pwndLeftView->m_pViewData->GetCount())
@@ -1516,6 +1506,15 @@ void CMainFrame::Search(SearchDirection srchDir)
                                   {{m_nSearchIndex, -1},
                                        {m_pwndLeftView->m_pViewData->GetCount()-1, m_nSearchIndex}}};
     const int offsets[2]={+1, -1};
+
+    int i = 0;
+    bool bFound = false;
+    CString left;
+    CString right;
+    CString bottom;
+    DiffStates leftstate = DIFFSTATE_NORMAL;
+    DiffStates rightstate = DIFFSTATE_NORMAL;
+    DiffStates bottomstate = DIFFSTATE_NORMAL;
 
     for (int j=0; j != 2 && !bFound; ++j)
     {
@@ -1545,7 +1544,7 @@ void CMainFrame::Search(SearchDirection srchDir)
             {
                 if ((!m_bLimitToDiff)||(leftstate != DIFFSTATE_NORMAL))
                 {
-                    bFound = TRUE;
+                    bFound = true;
                     break;
                 }
             }
@@ -1553,7 +1552,7 @@ void CMainFrame::Search(SearchDirection srchDir)
             {
                 if ((!m_bLimitToDiff)||(rightstate != DIFFSTATE_NORMAL))
                 {
-                    bFound = TRUE;
+                    bFound = true;
                     break;
                 }
             }
@@ -1561,7 +1560,7 @@ void CMainFrame::Search(SearchDirection srchDir)
             {
                 if ((!m_bLimitToDiff)||(bottomstate != DIFFSTATE_NORMAL))
                 {
-                    bFound = TRUE;
+                    bFound = true;
                     break;
                 }
             }
@@ -2007,9 +2006,9 @@ void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
     BOOL bShow = FALSE;
     if ((m_pwndBottomView)&&(m_pwndBottomView->HasSelection()))
         bShow = TRUE;
-    if ((m_pwndRightView)&&(m_pwndRightView->HasSelection()))
+    else if ((m_pwndRightView)&&(m_pwndRightView->HasSelection()))
         bShow = TRUE;
-    if ((m_pwndLeftView)&&(m_pwndLeftView->HasSelection()))
+    else if ((m_pwndLeftView)&&(m_pwndLeftView->HasSelection()))
         bShow = TRUE;
     pCmdUI->Enable(bShow);
 }
@@ -2019,9 +2018,9 @@ void CMainFrame::OnUpdateEditPaste(CCmdUI *pCmdUI)
     BOOL bWritable = FALSE;
     if ((m_pwndBottomView)&&(m_pwndBottomView->IsWritable()))
         bWritable = TRUE;
-    if ((m_pwndRightView)&&(m_pwndRightView->IsWritable()))
+    else if ((m_pwndRightView)&&(m_pwndRightView->IsWritable()))
         bWritable = TRUE;
-    if ((m_pwndLeftView)&&(m_pwndLeftView->IsWritable()))
+    else if ((m_pwndLeftView)&&(m_pwndLeftView->IsWritable()))
         bWritable = TRUE;
     pCmdUI->Enable(bWritable && ::IsClipboardFormatAvailable(CF_TEXT));
 }
