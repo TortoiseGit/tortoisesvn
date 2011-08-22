@@ -1064,6 +1064,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
     m_blockEvents = false;
 
     m_RepoList.ClearText();
+    m_RepoTree.ClearText();
 
     return true;
 }
@@ -1077,6 +1078,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     m_RepoList.SetRedraw(false);
     m_RepoList.DeleteAllItems();
     m_RepoList.ClearText();
+    m_RepoTree.ClearText();
 
     int c = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
     while (c>=0)
