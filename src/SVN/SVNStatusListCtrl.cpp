@@ -325,6 +325,8 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
     POINT pt;
     GetCursorPos(&pt);
     SetCursorPos(pt.x, pt.y);
+    if (m_pSelectButton)
+        m_pSelectButton->EnableWindow(FALSE);
 
     ClearSortsFromHeaders();
     m_nSelected = 0;
