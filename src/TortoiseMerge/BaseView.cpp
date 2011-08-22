@@ -720,13 +720,16 @@ int CBaseView::GetScreenLines()
     {
         SCROLLBARINFO sbi;
         sbi.cbSize = sizeof(sbi);
-        GetScrollBarInfo(OBJID_HSCROLL, &sbi);
-        int scrollBarHeight = sbi.rcScrollBar.bottom - sbi.rcScrollBar.top;
-        if (sbi.rgstate[0] == STATE_SYSTEM_INVISIBLE)
+        int scrollBarHeight = 0;
+        if (GetScrollBarInfo(OBJID_HSCROLL, &sbi))
+            scrollBarHeight = sbi.rcScrollBar.bottom - sbi.rcScrollBar.top;
+        if ((sbi.rgstate[0] & STATE_SYSTEM_INVISIBLE)||(sbi.rgstate[0] & STATE_SYSTEM_UNAVAILABLE))
             scrollBarHeight = 0;
         CRect rect;
         GetClientRect(&rect);
         m_nScreenLines = (rect.Height() - HEADERHEIGHT - scrollBarHeight) / GetLineHeight();
+        if (m_nScreenLines < 0)
+            m_nScreenLines = 0;
     }
     return m_nScreenLines;
 }
