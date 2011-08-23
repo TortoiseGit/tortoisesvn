@@ -3365,8 +3365,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 input.SetActionText(hint);
                 if (input.DoModal() == IDOK)
                 {
-                    InvalidateDataParents (selection);
-
                     if (!Remove (selection.GetURLsEscaped (0), true, false, input.GetLogMessage()))
                     {
                         wait_cursor.Hide();
