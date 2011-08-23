@@ -855,7 +855,6 @@ UINT CCommitDlg::StatusThread()
             }
         }
     }
-    UpdateOKButton();
     if (!success)
     {
         if (!m_ListCtrl.GetLastErrorMessage().IsEmpty())
@@ -871,6 +870,7 @@ UINT CCommitDlg::StatusThread()
     // auto completion list.
     m_pathwatcher.ClearChangedPaths();
     InterlockedExchange(&m_bBlock, FALSE);
+    UpdateOKButton();
     if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\Autocompletion"), TRUE)==TRUE)
     {
         m_ListCtrl.BusyCursor(true);
