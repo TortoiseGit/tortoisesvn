@@ -686,9 +686,9 @@ bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, 
         {
             combo.SetCurSel(-1);
             if (bExternalUrl)
-                combo.SetWindowText(_T("^") + browser.GetPath().Mid(repoRoot.GetLength()));
+                combo.SetWindowText(_T("^") + browser.GetPath().Mid(CPathUtils::PathUnescape(repoRoot).GetLength()));
             else
-                combo.SetWindowText(browser.GetPath().Mid(repoRoot.GetLength()));
+                combo.SetWindowText(browser.GetPath().Mid(CPathUtils::PathUnescape(repoRoot).GetLength()));
             combo.SetFocus();
             rev = browser.GetRevision();
             return true;
@@ -705,9 +705,9 @@ bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, 
         {
             combo.SetCurSel(-1);
             if (bExternalUrl)
-                combo.SetWindowText(_T("^") + browser.GetPath().Mid(repoRoot.GetLength()));
+                combo.SetWindowText(_T("^") + browser.GetPath().Mid(CPathUtils::PathUnescape(repoRoot).GetLength()));
             else
-                combo.SetWindowText(browser.GetPath().Mid(repoRoot.GetLength()));
+                combo.SetWindowText(browser.GetPath().Mid(CPathUtils::PathUnescape(repoRoot).GetLength()));
             combo.SetFocus();
             rev = browser.GetRevision();
             return true;
