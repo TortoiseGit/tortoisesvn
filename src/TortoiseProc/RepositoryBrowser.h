@@ -263,6 +263,7 @@ protected:
     void SaveDividerPosition();
 
     void ShowText(const CString& sText, bool forceupdate = false);
+    static void FilterInfinityDepthItems(std::map<CString,svn_depth_t>& depths);
 
 protected:
     bool                m_bInitDone;

@@ -661,51 +661,8 @@ void CRepositoryBrowser::OnOK()
         m_updateDepths.clear();
         HTREEITEM hRoot = m_RepoTree.GetRootItem();
         CheckoutDepthForItem(hRoot);
-        if (m_checkoutDepths.size())
-        {
-            // now go through the whole list and remove all children of items that have infinity depth
-            for (std::map<CString,svn_depth_t>::iterator it = m_checkoutDepths.begin(); it != m_checkoutDepths.end(); ++it)
-            {
-                if (it->second == svn_depth_infinity)
-                {
-                    for (std::map<CString,svn_depth_t>::iterator it2 = m_checkoutDepths.begin(); it2 != m_checkoutDepths.end(); ++it2)
-                    {
-                        if (it->first.Compare(it2->first)==0)
-                            continue;
-
-                        CString url1 = it->first + L"/";
-                        if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
-                        {
-                            std::map<CString,svn_depth_t>::iterator kill = it2;
-                            --it2;
-                            m_checkoutDepths.erase(kill);
-                        }
-                    }
-                }
-            }
-        }
-        if (m_updateDepths.size())
-        {
-            for (std::map<CString,svn_depth_t>::iterator it = m_updateDepths.begin(); it != m_updateDepths.end(); ++it)
-            {
-                if (it->second == svn_depth_infinity)
-                {
-                    for (std::map<CString,svn_depth_t>::iterator it2 = m_updateDepths.begin(); it2 != m_updateDepths.end(); ++it2)
-                    {
-                        if (it->first.Compare(it2->first)==0)
-                            continue;
-
-                        CString url1 = it->first + L"/";
-                        if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
-                        {
-                            std::map<CString,svn_depth_t>::iterator kill = it2;
-                            --it2;
-                            m_updateDepths.erase(kill);
-                        }
-                    }
-                }
-            }
-        }
+        FilterInfinityDepthItems(m_checkoutDepths);
+        FilterInfinityDepthItems(m_updateDepths);
     }
 
     ClearUI();
@@ -4240,4 +4197,31 @@ void CRepositoryBrowser::ShowText( const CString& sText, bool forceupdate /*= fa
         m_RepoTree.ShowText(sText, forceupdate);
     else
         m_RepoList.ShowText(sText, forceupdate);
+}
+
+void CRepositoryBrowser::FilterInfinityDepthItems(std::map<CString,svn_depth_t>& depths)
+{
+    if (depths.size() == 0)
+        return;
+
+    // now go through the whole list and remove all children of items that have infinity depth
+    for (std::map<CString,svn_depth_t>::iterator it = depths.begin(); it != depths.end(); ++it)
+    {
+        if (it->second != svn_depth_infinity)
+            continue;
+
+        for (std::map<CString,svn_depth_t>::iterator it2 = depths.begin(); it2 != depths.end(); ++it2)
+        {
+            if (it->first.Compare(it2->first)==0)
+                continue;
+
+            CString url1 = it->first + L"/";
+            if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
+            {
+                std::map<CString,svn_depth_t>::iterator kill = it2;
+                --it2;
+                depths.erase(kill);
+            }
+        }
+    }
 }
