@@ -20,6 +20,7 @@
 #include "Command.h"
 #include "SVN.h"
 #include "ProgressDlg.h"
+#include "..\..\TSVNCache\CacheInterface.h"
 
 /**
  * \ingroup TortoiseProc
@@ -63,6 +64,7 @@ public:
                 progress.FormatPathLine(2, IDS_PROC_UPGRADE_INFO, pathList[i].GetWinPath());
                 progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_CLEANUP_INFO2)));
                 progress.ShowModeless(GetExplorerHWND());
+                CBlockCacheForPath cacheBlock (pathList[i].GetWinPath());
                 if (!Upgrade(pathList[i]))
                 {
                     progress.Stop();
