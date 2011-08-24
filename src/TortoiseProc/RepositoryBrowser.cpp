@@ -329,6 +329,8 @@ BOOL CRepositoryBrowser::OnInitDialog()
     if (SysInfo::Instance().IsVistaOrLater())
     {
         DWORD exStyle = TVS_EX_FADEINOUTEXPANDOS | TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;
+        if (m_bSparseCheckoutMode)
+            exStyle |= TVS_EX_MULTISELECT;
         m_RepoTree.SetExtendedStyle(exStyle, exStyle);
     }
 
@@ -3970,37 +3972,17 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
 
     bChecked = m_RepoTree.GetCheck(pNMTVItemChange->hItem);
 
-    // force the root item to be  checked
-    if ((!bChecked)&&(pNMTVItemChange->hItem == m_RepoTree.GetRootItem()))
+    CheckTreeItem(pNMTVItemChange->hItem, !!bChecked);
+
+    HTREEITEM hItem = m_RepoTree.GetSelectedItem();
+    while (hItem)
     {
-        // uncheck all children
-        HTREEITEM hChild = m_RepoTree.GetChildItem(pNMTVItemChange->hItem);
-        while (hChild)
+        if (hItem != pNMTVItemChange->hItem)
         {
-            m_RepoTree.SetCheck(hChild, FALSE);
-            hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
+            m_RepoTree.SetCheck(hItem, !!bChecked);
+            CheckTreeItem(hItem, !!bChecked);
         }
-        m_RepoTree.SetCheck(pNMTVItemChange->hItem);
-    }
-    else if (bChecked)
-    {
-        // check all parents
-        HTREEITEM hParent = m_RepoTree.GetParentItem(pNMTVItemChange->hItem);
-        while (hParent)
-        {
-            m_RepoTree.SetCheck(hParent, TRUE);
-            hParent = m_RepoTree.GetParentItem(hParent);
-        }
-    }
-    else
-    {
-        // uncheck all children
-        HTREEITEM hChild = m_RepoTree.GetChildItem(pNMTVItemChange->hItem);
-        while (hChild)
-        {
-            m_RepoTree.SetCheck(hChild, FALSE);
-            hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
-        }
+        hItem = m_RepoTree.GetNextItem(hItem, TVGN_NEXTSELECTED);
     }
 }
 
@@ -4071,20 +4053,20 @@ void CRepositoryBrowser::OnNMClickRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 
     if (TVHT_ONITEMSTATEICON & ht.flags)
     {
-        HandleCheckedItemForXP(ht.hItem);
+        CheckTreeItem(ht.hItem, !m_RepoTree.GetCheck(ht.hItem));
     }
 }
 
-void CRepositoryBrowser::CheckTreeItem( HTREEITEM hItem )
+void CRepositoryBrowser::CheckTreeItem( HTREEITEM hItem, bool bCheck )
 {
-    if (m_RepoTree.GetCheck(hItem))
+    if (bCheck)
     {
         // check all parents
         HTREEITEM hParent = m_RepoTree.GetParentItem(hItem);
         while (hParent)
         {
             m_RepoTree.SetCheck(hParent, TRUE);
-            CheckTreeItem(hParent);
+            CheckTreeItem(hParent, true);
             hParent = m_RepoTree.GetParentItem(hParent);
         }
     }
@@ -4095,8 +4077,13 @@ void CRepositoryBrowser::CheckTreeItem( HTREEITEM hItem )
         while (hChild)
         {
             m_RepoTree.SetCheck(hChild, FALSE);
-            CheckTreeItem(hChild);
+            CheckTreeItem(hChild, false);
             hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
+        }
+        // force the root item to be checked
+        if (hItem == m_RepoTree.GetRootItem())
+        {
+            m_RepoTree.SetCheck(hItem);
         }
     }
 
@@ -4119,35 +4106,7 @@ void CRepositoryBrowser::OnTvnKeydownRepotree(NMHDR *pNMHDR, LRESULT *pResult)
 
         if (item)
         {
-            HandleCheckedItemForXP(item);
-        }
-    }
-}
-
-void CRepositoryBrowser::HandleCheckedItemForXP( HTREEITEM item )
-{
-    if (item == m_RepoTree.GetRootItem())
-        m_RepoTree.SetCheck(item, FALSE);
-    else if (!m_RepoTree.GetCheck(item))
-    {
-        // check all parents
-        HTREEITEM hParent = m_RepoTree.GetParentItem(item);
-        while (hParent)
-        {
-            m_RepoTree.SetCheck(hParent, TRUE);
-            CheckTreeItem(hParent);
-            hParent = m_RepoTree.GetParentItem(hParent);
-        }
-    }
-    else
-    {
-        // uncheck all children
-        HTREEITEM hChild = m_RepoTree.GetChildItem(item);
-        while (hChild)
-        {
-            m_RepoTree.SetCheck(hChild, FALSE);
-            CheckTreeItem(hChild);
-            hChild = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
+            CheckTreeItem(item, !m_RepoTree.GetCheck(item));
         }
     }
 }

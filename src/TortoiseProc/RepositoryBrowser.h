@@ -257,8 +257,7 @@ protected:
     /// resizes the control so that the divider is at position 'point'
     void HandleDividerMove(CPoint point, bool bDraw);
     bool CheckoutDepthForItem( HTREEITEM hItem );
-    void CheckTreeItem( HTREEITEM hItem );
-    void HandleCheckedItemForXP( HTREEITEM item );
+    void CheckTreeItem( HTREEITEM hItem, bool bCheck );
     bool CheckAndConfirmPath(const CTSVNPath& path);
     void SaveDividerPosition();
 
