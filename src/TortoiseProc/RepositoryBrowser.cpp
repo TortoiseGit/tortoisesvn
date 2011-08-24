@@ -1578,7 +1578,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
         TVITEM tvitem = {0};
         tvitem.hItem = hNode;
         tvitem.mask = TVIF_CHILDREN;
-        tvitem.cChildren = pTreeItem->has_child_folders ? 1 : 0;
+        tvitem.cChildren = pTreeItem->has_child_folders || (m_bSparseCheckoutMode && pTreeItem->children.size()) ? 1 : 0;
         m_RepoTree.SetItem(&tvitem);
     }
     if (pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
@@ -1974,7 +1974,7 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
     {
         // if there are no child folders, remove the '+' in front of the node
 
-        if (!pTreeItem->has_child_folders)
+        if (!pTreeItem->has_child_folders && (!m_bSparseCheckoutMode && (pTreeItem->children.size()==0)))
         {
             TVITEM tvitem = {0};
             tvitem.hItem = pNMTreeView->itemNew.hItem;
