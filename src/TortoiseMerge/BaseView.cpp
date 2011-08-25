@@ -2125,7 +2125,7 @@ void CBaseView::OnContextMenu(CPoint point, DiffStates state)
 
     CompensateForKeyboard(point);
 
-    int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+    int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
     ResetUndoStep();
     switch (cmd)
     {

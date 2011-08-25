@@ -1842,7 +1842,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
     if (!bAdded)
         return;
 
-    int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+    int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
     DialogEnableWindow(IDOK, FALSE);
     this->SetPromptApp(&theApp);
     theApp.DoWaitCursor(1);

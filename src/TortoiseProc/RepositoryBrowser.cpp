@@ -2492,7 +2492,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                 temp.LoadString(IDS_REPOBROWSE_MOVERENAMEDROP);
                 popup.AppendMenu(MF_STRING | MF_ENABLED, 5, temp);
             }
-            int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, pt.x, pt.y, this, 0);
+            int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, pt.x, pt.y, this, 0);
             switch (cmd)
             {
             default:// nothing clicked
@@ -3012,7 +3012,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             }
         }
         popup.AppendMenuIcon(ID_CREATELINK, IDS_REPOBROWSE_CREATELINK, IDI_LINK);
-        int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY, point.x, point.y, this, 0);
+        int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
 
         auto stopJobs (m_lister.SuspendJobs());
         if (pWnd == &m_RepoTree)
