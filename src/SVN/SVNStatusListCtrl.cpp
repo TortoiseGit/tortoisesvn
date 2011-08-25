@@ -2454,19 +2454,35 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
 {
     // If at least one item is not in the status "added"
     // we ask for a confirmation
-    bool bConfirm = FALSE;
+    bool bConfirm       = false;
+    bool bNonRecursive  = false;
+    bool bRecursive     = false;
     CAutoReadLock locker(m_guard);
     POSITION pos = GetFirstSelectedItemPosition();
     int index;
     while ((index = GetNextSelectedItem(pos)) >= 0)
     {
         FileEntry * fentry = GetListEntry(index);
+        if (fentry->IsFolder())
+        {
+            if ((fentry->status != svn_wc_status_deleted) &&
+                (fentry->status != svn_wc_status_missing) &&
+                (fentry->status != svn_wc_status_added) &&
+                (fentry->status != svn_wc_status_normal))
+            {
+                bNonRecursive = true;
+            }
+            else
+            {
+                bRecursive = true;
+            }
+        }
         if (fentry->status != svn_wc_status_added)
         {
-            bConfirm = TRUE;
-            break;
+            bConfirm = true;
         }
     }
+
 
     CTSVNPathList targetList;
     FillListOfSelectedItemPaths(targetList);
@@ -2527,7 +2543,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
         if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
             delList.DeleteAllPaths(true, true);
 
-        if (!svn.Revert(targetList, CStringArray(), false))
+        if (!svn.Revert(targetList, CStringArray(), bRecursive && !bNonRecursive))
         {
             svn.ShowErrorDialog(m_hWnd, targetList[0]);
         }
