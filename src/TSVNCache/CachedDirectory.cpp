@@ -627,7 +627,10 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
     }
     else
     {
-        svnPath.SetFromSVN(path, status->kind == svn_node_dir);
+        if ((status->kind != svn_node_unknown)&&(status->kind != svn_node_none))
+            svnPath.SetFromSVN(path, status->kind == svn_node_dir);
+        else
+            svnPath.SetFromSVN(path);
 
         // Subversion returns no 'entry' field for versioned folders if they're
         // part of another working copy (nested layouts).
