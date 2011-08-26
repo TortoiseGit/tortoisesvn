@@ -3975,9 +3975,10 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
     CheckTreeItem(pNMTVItemChange->hItem, !!bChecked);
 
     HTREEITEM hItem = m_RepoTree.GetSelectedItem();
+    HTREEITEM hRoot = m_RepoTree.GetRootItem();
     while (hItem)
     {
-        if (hItem != pNMTVItemChange->hItem)
+        if ((hItem != pNMTVItemChange->hItem)&&(hItem != hRoot))
         {
             m_RepoTree.SetCheck(hItem, !!bChecked);
             CheckTreeItem(hItem, !!bChecked);
