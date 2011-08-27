@@ -1690,7 +1690,12 @@ void CRepositoryBrowser::OnDelete()
             return;
         }
         if (bTreeItem)
-            RefreshNode(m_RepoTree.GetParentItem(m_RepoTree.GetSelectedItem()), true);
+        {
+            // do a full refresh: just refreshing the parent of the
+            // deleted tree node won't work if the list view
+            // shows part of that tree.
+            OnRefresh();
+        }
         else
             RefreshNode(m_RepoTree.GetSelectedItem(), true);
     }
@@ -3333,9 +3338,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     m_barRepository.SetHeadRevision(GetCommitRevision());
                     if (hChosenTreeItem)
                     {
-                        HTREEITEM hParent = m_RepoTree.GetParentItem(hChosenTreeItem);
-                        RecursiveRemove(hChosenTreeItem);
-                        RefreshNode(hParent);
+                        // do a full refresh: just refreshing the parent of the
+                        // deleted tree node won't work if the list view
+                        // shows part of that tree.
+                        OnRefresh();
                     }
                     else
                         RefreshNode(m_RepoTree.GetSelectedItem(), true);
