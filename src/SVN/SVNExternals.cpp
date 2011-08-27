@@ -202,7 +202,7 @@ std::string SVNExternals::GetValue(const CTSVNPath& path)
             if (targetDir.Find(' ')>=0)
                 targetDir = L"'" + targetDir + L"'";
             CString temp;
-            if (rev.IsValid() && !rev.IsHead())
+            if (rev.IsValid() && !rev.IsHead() && (!rev.IsEqual(pegrev)))
                 temp.Format(_T("-r %s %s%s %s"), rev.ToString(), it->url, (LPCTSTR)peg, targetDir);
             else
                 temp.Format(_T("%s%s %s"), it->url, (LPCTSTR)peg, targetDir);
