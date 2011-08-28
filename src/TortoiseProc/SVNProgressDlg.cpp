@@ -2632,7 +2632,6 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
         eol = _T("CR");
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_EXPORT)));
 
-    CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     CTSVNPath targetPath = m_targetPathList[0];
     if (SVNInfo::IsFile (m_url, m_Revision))
         targetPath.AppendPathString (m_url.GetFilename());
