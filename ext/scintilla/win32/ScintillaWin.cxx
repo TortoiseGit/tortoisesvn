@@ -15,6 +15,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 #undef _WIN32_WINNT
 #define _WIN32_WINNT  0x0500
@@ -100,6 +101,29 @@ const TCHAR callClassName[] = TEXT("CallTip");
 
 #ifdef SCI_NAMESPACE
 using namespace Scintilla;
+#endif
+
+// Take care of 32/64 bit pointers
+#ifdef GetWindowLongPtr
+static void *PointerFromWindow(HWND hWnd) {
+	return reinterpret_cast<void *>(::GetWindowLongPtr(hWnd, 0));
+}
+static void SetWindowPointer(HWND hWnd, void *ptr) {
+	::SetWindowLongPtr(hWnd, 0, reinterpret_cast<LONG_PTR>(ptr));
+}
+static void SetWindowID(HWND hWnd, int identifier) {
+	::SetWindowLongPtr(hWnd, GWLP_ID, identifier);
+}
+#else
+static void *PointerFromWindow(HWND hWnd) {
+	return reinterpret_cast<void *>(::GetWindowLong(hWnd, 0));
+}
+static void SetWindowPointer(HWND hWnd, void *ptr) {
+	::SetWindowLong(hWnd, 0, reinterpret_cast<LONG>(ptr));
+}
+static void SetWindowID(HWND hWnd, int identifier) {
+	::SetWindowLong(hWnd, GWL_ID, identifier);
+}
 #endif
 
 class ScintillaWin; 	// Forward declaration for COM interface subobjects
@@ -211,9 +235,9 @@ class ScintillaWin :
 	virtual bool ModifyScrollBars(int nMax, int nPage);
 	virtual void NotifyChange();
 	virtual void NotifyFocus(bool focus);
+	virtual void SetCtrlID(int identifier);
 	virtual int GetCtrlID();
 	virtual void NotifyParent(SCNotification scn);
-	virtual void NotifyParent(SCNotification * scn);
 	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
 	virtual CaseFolder *CaseFolderForEncoding();
 	virtual std::string CaseMapString(const std::string &s, int caseMapping);
@@ -1279,6 +1303,10 @@ void ScintillaWin::NotifyFocus(bool focus) {
 		reinterpret_cast<LPARAM>(MainHWND()));
 }
 
+void ScintillaWin::SetCtrlID(int identifier) {
+	::SetWindowID(reinterpret_cast<HWND>(wMain.GetID()), identifier);
+}
+
 int ScintillaWin::GetCtrlID() {
 	return ::GetDlgCtrlID(reinterpret_cast<HWND>(wMain.GetID()));
 }
@@ -1288,13 +1316,6 @@ void ScintillaWin::NotifyParent(SCNotification scn) {
 	scn.nmhdr.idFrom = GetCtrlID();
 	::SendMessage(::GetParent(MainHWND()), WM_NOTIFY,
 	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
-}
-
-void ScintillaWin::NotifyParent(SCNotification * scn) {
-	scn->nmhdr.hwndFrom = MainHWND();
-	scn->nmhdr.idFrom = GetCtrlID();
-	::SendMessage(::GetParent(MainHWND()), WM_NOTIFY,
-		GetCtrlID(), reinterpret_cast<LPARAM>(scn));
 }
 
 void ScintillaWin::NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt) {
@@ -1324,8 +1345,10 @@ public:
 			if (lenMixed > utf16Mixed.size()) {
 				utf16Mixed.resize(lenMixed + 8);
 			}
-			size_t nUtf16Mixed = ::MultiByteToWideChar(65001, 0, mixed, lenMixed,
-				&utf16Mixed[0], utf16Mixed.size());
+			size_t nUtf16Mixed = ::MultiByteToWideChar(65001, 0, mixed,
+				static_cast<int>(lenMixed),
+				&utf16Mixed[0],
+				static_cast<int>(utf16Mixed.size()));
 
 			if (nUtf16Mixed == 0) {
 				// Failed to convert -> bad UTF-8
@@ -1338,11 +1361,14 @@ public:
 			}
 			int lenFlat = ::LCMapStringW(LOCALE_SYSTEM_DEFAULT,
 				LCMAP_LINGUISTIC_CASING | LCMAP_LOWERCASE,
-				&utf16Mixed[0], nUtf16Mixed, &utf16Folded[0], utf16Folded.size());
+				&utf16Mixed[0],
+				static_cast<int>(nUtf16Mixed),
+				&utf16Folded[0],
+				static_cast<int>(utf16Folded.size()));
 
 			size_t lenOut = UTF8Length(&utf16Folded[0], lenFlat);
 			if (lenOut < sizeFolded) {
-				UTF8FromUTF16(&utf16Folded[0], lenFlat, folded, lenOut);
+				UTF8FromUTF16(&utf16Folded[0], lenFlat, folded, static_cast<int>(lenOut));
 				return lenOut;
 			} else {
 				return 0;
@@ -1369,8 +1395,10 @@ public:
 			if (lenMixed > utf16Mixed.size()) {
 				utf16Mixed.resize(lenMixed + 8);
 			}
-			size_t nUtf16Mixed = ::MultiByteToWideChar(cp, 0, mixed, lenMixed,
-				&utf16Mixed[0], utf16Mixed.size());
+			size_t nUtf16Mixed = ::MultiByteToWideChar(cp, 0, mixed,
+				static_cast<int>(lenMixed),
+				&utf16Mixed[0],
+				static_cast<int>(utf16Mixed.size()));
 
 			if (nUtf16Mixed == 0) {
 				// Failed to convert -> bad input
@@ -1383,7 +1411,10 @@ public:
 			}
 			int lenFlat = ::LCMapStringW(LOCALE_SYSTEM_DEFAULT,
 				LCMAP_LINGUISTIC_CASING | LCMAP_LOWERCASE,
-				&utf16Mixed[0], nUtf16Mixed, &utf16Folded[0], utf16Folded.size());
+				&utf16Mixed[0],
+				static_cast<int>(nUtf16Mixed),
+				&utf16Folded[0],
+				static_cast<int>(utf16Folded.size()));
 
 			size_t lenOut = ::WideCharToMultiByte(cp, 0,
 				&utf16Folded[0], lenFlat,
@@ -1392,7 +1423,7 @@ public:
 			if (lenOut < sizeFolded) {
 				::WideCharToMultiByte(cp, 0,
 					&utf16Folded[0], lenFlat,
-					folded, lenOut, NULL, 0);
+					folded, static_cast<int>(lenOut), NULL, 0);
 				return lenOut;
 			} else {
 				return 0;
@@ -1447,7 +1478,8 @@ std::string ScintillaWin::CaseMapString(const std::string &s, int caseMapping) {
 
 	UINT cpDoc = CodePageOfDocument();
 
-	unsigned int lengthUTF16 = ::MultiByteToWideChar(cpDoc, 0, s.c_str(), s.size(), NULL, 0);
+	unsigned int lengthUTF16 = ::MultiByteToWideChar(cpDoc, 0, s.c_str(),
+		static_cast<int>(s.size()), NULL, 0);
 	if (lengthUTF16 == 0)	// Failed to convert
 		return s;
 
@@ -1462,7 +1494,7 @@ std::string ScintillaWin::CaseMapString(const std::string &s, int caseMapping) {
 
 		// Change text to UTF-16
 		std::vector<wchar_t> vwcText(lengthUTF16);
-		::MultiByteToWideChar(cpDoc, 0, s.c_str(), s.size(), &vwcText[0], lengthUTF16);
+		::MultiByteToWideChar(cpDoc, 0, s.c_str(), static_cast<int>(s.size()), &vwcText[0], lengthUTF16);
 
 		// Change case
 		int charsConverted = ::LCMapStringW(LOCALE_SYSTEM_DEFAULT, mapFlags,
@@ -1473,12 +1505,12 @@ std::string ScintillaWin::CaseMapString(const std::string &s, int caseMapping) {
 
 		// Change back to document encoding
 		unsigned int lengthConverted = ::WideCharToMultiByte(cpDoc, 0,
-			&vwcConverted[0], vwcConverted.size(),
+			&vwcConverted[0], static_cast<int>(vwcConverted.size()),
 			NULL, 0, NULL, 0);
 		std::vector<char> vcConverted(lengthConverted);
 		::WideCharToMultiByte(cpDoc, 0,
-			&vwcConverted[0], vwcConverted.size(),
-			&vcConverted[0], vcConverted.size(), NULL, 0);
+			&vwcConverted[0], static_cast<int>(vwcConverted.size()),
+			&vcConverted[0], static_cast<int>(vcConverted.size()), NULL, 0);
 
 		return std::string(&vcConverted[0], vcConverted.size());
 
@@ -1488,7 +1520,8 @@ std::string ScintillaWin::CaseMapString(const std::string &s, int caseMapping) {
 
 		// Change text to UTF-16
 		wchar_t vwcText[shortSize];
-		::MultiByteToWideChar(cpDoc, 0, s.c_str(), s.size(), vwcText, lengthUTF16);
+		::MultiByteToWideChar(cpDoc, 0, s.c_str(), static_cast<int>(s.size()),
+			vwcText, lengthUTF16);
 
 		// Change case
 		int charsConverted = ::LCMapStringW(LOCALE_SYSTEM_DEFAULT, mapFlags,
@@ -1592,8 +1625,8 @@ void ScintillaWin::InsertPasteText(const char *text, int len, SelectionPosition 
 			// add the newline if necessary
 			if ((len > 0) && (text[len-1] != '\n' && text[len-1] != '\r')) {
 				const char *endline = StringFromEOLMode(pdoc->eolMode);
-				pdoc->InsertString(insertPos + len, endline, strlen(endline));
-				len += strlen(endline);
+				pdoc->InsertString(insertPos + len, endline, static_cast<int>(strlen(endline)));
+				len += static_cast<int>(strlen(endline));
 			}
 			if (sel.MainCaret() == insertPos) {
 				SetEmptySelection(sel.MainCaret() + len);
@@ -2451,7 +2484,7 @@ STDMETHODIMP ScintillaWin::Drop(LPDATAOBJECT pIDataSource, DWORD grfKeyState,
 
 		if (data && convertPastes) {
 			// Convert line endings of the drop into our local line-endings mode
-			int len = strlen(data);
+			int len = static_cast<int>(strlen(data));
 			char *convertedText = Document::TransformLineEnds(&len, data, len, pdoc->eolMode);
 			if (dataAllocated)
 				delete []data;
@@ -2635,23 +2668,6 @@ BOOL ScintillaWin::DestroySystemCaret() {
 	}
 	return retval;
 }
-
-// Take care of 32/64 bit pointers
-#ifdef GetWindowLongPtr
-static void *PointerFromWindow(HWND hWnd) {
-	return reinterpret_cast<void *>(::GetWindowLongPtr(hWnd, 0));
-}
-static void SetWindowPointer(HWND hWnd, void *ptr) {
-	::SetWindowLongPtr(hWnd, 0, reinterpret_cast<LONG_PTR>(ptr));
-}
-#else
-static void *PointerFromWindow(HWND hWnd) {
-	return reinterpret_cast<void *>(::GetWindowLong(hWnd, 0));
-}
-static void SetWindowPointer(HWND hWnd, void *ptr) {
-	::SetWindowLong(hWnd, 0, reinterpret_cast<LONG>(ptr));
-}
-#endif
 
 sptr_t PASCAL ScintillaWin::CTWndProc(
     HWND hWnd, UINT iMessage, WPARAM wParam, sptr_t lParam) {

@@ -370,6 +370,16 @@
 	<td>Ben Fisher</td>
 	<td>Don Gobin</td>
 	<td>John Yeung</td>
+      </tr><tr>
+	<td>Adobe</td>
+	<td>Elizabeth A. Irizarry</td>
+	<td>Mike Schroeder</td>
+	<td>Morten MacFly</td>
+      </tr><tr>
+	<td>Jaime Gimeno</td>
+	<td>Thomas Linder Puls</td>
+	<td>Artyom Zuikov</td>
+	<td>Gerrit</td>
     </tr>
     </table>
     <p>
@@ -380,6 +390,218 @@
         <a href="http://sourceforge.net/projects/icon-collection/">
         Icons</a> Copyright(C) 1998 by Dean S. Jones<br />
       </li>
+    </ul>
+    <h3>
+       <a href="http://prdownloads.sourceforge.net/scintilla/scite228.zip?download">Release 2.28</a>
+    </h3>
+    <ul>
+	<li>
+	Released 1 August 2011.
+	</li>
+	<li>
+	GTK+ Cairo support works back to GTK+ version 2.8. Requires changing Scintilla source code to enable before GTK+ 2.22.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3322351&group_id=2439">Bug #3322351.</a>
+	</li>
+	<li>
+	Translucent images in RGBA format can be used for margin markers and in autocompletion lists.
+	</li>
+	<li>
+	INDIC_DOTBOX added as a translucent dotted rectangular indicator.
+	</li>
+	<li>
+	Asian text input using IME works for GTK+ 3.x and GTK+ 2.x with Cairo.
+	</li>
+	<li>
+	On GTK+, IME works for Ctrl+Shift+U Unicode input in Scintilla. For SciTE, Ctrl+Shift+U is still Make Selection Uppercase.
+	</li>
+	<li>
+	Key bindings for GTK+ on OS X made compatible with Cocoa port and platform conventions.
+	</li>
+	<li>
+	Cocoa port supports different character encodings, improves scrolling performance and drag image appearance.
+	The control ID is included in WM_COMMAND notifications. Text may be deleted by dragging to the trash.
+	ScrollToStart and ScrollToEnd key commands added to simplify implementation of standard OS X Home and End
+	behaviour.
+	</li>
+	<li>
+	SciTE on GTK+ uses a paned widget to contain the edit and output panes instead of custom code.
+	This allows the divider to be moved easily on GTK+ 3 and its appearance follows GTK+ conventions more closely.
+	</li>
+	<li>
+	SciTE builds and installs on BSD.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3324644&group_id=2439">Bug #3324644.</a>
+	</li>
+	<li>
+	Cobol supports fixed format comments.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3014850&group_id=2439">Bug #3014850.</a>
+	</li>
+	<li>
+	Mako template language block syntax extended and ## comments recognised.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=352439&aid=3325178&group_id=2439">Feature #3325178.</a>
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3318818&group_id=2439">Bug #3318818.</a>
+	</li>
+	<li>
+	Folding of Mako template language within HTML fixed.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3324563&group_id=2439">Bug #3324563.</a>
+	</li>
+	<li>
+	Python lexer has lexer.python.keywords2.no.sub.identifiers option to avoid highlighting second set of 
+	keywords following '.'.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3325333&group_id=2439">Bug #3325333.</a>
+	</li>
+	<li>
+	Python folder fixes bug where fold would not extend to final line.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3349157&group_id=2439">Bug #3349157.</a>
+	</li>
+	<li>
+	SciTE treats LPEG lexers the same as script lexers by setting all 8 style bits.
+	</li>
+	<li>
+	For Cocoa, crashes with unsupported font variants and memory leaks for colour objects fixed.
+	</li>
+	<li>
+	Shift-JIS lead byte ranges modified to match Windows.
+	</li>
+	<li>
+	Mouse pointer changes over selection to an arrow more consistently.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3315756&group_id=2439">Bug #3315756.</a>
+	</li>
+	<li>
+	Bug fixed with annotations beyond end of document.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3347268&group_id=2439">Bug #3347268.</a>
+	</li>
+	<li>
+	Incorrect drawing fixed for combination of background colour change and translucent selection.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3377116&group_id=2439">Bug #3377116.</a>
+	</li>
+	<li>
+	Lexers initialized correctly when started at position other than start of line.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3377148&group_id=2439">Bug #3377148.</a>
+	</li>
+	<li>
+	Fold highlight drawing fixed for some situations.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3323015&group_id=2439">Bug #3323015.</a>
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3323805&group_id=2439">Bug #3323805.</a>
+	</li>
+	<li>
+	Case insensitive search fixed for cases where folded character uses fewer bytes than base character.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3362038&group_id=2439">Bug #3362038.</a>
+	</li>
+	<li>
+	SciTE bookmark.alpha setting fixed.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3373907&group_id=2439">Bug #3373907.</a>
+	</li>
+    </ul>
+    <h3>
+       <a href="http://prdownloads.sourceforge.net/scintilla/scite227.zip?download">Release 2.27</a>
+    </h3>
+    <ul>
+	<li>
+	Released 20 June 2011.
+	</li>
+	<li>
+	On recent GTK+ 2.x versions when using Cairo, bug fixed where wrong colours were drawn.
+	</li>
+	<li>
+	SciTE on GTK+ slow performance in menu maintenance fixed.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3315233&group_id=2439">Bug #3315233.</a>
+	</li>
+	<li>
+	Cocoa platform supports 64-bit builds and uses only non-deprecated APIs.
+	Asian Input Method Editors are supported.
+	Autocompletion lists and calltips implemented.
+	Control identifier used in notifications.
+	</li>
+	<li>
+	On Cocoa, rectangular selection now uses Option/Alt key to be compatible with Apple Human
+	Interface Guidelines and other applications.
+	The Control key is reported with an SCMOD_META modifier bit.
+	</li>
+	<li>
+	API added for setting and retrieving the identifier number used in notifications.
+	</li>
+	<li>
+	SCI_SETEMPTYSELECTION added to set selection without scrolling or redrawing more than needed.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=352439&aid=3314877&group_id=2439">Feature #3314877.</a>
+	</li>
+	<li>
+	Added new indicators. INDIC_DASH and INDIC_DOTS are variants of underlines.
+	INDIC_SQUIGGLELOW indicator added as shorter alternative to INDIC_SQUIGGLE for small fonts.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3314591&group_id=2439">Bug #3314591</a>
+	</li>
+	<li>
+	Margin line selection can be changed to select display lines instead of document lines.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3312763&group_id=2439">Bug #3312763.</a>
+	</li>
+	<li>
+	On Windows, SciTE can perform reverse searches by pressing Shift+Enter
+	in the Find or Replace strips or dialogs.
+	</li>
+	<li>
+	Matlab lexer does not special case '\' in single quoted strings.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=948757&group_id=2439">Bug #948757</a>
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=1755950&group_id=2439">Bug #1755950</a>
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=1888738&group_id=2439">Bug #1888738</a>
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3316852&group_id=2439">Bug #3316852.</a>
+	</li>
+	<li>
+	Verilog lexer supports SystemVerilog folding and keywords.
+	</li>
+	<li>
+	Font leak fixed.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3306156&group_id=2439">Bug #3306156.</a>
+	</li>
+	<li>
+	Automatic scrolling works for long wrapped lines.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3312763&group_id=2439">Bug #3312763.</a>
+	</li>
+	<li>
+	Multiple typing works for cases where selections collapse together.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3309906&group_id=2439">Bug #3309906.</a>
+	</li>
+	<li>
+	Fold expanded when needed in word wrap mode.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3291579&group_id=2439">Bug #3291579.</a>
+	</li>
+	<li>
+	Bug fixed with edge drawn in wrong place on wrapped lines.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3314807&group_id=2439">Bug #3314807.</a>
+	</li>
+	<li>
+	Bug fixed with unnecessary scrolling for SCI_GOTOLINE.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3303406&group_id=2439">Bug #3303406.</a>
+	</li>
+	<li>
+	Bug fixed where extra step needed to undo SCI_CLEAR in virtual space.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3159691&group_id=2439">Bug #3159691.</a>
+	</li>
+	<li>
+	Regular expression search fixed for \$ on last line of search range.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3313746&group_id=2439">Bug #3313746.</a>
+	</li>
+	<li>
+	SciTE performance improved when switching to a tab with a very large file.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3311421&group_id=2439">Bug #3311421.</a>
+	</li>
+	<li>
+	On Windows, SciTE advanced search remembers the "Search only in this style" setting.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3313344&group_id=2439">Bug #3313344.</a>
+	</li>
+	<li>
+	On GTK+, SciTE opens help using "xdg-open" instead of "netscape" as "netscape" no longer commonly installed.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3314377&group_id=2439">Bug #3314377.</a>
+	</li>
+	<li>
+	SciTE script lexers can use 256 styles.
+	</li>
+	<li>
+	SciTE word highlight works for words containing DBCS characters.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3315173&group_id=2439">Bug #3315173.</a>
+	</li>
+	<li>
+	Compilation fixed for wxWidgets.
+	<a href="https://sourceforge.net/tracker/?func=detail&atid=102439&aid=3306156&group_id=2439">Bug #3306156.</a>
+	</li>
     </ul>
     <h3>
        <a href="http://prdownloads.sourceforge.net/scintilla/scite226.zip?download">Release 2.26</a>

@@ -7,6 +7,9 @@
 
 #include <string.h>
 
+#include <vector>
+#include <map>
+
 #include "Platform.h"
 
 #include "Scintilla.h"
@@ -78,6 +81,7 @@ FontRealised::FontRealised(const FontSpecification &fs) {
 }
 
 FontRealised::~FontRealised() {
+	font.Release();
 	delete frNext;
 	frNext = 0;
 }

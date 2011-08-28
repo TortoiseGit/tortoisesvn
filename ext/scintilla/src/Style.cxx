@@ -54,13 +54,13 @@ void FontMeasurements::Clear() {
 	sizeZoomed = 2;
 }
 
-Style::Style() {
+Style::Style() : FontSpecification() {
 	Clear(ColourDesired(0, 0, 0), ColourDesired(0xff, 0xff, 0xff),
 	      Platform::DefaultFontSize(), 0, SC_CHARSET_DEFAULT,
 	      false, false, false, false, caseMixed, true, true, false);
 }
 
-Style::Style(const Style &source) {
+Style::Style(const Style &source) : FontSpecification(), FontMeasurements() {
 	Clear(ColourDesired(0, 0, 0), ColourDesired(0xff, 0xff, 0xff),
 	      0, 0, 0,
 	      false, false, false, false, caseMixed, true, true, false);
@@ -142,8 +142,8 @@ void Style::ClearTo(const Style &source) {
 
 void Style::Copy(Font &font_, const FontMeasurements &fm_) {
 	font.MakeAlias(font_);
-	(FontMeasurements &)(*this) = fm_;
 #if PLAT_WX
-	ascent = surface.Ascent(font);
+	font.SetAscent(fm_.ascent);
 #endif
+	(FontMeasurements &)(*this) = fm_;
 }

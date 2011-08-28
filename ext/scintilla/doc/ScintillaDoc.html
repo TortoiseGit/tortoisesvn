@@ -79,7 +79,7 @@
 
     <h1>Scintilla Documentation</h1>
 
-    <p>Last edited 21/May/2011 NH</p>
+    <p>Last edited 1/August/2011 NH</p>
 
     <p>There is <a class="jump" href="Design.html">an overview of the internal design of
     Scintilla</a>.<br />
@@ -309,14 +309,17 @@
         <tr>
           <td>o <a class="toc" href="#Notifications">Notifications</a></td>
 
-          <td>o <a class="toc" href="#GTK">GTK+</a></td>
+          <td>o <a class="toc" href="#Images">Images</a></td>
 
-          <td>o <a class="toc" href="#DeprecatedMessages">Deprecated messages</a></td>
+          <td>o <a class="toc" href="#GTK">GTK+</a></td>
         </tr>
 
         <tr>
+          <td>o <a class="toc" href="#DeprecatedMessages">Deprecated messages</a></td>
+	  
           <td>o <a class="toc" href="#EditMessagesNeverSupportedByScintilla">Edit messages never
           supported by Scintilla</a></td>
+	  
           <td>o <a class="toc" href="#BuildingScintilla">Building Scintilla</a></td>
 
         </tr>
@@ -1077,6 +1080,7 @@ struct Sci_TextToFind {
      <a class="message" href="#SCI_GETSELECTIONSTART">SCI_GETSELECTIONSTART</a><br />
      <a class="message" href="#SCI_SETSELECTIONEND">SCI_SETSELECTIONEND(int position)</a><br />
      <a class="message" href="#SCI_GETSELECTIONEND">SCI_GETSELECTIONEND</a><br />
+     <a class="message" href="#SCI_SETEMPTYSELECTION">SCI_SETEMPTYSELECTION(int pos)</a><br />
      <a class="message" href="#SCI_SELECTALL">SCI_SELECTALL</a><br />
      <a class="message" href="#SCI_LINEFROMPOSITION">SCI_LINEFROMPOSITION(int position)</a><br />
      <a class="message" href="#SCI_POSITIONFROMLINE">SCI_POSITIONFROMLINE(int line)</a><br />
@@ -1228,6 +1232,9 @@ struct Sci_TextToFind {
     position and which is the anchor. <code>SCI_GETSELECTIONSTART</code> returns the smaller of the
     current position or the anchor position. <code>SCI_GETSELECTIONEND</code> returns the larger of
     the two values.</p>
+
+    <p><b id="SCI_SETEMPTYSELECTION">SCI_SETEMPTYSELECTION(int pos)</b><br />
+     This removes any selection and sets the caret at <code>pos</code>. The caret is not scrolled into view.</p>
 
     <p><b id="SCI_SELECTALL">SCI_SELECTALL</b><br />
      This selects all the text in the document. The current position is not scrolled into view.</p>
@@ -2700,8 +2707,10 @@ struct Sci_TextToFind {
     <h2 id="Margins">Margins</h2>
 
     <p>There may be up to five margins to the left of the text display, plus a gap either side of
-    the text. Each margin can be set to display either symbols or line numbers with <a
-    class="message" href="#SCI_SETMARGINTYPEN"><code>SCI_SETMARGINTYPEN</code></a>. The markers
+    the text. Each margin can be set to display only symbols, line numbers, or text with <a
+    class="message" href="#SCI_SETMARGINTYPEN"><code>SCI_SETMARGINTYPEN</code></a>.
+    Textual margins may also display symbols.
+    The markers
     that can be displayed in each margin are set with <a class="message"
     href="#SCI_SETMARGINMASKN"><code>SCI_SETMARGINMASKN</code></a>. Any markers not associated with
     a visible margin will be displayed as changes in background colour in the text. A width in
@@ -2753,6 +2762,8 @@ struct Sci_TextToFind {
      <a class="message" href="#SCI_MARGINTEXTCLEARALL">SCI_MARGINTEXTCLEARALL</a><br />
      <a class="message" href="#SCI_MARGINSETSTYLEOFFSET">SCI_MARGINSETSTYLEOFFSET(int style)</a><br />
      <a class="message" href="#SCI_MARGINGETSTYLEOFFSET">SCI_MARGINGETSTYLEOFFSET</a><br />
+     <a class="message" href="#SCI_SETMARGINOPTIONS">SCI_SETMARGINOPTIONS(int marginOptions)</a><br />
+     <a class="message" href="#SCI_GETMARGINOPTIONS">SCI_GETMARGINOPTIONS</a><br />
     </code>
 
     <p><b id="SCI_SETMARGINTYPEN">SCI_SETMARGINTYPEN(int margin, int iType)</b><br />
@@ -2859,6 +2870,15 @@ struct Sci_TextToFind {
     <code>SCI_MARGINSETSTYLEOFFSET(256)</code> would allow the margin styles to be numbered from
     256 upto 511 so they do not overlap styles set by lexers. Each style number set with <code>SCI_MARGINSETSTYLE</code>
     or <code>SCI_MARGINSETSTYLES</code> has the offset added before looking up the style.
+    </p>
+    <p>
+     <b id="SCI_SETMARGINOPTIONS">SCI_SETMARGINOPTIONS(int marginOptions)</b><br />
+     <b id="SCI_GETMARGINOPTIONS">SCI_GETMARGINOPTIONS</b><br />
+    Define margin options by enabling appropriate bit flags. At the moment, only one flag is available 
+    <code>SC_MARGINOPTION_SUBLINESELECT</code>=1, which controls how wrapped lines are selected when clicking 
+    on margin in front of them. If <code>SC_MARGINOPTION_SUBLINESELECT</code> is set only sub line of wrapped 
+    line is selected, otherwise whole wrapped line is selected. Margin options are set to 
+    <code>SC_MARGINOPTION_NONE</code>=0 by default.
     </p>
 
     <h2 id="Annotations">Annotations</h2>
@@ -3288,6 +3308,10 @@ struct Sci_TextToFind {
     markerSymbols)</a><br />
      <a class="message" href="#SCI_MARKERDEFINEPIXMAP">SCI_MARKERDEFINEPIXMAP(int markerNumber,
     const char *xpm)</a><br />
+     <a class="message" href="#SCI_RGBAIMAGESETWIDTH">SCI_RGBAIMAGESETWIDTH(int width)</a><br />
+     <a class="message" href="#SCI_RGBAIMAGESETHEIGHT">SCI_RGBAIMAGESETHEIGHT(int height)</a><br />
+     <a class="message" href="#SCI_MARKERDEFINERGBAIMAGE">SCI_MARKERDEFINERGBAIMAGE(int markerNumber,
+    const char *pixels)</a><br />
      <a class="message" href="#SCI_MARKERSYMBOLDEFINED">SCI_MARKERSYMBOLDEFINED(int markerNumber)
      </a><br />
      <a class="message" href="#SCI_MARKERSETFORE">SCI_MARKERSETFORE(int markerNumber, int
@@ -3468,16 +3492,24 @@ struct Sci_TextToFind {
 
     <p><b id="SCI_MARKERDEFINEPIXMAP">SCI_MARKERDEFINEPIXMAP(int markerNumber, const char
     *xpm)</b><br />
-     Markers can be set to pixmaps with this message. The XPM format is used for the pixmap and it
-    is limited to pixmaps that use one character per pixel with no named colours.
-    The transparent colour may be named 'None'.
-    The data should be null terminated.
-    Pixmaps use the <code>SC_MARK_PIXMAP</code> marker symbol. You can find descriptions of
-    the XPM format <a class="jump" href="http://en.wikipedia.org/wiki/X_PixMap">from here</a>.</p>
+     Markers can be set to pixmaps with this message. The 
+     <a class="jump" href="#XPM">XPM format</a> is used for the pixmap.
+    Pixmaps use the <code>SC_MARK_PIXMAP</code> marker symbol. </p>
+
+    <p>
+    <b id="SCI_RGBAIMAGESETWIDTH">SCI_RGBAIMAGESETWIDTH(int width)</b><br />
+    <b id="SCI_RGBAIMAGESETHEIGHT">SCI_RGBAIMAGESETHEIGHT(int height)</b><br />
+    <b id="SCI_MARKERDEFINERGBAIMAGE">SCI_MARKERDEFINERGBAIMAGE(int markerNumber, const char *pixels)</b><br />
+     Markers can be set to translucent pixmaps with this message. The 
+     <a class="jump" href="#RGBA">RGBA format</a> is used for the pixmap.
+     The width and height must previously been set with the <code>SCI_RGBAIMAGESETWIDTH</code> and 
+     <code>SCI_RGBAIMAGESETHEIGHT</code> messages.
+    Pixmaps use the <code>SC_MARK_RGBAIMAGE</code> marker symbol. </p>
 
     <p><b id="SCI_MARKERSYMBOLDEFINED">SCI_MARKERSYMBOLDEFINED(int markerNumber)</b><br />
      Returns the symbol defined for a markerNumber with <code>SCI_MARKERDEFINE</code>
-     or <code>SC_MARK_PIXMAP</code> if defined with <code>SCI_MARKERDEFINEPIXMAP</code>.</p>
+     or <code>SC_MARK_PIXMAP</code> if defined with <code>SCI_MARKERDEFINEPIXMAP</code>
+     or <code>SC_MARK_RGBAIMAGE</code> if defined with <code>SCI_MARKERDEFINERGBAIMAGE</code>.</p>
 
     <p><b id="SCI_MARKERSETFORE">SCI_MARKERSETFORE(int markerNumber, int <a class="jump"
     href="#colour">colour</a>)</b><br />
@@ -3613,7 +3645,7 @@ struct Sci_TextToFind {
 
           <td align="center">1</td>
 
-          <td>A squiggly underline.</td>
+          <td>A squiggly underline. Requires 3 pixels of descender space.</td>
         </tr>
 
         <tr>
@@ -3679,6 +3711,46 @@ struct Sci_TextToFind {
 			  <a class="message" href="#SCI_INDICSETOUTLINEALPHA">SCI_INDICSETOUTLINEALPHA</a>
               to control the alpha transparency values. The default alpha values are 30 for fill colour and 50 for outline colour.</td>
         </tr>
+
+        <tr>
+          <td align="left"><code>INDIC_DASH</code></td>
+
+          <td align="center">9</td>
+
+          <td>A dashed underline.</td>
+        </tr>
+
+        <tr>
+          <td align="left"><code>INDIC_DOTS</code></td>
+
+          <td align="center">10</td>
+
+          <td>A dotted underline.</td>
+        </tr>
+
+        <tr>
+          <td align="left"><code>INDIC_SQUIGGLELOW</code></td>
+
+          <td align="center">11</td>
+
+          <td>Similar to <code>INDIC_SQUIGGLE</code> but only using 2 vertical pixels
+	  so will fit under small fonts.</td>
+        </tr>
+
+        <tr>
+          <td align="left"><code>INDIC_DOTBOX</code></td>
+
+          <td align="center">12</td>
+
+          <td>A dotted rectangle around the text using translucent drawing.
+          Translucency alternates between the alpha and outline alpha settings with the top-left pixel using the alpha setting.
+              <a class="message" href="#SCI_INDICSETALPHA">SCI_INDICSETALPHA</a> and
+              <a class="message" href="#SCI_INDICSETOUTLINEALPHA">SCI_INDICSETOUTLINEALPHA</a>
+              control the alpha transparency values. The default values are 30 for alpha and 50 for outline alpha.
+              To avoid excessive memory allocation the maximum width of a dotted box is 4000 pixels.
+              Not available for OS X Carbon.</td>
+        </tr>
+
       </tbody>
     </table>
 
@@ -3841,7 +3913,8 @@ struct Sci_TextToFind {
      <a class="message" href="#SCI_AUTOCSETDROPRESTOFWORD">SCI_AUTOCSETDROPRESTOFWORD(bool
     dropRestOfWord)</a><br />
      <a class="message" href="#SCI_AUTOCGETDROPRESTOFWORD">SCI_AUTOCGETDROPRESTOFWORD</a><br />
-     <a class="message" href="#SCI_REGISTERIMAGE">SCI_REGISTERIMAGE</a><br />
+     <a class="message" href="#SCI_REGISTERIMAGE">SCI_REGISTERIMAGE(int type, const char *xpmData)</a><br />
+     <a class="message" href="#SCI_REGISTERRGBAIMAGE">SCI_REGISTERRGBAIMAGE(int type, const char *pixels)</a><br />
      <a class="message" href="#SCI_CLEARREGISTEREDIMAGES">SCI_CLEARREGISTEREDIMAGES</a><br />
      <a class="message" href="#SCI_AUTOCSETTYPESEPARATOR">SCI_AUTOCSETTYPESEPARATOR(char separatorCharacter)</a><br />
      <a class="message" href="#SCI_AUTOCGETTYPESEPARATOR">SCI_AUTOCGETTYPESEPARATOR</a><br />
@@ -3954,6 +4027,7 @@ struct Sci_TextToFind {
 
     <p>
       <b id="SCI_REGISTERIMAGE">SCI_REGISTERIMAGE(int type, const char *xpmData)</b><br />
+      <b id="SCI_REGISTERRGBAIMAGE">SCI_REGISTERRGBAIMAGE(int type, const char *pixels)</b><br />
       <b id="SCI_CLEARREGISTEREDIMAGES">SCI_CLEARREGISTEREDIMAGES</b><br />
       <b id="SCI_AUTOCSETTYPESEPARATOR">SCI_AUTOCSETTYPESEPARATOR(char separatorCharacter)</b><br />
       <b id="SCI_AUTOCGETTYPESEPARATOR">SCI_AUTOCGETTYPESEPARATOR</b><br />
@@ -3961,8 +4035,11 @@ struct Sci_TextToFind {
       Autocompletion list items may display an image as well as text. Each image is first registered with an integer
       type. Then this integer is included in the text of the list separated by a '?' from the text. For example,
       "fclose?2 fopen" displays image 2 before the string "fclose" and no image before "fopen".
-      The images are in XPM format as is described for
-      <a class="message" href="#SCI_MARKERDEFINEPIXMAP"><code>SCI_MARKERDEFINEPIXMAP</code></a>
+      The images are in either the <a class="jump" href="#XPM">XPM format</a> (<code>SCI_REGISTERIMAGE</code>) or 
+      <a class="jump" href="#RGBA">RGBA format</a> (<code>SCI_REGISTERRGBAIMAGE</code>).
+      For <code>SCI_REGISTERRGBAIMAGE</code> the width and height must previously been set with
+      the <a class="message" href="#SCI_RGBAIMAGESETWIDTH"><code>SCI_RGBAIMAGESETWIDTH</code></a> and 
+      <a class="message" href="#SCI_RGBAIMAGESETHEIGHT"><code>SCI_RGBAIMAGESETHEIGHT</code></a> messages.
       The set of registered images can be cleared with <code>SCI_CLEARREGISTEREDIMAGES</code> and the '?' separator changed
       with <code>SCI_AUTOCSETTYPESEPARATOR</code>.
     </p>
@@ -4208,7 +4285,7 @@ struct Sci_TextToFind {
 
           <td><code>SCI_HOMEEXTEND</code></td>
 
-          <td><code>[SCI_HOMERECTEXTEND]</code></td>
+          <td><code>SCI_HOMERECTEXTEND</code></td>
         </tr>
 
         <tr>
@@ -4356,6 +4433,12 @@ struct Sci_TextToFind {
 
           <td><code>SCI_MOVESELECTEDLINESDOWN</code></td>
         </tr>
+
+        <tr>
+          <td><code>SCI_SCROLLTOSTART</code></td>
+
+          <td><code>SCI_SCROLLTOEND</code></td>
+        </tr>
      </tbody>
     </table>
 
@@ -4368,7 +4451,7 @@ struct Sci_TextToFind {
     capitalisation (aCamelCaseIdentifier) or underscores (an_under_bar_ident).</p>
 
     <p>The <code>SCI_HOME*</code> commands move the caret to the start of the line, while the
-    <code>SCI_VCHOME*</code>commands move the caret to the first non-blank character of the line
+    <code>SCI_VCHOME*</code> commands move the caret to the first non-blank character of the line
     (ie. just after the indentation) unless it is already there; in this case, it acts as SCI_HOME*.</p>
 
     <p>The <code>SCI_[HOME|LINEEND]DISPLAY*</code> commands are used when in line wrap mode to
@@ -4380,6 +4463,12 @@ struct Sci_TextToFind {
      They go first to the start / end of the display line, like <code>SCI_[HOME|LINEEND]DISPLAY*</code>,
      but if the cursor is already at the point, it goes on to the start or end of the document line,
      as appropriate for <code>SCI_[[VC]HOME|LINEEND]*</code>.
+     </p>
+
+    <p>The <code>SCI_SCROLLTO[START|END]</code> commands scroll the document to the start
+    or end without changing the selection. These commands match OS X platform conventions for the behaviour of the
+    <code>home</code> and <code>end</code> keys. Scintilla can be made to match OS X applications
+    by binding the <code>home</code> and <code>end</code> keys to these commands.
      </p>
 
     <h2 id="KeyBindings">Key bindings</h2>
@@ -4414,7 +4503,10 @@ struct Sci_TextToFind {
     <code>SCK_WIN</code>.</p>
 
     <p>The modifiers are a combination of zero or more of <code>SCMOD_ALT</code>,
-    <code>SCMOD_CTRL</code>, and <code>SCMOD_SHIFT</code>. If you are building a table, you might
+    <code>SCMOD_CTRL</code>, <code>SCMOD_SHIFT</code>, and <code>SCMOD_META</code>.
+    On OS X, the Command key is mapped to <code>SCMOD_CTRL</code> and the Control key to 
+    <code>SCMOD_META</code>.
+    If you are building a table, you might
     want to use <code>SCMOD_NORM</code>, which has the value 0, to mean no modifiers.</p>
 
     <p><b id="SCI_ASSIGNCMDKEY">SCI_ASSIGNCMDKEY(int <a class="jump"
@@ -5803,11 +5895,12 @@ struct SCNotification {
     </code>
 
     <p>The following <code>SCI_*</code> messages are associated with these notifications:</p>
-    <code><a class="message" href="#SCI_SETMODEVENTMASK">SCI_SETMODEVENTMASK(int
-    eventMask)</a><br />
+    <code><a class="message" href="#SCI_SETMODEVENTMASK">SCI_SETMODEVENTMASK(int eventMask)</a><br />
      <a class="message" href="#SCI_GETMODEVENTMASK">SCI_GETMODEVENTMASK</a><br />
-     <a class="message" href="#SCI_SETMOUSEDWELLTIME">SCI_SETMOUSEDWELLTIME</a><br />
+     <a class="message" href="#SCI_SETMOUSEDWELLTIME">SCI_SETMOUSEDWELLTIME(int milliseconds)</a><br />
      <a class="message" href="#SCI_GETMOUSEDWELLTIME">SCI_GETMOUSEDWELLTIME</a><br />
+     <a class="message" href="#SCI_SETIDENTIFIER">SCI_SETIDENTIFIER(int identifier)</a><br />
+     <a class="message" href="#SCI_GETIDENTIFIER">SCI_GETIDENTIFIER</a><br />
     </code>
 
     <p>The following additional notifications are sent using the <code>WM_COMMAND</code> message on
@@ -5817,6 +5910,17 @@ struct SCNotification {
      <a class="message" href="#SCEN_SETFOCUS">SCEN_SETFOCUS</a><br />
      <a class="message" href="#SCEN_KILLFOCUS">SCEN_KILLFOCUS</a><br />
     </code>
+
+    <p><b id="SCI_SETIDENTIFIER">SCI_SETIDENTIFIER(int identifier)</b><br />
+     <b id="SCI_GETIDENTIFIER">SCI_GETIDENTIFIER</b><br />
+     These two messages set and get the identifier of the Scintilla instance which is included in notifications as the 
+     <code>idFrom</code> field. 
+     When an application creates multiple Scintilla widgets, this allows the source of each notification to be found.
+     On Windows, this value is initialised in the <code>CreateWindow</code> call and stored as the 
+     <code>GWLP_ID</code> attribute of the window. 
+     The value should be small, preferrably less than 16 bits,
+     rather than a pointer as some of the functions will only transmit 16 or 32 bits.
+    </p>
 
     <p><b id="SCN_STYLENEEDED">SCN_STYLENEEDED</b><br />
      If you used <code><a class="message"
@@ -6461,7 +6565,7 @@ for line = lineStart to lineEnd do SCI_ENSUREVISIBLE(line) next
     </table>
     <br />
 
-    <p><b id="SCI_SETMOUSEDWELLTIME">SCI_SETMOUSEDWELLTIME</b><br />
+    <p><b id="SCI_SETMOUSEDWELLTIME">SCI_SETMOUSEDWELLTIME(int milliseconds)</b><br />
      <b id="SCI_GETMOUSEDWELLTIME">SCI_GETMOUSEDWELLTIME</b><br />
      These two messages set and get the time the mouse must sit still, in milliseconds, to generate
     a <code><a class="message" href="#SCN_DWELLSTART">SCN_DWELLSTART</a></code> notification. If
@@ -6538,6 +6642,55 @@ for line = lineStart to lineEnd do SCI_ENSUREVISIBLE(line) next
     <p><b id="SCN_AUTOCCHARDELETED">SCN_AUTOCCHARDELETED</b><br />
      The user deleted a character while autocompletion list was active.
      There is no other information in SCNotification.</p>
+     
+    <h2 id="Images">Images</h2>
+    
+    <p>Two formats are supported for images used in margin markers and autocompletion lists, RGBA and XPM.</p>
+
+    <h3 id="RGBA">RGBA</h3>
+    
+    <p>The RGBA format allows translucency with an <a class="jump" href="#alpha">alpha</a>
+    value for each pixel. It is simpler than
+    <code>XPM</code> and more capable.</p>
+    
+    <p>The data is a sequence of 4 byte pixel values starting with the pixels for the top line, with the
+    leftmost pixel first, then continuing with the pixels for subsequent lines. There is no gap between
+    lines for alignment reasons.</p>
+
+    <p>Each pixel consists of, in order, a red byte, a green byte, a blue byte and an alpha byte.
+    The colour bytes are not premultiplied by the alpha value. That is, a fully red pixel that is
+    25% opaque will be [FF, 00, 00, 3F]</p>
+
+    <p>Since the RGBA pixel data does not include any size information the 
+    width and height must previously been set with the 
+    <a class="message" href="#SCI_RGBAIMAGESETWIDTH"><code>SCI_RGBAIMAGESETWIDTH</code></a> and 
+    <a class="message" href="#SCI_RGBAIMAGESETHEIGHT"><code>SCI_RGBAIMAGESETHEIGHT</code></a> messages.</p>
+    
+    <p>GUI platforms often include functions for reading image file formats like PNG into memory
+    in the RGBA form or a similar form.
+    If there is no suitable platform support, the <a href="http://lodev.org/lodepng/">LodePNG and picoPNG</a> libraries are small libraries
+    for loading and decoding PNG files available under a BSD-style license.</p>
+    
+    <p>RGBA format is supported on Windows, GTK+ and OS X Cocoa.
+    It is not supported on OS X Carbon.</p>
+
+    <h3 id="XPM">XPM</h3>
+    
+    <p>The XPM format is 
+    <a class="jump" href="http://en.wikipedia.org/wiki/X_PixMap">described here</a>. 
+    Scintilla is only able to handle XPM pixmaps that use one character per pixel with no named colours.
+    There may be a completely transparent colour named "None".</p>
+    <p>There are two forms of data structure used for XPM images, the first "lines form" format is well suited
+    to embedding an image inside C source code and the "text form" is suited to reading from a file.
+    In the lines form, an array of strings is used with the first string indicating the dimensions and number of colours
+    used. This is followed by a string for each colour and that section is followed by the image with one string per line.
+    The text form contains the same data as one null terminated block formatted as C source code starting
+    with a "/* XPM */" comment to mark the format.</p>
+    <p>Either format may be used with Scintilla APIs with the bytes at the location pointed to examined
+    to determine which format: if the bytes start with "/* XPM */" then it is treated as text form,
+    otherwise it is treated as lines form.</p>
+
+    <p>XPM format is supported on on all platforms.</p>
 
     <h2 id="GTK">GTK+</h2>
     <p>On GTK+, the following functions create a Scintilla widget, communicate with it and allow
@@ -6554,9 +6707,8 @@ for line = lineStart to lineEnd do SCI_ENSUREVISIBLE(line) next
 
     <p><b id="scintilla_set_id">void scintilla_set_id(ScintillaObject *sci, uptr_t id)</b><br />
     Set the control ID which will be used in the idFrom field of the NotifyHeader structure of all
-    notifications for this instance. When an application creates multiple Scintilla widgets, this allows
-    the source of each notification to be found. The value should be small, preferrably less than 16 bits,
-    rather than a pointer as some of the functions will only transmit 16 or 32 bits.</p>
+    notifications for this instance.
+    This is equivalent to <a class="message" href="#SCI_SETIDENTIFIER">SCI_SETIDENTIFIER</a>.</p>
 
     <p><b id="scintilla_send_message">sptr_t scintilla_send_message(ScintillaObject *sci,unsigned int iMessage, uptr_t wParam, sptr_t lParam)</b><br />
     The main entry point allows sending any of the messages described in this document.</p>

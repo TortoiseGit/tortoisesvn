@@ -21,7 +21,7 @@ CC=cl
 RC=rc
 LD=link
 
-CXXFLAGS=-Zi -TP -W0 -EHsc -Zc:forScope -Zc:wchar_t -D_CRT_SECURE_NO_DEPRECATE=1
+CXXFLAGS=-Zi -TP -W4 -EHsc -Zc:forScope -Zc:wchar_t -D_CRT_SECURE_NO_DEPRECATE=1
 # For something scary:-Wp64
 CXXDEBUG=-Od -MTd -DDEBUG
 CXXNDEBUG=-O1 -MT -DNDEBUG -GL
@@ -455,7 +455,7 @@ $(DIR_O)\PerLine.obj: ../src/PerLine.cxx ../include/Platform.h \
   ../src/Partitioning.h ../src/RunStyles.h ../src/PerLine.h
 $(DIR_O)\PlatWin.obj: PlatWin.cxx ../include/Platform.h \
   ../src/UniConversion.h ../src/XPM.h
-$(DIR_O)\PositionCache.obj: ../src/Editor.cxx ../include/Platform.h ../include/Scintilla.h \
+$(DIR_O)\PositionCache.obj: ../src/PositionCache.cxx ../include/Platform.h ../include/Scintilla.h \
   ../src/ContractionState.h ../src/SVector.h ../src/SplitVector.h \
   ../src/Partitioning.h ../src/CellBuffer.h ../src/KeyMap.h \
   ../src/RunStyles.h ../src/Indicator.h ../src/XPM.h ../src/LineMarker.h \
