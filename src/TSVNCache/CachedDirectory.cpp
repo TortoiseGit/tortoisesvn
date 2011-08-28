@@ -552,7 +552,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
             {
                 // Since we only assume a none status here due to svn_client_status()
                 // returning an error, make sure that this status times out soon.
-                CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 2000);
+                CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 20);
                 CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath);
             }
             break;
