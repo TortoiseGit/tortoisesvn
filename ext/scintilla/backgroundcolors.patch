@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(Revision 21591)
+--- include/Scintilla.h	(Revision 21909)
 +++ include/Scintilla.h	(Arbeitskopie)
-@@ -904,6 +904,9 @@
+@@ -923,6 +923,9 @@
  #define SCN_AUTOCCANCELLED 2025
  #define SCN_AUTOCCHARDELETED 2026
  #define SCN_HOTSPOTRELEASECLICK 2027
@@ -14,9 +14,9 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(Revision 21591)
+--- src/Editor.cxx	(Revision 21909)
 +++ src/Editor.cxx	(Arbeitskopie)
-@@ -2773,6 +2773,17 @@
+@@ -2804,6 +2804,17 @@
  		}
  	}
  
@@ -36,29 +36,42 @@ Index: src/Editor.cxx
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(Revision 21591)
+--- src/Editor.h	(Revision 21909)
 +++ src/Editor.h	(Arbeitskopie)
-@@ -423,6 +423,7 @@
- 	virtual void NotifyFocus(bool focus);
+@@ -426,6 +426,7 @@
+ 	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID() { return ctrlID; }
  	virtual void NotifyParent(SCNotification scn) = 0;
 +	virtual void NotifyParent(SCNotification * scn) = 0;
  	virtual void NotifyStyleToNeeded(int endStyleNeeded);
  	void NotifyChar(int ch);
  	void NotifySavePoint(bool isSavePoint);
+Index: win32/scintilla.mak
+===================================================================
+--- win32/scintilla.mak	(Revision 21909)
++++ win32/scintilla.mak	(Arbeitskopie)
+@@ -21,7 +21,7 @@
+ RC=rc
+ LD=link
+ 
+-CXXFLAGS=-Zi -TP -W4 -EHsc -Zc:forScope -Zc:wchar_t -D_CRT_SECURE_NO_DEPRECATE=1
++CXXFLAGS=-Zi -TP -W0 -EHsc -Zc:forScope -Zc:wchar_t -D_CRT_SECURE_NO_DEPRECATE=1
+ # For something scary:-Wp64
+ CXXDEBUG=-Od -MTd -DDEBUG
+ CXXNDEBUG=-O1 -MT -DNDEBUG -GL
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(Revision 21591)
+--- win32/ScintillaWin.cxx	(Revision 21909)
 +++ win32/ScintillaWin.cxx	(Arbeitskopie)
-@@ -213,6 +213,7 @@
- 	virtual void NotifyFocus(bool focus);
+@@ -238,6 +238,7 @@
+ 	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID();
  	virtual void NotifyParent(SCNotification scn);
 +	virtual void NotifyParent(SCNotification * scn);
  	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
-@@ -1289,6 +1290,13 @@
+@@ -1318,6 +1319,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
