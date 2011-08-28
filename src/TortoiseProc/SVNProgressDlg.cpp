@@ -2478,6 +2478,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     if (!m_changelist.IsEmpty())
         changelists.Add(m_changelist);
     bool commitSuccessful = true;
+    CBlockCacheForPath cacheBlock (m_targetPathList.GetCommonRoot().GetWinPath());
     if (!Commit(m_targetPathList, m_sMessage, changelists, m_keepchangelist,
         m_depth, (m_options & ProgOptKeeplocks) != 0, m_revProps))
     {
@@ -2636,6 +2637,7 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
     if (SVNInfo::IsFile (m_url, m_Revision))
         targetPath.AppendPathString (m_url.GetFilename());
 
+    CBlockCacheForPath cacheBlock (targetPath.GetWinPath());
     if (!Export(m_url, targetPath, m_Revision, m_Revision, true, (m_options & ProgOptIgnoreExternals) != 0, (m_options & ProgOptIgnoreKeywords) != 0, m_depth, NULL, false, eol))
     {
         ReportSVNError();
@@ -3142,6 +3144,7 @@ bool CSVNProgressDlg::CmdRevert(CString& sWindowTitle, bool& localoperation)
         delList.DeleteAllPaths(true, true);
 
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_REVERT)));
+    CBlockCacheForPath cacheBlock (m_targetPathList.GetCommonRoot().GetWinPath());
     if (!Revert(m_targetPathList, CStringArray(), (m_options & ProgOptRecursive)!=0))
     {
         ReportSVNError();
