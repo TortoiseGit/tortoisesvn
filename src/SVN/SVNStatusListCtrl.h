@@ -962,6 +962,7 @@ private:
     void RemoveListEntries(const std::vector<int>& indices);
     CString BuildIgnoreList(const CString& fileOrDirectoryName,
         SVNProperties& properties, const CString& ignoreProperty);
+    void OnRepairMove();
 
     virtual void PreSubclassWindow();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
