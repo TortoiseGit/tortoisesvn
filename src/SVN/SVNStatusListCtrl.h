@@ -963,6 +963,8 @@ private:
     CString BuildIgnoreList(const CString& fileOrDirectoryName,
         SVNProperties& properties, const CString& ignoreProperty);
     void OnRepairMove();
+    void OnRepairCopy();
+    void SendNeedsRefresh();
 
     virtual void PreSubclassWindow();
     virtual BOOL PreTranslateMessage(MSG* pMsg);

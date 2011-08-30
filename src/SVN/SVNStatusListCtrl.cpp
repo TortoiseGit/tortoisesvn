@@ -2559,11 +2559,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             if ( fentry->IsFolder() )
             {
                 // refresh!
-                CWnd* pParent = GetParent();
-                if (NULL != pParent && NULL != pParent->GetSafeHwnd())
-                {
-                    pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
-                }
+                 SendNeedsRefresh();
                 break;
             }
 
@@ -3090,11 +3086,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         // properties recursively, we don't really know
                         // which items have changed their status.
                         // So tell the parent to do a refresh.
-                        CWnd* pParent = GetParent();
-                        if (NULL != pParent && NULL != pParent->GetSafeHwnd())
-                        {
-                            pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
-                        }
+                        SendNeedsRefresh();
                     }
                 }
                 break;
@@ -3224,11 +3216,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     dlg.SetPathList(targetList);
                     dlg.DoModal();
                     // refresh!
-                    CWnd* pParent = GetParent();
-                    if (NULL != pParent && NULL != pParent->GetSafeHwnd())
-                    {
-                        pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
-                    }
+                    SendNeedsRefresh();
                 }
                 break;
             case IDSVNLC_LOG:
@@ -3732,11 +3720,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         progDlg.DoModal();
 
                         // refresh!
-                        CWnd* pParent = GetParent();
-                        if (NULL != pParent && NULL != pParent->GetSafeHwnd())
-                        {
-                            pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
-                        }
+                        SendNeedsRefresh();
                     }
                 }
                 break;
@@ -3763,11 +3747,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         progDlg.SetCommitMessage(inpDlg.GetLogMessage());
                         progDlg.DoModal();
                         // refresh!
-                        CWnd* pParent = GetParent();
-                        if (NULL != pParent && NULL != pParent->GetSafeHwnd())
-                        {
-                            pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
-                        }
+                        SendNeedsRefresh();
                     }
                 }
                 break;
@@ -3783,96 +3763,14 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     progDlg.SetPathList(itemsToUnlock);
                     progDlg.DoModal();
                     // refresh!
-                    CWnd* pParent = GetParent();
-                    if (NULL != pParent && NULL != pParent->GetSafeHwnd())
-                    {
-                        pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
-                    }
+                    SendNeedsRefresh();
                 }
                 break;
             case IDSVNLC_REPAIRMOVE:
                 OnRepairMove();
                 break;
             case IDSVNLC_REPAIRCOPY:
-                {
-                    POSITION pos = GetFirstSelectedItemPosition();
-                    int index = GetNextSelectedItem(pos);
-                    if (index >= 0)
-                    {
-                        FileEntry * entry1 = GetListEntry(index);
-                        if (entry1)
-                        {
-                            index = GetNextSelectedItem(pos);
-                            if (index >= 0)
-                            {
-                                FileEntry * entry2 = GetListEntry(index);
-                                if (entry2)
-                                {
-                                    svn_wc_status_kind status2 = entry2->status;
-                                    if (status2 != svn_wc_status_unversioned && status2 != svn_wc_status_none)
-                                    {
-                                        std::swap(entry1, entry2);
-                                    }
-                                    // entry2 was copied from entry1 but outside of Subversion
-                                    // fix this by moving entry2 out of the way, copy entry1 to entry2
-                                    // and finally move entry2 back over the copy of entry1, overwriting
-                                    // it.
-                                    CString tempfile = entry2->GetPath().GetWinPathString() + _T(".tsvntemp");
-                                    if (MoveFile(entry2->GetPath().GetWinPath(), tempfile))
-                                    {
-                                        SVN svn;
-                                        // now make sure that the target folder is versioned
-                                        CTSVNPath parentPath = entry2->GetPath().GetContainingDirectory();
-                                        FileEntry * parentEntry = GetListEntry(parentPath);
-                                        while (parentEntry && parentEntry->inunversionedfolder)
-                                        {
-                                            parentPath = parentPath.GetContainingDirectory();
-                                            parentEntry = GetListEntry(parentPath);
-                                        }
-                                        if (!parentPath.IsEquivalentTo(entry2->GetPath().GetContainingDirectory()))
-                                        {
-                                            ProjectProperties props;
-                                            props.ReadPropsPathList(CTSVNPathList(entry1->GetPath()));
-
-                                            svn.Add(CTSVNPathList(entry2->GetPath().GetContainingDirectory()), &props, svn_depth_empty, true, true, false, true);
-                                        }
-                                        if (!svn.Copy(CTSVNPathList(entry1->GetPath()), entry2->GetPath(), SVNRev(), SVNRev()))
-                                        {
-                                            MoveFile(tempfile, entry2->GetPath().GetWinPath());
-                                            svn.ShowErrorDialog(m_hWnd, entry1->GetPath());
-                                        }
-                                        else
-                                        {
-                                            if (MoveFileEx(tempfile, entry2->GetPath().GetWinPath(), MOVEFILE_COPY_ALLOWED|MOVEFILE_REPLACE_EXISTING))
-                                            {
-                                                CAutoWriteLock locker(m_guard);
-                                                // check the previously unversioned item
-                                                entry1->checked = true;
-                                                // fixing the move was successful. We have to adjust the new status of the
-                                                // files.
-                                                // Since we don't know if the moved/renamed file had local modifications or not,
-                                                // we can't guess the new status. That means we have to refresh...
-                                                CWnd* pParent = GetParent();
-                                                if (NULL != pParent && NULL != pParent->GetSafeHwnd())
-                                                {
-                                                    pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
-                                                }
-                                            }
-                                            else
-                                            {
-                                                ShowErrorMessage();
-                                            }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        ShowErrorMessage();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                OnRepairCopy();
                 break;
             case IDSVNLC_REMOVEFROMCS:
                 {
@@ -5830,12 +5728,91 @@ void CSVNStatusListCtrl::OnRepairMove()
         // files.
         // Since we don't know if the moved/renamed file had local modifications or not,
         // we can't guess the new status. That means we have to refresh...
-        CWnd* pParent = GetParent();
-        if (NULL != pParent && NULL != pParent->GetSafeHwnd())
-        {
-            pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
-        }
+        SendNeedsRefresh();
     }
+}
+
+void CSVNStatusListCtrl::OnRepairCopy()
+{
+    POSITION pos = GetFirstSelectedItemPosition();
+    int index = GetNextSelectedItem(pos);
+    if (index < 0)
+        return;
+
+    FileEntry * entry1 = GetListEntry(index);
+    if (entry1 ==0)
+        return;
+
+    index = GetNextSelectedItem(pos);
+    if (index < 0)
+        return;
+
+    FileEntry * entry2 = GetListEntry(index);
+    if (entry2 ==0)
+        return;
+
+    svn_wc_status_kind status2 = entry2->status;
+    if (status2 != svn_wc_status_unversioned && status2 != svn_wc_status_none)
+    {
+        std::swap(entry1, entry2);
+    }
+    // entry2 was copied from entry1 but outside of Subversion
+    // fix this by moving entry2 out of the way, copy entry1 to entry2
+    // and finally move entry2 back over the copy of entry1, overwriting
+    // it.
+    CString tempfile = entry2->GetPath().GetWinPathString() + _T(".tsvntemp");
+    if (!MoveFile(entry2->GetPath().GetWinPath(), tempfile))
+    {
+        ShowErrorMessage();
+        return;
+    }
+
+    SVN svn;
+    // now make sure that the target folder is versioned
+    CTSVNPath parentPath = entry2->GetPath().GetContainingDirectory();
+    FileEntry * parentEntry = GetListEntry(parentPath);
+    while (parentEntry && parentEntry->inunversionedfolder)
+    {
+        parentPath = parentPath.GetContainingDirectory();
+        parentEntry = GetListEntry(parentPath);
+    }
+    if (!parentPath.IsEquivalentTo(entry2->GetPath().GetContainingDirectory()))
+    {
+        ProjectProperties props;
+        props.ReadPropsPathList(CTSVNPathList(entry1->GetPath()));
+        svn.Add(CTSVNPathList(entry2->GetPath().GetContainingDirectory()), &props, svn_depth_empty, true, true, false, true);
+    }
+    if (!svn.Copy(CTSVNPathList(entry1->GetPath()), entry2->GetPath(), SVNRev(), SVNRev()))
+    {
+        MoveFile(tempfile, entry2->GetPath().GetWinPath());
+        svn.ShowErrorDialog(m_hWnd, entry1->GetPath());
+        return;
+    }
+    if (MoveFileEx(tempfile, entry2->GetPath().GetWinPath(), MOVEFILE_COPY_ALLOWED|MOVEFILE_REPLACE_EXISTING))
+    {
+        CAutoWriteLock locker(m_guard);
+        // check the previously unversioned item
+        entry1->checked = true;
+        // fixing the move was successful. We have to adjust the new status of the
+        // files.
+        // Since we don't know if the moved/renamed file had local modifications or not,
+        // we can't guess the new status. That means we have to refresh...
+        SendNeedsRefresh();
+    }
+    else
+    {
+        ShowErrorMessage();
+    }
+}
+
+void CSVNStatusListCtrl::SendNeedsRefresh()
+{
+    CWnd* pParent = GetParent();
+    if (pParent==0)
+        return;
+    if (pParent->GetSafeHwnd() == 0)
+        return;
+    pParent->SendMessage(SVNSLNM_NEEDSREFRESH);
 }
 
 void CSVNStatusListCtrl::ClearSortsFromHeaders()
