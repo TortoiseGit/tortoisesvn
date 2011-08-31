@@ -68,6 +68,8 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
 const UINT CSVNStatusListCtrl::SVNSLNM_CHANGELISTCHANGED
                     = ::RegisterWindowMessage(_T("SVNSLNM_CHANGELISTCHANGED"));
 
+const static CString svnPropIgnore (SVN_PROP_IGNORE);
+
 #define IDSVNLC_REVERT           1
 #define IDSVNLC_COMPARE          2
 #define IDSVNLC_OPEN             3
@@ -2611,8 +2613,6 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
 
 void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
 {
-    const static CString svnPropIgnore (SVN_PROP_IGNORE);
-
     bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
 
     CAutoReadWeakLock readLock(m_guard);
@@ -3608,7 +3608,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
                 break;
             default:
-                OnContextMenuListDefault(cmd, filepath);
+                OnContextMenuListDefault(entry, cmd, filepath);
                 break;
             } // switch (cmd)
             m_bWaitCursor = false;
@@ -5447,10 +5447,10 @@ void CSVNStatusListCtrl::OnIgnoreMask(const CTSVNPath& filepath)
                         }
                     }
                 }
+                if (m_bIgnoreRemoveOnly)
+                    continue;
+                AddEntryOnIgnore(parentFolder, basepath);
             }
-            if (m_bIgnoreRemoveOnly)
-                continue;
-            AddEntryOnIgnore(parentFolder, basepath, s);
         }
         RemoveListEntries(toremove);
     }
@@ -5463,10 +5463,11 @@ void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path)
     std::vector<CString> toremove;
     FillListOfSelectedItemPaths(ignorelist, true);
     if (ignorelist.GetCount() == 0)
-        ignorelist.AddPath(filepath);
+        ignorelist.AddPath(path);
     {
         CAutoWriteLock locker(m_guard);
         SetRedraw(FALSE);
+        int selIndex = -1;
         for (int j=0; j<ignorelist.GetCount(); ++j)
         {
             int nListboxEntries = GetItemCount();
@@ -5520,14 +5521,14 @@ void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path)
 
             if (m_bIgnoreRemoveOnly)
                 continue;
-            AddEntryOnIgnore(parentfolder);
+            AddEntryOnIgnore(parentfolder, basepath);
         }
         RemoveListEntries(toremove);
     }
     SetRedraw(TRUE);
 }
 
-void AddEntryOnIgnore(const CTSVNPath& parentFolder)
+void CSVNStatusListCtrl::AddEntryOnIgnore(const CTSVNPath& parentFolder, const CTSVNPath& basepath)
 {
     SVNStatus status;
     CTSVNPath svnPath;
@@ -5715,7 +5716,7 @@ void CSVNStatusListCtrl::OnRepairCopy()
     }
 }
 
-void CSVNStatusListCtrl::OnContextMenuListDefault(int command, const CTSVNPath& filepath)
+void CSVNStatusListCtrl::OnContextMenuListDefault(FileEntry * entry, int command, const CTSVNPath& filepath)
 {
     if (command < IDSVNLC_MOVETOCS)
         return;
@@ -5735,7 +5736,7 @@ void CSVNStatusListCtrl::OnContextMenuListDefault(int command, const CTSVNPath& 
         {
             if ((it->first.Compare(SVNSLC_IGNORECHANGELIST))&&(entry->changelist.Compare(it->first)))
             {
-                if (cmd == cmdID)
+                if (command == cmdID)
                 {
                     sChangelist = it->first;
                 }

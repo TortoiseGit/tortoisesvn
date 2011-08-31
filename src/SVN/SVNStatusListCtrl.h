@@ -964,10 +964,10 @@ private:
         SVNProperties& properties, const CString& ignoreProperty);
     void OnIgnoreMask(const CTSVNPath& path);
     void OnIgnore(const CTSVNPath& path);
-    void AddEntryOnIgnore(const CTSVNPath& parentFolder);
+    void AddEntryOnIgnore(const CTSVNPath& parentFolder, const CTSVNPath& basepath);
     void OnRepairMove();
     void OnRepairCopy();
-    void OnContextMenuListDefault(int command, const CTSVNPath& path);
+    void OnContextMenuListDefault(FileEntry * entry, int command, const CTSVNPath& path);
     void SendNeedsRefresh();
 
     virtual void PreSubclassWindow();
