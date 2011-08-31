@@ -1924,6 +1924,8 @@ CTSVNPath SVN::GetWCRootFromPath(const CTSVNPath& path)
     Err = NULL;
     SVNPool subpool(pool);
     const char* svnPath = path.GetSVNApiPath(subpool);
+    if (svn_path_is_url(svnPath))
+        return CTSVNPath();
     SVNTRACE (
         Err = svn_client_get_wc_root (&wcroot, svnPath, m_pctx, subpool, subpool),
         svnPath
