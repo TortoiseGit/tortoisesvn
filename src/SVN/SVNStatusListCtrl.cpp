@@ -3337,232 +3337,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 Delete (filepath, selIndex);
                 break;
             case IDSVNLC_IGNOREMASK:
-                {
-                    CString name = _T("*")+filepath.GetFileExtension();
-                    CTSVNPathList ignorelist;
-                    FillListOfSelectedItemPaths(ignorelist, true);
-                    if (ignorelist.GetCount() == 0)
-                        ignorelist.AddPath(filepath);
-                    std::set<CTSVNPath> parentlist;
-                    for (int i=0; i<ignorelist.GetCount(); ++i)
-                    {
-                        parentlist.insert(ignorelist[i].GetContainingDirectory());
-                    }
-                    std::set<CTSVNPath>::iterator it;
-                    std::vector<CString> toremove;
-                    {
-                        CAutoWriteLock locker(m_guard);
-                        SetRedraw(FALSE);
-                        for (it = parentlist.begin(); it != parentlist.end(); ++it)
-                        {
-                            CTSVNPath parentFolder = (*it).GetDirectory();
-                            SVNProperties props(parentFolder, SVNRev::REV_WC, false);
-                            CString value = BuildIgnoreList( name, props, svnPropIgnore );
-                            if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
-                            {
-                                CString temp;
-                                temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
-                                ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-                                continue;
-                            }
-                            
-                            CTSVNPath basepath;
-                            int nListboxEntries = GetItemCount();
-                            for (int i=0; i<nListboxEntries; ++i)
-                            {
-                                FileEntry * entry2 = GetListEntry(i);
-                                ASSERT(entry2 != NULL);
-                                if (entry2 == NULL)
-                                    continue;
-                                if (basepath.IsEmpty())
-                                    basepath = entry2->basepath;
-                                // since we ignored files with a mask (e.g. *.exe)
-                                // we have to find find all files in the same
-                                // folder (IsAncestorOf() returns TRUE for _all_ children,
-                                // not just the immediate ones) which match the
-                                // mask and remove them from the list too.
-                                if ((entry2->status == svn_wc_status_unversioned)&&(parentFolder.IsAncestorOf(entry2->path)))
-                                {
-                                    CString f = entry2->path.GetSVNPathString();
-                                    if (f.Mid(parentFolder.GetSVNPathString().GetLength()).ReverseFind('/')<=0)
-                                    {
-                                        if (CStringUtils::WildCardMatch(name, f))
-                                        {
-                                            if (GetCheck(i))
-                                                m_nSelected--;
-                                            m_nTotal--;
-                                            toremove.push_back(f);
-                                        }
-                                    }
-                                }
-                            }
-                            if (m_bIgnoreRemoveOnly)
-                                continue;
-
-                            SVNStatus status;
-                            CTSVNPath svnPath;
-                            svn_client_status_t * s = status.GetFirstFileStatus(parentFolder, svnPath, false, svn_depth_empty);
-                            if (s==0)
-                                continue;
-
-                            // first check if the folder isn't already present in the list
-                            bool bFound = false;
-                            for (int i=0; i<nListboxEntries; ++i)
-                            {
-                                FileEntry * entry2 = GetListEntry(i);
-                                if (entry2->path.IsEquivalentTo(svnPath))
-                                {
-                                    bFound = true;
-                                    break;
-                                }
-                            }
-                            if (bFound)
-                                continue;
-
-                            FileEntry * newEntry = new FileEntry();
-                            newEntry->path = svnPath;
-                            newEntry->basepath = basepath;
-                            newEntry->status = s->node_status;
-                            newEntry->textstatus = s->text_status;
-                            newEntry->propstatus = s->prop_status;
-                            newEntry->remotestatus = s->repos_node_status;
-                            newEntry->remotetextstatus = s->repos_text_status;
-                            newEntry->remotepropstatus = s->repos_prop_status;
-                            newEntry->inunversionedfolder = false;
-                            newEntry->checked = true;
-                            newEntry->inexternal = false;
-                            newEntry->direct = false;
-                            newEntry->isfolder = true;
-                            newEntry->last_commit_date = 0;
-                            newEntry->last_commit_rev = 0;
-                            newEntry->remoterev = 0;
-                            if (s->repos_relpath)
-                            {
-                                newEntry->url = CPathUtils::PathUnescape(s->repos_relpath);
-                            }
-                            m_arStatusArray.push_back(newEntry);
-                            m_arListArray.push_back(m_arStatusArray.size()-1);
-                            AddEntry(newEntry, GetItemCount());
-                        }
-                        RemoveListEntries(toremove);
-                    }
-                    SetRedraw(TRUE);
-                }
+                OnIgnoreMask(filepath);
                 break;
             case IDSVNLC_IGNORE:
-                {
-                    CTSVNPathList ignorelist;
-                    std::vector<CString> toremove;
-                    FillListOfSelectedItemPaths(ignorelist, true);
-                    if (ignorelist.GetCount() == 0)
-                        ignorelist.AddPath(filepath);
-                    {
-                        CAutoWriteLock locker(m_guard);
-                        SetRedraw(FALSE);
-                        for (int j=0; j<ignorelist.GetCount(); ++j)
-                        {
-                            int nListboxEntries = GetItemCount();
-                            for (int i=0; i<nListboxEntries; ++i)
-                            {
-                                if (GetListEntry(i)->GetPath().IsEquivalentTo(ignorelist[j]))
-                                {
-                                    selIndex = i;
-                                    break;
-                                }
-                            }
-                            CString name = CPathUtils::PathPatternEscape(ignorelist[j].GetFileOrDirectoryName());
-                            CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
-                            SVNProperties props(parentfolder, SVNRev::REV_WC, false);
-                            CString value = BuildIgnoreList(name, props, svnPropIgnore );
-                            if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
-                            {
-                                CString temp;
-                                temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
-                                ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
-                                break;
-                            }
-                            if (GetCheck(selIndex))
-                                m_nSelected--;
-                            m_nTotal--;
-
-                            // now, if we ignored a folder, remove all its children
-                            if (ignorelist[j].IsDirectory())
-                            {
-                                for (int i=0; i<(int)m_arListArray.size(); ++i)
-                                {
-                                    FileEntry * entry2 = GetListEntry(i);
-                                    if (entry2->status != svn_wc_status_unversioned)
-                                        continue;
-                                    if (ignorelist[j].IsEquivalentTo(entry2->GetPath()) || !(ignorelist[j].IsAncestorOf(entry2->GetPath())))
-                                        continue;
-
-                                    entry2->status = svn_wc_status_ignored;
-                                    entry2->textstatus = svn_wc_status_ignored;
-                                    if (GetCheck(i))
-                                        m_nSelected--;
-                                    toremove.push_back(entry2->GetPath().GetSVNPathString());
-                                }
-                            }
-
-                            CTSVNPath basepath = m_arStatusArray[m_arListArray[selIndex]]->basepath;
-
-                            FileEntry * entry2 = m_arStatusArray[m_arListArray[selIndex]];
-                            if ( entry2->status == svn_wc_status_unversioned ) // keep "deleted" items
-                                toremove.push_back(entry2->GetPath().GetSVNPathString());
-
-                            if (!m_bIgnoreRemoveOnly)
-                            {
-                                SVNStatus status;
-                                CTSVNPath svnPath;
-                                svn_client_status_t * s = status.GetFirstFileStatus(parentfolder, svnPath, false, svn_depth_empty);
-                                if (s!=0)
-                                {
-                                    // first check if the folder isn't already present in the list
-                                    bool bFound = false;
-                                    nListboxEntries = GetItemCount();
-                                    for (int i=0; i<nListboxEntries; ++i)
-                                    {
-                                        FileEntry * entry3 = GetListEntry(i);
-                                        if (entry3->path.IsEquivalentTo(svnPath))
-                                        {
-                                            bFound = true;
-                                            break;
-                                        }
-                                    }
-                                    if (!bFound)
-                                    {
-                                        FileEntry * entry3 = new FileEntry();
-                                        entry3->path = svnPath;
-                                        entry3->basepath = basepath;
-                                        entry3->status = s->node_status;
-                                        entry3->textstatus = s->text_status;
-                                        entry3->propstatus = s->prop_status;
-                                        entry3->remotestatus = s->repos_node_status;
-                                        entry3->remotetextstatus = s->repos_text_status;
-                                        entry3->remotepropstatus = s->repos_prop_status;
-                                        entry3->inunversionedfolder = FALSE;
-                                        entry3->checked = true;
-                                        entry3->inexternal = false;
-                                        entry3->direct = false;
-                                        entry3->isfolder = true;
-                                        entry3->last_commit_date = 0;
-                                        entry3->last_commit_rev = 0;
-                                        entry3->remoterev = 0;
-                                        if (s->repos_relpath)
-                                        {
-                                            entry3->url = CPathUtils::PathUnescape (s->repos_relpath);
-                                        }
-                                        m_arStatusArray.push_back(entry3);
-                                        m_arListArray.push_back(m_arStatusArray.size()-1);
-                                        AddEntry(entry3, GetItemCount());
-                                    }
-                                }
-                            }
-                        }
-                        RemoveListEntries(toremove);
-                    }
-                    SetRedraw(TRUE);
-                }
+                OnIgnore(filepath);
                 break;
             case IDSVNLC_EDITCONFLICT:
                 StartConflictEditor(filepath);
@@ -3830,61 +3608,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
                 break;
             default:
-                {
-                    if (cmd < IDSVNLC_MOVETOCS)
-                        break;
-                    CTSVNPathList changelistItems;
-                    FillListOfSelectedItemPaths(changelistItems);
-                    if (changelistItems.GetCount() == 0)
-                        changelistItems.AddPath(filepath);
-
-                    // find the changelist name
-                    CString sChangelist;
-                    int cmdID = IDSVNLC_MOVETOCS;
-                    SetRedraw(FALSE);
-                    {
-                        CAutoWriteLock locker(m_guard);
-                        for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
-                        {
-                            if ((it->first.Compare(SVNSLC_IGNORECHANGELIST))&&(entry->changelist.Compare(it->first)))
-                            {
-                                if (cmd == cmdID)
-                                {
-                                    sChangelist = it->first;
-                                }
-                                cmdID++;
-                            }
-                        }
-                        if (!sChangelist.IsEmpty())
-                        {
-                            SVN svn;
-                            if (svn.AddToChangeList(changelistItems, sChangelist, svn_depth_empty))
-                            {
-                                // The changelists were moved, but we now need to run through the selected items again
-                                // and update their changelist
-                                POSITION pos = GetFirstSelectedItemPosition();
-                                int index;
-                                while ((index = GetNextSelectedItem(pos)) >= 0)
-                                {
-                                    FileEntry * e = GetListEntry(index);
-                                    e->changelist = sChangelist;
-                                    if (e->IsFolder())
-                                        continue;
-                                    if (m_changelists.find(e->changelist)!=m_changelists.end())
-                                        SetItemGroup(index, m_changelists[e->changelist]);
-                                    else
-                                        SetItemGroup(index, 0);
-                                }
-                                Sort();
-                            }
-                            else
-                            {
-                                svn.ShowErrorDialog(m_hWnd, changelistItems[0]);
-                            }
-                        }
-                    }
-                    SetRedraw(TRUE);
-                }
+                OnContextMenuListDefault(cmd, filepath);
                 break;
             } // switch (cmd)
             m_bWaitCursor = false;
@@ -5665,6 +5389,192 @@ CString CSVNStatusListCtrl::BuildIgnoreList(const CString& name,
     return value;
 }
 
+void CSVNStatusListCtrl::OnIgnoreMask(const CTSVNPath& filepath)
+{
+    CString name = _T("*")+filepath.GetFileExtension();
+    CTSVNPathList ignorelist;
+    FillListOfSelectedItemPaths(ignorelist, true);
+    if (ignorelist.GetCount() == 0)
+        ignorelist.AddPath(filepath);
+    std::set<CTSVNPath> parentlist;
+    for (int i=0; i<ignorelist.GetCount(); ++i)
+    {
+        parentlist.insert(ignorelist[i].GetContainingDirectory());
+    }
+    std::set<CTSVNPath>::iterator it;
+    std::vector<CString> toremove;
+    {
+        CAutoWriteLock locker(m_guard);
+        SetRedraw(FALSE);
+        for (it = parentlist.begin(); it != parentlist.end(); ++it)
+        {
+            CTSVNPath parentFolder = (*it).GetDirectory();
+            SVNProperties props(parentFolder, SVNRev::REV_WC, false);
+            CString value = BuildIgnoreList( name, props, svnPropIgnore );
+            if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
+            {
+                CString temp;
+                temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
+                ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                continue;
+            }
+            CTSVNPath basepath;
+            int nListboxEntries = GetItemCount();
+            for (int i=0; i<nListboxEntries; ++i)
+            {
+                FileEntry * entry2 = GetListEntry(i);
+                ASSERT(entry2 != NULL);
+                if (entry2 == NULL)
+                    continue;
+                if (basepath.IsEmpty())
+                    basepath = entry2->basepath;
+                // since we ignored files with a mask (e.g. *.exe)
+                // we have to find find all files in the same
+                // folder (IsAncestorOf() returns TRUE for _all_ children,
+                // not just the immediate ones) which match the
+                // mask and remove them from the list too.
+                if ((entry2->status == svn_wc_status_unversioned)&&(parentFolder.IsAncestorOf(entry2->path)))
+                {
+                    CString f = entry2->path.GetSVNPathString();
+                    if (f.Mid(parentFolder.GetSVNPathString().GetLength()).ReverseFind('/')<=0)
+                    {
+                        if (CStringUtils::WildCardMatch(name, f))
+                        {
+                            if (GetCheck(i))
+                                m_nSelected--;
+                            m_nTotal--;
+                            toremove.push_back(f);
+                        }
+                    }
+                }
+            }
+            if (m_bIgnoreRemoveOnly)
+                continue;
+            AddEntryOnIgnore(parentFolder, basepath, s);
+        }
+        RemoveListEntries(toremove);
+    }
+    SetRedraw(TRUE);
+}
+
+void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path)
+{
+    CTSVNPathList ignorelist;
+    std::vector<CString> toremove;
+    FillListOfSelectedItemPaths(ignorelist, true);
+    if (ignorelist.GetCount() == 0)
+        ignorelist.AddPath(filepath);
+    {
+        CAutoWriteLock locker(m_guard);
+        SetRedraw(FALSE);
+        for (int j=0; j<ignorelist.GetCount(); ++j)
+        {
+            int nListboxEntries = GetItemCount();
+            for (int i=0; i<nListboxEntries; ++i)
+            {
+                if (GetListEntry(i)->GetPath().IsEquivalentTo(ignorelist[j]))
+                {
+                    selIndex = i;
+                    break;
+                }
+            }
+            CString name = CPathUtils::PathPatternEscape(ignorelist[j].GetFileOrDirectoryName());
+            CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
+            SVNProperties props(parentfolder, SVNRev::REV_WC, false);
+            CString value = BuildIgnoreList(name, props, svnPropIgnore );
+            if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
+            {
+                CString temp;
+                temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
+                ::MessageBox(this->m_hWnd, temp, _T("TortoiseSVN"), MB_ICONERROR);
+                break;
+            }
+            if (GetCheck(selIndex))
+                m_nSelected--;
+            m_nTotal--;
+
+            // now, if we ignored a folder, remove all its children
+            if (ignorelist[j].IsDirectory())
+            {
+                for (int i=0; i<(int)m_arListArray.size(); ++i)
+                {
+                    FileEntry * entry2 = GetListEntry(i);
+                    if (entry2->status != svn_wc_status_unversioned)
+                        continue;
+                    if (ignorelist[j].IsEquivalentTo(entry2->GetPath()) || !(ignorelist[j].IsAncestorOf(entry2->GetPath())))
+                        continue;
+
+                    entry2->status = svn_wc_status_ignored;
+                    entry2->textstatus = svn_wc_status_ignored;
+                    if (GetCheck(i))
+                        m_nSelected--;
+                    toremove.push_back(entry2->GetPath().GetSVNPathString());
+                }
+            }
+
+            CTSVNPath basepath = m_arStatusArray[m_arListArray[selIndex]]->basepath;
+
+            FileEntry * entry2 = m_arStatusArray[m_arListArray[selIndex]];
+            if ( entry2->status == svn_wc_status_unversioned ) // keep "deleted" items
+                toremove.push_back(entry2->GetPath().GetSVNPathString());
+
+            if (m_bIgnoreRemoveOnly)
+                continue;
+            AddEntryOnIgnore(parentfolder);
+        }
+        RemoveListEntries(toremove);
+    }
+    SetRedraw(TRUE);
+}
+
+void AddEntryOnIgnore(const CTSVNPath& parentFolder)
+{
+    SVNStatus status;
+    CTSVNPath svnPath;
+    svn_client_status_t * s = status.GetFirstFileStatus(parentFolder, svnPath, false, svn_depth_empty);
+    if (s==0)
+        return;
+    // first check if the folder isn't already present in the list
+    bool bFound = false;
+    const int nListboxEntries = GetItemCount();
+    for (int i=0; i<nListboxEntries; ++i)
+    {
+        FileEntry * entry3 = GetListEntry(i);
+        if (entry3->path.IsEquivalentTo(svnPath))
+        {
+            bFound = true;
+            break;
+        }
+    }
+    if (bFound)
+        return;
+
+    FileEntry * newEntry = new FileEntry();
+    newEntry->path = svnPath;
+    newEntry->basepath = basepath;
+    newEntry->status = s->node_status;
+    newEntry->textstatus = s->text_status;
+    newEntry->propstatus = s->prop_status;
+    newEntry->remotestatus = s->repos_node_status;
+    newEntry->remotetextstatus = s->repos_text_status;
+    newEntry->remotepropstatus = s->repos_prop_status;
+    newEntry->inunversionedfolder = false;
+    newEntry->checked = true;
+    newEntry->inexternal = false;
+    newEntry->direct = false;
+    newEntry->isfolder = true;
+    newEntry->last_commit_date = 0;
+    newEntry->last_commit_rev = 0;
+    newEntry->remoterev = 0;
+    if (s->repos_relpath)
+    {
+        newEntry->url = CPathUtils::PathUnescape(s->repos_relpath);
+    }
+    m_arStatusArray.push_back(newEntry);
+    m_arListArray.push_back(m_arStatusArray.size()-1);
+    AddEntry(newEntry, nListboxEntries);
+}
+
 void CSVNStatusListCtrl::OnRepairMove()
 {
     POSITION pos = GetFirstSelectedItemPosition();
@@ -5803,6 +5713,64 @@ void CSVNStatusListCtrl::OnRepairCopy()
     {
         ShowErrorMessage();
     }
+}
+
+void CSVNStatusListCtrl::OnContextMenuListDefault(int command, const CTSVNPath& filepath)
+{
+    if (command < IDSVNLC_MOVETOCS)
+        return;
+
+    CTSVNPathList changelistItems;
+    FillListOfSelectedItemPaths(changelistItems);
+    if (changelistItems.GetCount() == 0)
+        changelistItems.AddPath(filepath);
+
+    // find the changelist name
+    CString sChangelist;
+    int cmdID = IDSVNLC_MOVETOCS;
+    SetRedraw(FALSE);
+    {
+        CAutoWriteLock locker(m_guard);
+        for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
+        {
+            if ((it->first.Compare(SVNSLC_IGNORECHANGELIST))&&(entry->changelist.Compare(it->first)))
+            {
+                if (cmd == cmdID)
+                {
+                    sChangelist = it->first;
+                }
+                cmdID++;
+            }
+        }
+        if (!sChangelist.IsEmpty())
+        {
+            SVN svn;
+            if (svn.AddToChangeList(changelistItems, sChangelist, svn_depth_empty))
+            {
+                // The changelists were moved, but we now need to run through the selected items again
+                // and update their changelist
+                POSITION pos = GetFirstSelectedItemPosition();
+                int index;
+                while ((index = GetNextSelectedItem(pos)) >= 0)
+                {
+                    FileEntry * e = GetListEntry(index);
+                    e->changelist = sChangelist;
+                    if (e->IsFolder())
+                        continue;
+                    if (m_changelists.find(e->changelist)!=m_changelists.end())
+                        SetItemGroup(index, m_changelists[e->changelist]);
+                    else
+                        SetItemGroup(index, 0);
+                }
+                Sort();
+            }
+            else
+            {
+                svn.ShowErrorDialog(m_hWnd, changelistItems[0]);
+            }
+        }
+    }
+    SetRedraw(TRUE);
 }
 
 void CSVNStatusListCtrl::SendNeedsRefresh()

@@ -962,8 +962,12 @@ private:
     void RemoveListEntries(const std::vector<int>& indices);
     CString BuildIgnoreList(const CString& fileOrDirectoryName,
         SVNProperties& properties, const CString& ignoreProperty);
+    void OnIgnoreMask(const CTSVNPath& path);
+    void OnIgnore(const CTSVNPath& path);
+    void AddEntryOnIgnore(const CTSVNPath& parentFolder);
     void OnRepairMove();
     void OnRepairCopy();
+    void OnContextMenuListDefault(int command, const CTSVNPath& path);
     void SendNeedsRefresh();
 
     virtual void PreSubclassWindow();
