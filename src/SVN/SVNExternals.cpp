@@ -183,10 +183,10 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
     return true;
 }
 
-std::string SVNExternals::GetValue(const CTSVNPath& path)
+std::string SVNExternals::GetValue(const CTSVNPath& path) const
 {
     std::string ret;
-    for (std::vector<SVNExternal>::iterator it = begin(); it != end(); ++it)
+    for (auto it = cbegin(); it != cend(); ++it)
     {
         if (path.IsEquivalentToWithoutCase(it->path))
         {
