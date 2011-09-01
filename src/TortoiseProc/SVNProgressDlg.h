@@ -129,13 +129,13 @@ public:
 
     void SetDiffOptions(const CString& opts) {m_diffoptions = opts;}
     void SetDepth(svn_depth_t depth = svn_depth_unknown) {m_depth = depth;}
-    void SetPegRevision(SVNRev pegrev = SVNRev()) {m_pegRev = pegrev;}
-    void SetProjectProperties(ProjectProperties props) {m_ProjectProperties = props;}
+    void SetPegRevision(const SVNRev& pegrev = SVNRev()) {m_pegRev = pegrev;}
+    void SetProjectProperties(const ProjectProperties& props) {m_ProjectProperties = props;}
     void SetChangeList(const CString& changelist, bool keepchangelist) {m_changelist = changelist; m_keepchangelist = keepchangelist;}
     void SetSelectedList(const CTSVNPathList& selPaths);
     void SetRevisionRanges(const SVNRevRangeArray& revArray) {m_revisionArray = revArray;}
-    void SetBugTraqProvider(const CComPtr<IBugTraqProvider> pBugtraqProvider) { m_BugTraqProvider = pBugtraqProvider;}
-    void SetRevisionProperties(const RevPropHash revProps) {m_revProps = revProps;}
+    void SetBugTraqProvider(const CComPtr<IBugTraqProvider>& pBugtraqProvider) { m_BugTraqProvider = pBugtraqProvider;}
+    void SetRevisionProperties(const RevPropHash& revProps) {m_revProps = revProps;}
     /**
      * If the number of items for which the operation is done on is known
      * beforehand, that number can be set here. It is then used to show a more

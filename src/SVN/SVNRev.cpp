@@ -26,9 +26,9 @@
 #include <algorithm>
 
 
-SVNRev::SVNRev(CString sRev)
+SVNRev::SVNRev(const CString& sRev)
 {
-    SecureZeroMemory(&rev, sizeof(svn_opt_revision_t));
+    SecureZeroMemory(&rev, sizeof(rev));
     Create(sRev);
 }
 

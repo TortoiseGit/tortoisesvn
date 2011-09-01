@@ -41,7 +41,7 @@ class SVNRev
 {
 public:
     SVNRev(LONG nRev);
-    SVNRev(CString sRev);
+    SVNRev(const CString& sRev);
     SVNRev(svn_opt_revision_t revision) {rev = revision;m_bIsValid = (rev.kind != svn_opt_revision_unspecified);}
     SVNRev(){rev.kind = svn_opt_revision_unspecified;m_bIsValid = FALSE;}
     ~SVNRev();

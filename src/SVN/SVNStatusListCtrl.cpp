@@ -3059,7 +3059,6 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             m_bWaitCursor = true;
             int iItemCountBeforeMenuCmd = GetItemCount();
             size_t iChangelistCountBeforeMenuCmd = m_changelists.size();
-            bool bForce = false;
             switch (cmd)
             {
             case IDSVNLC_COPY:
@@ -3346,74 +3345,13 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 StartConflictEditor(filepath);
                 break;
             case IDSVNLC_RESOLVECONFLICT:
+                OnResolve(svn_wc_conflict_choose_merged);
+                break;
             case IDSVNLC_RESOLVEMINE:
+                OnResolve(svn_wc_conflict_choose_mine_full);
+                break;
             case IDSVNLC_RESOLVETHEIRS:
-                {
-                    svn_wc_conflict_choice_t result = svn_wc_conflict_choose_merged;
-                    switch (cmd)
-                    {
-                    case IDSVNLC_RESOLVETHEIRS:
-                        result = svn_wc_conflict_choose_theirs_full;
-                        break;
-                    case IDSVNLC_RESOLVEMINE:
-                        result = svn_wc_conflict_choose_mine_full;
-                        break;
-                    case IDSVNLC_RESOLVECONFLICT:
-                        result = svn_wc_conflict_choose_merged;
-                        break;
-                    }
-                    bool doResolve = false;
-                    if (CTaskDialog::IsSupported())
-                    {
-                        CTSVNPathList selectedList;
-                        FillListOfSelectedItemPaths(selectedList);
-
-                        CString sInfo;
-                        if (selectedList.GetCount() == 1)
-                            sInfo.Format(IDS_PROC_RESOLVE_TASK1, (LPCTSTR)selectedList[0].GetFileOrDirectoryName());
-                        else
-                            sInfo.LoadString(IDS_PROC_RESOLVE);
-                        CTaskDialog taskdlg(sInfo,
-                                            CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK2)),
-                                            L"TortoiseSVN",
-                                            0,
-                                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
-                        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK3)));
-                        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK4)));
-                        taskdlg.SetDefaultCommandControl(2);
-                        taskdlg.SetMainIcon(TD_WARNING_ICON);
-                        doResolve = (taskdlg.DoModal(m_hWnd) == 1);
-                    }
-                    else
-                    {
-                        doResolve = (TSVNMessageBox(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES);
-                    }
-
-                    if (doResolve)
-                    {
-                        CAutoWriteLock locker(m_guard);
-                        SVN svn;
-                        POSITION pos = GetFirstSelectedItemPosition();
-                        while (pos != 0)
-                        {
-                            int index;
-                            index = GetNextSelectedItem(pos);
-                            FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
-                            if (!svn.Resolve(fentry->GetPath(), result, FALSE))
-                            {
-                                svn.ShowErrorDialog(m_hWnd);
-                            }
-                            else
-                            {
-                                if (fentry->status != svn_wc_status_deleted)
-                                    fentry->status = svn_wc_status_modified;
-                                fentry->textstatus = svn_wc_status_modified;
-                                fentry->isConflicted = false;
-                            }
-                        }
-                        Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
-                    }
-                }
+                OnResolve(svn_wc_conflict_choose_theirs_full);
                 break;
             case IDSVNLC_ADD:
                 {
@@ -3530,19 +3468,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
                 break;
             case IDSVNLC_UNLOCKFORCE:
-                bForce = true;
+                OnUnlock(true);
+                break;
             case IDSVNLC_UNLOCK:
-                {
-                    CTSVNPathList itemsToUnlock;
-                    FillListOfSelectedItemPaths(itemsToUnlock);
-                    CSVNProgressDlg progDlg;
-                    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
-                    progDlg.SetOptions(bForce ? ProgOptForce : ProgOptNone);
-                    progDlg.SetPathList(itemsToUnlock);
-                    progDlg.DoModal();
-                    // refresh!
-                    SendNeedsRefresh();
-                }
+                OnUnlock(false);
                 break;
             case IDSVNLC_REPAIRMOVE:
                 OnRepairMove();
@@ -3551,49 +3480,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 OnRepairCopy();
                 break;
             case IDSVNLC_REMOVEFROMCS:
-                {
-                    CTSVNPathList changelistItems;
-                    FillListOfSelectedItemPaths(changelistItems);
-                    if (changelistItems.GetCount() == 0)
-                        changelistItems.AddPath(filepath);
-                    SVN svn;
-                    SetRedraw(FALSE);
-                    if (svn.RemoveFromChangeList(changelistItems, CStringArray(), svn_depth_empty))
-                    {
-                        // The changelists were removed, but we now need to run through the selected items again
-                        // and update their changelist
-                        CAutoWriteLock locker(m_guard);
-                        POSITION pos = GetFirstSelectedItemPosition();
-                        int index;
-                        std::vector<int> entriesToRemove;
-                        while ((index = GetNextSelectedItem(pos)) >= 0)
-                        {
-                            FileEntry * e = GetListEntry(index);
-                            if (e == 0)
-                                continue;
-                            e->changelist.Empty();
-                            if (e->status == svn_wc_status_normal)
-                            {
-                                // remove the entry completely
-                                entriesToRemove.push_back(index);
-                            }
-                            else
-                            {
-                                SetItemGroup(index, 0);
-                            }
-                        }
-                        RemoveListEntries(entriesToRemove);
-                        // TODO: Should we go through all entries here and check if we also could
-                        // remove the changelist from m_changelists ?
-
-                        Sort();
-                    }
-                    else
-                    {
-                        svn.ShowErrorDialog(m_hWnd, changelistItems[0]);
-                    }
-                    SetRedraw(TRUE);
-                }
+                OnRemoveFromCS(filepath);
                 break;
             case IDSVNLC_CREATEIGNORECS:
                 CreateChangeList(SVNSLC_IGNORECHANGELIST);
@@ -5528,6 +5415,58 @@ void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path)
     SetRedraw(TRUE);
 }
 
+void CSVNStatusListCtrl::OnResolve(svn_wc_conflict_choice_t resolveStrategy)
+{
+    bool doResolve = false;
+    if (CTaskDialog::IsSupported())
+    {
+        CTSVNPathList selectedList;
+        FillListOfSelectedItemPaths(selectedList);
+
+        CString sInfo;
+        if (selectedList.GetCount() == 1)
+            sInfo.Format(IDS_PROC_RESOLVE_TASK1, (LPCTSTR)selectedList[0].GetFileOrDirectoryName());
+        else
+            sInfo.LoadString(IDS_PROC_RESOLVE);
+        CTaskDialog taskdlg(sInfo,
+                            CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK2)),
+                            L"TortoiseSVN",
+                            0,
+                            TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK3)));
+        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK4)));
+        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetMainIcon(TD_WARNING_ICON);
+        doResolve = (taskdlg.DoModal(m_hWnd) == 1);
+    }
+    else
+    {
+        doResolve = (TSVNMessageBox(m_hWnd, IDS_PROC_RESOLVE, IDS_APPNAME, MB_ICONQUESTION | MB_YESNO)==IDYES);
+    }
+
+    if (doResolve)
+    {
+        CAutoWriteLock locker(m_guard);
+        SVN svn;
+        POSITION pos = GetFirstSelectedItemPosition();
+        while (pos != 0)
+        {
+            int index = GetNextSelectedItem(pos);
+            FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
+            if (!svn.Resolve(fentry->GetPath(), resolveStrategy, FALSE))
+            {
+                svn.ShowErrorDialog(m_hWnd);
+                continue;
+            }
+            if (fentry->status != svn_wc_status_deleted)
+                fentry->status = svn_wc_status_modified;
+            fentry->textstatus = svn_wc_status_modified;
+            fentry->isConflicted = false;
+        }
+        Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
+    }
+}
+
 void CSVNStatusListCtrl::AddEntryOnIgnore(const CTSVNPath& parentFolder, const CTSVNPath& basepath)
 {
     SVNStatus status;
@@ -5536,19 +5475,13 @@ void CSVNStatusListCtrl::AddEntryOnIgnore(const CTSVNPath& parentFolder, const C
     if (s==0)
         return;
     // first check if the folder isn't already present in the list
-    bool bFound = false;
     const int nListboxEntries = GetItemCount();
     for (int i=0; i<nListboxEntries; ++i)
     {
         FileEntry * entry3 = GetListEntry(i);
         if (entry3->path.IsEquivalentTo(svnPath))
-        {
-            bFound = true;
-            break;
-        }
+            return;
     }
-    if (bFound)
-        return;
 
     FileEntry * newEntry = new FileEntry();
     newEntry->path = svnPath;
@@ -5574,6 +5507,19 @@ void CSVNStatusListCtrl::AddEntryOnIgnore(const CTSVNPath& parentFolder, const C
     m_arStatusArray.push_back(newEntry);
     m_arListArray.push_back(m_arStatusArray.size()-1);
     AddEntry(newEntry, nListboxEntries);
+}
+
+void CSVNStatusListCtrl::OnUnlock(bool bForce)
+{
+    CTSVNPathList itemsToUnlock;
+    FillListOfSelectedItemPaths(itemsToUnlock);
+    CSVNProgressDlg progDlg;
+    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Unlock);
+    progDlg.SetOptions(bForce ? ProgOptForce : ProgOptNone);
+    progDlg.SetPathList(itemsToUnlock);
+    progDlg.DoModal();
+    // refresh!
+    SendNeedsRefresh();
 }
 
 void CSVNStatusListCtrl::OnRepairMove()
@@ -5714,6 +5660,51 @@ void CSVNStatusListCtrl::OnRepairCopy()
     {
         ShowErrorMessage();
     }
+}
+
+void CSVNStatusListCtrl::OnRemoveFromCS(const CTSVNPath& filepath)
+{
+    CTSVNPathList changelistItems;
+    FillListOfSelectedItemPaths(changelistItems);
+    if (changelistItems.GetCount() == 0)
+        changelistItems.AddPath(filepath);
+    SVN svn;
+    SetRedraw(FALSE);
+    if (svn.RemoveFromChangeList(changelistItems, CStringArray(), svn_depth_empty))
+    {
+        // The changelists were removed, but we now need to run through the selected items again
+        // and update their changelist
+        CAutoWriteLock locker(m_guard);
+        POSITION pos = GetFirstSelectedItemPosition();
+        int index;
+        std::vector<int> entriesToRemove;
+        while ((index = GetNextSelectedItem(pos)) >= 0)
+        {
+            FileEntry * e = GetListEntry(index);
+            if (e == 0)
+                continue;
+            e->changelist.Empty();
+            if (e->status == svn_wc_status_normal)
+            {
+                // remove the entry completely
+                entriesToRemove.push_back(index);
+            }
+            else
+            {
+                SetItemGroup(index, 0);
+            }
+        }
+        RemoveListEntries(entriesToRemove);
+        // TODO: Should we go through all entries here and check if we also could
+        // remove the changelist from m_changelists ?
+
+        Sort();
+    }
+    else
+    {
+        svn.ShowErrorDialog(m_hWnd, changelistItems[0]);
+    }
+    SetRedraw(TRUE);
 }
 
 void CSVNStatusListCtrl::OnContextMenuListDefault(FileEntry * entry, int command, const CTSVNPath& filepath)

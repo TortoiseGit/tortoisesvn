@@ -964,9 +964,12 @@ private:
         SVNProperties& properties, const CString& ignoreProperty);
     void OnIgnoreMask(const CTSVNPath& path);
     void OnIgnore(const CTSVNPath& path);
+    void OnResolve(svn_wc_conflict_choice_t resolveStrategy);
     void AddEntryOnIgnore(const CTSVNPath& parentFolder, const CTSVNPath& basepath);
+    void OnUnlock(bool bForce);
     void OnRepairMove();
     void OnRepairCopy();
+    void OnRemoveFromCS(const CTSVNPath& filepath);
     void OnContextMenuListDefault(FileEntry * entry, int command, const CTSVNPath& path);
     void SendNeedsRefresh();
 
