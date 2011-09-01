@@ -3252,46 +3252,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 break;
             case IDSVNLC_OPEN:
                 {
-                    CTSVNPath fp = filepath;
-                    if ((!filepath.Exists())&&(entry->remotestatus == svn_wc_status_added))
-                    {
-                        // fetch the file from the repository
-                        SVN svn;
-                        CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, filepath);
-                        if (!svn.Export(CTSVNPath(entry->GetURL()), tempfile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
-                        {
-                            svn.ShowErrorDialog(m_hWnd);
-                            break;
-                        }
-                        fp = tempfile;
-                    }
-                    int ret = (int)ShellExecute(this->m_hWnd, NULL, fp.GetWinPath(), NULL, NULL, SW_SHOW);
-                    if (ret <= HINSTANCE_ERROR)
-                    {
-                        CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-                        c += fp.GetWinPathString();
-                        CAppUtils::LaunchApplication(c, NULL, false);
-                    }
+                    Open(filepath, entry, false);
                 }
                 break;
             case IDSVNLC_OPENWITH:
                 {
-                    CTSVNPath fp = filepath;
-                    if ((!filepath.Exists())&&(entry->remotestatus == svn_wc_status_added))
-                    {
-                        // fetch the file from the repository
-                        SVN svn;
-                        CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, filepath);
-                        if (!svn.Export(CTSVNPath(entry->GetURL()), tempfile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
-                        {
-                            svn.ShowErrorDialog(m_hWnd);
-                            break;
-                        }
-                        fp = tempfile;
-                    }
-                    CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
-                    c += fp.GetWinPathString() + _T(" ");
-                    CAppUtils::LaunchApplication(c, NULL, false);
+                    Open(filepath, entry, true);
                 }
                 break;
             case IDSVNLC_EXPLORE:
@@ -5786,6 +5752,32 @@ void CSVNStatusListCtrl::ClearSortsFromHeaders()
         pHeader->GetItem(i, &HeaderItem);
         HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
         pHeader->SetItem(i, &HeaderItem);
+    }
+}
+
+void CSVNStatusListCtrl::Open( const CTSVNPath& filepath, FileEntry * entry, bool bOpenWith )
+{
+    CTSVNPath fp = filepath;
+    if ((!filepath.Exists())&&(entry->remotestatus == svn_wc_status_added))
+    {
+        // fetch the file from the repository
+        SVN svn;
+        CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true, filepath);
+        if (!svn.Export(CTSVNPath(entry->GetURL()), tempfile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
+        {
+            svn.ShowErrorDialog(m_hWnd);
+            return;
+        }
+        fp = tempfile;
+    }
+    int ret = 0;
+    if (!bOpenWith)
+        ret = (int)ShellExecute(this->m_hWnd, NULL, fp.GetWinPath(), NULL, NULL, SW_SHOW);
+    if (ret <= HINSTANCE_ERROR)
+    {
+        CString c = _T("RUNDLL32 Shell32,OpenAs_RunDLL ");
+        c += fp.GetWinPathString();
+        CAppUtils::LaunchApplication(c, NULL, false);
     }
 }
 

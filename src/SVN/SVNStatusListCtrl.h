@@ -972,6 +972,7 @@ private:
     void OnRemoveFromCS(const CTSVNPath& filepath);
     void OnContextMenuListDefault(FileEntry * entry, int command, const CTSVNPath& path);
     void SendNeedsRefresh();
+    void Open(const CTSVNPath& filepath, FileEntry * entry, bool bOpenWith);
 
     virtual void PreSubclassWindow();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
