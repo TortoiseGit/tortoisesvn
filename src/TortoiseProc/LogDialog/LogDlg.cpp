@@ -18,7 +18,6 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "cursor.h"
 #include "InputDlg.h"
 #include "PropDlg.h"
 #include "SVNProgressDlg.h"
