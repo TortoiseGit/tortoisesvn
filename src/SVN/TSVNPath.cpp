@@ -215,11 +215,22 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
     else
     {
         m_sUTF8FwdslashPath = svn_dirent_canonicalize(m_sUTF8FwdslashPath, pool);
+        // for UNC paths that point to the server directly (e.g., \\MYSERVER), not
+        // to a share on the server, the svn_dirent_canonicalize() API returns
+        // a wrong path that asserts when subversion checks that the path is absolute
+        // (it returns /MYSERVER instead of //MYSERVER).
+        // We can't just add the second slash, since that would assert when svn checks
+        // for canonicalized paths.
+        // Since the network server itself isn't interesting anyway but only shares,
+        // we just return an empty path here.
+        if (!svn_dirent_is_absolute(m_sUTF8FwdslashPath))
+            m_sUTF8FwdslashPath.Empty();
     }
 #else
     m_sUTF8FwdslashPath = svn_dirent_canonicalize(m_sUTF8FwdslashPath, pool);
+    if (!svn_dirent_is_absolute(m_sUTF8FwdslashPath))
+        m_sUTF8FwdslashPath.Empty();
 #endif
-
     return m_sUTF8FwdslashPath;
 }
 

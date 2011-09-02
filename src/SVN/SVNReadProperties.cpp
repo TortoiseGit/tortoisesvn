@@ -94,6 +94,8 @@ svn_error_t*    SVNReadProperties::Refresh()
 #endif
 
     const char* svnPath = m_path.GetSVNApiPath(m_pool);
+    if ((svnPath == 0)||(svnPath[0] == 0))
+        return NULL;
     if (m_bRevProps)
     {
         svn_revnum_t rev_set;

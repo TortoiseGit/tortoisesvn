@@ -128,6 +128,8 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
     statuskind = svn_wc_status_none;
 
     const char* svnPath = path.GetSVNApiPath(pool);
+    if ((svnPath == NULL)||(svnPath[0] == 0))
+        return svn_wc_status_none;
     SVNTRACE (
         err = svn_client_status5 (&youngest,
                                 ctx,
@@ -226,6 +228,12 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
     hashbaton.pThis = this;
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
+    if ((svnPath == NULL)||(svnPath[0] == 0))
+    {
+        status = NULL;
+        return -2;
+    }
+
 #ifdef _MFC_VER
     if (update)
         CHooks::Instance().PreConnect(CTSVNPathList(path));
@@ -284,6 +292,8 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
     m_statushashindex = 0;
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
+    if ((svnPath == NULL)||(svnPath[0] == 0))
+        return NULL;
 #ifdef _MFC_VER
     if (update)
         CHooks::Instance().PreConnect(CTSVNPathList(path));

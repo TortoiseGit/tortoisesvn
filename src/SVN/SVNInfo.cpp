@@ -137,6 +137,8 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
     m_pos = 0;
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
+    if ((svnPath == 0)||(svnPath[0] == 0))
+        return NULL;
 #ifdef _MFC_VER
     if (path.IsUrl() || (!pegrev.IsWorking() && !pegrev.IsValid())|| (!revision.IsWorking() && !revision.IsValid()))
         CHooks::Instance().PreConnect(CTSVNPathList(path));

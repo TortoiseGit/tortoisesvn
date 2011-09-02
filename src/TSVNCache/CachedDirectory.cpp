@@ -489,6 +489,14 @@ CCachedDirectory::SvnUpdateMembersStatus()
     SVNPool subPool(CSVNStatusCache::Instance().m_svnHelp.Pool());
     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": stat for %s\n"), m_directoryPath.GetWinPath());
 
+    const char * svnapipath = m_directoryPath.GetSVNApiPath(subPool);
+    if ((svnapipath == 0)||(svnapipath[0] == 0))
+    {
+        InterlockedExchange(&m_FetchingStatus, FALSE);
+        m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+        CSVNStatusCache::Instance().BlockPath(m_directoryPath);
+        return false;
+    }
     m_pCtx = CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool);
     svn_error_t* pErr = svn_client_status5 (
         NULL,

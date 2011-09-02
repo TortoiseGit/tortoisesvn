@@ -47,7 +47,7 @@
 #include "TempFile.h"
 #include "SmartHandle.h"
 #include "TaskbarUUID.h"
-
+#include "SVNHelpers.h"
 
 #define STRUCT_IOVEC_DEFINED
 #include "sasl.h"
@@ -378,6 +378,7 @@ BOOL CTortoiseProcApp::InitInstance()
     CString sAppID = GetTaskIDPerUUID(g_sGroupingUUID).c_str();
     InitializeJumpList(sAppID);
 
+    SVNHelper::IsVersioned(CTSVNPath(L"\\\\TVSERVER\\nightlybuilds2"), true);
 
     // Subversion sometimes writes temp files to the current directory!
     // Since TSVN doesn't need a specific CWD anyway, we just set it

@@ -168,20 +168,26 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
             try
             {
                 folderpath = filepath;
-                err = svn_client_status5 (&youngest,
-                    localctx,
-                    filepath.GetDirectory().GetSVNApiPath(pool),
-                    &rev,
-                    svn_depth_empty,    // depth
-                    TRUE,               // get all
-                    FALSE,              // update
-                    TRUE,               // no ignore
-                    FALSE,              // ignore externals
-                    TRUE,           // depth as sticky
-                    NULL,
-                    findfolderstatus,
-                    this,
-                    pool);
+                const char * svnapipath = filepath.GetDirectory().GetSVNApiPath(pool);
+                if (svnapipath && svnapipath[0])
+                {
+                    err = svn_client_status5 (&youngest,
+                        localctx,
+                        svnapipath,
+                        &rev,
+                        svn_depth_empty,    // depth
+                        TRUE,               // get all
+                        FALSE,              // update
+                        TRUE,               // no ignore
+                        FALSE,              // ignore externals
+                        TRUE,               // depth as sticky
+                        NULL,
+                        findfolderstatus,
+                        this,
+                        pool);
+                }
+                else
+                    dirstatus = NULL;
             }
             catch ( ... )
             {
@@ -221,20 +227,29 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     rev.kind = svn_opt_revision_unspecified;
     try
     {
-        err = svn_client_status5 (&youngest,
-            localctx,
-            filepath.GetDirectory().GetSVNApiPath(pool),
-            &rev,
-            svn_depth_immediates,       // depth
-            TRUE,                       // get all
-            FALSE,                      // update
-            TRUE,                       // no ignore
-            FALSE,                      // ignore externals
-            TRUE,           // depth as sticky
-            NULL,
-            fillstatusmap,
-            this,
-            pool);
+        const char * svnapipath = filepath.GetDirectory().GetSVNApiPath(pool);
+        if (svnapipath && svnapipath[0])
+        {
+            err = svn_client_status5 (&youngest,
+                localctx,
+                svnapipath,
+                &rev,
+                svn_depth_immediates,       // depth
+                TRUE,                       // get all
+                FALSE,                      // update
+                TRUE,                       // no ignore
+                FALSE,                      // ignore externals
+                TRUE,                       // depth as sticky
+                NULL,
+                fillstatusmap,
+                this,
+                pool);
+        }
+        else
+        {
+            svn_pool_destroy (pool);
+            return &invalidstatus;
+        }
     }
     catch ( ... )
     {
