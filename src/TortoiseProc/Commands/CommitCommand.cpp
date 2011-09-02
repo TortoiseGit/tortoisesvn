@@ -52,7 +52,7 @@ void CommitCommand::InitProgressDialog
     progDlg.SetCommitMessage(commitDlg.m_sLogMessage);
     progDlg.SetDepth(commitDlg.m_bRecursive ? svn_depth_infinity : svn_depth_empty);
     progDlg.SetSelectedList(commitDlg.m_selectedPathList);
-    progDlg.SetItemCount(static_cast<long>(commitDlg.m_itemsCount));
+    progDlg.SetItemCount(commitDlg.m_itemsCount);
     progDlg.SetBugTraqProvider(commitDlg.m_BugTraqProvider);
     progDlg.SetRevisionProperties(commitDlg.m_revProps);
 }

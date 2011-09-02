@@ -4033,7 +4033,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
 
                 if (m_arListArray.size() > (DWORD_PTR)pLVCD->nmcd.dwItemSpec)
                 {
-                    FileEntry * entry = GetListEntry((int)pLVCD->nmcd.dwItemSpec);
+                    FileEntry * entry = GetListEntry((UINT_PTR)pLVCD->nmcd.dwItemSpec);
                     if (entry == NULL)
                         return;
 

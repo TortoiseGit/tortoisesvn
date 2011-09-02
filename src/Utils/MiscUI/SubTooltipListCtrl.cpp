@@ -90,7 +90,7 @@ BOOL CSubTooltipListCtrl::OnToolTipText(UINT /*id*/, NMHDR * pNMHDR, LRESULT * p
     TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
 
     // Ignore messages from the built in tooltip, we are processing them internally
-    if( (pNMHDR->idFrom == (UINT)m_hWnd) &&
+    if( (pNMHDR->idFrom == (UINT_PTR)m_hWnd) &&
         ( ((pNMHDR->code == TTN_NEEDTEXTA) && (pTTTA->uFlags & TTF_IDISHWND)) ||
         ((pNMHDR->code == TTN_NEEDTEXTW) && (pTTTW->uFlags & TTF_IDISHWND)) ) )
     {

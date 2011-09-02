@@ -339,7 +339,7 @@ INT_PTR MyGraph::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
             bTipPopped = true;
 
             pTI->hwnd = m_hWnd;
-            pTI->uId = (UINT) m_hWnd;
+            pTI->uId = (UINT_PTR) m_hWnd;
             pTI->lpszText = LPSTR_TEXTCALLBACK;
 
             CRect rcWnd;

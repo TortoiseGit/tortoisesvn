@@ -812,7 +812,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
         {
             // looks like a resource id
             if (::LoadString(hInstanceStrings,
-                             LOWORD((DWORD)lpszMessage),
+                             LOWORD(lpszMessage),
                              m_lpszMessage,
                              MessageSize-1) == 0)
                 m_lpszMessage[0] = _T('\0');
@@ -833,7 +833,7 @@ CXDialogTemplate::CXDialogTemplate(HWND hWnd,
         {
             // looks like a resource id
             if (::LoadString(hInstanceStrings,
-                             LOWORD((DWORD)lpszCaption),
+                             LOWORD(lpszCaption),
                              m_lpszCaption,
                              MessageSize-1) == 0)
                 m_lpszCaption[0] = _T('\0');

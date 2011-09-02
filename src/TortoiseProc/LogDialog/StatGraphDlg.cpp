@@ -1176,7 +1176,7 @@ void CStatGraphDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 void CStatGraphDlg::OnNeedText(NMHDR *pnmh, LRESULT * /*pResult*/)
 {
     TOOLTIPTEXT* pttt = (TOOLTIPTEXT*) pnmh;
-    if (pttt->hdr.idFrom == (UINT) m_Skipper.GetSafeHwnd())
+    if (pttt->hdr.idFrom == (UINT_PTR) m_Skipper.GetSafeHwnd())
     {
         size_t included_authors_count = m_Skipper.GetPos();
         // if we only leave out one author, still include him with his name

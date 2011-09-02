@@ -618,7 +618,7 @@ INT_PTR CRevisionGraphWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
     pTI->hwnd = this->m_hWnd;
     CWnd::GetClientRect(&pTI->rect);
     pTI->uFlags  |= TTF_ALWAYSTIP | TTF_IDISHWND;
-    pTI->uId = (UINT)m_hWnd;
+    pTI->uId = (UINT_PTR)m_hWnd;
     pTI->lpszText = LPSTR_TEXTCALLBACK;
 
     return 1;
@@ -626,7 +626,7 @@ INT_PTR CRevisionGraphWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 
 BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
 {
-    if (pNMHDR->idFrom != (UINT)m_hWnd)
+    if (pNMHDR->idFrom != (UINT_PTR)m_hWnd)
         return FALSE;
 
     POINT point;
