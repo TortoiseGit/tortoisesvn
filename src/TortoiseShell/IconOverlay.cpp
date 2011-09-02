@@ -148,7 +148,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
         {
             if ((m_State == FileStateVersioned) && g_ShellCache.ShowExcludedAsNormal() &&
                 (PathGetDriveNumber(pPath)>1) &&
-                PathIsDirectory(pPath) && g_ShellCache.IsVersioned(pPath, true, true))
+                PathIsDirectory(pPath) && CTSVNPath(pPath).IsWCRoot())
             {
                 return S_OK;
             }
