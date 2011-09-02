@@ -80,10 +80,11 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
         int curPos = 0;
         m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_EOL_STYLE));
         m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_EXECUTABLE));
-        if ((m_bFolder)||(m_bMultiple))
+        if (m_bFolder||m_bMultiple)
+        {
             m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_EXTERNALS));
-        if ((m_bFolder)||(m_bMultiple))
             m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_IGNORE));
+        }
         m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_KEYWORDS));
         m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_NEEDS_LOCK));
         m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_MIME_TYPE));

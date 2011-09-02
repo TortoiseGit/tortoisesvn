@@ -39,7 +39,7 @@ public:
      *                     as this path.
      * \param revision     if set, the temp file name will include the revision number
      */
-    CTSVNPath       GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev revision = SVNRev());
+    CTSVNPath       GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev& revision = SVNRev());
     CString         GetTempFilePathString();
 
     /**
@@ -50,7 +50,7 @@ public:
      *                     as this path.
      * \param revision     if set, the temp directory name will include the revision number
      */
-    CTSVNPath       GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev revision = SVNRev());
+    CTSVNPath       GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev& revision = SVNRev());
 
     // Look for temporary files left around by TortoiseMerge and
     // remove them. But only delete 'old' files
@@ -70,8 +70,8 @@ private:
 
     // actual implementation
 
-    CTSVNPath ConstructTempPath(const CTSVNPath& path, const SVNRev revision);
-    CTSVNPath CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, const SVNRev revision, bool directory);
+    CTSVNPath ConstructTempPath(const CTSVNPath& path, const SVNRev& revision);
+    CTSVNPath CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, const SVNRev& revision, bool directory);
 
     // construction / destruction
 

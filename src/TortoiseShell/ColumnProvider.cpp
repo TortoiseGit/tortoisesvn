@@ -244,11 +244,12 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
     }
     if ((pscid->fmtid == FMTID_SummaryInformation)||(pscid->pid == 8))
     {
+        if (cachetype == ShellCache::none)
+            return S_FALSE;
+
         tstring szInfo;
         const TCHAR * path = pscd->wszFile;
 
-        if (cachetype == ShellCache::none)
-            return S_FALSE;
         switch (pscid->pid)
         {
         case PIDSI_AUTHOR:          // author

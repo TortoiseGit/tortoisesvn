@@ -95,11 +95,11 @@ void CLineDiffBar::OnPaint()
     CRect upperrect = CRect(rect.left, rect.top, rect.right, rect.bottom/2);
     CRect lowerrect = CRect(rect.left, rect.bottom/2, rect.right, rect.bottom);
 
-    if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView)&&(m_pMainFrm->m_pwndRightView))
+    if (m_pMainFrm!=0)
     {
         CLeftView* leftView = m_pMainFrm->m_pwndLeftView;
         CRightView* rightView = m_pMainFrm->m_pwndRightView;
-        if ((leftView->IsWindowVisible())&&(rightView->IsWindowVisible()))
+        if (CBaseView::IsViewGood(leftView)&&CBaseView::IsViewGood(rightView))
         {
             BOOL bViewWhiteSpace = leftView->m_bViewWhitespace;
             BOOL bInlineDiffs = leftView->m_bShowInlineDiff;

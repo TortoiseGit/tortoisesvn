@@ -31,7 +31,7 @@ public:
      */
     virtual bool            Execute();
 private:
-    CString                 GetCleanupPaths(const CTSVNPathList paths, CTSVNPathList& unversioned, CTSVNPathList& ignored, CTSVNPathList& reverts, bool includeExts, CTSVNPathList& externals);
+    CString                 GetCleanupPaths(const CTSVNPathList& paths, CTSVNPathList& unversioned, CTSVNPathList& ignored, CTSVNPathList& reverts, bool includeExts, CTSVNPathList& externals);
 };
 
 

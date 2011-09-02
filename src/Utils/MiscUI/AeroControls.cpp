@@ -409,10 +409,9 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
                             VERIFY(PatBlt(hdcPaint, 0, 0, RECTWIDTH(rcClient), RECTHEIGHT(rcClient), BLACKNESS));
 
                             VERIFY(S_OK==m_theme.BufferedPaintSetAlpha(hBufferedPaint, &ps.rcPaint, 0x00));
-                            int iState = GBS_NORMAL;
                             int iPartId = BP_GROUPBOX;
 
-                            iState = GetStateFromBtnState(dwStyle, FALSE, FALSE, 0L, iPartId, FALSE);
+                            int iState = GetStateFromBtnState(dwStyle, FALSE, FALSE, 0L, iPartId, FALSE);
 
                             DTTOPTS DttOpts = {sizeof(DTTOPTS)};
                             DttOpts.dwFlags = DTT_COMPOSITED | DTT_GLOWSIZE;
@@ -497,7 +496,6 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
                             VERIFY(PatBlt(hdcPaint, 0, 0, RECTWIDTH(rcClient), RECTHEIGHT(rcClient), BLACKNESS));
 
                             VERIFY(S_OK==m_theme.BufferedPaintSetAlpha(hBufferedPaint, &ps.rcPaint, 0x00));
-                            int iState = CBS_UNCHECKEDNORMAL;
 
                             LRESULT dwCheckState = SendMessage(hWnd, BM_GETCHECK, 0, NULL);
                             POINT pt;
@@ -511,7 +509,7 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
                             if(dwButtonType==BS_RADIOBUTTON || dwButtonType==BS_AUTORADIOBUTTON)
                                 iPartId = BP_RADIOBUTTON;
 
-                            iState = GetStateFromBtnState(dwStyle, bHot, bFocus, dwCheckState, iPartId, FALSE);
+                            int iState = GetStateFromBtnState(dwStyle, bHot, bFocus, dwCheckState, iPartId, FALSE);
 
 
                             HBITMAP hbmp = NULL;
@@ -695,7 +693,6 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
                             VERIFY(PatBlt(hdcPaint, 0, 0, RECTWIDTH(rcClient), RECTHEIGHT(rcClient), BLACKNESS));
 
                             VERIFY(S_OK==m_theme.BufferedPaintSetAlpha(hBufferedPaint, &ps.rcPaint, 0x00));
-                            int iState = CBS_UNCHECKEDNORMAL;
 
                             LRESULT dwCheckState = SendMessage(hWnd, BM_GETCHECK, 0, NULL);
                             POINT pt;
@@ -710,7 +707,7 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
                                 iPartId = BP_RADIOBUTTON;
 
 
-                            iState = GetStateFromBtnState(dwStyle, bHot, bFocus, dwCheckState, iPartId, GetCapture()==hWnd);
+                            int iState = GetStateFromBtnState(dwStyle, bHot, bFocus, dwCheckState, iPartId, GetCapture()==hWnd);
 
                             ///
                             /// we have to use the whole client area, otherwise we get only partially

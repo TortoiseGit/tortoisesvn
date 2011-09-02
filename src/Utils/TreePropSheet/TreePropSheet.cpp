@@ -920,16 +920,9 @@ LRESULT CTreePropSheet::OnSetCurSel(WPARAM wParam, LPARAM lParam)
     return lResult;
 }
 
-
 LRESULT CTreePropSheet::OnSetCurSelId(WPARAM wParam, LPARAM lParam)
 {
-    LRESULT lResult = DefWindowProc(PSM_SETCURSEL, wParam, lParam);
-    if (!m_bTreeViewMode)
-        return lResult;
-
-    SelectCurrentPageTreeItem();
-    UpdateCaption();
-    return lResult;
+    return OnSetCurSel(wParam, lParam);
 }
 
 

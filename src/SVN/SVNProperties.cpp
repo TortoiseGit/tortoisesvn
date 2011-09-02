@@ -92,7 +92,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         Err = svn_error_create(NULL, NULL, tempA);
 #else
         TCHAR string[1024];
-        LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, 1024, (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
+        LoadStringEx(g_hResInst, IDS_ERR_PROPNOTONFILE, string, _countof(string), (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
         std::string stringA = CUnicodeUtils::StdGetUTF8(string);
         Err = svn_error_create(NULL, NULL, stringA.c_str());
 #endif

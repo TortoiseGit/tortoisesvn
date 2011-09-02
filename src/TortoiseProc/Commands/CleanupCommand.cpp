@@ -216,7 +216,7 @@ bool CleanupCommand::Execute()
     return !bFailed;
 }
 
-CString CleanupCommand::GetCleanupPaths( const CTSVNPathList paths, CTSVNPathList& unversioned, CTSVNPathList& ignored, CTSVNPathList& reverts, bool includeExts, CTSVNPathList& externals )
+CString CleanupCommand::GetCleanupPaths( const CTSVNPathList& paths, CTSVNPathList& unversioned, CTSVNPathList& ignored, CTSVNPathList& reverts, bool includeExts, CTSVNPathList& externals )
 {
     for (int i=0; i<paths.GetCount(); ++i)
     {

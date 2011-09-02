@@ -38,7 +38,7 @@ CTempFiles& CTempFiles::Instance()
     return instance;
 }
 
-CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev revision)
+CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& revision)
 {
     DWORD len = ::GetTempPath(0, NULL);
     auto_buffer<TCHAR> temppath (len+1);
@@ -85,7 +85,7 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev revi
     return tempfile;
 }
 
-CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, const SVNRev revision, bool directory)
+CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, const SVNRev& revision, bool directory)
 {
     bool succeeded = false;
     for (int retryCount = 0; retryCount < MAX_RETRIES; ++retryCount)
@@ -137,7 +137,7 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
     return CTSVNPath();
 }
 
-CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev revision /* = SVNRev() */)
+CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev& revision /* = SVNRev() */)
 {
     return CreateTempPath (bRemoveAtEnd, path, revision, false);
 }
@@ -147,7 +147,7 @@ CString CTempFiles::GetTempFilePathString()
     return CreateTempPath (true, CTSVNPath(), SVNRev(), false).GetWinPathString();
 }
 
-CTSVNPath CTempFiles::GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev revision /* = SVNRev() */)
+CTSVNPath CTempFiles::GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev& revision /* = SVNRev() */)
 {
     return CreateTempPath (bRemoveAtEnd, path, revision, true);
 }
