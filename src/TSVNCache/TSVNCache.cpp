@@ -139,8 +139,7 @@ static HWND CreateHiddenWindow(HINSTANCE hInstance)
     wcex.hInstance      = hInstance;
     wcex.lpszClassName  = szWindowClass;
     RegisterClassEx(&wcex);
-    HWND hWnd = CreateWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME, WS_CAPTION, 0, 0, 800, 300, NULL, 0, hInstance, 0);
-    return hWnd;
+    return CreateWindow(TSVN_CACHE_WINDOW_NAME, TSVN_CACHE_WINDOW_NAME, WS_CAPTION, 0, 0, 800, 300, NULL, 0, hInstance, 0);
 }
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*cmdShow*/)

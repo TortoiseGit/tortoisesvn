@@ -208,7 +208,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
             path.ReleaseBuffer();
 
             LPMALLOC shellMalloc = 0;
-            HRESULT hr = SHGetMalloc(&shellMalloc);
+            hr = SHGetMalloc(&shellMalloc);
             if (SUCCEEDED(hr))
             {
                 //free memory

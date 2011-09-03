@@ -111,10 +111,10 @@ size_t UniqueQueue<T>::Push( T value )
             for (std::map<T, size_t>::const_iterator tempIt = tempQueue.begin(); tempIt != tempQueue.end(); ++tempIt)
             {
                 m_QueueTMap.insert(m_QueueTMap.end(), std::map<T, size_t>::value_type(tempIt->first, m_highestValue));
-                UniqueQueueStruct s;
-                s.priority = m_highestValue++;
-                s.value = tempIt->first;
-                m_Queue.push_back(s);
+                UniqueQueueStruct s2;
+                s2.priority = m_highestValue++;
+                s2.value = tempIt->first;
+                m_Queue.push_back(s2);
             }
         }
     }

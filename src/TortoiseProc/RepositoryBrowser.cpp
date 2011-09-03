@@ -1875,14 +1875,14 @@ void CRepositoryBrowser::OnRefresh()
 
                 if (item.kind == svn_node_dir)
                 {
-                    SEntry entry = { url
-                                   , item.is_external
+                    SEntry entrydir = { url
+                                        , item.is_external
                                         ? item.repository.peg_revision
                                         : SVNRev()
                                    , item.repository };
-                    urls.push_back (entry);
+                    urls.push_back (entrydir);
                     m_lister.Enqueue ( url
-                                     , entry.pegRev
+                                     , entrydir.pegRev
                                      , item.repository
                                      , item.has_props);
                 }

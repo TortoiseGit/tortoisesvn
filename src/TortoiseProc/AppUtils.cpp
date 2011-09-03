@@ -259,18 +259,18 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
     CString mimetype;
     if (GetMimeType(file1, mimetype) ||  GetMimeType(file2, mimetype))
     {
-        CString difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + mimetype);
-        if (!difftool.IsEmpty())
-            return difftool;
+        CString mimetool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + mimetype);
+        if (!mimetool.IsEmpty())
+            return mimetool;
     }
 
     // Is there an extension specific diff tool?
     CString ext = file2.GetFileExtension().MakeLower();
     if (!ext.IsEmpty())
     {
-        difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + ext);
-        if (!difftool.IsEmpty())
-            return difftool;
+        CString exttool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + ext);
+        if (!exttool.IsEmpty())
+            return exttool;
         // Maybe we should use TortoiseIDiff?
         if ((ext == _T(".jpg")) || (ext == _T(".jpeg")) ||
             (ext == _T(".bmp")) || (ext == _T(".gif"))  ||

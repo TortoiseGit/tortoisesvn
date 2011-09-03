@@ -265,11 +265,11 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
                     ChildDirStatus::const_iterator it;
                     for(it = dirEntry->m_childDirectories.begin(); it != dirEntry->m_childDirectories.end(); ++it)
                     {
-                        CTSVNPath path;
+                        CTSVNPath newpath;
                         CString winPath = CUnicodeUtils::GetUnicode (it->first);
-                        path.SetFromWin(winPath, true);
+                        newpath.SetFromWin(winPath, true);
 
-                        CSVNStatusCache::Instance().AddFolderForCrawling(path);
+                        CSVNStatusCache::Instance().AddFolderForCrawling(newpath);
                     }
                 }
 

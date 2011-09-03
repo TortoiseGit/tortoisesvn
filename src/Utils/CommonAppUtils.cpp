@@ -134,17 +134,17 @@ CString CCommonAppUtils::GetAppForFile
 
         if (application.IsEmpty())
         {
-            DWORD buflen = 0;
+            buflen = 0;
             AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), NULL, &buflen);
-            auto_buffer<TCHAR> cmdbuf (buflen + 1);
-            if (FAILED(AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), cmdbuf, &buflen)))
+            auto_buffer<TCHAR> cmdopenbuf (buflen + 1);
+            if (FAILED(AssocQueryString(ASSOCF_INIT_DEFAULTTOSTAR, ASSOCSTR_COMMAND, extensionToUse, _T("open"), cmdopenbuf, &buflen)))
             {
                 CString key = documentClass + _T("\\Shell\\Open\\Command\\");
                 application = CRegString (key, _T(""), FALSE, HKEY_CLASSES_ROOT);
             }
             else
             {
-                application = cmdbuf;
+                application = cmdopenbuf;
             }
         }
     }

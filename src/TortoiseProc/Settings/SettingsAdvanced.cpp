@@ -120,7 +120,6 @@ BOOL CSettingsAdvanced::OnInitDialog()
         case SettingTypeNumber:
             {
                 CRegDWORD s(_T("Software\\TortoiseSVN\\")+settings[i].sName, settings[i].def.l);
-                CString temp;
                 temp.Format(_T("%ld"), (DWORD)s);
                 m_ListCtrl.SetItemText(i, 0, temp);
             }

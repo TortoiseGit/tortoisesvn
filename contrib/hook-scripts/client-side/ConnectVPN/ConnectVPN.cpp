@@ -64,12 +64,12 @@ bool IsConnected(const wchar_t *szConnectionName)
     {
         if (0 == _wcsicmp(szConnectionName, rasCons.get()[i].szEntryName))
         {
-            for (int i = 0; i < 320; ++i) // 320 x 500 ms => maximum 2 minute wait before giving up.
+            for (int j = 0; j < 320; ++j) // 320 x 500 ms => maximum 2 minute wait before giving up.
             {
                 RASCONNSTATUS rasConStatus = {0};
                 rasConStatus.dwSize = sizeof(RASCONNSTATUS);
 
-                if (ERROR_SUCCESS != ::RasGetConnectStatus(rasCons.get()[i].hrasconn, &rasConStatus))
+                if (ERROR_SUCCESS != ::RasGetConnectStatus(rasCons.get()[j].hrasconn, &rasConStatus))
                 {
                     return false;
                 }

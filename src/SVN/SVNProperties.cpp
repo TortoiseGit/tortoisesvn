@@ -267,12 +267,12 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
                         m_pProgress->SetLine(2, path.GetWinPath(), true);
 #endif
                     SVNPool setPool((apr_pool_t*)subpool);
-                    const char* svnPath = path.GetSVNApiPath(setPool);
+                    const char* svnLocalPath = path.GetSVNApiPath(setPool);
                     if (m_path.IsUrl())
                     {
                         SVNTRACE (
-                            Err = svn_client_propset_remote(name.c_str(), NULL, svnPath, false, m_rev, NULL, NULL, NULL, m_pctx, setPool),
-                            svnPath
+                            Err = svn_client_propset_remote(name.c_str(), NULL, svnLocalPath, false, m_rev, NULL, NULL, NULL, m_pctx, setPool),
+                            svnLocalPath
                             )
                     }
                     else

@@ -510,13 +510,13 @@ void CRepositoryLister::Enqueue
 
             CListQuery* query = deletedQueries[i];
 
-            SPathAndRev key ( query->GetPath()
-                            , query->GetPegRevision()
-                            , query->GetRevision());
+            SPathAndRev keydel ( query->GetPath()
+                               , query->GetPegRevision()
+                               , query->GetRevision());
 
-            TQueries::iterator iter = queries.find (key);
-            if ((iter != queries.end()) && (iter->second == query))
-                queries.erase (iter);
+            TQueries::iterator iterdel = queries.find (keydel);
+            if ((iterdel != queries.end()) && (iterdel->second == query))
+                queries.erase (iterdel);
         }
 
         // if the dumpster has not been empty before for some reason,

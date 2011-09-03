@@ -2837,7 +2837,7 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
         ClearSelection();
 
         POINT ptViewCarret = GetCaretViewPosition();
-        int nViewLine = ptViewCarret.y;
+        nViewLine = ptViewCarret.y;
         CString sLine = GetViewLine(nViewLine);
         int nLineLength = sLine.GetLength();
         int nBasePos = ptViewCarret.x;
@@ -3603,7 +3603,7 @@ void CBaseView::PasteText()
         // We want to undo the multiline insertion in a single step.
         CUndo::GetInstance().BeginGrouping();
 
-        CString sLine = GetViewLineChars(nViewLine);
+        sLine = GetViewLineChars(nViewLine);
         CString sLineLeft = sLine.Left(nLeft);
         CString sLineRight = sLine.Right(sLine.GetLength() - nLeft);
         EOL eOriginalEnding = GetViewLineEnding(nViewLine);
@@ -3649,7 +3649,7 @@ void CBaseView::PasteText()
     else
     {
          // single line text - just insert it
-        CString sLine = GetViewLineChars(nViewLine);
+        sLine = GetViewLineChars(nViewLine);
         sLine.Insert(nLeft, sClipboardText);
         ptCaretViewPos = SetupPoint(nLeft + sClipboardText.GetLength(), nViewLine);
         SetViewLine(nViewLine, sLine);
@@ -4342,7 +4342,6 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
             bool bInlineDiff = (diff->type == svn_diff__type_diff_modified);
             int nTextLength = s.GetLength();
 
-            COLORREF crBkgnd, crText;
             CDiffColors::GetInstance().GetColors(diffState, crBkgnd, crText);
             if ((m_bShowInlineDiff)&&(bInlineDiff))
             {
