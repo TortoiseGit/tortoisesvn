@@ -2553,7 +2553,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
     // and if the item is not part of a changelist
     SetRedraw(FALSE);
     {
-        CAutoWriteLock locker(m_guard);
+        CAutoWriteLock writelocker(m_guard);
         while ((pos = GetFirstSelectedItemPosition())!=0)
         {
             index = GetNextSelectedItem(pos);
@@ -5216,7 +5216,7 @@ void CSVNStatusListCtrl::RemoveListEntries(const std::vector<int>& entriesToRemo
 }
 
 CString CSVNStatusListCtrl::BuildIgnoreList(const CString& name,
-    SVNProperties& props, const CString& svnPropIgnore)
+                                            SVNProperties& props)
 {
     CString value;
     for (int i=0; i<props.GetCount(); i++)
@@ -5263,7 +5263,7 @@ void CSVNStatusListCtrl::OnIgnoreMask(const CTSVNPath& filepath)
         {
             CTSVNPath parentFolder = (*it).GetDirectory();
             SVNProperties props(parentFolder, SVNRev::REV_WC, false);
-            CString value = BuildIgnoreList( name, props, svnPropIgnore );
+            CString value = BuildIgnoreList( name, props );
             if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
             {
                 CString temp;
@@ -5335,7 +5335,7 @@ void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path)
             CString name = CPathUtils::PathPatternEscape(ignorelist[j].GetFileOrDirectoryName());
             CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
             SVNProperties props(parentfolder, SVNRev::REV_WC, false);
-            CString value = BuildIgnoreList(name, props, svnPropIgnore );
+            CString value = BuildIgnoreList(name, props);
             if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
             {
                 CString temp;

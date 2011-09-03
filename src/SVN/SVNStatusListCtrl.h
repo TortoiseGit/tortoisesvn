@@ -961,7 +961,7 @@ private:
     void RemoveListEntries(const std::vector<CString>& paths);
     void RemoveListEntries(const std::vector<int>& indices);
     CString BuildIgnoreList(const CString& fileOrDirectoryName,
-        SVNProperties& properties, const CString& ignoreProperty);
+        SVNProperties& properties);
     void OnIgnoreMask(const CTSVNPath& path);
     void OnIgnore(const CTSVNPath& path);
     void OnResolve(svn_wc_conflict_choice_t resolveStrategy);
