@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "MainWindow.h"
+#include "mainWindow.h"
 #include "CmdLineParser.h"
 #include "registry.h"
 #include "LangDll.h"
@@ -76,34 +76,34 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     curHand = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
     curHandDown = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANDOWNCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
 
-    CMainWindow mainWindow(hResource);
-    mainWindow.SetRegistryPath(_T("Software\\TortoiseSVN\\TortoiseIDiffWindowPos"));
+    CMainWindow * mainWindow = new CMainWindow(hResource);
+    mainWindow->SetRegistryPath(_T("Software\\TortoiseSVN\\TortoiseIDiffWindowPos"));
 
-    mainWindow.SetLeft(parser.HasVal(_T("left")) ? parser.GetVal(_T("left")) : _T(""), parser.HasVal(_T("lefttitle")) ? parser.GetVal(_T("lefttitle")) : _T(""));
-    mainWindow.SetRight(parser.HasVal(_T("right")) ? parser.GetVal(_T("right")) : _T(""), parser.HasVal(_T("righttitle")) ? parser.GetVal(_T("righttitle")) : _T(""));
-    if (mainWindow.RegisterAndCreateWindow())
+    mainWindow->SetLeft(parser.HasVal(_T("left")) ? parser.GetVal(_T("left")) : _T(""), parser.HasVal(_T("lefttitle")) ? parser.GetVal(_T("lefttitle")) : _T(""));
+    mainWindow->SetRight(parser.HasVal(_T("right")) ? parser.GetVal(_T("right")) : _T(""), parser.HasVal(_T("righttitle")) ? parser.GetVal(_T("righttitle")) : _T(""));
+    if (mainWindow->RegisterAndCreateWindow())
     {
         hAccelTable = LoadAccelerators(hResource, MAKEINTRESOURCE(IDR_TORTOISEIDIFF));
         if (!parser.HasVal(_T("left")))
         {
-            PostMessage(mainWindow, WM_COMMAND, ID_FILE_OPEN, 0);
+            PostMessage(*mainWindow, WM_COMMAND, ID_FILE_OPEN, 0);
         }
         if (parser.HasKey(_T("overlay")))
         {
-            PostMessage(mainWindow, WM_COMMAND, ID_VIEW_OVERLAPIMAGES, 0);
+            PostMessage(*mainWindow, WM_COMMAND, ID_VIEW_OVERLAPIMAGES, 0);
         }
         if (parser.HasKey(_T("fit")))
         {
-            PostMessage(mainWindow, WM_COMMAND, ID_VIEW_FITTOGETHER, 0);
+            PostMessage(*mainWindow, WM_COMMAND, ID_VIEW_FITTOGETHER, 0);
         }
         if (parser.HasKey(_T("showinfo")))
         {
-            PostMessage(mainWindow, WM_COMMAND, ID_VIEW_IMAGEINFO, 0);
+            PostMessage(*mainWindow, WM_COMMAND, ID_VIEW_IMAGEINFO, 0);
         }
         // Main message loop:
         while (GetMessage(&msg, NULL, 0, 0))
         {
-            if (!TranslateAccelerator(mainWindow, hAccelTable, &msg))
+            if (!TranslateAccelerator(*mainWindow, hAccelTable, &msg))
             {
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
@@ -111,6 +111,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         }
         return (int) msg.wParam;
     }
+    delete mainWindow;
     langDLL.Close();
     DestroyCursor(curHand);
     DestroyCursor(curHandDown);

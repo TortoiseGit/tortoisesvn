@@ -1232,8 +1232,8 @@ void CPicWindow::Paint(HWND hwnd)
             SetBkColor(memDC, transparentColor);
             if (bShowInfo)
             {
-                TCHAR infostring[8192];
-                BuildInfoString(infostring, _countof(infostring), false);
+                TCHAR * infostring = new TCHAR[8192];
+                BuildInfoString(infostring, 8192, false);
                 // set the font
                 NONCLIENTMETRICS metrics = {0};
                 metrics.cbSize = sizeof(NONCLIENTMETRICS);
@@ -1268,6 +1268,7 @@ void CPicWindow::Paint(HWND hwnd)
                 DrawText(memDC, infostring, -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
                 SelectObject(memDC, (HGDIOBJ)hFontOld);
                 DeleteObject(hFont);
+                delete [] infostring;
             }
         }
         else

@@ -20,6 +20,7 @@
 
 #include "DragDropImpl.h"
 #include "UnicodeUtils.h"
+#include "auto_buffer.h"
 
 /**
  * \ingroup Utils
@@ -36,7 +37,7 @@ public:
             if(medium.pstm != NULL)
             {
                 const int BUF_SIZE = 10000;
-                char buff[BUF_SIZE+1];
+                auto_buffer<char> buff(BUF_SIZE+1);
                 ULONG cbRead=0;
                 HRESULT hr = medium.pstm->Read(buff, BUF_SIZE, &cbRead);
                 if (SUCCEEDED(hr) && (cbRead > 0) && (cbRead < BUF_SIZE))
@@ -67,7 +68,7 @@ public:
             if(medium.pstm != NULL)
             {
                 const int BUF_SIZE = 10000;
-                TCHAR buff[BUF_SIZE+1];
+                auto_buffer<WCHAR> buff(BUF_SIZE+1);
                 ULONG cbRead=0;
                 HRESULT hr = medium.pstm->Read(buff, BUF_SIZE, &cbRead);
                 if (SUCCEEDED(hr) && (cbRead > 0) && (cbRead < BUF_SIZE))

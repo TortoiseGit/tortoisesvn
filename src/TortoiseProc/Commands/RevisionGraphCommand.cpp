@@ -26,17 +26,18 @@ bool RevisionGraphCommand::Execute()
     CString val = parser.GetVal(_T("pegrev"));
     SVNRev pegrev = val.IsEmpty() ? SVNRev() : SVNRev(val);
 
-    CRevisionGraphDlg dlg;
-    dlg.SetPath(cmdLinePath.GetUIPathString());
-    dlg.SetPegRevision(pegrev);
+    CRevisionGraphDlg * dlg = new CRevisionGraphDlg();
+    dlg->SetPath(cmdLinePath.GetUIPathString());
+    dlg->SetPegRevision(pegrev);
     if (parser.HasVal(L"output"))
     {
-        dlg.SetOutputFile(parser.GetVal(L"output"));
+        dlg->SetOutputFile(parser.GetVal(L"output"));
         if (parser.HasVal(L"options"))
-            dlg.SetOptions(parser.GetLongVal(L"options"));
-        dlg.StartHidden();
+            dlg->SetOptions(parser.GetLongVal(L"options"));
+        dlg->StartHidden();
     }
-    dlg.DoModal();
+    dlg->DoModal();
+    delete dlg;
 
     return true;
 }

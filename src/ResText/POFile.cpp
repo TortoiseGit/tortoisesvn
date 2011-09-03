@@ -62,7 +62,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
         _ftprintf(stderr, _T("can't open input file %s\n"), szPath);
         return FALSE;
     }
-    TCHAR line[2*MAX_STRING_LENGTH];
+    TCHAR * line = new TCHAR[2*MAX_STRING_LENGTH];
     std::vector<std::wstring> entry;
     do
     {
@@ -146,6 +146,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
             entry.push_back(line);
         }
     } while (File.gcount() > 0);
+    delete [] line;
     printf(File.getloc().name().c_str());
     File.close();
     RESOURCEENTRY emptyentry;
