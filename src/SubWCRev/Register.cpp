@@ -80,9 +80,9 @@ HRESULT RegisterServer(HMODULE hModule,            // DLL module handle
     _tcscat_s(szModule, _T(" /automation"));
     // Convert the CLSID into a TCHAR.
     TCHAR szCLSID[CLSID_STRING_SIZE] ;
-    CLSIDtochar(clsid, szCLSID, sizeof(szCLSID)) ;
+    CLSIDtochar(clsid, szCLSID, _countof(szCLSID)) ;
     TCHAR szLIBID[CLSID_STRING_SIZE] ;
-    CLSIDtochar(libid, szLIBID, sizeof(szLIBID)) ;
+    CLSIDtochar(libid, szLIBID, _countof(szLIBID)) ;
 
     // Build the key CLSID\\{...}
     TCHAR szKey[64] ;
@@ -146,11 +146,11 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
 
     // Convert the CLSID into a TCHAR.
     TCHAR szCLSID[CLSID_STRING_SIZE] ;
-    CLSIDtochar(clsid, szCLSID, sizeof(szCLSID)) ;
+    CLSIDtochar(clsid, szCLSID, _countof(szCLSID)) ;
     TCHAR szLIBID[CLSID_STRING_SIZE] ;
-    CLSIDtochar(libid, szLIBID, sizeof(szCLSID)) ;
+    CLSIDtochar(libid, szLIBID, _countof(szCLSID)) ;
     TCHAR szIID[CLSID_STRING_SIZE] ;
-    CLSIDtochar(iid, szIID, sizeof(szCLSID)) ;
+    CLSIDtochar(iid, szIID, _countof(szCLSID)) ;
 
     // Build the key Interface\\{...}
     TCHAR szKey[64] ;
@@ -182,7 +182,7 @@ void RegisterInterface(HMODULE hModule,            // DLL module handle
 void UnregisterInterface(const IID &iid)
 {
     TCHAR szIID[CLSID_STRING_SIZE] ;
-    CLSIDtochar(iid, szIID, sizeof(szIID)) ;
+    CLSIDtochar(iid, szIID, _countof(szIID)) ;
 
     // Build the key Interface\\{...}
     TCHAR szKey[64] ;
@@ -202,7 +202,7 @@ LONG UnregisterServer(const CLSID& clsid,         // Class ID
 {
     // Convert the CLSID into a TCHAR.
     TCHAR szCLSID[CLSID_STRING_SIZE] ;
-    CLSIDtochar(clsid, szCLSID, sizeof(szCLSID)) ;
+    CLSIDtochar(clsid, szCLSID, _countof(szCLSID)) ;
 
     // Build the key CLSID\\{...}
     TCHAR szKey[64] ;
@@ -225,7 +225,7 @@ LONG UnregisterServer(const CLSID& clsid,         // Class ID
            (lResult == ERROR_FILE_NOT_FOUND)) ; // Subkey may not exist.
 
     TCHAR szLIBID[CLSID_STRING_SIZE] ;
-    CLSIDtochar(libid, szLIBID, sizeof(szLIBID)) ;
+    CLSIDtochar(libid, szLIBID, _countof(szLIBID)) ;
 
     _tcscpy_s(szKey, _T("TypeLib\\"));
     _tcscat_s(szKey, szLIBID) ;
