@@ -9,6 +9,7 @@
 # $Rev$
 # 
 # Authors:
+# Heri Zhang <zhang.heri@gmail.com>, 2011.
 #   <omixen@gmail.com>, 2011.
 # andreas88 <andreaspower@gmail.com>, 2011.
 msgid ""
@@ -16,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-20 00:35+0000\n"
-"Last-Translator: omixen <omixen@gmail.com>\n"
+"PO-Revision-Date: 2011-08-29 00:43+0000\n"
+"Last-Translator: zhang <zhang.heri@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2097,7 +2098,7 @@ msgstr "Terapkan unified diff"
 
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
-msgstr ""
+msgstr "teks kewenangan"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -2123,7 +2124,7 @@ msgstr "Atur &Vertikal"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
-msgstr ""
+msgstr "As &is (tidak dispesifikasi EOL)"
 
 #. Resource IDs: (199)
 msgid "Ask the user"
@@ -2249,7 +2250,7 @@ msgstr "Kembali"
 
 #. Resource IDs: (65535)
 msgid "Background"
-msgstr ""
+msgstr "Tampilan Belakang"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2335,11 +2336,11 @@ msgstr "Bug-ID"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
-msgstr ""
+msgstr "T&anda ID-Bug:"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
-msgstr ""
+msgstr "ID Bug adalah:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2435,7 +2436,7 @@ msgstr "Tidak dapat membuat gambar baru!"
 
 #. Resource IDs: (1001)
 msgid "Can't customize menus!"
-msgstr ""
+msgstr "Menu tidak dapat diubah!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
@@ -2629,7 +2630,7 @@ msgstr ""
 
 #. Resource IDs: (16926)
 msgid "Casca&de"
-msgstr ""
+msgstr "Berbanj&ar"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -2706,7 +2707,7 @@ msgstr "Mengubah eksternal untuk tetap revisi"
 
 #. Resource IDs: (65535)
 msgid "Char position where to show a border line in commit text boxes:"
-msgstr ""
+msgstr "Posisi karakter yang akan ditampilkan dalam commit teksbox:"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -3343,7 +3344,7 @@ msgstr "Salin dan ganti nama item ke sini"
 
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
-msgstr ""
+msgstr "Salin kolom ke clipboard"
 
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
@@ -3507,12 +3508,12 @@ msgstr "Tidak bisa menghapus %s dari daftar abaikan"
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not replace '%s' because"
-msgstr ""
+msgstr "Tidak dapat ditimpa '%s' karena"
 
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not replace property '%1!s!' on '%2!s!' because"
-msgstr ""
+msgstr "Tidak dapat mengganti properti '%1!s!' on '%2!s!' karena"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3542,7 +3543,7 @@ msgstr "Tidak bisa menyimpan berkas %s!"
 msgid ""
 "Could not start diff viewer!\n"
 "%s"
-msgstr ""
+msgstr "Yidak dapat membuka diff viewer! %s"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3571,7 +3572,7 @@ msgstr "Tidak bisa memulai pekerjaan mencetak."
 msgid ""
 "Could not start text viewer!\n"
 "%s"
-msgstr ""
+msgstr "Tidak dapat membuka text viewer! %s"
 
 #. Resource IDs: (81)
 msgid "Could not start thread!"
@@ -3579,7 +3580,7 @@ msgstr "Tidak bisa memulai thread!"
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
-msgstr ""
+msgstr "Buat &Library"
 
 #. Resource IDs: (13)
 msgid "Create &patch..."
@@ -3633,6 +3634,8 @@ msgstr ""
 msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr ""
+"Membuat sebuah folder library dengan pengaturan khusus untuk jalannya "
+"penyalinan Subversion"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3717,7 +3720,7 @@ msgstr "Tanggal"
 
 #. Resource IDs: (117)
 msgid "Date Range"
-msgstr ""
+msgstr "Jarak Data"
 
 #. Resource IDs: (1008)
 msgid "Default"
@@ -3741,7 +3744,7 @@ msgstr "Menu aplikasi bawaan. Tampak jika tidak ada dokumen yang terbuka."
 
 #. Resource IDs: (81)
 msgid "Default directory structure successfully created!"
-msgstr ""
+msgstr "Struktur default directory sukses dibuat!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -3875,7 +3878,7 @@ msgstr "Pemacu cakram tujuan sudah penuh."
 
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
-msgstr ""
+msgstr "Detek dan sorot blok yang berubah"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -4073,6 +4076,7 @@ msgstr "Anda ingin melanjutkan?"
 #. Resource IDs: (3887)
 msgid "Do you want to recover these auto-saved documents?"
 msgstr ""
+"Apakah Anda ingin mengembalikan dokumen yang tersimpan secara otomatis ini?"
 
 #. Resource IDs: (313)
 msgid ""
@@ -4145,6 +4149,8 @@ msgid ""
 "Don't recover the auto-saved documents\n"
 "Use the last explicitly saved versions of the documents"
 msgstr ""
+"Jangan mengembalikan dokumen yang tersimpan otomatis\n"
+"Gunakan versi dokumen yang sudah tersimpan sebelumnya"
 
 #. Resource IDs: (315)
 msgid ""
@@ -4191,7 +4197,7 @@ msgstr "Ke&cualikan path:"
 
 #. Resource IDs: (32839)
 msgid "E&xecutable"
-msgstr ""
+msgstr "&Dapat dijalankan"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -4292,7 +4298,7 @@ msgstr "Baik nama ataupun IP dari server proxy"
 
 #. Resource IDs: (265)
 msgid "Eliding mergeinfo"
-msgstr ""
+msgstr "Pisahkan info yang tergabung"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4456,6 +4462,8 @@ msgid ""
 "Enter the regular expression patterns for filtering out the bug-ID from a "
 "commit message."
 msgstr ""
+"Masukkan pernyataan yang biasanya untuk memilah ID-Bug dari pesan yang sudah"
+" di commit."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5326,6 +5334,10 @@ msgstr ""
 msgid "ID"
 msgstr "ID"
 
+#. Accelerator Entry for Menu ID:105; 'E&xit'
+msgid "ID:105:V C +W"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr "ID:32771:V C +F"
@@ -6038,10 +6050,6 @@ msgstr "Kunci-kunci"
 msgid "L&imit:"
 msgstr "&Batas"
 
-#. Resource IDs: (1599)
-msgid "L&ocal path:"
-msgstr "Path l&okal:"
-
 #. Resource IDs: (32855)
 msgid "Lan&guages"
 msgstr ""
@@ -6142,6 +6150,10 @@ msgstr "Daftar1"
 
 #. Resource IDs: (104)
 msgid "Listing repository recursively..."
+msgstr ""
+
+#. Resource IDs: (1599)
+msgid "Lo&cal path:"
 msgstr ""
 
 #. Resource IDs: (130)
@@ -11420,10 +11432,6 @@ msgstr "Informasi Versi"
 #. Resource IDs: (264)
 msgid "Versioned"
 msgstr "Berversi"
-
-#. Resource IDs: (65535)
-msgid "View"
-msgstr "Tilik"
 
 #. Resource IDs: (114)
 msgid "View revision for path in &webviewer"

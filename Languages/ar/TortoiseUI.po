@@ -9,14 +9,15 @@
 # $Rev$
 # 
 # Authors:
+# Mohammad Bany Fadel <mohammad_kl@windowslive.com>, 2011.
 # Muhammad Assar <abu.assar@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-20 00:36+0000\n"
-"Last-Translator: abuassar <abu.assar@gmail.com>\n"
+"PO-Revision-Date: 2011-08-29 23:17+0000\n"
+"Last-Translator: MKB <mohammad_kl@windowslive.com>\n"
 "Language-Team: Arabic <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,12 +49,12 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "# الكُتّاب بشكل فردي:"
+msgstr "# أُظهِرَ الكُتّاب بشكل فردي:"
 
 #. Resource IDs: (357)
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "%.2f ميغا بايت نُقِلوا"
+msgstr "تم نقل %.2f ميجا بايت"
 
 #. Resource IDs: (357)
 #, c-format
@@ -63,17 +64,17 @@ msgstr "%.2f كيلو بايت/ث"
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contained an unexpected object."
-msgstr "%1 يحتوي على عنصر غير متوقع."
+msgstr "يحتوي %1 على عنصر غير متوقع."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 contains an incorrect path."
-msgstr "%1 يحتوي على مسار خاطئ."
+msgstr "يحتوي %1 على مسار خاطئ."
 
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contains an incorrect schema."
-msgstr "%1 يحتوي على مخطط خاطئ."
+msgstr "يحتوي %1 على مخطط خاطئ."
 
 #. Resource IDs: (3868)
 #, c-format
@@ -83,38 +84,38 @@ msgstr "%1 ذو تهيئة سيئة."
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 was not found."
-msgstr "%1 غير موجود."
+msgstr "لم يتم العثور على %1."
 
 #. Resource IDs: (169)
 #, c-format
 msgid "%1!d! files selected, %2!d! files total"
-msgstr "%1!d! ملف محدد, %2!d! اجمالي الملفات"
+msgstr "تم تحديد %1!d! ملف, اجمالي الملفات %2!d!."
 
 #. Resource IDs: (246)
 #, c-format
 msgid ""
 "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
-msgstr "أنشط %1!d! كُتّاب بعدد %2!d! تسجيل لكل منهم (%3!d! %%)"
+msgstr "أنشط %1!d! كُتّاب بـ على الأقل %2!d! تسجيل لكل منهم (%3!d! %%)"
 
 #. Resource IDs: (226)
 #, c-format
 msgid "%1!ld! minute(s) and %2!ld! second(s)"
-msgstr "%1!ld! دقيقة و %2!ld! ثانية"
+msgstr "%1!ld! دقائق و %2!ld! ثوان"
 
 #. Resource IDs: (115)
 #, c-format
 msgid "%1!s! (offline)"
-msgstr ""
+msgstr "%1!s! (غير متواجد)"
 
 #. Resource IDs: (226)
 #, c-format
 msgid "%1!s! - at revision: %2!d!"
-msgstr "%1!s! - الإصدارة: %2!d!"
+msgstr "%1!s! - في الأصدار: %2!d!"
 
 #. Resource IDs: (151)
 #, c-format
 msgid "%1!s! : Working Base, Revision %2!ld!"
-msgstr "%1!s! : قاعدة العمل, الإصدارة %2!ld!"
+msgstr "%1!s! : قاعدة العمل, اصدار %2!ld!"
 
 #. Resource IDs: (226)
 #, c-format
@@ -129,12 +130,12 @@ msgstr "%1!s!, على %2!s!"
 #. Resource IDs: (145)
 #, c-format
 msgid "%1!s!\\%2!s! - Export"
-msgstr "%1!s!\\%2!s! - تصدير"
+msgstr "%1!s!\\%2!s! - استخراج"
 
 #. Resource IDs: (145)
 #, c-format
 msgid "%1!s!\\%2!s! - Export (%3!d!)"
-msgstr "%1!s!\\%2!s! - تصدير (%3!d!)"
+msgstr "%1!s!\\%2!s! - استخراج (%3!d!)"
 
 #. Resource IDs: (3860)
 #, c-format
@@ -143,7 +144,7 @@ msgid ""
 "Continue running script?"
 msgstr ""
 "%1: %2\n"
-"استمرار تشغيل النص البرمجي?"
+"الأستمرار في تشغيل المخطوطة البرمجية?"
 
 #. Resource IDs: (3859)
 #, c-format
@@ -154,12 +155,12 @@ msgid ""
 msgstr ""
 "%1\n"
 "لا يمكن العثور على هذا الملف.\n"
-"تأكد من تقديم اسم الملف الصحيح ومساره الصحيح."
+"تأكد من ادخال اسم الملف الصحيح ومساره الصحيح."
 
 #. Resource IDs: (357)
 #, c-format
 msgid "%I64d Bytes transferred"
-msgstr "%I64d بايت نُقِلوا"
+msgstr "تم نقل %I64d بايت"
 
 #. Resource IDs: (357)
 #, c-format
@@ -169,7 +170,7 @@ msgstr "%I64d بايت/ث"
 #. Resource IDs: (357)
 #, c-format
 msgid "%I64d kBytes transferred"
-msgstr "%I64d كيلوبايت نُقِلوا"
+msgstr "تم نقل %I64d كيلوبايت"
 
 #. Resource IDs: (7)
 #, c-format
@@ -189,7 +190,7 @@ msgstr "%s"
 #. Resource IDs: (93)
 #, c-format
 msgid "%s (offline)"
-msgstr "%s (منقطع)"
+msgstr "%s (غير متواجد)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -214,67 +215,67 @@ msgstr "%s [استُرجع]"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory already exists unversioned locally."
-msgstr "%s, ولكن المجلد موجود بالفعل محلياً وغير مُلاحَظ."
+msgstr "%s, ولكن كان المجلد موجود بالفعل و غير متحكم في الاصدار محلياً."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
-msgstr "%s, ولكن المجلد مفقود محلياً."
+msgstr "%s, ولكن كان المجلد مفقود محلياً."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already added locally."
-msgstr "%s, ولكن المجلد أُضيف بالفعل محلياً."
+msgstr "%s, ولكن كان المجلد قد أُضيف بالفعل محلياً."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already edited."
-msgstr "%s, ولكن المجلد عُدِّل بالفعل."
+msgstr "%s, ولكن كان المجلد قد عُدِّل بالفعل."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
-msgstr "%s, ولكن المجلد قد حُذف أو نُقل أو تغير اسمه محلياً."
+msgstr "%s, ولكن كان المجلد قد حُذف أو نُقل أو تغير اسمه محلياً."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
-msgstr "%s, ,ولكن المجلد حُجِب في نسخة العمل."
+msgstr "%s, ,ولكن كان المجلد محُجِب في نسخة العمل."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was replaced"
-msgstr "%s, ولكن المجلد استُبدل"
+msgstr "%s, ولكن كان المجلد قد استُبدل"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
-msgstr "%s, ولكن الملف موجود بالفعل محلياً وغير مُلاحَظ."
+msgstr "%s, ولكن كان الملف موجود بالفعل و غير متحكم في الاصدار محلياً."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file is missing locally."
-msgstr "%s, ولكن الملف مفقود محلياً."
+msgstr "%s, ولكن كان الملف مفقود محلياً."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already added locally."
-msgstr "%s, ولكن الملف أُضيف بالفعل محلياً."
+msgstr "%s, ولكن كان الملف قد أُضيف بالفعل محلياً."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already edited."
-msgstr "%s, ولكن الملف عُدِّل بالفعل."
+msgstr "%s, ولكن كان الملف قد عُدِّل بالفعل."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
-msgstr "%s, ولكن الملف حُذف أو نُقل أو تغير اسمه محلياً."
+msgstr "%s, ولكن كان الملف قد حُذف أو نُقل أو تغير اسمه محلياً."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
-msgstr "%s, ولكن الملف حُجِب في نسخة العمل."
+msgstr "%s, ولكن كان الملف محُجِب في نسخة العمل."
 
 #. Resource IDs: (609)
 #, c-format
@@ -288,7 +289,7 @@ msgid ""
 "%ld failed hunk(s)"
 msgstr ""
 "%s\n"
-"%ld جزء فشل"
+"فشلة الكتلة %ld"
 
 #. Resource IDs: (3850)
 #, c-format
@@ -306,7 +307,7 @@ msgid ""
 "Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
-"هل تود حذفه على أية حال?"
+"هل تود حذفه على اية حال؟"
 
 #. Resource IDs: (147)
 #, c-format
@@ -314,6 +315,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
 msgstr ""
+"%s\n"
+"هل تود حذف الـ%d ملفات على اية حال؟"
 
 #. Resource IDs: (147)
 #, c-format
@@ -321,6 +324,8 @@ msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
 msgstr ""
+"%s\n"
+"هل تود حذف الملف %s على اية حال؟"
 
 #. Resource IDs: (147)
 #, c-format
@@ -329,6 +334,9 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"المجلد %s\n"
+"يحتوي على ملفات معدلة و/أو ملفات غير متحكمة في الإصدار، هل أنت متأكد أنك تود حذفه على اية حال؟"
 
 #. Resource IDs: (616)
 #, c-format
@@ -338,6 +346,10 @@ msgid ""
 "Shall I update the working copy now\n"
 "and then retry?"
 msgstr ""
+"%s\n"
+"\n"
+"هل تريد تجديد نسخة العمل الأن؟\n"
+"حاول مرة اخرى"
 
 #. Resource IDs: (69)
 #, c-format
@@ -348,7 +360,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "هو مجلد وليس ملف!\n"
-"برنامج (TortoiseMerge) لا يمكنه تفريق المجلدات."
+"لم يستطع TortoiseMerge من فرق المجلدات."
 
 #. Resource IDs: (286)
 #, c-format
@@ -369,1057 +381,1057 @@ msgstr "&..."
 
 #. Resource IDs: (57664)
 msgid "&About TortoiseMerge..."
-msgstr "&عن (TortoiseMerge)..."
+msgstr "عن TortoiseMerge(&A)..."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
-msgstr "&تنيشط"
+msgstr "تنيشط(&A)"
 
 #. Resource IDs: (15)
 msgid "&Add"
-msgstr "&إضافة"
+msgstr "إضافة(&A)"
 
 #. Resource IDs: (17075)
 msgid "&Add >>"
-msgstr "&إضافة >>"
+msgstr "إضافة(&A) >>"
 
 #. Resource IDs: (1064)
 msgid "&Add or Remove Buttons"
-msgstr "&إضافة أو إزالة أزرار"
+msgstr "إضافة أو إزالة الأزرار(&A)"
 
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
-msgstr "&إضافة..."
+msgstr "إضافة...(&A)"
 
 #. Resource IDs: (32849)
 msgid "&Advanced"
-msgstr "&متقدم"
+msgstr "متقدم(&A)"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
-msgstr "&متقدم..."
+msgstr "متقدم...(&A)"
 
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
-msgstr "&السماح بعناوين مواقع مبهمة"
+msgstr "السماح بـURLs الغامضة(&A)"
 
 #. Resource IDs: (65535)
 msgid "&Application Look"
-msgstr "&مظهر البرنامج"
+msgstr "مظهر البرنامج(&A)"
 
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
-msgstr "&تطبيق الخاصية بشكل متكرر"
+msgstr "تطبيق الخاصية بشكل متكرر(&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
-msgstr "&تطبيق الفرق الموحد"
+msgstr "تطبيق الفرق الموحد(&A)"
 
 #. Resource IDs: (32852)
 msgid "&Aqua Style"
-msgstr "&نمط مائي"
+msgstr "نمط مائي(&A)"
 
 #. Resource IDs: (65535)
 msgid "&Arguments:"
-msgstr "&معاملات:"
+msgstr "المُعَلَّمات(&A):"
 
 #. Resource IDs: (16645)
 msgid "&Assign"
-msgstr "&تعيين"
+msgstr "تعيين(&A)"
 
 #. Resource IDs: (16633)
 msgid "&Associate double-click event with:"
-msgstr "&ربط حدث النقر المزدوج مع :"
+msgstr "ربط حدث النقر المزدوج مع(&A):"
 
 #. Resource IDs: (1066)
 msgid "&Auto Hide"
-msgstr "&اخفاء تلقائي"
+msgstr "اخفاء تلقائي(&A)"
 
 #. Resource IDs: (65535)
 msgid "&Autoclose:"
-msgstr "&غلق تلقائي:"
+msgstr "اغلاق تلقائي(&A):"
 
 #. Resource IDs: (1015)
 msgid "&Backup original file"
-msgstr "&نسخ احتياطي للملف الأصلي"
+msgstr "احتياطية من الملف الأصلي(&B)"
 
 #. Resource IDs: (1559)
 msgid "&Binary"
-msgstr "&ثنائي"
+msgstr "ثنائي(&B)"
 
 #. Resource IDs: (114)
 msgid "&Blame changes"
-msgstr "&ملامة التغييرات"
+msgstr "لوم التغييرات(&B)"
 
 #. Resource IDs: (32782)
 msgid "&Blame previous revision"
-msgstr "&ملامة إصدارة سابقة"
+msgstr "لوم اصدار سابق(&B)"
 
 #. Resource IDs: (114, 322)
 msgid "&Blame revisions"
-msgstr "&ملامة إصدارات"
+msgstr "لوم الاصدارات(&B)"
 
 #. Resource IDs: (13)
 msgid "&Blame..."
-msgstr "&ملامة..."
+msgstr "لوم(&B)..."
 
 #. Resource IDs: (32849)
 msgid "&Blue Style"
-msgstr "&نمط أزرق"
+msgstr "نمط أزرق(&B)"
 
 #. Resource IDs: (65535)
 msgid "&Blue:"
-msgstr "&أزرق:"
+msgstr "أزرق(&B):"
 
 #. Resource IDs: (65535)
 msgid "&Border:"
-msgstr "&حد:"
+msgstr "الحد(&B):"
 
 #. Resource IDs: (1568)
 msgid "&Bottom"
-msgstr "&أسفل"
+msgstr "للأسفل(&B)"
 
 #. Resource IDs: (65535)
 msgid "&Branches"
-msgstr "&فروع"
+msgstr "فروع(&B)"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
-msgstr "&تصفح المستودع"
+msgstr "تصفح المستودع(&B)"
 
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
-msgstr "&تصفح..."
+msgstr "تصفح(&B)..."
 
 #. Resource IDs: (32850)
 msgid "&Bugtraq (Issue tracker integration)"
-msgstr "&Bugtraq (تكامل برنامج تتبع الأخطاء)"
+msgstr "&Bugtraq (نظام تتبع الأخطاء المتكامل)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
-msgstr "&مظهر الزرار..."
+msgstr " ظهور الزر(&B)..."
 
 #. Resource IDs: (65535)
 msgid "&Button text:"
-msgstr "&نص الزرار:"
+msgstr "نص الزر(&B):"
 
 #. Resource IDs: (1051)
 msgid "&CD-ROM"
-msgstr "&قرص مدمج"
+msgstr "محرك الأقراص المضغوطة(&C)"
 
 #. Resource IDs: (2)
 msgid "&Cancel"
-msgstr "&إلغاء"
+msgstr "إلغاء(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
-msgstr "&فئات:"
+msgstr "الأصناف(&C):"
 
 #. Resource IDs: (65535)
 msgid "&Category:"
-msgstr "&فئة:"
+msgstr "صنف(&C):"
 
 #. Resource IDs: (65535)
 msgid "&Choose commands from:"
-msgstr "&اختيار الأوامر من:"
+msgstr "اختيار الأوامر من(&C):"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
-msgstr ""
+msgstr "اختيار البند(&C)"
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
-msgstr ""
+msgstr "تنظيف حالة نسخة العمل(&C)"
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
-msgstr ""
+msgstr "تنظيف(&C)"
 
 #. Resource IDs: (58112)
 msgid "&Close"
-msgstr "&إغلاق"
+msgstr "إغلاق(&C)"
 
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
-msgstr "&أغلق النوافذ"
+msgstr "أغلاق النوافذ(&C)"
 
 #. Resource IDs: (32785)
 msgid "&Color age of lines"
-msgstr "&تلوين عمر السطور"
+msgstr "تلوين عمر السطور(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
-msgstr "&أمر:"
+msgstr "أمر(&C):"
 
 #. Resource IDs: (8)
 msgid "&Commit..."
-msgstr "&تسجيل..."
+msgstr "ارسال(&C)..."
 
 #. Resource IDs: (101)
 msgid "&Compare URLs"
-msgstr "&مقارنة عناوين المواقع"
+msgstr "مقارنة URLs(&C)"
 
 #. Resource IDs: (76, 274, 32783)
 msgid "&Compare revisions"
-msgstr "&مقارنة الإصدارات"
+msgstr "مقارنة الأصدارات(&C)"
 
 #. Resource IDs: (1019, 1390)
 msgid "&Compare whitespaces"
-msgstr "&مقارنة المسافات البيضاء"
+msgstr "مقارنة المسافات البيضاء(&C)"
 
 #. Resource IDs: (1239)
 msgid "&Configure"
-msgstr "&تهيئة"
+msgstr "تشكيل(&C)"
 
 #. Resource IDs: (1227)
 msgid "&Contact the repository on startup"
-msgstr "&الإتصال بالمستودع مع بدء التشغيل"
+msgstr "الإتصال بالمستودع مع بدء التشغيل(&C)"
 
 #. Resource IDs: (1073)
 msgid "&Convert files when diffing against BASE"
-msgstr "&تحويل الملفات عند التفرقة مع القاعدة (BASE)"
+msgstr "تحويل الملفات عند مقارنة الفرق مع الأساس(&C) (BASE)"
 
 #. Resource IDs: (501, 1367, 1471, 57634)
 msgid "&Copy"
-msgstr "&نسخ"
+msgstr "نسخ(&C)"
 
 #. Resource IDs: (16911)
 msgid "&Copy Button Image"
-msgstr "&نسخ صورة الزرار"
+msgstr "نسخ صورة الزر(&C)"
 
 #. Resource IDs: (32776)
 msgid "&Copy log message to clipboard"
-msgstr "&نسخ رسالة السجل للحافظة"
+msgstr "نسخ رسالة السجل الى الحافظة(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Copy to clipboard"
-msgstr ""
+msgstr "نسخ الى الحافظة(&C)"
 
 #. Resource IDs: (101)
 msgid "&Copy to..."
-msgstr ""
+msgstr "نسخ الى(&C)"
 
 #. Resource IDs: (1542)
 msgid "&Create folder structure"
-msgstr ""
+msgstr "انشاء تركيب مجلدات(&C)"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
-msgstr ""
+msgstr "تقليدي(&C)"
 
 #. Resource IDs: (1610, 1613)
 msgid "&Date"
-msgstr ""
+msgstr "تاريخ(&D)"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr ""
+msgstr "ايام الخمول حتى يتم التخلص من الخابئ الصغيرة(&D)"
 
 #. Resource IDs: (1269)
 msgid "&Default"
-msgstr ""
+msgstr "أفتراضي(%D)"
 
 #. Resource IDs: (11, 1382, 16617, 16912)
 msgid "&Delete"
-msgstr ""
+msgstr "حذف(&D)"
 
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
-msgstr ""
+msgstr "حذف (الأحتفاظ في المحلي)(&D)"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
-msgstr ""
+msgstr "حذف الملف دون التحكم في الإصدار(&D)"
 
 #. Resource IDs: (101)
 msgid "&Delete..."
-msgstr ""
+msgstr "حذف...(&D)"
 
 #. Resource IDs: (12)
 msgid "&Diff"
-msgstr ""
+msgstr "مقارنة الفرق(&D)"
 
 #. Resource IDs: (17)
 msgid "&Diff with URL"
-msgstr ""
+msgstr "مقارنة الفرق مع URL(&D)"
 
 #. Resource IDs: (14)
 msgid "&Diff with previous version"
-msgstr ""
+msgstr "مقارنة الفرق مع الصيغة السابق(&D)"
 
 #. Resource IDs: (1528)
 msgid "&Directories"
-msgstr ""
+msgstr "المجلدات(&D)"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
-msgstr ""
+msgstr "أرساء(&D)"
 
 #. Resource IDs: (32851)
 msgid "&EOL"
-msgstr ""
+msgstr "&EOL"
 
 #. Resource IDs: (1031, 65535)
 msgid "&Edit"
-msgstr ""
+msgstr "تحرير(&E)"
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
-msgstr ""
+msgstr "تحرير التعارض(&E)"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
-msgstr ""
+msgstr "تحرير التعارضات(&E)"
 
 #. Resource IDs: (1099, 1282, 16510)
 msgid "&Edit..."
-msgstr ""
+msgstr "تحرير...(&E)"
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
-msgstr ""
+msgstr "تمكين خادم بروكسي(&E)(Proxy Server)"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
-msgstr ""
+msgstr "تمكين تخزين السجل(&E)"
 
 #. Resource IDs: (1213)
 msgid "&Enter a message describing why you are locking the file(s)."
-msgstr ""
+msgstr "ادخل رسالة تشرح فيها سبب قفل الملفات(&E)"
 
 #. Resource IDs: (1554)
 msgid "&Executable"
-msgstr ""
+msgstr "قابل للتنفيذ(&E)"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
-msgstr ""
+msgstr "خروج(&E)"
 
 #. Resource IDs: (323)
 msgid "&Export selection to..."
-msgstr ""
+msgstr "استخراج المحدد الى&E)...("
 
 #. Resource IDs: (1092, 1094, 1095)
 msgid "&External"
-msgstr ""
+msgstr "خارجي(&E)"
 
 #. Resource IDs: (65535)
 msgid "&File"
-msgstr ""
+msgstr "ملف(&F)"
 
 #. Resource IDs: (1529)
 msgid "&Files"
-msgstr ""
+msgstr "ملفات(&F)"
 
 #. Resource IDs: (32809)
 msgid "&Filter"
-msgstr ""
+msgstr "فلتر(&F)"
 
 #. Resource IDs: (1, 57636)
 msgid "&Find"
-msgstr ""
+msgstr "بحث(&F)"
 
 #. Resource IDs: (32771)
 msgid "&Find..."
-msgstr ""
+msgstr "بحث(&F)..."
 
 #. Resource IDs: (32778)
 msgid "&Fit Images in window"
-msgstr ""
+msgstr "ملائمة الصور في النافذة(&F)"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
-msgstr ""
+msgstr "الأقراص الثابتة(&F)"
 
 #. Resource IDs: (1065)
 msgid "&Floating"
-msgstr ""
+msgstr "عائِم(&F)"
 
 #. Resource IDs: (65535)
 msgid "&Font for log messages:"
-msgstr ""
+msgstr "خط لرسائل السجل"
 
 #. Resource IDs: (65535)
 msgid "&Font:"
-msgstr ""
+msgstr "خط(&F):"
 
 #. Resource IDs: (501, 65535)
 msgid "&From URL:"
-msgstr ""
+msgstr "من URL(&F)"
 
 #. Resource IDs: (1259)
 msgid "&From WC / URL:"
-msgstr ""
+msgstr "من نسخة العمل / URL(&F):"
 
 #. Resource IDs: (65535)
 msgid "&From revision"
-msgstr ""
+msgstr "من الاصدار(&F)"
 
 #. Resource IDs: (1494)
 msgid "&From: (start URL and revision of the range to merge)"
-msgstr ""
+msgstr "من(&F): (بداية نطاق الدمج)"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
-msgstr ""
+msgstr "اذهب الى سطر(&G)..."
 
 #. Resource IDs: (65535)
 msgid "&Green:"
-msgstr ""
+msgstr "اخضر(&G):"
 
 #. Resource IDs: (32799)
 msgid "&Group by branch"
-msgstr ""
+msgstr "مجموعة وفقا للفرع(&G)"
 
 #. Resource IDs: (1115)
 msgid "&HEAD Revision"
-msgstr ""
+msgstr "احدث اصدار(&H)"
 
 #. Resource IDs: (1019, 1032, 1034)
 msgid "&HEAD revision"
-msgstr ""
+msgstr "احدث اصدار(&H)"
 
 #. Resource IDs: (1182)
 msgid "&HEAD revision in the repository"
-msgstr ""
+msgstr "احدث اصدار في المستودع(&H)"
 
 #. Resource IDs: (12, 32781, 57670, 65535)
 msgid "&Help"
-msgstr ""
+msgstr "مساعدة(&H)"
 
 #. Resource IDs: (57670)
 msgid "&Help Topics"
-msgstr ""
+msgstr "مواضيع المساعدة(&H)"
 
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
-msgstr ""
+msgstr "اخفاء(&H)"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
-msgstr ""
+msgstr "مجموعة الأيقونات(&I)"
 
 #. Resource IDs: (15)
 #, c-format
 msgid "&Ignore %d items by name"
-msgstr ""
+msgstr "تجاهل %d بنود حسب الأسم(&I)"
 
 #. Resource IDs: (1267)
 msgid "&Ignore ancestry"
-msgstr ""
+msgstr "تجاهل الأصدار السابق(&I)"
 
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
-msgstr ""
+msgstr "تجاهل التغيرات في المساحات البيضاء(&I)"
 
 #. Resource IDs: (16914)
 msgid "&Image"
-msgstr ""
+msgstr "صورة(&I)"
 
 #. Resource IDs: (32790)
 msgid "&Image Info"
-msgstr ""
+msgstr "معلومات الصورة(&I)"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
-msgstr ""
+msgstr "الصورة فقط(&I)"
 
 #. Resource IDs: (9, 1461)
 msgid "&Import..."
-msgstr ""
+msgstr "استيراد(&I)"
 
 #. Resource IDs: (1562)
 msgid "&Include externals"
-msgstr ""
+msgstr "يحتوي على وصلات خارجية(&I)"
 
 #. Resource IDs: (1480)
 msgid "&Include merge info"
-msgstr ""
+msgstr "يحتوي على المعلومات الدمج(&I)"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
-msgstr ""
+msgstr "مجلد بدء التشغيل(&I)"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
-msgstr ""
+msgstr "مقارنة الفرق حرفاً(&I) "
 
 #. Resource IDs: (275)
 msgid "&Join all"
-msgstr ""
+msgstr "انضم للكل(&J)"
 
 #. Resource IDs: (275)
 msgid "&Join with sub-trees"
-msgstr ""
+msgstr "انضم بنظام شبه الاشجار(&J)"
 
 #. Resource IDs: (1016)
 msgid "&Jump to first difference when loading"
-msgstr ""
+msgstr "اذهب الى اول فرق عند التحميل(&J)"
 
 #. Resource IDs: (32852)
 msgid "&Keywords"
-msgstr ""
+msgstr "الكلمات الدليلية(&K)"
 
 #. Resource IDs: (65535)
 msgid "&Language:"
-msgstr ""
+msgstr "اللغة(&L)"
 
 #. Resource IDs: (16653)
 msgid "&Large Icons"
-msgstr ""
+msgstr "الايقونات الكبيرة(&L)"
 
 #. Resource IDs: (1065)
 msgid "&Limit search to modified lines"
-msgstr ""
+msgstr "قيد البحث للسطور المعدلة(&L)"
 
 #. Resource IDs: (65535)
 msgid "&Limit:"
-msgstr ""
+msgstr "حدّ(&L)"
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
-msgstr ""
+msgstr "اربط مواقع الصور(&L)"
 
 #. Resource IDs: (1590)
 msgid "&Linux (LF)"
-msgstr ""
+msgstr "&Linux (LF)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
-msgstr ""
+msgstr "عرض على شكل قائمة(&L)"
 
 #. Resource IDs: (1309)
 msgid "&Load..."
-msgstr ""
+msgstr "حَمِّل(&L)"
 
 #. Resource IDs: (1554)
 msgid "&Locking required (read-only update)"
-msgstr ""
+msgstr "ان الأقفال مطلوب لهذه العملية(&L) (قراءة التحديث)"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
-msgstr ""
+msgstr "حجم السجل(&L)"
 
 #. Resource IDs: (65535)
 msgid "&Luminence:"
-msgstr ""
+msgstr "السطوع(%L)"
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
-msgstr ""
+msgstr "&Mac (CR)"
 
 #. Resource IDs: (1562)
 msgid "&Make depth sticky"
-msgstr ""
+msgstr "اجعل العمق شائك(%M)"
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
-msgstr ""
+msgstr "تعديل يدوي للخاصية(%M)"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
-msgstr ""
+msgstr "إزالة الحد الأقصى لحجم المخابئ غير المستخدمة(%M) [kByte]"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
-msgstr ""
+msgstr "قائمةالحركة(%M)"
 
 #. Resource IDs: (16921)
 msgid "&Menu contents:"
-msgstr ""
+msgstr "القائمة محتويات(&M):"
 
 #. Resource IDs: (1)
 msgid "&Merge"
-msgstr ""
+msgstr "دمج(%M)"
 
 #. Resource IDs: (32786)
 msgid "&Merge paths"
-msgstr ""
+msgstr "دمج المسارات(&M)"
 
 #. Resource IDs: (9)
 msgid "&Merge..."
-msgstr ""
+msgstr "دمج(&M)..."
 
 #. Resource IDs: (1012)
 msgid "&Merging"
-msgstr ""
+msgstr "يُجمع(&M)"
 
 #. Resource IDs: (32847)
 msgid "&Mime-Type"
-msgstr ""
+msgstr "وضع التمثيل الصامت(&M)"
 
 #. Resource IDs: (16925)
 msgid "&Minimize"
-msgstr ""
+msgstr "تصغير(&M)"
 
 #. Resource IDs: (1493)
 msgid "&Modify color for tag copies"
-msgstr ""
+msgstr "تعديل اللون لنسخ الـTag(%M)"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
-msgstr ""
+msgstr "تعديل اللون لنسخ الـtrunk(%M)"
 
 #. Resource IDs: (32880)
 msgid "&Moved blocks"
-msgstr ""
+msgstr "الكتل المنقولة(%M)"
 
 #. Resource IDs: (65535)
 msgid "&Navigate"
-msgstr ""
+msgstr "توجيه(&N)"
 
 #. Resource IDs: (1049)
 msgid "&Network drives"
-msgstr ""
+msgstr "محركات الشبكة(&N)"
 
 #. Resource IDs: (65535)
 msgid "&New "
-msgstr ""
+msgstr "جديد(&N)"
 
 #. Resource IDs: (1310, 1542, 16509, 16615)
 msgid "&New..."
-msgstr ""
+msgstr "جديد(&N)..."
 
 #. Resource IDs: (115, 1208)
 #, c-format
 msgid "&Next %ld"
-msgstr ""
+msgstr "التالي %ld(&N)"
 
 #. Resource IDs: (332)
 msgid "&Next >"
-msgstr ""
+msgstr "التالي(&N) >"
 
 #. Resource IDs: (32779)
 msgid "&Next Difference"
-msgstr ""
+msgstr "الفرق التالي(&N)"
 
 #. Resource IDs: (58114)
 msgid "&Next Page"
-msgstr ""
+msgstr "الصفحة التالية(&N)"
 
 #. Resource IDs: (16632)
 msgid "&No double-click event"
-msgstr ""
+msgstr "لا حدث للنقر المزدوج(&N)"
 
 #. Resource IDs: (1555)
 msgid "&No locking required"
-msgstr ""
+msgstr "الأقفال ليس مطلوب(&N)"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
-msgstr ""
+msgstr "غير قابل للتنفيذ(&N)"
 
 #. Resource IDs: (1566)
 msgid "&Numeric"
-msgstr ""
+msgstr "عددي(&N)"
 
 #. Resource IDs: (1)
 msgid "&OK"
-msgstr ""
+msgstr "موافق(&O)"
 
 #. Resource IDs: (1)
 msgid "&Offline for now"
-msgstr ""
+msgstr "غير متواجد في هذه اللحظة(&O)"
 
 #. Resource IDs: (3845)
 msgid "&One Page"
-msgstr ""
+msgstr "صفحة واحدة(&O)"
 
 #. Resource IDs: (101, 113, 32773, 57601)
 msgid "&Open"
-msgstr ""
+msgstr "فتح(&O)"
 
 #. Resource IDs: (1382)
 msgid "&Options"
-msgstr ""
+msgstr "الخيارات(&O)"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
-msgstr ""
+msgstr "غطاء الصور(&O)"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
-msgstr ""
+msgstr "كلمة السر(&O)"
 
 #. Resource IDs: (15, 376, 501)
 msgid "&Paste"
-msgstr ""
+msgstr "لصق(&O)"
 
 #. Resource IDs: (1600)
 msgid "&Peg revision:"
-msgstr ""
+msgstr "إصدار &Peg:"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
-msgstr ""
+msgstr "غير متواجد بشكل دائم(&P)"
 
 #. Resource IDs: (1588)
 msgid "&Platform dependent (native)"
-msgstr ""
+msgstr "المشغل التابع(&P)"
 
 #. Resource IDs: (1414)
 msgid "&Port:"
-msgstr ""
+msgstr "المنفذ(&P): "
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
-msgstr ""
+msgstr "تشغيل افتراضيات المستخدم(%P)"
 
 #. Resource IDs: (32780)
 msgid "&Previous Difference"
-msgstr ""
+msgstr "الفرق السابق(%P)"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
-msgstr ""
+msgstr "معاينة الطباعة(%P)"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
-msgstr ""
+msgstr "طباعة(&P)..."
 
 #. Resource IDs: (1265)
 msgid "&Properties"
-msgstr ""
+msgstr "خصائص(%P)"
 
 #. Resource IDs: (11021)
 msgid "&Properties..."
-msgstr ""
+msgstr "خصائص(%P)..."
 
 #. Resource IDs: (1246)
 msgid "&Recent messages"
-msgstr ""
+msgstr "الرسائل الأخيرة(%R)"
 
 #. Resource IDs: (65535)
 msgid "&Red:"
-msgstr ""
+msgstr "أحمر(&R)"
 
 #. Resource IDs: (376)
 msgid "&Redo"
-msgstr ""
+msgstr "تقدم(&R)"
 
 #. Resource IDs: (1382)
 msgid "&Refresh"
-msgstr ""
+msgstr "تحديث(&R)"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr ""
+msgstr "ذكرني لأضع رقم هوية الـBug(&R)"
 
 #. Resource IDs: (1100, 1285, 16646)
 msgid "&Remove"
-msgstr ""
+msgstr "إزالة(&R)"
 
 #. Resource IDs: (101)
 msgid "&Rename"
-msgstr ""
+msgstr "إعادة التسمية(&R)"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
-msgstr ""
+msgstr "متصفح Repo(&R)"
 
 #. Resource IDs: (16613, 16624)
 msgid "&Reset"
-msgstr ""
+msgstr "إعادة تعيين(&R)"
 
 #. Resource IDs: (1019)
 msgid "&Reset Toolbar"
-msgstr ""
+msgstr "إعادة تعيين شريط المهام(&R)"
 
 #. Resource IDs: (16657)
 msgid "&Reset my usage data"
-msgstr ""
+msgstr "إعادة تعيين بيانات الأستعمال خاصتي(&R)"
 
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
-msgstr ""
+msgstr "إعادة تعيين الى الوضع الأفتراضي(&R)"
 
 #. Resource IDs: (1382)
 msgid "&Resolve using local property"
-msgstr ""
+msgstr "حلل بأستخدام خاصية محلية(&R)"
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
-msgstr ""
+msgstr "استعادة الافتراضيات(&R)"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
-msgstr ""
+msgstr "اعادة المحاولة بدون خطافات(&R)"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
-msgstr ""
+msgstr "عكس كل التغييرات بشك تكراري(&R)"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
-msgstr ""
+msgstr "عكس التغييرات من هذه الأصدارات(&R)"
 
 #. Resource IDs: (113)
 msgid "&Revert changes from this revision"
-msgstr ""
+msgstr "عكس التغييرات من هذا الأصدار(&R)"
 
 #. Resource IDs: (1033, 1035, 1116)
 msgid "&Revision"
-msgstr ""
+msgstr "الأصدار(&R)"
 
 #. Resource IDs: (65535)
 msgid "&SSH client:"
-msgstr ""
+msgstr "عميل &SSH:"
 
 #. Resource IDs: (65535)
 msgid "&SVN"
-msgstr ""
+msgstr "&SVN"
 
 #. Resource IDs: (65535)
 msgid "&Saturation:"
-msgstr ""
+msgstr "الأشباع(&S):"
 
 #. Resource IDs: (16921, 57603)
 msgid "&Save"
-msgstr ""
+msgstr "حفظ(&S)"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
-msgstr ""
+msgstr "حفظ التوثيق(&S)"
 
 #. Resource IDs: (272, 32771, 32806)
 msgid "&Save graph as..."
-msgstr ""
+msgstr "حفظ الرسم كـ(&S):"
 
 #. Resource IDs: (322)
 msgid "&Save list of selected files to..."
-msgstr ""
+msgstr "حفظ قائمة بالملفات المحددة إلى(&S): "
 
 #. Resource IDs: (1308)
 msgid "&Save value..."
-msgstr ""
+msgstr "حفظ القيمة(&S)"
 
 #. Resource IDs: (9)
 msgid "&Settings"
-msgstr ""
+msgstr "الأعدادات(&S)"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
-msgstr ""
+msgstr "اظهار احدث اصدار(&S)"
 
 #. Resource IDs: (1132)
 msgid "&Show Log"
-msgstr ""
+msgstr "اظهار السجل(&S)"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
-msgstr ""
+msgstr "اظهار القوائم ل(&S):"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
-msgstr ""
+msgstr "إظهار العلامات النصية(&S)"
 
 #. Resource IDs: (32851)
 msgid "&Silver Style"
-msgstr ""
+msgstr "نمط فضّي(&S)"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
-msgstr ""
+msgstr "إصدار معيين في المستودع(&S)"
 
 #. Resource IDs: (16917)
 msgid "&Start Group"
-msgstr ""
+msgstr "إبدأ مجموعة(&S)"
 
 #. Resource IDs: (1605)
 msgid "&Start Repobrowser"
-msgstr ""
+msgstr "بدأ متصفح(&S) Repo"
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
-msgstr ""
+msgstr "شريط الحالة(&S)"
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
-msgstr ""
+msgstr "سرقة القفول(&S)"
 
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
-msgstr ""
+msgstr "توقف على النسخ/تغيير الأسم(&S)"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
-msgstr ""
+msgstr "تبديل نسخة العمل لمسار في الأصدار(&S)"
 
 #. Resource IDs: (275)
 msgid "&Switch WC to path@HEAD"
-msgstr ""
+msgstr "تبديل بين نسخة العمل لمسار@احدث أصدار(&S) path@HEAD"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
-msgstr ""
+msgstr "عرض على شكل رموز"
 
 #. Resource IDs: (65535)
 msgid "&Tab size:"
-msgstr ""
+msgstr "حجم مفتاح تنظيم الجداول(&T)"
 
 #. Resource IDs: (1069)
 msgid "&Tabbed Document"
-msgstr ""
+msgstr "وثيقة منظمة بأستعمال مفتاح تنظيم الجداول(&T)"
 
 #. Resource IDs: (65535)
 msgid "&Tags"
-msgstr ""
+msgstr "إشارات(%T)"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
-msgstr ""
+msgstr "دمج تجريبي(&T)"
 
 #. Resource IDs: (16915)
 msgid "&Text"
-msgstr ""
+msgstr "نص(&T)"
 
 #. Resource IDs: (16506)
 msgid "&Text only"
-msgstr ""
+msgstr "نص فقط(&T)"
 
 #. Resource IDs: (1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
-msgstr ""
+msgstr "المهلة بالثواني قبل تحدث أخدث اصدار(&T)"
 
 #. Resource IDs: (1222)
 msgid "&Timeout in seconds to stop the auto-completion parsing"
-msgstr ""
+msgstr "المهلة بالثواني لوقف تكملة التحليل(%T)"
 
 #. Resource IDs: (65535)
 msgid "&To Revision"
-msgstr ""
+msgstr "إلى الأصدار(&T)"
 
 #. Resource IDs: (1305, 1384)
 msgid "&To URL:"
-msgstr ""
+msgstr "إلى URL(&T):"
 
 #. Resource IDs: (1305, 1384)
 msgid "&To path:"
-msgstr ""
+msgstr "إلى المسار(&T):"
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
-msgstr ""
+msgstr "إلى(&T): (نهاية نطاق الدمج)"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
-msgstr ""
+msgstr "شريط الأدوات(&T)"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
-msgstr ""
+msgstr "اسم شريط الأدوات(&T):"
 
 #. Resource IDs: (65535)
 msgid "&Toolbars:"
-msgstr ""
+msgstr "أشرطة الأدوات(&T):"
 
 #. Resource IDs: (1567)
 msgid "&Top"
-msgstr ""
+msgstr "أعلى(&T)"
 
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
-msgstr ""
+msgstr "&TortoiseMerge"
 
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
-msgstr ""
+msgstr "&TortoiseSVN"
 
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
-msgstr ""
+msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
-msgstr ""
+msgstr "&Trunk"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
-msgstr ""
+msgstr "صفحة متزدوجة(&T)"
 
 #. Resource IDs: (1058, 1376, 1394)
 msgid "&URL of repository:"
-msgstr ""
+msgstr "أرشيف &URL: "
 
 #. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
-msgstr ""
+msgstr "&URL:"
 
 #. Resource IDs: (376, 57643)
 msgid "&Undo"
-msgstr ""
+msgstr "تراجع(&U)"
 
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
-msgstr ""
+msgstr "الفرق الواحد(&U)"
 
 #. Resource IDs: (1061)
 msgid "&Unknown drives"
-msgstr ""
+msgstr "محركات مجهولة(&U)"
 
 #. Resource IDs: (8)
 msgid "&Update"
-msgstr ""
+msgstr "تحديث(&U)"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr ""
+msgstr "تحديث البند للأصدار(&U)"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision..."
-msgstr ""
+msgstr "تحديث البند للأصدار(&U)..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
-msgstr ""
+msgstr "تحديث للأصدار(&U)..."
 
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
-msgstr ""
+msgstr "استعمال التكملة الألية لمسارات الملف و الكلمات الدليلية"
 
 #. Resource IDs: (1432)
 msgid "&Use recycle bin"
-msgstr ""
+msgstr "إستمال سلة المهملات"
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
-msgstr ""
+msgstr "اسم المستخدم(%U): "
 
 #. Resource IDs: (65535)
 msgid "&View"
-msgstr ""
+msgstr "الرأي(&V)"
 
 #. Resource IDs: (65535)
 msgid "&View:"
-msgstr ""
+msgstr "الرأي(&V):"
 
 #. Resource IDs: (32774)
 msgid "&Whitespaces"
-msgstr ""
+msgstr "المساحات البيضاء(&W)"
 
 #. Resource IDs: (1066)
 msgid "&Whole word"
-msgstr ""
+msgstr "كل الكلمة(&W)"
 
 #. Resource IDs: (1589)
 msgid "&Windows (CRLF)"
-msgstr ""
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
-msgstr ""
+msgstr "&Windows XP"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
-msgstr ""
+msgstr "نسخة العمل(%W)"
 
 #. Resource IDs: (32881)
 msgid "&Wrap long lines"
-msgstr ""
+msgstr "طوي السطور الطويلة(&W)"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
-msgstr ""
+msgstr "ملف قائمة المتحكم(&f)"
 
 #. Resource IDs: (84)
 #, c-format
@@ -1427,191 +1439,196 @@ msgid ""
 "'%s'\n"
 "is not a valid URL or path!"
 msgstr ""
+"%s\n"
+"ليس مسار أو URL صحيح"
 
 #. Resource IDs: (338)
 msgid ""
 "'skip ranges' are used to mark revision ranges that have not been cached yet"
-msgstr ""
+msgstr "'تخطى النطاق' تستخدم لتعليم نطاقات الأصدار اللتي لم تتم تخبأ بعد"
 
 #. Resource IDs: (272)
 #, c-format
 msgid "(%1!s!) %2!s!"
-msgstr ""
+msgstr "(%1!s!) %2!s!"
 
 #. Resource IDs: (119)
 msgid "(Double-click to clear error message)"
-msgstr ""
+msgstr "(نقرة مزدوجة لمسح رسالة الخطأ)"
 
 #. Resource IDs: (17, 564)
 msgid "(binary value)"
-msgstr ""
+msgstr "(قيمة ثنائية)"
 
 #. Resource IDs: (276)
 msgid "(copy)"
-msgstr ""
+msgstr "(نسخ)"
 
 #. Resource IDs: (277)
 msgid "(create branch)"
-msgstr ""
+msgstr "(انشاء فرع)"
 
 #. Resource IDs: (276)
 msgid "(created)"
-msgstr ""
+msgstr "(منشئ)"
 
 #. Resource IDs: (276)
 msgid "(delete)"
-msgstr ""
+msgstr "(حذف)"
 
 #. Resource IDs: (214)
 msgid "(externals)"
-msgstr ""
+msgstr "(الظواهر)"
 
 #. Resource IDs: (276)
 msgid "(modified)"
-msgstr ""
+msgstr "(معدّل)"
 
 #. Resource IDs: (276)
 msgid "(modified, HEAD revision)"
-msgstr ""
+msgstr "(معدلة, احدث إصدار)"
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
-msgstr ""
+msgstr "(اكثر من هدف محدد)"
 
 #. Resource IDs: (213)
 msgid "(no changelist)"
-msgstr ""
+msgstr "(لا قائمة بالتغييرات)"
 
 #. Resource IDs: (314)
 msgid "(no line number)"
-msgstr ""
+msgstr "(لا يوجد رقم للسطر)"
 
 #. Resource IDs: (276)
 msgid "(no modification but copy created from here)"
-msgstr ""
+msgstr "(لم يتم أي تعديل لكن تم انشاء نسخة من هنا)"
 
 #. Resource IDs: (278)
 msgid "(no modification but relevant for working copy)"
-msgstr ""
+msgstr "(لم يتم أي تعديل لكن ذات صلة بنسخة العمل) "
 
 #. Resource IDs: (214)
 msgid "(no value)"
-msgstr ""
+msgstr "(بدون قيمة)"
 
 #. Resource IDs: (314)
 msgid "(not found)"
-msgstr ""
+msgstr "(غير موجود)"
 
 #. Resource IDs: (176)
 msgid "(properties only)"
-msgstr ""
+msgstr "(الخواص فقط)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
-msgstr ""
+msgstr "(تغيير الخاصية فقط)"
 
 #. Resource IDs: (176)
 msgid "(props and content)"
-msgstr ""
+msgstr "(الدعائم و المحتوى)"
 
 #. Resource IDs: (276)
 msgid "(rename)"
-msgstr ""
+msgstr "(اعادة التسمية)"
 
 #. Resource IDs: (276)
 msgid "(tagged)"
-msgstr ""
+msgstr "(عُلِّم)"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
-msgstr ""
+msgstr "(مجهول)"
 
 #. Resource IDs: (188)
 #, c-format
 msgid "+ %d"
-msgstr ""
+msgstr "+ %d"
 
 #. Resource IDs: (188)
 #, c-format
 msgid "- %d"
-msgstr ""
+msgstr "- %d"
 
 #. Resource IDs: (1007)
 msgid ""
 "-------------------------------------------------------------------------------------------"
 msgstr ""
+"-------------------------------------------------------------------------------------------"
 
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1187, 1324,
 #. 1333, 1362, 1474)
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
-msgstr ""
+msgstr "... تفحص المخبأ و تجهيز السجل "
 
 #. Resource IDs: (270)
 msgid "... reading working copy status"
-msgstr ""
+msgstr "... قراءة حالة نسخة العمل جاري"
 
 #. Resource IDs: (16527)
 msgid "....."
-msgstr ""
+msgstr "....."
 
 #. Resource IDs: (151)
 #, c-format
 msgid ": Revision %d"
-msgstr ""
+msgstr ": الأصدار %d"
 
 #. Resource IDs: (151)
 msgid ": working base"
-msgstr ""
+msgstr ": العمل الأساسي"
 
 #. Resource IDs: (151)
 msgid ": working copy"
-msgstr ""
+msgstr ": نسخة العمل"
 
 #. Resource IDs: (332)
 msgid "< &Back"
-msgstr ""
+msgstr "< خلف(&B)"
 
 #. Resource IDs: (16506)
 msgid "<.....>"
-msgstr ""
+msgstr "<.....>"
 
 #. Resource IDs: (1069)
 msgid "<Separator>"
-msgstr ""
+msgstr "<الفاصلة>"
 
 #. Resource IDs: (1007)
 msgid "<Untitled>"
-msgstr ""
+msgstr "<غير معنون>"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
-msgstr ""
+msgstr "<الوصف>"
 
 #. Resource IDs: (209)
 msgid "<new changelist>"
-msgstr ""
+msgstr "<قائمة تغييرات جديدة>"
 
 #. Resource IDs: (32814)
 msgid "?"
-msgstr ""
+msgstr "؟"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for files to show in the combo box"
-msgstr ""
+msgstr "قائمة بخصائص المحددة من قبل المستحدم للملفات للعرض في ضندوق المجموعة"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
-msgstr ""
+msgstr "قائمة بخصائص المحددة من قبل المستحدم للمجلدات للعرض في ضندوق المجموعة"
 
 #. Resource IDs: (201)
 msgid ""
 "A newer version is available.\r\n"
 "Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
+"اصدار أحدث موجود حالياً.\r\n"
+"الرجاء الذهاب إلى http://tortoisesvn.net و تحميل الأصدار الجديد."
 
 #. Resource IDs: (195)
 msgid ""
@@ -1619,6 +1636,9 @@ msgid ""
 "If you add an '?' char at the end of a path, then only this path will be included.\r\n"
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
+"سطر جديد قد فصل لإحة من المسارات التي تغطي الايقونات المظهرة.\r\n"
+" إذا قمت بإضافة '?' في نهاية المسار, اذن سيتم تضمن المسار المحدد فقط.\r\n"
+"إذا قمت بإضافة '*' أو لم تضف أي شيء في نهاية المسار, اذن سيتم تضمن المسار المحدد و جميع الفروعه ايضاً."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1645,7 +1665,7 @@ msgstr ""
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
-msgstr ""
+msgstr "المورد مطلوب غير موجود"
 
 #. Resource IDs: (89)
 #, c-format
@@ -1654,6 +1674,9 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"إن المسار صحيح في Windows لا يمكن ان يحتوي على '<>|\"?*:'' أو أي من اسماء الأجهزة التالية:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"ألقي نظرة على هذه <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">الوثيقة</a> من Microsoft عن هذا الموضوع"
 
 #. Resource IDs: (79)
 msgid ""
@@ -1663,72 +1686,76 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "A&dd folder..."
-msgstr ""
+msgstr "إضافة مجلد(&d)..."
 
 #. Resource IDs: (73)
 msgid "Abort"
-msgstr ""
+msgstr "إلغاء"
 
 #. Resource IDs: (1465)
 msgid "Abort &Merge"
-msgstr ""
+msgstr "إلغاء الدمج(&M)"
 
 #. Resource IDs: (9)
 msgid "About"
-msgstr ""
+msgstr "عن"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
-msgstr ""
+msgstr "عن TortoiseMerge"
 
 #. Resource IDs: (129)
 msgid "About TortoiseSVN"
-msgstr ""
+msgstr "عن TortoiseSVN"
 
 #. Resource IDs: (82)
 msgid "Accept once"
-msgstr ""
+msgstr "قبول لمرة واحدة"
 
 #. Resource IDs: (82)
 msgid "Accept permanently"
-msgstr ""
+msgstr "قبول بشكل دائم"
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
 msgstr ""
+"قبول الشهادة بشكل دائم\n"
+"لن يتم سؤالك عن الشهادة مرة أخرى."
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
+"قبول الشهادة\n"
+"تم قبول الشهادة لهذه المرة فقط."
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "Access to %1 was denied."
-msgstr ""
+msgstr "تم رُفِضَ الدخول إلى %1."
 
 #. Resource IDs: (77, 319)
 msgid "Action"
-msgstr ""
+msgstr "إجراء"
 
 #. Resource IDs: (65535)
 msgid "Action log"
-msgstr ""
+msgstr "سجل الإجرائات"
 
 #. Resource IDs: (117)
 msgid "Actions"
-msgstr ""
+msgstr "الإجرائات"
 
 #. Resource IDs: (3826)
 msgid "Activate Task List"
-msgstr ""
+msgstr "تفعيل قائمة المهام"
 
 #. Resource IDs: (1066)
 msgid "Active Files"
-msgstr ""
+msgstr "الملفات الفعالة"
 
 #. Resource IDs: (3865)
 #, c-format
@@ -1736,90 +1763,94 @@ msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
 msgstr ""
+"لا يمكن حفظ عناصر ActiveX في نفس وقت مغادرة Windows!\n"
+"تخلص من كل التغييرات لـ %1?"
 
 #. Resource IDs: (155, 209, 229)
 msgid "Add"
-msgstr ""
+msgstr "إضافة"
 
 #. Resource IDs: (101)
 msgid "Add &file..."
-msgstr ""
+msgstr "إضافة ملف(&f)..."
 
 #. Resource IDs: (376)
 #, c-format
 msgid "Add '%s' to dictionary"
-msgstr ""
+msgstr "إضافة '%s' لمجلد"
 
 #. Resource IDs: (16)
 msgid "Add (as replacement)..."
-msgstr ""
+msgstr "إضافة(كبديل)..."
 
 #. Resource IDs: (563)
 msgid "Add Properties"
-msgstr ""
+msgstr "إضافة خصائص"
 
 #. Resource IDs: (110)
 msgid "Add extension specific diff program"
-msgstr ""
+msgstr "إضافة إمتداد لبرنامج معيّن لمقارنة الفروق"
 
 #. Resource IDs: (110)
 msgid "Add extension specific merge program"
-msgstr ""
+msgstr "إضافة إمتداد لبرنامج معيّن للدمج "
 
 #. Resource IDs: (90)
 msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
+"إضافة بند\n"
+"سيقود هذا إلى مشاكل في نظام Windows."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
-msgstr ""
+msgstr "إضافة ملفات جديدة ألياً لـSVN"
 
 #. Resource IDs: (89)
 msgid "Add the item anyway"
-msgstr ""
+msgstr "إضافة البند في أي حال"
 
 #. Resource IDs: (613)
 #, c-format
 msgid "Add to %1"
-msgstr ""
+msgstr "إضافة الى %1"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
-msgstr ""
+msgstr "إضافة إلى قائمة التجاهل(&i)"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
-msgstr ""
+msgstr "إضافة إلى شريط أدوات الوصول السريع"
 
 #. Resource IDs: (209, 1279)
 msgid "Add..."
-msgstr ""
+msgstr "إضافة..."
 
 #. Resource IDs: (171)
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr ""
+msgstr "إضافة/تحرير إمتداد برنامج  معيَن لمقارنة الفروق/للدمج "
 
 #. Resource IDs: (73, 264, 65535)
 msgid "Added"
-msgstr ""
+msgstr "تم إضافة"
 
 #. Resource IDs: (126)
 msgid "Added a file remotely"
-msgstr ""
+msgstr "تم إضاف ملف عن بعد"
 
 #. Resource IDs: (126)
 msgid "Added a folder remotely"
-msgstr ""
+msgstr "تم إضافة مجلد عن بعد"
 
 #. Resource IDs: (126)
 msgid "Added items remotely"
-msgstr ""
+msgstr "تم إضافة بند عن يعد"
 
 #. Resource IDs: (65535)
 msgid "Added node"
-msgstr ""
+msgstr "تم إضافة عقدة"
 
 #. Resource IDs: (145)
 #, c-format
@@ -1828,137 +1859,150 @@ msgid ""
 "%s\n"
 "to the ignore list."
 msgstr ""
+"تم إضافة أنماط الملفات\n"
+"%s\n"
+"إلى قائمة التجاهل."
 
 #. Resource IDs: (263)
 msgid "Adding"
-msgstr ""
+msgstr "يتم الأضافة"
 
 #. Resource IDs: (582)
 msgid "Adds a new property"
-msgstr ""
+msgstr "يُضيف خاصية جديدة"
 
 #. Resource IDs: (9)
 msgid "Adds file(s) to Subversion control"
-msgstr ""
+msgstr "يُضيف الملفات لتحكم الـSubversion"
 
 #. Resource IDs: (13)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr ""
+msgstr "يُضيف الملفات المحددة أو قناع الملفات لقائمة التجاهل"
 
 #. Resource IDs: (90)
 msgid ""
 "Adjust case\n"
 "The file is not added."
 msgstr ""
+"صندوق التعديل\n"
+"لم يتم إضافة الملف"
 
 #. Resource IDs: (2049)
 msgid ""
 "Adjust the settings\n"
 "Settings"
 msgstr ""
+"تعديل الأعدادات\n"
+"الأعدادات"
 
 #. Resource IDs: (307)
 msgid "Advanced"
-msgstr ""
+msgstr "متقدم"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
-msgstr ""
+msgstr "اعدادات المتقدمة لمقارنة الفروق/للدمج"
 
 #. Resource IDs: (110)
 msgid "Advanced diff settings"
-msgstr ""
+msgstr "اعدادات مقارنة الفروق المتقدمة"
 
 #. Resource IDs: (110)
 msgid "Advanced merge settings"
-msgstr ""
+msgstr "اعدادات الدمج المتقدمة"
 
 #. Resource IDs: (65535)
 msgid "Age"
-msgstr ""
+msgstr "عمر"
 
 #. Resource IDs: (32822)
 msgid "Align trees on top"
-msgstr ""
+msgstr "تصفيف الأشجار في الأعلى"
 
 #. Resource IDs: (1505)
 msgid "All"
-msgstr ""
+msgstr "الكل"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
-msgstr ""
+msgstr "كل الأوامر"
 
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
-msgstr ""
+msgstr "كل الملفات(*.*)"
 
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
-msgstr ""
+msgstr "كل الملفات(*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
-msgstr ""
+msgstr "كل التغييرات منذ اّخر تجديد سوف تُفقد!"
 
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
 "menus?"
 msgstr ""
+"كل تغييراتك سوف تُفقد! هل تريد حقاً ان تعيد تعيين أشرطة الأدوات و القوائم؟"
 
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset the keyboard "
 "assignments?"
 msgstr ""
+"كل تغييراتك سوف تُفقد! هل تريد حقاً ان تعيد تعيين تخصيصات لوحة المفاتيح؟"
 
 #. Resource IDs: (1008)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr ""
+msgstr "كل تغييراتك سوف تُفقد! هل تريد حقاً ان تعيد تعيين القائمة '%s' ؟"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr ""
+msgstr "كل تغييراتك سوف تُفقد! هل تريد حقاً ان تعيد تعيين شريط الأدوات '%s' ؟"
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
-msgstr ""
+msgstr "إسمح بالـ UUIDs الغامضة"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same URL, e.g. "
 "http://localhost/myrepos/"
 msgstr ""
+"السماح للمستودعات المختلفة بأستخدام نفس الـURL, على سبيل المثال. "
+"http://localhost/myrepos/"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr ""
+"السماح للمستودعات المختلفة بأستخدام نفس الـUUID, على سبيل المثال. المستودعات"
+" المنسوخة"
 
 #. Resource IDs: (119)
 msgid "Already merged"
-msgstr ""
+msgstr "مدموج بالفعل"
 
 #. Resource IDs: (119)
 msgid "Already reverse merged"
-msgstr ""
+msgstr "مدموج عكسياً بالفعل"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
-msgstr ""
+msgstr "إغلاق صناديق الحوار دائماً للعمليّات المحليّة"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
-msgstr ""
+msgstr "إستخدام اعدادات النظام المحليّة لعرض الوقت والتاريخ دائماً"
 
 #. Resource IDs: (339)
 msgid "Amount of memory required to load the cache"
-msgstr ""
+msgstr "كميّة الذاكرة المطلوبة لتحميل المخبأ"
 
 #. Resource IDs: (78)
 #, c-format
@@ -1970,6 +2014,12 @@ msgid ""
 "%base : the base file\r\n"
 "%mine : the modified file"
 msgstr ""
+"تم استخدام برنامج خارجي لمقارنة الفروق\r\n"
+"لمقارنة إصدارات مختلفة من الملفات.\r\n"
+"\r\n"
+"بأمكانك تحديد العوامل التالية للمسار:\r\n"
+"%base : الملف الأساسي\r\n"
+"%mine : الملفات المعدلة"
 
 #. Resource IDs: (79)
 #, c-format
@@ -1983,89 +2033,103 @@ msgid ""
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
 msgstr ""
+"تم استخدام برنامج خارجي للدمج\r\n"
+"لحل المعارضات في الملفات.\r\n"
+"\r\n"
+"بأمكانك تحديد العوامل التالية للمسار:\r\n"
+"%merged : الملفات المعارضة, اين تريد الحفظ\r\n"
+"%theirs : الملفات كما هي في المستودع\r\n"
+"%mine : ملفاتك, مع تعديلاتك\r\n"
+"%base : الملفات الأصلية, بدون تعديلاتك"
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "An incorrect file handle was associated with %1."
-msgstr ""
+msgstr "معامل الملف الذي كان مرتبط مع %1 خاطئ"
 
 #. Resource IDs: (3843)
 msgid "An unknown error has occurred."
-msgstr ""
+msgstr "لقد حدث خطأ مجهول."
 
 #. Resource IDs: (3867, 3868)
 #, c-format
 msgid "An unknown error occurred while accessing %1."
-msgstr ""
+msgstr "لقد حدث خطأ مجهول في محاولة الوصول إلى %1."
 
 #. Resource IDs: (63)
 #, c-format
 msgid "An unknown line type was found in line %d !"
 msgstr ""
+"لقد وجد سطر مجهول النوع!\n"
+"السطر: %d"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
-msgstr ""
+msgstr "إطارات قوائم التطبيق:"
 
 #. Resource IDs: (14)
 msgid "Applies a unified diff file to the working copy"
-msgstr ""
+msgstr "يُطبق ملف الفرق الموحد لنسخة العمل"
 
 #. Resource IDs: (581)
 msgid ""
 "Applies the properties recursively to all files/folders.\r\n"
 "bugtraq:, tsvn: and webviewer: properties are only applied to folders."
 msgstr ""
+"يُطبق خصائص بشكل متكرر لكل الملفات و المجلدات.\r\n"
+"bugtraq:, tsvn: و webviewer: خصائص طُبقت على المجلدات فقط"
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
-msgstr ""
+msgstr "تطبيق الرقعة(&p)..."
 
 #. Resource IDs: (345)
 msgid ""
 "Apply 'Power User' defaults. Those will provide a smoother experience.\n"
 "You should know the meaning of all the settings above."
 msgstr ""
+"تطبيق افتراضيات 'Power User'. مما سيجهز خبرة أسهل.\n"
+"يجب عليك معرفة معنى كلل الأعدادات التي إعلى هذا النص"
 
 #. Resource IDs: (313)
 msgid "Apply Patch..."
-msgstr ""
+msgstr "تطبيق الرقعة..."
 
 #. Resource IDs: (1072)
 msgid "Apply unified diff"
-msgstr ""
+msgstr "تطبيق الفرق الموحد"
 
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
-msgstr ""
+msgstr "نص أستبدادي(&i)"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr ""
+msgstr "هل تريد حقاً تعليم الملفات المتعارضة كما لو انها قد حُلّت."
 
 #. Resource IDs: (199)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr ""
+msgstr "هل تريد حقاً حذف المخابئ للبنود المحددة %d ؟"
 
 #. Resource IDs: (79)
 #, c-format
 msgid ""
 "Are you sure you want to revert %d item(s)? You will lose all changes since "
 "the last update!"
-msgstr ""
+msgstr "هل تريد حقاً عكس %d بنود؟ سوف تُفقد  كل التغييرات منذ اّخر تحديث"
 
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
-msgstr ""
+msgstr "ترتيب عامودي(%V)"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
-msgstr ""
+msgstr "كما هو(&i)(لا يوجد أي تغيير ملاحظ في السطر) "
 
 #. Resource IDs: (199)
 msgid "Ask the user"
-msgstr ""
+msgstr "إسأل المستخدم"
 
 #. Resource IDs: (264)
 #, c-format
@@ -2074,12 +2138,12 @@ msgstr ""
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
-msgstr ""
+msgstr "مُنسَب  إلى:"
 
 #. Resource IDs: (77)
 #, c-format
 msgid "At revision: %d"
-msgstr ""
+msgstr "في الأصدار: %d"
 
 #. Resource IDs: (3843)
 msgid "Attempted an unsupported operation."
@@ -2110,35 +2174,35 @@ msgstr ""
 
 #. Resource IDs: (19, 76, 207)
 msgid "Author"
-msgstr ""
+msgstr "الكاتب"
 
 #. Resource IDs: (65535)
 msgid "Author:\t\t\t\tStefan Kueng"
-msgstr ""
+msgstr "الكاتب:\t\t\t\tStefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
-msgstr ""
+msgstr "الكُتّاب"
 
 #. Resource IDs: (1265)
 msgid "Authors case sensitive"
-msgstr ""
+msgstr "الكُتّاب بحالة حساس"
 
 #. Resource IDs: (1444)
 msgid "Authors:"
-msgstr ""
+msgstr "الكُتّاب:"
 
 #. Resource IDs: (1003)
 msgid "Auto Hide"
-msgstr ""
+msgstr "اخفاء تلقائي"
 
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
-msgstr ""
+msgstr "اخفاء تلقائي للكل"
 
 #. Resource IDs: (99)
 msgid "Auto Rename"
-msgstr ""
+msgstr "اعادة تسمية تلقائية"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2146,11 +2210,11 @@ msgstr ""
 
 #. Resource IDs: (222)
 msgid "Auto-close if no errors"
-msgstr ""
+msgstr "إغلاق اّلى إذا لم مكن هناك أخطاء"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no merges, adds or deletes"
-msgstr ""
+msgstr "إغلاق ألي إذا لم يكن يَدمح أو يٌضيف أو يَحذف"
 
 #. Resource IDs: (195)
 msgid ""
@@ -2160,7 +2224,7 @@ msgstr ""
 
 #. Resource IDs: (438)
 msgid "Automatic"
-msgstr ""
+msgstr "اّلي"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2176,15 +2240,15 @@ msgstr ""
 
 #. Resource IDs: (1003, 1011)
 msgid "B&rowse..."
-msgstr ""
+msgstr "إستعراض(&r)..."
 
 #. Resource IDs: (1064)
 msgid "Back"
-msgstr ""
+msgstr "خلف"
 
 #. Resource IDs: (65535)
 msgid "Background"
-msgstr ""
+msgstr "خلفية"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2192,7 +2256,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Base file:"
-msgstr ""
+msgstr "ملف الأساس"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -2202,19 +2266,19 @@ msgstr ""
 
 #. Resource IDs: (162)
 msgid "Blame"
-msgstr ""
+msgstr "لوم"
 
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
-msgstr ""
+msgstr "لوم - TortoiseSVN"
 
 #. Resource IDs: (114)
 msgid "Blame..."
-msgstr ""
+msgstr "لوم..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
-msgstr ""
+msgstr "لوم كاتب على كل سطر في الملف"
 
 #. Resource IDs: (32812)
 msgid "Blend Alpha"
@@ -2228,7 +2292,7 @@ msgstr ""
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
-msgstr ""
+msgstr "استعراض(&o)..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
@@ -2240,103 +2304,103 @@ msgstr ""
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
-msgstr ""
+msgstr "فرع/علامة(&t)..."
 
 #. Resource IDs: (16)
 msgid "Break loc&k"
-msgstr ""
+msgstr "كسر القفل(%k)"
 
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
-msgstr ""
+msgstr "استعراض للبحث عن رنامج خارجي لمقارنة الفروق"
 
 #. Resource IDs: (1069)
 msgid "Browse..."
-msgstr ""
+msgstr "تصفح..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
-msgstr ""
+msgstr "معرف الجرثومة / رقم المشكلة(&I):"
 
 #. Resource IDs: (116)
 msgid "Bug-ID"
-msgstr ""
+msgstr "معرف الجرثومة"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
-msgstr ""
+msgstr "مصطلح معرف الجرثومة:"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
-msgstr ""
+msgstr "معرف الجرثومة هو:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
-msgstr ""
+msgstr "معرفات الجراثيم"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
-msgstr ""
+msgstr "فاحص التعابير المنطقية Bugtraq - TortoiseSVN"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
-msgstr ""
+msgstr "ظهور الزر"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
-msgstr ""
+msgstr "تفحص الأن(&h)"
 
 #. Resource IDs: (1132)
 msgid "C&heck repository"
-msgstr ""
+msgstr "تفحص المستودع(&h)"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
-msgstr ""
+msgstr "طوي شبه الأشجار(&o)"
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
-msgstr ""
+msgstr "أوامر(&o):"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr ""
+msgstr "إنشاء فرع/علامة من الأصدار(&r)"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
-msgstr ""
+msgstr "ينشئ مجلّد(&r)..."
 
 #. Resource IDs: (65535)
 msgid "C&urrent Keys:"
-msgstr ""
+msgstr "المفاتيح الحالية(&u):"
 
 #. Resource IDs: (501)
 msgid "C&ut"
-msgstr ""
+msgstr "قص(&u)"
 
 #. Resource IDs: (3697)
 msgid "CAP"
-msgstr ""
+msgstr "CAP"
 
 #. Resource IDs: (199)
 msgid "Cache size [kB]"
-msgstr ""
+msgstr "حجم المخبأ [kB]"
 
 #. Resource IDs: (1440)
 msgid "Cached Repositories"
-msgstr ""
+msgstr "المتودعات المخبأة"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
-msgstr ""
+msgstr "يُخَبًئ رسائل السجل لتسريع جلب السجل"
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr ""
+msgstr "يمكن ان تنقر نقاَ مزدوجاَ في لائحة السجل للمقارنة مع إصدار سابق"
 
 #. Resource IDs: (3865)
 msgid "Can not activate a static ActiveX object."
-msgstr ""
+msgstr "لم يتمكن من تنشيط عنصر ActiveX الثابت."
 
 #. Resource IDs: (82)
 #, c-format
@@ -2346,275 +2410,336 @@ msgid ""
 "to\n"
 "%2!s!"
 msgstr ""
+"لم يتمكن من نسخ \n"
+"%1!s!\n"
+"إلى\n"
+"%2!s!"
 
 #. Resource IDs: (1001)
 msgid "Can't copy bitmap image into the clipboard!"
-msgstr ""
+msgstr "لم يتمكن من نسخ الصورة النقطية إلى الحافظة"
 
 #. Resource IDs: (1001)
 msgid "Can't create a new image!"
-msgstr ""
+msgstr "لم يتمكن من إنشاء صورة جديد!"
 
 #. Resource IDs: (1001)
 msgid "Can't customize menus!"
-msgstr ""
+msgstr "لم يتمكن من تخصيص القوائم!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
-msgstr ""
+msgstr "لم يتمكن لصق الصور النقطية من الحافظة!"
 
 #. Resource IDs: (2, 73, 99, 332, 563, 1069)
 msgid "Cancel"
-msgstr ""
+msgstr "الغاء"
 
 #. Resource IDs: (170)
 msgid ""
 "Cancel\n"
 "Change the selection for the commit."
 msgstr ""
+"إلغاء\n"
+"غير المحدد للأيداع"
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
 msgstr ""
+"إلغاء\n"
+"إختر مجلد اّخر للأستخراج"
 
 #. Resource IDs: (221)
 msgid ""
 "Cancel\n"
 "Do not commit to a tag."
 msgstr ""
+"إلغاء\n"
+"لا تودع إلى الـTag"
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "Do not remove"
 msgstr ""
+"الغاء\n"
+"لا تزيل"
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"إلغاء\n"
+"لا تعود."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Do not update the working copy."
 msgstr ""
+"إلغاء\n"
+"لا تجدد نسخة العمل."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr ""
+"إلغاء\n"
+"لا تخرج من TortoiseMerge"
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
 msgstr ""
+"إلغاء\n"
+"لا تحل البند"
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't switch the views"
 msgstr ""
+"إلغاء\n"
+"لا تغير المشاهد"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
 msgstr ""
+"إلغاء\n"
+"عد للخلف و  قم بأدخل رقم الخطأ"
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Go back and select a different folder."
 msgstr ""
+"إلغاء\n"
+"عد للخلف و قم بتحديد مجلد اّخر"
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"إلغاء\n"
+"سوف اُدخل مسار/URL اّخر."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Ignore the outside changes."
 msgstr ""
+"إلغاء\n"
+"تجاهل التغيرات الخارجية."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"إلغاء\n"
+"إبقاء الـURL الحالي"
 
 #. Resource IDs: (314)
 msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr ""
+"إلغاء\n"
+"إيقاء الملف الفارغ."
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Leave all changes."
 msgstr ""
+"إلغاء\n"
+"ترك التغيرات."
 
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
 "Leave the cache on disk."
 msgstr ""
+"إلغاء\n"
+"ترك المخابئ على القرص."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr ""
+"إلغاء\n"
+"حل التعارضات أولاً."
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
 msgstr ""
+"إلغاء\n"
+"لم يتم حل التعارض."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not added and not adjusted."
 msgstr ""
+"إلغاء\n"
+"لم يتم إضافة أو تعديل الملف."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not copied."
 msgstr ""
+"إلغاء\n"
+"لم يتم نسخ الملف."
 
 #. Resource IDs: (91)
 msgid ""
 "Cancel\n"
 "The folder is not exported."
 msgstr ""
+"إلغاء\n"
+"لم يتم أستخراج المجلد."
 
 #. Resource IDs: (105)
 msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"إلغاء\n"
+"لم يتم استيراد البنود."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"إلغاء\n"
+"لم يتم تحريك البند."
 
 #. Resource IDs: (589)
 msgid ""
 "Cancel\n"
 "The property is not removed."
 msgstr ""
+"إلغاء\n"
+"لم تتم إزالة الخاصية."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "The target file is left as is"
 msgstr ""
+"إلغاء\n"
+"لقد تُرك الملف المستهدف كما هو."
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"إلغاء\n"
+"عليك إضافة الملف يدوياً."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"إلغاء\n"
+"دع التهيئة الحالية."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr ""
+msgstr "يتم إلغاء لوم TortoiseSVN..."
 
 #. Resource IDs: (270)
 msgid "Cancelling operation..."
-msgstr ""
+msgstr "يتم إلغاء العملية..."
 
 #. Resource IDs: (68)
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr ""
+"لم يستطع إضهار الفرق بسبب السطور الجديدة (newlines) المتناقضة  في الملف."
 
 #. Resource IDs: (16926)
 msgid "Casca&de"
-msgstr ""
+msgstr "سلسلة(&d)"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
-msgstr ""
+msgstr "قائمة متتالية السياق"
 
 #. Resource IDs: (117)
 msgid "Case-sensitive"
-msgstr ""
+msgstr "حساس للحالة"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
-msgstr ""
+msgstr "الأصناف:"
 
 #. Resource IDs: (82)
 msgid "Certificate expired or not yet valid"
-msgstr ""
+msgstr "يبدو أن الشهادة منتهية أو انها ليست صالحة بعد."
 
 #. Resource IDs: (82)
 #, c-format
 msgid "Certificate expired. Valid until: %s"
-msgstr ""
+msgstr "إن صلاحية الشهادة منتهية, إن الشهادة صالحة حتى: %s"
 
 #. Resource IDs: (82)
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
-msgstr ""
+msgstr "الشهادة ليست صالحة بعد. تصحيح من: %s"
 
 #. Resource IDs: (148)
 msgid "Certificate validation failed"
-msgstr ""
+msgstr "فشلة التحقق من صحة الشهادة"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
-msgstr ""
+msgstr "الشهادات|*.p12;*.pkcs12;*.pfx|All|*.*||"
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
-msgstr ""
+msgstr "تغيير موقع الإطار"
 
 #. Resource IDs: (3825)
 msgid "Change the window size"
-msgstr ""
+msgstr "تغيير حجم الإطار"
 
 #. Resource IDs: (199)
 msgid "Changed Files"
-msgstr ""
+msgstr "الملفات التي تغيرت"
 
 #. Resource IDs: (324)
 #, c-format
 msgid "Changed files between %1!s!, %2!s! and %3!s!, %4!s!"
-msgstr ""
+msgstr "الملفات التي تغيرت بين %1!s!, %2!s! و %3!s!, %4!s!"
 
 #. Resource IDs: (163)
 #, c-format
 msgid "Changed files: %d"
-msgstr ""
+msgstr "الملفات التي تغيرت: %d"
 
 #. Resource IDs: (264)
 #, c-format
 msgid "Changelist %s moved"
-msgstr ""
+msgstr "تم تحريك قائمة التغييرات %s"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
-msgstr ""
+msgstr "قائمة التغييرات:"
 
 #. Resource IDs: (1242)
 msgid "Changes made (double-click on file for diff):"
@@ -2634,15 +2759,15 @@ msgstr ""
 
 #. Resource IDs: (3887)
 msgid "Check"
-msgstr ""
+msgstr "مراجعة"
 
 #. Resource IDs: (174)
 msgid "Check For Updates"
-msgstr ""
+msgstr "مراجعة  التجديدات"
 
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
-msgstr ""
+msgstr "مراجعة التجديدات..."
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2658,7 +2783,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Check for updates"
-msgstr ""
+msgstr "مراجعة التجديدات"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -2760,7 +2885,7 @@ msgstr ""
 
 #. Resource IDs: (329)
 msgid "Cleanup"
-msgstr ""
+msgstr "تنضيف"
 
 #. Resource IDs: (83)
 #, c-format
@@ -2782,13 +2907,15 @@ msgstr ""
 
 #. Resource IDs: (1273, 1275, 1276, 1279, 1281, 1427)
 msgid "Clear"
-msgstr ""
+msgstr "تنظيف"
 
 #. Resource IDs: (1057)
 msgid ""
 "Clear Tool\n"
 "Clear"
 msgstr ""
+"تنظيف الأداةّ\n"
+"تنظيف"
 
 #. Resource IDs: (196)
 #, c-format
@@ -2825,7 +2952,7 @@ msgstr ""
 
 #. Resource IDs: (1466)
 msgid "Click here to go to the website"
-msgstr ""
+msgstr "أضغط هنا للذهاب لموقع الويب"
 
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
@@ -2845,15 +2972,15 @@ msgstr ""
 
 #. Resource IDs: (257)
 msgid "Clipboard"
-msgstr ""
+msgstr "حافظة"
 
 #. Resource IDs: (2, 1003, 1007, 1064)
 msgid "Close"
-msgstr ""
+msgstr "إغلاق"
 
 #. Resource IDs: (1065)
 msgid "Close Full Screen"
-msgstr ""
+msgstr "إغلاق وضع ملء الشاشة"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -2863,7 +2990,7 @@ msgstr ""
 
 #. Resource IDs: (222)
 msgid "Close manually"
-msgstr ""
+msgstr "إغلاق يدوياً"
 
 #. Resource IDs: (3825)
 msgid "Close the active window and prompts to save the documents"
@@ -2889,15 +3016,15 @@ msgstr ""
 
 #. Resource IDs: (16662)
 msgid "Color"
-msgstr ""
+msgstr "لون"
 
 #. Resource IDs: (65535)
 msgid "Color 1"
-msgstr ""
+msgstr "لون 1"
 
 #. Resource IDs: (65535)
 msgid "Color 2"
-msgstr ""
+msgstr "لون 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -2905,43 +3032,43 @@ msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
-msgstr ""
+msgstr "ألوان"
 
 #. Resource IDs: (65535)
 msgid "Colors:"
-msgstr ""
+msgstr "ألوان:"
 
 #. Resource IDs: (65535)
 msgid "Comman&ds:"
-msgstr ""
+msgstr "أوامر(&d)"
 
 #. Resource IDs: (220, 1002)
 msgid "Command"
-msgstr ""
+msgstr "أمر"
 
 #. Resource IDs: (198)
 msgid "Command Line"
-msgstr ""
+msgstr "سطر الأوامر"
 
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
-msgstr ""
+msgstr "سطر الأوامر للتشغيل"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
-msgstr ""
+msgstr "فشل الأمر - بحاجة إلى التجديد"
 
 #. Resource IDs: (3857)
 msgid "Command failed."
-msgstr ""
+msgstr "فشل الأمر"
 
 #. Resource IDs: (16104)
 msgid "Commands"
-msgstr ""
+msgstr "الأوامر"
 
 #. Resource IDs: (135, 229, 1083)
 msgid "Commit"
-msgstr ""
+msgstr "إرسال"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2951,11 +3078,11 @@ msgstr ""
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
-msgstr ""
+msgstr "إرسال إلى"
 
 #. Resource IDs: (209)
 msgid "Commit..."
-msgstr ""
+msgstr "إيداع..."
 
 #. Resource IDs: (221)
 msgid ""
@@ -2965,7 +3092,7 @@ msgstr ""
 
 #. Resource IDs: (244)
 msgid "Commits by author"
-msgstr ""
+msgstr "إيداع من قبل كاتب"
 
 #. Resource IDs: (244)
 msgid "Commits by date"
@@ -3016,7 +3143,7 @@ msgstr ""
 
 #. Resource IDs: (1390)
 msgid "Compare whitespaces"
-msgstr ""
+msgstr "مقارنة المسافات البيضاء"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -3053,11 +3180,11 @@ msgstr ""
 
 #. Resource IDs: (74)
 msgid "Completed"
-msgstr ""
+msgstr "تم بنجاح"
 
 #. Resource IDs: (219)
 msgid "Completed!"
-msgstr ""
+msgstr "تم بنجاح!"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3135,7 +3262,7 @@ msgstr ""
 
 #. Resource IDs: (73)
 msgid "Copied"
-msgstr ""
+msgstr "تم النسخ"
 
 #. Resource IDs: (208)
 msgid "Copied from URL"
@@ -3156,7 +3283,7 @@ msgstr ""
 
 #. Resource IDs: (16991)
 msgid "Copy"
-msgstr ""
+msgstr "نسخ"
 
 #. Resource IDs: (127)
 #, c-format
@@ -3180,7 +3307,7 @@ msgstr ""
 #. Resource IDs: (103)
 #, c-format
 msgid "Copy %s"
-msgstr ""
+msgstr "نسخ %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
@@ -3202,7 +3329,7 @@ msgstr ""
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
-msgstr ""
+msgstr "نسخ و إعادة التسمية"
 
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
@@ -3241,19 +3368,19 @@ msgstr ""
 #. Resource IDs: (613)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "نسخ لـ %1"
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "نسخ إلى الحافظة"
 
 #. Resource IDs: (103)
 msgid "Copy to working copy"
-msgstr ""
+msgstr "نسخ إلى نسخة العمل"
 
 #. Resource IDs: (101)
 msgid "Copy to working copy..."
-msgstr ""
+msgstr "نسخ إلى نسخة العمل..."
 
 #. Resource IDs: (98)
 #, c-format
@@ -3267,11 +3394,11 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Copying..."
-msgstr ""
+msgstr "يتم النسخ..."
 
 #. Resource IDs: (188)
 msgid "Corrections"
-msgstr ""
+msgstr "تصحيحات"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3444,7 +3571,7 @@ msgstr ""
 
 #. Resource IDs: (208)
 msgid "Create Patch"
-msgstr ""
+msgstr "انشاء رقعة"
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
@@ -3463,7 +3590,7 @@ msgstr ""
 
 #. Resource IDs: (102)
 msgid "Create shortcut"
-msgstr ""
+msgstr "انشاء إختصار"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -3507,24 +3634,24 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Current"
-msgstr ""
+msgstr "حالي"
 
 #. Resource IDs: (1113)
 msgid "Current version is:"
-msgstr ""
+msgstr "الأصدار الحالي هو: "
 
 #. Resource IDs: (201)
 #, c-format
 msgid "Current version is: %s"
-msgstr ""
+msgstr "الأصدار الحالي هو: %s"
 
 #. Resource IDs: (17079)
 msgid "Cus&tomize..."
-msgstr ""
+msgstr "تفصيل..."
 
 #. Resource IDs: (16963)
 msgid "Custom"
-msgstr ""
+msgstr "تصميم"
 
 #. Resource IDs: (17)
 msgid "Custom depths"
@@ -3558,7 +3685,7 @@ msgstr ""
 
 #. Resource IDs: (19, 76, 208)
 msgid "Date"
-msgstr ""
+msgstr "تاريخ"
 
 #. Resource IDs: (117)
 msgid "Date Range"
@@ -3566,7 +3693,7 @@ msgstr ""
 
 #. Resource IDs: (1008)
 msgid "Default"
-msgstr ""
+msgstr "إفتراضي"
 
 #. Resource IDs: (65535)
 msgid "Default &number of log messages"
@@ -3574,7 +3701,7 @@ msgstr ""
 
 #. Resource IDs: (1007)
 msgid "Default Menu"
-msgstr ""
+msgstr "القائمة الإفتراضية"
 
 #. Resource IDs: (1516)
 msgid "Default URL:"
@@ -3983,7 +4110,7 @@ msgstr ""
 
 #. Resource IDs: (1079)
 msgid "Drive Types"
-msgstr ""
+msgstr "نوع المحرك"
 
 #. Resource IDs: (1315)
 msgid "Drives A: and B:"
@@ -5046,6 +5173,10 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:105; 'E&xit'
+msgid "ID:105:V C +W"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
 msgstr ""
@@ -5679,10 +5810,6 @@ msgstr ""
 msgid "L&imit:"
 msgstr ""
 
-#. Resource IDs: (1599)
-msgid "L&ocal path:"
-msgstr ""
-
 #. Resource IDs: (32855)
 msgid "Lan&guages"
 msgstr ""
@@ -5778,6 +5905,10 @@ msgstr ""
 
 #. Resource IDs: (104)
 msgid "Listing repository recursively..."
+msgstr ""
+
+#. Resource IDs: (1599)
+msgid "Lo&cal path:"
 msgstr ""
 
 #. Resource IDs: (130)
@@ -7288,11 +7419,11 @@ msgstr ""
 
 #. Resource IDs: (1080)
 msgid "Proxy Settings"
-msgstr ""
+msgstr "اعدادات البروكس"
 
 #. Resource IDs: (1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
-msgstr ""
+msgstr "ضع \"جلب القفل\" على رأس القائمة عندما يكون svn:needs-loc معييناً"
 
 #. Resource IDs: (246)
 #, c-format
@@ -7310,10 +7441,12 @@ msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
+"خروج\n"
+"المغادرة  من TortoiseMerge بدون حفظ التعديلات"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
-msgstr ""
+msgstr "محركات &RAM(ذاكرة الوصول العشوائي)"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch"
@@ -7321,27 +7454,27 @@ msgstr ""
 
 #. Resource IDs: (16623)
 msgid "R&eset"
-msgstr ""
+msgstr "إعادة(&e)"
 
 #. Resource IDs: (1423)
 msgid "R&everse merge"
-msgstr ""
+msgstr "عكس عملية الدمج(&e)"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
-msgstr ""
+msgstr "العودة الى هذا الأصدار(&e)"
 
 #. Resource IDs: (65535)
 msgid "RAM [kB]: "
-msgstr ""
+msgstr "RAM(ذاكرة الوصول العشوائي) [kB]:"
 
 #. Resource IDs: (3697)
 msgid "REC"
-msgstr ""
+msgstr "تسجيل"
 
 #. Resource IDs: (1048)
 msgid "Re&movable drives"
-msgstr ""
+msgstr "محركات قابلة للأزالة(&m)"
 
 #. Resource IDs: (11)
 msgid "Re&name..."
@@ -10608,10 +10741,6 @@ msgstr ""
 msgid "Versioned"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "View"
-msgstr ""
-
 #. Resource IDs: (114)
 msgid "View revision for path in &webviewer"
 msgstr ""
@@ -11256,7 +11385,7 @@ msgstr ""
 
 #. Resource IDs: (1539)
 msgid "log text &editor"
-msgstr ""
+msgstr "محرر نص السجل(&e)"
 
 #. Resource IDs: (65535)
 msgid "max revision: "
@@ -11508,10 +11637,14 @@ msgid ""
 "A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
 msgstr ""
+"svn:mime-type\r\n"
+"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
+"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
+"Anything else is treated as binary."
 
 #. Resource IDs: (313)
 msgid "svn:needs-lock"
-msgstr ""
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11521,6 +11654,11 @@ msgid ""
 "indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
 msgstr ""
+"svn:needs-lock\r\n"
+"إضبط  هذه إلى أي قثمة (على سبيل المثال. '*'( لأجبار القفل لهذا الملف.\r\n"
+"سيضبط الملف للقراءة فقط عندما يتم سحبه أو يتم تجديده,\r\n"
+"يشير ذلك إلى انه يجب على المستخدم الحصول على قفل على الملف\r\n"
+"قبل ان يمكنهم تحريره و قبل ان يقوم بأي تغيير."
 
 #. Resource IDs: (208)
 #, c-format
@@ -11528,45 +11666,47 @@ msgid ""
 "switched to\r\n"
 "%s"
 msgstr ""
+"تَبَدْل إلى\r\n"
+"%s"
 
 #. Resource IDs: (65535)
 msgid "switched:"
-msgstr ""
+msgstr "تَبَدْل:"
 
 #. Resource IDs: (601)
 msgid "temp. offline"
-msgstr ""
+msgstr "مؤقت, غير متواجد"
 
 #. Resource IDs: (65535)
 msgid "text [token count]: "
-msgstr ""
+msgstr "نص [عدد الرموز]:"
 
 #. Resource IDs: (626)
 msgid "the working copy is at this revision"
-msgstr ""
+msgstr "نسخة العمل هي في هذا الأصدار"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
-msgstr ""
+msgstr "هنالك تعديلات متعارضة."
 
 #. Resource IDs: (3845)
 #, c-format
 msgid "to %1"
-msgstr ""
+msgstr "إلى %1"
 
 #. Resource IDs: (80, 284)
 #, c-format
 msgid "to %1!s!"
-msgstr ""
+msgstr "إلى %1!s!"
 
 #. Resource IDs: (80, 103, 284)
 #, c-format
 msgid "to %s"
-msgstr ""
+msgstr "إلى %s"
 
 #. Resource IDs: (208, 264)
 msgid "tree conflict"
-msgstr ""
+msgstr "تعارض على شكل شجرة"
 
 #. Resource IDs: (578)
 msgid ""
@@ -11707,7 +11847,7 @@ msgstr ""
 #. Resource IDs: (104)
 #, c-format
 msgid "url: %1!s!"
-msgstr ""
+msgstr "url: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
@@ -11715,11 +11855,11 @@ msgstr ""
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"
-msgstr ""
+msgstr "uuid x64&4:"
 
 #. Resource IDs: (563)
 msgid "values are different"
-msgstr ""
+msgstr "القيم مختلفة"
 
 #. Resource IDs: (579)
 #, c-format
@@ -11740,26 +11880,26 @@ msgstr ""
 
 #. Resource IDs: (245)
 msgid "week"
-msgstr ""
+msgstr "اسبوع"
 
 #. Resource IDs: (65535)
 msgid "word tokens: "
-msgstr ""
+msgstr "رموز الكلمة:"
 
 #. Resource IDs: (65535)
 msgid "words [uncompressed]: "
-msgstr ""
+msgstr "كلمات [غير مضغوط]"
 
 #. Resource IDs: (245)
 msgid "year"
-msgstr ""
+msgstr "سنة"
 
 #. Resource IDs: (18, 1002, 1011, 1012, 1013, 1014)
 msgid "yes"
-msgstr ""
+msgstr "نعم"
 
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
-msgstr ""
+msgstr "{BugTraq}"
 
 

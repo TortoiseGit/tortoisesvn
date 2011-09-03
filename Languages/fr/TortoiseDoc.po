@@ -9,6 +9,7 @@
 # $Rev$
 # 
 # Authors:
+# Clément  <rousseau.clement@gmail.com>, 2011.
 # Fabrice Daugan <fabrice.daugan@gmail.com>, 2011.
 #   <christophe@xhaleera.com>, 2011.
 # Alexandre Paradis <paradial@hotmail.com>, 2011.
@@ -18,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-16 00:18+0000\n"
+"PO-Revision-Date: 2011-08-30 07:49+0000\n"
 "Last-Translator: chsxf <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -254,7 +255,7 @@ msgid ""
 "versioned. As a result, there are real client-side <command>move</command> "
 "and <command>copy</command> commands that operate on files and directories."
 msgstr ""
-"CVS suit seulement à la trace l'histoire de fichiers individuels, mais "
+"CVS suit seulement à la trace l'historique de fichiers individuels, mais "
 "Subversion met en oeuvre un système de fichiers <quote>virtuel</quote> "
 "versionné qui suit à la trace les changements sur des arborescences entières"
 " à travers le temps. Les fichiers <emphasis>et</emphasis> les répertoires "
@@ -3173,6 +3174,15 @@ msgid ""
 "it can block the commit with a message like <quote>You didn't say the magic "
 "word</quote>. :-)"
 msgstr ""
+"Si un script de hook refuse votre livraison alors ce refus est définitif. "
+"Mais vous pouvez construire un mécanisme de contournement dans ce même "
+"script en utilisant la technique du <emphasis>Mot Magique</emphasis>. Si le "
+"script veut refuser l'opération, il commence par chercher dans le message du"
+" journal la permission spéciale, soit une phrase à un endroit fixe ou peut-"
+"être le nom du fichier avec un préfixe. S'il trouve le mot magique alors il "
+"autorise la livraison à s'exécuter. Si la phrase n'est pas trouvée alors il "
+"peut bloquer la livraison avec un message du type <quote>Vous n'avez pas dit"
+" le mot magique</quote>. :-)"
 
 #. (title)
 msgid "Checkout Links"
@@ -3781,6 +3791,10 @@ msgid ""
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "</screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
 msgstr ""
+"Certaines personnes préfèrent que les données d'authentification soient supprimées lorsqu'elles se déconnectent de Windows, ou qu'elles l'arrêtent. Pour ce faire, il faut utiliser un script d'arrêt pour supprimer le répertoire <filename>%APPDATA%\\Subversion\\auth</filename>, ex :<screen>\n"
+"@echo off\n"
+"rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
+"</screen> Vous pouvez trouver une description sur comment installer de tels scripts sur <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -10398,6 +10412,12 @@ msgid ""
 "dialog. These specific property dialogs are described in more detail in "
 "<xref linkend=\"tsvn-dug-propertypage-editors\"/>."
 msgstr ""
+"<placeholder-1/> Pour ajouter une nouvelle propriété, cliquez d'abord sur "
+"<guilabel> Nouveau ... </guilabel> . Sélectionnez le nom de la propriété "
+"requise à partir du menu, puis remplissez les informations requises dans la "
+"boîte de dialogue de propriétés spécifiques. Ces boîtes de dialogues de "
+"propriétés spécifiques sont bien décrites plus en détail dans <xref linkend"
+"=\"tsvn-dug-propertypage-editors\"/> ."
 
 #. (para)
 msgid ""
@@ -11185,6 +11205,12 @@ msgid ""
 "TortoiseSVN presents edit dialogs for some particular properties which show "
 "the possible values or break the property into its individual components."
 msgstr ""
+"Certaines propriétés doivent utiliser des valeurs spécifiques, ou être "
+"formatées d'une manière spécifique afin d'être utilisées pour "
+"l'automatisation. Pour obtenir plus facilement le formatage correct, "
+"TortoiseSVN présente des fenêtres d'edition pour certaines propriétés "
+"particulières qui montrent les valeurs possibles ou qui décomposent chaque "
+"composant de la propriété."
 
 #. (title)
 msgid "External Content"
@@ -15901,6 +15927,11 @@ msgid ""
 "<literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and "
 "<literal>(\\d+)</literal>."
 msgstr ""
+"Si vous souhaitez obtenir les IDs des bugs tels qu'ils sont utilisés dans "
+"l'expression au-dessus dans un message de log, vous pourriez utiliser les "
+"expressions régulières suivantes, qui sont celles utilisées par le projet "
+"TortoiseSVN:  <literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and "
+"<literal>(\\d+)</literal>."
 
 #. (para)
 msgid ""
@@ -23199,6 +23230,10 @@ msgid ""
 "<option>/projectpropertiespath:path/to/wc</option> specifies the path from "
 "where to read and use the project properties."
 msgstr ""
+"Si <option>/path</option> pointe vers une URL, "
+"<option>/projectpropertiespath:chemin/vers/copie/de/travail</option> "
+"spécifie le chemin à partir duquel lire et utiliser les propriétés de "
+"projet."
 
 #. (para)
 msgid ""
