@@ -259,6 +259,7 @@ private:
     bool        IsCommittingToTag(CString& url);
     void        OnCommitFinished();
     bool        CheckUpdateAndRetry();
+    void        ResetVars();
 
     /**
      * Resizes the columns of the progress list so that the headings are visible.

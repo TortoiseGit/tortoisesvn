@@ -1260,41 +1260,7 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
 
 void CSVNProgressDlg::OnBnClickedRetrynohooks()
 {
-    m_Revision = SVNRev(_T("HEAD"));
-    m_RevisionEnd = 0;
-    m_bLockWarning = false;
-    m_bLockExists = false;
-    m_bCancelled = FALSE;
-    m_nConflicts = 0;
-    m_bConflictWarningShown = false;
-    m_bWarningShown = false;
-    m_bErrorsOccurred = FALSE;
-    m_bMergesAddsDeletesOccurred = FALSE;
-    m_bFinishedItemAdded = false;
-    m_bLastVisible = false;
-    m_itemCount = -1;
-    m_itemCountTotal = -1;
-    m_AlwaysConflicted = false;
-    m_BugTraqProvider = NULL;
-    m_bHookError = false;
-
-    m_ProgList.SetRedraw(FALSE);
-    m_ProgList.DeleteAllItems();
-    m_ProgList.SetItemCountEx (0);
-
-    for (size_t i=0; i<m_arData.size(); i++)
-    {
-        delete m_arData[i];
-    }
-    m_arData.clear();
-    m_arData.reserve(10000);
-
-    m_ProgList.SetRedraw(TRUE);
-
-    m_bNoHooks = true;
-
-    SetTimer(VISIBLETIMER, 300, NULL);
-    SetDlgItemText(IDC_INFOTEXT, L"");
+    ResetVars();
 
     m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
     if (m_pThread==NULL)
@@ -3495,41 +3461,7 @@ bool CSVNProgressDlg::CheckUpdateAndRetry()
             if (!updateProgDlg.DidErrorsOccur() && !updateProgDlg.DidConflictsOccur())
             {
                 // now retry the failed operation
-                m_Revision = SVNRev(_T("HEAD"));
-                m_RevisionEnd = 0;
-                m_bLockWarning = false;
-                m_bLockExists = false;
-                m_bCancelled = FALSE;
-                m_nConflicts = 0;
-                m_bConflictWarningShown = false;
-                m_bWarningShown = false;
-                m_bErrorsOccurred = FALSE;
-                m_bMergesAddsDeletesOccurred = FALSE;
-                m_bFinishedItemAdded = false;
-                m_bLastVisible = false;
-                m_itemCount = -1;
-                m_itemCountTotal = -1;
-                m_AlwaysConflicted = false;
-                m_BugTraqProvider = NULL;
-                m_bHookError = false;
-
-                m_ProgList.SetRedraw(FALSE);
-                m_ProgList.DeleteAllItems();
-                m_ProgList.SetItemCountEx (0);
-
-                for (size_t i=0; i<m_arData.size(); i++)
-                {
-                    delete m_arData[i];
-                }
-                m_arData.clear();
-                m_arData.reserve(10000);
-
-                m_ProgList.SetRedraw(TRUE);
-
-                m_bNoHooks = true;
-
-                SetTimer(VISIBLETIMER, 300, NULL);
-                SetDlgItemText(IDC_INFOTEXT, L"");
+                ResetVars();
 
                 m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
                 if (m_pThread==NULL)
@@ -3548,5 +3480,44 @@ bool CSVNProgressDlg::CheckUpdateAndRetry()
         }
     }
     return false;
+}
+
+void CSVNProgressDlg::ResetVars()
+{
+    m_Revision = SVNRev(_T("HEAD"));
+    m_RevisionEnd = 0;
+    m_bLockWarning = false;
+    m_bLockExists = false;
+    m_bCancelled = FALSE;
+    m_nConflicts = 0;
+    m_bConflictWarningShown = false;
+    m_bWarningShown = false;
+    m_bErrorsOccurred = FALSE;
+    m_bMergesAddsDeletesOccurred = FALSE;
+    m_bFinishedItemAdded = false;
+    m_bLastVisible = false;
+    m_itemCount = -1;
+    m_itemCountTotal = -1;
+    m_AlwaysConflicted = false;
+    m_BugTraqProvider = NULL;
+    m_bHookError = false;
+
+    m_ProgList.SetRedraw(FALSE);
+    m_ProgList.DeleteAllItems();
+    m_ProgList.SetItemCountEx (0);
+
+    for (size_t i=0; i<m_arData.size(); i++)
+    {
+        delete m_arData[i];
+    }
+    m_arData.clear();
+    m_arData.reserve(10000);
+
+    m_ProgList.SetRedraw(TRUE);
+
+    m_bNoHooks = true;
+
+    SetTimer(VISIBLETIMER, 300, NULL);
+    SetDlgItemText(IDC_INFOTEXT, L"");
 }
 

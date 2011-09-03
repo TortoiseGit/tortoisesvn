@@ -224,7 +224,9 @@ private:
     void            GetColumnInfo(SHCOLUMNINFO* to, DWORD index, UINT charactersCount, UINT titleId, UINT descriptionId);
     void            TweakMenu(HMENU menu);
     void            ExtractProperty(const TCHAR* path, const char* propertyName, tstring& to);
-
+    void            AddPathCommand(tstring& svnCmd, LPCTSTR command, bool bFilesAllowed);
+    void            AddPathFileCommand(tstring& svnCmd, LPCTSTR command);
+    void            AddPathFileDropCommand(tstring& svnCmd, LPCTSTR command);
 public:
     CShellExt(FileState state);
     virtual ~CShellExt();

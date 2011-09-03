@@ -19,6 +19,7 @@
 #pragma once
 
 #include "SVNReadProperties.h"
+#include "SVNHelpers.h"
 
 /**
  * \ingroup SVN
@@ -76,4 +77,7 @@ public:
      * \param text serialized property list
      */
     void SetFromSerializedForm (const std::string& text);
+
+private:
+    void PrepareMsgForUrl( const TCHAR * message, SVNPool& subpool );
 };

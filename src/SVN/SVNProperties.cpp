@@ -123,18 +123,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
 #ifdef _MFC_VER
     if (m_path.IsUrl() || (!m_rev.IsWorking() && !m_rev.IsValid()))
         CHooks::Instance().PreConnect(CTSVNPathList(m_path));
-    if (m_path.IsUrl())
-    {
-        CString msg = message ? message : _T("");
-        msg.Remove(_T('\r'));
-        log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (subpool, sizeof (*baton));
-        baton->message = apr_pstrdup(subpool, CUnicodeUtils::GetUTF8(msg));
-        baton->base_dir = "";
-        baton->message_encoding = NULL;
-        baton->tmpfile_left = NULL;
-        baton->pool = subpool;
-        m_pctx->log_msg_baton3 = baton;
-    }
+    PrepareMsgForUrl(message, subpool);
 #else
     UNREFERENCED_PARAMETER(message);
 #endif
@@ -224,18 +213,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
     SVNPool subpool(m_pool);
     svn_error_clear(Err);
 
-    if (m_path.IsUrl())
-    {
-        CString msg = message ? message : _T("");
-        msg.Remove(_T('\r'));
-        log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (subpool, sizeof (*baton));
-        baton->message = apr_pstrdup(subpool, CUnicodeUtils::GetUTF8(msg));
-        baton->base_dir = "";
-        baton->message_encoding = NULL;
-        baton->tmpfile_left = NULL;
-        baton->pool = subpool;
-        m_pctx->log_msg_baton3 = baton;
-    }
+    PrepareMsgForUrl(message, subpool);
 
     const char* svnPath = m_path.GetSVNApiPath(subpool);
 #ifdef _MFC_VER
@@ -380,6 +358,22 @@ void SVNProperties::SetFromSerializedForm (const std::string& text)
                                                      , m_pool);
             apr_hash_set (m_props, prop.first.c_str(), prop.first.length(), value);
         }
+    }
+}
+
+void SVNProperties::PrepareMsgForUrl( const TCHAR * message, SVNPool& subpool )
+{
+    if (m_path.IsUrl())
+    {
+        CString msg = message ? message : _T("");
+        msg.Remove(_T('\r'));
+        log_msg_baton3* baton = (log_msg_baton3 *) apr_palloc (subpool, sizeof (*baton));
+        baton->message = apr_pstrdup(subpool, CUnicodeUtils::GetUTF8(msg));
+        baton->base_dir = "";
+        baton->message_encoding = NULL;
+        baton->tmpfile_left = NULL;
+        baton->pool = subpool;
+        m_pctx->log_msg_baton3 = baton;
     }
 }
 
