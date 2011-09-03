@@ -24,6 +24,7 @@
 #include "PathUtils.h"
 #include "StringUtils.h"
 #include "svn_dirent_uri.h"
+#include "svn_path.h"
 #include <regex>
 #include "auto_buffer.h"
 
@@ -203,8 +204,6 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
         SetUTF8FwdslashPath(m_sFwdslashPath);
     }
 
-// svn_path_is_url will not be defined if we aren't using the SVN libs
-#ifdef SVN_PATH_H
     if (svn_path_is_url(m_sUTF8FwdslashPath))
     {
         m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
@@ -226,11 +225,6 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
         if (!svn_dirent_is_absolute(m_sUTF8FwdslashPath))
             m_sUTF8FwdslashPath.Empty();
     }
-#else
-    m_sUTF8FwdslashPath = svn_dirent_canonicalize(m_sUTF8FwdslashPath, pool);
-    if (!svn_dirent_is_absolute(m_sUTF8FwdslashPath))
-        m_sUTF8FwdslashPath.Empty();
-#endif
     return m_sUTF8FwdslashPath;
 }
 
@@ -925,7 +919,7 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
     }
     catch (CFileException* pE)
     {
-        TCHAR error[10000] = {0};
+        auto_buffer<TCHAR> error(10000);
         pE->GetErrorMessage(error, 10000);
         ::MessageBox(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
         pE->Delete();
@@ -1474,15 +1468,13 @@ private:
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/folder") == 0);
         testPath.SetFromWin(_T("c:\\a\\b\\c\\d\\e"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/a/b/c/d/e") == 0);
-#ifdef SVN_PATH_H
         testPath.SetFromUnknown(_T("http://testing/"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing") == 0);
-#endif
         testPath.SetFromSVN(NULL);
         ATLASSERT(strlen(testPath.GetSVNApiPath(pool))==0);
         testPath.SetFromWin(_T("\\\\a\\b\\c\\d\\e"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "//a/b/c/d/e") == 0);
-#if defined(_MFC_VER) && defined(SVN_PATH_H)
+#if defined(_MFC_VER)
         testPath.SetFromUnknown(_T("http://testing again"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
         testPath.SetFromUnknown(_T("http://testing%20again"));
