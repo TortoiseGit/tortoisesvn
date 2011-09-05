@@ -1204,7 +1204,6 @@ BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
             {
                 // clear the styles up to the match position
                 Call(SCI_SETSTYLING, it->position(0)-pos, STYLE_DEFAULT);
-                pos = (LONG)it->position(0);
 
                 // (*it)[0] is the matched string
                 string matchedString = (*it)[0];
