@@ -5790,189 +5790,194 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
         HDROP hDrop = (HDROP)GlobalLock(medium.hGlobal);
         if(hDrop != NULL)
         {
-            TCHAR szFileName[MAX_PATH];
-
-            UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
-
-            POINT clientpoint;
-            clientpoint.x = pt.x;
-            clientpoint.y = pt.y;
-            ScreenToClient(m_hTargetWnd, &clientpoint);
-            if ((m_pSVNStatusListCtrl->IsGroupViewEnabled())&&(m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint, false) >= 0))
-            {
-                CTSVNPathList changelistItems;
-                for(UINT i = 0; i < cFiles; ++i)
-                {
-                    if (DragQueryFile(hDrop, i, szFileName, _countof(szFileName)))
-                    {
-                        CTSVNPath itemPath = CTSVNPath(szFileName);
-                        if (itemPath.Exists())
-                            changelistItems.AddPath(itemPath);
-                    }
-                }
-                // find the changelist name
-                CString sChangelist;
-                LONG_PTR nGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint, false);
-                for (std::map<CString, int>::iterator it = m_pSVNStatusListCtrl->m_changelists.begin(); it != m_pSVNStatusListCtrl->m_changelists.end(); ++it)
-                    if (it->second == nGroup)
-                        sChangelist = it->first;
-                if (!sChangelist.IsEmpty())
-                {
-                    SVN svn;
-                    if (svn.AddToChangeList(changelistItems, sChangelist, svn_depth_empty))
-                    {
-                        m_pSVNStatusListCtrl->AcquireWriterLock();
-                        for (int l=0; l<changelistItems.GetCount(); ++l)
-                        {
-                            int index = m_pSVNStatusListCtrl->GetIndex(changelistItems[l]);
-                            if (index >= 0)
-                            {
-                                CSVNStatusListCtrl::FileEntry * e = m_pSVNStatusListCtrl->GetListEntry(index);
-                                if (e)
-                                {
-                                    e->changelist = sChangelist;
-                                    if (!e->IsFolder())
-                                    {
-                                        if (m_pSVNStatusListCtrl->m_changelists.find(e->changelist)!=m_pSVNStatusListCtrl->m_changelists.end())
-                                            m_pSVNStatusListCtrl->SetItemGroup(index, m_pSVNStatusListCtrl->m_changelists[e->changelist]);
-                                        else
-                                            m_pSVNStatusListCtrl->SetItemGroup(index, 0);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                HWND hParentWnd = GetParent(m_hTargetWnd);
-                                if (hParentWnd != NULL)
-                                    ::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)changelistItems[l].GetWinPath());
-                            }
-                        }
-                        m_pSVNStatusListCtrl->Sort();
-                        m_pSVNStatusListCtrl->ReleaseWriterLock();
-                    }
-                    else
-                    {
-                        svn.ShowErrorDialog(m_pSVNStatusListCtrl->GetSafeHwnd(), changelistItems[0]);
-                    }
-                }
-                else
-                {
-                    SVN svn;
-                    if (svn.RemoveFromChangeList(changelistItems, CStringArray(), svn_depth_empty))
-                    {
-                        m_pSVNStatusListCtrl->AcquireWriterLock();
-                        for (int l=0; l<changelistItems.GetCount(); ++l)
-                        {
-                            int index = m_pSVNStatusListCtrl->GetIndex(changelistItems[l]);
-                            if (index >= 0)
-                            {
-                                CSVNStatusListCtrl::FileEntry * e = m_pSVNStatusListCtrl->GetListEntry(index);
-                                if (e)
-                                {
-                                    e->changelist = sChangelist;
-                                    m_pSVNStatusListCtrl->SetItemGroup(index, 0);
-                                }
-                            }
-                            else
-                            {
-                                HWND hParentWnd = GetParent(m_hTargetWnd);
-                                if (hParentWnd != NULL)
-                                    ::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)changelistItems[l].GetWinPath());
-                            }
-                        }
-                        m_pSVNStatusListCtrl->Sort();
-                        m_pSVNStatusListCtrl->ReleaseWriterLock();
-                    }
-                    else
-                    {
-                        svn.ShowErrorDialog(m_pSVNStatusListCtrl->m_hWnd, changelistItems[0]);
-                    }
-                }
-            }
-            else
-            {
-                for(UINT i = 0; i < cFiles; ++i)
-                {
-                    if (DragQueryFile(hDrop, i, szFileName, _countof(szFileName)))
-                    {
-                        HWND hParentWnd = GetParent(m_hTargetWnd);
-                        if (hParentWnd != NULL)
-                            ::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)szFileName);
-                    }
-                }
-            }
+            OnDrop(hDrop, pt);
+            GlobalUnlock(medium.hGlobal);
         }
-        GlobalUnlock(medium.hGlobal);
     }
     return true; //let base free the medium
 }
+
+void CSVNStatusListCtrlDropTarget::OnDrop(HDROP hDrop, POINTL pt)
+{
+    TCHAR szFileName[MAX_PATH];
+
+    const UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
+
+    POINT clientpoint;
+    clientpoint.x = pt.x;
+    clientpoint.y = pt.y;
+    ScreenToClient(m_hTargetWnd, &clientpoint);
+
+    if ((!m_pSVNStatusListCtrl->IsGroupViewEnabled())||(m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint, false) < 0))
+    {
+        for(UINT i = 0; i < cFiles; ++i)
+        {
+            if (DragQueryFile(hDrop, i, szFileName, _countof(szFileName)))
+                SendAddFile(szFileName);
+        }
+        return;
+    }
+
+    CTSVNPathList changelistItems;
+    for(UINT i = 0; i < cFiles; ++i)
+    {
+        if (DragQueryFile(hDrop, i, szFileName, _countof(szFileName)))
+        {
+            CTSVNPath itemPath = CTSVNPath(szFileName);
+            if (itemPath.Exists())
+                changelistItems.AddPath(itemPath);
+        }
+    }
+    // find the changelist name
+    LONG_PTR nGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint, false);
+	CString sChangelist(GetChangelistName(nGroup));
+
+    SVN svn;
+    if (!sChangelist.IsEmpty())
+    {
+        if (svn.AddToChangeList(changelistItems, sChangelist, svn_depth_empty))
+        {
+            m_pSVNStatusListCtrl->AcquireWriterLock();
+            for (int l=0; l<changelistItems.GetCount(); ++l)
+            {
+                int index = m_pSVNStatusListCtrl->GetIndex(changelistItems[l]);
+                if (index < 0)
+                {
+                    SendAddFile(changelistItems[l].GetWinPath());
+                    continue;
+                }
+                CSVNStatusListCtrl::FileEntry * e = m_pSVNStatusListCtrl->GetListEntry(index);
+                if (e==0)
+                    continue;
+                e->changelist = sChangelist;
+                if (e->IsFolder())
+                    continue;
+
+                if (m_pSVNStatusListCtrl->m_changelists.find(e->changelist)!=m_pSVNStatusListCtrl->m_changelists.end())
+                    m_pSVNStatusListCtrl->SetItemGroup(index, m_pSVNStatusListCtrl->m_changelists[e->changelist]);
+                else
+                    m_pSVNStatusListCtrl->SetItemGroup(index, 0);
+            }
+            m_pSVNStatusListCtrl->Sort();
+            m_pSVNStatusListCtrl->ReleaseWriterLock();
+        }
+        else
+        {
+            svn.ShowErrorDialog(m_pSVNStatusListCtrl->GetSafeHwnd(), changelistItems[0]);
+        }
+    }
+    else
+    {
+        if (svn.RemoveFromChangeList(changelistItems, CStringArray(), svn_depth_empty))
+        {
+            m_pSVNStatusListCtrl->AcquireWriterLock();
+            for (int l=0; l<changelistItems.GetCount(); ++l)
+            {
+                int index = m_pSVNStatusListCtrl->GetIndex(changelistItems[l]);
+                if (index < 0)
+                {
+                    SendAddFile(changelistItems[l].GetWinPath());
+                    continue;
+                }
+                CSVNStatusListCtrl::FileEntry * e = m_pSVNStatusListCtrl->GetListEntry(index);
+                if (e)
+                {
+                    e->changelist = sChangelist;
+                    m_pSVNStatusListCtrl->SetItemGroup(index, 0);
+                }
+            }
+            m_pSVNStatusListCtrl->Sort();
+            m_pSVNStatusListCtrl->ReleaseWriterLock();
+        }
+        else
+        {
+            svn.ShowErrorDialog(m_pSVNStatusListCtrl->m_hWnd, changelistItems[0]);
+        }
+    }
+}
+
+void CSVNStatusListCtrlDropTarget::SendAddFile(LPCTSTR filename)
+{
+    HWND hParentWnd = GetParent(m_hTargetWnd);
+    if (hParentWnd != NULL)
+        ::SendMessage(hParentWnd, CSVNStatusListCtrl::SVNSLNM_ADDFILE, 0, (LPARAM)filename);
+}
+
+CString CSVNStatusListCtrlDropTarget::GetChangelistName(LONG_PTR nGroup)
+{
+    CString sChangelist;
+    for (std::map<CString, int>::iterator it = m_pSVNStatusListCtrl->m_changelists.begin(); it != m_pSVNStatusListCtrl->m_changelists.end(); ++it)
+        if (it->second == nGroup)
+            sChangelist = it->first;
+    return sChangelist;
+}
+
 HRESULT STDMETHODCALLTYPE CSVNStatusListCtrlDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
 {
     CIDropTarget::DragOver(grfKeyState, pt, pdwEffect);
+    DoDragOver(pt, pdwEffect);
+    return S_OK;
+}
+
+void CSVNStatusListCtrlDropTarget::DoDragOver(POINTL pt, DWORD __RPC_FAR *pdwEffect)
+{
     *pdwEffect = DROPEFFECT_MOVE;
-    CString sDropDesc;
-    if (m_pSVNStatusListCtrl)
+    if (m_pSVNStatusListCtrl==0)
     {
+        SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
+        return;
+    }
+    if (m_pSVNStatusListCtrl->IsGroupViewEnabled())
+    {
+        if (!m_pSVNStatusListCtrl->m_bOwnDrag)
+        {
+            SetDropDescriptionCopy();
+            return;
+        }
+
         POINT clientpoint;
         clientpoint.x = pt.x;
         clientpoint.y = pt.y;
         ScreenToClient(m_hTargetWnd, &clientpoint);
-        if (m_pSVNStatusListCtrl->IsGroupViewEnabled())
-        {
-            if (m_pSVNStatusListCtrl->m_bOwnDrag)
-            {
-                m_pSVNStatusListCtrl->AcquireReaderLock();
-                LONG_PTR iGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint, false);
-                if (iGroup >= 0)
-                {
-                    // find the changelist name
-                    CString sChangelist;
-                    for (std::map<CString, int>::iterator it = m_pSVNStatusListCtrl->m_changelists.begin(); it != m_pSVNStatusListCtrl->m_changelists.end(); ++it)
-                        if (it->second == iGroup)
-                            sChangelist = it->first;
 
-                    if (sChangelist.IsEmpty())
-                    {
-                        *pdwEffect = DROPEFFECT_MOVE;
-                        sDropDesc.LoadString(IDS_DROPDESC_MOVE);
-                        CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
-                        SetDropDescription(DROPIMAGE_MOVE, sDropDesc, sUnassignedName);
-                    }
-                    else
-                    {
-                        *pdwEffect = DROPEFFECT_MOVE;
-                        sDropDesc.LoadString(IDS_DROPDESC_MOVE);
-                        SetDropDescription(DROPIMAGE_MOVE, sDropDesc, sChangelist);
-                    }
-                }
-                else
-                {
-                    *pdwEffect = DROPEFFECT_MOVE;
-                    SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
-                }
-                m_pSVNStatusListCtrl->ReleaseReaderLock();
+        m_pSVNStatusListCtrl->AcquireReaderLock();
+        LONG_PTR iGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint, false);
+        if (iGroup >= 0)
+        {
+            CString sDropDesc;
+            sDropDesc.LoadString(IDS_DROPDESC_MOVE);
+            // find the changelist name
+            CString sChangelist(GetChangelistName(iGroup));
+            if (sChangelist.IsEmpty())
+            {
+                CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
+                SetDropDescription(DROPIMAGE_MOVE, sDropDesc, sUnassignedName);
             }
             else
             {
-                sDropDesc.LoadString(IDS_DROPDESC_ADD);
-                CString sDialog(MAKEINTRESOURCE(IDS_APPNAME));
-                SetDropDescription(DROPIMAGE_COPY, sDropDesc, sDialog);
+                SetDropDescription(DROPIMAGE_MOVE, sDropDesc, sChangelist);
             }
-        }
-        else if ((!m_pSVNStatusListCtrl->m_bFileDropsEnabled)||(m_pSVNStatusListCtrl->m_bOwnDrag))
-        {
-            *pdwEffect = DROPEFFECT_MOVE;
-            SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
         }
         else
         {
-            sDropDesc.LoadString(IDS_DROPDESC_ADD);
-            CString sDialog(MAKEINTRESOURCE(IDS_APPNAME));
-            SetDropDescription(DROPIMAGE_COPY, sDropDesc, sDialog);
+            SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
         }
+        m_pSVNStatusListCtrl->ReleaseReaderLock();
+    }
+    else if ((!m_pSVNStatusListCtrl->m_bFileDropsEnabled)||(m_pSVNStatusListCtrl->m_bOwnDrag))
+    {
+        SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
     }
     else
-        SetDropDescription(DROPIMAGE_NONE, NULL, NULL);
+    {
+        SetDropDescriptionCopy();
+    }
+}
 
-    return S_OK;
+void CSVNStatusListCtrlDropTarget::SetDropDescriptionCopy()
+{
+    CString sDropDesc;
+    sDropDesc.LoadString(IDS_DROPDESC_ADD);
+    CString sDialog(MAKEINTRESOURCE(IDS_APPNAME));
+    SetDropDescription(DROPIMAGE_COPY, sDropDesc, sDialog);
 }

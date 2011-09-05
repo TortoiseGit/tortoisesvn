@@ -1097,4 +1097,10 @@ public:
     virtual HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect);
 private:
     CSVNStatusListCtrl * m_pSVNStatusListCtrl;
+
+    void OnDrop(HDROP hDrop, POINTL pt);
+    void SendAddFile(LPCTSTR filename);
+    CString GetChangelistName(LONG_PTR nGroup);
+    void DoDragOver(POINTL pt, DWORD __RPC_FAR *pdwEffect);
+    void SetDropDescriptionCopy();
 };
