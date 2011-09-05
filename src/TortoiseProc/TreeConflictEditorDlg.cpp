@@ -198,7 +198,6 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
     if (m_bThreadRunning)
         return;
 
-    int retVal = IDC_RESOLVEUSINGTHEIRS;
     SVN svn;
 
     if (conflict_reason == svn_wc_conflict_reason_deleted)
@@ -237,6 +236,8 @@ void CTreeConflictEditorDlg::OnBnClickedResolveusingtheirs()
             svn.Revert(CTSVNPathList(m_path), CStringArray(), false);
         }
     }
+
+    int retVal = IDC_RESOLVEUSINGTHEIRS;
 
     if (!svn.Resolve(m_path, svn_wc_conflict_choose_merged, false))
     {
@@ -316,11 +317,12 @@ UINT CTreeConflictEditorDlg::StatusThread()
     m_progressDlg.ShowModeless(m_hWnd, false);
     SVNInfo info;
     const SVNInfoData * pData = info.GetFirstFileInfo(m_path, SVNRev(), SVNRev());
-    CTSVNPath statPath = m_path.GetContainingDirectory();
-    bool bFound = false;
+
     m_copyfromPath.Reset();
     if (pData)
     {
+        bool bFound = false;
+        CTSVNPath statPath = m_path.GetContainingDirectory();
         CString url = pData->url;
 
         const SVNInfoData * infodata = NULL;
