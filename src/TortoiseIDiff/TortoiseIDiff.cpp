@@ -109,6 +109,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                 DispatchMessage(&msg);
             }
         }
+        delete mainWindow;
         return (int) msg.wParam;
     }
     delete mainWindow;
