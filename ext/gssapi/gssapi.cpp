@@ -150,7 +150,7 @@ gss_OID GSS_C_NT_ANONYMOUS           = oids+5;
 gss_OID GSS_C_NT_EXPORT_NAME         = oids+6;
 gss_OID gss_nt_exported_name         = oids+6;
 
-#ifdef WIN64
+#ifdef _WIN64
 #define GSSAPI_DLL "gssapi64.dll"
 #else
 #define GSSAPI_DLL "gssapi32.dll"
