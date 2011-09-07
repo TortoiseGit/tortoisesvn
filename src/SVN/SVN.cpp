@@ -105,11 +105,11 @@ SVN::SVN(bool suppressUI)
     , m_pbCancel(nullptr)
 {
     parentpool = svn_pool_create(NULL);
-    svn_ra_initialize(pool);
     svn_error_clear(svn_client_create_context(&m_pctx, parentpool));
 
     Err = svn_config_ensure(NULL, parentpool);
     pool = svn_pool_create (parentpool);
+    svn_ra_initialize(pool);
     // set up the configuration
     if (Err == 0)
         Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, parentpool);
