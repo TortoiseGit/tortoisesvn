@@ -9,14 +9,15 @@
 # $Rev$
 # 
 # Authors:
-# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011.
+# Translators:
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011.
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-03 17:43+0000\n"
+"PO-Revision-Date: 2011-09-06 18:33+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -853,7 +854,7 @@ msgid ""
 msgstr ""
 "現実のプロジェクトでは、どこか安全なサーバーにリポジトリを構築し、それを制御するために Subversion "
 "サーバーをインストールします。今回は練習なのでサーバーを使用せず、 Subversion "
-"のローカルリポジトリ機能を使用し、リポジトリをローカルのハードディスクの中に構築して直接アクセスするようにします。"
+"のローカルリポジトリ機能を使用し、リポジトリを手元のハードディスクの中に構築して直接アクセスするようにします。"
 
 #. (para)
 msgid ""
@@ -884,8 +885,8 @@ msgid ""
 "set up a server."
 msgstr ""
 "ローカルリポジトリ機能は、テストや評価にはとても便利です。しかし、1人の開発者が1台のPCのみを使って作業をして場合を除いて、 Subversion "
-"専用のサーバーを設置すべきです。小さい会社では、サーバーのセットアップ作業を嫌って、ネットワークフォルダー上のリポジトリをアクセスするようにしたがるかもしれません。しかし、それはやめてください。データを失うことになります。なぜこの方法が良くないのか、またサーバーをセットアップする方法については、<xref"
-" linkend=\"tsvn-repository-local-share\"/>をお読みください。"
+"専用のサーバーを設置すべきです。小さい会社では、サーバーのセットアップ作業を嫌って、ネットワークフォルダー上のリポジトリをアクセスするようにしたがるかもしれません。しかし、それはやめてください。データを失うことになります。なぜこの方法が良くないのか、またサーバーをセットアップする方法については、"
+" <xref linkend=\"tsvn-repository-local-share\"/>をお読みください。"
 
 #. (title)
 msgid "Importing a Project"
@@ -990,7 +991,7 @@ msgid ""
 msgstr ""
 "さて、 <filename>Widget1-Dev</filename> の中にある、 <filename>Widget1.c</filename> と"
 " <filename>ReadMe.txt</filename> "
-"の2つのファイルについて、内容を変更してみましょう。これらのファイルは、アイコンのオーバーレイが赤に変わるはずです。これは、作業コピーがローカルで変更されたことを示しています。"
+"の2つのファイルについて、内容を変更してみましょう。これらのファイルは、アイコンのオーバーレイが赤に変わるはずです。これは、作業コピーが手元で変更されたことを示しています。"
 
 #. (title)
 msgid "File Difference Viewer"
@@ -1099,8 +1100,8 @@ msgid ""
 "click</action> on a file to see exactly what changes were made in that "
 "revision. Read <xref linkend=\"tsvn-dug-showlog\"/> to get the full story."
 msgstr ""
-"それぞれの欄でコンテキストメニューを使用すると、その情報に関する様々な操作ができます。下の欄のファイルを<action>ダブルクリック</action>すると、そのリビジョンでの変更の詳細を見ることができます。詳しくは、<xref"
-" linkend=\"tsvn-dug-showlog\"/>を参照してください。"
+"それぞれの欄でコンテキストメニューを使用すると、その情報に関する様々な操作ができます。下の欄のファイルを<action>ダブルクリック</action>すると、そのリビジョンでの変更の詳細を見ることができます。詳しくは、"
+" <xref linkend=\"tsvn-dug-showlog\"/>を参照してください。"
 
 #. (title)
 msgid "Undoing Changes"
@@ -1155,8 +1156,8 @@ msgid ""
 " a lot more detail on day-to-day operations."
 msgstr ""
 "この章では、 TortoiseSVN "
-"の中でもっとも重要でよく使われる機能を手早く紹介しましたが、まだまだ紹介しきれない機能がたくさんあります。このマニュアルの残りの部分を、時間をかけて読むことを強くお勧めします。特に、<xref"
-" linkend=\"tsvn-dug\"/>は日常の操作についてより詳細なことが書かれています。"
+"の中でもっとも重要でよく使われる機能を手早く紹介しましたが、まだまだ紹介しきれない機能がたくさんあります。このマニュアルの残りの部分を、時間をかけて読むことを強くお勧めします。特に、"
+" <xref linkend=\"tsvn-dug\"/>には日常の操作についてより詳細なことが書かれています。"
 
 #. (para)
 msgid ""
@@ -1750,7 +1751,7 @@ msgstr ""
 "<literal>file://</literal> によるアクセス方法は、通常はローカルアクセスに使用しますが、ネットワーク上のホストに対する UNC"
 " パスにも使用できます。そのためURLは <systemitem "
 "class=\"url\">file://hostname/path/to/repos</systemitem> "
-"のような形式になります。ローカルマシンではURLの <literal>hostname</literal> の部分を省略するか "
+"のような形式になります。同一マシン内では URL の <literal>hostname</literal> の部分を省略するか "
 "<literal>localhost</literal> としてください。このためローカルパスを表すには、<systemitem "
 "class=\"url\">file:///path/to/repos</systemitem> のようにスラッシュが3つ並べることになります。"
 
@@ -2217,7 +2218,7 @@ msgid ""
 "within the repository. Find out about layout options in <xref linkend"
 "=\"tsvn-repository-layout\"/>."
 msgstr ""
-"リポジトリ内にディレクトリ構造を作成したいと思うかもしれません。その場合は、<xref linkend=\"tsvn-repository-"
+"リポジトリ内にディレクトリ構造を作成したいと思うかもしれません。その場合は、 <xref linkend=\"tsvn-repository-"
 "layout\"/>に示したレイアウトオプション参照してください。"
 
 #. (para)
@@ -2379,7 +2380,7 @@ msgstr ""
 "<literal>file://</literal> "
 "アクセスは、ローカルでの1ユーザーのみのアクセスを想定しており、そのようにテストとデバッグを行っています。リポジトリを共有したい場合は、 "
 "<emphasis>まさに</emphasis> "
-"適切なサーバーをセットアップする必要がある場面であり、それは見かけほど難しくはありません。サーバーの選択・設定のガイドラインは、<xref "
+"適切なサーバーをセットアップする必要がある場面であり、それは見かけほど難しくはありません。サーバーの選択・設定のガイドラインは、 <xref "
 "linkend=\"tsvn-serversetup\"/> をお読みください。"
 
 #. (title)
@@ -2537,7 +2538,7 @@ msgstr "ハードディスクに新しい空のフォルダーを作成してく
 msgid ""
 "create your desired top-level folder structure inside that folder - don't "
 "put any files in it yet!"
-msgstr "このフォルダーの中にお好みのトップレベルフォルダー構造を作成してください。まだ中にはファイルを置かないでください。"
+msgstr "このフォルダーの中に任意のトップレベルフォルダー構造を作成してください。まだ中にはファイルを置かないでください。"
 
 #. (para)
 msgid ""
@@ -2694,7 +2695,7 @@ msgid ""
 "hooks\"/> for more information."
 msgstr ""
 "フックスクリプトは、リポジトリのあるサーバーで実行されます。 TortoiseSVN "
-"では、イベントが発生した時にローカルで実行される、クライアントサイドフックスクリプトも設定できます。詳細は<xref linkend=\"tsvn-"
+"では、イベントが発生した時にローカルで実行される、クライアントサイドフックスクリプトも設定できます。詳細は <xref linkend=\"tsvn-"
 "dug-settings-hooks\"/>をご覧ください。"
 
 #. (para)
@@ -2860,7 +2861,7 @@ msgid ""
 msgstr ""
 "<ulink url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> "
-"のような公開ホスティングサービスを使用している場合や、誰かがすでにサーバーをセットアップしている場合、何もする必要はありません。<xref "
+"のような公開ホスティングサービスを使用している場合や、誰かがすでにサーバーをセットアップしている場合、何もする必要はありません。 <xref "
 "linkend=\"tsvn-dug\"/> に進んでください。"
 
 #. (para)
@@ -2873,9 +2874,9 @@ msgid ""
 " out how to start using it."
 msgstr ""
 "サーバーを持っておらず、一人で作業している場合や、　Subversion や TortoiseSVN "
-"を試験環境で評価中の場合、ローカルリポジトリを作成するのが最適かもしれません。<xref linkend=\"tsvn-"
-"repository\"/>の始めで説明しているように、自分のPCにリポジトリを作成してください。使い始めるための方法を探すのであれば、この章の残りを読み飛ばして<xref"
-" linkend=\"tsvn-dug\"/>へ直接進んでもかまいません。"
+"を試験環境で評価中の場合、ローカルリポジトリを作成するのが最適かもしれません。 <xref linkend=\"tsvn-"
+"repository\"/>の始めで説明しているように、自分のPCにリポジトリを作成してください。使い始めるための方法を探すのであれば、この章の残りを読み飛ばして"
+" <xref linkend=\"tsvn-dug\"/>へ直接進んでもかまいません。"
 
 #. (para)
 msgid ""
@@ -2884,8 +2885,8 @@ msgid ""
 "find out why we think this is a bad idea. Setting up a server is not as hard"
 " as it sounds, and will give you better reliability and probably speed too."
 msgstr ""
-"複数のユーザーが使用するリポジトリを、ネットワークフォルダー上に構築しようと考えているなら、考え直してください。なぜこの方法が良くないのか、詳細は<xref"
-" linkend=\"tsvn-repository-local-"
+"複数のユーザーが使用するリポジトリを、ネットワークフォルダー上に構築しようと考えているなら、考え直してください。なぜこの方法が良くないのか、詳細は "
+"<xref linkend=\"tsvn-repository-local-"
 "share\"/>をお読みください。サーバーの構築は見かけほど難しくありませんし、信頼性が向上し、もしかしたら高速化するかもしれません。"
 
 #. (para)
@@ -3035,8 +3036,8 @@ msgid ""
 "represent."
 msgstr ""
 "<placeholder-1/> TortoiseSVN "
-"のもっとも目に見える機能のひとつが、作業コピーのファイルに現れるアイコンオーバーレイです。これにより、ファイルが変更されているかどうかが一目瞭然となります。オーバーレイが表す内容については、<xref"
-" linkend=\"tsvn-dug-wcstatus-1\"/>をご覧ください。"
+"のもっとも目に見える機能のひとつが、作業コピーのファイルに現れるアイコンオーバーレイです。これにより、ファイルが変更されているかどうかが一目瞭然となります。オーバーレイが表す内容については、"
+" <xref linkend=\"tsvn-dug-wcstatus-1\"/>をご覧ください。"
 
 #. (title)
 msgid "Context Menus"
@@ -3253,10 +3254,10 @@ msgid ""
 "authentication data stored in the registry by earlier versions of "
 "TortoiseSVN. Refer to <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 msgstr ""
-"すべてのサーバーの認証情報をクリアするには、TortoiseSVN の設定ダイアログの <guilabel>保存データ</guilabel> "
+"すべてのサーバーの認証情報をクリアするには、TortoiseSVN の設定ダイアログの <guilabel>保存されたデータ</guilabel> "
 "ページから行えます。このボタンで、以前のバージョンでレジストリに格納した認証情報と一緒に、 Subversion の "
-"<filename>auth</filename> ディレクトリからキャッシュされた認証データをクリアします。<xref linkend=\"tsvn-"
-"dug-settings-saved-data\"/> を参照してください。"
+"<filename>auth</filename> ディレクトリからキャッシュされた認証データをクリアします。 <xref linkend"
+"=\"tsvn-dug-settings-saved-data\"/> を参照してください。"
 
 #. (para)
 msgid ""
@@ -3283,7 +3284,7 @@ msgid ""
 "For more information on how to set up your server for authentication and "
 "access control, refer to <xref linkend=\"tsvn-serversetup\"/>."
 msgstr ""
-"認証とアクセスコントロールに関して、サーバーをどのようにセットアップするかに関する情報は、<xref linkend=\"tsvn-"
+"認証とアクセスコントロールに関して、サーバーをどのようにセットアップするかに関する情報は、 <xref linkend=\"tsvn-"
 "serversetup\"/>を参照ください。"
 
 #. (title)
@@ -3339,8 +3340,8 @@ msgid ""
 "time to think about how it will be organised. Read <xref linkend=\"tsvn-"
 "repository-layout\"/> for further advice."
 msgstr ""
-"すでにいくつかのプロジェクトが登録されているリポジトリにインポートする場合、リポジトリ構造はすでに決まっていることでしょう。新しいリポジトリにデータをインポートする場合には、どのようにリポジトリを構成するかを考えるのに、時間を費やす価値はあります。もっとアドバイスが必要であれば、<xref"
-" linkend=\"tsvn-repository-layout\"/>をお読みください。"
+"すでにいくつかのプロジェクトが登録されているリポジトリにインポートする場合、リポジトリ構造はすでに決まっていることでしょう。新しいリポジトリにデータをインポートする場合には、どのようにリポジトリを構成するかを考えるのに、時間を費やす価値はあります。もっとアドバイスが必要であれば、"
+" <xref linkend=\"tsvn-repository-layout\"/>をお読みください。"
 
 #. (para)
 msgid ""
@@ -3380,7 +3381,7 @@ msgid ""
 "Remove all files which are not needed to build the project (temporary files,"
 " files which are generated by a compiler e.g. *.obj, compiled binaries, ...)"
 msgstr ""
-"プロジェクトの構築に必要ないファイル（一時ファイル、*.obj のようなコンパイラが生成したファイル、コンパイルされたバイナリ）は削除してください。"
+"プロジェクトの構築に必要ないファイル（一時ファイル、*.obj のようなコンパイラーが生成したファイル、コンパイルされたバイナリ）は削除してください。"
 
 #. (para)
 msgid ""
@@ -3437,9 +3438,8 @@ msgid ""
 "global ignore pattern."
 msgstr ""
 "デフォルトでは、共通無視パターンにマッチしたファイル・フォルダーはインポート<emphasis>されません</emphasis>。 "
-"<guilabel>無視ファイルを含める</guilabel> "
-"チェックボックスを使用すると、この動作を上書きします。共通無視パターンの設定の詳細は<xref linkend=\"tsvn-dug-settings-"
-"main\"/>をご覧ください。"
+"<guilabel>無視ファイルを含める</guilabel> チェックボックスを使用すると、この動作を上書きします。共通無視パターンの設定の詳細は "
+"<xref linkend=\"tsvn-dug-settings-main\"/>をご覧ください。"
 
 #. (para)
 msgid ""
@@ -3501,8 +3501,7 @@ msgstr ""
 msgid ""
 "Commit the top level folder, and you have a new versioned tree, and a local "
 "working copy, created from your existing folder."
-msgstr ""
-"最上位のフォルダーをコミットしてください。これで新しいバージョン管理下のツリーと、既存フォルダーから作成したローカルの作業コピーを得られます。"
+msgstr "最上位のフォルダーをコミットしてください。これで新しいバージョン管理下のツリーと、既存フォルダーから作成した手元の作業コピーを得られます。"
 
 #. (para)
 msgid ""
@@ -3706,9 +3705,9 @@ msgid ""
 "linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog "
 "(<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 msgstr ""
-"作業コピーを部分的にチェックアウトした場合（つまり、チェックアウトする深さに<literal>再帰的</literal>以外を指定した場合）、その下のサブフォルダーを後から追加するには、リポジトリブラウザー（<xref"
-" linkend=\"tsvn-dug-repobrowser\"/>）または「変更をチェック」ダイアログ（<xref linkend=\"tsvn-"
-"dug-wcstatus-2\"/>）を使用してください。"
+"作業コピーを部分的にチェックアウトした場合（つまり、チェックアウトする深さに<literal>再帰的</literal>以外を指定した場合）、その下のサブフォルダーを後から追加するには、リポジトリブラウザー"
+" （<xref linkend=\"tsvn-dug-repobrowser\"/>）または「変更をチェック」ダイアログ （<xref linkend"
+"=\"tsvn-dug-wcstatus-2\"/>）を使用してください。"
 
 #. (para)
 msgid ""
@@ -3871,8 +3870,8 @@ msgid ""
 "that."
 msgstr ""
 "<filename>.svn</filename> "
-"ディレクトリを除いてコピーしたい場合があるかもしれません。例えば、ソースを圧縮したアーカイブファイルを作成するときなどです。どのように行うかは、<xref"
-" linkend=\"tsvn-dug-export\"/> をご覧ください。"
+"ディレクトリを除いてコピーしたい場合があるかもしれません。例えば、ソースを圧縮したアーカイブファイルを作成するときなどです。どのように行うかは、 "
+"<xref linkend=\"tsvn-dug-export\"/> をご覧ください。"
 
 #. (title)
 msgid "Committing Your Changes To The Repository"
@@ -3992,8 +3991,8 @@ msgid ""
 " this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> "
 "for more information."
 msgstr ""
-"コミットダイアログにバージョン管理外のファイル（例えば、コンパイラーが生成したファイルやエディターのバックアップなど）を表示しすぎだと思う場合は、以下のような方法で対処できます。<placeholder-1/>詳細は<xref"
-" linkend=\"tsvn-dug-ignore\"/>をご覧ください。"
+"コミットダイアログにバージョン管理外のファイル（例えば、コンパイラーが生成したファイルやエディターのバックアップなど）を表示しすぎだと思う場合は、以下のような方法で対処できます。<placeholder-1/>詳細は"
+" <xref linkend=\"tsvn-dug-ignore\"/>をご覧ください。"
 
 #. (para)
 msgid ""
@@ -4037,7 +4036,7 @@ msgstr ""
 "デフォルトでは変更をコミットすると、コミット完了後に保持していたファイルのロックが自動的に解除されます。ロックを保持したままにしたい場合は、 "
 "<guilabel>ロックを保持</guilabel> チェックボックスにチェックしておきます。チェックボックスのデフォルト状態は、 "
 "Subversion 設定ファイルの <literal>no_unlock</literal> オプションから取得されます。 Subversion "
-"設定ファイルの編集については、<xref linkend=\"tsvn-dug-settings-main\"/>をご覧ください。"
+"設定ファイルの編集については、 <xref linkend=\"tsvn-dug-settings-main\"/>をご覧ください。"
 
 #. (para)
 msgid ""
@@ -4115,8 +4114,8 @@ msgid ""
 "grouping related files together. Find out about this feature in <xref "
 "linkend=\"tsvn-dug-changelists\"/>."
 msgstr ""
-"コミットダイアログは、関連するファイルのグループ化を助ける Subversion の変更リスト機能をサポートしています。この機能については、<xref "
-"linkend=\"tsvn-dug-changelists\"/> をご覧ください。"
+"コミットダイアログは、関連するファイルのグループ化を助ける Subversion の変更リスト機能をサポートしています。この機能については、 <xref"
+" linkend=\"tsvn-dug-changelists\"/> をご覧ください。"
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -4276,8 +4275,8 @@ msgid ""
 "used by the spellchecker module. Read <xref linkend=\"tsvn-dug-"
 "propertypage\"/> for further information."
 msgstr ""
-"コミットログメッセージのフォーマットを制御したり、スペルチェッカーで使用する言語を指定する、特殊なフォルダープロパティがいくつかあります。詳細な情報は<xref"
-" linkend=\"tsvn-dug-propertypage\"/>をご覧ください。"
+"コミットログメッセージのフォーマットを制御したり、スペルチェッカーで使用する言語を指定する、特殊なフォルダープロパティがいくつかあります。詳細な情報は "
+"<xref linkend=\"tsvn-dug-propertypage\"/>をご覧ください。"
 
 #. (title)
 msgid "Integration with Bug Tracking Tools"
@@ -4363,7 +4362,7 @@ msgid ""
 " the settings dialog. Read <xref linkend=\"tsvn-dug-settings-colours\"/> for"
 " more information."
 msgstr ""
-"これはデフォルトの色設定ですが、設定ダイアログで色をカスタマイズできます。詳細は<xref linkend=\"tsvn-dug-settings-"
+"これはデフォルトの色設定ですが、設定ダイアログで色をカスタマイズできます。詳細は <xref linkend=\"tsvn-dug-settings-"
 "colours\"/>をご覧ください。"
 
 #. (title)
@@ -4493,7 +4492,7 @@ msgid ""
 "the default depth."
 msgstr ""
 "同じダイアログで、現在のフォルダーを更新するときの <firstterm>深さ</firstterm> "
-"を選択することもできます。選択肢の意味については、<xref linkend=\"tsvn-dug-checkout-"
+"を選択することもできます。選択肢の意味については、 <xref linkend=\"tsvn-dug-checkout-"
 "depth\"/>をご覧ください。デフォルトでは <guilabel>作業コピー</guilabel> "
 "が選択されており、これは現在の深さを維持します。また、<literal>深さを固定する</literal>を選択することもできます。これを選択すると、以降の更新ではそれが新しい深さの初期値として使用されます。"
 
@@ -4524,8 +4523,8 @@ msgid ""
 "revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-"
 "howto-rollback\"/> for further instructions, and alternative methods."
 msgstr ""
-"リビジョンを指定してファイルやフォルダーを更新した場合、そのファイルを変更するべきではありません。これをコミットしようとすると、<quote>作業コピーは最新ではありません</quote>のエラーが発生します。ファイルへの変更を取り消し、直前のリビジョンから新しくはじめたい場合、リビジョンログダイアログから以前のリビジョンに戻してしてください。詳しい方法や代替案については、<xref"
-" linkend=\"tsvn-howto-rollback\"/>をご覧ください。"
+"リビジョンを指定してファイルやフォルダーを更新した場合、そのファイルを変更するべきではありません。これをコミットしようとすると、<quote>作業コピーは最新ではありません</quote>のエラーが発生します。ファイルへの変更を取り消し、直前のリビジョンから新しくはじめたい場合、リビジョンログダイアログから以前のリビジョンに戻してしてください。詳しい方法や代替案については、"
+" <xref linkend=\"tsvn-howto-rollback\"/>をご覧ください。"
 
 #. (para)
 msgid ""
@@ -5362,7 +5361,7 @@ msgid ""
 "other technical details, read <xref linkend=\"tsvn-app-internals-"
 "overlays\"/>."
 msgstr ""
-"Subversion の状態に対応するアイコンオーバーレイの付き方や、その他の技術詳細は、<xref linkend=\"tsvn-app-"
+"Subversion の状態に対応するアイコンオーバーレイの付き方や、その他の技術詳細は、 <xref linkend=\"tsvn-app-"
 "internals-overlays\"/> をご覧ください。"
 
 #. (title)
@@ -5492,7 +5491,7 @@ msgstr ""
 
 #. (para)
 msgid "Locally modified items."
-msgstr "ローカルで修正した項目。"
+msgstr "手元で修正した項目。"
 
 #. (para)
 msgid ""
@@ -5520,7 +5519,7 @@ msgid ""
 "and deleted locally. These <emphasis>will</emphasis> produce conflicts on "
 "update."
 msgstr ""
-"ローカルで修正されリポジトリでは削除された、ないしリポジトリで修正されローカルで削除された項目。更新時に競合が "
+"手元で修正されリポジトリでは削除された、ないしリポジトリで修正され手元で削除された項目。更新時に競合が "
 "<emphasis>発生するでしょう</emphasis> 。 "
 
 #. (para)
@@ -5604,7 +5603,7 @@ msgid ""
 "files together into changelists. Read <xref linkend=\"tsvn-dug-commit-"
 "changelists\"/> for more information."
 msgstr ""
-"関連のない複数のタスクを一度に処理する場合、変更リストにあるファイルをまとめて扱うこともできます。詳しくは<xref linkend=\"tsvn-"
+"関連のない複数のタスクを一度に処理する場合、変更リストにあるファイルをまとめて扱うこともできます。詳しくは <xref linkend=\"tsvn-"
 "dug-commit-changelists\"/>をご覧ください。"
 
 #. (para)
@@ -5763,8 +5762,8 @@ msgid ""
 "feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 msgstr ""
 "TortoiseSVN は自身で使用する変更リストを、 <literal>ignore-on-commit</literal> "
-"という名前で予約しています。これは、手元で変更があってもコミットしたくない、バージョン管理下のファイルをマークするのに使用します。この機能は、<xref"
-" linkend=\"tsvn-dug-commit-ignore\"/>で説明します。"
+"という名前で予約しています。これは、手元で変更があってもコミットしたくない、バージョン管理下のファイルをマークするのに使用します。この機能は、 "
+"<xref linkend=\"tsvn-dug-commit-ignore\"/>で説明します。"
 
 #. (para)
 msgid ""
@@ -5881,8 +5880,8 @@ msgid ""
 "offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-"
 "cache\"/>."
 msgstr ""
-"リポジトリが使用できない場合、 <guilabel>オフラインにしますか？</guilabel> というダイアログが表示されます。詳しくは、<xref "
-"linkend=\"tsvn-dug-showlog-cache\"/>で説明します。"
+"リポジトリが使用できない場合、 <guilabel>オフラインにしますか？</guilabel> というダイアログが表示されます。詳しくは、 <xref"
+" linkend=\"tsvn-dug-showlog-cache\"/>で説明します。"
 
 #. (title)
 msgid "Revision Log Actions"
@@ -5965,7 +5964,7 @@ msgid ""
 "the blame reports using a visual diff tool. Read <xref linkend=\"tsvn-dug-"
 "blame-diffs\"/> for more detail. (files only)"
 msgstr ""
-"選択したリビジョンの注釈履歴を取得し、作業ベース内のファイルと注釈履歴レポートの結果を差分ツールを使用して比較します。より詳細は<xref "
+"選択したリビジョンの注釈履歴を取得し、作業ベース内のファイルと注釈履歴レポートの結果を差分ツールを使用して比較します。より詳細は <xref "
 "linkend=\"tsvn-dug-blame-diffs\"/>を参照してください（ファイルのみ）。"
 
 #. (term)
@@ -6137,7 +6136,7 @@ msgid ""
 "made by this reverse merge action."
 msgstr ""
 "この操作の後で、<emphasis>元に戻したものを元に戻し</emphasis>、作業コピーを直前の変更されていない状態に戻す場合、Windows "
-"エクスプローラーから<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>変更の取り消し</guimenuitem></menuchoice>を実行し、逆マージ操作で行われたローカルの変更を取り消してください。"
+"エクスプローラーから<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>変更の取り消し</guimenuitem></menuchoice>を実行し、逆マージ操作で行われた手元の変更を取り消してください。"
 
 #. (para)
 msgid ""
@@ -6232,7 +6231,7 @@ msgid ""
 "Edit the log message or author attached to a previous commit. Read <xref "
 "linkend=\"tsvn-dug-showlog-4\"/> to find out how this works."
 msgstr ""
-"直前に行ったコミットのログメッセージや作者を編集できます。どのように行うかは、<xref linkend=\"tsvn-dug-"
+"直前に行ったコミットのログメッセージや作者を編集できます。どのように行うかは、 <xref linkend=\"tsvn-dug-"
 "showlog-4\"/>をご覧ください。"
 
 #. (term)
@@ -6244,7 +6243,7 @@ msgid ""
 "View and edit any revision property, not just log message and author. Refer "
 "to <xref linkend=\"tsvn-dug-showlog-4\"/>."
 msgstr ""
-"ログメッセージと作者に限らず、任意のリビジョンプロパティを表示・編集します。<xref linkend=\"tsvn-dug-"
+"ログメッセージと作者に限らず、任意のリビジョンプロパティを表示・編集します。 <xref linkend=\"tsvn-dug-"
 "showlog-4\"/>をご覧ください。"
 
 #. (term)
@@ -6307,8 +6306,8 @@ msgid ""
 " changed files and offering you further diff options. Read more about the "
 "Compare Revisions dialog in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr ""
-"これをフォルダーに対して行った場合、さらに変更のあったファイルを一覧表示するダイアログを表示し、差分を表示するオプションを指定できます。リビジョン比較ダイアログについては、<xref"
-" linkend=\"tsvn-dug-compare-revs\"/>をご覧ください。"
+"これをフォルダーに対して行った場合、さらに変更のあったファイルを一覧表示するダイアログを表示し、差分を表示するオプションを指定できます。リビジョン比較ダイアログについては、"
+" <xref linkend=\"tsvn-dug-compare-revs\"/>をご覧ください。"
 
 #. (term)
 msgid "Blame revisions"
@@ -6320,7 +6319,7 @@ msgid ""
 "difference tool. Read <xref linkend=\"tsvn-dug-blame-diffs\"/> for more "
 "detail."
 msgstr ""
-"2つのリビジョンの注釈履歴をとり、差分ツールで比較できます。詳細は、<xref linkend=\"tsvn-dug-blame-"
+"2つのリビジョンの注釈履歴をとり、差分ツールで比較できます。詳細は、 <xref linkend=\"tsvn-dug-blame-"
 "diffs\"/>をご覧ください。"
 
 #. (term)
@@ -6394,7 +6393,7 @@ msgid ""
 " and compare the blame reports using a visual diff tool. Read <xref linkend"
 "=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr ""
-"選択したファイルの、選択したリビジョンと直前のリビジョンの注釈をとり、視覚差分ツールで比較できます。詳細は、<xref linkend=\"tsvn-"
+"選択したファイルの、選択したリビジョンと直前のリビジョンの注釈をとり、視覚差分ツールで比較できます。詳細は、 <xref linkend=\"tsvn-"
 "dug-blame-diffs\"/> をご覧ください。"
 
 #. (term)
@@ -6746,8 +6745,8 @@ msgstr ""
 " pre-revprop-change フックを設定しなければなりません。この手順の詳細については、 Subversion Book の <ulink "
 "url=\"http://svnbook.red-"
 "bean.com/en/1.5/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
-" Scripts</citetitle></ulink> をご覧ください。 Windows マシンでのフックの実装については、<xref linkend"
-"=\"tsvn-repository-hooks\"/> をご覧ください。"
+" Scripts</citetitle></ulink> をご覧ください。 Windows マシンでのフックの実装については、 <xref "
+"linkend=\"tsvn-repository-hooks\"/> をご覧ください。"
 
 #. (para)
 msgid ""
@@ -6974,11 +6973,11 @@ msgstr ""
 
 #. (title)
 msgid "Commits by date Page"
-msgstr "「日次コミット数」ページ"
+msgstr "「時系列コミット数」ページ"
 
 #. (title)
 msgid "Commits-by-date Graph"
-msgstr "「日次コミット数」グラフ"
+msgstr "「時系列コミット数」グラフ"
 
 #. (para)
 msgid ""
@@ -6987,8 +6986,8 @@ msgid ""
 " gives some idea of when a project is being worked on, and who was working "
 "at which time."
 msgstr ""
-"<placeholder-1/> このページでは、プロジェクトの活動状況を、一定期間のコミット回数 <emphasis>と</emphasis> "
-"作者別に表示します。これによりプロジェクトがいつ活動していたか、そのとき誰が作業したかといった判断材料になるでしょう。"
+"<placeholder-1/> このページでは、プロジェクトの活動状況を、一定期間のコミット回数 <emphasis>および</emphasis> "
+"作者別で表示します。これによりプロジェクトがいつ活動していたか、そのとき誰が作業したかといった判断材料になるでしょう。"
 
 #. (para)
 msgid ""
@@ -7066,7 +7065,7 @@ msgid ""
 "Remain in offline mode until a repository check is specifically requested. "
 "See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 msgstr ""
-"リポジトリのチェックを明確に要求されるまで、オフラインモードのままにします。<xref linkend=\"tsvn-dug-showlog-"
+"リポジトリのチェックを明確に要求されるまで、オフラインモードのままにします。 <xref linkend=\"tsvn-dug-showlog-"
 "refresh\"/>をご覧ください。"
 
 #. (term)
@@ -7125,7 +7124,7 @@ msgstr ""
 
 #. (title)
 msgid "Viewing Differences"
-msgstr "差分の参照"
+msgstr "差分の表示"
 
 #. (primary)
 #. (primary)
@@ -7146,10 +7145,10 @@ msgid ""
 "TortoiseSVN also has a tool named <application>TortoiseIDiff</application>. "
 "Of course, you can use your own favourite diff program if you like."
 msgstr ""
-"プロジェクト開発を進める上でもっとも共通な需要のひとつに、どのように変更したかを確認するということがあります。同じファイルの2つのリビジョン間や、2つの別のファイルの違いを確認したくなるはずです。TortoiseSVN"
-" には、テキストファイルの差分を表示する <application>TortoiseMerge</application> "
+"プロジェクト開発を進める上でもっとも共通な需要のひとつに、どのように変更したかを確認するということがあります。同じファイルの2つのリビジョン間や、2つの別のファイルの違いを確認したくなるはずです。"
+" TortoiseSVN には、テキストファイルの差分を表示する <application>TortoiseMerge</application> "
 "という内蔵ツールがあり、画像ファイルの差分を見るのに <application>TortoiseIDiff</application> "
-"というツールもあります。もちろん、お好みの差分プログラムを使うこともできます。"
+"というツールもあります。もちろん、任意の差分プログラムを使うこともできます。"
 
 #. (title)
 msgid "File Differences"
@@ -7165,8 +7164,8 @@ msgid ""
 "working copy, just use the explorer context menu and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
 msgstr ""
-"作業コピー内の <emphasis>あなた</emphasis> "
-"がどんな変更を行ったか確認したければ、エクスプローラーのコンテキストメニューで<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>差分</guimenuitem></menuchoice>"
+"<emphasis>あなた</emphasis> が作業コピー内でどんな変更を行ったか確認したければ、エクスプローラーのコンテキストメニューで "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>差分を表示</guimenuitem></menuchoice>"
 " を選択してください。"
 
 #. (term)
@@ -7183,11 +7182,10 @@ msgid ""
 "URL</guimenuitem></menuchoice>. In the following dialog, specify the URL in "
 "the repository with which you want to compare your local file to."
 msgstr ""
-"(ブランチで作業していて) トランクの変更点を見たい場合や、(トランクで作業していて) "
-"指定したブランチの変更点を見たい場合、エクスプローラーのコンテキストメニューを使用できます。<keycap>Shift</keycap> "
-"キーを押したままファイルを右クリックし、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>URL"
-" と差分</guimenuitem></menuchoice> を選択してください。続くダイアログでは、ローカルファイルと比較するリポジトリの URL "
-"を指定してください。"
+"（ブランチで作業していて）トランクの変更点を見たい場合や、（トランクで作業していて）特定のブランチの変更点を見たい場合、エクスプローラーのコンテキストメニューを使用できます。"
+" <keycap>Shift</keycap> キーを押したままファイルを右クリックし、 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>URLとの差分を表示</guimenuitem></menuchoice>"
+" を選択してください。続くダイアログでは、手元のファイルと比較するリポジトリの URL を指定してください。"
 
 #. (para)
 msgid ""
@@ -7196,13 +7194,13 @@ msgid ""
 "you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read"
 " more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr ""
-"2つのツリー、おそらく2つのタグや、ブランチ・タグとトランクを選択して diff "
-"を取るのに、リポジトリブラウザーも使用できます。そこでのコンテキストメニューには、<guimenuitem>リビジョンの比較</guimenuitem>"
-" があり、これで比較できます。<xref linkend=\"tsvn-dug-compare-revs\"/> をご覧ください。"
+"2つのツリー、おそらく2つのタグや、ブランチ／タグとトランクを選択して差分を取るときは、リポジトリブラウザーを使用することもできます。そこでのコンテキストメニューには"
+" <guimenuitem>リビジョンを比較</guimenuitem> があり、これで比較できます。 <xref linkend=\"tsvn-"
+"dug-compare-revs\"/>をご覧ください。"
 
 #. (term)
 msgid "Difference from a previous revision"
-msgstr "直前のリビジョンからの差分"
+msgstr "以前のリビジョンとの差分"
 
 #. (para)
 msgid ""
@@ -7226,9 +7224,9 @@ msgid ""
 "it to the state you now see in your working copy. It will not show changes "
 "newer than your working copy."
 msgstr ""
-"最後にコミットしたリビジョンと、変更されていないと見なせる自分の作業コピーとの差分を見る場合、単にファイルを右クリックし、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>直前のバージョンとの差分を表示</guimenuitem></menuchoice>"
-" を選択してください。ここでは、(作業コピーに記録されている) 最後にコミットした日時と、作業中の BASE との diff "
-"を実行します。これにより、現在の作業コピーにある状態に持っていった最後の変更点を参照できます。作業コピーにあるものよりも新しい変更点は表示されないでしょう。"
+"最後にコミットしたリビジョンと、変更されていないと思われる自分の作業コピーとの差分を見る場合、単にファイルを右クリックし、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>直前のバージョンとの差分を表示</guimenuitem></menuchoice>"
+" "
+"を選択してください。ここでは、（作業コピーに記録されている）最終コミット日時以前のリビジョンと、作業ベースとの差分を表示します。これにより、現在の作業コピーにある状態に持っていった最後の変更点を参照できます。作業コピーにあるものよりも新しい変更点は表示されないでしょう。"
 
 #. (term)
 msgid "Difference between two previous revisions"
@@ -7241,8 +7239,8 @@ msgid ""
 " to compare (using the usual <keycap>Ctrl</keycap>-modifier). Then select "
 "<guimenuitem>Compare revisions</guimenuitem> from the context menu."
 msgstr ""
-"すでにコミットした 2 つのリビジョン間の差分を取るのなら、リビジョンログダイアログを使用し、比較したい 2 つのリビジョンを選択して (通常 "
-"<keycap>Ctrl</keycap> を使用して) ください。それから、コンテキストメニューから "
+"すでにコミットした2つのリビジョン間の差分を取るのなら、リビジョンログダイアログを使用し、（通常 <keycap>Ctrl</keycap> "
+"を使用して）比較したい2つのリビジョンを選択してください。それから、コンテキストメニューで "
 "<guimenuitem>リビジョンを比較</guimenuitem> を選択してください。"
 
 #. (para)
@@ -7251,8 +7249,8 @@ msgid ""
 "dialog appears, showing a list of changed files in that folder. Read more in"
 " <xref linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr ""
-"フォルダーのリビジョンログから行った場合、リビジョン比較ダイアログが現れ、フォルダーにある変更されたファイルの一覧を表示します。<xref "
-"linkend=\"tsvn-dug-compare-revs\"/> をご覧ください。"
+"フォルダーのリビジョンログから行った場合、リビジョン比較ダイアログが現れ、フォルダーにある変更されたファイルの一覧を表示します。 <xref "
+"linkend=\"tsvn-dug-compare-revs\"/>をご覧ください。"
 
 #. (term)
 msgid "All changes made in a commit"
@@ -7268,9 +7266,9 @@ msgid ""
 "<guimenuitem>Show Differences as Unified-Diff</guimenuitem> from the context"
 " menu."
 msgstr ""
-"特定のリビジョンで行った、すべてのファイルの変更点を一目で確認したいなら、Unified-Diff 出力 (GNU patch 形式) "
-"を使用できます。これには文脈内の数行の変更点しかありません。視覚的なファイル比較よりも読むのが大変ですが、すべての変更を一度に確認できます。リビジョンログダイアログから確認したいリビジョンを選択し、コンテキストメニューから"
-" <guimenuitem>Show Differences as Unified-Diff</guimenuitem> を選択してください。"
+"特定のリビジョンで行った、すべてのファイルの変更点を一目で確認したいなら、 Unified 差分形式（GNU patch "
+"形式）を使用できます。これにはコンテキスト内の数行の変更点しか表示しません。視覚的なファイル比較よりも読むのが難しくなりますが、すべての変更を一度に確認できます。リビジョンログダイアログから確認したいリビジョンを選択し、コンテキストメニューから"
+" <guimenuitem>Unified 形式で差分を表示</guimenuitem> を選択してください。"
 
 #. (term)
 msgid "Difference between files"
@@ -7283,8 +7281,8 @@ msgid ""
 "<keycap>Ctrl</keycap>-modifier). Then from the explorer context menu select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
 msgstr ""
-"2 つの異なるファイルの差分を確認したい場合、エクスプローラーで直接両方 (<keycap>Ctrl</keycap> を押しながら) "
-"選択してください。その後、エクスプローラーのコンテキストメニューから<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>差分</guimenuitem></menuchoice>"
+"2つの異なるファイルの差分を確認したい場合、エクスプローラーで直接両方（<keycap>Ctrl</keycap> "
+"を押しながら）選択してください。その後、エクスプローラーのコンテキストメニューから<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>差分</guimenuitem></menuchoice>"
 " を選択します。"
 
 #. (term)
@@ -7302,12 +7300,12 @@ msgid ""
 " folder. TortoiseMerge shows these differences in the same way as it shows a"
 " patch file - a list of changed files which you can view one at a time."
 msgstr ""
-"作業コピーの 2 つの異なるファイルや、Subversion "
-"リポジトリにあるファイルの差分を確認する場合、エクスプローラーで直接両方選択してください。その後、<keycap>Shift</keycap> "
-"キーを押しながら右クリックし、コンテキストメニューを表示してください。<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>URL"
-" と差分</guimenuitem></menuchoice> "
-"を選択してください。作業コピーのフォルダーについても同じことです。TortoiseMerge はパッチファイルと同様に "
-"(それぞれを見られる、変更のあったファイルの一覧として) 差分を表示します。"
+"作業コピーの2つの異なるファイルや、 Subversion "
+"リポジトリにあるファイルの差分を確認する場合、エクスプローラーで直接両方選択してください。その後、 <keycap>Shift</keycap> "
+"キーを押しながら右クリックし、コンテキストメニューを表示してください。　"
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>URLと差分</guimenuitem></menuchoice>"
+" を選択してください。作業コピーのフォルダーについても同じことです。　TortoiseMerge "
+"はパッチファイルと同様に（それぞれを見られる、変更のあったファイルの一覧として）差分を表示します。"
 
 #. (term)
 msgid "Difference with blame information"
@@ -7320,7 +7318,7 @@ msgid ""
 "from within the revision log dialog. Read <xref linkend=\"tsvn-dug-blame-"
 "diffs\"/> for more detail."
 msgstr ""
-"差分だけでなく、作者・リビジョン・変更日時を見たい場合、リビジョンログダイアログより差分と注釈履歴を組み合わせることで行えます。詳細は、<xref "
+"差分だけでなく、作者・リビジョン・変更日時を見たい場合、リビジョンログダイアログより差分と注釈履歴を組み合わせることで行えます。詳細は、 <xref "
 "linkend=\"tsvn-dug-blame-diffs\"/> をご覧ください。"
 
 #. (term)
@@ -7335,8 +7333,8 @@ msgid ""
 "=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
 msgstr ""
 "TortoiseSVN "
-"の内蔵ツールは、ディレクトリ階層の比較をサポートしていません。しかし、その機能をサポートしている外部ツールを使えばディレクトリの比較を行えます。<xref"
-" linkend=\"tsvn-dug-diff-tools\"/> で使用できるツールをご紹介します。"
+"の内蔵ツールは、ディレクトリ階層の比較をサポートしていません。しかし、その機能をサポートしている外部ツールを使えばディレクトリの比較を行えます。 "
+"<xref linkend=\"tsvn-dug-diff-tools\"/> で使用できるツールをご紹介します。"
 
 #. (para)
 msgid ""
@@ -7345,8 +7343,8 @@ msgid ""
 "tool. Read <xref linkend=\"tsvn-dug-settings-progs\"/> to find out about "
 "configuring other diff tools."
 msgstr ""
-"サードパーティの diff ツールを設定している場合、差分コマンドを選択する際に<keycap>Shift</keycap> "
-"を押して代替ツールを使用できます。その他の diff ツールの設定については、<xref linkend=\"tsvn-dug-settings-"
+"サードパーティの差分ツールを設定している場合、差分コマンドを選択する際に<keycap>Shift</keycap> "
+"を押すと代替ツールを使用できます。その他の差分ツールの設定については、 <xref linkend=\"tsvn-dug-settings-"
 "progs\"/> をご覧ください。"
 
 #. (title)
@@ -7366,20 +7364,20 @@ msgid ""
 msgstr ""
 "プロジェクトを続けていくと、時には改行コードを <literal>CRLF</literal> から <literal>LF</literal> "
 "に変更したり、セクションのインデントを変更したりすることがあります。不幸なことに、かなりの行を変更しなければなりませんが、コードの意味には変更はありません。以下のオプションでは、比較や差分適用の際の変更点のとり方を管理します。この設定は、"
-" <guilabel>マージ</guilabel> ダイアログや <guilabel>注釈履歴</guilabel> "
-"ダイアログに対して、TortoiseMerge の設定と同様に作用します。"
+" <guilabel>マージ</guilabel> ダイアログや <guilabel>注釈履歴</guilabel> ダイアログに対して、 "
+"TortoiseMerge の設定と同様に作用します。"
 
 #. (para)
 msgid ""
 "<guilabel>Ignore line endings</guilabel> excludes changes which are due "
 "solely to difference in line-end style."
-msgstr "<guilabel>改行コードを無視する</guilabel> 改行コードしか差異のない変更は無視します。"
+msgstr "<guilabel>改行コードを無視する</guilabel> は改行コードしか差異のない変更を無視します。"
 
 #. (para)
 msgid ""
 "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation"
 " and inline whitespace as added/removed lines."
-msgstr "<guilabel>空白を比較する</guilabel> インデントや行内の空白の追加・削除を変更点に含みます。"
+msgstr "<guilabel>空白を比較する</guilabel> はインデントや行内の空白の追加・削除を変更点に含めます。"
 
 #. (para)
 msgid ""
@@ -7390,7 +7388,7 @@ msgid ""
 "change."
 msgstr ""
 "<guilabel>空白の変更を無視する</guilabel> "
-"は、空白の数や種類（インデントや、タブとスペースの変更など）のみの変更を無視します。空白がないところに追加されたり、存在する空白が完全に削除されたりした場合は、変更として表示します。"
+"は、空白の数や種類（インデントや、タブとスペースの変更など）のみの変更を無視します。空白がないところに追加されたり、存在する空白が完全に削除されたりした場合は、変更として表示されます。"
 
 #. (para)
 msgid ""
@@ -7401,7 +7399,7 @@ msgstr "<guilabel>すべて空白を無視する</guilabel> 空白のみの変�
 #. (para)
 msgid ""
 "Naturally, any line with changed content is always included in the diff."
-msgstr "当然、内容の変更のある行は、常に差分に含めます。"
+msgstr "当然、内容の変更のある行は、常に差分に含まれます。"
 
 #. (title)
 msgid "Comparing Folders"
@@ -7426,15 +7424,15 @@ msgid ""
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare "
 "revisions</guimenuitem></menuchoice>."
 msgstr ""
-"<placeholder-1/> リポジトリブラウザーにある 2 つのツリーを選択したり、ログダイアログにあるフォルダーのの 2 "
-"つのリビジョンを選択すると、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンを比較</guimenuitem></menuchoice>"
+"<placeholder-1/> リポジトリブラウザーで2つのツリーを選択したり、ログダイアログでフォルダーのの2つのリビジョンを選択したりすると、 "
+"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンを比較</guimenuitem></menuchoice>"
 " を行えます。"
 
 #. (para)
 msgid ""
 "This dialog shows a list of all files which have changed and allows you to "
 "compare or blame them individually using context menu."
-msgstr "このダイアログは、変更されたすべてのファイルを表示し、コンテキストメニューから個々に比較・注釈履歴取得を行えます。"
+msgstr "このダイアログでは、変更されたすべてのファイルが表示され、コンテキストメニューから個々に比較や注釈履歴の取得を行えます。"
 
 #. (para)
 msgid ""
@@ -7447,11 +7445,11 @@ msgid ""
 "to...</guimenuitem></menuchoice>. You will be prompted for a location to "
 "save the change tree."
 msgstr ""
-"<emphasis>変更したツリー</emphasis> "
-"をエクスポートできます。これは、他の誰かがプロジェクトのツリー構造を必要しているけれども、変更したファイルのみ必要としている場合に便利です。この操作は変更したファイルにのみ有効ですので、興味のあるファイル"
-" (たいていすべて) "
-"を選択する必要があります。その後、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>選択をエクスポート...</guimenuitem></menuchoice>"
-" としてください。変更したツリーを保存する場所を指定することになります。"
+"<emphasis>変更ツリー</emphasis> "
+"をエクスポートすることができます。これは、変更したファイルのみをプロジェクトのツリー構造ごと他の誰かに渡したい場合に便利です。この操作は選択したファイルにのみ有効ですので、興味のあるファイル（たいていすべて）を選択する必要があります。その後、"
+" "
+"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>選択をエクスポート...</guimenuitem></menuchoice>"
+"  を実行してください。そして、変更したツリーを保存する場所を指定してください。"
 
 #. (para)
 msgid ""
@@ -7459,8 +7457,9 @@ msgid ""
 " file using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Save "
 "list of selected files to...</guimenuitem></menuchoice>."
 msgstr ""
-"また、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>選択ファイルのリストを保存...</guimenuitem></menuchoice>"
-" として、変更したファイルの<emphasis>リスト</emphasis>もエクスポートできます。"
+"また、 "
+"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>選択ファイルのリストを保存...</guimenuitem></menuchoice>"
+" を使用して、変更されたファイルの <emphasis>リスト</emphasis> をエクスポートすることもできます。"
 
 #. (para)
 msgid ""
@@ -7469,9 +7468,9 @@ msgid ""
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Copy selection to "
 "clipboard</guimenuitem></menuchoice>."
 msgstr ""
-"ファイルの一覧 <emphasis>と</emphasis> 操作 (変更・追加・削除) "
-"をエクスポートする場合、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>選択範囲をクリップボードにコピー</guimenuitem></menuchoice>"
-" を用いて行えます。"
+"ファイルの一覧 <emphasis>と</emphasis> 操作（変更・追加・削除）をエクスポートする場合、 "
+"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>選択範囲をクリップボードにコピー</guimenuitem></menuchoice>"
+" を使用してください。"
 
 #. (para)
 msgid ""
@@ -7484,7 +7483,7 @@ msgid ""
 "The buttons with the revision numbers on can be used to change to a "
 "different revision range. When you change the range, the list of items which"
 " differ between the two revisions will be updated automatically."
-msgstr "リビジョン番号があるボタンは、リビジョン範囲を変えるのに使用できます。範囲を変える際、2 つのリビジョン間の差異に自動で更新します。"
+msgstr "リビジョン番号があるボタンは、リビジョン範囲を変えるのに使用できます。範囲を変えると、2つのリビジョン間の差異が自動的に更新されます。"
 
 #. (para)
 msgid ""
@@ -7493,8 +7492,8 @@ msgid ""
 "search is used, so if you want to restrict the list to C source files you "
 "should enter <filename>.c</filename> rather than <filename>*.c</filename>."
 msgstr ""
-"ファイル名の一覧が非常に長い場合、検索ボックスを使用して、特定のテキストを含むファイル名のみを抽出できます。シンプルなテキスト検索を行いますので、C "
-"のソースファイルを指定したい場合は、<filename>*.c</filename> ではなく <filename>.c</filename> "
+"ファイル名の一覧が非常に長い場合、検索ボックスを使用して、特定のテキストを含むファイル名のみを抽出できます。単純文字列検索を行いますので、 C "
+"のソースファイルを指定したい場合は、 <filename>*.c</filename> ではなく <filename>.c</filename> "
 "としてください。"
 
 #. (title)
@@ -7515,8 +7514,9 @@ msgid ""
 "TortoiseMerge, but we often find ourselves wanting to see how an image file "
 "has changed too. That's why we created TortoiseIDiff."
 msgstr ""
-"テキストファイルの差分を取るツールは (TortoiseMerge を含め) "
-"たくさんありますが、画像ファイルにどんな変更が加えられたかを知るツールも欲していました。ですから TortoiseIDiff を作りました。"
+"テキストファイルの差分を取るツールは、 TortoiseMerge "
+"を含めたくさんありますが、私たちは画像ファイルにどんな変更が加えられたかを知りたいと思うことも良くありました。そのため TortoiseIDiff "
+"を作りました。"
 
 #. (title)
 msgid "The image difference viewer"
@@ -7531,10 +7531,10 @@ msgid ""
 "if you prefer, you can overlay the images and pretend you are using a "
 "lightbox."
 msgstr ""
-"<placeholder-1/> いずれかのよくある画像フォーマットで "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>とすると、画像の差分を取る"
-" TortoiseIDiff "
-"を起動します。デフォルトでは画像を横に並べて表示しますが、表示メニューやツールバーで上下に表示したり、お好みなら画像を重ねて表示し、ライトボックスを使っているかのように見せかけることもできます。"
+"<placeholder-1/> 良く使用される画像フォーマットのいずれかで "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>"
+" を実行すると、画像の差分を取る TortoiseIDiff "
+"を起動します。デフォルトでは画像が横に並べて表示されますが、表示メニューやツールバーで上下に表示したり、お好みなら画像を重ねて表示し、ライトボックスを使っているかのように見せかけることもできます。"
 
 #. (para)
 msgid ""
@@ -7543,9 +7543,9 @@ msgid ""
 "<guilabel>Link images together</guilabel> option, then the pan controls "
 "(scrollbars, mousewheel) on both images are linked."
 msgstr ""
-"当然、画像をズームイン・ズームアウトしたり、平行移動もできます。単に左ドラッグでも、イメージを平行移動できます。 "
-"<guilabel>画像位置を同期</guilabel> オプションを選択しておくと、視点変更コントロール (スクロールバー、マウスホイール) "
-"は両方の画像をリンクして動かします。"
+"当然、画像をズームイン・アウトしたり、平行移動したりすることもできます。単に左ドラッグでも、イメージを平行移動できます。 "
+"<guilabel>画像位置を同期</guilabel> "
+"オプションを選択しておくと、視点変更コントロール（スクロールバー、マウスホイール）は両方の画像を同期して動かします。"
 
 #. (para)
 msgid ""
@@ -7555,7 +7555,8 @@ msgid ""
 "Info</guimenuitem></menuchoice> to hide it. You can get the same information"
 " in a tooltip if you hover the mouse over the image title bar."
 msgstr ""
-"画像情報ボックスには、ピクセル単位のサイズや、解像度、色深度など、画像ファイルの詳細を表示します。このボックスが邪魔になるなら、<menuchoice><guimenu>表示</guimenu><guimenuitem>画像情報</guimenuitem></menuchoice>"
+"画像情報ボックスでは、ピクセル単位のサイズや、解像度、色深度など、画像ファイルの詳細を表示されます。このボックスが邪魔になるなら、 "
+"<menuchoice><guimenu>表示</guimenu><guimenuitem>画像情報</guimenuitem></menuchoice>"
 " で隠すことができます。これと同じ情報は、画像タイトルバーの上にマウスを持っていくと表示されます。"
 
 #. (para)
@@ -7566,9 +7567,8 @@ msgid ""
 " to change the blend interactively. "
 "<keycap>Ctrl+Shift</keycap>-<action>Wheel</action> to change the blend."
 msgstr ""
-"イメージをオーバーレイしている場合、上部のスライダで、画像の相対的な輝度 (アルファブレンディング) "
-"を制御できます。スライダ上のクリックした箇所で透明度を直接制御できますし、スライダをドラッグしてインタラクティブに透明度を変更できます。<keycap>Ctrl+Shift</keycap>-<action>ホイール</action>"
-" でも透明度を変更できます。"
+"イメージをオーバーレイしている場合、上部のスライダで、画像の相対的な輝度（アルファブレンディング）を制御できます。スライダ上のクリックした箇所で透明度を直接制御できますし、スライダをドラッグしてインタラクティブに透明度を変更できます。"
+" <keycap>Ctrl+Shift</keycap>+<action>ホイール</action> でも透明度を変更できます。"
 
 #. (para)
 msgid ""
@@ -7578,7 +7578,7 @@ msgid ""
 "small changes."
 msgstr ""
 "スライダの上にあるボタンで透明度を 0% と 100% "
-"で切り替えられます。また、ボタンをダブルクリックすると、もう一度ボタンをクリックするまで、秒ごとに透明度を自動で交互に切り替えます。複数の小さな変更を見るのに便利でしょう。"
+"で切り替えられます。また、ボタンをダブルクリックすると、もう一度ボタンをクリックするまで、1秒ごとに透明度を自動で交互に切り替わります。複数の小さな変更を探すのに便利でしょう。"
 
 #. (para)
 msgid ""
@@ -7588,8 +7588,8 @@ msgid ""
 "will be shown as an <emphasis>XOR</emphasis> of the pixel colour values. "
 "Unchanged areas will be plain white and changes will be coloured."
 msgstr ""
-"ブレンディングではなく差分を確認したい場合もあります。各リビジョンにプリント基板の画像イメージがあり、どのトラックが変更されたかを見たい場合などです。アルファブレンディングモードを無効にすると、各ピクセルの色を"
-" <emphasis>XOR</emphasis> して差分を表示します。変更のない部分は真っ白になり、変更点だけ色がつきます。"
+"ブレンディングではなく差分を確認したい場合もあります。各リビジョンにプリント基板の画像イメージがあり、どのトラックが変更されたかを見たい場合などです。アルファブレンディングモードを無効にすると、各ピクセルの色が"
+" <emphasis>XOR</emphasis> されて差分が表示されます。変更のない部分は真っ白になり、変更点だけ色がつきます。"
 
 #. (title)
 msgid "Diffing Office Documents"
@@ -7631,10 +7631,10 @@ msgid ""
 "object: word.Application</quote>. It seems you have to use the MSI-based "
 "version of Office to get the diff functionality."
 msgstr ""
-"Office 2010 の <emphasis>Click-to-Run</emphasis> "
-"バージョンをお使いの場合、文書の差分を取ろうとすると、Windows Script Host から、 <quote>ActiveX "
-"コンポーネントはオブジェクトを作成できません: word.Application</quote> というようなエラーが表示されることがあります。 MSI"
-" ベースの Office の差分機能を使う必要があるようです。"
+"Office 2010 の <emphasis>Click-to-Run</emphasis> バージョンをお使いの場合、文書の差分を取ろうとすると、 "
+"Windows Script Host から、 <quote>ActiveX コンポーネントはオブジェクトを作成できません: "
+"word.Application</quote> というようなエラーが表示されることがあります。 MSI ベースの Office "
+"の差分機能を使う必要があるようです。"
 
 #. (title)
 msgid "External Diff/Merge Tools"
@@ -7655,7 +7655,7 @@ msgid ""
 "and this list is by no means complete, but here are a few that you might "
 "consider:"
 msgstr ""
-"私たちが提供するツールがニーズに合わなかったら、たくさんあるオープンソース・商用のツールの中から、使用できるものを試してみてください。みんなそれぞれいいところがありますし、この一覧は完全なものではありません。が、検討するかもしれないものを以下に挙げます。"
+"私たちが提供するツールで必要なことが実現できない場合は、たくさんあるオープンソース・商用のツールの中から、使用できるものを試してみてください。それぞれに特徴がありますし、この一覧は完全なものではありませんが、検討に値するものをいくつか以下に紹介します。"
 
 #. (term)
 msgid "WinMerge"
@@ -7695,12 +7695,13 @@ msgid ""
 "download it from <ulink "
 "url=\"http://kdiff3.sf.net/\"><citetitle>here</citetitle></ulink>."
 msgstr ""
-"KDiff3 は、ディレクトリを扱えるフリーの diff ツールです。<ulink "
-"url=\"http://kdiff3.sf.net/\"><citetitle>こちら</citetitle></ulink>からダウンロードできます。"
+"KDiff3 は、ディレクトリも扱えるフリーの差分ツールです。 <ulink "
+"url=\"http://kdiff3.sf.net/\"><citetitle>こちら</citetitle></ulink> "
+"からダウンロードできます。"
 
 #. (term)
 msgid "SourceGear DiffMerge"
-msgstr "SourceGear による差分マージ"
+msgstr "SourceGear DiffMerge"
 
 #. (para)
 msgid ""
@@ -7724,9 +7725,9 @@ msgid ""
 "handle unicode. You can download them from <ulink "
 "url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>."
 msgstr ""
-"ExamDiff Standard はフリーウェアです。ファイルを扱えますが、ディレクトリは扱えません。ExamDiff Pro "
-"はシェアウェアで、ディレクトリに対する差分や編集機能などたくさん追加されています。どちらもバージョン 3.2 以降なら unicode "
-"を扱えます。<ulink "
+"ExamDiff Standard はフリーウェアです。ファイルを扱えますが、ディレクトリは扱えません。 ExamDiff Pro "
+"はシェアウェアで、ディレクトリに対する差分や編集機能などたくさん追加されています。どちらもバージョン3.2以降なら unicode を扱えます。 "
+"<ulink "
 "url=\"http://www.prestosoft.com/\"><citetitle>PrestoSoft</citetitle></ulink>"
 " からダウンロードできます。"
 
@@ -7741,7 +7742,7 @@ msgid ""
 "url=\"http://www.scootersoftware.com/\"><citetitle>Scooter "
 "Software</citetitle></ulink>."
 msgstr ""
-"ExamDiff Pro に似て、ディレクトリの diff と unicode を扱えるすばらしいシェアウェアです。<ulink "
+"ExamDiff Pro に似て、ディレクトリの差分と unicode を扱えるすばらしいシェアウェアです。 <ulink "
 "url=\"http://www.scootersoftware.com/\"><citetitle>Scooter "
 "Software</citetitle></ulink> からダウンロードしてください。"
 
@@ -7757,8 +7758,9 @@ msgid ""
 "<ulink "
 "url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
 msgstr ""
-"Araxis Merge はファイルやフォルダーの両方に対応した、diff/マージ用に便利な商用ツールです。マージ時に 3 "
-"方向の比較を行い、関数の順番を変更した場合に使用する同期リンクを持っています。<ulink "
+"Araxis Merge "
+"はファイルやフォルダーの両方に対応した、差分/マージに便利な商用ツールです。マージ時に3方向の比較を行い、関数の順番の変更に対応できる同期リンク機能を持っています。"
+" <ulink "
 "url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>"
 " からダウンロードしてください。"
 
@@ -7767,7 +7769,7 @@ msgid ""
 "Read <xref linkend=\"tsvn-dug-settings-progs\"/> for information on how to "
 "set up TortoiseSVN to use these tools."
 msgstr ""
-"以上のツールを使用するよう TortoiseSVN をセットアップするには <xref linkend=\"tsvn-dug-settings-"
+"これらのツールを使用するよう TortoiseSVN を設定する方法は <xref linkend=\"tsvn-dug-settings-"
 "progs\"/> をご覧ください。"
 
 #. (title)
@@ -7944,7 +7946,7 @@ msgid ""
 " Refer to <xref linkend=\"tsvn-dug-branch-1\"/> to find out more."
 msgstr ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ブランチ／タグの作成</guimenuitem></menuchoice>"
-" を使用して、ファイルやフォルダーを作業コピーからリポジトリの別の場所にコピーできます。詳細は、<xref linkend=\"tsvn-dug-"
+" を使用して、ファイルやフォルダーを作業コピーからリポジトリの別の場所にコピーできます。詳細は、 <xref linkend=\"tsvn-dug-"
 "branch-1\"/> をご覧ください。"
 
 #. (para)
@@ -7956,9 +7958,8 @@ msgid ""
 "=\"tsvn-dug-showlog-2\"/> to find out more."
 msgstr ""
 "<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンからブランチ／タグを作成</guimenuitem></menuchoice>"
-" "
-"を使用して、ログダイアログにあるファイルやフォルダーの旧バージョンをリポジトリの新しい場所へ、ログダイアログから直接、コピーできます。詳細は、<xref"
-" linkend=\"tsvn-dug-showlog-2\"/> をご覧ください。"
+" を使用して、ログダイアログにあるファイルやフォルダーの旧バージョンをリポジトリの新しい場所へ、ログダイアログから直接、コピーできます。詳細は、 "
+"<xref linkend=\"tsvn-dug-showlog-2\"/> をご覧ください。"
 
 #. (para)
 msgid ""
@@ -7967,7 +7968,7 @@ msgid ""
 " locations within the repository. Refer to <xref linkend=\"tsvn-dug-"
 "repobrowser\"/> to find out more."
 msgstr ""
-"また、リポジトリブラウザーを用いて、お好みの場所に配置したり、リポジトリから直接作業コピーにコピーできます。さらにリポジトリ内の 2 "
+"また、リポジトリブラウザーを用いて、任意の場所に配置したり、リポジトリから直接作業コピーにコピーできます。さらにリポジトリ内の 2 "
 "つの場所の間でコピーできます。詳細は <xref linkend=\"tsvn-dug-repobrowser\"/> をご覧ください。"
 
 #. (title)
@@ -8017,7 +8018,7 @@ msgid ""
 "new source file."
 msgstr ""
 "<placeholder-1/> "
-"ほとんどのプロジェクトで、バージョン管理下にあるべきでないファイルやフォルダーがあることでしょう。コンパイラが作成したファイル、<filename>*.obj,"
+"ほとんどのプロジェクトで、バージョン管理下にあるべきでないファイルやフォルダーがあることでしょう。コンパイラーが作成したファイル、<filename>*.obj,"
 " *.lst</filename> や、もしかしたら実行ファイルを格納する出力フォルダーもそうでしょう。変更をコミットの際、TortoiseSVN "
 "はコミットダイアログにバージョン管理外のファイルを表示します。もちろんこの表示を off "
 "にできますが、そうすると、新しいソースファイルの追加を忘れるかもしれません。"
@@ -8059,8 +8060,8 @@ msgstr ""
 "無視リストから項目を削除したい場合、その項目で <action>右クリック</action> "
 "し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストから削除</guimenuitem></menuchoice>"
 " を選択してください。フォルダーの <literal>svn:ignore</literal> "
-"プロパティに直接アクセスすることもできます。これにより、ファイル名展開にもっと一般的なパターンが指定ができます。プロパティを直接指定することについては、<xref"
-" linkend=\"tsvn-dug-propertypage\"/> "
+"プロパティに直接アクセスすることもできます。これにより、ファイル名展開にもっと一般的なパターンが指定ができます。プロパティを直接指定することについては、"
+" <xref linkend=\"tsvn-dug-propertypage\"/> "
 "をご覧ください。無視パターンは行ごとに区切らなければならないことをご承知おきください。空白で区切ったパターンは動作しません。"
 
 #. (title)
@@ -8095,8 +8096,8 @@ msgid ""
 "Subversion. If you versioned a file by mistake, read <xref linkend=\"tsvn-"
 "howto-unversion\"/> for instructions on how to <quote>unversion</quote> it."
 msgstr ""
-"バージョン管理下のファイルやフォルダーは無視できません。これは Subversion "
-"の機能です。間違えてバージョン管理下に入れてしまった場合は、<xref linkend=\"tsvn-howto-unversion\"/> "
+"バージョン管理下のファイルやフォルダーは無視できません。これは Subversion の機能です。間違えてバージョン管理下に入れてしまった場合は、 "
+"<xref linkend=\"tsvn-howto-unversion\"/> "
 "にある、<quote>バージョン管理外</quote>にする方法をご覧ください。"
 
 #. (title)
@@ -8654,8 +8655,8 @@ msgid ""
 "committed in a particular revision, read <xref linkend=\"tsvn-dug-"
 "showlog\"/> for further information."
 msgstr ""
-"<menuchoice><guimenuitem>変更の取り消し</guimenuitem></menuchoice>は手元の変更しか取り消しできません。すでにコミットしてしまった変更は<emphasis>取り消せない</emphasis>のです。あるリビジョンでコミットした変更を取り消すには、<xref"
-" linkend=\"tsvn-dug-showlog\"/> にある詳細情報をご覧ください。"
+"<menuchoice><guimenuitem>変更の取り消し</guimenuitem></menuchoice>は手元の変更しか取り消しできません。すでにコミットしてしまった変更は<emphasis>取り消せない</emphasis>のです。あるリビジョンでコミットした変更を取り消すには、"
+" <xref linkend=\"tsvn-dug-showlog\"/> にある詳細情報をご覧ください。"
 
 #. (title)
 msgid "Revert is Slow"
@@ -8827,8 +8828,8 @@ msgid ""
 "externals in <xref linkend=\"tsvn-dug-externals\"/>."
 msgstr ""
 "自分で定義したプロパティの他、Subversion で特別な意味のあるプロパティも追加できます。これは <literal>svn:</literal> "
-"で始まります。<literal>svn:externals</literal> も、そのようなプロパティです。<xref linkend=\"tsvn-"
-"dug-externals\"/> で外部参照の説明をしていますのでご覧ください。"
+"で始まります。<literal>svn:externals</literal> も、そのようなプロパティです。 <xref linkend"
+"=\"tsvn-dug-externals\"/> で外部参照の説明をしていますのでご覧ください。"
 
 #. (title)
 msgid "svn:keywords"
@@ -9960,7 +9961,7 @@ msgid ""
 "If you need more information how TortoiseSVN handles Properties read <xref "
 "linkend=\"tsvn-dug-propertypage\"/>."
 msgstr ""
-"TortoiseSVN がプロパティをどのように扱うかについての詳細な情報は、<xref linkend=\"tsvn-dug-"
+"TortoiseSVN がプロパティをどのように扱うかについての詳細な情報は、 <xref linkend=\"tsvn-dug-"
 "propertypage\"/> を参照してください。"
 
 #. (para)
@@ -9968,7 +9969,7 @@ msgid ""
 "To find out about different methods of accessing common sub-projects read "
 "<xref linkend=\"tsvn-howto-common-projects\"/>."
 msgstr ""
-"共通サブプロジェクトへの他のアクセス方法については、<xref linkend=\"tsvn-howto-common-projects\"/> "
+"共通サブプロジェクトへの他のアクセス方法については、 <xref linkend=\"tsvn-howto-common-projects\"/> "
 "を参照してください。"
 
 #. (title)
@@ -10014,7 +10015,7 @@ msgstr ""
 
 #. (title)
 msgid "Branching / Tagging"
-msgstr "ブランチ／タグ付け"
+msgstr "ブランチ／タグの作成"
 
 #. (primary)
 #. (primary)
@@ -10035,8 +10036,10 @@ msgid ""
 "development branch is <firstterm>merged</firstterm> back into the main "
 "branch (trunk)."
 msgstr ""
-"バージョン管理システムの特徴のひとつに、開発の別のラインに変更点を隔離することがあります。このラインはブランチとして知られています。ブランチは、コンパイルエラーやバグで開発の本流を混乱させずに、新機能を十分に試すのに使用されます。新機能が十分安定したら、開発ブランチをメインブランチ（トランク）に"
-" <firstterm>マージ</firstterm> します。"
+"バージョン管理システムの特徴のひとつに、開発の別のラインに変更を隔離できることがあります。このラインは "
+"<firstterm>ブランチ</firstterm> "
+"と呼ばれています。ブランチは、開発のメインラインにコンパイルエラーやバグで混乱させることなく、新機能のを試験するために使用されます。新機能が充分に安定したら、開発ブランチをメインブランチ（トランク）に"
+" <firstterm>マージ</firstterm> して書き戻します。"
 
 #. (para)
 msgid ""
@@ -10045,9 +10048,8 @@ msgid ""
 "certain build or environment. This process is known as "
 "<firstterm>tagging</firstterm>."
 msgstr ""
-"バージョン管理システムのもう一つの特徴は、特定のリビジョン (リリースリビジョンなど) "
-"をマークする能力です。このためいつでも確実にビルドや環境を再作成できます。このプロセスを <firstterm>タグ付け</firstterm> "
-"と呼んでいます。"
+"バージョン管理システムのもうひとつの特徴として、リリースしたリビジョンなど特定のリビジョンをマークする機能があります。このため、いつでも確実にビルドや環境を再作成できます。このプロセスは"
+" <firstterm>タグ付け</firstterm> と呼ばれています。"
 
 #. (para)
 msgid ""
@@ -10058,17 +10060,17 @@ msgid ""
 "tree/revision. As a result branches and tags are very quick to create, and "
 "take up almost no extra space in the repository."
 msgstr ""
-"Subversion には、ブランチ付けやタグ付け用の特別なコマンドはありませんが、代わりに <quote>簡易コピー</quote> "
-"と呼ばれるものを使用できます。簡易コピーは、Unix "
-"のハードリンクと似ています。つまりリポジトリの完全なコピーを作成する代わりに、指定したツリーやリビジョンを指す内部リンクを作成します。そのため、ブランチやタグの作成は、非常に高速で、リポジトリに余分なスペースをほとんど使用しません。"
+"Subversion には、ブランチやタグを作成するための特別なコマンドはありませんが、代わりに <quote>簡易コピー</quote> "
+"と呼ばれるものを使用します。簡易コピーは、 Unix "
+"のハードリンクと似ています。つまり、リポジトリの完全なコピーを作成する代わりに、指定したツリーやリビジョンを指す内部リンクを作成します。そのため、ブランチやタグの作成は、非常に高速で、リポジトリに追加スペースをほとんど使用しません。"
 
 #. (title)
 msgid "Creating a Branch or Tag"
-msgstr "ブランチ・タグの作成"
+msgstr "ブランチ/タグの作成"
 
 #. (title)
 msgid "The Branch/Tag Dialog"
-msgstr "ブランチ／タグダイアログ"
+msgstr "ブランチ/タグの作成ダイアログ"
 
 #. (para)
 msgid ""
@@ -10078,9 +10080,10 @@ msgid ""
 " select the command "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
 msgstr ""
-"プロジェクトをお勧めディレクトリ構成でインポートしているなら、ブランチ／タグバージョンを作成するにはとても単純です。<placeholder-1/> "
-"ブランチやタグにコピーしたい作業コピーのフォルダーを選択してから、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>分岐/タグ...</guimenuitem></menuchoice>"
-" コマンドを選択してください。"
+"プロジェクトを標準的なディレクトリ構成でインポートしているなら、ブランチ／タグバージョンを作成するのはとても簡単です。 <placeholder-1/>"
+" ブランチやタグにコピーしたい作業コピーのフォルダーを選択してから、 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ブランチ/タグの作成...</guimenuitem></menuchoice>"
+" コマンドを実行してください。"
 
 #. (para)
 msgid ""
@@ -10090,16 +10093,16 @@ msgid ""
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
-"新しいブランチのデフォルトの先 URL は、作業コピーの基準になった元 URL になっています。ブランチ・タグの新しいパスに URL を編集する必要があるでしょう。つまり、<screen>\n"
+"新しいブランチのコピー先 URL のデフォルトは、作業コピーの基準になったコピー元 URL になっています。ブランチ/タグの URL を新しいパスに変更してください。つまり、<screen>\n"
 "    http://svn.collab.net/repos/ProjectName/trunk\n"
 "</screen> の代わりに、<screen>\n"
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
-"</screen> のようにするということです。前回使用した命名規則を思い出せなければ、既存のリポジトリ構造を見るのに、リポジトリブラウザーを開く右のボタンを押してください。"
+"</screen> のようにするということです。前回使用した命名規則を思い出せなければ、右にあるボタンをクリックすれば、リポジトリブラウザーが開かれ、既存のリポジトリの構造を確認することができます。"
 
 #. (term)
 #. (listitem)
 msgid "HEAD revision in the repository"
-msgstr "リポジトリの最新リビジョン（HEAD）"
+msgstr "リポジトリの最新リビジョン"
 
 #. (para)
 msgid ""
@@ -10107,7 +10110,7 @@ msgid ""
 "No data needs to be transferred from your working copy, and the branch is "
 "created very quickly."
 msgstr ""
-"新しいブランチは、リポジトリの最新リビジョンから直接コピーされます。作業コピーから移されるデータはありませんし、ブランチは非常に高速に作成されます。"
+"新しいブランチは、リポジトリの最新リビジョンから直接コピーされます。作業コピーから転送されるデータはなく、ブランチは非常に高速に作成されます。"
 
 #. (term)
 msgid "Specific revision in the repository"
@@ -10122,7 +10125,7 @@ msgid ""
 "number from there. Again no data is transferred from your working copy, and "
 "the branch is created very quickly."
 msgstr ""
-"新しいブランチは直接リポジトリからコピーされますが、古いリビジョンを指定できます。先週プロジェクトをリリースした際に、タグを作り忘れたときなどに便利です。リビジョン番号を思い出せなければ、リビジョンログを表示する右のボタンを押し、そこからリビジョン番号を選択してください。こちらも作業コピーから移されるデータはありませんし、ブランチは非常に高速に作成されます。"
+"新しいブランチは直接リポジトリからコピーされますが、古いリビジョンを指定できます。先週プロジェクトをリリースした際に、タグを作り忘れたときなどに便利です。リビジョン番号を思い出せなければ、右のボタンを押すとリビジョンログが表示されるので、そこからリビジョン番号を選択してください。こちらも作業コピーから転送されるデータはなく、ブランチは非常に高速に作成されます。"
 
 #. (para)
 msgid ""
@@ -10132,13 +10135,13 @@ msgid ""
 "of complex tag may involve transferring data from your WC back to the "
 "repository if it does not exist there already."
 msgstr ""
-"新しいブランチは、手元の作業コピーと同一のコピーになります。作業コピーに対して、以前のリビジョンへ更新したり、手元で変更を行ったりすると、これがコピーに取り込まれます。当然そういった複雑なタグの場合、リポジトリに既になければ、作業コピーからリポジトリへ転送が発生するでしょう。"
+"新しいブランチは、手元の作業コピーと同一になります。作業コピーを以前のリビジョンへ更新したり、手元で変更を行ったりすると、これがコピーに取り込まれます。当然、そのような複雑なタグを作成する場合、リポジトリにまだ反映されていないデータは、作業コピーからリポジトリに転送されます。"
 
 #. (para)
 msgid ""
 "Now you have to select the source of the copy. Here you have three options: "
 "<placeholder-1/>"
-msgstr "では、コピー元を選択してください、ここでは 3 種類の選択肢があります。<placeholder-1/>"
+msgstr "そして、コピーの作成元を選択してください、ここでは3つの選択肢があります。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -10148,8 +10151,8 @@ msgid ""
 "your working copy does not contain modifications. If it does, those changes "
 "will be merged into the branch WC when you switch."
 msgstr ""
-"新しく作成したブランチに、自動的に作業コピーを切り替えたい場合、 <guilabel>新しい分岐／タグへ作業コピーを切り替え</guilabel> "
-"チェックボックスを使用してください。しかしそうするには、まず作業コピーに変更が含まれていてはいけません。もし含まれていると、切り替えたときにブランチの作業コピーに変更点がマージされていまいます。"
+"作業コピーを新しく作成したブランチに自動的に切り替えたい場合、<guilabel>作業コピーを新しいブランチ/タグへ切り替える</guilabel> "
+"チェックボックスをチェックしてください。しかしそうするには、まず作業コピーに変更が含まれていないことを確認してください。もし含まれていると、切り替えたときにブランチの作業コピーに変更点がマージされていまいます。"
 
 #. (para)
 msgid ""
@@ -10160,7 +10163,8 @@ msgid ""
 "determined from the working copy, which means it shows the revision that "
 "external actually points to."
 msgstr ""
-"もし、作業コピーが<literal>svn:externals</literal>プロパティの指定によって他のプロジェクトに含まれていると、外部項目はブランチ／タグダイアログの下部に表示されます。各外部項目とそのターゲットパス、ソースURL、リビジョンが表示されます。外部項目のリビジョンは、作業コピーから決定されますつまり、外部項目が指している先のリビジョンです。"
+"もし、 <literal>svn:externals</literal> "
+"プロパティが指定され、作業コピーに他のプロジェクトが含まれていると、外部項目がブランチ/タグダイアログの下部に表示されます。各外部項目とそのターゲットパス、ソースURL、リビジョンが表示されます。外部項目のリビジョンは、作業コピーから決定されます。つまり、外部項目が明示的に指している先のリビジョンです。"
 
 #. (para)
 msgid ""
@@ -10185,8 +10189,10 @@ msgid ""
 "first, then the branch/tag is created and then the properties are changed "
 "back to their original value."
 msgstr ""
-"ブランチやタグを作成するとき、外部項目に明示的なリビジョンが設定されていた場合、TortoiseSVN "
-"は自動的に<literal>svn:externals</literal>プロパティを更新します。リポジトリの最新リビジョンや特定のリビジョンからブランチやタグが作成された場合、TortoiseSVNはまずブランチやタグを作成し、プロパティを調整します。そしてそれぞれのプロパティを追加コミットします。ブランチやタグが作業コピーから作成された場合は、先にプロパティを更新し、それからブランチやタグを作成し、そしてプロパティ値を元の値に戻します。"
+"ブランチやタグを作成するとき、外部項目に明示的にリビジョンが設定されていた場合、 TortoiseSVN は自動的に "
+"<literal>svn:externals</literal> "
+"プロパティを更新します。リポジトリの最新リビジョンや特定のリビジョンからブランチやタグが作成された場合、 TortoiseSVN "
+"はまずブランチやタグを作成し、プロパティを調整します。そしてそれぞれのプロパティを追加コミットします。ブランチやタグが作業コピーから作成された場合は、先にプロパティを更新し、それからブランチやタグを作成し、そしてプロパティ値を元の値に戻します。"
 
 #. (para)
 msgid ""
@@ -10194,8 +10200,8 @@ msgid ""
 "Don't forget to supply a log message. Note that the copy is created "
 "<emphasis>inside the repository</emphasis>."
 msgstr ""
-"リポジトリに新しいコピーをコミットするのに <guibutton>OK</guibutton> "
-"を押してください。ログメッセージを書くのを忘れないでください。コピーは <emphasis>リポジトリの中</emphasis> "
+"リポジトリに新しいコピーをコミットするには <guibutton>OK</guibutton> "
+"を押してください。ログメッセージを書くのを忘れないでください。コピーは <emphasis>リポジトリの内部</emphasis> "
 "で行われることに注意してください。"
 
 #. (para)
@@ -10221,7 +10227,8 @@ msgid ""
 "location. You have to hold down the <keycap>Ctrl</keycap> key while you drag"
 " to create a copy, otherwise the folder gets moved, not copied."
 msgstr ""
-"また、作業コピーがなくてもブランチやタグを作成する方法もあります。リポジトリブラウザーを開き、フォルダーを新しい場所にドラッグします。<keycap>Ctrl</keycap>キーを押しながらドラッグするとコピーになり、そうでなければフォルダーはコピーされずに移動します。"
+"作業コピーがなくてもブランチやタグを作成する方法があります。リポジトリブラウザーを開き、フォルダーを新しい場所にドラッグします。 "
+"<keycap>Ctrl</keycap> キーを押しながらドラッグするとコピーになり、そうでなければフォルダーはコピーされずに移動します。"
 
 #. (para)
 msgid ""
@@ -10239,7 +10246,9 @@ msgid ""
 "earlier revision), right click and choose <menuchoice><guimenuitem>create "
 "branch/tag from revision...</guimenuitem></menuchoice>."
 msgstr ""
-"ログダイアログから行う方法もあります。例えばトランクの、特定のリビジョン（最新のリビジョンでも古いリビジョンでも良い）のログダイアログを表示し、右クリックして<menuchoice><guimenuitem>リビジョンからブランチ／タグを作成</guimenuitem></menuchoice>を選択します。"
+"ログダイアログから行う方法もあります。例えばトランクの、特定のリビジョン（最新のリビジョンでも古いリビジョンでも良い）のログダイアログを表示し、右クリックして"
+" <menuchoice><guimenuitem>リビジョンからブランチ/タグを作成</guimenuitem></menuchoice> "
+"を選択します。"
 
 #. (title)
 msgid "To Checkout or to Switch..."
@@ -10257,8 +10266,8 @@ msgid ""
 " only transfers the changed data to your working copy. Good for the network "
 "load, good for your patience. :-)"
 msgstr ""
-"……これは (それほどじゃないですが) "
-"問題です。チェックアウトは、リポジトリの指定したブランチから作業コピーへすべてダウンロードしますが、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>切り替え...</guimenuitem></menuchoice>"
+"……それが（それほどではありませんが）問題です。チェックアウトは、リポジトリの指定したブランチから作業コピーへすべてダウンロードしますが、 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>切り替え...</guimenuitem></menuchoice>"
 " は変更のあったデータのみを作業コピーに転送します。ネットワーク負荷をとるか、忍耐力をとるかですね。:-)"
 
 #. (para)
@@ -10291,7 +10300,7 @@ msgid ""
 "branch/tag."
 msgstr ""
 "続くダイアログで、たった今作成したブランチの URL を入力してください。 <guilabel>最新のリビジョン</guilabel> "
-"ラジオボタンを選択し、<guibutton>OK</guibutton> をクリックしてください。作業コピーが新しいブランチ・タグに切り替えられます。"
+"ラジオボタンを選択し、 <guibutton>OK</guibutton> をクリックしてください。作業コピーが新しいブランチ/タグに切り替えられます。"
 
 #. (para)
 msgid ""
@@ -10301,7 +10310,7 @@ msgid ""
 "happen then you must either commit the changes before switching, or revert "
 "your working copy to an already-committed revision (typically HEAD)."
 msgstr ""
-"切り替えは、手元の変更を決して破棄しないので、ちょうど更新のように動作します。まだコミットしていない作業コピーへの変更は、切り替えるとマージされます。こうして欲しくなければ、切り替える前にコミットをしておかねばならないか、既にコミットしてあるリビジョン（普通は最新リビジョン）まで、変更を取り消さなければなりません。"
+"切り替えは、手元の変更を決して破棄しないので、ちょうど更新のように動作します。まだコミットしていない作業コピーへの変更は、切り替えるとマージされます。こうして欲しくなければ、切り替える前にコミットをしておくか、作業コピーの変更を取り消し、既にコミットしてあるリビジョン（通常は最新リビジョン）まで戻さなければなりません。"
 
 #. (para)
 msgid ""
@@ -10311,10 +10320,10 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>"
 " that copy to your new branch."
 msgstr ""
-"トランクやブランチで作業したくても、まっさらなチェックアウトに費やしたくない場合、トランクをチェックアウトした作業コピーを、Windows "
+"トランクやブランチで作業したくても、まっさらなチェックアウトに時間を費やしたくない場合、トランクをチェックアウトした作業コピーを Windows "
 "エクスプローラーでコピーし、 "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>切り替え...</guimenuitem></menuchoice>"
-" を使用することで、新しいブランチにすることができます。"
+" を使用して、新しいブランチに切り替える方法もあります。"
 
 #. (title)
 msgid "The Switch Dialog"
@@ -10325,7 +10334,8 @@ msgid ""
 "To be able to work with your freshly generated branch or tag you have "
 "several ways to handle it. You can: <placeholder-1/><placeholder-2/>"
 msgstr ""
-"新しく生成したブランチやタグで作業するには、いくつかの方法があります。以下のように行ってください。<placeholder-1/><placeholder-2/>"
+"新しく作成したブランチやタグで作業するには、いくつかの方法があります。次のように行ってください。 <placeholder-1/> "
+"<placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -10339,9 +10349,11 @@ msgid ""
 "to a path in the repository which contains <filename>/tags/</filename>, "
 "TortoiseSVN will warn you."
 msgstr ""
-"タグは通常、プロジェクトの特定の場面の静的なスナップショットとして作られます。通常は開発には使用しません（それはブランチの役割であり、最初に<filename>/trunk"
-" /branches "
-"/tags</filename>というリポジトリ構造を推奨する理由です）。タグのリビジョンで作業することは<emphasis>よくありません</emphasis>が、ローカルファイルが書き込み保護されていないので、間違った操作を止める方法はありません。但し、リポジトリ内の<filename>/tags/</filename>以下のパスにコミットしようとした場合、TortoiseSVNは警告するようになっています。"
+"タグは通常、プロジェクトの特定の場面の静的なスナップショットとして作られます。通常は開発には使用しません（それはブランチの役割であり、最初に "
+"<filename>/trunk /branches /tags</filename> "
+"というリポジトリ構造を推奨する理由です）。タグのリビジョンで作業することは <emphasis>よくありません</emphasis> "
+"が、ローカルファイルが書き込み保護されていないので、間違った操作を止める方法はありません。但し、リポジトリ内の "
+"<filename>/tags/</filename> 以下のパスにコミットしようとした場合、 TortoiseSVN は警告するようになっています。"
 
 #. (para)
 msgid ""
@@ -10351,7 +10363,7 @@ msgid ""
 " then create a new tag from this new branch, e.g. "
 "<filename>Version_1.0.1</filename>."
 msgstr ""
-"おそらく既にタグ付けしたリリースについて、さらに修正を加える必要があるかもしれません。これを扱う正しい方法は、まずタグから新しいブランチを作成し、ブランチをコミットすることです。変更をこのブランチに行い、その後、新しいブランチから"
+"既にタグ付けしたリリースに、修正を加える必要が発生することもあります。これを扱う正しい方法は、タグから新しいブランチを作成し、そのブランチをコミットすることです。変更をこのブランチに行い、その後、新しいブランチから"
 " <filename>Version_1.0.1</filename> といったように、新しいタグを作成してください。"
 
 #. (para)
@@ -10361,13 +10373,13 @@ msgid ""
 "the modifications are stored. The rest remains a cheap copy."
 msgstr ""
 "ブランチから作成した作業コピーを変更し、コミットする場合、すべての変更は新しいブランチに行われ、トランクには "
-"<emphasis>行われません</emphasis>。変更点のみ格納されます。残りは簡易コピーのままになります。"
+"<emphasis>行われません</emphasis> 。変更点のみ格納されます。残りは簡易コピーのままになります。"
 
 #. (para)
 msgid ""
 "Although Subversion itself makes no distinction between tags and branches, "
 "the way they are typically used differs a bit. <placeholder-1/>"
-msgstr "Subversion 自身はタグとブランチを区別しませんが、通常以下のように多少使い分けをします。<placeholder-1/>"
+msgstr "Subversion 自身はタグとブランチを区別しませんが、通常は以下のように少し異なる使い方をします。 <placeholder-1/>"
 
 #. (title)
 msgid "Merging"
@@ -10710,7 +10722,7 @@ msgid ""
 "Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
 "options\"/>."
 msgstr ""
-"<guibutton>次へ &lt;</guibutton>をクリックすると、<xref linkend=\"tsvn-dug-merge-"
+"<guibutton>次へ &lt;</guibutton>をクリックすると、 <xref linkend=\"tsvn-dug-merge-"
 "options\"/> に進みます。"
 
 #. (secondary)
@@ -11175,8 +11187,8 @@ msgstr ""
 "機能ブランチの変更を、トランクにすべてマージして戻す場合、拡張コンテキストメニュー (<keycap>Shift</keycap> "
 "キーを押したままファイルを右クリック) にある "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>マージの再統合...</guimenuitem></menuchoice>"
-" を使用できます。<placeholder-1/> このダイアログは非常に簡単です。しなければならないことは、<xref linkend=\"tsvn-"
-"dug-merge-options\"/> にあるように、マージオプションを設定することだけです。TortoiseSVN "
+" を使用できます。<placeholder-1/> このダイアログは非常に簡単です。しなければならないことは、 <xref linkend"
+"=\"tsvn-dug-merge-options\"/> にあるように、マージオプションを設定することだけです。TortoiseSVN "
 "は、マージ追跡を使用して残りを自動的に処理します。 "
 
 #. (title)
@@ -11262,8 +11274,8 @@ msgid ""
 "basics-versioning-copymodifymerge\"/>. However there are a few instances "
 "when you may need to implement some form of locking policy. <placeholder-1/>"
 msgstr ""
-"Subversion は一般的に、<xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/> "
-"で先に説明したとおり、<quote>コピー・変更・マージ</quote> "
+"Subversion は一般的に、 <xref linkend=\"tsvn-basics-versioning-copymodifymerge\"/>"
+" で先に説明したとおり、<quote>コピー・変更・マージ</quote> "
 "法を使用して、ロックしない方が最もよく動作します。しかし、ロックするポリシーの形で実現する必要があるかもしれません。<placeholder-1/>"
 
 #. (para)
@@ -11409,8 +11421,8 @@ msgid ""
 "properties."
 msgstr ""
 "プロジェクトのプロパティの<literal> TSVN：logtemplatelock "
-"</literal>を設定すると、ロック時のメッセージを記入するユーザーにメッセージのひな形を提供することができます。プロパティを設定する方法は、<xref"
-" linkend=\"tsvn-dug-propertypage\"/>を参照してください。"
+"</literal>を設定すると、ロック時のメッセージを記入するユーザーにメッセージのひな形を提供することができます。プロパティを設定する方法は、 "
+"<xref linkend=\"tsvn-dug-propertypage\"/> を参照してください。"
 
 #. (para)
 msgid ""
@@ -11663,7 +11675,7 @@ msgid ""
 "<filename>.patch</filename> or <filename>.diff</filename> extension. You are"
 " now ready to submit your patch file."
 msgstr ""
-"それでは、お好みのファイル名でファイルを保存してください。パッチファイルはお好みの拡張子でかまいませんが、<filename>.patch</filename>"
+"それでは、任意のファイル名でファイルを保存してください。パッチファイルは任意の拡張子でかまいませんが、<filename>.patch</filename>"
 " や <filename>.diff</filename> を拡張子に使用するのが通例となっています。これでパッチファイルを送信する準備ができました。"
 
 #. (para)
@@ -12020,7 +12032,7 @@ msgid ""
 msgstr ""
 "TortoiseBlame "
 "の設定は、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>設定...</guimenuitem></menuchoice>"
-" の TortoiseBlame タブでアクセスできます。<xref linkend=\"tsvn-dug-settings-"
+" の TortoiseBlame タブでアクセスできます。 <xref linkend=\"tsvn-dug-settings-"
 "tortoiseblame\"/> をご覧ください。"
 
 #. (title)
@@ -12039,7 +12051,8 @@ msgid ""
 msgstr ""
 "注釈履歴レポートの限界の一つは、ファイルを特定のリビジョンにおける、各行を変更した最後の人しか見ることができません。時には、誰が変更したかと同様に、誰が作成したかを知りたいことがあります。"
 " TortoiseBlame "
-"の行を右クリックしてコンテキストメニューを表示しすると、そのリビジョンでの変更を見ることができます。しかし、変更点と注釈履歴を<emphatsis>同時に</emphasis>確認したい場合は、差分と注釈履歴のレポートを組み合わせなければなりません。"
+"の行を右クリックしてコンテキストメニューを表示しすると、そのリビジョンでの変更を見ることができます。しかし、変更点と注釈履歴を "
+"<emphasis>同時に</emphasis> 確認したい場合は、差分と注釈履歴のレポートを組み合わせなければなりません。"
 
 #. (term)
 msgid "Blame Revisions"
@@ -12826,7 +12839,7 @@ msgid ""
 " available in the <guilabel>View</guilabel> menu and from the toolbar. "
 "<placeholder-1/>"
 msgstr ""
-"リビジョングラフは非常に複雑になることがありますので、お好みの表示にできるようにいくつもの機能があります。ツールバーの<guilabel>表示</guilabel>メニューから使用できます。<placeholder-1/>"
+"リビジョングラフは非常に複雑になることがありますので、任意の表示にできるようにいくつもの機能があります。ツールバーの<guilabel>表示</guilabel>メニューから使用できます。<placeholder-1/>"
 
 #. (title)
 msgid "Using the Graph"
@@ -12845,7 +12858,7 @@ msgstr ""
 msgid ""
 "The revision date, author and comments are shown in a hint box whenever the "
 "mouse hovers over a revision box."
-msgstr "リビジョンの日付、作者。コメントは、マウスをリビジョンボックスの上にかざしたときに出るヒントボックスに表示します。"
+msgstr "リビジョンの日時、作者。コメントは、マウスをリビジョンボックスの上にかざしたときに出るヒントボックスに表示します。"
 
 #. (para)
 msgid ""
@@ -13118,7 +13131,7 @@ msgid ""
 " explorer, or use the context menu in the repository browser to export the "
 "files."
 msgstr ""
-"TortoiseSVN で単一ファイルをエクスポートするには、リポジトリブラウザーを使う必要があります（<xref linkend=\"tsvn-"
+"TortoiseSVN で単一ファイルをエクスポートするには、リポジトリブラウザーを使う必要があります （<xref linkend=\"tsvn-"
 "dug-"
 "repobrowser\"/>）。単純にエクスポートしたいファイルを、リポジトリブラウザーからエクスプローラーの目的の場所にドラッグするか、リポジトリブラウザーのコンテキストメニューを使ってファイルをエクスポートします。"
 
@@ -13133,7 +13146,7 @@ msgid ""
 "two revisions, use the compare revisions feature described in <xref linkend"
 "=\"tsvn-dug-compare-revs\"/>."
 msgstr ""
-"プロジェクトツリー構造のコピーをエクスポートしたいのに、特定のリビジョンやふたつのリビジョン間にしかないファイルのみを含めたい場合、<xref "
+"プロジェクトツリー構造のコピーをエクスポートしたいのに、特定のリビジョンやふたつのリビジョン間にしかないファイルのみを含めたい場合、 <xref "
 "linkend=\"tsvn-dug-compare-revs\"/> で説明する、リビジョン比較機構を使用してください。"
 
 #. (title)
@@ -13263,7 +13276,7 @@ msgid ""
 " Read <xref linkend=\"tsvn-dug-switch-1\"/> for more information."
 msgstr ""
 "同じリポジトリの、異なるブランチやディレクトリに切り替えたい。この場合、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>切り替え...</guimenuitem></menuchoice>"
-" を使用するべきです。詳細は、<xref linkend=\"tsvn-dug-switch-1\"/> をご覧ください。"
+" を使用するべきです。詳細は、 <xref linkend=\"tsvn-dug-switch-1\"/> をご覧ください。"
 
 #. (para)
 msgid "It does not apply if: <placeholder-1/>"
@@ -13743,7 +13756,7 @@ msgstr ""
 "クライアントでも共通で使用できます。これについての詳細は、TortoiseSVN のソースリポジトリにある、<ulink "
 "url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue"
 " Tracker Integration "
-"Specification</citetitle></ulink>の全文をお読みください（リポジトリへのアクセスのしかたは、<xref linkend"
+"Specification</citetitle></ulink>の全文をお読みください（リポジトリへのアクセスのしかたは、 <xref linkend"
 "=\"tsvn-preface-source\"/>で説明します）。"
 
 #. (title)
@@ -13783,7 +13796,7 @@ msgstr ""
 "そのようなインターフェイスはいずれも、あなたの課題追跡システムに強く依存しているので、私たちはこの部分を提供することはできませんし、そのようなプログラムの作成方法について説明することは、このマニュアルの範疇を超えてしまいます。インターフェイスの定義や、C#やC++/ATLで書かれたサンプルプラグインは、<ulink"
 " url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-"
 "plugins\"><citetitle>TortoiseSVN リポジトリ</citetitle></ulink>の "
-"<literal>contrib</literal> フォルダーから取得できます（リポジトリのアクセスの仕方は、<xref linkend"
+"<literal>contrib</literal> フォルダーから取得できます（リポジトリのアクセスの仕方は、 <xref linkend"
 "=\"tsvn-preface-source\"/>で説明します）。API の概要も <xref linkend=\"tsvn-"
 "ibugtraqprovider\"/> で得られます。それ以外の（動作する）サンプルプラグインとして、 C# では <ulink "
 "url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>"
@@ -13851,7 +13864,7 @@ msgid ""
 "set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 msgstr ""
 "TortoiseSVN "
-"はお好みのリポジトリビューアと統合できます。そのためには、リンク用に用意されているプロパティを定義する必要があります。以下のようにフォルダーに設定しなければなりません。"
+"は任意のリポジトリビューアと統合できます。そのためには、リンク用に用意されているプロパティを定義する必要があります。以下のようにフォルダーに設定しなければなりません。"
 " (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (para)
@@ -13904,7 +13917,7 @@ msgstr ""
 "絶対 URL の代わりに相対 URL "
 "も使用できます。これは、あなたのウェブビューアが、あなたのソースリポジトリと同じドメイン・サーバーにある場合に便利です。ドメイン名を変更したとしても、<literal>webviewer:revision</literal>"
 " プロパティや <literal>webviewer:pathrevision</literal> プロパティを調整する必要はありません。フォーマットは"
-" <literal>bugtraq:url</literal> プロパティと同じです。<xref linkend=\"tsvn-dug-"
+" <literal>bugtraq:url</literal> プロパティと同じです。 <xref linkend=\"tsvn-dug-"
 "bugtracker\"/> をご覧ください。"
 
 #. (para)
@@ -14050,8 +14063,8 @@ msgid ""
 msgstr ""
 "共通無視パターンはバージョン管理外のファイルを、コミットダイアログなどに表示しないようにするのに使用します。パターンにマッチしたファイルはインポートでも無視されます。除外するファイルやディレクトリは、名前や拡張子で判断します。パターンは空白で区切り、<literal>bin"
 " obj *.bak *.~?? *.jar *.[Tt]mp</literal> "
-"のようにします。このパターンにはパス区切り文字が必要ありません。ファイルとディレクトリを区別する方法はないことに注意してください。パターンマッチの文法といった詳細情報は、<xref"
-" linkend=\"tsvn-dug-ignore-glob\"/> をご覧ください。"
+"のようにします。このパターンにはパス区切り文字が必要ありません。ファイルとディレクトリを区別する方法はないことに注意してください。パターンマッチの文法といった詳細情報は、"
+" <xref linkend=\"tsvn-dug-ignore-glob\"/> をご覧ください。"
 
 #. (para)
 msgid ""
@@ -14086,7 +14099,7 @@ msgstr ""
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
-msgstr "ファイルの日付に <quote>最後にコミットした日付</quote> を設定する"
+msgstr "ファイルの更新日時に <quote>最後にコミットした日時</quote> を設定する"
 
 #. (para)
 msgid ""
@@ -14098,9 +14111,9 @@ msgid ""
 "time</quote> and revert to an older file revision, your project may not "
 "compile as you expect it to."
 msgstr ""
-"このオプションは、チェックアウトや更新時にコミット時の日時をファイルの日時として使うよう、TortoiseSVN "
-"に指示します。そうでなければ、TortoiseSVN "
-"は現在の日時を使用します。ソフトウェアを開発しているなら、ビルドシステムがコンパイルの要否を判断するのにタイムスタンプを使用するので、現在の日付にしておくのが最善でしょう。<quote>最後にコミットした日付</quote>"
+"このオプションは、チェックアウトや更新時にコミット時の日時をファイルの更新日時として使うよう、TortoiseSVN に指示します。そうでなければ、 "
+"TortoiseSVN "
+"は現在の日時を使用します。ソフトウェアを開発しているなら、ビルドシステムがコンパイルの要否を判断するのにタイムスタンプを使用するので、現在の日時にしておくのが最善でしょう。<quote>最後にコミットした日時</quote>"
 " を使用していると、ファイルを古いリビジョンに戻す場合、プロジェクトがコンパイルされない可能性があります。"
 
 #. (term)
@@ -14258,7 +14271,7 @@ msgstr ""
 
 #. (term)
 msgid "Short date / time format in log messages"
-msgstr "ログメッセージに短い日付形式を使用する"
+msgstr "ログメッセージに短い日時形式を使用する"
 
 #. (para)
 msgid ""
@@ -14764,7 +14777,7 @@ msgstr "追加したノード"
 
 #. (para)
 msgid "Items newly added, or copied (add with history)."
-msgstr "新しく追加されたか、コピー (履歴とともに追加) された項目です。"
+msgstr "新しく追加されたか、コピー（履歴とともに追加）された項目です。"
 
 #. (term)
 msgid "Renamed Node"
@@ -14792,7 +14805,7 @@ msgid ""
 "May be used to show the revision used as the source of a copy, even when no "
 "change (to the item being graphed) took place in that revision."
 msgstr ""
-"(グラフに表示する) 変更がまったくそのリビジョンで発生しなかったとしても、コピー元として使用されるリビジョンを表示するのに使用される場合があります。"
+"（グラフに表示する）変更がまったくそのリビジョンで発生しなかったとしても、コピー元として使用されるリビジョンを表示するのに使用される場合があります。"
 
 #. (term)
 msgid "HEAD node"
@@ -14897,9 +14910,8 @@ msgid ""
 "information is not <emphasis>real time</emphasis> but it can take a few "
 "seconds for the overlays to change."
 msgstr ""
-"別のプロセス (<filename>TSVNCache.exe</filename>) "
-"がすべての状態情報をキャッシュします。このプロセスは、全ドライブの変更を監視し、作業コピー内のファイルが更新されれば、その状態情報を再取得します。優先度が最低で動作しますので、他のプログラムが、これによりリソースをとられてしまうことはありません。これは状態情報が"
-" <emphasis>リアルタイム</emphasis> で更新されないということでもありますが、数秒でオーバーレイアイコンは更新されます。"
+"別のプロセス（<filename>TSVNCache.exe</filename>）がすべての状態情報をキャッシュします。このプロセスは、全ドライブの変更を監視し、作業コピー内のファイルが更新されれば、その状態情報を再取得します。優先度が最低で動作しますので、他のプログラムが、これによりリソースをとられてしまうことはありません。これは状態情報が"
+" <emphasis>リアルタイム</emphasis> で更新されないということでもありますが、オーバーレイ表示は数秒で更新されます。"
 
 #. (para)
 msgid ""
@@ -14909,8 +14921,7 @@ msgid ""
 "notifications to the shell, the overlays on the left tree view usually "
 "change too."
 msgstr ""
-"利点: "
-"オーバーレイには再帰的な状態が表示されます。つまり、作業コピーの深い階層にあるファイルを更新すると、作業コピーのルートまでの全フォルダーにも更新オーバーレイが表示されます。さらにプロセスからシェルに通知が送られるので、通常、左のツリービューのオーバーレイも変更されます。"
+"【利点】オーバーレイには再帰的な状態が表示されます。つまり、作業コピーの深い階層にあるファイルを更新すると、作業コピーの最上位までの全フォルダーにも更新オーバーレイが表示されます。さらにプロセスからシェルに通知が送られるので、通常、左のツリービューのオーバーレイ表示も変更されます。"
 
 #. (para)
 msgid ""
@@ -14918,8 +14929,8 @@ msgid ""
 "your projects. It also uses around 10-50 MB of RAM depending on number and "
 "size of your working copies."
 msgstr ""
-"欠点: プロジェクトについて作業をしていないときでも、プロセスが一定に動作しています。さらに、作業コピーのサイズ・数量にも依存しますが、およそ "
-"10-50 MB の RAM を使用します。"
+"【欠点】プロジェクトについての作業をしていないときでも、プロセスが常に動作しています。さらに、作業コピーの数や大きさにも依存しますが、およそ10～50MBの"
+" RAM を消費します。"
 
 #. (term)
 msgid "Shell"
@@ -14930,15 +14941,16 @@ msgid ""
 "Caching is done directly inside the shell extension dll, but only for the "
 "currently visible folder. Each time you navigate to another folder, the "
 "status information is fetched again."
-msgstr "シェル拡張 dll の内部で直接キャッシュします。別のフォルダーに移るたびに、ステータス情報を取得します。"
+msgstr ""
+"シェル拡張 DLL "
+"の内部で直接キャッシュしますが、表示されているフォルダーのみをキャッシュします。別のフォルダーに移るたびに、ステータス情報を再取得されます。"
 
 #. (para)
 msgid ""
 "Advantage: needs only very little memory (around 1 MB of RAM) and can show "
 "the status in <emphasis>real time</emphasis>."
 msgstr ""
-"利点: メモリ消費がとても少なく (およそ 1 MB の RAM) てすみます。また、状態を<emphasis>リアルタイム</emphasis> "
-"に表示します。"
+"【利点】とても少ないメモリの消費量で（およそ1MBの RAM を使用）、状態を <emphasis>リアルタイム</emphasis> に表示できます。"
 
 #. (para)
 msgid ""
@@ -14947,8 +14959,8 @@ msgid ""
 "folder in explorer than with the default cache. Also the mime-type column is"
 " not available."
 msgstr ""
-"欠点: "
-"単一のフォルダーしかキャッシュしないため、オーバーレイには再帰的な状態が表示されません。大きな作業コピーでは、デフォルトのキャッシュよりも、エクスプローラーのフォルダー表示に時間がかかります。また、MIMEタイプ列が使用できなくなります。"
+"【欠点】単一のフォルダーしかキャッシュしないため、オーバーレイには再帰的な状態が表示されません。大きな作業コピーでは、デフォルトのキャッシュよりも、エクスプローラーのフォルダー表示に時間がかかることがあります。また、"
+" MIME タイプ列が使用できなくなります。"
 
 #. (term)
 msgid "None"
@@ -14961,15 +14973,14 @@ msgid ""
 " 'normal' overlay if they're versioned. No other overlays are shown, and no "
 "extra columns are available either."
 msgstr ""
-"この設定では、TortoiseSVN "
-"はエクスプローラーで状態をまったく取得しません。このため、ファイルはオーバーレイアイコンを取得できず、バージョン管理されたフォルダーは "
-"「通常」のオーバーレイアイコンしか取得しません。他のオーバーレイは表示されず、他の方法では有効だった、追加の列は無効になります。"
+"この設定では、 TortoiseSVN "
+"はエクスプローラーで状態をまったく取得しません。このため、バージョン管理下にあるファイルやフォルダーには、常に「通常」がオーバーレイ表示されます。それ以外のオーバーレイは表示されず、追加の列も無効になります。"
 
 #. (para)
 msgid ""
 "Advantage: uses absolutely no additional memory and does not slow down the "
 "Explorer at all while browsing."
-msgstr "利点: 追加でメモリを使用することは絶対になく、閲覧中にエクスプローラーが遅くなることもありません。"
+msgstr "【利点】追加でメモリを使用することは絶対になく、閲覧中にエクスプローラーが遅くなることもありません。"
 
 #. (para)
 msgid ""
@@ -14977,8 +14988,7 @@ msgid ""
 "Explorer. To see if your working copies are modified, you have to use the "
 "<quote>Check for modifications</quote> dialog."
 msgstr ""
-"欠点: ファイル・フォルダーの状態情報は、エクスプローラーに表示されません。作業コピーの変更点を見るには、<quote>変更をチェック</quote> "
-"ダイアログを使用しなければなりません。"
+"【欠点】ファイルやフォルダーの状態情報が、エクスプローラーに表示されません。作業コピーが変更されているかどうかを確認するには、<quote>変更をチェック</quote>ダイアログを使用する必要があります。"
 
 #. (para)
 msgid ""
@@ -14988,9 +14998,9 @@ msgid ""
 "cache TortoiseSVN should use according to your system and working copy size "
 "here: <placeholder-1/>"
 msgstr ""
-"作業コピーの状態を取得するには時間がかかるため、エクスプローラーがオーバーレイアイコンを表示するのに負荷がかからないように、TortoiseSVN "
-"は状態をキャッシュに格納します。システムや作業コピーのサイズをもとに、TortoiseSVN "
-"が使用するキャッシュタイプを以下から選択できます。<placeholder-1/>"
+"作業コピーの状態を取得するには時間がかかるため、エクスプローラーがオーバーレイアイコンを表示するのに負荷がかからないように、 TortoiseSVN "
+"は状態をキャッシュに格納します。システムや作業コピーの大きさをもとに、 TortoiseSVN "
+"が使用するキャッシュタイプを以下から選択してください。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -14999,10 +15009,9 @@ msgid ""
 "<emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show "
 "overlays and context menu only in explorer</guilabel> box."
 msgstr ""
-"デフォルトでは、オーバレイアイコンやコンテキストメニューは 開く・保存ダイアログでも、Windows "
-"エクスプローラーのように表示されます。Windows "
-"エクスプローラーで<emphasis>のみ</emphasis>表示するようにするなら、<guilabel>エクスプローラー上でのみオーバレイを表示する</guilabel>"
-" をチェックしてください。"
+"デフォルトでは、ファイルを開く・保存ダイアログでも、Windows エクスプローラーと同様に、オーバレイアイコンやコンテキストメニューが表示されます。 "
+"Windows エクスプローラーで <emphasis>のみ</emphasis> 表示させる場合は、 "
+"<guilabel>エクスプローラー上でのみオーバレイを表示する</guilabel> をチェックしてください。"
 
 #. (para)
 msgid ""
@@ -15011,7 +15020,7 @@ msgid ""
 "files which are not yet versioned. This option is only available when you "
 "use the <emphasis>default</emphasis> status cache option (see below)."
 msgstr ""
-"バージョン管理外のファイルを含むフォルダーに、変更済マークをつけるようにもできます。これにより、まだバージョン管理下に入れてない新しいファイルを作成したのを、覚えておくのに便利です。このオプションは、キャッシュオプション（後述）が"
+"バージョン管理外のファイルを含むフォルダーに、変更済マークをつけるようにもできます。これにより、まだバージョン管理下に入れてない新しいファイルを作成したのを、覚えておくのに便利です。このオプションは、キャッシュタイプ（前述）が"
 " <emphasis>デフォルト</emphasis> の場合にのみ有効です。"
 
 #. (para)
@@ -15020,7 +15029,7 @@ msgid ""
 "overlays. By default, only hard drives are selected. You can even disable "
 "all icon overlays, but where's the fun in that?"
 msgstr ""
-"次のグループでは、オーバーレイを表示するストレージの種類を選択できます。デフォルトでは、ハードディスクドライブしか選択されていません。アイコンオーバレイをすべて無効にもできますが、そんなことしたいですか?"
+"次のグループでは、オーバーレイを表示するストレージの種類を選択できます。デフォルトでは、ハードディスクドライブしか選択されていません。アイコンオーバレイをすべて無効にもできますが、そんなことしたいですか？"
 
 #. (para)
 msgid ""
@@ -15035,7 +15044,7 @@ msgid ""
 "removable drives."
 msgstr ""
 "USB "
-"フラッシュドライブは、ドライブタイプがデバイスそのもので特定されるので、特殊なケースのように思えます。ある種のものは固定ドライブに見え、別のある種のものはリムーバブルドライブに見えます。"
+"フラッシュドライブは、ドライブタイプがデバイス毎に特定されるので特殊です。ある種のものは固定ドライブに見え、別のある種のものはリムーバブルドライブに見えます。"
 
 #. (para)
 msgid ""
@@ -15046,7 +15055,10 @@ msgid ""
 "need the overlays, or if you only want TortoiseSVN to look in specific "
 "folders."
 msgstr ""
-"<guilabel>除外パス</guilabel>はTortoiseSVNに対して、それらのパスにはアイコンオーバーレイやステータス列を<emphasis>表示しない</emphasis>ことを伝えるために使用します。これは、変更しないライブラリのみが含まれるためオーバーレイの必要ない巨大な作業コピーが存在する場合、もしくはTortoiseSVNに特定のフォルダーのみ見て欲しい場合に有用です。"
+"<guilabel>除外するパス</guilabel> は TortoiseSVN に対して、それらのパスにはアイコンオーバーレイやステータス列を "
+"<emphasis>表示しない</emphasis> "
+"ことを伝えるために使用します。これは、変更しないライブラリのみが含まれるためオーバーレイの必要ない巨大な作業コピーが存在する場合、もしくは "
+"TortoiseSVN に特定のフォルダーのみ見て欲しい場合に有用です。"
 
 #. (para)
 msgid ""
@@ -15055,7 +15067,8 @@ msgid ""
 "<emphasis>only</emphasis> the named folder, append <literal>?</literal> "
 "after the path."
 msgstr ""
-"ここで指定するパスはどれも再帰的に適用されることを想定しています。そのため、どの子階層フォルダーもオーバーレイ表示されません。名前のついたフォルダー<emphasis>のみ</emphasis>を除外したいなら、<literal>?</literal>をパスの後ろに追加してください。"
+"ここで指定するパスはどれも再帰的に適用されることを想定しています。そのため、どの子階層フォルダーもオーバーレイ表示されません。名前のついたフォルダー "
+"<emphasis>のみ</emphasis> を除外したいなら、 <literal>?</literal> をパスの後ろに追加してください。"
 
 #. (para)
 msgid ""
@@ -15075,7 +15088,7 @@ msgid ""
 "takes precedence over a recursive spec, then inclusion takes precedence over"
 " exclusion."
 msgstr ""
-"ユーザーは時々これら3つの設定がどのように作用するかを疑問に思うかもしれません。任意のパスに対して、一致するものが見つかるまでディレクトリ構造を上向きに探索し、含めるリストと除外するリストをチェックします。最初に一致するものが見つかった場合、含めるもしくは除外するルールに従います。もし競合がある場合は、単一ディレクトリの設定は再帰的なものより優先されます。そして、含めるルールは除外するルールよりも優先されます。"
+"ユーザーは時々これら3つの設定がどのように作用するかを疑問に思うかもしれません。任意のパスに対して、一致するものが見つかるまでディレクトリ構造を上向きに探索し、含めるリストと除外するリストをチェックします。最初に一致するものが見つかった場合、含めるもしくは除外するルールに従います。もし競合した場合は、単一ディレクトリの設定は再帰的なものより優先されます。そして、含めるルールは除外するルールよりも優先されます。"
 
 #. (para)
 msgid ""
@@ -15090,16 +15103,16 @@ msgid ""
 "       C:\\develop\n"
 "</screen> These settings disable icon overlays for the C: drive, except for <literal>c:\\develop</literal>. All projects below that directory will show overlays, except the <literal>c:\\develop</literal> folder itself, which is specifically ignored. The high-churn binary folders are also excluded."
 msgstr ""
-"役に立つ例を示します: <screen>\n"
-"除外する:\n"
+"分かりやすい例を示します。<screen>\n"
+"除外するパス:\n"
 "       C:\n"
 "       C:\\develop\\?\n"
 "       C:\\develop\\tsvn\\obj\n"
 "       C:\\develop\\tsvn\\bin\n"
 "\n"
-"含める:\n"
+"含めるパス:\n"
 "       C:\\develop\n"
-"</screen> これらの設定は、<literal>c:\\develop</literal> を除く C: drive に対してアイコンオーバーレイを無効にします。そのディレクトリ以下のプロジェクトは、明確に無視される <literal>c:\\develop</literal> フォルダーを除きオーバーレイされます。high-churnバイナリフォルダーも除外されます。"
+"</screen> このように設定すると、 C: ドライブのオーバーレイ表示は無効になりますが、 <literal>c:\\develop</literal> 以下については、明確に除外されている <literal>c:\\develop</literal> フォルダー自身を除き、すべてのプロジェクトにオーバーレイ表示されます。頻繁に変更されるバイナリが入るフォルダーも除外されます。"
 
 #. (para)
 msgid ""
@@ -15108,11 +15121,11 @@ msgid ""
 "only the folders you specifically want to be scanned."
 msgstr ""
 "TSVNCache.exe "
-"は、検索するパスを制限することもできます。特定のフォルダー以下のみを見たい場合は、全ドライブタイプで無効にし、スキャンしたい特別なフォルダーのみを含めてください。"
+"が検索するパスを制限することもできます。特定のフォルダー以下のみを検索したい場合は、全ドライブタイプを無効にし、検索対象にしたい特定のフォルダーのみを含めてください。"
 
 #. (title)
 msgid "Exclude <literal>SUBST</literal> Drives"
-msgstr "<literal>SUBST</literal> ドライブの除外"
+msgstr "<literal>SUBST</literal> ドライブを除外する"
 
 #. (primary)
 msgid "SUBST drives"
@@ -15126,7 +15139,7 @@ msgid ""
 msgstr ""
 "作業コピーにアクセスするのに、以下のように <literal>SUBST</literal> ドライブを使用すると便利なことがあります。<screen>\n"
 "subst T: C:\\TortoiseSVN\\trunk\\doc\n"
-"</screen>しかし、<literal>TSVNCache</literal> がファイルが変更されたという通知をひとつしか受け取れず、それは通常オリジナルパスに対してであるため、オーバーレイを更新できません。これは、<literal>subst</literal> パスのオーバーレイはまったく更新されない可能性があるということでもあります。"
+"</screen>しかし、 <literal>TSVNCache</literal> はファイルが変更されたという通知をひとつしか受け取れず、それは通常割り当て元のパスに対してであるため、オーバーレイ表示を更新できません。そのため、 <literal>subst</literal> パスのオーバーレイ表示はまったく更新されない可能性があります。"
 
 #. (para)
 msgid ""
@@ -15134,27 +15147,26 @@ msgid ""
 " overlays, so that the overlays show up on the <literal>subst</literal> path"
 " instead."
 msgstr ""
-"これに対処する簡単な方法は、オーバーレイ表示からオリジナルのパスを除外し、代わりに <literal>subst</literal> "
-"パスにオーバーレイを表示することです。"
+"これに対処する簡単な方法は、表示対象から割り当て元のパスを除外することです。そうすれば、代わりに <literal>subst</literal> "
+"パスにオーバーレイ表示されます。"
 
 #. (para)
 msgid ""
 "Sometimes you will exclude areas that contain working copies, which saves "
 "TSVNCache from scanning and monitoring for changes, but you still want a "
-"visual indication that such folders are versioned. The <guilabel>Show "
-"excluded folders as 'normal'</guilabel> checkbox allows you to do this. With"
-" this option, versioned folders in any excluded area (drive type not "
-"checked, or specifically excluded) will show up as normal and up-to-date, "
-"with a green check mark. This reminds you that you are looking at a working "
-"copy, even though the folder overlays may not be correct. Files do not get "
-"an overlay at all. Note that the context menus still work, even though the "
-"overlays are not shown."
+"visual indication that a folder contains a working copy. The <guilabel>Show "
+"excluded root folders as 'normal'</guilabel> checkbox allows you to do this."
+" With this option, working copy root folders in any excluded area (drive "
+"type not checked, or specifically excluded) will show up as normal and up-"
+"to-date, with a green check mark. This reminds you that you are looking at a"
+" working copy, even though the folder overlays may not be correct. Files do "
+"not get an overlay at all. Note that the context menus still work, even "
+"though the overlays are not shown."
 msgstr ""
-"時には、作業コピーに含まれる領域を TSVNCache "
-"の検索・変更監視から除外し、しかしバージョン管理下であることを視覚表示したいことがあります。<guilabel>'通常' "
-"として除外フォルダーを表示する</guilabel> チェックボックスで、そのようにできます。このオプションにより、除外領域 "
-"(チェックしないドライブタイプや除外指定した場所) "
-"にあるバージョン管理下のフォルダーには、緑のチェックマークで、通常でかつ最新であるという表示がつきます。これにより、作業コピーを見ていることをお知らせしますが、フォルダーのオーバーレイはおそらく正しくないでしょう。ファイルには、オーバーレイがまったく付きません。オーバーレイは表示されませんが、コンテキストメニューは有効なことにご注意ください。"
+"時には、 TSVNCache "
+"による変更の検索・監視を減らすために、作業コピーを含む領域を除外することがありますが、フォルダーに作業コピーが含まれていることを視覚表示したい場合があります。"
+" <guilabel>表示対象外にある作業フォルダーの最上位を通常として表示する</guilabel> "
+"チェックボックスをチェックすると、除外されたパス（チェックされていないドライブタイプや、除外するパスとして指定されたもの）にある作業コピーの最上位フォルダーには、通常の最新の状態である緑色のチェックマークが表示されます。フォルダーのオーバーレイ表示は正しくはないかもしれませんが、作業コピーは見つけやすくなるでしょう。ファイルには全くオーバーレイ表示されません。オーバーレイ表示がなくても、コンテキストメニューは有効であることにご注意ください。"
 
 #. (para)
 msgid ""
@@ -15183,7 +15195,7 @@ msgid ""
 "computer for the changes to take effect."
 msgstr ""
 "<placeholder-1/> "
-"オーバーレイアイコンをお好みのものに変更できます。オーバーレイアイコンセットを変更したときに、変更を有効にするにはコンピューターの再起動が必要なことに注意してください。"
+"オーバーレイアイコンを任意のものに変更できます。オーバーレイアイコンセットを変更したときに、変更を有効にするにはコンピューターの再起動が必要なことに注意してください。"
 
 #. (title)
 msgid "Enabled Overlay Handlers"
@@ -15330,7 +15342,7 @@ msgid ""
 "Read <xref linkend=\"tsvn-dug-diff-tools\"/> for a list of some of the "
 "external diff/merge programs that people are using with TortoiseSVN."
 msgstr ""
-"TortoiseSVN の外部の差分・マージツールとしてよく使われているものの一覧は、<xref linkend=\"tsvn-dug-diff-"
+"TortoiseSVN の外部の差分・マージツールとしてよく使われているものの一覧は、 <xref linkend=\"tsvn-dug-diff-"
 "tools\"/> をご覧ください。"
 
 #. (title)
@@ -15602,7 +15614,7 @@ msgstr ""
 msgid ""
 "Since Unified Diff is just a text format, you can use your favourite text "
 "editor if you prefer."
-msgstr "Unified-Diff ファイルはテキストファイルなので、お好みのテキストエディターを使用しても結構です。"
+msgstr "Unified-Diff ファイルはテキストファイルなので、任意のテキストエディターを使用しても結構です。"
 
 #. (title)
 msgid "Saved Data Settings"
@@ -15610,7 +15622,7 @@ msgstr "保存データの設定"
 
 #. (title)
 msgid "The Settings Dialog, Saved Data Page"
-msgstr "設定ダイアログ、保存データページ"
+msgstr "設定ダイアログの保存されたデータページ"
 
 #. (para)
 msgid ""
@@ -15704,7 +15716,7 @@ msgid ""
 "read <xref linkend=\"tsvn-dug-general-auth\"/> for instructions on how to "
 "find the cached data."
 msgstr ""
-"特定のサーバーのみ、認証データをクリアしたければ、キャッシュデータの探し方について、<xref linkend=\"tsvn-dug-general-"
+"特定のサーバーのみ、認証データをクリアしたければ、キャッシュデータの探し方について、 <xref linkend=\"tsvn-dug-general-"
 "auth\"/> をご覧ください。"
 
 #. (term)
@@ -16335,7 +16347,7 @@ msgid ""
 "to specify how it integrates with your working copy."
 msgstr ""
 "TortoiseSVN は、コミットダイアログで課題管理システムにクエリを発行するために、COM "
-"プラグインを使用できます。そのようなプラグインの使用を、<xref linkend=\"tsvn-dug-bugtracker-ref\"/> "
+"プラグインを使用できます。そのようなプラグインの使用を、 <xref linkend=\"tsvn-dug-bugtracker-ref\"/> "
 "で説明しています。あなたのシステム管理者が、すでにあなたがインストールして登録したプラグインを提供している場合、どのように作業コピーと統合するかをここで指定します。"
 
 #. (title)
@@ -16596,7 +16608,7 @@ msgid ""
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
 msgstr ""
-"TortoiseSVN は外部の差分ビューアを使用することができます。しかし、多くのビューアには注釈履歴（<xref linkend=\"tsvn-"
+"TortoiseSVN は外部の差分ビューアを使用することができます。しかし、多くのビューアには注釈履歴 （<xref linkend=\"tsvn-"
 "dug-blame-diffs\"/>）が統合されていませんので、その場合はTortoiseMerge "
 "に戻したくなることもあるでしょう。そのためには、この値を<literal>true</literal>に設定してください。"
 
@@ -18590,7 +18602,8 @@ msgid ""
 "For detailed information on those project properties, please refer to <xref "
 "linkend=\"tsvn-dug-propertypage\"/>."
 msgstr ""
-"これらのプロジェクトプロパティの詳細については、<xref linkend=\"tsvn-dug-propertypage\"/>を参照してください。"
+"これらのプロジェクトプロパティの詳細については、 <xref linkend=\"tsvn-dug-propertypage\"/> "
+"を参照してください。"
 
 #. (title)
 msgid "Update selected files from the repository"
@@ -19075,8 +19088,8 @@ msgid ""
 " how."
 msgstr ""
 "作業コピーから <literal>.svn</literal> "
-"ディレクトリを削除し、通常のフォルダーツリーにする場合、これを単純にエクスポートできます。どのようにするかは、<xref linkend=\"tsvn-"
-"dug-export-unversion\"/> をご覧ください。"
+"ディレクトリを削除し、通常のフォルダーツリーにする場合、これを単純にエクスポートできます。どのようにするかは、 <xref linkend"
+"=\"tsvn-dug-export-unversion\"/> をご覧ください。"
 
 #. (title)
 msgid "Remove a working copy"
@@ -19549,7 +19562,7 @@ msgid ""
 "commands and dialogs from other programs (e.g. your favourite text editor)."
 msgstr ""
 "TortoiseSVN "
-"の全コマンドはコマンドラインパラメーターから制御できるため、バッチスクリプトや、他のプログラム（例：お好みのテキストエディター）から指定したコマンドやダイアログを起動するのを自動化できます。"
+"の全コマンドはコマンドラインパラメーターから制御できるため、バッチスクリプトや、他のプログラム（例：任意のテキストエディター）から指定したコマンドやダイアログを起動するのを自動化できます。"
 
 #. (para)
 msgid ""
@@ -19749,7 +19762,7 @@ msgstr "/merge"
 
 #. (option)
 msgid "/findstring:\"filterstring\""
-msgstr "/findstring:\"<フィルタリング文字列>\""
+msgstr "/findstring:\"&lt;フィルタリング文字列&gt;\""
 
 #. (option)
 msgid "/findtext"
@@ -19789,7 +19802,7 @@ msgstr "<option>/findtype:7</option> バグ ID に対してフィルタ"
 
 #. (option)
 msgid "/outfile:path\\to\\file"
-msgstr "/outfile:<出力ファイルへのパス>"
+msgstr "/outfile:&lt;出力ファイルへのパス&gt;"
 
 #. (entry)
 msgid ""
@@ -19850,7 +19863,7 @@ msgstr "/logmsg"
 #. (option)
 #. (option)
 msgid "/logmsgfile:path"
-msgstr "/logmsgfile:<パス>"
+msgstr "/logmsgfile:&lt;パス&gt;"
 
 #. (option)
 #. (option)
@@ -20839,7 +20852,7 @@ msgid ""
 msgstr ""
 "メインのコンテキストメニューから Diff を使用する場合、BASE リビジョンから変更されたファイルに対して比較を行います。上記 CLI "
 "コマンドの出力では比較を行い、結果 をunified-diff 形式で出力します。しかし、TortoiseSVN "
-"がこれを使用しているわけではありません。TortoiseSVN は TortoiseMerge (や、お好みの diff プログラム) "
+"がこれを使用しているわけではありません。TortoiseSVN は TortoiseMerge (や、任意の diff プログラム) "
 "でフルテキストファイルの差分を視覚的に表示します、そのため、直接 CLI で相当するものはありません。"
 
 #. (para)
@@ -21686,8 +21699,8 @@ msgid ""
 "linkend=\"tsvn-dug-propertypage\"/> for information about setting project "
 "properties."
 msgstr ""
-"<literal>tsvn:projectlanguage</literal> の設定を調べます。プロジェクトプロパティの設定に関する情報は、<xref"
-" linkend=\"tsvn-dug-propertypage\"/> を参照してください。"
+"<literal>tsvn:projectlanguage</literal> の設定を調べます。プロジェクトプロパティの設定に関する情報は、 "
+"<xref linkend=\"tsvn-dug-propertypage\"/> を参照してください。"
 
 #. (para)
 msgid ""
@@ -21738,8 +21751,9 @@ msgid ""
 "last checkout, update or commit was run. The BASE revision is normally not "
 "equal to the HEAD revision."
 msgstr ""
-"<emphasis>作業コピー</emphasis>にあるファイルやフォルダーの現在のベースリビジョンで、最後にチェックアウト、更新、コミットを実行したときの、ファイルやフォルダーののリビジョンです。BASE"
-" リビジョンは、通常は最新リビジョンと同じではありません。"
+"<emphasis>作業コピー</emphasis> "
+"にあるファイルやフォルダーの現在のベースリビジョンで、最後にチェックアウト、更新、コミットを実行したときの、ファイルやフォルダーのリビジョンです。 "
+"BASE リビジョンは、通常は最新リビジョンと同じではありません。"
 
 #. (para)
 msgid ""
@@ -21749,8 +21763,8 @@ msgid ""
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
 msgstr ""
-"このコマンドはテキストファイル専用で、すべての行に対して、最後に変更したリポジトリのリビジョンと、誰が変更したのかを注釈します。我々の GUI "
-"実装では、TortoiseBlame を呼び出し、リビジョン番号の上にマウスを持っていくと、コミット日時やログメッセージも表示します。"
+"このコマンドはテキストファイル専用で、それぞれの行が最後に変更された時の、リポジトリのリビジョンと作者を注釈表示します。私たちの GUI の実装は "
+"TortoiseBlame と呼ばれ、リビジョン番号の上にマウスを置くと、コミット日時やログメッセージも表示します。"
 
 #. (glossterm)
 msgid "BDB"
@@ -21761,8 +21775,8 @@ msgid ""
 "Berkeley DB. A well tested database backend for repositories, that cannot be"
 " used on network shares. Default for pre 1.2 repositories."
 msgstr ""
-"Berkeley DB。実績のあるリポジトリ用データベースバックエンドですが、ネットワークフォルダー上では使用できません。1.2 "
-"以前のリポジトリのデフォルトです。"
+"Berkeley DB "
+"。実績のあるリポジトリ用データベースバックエンドですが、ネットワークフォルダー上では使用できません。1.2以前のリポジトリのデフォルトです。"
 
 #. (glossterm)
 msgid "Branch"
@@ -21778,15 +21792,15 @@ msgid ""
 " place on the unstable trunk. In Subversion a branch is implemented as a "
 "<quote>cheap copy</quote>."
 msgstr ""
-"ある点で開発が2つの独立したパスに分岐したことをと表す、リビジョン管理システムの用語です。メインラインを不安定にせずに新機能の開発を行うように、メインの開発ラインからブランチを作成できます。また、今後バグフィックスしか行わない安定版リリースのブランチを作成し、新機能の開発は不安定なトランクで行えます。Subversion"
-" のブランチは、<quote>簡易コピー</quote> として実装されています。"
+"バージョン管理システムでよく使用される用語で、ある時点で開発が2つの独立したパスに分岐したことをと表します。メインの開発ラインからブランチを作成すれば、メインラインを不安定にせずに新機能の開発を行うことができます。また、今後バグフィックスのみを行うための安定版リリースのブランチを作成すれば、新機能の開発は不安定なトランクで行うことができます。"
+" Subversion のブランチは、<quote>簡易コピー</quote> として実装されています。"
 
 #. (para)
 msgid ""
 "A Subversion command which creates a local working copy in an empty "
 "directory by downloading versioned files from the repository."
 msgstr ""
-"空のディレクトリにリポジトリからバージョン管理下のファイルをダウンロードし、手元の作業コピーを作成する Subversion コマンドです。"
+"空のディレクトリに、リポジトリからバージョン管理下のファイルをダウンロードし、手元の作業コピーを作成する Subversion のコマンドです。"
 
 #. (para)
 msgid ""
@@ -21797,14 +21811,16 @@ msgid ""
 "Note that in this context <emphasis>lock</emphasis> refers to local "
 "filesystem locking, not repository locking."
 msgstr ""
-"以下 Subversion book "
-"から引用します。<quote>作業コピーの再帰的なクリーンアップ（ロックの解除、未完操作の回復）を行います。<emphasis>作業コピーがロックされています</emphasis>というエラーが出続ける場合、このコマンドを実行し、古くなったロックを削除し、作業コピーをまた使えるようにします。</quote>ここで言う<emphasis>ロック</emphasis>は、ファイルシステムのロックを指しており、リポジトリのロックではないことに注意してください。"
+"Subversion book から引用します。<quote>作業コピーの再帰的なクリーンアップ（ロックの解除、未完操作の回復）を行います。 "
+"<emphasis>作業コピーがロックされています</emphasis> "
+"というエラーが出続ける場合、このコマンドを実行し、古くなったロックを削除し、作業コピーをまた使えるようにします。</quote>ここで言う "
+"<emphasis>ロック</emphasis> とは、ファイルシステムのロックを指しており、リポジトリのロックではないことに注意してください。"
 
 #. (para)
 msgid ""
 "This Subversion command is used to pass the changes in your local working "
 "copy back into the repository, creating a new repository revision."
-msgstr "手元の作業コピーの変更点をリポジトリに渡し、リポジトリのリビジョンを新しく作成するのに使用する Subversion コマンドです。"
+msgstr "手元の作業コピーの変更点をリポジトリに渡し、リポジトリのリビジョンを新しく作成するのに使用する Subversion のコマンドです。"
 
 #. (glossterm)
 msgid "Conflict"
@@ -21818,7 +21834,7 @@ msgid ""
 "conflict. You have to edit the file manually and resolve the conflict before"
 " you can commit any further changes."
 msgstr ""
-"リポジトリの変更が手元にマージされる際、時には同じ行に変更がある場合があります。この場合、Subversion "
+"リポジトリの変更が手元にマージされる際、時には同じ行に変更がある場合があります。この場合、 Subversion "
 "はどちらを使用するか自動的に決定できません。これを競合と呼びます。それ以降の変更をコミットする前には、ファイルを手作業で修正し競合を解決しなければなりません。"
 
 #. (glossterm)
@@ -21845,23 +21861,20 @@ msgid ""
 " necessary, you can copy a deleted item and <quote>resurrect</quote> it "
 "complete with history."
 msgstr ""
-"バージョン管理下のファイルを削除 (してコミット) "
-"すると、リポジトリ内のそのコミットを行ったバージョン以降に、その項目はもう存在しなくなります。しかしもちろん、それ以前のリポジトリのリビジョンには、まだ存在していますから、まだそれにアクセスできます。必要なら削除した項目をコピーし、履歴を含め完全に<quote>復活</quote>"
-" できます。"
+"バージョン管理下のファイルを削除（してコミット）すると、リポジトリ内のそのコミットを行ったバージョン以降、その項目はもう存在しなくなります。しかしもちろん、それ以前のリポジトリのリビジョンには、まだ存在していますから、まだそれにアクセスできます。必要なら削除した項目をコピーし、履歴を含め完全に<quote>復活</quote>できます。"
 
 #. (para)
 msgid ""
 "Shorthand for <quote>Show Differences</quote>. Very useful when you want to "
 "see exactly what changes have been made."
-msgstr ""
-"<quote>差分表示 (Show Differences)</quote> の略。どのような変更が行われたのか正確に見たいときに便利です。"
+msgstr "<quote>差分の表示</quote>の略。どのような変更が行われたのか正確に見たいときに便利です。"
 
 #. (para)
 msgid ""
 "This command produces a copy of a versioned folder, just like a working "
 "copy, but without the local <literal>.svn</literal> folders."
 msgstr ""
-"このコマンドは、作業コピーと同様にバージョン管理下のフォルダーをコピーしますが、<literal>.svn</literal> は作成しません。"
+"このコマンドは、作業コピーのようにバージョン管理下のフォルダーをコピーしますが、 <literal>.svn</literal> は作成しません。"
 
 #. (glossterm)
 msgid "FSFS"
@@ -21872,8 +21885,8 @@ msgid ""
 "A proprietary Subversion filesystem backend for repositories. Can be used on"
 " network shares. Default for 1.2 and newer repositories."
 msgstr ""
-"リポジトリ用の Subversion が持つファイルシステムバックエンドです。ネットワークフォルダー上で使用することができます。1.2 "
-"以降のリポジトリのデフォルトです。"
+"Subversion "
+"が持つリポジトリ用のファイルシステムバックエンドです。ネットワークフォルダー上で使用することができます。1.2以降のリポジトリのデフォルトです。"
 
 #. (para)
 msgid "Group policy object."
@@ -21881,7 +21894,7 @@ msgstr "グループポリシーオブジェクト。"
 
 #. (glossterm)
 msgid "HEAD revision"
-msgstr "最新リビジョン"
+msgstr "HEAD リビジョン"
 
 #. (para)
 msgid ""
@@ -21893,14 +21906,14 @@ msgstr "<emphasis>リポジトリ</emphasis>にあるファイルやフォルダ
 msgid ""
 "Subversion command to import an entire folder hierarchy into the repository "
 "in a single revision."
-msgstr "ひとつのリビジョンで、フォルダー階層のエントリをリポジトリにインポートするコマンドです。"
+msgstr "単一のリビジョンで、フォルダー階層の内容をリポジトリにインポートする Subversion のコマンドです。"
 
 #. (para)
 msgid ""
 "When you take out a lock on a versioned item, you mark it in the repository "
 "as non-committable, except from the working copy where the lock was taken "
 "out."
-msgstr "バージョン管理下の項目のロックを取得すると、その作業コピーを除き、ロックが外れるまでリポジトリにコミット不可の印を付けます。"
+msgstr "バージョン管理下の項目のロックを取得すると、その作業コピーを除いて、ロックが解除されるまでリポジトリにコミット不可の印が付きます。"
 
 #. (glossterm)
 msgid "Log"
@@ -21910,7 +21923,7 @@ msgstr "ログ"
 msgid ""
 "Show the revision history of a file or folder. Also known as "
 "<quote>History</quote>."
-msgstr "ファイルやフォルダーのリビジョンの歴史を表します。<quote>履歴</quote>とも表します。"
+msgstr "ファイルやフォルダーのリビジョンの歴史を表します。<quote>履歴</quote>とも呼びます。"
 
 #. (glossterm)
 msgid "History"
@@ -21920,7 +21933,7 @@ msgstr "履歴"
 msgid ""
 "Show the revision history of a file or folder. Also known as "
 "<quote>Log</quote>."
-msgstr "ファイルやフォルダーのリビジョンの歴史を表します。<quote>ログ</quote>とも表します。"
+msgstr "ファイルやフォルダーのリビジョンの歴史を表します。<quote>ログ</quote>とも呼びます。"
 
 #. (para)
 msgid ""
@@ -21937,8 +21950,8 @@ msgid ""
 "also merge specific changes from another branch using TortoiseSVN's Merge "
 "command."
 msgstr ""
-"作業コピーを更新する際に、自動的にマージが行われます。また、TortoiseSVN "
-"のマージツールを用いて、別のブランチにある変更を指定してマージすることもできます。"
+"作業コピーを更新する際に、自動的にマージが行われます。また、 TortoiseSVN "
+"のマージコマンドを使用して、別のブランチにある変更を指定してマージすることもできます。"
 
 #. (glossterm)
 msgid "Patch"
@@ -21955,9 +21968,8 @@ msgid ""
 "apply. Or if you are unsure about a change you can submit a patch for others"
 " to review."
 msgstr ""
-"作業コピーにテキストファイルの変更のみある場合、Unified Diff 形式で変更内容の単一ファイルを作成するのに、Subversion の Diff"
-" コマンドを使用できます。この形のファイルは、よく <quote>パッチ</quote> と言われており、他の誰か (やメーリングリスト) "
-"にメールで送ったり、他の作業コピーに適用したりできます。コミットアクセスできない人は、権限のあるコミッタが適用するように、変更をパッチファイルにして送ることができます。また、変更に自信がなければ、他の人に見てもらうようにパッチを送れます。"
+"作業コピーの変更がテキストファイルのみである場合、 Subversion の Diff コマンドを使用すると、変更内容を Unified "
+"差分形式で単一ファイルに出力することができます。この種のファイルはよく<quote>パッチ</quote>と呼ばれており、他の誰か（やメーリングリスト）にメールで送ったり、他の作業コピーに適用したりすることができます。コミットのアクセス権を持たない人は、変更を作成し、パッチファイルをコミット権限を持つ人に送ることができます。また、変更に自信がない場合、他の人にパッチを送ってレビューしてもらうこともできます。"
 
 #. (glossterm)
 msgid "Property"
@@ -21973,12 +21985,12 @@ msgid ""
 "TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You "
 "can add your own properties with any name and value you choose."
 msgstr ""
-"ディレクトリやファイルのバージョン管理をするのに加えて、Subversion "
-"はバージョン管理されたメタデータを追加できます。これは、バージョン管理下のディレクトリやファイルごとに<quote>プロパティ</quote>として参照されます。プロパティには、レジストリキーと同じように、それぞれ名前と値があります。Subversion"
-" には、<literal>svn:eol-style</literal> "
-"のような内部で使用する特殊なプロパティがいくつかあります。TortoiseSVN にも "
+"ディレクトリやファイルのバージョン管理をするのに加えて、 Subversion "
+"はバージョン管理されたメタデータを追加できます。これは、バージョン管理下のディレクトリやファイルごとに<quote>プロパティ</quote>として参照されます。プロパティには、レジストリキーと同じように、それぞれ名前と値があります。"
+" Subversion には、 <literal>svn:eol-style</literal> "
+"のような内部で使用する特殊なプロパティがいくつかあります。 TortoiseSVN にも "
 "<literal>tsvn:logminsize</literal> "
-"のような特殊なプロパティがあります。お好みの名前と値を持つプロパティの追加もできます。"
+"のような特殊なプロパティがあります。任意の名前と値を持つプロパティの追加もできます。"
 
 #. (para)
 msgid ""
@@ -21987,8 +21999,7 @@ msgid ""
 " <quote>relocate</quote> your working copy so that its repository URLs point"
 " to the new location."
 msgstr ""
-"サーバー上の異なるディレクトリに移動したり、ドメイン名が変更されたりして、リポジトリが移動する場合、作業コピーを <quote>再配置</quote> "
-"して、リポジトリの URL を新しい場所に指し示してください。"
+"サーバー上の異なるディレクトリに移動したり、ドメイン名が変更されたりして、リポジトリが移動した場合、作業コピーを<quote>再配置</quote>すれば、作業コピーのリポジトリのURLが新しい場所を指すようになります。"
 
 #. (para)
 msgid ""
@@ -21997,9 +22008,7 @@ msgid ""
 "moved. In any other circumstance you probably need the <quote>Switch</quote>"
 " command instead."
 msgstr ""
-"注意: "
-"このコマンドは、作業コピーが同じリポジトリ、同じ場所を指していて、そのリポジトリが移動されてしまったときのみに使用してください。その他の場合には、代わりに"
-" <quote>切り替え</quote> コマンドを使用する必要があります。"
+"【注意】このコマンドは、作業コピーが指している同じリポジトリの同じ場所を指し、そのリポジトリが移動されてしまったときのみに使用してください。その他の場合には、代わりに<quote>切り替え</quote>コマンドを使用する必要があります。"
 
 #. (glossterm)
 msgid "Repository"
@@ -22012,7 +22021,7 @@ msgid ""
 "distribution over a network, or a repository can be a location that is "
 "directly accessible to the user without having to travel across a network."
 msgstr ""
-"データを格納し保守する中心部。複数のデータベースやファイルをネットワーク上に分散して置くこともでき、ネットワークに出ずに直接アクセスできる場所に置くこともできます。"
+"データを集中して格納し保守する場所。複数のデータベースやファイルをネットワーク上に分散して置くこともでき、ネットワークに出ずに直接アクセスできる場所に置くこともできます。"
 
 #. (para)
 msgid ""
@@ -22022,9 +22031,8 @@ msgid ""
 "Conflicts</quote>. When this is complete you can mark the conflicted files "
 "as being resolved, which allows them to be committed."
 msgstr ""
-"作業コピーのファイルが、マージ後に競合状態になったままになった場合、人間がエディター (または TortoiseMerge) "
-"で競合を整理しなければなりません。このプロセスは <quote>競合の解決</quote> "
-"と言われています。競合したファイルを解決済みにすると、コミットできるようになります。"
+"作業コピーのファイルが、マージ後に競合状態になったままになった場合、人間がエディター（または "
+"TortoiseMerge）で競合を整理しなければなりません。このプロセスは<quote>競合の解決</quote>と言われています。競合したファイルを解決済みにすると、コミットできるようになります。"
 
 #. (para)
 msgid ""
@@ -22033,13 +22041,13 @@ msgid ""
 "decide you want to undo them, you can use the <quote>revert</quote> command "
 "to go back to the pristine copy."
 msgstr ""
-"作業コピーを最後に更新したときから、Subversion はそれぞれのファイルの<quote>当初の</quote> "
+"作業コピーを最後に更新したとき、 Subversion はそれぞれのファイルの<quote>当時の</quote> "
 "コピーを手元に保持しています。変更を行った後で、その変更を取り消したい場合は、<quote>変更の取り消し</quote> "
-"コマンドを使用して当初のコピーに戻せます。"
+"コマンドを使用して当時のコピーに戻せます。"
 
 #. (glossterm)
 msgid "Revision"
-msgstr "Revision"
+msgstr "リビジョン"
 
 #. (para)
 msgid ""
@@ -22048,15 +22056,14 @@ msgid ""
 "state of the repository tree at a certain point in its history. If you want "
 "to go back in time you can examine the repository as it was at revision N."
 msgstr ""
-"変更セットのコミット時、常に新しい <quote>リビジョン</quote> "
-"をリポジトリに作成します。各リビジョンは、履歴の決まった場所にリポジトリツリーの状態を表します。過去にさかのぼる場合は、リビジョン N "
-"のような形でリポジトリを調べられます。"
+"変更セットをコミットするたびに、新しい<quote>リビジョン</quote>がリポジトリに作成されます。各リビジョンは、履歴の決まった時点のリポジトリツリーの状態を表します。過去にさかのぼる場合は、リビジョン"
+" N のような形でリポジトリを調べられます。"
 
 #. (para)
 msgid ""
 "In another sense, a revision can refer to the set of changes that were made "
 "when that revision was created."
-msgstr "言い換えると、リビジョンは、リビジョンが作成された時に行われた変更を指し示しています。"
+msgstr "言い換えるとリビジョンは、リビジョンが作成された時に行われた変更を示しています。"
 
 #. (glossterm)
 msgid "Revision Property (revprop)"
@@ -22071,9 +22078,9 @@ msgid ""
 "properties can be edited, but they are not versioned, so any change is "
 "permanent and cannot be undone."
 msgstr ""
-"ちょうどファイルがプロパティを持てるように、リポジトリの各リビジョンもプロパティを持てます。リビジョンが作成されるときに、<literal>svn:date"
-" svn:author svn:log</literal> といった特殊な revprops "
-"が自動的に作成され、それぞれコミット日時、コミッタ、ログメッセージを表しています。これらのプロパティは編集できますが、バージョン管理できません。そのため変更は永続的で元に戻せません。"
+"ファイルがプロパティを持てるように、リポジトリの各リビジョンもプロパティを持つことができます。リビジョンが作成されるときに、 "
+"<literal>svn:date svn:author svn:log</literal> "
+"といった特殊なリビジョンプロパティが自動的に作成され、それぞれコミット日時、コミットした人、ログメッセージを表しています。これらのプロパティは編集できますが、バージョン管理できません。そのため変更は永続的で元に戻せません。"
 
 #. (glossterm)
 msgid "SVN"
@@ -22087,7 +22094,7 @@ msgstr "Subversion のよく使われる省略表現。"
 msgid ""
 "The name of the Subversion custom protocol used by the "
 "<quote>svnserve</quote> repository server."
-msgstr "<quote>svnserve</quote> リポジトリサーバーで使われる、Subversion カスタムプロトコルの名前です。"
+msgstr "<quote>svnserve</quote>リポジトリサーバーで使われる、 Subversion カスタムプロトコルの名前。"
 
 #. (para)
 msgid ""
@@ -22099,10 +22106,7 @@ msgid ""
 " your working copy between the two and only the changed files will be "
 "transferred."
 msgstr ""
-"ちょうど <quote>リビジョンへの更新</quote> "
-"が履歴上の別のポイントへ、作業コピーの時間ウィンドウを変更するように、<quote>切り替え</quote> "
-"はリポジトリの別のポイントへ、作業コピーの場所ウィンドウを変更します。違いが少ししかないトランクとブランチの双方に作業する際に、これが特に役に立ちます。その"
-" 2 つの間で作業コピーを切り替え、違いのあるファイルのみを転送します。"
+"ちょうど<quote>特定リビジョンへ更新</quote>が履歴上の別の位置へ、作業コピーの時間ウィンドウを変更するように、<quote>切り替え</quote>はリポジトリの別の位置へ、作業コピーの場所ウィンドウを変更します。トランクとブランチの違いが少ない時、それぞれの作業する際に役に立ちます。その2つの間で作業コピーを切り替えると、差異のあるファイルのみが転送されます。"
 
 #. (para)
 msgid ""
@@ -22118,8 +22122,7 @@ msgid ""
 " a working copy by doing a <quote>Checkout</quote> from a repository, and "
 "you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr ""
-"手元の<quote>サンドボックス</quote>で、バージョン管理ファイルに対して作業を行う場所です。また通常手元のハードディスクに記録されています。リポジトリからの"
-" <quote>チェックアウト</quote> で作業コピーを作成し、<quote>コミット</quote> で変更点をリポジトリに反映します。"
+"手元の<quote>サンドボックス</quote>で、バージョン管理ファイルに対して作業を行う場所です。また通常手元のハードディスクに記録されています。リポジトリからの<quote>チェックアウト</quote>で作業コピーを作成し、<quote>コミット</quote>で変更点をリポジトリに反映します。"
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
@@ -22276,8 +22279,8 @@ msgid ""
 "you got that patch file from for a current version or try to apply that "
 "patch file manually."
 msgstr ""
-"古くなってしまったパッチファイルを適用しようとしたときにも、競合は発生します。この場合 TortoiseMerge "
-"ではなく、現在のバージョンに対するパッチファイルがないか人に訊いたり、パッチファイルを手作業で適用したりする必要があるでしょう。"
+"古くなってしまったパッチファイルを適用しようとしたときにも、競合が発生します。この場合 TortoiseMerge "
+"を使用しなければ、現在のバージョンに対するパッチファイルがないか人に尋ねたり、パッチファイルを手作業で適用してみたりする必要があるでしょう。"
 
 #. (para)
 msgid ""
@@ -22288,9 +22291,9 @@ msgid ""
 "control. Then it applies the patch and lets you review both your changes to "
 "the file, and theirs. Then you can decide which changes you want to keep."
 msgstr ""
-"しかし TortoiseMerge を使えば、こういったことがもう必要ありません（少なくとも Subversion "
-"のようなバージョン管理システムを使用している限りは）。 TortoiseMerge "
-"はパッチを作成したリビジョン・バージョンを解析し、バージョン管理システムから特定のバージョンを自動的に取得します。その後パッチを適用し、自分の行った変更と他の人の行った変更の両方を確認できるようにします。これにより、変更点を保持するかどうか決めることができます。"
+"しかし TortoiseMerge を使えば、もうこのようなことは必要ありません（少なくとも Subversion "
+"のようなバージョン管理システムを使用していないのであれば）。 TortoiseMerge "
+"はパッチを作成したリビジョン・バージョンを解析し、バージョン管理システムから特定のバージョンを自動的に取得します。その後パッチを適用し、自分の行った変更と他人の行った変更の両方を確認できるようにします。これにより、変更点を保持するかどうか決めることができます。"
 
 #. (title)
 msgid "TortoiseMerge's History"
@@ -22334,7 +22337,7 @@ msgid ""
 " a tool we would have to write our own. That's when TortoiseMerge was born."
 msgstr ""
 "長時間を費やしてパッチファイルを適用することができる GUI "
-"ツールをインターネットで探しましたが、そのようなツールは存在しないということが分かっただけでした。間は省略しますが、そんなツールがないのなら自分たちで作ってしまおうということです。そうして"
+"ツールをインターネットで探しましたが、そのようなツールは存在しないということが分かっただけでした。その後は省略しますが、そのようなツールを提供してくれる人がいないのであれば、自分たちで作らなければならないと思い立ちました。そうして"
 " TortoiseMerge が生まれました。"
 
 #. (para)
@@ -23060,7 +23063,7 @@ msgid ""
 msgstr ""
 "同じファイルで再度 TortoiseMerge を使用すると、 TortoiseMerge "
 "で変更したか手作業で編集したかにかかわらず、作業コピーに行った変更が <emphasis>取り消され</emphasis> "
-"、競合の編集を行い始めた状態のファイルになることに注意してください。"
+"、競合の編集を行い始めた状態のファイルになるので注意してください。"
 
 #. (title)
 msgid "Open Files"
@@ -23165,7 +23168,7 @@ msgid ""
 "to case changes within the text. This can be useful with apps such as Visual"
 " Basic, which changes case in variables without warning."
 msgstr ""
-"<guilabel>大文字／小文字の変更は無視する</guilabel> テキストファイル中、大文字/小文字しか違わない変更を隠します。Visual "
+"<guilabel>大文字／小文字の変更は無視する</guilabel> テキストファイル中、大文字/小文字しか違わない変更を隠します。 Visual "
 "Basic のような、警告なしで変数の大文字/小文字を変更してしまうようなアプリでは便利です。"
 
 #. (para)

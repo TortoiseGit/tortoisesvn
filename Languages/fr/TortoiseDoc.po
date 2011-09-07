@@ -9,17 +9,18 @@
 # $Rev$
 # 
 # Authors:
+# Translators:
+# Alexandre Paradis <paradial@hotmail.com>, 2011.
+#   <christophe@xhaleera.com>, 2011.
 # Clément  <rousseau.clement@gmail.com>, 2011.
 # Fabrice Daugan <fabrice.daugan@gmail.com>, 2011.
-#   <christophe@xhaleera.com>, 2011.
-# Alexandre Paradis <paradial@hotmail.com>, 2011.
 #   <grokwik@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-30 07:49+0000\n"
+"PO-Revision-Date: 2011-09-04 00:08+0000\n"
 "Last-Translator: chsxf <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -17774,27 +17775,15 @@ msgstr ""
 msgid ""
 "Sometimes you will exclude areas that contain working copies, which saves "
 "TSVNCache from scanning and monitoring for changes, but you still want a "
-"visual indication that such folders are versioned. The <guilabel>Show "
-"excluded folders as 'normal'</guilabel> checkbox allows you to do this. With"
-" this option, versioned folders in any excluded area (drive type not "
-"checked, or specifically excluded) will show up as normal and up-to-date, "
-"with a green check mark. This reminds you that you are looking at a working "
-"copy, even though the folder overlays may not be correct. Files do not get "
-"an overlay at all. Note that the context menus still work, even though the "
-"overlays are not shown."
+"visual indication that a folder contains a working copy. The <guilabel>Show "
+"excluded root folders as 'normal'</guilabel> checkbox allows you to do this."
+" With this option, working copy root folders in any excluded area (drive "
+"type not checked, or specifically excluded) will show up as normal and up-"
+"to-date, with a green check mark. This reminds you that you are looking at a"
+" working copy, even though the folder overlays may not be correct. Files do "
+"not get an overlay at all. Note that the context menus still work, even "
+"though the overlays are not shown."
 msgstr ""
-"Parfois, vous exclurez des zones qui contiennent des copies de travail, ce "
-"qui évitera à TSVNCache de scanner et vérifier les changements, mais vous "
-"voudrez quand même une indication visuelle montrant que ces dossiers sont "
-"versionnés. La case à cocher <guilabel> Montrer les dossiers exclus comme "
-"«normaux»</guilabel> vous permet de le faire. Avec cette option, les "
-"dossiers versionnés dans n'importe quelle zone exclue (type de lecteur non "
-"coché, ou spécifiquement exclu) seront affichés comme normaux et mis à jour,"
-" avec une coche verte. Cela vous rappelle que vous êtes dans une copie de "
-"travail, même si les recouvrements de dossier ne sont pas corrects. Les "
-"fichiers ne présentent jamais de recouvrement. Notez que les menus "
-"contextuels fonctionnent encore, même si les recouvrements ne sont pas "
-"affichés."
 
 #. (para)
 msgid ""

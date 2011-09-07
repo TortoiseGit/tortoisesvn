@@ -9,15 +9,17 @@
 # $Rev$
 # 
 # Authors:
-#   <omixen@gmail.com>, 2011.
+# Translators:
 # andreas88 <andreaspower@gmail.com>, 2011.
+# Endra Granasamsa <endra.granasamsa@gmail.com>, 2011.
+#   <omixen@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-08-16 00:18+0000\n"
-"Last-Translator: omixen <omixen@gmail.com>\n"
+"PO-Revision-Date: 2011-09-06 08:10+0000\n"
+"Last-Translator: Endra <endra.granasamsa@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,7 +122,7 @@ msgstr ""
 "dari kode sumber, dan mempunyai banyak fitur yang khusus ke pengembangan "
 "perangkat lunak - seperti pengertian alami bahasa pemrograman, atau piranti "
 "penyediaan untuk pembangunan software. Subversion, bagaimanapun, bukan salah"
-" satu dari sitem ini; ia adalah sistem umum yang bisa digunakan untuk "
+" satu dari sistem ini; ia adalah sistem umum yang bisa digunakan untuk "
 "mengatur <emphasis>setiap</emphasis> koleksi file, termasuk kode sumber."
 
 #. (title)
@@ -369,10 +371,17 @@ msgid ""
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
 msgstr ""
+"Meskipun kebanyakan orang hanya mengunduh pemasangnya saja, anda juga "
+"mempunyai akses penuh ke kode sumber dari program ini. Anda bisa melihatnya "
+"pada pranala ini <ulink "
+"url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>."
+" Baris pengembangan paling baru ditempatkan dibawah "
+"<filename>/trunk/</filename>, dan versi rilis ditempatkan dibawah "
+"<filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
-msgstr "Pembuatan"
+msgstr "Pengembangan"
 
 #. (para)
 msgid ""
@@ -380,9 +389,9 @@ msgid ""
 "are working on those projects. They come from different countries all over "
 "the world, working together to create great software."
 msgstr ""
-"TortoiseSVN dan Subversion dikembangkan oleh komunitas orang yang bekerja "
-"pada proyek itu. Mereka berasal dari berbagai negara di seluruh dunia dan "
-"bekerjasama untuk meciptakan program yang hebat."
+"TortoiseSVN dan Subversion dikembangkan oleh komunitas orang-orang yang "
+"bekerja pada proyek itu. Mereka berasal dari berbagai negara di seluruh "
+"dunia dan bekerjasama untuk menciptakan program yang hebat."
 
 #. (title)
 msgid "TortoiseSVN's History"
@@ -14523,14 +14532,14 @@ msgstr ""
 msgid ""
 "Sometimes you will exclude areas that contain working copies, which saves "
 "TSVNCache from scanning and monitoring for changes, but you still want a "
-"visual indication that such folders are versioned. The <guilabel>Show "
-"excluded folders as 'normal'</guilabel> checkbox allows you to do this. With"
-" this option, versioned folders in any excluded area (drive type not "
-"checked, or specifically excluded) will show up as normal and up-to-date, "
-"with a green check mark. This reminds you that you are looking at a working "
-"copy, even though the folder overlays may not be correct. Files do not get "
-"an overlay at all. Note that the context menus still work, even though the "
-"overlays are not shown."
+"visual indication that a folder contains a working copy. The <guilabel>Show "
+"excluded root folders as 'normal'</guilabel> checkbox allows you to do this."
+" With this option, working copy root folders in any excluded area (drive "
+"type not checked, or specifically excluded) will show up as normal and up-"
+"to-date, with a green check mark. This reminds you that you are looking at a"
+" working copy, even though the folder overlays may not be correct. Files do "
+"not get an overlay at all. Note that the context menus still work, even "
+"though the overlays are not shown."
 msgstr ""
 
 #. (para)
