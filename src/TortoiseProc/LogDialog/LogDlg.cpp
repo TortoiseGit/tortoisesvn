@@ -5648,7 +5648,11 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 }
                 filepath = GetRepositoryRoot(CTSVNPath(filepath));
                 filepath += changedpaths[0];
+                const CLogChangedPath& changedlogpath
+                    = pLogEntry->GetChangedPaths()[changedlogpathindices[0]];
                 CBlameDlg dlg;
+                if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
+                    rev1--;
                 dlg.EndRev = rev1;
                 if (dlg.DoModal() == IDOK)
                 {
