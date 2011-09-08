@@ -66,7 +66,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
     std::vector<std::wstring> entry;
     do
     {
-        File.getline(line, sizeof(line)/sizeof(TCHAR));
+        File.getline(line, 2*MAX_STRING_LENGTH);
         if (line[0]==0)
         {
             //empty line means end of entry!
