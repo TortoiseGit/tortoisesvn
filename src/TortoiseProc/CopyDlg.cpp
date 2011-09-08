@@ -1021,8 +1021,6 @@ LRESULT CCopyDlg::OnCheck(WPARAM wnd, LPARAM)
     bool check = false;
     if (hwnd == GetDlgItem(IDC_CHECKALL)->GetSafeHwnd())
         check = true;
-    else if (hwnd == GetDlgItem(IDC_CHECKNONE)->GetSafeHwnd())
-        check = false;
 
     for (std::vector<SVNExternal>::iterator it = m_externals.begin(); it != m_externals.end(); ++it)
     {
