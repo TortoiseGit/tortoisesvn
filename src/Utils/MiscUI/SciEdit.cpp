@@ -466,6 +466,10 @@ void CSciEdit::CheckSpelling()
         if (textrange.chrg.cpMin == textrange.chrg.cpMax)
         {
             textrange.chrg.cpMax++;
+            // since Scintilla squiggles to the end of the text even if told to stop one char before it,
+            // we have to clear here the squiggly lines to the end.
+            if (textrange.chrg.cpMin)
+                Call(SCI_INDICATORCLEARRANGE, textrange.chrg.cpMin-1, textrange.chrg.cpMax - textrange.chrg.cpMin + 1);
             continue;
         }
         ATLASSERT(textrange.chrg.cpMax >= textrange.chrg.cpMin);
