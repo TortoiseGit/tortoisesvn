@@ -140,6 +140,19 @@
           <arg value="..\..\bin\${msifilename}.msi" />
         </exec>
       </if>
+
+      <if test="${devrelease == ''}">
+        <if test="${file::exists(sevenzip)}">
+          <echo message="compressing debug symbols" />
+          <exec program="${sevenzip}">
+            <arg value="a" />
+            <arg value="-t7z" />
+            <arg value="..\..\bin\${msifilename}-pdbs.7z" />
+            <arg value="..\..\bin\${configuration}${bindirextension}\bin\*.pdb" />
+          </exec>
+        </if>
+      </if>
+
     </if>
   </target>
 

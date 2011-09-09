@@ -28,7 +28,7 @@
 
     <!-- Uncomment and modify the path of the statement below if you're building
          a version of TSVN which uses a different working copy format than
-         the working copy has you checked out. -->
+         the working copy you have checked out. -->
     <!-- <property name="SubWCRevFileName" value="C:\Program Files\TortoiseSVN\bin\SubWCRev.exe"/> -->
 
   </target>
@@ -76,6 +76,11 @@
       </setenv>
     </if>
 
+    <!-- when creating the msi for a release, the task can also
+         zip all debug symbols. To do that, specify the path to
+         7zip here -->
+    <property name="sevenzip" value="c:\program files\7-zip\7z.exe" />
+    
     <!--
       Update environment & we are good to go.
     -->
