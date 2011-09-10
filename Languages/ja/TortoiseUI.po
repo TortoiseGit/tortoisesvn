@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-07 05:01+0000\n"
+"PO-Revision-Date: 2011-09-09 19:35+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -769,7 +769,7 @@ msgstr "開始リビジョン(&F)"
 
 #. Resource IDs: (1494)
 msgid "&From: (start URL and revision of the range to merge)"
-msgstr "マージ元(&F): （マージする範囲の始点を指すURLとリビジョン）"
+msgstr "開始点(&F): （マージする範囲の始点を指すURLとリビジョン）"
 
 #. Resource IDs: (32779)
 msgid "&Go To Line..."
@@ -1115,7 +1115,7 @@ msgstr "更新(&R)"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr "Bug-ID の入力を確認する(&R)"
+msgstr "バグIDの入力を確認する(&R)"
 
 #. Resource IDs: (619, 1100, 1285, 1597, 16646)
 msgid "&Remove"
@@ -1311,7 +1311,7 @@ msgstr "宛先パス(&T): "
 
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
-msgstr "マージ先(&T): （マージする範囲の終点を指すURLとリビジョン）"
+msgstr "終了点(&T): （マージする範囲の終点を指すURLとリビジョン）"
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
@@ -1504,7 +1504,7 @@ msgstr "（変更なし、ここからコピーを作成）"
 
 #. Resource IDs: (278)
 msgid "(no modification but relevant for working copy)"
-msgstr "（変更なし、作業コピーに関連付け）"
+msgstr "（変更なし、作業コピーに関連）"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -1532,7 +1532,7 @@ msgstr "（名前の変更）"
 
 #. Resource IDs: (277)
 msgid "(tagged)"
-msgstr "（タグ）"
+msgstr "（タグ付け）"
 
 #. Resource IDs: (245)
 msgid "(unknown)"
@@ -2256,7 +2256,7 @@ msgstr "背景"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
-msgstr "棒グラフ"
+msgstr "ヒストグラム"
 
 #. Resource IDs: (65535)
 msgid "Base file:"
@@ -2858,7 +2858,7 @@ msgstr "チェックアウトする深さ(&D)"
 #. Resource IDs: (229)
 #, c-format
 msgid "Checkout from %1!s!, revision %2!s!, %3!s!, %4!s!"
-msgstr "%1!s!, リビジョン %2!s!, %3!s!, %4!s! からチェックアウト"
+msgstr "リビジョン %2!s! の %1!s! をチェックアウト, %3!s!, %4!s!"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3120,7 +3120,7 @@ msgstr "作者別コミット数"
 
 #. Resource IDs: (244)
 msgid "Commits by date"
-msgstr "時系列コミット数"
+msgstr "時期別コミット数"
 
 #. Resource IDs: (247)
 #, c-format
@@ -3329,7 +3329,7 @@ msgstr ""
 #. Resource IDs: (229)
 #, c-format
 msgid "Copy %1!s! to %2!s!, Revision %3!s!"
-msgstr "%1!s! から %2!s! のリビジョン %3!s! へコピー"
+msgstr "リビジョン %3!s! の %1!s! を %2!s! へコピー"
 
 #. Resource IDs: (126)
 #, c-format
@@ -3363,7 +3363,7 @@ msgstr "URLをクリップボードにコピー"
 
 #. Resource IDs: (209)
 msgid "Copy all information to clipboard"
-msgstr "クリップボードにすべての情報をコピーする"
+msgstr "クリップボードにすべての情報をコピー"
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
@@ -3777,7 +3777,7 @@ msgstr "デフォルトのアプリケーションメニュー。ドキュメン
 
 #. Resource IDs: (81)
 msgid "Default directory structure successfully created!"
-msgstr "デフォルトのディレクトリ構造の作成に成功。"
+msgstr "デフォルトのディレクトリ構造の作成に成功しました。"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -4367,7 +4367,7 @@ msgstr "ログとリビジョングラフの各ダイアログを高速化する
 
 #. Resource IDs: (65535)
 msgid "Enabled Overlay Handlers"
-msgstr "オーバーレイハンドラを有効にする"
+msgstr "オーバーレイハンドラーを有効にする"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4501,7 +4501,7 @@ msgstr "正規表現文字列を入力:"
 msgid ""
 "Enter the regular expression patterns for filtering out the bug-ID from a "
 "commit message."
-msgstr "コミットメッセージから除外する Bug-ID を表す正規表現を入力してください。"
+msgstr "コミットメッセージから除外するバグIDを表す正規表現を入力してください。"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -4547,7 +4547,7 @@ msgstr "すべてのコミットは課題に割り当てられなければなり
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
-msgstr "外部(&T)"
+msgstr "外部参照(&T)"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"
@@ -5524,7 +5524,7 @@ msgstr "アイコンオーバーレイ::アイコンセット"
 
 #. Resource IDs: (308)
 msgid "Icon Overlays::Overlay Handlers"
-msgstr "アイコンオーバーレイ::オーバーレイハンドラ"
+msgstr "アイコンオーバーレイ::オーバーレイハンドラー"
 
 #. Resource IDs: (65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -6338,7 +6338,7 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr ""
 "表示中のリビジョンの範囲: %1!ld!～%2!ld!\n"
-"最新リビジョン: %3!ld!"
+"HEAD（最新）リビジョン: %3!ld!"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -6523,7 +6523,7 @@ msgstr "マージ"
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging %1!s! into %2!s!, %3!s!%4!s!"
-msgstr "%1!s! を %2!s!, %3!s!%4!s! へマージ"
+msgstr "%1!s! を %2!s! へマージ, %3!s!%4!s!"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
@@ -6534,7 +6534,9 @@ msgstr "リポジトリURL間の差分をマージ"
 msgid ""
 "Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
 "%6!s!%7!s!%8!s!"
-msgstr "%1!s!, リビジョン %2!s! ～ %3!s!, リビジョン %4!s! を %5!s!, %6!s!%7!s!%8!s! へマージ"
+msgstr ""
+"リビジョン %2!s! の %1!s! と リビジョン %4!s! の %3!s! との間の変更を %5!s! へマージ, "
+"%6!s!%7!s!%8!s!"
 
 #. Resource IDs: (264)
 #, c-format
@@ -6554,7 +6556,7 @@ msgstr "マージを行うには、「元:」と「先:」に異なるリビジ�
 #. Resource IDs: (229)
 #, c-format
 msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
-msgstr "リビジョン %1!s! の %2!s! を %3!s!, %4!s!%5!s!%6!s! にマージ"
+msgstr "リビジョン %1!s! の %2!s! を %3!s! へマージ, %4!s!%5!s!%6!s!"
 
 #. Resource IDs: (76, 1241, 1359)
 msgid "Message"
@@ -7440,7 +7442,7 @@ msgstr ""
 
 #. Resource IDs: (245)
 msgid "Percent of authorship"
-msgstr "作者の割合"
+msgstr "作者別の貢献度"
 
 #. Resource IDs: (245)
 msgid "Percents"
@@ -8360,7 +8362,7 @@ msgstr "TSVN によってキャンセルされたリクエスト"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
-msgstr "ユーザー名とパスワードを要求"
+msgstr "ユーザー名とパスワードが必要です"
 
 #. Resource IDs: (8)
 msgid "Res&olved..."
@@ -9505,7 +9507,7 @@ msgstr "元のURL:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth '%2!s!'"
-msgstr "%1!s! を「%2!s!」の深さで部分的に更新"
+msgstr "%1!s! の部分を深さ「%2!s!」で更新"
 
 #. Resource IDs: (196)
 msgid ""
@@ -9519,7 +9521,7 @@ msgid ""
 "the placeholder %BUGID% for the real bug-ID. If you leave these settings "
 "empty, TortoiseSVN will use the regular expressions instead."
 msgstr ""
-"コミットメッセージを入力された Bug-ID からどのように構築するかを指定してください。実際の Bug-ID の部分には %BUGID% "
+"コミットメッセージを入力されたバグIDからどのように構築するかを指定してください。実際のバグIDの部分には %BUGID% "
 "を使用してください。これらの設定に何も入力しない場合は、TortoiseSVN は正規表現を代わりに使用します。"
 
 #. Resource IDs: (1305)
@@ -9572,7 +9574,7 @@ msgstr "積み重ね棒グラフ"
 
 #. Resource IDs: (246)
 msgid "Stacked Line Graph"
-msgstr "積み重ね折れ線グラフ"
+msgstr "積み重ね面グラフ"
 
 #. Resource IDs: (16962)
 msgid "Standard"
@@ -11516,7 +11518,7 @@ msgstr "バージョン情報"
 
 #. Resource IDs: (264, 1508)
 msgid "Versioned"
-msgstr "バージョン管理下"
+msgstr "バージョン管理開始"
 
 #. Resource IDs: (114)
 msgid "View revision for path in &webviewer"
@@ -11704,7 +11706,8 @@ msgid ""
 "You can disable specific Overlay handlers here.\n"
 "Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
 msgstr ""
-"特定のオーバーレイハンドラを無効にすることができます。無効化されたハンドラは、オーバーレイスロットを使用せず、他のシェルにオーバーレイ表示の機会を提供します。"
+"特定のオーバーレイハンドラーを無効にすることができます。\n"
+"ハンドラーを無効化すると、使用するオーバーレイスロットが減るので、その分、他のシェルエクステンションがオーバーレイ表示できるようになります。"
 
 #. Resource IDs: (1001)
 #, c-format
@@ -11714,7 +11717,7 @@ msgstr "%d × %d サイズのビットマップ画像のみ貼り付けること
 #. Resource IDs: (1016)
 #, c-format
 msgid "You can't create more than %d user-defined toolbars!"
-msgstr "ユーザー定義ツールバーは%d個までしか作成できません。"
+msgstr "ユーザー定義ツールバーは %d 個までしか作成できません。"
 
 #. Resource IDs: (16)
 msgid ""
@@ -11731,9 +11734,9 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
-"リポジトリへ追加するために複数のファイルもしくはフォルダーがドロップされました。\n"
-"一度にすべてを処理することができないため、TortoiseSVN は個々のファイル/フォルダーを\n"
-"別々に追加し、追加された項目毎に新しいリビジョンを作成します。"
+"リポジトリへ追加するために、複数のファイルやフォルダーがドロップされました。\n"
+"一度にすべてを処理することができないため、 TortoiseSVN はファイル/フォルダーを\n"
+"個別に追加し、追加された項目毎に新しいリビジョンを作成します。"
 
 #. Resource IDs: (105)
 msgid ""
@@ -11743,9 +11746,9 @@ msgid ""
 "\n"
 "Do you still want to do this?"
 msgstr ""
-"リポジトリへ追加するために１つ以上のファイルもしくはフォルダーがドロップされました。\n"
-"一度にすべてを処理することができないため、TortoiseSVN は個々のファイル/フォルダーを\n"
-"別々に追加し、追加された項目毎に新しいリビジョンを作成します。\n"
+"リポジトリへ追加するために、複数ののファイルやフォルダーがドロップされました。\n"
+"一度にすべてを処理することができないため、 TortoiseSVN はファイル/フォルダーを\n"
+"個別に追加し、追加された項目毎に新しいリビジョンを作成します。\n"
 "\n"
 "この処理を実行してもよろしいですか？"
 
@@ -11767,7 +11770,7 @@ msgid ""
 "Are you sure you want to commit without an issue number?"
 msgstr ""
 "課題番号が入力されていません。\n"
-"課題番号無しでコミットを行ってもよろしいですか？"
+"課題番号なしでコミットを行ってもよろしいですか？"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -11776,7 +11779,7 @@ msgstr "課題番号が入力されていません。"
 #. Resource IDs: (1002)
 #, c-format
 msgid "You may define up to %d tools."
-msgstr "%d 個までツールを定義することができます。"
+msgstr "%d 個までしかツールを定義することができません。"
 
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
@@ -12388,7 +12391,7 @@ msgstr "prn"
 
 #. Resource IDs: (245)
 msgid "quarter of year"
-msgstr "3ヶ月"
+msgstr "四半期"
 
 #. Resource IDs: (195)
 msgid "readonly"
@@ -12818,7 +12821,7 @@ msgstr "URL: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
-msgstr "ユーザー定義プロパティの数: "
+msgstr "ユーザープロパティ数: "
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"
