@@ -172,14 +172,13 @@ $list=BuildLanguageList("$dirLocation/Languages.txt");
 	echo "<a name=\"TAB$lang\"></a>";
 	echo '<table border="1"><thead><tr>
 		<td rowspan="2"><acronym title="Native language name in English"><img src="'.$icons['language'].'" alt="" />Language</acronym></td>
-		<td colspan="8"><img src="'.$icons['gui'].'" alt="" />GUI check</td>
+		<td colspan="7"><img src="'.$icons['gui'].'" alt="" />GUI check</td>
 		<td colspan="3"><img src="'.$icons['doc'].'" alt="" />DOC</td>
 		<td rowspan="2"><img src='.$icons['authors'].' alt="" />Author(s)</td>
 	</tr><tr>
 		<td><img src="'.$icons['flag'].'" />Flag</td>
 		<td><acronym title="Parameter test (Severity: High - may be harmfull)"><img src="'.$icons['error'].'" alt="" />PAR!!</acronym></td>
 		<td><acronym title="Accelerator test (Severity: Medium - accessibility)"><img src="'.$icons['info'].'" alt="" />ACC!</acronym></td>
-		<td><acronym title="New line style, count test (Severity: Low - appearance)"><img src="'.$icons['warning'].'" alt="" />NLS</acronym></td>
 		<td><acronym title="Untranslated (Severity: Low - appearance)"><img src="'.$icons['new'].'" alt="" />UNT</acronym></td>
 		<td><acronym title="Fuzzy mark test (Severity: Low - appearance)"><img src="'.$icons['unknown'].'" alt="" />FUZ</acronym></td>
 		<td><acronym title="Escaped chars (Severity: Low - appearance)"><img src="'.$icons['info'].'" alt="" />ESC</acronym></td>
@@ -294,7 +293,7 @@ $list=BuildLanguageList("$dirLocation/Languages.txt");
 
 
 	// prefill variables used in loop
-	$reportCodeList=array("par", "acc", "nls", "unt", "fuz", "esc"/*, "spl"*/);
+	$reportCodeList=array("par", "acc", "unt", "fuz", "esc"/*, "spl"*/);
 /*	if (!$langSelected && !$stable) { // this is a hack ! - redesign !
 		if ($m='g') { // this i a hack ! - redesign !
 			$dbLink1=$db;

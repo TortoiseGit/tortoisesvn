@@ -7,5 +7,9 @@
 	<p>This tool should help you to locate problems in translation files. Even lot of test works now this tools is still in development.</p>
 	<p>This tool start for fills need in finding missing accelerator - Luebbe's translation status page shows count but not string so it was no so easy to find affected string and fix it.
 	After some time this tool suite expand to current state. It is long term task, and is always in devepement. Anyway I hope is halp you to increase translation quality.</p> -->
-	<p>Oto</p><hr />
+	<p>Ot(ik)
+		<a href='https://www.ohloh.net/accounts/132235?ref=Detailed'>
+			<img alt='Ohloh profile for otik' height='35' src='https://www.ohloh.net/accounts/132235/widgets/account_detailed.gif' width='191' />
+		</a>
+	</p>
 	<hr />
