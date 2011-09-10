@@ -988,6 +988,20 @@
                     <File Id="F__BlipCleanUnversionedIcon" Name="UnversionedIcon.ico" DiskId="1" Source="..\Resources\Icons\Blip Clean\UnversionedIcon.ico" />
                   </Component>
                 </Directory>
+
+                <Directory Id="D__iconsmufwin7" Name="MufWin7" >
+                  <Component Id="C__iconsmufwin7" Guid="$(var.GuidIconsMufWin7)" Win64="$(var.Win64YesNo)">
+                    <File Id="F__MufWin7ConflictIcon" Name="ConflictIcon.ico" DiskId="1" Source="..\Resources\Icons\MufWin7\ConflictIcon.ico" KeyPath="yes" />
+                    <File Id="F__MufWin7InSubversionIcon" Name="NormalIcon.ico" DiskId="1" Source="..\Resources\Icons\MufWin7\NormalIcon.ico" />
+                    <File Id="F__MufWin7ModifiedIcon" Name="ModifiedIcon.ico" DiskId="1" Source="..\Resources\Icons\MufWin7\ModifiedIcon.ico" />
+                    <File Id="F__MufWin7ReadOnlyIcon" Name="ReadOnlyIcon.ico" DiskId="1" Source="..\Resources\Icons\MufWin7\ReadOnlyIcon.ico" />
+                    <File Id="F__MufWin7DeletedIcon" Name="DeletedIcon.ico" DiskId="1" Source="..\Resources\Icons\MufWin7\DeletedIcon.ico" />
+                    <File Id="F__MufWin7LockedIcon" Name="LockedIcon.ico" DiskId="1" Source="..\Resources\Icons\MufWin7\LockedIcon.ico" />
+                    <File Id="F__MufWin7AddedIcon" Name="AddedIcon.ico" DiskId="1" Source="..\Resources\Icons\MufWin7\AddedIcon.ico" />
+                    <File Id="F__MufWin7IgnoredIcon" Name="IgnoredIcon.ico" DiskId="1" Source="..\Resources\Icons\MufWin7\IgnoredIcon.ico" />
+                    <File Id="F__MufWin7UnversionedIcon" Name="UnversionedIcon.ico" DiskId="1" Source="..\Resources\Icons\MufWin7\UnversionedIcon.ico" />
+                  </Component>
+                </Directory>
               </Directory>
             </Directory>
           </Directory>
