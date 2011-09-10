@@ -3262,6 +3262,13 @@ int CBaseView::CalculateActualOffset(const POINT& point)
 int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
 {
     int nLength = GetLineLength(nLineIndex);
+    int nSubLine = GetSubLineOffset(nLineIndex);
+    int nViewLine = GetViewLineForScreen(nLineIndex);
+    int nMultilineCount = CountMultiLines(nViewLine);
+    if ((nMultilineCount>0) && (nSubLine<nMultilineCount-1))
+    {
+        nLength--;
+    }
     LPCTSTR pszLine = GetLineChars(nLineIndex);
     int nIndex = 0;
     int nOffset = 0;
@@ -3773,25 +3780,25 @@ void CBaseView::OnCaretUp()
 {
     POINT ptCaretPos = GetCaretPosition();
     int nLine = ptCaretPos.y;
-    int nPrevLine = nLine - 1;
-    if (nPrevLine < 0) // already at first line
+    if (nLine <= 0) // already at first line
     {
         return;
     }
+    int nPrevLine = nLine - 1;
 
     POINT ptCaretViewPos = GetCaretViewPosition();
     int nViewLine = ptCaretViewPos.y;
     int nPrevViewLine = GetViewLineForScreen(nPrevLine);
-    if (!(nPrevViewLine == nViewLine)) // not on same view line
+    if (nPrevViewLine != nViewLine) // not on same view line
     {
-        // find prev suitable screen line
+        // find previous suitable screen line
         while ((GetSubLineOffset(nPrevLine) >= CountMultiLines(nPrevViewLine)) || IsViewLineHidden(nPrevViewLine))
         {
-            nPrevLine--;
-            if (nPrevLine < 0)
+            if (nPrevLine <= 0)
             {
                 return;
             }
+            nPrevLine--;
             nPrevViewLine = GetViewLineForScreen(nPrevLine);
         }
     }

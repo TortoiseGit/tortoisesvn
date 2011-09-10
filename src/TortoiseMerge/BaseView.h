@@ -79,8 +79,8 @@ public: // methods
     bool            IsReadonly() const {return m_bReadonly;}
     bool            IsWritable() const {return !m_bReadonly;}
     bool            IsTarget() const {return m_bTarget;}
-    void            SetCaretAndGoalPosition(const POINT& pt) {m_nCaretGoalPos = pt.x; UpdateCaretPosition(pt);}
-    void            SetCaretAndGoalViewPosition(const POINT& pt) {m_nCaretGoalPos = ConvertViewPosToScreen(pt).x; UpdateCaretViewPosition(pt);}
+    void            SetCaretAndGoalPosition(const POINT& pt) {UpdateCaretPosition(pt); UpdateGoalPos(); }
+    void            SetCaretAndGoalViewPosition(const POINT& pt) {UpdateCaretViewPosition(pt); UpdateGoalPos(); }
     void            SetCaretPosition(const POINT& pt) { SetCaretViewPosition(ConvertScreenPosToView(pt)); }
     POINT           GetCaretPosition() { return ConvertViewPosToScreen(GetCaretViewPosition()); }
     void            SetCaretViewPosition(const POINT & pt) { m_ptCaretViewPos = pt; }
