@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-09 19:35+0000\n"
+"PO-Revision-Date: 2011-09-11 09:38+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -781,19 +781,19 @@ msgstr "緑(&G)"
 
 #. Resource IDs: (32799)
 msgid "&Group by branch"
-msgstr "ブランチでグループ化する(&G)"
+msgstr "ブランチでグループ化(&G)"
 
 #. Resource IDs: (1115)
 msgid "&HEAD Revision"
-msgstr "最新リビジョン(&H)"
+msgstr "最新リビジョン(&HEAD)"
 
 #. Resource IDs: (1032, 1115)
 msgid "&HEAD revision"
-msgstr "最新リビジョン(&H)"
+msgstr "最新リビジョン(&HEAD)"
 
 #. Resource IDs: (1182)
 msgid "&HEAD revision in the repository"
-msgstr "リポジトリ内の最新リビジョン(&H)"
+msgstr "リポジトリ内の最新リビジョン(&HEAD)"
 
 #. Resource IDs: (9, 12, 563, 32781, 57670, 65535)
 msgid "&Help"
@@ -946,7 +946,7 @@ msgstr "マージ(&M)"
 
 #. Resource IDs: (32786)
 msgid "&Merge paths"
-msgstr "パスをマージ(&M)"
+msgstr "マージ元のパス(&M)"
 
 #. Resource IDs: (9)
 msgid "&Merge..."
@@ -1211,7 +1211,7 @@ msgstr "設定(&S)"
 
 #. Resource IDs: (32815)
 msgid "&Show HEAD revisions"
-msgstr "最新リビジョンを表示する(&S)"
+msgstr "最新リビジョン(HEAD)を表示(&S)"
 
 #. Resource IDs: (1132)
 msgid "&Show Log"
@@ -1259,7 +1259,7 @@ msgstr "作業コピーをこのパスのこのリビジョンに切り替え(&S
 
 #. Resource IDs: (275)
 msgid "&Switch WC to path@HEAD"
-msgstr "作業コピーをこのパスの最新リビジョンに切り替え(&S)"
+msgstr "作業コピーをこのパスの最新リビジョン(HEAD)に切り替え(&S)"
 
 #. Resource IDs: (1173)
 msgid "&Symbol View"
@@ -2145,7 +2145,7 @@ msgstr "割り当て:"
 #. Resource IDs: (77)
 #, c-format
 msgid "At revision: %d"
-msgstr "リビジョン: %d"
+msgstr "リビジョン %d になりました"
 
 #. Resource IDs: (3843)
 msgid "Attempted an unsupported operation."
@@ -2304,7 +2304,7 @@ msgstr "参照(&O)..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
-msgstr "ブランチやタグ用にリポジトリ内に簡易コピーを作成する"
+msgstr "ブランチ/タグを作成しました。"
 
 #. Resource IDs: (2052)
 msgid "Branch at copy-from-rev even if there was no change in that revision"
@@ -2372,7 +2372,7 @@ msgstr "コマンド(&O):"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr "リビジョンからブランチ/タグを作成(&R)"
+msgstr "このリビジョンからブランチ/タグを作成(&R)"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -3161,7 +3161,7 @@ msgstr "タグへコミットする"
 
 #. Resource IDs: (274, 32784)
 msgid "Compare &HEAD revisions"
-msgstr "最新リビジョンを比較(&H)"
+msgstr "最新リビジョン(&HEAD)同士を比較"
 
 #. Resource IDs: (114)
 msgid "Compare and &blame with working BASE"
@@ -3181,7 +3181,7 @@ msgstr "作業コピーと比較(&W)"
 
 #. Resource IDs: (138)
 msgid "Compare with b&ase"
-msgstr "B&ase と比較"
+msgstr "作業ベースと比較(&B)"
 
 #. Resource IDs: (114)
 msgid "Compare with previous revision"
@@ -3948,7 +3948,7 @@ msgstr "差分"
 
 #. Resource IDs: (32817)
 msgid "Differential path &names"
-msgstr "パス名で差分をとる(&N)"
+msgstr "パス名を差分で表示(&N)"
 
 #. Resource IDs: (1022)
 msgid "Diffing"
@@ -4229,7 +4229,7 @@ msgstr "%1 上にはドロップできません"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
-msgstr "正確なコピー元を表示する(&X)"
+msgstr "正確なコピー元(&X)"
 
 #. Resource IDs: (1518)
 msgid "E&xclude paths:"
@@ -5212,7 +5212,7 @@ msgstr "変更リストのグループ化"
 
 #. Resource IDs: (1032)
 msgid "H&EAD Revision"
-msgstr "最新のリビジョン(&E)"
+msgstr "最新リビジョン(H&EAD)"
 
 #. Resource IDs: (65535)
 msgid "H&ue:"
@@ -5220,11 +5220,11 @@ msgstr "色相(&H):"
 
 #. Resource IDs: (1353, 1354)
 msgid "HEAD"
-msgstr "最新"
+msgstr "HEAD"
 
 #. Resource IDs: (65535)
 msgid "HEAD node"
-msgstr "最新ノード"
+msgstr "最新リビジョン(HEAD)ノード"
 
 #. Resource IDs: (106)
 #, c-format
@@ -5249,7 +5249,7 @@ msgstr "16進"
 
 #. Resource IDs: (32820)
 msgid "Hide &deleted paths"
-msgstr "削除されたパスは表示しない(&D)"
+msgstr "削除されたパスを隠す(&D)"
 
 #. Resource IDs: (1562)
 msgid "Hide Menus for unversioned paths"
@@ -6338,7 +6338,7 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr ""
 "表示中のリビジョンの範囲: %1!ld!～%2!ld!\n"
-"HEAD（最新）リビジョン: %3!ld!"
+"最新リビジョン: %3!ld!"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -7143,7 +7143,7 @@ msgstr "以前に変更された行"
 
 #. Resource IDs: (32814)
 msgid "Oldest on to&p"
-msgstr "古いものを先頭に表示する(&P)"
+msgstr "古いものを先頭に表示(&P)"
 
 #. Resource IDs: (99, 1202)
 msgid "Omit e&xternals"
@@ -7965,7 +7965,7 @@ msgstr ""
 
 #. Resource IDs: (32819)
 msgid "Reduce cross-&lines"
-msgstr "線が交差しないようにする(&L)"
+msgstr "線の交差を避ける(&L)"
 
 #. Resource IDs: (3825)
 msgid "Reduce the window to an icon"
@@ -9173,7 +9173,7 @@ msgstr "作業コピーのリビジョンを表示(&W)"
 
 #. Resource IDs: (32796)
 msgid "Show &all revisions"
-msgstr "すべてのリビジョンを表示する(&A)"
+msgstr "すべてのリビジョンを表示(&A)"
 
 #. Resource IDs: (113, 32783)
 msgid "Show &changes"
@@ -9217,7 +9217,7 @@ msgstr "ファイルリストを表示"
 
 #. Resource IDs: (2051)
 msgid "Show HEAD revision nodes"
-msgstr "最新のリビジョンのノードを表示する"
+msgstr "最新リビジョン(HEAD)のノードを表示する"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -9237,7 +9237,7 @@ msgstr "多くのボタンを表示"
 
 #. Resource IDs: (32813)
 msgid "Show Ove&rview"
-msgstr "オーバービューを表示する(&R)"
+msgstr "縮小表示(&R)"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Above the Ribbon"
@@ -9257,7 +9257,7 @@ msgstr "作業コピーの変更を表示(&M)"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
-msgstr "グラフ全体のオーバービューを表示する"
+msgstr "グラフ全体の縮小表示を表示する"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
@@ -11089,7 +11089,7 @@ msgstr ""
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
-msgstr "最新リビジョンに対するUnified形式の差分(&D)"
+msgstr "HEADリビジョン同士のUnified形式の差分(&D)"
 
 #. Resource IDs: (81)
 #, c-format
@@ -11912,11 +11912,11 @@ msgstr "ズームアウト(&O)"
 
 #. Resource IDs: (32772)
 msgid "Zoom &in\tCtrl-+"
-msgstr "ズームイン(&I)\tCtrl-+"
+msgstr "ズームイン(&I)\tCtrl+[+]"
 
 #. Resource IDs: (32773)
 msgid "Zoom &out\tCtrl--"
-msgstr "ズームアウト(&O)\tCtrl--"
+msgstr "ズームアウト(&O)\tCtrl+[-]"
 
 #. Resource IDs: (2051)
 #, c-format
@@ -12521,7 +12521,7 @@ msgid ""
 msgstr ""
 "svn:keywords\r\n"
 "展開されるキーワード。有効なキーワード:\r\n"
-"URL, HeadURL : 最新のリビジョンのURL。\r\n"
+"URL, HeadURL : HEADリビジョンのURL。\r\n"
 "Author, LastChangedBy : 最後にファイルを変更したユーザー。\r\n"
 "Date, LastChangedDate : 最後に変更した日時。\r\n"
 "Rev, LastChangedRevision : 最後に変更したリビジョン。\r\n"

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-09 19:58+0000\n"
+"PO-Revision-Date: 2011-09-11 09:31+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1850,7 +1850,8 @@ msgid ""
 msgstr ""
 "リポジトリがコミットを受け付けるごとに、ファイルシステムツリーの状態が新しく作成されます。これを "
 "<firstterm>リビジョン</firstterm> "
-"と呼びます。リビジョンごとに一意の自然数が割り当てられ、直前のリビジョンよりも1だけ大きくなります。リポジトリを新規作成した直後のリビジョンは0で、ルートディレクトリ以外はなにも含まれていません。"
+"と呼びます。リビジョンごとに一意の自然数が割り当てられ、直前のリビジョンよりも1だけ大きくなります。リポジトリを新規作成した直後のリビジョンは 0 "
+"で、ルートディレクトリ以外はなにも含まれていません。"
 
 #. (para)
 msgid ""
@@ -1860,7 +1861,8 @@ msgid ""
 "is a <quote>snapshot</quote> of the way the repository looked after each "
 "commit."
 msgstr ""
-"リポジトリを視覚化するよい方法は、ツリーの連続で表すというものです。0から始まるリビジョン番号の配列が、左から右に追加されていく状況を想像してください。それぞれのリビジョン番号には対応したファイルシステムツリーがあり、それぞれのツリーはコミット後のリポジトリの状態を示す<quote>スナップショット</quote>です。"
+"リポジトリを視覚化するよい方法は、ツリーの連続で表すというものです。 0 "
+"から始まるリビジョン番号の配列が、左から右に追加されていく状況を想像してください。それぞれのリビジョン番号には対応したファイルシステムツリーがあり、それぞれのツリーはコミット後のリポジトリの状態を示す<quote>スナップショット</quote>です。"
 
 #. (title)
 msgid "Global Revision Numbers"
@@ -1879,11 +1881,11 @@ msgid ""
 "a file do <emphasis>not</emphasis> necessarily differ!"
 msgstr ""
 "多くのバージョン管理システムとは異なり、 Subversion のリビジョン番号は <emphasis>ツリー全体</emphasis> "
-"に対して付与されるもので、個々のファイルに付与されるものではありません。それぞれのリビジョン番号はツリー全体を特定し、ある変更をコミットした後のリポジトリの特定の状態を表します。言い換えると、リビジョンNはN番目のコミット後のリポジトリファイルシステムの状態を表すと言えます。"
-" Subversion のユーザーが、「リビジョン5の "
-"<filename>foo.c</filename>」と言うとき、それが実際に意味するものは、「リビジョン5に現れる "
-"<filename>foo.c</filename>」です。一般的に、あるファイルのリビジョンNとMは異なっている必要は "
-"<emphasis>ありません</emphasis> 。"
+"に対して付与されるもので、個々のファイルに付与されるものではありません。それぞれのリビジョン番号はツリー全体を特定し、ある変更をコミットした後のリポジトリの特定の状態を表します。言い換えると、リビジョン"
+" N は N 番目のコミット後のリポジトリファイルシステムの状態を表すと言えます。 Subversion のユーザーが、「リビジョン 5 の "
+"<filename>foo.c</filename>」と言うとき、それが実際に意味するものは、「リビジョン 5 に現れる "
+"<filename>foo.c</filename>」です。一般に、あるファイルのリビジョン N と M は異なっているとは "
+"<emphasis>限りません</emphasis> 。"
 
 #. (para)
 msgid ""
@@ -1892,7 +1894,8 @@ msgid ""
 "different revisions. For example, suppose you check out a working copy from "
 "a repository whose most recent revision is 4:"
 msgstr ""
-"作業コピーが、リポジトリの特定のリビジョンに常に対応しているとは限らないということに充分注意してください。複数の異なるリビジョンが混在している可能性があります。たとえば、最新リビジョンが4であるリポジトリから、作業コピーをチェックアウトしたとします。"
+"作業コピーが、リポジトリの特定のリビジョンに常に対応しているとは限らないということに充分注意してください。複数の異なるリビジョンが混在している可能性があります。たとえば、最新のリビジョンが"
+" 4 であるリポジトリから、作業コピーをチェックアウトしたとします。"
 
 #. (screen)
 #, no-wrap
@@ -1915,8 +1918,10 @@ msgid ""
 "commits have taken place, your commit will create revision 5 of the "
 "repository, and your working copy will now look like this:"
 msgstr ""
-"この時点では作業ディレクトリは、リポジトリのリビジョン4と完全に一致します。しかし、ここで <filename>button.c</filename> "
-"に変更を加え、変更をコミットしたとします。他にコミットした人がいなければ、このコミットではリポジトリにリビジョン5を作成し、作業コピーの内容は以下のようになります。"
+"この時点では作業ディレクトリは、リポジトリのリビジョン 4 と完全に一致します。しかし、ここで "
+"<filename>button.c</filename> "
+"に変更を加え、変更をコミットしたとします。他にコミットした人がいなければ、このコミットではリポジトリにリビジョン 5 "
+"を作成し、作業コピーの内容は以下のようになります。"
 
 #. (screen)
 #, no-wrap
@@ -1938,8 +1943,8 @@ msgid ""
 " update</command> to bring your working copy up to date, then it will look "
 "like this:"
 msgstr ""
-"この時点で、サリーが <filename>integer.c</filename> を変更し、リビジョン6を作成したとします。 <command>svn"
-" update</command> であなたの作業コピーを更新すると、以下のようになります。"
+"この時点で、サリーが <filename>integer.c</filename> を変更し、リビジョン 6 を作成したとします。 "
+"<command>svn update</command> であなたの作業コピーを更新すると、以下のようになります。"
 
 #. (screen)
 #, no-wrap
@@ -1967,9 +1972,9 @@ msgid ""
 msgstr ""
 "サリーの <filename>integer.c</filename> への変更は、あなたの作業コピーに現れますが、 "
 "<filename>button.c</filename> "
-"へ行ったあなたの変更はそのままです。この例では、<filename>Makefile</filename> "
-"の内容はリビジョン4、5、6で全く同じものですが、 Subversion は作業コピー中の <filename>Makefile</filename> "
-"のリビジョンを6にして、最新であることを表現します。そのため作業コピーのトップでまっさらな更新を行うと、一般的に、作業コピーはリポジトリの特定のリビジョンに完全に一致します。"
+"へ行ったあなたの変更はそのままです。この例では、<filename>Makefile</filename> の内容はリビジョン 4、5、6 "
+"で全く同じものですが、 Subversion は作業コピー中の <filename>Makefile</filename> のリビジョンを 6 "
+"にして、最新であることを表現します。そのため作業コピーのトップでまっさらな更新を行うと、一般的に、作業コピーはリポジトリの特定のリビジョンに完全に一致します。"
 
 #. (title)
 msgid "How Working Copies Track the Repository"
@@ -1987,7 +1992,7 @@ msgstr ""
 msgid ""
 "what revision your working file is based on (this is called the file's "
 "<firstterm>working revision</firstterm>), and"
-msgstr "作業しているファイルが基づいているリビジョン（これは<firstterm>作業リビジョン</firstterm>と呼ばれる）、および、"
+msgstr "作業しているファイルが基づいているリビジョン（これは <firstterm>作業リビジョン</firstterm> と呼ばれる）、および、"
 
 #. (para)
 msgid ""
@@ -4487,8 +4492,8 @@ msgid ""
 "Suppose your working copy is at revision 100, but you want it to reflect the"
 " state which it had in revision 50 - then simply update to revision 50."
 msgstr ""
-"標準の更新コマンドは、ただ作業ディレクトリをリポジトリの最新リビジョンに更新します。指定するオプションは何もなく、ほとんどの場面ではこれで充分です。更新作業でこれ以上の制御をしたい場合は、代わりに"
-" "
+"標準の更新コマンドは、ただ作業ディレクトリをリポジトリの最新の HEAD "
+"リビジョンに更新します。指定するオプションは何もなく、ほとんどの場面ではこれで充分です。更新作業でこれ以上の制御をしたい場合は、代わりに "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>特定リビジョンへ更新...</guimenuitem></menuchoice>"
 " "
 "を使用してください。このコマンドでは、最新のものだけでなく、特定のリビジョンに作業コピーを更新することができます。作業コピーがリビジョン100になっていて、それをリビジョン50の状態に戻したいのであれば、リビジョン50に更新するだけです。"
@@ -4626,7 +4631,7 @@ msgstr ""
 
 #. (title)
 msgid "File Conflicts"
-msgstr "ファイル競合"
+msgstr "ファイルの競合"
 
 #. (term)
 msgid "filename.ext.mine"
@@ -4642,18 +4647,18 @@ msgstr ""
 
 #. (term)
 msgid "filename.ext.rOLDREV"
-msgstr "filename.ext.rOLDREV OLDREV=旧リビジョン番号）"
+msgstr "filename.ext.rOLDREV（OLDREV=旧リビジョン番号）"
 
 #. (para)
 msgid ""
 "This is the file that was the BASE revision before you updated your working "
 "copy. That is, it the file that you checked out before you made your latest "
 "edits."
-msgstr "作業コピーを更新する前（BASEリビジョン）のファイルです。最新の編集を行う前、チェックアウトした状態のファイルです。"
+msgstr "作業コピーを更新する前（BASE リビジョン）のファイルです。最新の編集を行う前にチェックアウトした時のファイルです。"
 
 #. (term)
 msgid "filename.ext.rNEWREV"
-msgstr "filename.ext.rNEWREV NEWREV=新リビジョン番号）"
+msgstr "filename.ext.rNEWREV（NEWREV=新リビジョン番号）"
 
 #. (para)
 msgid ""
@@ -4661,7 +4666,7 @@ msgid ""
 "when you updated your working copy. This file corresponds to the HEAD "
 "revision of the repository."
 msgstr ""
-"作業コピーを更新したときに Subversion クライアントが受信したファイルです。リポジトリの最新リビジョン（HEADリビジョン）に相当します。"
+"作業コピーを更新したときに Subversion クライアントが受信したファイルです。リポジトリの最新（HEAD リビジョン）に相当します。"
 
 #. (para)
 msgid ""
@@ -5564,8 +5569,9 @@ msgid ""
 "Differences as Unified Diff</guimenuitem></menuchoice>."
 msgstr ""
 "このダイアログのコンテキストメニューから、変更点の差分を表示することができます。 <emphasis>あなた</emphasis> "
-"が行った手元の変更をチェックするのには、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>Base"
-" と比較</guimenuitem></menuchoice> を使用してください。他人が行ったリポジトリへの変更は、 "
+"が行った手元の変更をチェックするのには、 "
+"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>BASE "
+"と比較</guimenuitem></menuchoice> を使用してください。他人が行ったリポジトリへの変更は、 "
 "<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>Unified形式で差分を表示</guimenuitem></menuchoice>"
 " を使用してください。"
 
@@ -5667,7 +5673,8 @@ msgid ""
 msgstr ""
 "ファイルの中でどのような変更をしたのか確認する場合は、変更のあるファイルを選択して、TortoiseSVN のコンテキストメニューから "
 "<guimenuitem>差分を表示</guimenuitem> "
-"を選択してください。外部差分ビューアが起動し、現在のファイルとチェックアウト・更新を行った直後のコピー（<literal>BASE</literal>リビジョン）とを比較できます。"
+"を選択してください。外部差分ビューアが起動し、現在のファイルとチェックアウト・更新を行った直後のコピー（<literal>BASE</literal> "
+"リビジョン）とを比較できます。"
 
 #. (para)
 msgid ""
@@ -5969,7 +5976,7 @@ msgstr ""
 
 #. (term)
 msgid "Compare and blame with working BASE"
-msgstr "作業ベースと比較／注釈履歴"
+msgstr "作業ベースと比較/注釈履歴"
 
 #. (para)
 msgid ""
@@ -6626,7 +6633,7 @@ msgid ""
 "Use <guibutton>Show All</guibutton> if you want to see "
 "<emphasis>all</emphasis> log messages from HEAD right back to revision 1."
 msgstr ""
-"<guibutton>すべて表示</guibutton> を使用すると、最新リビジョンからリビジョン1まで "
+"<guibutton>すべて表示</guibutton> を使用すると、 HEAD からリビジョン 1 までさかのぼって "
 "<emphasis>すべての</emphasis> ログメッセージを表示することができます。"
 
 #. (para)
@@ -6652,7 +6659,8 @@ msgid ""
 "make this clearer, the commit message which corresponds to the revision you "
 "have in your working copy is shown in bold."
 msgstr ""
-"ログダイアログは、現在の作業コピーのリビジョンではなく、最新リビジョンからログを表示するため、作業コピーがまだ取得していない内容のログメッセージが表示されることがよくあります。これを明確にするために、作業コピーが持つリビジョンに一致するコミットメッセージは太字で表示されます。"
+"ログダイアログは、現在の作業コピーのリビジョンではなく、 HEAD "
+"リビジョンからログを表示するため、作業コピーがまだ取得していない内容のログメッセージが表示されることがよくあります。これを明確にするために、作業コピーが持つリビジョンに一致するコミットメッセージは太字で表示されます。"
 
 #. (para)
 msgid ""
@@ -8990,7 +8998,7 @@ msgstr ""
 
 #. (title)
 msgid "Edit properties at HEAD revision"
-msgstr "最新リビジョンのプロパティを編集"
+msgstr "HEAD リビジョンのプロパティを編集"
 
 #. (para)
 msgid ""
@@ -8999,7 +9007,8 @@ msgid ""
 "HEAD revision in the repository browser, you will see a list of properties "
 "and values, but no edit controls."
 msgstr ""
-"プロパティはバージョン管理されているため、以前のリビジョンのプロパティを編集することはできません。ログダイアログもしくはリポジトリブラウザー上の最新でないリビジョンからプロパティを確認する場合は、プロパティと値のリストは見れますが、編集はできません。"
+"プロパティはバージョン管理されているため、以前のリビジョンのプロパティを編集することはできません。ログダイアログもしくはリポジトリブラウザー上の "
+"HEAD 以外のリビジョンからプロパティを確認する場合は、プロパティと値のリストは見られますが、編集はできません。"
 
 #. (title)
 msgid "Exporting and Importing Properties"
@@ -9621,7 +9630,9 @@ msgid ""
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
 msgstr ""
-"チェックアウトした外部フォルダーや、外部項目のSubversionのURLのサブフォルダーの名前を設定する必要があります。外部フォルダーに最新のリビジョンをチェックアウトしておけば、外部項目がリポジトリの中で変更されたときに、作業コピーを更新させることができます。しかし、特定の安定した時点のものを外部で参照できるようにするには、使用する特定のリビジョンを指定することもできます。また、この場合、ペグリビジョンと同じリビジョンを指定したいかもしれません。"
+"チェックアウトした外部フォルダーや、外部項目の Subversion の URL のサブフォルダーの名前を設定する必要があります。外部フォルダーの "
+"HEAD "
+"リビジョンをチェックアウトしておけば、外部項目がリポジトリの中で変更されたときに、作業コピーを更新させることができます。しかし、特定の安定した時点のものを外部で参照できるようにするには、使用する特定のリビジョンを指定することもできます。また、この場合、ペグリビジョンと同じリビジョンを指定したいかもしれません。"
 " "
 "外部の項目が将来何らかの時点で改名されると、Subversionは作業コピーでこの項目を更新できなくなります。ペグリビジョンを指定することで、最新版ではなくペグリビジョンの時の名前をSubversionに検索させることができます。"
 
@@ -10117,7 +10128,7 @@ msgstr ""
 #. (term)
 #. (listitem)
 msgid "HEAD revision in the repository"
-msgstr "リポジトリの最新リビジョン"
+msgstr "リポジトリ内の HEAD リビジョン"
 
 #. (para)
 msgid ""
@@ -10125,11 +10136,12 @@ msgid ""
 "No data needs to be transferred from your working copy, and the branch is "
 "created very quickly."
 msgstr ""
-"新しいブランチは、リポジトリの最新リビジョンから直接コピーされます。作業コピーから転送されるデータはなく、ブランチは非常に高速に作成されます。"
+"新しいブランチは、リポジトリの最新である HEAD "
+"リビジョンから直接コピーされます。作業コピーから転送されるデータはなく、ブランチは非常に高速に作成されます。"
 
 #. (term)
 msgid "Specific revision in the repository"
-msgstr "リポジトリのリビジョン指定"
+msgstr "リポジトリ内の特定リビジョン"
 
 #. (para)
 msgid ""
@@ -10191,7 +10203,9 @@ msgid ""
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
 msgstr ""
-"新しいタグを常に一貫した状態にするためには、すべての外部項目の持つリビジョンが、現在の作業コピーのリビジョンで固定されていることを確認する必要があります。外部項目を確認せずにいると、将来最新リビジョンが更新されたときに、新しいタグをチェックアウトする際に、外部項目はその時点での最新リビジョンを取得してしまい、コンパイルに失敗する可能性があります。そのため、タグを作成するときには、常に明示的なリビジョン番号を外部項目に設定することをお勧めします。"
+"新しいタグを常に一貫した状態にするためには、すべての外部項目の持つリビジョンが、現在の作業コピーのリビジョンで固定されていることを確認する必要があります。外部項目を確認せずにいると、将来"
+" HEAD リビジョンが更新されたときに、新しいタグをチェックアウトすると、外部項目はその時点での HEAD "
+"リビジョンが取得されてしまい、コンパイルに失敗する可能性があります。そのため、タグを作成するときには、常に外部項目に明示的なリビジョン番号を設定することをお勧めします。"
 
 #. (para)
 msgid ""
@@ -10205,8 +10219,8 @@ msgid ""
 "back to their original value."
 msgstr ""
 "ブランチやタグを作成するとき、外部項目に明示的にリビジョンが設定されていた場合、 TortoiseSVN は自動的に "
-"<literal>svn:externals</literal> "
-"プロパティを更新します。リポジトリの最新リビジョンや特定のリビジョンからブランチやタグが作成された場合、 TortoiseSVN "
+"<literal>svn:externals</literal> プロパティを更新します。リポジトリの HEAD "
+"や特定のリビジョンからブランチやタグが作成された場合、 TortoiseSVN "
 "はまずブランチやタグを作成し、プロパティを調整します。そしてそれぞれのプロパティを追加コミットします。ブランチやタグが作業コピーから作成された場合は、先にプロパティを更新し、それからブランチやタグを作成し、そしてプロパティ値を元の値に戻します。"
 
 #. (para)
@@ -10261,8 +10275,9 @@ msgid ""
 "earlier revision), right click and choose <menuchoice><guimenuitem>create "
 "branch/tag from revision...</guimenuitem></menuchoice>."
 msgstr ""
-"ログダイアログから行う方法もあります。例えばトランクの、特定のリビジョン（最新のリビジョンでも古いリビジョンでも良い）のログダイアログを表示し、右クリックして"
-" <menuchoice><guimenuitem>リビジョンからブランチ/タグを作成</guimenuitem></menuchoice> "
+"ログダイアログから行う方法もあります。例えばトランクの、特定のリビジョン（HEAD "
+"リビジョンでも古いリビジョンでも良い）のログダイアログを表示し、右クリックして "
+"<menuchoice><guimenuitem>リビジョンからブランチ/タグを作成</guimenuitem></menuchoice> "
 "を選択します。"
 
 #. (title)
@@ -10314,7 +10329,7 @@ msgid ""
 "<guibutton>OK</guibutton>. Your working copy is switched to the new "
 "branch/tag."
 msgstr ""
-"続くダイアログで、たった今作成したブランチの URL を入力してください。 <guilabel>最新のリビジョン</guilabel> "
+"続くダイアログで、たった今作成したブランチの URL を入力してください。 <guilabel>HEAD リビジョン</guilabel> "
 "ラジオボタンを選択し、 <guibutton>OK</guibutton> をクリックしてください。作業コピーが新しいブランチ/タグに切り替えられます。"
 
 #. (para)
@@ -10325,7 +10340,8 @@ msgid ""
 "happen then you must either commit the changes before switching, or revert "
 "your working copy to an already-committed revision (typically HEAD)."
 msgstr ""
-"切り替えは、手元の変更を決して破棄しないので、ちょうど更新のように動作します。まだコミットしていない作業コピーへの変更は、切り替えるとマージされます。こうして欲しくなければ、切り替える前にコミットをしておくか、作業コピーの変更を取り消し、既にコミットしてあるリビジョン（通常は最新リビジョン）まで戻さなければなりません。"
+"切り替えは、手元の変更を決して破棄しないので、ちょうど更新のように動作します。まだコミットしていない作業コピーへの変更は、切り替えるとマージされます。こうして欲しくなければ、切り替える前にコミットをしておくか、作業コピーの変更を取り消し、既にコミットしてあるリビジョン（通常は"
+" HEAD リビジョン）まで戻さなければなりません。"
 
 #. (para)
 msgid ""
@@ -10548,9 +10564,9 @@ msgid ""
 "apply those changes to my working copy (of the trunk).</quote> The net "
 "result is that trunk now looks exactly like the branch."
 msgstr ""
-"これは、再統合する方法のもっと一般的なケースで、Subversion に次のことを行うように指示を出しています。<quote>トランクの最新リビジョン "
-"[FROM] から ブランチの最新リビジョン [TO] までの必要な変更点を計算し、(トランクの) 作業コピーに変更点を適用します</quote> "
-"最終結果はトランクがまさしくブランチと同様になっているということになります。"
+"これは、再統合する方法のもっと一般的なケースで、Subversion に対して、<quote>トランクの HEAD リビジョン（開始点）からブランチの "
+"HEAD リビジョン（終了点）までの必要な変更点を計算し、（トランクの）作業コピーに変更点を適用しなさい</quote> "
+"と指示します。結果的に、トランクがまさしくブランチと同様になっているということになります。"
 
 #. (para)
 msgid ""
@@ -10730,7 +10746,8 @@ msgid ""
 "HEAD revision. It may not refer to the revision you think it does if someone"
 " else made a commit after your last update."
 msgstr ""
-"他の人が変更をコミットしている場合、最新リビジョンを使用するのは注意してください。最後の更新のあとに誰かがコミットを行っており、想定しているリビジョンを指していないかもしれません。"
+"他の人が変更をコミットしている場合、 HEAD "
+"リビジョンを指定する場合は注意してください。最後の更新のあとに誰かがコミットを行っており、想定しているリビジョンを指していないかもしれません。"
 
 #. (para)
 msgid ""
@@ -10774,7 +10791,9 @@ msgid ""
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
 msgstr ""
-"再統合マージを適用するには、いくつか条件があります。まず、サーバーがマージ追跡をサポートしていなければなりません。作業コピーの深さに制限があってはなりません（部分的なチェックアウトであってはならない）。ローカルの変更や切り替えられた項目、最新以外のリビジョンに更新された項目があってはなりません。ブランチでの開発中にトランクに行われた変更は、ブランチをまたがってマージされます（もしくはマージ済みとマークされます）。マージ対象になるリビジョンの範囲は自動的に計算されます。"
+"再統合マージを適用するには、いくつか条件があります。まず、サーバーがマージ追跡をサポートしていなければなりません。作業コピーの深さに制限があってはなりません（部分的なチェックアウトであってはならない）。ローカルの変更や切り替えられた項目、"
+" HEAD "
+"以外のリビジョンに更新された項目があってはなりません。ブランチでの開発中にトランクに行われた変更は、ブランチをまたがってマージされます（もしくはマージ済みとマークされます）。マージ対象になるリビジョンの範囲は自動的に計算されます。"
 
 #. (title)
 msgid "Merging Two Different Trees"
@@ -10824,7 +10843,9 @@ msgid ""
 "revision number to avoid losing more recent commits."
 msgstr ""
 "<guilabel>開始点リビジョン</guilabel> 欄と <guilabel>終了点リビジョン</guilabel> "
-"欄の両方に、同期をとりたい二つのツリーの最新リビジョン番号を入力してください。他の誰もコミットしていないという確認が取れているのなら、どちらも最新リビジョンを使用できます。同期をとってから、誰かがコミットする機会があったのなら、最近のコミットの内容を失わないように、リビジョン番号を指定してください。"
+"欄の両方に、同期をとりたい二つのツリーの最新リビジョン番号を入力してください。他の誰もコミットしていないという確認が取れているのなら、どちらも HEAD"
+" "
+"リビジョンを指定できます。同期をとってから、誰かがコミットする機会があったのなら、最近のコミットの内容を失わないように、リビジョン番号を指定してください。"
 
 #. (para)
 msgid ""
@@ -11851,7 +11872,7 @@ msgstr "ファイルの注釈履歴"
 
 #. (title)
 msgid "The Annotate / Blame Dialog"
-msgstr "注釈ダイアログ"
+msgstr "注釈履歴ダイアログ"
 
 #. (para)
 msgid ""
@@ -11873,7 +11894,7 @@ msgid ""
 msgstr ""
 "デフォルトでは、 <firstterm>TortoiseBlame</firstterm> "
 "を使用して注釈を見ます。これは、異なるリビジョンを色分けして、見やすくしてくれます。注釈を印刷したり編集したりしたければ、 "
-"<guilabel>注釈履歴を見るためにテキストビューアを用いる</guilabel> を選択してください。"
+"<guilabel>注釈履歴を見るためにテキストビューアーを用いる</guilabel> を選択してください。"
 
 #. (para)
 msgid ""
@@ -12017,8 +12038,8 @@ msgid ""
 "uncheck the <guilabel>Include merge info</guilabel> checkbox when starting "
 "the blame."
 msgstr ""
-"注釈履歴を起動するときにマージ追跡を使用していると、マージされた行が若干異なって表示されます。行が別のパスからマージした結果として変更された場合には、TortoiseBlameは元のファイルの最後の変更ではなく、マージが行われたリビジョンと作者を表示します。これらの行は、リビジョンと作者をイタリック体で示すことで示されています。注釈履歴情報の列の上にマウスを移動させると、マージした場所のリビジョンが別々に表示されます。マージした行をこのような形で表示させたくない場合、"
-" 注釈履歴を起動するときに<guilabel>マージ情報を含める</guilabel>チェックボックスをオフにしてください。"
+"注釈履歴の起動時にマージ追跡を使用していると、マージされた行が若干異なって表示されます。別のパスからのマージによって変更された行には、マージが行われたリビジョンではなく、マージ元のファイルが最後に変更された時のリビジョンと作者が表示されます。この場合、リビジョンと作者が斜体で表示されます。注釈情報列の上にマウスを移動させると、マージされたリビジョンがツールチップ上に表示されます。マージした行をこのような形で表示させたくない場合、注釈履歴を起動するときに"
+" <guilabel>マージ情報を含める</guilabel> チェックボックスをオフにしてください。"
 
 #. (para)
 msgid ""
@@ -12027,8 +12048,8 @@ msgid ""
 "paths</guimenuitem></menuchoice>. This shows the path where the line was "
 "last changed, excluding changes resulting from a merge."
 msgstr ""
-"マージに関係するパスを表示したい場合は、<menuchoice><guimenu>表示</guimenu><guimenuitem>パスをマージ</guimenuitem></menuchoice>"
-" 。これは、マージ以外の変更による行のパスを表示します。"
+"<menuchoice><guimenu>表示</guimenu><guimenuitem>マージ元のパス</guimenuitem></menuchoice>"
+" を選択すると、マージに関係するパスが表示されます。その行がマージ以外の操作によって最後に変更されたときのパスが表示されます。"
 
 #. (para)
 msgid ""
@@ -12102,7 +12123,7 @@ msgstr ""
 
 #. (term)
 msgid "Compare and Blame with Working BASE"
-msgstr "作業 BASE との比較と注釈"
+msgstr "作業ベースとの比較と注釈"
 
 #. (para)
 msgid ""
@@ -12113,8 +12134,7 @@ msgid ""
 "selected revision, and for the file in the working BASE, then use the diff "
 "viewer to compare the two blame files."
 msgstr ""
-"画面上部のリビジョンをひとつ選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>作業ベースと比較／注釈履歴</guimenuitem></menuchoice>を選択すると、そのファイルのログを表示します。選択したリビジョンと作業中の"
-" BASE にあるファイルの注釈データを取得し、差分ビューアで注釈を比較します。"
+"画面上部のリビジョンをひとつ選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>作業ベースと比較／注釈履歴</guimenuitem></menuchoice>を選択すると、そのファイルのログを表示します。選択したリビジョンと作業ベースにあるファイルの注釈データを取得し、差分ビューアで注釈を比較します。"
 
 #. (para)
 msgid ""
@@ -12481,7 +12501,10 @@ msgid ""
 " the "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
 msgstr ""
-"追加されたり、他のファイルやフォルダーによって作られたりしたアイテムは、四角形で囲んで表示されます。デフォルトの色は緑色です。タグやトランクでは特別なものとして扱われ、異なる影を使って表示されます。これは<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>設定</guimenuitem></menuchoice>で設定することができます。"
+"追加されたり、他のファイルやフォルダーによって作られたりした項目は、長方形で囲んで表示されます。デフォルトの色は緑色です。タグやトランクでは特別なものとして扱われ、異なる色で表示されます。これは"
+" "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>設定</guimenuitem></menuchoice>"
+" で設定することができます。"
 
 #. (term)
 msgid "Deleted items"
@@ -12491,7 +12514,7 @@ msgstr "削除した項目"
 msgid ""
 "Deleted items e.g. a branch which is no longer required, are shown using an "
 "octagon (rectangle with corners cut off). The default colour is red."
-msgstr "必要のなくなったブランチなど削除された項目は、八角形 (角を落とした矩形) で表します。デフォルト色は赤です。"
+msgstr "必要のなくなったブランチなど削除された項目は、八角形（角を落とした長方形）で表示されます。デフォルト色は赤です。"
 
 #. (term)
 msgid "Renamed items"
@@ -12501,11 +12524,11 @@ msgstr "名前を変更した項目"
 msgid ""
 "Renamed items are also shown using an octagon, but the default colour is "
 "blue."
-msgstr "名前変更した項目は、八角形でも表します。デフォルトの色は青です。"
+msgstr "名前変更した項目も八角形でも表示されます。デフォルトの色は青です。"
 
 #. (term)
 msgid "Branch tip revision"
-msgstr "ブランチティップリビジョン"
+msgstr "ブランチの最新リビジョン"
 
 #. (para)
 msgid ""
@@ -12515,13 +12538,14 @@ msgid ""
 "nodes will be shown as an ellipse. Note that HEAD here refers to the last "
 "revision committed on that path, not to the HEAD revision of the repository."
 msgstr ""
-"グラフは通常表示しているブランチポイントに制限されていますが、各リビジョンの、個々の最新リビジョンも表示できるとしばしば便利です。<guilabel>最新のリビジョンを表示する</guilabel>"
-" "
-"を選択すると、各最新リビジョンノードが楕円で表示されます。ここで言う最新リビジョンとは、そのパスでコミットした最終リビジョンを指し、リポジトリの最新リビジョン（HEAD）ではないことにご注意ください。"
+"グラフには通常、分岐したリビジョンしか表示されませんが、それぞれのブランチの最新版である HEAD リビジョンも確認できると便利です。 "
+"<guilabel>HEADリビジョンを表示する</guilabel> を選択すると、各ブランチの HEAD "
+"リビジョンのノードが楕円で表示されます。ここで言う HEAD リビジョンとは、そのパスでコミットした最終リビジョンであり、リポジトリ全体の HEAD "
+"リビジョンではないことにご注意ください。"
 
 #. (term)
 msgid "Working copy revision"
-msgstr "作業コピーリビジョン"
+msgstr "作業コピーのリビジョン"
 
 #. (para)
 msgid ""
@@ -12529,8 +12553,8 @@ msgid ""
 "the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, "
 "which marks the BASE node with a bold outline."
 msgstr ""
-"作業コピーのリビジョングラフを呼び出すと、<guilabel>作業コピーのリビジョンを表示する</guilabel> を用いてグラフの BASE "
-"リビジョンを表示できます。このとき、BASE ノードは太い輪郭で表します。"
+"作業コピーのリビジョングラフを表示した場合、 <guilabel>作業コピーのリビジョンを表示する</guilabel> "
+"を選択すると、作業コピーの元になった BASE リビジョンが太い輪郭で表示されます。"
 
 #. (term)
 msgid "Modified working copy"
@@ -12543,8 +12567,8 @@ msgid ""
 "<guilabel>Show WC modifications</guilabel>. This is an elliptical node with "
 "a bold outline in red by default."
 msgstr ""
-"作業コピーのリビジョングラフを呼び出すと、<guilabel>Show WC modifications</guilabel> "
-"を用いて、変更された作業コピーを表す追加ノードを表示できます。これは輪郭が太い楕円のノードで、デフォルトでは赤で表します。"
+"作業コピーのリビジョングラフを表示させた場合、 <guilabel>作業コピーの変更を表示</guilabel> "
+"を選択すると、変更された作業コピーを表す追加ノードを表示できます。これは輪郭が太い楕円のノードで、デフォルトでは赤で表します。"
 
 #. (term)
 msgid "Normal item"
@@ -12552,7 +12576,7 @@ msgstr "通常の項目"
 
 #. (para)
 msgid "All other items are shown using a plain rectangle."
-msgstr "他の項目は、通常の矩形で表します。"
+msgstr "他の項目は、通常の長方形で表します。"
 
 #. (para)
 msgid ""
@@ -12562,10 +12586,10 @@ msgid ""
 "can be set using "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice><placeholder-1/>"
 msgstr ""
-"各リビジョングラフのノードは、あなたが見ているツリーの、何か変更されたリポジトリのリビジョンを表しています。形や色でノードの違いを区別できます。形は固定ですが、色は"
+"リビジョングラフの各ノードは、現在表示されているツリーで何かしらの変更が行われたリビジョンを表しています。形や色でノードの違いを区別できます。形は固定ですが、色は"
 " "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>設定</guimenuitem></menuchoice>"
-" を使用して設定できます。<placeholder-1/>"
+" を使用して設定できます。 <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -12575,7 +12599,9 @@ msgid ""
 "<emphasis>all</emphasis> revisions where changes were made, there is an "
 "option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
 msgstr ""
-"デフォルトでグラフには、項目の追加・コピー・削除のみ表示することにご注意ください。プロジェクト内のすべてのリビジョンを表示すると、重要なものだけでも非常に大きいグラフを生成してしまいます。本当に、変更が行われた<emphasis>すべての</emphasis>リビジョンが必要なら、<guilabel>表示</guilabel>メニューやツールバーに、このようにするオプションがあります。"
+"デフォルトのいグラフには、項目の追加・コピー・削除のみが表示されています。プロジェクト内のすべてのリビジョンが表示されると、重要な時に非常に巨大なグラフになってしまいます。本当に、変更が行われた"
+" <emphasis>すべての</emphasis> リビジョンが必要ならば、 <guilabel>表示</guilabel> "
+"メニューやツールバーに、表示させるためのオプションがあります。"
 
 #. (para)
 msgid ""
@@ -12591,10 +12617,9 @@ msgid ""
 "node when the graph is shown with oldest node at the bottom. The reference "
 "edge is significant because the node shapes are not all the same height."
 msgstr ""
-"デフォルトの表示 (グループ化無効) "
-"では、ノードを縦方向に、厳密なリビジョン順で配置するため、実行された順番の、視覚的な手がかりがあります。同じ列にあるふたつのノードの順番は明白です。ふたつのノードが隣接する列にある場合、ノードが重なる心配がないため、補正は少なくて済みます。そしてそのため、少々明白でない場合があります。そのような最適化が、複雑なグラフを妥当な大きさにしておくために必要です。この順序づけでは、<emphasis>古い方</emphasis>にあるノードの<emphasis>端</emphasis>"
-" (つまり、グラフを古いノードを下に表示する場合は、ノードの下端) "
-"を、参照として使用することにご注意ください。ノードの形がすべて同じ大きさであるわけではないため、参照する端は重要です。"
+"デフォルトの表示（グループ化無効）では、ノードは縦方向に、厳密にリビジョン順で配置されるため、実行された順番が視覚的に分かります。同じ列にある二つのノードの順番は明白です。二つののノードが隣接する列にある場合、ノードが重なる心配がないため、補正は少なくて済みます。そしてそのため、少々明白でない場合があります。そのような最適化が、複雑なグラフを妥当な大きさにしておくために必要です。この順序づけでは、"
+" <emphasis>古い方</emphasis> にあるノードの <emphasis>端</emphasis> "
+"（つまり、グラフを古いノードを下に表示する場合は、ノードの下端）を、参照として使用することにご注意ください。ノードの形がすべて同じ大きさであるわけではないため、参照する端は重要です。"
 
 #. (title)
 msgid "Changing the View"
@@ -12602,7 +12627,7 @@ msgstr "表示の変更"
 
 #. (term)
 msgid "Group branches"
-msgstr "ブランチをグループ化"
+msgstr "ブランチでグループ化"
 
 #. (para)
 msgid ""
@@ -12626,7 +12651,7 @@ msgstr ""
 
 #. (term)
 msgid "Oldest on top"
-msgstr "古いものを先頭に表示する"
+msgstr "古いものを先頭に表示"
 
 #. (para)
 msgid ""
@@ -12636,7 +12661,7 @@ msgstr "通常、グラフは古いものを下に配置し、上の方に伸び
 
 #. (term)
 msgid "Align trees on top"
-msgstr "トップでツリーをそろえる"
+msgstr "ツリーを上端でそろえる"
 
 #. (para)
 msgid ""
@@ -12645,12 +12670,12 @@ msgid ""
 "depending on whether you are using the <guilabel>Group Branches</guilabel> "
 "option. Use this option to grow all trees down from the top instead."
 msgstr ""
-"グラフが、いくつかのツリーにばらばらにされた場合、<guilabel>ブランチでグループ化する</guilabel> "
+"グラフが、いくつかのツリーにばらばらにされた場合、<guilabel>ブランチでグループ化</guilabel> "
 "オプションを使用しているかによって、そのツリーは自然なリビジョン順か、ウィンドウの下部に整列して現れるでしょう。すべてのツリーを上部から下部へのばすには、このオプションを使用してください。"
 
 #. (term)
 msgid "Reduce cross lines"
-msgstr "線が交差しないようにする"
+msgstr "線の交差を避ける"
 
 #. (para)
 msgid ""
@@ -12664,7 +12689,7 @@ msgstr ""
 
 #. (term)
 msgid "Differential path names"
-msgstr "パス名で差分をとる"
+msgstr "パス名を差分で表示"
 
 #. (para)
 msgid ""
@@ -12683,7 +12708,7 @@ msgstr ""
 
 #. (term)
 msgid "Show all revisions"
-msgstr "すべてのリビジョンを表示する"
+msgstr "すべてのリビジョンを表示"
 
 #. (para)
 msgid ""
@@ -12694,7 +12719,7 @@ msgstr "予想通り、(グラフ化したツリーの) 変更されたすべて
 
 #. (term)
 msgid "Show HEAD revisions"
-msgstr "最新リビジョンを表示"
+msgstr "最新リビジョン(HEAD)を表示"
 
 #. (para)
 msgid ""
@@ -12704,7 +12729,7 @@ msgstr "これにより、各ブランチの最新リビジョンが、グラフ
 
 #. (term)
 msgid "Exact copy sources"
-msgstr "正確なコピー元の表示"
+msgstr "正確なコピー元"
 
 #. (para)
 msgid ""
@@ -12715,7 +12740,10 @@ msgid ""
 "less useful) revision that was used to create the copy. Note that this "
 "revision may be younger than the HEAD revision of the source branch."
 msgstr ""
-"ブランチ・タグが作成された際、デフォルトの挙動では、変更があった最後のノードからのブランチとして表示します。ブランチは特定のリビジョンからよりも、その時の最新リビジョン（HEAD）から作成されますので、厳密に言うと正しくありません。そこで、コピーを作成したリビジョンを使用して、より正しい（しかしあまり有用でない）表示を行えます。このリビジョンが、ソースブランチの最新リビジョンよりも古い可能性があることに注意してください。"
+"ブランチ・タグが作成された際、デフォルトの挙動では、変更があった最後のノードからのブランチとして表示します。ブランチは特定のリビジョンからよりも、その時の"
+" HEAD "
+"リビジョンから作成されますので、厳密に言うと正しくありません。そこで、コピーを作成したリビジョンを使用して、より正しい（しかしあまり有用でない）表示を行えます。このリビジョンが、ソースブランチの"
+" HEAD リビジョンよりも古い可能性があることに注意してください。"
 
 #. (term)
 msgid "Fold tags"
@@ -12743,13 +12771,13 @@ msgstr ""
 
 #. (term)
 msgid "Hide deleted paths"
-msgstr "削除されたパスは表示しない"
+msgstr "削除されたパスを隠す"
 
 #. (para)
 msgid ""
 "Hides paths which are no longer present at the HEAD revision of the "
 "repository, e.g. deleted branches."
-msgstr "リポジトリの最新リビジョン（HEAD）に存在していないパス（削除されたブランチなど）を非表示にします。"
+msgstr "リポジトリの HEAD リビジョンに存在していないパス（削除されたブランチなど）を非表示にします。"
 
 #. (para)
 msgid ""
@@ -12791,7 +12819,8 @@ msgid ""
 "may be a few revisions lower down. The node is marked by giving it a bold "
 "outline."
 msgstr ""
-"グラフ用に取得した項目の更新リビジョンに一致する、グラフのリビジョンをマークします。更新したばかりの時は、最新リビジョン（HEAD）になるでしょうが、最後に更新してから、別の人がコミットしていると、作業コピーのリビジョンは若干古くなります。ノードは太い輪郭線でマークされます。"
+"グラフ用に取得した項目の更新リビジョンに一致する、グラフのリビジョンをマークします。更新したばかりの時は、 HEAD "
+"リビジョンになるでしょうが、最後に更新してから、別の人がコミットしていると、作業コピーのリビジョンは若干古くなります。ノードは太い輪郭線でマークされます。"
 
 #. (term)
 msgid "Show WC modifications"
@@ -12839,7 +12868,7 @@ msgstr "複数のツリーを含むグラフでは、それぞれのツリーを
 
 #. (term)
 msgid "Show overview"
-msgstr "概要表示"
+msgstr "縮小表示"
 
 #. (para)
 msgid ""
@@ -12887,7 +12916,8 @@ msgid ""
 "branch end points, i.e. at the HEAD revision."
 msgstr ""
 "2 つのリビジョンを選択 (<keycap>Ctrl</keycap>-<action>左クリック</action>) "
-"すると、そのリビジョン間の差分を表示するコンテキストメニューを使用できます。ブランチ作成ポイントで差分を表示できますが、通常ブランチ終了ポイント（つまり最新リビジョン）について表示したいことでしょう。"
+"すると、そのリビジョン間の差分を表示するコンテキストメニューを使用できます。ブランチ作成ポイントで差分を表示できますが、通常ブランチ終了ポイント（つまり"
+" HEAD リビジョン）について表示したいことでしょう。"
 
 #. (para)
 msgid ""
@@ -14831,7 +14861,7 @@ msgstr "HEAD ノード"
 
 #. (para)
 msgid "Current HEAD revision in the repository."
-msgstr "リポジトリにある現在の最新リビジョンです。"
+msgstr "現在のリポジトリの HEAD リビジョンです。"
 
 #. (term)
 msgid "WC Node"
@@ -15858,7 +15888,7 @@ msgstr "サーバーに接続せず、キャッシュからログデータを取
 
 #. (term)
 msgid "Timeout before updating the HEAD revision"
-msgstr "最新リビジョンへの更新がタイムアウトになるまでの秒数"
+msgstr "HEAD リビジョンへの更新がタイムアウトになるまでの秒数"
 
 #. (para)
 msgid ""
@@ -15995,7 +16025,7 @@ msgstr "最終更新日"
 
 #. (para)
 msgid "The last time the cache content was changed."
-msgstr "最後にキャッシュの内容を更新した時間です。"
+msgstr "最後にキャッシュの内容を更新した日時です。"
 
 #. (term)
 msgid "Last head update"
@@ -16003,7 +16033,7 @@ msgstr "最終取得日"
 
 #. (para)
 msgid "The last time we requested the HEAD revision from the server."
-msgstr "サーバーから最新リビジョンを最後に取得した時間です。"
+msgstr "サーバーから HEAD リビジョンを最後に取得した日時です。"
 
 #. (term)
 msgid "Authors"
@@ -17121,8 +17151,9 @@ msgid ""
 " If you use more than one, they must be specified as a single group, e.g. "
 "<literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
 msgstr ""
-"SubWCRev の動作に影響を与えるオプションスイッチが多数あります。複数を使用する場合は、1つにグループ化して指定する必要があります。例えば、 "
-"<literal>-n -m</literal> ではなく、 <literal>-nm</literal>と指定します。<placeholder-1/>"
+"SubWCRev の動作に影響を与えるオプションスイッチが多数あります。複数を使用する場合は、一つにグループ化して指定する必要があります。例えば、 "
+"<literal>-n -m</literal> ではなく、 <literal>-nm</literal> "
+"と指定します。<placeholder-1/>"
 
 #. (title)
 msgid "Keyword Substitution"
@@ -18679,7 +18710,8 @@ msgid ""
 "method to use of you want to discard recent changes and make an earlier "
 "revision the new HEAD."
 msgstr ""
-"ひとつのリビジョンやリビジョンの範囲から、変更を取り消す簡単な方法は、リビジョンログダイアログを使用することです。最近の変更を破棄して以前のリビジョンを最新リビジョンにするののもこの方法が使用します。"
+"ひとつのリビジョンやリビジョンの範囲から、変更を取り消す簡単な方法は、リビジョンログダイアログを使用することです。最近の変更を破棄して以前のリビジョンを"
+" HEAD リビジョンにするのもこの方法が使用します。"
 
 #. (para)
 msgid ""
@@ -18722,7 +18754,7 @@ msgid ""
 "revision</guimenuitem></menuchoice>. This will discard "
 "<emphasis>all</emphasis> changes after the selected revision."
 msgstr ""
-"もしくは、もっと古いリビジョンを最新リビジョンにしたい場合は、選択したリビジョンの上で <action>右クリック</action> "
+"もしくは、もっと古いリビジョンを HEAD リビジョンにしたい場合は、選択したリビジョンの上で <action>右クリック</action> "
 "し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>このリビジョンに戻す</guimenuitem></menuchoice>"
 " を選択してください。これにより、選択したリビジョン以降の変更が<emphasis>すべて</emphasis>取り消されます。"
 
@@ -18770,7 +18802,7 @@ msgid ""
 "changes, you can use the HEAD revision."
 msgstr ""
 "<guilabel>元リビジョン</guilabel> "
-"フィールドに現在のリビジョン番号を入力してください。他の誰も変更を加えていないことが確認できている場合、最新リビジョン（HEAD）を使用できます。"
+"フィールドに現在のリビジョン番号を入力してください。他の誰も変更を加えていないことが確認できている場合、 HEAD リビジョンを指定できます。"
 
 #. (para)
 msgid "make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
@@ -18803,8 +18835,9 @@ msgid ""
 "possible reason would be that someone committed a confidential document to a"
 " public repository."
 msgstr ""
-"TortoiseSVN "
-"は決してデータを失わないため、<quote>ロールバックした</quote>リビジョンはまだ中間リビジョンとして存在しています。最新リビジョンが以前の状態になっただけです。すべての痕跡を削除して、リポジトリから完全に見えなくする場合は、もっと極端な手段を採らねばなりません。これは本当に十分な理由がなければ、<emphasis>お勧めしません</emphasis>。考えられる理由としては、誰かが公開リポジトリに機密文書をコミットしたなどでしょう。"
+"TortoiseSVN は決してデータを失わないため、<quote>ロールバックした</quote>リビジョンはまだ中間リビジョンとして存在しています。"
+" HEAD "
+"リビジョンが以前の状態になっただけです。すべての痕跡を削除して、リポジトリから完全に見えなくする場合は、もっと極端な手段を採らねばなりません。これは本当に十分な理由がなければ、<emphasis>お勧めしません</emphasis>。考えられる理由としては、誰かが公開リポジトリに機密文書をコミットしたなどでしょう。"
 
 #. (para)
 msgid ""
@@ -18883,12 +18916,12 @@ msgstr ""
 "2つのツリーでどこが変更されか (例えばトランクとタグ付けされたリリース) "
 "を比較したい場合、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>リビジョングラフ</guimenuitem></menuchoice>"
 " を使用できます。比較する 2 "
-"つのノードを選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>最新のリビジョンを比較</guimenuitem></menuchoice>"
-" "
+"つのノードを選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>HEAD "
+"リビジョンを比較</guimenuitem></menuchoice> "
 "を使用してください。これで変更されたファイルの一覧が表示され、変更の詳細を見るよう特定のファイルを選択できます。また、変更したファイルすべてを含むツリー構造をエクスポートしたり、単純に変更したファイルをすべて表示したりできます。詳細は"
 " <xref linkend=\"tsvn-dug-compare-revs\"/> "
-"をご覧ください。その他には、変更の全サマリを最小コンテキストで見るのに、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>最新のリビジョンに対する"
-" Unified 形式での差分</guimenuitem></menuchoice> を使用してください。"
+"をご覧ください。その他には、変更の全サマリを最小コンテキストで見るのに、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>HEAD"
+" リビジョンに対する Unified 形式での差分</guimenuitem></menuchoice> を使用してください。"
 
 #. (title)
 msgid "Include a common sub-project"
@@ -19935,7 +19968,7 @@ msgid ""
 "<placeholder-6/>. The <placeholder-7/> indicates that the specified depth "
 "should be sticky, creating a sparse checkout."
 msgstr ""
-"<placeholder-1/> で指定した作業コピーを最新リビジョンに更新します。 <placeholder-2/> "
+"<placeholder-1/> で指定した作業コピーを HEAD リビジョンに更新します。 <placeholder-2/> "
 "を与えると、どのリビジョンに更新するかをユーザーに尋ねるダイアログを表示します。リビジョン番号を指定するダイアログを表示しないようにするには、 "
 "<placeholder-3/>  そ指定してください。その他のオプションとして <placeholder-4/> や <placeholder-5/>"
 " や <placeholder-6/> があります。 <placeholder-7/> "
@@ -20280,7 +20313,7 @@ msgid ""
 "<option>/rev:xxx</option> is omitted, it defaults to HEAD."
 msgstr ""
 "追加オプション <option>/rev:xxx</option> は、リポジトリブラウザーが表示するリビジョンを特定するために使用します。 "
-"<option>/rev:xxx</option> が省略されると、デフォルトは最新版になります。"
+"<option>/rev:xxx</option> が省略されると、デフォルトは HEAD になります。"
 
 #. (para)
 msgid ""
@@ -20316,7 +20349,7 @@ msgstr ""
 #. (para)
 msgid ""
 "Opens the blame dialog for the file specified in <option>/path</option>."
-msgstr "<option>/path</option> で指定したファイルの注釈ダイアログを開きます。"
+msgstr "<option>/path</option> で指定したファイルの注釈履歴ダイアログを開きます。"
 
 #. (para)
 msgid ""
@@ -20729,14 +20762,15 @@ msgid ""
 "updates all items to that particular revision number to avoid creating a "
 "mixed revision working copy."
 msgstr ""
-"複数の項目を更新するのに、現在の Subversion では不可分操作できません。そこで TortoiseSVN "
-"は、まず最新リビジョンをリポジトリから探し出し、複数のリビジョン場混じった作業コピーを作らないように、特定のリビジョン番号を持つすべての項目を更新します。"
+"複数の項目を更新するのに、現在の Subversion では不可分操作できません。そこで TortoiseSVN は、まず HEAD "
+"リビジョンをリポジトリから探し出し、複数のリビジョン場混じった作業コピーを作らないように、特定のリビジョン番号を持つすべての項目を更新します。"
 
 #. (para)
 msgid ""
 "If only one item is selected for updating or the selected items are not all "
 "from the same repository, TortoiseSVN just updates to HEAD."
-msgstr "1項目しか選択しないで更新したり、選択した項目がすべて同じリポジトリにない場合、TortoiseSVN は最新リビジョンに更新します。"
+msgstr ""
+"1項目しか選択しないで更新したり、選択した項目がすべて同じリポジトリにない場合、TortoiseSVN は HEAD リビジョンに更新します。"
 
 #. (para)
 msgid ""
@@ -21772,7 +21806,7 @@ msgid ""
 msgstr ""
 "<emphasis>作業コピー</emphasis> "
 "にあるファイルやフォルダーの現在のベースリビジョンで、最後にチェックアウト、更新、コミットを実行したときの、ファイルやフォルダーのリビジョンです。 "
-"BASE リビジョンは、通常は最新リビジョンと同じではありません。"
+"BASE リビジョンは、通常は HEAD リビジョンと同じではありません。"
 
 #. (para)
 msgid ""

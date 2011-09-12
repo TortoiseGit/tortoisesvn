@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-07 00:38+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-09-07 18:33+0000\n"
+"Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -350,7 +350,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "\n"
-"Могу ли сада  да ажурирам радну копију \n"
+"Могу ли сада  да обновим радну копију \n"
 "и тада да поновим?"
 
 #. Resource IDs: (69)
@@ -908,7 +908,7 @@ msgstr "&Напуни..."
 
 #. Resource IDs: (1554)
 msgid "&Locking required (read-only update)"
-msgstr "&Закључавање потребно (само за читање ажурирање)"
+msgstr "&Закључавање потребно (само за читање обнављање)"
 
 #. Resource IDs: (32854)
 msgid "&Log Sizes"
@@ -1373,19 +1373,19 @@ msgstr "&Непознати дискови"
 
 #. Resource IDs: (8)
 msgid "&Update"
-msgstr "&Ажурирај"
+msgstr "&Обнови"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
-msgstr "&Ажурира ставку према ревизији"
+msgstr "&Обнавља ставку према ревизији"
 
 #. Resource IDs: (114)
 msgid "&Update item to revision..."
-msgstr "&Ажурирај ставку према ревизији..."
+msgstr "&Обнови ставку према ревизији..."
 
 #. Resource IDs: (11)
 msgid "&Update to revision..."
-msgstr "&Ажурирај према ревизији..."
+msgstr "&Обнови према ревизији..."
 
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1957,7 +1957,7 @@ msgstr "Сви фајлови (*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
-msgstr "Све измене од задњег ажурирања ће бити изгубљене!"
+msgstr "Све измене од задњег обнављања ће бити изгубљене!"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2141,7 +2141,7 @@ msgid ""
 "the last update!"
 msgstr ""
 "Јесте ли сигурни да желите вратити на старо %d ставку(и)? Изгубићете све "
-"промене до задњег ажурирања!"
+"промене до задњег обнављања!"
 
 #. Resource IDs: (32793)
 msgid "Arrange &Vertical"
@@ -2512,7 +2512,7 @@ msgid ""
 "Do not update the working copy."
 msgstr ""
 "Откажи\n"
-"Не ажурирајте радну копји."
+"Не обнављајте радну копји."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2795,11 +2795,11 @@ msgstr "Провери"
 
 #. Resource IDs: (174)
 msgid "Check For Updates"
-msgstr "Провера за ажурирање"
+msgstr "Провера за обнављање"
 
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
-msgstr "Провера за ажурирање..."
+msgstr "Провера за обнављање..."
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2815,7 +2815,7 @@ msgstr "Провера измена"
 
 #. Resource IDs: (65535)
 msgid "Check for updates"
-msgstr "Провера ажурирања"
+msgstr "Провера обнављања"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -3117,7 +3117,7 @@ msgstr "Командна линија за извршење:"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
-msgstr "Команда неисправна - Ажурирање је потребно"
+msgstr "Команда неисправна - Обнављање је потребно"
 
 #. Resource IDs: (3857)
 msgid "Command failed."
@@ -5171,7 +5171,7 @@ msgstr ""
 "Закључавање фајл без 'свн:неедс-лоцк' особина  неће спречити остале да их мењају у својим радним копијама.\n"
 "Ако желите омогућити строго закључавање додајте 'свн:неедс-лоцк' својство на све такве фајлови и урежите измене.\n"
 "Такви фајлови ће имати ознаке 'само за читање', а тек закључавање ће омогућити измене.\n"
-"Приметите да ће остали корисници имати потребу да ажурирају своју радну копију пре него виде фајлове као само за читање."
+"Приметите да ће остали корисници имати потребу да обнављају своју радну копију пре него виде фајлове као само за читање."
 
 #. Resource IDs: (119)
 #, c-format
@@ -5431,7 +5431,7 @@ msgstr "ИД"
 
 #. Accelerator Entry for Menu ID:105; 'E&xit'
 msgid "ID:105:V C +W"
-msgstr ""
+msgstr "ID:105:V C +W"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
@@ -6271,7 +6271,7 @@ msgstr "Листање спремишта рекурзивно..."
 
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
-msgstr ""
+msgstr "Лок&ална путања:"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -6353,7 +6353,7 @@ msgid ""
 "Do you want to update and try again?"
 msgstr ""
 "Закључавање није успело зато што постоји новија верзија!\n"
-"Желите ли ажурирање и да покушате поново?"
+"Желите ли обнављање и да покушате поново?"
 
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
@@ -7651,7 +7651,7 @@ msgstr "Пост урезивања закачаљка"
 
 #. Resource IDs: (570)
 msgid "Post-Update Hook"
-msgstr "Закачив Скрипт након ажурирања"
+msgstr "Закачив Скрипт након обнављања"
 
 #. Resource IDs: (58115)
 msgid "Pre&v Page"
@@ -7667,7 +7667,7 @@ msgstr "Пре-повезивања закачаљка"
 
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
-msgstr "Закачив Скрипт пре ажурирања"
+msgstr "Закачив Скрипт пре обнављања"
 
 #. Resource IDs: (3)
 msgid "Prefer &local"
@@ -8599,7 +8599,7 @@ msgstr "Враћање измена"
 
 #. Resource IDs: (9)
 msgid "Reverts all changes you made since the last update"
-msgstr "Поништава све измене које су учињене након задњег ажурирања"
+msgstr "Поништава све измене које су учињене након задњег обнављања"
 
 #. Resource IDs: (14)
 msgid "Reverts an addition to version control"
@@ -8859,7 +8859,7 @@ msgstr ""
 "\n"
 "Тестирање наговештаја проблема унутар текста : Наговештај проблема #55. Наговештај проблема #77, #78.\n"
 "\n"
-"Ажуриран проблем #101\n"
+"Обновљен проблем #101\n"
 "Фиксиран проблем #202\n"
 "Решен проблем #88.\n"
 "Затворен проблем #99.\n"
@@ -9218,7 +9218,7 @@ msgstr "Поставке - ТортоисеСВН"
 
 #. Resource IDs: (616)
 msgid "Shall I update the working copy and retry?"
-msgstr "Могу ли да ажурирам радну копију и поновим?"
+msgstr "Могу ли да обновим радну копију и поновим?"
 
 #. Resource IDs: (1270)
 msgid "Shell"
@@ -9373,7 +9373,7 @@ msgstr "Прикажи &обједињене разлике"
 
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
-msgstr ""
+msgstr "Приказује искључен именик као нормално"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9499,7 +9499,7 @@ msgid ""
 "Shows all files which were changed since the last update, locally and in the"
 " repository"
 msgstr ""
-"Приказује све фајлови промењене од задњег ажурирања, локално и у спремишту"
+"Приказује све фајлови промењене од задњег обнављања, локално и у спремишту"
 
 #. Resource IDs: (2050)
 msgid "Shows all revisions where changes were made to this item"
@@ -9616,7 +9616,7 @@ msgstr "Извор УРЛ:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth '%2!s!'"
-msgstr "Празно ажурирање %1!s!, дебљине '%2!s!'"
+msgstr "Празно обнављање %1!s!, дебљине '%2!s!'"
 
 #. Resource IDs: (196)
 msgid ""
@@ -9704,7 +9704,7 @@ msgstr "Почетна ревизија"
 
 #. Resource IDs: (569)
 msgid "Start Update Hook"
-msgstr "Старт ажурирања закачаљка"
+msgstr "Старт обнављања закачаљка"
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9820,6 +9820,22 @@ msgid ""
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
 msgstr ""
+"Субверзија је наишла на озбиљан проблем.\n"
+"Молим вас да нађете времена да известите Субверзиону мејлинг листу\n"
+"(users@subversion.apache.org)\n"
+"са што више информација о томе\n"
+"шта сте покушали да урадите.\n"
+"Али  молимо да најпре прегледате архиву мејлинг листе о порукама о грешци\n"
+"да би се избегло извештавање о истим проблемима стално.\n"
+"Архиву мејлинг листе можете наћи на\n"
+"http://subversion.apache.org/mailing-lists.html\n"
+"\n"
+"Субверзија је наишла на проблем:\n"
+"фајл %1!s!, линија %2!ld!\n"
+"израз = %3!s!\n"
+"\n"
+"можете копирати садржај овог дијалога\n"
+"на клипборд користећи Ctrl-C."
 
 #. Resource IDs: (84)
 msgid ""
@@ -9837,6 +9853,19 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr ""
+"Субверзија је наишла на озбиљан проблем.\n"
+"Молим вас да нађете времена да известите Субверзиону мејлинг листу\n"
+"(users@subversion.apache.org)\n"
+"са што више информација о томе\n"
+"шта сте покушали да урадите.\n"
+"Али  молимо да најпре прегледате архиву мејлинг листе о порукама о грешци\n"
+"да би се избегло извештавање о истим проблемима стално.\n"
+"Архиву мејлинг листе можете наћи на\n"
+"http://subversion.apache.org/mailing-lists.html\n"
+"\n"
+"Субверзија је известила следеће\n"
+"(можете копирати садржај овог дијалога\n"
+"на клипборд користећи Ctrl-C):"
 
 #. Resource IDs: (79)
 msgid ""
@@ -10280,45 +10309,45 @@ msgstr "Задња операција пребацивања покушава д
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr "Задња операција ажурирања покушава да дода именик '%s' "
+msgstr "Задња операција обнављања покушава да дода именик '%s' "
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the file '%s'"
-msgstr "Задња операција ажурирања покушава да дода фајл '%s' "
+msgstr "Задња операција обнављања покушава да дода фајл '%s' "
 
 #. Resource IDs: (607)
 #, c-format
 msgid ""
 "The last update operation tried to delete/move/rename the directory '%s'"
 msgstr ""
-"Задња операција ажурирања покушава да обрише/помери/преименује именик '%s' "
+"Задња операција обнављања покушава да обрише/помери/преименује именик '%s' "
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the file '%s'"
 msgstr ""
-"Задња операција ажурирања покушава да обрише/помери/преименује фајл '%s' "
+"Задња операција обнављања покушава да обрише/помери/преименује фајл '%s' "
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr "Задња операција ажурирања покушава да измени именик '%s' "
+msgstr "Задња операција обнављања покушава да измени именик '%s' "
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the file '%s'"
-msgstr "Задња операција ажурирања покушава да измени фајл '%s' "
+msgstr "Задња операција обнављања покушава да измени фајл '%s' "
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last update operation tried to replace the directory '%s'"
-msgstr "Задња операција ажурирања покушава да замени именик '%s'"
+msgstr "Задња операција обнављања покушава да замени именик '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last update operation tried to replace the file '%s'"
-msgstr "Задња операција ажурирања покушава да замени фајл '%s' "
+msgstr "Задња операција обнављања покушава да замени фајл '%s' "
 
 #. Resource IDs: (63)
 #, c-format
@@ -10606,7 +10635,7 @@ msgid ""
 "Please Update first."
 msgstr ""
 "Радна копија није ажурна!\n"
-"Молим, прво је ажурирајте."
+"Молим, прво је обновите."
 
 #. Resource IDs: (65535)
 msgid "Their file:"
@@ -11087,7 +11116,7 @@ msgstr "Подеси ТортоисеСВН"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
-msgstr "&Ажурираји"
+msgstr "&Обнови"
 
 #. Resource IDs: (164, 207, 1594)
 msgid "URL"
@@ -11308,64 +11337,64 @@ msgstr "Један именик горе"
 
 #. Resource IDs: (77, 152, 230)
 msgid "Update"
-msgstr "Ажурирање"
+msgstr "Обнављање"
 
 #. Resource IDs: (1377)
 msgid "Update Depth"
-msgstr "Ажурирај дубину"
+msgstr "Обнови дубину"
 
 #. Resource IDs: (275)
 msgid "Update WC to revision"
-msgstr "Ажурирај РК према ревизији"
+msgstr "Обнови РК према ревизији"
 
 #. Resource IDs: (93)
 msgid ""
 "Update\n"
 "Update the file and try locking again."
 msgstr ""
-"Ажурирај\n"
-"Ажурирај фајл и покушај закључавање поново."
+"Обнови\n"
+"Обнови фајл и покушај закључавање поново."
 
 #. Resource IDs: (90)
 msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
 msgstr ""
-"Ажурирај\n"
-"Ажурирајте радну копију и отворите дијалог урезивања и покушајте поново."
+"Обнови\n"
+"Обновите радну копију и отворите дијалог урезивања и покушајте поново."
 
 #. Resource IDs: (74)
 msgid "Updated"
-msgstr "Ажурирано"
+msgstr "Обновљено"
 
 #. Resource IDs: (11)
 msgid "Updates the working copy to a specific revision"
-msgstr "Ажурира радну копију према одређеној ревизији"
+msgstr "Обнавља радну копију према одређеној ревизији"
 
 #. Resource IDs: (9)
 msgid "Updates the working copy to the current revision"
-msgstr "Ажурира радну копију према важећој ревизији"
+msgstr "Обнавља радну копију према важећој ревизији"
 
 #. Resource IDs: (265)
 msgid "Updating"
-msgstr "Ажурирање"
+msgstr "Обнављање"
 
 #. Resource IDs: (226)
 #, c-format
 msgid "Updating %s"
-msgstr "Ажурирање %s"
+msgstr "Обнављање %s"
 
 #. Resource IDs: (3849)
 msgid "Updating ActiveX objects"
-msgstr "Ажурирај АктивеX објекте"
+msgstr "Обнови АктивеX објекте"
 
 #. Resource IDs: (283)
 msgid "Updating and retrying the lock..."
-msgstr "Ажурирам и поново покушавам да закључам..."
+msgstr "Обнављам и поново покушавам да закључам..."
 
 #. Resource IDs: (199)
 msgid "Updating log cache"
-msgstr "Ажурирај кеш дневника"
+msgstr "Обнови кеш дневника"
 
 #. Resource IDs: (99)
 msgid ""
@@ -11906,7 +11935,7 @@ msgstr ""
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
-msgstr "Морате најпре ажурирати вашу радну копију."
+msgstr "Морате најпре обновити вашу радну копију."
 
 #. Resource IDs: (169)
 msgid ""
@@ -12395,7 +12424,7 @@ msgstr "чувајте листу фајлова на енглеском"
 
 #. Resource IDs: (65535)
 msgid "last head update: "
-msgstr "задње главно ажурирање:"
+msgstr "задње главно обнављање:"
 
 #. Resource IDs: (65535)
 msgid "last read: "
@@ -12403,7 +12432,7 @@ msgstr "задње читање:"
 
 #. Resource IDs: (65535)
 msgid "last update: "
-msgstr "задње ажурирање:"
+msgstr "задње обнављање:"
 
 #. Resource IDs: (11, 195)
 msgid "locked"
@@ -12717,7 +12746,7 @@ msgid ""
 msgstr ""
 "свн:неедс-лоцк\r\n"
 "Поставите то својство на било коју вредност (нпр. '*') како бисте наметнули  закључавање ових фајлова.\r\n"
-"Фајл ће бити означена само-читање после преузимања или ажурирања,\r\n"
+"Фајл ће бити означена само-читање после преузимања или обнављања,\r\n"
 "како би корисник могао откључати фајл\r\n"
 "пре него га уреди и уреже измене."
 
