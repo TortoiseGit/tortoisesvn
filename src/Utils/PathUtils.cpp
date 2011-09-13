@@ -290,6 +290,23 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
         ret.Replace(("file:///%5C"), ("file://"));
     ret.Replace(("file:////%5C"), ("file://"));
 
+    // properly handle ipv6 addresses
+    int urlpos = ret.Find("://%5B");
+    if (urlpos > 0)
+    {
+        int domainpos = ret.Find("/", urlpos+6);
+        if (domainpos > urlpos)
+        {
+            CStringA leftpart = ret.Left(domainpos+1);
+            if ((leftpart.Find("%5D:")>0)||(leftpart.Find("%5D/")>0))
+            {
+                leftpart.Replace("://%5B", "://[");
+                leftpart.Replace("%5D/", "]/");
+                leftpart.Replace("%5D:", "]:");
+                ret = leftpart + ret.Mid(domainpos+1);
+            }
+        }
+    }
     return ret;
 }
 
@@ -699,12 +716,27 @@ static class CPathTests
 public:
     CPathTests()
     {
+        EscapeTest();
         UnescapeTest();
         ExtTest();
         ParseTests();
     }
 
 private:
+    void EscapeTest()
+    {
+        CStringA test("http://domain.com/page");
+        CStringA test2 = CPathUtils::PathEscape(test);
+        ATLASSERT(test.Compare(test2) == 0);
+
+        test = "http://[::1]/page";
+        test2 = CPathUtils::PathEscape(test);
+        ATLASSERT(test.Compare(test2) == 0);
+
+        test = "https://[2001:db8:85a3:8d3:1319:8a2e:370:7348]:443/page%5B%5D/test";
+        test2 = CPathUtils::PathEscape("https://[2001:db8:85a3:8d3:1319:8a2e:370:7348]:443/page[]/test");
+        ATLASSERT(test.Compare(test2) == 0);
+    }
     void UnescapeTest()
     {
         CString test(_T("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest"));
@@ -718,7 +750,6 @@ private:
         ATLASSERT(test3.Compare("file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest") == 0);
         CStringA test4 = CPathUtils::PathEscape("file:///d:/REpos1/uCOS 1.0/Trunk/name with spaces/NewTest % NewTest");
         ATLASSERT(test4.Compare("file:///d:/REpos1/uCOS%201.0/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest") == 0);
-
     }
     void ExtTest()
     {
