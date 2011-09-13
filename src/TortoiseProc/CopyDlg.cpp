@@ -147,6 +147,8 @@ BOOL CCopyDlg::OnInitDialog()
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoPaths\\")+sUUID, _T("url"));
     m_URLCombo.SetCurSel(0);
     CString relPath = m_wcURL.Mid(m_repoRoot.GetLength());
+    if (!m_URL.IsEmpty())
+        relPath = m_URL.Mid(m_repoRoot.GetLength());
     CTSVNPath r = CTSVNPath(relPath);
     relPath = r.GetUIPathString();
     relPath.Replace('\\', '/');
