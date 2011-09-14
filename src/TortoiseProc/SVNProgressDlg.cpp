@@ -2289,10 +2289,13 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
         }
         else
         {
-            if (!Update(CTSVNPathList(checkoutdir), m_Revision, it->second, true, (m_options & ProgOptIgnoreExternals) != 0, true, false))
+            if ((it->second != svn_depth_exclude)||(checkoutdir.Exists()))
             {
-                ReportSVNError();
-                return false;
+                if (!Update(CTSVNPathList(checkoutdir), m_Revision, it->second, true, (m_options & ProgOptIgnoreExternals) != 0, true, false))
+                {
+                    ReportSVNError();
+                    return false;
+                }
             }
         }
         ++index;
