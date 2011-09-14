@@ -3263,11 +3263,14 @@ int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
 {
     int nLength = GetLineLength(nLineIndex);
     int nSubLine = GetSubLineOffset(nLineIndex);
-    int nViewLine = GetViewLineForScreen(nLineIndex);
-    int nMultilineCount = CountMultiLines(nViewLine);
-    if ((nMultilineCount>0) && (nSubLine<nMultilineCount-1))
+    if (nSubLine>=0)
     {
-        nLength--;
+        int nViewLine = GetViewLineForScreen(nLineIndex);
+        int nMultilineCount = CountMultiLines(nViewLine);
+        if ((nMultilineCount>0) && (nSubLine<nMultilineCount-1))
+        {
+            nLength--;
+        }
     }
     LPCTSTR pszLine = GetLineChars(nLineIndex);
     int nIndex = 0;
