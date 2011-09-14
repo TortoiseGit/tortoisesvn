@@ -1993,7 +1993,8 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
         RecalcVertScrollBar();
         RecalcHorzScrollBar();
     }
-    //TODO: EnsureCaretVisible, UpdateCaret();
+    EnsureCaretVisible();
+    UpdateCaret();
 }
 
 BOOL CBaseView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
@@ -3241,12 +3242,15 @@ void CBaseView::EnsureCaretVisible()
     if (ptCaretPos.y < m_nTopLine)
         ScrollAllToLine(ptCaretPos.y);
     int screnLines = GetScreenLines();
-    if (ptCaretPos.y >= (m_nTopLine+screnLines)-1)
-        ScrollAllToLine(ptCaretPos.y-screnLines+2);
-    if (nCaretOffset < m_nOffsetChar)
-        ScrollAllToChar(nCaretOffset);
-    if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
-        ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
+    if (screnLines)
+    {
+        if (ptCaretPos.y >= (m_nTopLine+screnLines)-1)
+            ScrollAllToLine(ptCaretPos.y-screnLines+2);
+        if (nCaretOffset < m_nOffsetChar)
+            ScrollAllToChar(nCaretOffset);
+        if (nCaretOffset > (m_nOffsetChar+GetScreenChars()-1))
+            ScrollAllToChar(nCaretOffset-GetScreenChars()+1);
+    }
 }
 
 int CBaseView::CalculateActualOffset(const POINT& point)
