@@ -1131,17 +1131,6 @@ UINT CSVNProgressDlg::ProgressThread()
     KillTimer(TRANSFERTIMER);
     KillTimer(VISIBLETIMER);
 
-    DialogEnableWindow(IDCANCEL, FALSE);
-    DialogEnableWindow(IDOK, TRUE);
-
-    CString info = BuildInfoString();
-    if (!bSuccess)
-        info.LoadString(IDS_PROGRS_INFOFAILED);
-    SetDlgItemText(IDC_INFOTEXT, info);
-    ResizeColumns();
-    SendMessage(DM_SETDEFID, IDOK);
-    GetDlgItem(IDOK)->SetFocus();
-
     CString sFinalInfo;
     if (!m_sTotalBytesTransferred.IsEmpty())
     {
@@ -1200,6 +1189,17 @@ UINT CSVNProgressDlg::ProgressThread()
     }
     if (m_bHookError)
         GetDlgItem(IDC_RETRYNOHOOKS)->ShowWindow(SW_SHOW);
+
+    DialogEnableWindow(IDCANCEL, FALSE);
+    DialogEnableWindow(IDOK, TRUE);
+
+    CString info = BuildInfoString();
+    if (!bSuccess)
+        info.LoadString(IDS_PROGRS_INFOFAILED);
+    SetDlgItemText(IDC_INFOTEXT, info);
+    ResizeColumns();
+    SendMessage(DM_SETDEFID, IDOK);
+    GetDlgItem(IDOK)->SetFocus();
 
     DWORD dwAutoClose = CRegStdDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
     BOOL bAutoCloseLocal = CRegStdDWORD(_T("Software\\TortoiseSVN\\AutoCloseLocal"), FALSE);
