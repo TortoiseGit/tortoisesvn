@@ -40,6 +40,8 @@ bool CLogFile::Open()
 
 bool CLogFile::Open(const CTSVNPath& logfile)
 {
+    if (m_maxlines == 0)
+        return false;   // do nothing if no log lines should be used.
     m_newLines.clear();
     m_logfile = logfile;
     if (!logfile.Exists())
