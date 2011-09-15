@@ -1073,12 +1073,6 @@
     <ClCompile Include="..\Utils\TaskbarUUID.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
-    <ClCompile Include="..\Utils\StdStringIntMapFile.cpp">
-      <Filter>Utils\General</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\UsageStats.cpp">
-      <Filter>Utils\General</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2057,12 +2051,6 @@
       <Filter>Utils\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\TaskbarUUID.h">
-      <Filter>Utils\General</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\StdStringIntMapFile.h">
-      <Filter>Utils\General</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\UsageStats.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
   </ItemGroup>
