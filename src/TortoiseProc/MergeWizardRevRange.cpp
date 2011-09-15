@@ -200,6 +200,7 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
 
     if (!url.IsEmpty())
     {
+        StopWCCheckThread();
         CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
         if (m_pLogDlg)
             m_pLogDlg->DestroyWindow();
@@ -291,6 +292,7 @@ BOOL CMergeWizardRevRange::OnSetActive()
 
 void CMergeWizardRevRange::OnBnClickedShowlogwc()
 {
+    StopWCCheckThread();
     CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
     if (m_pLogDlg2)
         m_pLogDlg2->DestroyWindow();

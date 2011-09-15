@@ -301,6 +301,7 @@ void CMergeWizardTree::OnBnClickedFindbranchstart()
     //now show the log dialog for the main trunk
     if (!url.IsEmpty())
     {
+        StopWCCheckThread();
         CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
         if (m_pLogDlg)
         {
@@ -335,6 +336,7 @@ void CMergeWizardTree::OnBnClickedFindbranchend()
     //now show the log dialog for the main trunk
     if (!url.IsEmpty())
     {
+        StopWCCheckThread();
         CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
         if (m_pLogDlg2)
         {
@@ -435,6 +437,7 @@ BOOL CMergeWizardTree::OnSetActive()
 
 void CMergeWizardTree::OnBnClickedShowlogwc()
 {
+    StopWCCheckThread();
     CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
     if (m_pLogDlg3)
         m_pLogDlg3->DestroyWindow();

@@ -178,6 +178,7 @@ void CMergeWizardReintegrate::OnBnClickedShowmergelog()
 {
     if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
         return;
+    StopWCCheckThread();
     CString url;
     m_URLCombo.GetWindowText(url);
 
@@ -208,6 +209,7 @@ void CMergeWizardReintegrate::OnBnClickedBrowse()
 
 void CMergeWizardReintegrate::OnBnClickedShowlogwc()
 {
+    StopWCCheckThread();
     CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
     if (m_pLogDlg2)
         m_pLogDlg2->DestroyWindow();
