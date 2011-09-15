@@ -116,6 +116,7 @@ public: // methods
     void            WrapChanged();
 
     void            HighlightLines(int start, int end = -1);
+    void            HighlightViewLines(int start, int end = -1);
     inline BOOL     IsHidden() const  {return m_bIsHidden;}
     inline void     SetHidden(BOOL bHidden) {m_bIsHidden = bHidden;}
     inline bool     IsModified() const  {return m_bModified;}

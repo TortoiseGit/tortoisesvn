@@ -2282,6 +2282,15 @@ void CBaseView::HighlightLines(int nStart, int nEnd /* = -1 */)
     Invalidate();
 }
 
+void CBaseView::HighlightViewLines(int nStart, int nEnd /* = -1 */)
+{
+    ClearSelection();
+    SetupAllViewSelection(nStart, max(nStart, nEnd));
+
+    UpdateCaretViewPosition(SetupPoint(0, nStart));
+    Invalidate();
+}
+
 void CBaseView::SetupAllViewSelection(int start, int end)
 {
     SetupViewSelection(m_pwndBottom, start, end);

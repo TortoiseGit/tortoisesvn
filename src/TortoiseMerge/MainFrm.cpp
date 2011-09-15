@@ -1577,17 +1577,17 @@ void CMainFrame::Search(SearchDirection srchDir)
     if (StringFound(left))
     {
         m_pwndLeftView->SetFocus();
-        m_pwndLeftView->HighlightLines(m_nSearchIndex);
+        m_pwndLeftView->HighlightViewLines(m_nSearchIndex);
     }
     else if (StringFound(right))
     {
         m_pwndRightView->SetFocus();
-        m_pwndRightView->HighlightLines(m_nSearchIndex);
+        m_pwndRightView->HighlightViewLines(m_nSearchIndex);
     }
     else if (StringFound(bottom))
     {
         m_pwndBottomView->SetFocus();
-        m_pwndBottomView->HighlightLines(m_nSearchIndex);
+        m_pwndBottomView->HighlightViewLines(m_nSearchIndex);
     }
     m_nMoveMovesToIgnore = MOVESTOIGNORE;
 }
