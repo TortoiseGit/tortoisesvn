@@ -95,7 +95,7 @@ bool CLogFile::Close()
     }
     catch (CFileException* pE)
     {
-        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CFileException loading autolist regex file\n");
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CFileException saving log file\n");
         pE->Delete();
         return false;
     }
