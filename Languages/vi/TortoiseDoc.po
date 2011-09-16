@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-16 00:26+0000\n"
+"PO-Revision-Date: 2011-09-16 07:49+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -11424,10 +11424,13 @@ msgid ""
 "<literal>svn:externals</literal> property, not to the directory where the "
 "external is written to disk."
 msgstr ""
+"Lưu ý rằng URL là tương đối với địa chỉ URL của thư mục với thuộc tính "
+"<literal> svn:externals </literal>, không phải với thư mục nơi thành phần "
+"bên ngoài được ghi vào đĩa."
 
 #. (term)
 msgid "Relative to repository root"
-msgstr ""
+msgstr "Tương đối so với gốc kho"
 
 #. (para)
 msgid ""
@@ -11435,6 +11438,9 @@ msgid ""
 "^/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr ""
+"Các URL này luôn luôn bắt đầu với chuỗi <literal>^/</literal> ví dụ: <screen>\n"
+"^/widgets/foo  common/foo-widget\n"
+"</screen> Điều này sẽ trích <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> v <filename>C:\\Working\\common\\foo-widget</filename>."
 
 #. (para)
 msgid ""
@@ -11442,10 +11448,13 @@ msgid ""
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
 msgstr ""
+"Bạn có thể dễ dàng tham khảo các kho khác với cùng một <literal>SVNParentPath</literal> (Một thư mục thông thường chứa nhiều kho). Ví dụ: <screen>\n"
+"^/../repos-2/hammers/claw  common/claw-hammer\n"
+"</screen> Điều này sẽ trích <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> vào <filename>C:\\Working\\common\\claw-hammer</filename>."
 
 #. (term)
 msgid "Relative to scheme"
-msgstr ""
+msgstr "Tương đối với giản đ"
 
 #. (para)
 msgid ""
@@ -11453,10 +11462,13 @@ msgid ""
 "//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> or <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> depending on which method was used to checkout <filename>C:\\Working</filename>."
 msgstr ""
+"Các URL bắt đầu với chuỗi <literal>//</literal> chỉ sao chép phần giản đồ của URL. Điều này rất hữu ích khi cùng một tên máy phải truy cập với các giản dồ khác nhau tùy thuộc vào vị trí mạng; ví dụ như máy khách trong mạng nội bộ sử dụng <systemitem class=\"url\">http://</systemitem> trong khi các máy khách bên ngoài sử dụng <systemitem class=\"url\">svn+ssh://</systemitem>. Ví dụ: <screen>\n"
+"//example.com/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> Điều này sẽ trích <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> hoặc <systemitem class=\"url\">svn+ssh://example.com/svn/repos-1/widgets/foo</systemitem> tùy thuộc vào phương pháp được sử dụng để kiểm xuất <filename>C:\\Working</filename>."
 
 #. (term)
 msgid "Relative to the server's hostname"
-msgstr ""
+msgstr "Tương đối so với tên chủ của máy chủ"
 
 #. (para)
 msgid ""
@@ -11464,6 +11476,9 @@ msgid ""
 "/svn/repos-1/widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>. But if you checkout your working copy from another server at <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> then the external reference will extract <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 msgstr ""
+"Các URL bắt đầu với chuỗi <literal>/</literal> sao chép giản dồ và một phần tên chủ của URL, ví dụ: <screen>\n"
+"/svn/repos-1/widgets/foo  common/foo-widget\n"
+"</screen> Điều này sẽ trích <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> vào <filename>C:\\Working\\common\\foo-widget</filename>. Nhưng nếu bạn kiểm xuất bản sao của bạn làm việc từ một máy chủ khác tại <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> thì các tham chiếu bên ngoài sẽ trích xuất <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 
 #. (para)
 msgid "You can also specify a peg revision for the URL if required."
