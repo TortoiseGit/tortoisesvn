@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-10 01:25+0000\n"
+"PO-Revision-Date: 2011-09-16 00:26+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -10429,6 +10429,12 @@ msgid ""
 "value, use a hex editor or other appropriate tool to create a file with the "
 "content you require, then <guibutton>Load...</guibutton> from that file."
 msgstr ""
+"TortoiseSVN có thể xử lý các giá trị thuộc tính nhị phân sử dụng các tập "
+"tin. Để đọc một thuộc tính giá trị nhị phân, <guibutton> Lưu ... "
+"</guibutton> vào một tập tin. Để đặt một giá trị nhị phân, sử dụng một trình"
+" soạn thảo hex hoặc một công cụ thích hợp khác để tạo ra một tập tin với các"
+" nội dung mà bạn yêu cầu, sau đó <guibutton> Tải ... </guibutton> từ tập tin"
+" đó."
 
 #. (para)
 msgid ""
@@ -10437,14 +10443,19 @@ msgid ""
 "application used to load the file is huge, you might want to store a "
 "thumbnail as a property so you can obtain a preview quickly."
 msgstr ""
+"Mặc dù các thuộc tính nhị phân không thường xuyên được sử dụng, chúng có thể"
+" hữu ích trong một số ứng dụng. Ví dụ, nếu bạn đang lưu trữ các tập tin đồ "
+"họa lớn, hoặc nếu ứng dụng được sử dụng để tải các tập tin là rất lớn, bạn "
+"có thể muốn để lưu trữ một hình ảnh thu nhỏ như là một thuộc tính để bạn có "
+"thể có được một bản xem trước một cách nhanh chóng."
 
 #. (title)
 msgid "Automatic property setting"
-msgstr ""
+msgstr "Thiết lập thuộc tính tự động"
 
 #. (primary)
 msgid "auto-props"
-msgstr ""
+msgstr "props-tự động"
 
 #. (para)
 msgid ""
@@ -10452,6 +10463,9 @@ msgid ""
 " on files and folders when they are added to the repository. There are two "
 "ways of doing this."
 msgstr ""
+"Bạn có thể cấu hình Subversion và TortoiseSVN để thiết lập các thuộc tính tự"
+" động trên các tập tin và thư mục khi được được bổ sung vào kho lưu trữ. Có "
+"hai cách để làm điều này."
 
 #. (para)
 msgid ""
@@ -10467,6 +10481,17 @@ msgid ""
 "be defined on each client individually - there is no way to propagate these "
 "settings from the repository."
 msgstr ""
+"Bạn có thể chỉnh sửa tập tin cấu hình subversion để kích hoạt tính năng này "
+"trên máy khách của bạn. Các trang <guilabel> Tổng quát </guilabel> của hộp "
+"thoại thiết lập TortoiseSVN có nút chỉnh sửa để bạn đến đó trực tiếp. Các "
+"tập tin cấu hình là một tập tin văn bản đơn giản, kiểm soát một số hoạt động"
+" của subversion. Bạn cần thay đổi hai điều: trước hết là trong phần đầu "
+"<literal> sự sưu tập </literal> bỏ ghi chú các dòng <literal> cho phép-"
+"props-tự động = yes </literal> . Thứ hai, bạn cần phải chỉnh sửa phần dưới "
+"đây để xác định những thuộc tính mà bạn muốn thêm vào các loại tập tin nào. "
+"Phương pháp này là một tính năng tiêu chuẩn của subversion và làm việc với "
+"bất kỳ máy khách subversion nào. Tuy nhiên, nó phải được định nghĩa trên mỗi"
+" máy khách - không có cách nào để truyền bá các thiết lập này từ kho."
 
 #. (para)
 msgid ""
@@ -10475,6 +10500,10 @@ msgid ""
 "works for TortoiseSVN clients, but it does get propagated to all working "
 "copies on update."
 msgstr ""
+"Một phương pháp thay thế là để thiết lập thuộc tính <literal> tsvn:autoprops"
+" </literal> trên các thư mục, như mô tả trong phần tiếp theo. Phương pháp "
+"này chỉ làm việc cho các máy khách TortoiseSVN, nhưng nó không nhận được "
+"tuyên truyền cho tất cả các bản sao làm việc lúc cập nhật."
 
 #. (para)
 msgid ""
@@ -10482,6 +10511,9 @@ msgid ""
 "applied to files at the time they are added to the working copy. Auto-props "
 "will never change the properties of files which are already versioned."
 msgstr ""
+"Cho dù bạn chọn phương pháp, bạn nên lưu ý rằng props-tự động chỉ áp dụng "
+"cho các tập tin tại thời điểm chúng được thêm vào bản sao làm việc. Props-tự"
+" động sẽ không bao giờ thay đổi các thuộc tính của tập tin đã phiên bản."
 
 #. (para)
 msgid ""
@@ -10489,20 +10521,25 @@ msgid ""
 " applied, you should set up a repository pre-commit hook to reject commits "
 "where the required properties are not set."
 msgstr ""
+"Nếu bạn muốn được hoàn toàn chắc chắn rằng các tập tin mới có áp dụng các "
+"thuộc tính đúng, bạn nên thiết lập một kho lưu trữ trước khi hook tiền cam "
+"kết để từ chối cam kết khi các thuộc tính được yêu cầu không được thiết lập."
 
 #. (title)
 msgid "Commit properties"
-msgstr ""
+msgstr "Cam kết các thuộc tính"
 
 #. (para)
 msgid ""
 "Subversion properties are versioned. After you change or add a property you "
 "have to commit your changes."
 msgstr ""
+"Thuộc tính Subversion được phiên bản. Sau khi bạn thay đổi hoặc thêm một "
+"thuộc tính, bạn phải cam kết thay đổi của bạn."
 
 #. (title)
 msgid "Conflicts on properties"
-msgstr ""
+msgstr "Xung đột về thuộc tính"
 
 #. (para)
 msgid ""
@@ -10510,18 +10547,21 @@ msgid ""
 "changed the same property, Subversion generates a <filename>.prej</filename>"
 " file. Delete this file after you have resolved the conflict."
 msgstr ""
+"Nếu có một cuộc xung đột lúc cam kết thay đổi, bởi vì một người dùng khác đã"
+" thay đổi thuộc tính, Subversion tạo ra một tập tin <filename> .prej "
+"</filename>. Xóa tập tin sau khi bạn đã giải quyết được xung đột."
 
 #. (title)
 msgid "TortoiseSVN Project Properties"
-msgstr ""
+msgstr "Thuộc tính dự án TortoiseSVN"
 
 #. (primary)
 msgid "project properties"
-msgstr ""
+msgstr "thuộc tính dự án"
 
 #. (primary)
 msgid "TortoiseSVN properties"
-msgstr ""
+msgstr "Thuộc tính TortoiseSVN"
 
 #. (para)
 msgid ""
@@ -10531,6 +10571,12 @@ msgid ""
 "proper descriptive message for every commit. If this property is not set, or"
 " the value is zero, empty log messages are allowed."
 msgstr ""
+"<literal> tsvn:logminsize </literal> đặt chiều dài tối thiểu của một thông "
+"điệp đăng nhập cho một cam kết. Nếu bạn nhập một thông điệp ngắn hơn so với "
+"quy định ở đây, cam kết bị vô hiệu hóa. Tính năng này rất hữu ích để nhắc "
+"nhở bạn để cung cấp một thông điệp mô tả thích hợp cho mỗi cam kết. Nếu "
+"thuộc tính này được không được thiết lập, hoặc giá trị là số không, các "
+"thông điệp tường trình trống được cho phép."
 
 #. (para)
 msgid ""
@@ -10540,6 +10586,12 @@ msgid ""
 "descriptive message for every lock you get. If this property is not set, or "
 "the value is zero, empty lock messages are allowed."
 msgstr ""
+"<literal> tsvn:lockmsgminsize </literal> thiết lập chiều dài tối thiểu của "
+"một thông điệp khóa. Nếu bạn nhập một thông báo ngắn hơn so với quy định ở "
+"đây, khóa bị vô hiệu hóa. Tính năng này rất hữu ích để nhắc nhở bạn cung cấp"
+" một thông điệp mô tả thích hợp cho mỗi khóa bạn nhận được. Nếu thuộc tính "
+"này không được thiết lập, hoặc giá trị là số không, các thông điệp khóa "
+"trống được cho phép."
 
 #. (para)
 msgid ""
@@ -10551,6 +10603,14 @@ msgid ""
 " see whether the text you entered is too long. Note: this feature will only "
 "work correctly if you have a fixed-width font selected for log messages."
 msgstr ""
+"<literal> tsvn:logwidthmarker </literal> được sử dụng với các dự án yêu cầu "
+"các thông điệp tường trình để được định dạng với một số chiều rộng tối đa "
+"(thường là 80 ký tự) trước khi ngắt dòng. Đặt thuộc tính này tới một giá trị"
+" khác-không sẽ làm 2 việc trong hộp thoại thông điệp tường trình: đặt một "
+"điểm đánh dấu để chỉ ra chiều rộng tối đa, và nó vô hiệu hóa gói gọn chữ "
+"trong màn hình, để bạn có thể xem các văn bản bạn quá dài. Lưu ý: tính năng "
+"này sẽ chỉ hoạt động được nếu bạn có một phông chữ cố định chiều rộng được "
+"lựa chọn cho các thông điệp tường trình."
 
 #. (para)
 msgid ""
@@ -10561,6 +10621,13 @@ msgid ""
 "also using <literal>tsvn:logminsize</literal>, be sure to set the length "
 "longer than the template or you will lose the protection mechanism."
 msgstr ""
+"<literal> tsvn:logtemplate </literal> được sử dụng với các dự án có những "
+"quy định về định dạng thông điệp tường trình. Thuộc tính nắm giữ một chuỗi "
+"văn bản nhiều dòng sẽ được chèn vào trong hộp thông báo cam kết khi bạn bắt "
+"đầu một cam kết. Sau đó, bạn có thể chỉnh sửa nó để bao gồm các thông tin "
+"cần thiết. Lưu ý: nếu bạn cũng sử dụng <literal> tsvn:logminsize </literal> "
+", hãy chắc chắn để thiết lập chiều dài dài hơn mẫu hoặc bạn sẽ mất cơ chế "
+"bảo vệ."
 
 #. (para)
 msgid ""
@@ -10569,12 +10636,18 @@ msgid ""
 "if set, but <literal>tsvn:logtemplate</literal> will be used if no action "
 "specific template is set."
 msgstr ""
+"Ngoài ra còn có các mẫu hành động cụ thể mà bạn có thể sử dụng thay vì "
+"<literal> tsvn:logtemplate </literal> . Các mẫu hành động cụ thể được sử "
+"dụng nếu thiết lập, nhưng <literal> tsvn:logtemplate </literal> sẽ được sử "
+"dụng nếu không có khuôn mẫu hành động cụ thể được thiết lập."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatecommit</literal> is used for all commits from a "
 "working copy."
 msgstr ""
+"<literal> tsvn:logtemplatecommit </literal> được sử dụng cho tất cả các cam "
+"kết từ một bản sao làm việc."
 
 #. (para)
 msgid ""
@@ -10582,42 +10655,54 @@ msgid ""
 "branch/tag, or when you copy files or folders directly in the repository "
 "browser."
 msgstr ""
+"<literal> tsvn:logtemplatebranch </literal> được sử dụng khi bạn tạo ra một "
+"chi nhánh/thẻ, hoặc khi bạn sao chép các tập tin hoặc thư mục trực tiếp "
+"trong trình duyệt kho lưu trữ."
 
 #. (para)
 msgid "<literal>tsvn:logtemplateimport</literal> is used for imports."
 msgstr ""
+"<literal> tsvn:logtemplateimport </literal> được sử dụng đối với nhập khẩu."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatedelete</literal> is used when deleting items "
 "directly in the repository browser."
 msgstr ""
+"<literal> tsvn:logtemplatedelete </literal> được sử dụng khi xóa trực tiếp "
+"các mục trong trình duyệt kho."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatemove</literal> is used when renaming or moving "
 "items in the repository browser."
 msgstr ""
+"<literal> tsvn:logtemplatemove </literal> được sử dụng khi đổi tên hoặc di "
+"chuyển các mục trong trình duyệt kho."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatemkdir</literal> is used when creating directories "
 "in the repository browser."
 msgstr ""
+"<literal> tsvn:logtemplatemkdir </literal> được sử dụng khi tạo các thư mục "
+"trong trình duyệt kho lưu trữ."
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatepropset</literal> is used when modifying properties"
 " in the repository browser."
 msgstr ""
+"<literal> tsvn:logtemplatepropset </literal> được sử dụng khi sửa đổi các "
+"thuộc tính trong trình duyệt kho lưu trữ."
 
 #. (para)
 msgid "<literal>tsvn:logtemplatelock</literal> is used when getting a lock."
-msgstr ""
+msgstr "<literal> tsvn:logtemplatelock </literal> được sử dụng khi lấy khóa."
 
 #. (para)
 msgid "The action specific templates are: <placeholder-1/>"
-msgstr ""
+msgstr "Các mẫu hành động cụ thể là: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -10630,6 +10715,15 @@ msgid ""
 "<literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two "
 "properties on files with the <literal>.sh</literal> extension."
 msgstr ""
+"Subversion cho phép bạn thiết lập <quote> autoprops </quote> mà sẽ được áp "
+"dụng cho các tập tin mới được thêm vào hay nhập khẩu, dựa trên phần mở rộng "
+"tập tin. Điều này phụ thuộc vào các máy khách có thiết lập autoprops thích "
+"hợp trong tập tin cấu hình subversion của chúng. <literal> tsvn:autoprops "
+"</literal> có thể được đặt trên các thư mục và sẽ được sáp nhập với các "
+"autoprops địa phương của người sử dụng khi nhập khẩu hoặc thêm các tập tin. "
+"Cấu trúc của nó tương tự như đối với autoprops subversion, ví dụ <literal> "
+"*.sh = svn:eol-style=native; svn:executable </literal> thiết lập hai thuộc "
+"tính trên các tập tin với phần mở rộng <literal> .sh </literal>."
 
 #. (para)
 msgid ""
@@ -10637,6 +10731,9 @@ msgid ""
 "<literal>tsvn:autoprops</literal>, the project settings take precedence "
 "because they are specific to that project."
 msgstr ""
+"Nếu có một cuộc xung đột giữa các autoprops địa phương và <literal> "
+"tsvn:autoprops </literal> , các thiết lập của dự án sẽ được ưu tiên vì chúng"
+" là cụ thể cho dự án đó."
 
 #. (para)
 msgid ""
@@ -10646,6 +10743,11 @@ msgid ""
 "is inserted in English or in the localized language. If the property is not "
 "set, the default is <literal>true</literal>."
 msgstr ""
+"Trong hộp thoại Cam kết, bạn có tùy chọn để dán trong danh sách các tập tin "
+"thay đổi, bao gồm cả tình trạng của mỗi tập tin (bổ sung, sửa đổi, vv). "
+"<literal> tsvn:logfilelistenglish </literal> định nghĩa liệu tình trạng tập "
+"tin được chèn bằng tiếng Anh hoặc bằng ngôn ngữ địa phương. Nếu thuộc tính "
+"không được thiết lập, mặc định là <literal> đúng </literal> ."
 
 #. (para)
 msgid ""
@@ -10659,6 +10761,15 @@ msgid ""
 "us/library/ms776260.aspx\"><citetitle>MSDN: Language "
 "Identifiers</citetitle></ulink>."
 msgstr ""
+"TortoiseSVN có thể sử dụng mô-đun kiểm tra chính tả cũng được sử bởi dụng "
+"OpenOffice và Mozilla. Nếu bạn có nó được cài đặt thì thuộc tính này sẽ xác "
+"định bộ kiểm tra chính tả nào để sử dụng, tức là cần phải được viết trong "
+"ngôn ngữ mà các thông điệp tường trình cho các dự án của bạn dùng. <literal>"
+" tsvn:projectlanguage </literal> thiết lập các mô-đun ngôn ngữ mà công cụ "
+"kiểm tra chính tả sử dụng khi bạn nhập một thông điệp tường trình. Bạn có "
+"thể tìm thấy các giá trị cho ngôn ngữ của bạn trên trang này: <ulink "
+"url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle> "
+"MSDN: Định danh Ngôn ngữ </citetitle></ulink> ."
 
 #. (para)
 msgid ""
@@ -10666,6 +10777,9 @@ msgid ""
 "<literal>0x</literal>. For example English (US) can be entered as "
 "<literal>0x0409</literal> or <literal>1033</literal>."
 msgstr ""
+"Bạn có thể nhập giá trị này trong thập phân, hoặc trong hệ thập lục phân nếu"
+" bắt đầu bằng <literal> 0x </literal> . Ví dụ tiếng Anh (Mỹ) có thể được "
+"nhập như <literal> 0x0409 </literal> hoặc <literal> 1033 </literal> ."
 
 #. (para)
 msgid ""
@@ -10673,6 +10787,9 @@ msgid ""
 " of the log message which is then shown in the log dialog as the log message"
 " summary."
 msgstr ""
+"Thuộc tính <literal> tsvn:logsummary </literal> được sử dụng để trích xuất "
+"một phần của thông điệp tường trình sau đó sẽ được hiển thị trong hộp thoại "
+"tường trình như là bản tóm tắt thông điệp tường trình."
 
 #. (para)
 msgid ""
@@ -10680,6 +10797,9 @@ msgid ""
 "a one line regex string which contains one regex group. Whatever matches "
 "that group is used as the summary."
 msgstr ""
+"Giá trị của thuộc tính <literal> tsvn:logsummary </literal> phải được thiết "
+"lập để một chuỗi regex một dòng trong đó có chứa một nhóm regex. Bất cứ cái "
+"nào khớp với nhóm sẽ được sử dụng như bản tóm tắt."
 
 #. (para)
 msgid ""
@@ -10687,6 +10807,9 @@ msgid ""
 "after <quote>[SUMMARY]</quote> in the log message and use that as the "
 "summary."
 msgstr ""
+"Một ví dụ: <literal> \\ [SUMMARY\\]:\\s+(.*) </literal> Sẽ đón bắt tất cả "
+"mọi thứ sau khi <quote> [SUMMARY] </quote> trong thông điệp tường trình và "
+"sử dụng nó như là bản tóm tắt."
 
 #. (para)
 msgid ""
@@ -10697,6 +10820,13 @@ msgid ""
 "the log dialog, or if it's available from the log cache) or open a new log "
 "dialog showing that revision."
 msgstr ""
+"Thuộc tính <literal> tsvn:logrevregex </literal> định nghĩa một biểu thức "
+"thông thường khớp với các tham khảo đến các bản sửa đổi trong một thông điệp"
+" tường trình. Điều này được sử dụng trong các hộp thoại tường trình để biến "
+"tài liệu tham khảo như vậy thành các liên kết mà khi nhấn vào một trong hai "
+"sẽ di chuyển đến bản sửa đổi đó (nếu bản sửa đổi đã được thể hiện trong các "
+"hộp thoại tường trình, hoặc nếu nó là có sẵn từ các bộ nhớ cache tường "
+"trình) hoặc mở một hộp thoại tường trình mới thể hiện bản sửa đổi đó."
 
 #. (para)
 msgid ""
@@ -10704,12 +10834,17 @@ msgid ""
 " number. The revision number is extracted from the matched reference string "
 "automatically."
 msgstr ""
+"Biểu thức thông thường phải khớp với toàn bộ các tham khảo, không chỉ là số "
+"phiên bản. Các số phiên bản được chiết xuất một cách tự động từ ​​chuỗi tham"
+" chiếu khớp."
 
 #. (para)
 msgid ""
 "If this property is not set, a default regular expression is used to link "
 "revision references."
 msgstr ""
+"Nếu thuộc tính này không được thiết lập, một biểu thức thông thường mặc định"
+" được sử dụng để liên kết các tham chiếu đến sửa đổi."
 
 #. (para)
 msgid ""
@@ -10723,12 +10858,24 @@ msgid ""
 "folder. When you go to edit the properties of any child item, your custom "
 "properties will appear in the list of pre-defined property names."
 msgstr ""
+"Khi bạn muốn thêm một thuộc tính mới, bạn có thể chọn từ danh sách trong hộp"
+" kết hợp, hoặc bạn có thể nhập tên bất kỳ thuộc tính mà bạn thích. Nếu dự án"
+" của bạn sử dụng một số thuộc tính tùy chỉnh, và bạn muốn những thuộc tính "
+"đó xuất hiện trong danh sách trong hộp kết hợp (để tránh lỗi chính tả khi "
+"bạn nhập tên thuộc tính), bạn có thể tạo ra một danh sách các thuộc tính tùy"
+" chỉnh của bạn bằng cách sử dụng <literal> tsvn:userfileproperties "
+"</literal> và <literal> tsvn:userdirproperties </literal> . Áp dụng các "
+"thuộc tính này vào một thư mục. Khi bạn đi chỉnh sửa các thuộc tính của bất "
+"kỳ mục con, thuộc tính tùy chỉnh của bạn sẽ xuất hiện trong danh sách các "
+"tên thuộc tính được định nghĩa trước."
 
 #. (para)
 msgid ""
 "TortoiseSVN has a few special properties of its own, and these begin with "
 "<literal>tsvn:</literal>. <placeholder-1/>"
 msgstr ""
+"TortoiseSVN có một vài thuộc tính đặc biệt của riêng mình, và những cái đó "
+"bắt đầu với <literal> tsvn:</literal>.<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -10736,6 +10883,9 @@ msgid ""
 "properties that start with <literal>bugtraq:</literal>. Read <xref linkend"
 "=\"tsvn-dug-bugtracker\"/> for further information."
 msgstr ""
+"TortoiseSVN có thể tích hợp với một số công cụ theo dõi lỗi. Điều này sử "
+"dụng các thuộc tính dự án bắt đầu bằng <literal> bugtraq: </literal> . Đọc "
+"<xref linkend=\"tsvn-dug-bugtracker\"/> để biết thêm thông tin."
 
 #. (para)
 msgid ""
@@ -10743,10 +10893,13 @@ msgid ""
 " properties that start with <literal>webviewer:</literal>. Read <xref "
 "linkend=\"tsvn-dug-repoviewer\"/> for further information."
 msgstr ""
+"Nó cũng có thể tích hợp với một số trình duyệt kho lưu trữ dựa trên web, sử "
+"dụng các thuộc tính dự án bắt đầu bằng <literal> webviewer: </literal> . Đọc"
+" <xref linkend=\"tsvn-dug-repoviewer\"/> để biết thêm thông tin."
 
 #. (title)
 msgid "Set the project properties on folders"
-msgstr ""
+msgstr "Thiết lập các thuộc tính của dự án trên các thư mục"
 
 #. (para)
 msgid ""
@@ -10764,6 +10917,20 @@ msgid ""
 "you will get different results depending on where you click in the folder "
 "structure."
 msgstr ""
+"Những thuộc tính dự án đặc biệt phải được đặt trên <emphasis> thư mục "
+"</emphasis> cho hệ thống để làm việc. Khi bạn sử dụng một lệnh TortoiseSVN "
+"trong đó sử dụng các thuộc tính này, các thuộc tính được đọc từ thư mục mà "
+"bạn nhấp vào. Nếu thuộc tính không được tìm thấy ở đó, TortoiseSVN sẽ tìm "
+"kiếm lên trên thông qua cây thư mục để tìm thấy chúng cho đến khi nó đến một"
+" thư mục không phiên bản, hoặc gốc của cây (ví dụ: <literal> C: \\ "
+"</literal> ) được tìm thấy. Nếu bạn có thể chắc chắn rằng mỗi người dùng chỉ"
+" kiểm tra ra từ ví dụ như <filename> trunk/ </filename> và không phải là một"
+" thư mục con, thì nó là đủ để thiết lập các thuộc tính trên <filename> "
+"trunk/ </filename> . Nếu bạn không thể chắc chắn, bạn nên thiết lập các "
+"thuộc tính một cách đệ quy trên mỗi thư mục con. Nếu bạn thiết lập thuộc "
+"tính tương tự nhưng sử dụng giá trị khác nhau tại các độ sâu khác nhau trong"
+" hệ thống phân cấp dự án của bạn thì bạn sẽ có được kết quả khác nhau tùy "
+"thuộc vào nơi bạn nhấp vào cấu trúc thư mục."
 
 #. (para)
 #. (para)
@@ -10775,6 +10942,11 @@ msgid ""
 " checkbox to set the property to all sub-folders in the hierarchy, without "
 "also setting it on all files."
 msgstr ""
+"Đối với thuộc tính <emphasis> chỉ </emphasis> của dự án, tức là <literal> "
+"tsvn: </literal> , <literal> bugtraq: </literal> và <literal> webviewer: "
+"</literal> bạn có thể sử dụng hộp kiểm <guilabel> Đệ quy </guilabel> để "
+"thiết lập thuộc tính cho tất cả các thư mục con trong hệ thống phân cấp, mà "
+"không cần đặt nó trên tất cả các tập tin."
 
 #. (para)
 #. (para)
@@ -10784,11 +10956,14 @@ msgid ""
 "project properties present in the parent folder will automatically be added "
 "to the new child folder too."
 msgstr ""
+"Khi bạn thêm mới các thư mục con vào một bản sao làm việc bằng cách sử dụng "
+"TortoiseSVN, bất kỳ thuộc tính dự án có trong thư mục mẹ sẽ tự động được "
+"thêm vào thư mục con."
 
 #. (title)
 #. (title)
 msgid "Limitations Using the Repository Browser"
-msgstr ""
+msgstr "Các Hạn chế khi Sử dụng Trình duyệt kho"
 
 #. (para)
 msgid ""
@@ -10796,6 +10971,9 @@ msgid ""
 "described above will not work in the repository browser as they do in a "
 "working copy."
 msgstr ""
+"Lấy thuộc tính từ xa là một hoạt động chậm, vì vậy một số tính năng được mô "
+"tả ở trên sẽ không làm việc trong trình duyệt kho lưu trữ như chúng làm được"
+" trong một bản sao làm việc."
 
 #. (para)
 msgid ""
@@ -10803,23 +10981,33 @@ msgid ""
 "<literal>svn:</literal> properties are offered in the pre-defined list. Any "
 "other property name must be entered manually."
 msgstr ""
+"Khi bạn thêm một thuộc tính bằng cách sử dụng trình duyệt kho, chỉ có thuộc "
+"tính tiêu chuẩn <literal> svn: </literal> được cung cấp trong danh sách được"
+" xác định trước. Bất kỳ tên thuộc tính khác phải được nhập bằng tay."
 
 #. (para)
 msgid ""
 "Properties cannot be set or deleted recursively using the repo browser."
 msgstr ""
+"Thuộc tính không có thể được thiết lập hoặc xóa một cách đệ quy bằng cách sử"
+" dụng trình duyệt kho."
 
 #. (para)
 msgid ""
 "Project properties will <emphasis>not</emphasis> be propagated automatically"
 " when a child folder is added using the repo browser."
 msgstr ""
+"Thuộc tính dự án <emphasis> không </emphasis> được truyền tự động khi một "
+"thư mục con được thêm vào bằng cách sử dụng trình duyệt kho."
 
 #. (para)
 msgid ""
 "<literal>tsvn:autoprops</literal> will <emphasis>not</emphasis> set "
 "properties on files which are added using the repo browser."
 msgstr ""
+"<literal> tsvn:autoprops </literal> sẽ <emphasis> không </emphasis> thiết "
+"lập các thuộc tính trên các tập tin được thêm vào bằng cách sử dụng trình "
+"duyệt kho."
 
 #. (para)
 msgid ""
@@ -10830,10 +11018,17 @@ msgid ""
 "repository hooks to enforce project policies. project properties can only "
 "help to implement a policy, they cannot enforce it."
 msgstr ""
+"Mặc dù thuộc tính dự án của TortoiseSVN là cực kỳ hữu ích, chúng chỉ làm "
+"việc với TortoiseSVN, và một số sẽ chỉ làm việc trong các phiên bản mới hơn "
+"của TortoiseSVN. Nếu những người làm việc trên dự án của bạn sử dụng một "
+"loạt các máy khách Subversion khác nhau, hoặc có thể có các phiên bản cũ của"
+" TortoiseSVN, bạn có thể muốn sử dụng hook kho lưu trữ để thực thi các chính"
+" sách dự án. Tài sản dự án chỉ có thể giúp đỡ để thực hiện một chính sách, "
+"chúng không thể thực thi nó."
 
 #. (title)
 msgid "Property Editors"
-msgstr ""
+msgstr "Bộ Biên tập Thuộc tính"
 
 #. (para)
 msgid ""
@@ -10842,14 +11037,19 @@ msgid ""
 "TortoiseSVN presents edit dialogs for some particular properties which show "
 "the possible values or break the property into its individual components."
 msgstr ""
+"Một số thuộc tính phải sử dụng các giá trị cụ thể, hoặc được định dạng theo "
+"một cách cụ thể để có thể được sử dụng cho tự động hóa. Để giúp có các định "
+"dạng chính xác, TortoiseSVN trình bày các hộp thoại chỉnh sửa đối với một số"
+" thuộc tính đặc biệt cho thấy các giá trị có thể hoặc phá vỡ thuộc tính "
+"thành các thành phần cá nhân."
 
 #. (title)
 msgid "External Content"
-msgstr ""
+msgstr "Nội dung bên ngoài"
 
 #. (title)
 msgid "svn:externals property page"
-msgstr ""
+msgstr "Trang thuộc tính svn: externals"
 
 #. (para)
 msgid ""
@@ -10857,6 +11057,10 @@ msgid ""
 "to pull in other projects from the same repository or a completely different"
 " repository as described in <xref linkend=\"tsvn-dug-externals\"/>."
 msgstr ""
+"<placeholder-1/> Các <literal> svn: externals </literal> thuộc tính có thể "
+"được sử dụng để kéo các dự án khác từ cùng một kho lưu trữ hoặc từ kho lưu "
+"trữ hoàn toàn khác nhau như được mô tả trong <xref linkend=\"tsvn-dug-"
+"externals\"/> ."
 
 #. (para)
 msgid ""
@@ -10872,51 +11076,67 @@ msgid ""
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
 msgstr ""
+"Bạn cần phải xác định tên của thư mục con mà thư mục bên ngoài được kiểm tra"
+" ra, và URL subversion của mục bên ngoài. Bạn có thể kiểm tra ra một thành "
+"phần bên ngoài tại bản sửa đổi CHÍNH của nó, vì vậy khi mục bên ngoài thay "
+"đổi trong kho lưu trữ, bản sao làm việc của bạn sẽ nhận được những thay đổi "
+"lúc cập nhật. Tuy nhiên, nếu bạn muốn thành phần bên ngoài để tham chiếu một"
+" điểm ổn định cụ thể thì bạn có thể chỉ định sửa đổi cụ thể để sử dụng. Ở "
+"trường hợp này bạn cũng có thể muốn chỉ ra cùng một bản chỉnh sửa như là một"
+" phiên bản gắn kết. Nếu đối tượng bên ngoài được đổi tên tại một thời điểm "
+"nào đó trong tương lai thì Subversion sẽ không thể cập nhật mục này trong "
+"bản sao làm việc của bạn. Bằng việc chỉ định một phiên bản gắn kết bạn nói "
+"với Subversion tìm một mục có tên đó ở các sửa đổi gắn kết hơn là tại bản "
+"CHÍNH."
 
 #. (title)
 msgid "SVN Keywords"
-msgstr ""
+msgstr "Từ khóa SVN"
 
 #. (title)
 msgid "svn:keywords property page"
-msgstr ""
+msgstr "Trang thuộc tính svn:keywords"
 
 #. (para)
 msgid ""
 "<placeholder-1/> Select the keywords that you would like to be expanded in "
 "your file."
 msgstr ""
+"<placeholder-1/> Chọn từ khoá mà bạn muốn được mở rộng trong tập tin của "
+"bạn."
 
 #. (title)
 msgid "EOL Style"
-msgstr ""
+msgstr "Kiểu EOL"
 
 #. (title)
 msgid "svn:eol-style property page"
-msgstr ""
+msgstr "Trang thuộc tính svn:eol-style"
 
 #. (para)
 msgid ""
 "<placeholder-1/> Select the end-of-line style that you wish to use and "
 "TortoiseSVN will use the correct property value."
 msgstr ""
+"<placeholder-1/> Chọn phong cách-cuối-dòng mà bạn muốn sử dụng và "
+"TortoiseSVN sẽ sử dụng đúng giá trị thuộc tính."
 
 #. (title)
 #. (title)
 msgid "Issue Tracker Integration"
-msgstr ""
+msgstr "Tích hợp bộ theo dõi lỗi"
 
 #. (title)
 msgid "tsvn:bugtraq property page"
-msgstr ""
+msgstr "Trang thuộc tính tsvn:bugtraq"
 
 #. (title)
 msgid "Log Message Sizes"
-msgstr ""
+msgstr "Kích thước thông điệp tường trình"
 
 #. (title)
 msgid "Size of log messages property page"
-msgstr ""
+msgstr "Kích thước của trang thuộc tính thông điệp tường trình"
 
 #. (para)
 msgid ""
@@ -10927,14 +11147,20 @@ msgid ""
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
 msgstr ""
+"<placeholder-1/> 3 thuộc tính kiểm soát các định dạng của thông điệp tường "
+"trình. 2 cái đầu tiên vô hiệu hóa <guibutton> OK </guibutton> trong hộp "
+"thoại cam kết hoặc khóa cho đến khi thông điệp đáp ứng chiều dài tối thiểu. "
+"Vị trí biên giới cho thấy một dấu hiệu độ rộng cột như một hướng dẫn cho các"
+" dự án có giới hạn chiều rộng trên thông điệp tường trình. Thiết lập một giá"
+" trị bằng không sẽ xóa các thuộc tính."
 
 #. (title)
 msgid "Project Language"
-msgstr ""
+msgstr "Ngôn ngữ dự án"
 
 #. (title)
 msgid "Language property page"
-msgstr ""
+msgstr "Trang thuộc tính ngôn ngữ"
 
 #. (para)
 msgid ""
@@ -10945,24 +11171,31 @@ msgid ""
 "local language. When this box is checked the status is always given in "
 "English, for projects which require English-only log messages."
 msgstr ""
+"<placeholder-1/> Chọn ngôn ngữ để sử dụng cho kiểm tra chính tả của thông "
+"điệp tường trình trong hộp thoại cam kết. Hộp kiểm danh sách tập tin có hiệu"
+" lực khi bạn kích chuột phải vào cửa sổ thông điệp tường trình và chọn "
+"<guilabel> Dán danh sách tập tin </guilabel> . Theo mặc định, tình trạng "
+"subversion sẽ được hiển thị bằng ngôn ngữ địa phương của bạn. Khi chọn hộp "
+"này, tình trạng luôn luôn được đưa ra trong tiếng Anh, cho các dự án có yêu "
+"cầu thông điệp tường trình chỉ dùng tiếng Anh."
 
 #. (title)
 msgid "MIME-type"
-msgstr ""
+msgstr "MIME-type"
 
 #. (title)
 msgid "svn:mime-type property page"
-msgstr ""
+msgstr "trang thuộc tính svn:mime-type"
 
 #. (title)
 #. (literal)
 #. (literal)
 msgid "svn:needs-lock"
-msgstr ""
+msgstr "svn:needs-lock"
 
 #. (title)
 msgid "svn:needs-lock property page"
-msgstr ""
+msgstr "trang thuộc tính svn:needs-lock"
 
 #. (para)
 msgid ""
@@ -10970,14 +11203,17 @@ msgid ""
 "checked out as read-only if there is no lock held for it in the working "
 "copy."
 msgstr ""
+"<placeholder-1/> Thuộc tính này chỉ đơn giản là kiểm soát xem một tập tin sẽ"
+" được kiểm tra ra là chỉ đọc nếu không có khóa được giữ cho nó trong bản sao"
+" làm việc."
 
 #. (title)
 msgid "svn:executable"
-msgstr ""
+msgstr "svn:executable"
 
 #. (title)
 msgid "svn:executable property page"
-msgstr ""
+msgstr "trang thuộc tính svn:executable"
 
 #. (para)
 msgid ""
@@ -10985,19 +11221,22 @@ msgid ""
 "executable status when checked out on a Unix/Linux system. It has no effect "
 "on a Windows checkout."
 msgstr ""
+"<placeholder-1/> Thuộc tính này điều khiển xem một tập tin sẽ được thực thi "
+"khi kiểm tra ra trên một hệ thống Unix / Linux. Nó không có hiệu lực khi "
+"kiểm tra ra trên Windows."
 
 #. (title)
 msgid "External Items"
-msgstr ""
+msgstr "Mục bên ngoài"
 
 #. (primary)
 msgid "external repositories"
-msgstr ""
+msgstr "các kho bên ngoài"
 
 #. (primary)
 #. (primary)
 msgid "externals"
-msgstr ""
+msgstr "các phần bên ngoài"
 
 #. (para)
 msgid ""
@@ -11008,10 +11247,17 @@ msgid ""
 "same layout, you can define the <literal>svn:externals</literal> properties "
 "to pull in the specified resource at the locations where they are needed."
 msgstr ""
+"Đôi khi nó rất hữu ích để xây dựng một bản sao làm việc được tạo ra bởi một "
+"số kiểm xuất khác nhau. Ví dụ, bạn có thể muốn các tập tin hoặc thư mục con "
+"khác nhau đến từ các địa điểm khác nhau trong một kho lưu trữ, hoặc có lẽ từ"
+" các kho khác nhau hoàn toàn. Nếu bạn muốn mọi người sử dụng có cùng một "
+"cách bố trí, bạn có thể xác định thuộc tính <literal> svn:externals "
+"</literal> để kéo vào nguồn tài nguyên được chỉ định tại các địa điểm nơi "
+"chúng là cần thiết."
 
 #. (title)
 msgid "External Folders"
-msgstr ""
+msgstr "Thư mục bên ngoài"
 
 #. (para)
 msgid ""
@@ -11029,12 +11275,26 @@ msgid ""
 "<guibutton>New...</guibutton> and then fill in the required information in "
 "the shown dialog."
 msgstr ""
+"Hãy nói rằng bạn hãy kiểm xuất một bản sao làm việc của <filename> /project1"
+" </filename> sang <filename> D:\\dev\\project1</filename> . Chọn thư mục "
+"<filename> D:\\dev\\project1</filename> , <action> nhấp chuột phải </action>"
+" và chọn <menuchoice><guimenu> Cửa sổ trình đơn </guimenu><guimenuitem> "
+"Thuộc tính </guimenuitem></menuchoice> từ trình đơn ngữ cảnh. Hộp thoại "
+"Thuộc Tính xuất hiện. Sau đó vào tab Subversion. Ở đó, bạn có thể thiết lập "
+"các thuộc tính. Nhấp vào <guibutton> Thuộc tính ... </guibutton> . Trong hộp"
+" thoại thuộc tính, hoặc nhấp đúp chuột vào <literal> svn:externals "
+"</literal> nếu nó đã tồn tại, hoặc nhấp vào nút <guibutton> Mới ... "
+"</guibutton> và chọn <literal> externals </literal> từ trình đơn. Để thêm "
+"vào một thành phần bên ngoài mới, nhấp vào <guibutton> Mới ... </guibutton> "
+"và sau đó điền vào các thông tin cần thiết trong hộp thoại hiển thị."
 
 #. (para)
 msgid ""
 "URLs must be properly escaped or they will not work, e.g. you must replace "
 "each space with <literal>%20</literal>."
 msgstr ""
+"URL phải được thoát ra đúng đắn nếu không chúng sẽ không làm việc, ví dụ như"
+" bạn phải thay thế mỗi khoảng trống bằng <literal>%20</literal>."
 
 #. (para)
 msgid ""
@@ -11046,10 +11306,17 @@ msgid ""
 "that this behaviour is new in Subversion 1.6 and will not work with older "
 "clients."
 msgstr ""
+"Nếu bạn muốn đường dẫn địa phương bao gồm các khoảng trống hoặc ký tự đặc "
+"biệt khác, bạn có thể đặt nó bên trong dấu ngoặc kép, hoặc bạn có thể sử "
+"dụng ký tự <literal> \\ </literal> (Dấu gạch chéo ngược) như ký tự thoát "
+"kiểu phong cách Unix shell trước bất kỳ ký tự đặc biệt nào. Trong quá trình "
+"này cũng có nghĩa là bạn phải sử dụng <literal> / </literal> (Dấu gạch chéo)"
+" như một dấu phân cách đường dẫn. Lưu ý rằng hành vi này mới có trong "
+"Subversion 1.6 và sẽ không làm việc với các máy khách cũ."
 
 #. (title)
 msgid "Use explicit revision numbers"
-msgstr ""
+msgstr "Sử dụng số sửa đổi rõ ràng"
 
 #. (para)
 msgid ""
@@ -11067,6 +11334,19 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr ""
+"Bạn nên xem xét mạnh mẽ việc sử dụng số sửa đổi rõ ràng trong tất cả các "
+"định nghĩa bên ngoài của bạn, như mô tả ở trên. Làm như vậy có nghĩa là bạn "
+"có thể quyết định khi nào để kéo xuống một bản chụp khác nhau của thông tin "
+"bên ngoài, và chính xác là bản chụp nào để kéo. Bên cạnh các khía cạnh chung"
+" để  không bị ngạc nhiên bởi những thay đổi đến các kho của bên thứ ba mà "
+"bạn có thể không có bất kỳ kiểm soát nào, sử dụng số sửa đổi rõ ràng cũng có"
+" nghĩa là khi bạn lùi ngày bản sao làm việc của bạn với một phiên bản trước "
+"đó, các định nghĩa bên ngoài của bạn cũng sẽ trở lại theo cách mà chúng được"
+" nhìn vào trong phiên bản trước đó, lần lượt có nghĩa là các bản sao làm "
+"việc bên ngoài sẽ được cập nhật để phù hợp với họ cách <emphasis> chúng "
+"</emphasis> được nhìn lại khi kho của bạn tại sửa đổi trước đó. Đối với các "
+"dự án phần mềm, điều này có thể là sự khác biệt giữa một xây dựng thành công"
+" và thất bại của một bản chụp cũ của cơ sở mã phức tạp của bạn."
 
 #. (para)
 #. (para)
@@ -11074,6 +11354,9 @@ msgid ""
 "If the external project is in the same repository, any changes you make "
 "there will be included in the commit list when you commit your main project."
 msgstr ""
+"Nếu dự án bên ngoài là trong cùng một kho lưu trữ, bất kỳ thay đổi bạn thực "
+"hiện sẽ được bao gồm trong danh sách cam kết khi bạn cam kết dự án chính của"
+" bạn."
 
 #. (para)
 #. (para)
@@ -11082,6 +11365,9 @@ msgid ""
 "to the external project will be notified when you commit the main project, "
 "but you have to commit those external changes separately."
 msgstr ""
+"Nếu dự án bên ngoài nằm trong một kho lưu trữ khác, bất kỳ thay đổi bạn thực"
+" hiện đến các dự án bên ngoài sẽ được thông báo khi bạn cam kết dự án chính,"
+" nhưng bạn phải cam kết những thay đổi bên ngoài một cách riêng biệt."
 
 #. (para)
 msgid ""
@@ -11089,6 +11375,10 @@ msgid ""
 " you have to relocate your working copy (i.e., if the URL of your repository"
 " changes), then your externals won't change and might not work anymore."
 msgstr ""
+"Nếu bạn sử dụng các URL tuyệt đối <literal> svn:externals </literal> trong "
+"các định nghĩa và bạn có di chuyển bản sao làm việc của bạn (ví dụ, nếu URL "
+"của kho của bạn thay đổi), sau đó các thành phần bên ngoài của bạn sẽ không "
+"thay đổi và có thể không làm việc nữa."
 
 #. (para)
 msgid ""
@@ -11103,10 +11393,20 @@ msgid ""
 " <filename>C:\\Working</filename> and the <literal>svn:externals</literal> "
 "property is set on trunk."
 msgstr ""
+"Để tránh các vấn đề như vậy, máy khách Subversion phiên bản 1.5 và mới hơn "
+"hỗ trợ các URL bên ngoài tương đối. Bốn phương pháp khác nhau để chỉ định "
+"một URL tương đối được hỗ trợ. Trong các ví dụ sau đây, giả sử chúng ta có "
+"hai kho: một ở <systemitem "
+"class=\"url\">http://example.com/svn/repos-1</systemitem> và một tại "
+"<systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>. Chúng"
+" ta đã kiểm xuất <systemitem "
+"class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> vào "
+"<filename> C:\\Working </filename> và thuộc tính <literal> svn:externals "
+"</literal> được thiết lập trên thân."
 
 #. (term)
 msgid "Relative to parent directory"
-msgstr ""
+msgstr "Tương đối so với thư mục mẹ"
 
 #. (para)
 msgid ""
@@ -11114,6 +11414,9 @@ msgid ""
 "../../widgets/foo  common/foo-widget\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> into <filename>C:\\Working\\common\\foo-widget</filename>."
 msgstr ""
+"Các URL luôn luôn bắt đầu với chuỗi <literal>../</literal> ví dụ: <screen>\n"
+"../../widgets/foo  common/foo-widget\n"
+"</screen> Điều này sẽ trích xuất <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> vào <filename>C:\\Working\\common\\foo-widget</filename>."
 
 #. (para)
 msgid ""
@@ -16752,13 +17055,14 @@ msgstr ""
 
 #. (para)
 msgid ""
-"If set to 1, then instead of all dialogs in one single group per applicaton,"
-" they're grouped together by repository. For example, if you have a log "
-"dialog and a commit dialog open for repository <literal>A</literal>, and a "
-"check-for-modifications dialog and a log dialog for repository "
-"<literal>B</literal>, then there are two application icon groups shown in "
-"the Win7 taskbar, one group for each repository. But TortoiseMerge windows "
-"are not grouped together with TortoiseSVN dialogs. <placeholder-1/>"
+"If set to 1, then instead of all dialogs in one single group per "
+"application, they're grouped together by repository. For example, if you "
+"have a log dialog and a commit dialog open for repository "
+"<literal>A</literal>, and a check-for-modifications dialog and a log dialog "
+"for repository <literal>B</literal>, then there are two application icon "
+"groups shown in the Win7 taskbar, one group for each repository. But "
+"TortoiseMerge windows are not grouped together with TortoiseSVN dialogs. "
+"<placeholder-1/>"
 msgstr ""
 
 #. (para)
@@ -16766,7 +17070,7 @@ msgid ""
 "If set to 2, then the grouping works as with the setting set to 1, except "
 "that TortoiseSVN, TortoiseMerge, TortoiseBlame, TortoiseIDiff and "
 "TortoiseUDiff windows are all grouped together. For example, if you have the"
-" commit dialog open and then doubleclick on a modified file, the opened "
+" commit dialog open and then double click on a modified file, the opened "
 "TortoiseMerge diff window will be put in the same icon group on the taskbar "
 "as the commit dialog icon. <placeholder-1/>"
 msgstr ""

@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-07 00:38+0000\n"
+"PO-Revision-Date: 2011-09-15 07:57+0000\n"
 "Last-Translator: Endra <endra.granasamsa@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -535,11 +535,11 @@ msgstr "&Pilih perintah dari:"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
-msgstr ""
+msgstr "&Pilih item..."
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
-msgstr ""
+msgstr "&Membersihkan status salinan pekerjaan"
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
@@ -1366,7 +1366,7 @@ msgstr "&Unified diff"
 
 #. Resource IDs: (1061)
 msgid "&Unknown drives"
-msgstr "Pemacu &tidak dikenal"
+msgstr "&Pemacu tidak dikenal"
 
 #. Resource IDs: (8)
 msgid "&Update"
@@ -1386,7 +1386,7 @@ msgstr "&Perbarui sampai revisi..."
 
 #. Resource IDs: (1184)
 msgid "&Use auto-completion of file paths and keywords"
-msgstr "G&unakan pelengkapan otomatis untuk path berkas dan kata kunci"
+msgstr "&Gunakan pelengkapan otomatis untuk path berkas dan kata kunci"
 
 #. Resource IDs: (1432)
 msgid "&Use recycle bin"
@@ -1422,11 +1422,11 @@ msgstr "&Windows XP"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
-msgstr "Copy &Pekerjaan"
+msgstr " &Salinan Pekerjaan"
 
 #. Resource IDs: (32881)
 msgid "&Wrap long lines"
-msgstr ""
+msgstr " &Gulung baris panjang"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -1438,6 +1438,8 @@ msgid ""
 "'%s'\n"
 "is not a valid URL or path!"
 msgstr ""
+"'%s'\n"
+"bukan URL atau path yang benar!"
 
 #. Resource IDs: (338)
 msgid ""
@@ -1583,7 +1585,7 @@ msgstr ": basis bekerja"
 
 #. Resource IDs: (151)
 msgid ": working copy"
-msgstr ": copy pekerjaan"
+msgstr ": salinan pekerjaan"
 
 #. Resource IDs: (332)
 msgid "< &Back"
@@ -1639,6 +1641,9 @@ msgid ""
 "If you add an '?' char at the end of a path, then only this path will be included.\r\n"
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
 msgstr ""
+"Daftar path yang dipisahkan oleh baris baru di mana lapisan ikon ditampilkan.\n"
+"Jika Anda menambahkan karakter '?' di akhir path, maka hanya path itu yang akan disertakan.\n"
+"Jika Anda menambahkan karakter '*' atau tidak sama sekali di akhir path, maka semua berkas dan subdir di dalam path itu disertakan juga."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1646,8 +1651,8 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
 msgstr ""
-"Daftar path yang dipisahkan oleh baris baru di mana lapisan ikon ditampilkan.\r\n"
-"Jika Anda menambahkan karakter '*' di akhir path, maka semua berkas dan subdir di dalam path itu disertakan juga.\r\n"
+"Daftar path yang dipisahkan oleh baris baru di mana tiada konteks menu ditampilkan.\n"
+"Jika Anda menambahkan karakter '*' di akhir path, maka semua berkas dan subdir di dalam path itu disertakan juga.\n"
 "Daftar kosong akan mengizinkan lapisan pada semua path."
 
 #. Resource IDs: (194)
@@ -1657,6 +1662,10 @@ msgid ""
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
 msgstr ""
+"Daftar path yang dipisahkan oleh baris baru di mana tiada lapisan ikon ditampilkan.\n"
+"Jika Anda menambahkan karakter '?' di akhir path, maka hanya path itu yang tidak akan disertakan.\n"
+"Jika Anda menambahkan karakter '*' atau tidak sama sekali di akhir path, maka semua berkas dan subdir di dalam path itu tidak akan disertakan juga.\n"
+"Daftar kosong akan mengizinkan lapisan pada semua path."
 
 #. Resource IDs: (90)
 msgid ""
@@ -1688,7 +1697,7 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "A&dd folder..."
-msgstr "Tambah fol&der..."
+msgstr "&Tambah folder..."
 
 #. Resource IDs: (563)
 msgid "Abort"
@@ -1967,7 +1976,7 @@ msgstr ""
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
-msgstr "Izink&an UUID rancu"
+msgstr "Izinkan &UUID rancu"
 
 #. Resource IDs: (345)
 msgid ""
@@ -2179,7 +2188,7 @@ msgstr "Pembuat"
 
 #. Resource IDs: (65535)
 msgid "Author:\t\t\t\tStefan Kueng"
-msgstr "Pengarang:\t\t\t\tStefan Kueng"
+msgstr "Pengarang:»»»»Stefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
@@ -2240,7 +2249,7 @@ msgstr "Rata-rata"
 
 #. Resource IDs: (32850)
 msgid "B&lack Style"
-msgstr "Gaya &Hitam"
+msgstr "&Gaya Hitam"
 
 #. Resource IDs: (1003, 1011)
 msgid "B&rowse..."
@@ -2256,11 +2265,11 @@ msgstr "Tampilan Belakang"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
-msgstr "Grafik Bar"
+msgstr "Bilah Grafik"
 
 #. Resource IDs: (65535)
 msgid "Base file:"
-msgstr "Berkas base:"
+msgstr "Basis berkas:"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -2304,7 +2313,7 @@ msgstr "Br&owse..."
 
 #. Resource IDs: (115)
 msgid "Branch / tag created successfully!"
-msgstr "Cabang / tag dibuat dengan!"
+msgstr "Cabang / tag berhasil dibuat!"
 
 #. Resource IDs: (2052)
 msgid "Branch at copy-from-rev even if there was no change in that revision"
@@ -2314,11 +2323,11 @@ msgstr ""
 
 #. Resource IDs: (9)
 msgid "Branch/&tag..."
-msgstr "Cabang/&tag..."
+msgstr "&Cabang/tag..."
 
 #. Resource IDs: (16)
 msgid "Break loc&k"
-msgstr "Bongkar &kunci"
+msgstr "&Bongkar kunci"
 
 #. Resource IDs: (78)
 msgid "Browse for the external diff program"
@@ -2338,7 +2347,7 @@ msgstr "Bug-ID"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
-msgstr "T&anda ID-Bug:"
+msgstr "&Tanda ID-Bug:"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
@@ -2358,11 +2367,11 @@ msgstr "Penampilan Tombol"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
-msgstr "Per&iksa sekarang"
+msgstr "&Periksa sekarang"
 
 #. Resource IDs: (1132)
 msgid "C&heck repository"
-msgstr "Peri&ksa repositori"
+msgstr "&Periksa repositori"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
@@ -2374,7 +2383,7 @@ msgstr "&Perintah:"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
-msgstr "Buat cabang/tag dari &revisi"
+msgstr "&Buat cabang/tag dari revisi"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
@@ -2382,11 +2391,11 @@ msgstr "&Buat folder..."
 
 #. Resource IDs: (65535)
 msgid "C&urrent Keys:"
-msgstr "K&unci Sekarang:"
+msgstr "&Kunci Sekarang:"
 
 #. Resource IDs: (501)
 msgid "C&ut"
-msgstr "P&otong"
+msgstr "&Potong"
 
 #. Resource IDs: (3697)
 msgid "CAP"
@@ -2632,7 +2641,7 @@ msgstr ""
 
 #. Resource IDs: (16926)
 msgid "Casca&de"
-msgstr "Berbanj&ar"
+msgstr "&Berbanjar"
 
 #. Resource IDs: (65535)
 msgid "Cascaded context menu"
@@ -2644,7 +2653,7 @@ msgstr "Kasus-sensitif"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
-msgstr "Kate&gori:"
+msgstr "&Kategori:"
 
 #. Resource IDs: (82)
 msgid "Certificate expired or not yet valid"
@@ -5338,7 +5347,7 @@ msgstr "ID"
 
 #. Accelerator Entry for Menu ID:105; 'E&xit'
 msgid "ID:105:V C +W"
-msgstr ""
+msgstr "ID:105:V C +W"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
@@ -5639,6 +5648,8 @@ msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
 msgstr ""
+"Jika Anda ingin membuka kunci, gunakan dialog 'Cek Untuk Modifikasi' atau "
+"browser repositori."
 
 #. Resource IDs: (563)
 msgid "Ignore"
@@ -6156,7 +6167,7 @@ msgstr ""
 
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
-msgstr ""
+msgstr "&Path lokal"
 
 #. Resource IDs: (130)
 msgid "Load Images"

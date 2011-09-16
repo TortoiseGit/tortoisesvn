@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-11 09:38+0000\n"
+"PO-Revision-Date: 2011-09-16 06:03+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -725,7 +725,7 @@ msgstr "ファイル(&F)"
 
 #. Resource IDs: (32809)
 msgid "&Filter"
-msgstr "フィルタ(&F)"
+msgstr "フィルター(&F)"
 
 #. Resource IDs: (1, 57636)
 msgid "&Find"
@@ -2022,7 +2022,7 @@ msgstr ""
 "使用する外部差分ツールを指定する。\r\n"
 "\r\n"
 "パスに次のパラメーターを使用することができます。\r\n"
-"%base : Base ファイル\r\n"
+"%base : BASEファイル\r\n"
 "%mine : 変更後のファイル"
 
 #. Resource IDs: (79)
@@ -2260,7 +2260,7 @@ msgstr "ヒストグラム"
 
 #. Resource IDs: (65535)
 msgid "Base file:"
-msgstr "Base ファイル:"
+msgstr "BASEファイル:"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -3753,7 +3753,7 @@ msgstr "日時"
 
 #. Resource IDs: (117)
 msgid "Date Range"
-msgstr "日付の範囲"
+msgstr "日時の範囲"
 
 #. Resource IDs: (1008, 32842)
 msgid "Default"
@@ -4945,7 +4945,7 @@ msgstr ""
 
 #. Resource IDs: (117)
 msgid "Filter by"
-msgstr "フィルタ"
+msgstr "フィルター："
 
 #. Resource IDs: (65535)
 msgid "Filter match"
@@ -8414,16 +8414,14 @@ msgstr ""
 
 #. Resource IDs: (74, 209)
 msgid "Resolved"
-msgstr "解決済にする"
+msgstr "解決済み"
 
 #. Resource IDs: (282)
 #, c-format
 msgid ""
 "Resolved:\n"
 "%s"
-msgstr ""
-"競合の解決:\n"
-"%s"
+msgstr "%sの競合を解決しました。"
 
 #. Resource IDs: (9)
 msgid "Resolves conflicted files"
