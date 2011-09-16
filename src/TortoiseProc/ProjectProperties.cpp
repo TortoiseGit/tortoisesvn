@@ -772,7 +772,7 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
         bRet = props.Add(PROJECTPROPNAME_LOGFILELISTLANG, "false") && bRet;
     if (!sLogSummaryRe.IsEmpty())
         bRet = props.Add(PROJECTPROPNAME_LOGSUMMARY, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogSummaryRe)) && bRet;
-    if (!sLogRevRegex.IsEmpty())
+    if (!sLogRevRegex.IsEmpty() && sLogRevRegex.Compare(LOG_REVISIONREGEX))
         bRet = props.Add(PROJECTPROPNAME_LOGREVREGEX, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogRevRegex)) && bRet;
     if (lProjectLanguage)
     {
