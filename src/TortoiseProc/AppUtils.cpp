@@ -786,16 +786,34 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
     }
     else
     {
-        // browse local directories
-        CBrowseFolder folderBrowser;
-        folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-        if (folderBrowser.Show(pParent->GetSafeHwnd(), strUrl) == CBrowseFolder::OK)
+        SVN svn;
+        if (svn.IsRepository(CTSVNPath(strUrl)))
         {
+            // browse repository - show repository browser
             SVN::PathToUrl(strUrl);
+            CRepositoryBrowser browser(strUrl, rev, pParent);
+            if (browser.DoModal() == IDOK)
+            {
+                combo.SetCurSel(-1);
+                combo.SetWindowText(multiSelection ? browser.GetSelectedURLs() : browser.GetPath());
+                combo.SetFocus();
+                rev = browser.GetRevision();
+                return true;
+            }
+        }
+        else
+        {
+            // browse local directories
+            CBrowseFolder folderBrowser;
+            folderBrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
+            if (folderBrowser.Show(pParent->GetSafeHwnd(), strUrl) == CBrowseFolder::OK)
+            {
+                SVN::PathToUrl(strUrl);
 
-            combo.SetCurSel(-1);
-            combo.SetWindowText(strUrl);
-            return true;
+                combo.SetCurSel(-1);
+                combo.SetWindowText(strUrl);
+                return true;
+            }
         }
     }
 
