@@ -131,7 +131,7 @@ public:
 
     static bool FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end);
 
-    static bool BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool multiSelection = false);
+    static bool BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool multiSelection = false, const CString& root = CString(), const CString& selUrl = CString());
     static bool BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, CWnd * pParent, SVNRev& rev);
 
     /**

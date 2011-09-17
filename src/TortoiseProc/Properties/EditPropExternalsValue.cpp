@@ -173,8 +173,7 @@ void CEditPropExternalsValue::OnOK()
 void CEditPropExternalsValue::OnBnClickedBrowse()
 {
     SVNRev rev = SVNRev::REV_HEAD;
-
-    CAppUtils::BrowseRepository(m_URLCombo, this, rev);
+    CAppUtils::BrowseRepository(m_URLCombo, this, rev, false, m_RepoRoot.GetSVNPathString(), m_URL.GetSVNPathString());
 }
 
 void CEditPropExternalsValue::OnBnClickedShowLog()

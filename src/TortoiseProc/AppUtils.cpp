@@ -717,7 +717,7 @@ bool CAppUtils::BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, 
     return false;
 }
 
-bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool multiSelection)
+bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool multiSelection, const CString& root, const CString& selUrl)
 {
     CString strURLs;
     combo.GetWindowText(strURLs);
@@ -726,10 +726,20 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
     strURLs.Replace('\\', '/');
     strURLs.Replace(_T("%"), _T("%25"));
 
-    CTSVNPathList paths;
-    paths.LoadFromAsteriskSeparatedString (strURLs);
+    CString strUrl = strURLs;
+    if (multiSelection)
+    {
+        CTSVNPathList paths;
+        paths.LoadFromAsteriskSeparatedString (strURLs);
 
-    CString strUrl = paths.GetCommonRoot().GetSVNPathString();
+        strUrl = paths.GetCommonRoot().GetSVNPathString();
+    }
+
+    if ((strUrl.Left(1) == L"/")&&(!selUrl.IsEmpty()))
+        strUrl = selUrl + strUrl;
+    if ((strUrl.Left(1) == L"^")&&(!root.IsEmpty()))
+        strUrl = root + strUrl.Mid(1);
+
     if (strUrl.Left(7) == _T("file://"))
     {
         CString strFile(strUrl);
