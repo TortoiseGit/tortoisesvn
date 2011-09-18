@@ -26,7 +26,7 @@ bool RevisionGraphCommand::Execute()
     CString val = parser.GetVal(_T("pegrev"));
     SVNRev pegrev = val.IsEmpty() ? SVNRev() : SVNRev(val);
 
-    CRevisionGraphDlg * dlg = new CRevisionGraphDlg();
+    std::unique_ptr<CRevisionGraphDlg> dlg(new CRevisionGraphDlg());
     dlg->SetPath(cmdLinePath.GetUIPathString());
     dlg->SetPegRevision(pegrev);
     if (parser.HasVal(L"output"))
@@ -37,7 +37,6 @@ bool RevisionGraphCommand::Execute()
         dlg->StartHidden();
     }
     dlg->DoModal();
-    delete dlg;
 
     return true;
 }
