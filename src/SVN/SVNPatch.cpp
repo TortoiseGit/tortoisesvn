@@ -28,6 +28,7 @@
 #pragma warning(push)
 #include "svn_dso.h"
 #include "svn_utf.h"
+#include "svn_dirent_uri.h"
 #pragma warning(pop)
 
 
@@ -141,6 +142,11 @@ svn_error_t * SVNPatch::patchfile_func( void *baton, svn_boolean_t * filtered, c
 
 int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgressDlg *pPprogDlg )
 {
+    if (patchfile.IsEmpty() || targetpath.IsEmpty() || !svn_dirent_is_absolute(CUnicodeUtils::GetUTF8(targetpath)))
+    {
+        m_errorStr.LoadString(IDS_ERR_PATCHPATHS);
+        return 0;
+    }
     svn_error_t *               err         = NULL;
     apr_pool_t *                scratchpool = NULL;
     svn_client_ctx_t *          ctx         = NULL;
