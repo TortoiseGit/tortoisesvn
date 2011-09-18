@@ -76,7 +76,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     curHand = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
     curHandDown = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANDOWNCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
 
-    CMainWindow * mainWindow = new CMainWindow(hResource);
+    std::unique_ptr<CMainWindow> mainWindow(new CMainWindow(hResource));
     mainWindow->SetRegistryPath(_T("Software\\TortoiseSVN\\TortoiseIDiffWindowPos"));
 
     mainWindow->SetLeft(parser.HasVal(_T("left")) ? parser.GetVal(_T("left")) : _T(""), parser.HasVal(_T("lefttitle")) ? parser.GetVal(_T("lefttitle")) : _T(""));
@@ -109,10 +109,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                 DispatchMessage(&msg);
             }
         }
-        delete mainWindow;
         return (int) msg.wParam;
     }
-    delete mainWindow;
     langDLL.Close();
     DestroyCursor(curHand);
     DestroyCursor(curHandDown);

@@ -421,15 +421,15 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
         }
 
         int nBufferSize = sizeof(DROPFILES) + (nLength+1)*sizeof(TCHAR);
-        char * pBuffer = new char[nBufferSize];
+        std::unique_ptr<char[]> pBuffer(new char[nBufferSize]);
 
-        SecureZeroMemory(pBuffer, nBufferSize);
+        SecureZeroMemory(pBuffer.get(), nBufferSize);
 
-        DROPFILES* df = (DROPFILES*)pBuffer;
+        DROPFILES* df = (DROPFILES*)pBuffer.get();
         df->pFiles = sizeof(DROPFILES);
         df->fWide = 1;
 
-        TCHAR* pFilenames = (TCHAR*)(pBuffer + sizeof(DROPFILES));
+        TCHAR* pFilenames = (TCHAR*)(pBuffer.get() + sizeof(DROPFILES));
         TCHAR* pCurrentFilename = pFilenames;
 
         for (int i=0;i<m_svnPaths.GetCount();i++)
@@ -448,11 +448,10 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
         {
             LPVOID pMem = ::GlobalLock(pmedium->hGlobal);
             if (pMem)
-                memcpy(pMem, pBuffer, nBufferSize);
+                memcpy(pMem, pBuffer.get(), nBufferSize);
             GlobalUnlock(pmedium->hGlobal);
         }
         pmedium->pUnkForRelease = NULL;
-        delete [] pBuffer;
         return S_OK;
     }
 

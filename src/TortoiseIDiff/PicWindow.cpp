@@ -22,6 +22,7 @@
 #include "PicWindow.h"
 #include "math.h"
 #include "SysInfo.h"
+#include <memory>
 
 #pragma comment(lib, "Msimg32.lib")
 #pragma comment(lib, "shell32.lib")
@@ -1232,8 +1233,8 @@ void CPicWindow::Paint(HWND hwnd)
             SetBkColor(memDC, transparentColor);
             if (bShowInfo)
             {
-                TCHAR * infostring = new TCHAR[8192];
-                BuildInfoString(infostring, 8192, false);
+               std::unique_ptr<TCHAR[]> infostring(new TCHAR[8192]);
+                BuildInfoString(infostring.get(), 8192, false);
                 // set the font
                 NONCLIENTMETRICS metrics = {0};
                 metrics.cbSize = sizeof(NONCLIENTMETRICS);
@@ -1249,7 +1250,7 @@ void CPicWindow::Paint(HWND hwnd)
                 HFONT hFont = CreateFontIndirect(&metrics.lfStatusFont);
                 HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
                 // find out how big the rectangle for the text has to be
-                DrawText(memDC, infostring, -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER | DT_CALCRECT);
+                DrawText(memDC, infostring.get(), -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER | DT_CALCRECT);
 
                 // the text should be drawn with a four pixel offset to the window borders
                 m_inforect.top = rect.bottom - (m_inforect.bottom-m_inforect.top) - 4;
@@ -1265,10 +1266,9 @@ void CPicWindow::Paint(HWND hwnd)
                 DrawEdge(memDC, &edgerect, EDGE_BUMP, BF_RECT | BF_SOFT);
 
                 SetTextColor(memDC, GetSysColor(COLOR_WINDOWTEXT));
-                DrawText(memDC, infostring, -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
+                DrawText(memDC, infostring.get(), -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
                 SelectObject(memDC, (HGDIOBJ)hFontOld);
                 DeleteObject(hFont);
-                delete [] infostring;
             }
         }
         else
