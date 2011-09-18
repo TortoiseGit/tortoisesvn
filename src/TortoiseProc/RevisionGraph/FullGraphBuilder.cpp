@@ -55,7 +55,7 @@ void CFullGraphBuilder::Run()
 
     // initialize the paths we have to search for
 
-    std::auto_ptr<CSearchPathTree> searchTree
+    std::unique_ptr<CSearchPathTree> searchTree
         (new CSearchPathTree (&revisionInfo.GetPaths()));
     searchTree->Insert (*history.GetStartPath(), history.GetStartRevision());
 

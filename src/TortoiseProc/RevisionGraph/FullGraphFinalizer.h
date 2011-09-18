@@ -71,5 +71,5 @@ private:
     const CFullHistory& history;
     CFullGraph& graph;
 
-    std::auto_ptr<CPathClassificator> pathClassification;
+    std::unique_ptr<CPathClassificator> pathClassification;
 };

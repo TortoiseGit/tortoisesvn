@@ -177,7 +177,7 @@ private:
 
         /// path to log for and the begin of the current gap
         /// in the log for that path
-        std::auto_ptr<CDictionaryBasedTempPath> currentPath;
+        std::unique_ptr<CDictionaryBasedTempPath> currentPath;
         revision_t firstNARevision;
 
         /// the last revision we forwarded to the receiver.

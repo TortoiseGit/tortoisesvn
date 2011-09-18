@@ -581,9 +581,9 @@ void CRepositoryLister::WaitForJobsToFinish()
 
 // wait for all jobs to be finished
 
-std::auto_ptr<async::CSchedulerSuspension> CRepositoryLister::SuspendJobs()
+std::unique_ptr<async::CSchedulerSuspension> CRepositoryLister::SuspendJobs()
 {
-    return std::auto_ptr<async::CSchedulerSuspension>
+    return std::unique_ptr<async::CSchedulerSuspension>
             (new async::CSchedulerSuspension (scheduler));
 }
 

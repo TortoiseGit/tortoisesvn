@@ -154,7 +154,7 @@ public:
 protected:
     DECLARE_MESSAGE_MAP()
 
-    std::auto_ptr<CFileDropTarget> m_pDropTarget;
+    std::unique_ptr<CFileDropTarget> m_pDropTarget;
     virtual void PreSubclassWindow();
 };
 

@@ -126,7 +126,7 @@ public:
     CString         m_sPath;
     SVNRev          m_pegRev;
 
-    std::auto_ptr<CFuture<bool> > updateJob;
+    std::unique_ptr<CFuture<bool> > updateJob;
     CRevisionGraphState m_state;
 
     void            InitView();

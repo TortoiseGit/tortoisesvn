@@ -1341,7 +1341,7 @@ void CLogDlg::LogThread()
     size_t startcount = m_logEntries.size();
     m_bStrictStopped = false;
 
-    std::auto_ptr<const CCacheLogQuery> cachedData;
+    std::unique_ptr<const CCacheLogQuery> cachedData;
     if (succeeded)
     {
         cachedData = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_bRefresh);
@@ -1365,7 +1365,7 @@ void CLogDlg::LogThread()
         // make sure the m_logEntries is consistent
 
         if (cachedData.get() != NULL)
-            m_logEntries.Finalize (cachedData, m_sRelativeRoot, !LogCache::CSettings::GetEnabled());
+            m_logEntries.Finalize (std::move(cachedData), m_sRelativeRoot, !LogCache::CSettings::GetEnabled());
         else
             m_logEntries.ClearAll();
     }

@@ -176,13 +176,13 @@ private:
     bool                        cancelled;
 
     CCachedLogInfo*             cache;
-    std::auto_ptr<CSVNLogQuery> svnQuery;
-    std::auto_ptr<CCacheLogQuery> query;
+    std::unique_ptr<CSVNLogQuery> svnQuery;
+    std::unique_ptr<CCacheLogQuery> query;
 
-    std::auto_ptr<CDictionaryBasedTempPath> startPath;
+    std::unique_ptr<CDictionaryBasedTempPath> startPath;
     revision_t                  startRevision;
 
-    std::auto_ptr<CDictionaryBasedTempPath> wcPath;
+    std::unique_ptr<CDictionaryBasedTempPath> wcPath;
     SWCInfo                     wcInfo;
 
     boost::pool<>               copyInfoPool;

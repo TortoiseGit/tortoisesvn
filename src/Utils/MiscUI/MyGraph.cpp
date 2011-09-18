@@ -91,7 +91,7 @@ void MyGraphSeries::SetTipRegion(int nGroup, const CRect& rc)
 {
     VALIDATE;
 
-    std::auto_ptr<CRgn> prgnNew (new CRgn);
+    std::unique_ptr<CRgn> prgnNew (new CRgn);
     ASSERT_VALID(prgnNew.get());
 
     VERIFY(prgnNew->CreateRectRgnIndirect(rc));
@@ -1471,7 +1471,7 @@ void MyGraph::DrawSeriesPie(CDC& dc) const
                         VERIFY(dc.BeginPath());
                         VERIFY(dc.Pie(rcPie, ptStart, ptEnd));
                         VERIFY(dc.EndPath());
-                        std::auto_ptr<CRgn> prgnWedge (new CRgn);
+                        std::unique_ptr<CRgn> prgnWedge (new CRgn);
                         VERIFY(prgnWedge->CreateFromPath(&dc));
                         pSeries->SetTipRegion(nGroup, prgnWedge.release());
 

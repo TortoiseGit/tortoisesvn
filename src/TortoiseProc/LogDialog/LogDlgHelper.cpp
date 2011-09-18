@@ -163,7 +163,7 @@ PLOGENTRYDATA CLogCacheUtility::GetRevisionData (svn_revnum_t revision)
 
     // construct result
 
-    std::auto_ptr<LOGENTRYDATA> result
+    std::unique_ptr<LOGENTRYDATA> result
         (new CLogEntryData
             ( NULL
             , revision

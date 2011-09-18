@@ -600,7 +600,7 @@ public:
      * \return pointer to the query run (and thus the resulting data),
      *        if successful. NULL, otherwise.
      */
-    std::auto_ptr<const CCacheLogQuery>
+    std::unique_ptr<const CCacheLogQuery>
     ReceiveLog(const CTSVNPathList& pathlist, const SVNRev& revisionPeg, const SVNRev& revisionStart,
         const SVNRev& revisionEnd, int limit, bool strict, bool withMerges, bool refresh);
 
@@ -985,7 +985,7 @@ private:
 
     // the logCachePool must not be static: it uses apr/svn pools, and static objects
     // will get cleaned up *after* we shut down apr.
-    std::auto_ptr<LogCache::CLogCachePool> logCachePool;
+    std::unique_ptr<LogCache::CLogCachePool> logCachePool;
 };
 
 static UINT WM_SVNPROGRESS = RegisterWindowMessage(_T("TORTOISESVN_SVNPROGRESS_MSG"));

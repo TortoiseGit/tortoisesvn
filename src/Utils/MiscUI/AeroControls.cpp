@@ -182,9 +182,9 @@ LRESULT AeroControlBase::StaticWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
                             HANDLE hBmpIco = (HANDLE)SendMessage(hWnd, STM_GETIMAGE, bIcon ? IMAGE_ICON:IMAGE_BITMAP, NULL);
                             if(hBmpIco)
                             {
-                                std::auto_ptr<Bitmap> pBmp( bIcon ? new Bitmap((HICON)hBmpIco) : new Bitmap((HBITMAP)hBmpIco, NULL) );
-                                std::auto_ptr<Graphics> myGraphics( new Graphics(hdcPaint) );
-                                std::auto_ptr<CachedBitmap> pcbmp( new CachedBitmap(pBmp.get(), myGraphics.get()) );
+                                std::unique_ptr<Bitmap> pBmp( bIcon ? new Bitmap((HICON)hBmpIco) : new Bitmap((HBITMAP)hBmpIco, NULL) );
+                                std::unique_ptr<Graphics> myGraphics( new Graphics(hdcPaint) );
+                                std::unique_ptr<CachedBitmap> pcbmp( new CachedBitmap(pBmp.get(), myGraphics.get()) );
                                 VERIFY(Ok==myGraphics->DrawCachedBitmap(pcbmp.get(), 0,0));
                             }
                         }
@@ -427,8 +427,8 @@ LRESULT AeroControlBase::ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
                             ///
                             cr |= 0xff000000;
 
-                            std::auto_ptr<Pen> myPen( new Pen(Color(cr), 1) );
-                            std::auto_ptr<Graphics> myGraphics( new Graphics(hdcPaint) );
+                            std::unique_ptr<Pen> myPen( new Pen(Color(cr), 1) );
+                            std::unique_ptr<Graphics> myGraphics( new Graphics(hdcPaint) );
                             int iY = RECTHEIGHT(rcDraw)/2;
                             Rect rr = Rect(rcClient.left, rcClient.top+iY,
                                 RECTWIDTH(rcClient), RECTHEIGHT(rcClient)-iY-1);
@@ -848,8 +848,8 @@ LRESULT AeroControlBase::ProgressbarWindowProc(HWND hWnd, UINT uMsg, WPARAM wPar
 
 void AeroControlBase::FillRect(LPRECT prc, HDC hdcPaint, Color clr)
 {
-    std::auto_ptr<SolidBrush> pBrush(new SolidBrush(clr));
-    std::auto_ptr<Graphics> myGraphics(new Graphics(hdcPaint));
+    std::unique_ptr<SolidBrush> pBrush(new SolidBrush(clr));
+    std::unique_ptr<Graphics> myGraphics(new Graphics(hdcPaint));
 
     myGraphics->FillRectangle(pBrush.get(), prc->left, prc->top,
         prc->right - 1 - prc->left, prc->bottom - 1 - prc->top);
@@ -952,9 +952,9 @@ int AeroControlBase::GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFoc
 
 void AeroControlBase::DrawRect(LPRECT prc, HDC hdcPaint, DashStyle dashStyle, Color clr, REAL width)
 {
-    std::auto_ptr<Pen> myPen(new Pen(clr, width));
+    std::unique_ptr<Pen> myPen(new Pen(clr, width));
     myPen->SetDashStyle(dashStyle);
-    std::auto_ptr<Graphics> myGraphics(new Graphics(hdcPaint));
+    std::unique_ptr<Graphics> myGraphics(new Graphics(hdcPaint));
 
     myGraphics->DrawRectangle(myPen.get(), prc->left, prc->top,
         prc->right - 1 - prc->left, prc->bottom - 1 - prc->top);

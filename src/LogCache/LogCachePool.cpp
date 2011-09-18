@@ -209,7 +209,7 @@ CCachedLogInfo* CLogCachePool::GetCache (const CString& uuid, const CString& roo
     // load / create
 
     std::wstring fileName = (LPCTSTR)(cacheFolderPath + info->fileName);
-    std::auto_ptr<CCachedLogInfo> cache (new CCachedLogInfo (fileName));
+    std::unique_ptr<CCachedLogInfo> cache (new CCachedLogInfo (fileName));
 
     cache->Load (CSettings::GetMaxFailuresUntilDrop());
 

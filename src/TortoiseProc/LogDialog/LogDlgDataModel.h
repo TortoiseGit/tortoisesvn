@@ -268,7 +268,7 @@ private:
 
     /// the query used to fill this container
 
-    std::auto_ptr<const CCacheLogQuery> query;
+    std::unique_ptr<const CCacheLogQuery> query;
 
     /// filter utiltiy method
 
@@ -302,10 +302,10 @@ public:
 
     /// finalization (call this after receiving all log entries)
 
-    void Finalize ( std::auto_ptr<const CCacheLogQuery> query
+    void Finalize ( std::unique_ptr<const CCacheLogQuery> query
                   , const CString& startLogPath, bool bMerge);
 
-    /// access to unfilered info
+    /// access to unfiltered info
 
     size_t size() const {return inherited::size();}
     PLOGENTRYDATA operator[](size_t index) const {return at (index);}

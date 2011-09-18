@@ -204,7 +204,7 @@ bool CRevisionGraphWnd::FetchRevisionData
         return false;
     }
 
-    std::auto_ptr<CFullHistory> newFullHistory (new CFullHistory());
+    std::unique_ptr<CFullHistory> newFullHistory (new CFullHistory());
 
     bool showWCRev
         = m_state.GetOptions()->GetOption<CShowWC>()->IsSelected();
@@ -222,7 +222,7 @@ bool CRevisionGraphWnd::FetchRevisionData
 
     if (result)
     {
-        std::auto_ptr<CFullGraph> newFullGraph (new CFullGraph());
+        std::unique_ptr<CFullGraph> newFullGraph (new CFullGraph());
 
         CFullGraphBuilder builder (*newFullHistory, *newFullGraph);
         builder.Run();
@@ -248,7 +248,7 @@ bool CRevisionGraphWnd::AnalyzeRevisionData()
         CSyncPointer<CAllRevisionGraphOptions> options (m_state.GetOptions());
         options->Prepare();
 
-        std::auto_ptr<CVisibleGraph> visibleGraph (new CVisibleGraph());
+        std::unique_ptr<CVisibleGraph> visibleGraph (new CVisibleGraph());
         CVisibleGraphBuilder builder ( *fullGraph
                                      , *visibleGraph
                                      , options->GetCopyFilterOptions());
@@ -261,7 +261,7 @@ bool CRevisionGraphWnd::AnalyzeRevisionData()
 
         // layout nodes
 
-        std::auto_ptr<CStandardLayout> newLayout
+        std::unique_ptr<CStandardLayout> newLayout
             ( new CStandardLayout ( m_state.GetFullHistory()->GetCache()
                                   , visibleGraph.get()
                                   , m_state.GetFullHistory()->GetWCInfo()));

@@ -32,7 +32,7 @@
 using namespace Gdiplus;
 
 /**
- * An auto_ptr-like template that keeps a lock
+ * An unique_ptr-like template that keeps a lock
  * alongside with the pointer.
  */
 
@@ -209,11 +209,11 @@ public:
 
     /// basic, synchronized data write access
 
-    void SetQueryResult ( std::auto_ptr<CFullHistory>& newHistory
-                        , std::auto_ptr<CFullGraph>& newFullGraph
+    void SetQueryResult ( std::unique_ptr<CFullHistory>& newHistory
+                        , std::unique_ptr<CFullGraph>& newFullGraph
                         , bool newFetchedWCState);
-    void SetAnalysisResult ( std::auto_ptr<CVisibleGraph>& newVisibleGraph
-                           , std::auto_ptr<CStandardLayout>& newLayout);
+    void SetAnalysisResult ( std::unique_ptr<CVisibleGraph>& newVisibleGraph
+                           , std::unique_ptr<CStandardLayout>& newLayout);
 
     void SetLastErrorMessage (const CString& message);
 
@@ -246,10 +246,10 @@ private:
 
     /// internal revision graph data
 
-    std::auto_ptr<CFullHistory> fullHistory;
-    std::auto_ptr<CFullGraph> fullGraph;
-    std::auto_ptr<CVisibleGraph> visibleGraph;
-    std::auto_ptr<IRevisionGraphLayout> layout;
+    std::unique_ptr<CFullHistory> fullHistory;
+    std::unique_ptr<CFullGraph> fullGraph;
+    std::unique_ptr<CVisibleGraph> visibleGraph;
+    std::unique_ptr<IRevisionGraphLayout> layout;
 
     /// revision graph UI data
 

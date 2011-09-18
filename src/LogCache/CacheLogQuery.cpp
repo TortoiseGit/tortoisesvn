@@ -412,7 +412,7 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
         {
             // create the appropriate iterator to follow the potential path change
 
-            std::auto_ptr<CLogIteratorBase> iterator
+            std::unique_ptr<CLogIteratorBase> iterator
                 (  options.GetStrictNodeHistory()
                  ? static_cast<CLogIteratorBase*>
                     (new CStrictLogIterator (cache, revision, *currentPath))
@@ -964,7 +964,7 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 
     // create the right iterator
 
-    std::auto_ptr<ILogIterator> iterator
+    std::unique_ptr<ILogIterator> iterator
         (options.CreateIterator ( cache
                                 , startRevision
                                 , startPath));

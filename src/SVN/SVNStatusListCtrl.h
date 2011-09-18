@@ -1076,7 +1076,7 @@ private:
 
     bool                        m_bCheckChildrenWithParent;
     bool                        m_bRevertMode;
-    std::auto_ptr<CSVNStatusListCtrlDropTarget> m_pDropTarget;
+    std::unique_ptr<CSVNStatusListCtrlDropTarget> m_pDropTarget;
 
     ColumnManager               m_ColumnManager;
 

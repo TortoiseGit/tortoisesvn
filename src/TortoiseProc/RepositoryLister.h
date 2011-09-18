@@ -420,7 +420,7 @@ public:
     /// return a RAII object that suspends job scheduling for its
     /// lifetime (jobs already being processed will not be affected)
 
-    std::auto_ptr<async::CSchedulerSuspension> SuspendJobs();
+    std::unique_ptr<async::CSchedulerSuspension> SuspendJobs();
 
     /// don't return results from previous or still running requests
     /// the next time \ref GetList() gets called

@@ -179,8 +179,8 @@ CSyncPointer<SVN> CRevisionGraphState::GetSVN()
 // basic, synchronized data write access
 
 void CRevisionGraphState::SetQueryResult
-    ( std::auto_ptr<CFullHistory>& newHistory
-    , std::auto_ptr<CFullGraph>& newFullGraph
+    ( std::unique_ptr<CFullHistory>& newHistory
+    , std::unique_ptr<CFullGraph>& newFullGraph
     , bool newFetchedWCState)
 {
     CSingleLock lock (&mutex);
@@ -206,8 +206,8 @@ void CRevisionGraphState::SetQueryResult
 }
 
 void CRevisionGraphState::SetAnalysisResult
-    ( std::auto_ptr<CVisibleGraph>& newVisibleGraph
-    , std::auto_ptr<CStandardLayout>& newLayout)
+    ( std::unique_ptr<CVisibleGraph>& newVisibleGraph
+    , std::unique_ptr<CStandardLayout>& newLayout)
 {
     CSingleLock lock (&mutex);
 

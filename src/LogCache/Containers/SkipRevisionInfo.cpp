@@ -467,7 +467,7 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
 
     for (size_t i = 0; i < count; ++i)
     {
-        std::auto_ptr<CSkipRevisionInfo::SPerPathRanges> perPathInfo
+        std::unique_ptr<CSkipRevisionInfo::SPerPathRanges> perPathInfo
             (new CSkipRevisionInfo::SPerPathRanges);
 
         perPathInfo->pathID = pathIDsStream->GetValue();

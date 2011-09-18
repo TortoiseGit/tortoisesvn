@@ -33,7 +33,7 @@ SVNRev SVNLogHelper::GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyf
     if (!pegrev.IsNumber())
         return SVNRev();
 
-    std::auto_ptr<const CCacheLogQuery> query
+    std::unique_ptr<const CCacheLogQuery> query
         (ReceiveLog (CTSVNPathList(url), pegrev, pegrev, 1, 0, TRUE, FALSE, false));
     if (query.get() == NULL)
         return result;

@@ -1304,7 +1304,7 @@ LogCache::CCachedLogInfo* SVN::GetLogCache (const CTSVNPath& path)
     return GetLogCachePool()->GetCache (uuid, root);
 }
 
-std::auto_ptr<const CCacheLogQuery>
+std::unique_ptr<const CCacheLogQuery>
 SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
                  const SVNRev& revisionStart, const SVNRev& revisionEnd,
                  int limit, bool strict, bool withMerges, bool refresh)
@@ -1322,12 +1322,12 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
         // cached-based queries.
         // Use & update exisiting cache
 
-        std::auto_ptr<CCacheLogQuery> cacheQuery
+        std::unique_ptr<CCacheLogQuery> cacheQuery
             (new CCacheLogQuery (GetLogCachePool(), &svnQuery));
 
         // run query through SVN but collect results in a temporary cache
 
-        std::auto_ptr<CCacheLogQuery> tempQuery
+        std::unique_ptr<CCacheLogQuery> tempQuery
             (new CCacheLogQuery (*this, &svnQuery));
 
         // select query and run it
@@ -1387,7 +1387,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
 
         // return the cache that contains the log info
 
-        return std::auto_ptr<const CCacheLogQuery>
+        return std::unique_ptr<const CCacheLogQuery>
             (GetLogCachePool()->IsEnabled()
                 ? cacheQuery.release()
                 : tempQuery.release() );
@@ -1395,7 +1395,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
     catch (SVNError& e)
     {
         Err = svn_error_create (e.GetCode(), NULL, e.GetMessage());
-        return std::auto_ptr<const CCacheLogQuery>();
+        return std::unique_ptr<const CCacheLogQuery>();
     }
 }
 
