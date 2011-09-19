@@ -24,6 +24,8 @@ public:
     CMyMemDC(CDC* pDC, bool bTempOnly = false, int nOffset = 0) : CDC()
     {
         ASSERT(pDC != NULL);
+        if (pDC == nullptr)
+            return;
 
         m_pDC = pDC;
         m_pOldBitmap = NULL;
@@ -51,6 +53,8 @@ public:
     CMyMemDC(CDC* pDC, const CRect* pRect) : CDC()
     {
         ASSERT(pDC != NULL);
+        if (pDC == nullptr)
+            return;
 
         // Some initialization
         m_pDC = pDC;

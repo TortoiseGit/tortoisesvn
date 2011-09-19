@@ -1847,6 +1847,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         break;
     case ID_COMPARE:
         {
+            if (data == NULL)
+                break;
             POSITION pos = m_ProgList.GetFirstSelectedItemPosition();
             CString sResolvedPaths;
             while (pos)
@@ -1928,6 +1930,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         break;
     case ID_EDITCONFLICT:
         {
+            if (data == NULL)
+                break;
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
             CString sCmd;
             sCmd.Format(_T("/command:conflicteditor /path:\"%s\""),
@@ -2012,6 +2016,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         break;
     case ID_LOG:
         {
+            if (data == NULL)
+                break;
             // fetch the log from HEAD, not the revision we updated to:
             // the path might be inside an external folder which has its own
             // revisions.
@@ -2028,6 +2034,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         // fall through here
     case ID_OPEN:
         {
+            if (data == NULL)
+                break;
             CString sWinPath = GetPathFromColumnText(data->sPathColumnText);
             if (!bOpenWith)
             {
@@ -2074,7 +2082,7 @@ void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* pNMHDR, LRESULT *pResult)
         return;
     }
 
-    CIDropSource* pdsrc = new CIDropSource;
+    std::unique_ptr<CIDropSource> pdsrc(new CIDropSource);
     if (pdsrc == NULL)
         return;
     pdsrc->AddRef();
@@ -2083,7 +2091,6 @@ void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* pNMHDR, LRESULT *pResult)
     SVNDataObject* pdobj = new SVNDataObject(pathList, SVNRev::REV_WC, SVNRev::REV_WC);
     if (pdobj == NULL)
     {
-        delete pdsrc;
         return;
     }
     pdobj->AddRef();
@@ -2097,8 +2104,9 @@ void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* pNMHDR, LRESULT *pResult)
 
     // Initiate the Drag & Drop
     DWORD dwEffect;
-    ::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
+    ::DoDragDrop(pdobj, pdsrc.get(), DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
     pdsrc->Release();
+    pdsrc.release();
     pdobj->Release();
 }
 

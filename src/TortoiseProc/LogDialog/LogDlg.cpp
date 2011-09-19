@@ -1693,6 +1693,8 @@ bool CLogDlg::IsSelectionContinuous()
 LRESULT CLogDlg::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     ASSERT(m_pFindDialog != NULL);
+    if (m_pFindDialog == nullptr)
+        return 0;
 
     if (m_pFindDialog->IsTerminating())
     {

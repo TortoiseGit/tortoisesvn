@@ -149,7 +149,8 @@ void CColors::SetColor(Colors col, COLORREF cr)
 {
     CRegDWORD* setting = GetRegistrySetting (col);
     assert (setting != NULL);
-
+    if (setting == nullptr)
+        return;
     *setting = cr;
 }
 

@@ -1261,7 +1261,8 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const
         // allocate memory to hold file contents
         auto_buffer<char> buffer(size);
         DWORD readbytes;
-        ReadFile(hFile, buffer, size, &readbytes, NULL);
+        if (!ReadFile(hFile, buffer, size, &readbytes, NULL))
+            return;
         int opts = 0;
         IsTextUnicode(buffer, readbytes, &opts);
         if (opts & IS_TEXT_UNICODE_NULL_BYTES)

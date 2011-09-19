@@ -712,6 +712,8 @@ HRESULT SVNDataObject::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, L
         return E_OUTOFMEMORY;
 
     DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
+    if (pDropDescription == nullptr)
+        return E_FAIL;
     lstrcpyW(pDropDescription->szInsert, insert);
     lstrcpyW(pDropDescription->szMessage, format);
     pDropDescription->type = image;

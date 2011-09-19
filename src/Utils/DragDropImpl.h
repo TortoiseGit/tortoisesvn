@@ -427,6 +427,8 @@ public:
         di.ptOffset.y = pt.y - rc.top;
         if (pDragSourceHelper2)
             return pDragSourceHelper2->InitializeFromBitmap(&di, pDataObject);
+        if (pDragSourceHelper == NULL)
+            return E_FAIL;
         return pDragSourceHelper->InitializeFromBitmap(&di, pDataObject);
     }
     HRESULT InitializeFromWindow(HWND hwnd, POINT& pt, IDataObject* pDataObject, BOOL allowDropDescription=TRUE)
@@ -437,6 +439,8 @@ public:
             pDragSourceHelper2->SetFlags(DSH_ALLOWDROPDESCRIPTIONTEXT);
         if (pDragSourceHelper2)
             return pDragSourceHelper2->InitializeFromWindow(hwnd, &pt, pDataObject);
+        if (pDragSourceHelper == NULL)
+            return E_FAIL;
         return pDragSourceHelper->InitializeFromWindow(hwnd, &pt, pDataObject);
     }
 };

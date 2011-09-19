@@ -4220,6 +4220,8 @@ void CSVNStatusListCtrl::WriteCheckedNamesToPathList(CTSVNPathList& pathList)
     {
         const FileEntry* entry = GetListEntry(i);
         ASSERT(entry != NULL);
+        if (entry == nullptr)
+            continue;
         if (entry->IsChecked())
         {
             pathList.AddPath(entry->path);
@@ -4593,7 +4595,7 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
     if (pathList.GetCount() == 0)
         return;
 
-    CIDropSource* pdsrc = new CIDropSource;
+    std::unique_ptr<CIDropSource> pdsrc(new CIDropSource);
     if (pdsrc == NULL)
         return;
     pdsrc->AddRef();
@@ -4602,7 +4604,6 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
     SVNDataObject* pdobj = new SVNDataObject(pathList, SVNRev::REV_WC, SVNRev::REV_WC);
     if (pdobj == NULL)
     {
-        delete pdsrc;
         return;
     }
     pdobj->AddRef();
@@ -4631,9 +4632,10 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
     // Initiate the Drag & Drop
     DWORD dwEffect;
     m_bOwnDrag = true;
-    ::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
+    ::DoDragDrop(pdobj, pdsrc.get(), DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
     m_bOwnDrag = false;
     pdsrc->Release();
+    pdsrc.release();
     pdobj->Release();
 
     *pResult = 0;
@@ -5034,7 +5036,6 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
         {
             if (!entry->IsFolder())
             {
-                TCHAR buf[100];
                 __int64 filesize = entry->working_size != (-1) ? entry->working_size : entry->GetPath().GetFileSize();
                 StrFormatByteSize64(filesize, buf, _countof(buf));
                 temp = buf;

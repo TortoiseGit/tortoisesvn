@@ -2361,7 +2361,7 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
 void CRepositoryBrowser::OnCbenDragbeginUrlcombo(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
     // build copy source / content
-    CIDropSource* pdsrc = new CIDropSource;
+    std::unique_ptr<CIDropSource> pdsrc(new CIDropSource);
     if (pdsrc == NULL)
         return;
 
@@ -2371,7 +2371,6 @@ void CRepositoryBrowser::OnCbenDragbeginUrlcombo(NMHDR * /*pNMHDR*/, LRESULT *pR
     SVNDataObject* pdobj = new SVNDataObject(CTSVNPathList(CTSVNPath(GetPath())), revision, revision, true);
     if (pdobj == NULL)
     {
-        delete pdsrc;
         return;
     }
     pdobj->AddRef();
@@ -2385,8 +2384,9 @@ void CRepositoryBrowser::OnCbenDragbeginUrlcombo(NMHDR * /*pNMHDR*/, LRESULT *pR
 
     // Initiate the Drag & Drop
     DWORD dwEffect;
-    ::DoDragDrop(pdobj, pdsrc, DROPEFFECT_LINK, &dwEffect);
+    ::DoDragDrop(pdobj, pdsrc.get(), DROPEFFECT_LINK, &dwEffect);
     pdsrc->Release();
+    pdsrc.release();
     pdobj->Release();
 
     *pResult = 0;
@@ -3890,7 +3890,7 @@ void CRepositoryBrowser::BeginDrag(const CWnd& window,
     }
 
     // build copy source / content
-    CIDropSource* pdsrc = new CIDropSource;
+    std::unique_ptr<CIDropSource> pdsrc(new CIDropSource);
     if (pdsrc == NULL)
         return;
 
@@ -3900,7 +3900,6 @@ void CRepositoryBrowser::BeginDrag(const CWnd& window,
     SVNDataObject* pdobj = new SVNDataObject(selection.GetURLsEscaped(0), revision, revision);
     if (pdobj == NULL)
     {
-        delete pdsrc;
         return;
     }
     pdobj->AddRef();
@@ -3913,8 +3912,9 @@ void CRepositoryBrowser::BeginDrag(const CWnd& window,
 
     // Initiate the Drag & Drop
     DWORD dwEffect;
-    ::DoDragDrop(pdobj, pdsrc, DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
+    ::DoDragDrop(pdobj, pdsrc.get(), DROPEFFECT_MOVE|DROPEFFECT_COPY, &dwEffect);
     pdsrc->Release();
+    pdsrc.release();
     pdobj->Release();
 }
 
