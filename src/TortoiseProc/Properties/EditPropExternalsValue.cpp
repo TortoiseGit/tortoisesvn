@@ -182,17 +182,60 @@ void CEditPropExternalsValue::OnBnClickedShowLog()
     if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
         return;
     CString urlString = m_URLCombo.GetString();
-    if (urlString.GetLength())
+    if (urlString.GetLength()>1)
     {
         if (urlString[0] == '^')
         {
+            // relative to repo root
             urlString = urlString.Mid(1);
             m_URL = m_RepoRoot;
             m_URL.AppendPathString(urlString);
-       }
-        else if ((urlString[0] == '.')||(urlString[0] == '/'))
+        }
+        else if ((urlString[0] == '/')&&(urlString[1] == '/'))
         {
-            m_URL = m_RepoRoot;
+            // relative to scheme
+            CString scheme = m_URL.GetSVNPathString();
+            int pos = scheme.Find(L"://");
+            if (pos >= 0)
+            {
+                m_URL = CTSVNPath(scheme.Left(pos));
+                m_URL.AppendPathString(urlString);
+            }
+        }
+        else if (urlString[0] == '/')
+        {
+            // relative to servers hostname
+            URL_COMPONENTS components = {0};
+            TCHAR urlpath[INTERNET_MAX_PATH_LENGTH+1];
+            TCHAR scheme[INTERNET_MAX_SCHEME_LENGTH+1];
+            TCHAR hostname[INTERNET_MAX_HOST_NAME_LENGTH+1];
+            TCHAR username[INTERNET_MAX_USER_NAME_LENGTH+1];
+            TCHAR password[INTERNET_MAX_PASSWORD_LENGTH+1];
+            components.dwStructSize = sizeof(URL_COMPONENTS);
+            components.dwUrlPathLength = _countof(urlpath) - 1;
+            components.lpszUrlPath = urlpath;
+            components.lpszScheme = scheme;
+            components.dwSchemeLength = _countof(scheme) - 1;
+            components.lpszHostName = hostname;
+            components.dwHostNameLength = _countof(hostname) - 1;
+            components.lpszUserName = username;
+            components.dwUserNameLength = _countof(username) - 1;
+            components.lpszPassword = password;
+            components.dwPasswordLength = _countof(password) - 1;
+            InternetCrackUrl((LPCTSTR)m_RepoRoot.GetSVNPathString(), m_RepoRoot.GetUIPathString().GetLength(), 0, &components);
+            components.dwUrlPathLength = 0;
+            components.lpszUrlPath = NULL;
+            components.dwExtraInfoLength = 0;
+            components.lpszExtraInfo = NULL;
+            WCHAR root[INTERNET_MAX_PATH_LENGTH] = {0};
+            DWORD dwSize = INTERNET_MAX_PATH_LENGTH;
+            InternetCreateUrl(&components, 0, root, &dwSize);
+            m_URL = CTSVNPath(root);
+            m_URL.AppendPathString(urlString);
+        }
+        else if (urlString[0] == '.')
+        {
+            // relative to parent url
             m_URL.AppendPathString(urlString);
         }
         else

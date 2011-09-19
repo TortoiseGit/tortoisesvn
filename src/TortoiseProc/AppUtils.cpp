@@ -735,10 +735,53 @@ bool CAppUtils::BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& r
         strUrl = paths.GetCommonRoot().GetSVNPathString();
     }
 
-    if ((strUrl.Left(1) == L"/")&&(!selUrl.IsEmpty()))
-        strUrl = selUrl + strUrl;
-    if ((strUrl.Left(1) == L"^")&&(!root.IsEmpty()))
-        strUrl = root + strUrl.Mid(1);
+    if (strUrl.GetLength() > 1)
+    {
+        if ((strUrl[0] == '^')&&(!selUrl.IsEmpty()))
+        {
+            // relative to repo root
+            strUrl = root + strUrl.Mid(1);
+        }
+        else if ((strUrl[0] == '/')&&(strUrl[1] == '/'))
+        {
+            // relative to scheme
+            int pos = strUrl.Find(L"://");
+            if (pos >= 0)
+            {
+                strUrl = strUrl + L"/" + strUrl.Left(pos);
+            }
+        }
+        else if (strUrl[0] == '/')
+        {
+            // relative to servers hostname
+            URL_COMPONENTS components = {0};
+            TCHAR urlpath[INTERNET_MAX_PATH_LENGTH+1];
+            TCHAR scheme[INTERNET_MAX_SCHEME_LENGTH+1];
+            TCHAR hostname[INTERNET_MAX_HOST_NAME_LENGTH+1];
+            TCHAR username[INTERNET_MAX_USER_NAME_LENGTH+1];
+            TCHAR password[INTERNET_MAX_PASSWORD_LENGTH+1];
+            components.dwStructSize = sizeof(URL_COMPONENTS);
+            components.dwUrlPathLength = _countof(urlpath) - 1;
+            components.lpszUrlPath = urlpath;
+            components.lpszScheme = scheme;
+            components.dwSchemeLength = _countof(scheme) - 1;
+            components.lpszHostName = hostname;
+            components.dwHostNameLength = _countof(hostname) - 1;
+            components.lpszUserName = username;
+            components.dwUserNameLength = _countof(username) - 1;
+            components.lpszPassword = password;
+            components.dwPasswordLength = _countof(password) - 1;
+            InternetCrackUrl((LPCTSTR)root, root.GetLength(), 0, &components);
+            components.dwUrlPathLength = 0;
+            components.lpszUrlPath = NULL;
+            components.dwExtraInfoLength = 0;
+            components.lpszExtraInfo = NULL;
+            WCHAR droot[INTERNET_MAX_PATH_LENGTH] = {0};
+            DWORD dwSize = INTERNET_MAX_PATH_LENGTH;
+            InternetCreateUrl(&components, 0, droot, &dwSize);
+            strUrl = CString(droot) + L"/" + strUrl;
+        }
+    }
 
     if (strUrl.Left(7) == _T("file://"))
     {
