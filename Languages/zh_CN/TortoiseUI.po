@@ -17,13 +17,14 @@
 # Nick Vrvilo <nick@vrvilo.com>, 2011.
 #   <pluwen@gmail.com>, 2011.
 # pluwen <pluwen@gmail.com>, 2011.
+# zhang chuan <zhangchuan.cn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-07 00:37+0000\n"
-"Last-Translator: pluwen <pluwen@gmail.com>\n"
+"PO-Revision-Date: 2011-09-19 00:33+0000\n"
+"Last-Translator: ccimage <zhangchuan.cn@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2304,6 +2305,11 @@ msgid ""
 msgstr ""
 "同时指定了 /logmsg 和 /logmsgfile !\n"
 "它们只能指定一个。"
+
+#. Resource IDs: (70)
+msgid ""
+"Both the path to the patch file and the target path must be absolute paths!"
+msgstr ""
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -9262,7 +9268,7 @@ msgstr "以标准差异文件显示修改(&U)"
 
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
-msgstr ""
+msgstr "被排除的文件夹根目录仍显示正常状态的图标"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9698,6 +9704,20 @@ msgid ""
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
 msgstr ""
+"Subversion遇到了一个严重的问题。\n"
+"麻烦您花点时间将这个问题报告给Subversion\n"
+"(users@subversion.apache.org)\n"
+"请尽量详细的描述您之前尝试的操作。\n"
+"不过希望您先在邮件存档中搜索一下同样的问题，避免重复提交。\n"
+"您可以登录下面的地址搜索邮件存档：\n"
+"http://subversion.apache.org/mailing-lists.html\n"
+"\n"
+"Subversion在此处发生错误:\n"
+"文件名： %1!s!, 行号： %2!ld!\n"
+"表达式 = %3!s!\n"
+"\n"
+"您可以用Ctrl-C快捷键复制\n"
+"本对话框的内容到剪切板。"
 
 #. Resource IDs: (84)
 msgid ""
@@ -9715,6 +9735,17 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr ""
+"Subversion遇到了一个严重的问题。\n"
+"麻烦您花点时间将这个问题报告给Subversion\n"
+"(users@subversion.apache.org)\n"
+"请尽量详细的描述您之前尝试的操作。\n"
+"不过希望您先在邮件存档中搜索一下同样的问题，避免重复提交。\n"
+"您可以登录下面的地址搜索邮件存档：\n"
+"http://subversion.apache.org/mailing-lists.html\n"
+"\n"
+"Subversion产生的报告如下\n"
+"(您可以用Ctrl-C快捷键复制\n"
+"本对话框的内容到剪切板)："
 
 #. Resource IDs: (79)
 msgid ""

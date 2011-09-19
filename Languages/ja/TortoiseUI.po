@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-16 06:03+0000\n"
+"PO-Revision-Date: 2011-09-19 02:41+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -156,7 +156,7 @@ msgid ""
 msgstr ""
 "%1\n"
 "というファイルが見つかりません。\n"
-"正しいパスとファイル名であることを確認してください。"
+"パスとファイル名が正しいか確認してください。"
 
 #. Resource IDs: (357)
 #, c-format
@@ -1644,9 +1644,9 @@ msgid ""
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
 msgstr ""
-"改行で分割されたコンテキストメニューを表示しないパスのリスト。\r\n"
-"「*」をパスの最後に追加すると、パス内のすべてのファイルとサブディレクトリが除外される。\r\n"
-"何も入力しなければ、すべてのパス上でコンテキストメニューの表示が可能となる。"
+"コンテキストメニューを表示させないパスのリストを、改行で区切って入力してください。\r\n"
+"パスの末尾に「*」を追加すると、パス内のすべてのファイルやサブディレクトリが除外されます。\r\n"
+"何も入力しないと、すべてのパス上でコンテキストメニューが表示されます。"
 
 #. Resource IDs: (194)
 msgid ""
@@ -2298,6 +2298,11 @@ msgstr ""
 "/logmsg と /logmsgfile の両方が指定されています。\n"
 "どちらか片方しか指定できません。"
 
+#. Resource IDs: (70)
+msgid ""
+"Both the path to the patch file and the target path must be absolute paths!"
+msgstr "パッチファイルとターゲットのパスは、両方とも絶対パスで指定してください。"
+
 #. Resource IDs: (1007)
 msgid "Br&owse..."
 msgstr "参照(&O)..."
@@ -2829,7 +2834,7 @@ msgstr "TortoiseSVN のサブメニューではなく、コンテキストメニ
 
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr "有効にすると、ログメッセージに短い日付/時刻形式を使用します。"
+msgstr "有効にすると、ログメッセージで短い日付/時刻形式が使用されます。"
 
 #. Resource IDs: (2052)
 msgid "Check working copy for modifications"
@@ -5558,15 +5563,15 @@ msgstr ""
 msgid ""
 "If activated, prevents the overlays and the context menu from showing in "
 "'save as...' or 'open' dialogs"
-msgstr "有効にすると、「名前をつけて保存」や「開く」ダイアログ内でオーバーレイやコンテキストメニューを非表示にする"
+msgstr "有効にすると、「名前を付けて保存」や「開く」ダイアログ内でオーバーレイやコンテキストメニューが非表示になります。"
 
 #. Resource IDs: (198)
 msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
 msgstr ""
-"有効にすると、選択したファイルに svn:needs-lock プロパティが設定されている場合は、\n"
-"常に「ロックを取得」メニューをトップレベルメニューに表示する"
+"有効にすると、選択したファイルに svn:needs-lock プロパティが設定されている場合、\n"
+"トップレベルメニューに常に「ロックを取得」メニューが表示されます。"
 
 #. Resource IDs: (95)
 msgid ""
@@ -5582,20 +5587,20 @@ msgid ""
 "with the keywords expanded and the line endings adjusted."
 msgstr ""
 "有効にすると、TortoiseSVN はキーワード展開後のファイルとの差分や\n"
-"改行コードの調整を行うために、ベースファイルの一時コピーを作成する。"
+"改行コードの調整を行うために、ベースファイルの一時コピーを作成します。"
 
 #. Resource IDs: (197)
 msgid ""
 "If checked, double-clicking on a revision in the log list compares it with "
 "the previous revision"
-msgstr "有効にすると、ログリスト内でリビジョンをダブルクリックすると以前のリビジョンと比較します。"
+msgstr "有効にすると、ログリスト内でリビジョンをダブルクリックすると直前のリビジョンと比較します。"
 
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
 msgstr ""
-"有効にすると、マージダイアログの「マージ元:」が最後に使用したURLの代わりに、\r\n"
+"有効にすると、マージダイアログの「マージ元:」に最後に使用したURLではなく、\r\n"
 "選択されている作業コピーのURLが設定されます。"
 
 #. Resource IDs: (195)
@@ -11584,7 +11589,8 @@ msgstr ""
 msgid ""
 "When activated, hold down the SHIFT key when right-clicking to get the "
 "TortoiseSVN menus added to the context menu"
-msgstr "有効にすると、コンテキストメニューに追加されるTortoiseSVNのメニューを右クリックで表示の際に、シフトキーを押す必要があります"
+msgstr ""
+"有効にすると、シフトキーを押しながら右クリックしたときに限り、TortoiseSVNのメニューがコンテキストメニューに現れるようになります。"
 
 #. Resource IDs: (344)
 msgid ""
@@ -11600,7 +11606,7 @@ msgstr ""
 msgid ""
 "When enabled, the versioned items listed in the commit dialog are "
 "automatically selected"
-msgstr "有効にした場合、コミットダイアログに表示されるバージョン管理されている項目は自動的に選択されます。"
+msgstr "有効にすると、コミットダイアログに表示されるバージョン管理中の項目が自動的に選択されるようになります。"
 
 #. Resource IDs: (197)
 msgid ""

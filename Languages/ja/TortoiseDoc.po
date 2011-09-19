@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-16 04:09+0000\n"
+"PO-Revision-Date: 2011-09-19 02:54+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -80,7 +80,7 @@ msgid ""
 "perhaps even simultaneously on the very same files! - and you can see why a "
 "good system is needed to <emphasis>manage the potential chaos</emphasis>."
 msgstr ""
-"バージョン管理は、情報の変更を管理する技術です。これは、たとえばソフトウェアのあちこちに変更を加えたり、その翌日にはその変更を取り消したりチェックしたりすることに時間を費やしてきたようなプログラマたちに、長く待望されてきたツールでした。そのような開発者たちが同時に働くチームを想像してみてください。恐らく同じファイルに同時に変更を加える場面があるでしょう。なぜ、"
+"バージョン管理は、情報の変更を管理する技術です。これは、たとえばソフトウェアのあちこちに変更を加えたり、その翌日にはその変更の一部を取り消したりチェックしたりすることに時間を費やしてきたようなプログラマたちにとって、長い間重要な技でした。そのような開発者たちが同時に働くチームを想像してみてください。恐らく同じファイルに同時に変更を加える場面があるでしょう。なぜ、"
 " <emphasis>このような潜在的な混沌を管理</emphasis> する良いシステムが求められているかがわかるでしょう。"
 
 #. (title)
@@ -14068,7 +14068,7 @@ msgstr ""
 
 #. (term)
 msgid "Use Aero Dialogs"
-msgstr "Aero ダイアログを使う"
+msgstr "Aero のダイアログを使用する"
 
 #. (para)
 msgid ""
@@ -14078,7 +14078,7 @@ msgstr "Windows Vista 以降のシステムでは、ダイアログに Aero ス�
 
 #. (term)
 msgid "Create Library"
-msgstr "ライブラリを作成する"
+msgstr "ライブラリを作成"
 
 #. (para)
 msgid ""
@@ -14300,10 +14300,11 @@ msgid ""
 "always use <guibutton>Show All</guibutton> or <guibutton>Next "
 "100</guibutton> to get more messages."
 msgstr ""
+"最初に "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ログを表示</guimenuitem></menuchoice>"
-" を選択して最初に TortoiseSVN "
-"が趣得するログメッセージの数を制限します。サーバーへの接続が遅い場合に便利です。もっとメッセージを取得するには "
-"<guibutton>全て表示</guibutton> や <guibutton>次の 100</guibutton> をいつでも使用できます。"
+" を選択したとき、 TortoiseSVN "
+"が取得するログメッセージをこの数に制限します。サーバーへの接続が遅い場合に便利です。もっとメッセージを取得するには "
+"<guibutton>全て表示</guibutton> や <guibutton>次の 100</guibutton> を使用してください。"
 
 #. (term)
 msgid "Font for log messages"
@@ -20232,13 +20233,13 @@ msgid ""
 "revisions. The parameter <placeholder-10/> specifies the line to jump to "
 "when the diff is shown."
 msgstr ""
-"TortoiseSVN の設定で指定した外部差分ビューアーを起動します。<placeholder-1/> "
-"には始めのファイルを指定します。<placeholder-2/> オプションを指定すると、その 2 "
-"ファイルに対して差分ビューアーが起動します。<placeholder-3/> を省略すると、<placeholder-4/> "
-"とその作業ベースに対する差分を行います。リビジョン番号を明示するには、 <placeholder-5/> や <placeholder-6/> "
-"を使用してください。ペグリビジョンを呈する場合は、 <placeholder-7/>  を指定してください。<placeholder-8/> を指定して"
-" <placeholder-9/> を設定しない場合、差分は与えられたリビジョンのファイルのブレーミングを行います。 <placeholder-10/>"
-" は、差分を表示するときにジャンプする行番号を指定します。"
+"TortoiseSVN の設定で指定した外部差分ビューアーを起動します。 <placeholder-1/> には始めのファイルを指定します。 "
+"<placeholder-2/> オプションを指定すると、その２ファイルに対して差分ビューアーが起動します。 <placeholder-3/> "
+"を省略すると、 <placeholder-4/> とその作業ベースに対する差分を行います。リビジョン番号を明示するには、 "
+"<placeholder-5/> や <placeholder-6/> を使用してください。ペグリビジョンを指定する場合は、 "
+"<placeholder-7/> を指定してください。 <placeholder-8/> を指定して <placeholder-9/> "
+"を設定しない場合、差分は与えられたリビジョンのファイルの注釈履歴を表示します。 <placeholder-10/> "
+"は、差分を表示するときにジャンプする行番号を指定します。"
 
 #. (para)
 msgid ""

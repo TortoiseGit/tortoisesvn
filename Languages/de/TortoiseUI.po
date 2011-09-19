@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-07 06:30+0000\n"
+"PO-Revision-Date: 2011-09-19 06:38+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +41,7 @@ msgstr ""
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
-msgstr " "
+msgstr "Sowohl die Patchdatei als auch das Ziel müssen absolute Pfade sein!"
 
 #. Resource IDs: (188)
 #, c-format
@@ -2329,6 +2329,11 @@ msgid ""
 msgstr ""
 "Die beiden Parameter /logmsg und /logmsgfile\n"
 "dürfen nicht gleichzeitig angegeben werden!"
+
+#. Resource IDs: (70)
+msgid ""
+"Both the path to the patch file and the target path must be absolute paths!"
+msgstr ""
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."

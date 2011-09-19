@@ -14,13 +14,14 @@
 # Endra Granasamsa <endra.granasamsa@gmail.com>, 2011.
 # Heri Zhang <zhang.heri@gmail.com>, 2011.
 #   <omixen@gmail.com>, 2011.
+#   <uringinteristi@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-15 07:57+0000\n"
-"Last-Translator: Endra <endra.granasamsa@gmail.com>\n"
+"PO-Revision-Date: 2011-09-19 00:33+0000\n"
+"Last-Translator: uring <uringinteristi@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +44,7 @@ msgstr ""
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
-msgstr " "
+msgstr ""
 
 #. Resource IDs: (188)
 #, c-format
@@ -52,7 +53,7 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "# para pengarang ditampilkan masing-masing:"
+msgstr ""
 
 #. Resource IDs: (357)
 #, c-format
@@ -1519,7 +1520,7 @@ msgstr "(tidak ditemukan)"
 
 #. Resource IDs: (176)
 msgid "(properties only)"
-msgstr ""
+msgstr "(khusus properti)"
 
 #. Resource IDs: (208)
 msgid "(property change only)"
@@ -1527,7 +1528,7 @@ msgstr "(hanya perubahan properti)"
 
 #. Resource IDs: (176)
 msgid "(props and content)"
-msgstr ""
+msgstr "(properti dan konten)"
 
 #. Resource IDs: (277)
 msgid "(rename)"
@@ -2307,6 +2308,11 @@ msgstr ""
 "/logmsg dan /logmsgfile sama-sama ditentukan!\n"
 "Hanya salah satu yang boleh ditentukan."
 
+#. Resource IDs: (70)
+msgid ""
+"Both the path to the patch file and the target path must be absolute paths!"
+msgstr ""
+
 #. Resource IDs: (1007)
 msgid "Br&owse..."
 msgstr "Br&owse..."
@@ -2486,6 +2492,8 @@ msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr ""
+"Batal\n"
+"Jangan kembali"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2528,6 +2536,8 @@ msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
 msgstr ""
+"Batal\n"
+"Saya akan memasukkan path/URL yang berbeda."
 
 #. Resource IDs: (315)
 msgid ""
@@ -2540,6 +2550,8 @@ msgid ""
 "Cancel\n"
 "Keep the current URL."
 msgstr ""
+"Batal\n"
+"Tetap dengan URL yang sekarang ini."
 
 #. Resource IDs: (314)
 msgid ""
@@ -2594,12 +2606,16 @@ msgid ""
 "Cancel\n"
 "The items are not imported."
 msgstr ""
+"Batal\n"
+"Item tidak di impor"
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr ""
+"Batal\n"
+"Item tidak di pindahkan."
 
 #. Resource IDs: (589)
 msgid ""
@@ -2618,12 +2634,16 @@ msgid ""
 "Cancel\n"
 "You have to add the folder manually."
 msgstr ""
+"Batal\n"
+"Anda harus menambahkan folder secara manual/buat folder sendiri."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
 msgstr ""
+"Batal\n"
+"Tetap dengan format yang sekarang ini."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2848,7 +2868,7 @@ msgstr "Pilih item:"
 
 #. Resource IDs: (1606)
 msgid "Choose items..."
-msgstr ""
+msgstr "Pilih item..."
 
 #. Resource IDs: (65535)
 msgid "Classification Patterns"
@@ -3455,7 +3475,7 @@ msgstr "Tidak dapat membuat %1 karena direktori sudah penuh."
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr ""
+msgstr "Tidak bisa membuat folder sementara!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -4019,7 +4039,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
-msgstr ""
+msgstr "Lakukan hal yang sama untuk item-item yang ada"
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
@@ -4667,7 +4687,7 @@ msgstr "&Memaksa menggabung"
 
 #. Resource IDs: (1070)
 msgid "Fade"
-msgstr ""
+msgstr "Pudar"
 
 #. Resource IDs: (74)
 msgid "Failed revert"
@@ -4920,7 +4940,7 @@ msgstr ""
 
 #. Resource IDs: (117)
 msgid "Filter by"
-msgstr ""
+msgstr "Saring berdasarkan"
 
 #. Resource IDs: (65535)
 msgid "Filter match"
@@ -5210,7 +5230,7 @@ msgstr "Revisi head adalah %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
-msgstr ""
+msgstr "Kepala"
 
 #. Resource IDs: (9, 332)
 msgid "Help"
@@ -5238,7 +5258,7 @@ msgstr "Sembunyikan semua cabang yang tidak mengubah item tersebut"
 
 #. Resource IDs: (2053)
 msgid "Hide all tags"
-msgstr ""
+msgstr "Sembunyikan semua tag"
 
 #. Resource IDs: (2052)
 msgid "Hide deleted branches and tags"
@@ -5674,7 +5694,7 @@ msgstr "Abaikan &asal"
 
 #. Resource IDs: (564)
 msgid "Ignore all"
-msgstr ""
+msgstr "Abaikan semua"
 
 #. Resource IDs: (32873)
 msgid "Ignore all whitespace changes"
@@ -5730,7 +5750,7 @@ msgstr ""
 
 #. Resource IDs: (89)
 msgid "Illegal path"
-msgstr ""
+msgstr "Path ilegal"
 
 #. Resource IDs: (16916)
 msgid "Image &and Text"
@@ -5871,7 +5891,7 @@ msgstr ""
 
 #. Resource IDs: (1575)
 msgid "Insert message at:"
-msgstr ""
+msgstr "Sisipkan pesan pada:"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -6191,7 +6211,7 @@ msgstr "Bilah Lokator"
 
 #. Resource IDs: (65535)
 msgid "Locator bar"
-msgstr ""
+msgstr "Bilah penunjuk"
 
 #. Resource IDs: (207, 221, 229, 65535)
 msgid "Lock"
@@ -6623,7 +6643,7 @@ msgstr "Warna lengkap..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
-msgstr ""
+msgstr "Lebih dari satu item dibuang."
 
 #. Resource IDs: (438)
 msgid "More..."
@@ -6685,7 +6705,7 @@ msgstr "Pindahkan item ke sini"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr ""
+msgstr "Pindahkan file atau direktori special"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6710,6 +6730,8 @@ msgid ""
 "Move\n"
 "The items are moved to the target path."
 msgstr ""
+"Pindah\n"
+"Item dipindahkan pada path yang sudah ditentukan."
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -6928,7 +6950,7 @@ msgstr "Tidak ada saran kamus"
 
 #. Resource IDs: (564)
 msgid "No to all"
-msgstr ""
+msgstr "Tidak pada semua"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7001,7 +7023,7 @@ msgstr ""
 
 #. Resource IDs: (1557)
 msgid "Note: this property has no effect on Windows"
-msgstr ""
+msgstr "Catatan: properti ini tidak berefek pada Windows"
 
 #. Resource IDs: (173)
 msgid "Nothing is selected for commit!"
@@ -7422,7 +7444,7 @@ msgstr ""
 
 #. Resource IDs: (245)
 msgid "Percents"
-msgstr ""
+msgstr "Persentase"
 
 #. Resource IDs: (16538)
 msgid "Personalized Menus and Toolbars"
@@ -7917,7 +7939,7 @@ msgstr ""
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
-msgstr ""
+msgstr "Mengalihkan ke url"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7950,7 +7972,7 @@ msgstr ""
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
-msgstr ""
+msgstr "Ekspresi Reguler"
 
 #. Resource IDs: (117)
 msgid ""
@@ -8738,7 +8760,7 @@ msgstr "Simpan path sertifikat klien"
 
 #. Resource IDs: (617)
 msgid "Save in Git format"
-msgstr ""
+msgstr "Simpan dalam format Git"
 
 #. Resource IDs: (314)
 msgid "Save modifications."
@@ -9384,11 +9406,11 @@ msgstr "Ukuran tembolok jika tidak dimampatkan"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "Lewati"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "Lewati semua"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -9664,7 +9686,7 @@ msgstr ""
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
-msgstr ""
+msgstr "Subversion melaporkan kesalahan:"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -10128,11 +10150,13 @@ msgstr ""
 #, c-format
 msgid "The last update operation tried to replace the directory '%s'"
 msgstr ""
+"Tindakan pemutakhiran yang terakhir mencoba untuk mengganti direktori '%s'"
 
 #. Resource IDs: (608)
 #, c-format
 msgid "The last update operation tried to replace the file '%s'"
 msgstr ""
+"Tindakan pemutakhiran yang terakhir mencoba untuk mengganti berkas '%s'"
 
 #. Resource IDs: (63)
 #, c-format
@@ -10285,12 +10309,16 @@ msgid ""
 "The regular expression is invalid!\n"
 "Please enter a valid regular expression."
 msgstr ""
+"Ekspresi reguler tidak valid!\n"
+"Harap memasukkan ekspresi reguler yang valid."
 
 #. Resource IDs: (80, 65535)
 msgid ""
 "The repository was successfully created.\n"
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr ""
+"Repositori berhasil dibuat!\n"
+"Apakah anda ingin membuat folder standar (trunk/branches/tags) sekarang ?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -10320,7 +10348,7 @@ msgstr ""
 
 #. Resource IDs: (147)
 msgid "The target already exists."
-msgstr ""
+msgstr "Target sudah ada"
 
 #. Resource IDs: (147)
 #, c-format
@@ -10512,7 +10540,7 @@ msgstr ""
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
-msgstr ""
+msgstr "File ini sudah ada!"
 
 #. Resource IDs: (83)
 msgid ""
@@ -11131,7 +11159,7 @@ msgstr "Memutakhirkan copy pekerjaan ke revisi sekarang"
 
 #. Resource IDs: (265)
 msgid "Updating"
-msgstr ""
+msgstr "Pemutakhiran"
 
 #. Resource IDs: (226)
 #, c-format
@@ -11350,6 +11378,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Gunakan path yang ditemukan\n"
+"Terapkan patch pada\n"
+"%s"
 
 #. Resource IDs: (594)
 msgid ""
@@ -11367,6 +11398,9 @@ msgid ""
 "Apply the patch to\n"
 "%s"
 msgstr ""
+"Gunakan path yang asli\n"
+"Terapkan patch pada\n"
+"%s"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -11873,7 +11907,7 @@ msgstr "Besarkan hingga pas lebarnya"
 
 #. Resource IDs: (1070)
 msgid "[Default]"
-msgstr ""
+msgstr "[Bawaan]"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
@@ -12685,7 +12719,7 @@ msgstr ""
 #. Resource IDs: (104)
 #, c-format
 msgid "url: %1!s!"
-msgstr ""
+msgstr "url: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "

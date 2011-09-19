@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-16 07:49+0000\n"
+"PO-Revision-Date: 2011-09-18 21:03+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -11482,29 +11482,36 @@ msgstr ""
 
 #. (para)
 msgid "You can also specify a peg revision for the URL if required."
-msgstr ""
+msgstr "Bạn cũng có thể chỉ định một phiên bản peg cho URL nếu cần thiết."
 
 #. (para)
 msgid ""
 "If you need more information how TortoiseSVN handles Properties read <xref "
 "linkend=\"tsvn-dug-propertypage\"/>."
 msgstr ""
+"Nếu bạn cần thêm thông tin về làm cách nào TortoiseSVN xử lý các thuộc tính "
+"đọc <xref linkend=\"tsvn-dug-propertypage\"/> ."
 
 #. (para)
 msgid ""
 "To find out about different methods of accessing common sub-projects read "
 "<xref linkend=\"tsvn-howto-common-projects\"/>."
 msgstr ""
+"Để tìm hiểu về các phương pháp khác nhau để truy cập các tiểu dự án chung "
+"hãy đọc <xref linkend=\"tsvn-howto-common-projects\"/> ."
 
 #. (title)
 msgid "External Files"
-msgstr ""
+msgstr "Các tập tin bên ngoài"
 
 #. (para)
 msgid ""
 "As of Subversion 1.6 you can add single file externals to your working copy "
 "using the same syntax as for folders. However, there are some restrictions."
 msgstr ""
+"Kể từ Subversion 1.6, bạn có thể thêm các thành phần bên ngoài trong một tập"
+" tin vào bản sao làm việc của bạn bằng cách sử dụng các cú pháp tương tự như"
+" đối với các thư mục. Tuy nhiên, có một số hạn chế."
 
 #. (para)
 msgid ""
@@ -11514,6 +11521,12 @@ msgid ""
 "versioned sub-folder if necessary. By contrast, directory externals will "
 "automatically create any intermediate unversioned folders as required."
 msgstr ""
+"Đường dẫn đến tập tin bên ngoài phải đặt các tập tin trong một thư mục được "
+"phiên bản đang tồn tại. Nói chung, nó có ý nghĩa nhất để đặt các tập tin "
+"trực tiếp trong thư mục có <literal> svn:externals </literal> được thiết "
+"lập, nhưng nó có thể được ở trong một thư mục con được phiên bản nếu cần "
+"thiết. Ngược lại, thư mục bên ngoài sẽ tự động tạo ra bất kỳ thư mục trung "
+"gian không phiên bản theo yêu cầu."
 
 #. (para)
 msgid ""
@@ -11521,6 +11534,9 @@ msgid ""
 "the file external will be inserted into; inter-repository file externals are"
 " not supported."
 msgstr ""
+"URL cho một tập tin bên ngoài phải ở trong cùng một kho lưu trữ như địa chỉ "
+"URL tập tin bên ngoài sẽ được chèn vào; tập tin thành phần ngoài liên kho "
+"lưu trữ không được hỗ trợ."
 
 #. (para)
 msgid ""
@@ -11528,19 +11544,23 @@ msgid ""
 " but they cannot be moved or deleted using the normal commands; the "
 "<literal>svn:externals</literal> property must be modified instead."
 msgstr ""
+"Một tập tin bên ngoài cư xử giống như bất kỳ tập tin được phiên bản khác "
+"trong nhiều khía cạnh, nhưng chúng không thể được di chuyển hoặc xóa bằng "
+"cách sử dụng các lệnh bình thường, thay vào đó thuộc tính <literal> "
+"svn:externals </literal> phải được sửa đổi."
 
 #. (title)
 msgid "Branching / Tagging"
-msgstr ""
+msgstr "Phn Nhánh / Tạo Thẻ"
 
 #. (primary)
 #. (primary)
 msgid "copy"
-msgstr ""
+msgstr "sao chép"
 
 #. (primary)
 msgid "mark release"
-msgstr ""
+msgstr "đánh dấu phát hành"
 
 #. (para)
 msgid ""
@@ -11552,6 +11572,13 @@ msgid ""
 "development branch is <firstterm>merged</firstterm> back into the main "
 "branch (trunk)."
 msgstr ""
+"Một trong các tính năng của hệ thống kiểm soát phiên bản là khả năng để cô "
+"lập những thay đổi trên một dòng phát triển riêng biệt. Dòng này được biết "
+"đến như một <firstterm> chi nhánh </firstterm>. Các chi nhánh thường được sử"
+" dụng để thử các chức năng mới mà không làm ảnh hưởng đến dòng chính của "
+"phát triển với các lỗi trình biên dịch và lỗi chương trình. Ngay sau khi các"
+" tính năng mới là đủ ổn định thì nhánh phát triển sẽ được <firstterm> sáp "
+"nhập </firstterm> trở lại vào các chi nhánh chính (thân cây)."
 
 #. (para)
 msgid ""
@@ -11560,6 +11587,10 @@ msgid ""
 "certain build or environment. This process is known as "
 "<firstterm>tagging</firstterm>."
 msgstr ""
+"Một tính năng khác của hệ thống kiểm soát phiên bản là khả năng để đánh dấu "
+"các phiên bản đặc biệt (ví dụ như một phiên bản phát hành), vì vậy bạn bất "
+"cứ lúc nào có thể tái tạo một b xây dựng hoặc môi trường nhất định. Quá "
+"trình này được gọi là <firstterm> gắn thẻ </firstterm> ."
 
 #. (para)
 msgid ""
@@ -11570,14 +11601,20 @@ msgid ""
 "tree/revision. As a result branches and tags are very quick to create, and "
 "take up almost no extra space in the repository."
 msgstr ""
+"Subversion không có lệnh đặc biệt để phân nhánh hoặc gắn thẻ, nhưng sử dụng "
+"cái gọi là <quote> bản sao giá rẻ </quote> thay vào đó. Bản sao giá rẻ tương"
+" tự như liên kết cứng trong Unix, có nghĩa rằng thay vì làm một bản sao đầy "
+"đủ trong kho, một liên kết nội bộ được tạo ra, chỉ vào một cây / sửa đổi cụ "
+"thể. Kết quả là các chi nhánh và thẻ được tạo ra rất nhanh chóng, và hầu như"
+" không chiếm thêm không gian trong kho."
 
 #. (title)
 msgid "Creating a Branch or Tag"
-msgstr ""
+msgstr "Tạo một Chi nhánh hoặc Thẻ"
 
 #. (title)
 msgid "The Branch/Tag Dialog"
-msgstr ""
+msgstr "Hộp tho Chi nhánh / Thẻ"
 
 #. (para)
 msgid ""
@@ -11587,6 +11624,11 @@ msgid ""
 " select the command "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Branch/Tag...</guimenuitem></menuchoice>."
 msgstr ""
+"Nếu bạn đã nhập khẩu dự án của bạn với cấu trúc thư mục được đề nghị, việc "
+"tạo ra một chi nhánh hoặc phiên bản thẻ là rất đơn giản: <placeholder-1/> "
+"Chọn các thư mục trong bản sao làm việc của bạn mà bạn muốn sao chép vào một"
+" chi nhánh hoặc thẻ, sau đó chọn lệnh <menuchoice><guimenu> TortoiseSVN "
+"</guimenu><guimenuitem> Chi nhánh/Thẻ... </guimenuitem></menuchoice> ."
 
 #. (para)
 msgid ""
@@ -11596,11 +11638,16 @@ msgid ""
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr ""
+"URL đích mặc định cho chi nhánh mới sẽ là URL nguồn mà trên đó bản sao làm việc của bạn được dựa trên. Bạn sẽ cần phải chỉnh sửa URL đến đường dẫn mới cho chi nhánh / thẻ của bạn. Vì thế thay vì <screen>\n"
+"    http://svn.collab.net/repos/ProjectName/trunk\n"
+"</screen> bây giờ bạn có thể sử dụng một cái gì đó như <screen>\n"
+"    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
+"</screen> Nếu bạn không thể nhớ quy ước đặt tên bạn sử dụng lần cuối, nhấn vào nút bên phải để mở trình duyệt kho lưu trữ để bạn có thể xem cấu trúc kho lưu trữ hiện có."
 
 #. (term)
 #. (listitem)
 msgid "HEAD revision in the repository"
-msgstr ""
+msgstr "bản sửa đổi CHÍNH trong kho"
 
 #. (para)
 msgid ""
@@ -11608,10 +11655,13 @@ msgid ""
 "No data needs to be transferred from your working copy, and the branch is "
 "created very quickly."
 msgstr ""
+"Các chi nhánh mới được sao chép trực tiếp trong kho từ bản sửa đổi CHÍNH. "
+"Không có dữ liệu cần được chuyển từ bản sao làm việc của bạn, và chi nhánh "
+"được tạo ra rất nhanh chóng."
 
 #. (term)
 msgid "Specific revision in the repository"
-msgstr ""
+msgstr "Bản sửa đổi cụ thể trong kho"
 
 #. (para)
 msgid ""
@@ -11622,6 +11672,12 @@ msgid ""
 "number from there. Again no data is transferred from your working copy, and "
 "the branch is created very quickly."
 msgstr ""
+"Chi nhánh mới được sao chép trực tiếp trong kho nhưng bạn có thể chọn một "
+"phiên bản cũ hơn. Điều này rất hữu ích nếu bạn quên làm thẻ khi bạn phát "
+"hành dự án của bạn vào tuần trước. Nếu bạn không thể nhớ số phiên bản, kích "
+"vào nút bên phải để hiển thị tường trình sửa đổi, và chọn số sửa đổi từ đó. "
+"Một lần nữa không có dữ liệu được chuyển từ bản sao làm việc của bạn, và chi"
+" nhánh được tạo ra rất nhanh chóng."
 
 #. (para)
 msgid ""
@@ -11631,12 +11687,19 @@ msgid ""
 "of complex tag may involve transferring data from your WC back to the "
 "repository if it does not exist there already."
 msgstr ""
+"Chi nhánh mới là một bản sao giống hệt bản sao làm việc của bạn tại địa "
+"phương. Nếu bạn đã cập nhật một số tập tin đến một phiên bản cũ trong WC của"
+" bạn, hoặc nếu bạn đã thực hiện thay đổi cục bộ, đó là chính xác những gì đi"
+" vào bản sao. Đương nhiên loại thẻ phức tạp này có thể liên quan đến việc "
+"chuyển dữ liệu từ WC trở lại kho lưu trữ của bạn nếu nó không tồn tại ở đ."
 
 #. (para)
 msgid ""
 "Now you have to select the source of the copy. Here you have three options: "
 "<placeholder-1/>"
 msgstr ""
+"Bây giờ bạn phải chọn nguồn của bản sao. Ở đây bạn có ba lựa chọn: "
+"<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -11646,6 +11709,11 @@ msgid ""
 "your working copy does not contain modifications. If it does, those changes "
 "will be merged into the branch WC when you switch."
 msgstr ""
+"Nếu bạn muốn bản sao làm việc của bạn được chuyển sang chi nhánh mới được "
+"tạo ra tự động, sử dụng hộp kiểm <guilabel> Chuyển bản sao làm việc cho chi "
+"nhánh / thẻ mới </guilabel>. Nhưng nếu bạn làm điều đó, trước tiên hãy chắc "
+"chắn rằng bản sao làm việc của bạn không có chứa sửa đổi. Nếu có, những sửa "
+"đổi sẽ được sáp nhập vào các chi nhánh WC khi bạn chuyển đổi."
 
 #. (para)
 msgid ""
@@ -11656,6 +11724,12 @@ msgid ""
 "determined from the working copy, which means it shows the revision that "
 "external actually points to."
 msgstr ""
+"Nếu bản sao làm việc của bạn có bao gồm các dự án khác với thuộc tính "
+"<literal> svn:externals </literal>, những thành phần bên ngoài sẽ được liệt "
+"kê ở dưới cùng của hộp thoại chi nhánh / thẻ. Đối với mỗi thành phần bên "
+"ngoài, đường dẫn đích, các URL nguồn và sửa đổi được hiển thị. Các sửa đổi "
+"của phần bên ngoài được xác định từ bản sao làm việc, có nghĩa là nó cho "
+"thấy những bản sửa đổi mà phần bên ngoài thực sự chỉ đến."
 
 #. (para)
 msgid ""
@@ -11667,6 +11741,14 @@ msgid ""
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
 msgstr ""
+"Nếu bạn muốn chắc chắn rằng thẻ mới luôn luôn trong trạng thái thống nhất, "
+"kiểm tra tất cả các phần bên ngoài để có các bản chỉnh sửa của chúng cố định"
+" vào sửa đổi của bản sao làm việc hiện tại của chúng. Nếu bạn không kiểm tra"
+" phần bên ngoài và những phần bên ngoài đó chỉ tới một phiên bản CHÍNH mà có"
+" thể thay đổi trong tương lai, kiểm xuất thẻ mới sẽ kiểm xuất sửa đổi CHÍNH "
+"của phần bên ngoài và thẻ của bạn có thể không biên dịch nữa. Vì vậy, nó "
+"luôn luôn là một ý tưởng tốt để đặt các phần bên ngoài tới một bản sửa đổi "
+"rõ ràng khi tạo ra một thẻ."
 
 #. (para)
 msgid ""
@@ -11679,6 +11761,14 @@ msgid ""
 "first, then the branch/tag is created and then the properties are changed "
 "back to their original value."
 msgstr ""
+"Nếu các phần bên ngoài được đặt đến một bản chỉnh sửa rõ ràng khi tạo ra một"
+" chi nhánh hoặc thẻ, TortoiseSVN tự động thay đổi thuộc tính <literal> "
+"svn:externals </literal>. Khi chi nhánh / thẻ được tạo ra từ bản CHÍNH hay "
+"một bản sửa đổi cụ thể trong kho, TortoiseSVN đầu tiên tạo ra các chi nhánh "
+"/ thẻ, sau đó điều chỉnh các thuộc tính. Điều này sẽ tạo ra thêm các cam kết"
+" cho mỗi thuộc tính. Khi chi nhánh / thẻ được tạo ra từ bản sao làm việc, "
+"các thuộc tính được sửa đổi trước tiên, sau đó các chi nhánh / thẻ được tạo "
+"ra và sau đó các thuộc tính được thay đổi trở lại giá trị ban đầu của chúng."
 
 #. (para)
 msgid ""
@@ -11686,6 +11776,9 @@ msgid ""
 "Don't forget to supply a log message. Note that the copy is created "
 "<emphasis>inside the repository</emphasis>."
 msgstr ""
+"Nhấn <guibutton> OK </guibutton> để cam kết bản sao mới vào kho lưu trữ. "
+"Đừng quên cung cấp một thông điệp tường trình. Lưu ý rằng bản sao được tạo "
+"ra <emphasis> bên trong các kho lưu trữ </emphasis> ."
 
 #. (para)
 msgid ""
@@ -11695,10 +11788,16 @@ msgid ""
 "committed to the new branch, not to the trunk, so your WC may still be "
 "marked as modified with respect to the trunk."
 msgstr ""
+"Lưu ý rằng trừ khi bạn chọn để chuyển đổi bản sao làm việc của bạn sang chi "
+"nhánh mới được tạo ra, việc tạo ra một Chi nhánh hoặc Thẻ <emphasis> không "
+"</emphasis> ảnh hưởng đến bản sao làm việc của bạn. Ngay cả khi bạn tạo ra "
+"các chi nhánh từ WC của bạn, những thay đổi được cam kết vào chi nhánh mới, "
+"chứ không phải thân cây, vì vậy WC của bạn vẫn có thể được đánh dấu là sửa "
+"đổi đối với thân cây."
 
 #. (title)
 msgid "Other ways to create a branch or tag"
-msgstr ""
+msgstr "Các cách khác để tạo ra một chi nhánh hoặc thẻ"
 
 #. (para)
 msgid ""
@@ -11707,6 +11806,11 @@ msgid ""
 "location. You have to hold down the <keycap>Ctrl</keycap> key while you drag"
 " to create a copy, otherwise the folder gets moved, not copied."
 msgstr ""
+"Bạn cũng có thể tạo ra một chi nhánh hoặc thẻ mà không có một bản sao làm "
+"việc. Để làm được điều đó, hãy mở trình duyệt kho. Bạn có thể kéo các thư "
+"mục đến một vị trí mới. Bạn phải giữ phím <keycap> Ctrl </keycap> trong khi "
+"bạn kéo lê để tạo một bản sao, nếu không thư mục sẽ được di chuyển, chứ "
+"không được sao chép."
 
 #. (para)
 msgid ""
@@ -11715,6 +11819,10 @@ msgid ""
 "folder to be moved or copied. Of course to create a branch or tag you must "
 "copy the folder, not move it."
 msgstr ""
+"Bạn cũng có thể kéo một thư mục với nút chuột phải. Một khi bạn thả chuột "
+"bạn có thể lựa chọn từ trình đơn ngữ cảnh là bạn muốn thư mục được di chuyển"
+" hoặc sao chép. Tất nhiên để tạo ra một chi nhánh hoặc thẻ bạn phải sao chép"
+" thư mục, chứ không di chuyển nó."
 
 #. (para)
 msgid ""
@@ -11723,14 +11831,19 @@ msgid ""
 "earlier revision), right click and choose <menuchoice><guimenuitem>create "
 "branch/tag from revision...</guimenuitem></menuchoice>."
 msgstr ""
+"Tuy nhiên, có một cách khác là từ hộp thoại tường trình. Bạn có thể hiển thị"
+" hộp thoại tường trình ví dụ như thân cây, chọn một bản sửa đổi (hoặc là bản"
+" sửa đổi CHÍNH ở đầu hoặc một bản sửa đổi trước đó), nhấp chuột phải và chọn"
+" <menuchoice><guimenuitem> tạo chi nhánh / thẻ từ sửa đổi ... "
+"</guimenuitem></menuchoice> ."
 
 #. (title)
 msgid "To Checkout or to Switch..."
-msgstr ""
+msgstr "Kiểm xu hoặc Chuyển mạch ..."
 
 #. (primary)
 msgid "switch"
-msgstr ""
+msgstr "chuyển"
 
 #. (para)
 msgid ""
@@ -11740,6 +11853,11 @@ msgid ""
 " only transfers the changed data to your working copy. Good for the network "
 "load, good for your patience. :-)"
 msgstr ""
+"... Đó (không thực sự) là câu hỏi. Trong khi một kiểm xuất tải xuống mọi thứ"
+" từ chi nhánh mong muốn trong kho lưu trữ vào thư mục làm việc của bạn, "
+"<menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Chuyển đổi ... "
+"</guimenuitem></menuchoice> chỉ chuyển dữ liệu được thay đổi vào bản sao làm"
+" việc của bạn. Tốt cho tải mạng, tốt cho sự kiên nhẫn của bạn. :-)"
 
 #. (para)
 msgid ""
@@ -11748,6 +11866,10 @@ msgid ""
 "location on your local disk and you can create as many working copies from "
 "your repository as you like."
 msgstr ""
+"<menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Kiểm xuất "
+"</guimenuitem></menuchoice> để làm một kiểm xuất tươi trong một thư mục "
+"trống. Bạn có thể kiểm tra bất kỳ vị trí nào trên đĩa địa phương của bạn và "
+"bạn có thể tạo nhiều bản sao làm việc từ kho lưu trữ của bạn như bạn muốn."
 
 #. (para)
 msgid ""
@@ -11756,6 +11878,10 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>"
 " from the context menu."
 msgstr ""
+"Chuyển bản sao làm việc hiện tại của bạn sang bản sao mới được tạo ra trong "
+"kho. Một lần nữa chọn thư mục cấp cao nhất của dự án của bạn và sử dụng "
+"<menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Chuyển đổi ... "
+"</guimenuitem></menuchoice> từ trình đơn ngữ cảnh."
 
 #. (para)
 msgid ""
@@ -11764,6 +11890,10 @@ msgid ""
 "<guibutton>OK</guibutton>. Your working copy is switched to the new "
 "branch/tag."
 msgstr ""
+"Trong hộp thoại tiếp theo, nhập địa chỉ URL của chi nhánh mà bạn vừa tạo ra."
+" Chọn nút radio <guilabel> Bản sửa đổi Chính </guilabel> và nhấp chuột vào "
+"<guibutton> OK </guibutton> . Bản sao làm việc của bạn được chuyển sang chi "
+"nhánh / thẻ mới."
 
 #. (para)
 msgid ""
@@ -11773,6 +11903,12 @@ msgid ""
 "happen then you must either commit the changes before switching, or revert "
 "your working copy to an already-committed revision (typically HEAD)."
 msgstr ""
+"Chuyển đổi công việc giống như Cập Nhật ở chỗ nó không bao giờ loại bỏ các "
+"thay đổi cục bộ của bạn. Bất kỳ thay đổi bạn đã thực hiện trong bản sao làm "
+"việc của bạn chưa được cam kết sẽ được sáp nhập khi bạn làm Chuyển Đổi. Nếu "
+"bạn không muốn điều này xảy ra thì bạn phải cam kết những thay đổi trước khi"
+" chuyển đổi, hoặc trở lại bản sao của bạn làm việc với một phiên bản đã cam "
+"kết (thường là CHÍNH)."
 
 #. (para)
 msgid ""
@@ -11782,16 +11918,23 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>"
 " that copy to your new branch."
 msgstr ""
+"Nếu bạn muốn làm việc trên thân cây và chi nhánh, nhưng không muốn chi phí "
+"của một việc kiểm xuất mới, bạn có thể sử dụng Windows Explorer để tạo một "
+"bản sao của thân cây của bạn kiểm xuất ra trong một thư mục khác, sau đó "
+"<menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Chuyển đổi ... "
+"</guimenuitem></menuchoice> bản sao đó sang chi nhánh mới của bạn."
 
 #. (title)
 msgid "The Switch Dialog"
-msgstr ""
+msgstr "Hộp thoại Chuyển ổi"
 
 #. (para)
 msgid ""
 "To be able to work with your freshly generated branch or tag you have "
 "several ways to handle it. You can: <placeholder-1/><placeholder-2/>"
 msgstr ""
+"Để có thể làm việc với chi nhánh hay thẻ mới được tạo ra bạn có nhiều cách "
+"để xử lý nó. Bạn có thể: <placeholder-1/><placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -11805,6 +11948,15 @@ msgid ""
 "to a path in the repository which contains <filename>/tags/</filename>, "
 "TortoiseSVN will warn you."
 msgstr ""
+"Các thẻ thường được sử dụng để tạo ra một ảnh chụp tĩnh của dự án tại một "
+"giai đoạn cụ thể. Bởi vì chúng thường không được sử dụng cho phát triển - đó"
+" là những gì các chi nhánh, là lý do chúng tôi đề nghị cấu trúc kho lưu trữ "
+"<filename>/trunk/branches/tag </filename> ngày lúc đầu. Làm việc trên một "
+"phiên bản thẻ <emphasis> không phải là một ý tưởng tốt </emphasis> , Nhưng "
+"bởi vì các tập tin địa phương của bạn không được bảo vệ chống ghi nên không "
+"có gì để ngăn chặn bạn làm điều này lúc nhầm lẫn. Tuy nhiên, nếu bạn cố gắng"
+" cam kết một đường dẫn trong kho, trong đó có <filename> /Tags/ </filename> "
+", TortoiseSVN sẽ cảnh báo bạn."
 
 #. (para)
 msgid ""
@@ -11814,6 +11966,11 @@ msgid ""
 " then create a new tag from this new branch, e.g. "
 "<filename>Version_1.0.1</filename>."
 msgstr ""
+"Có thể rằng bạn cần phải thực hiện thay đổi thêm đến bản phát hành mà bạn đã"
+" gắn thẻ. Cách đúng đắn để xử lý việc này là tạo ra một chi nhánh mới từ thẻ"
+" đầu tiên và cam kết chi nhánh. Thực hiện các Thay đổi của bạn trên chi "
+"nhánh này và sau đó tạo ra một thẻ mới từ chi nhánh mới này, ví dụ như "
+"<filename> Version_1.0.1 </filename> ."
 
 #. (para)
 msgid ""
@@ -11821,23 +11978,30 @@ msgid ""
 "changes go to the new branch and <emphasis>not</emphasis> the trunk. Only "
 "the modifications are stored. The rest remains a cheap copy."
 msgstr ""
+"Nếu bạn chỉnh sửa một bản sao làm việc được tạo ra từ một chi nhánh và cam "
+"kết, thì tất cả thay đổi đi đến chi nhánh mới và <emphasis> không "
+"</emphasis> phải là thân cây. Chỉ có những sửa đổi được lưu trữ. Phần còn "
+"lại vẫn còn là một bản sao rẻ."
 
 #. (para)
 msgid ""
 "Although Subversion itself makes no distinction between tags and branches, "
 "the way they are typically used differs a bit. <placeholder-1/>"
 msgstr ""
+"Mặc dù Subversion chính nó làm cho không có sự phân biệt giữa các thẻ và các"
+" nhánh, cách mà chúng được sử dụng thường khác nhau một chút. "
+"<placeholder-1/>"
 
 #. (title)
 msgid "Merging"
-msgstr ""
+msgstr "Hợp nhất"
 
 #. (primary)
 #. (primary)
 #. (primary)
 #. (primary)
 msgid "merge"
-msgstr ""
+msgstr "hợp nhất"
 
 #. (para)
 msgid ""
@@ -11845,6 +12009,9 @@ msgid ""
 "stage you will want to merge the changes made on one branch back into the "
 "trunk, or vice versa."
 msgstr ""
+"Trường hợp các chi nhánh được sử dụng để duy trì các dòng phát triển riêng "
+"biệt, ở giai đoạn nào đó, bạn sẽ muốn kết hợp các thay đổi được thực hiện "
+"trên một chi nhánh trở lại vào thân cây, hoặc ngược lại."
 
 #. (para)
 msgid ""
@@ -11855,6 +12022,12 @@ msgid ""
 "Merging</citetitle></ulink> in the Subversion book, which gives a full "
 "description and many examples of how it is used."
 msgstr ""
+"Điều quan trọng là hiểu được cách thức phân nhánh và sáp nhập làm việc trong"
+" Subversion trước khi bạn bắt đầu sử dụng nó, vì nó có thể trở nên khá phức "
+"tạp. Chúng tôi khuyến khích bạn đọc chương <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.branchmerge.html\"><citetitle> Phân nhánh và Hợp "
+"nhất</citetitle></ulink> trong cuốn sách Subversion, có đưa ra một mô tả đầy"
+" đủ và nhiều ví dụ về cách sử dụng nó."
 
 #. (para)
 msgid ""
@@ -11865,6 +12038,12 @@ msgid ""
 "using "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Merge...</guimenuitem></menuchoice>."
 msgstr ""
+"Điểm tiếp theo cần lưu ý là hợp nhất <emphasis> luôn luôn </emphasis> diễn "
+"ra trong một bản sao làm việc. Nếu bạn muốn kết hợp những thay đổi "
+"<emphasis> vào </emphasis> một chi nhánh, bạn phải có một bản sao làm việc "
+"cho chi nhánh đó kiểm xu, và gọi trình hướng dẫn hợp nhất từ ​​bản sao làm "
+"việc bằng cách sử dụng <menuchoice><guimenu> TortoiseSVN "
+"</guimenu><guimenuitem> Hợp nhất ... </guimenuitem></menuchoice> ."
 
 #. (para)
 msgid ""
@@ -11874,6 +12053,12 @@ msgid ""
 " <guilabel>Revert</guilabel> command will discard <emphasis>all</emphasis> "
 "changes including any you made before the merge."
 msgstr ""
+"Nói chung, đó là một ý tưởng tốt để thực hiện một hợp nhất thành một bản sao"
+" làm việc chưa sửa đổi. Nếu bạn đã thực hiện thay đổi khác trong WC của bạn,"
+" cam kết những cái đó trước. Nếu hợp nhất không như bạn mong đợi, bạn có thể"
+" muốn phục hồi các thay đổi, và lệnh <guilabel> Hoàn nguyên </guilabel> sẽ "
+"loại bỏ <emphasis> tất cả </emphasis> thay đổi bao gồm bất kỳ thay đổi bạn "
+"đã thực hiện trước khi hợp nhất."
 
 #. (para)
 msgid ""
@@ -11881,10 +12066,13 @@ msgid ""
 "different ways, as described below. The first page of the merge wizard asks "
 "you to select the method you need."
 msgstr ""
+"Có ba trường hợp phổ biến cho việc sáp nhập được xử lý theo những cách hơi "
+"khác nhau, như mô tả dưới đây. Trang đầu tiên của hướng dẫn hợp nhất yêu cầu"
+" bạn chọn phương pháp nào bạn cần."
 
 #. (term)
 msgid "Merge a range of revisions"
-msgstr ""
+msgstr "Hợp nhất một phạm vi các sửa đổi"
 
 #. (para)
 msgid ""
@@ -11892,6 +12080,9 @@ msgid ""
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
 msgstr ""
+"Phương pháp này bao gồm các trường hợp khi bạn đã thực hiện một hoặc nhiều "
+"sửa đổi đến một chi nhánh (hoặc thân cây) và bạn muốn chuyển đổi các thay "
+"đổi trên đến một chi nhánh khác nhau."
 
 #. (para)
 msgid ""
@@ -11899,11 +12090,15 @@ msgid ""
 "necessary to get [FROM] revision 1 of branch A [TO] revision 7 of branch A, "
 "and apply those changes to my working copy (of trunk or branch B).</quote>"
 msgstr ""
+"Những gì bạn đang yêu cầu Subversion làm là: <quote> Tính toán những thay "
+"đổi cần thiết để có được [TỪ] phiên bản 1 của chi nhánh A [SANG] sửa đổi 7 "
+"chi nhánh A, và áp dụng những thay đổi để sao chép các thay đổi đó sang bản "
+"làm việc của tôi (của thân cây hoặc chi nhánh B). </quote>"
 
 #. (term)
 #. (title)
 msgid "Reintegrate a branch"
-msgstr ""
+msgstr "Tái tích h một chi nhánh"
 
 #. (para)
 msgid ""
@@ -11914,6 +12109,13 @@ msgid ""
 "with the trunk, the latest versions of branch and trunk will be absolutely "
 "identical except for your branch changes."
 msgstr ""
+"Phương pháp này bao gồm các trường hợp khi bạn đã thực hiện một chi nhánh "
+"tính năng như được thảo luận trong cuốn sách Subversion. Tất cả các thay đổi"
+" thân cây đã được chuyển đến các chi nhánh tính năng, tuần sang tuần, và bây"
+" giờ tính năng này hoàn tất, bạn muốn kết hợp nó trở lại vào thân cây. Bởi "
+"vì bạn đã lưu giữ các chi nhánh tính năng đồng bộ với thân cây, các phiên "
+"bản mới nhất của chi nhánh và thân cây sẽ hoàn toàn giống nhau, ngoại trừ "
+"những thay đổi chi nhánh của bạn."
 
 #. (para)
 msgid ""
@@ -11925,12 +12127,21 @@ msgid ""
 "accidentally undo work that others have committed to trunk since you last "
 "synchronized changes."
 msgstr ""
+"Đây là một trường hợp đặc biệt của cây hợp nhất được mô tả dưới đây, và nó "
+"chỉ đòi hỏi URL để hợp nhất (bình thường là) chi nhánh phát triển của bạn. "
+"Nó sử dụng các tính năng theo dõi hợp nhất của Subversion để tính toán đúng "
+"phạm vi sửa đổi để sử dụng, và thực hiện kiểm tra bổ sung để đảm bảo rằng "
+"chi nhánh đã được cập nhật đầy đủ với những thay đổi thân cây. Điều này đảm "
+"bảo rằng bạn không vô tình lùi lại công việc mà người khác đã cam kết vào "
+"thân cây kể từ khi bạn đồng bộ các thay đổi lần cuối."
 
 #. (para)
 msgid ""
 "After the merge, all branch development has been completely merged back into"
 " the main development line. The branch is now redundant and can be deleted."
 msgstr ""
+"Sau khi hợp nhất, tất cả các nhánh phát triển đã được sáp nhập hoàn toàn vào"
+" dòng chính phát triển. Chi nhánh hiện nay là dư thừa và có thể bị xóa."
 
 #. (para)
 msgid ""
@@ -11942,10 +12153,18 @@ msgid ""
 "branch! The solution to this is simply to create a new branch from trunk to "
 "continue the next phase of your development."
 msgstr ""
+"Một khi bạn đã thực hiện tái tích hợp hợp nhất bạn không nên tiếp tục sử "
+"dụng nó để phát triển. Lý do cho điều này là rằng nếu bạn cố gắng để tái "
+"đồng bộ chi nhánh hiện có của bạn từ thân cây sau đó, theo dõi hợp nhất sẽ "
+"xem việc tái tích hợp của bạn như một sự thay đổi thân cây vẫn chưa được hợp"
+" nhất vào chi nhánh, và sẽ cố gắng để hợp nhất các hợp nhất chi nhánh-đến-"
+"thân cây lại vào chi nhánh! Giải pháp này chỉ đơn giản là để tạo ra một chi "
+"nhánh mới từ thân cây để tiếp tục giai đoạn tiếp theo của sự phát triển của "
+"bạn."
 
 #. (term)
 msgid "Merge two different trees"
-msgstr ""
+msgstr "Hợp nhất hai cây khác nhau"
 
 #. (para)
 msgid ""
@@ -11955,6 +12174,11 @@ msgid ""
 "apply those changes to my working copy (of the trunk).</quote> The net "
 "result is that trunk now looks exactly like the branch."
 msgstr ""
+"Đây là trường hợp tổng quát hơn của phương pháp tái tích hợp. Những gì bạn "
+"đang yêu cầu Subversion làm là: <quote> Tính toán những thay đổi cần thiết "
+"để có được [TỪ] bản sửa chính của thân cây [ĐẾN] bản sửa đổi chính của chi "
+"nhánh, và áp dụng những thay đổi đó tới bản sao làm việc của tôi (của thân "
+"cây). </quote> Kết quả là thân cây giờ đây trông giống hệt như chi nhánh."
 
 #. (para)
 msgid ""
@@ -11966,18 +12190,25 @@ msgid ""
 "bean.com/en/1.5/svn.advanced.vendorbr.html\"><citetitle>vendor "
 "branches</citetitle></ulink> in the Subversion Book."
 msgstr ""
+"Nếu máy chủ / kho lưu trữ của bạn không hỗ trợ theo dõi kết hợp thì đây là "
+"cách duy nhất để hợp nhất một chi nhánh trở lại thân cây. Một trường hợp "
+"khác sử dụng xảy ra khi bạn đang sử dụng các chi nhánh nhà cung cấp và bạn "
+"cần phải hợp nhất các thay đổi sau một nhà cung cấp mới thả vào mã thân cây "
+"của bạn. Để biết thêm thông tin, đọc chương về <ulink url=\"http://svnbook"
+".red-bean.com/en/1.5/svn.advanced.vendorbr.html\"><citetitle> các nhánh cho "
+"nhà cung cấp </citetitle></ulink> Sách Subversion."
 
 #. (title)
 msgid "Merging a Range of Revisions"
-msgstr ""
+msgstr "Hợp nhất một Phạm vi Các sửa đổi"
 
 #. (secondary)
 msgid "revision range"
-msgstr ""
+msgstr "phạm vi sửa đổi"
 
 #. (title)
 msgid "The Merge Wizard - Select Revision Range"
-msgstr ""
+msgstr "Tình hướng dẫn Hợp nh - Chọn Phạm vi Sửa đổi"
 
 #. (para)
 msgid ""
@@ -11988,6 +12219,12 @@ msgid ""
 "branch before, then just use the drop down list which shows a history of "
 "previously used URLs."
 msgstr ""
+"<placeholder-1/> Trong mục <guilabel> Từ: </guilabel> nhập vào URL thư mục "
+"đầy đủ của chi nhánh hoặc thẻ có chứa các thay đổi mà bạn đưa đến bản sao "
+"làm việc của bạn. Bạn cũng có thể nhấp chuột vào <guibutton> ... "
+"</guibutton> để duyệt qua các kho lưu trữ và tìm những chi nhánh mong muốn. "
+"Nếu bạn đã sáp nhập từ chi nhánh này trước đó, thì chỉ cần sử dụng danh sách"
+" thả xuống cho thấy một lịch sử của các URL được sử dụng trước đó."
 
 #. (para)
 msgid ""
@@ -11996,6 +12233,11 @@ msgid ""
 "specific revisions separated by commas, or a range of revisions separated by"
 " a dash, or any combination of these."
 msgstr ""
+"Trong trường <guilabel> Phạm vi sửa đổi để hợp nhất </guilabel> nhập vào "
+"danh sách các phiên bản bạn muốn kết hợp. Đây có thể là một bản sửa đổi duy "
+"nhất, một danh sách các bản sửa đổi cụ thể cách nhau bằng dấu phẩy, hoặc một"
+" loạt các bản sửa đổi được phân cách bởi một dấu gạch ngang, hoặc bất kỳ sự "
+"kết hợp của những cái đó."
 
 #. (para)
 msgid ""
@@ -12011,6 +12253,9 @@ msgid ""
 "with TortoiseSVN compared to the command line client. The easiest way to "
 "visualise it is to think of a fence with posts and fence panels."
 msgstr ""
+"Có một sự khác biệt quan trọng trong cách một phạm vi sửa đổi được chỉ ra "
+"với TortoiseSVN so với các dòng lệnh máy khách. Cách dễ nhất để hình dung nó"
+" là nghĩ đến một hàng rào với đồn và tấm hàng rào."
 
 #. (para)
 msgid ""
@@ -12018,6 +12263,9 @@ msgid ""
 "<quote>fence post</quote> revisions which specify the "
 "<emphasis>before</emphasis> and <emphasis>after</emphasis> points."
 msgstr ""
+"Với các dòng lệnh máy khách bạn chỉ ra các thay đổi để hợp nhất sử dụng hai "
+"bản sửa đổi <quote> đồn hàng rào </quote> mà chỉ ra các điểm <emphasis> "
+"trước khi </emphasis> và <emphasis> sau khi </emphasis>."
 
 #. (para)
 msgid ""
@@ -12026,6 +12274,10 @@ msgid ""
 "dialog to specify revisions to merge, where each revision appears as a "
 "changeset."
 msgstr ""
+"Với TortoiseSVN, bạn chỉ định tập hợp thay đổi để hợp nhất sử dụng <quote> "
+"hàng rào tấm </quote> . Lý do cho việc này trở nên rõ ràng khi bạn sử dụng "
+"hộp thoại tường trình để xác định các sửa đổi để sáp nhập, khi mỗi b sửa đổi"
+" xuất hiện như một tập hợp thay đổi."
 
 #. (para)
 msgid ""
@@ -12033,6 +12285,10 @@ msgid ""
 "book will have you merge 100-200 this time and 200-300 next time. With "
 "TortoiseSVN you would merge 100-200 this time and 201-300 next time."
 msgstr ""
+"Nếu bạn đang sáp nhập các sửa đổi trong các khối, phương pháp thể hiện trong"
+" sách subversion sẽ cho bạn hợp nhất 100-200 trong thời gian này và 200-300 "
+"trong thời gian tiếp theo. Với TortoiseSVN, bạn sẽ hợp nhất 100-200 trong "
+"thời gian này và 201-300 trong thời gian tới."
 
 #. (para)
 msgid ""
@@ -12041,6 +12297,10 @@ msgid ""
 "believe that for the majority of GUI users it is easier to understand the "
 "method we have implemented."
 msgstr ""
+"Sự khác biệt này đã tạo ra rất nhiều sự nóng bỏng trên các danh sách gửi "
+"thư. Chúng tôi thừa nhận rằng có một sự khác biệt từ các dòng lệnh máy "
+"khách, nhưng chúng tôi tin rằng đối với phần lớn người sử dụng giao diện đồ "
+"họa dễ sẽ dàng hơn để hiểu được phương pháp mà chúng tôi đã thực hiện."
 
 #. (para)
 msgid ""
@@ -12052,6 +12312,13 @@ msgid ""
 "Click on <guibutton>OK</guibutton> and the list of revision numbers to merge"
 " will be filled in for you."
 msgstr ""
+"Cách dễ nhất để chọn phạm vi các bản sửa đổi bạn cần là bấm vào <guibutton> "
+"Hiện Tường Trình </guibutton> , vì điều này sẽ liệt kê những thay đổi gần "
+"đây với lời bình tường trình của họ. Nếu bạn muốn kết hợp các thay đổi từ "
+"một phiên bản duy nhất, chỉ cần chọn sửa đổi đó. Nếu bạn muốn kết hợp thay "
+"đổi từ một số sửa đổi, thì chọn phạm vi đó (bằng cách sử dụng phím <keycap> "
+"Shift</keycap> -modifier). Nhấp vào <guibutton> OK </guibutton> và danh sách"
+" các số sửa đổi để hợp nhất sẽ được điền vào cho bạn."
 
 #. (para)
 msgid ""
@@ -12060,6 +12327,10 @@ msgid ""
 "revisions to revert and make sure the <guilabel>Reverse merge</guilabel> box"
 " is checked."
 msgstr ""
+"Nếu bạn muốn kết hợp thay đổi trở lại <emphasis> ra khỏi </emphasis> bản sao"
+" làm việc của bạn, để quay lại một sự thay đổi đã được cam kết, lựa chọn các"
+" phiên bản để trở lại và chắc chắn rằng hộp kiểm <guilabel> Đảo ngược hợp "
+"nhất </guilabel> được ch."
 
 #. (para)
 msgid ""
@@ -12072,6 +12343,15 @@ msgid ""
 "For example, if you have merged revisions 37 to 39 last time, then the start"
 " point for this merge should be revision 40."
 msgstr ""
+"Nếu bạn đã sáp nhập một số thay đổi từ chi nhánh này, hy vọng là bạn sẽ để "
+"lại lưu ý về việc sửa đổi cuối cùng được sáp nhập trong thông điệp tường "
+"trình khi bạn cam kết thay đổi. Trong trường hợp đó, bạn có thể sử dụng "
+"<guibutton> Hiện Tường Trình </guibutton> cho Bản Sao Làm Việc để theo dõi "
+"thông điệp tường trình. Nhớ rằng chúng ta đang nghĩ đến các bản sửa đổi như "
+"các tập hợp thay đổi, bạn Nên sử dụng bản sửa đổi sau khi các điểm cuối của "
+"việc hợp nhất cuối cùng như là điểm bắt đầu cho việc hợp nhất này. Ví dụ, "
+"nếu bạn đã hợp nhất các phiên bản 37-39 lần cuối cùng, thì các điểm bắt đầu "
+"cho hợp nhất này nên là sửa đổi 40."
 
 #. (para)
 msgid ""
@@ -12081,6 +12361,11 @@ msgid ""
 "which have not yet been merged will be included. Read <xref linkend=\"tsvn-"
 "dug-merge-tracking\"/> to find out more."
 msgstr ""
+"Nếu bạn đang sử dụng tính năng theo dõi hợp nhất của Subversion, bạn không "
+"cần phải nhớ các bản sửa đổi đã được sáp nhập - Subversion sẽ ghi lại điều "
+"đó cho bạn. Nếu bạn bỏ trống phạm vi sửa đổi, tất cả các phiên bản chưa được"
+" sáp nhập sẽ được bao gồm. Đọc <xref linkend=\"tsvn-dug-merge-tracking\"/> "
+"để tìm hiểu thêm."
 
 #. (para)
 msgid ""
@@ -12098,12 +12383,18 @@ msgid ""
 "HEAD revision. It may not refer to the revision you think it does if someone"
 " else made a commit after your last update."
 msgstr ""
+"Nếu người khác có lẽ đang cam kết các thay đổi thì hãy cẩn thận về việc sử "
+"dụng bản sửa đổi CHÍNH. Nó có thể không đề cập đến bản sửa đổi bạn nghĩ nếu "
+"một người nào khác đã thực hiện một cam kết sau lần cập nhật cuối cùng của "
+"bạn."
 
 #. (para)
 msgid ""
 "Click <guibutton>Next</guibutton> and go to <xref linkend=\"tsvn-dug-merge-"
 "options\"/>."
 msgstr ""
+"Nhấp vào <guibutton> Tiếp theo </guibutton> và đi đến <xref linkend=\"tsvn-"
+"dug-merge-options\"/> ."
 
 #. (secondary)
 msgid "reintegrate"
