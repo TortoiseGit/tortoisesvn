@@ -400,10 +400,6 @@ LRESULT CMainWindow::DoCommand(int id)
             GetClientRect(*this, &rect);
             PositionChildren(&rect);
 
-            if ((bFitSizes)&&(bOverlap))
-            {
-                picWindow1.FitSizes(bFitSizes);
-            }
             return 0;
         }
         break;
