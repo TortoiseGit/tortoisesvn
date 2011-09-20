@@ -945,11 +945,23 @@ void CPicWindow::SetZoom(double dZoom, bool centermouse)
         // the mouse pointer is over our window
         nHScrollPos = int(double(nHScrollPos + cpos.x)*(dZoom/oldPicscale))-cpos.x;
         nVScrollPos = int(double(nVScrollPos + cpos.y)*(dZoom/oldPicscale))-cpos.y;
+        if (pTheOtherPic)
+        {
+            double otherzoom = pTheOtherPic->GetZoom();
+            nHSecondScrollPos = int(double(nHSecondScrollPos + cpos.x)*(otherzoom/oldPicscale))-cpos.x;
+            nVSecondScrollPos = int(double(nVSecondScrollPos + cpos.y)*(otherzoom/oldPicscale))-cpos.y;
+        }
     }
     else
     {
         nHScrollPos = int(double(nHScrollPos + ((clientrect.right-clientrect.left)/2))*(dZoom/oldPicscale))-((clientrect.right-clientrect.left)/2);
         nVScrollPos = int(double(nVScrollPos + ((clientrect.bottom-clientrect.top)/2))*(dZoom/oldPicscale))-((clientrect.bottom-clientrect.top)/2);
+        if (pTheOtherPic)
+        {
+            double otherzoom = pTheOtherPic->GetZoom();
+            nHSecondScrollPos = int(double(nHSecondScrollPos + ((clientrect.right-clientrect.left)/2))*(otherzoom/oldPicscale))-((clientrect.right-clientrect.left)/2);
+            nVSecondScrollPos = int(double(nVSecondScrollPos + ((clientrect.bottom-clientrect.top)/2))*(otherzoom/oldPicscale))-((clientrect.bottom-clientrect.top)/2);
+        }
     }
 
     SetupScrollBars();
