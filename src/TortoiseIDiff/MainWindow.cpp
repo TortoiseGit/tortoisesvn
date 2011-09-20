@@ -378,6 +378,12 @@ LRESULT CMainWindow::DoCommand(int id)
                 tbi.fsState = bVertical ? TBSTATE_ENABLED | TBSTATE_CHECKED : TBSTATE_ENABLED;
             SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_ARRANGEVERTICAL, (LPARAM)&tbi);
 
+            if (bOverlap)
+                tbi.fsState = 0;
+            else
+                tbi.fsState = bVertical ? TBSTATE_ENABLED | TBSTATE_CHECKED : TBSTATE_ENABLED;
+            SendMessage(hwndTB, TB_SETBUTTONINFO, ID_VIEW_LINKIMAGESTOGETHER, (LPARAM)&tbi);
+
             ShowWindow(picWindow2, bOverlap ? SW_HIDE : SW_SHOW);
 
             if (bOverlap)
