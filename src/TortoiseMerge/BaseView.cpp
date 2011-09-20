@@ -1993,7 +1993,6 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
         RecalcVertScrollBar();
         RecalcHorzScrollBar();
     }
-    EnsureCaretVisible();
     UpdateCaret();
 }
 
