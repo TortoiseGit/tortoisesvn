@@ -443,13 +443,28 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
             LPNMHDR pNMHDR = (LPNMHDR)lParam;
             if (pNMHDR->code == TTN_GETDISPINFO)
             {
-                if ((HWND)wParam == m_AlphaSlider.GetWindow())
+                if (pNMHDR->hwndFrom == m_AlphaSlider.GetWindow())
                 {
                     LPTOOLTIPTEXT lpttt = (LPTOOLTIPTEXT) lParam;
                     lpttt->hinst = hResource;
                     TCHAR stringbuf[MAX_PATH] = {0};
                     _stprintf_s(stringbuf, _T("%i%% alpha"), (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
                     _tcscpy_s(lpttt->lpszText, 80, stringbuf);
+                }
+                else if (pNMHDR->idFrom == (UINT_PTR)hwndAlphaToggleBtn)
+                {
+                    _stprintf_s(m_wszTip, (TCHAR const *)ResString(hResource, IDS_ALPHABUTTONTT), (int)(SendMessage(m_AlphaSlider.GetWindow(),TBM_GETPOS,0,0)/16.0f*100.0f));
+                    if (pNMHDR->code == TTN_NEEDTEXTW)
+                    {
+                        NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
+                        pTTTW->lpszText = m_wszTip;
+                    }
+                    else
+                    {
+                        NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
+                        pTTTA->lpszText = m_szTip;
+                        ::WideCharToMultiByte(CP_ACP, 0, m_wszTip, -1, m_szTip, 8192, NULL, NULL);
+                    }
                 }
                 else
                 {
@@ -1366,6 +1381,20 @@ bool CPicWindow::CreateButtons()
         return false;
     hAlphaToggle = (HICON)LoadImage(hResource, MAKEINTRESOURCE(IDI_ALPHATOGGLE), IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT);
     SendMessage(hwndAlphaToggleBtn, BM_SETIMAGE, (WPARAM)IMAGE_ICON, (LPARAM)hAlphaToggle);
+
+    TOOLINFO ti = {0};
+    ti.cbSize = sizeof(TOOLINFO);
+    ti.uFlags = TTF_IDISHWND|TTF_SUBCLASS;
+    ti.hwnd = *this;
+    ti.hinst = hResource;
+    ti.uId = (UINT_PTR)hwndAlphaToggleBtn;
+    ti.lpszText = LPSTR_TEXTCALLBACK;
+    // ToolTip control will cover the whole window
+    ti.rect.left = 0;
+    ti.rect.top = 0;
+    ti.rect.right = 0;
+    ti.rect.bottom = 0;
+    SendMessage(hwndTT, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);
 
     return true;
 }
