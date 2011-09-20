@@ -353,7 +353,7 @@ BOOL CTortoiseProcApp::InitInstance()
             // when started from the win7 library buttons, we don't get the /groupuuid:xxx parameter
             // passed to us. In that case we have to fetch the uuid (or try to) here,
             // otherwise the grouping wouldn't work.
-            CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 0);
+            CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 3);
             switch (DWORD(groupSetting))
             {
             case 1:

@@ -47,7 +47,7 @@ void SetTaskIDPerUUID()
 
 std::wstring GetTaskIDPerUUID(LPCTSTR uuid /*= NULL */)
 {
-    CRegStdDWORD r = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 0);
+    CRegStdDWORD r = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 3);
     std::wstring id = APPID;
     if ((r < 2)||(r == 3))
     {
@@ -82,9 +82,9 @@ extern CString g_sGroupingUUID;
 
 void SetUUIDOverlayIcon( HWND hWnd )
 {
-    if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 0))
+    if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 3))
     {
-        if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepoOverlay"), FALSE))
+        if (CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepoOverlay"), TRUE))
         {
             std::wstring uuid;
 #ifdef _MFC_VER

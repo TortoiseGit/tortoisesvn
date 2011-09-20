@@ -1449,7 +1449,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
             }
             if (!uuidSource.empty())
             {
-                CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 0);
+                CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 3);
                 switch (DWORD(groupSetting))
                 {
                 case 1:
@@ -1530,7 +1530,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
         svnCmd += buf;
         if (!uuidSource.empty())
         {
-            CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 0);
+            CRegStdDWORD groupSetting = CRegStdDWORD(_T("Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo"), 3);
             switch (DWORD(groupSetting))
             {
             case 1:
