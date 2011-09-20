@@ -20,10 +20,8 @@
 // Neutral resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-#ifdef _WIN32
 LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -91,20 +89,18 @@ END
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
 //
 
-IDC_TORTOISEIDIFF MENU 
+IDC_TORTOISEIDIFF MENU
 BEGIN
     POPUP "&File"
     BEGIN
@@ -115,18 +111,18 @@ BEGIN
     POPUP "&View"
     BEGIN
         MENUITEM "&Overlay images",             ID_VIEW_OVERLAPIMAGES
-        MENUITEM "Blend Alpha",                 ID_VIEW_BLENDALPHA
+        MENUITEM "Blend alpha",                 ID_VIEW_BLENDALPHA
         MENUITEM "&Link image positions",       ID_VIEW_LINKIMAGESTOGETHER, CHECKED
         MENUITEM "Fit image &sizes",            ID_VIEW_FITTOGETHER
-        MENUITEM "&Fit Images in window",       ID_VIEW_FITIMAGESINWINDOW
+        MENUITEM "&Fit images in window",       ID_VIEW_FITIMAGESINWINDOW
         MENUITEM "Ori&ginal size",              ID_VIEW_ORININALSIZE
         MENUITEM "Transparent &color...",       ID_VIEW_TRANSPARENTCOLOR
         MENUITEM SEPARATOR
         MENUITEM "Zoo&m out",                   ID_VIEW_ZOOMOUT
         MENUITEM "Zoom i&n",                    ID_VIEW_ZOOMIN
         MENUITEM SEPARATOR
-        MENUITEM "&Image Info",                 ID_VIEW_IMAGEINFO
-        MENUITEM "Arrange &Vertical",           ID_VIEW_ARRANGEVERTICAL
+        MENUITEM "&Image info",                 ID_VIEW_IMAGEINFO
+        MENUITEM "Arrange &vertical",           ID_VIEW_ARRANGEVERTICAL
     END
     MENUITEM "?",                           ID_ABOUT
 END
@@ -171,7 +167,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_OPEN, DIALOG
     BEGIN
@@ -201,7 +197,7 @@ END
 // Accelerator
 //
 
-IDR_TORTOISEIDIFF ACCELERATORS 
+IDR_TORTOISEIDIFF ACCELERATORS
 BEGIN
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
     VK_UP,          ID_VIEW_ALPHA0,         VIRTKEY, NOINVERT
@@ -228,7 +224,7 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_VERSION             "Version %d.%d.%d.%d"
     IDS_APP_TITLE           "TortoiseIDiff"
@@ -242,12 +238,12 @@ BEGIN
     IDS_IMAGEINFOTT         "File size:\t\t%s (%s)\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_DUALIMAGEINFOTT     "File size:\t\t%s (%s)\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%\n\nFile size:\t\t%s (%s)\nWidth:\t\t\t%ld pixel\nHeight:\t\t\t%ld pixel\nHorizontal Resolution:\t%.1f dpi\nVertical Resolution:\t%.1f dpi\nDepth:\t\t\t%d bit\nZoom:\t\t\t%d%%"
 END
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
