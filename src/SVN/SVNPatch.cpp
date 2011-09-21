@@ -142,7 +142,7 @@ svn_error_t * SVNPatch::patchfile_func( void *baton, svn_boolean_t * filtered, c
 
 int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgressDlg *pPprogDlg )
 {
-    if (patchfile.IsEmpty() || targetpath.IsEmpty() || !svn_dirent_is_absolute(CUnicodeUtils::GetUTF8(targetpath)))
+    if (patchfile.IsEmpty() || targetpath.IsEmpty() || !svn_dirent_is_absolute(CTSVNPath(targetpath).GetSVNApiPath(m_pool)))
     {
         m_errorStr.LoadString(IDS_ERR_PATCHPATHS);
         return 0;
