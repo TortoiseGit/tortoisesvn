@@ -167,7 +167,9 @@ class transReport:
           else:
             trans = self.checkAttrib('--translated', wrkFile)
             untrans = self.checkAttrib('--untranslated', wrkFile)
-            fuzzy = self.checkAttrib('--only-fuzzy', wrkFile)
+# transifex doesn't support fuzzy, so don't report it anymore
+#           fuzzy = self.checkAttrib('--only-fuzzy', wrkFile)
+            fuzzy = 0
             if checkAccel:
               accel = self.checkError('--check-accelerators', wrkFile)
             else:
@@ -184,12 +186,14 @@ class transReport:
                 percent = 100*(trans)/total
 
               if checkAccel:
-                return '%2s%% (%s/%s/%s)' % (percent, untrans, fuzzy, accel)
+#                return '%2s%% (%s/%s/%s)' % (percent, untrans, fuzzy, accel)
+                return '%2s%% (%s/%s)' % (percent, untrans, accel)
               else:
-                return '%2s%% (%s/%s)' % (percent, untrans, fuzzy)
+#                return '%2s%% (%s/%s)' % (percent, untrans, fuzzy)
+                return '%2s%% (%s)' % (percent, untrans)
 
     def printStatLine(self, Lang, Gui, Doc):
-        print '%-32s: %-20s: %-20s' % (Lang, Gui, Doc)
+        print '%-33s: %-19s: %-19s' % (Lang, Gui, Doc)
     
     def checkTranslation(self, wrkDir):
 
@@ -201,7 +205,8 @@ class transReport:
         print firstline[0:75]
         self.printStatLine('', 'User interface', 'Manuals')
         self.printStatLine('Total strings', totGui, totDoc)
-        self.printStatLine('Language', 'Status (un/fu/ma)', 'Status (un/fu)')
+#        self.printStatLine('Language', 'Status (un/fu/ma)', 'Status (un/fu)')
+        self.printStatLine('Language', 'Status (un/ma)', 'Status (un)')
         print Sep75
 
         csvReader = csv.DictReader(open(langList), langFields, delimiter=';', quotechar='"')
@@ -242,7 +247,8 @@ class transReport:
         self.checkTranslation(wrkDir)
 
         print Sep75
-        print 'Status: fu=fuzzy - un=untranslated - ma=missing accelerator keys'
+#        print 'Status: fu=fuzzy - un=untranslated - ma=missing accelerator keys'
+        print 'Status: un=untranslated - ma=missing accelerator keys'
         print Sep75
 
         # Clean up the tmp folder
