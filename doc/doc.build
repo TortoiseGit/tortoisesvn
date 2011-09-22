@@ -122,6 +122,15 @@ All user/site specific configuration is stored in doc.build.user.
       </filterchain>
     </copy>
 
+    <!-- make sure the font metrics files are available -->
+    <property name="metricsfile" value="xsl/fonts/arial.xml" />
+    <if test="${not file::exists(metricsfile)}">
+      <exec program="createmetrics.bat"
+            basedir="xsl/fonts"
+            workingdir="xsl/fonts"
+            verbose="false"/>
+    </if>
+
   </target>
 
   <!-- ====================================================================== -->
