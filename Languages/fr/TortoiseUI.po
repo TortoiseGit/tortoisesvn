@@ -12,6 +12,7 @@
 # Translators:
 # Alexandre Paradis <paradial@hotmail.com>, 2011.
 #   <christophe@xhaleera.com>, 2011.
+#   <gobes2@gmail.com>, 2011.
 # <grokwik@gmail.com>, 2011.
 #   <grokwik@gmail.com>, 2011.
 # grokwik <grokwik@gmail.com>, 2011.
@@ -24,8 +25,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-21 00:32+0000\n"
-"Last-Translator: netmask <paradial@hotmail.com>\n"
+"PO-Revision-Date: 2011-09-22 12:25+0000\n"
+"Last-Translator: gobes <gobes2@gmail.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -172,7 +173,7 @@ msgid ""
 msgstr ""
 "%1\n"
 "Impossible de trouver ce fichier.\n"
-"Veuillez vérifier que le chemin et le nom du fichier corrects sont spécifiés."
+"Veuillez vérifier que le chemin et le nom du fichier spécifiés sont corrects."
 
 #. Resource IDs: (357)
 #, c-format
@@ -246,7 +247,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
-msgstr "%s, mais le répertoire manque dans la copie locale."
+msgstr "%s, mais le répertoire est absent de la copie locale."
 
 #. Resource IDs: (609)
 #, c-format
@@ -261,7 +262,7 @@ msgstr "%s, mais le répertoire a déjà été édité."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
-msgstr "%s, mais le répertoire a été supprimé,déplacé ou renommé localement."
+msgstr "%s, mais le répertoire a été supprimé, déplacé ou renommé localement."
 
 #. Resource IDs: (609)
 #, c-format
@@ -296,7 +297,7 @@ msgstr "%s, mais le fichier a déjà été modifié."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
-msgstr "%s, mais le fichier a été supprimé,déplacé ou renommé localement."
+msgstr "%s, mais le fichier a été supprimé, déplacé ou renommé localement."
 
 #. Resource IDs: (609)
 #, c-format
@@ -333,7 +334,7 @@ msgid ""
 "Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
-"Voulez-vous le supprimer de toute façon?"
+"Voulez-vous le supprimer quand même?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -651,7 +652,8 @@ msgstr "&Date"
 
 #. Resource IDs: (1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr "&Jours d'inactivité avant qu'un cache de petite taille soit supprimé"
+msgstr ""
+"&Jours d'inactivité avant que les caches de petite taille soient supprimés"
 
 #. Resource IDs: (1269)
 msgid "&Default"
@@ -764,7 +766,7 @@ msgstr "&Rechercher..."
 
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
-msgstr ""
+msgstr "&Adapter les images à la fenêtre"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -857,7 +859,7 @@ msgstr "&Image"
 
 #. Resource IDs: (32790)
 msgid "&Image info"
-msgstr ""
+msgstr "&Informations de l'image"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1183,7 +1185,7 @@ msgstr "Re&staurer les valeurs par défaut"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
-msgstr "&Réessayer sans les hooks"
+msgstr "&Réessayer sans les crochets"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
@@ -2182,7 +2184,7 @@ msgstr ""
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical"
-msgstr ""
+msgstr "Arranger &verticalement"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -9937,12 +9939,12 @@ msgid ""
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
 msgstr ""
-"Subversion a encontré un problème grave.\n"
+"Subversion a rencontré un problème grave.\n"
 "Veuillez s'il vous plaît le signaler à la liste de diffusion de Subversion (users@subversion.apache.org) avec autant d'informations que possible concernant ce que vous essayiez de faire.\n"
 "Mais cherchez d'abord le message d'erreur dans les archives de la liste de diffusion pour éviter de signaler un problème déjà connu. \n"
 "Vous pouvez trouver ces archives à l'adresse http://subversion.apache.org/mailing-lists.html \n"
 "\n"
-"Subversion a encontré le problème dans:\n"
+"Subversion a rencontré le problème dans:\n"
 "fichier %1!s!, ligne %2!ld! expression = %3!s!\n"
 "\n"
 "Vous pouvez copier le contenu de ce message vers le presse-papier en appuyant sur Ctrl-C"
