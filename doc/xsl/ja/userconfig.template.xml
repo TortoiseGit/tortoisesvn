@@ -29,13 +29,13 @@
   <renderers>
     <renderer mime="application/pdf">
       <fonts>
-        <font metrics-url="%USRFONTSDIR%/msgothic.xml" embed-url="%WINFONTSDIR%\msgothic.ttc" kerning="yes">
+        <font metrics-url="%USRFONTSDIR%/msgothic.xml" embed-url="%WINFONTSDIR%/msgothic.ttc" kerning="yes">
           <font-triplet name="Gothic" style="normal" weight="normal"/>
           <font-triplet name="Gothic" style="normal" weight="bold"/>
           <font-triplet name="Gothic" style="italic" weight="normal"/>
           <font-triplet name="Gothic" style="italic" weight="bold"/>
         </font>
-        <font metrics-url="%USRFONTSDIR%/msmincho.xml" embed-url="%WINFONTSDIR%\msmincho.ttc" kerning="yes">
+        <font metrics-url="%USRFONTSDIR%/msmincho.xml" embed-url="%WINFONTSDIR%/msmincho.ttc" kerning="yes">
           <font-triplet name="Mincho" style="normal" weight="normal"/>
           <font-triplet name="Mincho" style="normal" weight="bold"/>
           <font-triplet name="Mincho" style="italic" weight="normal"/>
