@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-19 00:33+0000\n"
+"PO-Revision-Date: 2011-09-22 06:43+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -175,6 +175,17 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBayt transfer edildi"
+
+#. Resource IDs: (8)
+#, c-format
+msgid ""
+"%i%% alpha\n"
+"click to toggle alpha\n"
+"double click to automatically toggle alpha"
+msgstr ""
+"%i%% alfa\n"
+"alfayı değiştirmek için tıklayın\n"
+"alfayı otomatik olarak değiştirmek için çift tıklayın"
 
 #. Resource IDs: (7)
 #, c-format
@@ -739,8 +750,8 @@ msgid "&Find..."
 msgstr "&Bul..."
 
 #. Resource IDs: (32778)
-msgid "&Fit Images in window"
-msgstr "&Resimleri pencereye sığdır"
+msgid "&Fit images in window"
+msgstr "&Görselleri pencereye sığdır"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -832,8 +843,8 @@ msgid "&Image"
 msgstr "&Resim"
 
 #. Resource IDs: (32790)
-msgid "&Image Info"
-msgstr "&Resim Bilgisi"
+msgid "&Image info"
+msgstr "&Görsel bilgisi"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1444,6 +1455,8 @@ msgid ""
 "'%s'\n"
 "is not a valid URL or path!"
 msgstr ""
+"'%s'\n"
+"geçerli bir URL veya yol değil!"
 
 #. Resource IDs: (338)
 msgid ""
@@ -2154,8 +2167,8 @@ msgstr ""
 "Son güncellemeden bu yana olan bütün değişiklikler silinir!"
 
 #. Resource IDs: (32793)
-msgid "Arrange &Vertical"
-msgstr "Dikey& olarak sırala"
+msgid "Arrange &vertical"
+msgstr "Dike&y olarak ayarla"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -2321,8 +2334,8 @@ msgstr ""
 "aittir"
 
 #. Resource IDs: (32812)
-msgid "Blend Alpha"
-msgstr "Alpha'yı Karıştır"
+msgid "Blend alpha"
+msgstr "Alfayı karıştır"
 
 #. Resource IDs: (83)
 msgid ""
@@ -2335,7 +2348,7 @@ msgstr ""
 #. Resource IDs: (70)
 msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
-msgstr ""
+msgstr "Hem yama dosyası yolu hem de hedef yol mutlak yol olmalıdır!"
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -3865,7 +3878,7 @@ msgstr "Yok sayılan dosya ve klasörler&i sil"
 
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
-msgstr "&Versiyonlanmamış dosya ve klasörler&i sil"
+msgstr "&Versiyonlanmamış dosya ve klasörleri sil"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -4424,7 +4437,7 @@ msgstr "Boş"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-&Properties"
-msgstr "Otomatik-Özellikleri aç"
+msgstr "&Otomatik-Özellikleri aç"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5455,7 +5468,7 @@ msgstr "ID"
 
 #. Accelerator Entry for Menu ID:105; 'E&xit'
 msgid "ID:105:V C +W"
-msgstr ""
+msgstr "ID:105:V C +W"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
@@ -6297,7 +6310,7 @@ msgstr "Depo özyinelemeli olarak listeleniyor..."
 
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
-msgstr ""
+msgstr "Yer&el dizin yolu:"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -6643,6 +6656,8 @@ msgid ""
 "Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
 "%6!s!%7!s!%8!s!"
 msgstr ""
+"%1!s!, revizyon %2!s! şuraya birleştiliriyor: %3!s!, revizyon %4!s! şuraya: "
+"%5!s!, %6!s!%7!s!%8!s!"
 
 #. Resource IDs: (264)
 #, c-format
@@ -6665,6 +6680,7 @@ msgstr ""
 #, c-format
 msgid "Merging revisions %1!s! of %2!s! into %3!s!, %4!s!%5!s!%6!s!"
 msgstr ""
+"%2!s!, %1!s! revizyonlarını şuraya birleştiriyor: %3!s!, %4!s!%5!s!%6!s!"
 
 #. Resource IDs: (76, 1241, 1359)
 msgid "Message"
@@ -8165,7 +8181,7 @@ msgstr "Birleştirmeyi yeniden entegre et"
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %1!s! into %2!s!"
-msgstr ""
+msgstr "%1!s! öğesini %2!s! hedefine yeniden entegre et ve birleştir"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -8894,6 +8910,14 @@ msgid ""
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
 msgstr ""
+"bugtraq: düzenli ifadeleri test etmek için örnek günlük mesajı.\n"
+"\n"
+"Bir metin içinde işlerden bahsedilmesi test ediliyor: İş #55 numaralı işten bahset. #77, #78 numaralı işlerden bahset.\n"
+"\n"
+"#101 numaralı işi güncelle\n"
+"#202 numaralı işi çözer\n"
+"#88 numaralı işi çözümler.\n"
+"#99 numaralı işi kapatır.\n"
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
@@ -9406,7 +9430,7 @@ msgstr "Farklılıkları &birleştirilmiş karşılaştırma dosyası olarak gö
 
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
-msgstr ""
+msgstr "Harici tutulmuş kök klasörleri normal olarak göster"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9855,6 +9879,20 @@ msgid ""
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
 msgstr ""
+"Subversion ciddi bir sorun ile karşılaştı. \n"
+"Ne yapmaya çalışıyor olduğunuz hakkında mümkün olduğunca fazla bilgiyi \n"
+"Subversion e-posta listesine (users@subversion.apache.org) raporlamak \n"
+"için lütfen zaman ayırın. \n"
+"Ama tekrar tekrar aynı sorunun raporlanmasını önlemek için önce lütfen hata mesajını e-posta listesi arşivlerinde arayın. \n"
+"Posta listesi arşivlerini şu adreste bulabilirsiniz:\n"
+"http://subversion.apache.org/mailing-lists.html \n"
+"\n"
+"Subversion aşağıdaki durumla karşılaştı:\n"
+"dosya %1!s!, satır %2!ld!\n"
+"ifade = %3!s!\n"
+"\n"
+"bu diyalog içeriğini Ctrl-C kullanarak \n"
+"panoya kopyalayabilirsiniz."
 
 #. Resource IDs: (84)
 msgid ""
@@ -9872,6 +9910,17 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr ""
+"Subversion ciddi bir sorun ile karşılaştı. \n"
+"Ne yapmaya çalışıyor olduğunuz hakkında mümkün olduğunca fazla bilgiyi \n"
+"Subversion e-posta listesine (users@subversion.apache.org) raporlamak \n"
+"için lütfen zaman ayırın. \n"
+"Ama tekrar tekrar aynı sorunun raporlanmasını önlemek için önce lütfen hata mesajını e-posta listesi arşivlerinde arayın. \n"
+"Posta listesi arşivlerini şu adreste bulabilirsiniz:\n"
+"http://subversion.apache.org/mailing-lists.html \n"
+"\n"
+"Subversion aşağıdaki durumu bildirdi\n"
+"(bu diyalog içeriğini Ctrl-C kullanarak \n"
+"panoya kopyalayabilirsiniz):"
 
 #. Resource IDs: (79)
 msgid ""

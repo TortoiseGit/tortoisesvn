@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-19 06:05+0000\n"
+"PO-Revision-Date: 2011-09-21 06:33+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -177,6 +177,17 @@ msgstr "%I64d Байт/с"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d КБайт передано"
+
+#. Resource IDs: (8)
+#, c-format
+msgid ""
+"%i%% alpha\n"
+"click to toggle alpha\n"
+"double click to automatically toggle alpha"
+msgstr ""
+"%i%% альфа-канал\n"
+"щелчок для переключения альфа-канала\n"
+"двойной щелчок для автоматического переключения альфа-канала"
 
 #. Resource IDs: (7)
 #, c-format
@@ -742,7 +753,7 @@ msgid "&Find..."
 msgstr "&Найти..."
 
 #. Resource IDs: (32778)
-msgid "&Fit Images in window"
+msgid "&Fit images in window"
 msgstr "Вписать изображения в &окно"
 
 #. Resource IDs: (1050)
@@ -835,7 +846,7 @@ msgid "&Image"
 msgstr "&Изображение"
 
 #. Resource IDs: (32790)
-msgid "&Image Info"
+msgid "&Image info"
 msgstr "Информация об &изображении"
 
 #. Resource IDs: (16505)
@@ -2154,8 +2165,8 @@ msgstr ""
 "все изменения с момента последнего обновления!"
 
 #. Resource IDs: (32793)
-msgid "Arrange &Vertical"
-msgstr "Выстроить по &вертикали"
+msgid "Arrange &vertical"
+msgstr "Выровнять по &вертикали"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -2319,8 +2330,8 @@ msgid "Blames each line of a file on an author"
 msgstr "Показывает для каждой строки файла её автора"
 
 #. Resource IDs: (32812)
-msgid "Blend Alpha"
-msgstr "Альфа-сопряжение"
+msgid "Blend alpha"
+msgstr "Смешать альфа-канал"
 
 #. Resource IDs: (83)
 msgid ""

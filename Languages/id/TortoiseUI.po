@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-19 00:33+0000\n"
-"Last-Translator: uring <uringinteristi@gmail.com>\n"
+"PO-Revision-Date: 2011-09-22 05:32+0000\n"
+"Last-Translator: Endra <endra.granasamsa@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgstr ""
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
-msgstr ""
+msgstr " "
 
 #. Resource IDs: (188)
 #, c-format
@@ -175,6 +175,17 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kByte ditransfer"
+
+#. Resource IDs: (8)
+#, c-format
+msgid ""
+"%i%% alpha\n"
+"click to toggle alpha\n"
+"double click to automatically toggle alpha"
+msgstr ""
+"%i%% alpha\n"
+"klik untuk beralih alpha\n"
+"klik dua kali untuk beralih alpha secara otomatis"
 
 #. Resource IDs: (7)
 #, c-format
@@ -340,6 +351,9 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
+"%s\n"
+"Folder %s\n"
+"berisi berkas tidak berversi dan/atau berkas termodifikasi. Apakah Anda tetap ingin menghapusnya?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -735,8 +749,8 @@ msgid "&Find..."
 msgstr "&Cari..."
 
 #. Resource IDs: (32778)
-msgid "&Fit Images in window"
-msgstr "&Gambar memenuhi jendela"
+msgid "&Fit images in window"
+msgstr "&Fit gambar di jendela"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -828,8 +842,8 @@ msgid "&Image"
 msgstr "&Gambar"
 
 #. Resource IDs: (32790)
-msgid "&Image Info"
-msgstr "&Info Gambar"
+msgid "&Image info"
+msgstr "&Informasi gambar"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1158,7 +1172,7 @@ msgstr "&Coba lagi tanpa kait"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
-msgstr ""
+msgstr "&Kembalikan semua perubahan berkas dan folder secara rekursif"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1278,7 +1292,7 @@ msgstr "&Tag"
 
 #. Resource IDs: (1382)
 msgid "&Test merge"
-msgstr "Uji &penggabungan"
+msgstr "&Uji penggabungan"
 
 #. Resource IDs: (1558, 16915)
 msgid "&Text"
@@ -1687,6 +1701,9 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"Sebuah path yang valid pada windows tidak boleh berisi '<>|\"?*:' atau salah satu nama perangkat berikut:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"Lihat <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">dokumentasi</a> dari Microsoft mengenai hal ini."
 
 #. Resource IDs: (79)
 msgid ""
@@ -1733,12 +1750,16 @@ msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
 msgstr ""
+"Terima sertifikat secara permanen\n"
+"Anda tidak akan ditanya mengenai sertifikat ini lagi."
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
+"Terima sertifikat\n"
+"Sertifikat diterima hanya satu kali ini saja."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2131,8 +2152,8 @@ msgstr ""
 "sejak terakhir pemutakhiran!"
 
 #. Resource IDs: (32793)
-msgid "Arrange &Vertical"
-msgstr "Atur &Vertikal"
+msgid "Arrange &vertical"
+msgstr "&Atur vertikal"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -2185,7 +2206,7 @@ msgstr "Data otentikasi"
 
 #. Resource IDs: (19, 76, 207, 1562)
 msgid "Author"
-msgstr "Pembuat"
+msgstr "Pengarang"
 
 #. Resource IDs: (65535)
 msgid "Author:\t\t\t\tStefan Kueng"
@@ -2193,7 +2214,7 @@ msgstr "Pengarang:»»»»Stefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
-msgstr "Pembuat"
+msgstr "Pengarang"
 
 #. Resource IDs: (1265)
 msgid "Authors case sensitive"
@@ -2201,7 +2222,7 @@ msgstr "Sensitif huruf Pengarang"
 
 #. Resource IDs: (1444)
 msgid "Authors:"
-msgstr "Pembuat:"
+msgstr "Pengarang:"
 
 #. Resource IDs: (1003)
 msgid "Auto Hide"
@@ -2297,8 +2318,8 @@ msgid "Blames each line of a file on an author"
 msgstr "Menyalahkan setiap baris dari berkas pada pembuat"
 
 #. Resource IDs: (32812)
-msgid "Blend Alpha"
-msgstr "Alfa Campuran"
+msgid "Blend alpha"
+msgstr "Campuran alpha"
 
 #. Resource IDs: (83)
 msgid ""
@@ -2311,7 +2332,7 @@ msgstr ""
 #. Resource IDs: (70)
 msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
-msgstr ""
+msgstr "Kedua path ke file patch dan path target haruslah path absolut!"
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -2506,6 +2527,8 @@ msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr ""
+"Batal\n"
+"Jangan keluar dari TortoiseMerge"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2518,6 +2541,8 @@ msgid ""
 "Cancel\n"
 "Don't switch the views"
 msgstr ""
+"Batal\n"
+"Jangan alihkan pandangan"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2544,6 +2569,8 @@ msgid ""
 "Cancel\n"
 "Ignore the outside changes."
 msgstr ""
+"Batal\n"
+"Abaikan perubahan diluar"
 
 #. Resource IDs: (89)
 msgid ""
@@ -2558,6 +2585,8 @@ msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr ""
+"Batal\n"
+"Simpan berkas kosong"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2570,18 +2599,24 @@ msgid ""
 "Cancel\n"
 "Leave the cache on disk."
 msgstr ""
+"Cancel\n"
+"Tinggalkan cache pada disk."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr ""
+"Batal\n"
+"Selesaikan konflik terlebih dulu."
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
 msgstr ""
+"Batal\n"
+"Konflik tidak terselesaikan."
 
 #. Resource IDs: (90)
 msgid ""
@@ -2622,6 +2657,8 @@ msgid ""
 "Cancel\n"
 "The property is not removed."
 msgstr ""
+"Batal\n"
+"Properti tidak dihapus."
 
 #. Resource IDs: (147)
 msgid ""
@@ -2647,7 +2684,7 @@ msgstr ""
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr "Membatalkan TortoiseSVN Penyalahan..."
+msgstr "Membatalkan Penyalahan TortoiseSVN..."
 
 #. Resource IDs: (270)
 msgid "Cancelling operation..."
@@ -2691,7 +2728,7 @@ msgstr "Sertifikat belum benar. Berlaku dari: %s"
 
 #. Resource IDs: (148)
 msgid "Certificate validation failed"
-msgstr ""
+msgstr "Validasi sertifikat gagal"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -3791,15 +3828,15 @@ msgstr "Hapus"
 
 #. Resource IDs: (1617)
 msgid "Delete &ignored files and folders"
-msgstr ""
+msgstr "&Hapus berkas dan folder terabaikan"
 
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
-msgstr ""
+msgstr "&Hapus berkas dan folder tidak berversi"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
-msgstr ""
+msgstr "Hapus cache repositori"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -3828,6 +3865,8 @@ msgid ""
 "Delete\n"
 "Remove the cache files."
 msgstr ""
+"Hapus\n"
+"Hapus berkas cache"
 
 #. Resource IDs: (314)
 msgid ""
@@ -4345,7 +4384,7 @@ msgstr "Kosong"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-&Properties"
-msgstr ""
+msgstr "&Aktifkan properti-otomatis"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -5843,7 +5882,7 @@ msgstr "Mengimpor direktori ke repositori"
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
-msgstr ""
+msgstr "&Sertakan eksternal"
 
 #. Resource IDs: (1266)
 msgid "Include ignored files"
@@ -6800,6 +6839,8 @@ msgstr "Memerlukan-kunci"
 msgid ""
 "Neither /path nor /pathfile was specified or does not contain a valid path!"
 msgstr ""
+"Tiada /path atau /pathfile yang ditentukan atau tidak berisi path yang "
+"valid!"
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -7963,7 +8004,7 @@ msgstr "Segarkan"
 
 #. Resource IDs: (1615)
 msgid "Refresh &shell overlays"
-msgstr ""
+msgstr "&Segarkan lapisan shell"
 
 #. Resource IDs: (148)
 #, c-format
@@ -9223,7 +9264,7 @@ msgstr "Tampilkan perbedaan sebagai &unified diff"
 
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
-msgstr ""
+msgstr "Tampilkan folder akar yang dikecualikan seperti biasa"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9649,6 +9690,19 @@ msgid ""
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
 msgstr ""
+"Subversion mengalamai masalah serius.\n"
+"Harap meluangkan waktu untuk melaporkannya kepada milis kami\n"
+"(user@subversion.apache.org)\n"
+"Dengan sebanyak mungkin informasi mengenai apa yang anda coba lakukan.\n"
+"Tapi kami berharap anda mencari terlebih dahulu pada arsip milis kami mengenai pesan kesalahan tersebut untuk menghindari pelaporan masalah yang sama berulang kali. \n"
+"Anda bisa mencari arsip milis pada\n"
+"http://subversion.apache.org/mailing-lists.html\n"
+"\n"
+"Subversion menemui masalah pada:\n"
+"file %1!s!, line %2!ld!\n"
+"expression = %3!s!\n"
+"\n"
+"Anda bisa menyalin konten dalam dialog ini pada papan klip menggunakan Ctrl-C."
 
 #. Resource IDs: (84)
 msgid ""
@@ -9666,6 +9720,16 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr ""
+"Subversion mengalamai masalah serius.\n"
+"Harap meluangkan waktu untuk melaporkannya kepada milis kami\n"
+"(user@subversion.apache.org)\n"
+"Dengan sebanyak mungkin informasi mengenai apa yang anda coba lakukan.\n"
+"Tapi kami berharap anda mencari terlebih dahulu pada arsip milis kami mengenai pesan kesalahan tersebut untuk menghindari pelaporan masalah yang sama berulang kali. \n"
+"Anda bisa mencari arsip milis pada\n"
+"http://subversion.apache.org/mailing-lists.html\n"
+"\n"
+"Subversion melaporkan adanya\n"
+"(Anda bisa menyalin konten dalam dialog ini pada papan klip menggunakan Ctrl-C):"
 
 #. Resource IDs: (79)
 msgid ""

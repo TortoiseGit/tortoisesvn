@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-19 00:33+0000\n"
+"PO-Revision-Date: 2011-09-21 00:32+0000\n"
 "Last-Translator: el_libre <el.libre@gmail.com>\n"
 "Language-Team: Catalan <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -172,6 +172,14 @@ msgstr "%I64d Bytes/s"
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes transferits"
 
+#. Resource IDs: (8)
+#, c-format
+msgid ""
+"%i%% alpha\n"
+"click to toggle alpha\n"
+"double click to automatically toggle alpha"
+msgstr ""
+
 #. Resource IDs: (7)
 #, c-format
 msgid "%ld of %ld"
@@ -295,8 +303,6 @@ msgid ""
 "%s\n"
 "%s"
 msgstr ""
-"%s\n"
-"%s"
 
 #. Resource IDs: (145)
 #, c-format
@@ -345,9 +351,6 @@ msgid ""
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
 msgstr ""
-"%s\n"
-"és un directori, no un fitxer!\n"
-"TortoiseMerge no pot comparar directoris."
 
 #. Resource IDs: (286)
 #, c-format
@@ -724,8 +727,8 @@ msgid "&Find..."
 msgstr "&Troba..."
 
 #. Resource IDs: (32778)
-msgid "&Fit Images in window"
-msgstr "&Ajusta Imatges a la finestra"
+msgid "&Fit images in window"
+msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -817,8 +820,8 @@ msgid "&Image"
 msgstr "&Imatge"
 
 #. Resource IDs: (32790)
-msgid "&Image Info"
-msgstr "&Informació de la imatge"
+msgid "&Image info"
+msgstr ""
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1438,7 +1441,7 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid "(%1!s!) %2!s!"
-msgstr ""
+msgstr "(%1!s!) %2!s!"
 
 #. Resource IDs: (119)
 msgid "(Double-click to clear error message)"
@@ -2106,8 +2109,8 @@ msgstr ""
 " darrera actualització!"
 
 #. Resource IDs: (32793)
-msgid "Arrange &Vertical"
-msgstr "Disposició &Vertical"
+msgid "Arrange &vertical"
+msgstr ""
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -2271,8 +2274,8 @@ msgid "Blames each line of a file on an author"
 msgstr "Mostra l'autor de cada línea d'un arxiu"
 
 #. Resource IDs: (32812)
-msgid "Blend Alpha"
-msgstr "Combinació Alpha"
+msgid "Blend alpha"
+msgstr ""
 
 #. Resource IDs: (83)
 msgid ""
@@ -4167,7 +4170,7 @@ msgstr "&No incloguis aquests paths:"
 
 #. Resource IDs: (32839)
 msgid "E&xecutable"
-msgstr ""
+msgstr "E&xecutable"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -5298,7 +5301,7 @@ msgstr "ID"
 
 #. Accelerator Entry for Menu ID:105; 'E&xit'
 msgid "ID:105:V C +W"
-msgstr ""
+msgstr "ID:105:V C +W"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
@@ -5370,11 +5373,11 @@ msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +E"
-msgstr ""
+msgstr "ID:32825:V C +E"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
-msgstr ""
+msgstr "ID:32825:V C +K"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
@@ -5386,15 +5389,15 @@ msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:32870; 'Collapsed'
 msgid "ID:32870:V C +L"
-msgstr ""
+msgstr "ID:32870:V C +L"
 
 #. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
 msgid "ID:32881:V C +P"
-msgstr ""
+msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
-msgstr ""
+msgstr "ID:32883:V C +A"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5416,7 +5419,7 @@ msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57634; ''
 msgid "ID:57634:V CS+C"
-msgstr ""
+msgstr "ID:57634:V CS+C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
@@ -5440,7 +5443,7 @@ msgstr "ID:57665:V C +Q"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +W"
-msgstr ""
+msgstr "ID:57665:V C +W"
 
 #. Resource IDs: (106)
 msgid "Icon Overlays"
@@ -6003,7 +6006,7 @@ msgstr "Tecles"
 
 #. Resource IDs: (65535)
 msgid "L&imit:"
-msgstr ""
+msgstr "L&imita:"
 
 #. Resource IDs: (32855)
 msgid "Lan&guages"
@@ -7028,7 +7031,7 @@ msgstr "Nombre de setmanes:"
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "O&pcions"
 
 #. Resource IDs: (1)
 msgid "OK"
@@ -7771,7 +7774,7 @@ msgstr "Re&verteix..."
 
 #. Resource IDs: (1033)
 msgid "Re&vision"
-msgstr ""
+msgstr "Re&visió"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -12229,7 +12232,7 @@ msgstr ""
 
 #. Resource IDs: (312)
 msgid "svn:executable"
-msgstr ""
+msgstr "svn:executable"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12307,7 +12310,7 @@ msgstr ""
 
 #. Resource IDs: (314)
 msgid "svn:mime-type"
-msgstr ""
+msgstr "svn:mime-type"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12566,7 +12569,7 @@ msgstr "total revprops usuari: "
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"
-msgstr ""
+msgstr "uuid x6&4:"
 
 #. Resource IDs: (588)
 msgid "values are different"

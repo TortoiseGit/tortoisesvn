@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-18 21:03+0000\n"
+"PO-Revision-Date: 2011-09-22 01:06+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -12398,17 +12398,20 @@ msgstr ""
 
 #. (secondary)
 msgid "reintegrate"
-msgstr ""
+msgstr "tái tích h"
 
 #. (title)
 msgid "The Merge Wizard - Reintegrate Merge"
-msgstr ""
+msgstr "Trình hướng dẫn sáp nh - tái tích hợp sáp nhập"
 
 #. (para)
 msgid ""
 "<placeholder-1/> To merge a feature branch back into the trunk you must "
 "start the merge wizard from within a working copy of the trunk."
 msgstr ""
+"<placeholder-1/> Để hợp nhất một chi nhánh tính năng trở lại vào thân cây, "
+"bạn phải ch trình hướng dẫn hợp nhất từ ​​bên trong một bản sao hoạt động "
+"của thân cây."
 
 #. (para)
 msgid ""
@@ -12416,6 +12419,9 @@ msgid ""
 " branch that you want to merge back. You may also click "
 "<guibutton>...</guibutton> to browse the repository."
 msgstr ""
+"Trong trường <guilabel> URL Từ: </guilabel> nhập vào URL thư mục đầy đủ của "
+"chi nhánh mà bạn muốn kết hợp lại. Bạn cũng có thể nhấp chuột vào "
+"<guibutton> ... </guibutton> để duyệt qua kho lưu trữ."
 
 #. (para)
 msgid ""
@@ -12427,18 +12433,26 @@ msgid ""
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
 msgstr ""
+"Có một số điều kiện áp dụng đối với một hợp nhất tái tích hợp. Thứ nhất, các"
+" máy chủ phải hỗ trợ theo dõi kết hợp. Bản sao làm việc phải có chiều sâu vô"
+" hạn (không có kiểm xuất thưa thớt), và nó không được có bất kỳ thay đổi địa"
+" phương, hạng mục bị chuyển hay hạng mục đã được cập nhật vào các bản sửa "
+"đổi khác không phải bản CHÍNH. Mọi thay đổi vào thân cây được thực hiện "
+"trong quá trình phát triển chi nhánh phải được sáp nhập qua chi nhánh (hoặc "
+"đánh dấu là đã được sáp nhập). Phạm vi các bản sửa đổi để hợp nhất sẽ được "
+"tính toán tự động."
 
 #. (title)
 msgid "Merging Two Different Trees"
-msgstr ""
+msgstr "Việc Sáp Nhập Hai Cây Khác Nhau"
 
 #. (secondary)
 msgid "two trees"
-msgstr ""
+msgstr "hai cây"
 
 #. (title)
 msgid "The Merge Wizard - Tree Merge"
-msgstr ""
+msgstr "Trình hướng dẫn sáp nh - Sáp nhập cây"
 
 #. (para)
 msgid ""
@@ -12446,6 +12460,9 @@ msgid ""
 " to trunk, you need to start the merge wizard from within a working copy of "
 "trunk."
 msgstr ""
+"<placeholder-1/> Nếu bạn đang sử dụng phương pháp này để hợp nhất một chi "
+"nhánh tính năng quay trở lại với thân cây, bạn cần phải chạy trình hướng dẫn"
+" hợp nhất từ ​​bên trong một bản sao hoạt động của thân cây."
 
 #. (para)
 msgid ""
@@ -12454,12 +12471,19 @@ msgid ""
 "trunk is the start point to which you want to add the branch changes. You "
 "may also click <guibutton>...</guibutton> to browse the repository."
 msgstr ""
+"Trong trường <guilabel> Từ: </guilabel> nhập vào URL thư mục đầy đủ của "
+"<emphasis> thân cây </emphasis> . Điều này nghe có vẻ sai, nhưng hãy nhớ "
+"rằng thân cây là điểm bắt đầu mà bạn muốn thêm vào những thay đổi chi nhánh."
+" Bạn cũng có thể nhấp chuột vào <guibutton> ... </guibutton> để duyệt qua "
+"kho lưu trữ."
 
 #. (para)
 msgid ""
 "In the <guilabel>To:</guilabel> field enter the full folder URL of the "
 "feature branch."
 msgstr ""
+"Trong trường <guilabel> Đến: </guilabel> nhập vào URL thư mục đầy đủ của chi"
+" nhánh tính năng."
 
 #. (para)
 msgid ""
@@ -12470,21 +12494,32 @@ msgid ""
 "else may have made a commit since that synchronization, use the specific "
 "revision number to avoid losing more recent commits."
 msgstr ""
+"Trong cả hai trường <guilabel> Từ Bản Sửa Đổi </guilabel> và <guilabel> Đến "
+"Bản Sửa Đổi </guilabel> , nhập số phiên bản cuối cùng mà hai cây đã được "
+"đồng bộ. Nếu bạn chắc chắn không ai khác đã thực hiện cam kết, bạn có thể sử"
+" dụng bản sửa đổi CHÍNH trong cả hai trường hợp. Nếu có một khả năng mà một "
+"người nào đó có thể thực hiện một cam kết kể từ khi đồng bộ hóa, sử dụng số "
+"phiên bản cụ thể để tránh mất các cam kết gần đây."
 
 #. (para)
 msgid ""
 "You can also use <guibutton>Show Log</guibutton> to select the revision."
 msgstr ""
+"Bạn cũng có thể sử dụng <guibutton> Hiện Tường Tr </guibutton> để lựa chọn "
+"sửa đổi."
 
 #. (title)
 msgid "Merge Options"
-msgstr ""
+msgstr "Tùy Chọn Hợp Nhất"
 
 #. (para)
 msgid ""
 "This page of the wizard lets you specify advanced options, before starting "
 "the merge process. Most of the time you can just use the default settings."
 msgstr ""
+"Trang này của trình hướng dẫn cho phép bạn chỉ định các tùy chọn nâng cao, "
+"trước khi bắt đầu quá trình hợp nhất. Hầu hết thời gian bạn có thể chỉ sử "
+"dụng các thiết lập mặc định."
 
 #. (para)
 msgid ""
@@ -12494,6 +12529,11 @@ msgid ""
 "<guilabel>Working copy</guilabel>, which uses the existing depth setting, "
 "and is almost always what you want."
 msgstr ""
+"Bạn có thể chỉ định chiều sâu để sử dụng cho hợp nhất, tức là hợp nhất nên "
+"đi sâu như thế nào xuống bản sao làm việc của bạn. Các điều khoản độ sâu sử "
+"dụng được mô tả trong <xref linkend=\"tsvn-dug-checkout-depth\"/> . Độ sâu "
+"mặc định là <guilabel> Bản sao làm việc </guilabel> , trong đó sử dụng các "
+"thiết lập độ sâu hiện tại, và hầu như luôn luôn là những gì bạn muốn."
 
 #. (para)
 msgid ""
@@ -12511,6 +12551,20 @@ msgid ""
 "bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
 msgstr ""
+"Hầu hết thời gian bạn muốn hợp nhất để kể vào lịch sử của tập tin, để thay "
+"đổi liên quan đến một tổ tiên chung được sáp nhập. Đôi khi bạn có thể cần "
+"phải hợp nhất các tập tin mà có lẽ liên quan, nhưng không có trong kho của "
+"bạn. Ví dụ, bạn có thể đã được nhập khẩu phiên bản 1 và 2 của một thư viện "
+"của bên thứ ba vào hai thư mục riêng biệt. Mặc dù chúng về lô gíc là có liên"
+" quan, Subversion không có kiến ​​thức về điều này bởi vì nó chỉ nhìn thấy "
+"các tập tin tarball bạn nhập khẩu. Nếu bạn cố gắng kết hợp sự khác biệt giữa"
+" hai cây, bạn sẽ thấy một lệnh loại bỏ hoàn toàn theo sau bởi một lệnh thêm "
+"hoàn chỉnh. Để làm cho Subversion sử dụng sự khác biệt dựa trên đường dẫn "
+"chỉ chứ không phải là sự khác biệt dựa trên lịch sử, đánh dấu hộp kiểm "
+"<guilabel> Bỏ qua tổ tiên </guilabel>. Tìm hiểu thêm về chủ đề này trong "
+"sách Subversion, <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>"
+" Chú ý hoặc Bỏ qua Tổ tiên </citetitle></ulink> ."
 
 #. (para)
 msgid ""
@@ -12519,6 +12573,10 @@ msgid ""
 "whitespace\"/>. The default behaviour is to treat all whitespace and line-"
 "end differences as real changes to be merged."
 msgstr ""
+"Bạn có thể chỉ định cách mà dòng kết thúc và thay đổi khoảng trắng được xử "
+"lý. Các tùy chọn này được mô tả trong <xref linkend=\"tsvn-dug-diff-eol-"
+"whitespace\"/> . Các hành vi mặc định là để điều trị tất cả các sự khác biệt"
+" khoảng trắng và cuối dòng như thay đổi thực sự cần được sáp nhập."
 
 #. (para)
 msgid ""
@@ -12527,6 +12585,11 @@ msgid ""
 "modified locally or not versioned at all. If the file is deleted then there "
 "is no way to recover it, which is why that option is not checked by default."
 msgstr ""
+"Hộp kiểm được đánh dấu <guilabel> Buộc thực hiện hợp nhất </guilabel> được "
+"sử dụng để tránh một cuộc xung đột cây khi một việc xóa ảnh hưởng đến một "
+"tập tin được sửa đổi tại địa phương hay hòan toàn không được đánh phiên bản."
+" Nếu tập tin này bị xóa thì không có cách nào để khôi phục lại nó, đó là lý "
+"do tại sao tùy chọn này không được chọn theo mặc định."
 
 #. (para)
 msgid ""
@@ -12540,6 +12603,15 @@ msgid ""
 "already merged will prevent the merge occurring with merge-tracking-aware "
 "clients."
 msgstr ""
+"Nếu bạn đang sử dụng theo dõi kết hợp và bạn muốn đánh dấu một phiên bản đã "
+"được sáp nhập, mà không thực sự làm việc hợp nhất ở đây, kiểm tra hộp kiểm "
+"<guilabel> Chỉ ghi lại các hợp nhất </guilabel>. Có hai lý do có thể bạn có "
+"thể muốn làm điều này. Nó có thể là hợp nhất như vậy là quá phức tạp đối với"
+" các thuật toán hợp nhất, vì vậy bạn viết mã thay đổi bằng tay, sau đó đánh "
+"dấu sự thay đổi như sáp nhập để các thuật toán theo dõi hợp nhất nhận thức "
+"được nó. Hoặc bạn có thể muốn ngăn chặn một phiên bản nào đó khỏi bị sáp "
+"nhập. Đánh dấu nó như đã được sáp nhập sẽ ngăn chặn việc hợp nhất xảy ra với"
+" các chương trình khách biết theo dõi kết hợp."
 
 #. (para)
 msgid ""
@@ -12553,6 +12625,17 @@ msgid ""
 " in advance whether the merge will complete without conflicts, so files "
 "marked as conflicted in a test merge may in fact merge without any problem."
 msgstr ""
+"Bây giờ tất cả mọi thứ được thiết lập, tất cả những gì bạn phải làm là nhấp "
+"vào nút <guibutton> Hợp nhất </guibutton>. Nếu bạn muốn xem trước kết quả "
+"<guibutton> Kiểm Tra Hợp Nhất </guibutton> mô phỏng các hoạt động hợp nhất, "
+"nhưng hoàn toàn <emphasis> không </emphasis> sửa đổi các bản sao làm việc. "
+"Nó cho bạn thấy một danh sách các tập tin mà sẽ được thay đổi bằng một hợp "
+"nhất thực sự, và ghi chú các tập tin mà mâu thuẫn <emphasis> có thể "
+"</emphasis> xảy ra. Do việc theo dõi kết hợp làm cho quá trình hợp nhất phức"
+" tạp hơn rất nhiều, không có cách nào bảo đảm có thể tìm hiểu trước xem việc"
+" hợp nhất sẽ hoàn thành mà không có xung đột, do đó, các tập tin đánh dấu là"
+" mâu thuẫn trong một kiểm tra hợp nhất về thực tế có thể hợp nhất mà không "
+"có bất kỳ vấn đề."
 
 #. (para)
 msgid ""
@@ -12566,10 +12649,19 @@ msgid ""
 "copy. The progress dialog is simply showing the start and end points for the"
 " diff."
 msgstr ""
+"Hộp thoại tiến triển hợp nhất cho thấy mỗi giai đoạn của hợp nhất, với phạm "
+"vi sửa đổi có liên quan. Điều này có thể chỉ ra một hay nhiều sửa đổi hơn "
+"bạn mong đợi. Ví dụ, nếu bạn yêu cầu kết hợp sửa đổi 123 hộp thoại tiến "
+"triển sẽ báo cáo <quote> Đang hợp nhất các bản sửa đổi 122 tới 123 </quote> "
+". Để hiểu được điều này, bạn cần phải nhớ rằng Hợp Nhất liên quan chặt chẽ "
+"với Khác Biệt. Quá trình hợp nhất hoạt động bằng cách tạo ra một danh sách "
+"các sự khác biệt giữa hai điểm trong kho, và áp dụng những sự khác biệt vào "
+"bản sao làm việc của bạn. Hộp thoại tiến triển chỉ đơn giản là hiển thị các "
+"điểm bắt đầu và kết thúc cho các khác bi."
 
 #. (title)
 msgid "Reviewing the Merge Results"
-msgstr ""
+msgstr "Rà soát các Kết quả Hợp nhất"
 
 #. (para)
 msgid ""
@@ -12577,6 +12669,9 @@ msgid ""
 "see if it's as expected. Merging is usually quite complicated. Conflicts "
 "often arise if the branch has drifted far from the trunk."
 msgstr ""
+"Hợp nhất bây giờ là hoàn tất. Đó là một ý tưởng tốt để có một cái nhìn vào "
+"việc hợp nhất và xem nếu nó có như mong đợi không. Hợp nhất thường là khá "
+"phức tạp. Xung đột thường xảy ra nếu chi nhánh đã trôi dạt xa thân cây."
 
 #. (para)
 msgid ""
@@ -12591,6 +12686,18 @@ msgid ""
 "bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>Best"
 " Practices for Merging</citetitle></ulink> in the Subversion book."
 msgstr ""
+"Đối với các máy khách và máy chủ Subversion trước 1.5, không có thông tin "
+"sáp nhập nào được lưu trữ và sửa đổi được sáp nhập phải được theo dõi bằng "
+"tay. Khi bạn đã thử nghiệm những thay đổi và đi đến cam kết sửa đổi này, "
+"thông điệp tường trình cam kết của bạn nên <emphasis> luôn luôn </emphasis> "
+"bao gồm các số sửa đổi đã được chuyển trong hợp nhất. Nếu bạn muốn áp dụng "
+"một hợp nhất tại một thời gian sau đó bạn sẽ cần phải biết những gì bạn đã "
+"sáp nhập, bởi bạn không muốn chuyển đổi một thay đổi nhiều hơn một lần. Để "
+"biết thêm thông tin về điều này, hãy tham khảo <ulink url=\"http://svnbook"
+".red-"
+"bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>"
+" Thực tiễn Tốt nhất cho sáp nhập </citetitle></ulink> trong cuốn sách "
+"Subversion."
 
 #. (para)
 msgid ""
@@ -12600,6 +12707,12 @@ msgid ""
 "you can simply merge the entire revision range each time and know that only "
 "new revisions will actually be merged."
 msgstr ""
+"Nếu máy chủ của bạn và tất cả các máy khách đang chạy Subversion 1.5 hoặc "
+"cao hơn, hỗ trợ theo dõi kết hợp sẽ ghi lại các bản sửa đổi được sáp nhập và"
+" tránh việc một bản sửa đổi sáp nhập nhiều hơn một lần. Điều này làm cho "
+"cuộc sống của bạn đơn giản hơn nhiều khi bạn chỉ đơn giản là có thể hợp nhất"
+" toàn bộ phạm vi sửa đổi mỗi lần và biết rằng chỉ phiên bản mới sẽ thực sự "
+"được sáp nhập."
 
 #. (para)
 msgid ""
@@ -12608,6 +12721,10 @@ msgid ""
 "trunk do not drift too far apart. Of course, you should still avoid repeated"
 " merging of changes, as explained above."
 msgstr ""
+"Quản lý chi nhánh là quan trọng. Nếu bạn muốn giữ cho chi nhánh này được cập"
+" nhật với thân cây, bạn nên chắc chắn là kết hợp thường xuyên để chi nhánh "
+"và thân cây không trôi quá xa nhau. Tất nhiên, bạn vẫn nên tránh lặp đi lặp "
+"lại kết hợp những thay đổi, như được giải thích ở trên."
 
 #. (para)
 msgid ""
@@ -12615,6 +12732,9 @@ msgid ""
 "contains all the new feature code, and the branch is obsolete. You can now "
 "delete it from the repository if required."
 msgstr ""
+"Nếu bạn đã sáp nhập một chi nhánh tính năng trở lại vào thân cây, thân cây "
+"giờ đây có chứa tất cả các mã tính năng mới, và chi nhánh trở nên lỗi thời. "
+"Bạn có thể xóa nó từ kho nếu cần thiết."
 
 #. (para)
 msgid ""
@@ -12624,14 +12744,19 @@ msgid ""
 " a folder and bring up the dialog, then you must specify a folder URL for "
 "the merge."
 msgstr ""
+"Subversion không thể hợp nhất một tập tin với một thư mục và ngược lại - chỉ"
+" thư mục vào các thư mục và tập tin vào các tập tin. Nếu bạn nhấp chuột vào "
+"một tập tin và mở hộp thoại hợp nhất, thì bạn phải cung cấp một đường dẫn "
+"đến một tập tin trong hộp thoại đó. Nếu bạn chọn một thư mục và đưa lên hộp "
+"thoại, sau đó bạn phải chỉ định một URL thư mục để hợp nhất."
 
 #. (title)
 msgid "Merge Tracking"
-msgstr ""
+msgstr "Theo dõi hợp nh"
 
 #. (primary)
 msgid "merge tracking"
-msgstr ""
+msgstr "theo dõi hợp nhất"
 
 #. (para)
 msgid ""
@@ -12639,6 +12764,10 @@ msgid ""
 "problem). Once a revision is marked as having been merged, future merges "
 "which include that revision in the range will skip over it."
 msgstr ""
+"Bạn có thể tránh nguy hiểm của việc hợp nhất cùng một sửa đổi hai lần (lặp "
+"đi lặp lại vấn đề kết hợp). Một khi sửa đổi được đánh dấu như đã được hợp "
+"nhất, các sáp nhập trong tương lai trong đó bao gồm sửa đổi trong phạm vi sẽ"
+" bỏ qua nó."
 
 #. (para)
 msgid ""
@@ -12646,12 +12775,17 @@ msgid ""
 "branch commits as part of the trunk log, giving better traceability of "
 "changes."
 msgstr ""
+"Khi bạn hợp nhất một chi nhánh trở lại vào thân cây, hộp thoại tường trình "
+"có thể cho bạn thấy việc cam kết chi nhánh như một phần của tường trình thân"
+" cây, cho phép theo dõi tốt hơn những thay đổi."
 
 #. (para)
 msgid ""
 "When you show the log dialog from within the merge dialog, revisions already"
 " merged are shown in grey."
 msgstr ""
+"Khi bạn hiển thị hộp thoại tường trình từ bên trong hộp thoại hợp nhất, các "
+"sửa đổi đã được sáp nhập được thể hiện trong màu xám."
 
 #. (para)
 msgid ""
@@ -12659,12 +12793,18 @@ msgid ""
 "original author of merged revisions, rather than the person who did the "
 "merge."
 msgstr ""
+"Khi hiển thị thông tin đổ lỗi cho một tập tin, bạn có thể chọn hiển thị các "
+"tác giả ban đầu của các phiên bản sáp nhập, chứ không phải là người đã thực "
+"hiện hợp nhất."
 
 #. (para)
 msgid ""
 "You can mark revisions as <emphasis>do not merge</emphasis> by including "
 "them in the list of merged revisions without actually doing the merge."
 msgstr ""
+"Bạn có thể đánh dấu các phiên bản như <emphasis> đừng hợp nhất </emphasis> "
+"bằng cách bao gồm chúng trong danh sách các phiên bản sáp nhập mà không thực"
+" sự làm việc hợp nhất."
 
 #. (para)
 msgid ""
@@ -12673,6 +12813,10 @@ msgid ""
 "and this information can be used for several different purposes. "
 "<placeholder-1/>"
 msgstr ""
+"Subversion 1.5 giới thiệu các hỗ trợ cho theo dõi hợp nhất. Khi bạn hợp nhất"
+" các thay đổi từ một cây khác, những con số sửa đổi sáp nhập được lưu trữ và"
+" thông tin này có thể được sử dụng cho nhiều mục đích khác nhau. "
+"<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -12685,6 +12829,15 @@ msgid ""
 "not store the <literal>svn:mergeinfo</literal> property and earlier servers "
 "will not provide the information requested by new clients."
 msgstr ""
+"Thông tin theo dõi hợp nhất được lưu trữ trong thuộc tính <literal> "
+"svn:mergeinfo </literal> của máy khách khi thực hiện một hợp nhất. Khi hợp "
+"nhất được cam kết máy chủ lưu thông tin đó trong một cơ sở dữ liệu, và khi "
+"bạn yêu cầu thông tin hợp nhất, tường trình hoặc đổ lỗi, máy chủ có thể trả "
+"lời một cách thích hợp. Để cho hệ thống làm việc đúng cách, bạn phải đảm bảo"
+" rằng các máy chủ, kho lưu trữ và tất cả các máy khách được nâng cấp. Các "
+"máy khách cũ hơn sẽ không lưu trữ thuộc tính <literal> svn:mergeinfo "
+"</literal> và máy chủ cũ hơn sẽ không cung cấp các thông tin theo yêu cầu "
+"của máy khách mới."
 
 #. (para)
 msgid ""
@@ -12696,15 +12849,15 @@ msgstr ""
 
 #. (title)
 msgid "Handling Conflicts during Merge"
-msgstr ""
+msgstr "Xử Lý Xung Đột trong Hợp Nhất"
 
 #. (primary)
 msgid "merge conflicts"
-msgstr ""
+msgstr "các xung đột hợp nhất"
 
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
-msgstr ""
+msgstr "Hộp Thoại Gọi Lại Xung Đột Hợp Nhất "
 
 #. (para)
 msgid ""
@@ -12714,6 +12867,11 @@ msgid ""
 "process by showing the <emphasis>merge conflict callback</emphasis> dialog. "
 "<placeholder-1/>"
 msgstr ""
+"Hợp nhất không phải luôn luôn diễn ra suôn sẻ. Đôi khi có xung đột, và nếu "
+"bạn hợp nhất nhiều phạm vi, bạn thường muốn giải quyết xung đột trước khi "
+"việc hợp nhất phạm vi tiếp theo bắt đầu. TortoiseSVN giúp bạn thông qua quá "
+"trình này bằng cách hiển thị hộp thoại <emphasis> gọi lại khi hợp nhất xung "
+"đột </emphasis> <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -12723,6 +12881,11 @@ msgid ""
 "conflicts often cover more lines than you think they will and you may get "
 "unexpected results."
 msgstr ""
+"Chọn <emphasis> Ưu tiên địa phương </emphasis> sẽ lựa chọn thay đổi cục bộ "
+"của bạn trong mọi xung đột. Tương tự, <emphasis> Ưu tiên kho </emphasis> sẽ "
+"lựa chọn những thay đổi từ kho lưu trữ trong mọi xung đột. Điều này nghe có "
+"vẻ dễ dàng, nhưng những xung đột thường trải trên nhiều dòng hơn bạn nghĩ và"
+" bạn có thể nhận được kết quả bất ngờ."
 
 #. (para)
 msgid ""
@@ -12731,6 +12894,10 @@ msgid ""
 "start up your merge tool. When you are satisfied with the result, click "
 "<guibutton>Resolved</guibutton>."
 msgstr ""
+"Thông thường bạn sẽ muốn nhìn vào những xung đột và tự mình giải quyết "
+"chúng. Trong trường hợp đó, chọn <guibutton> Biên tập Xung đột </guibutton> "
+"sẽ chạy công cụ hợp nhất của bạn. Khi bạn đã hài lòng với kết quả, nhấp "
+"chuột vào <guibutton> Giải quyết </guibutton> ."
 
 #. (para)
 msgid ""
@@ -12739,6 +12906,10 @@ msgid ""
 "rest of the merge. However, if there are further changes in that file, it "
 "will not be possible to complete the merge."
 msgstr ""
+"Tùy chọn cuối cùng là trì hoãn giải quyết và tiếp tục với việc sáp nhập. Bạn"
+" có thể chọn để làm điều đó cho các tập tin đang xung đột hiện tại, hoặc cho"
+" tất cả các file trong phần còn lại của hợp nhất. Tuy nhiên, nếu có các thay"
+" đổi xa hơn trong tập tin đó, việc hoàn thành hợp nhất là không th."
 
 #. (para)
 msgid ""
@@ -12748,6 +12919,11 @@ msgid ""
 "dialog gives you three different ways of handling the lines which are in "
 "conflict. <placeholder-1/>"
 msgstr ""
+"Có khả năng rằng một số những thay đổi sẽ hợp nhất trơn tru, trong khi các "
+"thay đổi địa phương khác xung đột với những thay đổi đã cam kết vào kho lưu "
+"trữ. Tất cả các thay đổi có thể được sáp nhập được sáp nhập. Hộp Thoại Gọi "
+"Lại khi Xung đột cho bạn ba cách khác nhau để xử lý các dòng có xung đột. "
+"<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -12762,18 +12938,29 @@ msgid ""
 "subsequent merges might succeed depending on which lines are affected. But "
 "of course you can't walk away to get a coffee while the merge is running ;)"
 msgstr ""
+"Nếu bạn không muốn sử dụng tương tác gọi lại này, có một hộp kiểm trong hộp "
+"thoại tiến triển hợp nhất <guilabel> Hợp nhất không tương tác </guilabel> . "
+"Nếu đây là thiết lập cho một hợp nhất và hợp nhất sẽ cho kết quả trong một "
+"xung đột, tập tin được đánh dấu xung đột và hợp nhất sẽ đi tiếp. Bạn sẽ phải"
+" giải quyết những xung đột sau khi toàn bộ hợp nhất được hoàn thành. Nếu nó "
+"không được thiết lập, thì trước khi một tập tin được đánh dấu là mâu thuẫn "
+"bạn có cơ hội để giải quyết xung đột <emphasis> trong lúc </emphasis> hợp "
+"nhất. Điều này có lợi thế rằng nếu một tập tin có nhiều hợp nhất (nhiều bản "
+"sửa đổi áp dụng một thay đổi đến tập tin đó), các hợp nhất tiếp theo có thể "
+"thành công tùy thuộc vào những dòng bị ảnh hưởng. Nhưng tất nhiên, bạn không"
+" thể chỗ khác để lấy cà phê trong khi hợp nhất đang chạy;)"
 
 #. (title)
 msgid "Merge a Completed Branch"
-msgstr ""
+msgstr "Hợp nhất một Chi nhánh Đầy đủ"
 
 #. (primary)
 msgid "merge reintegrate"
-msgstr ""
+msgstr "tái tích hợp sáp nhập"
 
 #. (title)
 msgid "The Merge reintegrate Dialog"
-msgstr ""
+msgstr "Hộp thoại tái tích hợp sáp nh"
 
 #. (para)
 msgid ""
@@ -12786,10 +12973,19 @@ msgid ""
 "options\"/>. The rest is done by TortoiseSVN automatically using merge "
 "tracking."
 msgstr ""
+"Nếu bạn muốn hợp nhất tất cả các thay đổi từ một chi nhánh tính năng vào "
+"thân cây, thì bạn có thể sử dụng <menuchoice><guimenu> TortoiseSVN "
+"</guimenu><guimenuitem> Tái hòa nhập hợp nhất... </guimenuitem></menuchoice>"
+" từ trình đơn ngữ cảnh mở rộng (giữ phím <keycap> Shift </keycap> trong khi "
+"bạn kích chuột phải vào tập tin). <placeholder-1/> Hộp thoại này rất dễ "
+"dàng. Tất cả những gì bạn phải làm là thiết lập các tùy chọn cho hợp nhất, "
+"theo mô tả trong <xref linkend=\"tsvn-dug-merge-options\"/> . Phần còn lại "
+"được thực hiện bởi TortoiseSVN một cách tự động bằng cách sử dụng theo dõi "
+"hợp nh."
 
 #. (title)
 msgid "Feature Branch Maintenance"
-msgstr ""
+msgstr "Bảo trì các Chi nhánh Tính năng"
 
 #. (para)
 msgid ""
@@ -12799,6 +12995,11 @@ msgid ""
 "that the differences become significant over time, and merging back becomes "
 "a nightmare."
 msgstr ""
+"Khi bạn phát triển một tính năng mới trên một nhánh riêng biệt, nó là một ý "
+"tưởng tốt để làm ra một chính sách tái tích hợp khi tính năng được hoàn tất."
+" Nếu công việc khác đang xảy đồng thời ra trong <literal> thân cây "
+"</literal> bạn có thể thấy sự khác biệt đáng kể theo thời gian, và hợp nhất "
+"trở lại biến thành một cơn ác mộng."
 
 #. (para)
 msgid ""
@@ -12809,6 +13010,12 @@ msgid ""
 "range of revisions</guilabel>, with the revision range being the revision "
 "span of the branch."
 msgstr ""
+"Nếu tính năng là tương đối đơn giản và phát triển sẽ không mất nhiều thời "
+"gian thì bạn có thể áp dụng một phương pháp đơn giản, để giữ cho chi nhánh "
+"hoàn toàn riêng biệt cho đến khi tính năng này hoàn tất, sau đó hợp nhất các"
+" thay đổi chi nhánh trở lại vào thân cây. Trong trình hướng dẫn hợp nhất "
+"việc này sẽ đơn giản là <guilabel> Hợp nhất một loạt các sửa đổi </guilabel>"
+" , với phạm vi sửa đổi là khoảng sửa đổi của chi nhánh."
 
 #. (para)
 msgid ""
@@ -12821,18 +13028,27 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr ""
+"Nếu tính năng này sẽ mất nhiều thời gian và bạn cần vào tài khoản cho những "
+"thay đổi trong <literal> thân cây </literal> , thì bạn cần phải giữ cho chi "
+"nhánh đồng bộ. Điều này đơn giản chỉ có nghĩa là định kỳ, bạn hợp nhất các "
+"thay đổi thân cây vào chi nhánh, do đó chi nhánh có chứa tất cả các thay đổi"
+" thân <emphasis> cộng thêm </emphasis> tính năng mới. Quá trình đồng bộ sử "
+"dụng <guilabel> Hợp nhất một loạt các sửa đổi </guilabel> . Khi tính năng "
+"hoàn tất, sau đó bạn có thể kết hợp nó trở lại <literal> thân cây </literal>"
+" bằng cách sử dụng <guilabel> Tái tích hợp một chi nhánh </guilabel> hoặc "
+"<guilabel> Hợp nhất hai cây khác nhau </guilabel> ."
 
 #. (title)
 msgid "Locking"
-msgstr ""
+msgstr "Khóa"
 
 #. (primary)
 msgid "locking"
-msgstr ""
+msgstr "khóa"
 
 #. (primary)
 msgid "readonly"
-msgstr ""
+msgstr "chỉ đọc"
 
 #. (para)
 msgid ""
@@ -12840,6 +13056,9 @@ msgid ""
 " If two people change the same file, merging is not possible, so one of you "
 "will lose their changes."
 msgstr ""
+"Bạn đang sử dụng các tập tin <quote> không hợp nhất được </quote>, ví dụ, "
+"các tập tin đồ họa. Nếu hai người thay đổi cùng một tập tin, sáp nhập là "
+"không thể, vì vậy một trong các bạn sẽ mất các thay đổi của họ."
 
 #. (para)
 msgid ""
@@ -12847,6 +13066,9 @@ msgid ""
 "and there has been a management decision that <quote>locking is "
 "best</quote>."
 msgstr ""
+"Công ty của bạn đã luôn luôn sử dụng một hệ thống kiểm soát khóa sửa đổi "
+"trong quá khứ và đã có một quyết định quản lý mà <quote> khóa là tốt nhất "
+"</quote> ."
 
 #. (para)
 msgid ""
@@ -12855,6 +13077,11 @@ msgid ""
 "basics-versioning-copymodifymerge\"/>. However there are a few instances "
 "when you may need to implement some form of locking policy. <placeholder-1/>"
 msgstr ""
+"Subversion nói chung hoạt động tốt nhất mà không cần khóa, sử dụng phương "
+"pháp <quote> Sao Chép-Sửa Đổi-Hợp Nhất </quote> mô tả trước đây trong <xref "
+"linkend=\"tsvn-basics-versioning-copymodifymerge\"/> . Tuy nhiên có một số "
+"ít trường hợp khi bạn có thể cần phải thực hiện một số hình thức của chính "
+"sách khóa. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -12863,10 +13090,14 @@ msgid ""
 "are using <literal>file://</literal> access, then of course only your client"
 " needs to be updated."
 msgstr ""
+"Trước hết bạn cần đảm bảo rằng máy chủ Subversion của bạn được nâng cấp lên "
+"phiên bản 1.2. Phiên bản trước đó hoàn toàn không hỗ trợ khóa. Nếu bạn đang "
+"sử dụng truy cập <literal> file:// </literal>, thì tất nhiên máy khách của "
+"bạn cần được cập nhật."
 
 #. (title)
 msgid "How Locking Works in Subversion"
-msgstr ""
+msgstr "Khóa làm việc thế nào trong Subversion"
 
 #. (para)
 msgid ""
@@ -12875,6 +13106,10 @@ msgid ""
 "periodically and changes in the repository will be merged with local "
 "changes."
 msgstr ""
+"Theo mặc định, không có gì là bị khóa và bất cứ ai có quyền truy cập cam kết"
+" có thể cam kết những thay đổi ở bất kỳ tập tin vào bất cứ lúc nào. Những "
+"người khác sẽ cập nhật bản sao làm việc của họ định kỳ và thay đổi trong kho"
+" sẽ được sáp nhập với những thay đổi địa phương."
 
 #. (para)
 msgid ""
@@ -12883,6 +13118,11 @@ msgid ""
 " lock. A locked file cannot be modified in any way in the repository, so it "
 "cannot be deleted or renamed either, except by the lock owner."
 msgstr ""
+"Nếu bạn <firstterm> Nhận được một khóa </firstterm> trên một tập tin, thì "
+"chỉ có bạn có thể cam kết tập tin đó. Cam kết của tất cả các người dùng khác"
+" sẽ bị chặn cho đến khi bạn phát hành khóa. Một tập tin bị khóa không thể "
+"được sửa đổi trong bất kỳ cách nào trong kho, vì vậy nó không thể bị xóa hay"
+" đổi tên hoặc, ngoại trừ b chủ sở hữu khóa."
 
 #. (para)
 msgid ""
@@ -12890,6 +13130,10 @@ msgid ""
 "working copy. Having a lock in one working copy also prevents the same user "
 "from committing the locked file from another working copy."
 msgstr ""
+"Khóa là không được giao cho một người dùng cụ thể, nhưng cho một người dùng "
+"cụ thể và một bản sao làm việc. Có một khóa trong một bản sao làm việc cũng "
+"ngăn cản cùng người sử dụng đó cam kết các tập tin bị khóa từ một bản sao "
+"làm việc khác."
 
 #. (para)
 msgid ""
@@ -12901,6 +13145,14 @@ msgid ""
 "that same image file, because the lock for that file resides in his working "
 "copy in the office."
 msgstr ""
+"Ví dụ, hãy tưởng tượng rằng người sử dụng Jon có một bản sao làm việc trên "
+"máy tính văn phòng của ông. Ở đó, ông bắt đầu làm việc trên một hình ảnh, và"
+" do đó có được một khóa trên tập tin đó. Khi ông rời khỏi văn phòng của ông,"
+" ông chưa xong với tập tin đó, vì vậy ông ta không giải phóng khóa. Trở lại "
+"nhà Jon cũng có một bản sao làm việc và quyết định làm việc nhiều hơn một "
+"chút về dự án. Tuy nhiên, ông không có thể sửa đổi hoặc cam kết cùng tập tin"
+" hình ảnh đó, bởi vì các khóa cho tập tin đó đang nằm trong bản sao làm việc"
+" trong văn phòng."
 
 #. (para)
 msgid ""
@@ -12916,6 +13168,18 @@ msgid ""
 "only are marked with a special overlay in TortoiseSVN to indicate that you "
 "need to acquire a lock before editing."
 msgstr ""
+"Tuy nhiên, những người dùng khác sẽ không nhất thiết phải biết rằng bạn đã "
+"lấy khóa ra. Trừ khi họ kiểm tra tình trạng khóa thường xuyên, việc đầu tiên"
+" mà họ sẽ biết về nó là khi cam kết của họ thất bại, mà trong nhiều trường "
+"hợp không phải là rất hữu ích. Để làm cho nó dễ dàng hơn để quản lý ổ khóa, "
+"có một thuộc tính Subversion mới <literal> svn:needs-lock </literal> . Khi "
+"thuộc tính này được thiết lập (với bất kỳ giá trị nào) trên một tập tin, bất"
+" cứ khi nào tập tin được kiểm xuất hoặc cập nhật, các bản sao địa phương "
+"được đặt chỉ đọc <emphasis> trừ khi </emphasis> bản sao làm việc đó nắm giữ "
+"khóa cho tập tin đó. Điều này hoạt động như một lời cảnh báo rằng bạn không "
+"nên chỉnh sửa tập tin đó trừ khi bạn lấy khóa trước. Các tập tin này được "
+"phiên bản và được đánh dấu chỉ đọc bằng một lớp phủ đặc biệt trong "
+"TortoiseSVN để cho biết rằng bạn cần phải có được khóa trước khi biên t."
 
 #. (para)
 msgid ""
@@ -12923,6 +13187,9 @@ msgid ""
 " several working copies (at home, at work) then you can only hold a lock in "
 "<emphasis>one</emphasis> of those working copies."
 msgstr ""
+"Các khóa được ghi lại bằng vị trí bản sao làm việc cũng như chủ sở hữu. Nếu "
+"bạn có nhiều bản sao làm việc (ở nhà, tại nơi làm việc) thì bạn chỉ có thể "
+"giữ một khóa ở <emphasis> một </emphasis> trong những bản sao làm việc đ."
 
 #. (para)
 msgid ""
@@ -12934,6 +13201,13 @@ msgid ""
 "<firstterm>Stealing</firstterm> the lock. Naturally these are not things you"
 " should do lightly if you want to remain friends with your co-workers."
 msgstr ""
+"Nếu một trong những đồng nghiệp của bạn có được một khóa và sau đó đi vào kỳ"
+" nghỉ mà không phát hành nó, bạn sẽ làm gì? Subversion cung cấp một phương "
+"tiện để các ép buộc ổ khóa. Phát hành một khóa giữ bởi người khác được gọi "
+"là <firstterm> Phá vỡ </firstterm> khóa, và ép buộc có được một khóa mà "
+"người khác đã giữ được gọi là <firstterm> Trộm cắp </firstterm> khóa. Đương "
+"nhiên đây không phải là điều bạn nên coi nhẹ nếu bạn muốn vẫn là bạn bè với "
+"các đồng nghiệp."
 
 #. (para)
 msgid ""
@@ -12942,14 +13216,18 @@ msgid ""
 "has broken the lock, the local lock token becomes invalid. The repository is"
 " always the definitive reference."
 msgstr ""
+"Các khóa được ghi lại trong kho, và một mã thông báo khóa được tạo ra trong "
+"bản sao của bạn làm việc tại địa phương. Nếu có sự khác biệt, ví dụ nếu một "
+"người nào khác đã phá vỡ khóa, mã thông báo khóa địa phương trở thành không "
+"hợp lệ. Kho luôn luôn là tham khảo cuối cùng."
 
 #. (title)
 msgid "Getting a Lock"
-msgstr ""
+msgstr "Lấy một khóa"
 
 #. (title)
 msgid "The Locking Dialog"
-msgstr ""
+msgstr "Hộp thoại khóa"
 
 #. (para)
 msgid ""
@@ -12963,6 +13241,14 @@ msgid ""
 "lock from someone else, check the <guilabel>Steal lock</guilabel> box, then "
 "click on <guibutton>OK</guibutton>."
 msgstr ""
+"Chọn tập tin trong bản sao làm việc của bạn mà bạn muốn lấy khóa, sau đó "
+"chọn lệnh <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Nhận "
+"Khóa ... </guimenuitem></menuchoice> . <placeholder-1/> Một hộp thoại xuất "
+"hiện, cho phép bạn nhập một bình luận, để những người khác có thể thấy lý do"
+" tại sao bạn đã khóa tập tin. Bình luận là tùy chọn và chỉ được sử dụng với "
+"các kho dựa trên Svnserve. Nếu (và <emphasis> chỉ </emphasis> nếu) bạn cần "
+"phải ăn cắp khóa từ một người nào khác, chọn hộp kiểm <guilabel> Ăn cắp khóa"
+" </guilabel>, sau đó nhấn vào <guibutton> OK </guibutton> ."
 
 #. (para)
 msgid ""
@@ -12971,6 +13257,10 @@ msgid ""
 "to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
 "properties."
 msgstr ""
+"Bạn có thể bật thuộc tính dự án <literal> tsvn:logtemplatelock </literal> để"
+" cung cấp một mẫu thông điệp cho người dùng để điền vào như thông điệp khóa."
+" Tham khảo <xref linkend=\"tsvn-dug-propertypage\"/> để được hướng dẫn làm "
+"thế nào để b các thuộc tính."
 
 #. (para)
 msgid ""
@@ -12982,10 +13272,17 @@ msgid ""
 "is the way to do it, but you could become very unpopular with your co-"
 "workers if you lock them out of the whole project. Use with care ..."
 msgstr ""
+"Nếu bạn chọn một thư mục và sau đó sử dụng <menuchoice><guimenu> TortoiseSVN"
+" </guimenu><guimenuitem> Nhận Khóa ... </guimenuitem></menuchoice> hộp thoại"
+" khóa sẽ mở ra với <emphasis> mỗi </emphasis> tập tin trong <emphasis> mỗi "
+"</emphasis> thư mục con được chọn để khóa. Nếu bạn thực sự muốn khóa toàn bộ"
+" một hệ thống phân cấp, đó là cách để làm điều đó, nhưng bạn có thể trở nên "
+"rất không được ưa thích với các đồng nghiệp nếu bạn khóa họ ra khỏi toàn bộ "
+"dự án. Sử dụng cẩn th ..."
 
 #. (title)
 msgid "Releasing a Lock"
-msgstr ""
+msgstr "Phát hành một khóa"
 
 #. (para)
 msgid ""
@@ -12997,6 +13294,14 @@ msgid ""
 "want to keep a lock on a file you've modified, you have to enable the "
 "<guilabel>Keep locks</guilabel> checkbox before you commit your changes."
 msgstr ""
+"Để chắc chắn rằng bạn không quên phát hành một khóa bạn không còn cần nữa, "
+"tập tin bị khóa được hiển thị trong hộp thoại cam kết và được lựa chọn theo "
+"mặc định. Nếu bạn tiếp tục với cam kết, các khóa bạn giữ trên các tập tin "
+"được lựa chọn được loại bỏ, ngay cả nếu các tập tin không được sửa đổi. Nếu "
+"bạn không muốn phát hành một khóa trên các tập tin nào đó, bạn có thể bỏ "
+"chọn chúng (nếu chúng không bị sửa đổi). Nếu bạn muốn giữ khóa trên một tập "
+"tin bạn đã sửa đổi, bạn phải kích hoạt hộp kiểm <guilabel> Giữ khóa "
+"</guilabel> trước khi bạn cam kết các thay đổi của bạn."
 
 #. (para)
 msgid ""
@@ -13007,14 +13312,21 @@ msgid ""
 "TortoiseSVN will contact the repository and release the locks. You can also "
 "use this command on a folder to release all locks recursively."
 msgstr ""
+"Để phát hành một khóa theo cách thủ công, chọn các tập tin trong bản sao làm"
+" việc của bạn mà bạn muốn phát hành các khóa, sau đó chọn lệnh "
+"<menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Phát hành Khóa "
+"</guimenuitem></menuchoice> Không có gì hơn nữa để nhập vì thế TortoiseSVN "
+"sẽ liên lạc với các kho lưu trữ và phát hành các ổ khóa. Bạn cũng có thể sử "
+"dụng lệnh này vào một thư mục để phát hành tất cả các ổ khóa theo cách đệ "
+"quy."
 
 #. (title)
 msgid "Checking Lock Status"
-msgstr ""
+msgstr "Kiểm tra trạng thái Khóa"
 
 #. (title)
 msgid "The Check for Modifications Dialog"
-msgstr ""
+msgstr "Hộp thoại Kiểm tra Sửa đổi"
 
 #. (para)
 msgid ""
@@ -13025,16 +13337,24 @@ msgid ""
 " locks are broken or stolen) you need to click on <guibutton>Check "
 "Repository</guibutton>."
 msgstr ""
+"<placeholder-1/> Để xem những khóa nào mà bạn và những người khác giữ, bạn "
+"có thể sử dụng <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> "
+"Kiểm tra sửa đổi ... </guimenuitem></menuchoice> . Các mã khóa tại địa "
+"phương hiển thị ngay lập tức. Để kiểm tra cho các ổ khóa được giữ bởi những "
+"người khác (và để xem nếu có ổ khóa nào của bạn bị phá vỡ hoặc bị đánh cắp),"
+" bạn cần phải bấm vào <guibutton> Kiểm tra Kho </guibutton> ."
 
 #. (para)
 msgid ""
 "From the context menu here, you can also get and release locks, as well as "
 "breaking and stealing locks held by others."
 msgstr ""
+"Từ trình đơn ngữ cảnh ở đây, bạn cũng có thể nhận được và phát hành ổ khóa, "
+"cũng như phá vỡ và ăn cắp các khóa được tổ chức bởi những người khác."
 
 #. (title)
 msgid "Avoid Breaking and Stealing Locks"
-msgstr ""
+msgstr "Tránh Phá vỡ và Trộm cắp Khóa"
 
 #. (para)
 msgid ""
@@ -13044,10 +13364,16 @@ msgid ""
 "free to check in their changes and overwrite yours. Subversion doesn't lose "
 "data, but you have lost the team-working protection that locking gave you."
 msgstr ""
+"Nếu bạn phá vỡ hoặc ăn cắp khóa của người khác mà không nói với họ, bạn có "
+"khả năng có thể gây ra mất việc làm. Nếu bạn đang làm việc với các loại tập "
+"tin không hợp nhất được và bạn ăn cắp khóa của người khác, một khi bạn phát "
+"hành các khóa họ được tự do để kiểm nhập những thay đổi của họ và ghi đè lên"
+" của bạn. Subversion không mất dữ liệu, nhưng bạn có bị mất bảo vệ làm việc "
+"nh mà việc khóa đem lại cho bạn."
 
 #. (title)
 msgid "Making Non-locked Files Read-Only"
-msgstr ""
+msgstr "Làm các Tập tin không bị Khóa Chỉ đọc"
 
 #. (para)
 msgid ""
@@ -13059,6 +13385,13 @@ msgid ""
 "fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a "
 "special overlay to indicate this."
 msgstr ""
+"Như đã đề cập ở trên, cách hiệu quả nhất để sử dụng khóa là bật thuộc tính "
+"<literal> svn:needs-lock </literal> trên các tập tin. Tham khảo <xref "
+"linkend=\"tsvn-dug-propertypage\"/> để được hướng dẫn làm thế nào để bật các"
+" thuộc tính. Tập tin với thuộc tính này được bật sẽ luôn luôn được kiểm tra "
+"và cập nhật với cờ chỉ đọc trừ khi bản sao của bạn làm việc nắm giữ một "
+"khóa. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Xin nhắc lại, "
+"TortoiseSVN sử dụng một lớp phủ đặc biệt để cho biết điều này."
 
 #. (para)
 msgid ""
@@ -13067,10 +13400,14 @@ msgid ""
 "automatically every time you add new files. Read <xref linkend=\"tsvn-dug-"
 "propertypage-auto-props\"/> for further information."
 msgstr ""
+"Nếu bạn điều hành một chính sách mà tất cả các tập tin bị khóa thì bạn có "
+"thể tìm thấy nó dễ dàng hơn để sử dụng tính năng auto-props của Subversion "
+"để thiết lập thuộc tính tự động mỗi khi bạn thêm các tập tin mới. Đọc <xref "
+"linkend=\"tsvn-dug-propertypage-auto-props\"/> để biết thêm thông tin."
 
 #. (title)
 msgid "The Locking Hook Scripts"
-msgstr ""
+msgstr "Các kịch bản Hook khóa"
 
 #. (para)
 msgid ""
@@ -13079,6 +13416,10 @@ msgid ""
 "directory. These are called before and after getting a lock, and before and "
 "after releasing a lock."
 msgstr ""
+"Khi bạn tạo một kho lưu trữ mới với Subversion 1.2 hoặc cao hơn, bốn mẫu "
+"hook được tạo ra ở thư mục <filename> hooks </filename> trong kho. Chúng "
+"được gọi là trước và sau khi nhận được một khóa, và trước và sau khi phát "
+"hành một khóa."
 
 #. (para)
 msgid ""
@@ -13089,6 +13430,12 @@ msgid ""
 "example hook script <filename>hooks/post-lock.tmpl</filename> in your "
 "repository folder."
 msgstr ""
+"Đó là một ý tưởng tốt để cài đặt một kịch bản hook <literal> sau-khóa "
+"</literal> và <literal> sau-mở khóa </literal> trên máy chủ mà sẽ gửi email "
+"cho thấy các tập tin đã bị khóa. Với một kịch bản tại chỗ, tất cả người dùng"
+" của bạn có thể được thông báo nếu ai đó khóa / mở khóa một tập tin. Bạn có "
+"thể tìm thấy một kịch bản móc ví dụ tại <filename> hooks/post-lock.tmpl "
+"</filename> trong thư mục kho lưu trữ của bạn."
 
 #. (para)
 msgid ""
@@ -13096,22 +13443,26 @@ msgid ""
 "perhaps limit it to a named administrator. Or maybe you want to email the "
 "owner when one of their locks is broken or stolen."
 msgstr ""
+"Bạn cũng có thể sử dụng móc để không cho phép phá vỡ hoặc ăn cắp ổ khóa, "
+"hoặc có thể hạn chế nó đến một quản trị viên được chỉ định. Hoặc có thể bạn "
+"muốn gửi email cho chủ sở hữu khi một trong những ổ khóa của họ bị phá vỡ "
+"hoặc bị đánh cắp."
 
 #. (para)
 msgid "Read <xref linkend=\"tsvn-repository-hooks\"/> to find out more."
-msgstr ""
+msgstr "Đọc <xref linkend=\"tsvn-repository-hooks\"/> để tìm hiểu thêm."
 
 #. (title)
 msgid "Creating and Applying Patches"
-msgstr ""
+msgstr "Tạo và áp dụng các bản vá"
 
 #. (primary)
 msgid "patch"
-msgstr ""
+msgstr "bản vá"
 
 #. (primary)
 msgid "unified diff"
-msgstr ""
+msgstr "tìm khác biệt thống nhất"
 
 #. (para)
 msgid ""
@@ -13124,16 +13475,26 @@ msgid ""
 " access. They can review the patch first, and then either submit it to the "
 "repository or reject it back to the author."
 msgstr ""
+"Đối với các dự án mã nguồn mở như thế này tất cả mọi người đều có truy cập "
+"đọc vào kho lưu trữ, và bất cứ ai cũng có thể đóng góp cho dự án. Vì vậy, "
+"làm thế nào quản lý những đóng góp đó? Nếu bất kỳ ai cũng có thể cam kết "
+"thay đổi, dự án sẽ được vĩnh viễn không ổn định và có lẽ vĩnh viễn bị phá "
+"vỡ. Trong trường hợp này thay đổi được quản lý bằng cách nộp một tập tin "
+"<firstterm> bản vá </firstterm> để nhóm phát triển, những người có quyền "
+"truy cập ghi. Họ có thể xem lại các bản vá trước, và sau đó, hoặc gửi vào "
+"kho hoặc từ chối nó trở lại cho tác giả."
 
 #. (para)
 msgid ""
 "Patch files are simply Unified-Diff files showing the differences between "
 "your working copy and the base revision."
 msgstr ""
+"Các file vá chỉ đơn giản là các tập tin khác biệt-thống nhất hiển thị các "
+"khác biệt giữa bản sao làm việc của bạn và bản sửa đổi cơ sở."
 
 #. (title)
 msgid "Creating a Patch File"
-msgstr ""
+msgstr "Tạo một tập tin v"
 
 #. (para)
 msgid ""
@@ -13144,6 +13505,11 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create "
 "Patch...</guimenuitem></menuchoice>"
 msgstr ""
+"Trước tiên, bạn cần phải thực hiện <emphasis> và thử nghiệm </emphasis> các "
+"thay đổi của bạn. Sau đó thay vì sử dụng <menuchoice><guimenu> TortoiseSVN "
+"</guimenu><guimenuitem> Cam kết ... </guimenuitem></menuchoice> trên thư mục"
+" mẹ, bạn chọn <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Tạo "
+"Bản Vá ... </guimenuitem></menuchoice>"
 
 #. (title)
 msgid "The Create Patch dialog"

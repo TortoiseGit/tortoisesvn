@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-19 00:33+0000\n"
+"PO-Revision-Date: 2011-09-21 19:24+0000\n"
 "Last-Translator: mikkele <mikkel@elmholdt.dk>\n"
 "Language-Team: Danish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -173,6 +173,17 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d KB overført"
+
+#. Resource IDs: (8)
+#, c-format
+msgid ""
+"%i%% alpha\n"
+"click to toggle alpha\n"
+"double click to automatically toggle alpha"
+msgstr ""
+"%i%% alpha\n"
+"klik for at skifte alpha\n"
+"dobbelt-klik for automatisk at skifte alpha"
 
 #. Resource IDs: (7)
 #, c-format
@@ -738,8 +749,8 @@ msgid "&Find..."
 msgstr "&Find..."
 
 #. Resource IDs: (32778)
-msgid "&Fit Images in window"
-msgstr "&Tilpas billeder i vinduet"
+msgid "&Fit images in window"
+msgstr "&Tilpas billeder til vinduet"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -831,8 +842,8 @@ msgid "&Image"
 msgstr "&Billede"
 
 #. Resource IDs: (32790)
-msgid "&Image Info"
-msgstr "B&illedinfo"
+msgid "&Image info"
+msgstr "&amp; Billede info"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -2152,8 +2163,8 @@ msgstr ""
 "siden sidste opdatering!"
 
 #. Resource IDs: (32793)
-msgid "Arrange &Vertical"
-msgstr "Arranger &lodret"
+msgid "Arrange &vertical"
+msgstr "Arranger &vertikalt"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -2317,7 +2328,7 @@ msgid "Blames each line of a file on an author"
 msgstr "Viser den ansvarlige forfatter for hver linje i en fil"
 
 #. Resource IDs: (32812)
-msgid "Blend Alpha"
+msgid "Blend alpha"
 msgstr "Mix alpha-kanaler"
 
 #. Resource IDs: (83)
@@ -2332,6 +2343,7 @@ msgstr ""
 msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr ""
+"Både stien til patch-filen og resultat-stien skal være absolutte stier!"
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -9844,6 +9856,21 @@ msgid ""
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
 msgstr ""
+"Subversion er stødt på et alvorligt problem. \n"
+"Du må meget gerne rapportere dette på Subversions mailingliste\n"
+"(users@subversion.apache.org) \n"
+"med så mange oplysninger som muligt om hvad \n"
+"du forsøgte at gøre. \n"
+"Først må du dog gerne lige kigge mailingliste-arkivet igennem \n"
+"for at undgå at rapportere den samme fejl flere gange.\n"
+"Du kan finde mailingliste-arkivet på \n"
+"http://subversion.apache.org/mailing-lists.html \n"
+"Subversion stødte på problemet i: \n"
+"fil %1!s!, linje %2!ld!\n"
+"udtryk = %3!s!\n"
+"\n"
+"Du kan kopiere indholdet af denne dialog \n"
+"til klippebordet med Ctrl-C."
 
 #. Resource IDs: (84)
 msgid ""
@@ -9861,6 +9888,18 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr ""
+"Subversion er stødt på et alvorligt problem. \n"
+"Du må meget gerne rapportere dette på Subversions mailingliste\n"
+"(users@subversion.apache.org) \n"
+"med så mange oplysninger som muligt om hvad \n"
+"du forsøgte at gøre. \n"
+"Først må du dog gerne lige kigge mailingliste-arkivet igennem \n"
+"for at undgå at rapportere den samme fejl flere gange.\n"
+"Du kan finde mailingliste-arkivet på \n"
+"http://subversion.apache.org/mailing-lists.html \n"
+"Subversion meddelte følgende\n"
+"(du kan kopiere indholdet af denne dialog \n"
+"til klippebordet med Ctrl-C):"
 
 #. Resource IDs: (79)
 msgid ""

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-19 00:33+0000\n"
+"PO-Revision-Date: 2011-09-21 00:33+0000\n"
 "Last-Translator: JVL60 <evaldasgr@gmail.com>\n"
 "Language-Team: Lithuanian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -172,6 +172,14 @@ msgstr "%I64d Baitai/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBaitų persiusta"
+
+#. Resource IDs: (8)
+#, c-format
+msgid ""
+"%i%% alpha\n"
+"click to toggle alpha\n"
+"double click to automatically toggle alpha"
+msgstr ""
 
 #. Resource IDs: (7)
 #, c-format
@@ -726,8 +734,8 @@ msgid "&Find..."
 msgstr "&Ieškoti..."
 
 #. Resource IDs: (32778)
-msgid "&Fit Images in window"
-msgstr "&Talpinti paveiksliukus į langą"
+msgid "&Fit images in window"
+msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -819,8 +827,8 @@ msgid "&Image"
 msgstr "&Paveikslėlis"
 
 #. Resource IDs: (32790)
-msgid "&Image Info"
-msgstr "&Paveikslėlio informacija"
+msgid "&Image info"
+msgstr ""
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1361,7 +1369,7 @@ msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Update"
-msgstr ""
+msgstr "Atna&ujinti"
 
 #. Resource IDs: (76)
 msgid "&Update item to revision"
@@ -1438,7 +1446,7 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid "(%1!s!) %2!s!"
-msgstr ""
+msgstr "(%1!s!) %2!s!"
 
 #. Resource IDs: (119)
 msgid "(Double-click to clear error message)"
@@ -1573,7 +1581,7 @@ msgstr ""
 
 #. Resource IDs: (151)
 msgid ": working copy"
-msgstr ""
+msgstr ": veikianti kopija"
 
 #. Resource IDs: (332)
 msgid "< &Back"
@@ -2070,7 +2078,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (32793)
-msgid "Arrange &Vertical"
+msgid "Arrange &vertical"
 msgstr ""
 
 #. Resource IDs: (1587)
@@ -2236,7 +2244,7 @@ msgid "Blames each line of a file on an author"
 msgstr ""
 
 #. Resource IDs: (32812)
-msgid "Blend Alpha"
+msgid "Blend alpha"
 msgstr ""
 
 #. Resource IDs: (83)
@@ -2581,7 +2589,7 @@ msgstr ""
 
 #. Resource IDs: (117)
 msgid "Case-sensitive"
-msgstr ""
+msgstr "Skirti didžiąsias ir mažąsias raides"
 
 #. Resource IDs: (65535)
 msgid "Cate&gories:"
@@ -2629,7 +2637,7 @@ msgstr ""
 #. Resource IDs: (163)
 #, c-format
 msgid "Changed files: %d"
-msgstr ""
+msgstr "Pakeisti failai: %d"
 
 #. Resource IDs: (264)
 #, c-format
@@ -2870,11 +2878,11 @@ msgstr ""
 
 #. Resource IDs: (257)
 msgid "Clipboard"
-msgstr ""
+msgstr "Mainų sritis"
 
 #. Resource IDs: (2, 1003, 1007, 1064)
 msgid "Close"
-msgstr ""
+msgstr "Uždaryti"
 
 #. Resource IDs: (1065)
 msgid "Close Full Screen"
@@ -2914,15 +2922,15 @@ msgstr ""
 
 #. Resource IDs: (16662)
 msgid "Color"
-msgstr ""
+msgstr "Spalva"
 
 #. Resource IDs: (65535)
 msgid "Color 1"
-msgstr ""
+msgstr "1 Spalva"
 
 #. Resource IDs: (65535)
 msgid "Color 2"
-msgstr ""
+msgstr "2 Spalva"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -2930,19 +2938,19 @@ msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
-msgstr ""
+msgstr "Spalvos"
 
 #. Resource IDs: (65535)
 msgid "Colors:"
-msgstr ""
+msgstr "Spalvos:"
 
 #. Resource IDs: (65535)
 msgid "Comman&ds:"
-msgstr ""
+msgstr "Koman&dos:"
 
 #. Resource IDs: (220, 1002)
 msgid "Command"
-msgstr ""
+msgstr "Komanda"
 
 #. Resource IDs: (198)
 msgid "Command Line"
@@ -3144,7 +3152,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Continue"
-msgstr ""
+msgstr "Tęsti"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
@@ -3156,15 +3164,15 @@ msgstr ""
 
 #. Resource IDs: (376)
 msgid "Cop&y"
-msgstr ""
+msgstr "Kopijuoti"
 
 #. Resource IDs: (73)
 msgid "Copied"
-msgstr ""
+msgstr "Nukopijuota"
 
 #. Resource IDs: (208)
 msgid "Copied from URL"
-msgstr ""
+msgstr "Nukopijuota iš URL"
 
 #. Resource IDs: (208)
 msgid "Copied from revision"
@@ -3181,7 +3189,7 @@ msgstr ""
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
-msgstr ""
+msgstr "Kopijuoti"
 
 #. Resource IDs: (127)
 #, c-format
@@ -3227,7 +3235,7 @@ msgstr ""
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
-msgstr ""
+msgstr "Kopijuoti ir pervadinti"
 
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
@@ -3266,7 +3274,7 @@ msgstr ""
 #. Resource IDs: (613)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "Kopijuoti į %1"
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
@@ -3292,11 +3300,11 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Copying..."
-msgstr ""
+msgstr "Kopijuojama..."
 
 #. Resource IDs: (188)
 msgid "Corrections"
-msgstr ""
+msgstr "Pataisymai"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3488,7 +3496,7 @@ msgstr ""
 
 #. Resource IDs: (102)
 msgid "Create shortcut"
-msgstr ""
+msgstr "Sukurti nuorodą"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -3579,11 +3587,11 @@ msgstr ""
 
 #. Resource IDs: (1279)
 msgid "D&etails"
-msgstr ""
+msgstr "D&etalės"
 
 #. Resource IDs: (19, 76, 208, 1529)
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. Resource IDs: (117)
 msgid "Date Range"
@@ -3591,7 +3599,7 @@ msgstr ""
 
 #. Resource IDs: (1008, 32842)
 msgid "Default"
-msgstr ""
+msgstr "Pagrindinis"
 
 #. Resource IDs: (65535)
 msgid "Default &number of log messages"
@@ -3599,11 +3607,11 @@ msgstr ""
 
 #. Resource IDs: (1007)
 msgid "Default Menu"
-msgstr ""
+msgstr "Pagrindinis meniu:"
 
 #. Resource IDs: (1516)
 msgid "Default URL:"
-msgstr ""
+msgstr "Pagrindinis URL:"
 
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
@@ -3619,11 +3627,11 @@ msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Default to UTF-8 encoding"
-msgstr ""
+msgstr "Naudoti UTF-8 kaip pagrindinę koduotę"
 
 #. Resource IDs: (1002)
 msgid "Delete"
-msgstr ""
+msgstr "Panaikinti"
 
 #. Resource IDs: (1617)
 msgid "Delete &ignored files and folders"
@@ -3673,7 +3681,7 @@ msgstr ""
 
 #. Resource IDs: (73, 264, 1510, 1551)
 msgid "Deleted"
-msgstr ""
+msgstr "Panaikinta"
 
 #. Resource IDs: (65535)
 msgid "Deleted node"
@@ -3698,7 +3706,7 @@ msgstr ""
 
 #. Resource IDs: (263)
 msgid "Deleting"
-msgstr ""
+msgstr "Panaikinta"
 
 #. Resource IDs: (348)
 msgid "Deleting cached data"
@@ -3706,23 +3714,23 @@ msgstr ""
 
 #. Resource IDs: (348)
 msgid "Deleting file"
-msgstr ""
+msgstr "Naikinama rinkmena"
 
 #. Resource IDs: (207)
 msgid "Depth"
-msgstr ""
+msgstr "Gylis"
 
 #. Resource IDs: (65535)
 msgid "Depth:"
-msgstr ""
+msgstr "Gylis:"
 
 #. Resource IDs: (1002)
 msgid "Description"
-msgstr ""
+msgstr "Aprašymas"
 
 #. Resource IDs: (65535)
 msgid "Description:"
-msgstr ""
+msgstr "Aprašymas:"
 
 #. Resource IDs: (213)
 msgid "Deselect changelist"
@@ -4045,11 +4053,11 @@ msgstr ""
 
 #. Resource IDs: (1437)
 msgid "E&xport"
-msgstr ""
+msgstr "Eksportuoti"
 
 #. Resource IDs: (9, 1382)
 msgid "E&xport..."
-msgstr ""
+msgstr "Eksportuoti..."
 
 #. Resource IDs: (3697)
 msgid "EXT"
@@ -4057,7 +4065,7 @@ msgstr ""
 
 #. Resource IDs: (1237, 65535)
 msgid "Edit"
-msgstr ""
+msgstr "Redaguoti"
 
 #. Resource IDs: (16133)
 msgid "Edit Button Image"
@@ -4116,7 +4124,7 @@ msgstr ""
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
-msgstr ""
+msgstr "Redaguoti..."
 
 #. Resource IDs: (581)
 msgid "Edits the selected property value"
@@ -4138,7 +4146,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Empty"
-msgstr ""
+msgstr "Tusčia"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-&Properties"
@@ -4205,7 +4213,7 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Enter URL"
-msgstr ""
+msgstr "Įvesti URL"
 
 #. Resource IDs: (65535)
 msgid "Enter a &name for the changelist:"
@@ -4213,7 +4221,7 @@ msgstr ""
 
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
-msgstr ""
+msgstr "Įvesti GUID."
 
 #. Resource IDs: (3858)
 msgid "Enter a currency."
@@ -4221,11 +4229,11 @@ msgstr ""
 
 #. Resource IDs: (3858)
 msgid "Enter a date and/or time."
-msgstr ""
+msgstr "Įvesti laiką arba/ir datą."
 
 #. Resource IDs: (3858)
 msgid "Enter a date."
-msgstr ""
+msgstr "Įvesti datą."
 
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
@@ -4238,7 +4246,7 @@ msgstr ""
 
 #. Resource IDs: (3858)
 msgid "Enter a number."
-msgstr ""
+msgstr "Įvesti numerį."
 
 #. Resource IDs: (3858)
 msgid "Enter a positive integer."
@@ -4246,7 +4254,7 @@ msgstr ""
 
 #. Resource IDs: (3858)
 msgid "Enter a time."
-msgstr ""
+msgstr "Įvesti laiką."
 
 #. Resource IDs: (3858)
 #, c-format
@@ -4547,11 +4555,11 @@ msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
-msgstr ""
+msgstr "Rinkmena"
 
 #. Resource IDs: (90)
 msgid "File already exists"
-msgstr ""
+msgstr "Rinkmena jau egzistuoja"
 
 #. Resource IDs: (247)
 #, c-format
@@ -4572,7 +4580,7 @@ msgstr ""
 
 #. Resource IDs: (314)
 msgid "File is empty."
-msgstr ""
+msgstr "Rinkmena yra tuščia."
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -4648,7 +4656,7 @@ msgstr ""
 
 #. Resource IDs: (208)
 msgid "Filename"
-msgstr ""
+msgstr "Rinkmenos pavadinimas"
 
 #. Resource IDs: (65535)
 msgid "Filename, extension or mime-type:"
@@ -4660,7 +4668,7 @@ msgstr ""
 
 #. Resource IDs: (1512)
 msgid "Files"
-msgstr ""
+msgstr "Rinkmenos"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4688,7 +4696,7 @@ msgstr ""
 
 #. Resource IDs: (139)
 msgid "Find"
-msgstr ""
+msgstr "Rasti"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -4698,7 +4706,7 @@ msgstr ""
 
 #. Resource IDs: (77)
 msgid "Finished!"
-msgstr ""
+msgstr "Baigta!"
 
 #. Resource IDs: (32804)
 msgid "Fit graph"
@@ -4734,11 +4742,11 @@ msgstr ""
 
 #. Resource IDs: (1002)
 msgid "Folder"
-msgstr ""
+msgstr "Aplankas"
 
 #. Resource IDs: (65535)
 msgid "Font"
-msgstr ""
+msgstr "Šriftas"
 
 #. Resource IDs: (3585)
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
@@ -4766,11 +4774,11 @@ msgstr ""
 
 #. Resource IDs: (1200, 65535)
 msgid "From:"
-msgstr ""
+msgstr "Iš:"
 
 #. Resource IDs: (1065)
 msgid "Full Screen"
-msgstr ""
+msgstr "Visas ekranas"
 
 #. Resource IDs: (19)
 msgid "Fully recursive"
@@ -5069,7 +5077,7 @@ msgstr ""
 
 #. Resource IDs: (1592)
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. Accelerator Entry for Menu ID:105; 'E&xit'
 msgid "ID:105:V C +W"
@@ -5077,75 +5085,75 @@ msgstr ""
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
-msgstr ""
+msgstr "ID:32771:V C +F"
 
 #. Accelerator Entry for Menu ID:32772; '&Overlay images'
 msgid "ID:32772:V   +O"
-msgstr ""
+msgstr "ID:32772:V   +O"
 
 #. Accelerator Entry for Menu ID:32773; '&Open'
 msgid "ID:32773:V C +O"
-msgstr ""
+msgstr "ID:32773:V C +O"
 
 #. Accelerator Entry for Menu ID:32774; '&Whitespaces'
 msgid "ID:32774:V C +T"
-msgstr ""
+msgstr "ID:32774:V C +T"
 
 #. Accelerator Entry for Menu ID:32775; 'Single/&double-pane view'
 msgid "ID:32775:V C +D"
-msgstr ""
+msgstr "ID:32775:V C +D"
 
 #. Accelerator Entry for Menu ID:32778; '&Fit Images in window'
 msgid "ID:32778:V   +F"
-msgstr ""
+msgstr "ID:32778:V   +F"
 
 #. Accelerator Entry for Menu ID:32779; 'Ori&ginal size'
 msgid "ID:32779:V   +S"
-msgstr ""
+msgstr "ID:32779:V   +S"
 
 #. Accelerator Entry for Menu ID:32779; '&Go To Line...'
 msgid "ID:32779:V C +G"
-msgstr ""
+msgstr "ID:32779:V C +G"
 
 #. Accelerator Entry for Menu ID:32785; '&Color age of lines'
 msgid "ID:32785:V C +O"
-msgstr ""
+msgstr "ID:32785:V C +O"
 
 #. Accelerator Entry for Menu ID:32793; 'Arrange &Vertical'
 msgid "ID:32793:V C +V"
-msgstr ""
+msgstr "ID:32793:V C +V"
 
 #. Accelerator Entry for Menu ID:32794; 'Reload'
 msgid "ID:32794:V C +R"
-msgstr ""
+msgstr "ID:32794:V C +R"
 
 #. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
 msgid "ID:32796:V C +A"
-msgstr ""
+msgstr "ID:32796:V C +A"
 
 #. Accelerator Entry for Menu ID:32809; '&Filter'
 msgid "ID:32809:V C +F"
-msgstr ""
+msgstr "ID:32809:V C +F"
 
 #. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 msgid "ID:32810:V   +T"
-msgstr ""
+msgstr "ID:32810:V   +T"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
-msgstr ""
+msgstr "ID:32814:V C +L"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
-msgstr ""
+msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
-msgstr ""
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +E"
-msgstr ""
+msgstr "ID:32825:V C +E"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
@@ -5153,41 +5161,41 @@ msgstr ""
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
-msgstr ""
+msgstr "ID:32825:V C +L"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
-msgstr ""
+msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:32870; 'Collapsed'
 msgid "ID:32870:V C +L"
-msgstr ""
+msgstr "ID:32870:V C +L"
 
 #. Accelerator Entry for Menu ID:32881; '&Wrap long lines'
 msgid "ID:32881:V C +P"
-msgstr ""
+msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
-msgstr ""
+msgstr "ID:32883:V C +A"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
-msgstr ""
+msgstr "ID:57601:V C +O"
 
 #. Accelerator Entry for Menu ID:57603; '&Save'
 msgid "ID:57603:V C +S"
-msgstr ""
+msgstr "ID:57603:V C +S"
 
 #. Accelerator Entry for Menu ID:57604; 'Save &As...'
 msgid "ID:57604:V CS+S"
-msgstr ""
+msgstr "ID:57604:V CS+S"
 
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 msgid "ID:57634:V C +C"
-msgstr ""
+msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57634; ''
 msgid "ID:57634:V CS+C"
@@ -5195,27 +5203,27 @@ msgstr ""
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
-msgstr ""
+msgstr "ID:57635:V C +X"
 
 #. Accelerator Entry for Menu ID:57636; '&Find'
 msgid "ID:57636:V C +F"
-msgstr ""
+msgstr "ID:57636:V C +F"
 
 #. Accelerator Entry for Menu ID:57637; '&Paste'
 msgid "ID:57637:V C +V"
-msgstr ""
+msgstr "ID:57637:V C +V"
 
 #. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
-msgstr ""
+msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
-msgstr ""
+msgstr "ID:57665:V C +Q"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +W"
-msgstr ""
+msgstr "ID:57665:V C +W"
 
 #. Resource IDs: (106)
 msgid "Icon Overlays"
@@ -5540,7 +5548,7 @@ msgstr ""
 
 #. Resource IDs: (161)
 msgid "Input"
-msgstr ""
+msgstr "Įvestis"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5558,7 +5566,7 @@ msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Internal application error."
-msgstr ""
+msgstr "Vidinė programos klaida."
 
 #. Resource IDs: (339)
 msgid "Internal value indicating compression quality"
@@ -5694,15 +5702,15 @@ msgstr ""
 
 #. Resource IDs: (16136)
 msgid "Keyboard"
-msgstr ""
+msgstr "Klaviatūra"
 
 #. Resource IDs: (65535)
 msgid "Keyboard shortcuts:"
-msgstr ""
+msgstr "Klaviatūros nuorodos:"
 
 #. Resource IDs: (1002)
 msgid "Keys"
-msgstr ""
+msgstr "Klavišai"
 
 #. Resource IDs: (65535)
 msgid "L&imit:"
@@ -5710,11 +5718,11 @@ msgstr ""
 
 #. Resource IDs: (32855)
 msgid "Lan&guages"
-msgstr ""
+msgstr "Kalbos"
 
 #. Resource IDs: (65535)
 msgid "Language:"
-msgstr ""
+msgstr "Kalba:"
 
 #. Resource IDs: (65535)
 msgid "Last commit revision:"
@@ -5758,7 +5766,7 @@ msgstr ""
 
 #. Resource IDs: (19)
 msgid "Line"
-msgstr ""
+msgstr "Linija"
 
 #. Resource IDs: (246)
 msgid "Line Graph"
@@ -5780,7 +5788,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Line:"
-msgstr ""
+msgstr "Linija:"
 
 #. Resource IDs: (269)
 #, c-format
@@ -6043,7 +6051,7 @@ msgstr ""
 
 #. Resource IDs: (78, 109, 110, 111, 112, 278, 65535)
 msgid "Merge"
-msgstr ""
+msgstr "Sujungti"
 
 #. Resource IDs: (1488, 65535)
 msgid "Merge &depth:"
@@ -6059,7 +6067,7 @@ msgstr ""
 
 #. Resource IDs: (277)
 msgid "Merge all"
-msgstr ""
+msgstr "Sujungti visus"
 
 #. Resource IDs: (10)
 msgid "Merge changes into the working copy"
@@ -6104,7 +6112,7 @@ msgstr ""
 
 #. Resource IDs: (263)
 msgid "Merged"
-msgstr ""
+msgstr "Sujungta"
 
 #. Resource IDs: (286)
 #, c-format
@@ -6119,7 +6127,7 @@ msgstr ""
 
 #. Resource IDs: (1073)
 msgid "Merging"
-msgstr ""
+msgstr "Sujungiama"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6159,7 +6167,7 @@ msgstr ""
 
 #. Resource IDs: (76, 1241, 1359)
 msgid "Message"
-msgstr ""
+msgstr "Žinutė"
 
 #. Resource IDs: (1574)
 msgid "Message &label:"
@@ -6175,11 +6183,11 @@ msgstr ""
 
 #. Resource IDs: (1241)
 msgid "Message:"
-msgstr ""
+msgstr "Žinutė:"
 
 #. Resource IDs: (116)
 msgid "Messages"
-msgstr ""
+msgstr "Žinutės"
 
 #. Resource IDs: (78)
 msgid "Mime type"
@@ -6223,7 +6231,7 @@ msgstr ""
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
-msgstr ""
+msgstr "Pakeista"
 
 #. Resource IDs: (65535)
 msgid "Modified node"
@@ -6231,7 +6239,7 @@ msgstr ""
 
 #. Resource IDs: (1070)
 msgid "More"
-msgstr ""
+msgstr "Daugiau"
 
 #. Resource IDs: (1002)
 msgid "More Buttons"
@@ -6243,7 +6251,7 @@ msgstr ""
 
 #. Resource IDs: (438)
 msgid "More colors..."
-msgstr ""
+msgstr "Daugiau spalvų..."
 
 #. Resource IDs: (105)
 msgid "More than one item dropped."
@@ -6251,7 +6259,7 @@ msgstr ""
 
 #. Resource IDs: (438)
 msgid "More..."
-msgstr ""
+msgstr "Daugiau..."
 
 #. Resource IDs: (1136)
 msgid "Most active author:"
@@ -6259,7 +6267,7 @@ msgstr ""
 
 #. Resource IDs: (16135)
 msgid "Mouse"
-msgstr ""
+msgstr "Pelė"
 
 #. Resource IDs: (127)
 #, c-format
@@ -6687,27 +6695,27 @@ msgstr ""
 
 #. Resource IDs: (1542)
 msgid "O&ptions"
-msgstr ""
+msgstr "Nustatymai"
 
 #. Resource IDs: (1)
 msgid "OK"
-msgstr ""
+msgstr "Gerai"
 
 #. Resource IDs: (3697)
 msgid "OVR"
-msgstr ""
+msgstr "OVR"
 
 #. Resource IDs: (32845)
 msgid "Office &XP"
-msgstr ""
+msgstr "Office &XP"
 
 #. Resource IDs: (32847)
 msgid "Office 200&3"
-msgstr ""
+msgstr "Office 200&3"
 
 #. Resource IDs: (65535)
 msgid "Office 200&7"
-msgstr ""
+msgstr "Office 200&7"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -7167,11 +7175,11 @@ msgstr ""
 
 #. Resource IDs: (3845)
 msgid "Print to File"
-msgstr ""
+msgstr "Spausdinti į rinkmeną"
 
 #. Resource IDs: (65535)
 msgid "Printer :"
-msgstr ""
+msgstr "Spausdintuvas :"
 
 #. Resource IDs: (3845)
 msgid "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
@@ -7210,7 +7218,7 @@ msgstr ""
 
 #. Resource IDs: (74)
 msgid "Program"
-msgstr ""
+msgstr "Programa"
 
 #. Resource IDs: (157)
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
@@ -7218,11 +7226,11 @@ msgstr ""
 
 #. Resource IDs: (134)
 msgid "Progress"
-msgstr ""
+msgstr "Progresas"
 
 #. Resource IDs: (17, 177, 226)
 msgid "Properties"
-msgstr ""
+msgstr "Ypatybės"
 
 #. Resource IDs: (157)
 msgid "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
@@ -7490,7 +7498,7 @@ msgstr ""
 
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
-msgstr ""
+msgstr "Atnaujinti"
 
 #. Resource IDs: (1615)
 msgid "Refresh &shell overlays"
@@ -7535,7 +7543,7 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
-msgstr ""
+msgstr "Atmesti"
 
 #. Resource IDs: (148)
 msgid ""
@@ -7567,7 +7575,7 @@ msgstr ""
 
 #. Resource IDs: (32794)
 msgid "Reload"
-msgstr ""
+msgstr "Perkrauti"
 
 #. Resource IDs: (315)
 msgid ""
@@ -7631,7 +7639,7 @@ msgstr ""
 
 #. Resource IDs: (1332, 1470)
 msgid "Remove"
-msgstr ""
+msgstr "Panaikinti"
 
 #. Resource IDs: (126)
 #, c-format
@@ -7641,7 +7649,7 @@ msgstr ""
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %s"
-msgstr ""
+msgstr "Panaikinti %s"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -7674,7 +7682,7 @@ msgstr ""
 
 #. Resource IDs: (610)
 msgid "Remove the file"
-msgstr ""
+msgstr "Panaikinti rinkmeną"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -7698,7 +7706,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Removed"
-msgstr ""
+msgstr "Panaikinta"
 
 #. Resource IDs: (126)
 msgid "Removed file/folder"
@@ -7744,12 +7752,12 @@ msgstr ""
 
 #. Resource IDs: (151)
 msgid "Rename"
-msgstr ""
+msgstr "Pervadinti"
 
 #. Resource IDs: (97)
 #, c-format
 msgid "Rename %s"
-msgstr ""
+msgstr "Pervadinti %s"
 
 #. Resource IDs: (127)
 #, c-format
@@ -7760,7 +7768,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move"
-msgstr ""
+msgstr "Pervadinti/perkelti"
 
 #. Resource IDs: (91)
 #, c-format
@@ -8093,11 +8101,11 @@ msgstr ""
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
-msgstr ""
+msgstr "Pasirinkti..."
 
 #. Resource IDs: (32782)
 msgid "S&ettings"
-msgstr ""
+msgstr "Nustatymai"
 
 #. Resource IDs: (1065)
 msgid "S&how Buttons on One Row"
@@ -8113,7 +8121,7 @@ msgstr ""
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
-msgstr ""
+msgstr "S&tatistika"
 
 #. Resource IDs: (9)
 msgid "S&witch..."
@@ -8121,15 +8129,15 @@ msgstr ""
 
 #. Resource IDs: (3697)
 msgid "SCRL"
-msgstr ""
+msgstr "SCRL"
 
 #. Resource IDs: (1081)
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
-msgstr ""
+msgstr "SVN Autorius"
 
 #. Resource IDs: (12)
 msgid "SVN Copy and add files to this WC"
@@ -8165,11 +8173,11 @@ msgstr ""
 
 #. Resource IDs: (11)
 msgid "SVN Revision"
-msgstr ""
+msgstr "SVN Revizija"
 
 #. Resource IDs: (11)
 msgid "SVN Status"
-msgstr ""
+msgstr "SVN Būsena"
 
 #. Resource IDs: (20)
 msgid "SVN Statusnumber"
@@ -8177,7 +8185,7 @@ msgstr ""
 
 #. Resource IDs: (12)
 msgid "SVN URL"
-msgstr ""
+msgstr "SVN URL"
 
 #. Resource IDs: (17)
 msgid "SVN eol-style"
@@ -8209,19 +8217,19 @@ msgstr "Teksto pavizdys:"
 
 #. Resource IDs: (57604)
 msgid "Save &As..."
-msgstr ""
+msgstr "Išs&augoti kaip..."
 
 #. Resource IDs: (101)
 msgid "Save &as..."
-msgstr ""
+msgstr "Išs&augoti kaip..."
 
 #. Resource IDs: (3841)
 msgid "Save As"
-msgstr ""
+msgstr "Išsaugoti kaip"
 
 #. Resource IDs: (313)
 msgid "Save as..."
-msgstr ""
+msgstr "Išsaugoti kaip..."
 
 #. Resource IDs: (315)
 msgid ""
@@ -8244,7 +8252,7 @@ msgstr ""
 
 #. Resource IDs: (314)
 msgid "Save modifications."
-msgstr ""
+msgstr "Išsaugoti keitimus."
 
 #. Resource IDs: (76)
 msgid "Save revision &to..."
@@ -8276,7 +8284,7 @@ msgstr ""
 
 #. Resource IDs: (108)
 msgid "Saved Data"
-msgstr ""
+msgstr "Išsaugoti duomenys"
 
 #. Resource IDs: (344)
 msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
@@ -8301,7 +8309,7 @@ msgstr ""
 
 #. Resource IDs: (1522)
 msgid "Scan"
-msgstr ""
+msgstr "Skenuoti"
 
 #. Resource IDs: (1014, 1017, 1064, 1212)
 msgid "Scintilla"
@@ -8321,7 +8329,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Search for:"
-msgstr ""
+msgstr "Ieškoti:"
 
 #. Resource IDs: (7)
 msgid "Search string not found!"
@@ -8338,7 +8346,7 @@ msgstr ""
 
 #. Resource IDs: (376)
 msgid "Select &All"
-msgstr ""
+msgstr "P&asirinkti visus"
 
 #. Resource IDs: (16529)
 msgid "Select &User-defined Image: "
@@ -8350,7 +8358,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Select &window:"
-msgstr ""
+msgstr "Pasirinkti langą:"
 
 #. Resource IDs: (1067)
 msgid "Select / deselect &all"
@@ -8364,7 +8372,7 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "Select File..."
-msgstr ""
+msgstr "Pasirinkti rinkmeną..."
 
 #. Resource IDs: (173)
 msgid "Select Revision"
@@ -8376,7 +8384,7 @@ msgstr ""
 
 #. Resource IDs: (3858)
 msgid "Select a button."
-msgstr ""
+msgstr "Pasirinkti mygtuką."
 
 #. Resource IDs: (3585)
 msgid "Select an object on which to get Help"
@@ -8773,7 +8781,7 @@ msgstr ""
 
 #. Resource IDs: (198)
 msgid "Show/Hide"
-msgstr ""
+msgstr "Rodyti/Paslėpti"
 
 #. Resource IDs: (115)
 #, c-format
@@ -8832,7 +8840,7 @@ msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Size"
-msgstr ""
+msgstr "Dydis"
 
 #. Resource IDs: (65535)
 msgid "Size and status"
@@ -8860,11 +8868,11 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "Praleisti visus"
 
 #. Resource IDs: (74)
 msgid "Skipped"
-msgstr ""
+msgstr "Praleista"
 
 #. Resource IDs: (263)
 msgid "Skipped missing target"
@@ -9001,7 +9009,7 @@ msgstr ""
 
 #. Resource IDs: (74, 77, 207, 65535)
 msgid "Status"
-msgstr ""
+msgstr "Būsena"
 
 #. Resource IDs: (1068)
 msgid "Status Bar Configuration"
@@ -9340,11 +9348,11 @@ msgstr ""
 
 #. Resource IDs: (69)
 msgid "The file is too big"
-msgstr ""
+msgstr "Rinkmena yra per didelė"
 
 #. Resource IDs: (3857)
 msgid "The file is too large to open."
-msgstr ""
+msgstr "Rinkmena yra per didelė atidarymui"
 
 #. Resource IDs: (80)
 #, c-format
@@ -9386,6 +9394,9 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr ""
+"Aplankas\n"
+"%s\n"
+"jau egzistuoja!"
 
 #. Resource IDs: (83)
 #, c-format
@@ -9396,7 +9407,7 @@ msgstr ""
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
-msgstr ""
+msgstr "Šis paveiksliukas negali but parodomas."
 
 #. Resource IDs: (63)
 msgid ""
@@ -9575,7 +9586,7 @@ msgstr ""
 
 #. Resource IDs: (220)
 msgid "The operation failed."
-msgstr ""
+msgstr "Operacija nepavyko."
 
 #. Resource IDs: (74)
 msgid ""
@@ -9945,7 +9956,7 @@ msgstr ""
 
 #. Resource IDs: (1201, 65535)
 msgid "To:"
-msgstr ""
+msgstr "Į:"
 
 #. Resource IDs: (3633)
 msgid ""
@@ -10221,7 +10232,7 @@ msgstr ""
 
 #. Resource IDs: (3887)
 msgid "Uncheck"
-msgstr ""
+msgstr "Nepažymėti"
 
 #. Resource IDs: (1069)
 #, c-format
@@ -10278,15 +10289,15 @@ msgstr ""
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
-msgstr ""
+msgstr "Atrakinti"
 
 #. Resource IDs: (264)
 msgid "Unlock failed"
-msgstr ""
+msgstr "Atrakinimas nepavyko"
 
 #. Resource IDs: (263)
 msgid "Unlocked"
-msgstr ""
+msgstr "Atrakinta"
 
 #. Resource IDs: (590)
 msgid "Unrecognized or invalid property file format!"
@@ -10298,7 +10309,7 @@ msgstr ""
 
 #. Resource IDs: (3841)
 msgid "Untitled"
-msgstr ""
+msgstr "Bevardis"
 
 #. Resource IDs: (345)
 msgid ""
@@ -10609,7 +10620,7 @@ msgstr ""
 
 #. Resource IDs: (69)
 msgid "Username:"
-msgstr ""
+msgstr "Vartotojo vardas:"
 
 #. Resource IDs: (313)
 msgid ""
@@ -10624,20 +10635,20 @@ msgstr ""
 
 #. Resource IDs: (11, 348)
 msgid "Value"
-msgstr ""
+msgstr "Įrašas"
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"
-msgstr ""
+msgstr "Versija"
 
 #. Resource IDs: (7)
 #, c-format
 msgid "Version %d.%d.%d.%d"
-msgstr ""
+msgstr "Versija %d.%d.%d.%d"
 
 #. Resource IDs: (1075)
 msgid "Version Information"
-msgstr ""
+msgstr "Versijos informacija"
 
 #. Resource IDs: (264, 1508)
 msgid "Versioned"
@@ -10735,27 +10746,27 @@ msgstr ""
 
 #. Resource IDs: (16927)
 msgid "Windows"
-msgstr ""
+msgstr "Langai"
 
 #. Resource IDs: (32844)
 msgid "Windows &2000"
-msgstr ""
+msgstr "Windows &2000"
 
 #. Resource IDs: (146)
 msgid "With URL:"
-msgstr ""
+msgstr "Su URL:"
 
 #. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
-msgstr ""
+msgstr "Veikianti kopija"
 
 #. Resource IDs: (1335, 1472)
 msgid "Working Copy Path:"
-msgstr ""
+msgstr "Veikiančios kopijos vieta:"
 
 #. Resource IDs: (20)
 msgid "Working copy"
-msgstr ""
+msgstr "Veikianti kopija"
 
 #. Resource IDs: (80)
 #, c-format
@@ -10777,11 +10788,11 @@ msgstr ""
 
 #. Resource IDs: (563)
 msgid "Yes"
-msgstr ""
+msgstr "Taip"
 
 #. Resource IDs: (564)
 msgid "Yes to all"
-msgstr ""
+msgstr "Taip visiems"
 
 #. Resource IDs: (201)
 msgid "You already have the latest version installed."
@@ -10910,12 +10921,12 @@ msgstr ""
 
 #. Resource IDs: (1112)
 msgid "Your version is:"
-msgstr ""
+msgstr "Jūsų versija yra:"
 
 #. Resource IDs: (201)
 #, c-format
 msgid "Your version is: %d.%d.%d.%d"
-msgstr ""
+msgstr "Jūsų versija yra: %d.%d.%d.%d"
 
 #. Resource IDs: (78)
 msgid ""
@@ -11047,11 +11058,11 @@ msgstr ""
 
 #. Resource IDs: (10)
 msgid "added"
-msgstr ""
+msgstr "pridėta"
 
 #. Resource IDs: (65535)
 msgid "added files"
-msgstr ""
+msgstr "pridėtos rinkmenos"
 
 #. Resource IDs: (272)
 #, c-format
@@ -11065,11 +11076,11 @@ msgstr ""
 
 #. Resource IDs: (3841)
 msgid "an unnamed file"
-msgstr ""
+msgstr "bevardė rinkmena"
 
 #. Resource IDs: (1304)
 msgid "and"
-msgstr ""
+msgstr "ir"
 
 #. Resource IDs: (1085)
 msgid "and support the developers"
@@ -11091,11 +11102,11 @@ msgstr ""
 
 #. Resource IDs: (245)
 msgid "author"
-msgstr ""
+msgstr "autorius"
 
 #. Resource IDs: (65535)
 msgid "authors: "
-msgstr ""
+msgstr "autoriai: "
 
 #. Resource IDs: (577)
 msgid ""
@@ -11182,7 +11193,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "copied:"
-msgstr ""
+msgstr "nukopijuota:"
 
 #. Resource IDs: (214)
 #, c-format
@@ -11194,11 +11205,11 @@ msgstr ""
 
 #. Resource IDs: (247)
 msgid "day"
-msgstr ""
+msgstr "diena"
 
 #. Resource IDs: (10, 272)
 msgid "deleted"
-msgstr ""
+msgstr "panaikinta"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
@@ -11227,7 +11238,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "file external:"
-msgstr ""
+msgstr "išorinis"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11247,11 +11258,11 @@ msgstr ""
 
 #. Resource IDs: (583)
 msgid "it does not exist."
-msgstr ""
+msgstr "neegzistuoja."
 
 #. Resource IDs: (583)
 msgid "it is already deleted."
-msgstr ""
+msgstr "jau yra panaikintas."
 
 #. Resource IDs: (583)
 msgid "it is unversioned."
@@ -11279,11 +11290,11 @@ msgstr ""
 
 #. Resource IDs: (11, 195)
 msgid "locked"
-msgstr ""
+msgstr "užrakinta"
 
 #. Resource IDs: (65535)
 msgid "locked:"
-msgstr ""
+msgstr "užrakinta:"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"
@@ -11303,7 +11314,7 @@ msgstr ""
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
-msgstr ""
+msgstr "sujungta"
 
 #. Resource IDs: (65535)
 msgid "merges total: "
@@ -11319,11 +11330,11 @@ msgstr ""
 
 #. Resource IDs: (10)
 msgid "missing"
-msgstr ""
+msgstr "nerasta"
 
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
-msgstr ""
+msgstr "nerasta / panaikinta / pakeista"
 
 #. Resource IDs: (65535)
 msgid "missing in: "
@@ -11331,15 +11342,15 @@ msgstr ""
 
 #. Resource IDs: (10, 272)
 msgid "modified"
-msgstr ""
+msgstr "pakeista"
 
 #. Resource IDs: (65535)
 msgid "modified / copied"
-msgstr ""
+msgstr "pakeista / nukopijuota"
 
 #. Resource IDs: (245)
 msgid "month"
-msgstr ""
+msgstr "mėnesis"
 
 #. Resource IDs: (199)
 #, c-format
@@ -11348,7 +11359,7 @@ msgstr ""
 
 #. Resource IDs: (18)
 msgid "no"
-msgstr ""
+msgstr "ne"
 
 #. Resource IDs: (10)
 msgid "no description for this command is available"
@@ -11360,7 +11371,7 @@ msgstr ""
 
 #. Resource IDs: (10)
 msgid "normal"
-msgstr ""
+msgstr "normalus"
 
 #. Resource IDs: (11)
 msgid "obstructed"
@@ -11368,7 +11379,7 @@ msgstr ""
 
 #. Resource IDs: (601)
 msgid "offline"
-msgstr ""
+msgstr "atjungtas"
 
 #. Resource IDs: (3845)
 #, c-format
@@ -11377,11 +11388,11 @@ msgstr ""
 
 #. Resource IDs: (601)
 msgid "online"
-msgstr ""
+msgstr "prijungtas"
 
 #. Resource IDs: (1406, 1407)
 msgid "or"
-msgstr ""
+msgstr "arba"
 
 #. Resource IDs: (65535)
 msgid "pair tokens: "
@@ -11397,7 +11408,7 @@ msgstr ""
 
 #. Resource IDs: (3869)
 msgid "pixels"
-msgstr ""
+msgstr "pikseliai"
 
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
@@ -11405,19 +11416,19 @@ msgstr ""
 
 #. Resource IDs: (3845)
 msgid "prn"
-msgstr ""
+msgstr "prn"
 
 #. Resource IDs: (245)
 msgid "quarter of year"
-msgstr ""
+msgstr "metų ketvirtis"
 
 #. Resource IDs: (195)
 msgid "readonly"
-msgstr ""
+msgstr "tik skaityti"
 
 #. Resource IDs: (10)
 msgid "replaced"
-msgstr ""
+msgstr "pakeista"
 
 #. Resource IDs: (220)
 msgid "respecting ancestry"
@@ -11430,7 +11441,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "revision count: "
-msgstr ""
+msgstr "reviziju kiekis:"
 
 #. Resource IDs: (626)
 msgid "revision has already been merged"
@@ -11443,7 +11454,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "revisions: "
-msgstr ""
+msgstr "revizijos: "
 
 #. Resource IDs: (214)
 msgid "root project"
@@ -11459,7 +11470,7 @@ msgstr ""
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
-msgstr ""
+msgstr "svn:eol-style"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11469,7 +11480,7 @@ msgstr ""
 
 #. Resource IDs: (312)
 msgid "svn:executable"
-msgstr ""
+msgstr "svn:executable"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11480,7 +11491,7 @@ msgstr ""
 
 #. Resource IDs: (318)
 msgid "svn:externals"
-msgstr ""
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11506,7 +11517,7 @@ msgstr ""
 
 #. Resource IDs: (317)
 msgid "svn:keywords"
-msgstr ""
+msgstr "svn:keywords"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11530,7 +11541,7 @@ msgstr ""
 
 #. Resource IDs: (314)
 msgid "svn:mime-type"
-msgstr ""
+msgstr "svn:mime-type"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11542,7 +11553,7 @@ msgstr ""
 
 #. Resource IDs: (313)
 msgid "svn:needs-lock"
-msgstr ""
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11562,7 +11573,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "switched:"
-msgstr ""
+msgstr "pakeista: "
 
 #. Resource IDs: (601)
 msgid "temp. offline"
@@ -11583,17 +11594,17 @@ msgstr ""
 #. Resource IDs: (3845)
 #, c-format
 msgid "to %1"
-msgstr ""
+msgstr "į %1"
 
 #. Resource IDs: (80, 284)
 #, c-format
 msgid "to %1!s!"
-msgstr ""
+msgstr "į %1!s!"
 
 #. Resource IDs: (103)
 #, c-format
 msgid "to %s"
-msgstr ""
+msgstr "į %s"
 
 #. Resource IDs: (208)
 msgid "tree conflict"

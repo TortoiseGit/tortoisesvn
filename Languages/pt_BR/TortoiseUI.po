@@ -11,6 +11,7 @@
 # Authors:
 # Translators:
 # Edson Chen <edson.chen@gmail.com>, 2011.
+# Eduardo Marques <ebmarques@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Rafael Heise <rmheise@gmail.com>, 2011.
 msgid ""
@@ -18,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-19 00:33+0000\n"
-"Last-Translator: rmheise <rmheise@gmail.com>\n"
+"PO-Revision-Date: 2011-09-22 06:39+0000\n"
+"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (Brazilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +52,7 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "# autores exibidos individualmentes:"
+msgstr "# autores exibidos individualmente:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -175,6 +176,17 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes transferidos"
+
+#. Resource IDs: (8)
+#, c-format
+msgid ""
+"%i%% alpha\n"
+"click to toggle alpha\n"
+"double click to automatically toggle alpha"
+msgstr ""
+"%i%% transparência\n"
+"clique para marcar a transparência\n"
+"duplo clique para automaticamente marcar a transparência"
 
 #. Resource IDs: (7)
 #, c-format
@@ -739,7 +751,7 @@ msgid "&Find..."
 msgstr "&Encontrar..."
 
 #. Resource IDs: (32778)
-msgid "&Fit Images in window"
+msgid "&Fit images in window"
 msgstr "&Ajustar imagens na janela"
 
 #. Resource IDs: (1050)
@@ -832,8 +844,8 @@ msgid "&Image"
 msgstr "&Imagem"
 
 #. Resource IDs: (32790)
-msgid "&Image Info"
-msgstr "&Informação de Imagem"
+msgid "&Image info"
+msgstr "&Informações da imagem"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -2154,8 +2166,8 @@ msgstr ""
 "alterações desde a última atualização!"
 
 #. Resource IDs: (32793)
-msgid "Arrange &Vertical"
-msgstr "Organizar &Verticalmente"
+msgid "Arrange &vertical"
+msgstr "Arranjar na &vertical"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -2320,8 +2332,8 @@ msgid "Blames each line of a file on an author"
 msgstr "Mostra o autor de cada linha de um arquivo"
 
 #. Resource IDs: (32812)
-msgid "Blend Alpha"
-msgstr "Misturar Alfa"
+msgid "Blend alpha"
+msgstr "Combinar transparência"
 
 #. Resource IDs: (83)
 msgid ""
@@ -2335,6 +2347,8 @@ msgstr ""
 msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr ""
+"Tanto o caminho do arquivo quanto o caminho do rótulo devem ser caminhos "
+"absolutos!"
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -2921,7 +2935,7 @@ msgid ""
 "Checkout into the non empty folder."
 msgstr ""
 "Obter\n"
-"Obtêm em um diretório não vazio."
+"Obter em um diretório não vazio."
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -4883,7 +4897,7 @@ msgstr "Alterações de arquivos a cada semana:"
 
 #. Resource IDs: (226)
 msgid "File contains conflict markers"
-msgstr "Arquivo contêm marcadores de conflito"
+msgstr "Arquivo contém marcadores de conflito"
 
 #. Resource IDs: (376)
 msgid "File diffs"
@@ -6138,7 +6152,7 @@ msgstr ""
 "De:»%1!s!\n"
 "Para:»%2!s!\n"
 "\n"
-"Um reposicionamento é somente necessário se o camimho para o repositório foi modificado.\n"
+"Um reposicionamento é somente necessário se o caminho para o repositório foi modificado.\n"
 "Alterando para um caminho diferente dentro do mesmo repositório deve ser feito pela opção alternar.\n"
 "\n"
 "O uso inapropriado do reposicionamento corromperá sua cópia de trabalho!\n"
@@ -9846,7 +9860,7 @@ msgid ""
 msgstr ""
 "Filtro de texto parcial: * Especifica um ou mais textos, separados por "
 "espaço. Eles serão avaliados da esquerda para a direita. * Coloque um - na "
-"frente de um texto para excluir as revisões que contêm o texto. * Coloque um"
+"frente de um texto para excluir as revisões que contém o texto. * Coloque um"
 " + na frente do texto para incluir as revisões que podem não estar de acordo"
 " com o filtro. * Use aspas \" para textos com espaço, etc. * Coloque um ! no"
 " início da linha para inverter a condição de filtro inteira. Exemplos: "
@@ -10805,7 +10819,7 @@ msgid ""
 "\n"
 "Do you want to commit anyway?"
 msgstr ""
-"Esta submissão não é recursiva, e há diretórios movidos/renomeados\n"
+"Esta submissão não é recursiva e há diretórios movidos/renomeados\n"
 "selecionados para submissão. Cada mover/renomear\n"
 "é executado recursivamente no repositório.\n"
 "\n"
@@ -11359,7 +11373,7 @@ msgstr "Desbloqueado"
 
 #. Resource IDs: (590)
 msgid "Unrecognized or invalid property file format!"
-msgstr "Formato de arquivo de propriedades inválido ou não-reconhecido!"
+msgstr "Formato de arquivo de propriedades inválido ou não reconhecido!"
 
 #. Resource IDs: (315)
 msgid "Unresolved conflicts!"
@@ -11684,11 +11698,11 @@ msgid ""
 "\r\n"
 "To merge all revisions, leave the box empty."
 msgstr ""
-"Use a janela de log para selecionar as revisões que você quer combinar, ou digite as revisões para combinar, separadas por virgulas. Uma série de revisões pode ser especificada usando um traço.\n"
+"Use a janela de log para selecionar as revisões que você quer combinar, ou digite as revisões para combinar, separadas por vírgulas. Uma série de revisões pode ser especificada usando um traço.\n"
 "\n"
 "Exemplo: 4-7,9,11,15-HEAD@pegrevision\n"
 "\n"
-"Para combinar todas as revisões, deixa a caixa em branco."
+"Para combinar todas as revisões, deixe a caixa em branco."
 
 #. Resource IDs: (314)
 #, c-format
@@ -12541,7 +12555,7 @@ msgstr "total de combinações: "
 
 #. Resource IDs: (278)
 msgid "min. at this revision"
-msgstr "min. para esta revisão"
+msgstr "mín. para esta revisão"
 
 #. Resource IDs: (278)
 msgid "min. committed revision"
@@ -12709,9 +12723,9 @@ msgid ""
 "If present, make the file executable. This property cannot be set on a directory.\r\n"
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
-"svn:executable\r\n"
-"Se presente, torna o arquivo executável. Esta propriedade não pode ser associada a um diretório.\r\n"
-"Tentar ajustá-la não recursivamente irá falhar, e recursivamente ajustará a propriedade apenas nos arquivos pertencentes ao diretório."
+"svn:executable\n"
+"Se presente, torna o arquivo executável. Esta propriedade não pode ser associada a um diretório.\n"
+"Tentar ajustá-la não recursivamente irá falhar e recursivamente ajustará a propriedade apenas nos arquivos pertencentes ao diretório."
 
 #. Resource IDs: (318)
 msgid "svn:externals"
@@ -12732,17 +12746,17 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
-"svn:externals\r\n"
-"Uma lista de especificadores de módulo separados por quebra de linha, cada qual consistindo de\r\n"
-"uma revisão opcional, uma URL e um caminho de diretório relativo. Por exemplo\r\n"
-"http://exemplo.com/repos/zig foo\r\n"
-"-r 1234 http://exemplo.com/repos/zag@1234 foo/bar\r\n"
-"\r\n"
-"As URLs podem ser absolutas ou relativas. O formato para\r\n"
-"URLs relativas é:\r\n"
-"../ relativo ao diretório pai ou externo\r\n"
-"^/ relativo à raiz do repositório\r\n"
-"// relativo ao esquema da URL\r\n"
+"svn:externals\n"
+"Uma lista de especificadores de módulo separados por quebra de linha, cada qual consistindo de\n"
+"uma revisão opcional, uma URL e um caminho de diretório relativo. Por exemplo\n"
+"http://exemplo.com/repos/zig foo\n"
+"-r 1234 http://exemplo.com/repos/zag@1234 foo/bar\n"
+"\n"
+"As URLs podem ser absolutas ou relativas. O formato para\n"
+"URLs relativas é:\n"
+"../ relativo ao diretório pai ou externo\n"
+"^/ relativo a raiz do repositório\n"
+"// relativo ao esquema da URL\n"
 "/ relativo ao nome do servidor"
 
 #. Resource IDs: (576)
@@ -12898,9 +12912,9 @@ msgid ""
 "Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
 msgstr ""
-"tsvn:logfilelistenglish\r\n"
-"Ajuste para 'falso' se você não quiser que a lista de arquivos alterados seja colada\r\n"
-"em inglês na janela de submissão."
+"tsvn:logfilelistenglish\n"
+"Ajuste para 'falso' se você não quiser que a lista de arquivos alterados seja colada\n"
+"em Inglês na janela de submissão."
 
 #. Resource IDs: (578)
 msgid ""

@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+#   <clogaffo@gmail.com>, 2011.
 # cuscu <agua.cuscu@gmail.com>, 2011.
 # Erik Chacon <erikchacon@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
@@ -20,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-19 00:33+0000\n"
-"Last-Translator: tommybrc <tommychristie@gmail.com>\n"
+"PO-Revision-Date: 2011-09-21 00:33+0000\n"
+"Last-Translator: pascow <clogaffo@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +45,9 @@ msgstr ""
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
 msgid " "
-msgstr "Mostrar carpetas raíz excluidas de forma normal"
+msgstr ""
+"Tanto la ruta de acceso al fichero de parche y la ruta de destino deben ser "
+"rutas absolutas!"
 
 #. Resource IDs: (188)
 #, c-format
@@ -177,6 +180,14 @@ msgstr "%I64d Bytes/s"
 #, c-format
 msgid "%I64d kBytes transferred"
 msgstr "%I64d kBytes transferidos"
+
+#. Resource IDs: (8)
+#, c-format
+msgid ""
+"%i%% alpha\n"
+"click to toggle alpha\n"
+"double click to automatically toggle alpha"
+msgstr ""
 
 #. Resource IDs: (7)
 #, c-format
@@ -745,8 +756,8 @@ msgid "&Find..."
 msgstr "&Buscar..."
 
 #. Resource IDs: (32778)
-msgid "&Fit Images in window"
-msgstr "A&justar imágenes en la ventana"
+msgid "&Fit images in window"
+msgstr ""
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -838,8 +849,8 @@ msgid "&Image"
 msgstr "&Imágen"
 
 #. Resource IDs: (32790)
-msgid "&Image Info"
-msgstr "&Información de la imagen"
+msgid "&Image info"
+msgstr ""
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -2156,8 +2167,8 @@ msgstr ""
 "realizados desde la última actualización!"
 
 #. Resource IDs: (32793)
-msgid "Arrange &Vertical"
-msgstr "Disposición &vertical"
+msgid "Arrange &vertical"
+msgstr ""
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -2321,8 +2332,8 @@ msgid "Blames each line of a file on an author"
 msgstr "Muestra el 'autor' de cada línea de un archivo"
 
 #. Resource IDs: (32812)
-msgid "Blend Alpha"
-msgstr "Combinación Alfa"
+msgid "Blend alpha"
+msgstr ""
 
 #. Resource IDs: (83)
 msgid ""
@@ -2336,6 +2347,7 @@ msgstr ""
 msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
 msgstr ""
+"Tanto la ruta al archivo parche como la ruta destino deben ser absolutas!"
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
