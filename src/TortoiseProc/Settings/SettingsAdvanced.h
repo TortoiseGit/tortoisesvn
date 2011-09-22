@@ -68,5 +68,5 @@ protected:
 
 private:
     CListCtrl       m_ListCtrl;
-    static AdvancedSetting settings[];
+    AdvancedSetting settings[50];
 };

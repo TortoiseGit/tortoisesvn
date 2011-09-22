@@ -23,48 +23,129 @@
 #include "registry.h"
 
 
-CSettingsAdvanced::AdvancedSetting CSettingsAdvanced::settings[] =
-{
-    { _T("AllowAuthSave"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("AllowUnversionedObstruction"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("AlwaysExtendedMenu"), CSettingsAdvanced::SettingTypeBoolean, false },
-    { _T("AutocompleteRemovesExtensions"), CSettingsAdvanced::SettingTypeBoolean, false },
-    { _T("BlockStatus"), CSettingsAdvanced::SettingTypeBoolean, false },
-    { _T("CacheTrayIcon"), CSettingsAdvanced::SettingTypeBoolean, false },
-    { _T("ColumnsEveryWhere"), CSettingsAdvanced::SettingTypeBoolean, false },
-    { _T("ConfigDir"), CSettingsAdvanced::SettingTypeString, _T("") },
-    { _T("CtrlEnter"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("Debug"), CSettingsAdvanced::SettingTypeBoolean, false },
-    { _T("DebugOutputString"), CSettingsAdvanced::SettingTypeBoolean, false },
-    { _T("DialogTitles"), CSettingsAdvanced::SettingTypeNumber, 0 },
-    { _T("DiffBlamesWithTortoiseMerge"), CSettingsAdvanced::SettingTypeBoolean, false },
-    { _T("FullRowSelect"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("GroupTaskbarIconsPerRepo"), CSettingsAdvanced::SettingTypeNumber, 3 },
-    { _T("GroupTaskbarIconsPerRepoOverlay"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("IncludeExternals"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("LogFindCopyFrom"), CSettingsAdvanced::SettingTypeBoolean, false },
-    { _T("LogStatusCheck"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("MergeLogSeparator"), CSettingsAdvanced::SettingTypeString, _T("........") },
-    { _T("OldVersionCheck"), CSettingsAdvanced::SettingTypeBoolean, false },
-    { _T("OutOfDateRetry"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("ShellMenuAccelerators"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("ShowContextMenuIcons"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("ShowAppContextMenuIcons"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("StyleCommitMessages"), CSettingsAdvanced::SettingTypeBoolean, true },
-    { _T("UpdateCheckURL"), CSettingsAdvanced::SettingTypeString, _T("") },
-    { _T("VersionCheck"), CSettingsAdvanced::SettingTypeBoolean, true },
-
-    { _T(""), CSettingsAdvanced::SettingTypeNone, false }
-};
-
-
-
 IMPLEMENT_DYNAMIC(CSettingsAdvanced, ISettingsPropPage)
 
 CSettingsAdvanced::CSettingsAdvanced()
     : ISettingsPropPage(CSettingsAdvanced::IDD)
 {
+    int i = 0;
+    settings[i].sName   = L"AllowAuthSave";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
 
+    settings[i].sName   = L"AllowUnversionedObstruction";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"AlwaysExtendedMenu";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
+    settings[i].sName   = L"AutocompleteRemovesExtensions";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
+    settings[i].sName   = L"BlockStatus";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
+    settings[i].sName   = L"CacheTrayIcon";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
+    settings[i].sName   = L"ColumnsEveryWhere";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
+    settings[i].sName   = L"ConfigDir";
+    settings[i].type    = CSettingsAdvanced::SettingTypeString;
+    settings[i++].def.s = L"";
+
+    settings[i].sName   = L"CtrlEnter";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"Debug";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
+    settings[i].sName   = L"DebugOutputString";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
+    settings[i].sName   = L"DialogTitles";
+    settings[i].type    = CSettingsAdvanced::SettingTypeNumber;
+    settings[i++].def.l = 0;
+
+    settings[i].sName   = L"DiffBlamesWithTortoiseMerge";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
+    settings[i].sName   = L"FullRowSelect";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"GroupTaskbarIconsPerRepo";
+    settings[i].type    = CSettingsAdvanced::SettingTypeNumber;
+    settings[i++].def.l = 3;
+
+    settings[i].sName   = L"GroupTaskbarIconsPerRepoOverlay";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"IncludeExternals";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"LogFindCopyFrom";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
+    settings[i].sName   = L"LogStatusCheck";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"MergeLogSeparator";
+    settings[i].type    = CSettingsAdvanced::SettingTypeString;
+    settings[i++].def.s = L"........";
+
+    settings[i].sName   = L"OldVersionCheck";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = false;
+
+    settings[i].sName   = L"OutOfDateRetry";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"ShellMenuAccelerators";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"ShowContextMenuIcons";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"ShowAppContextMenuIcons";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"StyleCommitMessages";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"UpdateCheckURL";
+    settings[i].type    = CSettingsAdvanced::SettingTypeString;
+    settings[i++].def.s = L"";
+
+    settings[i].sName   = L"VersionCheck";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
+    settings[i].sName   = L"";
+    settings[i].type    = CSettingsAdvanced::SettingTypeNone;
+    settings[i++].def.b = false;
+
+    // 29 so far...
 }
 
 CSettingsAdvanced::~CSettingsAdvanced()
