@@ -1980,6 +1980,14 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
             // scrolled part.
             Invalidate(FALSE);
         }
+        else
+        {
+            // make sure the view header is redrawn
+            CRect rcScroll;
+            GetClientRect(&rcScroll);
+            rcScroll.bottom = GetLineHeight()+HEADERHEIGHT;
+            InvalidateRect(&rcScroll, FALSE);
+        }
     }
     else
     {
