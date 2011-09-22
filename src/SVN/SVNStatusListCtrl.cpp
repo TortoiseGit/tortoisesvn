@@ -1010,7 +1010,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
             CTSVNPath extpath = svnPath;
             while (basePath.IsAncestorOf(extpath))
             {
-                if (!SVNHelper::IsVersioned(extpath, true))
+                if (extpath.Exists() && !SVNHelper::IsVersioned(extpath, true))
                 {
                     bEntryfromDifferentRepo = true;
                     break;
