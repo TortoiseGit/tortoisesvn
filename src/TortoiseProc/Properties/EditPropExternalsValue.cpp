@@ -148,19 +148,14 @@ void CEditPropExternalsValue::OnOK()
     }
     m_URLCombo.SaveHistory();
     m_URL = CTSVNPath(m_URLCombo.GetString());
-    SVNPool pool;
-    if (m_URL.IsUrl())
-        m_External.url = CUnicodeUtils::GetUnicode(m_URL.GetSVNApiPath(pool));
-    else
+    m_External.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_URL.GetSVNPathString())));
+    if (m_URL.GetSVNPathString().GetLength() && (m_URL.GetSVNPathString()[0] == '^'))
     {
-        CStringA url = m_URL.GetSVNApiPath(pool);
-        m_External.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(url));
-        if (url.GetLength() && (url[0] == '^'))
-        {
-            m_External.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(url.Mid(1)));
-            m_External.url = '^' + m_External.url;
-        }
+        // the ^ char must not be escaped
+        m_External.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_URL.GetSVNPathString().Mid(1))));
+        m_External.url = '^' + m_External.url;
     }
+
     if (m_sPegRev.IsEmpty())
         m_External.pegrevision = *SVNRev(_T("HEAD"));
     else
