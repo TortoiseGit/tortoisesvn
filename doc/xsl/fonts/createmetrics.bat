@@ -1,6 +1,13 @@
 @echo off
-set LIBDIR=D:\Development\SVN\TortoiseSVN\Tools\fop\lib\
-set LOCAL_FOP_HOME=D:\Development\SVN\TortoiseSVN\Tools\fop\
+rem place the configuration data in config.bat. You need the following four variables
+rem Example config.bat
+rem set LIBDIR=C:\DocTools\fop\lib\
+rem set LOCAL_FOP_HOME=C:\DocTools\fop\
+rem set CMD="java" 
+rem set FONT_DIR=C:\Windows\Fonts
+
+rem load configuration file
+call config.bat
 
 set LOCALCLASSPATH=%LOCAL_FOP_HOME%build\fop.jar
 set LOCALCLASSPATH=%LOCALCLASSPATH%;%LOCAL_FOP_HOME%build\fop-sandbox.jar
@@ -19,10 +26,8 @@ set LOCALCLASSPATH=%LOCALCLASSPATH%;%LIBDIR%\jai_imageio.jar
 set LOCALCLASSPATH=%LOCALCLASSPATH%;%LIBDIR%\fop-hyph.jar
 
 
-set CMD="c:\Program Files (x86)\Java\jre6\bin\java" 
 set CMD=%CMD% -cp %LOCALCLASSPATH%
 set CMD=%CMD% org.apache.fop.fonts.apps.TTFReader
-set FONT_DIR=C:\Windows\Fonts
 %CMD% %FONT_DIR%\arial.ttf arial.xml
 %CMD% %FONT_DIR%\arialbd.ttf arialbd.xml
 %CMD% %FONT_DIR%\arialbi.ttf arialbi.xml
