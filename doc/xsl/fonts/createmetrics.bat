@@ -50,4 +50,8 @@ set CMD=%CMD% org.apache.fop.fonts.apps.TTFReader
 
 :: in case the ttf isn't available, try the ttc
 %CMD% -ttcname "MS Gothic" %FONT_DIR%\msgothic.ttc msgothic.xml
+%CMD% -ttcname "MS Mincho" %FONT_DIR%\msmincho.ttc msmincho.xml
+%CMD% -ttcname "MS YaHei" %FONT_DIR%\msyh.ttc msyh.xml
+%CMD% -ttcname "MS YaHei Bold" %FONT_DIR%\msyhbd.ttc msyhbd.xml
+%CMD% -ttcname "SimHei" %FONT_DIR%\simhei.ttc simhei.xml
 %CMD% -ttcname "SimSun" %FONT_DIR%\simsun.ttc simsun.xml
