@@ -920,6 +920,16 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
     CTSVNPath lastexternalpath;
     CTSVNPath svnPath;
     CAutoWriteLock locker(m_guard);
+    std::set<CTSVNPath> externals;
+    status.GetExternals(externals);
+    std::set<CTSVNPath> unversionedexternals;
+    for (auto ei = externals.cbegin(); ei != externals.cend(); ++ei)
+    {
+        if (ei->Exists() && !SVNHelper::IsVersioned(*ei, true))
+        {
+            unversionedexternals.insert(*ei);
+        }
+    }
     while ((s = status.GetNextFileStatus(svnPath)) != NULL)
     {
         svn_wc_status_kind wcFileStatus = s->node_status;
@@ -1000,22 +1010,20 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
             arExtPaths.AddPath(svnPath);
             m_bHasExternals = TRUE;
         }
-        if ((!bEntryfromDifferentRepo)&&(status.IsInExternal(svnPath)))
+        if ((!bEntryfromDifferentRepo)&&(unversionedexternals.size())&&(status.IsInExternal(svnPath)))
         {
             // if the externals are inside an unversioned folder (this happens if
             // the externals are specified with e.g. "ext\folder url" instead of just
             // "folder url"), then a commit won't succeed.
             // therefore, we treat those as if the externals come from a different
             // repository
-            CTSVNPath extpath = svnPath;
-            while (basePath.IsAncestorOf(extpath))
+            for (auto ue = unversionedexternals.cbegin(); ue != unversionedexternals.cend(); ++ue)
             {
-                if (extpath.Exists() && !SVNHelper::IsVersioned(extpath, true))
+                if (ue->IsAncestorOf(svnPath))
                 {
                     bEntryfromDifferentRepo = true;
                     break;
                 }
-                extpath = extpath.GetContainingDirectory();
             }
         }
         // Do we have any external paths?
