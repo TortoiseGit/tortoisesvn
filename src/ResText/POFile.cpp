@@ -23,6 +23,7 @@
 #include "ResModule.h"
 #include ".\pofile.h"
 
+#include <algorithm>
 #include <cctype>
 
 #define MYERROR {CUtils::Error(); return FALSE;}
@@ -98,7 +99,11 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
                     //message id
                     msgid = I->c_str();
                     msgid = std::wstring(msgid.substr(7, msgid.size() - 8));
-                    nEntries++;
+
+                    std::wstring s = msgid;
+                    s.erase(s.begin(), std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
+                    if (s.size())
+                        nEntries++;
                     type = 1;
                 }
                 if (_tcsncmp(I->c_str(), _T("msgstr"), 6)==0)
@@ -220,8 +225,11 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath, LPCTSTR lpszHeaderFile)
 
     for (std::map<std::wstring, RESOURCEENTRY>::iterator I = this->begin(); I != this->end(); ++I)
     {
-        if (I->first.size() == 0)
+        std::wstring s = I->first;
+        s.erase(s.begin(), std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
+        if (s.size() == 0)
             continue;
+
         RESOURCEENTRY entry = I->second;
         for (std::vector<std::wstring>::iterator II = entry.automaticcomments.begin(); II != entry.automaticcomments.end(); ++II)
         {
