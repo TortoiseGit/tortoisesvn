@@ -91,10 +91,13 @@ BOOL CSettings::OnInitDialog()
     margs.cxRightWidth = 0;
     margs.cyBottomHeight = BOTTOMMARG;
 
-    m_Dwm.Initialize();
-    m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
-    m_aeroControls.SubclassOkCancelHelp(this);
-    m_aeroControls.SubclassControl(this, ID_APPLY_NOW);
+    if ((DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE))
+    {
+        m_Dwm.Initialize();
+        m_Dwm.DwmExtendFrameIntoClientArea(m_hWnd, &margs);
+        m_aeroControls.SubclassOkCancelHelp(this);
+        m_aeroControls.SubclassControl(this, ID_APPLY_NOW);
+    }
     return bResult;
 }
 
