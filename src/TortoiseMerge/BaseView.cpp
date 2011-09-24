@@ -2502,7 +2502,7 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
     if (nDirection > 0)
         SetupAllSelection(nCenterPos, nBlockEnd);
     else
-        SetupSelection(nBlockEnd, nCenterPos);
+        SetupAllSelection(nBlockEnd, nCenterPos);
 
     ScrollAllToLine(nTopPos, FALSE);
     RecalcAllVertScrollBars(TRUE);
