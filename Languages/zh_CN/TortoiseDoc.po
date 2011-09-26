@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-21 13:49+0000\n"
-"Last-Translator: ccimage <zhangchuan.cn@gmail.com>\n"
+"PO-Revision-Date: 2011-09-24 03:18+0000\n"
+"Last-Translator: Verplusor <sailen@live.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8767,7 +8767,7 @@ msgid ""
 "branch/tag, or when you copy files or folders directly in the repository "
 "browser."
 msgstr ""
-"<literal>tsvn:logtemplatebranch</literal> 用于在您创建分支/标记或直接在库浏览器中复制文件或文件夹时。"
+"<literal>tsvn:logtemplatebranch</literal> 用于在您创建分支/标记或直接在版本库浏览器中复制文件或文件夹时。"
 
 #. (para)
 msgid "<literal>tsvn:logtemplateimport</literal> is used for imports."
@@ -8777,29 +8777,29 @@ msgstr "<literal>tsvn:logtemplateimport</literal> 用于导入。"
 msgid ""
 "<literal>tsvn:logtemplatedelete</literal> is used when deleting items "
 "directly in the repository browser."
-msgstr "<literal>tsvn:logtemplatedelete</literal> 用于直接在库浏览中删除项目时。"
+msgstr "<literal>tsvn:logtemplatedelete</literal> 用于直接在版本库浏览中删除项目时。"
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatemove</literal> is used when renaming or moving "
 "items in the repository browser."
-msgstr "<literal>tsvn:logtemplatemove</literal> 用于在库浏览器中重命名或移动项目时。"
+msgstr "<literal>tsvn:logtemplatemove</literal> 用于在版本库浏览器中重命名或移动项目时。"
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatemkdir</literal> is used when creating directories "
 "in the repository browser."
-msgstr "<literal>tsvn:logtemplatemkdir</literal> 用于在库浏览中创建目录时。"
+msgstr "<literal>tsvn:logtemplatemkdir</literal> 用于在版本库浏览中创建目录时。"
 
 #. (para)
 msgid ""
 "<literal>tsvn:logtemplatepropset</literal> is used when modifying properties"
 " in the repository browser."
-msgstr "<literal>tsvn:logtemplatepropset</literal> 用于在库浏览器中修改属性时。"
+msgstr "<literal>tsvn:logtemplatepropset</literal> 用于在版本库浏览器中修改属性时。"
 
 #. (para)
 msgid "<literal>tsvn:logtemplatelock</literal> is used when getting a lock."
-msgstr "<literal> TSVN：logtemplatelock </literal>获得一个锁时。"
+msgstr "<literal>tsvn:logtemplatelock</literal> 用于获取一个锁定。"
 
 #. (para)
 msgid "The action specific templates are: <placeholder-1/>"
@@ -9023,6 +9023,8 @@ msgid ""
 "<literal>svn:</literal> properties are offered in the pre-defined list. Any "
 "other property name must be entered manually."
 msgstr ""
+"当你使用版本库浏览器添加一个属性时，在预定义列表中只会提供标准的 <literal>svn:</literal> "
+"属性。任何其他的属性名称都必须手动输入。"
 
 #. (para)
 msgid ""
@@ -9033,13 +9035,15 @@ msgstr "属性不能设置或删除递归使用回购浏览器。"
 msgid ""
 "Project properties will <emphasis>not</emphasis> be propagated automatically"
 " when a child folder is added using the repo browser."
-msgstr ""
+msgstr "当使用版本库浏览器添加一个新的子文件夹时，项目属性将 <emphasis>不会</emphasis> 被自动传递到子文件夹。"
 
 #. (para)
 msgid ""
 "<literal>tsvn:autoprops</literal> will <emphasis>not</emphasis> set "
 "properties on files which are added using the repo browser."
 msgstr ""
+"当使用版本库浏览器添加文件时，<literal>tsvn:autoprops</literal> 将 <emphasis>不会</emphasis> "
+"给这些添加的文件设定属性。"
 
 #. (para)
 msgid ""
@@ -9065,6 +9069,8 @@ msgid ""
 "TortoiseSVN presents edit dialogs for some particular properties which show "
 "the possible values or break the property into its individual components."
 msgstr ""
+"有些属性必须使用特定的值或以某种特定的方式进行格式化，以便能被自动使用。为了帮助正确地进行格式化，TortoiseSVN "
+"为某些显示可能值或将属性分解给它的单独组件的特殊属性提供了编辑对话框。"
 
 #. (title)
 msgid "External Content"
@@ -9072,7 +9078,7 @@ msgstr "外部条目"
 
 #. (title)
 msgid "svn:externals property page"
-msgstr ""
+msgstr "svn:externals 属性页"
 
 #. (para)
 msgid ""
@@ -9080,6 +9086,8 @@ msgid ""
 "to pull in other projects from the same repository or a completely different"
 " repository as described in <xref linkend=\"tsvn-dug-externals\"/>."
 msgstr ""
+"<placeholder-1/> <literal>svn:外部</literal> 属性可用于从同一版本库或一个如 <xref linkend"
+"=\"tsvn-dug-externals\"/> 所述的完全不同的版本库中引入其他项目。"
 
 #. (para)
 msgid ""
@@ -9095,6 +9103,9 @@ msgid ""
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
 msgstr ""
+"您需要定义检出外部文件夹的子文件夹的名称和外部项目的版本库地址。您能用其最新版本点检出一个外部项目，因此当版本库中的外部项目更改时，您的工作副本将通过更新来接受这些更改。但是，如果您希望外部项目引用某一特定的稳定版本点，您可以指定要使用的特定版本。在这种情况下您可能也要指定跟"
+" Peg 修订版本相同的版本。如果在将来某个时候外部项目被重命名，那么 Subversion 将无法在您的工作副本中更新此项目。通过指定一个 Peg "
+"修订版本来告诉 Subversion 寻找一个跟 Peg 修订版本相同而不是跟最新版本点相同的项目。"
 
 #. (title)
 msgid "SVN Keywords"
@@ -9102,27 +9113,27 @@ msgstr "SVN 关键字"
 
 #. (title)
 msgid "svn:keywords property page"
-msgstr ""
+msgstr "svn:keywords 属性页"
 
 #. (para)
 msgid ""
 "<placeholder-1/> Select the keywords that you would like to be expanded in "
 "your file."
-msgstr ""
+msgstr "<placeholder-1/> 选择你想要在文件中被扩展的关键字。"
 
 #. (title)
 msgid "EOL Style"
-msgstr ""
+msgstr "EOL 样式"
 
 #. (title)
 msgid "svn:eol-style property page"
-msgstr ""
+msgstr "svn:eol-style 属性页"
 
 #. (para)
 msgid ""
 "<placeholder-1/> Select the end-of-line style that you wish to use and "
 "TortoiseSVN will use the correct property value."
-msgstr ""
+msgstr "<placeholder-1/> 选择您想使用的并且 TortoiseSVN 会使用正确属性值的行结束样式。"
 
 #. (title)
 #. (title)
@@ -9131,7 +9142,7 @@ msgstr "问题跟踪器集成"
 
 #. (title)
 msgid "tsvn:bugtraq property page"
-msgstr ""
+msgstr "tsvn:bugtraq 属性页"
 
 #. (title)
 msgid "Log Message Sizes"
@@ -9139,7 +9150,7 @@ msgstr "日志消息大小"
 
 #. (title)
 msgid "Size of log messages property page"
-msgstr ""
+msgstr "日志信息属性页的大小"
 
 #. (para)
 msgid ""
@@ -9150,14 +9161,16 @@ msgid ""
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
 msgstr ""
+"<placeholder-1/> 3 字节属性用来控制日志信息的格式。前 2 字节禁用在提交中的 "
+"<guibutton>OK</guibutton>确定，或锁定对话框直到信息长度符合最小要求。边界位置会在给定的列宽度处显示一个标记，作为有日志信息宽度限制的项目引导。将值设置为零，则将删除该属性。"
 
 #. (title)
 msgid "Project Language"
-msgstr ""
+msgstr "项目语言"
 
 #. (title)
 msgid "Language property page"
-msgstr ""
+msgstr "语言属性页"
 
 #. (para)
 msgid ""
@@ -9168,39 +9181,42 @@ msgid ""
 "local language. When this box is checked the status is always given in "
 "English, for projects which require English-only log messages."
 msgstr ""
+"<placeholder-1/> "
+"选择用于在提交对话框中拼写检查日志信息的语言。当你在日志信息窗格中右键单击并选择<guilabel>粘贴文件列表</guilabel>时，文件列表复选框生效。默认情况下"
+" Subversion 将显示为您的本地语言。对于需要仅英文的日志信息的项目，选中此框时总是处于英文状态。"
 
 #. (title)
 msgid "MIME-type"
-msgstr "MIME-type"
+msgstr "MIME 类型"
 
 #. (title)
 msgid "svn:mime-type property page"
-msgstr ""
+msgstr "svn:mime-type 属性页"
 
 #. (title)
 #. (literal)
 #. (literal)
 msgid "svn:needs-lock"
-msgstr ""
+msgstr "svn:needs-lock"
 
 #. (title)
 msgid "svn:needs-lock property page"
-msgstr ""
+msgstr "svn:needs-lock 属性页"
 
 #. (para)
 msgid ""
 "<placeholder-1/> This property simply controls whether a file will be "
 "checked out as read-only if there is no lock held for it in the working "
 "copy."
-msgstr ""
+msgstr "<placeholder-1/> 此属性只是简单地控制一个文件是否要被检出为只读，如果没有在工作副本中锁定它。"
 
 #. (title)
 msgid "svn:executable"
-msgstr ""
+msgstr "svn:executable"
 
 #. (title)
 msgid "svn:executable property page"
-msgstr ""
+msgstr "svn:executable 属性页"
 
 #. (para)
 msgid ""
@@ -9208,6 +9224,8 @@ msgid ""
 "executable status when checked out on a Unix/Linux system. It has no effect "
 "on a Windows checkout."
 msgstr ""
+"<placeholder-1/> 该属性控制一个文件在 Unix/Linux 系统上检出时是否将被给予可执行状态。在 Windows "
+"签出时则没有任何影响。"
 
 #. (title)
 msgid "External Items"
@@ -9254,12 +9272,21 @@ msgid ""
 "<guibutton>New...</guibutton> and then fill in the required information in "
 "the shown dialog."
 msgstr ""
+"比方说您检出了一个 <filename>/project1</filename> 工作副本到 "
+"<filename>D:\\dev\\project1</filename>。选择文件夹 "
+"<filename>D:\\dev\\project1</filename>，<action>右击</action> 该文件夹并从上下文菜单中选择 "
+"<menuchoice><guimenu>Windows "
+"菜单</guimenu><guimenuitem>属性</guimenuitem></menuchoice>。属性对话框出现。然后转到 "
+"Subversion 选项卡。在那里您可以设置属性。单击 <guibutton>属性...</guibutton>。在属性对话框中，即可以双击 "
+"<literal>svn:externals</literal> 如果它已经存在，或点击 <guibutton>新建...</guibutton> "
+"按钮并从菜单中选择 <literal>externals</literal>。要添加新的外部项目，单击 "
+"<guibutton>新建...</guibutton>，然后在显示的对话框中填写所需的信息。"
 
 #. (para)
 msgid ""
 "URLs must be properly escaped or they will not work, e.g. you must replace "
 "each space with <literal>%20</literal>."
-msgstr ""
+msgstr "URLs 必须正确转义否则将不会工作，例如必须将每个空格替换为 <literal>%20</literal>。"
 
 #. (para)
 msgid ""
@@ -9302,7 +9329,7 @@ msgstr ""
 msgid ""
 "If the external project is in the same repository, any changes you make "
 "there will be included in the commit list when you commit your main project."
-msgstr ""
+msgstr "如果外部项目位于同一版本库，当你提交你的主要项目时，你在这儿所做的任何更改都将包含在提交列表中。"
 
 #. (para)
 #. (para)
@@ -9419,7 +9446,7 @@ msgstr ""
 
 #. (para)
 msgid "You can also specify a peg revision for the URL if required."
-msgstr ""
+msgstr "如果需要你也能为 URL 指定一个 Peg 修订版本。"
 
 #. (para)
 msgid ""
@@ -9615,6 +9642,8 @@ msgid ""
 "determined from the working copy, which means it shows the revision that "
 "external actually points to."
 msgstr ""
+"如果您的工作副本中有其他项目包含了 <literal>svn:externals</literal> "
+"属性，在分支/标记对话框中的底部将列出这些外部对象。对于每个外部项目，目标路径、源地址和修订版本都会被显示。外部项目版本是从工作副本中确定的，这意味着它将显示外部项目实际指向的版本。"
 
 #. (para)
 msgid ""
@@ -9626,6 +9655,7 @@ msgid ""
 " not compile anymore. So it's always a good idea to set the externals to an "
 "explicit revision when creating a tag."
 msgstr ""
+"如果您要确保新的标记总是处于一致状态，请检查所有外部项目将它们的版本恢复到当前的工作副本版本。如果您不检查外部项目，这些外部项目会指向一个将来可能会更改的最新版本，检出新标记将会检出外部项目的最新版本并且你的标记可能不再编译。所以在创建一个标记时给外部对象设置一个明确的版本是一个不错的办法。"
 
 #. (para)
 msgid ""
@@ -9638,6 +9668,9 @@ msgid ""
 "first, then the branch/tag is created and then the properties are changed "
 "back to their original value."
 msgstr ""
+"如果在创建分支或标记时给外部项目设置一个明确的版本，TortoiseSVN 将自动更改 <literal>svn:externals</literal>"
+" 属性。当从最新版本点或版本库中的指定修订版创建分支/标记时，TortoiseSVN "
+"会首先创建分支/标记，然后调整属性。这将为每个属性创建额外的提交。当从工作副本创建见分支/标记时，首先修改属性，然后创建分支/标记，然后属性更改回其原始值。"
 
 #. (para)
 msgid ""
@@ -10070,6 +10103,8 @@ msgid ""
 "revisions to revert and make sure the <guilabel>Reverse merge</guilabel> box"
 " is checked."
 msgstr ""
+"如果您要将更改往回合并 <emphasis>出</emphasis> 您的工作副本，以还原一个已提交的更改，选择要还原的版本并确保选中了 "
+"<guilabel>反向合并</guilabel> 框。"
 
 #. (para)
 msgid ""
@@ -10132,7 +10167,7 @@ msgstr "合并向导 - 重新合并"
 msgid ""
 "<placeholder-1/> To merge a feature branch back into the trunk you must "
 "start the merge wizard from within a working copy of the trunk."
-msgstr ""
+msgstr "<placeholder-1/> 为了将一个特性分支合并到主干，您必须从一个主干工作副本启动合并向导。"
 
 #. (para)
 msgid ""
@@ -10140,6 +10175,8 @@ msgid ""
 " branch that you want to merge back. You may also click "
 "<guibutton>...</guibutton> to browse the repository."
 msgstr ""
+"在 <guilabel>从 URL：</guilabel> 区域输入您要复兴合并的分支的完整文件夹地址。你也可以点击 "
+"<guibutton>...</guibutton> 浏览版本库。"
 
 #. (para)
 msgid ""
@@ -10151,6 +10188,9 @@ msgid ""
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
 msgstr ""
+"复兴合并需要满足一些条件。首先，服务器必须支持合并跟踪。工作副本必须为完全递归 "
+"(不是有限的检出深度)，而且它不能具有任何本地修改、交换项目或已更新为最新版本之外的其他版本的项目。分支开发过程中的所有主干更改必须已合并到分支 "
+"(或标记为已合并)。要合并的版本范围将自动被计算。"
 
 #. (title)
 msgid "Merging Two Different Trees"
@@ -10158,7 +10198,7 @@ msgstr "合并两个不同的目录树"
 
 #. (secondary)
 msgid "two trees"
-msgstr ""
+msgstr "两个树"
 
 #. (title)
 msgid "The Merge Wizard - Tree Merge"
@@ -10169,7 +10209,7 @@ msgid ""
 "<placeholder-1/> If you are using this method to merge a feature branch back"
 " to trunk, you need to start the merge wizard from within a working copy of "
 "trunk."
-msgstr ""
+msgstr "<placeholder-1/> 如果您正使用此方法将一个特性分支合并回主干，你需要从一个主干工作副本内启动合并向导。"
 
 #. (para)
 msgid ""
@@ -10178,6 +10218,9 @@ msgid ""
 "trunk is the start point to which you want to add the branch changes. You "
 "may also click <guibutton>...</guibutton> to browse the repository."
 msgstr ""
+"在 <guilabel>起始：</guilabel> 区域输入 <emphasis>主干</emphasis> "
+"的完整文件夹地址。这听起来像是错了，但请记住主干是要添加分支更改的起始点。你也可以点击 <guibutton>...</guibutton> "
+"浏览版本库。"
 
 #. (para)
 msgid ""
@@ -10221,6 +10264,8 @@ msgid ""
 "<guilabel>Working copy</guilabel>, which uses the existing depth setting, "
 "and is almost always what you want."
 msgstr ""
+"您可以指定合并深度，也就是到工作副本的合并程度。深度条款在 <xref linkend=\"tsvn-dug-checkout-depth\"/> "
+"中有所描述。默认深度是 <guilabel>工作副本</guilabel>，使用现有的深度设置，并且几乎能满足所需。"
 
 #. (para)
 msgid ""
@@ -10238,6 +10283,12 @@ msgid ""
 "bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>Noticing"
 " or Ignoring Ancestry</citetitle></ulink>."
 msgstr ""
+"大多数时候合并都要考虑到文件历史，以便于合并那些关联至一个共同根源的变化。有时您可能需要合并那些不在版本库中却可能相关的文件。例如你可能已经导入了第三方库的版本"
+" 1 和 2 到两个单独的目录。虽然逻辑上它们是相关的，Subversion "
+"却无法判别，因为它只能看到您导入的源码包。如果您尝试合并两个不同树之间的差异，你会先后看到完全清除及完全添加。若要让 Subversion "
+"只使用基于路径的差异而非基于历史的差异，选中 <guilabel>忽略根源</guilabel>。在 Subversion book "
+"中阅读关于这个主题的更多介绍，<ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.branchmerge.advanced.html#svn.branchmerge.advanced.ancestry\"><citetitle>注意或是忽略根源</citetitle></ulink>。"
 
 #. (para)
 msgid ""
@@ -10246,6 +10297,8 @@ msgid ""
 "whitespace\"/>. The default behaviour is to treat all whitespace and line-"
 "end differences as real changes to be merged."
 msgstr ""
+"您可以指定处理行结束和空白变化的方式。这些选项在 <xref linkend=\"tsvn-dug-diff-eol-whitespace\"/> "
+"中被描述。默认情况是把所有的空白和行结束差异当做将被合并的真实更改。"
 
 #. (para)
 msgid ""
@@ -10254,6 +10307,8 @@ msgid ""
 "modified locally or not versioned at all. If the file is deleted then there "
 "is no way to recover it, which is why that option is not checked by default."
 msgstr ""
+"标记为 <guilabel>强制合并</guilabel> "
+"的复选框用于避免树冲突，传入的删除操作会影响到本地修改或不受版本控制的文件。如果删除了该文件，则无法恢复，这就是为什么在默认情况下未选中该选项。"
 
 #. (para)
 msgid ""
@@ -10267,6 +10322,8 @@ msgid ""
 "already merged will prevent the merge occurring with merge-tracking-aware "
 "clients."
 msgstr ""
+"如果您正在使用合并跟踪并且要将一个版本标记为已合并，而实际上并没有执行合并，那么就选中 <guilabel>只记录合并</guilabel> "
+"复选框。您这样做可能有两个原因。合并过于复杂，合并算法表示压力很大，因此您选择手动更改代码，然后将更改标记为已合并，以便于合并跟踪算法也能识别到。或者您可能想要防止某个特定版本被合并，将其标记为已合并就可以用合并跟踪识别客户端来阻止合并的发生。"
 
 #. (para)
 msgid ""
@@ -10280,6 +10337,10 @@ msgid ""
 " in advance whether the merge will complete without conflicts, so files "
 "marked as conflicted in a test merge may in fact merge without any problem."
 msgstr ""
+"现在一切就绪，你要做的就是点击 <guibutton>合并</guibutton> "
+"按钮。如果想要预览结果，<guibutton>测试合并</guibutton> 可以模拟合并操作，但完全 <emphasis>不会</emphasis>"
+" 修改工作副本。它会显示一份会被真正合并的文件列表，并通告那些 <emphasis>可能</emphasis> "
+"发生冲突的文件。因为合并跟踪会使合并过程变得更为复杂，没有任何方法可以事先保证完成合并时是否会出现冲突，所以在测试合并中标记为冲突的文件可能在实际的合并中并不会出现任何问题。"
 
 #. (para)
 msgid ""
@@ -10293,6 +10354,9 @@ msgid ""
 "copy. The progress dialog is simply showing the start and end points for the"
 " diff."
 msgstr ""
+"合并进度对话框中会显示每个合并阶段，附带所涉及的版本范围。这可能意味着有超出你预料的更多版本。例如，如果你要求合并版本 123，进度对话框将报告为 "
+"<quote>Merging revisions 122 through "
+"123</quote>。要理解这一点需要记住合并跟差异是密切相关的。合并进程的工作方式是在版本库两个点之间生成一份差异列表，并将这些差异应用至您的工作副本。进度对话框仅显示差异的开始点和结束点。"
 
 #. (title)
 msgid "Reviewing the Merge Results"
@@ -10303,7 +10367,7 @@ msgid ""
 "The merge is now complete. It's a good idea to have a look at the merge and "
 "see if it's as expected. Merging is usually quite complicated. Conflicts "
 "often arise if the branch has drifted far from the trunk."
-msgstr ""
+msgstr "现在已完成合并。查看合并是否按预期完成是个不错的主意。合并通常是相当复杂的。如果分支跟主干偏差太大，往往会出现冲突。"
 
 #. (para)
 msgid ""
@@ -10318,6 +10382,12 @@ msgid ""
 "bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>Best"
 " Practices for Merging</citetitle></ulink> in the Subversion book."
 msgstr ""
+"对于 Subversion 客户端和服务器 1.5 "
+"之前的版本，不会存储合并信息并且合并的版本必须手动进行跟踪。当您测试完更改来提交这次修订版本时，您的提交日志信息应该会 "
+"<emphasis>始终</emphasis> "
+"包括在合并中已导入的版本号。如果以后要应用另一个合并，您需要知道你已经合并过的，因为没人愿意多次地导入更改。这有关的详细信息，请参阅 "
+"Subversion 书册中的 <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.4/svn.branchmerge.copychanges.html#svn.branchmerge.copychanges.bestprac\"><citetitle>最佳的合并实践</citetitle></ulink>。"
 
 #. (para)
 msgid ""
@@ -10344,7 +10414,7 @@ msgid ""
 "If you have just merged a feature branch back into the trunk, the trunk now "
 "contains all the new feature code, and the branch is obsolete. You can now "
 "delete it from the repository if required."
-msgstr ""
+msgstr "如果你刚刚将一个特性分支合并到主干，那么主干现在包含所有新的特性代码，分支就已经无用了。如果需要的话，现在可以从版本库中将其删除。"
 
 #. (para)
 msgid ""
@@ -10354,6 +10424,8 @@ msgid ""
 " a folder and bring up the dialog, then you must specify a folder URL for "
 "the merge."
 msgstr ""
+"Subversion 无法用一个文件夹来合并一个文件，反之亦然 - "
+"只能是文件夹对文件夹，文件对文件。如果您点击一个文件并打开合并对话框，然后你必须在对话框中给出一个文件路径。如果您选择一个文件夹并打开对话框，然后您必须为合并指定一个文件夹地址。"
 
 #. (title)
 msgid "Merge Tracking"
@@ -10368,33 +10440,33 @@ msgid ""
 "You can avoid the danger of merging the same revision twice (repeated merge "
 "problem). Once a revision is marked as having been merged, future merges "
 "which include that revision in the range will skip over it."
-msgstr ""
+msgstr "您可以避免合并同一版本两次的隐患 (重复合并问题)。一旦一个版本被标记为已合并，将来在版本范围中包含该版本的合并将会跳过它。"
 
 #. (para)
 msgid ""
 "When you merge a branch back into trunk, the log dialog can show you the "
 "branch commits as part of the trunk log, giving better traceability of "
 "changes."
-msgstr ""
+msgstr "当您合并一个分支到主干时，日志对话框可以将分支提交作为主干日志的一部分来显示，这样可得到对更改更好的跟踪性。"
 
 #. (para)
 msgid ""
 "When you show the log dialog from within the merge dialog, revisions already"
 " merged are shown in grey."
-msgstr ""
+msgstr "当您从合并对话框内显示日志对话框时，已合并的版本显示为灰色。"
 
 #. (para)
 msgid ""
 "When showing blame information for a file, you can choose to show the "
 "original author of merged revisions, rather than the person who did the "
 "merge."
-msgstr ""
+msgstr "当显示一个文件的追溯信息时，你可以选择显示已合并版本的原作者，而不是合并者。"
 
 #. (para)
 msgid ""
 "You can mark revisions as <emphasis>do not merge</emphasis> by including "
 "them in the list of merged revisions without actually doing the merge."
-msgstr ""
+msgstr "您可以把版本标记为 <emphasis>不合并</emphasis>，通过把他们包含在已合并的版本列表中而实际上并没有进行合并。"
 
 #. (para)
 msgid ""
@@ -10416,6 +10488,9 @@ msgid ""
 "not store the <literal>svn:mergeinfo</literal> property and earlier servers "
 "will not provide the information requested by new clients."
 msgstr ""
+"执行合并时客户端将合并跟踪信息存储在 <literal>svn:mergeinfo</literal> "
+"属性中。提交合并时，服务器会将该信息存储在数据库中，而当您请求合并、日志或追溯信息时，服务器可以作出恰当的响应。为了使系统正常工作，您必须确保服务器、版本库和所有客户端都是最新的。较早的客户端将不会存储"
+" <literal>svn:mergeinfo</literal> 属性并且早期版本的服务器端不会提供新版客户端所请求的信息。"
 
 #. (para)
 msgid ""
@@ -10448,6 +10523,8 @@ msgid ""
 "process by showing the <emphasis>merge conflict callback</emphasis> dialog. "
 "<placeholder-1/>"
 msgstr ""
+"合并不会总是顺利的。有时会有冲突，如果您正在合并多个范围，您通常要在下一个范围的合并开始之前解决冲突。TortoiseSVN 会在进程中通过显示 "
+"<emphasis>合并冲突回调</emphasis> 对话框来帮助你解决。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -10457,6 +10534,8 @@ msgid ""
 "conflicts often cover more lines than you think they will and you may get "
 "unexpected results."
 msgstr ""
+"选择 <emphasis>首选本地</emphasis> 将在每个冲突中选择使用你的本地更改。同样，<emphasis>首选版本库</emphasis>"
+" 将在每个冲突中选择使用版本库更改。这听起来很容易，但冲突往往覆盖的行数会超出你的想象，你可能会得到意外的结果。"
 
 #. (para)
 msgid ""
@@ -10465,6 +10544,8 @@ msgid ""
 "start up your merge tool. When you are satisfied with the result, click "
 "<guibutton>Resolved</guibutton>."
 msgstr ""
+"通常情况下，你会想看看冲突和自己解决他们。在这种情况下，选择 <guibutton>编辑冲突</guibutton> "
+"将启动合并工具。当你对结果满意时，请点击 <guibutton>已解决</guibutton>。"
 
 #. (para)
 msgid ""
@@ -10473,6 +10554,7 @@ msgid ""
 "rest of the merge. However, if there are further changes in that file, it "
 "will not be possible to complete the merge."
 msgstr ""
+"最后一个选项就是延迟解决并继续进行合并。您可以为当前的冲突文件做这样的选择，或者为合并余下部分的所有文件。但是，如果该文件在接下来的合并中有进一步的更改，它将无法完成合并。"
 
 #. (para)
 msgid ""
@@ -10482,6 +10564,8 @@ msgid ""
 "dialog gives you three different ways of handling the lines which are in "
 "conflict. <placeholder-1/>"
 msgstr ""
+"很可能某些更改将顺利进行合并，而其他的本地更改会跟已提交到版本库的更改发生冲突。所有可以合并的更改都将被合并。合并冲突回调对话框会给你您三种不同的方法来处理冲突的行。"
+" <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -10496,6 +10580,10 @@ msgid ""
 "subsequent merges might succeed depending on which lines are affected. But "
 "of course you can't walk away to get a coffee while the merge is running ;)"
 msgstr ""
+"如果您不想使用交互式回调，在合并进度对话框中有一个 <guilabel>非交互式合并</guilabel> "
+"复选框。如果选中它，若合并中出现了冲突，该文件会被标记为冲突，然后继续合并。你必须在整个合并完成后解决这些冲突。如果不选中它，那么在冲文件被标记为冲突之前你有机会在合并"
+" <emphasis>过程中</emphasis> 解决冲突。它的优势是如果一个文件获得多个合并 "
+"(多个修订版本将更改应用于该文件)，后续的合并是否成功取决于受影响的行。但这样在合并期间你可不能离开去尿尿哦 ;)"
 
 #. (title)
 msgid "Merge a Completed Branch"
@@ -10503,11 +10591,11 @@ msgstr "合并已完成的分支"
 
 #. (primary)
 msgid "merge reintegrate"
-msgstr ""
+msgstr "合并复兴分支"
 
 #. (title)
 msgid "The Merge reintegrate Dialog"
-msgstr ""
+msgstr "合并复兴分支对话框"
 
 #. (para)
 msgid ""
@@ -10520,10 +10608,14 @@ msgid ""
 "options\"/>. The rest is done by TortoiseSVN automatically using merge "
 "tracking."
 msgstr ""
+"如果您要从分支合并所有更改至主干，您可以从扩展的上下文菜单 (按住 <keycap>Shift</keycap> 键同时右击该文件) 中使用 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>合并复兴分支...</guimenuitem></menuchoice>。<placeholder-1/>"
+" 此对话框很简单。你所要做的就是设置合并选项, 如 <xref linkend=\"tsvn-dug-merge-options\"/> "
+"中所述。剩下部分是通过 TortoiseSVN 自动使用合并跟踪来完成。"
 
 #. (title)
 msgid "Feature Branch Maintenance"
-msgstr ""
+msgstr "特性分支维护"
 
 #. (para)
 msgid ""
@@ -10533,6 +10625,8 @@ msgid ""
 "that the differences become significant over time, and merging back becomes "
 "a nightmare."
 msgstr ""
+"当您在一个特性分支上开发一项新特性并完成时，为其重新整合至主干制定一个策略是一个好主意。如果同一时间 <literal>主干</literal> "
+"上有其他工作也在继续，您可能会发现随着时间推移，差异会变得更显著，复兴合并将成为一场噩梦。"
 
 #. (para)
 msgid ""
@@ -10543,6 +10637,8 @@ msgid ""
 "range of revisions</guilabel>, with the revision range being the revision "
 "span of the branch."
 msgstr ""
+"如果新特性较为简单并且开发时间较短，那么您可以采取一种简单的方法，就是将分支完全独立，直到完成该特性，然后将分支更改合并回主干。在合并向导中，选择简单的"
+" <guilabel>合并一个版本范围</guilabel>，该版本范围即是分支的版本跨度。"
 
 #. (para)
 msgid ""
@@ -10555,6 +10651,11 @@ msgid ""
 "back to <literal>trunk</literal> using either <guilabel>Reintegrate a "
 "branch</guilabel> or <guilabel>Merge two different trees</guilabel>."
 msgstr ""
+"如果该特性需要花费更长的时间，就要考虑到 <literal>主干</literal> "
+"中的变化，那么你就需要保持分支同步。这仅仅意味着定期地将主干的修改合并到分支，使分支包含所有主干的修改并 <emphasis>加上</emphasis>"
+" 新特性。同步过程使用 <guilabel>合并一个版本范围</guilabel> 。当完成新特性时，那么你可以使用 "
+"<guilabel>复兴分支</guilabel> 或 <guilabel>合并两个不同的树</guilabel> 将其合并回 "
+"<literal>主干</literal>。"
 
 #. (title)
 msgid "Locking"
@@ -10581,7 +10682,7 @@ msgid ""
 "Your company has always used a locking revision control system in the past "
 "and there has been a management decision that <quote>locking is "
 "best</quote>."
-msgstr ""
+msgstr "您的公司过去一直使用一个锁定版本控制系统，并且已有一个 <quote>锁定是最好的</quote> 管理决策。"
 
 #. (para)
 msgid ""
@@ -10601,6 +10702,8 @@ msgid ""
 "are using <literal>file://</literal> access, then of course only your client"
 " needs to be updated."
 msgstr ""
+"首先，你需要确保你的 Subversion 服务器端升级到至少 1.2 版本。早期版本不支持锁定。如果您正在使用 "
+"<literal>file://</literal> 访问，那么当然只有你的客户端需要更新。"
 
 #. (title)
 msgid "How Locking Works in Subversion"
@@ -10630,7 +10733,7 @@ msgid ""
 "A lock is not assigned to a specific user, but to a specific user and a "
 "working copy. Having a lock in one working copy also prevents the same user "
 "from committing the locked file from another working copy."
-msgstr ""
+msgstr "锁定不是分配给一个特定用户，而是一个特定用户和一个工作副本。工作副本上的锁定也可以防止同一用户从另一个工作副本中提交已锁定的文件。"
 
 #. (para)
 msgid ""
@@ -10642,6 +10745,9 @@ msgid ""
 "that same image file, because the lock for that file resides in his working "
 "copy in the office."
 msgstr ""
+"举一个例子，假设用户 Jon "
+"在他的办公室电脑上有一个工作副本。他开始对一个图像进行工作，并因此获得了该文件的锁定。当他离开办公室时还没有完成该文件的工作，所以他不会解除该锁定。回到家里"
+" Jon 也有一个工作副本，并决定继续该项目的工作。但是他却不能修改或提交相同的图像文件，因为该文件的锁定驻留在办公室里的工作副本中。"
 
 #. (para)
 msgid ""
@@ -10721,6 +10827,8 @@ msgid ""
 "to <xref linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
 "properties."
 msgstr ""
+"您可以设置项目属性 <literal>tsvn:logtemplatelock</literal> 给要填写如锁定信息的用户提供一个信息模板。请参阅 "
+"<xref linkend=\"tsvn-dug-propertypage\"/> 有关如何设置属性的说明。"
 
 #. (para)
 msgid ""
@@ -10828,6 +10936,9 @@ msgid ""
 "automatically every time you add new files. Read <xref linkend=\"tsvn-dug-"
 "propertypage-auto-props\"/> for further information."
 msgstr ""
+"如果你想实行一个每个文件必须被锁定的策略，那么您可能会发现使用 Subversion 的 auto-props "
+"功能来为你每次新添加的文件自动设置属性是更容易的。自动设置属性每次添加新的文件。阅读 <xref linkend=\"tsvn-dug-"
+"propertypage-auto-props\"/> 以进一步了解信息。"
 
 #. (title)
 msgid "The Locking Hook Scripts"
@@ -10987,6 +11098,11 @@ msgid ""
 "However, provided you are in the correct working copy, if you pick the wrong"
 " folder level, TortoiseSVN will notice and suggest the correct level."
 msgstr ""
+"补丁文件应用到你的工作副本。这应该从用来创建补丁的相同层级文件夹中完成。如果你不确定是什么文件夹，只需查看补丁文件中的第一行。例如，如果被执行的第一个文件是"
+" <filename>doc/source/english/chapter1.xml</filename> 并且补丁文件的第一行是 "
+"<filename>Index: english/chapter1.xml</filename> 那么您需要应用此补丁至 "
+"<filename>doc/source/</filename> 文件夹。然而，假如你在正确的工作副本中却选择了错误的层级文件夹，TortoiseSVN"
+" 会通知你并提示正确的文件夹。"
 
 #. (para)
 msgid ""
@@ -11107,6 +11223,8 @@ msgid ""
 "revisions to make it easier to read. If you wish to print or edit the blame "
 "file, select <guilabel>Use Text viewer to view blames</guilabel>."
 msgstr ""
+"默认情况下追溯文件是使用 <firstterm>TortoiseBlame</firstterm> "
+"来查看，突出显示不同的版本以使其更易于阅读。如果你想打印或者编辑追溯文件，选择 <guilabel>使用文本查看器查看追溯文件</guilabel>。"
 
 #. (para)
 msgid ""
@@ -11219,6 +11337,10 @@ msgid ""
 "newer lines in red and older lines in blue. The default colouring is quite "
 "light, but you can change it using the TortoiseBlame settings."
 msgstr ""
+"如果您需要对最早和最新变化之处有一个更好的视觉指示，选择 "
+"<menuchoice><guimenu>View</guimenu><guimenuitem>Color age of "
+"lines</guimenuitem></menuchoice>。这将使用一个颜色渐变来显示新行为红色、旧行为蓝色。默认着色很浅，但你可以使用 "
+"TortoiseBlame 设置来改变它。"
 
 #. (para)
 msgid ""
@@ -11259,6 +11381,9 @@ msgid ""
 " on the TortoiseBlame tab. Refer to <xref linkend=\"tsvn-dug-settings-"
 "tortoiseblame\"/>."
 msgstr ""
+"TortoiseBlame 设置可以使用 TortoiseBlame 选项卡上的 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>设置...</guimenuitem></menuchoice>"
+" 来访问。请参阅 <xref linkend=\"tsvn-dug-settings-tortoiseblame\"/>。"
 
 #. (title)
 msgid "Blame Differences"
@@ -11372,6 +11497,8 @@ msgid ""
 " on them to indicate that they are not part of the repository structure, "
 "just links."
 msgstr ""
+"在版本库浏览器中，含有 <literal>svn:externals</literal> "
+"属性的文件夹也会被显示。这些文件夹上会有一个小箭头，以表明他们不是版本库结构的一部分，而只是链接。"
 
 #. (para)
 msgid ""
@@ -11470,7 +11597,7 @@ msgid ""
 "Make a copy of the folder, either to a different part of the repository, or "
 "to a working copy rooted in the same repository. This can also be used to "
 "create a branch/tag without the need to have a working copy checked out."
-msgstr ""
+msgstr "创建一个文件夹的副本至版本库中的不同部分或根于同一版本库中的工作副本。这也可以用来创建一个分支/标记，而不需要检出工作副本。"
 
 #. (para)
 msgid "View/Edit the folder's properties."
@@ -11530,6 +11657,8 @@ msgid ""
 "<keycap>Ctrl-F5</keycap>. After that, expanding any node will happen "
 "instantly without a network delay while the information is fetched."
 msgstr ""
+"您通常可以使用 <keycap>F5</keycap> 来刷新视图。这将刷新当前的所有显示。如果你想预取或刷新还未被打开的节点信息，使用 "
+"<keycap>CTRL-F5</keycap>。之后，扩展的任何节点将会立即出现而没有网络延迟，同时提取信息。"
 
 #. (para)
 msgid ""
@@ -11538,6 +11667,7 @@ msgid ""
 " the repository. Note that if you drag multiple items, they will be imported"
 " in separate commits."
 msgstr ""
+"您还可以使用版本库浏览器进行拖放操作。如果您从资源管理器中拖动一个文件夹至版本库浏览器，它将被导入至版本库。请注意，如果你拖动多个项目，他们将以单独的提交导入。"
 
 #. (para)
 msgid ""
@@ -11547,6 +11677,9 @@ msgid ""
 "instead. When copying, the cursor has a <quote>plus</quote> symbol on it, "
 "just as it does in Explorer."
 msgstr ""
+"如果你想在版本库内移动一个项目，只需 <action>左键拖拽</action> 到新的位置。如果你想创建一个拷贝而不是移动项目，用 "
+"<keycap>CTRL</keycap>-<action>左键拖拽</action> 代替。拷贝时，光标上有一个 <quote>+</quote> "
+"符号，就像在资源管理器中那样。"
 
 #. (para)
 msgid ""
@@ -11556,6 +11689,9 @@ msgid ""
 "<action>left drag</action>. In that case, a rename dialog is shown where you"
 " can enter a new name for the file or folder."
 msgstr ""
+"如果你想复制/移动文件或文件夹到另一个位置，并同时命一个新名称，你可以用 <action>右键拖拽</action> 或 "
+"<keycap>CTRL</keycap>-<action>右键拖拽</action> 而不是使用 "
+"<action>左键拖拽</action>。在这种情况下，将会显示一个重命名对话框，您可以为文件或文件夹输入一个新的名称。"
 
 #. (para)
 msgid ""
@@ -11618,13 +11754,16 @@ msgid ""
 "<emphasis>Apache</emphasis> project which currently has over 500,000 "
 "revisions you could be waiting for some time."
 msgstr ""
+"为了生成图示，TortoiseSVN "
+"必须从版本库根目录中提取所有的日志信息。无需言明，对于拥有几千个修订版本的版本库来说得需要花上数分钟时间，这取决于服务器速度，网络带宽等。如果您尝试对像超过有"
+" 500,000 个修改版本的 <emphasis>Apache</emphasis> 之类的项目来进行此操作，您可能得等待一些时候。"
 
 #. (para)
 msgid ""
 "The good news is that if you are using log caching, you only have to suffer "
 "this delay once. After that, log data is held locally. Log caching is "
 "enabled in TortoiseSVN's settings."
-msgstr ""
+msgstr "好消息是，如果你正使用日志缓存，你只需遇到一次这种延迟。之后，日志数据被保存到本地。日志缓存在 TortoiseSVN 设置中可被启用。"
 
 #. (title)
 msgid "Revision Graph Nodes"
@@ -11632,7 +11771,7 @@ msgstr "版本图节点"
 
 #. (term)
 msgid "Added or copied items"
-msgstr ""
+msgstr "新增或复制的项目"
 
 #. (para)
 msgid ""
@@ -11642,6 +11781,8 @@ msgid ""
 " the "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
 msgstr ""
+"已添加或通过复制另一个文件/文件夹而创建的项目使用一个圆角矩形来显示。默认颜色为绿色。标签和主干都被视为一个特殊的情况并使用不同的色调，这取决于 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>设置</guimenuitem></menuchoice>。"
 
 #. (term)
 msgid "Deleted items"
@@ -11651,17 +11792,17 @@ msgstr "已删除的节点"
 msgid ""
 "Deleted items e.g. a branch which is no longer required, are shown using an "
 "octagon (rectangle with corners cut off). The default colour is red."
-msgstr ""
+msgstr "已删除的项目，例如一个不再需要的分支，显示为一个八边形 (切角的矩形)。默认颜色为红色。"
 
 #. (term)
 msgid "Renamed items"
-msgstr ""
+msgstr "重命名的项目"
 
 #. (para)
 msgid ""
 "Renamed items are also shown using an octagon, but the default colour is "
 "blue."
-msgstr ""
+msgstr "重命名的项目也使用一个八边形，但默认颜色是蓝色的。"
 
 #. (term)
 msgid "Branch tip revision"
@@ -11675,6 +11816,9 @@ msgid ""
 "nodes will be shown as an ellipse. Note that HEAD here refers to the last "
 "revision committed on that path, not to the HEAD revision of the repository."
 msgstr ""
+"图示通常只限于显示分支点，但通常也可用于查看每个分支各自的 HEAD 版本。如果您选择 <guilabel>显示 HEAD "
+"版本</guilabel>，每个 HEAD 版本节点将显示为一个椭圆形。请注意，这里的 HEAD 是指在本路径上所提交的最新版本，而不是版本库的 "
+"HEAD 版本。"
 
 #. (term)
 msgid "Working copy revision"
@@ -11686,6 +11830,8 @@ msgid ""
 "the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, "
 "which marks the BASE node with a bold outline."
 msgstr ""
+"如果您从工作副本中调用版本图，你可以使用 <guilabel>显示工作副本的版本号</guilabel> "
+"在图示上选择显示当前版本号，这使用了一个粗体边框来标记当前版本节点。"
 
 #. (term)
 msgid "Modified working copy"
@@ -11698,6 +11844,8 @@ msgid ""
 "<guilabel>Show WC modifications</guilabel>. This is an elliptical node with "
 "a bold outline in red by default."
 msgstr ""
+"如果您从工作副本中调用版本图，你可以使用 <guilabel>显示工作副本的本地更新</guilabel> "
+"选择显示附加节点来表明你修改过的工作副本，附加节点默认有一个红色的粗体边框。"
 
 #. (term)
 msgid "Normal item"
@@ -11715,6 +11863,9 @@ msgid ""
 "can be set using "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice><placeholder-1/>"
 msgstr ""
+"每个版本图节点代表版本库中的一个修订版本，在那儿你可以查看到树状的变化。不同类型的节点可通过形状和颜色来区分。形状是固定的，但颜色可以使用 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>设置</guimenuitem></menuchoice><placeholder-1/>"
+" 来设置。"
 
 #. (para)
 msgid ""
@@ -11724,6 +11875,9 @@ msgid ""
 "<emphasis>all</emphasis> revisions where changes were made, there is an "
 "option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
 msgstr ""
+"注意默认情况下图示只显示被添加、复制或删除的项目点。非常状况下显示每一个项目版本将生成一个非常巨大的图示。如果你真的想看到 "
+"<emphasis>所有</emphasis> 发生更改的版本，在 <guilabel>查看</guilabel> "
+"菜单和工具栏上的某个选项可以满足您的要求。"
 
 #. (para)
 msgid ""
@@ -11739,10 +11893,14 @@ msgid ""
 "node when the graph is shown with oldest node at the bottom. The reference "
 "edge is significant because the node shapes are not all the same height."
 msgstr ""
+"默认视图 (分组关闭) "
+"的节点置放主要是让其垂直位置按照严格的版本顺序排列，所以你会对已完成项目的顺序产生一个视觉提示。同列中两个节点的顺序是非常明显的。当两个节点处于相邻列时偏移量会更小，因为不必防止节点相互重叠，因此顺序并不太明显。这种优化是必要的，可以将复杂的图示保持到一个合理的规模。请注意，这种排序使用了"
+" <emphasis>较老</emphasis> 的一边的节点 <emphasis>边缘</emphasis> "
+"作为参照，也就是当用底部最老的节点显示图示时的节点底部边缘。这种参考的边缘是很显著的，因为节点的形状并不都是相同的高度。"
 
 #. (title)
 msgid "Changing the View"
-msgstr ""
+msgstr "更改视图"
 
 #. (term)
 msgid "Group branches"
@@ -11754,6 +11912,7 @@ msgid ""
 "revision. As a result, long-living branches with sparse commits occupy a "
 "whole column for only a few changes and the graph becomes very broad."
 msgstr ""
+"默认行为 (分组关闭) 让所有的行严格按照版本号进行排序。结果，只有稀少的提交而有较长寿命的分支仅仅为少数的变化而占据一整列，并且版本图变得非常宽广。"
 
 #. (para)
 msgid ""

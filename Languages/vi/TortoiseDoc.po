@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-22 18:05+0000\n"
+"PO-Revision-Date: 2011-09-26 06:04+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -124,7 +124,7 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseSVN's Features"
-msgstr "tính năng của TortoiseSVN"
+msgstr "Các tính năng của TortoiseSVN"
 
 #. (para)
 msgid ""
@@ -136,7 +136,7 @@ msgstr ""
 
 #. (term)
 msgid "Shell integration"
-msgstr "Tích hợp v Shell"
+msgstr "Tích hợp với Shell"
 
 #. (primary)
 msgid "Windows shell"
@@ -153,9 +153,9 @@ msgid ""
 "familiar with. And you do not have to change into a different application "
 "each time you need the functions of version control."
 msgstr ""
-"TortoiseSVN tích hợp hoàn toàn vào vỏ Windows (tức là explorer). Điều này có"
-" nghĩa là bạn có thể tiếp tục làm việc với các công cụ bạn đã quen thuộc. Và"
-" bạn không phải đổi sang một ứng dụng khác nhau mỗi khi bạn cần các chức "
+"TortoiseSVN tích hợp hoàn toàn vào Windows shell (tức là explorer). Điều này"
+" có nghĩa là bạn có thể tiếp tục làm việc với các công cụ bạn đã quen thuộc."
+" Và bạn không phải đổi sang một ứng dụng khác nhau mỗi khi bạn cần các chức "
 "năng của kiểm so phiên bản."
 
 #. (para)
@@ -191,7 +191,7 @@ msgstr ""
 
 #. (term)
 msgid "Graphical User Interface"
-msgstr "Giao diện người dùng đồ họa"
+msgstr "Giao diện Người dùng Đồ họa"
 
 #. (para)
 msgid ""
@@ -493,7 +493,7 @@ msgstr "cho bộ nhớ cache đăng nhập và chỉnh sửa đồ thị"
 
 #. (term)
 msgid "The Subversion Book"
-msgstr "The Subversion Book"
+msgstr "Sách Subversion"
 
 #. (para)
 msgid ""
@@ -1037,7 +1037,7 @@ msgstr ""
 
 #. (title)
 msgid "Checking out a Working Copy"
-msgstr "Kiểm tra ra một bản sao làm việc"
+msgstr "Kiểm xu một bản sao làm việc"
 
 #. (para)
 msgid ""
@@ -2507,7 +2507,7 @@ msgstr "Tạo Kho Lưu Trữ Với TortoiseSVN"
 
 #. (para)
 msgid "Open the windows explorer"
-msgstr "Mở cửa sổ thám hiểm"
+msgstr "Mở cửa sổ explorer"
 
 #. (para)
 msgid ""
@@ -3130,11 +3130,11 @@ msgstr ""
 
 #. (title)
 msgid "Checkout Links"
-msgstr "Liên kết Thanh toán"
+msgstr "Các Liên kết Kiểm xuất"
 
 #. (primary)
 msgid "checkout link"
-msgstr "liên kết kiểm tra"
+msgstr "liên kết kiểm xu"
 
 #. (primary)
 msgid "TortoiseSVN link"
@@ -3445,19 +3445,19 @@ msgstr ""
 
 #. (title)
 msgid "Context Menus"
-msgstr "Thực đơn ngữ cảnh"
+msgstr "Tr đơn ngữ cảnh"
 
 #. (primary)
 msgid "context menu"
-msgstr "thực đơn ngữ cảnh"
+msgstr "trình đơn ngữ cảnh"
 
 #. (primary)
 msgid "right click"
-msgstr "click chuột phải"
+msgstr "nh chuột phải"
 
 #. (title)
 msgid "Context menu for a directory under version control"
-msgstr "Thực đơn ngữ cảnh cho một thư mục dưới sự kiểm soát phiên bản"
+msgstr "Trình đơn ngữ cảnh cho một thư mục dưới sự kiểm soát phiên bản"
 
 #. (para)
 msgid ""
@@ -3488,7 +3488,7 @@ msgstr ""
 #. (title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
 msgstr ""
-"Trình đơn khám phá tập tin cho một phím tắt trong một thư mục được phiên bản"
+"Trình đơn explorer tập tin cho một phím tắt trong một thư mục được phiên bản"
 
 #. (para)
 msgid ""
@@ -3903,9 +3903,8 @@ msgstr ""
 "hiện đang được lưu trữ trong kho dưới sự kiểm soát phiên bản. Xin lưu ý rằng"
 " thư mục mà bạn đã nhập khẩu <emphasis> KHÔNG </emphasis> theo phiên bản "
 "kiểm soát! Để có được một <firstterm> bản sao làm việc </firstterm> có kiểm "
-"soát phiên bản bạn cần phải làm một Kiểm Tra Ra của các phiên bản bạn vừa "
-"nhập khẩu. Hoặc đọc để tìm hiểu làm thế nào để nhập khẩu một thư mục tại "
-"chỗ."
+"soát phiên bản bạn cần phải làm một Kiểm Xuất của các phiên bản bạn vừa nhập"
+" khẩu. Hoặc đọc để tìm hiểu làm thế nào để nhập khẩu một thư mục tại chỗ."
 
 #. (title)
 msgid "Import in Place"
@@ -3930,10 +3929,10 @@ msgid ""
 "will get a warning that the local folder is not empty. Now you have a "
 "versioned top level folder with unversioned content."
 msgstr ""
-"Kiểm tra ra các thư mục mới trên đầu trang của thư mục mà bạn muốn nhập "
-"khẩu. Bạn sẽ nhận được một cảnh báo rằng các thư mục địa phương là không "
-"rỗng. Bây giờ bạn có một thư mục cấp cao có phiên bản đầu với nội dung không"
-" phiên bản."
+"Kiểm xu các thư mục mới trên đầu trang của thư mục mà bạn muốn nhập khẩu. "
+"Bạn sẽ nhận được một cảnh báo rằng các thư mục địa phương là không rỗng. Bây"
+" giờ bạn có một thư mục cấp cao có phiên bản đầu với nội dung không phiên "
+"bản."
 
 #. (para)
 msgid ""
@@ -4040,11 +4039,11 @@ msgstr ""
 
 #. (title)
 msgid "Checking Out A Working Copy"
-msgstr "Kiểm Tra Ra Một Bản Sao Công Tác"
+msgstr "Kiểm Xuất Một Bản Sao Làm Việc"
 
 #. (primary)
 msgid "checkout"
-msgstr "Kiểm tra ra "
+msgstr "Kiểm xu"
 
 #. (primary)
 msgid "create working copy"
@@ -4055,12 +4054,12 @@ msgid ""
 "To obtain a working copy you need to do a <firstterm>checkout</firstterm> "
 "from a repository."
 msgstr ""
-"Để có được một bản sao làm việc, bạn cần phải làm một <firstterm> Kiểm Tra "
-"Ra </firstterm> từ một kho lưu trữ."
+"Để có được một bản sao làm việc, bạn cần phải làm một <firstterm> Kiểm Xu "
+"</firstterm> từ một kho lưu trữ."
 
 #. (title)
 msgid "The Checkout dialog"
-msgstr "Hộp thoại Kiểm Tra Ra"
+msgstr "Hộp thoại Kiểm Xu"
 
 #. (para)
 msgid ""
@@ -4073,15 +4072,15 @@ msgid ""
 "created."
 msgstr ""
 "Chọn một thư mục trong cửa sổ thám hiểm mà bạn muốn đặt bản sao làm việc của"
-" bạn. <action> Nhấp chuột phải </action> để bật lên menu ngữ cảnh và chọn "
-"lệnh <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Kiểm Tra "
-"Ra... </guimenuitem></menuchoice> , sẽ trả về hộp thoại sau đây: "
+" bạn. <action> Nhấp chuột phải </action> để bật lên trình đơn ngữ cảnh và "
+"chọn lệnh <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Kiểm "
+"Xuất... </guimenuitem></menuchoice> , sẽ trả về hộp thoại sau đây: "
 "<placeholder-1/> Nếu bạn nhập vào một tên thư mục không tồn tại, thì một thư"
 " mục với tên đó được tạo ra."
 
 #. (title)
 msgid "Checkout Depth"
-msgstr "Độ sâu Kiểm tra ra"
+msgstr "Độ sâu Kiểm xu"
 
 #. (term)
 msgid "Fully recursive"
@@ -4090,7 +4089,7 @@ msgstr "Đệ quy hoàn toàn "
 #. (para)
 msgid "Checkout the entire tree, including all child folders and sub-folders."
 msgstr ""
-"Kiểm tra ra toàn bộ cây, bao gồm tất cả các thư mục con và thư mục cấp dưới."
+"Kiểm xuất toàn bộ cây, bao gồm tất cả các thư mục con và thư mục cấp dưới."
 
 #. (term)
 msgid "Immediate children, including folders"
@@ -4101,8 +4100,8 @@ msgid ""
 "Checkout the specified directory, including all files and child folders, but"
 " do not populate the child folders."
 msgstr ""
-"Kiểm tra ra thư mục chỉ định, bao gồm tất cả các tập tin và thư mục con, "
-"nhưng không sinh sôi thư mục con."
+"Kiểm xu thư mục chỉ định, bao gồm tất cả các tập tin và thư mục con, nhưng "
+"không sinh sôi thư mục con."
 
 #. (term)
 msgid "Only file children"
@@ -4113,8 +4112,8 @@ msgid ""
 "Checkout the specified directory, including all files but do not checkout "
 "any child folders."
 msgstr ""
-"Kiểm tra ra các thư mục chỉ định, bao gồm tất cả các tập tin nhưng không "
-"Kiểm tra ra bất kỳ thư mục con nào."
+"Kiểm xuất các thư mục chỉ định, bao gồm tất cả các tập tin nhưng không Kiểm "
+"xuất bất kỳ thư mục con nào."
 
 #. (term)
 msgid "Only this item"
@@ -4124,8 +4123,8 @@ msgstr "Chỉ có mục này"
 msgid ""
 "Checkout the directory only. Do not populate it with files or child folders."
 msgstr ""
-"Chỉ kiểm tra ra các thư mục. Không sinh sôi trong nó với các tập tin hoặc "
-"thư mục con."
+"Chỉ kiểm xu các thư mục. Không sinh sôi trong nó với các tập tin hoặc thư "
+"mục con."
 
 #. (term)
 #. (term)
@@ -4164,11 +4163,10 @@ msgid ""
 " just a few sections of a large tree, You can checkout the top level folder "
 "only, then update selected folders recursively. <placeholder-1/>"
 msgstr ""
-"Bạn có thể chọn <firstterm> chiều sâu </firstterm> bạn muốn kiểm tra ra, cho"
-" phép bạn chỉ định độ sâu đệ quy vào các thư mục con. Nếu bạn muốn chỉ là "
-"một vài phần của một cây lớn, Bạn có thể kiểm tra ra các thư mục cấp cao "
-"nhất, sau đó cập nhật các thư mục được lựa chọn theo cách đệ quy. "
-"<placeholder-1/>"
+"Bạn có thể chọn <firstterm> chiều sâu </firstterm> bạn muốn kiểm xuất, cho "
+"phép bạn chỉ định độ sâu đệ quy vào các thư mục con. Nếu bạn muốn chỉ là một"
+" vài phần của một cây lớn, Bạn có thể kiểm xu các thư mục cấp cao nhất, sau "
+"đó cập nhật các thư mục được lựa chọn theo cách đệ quy. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -4211,12 +4209,13 @@ msgid ""
 "<menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
 msgstr ""
-"Kiểm tra về hộp thoại sửa đổi, đầu tiên nhấp chuột vào nút <guibutton> Kiểm "
-"tra kho lưu trữ </guibutton> . Hộp thoại sẽ hiển thị tất cả các file và thư "
-"mục trong kho nhưng mà bạn đã không kiểm tra ra bằng <literal> thêm vào từ "
-"xa </literal> . <action> Nhấp chuột phải </action> vào thư mục bạn muốn thêm"
-" vào bản sao làm việc của bạn, sau đó sử dụng <menuchoice><guimenu> Trình "
-"đơn ngữ cảnh </guimenu><guimenuitem> Cập nhật </guimenuitem></menuchoice> ."
+"Trong kiểm tra cho hộp thoại sửa đổi, đầu tiên nhấp chuột vào nút "
+"<guibutton> Kiểm tra kho lưu trữ </guibutton> . Hộp thoại sẽ hiển thị tất cả"
+" các file và thư mục trong kho nhưng mà bạn đã không kiểm xuất bằng "
+"<literal> thêm vào từ xa </literal> . <action> Nhấp chuột phải </action> vào"
+" thư mục bạn muốn thêm vào bản sao làm việc của bạn, sau đó sử dụng "
+"<menuchoice><guimenu> Trình đơn ngữ cảnh </guimenu><guimenuitem> Cập nhật "
+"</guimenuitem></menuchoice> ."
 
 #. (para)
 msgid ""
@@ -4239,8 +4238,8 @@ msgid ""
 "Checkout the parent folder with depth <quote>Only this item</quote> You now "
 "have an empty top level folder."
 msgstr ""
-"Kiểm tra ra thư mục mẹ với độ sâu <quote> Chỉ có mục này </quote> Bây giờ "
-"bạn có một thư mục trống cấp cao nhất."
+"Kiểm xu thư mục mẹ với độ sâu <quote> Chỉ có mục này </quote> Bây giờ bạn có"
+" một thư mục trống cấp cao nhất."
 
 #. (para)
 msgid ""
@@ -4292,12 +4291,11 @@ msgid ""
 "revision...</guimenuitem></menuchoice>. In that dialog, be sure to check the"
 " <guilabel>Make depth sticky</guilabel> checkbox."
 msgstr ""
-"Một khi bạn đã kiểm tra ra một bản sao làm việc đến độ sâu cụ thể, bạn có "
-"thể thay đổi độ sâu sau này để có được nội dung nhiều hơn hoặc ít hơn bằng "
-"cách sử dụng <menuchoice><guimenu> Trình đơn ngữ cảnh "
-"</guimenu><guimenuitem> Cập nhật mục để sửa đổi ... "
-"</guimenuitem></menuchoice> . Trong hộp thoại đó, hãy chắc chắn để đánh dấu "
-"hộp kiểm <guilabel> Làm độ sâu dính</guilabel>."
+"Một khi bạn đã kiểm xuất một bản sao làm việc đến độ sâu cụ thể, bạn có thể "
+"thay đổi độ sâu sau này để có được nội dung nhiều hơn hoặc ít hơn bằng cách "
+"sử dụng <menuchoice><guimenu> Trình đơn ngữ cảnh </guimenu><guimenuitem> Cập"
+" nhật mục để sửa đổi ... </guimenuitem></menuchoice> . Trong hộp thoại đó, "
+"hãy chắc chắn để đánh dấu hộp kiểm <guilabel> Làm độ sâu dính</guilabel>."
 
 #. (title)
 msgid "Using an older server"
@@ -4325,8 +4323,8 @@ msgid ""
 "<guilabel>Omit externals</guilabel> checkbox."
 msgstr ""
 "Nếu dự án có chứa các tài liệu tham khảo đến các dự án bên ngoài mà bạn "
-"<emphasis> không </emphasis> muốn kiểm tra ra tại cùng một thời gian, sử "
-"dụng hộp kiểm <guilabel> Bỏ qua thành phần ngoài </guilabel>."
+"<emphasis> không </emphasis> muốn kiểm xuất tại cùng một thời gian, sử dụng "
+"hộp kiểm <guilabel> Bỏ qua thành phần ngoài </guilabel>."
 
 #. (para)
 msgid ""
@@ -4353,8 +4351,8 @@ msgid ""
 "you will get a copy of the entire repository tree including every branch and"
 " tag of your project!"
 msgstr ""
-"Chúng tôi đề nghị bạn chỉ nên kiểm tra ra phần <literal> thân cây </literal>"
-" của cây thư mục, hoặc thấp hơn. Nếu bạn chỉ định đường dẫn cha mẹ của cây "
+"Chúng tôi đề nghị bạn chỉ nên kiểm xuất phần <literal> thân cây </literal> "
+"của cây thư mục, hoặc thấp hơn. Nếu bạn chỉ định đường dẫn cha mẹ của cây "
 "thư mục trong URL sau đó bạn có thể kết thúc với một đĩa cứng đầy đủ bởi vì "
 "khi bạn sẽ nhận được một bản sao của toàn bộ cây kho lưu trữ bao gồm tất cả "
 "các ngành và thẻ của dự án của bạn!"
@@ -4377,7 +4375,7 @@ msgstr ""
 
 #. (title)
 msgid "Committing Your Changes To The Repository"
-msgstr "Cam kết thay đổi của bạn vào kho"
+msgstr "Cam kết các Thay đổi của bạn vào Kho"
 
 #. (primary)
 msgid "commit"
@@ -4389,7 +4387,7 @@ msgstr "gửi những thay đổi"
 
 #. (primary)
 msgid "check in"
-msgstr "kiểm tra vào"
+msgstr "kiểm nh"
 
 #. (para)
 msgid ""
@@ -4417,7 +4415,7 @@ msgstr "Hộp Thoại Cam kết"
 
 #. (title)
 msgid "The Commit dialog"
-msgstr "Hộp Thoại Cam kết"
+msgstr "Hộp thoại Cam kết"
 
 #. (para)
 msgid ""
@@ -5459,7 +5457,7 @@ msgstr ""
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
-msgstr "Xóa tại địa phương, chỉnh sửa sắp đến khi cập nhật"
+msgstr "Xóa tại địa phương, biên tập sắp tới khi cập nhật"
 
 #. (para)
 msgid ""
@@ -5966,7 +5964,7 @@ msgstr ""
 
 #. (title)
 msgid "Getting Status Information"
-msgstr "Lấy thông tin trạng thái"
+msgstr "Lấy Thông tin Trạng thái"
 
 #. (primary)
 #. (primary)
@@ -6009,7 +6007,7 @@ msgid ""
 " Depending on the Subversion status of the file the overlay icon is "
 "different."
 msgstr ""
-"Bởi vì bây giờ bạn đã kiểm tra ra một bản sao làm việc từ một kho lưu trữ "
+"Bởi vì bây giờ bạn đã kiểm xuất một bản sao làm việc từ một kho lưu trữ "
 "Subversion bạn có thể xem các tập tin của bạn trong nhà thám hiểm cửa sổ với"
 " các biểu tượng đã được thay đổi. Đây là một trong những lý do tại sao "
 "TortoiseSVN là rất phổ biến. TortoiseSVN thêm vào một biểu tượng lớp phủ lên"
@@ -6023,8 +6021,8 @@ msgid ""
 "status is <emphasis>normal</emphasis>."
 msgstr ""
 "<graphic fileref=\"../images/InSubVersionIcon.png\"/> Một bản sao làm việc "
-"mới kiểm tra ra có một dấu kiểm màu xanh lá cây làm lớp phủ. Điều đó có "
-"nghĩa là tình trạng Subversion là <emphasis> bình thường </emphasis> ."
+"mới kiểm xuất có một dấu kiểm màu xanh lá cây làm lớp phủ. Điều đó có nghĩa "
+"là tình trạng Subversion là <emphasis> bình thường </emphasis> ."
 
 #. (para)
 msgid ""
@@ -6295,10 +6293,10 @@ msgstr ""
 "nhật nếu xung đột có thể xảy ra. Bạn cũng có thể cập nhật các tập tin được "
 "lựa chọn từ kho lưu trữ mà không cần cập nhật toàn bộ thư mục. Theo mặc "
 "định, nút <guibutton> Kiểm tra Kho </guibutton> chỉ lấy tình trạng từ xa với"
-" độ sâu kiểm tra ra của các bản sao làm việc. Nếu bạn muốn xem tất cả các "
-"tập tin và thư mục trong kho lưu trữ, ngay cả những thứ bạn đã không kiểm "
-"tra ra, thì bạn phải giữ phím <keycap>Shift</keycap> khi bạn bấm vào nút "
-"<guibutton> Kiểm tra Kho </guibutton>."
+" độ sâu kiểm xuất của các bản sao làm việc. Nếu bạn muốn xem tất cả các tập "
+"tin và thư mục trong kho lưu trữ, ngay cả những thứ bạn đã không kiểm xu, "
+"thì bạn phải giữ phím <keycap>Shift</keycap> khi bạn bấm vào nút <guibutton>"
+" Kiểm tra Kho </guibutton>."
 
 #. (para)
 msgid "Locally modified items."
@@ -13481,7 +13479,7 @@ msgstr ""
 
 #. (title)
 msgid "The Create Patch dialog"
-msgstr ""
+msgstr "Hộp thoại Tạo Bản Vá"
 
 #. (para)
 msgid ""
@@ -13490,6 +13488,10 @@ msgid ""
 "summary of all the changes you have made to the selected files since the "
 "last update from the repository."
 msgstr ""
+"bây giờ bạn có thể chọn các tập tin bạn muốn đưa vào bản vá, cũng giống như "
+"bạn làm với một cam kết đầy đủ. Việc này sẽ tạo ra một tập tin duy nhất có "
+"chứa một bản tóm tắt của tất cả các thay đổi bạn đã thực hiện trong các tập "
+"tin được chọn kể từ khi lần cập nhật cuối từ ​​kho."
 
 #. (para)
 msgid ""
@@ -13505,6 +13507,11 @@ msgid ""
 "<emphasis>same</emphasis> files and then create another patch, the second "
 "patch file will include <emphasis>both</emphasis> sets of changes."
 msgstr ""
+"Bạn có thể tạo ra các bản vá lỗi riêng biệt có chứa các thay đổi đối với các"
+" tập hợp tập tin khác nhau. Tất nhiên, nếu bạn tạo ra một tập tin bản vá, "
+"thực hiện thêm vài thay đổi đến <emphasis> cùng </emphasis> các tập tin và "
+"sau đó tạo ra một bản vá khác, tập tin vá lỗi thứ hai sẽ bao gồm <emphasis> "
+"cả hai </emphasis> tập h thay đổi."
 
 #. (para)
 msgid ""
@@ -13513,6 +13520,11 @@ msgid ""
 "<filename>.patch</filename> or <filename>.diff</filename> extension. You are"
 " now ready to submit your patch file."
 msgstr ""
+"Chỉ cần lưu tập tin bằng cách sử dụng một tên tập tin do bạn lựa chọn. Các "
+"tập tin vá lỗi có thể có bất kỳ phần mở rộng mà bạn thích, nhưng theo quy "
+"ước, họ nên sử dụng phần mở rộng <filename> .patch </filename> hoặc "
+"<filename> .diff </filename>. Bây giờ bạn đã sẵn sàng để n tập tin bản vá "
+"của bạn."
 
 #. (para)
 msgid ""
@@ -13522,6 +13534,11 @@ msgid ""
 "transfer changes from one to the other, a patch on the clipboard is a "
 "convenient way of doing this."
 msgstr ""
+"Bạn cũng có thể lưu các bản vá vào clipboard thay vì vào một tập tin. Bạn có"
+" thể muốn làm điều này để bạn có thể dán nó vào một thư điện tử để xem xét "
+"bởi những người khác. Hoặc nếu bạn có hai bản sao làm việc trên một máy và "
+"bạn muốn chuyển giao thay đổi từ một bản đến bản khác, một bản vá lỗi trong "
+"clipboard là một cách thuận tiện để làm điều này."
 
 #. (para)
 msgid ""
@@ -13535,7 +13552,7 @@ msgstr ""
 
 #. (title)
 msgid "Applying a Patch File"
-msgstr ""
+msgstr "Áp dụng một tập tin v"
 
 #. (para)
 msgid ""
@@ -13549,6 +13566,16 @@ msgid ""
 "However, provided you are in the correct working copy, if you pick the wrong"
 " folder level, TortoiseSVN will notice and suggest the correct level."
 msgstr ""
+"Các tập tin vá lỗi được áp dụng vào bản sao làm việc của bạn. Điều này nên "
+"được thực hiện từ cấp độ thư mục tương tự như đã được sử dụng để tạo ra các "
+"bản vá. Nếu bạn không chắc chắn việc này là gì, chỉ cần nhìn vào dòng đầu "
+"tiên của các tập tin vá lỗi. Ví dụ, nếu tập tin đầu tiên đang được làm việc "
+"là <filename>doc/source/english/chapter1.xml</filename> và dòng đầu tiên "
+"trong các tập tin vá lỗi là <filename> Index: english/chapter1.xml "
+"</filename> thì bạn cần phải áp dụng các bản vá vào thư mục <filename> "
+"doc/source/ </filename>. Tuy nhiên, giả sử là bạn đang ở trong bản sao làm "
+"việc đúng, nếu bạn chọn cấp độ thư mục sai, TortoiseSVN sẽ thông báo và đề "
+"nghị mức độ chính xác."
 
 #. (para)
 msgid ""
@@ -13557,6 +13584,10 @@ msgid ""
 "program must reference the changes back to the revision against which they "
 "were made by the remote developer."
 msgstr ""
+"Để áp dụng một tập tin bản vá vào bản sao làm việc của bạn, bạn cần phải có "
+"ít nhất là truy cập đọc vào kho lưu trữ. Lý do cho điều này là chương trình "
+"hợp nhất phải tham khảo các thay đổi trở lại bản sửa đổi mà đã được thực "
+"hiện bởi nhà phát triển từ xa."
 
 #. (para)
 msgid ""
@@ -13573,6 +13604,18 @@ msgid ""
 "Patch...</guimenuitem></menuchoice>. Copying a patch to the clipboard from "
 "another app will not make the button appear."
 msgstr ""
+"Từ trình đơn ngữ cảnh cho thư mục đó, nhấp chuột vào <menuchoice><guimenu> "
+"TortoiseSVN </guimenu><guimenuitem> Áp dụng bản vá... "
+"</guimenuitem></menuchoice> Việc này sẽ mang đến một hộp thoại mở tập tin "
+"cho phép bạn chọn tập tin vá lỗi để áp dụng. Mặc định, chỉ có tập tin "
+"<filename> .patch </filename> hoặc <filename> .diff </filename> được hiển "
+"thị, nhưng bạn có thể lựa chọn <quote> Tất cả các tập tin </quote>. Nếu bạn "
+"trước đó đã lưu một bản vá vào clipboard, bạn có thể sử dụng <guibutton> Mở "
+"từ clipboard ... </guibutton> trong hộp thoại mở tập tin. Lưu ý rằng tùy "
+"chọn này chỉ xuất hiện nếu bạn đã lưu các bản vá vào clipboard bằng cách sử "
+"dụng <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Tạo bản vá..."
+" </guimenuitem></menuchoice> . Sao chép một bản vá vào clipboard từ ứng dụng"
+" khác sẽ không làm cho nút bấm này xuất hiện."
 
 #. (para)
 msgid ""
@@ -13582,6 +13625,12 @@ msgid ""
 "Patch...</guimenuitem></menuchoice>. In this case you will be prompted to "
 "enter a working copy location."
 msgstr ""
+"Cách khác, nếu các tập tin vá lỗi có phần mở rộng <filename> .patch "
+"</filename> hoặc <filename> .diff </filename>, bạn có thể nhấp chuột phải "
+"vào nó trực tiếp và chọn <menuchoice><guimenu> TortoiseSVN "
+"</guimenu><guimenuitem> Áp dụng bản vá ... </guimenuitem></menuchoice> . "
+"Trong trường hợp này, bạn sẽ được nhắc nhở để nhập vào vị trí một bản sao "
+"làm việc."
 
 #. (para)
 msgid ""
@@ -13589,6 +13638,9 @@ msgid ""
 "the first method you select the WC and browse to the patch file. With the "
 "second you select the patch file and browse to the WC."
 msgstr ""
+"Hai phương pháp này chỉ cung cấp các cách khác nhau để làm làm cùng một "
+"chuyện. Với phương pháp đầu tiên, bạn chọn WC và duyệt đến tập tin vá lỗi. "
+"Với cách thứ hai bạn chọn tập tin vá lỗi và duyệt đến WC."
 
 #. (para)
 msgid ""
@@ -13597,6 +13649,11 @@ msgid ""
 "working copy. A small window lists the files which have been changed. Double"
 " click on each one in turn, review the changes and save the merged files."
 msgstr ""
+"Một khi bạn đã lựa chọn các tập tin vá lỗi và vị trí bản sao làm việc, "
+"TortoiseMerge sẽ chạy để hợp nhất các thay đổi từ tập tin vá lỗi với bản sao"
+" làm việc của bạn. Một cửa sổ nhỏ liệt kê các tập tin đã được thay đổi. Lần "
+"lượt kích đúp vào mỗi tập tin, xem xét những thay đổi và lưu các tập tin đã "
+"được hợp nhất."
 
 #. (para)
 msgid ""
@@ -13604,22 +13661,25 @@ msgid ""
 "you need to commit to allow everyone else to access the changes from the "
 "repository."
 msgstr ""
+"Bản vá của các nhà phát triển từ xa đã được áp dụng vào bản sao làm việc của"
+" bạn, vì vậy bạn cần phải cam kết để cho phép tất cả mọi người khác được "
+"truy cập vào thay đổi từ kho lưu trữ."
 
 #. (title)
 msgid "Who Changed Which Line?"
-msgstr ""
+msgstr "Ai Đã Thay Đổi Dòng Nào?"
 
 #. (primary)
 msgid "blame"
-msgstr ""
+msgstr "đổ lỗi"
 
 #. (primary)
 msgid "annotate"
-msgstr ""
+msgstr "chú thích"
 
 #. (primary)
 msgid "praise"
-msgstr ""
+msgstr "khen ngợi"
 
 #. (para)
 msgid ""
@@ -13629,20 +13689,27 @@ msgid ""
 " command, sometimes also referred to as <firstterm>annotate</firstterm> "
 "command comes in handy."
 msgstr ""
+"Đôi khi bạn cần phải biết không chỉ có những dòng đã thay đổi, mà còn là "
+"chính xác những người nào đã thay đổi những dòng cụ thể trong một tập tin. "
+"Đó là khi lệnh <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Đổ "
+"lỗi cho ... </guimenuitem></menuchoice>, đôi khi cũng được gọi là lệnh "
+"<firstterm> chú thích </firstterm> trở nên tiện dụng."
 
 #. (para)
 msgid ""
 "This command lists, for every line in a file, the author and the revision "
 "the line was changed."
 msgstr ""
+"Các lệnh này liệt kê, đối với mỗi dòng trong một tập tin, tác giả và sửa đổi"
+" mà dòng đã được thay đổi."
 
 #. (title)
 msgid "Blame for Files"
-msgstr ""
+msgstr "Đổ Lỗi vì Tập Tin"
 
 #. (title)
 msgid "The Annotate / Blame Dialog"
-msgstr ""
+msgstr "Chú Thích / Hộp Thaọi Đổ Lỗi"
 
 #. (para)
 msgid ""
@@ -13651,6 +13718,10 @@ msgid ""
 "<literal>1</literal>, if you want the blame for <emphasis>every</emphasis> "
 "revision."
 msgstr ""
+"<placeholder-1/> Nếu bạn không quan tâm đến thay đổi từ các phiên bản trước "
+"đó, bạn có thể thiết lập bản sửa đổi để từ đó bắt đầu đổ lỗi. Thiết lập nó "
+"thành <literal> 1 </literal> , nếu bạn muốn đổ lỗi cho <emphasis> m "
+"</emphasis> sửa đổi."
 
 #. (para)
 msgid ""
@@ -13659,6 +13730,10 @@ msgid ""
 "revisions to make it easier to read. If you wish to print or edit the blame "
 "file, select <guilabel>Use Text viewer to view blames</guilabel>."
 msgstr ""
+"Theo mặc định tập tin lỗi được xem bằng cách sử dụng <firstterm> "
+"TortoiseBlame </firstterm> , trong đó làm nổi rõ các phiên bản khác nhau để "
+"làm cho nó dễ đọc hơn. Nếu bạn muốn in hay chỉnh sửa các tập tin lỗi, chọn "
+"<guilabel> Sử dụng trình xem Văn Bản để xem đổ lỗi </guilabel> ."
 
 #. (para)
 msgid ""
@@ -13669,6 +13744,12 @@ msgid ""
 "change and find the original author, you can choose an appropriate option "
 "here."
 msgstr ""
+"Bạn có thể chỉ định cách mà các thay đổi kết thúc dòng và khoảng trắng được "
+"xử lý. Các tùy chọn này được mô tả trong <xref linkend=\"tsvn-dug-diff-eol-"
+"whitespace\"/> . Hành vi mặc định là để xư lý tất cả các sự khác biệt khoảng"
+" trắng và cuối dòng như là thay đổi thực sự, nhưng nếu bạn muốn bỏ qua một "
+"sự thay đổi thụt đầu dòng và tìm ra tác giả ban đầu, bạn có thể chọn một tùy"
+" chọn thích hợp ở đây."
 
 #. (para)
 msgid ""
@@ -13687,10 +13768,16 @@ msgid ""
 "network connection to the repository. Once the blame process has finished "
 "the result is written into a temporary file and you can view the results."
 msgstr ""
+"Một khi bạn nhấn <guibutton> OK </guibutton> TortoiseSVN bắt đầu lấy các dữ "
+"liệu để tạo ra các tập tin đổ lỗi. Xin lưu ý: Điều này có thể mất vài phút "
+"để kết thúc, tùy thuộc vào bao nhiêu tập tin đã thay đổi và tất nhiên vào "
+"kết nối mạng của bạn đến kho lưu trữ. Một khi quá trình đổ lỗi đã hoàn tất "
+"thì kết quả sẽ được viết vào một tập tin tạm thời và bạn có thể xem các kết "
+"quả."
 
 #. (title)
 msgid "TortoiseBlame"
-msgstr ""
+msgstr "TortoiseBlame"
 
 #. (para)
 msgid ""
@@ -13701,6 +13788,12 @@ msgid ""
 " are shown with a light background. The colouring may not work as clearly if"
 " you have your display set to 256 colour mode."
 msgstr ""
+"<placeholder-1/> TortoiseBlame, được bao gồm với TortoiseSVN, làm cho việc "
+"đổ lỗi cho tập tin dễ đọc hơn. Khi bạn di chuyển chuột trên một dòng trong "
+"cột thông tin đổ lỗi, tất cả các dòng với cung bản sửa đổi được hiển thị với"
+" một nền tối hơn. Các dòng từ các phiên bản khác đã được thay đổi bởi cùng "
+"một tác giả được thể hiện với một nền sáng. Màu sắc có thể làm việc không rõ"
+" ràng nếu bạn đặt màn hình của bản ở chế độ 256 màu."
 
 #. (para)
 msgid ""
@@ -13710,6 +13803,11 @@ msgid ""
 "you to move the mouse without losing the highlights. Click on that revision "
 "again to turn off highlighting."
 msgstr ""
+"Nếu bạn <action> nhấp chuột trái </action> trên một dòng, tất cả các dòng "
+"cùng bản sửa đổi được làm nổi, và các dòng từ các phiên bản khác của cùng "
+"tác giả được làm nổi trong một màu sáng hơn. Việc làm nổi bật này là dính, "
+"cho phép bạn di chuyển chuột mà không làm mất những nổi bật. Nhấp vào vào "
+"sửa đổi đó một lần nữa để tắt nổi bật."
 
 #. (para)
 msgid ""
@@ -13718,6 +13816,10 @@ msgid ""
 " for that revision, use the context menu which appears when you right click "
 "on the blame info column."
 msgstr ""
+"Các ý kiến ​​sửa đổi (thông điệp tường trình) được thể hiện trong một hộp "
+"gợi ý bất cứ khi nào chuột di chuyển lên cột thông tin đổ lỗi. Nếu bạn muốn "
+"sao chép các thông điệp tường trình cho bản sửa đổi đó, sử dụng trình đơn "
+"ngữ cảnh xuất hiện khi bạn kích chuột phải vào cột thông tin đổ lỗi đ."
 
 #. (para)
 msgid ""
@@ -13727,6 +13829,11 @@ msgid ""
 "the file itself. Log messages are not included in the search - you should "
 "use the Log Dialog to search those."
 msgstr ""
+"Bạn có thể tìm kiếm trong các báo cáo đổ lỗi sử dụng <menuchoice><guimenu> "
+"Biên tập </guimenu><guimenuitem> Tìm kiếm... </guimenuitem></menuchoice> . "
+"Điều này cho phép bạn tìm kiếm các số sửa đổi, tác giả và nội dung của tập "
+"tin. Thông điệp tường trình không được bao gồm trong tìm kiếm - bạn nên sử "
+"dụng Hộp thoại Tường trình để tìm kiếm những cái đ."
 
 #. (para)
 msgid ""
@@ -13734,6 +13841,9 @@ msgid ""
 "<menuchoice><guimenu>Edit</guimenu><guimenuitem>Go To "
 "Line...</guimenuitem></menuchoice>."
 msgstr ""
+"Bạn cũng có thể nhảy đến một dòng cụ thể bằng cách sử dụng "
+"<menuchoice><guimenu> Biên tập </guimenu><guimenuitem> Đi đến dòng ... "
+"</guimenuitem></menuchoice> ."
 
 #. (para)
 msgid ""
@@ -13751,6 +13861,20 @@ msgid ""
 "log</guimenuitem></menuchoice> displays the revision log dialog starting "
 "with the referenced revision."
 msgstr ""
+"Khi chuột nằm trên các cột thông tin đổ lỗi, một trình đơn ngữ cảnh có sẵn "
+"giúp so sánh các phiên bản và kiểm tra lịch sử, bằng cách sử dụng số phiên "
+"bản của dòng dưới con chuột như là một tài liệu tham khảo. "
+"<menuchoice><guimenu> Trình đơn ngữ cảnh </guimenu><guimenuitem> Đổ lỗi cho "
+"sửa đổi trước </guimenuitem></menuchoice> tạo ra một báo cáo đổ lỗi cho cùng"
+" một tập tin, nhưng sử dụng bản sửa đổi trước đó làm giới hạn trên. Điều này"
+" cung cấp cho bạn báo cáo đổ lỗi cho tình trạng của tập tin ngay trước dòng "
+"bạn đang nhìn vào được thay đổi lần cuối. <menuchoice><guimenu> Trình đơn "
+"ngữ cảnh </guimenu><guimenuitem> Hiển thị những thay đổi "
+"</guimenuitem></menuchoice> chạy trình xem khác biệt của bạn, hiển thị cho "
+"bạn những gì thay đổi trong phiên bản tham chiếu. <menuchoice><guimenu> "
+"Trình đơn ngữ cảnh </guimenu><guimenuitem> Hiện tường trình "
+"</guimenuitem></menuchoice> hiển thị hộp thoại đăng nhập sửa đổi bắt đầu với"
+" bản sửa đổi được tham chiếu."
 
 #. (para)
 msgid ""
@@ -13760,6 +13884,12 @@ msgid ""
 "newer lines in red and older lines in blue. The default colouring is quite "
 "light, but you can change it using the TortoiseBlame settings."
 msgstr ""
+"Nếu bạn cần một chỉ dấu hình ảnh tốt hơn của những thay đổi lâu đời nhất và "
+"mới nhất, chọn <menuchoice><guimenu> Xem </guimenu><guimenuitem> Màu tuổi "
+"của dòng </guimenuitem></menuchoice> . Điều này sẽ sử dụng một màu sắc với "
+"độ chuyển đậm nhạt để hiển thị dòng mới trong các đường màu đỏ và dòng cũ "
+"trong màu xanh. Các màu mặc định là khá nhẹ, nhưng bạn có thể thay đổi nó "
+"bằng cách sử dụng các thiết lập của TortoiseBlame."
 
 #. (para)
 msgid ""
@@ -13800,10 +13930,14 @@ msgid ""
 " on the TortoiseBlame tab. Refer to <xref linkend=\"tsvn-dug-settings-"
 "tortoiseblame\"/>."
 msgstr ""
+"Các thiết lập cho TortoiseBlame có thể được truy cập bằng cách sử dụng "
+"<menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Thiết lập ... "
+"</guimenuitem></menuchoice> trên tab TortoiseBlame. Tham khảo <xref linkend"
+"=\"tsvn-dug-settings-tortoiseblame\"/> ."
 
 #. (title)
 msgid "Blame Differences"
-msgstr ""
+msgstr "Đổ lỗi cho khác biệt"
 
 #. (para)
 msgid ""
@@ -13818,7 +13952,7 @@ msgstr ""
 
 #. (term)
 msgid "Blame Revisions"
-msgstr ""
+msgstr "Đổ lỗi cho sửa đổi"
 
 #. (para)
 msgid ""
@@ -13827,10 +13961,15 @@ msgid ""
 "revisions</guimenuitem></menuchoice>. This will fetch the blame data for the"
 " 2 revisions, then use the diff viewer to compare the two blame files."
 msgstr ""
+"Trong cửa sổ trên cùng, chọn 2 bản sửa đổi, sau đó chọn "
+"<menuchoice><guimenu> Trình đơn ngữ cảnh </guimenu><guimenuitem> Đổ lỗi cho "
+"các phiên bản </guimenuitem></menuchoice> . Điều này sẽ lấy dữ liệu đổ lỗi "
+"cho 2 phiên bản, sau đó sử dụng trình xem khác biệt để so sánh hai tập tin "
+"đổ lỗi."
 
 #. (term)
 msgid "Blame Changes"
-msgstr ""
+msgstr "Đổ lỗi cho thay đổi"
 
 #. (para)
 msgid ""
@@ -13840,10 +13979,16 @@ msgid ""
 "selected revision and the previous revision, then use the diff viewer to "
 "compare the two blame files."
 msgstr ""
+"Chọn một sửa đổi trong cửa sổ trên cùng, sau đó chọn một tập tin trong khung"
+" bên dưới và chọn <menuchoice><guimenu> Trình đơn ngữ cảnh "
+"</guimenu><guimenuitem> Đổ lỗi cho các thay đổi </guimenuitem></menuchoice> "
+". Điều này sẽ lấy dữ liệu đổ lỗi cho việc sửa đổi được lựa chọn và sửa đổi "
+"trước đó, sau đó sử dụng trình xem khác biệt để so sánh hai đổ lỗi cho các "
+"tập tin."
 
 #. (term)
 msgid "Compare and Blame with Working BASE"
-msgstr ""
+msgstr "So sánh và Đổ lỗi cho bản làm việc CƠ SỞ"
 
 #. (para)
 msgid ""
@@ -13854,29 +13999,37 @@ msgid ""
 "selected revision, and for the file in the working BASE, then use the diff "
 "viewer to compare the two blame files."
 msgstr ""
+"Hiển thị tường trình cho một tập tin duy nhất, và trong cửa sổ trên cùng, "
+"chọn một phiên bản duy nhất, sau đó chọn <menuchoice><guimenu> Trình đơn ngữ"
+" cảnh </guimenu><guimenuitem> So sánh và Đổ lỗi cho bản làm việc CƠ "
+"SỞ</guimenuitem></menuchoice> . Điều này sẽ lấy dữ liệu đổ lỗi cho bản sửa "
+"đổi được lựa chọn, và cho tập tin trong bản làm việc CƠ SỞ, sau đó sử dụng "
+"trình xem khác biệt để so sánh hai đổ lỗi cho các tập tin."
 
 #. (para)
 msgid ""
 "The revision log dialog includes several options which allow you to do this."
 " <placeholder-1/>"
 msgstr ""
+"Hộp thoại tường trình sửa đổi bao gồm một số tùy chọn cho phép bạn làm điều "
+"này. <placeholder-1/>"
 
 #. (title)
 #. (title)
 msgid "The Repository Browser"
-msgstr ""
+msgstr "Trình duyệt Kho"
 
 #. (primary)
 msgid "repo-browser"
-msgstr ""
+msgstr "repo-browser"
 
 #. (primary)
 msgid "server-side actions"
-msgstr ""
+msgstr "server-side actions"
 
 #. (primary)
 msgid "server viewer"
-msgstr ""
+msgstr "trình xem máy chủ"
 
 #. (para)
 msgid ""
@@ -13888,6 +14041,13 @@ msgid ""
 "can execute commands like copy, move, rename, ... directly on the "
 "repository."
 msgstr ""
+"Đôi khi bạn cần làm việc trực tiếp trên kho lưu trữ, mà không có một bản sao"
+" làm việc. Đó là những gì <firstterm> Trình duyệt Kho lưu trữ </firstterm> "
+"được dùng cho. Cũng giống như explorer và các lớp phủ biểu tượng cho phép "
+"bạn xem bản sao làm việc của bạn , do đó, trình duyệt Kho lưu trữ cho phép "
+"bạn xem cấu trúc và tình trạng của kho. <placeholder-1/> Với Trình duyệt Kho"
+" lưu trữ, bạn có thể thực hiện các lệnh như sao chép, di chuyển,  đổi tên, "
+"... trực tiếp trên kho lưu trữ."
 
 #. (para)
 msgid ""
@@ -13898,6 +14058,12 @@ msgid ""
 "the top of the Repository Browser Window you can enter the URL of the "
 "repository and the revision you want to browse."
 msgstr ""
+"Các trình duyệt kho trông rất giống với Windows explorer, ngoại trừ rằng nó "
+"hiển thị các nội dung của kho tại một phiên bản nhất định hơn là các tập tin"
+" trên máy tính của bạn. Trong khung bên trái, bạn có thể nhìn thấy một cây "
+"thư mục, và trong khung bên phải là nội dung của thư mục được lựa chọn. Ở "
+"phía trên của Cửa sổ Trình duyệt Kho lưu trữ, bạn có thể nhập địa chỉ URL "
+"của kho và bản sửa đổi mà bạn muốn để duyệt."
 
 #. (para)
 msgid ""
@@ -13906,6 +14072,10 @@ msgid ""
 " on them to indicate that they are not part of the repository structure, "
 "just links."
 msgstr ""
+"Các thư mục bao gồm thuộc tính <literal> svn:externals </literal> cũng được "
+"hiển thị trong trình duyệt kho. Những thư mục được hiển thị với một mũi tên "
+"nhỏ cho biết rằng chúng không phải là một phần của cấu trúc kho lưu trữ, chỉ"
+" là các liên kết."
 
 #. (para)
 msgid ""
@@ -13913,6 +14083,9 @@ msgid ""
 "right pane if you want to set the sort order. And as in explorer there are "
 "context menus available in both panes."
 msgstr ""
+"Cũng giống như Windows Explorer, bạn có thể bấm vào tiêu đề cột trong khung "
+"bên phải nếu bạn muốn thiết lập thứ tự sắp xếp. Và cũng như trong explorer "
+"có các trình đơn ngữ cảnh có sẵn trong cả hai khung."
 
 #. (para)
 msgid ""
@@ -13927,10 +14100,12 @@ msgid ""
 "Show the revision log for that file, or show a graph of all revisions so you"
 " can see where the file came from."
 msgstr ""
+"Hiện tường trình sửa đổi cho tập tin đó, hoặc hiển thị một biểu đồ của tất "
+"cả các bản sửa đổi để bạn có thể nhìn thấy từ nơi mà các tập tin đến."
 
 #. (para)
 msgid "Blame the file, to see who changed which line and when."
-msgstr ""
+msgstr "Đổ lỗi cho các tập tin, để xem ai đã thay đổi dòng nào và khi nào."
 
 #. (para)
 msgid ""
@@ -13940,11 +14115,11 @@ msgstr ""
 
 #. (para)
 msgid "Delete or rename the file."
-msgstr ""
+msgstr "Xóa hoặc đổi tên tập tin."
 
 #. (para)
 msgid "Save an unversioned copy of the file to your hard drive."
-msgstr ""
+msgstr "Lưu một bản sao chưa phiên bản của tập tin vào ổ cứng của bạn."
 
 #. (para)
 msgid "Copy the URL shown in the address bar to the clipboard."
@@ -13955,10 +14130,12 @@ msgid ""
 "Make a copy of the file, either to a different part of the repository, or to"
 " a working copy rooted in the same repository."
 msgstr ""
+"Tạo một bản sao của tập tin, hoặc một phần khác của kho, hoặc một bản sao "
+"làm việc bắt nguồn từ cùng một kho lưu trữ."
 
 #. (para)
 msgid "View/Edit the file's properties."
-msgstr ""
+msgstr "Xem / Biên t các thuộc tính của tập tin."
 
 #. (para)
 msgid ""
@@ -13968,26 +14145,32 @@ msgstr ""
 
 #. (para)
 msgid "The context menu for a file allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "Trình đơn ngữ cảnh cho một tập tin cho phép bạn: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "Show the revision log for that folder, or show a graph of all revisions so "
 "you can see where the folder came from."
 msgstr ""
+"Hiện tường trình sửa đổi cho thư mục đó, hoặc hiển thị một biểu đồ của tất "
+"cả các bản sửa đổi để bạn có thể nhìn thấy từ nơi mà các thư mục đến."
 
 #. (para)
 msgid "Export the folder to a local unversioned copy on your hard drive."
 msgstr ""
+"Xuất khẩu thư mục vào một bản sao không phiên bản địa phương trên ổ cứng của"
+" bạn."
 
 #. (para)
 msgid ""
 "Checkout the folder to produce a local working copy on your hard drive."
 msgstr ""
+"Kiểm xuất thư mục để sản xuất một bản sao làm việc địa phương trên ổ cứng "
+"của bạn."
 
 #. (para)
 msgid "Create a new folder in the repository."
-msgstr ""
+msgstr "Tạo một thư mục mới trong kho."
 
 #. (para)
 msgid ""
@@ -13997,7 +14180,7 @@ msgstr ""
 
 #. (para)
 msgid "Delete or rename the folder."
-msgstr ""
+msgstr "Xóa hoặc đổi tên thư mục."
 
 #. (para)
 msgid ""
@@ -14005,14 +14188,20 @@ msgid ""
 "to a working copy rooted in the same repository. This can also be used to "
 "create a branch/tag without the need to have a working copy checked out."
 msgstr ""
+"Tạo một bản sao của thư mục, hoặc một phần khác của kho, hoặc một bản sao "
+"làm việc bắt nguồn từ cùng một kho lưu trữ. Điều này cũng có thể được sử "
+"dụng để tạo ra một chi nhánh / thẻ mà không cần phải có một bản sao làm việc"
+" được kiểm xuất."
 
 #. (para)
 msgid "View/Edit the folder's properties."
-msgstr ""
+msgstr "Xem / Biên t các thuộc tính của thư mục."
 
 #. (para)
 msgid "Mark the folder for comparison. A marked folder is shown in bold."
 msgstr ""
+"Đánh dấu thư mục để so sánh. Một thư mục được đánh dấu sẽ được hiển thị in "
+"đậm."
 
 #. (para)
 msgid ""
@@ -14021,10 +14210,15 @@ msgid ""
 "the default diff tool. This can be particularly useful for comparing two "
 "tags, or trunk and branch to see what changed."
 msgstr ""
+"So sánh thư mục với một thư mục được đánh dấu trước đó, hoặc như là một khác"
+" biệt thống nhất, hoặc là một danh sách các tập tin thay đổi mà sau đó có "
+"thể được tìm khác biệt trực quan bằng cách sử dụng công cụ khác biệt mặc "
+"định. Điều này có thể đặc biệt hữu ích để so sánh hai thẻ, hoặc thân và chi "
+"nhánh để xem những gì đã thay đổi."
 
 #. (para)
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
-msgstr ""
+msgstr "Trình đơn ngữ cảnh cho một thư mục cho phép bạn: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -14032,12 +14226,18 @@ msgid ""
 "either as a unified-diff, or as a list of files which can be visually diffed"
 " using the default diff tool."
 msgstr ""
+"Nếu bạn chọn hai thư mục trong khung bên phải, bạn có thể xem sự khác biệt "
+"hoặc như là một khác biệt-thống nhất, hoặc như một danh sách các tập tin có "
+"thể được tìm khác biệt trực quan bằng cách sử dụng công cụ khác biệt mặc "
+"định."
 
 #. (para)
 msgid ""
 "If you select multiple folders in the right pane, you can checkout all of "
 "them at once into a common parent folder."
 msgstr ""
+"Nếu bạn chọn nhiều thư mục ở khung bên phải, bạn có thể kiểm xu tất cả chúng"
+" cùng một lúc vào một thư mục mẹ chung."
 
 #. (para)
 msgid ""
@@ -14046,6 +14246,10 @@ msgid ""
 "Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view "
 "the list of revisions between the two tag points."
 msgstr ""
+"Nếu bạn chọn 2 thẻ được sao chép từ cùng một gốc (thường <literal> /trunk/ "
+"</literal> ), Bạn có thể sử dụng <menuchoice><guimenu> Trình đơn Ngữ cảnh "
+"</guimenu><guimenuitem> Hiện Tường Trình... </guimenuitem></menuchoice> để "
+"xem danh sách các bản sửa đổi giữa hai điểm thẻ."
 
 #. (para)
 msgid ""
@@ -14062,6 +14266,11 @@ msgid ""
 "<keycap>Ctrl-F5</keycap>. After that, expanding any node will happen "
 "instantly without a network delay while the information is fetched."
 msgstr ""
+"Bạn có thể sử dụng <keycap> F5 </keycap> để làm mới mành hình xem như bình "
+"thường. Điều này sẽ làm mới tất cả mọi thứ đang hiển thị. Nếu bạn muốn nạp "
+"trước hoặc làm mới thông tin cho các nút chưa được mở, sử dụng <keycap> "
+"Ctrl-F5 </keycap> . Sau đó, mở rộng bất kỳ nút sẽ xảy ra ngay lập tức mà "
+"không có một sự chậm trễ mạng trong khi thông tin được n."
 
 #. (para)
 msgid ""
@@ -14070,6 +14279,10 @@ msgid ""
 " the repository. Note that if you drag multiple items, they will be imported"
 " in separate commits."
 msgstr ""
+"Bạn cũng có thể sử dụng trình duyệt kho lưu trữ cho các hoạt động kéo-và-"
+"thả. Nếu bạn kéo một thư mục từ explorer vào trong trình duyệt-kho, nó sẽ "
+"được nhập khẩu vào kho lưu trữ. Lưu ý rằng nếu bạn kéo nhiều mục, chúng sẽ "
+"được nhập khẩu trong các cam kết riêng biệt."
 
 #. (para)
 msgid ""
@@ -14079,6 +14292,11 @@ msgid ""
 "instead. When copying, the cursor has a <quote>plus</quote> symbol on it, "
 "just as it does in Explorer."
 msgstr ""
+"Nếu bạn muốn di chuyển một mục trong kho, chỉ việc <action> kéo trái "
+"</action> nó đến vị trí mới. Nếu bạn muốn tạo một bản sao thay vì di chuyển "
+"các mục, thay vào đó dùng <keycap> Ctrl</keycap>-<action>trái kéo</action>. "
+"Khi sao chép, con trỏ có một dấu hiệu <quote> thêm </quote> trên nó, giống "
+"như trong Explorer."
 
 #. (para)
 msgid ""
@@ -14088,6 +14306,12 @@ msgid ""
 "<action>left drag</action>. In that case, a rename dialog is shown where you"
 " can enter a new name for the file or folder."
 msgstr ""
+"Nếu bạn muốn sao chép / di chuyển một tập tin hoặc thư mục vào một vị trí "
+"khác và cũng cung cấp cho nó một cái tên mới cùng một lúc, bạn có thể "
+"<action> kéo phải </action> hoặc <keycap> Ctrl</keycap>-<action>kéo phải "
+"</action> hạng mục thay vì sử dụng <action> kéo trái </action> . Trong "
+"trường hợp đó, một hộp thoại đổi tên được hiển thị, nơi bạn có thể nhập một "
+"tên mới cho tập tin hoặc thư mục."
 
 #. (para)
 msgid ""
@@ -14095,6 +14319,10 @@ msgid ""
 "will be presented with a log message entry dialog. If you dragged something "
 "by mistake, this is also your chance to cancel the action."
 msgstr ""
+"Bất cứ khi nào bạn thực hiện thay đổi trong kho lưu trữ bằng cách sử dụng "
+"một trong những phương pháp này, bạn sẽ được trình bày với một mục tin thông"
+" điệp tường trình. Nếu bạn kéo một cái gì đó do nhầm lẫn, đây cũng là cơ hội"
+" để bạn hủy bỏ hành động."
 
 #. (para)
 msgid ""
@@ -14106,22 +14334,30 @@ msgid ""
 "Menu</guimenu><guimenuitem>Copy error message to "
 "clipboard</guimenuitem></menuchoice>, or simply use <keycap>Ctrl+C</keycap>."
 msgstr ""
+"Đôi khi, khi bạn cố gắng để mở một đường dẫn, bạn sẽ nhận được một thông báo"
+" lỗi trong vị trí của các mục chi tiết. Điều này có thể xảy ra nếu bạn chỉ "
+"định một URL không hợp lệ, hoặc nếu bạn không có quyền truy cập, hoặc nếu có"
+" một số vấn đề máy chủ khác. Nếu bạn cần sao chép thông báo này để bao gồm "
+"nó trong một email, chỉ cần nhấp chuột phải vào nó và sử dụng "
+"<menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Sao chép "
+"thông báo lỗi vào clipboard </guimenuitem></menuchoice> , hoặc đơn giản là "
+"sử dụng <keycap> Ctrl+C </keycap> ."
 
 #. (title)
 msgid "Revision Graphs"
-msgstr ""
+msgstr "Các đồ thị sửa đổi"
 
 #. (primary)
 msgid "graph"
-msgstr ""
+msgstr "đồ thị"
 
 #. (primary)
 msgid "revision graph"
-msgstr ""
+msgstr "đồ thị sửa đổi"
 
 #. (title)
 msgid "A Revision Graph"
-msgstr ""
+msgstr "Một Đồ thị Sửa đổi"
 
 #. (para)
 msgid ""
@@ -14131,6 +14367,11 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revision "
 "Graph...</guimenuitem></menuchoice>"
 msgstr ""
+"<placeholder-1/> Đôi khi bạn cần phải biết nơi đặt các chi nhánh và các thẻ "
+"được lấy từ thân cây, và cách lý tưởng để xem loại thông tin này là như một "
+"biểu đồ hoặc cấu trúc cây. Đó là khi bạn cần sử dụng <menuchoice><guimenu> "
+"TortoiseSVN </guimenu><guimenuitem> Đô thị Sửa đổi ... "
+"</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""
@@ -14138,6 +14379,9 @@ msgid ""
 "showing the points at which copies were taken, and when branches/tags were "
 "deleted."
 msgstr ""
+"Lệnh này phân tích lịch sử bản sửa đổi và cố gắng để tạo ra một cây hiển thị"
+" các điểm mà tại đó các bản sao đã được thực hiện, và l các chi nhánh / thẻ "
+"đã bị xóa."
 
 #. (para)
 msgid ""
@@ -14148,6 +14392,12 @@ msgid ""
 "<emphasis>Apache</emphasis> project which currently has over 500,000 "
 "revisions you could be waiting for some time."
 msgstr ""
+"Để tạo ra đồ thị, TortoiseSVN phải lấy tất cả các thông điệp tường trình từ "
+"thư mục kho gốc. Không cần phải nói việc này có thể mất vài phút ngay cả với"
+" một kho lưu trữ với một vài ngàn sửa đổi, tùy thuộc vào tốc độ máy chủ, "
+"mạng băng thông, vv. Nếu bạn thử việc này với một cái gì đó giống như dự án "
+"<emphasis> Apache </emphasis> mà hiện nay đã có hơn 500.000 sửa đổi, bạn có "
+"thể chờ đợi một thời gian."
 
 #. (para)
 msgid ""
@@ -14155,14 +14405,18 @@ msgid ""
 "this delay once. After that, log data is held locally. Log caching is "
 "enabled in TortoiseSVN's settings."
 msgstr ""
+"Các tin tốt là rằng nếu bạn đang sử dụng bộ nhớ đệm cho tường trình, bạn chỉ"
+" phải chịu sự chậm trễ này một lần. Sau đó, dữ liệu tường trình được tổ chức"
+" tại địa phương. Bộ nhớ đệm cho tường trình được kích hoạt trong thiết lập "
+"của TortoiseSVN."
 
 #. (title)
 msgid "Revision Graph Nodes"
-msgstr ""
+msgstr "Các Nút Đồ thị Sửa đổi"
 
 #. (term)
 msgid "Added or copied items"
-msgstr ""
+msgstr "Các mục được thêm vào hoặc sao chép "
 
 #. (para)
 msgid ""
@@ -14172,30 +14426,40 @@ msgid ""
 " the "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
 msgstr ""
+"Các mục đã được thêm vào, hoặc được tạo ra bằng cách sao chép một tập tin / "
+"thư mục được hiển thị bằng một hình chữ nhật tròn. Màu mặc định là màu xanh "
+"lá cây. Các thẻ và thân cây đang được coi là một trường hợp đặc biệt và sử "
+"dụng một màu khác nhau, tùy thuộc vào <menuchoice><guimenu> TortoiseSVN "
+"</guimenu><guimenuitem> Thiết Lập </guimenuitem></menuchoice> ."
 
 #. (term)
 msgid "Deleted items"
-msgstr ""
+msgstr "Các mục đã xóa"
 
 #. (para)
 msgid ""
 "Deleted items e.g. a branch which is no longer required, are shown using an "
 "octagon (rectangle with corners cut off). The default colour is red."
 msgstr ""
+"Các mục đã xóa, ví dụ như một chi nhánh không còn cần thiết, được thể hiện "
+"bằng cách sử dụng một hình bát giác (hình chữ nhật với các góc bị cắt). Màu "
+"mặc định là màu đỏ."
 
 #. (term)
 msgid "Renamed items"
-msgstr ""
+msgstr "Các mục được ổi tên "
 
 #. (para)
 msgid ""
 "Renamed items are also shown using an octagon, but the default colour is "
 "blue."
 msgstr ""
+"Các mục ổi tên cũng được hiển thị bằng cách sử dụng một hình bát giác, nhưng"
+" màu sắc mặc định là màu xanh dương."
 
 #. (term)
 msgid "Branch tip revision"
-msgstr ""
+msgstr "Bản sửa đổi đầu chi nhánh"
 
 #. (para)
 msgid ""
@@ -14205,10 +14469,15 @@ msgid ""
 "nodes will be shown as an ellipse. Note that HEAD here refers to the last "
 "revision committed on that path, not to the HEAD revision of the repository."
 msgstr ""
+"Đồ thị thường bị giới hạn hiển thị các điểm chi nhánh, nhưng nó thường hữu "
+"ích để có thể thấy việc sửa đổi CHÍNH tương ứng cho từng nhánh. Nếu bạn chọn"
+" <guilabel> Sửa đổi CHÍNH </guilabel> , Mỗi nút sửa đổi CHÍNH sẽ được hiển "
+"thị như là một hình elip. Lưu ý rằng CHÍNH ở đây đề cập đến bản sửa đổi cuối"
+" cùng cam kết trên đường dẫn đó, không sửa đổi CHÍNH của kho."
 
 #. (term)
 msgid "Working copy revision"
-msgstr ""
+msgstr "Bản sao sửa đổi làm việc"
 
 #. (para)
 msgid ""
@@ -14216,10 +14485,13 @@ msgid ""
 "the BASE revision on the graph using <guilabel>Show WC revision</guilabel>, "
 "which marks the BASE node with a bold outline."
 msgstr ""
+"Nếu bạn gọi đồ thị sửa đổi từ một bản sao làm việc, bạn có thể chọn để hiển "
+"thị bản sửa đổi CHÍNH trên đồ thị bằng cách sử dụng <guilabel> Hiển thị sửa "
+"đổi WC </guilabel> , mà sẽ đánh dấu nút CƠ SỞ với một phác thảo được in đậm."
 
 #. (term)
 msgid "Modified working copy"
-msgstr ""
+msgstr "Bản sao làm việc được sửa đổi"
 
 #. (para)
 msgid ""
@@ -14228,14 +14500,20 @@ msgid ""
 "<guilabel>Show WC modifications</guilabel>. This is an elliptical node with "
 "a bold outline in red by default."
 msgstr ""
+"Nếu bạn gọi đồ thị sửa đổi từ một bản sao làm việc, bạn có thể chọn để hiển "
+"thị thêm một nút đại diện cho bản sao làm việc được chỉnh sửa của bạn bằng "
+"cách sử dụng <guilabel> Hiển thị sửa đổi WC </guilabel> . Đây là một nút "
+"hình elip với một phác thảo đậm màu đỏ theo mặc định."
 
 #. (term)
 msgid "Normal item"
-msgstr ""
+msgstr "Mục bình thường "
 
 #. (para)
 msgid "All other items are shown using a plain rectangle."
 msgstr ""
+"Tất cả các mục khác được hiển thị bằng cách sử dụng một hình chữ nhật đơn "
+"giản."
 
 #. (para)
 msgid ""
@@ -14245,6 +14523,12 @@ msgid ""
 "can be set using "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice><placeholder-1/>"
 msgstr ""
+"Mỗi nút đồ thị sửa đổi đại diện cho một sửa đổi trong kho, nơi một cái gì đó"
+" thay đổi trong cây mà bạn đang nhìn vào. Các loại khác nhau của nút có thể "
+"được phân biệt bởi hình dạng và màu sắc. Các hình dạng là cố định, nhưng màu"
+" sắc có thể được thiết lập bằng cách sử dụng <menuchoice><guimenu> "
+"TortoiseSVN </guimenu><guimenuitem> Thiết l "
+"</guimenuitem></menuchoice><placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -14254,6 +14538,12 @@ msgid ""
 "<emphasis>all</emphasis> revisions where changes were made, there is an "
 "option to do this in the <guilabel>View</guilabel> menu and on the toolbar."
 msgstr ""
+"Lưu ý rằng theo mặc định, đồ thị chỉ hiển thị các điểm của các mục đã được "
+"thêm vào, sao chép hoặc bị xóa. Hiển thị tất cả các sửa đổi của dự án sẽ tạo"
+" ra một đồ thị rất lớn cho các trường hợp không tầm thường. Nếu bạn thực sự "
+"muốn xem <emphasis> tất cả </emphasis> các bản sửa đổi mà thay đổi được thực"
+" hiện, có một tùy chọn để làm điều này trong trình đơn <guilabel> Xem "
+"</guilabel> và trên thanh công cụ."
 
 #. (para)
 msgid ""
@@ -14269,14 +14559,26 @@ msgid ""
 "node when the graph is shown with oldest node at the bottom. The reference "
 "edge is significant because the node shapes are not all the same height."
 msgstr ""
+"Giao diện mặc định (xếp nhóm) đặt các nút theo cách mà vị trí thẳng đứng của"
+" chúng theo thứ tự chỉnh sửa nghiêm ngặt, vì vậy bạn có một dấu hiệu trực "
+"quan cho thứ tự mà trong đó mọi thứ đã được thực hiện. Trường hợp hai nút "
+"trong cùng một cột thì thứ tự là rất rõ ràng. Khi các nút hai cột liền kề độ"
+" chênh lệch là nhỏ hơn nhiều vì không có nhu cầu để ngăn chặn các nút chồng "
+"chéo lên nhau, và dẫn đến kết quả là thứ tự là ít rõ ràng hơn một chút. Việc"
+" tối ưu hóa như vậy là cần thiết để giữ cho các đồ thị phức tạp ở một kích "
+"thước hợp lý. Xin lưu ý rằng lệnh này sử dụng <emphasis> biên </emphasis> "
+"của các nút trên cạnh <emphasis> cũ </emphasis> như là một tham chiếu, tức "
+"là cạnh dưới của nút khi biểu đồ được hiển thị với nút cũ nhất ở phía dưới. "
+"Cạnh tham chiếu có ý nghĩa quan trọng bởi vì hình dáng nút không phải tất cả"
+" là cùng một chiều cao."
 
 #. (title)
 msgid "Changing the View"
-msgstr ""
+msgstr "Thay đổi cách xem"
 
 #. (term)
 msgid "Group branches"
-msgstr ""
+msgstr "Nhóm các nhánh"
 
 #. (para)
 msgid ""
@@ -14284,6 +14586,9 @@ msgid ""
 "revision. As a result, long-living branches with sparse commits occupy a "
 "whole column for only a few changes and the graph becomes very broad."
 msgstr ""
+"Các hành vi mặc định (xếp nhóm) có tất cả các hàng được sắp xếp chặt chẽ "
+"theo sửa đổi. Kết quả là, các nhánh có các cam kết thưa thớt chiếm toàn bộ "
+"một cột cho một số ít thay đổi và đồ thị trở nên rất rộng."
 
 #. (para)
 msgid ""
@@ -14297,17 +14602,20 @@ msgstr ""
 
 #. (term)
 msgid "Oldest on top"
-msgstr ""
+msgstr "Cũ nhất ở trên"
 
 #. (para)
 msgid ""
 "Normally the graph shows the oldest revision at the bottom, and the tree "
 "grows upwards. Use this option to grow down from the top instead."
 msgstr ""
+"Thông thường, đồ thị cho thấy sửa đổi lâu đời nhất ở phía dưới, và cây phát "
+"triển hướng trở lên. Sử dụng tùy chọn này để  thay vào đó phát triển từ trên"
+" xuống."
 
 #. (term)
 msgid "Align trees on top"
-msgstr ""
+msgstr "Dóng hàng cây trên c"
 
 #. (para)
 msgid ""
@@ -14316,10 +14624,15 @@ msgid ""
 "depending on whether you are using the <guilabel>Group Branches</guilabel> "
 "option. Use this option to grow all trees down from the top instead."
 msgstr ""
+"Khi một đồ thị được chia thành nhiều cây nhỏ hơn, các cây có thể xuất hiện "
+"hoặc trong thứ tự sửa đổi tự nhiên, hoặc được dóng hàng ở dưới cùng của cửa "
+"sổ, tùy thuộc vào bạn đang sử dụng tùy chọn <guilabel> Xếp Nhóm Các Chi "
+"nhánh </guilabel> hay không. Sử dụng tùy chọn này để thay vào đó phát triển "
+"tất cả các cây từ trên xuống."
 
 #. (term)
 msgid "Reduce cross lines"
-msgstr ""
+msgstr "Giảm các đường cắt ngang"
 
 #. (para)
 msgid ""
@@ -14332,7 +14645,7 @@ msgstr ""
 
 #. (term)
 msgid "Differential path names"
-msgstr ""
+msgstr "Các tên đường dẫn khác biệt"
 
 #. (para)
 msgid ""
@@ -14344,10 +14657,18 @@ msgid ""
 " as <literal>/branches/1.2.x/..</literal> because the last two levels, "
 "<literal>doc</literal> and <literal>html</literal>, did not change."
 msgstr ""
+"Các tên đường dẫn dài có thể chiếm rất nhiều không gian và làm cho các hộp "
+"nút trở nên rất lớn. Sử dụng tùy chọn này để hiển thị chỉ một phần thay đổi "
+"của một đường dẫn, thay thế phần phổ biến với các dấu chấm. Ví dụ, nếu bạn "
+"tạo ra một chi nhánh <literal> /branches/1.2.x/doc/html </literal> từ "
+"<literal> /trunk/doc/html </literal> chi nhánh có thể được hiển thị trong "
+"hình thức thu gọn <literal> /branches/1.2.x /.. </literal> bởi vì hai cấp "
+"cuối cùng, <literal> doc </literal> và <literal> html </literal> , không "
+"thay đổi."
 
 #. (term)
 msgid "Show all revisions"
-msgstr ""
+msgstr "Hiện tất cả các bản sửa đ"
 
 #. (para)
 msgid ""
@@ -14355,20 +14676,25 @@ msgid ""
 "the tree that you are graphing) has changed. For long histories this can "
 "produce a truly huge graph."
 msgstr ""
+"Điều này làm những gì bạn mong đợi và cho thấy tất cả các sửa đổi nơi một "
+"vài thứ (trong cây mà bạn đang vẽ đồ thị) đã thay đổi. Đối với các lịch sử "
+"dài điều này có thể tạo ra một biểu đồ thực sự rất lớn."
 
 #. (term)
 msgid "Show HEAD revisions"
-msgstr ""
+msgstr "Hiện các sửa đổi CHÍNH"
 
 #. (para)
 msgid ""
 "This ensures that the latest revision on every branch is always shown on the"
 " graph."
 msgstr ""
+"Điều này đảm bảo rằng bản sửa đổi mới nhất trên tất cả các chi nhánh luôn "
+"luôn được hiển thị trên đồ thị."
 
 #. (term)
 msgid "Exact copy sources"
-msgstr ""
+msgstr "Các nguồn bản sao chính xác"
 
 #. (para)
 msgid ""
@@ -14379,10 +14705,17 @@ msgid ""
 "less useful) revision that was used to create the copy. Note that this "
 "revision may be younger than the HEAD revision of the source branch."
 msgstr ""
+"Khi một chi nhánh/thẻ được tạo ra, hành vi mặc định là hiển thị các chi "
+"nhánh như được lấy từ nút cuối cùng nơi thay đổi đã được thực hiện. Nói một "
+"cách chặt chẽ thì cái này không chính xác bởi vì khi các nhánh thường được "
+"làm từ bản CHÍNH hiện tại chứ không phải một sửa đổi nhất định. Vì vậy, có "
+"thể hiển thị các sửa đổi chính xác hơn (nhưng ít hữu ích) mà được sử dụng để"
+" tạo ra các bản sao. Lưu ý rằng bản sửa đổi này có thể mới hơn so với bản "
+"sửa đổi CHÍNH của chi nhánh nguồn."
 
 #. (term)
 msgid "Fold tags"
-msgstr ""
+msgstr "Gấp thẻ"
 
 #. (para)
 msgid ""
@@ -14404,13 +14737,15 @@ msgstr ""
 
 #. (term)
 msgid "Hide deleted paths"
-msgstr ""
+msgstr "Giấu các đường dẫn bị xóa"
 
 #. (para)
 msgid ""
 "Hides paths which are no longer present at the HEAD revision of the "
 "repository, e.g. deleted branches."
 msgstr ""
+"Dấu các đường dẫn không còn có mặt tại sửa đổi CHÍNH của kho, ví dụ như các "
+"nhánh bị xóa."
 
 #. (para)
 msgid ""
@@ -14437,10 +14772,14 @@ msgid ""
 "sub-folder. This does not necessarily indicate that the branch was not used,"
 " just that no changes were made to <emphasis>this</emphasis> part of it."
 msgstr ""
+"Ẩn các nhánh không có thay đổi nào được cam kết vào tập tin hay thư mục con "
+"tương ứng. Điều này không nhất thiết phải chỉ ra rằng chi nhánh không được "
+"sử dụng, chỉ là không có thay đổi nào được thực hiện cho phần <emphasis> này"
+" </emphasis> của nó."
 
 #. (term)
 msgid "Show WC revision"
-msgstr ""
+msgstr "Hiển thị sửa đổi WC"
 
 #. (para)
 msgid ""
@@ -14450,10 +14789,15 @@ msgid ""
 "may be a few revisions lower down. The node is marked by giving it a bold "
 "outline."
 msgstr ""
+"Đánh dấu sự sửa đổi trên đồ thị tương ứng với phiên bản cập nhật của các mục"
+" mà bạn đã nạp đồ thị cho chúng. Nếu bạn chỉ cần cập nhật, đây sẽ CHÍNH, "
+"nhưng nếu những người khác cam kết các thay đổi kể từ khi bạn cập nhật WC "
+"của bạn lần cuối có thể thấp hơn một phiên bản. Nút này được đánh dấu bằng "
+"một phác thảo in đậm."
 
 #. (term)
 msgid "Show WC modifications"
-msgstr ""
+msgstr "Hiển thị các sửa đổi WC"
 
 #. (para)
 msgid ""
@@ -14462,10 +14806,15 @@ msgid ""
 "The default outline colour is red. You may need to refresh the graph using "
 "<keycap>F5</keycap> to capture recent changes."
 msgstr ""
+"Nếu WC của bạn có các thay đổi cục bộ, tùy chọn này rút nó ra như là một nút"
+" riêng biệt hình elip, được liên kết trở lại nút mà WC của bạn được cập nhật"
+" lần cuối. Màu phác thảo mặc định là màu đỏ. Bạn có thể cần phải làm mới đồ "
+"thị bằng cách sử dụng <keycap> F5 </keycap> để nắm bắt những thay đổi gần "
+"đây."
 
 #. (term)
 msgid "Filter"
-msgstr ""
+msgstr "Lọc"
 
 #. (para)
 msgid ""
@@ -14473,6 +14822,9 @@ msgid ""
 "This option opens a dialog which allows you to restrict the range of "
 "revisions displayed, and to hide particular paths by name."
 msgstr ""
+"Đôi khi đồ thị sửa đổi chứa nhiều bản sửa đổi hơn bạn muốn xem. Tùy chọn này"
+" sẽ mở ra một hộp thoại cho phép bạn hạn chế phạm vi các phiên bản được hiển"
+" thị, và để ẩn các đường dẫn cụ thể bằng tên."
 
 #. (para)
 msgid ""
@@ -14483,17 +14835,19 @@ msgstr ""
 
 #. (term)
 msgid "Tree stripes"
-msgstr ""
+msgstr "Các sọc của cây "
 
 #. (para)
 msgid ""
 "Where the graph contains several trees, it is sometimes useful to use "
 "alternating colours on the background to help distinguish between trees."
 msgstr ""
+"Trong trường hợp đồ thị có nhiều cây, đôi khi hữu ích để sử dụng xen kẽ các "
+"màu sắc trên nền để giúp phân biệt giữa các cây."
 
 #. (term)
 msgid "Show overview"
-msgstr ""
+msgstr "Hiển thị tổng quan"
 
 #. (para)
 msgid ""
@@ -14502,6 +14856,11 @@ msgid ""
 "easily. Note that for very large graphs the overview may become useless due "
 "to the extreme zoom factor and will therefore not be shown in such cases."
 msgstr ""
+"Hiển thị một bức tranh nhỏ của toàn bộ đồ thị, với cửa sổ xem hiện tại như "
+"là một hình chữ nhật mà bạn có thể kéo. Điều này cho phép bạn định hướng đến"
+" đồ thị dễ dàng hơn. Lưu ý rằng cho các đồ thị rất lớn, tổng quan có thể trở"
+" nên vô dụng do yếu tố phóng to và do đó sẽ không được hiển thị trong các "
+"trường hợp như vậy."
 
 #. (para)
 msgid ""
@@ -14510,10 +14869,13 @@ msgid ""
 " available in the <guilabel>View</guilabel> menu and from the toolbar. "
 "<placeholder-1/>"
 msgstr ""
+"Bởi vì một đồ thị sửa đổi thường khá phức tạp, có một số tính năng có thể "
+"được sử dụng điều chỉnh cách xem theo cách bạn muốn. Đây là có sẵn trong "
+"trình đơn <guilabel> Xem </guilabel> và thanh công cụ. <placeholder-1/>"
 
 #. (title)
 msgid "Using the Graph"
-msgstr ""
+msgstr "Sử dụng Đồ thị"
 
 #. (para)
 msgid ""
@@ -14522,12 +14884,18 @@ msgid ""
 "portion highlighted. You can drag the highlighted area to change the "
 "displayed region."
 msgstr ""
+"Để làm cho nó dễ dàng hơn để định hướng một đồ thị lớn, sử dụng cửa sổ tổng "
+"quan. Cái này cho thấy toàn bộ đồ thị trong một cửa sổ nhỏ, với phần đang "
+"hiển thị được làm nổi bật. Bạn có thể kéo các khu vực được làm nổi bật để "
+"thay đổi khu vực hiển thị."
 
 #. (para)
 msgid ""
 "The revision date, author and comments are shown in a hint box whenever the "
 "mouse hovers over a revision box."
 msgstr ""
+"Ngày sửa đổi, tác giả và bình luận ​​được thể hiện trong một hộp gợi ý bất "
+"cứ khi nào dao động chuột lên một hộp sửa đổi."
 
 #. (para)
 msgid ""
@@ -14537,6 +14905,11 @@ msgid ""
 " creation points, but usually you will want to show the differences at the "
 "branch end points, i.e. at the HEAD revision."
 msgstr ""
+"Nếu bạn chọn hai phiên bản (Sử dụng <keycap>Ctrl</keycap>-<action> chuột "
+"trái </action> ), bạn có thể sử dụng trình đơn ngữ cảnh để hiển thị sự khác "
+"biệt giữa các bản sửa đổi. Bạn có thể chọn để hiển thị các khác biệt như tại"
+" các điểm tạo ra chi nhánh, nhưng thông thường bạn sẽ muốn thể hiện các sự "
+"khác biệt tại điểm cuối chi nhánh, tức là ở sửa đổi CHÍNH."
 
 #. (para)
 msgid ""
@@ -14547,6 +14920,13 @@ msgid ""
 "changed files. <action>Double click</action> on a file name to fetch both "
 "revisions of the file and compare them using the visual difference tool."
 msgstr ""
+"Bạn có thể xem các khác biệt như là một tập tin khác biệt-thống nhất, trong "
+"đó cho thấy tất cả các sự khác biệt trong một tập tin đơn lẻ với bối cảnh "
+"tối thiểu. Nếu bạn lựa chọn <menuchoice><guimenu> Trình đơn Ngữ cảnh "
+"</guimenu><guimenuitem> So Sánh các Sửa Đổi </guimenuitem></menuchoice> bạn "
+"sẽ được trình bày với một danh sách các tập tin được thay đổi. <action> Kích"
+" đúp vào </action> một tên tập tin để lấy cả hai bản sửa đổi của tập tin và "
+"so sánh chúng bằng cách sử dụng công cụ khác biệt trực quan."
 
 #. (para)
 msgid ""
@@ -14554,6 +14934,9 @@ msgid ""
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show "
 "Log</guimenuitem></menuchoice> to view the history."
 msgstr ""
+"Nếu bạn <action> nhấp chuột phải </action> trên một bản sửa đổi, bạn có thể "
+"sử dụng <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> "
+"Hiện Tường Trình </guimenuitem></menuchoice> để xem lịch sử."
 
 #. (para)
 msgid ""
@@ -14565,10 +14948,18 @@ msgid ""
 "work out! This is a useful feature if you want to merge selected revisions "
 "from one branch to another."
 msgstr ""
+"Bạn cũng có thể sáp nhập các thay đổi trong các bản sửa đổi được lựa chọn "
+"vào một bản sao làm việc khác. Một hộp thoại lựa chọn thư mục cho phép bạn "
+"chọn bản sao làm việc để sáp nhập vào, nhưng sau đó không có hộp thoại xác "
+"nhận, cũng không có bất kỳ cơ hội để thử một thử nghiệm hợp nhất. Đó là một "
+"ý tưởng tốt để kết hợp vào một bản sao hoạt động chưa sửa đổi để bạn có thể "
+"hoàn nguyên các thay đổi nếu việc này không xong! Đây là một tính năng hữu "
+"ích nếu bạn muốn kết hợp các phiên bản được lựa chọn từ một chi nhánh sang "
+"một chi nhánh khác."
 
 #. (title)
 msgid "Learn to Read the Revision Graph"
-msgstr ""
+msgstr "Tìm hiểu để đọc đồ thị sửa đổi"
 
 #. (para)
 msgid ""
@@ -14579,6 +14970,13 @@ msgid ""
 "start with the leftmost options in the toolbar and customize the graph step-"
 "by-step until it comes close to your mental model."
 msgstr ""
+"Lần đầu tiên người dùng có thể bị ngạc nhiên bởi thực tế là đồ thị sửa đổi "
+"cho thấy một cái gì đó không khớp với mô hình tưởng tượng của người dùng. "
+"Nếu một bản sửa đổi thay đổi nhiều bản sao hay chi nhánh của một tập tin "
+"hoặc thư mục, ví dụ là vậy, thì sẽ có nhiều nút cho bản sửa đổi đơn lẻ đó. "
+"Đó là một thói quen tốt để bắt đầu với các tùy chọn tận cùng bên trái trong "
+"thanh công cụ và tùy chỉnh đồ thị từng bước cho đến khi nó đến gần với mô "
+"hình tưởng tư của bạn."
 
 #. (para)
 msgid ""
@@ -14589,6 +14987,12 @@ msgid ""
 "initially expected outcome of the filter operation would either be "
 "inaccurate or misleading."
 msgstr ""
+"Tất cả các tùy chọn bộ lọc cố gắng mất càng ít thông tin càng tốt. Điều đó "
+"có thể làm cho một số nút thay đổi màu sắc của chúng, ví dụ là vậy. Bất cứ "
+"khi nào kết quả là bất ngờ, hoàn tác hoạt động cuối cùng cùa bộ lọc và cố "
+"gắng hiểu những gì là đặc biệt về bản sửa đổi hoặc chi nhánh cụ thể đó. "
+"Trong hầu hết trường hợp, kết quả dự kiến ​​ban đầu của hoạt động lọc hoặc "
+"là sẽ không chính xác hoặc gây hiểu nhầm."
 
 #. (para)
 msgid ""
@@ -14598,6 +15002,12 @@ msgid ""
 "fetch only the new ones. If the log cache was in offline mode, this will "
 "also attempt to go back online."
 msgstr ""
+"Nếu bạn muốn kiểm tra máy chủ một lần nữa cho thông tin mới hơn, bạn chỉ đơn"
+" giản là có thể làm mới màn hình xem bằng cách sử dụng <keycap> F5 </keycap>"
+" . Nếu bạn đang sử dụng bộ nhớ cache tường trình (được kích hoạt theo mặc "
+"định), điều này sẽ kiểm tra kho lưu trữ cho các cam kết mới hơn và lấy chỉ "
+"những cái mới. Nếu bộ nhớ cache tường trình trong chế độ ngoại tuyến, hành "
+"động này cũng sẽ cố gắng để trở lại trực tuyến."
 
 #. (para)
 msgid ""
@@ -14607,10 +15017,15 @@ msgid ""
 " to invalidate the entire log cache, and refilling it could take a "
 "<emphasis>very</emphasis> long time."
 msgstr ""
+"Nếu bạn đang sử dụng bộ nhớ cache tường trình và bạn nghĩ nội dung thông "
+"điệp hay tác giả có thể đã thay đổi, bạn nên sử dụng hộp thoại tường tình để"
+" làm mới các thông điệp mà bạn cần. Bở vì đồ thị sửa đổi hoạt động từ gốc "
+"của kho, chúng ta sẽ làm mất hiệu lực bộ toàn bộ nhớ cache tường trình, và "
+"việc lấp đầy lại nó có thể mất một thời gian <emphasis> rất </emphasis> dài."
 
 #. (title)
 msgid "Pruning Trees"
-msgstr ""
+msgstr "Cắt tỉa các cây"
 
 #. (para)
 msgid ""
@@ -14619,12 +15034,18 @@ msgid ""
 "hover the mouse over the point where a node link enters or leaves the node "
 "you will see one or more popup buttons which allow you to do this."
 msgstr ""
+"Một cây lớn có thể là khó khăn để định hướng và đôi khi bạn sẽ muốn ẩn các "
+"phần của nó, hoặc phá vỡ nó thành một khu rừng các cây nhỏ hơn. Nếu bạn di "
+"chuyển chuột trên một nút nơi một liên kết nút đi vào hoặc rời khỏi nút, bạn"
+" sẽ thấy một hoặc nhiều nút bật lên mà cho phép bạn làm điều này."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/RevGraphCollapse.png\"/> Click on the minus "
 "button to collapse the attached sub-tree."
 msgstr ""
+"<graphic fileref=\"../images/RevGraphCollapse.png\"/> Nhấp chuột vào nút bấm"
+" dấu trừ để sập các cây con gắn v."
 
 #. (para)
 msgid ""
@@ -14632,6 +15053,9 @@ msgid ""
 " to expand a collapsed tree. When a tree has been collapsed, this button "
 "remains visible to indicate the hidden sub-tree."
 msgstr ""
+"<graphic fileref=\"../images/RevGraphExpand.png\"/> Click vào nút dấu cộng "
+"để mở rộng một cây sụp đổ. Khi cây đã bị sụp đổ, nút này vẫn được nhìn thấy "
+"để chỉ ra cây con ẩn."
 
 #. (para)
 msgid ""
