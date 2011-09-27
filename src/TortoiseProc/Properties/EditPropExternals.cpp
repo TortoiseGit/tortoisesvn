@@ -112,6 +112,7 @@ BOOL CEditPropExternals::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
+    EnableSaveRestore(_T("EditPropsExternals"));
 
     return TRUE;
 }

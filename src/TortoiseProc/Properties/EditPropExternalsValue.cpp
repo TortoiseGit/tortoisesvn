@@ -115,6 +115,8 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
 
+    EnableSaveRestore(_T("EditPropEcternalsValue"));
+
     return TRUE;
 }
 
