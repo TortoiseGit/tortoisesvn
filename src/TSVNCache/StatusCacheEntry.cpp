@@ -122,6 +122,12 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool ne
     if(pSVNStatus == NULL)
     {
         SetAsUnversioned();
+        if (forceNormal)
+        {
+            m_svnStatus.text_status = svn_wc_status_normal;
+            m_svnStatus.prop_status = svn_wc_status_normal;
+            m_svnStatus.node_status = svn_wc_status_normal;
+        }
     }
     else
     {
