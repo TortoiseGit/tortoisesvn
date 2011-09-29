@@ -636,6 +636,13 @@ void CRepositoryBrowser::OnOK()
     RevokeDragDrop(m_RepoTree.GetSafeHwnd());
     if (m_blockEvents)
         return;
+    if (m_RepoTree.GetEditControl())
+    {
+        // in case there's an edit control, end the ongoing
+        // editing of the item instead of dismissing the dialog.
+        m_RepoTree.EndEditLabelNow(false);
+        return;
+    }
 
     StoreSelectedURLs();
     if ((GetFocus() == &m_RepoList)&&((GetKeyState(VK_MENU)&0x8000) == 0))
