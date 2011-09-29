@@ -50,7 +50,7 @@ char* CUnicodeUtils::UTF16ToUTF8
 
             // convert to 8-bit chars. Values > 0xff will be mapped to 0xff
 
-            __m128i packedChunk = _mm_packus_epi16 (chunk0, chunk1);
+            __m128i packedChunk = _mm_packs_epi16 (chunk0, chunk1);
 
             // check for non-ASCII (SSE2 cmp* operations are signed!)
 
