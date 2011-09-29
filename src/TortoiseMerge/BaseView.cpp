@@ -3023,6 +3023,8 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
     {
         int saveMouseLine = nMouseLine >= 0 ? nMouseLine : 0;
         saveMouseLine = saveMouseLine < GetLineCount() ? saveMouseLine : GetLineCount() - 1;
+        if (saveMouseLine < 0)
+            return;
         int charIndex = CalculateCharIndex(saveMouseLine, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
         if (HasSelection() &&
             ((nMouseLine >= m_nTopLine)&&(nMouseLine < GetLineCount())))
