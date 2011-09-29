@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-26 06:04+0000\n"
+"PO-Revision-Date: 2011-09-28 19:17+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -15062,6 +15062,9 @@ msgid ""
 "<graphic fileref=\"../images/RevGraphSplit.png\"/> Click on the cross button"
 " to split the attached sub-tree and show it as a separate tree on the graph."
 msgstr ""
+"<graphic fileref=\"../images/RevGraphSplit.png\"/> Nhắp chuột vào nút chéo "
+"để phân chia các con cây gắn theo và hiển thị nó như một cây riêng biệt trên"
+" đồ thị."
 
 #. (para)
 msgid ""
@@ -15069,6 +15072,9 @@ msgid ""
 " to reattach a split tree. When a tree has been split away, this button "
 "remains visible to indicate that there is a separate sub-tree."
 msgstr ""
+"<graphic fileref=\"../images/RevGraphJoin.png\"/> Nhấp chuột vào nút tròn để"
+" gắn lại một cây được chia tách. Khi một cây đã được chia đi, nút này vẫn "
+"được nhìn thấy để cho biết rằng có một cây con riêng biệt."
 
 #. (para)
 msgid ""
@@ -15077,18 +15083,22 @@ msgid ""
 "all</guilabel>. If no branch has been collapsed or split, the context menu "
 "will not be shown."
 msgstr ""
+"Nhấp chuột vào nền đồ thị cho trình đơn ngữ cảnh chính, trong đó cung cấp "
+"các tùy chọn để <guilabel> Mở rộng tất cả </guilabel> và <guilabel> Tham gia"
+" tất cả </guilabel> . Nếu không có chi nhánh nào đã bị sập, tách, trình đơn "
+"ngữ cảnh sẽ không được hiển thị."
 
 #. (title)
 msgid "Exporting a Subversion Working Copy"
-msgstr ""
+msgstr "Xuất khẩu một bản sao làm việc Subversion"
 
 #. (primary)
 msgid "export"
-msgstr ""
+msgstr "xuất khẩu"
 
 #. (primary)
 msgid "unversioned 'working copy'"
-msgstr ""
+msgstr "bản sao làm việc chưa phiên b"
 
 #. (para)
 msgid ""
@@ -15101,10 +15111,18 @@ msgid ""
 " Exporting from a URL and exporting from a working copy are treated slightly"
 " differently."
 msgstr ""
+"Đôi khi bạn có thể muốn có một bản sao của cây làm việc của bạn mà không có "
+"bất kỳ của những thư mục <filename> .svn </filename>, ví dụ như để tạo ra "
+"một tarball nén của nguồn của bạn, hoặc để xuất khẩu sang một máy chủ web. "
+"Thay vì làm một bản sao và sau đó xóa tất cả những thư mục <filename> .svn "
+"</filename> này bằng tay, TortoiseSVN cung cấp các lệnh "
+"<menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Xuất khẩu ... "
+"</guimenuitem></menuchoice> . Xuất khẩu từ một URL và xuất khẩu từ một bản "
+"sao làm việc được đối xử hơi khác nhau."
 
 #. (title)
 msgid "The Export-from-URL Dialog"
-msgstr ""
+msgstr "Hộp thoại xuất khẩu từ URL"
 
 #. (para)
 msgid ""
@@ -15115,6 +15133,12 @@ msgid ""
 "and to override the line end style for files which have the <literal>svn"
 ":eol-style</literal> property set."
 msgstr ""
+"<placeholder-1/> Nếu bạn thực hiện lệnh này trên một thư mục chưa phiên bản,"
+" TortoiseSVN sẽ giả định rằng thư mục được chọn là mục tiêu, và mở một hộp "
+"thoại cho bạn nhập URL và bản sửa đổi để xuất khẩu. Hộp thoại này có các tùy"
+" chọn để chỉ xuất khẩu các thư mục cấp cao nhất, bỏ qua các tham chiếu bên "
+"ngoài, và để ghi đè lên phong cách cuối dòng cho các tập tin có thuộc tính "
+"<literal> svn:eol-style</literal> được thiết lập."
 
 #. (para)
 msgid ""
@@ -15124,6 +15148,11 @@ msgid ""
 "Menu</guimenu><guimenuitem>Export</guimenuitem></menuchoice>. You will get "
 "the <guilabel>Export from URL</guilabel> dialog described above."
 msgstr ""
+"Tất nhiên bạn có thể xuất khẩu trực tiếp từ kho lưu trữ. Sử dụng Trình duyệt"
+" Kho để định hướng đến các cây con có liên quan trong kho của bạn, sau đó sử"
+" dụng <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Xuất "
+"khẩu </guimenuitem></menuchoice> . Bạn sẽ nhận được hộp thoại <guilabel> "
+"Xuất khẩu từ URL </guilabel> như mô tả ở trên."
 
 #. (para)
 msgid ""
@@ -15135,6 +15164,14 @@ msgid ""
 "in your WC and not in the repository. External references using "
 "<literal>svn:externals</literal> can be omitted if required."
 msgstr ""
+"Nếu bạn thực hiện lệnh này trên bản sao làm việc của bạn, bạn sẽ được yêu "
+"cầu cho một nơi để lưu các bản sao làm việc <emphasis> sạch </emphasis> mà "
+"không có các thư mục <filename> .svn </filename>. Theo mặc định, chỉ các tập"
+" tin có phiên bản là được xuất khẩu, nhưng bạn có thể sử dụng hộp kiểm "
+"<guilabel> Xuất khẩu cả các tập tin không phiên bản</guilabel> để bao gồm "
+"bất kỳ tập tin không phiên bản khác tồn tại trong WC của bạn và không có "
+"trong kho. Các tham chiếu bên ngoài sử dụng <literal> svn:externals "
+"</literal> có thể được bỏ qua nếu cần thiết."
 
 #. (para)
 msgid ""
@@ -15145,6 +15182,13 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Export all here</guimenuitem></menuchoice>. "
 "The second option includes the unversioned files as well."
 msgstr ""
+"Một cách khác để xuất khẩu từ một bản sao làm việc là <action> kéo phải "
+"</action> thư mục bản sao làm việc tới một vị trí khác và chọn "
+"<menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> SVN xuất "
+"khẩu </guimenuitem></menuchoice> hoặc <menuchoice><guimenu> Trình Đơn Ngữ "
+"Cảnh </guimenu><guimenuitem> SVN xuất khẩu tất cả ở đây "
+"</guimenuitem></menuchoice> . Lựa chọn thứ hai cũng bao gồm các tập tin "
+"không phiên bản."
 
 #. (para)
 msgid ""
@@ -15153,16 +15197,22 @@ msgid ""
 "option to overwrite the existing content, or to create a new folder with an "
 "automatically generated name, e.g. <literal>Target (1)</literal>."
 msgstr ""
+"Khi xuất khẩu từ một bản sao làm việc, nếu thư mục đích đã có một thư mục "
+"cùng tên như một trong những bạn đang xuất khẩu, bạn sẽ được cung cấp tùy "
+"chọn để ghi đè lên các nội dung hiện có, hoặc tạo một thư mục mới với một "
+"tên tự động tạo ra, ví dụ như <literal> Mục tiêu (1) </literal> ."
 
 #. (title)
 msgid "Exporting single files"
-msgstr ""
+msgstr "Xuất khẩu các tập tin đơn l"
 
 #. (para)
 msgid ""
 "The export dialog does not allow exporting single files, even though "
 "Subversion can."
 msgstr ""
+"Hộp thoại xuất khẩu không cho phép khẩu các tập tin xuất đơn lẻ, mặc dù "
+"Subversion có thể."
 
 #. (para)
 msgid ""
@@ -15172,10 +15222,15 @@ msgid ""
 " explorer, or use the context menu in the repository browser to export the "
 "files."
 msgstr ""
+"Để xuất khẩu các tập tin đơn lẻ với TortoiseSVN, bạn phải sử dụng trình "
+"duyệt kho ( <xref linkend=\"tsvn-dug-repobrowser\"/> ). Đơn giản chỉ cần kéo"
+" tập tin bạn muốn xuất khẩu từ trình duyệt kho nơi mà bạn muốn họ trong "
+"explorer, hoặc sử dụng trình đơn ngữ cảnh trong trình duyệt kho lưu trữ để "
+"xuất khẩu các tập tin."
 
 #. (title)
 msgid "Exporting a Change Tree"
-msgstr ""
+msgstr "Xuất khẩu một Cây Biến đổi"
 
 #. (para)
 msgid ""
@@ -15184,15 +15239,19 @@ msgid ""
 "two revisions, use the compare revisions feature described in <xref linkend"
 "=\"tsvn-dug-compare-revs\"/>."
 msgstr ""
+"Nếu bạn muốn xuất khẩu một bản sao của cấu trúc cây dự án của bạn nhưng chỉ "
+"chứa các tập tin đã thay đổi trong một phiên bản cụ thể, hoặc giữa bất kỳ "
+"hai phiên bản, sử dụng tính năng so sánh các bản sửa đổi được mô tả trong "
+"<xref linkend=\"tsvn-dug-compare-revs\"/> ."
 
 #. (title)
 msgid "Removing a working copy from version control"
-msgstr ""
+msgstr "Loại bỏ một bản sao làm việc từ kiểm soát phiên bản"
 
 #. (primary)
 #. (primary)
 msgid "unversion"
-msgstr ""
+msgstr "không phiên bản"
 
 #. (para)
 msgid ""
@@ -15201,6 +15260,10 @@ msgid ""
 "need is an export-in-place command, that just removes the control "
 "directories rather than generating a new clean directory tree."
 msgstr ""
+"Đôi khi bạn có một bản sao làm việc mà bạn muốn chuyển đổi trở lại thành một"
+" thư mục bình thường mà không có các thư mục <literal> .svn </literal>. "
+"Những gì bạn thực sự cần là một lệnh-xuất khẩu-tại chỗ, mà chỉ cần loại bỏ "
+"các thư mục kiểm soát hơn là tạo ra một cây thư mục sạch mới."
 
 #. (para)
 msgid ""
@@ -15209,34 +15272,39 @@ msgid ""
 "unversioned. If you answer <emphasis>yes</emphasis> the control directories "
 "will be removed and you will have a plain, unversioned directory tree."
 msgstr ""
+"Câu trả lời là đáng ngạc nhiên đơn giản - xuất khẩu thư mục chính nó! "
+"TortoiseSVN phát hiện trường hợp đặc biệt này và yêu cầu nếu bạn muốn làm "
+"bản sao làm việc không phiên bản. Nếu bạn trả lời <emphasis> vâng "
+"</emphasis> các thư mục điều khiển sẽ được gỡ bỏ và bạn sẽ có một cây thư "
+"mục đơn giản, không phiên bản."
 
 #. (title)
 msgid "Relocating a working copy"
-msgstr ""
+msgstr "Di dời một bản sao làm việc"
 
 #. (primary)
 msgid "relocate"
-msgstr ""
+msgstr "di dời"
 
 #. (primary)
 msgid "URL changed"
-msgstr ""
+msgstr "URL b thay đổi"
 
 #. (primary)
 msgid "repository URL changed"
-msgstr ""
+msgstr "URL kho lưu trữ bị thay đổi"
 
 #. (primary)
 msgid "server moved"
-msgstr ""
+msgstr "máy chủ đ di chuyển"
 
 #. (primary)
 msgid "moved server"
-msgstr ""
+msgstr "máy chủ đã được di chuyển"
 
 #. (title)
 msgid "The Relocate Dialog"
-msgstr ""
+msgstr "Hộp Tho Di Dời"
 
 #. (para)
 msgid ""
@@ -15255,6 +15323,9 @@ msgid ""
 "This operation only works on working copy <emphasis>roots</emphasis>. So the"
 " context menu entry is only shown for working copy roots."
 msgstr ""
+"Tác vụ này chỉ làm việc trên bản sao làm việc <emphasis> gốc </emphasis>. Vì"
+" vậy, các mục trình đơn ngữ cảnh chỉ được hiển thị cho các gốc của bản sao "
+"làm việc."
 
 #. (para)
 msgid ""
@@ -15263,18 +15334,23 @@ msgid ""
 "make sure that the new URL really does refer to the same repository as the "
 "existing working copy."
 msgstr ""
+"Bạn có thể ngạc nhiên khi thấy rằng TortoiseSVN liên hệ với kho lưu trữ như "
+"là một phần của hoạt động này. Tất cả những gì nó đang làm là thực hiện một "
+"số kiểm tra đơn giản để đảm bảo rằng các URL mới thực sự đề cập đến cùng một"
+" kho lưu trữ như là bản sao làm việc hiện tại."
 
 #. (para)
 msgid "The IP address of the server has changed."
-msgstr ""
+msgstr "Địa chỉ IP của máy chủ đã thay đổi."
 
 #. (para)
 msgid "The protocol has changed (e.g. http:// to https://)."
-msgstr ""
+msgstr "Giao thức đã thay đổi (ví dụ như http:// sang https://)."
 
 #. (para)
 msgid "The repository root path in the server setup has changed."
 msgstr ""
+"Các đường dẫn gốc của kho lưu trữ trong các thiết lập máy chủ đã thay đổi."
 
 #. (para)
 msgid ""
@@ -15284,12 +15360,19 @@ msgid ""
 "another way, you need to relocate when your working copy is referring to the"
 " same location in the same repository, but the repository itself has moved."
 msgstr ""
+"<emphasis> Đây là một hoạt động rất không thường xuyên được sử dụng "
+"</emphasis>. Lệnh di dời <emphasis> chỉ </emphasis> được sử dụng nếu các URL"
+" của gốc kho đã thay đổi. Lý do có thể là: <placeholder-1/> Nói cách khác, "
+"bạn cần phải di dời khi bản sao của bạn làm việc chỉ tới cùng một vị trí "
+"trong cùng một kho lưu trữ, nhưng bản thân kho lưu trữ đã bị di chuyển."
 
 #. (para)
 msgid ""
 "You want to move to a different Subversion repository. In that case you "
 "should perform a clean checkout from the new repository location."
 msgstr ""
+"Bạn muốn di chuyển đến một kho lưu trữ Subversion khác. Trong trường hợp đó,"
+" bạn nên thực hiện một kiểm xuất sạch từ vị trí kho lưu trữ mới."
 
 #. (para)
 msgid ""
@@ -15298,10 +15381,14 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Switch...</guimenuitem></menuchoice>."
 " Read <xref linkend=\"tsvn-dug-switch-1\"/> for more information."
 msgstr ""
+"Bạn muốn chuyển sang một chi nhánh hoặc thư mục khác trong cùng một kho lưu "
+"trữ. Để làm điều đó bạn nên sử dụng <menuchoice><guimenu> TortoiseSVN "
+"</guimenu><guimenuitem> Chuyển đổi ... </guimenuitem></menuchoice> . Đọc "
+"<xref linkend=\"tsvn-dug-switch-1\"/> để biết thêm thông tin."
 
 #. (para)
 msgid "It does not apply if: <placeholder-1/>"
-msgstr ""
+msgstr "Nó không áp dụng nếu: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -15310,27 +15397,31 @@ msgid ""
 "messages while updating, committing, etc. Once that has happened, the only "
 "fix is a fresh checkout."
 msgstr ""
+"Nếu bạn sử dụng di dời trong một trong các trường hợp trên, <emphasis> nó sẽ"
+" làm hỏng bản sao của bạn làm việc </emphasis> và bạn sẽ nhận được nhiều "
+"thông báo lỗi không thể giải thích được trong khi cập nhật, cam kết, vv Một "
+"khi đã xảy ra, khắc phục duy nhất là làm một kiểm xuất mới."
 
 #. (title)
 msgid "Integration with Bug Tracking Systems / Issue Trackers"
-msgstr ""
+msgstr "Tích hợp với Hệ thống Theo dõi Lỗi / Trình theo dõi Vấn đ"
 
 #. (primary)
 msgid "bug tracking"
-msgstr ""
+msgstr "theo dõi lỗi"
 
 #. (primary)
 msgid "bug tracker"
-msgstr ""
+msgstr "bộ theo dõi lỗi"
 
 #. (primary)
 #. (primary)
 msgid "issue tracker"
-msgstr ""
+msgstr "bộ theo dõi vấn đề "
 
 #. (primary)
 msgid "bugtracker"
-msgstr ""
+msgstr "bugtracker"
 
 #. (para)
 msgid ""
@@ -15343,6 +15434,15 @@ msgid ""
 " on the user to write the log message properly so that the pre-commit hook "
 "script can parse it correctly."
 msgstr ""
+"Nó là rất phổ biến trong Phát triển Phần mềm cho các thay đổi có liên quan "
+"đến một lỗi cụ thể hoặc ID của vấn đề. Người sử dụng của hệ thống theo dõi "
+"lỗi (bộ theo dõi vấn đề) sẽ liên kết những thay đổi mà họ thực hiện trong "
+"Subversion với một ID cụ thể trong bộ theo dõi vấn đề của họ. Hầu hết các bộ"
+" theo dõi vấn đề do đó cung cấp một kịch bản hook trước cam kết mà sẽ phân "
+"tích cú pháp thông điệp tường trình để tìm ID của lỗi mà các cam kết có liên"
+" quan. Điều này có phần dễ bị lỗi vì nó phụ thuộc vào người sử dụng để viết "
+"thông điệp tường trình đúng cách mà kịch bản hook trước cam kết có thể phân "
+"tích nó một cách chính xác."
 
 #. (para)
 msgid ""
@@ -15351,6 +15451,10 @@ msgid ""
 "the risk that the user enters the issue number in a way the bug tracking "
 "tools can't parse correctly."
 msgstr ""
+"Khi người dùng nhập vào một thông điệp tường trình, một dòng được định nghĩa"
+" tốt bao gồm cả số vấn đề liên quan đến cam kết có thể được thêm vào tự "
+"động. Điều này làm giảm nguy cơ mà người dùng nhập vào số lượng vấn đề theo "
+"cách mà công cụ theo dõi lỗi không thể phân tích một cách chính xác."
 
 #. (para)
 msgid ""
@@ -15358,6 +15462,9 @@ msgid ""
 "recognized by the issue tracker. That way the user knows that the log "
 "message can be parsed correctly."
 msgstr ""
+"Hoặc TortoiseSVN có thể làm nổi bật một phần của thông điệp tường trình đã "
+"nhập được công nhận bởi bộ theo dõi vấn đề. Bằng cách đó người sử dụng biết "
+"rằng các thông điệp tường trình có thể được phân tích một cách chính xác."
 
 #. (para)
 msgid ""
@@ -15365,14 +15472,17 @@ msgid ""
 "each bug ID in the log message which fires up the browser to the issue "
 "mentioned."
 msgstr ""
+"Khi người dùng duyệt các thông điệp tường trình, TortoiseSVN tạo ra một liên"
+" kết từ mỗi ID lỗi trong các tin nhắn đăng nhập mà sẽ chuyển trình duyệt tới"
+" vấn đề được đề cập."
 
 #. (para)
 msgid "TortoiseSVN can help the user in two ways: <placeholder-1/>"
-msgstr ""
+msgstr "TortoiseSVN có thể giúp người sử dụng theo hai cách: <placeholder-1/>"
 
 #. (title)
 msgid "Adding Issue Numbers to Log Messages"
-msgstr ""
+msgstr "Thêm số Vấn đề vào Thông điệp Tường tr"
 
 #. (para)
 msgid ""
@@ -15381,6 +15491,10 @@ msgid ""
 "<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
 "=\"tsvn-dug-propertypage\"/>)"
 msgstr ""
+"Bạn có thể tích hợp một công cụ theo dõi lỗi do bạn chọn trong TortoiseSVN. "
+"Để làm điều này, bạn phải xác định một số thuộc tính, bắt đầu với <literal> "
+"bugtraq: </literal>. Chúng phải được thiết lập trên thư mục: ( <xref linkend"
+"=\"tsvn-dug-propertypage\"/> )"
 
 #. (title)
 msgid "The Bugtraq Properties Dialog"
@@ -15404,6 +15518,15 @@ msgid ""
 " using <systemitem "
 "class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>."
 msgstr ""
+"Thiết lập thuộc tính này vào URL của công cụ theo dõi lỗi của bạn. Nó phải "
+"được mã hóa theo URI đúng và nó có chứa <literal> %BUGID% </literal> . "
+"<literal> %BUGID% </literal> được thay thế với số vấn đề mà bạn đã nhập. "
+"Điều này cho phép TortoiseSVN hiển thị một liên kết trong hộp thoại đăng "
+"nhập, vì vậy khi bạn đang tìm kiếm các bản sửa đổi, bạn có thể nhảy trực "
+"tiếp đến công cụ theo dõi lỗi của bạn. Bạn không cần phải cung cấp thuộc "
+"tính này, nhưng sau đó TortoiseSVN chỉ hiển thị số phát hành và không phải "
+"là liên kết đến nó. ví dụ như dự án TortoiseSVN đang sử dụng <systemitem "
+"class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%%BUGID</systemitem>."
 
 #. (para)
 msgid ""
@@ -15413,6 +15536,11 @@ msgid ""
 "<literal>bugtraq:url</literal> property. There are two ways to specify a "
 "relative URL:"
 msgstr ""
+"Bạn cũng có thể sử dụng các URL tương đối của những người tuyệt đối. Điều "
+"này rất hữu ích khi bộ theo dõi vấn đề của bạn ở trên cùng một tên miền/máy "
+"chủ như là kho lưu trữ nguồn của bạn. Trong trường hợp tên miền bao giờ thay"
+" đổi, bạn không phải điều chỉnh thuộc tính <literal> bugtraq:url </literal>."
+" Có hai cách để chỉ định một URL có liên quan:"
 
 #. (para)
 msgid ""
@@ -15424,6 +15552,12 @@ msgid ""
 " if your repository is located on <systemitem "
 "class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
 msgstr ""
+"Nếu nó bắt đầu với chuỗi <literal> ^/ </literal> nó được giả định là tương "
+"đối đến chủ kho. Ví dụ, <literal> ^/../?do=details&amp;id=%BUGID%</literal> "
+"sẽ được phân giải thành <systemitem "
+"class=\"url\">http://tortoisesvn.net/?do=details&amp;id "
+"=%%BUGID</systemitem> nếu kho của bạn nằm trên <systemitem "
+"class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
 
 #. (para)
 msgid ""
@@ -15434,6 +15568,12 @@ msgid ""
 " if your repository is located anywhere on <systemitem "
 "class=\"url\">http://tortoisesvn.net</systemitem>."
 msgstr ""
+"URL bắt đầu với chuỗi <literal>/</literal> được giả định là tương đối đến "
+"tên chủ của máy chủ. Ví dụ <literal> /do=?details&amp;id=%BUGID%</literal> "
+"sẽ phân giải thành <systemitem "
+"class=\"url\">http://tortoisesvn.net/?do=details&amp;id "
+"=%%BUGID</systemitem> nếu kho của bạn được nằm bất cứ nơi nào trên "
+"<systemitem class=\"url\">http://tortoisesvn.net</systemitem>."
 
 #. (para)
 msgid ""
@@ -15442,6 +15582,10 @@ msgid ""
 "<literal>true/false</literal>. <emphasis> If not defined, "
 "<literal>false</literal> is assumed. </emphasis>"
 msgstr ""
+"Đặt nó thành <literal> đúng </literal> , nếu bạn muốn TortoiseSVN cảnh báo "
+"bạn bởi vì một trường văn bản số vấn đề bị trống. Giá trị hợp lệ là "
+"<literal> đúng/sai </literal>.<emphasis> Nếu không được xác định, "
+"<literal>sai</literal> sẽ được giả định. </emphasis>"
 
 #. (para)
 msgid ""
@@ -15450,10 +15594,14 @@ msgid ""
 "expressions</emphasis>. The properties used by both approaches are: "
 "<placeholder-1/>"
 msgstr ""
+"Có hai cách để tích hợp TortoiseSVN với bộ theo dõi vấn đề. Một là dựa trên "
+"các chuỗi đơn giản, cách khác là dựa trên <emphasis> biểu thức thông "
+"thường</emphasis>. Các thuộc tính được sử dụng bởi cả hai cách tiếp cận trên"
+" là: <placeholder-1/>"
 
 #. (title)
 msgid "Issue Number in Text Box"
-msgstr ""
+msgstr "Số vấn đề trong Hộp Văn bản"
 
 #. (para)
 msgid ""
@@ -15468,6 +15616,16 @@ msgid ""
 "example you might use <literal>Issue : %BUGID%</literal>, but this depends "
 "on your Tool."
 msgstr ""
+"Thuộc tính này kích hoạt hệ thống theo dõi lỗi trong chế độ <emphasis> "
+"Trường Nhập liệu</emphasis>. Nếu thuộc tính này được thiết lập, thì "
+"TortoiseSVN sẽ nhắc nhở bạn nhập vào một số vấn đề khi bạn cam kết thay đổi "
+"của bạn. Nó được sử dụng để thêm một dòng ở cuối thông điệp tường trình. Nó "
+"phải có <literal> %BUGID% </literal> , mà được thay thế bằng số vấn đề trên "
+"cam kết. Điều này đảm bảo rằng tường trình cam kết của bạn có chứa một tham "
+"chiếu đến số vấn đề mà luôn luôn là một định dạng nhất quán và có thể được "
+"phân tích bằng công cụ theo dõi lỗi của bạn để liên kết số vấn đề với một "
+"cam kết cụ thể. Một ví dụ là bạn có thể sử dụng <literal> Vấn đề: %BUGID% "
+"</literal>, nhưng điều này phụ thuộc vào Công Cụ của bạn."
 
 #. (para)
 msgid ""
@@ -15477,6 +15635,11 @@ msgid ""
 "not be resized to fit this label, so keep the size of the label below 20-25 "
 "characters."
 msgstr ""
+"Văn bản này được thể hiện bởi TortoiseSVN trên hộp thoại cam kết để gắn nhãn"
+" cho hộp biên tập, nơi bạn nhập số phát hành. Nếu nó không được thiết lập, "
+"<literal> ID Lỗi / Số Vấn đề: </literal> sẽ được hiển thị. Hãy nhớ rằng cửa "
+"sổ đó sẽ không được thay đổi kích cỡ để phù hợp với nhãn này, vì vậy giữ cho"
+" kích thước của nhãn dưới 20-25 ký tự."
 
 #. (para)
 msgid ""
@@ -15485,6 +15648,11 @@ msgid ""
 "several numbers. Valid values are <literal>true/false</literal>. <emphasis> "
 "If not defined, <literal>true</literal> is assumed. </emphasis>"
 msgstr ""
+"Nếu được thiết lập <literal> đúng </literal> chỉ có các số được cho phép "
+"trong trường văn bản số vấn đề. Một ngoại lệ là các dấu phẩy, vì vậy bạn có "
+"thể dấu phẩy tách một số con số. Các giá trị hợp lệ là <literal> đúng/sai "
+"</literal> . <emphasis> Nếu không xác định, giá trị <literal> đúng "
+"</literal> được giả định. </emphasis>"
 
 #. (para)
 msgid ""
@@ -15494,6 +15662,11 @@ msgid ""
 "<literal>true</literal> is assumed, so that existing projects don't break. "
 "</emphasis>"
 msgstr ""
+"Thuộc tính này xác định nếu ID của lỗi được nối (đúng) vào cuối thông điệp "
+"tường trình hoặc chèn (sai) vào đầu thông điệp tường trình. Giá trị hợp lệ "
+"<literal> đúng/sai </literal>.<emphasis> Nếu không được định nghĩa, "
+"<literal> đúng </literal> được giả đinh, để dự án hiện có không bị phá vỡ. "
+"</emphasis>"
 
 #. (para)
 msgid ""
@@ -15501,10 +15674,14 @@ msgid ""
 "where a bug ID can be entered. Then a separate line is appended/prepended to"
 " the log message the user entered. <placeholder-1/>"
 msgstr ""
+"Trong cách tiếp cận đơn giản, TortoiseSVN cho người sử dụng thấy một trường "
+"nhập liệu riêng biệt, nơi một lỗi ID có thể được nhập vào. Sau đó, một dòng "
+"riêng biệt được nối đuôi/nối đầu vào thông điệp tường trình mà người dùng "
+"nhập vào. <placeholder-1/>"
 
 #. (title)
 msgid "Issue Numbers Using Regular Expressions"
-msgstr ""
+msgstr "Số Vấn Đề Sử Dụng Biểu Thức Thông Thư"
 
 #. (para)
 msgid ""
@@ -15512,6 +15689,9 @@ msgid ""
 "<emphasis>Regex</emphasis> mode. It contains either a single regular "
 "expressions, or two regular expressions separated by a newline."
 msgstr ""
+"Thuộc tính này kích hoạt hệ thống theo dõi lỗi trong chế độ <emphasis> Regex"
+" </emphasis>. Nó chứa hoặc là một biểu thức thông thường duy nhất, hoặc hai "
+"biểu thức thông thường cách nhau bằng một dòng mới."
 
 #. (para)
 msgid ""
@@ -15522,6 +15702,13 @@ msgid ""
 "e.g. you might fix several bugs and include a string something like this: "
 "<quote>This change resolves issues #23, #24 and #25</quote>."
 msgstr ""
+"Nếu hai biểu thức được thiết lập, thì biểu thức đầu tiên được sử dụng như bộ"
+" lọc trước để tìm các biểu thức có chứa lỗi ID. Biểu thức thứ hai sau đó "
+"chiết xuất lỗi ID trần từ kết quả của regex đầu tiên. Điều này cho phép bạn "
+"sử dụng một danh sách các lỗi ID và các biểu thức ngôn ngữ tự nhiên nếu bạn "
+"muốn. ví dụ như bạn có thể sửa chữa một số lỗi và bao gồm một chuỗi  gì đó "
+"như thế này: <quote> Thay đổi này giải quyết vấn đề #23, #24 và #25 </quote>"
+" ."
 
 #. (para)
 msgid ""
@@ -15531,6 +15718,11 @@ msgid ""
 "<literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and "
 "<literal>(\\d+)</literal>."
 msgstr ""
+"Nếu bạn muốn bắt lỗi ID như được sử dụng trong các biểu thức trên bên trong "
+"một thông điệp tường trình, bạn có thể sử dụng các chuỗi regex sau đây, là "
+"những cái được sử dụng bởi dự án TortoiseSVN: "
+"<literal>[Ii]ssues:(?\\S*(,|and)\\s*#\\d+)+</literal> và <literal> "
+"(\\d+)</literal>."
 
 #. (para)
 msgid ""
@@ -15539,6 +15731,10 @@ msgid ""
 " from the output of the first regex, so it will return <quote>23</quote>, "
 "<quote>24</quote> and <quote>25</quote> to use as bug IDs."
 msgstr ""
+"Biểu thức đầu tiên chọn ra các <quote> vấn đề #23, #24 và #25 </quote> từ "
+"thông điệp tường trình xung quanh. Regex thứ hai chiết xuất từ các số thập "
+"phân từ đầu ra của regex đầu tiên, vì vậy nó sẽ trả về <quote> 23 </quote> ,"
+" <quote> 24 </quote> và <quote> 25 </quote> để sử dụng như là ID của lỗi."
 
 #. (para)
 msgid ""
@@ -15549,6 +15745,13 @@ msgid ""
 "an optional comma or <quote>and</quote> and more optional space. Finally "
 "there is a mandatory <quote>#</quote> and a mandatory decimal number."
 msgstr ""
+"Bẻ regex đầu tiên ra một chút, nó phải bắt đầu với từ <quote> issue </quote>"
+" , có thể được viết hoa. Đây là tùy chọn theo sau là một chữ <quote> s "
+"</quote> (nhiều hơn một vấn đề), và tùy chọn dấu hai chấm. Tiếp theo là một "
+"hoặc nhiều nhóm mà mỗi nhóm không có hoặc có nhiều hơn khoảng trắng ở phía "
+"trước, dấu phẩy tùy chọn hoặc <quote> và </quote> và nhiều không gian tùy "
+"chọn hơn nữa . Cuối cùng là dấu <quote> # </quote> bắt buộc và một số thập "
+"phân là bắt buộc."
 
 #. (para)
 msgid ""
@@ -15558,6 +15761,12 @@ msgid ""
 "trac, but it is harder to construct the regex. We recommend that you only "
 "use this method if your issue tracker documentation tells you to."
 msgstr ""
+"Nếu chỉ một biểu thức được thiết lập, thì các lỗi ID trần phải được xuất "
+"hiện trong các nhóm của chuỗi regex. Ví dụ: <literal> [Ii]ssue(s?)#(\\d+) "
+"</literal> Phương pháp này là cần thiết bởi một vài bộ theo dõi vấn đề, ví "
+"dụ như trac, nhưng nó là khó để để xây dựng các regex. Chúng tôi khuyên rằng"
+" bạn chỉ sử dụng phương pháp này nếu tài liệu của bộ theo dõi vấn đề của bạn"
+" bảo bạn l."
 
 #. (para)
 msgid ""
@@ -15568,6 +15777,12 @@ msgid ""
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr ""
+"Nếu bạn không quen với các biểu thức thông thường, hãy nhìn vào việc giới "
+"thiệu tại <ulink "
+"url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
+" và tài liệu trực tuyến và hướng dẫn tại <ulink url=\"http://www.regular-"
+"expressions.info/\"><citetitle>http://www.regular-"
+"expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -15587,6 +15802,14 @@ msgid ""
 "anywhere inside a log message! This method is much more flexible, and is the"
 " one used by the TortoiseSVN project itself. <placeholder-1/>"
 msgstr ""
+"Trong cách tiếp cận với <emphasis> biểu thức thông thường</emphasis> "
+"TortoiseSVN không hiển thị một trường nhập liệu riêng biệt, nhưng đánh dấu "
+"một phần của thông điệp tường trình mà người dùng nhập vào được nhận ra bởi "
+"bộ theo dõi vấn đề. Điều này được thực hiện khi người sử dụng viết thông "
+"điệp tường trình. Điều này cũng có nghĩa rằng các lỗi ID có thể ở bất cứ nơi"
+" nào bên trong một thông điệp tường trình! Phương pháp này linh hoạt hơn "
+"nhiều, và là một trong những cách được sử dụng bởi bản thân dự án "
+"TortoiseSVN. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -15594,6 +15817,9 @@ msgid ""
 "<literal>bugtraq:logregex</literal> properties are set, "
 "<literal>logregex</literal> takes precedence."
 msgstr ""
+"Nếu cả hai thuộc tính <literal> bugtraq:message </literal> và <literal> "
+"bugtraq:logregex </literal> được thiết lập, <literal> logregex </literal> sẽ"
+" được ưu tiên."
 
 #. (para)
 msgid ""
@@ -15601,6 +15827,10 @@ msgid ""
 "log messages, you still can use this to turn the issues mentioned in your "
 "log messages into links!"
 msgstr ""
+"Ngay cả khi bạn không có bộ theo dõi vấn đề với hook trước-cam kết phân tích"
+" cú pháp thông điệp tường trình của bạn, bạn vẫn có thể sử dụng cái này để "
+"biến các vấn đề được đề cập trong các thông điệp tường trình của bạn vào các"
+" liên kết!"
 
 #. (para)
 msgid ""
@@ -15608,6 +15838,9 @@ msgid ""
 "separate column in the log dialog, making it easier to find the changes "
 "which relate to a particular issue."
 msgstr ""
+"Và ngay cả khi bạn không cần các liên kết, những con số vấn đề hiển thị như "
+"là một cột riêng biệt trong hộp thoại tường trình, làm cho nó dễ dàng hơn để"
+" tìm thấy những thay đổi liên quan đến một vấn đề cụ thể."
 
 #. (para)
 msgid ""
@@ -15616,11 +15849,15 @@ msgid ""
 "<literal>yes</literal> as a synonym for <literal>true</literal> and "
 "<literal>no</literal> as a synonym for <literal>false</literal>."
 msgstr ""
+"Một số thuộc tính <literal> tsvn: </literal> đòi hỏi phải có giá trị "
+"<literal> đúng/sai </literal>. TortoiseSVN cũng hiểu <literal> vâng "
+"</literal> như một từ đồng nghĩa với <literal> đúng </literal> và <literal> "
+"không </literal> như một từ đồng nghĩa với <literal> sai </literal> ."
 
 #. (title)
 #. (title)
 msgid "Set the Properties on Folders"
-msgstr ""
+msgstr "Thiết lập các Thuộc Tính trên các Thư Mục"
 
 #. (para)
 #. (para)
@@ -15637,10 +15874,22 @@ msgid ""
 "project hierarchy overrides settings on higher levels (closer to "
 "<filename>trunk/</filename>)."
 msgstr ""
+"Những thuộc tính này phải được thiết lập trên các thư mục hệ thống để làm "
+"việc. Khi bạn cam kết một tập tin hoặc thư mục các thuộc tính được đọc từ "
+"các thư mục đó. Nếu các thuộc tính không được tìm thấy ở đó, TortoiseSVN sẽ "
+"tìm kiếm trở lên thông qua cây thư mục để tìm thấy chúng cho đến khi nó đến "
+"một thư mục chưa phiên bản, hoặc gốc cây (ví dụ: <literal> C:\\ </literal> )"
+" được tìm thấy. Nếu bạn có thể chắc chắn rằng mỗi người dùng chỉ kiểm xuất "
+"từ ví dụ như <filename> trunk/ </filename> và không phải là một thư mục con,"
+" thì nó là đủ nếu bạn thiết lập các thuộc tính trên <filename> trunk/ "
+"</filename> . Nếu bạn không thể chắc chắn, bạn nên thiết lập các thuộc tính "
+"một cách đệ quy trên mỗi thư mục con. Một thuộc tính thiết lập sâu hơn trong"
+" hệ thống phân cấp dự án sẽ ghi đè các thiết lập trên các mức độ cao hơn "
+"(gần với <filename> trunk/ </filename> )."
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
-msgstr ""
+msgstr "Không có Thông Tin về Bộ Theo Dõi Vấn Đề từ Trình Duyệt Kho"
 
 #. (para)
 msgid ""
@@ -15651,6 +15900,12 @@ msgid ""
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
 msgstr ""
+"Bởi vì sự tích hợp bộ theo dõi vấn đề phụ thuộc khi truy cập vào các thuộc "
+"tính subversion, bạn sẽ chỉ thấy các kết quả khi sử dụng một bản sao làm "
+"việc được kiểm xuất. Lấy thuộc tính từ xa là một tác vụ chậm, vì vậy bạn sẽ "
+"không thấy tính năng này được dùng từ trình duyệt kho, trừ khi bạn bắt đầu "
+"trình duyệt kho từ bản sao làm việc của bạn. Nếu bạn bắt đầu trình duyệt kho"
+" bằng cách nhập URL của kho bạn sẽ không thấy tính năng này."
 
 #. (para)
 #. (para)
@@ -15658,6 +15913,8 @@ msgid ""
 "For the same reason, project properties will not be propagated automatically"
 " when a child folder is added using the repo browser."
 msgstr ""
+"Vì lý do tương tự, các thuộc tính dự án sẽ không được truyền tự động khi một"
+" thư mục con được thêm vào bằng cách sử dụng trình duyệt kho."
 
 #. (para)
 msgid ""
@@ -15668,10 +15925,17 @@ msgid ""
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
 msgstr ""
+"Sự tích hợp bộ theo dõi vấn đề này không bị giới hạn với TortoiseSVN; nó có "
+"thể được sử dụng với bất kỳ máy khách Subversion nào. Để biết thêm thông "
+"tin, đọc đầy đủ <ulink "
+"url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>"
+" Đặc điểm Kỹ Thuật của Bộ Tích Hợp Vấn Đề </citetitle></ulink> trong kho lưu"
+" trữ nguồn TortoiseSVN. ( <xref linkend=\"tsvn-preface-source\"/> giải thích"
+" làm thế nào để truy cập vào kho lưu trữ.)"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
-msgstr ""
+msgstr "Lấy Thông tin từ Bộ Theo Dõi Vấn Đề"
 
 #. (para)
 msgid ""
@@ -15682,6 +15946,12 @@ msgid ""
 " tracker to get a list of open issues assigned to you, so that you can pick "
 "the issues that are being addressed in this commit."
 msgstr ""
+"Các phần trước đảm đương việc thêm thông tin vào các thông điệp tường trình."
+" Nhưng nếu những gì cần để nhận được thông tin từ bộ theo dõi vấn đề? Hộp "
+"thoại cam kết có một giao diện COM cho phép tích hợp một chương trình bên "
+"ngoài mà có thể nói chuyện với bộ theo dõi của bạn. Thông thường bạn có thể "
+"muốn truy vấn bộ theo dõi để có được một danh sách các vấn đề mở được giao "
+"cho bạn, để bạn có thể chọn những vấn đề đang được đề cập trong cam kết này."
 
 #. (para)
 msgid ""
@@ -15700,10 +15970,24 @@ msgid ""
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker."
 msgstr ""
+"Bất kỳ giao diện nào như vậy là tất nhiên rất cụ thể cho hệ thống theo dõi "
+"vấn đề của bạn, vì vậy chúng tôi không thể cung cấp phần này, và mô tả làm "
+"thế nào để tạo ra một chương trình như vậy là vượt quá phạm vi của sổ tay "
+"này. Định nghĩa giao diện và các mẫu plugin bằng C# và C++/ATL có thể được "
+"lấy từ các thư mục <literal> đóng góp </literal> trong <ulink "
+"url=\"http://tortoisesvn.googlecode.com/svn/trunk/contrib/issue-tracker-"
+"plugins\"><citetitle> TortoiseSVN kho </citetitle></ulink>. ( <xref linkend"
+"=\"tsvn-preface-source\"/> giải thích làm thế nào để truy cập vào kho lưu "
+"trữ) Một bản tóm tắt của API cũng được đưa ra trong <xref linkend=\"tsvn-"
+"ibugtraqprovider\"/>. Một ví dụ plugin (chạy được) bằng C# <ulink "
+"url=\"http://code.google.com/p/gurtle/\"><citetitle> Gurtle "
+"</citetitle></ulink> mà thực hiện các giao diện COM cần thiết để tương tác "
+"với <ulink url=\"http://code.google.com/hosting/\"><citetitle> Google Code "
+"</citetitle></ulink> bộ theo dõi vấn đề."
 
 #. (title)
 msgid "Example issue tracker query dialog"
-msgstr ""
+msgstr "Hộp thoại ví dụ truy vấn theo dõi vấn đề"
 
 #. (para)
 msgid ""
@@ -15716,26 +16000,34 @@ msgid ""
 "select one or more open issues. The plugin can then generate specially "
 "formatted text which it adds to your log message."
 msgstr ""
+"Đối với mục đích minh họa, chúng ta hãy giả sử rằng quản trị viên hệ thống "
+"của bạn đã cung cấp cho bạn một plugin theo dõi vấn đề mà bạn đã cài đặt, và"
+" rằng bạn đã thiết lập một số bản sao làm việc của bạn sử dụng các plugin "
+"trong hộp thoại thiết lập TortoiseSVN của. Khi bạn mở hộp thoại cam kết từ "
+"một bản sao làm việc mà các plugin đã được chỉ định, bạn sẽ thấy một nút mới"
+" ở trên cùng của hộp thoại. <placeholder-1/> Trong ví dụ này, bạn có thể "
+"chọn một hoặc nhiều vấn đề mở. Các plugin sau đó có thể tạo ra văn bản được "
+"định dạng đặc biệt mà nó bổ sung vào thông điệp tường trình của bạn."
 
 #. (title)
 msgid "Integration with Web-based Repository Viewers"
-msgstr ""
+msgstr "Tích hợp với các Trình Xem Kho Lưu Trữ dựa trên Web"
 
 #. (primary)
 msgid "web view"
-msgstr ""
+msgstr "xem web"
 
 #. (primary)
 msgid "repo viewer"
-msgstr ""
+msgstr "chương trình xem kho lưu tr"
 
 #. (primary)
 msgid "ViewVC"
-msgstr ""
+msgstr "ViewVC"
 
 #. (primary)
 msgid "WebSVN"
-msgstr ""
+msgstr "WebSVN"
 
 #. (para)
 msgid ""
@@ -15746,6 +16038,11 @@ msgid ""
 "url=\"http://websvn.tigris.org/\"><citetitle>WebSVN</citetitle></ulink>. "
 "TortoiseSVN provides a means to link with these viewers."
 msgstr ""
+"Có một số trình xem kho lưu trữ dựa trên web có sẵn để sử dụng với "
+"Subversion <ulink url=\"http://www.viewvc.org/\"><citetitle> ViewVC "
+"</citetitle></ulink> và <ulink url=\"http://websvn.tigris.org/\"><citetitle>"
+" WebSVN </citetitle></ulink> . TortoiseSVN cung cấp phương tiện để liên kết "
+"với những chương trình xem n."
 
 #. (para)
 msgid ""
@@ -15753,6 +16050,10 @@ msgid ""
 "you have to define some properties which define the linkage. They must be "
 "set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 msgstr ""
+"Bạn có thể tích hợp một trình xem kho tùy lựa chọn của bạn trong "
+"TortoiseSVN. Để làm điều này, bạn phải xác định một số thuộc tính xác định "
+"mối liên kết. Chúng phải được thiết lập trên thư mục: ( <xref linkend"
+"=\"tsvn-dug-propertypage\"/> )"
 
 #. (para)
 msgid ""
@@ -15764,6 +16065,13 @@ msgid ""
 "Menu</guimenu><guimenuitem>View revision in "
 "webviewer</guimenuitem></menuchoice>."
 msgstr ""
+"Thiết lập thuộc tính này đến các URL của trình xem kho của bạn để xem tất cả"
+" thay đổi trong một phiên bản cụ thể. Nó phải được đúng URI mã hóa và nó "
+"phải chứa <literal>%REVISION%</literal>.<literal>%REVISION%</literal> được "
+"thay thế bằng số sửa đổi trong câu hỏi. Điều này cho phép TortoiseSVN để "
+"hiển thị một mục trình đơn ngữ cảnh trong hộp thoại tường trình "
+"<menuchoice><guimenu> Trình Đơn Ngữ Cảnh</guimenu><guimenuitem> Xem sửa đổi "
+"trong trình xem web</guimenuitem></menuchoice> ."
 
 #. (para)
 msgid ""
@@ -15778,6 +16086,17 @@ msgid ""
 "<literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the"
 " URL will be replaced with <literal>/trunk/src/file</literal>."
 msgstr ""
+"Đặt thuộc tính này để các URL của trình xem kho của bạn để xem các thay đổi "
+"vào một tập tin cụ thể trong một phiên bản cụ thể. Nó phải được mã hóa URI "
+"đúng và có chứa <literal>%REVISION%</literal> và <literal> "
+"%PATH%</literal>.<literal>%PATH%</literal> được thay thế bằng các đường dẫn "
+"tương đối đến gốc kho. Điều này cho phép TortoiseSVN hiển thị một mục trình "
+"đơn ngữ cảnh trong hộp thoại tường trình<menuchoice><guimenu> Trình Đơn Ngữ "
+"Cảnh</guimenu><guimenuitem> Xem sửa đổi cho đường dẫn trong trình xem "
+"web</guimenuitem></menuchoice> Ví dụ, nếu bạn nhấp chuột phải trong cửa sổ "
+"phía dưới hộp thoại tường trình vào một mục tập tin "
+"<literal>/trunk/src/file</literal> thì <literal> %PATH% </literal> trong URL"
+" sẽ được thay thế bằng <literal> /trunk/src/file </literal>."
 
 #. (para)
 msgid ""
@@ -15789,6 +16108,13 @@ msgid ""
 "as for the <literal>bugtraq:url</literal> property. See <xref linkend"
 "=\"tsvn-dug-bugtracker\"/>."
 msgstr ""
+"Bạn cũng có thể sử dụng các URL tương đối thay vì tuyệt đối. Điều này rất "
+"hữu ích trong trường hợp trình xem web của bạn là trên cùng một tên miền / "
+"máy chủ như là kho lưu trữ nguồn của bạn. Trong trường hợp tên miền có thay "
+"đổi, bạn không phải điều chỉnh thuộc tính <literal> webviewer:revision "
+"</literal> và <literal> webviewer:pathrevision </literal>. Định dạng tương "
+"tự như đối với các thuộc tính <literal> bugtraq:url </literal>. Xem <xref "
+"linkend=\"tsvn-dug-bugtracker\"/> ."
 
 #. (para)
 msgid ""
@@ -15799,14 +16125,20 @@ msgid ""
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
 msgstr ""
+"Bởi vì sự tích hợp trình xem kho tùy thuộc vào truy cập vào các thuộc tính "
+"subversion, bạn sẽ chỉ thấy các kết quả khi sử dụng một bản sao làm việc "
+"được kiểm xuất. Lấy thuộc tính từ xa là một tác vụ chậm, vì vậy bạn sẽ không"
+" thấy tính năng này được dùng từ trình duyệt kho, trừ khi bạn bắt đầu trình "
+"duyệt kho từ bản sao làm việc của bạn. Nếu bạn bắt đầu trình duyệt kho bằng "
+"cách nhập URL của kho bạn sẽ không thấy tính năng này."
 
 #. (title)
 msgid "TortoiseSVN's Settings"
-msgstr ""
+msgstr "Các thiết l của TortoiseSVN"
 
 #. (primary)
 msgid "settings"
-msgstr ""
+msgstr "thiết lập"
 
 #. (para)
 msgid ""
@@ -15814,36 +16146,42 @@ msgid ""
 "pointer a second on the editbox/checkbox... and a helpful tooltip will "
 "popup."
 msgstr ""
+"Để tìm hiểu các thiết lập khác nhau để làm gì, chỉ việc dừng con trỏ của bạn"
+" một giây trên hộp biên tập / hộp kiểm ... và một tooltip hữu ích sẽ bật "
+"lên."
 
 #. (title)
 msgid "General Settings"
-msgstr ""
+msgstr "Các Thiết Lập Tổng Qu"
 
 #. (primary)
 msgid "sounds"
-msgstr ""
+msgstr "âm thanh"
 
 #. (title)
 msgid "The Settings Dialog, General Page"
-msgstr ""
+msgstr "Hộp Thoại Thiết Lập, Trang Tổng Quát"
 
 #. (para)
 msgid ""
 "<placeholder-1/> This dialog allows you to specify your preferred language, "
 "and the Subversion-specific settings."
 msgstr ""
+"<placeholder-1/> Hộp thoại này cho phép bạn chỉ định ngôn ngữ ưa thích của "
+"bạn, và các thiết lập cụ thể cho Subversion."
 
 #. (term)
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
 #. (para)
 msgid "Selects your user interface language. What else did you expect?"
 msgstr ""
+"Chọn ngôn ngữ giao diện người dùng của bạn. Bạn còn mong đợi cái gì khác?"
 
 #. (term)
 msgid "Check for updates"
-msgstr ""
+msgstr "Kiểm tra xem có các bản cập nhật"
 
 #. (para)
 msgid ""
@@ -15854,22 +16192,28 @@ msgid ""
 "you simply receive an information dialog telling you that the new version is"
 " available."
 msgstr ""
+"TortoiseSVN sẽ liên lạc với trang web tải về của nó theo định kỳ để xem nếu "
+"có một phiên bản mới hơn của chương trình. Nếu có, nó sẽ hiển thị một liên "
+"kết thông báo trong hộp thoại cam kết. Sử dụng <guibutton> Kiểm tra ngay "
+"</guibutton> nếu bạn muốn một câu trả lời ngay lập tức. Phiên bản mới sẽ "
+"không được tải về; bạn chỉ đơn giản nhận được một hộp thoại thông tin cho "
+"biết rằng phiên bản mới có sẵn."
 
 #. (term)
 msgid "System sounds"
-msgstr ""
+msgstr "Âm thanh hệ thống"
 
 #. (para)
 msgid "Error"
-msgstr ""
+msgstr "Lỗi"
 
 #. (para)
 msgid "Notice"
-msgstr ""
+msgstr "Lưu "
 
 #. (para)
 msgid "Warning"
-msgstr ""
+msgstr "Cảnh báo"
 
 #. (para)
 msgid ""
@@ -15878,6 +16222,10 @@ msgid ""
 "completely) using the Windows Control Panel. "
 "<guibutton>Configure</guibutton> is a shortcut to the Control Panel."
 msgstr ""
+"TortoiseSVN có ba tùy chỉnh âm thanh đã được cài đặt theo mặc định. "
+"<placeholder-1/> Bạn có thể chọn các âm thanh khác nhau (hoặc tắt những âm "
+"thanh này hoàn toàn) bằng cách sử dụng Windows Control Panel. <guibutton> "
+"Cấu hình </guibutton> là một phím tắt vào Control Panel."
 
 #. (term)
 msgid "Use Aero Dialogs"
@@ -15901,15 +16249,15 @@ msgstr ""
 
 #. (term)
 msgid "Global ignore pattern"
-msgstr ""
+msgstr "Khuôn mẫu bỏ qua toàn cục"
 
 #. (primary)
 msgid "exclude pattern"
-msgstr ""
+msgstr "khuôn mẫu loại trừ"
 
 #. (primary)
 msgid "global ignore"
-msgstr ""
+msgstr "bỏ qua toàn cục"
 
 #. (para)
 msgid ""
@@ -15922,12 +16270,23 @@ msgid ""
 "directories. Read <xref linkend=\"tsvn-dug-ignore-glob\"/> for more "
 "information on the pattern-matching syntax."
 msgstr ""
+"Các khuôn mẫu bỏ qua toàn cục được sử dụng để ngăn chặn các tập tin không "
+"phiên bản được hiển thị ví dụ như trong hộp thoại cam kết. Tập tin phù hợp "
+"với các khuôn mẫu được bỏ qua bởi nhập khẩu. Bỏ qua các tập tin hoặc thư mục"
+" bằng cách gõ tên hoặc phần mở rộng. Mẫu được phân cách bằng dấu cách ví dụ "
+"như <literal> bin obj *. bak *.~?? *.jar *.[Tt]mp </literal> . Những khuôn "
+"mẫu không nên bao gồm bất kỳ dải phân cách đường dẫn. Cũng lưu ý rằng không "
+"có cách nào để phân biệt giữa các tập tin và thư mục. Đọc <xref linkend"
+"=\"tsvn-dug-ignore-glob\"/> để có thêm thông tin về cú pháp khớp khuôn m."
 
 #. (para)
 msgid ""
 "Note that the ignore patterns you specify here will also affect other "
 "Subversion clients running on your PC, including the command line client."
 msgstr ""
+"Lưu ý rằng các khuôn mẫu bỏ qua mà bạn chỉ định ở đây cũng sẽ ảnh hưởng đến "
+"các máy khách Subversion khác đang chạy trên máy tính của bạn, bao gồm cả "
+"các máy khách dùng dòng lệnh dấu nh."
 
 #. (para)
 msgid ""
@@ -15936,6 +16295,10 @@ msgid ""
 "Subversion configuration file is accessed using the "
 "<guibutton>Edit</guibutton> as described below."
 msgstr ""
+"Nếu bạn sử dụng tập tin cấu hình Subversion để thiết lập một khuôn mẫu "
+"<literal> bỏ qua toàn cục</literal>, nó sẽ ghi đè lên các thiết lập bạn thực"
+" hiện ở đây. Tập tin cấu hình Subversion được truy cập bằng cách sử dụng "
+"<guibutton> Biên tập </guibutton> như mô tả dưới đây."
 
 #. (para)
 msgid ""
@@ -15945,10 +16308,17 @@ msgid ""
 "version control. Read <xref linkend=\"tsvn-dug-ignore\"/> for more "
 "information."
 msgstr ""
+"Khuôn mẫu bỏ qua này sẽ ảnh hưởng đến tất cả các dự án. Nó không được phiên "
+"bản, vì vậy nó sẽ không ảnh hưởng đến những người dùng khác. Ngược lại bạn "
+"cũng có thể sử dụng thuộc tính được phiên bản <literal> svn:ignore</literal>"
+" để loại trừ các tập tin hoặc thư mục từ kiểm soát phiên bản. Đọc <xref "
+"linkend=\"tsvn-dug-ignore\"/> để biết thêm thông tin."
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
 msgstr ""
+"Thiết lập ngày tháng tập tin đến <quote> thời gian cam kết cuối cùng "
+"</quote>"
 
 #. (para)
 msgid ""
@@ -15960,10 +16330,18 @@ msgid ""
 "time</quote> and revert to an older file revision, your project may not "
 "compile as you expect it to."
 msgstr ""
+"Tùy chọn sẽ bảo TortoiseSVN đặt ngày tập tin về thời gian cam kết cuối cùng "
+"khi làm một kiểm xuất hoặc cập nhật. Nếu không TortoiseSVN sẽ sử dụng ngày "
+"hiện tại. Nếu bạn đang phát triển phần mềm nói chung là tốt nhất để sử dụng "
+"ngày tháng hiện tại bởi vì các hệ thống xây dựng bình thường nhìn vào những "
+"con dấu ngày để quyết định những tập tin nào cần biên dịch. Nếu bạn sử dụng "
+"<quote> thời gian cam kết cuối cùng </quote> và hoàn nguyên với một bản "
+"chỉnh sửa tập tin cũ hơn, dự án của bạn không thể biên dịch như bạn mong "
+"đợi."
 
 #. (term)
 msgid "Subversion configuration file"
-msgstr ""
+msgstr "tập tin cấu hình Subversion"
 
 #. (para)
 msgid ""
@@ -15983,6 +16361,21 @@ msgid ""
 "registry\"><citetitle>Configuration and the Windows "
 "Registry</citetitle></ulink> to find out more."
 msgstr ""
+"Sử dụng <guibutton>Biên tập</guibutton> để chỉnh sửa các tập tin cấu hình "
+"Subversion trực tiếp. Một số thiết lập không thể được sửa đổi trực tiếp bởi "
+"TortoiseSVN, và thay vào đó cần được đặt ở đây. Để biết thêm thông tin về "
+"tập tin <filename> cấu hình </filename> Subversion xem <ulink "
+"url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.advanced.confarea.html\"><citetitle> Khu vực Cấu hình "
+"Thời gian chạy </citetitle></ulink>. Phần <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.advanced.props.html#svn.advanced.props.auto\"><citetitle>"
+" Thiết lập Thuộc tính Tự động </citetitle></ulink> là thuộc quan tâm đặc "
+"biệt, và phần đó được cấu hình ở đây. Lưu ý rằng Subversion có thể đọc thông"
+" tin cấu hình từ nhiều nơi, và bạn cần phải biết là cái nào được ưu tiên. "
+"Tham khảo <ulink url=\"http://svnbook.red-"
+"bean.com/en/1.5/svn.advanced.confarea.html#svn.advanced.confarea.windows-"
+"registry\"><citetitle> Cấu hình và Windows Registry </citetitle></ulink> để "
+"tìm hiểu thêm."
 
 #. (term)
 msgid "Apply local modifications to svn:externals when updating"
@@ -15996,11 +16389,11 @@ msgstr ""
 
 #. (title)
 msgid "Context Menu Settings"
-msgstr ""
+msgstr "Các Thiết Lập Trình Đơn Ngữ Cảnh"
 
 #. (title)
 msgid "The Settings Dialog, Context Menu Page"
-msgstr ""
+msgstr "Hộp Thoại Thiết Lập, Trang Trình Đơn Ngữ Cảnh"
 
 #. (para)
 msgid ""
@@ -16009,6 +16402,10 @@ msgid ""
 "appear in the TortoiseSVN submenu. By default most items are unchecked and "
 "appear in the submenu."
 msgstr ""
+"<placeholder-1/> Trang này cho phép bạn xác định các mục menu trong trình "
+"đơn ngữ cảnh của TortoiseSVN sẽ hiển thị trong trình đơn ngữ cảnh chính, và "
+"sẽ xuất hiện trong trình đơn phụ TortoiseSVN. Theo mặc định, hầu hết các mục"
+" không được kiểm soát và xuất hiện trong trình đơn con."
 
 #. (para)
 msgid ""
@@ -16021,6 +16418,15 @@ msgid ""
 "lock</literal> property set, <guilabel>Get Lock</guilabel> will always "
 "appear at the top level."
 msgstr ""
+"Có một trường hợp đặc biệt cho <guilabel> Nhận Khóa </guilabel>. Tất nhiên "
+"bạn có thể thúc đẩy nó đến cấp cao nhất bằng cách sử dụng danh sách kể trên,"
+" nhưng hầu hết các tập tin không cần khóa việc này chỉ thêm lộn xộn. Tuy "
+"nhiên, một tập tin với thuộc tính <literal> svn:needs-lock </literal> cần "
+"hành động này mỗi khi nó được biên tập, vì vậy trong trường hợp đó là rất "
+"hữu ích để có ở cấp cao nhất. Đánh dấu chọn hộp ở đây có nghĩa là khi một "
+"tập tin được chọn có các thuộc tính <literal> svn:needs-lock </literal> được"
+" thiết lập, <guilabel> Nhận Khóa </guilabel> sẽ luôn luôn xuất hiện ở cấp "
+"cao nhất."
 
 #. (para)
 msgid ""
@@ -16041,24 +16447,29 @@ msgid ""
 "TortoiseSVN's context menu to appear at all, you can list them in the box at"
 " the bottom."
 msgstr ""
+"Nếu có một số đường dẫn trên máy tính của bạn mà bạn chỉ không muốn trình "
+"đơn ngữ cảnh của TortoiseSVN xuất hiện chút nào, bạn có thể liệt kê chúng "
+"trong hộp ở phía dưới."
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 1"
-msgstr ""
+msgstr "Các Thiết Lập Hộp Thoại TortoiseSVN 1"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 1 Page"
-msgstr ""
+msgstr "Trang Hộp Thoại Thiết Lập, Các Hộp Thoại 1"
 
 #. (para)
 msgid ""
 "<placeholder-1/> This dialog allows you to configure some of TortoiseSVN's "
 "dialogs the way you like them."
 msgstr ""
+"<placeholder-1/> Hộp thoại này cho phép bạn cấu hình một số hộp thoại "
+"TortoiseSVN theo cách bạn thích."
 
 #. (term)
 msgid "Default number of log messages"
-msgstr ""
+msgstr "Số mặc định của các thông điệp tường trình"
 
 #. (para)
 msgid ""
@@ -16068,10 +16479,15 @@ msgid ""
 "always use <guibutton>Show All</guibutton> or <guibutton>Next "
 "100</guibutton> to get more messages."
 msgstr ""
+"Giới hạn số thông điệp tường trình TortoiseSVN nạp khi bạn lần đầu tiên chọn"
+" <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Hiện Tường Trình "
+"</guimenuitem></menuchoice> Hữu ích cho các kết nối máy chủ chậm. Bạn luôn "
+"có thể sử dụng <guibutton> Hiện Tất Cả </guibutton> hoặc <guibutton> 100 "
+"Tiếp theo </guibutton> để nhận được nhiều thông điệp hơn."
 
 #. (term)
 msgid "Font for log messages"
-msgstr ""
+msgstr "Phông chữ cho thông điệp tường trình"
 
 #. (para)
 msgid ""
@@ -16079,20 +16495,27 @@ msgid ""
 " middle pane of the Revision Log dialog, and when composing log messages in "
 "the Commit dialog."
 msgstr ""
+"Lựa chọn các mặt chữ và kích thước được sử dụng để hiển thị các thông điệp "
+"tường trình trong phần bảng giữa của hộp thoại Tường Trình Sửa Đổi, và khi "
+"soạn thông điệp tường trình vào hộp thoại Cam Kết."
 
 #. (term)
 msgid "Short date / time format in log messages"
-msgstr ""
+msgstr "Định dạng ngày / thời gian ngắn trong các thông điệp tường trình"
 
 #. (para)
 msgid ""
 "If the standard long messages use up too much space on your screen use the "
 "short format."
 msgstr ""
+"Nếu các thông điệp dài tiêu chuẩn sử dụng quá nhiều không gian trên màn hình"
+" của bạn hãy sử dụng định dạng ngắn."
 
 #. (term)
 msgid "Can double click in log list to compare with previous revision"
 msgstr ""
+"Có thể nhấn kếp chuột trong danh sách tường trình để so sánh với bản sửa đổi"
+" trước"
 
 #. (para)
 msgid ""
@@ -16102,10 +16525,16 @@ msgid ""
 "process, and many people prefer to avoid the wait after an accidental double"
 " click, which is why this option is not enabled by default."
 msgstr ""
+"Nếu bạn thường xuyên thấy mình so sánh các bản sửa đổi trong cửa sổ trên "
+"cùng của hộp thoại tường trình, bạn có thể sử dụng tùy chọn này để cho phép "
+"hành động đó khi nhấp đúp chuột. Nó không được kích hoạt mặc định vì việc "
+"nạp các khác thường là một quá trình lâu dài, và nhiều người muốn tránh sự "
+"chờ đợi sau khi tình cờ nhấp đúp chuột vào, đó là lý do tại sao tùy chọn này"
+" không được kích hoạt mặc định."
 
 #. (term)
 msgid "Auto-close"
-msgstr ""
+msgstr "Tự động-đóng"
 
 #. (para)
 msgid ""
@@ -16117,6 +16546,13 @@ msgid ""
 "message and have the dialog close automatically if there are no critical "
 "changes."
 msgstr ""
+"TortoiseSVN có thể tự động đóng tất cả các hộp thoại tiến độ khi hành động "
+"được hoàn thành mà không có lỗi. Thiết lập này cho phép bạn chọn các điều "
+"kiện để đóng các hộp thoại. Thiết lập mặc định (được đề nghị) <guilabel> "
+"Đóng bằng tay </guilabel> cho phép bạn xem lại tất cả các thông điệp và kiểm"
+" tra những gì đã xảy ra. Tuy nhiên, bạn có thể quyết định rằng bạn muốn bỏ "
+"qua một số loại thông điệp và hộp thoại tự động đóng lại nếu không có thay "
+"đổi quan trọng."
 
 #. (para)
 msgid ""
@@ -16126,6 +16562,11 @@ msgid ""
 "deleted, the dialog will remain open. It will also stay open if there were "
 "any conflicts or errors during the operation."
 msgstr ""
+"<guilabel> Tự động đóng nếu không có sáp nhập, thêm, xóa </guilabel> có "
+"nghĩa là hộp thoại tiến độ sẽ đóng nếu có những cập nhật đơn giản, nhưng nếu"
+" các thay đổi từ kho lưu trữ đã được sáp nhập với những thay đổi của bạn, "
+"hoặc nếu có bất kỳ tập tin đã được thêm vào hoặc bị xóa, hộp thoại sẽ vẫn "
+"mở. Nó cũng sẽ mở nếu có bất kỳ xung đột hoặc lỗi trong quá trình hoạt động."
 
 #. (para)
 msgid ""
@@ -16133,6 +16574,10 @@ msgid ""
 " and will close the dialog even if there were merges, adds or deletes. "
 "However, if there were any conflicts or errors, the dialog remains open."
 msgstr ""
+"<guilabel> Tự động đóng nếu không có xung đột </guilabel> làm giảm nhẹ các "
+"tiêu chuẩn hơn nữa và sẽ đóng hộp thoại ngay cả khi có kết hợp, bổ sung thêm"
+" hoặc xóa. Tuy nhiên, nếu có bất kỳ mâu thuẫn hoặc sai sót, hộp thoại vẫn "
+"mở."
 
 #. (para)
 msgid ""
@@ -16142,10 +16587,15 @@ msgid ""
 "task. For example, an update fails because the server is inaccessible, or a "
 "commit fails because the working copy is out-of-date."
 msgstr ""
+"<guilabel> Tự động đóng nếu không có lỗi </guilabel> luôn luôn đóng hộp "
+"thoại ngay cả khi có xung đột. Điều kiện duy nhất mà giữ hộp thoại mở là một"
+" điều kiện lỗi, xảy ra khi Subversion là không thể hoàn thành nhiệm vụ. Ví "
+"dụ, cập nhật thất bại bởi vì máy chủ là không thể tiếp cận được, hoặc cam "
+"kết bị thất bại bởi vì bản sao làm việc quá cũ."
 
 #. (term)
 msgid "Always close dialogs for local operations"
-msgstr ""
+msgstr "Luôn đóng hộp thoại cho các tác vụ cục bộ"
 
 #. (para)
 msgid ""
@@ -16154,10 +16604,15 @@ msgid ""
 " of little interest. Select this option if you want the progress dialog to "
 "close automatically after these operations, unless there are errors."
 msgstr ""
+"Các tác vụ cục bộ như thêm các tập tin hoặc hoàn nguyên lại thay đổi không "
+"cần liên hệ với các kho lưu trữ và hoàn thành một cách nhanh chóng, do đó, "
+"hộp thoại tiến triển thường ít được quan tâm đến. Chọn tùy chọn này nếu bạn "
+"muốn hộp thoại tiến triển tự động đóng lại sau các hoạt động này, trừ khi có"
+" lỗi."
 
 #. (term)
 msgid "Use recycle bin when reverting"
-msgstr ""
+msgstr "Sử dụng thùng rác khi quay hoàn nguyên"
 
 #. (para)
 msgid ""
@@ -16166,10 +16621,14 @@ msgid ""
 "bin before bringing back the pristine copy. If you prefer to skip the "
 "recycle bin, uncheck this option."
 msgstr ""
+"Khi bạn hoàn nguyên các thay đổi cục bộ, những thay đổi của bạn sẽ bị loại "
+"bỏ. TortoiseSVN cung cấp cho bạn một mạng lưới an toàn hơn bằng cách gửi các"
+" tập tin được sửa đổi vào thùng rác trước khi đưa trở lại bản sao nguyên sơ."
+" Nếu bạn muốn bỏ qua thùng rác, bỏ chọn tùy chọn này."
 
 #. (term)
 msgid "Use URL of WC as the default <quote>From:</quote> URL"
-msgstr ""
+msgstr "Sử dụng URL của WC như mặc định URL <quote> Từ: </quote>"
 
 #. (para)
 msgid ""
@@ -16180,10 +16639,16 @@ msgid ""
 "working copy. This can then be edited to refer to a parallel path on another"
 " branch."
 msgstr ""
+"Trong hộp thoại hợp nhất, hành vi mặc định là cho URL <guilabel> Từ: "
+"</guilabel> được ghi nhớ giữa các sáp nhập. Tuy nhiên, một số người muốn "
+"thực hiện kết hợp từ nhiều điểm khác nhau trong hệ thống phân cấp của chúng,"
+" và thấy dễ dàng hơn để bắt đầu với URL của bản sao làm việc hiện tại. Điều "
+"này sau đó có thể được chỉnh sửa để chỉ đến một đường dẫn song song trên một"
+" chi nhánh khác."
 
 #. (term)
 msgid "Default checkout path"
-msgstr ""
+msgstr "Đường dẫn kiểm xuất mặc định"
 
 #. (para)
 msgid ""
@@ -16191,10 +16656,13 @@ msgid ""
 "checkouts in one place, it is useful to have the drive and folder pre-filled"
 " so you only have to add the new folder name to the end."
 msgstr ""
+"Bạn có thể chỉ định đường dẫn mặc định cho các kiểm xuất. Nếu bạn giữ tất cả"
+" các kiểm xuất của bạn ở một nơi, nó rất hữu ích để có ổ đĩa và thư mục được"
+" điền sẵn, do đó bạn chỉ cần thêm tên thư mục mới vào phía cuối."
 
 #. (term)
 msgid "Default checkout URL"
-msgstr ""
+msgstr "URL kiểm xuất mặc định"
 
 #. (para)
 msgid ""
@@ -16202,18 +16670,22 @@ msgid ""
 "sub-projects of some very large project, it can be useful to have the URL "
 "pre-filled so you only have to add the sub-project name to the end."
 msgstr ""
+"Bạn cũng có thể chỉ định các URL mặc định cho các kiểm xuất. Nếu bạn thường "
+"xuyên kiểm xuất các dự án con của một số dự án rất lớn, nó có thể hữu ích để"
+" có địa chỉ URL được điền sẵn, do đó bạn chỉ cần thêm tên dự án con vào phía"
+" cuối."
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 2"
-msgstr ""
+msgstr "Hộp Thoại Thiết Lập TortoiseSVN 2"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 2 Page"
-msgstr ""
+msgstr "Trang Hộp Thoại Thiết Lập, Hộp Thoại 2"
 
 #. (term)
 msgid "Recurse into unversioned folders"
-msgstr ""
+msgstr "Đệ quy vào thư mục các chưa phiên bản"
 
 #. (para)
 msgid ""
@@ -16225,6 +16697,14 @@ msgid ""
 "dialogs. In that case if you select an unversioned folder for Add, it is "
 "added recursively."
 msgstr ""
+"Nếu hộp này được đánh dấu (trạng thái mặc định), sau đó bất cứ khi nào tình "
+"trạng của một thư mục chưa phiên bản được hiển thị trong hộp thoại "
+"<guilabel> Thêm </guilabel> , <guilabel> Cam kết </guilabel> hoặc <guilabel>"
+" Kiểm tra cho sửa đổi </guilabel>, tất cả các tập tin và thư mục con cũng "
+"được hiển thị. Nếu bạn bỏ chọn ô này, chỉ có cha mẹ chưa phiên bản được hiển"
+" thị. Bỏ chọn làm giảm sự lộn xộn trong các hộp thoại. Trong trường hợp đó "
+"nếu bạn chọn một thư mục chưa phiên bản cho Thêm, nó được thêm một cách đệ "
+"quy."
 
 #. (para)
 msgid ""
@@ -16232,10 +16712,14 @@ msgid ""
 "see ignored items. If this box is checked then whenever an ignored folder is"
 " found, all child items will be shown as well."
 msgstr ""
+"Trong hộp thoại <guilabel> Kiểm Tra cho Sửa Đổi </guilabel>, bạn có thể lựa "
+"chọn để xem các mục bị bỏ qua. Nếu hộp này được kiểm tra thì bất cứ khi nào "
+"một thư mục được bỏ qua được tìm thấy, tất cả các mục con cũng sẽ được hiển "
+"thị."
 
 #. (term)
 msgid "Use auto-completion of file paths and keywords"
-msgstr ""
+msgstr "Sử dụng tự động hoàn thành các đường dẫn tập tin và các từ khóa"
 
 #. (para)
 msgid ""
@@ -16244,10 +16728,16 @@ msgid ""
 "auto-completion box pops up, and you can press Enter to complete the "
 "filename. Check the box to enable this feature."
 msgstr ""
+"Hộp thoại cam kết bao gồm một cơ sở để phân tích cú pháp danh sách các tên "
+"tập tin được cam kết. Khi bạn gõ 3 chữ cái đầu tiên của một mục trong danh "
+"sách, hộp hoàn thành tự động bật lên, và bạn có thể nhấn Enter để hoàn thành"
+" tên tập tin. Đánh dấu hộp kiểm để kích hoạt tính năng này."
 
 #. (term)
 msgid "Timeout in seconds to stop the auto-completion parsing"
 msgstr ""
+"Thời gian chờ tính bằng giây để ngăn chặn sự phân tích cú pháp tự động hoàn "
+"thành"
 
 #. (para)
 msgid ""
@@ -16256,11 +16746,17 @@ msgid ""
 "long. If you are missing important auto-completion information, you can "
 "extend the timeout."
 msgstr ""
+"Phân tích cú pháp tự động hoàn thành có thể khá chậm nếu có nhiều các tập "
+"tin lớn để kiểm tra. Thời gian chờ này nhằm ngăn hộp thoại cam kết bị giữ "
+"quá lâu. Nếu bạn đang thiếu các thông tin quan trọng về tự động hoàn thành, "
+"bạn có thể kéo dài thời gian chờ."
 
 #. (term)
 msgid ""
 "Only use spellchecker when <literal>tsvn:projectlanguage</literal> is set"
 msgstr ""
+"Chỉ sử dụng kiểm tra chính tả khi <literal> tsvn:projectlanguage </literal> "
+"được thiết lập"
 
 #. (para)
 msgid ""
@@ -16268,10 +16764,13 @@ msgid ""
 "The spellchecker will still be enabled where the project properties require "
 "it."
 msgstr ""
+"Nếu bạn không muốn sử dụng kiểm tra chính tả cho tất cả các cam kết, đánh "
+"dấu hộp kiểm này. Kiểm tra chính tả vẫn sẽ được kích hoạt nơi các thuộc tính"
+" của dự án yêu cầu nó."
 
 #. (term)
 msgid "Max. items to keep in the log message history"
-msgstr ""
+msgstr "Số lượng lớn nhất các mục để giữ trong lịch sử thông điệp tường trình"
 
 #. (para)
 msgid ""
@@ -16281,16 +16780,24 @@ msgid ""
 "many different repositories, you may wish to reduce this to avoid filling "
 "your registry."
 msgstr ""
+"Khi bạn gõ vào một thông điệp tường tình trong hộp thoại cam kết, "
+"TortoiseSVN lưu nó cho việc tái sử dụng có thể sau này. Theo mặc định, nó sẽ"
+" giữ 25 thông điệp tường tình cuối cùng cho mỗi kho, nhưng bạn có thể tùy "
+"chỉnh con số ở đây. Nếu bạn có nhiều kho khác nhau, bạn có thể để giảm bớt "
+"để tránh làm đầy registry của bạn."
 
 #. (para)
 msgid ""
 "Note that this setting applies only to messages that you type in on this "
 "computer. It has nothing to do with the log cache."
 msgstr ""
+"Lưu ý rằng thiết lập này chỉ áp dụng cho các thông điệp mà bạn gõ trên máy "
+"tính này. Nó không có gì để làm với bộ nhớ cache tường trình."
 
 #. (term)
 msgid "Re-open commit and branch/tag dialog after a commit failed"
 msgstr ""
+"Mở lại hộp thoại cam kết và chi nhánh / thẻ sau khi một cam kết thất bại"
 
 #. (para)
 msgid ""
@@ -16298,10 +16805,13 @@ msgid ""
 " hook rejects commit, network error, etc), you can select this option to "
 "keep the commit dialog open ready to try again."
 msgstr ""
+"Khi một cam kết thất bại vì một số lý do (bản sao làm việc cần phải cập "
+"nhật, hook tiền-cam kết bác bỏ cam kết, lỗi mạng, vv), bạn có thể chọn tùy "
+"chọn này để giữ cho hộp thoại cam kết mở sẵn sàng để thử lại."
 
 #. (term)
 msgid "Select items automatically"
-msgstr ""
+msgstr "Chọn các mục một cách tự động"
 
 #. (para)
 msgid ""
@@ -16309,10 +16819,14 @@ msgid ""
 "items to be selected for commit automatically. If you prefer to start with "
 "nothing selected and pick the items for commit manually, uncheck this box."
 msgstr ""
+"Các hành vi bình thường trong hộp thoại cam kết cho tất cả các mục được sửa "
+"đổi (có phiên bản) được lựa chọn để cam kết tự động. Nếu bạn muốn bắt đầu "
+"với không có gì được lựa chọn và chọn các mục cho cam kết bằng tay, bỏ chọn "
+"ô này."
 
 #. (term)
 msgid "Contact the repository on startup"
-msgstr ""
+msgstr "Liên hệ với các kho lưu trữ khi khởi động"
 
 #. (para)
 msgid ""
@@ -16321,10 +16835,14 @@ msgid ""
 "repository</guibutton>. If you always want to check the repository, you can "
 "use this setting to make that action happen automatically."
 msgstr ""
+"Hộp thoại Kiểm Tra Sửa Đổi kiểm tra các bản sao làm việc theo mặc định, và "
+"chỉ liên lạc kho lưu trữ khi bạn nhấp vào <guibutton> Kiểm tra kho lưu trữ "
+"</guibutton> . Nếu bạn luôn luôn muốn kiểm tra các kho lưu trữ, bạn có thể "
+"sử dụng thiết lập này để làm cho hành động đó xảy ra tự động."
 
 #. (term)
 msgid "Show Lock dialog before locking files"
-msgstr ""
+msgstr "Hiển thị hộp thoại Khóa trước khi khóa các tập tin"
 
 #. (para)
 msgid ""
@@ -16335,12 +16853,21 @@ msgid ""
 " use lock messages, you can uncheck this box to skip that dialog and lock "
 "the files immediately."
 msgstr ""
+"Khi bạn chọn một hay nhiều tập tin và sau đó sử dụng <menuchoice><guimenu> "
+"TortoiseSVN </guimenu><guimenuitem> Khóa </guimenuitem></menuchoice> để lấy "
+"khóa ra khỏi các tập tin, trên một số dự án, nó là phong tục để viết một "
+"thông điệp khóa giải thích lý do tại sao bạn đã bị khóa các tập tin. Nếu bạn"
+" không sử dụng thông điệp khóa, bạn có thể bỏ chọn hộp này để bỏ qua hộp "
+"thoại và khóa các tập tin ngay lập tức."
 
 #. (para)
 msgid ""
 "If you use the lock command on a folder, you are always presented with the "
 "lock dialog as that also gives you the option to select files for locking."
 msgstr ""
+"Nếu bạn sử dụng lệnh khóa trên một thư mục, bạn luôn luôn được trình bày với"
+" hộp thoại khóa bời nó cũng cung cấp cho bạn tùy chọn để chọn các tập tin để"
+" khóa."
 
 #. (para)
 msgid ""
@@ -16348,24 +16875,29 @@ msgid ""
 "property, you will see the lock dialog regardless of this setting because "
 "the project <emphasis>requires</emphasis> lock messages."
 msgstr ""
+"Nếu dự án của bạn đang sử dụng thuộc tính <literal> tsvn:lockmsgminsize "
+"</literal>, bạn sẽ thấy hộp thoại khóa bất kể thiết lập này vì dự án "
+"<emphasis> yêu cầu </emphasis> thông điệp khóa."
 
 #. (title)
 msgid "TortoiseSVN Colour Settings"
-msgstr ""
+msgstr "Thiết Lập Màu TortoiseSVN"
 
 #. (title)
 msgid "The Settings Dialog, Colours Page"
-msgstr ""
+msgstr "Trang Hộp Thoại Thiết Lập, Màu"
 
 #. (para)
 msgid ""
 "<placeholder-1/> This dialog allows you to configure the text colours used "
 "in TortoiseSVN's dialogs the way you like them."
 msgstr ""
+"<placeholder-1/> Hộp thoại này cho phép bạn cấu hình các màu sắc văn bản "
+"được sử dụng trong hộp thoại TortoiseSVN theo cách của bạn."
 
 #. (term)
 msgid "Possible or real conflict / obstructed"
-msgstr ""
+msgstr "Sự xung đột có thể có hoặc có thực / tắc nghẽn"
 
 #. (para)
 msgid ""
@@ -16373,52 +16905,63 @@ msgid ""
 "obstructed by an existing unversioned file/folder of the same name as a "
 "versioned one."
 msgstr ""
+"Một cuộc xung đột đã xảy ra trong quá trình cập nhật, hoặc có thể xảy ra "
+"trong quá trình hợp nhất. Cập nhật bị che khuất bởi một tập tin/thư mục chưa"
+" phiên bản đang tồn tại cùng tên như là được phiên bản."
 
 #. (para)
 msgid "This colour is also used for error messages in the progress dialogs."
 msgstr ""
+"Màu này cũng được sử dụng cho các thông báo lỗi trong hộp thoại tiến triển."
 
 #. (term)
 msgid "Added files"
-msgstr ""
+msgstr "Các tập tin được thêm"
 
 #. (para)
 msgid "Items added to the repository."
-msgstr ""
+msgstr "Các mục được bổ sung vào kho lưu trữ."
 
 #. (term)
 msgid "Missing / deleted / replaced"
-msgstr ""
+msgstr "Thiếu / bị xóa / bị thay thế"
 
 #. (para)
 msgid ""
 "Items deleted from the repository, missing from the working copy, or deleted"
 " from the working copy and replaced with another file of the same name."
 msgstr ""
+"Các mục đã được xóa từ kho, bị mất từ bản sao làm việc, hoặc bị xóa từ bản "
+"sao làm việc và thay thế bằng một tập tin cùng tên."
 
 #. (term)
 msgid "Merged"
-msgstr ""
+msgstr "Được hợp nhất"
 
 #. (para)
 msgid ""
 "Changes from the repository successfully merged into the WC without creating"
 " any conflicts."
 msgstr ""
+"Những thay đổi từ kho được sáp nhập thành công vào WC mà không tạo ra bất kỳ"
+" xung đột."
 
 #. (term)
 msgid "Modified / copied"
-msgstr ""
+msgstr "Được sửa đổi / sao chép"
 
 #. (para)
 msgid ""
 "Add with history, or paths copied in the repository. Also used in the log "
 "dialog for entries which include copied items."
 msgstr ""
+"Thêm vào với lịch sử, hoặc các đường dẫn được sao chép trong kho. Cũng được "
+"sử dụng trong hộp thoại tường trình cho các mục trong đó bao gồm các mục "
+"được sao chép."
 
 #. (term)
 msgid "Deleted node"
-msgstr ""
+msgstr "Nút đã bị xóa"
 
 #. (para)
 msgid "An item which has been deleted from the repository."
@@ -16682,6 +17225,11 @@ msgid ""
 "notifications to the shell, the overlays on the left tree view usually "
 "change too."
 msgstr ""
+"Ưu điểm: các lớp phủ hiển thị trạng thái đệ quy, nghĩa là nếu một tập tin "
+"sâu bên trong một bản sao làm việc được sửa đổi, tất cả các thư mục trở lên "
+"đến gốc của bản sao làm việc cũng sẽ hiển thị các lớp phủ sửa đổi. Và bởi vì"
+" quá trình này có thể gửi thông báo cho shell, lớp phủ trên màn hình cây "
+"trái thường cũng thay đổi."
 
 #. (para)
 msgid ""
@@ -16689,10 +17237,13 @@ msgid ""
 "your projects. It also uses around 10-50 MB of RAM depending on number and "
 "size of your working copies."
 msgstr ""
+"Nhược điểm: quá trình này chạy liên tục, thậm chí nếu bạn không làm việc "
+"trên các dự án của bạn. Nó cũng sử dụng khoảng 10-50 MB RAM tùy thuộc vào số"
+" lượng và kích thước của bản sao của bạn làm việc."
 
 #. (term)
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 #. (para)
 msgid ""
@@ -16700,12 +17251,17 @@ msgid ""
 "currently visible folder. Each time you navigate to another folder, the "
 "status information is fetched again."
 msgstr ""
+"Bộ nhớ đệm được thực hiện trực tiếp bên trong các dll mở rộng của shell, "
+"nhưng chỉ dành cho các thư mục đang nhìn thấy. Mỗi lần bạn định hướng đến "
+"thư mục khác, các thông tin trạng thái được nạp một lần nữa."
 
 #. (para)
 msgid ""
 "Advantage: needs only very little memory (around 1 MB of RAM) and can show "
 "the status in <emphasis>real time</emphasis>."
 msgstr ""
+"Ưu điểm: nhu cầu bộ nhớ chỉ rất ít (khoảng 1 MB bộ nhớ RAM) và có thể hiển "
+"thị trạng thái trong <emphasis> thời gian thực </emphasis> ."
 
 #. (para)
 msgid ""
@@ -16714,10 +17270,14 @@ msgid ""
 "folder in explorer than with the default cache. Also the mime-type column is"
 " not available."
 msgstr ""
+"Nhược điểm: Vì chỉ có một thư mục lưu trữ, các lớp phủ không hiển thị trạng "
+"thái một cách đệ quy. Đối với các bản sao làm việc lớn, nó có thể mất nhiều "
+"thời gian hơn để hiển thị một thư mục trong explorer hơn so với bộ nhớ cache"
+" mặc định. Ngoài ra các cột mime-type không có sẵn."
 
 #. (term)
 msgid "None"
-msgstr ""
+msgstr "Không"
 
 #. (para)
 msgid ""
@@ -16726,12 +17286,18 @@ msgid ""
 " 'normal' overlay if they're versioned. No other overlays are shown, and no "
 "extra columns are available either."
 msgstr ""
+"Với thiết lập này, các TortoiseSVN không lấy trạng thái chút nào trong "
+"Explorer. Do đó, các tập tin không nhận được một lớp phủ và các thư mục chỉ "
+"có được một lớp phủ \"bình thường\" nếu chúng có phiên bản. Không có lớp phủ"
+" khác được hiển thị, và cũng không có cột dư nào có sẵn."
 
 #. (para)
 msgid ""
 "Advantage: uses absolutely no additional memory and does not slow down the "
 "Explorer at all while browsing."
 msgstr ""
+"Ưu điểm: hoàn toàn không sử dụng bộ nhớ bổ sung và không làm chậm Explorer "
+"chút nào trong khi đang duyệt."
 
 #. (para)
 msgid ""
