@@ -63,10 +63,13 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
     SVNPatch * pThis = (SVNPatch*)baton;
     if (pThis && notify)
     {
-        PathRejects * pInfo = &pThis->m_filePaths[pThis->m_filePaths.size()-1];
+        PathRejects * pInfo = NULL;
+        if (pThis->m_filePaths.size())
+            pInfo = &pThis->m_filePaths[pThis->m_filePaths.size()-1];
         if ((notify->action == svn_wc_notify_skip)||(notify->action == svn_wc_notify_patch_rejected_hunk))
         {
-            pInfo->rejects++;
+            if (pInfo)
+                pInfo->rejects++;
         }
         if (notify->action != svn_wc_notify_add)
         {
@@ -76,8 +79,11 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
             else
                 pThis->m_testPath = abspath;
         }
-        pInfo->content = pInfo->content || (notify->content_state != svn_wc_notify_state_unknown);
-        pInfo->props   = pInfo->props   || (notify->prop_state    != svn_wc_notify_state_unknown);
+        if (pInfo)
+        {
+            pInfo->content = pInfo->content || (notify->content_state != svn_wc_notify_state_unknown);
+            pInfo->props   = pInfo->props   || (notify->prop_state    != svn_wc_notify_state_unknown);
+        }
 
         if (((notify->action == svn_wc_notify_patch)||(notify->action == svn_wc_notify_add))&&(pThis->m_pProgDlg))
         {
@@ -176,8 +182,8 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
     m_filePaths.clear();
     m_nRejected = 0;
     m_nStrip = 0;
-    err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile),     // patch_abspath
-                           CUnicodeUtils::GetUTF8(m_targetpath),    // local_abspath
+    err = svn_client_patch(CTSVNPath(m_patchfile).GetSVNApiPath(scratchpool),     // patch_abspath
+                           CTSVNPath(m_targetpath).GetSVNApiPath(scratchpool),    // local_abspath
                            true,                                    // dry_run
                            m_nStrip,                                // strip_count
                            false,                                   // reverse
