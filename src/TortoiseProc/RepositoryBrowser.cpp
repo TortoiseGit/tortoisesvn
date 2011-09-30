@@ -500,7 +500,7 @@ void CRepositoryBrowser::InitRepo()
             {
                 // in case the url is not a valid directory, try the parent dir
                 // until there's no more parent dir
-                m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.ReverseFind('/'));
+                m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.ReverseFind('/')+1);
                 if ((m_InitialUrl.Compare(_T("http://")) == 0) ||
                     (m_InitialUrl.Compare(_T("https://")) == 0)||
                     (m_InitialUrl.Compare(_T("svn://")) == 0)||
