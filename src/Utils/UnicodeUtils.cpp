@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2006, 2008-2011 - TortoiseSVN
 
@@ -48,13 +48,24 @@ char* CUnicodeUtils::UTF16ToUTF8
             __m128i chunk0 = _mm_loadu_si128 ((const __m128i*)source);
             __m128i chunk1 = _mm_loadu_si128 ((const __m128i*)(source + 8));
 
-            // convert to 8-bit chars. Values > 0xff will be mapped to 0xff
+            // check for chars > 0x80 - these are not ASCII
 
-            __m128i packedChunk = _mm_packs_epi16 (chunk0, chunk1);
+            int ascii_flags = _mm_movemask_epi8 (chunk0);
+            if (ascii_flags != 0)
+                break;
+            ascii_flags = _mm_movemask_epi8 (chunk1);
+            if (ascii_flags != 0)
+                break;
+
+            // convert to 8-bit chars. Values > 0xff will be mapped to 0xff
+            // Note: values > 0x8000 will be mapped to zero, that's why
+            // the ascii check above is necessary
+
+            __m128i packedChunk = _mm_packus_epi16 (chunk0, chunk1);
 
             // check for non-ASCII (SSE2 cmp* operations are signed!)
 
-            int ascii_flags = _mm_movemask_epi8 (_mm_cmplt_epi8 (packedChunk, zero));
+            ascii_flags = _mm_movemask_epi8 (_mm_cmplt_epi8 (packedChunk, zero));
             if (ascii_flags != 0)
                 break;
 
@@ -456,3 +467,42 @@ int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax,
 #endif
     return ret;
 }
+
+#if defined(_DEBUG)
+// Some test cases for these classes
+static class CUnicodeUtilsTests
+{
+public:
+    CUnicodeUtilsTests()
+    {
+        CStringA result = CUnicodeUtils::GetUTF8(L"<value>退订</value>");
+        CStringW resultW = CUnicodeUtils::GetUnicode(result);
+        ATLASSERT(resultW == L"<value>退订</value>");
+        result = CUnicodeUtils::GetUTF8(L"äöü");
+        resultW = CUnicodeUtils::GetUnicode(result);
+        ATLASSERT(resultW == L"äöü");
+        result = CUnicodeUtils::GetUTF8(L"Продолжить выполнение скрипта?");
+        resultW = CUnicodeUtils::GetUnicode(result);
+        ATLASSERT(resultW == L"Продолжить выполнение скрипта?");
+        result = CUnicodeUtils::GetUTF8(L"dvostruki klik za automtsko uključivanje alfa");
+        resultW = CUnicodeUtils::GetUnicode(result);
+        ATLASSERT(resultW == L"dvostruki klik za automtsko uključivanje alfa");
+        result = CUnicodeUtils::GetUTF8(L"包含有错误的结构。");
+        resultW = CUnicodeUtils::GetUnicode(result);
+        ATLASSERT(resultW == L"包含有错误的结构。");
+        result = CUnicodeUtils::GetUTF8(L"个文件，共有 %2!d! 个文件");
+        resultW = CUnicodeUtils::GetUnicode(result);
+        ATLASSERT(resultW == L"个文件，共有 %2!d! 个文件");
+        result = CUnicodeUtils::GetUTF8(L"は予期せぬオブジェクトを含んでいます。");
+        resultW = CUnicodeUtils::GetUnicode(result);
+        ATLASSERT(resultW == L"は予期せぬオブジェクトを含んでいます。");
+        result = CUnicodeUtils::GetUTF8(L"Verify that the correct path and file name are given.");
+        resultW = CUnicodeUtils::GetUnicode(result);
+        ATLASSERT(resultW == L"Verify that the correct path and file name are given.");
+    }
+
+} UnicodeTestobject;
+#endif
+
+
+
