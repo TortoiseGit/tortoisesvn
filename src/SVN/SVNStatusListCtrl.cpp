@@ -109,9 +109,10 @@ const static CString svnPropIgnore (SVN_PROP_IGNORE);
 #define IDSVNLC_CHECKFORMODS    37
 #define IDSVNLC_REPAIRCOPY      38
 #define IDSVNLC_SWITCH          39
+#define IDSVNLC_COMPARETWO      40
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS        40
+#define IDSVNLC_MOVETOCS        41
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -2765,6 +2766,28 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             if (selectedCount > 0)
             {
                 if ((selectedCount == 2)&&
+                    (m_dwContextMenus & SVNSLC_POPCOMPARETWO))
+                {
+                    POSITION pos = GetFirstSelectedItemPosition();
+                    int index = GetNextSelectedItem(pos);
+                    if (index >= 0)
+                    {
+                        bool bothItemsAreFiles = true;
+                        FileEntry * entry2 = GetListEntry(index);
+                        if (entry2)
+                            bothItemsAreFiles = !entry2->IsFolder();
+                        index = GetNextSelectedItem(pos);
+                        if (index >= 0)
+                        {
+                            entry2 = GetListEntry(index);
+                            if (entry2)
+                                bothItemsAreFiles = bothItemsAreFiles && !entry2->IsFolder();
+                            if (bothItemsAreFiles)
+                                popup.AppendMenuIcon(IDSVNLC_COMPARETWO, IDS_STATUSLIST_CONTEXT_COMPARETWO, IDI_DIFF);
+                        }
+                    }
+                }
+                if ((selectedCount == 2)&&
                     ((m_dwContextMenus & SVNSLC_POPREPAIRMOVE)||(m_dwContextMenus & SVNSLC_POPREPAIRCOPY)))
                 {
                     POSITION pos = GetFirstSelectedItemPosition();
@@ -3138,6 +3161,28 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         svn_revnum_t baseRev = entry2->Revision;
                         diff.DiffFileAgainstBase(
                             entry2->path, baseRev, entry2->textstatus, entry2->propstatus);
+                    }
+                }
+                break;
+            case IDSVNLC_COMPARETWO:
+                {
+                    POSITION pos = GetFirstSelectedItemPosition();
+                    if ( pos )
+                    {
+                        int index = GetNextSelectedItem(pos);
+                        FileEntry * firstentry = GetListEntry(index);
+                        ASSERT(firstentry != NULL);
+                        if (firstentry == NULL)
+                            break;
+                        index = GetNextSelectedItem(pos);
+                        FileEntry * secondentry = GetListEntry(index);
+                        ASSERT(secondentry != NULL);
+                        if (secondentry == NULL)
+                            break;
+                        CString sCmd;
+                        sCmd.Format(_T("/command:diff /path:\"%s\" /path2:\"%s\" /hwnd:%ld"),
+                            firstentry->GetPath().GetWinPath(), secondentry->GetPath().GetWinPath(), (unsigned long)m_hWnd);
+                        CAppUtils::RunTortoiseProc(sCmd);
                     }
                 }
                 break;
