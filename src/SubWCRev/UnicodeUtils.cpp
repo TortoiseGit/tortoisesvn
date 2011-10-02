@@ -1,4 +1,4 @@
-// Copyright (C) 2007,2010 - TortoiseSVN
+// Copyright (C) 2007,2010-2011 - TortoiseSVN
 
 // this program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,4 +38,14 @@ char * Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool)
     char * pch = (char*) apr_palloc(pool, utf8_count);
     WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, pch, utf8_count, NULL, NULL);
     return pch;
+}
+
+std::wstring Utf8ToWide(const std::string string)
+{
+    const size_t len = string.size();
+    auto_buffer<WCHAR> buf(len*4 + 1);
+    SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+    MultiByteToWideChar(CP_UTF8, 0, string.c_str(), -1, buf, (int)len*4);
+    std::wstring ret = std::wstring(buf);
+    return ret;
 }

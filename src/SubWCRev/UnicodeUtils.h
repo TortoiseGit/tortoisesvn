@@ -1,4 +1,4 @@
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -15,7 +15,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #pragma once
 #include <apr_pools.h>
-
+#include <string>
 /**
  * \ingroup SubWCRev
  * Converts an ANSI string to UTF8.
@@ -27,3 +27,10 @@ char * AnsiToUtf8(const char * pszAnsi, apr_pool_t *pool);
  * Converts an UTF16 string to UTF8
  */
 char * Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool);
+
+/**
+ * \ingroup SubWCRev
+ * Converts an UTF8 string to UTF16
+ */
+std::wstring Utf8ToWide(const std::string string);
+
