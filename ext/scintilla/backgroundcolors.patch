@@ -1,6 +1,6 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(Revision 21909)
+--- include/Scintilla.h	(Revision 22054)
 +++ include/Scintilla.h	(Arbeitskopie)
 @@ -923,6 +923,9 @@
  #define SCN_AUTOCCANCELLED 2025
@@ -14,7 +14,7 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(Revision 21909)
+--- src/Editor.cxx	(Revision 22054)
 +++ src/Editor.cxx	(Arbeitskopie)
 @@ -2804,6 +2804,17 @@
  		}
@@ -36,7 +36,7 @@ Index: src/Editor.cxx
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(Revision 21909)
+--- src/Editor.h	(Revision 22054)
 +++ src/Editor.h	(Arbeitskopie)
 @@ -426,6 +426,7 @@
  	virtual void SetCtrlID(int identifier);
@@ -48,7 +48,7 @@ Index: src/Editor.h
  	void NotifySavePoint(bool isSavePoint);
 Index: win32/scintilla.mak
 ===================================================================
---- win32/scintilla.mak	(Revision 21909)
+--- win32/scintilla.mak	(Revision 22054)
 +++ win32/scintilla.mak	(Arbeitskopie)
 @@ -21,7 +21,7 @@
  RC=rc
@@ -61,7 +61,7 @@ Index: win32/scintilla.mak
  CXXNDEBUG=-O1 -MT -DNDEBUG -GL
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(Revision 21909)
+--- win32/ScintillaWin.cxx	(Revision 22054)
 +++ win32/ScintillaWin.cxx	(Arbeitskopie)
 @@ -238,6 +238,7 @@
  	virtual void SetCtrlID(int identifier);
@@ -71,7 +71,7 @@ Index: win32/ScintillaWin.cxx
  	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
-@@ -1318,6 +1319,13 @@
+@@ -1325,6 +1326,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
