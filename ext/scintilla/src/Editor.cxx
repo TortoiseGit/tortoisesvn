@@ -2559,7 +2559,7 @@ void Editor::DrawEOL(Surface *surface, ViewStyle &vsDraw, PRectangle rcLine, Lin
 
 	// Draw the eol-is-selected rectangle
 	rcSegment.left = xEol + xStart + virtualSpace + blobsWidth;
-	rcSegment.right = xEol + xStart + virtualSpace + blobsWidth + vsDraw.aveCharWidth;
+	rcSegment.right = rcSegment.left + vsDraw.aveCharWidth;
 
 	if (!hideSelection && eolInSelection && vsDraw.selbackset && (line < pdoc->LinesTotal() - 1) && (alpha == SC_ALPHA_NOALPHA)) {
 		surface->FillRectangle(rcSegment, SelectionBackground(vsDraw, eolInSelection == 1));
@@ -2579,7 +2579,7 @@ void Editor::DrawEOL(Surface *surface, ViewStyle &vsDraw, PRectangle rcLine, Lin
 	}
 
 	// Fill the remainder of the line
-	rcSegment.left = xEol + xStart + virtualSpace + blobsWidth + vsDraw.aveCharWidth;
+	rcSegment.left = rcSegment.right;
 	if (rcSegment.left < rcLine.left)
 		rcSegment.left = rcLine.left;
 	rcSegment.right = rcLine.right;
@@ -2802,17 +2802,6 @@ void Editor::DrawLine(Surface *surface, ViewStyle &vsDraw, int line, int lineVis
 				}
 			}
 		}
-	}
-
-	SCNotification scn = {0};
-	scn.nmhdr.code = SCN_GETBKCOLOR;
-	scn.line = line;
-	scn.lParam = -1;
-	NotifyParent(&scn);
-	if (scn.lParam != -1)
-	{
-		background = scn.lParam;
-		overrideBackground = true;
 	}
 
 	bool drawWhitespaceBackground = (vsDraw.viewWhitespace != wsInvisible) &&
@@ -6031,20 +6020,20 @@ bool Editor::PositionInSelection(int pos) {
 
 bool Editor::PointInSelection(Point pt) {
 	SelectionPosition pos = SPositionFromLocation(pt, false, true);
-	int xPos = XFromPosition(pos);
+	Point ptPos = LocationFromPosition(pos);
 	for (size_t r=0; r<sel.Count(); r++) {
 		SelectionRange range = sel.Range(r);
 		if (range.Contains(pos)) {
 			bool hit = true;
 			if (pos == range.Start()) {
 				// see if just before selection
-				if (pt.x < xPos) {
+				if (pt.x < ptPos.x) {
 					hit = false;
 				}
 			}
 			if (pos == range.End()) {
 				// see if just after selection
-				if (pt.x > xPos) {
+				if (pt.x > ptPos.x) {
 					hit = false;
 				}
 			}
@@ -8389,7 +8378,7 @@ sptr_t Editor::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam) {
 		return vs.caretStyle;
 
 	case SCI_SETCARETWIDTH:
-		if (wParam <= 0)
+		if (static_cast<int>(wParam) <= 0)
 			vs.caretWidth = 0;
 		else if (wParam >= 3)
 			vs.caretWidth = 3;
