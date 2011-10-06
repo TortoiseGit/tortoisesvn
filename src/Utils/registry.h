@@ -107,9 +107,9 @@ protected:
     LONG LastError;     ///< the value of the last error occurred
     REGSAM m_sam;       ///< the security attributes to pass to the registry command
 
-    bool m_read;        ///< indicates if the value has already been read from the registry
+    bool m_read;        ///< indicates if the value has already been attempted read from the registry
     bool m_force;       ///< indicates if no cache should be used, i.e. always read and write directly from registry
-    bool m_exists;      ///< true, if the registry actually exists
+    bool m_exists;      ///< true, if the registry value actually exists
 };
 
 // implement CRegBaseCommon<> members
@@ -423,7 +423,6 @@ void CRegTypedBase<T, Base>::read()
     HKEY hKey = NULL;
     if ((LastError = RegOpenKeyEx (m_base, GetPlainString (m_path), 0, STANDARD_RIGHTS_READ|KEY_QUERY_VALUE|m_sam, &hKey))==ERROR_SUCCESS)
     {
-        m_read = true;
 
         T value = m_defaultvalue;
         InternalRead (hKey, value);
@@ -437,6 +436,7 @@ void CRegTypedBase<T, Base>::read()
         LastError = RegCloseKey(hKey);
     }
 
+    m_read = true;
     lastRead = GetTickCount();
 }
 
