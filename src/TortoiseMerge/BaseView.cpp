@@ -4113,6 +4113,7 @@ void CBaseView::OnNavigateNextinlinediff()
         POINT ptCaretViewPos = GetCaretViewPosition();
         ptCaretViewPos.x = nX;
         SetCaretAndGoalViewPosition(ptCaretViewPos);
+        m_ptSelectionViewPosOrigin = ptCaretViewPos;
         EnsureCaretVisible();
     }
 }
@@ -4125,6 +4126,7 @@ void CBaseView::OnNavigatePrevinlinediff()
         POINT ptCaretViewPos = GetCaretViewPosition();
         ptCaretViewPos.x = nX;
         SetCaretAndGoalViewPosition(ptCaretViewPos);
+        m_ptSelectionViewPosOrigin = ptCaretViewPos;
         EnsureCaretVisible();
     }
 }
