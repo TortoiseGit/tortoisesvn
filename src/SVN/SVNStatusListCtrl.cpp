@@ -5889,7 +5889,7 @@ void CSVNStatusListCtrlDropTarget::OnDrop(HDROP hDrop, POINTL pt)
     }
     // find the changelist name
     LONG_PTR nGroup = m_pSVNStatusListCtrl->GetGroupFromPoint(&clientpoint, false);
-	CString sChangelist(GetChangelistName(nGroup));
+    CString sChangelist(GetChangelistName(nGroup));
 
     SVN svn;
     if (!sChangelist.IsEmpty())
