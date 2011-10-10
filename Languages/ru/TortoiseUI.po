@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-27 13:56+0000\n"
+"PO-Revision-Date: 2011-10-09 23:41+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -502,7 +502,7 @@ msgstr "&Граница:"
 
 #. Resource IDs: (1568)
 msgid "&Bottom"
-msgstr "&Низ"
+msgstr "В&низу"
 
 #. Resource IDs: (65535)
 msgid "&Branches"
@@ -714,7 +714,7 @@ msgstr "Введите сооб&щение, поясняющее, почему �
 
 #. Resource IDs: (1554)
 msgid "&Executable"
-msgstr "В&нешняя"
+msgstr "&Исполняемый"
 
 #. Resource IDs: (32782)
 msgid "&Exit"
@@ -1032,7 +1032,7 @@ msgstr "Блокировка &не нужна"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
-msgstr "&Не исполняемый"
+msgstr "&Неисполняемый"
 
 #. Resource IDs: (1566)
 msgid "&Numeric"
@@ -1128,7 +1128,7 @@ msgstr "&Обновить"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr "&Напомнить мне ID ошибки"
+msgstr "&Напоминать о вводе ID ошибки"
 
 #. Resource IDs: (619, 1100, 1285, 1597, 16646)
 msgid "&Remove"
@@ -1340,7 +1340,7 @@ msgstr "&Панели инструментов:"
 
 #. Resource IDs: (1567)
 msgid "&Top"
-msgstr "На&верх"
+msgstr "В&верху"
 
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
@@ -1754,15 +1754,15 @@ msgid ""
 "You won't get asked about this certificate again."
 msgstr ""
 "Принять сертификат постоянно\n"
-"Вам не будут задаваться вопросы об этом сертификате еще раз."
+"Вам не будут задаваться вопросы об этом сертификате ещё раз."
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
-"Принят сертификат\n"
-"Сертификат принят только на этот один раз."
+"Принять сертификат\n"
+"Сертификат принять только в этот раз."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2383,11 +2383,11 @@ msgstr "ID ошибки"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
-msgstr "Выра&жение ошибки:"
+msgstr "Выра&жение ID ошибки:"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
-msgstr "ID ошибок:"
+msgstr "ID ошибки:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
@@ -2761,7 +2761,7 @@ msgstr "Сертификат еще не действителен. Действ�
 
 #. Resource IDs: (148)
 msgid "Certificate validation failed"
-msgstr "Проверка сертификата неудалась"
+msgstr "Проверка сертификата не удалась"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
@@ -3240,6 +3240,10 @@ msgstr "Сравнить с рабочей базой с просмотром &�
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
 msgstr "Сравнить с предыдущей ревизией с просмотром авторства"
+
+#. Resource IDs: (210)
+msgid "Compare two files"
+msgstr "Сравнить два файла"
 
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
@@ -4589,8 +4593,8 @@ msgid ""
 "Enter the regular expression patterns for filtering out the bug-ID from a "
 "commit message."
 msgstr ""
-"Вводить шаблоны регулярных выражений для фильтрации ошибка по ID из "
-"сообщений."
+"Введите шаблоны регулярных выражений для фильтрации ID ошибки из сообщения "
+"фиксации."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5460,7 +5464,7 @@ msgstr "В&ключить пути:"
 
 #. Resource IDs: (1580)
 msgid "IBugTraqProvider"
-msgstr "Поставщик"
+msgstr "IBugTraqProvider"
 
 #. Resource IDs: (1592)
 msgid "ID"
@@ -5995,7 +5999,7 @@ msgstr ""
 
 #. Resource IDs: (1575)
 msgid "Insert message at:"
-msgstr "Введите сообщение в:"
+msgstr "Вставить сообщение:"
 
 #. Resource IDs: (3857)
 msgid "Insufficient memory to perform operation."
@@ -6099,7 +6103,7 @@ msgstr ""
 
 #. Resource IDs: (1571)
 msgid "Issue tracker"
-msgstr "Трассир ошибок"
+msgstr "Система отслеживания проблем"
 
 #. Resource IDs: (89)
 #, c-format
@@ -6683,15 +6687,15 @@ msgstr "Сообщение"
 
 #. Resource IDs: (1574)
 msgid "Message &label:"
-msgstr "Сооб&щение:"
+msgstr "&Метка сообщения:"
 
 #. Resource IDs: (1573)
 msgid "Message &pattern:"
-msgstr "Шаблон &сообщения:"
+msgstr "&Шаблон сообщения:"
 
 #. Resource IDs: (1579)
 msgid "Message part &expression:"
-msgstr "Часть &выражения:"
+msgstr "&Выражение части сообщения:"
 
 #. Resource IDs: (1241)
 msgid "Message:"
@@ -7141,13 +7145,12 @@ msgstr ""
 
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
-msgstr "Внимание: папка содержит неверсированные элементы"
+msgstr "Примечание: папка содержит неверсированные элементы"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
 msgstr ""
-"Обратите внимание: настройки шрифта распространяются также и на "
-"TortoiseUDiff"
+"Примечание: настройки шрифта распространяются также и на TortoiseUDiff"
 
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
@@ -7156,7 +7159,7 @@ msgstr ""
 
 #. Resource IDs: (1557)
 msgid "Note: this property has no effect on Windows"
-msgstr "Примечание: это свойство не имеет влияния на Windows"
+msgstr "Примечание: это свойство не имеет влияния в ОС Windows"
 
 #. Resource IDs: (173)
 msgid "Nothing is selected for commit!"
@@ -7913,19 +7916,19 @@ msgstr "Значение свойства:"
 
 #. Resource IDs: (63)
 msgid "Provider"
-msgstr "Поставщик"
+msgstr "Провайдер"
 
 #. Resource IDs: (1586)
 msgid "Provider para&meters:"
-msgstr "Пара&метры:"
+msgstr "Пара&метры провайдера:"
 
 #. Resource IDs: (1581)
 msgid "Provider uuid win&32:"
-msgstr "Пос&тавщик:"
+msgstr "Провайдер uuid win&32:"
 
 #. Resource IDs: (1475)
 msgid "Provider:"
-msgstr "Поставщик:"
+msgstr "Провайдер:"
 
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
@@ -9686,17 +9689,18 @@ msgid ""
 "the placeholder %BUGID% for the real bug-ID. If you leave these settings "
 "empty, TortoiseSVN will use the regular expressions instead."
 msgstr ""
-"Укажите, как завершать сообщение построенное из ID ошибки. Используя "
-"заполнитель %BUGID% для вывода ID. Если вы оставите эти параметры пустыми, "
-"TortoiseSVN будет использовать регулярные выражения."
+"Укажите, как должно быть построено сообщение фиксации из введенного ID "
+"ошибки. Используйте %BUGID% на месте настоящего ID ошибки. Если вы оставите "
+"эти параметры пустыми, то TortoiseSVN будет использовать регулярные "
+"выражения."
 
 #. Resource IDs: (1305)
 msgid ""
 "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder "
 "for the real issue number."
 msgstr ""
-"Укажите URL для доступа к трассеру ошибок. Исполльзуйте %BUGID% как "
-"заполнитель."
+"Укажите URL для доступа к системе отслеживания ошибок. Используйте %BUGID% "
+"на месте номера проблемы."
 
 #. Resource IDs: (79)
 msgid ""
