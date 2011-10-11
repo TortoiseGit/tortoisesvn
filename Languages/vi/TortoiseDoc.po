@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-10 05:17+0000\n"
+"PO-Revision-Date: 2011-10-11 07:09+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -24694,6 +24694,8 @@ msgid ""
 "A Subversion command which creates a local working copy in an empty "
 "directory by downloading versioned files from the repository."
 msgstr ""
+"Một lệnh Subversion tạo ra một bản sao hoạt động địa phương trong một thư "
+"mục rỗng bằng cách tải về các tập tin có phiên bản từ kho lưu trữ."
 
 #. (para)
 msgid ""
@@ -24704,16 +24706,26 @@ msgid ""
 "Note that in this context <emphasis>lock</emphasis> refers to local "
 "filesystem locking, not repository locking."
 msgstr ""
+"Trích dẫn từ cuốn sách Subversion: <quote> Đệ quy làm sạch bản sao làm việc,"
+" loại bỏ các khóa và nối lại các tác vụ chưa hoàn thành. Nếu bạn đã từng có "
+"được một <emphasis> bản sao làm việc bị khóa </emphasis> lỗi, chạy lệnh này "
+"để loại bỏ ổ khóa cũ và nhận bản sao của bạn làm việc vào một trạng thái có "
+"thể sử dụng lại. </quote> Lưu ý rằng trong bối cảnh này <emphasis> khóa "
+"</emphasis> có nghĩa là khóa hệ thống tập tin địa phương, chứ không phải là "
+"khóa kho lưu trữ."
 
 #. (para)
 msgid ""
 "This Subversion command is used to pass the changes in your local working "
 "copy back into the repository, creating a new repository revision."
 msgstr ""
+"Lệnh Subversion được sử dụng để chuyển những thay đổi trong bản sao làm việc"
+" địa phương của bạn trở lại vào kho lưu trữ, tạo ra một phiên bản kho lưu "
+"trữ mới."
 
 #. (glossterm)
 msgid "Conflict"
-msgstr ""
+msgstr "Xung đột"
 
 #. (para)
 msgid ""
@@ -24723,10 +24735,16 @@ msgid ""
 "conflict. You have to edit the file manually and resolve the conflict before"
 " you can commit any further changes."
 msgstr ""
+"Khi các thay đổi từ kho được sáp nhập với những thay đổi của địa phương, đôi"
+" khi những thay đổi đó xảy ra trên cùng một dòng. Trong trường hợp này "
+"Subversion không thể tự động quyết định phiên bản nào để sử dụng và tập tin "
+"được cho là nằm trong cuộc xung đột. Bạn có để chỉnh sửa các tập tin bằng "
+"tay và giải quyết cuộc xung đột trước khi bạn có thể cam kết bất kỳ thay đổi"
+" tiếp theo."
 
 #. (glossterm)
 msgid "Copy"
-msgstr ""
+msgstr "Sao chép"
 
 #. (para)
 msgid ""
@@ -24736,6 +24754,12 @@ msgid ""
 "Making a copy preserves the history of the item in the copy, so you can "
 "trace changes made before the copy was made."
 msgstr ""
+"Trong một kho lưu trữ Subversion, bạn có thể tạo một bản sao của một tập tin"
+" hoặc toàn bộ một cây. Những cái này được thực hiện như <quote> bản sao giá "
+"rẻ </quote> hành động giống như một liên kết tới bản gốc ở chỗ chung gần như"
+" không chiếm không gian nào. Làm một bản sao bảo tồn lịch sử của các mục "
+"trong bản sao, vì vậy bạn có thể theo dõi những thay đổi được thực hiện "
+"trước khi bản sao chép được tạo ra."
 
 #. (para)
 msgid ""
@@ -24745,48 +24769,63 @@ msgid ""
 " necessary, you can copy a deleted item and <quote>resurrect</quote> it "
 "complete with history."
 msgstr ""
+"Khi bạn xóa một mục có phiên bản (và cam kết các thay đổi) mục đó không còn "
+"tồn tại trong kho lưu trữ sau khi sửa đổi cam kết. Nhưng tất nhiên nó vẫn "
+"còn tồn tại trong các phiên bản kho lưu trữ trước đó, vì vậy bạn vẫn có thể "
+"truy cập vào nó. Nếu cần thiết, bạn có thể sao chép một mục đã bị xóa và "
+"<quote> hồi sinh </quote> nó hoàn thành với lịch sử."
 
 #. (para)
 msgid ""
 "Shorthand for <quote>Show Differences</quote>. Very useful when you want to "
 "see exactly what changes have been made."
 msgstr ""
+"Viết tắt cho <quote> Hiển thị khác biệt </quote> . Rất hữu ích khi bạn muốn "
+"xem chính xác những thay đổi gì đã được thực hiện."
 
 #. (para)
 msgid ""
 "This command produces a copy of a versioned folder, just like a working "
 "copy, but without the local <literal>.svn</literal> folders."
 msgstr ""
+"Lệnh này tạo ra một bản sao của một thư mục có phiên bản, giống như một bản "
+"sao làm việc, nhưng không có thư mục<literal> .svn </literal> địa phương."
 
 #. (glossterm)
 msgid "FSFS"
-msgstr ""
+msgstr "FSFS"
 
 #. (para)
 msgid ""
 "A proprietary Subversion filesystem backend for repositories. Can be used on"
 " network shares. Default for 1.2 and newer repositories."
 msgstr ""
+"Một hệ thống tập tin phụ trợ Subversion độc quyền cho các kho. Có thể được "
+"sử dụng trên mạng chia sẻ. Mặc định cho 1.2 và các kho mới hơn."
 
 #. (para)
 msgid "Group policy object."
-msgstr ""
+msgstr "đối tượng chính sách nhóm."
 
 #. (glossterm)
 msgid "HEAD revision"
-msgstr ""
+msgstr "Sửa đổi CHÍNH"
 
 #. (para)
 msgid ""
 "The latest revision of a file or folder in the "
 "<emphasis>repository</emphasis>."
 msgstr ""
+"Các phiên bản mới nhất của một tập tin hoặc thư mục trong <emphasis> kho "
+"</emphasis> ."
 
 #. (para)
 msgid ""
 "Subversion command to import an entire folder hierarchy into the repository "
 "in a single revision."
 msgstr ""
+"Lệnh Subversion để nhập khẩu toàn bộ hệ thống phân cấp thư mục vào kho lưu "
+"trữ trong một bản sửa đổi duy nhất."
 
 #. (para)
 msgid ""
@@ -24794,26 +24833,33 @@ msgid ""
 "as non-committable, except from the working copy where the lock was taken "
 "out."
 msgstr ""
+"Khi bạn lấy ra khóa trên một mục có phiên bản, bạn đánh dấu nó trong kho lưu"
+" trữ như là không thể cam kết, ngoại trừ từ bản sao làm việc nơi khóa đã "
+"được lấy ra."
 
 #. (glossterm)
 msgid "Log"
-msgstr ""
+msgstr "Tường Trình"
 
 #. (para)
 msgid ""
 "Show the revision history of a file or folder. Also known as "
 "<quote>History</quote>."
 msgstr ""
+"Hiển thị lịch sử sửa đổi của một tập tin hoặc thư mục. Còn được gọi là "
+"<quote> Lịch sử </quote> ."
 
 #. (glossterm)
 msgid "History"
-msgstr ""
+msgstr "Lịch sử"
 
 #. (para)
 msgid ""
 "Show the revision history of a file or folder. Also known as "
 "<quote>Log</quote>."
 msgstr ""
+"Hiển thị lịch sử sửa đổi của một tập tin hoặc thư mục. Còn được gọi là "
+"<quote> Tường Trình </quote> ."
 
 #. (para)
 msgid ""
@@ -24822,6 +24868,10 @@ msgid ""
 " these changes cannot be reconciled automatically and the working copy is "
 "said to be in conflict."
 msgstr ""
+"Quá trình mà các thay đổi từ kho được bổ sung vào bản sao làm việc của bạn "
+"mà không làm gián đoạn bất kỳ thay đổi mà bạn đã thực hiện tại địa phương. "
+"Đôi khi những thay đổi này có thể không được dàn xếp tự động và bản sao làm "
+"việc được gọi là đang có xung đột."
 
 #. (para)
 msgid ""
@@ -24829,10 +24879,13 @@ msgid ""
 "also merge specific changes from another branch using TortoiseSVN's Merge "
 "command."
 msgstr ""
+"Kết hợp sẽ xảy ra tự động khi bạn cập nhật bản sao làm việc của bạn. Bạn "
+"cũng có thể sáp nhập các thay đổi cụ thể từ một chi nhánh khác bằng cách sử "
+"dụng lệnh Merge TortoiseSVN."
 
 #. (glossterm)
 msgid "Patch"
-msgstr ""
+msgstr "Bản vá"
 
 #. (para)
 msgid ""
@@ -24845,10 +24898,19 @@ msgid ""
 "apply. Or if you are unsure about a change you can submit a patch for others"
 " to review."
 msgstr ""
+"Nếu một bản sao làm việc chỉ có các thay đổi đến các tập tin văn bản, nó có "
+"thể sử dụng lệnh Diff Subversion để tạo ra một bản tóm tắt tập tin duy nhất "
+"của những thay đổi trong định dạng Khác biệt Thống nhất. Một tập tin loại "
+"này thường được nhắc đến như là một <quote> Bản vá </quote> , và nó có thể "
+"được gửi qua email cho người khác (hoặc một danh sách gửi thư) và áp dụng "
+"cho một bản sao làm việc. Một người nào đó không có truy cập cam kết có thể "
+"tạo thay đổi và gửi tập tin vá cho một người cam kết có thẩm quyền để áp "
+"dụng. Hoặc nếu bạn không chắc chắn về sự thay đổi, bạn có thể gửi một bản vá"
+" cho những người khác để xem xét."
 
 #. (glossterm)
 msgid "Property"
-msgstr ""
+msgstr "Thuộc tính"
 
 #. (para)
 msgid ""
@@ -24860,6 +24922,14 @@ msgid ""
 "TortoiseSVN has some too, such as <literal>tsvn:logminsize</literal>. You "
 "can add your own properties with any name and value you choose."
 msgstr ""
+"Ngoài việc phiên bản các thư mục và tập tin của bạn, Subversion cho phép bạn"
+" thêm siêu dữ liệu có phiên bản - được gọi là <quote> thuộc tính </quote> "
+"cho mỗi thư mục và tập tin có phiên bản của bạn. Mỗi thuôck tính có một cái "
+"tên và một giá trị, giống như một khóa registry. Subversion có một số tính "
+"chất đặc biệt mà nó sử dụng nội bộ, chẳng hạn như <literal> svn:eol-style "
+"</literal>. TortoiseSVN cũng có một số, chẳng hạn như <literal> "
+"tsvn:logminsize </literal> . Bạn có thể thêm các thuộc tính của riêng bạn "
+"với bất kỳ tên và giá trị mà bạn chọn."
 
 #. (para)
 msgid ""
@@ -24868,6 +24938,10 @@ msgid ""
 " <quote>relocate</quote> your working copy so that its repository URLs point"
 " to the new location."
 msgstr ""
+"Nếu di chuyển kho lưu trữ của bạn, có lẽ bởi vì bạn đã di chuyển nó vào một "
+"thư mục khác trên máy chủ của bạn, hoặc tên miền máy chủ đã thay đổi, bạn "
+"cần phải <quote> di dời </quote> bản sao của bạn làm việc để các URL kho lưu"
+" trữ chỉ đến vị trí mới."
 
 #. (para)
 msgid ""
@@ -24876,10 +24950,14 @@ msgid ""
 "moved. In any other circumstance you probably need the <quote>Switch</quote>"
 " command instead."
 msgstr ""
+"Lưu ý: bạn chỉ nên sử dụng lệnh này nếu bản sao làm việc của bạn là đề cập "
+"đến cùng một vị trí trong cùng một kho lưu trữ, nhưng kho lưu trữ chính nó "
+"đã di chuyển. Trong bất kỳ hoàn cảnh khác, bạn có thể cần lệnh <quote> "
+"Chuyển </quote> thay vào đó."
 
 #. (glossterm)
 msgid "Repository"
-msgstr ""
+msgstr "Kho lưu trữ"
 
 #. (para)
 msgid ""
@@ -24888,6 +24966,10 @@ msgid ""
 "distribution over a network, or a repository can be a location that is "
 "directly accessible to the user without having to travel across a network."
 msgstr ""
+"Kho lưu trữ là một địa điểm trung tâm nơi dữ liệu được lưu trữ và duy trì. "
+"Một kho có thể là một nơi nhiều cơ sở dữ liệu hoặc các tập tin được đặt để "
+"phân phối qua mạng, hoặc một kho lưu trữ có thể là một địa điểm được truy "
+"cập trực tiếp cho người sử dụng mà không cần phải đi trên mạng."
 
 #. (para)
 msgid ""
@@ -24897,6 +24979,12 @@ msgid ""
 "Conflicts</quote>. When this is complete you can mark the conflicted files "
 "as being resolved, which allows them to be committed."
 msgstr ""
+"Khi các tập tin trong một bản sao làm việc được giữ lại trong trạng thái mâu"
+" thuẫn sau khi hợp nhất, những xung đột đó phải được sắp xếp ra bởi một con "
+"người bằng cách sử dụng một trình soạn thảo (hoặc có lẽ TortoiseMerge). Quá "
+"trình này được gọi là <quote> Giải quyết mâu thuẫn </quote> . Khi điều này "
+"hoàn tất, bạn có thể đánh dấu các tập tin mâu thuẫn là đã được giải quyết, "
+"cho phép chúng được cam kết."
 
 #. (para)
 msgid ""
@@ -24905,10 +24993,14 @@ msgid ""
 "decide you want to undo them, you can use the <quote>revert</quote> command "
 "to go back to the pristine copy."
 msgstr ""
+"Subversion giữ một bản sao địa phương <quote> nguyên sơ </quote> của mỗi tập"
+" tin khi bạn cập nhật bản sao làm việc của bạn lần cuối. Nếu bạn đã thực "
+"hiện thay đổi và quyết định bạn muốn phục hồi lại chúng, bạn có thể sử dụng "
+"lệnh <quote> hoàn nguyên </quote> để quay trở lại bản sao nguyên sơ."
 
 #. (glossterm)
 msgid "Revision"
-msgstr ""
+msgstr "Sửa đổi"
 
 #. (para)
 msgid ""
@@ -24917,16 +25009,22 @@ msgid ""
 "state of the repository tree at a certain point in its history. If you want "
 "to go back in time you can examine the repository as it was at revision N."
 msgstr ""
+"Mỗi lần bạn thực hiện một bộ thay đổi, bạn tạo mới <quote> bản sửa đổi "
+"</quote> trong kho. Mỗi bản sửa đổi thể hiện trạng thái của cây kho lưu trữ "
+"tại một điểm nhất định trong lịch sử của nó. Nếu bạn muốn quay trở lại trong"
+" thời gian bạn có thể kiểm tra các kho lưu trữ tại bản sửa đổi N."
 
 #. (para)
 msgid ""
 "In another sense, a revision can refer to the set of changes that were made "
 "when that revision was created."
 msgstr ""
+"Trong một nghĩa khác, một bản sửa đổi có thể tham khảo các thiết lập của "
+"những thay đổi đã được thực hiện khi bản sửa đổi đã được tạo ra."
 
 #. (glossterm)
 msgid "Revision Property (revprop)"
-msgstr ""
+msgstr "Thuộc Tính Sửa Đổi (revprop)"
 
 #. (para)
 msgid ""
@@ -24937,20 +25035,28 @@ msgid ""
 "properties can be edited, but they are not versioned, so any change is "
 "permanent and cannot be undone."
 msgstr ""
+"Cũng như các tập tin có thể có các thuộc tính, mỗi bản sửa đổi trong kho "
+"cũng có thể. Một số revprops đặc biệt được thêm vào tự động khi bản sửa đổi "
+"được tạo ra, cụ thể là: <literal> svn:date svn:author svn:log</literal> đại "
+"diện cho ngày / thời gian cam kết, người cam kết và thông điệp tường trình "
+"tương ứng. Các thuộc tính này có thể được chỉnh sửa, nhưng họ không phải "
+"được phiên bản, vì vậy thay đổi là vĩnh viễn và không thể được hoàn tác."
 
 #. (glossterm)
 msgid "SVN"
-msgstr ""
+msgstr "SVN"
 
 #. (para)
 msgid "A frequently-used abbreviation for Subversion."
-msgstr ""
+msgstr "Viết tắt thường được sử dụng cho Subversion."
 
 #. (para)
 msgid ""
 "The name of the Subversion custom protocol used by the "
 "<quote>svnserve</quote> repository server."
 msgstr ""
+"Tên của giao thức tùy chỉnh Subversion được sử dụng bởi kho lưu trữ máy chủ "
+"<quote> svnserve </quote>."
 
 #. (para)
 msgid ""
@@ -24962,6 +25068,13 @@ msgid ""
 " your working copy between the two and only the changed files will be "
 "transferred."
 msgstr ""
+"Cũng như <quote> Cập nhật-đến-sửa đổi </quote> thay đổi cửa sổ thời gian của"
+" một bản sao làm việc để nhìn vào một điểm khác nhau trong lịch sử, vì vậy "
+"<quote> Chuyển </quote> thay đổi cửa sổ không gian của một bản sao làm việc "
+"để nó trỏ tới một phần khác nhau của kho. Nó đặc biệt hữu ích khi làm việc "
+"trên thân cây và các nhánh chỉ có một vài tập tin khác nhau. Bạn có thể "
+"chuyển bản sao làm việc của bạn giữa hai phần này và chỉ thay đổi các tập "
+"tin sẽ được chuyển giao."
 
 #. (para)
 msgid ""
@@ -24969,6 +25082,9 @@ msgid ""
 "into your working copy, merging any changes made by others with local "
 "changes in the working copy."
 msgstr ""
+"Lệnh Subversion này kéo xuống những thay đổi mới nhất từ ​​kho lưu trữ vào "
+"bản sao làm việc của bạn, sáp nhập bất kỳ thay đổi được thực hiện bởi những "
+"người khác với những thay đổi trong bản sao làm việc."
 
 #. (para)
 msgid ""
@@ -24977,24 +25093,29 @@ msgid ""
 " a working copy by doing a <quote>Checkout</quote> from a repository, and "
 "you feed your changes back into the repository using <quote>Commit</quote>."
 msgstr ""
+"Đây là <quote> sandbox </quote> địa phương của bạn, khu vực nơi bạn làm việc"
+" trên các tập tin có phiên bản, và nó thường cư trú trên đĩa cứng địa phương"
+" của bạn. Bạn tạo một bản sao làm việc bằng cách làm một <quote> Kiểm "
+"xuất</quote> từ một kho lưu trữ, và bạn nạp thay đổi của bạn trở lại vào kho"
+" lưu trữ bằng cách sử dụng <quote> Cam kết </quote> ."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr ""
+msgstr "công lao-người phiên dịch"
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
-msgstr ""
+msgstr "người phiên dịch-bản dịch"
 
 #. (title)
 msgid "TortoiseMerge"
-msgstr ""
+msgstr "TortoiseMerge"
 
 #. (subtitle)
 msgid "A diff/merge tool for Windows"
-msgstr ""
+msgstr "Một công cụ tim khác biệt/ hợp nhất cho Windows"
 
 #. (para)
 msgid ""
@@ -25004,10 +25125,15 @@ msgid ""
 "want to improve your project. To do that they send you patches which you "
 "have to review and decide if you want to apply them."
 msgstr ""
+"Khi làm việc trên một dự án, hoặc một dự án mã nguồn mở nơi mà nhiều người "
+"xem xét mã của bạn, hoặc một dự án thương mại, nơi bạn bán một thành phần "
+"với mã nguồn của bạn, sẽ có nhiều người và khách hàng tìm thấy lỗi hoặc muốn"
+" cải thiện dự án của bạn. Để làm được điều đó họ gửi cho bạn các bản vá lỗi "
+"mà bạn phải xem xét và quyết định nếu bạn muốn áp dụng chúng."
 
 #. (para)
 msgid "Reviewing patches"
-msgstr ""
+msgstr "Rà soát các bản vá lỗi"
 
 #. (para)
 msgid "Applying the patches"
@@ -25104,6 +25230,12 @@ msgid ""
 " files. Sometimes you get a different version from someone else, sometimes "
 "you just want to see the changes you've made."
 msgstr ""
+"Trong khi làm việc trên các tập tin văn bản, ví dụ như các tập tin nguồn "
+"trong ngôn ngữ lập trình yêu thích của bạn, hoặc các tập tin html / xml cho "
+"tài liệu hoặc trang web của bạn, bạn thường sẽ có một tình huống mà bạn cần "
+"để so sánh các bản sửa đổi khác nhau của những tập tin đó. Đôi khi bạn có "
+"được một phiên bản khác từ người khác, đôi khi bạn chỉ muốn xem những thay "
+"đổi bạn đã thực hiện."
 
 #. (para)
 msgid ""
@@ -25113,17 +25245,25 @@ msgid ""
 " currently working on as you did. Then you have to resolve those conflicts "
 "manually. This is where TortoiseMerge can help you."
 msgstr ""
+"Nếu bạn đang làm việc với một hệ thống kiểm soát phiên bản (ví dụ như "
+"Subversion) sau đó bạn đôi khi nhận được <emphasis> xung đột </emphasis> khi"
+" bạn cập nhật bản sao làm việc của bạn. Điều này sẽ xảy ra nếu một người nào"
+" khác thay đổi vài phần của tập tin mà bạn đang làm việc như bạn đã làm. Sau"
+" đó, bạn phải giải quyết các xung đột một cách thủ công. Đây là nơi "
+"TortoiseMerge có thể giúp bạn."
 
 #. (para)
 msgid ""
 "The following diagram shows you the relationships between the files involved"
 " in a conflict:"
 msgstr ""
+"Sơ đồ dưới đây cho bạn thấy các mối quan hệ giữa các tập tin liên quan đến "
+"một cuộc xung đột:"
 
 #. (title)
 #. (title)
 msgid "File Conflict"
-msgstr ""
+msgstr "Xung đột Tập tin"
 
 #. (para)
 msgid ""
@@ -25132,6 +25272,10 @@ msgid ""
 "you got that patch file from for a current version or try to apply that "
 "patch file manually."
 msgstr ""
+"Một cuộc xung đột cũng có thể xảy ra nếu bạn cố gắng áp dụng một tập tin vá "
+"lỗi thời. Trong trường hợp này, mà không có TortoiseMerge, bạn có thể sẽ "
+"phải yêu cầu người đó lấy cho bạn tập tin bản vá từ một phiên bản hiện tại "
+"hoặc cố gắng áp dụng tập tin vá lỗi bằng tay."
 
 #. (para)
 msgid ""
@@ -25142,10 +25286,17 @@ msgid ""
 "control. Then it applies the patch and lets you review both your changes to "
 "the file, and theirs. Then you can decide which changes you want to keep."
 msgstr ""
+"Nhưng bây giờ có TortoiseMerge này là không cần thiết nữa - ít nhất là không"
+" nếu bạn đang làm việc với một hệ thống kiểm soát phiên bản như Subversion. "
+"TortoiseMerge phân tích các tập tin vá lỗi cho bản sửa đổi/phiên bản mà bản "
+"vá đã được tạo ra và tự động cố gắng để lấy phiên bản cụ thể từ kiểm soát "
+"nguồn của bạn. Sau đó, nó áp dụng bản vá lỗi và cho phép bạn xem lại thay "
+"đổi vào cả hai tập tin, và của họ. Sau đó, bạn có thể quyết định những thay "
+"đổi nào mà bạn muốn giữ lại."
 
 #. (title)
 msgid "TortoiseMerge's History"
-msgstr ""
+msgstr "Lịch sử của TortoiseMerge"
 
 #. (para)
 msgid ""
@@ -25159,6 +25310,15 @@ msgid ""
 " because we were working on those files and had sometimes changed those "
 "files already."
 msgstr ""
+"Khi làm việc trên <ulink url=\"http://tortoisesvn.net\"><citetitle> "
+"TortoiseSVN </citetitle></ulink> chúng tôi nhận thấy rằng bất cứ khi nào "
+"người sử dụng gửi bản vá lỗi để tăng cường các dự án, hoặc chỉ để sửa lỗi, "
+"chúng tôi đã mất rất nhiều công sức chỉ để áp dụng những bản vá lỗi. Và "
+"nhiều lần những bản vá lỗi đã lỗi thời và không thể được áp dụng với công cụ"
+" bản vá dòng lệnh <ulink "
+"url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink>"
+" bởi vì chúng tôi đã làm việc trên các tập tin đó và có đôi khi đã thay đổi "
+"các tập tin đó rồi."
 
 #. (para)
 msgid ""
@@ -25167,6 +25327,11 @@ msgid ""
 "Patch</guimenuitem></menuchoice> implemented: we preferred users to send us "
 "the whole files because with those it was easier to apply patches."
 msgstr ""
+"Đây cũng là lý do chính tại sao TortoiseSVN ban đầu không có một tùy chọn "
+"<menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Tạo Bản Vá "
+"</guimenuitem></menuchoice> được thực hiện: chúng tôi thích người dùng gửi "
+"cho chúng tôi toàn bộ các tập tin bởi vì với những cái đó thì dễ dàng hơn để"
+" áp dụng các bản vá lỗi"
 
 #. (para)
 msgid ""
@@ -25175,6 +25340,12 @@ msgid ""
 "to cut a long story short: We decided that if no-one else could provide such"
 " a tool we would have to write our own. That's when TortoiseMerge was born."
 msgstr ""
+"Vì vậy, chúng tôi đã dành rất nhiều thời gian tìm kiếm trên Internet cho một"
+" công cụ giao diện đồ hoạ có thể áp dụng các tập tin vá, nhưng tất cả những "
+"gì chúng tôi thấy thi không có công cụ nào như vậy tồn tại. Vì vậy, để cắt "
+"một câu chuyện dài thành ngắn: Chúng tôi quyết định rằng nếu không một ai có"
+" thể cung cấp một công cụ như vậy, chúng ta sẽ phải viết riêng bản của chúng"
+" tôi. Đó là khi TortoiseMerge được sinh ra."
 
 #. (para)
 msgid ""
@@ -25182,30 +25353,37 @@ msgid ""
 "diffing engine built in, it was just natural to use this library instead of "
 "the GNU diff."
 msgstr ""
+"Kể từ khi TortoiseSVN đã sử dụng thư viện Subversion, trong đó có một công "
+"cụ tìm khác biệt tốt được xây dựng, đó chỉ là tự nhiên để sử dụng thư viện "
+"này để thay thế tìm khác biệt của GNU."
 
 #. (para)
 msgid ""
 "Viewing the difference between two files and merging changes into one of "
 "them, or removing unwanted changes."
 msgstr ""
+"Xem sự khác biệt giữa hai tập tin và sáp nhập các thay đổi vào một trong số "
+"chúng, hoặc loại bỏ các thay đổi không mong muốn."
 
 #. (para)
 msgid ""
 "Editing conflicts between local changes and changes in the Subversion "
 "repository following an update."
 msgstr ""
+"Chỉnh sửa xung đột giữa các thay đổi địa phương và những thay đổi trong kho "
+"Subversion sau một cập nhật."
 
 #. (para)
 msgid "Applying patch files. This is the reason TortoiseMerge was created :)"
-msgstr ""
+msgstr "Áp dụng các tập tin vá lỗi. Đây là lý do TortoiseMerge được tạo ra:)"
 
 #. (para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
-msgstr ""
+msgstr "TortoiseMerge có nhiều cách để sử dụng khác nhau: <placeholder-1/>"
 
 #. (title)
 msgid "Viewing and Merging Differences"
-msgstr ""
+msgstr "Xem và Hợp Nhất Các Khác Biệt"
 
 #. (para)
 msgid ""
@@ -25214,10 +25392,16 @@ msgid ""
 "<emphasis>Theirs</emphasis>, and the file in the right pane is the modified "
 "file (sometimes referred to as <emphasis>Mine</emphasis>."
 msgstr ""
+"Trong chế độ này bạn đang so sánh hai tập tin. Các tập tin trong khung bên "
+"trái được coi là các tập tin nguyên thủy (đôi khi được gọi là <emphasis> Của"
+" Họ </emphasis>, và các tập tin trong khung bên phải là các tập tin được sửa"
+" đổi (đôi khi được gọi là <emphasis> Của Tôi </emphasis> ."
 
 #. (para)
 msgid "Reverting changed lines back to the text shown in the left pane."
 msgstr ""
+"Hoàn nguyên lại các dòng đã thay đổi trở lại các văn bản được hiển thị trong"
+" khung bên trái."
 
 #. (para)
 msgid ""
@@ -25225,12 +25409,17 @@ msgid ""
 "before <emphasis>Mine</emphasis> or <emphasis>Mine</emphasis> before "
 "<emphasis>Theirs</emphasis>."
 msgstr ""
+"Sử dụng một sự kết hợp của cả hai khối, hoặc <emphasis> Của họ </emphasis> "
+"trước <emphasis> Của tôi </emphasis> hoặc <emphasis> Của tôi</emphasis> "
+"trước <emphasis> Của họ </emphasis> ."
 
 #. (para)
 msgid ""
 "You can make simple line-based changes to the file in the right pane which "
 "include: <placeholder-1/>"
 msgstr ""
+"Bạn có thể làm các thay đổi dựa trên dòng đơn giản vào tập tin trong khung "
+"bên phải trong đó bao gồm: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -25241,10 +25430,17 @@ msgid ""
 "becomes impossible for TortoiseMerge to keep track of the relationship to "
 "the original files."
 msgstr ""
+"Bạn cũng có thể biên tập các tập tin trong cửa sổ bên phải cũng giống như "
+"bạn làm trong một trình soạn thảo văn bản. Những dòng như vậy được đánh dấu "
+"bằng cách sử dụng một biểu tượng bút chì. Xin lưu ý rằng nếu bạn muốn thực "
+"hiện bất kỳ thay đổi dựa trên dòng / khối mô tả ở trên, tốt hơn là làm những"
+" việc đó trước tiên bởi khi bạn bắt đầu tự chỉnh sửa các tập tin nó trở nên "
+"không thể cho TortoiseMerge để theo dõi các mối quan hệ đến các tập tin ban "
+"đầu ."
 
 #. (title)
 msgid "Editing Conflicts"
-msgstr ""
+msgstr "Chỉnh sửa Xung đột"
 
 #. (para)
 msgid ""
@@ -25254,6 +25450,11 @@ msgid ""
 "which are now in conflict. The relationships between the three files are "
 "explained in the diagram below:"
 msgstr ""
+"Điều này đôi khi được gọi là hợp nhất ba-đường, và được thể hiện trong ba "
+"bảng. Tuy nhiên có bốn tập tin có liên quan đến. Tập tin mà không được hiển "
+"thị thì là tập tin cơ sở chung, tổ tiên chung cuối cùng của hai tập tin mà "
+"hiện nay nằm trong cuộc xung đột. Các mối quan hệ giữa ba tập tin được giải "
+"thích trong sơ đồ dưới đây:"
 
 #. (para)
 msgid ""
@@ -25267,6 +25468,16 @@ msgid ""
 "relative to the base file. The bottom pane is the output file which is where"
 " you are trying to resolve the conflicts."
 msgstr ""
+"Các tập tin cơ sở đại diện cho các phiên bản lâu đời nhất của một tập tin, "
+"từ nơi <emphasis> Bạn </emphasis> và <emphasis> Họ </emphasis> bắt đầu thực "
+"hiện thay đổi. <emphasis> Của tôi </emphasis> đại diện cho tập tin cơ sở với"
+" tất cả các thay đổi mà <emphasis> bạn </emphasis> thực hiện, và <emphasis> "
+"Của họ </emphasis> là tập tin với tất cả các thay đổi mà <emphasis> người "
+"khác </emphasis> được thực hiện vào tập tin. Khung bên trái cho thấy những "
+"thay đổi trong <emphasis> Của họ </emphasis> liên quan đến các tin cơ sở và "
+"cửa sổ bên phải cho thấy những thay đổi trong <emphasis> Của tôi </emphasis>"
+" liên quan đến các tập tin cơ sở. Cửa sổ phía dưới là tập tin đầu ra nơi bạn"
+" đang cố gắng để giải quyết các xung đột."
 
 #. (para)
 msgid ""
@@ -25274,12 +25485,16 @@ msgid ""
 "<emphasis>Mine</emphasis> or <emphasis>Theirs</emphasis> or both. But in "
 "this case, the changes are shown in the bottom pane."
 msgstr ""
+"Theo quan điểm giải quyết xung đột, bạn có thể chọn để sử dụng các khối từ "
+"<emphasis> Của tôi </emphasis> hoặc <emphasis> Của họ </emphasis> hoặc cả "
+"hai. Tuy nhiên, trong trường hợp này, những thay đổi được hiển thị ở khung "
+"bên dưới."
 
 #. (title)
 #. (title)
 #. (title)
 msgid "Applying Patches"
-msgstr ""
+msgstr "Áp dụng các Bản vá"
 
 #. (para)
 msgid ""
@@ -25292,6 +25507,14 @@ msgid ""
 "compare two different repository revisions, or if you compare two different "
 "repository paths."
 msgstr ""
+"Một tập tin vá lỗi là một tập tin Subversion khác biệt thống nhất, trong đó "
+"có các thông tin cần thiết để áp dụng các thay đổi đối với một bộ các tập "
+"tin. Bản vá này có thể được cung cấp bởi nhà phát triển khác để bạn có thể "
+"xem các thay đổi mà anh đã thực hiện và có thể cam kết chúng vào kho lưu "
+"trữ. Hoặc nó có thể được tạo ra trong nội bộ của TortoiseSVN khi so sánh hai"
+" thư mục. Điều này xảy ra khi bạn so sánh một bản sửa đổi kho lưu trữ với "
+"thư mục bản sao làm việc của bạn, hoặc nếu bạn so sánh hai bản sửa đổi kho "
+"lưu trữ khác nhau, hoặc nếu bạn so sánh hai đường dẫn kho lưu trữ khác nhau."
 
 #. (para)
 msgid ""
@@ -25300,20 +25523,27 @@ msgid ""
 "the relevant file and apply the changes. The left pane shows the original "
 "file content and the right pane shows it after the patch is applied."
 msgstr ""
+"Trong cả hai trường hợp TortoiseMerge sẽ hiển thị một cửa sổ nhỏ liệt kê các"
+" tập tin được bao gồm trong bản vá. Bằng cách nhấp đúp vào một trong những "
+"tập tin này bạn lấy tập tin có liên quan và áp dụng những thay đổi. Khung "
+"bên trái cho thấy nội dung tập tin gốc và khung bên phải cho thấy nó sau khi"
+" được áp dụng bản vá."
 
 #. (para)
 msgid ""
 "You can edit the file in the right pane exactly as you would in compare/edit"
 " mode."
 msgstr ""
+"Bạn có thể chỉnh sửa các tập tin trong khung bên phải chính xác như bạn sẽ "
+"làm trong chế độ so sánh / chỉnh sửa."
 
 #. (title)
 msgid "Using TortoiseMerge"
-msgstr ""
+msgstr "Sử dụng TortoiseMerge"
 
 #. (title)
 msgid "Viewing Modes"
-msgstr ""
+msgstr "Các Chế Độ Xem "
 
 #. (para)
 msgid ""
@@ -25321,19 +25551,22 @@ msgid ""
 "pane view. One/two-pane view is used to view changes and three-pane view is "
 "used to resolve conflicts."
 msgstr ""
+"TortoiseMerge có ba chế độ xem chính: xem một cửa sổ, hai cửa sổ và ba cửa "
+"sổ. Xem một / hai cửa sổ được sử dụng để xem các thay đổi và xem ba cửa sổ "
+"được sử dụng để giải quyết xung đột."
 
 #. (title)
 #. (title)
 msgid "Viewing / Merging"
-msgstr ""
+msgstr "Xem / Hợp Nhất"
 
 #. (title)
 msgid "One Pane View"
-msgstr ""
+msgstr "Xem Một Khung."
 
 #. (title)
 msgid "Two Pane View"
-msgstr ""
+msgstr "Xem Hai Khung."
 
 #. (para)
 msgid ""
@@ -25343,6 +25576,11 @@ msgid ""
 "vertical line in the string. Check out the screenshot above to see how this "
 "works."
 msgstr ""
+"Các thay đổi bên trong các dòng sửa đổi được thể hiện trong các màu sắc khác"
+" nhau. Phần chuỗi thêm được hiển thị với một màu sáng hơn, nhưng tất nhiên "
+"bạn có thể cấu hình các màu sắc được sử dụng ở đây. Phần loại bỏ được thể "
+"hiện với một đường thẳng đứng màu nâu tối trong chuỗi. Xem xét các ảnh chụp "
+"màn hình phía trên để xem cách làm việc này."
 
 #. (para)
 msgid ""
@@ -25351,6 +25589,10 @@ msgid ""
 "long line into several lines, or you sometimes compact several lines "
 "together into one."
 msgstr ""
+"Tổ chức lại mã thường có nghĩa rất nhiều thay đổi trong khoảng trắng (không "
+"gian, tab, dòng mới) nhưng không có mã thay đổi thực tế. Ví dụ, bạn chia một"
+" đường rất dài thành nhiều dòng, hoặc bạn đôi khi làm gọn vài dòng với nhau "
+"thành một."
 
 #. (para)
 msgid ""
@@ -25358,18 +25600,26 @@ msgid ""
 "views. If you see such a white circle, you know immediately that no real "
 "code change is there and you don't have to check the changed block further."
 msgstr ""
+"Thay đổi như vậy được đánh dấu bằng một biểu tượng hình tròn màu trắng ở "
+"phía bên trái của mà hình xem. Nếu bạn nhìn thấy một vòng tròn màu trắng, "
+"bạn biết ngay lập tức là không có thay đổi mã thực sự ở đó và bạn không phải"
+" kiểm tra khối thay đổi nữa."
 
 #. (para)
 msgid ""
 "Hand editing of the file in the right pane is possible in two-pane view. "
 "Such changes are marked with a pencil symbol."
 msgstr ""
+"Chỉnh sửa các tập tin bằng tay trong cửa sổ bên phải là có thể với màn xem "
+"hai cửa sổ. Thay đổi như vậy được đánh dấu bằng một biểu tượng bút chì."
 
 #. (para)
 msgid ""
 "The two pane view has some features which are not available in the one pane "
 "view: <placeholder-1/>"
 msgstr ""
+"Màn xem hai cửa sổ có một số tính năng mà không có sẵn trong màn xem một cửa"
+" sổ: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -25377,10 +25627,13 @@ msgid ""
 "differences in a three pane view. This view is also used if you need to "
 "resolve conflicted files."
 msgstr ""
+"Nếu bạn muốn so sánh / hợp nhất ba tập tin, TortoiseMerge sẽ cho bạn thấy sự"
+" khác biệt trong một màn xem ba cửa sổ. Màn xem này cũng được sử dụng nếu "
+"bạn cần phải giải quyết các tập tin mâu thuẫn."
 
 #. (title)
 msgid "Three Pane View"
-msgstr ""
+msgstr "Màn Xem Ba Cửa Sổ."
 
 #. (para)
 msgid ""
@@ -25391,16 +25644,25 @@ msgid ""
 "merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and "
 "<emphasis>Theirs</emphasis> with possible conflicts."
 msgstr ""
+"Khung bên trái cho thấy sự khác biệt giữa tập tin <emphasis> Của họ "
+"</emphasis> và tập tin <emphasis> Cơ sở </emphasis>, trong khi cửa sổ bên "
+"phải cho bạn thấy sự khác biệt giữa tập tin <emphasis> Của tôi </emphasis> "
+"và tập tin <emphasis> Cơ sở </emphasis>. Khung phía dưới hiển thị cho bạn "
+"kết quả của việc sáp nhập <emphasis> Cơ sở </emphasis> , <emphasis> Của "
+"tôi</emphasis> và <emphasis> Của họ </emphasis> với các xung đột có thể xảy "
+"ra."
 
 #. (para)
 msgid ""
 "If you hover the mouse over the pane title, a tooltip will show the "
 "filenames used for the diff in each pane."
 msgstr ""
+"Nếu bạn di chuyển chuột lên tiêu đề cửa sổ, một tooltip sẽ hiển thị tên tập "
+"tin được sử dụng cho việc tìm khác biệt trong mỗi cửa sổ."
 
 #. (title)
 msgid "Patch File List"
-msgstr ""
+msgstr "Danh Sách Tập Tin Bản Vá"
 
 #. (para)
 msgid ""
@@ -25411,6 +25673,13 @@ msgid ""
 "to the patch. However, if the filename is shown in red, then the patch can't"
 " get applied directly because you already changed that file."
 msgstr ""
+"Sau khi TortoiseMerge phân tích các tập tin vá lỗi, nó sẽ cho bạn thấy một "
+"cửa sổ nhỏ với tất cả các tập tin có thay đổi theo các tập tin vá lỗi. "
+"<placeholder-1/> Nếu tên tập tin được thể hiện trong màu đen, thì bản vá có "
+"thể được áp dụng mà không có bất kỳ vấn đề. Điều đó có nghĩa là tập tin "
+"không phải là lỗi thời theo các bản vá. Tuy nhiên, nếu tên tập tin được thể "
+"hiện trong màu đỏ, thì bản vá không thể có được áp dụng trực tiếp bởi vì bạn"
+" đã thay đổi tập tin đó."
 
 #. (para)
 msgid ""
@@ -25423,6 +25692,14 @@ msgid ""
 "the patch already applied). Then you can resolve possible conflicts "
 "manually."
 msgstr ""
+"Nhưng đừng lo lắng. Nếu bạn đang làm việc với Subversion, bạn có thể lấy một"
+" phiên bản cũ của tập tin và giải quyết xung đột. Trong thực tế, "
+"TortoiseMerge tự động cố gắng để có được phiên bản cũ của tập tin và sau đó "
+"cho bạn thấy khác biệt giữa <emphasis> Cơ sở </emphasis> (Phiên bản cũ của "
+"tập tin), <emphasis> Của tôi </emphasis> (Các tập tin như nó hiện đang có "
+"trong bản sao làm việc của bạn) và <emphasis> Của họ </emphasis> (Phiên bản "
+"cũ của các tập tin với các bản vá đã được áp dụng). Sau đó, bạn có thể giải "
+"quyết xung đột có thể xảy ra bằng tay."
 
 #. (para)
 msgid ""
@@ -25432,6 +25709,11 @@ msgid ""
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
 msgstr ""
+"Các cửa sổ tập tin bản vá có một trình đơn ngữ cảnh cho phép bạn xem trước "
+"hiệu ứng của các miếng vá trên các tập tin hiện hành (áp dụng mà không lưu),"
+" để áp dụng và lưu các thay đổi cho các tập tin được lựa chọn, hoặc để áp "
+"dụng và lưu các thay đổi tới <emphasis> tất cả </emphasis> các tập tin trong"
+" danh sách. Hành động nhấp đúp chuột là để xem trước."
 
 #. (para)
 msgid ""
@@ -25440,34 +25722,43 @@ msgid ""
 "(patch can be applied directly) or a three pane view (older version of file "
 "fetched)."
 msgstr ""
+"Tùy thuộc vào liệu TortoiseMerge có thể áp dụng các bản vá trực tiếp hoặc "
+"bằng cách lấy một phiên bản cũ của tập tin trước tiên, nó cho bạn thấy màn "
+"xem hai cửa sổ (bản vá có thể được áp dụng trực tiếp) hoặc xem ba cửa sổ "
+"(phiên bản cũ hơn của tập tin được nạp)."
 
 #. (title)
 msgid "Buttons and Other Controls"
-msgstr ""
+msgstr "Các Nút bấm và Điều Khiển Khác"
 
 #. (title)
 msgid "The Toolbar"
-msgstr ""
+msgstr "Thanh công cụ"
 
 #. (para)
 msgid "<guibutton>Open</guibutton> accesses the file-open dialog. What else?"
 msgstr ""
+"<guibutton> Mở </guibutton> truy cập vào hộp thoại mở tập tin. Còn gì khác?"
 
 #. (para)
 msgid "<guibutton>Save</guibutton> saves any changes you have made."
-msgstr ""
+msgstr "<guibutton> Lưu </guibutton> lưu bất kỳ thay đổi bạn đã thực hiện."
 
 #. (para)
 msgid ""
 "<guibutton>Reload</guibutton> discards any changes you have made in "
 "TortoiseMerge and reloads the files from disk."
 msgstr ""
+"<guibutton> Tải lại </guibutton> loại bỏ bất kỳ thay đổi bạn đã thực hiện "
+"trong TortoiseMerge và tải lại các tập tin từ đĩa."
 
 #. (para)
 msgid ""
 "<guibutton>Undo</guibutton> implements a multi-level undo, allowing you to "
 "reverse any changes you have made within TortoiseMerge."
 msgstr ""
+"<guibutton> Hoàn tác </guibutton> thực hiện hoàn tác đa cấp, cho phép bạn "
+"đảo ngược bất kỳ thay đổi bạn đã thực hiện trong TortoiseMerge."
 
 #. (para)
 msgid ""
@@ -25647,29 +25938,36 @@ msgstr ""
 
 #. (title)
 msgid "Line Status Icons"
-msgstr ""
+msgstr "Các Biểu tượng Trạng thái Dòng"
 
 #. (para)
 msgid ""
 "Changed lines are marked with an icon to indicate what type of change has "
 "occurred."
 msgstr ""
+"Các dòng bị thay đổi được đánh dấu bằng một biểu tượng để chỉ ra những loại "
+"thay đổi đã xảy ra."
 
 #. (para)
 msgid "<graphic fileref=\"images/TMerge_lineadded.png\"/> A line has been added."
 msgstr ""
+"<graphic fileref=\"images/TMerge_lineadded.png\"/> Một dọng đã được thêm "
+"vào."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"images/TMerge_lineremoved.png\"/> A line has been "
 "removed."
 msgstr ""
+"<graphic fileref=\"images/TMerge_lineremoved.png\"/> Một dòng đã được gỡ bỏ."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"images/TMerge_lineequal.png\"/> A change has been undone "
 "by reverting to the original content of the line."
 msgstr ""
+"<graphic fileref=\"images/TMerge_lineequal.png\"/> Một thay đổi đã được hoàn"
+" tác bằng cách quay trở lại nội dung ban đầu của dòng."
 
 #. (para)
 msgid ""
@@ -25678,34 +25976,48 @@ msgid ""
 "paragraph may have been re-wrapped, causing words to shuffle onto adjacent "
 "lines."
 msgstr ""
+"<graphic fileref=\"images/TMerge_linewhitespace.png\"/> Dòng này chỉ chứa "
+"các thay đổi khoảng trắng. Trường hợp một vài dòng liên tục được đánh dấu, "
+"đoạn văn có thể được bọc lại, làm cho các từ ngữ trộn vào dòng liền kề."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"images/TMerge_lineedited.png\"/> A line has been edited "
 "by hand, using TortoiseMerge as a text editor."
 msgstr ""
+"<graphic fileref=\"images/TMerge_lineedited.png\"/> Một dòng đã được chỉnh "
+"sửa bằng tay, bằng cách sử dụng TortoiseMerge như là một trình soạn thảo văn"
+" bản."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"images/TMerge_lineconflicted.png\"/> This line is in "
 "conflict."
 msgstr ""
+"<graphic fileref=\"images/TMerge_lineconflicted.png\"/> Dòng này nằm trong "
+"xung đột."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> This line is "
 "conflicted, but the effect is hidden by whitespace or line-ending settings."
 msgstr ""
+"<graphic fileref=\"images/TMerge_lineconflictedignored.png\"/> Dòng này có "
+"mâu thuẫn, nhưng hiệu ứng bị là ẩn bởi khoảng trắng hoặc các thiết lập kết "
+"thúc dòng."
 
 #. (title)
 msgid "Merging / Editing Conflicts"
-msgstr ""
+msgstr "Hợp Nhất / Biên tập Xung đột "
 
 #. (para)
 msgid ""
 "TortoiseMerge not only <emphasis>shows</emphasis> you the differences "
 "between files but also lets you resolve conflicts or apply changes."
 msgstr ""
+"TortoiseMerge không chỉ <emphasis> cho thấy </emphasis> sự khác biệt giữa "
+"các tập tin mà còn cho phép bạn giải quyết các xung đột hoặc áp dụng các "
+"thay đổi."
 
 #. (para)
 msgid ""
@@ -25716,6 +26028,13 @@ msgid ""
 " text block from 'theirs' </guimenuitem></menuchoice>. Then the changes from"
 " the left file are added to the right file."
 msgstr ""
+"Nếu bạn đang ở trong chế độ xem hai ngăn, thì bạn chỉ có thể chỉnh sửa các "
+"tập tin trong khung bên phải ( <literal> Của tôi </literal> ). Để áp dụng "
+"các thay đổi được thực hiện trong các tập tin bên trái ( <literal> Của họ "
+"</literal> ), <action> nhấp chuột phải </action> trên các đường bị thay đổi "
+"và chọn <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Sử "
+"dụng khối văn bản từ 'của họ' </guimenuitem></menuchoice> . Sau đó, các thay"
+" đổi từ tập tin bên trái được thêm vào tập tin bên phải."
 
 #. (para)
 msgid ""
