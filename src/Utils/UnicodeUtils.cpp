@@ -475,6 +475,7 @@ static class CUnicodeUtilsTests
 public:
     CUnicodeUtilsTests()
     {
+#if defined(_MFC_VER) || defined(CSTRING_AVAILABLE)
         CStringA result = CUnicodeUtils::GetUTF8(L"<value>退订</value>");
         CStringW resultW = CUnicodeUtils::GetUnicode(result);
         ATLASSERT(resultW == L"<value>退订</value>");
@@ -499,6 +500,7 @@ public:
         result = CUnicodeUtils::GetUTF8(L"Verify that the correct path and file name are given.");
         resultW = CUnicodeUtils::GetUnicode(result);
         ATLASSERT(resultW == L"Verify that the correct path and file name are given.");
+#endif
     }
 
 } UnicodeTestobject;
