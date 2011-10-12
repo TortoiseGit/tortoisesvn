@@ -1237,6 +1237,8 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
         ; node = m_RepoTree.GetParentItem (node))
     {
         CTreeItem* parentItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+        if (parentItem == NULL)
+            continue;
         pTreeItem->error = m_lister.AddSubTreeExternals ( parentItem->url
                                                         , parentItem->is_external
                                                              ? parentItem->repository.peg_revision
