@@ -715,6 +715,9 @@ class po {
 		 case "acc":
 			$this->checkAcc();
 			break;
+		 case "nls":
+			$this->checkNls();
+			break;
 		 case "spl":
 			$this->checkSpl();
 			break;
@@ -785,7 +788,9 @@ class po {
 //		$this->report["spl"]["error"]="Internal error";
 	}
 
-
+	/// Check new line style - original and translated NLS should match
+	function checkNls() {
+	}
 
 	// check for wrong spelling
 	function checkSpl() {
@@ -1191,7 +1196,7 @@ class po {
 			echo "<p><i>Internal error</i></p>";
 		}
 
-		echo "<a name=\"nls\"></a><a name=\"nls$lang\"></a><h3>Differences in new line style</h3>\n";
+/*		echo "<a name=\"nls\"></a><a name=\"nls$lang\"></a><h3>Differences in new line style</h3>\n";
 		echo "<p>This tests if new line style from pot match localized new line style. <b>This test may have false positives when English text has new line style inconsistence.</b> 
 				Using more lines for Native when English use just one is also alowed for most of translation even here reported.
 			</p>\n";
@@ -1206,7 +1211,7 @@ class po {
 			}
 		} else {
 			echo "<p><i>Internal error</i></p>";
-		}
+		}//*/
 
 		echo "<a name=\"unt\"></a><a name=\"unt$lang\"></a><h3>Not translated strings test</h3>\n";
 		echo "<p>This tests if all strings has been translated. Translated mean that there in native string set. If English and native are same it is not marked as not translated, this just can happen.</p>\n";

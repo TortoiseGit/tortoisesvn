@@ -34,14 +34,32 @@ $revFileLines=file($revFileName);
 
 
 //echo $revFileName;
+// render source menu
 echo "<h1>".$revFileLines[0]."of $targetDisplayName</h1>";
 echo "<p>Last update: ".date("F d Y H:i", filemtime($revFileName))." CET (GMT+1/GMT+2(DST)) <br />";
+$src_tx=array("tx.trunk", "transifex trunk", "tx/translations/tortoisesvn.trunk");
+$src_trunk=array("trunk", "svn trunk", "trunk.actual");
+$src_16x=array("1.6.x", "1.6.x (stable) branch", "branches.actual/1.6.x");
+$src_17x=array("1.7.x", "1.7.x (next stable) branch", "branches.actual/1.7.x");
 if ($stable) {
-	echo 'Go to <a href="/?l='.$lang.'">TRUNK</a>.</p>';
-} else {
-	echo 'Go to <a href="/?stable=1amp;l='.$lang.'">STABLE</a>.</p>';
+	$source="1.7.x";
 }
-
+if (!isset($source)) {
+	$source="trunk";
+}
+$sources=array($src_tx, $src_trunk, $src_16x, $src_17x);
+echo "<ul>";
+foreach ($sources as $src) {
+	$src_code=$src[0];
+	$src_desc=$src[1];
+	$src_loca=$src[2];
+	if ($source!=$src_code) {
+		echo '<li><a href="/?b='.$src_code.'?l='.$lang.'">'.$src_desc.'</a>.</li>';
+	} else {
+		echo '<li>'.$src_desc.'</li>';
+	}
+}
+echo "</ul>";
 
 function BuildLanguageList($languagelistFileName) {
 	$langToFlag=array(
