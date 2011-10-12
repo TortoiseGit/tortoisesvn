@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="Windows explorer, context menu" />
+<meta http-equiv="content-language" content="en" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Windows Explorer Integration</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="scripts/lightbox/prototype.js"></script>
+<script type="text/javascript" src="scripts/lightbox/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="scripts/lightbox/lightbox.js"></script>
+</head>
+<body>
+<div id="wrapper">
+    <!--#include FILE="menu.html" -->
+    <div id="page">
+        <div id="banner">&nbsp;</div>
+
+        <div id="content">
+
+            <div class="post">
+                <h2 class="title"><a href="#">Windows Explorer Integration</a></h2>
+                <div class="entry">
+                    $ADSENSE_TOP$
+                    <h2>Context menus in Windows Explorer</h2>
+                    <p>
+                    All commands are available through the context menu in the Windows
+                    Explorer. You can choose which entries TortoiseSVN should show in the
+                    top context menu and which it should put in the submenu.
+                    </p>
+                    <p>
+                    The context menu for versioned folders shows the commands you can use on such folders.
+                    </p>
+                    <p>
+                    <a href="images/ContextMenuDirControl.png" border="none" rel="lightbox[none]"><img src="images/ContextMenuDirControl-small.png"></a></li>
+                    <p>
+                    The context menu for unversioned folders shows commands where you can either create
+                    working copies, or commands you can use with URLs.
+                    </p>
+                    <p>
+                    <a href="images/ContextMenuDirNoControl.png" border="none" rel="lightbox[none]"><img src="images/ContextMenuDirNoControl-small.png"></a></li>
+                    <p>
+                    Not all commands which are available for versioned folders are also available for
+                    versioned files. Remember that Subversion is folder oriented unlike CVS which is more
+                    file oriented.
+                    </p>
+                    <p>
+                    <a href="images/ContextMenuFileControl.png" border="none" rel="lightbox[none]"><img src="images/ContextMenuFileControl-small.png"></a></li>
+                    <p>
+                    The menu for unversioned files has very few entries.
+                    </p>
+                    <a href="images/ContextMenuFileIgnore.png" border="none" rel="lightbox[none]"><img src="images/ContextMenuFileIgnore-small.png"></a></li>
+
+                    <p>
+                    Since moving and copying files/folders always has to be done via the Subversion commands,
+                    TortoiseSVN helps here too by adding entries to the right-drag context menu (select a file/folder, 
+                    right-drag it to another location and release the right mouse button):
+                    </p>
+                    <a href="images/RightDragMenu.png" border="none" rel="lightbox[none]"><img src="images/RightDragMenu-small.png"></a></li>
+
+                    <h2>Icon overlays</h2>
+                    <p>
+                    Inside the Windows Explorer, TortoiseSVN shows you the state of the files with
+                    overlay icons. The following screenshot shows all available overlays, but usually you
+                    will only see a few of them.
+                    </p>
+                    <a href="images/Overlays.png" border="none" rel="lightbox[none]"><img src="images/Overlays-small.png"></a></li>
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        <!--#include FILE="sidebar.html" -->
+        <div style="clear: both;">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    <!--#include FILE="footer.html" -->
+</div>
+</body>
+</html>
