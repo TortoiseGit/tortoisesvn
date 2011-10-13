@@ -57,6 +57,8 @@
 #include "AsyncCall.h"
 #include "DiffOptionsDlg.h"
 
+#include <tuple>
+
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
                     = ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
 const UINT CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH
@@ -491,7 +493,7 @@ void CSVNStatusListCtrl::GetUserProps (bool bShowUserProps)
 //
 svn_error_t * proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_pool_t *pool)
 {
-    std::map<CTSVNPath, CSVNStatusListCtrl::PropertyList> * pPropertyMap = (std::map<CTSVNPath, CSVNStatusListCtrl::PropertyList> *)baton;
+    std::tuple<CReaderWriterLock*,std::map<CTSVNPath,CSVNStatusListCtrl::PropertyList>*> * t = (std::tuple<CReaderWriterLock*,std::map<CTSVNPath,CSVNStatusListCtrl::PropertyList>*> *)baton;
     CSVNStatusListCtrl::PropertyList proplist;
 
     for ( apr_hash_index_t *index = apr_hash_first (pool, prop_hash)
@@ -525,7 +527,9 @@ svn_error_t * proplist_receiver(void *baton, const char *path, apr_hash_t *prop_
     {
         CTSVNPath listPath;
         listPath.SetFromSVN(CUnicodeUtils::GetUnicode(path));
-        (*pPropertyMap)[listPath] = proplist;
+        CReaderWriterLock* l = std::get<0>(*t);
+        CAutoWriteLock lock(*l);
+        (*std::get<1>(*t))[listPath] = proplist;
     }
 
     return SVN_NO_ERROR;
@@ -543,8 +547,9 @@ void CSVNStatusListCtrl::FetchUserProperties (size_t first, size_t last)
 
     for (size_t i = first; i < last; ++i)
     {
+        std::tuple<CReaderWriterLock*,std::map<CTSVNPath,PropertyList>*> t = std::make_tuple(&m_PropertyMapGuard, &m_PropertyMap);
         svn_client_proplist3(m_targetPathList[i].GetSVNApiPath(pool), SVNRev(), SVNRev(),
-                             svn_depth_infinity, NULL, proplist_receiver, &m_PropertyMap, pCtx, pool);
+                             svn_depth_infinity, NULL, proplist_receiver, &t, pCtx, pool);
     }
 
     svn_error_clear (error);

@@ -1012,6 +1012,7 @@ private:
     bool                        m_bHasChangeLists;
     bool                        m_bExternalsGroups;
     FileEntryVector             m_arStatusArray;
+    CReaderWriterLock           m_PropertyMapGuard;
     std::map<CTSVNPath,PropertyList> m_PropertyMap;
     std::vector<size_t>         m_arListArray;
     std::map<CString, int>      m_changelists;
