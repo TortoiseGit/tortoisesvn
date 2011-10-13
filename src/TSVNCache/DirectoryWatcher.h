@@ -106,6 +106,7 @@ private:
     CAutoGeneralHandle      m_hThread;
     CAutoGeneralHandle      m_hCompPort;
     volatile LONG           m_bRunning;
+    volatile LONG           m_bCleaned;
 
     CFolderCrawler *        m_FolderCrawler;    ///< where the change reports go to
 

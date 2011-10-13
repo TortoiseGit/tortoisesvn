@@ -26,6 +26,7 @@ extern HWND hWnd;
 
 CDirectoryWatcher::CDirectoryWatcher(void)
     : m_bRunning(TRUE)
+    , m_bCleaned(FALSE)
     , m_FolderCrawler(NULL)
     , blockTickCount(0)
 {
@@ -78,6 +79,7 @@ void CDirectoryWatcher::ScheduleForDeletion (CDirWatchInfo* info)
 void CDirectoryWatcher::CleanupWatchInfo()
 {
     AutoLocker lock(m_critSec);
+    InterlockedExchange(&m_bCleaned, TRUE);
     while (!infoToDelete.empty())
     {
         CDirWatchInfo* info = infoToDelete.back();
@@ -250,6 +252,7 @@ void CDirectoryWatcher::WorkerThread()
 
             pdi = NULL;
             numBytes = 0;
+            InterlockedExchange(&m_bCleaned, FALSE);
             if (   (!m_hCompPort)
                 || !GetQueuedCompletionStatus(m_hCompPort,
                                               &numBytes,
@@ -377,6 +380,11 @@ void CDirectoryWatcher::WorkerThread()
                 if (!m_bRunning)
                     return;
                 if (watchInfoMap.size()==0)
+                    continue;
+                // in case the CDirectoryWatcher objects have been cleaned,
+                // the m_bCleaned variable will be set to true here. If the
+                // objects haven't been cleared, we can access them here.
+                if (InterlockedExchange(&m_bCleaned, FALSE))
                     continue;
 
                 // NOTE: the longer this code takes to execute until ReadDirectoryChangesW
