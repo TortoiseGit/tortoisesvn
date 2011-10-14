@@ -64,8 +64,7 @@ BOOL CConflictResolveDlg::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
-    ExtendFrameIntoClientArea(0, IDC_GROUP, 0, IDC_GROUP);
-    m_aeroControls.SubclassControl(this, IDC_INFOLABEL);
+    ExtendFrameIntoClientArea(0, 0, 0, IDC_GROUP);
     m_aeroControls.SubclassControl(this, IDC_ABORT);
     m_aeroControls.SubclassControl(this, IDHELP);
 
