@@ -247,7 +247,6 @@ BOOL CRepositoryBrowser::OnInitDialog()
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_REPOS_BAR_CNR, IDC_REPOS_BAR_CNR, IDC_REPOS_BAR_CNR, IDC_REPOTREE);
-    m_aeroControls.SubclassControl(this, IDC_F5HINT);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     GetWindowText(m_origDlgTitle);
@@ -338,7 +337,6 @@ BOOL CRepositoryBrowser::OnInitDialog()
     SetWindowTheme(m_RepoTree.GetSafeHwnd(), L"Explorer", NULL);
 
     AddAnchor(IDC_REPOS_BAR_CNR, TOP_LEFT, TOP_RIGHT);
-    AddAnchor(IDC_F5HINT, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_REPOTREE, TOP_LEFT, BOTTOM_LEFT);
     AddAnchor(IDC_REPOLIST, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -1779,8 +1777,6 @@ void CRepositoryBrowser::OnRefresh()
 
     m_blockEvents = true;
 
-    bool fullPrefetch = !!(GetKeyState(VK_CONTROL) & 0x8000);
-
     // try to get the tree node to refresh
 
     HTREEITEM hSelected = m_RepoTree.GetSelectedItem();
@@ -1799,106 +1795,6 @@ void CRepositoryBrowser::OnRefresh()
     // invalidate the cache
 
     InvalidateData (hSelected);
-
-    // prefetch the whole sub-tree?
-
-    CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (hSelected);
-    if (fullPrefetch && (pItem != NULL))
-    {
-        // TODO: we really should just fetch the listing
-        // recursively in one step instead of fetching each
-        // folder individually...
-
-        // initialize crawler with current tree node
-
-        struct SEntry
-        {
-            CString url;
-            SVNRev pegRev;
-            SRepositoryInfo repository;
-        };
-
-        std::deque<SEntry> urls;
-
-        SEntry initial = { pItem->url
-                         , pItem->is_external
-                              ? pItem->repository.peg_revision
-                              : SVNRev()
-                         , pItem->repository };
-        urls.push_back (initial);
-
-        m_lister.Enqueue ( initial.url
-                         , initial.pegRev
-                         , initial.repository
-                         , true);
-
-        // breadth-first.
-        // This should maximize the interval between enqueueing
-        // the request and fetching its result
-
-        CProgressDlg progDlg;
-        progDlg.SetTitle(IDS_APPNAME);
-        progDlg.FormatNonPathLine(1, IDS_REPOBROWSE_LISTING);
-        progDlg.SetShowProgressBar(false);
-        progDlg.ShowModal(m_hWnd, true);
-
-        while (!urls.empty() && !progDlg.HasUserCancelled())
-        {
-            // extract next url
-
-            SEntry entry = urls.front();
-            urls.pop_front();
-
-            // get / query node list & externals for this node
-            // as fast as possible by preventing new queries from
-            // being started in the background
-            progDlg.FormatPathLine(2, IDS_REPOBROWSE_LISTINGURL, (LPCTSTR)entry.url);
-
-            std::deque<CItem> children;
-            {
-                auto queryBlocker = m_lister.SuspendJobs();
-
-                // enqueue sub-nodes for listing
-
-                AfxGetApp()->PumpMessage();
-                m_lister.GetList ( entry.url
-                                 , entry.pegRev
-                                 , entry.repository
-                                 , true
-                                 , children);
-
-                // just prefetching -> we don't need to filter children
-
-                AfxGetApp()->PumpMessage();
-                m_lister.AddSubTreeExternals ( entry.url
-                                             , entry.pegRev
-                                             , entry.repository
-                                             , CString()
-                                             , children);
-            }
-
-            for (size_t i = 0, count = children.size(); i < count; ++i)
-            {
-                const CItem& item = children[i];
-                const CString& url = item.absolutepath;
-
-                if (item.kind == svn_node_dir)
-                {
-                    SEntry entrydir = { url
-                                        , item.is_external
-                                        ? item.repository.peg_revision
-                                        : SVNRev()
-                                   , item.repository };
-                    urls.push_back (entrydir);
-                    m_lister.Enqueue ( url
-                                     , entrydir.pegRev
-                                     , item.repository
-                                     , item.has_props);
-                }
-            }
-        }
-        progDlg.Stop();
-    }
 
     // refresh the current node
 
