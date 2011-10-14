@@ -58,6 +58,7 @@ BEGIN_MESSAGE_MAP(CEditPropExternalsValue, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(WM_REVSELECTED, &CEditPropExternalsValue::OnRevSelected)
     ON_WM_SIZING()
     ON_EN_CHANGE(IDC_REVISION_NUM, &CEditPropExternalsValue::OnEnChangeRevisionNum)
+    ON_EN_CHANGE(IDC_PEGREV, &CEditPropExternalsValue::OnEnChangeRevisionNum)
     ON_BN_CLICKED(IDHELP, &CEditPropExternalsValue::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
@@ -105,7 +106,8 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_BROWSE, TOP_RIGHT);
     AddAnchor(IDC_PEGLABEL, TOP_LEFT);
-    AddAnchor(IDC_PEGREV, TOP_LEFT);
+    AddAnchor(IDC_OPERATIVELABEL, TOP_LEFT);
+    AddAnchor(IDC_PEGREV, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_GROUPBOTTOM, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_REVISION_HEAD, TOP_LEFT);
     AddAnchor(IDC_REVISION_N, TOP_LEFT);
@@ -290,7 +292,7 @@ void CEditPropExternalsValue::OnSizing(UINT fwSide, LPRECT pRect)
 void CEditPropExternalsValue::OnEnChangeRevisionNum()
 {
     UpdateData();
-    if (m_sRevision.IsEmpty())
+    if (m_sRevision.IsEmpty() && m_sPegRev.IsEmpty())
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
     else
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
