@@ -383,11 +383,6 @@ void CDirectoryWatcher::WorkerThread()
                     return;
                 if (watchInfoMap.size()==0)
                     continue;
-                // in case the CDirectoryWatcher objects have been cleaned,
-                // the m_bCleaned variable will be set to true here. If the
-                // objects haven't been cleared, we can access them here.
-                if (InterlockedExchange(&m_bCleaned, FALSE))
-                    continue;
 
                 // NOTE: the longer this code takes to execute until ReadDirectoryChangesW
                 // is called again, the higher the chance that we miss some
@@ -398,6 +393,11 @@ void CDirectoryWatcher::WorkerThread()
                     std::list<CTSVNPath> notifyPaths;
                     {
                         AutoLocker lock(m_critSec);
+                        // in case the CDirectoryWatcher objects have been cleaned,
+                        // the m_bCleaned variable will be set to true here. If the
+                        // objects haven't been cleared, we can access them here.
+                        if (InterlockedExchange(&m_bCleaned, FALSE))
+                            continue;
                         if (   (!pdi->m_hDir) || (watchInfoMap.size()==0)
                             || (watchInfoMap.find(pdi->m_hDir) == watchInfoMap.end()))
                         {
