@@ -2,6 +2,8 @@ Version 1.7.1
 - BUG: Issue #88: Check for modifications on
        multiple targets. (Stefan)
 - BUG: Issue #89: Crash in TSVNCache. (Stefan)
+- BUG: Cursor stayed as busy after an operation
+       until it was moved. (Stefan)
 
 Version 1.7.0
 Too many changes to list here. See the release notes for

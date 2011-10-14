@@ -1175,7 +1175,6 @@ UINT CSVNProgressDlg::ProgressThread()
 
     m_bCancelled = TRUE;
     InterlockedExchange(&m_bThreadRunning, FALSE);
-    RefreshCursor();
 
     if (m_pTaskbarList)
     {
@@ -1192,6 +1191,7 @@ UINT CSVNProgressDlg::ProgressThread()
 
     DialogEnableWindow(IDCANCEL, FALSE);
     DialogEnableWindow(IDOK, TRUE);
+    RefreshCursor();
 
     CString info = BuildInfoString();
     if (!bSuccess)
