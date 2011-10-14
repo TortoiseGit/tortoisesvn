@@ -721,8 +721,9 @@ public:
 
     /** Set a checkbox on an entry in the listbox
      * Keeps the listctrl checked state and the FileEntry's checked flag in sync
+     * \return the previous check value of the item
      */
-    void SetEntryCheck(int listboxIndex, bool bCheck);
+    bool SetEntryCheck(int listboxIndex, bool bCheck);
 
     /** Write a list of the checked items' paths into a path list
      */
@@ -914,7 +915,7 @@ private:
     /// Returns the file entry data for the specified path.
     CSVNStatusListCtrl::FileEntry * GetListEntry(const CTSVNPath& path) const;
 
-    void SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck);
+    bool SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck);
 
     /// Adjust the checkbox-state on all descendants of a specific item
     void SetCheckOnAllDescendentsOf(const FileEntry* parentEntry, bool bCheck);

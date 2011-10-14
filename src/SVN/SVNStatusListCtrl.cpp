@@ -4009,7 +4009,6 @@ void CSVNStatusListCtrl::Check(DWORD dwCheck, bool uncheckNonMatches)
         m_bBlockItemChangeHandler = true;
 
         int nListItems = GetItemCount();
-        m_nSelected = 0;
 
         for (int i=0; i<nListItems; ++i)
         {
@@ -4025,11 +4024,14 @@ void CSVNStatusListCtrl::Check(DWORD dwCheck, bool uncheckNonMatches)
                 if ((m_dwShow & SVNSLC_SHOWEXTDISABLED) && (entry->IsFromDifferentRepository() || entry->IsNested()))
                     continue;
 
-                SetEntryCheck(entry, i, true);
-                m_nSelected++;
+                if (!SetEntryCheck(entry, i, true))
+                    m_nSelected++;
             }
             else if (uncheckNonMatches)
-                SetEntryCheck(entry, i, false);
+            {
+                if (SetEntryCheck(entry, i, false))
+                    m_nSelected--;
+            }
         }
         m_bBlockItemChangeHandler = false;
     }
@@ -4229,18 +4231,22 @@ void CSVNStatusListCtrl::RemoveListEntry(int index)
 
 // Set a checkbox on an entry in the listbox
 // NEVER, EVER call SetCheck directly, because you'll end-up with the checkboxes and the 'checked' flag getting out of sync
-void CSVNStatusListCtrl::SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck)
+bool CSVNStatusListCtrl::SetEntryCheck(FileEntry* pEntry, int listboxIndex, bool bCheck)
 {
     CAutoWriteLock locker(m_guard);
+    bool oldCheck = pEntry->checked;
     pEntry->checked = bCheck;
     SetCheck(listboxIndex, bCheck);
+    return oldCheck;
 }
-void CSVNStatusListCtrl::SetEntryCheck(int listboxIndex, bool bCheck)
+bool CSVNStatusListCtrl::SetEntryCheck(int listboxIndex, bool bCheck)
 {
     CAutoWriteLock locker(m_guard);
     FileEntry * pEntry = GetListEntry(listboxIndex);
+    bool oldCheck = pEntry->checked;
     pEntry->checked = bCheck;
     SetCheck(listboxIndex, bCheck);
+    return oldCheck;
 }
 
 
