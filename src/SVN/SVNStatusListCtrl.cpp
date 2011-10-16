@@ -1355,6 +1355,7 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
                 (entry->status != svn_wc_status_none)&&
                 (!SVNStatus::IsImportant(entry->textstatus)))
             {
+                _tcscat_s(buf, L" ");
                 _tcscat_s(buf, ponly);
             }
             if ((entry->isConflicted)&&(entry->status != svn_wc_status_conflicted))
@@ -1379,6 +1380,7 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
                 (entry->remotestatus != svn_wc_status_unversioned)&&
                 (!SVNStatus::IsImportant(entry->remotetextstatus)))
             {
+                _tcscat_s(buf, L" ");
                 _tcscat_s(buf, ponly);
             }
             return buf;
