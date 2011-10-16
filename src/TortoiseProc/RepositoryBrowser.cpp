@@ -229,6 +229,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_NOTIFY(NM_CLICK, IDC_REPOTREE, &CRepositoryBrowser::OnNMClickRepotree)
     ON_NOTIFY(TVN_KEYDOWN, IDC_REPOTREE, &CRepositoryBrowser::OnTvnKeydownRepotree)
     ON_WM_CAPTURECHANGED()
+    ON_REGISTERED_MESSAGE(WM_SVNAUTHCANCELLED, OnAuthCancelled)
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -364,7 +365,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
         m_RepoTree.MoveWindow(&rc, FALSE);
         AddAnchor(IDC_REPOTREE, TOP_LEFT, BOTTOM_LEFT);
     }
-
+    SetPromptParentWindow(m_hWnd);
     m_bThreadRunning = true;
     if (AfxBeginThread(InitThreadEntry, this)==NULL)
     {
@@ -698,6 +699,13 @@ void CRepositoryBrowser::OnCancel()
     ClearUI();
 
     __super::OnCancel();
+}
+
+LPARAM CRepositoryBrowser::OnAuthCancelled(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    m_cancelled = TRUE;
+    m_lister.Cancel();
+    return 0;
 }
 
 void CRepositoryBrowser::OnBnClickedHelp()

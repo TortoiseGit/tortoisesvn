@@ -145,6 +145,7 @@ protected:
     afx_msg void OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnCaptureChanged(CWnd *pWnd);
+    afx_msg LRESULT OnAuthCancelled(WPARAM wParam, LPARAM lParam);
 
     afx_msg void OnUrlFocus();
     afx_msg void OnCopy();
