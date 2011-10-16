@@ -175,7 +175,11 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
         tsvn_creds[realm] = c;
     }
     else
+    {
         *cred = NULL;
+        if (!svn->m_bSuppressed)
+            ::SendMessage(FindParentWindow(svn->m_hParentWnd), WM_SVNAUTHCANCELLED, 0, 0);
+    }
     if (svn->m_app)
         svn->m_app->DoWaitCursor(0);
     return SVN_NO_ERROR;
@@ -200,7 +204,11 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
         tsvn_creds[realm] = c;
     }
     else
+    {
         *cred = NULL;
+        if (!svn->m_bSuppressed)
+            ::SendMessage(FindParentWindow(svn->m_hParentWnd), WM_SVNAUTHCANCELLED, 0, 0);
+    }
     if (svn->m_app)
         svn->m_app->DoWaitCursor(0);
     return SVN_NO_ERROR;

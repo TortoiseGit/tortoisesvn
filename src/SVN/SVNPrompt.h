@@ -76,3 +76,6 @@ private:
     bool                        m_bPromptShown;
     bool                        m_bSuppressed;
 };
+
+static UINT WM_SVNAUTHCANCELLED = RegisterWindowMessage(_T("TORTOISESVN_SVNAUTHCANCELLED_MSG"));
+
