@@ -147,37 +147,32 @@ Don't touch these lines:
                                 <itemizedlist>
                                     <listitem>
                                         <para>
-                                            <option>/findtype:1</option> filter by everything
+                                            <option>/findtype:0</option> filter by everything
                                         </para>
                                     </listitem>
                                     <listitem>
                                         <para>
-                                            <option>/findtype:2</option> filter by messages
+                                            <option>/findtype:1</option> filter by messages
                                         </para>
                                     </listitem>
                                     <listitem>
                                         <para>
-                                            <option>/findtype:4</option> filter by path
+                                            <option>/findtype:2</option> filter by path
                                         </para>
                                     </listitem>
                                     <listitem>
                                         <para>
-                                            <option>/findtype:8</option> filter by authors
+                                            <option>/findtype:4</option> filter by authors
                                         </para>
                                     </listitem>
                                     <listitem>
                                         <para>
-                                            <option>/findtype:16</option> filter by revisions
+                                            <option>/findtype:8</option> filter by revisions
                                         </para>
                                     </listitem>
                                     <listitem>
                                         <para>
                                             <option>/findtype:32</option> filter by bug ID
-                                        </para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>
-                                            <option>/findtype:64</option> filter case sensitive
                                         </para>
                                     </listitem>
                                     <listitem>
