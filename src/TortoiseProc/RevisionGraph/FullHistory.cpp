@@ -26,6 +26,7 @@
 #include "PathUtils.h"
 #include "SVN.h"
 #include "TSVNPath.h"
+#include "SVNConfig.h"
 #include "SVNError.h"
 #include "SVNInfo.h"
 #include "CachedLogInfo.h"
@@ -67,11 +68,10 @@ CFullHistory::CFullHistory(void)
     parentpool = svn_pool_create(NULL);
     svn_error_clear(svn_client_create_context(&ctx, parentpool));
 
-    Err = svn_config_ensure(NULL, parentpool);
     pool = svn_pool_create (parentpool);
     // set up the configuration
     if (Err == 0)
-        Err = svn_config_get_config (&(ctx->config), g_pConfigDir, pool);
+        ctx->config = SVNConfig::Instance().GetConfig();
 
     if (Err != 0)
     {

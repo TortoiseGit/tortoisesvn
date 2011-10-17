@@ -21,6 +21,7 @@
 #include "SVNFolderStatus.h"
 #include "UnicodeUtils.h"
 #include "..\TSVNCache\CacheInterface.h"
+#include "SVNConfig.h"
 #include "SVNGlobal.h"
 #include "SmartHandle.h"
 
@@ -137,7 +138,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     // Note: I know this is an 'expensive' call, but without this, ignores
     // done in the global ignore pattern won't show up.
     if (g_unversionedovlloaded)
-        svn_error_clear(svn_config_get_config (&(localctx->config), g_pConfigDir, pool));
+        localctx->config = SVNConfig::Instance().GetConfig();
 
     // strings pools are unused, now -> we may clear them
 

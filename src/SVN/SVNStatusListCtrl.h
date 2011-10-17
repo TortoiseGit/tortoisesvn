@@ -875,16 +875,16 @@ private:
     void FetchUserProperties();
 
     /// Process one line of the command file supplied to GetStatus
-    bool FetchStatusForSingleTarget(SVNConfig& config, SVNStatus& status, const CTSVNPath& target, const CTSVNPath& basepath, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, svn_depth_t depth = svn_depth_infinity, bool bShowIgnores = false);
+    bool FetchStatusForSingleTarget(SVNStatus& status, const CTSVNPath& target, const CTSVNPath& basepath, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, svn_depth_t depth = svn_depth_infinity, bool bShowIgnores = false);
 
     /// Create 'status' data for each item in an unversioned folder
-    void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath, SVNConfig * config);
+    void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath);
 
     /// Add unversioned / ignored folder
-    void PostProcessEntry (const FileEntry* entry, svn_wc_status_kind wcFileStatus, SVNConfig * config);
+    void PostProcessEntry (const FileEntry* entry, svn_wc_status_kind wcFileStatus);
 
     /// Read the all the other status items which result from a single GetFirstStatus call
-    void ReadRemainingItemsStatus(SVNStatus& status, const CTSVNPath& strBasePath, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, SVNConfig * config, bool bAllDirect);
+    void ReadRemainingItemsStatus(SVNStatus& status, const CTSVNPath& strBasePath, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect);
 
     /// Clear the status vector (contains custodial pointers)
     void ClearStatusArray();

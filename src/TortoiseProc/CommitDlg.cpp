@@ -118,8 +118,7 @@ BOOL CCommitDlg::OnInitDialog()
     m_regKeepChangelists = CRegDWORD(_T("Software\\TortoiseSVN\\KeepChangeLists"), FALSE);
     m_bKeepChangeList = m_regKeepChangelists;
 
-    SVNConfig config;
-    m_bKeepLocks = config.KeepLocks();
+    m_bKeepLocks = SVNConfig::Instance().KeepLocks();
 
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_KEEPLOCK);

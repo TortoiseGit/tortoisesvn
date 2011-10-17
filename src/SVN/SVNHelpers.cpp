@@ -18,6 +18,7 @@
 #include "StdAfx.h"
 #include "SVNHelpers.h"
 #include "TSVNPath.h"
+#include "SVNConfig.h"
 #include "..\version.h"
 #pragma warning(push)
 #include "svn_config.h"
@@ -58,7 +59,7 @@ SVNHelper::SVNHelper(void)
     m_ctx->cancel_func = cancelfunc;
     m_ctx->cancel_baton = this;
     m_ctx->client_name = SVNHelper::GetUserAgentString(m_pool);
-    svn_error_clear(svn_config_get_config(&(m_config), NULL, m_pool));
+    m_config = SVNConfig::Instance().GetConfig();
 }
 
 SVNHelper::~SVNHelper(void)
@@ -68,7 +69,7 @@ SVNHelper::~SVNHelper(void)
 
 void SVNHelper::ReloadConfig()
 {
-    svn_error_clear(svn_config_get_config(&(m_config), NULL, m_pool));
+    m_config = SVNConfig::Instance().GetConfig();
     m_ctx->config = m_config;
 }
 

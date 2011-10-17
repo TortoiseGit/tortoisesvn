@@ -18,6 +18,11 @@
 
 #pragma once
 #include "SVNGlobal.h"
+#pragma warning(push)
+#include "apr_hash.h"
+#include "apr_tables.h"
+#pragma warning(pop)
+
 /**
  * \ingroup SVN
  * A small wrapper for the Subversion configurations.
@@ -26,9 +31,23 @@ class SVNConfig
 {
 private:
     SVNConfig(const SVNConfig&){}
-public:
     SVNConfig(void);
     ~SVNConfig(void);
+public:
+    static SVNConfig& Instance()
+    {
+        if (m_pInstance == NULL)
+            m_pInstance = new SVNConfig();
+        return *m_pInstance;
+    }
+
+    /**
+     * Returns the configuration
+     */
+    apr_hash_t * GetConfig()
+    {
+        return config;
+    }
 
     /**
      * Reads the global ignore patterns which will be used later in
@@ -49,8 +68,9 @@ public:
     BOOL KeepLocks();
 private:
     apr_pool_t *                parentpool;
-    apr_pool_t *                pool;           ///< memory pool
-    svn_client_ctx_t *          ctx;
+    apr_pool_t *                pool;
+    apr_hash_t *                config;
     apr_array_header_t *        patterns;
 
+    static SVNConfig *          m_pInstance;
 };

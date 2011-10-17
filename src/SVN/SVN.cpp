@@ -40,6 +40,7 @@
 #include "StringUtils.h"
 #include "TempFile.h"
 #include "SVNAdminDir.h"
+#include "SVNConfig.h"
 #include "SVNError.h"
 #include "SVNLogQuery.h"
 #include "CacheLogQuery.h"
@@ -107,12 +108,11 @@ SVN::SVN(bool suppressUI)
     parentpool = svn_pool_create(NULL);
     svn_error_clear(svn_client_create_context(&m_pctx, parentpool));
 
-    Err = svn_config_ensure(NULL, parentpool);
     pool = svn_pool_create (parentpool);
     svn_ra_initialize(pool);
     // set up the configuration
     if (Err == 0)
-        Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, parentpool);
+        m_pctx->config = SVNConfig::Instance().GetConfig();
 
     if (Err != 0)
     {
@@ -181,10 +181,9 @@ CString SVN::CheckConfigFile()
 
     svn_error_clear(svn_client_create_context(&ctx, pool));
 
-    err = svn_config_ensure(NULL, pool);
     // set up the configuration
     if (err == 0)
-        err = svn_config_get_config (&ctx->config, g_pConfigDir, pool);
+        ctx->config = SVNConfig::Instance().GetConfig();
     CString msg;
     CString temp;
     if (err != NULL)
@@ -1452,12 +1451,8 @@ bool SVN::CreateRepository(const CTSVNPath& path, const CString& fstype)
     apr_hash_set (fs_config, SVN_FS_CONFIG_BDB_LOG_AUTOREMOVE,
         APR_HASH_KEY_STRING, "1");
 
-    err = svn_config_get_config (&config, g_pConfigDir, localpool);
-    if (err != NULL)
-    {
-        svn_error_clear(err);
-        return FALSE;
-    }
+    config = SVNConfig::Instance().GetConfig();
+
     const char * fs_type = apr_pstrdup(localpool, CStringA(fstype));
     apr_hash_set (fs_config, SVN_FS_CONFIG_FS_TYPE,
         APR_HASH_KEY_STRING,

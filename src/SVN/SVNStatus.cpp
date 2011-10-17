@@ -26,6 +26,7 @@
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"
 #include "SVNGlobal.h"
+#include "SVNConfig.h"
 #include "SVNHelpers.h"
 #include "SVNTrace.h"
 #ifdef _MFC_VER
@@ -60,10 +61,8 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
 
 
 #ifdef _MFC_VER
-    svn_error_clear(svn_config_ensure(NULL, m_pool));
-
     // set up the configuration
-    Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);
+    m_pctx->config = SVNConfig::Instance().GetConfig();
 
     // set up authentication
     m_prompt.Init(m_pool, m_pctx);
@@ -88,10 +87,8 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
         svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
     }
 #else
-    svn_error_clear(svn_config_ensure(NULL, m_pool));
-
     // set up the configuration
-    Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);
+    m_pctx->config = SVNConfig::Instance().GetConfig();
 
 #endif
 }

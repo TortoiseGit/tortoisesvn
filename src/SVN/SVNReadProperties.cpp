@@ -21,6 +21,7 @@
 #include "tstring.h"
 #include "SVNReadProperties.h"
 #include "SVNStatus.h"
+#include "SVNConfig.h"
 #include "SVNHelpers.h"
 #include "SVNTrace.h"
 #pragma warning(push)
@@ -147,9 +148,8 @@ void SVNReadProperties::Construct()
 
 #ifdef _MFC_VER
 
-    svn_error_clear(svn_config_ensure(NULL, m_pool));
     // set up the configuration
-    Err = svn_config_get_config (&m_pctx->config, g_pConfigDir, m_pool);
+    m_pctx->config = SVNConfig::Instance().GetConfig();
     if (Err)
     {
         ShowErrorDialog(NULL);

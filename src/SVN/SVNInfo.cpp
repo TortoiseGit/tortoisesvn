@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "resource.h"
 
+#include "SVNConfig.h"
 #include "SVNInfo.h"
 #include "SVNHelpers.h"
 #include "UnicodeUtils.h"
@@ -65,16 +66,14 @@ SVNInfo::SVNInfo (bool)
 
     svn_error_clear(svn_client_create_context(&m_pctx, m_pool));
 
-    svn_error_clear(svn_config_ensure(NULL, m_pool));
-
 #ifdef _MFC_VER
     // set up the configuration
-    Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, m_pool);
+    m_pctx->config = SVNConfig::Instance().GetConfig();
     // set up authentication
     m_prompt.Init(m_pool, m_pctx);
 #else
     // set up the configuration
-    Err = svn_config_get_config (&(m_pctx->config), NULL, m_pool);
+    m_pctx->config = SVNConfig::Instance().GetConfig();
 #endif
     m_pctx->cancel_func = cancel;
     m_pctx->cancel_baton = this;
