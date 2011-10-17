@@ -10,14 +10,15 @@
 # 
 # Authors:
 # Translators:
+# Peerawit Tungwongsin <t.peerawit@gmail.com>, 2011.
 # Varanuch Pojjananuntakul <varanuch.po@hotmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-07 03:29+0000\n"
-"Last-Translator: smileofme <varanuch.po@hotmail.com>\n"
+"PO-Revision-Date: 2011-10-16 08:17+0000\n"
+"Last-Translator: war11ck <t.peerawit@gmail.com>\n"
 "Language-Team: Thai <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,7 +66,7 @@ msgstr ""
 #. Resource IDs: (3867)
 #, c-format
 msgid "%1 contains an incorrect path."
-msgstr ""
+msgstr "%1 มีเส้นทางที่ไม่ถูกต้อง"
 
 #. Resource IDs: (3868)
 #, c-format
@@ -224,7 +225,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
-msgstr ""
+msgstr "%s แต่สารบบในเครื่องหายไป"
 
 #. Resource IDs: (609)
 #, c-format
@@ -239,7 +240,7 @@ msgstr "%s, แต่ directory ได้ถูกแก้ไขแล้ว"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
-msgstr ""
+msgstr "%s แต่สารบบในเครื่องถูกลบ ย้าย หรือเปลี่ยนชื่อ"
 
 #. Resource IDs: (609)
 #, c-format
@@ -259,7 +260,7 @@ msgstr ""
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file is missing locally."
-msgstr ""
+msgstr "%s แต่ไฟล์ในเครื่องหายไป"
 
 #. Resource IDs: (609)
 #, c-format
@@ -274,7 +275,7 @@ msgstr "%s, แต่ไฟล์ได้ถูกแก้ไขแล้ว"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
-msgstr ""
+msgstr "%s แต่ไฟล์ในเครื่องถูกลบ ย้าย หรือเปลี่ยนชื่อ"
 
 #. Resource IDs: (609)
 #, c-format
@@ -463,7 +464,7 @@ msgstr ""
 
 #. Resource IDs: (13)
 msgid "&Blame..."
-msgstr ""
+msgstr "&ตำหนิ..."
 
 #. Resource IDs: (32849)
 msgid "&Blue Style"
@@ -475,7 +476,7 @@ msgstr "&Blue:"
 
 #. Resource IDs: (65535)
 msgid "&Border:"
-msgstr "&ขอบกั้น:"
+msgstr "&ขอบ:"
 
 #. Resource IDs: (1568)
 msgid "&Bottom"
@@ -487,11 +488,11 @@ msgstr ""
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
-msgstr ""
+msgstr "&ค้นดูในคลัง"
 
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
-msgstr "&Browse..."
+msgstr "&ค้นหา..."
 
 #. Resource IDs: (32850)
 msgid "&Bugtraq (Issue tracker integration)"
@@ -499,7 +500,7 @@ msgstr ""
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
-msgstr ""
+msgstr "&รูปร่างของปุ่ม..."
 
 #. Resource IDs: (65535)
 msgid "&Button text:"
@@ -527,7 +528,7 @@ msgstr "&เลือกคำสั่งจาก:"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
-msgstr ""
+msgstr "&เลือกรายการ..."
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
@@ -535,7 +536,7 @@ msgstr ""
 
 #. Resource IDs: (8)
 msgid "&Clean up..."
-msgstr ""
+msgstr "&ทำความสะอาด..."
 
 #. Resource IDs: (17, 58112)
 msgid "&Close"
@@ -555,7 +556,7 @@ msgstr "&คำสั่ง:"
 
 #. Resource IDs: (8)
 msgid "&Commit..."
-msgstr ""
+msgstr "&ส่งมอบ..."
 
 #. Resource IDs: (101)
 msgid "&Compare URLs"
@@ -619,7 +620,7 @@ msgstr ""
 
 #. Resource IDs: (1269)
 msgid "&Default"
-msgstr ""
+msgstr "&ค่าปริยาย"
 
 #. Resource IDs: (11, 1382, 16617, 16912)
 msgid "&Delete"
@@ -627,7 +628,7 @@ msgstr "&ลบทิ้ง"
 
 #. Resource IDs: (17)
 msgid "&Delete (keep local)"
-msgstr ""
+msgstr "&ลบ (เก็บสำเนาในเครื่อง)"
 
 #. Resource IDs: (1514)
 msgid "&Delete unversioned items..."
@@ -639,11 +640,11 @@ msgstr "&ลบทิ้ง..."
 
 #. Resource IDs: (12)
 msgid "&Diff"
-msgstr ""
+msgstr "เ&ปรียบเทียบ"
 
 #. Resource IDs: (17)
 msgid "&Diff with URL"
-msgstr ""
+msgstr "เ&ปรียบเทียบกับ URL"
 
 #. Resource IDs: (14)
 msgid "&Diff with previous version"
@@ -659,7 +660,7 @@ msgstr ""
 
 #. Resource IDs: (32851)
 msgid "&EOL"
-msgstr ""
+msgstr "&EOL"
 
 #. Resource IDs: (106, 1031, 65535)
 msgid "&Edit"
@@ -667,11 +668,11 @@ msgstr "&แก้ไข"
 
 #. Resource IDs: (1399)
 msgid "&Edit conflict"
-msgstr ""
+msgstr "แ&ก้ข้อขัดแย้ง"
 
 #. Resource IDs: (12)
 msgid "&Edit conflicts"
-msgstr ""
+msgstr "แ&ก้ข้อขัดแย้ง"
 
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
@@ -679,7 +680,7 @@ msgstr "&แก้ไข..."
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
-msgstr ""
+msgstr "เ&ปิดใช้พร็อกซีเซิฟเวอร์"
 
 #. Resource IDs: (1434)
 msgid "&Enable log caching"
@@ -703,7 +704,7 @@ msgstr ""
 
 #. Resource IDs: (1092, 1094, 1095)
 msgid "&External"
-msgstr ""
+msgstr "&ภายนอก"
 
 #. Resource IDs: (65535)
 msgid "&File"
@@ -727,7 +728,7 @@ msgstr "&ค้นหา..."
 
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
-msgstr ""
+msgstr "&ปรับรูปพอดีกับหน้าต่าง"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -799,7 +800,7 @@ msgstr "&ซ่อน"
 
 #. Resource IDs: (1170)
 msgid "&Icon Set:"
-msgstr ""
+msgstr "ชุดไ&อคอน:"
 
 #. Resource IDs: (15)
 #, c-format
@@ -820,7 +821,7 @@ msgstr "&รูปภาพ"
 
 #. Resource IDs: (32790)
 msgid "&Image info"
-msgstr ""
+msgstr "ข้อมูล&รูปภาพ"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -860,7 +861,7 @@ msgstr ""
 
 #. Resource IDs: (32852)
 msgid "&Keywords"
-msgstr ""
+msgstr "&คำหลัก"
 
 #. Resource IDs: (65535)
 msgid "&Language:"
@@ -868,7 +869,7 @@ msgstr "&ภาษา:"
 
 #. Resource IDs: (16653)
 msgid "&Large Icons"
-msgstr ""
+msgstr "&ไอค่อนขนาดใหญ่"
 
 #. Resource IDs: (1065)
 msgid "&Limit search to modified lines"
@@ -876,7 +877,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Limit:"
-msgstr ""
+msgstr "&จำกัด:"
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
@@ -884,7 +885,7 @@ msgstr ""
 
 #. Resource IDs: (1590)
 msgid "&Linux (LF)"
-msgstr ""
+msgstr "&Linux (LF)"
 
 #. Resource IDs: (1172)
 msgid "&List View"
@@ -892,7 +893,7 @@ msgstr ""
 
 #. Resource IDs: (1309)
 msgid "&Load..."
-msgstr ""
+msgstr "&โหลด..."
 
 #. Resource IDs: (1554)
 msgid "&Locking required (read-only update)"
@@ -908,7 +909,7 @@ msgstr ""
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
-msgstr ""
+msgstr "&Mac (CR)"
 
 #. Resource IDs: (1562)
 msgid "&Make depth sticky"
@@ -932,7 +933,7 @@ msgstr ""
 
 #. Resource IDs: (1, 279)
 msgid "&Merge"
-msgstr ""
+msgstr "&ผสาน"
 
 #. Resource IDs: (32786)
 msgid "&Merge paths"
@@ -940,7 +941,7 @@ msgstr ""
 
 #. Resource IDs: (9)
 msgid "&Merge..."
-msgstr ""
+msgstr "&ผสาน..."
 
 #. Resource IDs: (1012)
 msgid "&Merging"
@@ -985,7 +986,7 @@ msgstr ""
 #. Resource IDs: (115, 1208)
 #, c-format
 msgid "&Next %ld"
-msgstr ""
+msgstr "&ถัดไป %ld"
 
 #. Resource IDs: (332)
 msgid "&Next >"
@@ -1021,11 +1022,11 @@ msgstr "&ตกลง"
 
 #. Resource IDs: (1)
 msgid "&Offline for now"
-msgstr ""
+msgstr "&ออฟไลน์เดี๋ยวนี้"
 
 #. Resource IDs: (3845)
 msgid "&One Page"
-msgstr ""
+msgstr "&หนึ่งหน้า"
 
 #. Resource IDs: (101, 113, 32773, 57601)
 msgid "&Open"
@@ -1033,11 +1034,11 @@ msgstr "&เปิด"
 
 #. Resource IDs: (1382)
 msgid "&Options"
-msgstr ""
+msgstr "&ตัวเลือก"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
-msgstr ""
+msgstr "&รูปซ้อนทับ"
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1053,7 +1054,7 @@ msgstr ""
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
-msgstr ""
+msgstr "ออฟไลน์&ถาวร"
 
 #. Resource IDs: (1588)
 msgid "&Platform dependent (native)"
@@ -1061,7 +1062,7 @@ msgstr ""
 
 #. Resource IDs: (1414)
 msgid "&Port:"
-msgstr ""
+msgstr "&หมายเลขช่องทาง:"
 
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
@@ -1097,11 +1098,11 @@ msgstr ""
 
 #. Resource IDs: (376)
 msgid "&Redo"
-msgstr ""
+msgstr "&ทำซ้ำ"
 
 #. Resource IDs: (1382)
 msgid "&Refresh"
-msgstr ""
+msgstr "&รีเฟรช"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
@@ -1109,7 +1110,7 @@ msgstr ""
 
 #. Resource IDs: (619, 1100, 1285, 1597, 16646)
 msgid "&Remove"
-msgstr ""
+msgstr "เ&อาออก"
 
 #. Resource IDs: (101)
 msgid "&Rename"
@@ -1117,23 +1118,23 @@ msgstr "&เปลี่ยนชื่อ"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
-msgstr ""
+msgstr "&Repo-browser"
 
 #. Resource IDs: (16613, 16624)
 msgid "&Reset"
-msgstr ""
+msgstr "&ตั้งค่าใหม่"
 
 #. Resource IDs: (1019)
 msgid "&Reset Toolbar"
-msgstr ""
+msgstr "&จัดแถบเครื่องมือใหม่"
 
 #. Resource IDs: (16657)
 msgid "&Reset my usage data"
-msgstr ""
+msgstr "&จัดข้อมูลการใช้งานใหม่"
 
 #. Resource IDs: (16910)
 msgid "&Reset to Default"
-msgstr ""
+msgstr "เ&ปลี่ยนเป็นค่าปริยาย"
 
 #. Resource IDs: (1382)
 msgid "&Resolve using local property"
@@ -1141,7 +1142,7 @@ msgstr ""
 
 #. Resource IDs: (1488)
 msgid "&Restore defaults"
-msgstr ""
+msgstr "&คืนค่าปริยาย"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
@@ -1165,7 +1166,7 @@ msgstr "&การปรับปรุง"
 
 #. Resource IDs: (65535)
 msgid "&SSH client:"
-msgstr ""
+msgstr "&SSH client:"
 
 #. Resource IDs: (65535)
 msgid "&SVN"
@@ -1181,7 +1182,7 @@ msgstr "&บันทึก"
 
 #. Resource IDs: (1023)
 msgid "&Save authentication"
-msgstr ""
+msgstr "&บันทึกการพิสูจน์ตัวตน"
 
 #. Resource IDs: (272, 32771, 32806)
 msgid "&Save graph as..."
@@ -1189,11 +1190,11 @@ msgstr "&บันทึกกราฟเป็น..."
 
 #. Resource IDs: (322)
 msgid "&Save list of selected files to..."
-msgstr ""
+msgstr "&บันทึกรายการไฟล์ที่เลือกไปยัง..."
 
 #. Resource IDs: (619, 1308)
 msgid "&Save value..."
-msgstr ""
+msgstr "&บันทึกค่า..."
 
 #. Resource IDs: (9)
 msgid "&Settings"
@@ -1205,7 +1206,7 @@ msgstr ""
 
 #. Resource IDs: (1132)
 msgid "&Show Log"
-msgstr ""
+msgstr "แ&สดงบันทึกเหตุการณ์"
 
 #. Resource IDs: (65535)
 msgid "&Show Menus for:"
@@ -1233,7 +1234,7 @@ msgstr ""
 
 #. Resource IDs: (59393)
 msgid "&Status Bar"
-msgstr ""
+msgstr "แ&ถบสถานะ"
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
@@ -1305,7 +1306,7 @@ msgstr ""
 
 #. Resource IDs: (59392)
 msgid "&Toolbar"
-msgstr ""
+msgstr "แ&ถบเครื่องมือ"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
@@ -1321,15 +1322,15 @@ msgstr ""
 
 #. Resource IDs: (1091, 1093, 1094)
 msgid "&TortoiseMerge"
-msgstr ""
+msgstr "&TortoiseMerge"
 
 #. Resource IDs: (9)
 msgid "&TortoiseSVN"
-msgstr ""
+msgstr "&TortoiseSVN"
 
 #. Resource IDs: (1096)
 msgid "&TortoiseUDiff"
-msgstr ""
+msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
@@ -1337,19 +1338,19 @@ msgstr ""
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
-msgstr ""
+msgstr "&สองหน้า"
 
 #. Resource IDs: (1058, 1376, 1394)
 msgid "&URL of repository:"
-msgstr ""
+msgstr "&URL ของคลัง:"
 
 #. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
-msgstr ""
+msgstr "&URL:"
 
 #. Resource IDs: (376, 57643)
 msgid "&Undo"
-msgstr ""
+msgstr "&ยกเลิก"
 
 #. Resource IDs: (274, 32785)
 msgid "&Unified diff"
@@ -1385,15 +1386,15 @@ msgstr ""
 
 #. Resource IDs: (1005, 1410, 65535)
 msgid "&Username:"
-msgstr ""
+msgstr "&ชื่อผู้ใช้:"
 
 #. Resource IDs: (65535)
 msgid "&View"
-msgstr ""
+msgstr "&มุมมอง"
 
 #. Resource IDs: (65535)
 msgid "&View:"
-msgstr ""
+msgstr "&มุมมอง:"
 
 #. Resource IDs: (32774)
 msgid "&Whitespaces"
@@ -1401,15 +1402,15 @@ msgstr ""
 
 #. Resource IDs: (1066)
 msgid "&Whole word"
-msgstr ""
+msgstr "&ทั้งคำ"
 
 #. Resource IDs: (1589)
 msgid "&Windows (CRLF)"
-msgstr ""
+msgstr "&Windows (CRLF)"
 
 #. Resource IDs: (32846)
 msgid "&Windows XP"
-msgstr ""
+msgstr "&Windows XP"
 
 #. Resource IDs: (1183)
 msgid "&Working copy"
@@ -1429,6 +1430,8 @@ msgid ""
 "'%s'\n"
 "is not a valid URL or path!"
 msgstr ""
+"'%s'\n"
+"ไม่ใช่ URL หรือเส้นทางที่ถูกต้อง!"
 
 #. Resource IDs: (338)
 msgid ""
@@ -1438,19 +1441,19 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid "(%1!s!) %2!s!"
-msgstr ""
+msgstr "(%1!s!) %2!s!"
 
 #. Resource IDs: (119)
 msgid "(Double-click to clear error message)"
-msgstr ""
+msgstr "(ดับเบิลคลิกเพื่อล้างข้อความแสดงข้อผิดพลาด)"
 
 #. Resource IDs: (17, 589)
 msgid "(binary value)"
-msgstr ""
+msgstr "(ค่าฐานสอง)"
 
 #. Resource IDs: (277)
 msgid "(copy)"
-msgstr ""
+msgstr "(คัดลอก)"
 
 #. Resource IDs: (277)
 msgid "(create branch)"
@@ -1458,19 +1461,19 @@ msgstr ""
 
 #. Resource IDs: (277)
 msgid "(created)"
-msgstr ""
+msgstr "(สร้าง)"
 
 #. Resource IDs: (277)
 msgid "(delete)"
-msgstr "(ลบทิ้ง)"
+msgstr "(ลบ)"
 
 #. Resource IDs: (214)
 msgid "(externals)"
-msgstr ""
+msgstr "(ภายนอก)"
 
 #. Resource IDs: (277)
 msgid "(modified)"
-msgstr ""
+msgstr "(แก้ไข)"
 
 #. Resource IDs: (277)
 msgid "(modified, HEAD revision)"
@@ -1478,15 +1481,15 @@ msgstr ""
 
 #. Resource IDs: (208)
 msgid "(multiple targets selected)"
-msgstr ""
+msgstr "(เลือกหลายเป้าหมาย)"
 
 #. Resource IDs: (213)
 msgid "(no changelist)"
-msgstr ""
+msgstr "(ไม่มีรายการแก้ไข)"
 
 #. Resource IDs: (314)
 msgid "(no line number)"
-msgstr ""
+msgstr "(ไม่มีเลขบรรทัด)"
 
 #. Resource IDs: (277)
 msgid "(no modification but copy created from here)"
@@ -1498,11 +1501,11 @@ msgstr ""
 
 #. Resource IDs: (214)
 msgid "(no value)"
-msgstr ""
+msgstr "(ไม่มีค่า)"
 
 #. Resource IDs: (314)
 msgid "(not found)"
-msgstr ""
+msgstr "(ไม่พบ)"
 
 #. Resource IDs: (176)
 msgid "(properties only)"
@@ -1510,7 +1513,7 @@ msgstr ""
 
 #. Resource IDs: (208)
 msgid "(property change only)"
-msgstr ""
+msgstr "(เปลี่ยนคุณสมบัติเท่านั้น)"
 
 #. Resource IDs: (176)
 msgid "(props and content)"
@@ -1518,7 +1521,7 @@ msgstr ""
 
 #. Resource IDs: (277)
 msgid "(rename)"
-msgstr ""
+msgstr "(เปลี่ยนชื่อ)"
 
 #. Resource IDs: (277)
 msgid "(tagged)"
@@ -1526,27 +1529,28 @@ msgstr ""
 
 #. Resource IDs: (245)
 msgid "(unknown)"
-msgstr ""
+msgstr "(ไม่ทราบ)"
 
 #. Resource IDs: (188)
 #, c-format
 msgid "+ %d"
-msgstr ""
+msgstr "+ %d"
 
 #. Resource IDs: (188)
 #, c-format
 msgid "- %d"
-msgstr ""
+msgstr "- %d"
 
 #. Resource IDs: (1007)
 msgid ""
 "-------------------------------------------------------------------------------------------"
 msgstr ""
+"-------------------------------------------------------------------------------------------"
 
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1324, 1333,
 #. 1362, 1474)
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. Resource IDs: (269)
 msgid "... checking cache and preparing log query"
@@ -1558,7 +1562,7 @@ msgstr ""
 
 #. Resource IDs: (16527)
 msgid "....."
-msgstr ""
+msgstr "....."
 
 #. Resource IDs: (151)
 #, c-format
@@ -1575,31 +1579,31 @@ msgstr ""
 
 #. Resource IDs: (332)
 msgid "< &Back"
-msgstr ""
+msgstr "< &กลับ"
 
 #. Resource IDs: (16506)
 msgid "<.....>"
-msgstr ""
+msgstr "<.....>"
 
 #. Resource IDs: (1069)
 msgid "<Separator>"
-msgstr ""
+msgstr "<ตัวแบ่งแยก>"
 
 #. Resource IDs: (1007)
 msgid "<Untitled>"
-msgstr ""
+msgstr "<ไม่มีชื่อ>"
 
 #. Resource IDs: (16603)
 msgid "<descr>"
-msgstr ""
+msgstr "<descr>"
 
 #. Resource IDs: (209)
 msgid "<new changelist>"
-msgstr ""
+msgstr "<รายการแก้ไขใหม่>"
 
 #. Resource IDs: (32814)
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #. Resource IDs: (579)
 msgid "A list of user defined properties for files to show in the combo box"
@@ -1614,6 +1618,8 @@ msgid ""
 "A newer version is available.\r\n"
 "Please go to http://tortoisesvn.net and download the current version."
 msgstr ""
+"เวอร์ชันใหม่พร้อมให้บริการแล้ว\n"
+"โปรดไปที่ http://tortoisesvn.net แล้วดาว์นโหลดเวอร์ชันล่าสุด"
 
 #. Resource IDs: (195)
 msgid ""
@@ -1647,7 +1653,7 @@ msgstr ""
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
-msgstr ""
+msgstr "ทรัพยากรที่จำเป็นไม่พร้อมใช้งาน"
 
 #. Resource IDs: (89)
 #, c-format
@@ -1656,6 +1662,9 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
+"เส้นทางที่ถูกต้องสำหรับ Windows ต้องไม่มีเครื่องหมาย '<>|\"?*:' หรือใช้ชื่อดังต่อไปนี้:\n"
+"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
+"ศึกษา<a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">เอกสาร</a>ของ Microsoft เกี่ยวกับเรื่องนี้"
 
 #. Resource IDs: (79)
 msgid ""
@@ -1677,40 +1686,44 @@ msgstr ""
 
 #. Resource IDs: (9)
 msgid "About"
-msgstr ""
+msgstr "เกี่ยวกับ"
 
 #. Resource IDs: (136)
 msgid "About TortoiseMerge"
-msgstr ""
+msgstr "เกี่ยวกับ TortoiseMerge"
 
 #. Resource IDs: (129)
 msgid "About TortoiseSVN"
-msgstr ""
+msgstr "เกี่ยวกับ TortoiseSVN"
 
 #. Resource IDs: (82)
 msgid "Accept once"
-msgstr ""
+msgstr "ตอบรับสักครั้ง"
 
 #. Resource IDs: (82)
 msgid "Accept permanently"
-msgstr ""
+msgstr "ตอบรับถาวร"
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
 msgstr ""
+"ตอบรับใบรับรองนี้ถาวร\n"
+"จะไม่มีการถามเกี่ยวกับใบรับรองนี้อีกต่อไป"
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
 msgstr ""
+"ตอบรับใบรับรอง\n"
+"ยอมรับใบรับรองนี้เพียงแค่ครั้งนี้"
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "Access to %1 was denied."
-msgstr ""
+msgstr "ปฏิเสธการเข้าถึง %1"
 
 #. Resource IDs: (77, 319)
 msgid "Action"
@@ -1785,11 +1798,11 @@ msgstr ""
 #. Resource IDs: (613)
 #, c-format
 msgid "Add to %1"
-msgstr ""
+msgstr "เพิ่มใน %1"
 
 #. Resource IDs: (13)
 msgid "Add to &ignore list"
-msgstr ""
+msgstr "เพิ่มใน&รายการเพิกเฉย"
 
 #. Resource IDs: (1068)
 msgid "Add to Quick Access Toolbar"
@@ -1858,26 +1871,28 @@ msgid ""
 "Adjust the settings\n"
 "Settings"
 msgstr ""
+"ปรับแต่งการตั้งค่า\n"
+"ตั้งค่า"
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
-msgstr ""
+msgstr "ขั้นสูง"
 
 #. Resource IDs: (170)
 msgid "Advanced Diff/Merge Settings"
-msgstr ""
+msgstr "ตั้งค่าการเปรียบเทียบ/ผสานขั้นสูง"
 
 #. Resource IDs: (110)
 msgid "Advanced diff settings"
-msgstr ""
+msgstr "ตั้งค่าการเปรียบเทียบขั้นสูง"
 
 #. Resource IDs: (110)
 msgid "Advanced merge settings"
-msgstr ""
+msgstr "ตั้งค่าการผสานขั้นสูง"
 
 #. Resource IDs: (65535)
 msgid "Age"
-msgstr ""
+msgstr "อายุ"
 
 #. Resource IDs: (32822)
 msgid "Align trees on top"
@@ -1885,19 +1900,19 @@ msgstr ""
 
 #. Resource IDs: (1505)
 msgid "All"
-msgstr ""
+msgstr "ทั้งหมด"
 
 #. Resource IDs: (1007)
 msgid "All Commands"
-msgstr ""
+msgstr "คำสั่งทั้งหมด"
 
 #. Resource IDs: (3841)
 msgid "All Files (*.*)"
-msgstr ""
+msgstr "ไฟล์ทั้งหมด (*.*)"
 
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
-msgstr ""
+msgstr "All Files (*.*)|*.*||"
 
 #. Resource IDs: (148)
 msgid "All changes since the last update will be lost!"
@@ -1908,6 +1923,8 @@ msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
 "menus?"
 msgstr ""
+"สิ่งที่คุณได้ทำการเปลี่ยนแปลงจะสูญหาย "
+"คุณแน่ใจหรือไม่ที่จะตั้งค่าแถบเครื่องมือและเมนูใหม่?"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -1929,22 +1946,22 @@ msgstr ""
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
-msgstr ""
+msgstr "ยอมให้มี &UUID ที่กำกวม"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same URL, e.g. "
 "http://localhost/myrepos/"
-msgstr ""
+msgstr "ยอมให้คลังต่างๆ ใช้ URL เดียวกันได้ เช่น http://localhost/myrepos/"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
-msgstr ""
+msgstr "ยอมให้คลังต่างๆ ใช้ UUID เดียวกันได้ เช่น คลังที่ได้ทำการคัดลอกมา"
 
 #. Resource IDs: (119)
 msgid "Already merged"
-msgstr ""
+msgstr "ผสานเรียบร้อยแล้ว"
 
 #. Resource IDs: (119)
 msgid "Already reverse merged"
@@ -1998,12 +2015,12 @@ msgstr ""
 #. Resource IDs: (3867, 3868)
 #, c-format
 msgid "An unknown error occurred while accessing %1."
-msgstr ""
+msgstr "เกิดข้อผิดพลาดบางอย่างขณะเข้าถึง %1."
 
 #. Resource IDs: (63)
 #, c-format
 msgid "An unknown line type was found in line %d !"
-msgstr ""
+msgstr "พบบรรทัดประเภทที่ไม่รู้จัก บรรทัดที่ %d !"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2059,7 +2076,7 @@ msgstr ""
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical"
-msgstr ""
+msgstr "เรียงในแ&นวตั้ง"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -2067,7 +2084,7 @@ msgstr ""
 
 #. Resource IDs: (199)
 msgid "Ask the user"
-msgstr ""
+msgstr "ถามผู้ใช้"
 
 #. Resource IDs: (264)
 #, c-format
@@ -2076,7 +2093,7 @@ msgstr ""
 
 #. Resource IDs: (16528)
 msgid "Assigned to:"
-msgstr ""
+msgstr "มอบหมายให้:"
 
 #. Resource IDs: (77)
 #, c-format
@@ -2104,23 +2121,27 @@ msgstr ""
 
 #. Resource IDs: (131, 160)
 msgid "Authentication"
-msgstr ""
+msgstr "การยืนยันตัวตน"
 
 #. Resource IDs: (1278)
 msgid "Authentication data"
-msgstr ""
+msgstr "ข้อมูลการยืนยันตัวตน"
 
 #. Resource IDs: (19, 76, 207, 1562)
 msgid "Author"
-msgstr ""
+msgstr "ผู้แต่ง"
 
 #. Resource IDs: (65535)
 msgid "Author:\t\t\t\tStefan Kueng"
 msgstr ""
+"ผู้แต่ง:<span class=\"whitespace other\" title=\"Tab\">»</span><span "
+"class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace "
+"other\" title=\"Tab\">»</span><span class=\"whitespace other\" "
+"title=\"Tab\">»</span>Stefan Kueng"
 
 #. Resource IDs: (116)
 msgid "Authors"
-msgstr ""
+msgstr "ผู้แต่ง"
 
 #. Resource IDs: (1265)
 msgid "Authors case sensitive"
@@ -2128,27 +2149,27 @@ msgstr ""
 
 #. Resource IDs: (1444)
 msgid "Authors:"
-msgstr ""
+msgstr "ผู้แต่ง:"
 
 #. Resource IDs: (1003)
 msgid "Auto Hide"
-msgstr ""
+msgstr "ซ่อนอัตโนมัติ"
 
 #. Resource IDs: (1003)
 msgid "Auto Hide All"
-msgstr ""
+msgstr "ซ่อนอัตโนมัติทั้งหมด"
 
 #. Resource IDs: (99)
 msgid "Auto Rename"
-msgstr ""
+msgstr "เปลี่ยนชื่ออัตโนมัติ"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
-msgstr ""
+msgstr "ปิดอัตโนมัติถ้าไม่มีความขัดแย้งใดๆ"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no errors"
-msgstr ""
+msgstr "ปิดอัตโนมัติถ้าไม่มีข้อผิดพลาดใดๆ"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no merges, adds or deletes"
@@ -2162,7 +2183,7 @@ msgstr ""
 
 #. Resource IDs: (438)
 msgid "Automatic"
-msgstr ""
+msgstr "อัตโนมัติ"
 
 #. Resource IDs: (306)
 msgid "Autotext Tester"
@@ -2170,7 +2191,7 @@ msgstr ""
 
 #. Resource IDs: (1157)
 msgid "Average"
-msgstr ""
+msgstr "เฉลี่ย"
 
 #. Resource IDs: (32850)
 msgid "B&lack Style"
@@ -2190,7 +2211,7 @@ msgstr ""
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
-msgstr ""
+msgstr "กราฟแท่ง"
 
 #. Resource IDs: (65535)
 msgid "Base file:"
@@ -2204,19 +2225,19 @@ msgstr ""
 
 #. Resource IDs: (162)
 msgid "Blame"
-msgstr ""
+msgstr "ตำหนิ"
 
 #. Resource IDs: (132)
 msgid "Blame - TortoiseSVN"
-msgstr ""
+msgstr "ตำหนิ - TortoiseSVN"
 
 #. Resource IDs: (114)
 msgid "Blame..."
-msgstr ""
+msgstr "ตำหนิ..."
 
 #. Resource IDs: (13)
 msgid "Blames each line of a file on an author"
-msgstr ""
+msgstr "ตำหนิแต่ละบรรทัดของผู้แต่ง"
 
 #. Resource IDs: (32812)
 msgid "Blend alpha"
@@ -2231,7 +2252,7 @@ msgstr ""
 #. Resource IDs: (70)
 msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
-msgstr ""
+msgstr "ทั้งเส้นทางไปยังไฟล์และเส้นทางเป้าหมายต้องเป็นเส้นทางที่แท้จริง"
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -2259,7 +2280,7 @@ msgstr ""
 
 #. Resource IDs: (1069)
 msgid "Browse..."
-msgstr ""
+msgstr "ค้นดู..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
@@ -2267,7 +2288,7 @@ msgstr ""
 
 #. Resource IDs: (116)
 msgid "Bug-ID"
-msgstr ""
+msgstr "Bug-ID"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
@@ -2275,19 +2296,19 @@ msgstr ""
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
-msgstr ""
+msgstr "Bug-ID ได้แก่:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
-msgstr ""
+msgstr "Bug-IDs"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
-msgstr ""
+msgstr "Bugtraq Regex Tester - TortoiseSVN"
 
 #. Resource IDs: (16132)
 msgid "Button Appearance"
-msgstr ""
+msgstr "รูปร่างปุ่ม"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
@@ -2303,7 +2324,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "C&ommands:"
-msgstr ""
+msgstr "คำ&สั่ง"
 
 #. Resource IDs: (77)
 msgid "C&reate branch/tag from revision"
@@ -2311,7 +2332,7 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
-msgstr ""
+msgstr "&สร้างโฟลเดอร์"
 
 #. Resource IDs: (65535)
 msgid "C&urrent Keys:"
@@ -2319,7 +2340,7 @@ msgstr ""
 
 #. Resource IDs: (501)
 msgid "C&ut"
-msgstr ""
+msgstr "&ตัด"
 
 #. Resource IDs: (3697)
 msgid "CAP"
@@ -2353,10 +2374,14 @@ msgid ""
 "to\n"
 "%2!s!"
 msgstr ""
+"ไม่สามารถคัดลอก\n"
+"%1!s!\n"
+"ไปยัง\n"
+"%2!s!"
 
 #. Resource IDs: (1001)
 msgid "Can't copy bitmap image into the clipboard!"
-msgstr ""
+msgstr "ไม่สามารถคัดลอกภาพบิตแมปลงคลิปบอร์ดได้!"
 
 #. Resource IDs: (1001)
 msgid "Can't create a new image!"
@@ -2364,7 +2389,7 @@ msgstr "ไม่สามารถสร้างรูปใหม่ได้
 
 #. Resource IDs: (1001)
 msgid "Can't customize menus!"
-msgstr ""
+msgstr "ไม่สามารถปรับเปลี่ยนเมนูได้!"
 
 #. Resource IDs: (1001)
 msgid "Can't paste bitmap image from the clipboard!"
@@ -2372,7 +2397,7 @@ msgstr ""
 
 #. Resource IDs: (2, 93, 99, 279, 332, 588, 1069, 1383)
 msgid "Cancel"
-msgstr ""
+msgstr "ยกเลิก"
 
 #. Resource IDs: (170)
 msgid ""
@@ -2415,6 +2440,8 @@ msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr ""
+"ยกเลิก\n"
+"ไม่ปิด TortoiseMerge"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2427,6 +2454,8 @@ msgid ""
 "Cancel\n"
 "Don't switch the views"
 msgstr ""
+"ยกเลิก\n"
+"ไม่เปลี่ยนมุมมอง"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2451,6 +2480,8 @@ msgid ""
 "Cancel\n"
 "Ignore the outside changes."
 msgstr ""
+"ยกเลิก\n"
+"ไม่สนใจการเปลี่ยนแปลงภายนอก"
 
 #. Resource IDs: (89)
 msgid ""
@@ -2463,6 +2494,8 @@ msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr ""
+"ยกเลิก\n"
+"ปล่อยไฟล์ว่างไว้"
 
 #. Resource IDs: (148)
 msgid ""
@@ -2475,18 +2508,24 @@ msgid ""
 "Cancel\n"
 "Leave the cache on disk."
 msgstr ""
+"ยกเลิก\n"
+"เก็บแคชบนดิสก์"
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
 msgstr ""
+"ยกเลิก\n"
+"แก้ปัญหาความขัดแย้งก่อน"
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
 msgstr ""
+"ยกเลิก\n"
+"ไม่แก้ปัญหาความขัดแย้ง"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2523,6 +2562,8 @@ msgid ""
 "Cancel\n"
 "The property is not removed."
 msgstr ""
+"ยกเลิก\n"
+"ไม่เอาคุณสมบัติดังกล่าวออก"
 
 #. Resource IDs: (147)
 msgid ""
@@ -2544,11 +2585,11 @@ msgstr ""
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
-msgstr ""
+msgstr "กำลังยกเลิก TortoiseSVN Blame..."
 
 #. Resource IDs: (270)
 msgid "Cancelling operation..."
-msgstr ""
+msgstr "กำลังยกเลิกการปฏิบัติการ..."
 
 #. Resource IDs: (68)
 msgid "Cannot show diff because of inconsistent newlines in the file."
@@ -2572,33 +2613,33 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "Certificate expired or not yet valid"
-msgstr ""
+msgstr "ใบรับรองหมดอายุหรือไม่ถูกต้อง"
 
 #. Resource IDs: (82)
 #, c-format
 msgid "Certificate expired. Valid until: %s"
-msgstr ""
+msgstr "ใบรับรองหมดอายุ ใช้ได้ถึง: %s"
 
 #. Resource IDs: (82)
 #, c-format
 msgid "Certificate not yet valid. Valid from: %s"
-msgstr ""
+msgstr "ใบรังรองไม่ถูกต้อง ดูได้จาก: %s"
 
 #. Resource IDs: (148)
 msgid "Certificate validation failed"
-msgstr ""
+msgstr "กระบวนการตรวจสอบใบรับรองล้มเหลว"
 
 #. Resource IDs: (157)
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
-msgstr ""
+msgstr "ใบรับรอง |*.p12;*.pkcs12;*.pfx|All|*.*||"
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
-msgstr ""
+msgstr "ย้ายตำแหน่งหน้าต่าง"
 
 #. Resource IDs: (3825)
 msgid "Change the window size"
-msgstr ""
+msgstr "ปรับขนาดหน้าต่าง"
 
 #. Resource IDs: (199)
 msgid "Changed Files"
@@ -2645,11 +2686,11 @@ msgstr ""
 
 #. Resource IDs: (174)
 msgid "Check For Updates"
-msgstr ""
+msgstr "ตรวจการปรับรุ่น"
 
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
-msgstr ""
+msgstr "ตรวจการปรับรุ่น..."
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
@@ -2661,11 +2702,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Check for modifications"
-msgstr ""
+msgstr "ตรวจการแก้ไข"
 
 #. Resource IDs: (65535)
 msgid "Check for updates"
-msgstr ""
+msgstr "ตรวจการปรับรุ่น"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
@@ -2763,11 +2804,11 @@ msgstr ""
 #. Resource IDs: (146)
 #, c-format
 msgid "Cleaning up directory '%1!s!'"
-msgstr ""
+msgstr "ทำความสะอาดสารบบ '%1!s!'"
 
 #. Resource IDs: (329)
 msgid "Cleanup"
-msgstr ""
+msgstr "ทำความสะอาด"
 
 #. Resource IDs: (83)
 #, c-format
@@ -2782,6 +2823,8 @@ msgid ""
 "Cleanup has successfully processed the following paths:\n"
 "%s"
 msgstr ""
+"ทำความสะอาดเส้นทางดังกล่าวเรียบร้อยแล้ว:\n"
+"%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -2832,11 +2875,11 @@ msgstr ""
 
 #. Resource IDs: (1466)
 msgid "Click here to go to the website"
-msgstr ""
+msgstr "กดเพื่อไปยังเว็บไซต์"
 
 #. Resource IDs: (170)
 msgid "Click here to select a recently typed message"
-msgstr ""
+msgstr "กดเพื่อเลือกข้อความที่เคยพิมพ์ไปแล้ว"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -2852,25 +2895,27 @@ msgstr ""
 
 #. Resource IDs: (257)
 msgid "Clipboard"
-msgstr ""
+msgstr "คลิปบอร์ด"
 
 #. Resource IDs: (2, 1003, 1007, 1064)
 msgid "Close"
-msgstr ""
+msgstr "ปิด"
 
 #. Resource IDs: (1065)
 msgid "Close Full Screen"
-msgstr ""
+msgstr "ปิดเต็มจอ"
 
 #. Resource IDs: (3633)
 msgid ""
 "Close Print Preview\n"
 "&Close"
 msgstr ""
+"ปิดตัวอย่างก่อนพิมพ์\n"
+"&ปิด"
 
 #. Resource IDs: (222)
 msgid "Close manually"
-msgstr ""
+msgstr "ปิดเอง"
 
 #. Resource IDs: (3825)
 msgid "Close the active window and prompts to save the documents"
@@ -2892,19 +2937,19 @@ msgstr ""
 
 #. Resource IDs: (32870)
 msgid "Collapsed"
-msgstr ""
+msgstr "ยุบ"
 
 #. Resource IDs: (16662)
 msgid "Color"
-msgstr ""
+msgstr "สี"
 
 #. Resource IDs: (65535)
 msgid "Color 1"
-msgstr ""
+msgstr "สี 1"
 
 #. Resource IDs: (65535)
 msgid "Color 2"
-msgstr ""
+msgstr "สี 2"
 
 #. Resource IDs: (1068)
 msgid "Color co&de in-line changes"
@@ -2912,19 +2957,19 @@ msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
-msgstr ""
+msgstr "สี"
 
 #. Resource IDs: (65535)
 msgid "Colors:"
-msgstr ""
+msgstr "สี:"
 
 #. Resource IDs: (65535)
 msgid "Comman&ds:"
-msgstr ""
+msgstr "คำ&สั่ง:"
 
 #. Resource IDs: (220, 1002)
 msgid "Command"
-msgstr ""
+msgstr "คำสั่ง"
 
 #. Resource IDs: (198)
 msgid "Command Line"
@@ -2936,19 +2981,19 @@ msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
-msgstr ""
+msgstr "คำสั่งล้มเหลว - ต้องการปรับปรุง"
 
 #. Resource IDs: (3857)
 msgid "Command failed."
-msgstr ""
+msgstr "คำสั่งล้มเหลว"
 
 #. Resource IDs: (16104)
 msgid "Commands"
-msgstr ""
+msgstr "คำสั่ง"
 
 #. Resource IDs: (77, 135, 229, 1083)
 msgid "Commit"
-msgstr ""
+msgstr "ส่งมอบ"
 
 #. Resource IDs: (173)
 msgid ""
@@ -2958,11 +3003,11 @@ msgstr ""
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
-msgstr ""
+msgstr "ส่งมอบให้:"
 
 #. Resource IDs: (209)
 msgid "Commit..."
-msgstr ""
+msgstr "ส่งมอบ..."
 
 #. Resource IDs: (221)
 msgid ""
@@ -2972,11 +3017,11 @@ msgstr ""
 
 #. Resource IDs: (244)
 msgid "Commits by author"
-msgstr ""
+msgstr "ส่งมอบตามผู้แต่ง"
 
 #. Resource IDs: (244)
 msgid "Commits by date"
-msgstr ""
+msgstr "ส่งมอบตามวันที่"
 
 #. Resource IDs: (247)
 #, c-format
@@ -3023,7 +3068,7 @@ msgstr ""
 
 #. Resource IDs: (210)
 msgid "Compare two files"
-msgstr ""
+msgstr "เปรียบเทียบ 2 ไฟล์"
 
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
@@ -3055,20 +3100,20 @@ msgstr ""
 
 #. Resource IDs: (17)
 msgid "Compares the selected file with a file in the repository"
-msgstr ""
+msgstr "เปรียบเทียบไฟล์ที่เลือกกับไฟล์ในคลัง"
 
 #. Resource IDs: (120)
 #, c-format
 msgid "Comparing %1!s! to %2!s!"
-msgstr ""
+msgstr "กำลังเปรียบเทียบ %1!s! กับ %2!s!"
 
 #. Resource IDs: (74)
 msgid "Completed"
-msgstr ""
+msgstr "เรียบร้อย"
 
 #. Resource IDs: (219)
 msgid "Completed!"
-msgstr ""
+msgstr "เรียบร้อย!"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3109,16 +3154,16 @@ msgstr ""
 
 #. Resource IDs: (263, 65535)
 msgid "Conflicted"
-msgstr ""
+msgstr "ขัดแย้ง"
 
 #. Resource IDs: (188)
 #, c-format
 msgid "Conflicts: %d"
-msgstr ""
+msgstr "ขัดแย้ง: %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
-msgstr ""
+msgstr "เชื่อมต่อไปยังเซิฟเวอร์คลังแล้วดาว์นโหลดข้อมูลบันทึกเหตุการณ์ที่หายไป"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -3130,7 +3175,7 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Continue"
-msgstr ""
+msgstr "ต่อ"
 
 #. Resource IDs: (1001)
 msgid "Contract docked window"
@@ -3142,15 +3187,15 @@ msgstr ""
 
 #. Resource IDs: (376)
 msgid "Cop&y"
-msgstr ""
+msgstr "คัด&ลอก"
 
 #. Resource IDs: (73)
 msgid "Copied"
-msgstr ""
+msgstr "คัดลอก"
 
 #. Resource IDs: (208)
 msgid "Copied from URL"
-msgstr ""
+msgstr "คัดลอกจาก URL"
 
 #. Resource IDs: (208)
 msgid "Copied from revision"
@@ -3159,7 +3204,7 @@ msgstr ""
 #. Resource IDs: (276)
 #, c-format
 msgid "Copied from: %1!s!@%2!ld!\r\n"
-msgstr ""
+msgstr "คัดลอกจาก: %1!s!@%2!ld!\n"
 
 #. Resource IDs: (126)
 msgid "Copied remotely"
@@ -3167,7 +3212,7 @@ msgstr ""
 
 #. Resource IDs: (78, 16991)
 msgid "Copy"
-msgstr ""
+msgstr "คัดลอก"
 
 #. Resource IDs: (127)
 #, c-format
@@ -3175,6 +3220,8 @@ msgid ""
 "Copy %1!ld! items to\r\n"
 "%2!s!"
 msgstr ""
+"คัดลอก %1!ld! รายการไปยัง\n"
+"%2!s!"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3187,37 +3234,41 @@ msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
 msgstr ""
+"คัดลอก %1!s!\n"
+"ไปยัง %2!s!"
 
 #. Resource IDs: (103)
 #, c-format
 msgid "Copy %s"
-msgstr ""
+msgstr "คัดลอก %s"
 
 #. Resource IDs: (142)
 msgid "Copy (Branch / Tag)"
-msgstr ""
+msgstr "คัดลอก (Branch / Tag)"
 
 #. Resource IDs: (1057)
 msgid ""
 "Copy Tool\n"
 "Copy"
 msgstr ""
+"เครื่องในการคัดลอก\n"
+"คัดลอก"
 
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
-msgstr ""
+msgstr "คัดลอก URL ลงคลิปบอร์ด"
 
 #. Resource IDs: (209)
 msgid "Copy all information to clipboard"
-msgstr ""
+msgstr "คัดลอกข้อมูลทั้งหมดลงคลิปบอร์ด"
 
 #. Resource IDs: (146)
 msgid "Copy and rename"
-msgstr ""
+msgstr "คัดลอกและเปลี่ยนชื่อ"
 
 #. Resource IDs: (104)
 msgid "Copy and rename item to here"
-msgstr ""
+msgstr "คัดลอกและเปลี่ยนชื่อรายการตรงนี้"
 
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
@@ -3225,7 +3276,7 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
-msgstr ""
+msgstr "คัดลอกข้อความแสดงข้อผิดพลาดลงคลิปบอร์ด"
 
 #. Resource IDs: (76)
 msgid "Copy from path"
@@ -3233,7 +3284,7 @@ msgstr ""
 
 #. Resource IDs: (103)
 msgid "Copy items to here"
-msgstr ""
+msgstr "คัดลอกรายการทั้งหมดมาตรงนี้"
 
 #. Resource IDs: (209)
 msgid "Copy paths to clipboard"
@@ -3241,7 +3292,7 @@ msgstr ""
 
 #. Resource IDs: (323)
 msgid "Copy selection to cli&pboard"
-msgstr ""
+msgstr "คัดลอกสิ่งที่เลือกลง&คลิปบอร์ด"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -3252,11 +3303,11 @@ msgstr ""
 #. Resource IDs: (613)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "คัดลอกไปที่ %1"
 
 #. Resource IDs: (114)
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "คัดลอกลงคลิปบอร์ด"
 
 #. Resource IDs: (103)
 msgid "Copy to working copy"
@@ -3269,16 +3320,16 @@ msgstr ""
 #. Resource IDs: (98)
 #, c-format
 msgid "Copy: New name for %s"
-msgstr ""
+msgstr "คัดลอก: ชื่อใหม่ของ %s"
 
 #. Resource IDs: (80)
 #, c-format
 msgid "Copying %1!s!"
-msgstr ""
+msgstr "กำลังคัดลอก %1!s!"
 
 #. Resource IDs: (80)
 msgid "Copying..."
-msgstr ""
+msgstr "กำลังคัดลอก..."
 
 #. Resource IDs: (188)
 msgid "Corrections"
@@ -3301,7 +3352,7 @@ msgstr "ไม่สามารถเพิ่มคุณสมบัติ '%
 
 #. Resource IDs: (201)
 msgid "Could not check for a newer version!"
-msgstr ""
+msgstr "ไม่สามารถตรวจหาการปรับรุ่น"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3309,15 +3360,17 @@ msgid ""
 "Could not copy the files!\n"
 "%s"
 msgstr ""
+"ไม่สามารถคัดลอกไฟล์!\n"
+"%s"
 
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not create %1 because the directory is full."
-msgstr ""
+msgstr "ไม่สามารถสร้าง %1 เนื่องจากสารบบเต็ม"
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr ""
+msgstr "ไม่สามารถสร้างโฟลเดอร์ว่างได้!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3342,7 +3395,7 @@ msgstr ""
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
-msgstr ""
+msgstr "ไม่สามารถขอสถานะได้!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3365,6 +3418,8 @@ msgid ""
 "Could not open the file\n"
 "%s"
 msgstr ""
+"ไม่สามารถอ่านไฟล์\n"
+"%s"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -3374,17 +3429,17 @@ msgstr ""
 #. Resource IDs: (82)
 #, c-format
 msgid "Could not remove %s from the ignore list"
-msgstr ""
+msgstr "ไม่สามารถลบ %s ออกจากรายการเพิกเฉยได้"
 
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not replace '%s' because"
-msgstr ""
+msgstr "ไม่สามารถแทนที่ '%s' เนื่องจาก"
 
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not replace property '%1!s!' on '%2!s!' because"
-msgstr ""
+msgstr "ไม่สามารถแทนที่สถานะ '%1!s!' ของ '%2!s!' เนื่องจาก"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3392,6 +3447,8 @@ msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
 msgstr ""
+"ไม่สามารถค้นคืน URL ของไฟล์ดังกล่าวได้!\n"
+"%s"
 
 #. Resource IDs: (66)
 #, c-format
@@ -3403,7 +3460,7 @@ msgstr ""
 #. Resource IDs: (64)
 #, c-format
 msgid "Could not save the file %s!"
-msgstr ""
+msgstr "ไม่สามารถบันทึกไฟล์ %s ได้!"
 
 #. Resource IDs: (70, 81)
 #, c-format
@@ -3474,7 +3531,7 @@ msgstr ""
 
 #. Resource IDs: (102)
 msgid "Create shortcut"
-msgstr ""
+msgstr "สร้างทางลัด"
 
 #. Resource IDs: (32828)
 msgid "Create unified diff file"
@@ -3510,24 +3567,24 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Credits:"
-msgstr ""
+msgstr "เครดิต:"
 
 #. Resource IDs: (376)
 msgid "Cu&t"
-msgstr ""
+msgstr "&ตัด"
 
 #. Resource IDs: (65535)
 msgid "Current"
-msgstr ""
+msgstr "ปัจจุบัน"
 
 #. Resource IDs: (1113)
 msgid "Current version is:"
-msgstr ""
+msgstr "เวอร์ชันปัจจุบันคือ:"
 
 #. Resource IDs: (201)
 #, c-format
 msgid "Current version is: %s"
-msgstr ""
+msgstr "เวอร์ชันปัจจุบันคือ: %s"
 
 #. Resource IDs: (17079)
 msgid "Cus&tomize..."
@@ -3565,11 +3622,11 @@ msgstr ""
 
 #. Resource IDs: (1279)
 msgid "D&etails"
-msgstr ""
+msgstr "&รายละเอียด"
 
 #. Resource IDs: (19, 76, 208, 1529)
 msgid "Date"
-msgstr ""
+msgstr "วันที่"
 
 #. Resource IDs: (117)
 msgid "Date Range"
@@ -3577,7 +3634,7 @@ msgstr ""
 
 #. Resource IDs: (1008, 32842)
 msgid "Default"
-msgstr ""
+msgstr "ค่าปริยาย"
 
 #. Resource IDs: (65535)
 msgid "Default &number of log messages"
@@ -3589,7 +3646,7 @@ msgstr ""
 
 #. Resource IDs: (1516)
 msgid "Default URL:"
-msgstr ""
+msgstr "URL โดยปริยาย:"
 
 #. Resource IDs: (1007)
 msgid "Default application menu. Appears when no documents are open."
@@ -3605,7 +3662,7 @@ msgstr ""
 
 #. Resource IDs: (1064)
 msgid "Default to UTF-8 encoding"
-msgstr ""
+msgstr "ค่าปริยายเป็นการเข้ารหัสแบบ UTF-8"
 
 #. Resource IDs: (1002)
 msgid "Delete"
@@ -3686,7 +3743,7 @@ msgstr ""
 
 #. Resource IDs: (263)
 msgid "Deleting"
-msgstr ""
+msgstr "กำลังลบ"
 
 #. Resource IDs: (348)
 msgid "Deleting cached data"
@@ -3694,7 +3751,7 @@ msgstr ""
 
 #. Resource IDs: (348)
 msgid "Deleting file"
-msgstr ""
+msgstr "กำลังลบไฟล์"
 
 #. Resource IDs: (207)
 msgid "Depth"
@@ -3852,7 +3909,7 @@ msgstr ""
 
 #. Resource IDs: (589)
 msgid "Do this for all selected items"
-msgstr ""
+msgstr "ทำอย่างเดียวกันนี้กับรายการที่เลือกทั้งหมด"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
@@ -4041,7 +4098,7 @@ msgstr ""
 
 #. Resource IDs: (3697)
 msgid "EXT"
-msgstr ""
+msgstr "EXT"
 
 #. Resource IDs: (1237, 65535)
 msgid "Edit"
@@ -4077,7 +4134,7 @@ msgstr "แก้ไขชื่อผู้เขียน"
 
 #. Resource IDs: (315)
 msgid "Edit bugtraq properties"
-msgstr ""
+msgstr "แก้ไขคุณสมบัติของ bugtraq"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
@@ -4093,7 +4150,7 @@ msgstr "แก้ไขคุณสมบัติของภาษา"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
-msgstr ""
+msgstr "แก้ไขบันทึกเหตุการณ์"
 
 #. Resource IDs: (127)
 #, c-format
@@ -4101,6 +4158,8 @@ msgid ""
 "Edit property '%1!S!' on\r\n"
 "%2!s!"
 msgstr ""
+"แก้ไขคุณสมบัติ '%1!S!' ของ\n"
+"%2!s!"
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4108,7 +4167,7 @@ msgstr "แก้ไข..."
 
 #. Resource IDs: (581)
 msgid "Edits the selected property value"
-msgstr ""
+msgstr "แก้ไขคุณสมบัติที่เลือก"
 
 #. Resource IDs: (79)
 msgid "Either the name or IP of the proxy server"
@@ -4126,11 +4185,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Empty"
-msgstr ""
+msgstr "ว่างเปล่า"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-&Properties"
-msgstr ""
+msgstr "เปิดใช้ Auto-&Properties"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -4193,7 +4252,7 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Enter URL"
-msgstr ""
+msgstr "ใส่ URL"
 
 #. Resource IDs: (65535)
 msgid "Enter a &name for the changelist:"
@@ -4201,7 +4260,7 @@ msgstr ""
 
 #. Resource IDs: (3858)
 msgid "Enter a GUID."
-msgstr ""
+msgstr "ใส่ GUID."
 
 #. Resource IDs: (3858)
 msgid "Enter a currency."
@@ -4209,11 +4268,11 @@ msgstr ""
 
 #. Resource IDs: (3858)
 msgid "Enter a date and/or time."
-msgstr ""
+msgstr "ใส่วันที่ และ/หรือ เวลา"
 
 #. Resource IDs: (3858)
 msgid "Enter a date."
-msgstr ""
+msgstr "ใส่วันที่"
 
 #. Resource IDs: (313)
 msgid "Enter a lock message (optional):"
@@ -4222,28 +4281,28 @@ msgstr ""
 #. Resource IDs: (3858)
 #, c-format
 msgid "Enter a number between %1 and %2."
-msgstr ""
+msgstr "ใส่ตัวเลขระหว่าง %1 - %2"
 
 #. Resource IDs: (3858)
 msgid "Enter a number."
-msgstr ""
+msgstr "ใส่ตัวเลข"
 
 #. Resource IDs: (3858)
 msgid "Enter a positive integer."
-msgstr ""
+msgstr "ใส่ตัวเลขบวก"
 
 #. Resource IDs: (3858)
 msgid "Enter a time."
-msgstr ""
+msgstr "ใส่เวลา"
 
 #. Resource IDs: (3858)
 #, c-format
 msgid "Enter an integer between %1 and %2."
-msgstr ""
+msgstr "ใส่เลขจำนวนเต็มระหว่าง %1 - %2"
 
 #. Resource IDs: (3858)
 msgid "Enter an integer between 0 and 255."
-msgstr ""
+msgstr "ใส่เลขจำนวนเต็มระหว่าง 0 - 255"
 
 #. Resource IDs: (3858)
 msgid "Enter an integer."
@@ -4290,7 +4349,7 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "Error"
-msgstr ""
+msgstr "ข้อผิดพลาด"
 
 #. Resource IDs: (145)
 msgid "Error rebuilding Shell Icon Cache!"
@@ -4332,11 +4391,11 @@ msgstr ""
 
 #. Resource IDs: (1002)
 msgid "Existing"
-msgstr ""
+msgstr "กำลังออก"
 
 #. Resource IDs: (2)
 msgid "Exit"
-msgstr ""
+msgstr "ออก"
 
 #. Resource IDs: (275)
 msgid "Exp&and source tree"
@@ -4365,7 +4424,7 @@ msgstr ""
 
 #. Resource IDs: (78, 229, 238)
 msgid "Export"
-msgstr ""
+msgstr "ส่งออก"
 
 #. Resource IDs: (1074)
 msgid "Export &directory:"
@@ -4393,11 +4452,11 @@ msgstr ""
 #. Resource IDs: (284)
 #, c-format
 msgid "Exporting %1!s!"
-msgstr ""
+msgstr "กำลังส่งออก %1!s!"
 
 #. Resource IDs: (79)
 msgid "Exporting..."
-msgstr ""
+msgstr "กำลังส่งออก..."
 
 #. Resource IDs: (90)
 msgid "Exporting: Target folder exists."
@@ -4413,7 +4472,7 @@ msgstr ""
 
 #. Resource IDs: (207)
 msgid "Extension"
-msgstr ""
+msgstr "ส่วนขยาย"
 
 #. Resource IDs: (1287)
 msgid "Extension/mime-type specific programs"
@@ -4421,11 +4480,11 @@ msgstr ""
 
 #. Resource IDs: (74)
 msgid "External"
-msgstr ""
+msgstr "ภายนอก"
 
 #. Resource IDs: (65535)
 msgid "External Program:"
-msgstr ""
+msgstr "โปรแกรมภายนอก:"
 
 #. Resource IDs: (192)
 msgid "External Programs::Diff Viewer"
@@ -4441,7 +4500,7 @@ msgstr ""
 
 #. Resource IDs: (263)
 msgid "External failed"
-msgstr ""
+msgstr "ล้มเหลวภายนอก"
 
 #. Resource IDs: (226)
 msgid "Externals excluded"
@@ -4517,7 +4576,7 @@ msgstr ""
 
 #. Resource IDs: (220)
 msgid "Failed!"
-msgstr ""
+msgstr "ล้มเหลว!"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -4535,7 +4594,7 @@ msgstr ""
 
 #. Resource IDs: (63, 74, 77, 319, 1001)
 msgid "File"
-msgstr ""
+msgstr "ไฟล์"
 
 #. Resource IDs: (90)
 msgid "File already exists"
@@ -4560,7 +4619,7 @@ msgstr ""
 
 #. Resource IDs: (314)
 msgid "File is empty."
-msgstr ""
+msgstr "ไฟล์ว่างเปล่า"
 
 #. Resource IDs: (213)
 msgid "File list is empty"
@@ -5061,7 +5120,7 @@ msgstr ""
 
 #. Accelerator Entry for Menu ID:105; 'E&xit'
 msgid "ID:105:V C +W"
-msgstr ""
+msgstr "ID:105:V C +W"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
@@ -5795,7 +5854,7 @@ msgstr ""
 
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
-msgstr ""
+msgstr "เส้นทางในเ&ครื่อง"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -5867,7 +5926,7 @@ msgstr ""
 
 #. Resource IDs: (93)
 msgid "Locking failed"
-msgstr ""
+msgstr "การล็อกล้มเหลว"
 
 #. Resource IDs: (89)
 msgid ""
@@ -6207,7 +6266,7 @@ msgstr ""
 
 #. Resource IDs: (315)
 msgid "Modifications detected"
-msgstr ""
+msgstr "ตรวจพบการแก้ไข"
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
@@ -6383,7 +6442,7 @@ msgstr ""
 #. Resource IDs: (84)
 msgid ""
 "Neither /path nor /pathfile was specified or does not contain a valid path!"
-msgstr ""
+msgstr "ไม่ได้ระบุทั้ง /path และ /pathfile หรือเส้นทางดังกล่าวไม่ถูกต้อง!"
 
 #. Resource IDs: (213)
 msgid "Nested"
@@ -6594,7 +6653,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "Nothing is selected for commit!"
-msgstr ""
+msgstr "ไม่มีรายการที่จะส่งมอบ!"
 
 #. Resource IDs: (88)
 msgid "Notice"
@@ -7063,11 +7122,11 @@ msgstr ""
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
-msgstr ""
+msgstr "เรากำลังรวบรวมข้อมูล โปรดรอสักครู่..."
 
 #. Resource IDs: (104, 119, 146, 213)
 msgid "Please wait..."
-msgstr ""
+msgstr "โปรดรอสักครู่..."
 
 #. Resource IDs: (65535)
 msgid "Port :"
@@ -7167,7 +7226,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Printing"
-msgstr ""
+msgstr "กำลังพิมพ์"
 
 #. Resource IDs: (170)
 msgid ""
@@ -7198,11 +7257,11 @@ msgstr ""
 
 #. Resource IDs: (74)
 msgid "Program"
-msgstr ""
+msgstr "โปรแกรม"
 
 #. Resource IDs: (157)
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "โปรแกรม (*.exe)|*.exe|ทุกไฟล์ (*.*)|*.*||"
 
 #. Resource IDs: (134)
 msgid "Progress"
@@ -7218,15 +7277,15 @@ msgstr ""
 
 #. Resource IDs: (1287)
 msgid "Properties for"
-msgstr ""
+msgstr "คุณสมบัติของ"
 
 #. Resource IDs: (209)
 msgid "Properties..."
-msgstr ""
+msgstr "คุณสมบัติ..."
 
 #. Resource IDs: (11)
 msgid "Property"
-msgstr ""
+msgstr "คุณสมบัติ"
 
 #. Resource IDs: (151)
 #, c-format
@@ -7350,7 +7409,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "RAM [kB]: "
-msgstr ""
+msgstr "หน่วยความจำ [kB]: "
 
 #. Resource IDs: (3697)
 msgid "REC"
@@ -7523,7 +7582,7 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
-msgstr ""
+msgstr "ปฏิเสธ"
 
 #. Resource IDs: (148)
 msgid ""
@@ -7748,7 +7807,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move"
-msgstr ""
+msgstr "เปลี่ยนชื่อ/ย้าย"
 
 #. Resource IDs: (91)
 #, c-format
@@ -8165,19 +8224,19 @@ msgstr ""
 
 #. Resource IDs: (12)
 msgid "SVN URL"
-msgstr ""
+msgstr "SVN URL"
 
 #. Resource IDs: (17)
 msgid "SVN eol-style"
-msgstr ""
+msgstr "SVN eol-style"
 
 #. Resource IDs: (14)
 msgid "SVN mime-type"
-msgstr ""
+msgstr "SVN mime-type"
 
 #. Resource IDs: (12)
 msgid "SVN short URL"
-msgstr ""
+msgstr "SVN URL สั้น"
 
 #. Resource IDs: (64)
 msgid ""
@@ -8190,10 +8249,18 @@ msgid ""
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
 msgstr ""
+"ข้อความตัวอย่างเพื่อทดสอบ bugtraq: regex strings.\n"
+"\n"
+"ทดสอบกล่าวถึงปัญหาในประโยค: กล่าวถึงปัญหา #55. กล่าวถึงปัญหา #77, #78.\n"
+"\n"
+"ปัญหาที่ปรับปรุง #101\n"
+"ปัญหาที่แก้ไข #202\n"
+"ปัญหาที่กลับสู่ปกติ #88.\n"
+"ปัญหาที่ปิด #99.\n"
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
-msgstr ""
+msgstr "ประโยคตัวอย่าง:"
 
 #. Resource IDs: (57604)
 msgid "Save &As..."
@@ -8246,7 +8313,7 @@ msgstr ""
 
 #. Resource IDs: (617, 1132)
 msgid "Save to clipboard"
-msgstr ""
+msgstr "บันทึกลงคลิปบอร์ด"
 
 #. Resource IDs: (315)
 msgid ""
@@ -8264,7 +8331,7 @@ msgstr ""
 
 #. Resource IDs: (108)
 msgid "Saved Data"
-msgstr ""
+msgstr "ข้อมูลที่บันทึก"
 
 #. Resource IDs: (344)
 msgid "Saves expensive server roundtrips when set to longer than 0 seconds"
@@ -8567,11 +8634,11 @@ msgstr ""
 
 #. Resource IDs: (115, 1031)
 msgid "Show &All"
-msgstr ""
+msgstr "แสดง&ทั้งหมด"
 
 #. Resource IDs: (1132, 1187)
 msgid "Show &Log"
-msgstr ""
+msgstr "แสดง&บันทึกเหตุการณ์"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
@@ -8587,15 +8654,15 @@ msgstr ""
 
 #. Resource IDs: (113, 32783)
 msgid "Show &changes"
-msgstr ""
+msgstr "แสดงสิ่งที่เ&ปลี่ยนแปลง"
 
 #. Resource IDs: (12, 101, 1016, 1031, 1132, 1228, 1420, 1467, 32784)
 msgid "Show &log"
-msgstr ""
+msgstr "แสดง&บันทึกเหตุการณ์"
 
 #. Resource IDs: (1031)
 msgid "Show &log..."
-msgstr ""
+msgstr "แสดง&บันทึกเหตุการณ์..."
 
 #. Resource IDs: (1088)
 msgid "Show &overlays and context menu only in explorer"
@@ -8623,7 +8690,7 @@ msgstr ""
 
 #. Resource IDs: (32817)
 msgid "Show File List"
-msgstr ""
+msgstr "แสดงรายการไฟล์"
 
 #. Resource IDs: (2051)
 msgid "Show HEAD revision nodes"
@@ -8641,11 +8708,11 @@ msgstr ""
 
 #. Resource IDs: (1065)
 msgid "Show More Buttons"
-msgstr ""
+msgstr "แสดงปุ่มเพิ่มเติม"
 
 #. Resource IDs: (32813)
 msgid "Show Ove&rview"
-msgstr ""
+msgstr "แสดง&ภาพรวม"
 
 #. Resource IDs: (1068)
 msgid "Show Quick Access Toolbar Above the Ribbon"
@@ -8796,7 +8863,7 @@ msgstr ""
 
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
-msgstr ""
+msgstr "แสดงข้อมูลเกี่ยวกับ TortoiseSVN"
 
 #. Resource IDs: (198)
 msgid "Shows the action log file in the default text editor"
@@ -8820,11 +8887,11 @@ msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Size"
-msgstr ""
+msgstr "ขนาด"
 
 #. Resource IDs: (65535)
 msgid "Size and status"
-msgstr ""
+msgstr "ขนาดและสถานะ"
 
 #. Resource IDs: (339)
 msgid "Size of all cached text information"
@@ -8844,19 +8911,19 @@ msgstr ""
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr ""
+msgstr "ข้าม"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr ""
+msgstr "ข้ามทั้งหมด"
 
 #. Resource IDs: (74)
 msgid "Skipped"
-msgstr ""
+msgstr "ข้าม"
 
 #. Resource IDs: (263)
 msgid "Skipped missing target"
-msgstr ""
+msgstr "ข้ามเป้าหมายที่สาบสูญ"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
@@ -8888,15 +8955,15 @@ msgstr ""
 
 #. Resource IDs: (1501)
 msgid "Source Left:"
-msgstr ""
+msgstr "แหล่งข้อมูลซ้าย:"
 
 #. Resource IDs: (1502)
 msgid "Source Right:"
-msgstr ""
+msgstr "แหล่งข้อมูลขวา:"
 
 #. Resource IDs: (1552)
 msgid "Source URL:"
-msgstr ""
+msgstr "URL แหล่งข้อมูล:"
 
 #. Resource IDs: (230)
 #, c-format
@@ -9052,11 +9119,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion"
-msgstr ""
+msgstr "Subversion"
 
 #. Resource IDs: (65535)
 msgid "Subversion configuration &file:"
-msgstr ""
+msgstr "ไ&ฟล์ตั้งค่า Subversion:"
 
 #. Resource IDs: (84)
 #, c-format
@@ -9078,6 +9145,22 @@ msgid ""
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
 msgstr ""
+"Subversion ประสบปัญหาร้ายแรง\n"
+"โปรดสละเวลารายงานปัญหานี้ผ่านทางกลุ่มเมลของ Subversion\n"
+"(users@subversion.apache.org)\n"
+"ด้วยรายละเอียดที่มากที่สุดเท่าที่จะทำได้\n"
+"ว่าคุณพยายามจะทำสิ่งใด\n"
+"กรุณาค้นข้อความผิดพลาดนี้ในหอจดหมายเหตุก่อน\n"
+"เพื่อลีกเลี่ยงการแจ้งปัญหาซ้ำซ้อน\n"
+"คุณสามารถพบหอจดหมายเหตุได้ที่\n"
+"http://subversion.apache.org/mailing-lists.html\n"
+"\n"
+"Subversion ประสบปัญหากับ:\n"
+"ไฟล์ %1!s!, บรรทัดที่ %2!ld!\n"
+"นิพจน์ = %3!s!\n"
+"\n"
+"คุณสามารถคัดลอกเนื้อหาดังกล่าว\n"
+"ไปยังคลิปบอร์ดได้โดยกดปุ่ม Ctrl-C"
 
 #. Resource IDs: (84)
 msgid ""
@@ -9095,12 +9178,27 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr ""
+"Subversion ประสบปัญหาร้ายแรง\n"
+"โปรดสละเวลารายงานปัญหานี้ผ่านทางกลุ่มเมลของ Subversion\n"
+"(users@subversion.apache.org)\n"
+"ด้วยรายละเอียดที่มากที่สุดเท่าที่จะทำได้\n"
+"ว่าคุณพยายามจะทำสิ่งใด\n"
+"กรุณาค้นข้อความผิดพลาดนี้ในหอจดหมายเหตุก่อน\n"
+"เพื่อลีกเลี่ยงการแจ้งปัญหาซ้ำซ้อน\n"
+"คุณสามารถพบหอจดหมายเหตุได้ที่\n"
+"http://subversion.apache.org/mailing-lists.html\n"
+"\n"
+"Subversion รายงานผลดังนี้\n"
+"(คุณสามารถคัดลอกเนื้อหาดังกล่าว\n"
+"ไปยังคลิปบอร์ดได้โดยกดปุ่ม Ctrl-C)"
 
 #. Resource IDs: (79)
 msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
 msgstr ""
+"Subversion รายงานข้อผิดพลาดในการสร้างคลัง!\n"
+"โปรดตรวจสอบว่าโฟลเดอร์ว่างเปล่าและไม่มีการป้องกันการเขียน"
 
 #. Resource IDs: (81)
 #, c-format
@@ -9108,6 +9206,8 @@ msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "%s"
 msgstr ""
+"Subversion รายงานข้อผิดพลาดระหว่างทำความสะอาด!\n"
+"%s"
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
@@ -9115,7 +9215,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
-msgstr ""
+msgstr "ไฟล์เซิฟเวอร์ Subversion:"
 
 #. Resource IDs: (1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -9136,15 +9236,15 @@ msgstr ""
 
 #. Resource IDs: (32811)
 msgid "Switch Left<->Right"
-msgstr ""
+msgstr "สลับ ซ้าย<->ขวา"
 
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
-msgstr ""
+msgstr "เปลี่ยนเป็น Branch / Tag"
 
 #. Resource IDs: (620)
 msgid "Switch back to parent"
-msgstr ""
+msgstr "เปลี่ยนกลับไปยังต้นกำเนิด"
 
 #. Resource IDs: (3606)
 msgid ""
@@ -9188,11 +9288,11 @@ msgstr ""
 
 #. Resource IDs: (265)
 msgid "Switched"
-msgstr ""
+msgstr "เปลี่ยนเรียบร้อย"
 
 #. Resource IDs: (325)
 msgid "Switches the comparison left<->right"
-msgstr ""
+msgstr "สลับการเปรียบเทียบ ซ้าย<->ขวา"
 
 #. Resource IDs: (65535)
 msgid "System &sounds"
@@ -9243,19 +9343,19 @@ msgstr ""
 
 #. Resource IDs: (219)
 msgid "Test Only"
-msgstr ""
+msgstr "เพื่อการทดสอบเท่านั้น"
 
 #. Resource IDs: (590)
 msgid "Test the regex strings"
-msgstr ""
+msgstr "ทดสอบ regex strings"
 
 #. Resource IDs: (65535)
 msgid "Text Status:"
-msgstr ""
+msgstr "ข้อความสถานะ:"
 
 #. Resource IDs: (207)
 msgid "Text status"
-msgstr ""
+msgstr "ข้อความสถานะ"
 
 #. Resource IDs: (120)
 msgid ""
@@ -9325,14 +9425,18 @@ msgid ""
 "is empty.\n"
 "Do you want to remove the file?"
 msgstr ""
+"ไฟล์\n"
+"%s\n"
+"ว่างเปล่า\n"
+"คุณต้องการเอาไฟล์นี้ออกหรือไม่?"
 
 #. Resource IDs: (69)
 msgid "The file is too big"
-msgstr ""
+msgstr "ไฟล์นี้ใหญ่เกินไป"
 
 #. Resource IDs: (3857)
 msgid "The file is too large to open."
-msgstr ""
+msgstr "ไฟล์นี้ใหญ่เกินกว่าที่จะเปิดได้"
 
 #. Resource IDs: (80)
 #, c-format
@@ -9341,6 +9445,9 @@ msgid ""
 "%s\n"
 "already exists! Do you want to overwrite it?"
 msgstr ""
+"มีไฟล์\n"
+"%s\n"
+"อยู่แล้ว! คุณต้องการเขียนทับหรือไม่?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -9366,6 +9473,9 @@ msgid ""
 "does not exist.\n"
 "Would you like to create it first?"
 msgstr ""
+"ไม่มีโฟลเดอร์\n"
+"%s\n"
+"คุณต้องการสร้างมันก่อนหรือไม่?"
 
 #. Resource IDs: (99)
 #, c-format
@@ -9374,6 +9484,9 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr ""
+"มีโฟลเดอร์\n"
+"%s\n"
+"อยู่แล้ว!"
 
 #. Resource IDs: (83)
 #, c-format
@@ -9384,7 +9497,7 @@ msgstr ""
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
-msgstr ""
+msgstr "ไม่สามารถแสดงรูปนี้ได้"
 
 #. Resource IDs: (63)
 msgid ""
@@ -9399,7 +9512,7 @@ msgstr ""
 #. Resource IDs: (597)
 #, c-format
 msgid "The item '%s' has property conflicts:"
-msgstr ""
+msgstr "รายการ '%s' มีคุณสมบัติที่ขัดแย้ง:"
 
 #. Resource IDs: (608)
 #, c-format
@@ -9587,6 +9700,8 @@ msgid ""
 "The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
 msgstr ""
+"ดูเหมือน เส้นทาง/URL '%s' ผิดกฏของ Windows!\n"
+"คุณสามารถลองใช้มันได้แต่อาจจะเกิดข้อผิดพลาดในภายหลัง"
 
 #. Resource IDs: (88)
 msgid ""
@@ -9650,6 +9765,8 @@ msgid ""
 "The returned error was:\n"
 "%s"
 msgstr ""
+"ข้อผิดพลาดที่ได้รับคือ:\n"
+"%s"
 
 #. Resource IDs: (78)
 msgid ""
@@ -9664,6 +9781,9 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr ""
+"URL เป้าหมาย\n"
+"%s\n"
+"มีอยู่แล้ว!"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -9677,6 +9797,10 @@ msgid ""
 " already exists.\n"
 "Do you want to replace the file?"
 msgstr ""
+"ไฟล์เป้าหมาย\n"
+"%s\n"
+" มีอยู่แล้ว\n"
+"คุณต้องการแทนที่ไฟล์หรือไม่?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -9689,7 +9813,7 @@ msgstr ""
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
-msgstr ""
+msgstr "เป้าหมายดังกล่าวมีการแก้ไขภายในเครื่อง"
 
 #. Resource IDs: (279)
 #, c-format
@@ -9862,6 +9986,8 @@ msgid ""
 "This product includes software developed by the OpenSSL Project for use in "
 "the OpenSSL Toolkit (http://www.openssl.org/)"
 msgstr ""
+"ผลิตภัณฑ์นี้บรรจุซอร์ฟแวร์ซึ่งพัฒนาโดย OpenSSL Project สำหรับ OpenSSL "
+"Toolkit (http://www.openssl.org/)"
 
 #. Resource IDs: (1531)
 msgid ""
@@ -9879,7 +10005,7 @@ msgstr ""
 #. Resource IDs: (3857)
 #, c-format
 msgid "This program requires the file %s, which was not found on this system."
-msgstr ""
+msgstr "โปรแกรมนี้ต้องการไฟล์ %s ซึ่งไม่พบในระบบ"
 
 #. Resource IDs: (15)
 msgid "This property is only allowed on folders, not files."
@@ -9912,7 +10038,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Timeouts"
-msgstr ""
+msgstr "เวลารอ"
 
 #. Resource IDs: (224)
 msgid ""
@@ -9941,35 +10067,35 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Toolbar"
-msgstr ""
+msgstr "แถบเครื่องมือ"
 
 #. Resource IDs: (16130)
 msgid "Toolbar Name"
-msgstr ""
+msgstr "ชื่อแถบเครื่องมือ"
 
 #. Resource IDs: (1064)
 msgid "Toolbar Options"
-msgstr ""
+msgstr "ตัวเลือกแถบเครื่องมือ"
 
 #. Resource IDs: (1001)
 msgid "Toolbar internal error. Please contact your application vendor."
-msgstr ""
+msgstr "แถบเครื่องมือทำงานผิดพลาด โปรดติดต่อผู้ผลิต"
 
 #. Resource IDs: (16105)
 msgid "Toolbars"
-msgstr ""
+msgstr "แถบเครื่องมือ"
 
 #. Resource IDs: (16928)
 msgid "Tools"
-msgstr ""
+msgstr "เครื่องมือ"
 
 #. Resource IDs: (65535)
 msgid "Tools:"
-msgstr ""
+msgstr "เครื่องมือ:"
 
 #. Resource IDs: (7, 244)
 msgid "TortoiseBlame"
-msgstr ""
+msgstr "TortoiseBlame"
 
 #. Resource IDs: (13)
 msgid ""
@@ -9982,11 +10108,12 @@ msgstr ""
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
-msgstr ""
+msgstr "TortoiseIDiff"
 
 #. Resource IDs: (65535)
 msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
 msgstr ""
+"TortoiseIDiff - เครื่องมือในการเปรียบเทียบรูป, เป็นส่วนหนึ่งของ TortoiseSVN"
 
 #. Resource IDs: (7)
 msgid ""
@@ -10004,12 +10131,12 @@ msgstr ""
 
 #. Resource IDs: (7, 80, 130, 3585)
 msgid "TortoiseMerge"
-msgstr ""
+msgstr "TortoiseMerge"
 
 #. Resource IDs: (107)
 #, c-format
 msgid "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %s, %s"
 
 #. Resource IDs: (107)
 #, c-format
@@ -10019,15 +10146,19 @@ msgid ""
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
 msgstr ""
+"TortoiseMerge %d.%d.%d, Build %d - %s, %s\n"
+"libsvn_diff %d.%d.%d, %s\n"
+"apr %d.%d.%d\n"
+"apr-utils %d.%d.%d"
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
-msgstr ""
+msgstr "TortoiseSVN"
 
 #. Resource IDs: (107)
 #, c-format
 msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s"
 
 #. Resource IDs: (107)
 #, c-format
@@ -10040,6 +10171,13 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\n"
+"Subversion %d.%d.%d, %s\n"
+"apr %d.%d.%d\n"
+"apr-utils %d.%d.%d\n"
+"neon %s\n"
+"%s\n"
+"zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10051,6 +10189,8 @@ msgid ""
 "TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
 "to be renamed too?"
 msgstr ""
+"TortoiseSVN ตรวจพบชื่อไฟล์ซ้ำกัน คุณต้องการเปลี่ยนชื่อไฟล์: %s\n"
+"หรือไม่"
 
 #. Resource IDs: (145)
 msgid ""
@@ -10067,7 +10207,7 @@ msgstr ""
 
 #. Resource IDs: (1163)
 msgid "Total file changes:"
-msgstr ""
+msgstr "จำนวนไฟล์ที่เปลี่ยนแปลง:"
 
 #. Resource IDs: (339)
 msgid "Total number of changes over all cached revisions"
@@ -10128,12 +10268,12 @@ msgstr "URL"
 
 #. Resource IDs: (1272)
 msgid "URL history"
-msgstr ""
+msgstr "URL ในอดีต"
 
 #. Resource IDs: (199)
 #, c-format
 msgid "URL not known (UUID: %s)"
-msgstr ""
+msgstr "URL ที่ไม่รู้จัก (UUID: %s)"
 
 #. Resource IDs: (12)
 msgid "URL of Subversion items"
@@ -10212,21 +10352,23 @@ msgstr "ไม่เลือก"
 #. Resource IDs: (1069)
 #, c-format
 msgid "Undo %d Actions"
-msgstr ""
+msgstr "ทำกลับ %d รายการ"
 
 #. Resource IDs: (1069)
 msgid "Undo 1 Action"
-msgstr ""
+msgstr "ทำกลับ 1 รายการ"
 
 #. Resource IDs: (14)
 msgid "Undo Add.."
-msgstr ""
+msgstr "ยกเลิกการเพิ่ม..."
 
 #. Resource IDs: (3603)
 msgid ""
 "Undo the last action\n"
 "Undo"
 msgstr ""
+"ทำกลับรายการล่าสุด\n"
+"ทำกลับ"
 
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
@@ -10253,6 +10395,9 @@ msgid ""
 "  Fingerprint: %1!s!\n"
 "  Distinguished name: %2!s!"
 msgstr ""
+"ผู้ออกใบรับรองที่ไม่รู้จัก.\n"
+"  ลายนิ้วมือ: %1!s!\n"
+"  ชื่อเฉพาะ: %2!s!"
 
 #. Resource IDs: (20)
 msgid "Unknown depth"
@@ -10264,15 +10409,15 @@ msgstr ""
 
 #. Resource IDs: (221, 230, 242)
 msgid "Unlock"
-msgstr ""
+msgstr "ปลดล็อก"
 
 #. Resource IDs: (264)
 msgid "Unlock failed"
-msgstr ""
+msgstr "การปลดล็อกล้มเหลว"
 
 #. Resource IDs: (263)
 msgid "Unlocked"
-msgstr ""
+msgstr "ปลดล็อกแล้ว"
 
 #. Resource IDs: (590)
 msgid "Unrecognized or invalid property file format!"
@@ -10284,7 +10429,7 @@ msgstr ""
 
 #. Resource IDs: (3841)
 msgid "Untitled"
-msgstr ""
+msgstr "ไม่มีชื่อ"
 
 #. Resource IDs: (345)
 msgid ""
@@ -10319,7 +10464,7 @@ msgstr ""
 
 #. Resource IDs: (106)
 msgid "Up one folder"
-msgstr ""
+msgstr "เลื่อนขึ้นหนึ่งโฟลเดอร์"
 
 #. Resource IDs: (77, 152, 230)
 msgid "Update"
@@ -10391,7 +10536,7 @@ msgstr ""
 #. Resource IDs: (99)
 #, c-format
 msgid "Upgrading '%1!s!'"
-msgstr "การอัพเกรด '%1!s!'"
+msgstr "กำลังปรับปรุง '%1!s!'"
 
 #. Resource IDs: (16530)
 msgid "Use &Default Image: "
@@ -10509,16 +10654,20 @@ msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
 msgstr ""
+"ใช้กลุ่มประโยคจาก 'mine'\n"
+"ใช้กลุ่มประโยค 'mine'"
 
 #. Resource IDs: (251)
 msgid "Use text block from 't&heirs' before 'mine'"
-msgstr ""
+msgstr "ใช้กลุ่มประโยคจาก 't&heirs' ก่อน 'mine'"
 
 #. Resource IDs: (2052)
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr ""
+"ใช้กลุ่มประโยคจาก 'theirs' ก่อน 'mine'\n"
+"ใช้กลุ่มประโยค 'theirs' ตามด้วย 'mine'"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -10610,7 +10759,7 @@ msgstr ""
 
 #. Resource IDs: (11, 348)
 msgid "Value"
-msgstr ""
+msgstr "ค่า"
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"
@@ -10651,6 +10800,9 @@ msgid ""
 "Only change these settings if you are absolutely sure what you are doing!\r\n"
 "To set the values to their default, delete the value text."
 msgstr ""
+"คำเตือน:\n"
+"แก้ไขการตั้งค่าเหล่านี้เมื่อคุณแน่ใจโดยสมบูรณ์ว่ากำลังทำอะไรอยู่เท่านั้น\n"
+"ลบข้อความทิ้งเพื่อใช้ค่าโดยปริยาย"
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -10666,7 +10818,7 @@ msgstr "รอ"
 
 #. Resource IDs: (1327)
 msgid "Wait for the script to finish"
-msgstr ""
+msgstr "รอให้คำสั่งทำงานเสร็จสิ้น"
 
 #. Resource IDs: (280)
 msgid "Want to go offline?"
@@ -10717,7 +10869,7 @@ msgstr ""
 
 #. Resource IDs: (1065)
 msgid "Window Position"
-msgstr ""
+msgstr "ตำแหน่งหน้าต่าง"
 
 #. Resource IDs: (16927)
 msgid "Windows"
@@ -10729,7 +10881,7 @@ msgstr "Windows &2000"
 
 #. Resource IDs: (146)
 msgid "With URL:"
-msgstr ""
+msgstr "ด้วย URL:"
 
 #. Resource IDs: (158, 1490, 1493, 1496)
 msgid "Working Copy"
@@ -10855,7 +11007,7 @@ msgstr ""
 
 #. Resource IDs: (196)
 msgid "You must restart your system for the changes to take effect."
-msgstr ""
+msgstr "คุณต้องเปิดเครื่องใหม่เพื่อให้การเปลี่ยนแสดงผล"
 
 #. Resource IDs: (77)
 msgid ""
@@ -10950,19 +11102,19 @@ msgstr "ขยาย"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
-msgstr ""
+msgstr "ขยายเ&ข้า"
 
 #. Resource IDs: (58118)
 msgid "Zoom &Out"
-msgstr ""
+msgstr "ขยาย&ออก"
 
 #. Resource IDs: (32772)
 msgid "Zoom &in\tCtrl-+"
-msgstr ""
+msgstr "ขยายเ&ข้า»Ctrl-+"
 
 #. Resource IDs: (32773)
 msgid "Zoom &out\tCtrl--"
-msgstr ""
+msgstr "ขยาย&ออก»Ctrl--"
 
 #. Resource IDs: (2051)
 #, c-format
@@ -10974,16 +11126,20 @@ msgid ""
 "Zoom In\n"
 "Zoom In"
 msgstr ""
+"ขยายเข้า\n"
+"ขยายเข้า"
 
 #. Resource IDs: (3633)
 msgid ""
 "Zoom Out\n"
 "Zoom Out"
 msgstr ""
+"ขยายออก\n"
+"ขยายออก"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n"
-msgstr ""
+msgstr "ขยายเ&ข้า"
 
 #. Resource IDs: (2049)
 msgid "Zoom in"
@@ -10999,19 +11155,19 @@ msgstr "ขยาย &100%"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit"
-msgstr ""
+msgstr "ขยายเต็มพื้นที่"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit in height"
-msgstr ""
+msgstr "ขยายตามความสูง"
 
 #. Resource IDs: (2051)
 msgid "Zoom to fit in width"
-msgstr ""
+msgstr "ขยายตามความกว้าง"
 
 #. Resource IDs: (1070)
 msgid "[Default]"
-msgstr ""
+msgstr "[โดยปริยาย]"
 
 #. Resource IDs: (1001)
 msgid "[Unassigned]"
@@ -11029,7 +11185,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
-msgstr ""
+msgstr "_POPUP_"
 
 #. Resource IDs: (10)
 msgid "added"
@@ -11047,11 +11203,11 @@ msgstr ""
 #. Resource IDs: (272)
 #, c-format
 msgid "alias: %s"
-msgstr ""
+msgstr "สมนาม: %s"
 
 #. Resource IDs: (3841)
 msgid "an unnamed file"
-msgstr ""
+msgstr "ไฟล์ที่ไม่ได้ตั้งชื่อ"
 
 #. Resource IDs: (1304)
 msgid "and"
@@ -11145,7 +11301,7 @@ msgstr "เปลี่ยนแปลงทั้งหมด: "
 
 #. Resource IDs: (244, 245)
 msgid "commits"
-msgstr ""
+msgstr "ส่งมอบ"
 
 #. Resource IDs: (277)
 msgid "committed revision"
@@ -11153,7 +11309,7 @@ msgstr ""
 
 #. Resource IDs: (11)
 msgid "conflicted"
-msgstr ""
+msgstr "ขัดแย้ง"
 
 #. Resource IDs: (65535)
 msgid "connection: "
@@ -11177,6 +11333,9 @@ msgid ""
 "old size: %2!s!\r\n"
 "change: %3!s!"
 msgstr ""
+"ขนาดปัจจุบัน: %1!s!\n"
+"ขนาดเดิม: %2!s!\n"
+"เปลี่ยนไป: %3!s!"
 
 #. Resource IDs: (247)
 msgid "day"
@@ -11196,7 +11355,7 @@ msgstr ""
 
 #. Resource IDs: (1342)
 msgid "eol style"
-msgstr ""
+msgstr "รูปแบบ eol"
 
 #. Resource IDs: (79)
 #, c-format
@@ -11206,14 +11365,18 @@ msgid ""
 "to\n"
 "%s"
 msgstr ""
+"ส่งออก\n"
+"%s\n"
+"ไปยัง\n"
+"%s"
 
 #. Resource IDs: (13)
 msgid "external"
-msgstr ""
+msgstr "ภายนอก"
 
 #. Resource IDs: (65535)
 msgid "file external:"
-msgstr ""
+msgstr "ไฟล์ภายนอก:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11289,11 +11452,11 @@ msgstr ""
 
 #. Resource IDs: (11, 65535)
 msgid "merged"
-msgstr ""
+msgstr "ผสาน"
 
 #. Resource IDs: (65535)
 msgid "merges total: "
-msgstr ""
+msgstr "จำนวนที่ผสาน"
 
 #. Resource IDs: (278)
 msgid "min. at this revision"
@@ -11305,11 +11468,11 @@ msgstr ""
 
 #. Resource IDs: (10)
 msgid "missing"
-msgstr ""
+msgstr "หาย"
 
 #. Resource IDs: (65535)
 msgid "missing / deleted / replaced"
-msgstr ""
+msgstr "หาย / ลบทิ้ง / แทนที่"
 
 #. Resource IDs: (65535)
 msgid "missing in: "
@@ -11317,11 +11480,11 @@ msgstr ""
 
 #. Resource IDs: (10, 272)
 msgid "modified"
-msgstr ""
+msgstr "แก้ไข"
 
 #. Resource IDs: (65535)
 msgid "modified / copied"
-msgstr ""
+msgstr "แก้ไข / คัดลอก"
 
 #. Resource IDs: (245)
 msgid "month"
@@ -11330,7 +11493,7 @@ msgstr "เดือน"
 #. Resource IDs: (199)
 #, c-format
 msgid "multiple URLs (e.g. %s)"
-msgstr ""
+msgstr "หลาย URL (ได้แก่ %s)"
 
 #. Resource IDs: (18)
 msgid "no"
@@ -11338,7 +11501,7 @@ msgstr "ไม่"
 
 #. Resource IDs: (10)
 msgid "no description for this command is available"
-msgstr ""
+msgstr "ไม่มีรายละเอียดสำหรับคำสั่งนี้"
 
 #. Resource IDs: (10)
 msgid "non-versioned"
@@ -11383,7 +11546,7 @@ msgstr ""
 
 #. Resource IDs: (3869)
 msgid "pixels"
-msgstr "pixels"
+msgstr "พิกเซล"
 
 #. Resource IDs: (65535)
 msgid "possible or real conflict / obstructed"
@@ -11399,7 +11562,7 @@ msgstr ""
 
 #. Resource IDs: (195)
 msgid "readonly"
-msgstr ""
+msgstr "อ่านอย่างเดียว"
 
 #. Resource IDs: (10)
 msgid "replaced"
@@ -11445,17 +11608,19 @@ msgstr ""
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
-msgstr ""
+msgstr "svn:eol-style"
 
 #. Resource IDs: (576)
 msgid ""
 "svn:eol-style\r\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
 msgstr ""
+"svn:eol-style\n"
+"'native', 'LF', 'CR', 'CRLF' อย่างใดอย่างหนึ่ง"
 
 #. Resource IDs: (312)
 msgid "svn:executable"
-msgstr ""
+msgstr "svn:executable"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11466,7 +11631,7 @@ msgstr ""
 
 #. Resource IDs: (318)
 msgid "svn:externals"
-msgstr ""
+msgstr "svn:externals"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11489,10 +11654,12 @@ msgid ""
 "svn:ignore\r\n"
 "A newline separated list of file patterns to ignore."
 msgstr ""
+"svn:ignore\n"
+"แต่ละบรรทัดแบ่งแยกรูปแบบไฟล์ที่ละเว้น"
 
 #. Resource IDs: (317)
 msgid "svn:keywords"
-msgstr ""
+msgstr "svn:keywords"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11516,7 +11683,7 @@ msgstr ""
 
 #. Resource IDs: (314)
 msgid "svn:mime-type"
-msgstr ""
+msgstr "svn:mime-type"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11528,7 +11695,7 @@ msgstr ""
 
 #. Resource IDs: (313)
 msgid "svn:needs-lock"
-msgstr ""
+msgstr "svn:needs-lock"
 
 #. Resource IDs: (576)
 msgid ""
@@ -11545,6 +11712,8 @@ msgid ""
 "switched to\r\n"
 "%s"
 msgstr ""
+"เปลี่ยนเป็น\n"
+"%s"
 
 #. Resource IDs: (65535)
 msgid "switched:"
@@ -11724,7 +11893,7 @@ msgstr ""
 #. Resource IDs: (104)
 #, c-format
 msgid "url: %1!s!"
-msgstr ""
+msgstr "url: %1!s!"
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
@@ -11732,11 +11901,11 @@ msgstr ""
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"
-msgstr ""
+msgstr "uuid x6&4:"
 
 #. Resource IDs: (588)
 msgid "values are different"
-msgstr ""
+msgstr "ค่าดังกล่าวต่างกัน"
 
 #. Resource IDs: (579)
 #, c-format
@@ -11765,7 +11934,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "words [uncompressed]: "
-msgstr ""
+msgstr "คำ [ไม่บีบอัด]"
 
 #. Resource IDs: (245)
 msgid "year"
@@ -11773,10 +11942,10 @@ msgstr "ปี"
 
 #. Resource IDs: (18, 1002, 1011, 1012, 1013)
 msgid "yes"
-msgstr "ใช่"
+msgstr "ตกลง"
 
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
-msgstr ""
+msgstr "{BugTraq}"
 
 
