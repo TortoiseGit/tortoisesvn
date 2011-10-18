@@ -132,6 +132,7 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
                                               bool fetchExcluded /* = true */, bool fetchActualOnly /* = true */)
 {
     svn_error_clear(Err);
+    Err = NULL;
     m_arInfo.clear();
     m_pos = 0;
 

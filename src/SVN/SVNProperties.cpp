@@ -75,10 +75,10 @@ SVNProperties::~SVNProperties(void)
 BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool force, svn_depth_t depth, const TCHAR * message)
 {
     svn_string_t*   pval;
-    Err = NULL;
 
     SVNPool subpool(m_pool);
     svn_error_clear(Err);
+    Err = NULL;
 
     pval = svn_string_ncreate (Value.c_str(), Value.size(), subpool);
 
@@ -212,7 +212,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
 
     SVNPool subpool(m_pool);
     svn_error_clear(Err);
-
+    Err = NULL;
     PrepareMsgForUrl(message, subpool);
 
     const char* svnPath = m_path.GetSVNApiPath(subpool);

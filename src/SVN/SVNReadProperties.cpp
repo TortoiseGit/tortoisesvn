@@ -154,6 +154,7 @@ void SVNReadProperties::Construct()
     {
         ShowErrorDialog(NULL);
         svn_error_clear(Err);
+        Err = NULL;
         svn_pool_destroy (m_pool);                  // free the allocated memory
         return;
     }
