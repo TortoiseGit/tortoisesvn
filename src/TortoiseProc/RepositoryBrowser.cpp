@@ -3766,6 +3766,8 @@ void CRepositoryBrowser::SaveColumnWidths(bool bSaveToRegistry /* = false */)
 
 void CRepositoryBrowser::InvalidateData (HTREEITEM node)
 {
+    if (node == NULL)
+        return;
     CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
     InvalidateData (node, pItem->repository.revision);
 }
