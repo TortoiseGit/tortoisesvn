@@ -227,12 +227,6 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
                 case 1: // url
                     {
                         lstrcpyn(m_columnbuf, ext.url, pDispInfo->item.cchTextMax);
-                        SVNRev peg(ext.pegrevision);
-                        if (peg.IsValid() && !peg.IsHead())
-                        {
-                            _tcscat_s(m_columnbuf, _T("@"));
-                            _tcscat_s(m_columnbuf, peg.ToString());
-                        }
                         int cWidth = m_ExtList.GetColumnWidth(1);
                         cWidth = max(14, cWidth-14);
                         CDC * pDC = m_ExtList.GetDC();
@@ -252,7 +246,7 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
                         m_columnbuf[0] = 0;
                     break;
                 case 3: // operative
-                    if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0))
+                    if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0) && (ext.revision.value.number != ext.pegrevision.value.number))
                         _stprintf_s(m_columnbuf, _T("%ld"), ext.revision.value.number);
                     else
                         m_columnbuf[0] = 0;

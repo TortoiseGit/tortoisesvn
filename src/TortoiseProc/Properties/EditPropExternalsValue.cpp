@@ -74,17 +74,28 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     m_sWCPath = m_External.targetDir;
+
     SVNRev rev = m_External.revision;
-    if (!rev.IsValid() || rev.IsHead())
-        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
-    else
+    SVNRev pegRev = SVNRev(m_External.pegrevision);
+
+    if ((pegRev.IsValid() && !pegRev.IsHead()) || (rev.IsValid() && !rev.IsHead()))
     {
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-        m_sRevision = rev.ToString();
+
+        if (m_External.revision.value.number == m_External.pegrevision.value.number)
+        {
+            m_sPegRev = pegRev.ToString();
+        }
+        else
+        {
+            m_sRevision = rev.ToString();
+            m_sPegRev = pegRev.ToString();
+        }
     }
-    SVNRev pegRev = SVNRev(m_External.pegrevision);
-    if (pegRev.IsValid() && !pegRev.IsHead())
-        m_sPegRev = pegRev.ToString();
+    else
+    {
+        CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
+    }
 
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoURLS"), _T("url"));
     m_URLCombo.SetURLHistory(true, false);
@@ -265,7 +276,8 @@ LPARAM CEditPropExternalsValue::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 {
     CString temp;
     temp.Format(_T("%ld"), lParam);
-    SetDlgItemText(IDC_REVISION_NUM, temp);
+    SetDlgItemText(IDC_PEGREV, temp);
+    SetDlgItemText(IDC_REVISION_NUM, CString());
     CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     return 0;
 }
