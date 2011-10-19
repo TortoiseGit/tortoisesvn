@@ -22,6 +22,7 @@
 #include "SVNHelpers.h"
 #include "SVNError.h"
 #include "SVN.h"
+#include "SVNInfo.h"
 #include "SVNRev.h"
 #include "SVNProperties.h"
 #include "UnicodeUtils.h"
@@ -86,10 +87,25 @@ bool SVNExternals::Add(const CTSVNPath& path, const std::string& extvalue, bool 
                     bool bswitched, bmodified, bsparse;
                     CTSVNPath p = path;
                     p.AppendPathString(ext.targetDir);
-                    if (svn.GetWCRevisionStatus(p, true, minrev, maxrev, bswitched, bmodified, bsparse))
+                    if (p.IsDirectory())
                     {
-                        ext.revision.kind = svn_opt_revision_number;
-                        ext.revision.value.number = maxrev;
+                        if (svn.GetWCRevisionStatus(p, true, minrev, maxrev, bswitched, bmodified, bsparse))
+                        {
+                            ext.revision.kind = svn_opt_revision_number;
+                            ext.revision.value.number = maxrev;
+                        }
+                    }
+                    else
+                    {
+                        // GetWCRevisionStatus() does not work for file externals, that's
+                        // why we use SVNInfo here to get the revision.
+                        SVNInfo svninfo;
+                        const SVNInfoData * info = svninfo.GetFirstFileInfo(p, SVNRev::REV_WC, SVNRev::REV_WC);
+                        if (info)
+                        {
+                            ext.revision.kind = svn_opt_revision_number;
+                            ext.revision.value.number = info->lastchangedrev;
+                        }
                     }
                 }
                 push_back(ext);
