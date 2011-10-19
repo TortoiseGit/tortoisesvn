@@ -126,7 +126,6 @@ HWND FindParentWindow(HWND hWnd)
 // CTortoiseProcApp initialization
 BOOL CTortoiseProcApp::InitInstance()
 {
-    CAppUtils::SetupDiffScripts(false, CString());
     svn_error_set_malfunction_handler(svn_error_handle_malfunction);
     CheckUpgrade();
     CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
@@ -518,6 +517,11 @@ void CTortoiseProcApp::CheckUpgrade()
         CoInitialize(NULL);
         EnsureSVNLibrary();
         CoUninitialize();
+    }
+    if (lVersion <= 0x01070100)
+    {
+        // upgrade to 1.7.1: force recreation of all diff scripts.
+        CAppUtils::SetupDiffScripts(true, CString());
     }
     CAppUtils::SetupDiffScripts(false, CString());
 
