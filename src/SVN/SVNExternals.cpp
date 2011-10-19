@@ -146,6 +146,7 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
         externals[it->path] = val;
     }
 
+    m_sError.Empty();
     SVN svn;
     // now set the new properties
     for (std::map<CTSVNPath, sb>::iterator it = externals.begin(); it != externals.end(); ++it)
@@ -170,17 +171,19 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
                 targeturl.AppendRawString(sInsidePath); // http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version-1.6.7/ext
 
                 SVNProperties props(targeturl, headrev, false);
-                props.Add(SVN_PROP_EXTERNALS, it->second.extvalue, false, svn_depth_empty, message);
+                if (!props.Add(SVN_PROP_EXTERNALS, it->second.extvalue, false, svn_depth_empty, message))
+                    m_sError = props.GetLastErrorMessage();
             }
             else
             {
                 SVNProperties props(it->first, SVNRev::REV_WC, false);
-                props.Add(SVN_PROP_EXTERNALS, it->second.extvalue);
+                if (!props.Add(SVN_PROP_EXTERNALS, it->second.extvalue))
+                    m_sError = props.GetLastErrorMessage();
             }
         }
     }
 
-    return true;
+    return m_sError.IsEmpty();
 }
 
 std::string SVNExternals::GetValue(const CTSVNPath& path) const

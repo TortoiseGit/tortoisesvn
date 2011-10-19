@@ -80,7 +80,9 @@ public:
     std::string GetOriginalValue(const CTSVNPath& path) { return m_originals[path]; }
     /// returns the svn:externals value for the specified \c path
     std::string GetValue(const CTSVNPath& path) const;
-
+    /// return the error string of the last failed operation
+    CString GetLastErrorString() { return m_sError; }
 private:
     std::map<CTSVNPath, std::string>    m_originals;
+    CString                             m_sError;
 };
