@@ -46,7 +46,7 @@ DEFINE_GUID(FOLDERTYPEID_SVNWC,       0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x
  * If the library already exists, the template is set.
  * If the library doesn't exist, it is created.
  */
-void EnsureSVNLibrary()
+void EnsureSVNLibrary(bool bCreate /* = true*/)
 {
     // when running the 32-bit version of TortoiseProc on x64 OS,
     // we must not create the library! This would break
@@ -59,6 +59,8 @@ void EnsureSVNLibrary()
     CComPtr<IShellLibrary> pLibrary = NULL;
     if (FAILED(OpenShellLibrary(L"Subversion", &pLibrary)))
     {
+        if (!bCreate)
+            return;
         if (FAILED(SHCreateLibrary(IID_PPV_ARGS(&pLibrary))))
             return;
 

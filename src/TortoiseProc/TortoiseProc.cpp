@@ -375,6 +375,7 @@ BOOL CTortoiseProcApp::InitInstance()
 
     CString sAppID = GetTaskIDPerUUID(g_sGroupingUUID).c_str();
     InitializeJumpList(sAppID);
+    EnsureSVNLibrary(false);
 
     // Subversion sometimes writes temp files to the current directory!
     // Since TSVN doesn't need a specific CWD anyway, we just set it
