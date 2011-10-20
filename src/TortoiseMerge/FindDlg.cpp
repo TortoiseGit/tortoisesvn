@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006 - Stefan Kueng
+// Copyright (C) 2006, 2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -87,6 +87,7 @@ BOOL CFindDlg::OnInitDialog()
     CDialog::OnInitDialog();
     m_FindMsg = RegisterWindowMessage(FINDMSGSTRING);
 
+    m_FindCombo.DisableTrimming();
     m_FindCombo.LoadHistory(_T("Software\\TortoiseMerge\\History\\Find"), _T("Search"));
 
     m_FindCombo.SetFocus();

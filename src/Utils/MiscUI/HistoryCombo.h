@@ -116,6 +116,12 @@ public:
      */
     CString GetWindowString() const;
 
+    /**
+     * Disables trimming of strings in the combobox. Useful if the combo box is
+     * used e.g. for searching.
+     */
+    void DisableTrimming() {m_bTrim=false;}
+
 protected:
     /**
      * Will be called whenever the return key is pressed while the
@@ -146,6 +152,7 @@ protected:
     TOOLINFO        m_ToolInfo;
     BOOL            m_ttShown;
     BOOL            m_bDyn;
+    BOOL            m_bTrim;
 };
 
 

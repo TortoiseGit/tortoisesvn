@@ -26,15 +26,17 @@
 
 #define MAX_HISTORY_ITEMS 25
 
-CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/ ) : CComboBoxEx()
+CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/ )
+    : CComboBoxEx()
+    , m_nMaxHistoryItems(MAX_HISTORY_ITEMS)
+    , m_bAllowSortStyle(bAllowSortStyle)
+    , m_bURLHistory(FALSE)
+    , m_bPathHistory(FALSE)
+    , m_hWndToolTip(NULL)
+    , m_ttShown(FALSE)
+    , m_bDyn(FALSE)
+    , m_bTrim(TRUE)
 {
-    m_nMaxHistoryItems = MAX_HISTORY_ITEMS;
-    m_bAllowSortStyle = bAllowSortStyle;
-    m_bURLHistory = FALSE;
-    m_bPathHistory = FALSE;
-    m_hWndToolTip = NULL;
-    m_ttShown = FALSE;
-    m_bDyn = FALSE;
 }
 
 CHistoryCombo::~CHistoryCombo()
@@ -98,8 +100,8 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
         cbei.iItem = GetCount();
     else
         cbei.iItem = pos;
-
-    str.Trim(_T(" "));
+    if (m_bTrim)
+        str.Trim(_T(" "));
     CString combostring = str;
     combostring.Replace('\r', ' ');
     combostring.Replace('\n', ' ');
@@ -142,7 +144,8 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 
     //search the Combo for another string like this
     //and delete it if one is found
-    str.Trim();
+    if (m_bTrim)
+        str.Trim();
     int nIndex = FindStringExact(0, combostring);
     if (nIndex != -1 && nIndex != nRet)
     {
@@ -203,7 +206,8 @@ void CHistoryCombo::SaveHistory()
     //add the current item to the history
     CString sCurItem;
     GetWindowText(sCurItem);
-    sCurItem.Trim();
+    if (m_bTrim)
+        sCurItem.Trim();
     if (!sCurItem.IsEmpty())
         AddString(sCurItem, 0);
     //save history to registry/inifile
