@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-07 03:29+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-10-19 21:06+0000\n"
+"Last-Translator: kode <kdelchev@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -177,6 +177,9 @@ msgid ""
 "click to toggle alpha\n"
 "double click to automatically toggle alpha"
 msgstr ""
+"%i%% alpha\n"
+"кликни за да включиш алфа\n"
+"кликни два пъти за да избереш алфа автоматчно"
 
 #. Resource IDs: (7)
 #, c-format
@@ -746,7 +749,7 @@ msgstr "&Търсене..."
 
 #. Resource IDs: (32778)
 msgid "&Fit images in window"
-msgstr ""
+msgstr "&Събери картинките в прозореца"
 
 #. Resource IDs: (1050)
 msgid "&Fixed drives"
@@ -839,7 +842,7 @@ msgstr "&Изображение"
 
 #. Resource IDs: (32790)
 msgid "&Image info"
-msgstr ""
+msgstr "Информация за &картинка"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1050,6 +1053,10 @@ msgstr "&Една страница"
 msgid "&Open"
 msgstr "&Отваряне"
 
+#. Resource IDs: (1602)
+msgid "&Operative:"
+msgstr "%Операция:"
+
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Настройки"
@@ -1067,8 +1074,8 @@ msgid "&Paste"
 msgstr "&Поставяне"
 
 #. Resource IDs: (1600)
-msgid "&Peg revision:"
-msgstr "&Peg ревизия:"
+msgid "&Peg:"
+msgstr "&Знак:"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -1448,6 +1455,8 @@ msgid ""
 "'%s'\n"
 "is not a valid URL or path!"
 msgstr ""
+"'%s'\n"
+"не е валиден URL или път!"
 
 #. Resource IDs: (338)
 msgid ""
@@ -2160,7 +2169,7 @@ msgstr ""
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical"
-msgstr ""
+msgstr "Подреди &вертикално"
 
 #. Resource IDs: (1587)
 msgid "As &is (no specific EOL)"
@@ -2325,7 +2334,7 @@ msgstr "Показва кой е автора на промените на вс�
 
 #. Resource IDs: (32812)
 msgid "Blend alpha"
-msgstr ""
+msgstr "Бленд алфа"
 
 #. Resource IDs: (83)
 msgid ""
@@ -2338,7 +2347,7 @@ msgstr ""
 #. Resource IDs: (70)
 msgid ""
 "Both the path to the patch file and the target path must be absolute paths!"
-msgstr ""
+msgstr "Двата пътя до пач файла и изберания файл трябва да се абсолютни!"
 
 #. Resource IDs: (1007)
 msgid "Br&owse..."
@@ -3237,7 +3246,7 @@ msgstr "Сравняване и авторство спрямо предишна
 
 #. Resource IDs: (210)
 msgid "Compare two files"
-msgstr ""
+msgstr "Сравни два файла"
 
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
@@ -5394,14 +5403,6 @@ msgstr ""
 msgid "Highest revision number in the cache"
 msgstr "Номер на най-новата ревизия в кеша"
 
-#. Resource IDs: (1127)
-msgid ""
-"Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
-"children too"
-msgstr ""
-"Съвет: натиснете бутона F5, за да обновите информацията за избраното "
-"поддърво, а Ctrl-F5 - и за поддиректориите."
-
 #. Resource IDs: (16519)
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
@@ -5465,7 +5466,7 @@ msgstr "ID"
 
 #. Accelerator Entry for Menu ID:105; 'E&xit'
 msgid "ID:105:V C +W"
-msgstr ""
+msgstr "ID:105:V C +W"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...'
 msgid "ID:32771:V C +F"
@@ -6306,7 +6307,7 @@ msgstr "Показване на хранилището рекурсивно..."
 
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
-msgstr ""
+msgstr "Ло&кална директория"
 
 #. Resource IDs: (130)
 msgid "Load Images"
@@ -7399,6 +7400,10 @@ msgstr ""
 msgid "Operate from log cache for now only"
 msgstr "Използване на кеша само този път"
 
+#. Resource IDs: (218)
+msgid "Operative"
+msgstr "Оперативен"
+
 #. Resource IDs: (348)
 msgid "Option"
 msgstr "Опция"
@@ -7569,6 +7574,10 @@ msgstr "Пътя намери, че съвпада с парчто по-добр
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Пътища"
+
+#. Resource IDs: (218)
+msgid "Peg"
+msgstr "Знак"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -9434,7 +9443,7 @@ msgstr "Показване на разликите като &Unified Diff"
 
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
-msgstr ""
+msgstr "Покажи изключени главни папки както нормално"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9873,7 +9882,6 @@ msgstr "&Файл с настройки на Subversion:"
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9888,12 +9896,26 @@ msgid ""
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
 msgstr ""
+"Subversion засече сериозен проблем.\n"
+"Моля отделете време за да докладвате за това в пощенският списък\n"
+"с възможно най-детаилна информация относно\n"
+"какво сте правили.\n"
+"Но първо моля потърсете в архивите за текущата грешка\n"
+"за да се избегнат доклади за еднакви грешки.\n"
+"You can find the mailing list archives at\n"
+"http://subversion.apache.org/mailing-lists.html\n"
+"\n"
+"Subversion засече проблем в:\n"
+"file %1!s!, line %2!ld!\n"
+"израз = %3!s!\n"
+"\n"
+"може да копирате съдържанието на прозореца\n"
+"в паметта с Ctrl-C."
 
 #. Resource IDs: (84)
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9905,6 +9927,18 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr ""
+"Subversion засече сериозен проблем.\n"
+"Моля отделете време за да докладвате за това в пощенският списък\n"
+"с възможно най-детаилна информация относно\n"
+"какво сте правили.\n"
+"Но първо моля потърсете в архивите за текущата грешка\n"
+"за да се избегнат доклади за еднакви грешки.\n"
+"Може да намерите пощенските архиви на\n"
+"http://subversion.apache.org/mailing-lists.html\n"
+"\n"
+"Subversion докладва за следното\n"
+"(може да копирате съдържанието на прозореца\n"
+"в паметта с Ctrl-C):"
 
 #. Resource IDs: (79)
 msgid ""

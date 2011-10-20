@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-07 11:13+0000\n"
+"PO-Revision-Date: 2011-10-19 18:15+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1048,6 +1048,10 @@ msgstr "1ページ(&O)"
 msgid "&Open"
 msgstr "開く(&O)"
 
+#. Resource IDs: (1602)
+msgid "&Operative:"
+msgstr "操作対象(&O):"
+
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "オプション(&O)"
@@ -1065,8 +1069,8 @@ msgid "&Paste"
 msgstr "貼り付け(&P)"
 
 #. Resource IDs: (1600)
-msgid "&Peg revision:"
-msgstr "ペグリビジョン(&P):"
+msgid "&Peg:"
+msgstr "ペグ(&P):"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -5315,12 +5319,6 @@ msgstr ""
 msgid "Highest revision number in the cache"
 msgstr "キャッシュ内のリビジョン番号の最大値"
 
-#. Resource IDs: (1127)
-msgid ""
-"Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
-"children too"
-msgstr "【ヒント】 F5で選択中の階層を更新し、Ctrl+F5で選択中の階層以下をすべて更新します"
-
 #. Resource IDs: (16519)
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
@@ -7279,6 +7277,10 @@ msgstr "オンラインのリポジトリを調整するためにリポジトリ
 msgid "Operate from log cache for now only"
 msgstr "今回のみログキャッシュから操作する"
 
+#. Resource IDs: (218)
+msgid "Operative"
+msgstr "操作対象"
+
 #. Resource IDs: (348)
 msgid "Option"
 msgstr "オプション"
@@ -7447,6 +7449,10 @@ msgstr "パッチに適合するパスが見つかりました。"
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "パス"
+
+#. Resource IDs: (218)
+msgid "Peg"
+msgstr "ペグ"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -9704,7 +9710,6 @@ msgstr "Subversion の設定ファイル(&F):"
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9720,9 +9725,8 @@ msgid ""
 "to the clipboard using Ctrl-C."
 msgstr ""
 "Subversion は深刻な問題に遭遇しました。\n"
-"下記のエラー情報と、何をしようとしたかをできるだけ\n"
-"詳しく書いて、Subversionのメーリングリスト\n"
-"（users@subversion.apache.org）に報告してください。\n"
+"下記のエラー情報と、何をしようとしたかをできるだけ詳しく\n"
+"書いて、Subversionのメーリングリストに報告してください。\n"
 "但し、同じ問題が繰り返し報告されることを避けるために、\n"
 "まずメーリングリストアーカイブから、このエラーメッセージを\n"
 "探してみてください。メーリングリストのアーカイブは下記の\n"
@@ -9740,7 +9744,6 @@ msgstr ""
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9753,9 +9756,8 @@ msgid ""
 "to the clipboard using Ctrl-C):"
 msgstr ""
 "Subversion は深刻な問題に遭遇しました。\n"
-"下記のエラー情報と、何をしようとしたかをできるだけ\n"
-"詳しく書いて、Subversionのメーリングリスト\n"
-"（users@subversion.apache.org）に報告してください。\n"
+"下記のエラー情報と、何をしようとしたかをできるだけ詳しく\n"
+"書いて、Subversionのメーリングリストに報告してください。\n"
 "但し、同じ問題が繰り返し報告されることを避けるために、\n"
 "まずメーリングリストアーカイブから、このエラーメッセージを\n"
 "探してみてください。メーリングリストのアーカイブは下記の\n"

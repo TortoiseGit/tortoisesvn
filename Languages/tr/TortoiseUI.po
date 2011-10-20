@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-07 03:29+0000\n"
+"PO-Revision-Date: 2011-10-20 06:53+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1051,6 +1051,10 @@ msgstr "&Tek Sayfa"
 msgid "&Open"
 msgstr "&Aç"
 
+#. Resource IDs: (1602)
+msgid "&Operative:"
+msgstr ""
+
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Seçenekler"
@@ -1068,8 +1072,8 @@ msgid "&Paste"
 msgstr "&Yapıştır"
 
 #. Resource IDs: (1600)
-msgid "&Peg revision:"
-msgstr "&Revizyon sorumluları:"
+msgid "&Peg:"
+msgstr ""
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -5397,14 +5401,6 @@ msgstr ""
 msgid "Highest revision number in the cache"
 msgstr "Ön bellekteki en yüksek revizyon numarası"
 
-#. Resource IDs: (1127)
-msgid ""
-"Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
-"children too"
-msgstr ""
-"İpucu: Seçili alt-ağacı (subtree) yenilemek için F5 tuşuna basın, alt "
-"elemanlarını(children) da yüklemek için Ctrl-F5 i kullanın"
-
 #. Resource IDs: (16519)
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
@@ -7408,6 +7404,10 @@ msgstr "Depoda online değişiklik yapmak için depo tarayıcısını başlatır
 msgid "Operate from log cache for now only"
 msgstr "Şimdilik günlük önbelleğinden çalış"
 
+#. Resource IDs: (218)
+msgid "Operative"
+msgstr ""
+
 #. Resource IDs: (348)
 msgid "Option"
 msgstr "Seçenek"
@@ -7578,6 +7578,10 @@ msgstr "Yamaya daha iyi uyan dizin yolu bulundu."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Dizinler"
+
+#. Resource IDs: (218)
+msgid "Peg"
+msgstr ""
 
 #. Resource IDs: (1057)
 msgid ""
@@ -9864,7 +9868,6 @@ msgstr "Subversion Ayar &dosyası:"
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9881,8 +9884,7 @@ msgid ""
 msgstr ""
 "Subversion ciddi bir sorun ile karşılaştı. \n"
 "Ne yapmaya çalışıyor olduğunuz hakkında mümkün olduğunca fazla bilgiyi \n"
-"Subversion e-posta listesine (users@subversion.apache.org) raporlamak \n"
-"için lütfen zaman ayırın. \n"
+"Subversion e-posta listesine raporlamak için lütfen zaman ayırın. \n"
 "Ama tekrar tekrar aynı sorunun raporlanmasını önlemek için önce lütfen hata mesajını e-posta listesi arşivlerinde arayın. \n"
 "Posta listesi arşivlerini şu adreste bulabilirsiniz:\n"
 "http://subversion.apache.org/mailing-lists.html \n"
@@ -9898,7 +9900,6 @@ msgstr ""
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9912,8 +9913,7 @@ msgid ""
 msgstr ""
 "Subversion ciddi bir sorun ile karşılaştı. \n"
 "Ne yapmaya çalışıyor olduğunuz hakkında mümkün olduğunca fazla bilgiyi \n"
-"Subversion e-posta listesine (users@subversion.apache.org) raporlamak \n"
-"için lütfen zaman ayırın. \n"
+"Subversion e-posta listesine raporlamak için lütfen zaman ayırın. \n"
 "Ama tekrar tekrar aynı sorunun raporlanmasını önlemek için önce lütfen hata mesajını e-posta listesi arşivlerinde arayın. \n"
 "Posta listesi arşivlerini şu adreste bulabilirsiniz:\n"
 "http://subversion.apache.org/mailing-lists.html \n"

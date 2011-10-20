@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-10 13:13+0000\n"
+"PO-Revision-Date: 2011-10-18 06:20+0000\n"
 "Last-Translator: Tsbook <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1050,6 +1050,10 @@ msgstr "&Jedna Stránka"
 msgid "&Open"
 msgstr "&Otevřít"
 
+#. Resource IDs: (1602)
+msgid "&Operative:"
+msgstr "&Operativní"
+
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Nastavení"
@@ -1067,8 +1071,8 @@ msgid "&Paste"
 msgstr "&Vložit"
 
 #. Resource IDs: (1600)
-msgid "&Peg revision:"
-msgstr "&Udržet revizi"
+msgid "&Peg:"
+msgstr "&Zavěsit"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -5366,14 +5370,6 @@ msgstr ""
 msgid "Highest revision number in the cache"
 msgstr "Nejvyšší číslo revize v úschově"
 
-#. Resource IDs: (1127)
-msgid ""
-"Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
-"children too"
-msgstr ""
-"Tip: Stiskněte F5 pro znovu načtení vybraného podstromu a Ctrl-F5 pro "
-"načtení všech podvětví"
-
 #. Resource IDs: (16519)
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
@@ -7365,6 +7361,10 @@ msgstr "Otevře průzkumníka úložiště pro online manipulaci"
 msgid "Operate from log cache for now only"
 msgstr "Pouze pro teď pracovat z úschovy záznamu"
 
+#. Resource IDs: (218)
+msgid "Operative"
+msgstr "Operativní"
+
 #. Resource IDs: (348)
 msgid "Option"
 msgstr "Nastavení"
@@ -7535,6 +7535,10 @@ msgstr "Zjištěna cesta, která se lépe shoduje se záplatou."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Cesty"
+
+#. Resource IDs: (218)
+msgid "Peg"
+msgstr "Zavěsit"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -9805,7 +9809,6 @@ msgstr "Kon&figurační soubor Subversion:"
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9822,10 +9825,9 @@ msgid ""
 msgstr ""
 "V Subversion se vyskytl závažný problém.\n"
 "Prosíme, udělejte si čas a oznamte toto na mailovou konferenci Subversion\n"
-"(users@subversion.apache.org)\n"
 "s co nejvíce informacemi o tom\n"
 "co jste se pokoušeli dělat.\n"
-"Nejdříve ale, prosím, prohledejte archív konference pro chybovou zprávu,\n"
+"Nejdříve ale, prosím, hledejte chybovou zprávu v archívu konference,\n"
 "abyste zabránili opakovanému ohlášení stejné zprávy.\n"
 "Archív konference naleznete na \n"
 "http://subversion.apache.org/mailing-lists.html\n"
@@ -9841,7 +9843,6 @@ msgstr ""
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9855,10 +9856,9 @@ msgid ""
 msgstr ""
 "V Subversion se vyskytl závažný problém.\n"
 "Prosíme, udělejte si čas a oznamte toto na mailovou konferenci Subversion\n"
-"(users@subversion.apache.org)\n"
 "s co nejvíce informacemi o tom\n"
 "co jste se pokoušeli dělat.\n"
-"Nejdříve ale, prosím, prohledejte archív konference pro chybovou zprávu,\n"
+"Nejdříve ale, prosím, hledejte chybovou zprávu v archívu konference,\n"
 "abyste zabránili opakovanému ohlášení stejné zprávy.\n"
 "Archív konference naleznete na \n"
 "http://subversion.apache.org/mailing-lists.html\n"

@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-07 03:29+0000\n"
+"PO-Revision-Date: 2011-10-18 03:35+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Ukrainian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1032,6 +1032,10 @@ msgstr "&Одна сторінка"
 msgid "&Open"
 msgstr "&Відкрити"
 
+#. Resource IDs: (1602)
+msgid "&Operative:"
+msgstr ""
+
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Параметри"
@@ -1049,7 +1053,7 @@ msgid "&Paste"
 msgstr "В&ставити"
 
 #. Resource IDs: (1600)
-msgid "&Peg revision:"
+msgid "&Peg:"
 msgstr ""
 
 #. Resource IDs: (1382)
@@ -5251,14 +5255,6 @@ msgstr ""
 msgid "Highest revision number in the cache"
 msgstr "Найбільший номер модифікації у кеші"
 
-#. Resource IDs: (1127)
-msgid ""
-"Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
-"children too"
-msgstr ""
-"Порада: Натисніть F5 щоб поновити вибране піддерево чи Ctrl-F5 щоб "
-"завантажити ще й усіх нащадків"
-
 #. Resource IDs: (16519)
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
@@ -7213,6 +7209,10 @@ msgstr "Відкриває оглядач сховища щоб підлашту
 msgid "Operate from log cache for now only"
 msgstr "Діяти на основі логового кешу тільки тепер"
 
+#. Resource IDs: (218)
+msgid "Operative"
+msgstr ""
+
 #. Resource IDs: (348)
 msgid "Option"
 msgstr "Параметр"
@@ -7377,6 +7377,10 @@ msgstr ""
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Шляхи"
+
+#. Resource IDs: (218)
+msgid "Peg"
+msgstr ""
 
 #. Resource IDs: (1057)
 msgid ""
@@ -9584,7 +9588,6 @@ msgstr "&Файл налаштувань Subversion:"
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9604,7 +9607,6 @@ msgstr ""
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"

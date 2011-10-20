@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-10 15:22+0000\n"
+"PO-Revision-Date: 2011-10-18 03:35+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1055,6 +1055,10 @@ msgstr "&Uma Página"
 msgid "&Open"
 msgstr "&Abrir"
 
+#. Resource IDs: (1602)
+msgid "&Operative:"
+msgstr ""
+
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Opções"
@@ -1072,8 +1076,8 @@ msgid "&Paste"
 msgstr "&Colar"
 
 #. Resource IDs: (1600)
-msgid "&Peg revision:"
-msgstr "&Fixar revisão:"
+msgid "&Peg:"
+msgstr ""
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -5416,14 +5420,6 @@ msgstr ""
 msgid "Highest revision number in the cache"
 msgstr "Maior número de revisão na cache"
 
-#. Resource IDs: (1127)
-msgid ""
-"Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
-"children too"
-msgstr ""
-"Sugestão: Carregue F5 para refrescar a sub-árvore seleccionada e Ctrl-F5 "
-"para carregar também todos os sub-nós"
-
 #. Resource IDs: (16519)
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
@@ -7438,6 +7434,10 @@ msgstr "Abre o navegador de repositório para manipular o repositório em linha"
 msgid "Operate from log cache for now only"
 msgstr "Operar a partir da cache de registo apenas por agora"
 
+#. Resource IDs: (218)
+msgid "Operative"
+msgstr ""
+
 #. Resource IDs: (348)
 msgid "Option"
 msgstr "Opção"
@@ -7610,6 +7610,10 @@ msgstr "Encontrado caminho que coincide melhor com a correcção."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Caminhos"
+
+#. Resource IDs: (218)
+msgid "Peg"
+msgstr ""
 
 #. Resource IDs: (1057)
 msgid ""
@@ -9896,7 +9900,6 @@ msgstr "Arquivo de con&figuração do Subversion:"
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9912,7 +9915,7 @@ msgid ""
 "to the clipboard using Ctrl-C."
 msgstr ""
 "O Subversion encontrou um problema grave.\n"
-"Dispense por favor, algum do seu tempo para o reportar na lista de correio do Subversion (users@subversion.apache.org), \n"
+"Dispense por favor, algum do seu tempo para o reportar na lista de correio do Subversion),\n"
 "com o maior detalhe que for possível sobre o que estavas a tentar executar.\n"
 "Mas antes, pesquisa por favor nos arquivos da lista de correio pela mensagem de erro, de modo a evitar que o mesmo problema seja reportado repetidamente.\n"
 "Podes aceder aos arquivos da lista de correio em http://subversion.apache.org/mailing-lists.html\n"
@@ -9925,7 +9928,6 @@ msgstr ""
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9938,7 +9940,7 @@ msgid ""
 "to the clipboard using Ctrl-C):"
 msgstr ""
 "O Subversion encontrou um problema grave.\n"
-"Dispense por favor, algum do seu tempo para o reportar na lista de correio do Subversion (users@subversion.apache.org), \n"
+"Dispense por favor, algum do seu tempo para o reportar na lista de correio do Subversion,\n"
 "com o maior detalhe que for possível sobre o que estavas a tentar executar.\n"
 "Mas antes, pesquisa por favor nos arquivos da lista de correio pela mensagem de erro, de modo a evitar que o mesmo problema seja reportado repetidamente.\n"
 "Podes aceder aos arquivos da lista de correio em http://subversion.apache.org/mailing-lists.html\n"

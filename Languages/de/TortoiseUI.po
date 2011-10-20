@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-07 06:44+0000\n"
+"PO-Revision-Date: 2011-10-18 07:46+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1055,6 +1055,10 @@ msgstr "&Eine Seite"
 msgid "&Open"
 msgstr "Ö&ffnen"
 
+#. Resource IDs: (1602)
+msgid "&Operative:"
+msgstr "&In Betrieb:"
+
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Optionen"
@@ -1072,8 +1076,8 @@ msgid "&Paste"
 msgstr "E&infügen"
 
 #. Resource IDs: (1600)
-msgid "&Peg revision:"
-msgstr "&Fixe Revision:"
+msgid "&Peg:"
+msgstr "&Fix:"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -5401,14 +5405,6 @@ msgstr ""
 msgid "Highest revision number in the cache"
 msgstr "Höchste Revisionsnummer im Puffer"
 
-#. Resource IDs: (1127)
-msgid ""
-"Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
-"children too"
-msgstr ""
-"Hinweis: Drücken Sie F5, um den gewählten Teilbaum zu aktualisieren. "
-"Strg-F5, um alle Zweige zu aktualisieren"
-
 #. Resource IDs: (16519)
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
@@ -7431,6 +7427,10 @@ msgstr "Programm, um das Projektarchiv direkt zu manipulieren."
 msgid "Operate from log cache for now only"
 msgstr "Einmalig auf den Log-Puffer zurückgreifen"
 
+#. Resource IDs: (218)
+msgid "Operative"
+msgstr "In Betrieb"
+
 #. Resource IDs: (348)
 msgid "Option"
 msgstr "Option"
@@ -7601,6 +7601,10 @@ msgstr "Pfad gefunden, der besser zum Patch passt."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Pfade"
+
+#. Resource IDs: (218)
+msgid "Peg"
+msgstr "Fix"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -9911,7 +9915,6 @@ msgstr "Subversion &Konfigurationsdatei:"
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9930,7 +9933,6 @@ msgstr ""
 "Bitte nehmen Sie sich die Zeit, es mit einer möglichst\n"
 "ausführlichen Beschreibung, was sie zu tun versuchten, an\n"
 "die Subversion Mailingliste weiterzuleiten.\n"
-"(users@subversion.apache.org)\n"
 "Bitte durchsuchen Sie zuerst das Listenarchiv nach der Fehlermeldung,\n"
 "um doppelte Berichte zu vermeiden.Das Listenarchiv finden Sie unter\n"
 "http://subversion.apache.org/mailing-lists.html\n"
@@ -9946,7 +9948,6 @@ msgstr ""
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9962,7 +9963,6 @@ msgstr ""
 "Bitte nehmen Sie sich die Zeit, es mit einer möglichst\n"
 "ausführlichen Beschreibung, was sie zu tun versuchten, an\n"
 "die Subversion Mailingliste weiterzuleiten.\n"
-"(users@subversion.apache.org)\n"
 "Bitte durchsuchen Sie zuerst das Listenarchiv nach der Fehlermeldung,\n"
 "um doppelte Berichte zu vermeiden.Das Listenarchiv finden Sie unter\n"
 "http://subversion.apache.org/mailing-lists.html\n"

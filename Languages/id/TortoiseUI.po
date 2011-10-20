@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-11 12:22+0000\n"
+"PO-Revision-Date: 2011-10-20 06:57+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1062,6 +1062,10 @@ msgstr "&Satu Halaman"
 msgid "&Open"
 msgstr "&Buka"
 
+#. Resource IDs: (1602)
+msgid "&Operative:"
+msgstr ""
+
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Pilihan-pilihan"
@@ -1079,8 +1083,8 @@ msgid "&Paste"
 msgstr "&Paste"
 
 #. Resource IDs: (1600)
-msgid "&Peg revision:"
-msgstr "&Pasak revisi:"
+msgid "&Peg:"
+msgstr ""
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -5403,14 +5407,6 @@ msgstr ""
 msgid "Highest revision number in the cache"
 msgstr "Nomor revisi tertinggi dalam tembolok"
 
-#. Resource IDs: (1127)
-msgid ""
-"Hint: Press F5 to refresh the selected subtree and Ctrl-F5 to load all "
-"children too"
-msgstr ""
-"Petunjuk: Tekan F5 untuk menyegarkan subtree yang dipilih dan Ctrl-F5 untuk "
-"mengambil semua anaknya juga"
-
 #. Resource IDs: (16519)
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
@@ -7400,6 +7396,10 @@ msgstr "Membuka browser repositori untuk mengakali repositori online"
 msgid "Operate from log cache for now only"
 msgstr "Beroperasi dari tembolok log saja mulai sekarang"
 
+#. Resource IDs: (218)
+msgid "Operative"
+msgstr "Operatif"
+
 #. Resource IDs: (348)
 msgid "Option"
 msgstr "Pilihan"
@@ -7532,7 +7532,7 @@ msgstr ""
 
 #. Resource IDs: (1076)
 msgid "Patch &all items"
-msgstr ""
+msgstr "Patch semu&a item-item"
 
 #. Resource IDs: (1075)
 msgid "Patch &selected item"
@@ -7570,6 +7570,10 @@ msgstr "Path menemukan adanya persamaan pada patch yang lebih baik."
 #. Resource IDs: (116)
 msgid "Paths"
 msgstr "Path"
+
+#. Resource IDs: (218)
+msgid "Peg"
+msgstr "Taraf"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -8424,7 +8428,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move"
-msgstr ""
+msgstr "Ganti-nama/singkirkan"
 
 #. Resource IDs: (91)
 #, c-format
@@ -8787,7 +8791,7 @@ msgstr "Baris Di Atas"
 
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
-msgstr ""
+msgstr "Jalankan pembersihan sekara&ng"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9846,7 +9850,6 @@ msgstr "Ber&kas konfigurasi Subversion:"
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9863,9 +9866,7 @@ msgid ""
 msgstr ""
 "Subversion mengalamai masalah serius.\n"
 "Harap meluangkan waktu untuk melaporkannya pada milis Subversion\n"
-"(users@subversion.apache.org)\n"
-"Dengan sebanyak mungkin informasi\n"
-"mengenai apa yang anda coba lakukan.\n"
+"Dengan sebanyak mungkin informasi mengenai apa yang anda coba lakukan.\n"
 "Tapi kami berharap anda mencari terlebih dahulu pada arsip milis kami mengenai pesan kesalahan tersebut\n"
 "untuk menghindari pelaporan masalah yang sama berulang kali.\n"
 "Anda bisa mencari arsip milis pada\n"
@@ -9882,7 +9883,6 @@ msgstr ""
 msgid ""
 "Subversion encountered a serious problem.\n"
 "Please take the time to report this on the Subversion mailing list\n"
-"(users@subversion.apache.org)\n"
 "with as much information as possible about what\n"
 "you were trying to do.\n"
 "But please first search the mailing list archives for the error message\n"
@@ -9894,19 +9894,17 @@ msgid ""
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
 msgstr ""
-"Subversion mengalamai masalah serius.\n"
-"Harap meluangkan waktu untuk melaporkannya kepada milis Subversion\n"
-"(users@subversion.apache.org)\n"
-"Dengan sebanyak mungkin informasi\n"
-"mengenai apa yang anda coba lakukan.\n"
-"Tapi kami berharap anda mencari terlebih dahulu pada arsip milis kami mengenai pesan kesalahan tersebut\n"
-"untuk menghindari pelaporan masalah yang sama berulang kali.\n"
-"Anda bisa mencari arsip milis pada\n"
+"Subversion mendapati adanya masalah yang serius.\n"
+"Diharapkan meluangkan waktu untuk melaporkannya pada milis Subversion\n"
+"dengan sebanyak mungkin informasi mengenai apa yang anda sedang coba lakukan.\n"
+"Tetapi harap melakukan pencarian terlebih dahulu pada arsip-arsip milis sesuai dengan pesan kesalahan\n"
+"untuk menghindari pelaporan masalah yang berulang-ulang.\n"
+"Anda bisa menemukan arsip-arsip milis pada\n"
 "http://subversion.apache.org/mailing-lists.html\n"
 "\n"
-"Subversion melaporkan adanya\n"
-"(Anda bisa menyalin konten dalam dialog ini\n"
-"pada papan klip menggunakan Ctrl-C):"
+"Subversion dilaporkan sebagai berikut\n"
+"(anda bisa menyalin konten pada dialog ini\n"
+"ke clipboard menggunakan Ctrl-C);"
 
 #. Resource IDs: (79)
 msgid ""
@@ -10632,6 +10630,9 @@ msgid ""
 "The target working copy '%s' has local modifications. It is recommended to "
 "commit those changes first before merging new changes."
 msgstr ""
+"Salinan kerja '%s' yang dituju mempunyai modifikasi pada lokal. Lebih "
+"direkomendasikan untuk melakukan commit pada perubahan terlebih dahulu "
+"sebelum menggabungkan perubahan-perubahan yang baru."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -11976,7 +11977,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr ""
+msgstr "Anda belum memasukkan nomor isu."
 
 #. Resource IDs: (1002)
 #, c-format
