@@ -50,6 +50,7 @@ BEGIN_MESSAGE_MAP(CEditPropExternals, CResizableStandAloneDialog)
     ON_NOTIFY(LVN_GETDISPINFO, IDC_EXTERNALSLIST, &CEditPropExternals::OnLvnGetdispinfoExternalslist)
     ON_NOTIFY(NM_DBLCLK, IDC_EXTERNALSLIST, &CEditPropExternals::OnNMDblclkExternalslist)
     ON_BN_CLICKED(IDHELP, &CEditPropExternals::OnBnClickedHelp)
+    ON_NOTIFY(LVN_ITEMCHANGED, IDC_EXTERNALSLIST, &CEditPropExternals::OnLvnItemchangedExternalslist)
 END_MESSAGE_MAP()
 
 
@@ -174,9 +175,12 @@ void CEditPropExternals::OnBnClickedRemove()
 {
     POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
     size_t selIndex = m_ExtList.GetNextSelectedItem(pos);
-    m_externals.erase(m_externals.begin() + selIndex);
-    m_ExtList.SetItemCountEx((int)m_externals.size());
-    m_ExtList.Invalidate();
+    if (m_externals.size() > selIndex)
+    {
+        m_externals.erase(m_externals.begin() + selIndex);
+        m_ExtList.SetItemCountEx((int)m_externals.size());
+        m_ExtList.Invalidate();
+    }
 }
 
 void CEditPropExternals::OnNMDblclkExternalslist(NMHDR * pNMHDR, LRESULT *pResult)
@@ -264,4 +268,13 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
 void CEditPropExternals::OnBnClickedHelp()
 {
     OnHelp();
+}
+
+
+void CEditPropExternals::OnLvnItemchangedExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+    DialogEnableWindow(IDC_REMOVE, m_ExtList.GetSelectedCount());
+    DialogEnableWindow(IDC_EDIT, m_ExtList.GetSelectedCount() == 1);
+    *pResult = 0;
 }
