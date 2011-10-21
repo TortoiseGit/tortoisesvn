@@ -28,7 +28,7 @@
 #include "SVN.h"
 #include "SysInfo.h"
 #include "Libraries.h"
-
+#include "SmartHandle.h"
 
 IMPLEMENT_DYNAMIC(CSetMainPage, ISettingsPropPage)
 CSetMainPage::CSetMainPage()
@@ -117,6 +117,12 @@ BOOL CSetMainPage::OnInitDialog()
             CString sFileVer = CPathUtils::GetVersionFromFile(file);
             sFileVer = sFileVer.Left(sFileVer.ReverseFind(','));
             if (sFileVer.Compare(sVer)!=0)
+                continue;
+            // to avoid using the TortoiseProc32XXXX.dll's here too
+            // or dlls which we can't even load, try to load the dll
+            // first and only use it if loading is successful.
+            CAutoLibrary hLib = LoadLibrary(file);
+            if (!hLib.IsValid())
                 continue;
             DWORD loc = _tstoi(filename.Mid(12));
             GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, _countof(buf));
