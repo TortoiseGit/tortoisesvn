@@ -939,7 +939,15 @@ void CLogDlg::Refresh (bool autoGoOnline)
 
     // refreshing means re-downloading the already shown log messages
     UpdateData();
-    m_startrev = -1;
+    if ((m_startrev < m_head)&&(m_bRefresh))
+    {
+        m_startrev = -1;
+        m_bRefresh = false;
+    }
+    if (m_startrev >= m_head)
+    {
+        m_startrev = -1;
+    }
     if ((m_limit == 0)||(m_bStrict)||(int(m_logEntries.size()-1) > m_limit))
     {
         if (m_logEntries.size() != 0)
@@ -2128,7 +2136,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
     svn_node_kind_t nodekind = svn_node_unknown;
     CString firstfile, secondfile;
 
-    if (m_currentChangedArray.GetCount() <= selIndex)
+    if (m_currentChangedArray.GetCount() <= (size_t)selIndex)
         return;
     const CLogChangedPath& changedpath = m_currentChangedArray[selIndex];
     nodekind = changedpath.GetNodeKind();
