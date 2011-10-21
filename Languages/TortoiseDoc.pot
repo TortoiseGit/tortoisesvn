@@ -10485,6 +10485,10 @@ msgid "<option>/findtype:32</option> filter by bug ID"
 msgstr ""
 
 #. (para)
+msgid "<option>/findtype:64</option> not used"
+msgstr ""
+
+#. (para)
 msgid "<option>/findtype:128</option> filter by date"
 msgstr ""
 
@@ -10497,7 +10501,7 @@ msgid "/outfile:path\\to\\file"
 msgstr ""
 
 #. (entry)
-msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 1 and 512. The numbers are the sum of the following options: <placeholder-10/> If <placeholder-11/> is specified, the selected revisions are written to that file when the log dialog is closed. The revisions are written in the same format as is used to specify revisions in the merge dialog."
+msgid "Opens the log dialog. The <placeholder-1/> specifies the file or folder for which the log should be shown. Additional options can be set: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> enables the 'stop-on-copy' checkbox, <placeholder-5/> enables the 'include merged revisions' checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces the filter to use text, not regex, or <placeholder-8/> forces the filter to use regex, not simple text search, and <placeholder-9/> with X being a number between 0 and 511. The numbers are the sum of the following options: <placeholder-10/> If <placeholder-11/> is specified, the selected revisions are written to that file when the log dialog is closed. The revisions are written in the same format as is used to specify revisions in the merge dialog."
 msgstr ""
 
 #. (option)
