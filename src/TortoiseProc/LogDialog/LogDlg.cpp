@@ -2171,14 +2171,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
     }
     else
     {
-        if (diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), L"", false, blame, nodekind))
-        {
-            if (firstfile.Compare(secondfile)==0)
-            {
-                svn_revnum_t baseRev = 0;
-                diff.DiffProps(CTSVNPath(firstfile), rev2, rev1, baseRev);
-            }
-        }
+        diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(), L"", false, blame, nodekind);
     }
     theApp.DoWaitCursor(-1);
     EnableOKButton();
