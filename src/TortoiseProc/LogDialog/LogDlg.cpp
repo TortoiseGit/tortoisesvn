@@ -749,7 +749,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         else
         {
             m_currentChangedArray.RemoveAll();
-            m_currentChangedPathList = GetChangedPathsAndMessageSketchFromSelectedRevisions(info.sText);
+            m_currentChangedPathList = GetChangedPathsAndMessageSketchFromSelectedRevisions(info.sText, m_currentChangedArray);
         }
         info.text = info.sText;
 
@@ -2127,22 +2127,17 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
 
     svn_node_kind_t nodekind = svn_node_unknown;
     CString firstfile, secondfile;
-    if (m_LogList.GetSelectedCount()==1)
+
+    if (m_currentChangedArray.GetCount() <= selIndex)
+        return;
+    const CLogChangedPath& changedpath = m_currentChangedArray[selIndex];
+    nodekind = changedpath.GetNodeKind();
+    firstfile = changedpath.GetPath();
+    secondfile = firstfile;
+    if ((rev2 == rev1-1)&&(changedpath.GetCopyFromRev() > 0)) // is it an added file with history?
     {
-        const CLogChangedPath& changedpath = m_currentChangedArray[selIndex];
-        nodekind = changedpath.GetNodeKind();
-        firstfile = changedpath.GetPath();
-        secondfile = firstfile;
-        if ((rev2 == rev1-1)&&(changedpath.GetCopyFromRev() > 0)) // is it an added file with history?
-        {
-            secondfile = changedpath.GetCopyFromPath();
-            rev2 = changedpath.GetCopyFromRev();
-        }
-    }
-    else
-    {
-        firstfile = m_currentChangedPathList[selIndex].GetSVNPathString();
-        secondfile = firstfile;
+        secondfile = changedpath.GetCopyFromPath();
+        rev2 = changedpath.GetCopyFromRev();
     }
 
     firstfile = filepath + firstfile.Trim();
@@ -3713,7 +3708,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
         {
         case 0: //path
             lstrcpyn ( pItem->pszText
-                     , (LPCTSTR) (m_bSingleRevision
+                     , (LPCTSTR) (m_currentChangedArray.GetCount() > 0
                            ? m_currentChangedArray[pItem->iItem].GetPath()
                            : m_currentChangedPathList[pItem->iItem].GetSVNPathString())
                      , pItem->cchTextMax);
@@ -3721,7 +3716,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 
         case 1: //Action
             lstrcpyn ( pItem->pszText
-                     , m_currentChangedArray.GetCount() > (size_t)pItem->iItem
+                     , m_bSingleRevision && m_currentChangedArray.GetCount() > (size_t)pItem->iItem
                            ? (LPCTSTR)CUnicodeUtils::GetUnicode
                                 (m_currentChangedArray[pItem->iItem].GetActionString().c_str())
                            : _T("")
@@ -3730,7 +3725,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 
         case 2: //copyfrom path
             lstrcpyn ( pItem->pszText
-                     , m_currentChangedArray.GetCount() > (size_t)pItem->iItem
+                     , m_bSingleRevision && m_currentChangedArray.GetCount() > (size_t)pItem->iItem
                            ? (LPCTSTR)m_currentChangedArray[pItem->iItem].GetCopyFromPath()
                            : _T("")
                      , pItem->cchTextMax);
@@ -3738,7 +3733,7 @@ void CLogDlg::OnLvnGetdispinfoChangedFileList(NMHDR *pNMHDR, LRESULT *pResult)
 
         case 3: //revision
             svn_revnum_t revision = 0;
-            if (m_currentChangedArray.GetCount() > (size_t)pItem->iItem)
+            if (m_bSingleRevision && m_currentChangedArray.GetCount() > (size_t)pItem->iItem)
                 revision = m_currentChangedArray[pItem->iItem].GetCopyFromRev();
 
             if (revision == 0)
@@ -3959,7 +3954,7 @@ void CLogDlg::OnDtnDatetimechangeDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
     *pResult = 0;
 }
 
-CTSVNPathList CLogDlg::GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch)
+CTSVNPathList CLogDlg::GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch, CLogChangedPathArray& currentChangedArray)
 {
     CTSVNPathList pathList;
     sMessageSketch.Empty();
@@ -3996,6 +3991,7 @@ CTSVNPathList CLogDlg::GetChangedPathsAndMessageSketchFromSelectedRevisions(CStr
                     path.SetFromSVN(cpath.GetPath());
 
                     pathList.AddPath(path);
+                    currentChangedArray.Add(cpath);
                 }
             }
         }
@@ -5171,6 +5167,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         {
             int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
             changedpaths.push_back(m_currentChangedPathList[nItem].GetSVNPathString());
+            changedlogpathindices.push_back (static_cast<size_t>(nItem));
         }
     }
     else
@@ -5257,7 +5254,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 popup.AppendMenuIcon(ID_OPENWITH, IDS_LOG_POPUP_OPENWITH, IDI_OPEN);
                 popup.AppendMenuIcon(ID_BLAME, IDS_LOG_POPUP_BLAME, IDI_BLAME);
                 popup.AppendMenu(MF_SEPARATOR, NULL);
-                if (m_hasWC)
+                if ((m_hasWC)&&(bOneRev))
                     popup.AppendMenuIcon(ID_REVERTREV, IDS_LOG_POPUP_REVERTREV, IDI_REVERT);
                 popup.AppendMenuIcon(ID_POPPROPS, IDS_REPOBROWSE_SHOWPROP, IDI_PROPERTIES);         // "Show Properties"
                 popup.AppendMenuIcon(ID_LOG, IDS_MENULOG, IDI_LOG);                     // "Show Log"
@@ -5295,7 +5292,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         {
         case ID_DIFF:
             {
-                if ((!bOneRev)|| IsDiffPossible (pLogEntry->GetChangedPaths()[changedlogpathindices[0]], rev1))
+                if ((!bOneRev)|| IsDiffPossible (m_currentChangedArray[changedlogpathindices[0]], rev1))
                 {
                     auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, false, false); this->EnableWindow(TRUE);this->SetFocus();};
                     new async::CAsyncCall(f, &netScheduler);
@@ -5322,7 +5319,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         case ID_REVERTREV:
             {
                 const CLogChangedPath& changedlogpath
-                    = pLogEntry->GetChangedPaths()[changedlogpathindices[0]];
+                    = m_currentChangedArray[changedlogpathindices[0]];
 
                 SetPromptApp(&theApp);
                 theApp.DoWaitCursor(1);
@@ -5493,7 +5490,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         for ( size_t i = 0; i < changedlogpathindices.size(); ++i)
                         {
                             const CLogChangedPath& changedlogpath
-                                = pLogEntry->GetChangedPaths()[changedlogpathindices[i]];
+                                = m_currentChangedArray[changedlogpathindices[i]];
 
                             SVNRev getrev = (changedlogpath.GetAction() == LOGACTIONS_DELETED) ? rev2 : rev1;
 
@@ -5651,7 +5648,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 filepath = GetRepositoryRoot(CTSVNPath(filepath));
                 filepath += changedpaths[0];
                 const CLogChangedPath& changedlogpath
-                    = pLogEntry->GetChangedPaths()[changedlogpathindices[0]];
+                    = m_currentChangedArray[changedlogpathindices[0]];
                 CBlameDlg dlg;
                 if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
                     rev1--;
@@ -5701,7 +5698,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         case ID_LOG:
             {
                 const CLogChangedPath& changedlogpath
-                    = pLogEntry->GetChangedPaths()[changedlogpathindices[0]];
+                    = m_currentChangedArray[changedlogpathindices[0]];
 
                 DialogEnableWindow(IDOK, FALSE);
                 SetPromptApp(&theApp);

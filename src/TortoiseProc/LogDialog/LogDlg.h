@@ -168,7 +168,7 @@ private:
     void CopySelectionToClipBoard();
     void CopySelectionToClipBoard(bool bIncludeChangedList);
     void CopyChangedSelectionToClipBoard();
-    CTSVNPathList GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch);
+    CTSVNPathList GetChangedPathsAndMessageSketchFromSelectedRevisions(CString& sMessageSketch, CLogChangedPathArray& currentChangedArray);
     void RecalculateShownList(svn_revnum_t revToKeep = -1);
     void SetSortArrow(CListCtrl * control, int nColumn, bool bAscending);
     void SortByColumn(int nSortColumn, bool bAscending);
