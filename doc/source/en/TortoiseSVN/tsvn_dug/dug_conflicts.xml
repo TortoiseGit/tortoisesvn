@@ -44,10 +44,7 @@
             A file conflict occurs when two or more developers have changed the same
             few lines of a file. As Subversion knows nothing of your
             project, it leaves resolving the conflicts to the developers.
-            Whenever a conflict is reported, you should open the file in
-            question, and search for lines starting with the string
-            <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>.
-            The conflicting area is marked like this:
+            The conflicting area in a text file is marked like this:
 <screen>
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; filename
     your changes
@@ -100,9 +97,15 @@
                 <guimenu>TortoiseSVN</guimenu>
                 <guimenuitem>Edit Conflicts</guimenuitem>
             </menuchoice>
-            or you can use any other editor to manually
-            resolve the conflict. You should decide what the code
-            should look like, do the necessary changes and save the file.
+            or you can use any text editor to resolve the conflict manually.
+            You should decide what the code should look like, do the necessary
+            changes and save the file.
+            Using a merge tool such as TortoiseMerge or one of the other
+            popular tools is generally the easier option as they generally
+            present the files involved in a 3-pane view and you don't
+            have to worry about the conflict markers. If you do use a text
+            editor then you should search for lines starting with the string
+            <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>.
         </para>
         <para>
             Afterwards execute the command
