@@ -125,10 +125,17 @@ All user/site specific configuration is stored in doc.build.user.
     <!-- make sure the font metrics files are available -->
     <property name="metricsfile" value="xsl/fonts/arial.xml" />
     <if test="${not file::exists(metricsfile)}">
-      <exec program="createmetrics.bat"
-            basedir="xsl/fonts"
-            workingdir="xsl/fonts"
-            verbose="false"/>
+      <property name="configmetricsfile" value="xsl/fonts/config.bat" />
+      <if test="${not file::exists(configmetricsfile)}">
+        <fail>
+The file /docs/xsl/fonts/config.bat is missing. Please create
+the file from the config.bat.sample file before building the docs.
+        </fail>
+      </if>
+        <exec program="createmetrics.bat"
+              basedir="xsl/fonts"
+              workingdir="xsl/fonts"
+              verbose="false"/>
     </if>
 
   </target>
