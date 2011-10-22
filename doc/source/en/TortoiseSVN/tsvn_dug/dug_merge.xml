@@ -555,10 +555,25 @@
             <orderedlist>
                 <listitem>
                     <para>
+                        If your merge includes binary files, merging of conflicts in
+                        those is not possible. You have to choose one complete file.
+                        Use <emphasis>Prefer local</emphasis> to select the local
+                        version as it was in your working copy prior to the merge, or
+                        <emphasis>Prefer repository</emphasis> to select the incoming
+                        file from the merge source in the repository.
+                    </para>
+                    <para>
+                        If you are merging text files then these first two buttons
+                        allow you to merge non-conflicting lines as normal and always
+                        prefer one version where there are conflicts.
                         Choosing <emphasis>Prefer local</emphasis> will select
-                        your local changes in every conflict. Likewise,
+                        your local version in every conflict, i.e. it will prefer
+                        what was already there before the merge over the incoming
+                        change from the merge source. Likewise,
                         <emphasis>Prefer repository</emphasis> will select the
-                        repository changes in every conflict. This sounds easy,
+                        repository changes in every conflict, i.e. it will prefer
+                        the incoming changes from the merge source over what was
+                        already in your working copy. This sounds easy,
                         but the conflicts often cover more lines than you think
                         they will and you may get unexpected results.
                     </para>
