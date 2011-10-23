@@ -1,3 +1,46 @@
+Version 1.7.1
+- BUG: Issue #88: Check for modifications on
+       multiple targets. (Stefan)
+- BUG: Issue #89: Crash in TSVNCache. (Stefan)
+- BUG: Cursor stayed as busy after an operation
+       until it was moved. (Stefan)
+- BUG: Issue #92 : checked item count in 
+       commit dialog is wrong. (Stefan)
+- BUG: Issue #94: resolve conflict dialog
+       resizing issues. (Stefan)
+- BUG: Issue #95: docs are wrong for log
+       filter automation. (Stefan)
+- BUG: Missing space in property status
+       text. (Stefan)
+- BUG: Issue #96: Unable to close repo browser
+       to repository with username/password
+       required. (Stefan)
+- BUG: Issue #97: Too many accesses to the
+       config files. (Stefan)
+- BUG: Issue #98: Endless loop in
+       repobrowser. (Stefan)
+- BUG: Issue #100: wrong argument exception
+       in repobrowser. (Stefan)
+- BUG: Issue #99: Memory corruption in
+       repository browser. (Stefan)
+- BUG: Issue #102: renamed diff scripts. (Stefan)
+- BUG: Issue #102: tagging externals errors
+       not shown. (Stefan)
+- BUG: Issue #104: tagging externals for
+       files pegs to HEAD. (Stefan)
+- BUG: Issue #105: Win7 library loses
+       command buttons. (Stefan)
+- BUG: Issue #106: "Search for:" string is
+       trimmed forcibly in TortoiseMerge. (Stefan)
+- BUG: Issue #107: Crash when editing
+       externals property. (Stefan)
+- BUG: Issue #108: log dialog uses wrong
+       file if sorted. (Stefan)
+- BUG: Issue #109: Log dialog does not
+       refresh correctly. (Stefan)
+- BUG: Issue #110: Bogus entries in
+       Language Combo on x64. (Stefan)
+
 Version 1.7.0
 Too many changes to list here. See the release notes for
 an overview of the most visible and important changes:
