@@ -59,6 +59,7 @@ CFullHistory::CFullHistory(void)
     , copyFromRelation (NULL)
     , copyFromRelationEnd (NULL)
     , cache (NULL)
+    , Err (NULL)
     , diskIOScheduler (2, 0, true)  // two threads for crawling the disk
                                     // (they will both query info from the same place,
                                     // i.e. read different portions of the same WC status)
@@ -70,17 +71,7 @@ CFullHistory::CFullHistory(void)
 
     pool = svn_pool_create (parentpool);
     // set up the configuration
-    if (Err == 0)
-        ctx->config = SVNConfig::Instance().GetConfig();
-
-    if (Err != 0)
-    {
-        ::MessageBox(NULL, this->GetLastErrorMessage(), _T("TortoiseSVN"), MB_ICONERROR);
-        svn_error_clear(Err);
-        svn_pool_destroy (pool);
-        svn_pool_destroy (parentpool);
-        exit(-1);
-    }
+    ctx->config = SVNConfig::Instance().GetConfig();
 
     // set up authentication
     prompt.Init(pool, ctx);
