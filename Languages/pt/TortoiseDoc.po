@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-16 06:55+0000\n"
+"PO-Revision-Date: 2011-10-23 03:16+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5471,7 +5471,7 @@ msgstr ""
 
 #. (para)
 msgid ""
-"A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n"
+"A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. The conflicting area in a text file is marked like this: <screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
 "    your changes\n"
 "=======\n"
@@ -5479,27 +5479,20 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-"Um conflito de ficheiro ocorre quando dois ou mais programadores alteraram o mesmo conjunto de linhas de um ficheiro. Como o Subversion não conhece do teu projecto, ele deixa essa tarefa de resolução de conflitos para os programadores. De cada vez que um conflito é relatado, deves abrir o ficheiro em questão e procurar as linhas que comecem pela string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. A área em conflito está marcada do seguinte modo:  <screen>\n"
-"\t&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
-"\t\tyour changes\n"
-"\t=======\n"
-"\t\tcode merged from repository\n"
-"\t&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
-"\t</screen> Também para cada ficheiro em conflito, o Subversion coloca três ficheiros adicionais na tua pasta: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "You can either launch an external merge tool / conflict editor with "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit "
-"Conflicts</guimenuitem></menuchoice> or you can use any other editor to "
-"manually resolve the conflict. You should decide what the code should look "
-"like, do the necessary changes and save the file."
+"Conflicts</guimenuitem></menuchoice> or you can use any text editor to "
+"resolve the conflict manually. You should decide what the code should look "
+"like, do the necessary changes and save the file. Using a merge tool such as"
+" TortoiseMerge or one of the other popular tools is generally the easier "
+"option as they generally present the files involved in a 3-pane view and you"
+" don't have to worry about the conflict markers. If you do use a text editor"
+" then you should search for lines starting with the string "
+"<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>."
 msgstr ""
-"Podes então lançar uma ferramenta externa de fusão/editor de conflitos com "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Editar "
-"Conflitos</guimenuitem></menuchoice> ou podes usar qualquer outro editor "
-"para resolver o conflito manualmente. Deves decidir a aparência do código, "
-"efectuar as alterações necessárias e guardar o ficheiro."
 
 #. (para)
 msgid ""
@@ -13162,17 +13155,26 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Choosing <emphasis>Prefer local</emphasis> will select your local changes in"
-" every conflict. Likewise, <emphasis>Prefer repository</emphasis> will "
-"select the repository changes in every conflict. This sounds easy, but the "
-"conflicts often cover more lines than you think they will and you may get "
-"unexpected results."
+"If your merge includes binary files, merging of conflicts in those is not "
+"possible. You have to choose one complete file. Use <emphasis>Prefer "
+"local</emphasis> to select the local version as it was in your working copy "
+"prior to the merge, or <emphasis>Prefer repository</emphasis> to select the "
+"incoming file from the merge source in the repository."
 msgstr ""
-"Ao escolheres <emphasis>Prefiro local</emphasis> irás seleccionar as tuas "
-"alterações locais em todos os conflitos. Por sua vez, <emphasis>Prefiro "
-"repositorio</emphasis> irá seleccionar as alterações do repositório em todos"
-" os conflitos. Isto parece fácil, mas os conflitos normalmente cobrem mais "
-"linhas do que aquilo que tu pensas, e poderás obter resultados inesperados."
+
+#. (para)
+msgid ""
+"If you are merging text files then these first two buttons allow you to "
+"merge non-conflicting lines as normal and always prefer one version where "
+"there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
+"your local version in every conflict, i.e. it will prefer what was already "
+"there before the merge over the incoming change from the merge source. "
+"Likewise, <emphasis>Prefer repository</emphasis> will select the repository "
+"changes in every conflict, i.e. it will prefer the incoming changes from the"
+" merge source over what was already in your working copy. This sounds easy, "
+"but the conflicts often cover more lines than you think they will and you "
+"may get unexpected results."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -23254,28 +23256,40 @@ msgid "/findtype:X"
 msgstr "/findtype:X"
 
 #. (para)
-msgid "<option>/findtype:1</option> filter by everything"
-msgstr "<option>/findtype:1</option> filtrar por tudo"
+msgid "<option>/findtype:0</option> filter by everything"
+msgstr "<option>/findtype:0</option> filtrar por tudo"
 
 #. (para)
-msgid "<option>/findtype:2</option> filter by messages"
-msgstr "<option>/findtype:2</option> filtrar por mensagens"
+msgid "<option>/findtype:1</option> filter by messages"
+msgstr "<option>/findtype:1</option> filtrar por mensagens"
 
 #. (para)
-msgid "<option>/findtype:3</option> filter by path"
-msgstr "<option>/findtype:3</option> filtrar por caminho"
+msgid "<option>/findtype:2</option> filter by path"
+msgstr "<option>/findtype:2</option> filtrar por caminho"
 
 #. (para)
 msgid "<option>/findtype:4</option> filter by authors"
 msgstr "<option>/findtype:4</option> filtrar por autores"
 
 #. (para)
-msgid "<option>/findtype:5</option> filter by revisions"
-msgstr "<option>/findtype:5</option> filtrar por revisões"
+msgid "<option>/findtype:8</option> filter by revisions"
+msgstr "<option>/findtype:8</option> filtrar por revisões"
 
 #. (para)
-msgid "<option>/findtype:7</option> filter by bug ID"
-msgstr "<option>/findtype:7</option> filtrar por ID de bug"
+msgid "<option>/findtype:32</option> filter by bug ID"
+msgstr "<option>/findtype:32</option> filtrar por ID de bug"
+
+#. (para)
+msgid "<option>/findtype:64</option> not used"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:128</option> filter by date"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:256</option> filter by date range"
+msgstr ""
 
 #. (option)
 msgid "/outfile:path\\to\\file"
@@ -23290,24 +23304,12 @@ msgid ""
 "checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces"
 " the filter to use text, not regex, or <placeholder-8/> forces the filter to"
 " use regex, not simple text search, and <placeholder-9/> with X being a "
-"number between 1 and 7. The numbers correspond to: <placeholder-10/> If "
-"<placeholder-11/> is specified, the selected revisions are written to that "
-"file when the log dialog is closed. The revisions are written in the same "
-"format as is used to specify revisions in the merge dialog."
+"number between 0 and 511. The numbers are the sum of the following options: "
+"<placeholder-10/> If <placeholder-11/> is specified, the selected revisions "
+"are written to that file when the log dialog is closed. The revisions are "
+"written in the same format as is used to specify revisions in the merge "
+"dialog."
 msgstr ""
-"Abre a caixa de diálogo de registo. O  <placeholder-1/> especifica o "
-"ficheiro ou pasta para o qual deverá ser mostrado o registo. Opções "
-"adicionais podem ser configuradas:  <placeholder-2/>, <placeholder-3/>, "
-"<placeholder-4/> activam a caixa de verificação 'parar-na-cópia',  "
-"<placeholder-5/> activa a caixa de verificação 'incluír revisões "
-"integradas', <placeholder-6/> preenche o texto do filtro, <placeholder-7/> "
-"força o filtro a usar texto em vez de regex, ou o  <placeholder-8/> força o "
-"filtro a usar regex, e não simples pesquisa de texto, com  <placeholder-9/> "
-"a ser um número entre 1 e 7. Os números correspondem a: <placeholder-10/>, "
-"se for especificado <placeholder-11/>. AS revisões seleccionadas são "
-"escritas para esse ficheiro quando a caixa de diálogo de registo for "
-"fechada. As revisões são escritas no mesmo formato que é usado para "
-"especificar revisões na caixa de diálogo integrar"
 
 #. (option)
 #. (option)

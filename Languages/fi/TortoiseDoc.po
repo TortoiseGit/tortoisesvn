@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-16 06:52+0000\n"
+"PO-Revision-Date: 2011-10-23 03:16+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5353,7 +5353,7 @@ msgstr ""
 
 #. (para)
 msgid ""
-"A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n"
+"A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. The conflicting area in a text file is marked like this: <screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
 "    your changes\n"
 "=======\n"
@@ -5361,27 +5361,20 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-"Tiedostoristiriita syntyy, kun kaksi tai useampi kehittäjä on muuttanut samoja rivejä jossain tiedostossa. Koska Subversion ei tiedä mitään projektistasi, se jättää ristiriitojen ratkonnan kehittäjän vastuulle. Aina kun ristiriita raportoidaan, sinun kannattaa avata kyseinen tiedosto ja etsiä rivejä, jotka alkavat merkkijonolla <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Ristiriitainen alue merkitään seuraavasti: <screen>\n"
-" &lt;&lt;&lt;&lt;&lt;&lt;&lt; tiedostonimi\n"
-"    sinun muutoksesi\n"
-"=======\n"
-"    arkistosta yhdistetyt muutokset\n"
-"&gt;&gt;&gt;&gt;&gt;&gt;&gt; versio\n"
-"</screen> Tämän lisäksi Subversion luo jokaista ristiriitaista tiedostoa kohti kolme ylimääräistä tiedostoa hakemistoosi: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "You can either launch an external merge tool / conflict editor with "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit "
-"Conflicts</guimenuitem></menuchoice> or you can use any other editor to "
-"manually resolve the conflict. You should decide what the code should look "
-"like, do the necessary changes and save the file."
+"Conflicts</guimenuitem></menuchoice> or you can use any text editor to "
+"resolve the conflict manually. You should decide what the code should look "
+"like, do the necessary changes and save the file. Using a merge tool such as"
+" TortoiseMerge or one of the other popular tools is generally the easier "
+"option as they generally present the files involved in a 3-pane view and you"
+" don't have to worry about the conflict markers. If you do use a text editor"
+" then you should search for lines starting with the string "
+"<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>."
 msgstr ""
-"Voit käynnistää ulkoisen yhdistämistyökalun komennolla  "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Muokkaa "
-"ristiriitoja</guimenuitem></menuchoice> tai käyttää mitä tahansa muuta "
-"editoria ratkoaksesi ristiriidan käsin. Sinun tulee päättää, miltä koodin "
-"pitäisi näyttää, tehdä tarpeelliset muutokset ja tallettaa tiedosto."
 
 #. (para)
 msgid ""
@@ -12859,17 +12852,26 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Choosing <emphasis>Prefer local</emphasis> will select your local changes in"
-" every conflict. Likewise, <emphasis>Prefer repository</emphasis> will "
-"select the repository changes in every conflict. This sounds easy, but the "
-"conflicts often cover more lines than you think they will and you may get "
-"unexpected results."
+"If your merge includes binary files, merging of conflicts in those is not "
+"possible. You have to choose one complete file. Use <emphasis>Prefer "
+"local</emphasis> to select the local version as it was in your working copy "
+"prior to the merge, or <emphasis>Prefer repository</emphasis> to select the "
+"incoming file from the merge source in the repository."
 msgstr ""
-"Vaihtoehto <emphasis>Suosi paikallista versiota</emphasis> valitsee "
-"ristiriidan sattuessa aina paikalliset muutokset. Samoin, <emphasis>Suosi "
-"arkiston versiota</emphasis> valitsee ristiriidan sattuessa aina arkiston "
-"muutokset. Tämä kuulostaa helpolta, mutta ristiriidat ovat usein laajempia "
-"kuin äkkiseltään kuvittelee, ja tulokset voivat olla yllättäviä."
+
+#. (para)
+msgid ""
+"If you are merging text files then these first two buttons allow you to "
+"merge non-conflicting lines as normal and always prefer one version where "
+"there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
+"your local version in every conflict, i.e. it will prefer what was already "
+"there before the merge over the incoming change from the merge source. "
+"Likewise, <emphasis>Prefer repository</emphasis> will select the repository "
+"changes in every conflict, i.e. it will prefer the incoming changes from the"
+" merge source over what was already in your working copy. This sounds easy, "
+"but the conflicts often cover more lines than you think they will and you "
+"may get unexpected results."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -22654,28 +22656,40 @@ msgid "/findtype:X"
 msgstr "/findtype:X"
 
 #. (para)
-msgid "<option>/findtype:1</option> filter by everything"
-msgstr "<option>/findtype:1</option> suodata kaikesta"
+msgid "<option>/findtype:0</option> filter by everything"
+msgstr "<option>/findtype:0</option> suodata kaikesta"
 
 #. (para)
-msgid "<option>/findtype:2</option> filter by messages"
-msgstr "<option>/findtype:2</option> suodata viesteistä"
+msgid "<option>/findtype:1</option> filter by messages"
+msgstr "<option>/findtype:1</option> suodata viesteistä"
 
 #. (para)
-msgid "<option>/findtype:3</option> filter by path"
-msgstr "<option>/findtype:3</option> suodata poluista"
+msgid "<option>/findtype:2</option> filter by path"
+msgstr "<option>/findtype:2</option> suodata poluista"
 
 #. (para)
 msgid "<option>/findtype:4</option> filter by authors"
 msgstr "<option>/findtype:4</option> suodata tekijöistä"
 
 #. (para)
-msgid "<option>/findtype:5</option> filter by revisions"
-msgstr "<option>/findtype:5</option> suodata versioista"
+msgid "<option>/findtype:8</option> filter by revisions"
+msgstr "<option>/findtype:8</option> suodata versioista"
 
 #. (para)
-msgid "<option>/findtype:7</option> filter by bug ID"
-msgstr "<option>/findtype:7</option> suodata vikatunnuksista"
+msgid "<option>/findtype:32</option> filter by bug ID"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:64</option> not used"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:128</option> filter by date"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:256</option> filter by bug ID"
+msgstr "<option>/findtype:256</option> suodata vikatunnuksista"
 
 #. (option)
 msgid "/outfile:path\\to\\file"
@@ -22690,23 +22704,12 @@ msgid ""
 "checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces"
 " the filter to use text, not regex, or <placeholder-8/> forces the filter to"
 " use regex, not simple text search, and <placeholder-9/> with X being a "
-"number between 1 and 7. The numbers correspond to: <placeholder-10/> If "
-"<placeholder-11/> is specified, the selected revisions are written to that "
-"file when the log dialog is closed. The revisions are written in the same "
-"format as is used to specify revisions in the merge dialog."
+"number between 0 and 511. The numbers are the sum of the following options: "
+"<placeholder-10/> If <placeholder-11/> is specified, the selected revisions "
+"are written to that file when the log dialog is closed. The revisions are "
+"written in the same format as is used to specify revisions in the merge "
+"dialog."
 msgstr ""
-"Avaa loki-ikkunan. Valitsin <placeholder-1/> määrittää tiedoston tai "
-"kansion, jolle loki näytetään. Lisäksi voidaan antaa muita valitsimia: "
-"<placeholder-2/>, <placeholder-3/> ja <placeholder-4/> valitsee 'pysäytä "
-"kopiointiin'-asetuksen, <placeholder-5/> valitsee 'sisällytä yhdistetyt "
-"versiot'-asetuksen, <placeholder-6/> asettaa suodatustekstin, "
-"<placeholder-7/> suodattaa käyttämällä tekstiä säännöllisen lausekkeen "
-"sijaan, tai <placeholder-8/> suodattaa käyttämällä säännöllistä lauseketta, "
-"ja <placeholder-9/>, missä X on luku väliltä 1-7. Numeroiden merkitys on "
-"seuraava: <placeholder-10/> Jos <placeholder-11/> on määritelty, valitut "
-"versiot kirjoitetaan annettuun tiedostoon, kun loki-ikkuna suljetaan. "
-"Versiot kirjoitetaan samassa muodossa, jota käytetään annettaessa versiot "
-"yhdistämisikkunassa."
 
 #. (option)
 #. (option)

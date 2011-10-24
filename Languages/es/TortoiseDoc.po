@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-15 20:50+0000\n"
+"PO-Revision-Date: 2011-10-23 03:16+0000\n"
 "Last-Translator: ggh <gdelahuebra@hotmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5410,7 +5410,7 @@ msgstr ""
 
 #. (para)
 msgid ""
-"A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n"
+"A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. The conflicting area in a text file is marked like this: <screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
 "    your changes\n"
 "=======\n"
@@ -5418,28 +5418,20 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-"Un conflicto de archivo ocurre cuando uno o más desarrolladores han hecho cambios en las mismas líneas de un archivo. Dado que Subversion no sabe nada de su proyecto, delega la resolución de los conflictos en los desarrolladores. Cuando se le informa de un conficto, debería abrir el archivo en cuestión, y buscar líneas que empiecen con el texto <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. El área conflictiva se marca así: <screen>\n"
-"&lt;&lt;&lt;&lt;&lt;&lt;&lt; nombre-del-archivo\n"
-"    sus cambios\n"
-"=======\n"
-"    código fusionado del repositorio\n"
-"&gt;&gt;&gt;&gt;&gt;&gt;&gt; revisión\n"
-"</screen> Además, para cada archivo en conflicto Subversion deja tres archivos adicionales en su directorio: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "You can either launch an external merge tool / conflict editor with "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit "
-"Conflicts</guimenuitem></menuchoice> or you can use any other editor to "
-"manually resolve the conflict. You should decide what the code should look "
-"like, do the necessary changes and save the file."
+"Conflicts</guimenuitem></menuchoice> or you can use any text editor to "
+"resolve the conflict manually. You should decide what the code should look "
+"like, do the necessary changes and save the file. Using a merge tool such as"
+" TortoiseMerge or one of the other popular tools is generally the easier "
+"option as they generally present the files involved in a 3-pane view and you"
+" don't have to worry about the conflict markers. If you do use a text editor"
+" then you should search for lines starting with the string "
+"<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>."
 msgstr ""
-"Puede o bien lanzar una herramienta externa de fusiones / editor de "
-"conflictos con el menú contextual "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Editar "
-"Conflictos</guimenuitem></menuchoice> o bien utilizar otro editor "
-"manualmente para resolver el conflicto. Debe decidir cómo tiene que quedar "
-"el código, hacer los cambios necesarios, y grabar el archivo."
 
 #. (para)
 msgid ""
@@ -13047,18 +13039,26 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Choosing <emphasis>Prefer local</emphasis> will select your local changes in"
-" every conflict. Likewise, <emphasis>Prefer repository</emphasis> will "
-"select the repository changes in every conflict. This sounds easy, but the "
-"conflicts often cover more lines than you think they will and you may get "
-"unexpected results."
+"If your merge includes binary files, merging of conflicts in those is not "
+"possible. You have to choose one complete file. Use <emphasis>Prefer "
+"local</emphasis> to select the local version as it was in your working copy "
+"prior to the merge, or <emphasis>Prefer repository</emphasis> to select the "
+"incoming file from the merge source in the repository."
 msgstr ""
-"Elegir <emphasis>Preferir local</emphasis> seleccionará sus cambios locales "
-"en cada conflicto. De igual manera, <emphasis>Preferir "
-"repositorio</emphasis> seleccionará los cambios del repositorio en cada "
-"conflicto. Esto suena simple, pero los conflictos por lo general se "
-"extienden a más líneas de las que puede pensar y pueden tener resultados "
-"inesperados."
+
+#. (para)
+msgid ""
+"If you are merging text files then these first two buttons allow you to "
+"merge non-conflicting lines as normal and always prefer one version where "
+"there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
+"your local version in every conflict, i.e. it will prefer what was already "
+"there before the merge over the incoming change from the merge source. "
+"Likewise, <emphasis>Prefer repository</emphasis> will select the repository "
+"changes in every conflict, i.e. it will prefer the incoming changes from the"
+" merge source over what was already in your working copy. This sounds easy, "
+"but the conflicts often cover more lines than you think they will and you "
+"may get unexpected results."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -22816,28 +22816,40 @@ msgid "/findtype:X"
 msgstr "/findtype:X"
 
 #. (para)
-msgid "<option>/findtype:1</option> filter by everything"
-msgstr "<option>/findtype:1</option> filtrar por todo"
+msgid "<option>/findtype:0</option> filter by everything"
+msgstr "<option>/findtype:0</option> filtrar por todo"
 
 #. (para)
-msgid "<option>/findtype:2</option> filter by messages"
-msgstr "<option>/findtype:2</option> filtrar por mensajes"
+msgid "<option>/findtype:1</option> filter by messages"
+msgstr "<option>/findtype:1</option> filtrar por mensajes"
 
 #. (para)
-msgid "<option>/findtype:3</option> filter by path"
-msgstr "<option>/findtype:3</option> filtrar por ruta"
+msgid "<option>/findtype:2</option> filter by path"
+msgstr "<option>/findtype:2</option> filtrar por ruta"
 
 #. (para)
 msgid "<option>/findtype:4</option> filter by authors"
 msgstr "<option>/findtype:4</option> filtrar por autores"
 
 #. (para)
-msgid "<option>/findtype:5</option> filter by revisions"
-msgstr "<option>/findtype:5</option> filtrar por revisiones"
+msgid "<option>/findtype:8</option> filter by revisions"
+msgstr "<option>/findtype:8</option> filtrar por revisiones"
 
 #. (para)
-msgid "<option>/findtype:7</option> filter by bug ID"
-msgstr "<option>/findtype:7</option> filtrar por ID de error"
+msgid "<option>/findtype:32</option> filter by bug ID"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:64</option> not used"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:128</option> filter by date"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:256</option> filter by bug ID"
+msgstr "<option>/findtype:256</option> filtrar por ID de error"
 
 #. (option)
 msgid "/outfile:path\\to\\file"
@@ -22852,10 +22864,11 @@ msgid ""
 "checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces"
 " the filter to use text, not regex, or <placeholder-8/> forces the filter to"
 " use regex, not simple text search, and <placeholder-9/> with X being a "
-"number between 1 and 7. The numbers correspond to: <placeholder-10/> If "
-"<placeholder-11/> is specified, the selected revisions are written to that "
-"file when the log dialog is closed. The revisions are written in the same "
-"format as is used to specify revisions in the merge dialog."
+"number between 0 and 511. The numbers are the sum of the following options: "
+"<placeholder-10/> If <placeholder-11/> is specified, the selected revisions "
+"are written to that file when the log dialog is closed. The revisions are "
+"written in the same format as is used to specify revisions in the merge "
+"dialog."
 msgstr ""
 
 #. (option)

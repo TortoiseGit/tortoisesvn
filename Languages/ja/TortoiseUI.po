@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-19 18:15+0000\n"
+"PO-Revision-Date: 2011-10-23 04:26+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3185,7 +3185,7 @@ msgstr "作業ベースと比較/注釈履歴(&B)"
 
 #. Resource IDs: (114)
 msgid "Compare and blame with previous revision"
-msgstr "直前のリビジョンと比較/注釈履歴を行う"
+msgstr "直前のリビジョンと比較/注釈履歴"
 
 #. Resource IDs: (210)
 msgid "Compare two files"
@@ -4965,11 +4965,11 @@ msgstr ""
 
 #. Resource IDs: (117)
 msgid "Filter by"
-msgstr "フィルター："
+msgstr "絞り込み条件："
 
 #. Resource IDs: (65535)
 msgid "Filter match"
-msgstr "フィルターへの一致"
+msgstr "絞り込みへの一致"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -5017,7 +5017,7 @@ msgstr "幅を合わせる"
 
 #. Resource IDs: (89)
 msgid "Fix case of item and do not add it"
-msgstr "項目の大文字／小文字を修正し、追加は行わない"
+msgstr "項目の大文字/小文字を修正し、追加は行わない"
 
 #. Resource IDs: (281)
 msgid "Fixed at rev"
@@ -5041,7 +5041,7 @@ msgstr "フォント"
 
 #. Resource IDs: (3585)
 msgid "For Help, press F1. Scroll horizontally with Ctrl-Scrollwheel"
-msgstr "ヘルプを表示するには、F1 を押してください。水平方向にスクロールしたい場合は、Ctrl キーを押しながらマウスをホイールしてください。"
+msgstr "ヘルプは F1  横スクロールは Ctrl + ホイール操作"
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
@@ -8028,7 +8028,7 @@ msgid ""
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
 msgstr ""
-"正規表現フィルターの説明\r\n"
+"正規表現による絞り込み条件\r\n"
 ".    : 任意の文字\r\n"
 "c+   : 文字 c の1回以上の出現にマッチ\r\n"
 "c*   : 文字 c の0回以上の出現にマッチ\r\n"
@@ -8558,7 +8558,7 @@ msgstr "リビジョングラフ"
 
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
-msgstr "リビジョングラフフィルタ"
+msgstr "リビジョングラフフィルター"
 
 #. Resource IDs: (299)
 msgid "Revision Graph::Colors"
@@ -9185,7 +9185,7 @@ msgstr "ログを表示(&L)"
 
 #. Resource IDs: (115)
 msgid "Show &Range..."
-msgstr "範囲を表示(&R)..."
+msgstr "表示する範囲を指定(&R)..."
 
 #. Resource IDs: (32826)
 msgid "Show &WC revision"
@@ -9682,12 +9682,12 @@ msgid ""
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
 msgstr ""
-"部分文字列フィルターの説明\r\n"
-"* 一つ以上の空白で区切られた文字列を指定する。左から右の順番に評価される。\r\n"
-"* 部分文字列の先頭に - を付加すると、この部分文字列を含むリビジョンが除外される。\r\n"
-"* 部分文字列の先頭に + を付加すると、この部分文字列にマッチしないリビジョンが含まれる。\r\n"
+"部分文字列の絞り込み条件\r\n"
+"* 1つ以上の空白で区切られた文字列を指定する。左から右の順番に評価される。\r\n"
+"* 部分文字列の先頭に - を付加すると、この文字列を含むリビジョンが除外される。\r\n"
+"* 部分文字列の先頭に + を付加すると、この文字列にマッチしないリビジョンが含まれる。\r\n"
 "* 空白などを含む文字列は \" で囲む。\r\n"
-"* 行の先頭に ! を付加すると、フィルタの条件全体を反転させる。\r\n"
+"* 行の先頭に ! を付加すると、絞り込み条件全体を反転させる。\r\n"
 "\r\n"
 "【例】\r\n"
 "ichiro  2008    : 2008年のichiroによるコミット\r\n"

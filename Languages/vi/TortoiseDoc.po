@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-13 08:26+0000\n"
+"PO-Revision-Date: 2011-10-23 03:16+0000\n"
 "Last-Translator: dndk82 <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/team/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -5442,7 +5442,7 @@ msgstr ""
 
 #. (para)
 msgid ""
-"A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n"
+"A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. The conflicting area in a text file is marked like this: <screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
 "    your changes\n"
 "=======\n"
@@ -5450,27 +5450,20 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-"Sự xung đột giữa các tập tin xảy ra khi hai hay nhiều nhà phát triển đã thay đổi một vài dòng cùng của một tập tin. Vì Subversion không biết gì về dự án của bạn, nó để việc giải quyết những xung đột cho các nhà phát triển. Bất cứ khi nào một xung đột được báo cáo, bạn nên mở các tập tin có nghi vấn, và tìm các dòng bắt đầu với chuỗi <literal><<<<<<<</literal>. Các khu vực xung đột được đánh dấu như thế này: <screen>\n"
-"<<<<<<< tên tập tin\n"
-"    thay đổi của bạn\n"
-"=======\n"
-"    mã sáp nhập từ kho\n"
-">>>>>>> sửa đổi\n"
-"</screen> Ngoài ra, đối với tất cả các tập tin mâu thuẫn Subversion đặt thêm ba tập tin trong thư mục của bạn: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "You can either launch an external merge tool / conflict editor with "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit "
-"Conflicts</guimenuitem></menuchoice> or you can use any other editor to "
-"manually resolve the conflict. You should decide what the code should look "
-"like, do the necessary changes and save the file."
+"Conflicts</guimenuitem></menuchoice> or you can use any text editor to "
+"resolve the conflict manually. You should decide what the code should look "
+"like, do the necessary changes and save the file. Using a merge tool such as"
+" TortoiseMerge or one of the other popular tools is generally the easier "
+"option as they generally present the files involved in a 3-pane view and you"
+" don't have to worry about the conflict markers. If you do use a text editor"
+" then you should search for lines starting with the string "
+"<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>."
 msgstr ""
-"Bạn có thể khởi động một công cụ hợp nhất bên ngoài / trình biên tập xung "
-"đột với <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Chỉnh sửa "
-"xung đột </guimenuitem></menuchoice> hoặc bạn có thể sử dụng bất kỳ trình "
-"soạn thảo khác để tự giải quyết cuộc xung đột. Bạn nên quyết định các mã nên"
-" như thế nào, tạo các thay đổi cần thiết và lưu tập tin."
 
 #. (para)
 msgid ""
@@ -13084,17 +13077,26 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Choosing <emphasis>Prefer local</emphasis> will select your local changes in"
-" every conflict. Likewise, <emphasis>Prefer repository</emphasis> will "
-"select the repository changes in every conflict. This sounds easy, but the "
-"conflicts often cover more lines than you think they will and you may get "
-"unexpected results."
+"If your merge includes binary files, merging of conflicts in those is not "
+"possible. You have to choose one complete file. Use <emphasis>Prefer "
+"local</emphasis> to select the local version as it was in your working copy "
+"prior to the merge, or <emphasis>Prefer repository</emphasis> to select the "
+"incoming file from the merge source in the repository."
 msgstr ""
-"Chọn <emphasis> Ưu tiên địa phương </emphasis> sẽ lựa chọn thay đổi cục bộ "
-"của bạn trong mọi xung đột. Tương tự, <emphasis> Ưu tiên kho </emphasis> sẽ "
-"lựa chọn những thay đổi từ kho lưu trữ trong mọi xung đột. Điều này nghe có "
-"vẻ dễ dàng, nhưng những xung đột thường trải trên nhiều dòng hơn bạn nghĩ và"
-" bạn có thể nhận được kết quả bất ngờ."
+
+#. (para)
+msgid ""
+"If you are merging text files then these first two buttons allow you to "
+"merge non-conflicting lines as normal and always prefer one version where "
+"there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
+"your local version in every conflict, i.e. it will prefer what was already "
+"there before the merge over the incoming change from the merge source. "
+"Likewise, <emphasis>Prefer repository</emphasis> will select the repository "
+"changes in every conflict, i.e. it will prefer the incoming changes from the"
+" merge source over what was already in your working copy. This sounds easy, "
+"but the conflicts often cover more lines than you think they will and you "
+"may get unexpected results."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -23045,28 +23047,40 @@ msgid "/findtype:X"
 msgstr "/findtype:X"
 
 #. (para)
-msgid "<option>/findtype:1</option> filter by everything"
-msgstr "<option> /findtype:1 </option> lọc theo tất cả mọi thứ"
+msgid "<option>/findtype:0</option> filter by everything"
+msgstr "<option> /findtype:0 </option> lọc theo tất cả mọi thứ"
 
 #. (para)
-msgid "<option>/findtype:2</option> filter by messages"
-msgstr "<option> /findtype:2 </option> lọc qua các thông điệp"
+msgid "<option>/findtype:1</option> filter by messages"
+msgstr "<option> /findtype:1 </option> lọc qua các thông điệp"
 
 #. (para)
-msgid "<option>/findtype:3</option> filter by path"
-msgstr "<option> /findtype:3 </option> lọc theo con đường"
+msgid "<option>/findtype:2</option> filter by path"
+msgstr "<option> /findtype:2 </option> lọc theo con đường"
 
 #. (para)
 msgid "<option>/findtype:4</option> filter by authors"
 msgstr "<option> /findtype:4 </option> lọc theo các tác giả"
 
 #. (para)
-msgid "<option>/findtype:5</option> filter by revisions"
-msgstr "<option> /findtype:5 </option> lọc theo các sửa đổi"
+msgid "<option>/findtype:8</option> filter by revisions"
+msgstr "<option> /findtype:8 </option> lọc theo các sửa đổi"
 
 #. (para)
-msgid "<option>/findtype:7</option> filter by bug ID"
-msgstr "<option> /findtype:7 </option> lọc theo ID lỗi"
+msgid "<option>/findtype:32</option> filter by bug ID"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:64</option> not used"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:128</option> filter by date"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:256</option> filter by date range"
+msgstr "<option> /findtype:256 </option> lọc theo ID lỗi"
 
 #. (option)
 msgid "/outfile:path\\to\\file"
@@ -23081,23 +23095,12 @@ msgid ""
 "checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces"
 " the filter to use text, not regex, or <placeholder-8/> forces the filter to"
 " use regex, not simple text search, and <placeholder-9/> with X being a "
-"number between 1 and 7. The numbers correspond to: <placeholder-10/> If "
-"<placeholder-11/> is specified, the selected revisions are written to that "
-"file when the log dialog is closed. The revisions are written in the same "
-"format as is used to specify revisions in the merge dialog."
+"number between 0 and 511. The numbers are the sum of the following options: "
+"<placeholder-10/> If <placeholder-11/> is specified, the selected revisions "
+"are written to that file when the log dialog is closed. The revisions are "
+"written in the same format as is used to specify revisions in the merge "
+"dialog."
 msgstr ""
-"Mở hộp thoại tường trình. Các <placeholder-1/> xác định tập tin hoặc thư mục"
-" mà tường trình cho nó sẽ được hiển thị. Các tùy chọn thêm có thể được thiết"
-" lập: <placeholder-2/> , <placeholder-3/> , <placeholder-4/> cho phép hộp "
-"kiểm 'dừng-tại-sao chép', <placeholder-5/> cho phép hộp kiểm 'bao gồm các "
-"phiên bản hợp nhất', <placeholder-6/> điền vào văn bản lọc, <placeholder-7/>"
-" bắt buộc bộ lọc sử dụng văn bản, không regex, hoặc <placeholder-8/> bắt "
-"buộc bộ lọc sử dụng regex, không đơn giản tìm kiếm văn bản, và "
-"<placeholder-9/> với X là một số từ 1 đến 7. Các con số tương ứng với: "
-"<placeholder-10/> Nếu <placeholder-11/> được quy định, các bản sửa đổi được "
-"chọn sẽ được ghi vào tập tin đó khi hộp thoại tường trình được đóng lại. Các"
-" phiên bản được viết bằng định dạng tương tự như được sử dụng để xác định "
-"các sửa đổi trong hộp thoại hợp nhất."
 
 #. (option)
 #. (option)

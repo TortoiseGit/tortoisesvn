@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-16 00:14+0000\n"
+"PO-Revision-Date: 2011-10-21 03:05+0000\n"
 "Last-Translator: otik <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -17905,28 +17905,36 @@ msgid "/findtype:X"
 msgstr "/findtype:X"
 
 #. (para)
-msgid "<option>/findtype:1</option> filter by everything"
-msgstr "<option>/findtype:1</option> filtrované podľa všetkého"
+msgid "<option>/findtype:0</option> filter by everything"
+msgstr "<option>/findtype:0</option> filtrované podľa všetkého"
 
 #. (para)
-msgid "<option>/findtype:2</option> filter by messages"
-msgstr "<option>/findtype:2</option> filtrované podľa správ"
+msgid "<option>/findtype:1</option> filter by messages"
+msgstr "<option>/findtype:1</option> filtrované podľa správ"
 
 #. (para)
-msgid "<option>/findtype:3</option> filter by path"
-msgstr "<option>/findtype:3</option> filtrované podľa cesty"
+msgid "<option>/findtype:2</option> filter by path"
+msgstr "<option>/findtype:2</option> filtrované podľa cesty"
 
 #. (para)
 msgid "<option>/findtype:4</option> filter by authors"
 msgstr "<option>/findtype:4</option> filtrované podľa správ"
 
 #. (para)
-msgid "<option>/findtype:5</option> filter by revisions"
-msgstr "<option>/findtype:5</option> filtrované podľa revízií"
+msgid "<option>/findtype:8</option> filter by revisions"
+msgstr "<option>/findtype:8</option> filtrované podľa revízií"
 
 #. (para)
-msgid "<option>/findtype:7</option> filter by bug ID"
-msgstr "<option>/findtype:7</option> filtrované podľa ID-chyby"
+msgid "<option>/findtype:32</option> filter by bug ID"
+msgstr "<option>/findtype:32</option> filtrované podľa ID-chyby"
+
+#. (para)
+msgid "<option>/findtype:128</option> filter by date"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:256</option> filter by date range"
+msgstr ""
 
 #. (option)
 msgid "/outfile:path\\to\\file"
@@ -17941,10 +17949,11 @@ msgid ""
 "checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces"
 " the filter to use text, not regex, or <placeholder-8/> forces the filter to"
 " use regex, not simple text search, and <placeholder-9/> with X being a "
-"number between 1 and 7. The numbers correspond to: <placeholder-10/> If "
-"<placeholder-11/> is specified, the selected revisions are written to that "
-"file when the log dialog is closed. The revisions are written in the same "
-"format as is used to specify revisions in the merge dialog."
+"number between 1 and 512. The numbers are the sum of the following options: "
+"<placeholder-10/> If <placeholder-11/> is specified, the selected revisions "
+"are written to that file when the log dialog is closed. The revisions are "
+"written in the same format as is used to specify revisions in the merge "
+"dialog."
 msgstr ""
 
 #. (option)

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-09-16 06:58+0000\n"
+"PO-Revision-Date: 2011-10-23 03:16+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5276,7 +5276,7 @@ msgstr ""
 
 #. (para)
 msgid ""
-"A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. Whenever a conflict is reported, you should open the file in question, and search for lines starting with the string <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. The conflicting area is marked like this: <screen>\n"
+"A file conflict occurs when two or more developers have changed the same few lines of a file. As Subversion knows nothing of your project, it leaves resolving the conflicts to the developers. The conflicting area in a text file is marked like this: <screen>\n"
 "&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
 "    your changes\n"
 "=======\n"
@@ -5284,27 +5284,20 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
-"Конфликт се јавља када два или више програмера измене неколико истих линија фајла. Како Субверзија не зна ништа о вашем пројекту, она оставља решавање конфликта програмерима. Кадгод се конфликт изнесе треба да отворите фајл у питању и потражите линије које почињу стрингом <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>. Конфликтна област је маркирана као ово: <screen>\n"
-"    &lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
-"        your changes\n"
-"    =======\n"
-"        code merged from repository\n"
-"    &gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
-"    </screen> Такође, за сваки конфликтни фајл Субверзија ставља три додатна фајла у ваш именик: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "You can either launch an external merge tool / conflict editor with "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Edit "
-"Conflicts</guimenuitem></menuchoice> or you can use any other editor to "
-"manually resolve the conflict. You should decide what the code should look "
-"like, do the necessary changes and save the file."
+"Conflicts</guimenuitem></menuchoice> or you can use any text editor to "
+"resolve the conflict manually. You should decide what the code should look "
+"like, do the necessary changes and save the file. Using a merge tool such as"
+" TortoiseMerge or one of the other popular tools is generally the easier "
+"option as they generally present the files involved in a 3-pane view and you"
+" don't have to worry about the conflict markers. If you do use a text editor"
+" then you should search for lines starting with the string "
+"<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>."
 msgstr ""
-"Можете или лансирати спољашњи алат за стапање / конфликт уређивач са "
-"<menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Уреди "
-"Конфликте</guimenuitem></menuchoice> или можете користити било који уређивач"
-" да ручно решите конфликт. Треба одлучити како код треба да изгледа, урадите"
-" неопходне измене и сачувајте фајл."
 
 #. (para)
 msgid ""
@@ -12674,17 +12667,26 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Choosing <emphasis>Prefer local</emphasis> will select your local changes in"
-" every conflict. Likewise, <emphasis>Prefer repository</emphasis> will "
-"select the repository changes in every conflict. This sounds easy, but the "
-"conflicts often cover more lines than you think they will and you may get "
-"unexpected results."
+"If your merge includes binary files, merging of conflicts in those is not "
+"possible. You have to choose one complete file. Use <emphasis>Prefer "
+"local</emphasis> to select the local version as it was in your working copy "
+"prior to the merge, or <emphasis>Prefer repository</emphasis> to select the "
+"incoming file from the merge source in the repository."
 msgstr ""
-"Користећи <emphasis>Преферира локално</emphasis> ће изабрати локалне измене "
-"у сваком конфликту. Такође, <emphasis>Преферира спремиште</emphasis> ће "
-"изабрати измене спремишта у сваком конфликту. То изгледалако, али конфликти "
-"често покривају више линија него што мислите и можете добити неочекиване "
-"резултате."
+
+#. (para)
+msgid ""
+"If you are merging text files then these first two buttons allow you to "
+"merge non-conflicting lines as normal and always prefer one version where "
+"there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
+"your local version in every conflict, i.e. it will prefer what was already "
+"there before the merge over the incoming change from the merge source. "
+"Likewise, <emphasis>Prefer repository</emphasis> will select the repository "
+"changes in every conflict, i.e. it will prefer the incoming changes from the"
+" merge source over what was already in your working copy. This sounds easy, "
+"but the conflicts often cover more lines than you think they will and you "
+"may get unexpected results."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -22421,28 +22423,40 @@ msgid "/findtype:X"
 msgstr "/findtype:X"
 
 #. (para)
-msgid "<option>/findtype:1</option> filter by everything"
-msgstr "<option>/findtype:1</option> филтрирање помоћу свега"
+msgid "<option>/findtype:0</option> filter by everything"
+msgstr ""
 
 #. (para)
-msgid "<option>/findtype:2</option> filter by messages"
-msgstr "<option>/findtype:2</option> филтрирање помоћу поруке"
+msgid "<option>/findtype:1</option> filter by messages"
+msgstr ""
 
 #. (para)
-msgid "<option>/findtype:3</option> filter by path"
-msgstr "<option>/findtype:3</option> филтрирање помоћу путање"
+msgid "<option>/findtype:2</option> filter by path"
+msgstr ""
 
 #. (para)
 msgid "<option>/findtype:4</option> filter by authors"
 msgstr "<option>/findtype:4</option> филтрирање помоћу атора"
 
 #. (para)
-msgid "<option>/findtype:5</option> filter by revisions"
-msgstr "<option>/findtype:5</option> филтрирање помоћу ревизије"
+msgid "<option>/findtype:8</option> filter by revisions"
+msgstr ""
 
 #. (para)
-msgid "<option>/findtype:7</option> filter by bug ID"
-msgstr "<option>/findtype:7</option> филтрирање помоћу баг ИД"
+msgid "<option>/findtype:32</option> filter by bug ID"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:64</option> not used"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:128</option> filter by date"
+msgstr ""
+
+#. (para)
+msgid "<option>/findtype:256</option> filter by date range"
+msgstr ""
 
 #. (option)
 msgid "/outfile:path\\to\\file"
@@ -22457,22 +22471,12 @@ msgid ""
 "checkbox, <placeholder-6/> fills in the filter text, <placeholder-7/> forces"
 " the filter to use text, not regex, or <placeholder-8/> forces the filter to"
 " use regex, not simple text search, and <placeholder-9/> with X being a "
-"number between 1 and 7. The numbers correspond to: <placeholder-10/> If "
-"<placeholder-11/> is specified, the selected revisions are written to that "
-"file when the log dialog is closed. The revisions are written in the same "
-"format as is used to specify revisions in the merge dialog."
+"number between 0 and 511. The numbers are the sum of the following options: "
+"<placeholder-10/> If <placeholder-11/> is specified, the selected revisions "
+"are written to that file when the log dialog is closed. The revisions are "
+"written in the same format as is used to specify revisions in the merge "
+"dialog."
 msgstr ""
-"Отвара дневник дијалог. <placeholder-1/> специфицира фајл или именик за који"
-" дневник треба да буде приказан. Додатне опције могу да буду подешене: "
-"<placeholder-2/>, <placeholder-3/> и <placeholder-4/> омогућава 'стани-на-"
-"копију' чекбокс, <placeholder-5/>омогућава 'укључи стопљене ревизије' "
-"чекбокс, <placeholder-6/>  попуњава филтер текст, <placeholder-7/>  форсира "
-"филтер да користе текст, не регекс и <placeholder-8/> форсира филтер да "
-"користи регекс, не једноставно претраживање текста, и<placeholder-9/> са X "
-"које је број између 1 и 7. Бројеви одговарају:  <placeholder-10/> Ако је "
-"<placeholder-11/> специфициран, изабрана ревизија је уписана у фајл када се "
-"дневник дијалог затвори. Ревизије су уписане у истом формату како је "
-"коришћено у специфичној ревизији дијалога стапања."
 
 #. (option)
 #. (option)
