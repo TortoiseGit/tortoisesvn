@@ -211,21 +211,32 @@ def escapePoString(text):
 
 def unEscapePoString(text):
     return text.replace('\\"', '"').replace('\\\\','\\')
-
+    
+gt = None
+def setTranslations():
+    global gt
+    if gt:
+        return
+    else:
+        file = open(mofile, "rb")
+        if file:
+            gt = gettext.GNUTranslations(file)
+        return
+        
 def getTranslation(text, spacepreserve = 0):
     """Returns a translation via gettext for specified snippet.
 
     text should be a string to look for, spacepreserve set to 1
     when spaces should be preserved.
     """
+    global gt
+    
     text = normalizeString(text, not spacepreserve)
     if (text.strip() == ''):
         return text
-    file = open(mofile, "rb")
-    if file:
-        gt = gettext.GNUTranslations(file)
-        if gt:
-            return gt.ugettext(text.decode('utf-8'))
+    # timetick( "translating")
+    if gt:
+        return gt.ugettext(text.decode('utf-8'))
     return text
 
 def startTagForNode(node):
@@ -572,6 +583,17 @@ def xml_error_handler(arg, ctxt):
 
 libxml2.registerErrorHandler(xml_error_handler, None)
 
+from datetime import datetime
+
+t1 = datetime.now()
+
+def timetick(messg):
+    global t1
+    t2 = datetime.now()
+    tdelta = t2 - t1
+    print >> sys.stderr, messg," (",tdelta.seconds, ",", tdelta.microseconds,")"
+
+# timetick( "xml2po started")
 
 # Main program start
 if __name__ != '__main__': raise NotImplementedError
@@ -699,15 +721,20 @@ else:
     filenames.append(origxml)
     msg = MessageOutput(1)
 
+# timetick( "start translation")
+    
 for filename in filenames:
     try:
         if filename == origxml:
             msg.translationsFollow()
         ctxt = libxml2.createFileParserCtxt(filename)
+        # timetick( "context created")
         ctxt.lineNumbers(1)
         if expand_all_entities:
             ctxt.replaceEntities(1)
+            timetick( "entities replaced")
         ctxt.parseDocument()
+        # timetick( "document parsed")
         doc = ctxt.doc()
     except:
         print >> sys.stderr, "Error: cannot open file '%s'." % (filename)
@@ -716,7 +743,10 @@ for filename in filenames:
     msg.setFilename(filename)
     if CurrentXmlMode and origxml=='':
         CurrentXmlMode.preProcessXml(doc,msg)
+        # timetick( "XML pre processed")
+    setTranslations()
     doSerialize(doc)
+    # timetick( "doc serialized")
 
 if output == '-':
     out = sys.stdout
@@ -740,6 +770,7 @@ if mode != 'merge':
             msg.outputMessage(tcmsg, 0, tccom)
 
     msg.outputAll(out)
+    # timetick( "file written")
 else:
     if CurrentXmlMode:
         tcmsg = CurrentXmlMode.getStringForTranslators()
@@ -755,3 +786,4 @@ else:
 
         CurrentXmlMode.postProcessXmlTranslation(doc, translationlanguage, tnames, tstring)
     out.write(doc.serialize('utf-8', 1))
+    # timetick( "file written (merge branch)")
