@@ -23,6 +23,7 @@ The file is Tools-1.x.7z
 
 Currently you can build the docs using NAnt. Download a current release from:
 http://sourceforge.net/project/showfiles.php?group_id=31650
+Note: NAnt requires the full .NET framework installed, not just the client profile.
 
 Please note that having spaces in your directory path will (for the time being)
 cause the documentation build process to fail.
