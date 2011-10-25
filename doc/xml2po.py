@@ -63,7 +63,7 @@ class MessageOutput:
             if self.output_msgstr:
                 self.translations.append(t)
                 return
-            
+
             if self.do_translations or (not t in self.messages):
                 self.messages.append(t)
                 if spacepreserve:
@@ -102,7 +102,7 @@ msgstr ""
 
     def outputAll(self, out):
         self.outputHeader(out)
-        
+
         for k in self.messages:
             if k in self.comments:
                 out.write("#. %s\n" % (self.comments[k].replace("\n","\n#. ")))
@@ -172,7 +172,7 @@ def normalizeString(text, ignorewhitespace = 1):
 
     result = re.sub('^ ','', result)
     result = re.sub(' $','', result)
-    
+
     return result
 
 def stringForEntity(node):
@@ -211,7 +211,7 @@ def escapePoString(text):
 
 def unEscapePoString(text):
     return text.replace('\\"', '"').replace('\\\\','\\')
-    
+
 gt = None
 def setTranslations():
     global gt
@@ -222,7 +222,7 @@ def setTranslations():
         if file:
             gt = gettext.GNUTranslations(file)
         return
-        
+
 def getTranslation(text, spacepreserve = 0):
     """Returns a translation via gettext for specified snippet.
 
@@ -230,7 +230,7 @@ def getTranslation(text, spacepreserve = 0):
     when spaces should be preserved.
     """
     global gt
-    
+
     text = normalizeString(text, not spacepreserve)
     if (text.strip() == ''):
         return text
@@ -251,14 +251,14 @@ def startTagForNode(node):
                 # FIXME: This part sucks
                 params += p.serialize('utf-8')
     return result+params
-        
+
 def endTagForNode(node):
     if not node:
         return 0
 
     result = node.name
     return result
-        
+
 def isFinalNode(node):
     if automatic:
         auto = autoNodeIsFinal(node)
@@ -393,7 +393,7 @@ def worthOutputting(node):
         return 0
 
     return autoNodeIsFinal(node)
-    
+
 def processElementTag(node, replacements, restart = 0):
     """Process node with node.type == 'element'."""
     if node.type == 'element':
@@ -499,7 +499,7 @@ def doSerialize(node):
             child = child.next
         return outtxt
 
-    
+
 def read_finaltags(filelist):
     if CurrentXmlMode:
         return CurrentXmlMode.getFinalTags()
@@ -620,8 +620,8 @@ import getopt, fileinput
 
 def usage (with_help = False):
         print >> sys.stderr, "Usage:  %s [OPTIONS] [XMLFILE]..." % (sys.argv[0])
-	if (with_help):
-        	print >> sys.stderr, """
+    if (with_help):
+            print >> sys.stderr, """
 OPTIONS may be some of:
     -a    --automatic-tags     Automatically decides if tags are to be considered
                                  "final" or not
@@ -687,7 +687,7 @@ for opt, arg in opts:
         print VERSION
         sys.exit(0)
     elif opt in ('-h', '--help'):
-    	usage(True)
+        usage(True)
 
 # Treat remaining arguments as XML files
 while args:
@@ -722,7 +722,7 @@ else:
     msg = MessageOutput(1)
 
 # timetick( "start translation")
-    
+
 for filename in filenames:
     try:
         if filename == origxml:
