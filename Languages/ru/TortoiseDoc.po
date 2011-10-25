@@ -11,12 +11,13 @@
 # Authors:
 # Translators:
 # Arkadiy Shapkin <arkadiy_s@inbox.ru>, 2011.
+# Nikolay Osinin <nikolay.osinin@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-23 03:16+0000\n"
+"PO-Revision-Date: 2011-10-25 06:23+0000\n"
 "Last-Translator: mikola <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5463,6 +5464,13 @@ msgid ""
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "</screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
 msgstr ""
+"Конфликт файла возникает когда два или более разработчика изменили одни и те же строки файла. Так как Subversion ничего не знает о вашем проекте, он оставляет разрешение конфликтов разработчикам. Конфликтующая область в текстовом файле отмечена следующим образом: <screen>\n"
+"&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\n"
+"    ваши изменения\n"
+"=======\n"
+"    код слитый из хранилища\n"
+"&gt;&gt;&gt;&gt;&gt;&gt;&gt; ревизия\n"
+"</screen> Также для каждого конфликтующего файла Subversion помещает три дополнительных файла в вашей директории: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -5477,6 +5485,17 @@ msgid ""
 " then you should search for lines starting with the string "
 "<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>."
 msgstr ""
+"Вы можете либо запустить внешнюю утилиту слияния / редактор конфликтов с "
+"помощью <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Редактировать"
+" конфликты</guimenuitem></menuchoice>, либо использовать любой текстовый "
+"редактор для ручного улаживания конфликта. Вы должны решить, как должен "
+"выглядеть код, сделать необходимые изменения и сохранить файл. Использование"
+" инструмента слияния, например, TortoiseMerge или другого популярного "
+"инструмента, обычно является более простым вариантом, т.к. в большинстве "
+"случаев они отображают  файлы в 3-х панелях и вам не нужно беспокоиться о "
+"маркерах конфликта. Если же вы используете текстовый редактор, то вы должны "
+"найти строки начинающиеся с символов "
+"<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>."
 
 #. (para)
 msgid ""
@@ -13124,6 +13143,11 @@ msgid ""
 "prior to the merge, or <emphasis>Prefer repository</emphasis> to select the "
 "incoming file from the merge source in the repository."
 msgstr ""
+"Если ваше слияние содержит двоичные файлы, то слияние конфликтоы для них "
+"невозможно. Вы должны выбрать один целый файл. Воспользуйтесь "
+"<emphasis>Локальные</emphasis> чтобы выбрать локальную версию какой она была"
+" в вашей рабочей копии до слияния, или <emphasis>Из хранилища</emphasis> "
+"чтобы выбрать входящий файл из источника слияния в хранилище."
 
 #. (para)
 msgid ""
@@ -13138,6 +13162,16 @@ msgid ""
 "but the conflicts often cover more lines than you think they will and you "
 "may get unexpected results."
 msgstr ""
+"Если вы сливаете текстовые файлы, то эти первые две кнопки позволят вам "
+"нормально слить неконфликтующие строки и всегда предпочесть одну версию при "
+"конфликтах. Нажатие <emphasis>Локальные</emphasis> выберет вашу локальную "
+"версию в каждом конфликте, т.е. будет отдано предпочтение тому, что было до "
+"слияния нежели входящим изменениями из источника слияния. Таким же образом, "
+"<emphasis>Из хранилища</emphasis> выберет изменения хранилища в каждом "
+"конфликте, т.е. будет отдано предпочтение входящим изменениям из источника "
+"слияния, а не тому, что уже было в вашей рабочей копии. Звучит это просто, "
+"но конфликты часто затрагивают больше строк, чем вы думаете, и вы можете "
+"получить неожиданные результаты."
 
 #. (para)
 msgid ""
@@ -23171,6 +23205,10 @@ msgstr "<option>/findtype:4</option>  фильтровать по авторам
 #. (para)
 msgid "<option>/findtype:8</option> filter by revisions"
 msgstr "<option>/findtype:8</option> фильтр по ревизиям"
+
+#. (para)
+msgid "<option>/findtype:16</option> not used"
+msgstr "<option>/findtype:16</option> не используется"
 
 #. (para)
 msgid "<option>/findtype:32</option> filter by bug ID"

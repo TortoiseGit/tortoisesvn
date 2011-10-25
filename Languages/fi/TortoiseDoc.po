@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-23 03:16+0000\n"
+"PO-Revision-Date: 2011-10-25 03:11+0000\n"
 "Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -20540,7 +20540,7 @@ msgid ""
 msgstr ""
 "Mikäli julkaiset vikaseurantaohjelman TortoiseSVN-ohjelmalle, ole hyvä "
 "<emphasis>äläkä</emphasis>  nimeä sitä muotoon "
-"<emphasis>Tortoise<Jotakin></emphasis>. Haluamme varata  "
+"<emphasis>Tortoise&lt;Jotakin&gt;</emphasis>. Haluamme varata  "
 "<emphasis>Tortoise</emphasis> -etuliitteen Windows-resurssienhallintaan "
 "integroiduille versionhallintaohjelmille. Esimerkiksi TortoiseCVS, "
 "TortoiseSVN, TortoiseHg, TortoiseGit ja TortoiseBzr ovat kaikki "
@@ -20568,7 +20568,7 @@ msgid ""
 "are: <placeholder-1/>"
 msgstr ""
 "Ole hyvä ja nimeä Tortoise-laajennuksesi muodossa "
-"<emphasis>Turtle<Jotain></emphasis>, missä <emphasis><Jotain></emphasis> "
+"<emphasis>Turtle&lt;Jotain&gt;</emphasis>, missä <emphasis>&lt;Jotain&gt;</emphasis> "
 "viittaa ympäristöön, johon laajennuksesi kytkeytyy. Vaihtoehtoisesti voit "
 "myös muuttaa sanan <emphasis>Turtle</emphasis> ensimmäisen kirjaimen. "
 "Esimerkkejä: <placeholder-1/>"
@@ -22676,6 +22676,10 @@ msgid "<option>/findtype:8</option> filter by revisions"
 msgstr "<option>/findtype:8</option> suodata versioista"
 
 #. (para)
+msgid "<option>/findtype:16</option> not used"
+msgstr ""
+
+#. (para)
 msgid "<option>/findtype:32</option> filter by bug ID"
 msgstr ""
 
@@ -22688,8 +22692,8 @@ msgid "<option>/findtype:128</option> filter by date"
 msgstr ""
 
 #. (para)
-msgid "<option>/findtype:256</option> filter by bug ID"
-msgstr "<option>/findtype:256</option> suodata vikatunnuksista"
+msgid "<option>/findtype:256</option> filter by date range"
+msgstr ""
 
 #. (option)
 msgid "/outfile:path\\to\\file"

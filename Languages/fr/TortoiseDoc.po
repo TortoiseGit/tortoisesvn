@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-23 03:16+0000\n"
-"Last-Translator: Kissifrot <kissifrot@gmail.com>\n"
+"PO-Revision-Date: 2011-10-25 03:11+0000\n"
+"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11396,7 +11396,7 @@ msgid ""
 "checked out as read-only if there is no lock held for it in the working "
 "copy."
 msgstr ""
-"<placeholder-1> Cette propriété contrôle simplement si un fichier sera "
+"<placeholder-1/> Cette propriété contrôle simplement si un fichier sera "
 "extrait en mode lecture seule en l’absence d'un verrou pour ce fichier dans "
 "la copie de travail."
 
@@ -22875,6 +22875,10 @@ msgid "<option>/findtype:8</option> filter by revisions"
 msgstr "<option>/findtype:8</option> filtrer par révision"
 
 #. (para)
+msgid "<option>/findtype:16</option> not used"
+msgstr ""
+
+#. (para)
 msgid "<option>/findtype:32</option> filter by bug ID"
 msgstr ""
 
@@ -22887,8 +22891,8 @@ msgid "<option>/findtype:128</option> filter by date"
 msgstr ""
 
 #. (para)
-msgid "<option>/findtype:256</option> filter by bug ID"
-msgstr "<option>/findtype:256</option> filtrer par bug ID"
+msgid "<option>/findtype:256</option> filter by date range"
+msgstr ""
 
 #. (option)
 msgid "/outfile:path\\to\\file"
