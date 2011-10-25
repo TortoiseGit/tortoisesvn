@@ -96,8 +96,8 @@ BOOL CSwitchDlg::OnInitDialog()
         m_URLCombo.SelectString(-1, relPath);
         m_URL = url;
 
-        SetDlgItemText(IDC_SRCURL, m_URL);
-        SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, relPath));
+        SetDlgItemText(IDC_SRCURL, CTSVNPath(m_URL).GetUIPathString());
+        SetDlgItemText(IDC_DESTURL, CTSVNPath(CPathUtils::CombineUrls(m_repoRoot, relPath)).GetUIPathString());
     }
 
     GetWindowText(m_sTitle);
@@ -301,7 +301,7 @@ void CSwitchDlg::OnSizing(UINT fwSide, LPRECT pRect)
 
 void CSwitchDlg::OnCbnEditchangeUrlcombo()
 {
-    SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetWindowString()));
+    SetDlgItemText(IDC_DESTURL, CTSVNPath(CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetWindowString())).GetUIPathString());
 }
 
 BOOL CSwitchDlg::PreTranslateMessage(MSG* pMsg)
