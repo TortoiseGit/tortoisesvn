@@ -632,6 +632,7 @@ bool CMainFrame::LoadViews(int line)
         }
         else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg)))
         {
+            progDlg.Stop();
             ClearViewNamesAndPaths();
             MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
             return false;
@@ -641,6 +642,7 @@ bool CMainFrame::LoadViews(int line)
             CString betterpatchpath = m_Patch.CheckPatchPath(m_Data.m_sPatchPath);
             if (betterpatchpath.CompareNoCase(m_Data.m_sPatchPath)!=0)
             {
+                progDlg.Stop();
                 CString msg;
                 msg.FormatMessage(IDS_WARNBETTERPATCHPATHFOUND, (LPCTSTR)m_Data.m_sPatchPath, (LPCTSTR)betterpatchpath);
                 if (CTaskDialog::IsSupported())
