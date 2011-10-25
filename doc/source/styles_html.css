@@ -9,6 +9,12 @@
 
 /* Generic tag-level style definitions */
 
+html body{
+    width: 100%;
+    min-width: 800px;
+    max-width: 1200px;
+}
+
 /*************************/
 p a, p a:hover {
   margin-left: 5px;
