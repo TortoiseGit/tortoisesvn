@@ -54,6 +54,7 @@ nconvert.exe -info %1>f_info.txt
 :: Extract image width, height and dpi
 :: Width   = 3rd word on 10th line
 :: Height  = 3rd word on 11th line
+:: Channel = 5th word on 12th line
 :: XDPI    = 3rd word on 19th line
 :: YDPI    = 3rd word on 20th line
 :: Do the test. Get the third word of the tenth line.
@@ -61,12 +62,15 @@ call :ProcGetLine f_info.txt 10 getLine
 for /f "tokens=3" %%? in ("%getLine%") do set /a w_image = %%?
 call :ProcGetLine f_info.txt 11 getLine
 for /f "tokens=3" %%? in ("%getLine%") do set /a h_image = %%?
+call :ProcGetLine f_info.txt 12 getLine
+for /f "tokens=5" %%? in ("%getLine%") do set /a channels = %%?
 call :ProcGetLine f_info.txt 19 getLine
 for /f "tokens=3" %%? in ("%getLine%") do set /a xdpi = %%?
 call :ProcGetLine f_info.txt 20 getLine
 for /f "tokens=3" %%? in ("%getLine%") do set /a ydpi = %%?
 :: Set default dpi if no dpi was found
 set /a must_convert = 0
+set /a must_channel = 0
 if %xdpi% equ 0 (
    set /a xdpi = 96
    set /a must_convert = 1
@@ -74,6 +78,11 @@ if %xdpi% equ 0 (
 if %ydpi% equ 0 (
    set /a ydpi = 96
    set /a must_convert = 1
+)
+if %channels% geq 4 (
+    echo %1: alpha channel detected
+    set /a must_channel = 1
+    set /a must_convert = 1
 )
 ::
 :: Calculate image width and height (factor 1000 is used because
@@ -124,8 +133,11 @@ if %w_delta% geq 0 (
 :: Make sure the dpi is large enough (integer arithmetic truncates)
 set /a new_dpi = new_dpi + 1
 echo adjust dpi to %new_dpi%
-nconvert.exe -overwrite -dpi %new_dpi% %1 >nul
+nconvert.exe -o %1 -dpi %new_dpi% %1 >nul
 :Done
+if %must_channel% equ 1 (
+    nconvert.exe -o %1 -ctype rgb %1 >nul
+)
 optipng.exe -o7 -quiet %1
 endlocal & goto :EOF
 ::===============================================================
