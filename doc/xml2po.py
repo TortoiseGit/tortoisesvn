@@ -732,7 +732,7 @@ for filename in filenames:
         ctxt.lineNumbers(1)
         if expand_all_entities:
             ctxt.replaceEntities(1)
-            timetick( "entities replaced")
+            # timetick( "entities replaced")
         ctxt.parseDocument()
         # timetick( "document parsed")
         doc = ctxt.doc()
