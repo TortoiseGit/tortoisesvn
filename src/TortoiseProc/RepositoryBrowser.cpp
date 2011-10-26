@@ -426,8 +426,18 @@ void CRepositoryBrowser::InitRepo()
     m_repository.root
         = CPathUtils::PathUnescape(GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), true, m_repository.uuid));
 
-    // let's (try to) access all levels in the folder path
+    // problem: SVN reports the repository root without the port number if it's
+    // the default port!
+    m_InitialUrl += L"/";
+    if (m_InitialUrl.Left(6) == L"svn://")
+        m_InitialUrl.Replace(L":3690/", L"/");
+    if (m_InitialUrl.Left(7) == L"http://")
+        m_InitialUrl.Replace(L":80/", L"/");
+    if (m_InitialUrl.Left(8) == L"https://")
+        m_InitialUrl.Replace(L":443/", L"/");
+    m_InitialUrl.TrimRight('/');
 
+    // let's (try to) access all levels in the folder path
     SVNRev pegRev = m_repository.peg_revision;
     if (!m_repository.root.IsEmpty())
         for ( CString path = m_InitialUrl
