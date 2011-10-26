@@ -118,11 +118,9 @@ BOOL CSetMainPage::OnInitDialog()
             sFileVer = sFileVer.Left(sFileVer.ReverseFind(','));
             if (sFileVer.Compare(sVer)!=0)
                 continue;
-            // to avoid using the TortoiseProc32XXXX.dll's here too
-            // or dlls which we can't even load, try to load the dll
-            // first and only use it if loading is successful.
-            CAutoLibrary hLib = LoadLibrary(file);
-            if (!hLib.IsValid())
+            CString sLoc = filename.Mid(12);
+            sLoc = sLoc.Left(sLoc.GetLength()-4);   // cut off ".dll"
+            if ((sLoc.Left(2) == L"32")&&(sLoc.GetLength() > 5))
                 continue;
             DWORD loc = _tstoi(filename.Mid(12));
             GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, _countof(buf));
