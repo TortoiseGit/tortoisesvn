@@ -1378,7 +1378,9 @@ const WORD* CResModule::GetDialogInfo(const WORD * pTemplate, LPDIALOGINFO lpDlg
         p += wcslen((LPCWSTR) p) + 1;
     }
     // First control is on DWORD boundary
-    return (const WORD *) ((((long)p) + 3) & ~3);
+    p += ((((WORD)p + 3) & ~3) - (WORD)p)/sizeof(WORD);
+
+    return p;
 }
 
 const WORD* CResModule::GetControlInfo(const WORD* p, LPDLGITEMINFO lpDlgItemInfo, BOOL dialogEx, LPBOOL bIsID)
@@ -1460,7 +1462,8 @@ const WORD* CResModule::GetControlInfo(const WORD* p, LPDLGITEMINFO lpDlgItemInf
 
     p++;
     // Next control is on DWORD boundary
-    return (const WORD *)((((long)p) + 3) & ~3);
+    p += ((((WORD)p + 3) & ~3) - (WORD)p)/sizeof(WORD);
+    return p;
 }
 
 const WORD * CResModule::CountMemReplaceDialogResource(const WORD * res, size_t * wordcount, WORD * newDialog)
@@ -1782,7 +1785,9 @@ const WORD* CResModule::ReplaceControlInfo(const WORD * res, size_t * wordcount,
     // Next control is on DWORD boundary
     while ((*wordcount) % 2)
         (*wordcount)++;
-    return (const WORD *)((((long)res) + 3) & ~3);
+    res += ((((WORD)res + 3) & ~3) - (WORD)res)/sizeof(WORD);
+
+    return res;
 }
 
 BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam)
