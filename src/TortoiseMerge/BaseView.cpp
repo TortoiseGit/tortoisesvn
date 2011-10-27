@@ -3288,10 +3288,13 @@ int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
     if (nSubLine>=0)
     {
         int nViewLine = GetViewLineForScreen(nLineIndex);
-        int nMultilineCount = CountMultiLines(nViewLine);
-        if ((nMultilineCount>0) && (nSubLine<nMultilineCount-1))
+        if (nViewLine > (int)m_ScreenedViewLine.size())
         {
-            nLength--;
+            int nMultilineCount = CountMultiLines(nViewLine);
+            if ((nMultilineCount>0) && (nSubLine<nMultilineCount-1))
+            {
+                nLength--;
+            }
         }
     }
     LPCTSTR pszLine = GetLineChars(nLineIndex);
