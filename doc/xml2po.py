@@ -499,7 +499,6 @@ def doSerialize(node):
             child = child.next
         return outtxt
 
-
 def read_finaltags(filelist):
     if CurrentXmlMode:
         return CurrentXmlMode.getFinalTags()
@@ -619,9 +618,9 @@ output  = '-' # this means to stdout
 import getopt, fileinput
 
 def usage (with_help = False):
-        print >> sys.stderr, "Usage:  %s [OPTIONS] [XMLFILE]..." % (sys.argv[0])
+    print >> sys.stderr, "Usage:  %s [OPTIONS] [XMLFILE]..." % (sys.argv[0])
     if (with_help):
-            print >> sys.stderr, """
+        print >> sys.stderr, """
 OPTIONS may be some of:
     -a    --automatic-tags     Automatically decides if tags are to be considered
                                  "final" or not
