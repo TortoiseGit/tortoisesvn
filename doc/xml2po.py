@@ -647,7 +647,7 @@ EXAMPLES:
         %s -p de.po chapter1.xml > chapter1.de.xml
         %s -p de.po chapter2.xml > chapter2.de.xml
 """ % (sys.argv[0], sys.argv[0], sys.argv[0])
-        sys.exit(0)
+    sys.exit(0)
 
 if len(sys.argv) < 2: usage()
 
