@@ -651,7 +651,7 @@ void CEditPropertiesDlg::RemoveProps()
             input.SetUUID(m_sUUID);
             input.SetProjectProperties(m_pProjectProperties, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
             CString sHint;
-            sHint.FormatMessage(IDS_INPUT_REMOVEPROP, sUName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
+            sHint.FormatMessage(IDS_INPUT_REMOVEPROP, sName.c_str(), (LPCTSTR)(m_pathlist[0].GetSVNPathString()));
             input.SetActionText(sHint);
             if (input.DoModal() != IDOK)
                 return;
