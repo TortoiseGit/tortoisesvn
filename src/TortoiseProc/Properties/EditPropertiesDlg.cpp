@@ -656,6 +656,7 @@ void CEditPropertiesDlg::RemoveProps()
             if (input.DoModal() != IDOK)
                 return;
             sLogMsg = input.GetLogMessage();
+            defaultRet = IDCUSTOM2;
         }
         UINT ret = defaultRet;
         if ((ret == 0)&&((m_pathlist.GetCount()>1)||((m_pathlist.GetCount()==1)&&(PathIsDirectory(m_pathlist[0].GetWinPath())))))
