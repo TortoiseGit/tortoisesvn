@@ -69,7 +69,7 @@ BOOL CEditPropExternals::OnInitDialog()
 
     SVN svn;
     m_url = CTSVNPath(svn.GetURLFromPath(m_pathList[0]));
-    m_repoRoot = CTSVNPath(svn.GetRepositoryRoot(m_url));
+    m_repoRoot = CTSVNPath(svn.GetRepositoryRoot(m_pathList[0]));
 
     m_externals.Add(m_pathList[0], m_PropValue, false);
 
