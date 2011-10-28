@@ -43,6 +43,7 @@ public:
 
 private:
     CString     m_sRealText;
+    CString     m_sFitText;
     bool        m_bInternalCall;
     bool        m_bBold;
     CFont       m_boldFont;

@@ -85,7 +85,25 @@ LRESULT CPathEdit::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_COPY:
         {
-            // we always copy *all* the text, not just the selected text
+            int start, end;
+            m_bInternalCall = true;
+            CEdit::GetSel(start, end);
+            m_bInternalCall = false;
+            CString selText = m_sFitText.Mid(start, end-start);
+            if (m_sFitText.Find(L"..")<0)
+                return CStringUtils::WriteAsciiStringToClipboard(selText, m_hWnd);
+            if (selText.Find(L"...")>=0)
+            {
+                int dotLength = m_sRealText.GetLength()-m_sFitText.GetLength();
+                selText = m_sRealText.Mid(start, end-start+dotLength);
+                return CStringUtils::WriteAsciiStringToClipboard(selText, m_hWnd);
+            }
+            if ((m_sFitText.Left(start).Find(L"...")>=0) ||
+                (m_sFitText.Mid(end).Find(L"...")>=0))
+            {
+                return CStringUtils::WriteAsciiStringToClipboard(selText, m_hWnd);
+            }
+            // we shouldn't get here, but just in case: copy *all* the text, not just the selected text
             return CStringUtils::WriteAsciiStringToClipboard(m_sRealText, m_hWnd);
         }
         break;
@@ -105,8 +123,9 @@ void CPathEdit::FitPathToWidth(CString& path)
     {
         CFont* previousFont = pDC->SelectObject(GetFont());
         path = path.Left(MAX_PATH - 1);
-        PathCompactPath(pDC->m_hDC, path.GetBuffer(), rect.Width());
+        PathCompactPath(pDC->m_hDC, path.GetBuffer(MAX_PATH), rect.Width());
         path.ReleaseBuffer();
+        m_sFitText = path;
         pDC->SelectObject(previousFont);
         ReleaseDC(pDC);
     }
