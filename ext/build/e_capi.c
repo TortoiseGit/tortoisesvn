@@ -569,12 +569,33 @@ static ENGINE *engine_capi(void)
 
 void ENGINE_load_capi(void)
     {
-    /* Copied from eng_[openssl|dyn].c */
-    ENGINE *toadd = engine_capi();
-    if(!toadd) return;
-    ENGINE_add(toadd);
-    ENGINE_free(toadd);
-    ERR_clear_error();
+    DWORD dwType = 0;
+    DWORD dwData = 0;
+    DWORD dwDataSize = 4;
+    int bLoad = 1;
+#ifdef _WIN64
+    if (SHGetValue(HKEY_CURRENT_USER, L"Software\\TortoiseSVN", L"OpenSSLCapi", &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
+#else
+    if (SHGetValue(HKEY_CURRENT_USER, "Software\\TortoiseSVN", "OpenSSLCapi", &dwType, &dwData, &dwDataSize) == ERROR_SUCCESS)
+#endif
+    {
+        if (dwType == REG_DWORD)
+        {
+            if (dwData == 0)
+            {
+                bLoad = 0;
+            }
+        }
+    }
+    if (bLoad)
+    {
+        /* Copied from eng_[openssl|dyn].c */
+        ENGINE *toadd = engine_capi();
+        if(!toadd) return;
+        ENGINE_add(toadd);
+        ENGINE_free(toadd);
+        ERR_clear_error();
+    }
     }
 #endif
 
