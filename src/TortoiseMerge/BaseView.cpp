@@ -3288,7 +3288,7 @@ int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
     if (nSubLine>=0)
     {
         int nViewLine = GetViewLineForScreen(nLineIndex);
-        if (nViewLine > (int)m_ScreenedViewLine.size())
+        if ((nViewLine>=0)&&(nViewLine < (int)m_ScreenedViewLine.size()))
         {
             int nMultilineCount = CountMultiLines(nViewLine);
             if ((nMultilineCount>0) && (nSubLine<nMultilineCount-1))
