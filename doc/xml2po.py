@@ -743,7 +743,8 @@ for filename in filenames:
     if CurrentXmlMode and origxml=='':
         CurrentXmlMode.preProcessXml(doc,msg)
         # timetick( "XML pre processed")
-    setTranslations()
+    if mode == 'merge':
+        setTranslations()
     doSerialize(doc)
     # timetick( "doc serialized")
 
