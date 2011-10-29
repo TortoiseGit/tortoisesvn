@@ -111,13 +111,26 @@
                 process might fail. Best to run cleanup before upgrading
                 the svn client.
                 </p>
+                <p>
+                Even after cleanup the upgrade process does not always run as
+                smoothly as it should, and it can be quite slow. We recommend that
+                you commit all changes to your working copy (using your pre-1.7 client)
+                before upgrading. If the upgrade fails for any reason, just make
+                a fresh checkout.
+                </p>
                 </div>
+                <div class="important">
                 <p>
                 Once you've upgraded your working copies, older SVN clients
                 won't be able to access those working copies. So make sure
                 that you update all your SVN clients (in case you use not
                 just TortoiseSVN).
                 </p>
+                <p>
+                For your convenience TortoiseSVN includes a copy of the 1.7 SVN
+                command line client in the <code>TortoiseSVN/bin</code> directory.
+                </p>
+                </div>
                 </div>  <!-- wc-upgrade -->
             </div>  <!-- wcformat -->
 
