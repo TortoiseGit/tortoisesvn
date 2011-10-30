@@ -142,6 +142,7 @@ void CRepositoryBrowser::ConstructorInit(const SVNRev& rev)
     s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
     if (s_bSortLogical)
         s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
+    std::fill_n(m_arColumnWidths, _countof(m_arColumnWidths), 0);
 }
 
 CRepositoryBrowser::~CRepositoryBrowser()
@@ -1102,13 +1103,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     temp.LoadString(IDS_STATUSLIST_COLLOCK);
     m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
 
-    // auto-size columns to match the header text width
-
-    for (int col = 0; col <= (((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1); col++)
-        m_arColumnAutoWidths[col] = m_RepoList.GetColumnWidth(col);
-
     // special case: error to show
-
     if (!pTreeItem->error.IsEmpty() && pTreeItem->children.empty())
     {
         ShowText (pTreeItem->error, true);
@@ -1172,16 +1167,20 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
         ListView_SortItemsEx(m_RepoList, ListSort, this);
         SetSortArrow();
     }
-
-    CRegString regColWidths(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
-
-    StringToWidthArray(regColWidths, m_arColumnWidths);
+    if (m_arColumnWidths[0] == 0)
+    {
+        CRegString regColWidths(_T("Software\\TortoiseSVN\\RepoBrowserColumnWidth"));
+        StringToWidthArray(regColWidths, m_arColumnWidths);
+    }
 
     int maxcol = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
     for (int col = 0; col <= maxcol; col++)
     {
         if (m_arColumnWidths[col] == 0)
+        {
             m_RepoList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
+            m_arColumnAutoWidths[col] = m_RepoList.GetColumnWidth(col);
+        }
         else
             m_RepoList.SetColumnWidth(col, m_arColumnWidths[col]);
     }
