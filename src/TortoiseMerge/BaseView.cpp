@@ -4301,6 +4301,9 @@ int CBaseView::FindScreenLineForViewLine( int viewLine )
 
 int CBaseView::CountMultiLines( int nViewLine )
 {
+    if (m_ScreenedViewLine.size()==0)
+        return 0;   // in case the view is completely empty
+
     ASSERT(nViewLine < (int)m_ScreenedViewLine.size());
 
     if (m_ScreenedViewLine[nViewLine].bSublinesSet)
@@ -4735,7 +4738,6 @@ bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView, con
         return false;
     }
     ASSERT(Range.FirstViewLine >= 0);
-    ASSERT(Range.FirstViewLine <= Range.LastViewLine);
     ASSERT(Range.LastViewLine < pwndView->GetViewCount());
     for (int i = Range.FirstViewLine; i <= Range.LastViewLine; i++)
     {
