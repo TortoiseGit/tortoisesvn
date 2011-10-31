@@ -185,7 +185,10 @@ void CPropPageFrameDefault::DrawCaption(CDC *pDc, CRect rect, LPCTSTR lpszCaptio
 
     COLORREF    clrPrev = pDc->SetTextColor(GetSysColor(COLOR_CAPTIONTEXT));
     int             nBkStyle = pDc->SetBkMode(TRANSPARENT);
-    CFont           *pFont = (CFont*)pDc->SelectStockObject(SYSTEM_FONT);
+    //CFont           *pFont = (CFont*)pDc->SelectStockObject(SYSTEM_FONT);
+    CFont font;
+    font.CreatePointFont(100, L"Arial", pDc);
+    CFont * pFont = (CFont*)pDc->SelectObject(&font);
 
     //pDc->DrawText(lpszCaption, rect, DT_LEFT|DT_VCENTER|DT_SINGLELINE|DT_END_ELLIPSIS);
 
