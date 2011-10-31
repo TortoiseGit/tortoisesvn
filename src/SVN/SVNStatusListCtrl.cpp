@@ -3700,7 +3700,7 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
     {
         UINT hitFlags = 0;
         HitTest(pNMLV->ptAction, &hitFlags);
-        if (hitFlags & LVHT_ONITEMSTATEICON)
+        if (hitFlags == LVHT_ONITEMSTATEICON)
             return;
 
         if (pNMLV->iItem < 0)
