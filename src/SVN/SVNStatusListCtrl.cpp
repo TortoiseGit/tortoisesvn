@@ -3700,7 +3700,12 @@ void CSVNStatusListCtrl::OnNMDblclk(NMHDR *pNMHDR, LRESULT *pResult)
     {
         UINT hitFlags = 0;
         HitTest(pNMLV->ptAction, &hitFlags);
-        if (hitFlags == LVHT_ONITEMSTATEICON)
+        // since XP, Vista and Win7 all return different flags
+        // when the user clicks on the state icon or on the non-first column,
+        // we can't just check for LVHT_ONITEMSTATEICON and bail out.
+        // We have to do an inverse check instead and let everything through
+        // that is not on the item state icon
+        if ((hitFlags & (LVHT_ONITEMLABEL|LVHT_ONITEMICON))==NULL)
             return;
 
         if (pNMLV->iItem < 0)
