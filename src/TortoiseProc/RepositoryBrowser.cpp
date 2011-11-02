@@ -153,6 +153,7 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
 {
     // remove nodes from tree view
 
+    CAutoWriteLock locker(m_guard);
     if (m_RepoTree.ItemHasChildren(hItem))
     {
         HTREEITEM childItem;
@@ -1035,6 +1036,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
     if (hItem == NULL)
         return false;
 
+    CAutoReadLock locker(m_guard);
     CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
     if (pTreeItem == NULL)
         return FALSE;
@@ -1195,6 +1197,7 @@ HTREEITEM CRepositoryBrowser::FindUrl (const CString& fullurl)
 
 HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url, HTREEITEM hItem /* = TVI_ROOT */)
 {
+    CAutoReadLock locker(m_guard);
     if (hItem == TVI_ROOT)
     {
         CString root = m_repository.root;
@@ -1228,6 +1231,7 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 
 void CRepositoryBrowser::FetchChildren (HTREEITEM node)
 {
+    CAutoReadLock locker(m_guard);
     CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
     if (pTreeItem->children_fetched)
         return;
@@ -1314,6 +1318,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
 
         if (node == NULL)
         {
+            CAutoWriteLock locker(m_guard);
             node = m_RepoTree.GetRootItem();
             if (node == NULL)
             {
@@ -1348,6 +1353,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
         {
             // get all children
 
+            CAutoReadLock locker(m_guard);
             CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
             std::deque<CItem>& children = pTreeItem->children;
 
@@ -1402,6 +1408,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
 
         // pre-fetch data for the next level
 
+        CAutoReadLock locker(m_guard);
         CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
         if ((pTreeItem != NULL) && !pTreeItem->children_fetched)
             m_lister.Enqueue ( pTreeItem->url
@@ -1422,15 +1429,19 @@ HTREEITEM CRepositoryBrowser::AutoInsert (HTREEITEM hParent, const CItem& item)
 {
     // look for an existing sub-node by comparing names
 
-    for ( HTREEITEM hSibling = m_RepoTree.GetNextItem (hParent, TVGN_CHILD)
-        ; hSibling != NULL
-        ; hSibling = m_RepoTree.GetNextItem (hSibling, TVGN_NEXT))
     {
-        CTreeItem * pTreeItem = ((CTreeItem*)m_RepoTree.GetItemData (hSibling));
-        if (pTreeItem && (pTreeItem->unescapedname == item.path))
-            return hSibling;
+        CAutoReadLock locker(m_guard);
+        for ( HTREEITEM hSibling = m_RepoTree.GetNextItem (hParent, TVGN_CHILD)
+            ; hSibling != NULL
+            ; hSibling = m_RepoTree.GetNextItem (hSibling, TVGN_NEXT))
+        {
+            CTreeItem * pTreeItem = ((CTreeItem*)m_RepoTree.GetItemData (hSibling));
+            if (pTreeItem && (pTreeItem->unescapedname == item.path))
+                return hSibling;
+        }
     }
 
+    CAutoWriteLock locker(m_guard);
     // no such sub-node. Create one
 
     HTREEITEM hNewItem
@@ -1452,13 +1463,16 @@ void CRepositoryBrowser::AutoInsert (HTREEITEM hParent, const std::deque<CItem>&
         if ((items[i].kind == svn_node_dir)||(m_bSparseCheckoutMode))
             newItems.insert (std::make_pair (items[i].path, &items[i]));
 
-    for ( HTREEITEM hSibling = m_RepoTree.GetNextItem (hParent, TVGN_CHILD)
-        ; hSibling != NULL
-        ; hSibling = m_RepoTree.GetNextItem (hSibling, TVGN_NEXT))
     {
-        CTreeItem * pTreeItem = ((CTreeItem*)m_RepoTree.GetItemData (hSibling));
-        if (pTreeItem)
-            newItems.erase (pTreeItem->unescapedname);
+        CAutoReadLock locker(m_guard);
+        for ( HTREEITEM hSibling = m_RepoTree.GetNextItem (hParent, TVGN_CHILD)
+            ; hSibling != NULL
+            ; hSibling = m_RepoTree.GetNextItem (hSibling, TVGN_NEXT))
+        {
+            CTreeItem * pTreeItem = ((CTreeItem*)m_RepoTree.GetItemData (hSibling));
+            if (pTreeItem)
+                newItems.erase (pTreeItem->unescapedname);
+        }
     }
 
     if (newItems.empty())
@@ -1466,6 +1480,7 @@ void CRepositoryBrowser::AutoInsert (HTREEITEM hParent, const std::deque<CItem>&
 
     // Create missing sub-nodes
 
+    CAutoWriteLock locker(m_guard);
     CTreeItem* parentTreeItem = (CTreeItem*)m_RepoTree.GetItemData (hParent);
 
     for ( TMap::const_iterator iter = newItems.begin(), end = newItems.end()
@@ -1483,6 +1498,7 @@ HTREEITEM CRepositoryBrowser::Insert
     , CTreeItem* parentTreeItem
     , const CItem& item)
 {
+    CAutoWriteLock locker(m_guard);
     CTreeItem* pTreeItem = new CTreeItem();
     CString name = item.path;
 
@@ -1538,6 +1554,7 @@ HTREEITEM CRepositoryBrowser::Insert
 
 void CRepositoryBrowser::Sort (HTREEITEM parent)
 {
+    CAutoWriteLock locker(m_guard);
     TVSORTCB tvs;
     tvs.hParent = parent;
     tvs.lpfnCompare = TreeSort;
@@ -1548,6 +1565,7 @@ void CRepositoryBrowser::Sort (HTREEITEM parent)
 
 void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
 {
+    CAutoReadLock locker(m_guard);
     CTreeItem* pTreeItem = (CTreeItem*)m_RepoTree.GetItemData (node);
     if (pTreeItem == NULL)
         return;
@@ -1580,6 +1598,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
 
     SaveColumnWidths();
     CWaitCursorEx wait;
+    CAutoReadLock locker(m_guard);
     CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hNode);
     HTREEITEM hSel1 = m_RepoTree.GetSelectedItem();
     if (m_RepoTree.ItemHasChildren(hNode))
@@ -1587,6 +1606,8 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
         HTREEITEM hChild = m_RepoTree.GetChildItem(hNode);
         HTREEITEM hNext;
         m_blockEvents = true;
+
+        CAutoWriteLock locker(m_guard);
         while (hChild)
         {
             hNext = m_RepoTree.GetNextItem(hChild, TVGN_NEXT);
@@ -1674,25 +1695,28 @@ void CRepositoryBrowser::OnDelete()
     std::vector<SRepositoryInfo> repositories;
     bool bTreeItem = false;
 
-    POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
-    int index = -1;
-    while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
     {
-        CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
-        CString absPath = pItem->absolutepath;
-        absPath.Replace(_T("\\"), _T("%5C"));
-        urlList.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(absPath))));
-        repositories.push_back (pItem->repository);
-    }
-    if ((urlList.GetCount() == 0))
-    {
-        HTREEITEM hItem = m_RepoTree.GetSelectedItem();
-        CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
-        if (pTreeItem)
+        CAutoReadLock locker(m_guard);
+        POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
+        int index = -1;
+        while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
         {
-            urlList.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))));
-            repositories.push_back (pTreeItem->repository);
-            bTreeItem = true;
+            CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
+            CString absPath = pItem->absolutepath;
+            absPath.Replace(_T("\\"), _T("%5C"));
+            urlList.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(absPath))));
+            repositories.push_back (pItem->repository);
+        }
+        if ((urlList.GetCount() == 0))
+        {
+            HTREEITEM hItem = m_RepoTree.GetSelectedItem();
+            CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
+            if (pTreeItem)
+            {
+                urlList.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))));
+                repositories.push_back (pTreeItem->repository);
+                bTreeItem = true;
+            }
         }
     }
 
@@ -1746,6 +1770,7 @@ void CRepositoryBrowser::OnCopy()
     CString url;
     POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
     int index = -1;
+    CAutoReadLock locker(m_guard);
     while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
     {
         CItem * pItem = (CItem *)m_RepoList.GetItemData(index);
@@ -1772,6 +1797,7 @@ void CRepositoryBrowser::OnInlineedit()
     m_blockEvents = true;
     if (selIndex >= 0)
     {
+        CAutoReadLock locker(m_guard);
         CItem * pItem = (CItem *)m_RepoList.GetItemData(selIndex);
         if (!pItem->is_external)
         {
@@ -1781,6 +1807,7 @@ void CRepositoryBrowser::OnInlineedit()
     }
     else
     {
+        CAutoReadLock locker(m_guard);
         m_RepoTree.SetFocus();
         HTREEITEM hTreeItem = m_RepoTree.GetSelectedItem();
         if (hTreeItem != m_RepoTree.GetRootItem())
@@ -1855,6 +1882,7 @@ void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
             {
                 if (!pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
                 {
+                    CAutoWriteLock locker(m_guard);
                     m_RepoList.DeleteAllItems();
                     RefreshNode(hSelItem);
                 }
@@ -1938,6 +1966,7 @@ void CRepositoryBrowser::OpenFromList (int item)
     if (item < 0)
         return;
 
+    CAutoReadLock locker(m_guard);
     CItem * pItem = (CItem*)m_RepoList.GetItemData (item);
     if (pItem == 0)
         return;
@@ -2150,6 +2179,7 @@ void CRepositoryBrowser::OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResul
     {
         if (pNMLV->uNewState & LVIS_SELECTED)
         {
+            CAutoReadLock locker(m_guard);
             CItem * pItem = (CItem*)m_RepoList.GetItemData(pNMLV->iItem);
             if (pItem)
                 m_barRepository.ShowUrl ( pItem->absolutepath
@@ -2162,6 +2192,7 @@ void CRepositoryBrowser::OnLvnBeginlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pRe
 {
     NMLVDISPINFO *info = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
 
+    CAutoReadLock locker(m_guard);
     // disable rename for externals and the root
     CItem * item = (CItem *)m_RepoList.GetItemData (info->item.iItem);
     *pResult = (item == NULL) || (item->is_external) || (item->absolutepath.Compare(GetRepoRoot()) == 0)
@@ -2175,24 +2206,34 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
     NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
     if (pDispInfo->item.pszText == NULL)
         return;
-    // rename the item in the repository
-    CItem * pItem = (CItem *)m_RepoList.GetItemData(pDispInfo->item.iItem);
 
-    CTSVNPath targetUrl = CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath.Left(pItem->absolutepath.ReverseFind('/')+1)+pDispInfo->item.pszText)));
-    if(!CheckAndConfirmPath(targetUrl))
-        return;
+    CTSVNPath targetUrl;
+    CString uuid;
+    CString absolutepath;
+    {
+        CAutoReadLock locker(m_guard);
+        // rename the item in the repository
+        CItem * pItem = (CItem *)m_RepoList.GetItemData(pDispInfo->item.iItem);
+
+        targetUrl = CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath.Left(pItem->absolutepath.ReverseFind('/')+1)+pDispInfo->item.pszText)));
+        if(!CheckAndConfirmPath(targetUrl))
+            return;
+        uuid = pItem->repository.uuid;
+        absolutepath = pItem->absolutepath;
+    }
+
     CInputLogDlg input(this);
-    input.SetUUID (pItem->repository.uuid);
+    input.SetUUID (uuid);
     input.SetProjectProperties(&m_ProjectProperties, PROJECTPROPNAME_LOGTEMPLATEMOVE);
     CString sHint;
-    sHint.FormatMessage(IDS_INPUT_RENAME, (LPCTSTR)(pItem->absolutepath), (LPCTSTR)targetUrl.GetSVNPathString());
+    sHint.FormatMessage(IDS_INPUT_RENAME, (LPCTSTR)(absolutepath), (LPCTSTR)targetUrl.GetSVNPathString());
     input.SetActionText(sHint);
     input.SetForceFocus (true);
     if (input.DoModal() == IDOK)
     {
         CWaitCursorEx wait_cursor;
 
-        if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->absolutepath)))),
+        if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(absolutepath)))),
             targetUrl,
             input.GetLogMessage()))
         {
@@ -2217,6 +2258,7 @@ void CRepositoryBrowser::OnTvnBeginlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pRe
 
     NMTVDISPINFO* info = reinterpret_cast<NMTVDISPINFO*>(pNMHDR);
     // disable rename for externals
+    CAutoReadLock locker(m_guard);
     CTreeItem* item = (CTreeItem *)m_RepoTree.GetItemData (info->item.hItem);
     *pResult = (item == NULL) || (item->is_external) || (item->url.Compare(GetRepoRoot()) == 0)
              ? TRUE
@@ -2339,6 +2381,7 @@ void CRepositoryBrowser::OnBeginDrag(NMHDR *pNMHDR)
 
     CRepositoryBrowserSelection selection;
 
+    CAutoReadLock locker(m_guard);
     POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
     int index = -1;
     while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
@@ -2563,6 +2606,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                 InvalidateData (hTarget);
                 if (hTarget)
                 {
+                    CAutoWriteLock locker(m_guard);
                     CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hTarget);
                     if (pItem)
                     {
@@ -2587,6 +2631,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                         InvalidateData (hSource);
                         if (hSource)
                         {
+                            CAutoWriteLock locker(m_guard);
                             CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hSource);
                             if (pItem)
                             {
@@ -2605,6 +2650,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
 
                 if (hSelected)
                 {
+                    CAutoWriteLock locker(m_guard);
                     CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hSelected);
                     if (pItem)
                     {
@@ -2678,6 +2724,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                 InvalidateData (hSelected);
                 if (hSelected)
                 {
+                    CAutoWriteLock locker(m_guard);
                     CTreeItem * pItem = (CTreeItem*)m_RepoTree.GetItemData(hSelected);
                     if (pItem)
                     {
@@ -2735,6 +2782,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         }
     }
 
+    CAutoWriteLock locker(m_guard);
     CRepositoryBrowserSelection selection;
     if (pWnd == &m_RepoList)
     {
@@ -3777,12 +3825,14 @@ void CRepositoryBrowser::InvalidateData (HTREEITEM node)
 {
     if (node == NULL)
         return;
+    CAutoReadLock locker(m_guard);
     CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
     InvalidateData (node, pItem->repository.revision);
 }
 
 void CRepositoryBrowser::InvalidateData (HTREEITEM node, const SVNRev& revision)
 {
+    CAutoReadLock locker(m_guard);
     CTreeItem * pItem = NULL;
     if (node != NULL)
         pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
@@ -3849,6 +3899,7 @@ void CRepositoryBrowser::BeginDrag(const CWnd& window,
 
 void CRepositoryBrowser::StoreSelectedURLs()
 {
+    CAutoReadLock locker(m_guard);
     CRepositoryBrowserSelection selection;
 
     // selections on the RHS list take precedence
@@ -3924,6 +3975,7 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
 
 bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
 {
+    CAutoReadLock locker(m_guard);
     bool bChecked = !!m_RepoTree.GetCheck(hItem);
     CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (hItem);
     if (!bChecked)

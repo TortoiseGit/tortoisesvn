@@ -25,6 +25,7 @@
 #include "LogDialog\LogDlg.h"
 #include "HintCtrl.h"
 #include "RepositoryLister.h"
+#include "ReaderWriterLock.h"
 
 #define REPOBROWSER_CTRL_MIN_WIDTH  20
 #define REPOBROWSER_FETCHTIMER      101
@@ -317,6 +318,7 @@ private:
 
     /// used to execute user ops (e.g. context menu actions) in the background
     async::CJobScheduler m_backgroundJobs;
+    CReaderWriterLock    m_guard;
 };
 
 static UINT WM_AFTERINIT = RegisterWindowMessage(_T("TORTOISESVN_AFTERINIT_MSG"));
