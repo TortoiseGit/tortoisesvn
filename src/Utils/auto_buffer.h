@@ -86,6 +86,12 @@ public:
     void reset (size_t newSize = 0)
     {
         delete[] buffer;
-        buffer = (newSize == 0 ? NULL : new T[newSize]);
+        // first set pointer to null so that it doesn't persist a dangling pointer
+        // in case new[] throws an exception
+        buffer = 0;
+        if (newSize > 0)
+        {
+            buffer = new T[newSize];
+        }
     }
 };
