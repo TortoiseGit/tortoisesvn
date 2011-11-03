@@ -471,9 +471,6 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
     size_t offset2 = 0;
     std::vector<CHARRANGE> result;
 
-    if (sUrl.IsEmpty())
-        return result;
-
     // first use the checkre string to find bug ID's in the message
     if (!sCheckRe.IsEmpty())
     {
