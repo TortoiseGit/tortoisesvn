@@ -1841,6 +1841,7 @@ void CRepositoryBrowser::OnRefresh()
         return;
     }
 
+    CAutoReadLock locker(m_guard);
     // invalidate the cache
 
     InvalidateData (hSelected);
@@ -1874,6 +1875,7 @@ void CRepositoryBrowser::OnTimer(UINT_PTR nIDEvent)
     {
         KillTimer(REPOBROWSER_FETCHTIMER);
         // find the currently selected item
+        CAutoReadLock locker(m_guard);
         HTREEITEM hSelItem = m_RepoTree.GetSelectedItem();
         if (hSelItem)
         {
@@ -1906,6 +1908,7 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
 
     LPNMTREEVIEW pNMTreeView = reinterpret_cast<LPNMTREEVIEW>(pNMHDR);
 
+    CAutoReadLock locker(m_guard);
     CTreeItem * pTreeItem = (CTreeItem *)pNMTreeView->itemNew.lParam;
 
     if (pTreeItem == NULL)
