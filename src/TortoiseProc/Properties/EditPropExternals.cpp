@@ -273,7 +273,7 @@ void CEditPropExternals::OnBnClickedHelp()
 
 void CEditPropExternals::OnLvnItemchangedExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+    //LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     DialogEnableWindow(IDC_REMOVE, m_ExtList.GetSelectedCount());
     DialogEnableWindow(IDC_EDIT, m_ExtList.GetSelectedCount() == 1);
     *pResult = 0;
