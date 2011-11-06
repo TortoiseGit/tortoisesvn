@@ -533,6 +533,8 @@ void TortoiseBlame::InitialiseEditor()
     SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
     SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
     SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
+    SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
+    SendEditor(SCI_SETFONTQUALITY, SC_EFF_QUALITY_LCD_OPTIMIZED);
     m_regOldLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), RGB(255, 255, 255));
     m_regNewLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), RGB(255, 230, 230));
     m_regLocatorOldLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameLocatorOldColor"), RGB(255, 255, 255));
