@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-18 03:35+0000\n"
+"PO-Revision-Date: 2011-10-31 14:52+0000\n"
 "Last-Translator: Giasher <giasher@gmail.com>\n"
 "Language-Team: Georgian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2704,7 +2704,7 @@ msgstr "გარე ელემენტების შეცვლა ფი
 
 #. Resource IDs: (65535)
 msgid "Char position where to show a border line in commit text boxes:"
-msgstr ""
+msgstr "სიმბოლოს პოზიცია საზღვრისთვის შევსებულ ველში:"
 
 #. Resource IDs: (8)
 msgid "Chec&kout..."
@@ -3333,7 +3333,7 @@ msgstr "ელემენტების კოპირება და გა
 
 #. Resource IDs: (209)
 msgid "Copy column to clipboard"
-msgstr ""
+msgstr "სვეტის კოპირება ბუფერში"
 
 #. Resource IDs: (101)
 msgid "Copy error message to clipboard"
@@ -3497,12 +3497,12 @@ msgstr "%s - იგნორირების სიიდან ამოშ�
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not replace '%s' because"
-msgstr ""
+msgstr "ვერ ხერხდება ჩანაცვლება: '%s', მიზეზი:"
 
 #. Resource IDs: (582)
 #, c-format
 msgid "Could not replace property '%1!s!' on '%2!s!' because"
-msgstr ""
+msgstr "ვერ ხერხდება ჩანაცვლება: '%1!s!' ობიექტისთვის '%2!s!', მიზეზი:"
 
 #. Resource IDs: (81)
 #, c-format
@@ -3573,7 +3573,7 @@ msgstr "ვერ ვქმნი საქაღალდეს!"
 
 #. Resource IDs: (1542)
 msgid "Create &Library"
-msgstr ""
+msgstr "&ბიბლიოთეკის შექმნა"
 
 #. Resource IDs: (13)
 msgid "Create &patch..."
@@ -3624,7 +3624,7 @@ msgstr "განშტოებებისა და ჭდეებისთ�
 #. Resource IDs: (199)
 msgid ""
 "Creates a library folder with special settings for Subversion working copies"
-msgstr ""
+msgstr "ბიბლიოთეკის შექმნა სპეციალური პარამეტრებით სამუშაო საცავისთვის"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -3709,7 +3709,7 @@ msgstr "თარიღი"
 
 #. Resource IDs: (117)
 msgid "Date Range"
-msgstr ""
+msgstr "თარიღის დიაპაზონი"
 
 #. Resource IDs: (1008, 32842)
 msgid "Default"
@@ -3733,7 +3733,7 @@ msgstr "პროგრამის ნაგულისხმები მე�
 
 #. Resource IDs: (81)
 msgid "Default directory structure successfully created!"
-msgstr ""
+msgstr "დასტების ნაგულისხმები სტრუქტურა შეიქმნა!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -3853,11 +3853,11 @@ msgstr "ცვლილებეთა სიის მონიშვნის 
 
 #. Resource IDs: (1547)
 msgid "Destinatio&n URL:"
-msgstr ""
+msgstr "და&ნიშნულების URL:"
 
 #. Resource IDs: (1547)
 msgid "Destination URL:"
-msgstr ""
+msgstr "დანიშნულების URL:"
 
 #. Resource IDs: (3859)
 msgid "Destination disk drive is full."
@@ -3865,7 +3865,7 @@ msgstr "დანიშნულების დისკი სავსეა"
 
 #. Resource IDs: (2056)
 msgid "Detect and highlight moved blocks"
-msgstr ""
+msgstr "გადანაცვლებული ბლოკების მოძიება და გამოყოფა"
 
 #. Resource IDs: (3849)
 msgid ""
@@ -4062,7 +4062,7 @@ msgstr "გსურთ გაგრძელება?"
 
 #. Resource IDs: (3887)
 msgid "Do you want to recover these auto-saved documents?"
-msgstr ""
+msgstr "ნამდვილად გსურთ თვითშენახული დოკუმენტების აღდგენა?"
 
 #. Resource IDs: (313)
 msgid ""
@@ -4135,6 +4135,8 @@ msgid ""
 "Don't recover the auto-saved documents\n"
 "Use the last explicitly saved versions of the documents"
 msgstr ""
+"თვითშენახული დოკუმენტების შენარჩუნება\n"
+"დოკუმენტების უახლესი შენახული ვერსიების გამოყენება"
 
 #. Resource IDs: (315)
 msgid ""
@@ -4181,7 +4183,7 @@ msgstr "ამ გეზების გარე&შე:"
 
 #. Resource IDs: (32839)
 msgid "E&xecutable"
-msgstr ""
+msgstr "&შესრულებადი"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
@@ -4217,7 +4219,7 @@ msgstr "ღილაკის ნახატის რედაქტირე�
 
 #. Resource IDs: (319)
 msgid "Edit External"
-msgstr ""
+msgstr "გარეს რედაქცია"
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
@@ -4241,7 +4243,7 @@ msgstr "ავტორის სახელის რედაქტირე�
 
 #. Resource IDs: (315)
 msgid "Edit bugtraq properties"
-msgstr ""
+msgstr "პარამეტრების რედაქცია"
 
 #. Resource IDs: (110)
 msgid "Edit extension specific diff program"
@@ -4253,7 +4255,7 @@ msgstr "შერწყმის პროგრამის რედაქტ�
 
 #. Resource IDs: (321)
 msgid "Edit language properties"
-msgstr ""
+msgstr "ენის პარამეტრების რედაქცია"
 
 #. Resource IDs: (113, 115)
 msgid "Edit log message"
@@ -4282,7 +4284,7 @@ msgstr "პროქსი სერვერის სახელი ან IP
 
 #. Resource IDs: (265)
 msgid "Eliding mergeinfo"
-msgstr ""
+msgstr "შერწყმის მონაცემთა რედაქცია"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -4492,7 +4494,7 @@ msgstr ""
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
-msgstr ""
+msgstr "&გარე"
 
 #. Resource IDs: (1413)
 msgid "Exceptions:"

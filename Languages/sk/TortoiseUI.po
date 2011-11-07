@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-18 13:14+0000\n"
+"PO-Revision-Date: 2011-11-03 08:02+0000\n"
 "Last-Translator: otik <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1051,7 +1051,7 @@ msgstr "&Otvoriť"
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
-msgstr ""
+msgstr "&Operatívne:"
 
 #. Resource IDs: (1382)
 msgid "&Options"
@@ -1071,7 +1071,7 @@ msgstr "&Vložiť"
 
 #. Resource IDs: (1600)
 msgid "&Peg:"
-msgstr ""
+msgstr "&Pripevniť:"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -1698,9 +1698,9 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
 msgstr ""
-"Platná cesta nesmie obsahovať \"<>|\"?*:\" ani meno nasledovných zariadení:\n"
+"Platná cesta vo Windows nesmie obsahovať <>;|\"\"?*: alebo jedno z nasledovných mien zariadení:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
-"Pozrite si o tom <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">dokumentaciu</a> od Microsoft."
+"Pozrite si o tom <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">;dokumentaciu</a> od Microsoft-u."
 
 #. Resource IDs: (79)
 msgid ""
@@ -4243,7 +4243,7 @@ msgid ""
 "working copies next to each other.\n"
 "This works for directory URLs only."
 msgstr ""
-"Nerobte získanie adresára roztrúsenej pracovnej kópie.\n"
+"Nerobte získanie adresára riedkej pracovnej kópie.\n"
 "Namiesto toho získajte oddelene pracovné kópie\n"
 "adresárov do jedného adresára.\n"
 "Toto funguje len pre URL adresárov."
@@ -7371,7 +7371,7 @@ msgstr "Použiť zásobník denníka iba teraz"
 
 #. Resource IDs: (218)
 msgid "Operative"
-msgstr ""
+msgstr "Operatívne"
 
 #. Resource IDs: (348)
 msgid "Option"
@@ -7545,7 +7545,7 @@ msgstr "Cesty"
 
 #. Resource IDs: (218)
 msgid "Peg"
-msgstr ""
+msgstr "Pripevniť"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -8907,7 +8907,7 @@ msgid ""
 "You're asked where to save the file"
 msgstr ""
 "Uložiť ako\n"
-"Budete opýtaný kam súbor uložiť"
+"Budete opýtaný kam sa má súbor uložiť"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -9632,7 +9632,7 @@ msgstr "Zdrojová URL:"
 #. Resource IDs: (230)
 #, c-format
 msgid "Sparse update %1!s!, depth '%2!s!'"
-msgstr "Riedka aktuálizacia %1!s!, hĺbka '%2!s!'"
+msgstr "Riedka aktualizácia %1!s!, hĺbka '%2!s!'"
 
 #. Resource IDs: (196)
 msgid ""
@@ -12660,18 +12660,18 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr ""
-"svn:externals\r\n"
-"Novými riadkami oddelený zoznam modulov. Každý pozostáva\r\n"
-"voliteľne z revízie, URL s voliteľnou peg revízou a z relatívnej cesty adresára.\r\n"
-"Napríklad\r\n"
-"http://example.com/repos/zig foo\r\n"
-"-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n"
-"\r\n"
-"URL môžu byť buď plné, alebo relatívne.\r\n"
-"Formát relatívnych URL je:\r\n"
-"../ relatívne k externému rodičovskému adresáru\r\n"
-"^/ relatívne ku kmeňu úložiska\r\n"
-"// relatívne k URL schéme\r\n"
+"svn:externals\n"
+"Novými riadkami oddelený zoznam modulov. Každý pozostáva\n"
+"voliteľne z revízie, URL s voliteľnou pripevnenou revízou a z relatívnej cesty adresára.\n"
+"Napríklad\n"
+"http://example.com/repos/zig foo\n"
+"-r 1234 http://example.com/repos/zag@1234 foo/bar\n"
+"\n"
+"URL môžu byť buď plné, alebo relatívne.\n"
+"Formát relatívnych URL je:\n"
+"../ relatívne k externému rodičovskému adresáru\n"
+"^/ relatívne ku kmeňu úložiska\n"
+"// relatívne k URL schéme\n"
 "/ relatívne k menu servera"
 
 #. Resource IDs: (576)
