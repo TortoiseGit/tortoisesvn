@@ -124,6 +124,7 @@ bool CommitCommand::Execute()
             if (!dlg.m_pathList.IsEqual(pathList))
                 selectedList = dlg.m_pathList;
             pathList = dlg.m_updatedPathList;
+            updatelist = dlg.m_updatedPathList;
             sLogMsg = dlg.m_sLogMessage;
             bSelectFilesForCommit = true;
             CSVNProgressDlg progDlg;
