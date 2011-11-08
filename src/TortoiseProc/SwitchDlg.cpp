@@ -33,7 +33,7 @@ CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
     , m_pLogDlg(NULL)
     , m_bNoExternals(FALSE)
     , m_bStickyDepth(FALSE)
-    , m_bIgnoreAncestry(TRUE)
+    , m_bIgnoreAncestry(FALSE)
 {
 }
 
