@@ -107,6 +107,7 @@ void CRevisionGraphWnd::SetScrollbar (int bar, int newPos, int clientMax, int gr
     SCROLLINFO ScrollInfo = {sizeof(SCROLLINFO), SIF_ALL};
     GetScrollInfo (bar, &ScrollInfo);
 
+    clientMax = max(1, clientMax);
     int oldHeight = ScrollInfo.nMax <= 0 ? clientMax : ScrollInfo.nMax;
     int newHeight = static_cast<int>(graphMax * m_fZoomFactor);
     int maxPos = max (0, newHeight - clientMax);
