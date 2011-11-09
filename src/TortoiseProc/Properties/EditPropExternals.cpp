@@ -189,7 +189,7 @@ void CEditPropExternals::OnNMDblclkExternalslist(NMHDR * pNMHDR, LRESULT *pResul
     LPNMITEMACTIVATE lpnmitem = (LPNMITEMACTIVATE) pNMHDR;
     *pResult = 0;
 
-    if (lpnmitem->iItem < (int)m_externals.size())
+    if ((lpnmitem->iItem >= 0)&&(lpnmitem->iItem < (int)m_externals.size()))
     {
         SVNExternal ext = m_externals[lpnmitem->iItem];
         if (ext.revision.kind == svn_opt_revision_unspecified)
@@ -216,7 +216,7 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
 
     if (pDispInfo)
     {
-        if (pDispInfo->item.iItem < (int)m_externals.size())
+        if ((pDispInfo->item.iItem >= 0)&&(pDispInfo->item.iItem < (int)m_externals.size()))
         {
             SVNExternal ext = m_externals[pDispInfo->item.iItem];
             if (pDispInfo->item.mask & LVIF_TEXT)
@@ -271,7 +271,7 @@ void CEditPropExternals::OnBnClickedHelp()
 }
 
 
-void CEditPropExternals::OnLvnItemchangedExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
+void CEditPropExternals::OnLvnItemchangedExternalslist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
     //LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     DialogEnableWindow(IDC_REMOVE, m_ExtList.GetSelectedCount());
