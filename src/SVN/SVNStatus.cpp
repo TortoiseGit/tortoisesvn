@@ -272,6 +272,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
 
     return youngest;
 }
+
 svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update, svn_depth_t depth, bool bNoIgnore /* = true */, bool bNoExternals /* = false */)
 {
     const sort_item*            item;
@@ -287,6 +288,10 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
     hashbaton.exthash = m_externalhash;
     hashbaton.pThis = this;
     m_statushashindex = 0;
+
+    m_pctx->notify_func2 = notify;
+    m_pctx->notify_baton2 = &hashbaton;
+
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
     if ((svnPath == NULL)||(svnPath[0] == 0))
@@ -673,6 +678,16 @@ svn_error_t * SVNStatus::getstatushash(void * baton, const char * path, const sv
     svn_client_status_t * statuscopy = svn_client_status_dup (status, hash->pThis->m_pool);
     apr_hash_set (hash->hash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, statuscopy);
     return SVN_NO_ERROR;
+}
+
+void SVNStatus::notify(void *baton, const svn_wc_notify_t *notify, apr_pool_t *pool)
+{
+    hashbaton_t * hash = (hashbaton_t *)baton;
+
+    if (notify->action == svn_wc_notify_status_external)
+    {
+        apr_hash_set (hash->exthash, apr_pstrdup(hash->pThis->m_pool, notify->path), APR_HASH_KEY_STRING, (const void*)1);
+    }
 }
 
 apr_array_header_t * SVNStatus::sort_hash (apr_hash_t *ht,

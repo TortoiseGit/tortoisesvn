@@ -28,6 +28,7 @@
 #include "ShellUpdater.h"
 #include "CleanupDlg.h"
 #include "SVNStatus.h"
+#include "SVNHelpers.h"
 #include "..\..\TSVNCache\CacheInterface.h"
 
 bool CleanupCommand::Execute()
@@ -110,16 +111,19 @@ bool CleanupCommand::Execute()
         actionTotal += externals.GetCount();
         for (int i=0; i<externals.GetCount(); ++i)
         {
-            SVN svn;
-            progress.FormatPathLine(2, IDS_PROC_CLEANUP_INFO1, (LPCTSTR)externals[i].GetFileOrDirectoryName());
-            progress.SetProgress(actionCounter++, actionTotal);
-            CBlockCacheForPath cacheBlock (externals[i].GetWinPath());
-            if (!svn.CleanUp(externals[i]))
+            if (SVNHelper::IsVersioned(externals[i], true))
             {
-                strFailedString = externals[i].GetWinPathString();
-                strFailedString += L"\n" + svn.GetLastErrorMessage();
-                bFailed = true;
-                break;
+                SVN svn;
+                progress.FormatPathLine(2, IDS_PROC_CLEANUP_INFO1, (LPCTSTR)externals[i].GetFileOrDirectoryName());
+                progress.SetProgress(actionCounter++, actionTotal);
+                CBlockCacheForPath cacheBlock (externals[i].GetWinPath());
+                if (!svn.CleanUp(externals[i]))
+                {
+                    strFailedString = externals[i].GetWinPathString();
+                    strFailedString += L"\n" + svn.GetLastErrorMessage();
+                    bFailed = true;
+                    break;
+                }
             }
         }
     }

@@ -203,6 +203,11 @@ private:
     static svn_error_t * getstatushash (void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
 
     /**
+     * notification callback used to gather the externals.
+     */
+    static void notify(void *baton, const svn_wc_notify_t *notify, apr_pool_t *pool);
+
+    /**
      * helper function to sort a hash to an array
      */
     static apr_array_header_t * sort_hash (apr_hash_t *ht, int (*comparison_func) (const sort_item *,
