@@ -5183,6 +5183,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             const CLogChangedPathArray& paths = pLogEntry->GetChangedPaths();
 
             int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
+            changedlogpathindices.push_back (static_cast<size_t>(nItem));
             if ((m_cShowPaths.GetState() & 0x0003)==BST_CHECKED)
             {
                 // some items are hidden! So find out which item the user really clicked on
@@ -5222,7 +5223,6 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             }
 
             changedpaths.push_back(changedlogpath.GetPath());
-            changedlogpathindices.push_back (static_cast<size_t>(nItem));
         }
     }
 
@@ -5233,7 +5233,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         bool bEntryAdded = false;
         if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
         {
-            if ((!bOneRev)||(IsDiffPossible (pLogEntry->GetChangedPaths()[changedlogpathindices[0]], rev1)))
+            if ((!bOneRev)||(IsDiffPossible (m_currentChangedArray[changedlogpathindices[0]], rev1)))
             {
                 popup.AppendMenuIcon(ID_DIFF, IDS_LOG_POPUP_DIFF, IDI_DIFF);
                 popup.AppendMenuIcon(ID_BLAMEDIFF, IDS_LOG_POPUP_BLAMEDIFF, IDI_BLAME);
