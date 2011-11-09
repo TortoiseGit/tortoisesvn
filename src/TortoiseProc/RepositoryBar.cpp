@@ -208,6 +208,8 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecke
     if (new_url.Find('?')>=0)
     {
         new_rev = SVNRev(new_url.Mid(new_url.Find('?')+1));
+        if (!new_rev.IsValid())
+            new_rev = SVNRev::REV_HEAD;
         new_url = new_url.Left(new_url.Find('?'));
     }
 
