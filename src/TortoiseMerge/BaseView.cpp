@@ -1671,7 +1671,7 @@ void CBaseView::DrawTextLine(
             int nTextLength = nEndExp - nStartExp;
             LPCTSTR p_zBlockText = textExp + nStartExp;
             SIZE Size;
-            GetTextExtentPoint32(pDC->operator HDC(), p_zBlockText, nTextLength, &Size); // falls time-2-tme
+            GetTextExtentPoint32(pDC->GetSafeHdc(), p_zBlockText, nTextLength, &Size); // falls time-2-tme
             int nRight = nLeft + Size.cx;
             if ((nRight > rc.left) && (nLeft < rc.right))
             {
@@ -1765,7 +1765,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
         pDC->FillSolidRect(frect, crBkgnd);
 
     // draw the whitespace chars
-    LPCTSTR pszChars = sLine.operator LPCWSTR();
+    LPCTSTR pszChars = (LPCWSTR)sLine;
     if (m_bViewWhitespace)
     {
         int xpos = 0;
@@ -1837,7 +1837,7 @@ void CBaseView::ExpandChars(const CString &sLine, int nOffset, int nCount, CStri
 
     int nActualOffset = CountExpandedChars(sLine, nOffset);
 
-    LPCTSTR pszChars = sLine.operator LPCWSTR();
+    LPCTSTR pszChars = (LPCWSTR)sLine;
     pszChars += nOffset;
     int nLength = nCount;
 
@@ -4665,14 +4665,14 @@ int CBaseView::Screen2View::FindScreenLineForViewLine( int viewLine )
         while (nTestBit)
         {
             int nTestPos = nPos | nTestBit;
-            if (nTestPos < nScreenLineCount && m_Screen2View.operator[](nTestPos).nViewLine < viewLine)
+            if (nTestPos < nScreenLineCount && m_Screen2View[nTestPos].nViewLine < viewLine)
             {
                 nPos = nTestPos;
             }
             nTestBit >>= 1;
         }
     }
-    while (nPos < nScreenLineCount && m_Screen2View.operator[](nPos).nViewLine < viewLine)
+    while (nPos < nScreenLineCount && m_Screen2View[nPos].nViewLine < viewLine)
     {
         nPos++;
     }
