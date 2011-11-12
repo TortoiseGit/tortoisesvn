@@ -680,7 +680,7 @@ svn_error_t * SVNStatus::getstatushash(void * baton, const char * path, const sv
     return SVN_NO_ERROR;
 }
 
-void SVNStatus::notify(void *baton, const svn_wc_notify_t *notify, apr_pool_t *pool)
+void SVNStatus::notify(void *baton, const svn_wc_notify_t *notify, apr_pool_t * /*pool*/)
 {
     hashbaton_t * hash = (hashbaton_t *)baton;
 
