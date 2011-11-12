@@ -337,7 +337,7 @@ protected:  // methods
     int             CalculateActualOffset(const POINT& point);
     int             CalculateCharIndex(int nLineIndex, int nActualOffset);
     POINT           TextToClient(const POINT& point);
-    void            DrawTextLine(CDC * pDC, const CRect &rc, int nLineIndex, POINT coords);
+    void            DrawTextLine(CDC * pDC, const CRect &rc, int nLineIndex, POINT& coords);
     void            ClearCurrentSelection();
     void            AdjustSelection(bool bMoveLeft);
     bool            SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock = true, bool dryrun = false);

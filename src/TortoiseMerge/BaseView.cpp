@@ -1553,7 +1553,7 @@ void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
 }
 
 void CBaseView::DrawTextLine(
-    CDC * pDC, const CRect &rc, int nLineIndex, POINT coords)
+    CDC * pDC, const CRect &rc, int nLineIndex, POINT& coords)
  {
     ASSERT(nLineIndex < GetLineCount());
     int nViewLine = GetViewLineForScreen(nLineIndex);
@@ -1682,6 +1682,7 @@ void CBaseView::DrawTextLine(
                 }
             }
             nLeft = nRight;
+            coords.x = nRight;
             nStartExp = nEndExp;
         }
     }
@@ -1755,8 +1756,6 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
     pDC->SelectObject(GetFont(FALSE, FALSE, IsLineRemoved(nLineIndex)));
 
     DrawTextLine(pDC, rc, nLineIndex, origin);
-    CString line = ExpandChars(sLine); // note: DrawTextLine can possibly return pixel text width
-    origin.x += pDC->GetTextExtent(line).cx;
 
     // draw white space after the end of line
     CRect frect = rc;
