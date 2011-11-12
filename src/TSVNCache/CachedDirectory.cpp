@@ -188,6 +188,18 @@ BOOL CCachedDirectory::LoadFromDisk(FILE * pFile)
 
 }
 
+CStatusCacheEntry CCachedDirectory::GetCacheStatusForMember( const CTSVNPath& path )
+{
+    AutoLocker lock(m_critSec);
+    CStringA strCacheKey = GetCacheKey(path);
+    CacheEntryMap::iterator itMap = m_entryCache.find(strCacheKey);
+    if(itMap != m_entryCache.end())
+    {
+        return itMap->second;
+    }
+    return CStatusCacheEntry();
+}
+
 CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bool bRecursive,  bool bFetch /* = true */)
 {
     CStringA strCacheKey;
@@ -291,7 +303,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
                     if (m_directoryPath.IsAncestorOf(path))
                     {
                         m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-                        return CStatusCacheEntry();
+                        return GetCacheStatusForMember(path);
                     }
                 }
             }
@@ -329,7 +341,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
                 // the shell updater invoked in the crawler
                 m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
                 CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath.GetDirectory());
-                return CStatusCacheEntry();
+                return GetCacheStatusForMember(path);
             }
         }
         // if we're fetching the status for the explorer,
@@ -340,7 +352,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
         if ((!bFetch)&&(m_wcDbFileTime))
         {
             CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath.GetDirectory());
-            return CStatusCacheEntry();
+            return GetCacheStatusForMember(path);
         }
         AutoLocker lock(m_critSec);
         m_entryCache.clear();
@@ -363,7 +375,7 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
             if (m_directoryPath.IsAncestorOf(path))
             {
                 m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-                return CStatusCacheEntry();
+                return GetCacheStatusForMember(path);
             }
         }
     }
@@ -933,3 +945,4 @@ void CCachedDirectory::RefreshMostImportant(bool bUpdateShell /* = true */)
     }
     m_mostImportantFileStatus = newStatus;
 }
+

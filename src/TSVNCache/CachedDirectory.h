@@ -38,6 +38,7 @@ public:
     CCachedDirectory(const CTSVNPath& directoryPath);
     ~CCachedDirectory(void);
     CStatusCacheEntry GetStatusForMember(const CTSVNPath& path, bool bRecursive, bool bFetch = true);
+    CStatusCacheEntry GetCacheStatusForMember(const CTSVNPath& path);
     CStatusCacheEntry GetOwnStatus(bool bRecursive);
     bool IsOwnStatusValid() const;
     void Invalidate();

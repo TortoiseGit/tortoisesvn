@@ -509,36 +509,57 @@ CStatusCacheEntry CSVNStatusCache::GetStatusForPath(const CTSVNPath& path, DWORD
         m_mostRecentExpiresAt = now+1000;
     }
 
-    if (IsPathGood(path) && m_shellCache.IsPathAllowed(path.GetWinPath()))
+    if (m_shellCache.IsPathAllowed(path.GetWinPath()))
     {
-        // Stop the crawler starting on a new folder while we're doing this much more important task...
-        // Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
-        CCrawlInhibitor crawlInhibit(&m_folderCrawler);
-
-        CTSVNPath dirpath = path.GetContainingDirectory();
-        if (dirpath.IsEmpty())
-            dirpath = path.GetDirectory();
-        CCachedDirectory * cachedDir = GetDirectoryCacheEntry(dirpath);
-        if (cachedDir != NULL)
+        if (IsPathGood(path))
         {
-            CStatusCacheEntry entry = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
-            {
-                AutoLocker lock(m_critSec);
-                m_mostRecentStatus = entry;
-                return m_mostRecentStatus;
-            }
-        }
-        cachedDir = GetDirectoryCacheEntry(path.GetDirectory());
-        if (cachedDir != NULL)
-        {
-            CStatusCacheEntry entry = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
-            {
-                AutoLocker lock(m_critSec);
-                m_mostRecentStatus = entry;
-                return m_mostRecentStatus;
-            }
-        }
+            // Stop the crawler starting on a new folder while we're doing this much more important task...
+            // Please note, that this may be a second "lock" used concurrently to the one in RemoveCacheForPath().
+            CCrawlInhibitor crawlInhibit(&m_folderCrawler);
 
+            CTSVNPath dirpath = path.GetContainingDirectory();
+            if (dirpath.IsEmpty())
+                dirpath = path.GetDirectory();
+            CCachedDirectory * cachedDir = GetDirectoryCacheEntry(dirpath);
+            if (cachedDir != NULL)
+            {
+                CStatusCacheEntry entry = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
+                {
+                    AutoLocker lock(m_critSec);
+                    m_mostRecentStatus = entry;
+                    return m_mostRecentStatus;
+                }
+            }
+            cachedDir = GetDirectoryCacheEntry(path.GetDirectory());
+            if (cachedDir != NULL)
+            {
+                CStatusCacheEntry entry = cachedDir->GetStatusForMember(path, bRecursive, bFetch);
+                {
+                    AutoLocker lock(m_critSec);
+                    m_mostRecentStatus = entry;
+                    return m_mostRecentStatus;
+                }
+            }
+
+        }
+        else
+        {
+            // path is blocked for some reason: return the cached status if we have one
+            // we do here only a cache search, absolutely no disk access is allowed!
+            CCachedDirectory::ItDir itMap = m_directoryCache.find(path);
+            if ((itMap != m_directoryCache.end())&&(itMap->second))
+            {
+                // We've found this directory in the cache
+                CCachedDirectory * cachedDir = itMap->second;
+                CStatusCacheEntry entry = cachedDir->GetCacheStatusForMember(path);
+                {
+                    AutoLocker lock(m_critSec);
+                    m_mostRecentStatus = entry;
+                    return m_mostRecentStatus;
+                }
+            }
+
+        }
     }
     AutoLocker lock(m_critSec);
     m_mostRecentStatus = CStatusCacheEntry();
