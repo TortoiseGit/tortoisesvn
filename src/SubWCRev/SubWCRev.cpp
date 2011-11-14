@@ -695,12 +695,25 @@ int _tmain(int argc, _TCHAR* argv[])
     DWORD reqLen = GetFullPathName(wc, 0, NULL, NULL);
     TCHAR * fullPath = new TCHAR[reqLen+1];
     GetFullPathName(wc, reqLen, fullPath, NULL);
+    // GetFullPathName() sometimes returns the full path with the wrong
+    // case. This is not a problem on Windows since its filesystem is 
+    // case-insensitive. But for SVN that's a problem if the wrong case
+    // is inside a working copy: the svn wc database is case sensitive.
+    // To fix the casing of the path, we use a trick:
+    // convert the path to its short form, then back to its long form.
+    // That will fix the wrong casing of the path.
+    std::unique_ptr<TCHAR[]> shortPath(new TCHAR[reqLen+1]);
+    GetShortPathName(fullPath, shortPath.get(), reqLen);
+    GetLongPathName(shortPath.get(), fullPath, reqLen);
     wc = fullPath;
     if (dst)
     {
         reqLen = GetFullPathName(dst, 0, NULL, NULL);
         fullPath = new TCHAR[reqLen+1];
         GetFullPathName(dst, reqLen, fullPath, NULL);
+        std::unique_ptr<TCHAR[]> shortPath(new TCHAR[reqLen+1]);
+        GetShortPathName(fullPath, shortPath.get(), reqLen);
+        GetLongPathName(shortPath.get(), fullPath, reqLen);
         dst = fullPath;
     }
     if (src)
@@ -708,6 +721,9 @@ int _tmain(int argc, _TCHAR* argv[])
         reqLen = GetFullPathName(src, 0, NULL, NULL);
         fullPath = new TCHAR[reqLen+1];
         GetFullPathName(src, reqLen, fullPath, NULL);
+        std::unique_ptr<TCHAR[]> shortPath(new TCHAR[reqLen+1]);
+        GetShortPathName(fullPath, shortPath.get(), reqLen);
+        GetLongPathName(shortPath.get(), fullPath, reqLen);
         src = fullPath;
     }
 
