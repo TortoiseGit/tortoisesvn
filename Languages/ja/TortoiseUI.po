@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-23 04:26+0000\n"
+"PO-Revision-Date: 2011-11-07 18:28+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgstr "%1!s! : 作業ベース、リビジョン %2!ld!"
 #. Resource IDs: (226)
 #, c-format
 msgid "%1!s! in %2!s!"
-msgstr "%2!s!で%1!s!"
+msgstr "%2!s!で %1!s!"
 
 #. Resource IDs: (357)
 #, c-format
@@ -660,7 +660,7 @@ msgstr "差分を表示(&D)"
 
 #. Resource IDs: (17)
 msgid "&Diff with URL"
-msgstr "URLと差分を表示(&D)"
+msgstr "URL を指定して差分を表示(&D)"
 
 #. Resource IDs: (14)
 msgid "&Diff with previous version"
@@ -1882,7 +1882,7 @@ msgid ""
 msgstr ""
 "ファイルパターン\n"
 "%s\n"
-"を無視リストに追加。"
+"を無視リストに追加しました。"
 
 #. Resource IDs: (263)
 msgid "Adding"
@@ -3193,7 +3193,7 @@ msgstr "2つのファイルを比較"
 
 #. Resource IDs: (32871)
 msgid "Compare whitespaces"
-msgstr "空白を比較"
+msgstr "空白を比較する"
 
 #. Resource IDs: (76)
 msgid "Compare with &working copy"
@@ -3213,7 +3213,7 @@ msgid ""
 "Compare whitespaces"
 msgstr ""
 "差分をとる際にすべての空白を比較する\n"
-"空白を比較"
+"空白を比較する"
 
 #. Resource IDs: (12)
 msgid ""
@@ -5744,7 +5744,7 @@ msgid ""
 "Ignore all whitespace changes"
 msgstr ""
 "差分をとる際にすべての空白を無視する\n"
-"すべての空白を無視"
+"すべての空白を無視する"
 
 #. Resource IDs: (2055)
 msgid ""
@@ -5752,7 +5752,7 @@ msgid ""
 "Ignore whitespace changes"
 msgstr ""
 "差分をとる際に空白内の変更を無視する\n"
-"空白の変更を無視"
+"空白の変更を無視する"
 
 #. Resource IDs: (89)
 msgid "Illegal path"
@@ -8004,7 +8004,7 @@ msgstr "シェルのオーバーレイを更新(&S)"
 #. Resource IDs: (148)
 #, c-format
 msgid "Refreshing shell for %1!s!"
-msgstr "%1!s! に対するシェルをリフレッシュ"
+msgstr "%1!s! のオーバーレイを更新中"
 
 #. Resource IDs: (1576)
 msgid "Regular Expression"
