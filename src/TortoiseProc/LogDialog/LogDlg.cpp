@@ -5233,7 +5233,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         bool bEntryAdded = false;
         if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
         {
-            if ((!bOneRev)||(IsDiffPossible (m_currentChangedArray[changedlogpathindices[0]], rev1)))
+            if ((!bOneRev)||(IsDiffPossible (m_currentChangedArray[selIndex], rev1)))
             {
                 popup.AppendMenuIcon(ID_DIFF, IDS_LOG_POPUP_DIFF, IDI_DIFF);
                 popup.AppendMenuIcon(ID_BLAMEDIFF, IDS_LOG_POPUP_BLAMEDIFF, IDI_BLAME);
@@ -5293,7 +5293,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         {
         case ID_DIFF:
             {
-                if ((!bOneRev)|| IsDiffPossible (m_currentChangedArray[changedlogpathindices[0]], rev1))
+                if ((!bOneRev)|| IsDiffPossible (m_currentChangedArray[selIndex], rev1))
                 {
                     auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); DoDiffFromLog(selIndex, rev1, rev2, false, false); this->EnableWindow(TRUE);this->SetFocus();};
                     new async::CAsyncCall(f, &netScheduler);
@@ -5320,7 +5320,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         case ID_REVERTREV:
             {
                 const CLogChangedPath& changedlogpath
-                    = m_currentChangedArray[changedlogpathindices[0]];
+                    = m_currentChangedArray[selIndex];
 
                 SetPromptApp(&theApp);
                 theApp.DoWaitCursor(1);
@@ -5345,7 +5345,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 m_bCancelled = false;
                 CString sUrlRoot = GetRepositoryRoot(CTSVNPath(sUrl));
 
-                CString fileURL = changedpaths[0];
+                CString fileURL = changedlogpath.GetPath();
                 fileURL = sUrlRoot + fileURL.Trim();
                 // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
                 // sUrl = http://mydomain.com/repos/trunk/folder
@@ -5417,7 +5417,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     }
                 }
                 filepath = GetRepositoryRoot(CTSVNPath(filepath));
-                filepath += changedpaths[0];
+                filepath += m_currentChangedArray[selIndex].GetPath();
                 CPropDlg dlg;
                 dlg.m_rev = rev1;
                 dlg.m_Path = CTSVNPath(filepath);
@@ -5470,7 +5470,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     // Display the Open dialog box.
                     CString revFilename;
                     CString temp;
-                    temp = CPathUtils::GetFileNameFromPath(changedpaths[0]);
+                    temp = CPathUtils::GetFileNameFromPath(m_currentChangedArray[selIndex].GetPath());
                     int rfind = temp.ReverseFind('.');
                     if (rfind > 0)
                         revFilename.Format(_T("%s-%ld%s"), (LPCTSTR)temp.Left(rfind), rev1, (LPCTSTR)temp.Mid(rfind));
@@ -5623,8 +5623,8 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             bOpenWith = true;
         case ID_OPEN:
             {
-                SVNRev getrev = pLogEntry->GetChangedPaths()[selIndex].GetAction() == LOGACTIONS_DELETED ? rev2 : rev1;
-                auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); Open(bOpenWith,changedpaths[0],getrev); this->EnableWindow(TRUE);this->SetFocus();};
+                SVNRev getrev = m_currentChangedArray[selIndex].GetAction() == LOGACTIONS_DELETED ? rev2 : rev1;
+                auto f = [=](){CoInitialize(NULL); this->EnableWindow(FALSE); Open(bOpenWith,m_currentChangedArray[selIndex].GetPath(),getrev); this->EnableWindow(TRUE);this->SetFocus();};
                 new async::CAsyncCall(f, &netScheduler);
             }
             break;
@@ -5647,9 +5647,9 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     }
                 }
                 filepath = GetRepositoryRoot(CTSVNPath(filepath));
-                filepath += changedpaths[0];
+                filepath += m_currentChangedArray[selIndex].GetPath();
                 const CLogChangedPath& changedlogpath
-                    = m_currentChangedArray[changedlogpathindices[0]];
+                    = m_currentChangedArray[selIndex];
                 CBlameDlg dlg;
                 if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
                     rev1--;
@@ -5699,7 +5699,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         case ID_LOG:
             {
                 const CLogChangedPath& changedlogpath
-                    = m_currentChangedArray[changedlogpathindices[0]];
+                    = m_currentChangedArray[selIndex];
 
                 DialogEnableWindow(IDOK, FALSE);
                 SetPromptApp(&theApp);
@@ -5722,7 +5722,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 }
                 m_bCancelled = false;
                 filepath = GetRepositoryRoot(CTSVNPath(filepath));
-                filepath += changedpaths[0];
+                filepath += m_currentChangedArray[selIndex].GetPath();
                 svn_revnum_t logrev = rev1;
                 CString sCmd;
                 if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
@@ -5750,7 +5750,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             {
                 PLOGENTRYDATA pLogEntry2 = m_logEntries.GetVisible (m_LogList.GetSelectionMark());
                 SVNRev rev = pLogEntry2->GetRevision();
-                CString relurl = changedpaths[0];
+                CString relurl = m_currentChangedArray[selIndex].GetPath();
                 CString url = m_ProjectProperties.sWebViewerPathRev;
                 url = CAppUtils::GetAbsoluteUrlFromRelativeUrl(m_sRepositoryRoot, url);
                 url.Replace(_T("%REVISION%"), rev.ToString());
