@@ -785,14 +785,9 @@ void CCachedDirectory::UpdateCurrentStatus()
     CTSVNPath parentPath = m_directoryPath.GetContainingDirectory();
     if(!parentPath.IsEmpty())
     {
-        // We have a parent, but if we're a wc root ourselves, we must not
-        // propagate the status to our parent.
-        if (!m_directoryPath.IsWCRoot())
-        {
-            CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath);
-            if (cachedDir)
-                cachedDir->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus);
-        }
+        CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(parentPath);
+        if (cachedDir)
+            cachedDir->UpdateChildDirectoryStatus(m_directoryPath, m_currentFullStatus);
     }
 }
 
@@ -804,7 +799,10 @@ void CCachedDirectory::UpdateChildDirectoryStatus(const CTSVNPath& childDir, svn
     svn_wc_status_kind currentStatus = svn_wc_status_none;
     {
         AutoLocker lock(m_critSec);
-        currentStatus = m_childDirectories[winPath];
+        auto it = m_childDirectories.find(winPath);
+        if (it == m_childDirectories.end())
+            return; // this is not a child, or at least not a child connected to the parent
+        currentStatus = it->second;
     }
     if ((currentStatus != childStatus)||(!IsOwnStatusValid()))
     {
