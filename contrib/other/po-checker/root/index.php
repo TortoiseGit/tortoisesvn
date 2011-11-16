@@ -29,7 +29,7 @@ $html->AddMeta("description", "");
 echo $html->openBody();
 
 #log
-include "log.hp";
+include "../modules/log.php";
 
 
 #load intro texts
@@ -52,26 +52,32 @@ if ($crawler) {
 //include MODULE_PATH."intro_9.php";
 
 # get and fix parameters
-$lang=$_GET["l"]; // language
+
+function GetFromGet($name) {
+	//echo "<br/>GET(\"$name\") = ".$_GET[$name]."<br/>";
+	return isset($_GET[$name]) ? $_GET[$name] : NULL;
+}
+
+$lang=GetFromGet("l"); // language
 if ($lang=="") {
-	$lang="";
+	unset($lang);
 }
 
-$stable=$_GET["stable"]; // stable(branch) vs. trunk
-if ($stable) {
-	$stable=1;
-} else {
-	$stable=0;
+$source=GetFromGet("s"); // stable(branch) vs. trunk
+switch ($source) {
+ case "trunk":
+ case "17x":
+ case "16x":
+ case "txt":
+ case "txb":
+ case "tx17":
+ case "trunk":
+	break;
+ default:
+	$source="trunk";
 }
 
-$tx=$_GET["tx"]; // transifex vs. svn
-if ($tx) {
-	$tx=1;
-} else {
-	$tx=0;
-}
-
-$gx=$_GET["gx"]; // graph x axis type
+$gx=GetFromGet("gx"); // graph x axis type
 switch ($gx) {
  case "date":
 	break;
@@ -79,7 +85,7 @@ switch ($gx) {
 	$gx="rev";
 }
 
-$m=$_GET["m"]; // module
+$m=GetFromGet("m"); // module
 switch ($m) {
  case 'g':
  case 's':
@@ -98,10 +104,7 @@ switch ($m) {
 include MODULE_PATH."trunk.php";
 
 
-
 #load mode module
-
-
 
 echo "ok".__LINE__;
 flush();

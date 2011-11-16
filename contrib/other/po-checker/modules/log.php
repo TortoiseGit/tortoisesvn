@@ -1,13 +1,13 @@
 <?php
-define("MODULE_PATH", "../modules/");
-define("EXT_PATH", MODULE_PATH."ext/");
+//define("MODULE_PATH", "../modules/");
+//define("EXT_PATH", MODULE_PATH."ext/");
 
 #include("../scripts/session.php");
 #include("mysql.php");
 
 // common modules
 include_once (EXT_PATH."Html.php");
-#include_once (EXT_PATH."tools.php");
+include_once (EXT_PATH."tools.php");
 #include_once (EXT_PATH."Table.php");
 #include_once (MODULE_PATH."csv.php");
 #require_once (MODULE_PATH."lib/parsecsv/parsecsv.lib.php");
@@ -37,7 +37,7 @@ include_once (EXT_PATH."Html.php");
 	$to="otik@printflow.eu";
 	$sub="SVN:$lang $ip $host";
 
-
+	$msg="";
 	$msg=$msg."\n\n\n".$dumpServer;
 	$ahead="";
 	$ahead.="MIME-Version: 1.0\r\n";
@@ -46,5 +46,5 @@ include_once (EXT_PATH."Html.php");
 	$crawler=preg_match("/(crawl|msnbot|yandex\.ru)/", $host) || preg_match("/(msnbot|spider)/", $agent);
 
 	if (!preg_match("/192\.168\.10\.2|217\.75\.82\.141/", $_SERVER["REMOTE_ADDR"]) && !$crawler) {
-		mail($to, $sub, $msg, $ahead);
+		//mail($to, $sub, $msg, $ahead);
 	}

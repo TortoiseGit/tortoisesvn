@@ -3,6 +3,7 @@ include("../modules/ext/common.php");
 include("../modules/ext/table.php");
 
 $dir="/srv/www/sites/tsvn.e-posta.sk/data/";
+$dir="/var/www/po-checker/data/";
 include("mysql.php");
 include("../modules/po.php");
 

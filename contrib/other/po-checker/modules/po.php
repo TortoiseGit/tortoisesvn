@@ -13,7 +13,6 @@ define("PO_UNKNOWN", 'PO_UNKNOWN');
 
 define("MARK_OK", 'MARK_OK');
 define("MARK_ERROR", 'MARK_ERROR');
-define("PO_UNKNOWN", 'PO_UNKNOWN');
 
 function IsDebugOn() {
 	return $_SERVER['REMOTE_ADDR']=="217.75.82.130";
@@ -42,15 +41,20 @@ function isEmptyArray($var) {
 	return (isset($var) && is_array($var) && count($var)==0);
 }
 
-class po {
+class TPo {
 	protected $dictionary=array();
 	protected $lines=array();
 	protected $report=array();
 	protected $pot=NULL;
 	protected $spellDictFiles=array();
 
+
+	function __construct($a, $b) {
+		$this->Load($a, $b);
+	}
+
 	// line types NOTE MSGID MSGSTR EMPTY PARAMETER
-	function load($poFileName, $lang) {
+	function Load($poFileName, $lang) {
 		$this->lang=$lang;
 //		echo "<i>Loading $poFileName</i><br />\n";
 		$this->dictionary=array();
@@ -80,6 +84,7 @@ class po {
 		$linesLoaded=file($poFileName);
 		$linesLoaded[]=""; // add empty line to enforce block procesing
 		foreach ($linesLoaded as $line) {
+			//echo "$line<br/>";
 			$line=trim($line);
 			$linenum++;
 			$lineType=PO_UNKNOWN;
@@ -98,7 +103,7 @@ class po {
 				$lineType=$codes[$command];
 			} else {
 				$lineType=PO_UNKNOWN;
-//			 	echo "unknown line in po file<br /><b>$line</b><br />";
+//			 	echo "unknown line in TPo file<br /><b>$line</b><br />";
 			 	continue;
 			}
 			if (preg_match_all("/^[^\"]*\"(.*)\"[^\"]*$/", $line, $result, PREG_PATTERN_ORDER)) {
@@ -131,7 +136,7 @@ class po {
 				break;
 
 			 case PO_EMPTY:
-				if (count($block) && isset($block[PO_MSGID]) /*&& isset($block[PO_MSGSTR])*/) {
+				if (isset($block) && count($block) && isset($block[PO_MSGID]) /*&& isset($block[PO_MSGSTR])*/) {
 					$msgid=$block[PO_MSGID];
 					$msgstr=$block[PO_MSGSTR];
 					$flags=array();
@@ -163,10 +168,10 @@ class po {
 	}
 
 	function AddPot($pot) {
-		if (is_a($pot, "po")) {
+		if (is_a($pot, "TPo")) {
 			$this->pot=$pot;
 		} else if (is_string($pot)) {
-			$this->pot=new po;
+			$this->pot=new TPo;
 			$this->pot->Load($pot);
 		} else {
 			echo "<i>Internal warning</i>: <b>unsupported pot type</b>";
@@ -262,7 +267,7 @@ class po {
 		return true;
 	}
 
-	function buildReport($potFile=NULL) {
+	function BuildReport($potFile=NULL) {
 		// clean potFile if unusable 
 		$search=array("\\n");
 		$replace=array("\\n<br />");
@@ -275,15 +280,16 @@ class po {
 		}
 		if (is_string($potFile)) {
 			$potFileName=$potFile;
-			$potFile=new po;
+			$potFile=new TPo;
 			$potFile->Load($potFileName);
 		}
-		if (!is_a($potFile, "po")) {
+		//echo "------<br/>";
+		if (!is_a($potFile, "TPo")) {
 			return false;
 		}
 
 		// no report was created && are there data to create report ?
-		if (isNonEmptyArray($this->report) || !isNonEmptyArray($this->dictionary)) {
+		if (isNonEmptyArray($this->report)/* || !isNonEmptyArray($this->dictionary)*/) {
 			return true;
 		}
 
@@ -316,8 +322,8 @@ class po {
 					$mark['type']=$matchesOnNat[0][$i][2] ? MARK_OK : MARK_WARNING;
 					$natMarks[]=$mark;
 				}
-				$orig=po::CreateHtmlFromMarks($oriMarks, $orig);
-				$native=po::CreateHtmlFromMarks($natMarks, $native);
+				$orig=TPo::CreateHtmlFromMarks($oriMarks, $orig);
+				$native=TPo::CreateHtmlFromMarks($natMarks, $native);
 
 				$natLine=$value["line"];
 				if (isset($value["flag"]["fuzzy"])) {
@@ -384,8 +390,8 @@ class po {
 						}
 					}
 					if (!$match) {
-						$orig=po::CreateHtmlFromMarks($oriMarks, $orig);
-						$native=po::CreateHtmlFromMarks($natMarks, $native);
+						$orig=TPo::CreateHtmlFromMarks($oriMarks, $orig);
+						$native=TPo::CreateHtmlFromMarks($natMarks, $native);
 
 						$natLine=$value["line"];
 						if (isset($value["flag"]["fuzzy"])) {
@@ -451,8 +457,8 @@ class po {
 					}
 					// if error found add line to data
 					if (!$match) {
-						$orig=po::CreateHtmlFromMarks($oriMarks, $orig);
-						$native=po::CreateHtmlFromMarks($natMarks, $native);
+						$orig=TPo::CreateHtmlFromMarks($oriMarks, $orig);
+						$native=TPo::CreateHtmlFromMarks($natMarks, $native);
 
 						$natLine=$value["line"];
 						if (isset($value["flag"]["fuzzy"])) {
@@ -676,13 +682,14 @@ class po {
 					$data[]=array(count($data)+1, $lineE, $orig, $lineN);
 				}
 			}
+		} else {
+			echo "no pot file<br/>";
 		}
 		$table=new Table;
 		$table->name="Nottranslated";
 		$table->header=array("Index", "Line", "English", "Line");
 		$table->data=$data;
 		$report["unt"]=$table;
-
 
 		// fuzzy
 		$data=array();
@@ -710,7 +717,7 @@ class po {
 		return true;
 	}
 
-	function buildReportFor($report) {
+	function BuildReportFor($report) {
 		switch ($report) {
 		 case "acc":
 			$this->checkAcc();
@@ -721,7 +728,10 @@ class po {
 		 case "spl":
 			$this->checkSpl();
 			break;
+		 default:
+			$this->BuildReport();
 		}
+		return $this->report[$report];
 	}
 
 
@@ -730,9 +740,10 @@ class po {
 		if (isset($this->pot)) {
 			$potFile=$this->pot;
 		} else {
+			echo "no pot set<br/>\n";
 			return;
 		}
-		$lang=$this->lang;
+		//$lang=$this->lang;
 
 
 
@@ -766,8 +777,8 @@ class po {
 					$mark['type']=$matchesOnNat[0][$i][2] ? MARK_OK : MARK_WARNING;
 					$natMarks[]=$mark;
 				}
-				$orig=po::CreateHtmlFromMarks($oriMarks, $orig);
-				$native=po::CreateHtmlFromMarks($natMarks, $native);
+				$orig=TPo::CreateHtmlFromMarks($oriMarks, $orig);
+				$native=TPo::CreateHtmlFromMarks($natMarks, $native);
 
 				$natLine=$value["line"];
 				if (isset($value["flag"]["fuzzy"])) {
@@ -801,7 +812,6 @@ class po {
 		}
 		$lang=$this->lang;
 
-		//var_dump($this->spellDictFiles);
 		$data=array();
 		if (false && $this->lang) {
 			$suggestEnabled=$this->lang != "hu";
@@ -1038,9 +1048,10 @@ class po {
 	}
 
 	function GetErrorCount($name) {
-		$count=$this->report[$name];
-		if (!isset($count)) {
-			$this->buildReportFor($name);
+		if (isset($this->report[$name])) {
+			$count=$this->report[$name];
+		} else {
+			$count=$this->BuildReportFor($name);
 		}
 		if (!isset($count)) {
 			return false;
@@ -1080,7 +1091,7 @@ class po {
 	}
 
 	function getProgress(){
-		buildReport();
+		BuildReport();
 		return $this->report();
 		return array(
 				"translate" => $this->report["unt"]);
@@ -1091,7 +1102,7 @@ class po {
 	}
 
 	function printReport($potFile=NULL) {
-		$this->buildReport($potFile);
+		$this->BuildReport($potFile);
 
 		if (isset($this->report["param"])) {
 			$this->report["param"]->output();
@@ -1274,5 +1285,3 @@ class po {
 		}
 	}
 }
-
-//php?>
