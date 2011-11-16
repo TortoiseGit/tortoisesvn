@@ -120,6 +120,8 @@ CSVNProgressDlg::~CSVNProgressDlg()
         delete m_arData[i];
     }
     delete m_pThread;
+    if (m_boldFont)
+        DeleteObject(m_boldFont);
 }
 
 void CSVNProgressDlg::DoDataExchange(CDataExchange* pDX)
@@ -439,6 +441,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 m_UpdateStartRevMap[m_basePath.GetSVNApiPath(pool)] = s->changed_rev;
             data->sActionColumnText.LoadString(IDS_SVNACTION_EXTERNAL);
             data->bAuxItem = true;
+            data->bBold = true;
         }
         break;
 
@@ -852,6 +855,14 @@ void CSVNProgressDlg::ResizeColumns()
 
         for (int index = 0; index<count; ++index)
         {
+            HFONT hFont = NULL;
+            if (m_arData[index]->bBold)
+            {
+                hFont = (HFONT)m_ProgList.SendMessage(WM_GETFONT);
+                // set the bold font and ask for the string width again
+                m_ProgList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont, NULL);
+            }
+
             // get the width of the string and add 12 pixels for the column separator and margins
             int linewidth = cx;
             switch (col)
@@ -866,6 +877,12 @@ void CSVNProgressDlg::ResizeColumns()
                 linewidth = m_ProgList.GetStringWidth(m_arData[index]->mime_type) + 12;
                 break;
             }
+            if (m_arData[index]->bBold)
+            {
+                // restore the system font
+                m_ProgList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
+            }
+
             if (cx < linewidth)
                 cx = linewidth;
         }
@@ -931,6 +948,15 @@ BOOL CSVNProgressDlg::OnInitDialog()
         m_pThread->m_bAutoDelete = FALSE;
         m_pThread->ResumeThread();
     }
+
+    // use the default GUI font, create a copy of it and
+    // change the copy to BOLD (leave the rest of the font
+    // the same)
+    HFONT hFont = (HFONT)m_ProgList.SendMessage(WM_GETFONT);
+    LOGFONT lf = {0};
+    GetObject(hFont, sizeof(LOGFONT), &lf);
+    lf.lfWeight = FW_BOLD;
+    m_boldFont = CreateFontIndirect(&lf);
 
     UpdateData(FALSE);
 
@@ -1431,6 +1457,13 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
 
         // Store the color back in the NMLVCUSTOMDRAW struct.
         pLVCD->clrText = data->color;
+        if (data->bBold)
+        {
+            SelectObject(pLVCD->nmcd.hdc, m_boldFont);
+            // We changed the font, so we're returning CDRF_NEWFONT. This
+            // tells the control to recalculate the extent of the text.
+            *pResult = CDRF_NEWFONT;
+        }
     }
 }
 

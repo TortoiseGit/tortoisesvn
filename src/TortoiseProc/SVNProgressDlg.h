@@ -165,7 +165,8 @@ private:
               bTreeConflict(false),
               bAuxItem(false),
               lock_state(svn_wc_notify_lock_state_unchanged),
-              bConflictSummary(false)
+              bConflictSummary(false),
+              bBold(false)
           {
               merge_range.end = 0;
               merge_range.start = 0;
@@ -193,6 +194,7 @@ private:
         bool                    bTreeConflict;              ///< item is tree conflict
         bool                    bAuxItem;                   ///< Set if this item is not a true 'SVN action'
         bool                    bConflictSummary;           ///< if true, the entry is "one or more items are in a conflicted state"
+        bool                    bBold;                      ///< if true, the line is shown with a bold font
         CString                 sPathColumnText;
 
     };
@@ -350,6 +352,8 @@ private:
     CString                 m_sTotalBytesTransferred;
 
     CColors                 m_Colors;
+    HFONT                   m_boldFont;
+
 
     bool                    m_bLockWarning;
     bool                    m_bLockExists;
