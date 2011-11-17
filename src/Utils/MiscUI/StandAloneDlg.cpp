@@ -149,6 +149,8 @@ bool CResizableStandAloneDialog::OnEnterPressed()
     if (GetAsyncKeyState(VK_CONTROL)&0x8000)
     {
         CWnd * pOkBtn = GetDlgItem(IDOK);
+        if (pOkBtn == NULL)
+            pOkBtn = GetDlgItem(ID_OK);
         if ( pOkBtn && pOkBtn->IsWindowEnabled() )
         {
             if (DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\CtrlEnter"), TRUE)))
