@@ -666,6 +666,7 @@ bool CMainFrame::LoadViews(int line)
                     taskdlg.AddCommandControl(2, task4);
                     taskdlg.SetDefaultCommandControl(1);
                     taskdlg.SetMainIcon(TD_INFORMATION_ICON);
+                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                     if (taskdlg.DoModal(m_hWnd) == 1)
                     {
                         m_Data.m_sPatchPath = betterpatchpath;
@@ -1211,6 +1212,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK4)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(1);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
             bDelete = (taskdlg.DoModal(m_hWnd) == 1);
@@ -1347,6 +1349,7 @@ void CMainFrame::OnClose()
             taskdlg.AddCommandControl(IDYES, sTask3);
             taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK4)));
             taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK5)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(IDYES);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
             ret = (UINT)taskdlg.DoModal(m_hWnd);
@@ -2049,6 +2052,7 @@ void CMainFrame::OnViewSwitchleft()
             taskdlg.AddCommandControl(IDYES, sTask3);
             taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7)));
             taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK8)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(IDYES);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
             ret = (UINT)taskdlg.DoModal(m_hWnd);
@@ -2146,6 +2150,7 @@ int CMainFrame::CheckForReload()
             sTask3.LoadString(IDS_WARNMODIFIEDOUTSIDE_TASK4);
         taskdlg.AddCommandControl(IDYES, sTask3);
         taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE_TASK5)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
         taskdlg.SetDefaultCommandControl(IDYES);
         taskdlg.SetMainIcon(TD_WARNING_ICON);
         ret = (UINT)taskdlg.DoModal(m_hWnd);
@@ -2219,6 +2224,7 @@ int CMainFrame::CheckForSave()
             taskdlg.AddCommandControl(IDYES, sTask3);
             taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK7)));
             taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK8)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(IDYES);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
             ret = (UINT)taskdlg.DoModal(m_hWnd);
@@ -2428,6 +2434,7 @@ bool CMainFrame::HasConflictsWontKeep()
                             TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
         taskdlg.SetDefaultCommandControl(2);
         taskdlg.SetMainIcon(TD_ERROR_ICON);
         bSave = (taskdlg.DoModal(m_hWnd) == 1);

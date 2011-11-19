@@ -61,6 +61,7 @@ bool DropCopyAddCommand::Execute()
                 taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK3)));
                 taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK4)));
                 taskdlg.SetDefaultCommandControl(IDCANCEL);
+                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                 taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK5)));
                 taskdlg.SetMainIcon(TD_WARNING_ICON);
                 ret = (UINT)taskdlg.DoModal(GetExplorerHWND());

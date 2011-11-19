@@ -673,7 +673,7 @@ void CEditPropertiesDlg::RemoveProps()
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)));
                 taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)));
-                taskdlg.AddCommandControl(IDCUSTOM3, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK5)));
+                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                 taskdlg.SetDefaultCommandControl(IDCUSTOM1);
                 if (m_pathlist.GetCount() > 1)
                     taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK6)));

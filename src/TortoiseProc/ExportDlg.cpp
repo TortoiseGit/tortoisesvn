@@ -252,6 +252,7 @@ void CExportDlg::OnOK()
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3_1)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(2);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
             doIt = (taskdlg.DoModal(GetExplorerHWND()) == 1);

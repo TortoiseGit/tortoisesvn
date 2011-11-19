@@ -47,6 +47,7 @@ bool DropExportCommand::Execute()
                                 TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK4)));
+            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(1);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
             if (taskdlg.DoModal(GetExplorerHWND()) != 1)
@@ -123,6 +124,7 @@ bool DropExportCommand::Execute()
                         taskdlg.AddCommandControl(IDCUSTOM2, task4);
                         taskdlg.AddCommandControl(IDCUSTOM3, CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_TASK5)));
                         taskdlg.SetDefaultCommandControl(IDCUSTOM2);
+                        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                         taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITEEXPORT_TASK6)));
                         taskdlg.SetMainIcon(TD_WARNING_ICON);
                         ret = (UINT)taskdlg.DoModal(GetExplorerHWND());

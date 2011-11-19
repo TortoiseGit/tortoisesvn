@@ -4631,6 +4631,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                                                     TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                                 taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
                                 taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
+                                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                                 taskdlg.SetDefaultCommandControl(2);
                                 taskdlg.SetMainIcon(TD_WARNING_ICON);
                                 if (taskdlg.DoModal(m_hWnd) != 1)
@@ -6088,6 +6089,7 @@ bool CLogDlg::ConfirmRevert( const CString& path, bool bToRev /*= false*/ )
                             TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
         taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK3)));
         taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK4)));
+        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
         taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK5)));
         taskdlg.SetDefaultCommandControl(2);
         taskdlg.SetMainIcon(TD_INFORMATION_ICON);

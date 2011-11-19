@@ -274,7 +274,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTALWAYS_TASK)));
                 taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTTEMP_TASK)));
-                taskdlg.AddCommandControl(IDCUSTOM3, CString(MAKEINTRESOURCE(IDS_SSL_REJECT_TASK)));
+                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                 taskdlg.SetDefaultCommandControl(IDCUSTOM3);
                 taskdlg.SetMainIcon(TD_WARNING_ICON);
                 ret = (UINT)taskdlg.DoModal(svn->m_hParentWnd);
@@ -312,6 +312,7 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
                                     TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
                 taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTTEMP_TASK)));
                 taskdlg.AddCommandControl(IDCUSTOM3, CString(MAKEINTRESOURCE(IDS_SSL_REJECT_TASK)));
+                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                 taskdlg.SetDefaultCommandControl(IDCUSTOM3);
                 taskdlg.SetMainIcon(TD_WARNING_ICON);
                 bAccept = (taskdlg.DoModal(svn->m_hParentWnd) == IDCUSTOM2);
