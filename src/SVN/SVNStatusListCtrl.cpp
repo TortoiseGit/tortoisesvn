@@ -2516,7 +2516,6 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK3)));
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK4)));
             taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK5)));
             taskdlg.SetDefaultCommandControl(2);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
             bDoRevert = (taskdlg.DoModal(m_hWnd) == 1);
