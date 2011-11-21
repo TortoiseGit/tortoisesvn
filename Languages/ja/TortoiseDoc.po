@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-16 07:46+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-11-16 13:45+0000\n"
+"Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3353,7 +3353,7 @@ msgstr ""
 msgid ""
 "There is no way to select files and folders to include, aside from using the"
 " global ignore settings."
-msgstr "インポートするファイルやフォルダーを選択する方法が、共通無視設定以外に存在しない。"
+msgstr "「常に無視するファイル」で設定する以外に、インポートするファイルやフォルダーを選択する方法がない。"
 
 #. (para)
 msgid ""
@@ -3443,9 +3443,9 @@ msgid ""
 "linkend=\"tsvn-dug-settings-main\"/> for more information on setting a "
 "global ignore pattern."
 msgstr ""
-"デフォルトでは、共通無視パターンにマッチしたファイル・フォルダーはインポート<emphasis>されません</emphasis>。 "
-"<guilabel>無視ファイルを含める</guilabel> チェックボックスを使用すると、この動作を上書きします。共通無視パターンの設定の詳細は "
-"<xref linkend=\"tsvn-dug-settings-main\"/>をご覧ください。"
+"デフォルトでは、常に無視するパターンにマッチしたファイル・フォルダーはインポート<emphasis>されません</emphasis>。 "
+"<guilabel>無視ファイルを含める</guilabel> チェックボックスを使用すると、この動作を上書きします。常に無視するパターンの設定の詳細は"
+" <xref linkend=\"tsvn-dug-settings-main\"/>をご覧ください。"
 
 #. (para)
 msgid ""
@@ -7807,7 +7807,7 @@ msgstr ""
 
 #. (title)
 msgid "Adding New Files And Directories"
-msgstr "ファイルやディレクトリの追加"
+msgstr "新しいファイルやディレクトリの追加"
 
 #. (primary)
 msgid "add"
@@ -7831,7 +7831,7 @@ msgid ""
 msgstr ""
 "<placeholder-1/> "
 "開発工程の中で新しいファイルやディレクトリを作成したら、ソース管理に追加する必要があります。追加するファイルやディレクトリを選び、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>追加</guimenuitem></menuchoice>"
-" としてください。"
+" を実行してください。"
 
 #. (para)
 msgid ""
@@ -7841,8 +7841,9 @@ msgid ""
 "developers. Adding a file/directory does <emphasis>not</emphasis> affect the"
 " repository!"
 msgstr ""
-"ファイルやディレクトリをソース管理に追加すると、<literal>追加</literal> "
-"アイコンオーバレイが表示されます。他の開発者にもそのファイルやディレクトリを有効にするには、まず作業コピーをコミットしてください。ファイルやディレクトリの追加だけではリポジトリに影響を<emphasis>起こしません</emphasis>。"
+"ファイルやディレクトリをソース管理に追加すると、 <literal>追加</literal> "
+"アイコンオーバレイが表示され、他の開発者もそのファイルやディレクトリを使用できるよう、早く作業コピーをコミットすることを促します。ファイルやディレクトリの追加だけではリポジトリに影響"
+" <emphasis>しません</emphasis> 。"
 
 #. (title)
 msgid "Many Adds"
@@ -7855,7 +7856,7 @@ msgid ""
 "folder. This helps if you have many new files and need to add them all at "
 "once."
 msgstr ""
-"すでにバージョン管理下にあるフォルダーで追加コマンドも行えます。この場合、追加ダイアログにはバージョン管理下のフォルダー内にある、バージョン管理外の全ファイルが表示されます。新しいファイルが複数あり、そのファイルを一度に追加する必要があるときに便利です。"
+"すでにバージョン管理下にあるフォルダーでも追加コマンドを実行できます。この場合、追加ダイアログにはバージョン管理下のフォルダー内にある、バージョン管理外の全ファイルが表示されます。新しいファイルが複数あり、そのファイルを一度に追加する必要があるときに便利です。"
 
 #. (para)
 msgid "select the files you want to add"
@@ -7870,7 +7871,7 @@ msgstr "作業コピー内の新しい位置にそれらを<action>右ドラッ�
 #. (para)
 #. (para)
 msgid "release the right mouse button"
-msgstr "右マウスボタンを放します。"
+msgstr "右マウスボタンを離します。"
 
 #. (para)
 msgid ""
@@ -7880,19 +7881,19 @@ msgid ""
 msgstr ""
 "<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN "
 "この作業コピーにファイルを追加する</guimenuitem></menuchoice> "
-"を選択してください。そのファイルを作業コピーにコピーし、バージョン管理に追加します。"
+"を選択してください。そのファイルが作業コピーにコピーされ、バージョン管理に追加されます。"
 
 #. (para)
 msgid ""
 "To add files from outside your working copy you can use the drag-and-drop "
 "handler: <placeholder-1/>"
-msgstr "作業コピーの外部にあるファイルを追加するには、以下のようにドラッグ&amp;ドロップで操作できます。<placeholder-1/>"
+msgstr "作業コピーの外部にあるファイルを追加するには、次のようにドラッグ＆ドロップで操作できます。 <placeholder-1/>"
 
 #. (para)
 msgid ""
 "You can also add files within a working copy simply by left-dragging and "
 "dropping them onto the commit dialog."
-msgstr "作業コピーにあるファイルを、コミットダイアログへ単に左ドラッグ&amp;ドロップしても追加できます。"
+msgstr "作業コピーにあるファイルを、コミットダイアログへ左ドラッグ＆ドロップするだけでも追加できます。"
 
 #. (para)
 msgid ""
@@ -7902,11 +7903,11 @@ msgid ""
 msgstr ""
 "ファイルやフォルダーを間違って追加した場合は、コミットする前に "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>追加を元に戻す...</guimenuitem></menuchoice>"
-" を使用して、追加の取り消しができます。"
+" を使用して、追加を取り消しすことができます。"
 
 #. (title)
 msgid "Copying/Moving/Renaming Files and Folders"
-msgstr "ファイル・フォルダーのコピー・移動・名前変更"
+msgstr "ファイルやフォルダーのコピー・移動・名前の変更"
 
 #. (primary)
 msgid "copy files"
@@ -7939,8 +7940,8 @@ msgid ""
 "files, you can only merge the fix automatically if the new copy is related "
 "to the original in Subversion."
 msgstr ""
-"既存ファイルを、リポジトリ内の別プロジェクトに持っていかねばならないことがしばしばあり、単純にコピーしたくなると思います。既に述べたように、単純にコピーした上で、そのファイルを追加することもできますが、それまでの履歴を失ってしまいます。また、後でオリジナルファイルにバグ修正を行った場合、Subversion"
-" 内で新しいコピーがオリジナルと関連付いている場合に限り、自動的に修正をマージできます。"
+"リポジトリ内の別なプロジェクトにある既存のファイルを流用したくなり、プロジェクトをまたがってコピーしたくなる場合があります。このようにファイルを単純にコピーして追加しても良いのですが、そうするとそれまでの履歴が見えなくなってしまいます。また、後で元のファイルにバグ修正が行われた場合、新しいコピーが"
+" Subversion 内の元のファイルに関連づけられていないと、修正を自動的にマージすることができません。"
 
 #. (para)
 msgid ""
@@ -7951,7 +7952,8 @@ msgid ""
 "can copy existing versioned content to a new location, possibly renaming it "
 "at the same time."
 msgstr ""
-"作業コピーの中にあるファイルやフォルダーをコピーするには、右ドラッグメニューを使うのがもっとも簡単です。ファイルやフォルダーを<action>右ドラッグ</action>で、作業コピーから他のフォルダー、または同じフォルダー内に向けてドラッグすると、マウスのボタンを放すと同時にコンテキストメニューが現れます。<placeholder-1/>これで既存のバージョン管理下の内容を、新しい場所にコピーできます。必要なら同時に名前を変更することもできます。"
+"作業コピーの中にあるファイルやフォルダーをコピーするには、右ドラッグメニューを使うのがもっとも簡単です。ファイルやフォルダーを<action>右ドラッグ</action>で、作業コピーから他のフォルダー、または同じフォルダー内に向けてドラッグすると、マウスのボタンを離すと同時にコンテキストメニューが現れます。"
+" <placeholder-1/> これで既存のバージョン管理下の内容を、新しい場所にコピーできます。必要なら同時に名前を変更することもできます。"
 
 #. (para)
 msgid ""
@@ -7964,12 +7966,12 @@ msgid ""
 " (note: not the standard Windows <action>Paste</action>) to copy or move "
 "those items to the new working copy location."
 msgstr ""
-"作業コピーにあるバージョン管理下のファイルや、ふたつの作業コピーの間で、慣れたカット &amp; "
-"ペーストでもコピーや移動を行えます。バージョン管理下のファイルをクリップボードにコピーするには、Windows 標準の "
-"<action>コピー</action> や <action>切り取り</action> "
-"を行ってください。クリップボードにバージョン管理下のファイルがある状態では、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>貼り付け</guimenuitem></menuchoice>"
-" を使用し (注意: Windows 標準の <action>貼り付け</action> "
-"ではありません)、新しい作業コピーの場所にコピーや移動できます。"
+"作業コピーにあるバージョン管理下のファイルや、２つの作業コピーの間でコピーや移動を行う場合は、おなじみのカット＆ペースト操作を使用することもできます。バージョン管理下のファイルをクリップボードにコピーするには、"
+" Windows 標準の <action>コピー</action> や <action>切り取り</action> "
+"を実行してください。クリップボードにバージョン管理下のファイルがある状態で、 "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>貼り付け</guimenuitem></menuchoice>"
+" （注意: Windows 標準の <action>貼り付け</action> "
+"ではありません）を使用すると、新しい作業コピーの場所にファイルをコピーや移動することができます。"
 
 #. (para)
 msgid ""
@@ -8001,8 +8003,8 @@ msgid ""
 " locations within the repository. Refer to <xref linkend=\"tsvn-dug-"
 "repobrowser\"/> to find out more."
 msgstr ""
-"また、リポジトリブラウザーを用いて、任意の場所に配置したり、リポジトリから直接作業コピーにコピーできます。さらにリポジトリ内の 2 "
-"つの場所の間でコピーできます。詳細は <xref linkend=\"tsvn-dug-repobrowser\"/> をご覧ください。"
+"また、リポジトリブラウザーを使用して、ファイルを任意の場所に配置したり、リポジトリから作業コピーに直接コピーしたりすることができます。さらにリポジトリ内の２つの場所の間でコピーできます。詳細は"
+" <xref linkend=\"tsvn-dug-repobrowser\"/> をご覧ください。"
 
 #. (title)
 msgid "Cannot copy between repositories"
@@ -8016,7 +8018,8 @@ msgid ""
 "repositories live on the same server. All you can do is copy the content in "
 "its current state and add it as new content to the second repository."
 msgstr ""
-"TortoiseSVNでは、リポジトリの<emphasis>内部</emphasis>でファイルやフォルダーはコピーや移動を行うと履歴が保持されますが、リポジトリ間をまたがってファイルやフォルダーをコピーや移動すると、履歴が保持されません。リポジトリが同じサーバー上にあったとしても同様です。コンテンツの現在の状態をコピーし、別なリポジトリに新しいコンテンツとして追加することはできます。"
+"TortoiseSVN では、リポジトリの <emphasis>内部</emphasis> "
+"でファイルやフォルダーはコピーや移動を行うと履歴が保持されますが、リポジトリ間をまたがってファイルやフォルダーをコピーや移動を行うと、履歴が保持されません。リポジトリが同じサーバー上にあったとしても同様です。ファイルの現在の状態をコピーし、別なリポジトリに新しいコンテンツとして追加することはできます。"
 
 #. (para)
 msgid ""
@@ -8025,12 +8028,13 @@ msgid ""
 " where the repository root is. If you can see both locations in one repo "
 "browser window then they are in the same repository."
 msgstr ""
-"同じサーバーの 2 つの UR Lが、同じリポジトリか違うリポジトリかがはっきりしない場合、リポジトリブラウザーを使用してひとつ URL "
-"を開き、そのリポジトリルートがどこにあるか探してください。どちらの場所も、ひとつのリポジトリブラウザーウィンドウにある場合、それは同じリポジトリにあります。"
+"同じサーバーの２つの URL が、同じリポジトリを指しているか違うリポジトリを指しているかはっきりしない場合、リポジトリブラウザーを使用して一方の "
+"URL "
+"を開き、リポジトリルートがどこにあるかを探してください。同じリポジトリブラウザーウィンドウに両方の場所があれば、それらは同じリポジトリにあります。"
 
 #. (title)
 msgid "Ignoring Files And Directories"
-msgstr "無視するファイルとディレクトリ"
+msgstr "ファイルやディレクトリの無視"
 
 #. (primary)
 msgid "ignore"
@@ -8050,11 +8054,11 @@ msgid ""
 "Of course you can turn off this display, but then you might forget to add a "
 "new source file."
 msgstr ""
-"<placeholder-1/> "
-"ほとんどのプロジェクトで、バージョン管理下にあるべきでないファイルやフォルダーがあることでしょう。コンパイラーが作成したファイル、<filename>*.obj,"
-" *.lst</filename> や、もしかしたら実行ファイルを格納する出力フォルダーもそうでしょう。変更をコミットの際、TortoiseSVN "
-"はコミットダイアログにバージョン管理外のファイルを表示します。もちろんこの表示を off "
-"にできますが、そうすると、新しいソースファイルの追加を忘れるかもしれません。"
+"<placeholder-1/> ほとんどのプロジェクトでは、バージョン管理するべきでないファイルやフォルダーがあります。 "
+"<filename>*.obj, *.lst</filename> "
+"のようなコンパイラーが生成するファイルや、もしかしたら実行ファイルを格納する出力フォルダーも含まれるかもしれません。変更をコミットする際、 "
+"TortoiseSVN ではコミットダイアログにバージョン管理外のファイルが表示されます。もちろんこの表示を off "
+"にすることもできますが、そうすると、新しいソースファイルの追加を忘れるおそれがあります。"
 
 #. (para)
 msgid ""
@@ -8062,7 +8066,7 @@ msgid ""
 "project's ignore list. That way they will never show up in the commit "
 "dialog, but genuine unversioned source files will still be flagged up."
 msgstr ""
-"こういった問題を避ける最良の方法は、プロジェクトの無視リストに、派生ファイルを追加することです。この方法だと、派生ファイルがコミットダイアログに現れなくなりますが、本当にバージョン管理外のファイルは現れるままになります。"
+"こういった問題を避ける最良の方法は、生成されたファイルをプロジェクトの無視リストに追加することです。こうすると、生成されたファイルはコミットダイアログに現れなくなりますが、単にバージョン管理する前のソースファイルは現れたままになります。"
 
 #. (para)
 msgid ""
@@ -8073,10 +8077,10 @@ msgid ""
 "extension. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
 msgstr ""
-"バージョン管理外のファイルで <action>右クリック</action> "
-"し、コンテキストメニューで<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストに追加</guimenuitem></menuchoice>"
+"バージョン管理外のファイルの上で <action>右クリック</action> し、コンテキストメニューで "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストに追加</guimenuitem></menuchoice>"
 " "
-"コマンドを選択すると、選択したファイルのみか、同じ拡張子を持つファイルすべてかを選択するサブメニューを表示します。複数のファイルを選択すると、サブメニューを表示せず、指定したファイル・フォルダーを追加します。"
+"コマンドを選択すると、選択したファイルのみか、または同じ拡張子を持つファイルすべてかを選択するサブメニューを表示します。複数のファイルを選択した場合は、サブメニューを表示せず、指定されたファイル・フォルダーが追加されます。"
 
 #. (para)
 msgid ""
@@ -8093,13 +8097,13 @@ msgstr ""
 "無視リストから項目を削除したい場合、その項目で <action>右クリック</action> "
 "し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストから削除</guimenuitem></menuchoice>"
 " を選択してください。フォルダーの <literal>svn:ignore</literal> "
-"プロパティに直接アクセスすることもできます。これにより、ファイル名展開にもっと一般的なパターンが指定ができます。プロパティを直接指定することについては、"
+"プロパティに直接アクセスすることもできます。これにより、ファイル名展開にもっと一般的なパターンを指定することができます。プロパティを直接指定することについては、"
 " <xref linkend=\"tsvn-dug-propertypage\"/> "
-"をご覧ください。無視パターンは行ごとに区切らなければならないことをご承知おきください。空白で区切ったパターンは動作しません。"
+"をご覧ください。無視パターンは行ごとに区切らなければならないことをご承知おきください。空白で区切ったパターンでは動作しません。"
 
 #. (title)
 msgid "The Global Ignore List"
-msgstr "共通無視リスト"
+msgstr "常に無視するパターンのリスト"
 
 #. (para)
 msgid ""
@@ -8112,16 +8116,16 @@ msgid ""
 "the project. Read <xref linkend=\"tsvn-dug-settings-main\"/> for more "
 "information."
 msgstr ""
-"ファイルを無視する別の方法は、 <firstterm>共通無視リスト</firstterm> "
-"に追加することです。共通無視リストはクライアントのプロパティであるということが、大きく違います。これは <emphasis>全ての</emphasis>"
-" Subversion プロジェクトに適用されますが、クライアント PC でしか適用されません。一般的には、可能なら "
-"<filename>svn:ignore</filename> "
-"プロパティを使用する方がよいです。指定したプロジェクトエリアで適用され、プロジェクトをチェックアウトした人すべてに適用されるからです。詳細は <xref"
-" linkend=\"tsvn-dug-settings-main\"/> をご覧ください。"
+"他にファイルを無視する方法として、 <firstterm>常に無視するパターンのリスト</firstterm> "
+"に追加する方法があります。常に無視するパターンのリストは、クライアントのプロパティであるということが大きく違います。これは "
+"<emphasis>全ての</emphasis> Subversion プロジェクトに適用されますが、クライアント PC "
+"でしか適用されません。一般的には、可能なら <filename>svn:ignore</filename> "
+"プロパティを使用する方がいいでしょう。指定したプロジェクトエリアで適用され、プロジェクトをチェックアウトした人すべてに適用されるからです。詳細は "
+"<xref linkend=\"tsvn-dug-settings-main\"/> をご覧ください。"
 
 #. (title)
 msgid "Ignoring Versioned Items"
-msgstr "バージョン管理下項目の無視"
+msgstr "バージョン管理下の項目の無視"
 
 #. (para)
 msgid ""
@@ -8129,8 +8133,8 @@ msgid ""
 "Subversion. If you versioned a file by mistake, read <xref linkend=\"tsvn-"
 "howto-unversion\"/> for instructions on how to <quote>unversion</quote> it."
 msgstr ""
-"バージョン管理下のファイルやフォルダーは無視できません。これは Subversion の機能です。間違えてバージョン管理下に入れてしまった場合は、 "
-"<xref linkend=\"tsvn-howto-unversion\"/> "
+"バージョン管理下のファイルやフォルダーを無視させることはできません。これは Subversion "
+"の仕様です。間違えてバージョン管理下に入れてしまった場合は、 <xref linkend=\"tsvn-howto-unversion\"/> "
 "にある、<quote>バージョン管理外</quote>にする方法をご覧ください。"
 
 #. (title)
@@ -8153,7 +8157,7 @@ msgstr "*"
 msgid ""
 "Matches any string of characters, including the empty string (no "
 "characters)."
-msgstr "空文字列 (文字なし) を含む任意の文字列にマッチします。"
+msgstr "空文字列（文字なし）を含む任意の文字列にマッチします。"
 
 #. (term)
 msgid "?"
@@ -8161,7 +8165,7 @@ msgstr "?"
 
 #. (para)
 msgid "Matches any single character."
-msgstr "任意の 1 文字にマッチします。"
+msgstr "任意の１文字にマッチします。"
 
 #. (term)
 msgid "[...]"
@@ -8176,10 +8180,11 @@ msgid ""
 "<literal>m</literal>, <literal>n</literal>, <literal>o</literal> or "
 "<literal>p</literal>."
 msgstr ""
-"角かっこで囲まれた一文字にマッチします。かっこ内にある <quote>-</quote> で繋がった 2 つの文字は、辞書的にその 2 "
-"つの文字の間にある文字にマッチします。例えば、<literal>[AGm-p]</literal> は <literal>A</literal>, "
-"<literal>G</literal>, <literal>m</literal>, <literal>n</literal>, "
-"<literal>o</literal>, <literal>p</literal> のいずれかにマッチします。"
+"角かっこで囲まれた文字のうちの１文字にマッチします。かっこ内では、 <quote>-</quote> "
+"を挟んだ２つの文字は、辞書的にその２文字間にある何れかの文字にマッチします。例えば、 <literal>[AGm-p]</literal> は "
+"<literal>A</literal> 、 <literal>G</literal> 、 <literal>m</literal> 、 "
+"<literal>n</literal> 、 <literal>o</literal> 、 <literal>p</literal> "
+"のいずれかにマッチします。"
 
 #. (para)
 msgid ""
@@ -8187,8 +8192,8 @@ msgid ""
 "originally used in Unix to specify files using meta-characters as wildcards."
 " The following characters have special meaning: <placeholder-1/>"
 msgstr ""
-"Subversion の無視パターンは、ファイル名展開を使用できます。これは本来 Unix "
-"でファイルを指定するのにメタキャラクタをワイルドカードとして使用するテクニックです。以下の文字が特別な意味を持ちます。<placeholder-1/>"
+"Subversion の無視パターンは、ワイルドカードとしてメタ文字を使用してファイルを特定する、 UNIX "
+"で使用されてきたファイル名展開を使用します。特別な意味を持つのは次の文字です。 <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8197,8 +8202,8 @@ msgid ""
 "ignore <literal>*.tmp</literal> regardless of case, you could use a pattern "
 "like <literal>*.[Tt][Mm][Pp]</literal>."
 msgstr ""
-"パターンマッチングは大文字小文字を区別しますが、これは Windows "
-"で問題の原因になるかもしれません。両方指定すれば、強制的に大文字小文字を区別しないようにできます。例えば、大文字小文字に関わらず "
+"パターン比較では大文字と小文字を区別しますが、これは Windows "
+"で問題の原因になるかもしれません。両方指定すれば、強制的に大文字小文字を区別しないようにできます。例えば、大文字小文字にかかわらず "
 "<literal>*.tmp</literal> を無視するには、<literal>*.[Tt][Mm][Pp]</literal> "
 "といったパターンで指定できます。"
 
@@ -8209,13 +8214,13 @@ msgid ""
 "url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern"
 " Matching Notation</citetitle></ulink>."
 msgstr ""
-"展開の公式定義が必要な場合、シェルコマンド言語の IEEE 仕様書 <ulink "
+"展開方法の公式な定義が必要であれば、シェルコマンド言語の IEEE 仕様書 <ulink "
 "url=\"http://www.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_13\"><citetitle>Pattern"
-" Matching Notation</citetitle></ulink> で手に入ります。"
+" Matching Notation</citetitle></ulink> を参照してください。"
 
 #. (title)
 msgid "No Paths in Global Ignore List"
-msgstr "共通無視リストにはパスを含めません"
+msgstr "常に無視するパターンのリストにはパスを含めない"
 
 #. (para)
 msgid ""
@@ -8229,13 +8234,13 @@ msgid ""
 "folder you should use the <literal>svn:ignore</literal> property instead. "
 "There is no reliable way to achieve this using global ignore patterns."
 msgstr ""
-"パターンにパス情報を含めるべきではありません。パターンマッチングは、単純なファイル名やフォルダー名に対して使用することを想定されています。<literal>CVS</literal>"
-" フォルダーをすべて無視したい場合は、無視リストに、単に <literal>CVS</literal> "
-"と追加してください。以前のバージョンのように、<literal>CVS */CVS</literal> "
-"と指定する必要はありません。<literal>prog</literal> フォルダーにある <literal>tmp</literal> "
-"フォルダーをすべて無視したいけれども、<literal>doc</literal> フォルダーにあるものは無視したくない場合は、共通無視リストではなく "
+"パターンにパス情報を含めるべきではありません。パターンマッチングは、単純なファイル名やフォルダー名に対して行われます。 "
+"<literal>CVS</literal> フォルダーをすべて無視したい場合、無視リストには、単に <literal>CVS</literal> "
+"と追加してください。以前のバージョンのように、<literal>CVS */CVS</literal> と指定する必要はありません。 "
+"<literal>prog</literal> フォルダーにある <literal>tmp</literal> フォルダーをすべて無視したいけれども、 "
+"<literal>doc</literal> フォルダーにあるものは無視したくない場合は、常に無視するパターンのリストではなく "
 "<literal>svn:ignore</literal> "
-"プロパティを使用するべきです。この用途に共通無視リストを使用する、信頼性のある方法はありません。"
+"プロパティを使用するべきです。常に無視するパターンを使用して、これを確実に実現する方法はありません。"
 
 #. (title)
 msgid "Deleting, Moving and Renaming"
@@ -14114,7 +14119,7 @@ msgstr "Windows 7 では、システムのさまざまな場所に散在して�
 
 #. (term)
 msgid "Global ignore pattern"
-msgstr "共通無視パターン"
+msgstr "常に無視するパターン"
 
 #. (primary)
 msgid "exclude pattern"
@@ -14122,7 +14127,7 @@ msgstr "除外パターン"
 
 #. (primary)
 msgid "global ignore"
-msgstr "global ignore"
+msgstr "常に無視する"
 
 #. (para)
 msgid ""
@@ -14135,18 +14140,18 @@ msgid ""
 "directories. Read <xref linkend=\"tsvn-dug-ignore-glob\"/> for more "
 "information on the pattern-matching syntax."
 msgstr ""
-"共通無視パターンはバージョン管理外のファイルを、コミットダイアログなどに表示しないようにするのに使用します。パターンにマッチしたファイルはインポートでも無視されます。除外するファイルやディレクトリは、名前や拡張子で判断します。パターンは空白で区切り、<literal>bin"
-" obj *.bak *.~?? *.jar *.[Tt]mp</literal> "
-"のようにします。このパターンにはパス区切り文字が必要ありません。ファイルとディレクトリを区別する方法はないことに注意してください。パターンマッチの文法といった詳細情報は、"
-" <xref linkend=\"tsvn-dug-ignore-glob\"/> をご覧ください。"
+"常に無視するパターンは、バージョン管理外のファイルを、コミットダイアログなどで表示されないようにするのに使用します。パターンにマッチしたファイルは、インポートでも無視されます。除外するファイルやディレクトリは、名前や拡張子で判断されます。パターンは空白で区切り、"
+" <literal>bin obj *.bak *.~?? *.jar *.[Tt]mp</literal> "
+"のようにします。このパターンにはパス区切り文字を含めないでください。また、ファイルとディレクトリを区別することができないことに注意してください。パターンマッチの文法の詳細は、"
+" <xref linkend=\"tsvn-dug-ignore-glob\"/> を参照してください。"
 
 #. (para)
 msgid ""
 "Note that the ignore patterns you specify here will also affect other "
 "Subversion clients running on your PC, including the command line client."
 msgstr ""
-"ここで指定した無視パターンは、同じPCで動作する他の Subversion クライアント (コマンドラインクライアントを含む) "
-"でも有効になることに注意してください。"
+"ここで指定した無視パターンは、同じPCで動作する他の Subversion "
+"クライアント（コマンドラインクライアントを含む）でも有効になることに注意してください。"
 
 #. (para)
 msgid ""
@@ -14155,9 +14160,9 @@ msgid ""
 "Subversion configuration file is accessed using the "
 "<guibutton>Edit</guibutton> as described below."
 msgstr ""
-"<literal>共通無視</literal>パターンを設定した Subversion "
-"設定ファイルを使用すると、ここでした設定を上書きしてしまいます。Subversion の設定ファイルには、下にある "
-"<guibutton>編集</guibutton> でアクセスできます。"
+"Subversion の設定ファイルで <literal>global-ignores</literal> "
+"パターンを設定していると、この設定を上書きしてしまいます。 Subversion の設定ファイルには、下にある "
+"<guibutton>編集</guibutton> ボタンでアクセスできます。"
 
 #. (para)
 msgid ""
@@ -14167,7 +14172,7 @@ msgid ""
 "version control. Read <xref linkend=\"tsvn-dug-ignore\"/> for more "
 "information."
 msgstr ""
-"この無視パターンはすべてのプロジェクトに影響を与えます。バージョン管理されませんので、他のユーザーには影響しません。一方、バージョン管理で "
+"この無視パターンはすべてのプロジェクトに影響を与えます。バージョン管理されませんので、他のユーザーには影響しません。一方、バージョン管理の "
 "<literal>svn:ignore</literal> プロパティを使用し、バージョン管理からファイルやディレクトリを除外することもできます。詳細は"
 " <xref linkend=\"tsvn-dug-ignore\"/> をご覧ください。"
 
@@ -21535,9 +21540,9 @@ msgid ""
 " This overlay is optional."
 msgstr ""
 "<graphic fileref=\"images/IgnoredIcon.png\"/> <emphasis>無視</emphasis> "
-"オーバーレイアイコンは、<literal>無視</literal> 状態の項目を、共通無視リストにあるか、親フォルダーに "
-"<literal>svn:ignore</literal> "
-"プロパティが設定されているかにかかわらず表すのに使用します。このオーバーレイはオプションです。"
+"オーバーレイアイコンは、常に無視するパターンに含まれていたり、親フォルダーに <literal>svn:ignore</literal> "
+"プロパティが設定されていたりするために <literal>無視</literal> "
+"状態になった項目を表すのに使用します。このオーバーレイはオプションです。"
 
 #. (para)
 msgid ""

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-07 18:28+0000\n"
+"PO-Revision-Date: 2011-11-16 13:47+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5168,7 +5168,7 @@ msgstr "Unified Diff を取得中"
 
 #. Resource IDs: (1517)
 msgid "Global ignore &pattern:"
-msgstr "除外/無視するパターン(&P):"
+msgstr "常に無視するパターン(&P):"
 
 #. Resource IDs: (65535)
 msgid "Global settings"
@@ -8259,7 +8259,7 @@ msgstr ""
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
-msgstr "バージョン管理外と無視する項目のすべてを削除する"
+msgstr "バージョン管理外と無視された項目をすべて削除する"
 
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
@@ -8272,12 +8272,12 @@ msgstr "選択されているプロパティを削除する"
 #. Resource IDs: (148)
 #, c-format
 msgid "Removing ignored items. in %1!s!"
-msgstr "%1!s! 中の無視項目を削除"
+msgstr "%1!s! 以下の無視された項目を削除しています"
 
 #. Resource IDs: (148)
 #, c-format
 msgid "Removing unversioned items in %1!s!"
-msgstr "%1!s! 中のバージョン管理外の項目を削除"
+msgstr "%1!s! 以下のバージョン管理外の項目を削除しています"
 
 #. Resource IDs: (16616)
 msgid "Rena&me..."
@@ -10579,8 +10579,8 @@ msgid ""
 "control or have been ignored using the svn:ignore property or the global "
 "ignore configuration setting."
 msgstr ""
-"追加するものが何もありません。すべてのファイルとフォルダーがバージョン管理下にある、svn:ignore "
-"プロパティで無視されている、もしくはグローバルに無視するよう設定されています。"
+"追加するものが何もありません。すべてのファイルとフォルダーがバージョン管理下にあるか、 svn:ignore "
+"プロパティで無視されているか、常に無視するよう設定されています。"
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
