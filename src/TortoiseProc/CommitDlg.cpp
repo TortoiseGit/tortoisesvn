@@ -495,7 +495,8 @@ void CCommitDlg::OnOK()
         else
         {
             if ((entry->status != svn_wc_status_unversioned)    &&
-                (entry->status != svn_wc_status_ignored))
+                (entry->status != svn_wc_status_ignored) &&
+                (!entry->IsFromDifferentRepository()))
             {
                 nUnchecked++;
                 uncheckedLists.insert(entry->GetChangeList());
