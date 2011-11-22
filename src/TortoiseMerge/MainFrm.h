@@ -112,6 +112,8 @@ protected:
     afx_msg void    OnUpdateEditUndo(CCmdUI *pCmdUI);
     afx_msg void    OnViewInlinediffword();
     afx_msg void    OnUpdateViewInlinediffword(CCmdUI *pCmdUI);
+    afx_msg void    OnViewInlinediff();
+    afx_msg void    OnUpdateViewInlinediff(CCmdUI *pCmdUI);
     afx_msg void    OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI);
     afx_msg void    OnEditCreateunifieddifffile();
     afx_msg void    OnUpdateViewLinediffbar(CCmdUI *pCmdUI);
@@ -204,6 +206,7 @@ protected:
     bool            m_bHasConflicts;
 
     bool            m_bInlineWordDiff;
+    bool            m_bInlineDiff;
     bool            m_bLineDiff;
     bool            m_bLocatorBar;
 

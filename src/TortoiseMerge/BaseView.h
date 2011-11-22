@@ -122,6 +122,7 @@ public: // methods
     inline bool     IsModified() const  {return m_bModified;}
     void            SetModified(bool bModified = true) {m_bModified = bModified; Invalidate();}
     void            SetInlineWordDiff(bool bWord) {m_bInlineWordDiff = bWord;}
+    void            SetInlineDiff(bool bDiff) {m_bShowInlineDiff = bDiff;}
     void            SetMarkedWord(const CString& word) {m_sMarkedWord = word; BuildMarkedWordArray();}
     LPCTSTR         GetMarkedWord() {return (LPCTSTR)m_sMarkedWord;}
 

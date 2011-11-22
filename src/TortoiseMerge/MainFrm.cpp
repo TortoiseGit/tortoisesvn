@@ -102,6 +102,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI(ID_EDIT_USETHEIRTHENMYBLOCK, &CMainFrame::OnUpdateEditUsetheirthenmyblock)
     ON_COMMAND(ID_VIEW_INLINEDIFFWORD, &CMainFrame::OnViewInlinediffword)
     ON_UPDATE_COMMAND_UI(ID_VIEW_INLINEDIFFWORD, &CMainFrame::OnUpdateViewInlinediffword)
+    ON_COMMAND(ID_VIEW_INLINEDIFF, &CMainFrame::OnViewInlinediff)
+    ON_UPDATE_COMMAND_UI(ID_VIEW_INLINEDIFF, &CMainFrame::OnUpdateViewInlinediff)
     ON_UPDATE_COMMAND_UI(ID_EDIT_CREATEUNIFIEDDIFFFILE, &CMainFrame::OnUpdateEditCreateunifieddifffile)
     ON_COMMAND(ID_EDIT_CREATEUNIFIEDDIFFFILE, &CMainFrame::OnEditCreateunifieddifffile)
     ON_UPDATE_COMMAND_UI(ID_VIEW_LINEDIFFBAR, &CMainFrame::OnUpdateViewLinediffbar)
@@ -172,6 +174,7 @@ CMainFrame::CMainFrame()
     m_bCollapsed = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
     m_bViewMovedBlocks = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\ViewMovedBlocks"), 0);
     m_bWrapLines = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\WrapLines"), 0);
+    m_bInlineDiff = !!CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
 }
 
 CMainFrame::~CMainFrame()
@@ -2266,25 +2269,58 @@ void CMainFrame::OnViewInlinediffword()
     if (m_pwndLeftView)
     {
         m_pwndLeftView->SetInlineWordDiff(m_bInlineWordDiff);
-        m_pwndLeftView->Invalidate();
+        m_pwndLeftView->BuildAllScreen2ViewVector();
+        m_pwndLeftView->DocumentUpdated();
     }
     if (m_pwndRightView)
     {
         m_pwndRightView->SetInlineWordDiff(m_bInlineWordDiff);
-        m_pwndRightView->Invalidate();
+        m_pwndRightView->BuildAllScreen2ViewVector();
+        m_pwndRightView->DocumentUpdated();
     }
     if (m_pwndBottomView)
     {
         m_pwndBottomView->SetInlineWordDiff(m_bInlineWordDiff);
-        m_pwndBottomView->Invalidate();
+        m_pwndBottomView->BuildAllScreen2ViewVector();
+        m_pwndBottomView->DocumentUpdated();
     }
-    m_wndLineDiffBar.Invalidate();
+    m_wndLineDiffBar.DocumentUpdated();
 }
 
 void CMainFrame::OnUpdateViewInlinediffword(CCmdUI *pCmdUI)
 {
-    pCmdUI->Enable(IsViewGood(m_pwndLeftView) && IsViewGood(m_pwndRightView));
+    pCmdUI->Enable(m_bInlineDiff && IsViewGood(m_pwndLeftView) && IsViewGood(m_pwndRightView));
     pCmdUI->SetCheck(m_bInlineWordDiff);
+}
+
+void CMainFrame::OnViewInlinediff()
+{
+    m_bInlineDiff = !m_bInlineDiff;
+    if (m_pwndLeftView)
+    {
+        m_pwndLeftView->SetInlineDiff(m_bInlineDiff);
+        m_pwndLeftView->BuildAllScreen2ViewVector();
+        m_pwndLeftView->DocumentUpdated();
+    }
+    if (m_pwndRightView)
+    {
+        m_pwndRightView->SetInlineDiff(m_bInlineDiff);
+        m_pwndRightView->BuildAllScreen2ViewVector();
+        m_pwndRightView->DocumentUpdated();
+    }
+    if (m_pwndBottomView)
+    {
+        m_pwndBottomView->SetInlineDiff(m_bInlineDiff);
+        m_pwndBottomView->BuildAllScreen2ViewVector();
+        m_pwndBottomView->DocumentUpdated();
+    }
+    m_wndLineDiffBar.DocumentUpdated();
+}
+
+void CMainFrame::OnUpdateViewInlinediff(CCmdUI *pCmdUI)
+{
+    pCmdUI->Enable(IsViewGood(m_pwndLeftView) && IsViewGood(m_pwndRightView));
+    pCmdUI->SetCheck(m_bInlineDiff);
 }
 
 void CMainFrame::OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI)
