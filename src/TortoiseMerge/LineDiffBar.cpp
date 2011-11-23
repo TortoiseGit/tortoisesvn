@@ -106,9 +106,11 @@ void CLineDiffBar::OnPaint()
 
             leftView->m_bViewWhitespace = TRUE;
             leftView->m_bShowInlineDiff = TRUE;
+            leftView->m_bWhitespaceInlineDiffs = true;
             leftView->m_bShowSelection = false;
             rightView->m_bViewWhitespace = TRUE;
             rightView->m_bShowInlineDiff = TRUE;
+            rightView->m_bWhitespaceInlineDiffs = true;
             rightView->m_bShowSelection = false;
 
             // Use left and right view to display lines next to each other
@@ -117,9 +119,11 @@ void CLineDiffBar::OnPaint()
 
             leftView->m_bViewWhitespace = bViewWhiteSpace;
             leftView->m_bShowInlineDiff = bInlineDiffs;
+            leftView->m_bWhitespaceInlineDiffs = false;
             leftView->m_bShowSelection = true;
             rightView->m_bViewWhitespace = bViewWhiteSpace;
             rightView->m_bShowInlineDiff = bInlineDiffs;
+            rightView->m_bWhitespaceInlineDiffs = false;
             rightView->m_bShowSelection = true;
         }
     }

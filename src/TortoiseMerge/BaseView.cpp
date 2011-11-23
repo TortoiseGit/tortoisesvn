@@ -105,6 +105,7 @@ CBaseView::CBaseView()
     m_bModified = FALSE;
     m_bOtherDiffChecked = false;
     m_bInlineWordDiff = true;
+    m_bWhitespaceInlineDiffs = false;
     m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
     std::fill_n(m_apFonts, fontsCount, (CFont*)NULL);
     m_hConflictedIcon = LoadIcon(IDI_CONFLICTEDLINE);
@@ -4333,9 +4334,15 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
 {
     ASSERT(nViewLine < (int)m_ScreenedViewLine.size());
 
-    if (m_ScreenedViewLine[nViewLine].bLineColorsSet)
+    if (m_bWhitespaceInlineDiffs)
     {
-        return m_ScreenedViewLine[nViewLine].LineColors;
+        if (m_ScreenedViewLine[nViewLine].bLineColorsSetWhiteSpace)
+            return m_ScreenedViewLine[nViewLine].lineColorsWhiteSpace;
+    }
+    else
+    {
+        if (m_ScreenedViewLine[nViewLine].bLineColorsSet)
+            return m_ScreenedViewLine[nViewLine].lineColors;
     }
 
     LineColors oLineColors;
@@ -4348,6 +4355,10 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
     do {
         if (!m_bShowInlineDiff)
             break;
+
+        if ((diffState == DIFFSTATE_NORMAL)&&(!m_bWhitespaceInlineDiffs))
+            break;
+
         CString sLine = GetViewLineChars(nViewLine);
         if (sLine.IsEmpty())
             break;
@@ -4405,8 +4416,16 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
         }
     } while (false); // error catch
 
-    m_ScreenedViewLine[nViewLine].LineColors = oLineColors;
-    m_ScreenedViewLine[nViewLine].bLineColorsSet = true;
+    if (!m_bWhitespaceInlineDiffs)
+    {
+        m_ScreenedViewLine[nViewLine].lineColors = oLineColors;
+        m_ScreenedViewLine[nViewLine].bLineColorsSet = true;
+    }
+    else
+    {
+        m_ScreenedViewLine[nViewLine].lineColorsWhiteSpace = oLineColors;
+        m_ScreenedViewLine[nViewLine].bLineColorsSetWhiteSpace = true;
+    }
 
     return GetLineColors(nViewLine);
 }

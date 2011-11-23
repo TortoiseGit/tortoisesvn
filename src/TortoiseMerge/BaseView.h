@@ -209,6 +209,7 @@ public: // variables
     BOOL            m_bViewWhitespace;  ///< If TRUE, then SPACE and TAB are shown as special characters
     BOOL            m_bShowInlineDiff;  ///< If TRUE, diffs in lines are marked colored
     bool            m_bShowSelection;   ///< If true, selection bars are shown and selected text darkened
+    bool            m_bWhitespaceInlineDiffs; ///< if true, inline diffs are shown for identical lines only differing in whitespace
     int             m_nTopLine;         ///< The topmost text line in the view
     std::vector<int> m_arMarkedWordLines;   ///< which lines contain a marked word
 
@@ -481,6 +482,7 @@ protected:  // variables
             bSublinesSet = false;
             eIcon = ICN_UNKNOWN;
             bLineColorsSet = false;
+            bLineColorsSetWhiteSpace = false;
         }
 
         bool bSublinesSet;
@@ -500,9 +502,10 @@ protected:  // variables
             ICN_CONFLICTIGNORED,
         } eIcon;
 
+        bool bLineColorsSetWhiteSpace;
+        LineColors lineColorsWhiteSpace;
         bool bLineColorsSet;
-        LineColors LineColors;
-
+        LineColors lineColors;
     };
     std::vector<TScreenedViewLine> m_ScreenedViewLine; ///< cached data for screening
 
