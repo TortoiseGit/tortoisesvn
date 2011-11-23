@@ -2798,6 +2798,8 @@ ECharGroup GetCharGroup(wchar_t zChar)
 void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 {
     const int nClickedLine = GetButtonEventLineIndex(point);
+    if ( nClickedLine < 0)
+        return;
     int nViewLine = GetViewLineForScreen(nClickedLine);
     if (point.x < GetMarginWidth())  // only if double clicked on the margin
     {
