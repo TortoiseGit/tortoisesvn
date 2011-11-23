@@ -24,6 +24,8 @@
   </target>
 
   <target name="build" depends="clean">
+    <copy file="src/ne_openssl.c" tofile="src\ne_openssl_orig.c" overwrite="true" />
+    <copy file="..\build\ne_openssl.c" tofile="src/ne_openssl.c" overwrite="true" />
     <mkdir dir="${configuration}_${platform}" />
     <loadfile file="NEWS" property="versionfile" />
     <regex pattern="^Changes in release (?'NEON_MAJOR_VERSION'\d+)\.(?'NEON_MINOR_VERSION'\d+)\.(?'NEON_MICRO_VERSION'\d+):" input="${versionfile}" />
@@ -138,6 +140,8 @@
         <include name="..\gssapi\${configuration}_${platform}\gssapiu.lib" />
       </sources>
     </lib>
+    <copy file="src\ne_openssl_orig.c" tofile="src/ne_openssl.c" overwrite="true" />
+    <delete file="src\ne_openssl_orig.c" if="${file::exists('src\ne_openssl_orig.c')}" />
   </target>
 
 </project>
