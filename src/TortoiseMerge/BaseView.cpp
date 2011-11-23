@@ -2085,7 +2085,7 @@ BOOL CBaseView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
             ::SetCursor(m_margincursor);
             return TRUE;
         }
-        if (IsWritable()) // we show caret in all view, should we use edit cursor for all of them?
+        if (m_nMouseLine >= 0)
         {
             ::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_IBEAM)));    // Set To Edit Cursor
             return TRUE;
