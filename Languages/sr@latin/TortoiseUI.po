@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-30 12:42+0000\n"
+"PO-Revision-Date: 2011-11-22 19:46+0000\n"
 "Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -225,42 +225,42 @@ msgstr "%s [Vraćeno na staro]"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory already exists unversioned locally."
-msgstr "%s, ali imenik već postoji lokalno neverzionisano."
+msgstr "%s, ali folder već postoji lokalno neverzionisano."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
-msgstr "%s, ali imenik  nedostaje lokalno."
+msgstr "%s, ali folder  nedostaje lokalno."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already added locally."
-msgstr "%s, ali imenik je već dodat lokalno."
+msgstr "%s, ali folder je već dodat lokalno."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already edited."
-msgstr "%s, ali imenik je već uređen."
+msgstr "%s, ali folder je već uređen."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
-msgstr "%s, ali imenik je već obrisan, pomeren ili preimenovan lokalno."
+msgstr "%s, ali folder je već obrisan, pomeren ili preimenovan lokalno."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
-msgstr "%s, ali imenik je sprečen u radnoj kopiji."
+msgstr "%s, ali folder je sprečen u radnoj kopiji."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was replaced"
-msgstr "%s, ali imenik je premešten"
+msgstr "%s, ali folder je premešten"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
-msgstr "%s, ali imenik već postoji neverzionisano lokalno."
+msgstr "%s, ali folder već postoji neverzionisano lokalno."
 
 #. Resource IDs: (609)
 #, c-format
@@ -345,7 +345,7 @@ msgid ""
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
 "%s\n"
-"Imenik%s\n"
+"Folder%s\n"
 "sadrži neverzionisane i/ili izmenjene fajlove. Želite li da ih svakako uklonite? "
 
 #. Resource IDs: (616)
@@ -369,8 +369,8 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr ""
 "%s\n"
-"je imenik, nije fajl!\n"
-"TortoiseMerge ne može upoređivati imenike."
+"je folder, nije fajl!\n"
+"TortoiseMerge ne može upoređivati foldere."
 
 #. Resource IDs: (286)
 #, c-format
@@ -623,7 +623,7 @@ msgstr "&Kopiraj u..."
 
 #. Resource IDs: (1542)
 msgid "&Create folder structure"
-msgstr "&Kreira strukturu imenika"
+msgstr "&Kreira strukturu foldera"
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
@@ -860,7 +860,7 @@ msgstr "&Uključi stopljene revizije"
 
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
-msgstr "&Početni imenik:"
+msgstr "&Početni folder:"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -1638,7 +1638,7 @@ msgstr ""
 #. Resource IDs: (579)
 msgid "A list of user defined properties for folders to show in the combo box"
 msgstr ""
-"Lista osobina  koje je definisao korisnik za imenike za prikazivanje u kombo"
+"Lista osobina  koje je definisao korisnik za foldere za prikazivanje u kombo"
 " boksu"
 
 #. Resource IDs: (201)
@@ -1718,7 +1718,7 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "A&dd folder..."
-msgstr "D&odaj imenik..."
+msgstr "D&odaj folder..."
 
 #. Resource IDs: (563)
 msgid "Abort"
@@ -1874,7 +1874,7 @@ msgstr "Fajl dodat daljinski"
 
 #. Resource IDs: (126)
 msgid "Added a folder remotely"
-msgstr "Dodat imenik daljinski"
+msgstr "Dodat folder daljinski"
 
 #. Resource IDs: (126)
 msgid "Added items remotely"
@@ -2111,8 +2111,8 @@ msgid ""
 "Applies the properties recursively to all files/folders.\r\n"
 "bugtraq:, tsvn: and webviewer: properties are only applied to folders."
 msgstr ""
-"Primenjuje osobine rekurzivno na sve fajlove/imenike.\r\n"
-"bugtraq:, tsvn: and webviewer: osobine se primenjuju samo na imenike."
+"Primenjuje osobine rekurzivno na sve fajlove/foldere.\r\n"
+"bugtraq:, tsvn: and webviewer: osobine se primenjuju samo na foldere."
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -2417,7 +2417,7 @@ msgstr "N&apravi granu/oznaku iz revizije"
 
 #. Resource IDs: (101)
 msgid "C&reate folder..."
-msgstr "N&apravi imenik..."
+msgstr "N&apravi folder..."
 
 #. Resource IDs: (65535)
 msgid "C&urrent Keys:"
@@ -2499,7 +2499,7 @@ msgid ""
 "Choose a different folder to export to"
 msgstr ""
 "Otkaži\n"
-"Izaberite različit imenik za izvoz"
+"Izaberite različit folder za izvoz"
 
 #. Resource IDs: (221)
 msgid ""
@@ -2571,7 +2571,7 @@ msgid ""
 "Go back and select a different folder."
 msgstr ""
 "Otkaži\n"
-"Vratite se i izaberite drugi imenik."
+"Vratite se i izaberite drugi folder."
 
 #. Resource IDs: (89)
 msgid ""
@@ -2699,7 +2699,7 @@ msgid ""
 "You have to add the folder manually."
 msgstr ""
 "Odustani\n"
-"Treba da dodate imenik ručno."
+"Treba da dodate folder ručno."
 
 #. Resource IDs: (100)
 msgid ""
@@ -2854,7 +2854,7 @@ msgid ""
 "whether you want to keep your rename/move or the one from the repository. "
 "Then mark the conflict as resolved."
 msgstr ""
-"Proverite dnevnik da nađete fajl/imenik koji je preimenovan/pomeren i da "
+"Proverite dnevnik da nađete fajl/folder koji je preimenovan/pomeren i da "
 "odlučite da li želite da sačuvate izmenu/pomeranje ili onaj iz spremišta. "
 "Zatim označite da su konflikti rešeni."
 
@@ -2864,7 +2864,7 @@ msgid ""
 "whether you want to merge the change into your renamed file, or restore the "
 "original file."
 msgstr ""
-"Proverite dnevnik da nađete fajl/imenik koji je preimenovan/pomeren i da "
+"Proverite dnevnik da nađete fajl/folder koji je preimenovan/pomeren i da "
 "odlučite da li želite da stopite izmene u vaš preimenovan fajl, ili da "
 "vratite originalni fajl."
 
@@ -2903,7 +2903,7 @@ msgstr "Preuzimanje"
 
 #. Resource IDs: (1074)
 msgid "Checkout &directory:"
-msgstr "&Imenik preuzimanja:"
+msgstr "&Folder preuzimanja:"
 
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
@@ -2920,7 +2920,7 @@ msgid ""
 "Checkout into the non empty folder."
 msgstr ""
 "Preuzimanje\n"
-"Preuzimanje u imenik koji nije prazan."
+"Preuzimanje u folder koji nije prazan."
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -2945,7 +2945,7 @@ msgstr "Čišćenje"
 #. Resource IDs: (146)
 #, c-format
 msgid "Cleaning up directory '%1!s!'"
-msgstr "Čišćenje imenika '%1!s!'"
+msgstr "Čišćenje foldera '%1!s!'"
 
 #. Resource IDs: (329)
 msgid "Cleanup"
@@ -3155,8 +3155,8 @@ msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
 msgstr ""
-"Urezuj samo imenik\n"
-"Fajlove unutar imenika ne treba uzeti pri urezivanju."
+"Urezuj samo folder\n"
+"Fajlove unutar foldera ne treba uzeti pri urezivanju."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3200,8 +3200,8 @@ msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
 msgstr ""
-"Urezivanje neverzionisanih imenika neće rekurzivno dodati potomačke stavke!\n"
-"Možete želeti da dodate ove imenike rekurzivno koristeći 'Dodaj...' stavku kontekst meni. "
+"Urezivanje neverzionisanih foldera neće rekurzivno dodati potomačke stavke!\n"
+"Možete želeti da dodate ove foldere rekurzivno koristi  'Dodaj...' stavku kontekst meni. "
 
 #. Resource IDs: (170)
 msgid ""
@@ -3210,8 +3210,8 @@ msgid ""
 "\n"
 "Are you sure that you want to continue the commit?"
 msgstr ""
-"Urezivanjem novog imenika nećete rekurzivno spremiti i sav njegov sadržaj!\n"
-"Možda biste želeli da spremite sav sadržaj novog imenika koristeći 'Dodaj...' stavku menija sadržaja.\n"
+"Urezivanjem novog foldera nećete rekurzivno spremiti i sav njegov sadržaj!\n"
+"Možda biste želeli da spremite sav sadržaj novog foldera koristeći 'Dodaj...' stavku menija sadržaja.\n"
 "\n"
 "Da li želite nastaviti sa urezivanjem?"
 
@@ -3541,11 +3541,11 @@ msgstr ""
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not create %1 because the directory is full."
-msgstr "Nije bilo moguće kreirati %1 zato što je imenik pun."
+msgstr "Nije bilo moguće kreirati %1 zato što je folder pun."
 
 #. Resource IDs: (84)
 msgid "Could not create temp folder!"
-msgstr "Ne može da kreira temp imenik!"
+msgstr "Ne može da kreira temp folder!"
 
 #. Resource IDs: (582)
 #, c-format
@@ -3567,7 +3567,7 @@ msgid ""
 "Could not find a parent folder for\n"
 "%s"
 msgstr ""
-"Ne može da nađe predački imenik za r\n"
+"Ne može da nađe predački folder za r\n"
 "%s"
 
 #. Resource IDs: (81)
@@ -3602,7 +3602,7 @@ msgstr ""
 #. Resource IDs: (3867)
 #, c-format
 msgid "Could not remove %1 because it is the current directory."
-msgstr "Nije bilo moguće ukloniti %1 zato što je to tekući imenik."
+msgstr "Nije bilo moguće ukloniti %1 zato što je to tekući folder."
 
 #. Resource IDs: (82)
 #, c-format
@@ -3712,7 +3712,7 @@ msgid ""
 "Create new directory:\r\n"
 "%s"
 msgstr ""
-"Stvori novi imenik:\r\n"
+"Stvori novi folder:\r\n"
 "%s"
 
 #. Resource IDs: (8)
@@ -3729,7 +3729,7 @@ msgstr "Napravi  objedinjeni diff fajl"
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
-msgstr "Napravljen imenik daljinski"
+msgstr "Napravljen folder daljinski"
 
 #. Resource IDs: (10)
 msgid ""
@@ -3742,7 +3742,7 @@ msgstr ""
 msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr ""
-"Kreira imenik biblioteke sa specijalnim podešavanjem za Subverzionu radnu "
+"Kreira folder biblioteke sa specijalnim podešavanjem za Subverzionu radnu "
 "kopiju"
 
 #. Resource IDs: (2052)
@@ -3853,7 +3853,7 @@ msgstr ""
 
 #. Resource IDs: (81)
 msgid "Default directory structure successfully created!"
-msgstr "Podrazumevana struktura imenika zadovoljavajuće kreirana!"
+msgstr "Podrazumevana struktura foldera zadovoljavajuće kreirana!"
 
 #. Resource IDs: (1515)
 msgid "Default path:"
@@ -3873,7 +3873,7 @@ msgstr "Brišite zanemaren&im fajlovima i imenicima"
 
 #. Resource IDs: (1613)
 msgid "Delete &unversioned files and folders"
-msgstr "Briššite &neverzionisane fajlove i imenike"
+msgstr "Briššite &neverzionisane fajlove i foldere"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
@@ -3933,11 +3933,11 @@ msgstr ""
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
-msgstr "Briše fajlove /imenike iz kontrole verzija"
+msgstr "Briše fajlove /foldere iz kontrole verzija"
 
 #. Resource IDs: (18)
 msgid "Deletes files / folders from version control but keeps the file"
-msgstr "Briše fajlove /imenike iz kontrole verzija, ali čuva fajl"
+msgstr "Briše fajlove /foldere iz kontrole verzija, ali čuva fajl"
 
 #. Resource IDs: (198)
 msgid "Deletes the action log file"
@@ -4042,7 +4042,7 @@ msgstr "Imenici:"
 
 #. Resource IDs: (65535)
 msgid "Directory:"
-msgstr "Imenik:"
+msgstr "Folder:"
 
 #. Resource IDs: (195)
 msgid ""
@@ -4116,7 +4116,7 @@ msgstr "Uradite isto za sve postojeće fajlove"
 
 #. Resource IDs: (91)
 msgid "Do this for all existing folders"
-msgstr "Uradite isto za sve postojeće imenike"
+msgstr "Uradite isto za sve postojeće foldere"
 
 #. Resource IDs: (147)
 msgid "Do this for all existing items"
@@ -4128,7 +4128,7 @@ msgstr "Uradite ovo za sve izabrane stavke"
 
 #. Resource IDs: (173)
 msgid "Do this for all selected unversioned folders"
-msgstr "Uradi ovo za sve izabrane neverzionisane imenike"
+msgstr "Uradi ovo za sve izabrane neverzionisane foldere"
 
 #. Resource IDs: (148)
 msgid "Do this for all unversioned/modified items"
@@ -4141,7 +4141,7 @@ msgstr "Želite li zaista obrisati alatni panel '%s'?"
 
 #. Resource IDs: (145)
 msgid "Do you really want to move this file or folder?"
-msgstr "Želite li zaista premestiti taj fajl ili imenik?"
+msgstr "Želite li zaista premestiti taj fajl ili folder?"
 
 #. Resource IDs: (119)
 #, c-format
@@ -4173,7 +4173,7 @@ msgid ""
 "%s!"
 msgstr ""
 "Da li želite ovu radnu kopiju izvući iz sistema verzija?\n"
-"Akcija će obrisati sve Subversion administracijske imenike iz\n"
+"Akcija će obrisati sve Subversion administracijske foldere iz\n"
 "%s! "
 
 #. Resource IDs: (148)
@@ -4256,10 +4256,10 @@ msgid ""
 "working copies next to each other.\n"
 "This works for directory URLs only."
 msgstr ""
-"Ne pravite imenik preuzimanja kao praznu radnu kopiju.\n"
+"Ne pravite folder preuzimanja kao praznu radnu kopiju.\n"
 "Umesto toga, svi URLovi su preuzeti u izdvojene\n"
 "radne kopije jedan za drugim.\n"
-"Ovo radi samo za URL imenike."
+"Ovo radi samo za URL foldere."
 
 #. Resource IDs: (3887)
 msgid ""
@@ -4685,11 +4685,11 @@ msgstr "Izvezi"
 
 #. Resource IDs: (1074)
 msgid "Export &directory:"
-msgstr "Imenik za &izvoz:"
+msgstr "Folder za &izvoz:"
 
 #. Resource IDs: (94)
 msgid "Export directory:"
-msgstr "Imenik za izvoz:"
+msgstr "Folder za izvoz:"
 
 #. Resource IDs: (345)
 msgid ""
@@ -4706,7 +4706,7 @@ msgid ""
 "Export into the non-empty folder."
 msgstr ""
 "Izvoz\n"
-"Izvoz u imenik koji nije prazan."
+"Izvoz u folder koji nije prazan."
 
 #. Resource IDs: (284)
 #, c-format
@@ -4719,7 +4719,7 @@ msgstr "Izvozi..."
 
 #. Resource IDs: (90)
 msgid "Exporting: Target folder exists."
-msgstr "Izvoženje: Ciljni imenik postoji."
+msgstr "Izvoženje: Ciljni folder postoji."
 
 #. Resource IDs: (581)
 msgid "Exports a set of properties to a file"
@@ -4727,7 +4727,7 @@ msgstr "Izvozi grupu svojstava u fajl"
 
 #. Resource IDs: (10)
 msgid "Exports a versioned folder as a separate unversioned folder"
-msgstr "Izvozi verzionisane imenike kao izdvojene neverzionisane imenike"
+msgstr "Izvozi verzionisane foldere kao izdvojene neverzionisane foldere"
 
 #. Resource IDs: (207)
 msgid "Extension"
@@ -5096,7 +5096,7 @@ msgstr "Sklopljena oznaka"
 
 #. Resource IDs: (1002)
 msgid "Folder"
-msgstr "Imenik"
+msgstr "Folder"
 
 #. Resource IDs: (65535)
 msgid "Font"
@@ -5657,7 +5657,7 @@ msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
-"Ukoliko je označeno, tada se u spremištu kreira novi imenik .\n"
+"Ukoliko je označeno, tada se u spremištu kreira novi folder .\n"
 "Ako nije označeno, tada uvoz ide neposredno u zadani URL."
 
 #. Resource IDs: (79)
@@ -5697,7 +5697,7 @@ msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
 msgstr ""
-"Ako je omogućeno, isključene imenike u radnoj kopiji\n"
+"Ako je omogućeno, isključene foldere u radnoj kopiji\n"
 "i dalje prikazuju prekrivnu ikonu za status 'normal'"
 
 #. Resource IDs: (195)
@@ -5714,7 +5714,7 @@ msgid ""
 "The status control is used for example in the commit dialog."
 msgstr ""
 "Ako je postavljeno, prilikom provere statusa pokazaće se i fajlovi\r\n"
-"unutar imenika  izvan sistema upravljanja verzijama.\r\n"
+"unutar foldera  izvan sistema upravljanja verzijama.\r\n"
 "Provera statusa se, na primer, koristi u dijalogu za urezivanje."
 
 #. Resource IDs: (196)
@@ -5722,8 +5722,8 @@ msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
 msgstr ""
-"Ako je postavljeno, fajlovi izvan sistema verzija će označiti imenik izmenjenom\r\n"
-"tj. imenici će dobiti odgovarajuću prekrivnu ikonu (izmenjen imenik )."
+"Ako je postavljeno, fajlovi izvan sistema verzija će označiti folder izmenjenom\r\n"
+"tj. imenici će dobiti odgovarajuću prekrivnu ikonu (izmenjen folder )."
 
 #. Resource IDs: (2052)
 msgid ""
@@ -5850,7 +5850,7 @@ msgstr "Slike"
 
 #. Resource IDs: (19)
 msgid "Immediate children, including folders"
-msgstr "Neposredni potomak,  uključujući imenike"
+msgstr "Neposredni potomak,  uključujući foldere"
 
 #. Resource IDs: (77, 139)
 msgid "Import"
@@ -5898,7 +5898,7 @@ msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
 msgstr ""
-"Uvozi imenik %1!s!\r\n"
+"Uvozi folder %1!s!\r\n"
 "u %2!s!"
 
 #. Resource IDs: (613)
@@ -5916,7 +5916,7 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
-msgstr "Uvezena struktura imenika"
+msgstr "Uvezena struktura foldera"
 
 #. Resource IDs: (120)
 #, c-format
@@ -5925,7 +5925,7 @@ msgstr "Uvozi fajl %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
-msgstr "Uvoz imenika u spremište"
+msgstr "Uvoz foldera u spremište"
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
@@ -6155,7 +6155,7 @@ msgstr "S&ačuvaj listu izmena"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
-msgstr "Ostavi imenik iz spremišta"
+msgstr "Ostavi folder iz spremišta"
 
 #. Resource IDs: (610)
 msgid "Keep the file from the repository"
@@ -6163,7 +6163,7 @@ msgstr "Ostavi fajl iz spremišta"
 
 #. Resource IDs: (610)
 msgid "Keep the local directory"
-msgstr "Ostavi lokalni imenik"
+msgstr "Ostavi lokalni folder"
 
 #. Resource IDs: (610)
 msgid "Keep the local file"
@@ -6809,7 +6809,7 @@ msgstr "Premesti stavke ovde"
 
 #. Resource IDs: (106)
 msgid "Move special file or directory"
-msgstr "Pomera specijalni fajl ili imenik"
+msgstr "Pomera specijalni fajl ili folder"
 
 #. Resource IDs: (613)
 #, c-format
@@ -6987,7 +6987,7 @@ msgid ""
 "No files or folders were modified. There is nothing for TortoiseSVN to "
 "revert!"
 msgstr ""
-"Ni jedan fajl ili imenik  nije izmenjen. TortoiseSVN nema ništa da vrati!"
+"Ni jedan fajl ili folder  nije izmenjen. TortoiseSVN nema ništa da vrati!"
 
 #. Resource IDs: (239)
 msgid ""
@@ -7069,7 +7069,7 @@ msgstr "Boja čvora"
 
 #. Resource IDs: (170)
 msgid "Non-recursive commit of moved/renamed folders."
-msgstr "Nerekurzivno urezivanje pomerenih/preimenovanih imenika."
+msgstr "Nerekurzivno urezivanje pomerenih/preimenovanih foldera."
 
 #. Resource IDs: (1507)
 msgid "Non-versioned"
@@ -7121,7 +7121,7 @@ msgstr ""
 
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
-msgstr "Primedba: imenik sadrži neverzionisane stavke"
+msgstr "Primedba: folder sadrži neverzionisane stavke"
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
@@ -7208,7 +7208,7 @@ msgid ""
 "Number of path elements. A path element is a folder or file name like "
 "'foo.txt' or 'mybranch'."
 msgstr ""
-"Broj elemenata putanje. Element putanje je imenik  ili ime fajlovi kao "
+"Broj elemenata putanje. Element putanje je folder  ili ime fajlovi kao "
 "'foo.txt' ili 'mojaGrana'."
 
 #. Resource IDs: (345)
@@ -7297,7 +7297,7 @@ msgstr "Snim&i samo stopljeno (blok revizije iz stapanja)"
 
 #. Resource IDs: (99)
 msgid "Only check out the &top folder"
-msgstr "Preuzmi samo &vršni  imenik"
+msgstr "Preuzmi samo &vršni  folder"
 
 #. Resource IDs: (19)
 msgid "Only file children"
@@ -7353,7 +7353,7 @@ msgstr "Otvori fajl slike..."
 
 #. Resource IDs: (282)
 msgid "Open parent folder"
-msgstr "Otvori predački imenik"
+msgstr "Otvori predački folder"
 
 #. Resource IDs: (113)
 msgid "Open with..."
@@ -7429,7 +7429,7 @@ msgid ""
 "Replace the target folder."
 msgstr ""
 "Prepisivanje\n"
-"Zamenite ciljni imenik."
+"Zamenite ciljni folder."
 
 #. Resource IDs: (147)
 msgid ""
@@ -7445,7 +7445,7 @@ msgid ""
 "The target file is replaced."
 msgstr ""
 "Prepisivanje\n"
-"Ciljni imenik je zamenjen."
+"Ciljni folder je zamenjen."
 
 #. Resource IDs: (32802)
 msgid "P&revious Conflict"
@@ -8075,7 +8075,7 @@ msgid ""
 "Remove the property also from items in Subfolders."
 msgstr ""
 "Rekurzivno\n"
-"Ukloni osobine takođe iz stavki podimenika"
+"Ukloni osobine takođe iz stavki podfoldera"
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
@@ -8308,7 +8308,7 @@ msgstr ""
 
 #. Resource IDs: (610)
 msgid "Remove the directory"
-msgstr "Ukloni imenik:"
+msgstr "Ukloni folder:"
 
 #. Resource IDs: (610)
 msgid "Remove the file"
@@ -8344,7 +8344,7 @@ msgstr "Uklonjen"
 
 #. Resource IDs: (126)
 msgid "Removed file/folder"
-msgstr "Uklonjen fajl/imenik "
+msgstr "Uklonjen fajl/folder "
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
@@ -8416,7 +8416,7 @@ msgid ""
 "The folder is exported as '%s'."
 msgstr ""
 "Preimenuj\n"
-"Imenik je izvezen kao '%s'."
+"Folder je izvezen kao '%s'."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8428,7 +8428,7 @@ msgstr "Promenjeno ime daljinski"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
-msgstr "Preimenuje fajlove / imenike  unutar upravljanja verzijama"
+msgstr "Preimenuje fajlove / foldere  unutar upravljanja verzijama"
 
 #. Resource IDs: (209)
 msgid "Repair copy"
@@ -9091,7 +9091,7 @@ msgstr "Izaberite aplikaciju za pregled razlika"
 
 #. Resource IDs: (99)
 msgid "Select directory to check out to"
-msgstr "Izaberite imenik za preuzimanje"
+msgstr "Izaberite folder za preuzimanje"
 
 #. Resource IDs: (279)
 msgid "Select end revision"
@@ -9099,23 +9099,23 @@ msgstr "Odaberite zadnju reviziju"
 
 #. Resource IDs: (64)
 msgid "Select folder to associate with this issue tracker"
-msgstr "Izaberite imenik da se pridruži ovom problem tragaču"
+msgstr "Izaberite folder da se pridruži ovom problem tragaču"
 
 #. Resource IDs: (79)
 msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
 msgstr ""
-"Odaberite imenik za  izvoz.\n"
-"Možda bi trebalo napraviti novi imenik pre no što se napravi izvoz."
+"Odaberite folder za  izvoz.\n"
+"Možda bi trebalo napraviti novi folder pre no što se napravi izvoz."
 
 #. Resource IDs: (197)
 msgid "Select folder to run script for"
-msgstr "Odaberite radni imenik za skript"
+msgstr "Odaberite radni folder za skript"
 
 #. Resource IDs: (119)
 msgid "Select folder to save the selected files to"
-msgstr "Odaberite radni imenik za snimanje odabranih fajlova"
+msgstr "Odaberite radni folder za snimanje odabranih fajlova"
 
 #. Resource IDs: (197)
 msgid "Select hook script file"
@@ -9400,7 +9400,7 @@ msgstr "Prikaži &objedinjene razlike"
 
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
-msgstr "Prikazuje isključen imenik kao normalno"
+msgstr "Prikazuje isključen folder kao normalno"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9547,7 +9547,7 @@ msgstr "Prikazuje vrednost svojstva za vrstu završetaka linija (EOL)"
 
 #. Resource IDs: (12)
 msgid "Shows the log for the selected file / folder"
-msgstr "Prikazuje dnevnik označene fajlovi / imenik"
+msgstr "Prikazuje dnevnik označene fajlovi / folder"
 
 #. Resource IDs: (14)
 msgid "Shows the mime type of the versioned file"
@@ -9678,7 +9678,7 @@ msgid ""
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
 msgstr ""
-"Odredite fajlove ili imenike koje bi TortoiseSVN\r\n"
+"Odredite fajlove ili foldere koje bi TortoiseSVN\r\n"
 "trebalo da izostavi iz svih radnih kopija.\r\n"
 "Modele rastavite razmakom."
 
@@ -9767,7 +9767,7 @@ msgstr ""
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "Status keš je samo za jedan imenik, nema rekurzivnog prekrivanja"
+msgstr "Status keš je samo za jedan folder, nema rekurzivnog prekrivanja"
 
 #. Resource IDs: (11)
 msgid "Status of item in SVN"
@@ -9896,7 +9896,7 @@ msgid ""
 "Make sure the folder is empty and not write protected."
 msgstr ""
 "Subversion je prijavio grešku prilikom izrade spremišta!\n"
-"Proverite da imenik  nije prazan i zaštićen od pisanja."
+"Proverite da folder  nije prazan i zaštićen od pisanja."
 
 #. Resource IDs: (81)
 #, c-format
@@ -10039,7 +10039,7 @@ msgstr "Radna kopija je označena prema %s"
 
 #. Resource IDs: (90)
 msgid "Target folder is not empty"
-msgstr "Ciljni imenik nije prazan."
+msgstr "Ciljni folder nije prazan."
 
 #. Resource IDs: (80)
 msgid "Tasks"
@@ -10186,7 +10186,7 @@ msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
 msgstr ""
-"Imenik %s\n"
+"Folder %s\n"
 "sadrži izmenjene fajlove ili fajlove izvan sistem. Da li ga ipak želite ukloniti?"
 
 #. Resource IDs: (88)
@@ -10197,7 +10197,7 @@ msgid ""
 "does not exist.\n"
 "Would you like to create it first?"
 msgstr ""
-"Imenik\n"
+"Folder\n"
 "%s\n"
 "ne postoji.\n"
 "Želite li ga prvo napraviti?"
@@ -10209,7 +10209,7 @@ msgid ""
 "%s\n"
 "already exists!"
 msgstr ""
-"Imenik\n"
+"Folder\n"
 "%s\n"
 "već postoji!"
 
@@ -10246,7 +10246,7 @@ msgstr "Stavka '%s' ima svojstvene konflikte:"
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to add the directory '%s'"
-msgstr "Zadnja opercija stapanja pokušava da doda imenik '%s' "
+msgstr "Zadnja opercija stapanja pokušava da doda folder '%s' "
 
 #. Resource IDs: (607)
 #, c-format
@@ -10258,7 +10258,7 @@ msgstr "Zadnja operacija stapanja pokušava da doda fajl '%s' "
 msgid ""
 "The last merge operation tried to delete/move/rename the directory '%s'"
 msgstr ""
-"Zadnja operacija stapanja pokušava da obriše/pomeri/preimenuje imenik '%s' "
+"Zadnja operacija stapanja pokušava da obriše/pomeri/preimenuje folder '%s' "
 
 #. Resource IDs: (607)
 #, c-format
@@ -10269,7 +10269,7 @@ msgstr ""
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to modify the directory '%s'"
-msgstr "Zadnja operacija stapanja pokušava da izmeni imenik '%s' "
+msgstr "Zadnja operacija stapanja pokušava da izmeni folder '%s' "
 
 #. Resource IDs: (607)
 #, c-format
@@ -10279,7 +10279,7 @@ msgstr "Zadnja operacija stapanja pokušava da izmeni fajl  '%s'"
 #. Resource IDs: (608)
 #, c-format
 msgid "The last merge operation tried to replace the directory '%s'"
-msgstr "Zadnja operacija spajanja pokušava da zameni imenik '%s'"
+msgstr "Zadnja operacija spajanja pokušava da zameni folder '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10289,7 +10289,7 @@ msgstr "Zadnja operacija stapanja pokušava da zameni fajl '%s' "
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to add the directory '%s'"
-msgstr "Zadnja operacija skretanja pokušava da doda imenik '%s' "
+msgstr "Zadnja operacija skretanja pokušava da doda folder '%s' "
 
 #. Resource IDs: (607)
 #, c-format
@@ -10301,7 +10301,7 @@ msgstr "Zadnja operacija skretanja pokušava da doda fajl '%s' "
 msgid ""
 "The last switch operation tried to delete/move/rename the directory '%s'"
 msgstr ""
-"Zadnja operacija skretanja pokušava da obriše/pomeri/preimenuje imenik '%s' "
+"Zadnja operacija skretanja pokušava da obriše/pomeri/preimenuje folder '%s' "
 
 #. Resource IDs: (607)
 #, c-format
@@ -10312,7 +10312,7 @@ msgstr ""
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to modify the directory '%s'"
-msgstr "Zadnja operacija skretanja pokušava daizmeni imenik '%s' "
+msgstr "Zadnja operacija skretanja pokušava daizmeni folder '%s' "
 
 #. Resource IDs: (607)
 #, c-format
@@ -10322,7 +10322,7 @@ msgstr "Zadnja operacija skretanja pokušava da izmeni fajl  '%s'"
 #. Resource IDs: (608)
 #, c-format
 msgid "The last switch operation tried to replace the directory '%s'"
-msgstr "Zadnja operacija prebacivanja pokušava da zameni imenik '%s'"
+msgstr "Zadnja operacija prebacivanja pokušava da zameni folder '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10332,7 +10332,7 @@ msgstr "Zadnja operacija prebacivanja pokušava da zameni fajl '%s'"
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to add the directory '%s'"
-msgstr "Zadnja operacija obnavljanja pokušava da doda imenik '%s' "
+msgstr "Zadnja operacija obnavljanja pokušava da doda folder '%s' "
 
 #. Resource IDs: (607)
 #, c-format
@@ -10344,7 +10344,7 @@ msgstr "Zadnja operacija obnavljanja pokušava da doda fajl '%s' "
 msgid ""
 "The last update operation tried to delete/move/rename the directory '%s'"
 msgstr ""
-"Zadnja operacija obnavljanja pokušava da obriše/pomeri/preimenuje imenik "
+"Zadnja operacija obnavljanja pokušava da obriše/pomeri/preimenuje folder "
 "'%s' "
 
 #. Resource IDs: (607)
@@ -10356,7 +10356,7 @@ msgstr ""
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to modify the directory '%s'"
-msgstr "Zadnja operacija obnavljanja pokušava da izmeni imenik '%s' "
+msgstr "Zadnja operacija obnavljanja pokušava da izmeni folder '%sfolder "
 
 #. Resource IDs: (607)
 #, c-format
@@ -10366,7 +10366,7 @@ msgstr "Zadnja operacija obnavljanja pokušava da izmeni fajl '%s' "
 #. Resource IDs: (608)
 #, c-format
 msgid "The last update operation tried to replace the directory '%s'"
-msgstr "Zadnja operacija obnavljanja pokušava da zameni imenik '%s'"
+msgstr "Zadnja operacija obnavljanja pokušava da zameni folder '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10487,7 +10487,7 @@ msgstr ""
 "iz zakrpe ne postoji u radnoj kopiji.\n"
 "No, TortoiseMerge je našao relativnu putanju\n"
 "%2!s!\n"
-"koja je odgovarajuća imeniku.\n"
+"koja je odgovarajuća folderu.\n"
 "Želite li umesto one koristiti predloženu putanju? Ako odgovorite 'ne', TortoiseMerge će odustati."
 
 #. Resource IDs: (314)
@@ -10518,7 +10518,7 @@ msgstr ""
 "Putanja\n"
 "%s\n"
 "u zakrpi ne postoji.\n"
-"TortoiseMerge je pokušao primeniti zakrpu ali odgovarajući imenik  nije pronađena."
+"TortoiseMerge je pokušao primeniti zakrpu ali odgovarajući folder  nije pronađena."
 
 #. Resource IDs: (84)
 msgid ""
@@ -10534,7 +10534,7 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr ""
 "Spremište je sukcesivno kreirano.\n"
-"Da li sada želite da kreirate strukturu uobičajenog imenika (deblo/grane/oznake)? "
+"Da li sada želite da kreirate strukturu uobičajenog foldera (deblo/grane/oznake)? "
 
 #. Resource IDs: (616)
 #, c-format
@@ -10589,10 +10589,10 @@ msgid ""
 "is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
 msgstr ""
-"Ciljni imenik  \n"
+"Ciljni folder  \n"
 "%s\n"
 "nije prazan!\n"
-"Jeste li sigurni da želite preuzimanje/izvoz baš u taj imenik?"
+"Jeste li sigurni da želite preuzimanje/izvoz baš u taj folder?"
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
@@ -10674,7 +10674,7 @@ msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr ""
-"Postoje izmene ili neverzionisani fajlovi  unutar jednog ili više imenika  koji su uključeni preko svojstva svn:externals.\n"
+"Postoje izmene ili neverzionisani fajlovi  unutar jednog ili više foldera  koji su uključeni preko svojstva svn:externals.\n"
 "Ti fajlovi nisu na popisu za urezivanje. NJih morate urezati zasebno."
 
 #. Resource IDs: (64)
@@ -10848,7 +10848,7 @@ msgstr "Ovaj program zahteva fajl %s koja nije nađen na ovom sistemu."
 
 #. Resource IDs: (15)
 msgid "This property is only allowed on folders, not files."
-msgstr "Ovo svojstvo je dozvoljeno samo za imenike, ne i fajlove."
+msgstr "Ovo svojstvo je dozvoljeno samo za foldere, ne i fajlove."
 
 #. Resource IDs: (15)
 msgid "This property must not have multiple lines. Only one line is allowed."
@@ -10895,17 +10895,17 @@ msgid ""
 "which does not allow directory deletion."
 msgstr ""
 "Da biste rekurzivno urezali i zaobišli ovu grešku,\n"
-"pobrinite se da su sve stavke u označenom imeniku\n"
+"pobrinite se da su sve stavke u označenom folderu\n"
 "takođe označene u dijalogu za urezivanje.\n"
 "TortoiseSVN inače mora urezati bez rekurzije\n"
-"što će sprečiti brisanje imenika."
+"što će sprečiti brisanje foldera."
 
 #. Resource IDs: (284)
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
 msgstr ""
-"Kako bi preoteli katanac, kliknite desni dugme na imeniku željenih fajlova i odaberite 'Zaključaj' u meniu.\n"
+"Kako bi preoteli katanac, kliknite desni dugme na folderu željenih fajlova i odaberite 'Zaključaj' u meniu.\n"
 "Prikazaće se dijalog za zaključavanje gde možete ukrasti katanac od osobe koja ga trenutno ima."
 
 #. Resource IDs: (1201, 65535)
@@ -11075,7 +11075,7 @@ msgid ""
 msgstr ""
 "TortoiseSVNJe proširenje programske školjke.\n"
 "To znači da je integrisan u  Windows explorer.\n"
-"Da biste koristili TortoiseSVNmolim vas otvorite pretraživač i kliknite desnim tasterom na željeni imenik\n"
+"Da biste koristili TortoiseSVNmolim vas otvorite pretraživač i kliknite desnim tasterom na željeni folder\n"
 "da biste dobili konekstni meni gde ćete naći sve TortozSVN komande.\n"
 "I pročitajte uputstvo!"
 
@@ -11348,7 +11348,7 @@ msgstr "Neverzionisan"
 
 #. Resource IDs: (1313)
 msgid "Unversioned files mark parent folder as modified"
-msgstr "Fajlovi izvan sistema verzija označavaju imenik kao izmenjenu"
+msgstr "Fajlovi izvan sistema verzija označavaju folder kao izmenjenu"
 
 #. Resource IDs: (286)
 #, c-format
@@ -11357,7 +11357,7 @@ msgstr "Skidanje verzije %1!s!"
 
 #. Resource IDs: (106)
 msgid "Up one folder"
-msgstr "Jedan imenik gore"
+msgstr "Jedan folder gore"
 
 #. Resource IDs: (77, 152, 230)
 msgid "Update"
@@ -11922,7 +11922,7 @@ msgid ""
 "you must activate the 'recursive' checkbox."
 msgstr ""
 "Ne možete postaviti to svojstvo na imenicima nego samo na fajlovima!\n"
-"Ako ga želite postaviti na svim fajlovima unutar imenika,\n"
+"Ako ga želite postaviti na svim fajlovima unutar foldera,\n"
 "morate uključiti kvadratić 'rekurzivani'."
 
 #. Resource IDs: (105)
@@ -11931,8 +11931,8 @@ msgid ""
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
 msgstr ""
-"Otpustili ste više od jednog fajla ili imenika da ga dodate u spremište.\n"
-"To nije moguće uraditi u jednom koraku, TortoiseSVN će dodati fajl/imenik\n"
+"Otpustili ste više od jednog fajla ili foldera da ga dodate u spremište.\n"
+"To nije moguće uraditi u jednom koraku, TortoiseSVN će dodati fajl/folder\n"
 "pojedinačno, kreirajući novu reviziju za svaku dodatu stavku."
 
 #. Resource IDs: (105)
@@ -11943,9 +11943,9 @@ msgid ""
 "\n"
 "Do you still want to do this?"
 msgstr ""
-"Ispustili ste više od jednog fajla ili imenika da dodate u spremište.\n"
+"Ispustili ste više od jednog fajla ili foldera da dodate u spremište.\n"
 "To nije moguće učiniti u jednom koraku tako da će TortoiseSVN dodati svaki\n"
-"fajl/imenik zasebno, izrađujući novu reviziju za svaku dodatu stavku.\n"
+"fajl/foler zasebno, izrađujući novu reviziju za svaku dodatu stavku.\n"
 "\n"
 "Želite li još uvek to učiniti?"
 
@@ -11992,7 +11992,7 @@ msgstr ""
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
-msgstr "Izabrali ste neverzionisan imenik za urezivanje!"
+msgstr "Izabrali ste neverzionisan folder za urezivanje!"
 
 #. Resource IDs: (1001)
 msgid "You should enter a text!"
@@ -12661,8 +12661,8 @@ msgid ""
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
 msgstr ""
 "svn:executable\r\n"
-"Ukoliko je prisutno, označava izvršni fajl. Ovo svojstvo se ne može postaviti za imenik.\r\n"
-"Ne-rekurzivni pokušaj biće neuspešan, rekurzivni pokušaj će postaviti svojstvo samo na fajlove potomke imenika."
+"Ukoliko je prisutno, označava izvršni fajl. Ovo svojstvo se ne može postaviti za folder.\r\n"
+"Ne-rekurzivni pokušaj biće neuspešan, rekurzivni pokušaj će postaviti svojstvo samo na fajlove potomke foldera."
 
 #. Resource IDs: (318)
 msgid "svn:externals"
@@ -12685,13 +12685,13 @@ msgid ""
 msgstr ""
 "svn:externals\r\n"
 "Lista podeljena novim redom modul specifikator, svaka od kojih se sastoji od\r\n"
-"neobavezne revizije,  URL sa opcionalnom peg revizijom i  relativnom putanjom imenika. Na primer\r\n"
+"neobavezne revizije,  URL sa opcionalnom peg revizijom i  relativnom putanjom foldera. Na primer\r\n"
 "http://example.com/repos/zig foo\r\n"
 "-r 1234 http://example.com/repos/zag foo/bar\r\n"
 "\r\n"
 "URLovi mogu biti ili puni URLovi ili relativni. Format za\r\n"
 "relatvne URLova je:\r\n"
-"../ relativan ka predačkom imeniku eksternala\r\n"
+"../ relativan ka predačkom folderu eksternala\r\n"
 "^/ relativan korenu spremišta\r\n"
 "// relativan URL šemi\r\n"
 "/ relativan  imenu domaćina servera"
@@ -12944,7 +12944,7 @@ msgid ""
 msgstr ""
 "tsvn:logtemplatemkdir\r\n"
 "Niz znakova koji se umeće u boksove za upis poruka dnevnika u dijaloge urezivanja.\r\n"
-"Ovo koristite kao šablon  poruka dnevnika za kreiranje imenika koji će ispunjavati korisnici."
+"Ovo koristite kao šablon  poruka dnevnika za kreiranje foldera koji će ispunjavati korisnici."
 
 #. Resource IDs: (579)
 msgid ""
@@ -13003,7 +13003,7 @@ msgid ""
 "be shown in the property dialog to choose from."
 msgstr ""
 "tsvn:userfolderproperties\r\n"
-"Lista razdvojena novim redom korisničkih osobina za imenike koja će\r\n"
+"Lista razdvojena novim redom korisničkih osobina za foldere koja će\r\n"
 "biti prikazana u dijalogu za izbor svojstava."
 
 #. Resource IDs: (577)
