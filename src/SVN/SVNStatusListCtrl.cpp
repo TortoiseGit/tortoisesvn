@@ -3483,7 +3483,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     {
                         CSVNProgressDlg progDlg;
                         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
-                        progDlg.SetOptions(inpDlg.GetCapture() ? ProgOptForce : ProgOptNone);
+                        progDlg.SetOptions(inpDlg.GetCheck() ? ProgOptForce : ProgOptNone);
                         progDlg.SetPathList(itemsToLock);
                         progDlg.SetCommitMessage(inpDlg.GetLogMessage());
                         progDlg.DoModal();
