@@ -315,6 +315,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             {
                                 itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
                             }
+                            if (stat.GetSVNError())
+                                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": GetStatus Failed with error:\"%ws\"\n", (LPCTSTR)stat.GetLastErrorMessage());
                             // sometimes, svn_client_status() returns with an error.
                             // in that case, we have to check if the working copy is versioned
                             // anyway to show the 'correct' context menu
@@ -414,6 +416,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                             {
                                 itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
                             }
+                            if (stat.GetSVNError())
+                                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": GetStatus Failed with error:\"%ws\"\n", (LPCTSTR)stat.GetLastErrorMessage());
                             // sometimes, svn_client_status() returns with an error.
                             // in that case, we have to check if the working copy is versioned
                             // anyway to show the 'correct' context menu
@@ -534,6 +538,8 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                         {
                             itemStates |= ITEMIS_UNSUPPORTEDFORMAT;
                         }
+                        if (stat.GetSVNError())
+                            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": GetStatus Failed with error:\"%ws\"\n", (LPCTSTR)stat.GetLastErrorMessage());
                         // sometimes, svn_client_status() returns with an error.
                         // in that case, we have to check if the working copy is versioned
                         // anyway to show the 'correct' context menu
@@ -851,7 +857,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
                                          UINT /*idCmdLast*/,
                                          UINT uFlags)
 {
-    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: QueryContextMenu\n");
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: QueryContextMenu itemStates=%ld\n", itemStates);
     PreserveChdir preserveChdir;
 
     //first check if our drop handler is called
