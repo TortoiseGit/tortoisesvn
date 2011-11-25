@@ -893,18 +893,8 @@ msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="path/to/install/dir"
                         <p>This error message typically occurs when you try to update or commit your working copy, 
                         and seems to be common on Windows 7 systems. 
                         It is due to another process holding a handle on a file that Subversion needs 
-                        to move or modify. This might be a virus scanner, but on Windows 7 it is 
-                        likely to be the Windows Indexing Service. Turn off the indexing service on your 
-                        working copies and repositories, and exclude them from virus scans.</p>
-                        <p>Here's how you can configure the indexing service:
-                        <ul>
-                            <li>Click the start menu button, then click in the text box to begin a search</li>
-                            <li>Type in “windows index”</li>
-                            <li>Click on “Indexing Options” that should come up in the search</li>
-                            <li>When the Indexing Options box comes up, Click on the Modify button. This will pop up an Indexed Locations dialog, where you should see a list of some “locations”, with your hard drive(s) being in the list.</li>
-                            <li>Expand the desired hard drive, down to the root folder of the files you’re using SVN with, and make sure the box is unchecked. Also note that the hard drive will most likely be collapsed, and will have its box unchecked, even though once you expand it, you may find checked boxes.</li>
-                        </ul>
-                        </p>
+                        to move or modify. This might be a virus scanner. Configure the virus scanner
+                        so that your working copies and repositories are excluded from being scanned.</p>
                         <p>
                         Note: there's a bug in Win7 which causes this error message to appear a lot more 
                         than necessary. The bug is fixed with service pack 1.
