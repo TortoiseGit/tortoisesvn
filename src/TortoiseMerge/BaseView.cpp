@@ -4852,6 +4852,11 @@ void CBaseView::OnEditFindnextStart()
         BuildFindStringArray();
         OnEditFindnext();
     }
+    else
+    {
+        m_sFindText.Empty();
+        BuildFindStringArray();
+    }
 }
 
 void CBaseView::OnEditFindprevStart()
@@ -4866,6 +4871,11 @@ void CBaseView::OnEditFindprevStart()
 
         BuildFindStringArray();
         OnEditFindprev();
+    }
+    else
+    {
+        m_sFindText.Empty();
+        BuildFindStringArray();
     }
 }
 
