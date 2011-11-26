@@ -275,6 +275,8 @@ protected:  // methods
     afx_msg void    OnEditFind();
     afx_msg void    OnEditFindnext();
     afx_msg void    OnEditFindprev();
+    afx_msg void    OnEditFindnextStart();
+    afx_msg void    OnEditFindprevStart();
 
     DECLARE_MESSAGE_MAP()
 

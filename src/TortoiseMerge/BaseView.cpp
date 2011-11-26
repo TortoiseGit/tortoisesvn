@@ -190,6 +190,8 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
     ON_REGISTERED_MESSAGE(m_FindDialogMessage, OnFindDialogMessage)
     ON_COMMAND(ID_EDIT_FINDNEXT, OnEditFindnext)
     ON_COMMAND(ID_EDIT_FINDPREV, OnEditFindprev)
+    ON_COMMAND(ID_EDIT_FINDNEXTSTART, OnEditFindnextStart)
+    ON_COMMAND(ID_EDIT_FINDPREVSTART, OnEditFindprevStart)
 END_MESSAGE_MAP()
 
 
@@ -4786,6 +4788,34 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
     return 0;
 }
 
+void CBaseView::OnEditFindnextStart()
+{
+    if (HasTextSelection())
+    {
+        m_sFindText = GetSelectedText();
+        m_bMatchCase = false;
+        m_bLimitToDiff = false;
+        m_bWholeWord = false;
+        m_sFindText = m_sFindText.MakeLower();
+
+        OnEditFindnext();
+    }
+}
+
+void CBaseView::OnEditFindprevStart()
+{
+    if (HasTextSelection())
+    {
+        m_sFindText = GetSelectedText();
+        m_bMatchCase = false;
+        m_bLimitToDiff = false;
+        m_bWholeWord = false;
+        m_sFindText = m_sFindText.MakeLower();
+
+        OnEditFindprev();
+    }
+}
+
 bool CBaseView::StringFound(const CString& str, SearchDirection srchDir, int& start, int& end) const
 {
     start = str.Find(m_sFindText);
@@ -4976,3 +5006,4 @@ CString CBaseView::GetSelectedText() const
     sSelectedText = sSelectedText.Mid(nLeftCut, sSelectedText.GetLength()-nLeftCut-nRightCut);
     return sSelectedText;
 }
+
