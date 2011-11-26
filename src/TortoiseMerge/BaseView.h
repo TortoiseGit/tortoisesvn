@@ -126,6 +126,7 @@ public: // methods
     void            SetInlineDiff(bool bDiff) {m_bShowInlineDiff = bDiff;}
     void            SetMarkedWord(const CString& word) {m_sMarkedWord = word; BuildMarkedWordArray();}
     LPCTSTR         GetMarkedWord() {return (LPCTSTR)m_sMarkedWord;}
+    LPCTSTR         GetFindString() {return (LPCTSTR)m_sFindText;}
 
     // Selection methods; all public methods dealing with selection go here
     static void     ClearSelection();
@@ -214,6 +215,7 @@ public: // variables
     bool            m_bWhitespaceInlineDiffs; ///< if true, inline diffs are shown for identical lines only differing in whitespace
     int             m_nTopLine;         ///< The topmost text line in the view
     std::vector<int> m_arMarkedWordLines;   ///< which lines contain a marked word
+    std::vector<int> m_arFindStringLines;   ///< which lines contain a found string
 
     static CLocatorBar * m_pwndLocator; ///< Pointer to the locator bar on the left
     static CLineDiffBar * m_pwndLineDiffBar;    ///< Pointer to the line diff bar at the bottom
@@ -355,6 +357,7 @@ protected:  // methods
     enum            SearchDirection{SearchNext=0, SearchPrevious=1};
     bool            StringFound(const CString& str, SearchDirection srchDir, int& start, int& end) const;
     void            Search(SearchDirection srchDir);
+    void            BuildFindStringArray();
 
     void            RemoveLine(int nLineIndex);
     void            RemoveSelectedText();

@@ -1643,6 +1643,35 @@ void CBaseView::DrawTextLine(
             findText += nMarkLength;
         }
     }
+    if (!m_sFindText.IsEmpty())
+    {
+        CString sViewLine = GetViewLineChars(nViewLine);
+        int nMarkStart = 0;
+        int nMarkEnd = 0;
+        int nStringPos = nMarkStart;
+        while (StringFound(sViewLine, SearchNext, nMarkStart, nMarkEnd)!=0)
+        {
+            // First enforce start and end point
+            lineCols.SplitBlock(nMarkStart+nStringPos);
+            lineCols.SplitBlock(nMarkEnd+nStringPos);
+            // change color of affected parts
+            const long int nIntenseColorScale = 30;
+            std::map<int, linecolors_t>::iterator it = lineCols.lower_bound(nMarkStart+nStringPos);
+            for ( ; it != lineCols.end() && it->first < nMarkEnd; ++it)
+            {
+                COLORREF crBk = CAppUtils::IntenseColor(nIntenseColorScale, it->second.background);
+                if (it->second.shot == it->second.background)
+                {
+                    it->second.shot = crBk;
+                }
+                it->second.background = crBk;
+                it->second.text = CAppUtils::IntenseColor(nIntenseColorScale, it->second.text);
+            }
+            sViewLine = sViewLine.Mid(nMarkEnd);
+            nStringPos = nMarkEnd;
+        }
+    }
+
     // @ this point we may cache data for next line which may be same in wrapped mode
 
     int nTextOffset = 0;
@@ -4020,6 +4049,27 @@ void CBaseView::BuildMarkedWordArray()
     }
 }
 
+void CBaseView::BuildFindStringArray()
+{
+    int lineCount = GetLineCount();
+    m_arFindStringLines.clear();
+    m_arFindStringLines.reserve(lineCount);
+    bool bDoit = !m_sFindText.IsEmpty();
+    int s = 0;
+    int e = 0;
+    for (int i = 0; i < lineCount; ++i)
+    {
+        LPCTSTR line = NULL;
+        if (bDoit && ((line = GetLineChars(i))!=NULL))
+        {
+            m_arFindStringLines.push_back(StringFound(line, SearchNext, s, e));
+        }
+        else
+            m_arFindStringLines.push_back(0);
+    }
+    UpdateLocator();
+}
+
 bool CBaseView::GetInlineDiffPositions(int nViewLine, std::vector<inlineDiffPos>& positions)
 {
     if (!m_bShowInlineDiff)
@@ -4782,6 +4832,7 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
         if (!m_bMatchCase)
             m_sFindText = m_sFindText.MakeLower();
 
+        BuildFindStringArray();
         OnEditFindnext();
     }
 
@@ -4798,6 +4849,7 @@ void CBaseView::OnEditFindnextStart()
         m_bWholeWord = false;
         m_sFindText = m_sFindText.MakeLower();
 
+        BuildFindStringArray();
         OnEditFindnext();
     }
 }
@@ -4812,6 +4864,7 @@ void CBaseView::OnEditFindprevStart()
         m_bWholeWord = false;
         m_sFindText = m_sFindText.MakeLower();
 
+        BuildFindStringArray();
         OnEditFindprev();
     }
 }

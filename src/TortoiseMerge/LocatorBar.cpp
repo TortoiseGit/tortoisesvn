@@ -283,6 +283,21 @@ void CLocatorBar::PaintView(CDC& cacheDC, CBaseView* view, CDWordArray& indents,
             }
         }
     }
+    if (view->GetFindString()[0])
+    {
+        COLORREF color, color2;
+        CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, color, color2);
+        color = CAppUtils::IntenseColor(30, color);
+        for (size_t i=0; i<view->m_arFindStringLines.size(); ++i)
+        {
+            if (view->m_arFindStringLines[i])
+            {
+                cacheDC.FillSolidRect(rect.left + (width*stripeIndex/3), (int)(height*i/m_nLines),
+                    barwidth, max(height/m_nLines,2), color);
+            }
+        }
+    }
+
 }
 
 void CLocatorBar::DrawFishEye(CDC& cacheDC, const CRect& rect )
