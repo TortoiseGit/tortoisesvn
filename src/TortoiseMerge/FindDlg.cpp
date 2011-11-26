@@ -27,6 +27,7 @@ IMPLEMENT_DYNAMIC(CFindDlg, CDialog)
 
 CFindDlg::CFindDlg(CWnd* pParent /*=NULL*/)
     : CDialog(CFindDlg::IDD, pParent)
+    , m_pParent(pParent)
     , m_bTerminating(false)
     , m_bFindNext(false)
     , m_bMatchCase(FALSE)
@@ -59,7 +60,9 @@ END_MESSAGE_MAP()
 void CFindDlg::OnCancel()
 {
     m_bTerminating = true;
-    if (GetParent())
+    if (m_pParent)
+        m_pParent->SendMessage(m_FindMsg);
+    else if (GetParent())
         GetParent()->SendMessage(m_FindMsg);
     DestroyWindow();
 }
@@ -77,7 +80,9 @@ void CFindDlg::OnOK()
     if (m_FindCombo.GetString().IsEmpty())
         return;
     m_bFindNext = true;
-    if (GetParent())
+    if (m_pParent)
+        m_pParent->SendMessage(m_FindMsg);
+    else if (GetParent())
         GetParent()->SendMessage(m_FindMsg);
     m_bFindNext = false;
 }

@@ -25,6 +25,7 @@
 #include "LineColors.h"
 #include "TripleClick.h"
 #include "IconMenu.h"
+#include "FindDlg.h"
 
 typedef struct inlineDiffPos
 {
@@ -136,6 +137,7 @@ public: // methods
     void            SetupSelection(int start, int end);
     static void     SetupViewSelection(CBaseView* view, int start, int end);
     void            SetupViewSelection(int start, int end);
+    CString         GetSelectedText() const;
 
     // state classifying methods; note: state may belong to more classes
     static bool     IsStateConflicted(DiffStates state);
@@ -269,6 +271,10 @@ protected:  // methods
     afx_msg void    OnEditCut();
     afx_msg void    OnEditPaste();
     afx_msg void    OnEditSelectall();
+    afx_msg LRESULT OnFindDialogMessage(WPARAM wParam, LPARAM lParam);
+    afx_msg void    OnEditFind();
+    afx_msg void    OnEditFindnext();
+    afx_msg void    OnEditFindprev();
 
     DECLARE_MESSAGE_MAP()
 
@@ -305,13 +311,13 @@ protected:  // methods
     int             GetCharWidth();
     int             GetMaxLineLength();
     int             GetLineLength(int index);
-    int             GetViewLineLength(int index);
+    int             GetViewLineLength(int index) const;
     int             GetScreenChars();
     int             GetAllMinScreenChars() const;
     int             GetAllMaxLineLength() const;
     int             GetAllLineCount() const;
     int             GetAllMinScreenLines() const;
-    CString         GetViewLineChars(int index);
+    CString         GetViewLineChars(int index) const;
     CString         GetLineChars(int index);
     int             GetLineNumber(int index) const;
     CFont *         GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
@@ -344,6 +350,10 @@ protected:  // methods
     void            AdjustSelection(bool bMoveLeft);
     bool            SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfCurrentBlock = true, bool dryrun = false);
 
+    enum            SearchDirection{SearchNext=0, SearchPrevious=1};
+    bool            StringFound(const CString& str, SearchDirection srchDir, int& start, int& end) const;
+    void            Search(SearchDirection srchDir);
+
     void            RemoveLine(int nLineIndex);
     void            RemoveSelectedText();
     void            PasteText();
@@ -357,7 +367,7 @@ protected:  // methods
     void            OnCaretMove(bool bMoveLeft, bool isShiftPressed);
     void            UpdateGoalPos();
 
-    bool            IsWordSeparator(wchar_t ch) const;
+    bool            IsWordSeparator(const wchar_t ch) const;
     bool            IsCaretAtWordBoundary();
     void            UpdateViewsCaretPosition();
     void            BuildMarkedWordArray();
@@ -423,6 +433,13 @@ protected:  // variables
     POINT           m_ptSelectionViewPosStart;
     POINT           m_ptSelectionViewPosEnd;
     POINT           m_ptSelectionViewPosOrigin;
+
+    static const UINT m_FindDialogMessage;
+    CFindDlg *      m_pFindDialog;
+    CString         m_sFindText;
+    BOOL            m_bMatchCase;
+    bool            m_bLimitToDiff;
+    bool            m_bWholeWord;
 
 
     HICON           m_hAddedIcon;
