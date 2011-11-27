@@ -216,6 +216,9 @@
     <ClCompile Include="..\SVN\SVNGlobal.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GotoLineDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AboutDlg.h">
@@ -418,6 +421,9 @@
     </ClInclude>
     <ClInclude Include="..\SVN\SVNGlobal.h">
       <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GotoLineDlg.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

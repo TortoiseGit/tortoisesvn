@@ -279,6 +279,7 @@ protected:  // methods
     afx_msg void    OnEditFindprev();
     afx_msg void    OnEditFindnextStart();
     afx_msg void    OnEditFindprevStart();
+    afx_msg void    OnEditGotoline();
 
     DECLARE_MESSAGE_MAP()
 
@@ -584,5 +585,4 @@ protected:  // variables
     };
 
     static Screen2View m_Screen2View;
-
 };

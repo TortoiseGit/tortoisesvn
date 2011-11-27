@@ -25,6 +25,7 @@
 #include "DiffColors.h"
 #include "StringUtils.h"
 #include "AppUtils.h"
+#include "GotoLineDlg.h"
 
 // Note about lines:
 // We use three different kind of lines here:
@@ -192,6 +193,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
     ON_COMMAND(ID_EDIT_FINDPREV, OnEditFindprev)
     ON_COMMAND(ID_EDIT_FINDNEXTSTART, OnEditFindnextStart)
     ON_COMMAND(ID_EDIT_FINDPREVSTART, OnEditFindprevStart)
+    ON_COMMAND(ID_EDIT_GOTOLINE, &CBaseView::OnEditGotoline)
 END_MESSAGE_MAP()
 
 
@@ -5068,5 +5070,50 @@ CString CBaseView::GetSelectedText() const
     int nRightCut = GetViewLineChars(end.y).GetLength() - end.x + 2;
     sSelectedText = sSelectedText.Mid(nLeftCut, sSelectedText.GetLength()-nLeftCut-nRightCut);
     return sSelectedText;
+}
+
+void CBaseView::OnEditGotoline()
+{
+    if (m_pViewData == NULL)
+        return;
+    // find the first and last line number
+    int firstLine = -1;
+    int lastLine = m_pViewData->GetCount();
+    while (m_pViewData->GetLineNumber(++firstLine)==DIFF_EMPTYLINENUMBER)
+        ;
+    if (firstLine < 0)
+        return;
+    if (firstLine >= m_pViewData->GetCount())
+        return;
+
+    firstLine = m_pViewData->GetLineNumber(firstLine);
+
+    while (m_pViewData->GetLineNumber(--lastLine)==DIFF_EMPTYLINENUMBER)
+        ;
+
+    if (lastLine <= firstLine)
+        return;
+    if (lastLine >= m_pViewData->GetCount())
+        return;
+
+    lastLine = m_pViewData->GetLineNumber(lastLine);
+
+    CString sText;
+    sText.Format(IDS_GOTOLINE, firstLine+1, lastLine+1);
+
+    CGotoLineDlg dlg(this);
+    dlg.SetLabel(sText);
+    dlg.SetLimits(firstLine+1, lastLine+1);
+    if (dlg.DoModal() == IDOK)
+    {
+        for (int nViewLine = 0; nViewLine < m_pViewData->GetCount(); ++nViewLine)
+        {
+            if ((m_pViewData->GetLineNumber(nViewLine)+1) == dlg.GetLineNumber())
+            {
+                HighlightViewLines(nViewLine, nViewLine);
+                return;
+            }
+        }
+    }
 }
 
