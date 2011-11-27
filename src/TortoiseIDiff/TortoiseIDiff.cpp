@@ -78,8 +78,12 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     std::unique_ptr<CMainWindow> mainWindow(new CMainWindow(hResource));
     mainWindow->SetRegistryPath(_T("Software\\TortoiseSVN\\TortoiseIDiffWindowPos"));
-
-    mainWindow->SetLeft(parser.HasVal(_T("left")) ? parser.GetVal(_T("left")) : _T(""), parser.HasVal(_T("lefttitle")) ? parser.GetVal(_T("lefttitle")) : _T(""));
+    std::wstring leftfile = parser.HasVal(_T("left")) ? parser.GetVal(_T("left")) : _T("");
+    if ((leftfile.size() == 0)&&(lpCmdLine[0] != 0))
+    {
+        leftfile = lpCmdLine;
+    }
+    mainWindow->SetLeft(leftfile.c_str(), parser.HasVal(_T("lefttitle")) ? parser.GetVal(_T("lefttitle")) : _T(""));
     mainWindow->SetRight(parser.HasVal(_T("right")) ? parser.GetVal(_T("right")) : _T(""), parser.HasVal(_T("righttitle")) ? parser.GetVal(_T("righttitle")) : _T(""));
     if (mainWindow->RegisterAndCreateWindow())
     {
