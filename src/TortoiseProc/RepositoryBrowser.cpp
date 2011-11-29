@@ -1393,7 +1393,16 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                     // folder, so by adding the valid path manually we give the user
                     // a chance to still browse this folder in case he has read
                     // access to it
-                    CItem * manualItem = new CItem(path.Mid (path.ReverseFind ('/') + 1), L"", svn_node_dir, 0, true, -1, 0, L"", L"", L"", L"", false, 0, 0, path, pTreeItem->repository);
+                    CTreeItem * pNodeTreeItem = (CTreeItem *)m_RepoTree.GetItemData(node);
+                    if (pNodeTreeItem && !pNodeTreeItem->error.IsEmpty())
+                    {
+                        TVITEM tvitem = {0};
+                        tvitem.hItem = node;
+                        tvitem.mask = TVIF_CHILDREN;
+                        tvitem.cChildren = 1;
+                        m_RepoTree.SetItem(&tvitem);
+                    }
+                    CItem * manualItem = new CItem(currentPath.Mid (currentPath.ReverseFind ('/') + 1), L"", svn_node_dir, 0, true, -1, 0, L"", L"", L"", L"", false, 0, 0, currentPath, pTreeItem->repository);
                     node = AutoInsert (node, *manualItem);
                 }
                 else
