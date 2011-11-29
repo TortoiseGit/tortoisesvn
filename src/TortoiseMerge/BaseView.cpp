@@ -5076,37 +5076,34 @@ void CBaseView::OnEditGotoline()
 {
     if (m_pViewData == NULL)
         return;
-    // find the first and last line number
-    int firstLine = -1;
-    int lastLine = m_pViewData->GetCount();
-    while (m_pViewData->GetLineNumber(++firstLine)==DIFF_EMPTYLINENUMBER)
-        ;
-    if (firstLine < 0)
-        return;
-    if (firstLine >= m_pViewData->GetCount())
-        return;
+    // find the last and first line number
+    int nViewLineCount = m_pViewData->GetCount();
 
-    firstLine = m_pViewData->GetLineNumber(firstLine);
-
-    while (m_pViewData->GetLineNumber(--lastLine)==DIFF_EMPTYLINENUMBER)
-        ;
-
-    if (lastLine <= firstLine)
+    int nLastLineNumber = DIFF_EMPTYLINENUMBER;
+    for (int nViewLine=nViewLineCount-1; nViewLine>=0; --nViewLine)
+    {
+         nLastLineNumber = m_pViewData->GetLineNumber(nViewLine);
+         if (nLastLineNumber!=DIFF_EMPTYLINENUMBER) 
+         {
+             break;
+         }
+    }
+    if (nLastLineNumber==DIFF_EMPTYLINENUMBER || nLastLineNumber==0) // not numbered line foud or last one is first
+    {
         return;
-    if (lastLine >= m_pViewData->GetCount())
-        return;
-
-    lastLine = m_pViewData->GetLineNumber(lastLine);
+    }
+    nLastLineNumber++;
+    int nFirstLineNumber=1; // first is always 1
 
     CString sText;
-    sText.Format(IDS_GOTOLINE, firstLine+1, lastLine+1);
+    sText.Format(IDS_GOTOLINE, nFirstLineNumber, nLastLineNumber);
 
     CGotoLineDlg dlg(this);
     dlg.SetLabel(sText);
-    dlg.SetLimits(firstLine+1, lastLine+1);
+    dlg.SetLimits(nFirstLineNumber, nLastLineNumber);
     if (dlg.DoModal() == IDOK)
     {
-        for (int nViewLine = 0; nViewLine < m_pViewData->GetCount(); ++nViewLine)
+        for (int nViewLine = 0; nViewLine < nViewLineCount; ++nViewLine)
         {
             if ((m_pViewData->GetLineNumber(nViewLine)+1) == dlg.GetLineNumber())
             {
