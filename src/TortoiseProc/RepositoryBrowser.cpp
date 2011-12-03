@@ -446,7 +446,7 @@ void CRepositoryBrowser::InitRepo()
             ; path.GetLength() >= m_repository.root.GetLength()
             ; path = path.Left (path.ReverseFind ('/')))
         {
-            m_lister.Enqueue (path, pegRev, m_repository, true);
+            m_lister.Enqueue (path, pegRev, m_repository, !m_bSparseCheckoutMode);
         }
 
     // (try to) fetch the HEAD revision
@@ -462,7 +462,7 @@ void CRepositoryBrowser::InitRepo()
     CString error
         = m_cancelled
         ? userCancelledError
-        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, dummy);
+        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, !m_bSparseCheckoutMode, dummy);
 
     // the only way CQuery::List will return the following error
     // is by calling it with a file path instead of a dir path
@@ -475,7 +475,7 @@ void CRepositoryBrowser::InitRepo()
     if (error == wasFileError)
     {
         m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
-        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, dummy);
+        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, !m_bSparseCheckoutMode, dummy);
     }
 
     // exit upon cancel
@@ -1250,7 +1250,7 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
                                              ? pTreeItem->repository.peg_revision
                                              : SVNRev()
                                         , pTreeItem->repository
-                                        , true
+                                        , !m_bSparseCheckoutMode
                                         , children);
 
     // add parent sub-tree externals
@@ -1425,7 +1425,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                                   ? pTreeItem->repository.peg_revision
                                   : SVNRev()
                              , pTreeItem->repository
-                             , true);
+                             , !m_bSparseCheckoutMode);
     }
     while (currentPath != path);
 
