@@ -52,6 +52,7 @@ public:
         dll
     };
     ShellCache();
+    ~ShellCache() {}
 
     void ForceRefresh();
     CacheType GetCacheType();
