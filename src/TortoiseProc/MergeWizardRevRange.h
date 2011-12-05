@@ -51,6 +51,8 @@ protected:
     afx_msg LRESULT     OnRevSelectedOneRange(WPARAM wParam, LPARAM lParam);
     afx_msg void        OnBnClickedShowlogwc();
     afx_msg LRESULT     OnWCStatus(WPARAM wParam, LPARAM lParam);
+    afx_msg void        OnBnClickedMergeradioAll();
+    afx_msg void        OnBnClickedMergeradioSpecific();
 
     DECLARE_MESSAGE_MAP()
 
