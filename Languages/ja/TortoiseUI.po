@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-27 19:30+0000\n"
+"PO-Revision-Date: 2011-12-04 18:17+0000\n"
 "Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -243,7 +243,7 @@ msgstr "%s、しかし、ディレクトリはすでに編集されています�
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
-msgstr "%s、しかし、ディレクトリはローカルで削除、移動、名前の変更が行われています。"
+msgstr "%s、しかし、ディレクトリはローカルで削除か、移動か、名前の変更が行われています。"
 
 #. Resource IDs: (609)
 #, c-format
@@ -278,7 +278,7 @@ msgstr "%s、しかし、ファイルはすでに編集されています。"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
-msgstr "%s、しかし、ファイルはローカルで削除、移動、名前の変更が行われています。"
+msgstr "%s、しかし、ファイルはローカルで削除か、移動か、名前の変更が行われています。"
 
 #. Resource IDs: (609)
 #, c-format
@@ -1134,7 +1134,7 @@ msgstr "削除(&R)"
 
 #. Resource IDs: (101)
 msgid "&Rename"
-msgstr "名前の変更(&R)"
+msgstr "名前を変更(&R)"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
@@ -1262,7 +1262,7 @@ msgstr "ロックを横取りする(&S)"
 
 #. Resource IDs: (1130)
 msgid "&Stop on copy/rename"
-msgstr "コピー/名前の変更が発生したら停止(&S)"
+msgstr "コピー/名前変更が発生したら停止(&S)"
 
 #. Resource IDs: (276)
 msgid "&Switch WC to path and revision"
@@ -1539,7 +1539,7 @@ msgstr "（プロパティと内容）"
 
 #. Resource IDs: (277)
 msgid "(rename)"
-msgstr "（名前の変更）"
+msgstr "（名前変更）"
 
 #. Resource IDs: (277)
 msgid "(tagged)"
@@ -2823,7 +2823,7 @@ msgid ""
 "whether you want to keep your rename/move or the one from the repository. "
 "Then mark the conflict as resolved."
 msgstr ""
-"ログをチェックして、ファイル/フォルダーがどのように名前の変更/移動が行われたか確認し、名前の変更/移動をそのまま保持するか、またはリポジトリから戻すかを決めてください。そして、競合を解決済みとしてください。"
+"ログをチェックして、ファイルまたはフォルダーが、どのように名前変更または移動されたか確認し、名前変更または移動したままにするか、またはどちらかをリポジトリから戻すかを決めてください。そして、競合を解決済みとしてください。"
 
 #. Resource IDs: (612)
 msgid ""
@@ -2831,7 +2831,7 @@ msgid ""
 "whether you want to merge the change into your renamed file, or restore the "
 "original file."
 msgstr ""
-"ログをチェックして、ファイル/フォルダーがどのように名前の変更/移動が行われたか確認し、名前を変更したファイルに変更をマージするか、もしくは元のファイルに戻すかを決めてください。"
+"ログをチェックして、ファイルまたはフォルダーが、どのように名前変更または移動が行われたか確認し、名前変更したファイルに変更をマージするか、もしくは元のファイルを復元するか決めてください。"
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -3825,7 +3825,7 @@ msgstr "リポジトリのキャッシュを削除"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
-msgstr "バージョン管理外のファイルを削除"
+msgstr "バージョン管理外の項目を削除"
 
 #. Resource IDs: (14)
 #, c-format
@@ -3839,11 +3839,11 @@ msgstr "削除した後、拡張子によって %d 個の項目を無視する(&
 
 #. Resource IDs: (616)
 msgid "Delete unversioned items"
-msgstr "バージョン管理外の項目を削除する"
+msgstr "バージョン管理外の項目を削除"
 
 #. Resource IDs: (17)
 msgid "Delete unversioned items..."
-msgstr "バージョン管理外の項目を削除する..."
+msgstr "バージョン管理外の項目を削除..."
 
 #. Resource IDs: (199)
 msgid ""
@@ -5045,7 +5045,7 @@ msgstr "ヘルプは F1  横スクロールは Ctrl + ホイール操作"
 
 #. Resource IDs: (119)
 msgid "For complete history deselect 'Stop on copy/rename'"
-msgstr "すべての履歴を表示するためには「コピー/名前の変更が発生したら停止」のチェックをはずしてください"
+msgstr "すべての履歴を表示するためには「コピー/名前変更が発生したら停止」のチェックをはずしてください"
 
 #. Resource IDs: (279)
 msgid "Force"
@@ -6737,7 +6737,7 @@ msgstr "変更リストへ移動"
 
 #. Resource IDs: (229)
 msgid "Move/Rename"
-msgstr "移動/名前の変更"
+msgstr "移動/名前変更"
 
 #. Resource IDs: (98)
 #, c-format
@@ -6978,7 +6978,7 @@ msgstr "ノードの色"
 
 #. Resource IDs: (170)
 msgid "Non-recursive commit of moved/renamed folders."
-msgstr "移動や名前の変更がされたフォルダーの非再帰的なコミット"
+msgstr "移動や名前変更がされたフォルダーの非再帰的なコミット"
 
 #. Resource IDs: (1507)
 msgid "Non-versioned"
@@ -7674,7 +7674,7 @@ msgid ""
 "the renamed/moved folders are committed recursively in the repository."
 msgstr ""
 "コミットを続行する\n"
-"名前の変更/移動されたフォルダーは、リポジトリに再帰的にコミットされます。"
+"名前変更/移動されたフォルダーは、リポジトリに再帰的にコミットされます。"
 
 #. Resource IDs: (89)
 msgid ""
@@ -8285,7 +8285,7 @@ msgstr "名前を変更(&M)..."
 
 #. Resource IDs: (151)
 msgid "Rename"
-msgstr "名前の変更"
+msgstr "名前変更"
 
 #. Resource IDs: (97)
 #, c-format
@@ -8303,7 +8303,7 @@ msgstr ""
 
 #. Resource IDs: (221)
 msgid "Rename/move"
-msgstr "名前を変更/移動"
+msgstr "名前変更/移動"
 
 #. Resource IDs: (91)
 #, c-format
@@ -8316,11 +8316,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
-msgstr "ノードの名前を変更"
+msgstr "名前を変更されたノード"
 
 #. Resource IDs: (126)
 msgid "Renamed remotely"
-msgstr "リモート操作による名前の変更"
+msgstr "リモート操作による名前変更"
 
 #. Resource IDs: (11)
 msgid "Renames files / folders inside version control"
@@ -9960,13 +9960,13 @@ msgstr "「@@」で始まる部分は、%d行目だと思われます。"
 msgid ""
 "The color of creation, copy and rename nodes of tags will be shifted towards"
 " yellow."
-msgstr "タグの作成、コピー、名前の変更のノードの色は、黄色っぽい色で表示する。"
+msgstr "タグの作成、コピー、名前変更のノードの色は、黄色系の色になる。"
 
 #. Resource IDs: (346)
 msgid ""
 "The color of creation, copy and rename nodes of the trunk will be shifted "
 "towards green."
-msgstr "トランクの作成、コピー、名前の変更のノードの色は、緑色っぽい色で表示する。"
+msgstr "トランクの作成、コピー、名前変更のノードの色は、緑系の色になる。"
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -10122,12 +10122,12 @@ msgstr "最後のマージ操作でファイル「%s」を追加しようとし�
 #, c-format
 msgid ""
 "The last merge operation tried to delete/move/rename the directory '%s'"
-msgstr "最後のマージ操作でディレクトリ「%s」に対して削除/移動/名前の変更をしようとしました"
+msgstr "最後のマージ操作でディレクトリ「%s」に対して削除/移動/名前変更をしようとしました"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to delete/move/rename the file '%s'"
-msgstr "最後のマージ操作でファイル「%s」に対して削除/移動/名前の変更をしようとしました"
+msgstr "最後のマージ操作でファイル「%s」に対して削除/移動/名前変更をしようとしました"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10163,12 +10163,12 @@ msgstr "最後の切り替え操作でファイル「%s」を追加しようと�
 #, c-format
 msgid ""
 "The last switch operation tried to delete/move/rename the directory '%s'"
-msgstr "最後の切り替え操作でディレクトリ「%s」に対して削除/移動/名前の変更をしようとしました"
+msgstr "最後の切り替え操作でディレクトリ「%s」に対して削除/移動/名前変更をしようとしました"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to delete/move/rename the file '%s'"
-msgstr "最後の切り替え操作でファイル「%s」に対して削除/移動/名前の変更をしようとしました"
+msgstr "最後の切り替え操作でファイル「%s」に対して削除/移動/名前変更をしようとしました"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10204,12 +10204,12 @@ msgstr "最後の更新操作でファイル「%s」を追加しようとしま�
 #, c-format
 msgid ""
 "The last update operation tried to delete/move/rename the directory '%s'"
-msgstr "最後の更新操作でディレクト「%s」に対して削除/移動/名前の変更をしようとしました"
+msgstr "最後の更新操作でディレクト「%s」に対して削除/移動/名前変更をしようとしました"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the file '%s'"
-msgstr "最後の更新操作でファイル「%s」に対して削除/移動/名前の変更をしようとしました"
+msgstr "最後の更新操作でファイル「%s」に対して削除/移動/名前変更をしようとしました"
 
 #. Resource IDs: (607)
 #, c-format
@@ -10602,7 +10602,7 @@ msgid ""
 "for commit. Such moves/renames are always performed recursively in the "
 "repository. Do you want to commit anyway?"
 msgstr ""
-"このコミットは再帰的ではありませんが、コミット対象に移動や名前の変更を行ったフォルダーが含まれています。移動や名前の変更は、リポジトリ上では常に再帰的に実行されます。本当にコミットしてもよろしいですか？"
+"このコミットは再帰的ではありませんが、コミット対象に移動や名前変更を行ったフォルダーが含まれています。移動や名前変更は、リポジトリ上では常に再帰的に実行されます。本当にコミットしてもよろしいですか？"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10614,7 +10614,7 @@ msgid ""
 msgstr ""
 "このコミットは再帰的ではありませんが、コミット対象に移動や名前\n"
 "の変更を行ったフォルダーが含まれています。これらの移動や\n"
-"名前の変更は、リポジトリ上では常に再帰的に実行されます。\n"
+"名前変更は、リポジトリ上では常に再帰的に実行されます。\n"
 "\n"
 "本当にコミットしてもよろしいですか？"
 
@@ -11077,7 +11077,7 @@ msgstr "アクションを1つ元に戻す"
 
 #. Resource IDs: (14)
 msgid "Undo Add.."
-msgstr "追加を元に戻す ..."
+msgstr "追加を取り消す..."
 
 #. Resource IDs: (3603)
 msgid ""
@@ -12771,7 +12771,7 @@ msgid ""
 msgstr ""
 "tsvn:logtemplatemove\r\n"
 "コミットダイアログのログメッセージに挿入される文字列。\r\n"
-"移動/名前の変更時に入力するログメッセージのテンプレートとして使用します。"
+"移動/名前変更時に入力するログメッセージのテンプレートとして使用されます。"
 
 #. Resource IDs: (579)
 msgid ""
