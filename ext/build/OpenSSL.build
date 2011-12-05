@@ -33,6 +33,7 @@
         <arg value="VC-WIN32" if="${(configuration == 'release')}" />
         <arg value="debug-VC-WIN32" if="${(configuration != 'release')}" />
         <arg value="no-asm" />
+        <arg value="no-gost" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
       </exec>
       <exec program="cmd" workingdir="..\..\..\common\openssl">
@@ -50,6 +51,7 @@
         <arg value="VC-WIN64A" if="${(configuration == 'release')}" />
         <arg value="debug-VC-WIN64A" if="${(configuration != 'release')}" />
         <arg value="no-asm" />
+        <arg value="no-gost" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
       </exec>
       <exec program="cmd" workingdir="..\..\..\common\openssl">
