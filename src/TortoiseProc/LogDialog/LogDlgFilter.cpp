@@ -497,8 +497,9 @@ namespace
         , CStringBuffer& target)
     {
         target.Append ('|');
-        char* buffer = target.GetBuffer (MAX_PATH);
+        char* buffer = target.GetBuffer (MAX_PATH + 16);
         size_t size = path.GetPath (buffer, MAX_PATH) - buffer;
+        ZeroMemory (buffer + size, 16);
 
         // relative path strings are never empty
 
