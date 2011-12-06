@@ -3623,14 +3623,14 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
         case 2: //author
             if (pLogEntry)
             {
-                size_t size = min (pLogEntry->GetAuthor().length(), (size_t)pItem->cchTextMax);
+                size_t size = min (pLogEntry->GetAuthor().length() + 1, (size_t)pItem->cchTextMax);
                 CUnicodeUtils::UTF8ToUTF16 (pLogEntry->GetAuthor().c_str(), size, pItem->pszText);
             }
             break;
         case 3: //date
             if (pLogEntry)
             {
-                size_t size = min (pLogEntry->GetDateString().length(), (size_t)pItem->cchTextMax);
+                size_t size = min (pLogEntry->GetDateString().length() + 1, (size_t)pItem->cchTextMax);
                 CUnicodeUtils::UTF8ToUTF16 (pLogEntry->GetDateString().c_str(), size, pItem->pszText);
             }
             break;
@@ -3639,7 +3639,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             {
                 if (pLogEntry)
                 {
-                    size_t size = min (pLogEntry->GetBugIDs().length(), (size_t)pItem->cchTextMax);
+                    size_t size = min (pLogEntry->GetBugIDs().length() + 1, (size_t)pItem->cchTextMax);
                     CUnicodeUtils::UTF8ToUTF16 (pLogEntry->GetBugIDs().c_str(), size, pItem->pszText);
                 }
                 break;
