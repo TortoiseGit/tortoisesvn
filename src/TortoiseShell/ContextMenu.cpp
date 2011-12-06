@@ -26,6 +26,7 @@
 #include "auto_buffer.h"
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
+#include "PathUtils.h"
 
 #define GetPIDLFolder(pida) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[0])
 #define GetPIDLItem(pida, i) (LPCITEMIDLIST)(((LPBYTE)pida)+(pida)->aoffset[i+1])
@@ -266,22 +267,20 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                     tstring str = tstring(szFileName);
                     if (str.empty()||(!g_ShellCache.IsContextPathAllowed(szFileName)))
                         continue;
+                    CTSVNPath strpath;
+                    strpath.SetFromWin(CPathUtils::GetLongPathname(str.c_str()));
                     if (itemStates & ITEMIS_ONLYONE)
                     {
-                        CTSVNPath strpath;
-                        strpath.SetFromWin(str.c_str());
                         itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".diff"))==0) ? ITEMIS_PATCHFILE : 0;
                         itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".patch"))==0) ? ITEMIS_PATCHFILE : 0;
                     }
-                    files_.push_back(str);
+                    files_.push_back(strpath.GetWinPath());
                     if (i != 0)
                         continue;
                     //get the Subversion status of the item
                     svn_wc_status_kind status = svn_wc_status_none;
                     try
                     {
-                        CTSVNPath strpath;
-                        strpath.SetFromWin(str.c_str());
                         SVNStatus stat;
                         stat.GetStatus(strpath, false, true, true);
                         if (stat.status)
@@ -362,9 +361,9 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                     if (g_SVNAdminDir.IsAdminDirPath(str.c_str()))
                         continue;
 
-                    files_.push_back(str);
                     CTSVNPath strpath;
-                    strpath.SetFromWin(str.c_str());
+                    strpath.SetFromWin(CPathUtils::GetLongPathname(str.c_str()));
+                    files_.push_back(strpath.GetWinPath());
                     itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".diff"))==0) ? ITEMIS_PATCHFILE : 0;
                     itemStates |= (strpath.GetFileExtension().CompareNoCase(_T(".patch"))==0) ? ITEMIS_PATCHFILE : 0;
                     if (statfetched)
@@ -504,7 +503,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                 try
                 {
                     CTSVNPath strpath;
-                    strpath.SetFromWin(folder_.c_str());
+                    strpath.SetFromWin(CPathUtils::GetLongPathname(folder_.c_str()));
                     SVNStatus stat;
                     stat.GetStatus(strpath, false, true, true);
                     if (stat.status)
@@ -591,7 +590,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
                     try
                     {
                         CTSVNPath strpath;
-                        strpath.SetFromWin(folder_.c_str());
+                        strpath.SetFromWin(CPathUtils::GetLongPathname(folder_.c_str()));
                         if (strpath.IsWCRoot())
                             itemStates |= ITEMIS_WCROOT;
                         SVNStatus stat;

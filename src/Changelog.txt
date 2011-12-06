@@ -4,8 +4,10 @@ Version 1.7.3
        externals in checkout selection mode . (Stefan)
 - BUG: Issue #152: log crashes with too
        many bugtrack links. (Stefan)
-- BUG: Issue 55: crash when accessing a server with
+- BUG: Issue 155: crash when accessing a server with
        an invalid ssl certificate. (Stefan)
+- BUG: Issue #156: 	subdir within WC not
+       recognized as WC. (Stefan)
 
 Version 1.7.2
 - BUG: Issue #111: Crash in initializing

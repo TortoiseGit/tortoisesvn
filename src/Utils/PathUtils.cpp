@@ -371,6 +371,20 @@ CString CPathUtils::GetLongPathname(const CString& path)
         auto_buffer<TCHAR> pathbuf(ret+2);
         ret = ::GetLongPathName(pathbufcanonicalized, pathbuf, ret+1);
         sRet = CString(pathbuf, ret);
+        // GetFullPathName() sometimes returns the full path with the wrong
+        // case. This is not a problem on Windows since its filesystem is 
+        // case-insensitive. But for SVN that's a problem if the wrong case
+        // is inside a working copy: the svn wc database is case sensitive.
+        // To fix the casing of the path, we use a trick:
+        // convert the path to its short form, then back to its long form.
+        // That will fix the wrong casing of the path.
+        auto_buffer<TCHAR> shortpath(ret+2);
+        if (::GetShortPathName(pathbuf, shortpath, ret+1))
+        {
+            int ret2 = ::GetLongPathName(shortpath, pathbuf, ret+1);
+            if (ret2)
+                sRet = CString(pathbuf, ret2);
+        }
     }
     else
     {
@@ -378,6 +392,14 @@ CString CPathUtils::GetLongPathname(const CString& path)
         auto_buffer<TCHAR> pathbuf(ret+2);
         ret = ::GetLongPathName(path, pathbuf, ret+1);
         sRet = CString(pathbuf, ret);
+        // fix the wrong casing of the path. See above for details.
+        auto_buffer<TCHAR> shortpath(ret+2);
+        if (::GetShortPathName(pathbuf, shortpath, ret+1))
+        {
+            int ret2 = ::GetLongPathName(shortpath, pathbuf, ret+1);
+            if (ret2)
+                sRet = CString(pathbuf, ret);
+        }
     }
     if (ret == 0)
         return path;
