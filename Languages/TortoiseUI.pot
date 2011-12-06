@@ -353,6 +353,10 @@ msgstr ""
 msgid "&Advanced..."
 msgstr ""
 
+#. Resource IDs: (1505)
+msgid "&All"
+msgstr ""
+
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
 msgstr ""
@@ -717,6 +721,10 @@ msgstr ""
 msgid "&Go To Line..."
 msgstr ""
 
+#. Resource IDs: (32893)
+msgid "&Goto line"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Green:"
 msgstr ""
@@ -794,6 +802,10 @@ msgstr ""
 msgid "&Initial directory:"
 msgstr ""
 
+#. Resource IDs: (32889)
+msgid "&Inline diff"
+msgstr ""
+
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
 msgstr ""
@@ -828,6 +840,15 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Limit:"
+msgstr ""
+
+#. Resource IDs: (1078)
+msgid "&Line number"
+msgstr ""
+
+#. Resource IDs: (88)
+#, c-format
+msgid "&Line number (%d - %d)"
 msgstr ""
 
 #. Resource IDs: (32797)
@@ -957,6 +978,10 @@ msgstr ""
 
 #. Resource IDs: (1555)
 msgid "&No locking required"
+msgstr ""
+
+#. Resource IDs: (1506)
+msgid "&None"
 msgstr ""
 
 #. Resource IDs: (1555)
@@ -1814,10 +1839,6 @@ msgstr ""
 msgid "All Files (*.*)|*.*||"
 msgstr ""
 
-#. Resource IDs: (148)
-msgid "All changes since the last update will be lost!"
-msgstr ""
-
 #. Resource IDs: (1008)
 msgid "All your changes will be lost! Do you really want to reset all toolbars and menus?"
 msgstr ""
@@ -2297,10 +2318,6 @@ msgstr ""
 msgid "Cancel\nI will enter a different path/URL."
 msgstr ""
 
-#. Resource IDs: (315)
-msgid "Cancel\nIgnore the outside changes."
-msgstr ""
-
 #. Resource IDs: (89)
 msgid "Cancel\nKeep the current URL."
 msgstr ""
@@ -2309,12 +2326,12 @@ msgstr ""
 msgid "Cancel\nKeep the empty file."
 msgstr ""
 
-#. Resource IDs: (148)
-msgid "Cancel\nLeave all changes."
-msgstr ""
-
 #. Resource IDs: (199)
 msgid "Cancel\nLeave the cache on disk."
+msgstr ""
+
+#. Resource IDs: (148)
+msgid "Cancel\nLocal modifications are kept."
 msgstr ""
 
 #. Resource IDs: (315)
@@ -2323,10 +2340,6 @@ msgstr ""
 
 #. Resource IDs: (226)
 msgid "Cancel\nThe conflict is not resolved."
-msgstr ""
-
-#. Resource IDs: (90)
-msgid "Cancel\nThe file is not added and not adjusted."
 msgstr ""
 
 #. Resource IDs: (90)
@@ -3602,6 +3615,10 @@ msgstr ""
 msgid "Do you really want to revert all changes in\n%s\nwhich were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
 msgstr ""
 
+#. Resource IDs: (315)
+msgid "Do you want to load the changed files?"
+msgstr ""
+
 #. Resource IDs: (99)
 #, c-format
 msgid "Do you want to make this working copy unversioned?\nThis will remove all Subversion admin directories from\n%s!"
@@ -4473,6 +4490,10 @@ msgstr ""
 msgid "Global settings"
 msgstr ""
 
+#. Resource IDs: (155)
+msgid "Go To Line"
+msgstr ""
+
 #. Resource IDs: (130)
 msgid "Go to line"
 msgstr ""
@@ -4755,6 +4776,10 @@ msgstr ""
 msgid "ID:32883:V C +A"
 msgstr ""
 
+#. Accelerator Entry for Menu ID:32893; '&Goto line'
+msgid "ID:32893:V C +G"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr ""
@@ -4924,6 +4949,10 @@ msgstr ""
 
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid "Ignore changes\nIgnore the outside changes."
 msgstr ""
 
 #. Resource IDs: (1126, 1127)
@@ -5156,7 +5185,7 @@ msgid "Keep &locks"
 msgstr ""
 
 #. Resource IDs: (1126)
-msgid "Keep ch&angelists"
+msgid "Keep c&hangelists"
 msgstr ""
 
 #. Resource IDs: (610)
@@ -5290,6 +5319,14 @@ msgstr ""
 
 #. Resource IDs: (130)
 msgid "Load Images"
+msgstr ""
+
+#. Resource IDs: (315)
+msgid "Load changes\nChanges made in TortoiseMerge are lost and replaced with the new content."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid "Load changes\nThe views are updated with the new content."
 msgstr ""
 
 #. Resource IDs: (63)
@@ -5677,10 +5714,6 @@ msgstr ""
 
 #. Resource IDs: (208)
 msgid "Modification date"
-msgstr ""
-
-#. Resource IDs: (315)
-msgid "Modifications detected"
 msgstr ""
 
 #. Resource IDs: (74, 264, 1511, 65535)
@@ -6923,14 +6956,6 @@ msgstr ""
 msgid "Reload"
 msgstr ""
 
-#. Resource IDs: (315)
-msgid "Reload\nLocal modifications are lost."
-msgstr ""
-
-#. Resource IDs: (315)
-msgid "Reload\nThe outside changes are loaded."
-msgstr ""
-
 #. Resource IDs: (2050)
 msgid "Reloads the opened files and reverts all changes.\nReload"
 msgstr ""
@@ -7261,7 +7286,7 @@ msgid "Revert to default settings. Recommended for unexperienced users."
 msgstr ""
 
 #. Resource IDs: (147)
-msgid "Revert\nAll changes will be lost."
+msgid "Revert\nAll local modifications will be lost."
 msgstr ""
 
 #. Resource IDs: (119)
@@ -7337,7 +7362,7 @@ msgid "Revision graph"
 msgstr ""
 
 #. Resource IDs: (1492)
-msgid "Revision r&ange to merge"
+msgid "Revision range to merge"
 msgstr ""
 
 #. Resource IDs: (75)
@@ -7917,6 +7942,10 @@ msgstr ""
 msgid "Show Inline-Diff word by word\nInline diff word-wise"
 msgstr ""
 
+#. Resource IDs: (2056)
+msgid "Show Inline-Diff\nInline diff"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
 msgstr ""
@@ -8137,11 +8166,11 @@ msgid "Slide"
 msgstr ""
 
 #. Resource IDs: (314)
-msgid "Some File(s) has been changed outside T-Merge.\nDo you want to load the changes?"
+msgid "Some file(s) have been changed outside T-Merge.\nDo you want to load the changes?"
 msgstr ""
 
 #. Resource IDs: (314)
-msgid "Some File(s) has been changed outside T-Merge.\nWould you like to reload and lose your changes?"
+msgid "Some file(s) have been changed outside T-Merge.\nWould you like to reload and lose your changes?"
 msgstr ""
 
 #. Resource IDs: (1126)
@@ -8697,6 +8726,11 @@ msgstr ""
 msgid "The line indicating the old file was expected in line %d !"
 msgstr ""
 
+#. Resource IDs: (88)
+#, c-format
+msgid "The line number must be in between %d and %d"
+msgstr ""
+
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr ""
@@ -8876,6 +8910,22 @@ msgstr ""
 msgid "This commit is not recursive, and there are moved/renamed\nfolders selected for commit. Such moves/renames\nare always performed recursively in the repository.\n\nDo you want to commit anyway?"
 msgstr ""
 
+#. Resource IDs: (251)
+msgid "This error was generated by a custom hook script on the Subversion server.\nPlease contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "This error was generated by a custom post-commit hook script on the Subversion server.\nPlease contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "This error was generated by a custom post-lock hook script on the Subversion server.\nPlease contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid "This error was generated by a custom post-unlock hook script on the Subversion server.\nPlease contact your server administrator for help with resolving this issue."
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr ""
@@ -9035,7 +9085,7 @@ msgstr ""
 
 #. Resource IDs: (107)
 #, c-format
-msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nneon %s\r\n%s\r\nzlib %s"
+msgid "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nneon %s\r\nserf %d.%d.%d\r\n%s\r\nzlib %s"
 msgstr ""
 
 #. Resource IDs: (281)
@@ -9900,6 +9950,10 @@ msgstr ""
 msgid "alias: %s"
 msgstr ""
 
+#. Resource IDs: (1618)
+msgid "all &revisions"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr ""
@@ -10259,6 +10313,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "skip ranges: "
+msgstr ""
+
+#. Resource IDs: (1619)
+msgid "specific r&ange"
 msgstr ""
 
 #. Resource IDs: (316)
