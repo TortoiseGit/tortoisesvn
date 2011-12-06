@@ -154,6 +154,18 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
             // do a "cleanup". If that doesn't work you need to do a fresh checkout.
             temp.LoadString(IDS_SVNERR_CLEANUPORFRESHCHECKOUT);
             break;
+        case SVN_ERR_REPOS_POST_COMMIT_HOOK_FAILED:
+            temp.LoadString(IDS_SVNERR_POSTCOMMITHOOKFAILED);
+            break;
+        case SVN_ERR_REPOS_POST_LOCK_HOOK_FAILED:
+            temp.LoadString(IDS_SVNERR_POSTLOCKHOOKFAILED);
+            break;
+        case SVN_ERR_REPOS_POST_UNLOCK_HOOK_FAILED:
+            temp.LoadString(IDS_SVNERR_POSTUNLOCKHOOKFAILED);
+            break;
+        case SVN_ERR_REPOS_HOOK_FAILURE:
+            temp.LoadString(IDS_SVNERR_HOOKFAILED);
+            break;
         default:
             break;
         }
