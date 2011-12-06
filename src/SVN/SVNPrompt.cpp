@@ -275,7 +275,6 @@ svn_error_t* SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **cred_
                 taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTALWAYS_TASK)));
                 taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_SSL_ACCEPTTEMP_TASK)));
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskdlg.SetDefaultCommandControl(IDCUSTOM3);
                 taskdlg.SetMainIcon(TD_WARNING_ICON);
                 ret = (UINT)taskdlg.DoModal(svn->m_hParentWnd);
             }
