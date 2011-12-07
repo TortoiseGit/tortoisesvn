@@ -3959,7 +3959,7 @@ CTSVNPath CSVNStatusListCtrl::GetCommonURL(bool bStrict)
         const FileEntry * entry = GetListEntry(i);
         if (!entry->IsChecked())
             continue;
-        const CTSVNPath& baseURL = CTSVNPath(entry->GetURL());
+        const CTSVNPath& baseURL = CTSVNPath(m_sRepositoryRoot + L"/" + entry->GetURL());
         if (baseURL.IsEmpty())
             continue;           // item has no url
         list.AddPath(baseURL);
