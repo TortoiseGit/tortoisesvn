@@ -4949,12 +4949,24 @@ void CBaseView::Search(SearchDirection srchDir)
         }
     }
     CString sSelectedText;
+    int startline = -1;
     for (int nViewLine=start.y; ;srchDir==SearchNext ? nViewLine++ : nViewLine--)
     {
         if (nViewLine < 0)
+        {
             nViewLine = m_pViewData->GetCount()-1;
+            startline = start.y;
+        }
         if (nViewLine > end.y)
+        {
             nViewLine = 0;
+            startline = start.y;
+        }
+        if (startline >= 0)
+        {
+            if (nViewLine == startline)
+                break;
+        }
         switch (m_pViewData->GetState(nViewLine))
         {
         case DIFFSTATE_EMPTY:
