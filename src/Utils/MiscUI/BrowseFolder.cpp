@@ -86,7 +86,8 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
 
     // Create a new common open file dialog
     IFileOpenDialog* pfd = NULL;
-    hr = CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pfd));
+    //hr = CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pfd));
+    hr = E_FAIL;
     if (SUCCEEDED(hr))
     {
         // Set the dialog as a folder picker
@@ -186,13 +187,8 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         browseInfo.pszDisplayName   = m_displayName;
         browseInfo.lpszTitle        = m_title;
         browseInfo.ulFlags          = m_style;
-        browseInfo.lpfn             = NULL;
         browseInfo.lParam           = (LPARAM)this;
-
-        if ((m_CheckText[0] != 0)||(!m_sDefaultPath.IsEmpty()))
-        {
-            browseInfo.lpfn = BrowseCallBackProc;
-        }
+        browseInfo.lpfn             = BrowseCallBackProc;
 
         LPITEMIDLIST itemIDList = SHBrowseForFolder(&browseInfo);
 
@@ -387,7 +383,11 @@ int CBrowseFolder::BrowseCallBackProc(HWND hwnd, UINT uMsg, LPARAM lParam, LPARA
         {
             SendMessage(hwnd,BFFM_SETSTATUSTEXT, 0, (LPARAM)szDir);
         }
+        else
+            return BFFM_VALIDATEFAILED;
     }
+    if (uMsg == BFFM_VALIDATEFAILED)
+        return 1; //DONT_DISMISS
 
     return 0;
 }
