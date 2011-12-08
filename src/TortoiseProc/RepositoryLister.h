@@ -326,7 +326,7 @@ private:
 
         bool operator<(const SPathAndRev& rhs) const
         {
-            int pathDiff = CTSVNPath::Compare (path, rhs.path);
+            int pathDiff = CTSVNPath::CompareWithCase (path, rhs.path);
             return (pathDiff < 0)
                 || (   (pathDiff == 0)
                     && (   (rev < rhs.rev)

@@ -14,6 +14,9 @@ Version 1.7.3
        returns a relative commonURL. (Stefan)
 - BUG: Issue #159: folder browse dialog can be
        closed with invalid paths. (Stefan)
+- BUG: Issue #160: Repo browser shows
+       incorrect contents for directories
+       that differ only by case. (Stefan)
 
 Version 1.7.2
 - BUG: Issue #111: Crash in initializing

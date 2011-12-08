@@ -681,6 +681,13 @@ LPCTSTR CTSVNPath::GetDisplayString(const CTSVNPath* pOptionalBasePath /* = NULL
     return m_sFwdslashPath;
 }
 
+int CTSVNPath::CompareWithCase(const CTSVNPath& left, const CTSVNPath& right)
+{
+    left.EnsureFwdslashPathSet();
+    right.EnsureFwdslashPathSet();
+    return left.m_sFwdslashPath.Compare(right.m_sFwdslashPath);
+}
+
 int CTSVNPath::Compare(const CTSVNPath& left, const CTSVNPath& right)
 {
     left.EnsureBackslashPathSet();

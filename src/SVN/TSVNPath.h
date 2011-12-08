@@ -144,9 +144,13 @@ public:
      */
     LPCTSTR GetDisplayString(const CTSVNPath* pOptionalBasePath = NULL) const;
     /**
-     * Compares two paths. Slash format is irrelevant.
+     * Compares two paths, case insensitive. Slash format is irrelevant.
      */
     static int Compare(const CTSVNPath& left, const CTSVNPath& right);
+    /**
+     * Compares two urls (or paths) case sensitive. Slash format is irrelevant.
+     */
+    static int CompareWithCase(const CTSVNPath& left, const CTSVNPath& right);
 
     /** As PredLeftLessThanRight, but for checking if paths are equivalent
      */
