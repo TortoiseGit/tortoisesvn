@@ -26,7 +26,6 @@
 #include "SetOverlayHandlers.h"
 #include "SettingsProgsDiff.h"
 #include "SettingsProgsMerge.h"
-#include "SettingsProgsUniDiff.h"
 #include "SetLookAndFeelPage.h"
 #include "SetDialogs.h"
 #include "SettingsColors.h"
@@ -77,7 +76,6 @@ private:
     CSetOverlayHandlers *           m_pOverlayHandlersPage;
     CSettingsProgsDiff *            m_pProgsDiffPage;
     CSettingsProgsMerge *           m_pProgsMergePage;
-    CSettingsProgsUniDiff *         m_pProgsUniDiffPage;
     CSetLookAndFeelPage *           m_pLookAndFeelPage;
     CSetDialogs *                   m_pDialogsPage;
     CSettingsRevisionGraph *        m_pRevisionGraphPage;

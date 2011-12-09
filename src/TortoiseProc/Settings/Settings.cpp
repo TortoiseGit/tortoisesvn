@@ -46,7 +46,6 @@ void CSettings::AddPropPages()
     m_pProxyPage = new CSetProxyPage();
     m_pProgsDiffPage = new CSettingsProgsDiff();
     m_pProgsMergePage = new CSettingsProgsMerge();
-    m_pProgsUniDiffPage = new CSettingsProgsUniDiff();
     m_pLookAndFeelPage = new CSetLookAndFeelPage();
     m_pDialogsPage = new CSetDialogs();
     m_pMiscPage = new CSetMisc();
@@ -68,7 +67,6 @@ void CSettings::AddPropPages()
     SetPageIcon(m_pProxyPage, m_pProxyPage->GetIconID());
     SetPageIcon(m_pProgsDiffPage, m_pProgsDiffPage->GetIconID());
     SetPageIcon(m_pProgsMergePage, m_pProgsMergePage->GetIconID());
-    SetPageIcon(m_pProgsUniDiffPage, m_pProgsUniDiffPage->GetIconID());
     SetPageIcon(m_pLookAndFeelPage, m_pLookAndFeelPage->GetIconID());
     SetPageIcon(m_pDialogsPage, m_pDialogsPage->GetIconID());
     SetPageIcon(m_pRevisionGraphPage, m_pRevisionGraphPage->GetIconID());
@@ -92,7 +90,6 @@ void CSettings::AddPropPages()
     AddPage(m_pProxyPage);
     AddPage(m_pProgsDiffPage);
     AddPage(m_pProgsMergePage);
-    AddPage(m_pProgsUniDiffPage);
     AddPage(m_pLookAndFeelPage);
     AddPage(m_pDialogsPage);
     AddPage(m_pMiscPage);
@@ -115,7 +112,6 @@ void CSettings::RemovePropPages()
     delete m_pProxyPage;
     delete m_pProgsDiffPage;
     delete m_pProgsMergePage;
-    delete m_pProgsUniDiffPage;
     delete m_pLookAndFeelPage;
     delete m_pDialogsPage;
     delete m_pRevisionGraphColorsPage;
@@ -141,7 +137,6 @@ void CSettings::HandleRestart()
     restart |= m_pProxyPage->GetRestart();
     restart |= m_pProgsDiffPage->GetRestart();
     restart |= m_pProgsMergePage->GetRestart();
-    restart |= m_pProgsUniDiffPage->GetRestart();
     restart |= m_pLookAndFeelPage->GetRestart();
     restart |= m_pDialogsPage->GetRestart();
     restart |= m_pRevisionGraphPage->GetRestart();

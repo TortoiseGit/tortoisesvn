@@ -57,6 +57,10 @@ protected:
     afx_msg void OnBnClickedDontconvert();
     afx_msg void OnEnChangeExtdiff();
     afx_msg void OnEnChangeExtdiffprops();
+    afx_msg void OnBnClickedDiffviewerOff();
+    afx_msg void OnBnClickedDiffviewerOn();
+    afx_msg void OnBnClickedDiffviewerbrowse();
+    afx_msg void OnEnChangeDiffviewer();
 
     bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != _T("#"); }
     void CheckProgComment();
@@ -73,7 +77,11 @@ private:
     CToolTips       m_tooltips;
     CRegDWORD       m_regConvertBase;   ///< registry value for the "Don't Convert" flag
     BOOL            m_bConvertBase;     ///< don't convert files when diffing against BASE
+    CString         m_sDiffViewerPath;
+    CRegString      m_regDiffViewerPath;
+    int             m_iDiffViewer;
 
     CFileDropEdit   m_cDiffEdit;
     CFileDropEdit   m_cDiffPropsEdit;
+    CFileDropEdit   m_cUnifiedDiffEdit;
 };

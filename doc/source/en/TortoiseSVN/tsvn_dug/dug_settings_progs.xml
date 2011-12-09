@@ -176,6 +176,18 @@ C:\Path-To\DiffMerge.exe -nosplash -t1=%bname -t2=%yname %base %mine
             </menuchoice>
             uses the secondary diff tool.
         </para>
+        <para>
+            At the bottom of the dialog you can configure a viewer program 
+            for unified-diff files (patch files).
+            No parameters are required.
+            The <guilabel>Default</guilabel> setting is to use
+            TortoiseUDiff which is installed alongside TortoiseSVN,
+            and colour-codes the added and removed lines.
+        </para>
+        <para>
+            Since Unified Diff is just a text format, you can use your
+            favourite text editor if you prefer.
+        </para>
     </sect3>
     <sect3 id="tsvn-dug-settings-Merge">
         <title>Merge Tool</title>
@@ -300,21 +312,6 @@ C:\Path-To\DiffMerge.exe -caption=%mname -result=%merged -merge
             To associate using the <literal>svn:mime-type</literal> property, specify
             the mime type, including a slash, for example
             <literal>text/xml</literal>.
-        </para>
-    </sect3>
-    <sect3 id="tsvn-dug-settings-Patch">
-        <title>Unified Diff Viewer</title>
-        <?dbhh topicname="HIDD_SETTINGSPROGSUNIDIFF"?>
-        <para>
-            A viewer program for unified-diff files (patch files).
-            No parameters are required.
-            The <guilabel>Default</guilabel> setting is to use
-            TortoiseUDiff which is installed alongside TortoiseSVN,
-            and colour-codes the added and removed lines.
-        </para>
-        <para>
-            Since Unified Diff is just a text format, you can use your
-            favourite text editor if you prefer.
         </para>
     </sect3>
 </sect2>
