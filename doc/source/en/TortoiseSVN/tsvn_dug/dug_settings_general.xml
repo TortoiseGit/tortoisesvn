@@ -532,6 +532,55 @@
             </varlistentry>
         </variablelist>
     </sect3>
+    <sect3 id="tsvn-dug-settings-dialogs-3">
+        <title>TortoiseSVN Dialog Settings 3</title>
+        <?dbhh topicname="HIDD_SETTINGSDIALOGS3"?>
+        <para>
+            <figure id="tsvn-dug-settings-dia-dialogs-3">
+                <title>The Settings Dialog, Dialogs 3 Page</title>
+                <graphic fileref="../images/SettingsDialog3.png"/>
+            </figure>
+        </para>
+        <variablelist>
+            <varlistentry>
+                <term>Pre-fetch folders for faster browsing</term>
+                <listitem>
+                    <para>
+                        If this box is checked (default state), then
+                        the repository browser fetches information about
+                        shown folders in the background. That way as soon
+                        as you browse into one of those folders, the 
+                        information is already available.
+                    </para>
+                    <para>
+                        Some servers however can't handle the multiple
+                        requests this causes or when not configured 
+                        correctly treat so many requests as something
+                        bad and start blocking them. In this case you
+                        can disable the pre-fetching here.
+                    </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Show externals</term>
+                <listitem>
+                    <para>
+                        If this box is checked (default state), then
+                        the repository browser shows files and folders
+                        that are included with the <literal>svn:externals</literal>
+                        property as normal files and folders, but with
+                        an overlay icon to mark them as from an external
+                        source.
+                    </para>
+                    <para>
+                        As with the pre-fetch feature explained above,
+                        this too can put too much stress on weak servers.
+                        In this case you can disable this feature here.
+                    </para>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </sect3>
     <sect3 id="tsvn-dug-settings-colours">
         <title>TortoiseSVN Colour Settings</title>
         <?dbhh topicname="HIDD_SETTINGSCOLORS"?>

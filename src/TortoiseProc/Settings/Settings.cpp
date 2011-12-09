@@ -49,6 +49,7 @@ void CSettings::AddPropPages()
     m_pLookAndFeelPage = new CSetLookAndFeelPage();
     m_pDialogsPage = new CSetDialogs();
     m_pMiscPage = new CSetMisc();
+    m_pDialogs3Page = new SettingsDialogs3();
     m_pRevisionGraphPage = new CSettingsRevisionGraph();
     m_pRevisionGraphColorsPage = new CSettingsRevisionGraphColors();
     m_pLogCachePage = new CSetLogCache();
@@ -72,6 +73,7 @@ void CSettings::AddPropPages()
     SetPageIcon(m_pRevisionGraphPage, m_pRevisionGraphPage->GetIconID());
     SetPageIcon(m_pRevisionGraphColorsPage, m_pRevisionGraphColorsPage->GetIconID());
     SetPageIcon(m_pMiscPage, m_pMiscPage->GetIconID());
+    SetPageIcon(m_pDialogs3Page, m_pDialogs3Page->GetIconID());
     SetPageIcon(m_pLogCachePage, m_pLogCachePage->GetIconID());
     SetPageIcon(m_pLogCacheListPage, m_pLogCacheListPage->GetIconID());
     SetPageIcon(m_pColorsPage, m_pColorsPage->GetIconID());
@@ -93,6 +95,7 @@ void CSettings::AddPropPages()
     AddPage(m_pLookAndFeelPage);
     AddPage(m_pDialogsPage);
     AddPage(m_pMiscPage);
+    AddPage(m_pDialogs3Page);
     AddPage(m_pColorsPage);
     AddPage(m_pSavedPage);
     AddPage(m_pLogCachePage);
@@ -117,6 +120,7 @@ void CSettings::RemovePropPages()
     delete m_pRevisionGraphColorsPage;
     delete m_pRevisionGraphPage;
     delete m_pMiscPage;
+    delete m_pDialogs3Page;
     delete m_pLogCachePage;
     delete m_pLogCacheListPage;
     delete m_pColorsPage;
@@ -141,6 +145,7 @@ void CSettings::HandleRestart()
     restart |= m_pDialogsPage->GetRestart();
     restart |= m_pRevisionGraphPage->GetRestart();
     restart |= m_pMiscPage->GetRestart();
+    restart |= m_pDialogs3Page->GetRestart();
     restart |= m_pLogCachePage->GetRestart();
     restart |= m_pLogCacheListPage->GetRestart();
     restart |= m_pColorsPage->GetRestart();
