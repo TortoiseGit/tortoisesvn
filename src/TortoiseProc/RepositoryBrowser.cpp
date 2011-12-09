@@ -1732,6 +1732,9 @@ void CRepositoryBrowser::OnDelete()
             CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
             if (pTreeItem)
             {
+                if (pTreeItem->repository.root.Compare(pTreeItem->url)==0)
+                    return; // can't delete the repository root!
+
                 urlList.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(pTreeItem->url))));
                 repositories.push_back (pTreeItem->repository);
                 bTreeItem = true;
@@ -2930,7 +2933,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     popup.AppendMenu(MF_SEPARATOR, NULL);
                 }
 
-                if (!selection.IsExternal (0, 0))
+                if (!selection.IsExternal (0, 0) && !selection.IsRoot (0, 0))
                     popup.AppendMenuIcon(ID_RENAME, IDS_REPOBROWSE_RENAME, IDI_RENAME);     // "Rename"
             }
             if (selection.IsLocked (0, 0))
@@ -2939,7 +2942,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             }
         }
 
-        if (selection.GetRepository(0).revision.IsHead())
+        if (selection.GetRepository(0).revision.IsHead() && !selection.IsRoot (0, 0))
         {
             popup.AppendMenuIcon(ID_DELETE, IDS_REPOBROWSE_DELETE, IDI_DELETE);     // "Remove"
         }
