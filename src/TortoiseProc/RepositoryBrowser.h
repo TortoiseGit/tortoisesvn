@@ -287,6 +287,8 @@ private:
     CString             m_selectedURLs; ///< only valid after <OK>
     bool                m_bThreadRunning;
     static const UINT   m_AfterInitMessage;
+    bool                m_bFetchChildren;
+    bool                m_bShowExternals;
 
     int                 m_nIconFolder;
     int                 m_nOpenIconFolder;

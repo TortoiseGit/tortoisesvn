@@ -6,7 +6,7 @@ Version 1.7.3
        many bugtrack links. (Stefan)
 - BUG: Issue 155: crash when accessing a server with
        an invalid ssl certificate. (Stefan)
-- BUG: Issue #156: 	subdir within WC not
+- BUG: Issue #156: subdir within WC not
        recognized as WC. (Stefan)
 - BUG: Issue #157: Title Bar not updating with
        currently viewed repository. (Stefan)
@@ -17,6 +17,8 @@ Version 1.7.3
 - BUG: Issue #160: Repo browser shows
        incorrect contents for directories
        that differ only by case. (Stefan)
+- NEW: Issue #113: Option to turn off pre-fetching
+       and external parsing in repo browser. (Stefan)
 
 Version 1.7.2
 - BUG: Issue #111: Crash in initializing

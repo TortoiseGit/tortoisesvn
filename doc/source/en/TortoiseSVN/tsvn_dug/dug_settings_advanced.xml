@@ -360,6 +360,28 @@
             </listitem>
         </varlistentry>
         <varlistentry>
+            <term condition="pot">RepoBrowserPrefetch</term>
+            <listitem>
+                <para>
+                    Some servers have problems handling the many requests
+                    the repository browser makes while it pre-fetches
+                    shown folders. To disable the pre-fetching set
+                    this value to <literal>false</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
+            <term condition="pot">RepoBrowserShowExternals</term>
+            <listitem>
+                <para>
+                    Some servers have problems handling the many requests
+                    the repository browser makes while it looks for
+                    <literal>svn:externals</literal>. To disable looking 
+                    for externals, set this value to <literal>false</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
             <term condition="pot">ShellMenuAccelerators</term>
             <listitem>
                 <para>

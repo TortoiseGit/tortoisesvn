@@ -143,6 +143,8 @@ void CRepositoryBrowser::ConstructorInit(const SVNRev& rev)
     if (s_bSortLogical)
         s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
     std::fill_n(m_arColumnWidths, _countof(m_arColumnWidths), 0);
+    m_bFetchChildren = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", true);
+    m_bShowExternals = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowExternals", true);
 }
 
 CRepositoryBrowser::~CRepositoryBrowser()
@@ -446,7 +448,7 @@ void CRepositoryBrowser::InitRepo()
             ; path.GetLength() >= m_repository.root.GetLength()
             ; path = path.Left (path.ReverseFind ('/')))
         {
-            m_lister.Enqueue (path, pegRev, m_repository, !m_bSparseCheckoutMode);
+            m_lister.Enqueue (path, pegRev, m_repository, !m_bSparseCheckoutMode && m_bShowExternals);
         }
 
     // (try to) fetch the HEAD revision
@@ -462,7 +464,7 @@ void CRepositoryBrowser::InitRepo()
     CString error
         = m_cancelled
         ? userCancelledError
-        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, !m_bSparseCheckoutMode, dummy);
+        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, !m_bSparseCheckoutMode && m_bShowExternals, dummy);
 
     // the only way CQuery::List will return the following error
     // is by calling it with a file path instead of a dir path
@@ -475,7 +477,7 @@ void CRepositoryBrowser::InitRepo()
     if (error == wasFileError)
     {
         m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
-        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, !m_bSparseCheckoutMode, dummy);
+        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, !m_bSparseCheckoutMode && m_bShowExternals, dummy);
     }
 
     // exit upon cancel
@@ -1252,7 +1254,7 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
                                              ? pTreeItem->repository.peg_revision
                                              : SVNRev()
                                         , pTreeItem->repository
-                                        , !m_bSparseCheckoutMode
+                                        , !m_bSparseCheckoutMode && m_bShowExternals
                                         , children);
 
     // add parent sub-tree externals
@@ -1419,15 +1421,18 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
 
         // pre-fetch data for the next level
 
-        CAutoReadLock locker(m_guard);
-        CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
-        if ((pTreeItem != NULL) && !pTreeItem->children_fetched)
-            m_lister.Enqueue ( pTreeItem->url
-                             , pTreeItem->is_external
-                                  ? pTreeItem->repository.peg_revision
-                                  : SVNRev()
-                             , pTreeItem->repository
-                             , !m_bSparseCheckoutMode);
+        if (m_bFetchChildren)
+        {
+            CAutoReadLock locker(m_guard);
+            CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+            if ((pTreeItem != NULL) && !pTreeItem->children_fetched)
+                m_lister.Enqueue ( pTreeItem->url
+                                 , pTreeItem->is_external
+                                 ? pTreeItem->repository.peg_revision
+                                 : SVNRev()
+                                 , pTreeItem->repository
+                                 , !m_bSparseCheckoutMode && m_bShowExternals);
+        }
     }
     while (currentPath != path);
 
@@ -1592,12 +1597,15 @@ void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
         if ((item.kind == svn_node_dir)&&(item.absolutepath.GetLength() > 0))
         {
             pTreeItem->has_child_folders = true;
-            m_lister.Enqueue ( item.absolutepath
-                             , item.is_external
-                                  ? item.repository.peg_revision
-                                  : SVNRev()
-                             , item.repository
-                             , item.has_props);
+            if (m_bFetchChildren)
+            {
+                m_lister.Enqueue ( item.absolutepath
+                                 , item.is_external
+                                 ? item.repository.peg_revision
+                                 : SVNRev()
+                                 , item.repository
+                                 , item.has_props);
+            }
         }
     }
 }
@@ -1641,7 +1649,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
         TVITEM tvitem = {0};
         tvitem.hItem = hNode;
         tvitem.mask = TVIF_CHILDREN;
-        tvitem.cChildren = pTreeItem->has_child_folders || (m_bSparseCheckoutMode && pTreeItem->children.size()) ? 1 : 0;
+        tvitem.cChildren = pTreeItem->has_child_folders || !pTreeItem->children_fetched || (m_bSparseCheckoutMode && pTreeItem->children.size()) ? 1 : 0;
         m_RepoTree.SetItem(&tvitem);
     }
     if (pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
