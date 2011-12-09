@@ -77,7 +77,7 @@ public:
      */
     void Stop();
 
-    CTSVNPath CloseInfoMap(HDEVNOTIFY hdev);
+    CTSVNPath CloseInfoMap(HANDLE hDir);
     void ClearInfoMap();
     bool CloseHandlesForPath(const CTSVNPath& path);
 

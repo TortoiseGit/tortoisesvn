@@ -85,7 +85,7 @@ public:
     void Init();
     void Stop();
 
-    void CloseWatcherHandles(HDEVNOTIFY hdev);
+    void CloseWatcherHandles(HANDLE hFile);
     void CloseWatcherHandles(const CTSVNPath& path);
 
     bool IsPathAllowed(const CTSVNPath& path) {return !!m_shellCache.IsPathAllowed(path.GetWinPath());}

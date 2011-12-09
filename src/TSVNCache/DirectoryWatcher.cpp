@@ -532,9 +532,16 @@ void CDirectoryWatcher::ClearInfoMap()
     }
 }
 
-CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
+CTSVNPath CDirectoryWatcher::CloseInfoMap(HANDLE hDir)
 {
     AutoLocker lock(m_critSec);
+    auto d = watchInfoMap.find(hDir);
+    if (d != watchInfoMap.end())
+    {
+        CTSVNPath root = CTSVNPath(CTSVNPath(d->second->m_DirPath).GetRootPathString());
+        RemovePathAndChildren(root);
+        BlockPath(root);
+    }
     CloseWatchHandles();
 
     CTSVNPath path;
@@ -544,13 +551,6 @@ CTSVNPath CDirectoryWatcher::CloseInfoMap(HDEVNOTIFY hdev)
     for (TInfoMap::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
     {
         CDirectoryWatcher::CDirWatchInfo * info = I->second;
-        I->second = NULL;
-        if (info->m_hDevNotify == hdev)
-        {
-            path = info->m_DirName;
-            RemovePathAndChildren(path);
-            BlockPath(path);
-        }
 
         ScheduleForDeletion (info);
     }

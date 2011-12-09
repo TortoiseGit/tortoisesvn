@@ -378,13 +378,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         {
                             CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Device to be dismounted\n");
                             CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
-                            CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+                            CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_handle);
                         }
                         if (IsEqualGUID(phandle->dbch_eventguid, GUID_IO_VOLUME_LOCK))
                         {
                             CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Device lock event\n");
                             CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
-                            CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+                            CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_handle);
                         }
                     }
                 }
@@ -397,7 +397,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 {
                     DEV_BROADCAST_HANDLE * phandle = (DEV_BROADCAST_HANDLE*)lParam;
                     CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
-                    CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_hdevnotify);
+                    CSVNStatusCache::Instance().CloseWatcherHandles(phandle->dbch_handle);
                 }
                 else if (phdr->dbch_devicetype == DBT_DEVTYP_VOLUME)
                 {
