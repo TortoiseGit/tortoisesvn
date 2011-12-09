@@ -409,10 +409,11 @@ void CDirectoryWatcher::WorkerThread()
                         do
                         {
                             pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
-                            nOffset = pnotify->NextEntryOffset;
 
                             if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
                                 break;
+
+                            nOffset = pnotify->NextEntryOffset;
 
                             if (pnotify->FileNameLength >= (READ_DIR_CHANGE_BUFFER_SIZE*sizeof(TCHAR)))
                                 continue;
@@ -461,7 +462,7 @@ void CDirectoryWatcher::WorkerThread()
                                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": change notification for %s\n"), buf);
                                 notifyPaths.push_back(CTSVNPath(buf));
                             }
-                        } while (nOffset > 0);
+                        } while ((nOffset > 0)&&(nOffset < READ_DIR_CHANGE_BUFFER_SIZE));
 
                         // setup next notification cycle
 
