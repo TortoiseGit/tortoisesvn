@@ -7402,6 +7402,38 @@ msgid "If your project is using the <literal>tsvn:lockmsgminsize</literal> prope
 msgstr ""
 
 #. (title)
+msgid "TortoiseSVN Dialog Settings 3"
+msgstr ""
+
+#. (title)
+msgid "The Settings Dialog, Dialogs 3 Page"
+msgstr ""
+
+#. (term)
+msgid "Pre-fetch folders for faster browsing"
+msgstr ""
+
+#. (para)
+msgid "If this box is checked (default state), then the repository browser fetches information about shown folders in the background. That way as soon as you browse into one of those folders, the information is already available."
+msgstr ""
+
+#. (para)
+msgid "Some servers however can't handle the multiple requests this causes or when not configured correctly treat so many requests as something bad and start blocking them. In this case you can disable the pre-fetching here."
+msgstr ""
+
+#. (term)
+msgid "Show externals"
+msgstr ""
+
+#. (para)
+msgid "If this box is checked (default state), then the repository browser shows files and folders that are included with the <literal>svn:externals</literal> property as normal files and folders, but with an overlay icon to mark them as from an external source."
+msgstr ""
+
+#. (para)
+msgid "As with the pre-fetch feature explained above, this too can put too much stress on weak servers. In this case you can disable this feature here."
+msgstr ""
+
+#. (title)
 msgid "TortoiseSVN Colour Settings"
 msgstr ""
 
@@ -7954,6 +7986,14 @@ msgstr ""
 msgid "If you have configured an alternate diff tool, you can access TortoiseMerge <emphasis>and</emphasis> the third party tool from the context menus. <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> uses the primary diff tool, and <keycap>Shift</keycap>+ <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> uses the secondary diff tool."
 msgstr ""
 
+#. (para)
+msgid "At the bottom of the dialog you can configure a viewer program for unified-diff files (patch files). No parameters are required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff which is installed alongside TortoiseSVN, and colour-codes the added and removed lines."
+msgstr ""
+
+#. (para)
+msgid "Since Unified Diff is just a text format, you can use your favourite text editor if you prefer."
+msgstr ""
+
 #. (title)
 msgid "Merge Tool"
 msgstr ""
@@ -8018,18 +8058,6 @@ msgstr ""
 
 #. (para)
 msgid "To associate using a file extension, you need to specify the extension. Use <literal>.bmp</literal> to describe Windows bitmap files. To associate using the <literal>svn:mime-type</literal> property, specify the mime type, including a slash, for example <literal>text/xml</literal>."
-msgstr ""
-
-#. (title)
-msgid "Unified Diff Viewer"
-msgstr ""
-
-#. (para)
-msgid "A viewer program for unified-diff files (patch files). No parameters are required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff which is installed alongside TortoiseSVN, and colour-codes the added and removed lines."
-msgstr ""
-
-#. (para)
-msgid "Since Unified Diff is just a text format, you can use your favourite text editor if you prefer."
 msgstr ""
 
 #. (title)
