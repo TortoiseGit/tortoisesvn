@@ -48,6 +48,7 @@
 #include "BstrSafeVector.h"
 #include "..\..\TSVNCache\CacheInterface.h"
 #include "SmartHandle.h"
+#include "RecycleBinDlg.h"
 
 BOOL    CSVNProgressDlg::m_bAscending = FALSE;
 int     CSVNProgressDlg::m_nSortedColumn = -1;
@@ -3157,7 +3158,12 @@ bool CSVNProgressDlg::CmdRevert(CString& sWindowTitle, bool& localoperation)
 
     CTSVNPathList delList = m_selectedPaths;
     if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
+    {
+        CRecycleBinDlg rec;
+        rec.StartTime();
         delList.DeleteAllPaths(true, true);
+        rec.EndTime(delList.GetCount());
+    }
 
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_REVERT)));
     CBlockCacheForPath cacheBlock (m_targetPathList.GetCommonRoot().GetWinPath());

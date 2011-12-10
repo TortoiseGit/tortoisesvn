@@ -1073,6 +1073,9 @@
     <ClCompile Include="Settings\SettingsDialogs3.cpp">
       <Filter>Commands\Settings\Settings Dialog</Filter>
     </ClCompile>
+    <ClCompile Include="RecycleBinDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2052,6 +2055,9 @@
     </ClInclude>
     <ClInclude Include="Settings\SettingsDialogs3.h">
       <Filter>Commands\Settings\Settings Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="RecycleBinDlg.h">
+      <Filter>Utility Dialogs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

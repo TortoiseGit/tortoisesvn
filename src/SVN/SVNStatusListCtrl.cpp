@@ -56,6 +56,7 @@
 #include "FormatMessageWrapper.h"
 #include "AsyncCall.h"
 #include "DiffOptionsDlg.h"
+#include "RecycleBinDlg.h"
 
 #include <tuple>
 
@@ -2553,8 +2554,14 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             delList.AddPath(entry2->GetPath());
         }
     }
+
     if (DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)))
+    {
+        CRecycleBinDlg rec;
+        rec.StartTime();
         delList.DeleteAllPaths(true, true);
+        rec.EndTime(delList.GetCount());
+    }
 
     if (!svn.Revert(targetList, CStringArray(), bRecursive && !bNonRecursive))
     {
