@@ -24,10 +24,10 @@
 
 // CRecycleBinDlg dialog
 
-IMPLEMENT_DYNAMIC(CRecycleBinDlg, CDialog)
+IMPLEMENT_DYNAMIC(CRecycleBinDlg, CStandAloneDialog)
 
 CRecycleBinDlg::CRecycleBinDlg(CWnd* pParent /*=NULL*/)
-    : CDialog(CRecycleBinDlg::IDD, pParent)
+    : CStandAloneDialog(CRecycleBinDlg::IDD, pParent)
     , m_regDontDoAgain(L"Software\\TortoiseSVN\\RecycleBinSlowDontAskAgain")
     , m_sLabel(_T(""))
     , m_bDontAskAgain(FALSE)
@@ -41,13 +41,13 @@ CRecycleBinDlg::~CRecycleBinDlg()
 
 void CRecycleBinDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_INFO, m_sLabel);
     DDX_Check(pDX, IDC_DONTASKAGAIN, m_bDontAskAgain);
 }
 
 
-BEGIN_MESSAGE_MAP(CRecycleBinDlg, CDialog)
+BEGIN_MESSAGE_MAP(CRecycleBinDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDC_EMPTYBIN, &CRecycleBinDlg::OnBnClickedEmptybin)
     ON_BN_CLICKED(IDC_DONTUSEBIN, &CRecycleBinDlg::OnBnClickedDontusebin)
 END_MESSAGE_MAP()
@@ -58,7 +58,7 @@ END_MESSAGE_MAP()
 
 BOOL CRecycleBinDlg::OnInitDialog()
 {
-    CDialog::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
 
     m_bDontAskAgain = m_regDontDoAgain;
 
@@ -97,7 +97,7 @@ void CRecycleBinDlg::EndTime(int filecount)
 void CRecycleBinDlg::OnBnClickedEmptybin()
 {
     SHEmptyRecycleBin(m_hWnd, NULL, SHERB_NOCONFIRMATION);
-    CDialog::OnCancel();
+    CStandAloneDialog::OnCancel();
 }
 
 
@@ -105,7 +105,7 @@ void CRecycleBinDlg::OnBnClickedDontusebin()
 {
     CRegDWORD reg = CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE);
     reg = FALSE;
-    CDialog::OnCancel();
+    CStandAloneDialog::OnCancel();
 }
 
 
@@ -115,5 +115,5 @@ void CRecycleBinDlg::OnCancel()
 
     if (m_bDontAskAgain)
         m_regDontDoAgain = m_bDontAskAgain;
-    CDialog::OnCancel();
+    CStandAloneDialog::OnCancel();
 }

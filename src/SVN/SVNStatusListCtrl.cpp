@@ -2559,8 +2559,9 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
     {
         CRecycleBinDlg rec;
         rec.StartTime();
+        int count = delList.GetCount();
         delList.DeleteAllPaths(true, true);
-        rec.EndTime(delList.GetCount());
+        rec.EndTime(count);
     }
 
     if (!svn.Revert(targetList, CStringArray(), bRecursive && !bNonRecursive))

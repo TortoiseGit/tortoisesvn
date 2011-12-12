@@ -139,8 +139,9 @@ bool CleanupCommand::Execute()
             {
                 CRecycleBinDlg rec;
                 rec.StartTime();
+                int count = itemsToRevert.GetCount();
                 itemsToRevert.DeleteAllPaths(true, true);
-                rec.EndTime(itemsToRevert.GetCount());
+                rec.EndTime(count);
             }
             SVN svn;
             if (!svn.Revert(revertItems, CStringArray(), false))
