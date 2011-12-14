@@ -1523,17 +1523,23 @@ void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
                     }
                 }
                 sPaths.Trim();
+                CString nlMessage = CUnicodeUtils::GetUnicode (pLogEntry->GetMessage().c_str());
+                nlMessage.Remove('\r');
+                nlMessage.Replace(L"\n", L"\r\n");
                 sLogCopyText.Format(_T("%s: %d\r\n%s: %s\r\n%s: %s\r\n%s:\r\n%s\r\n----\r\n%s\r\n\r\n"),
                     (LPCTSTR)sRev, pLogEntry->GetRevision(),
                     (LPCTSTR)sAuthor,  (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetAuthor().c_str()),
                     (LPCTSTR)sDate, (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetDateString().c_str()),
-                    (LPCTSTR)sMessage, (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetMessage().c_str()),
+                    (LPCTSTR)sMessage, (LPCTSTR)nlMessage,
                     (LPCTSTR)sPaths);
             }
             else
             {
+                CString nlMessage = CUnicodeUtils::GetUnicode (pLogEntry->GetMessage().c_str());
+                nlMessage.Remove('\r');
+                nlMessage.Replace(L"\n", L"\r\n");
                 sLogCopyText.Format(_T("%s\r\n----\r\n"),
-                    (LPCTSTR)CUnicodeUtils::GetUnicode (pLogEntry->GetMessage().c_str()));
+                    (LPCTSTR)nlMessage);
             }
             sClipdata +=  sLogCopyText;
         }
