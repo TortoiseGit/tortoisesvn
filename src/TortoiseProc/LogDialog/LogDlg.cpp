@@ -1629,7 +1629,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
     {
         ShowContextMenuForChangedpaths(pWnd, point);
     }
-    else if ((selCount == 1)&&(pWnd == GetDlgItem(IDC_MSGVIEW)))
+    else if ((selCount > 0)&&(pWnd == GetDlgItem(IDC_MSGVIEW)))
     {
         POSITION pos = m_LogList.GetFirstSelectedItemPosition();
         int selIndex = -1;
@@ -1652,7 +1652,7 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             sMenuItemText.LoadString(IDS_SCIEDIT_SELECTALL);
             popup.AppendMenu(MF_STRING | MF_ENABLED, EM_SETSEL, sMenuItemText);
 
-            if (selIndex >= 0)
+            if ((selIndex >= 0)&&(selCount == 1))
             {
                 popup.AppendMenu(MF_SEPARATOR);
                 sMenuItemText.LoadString(IDS_LOG_POPUP_EDITLOG);
@@ -2394,7 +2394,7 @@ void CLogDlg::EditLogMessage(int index)
 BOOL CLogDlg::PreTranslateMessage(MSG* pMsg)
 {
     // Skip Ctrl-C when copying text out of the log message or search filter
-    BOOL bSkipAccelerator = ( pMsg->message == WM_KEYDOWN && pMsg->wParam=='C' && (GetFocus()==GetDlgItem(IDC_MSGVIEW) || GetFocus()==GetDlgItem(IDC_SEARCHEDIT) ) && GetKeyState(VK_CONTROL)&0x8000 );
+    BOOL bSkipAccelerator = ( pMsg->message == WM_KEYDOWN && (pMsg->wParam=='C' || pMsg->wParam== VK_INSERT) && (GetFocus()==GetDlgItem(IDC_MSGVIEW) || GetFocus()==GetDlgItem(IDC_SEARCHEDIT) ) && GetKeyState(VK_CONTROL)&0x8000 );
     if (pMsg->message == WM_KEYDOWN && pMsg->wParam==VK_RETURN)
     {
         if (GetAsyncKeyState(VK_CONTROL)&0x8000)
