@@ -12373,27 +12373,19 @@ msgid "<guilabel>Backup original file</guilabel> renames the original file in th
 msgstr ""
 
 #. (para)
+msgid "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+
+#. (para)
+msgid "<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get slow when showing inline diffs for very long lines. Because of that only lines that are shorter than 3000 chars are shown with inline diffs. You can change this value here."
+msgstr ""
+
+#. (para)
 msgid "<guilabel>Ignore line endings</guilabel> hides changes which are due solely to difference in line-end style."
 msgstr ""
 
 #. (para)
 msgid "<guilabel>Ignore case changes</guilabel> hides changes which are due solely to case changes within the text. This can be useful with apps such as Visual Basic, which changes case in variables without warning."
-msgstr ""
-
-#. (para)
-msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
-msgstr ""
-
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr ""
-
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
 msgstr ""
 
 #. (title)
