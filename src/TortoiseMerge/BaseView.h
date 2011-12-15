@@ -403,6 +403,7 @@ protected:  // variables
     UINT            m_nStatusBarID;     ///< The ID of the status bar pane used by this view. Must be set by the parent class.
 
     SVNLineDiff     m_svnlinediff;
+    DWORD           m_nInlineDiffMaxLineLength;
     BOOL            m_bOtherDiffChecked;
     bool            m_bModified;
     BOOL            m_bFocused;

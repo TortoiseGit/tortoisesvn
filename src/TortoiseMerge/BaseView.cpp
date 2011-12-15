@@ -98,6 +98,7 @@ CBaseView::CBaseView()
     m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
     m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
     m_bShowInlineDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
+    m_nInlineDiffMaxLineLength = CRegDWORD(_T("Software\\TortoiseMerge\\InlineDiffMaxLineLength"), 3000);
     m_InlineAddedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineAdded"), INLINEADDED_COLOR);
     m_InlineRemovedBk = CRegDWORD(_T("Software\\TortoiseMerge\\InlineRemoved"), INLINEREMOVED_COLOR);
     m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
@@ -218,6 +219,7 @@ void CBaseView::DocumentUpdated()
     m_ModifiedBk = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\ColorModifiedB"), MODIFIED_COLOR);
     m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
     m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
+    m_nInlineDiffMaxLineLength = CRegDWORD(_T("Software\\TortoiseMerge\\InlineDiffMaxLineLength"), 3000);
     DeleteFonts();
     ClearCurrentSelection();
     UpdateStatusBar();
@@ -4388,6 +4390,8 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
             break;
 
         svn_diff_t * diff = NULL;
+        if (sLine.GetLength() > (int)m_nInlineDiffMaxLineLength)
+            break;
         m_svnlinediff.Diff(&diff, sLine, sLine.GetLength(), sDiffLine, sDiffLine.GetLength(), m_bInlineWordDiff);
         if (!diff || !SVNLineDiff::ShowInlineDiff(diff) || !diff->next)
             break;
