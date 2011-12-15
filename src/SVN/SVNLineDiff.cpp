@@ -41,6 +41,7 @@ void SVNLineDiff::ParseLineWords(
 {
     std::wstring token;
     int prevCharType = SVNLINEDIFF_CHARTYPE_NONE;
+    tokens.reserve(lineLength/2);
     for (apr_size_t i = 0; i < lineLength; ++i)
     {
         int charType =
