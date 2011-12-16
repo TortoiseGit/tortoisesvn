@@ -1,3 +1,31 @@
+Version 1.7.3
+- BUG: Issue #149: Crash in OpenSSL. (Stefan)
+- BUG: Issue #150: Repobrowser: Don't show
+       externals in checkout selection mode . (Stefan)
+- BUG: Issue #152: log crashes with too
+       many bugtrack links. (Stefan)
+- BUG: Issue 155: crash when accessing a server with
+       an invalid ssl certificate. (Stefan)
+- BUG: Issue #156: subdir within WC not
+       recognized as WC. (Stefan)
+- BUG: Issue #157: Title Bar not updating with
+       currently viewed repository. (Stefan)
+- BUG: Issue #158: IBugTraqProvider2 CheckCommit
+       returns a relative commonURL. (Stefan)
+- BUG: Issue #159: folder browse dialog can be
+       closed with invalid paths. (Stefan)
+- BUG: Issue #160: Repo browser shows
+       incorrect contents for directories
+       that differ only by case. (Stefan)
+- NEW: Issue #113: Option to turn off pre-fetching
+       and external parsing in repo browser. (Stefan)
+- BUG: Issue #161: repo browser shows invalid
+       commands for the root. (Stefan)
+- BUG: Line wrapping problems in Log
+       Messages dialog. (Stefan)
+- BUG: Issue #166: TortoiseMerge slow with
+       long lines. (Stefan)
+
 Version 1.7.2
 - BUG: Issue #111: Crash in initializing
        the revision graph. (Stefan)
