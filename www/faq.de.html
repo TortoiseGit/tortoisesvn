@@ -71,6 +71,7 @@
                         <li><a href="#releases">Ein Bug oder Feature wurde in Revision rXXX erledigt, aber der letzte Release enth&auml;lt die &Auml;nderung nicht. Warum?</a></li>
                         <li><a href="#svnbinaries">Warum ist der Subversion Kommandozeilenclient nicht im Installer dabei?</a></li>
                         <li><a href="#eclipse">TortoiseSVN funktioniert nicht mit Eclipse.</a></li>
+                        <li><a href="#smartcard">Dialog fragt nach Smart Card</a></li>
                     </ul>
 
                     <h3>Wie kann ich...</h3>
@@ -668,6 +669,20 @@
                         <p>Aber Eclipse hat eigene Plugins f&uuml;r Subversion, welche
                         das Problem von Beginn weg gar nicht auftreten lassen.
                         Benutzen Sie in Eclipse eines von diesen SVN Plugins.</p>
+                        </div>
+
+                        <div class="h3" id="smartcard" title="Dialog fragt nach Smart Card">
+                        <h3>Dialog fragt nach Smart Card</h3>
+                        <p>Wenn Sie eine SmartCard Software einsetzen ist es m&ouml;glich
+                        dass f&uuml;r jede Verbindung welche TortoiseSVN zu einem Repository
+                        mache ein Dialog angezeigt wird welcher Sie auffordert die
+                        SmartCard ins Leseger&auml;t einzustecken.</p>
+                        <p>Damit TortoiseSVN gar nicht mehr versucht auf den
+                        Zertifikatsspeicher von Windows zuzugreiffen wenn der
+                        Repository-Server nach einem Zertifikat verlangt k&ouml;nnen
+                        Sie den Registry-Schl&uuml;ssel <em>HKCU\Software\TortoiseSVN\OpenSSLCapi</em>
+                        als DWORD Wert erstellen und den Wert auf <em>0<em> setzen.
+                        </p>
                         </div>
                     </div>
                     

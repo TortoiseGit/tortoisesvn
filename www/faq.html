@@ -77,6 +77,7 @@
                         <li><a href="#releases">I was told that issue/bug X was fixed in rXXX, but the latest release still doesn't has this implemented/fixed?</a></li>
                         <li><a href="#eclipse">TortoiseSVN does not work well with Eclipse</a></li>
                         <li><a href="#iesecurity">Security warnings when uploading files in IE</a></li>
+                        <li><a href="#smartcard">Repeated dialogs to insert smart card</a></li>
                     </ul>
 
                     <h3>How can I...</h3>
@@ -725,6 +726,21 @@ force security mode = 0600
                         <li>When the warning appears, check the box marked
                         <i>never show for this application again</i>.</li>
                         </ol></p>
+                        </div>
+                        
+                        <div class="h3" id="smartcard" title="Repeated dialogs to insert smart card">
+                        <h3>Repeated dialogs to insert smart card</h3>
+                        <p>If you're using a smart card software, you might get a dialog
+                        asking you to insert your smart card every time TortoiseSVN
+                        tries to connect to a repository.</p>
+                        <p>Unfortunately some smart card vendors consider this not a bug
+                        but a feature, even though it doesn't server any purpose other than
+                        annoying users.</p>
+                        <p>To prevent TortoiseSVN from trying to access the Windows cert store
+                        in case a certificate is requested by the repository, create the
+                        registry key <em>HKCU\Software\TortoiseSVN\OpenSSLCapi</em> as a DWORD
+                        and set its value to <em>0<em>.
+                        </p>
                         </div>
                     </div>
                     
