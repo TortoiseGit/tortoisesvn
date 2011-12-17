@@ -494,6 +494,52 @@
                 </listitem>
                 <listitem>
                     <para>
+                        There are several properties available to configure
+                        client-side hook scripts. Each property is for
+                        one specific hook script type.
+                    </para>
+                    <para>
+                        The available properties/hook-scripts are
+                        <literal>tsvn:startcommithook</literal>,
+                        <literal>tsvn:precommithook</literal>,
+                        <literal>tsvn:postcommithook</literal>,
+                        <literal>tsvn:startupdatehook</literal>,
+                        <literal>tsvn:preupdatehook</literal> and
+                        <literal>tsvn:postupdatehook</literal>.
+                    </para>
+                    <para>
+                        The parameters are the same as if you would
+                        configure the hook scripts in the settings dialog.
+                        See <xref linkend="tsvn-dug-settings-hooks"/> for
+                        the details.
+                    </para>
+                    <para>
+                        Since not every user has his or her working copy
+                        checked out at the same location with the same
+                        name, you can configure a script/tool to execute
+                        that resides in your working copy by specifying
+                        the url in the repository instead, using <filename>%REPOROOT%</filename>
+                        as the part of the url to the repository root.
+                        For example, if your hook script is in your working copy
+                        under <filename>contrib/hook-scripts/client-side/checkyear.js</filename>,
+                        you would specify the path to the script as
+                        <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>.
+                        This way even if you move your repository to
+                        another server you do not have to adjust the
+                        hook script properties.
+                    </para>
+                    <para>
+                        The following screenshot shows how the script
+                        to check for current copyright years in source
+                        file headers is configured for TortoiseSVN.
+                        <figure id="tsvn-dug-propertypage-tsvn-props-copyright">
+                            <title>Property dialog for hook scripts</title>
+                            <graphic fileref="../images/hookpropertydlg.png"/>
+                        </figure>
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
                         When you want to add a new property, you can either pick one from
                         the list in the combo box, or you can enter any property name
                         you like. If your project uses some custom properties,
