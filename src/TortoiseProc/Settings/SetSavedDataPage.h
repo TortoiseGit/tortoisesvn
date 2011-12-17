@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "SettingsPropPage.h"
 #include "Tooltip.h"
 #include "registry.h"
+#include "afxwin.h"
 
 /**
  * \ingroup TortoiseProc
@@ -49,6 +50,7 @@ protected:
     afx_msg void OnBnClickedRepologclear();
     afx_msg void OnBnClickedActionlogshow();
     afx_msg void OnBnClickedActionlogclear();
+    afx_msg void OnBnClickedHookclear();
     afx_msg void OnModified();
 
     virtual BOOL OnInitDialog();
@@ -64,6 +66,7 @@ private:
     CButton         m_btnRepoLogClear;
     CButton         m_btnActionLogShow;
     CButton         m_btnActionLogClear;
+    CButton         m_btnHookClear;
     DWORD           m_maxLines;
     CRegDWORD       m_regMaxLines;
 };
