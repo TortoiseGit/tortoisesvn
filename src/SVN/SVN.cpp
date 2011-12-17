@@ -2993,14 +2993,19 @@ void SVN::CallPreConnectHookIfUrl( const CTSVNPathList& pathList, const CTSVNPat
     }
 }
 
-CString SVN::GetChecksumString( svn_checksum_kind_t type, const CString& s )
+CString SVN::GetChecksumString( svn_checksum_kind_t type, const CString& s, apr_pool_t * localpool )
 {
     svn_checksum_t *checksum;
     CStringA sa = CUnicodeUtils::GetUTF8(s);
-    svn_checksum(&checksum, type, s, s.GetLength(), pool);
-    const char * hexname = svn_checksum_to_cstring(checksum, pool);
+    svn_checksum(&checksum, type, s, s.GetLength(), localpool);
+    const char * hexname = svn_checksum_to_cstring(checksum, localpool);
     CString hex = CUnicodeUtils::GetUnicode(hexname);
     return hex;
+}
+
+CString SVN::GetChecksumString( svn_checksum_kind_t type, const CString& s )
+{
+    return GetChecksumString(type, s, pool);
 }
 
 svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
