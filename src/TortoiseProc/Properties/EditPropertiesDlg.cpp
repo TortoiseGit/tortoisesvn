@@ -42,6 +42,7 @@
 #include "EditPropExternals.h"
 #include "EditPropTSVNSizes.h"
 #include "EditPropTSVNLang.h"
+#include "EditPropsLocalHooks.h"
 
 
 #define ID_CMD_PROP_SAVEVALUE   1
@@ -320,6 +321,7 @@ UINT CEditPropertiesDlg::PropsThread()
         RemoveMenu(m_btnNew.m_hMenu, ID_NEW_LOGSIZES, MF_BYCOMMAND);
         RemoveMenu(m_btnNew.m_hMenu, ID_NEW_BUGTRAQ, MF_BYCOMMAND);
         RemoveMenu(m_btnNew.m_hMenu, ID_NEW_LANGUAGES, MF_BYCOMMAND);
+        RemoveMenu(m_btnNew.m_hMenu, ID_NEW_LOCALHOOKS, MF_BYCOMMAND);
     }
     return 0;
 }
@@ -432,6 +434,9 @@ void CEditPropertiesDlg::OnBnClickedAddprops()
     case ID_NEW_LANGUAGES:
         EditProps(true, "tsvn:lang", true);
         break;
+    case ID_NEW_LOCALHOOKS:
+        EditProps(true, PROJECTPROPNAME_STARTCOMMITHOOK, true);
+        break;
     case ID_NEW_ADVANCED:
     default:
         EditProps(false, "", true);
@@ -470,6 +475,13 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
         (sName.compare(PROJECTPROPNAME_PROJECTLANGUAGE) == 0) ||
         (sName.compare("tsvn:lang") == 0))
         dlg = new CEditPropTSVNLang(this);
+    else if ((sName.compare(PROJECTPROPNAME_STARTCOMMITHOOK) == 0) ||
+        (sName.compare(PROJECTPROPNAME_PRECOMMITHOOK) == 0) ||
+        (sName.compare(PROJECTPROPNAME_POSTCOMMITHOOK) == 0) ||
+        (sName.compare(PROJECTPROPNAME_STARTUPDATEHOOK) == 0) ||
+        (sName.compare(PROJECTPROPNAME_PREUPDATEHOOK) == 0) ||
+        (sName.compare(PROJECTPROPNAME_POSTUPDATEHOOK) == 0))
+        dlg = new CEditPropsLocalHooks(this);
     else
         dlg = new CEditPropertyValueDlg(this);
 

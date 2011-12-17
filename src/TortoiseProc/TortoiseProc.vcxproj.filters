@@ -1076,6 +1076,9 @@
     <ClCompile Include="RecycleBinDlg.cpp">
       <Filter>Utility Dialogs</Filter>
     </ClCompile>
+    <ClCompile Include="Properties\EditPropsLocalHooks.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2058,6 +2061,9 @@
     </ClInclude>
     <ClInclude Include="RecycleBinDlg.h">
       <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropsLocalHooks.h">
+      <Filter>Commands\Properties</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
