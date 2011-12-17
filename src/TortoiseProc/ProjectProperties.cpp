@@ -21,6 +21,7 @@
 #include "UnicodeUtils.h"
 #include "ProjectProperties.h"
 #include "SVNProperties.h"
+#include "SVN.h"
 #include "SVNHelpers.h"
 #include "TSVNPath.h"
 #include "AppUtils.h"
@@ -97,10 +98,17 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
     BOOL bFoundBugtraqProviderUuid64 = FALSE;
     BOOL bFoundBugtraqProviderParams = FALSE;
     BOOL bFoundLogRevRegex = FALSE;
+    BOOL bFoundStartCommit = FALSE;
+    BOOL bFoundPreCommit = FALSE;
+    BOOL bFoundPostCommit = FALSE;
+    BOOL bFoundStartUpdate = FALSE;
+    BOOL bFoundPreUpdate = FALSE;
+    BOOL bFoundPostUpdate = FALSE;
 
     if (!path.IsDirectory())
         path = path.GetContainingDirectory();
 
+    SVN svn;
     for (;;)
     {
         SVNProperties props(path, SVNRev::REV_WC, false);
@@ -339,6 +347,42 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                 sLogRevRegex = sPropVal;
                 bFoundLogRevRegex = TRUE;
             }
+            if ((!bFoundStartCommit)&&(sPropName.compare(PROJECTPROPNAME_STARTCOMMITHOOK)==0))
+            {
+                sStartCommitHook = sPropVal;
+                sStartCommitHook.Replace(_T("\r\n"), _T("\n"));
+                bFoundStartCommit = TRUE;
+            }
+            if ((!bFoundPreCommit)&&(sPropName.compare(PROJECTPROPNAME_PRECOMMITHOOK)==0))
+            {
+                sPreCommitHook = sPropVal;
+                sPreCommitHook.Replace(_T("\r\n"), _T("\n"));
+                bFoundPreCommit = TRUE;
+            }
+            if ((!bFoundPostCommit)&&(sPropName.compare(PROJECTPROPNAME_POSTCOMMITHOOK)==0))
+            {
+                sPostCommitHook = sPropVal;
+                sPostCommitHook.Replace(_T("\r\n"), _T("\n"));
+                bFoundPostCommit = TRUE;
+            }
+            if ((!bFoundStartUpdate)&&(sPropName.compare(PROJECTPROPNAME_STARTUPDATEHOOK)==0))
+            {
+                sStartUpdateHook = sPropVal;
+                sStartUpdateHook.Replace(_T("\r\n"), _T("\n"));
+                bFoundStartUpdate = TRUE;
+            }
+            if ((!bFoundPreUpdate)&&(sPropName.compare(PROJECTPROPNAME_PREUPDATEHOOK)==0))
+            {
+                sPreUpdateHook = sPropVal;
+                sPreUpdateHook.Replace(_T("\r\n"), _T("\n"));
+                bFoundPreUpdate = TRUE;
+            }
+            if ((!bFoundPostUpdate)&&(sPropName.compare(PROJECTPROPNAME_POSTUPDATEHOOK)==0))
+            {
+                sPostUpdateHook = sPropVal;
+                sPostUpdateHook.Replace(_T("\r\n"), _T("\n"));
+                bFoundPostUpdate = TRUE;
+            }
         }
         if (PathIsRoot(path.GetWinPath()))
             return FALSE;
@@ -357,8 +401,13 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                 | bFoundUserFileProps | bFoundUserDirProps | bFoundAutoProps
                 | bFoundWebViewRev | bFoundWebViewPathRev | bFoundLogSummary | bFoundLogRevRegex
                 | bFoundBugtraqProviderUuid | bFoundBugtraqProviderUuid64
-                | bFoundBugtraqProviderParams)
+                | bFoundBugtraqProviderParams | bFoundStartCommit | bFoundPostCommit
+                | bFoundStartUpdate | bFoundPreUpdate | bFoundPostUpdate
+                | bFoundPreCommit)
             {
+                sRepositoryRootUrl = svn.GetRepositoryRoot(propsPath);
+                sRepositoryPathUrl = svn.GetURLFromPath(propsPath);
+
                 return TRUE;
             }
             propsPath.Reset();
@@ -786,6 +835,18 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
         bRet = props.Add(PROJECTPROPNAME_WEBVIEWER_PATHREV, CUnicodeUtils::StdGetUTF8((LPCTSTR)sWebViewerPathRev)) && bRet;
     if (!sAutoProps.IsEmpty())
         bRet = props.Add(PROJECTPROPNAME_AUTOPROPS, CUnicodeUtils::StdGetUTF8((LPCTSTR)sAutoProps)) && bRet;
+    if (!sStartCommitHook.IsEmpty())
+        bRet = props.Add(PROJECTPROPNAME_STARTCOMMITHOOK, CUnicodeUtils::StdGetUTF8((LPCTSTR)sStartCommitHook)) && bRet;
+    if (!sPreCommitHook.IsEmpty())
+        bRet = props.Add(PROJECTPROPNAME_PRECOMMITHOOK, CUnicodeUtils::StdGetUTF8((LPCTSTR)sPreCommitHook)) && bRet;
+    if (!sPostCommitHook.IsEmpty())
+        bRet = props.Add(PROJECTPROPNAME_POSTCOMMITHOOK, CUnicodeUtils::StdGetUTF8((LPCTSTR)sPostCommitHook)) && bRet;
+    if (!sStartUpdateHook.IsEmpty())
+        bRet = props.Add(PROJECTPROPNAME_STARTUPDATEHOOK, CUnicodeUtils::StdGetUTF8((LPCTSTR)sStartUpdateHook)) && bRet;
+    if (!sPreUpdateHook.IsEmpty())
+        bRet = props.Add(PROJECTPROPNAME_PREUPDATEHOOK, CUnicodeUtils::StdGetUTF8((LPCTSTR)sPreUpdateHook)) && bRet;
+    if (!sPostUpdateHook.IsEmpty())
+        bRet = props.Add(PROJECTPROPNAME_POSTUPDATEHOOK, CUnicodeUtils::StdGetUTF8((LPCTSTR)sPostUpdateHook)) && bRet;
     return bRet;
 }
 

@@ -57,6 +57,12 @@ using namespace std;
 #define PROJECTPROPNAME_USERDIRPROPERTY   "tsvn:userdirproperties"
 #define PROJECTPROPNAME_AUTOPROPS         "tsvn:autoprops"
 #define PROJECTPROPNAME_LOGREVREGEX       "tsvn:logrevregex"
+#define PROJECTPROPNAME_STARTCOMMITHOOK   "tsvn:startcommithook"
+#define PROJECTPROPNAME_PRECOMMITHOOK     "tsvn:precommithook"
+#define PROJECTPROPNAME_POSTCOMMITHOOK    "tsvn:postcommithook"
+#define PROJECTPROPNAME_STARTUPDATEHOOK   "tsvn:startupdatehook"
+#define PROJECTPROPNAME_PREUPDATEHOOK     "tsvn:preupdatehook"
+#define PROJECTPROPNAME_POSTUPDATEHOOK    "tsvn:postupdatehook"
 
 #define PROJECTPROPNAME_WEBVIEWER_REV     "webviewer:revision"
 #define PROJECTPROPNAME_WEBVIEWER_PATHREV "webviewer:pathrevision"
@@ -164,7 +170,7 @@ public:
     /**
      * Returns the path from which the properties were read.
      */
-    CTSVNPath GetPropsPath() {return propsPath;}
+    CTSVNPath GetPropsPath() const {return propsPath;}
 
     /** replaces bNumer: a regular expression string to check the validity of
       * the entered bug ID. */
@@ -251,10 +257,30 @@ public:
      */
     CString     sLogRevRegex;
 
+    /// multi line string containing the data for a start-commit-hook
+    CString     sStartCommitHook;
+    /// multi line string containing the data for a pre-commit-hook
+    CString     sPreCommitHook;
+    /// multi line string containing the data for a post-commit-hook
+    CString     sPostCommitHook;
+    /// multi line string containing the data for a start-update-hook
+    CString     sStartUpdateHook;
+    /// multi line string containing the data for a pre-update-hook
+    CString     sPreUpdateHook;
+    /// multi line string containing the data for a post-update-hook
+    CString     sPostUpdateHook;
+    /// multi line string containing the data for a pre-connect-hook
+    CString     sPreConnectHook;
+
+    /// the repository root url
+    CString     sRepositoryRootUrl;
+    /// the repository url of the directory for which the project properties
+    /// are meant for
+    CString     sRepositoryPathUrl;
 private:
 
     /**
-     * Constructing rexex objects is expensive. Therefore, cache them here.
+     * Constructing regex objects is expensive. Therefore, cache them here.
      */
     void AutoUpdateRegex();
 
