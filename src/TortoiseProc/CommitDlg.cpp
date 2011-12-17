@@ -134,7 +134,6 @@ BOOL CCommitDlg::OnInitDialog()
     m_ListCtrl.EnableFileDrop();
     m_ListCtrl.SetBackgroundImage(IDI_COMMIT_BKG);
 
-    m_ProjectProperties.ReadPropsPathList(m_pathList);
     if (CRegDWORD(_T("Software\\TortoiseSVN\\AlwaysWarnIfNoIssue"), FALSE))
         m_ProjectProperties.bWarnIfNoIssue = TRUE;
     m_cLogMessage.Init(m_ProjectProperties);

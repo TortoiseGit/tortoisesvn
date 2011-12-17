@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -103,6 +103,7 @@ protected:
 
 
 public:
+    ProjectProperties   m_ProjectProperties;
     CTSVNPathList       m_pathList;
     CTSVNPathList       m_updatedPathList;
     CTSVNPathList       m_selectedPathList;
@@ -132,7 +133,6 @@ private:
     CRegDWORD           m_regAddBeforeCommit;
     CRegDWORD           m_regKeepChangelists;
     CRegDWORD           m_regShowExternals;
-    ProjectProperties   m_ProjectProperties;
     CString             m_sWindowTitle;
     static UINT         WM_AUTOLISTREADY;
     int                 m_nPopupPasteListCmd;

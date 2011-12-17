@@ -2258,7 +2258,8 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
 
     DWORD exitcode = 0;
     CString error;
-    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_hWnd, m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2346,7 +2347,8 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
 
     DWORD exitcode = 0;
     CString error;
-    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_hWnd, m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2477,7 +2479,8 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     }
     DWORD exitcode = 0;
     CString error;
-    if ((!m_bNoHooks)&&(CHooks::Instance().PreCommit(m_selectedPaths, m_depth, m_sMessage, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreCommit(m_hWnd, m_selectedPaths, m_depth, m_sMessage, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2519,7 +2522,8 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     {
         OnCommitFinished();
     }
-    if ((!m_bNoHooks)&&(CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostCommit(m_hWnd, m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2546,7 +2550,8 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 
     DWORD exitcode = 0;
     CString error;
-    if ((!m_bNoHooks)&&(CHooks::Instance().PreCommit(m_selectedPaths, m_depth, m_sMessage, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreCommit(m_hWnd, m_selectedPaths, m_depth, m_sMessage, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2622,7 +2627,8 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
 
     OnCommitFinished();
 
-    if ((!m_bNoHooks)&&(CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostCommit(m_hWnd, m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2670,7 +2676,8 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
 
     DWORD exitcode = 0;
     CString error;
-    if ((!m_bNoHooks)&&(CHooks::Instance().PreCommit(m_selectedPaths, m_depth, m_sMessage, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreCommit(m_hWnd, m_selectedPaths, m_depth, m_sMessage, exitcode, error)))
     {
         if (exitcode)
         {
@@ -2690,7 +2697,8 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
         return false;
     }
 
-    if ((!m_bNoHooks)&&(CHooks::Instance().PostCommit(m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostCommit(m_hWnd, m_selectedPaths, m_depth, m_RevisionEnd, m_sMessage, exitcode, error)))
     {
         if (exitcode)
         {
@@ -3198,7 +3206,8 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
 
     DWORD exitcode = 0;
     CString error;
-    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_targetPathList, m_depth, m_Revision, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_hWnd, m_targetPathList, m_depth, m_Revision, exitcode, error)))
     {
         if (exitcode)
         {
@@ -3214,7 +3223,8 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
         return false;
     }
 
-    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_hWnd, m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
     {
         if (exitcode)
         {
@@ -3241,7 +3251,8 @@ bool CSVNProgressDlg::CmdSwitchBackToParent( CString& sWindowTitle, bool& /*loca
 
     DWORD exitcode = 0;
     CString error;
-    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_targetPathList, m_depth, m_Revision, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_hWnd, m_targetPathList, m_depth, m_Revision, exitcode, error)))
     {
         if (exitcode)
         {
@@ -3283,7 +3294,8 @@ bool CSVNProgressDlg::CmdSwitchBackToParent( CString& sWindowTitle, bool& /*loca
         }
     }
 
-    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_hWnd, m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
     {
         if (exitcode)
         {
@@ -3363,7 +3375,8 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 
     DWORD exitcode = 0;
     CString error;
-    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_targetPathList, m_depth, nUUIDs > 1 ? revstore : m_Revision, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_hWnd, m_targetPathList, m_depth, nUUIDs > 1 ? revstore : m_Revision, exitcode, error)))
     {
         if (exitcode)
         {
@@ -3401,7 +3414,8 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             return false;
         }
     }
-    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_hWnd, m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
     {
         if (exitcode)
         {

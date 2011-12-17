@@ -87,7 +87,10 @@ bool CommitCommand::Execute()
     bool bSelectFilesForCommit = !!DWORD(CRegStdDWORD(_T("Software\\TortoiseSVN\\SelectFilesForCommit"), TRUE));
     DWORD exitcode = 0;
     CString error;
-    if (CHooks::Instance().StartCommit(pathList, sLogMsg, exitcode, error))
+    ProjectProperties props;
+    props.ReadPropsPathList(pathList);
+    CHooks::Instance().SetProjectProperties(pathList.GetCommonRoot(), props);
+    if (CHooks::Instance().StartCommit(GetExplorerHWND(), pathList, sLogMsg, exitcode, error))
     {
         if (exitcode)
         {
@@ -106,6 +109,7 @@ bool CommitCommand::Execute()
         {
             dlg.m_sBugID = parser.GetVal(_T("bugid"));
         }
+        dlg.m_ProjectProperties = props;
         dlg.m_sLogMessage = sLogMsg;
         dlg.m_pathList = pathList;
         dlg.m_checkedPathList = selectedList;
@@ -129,6 +133,7 @@ bool CommitCommand::Execute()
             bSelectFilesForCommit = true;
             CSVNProgressDlg progDlg;
             InitProgressDialog (dlg, progDlg);
+            progDlg.SetProjectProperties(props);
             progDlg.DoModal();
 
             if (IsOutOfDate(progDlg.GetSVNError()))
@@ -146,6 +151,7 @@ bool CommitCommand::Execute()
                     // because otherwise we would change the depth here which is
                     // not what we want!
                     updateProgDlg.SetDepth(svn_depth_unknown);
+                    updateProgDlg.SetProjectProperties(props);
                     updateProgDlg.DoModal();
 
                     // re-open commit dialog only if update *SUCCEEDED*
