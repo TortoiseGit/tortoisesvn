@@ -782,10 +782,6 @@ msgstr ""
 msgid "&Ignore and proceed"
 msgstr ""
 
-#. Resource IDs: (1021)
-msgid "&Ignore whitespace changes"
-msgstr ""
-
 #. Resource IDs: (16914)
 msgid "&Image"
 msgstr ""
@@ -901,6 +897,10 @@ msgstr ""
 
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "&Max line length for inline diffs"
 msgstr ""
 
 #. Resource IDs: (1486)
@@ -1958,6 +1958,18 @@ msgstr ""
 msgid "Apply unified diff"
 msgstr ""
 
+#. Resource IDs: (363)
+msgid "Approve or reject client-side hook script"
+msgstr ""
+
+#. Resource IDs: (363)
+msgid "Approve\nRun the hook script"
+msgstr ""
+
+#. Resource IDs: (1282)
+msgid "Approved hook scripts"
+msgstr ""
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr ""
@@ -2302,6 +2314,10 @@ msgstr ""
 msgid "Cancel\nDo not revert."
 msgstr ""
 
+#. Resource IDs: (363)
+msgid "Cancel\nDo not run the script"
+msgstr ""
+
 #. Resource IDs: (90)
 msgid "Cancel\nDo not update the working copy."
 msgstr ""
@@ -2638,6 +2654,11 @@ msgstr ""
 msgid "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! usernames"
 msgstr ""
 
+#. Resource IDs: (198)
+#, c-format
+msgid "Clears all %ld approved client-side hook scripts"
+msgstr ""
+
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
@@ -2720,10 +2741,6 @@ msgstr ""
 msgid "Color 2"
 msgstr ""
 
-#. Resource IDs: (1068)
-msgid "Color co&de in-line changes"
-msgstr ""
-
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr ""
@@ -2746,6 +2763,10 @@ msgstr ""
 
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
+msgstr ""
+
+#. Resource IDs: (1336)
+msgid "Command Line To Execute:\nTo specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
 msgstr ""
 
 #. Resource IDs: (616)
@@ -3502,6 +3523,10 @@ msgstr ""
 msgid "Device Independent Bitmap\na device independent bitmap"
 msgstr ""
 
+#. Resource IDs: (334)
+msgid "Dialog"
+msgstr ""
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr ""
@@ -3590,6 +3615,10 @@ msgstr ""
 
 #. Resource IDs: (3605)
 msgid "Display program information, version number and copyright\nAbout"
+msgstr ""
+
+#. Resource IDs: (363)
+msgid "Do not ask again for this script"
 msgstr ""
 
 #. Resource IDs: (1562)
@@ -5351,6 +5380,10 @@ msgstr ""
 
 #. Resource IDs: (315)
 msgid "Load changes\nThe views are updated with the new content."
+msgstr ""
+
+#. Resource IDs: (32861)
+msgid "Local &Hooks"
 msgstr ""
 
 #. Resource IDs: (63)
@@ -9026,6 +9059,11 @@ msgstr ""
 
 #. Resource IDs: (99)
 msgid "This will upgrade your working copy to the new 1.7 format and make it unusable for older clients."
+msgstr ""
+
+#. Resource IDs: (363)
+#, c-format
+msgid "This working copy has a client-side hook script configured. Do you want this script to run?\nThe command line to run is:\n%s"
 msgstr ""
 
 #. Resource IDs: (16928)
