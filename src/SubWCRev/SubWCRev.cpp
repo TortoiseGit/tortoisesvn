@@ -702,8 +702,9 @@ int _tmain(int argc, _TCHAR* argv[])
     // To fix the casing of the path, we use a trick:
     // convert the path to its short form, then back to its long form.
     // That will fix the wrong casing of the path.
-    std::unique_ptr<TCHAR[]> shortPath(new TCHAR[reqLen+1]);
-    GetShortPathName(fullPath, shortPath.get(), reqLen);
+    int shortlen = GetShortPathName(fullPath, NULL, 0);
+    std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
+    GetShortPathName(fullPath, shortPath.get(), shortlen+1);
     GetLongPathName(shortPath.get(), fullPath, reqLen);
     wc = fullPath;
     if (dst)
@@ -711,8 +712,9 @@ int _tmain(int argc, _TCHAR* argv[])
         reqLen = GetFullPathName(dst, 0, NULL, NULL);
         fullPath = new TCHAR[reqLen+1];
         GetFullPathName(dst, reqLen, fullPath, NULL);
-        std::unique_ptr<TCHAR[]> shortPath(new TCHAR[reqLen+1]);
-        GetShortPathName(fullPath, shortPath.get(), reqLen);
+        shortlen = GetShortPathName(fullPath, NULL, 0);
+        std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
+        GetShortPathName(fullPath, shortPath.get(), shortlen+1);
         GetLongPathName(shortPath.get(), fullPath, reqLen);
         dst = fullPath;
     }
@@ -721,8 +723,9 @@ int _tmain(int argc, _TCHAR* argv[])
         reqLen = GetFullPathName(src, 0, NULL, NULL);
         fullPath = new TCHAR[reqLen+1];
         GetFullPathName(src, reqLen, fullPath, NULL);
-        std::unique_ptr<TCHAR[]> shortPath(new TCHAR[reqLen+1]);
-        GetShortPathName(fullPath, shortPath.get(), reqLen);
+        shortlen = GetShortPathName(fullPath, NULL, 0);
+        std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
+        GetShortPathName(fullPath, shortPath.get(), shortlen+1);
         GetLongPathName(shortPath.get(), fullPath, reqLen);
         src = fullPath;
     }
