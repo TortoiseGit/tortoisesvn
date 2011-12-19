@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-16 07:48+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-12-18 11:52+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16454,7 +16454,7 @@ msgstr "Dialogové Okno Nastavení TortoiseSVN 1"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 1 Page"
-msgstr "Dialogové Okno Nastavení, Dialogová okna 1 Stránka"
+msgstr "Dialogové Okno Nastavení, Dialogová okna Stránka 2"
 
 #. (para)
 msgid ""
@@ -16868,6 +16868,64 @@ msgstr ""
 "Pokud Váš projekt používá vlastnost <literal>tsvn:lockmsgminsize</literal>, "
 "zobrazí se dialogové okno zamknutí, bez ohledu na toto nastavení, protože "
 "projekt <emphasis>vyžaduje</emphasis> zprávy o zamknutí."
+
+#. (title)
+msgid "TortoiseSVN Dialog Settings 3"
+msgstr "Dialogové Okno Nastavení TortoiseSVN 3"
+
+#. (title)
+msgid "The Settings Dialog, Dialogs 3 Page"
+msgstr "Dialogové okno Nastavení, Dialogová okna Stránka 3"
+
+#. (term)
+msgid "Pre-fetch folders for faster browsing"
+msgstr "Adresáře získávat předem pro rychlejší prohlížení"
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser fetches "
+"information about shown folders in the background. That way as soon as you "
+"browse into one of those folders, the information is already available."
+msgstr ""
+"Pokud je toto políčko zaškrtnuto (výchozí stav), pak průzkumník úložiště "
+"bude informace o adresářích získávat v pozadí. Takto budou informace o "
+"adresářích dostupné hned, jakmile do jednoho z nich vstoupíte."
+
+#. (para)
+msgid ""
+"Some servers however can't handle the multiple requests this causes or when "
+"not configured correctly treat so many requests as something bad and start "
+"blocking them. In this case you can disable the pre-fetching here."
+msgstr ""
+"Některé servery ale tolik požadavků, co tato možnost požaduje, nezvládají "
+"nebo, pokud nejsou správně nastaveny, začnou tyto požadavky považovat za "
+"něco špatného a přestanou se jimi zabývat. V takovémto případě můžete tuto "
+"možnost zde zakázat."
+
+#. (term)
+msgid "Show externals"
+msgstr "Zobrazit externí"
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser shows "
+"files and folders that are included with the "
+"<literal>svn:externals</literal> property as normal files and folders, but "
+"with an overlay icon to mark them as from an external source."
+msgstr ""
+"Pokud je toto políčko zaškrtnuto (výchozí stav), pak průzkumník úložiště "
+"zobrazí soubory a adresáře které jsou zahrnuty do vlastnosti "
+"<literal>svn:externals</literal> jako normální soubory a adresáře, ale s "
+"překryvnou ikonou, která označuje, že pochází z externího zdroje."
+
+#. (para)
+msgid ""
+"As with the pre-fetch feature explained above, this too can put too much "
+"stress on weak servers. In this case you can disable this feature here."
+msgstr ""
+"Tak jako s funkcí získávání předem, která je popsána výše, toto může také "
+"způsobit velkou námahu slabším serverům. V takovémto případě můžete tuto "
+"možnost zde zakázat."
 
 #. (title)
 msgid "TortoiseSVN Colour Settings"
@@ -17912,6 +17970,27 @@ msgstr ""
 "menu</guimenu><guimenuitem>Porovnat</guimenuitem></menuchoice> použije "
 "sekundární nástroj rozdílů."
 
+#. (para)
+msgid ""
+"At the bottom of the dialog you can configure a viewer program for unified-"
+"diff files (patch files). No parameters are required. The "
+"<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
+"installed alongside TortoiseSVN, and colour-codes the added and removed "
+"lines."
+msgstr ""
+"Program pro prohlížení souborů sjednoceného rozdílu (záplatové soubory). "
+"Žádné parametry nejsou povinné. <guilabel>Výchozí</guilabel> nastavení je "
+"použít TortoiseUDiff, který je nainstalován spolu s TortoiseSVN a opatřuje "
+"přidané a odstraněné řádky barevnými kódy."
+
+#. (para)
+msgid ""
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
+msgstr ""
+"Vzhledem k tomu, že Sjednocený Rozdíl je pouze textový formát, můžete použít"
+" Váš oblíbený textový editor, pokud to tak chcete."
+
 #. (title)
 msgid "Merge Tool"
 msgstr "Nástroj Sloučení"
@@ -18015,30 +18094,6 @@ msgstr ""
 " <literal>.bmp</literal> k popsání bitmapových souborů Windows. Chcete-li "
 "přidružit pomocí vlastnosti <literal>svn:mime-type</literal>, zadejte MIME "
 "typ, včetně lomítka, například <literal>text/xml</literal>."
-
-#. (title)
-msgid "Unified Diff Viewer"
-msgstr "Prohlížeč Sjednoceného Rozdílu"
-
-#. (para)
-msgid ""
-"A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
-"which is installed alongside TortoiseSVN, and colour-codes the added and "
-"removed lines."
-msgstr ""
-"Program pro prohlížení souborů sjednoceného rozdílu (záplatové soubory). "
-"Žádné parametry nejsou povinné. <guilabel>Výchozí</guilabel> nastavení je "
-"použít TortoiseUDiff, který je nainstalován spolu s TortoiseSVN a opatřuje "
-"přidané a odstraněné řádky barevnými kódy."
-
-#. (para)
-msgid ""
-"Since Unified Diff is just a text format, you can use your favourite text "
-"editor if you prefer."
-msgstr ""
-"Vzhledem k tomu, že Sjednocený Rozdíl je pouze textový formát, můžete použít"
-" Váš oblíbený textový editor, pokud to tak chcete."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -26473,6 +26528,27 @@ msgstr ""
 
 #. (para)
 msgid ""
+"<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
+"loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+"Když je nastaveno <guilabel>Implicitně kódování UTF-8</guilabel>, soubory "
+"ANSI jsou načteny jako zakódované do UTF8 a jsou také tak ukládány po "
+"úpravě."
+
+#. (para)
+msgid ""
+"<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get "
+"slow when showing inline diffs for very long lines. Because of that only "
+"lines that are shorter than 3000 chars are shown with inline diffs. You can "
+"change this value here."
+msgstr ""
+"<guilabel>Maximální délka řádku pro jeho rozdíly</guilabel> TortoiseMerge "
+"může být zpomalen při zobrazení rozdílů v řádcích, které jsou velmi dlouhé. "
+"Kvůli tomu jsou rozdíly zobrazeny pouze v řádcích, které mají méně než 3000 "
+"znaků. Tuto hodnotu můžete změnit zde."
+
+#. (para)
+msgid ""
 "<guilabel>Ignore line endings</guilabel> hides changes which are due solely "
 "to difference in line-end style."
 msgstr ""
@@ -26488,50 +26564,6 @@ msgstr ""
 "<guilabel>Ignorovat změny velikosti</guilabel> skryje změny, které jsou "
 "pouze z důvodu změn velikosti textu. To může být užitečné v aplikacích, jako"
 " je Visual Basic, který mění velikost proměnných bez varování."
-
-#. (para)
-msgid ""
-"<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the"
-" line diff bar to show the detailed in-line changes within the main display "
-"panes. Lines which have been heavily modified will not be shown using this "
-"method as the results are simply confusing. In this case the line will be "
-"shown as replaced (old line deleted, new line added)."
-msgstr ""
-"<guilabel>Barevně vyznačit změny v řádcích</guilabel> používá stejný systém "
-"jako sloupec porovnání řádků, ukazující podrobné změny v řádcích v rámci "
-"hlavních panelů zobrazení. Řádky, které byly velmi změněny nebudou zobrazeny"
-" pomocí této metody protože výsledky by byly prostě matoucí. V tomto případě"
-" bude řádek zobrazen jako vyměněný (starý řádek smazán, nový řádek přidán)."
-
-#. (para)
-msgid ""
-"<guilabel>Compare whitespaces</guilabel> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-"<guilabel>Porovnat mezery</guilabel> zobrazí všechny změny v odsazení a "
-"mezerách mezi řádky jako přidané/smazané řádky (a takto Subversion zachází s"
-" takovými změnami)."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore whitespace changes</guilabel> hides changes which are due "
-"solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-"<guilabel>Ignorovat změny mezer</guilabel> skryje změny, které jsou pouze z "
-"důvodu změn v množství nebo druhu mezer, např. změna odsazení nebo změna "
-"tabulátorů na mezery. Přidání mezery tam, kde předtím nebyla nebo odstranění"
-" mezery úplně je stále zobrazeno jako změna."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only "
-"changes."
-msgstr ""
-"<guilabel>Ignorovat všechny mezery</guilabel> skryje všechny změny způsobené"
-" mezerami."
 
 #. (title)
 msgid "Colour Settings Page"

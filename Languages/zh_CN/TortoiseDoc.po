@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-02 10:50+0000\n"
+"PO-Revision-Date: 2011-12-16 14:27+0000\n"
 "Last-Translator: coxxs <hxx107@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -13650,6 +13650,50 @@ msgstr ""
 "属性，那么不管你如何设置，都会看到加锁对话框，因为此项目<emphasis>需要</emphasis>加锁信息。"
 
 #. (title)
+msgid "TortoiseSVN Dialog Settings 3"
+msgstr ""
+
+#. (title)
+msgid "The Settings Dialog, Dialogs 3 Page"
+msgstr ""
+
+#. (term)
+msgid "Pre-fetch folders for faster browsing"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser fetches "
+"information about shown folders in the background. That way as soon as you "
+"browse into one of those folders, the information is already available."
+msgstr ""
+
+#. (para)
+msgid ""
+"Some servers however can't handle the multiple requests this causes or when "
+"not configured correctly treat so many requests as something bad and start "
+"blocking them. In this case you can disable the pre-fetching here."
+msgstr ""
+
+#. (term)
+msgid "Show externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser shows "
+"files and folders that are included with the "
+"<literal>svn:externals</literal> property as normal files and folders, but "
+"with an overlay icon to mark them as from an external source."
+msgstr ""
+
+#. (para)
+msgid ""
+"As with the pre-fetch feature explained above, this too can put too much "
+"stress on weak servers. In this case you can disable this feature here."
+msgstr ""
+
+#. (title)
 msgid "TortoiseSVN Colour Settings"
 msgstr "TortoiseSVN 颜色设置"
 
@@ -14450,6 +14494,21 @@ msgid ""
 "secondary diff tool."
 msgstr ""
 
+#. (para)
+msgid ""
+"At the bottom of the dialog you can configure a viewer program for unified-"
+"diff files (patch files). No parameters are required. The "
+"<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
+"installed alongside TortoiseSVN, and colour-codes the added and removed "
+"lines."
+msgstr ""
+
+#. (para)
+msgid ""
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
+msgstr ""
+
 #. (title)
 msgid "Merge Tool"
 msgstr "合并工具"
@@ -14530,24 +14589,6 @@ msgstr ""
 "为了使用文件扩展，你需要指定扩展。使用 <literal>.BMP</literal> 来描述 Windows "
 "位图文件。如果使用<literal>svn:mime-"
 "type</literal>属性，要指定多媒体文件类型，包含斜线，例如<literal>text/xml</literal>。"
-
-#. (title)
-msgid "Unified Diff Viewer"
-msgstr "统一的差异查看器"
-
-#. (para)
-msgid ""
-"A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
-"which is installed alongside TortoiseSVN, and colour-codes the added and "
-"removed lines."
-msgstr ""
-
-#. (para)
-msgid ""
-"Since Unified Diff is just a text format, you can use your favourite text "
-"editor if you prefer."
-msgstr ""
 
 #. (title)
 msgid "Saved Data Settings"
@@ -21156,6 +21197,20 @@ msgstr ""
 
 #. (para)
 msgid ""
+"<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
+"loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+
+#. (para)
+msgid ""
+"<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get "
+"slow when showing inline diffs for very long lines. Because of that only "
+"lines that are shorter than 3000 chars are shown with inline diffs. You can "
+"change this value here."
+msgstr ""
+
+#. (para)
+msgid ""
 "<guilabel>Ignore line endings</guilabel> hides changes which are due solely "
 "to difference in line-end style."
 msgstr "<guilabel>忽略换行类型</guilabel> 隐藏换行类型的改变。"
@@ -21168,39 +21223,6 @@ msgid ""
 msgstr ""
 "<guilabel>忽略大小写变化</guilabel> 隐藏仅文本大小写变化的差异。这对于像 Visual Basic "
 "等忽略变量大小写的应用程序比较有用。"
-
-#. (para)
-msgid ""
-"<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the"
-" line diff bar to show the detailed in-line changes within the main display "
-"panes. Lines which have been heavily modified will not be shown using this "
-"method as the results are simply confusing. In this case the line will be "
-"shown as replaced (old line deleted, new line added)."
-msgstr ""
-"<guilabel>为改变的嵌入代码着色</guilabel>在主窗口，使用与行差异拉杆相同的方案显示代码改变的细节。修改很多的行不会这样显示，因为它会让人糊涂。这时会用替换方式显示(旧行删除，新行增加)。"
-
-#. (para)
-msgid ""
-"<guilabel>Compare whitespaces</guilabel> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-"<guilabel>比较空白字符</guilabel> 将全部缩进变化，或行内空白字符的变化按照添加/删除的行显示(即 Subversion "
-"处理变化的方式)。"
-
-#. (para)
-msgid ""
-"<guilabel>Ignore whitespace changes</guilabel> hides changes which are due "
-"solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only "
-"changes."
-msgstr "<guilabel>忽略全部空白字符</guilabel> 隐藏所有空白字符的变化。"
 
 #. (title)
 msgid "Colour Settings Page"

@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-14 09:48+0200\n"
+"PO-Revision-Date: 2011-12-19 09:10+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
@@ -8373,6 +8373,57 @@ msgid "If this property is not set, a default regular expression is used to link
 msgstr ""
 "Falls diese Eigenschaft nicht gesetzt ist, wird ein Standardausdruck "
 "verwendet, um die Revisionsverweise anzuzeigen."
+
+#. (para)
+msgid "There are several properties available to configure client-side hook scripts. Each property is for one specific hook script type."
+msgstr ""
+"Es gibt verschiedene Eigenschaften, mit denen Clientseitige Aktionsskripte "
+"konfiguriert werden können. Jede Eigenschaft steht für eine bestimmte Art "
+"von Aktionsskripten."
+
+#. (para)
+msgid "The available properties/hook-scripts are <literal>tsvn:startcommithook</literal>, <literal>tsvn:precommithook</literal>, <literal>tsvn:postcommithook</literal>, <literal>tsvn:startupdatehook</literal>, <literal>tsvn:preupdatehook</literal> and <literal>tsvn:postupdatehook</literal>."
+msgstr ""
+"Die verfügbaren Eigenschaften/Aktionsskripte sind "
+"<literal>tsvn:startcommithook</literal>, "
+"<literal>tsvn:precommithook</literal>, "
+"<literal>tsvn:postcommithook</literal>, "
+"<literal>tsvn:startupdatehook</literal>, "
+"<literal>tsvn:preupdatehook</literal> und "
+"<literal>tsvn:postupdatehook</literal>."
+
+#. (para)
+msgid "The parameters are the same as if you would configure the hook scripts in the settings dialog. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for the details."
+msgstr ""
+"Die Parameter sind identisch mit denen, die Sie zur Konfiguration über den "
+"Einstellungsdialog verwenden würden. Siehe <xref linkend=\"tsvn-dug-settings-"
+"hooks\"/> für weitere Details."
+
+#. (para)
+msgid "Since not every user has his or her working copy checked out at the same location with the same name, you can configure a script/tool to execute that resides in your working copy by specifying the url in the repository instead, using <filename>%REPOROOT%</filename> as the part of the url to the repository root. For example, if your hook script is in your working copy under <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, you would specify the path to the script as <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. This way even if you move your repository to another server you do not have to adjust the hook script properties."
+msgstr ""
+"Da nicht jeder Anwender seine Arbeitskopie unter dem selben Namen an der "
+"selben Stelle ausgecheckt hat, können Sie ein auszuführendes Skript/Programm "
+"einrichten, das in Ihrer Arbeitskopie liegt, indem Sie die URL im "
+"Projektarchiv mittels <filename>%REPOROOT</filename> als Teil der URL, die "
+"auf die Basis des Projektarchivs zeigt, angeben. Wenn zum Beispiel ihr "
+"Aktionsskript sich in der Arbeitskopie unter <filename>contrib/hook-scripts"
+"/client-side/checkyear.js</filename> befindet, können Sie den Pfad zum "
+"Skript als: <filename>%REPOROOT/trunk/contrib/hook-scripts/client-"
+"side/checkyear.js</filename> angeben. Auf diese Weise müssen Sie die "
+"Eigenschaften des Aktionsskripts nicht anpassen, selbst wenn das "
+"Projektarchiv auf einen anderen Server verlagert wird."
+
+#. (title)
+msgid "Property dialog for hook scripts"
+msgstr "Eigenschaftsdialog für Aktionsskripte"
+
+#. (para)
+msgid "The following screenshot shows how the script to check for current copyright years in source file headers is configured for TortoiseSVN. <placeholder-1/>"
+msgstr ""
+"Das folgende Bild zeigt, wie das Skript, welches die Quellen auf aktuelle "
+"Copyright Einträge überprüft, für TortoiseSVN eingerichtet wird. "
+"<placeholder-1/>"
 
 #. (para)
 msgid "When you want to add a new property, you can either pick one from the list in the combo box, or you can enter any property name you like. If your project uses some custom properties, and you want those properties to appear in the list in the combo box (to avoid typos when you enter a property name), you can create a list of your custom properties using <literal>tsvn:userfileproperties</literal> and <literal>tsvn:userdirproperties</literal>. Apply these properties to a folder. When you go to edit the properties of any child item, your custom properties will appear in the list of pre-defined property names."
@@ -20812,6 +20863,21 @@ msgstr ""
 "Änderungen gespeichert werden."
 
 #. (para)
+msgid "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+"Wenn <guilabel>Standardmäßig UTF-8-Codierung</guilabel> festgelegt ist, "
+"werden ANSI-Dateien als UTF-8 codiert geladen und, wenn bearbeitet,  als "
+"solche gespeichert."
+
+#. (para)
+msgid "<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get slow when showing inline diffs for very long lines. Because of that only lines that are shorter than 3000 chars are shown with inline diffs. You can change this value here."
+msgstr ""
+"<guilabel>Max Zeilenlänge für Inline diffs</guilabel> TortoiseMerge kann "
+"langsam werden, wenn Inline Diffs für sehr lange Zeilen angezeigt werden "
+"sollen. Deshalb werden nur Zeilen, die kürzer als 3000 Zeichen sind mit "
+"Inline Diffs angezeigt. Sie können diesen Wert hier ändern."
+
+#. (para)
 msgid "<guilabel>Ignore line endings</guilabel> hides changes which are due solely to difference in line-end style."
 msgstr ""
 "<guilabel>Ignoriere Zeilenende</guilabel> verbirgt Änderungen, die nur aus "
@@ -20823,36 +20889,6 @@ msgstr ""
 "<guilabel>Ignoriere Groß- / Kleinschreibung</guilabel> verbirgt Groß- / "
 "Kleinbuchstaben Änderungen. Dies ist besonders nützlich bei Anwendungen wie "
 "Visual Basic, die die Schreibweise von Variablen ohne Warnung ändern."
-
-#. (para)
-msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
-msgstr ""
-"<guilabel>Änderungen in Zeile farbig hervorheben</guilabel> verwendet das "
-"gleiche Farbschema wie die Differenzzeile, um Änderungen innerhalb der "
-"Zeilen auch im Hauptfenster farbig hervorzuheben. Zeilen mit vielen "
-"Änderungen werden als ersetzt (alte Zeile gelöscht, neue Zeile hinzugefügt) "
-"dargestellt, da die Anzeige sonst zu bunt und damit verwirrend würde."
-
-#. (para)
-msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
-msgstr ""
-"<guilabel>Vergleiche Leerzeichen</guilabel> hebt alle Änderungen in "
-"Leerzeichen und Einrückung als gelöschte / hinzugefügte Zeilen hervor "
-"(Subversion behandelt Änderungen in Leerzeichen so)."
-
-#. (para)
-msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-"<guilabel>Ignoriere Änderungen in Leerzeichen</guilabel> verbirgt Änderungen "
-"in der Anzahl oder dem Typ von Leerzeichen, z.B. Änderung der Einrückung "
-"oder Wechsel von Tab zu Leerzeichen. Komplett neue oder vollständig "
-"gelöschte Leerzeichen werden weiterhin als Änderung angezeigt."
-
-#. (para)
-msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
-msgstr ""
-"<guilabel>Ignoriere alle Leerzeichen</guilabel> verbirgt sämtliche "
-"Änderungen, die nur aus Leerzeichen bestehen."
 
 #. (title)
 msgid "Colour Settings Page"
@@ -21334,6 +21370,32 @@ msgstr ""
 "Bei zwei Dateien werden diese miteinander verglichen. Bei drei Dateien wird "
 "die erste als BASE Datei verwendet und die beiden anderen in einem "
 "Dreiwegevergleich mit ihr verglichen."
+
+#~ msgid "<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the line diff bar to show the detailed in-line changes within the main display panes. Lines which have been heavily modified will not be shown using this method as the results are simply confusing. In this case the line will be shown as replaced (old line deleted, new line added)."
+#~ msgstr ""
+#~ "<guilabel>Änderungen in Zeile farbig hervorheben</guilabel> verwendet das "
+#~ "gleiche Farbschema wie die Differenzzeile, um Änderungen innerhalb der "
+#~ "Zeilen auch im Hauptfenster farbig hervorzuheben. Zeilen mit vielen "
+#~ "Änderungen werden als ersetzt (alte Zeile gelöscht, neue Zeile hinzugefügt) "
+#~ "dargestellt, da die Anzeige sonst zu bunt und damit verwirrend würde."
+
+#~ msgid "<guilabel>Compare whitespaces</guilabel> shows all changes in indentation and inline whitespace as added/removed lines (which is how Subversion treats such changes)."
+#~ msgstr ""
+#~ "<guilabel>Vergleiche Leerzeichen</guilabel> hebt alle Änderungen in "
+#~ "Leerzeichen und Einrückung als gelöschte / hinzugefügte Zeilen hervor "
+#~ "(Subversion behandelt Änderungen in Leerzeichen so)."
+
+#~ msgid "<guilabel>Ignore whitespace changes</guilabel> hides changes which are due solely to a change in the amount or type of whitespace, e.g. changing the indentation or changing tabs to spaces. Adding whitespace where there was none before, or removing a whitespace completely is still shown as a change."
+#~ msgstr ""
+#~ "<guilabel>Ignoriere Änderungen in Leerzeichen</guilabel> verbirgt Änderungen "
+#~ "in der Anzahl oder dem Typ von Leerzeichen, z.B. Änderung der Einrückung "
+#~ "oder Wechsel von Tab zu Leerzeichen. Komplett neue oder vollständig "
+#~ "gelöschte Leerzeichen werden weiterhin als Änderung angezeigt."
+
+#~ msgid "<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only changes."
+#~ msgstr ""
+#~ "<guilabel>Ignoriere alle Leerzeichen</guilabel> verbirgt sämtliche "
+#~ "Änderungen, die nur aus Leerzeichen bestehen."
 
 #~ msgid "Unified Diff Viewer"
 #~ msgstr "Standard-Diff Betrachter"

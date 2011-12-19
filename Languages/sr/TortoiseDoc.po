@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-22 20:14+0000\n"
-"Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2011-12-16 14:27+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16762,6 +16762,63 @@ msgstr ""
 "<emphasis>захтева</emphasis> поруке закључавања."
 
 #. (title)
+msgid "TortoiseSVN Dialog Settings 3"
+msgstr "ТортоисеСВН дијалог подешавање 3"
+
+#. (title)
+msgid "The Settings Dialog, Dialogs 3 Page"
+msgstr "Дијалог подешавања, страна дијалога 3"
+
+#. (term)
+msgid "Pre-fetch folders for faster browsing"
+msgstr "Припремно добављење фолдера за брже претраживање"
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser fetches "
+"information about shown folders in the background. That way as soon as you "
+"browse into one of those folders, the information is already available."
+msgstr ""
+"Ако је овај бокс чекиран (уобичајено стање), претраживач спремишта добавља "
+"информације о приказаним фолдерима у беграунду. На тај начин чим се потражи "
+"у овим фолдерима информација је одмах доступна."
+
+#. (para)
+msgid ""
+"Some servers however can't handle the multiple requests this causes or when "
+"not configured correctly treat so many requests as something bad and start "
+"blocking them. In this case you can disable the pre-fetching here."
+msgstr ""
+"Неки сервери, међутим, не опслужују вишеструке захтеве које узрокују или "
+"када нису конфигурисани да коректно третирају толико много захтева као нешто"
+" лоше и почињу да их блокирају. У овом случају можете онемогућити припремно "
+"добављање."
+
+#. (term)
+msgid "Show externals"
+msgstr "Прикажи екстернале"
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser shows "
+"files and folders that are included with the "
+"<literal>svn:externals</literal> property as normal files and folders, but "
+"with an overlay icon to mark them as from an external source."
+msgstr ""
+"Ако је овај бокс чекед (уобичајено стање) претраживач спремишта приказује "
+"фајлове укључене са <literal>svn:externals</literal> особином као нормални "
+"фајлови и фолдери, али са пркривном иконом да их маркира   да су из "
+"спољашњег извора."
+
+#. (para)
+msgid ""
+"As with the pre-fetch feature explained above, this too can put too much "
+"stress on weak servers. In this case you can disable this feature here."
+msgstr ""
+"Као са особином припремног добављања објашеном горе ово може бити много "
+"стресно за слабе сервере. У том случају можете онемогућити ту особину."
+
+#. (title)
 msgid "TortoiseSVN Colour Settings"
 msgstr "ТортоисеСВН подешавање боја"
 
@@ -17794,6 +17851,28 @@ msgstr ""
 "мени</guimenu><guimenuitem>Дифф</guimenuitem></menuchoice> користи "
 "секундарни дифф алат."
 
+#. (para)
+msgid ""
+"At the bottom of the dialog you can configure a viewer program for unified-"
+"diff files (patch files). No parameters are required. The "
+"<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
+"installed alongside TortoiseSVN, and colour-codes the added and removed "
+"lines."
+msgstr ""
+"На дно дијалога можете конфигурисати програм прегледач за унификоване-диф "
+"фајлове (фајлови закрпа). Нису потребни параметри. "
+"<guilabel>Уобичајено</guilabel> подешавање је да се користи ТортоисеДифф "
+"који се инсталира заједно са ТортоисеСВН, и колор-кодови додатих и уклоњених"
+" линија."
+
+#. (para)
+msgid ""
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
+msgstr ""
+"Пошто Унифајд Дифф је у текст формату можете користити ваш текст уређивач по"
+" жељи."
+
 #. (title)
 msgid "Merge Tool"
 msgstr "Алат спајања"
@@ -17898,30 +17977,6 @@ msgstr ""
 "фајлове. Да придружите <literal>svn:mime-type</literal> особину, "
 "специфицирајте миме тип, укључујући косу црту, на пример "
 "<literal>text/xml</literal>."
-
-#. (title)
-msgid "Unified Diff Viewer"
-msgstr "Обједињени Разл прегледач"
-
-#. (para)
-msgid ""
-"A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
-"which is installed alongside TortoiseSVN, and colour-codes the added and "
-"removed lines."
-msgstr ""
-"Програм за прегледање унифај-диф фајлова (фајлови закрпа). Параметри нису "
-"потребни. <guilabel>Подразумевано</guilabel> подешавање је да се користи "
-"ТортоисеДифф који је инсталирануз ТортоисеСВН, и колор-кодиране додане и "
-"уклоњене линије."
-
-#. (para)
-msgid ""
-"Since Unified Diff is just a text format, you can use your favourite text "
-"editor if you prefer."
-msgstr ""
-"Пошто Унифајд Дифф је у текст формату можете користити ваш текст уређивач по"
-" жељи."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -26251,6 +26306,20 @@ msgstr ""
 
 #. (para)
 msgid ""
+"<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
+"loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+
+#. (para)
+msgid ""
+"<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get "
+"slow when showing inline diffs for very long lines. Because of that only "
+"lines that are shorter than 3000 chars are shown with inline diffs. You can "
+"change this value here."
+msgstr ""
+
+#. (para)
+msgid ""
 "<guilabel>Ignore line endings</guilabel> hides changes which are due solely "
 "to difference in line-end style."
 msgstr ""
@@ -26266,51 +26335,6 @@ msgstr ""
 "<guilabel>Занемари измене величине слова</guilabel> сакрива измене само због"
 " измене величине слова у тексту. Ово може бити корисно са апликацијама као "
 "што је Вижуал Бејзик, који мења величину слова у променљивим без упозорења."
-
-#. (para)
-msgid ""
-"<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the"
-" line diff bar to show the detailed in-line changes within the main display "
-"panes. Lines which have been heavily modified will not be shown using this "
-"method as the results are simply confusing. In this case the line will be "
-"shown as replaced (old line deleted, new line added)."
-msgstr ""
-"<guilabel>Колор код у-линији измене</guilabel> користи исту шему као и "
-"линијски дифф пулт да прикаже детаљне у-линији промене у оквиру панела "
-"главног дисплеја. Линије које су тешко измењене неће бити приказане "
-"коришћењем ове методе што је  резултат једноставне конфузије.У овом случају "
-"линије ће бити приказане као замењене (стара линија избрисана, нова линија "
-"додата)."
-
-#. (para)
-msgid ""
-"<guilabel>Compare whitespaces</guilabel> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-"<guilabel>Поређење белина</guilabel> приказује све измене у увлачењу линија "
-"и унутарлинијске белине као додате/уклоњене линије (како Субверзија третира "
-"такве измене)."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore whitespace changes</guilabel> hides changes which are due "
-"solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-"<guilabel>Занемаривање измена белине</guilabel> сакрива измене  које су само"
-" због измена у износу или типу белине, нпр. изменом увлачења линије или "
-"изменом табова у размаке. Додавањем белине где није била раније, или "
-"потпуним уклањањем белине још увек је приказано као  промена."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only "
-"changes."
-msgstr ""
-"<guilabel>Занемаривање свих белина</guilabel> сакрива све измене само-"
-"белине."
 
 #. (title)
 msgid "Colour Settings Page"

@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-16 07:41+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-12-16 14:27+0000\n"
+"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17141,6 +17141,50 @@ msgstr ""
 "<emphasis>a besoin</emphasis> de messages de verrouillage."
 
 #. (title)
+msgid "TortoiseSVN Dialog Settings 3"
+msgstr ""
+
+#. (title)
+msgid "The Settings Dialog, Dialogs 3 Page"
+msgstr ""
+
+#. (term)
+msgid "Pre-fetch folders for faster browsing"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser fetches "
+"information about shown folders in the background. That way as soon as you "
+"browse into one of those folders, the information is already available."
+msgstr ""
+
+#. (para)
+msgid ""
+"Some servers however can't handle the multiple requests this causes or when "
+"not configured correctly treat so many requests as something bad and start "
+"blocking them. In this case you can disable the pre-fetching here."
+msgstr ""
+
+#. (term)
+msgid "Show externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser shows "
+"files and folders that are included with the "
+"<literal>svn:externals</literal> property as normal files and folders, but "
+"with an overlay icon to mark them as from an external source."
+msgstr ""
+
+#. (para)
+msgid ""
+"As with the pre-fetch feature explained above, this too can put too much "
+"stress on weak servers. In this case you can disable this feature here."
+msgstr ""
+
+#. (title)
 msgid "TortoiseSVN Colour Settings"
 msgstr "Configuration des couleurs de TortoiseSVN"
 
@@ -18191,6 +18235,23 @@ msgstr ""
 "différences</guimenuitem</menuchoice> utilise l'outil de comparaison "
 "secondaire."
 
+#. (para)
+msgid ""
+"At the bottom of the dialog you can configure a viewer program for unified-"
+"diff files (patch files). No parameters are required. The "
+"<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
+"installed alongside TortoiseSVN, and colour-codes the added and removed "
+"lines."
+msgstr ""
+
+#. (para)
+msgid ""
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
+msgstr ""
+"Etant que le Diff Unifié est juste un format texte, vous pouvez utiliser "
+"votr éditeur texte favori si vous préférez."
+
 #. (title)
 msgid "Merge Tool"
 msgstr "Outil de fusion"
@@ -18298,26 +18359,6 @@ msgstr ""
 "bitmap de Windows. Pour associer en utilisant la propriété <literal>svn"
 ":mime-type</literal>, spécifier le type mime, en incluant un slash, par "
 "exemple <literal>text/xml</literal>."
-
-#. (title)
-msgid "Unified Diff Viewer"
-msgstr "Visualisateur de différences unifiées"
-
-#. (para)
-msgid ""
-"A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
-"which is installed alongside TortoiseSVN, and colour-codes the added and "
-"removed lines."
-msgstr ""
-
-#. (para)
-msgid ""
-"Since Unified Diff is just a text format, you can use your favourite text "
-"editor if you prefer."
-msgstr ""
-"Etant que le Diff Unifié est juste un format texte, vous pouvez utiliser "
-"votr éditeur texte favori si vous préférez."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -26655,6 +26696,20 @@ msgstr ""
 
 #. (para)
 msgid ""
+"<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
+"loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+
+#. (para)
+msgid ""
+"<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get "
+"slow when showing inline diffs for very long lines. Because of that only "
+"lines that are shorter than 3000 chars are shown with inline diffs. You can "
+"change this value here."
+msgstr ""
+
+#. (para)
+msgid ""
 "<guilabel>Ignore line endings</guilabel> hides changes which are due solely "
 "to difference in line-end style."
 msgstr ""
@@ -26671,54 +26726,6 @@ msgstr ""
 " uniquement dûs à des changements de casse au sein du texte. Cela peut être "
 "utile pour les applications telles que Visual Basic, qui change les "
 "variables sans prévenir."
-
-#. (para)
-msgid ""
-"<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the"
-" line diff bar to show the detailed in-line changes within the main display "
-"panes. Lines which have been heavily modified will not be shown using this "
-"method as the results are simply confusing. In this case the line will be "
-"shown as replaced (old line deleted, new line added)."
-msgstr ""
-"<guilabel>Colorer les changements de code en ligne</guilabel> utilise le "
-"même thème que la barre de lignes de comparaison pour afficher les "
-"changements en ligne dans les panneaux d'affichages principaux. Les lignes "
-"qui ont été lourdement modifiées ne seront pas affichées de cette manière, "
-"les résultats étant nébuleux. Dans ce cas, la ligne sera affichée comme "
-"remplacée (l'ancienne ligne supprimée, la nouvelle ajoutée)."
-
-#. (para)
-msgid ""
-"<guilabel>Compare whitespaces</guilabel> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-"<guilabel>Comparer les espacements</guilabel> affiche tous les changements "
-"d'indentation et d'espacements en ligne en tant que lignes "
-"ajoutées/supprimées (c'est de cette façon que Subversion considère de tels "
-"changements)."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore whitespace changes</guilabel> hides changes which are due "
-"solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-"<guilabel>Ignorer les changements d'espaces</guilabel> exclut les "
-"changements dus uniquement à une modification du nombre ou du type "
-"d'espaces, par exemple un changement d'indentation ou le passage des "
-"tabulations aux espaces. Ajouter un espace où il n'y aen avait pas "
-"précédemment, ou supprimer complètement un espace est toujours indiqué comme"
-" un changement."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only "
-"changes."
-msgstr ""
-"<guilabel>Ignorer tous les espacements</guilabel> ne masque que les "
-"changements d'espacements."
 
 #. (title)
 msgid "Colour Settings Page"

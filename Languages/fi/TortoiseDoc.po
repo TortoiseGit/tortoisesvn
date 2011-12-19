@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-16 07:49+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-12-16 15:04+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16976,6 +16976,64 @@ msgstr ""
 "<emphasis>vaatii</emphasis> lukitusviestin syöttämisen."
 
 #. (title)
+msgid "TortoiseSVN Dialog Settings 3"
+msgstr "Ikkuna-asetukset 3"
+
+#. (title)
+msgid "The Settings Dialog, Dialogs 3 Page"
+msgstr "Asetusikkuna, Ikkunat 3 -sivu"
+
+#. (term)
+msgid "Pre-fetch folders for faster browsing"
+msgstr "Hae kansiot etukäteen käytön nopeuttamiseksi"
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser fetches "
+"information about shown folders in the background. That way as soon as you "
+"browse into one of those folders, the information is already available."
+msgstr ""
+"Jos tämä valinta on päällä (oletus), arkistoselain hakee tietoa näytetyistä "
+"kansioista taustalla. Tämän ansiosta tiedot ovat jo saatavilla, kun siirryt "
+"johonkin näistä kansioista."
+
+#. (para)
+msgid ""
+"Some servers however can't handle the multiple requests this causes or when "
+"not configured correctly treat so many requests as something bad and start "
+"blocking them. In this case you can disable the pre-fetching here."
+msgstr ""
+"Joillakin palvelimilla voi kuitenkin olla vaikeuksia toiminnon aiheuttamien "
+"useiden pyyntöjen kanssa. Palvelin voi olla myös konfiguroitu siten, että se"
+" tulkitsee pyynnöt palvelunestohyökkäykseksi. Näissä tapauksissa voit estää "
+"ennalta haun tässä."
+
+#. (term)
+msgid "Show externals"
+msgstr "Näytä ulkoiset viitteet"
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser shows "
+"files and folders that are included with the "
+"<literal>svn:externals</literal> property as normal files and folders, but "
+"with an overlay icon to mark them as from an external source."
+msgstr ""
+"Jos tämä valinta on päällä (oletus), arkistoselain näyttää työkopioon "
+"<literal>svn:externals</literal> -ominaisuudella sisällytetyt tiedostot ja "
+"kansiot  tavallisina tiedostoina ja kansioina. Erilainen kuvakepäällys "
+"kertoo niiden olevan peräisin ulkoisesta lähteestä."
+
+#. (para)
+msgid ""
+"As with the pre-fetch feature explained above, this too can put too much "
+"stress on weak servers. In this case you can disable this feature here."
+msgstr ""
+"Kuten yllä kuvattu ennalta haku -ominaisuus, tämäkin toiminto voi olla liian"
+" raskas joillekin palvelimille. Tällaisissa tapauksissa voit kytkeä "
+"toiminnon pois päältä tässä."
+
+#. (title)
 msgid "TortoiseSVN Colour Settings"
 msgstr "Väriasetukset"
 
@@ -18013,6 +18071,27 @@ msgstr ""
 "<keycap>Shift</keycap>+<menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Vertaa</guimenuitem></menuchoice>"
 " käyttää toissijaista vertailutyökalua."
 
+#. (para)
+msgid ""
+"At the bottom of the dialog you can configure a viewer program for unified-"
+"diff files (patch files). No parameters are required. The "
+"<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
+"installed alongside TortoiseSVN, and colour-codes the added and removed "
+"lines."
+msgstr ""
+"Ikkunan alaosassa voit määritellä katseluohjelman unified diff -tiedostoille"
+" (paikkatiedostot). Parametreja ei tarvita. "
+"<guilabel>Oletusasetus</guilabel> on käyttää TortoiseUDiff-ohjelmaa, joka "
+"asentuu TortoiseSVN-paketin yhteydessä. TortoiseUDiff osaa värikoodata "
+"lisätyt ja poistetut rivit."
+
+#. (para)
+msgid ""
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
+msgstr ""
+"Koska Unified Diff on tekstiä, voit halutessasi käyttää suosikkieditoriasi."
+
 #. (title)
 msgid "Merge Tool"
 msgstr "Yhdistämistyökalu"
@@ -18115,29 +18194,6 @@ msgstr ""
 "esim. <literal>.bmp</literal>-päätettä Windows-kuvatiedostoille. Kytkeäksesi"
 " <literal>svn:mime-type</literal> -ominaisuuden avulla sinun on annettava "
 "mime-tyyppi kauttaviivan kanssa, esim. <literal>text/xml</literal>."
-
-#. (title)
-msgid "Unified Diff Viewer"
-msgstr "Unified diff -työkalu"
-
-#. (para)
-msgid ""
-"A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
-"which is installed alongside TortoiseSVN, and colour-codes the added and "
-"removed lines."
-msgstr ""
-"Unified diff -tiedostojen katseluohjelma. Ei parametreja. "
-"<guilabel>Oletusasetus</guilabel> on käyttää TortoiseUDiff-ohjelmaa, joka "
-"asentuu TortoiseSVN-paketin yhteydessä. TortoiseUDiff osaa värikoodata "
-"lisätyt ja poistetut rivit."
-
-#. (para)
-msgid ""
-"Since Unified Diff is just a text format, you can use your favourite text "
-"editor if you prefer."
-msgstr ""
-"Koska Unified Diff on tekstiä, voit halutessasi käyttää suosikkieditoriasi."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -26528,6 +26584,26 @@ msgstr ""
 
 #. (para)
 msgid ""
+"<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
+"loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+"<guilabel>Käytä UTF-8 -enkoodausta</guilabel> kun asetettu, ANSI-tiedostot "
+"avataan ja talletetaan UTF-8 -muodossa."
+
+#. (para)
+msgid ""
+"<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get "
+"slow when showing inline diffs for very long lines. Because of that only "
+"lines that are shorter than 3000 chars are shown with inline diffs. You can "
+"change this value here."
+msgstr ""
+"<guilabel>Rivin sisäisen vertailun maksimirivinpituus</guilabel> "
+"TortoiseMerge voi olla hidas näyttäessään rivin sisäistä vertailua erittäin "
+"pitkille riveille. Tästä syystä rivin sisäistä vertailua näytetään vain 3000"
+" merkkiä lyhyemmille riveille. Voit muuttaa arvoa täällä."
+
+#. (para)
+msgid ""
 "<guilabel>Ignore line endings</guilabel> hides changes which are due solely "
 "to difference in line-end style."
 msgstr ""
@@ -26544,51 +26620,6 @@ msgstr ""
 " johtuvat vain tekstin merkkien tasoista. Tämä voi olla näppärää esimerkiksi"
 " Visual Basicin kaltaisissa sovelluksissa, jotka muuttavat muuttujien nimien"
 " tasoa varoittamatta."
-
-#. (para)
-msgid ""
-"<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the"
-" line diff bar to show the detailed in-line changes within the main display "
-"panes. Lines which have been heavily modified will not be shown using this "
-"method as the results are simply confusing. In this case the line will be "
-"shown as replaced (old line deleted, new line added)."
-msgstr ""
-"Valinta <guilabel>Väritä rivin sisäiset muutokset</guilabel> käyttää samaa "
-"tapaa kuin rivieropalkki näyttääkseen yksityiskohtaiset rivin sisäiset "
-"muutokset päänäytöissä. Suuresti muuttuneita rivejä ei näytetä tällä "
-"tyylillä, koska tulos olisi yksinkertaisesti liian sekava. Tässä tapauksessa"
-" rivi näytetään korvattuna (vanha rivi poistettu, uusi rivi lisätty)."
-
-#. (para)
-msgid ""
-"<guilabel>Compare whitespaces</guilabel> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-"Valinta <guilabel>Vertaa tyhjämerkkejä</guilabel> näyttää kaikki muutokset "
-"sisennyksessä ja rivin sisäisissä tyhjämerkeissä lisättyinä/poistettuina "
-"riveinä (samaan tapaan kuin Subversion käsittelee tällaisia muutoksia)."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore whitespace changes</guilabel> hides changes which are due "
-"solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-"Valinta <guilabel>Ohita tyhjämerkkien muutokset</guilabel> piilottaa "
-"muutokset, jotka johtuvat tyhjämerkeistä, esimerkiksi sisentämisestä tai "
-"tabulaattorien muuttamisesta välilyönneiksi.Tyhjämerkkien lisääminen "
-"paikkaan, jossa niitä ei aiemmin ollut, tai kaikkien tyhjämerkkien poisto "
-"näkyvät yhä muutoksina."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only "
-"changes."
-msgstr ""
-"Valinta <guilabel>Ohita kaikki tyhjämerkit</guilabel> piilottaa kaikki "
-"tyhjämerkeistä johtuvat muutokset."
 
 #. (title)
 msgid "Colour Settings Page"

@@ -15,6 +15,7 @@
 # cuscu <agua.cuscu@gmail.com>, 2011.
 # Francisco Javier Rodríguez Mesa <javier.rodriguez@fjrodriguez.com>, 2011.
 #   <gdelahuebra@hotmail.com>, 2011.
+#   <jmtruppia@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 #   <luiceur@gmail.com>, 2011.
 # Tomás Christie <tommychristie@gmail.com>, 2011.
@@ -24,8 +25,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-16 07:47+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-12-16 21:43+0000\n"
+"Last-Translator: ggh <gdelahuebra@hotmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17132,6 +17133,50 @@ msgstr ""
 "proyecto <emphasis>necesita</emphasis> mensajes de bloqueo."
 
 #. (title)
+msgid "TortoiseSVN Dialog Settings 3"
+msgstr ""
+
+#. (title)
+msgid "The Settings Dialog, Dialogs 3 Page"
+msgstr ""
+
+#. (term)
+msgid "Pre-fetch folders for faster browsing"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser fetches "
+"information about shown folders in the background. That way as soon as you "
+"browse into one of those folders, the information is already available."
+msgstr ""
+
+#. (para)
+msgid ""
+"Some servers however can't handle the multiple requests this causes or when "
+"not configured correctly treat so many requests as something bad and start "
+"blocking them. In this case you can disable the pre-fetching here."
+msgstr ""
+
+#. (term)
+msgid "Show externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser shows "
+"files and folders that are included with the "
+"<literal>svn:externals</literal> property as normal files and folders, but "
+"with an overlay icon to mark them as from an external source."
+msgstr ""
+
+#. (para)
+msgid ""
+"As with the pre-fetch feature explained above, this too can put too much "
+"stress on weak servers. In this case you can disable this feature here."
+msgstr ""
+
+#. (title)
 msgid "TortoiseSVN Colour Settings"
 msgstr "Configuración de colores de TortoiseSVN"
 
@@ -18173,6 +18218,23 @@ msgstr ""
 "contextual</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> utiliza la "
 "herramienta de diferencias secundaria."
 
+#. (para)
+msgid ""
+"At the bottom of the dialog you can configure a viewer program for unified-"
+"diff files (patch files). No parameters are required. The "
+"<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
+"installed alongside TortoiseSVN, and colour-codes the added and removed "
+"lines."
+msgstr ""
+
+#. (para)
+msgid ""
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
+msgstr ""
+"Ya que Unified Diff es solo un formato de texto, usted puede utilizar su "
+"editor de texto favorito si lo prefiere."
+
 #. (title)
 msgid "Merge Tool"
 msgstr "Herramienta de fusión"
@@ -18264,26 +18326,6 @@ msgstr ""
 "bitmaps de Windows. Para asociar utilizando la propiedad <literal>svn:mime-"
 "type</literal>, especifique el tipo MIME, incluyendo una barra, por ejemplo "
 "<literal>text/xml</literal>."
-
-#. (title)
-msgid "Unified Diff Viewer"
-msgstr "Visor para archivos de diff unificado"
-
-#. (para)
-msgid ""
-"A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
-"which is installed alongside TortoiseSVN, and colour-codes the added and "
-"removed lines."
-msgstr ""
-
-#. (para)
-msgid ""
-"Since Unified Diff is just a text format, you can use your favourite text "
-"editor if you prefer."
-msgstr ""
-"Ya que Unified Diff es solo un formato de texto, usted puede utilizar su "
-"editor de texto favorito si lo prefiere."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -21466,6 +21508,15 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
 msgstr ""
+"La manera recomendada es a través de <action>right dragging</action> los "
+"archivos a la nueva ubicación. Simplemente <action>right click</action> en "
+"los archivos que deseas mover o copiar sin soltar el botón del mouse. Luego "
+"arrastra los archivos a su nueva ubicación y suelta el botón del mouse. Un "
+"menu contextual aparecerá donde podrás elegir <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>SVN Copy versioned files "
+"here</guimenuitem></menuchoice>. o <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>SVN Move versioned files "
+"here</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Force users to enter a log message"
@@ -21999,6 +22050,12 @@ msgid ""
 "C:\\Projects\\Common\n"
 "</screen> and refer to the common code using a relative path, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
 msgstr ""
+"Si usas el mismo código en varios proyectos, y no deseas mantener múltiples copias de trabajo en cada proyecto que lo usa, puedes simplemente hacer una copia del repositorio en una ubicación separada que esta relacionada con todos los proyectos que la usan. Por ejemplo: <screen>\n"
+"C:\\Projects\\Proj1\n"
+"C:\\Projects\\Proj2\n"
+"C:\\Projects\\Proj3\n"
+"C:\\Projects\\Common\n"
+"</screen> y referirse al código común usando una ruta relativa, e.g. <filename>..\\..\\Common\\DSPcore</filename>."
 
 #. (para)
 msgid ""
@@ -22008,6 +22065,16 @@ msgid ""
 "#include \"X:\\superio\\superio.h\"\n"
 "</screen>"
 msgstr ""
+"Si tus proyectos están dispersos en localizaciones no relacionadas puede "
+"usar una variante de esto, que es poner el código común en un localización y"
+" usar la sustitución de la letra de la unidad para mapear tu código en tus "
+"proyectos. Por ejemplo, obtén el código común a "
+"<filename>D:\\Documents\\Framework</filename> o <filename>C:\\Documents and "
+"Settings\\{login}\\My Documents\\framework</filename>, entonces usa "
+"<screen>⏎ SUBST X: \"D:\\Documents\\framework\"⏎ </screen> para crear el "
+"mapeado de la unidad usada en tu código fuente. Tu condigo podrá entonces "
+"usar localizaciones absolutas. <screen>⏎ #include "
+"\"X:\\superio\\superio.h\"⏎ </screen>"
 
 #. (para)
 msgid ""
@@ -22071,6 +22138,11 @@ msgid ""
 "Add...</guimenuitem></menuchoice> to undo the add. You should then add the "
 "file(s) to the ignore list so they don't get added again later by mistake."
 msgstr ""
+"Si aún no has subido lo añadido, entonces todo lo que tienes que hacer es "
+"usar <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo "
+"Add...</guimenuitem></menuchoice> para deshacer el añadir. Deberías entonces"
+" añadir el/los fichero/s a la lista de ignorar para que no vuelvan a "
+"añadirse por error posteriormente."
 
 #. (para)
 msgid ""
@@ -23300,6 +23372,10 @@ msgid ""
 "revision which the repository browser should show. If the "
 "<option>/rev:xxx</option> is omitted, it defaults to HEAD."
 msgstr ""
+"Una opción adicional <option>/rev:xxx</option> puede emplearse para "
+"especificar la revisión que deberá mostrar el explorador del repositorio. Si"
+" se omite la <option>/rev:xxx</option>, por defecto muestra la revisión "
+"HEAD."
 
 #. (para)
 msgid ""
@@ -23307,6 +23383,9 @@ msgid ""
 "<option>/projectpropertiespath:path/to/wc</option> specifies the path from "
 "where to read and use the project properties."
 msgstr ""
+"Si <option>/path</option> apunta a una URL, la "
+"<option>/projectpropertiespath:path/to/wc</option> especifica la ruta o path"
+" desde el que leer y usar las propiedades del proyecto."
 
 #. (para)
 msgid ""
@@ -23315,6 +23394,10 @@ msgid ""
 " The first line in that text file contains the URL, the second line the "
 "revision in text format."
 msgstr ""
+"Si <option>/outfile:path\\to\\file</option> se especifica, la URL y revisión"
+" seleccionadas se escriben a dicho fichero cuando el explorador del "
+"repositorio se cierra. La primera línea en el fichero de texto contiene la "
+"URL, la segunda es la revisión en formato de texto."
 
 #. (literal)
 msgid "svn:ignore"
@@ -23549,6 +23632,8 @@ msgid ""
 "A simple example URL might look like this: <placeholder-1/> or in a more "
 "complex case: <placeholder-2/>"
 msgstr ""
+"Una simple URL puede tener este aspecto: <placeholder-1/> o en un caso más "
+"complejo: <placeholder-2/>"
 
 #. (title)
 msgid "TortoiseIDiff Commands"
@@ -24743,6 +24828,10 @@ msgid ""
 "run the install program and follow the instructions. After the installation "
 "finishes, the translation will be available."
 msgstr ""
+"Cada paquete de lenguaje se encuentra como un instalador "
+"<literal>.msi</literal>. Simplemente ejecuta el programa de instalación y "
+"sigue las instrucciones. Cuando termine la instalación, la traducción estará"
+" disponible."
 
 #. (para)
 msgid ""
@@ -26573,6 +26662,20 @@ msgstr ""
 
 #. (para)
 msgid ""
+"<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
+"loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+
+#. (para)
+msgid ""
+"<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get "
+"slow when showing inline diffs for very long lines. Because of that only "
+"lines that are shorter than 3000 chars are shown with inline diffs. You can "
+"change this value here."
+msgstr ""
+
+#. (para)
+msgid ""
 "<guilabel>Ignore line endings</guilabel> hides changes which are due solely "
 "to difference in line-end style."
 msgstr ""
@@ -26590,48 +26693,6 @@ msgstr ""
 "cambios que se deben únicamente a cambiar mayúsculas por minúsculas o "
 "viceversa dentro del texto. Esto puede ser útil con aplicaciones como Visual"
 " Basic, que cambia las mayúsculas en las variables sin avisar."
-
-#. (para)
-msgid ""
-"<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the"
-" line diff bar to show the detailed in-line changes within the main display "
-"panes. Lines which have been heavily modified will not be shown using this "
-"method as the results are simply confusing. In this case the line will be "
-"shown as replaced (old line deleted, new line added)."
-msgstr ""
-"<guilabel>Colorear cambios dentro de las líneas</guilabel> utiliza el mismo "
-"esquema de la barra de diferencias de línea para mostrar los cambios "
-"detallados de las líneas dentro de los paneles de visualización principales."
-" Las líneas que han sufrido muchas modificaciones no se mostrarán utilizando"
-" este método ya que los resultados son simplemente confusos. En este caso la"
-" línea se mostrará como reemplazada (línea antigua eliminada, línea nueva "
-"añadida)."
-
-#. (para)
-msgid ""
-"<guilabel>Compare whitespaces</guilabel> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-"<guilabel>Comparar espacios en blanco</guilabel> muestra todos los cambios "
-"en la indentación y en los espacios dentro de las líneas como si fueran "
-"líneas añadidas/eliminadas (que es como Subversion trata estos cambios)."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore whitespace changes</guilabel> hides changes which are due "
-"solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only "
-"changes."
-msgstr ""
-"<guilabel>Ignorar todos los espacios en blanco</guilabel> oculta todos los "
-"cambios que sólo se deben a espacios en blanco."
 
 #. (title)
 msgid "Colour Settings Page"

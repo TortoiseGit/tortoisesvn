@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-25 03:11+0000\n"
+"PO-Revision-Date: 2011-12-16 14:27+0000\n"
 "Last-Translator: uring <uringinteristi@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -572,6 +572,9 @@ msgid ""
 "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN"
 " on your PC, and how to start using it straight away."
 msgstr ""
+"Pada <xref linkend=\"tsvn-quick-start\"/> menjelaskan bagaimana cara "
+"memasang TortoiseSVN pada PC anda, dan bagaimana cara memulai untuk "
+"menggunakannya secara langsung."
 
 #. (para)
 msgid ""
@@ -636,6 +639,9 @@ msgid ""
 " GUI dialogs can be called from the command line. This is useful for "
 "scripting where you still need user interaction."
 msgstr ""
+"Pada bagian <xref linkend=\"tsvn-automation\"/> memperlihatkan bagaimana "
+"dialog GUI TortoiseSVN bisa dipanggil dari baris perintah. Hal ini berguna "
+"untuk penulisan dimana anda masih memerlukan interaksi pengguna."
 
 #. (para)
 msgid ""
@@ -722,6 +728,8 @@ msgid ""
 "Where extreme care has to be taken. Data corruption or other nasty things "
 "may occur if these warnings are ignored."
 msgstr ""
+"Dimana penanganan ekstrem seharusnya diambil. Data yang korup atau hal buruk"
+" yang lainnya mungkin terjadi bila peringatan ini diabaikan."
 
 #. (title)
 msgid "Getting Started"
@@ -14027,6 +14035,50 @@ msgid ""
 msgstr ""
 
 #. (title)
+msgid "TortoiseSVN Dialog Settings 3"
+msgstr ""
+
+#. (title)
+msgid "The Settings Dialog, Dialogs 3 Page"
+msgstr ""
+
+#. (term)
+msgid "Pre-fetch folders for faster browsing"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser fetches "
+"information about shown folders in the background. That way as soon as you "
+"browse into one of those folders, the information is already available."
+msgstr ""
+
+#. (para)
+msgid ""
+"Some servers however can't handle the multiple requests this causes or when "
+"not configured correctly treat so many requests as something bad and start "
+"blocking them. In this case you can disable the pre-fetching here."
+msgstr ""
+
+#. (term)
+msgid "Show externals"
+msgstr ""
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser shows "
+"files and folders that are included with the "
+"<literal>svn:externals</literal> property as normal files and folders, but "
+"with an overlay icon to mark them as from an external source."
+msgstr ""
+
+#. (para)
+msgid ""
+"As with the pre-fetch feature explained above, this too can put too much "
+"stress on weak servers. In this case you can disable this feature here."
+msgstr ""
+
+#. (title)
 msgid "TortoiseSVN Colour Settings"
 msgstr "Seting Warna TortoiseSVN"
 
@@ -14876,6 +14928,21 @@ msgid ""
 "secondary diff tool."
 msgstr ""
 
+#. (para)
+msgid ""
+"At the bottom of the dialog you can configure a viewer program for unified-"
+"diff files (patch files). No parameters are required. The "
+"<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
+"installed alongside TortoiseSVN, and colour-codes the added and removed "
+"lines."
+msgstr ""
+
+#. (para)
+msgid ""
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
+msgstr ""
+
 #. (title)
 msgid "Merge Tool"
 msgstr "Piranti Merge"
@@ -14955,24 +15022,6 @@ msgid ""
 "<literal>.bmp</literal> to describe Windows bitmap files. To associate using"
 " the <literal>svn:mime-type</literal> property, specify the mime type, "
 "including a slash, for example <literal>text/xml</literal>."
-msgstr ""
-
-#. (title)
-msgid "Unified Diff Viewer"
-msgstr "Peninjau Unified Diff"
-
-#. (para)
-msgid ""
-"A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
-"which is installed alongside TortoiseSVN, and colour-codes the added and "
-"removed lines."
-msgstr ""
-
-#. (para)
-msgid ""
-"Since Unified Diff is just a text format, you can use your favourite text "
-"editor if you prefer."
 msgstr ""
 
 #. (title)
@@ -21986,6 +22035,20 @@ msgstr ""
 
 #. (para)
 msgid ""
+"<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
+"loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+
+#. (para)
+msgid ""
+"<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get "
+"slow when showing inline diffs for very long lines. Because of that only "
+"lines that are shorter than 3000 chars are shown with inline diffs. You can "
+"change this value here."
+msgstr ""
+
+#. (para)
+msgid ""
 "<guilabel>Ignore line endings</guilabel> hides changes which are due solely "
 "to difference in line-end style."
 msgstr ""
@@ -22001,47 +22064,6 @@ msgstr ""
 "<guilabel>Abaikan perubahan huruf</guilabel> menyembunyikan perubahan karena"
 " perubahan di dalam teks. Ini sangat berguna dengan aplikasi seperti Visual "
 "Basic, yang mengubah jenis huruf dalam variabel tanpa peringatan."
-
-#. (para)
-msgid ""
-"<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the"
-" line diff bar to show the detailed in-line changes within the main display "
-"panes. Lines which have been heavily modified will not be shown using this "
-"method as the results are simply confusing. In this case the line will be "
-"shown as replaced (old line deleted, new line added)."
-msgstr ""
-"<guilabel>Kode warna perubahan-perubahan sebaris</guilabel> menggunakan "
-"skema sama dengan baris bar diff untuk menampilkan detil perubahan sebaris "
-"di dalam tampilan pane utama. Baris-baris yang telah banyak diubah tidak "
-"akan ditampilkan dengan metode ini karena hasilnya akan membingungkan. Dalam"
-" kasus ini, baris tersebut akan ditampilkan sebagai diganti (baris yang lama"
-" dihapus, baris yang baru ditambahkan)."
-
-#. (para)
-msgid ""
-"<guilabel>Compare whitespaces</guilabel> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-"<guilabel>Bandingkan spasi putih</guilabel> memperlihatkan semua perubahan "
-"dalam indentasi dan spasi putih sebaris karena baris ditambah/dihapus "
-"(inilah bagaimana Subversion memperlakukan perubahan demikian)."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore whitespace changes</guilabel> hides changes which are due "
-"solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-
-#. (para)
-msgid ""
-"<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only "
-"changes."
-msgstr ""
-"<guilabel>Abaikan semua spasi putih</guilabel> menyembunyikan semua "
-"perubahan hanya-spasi putih."
 
 #. (title)
 msgid "Colour Settings Page"

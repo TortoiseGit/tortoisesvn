@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-04 18:20+0000\n"
-"Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
+"PO-Revision-Date: 2011-12-17 17:25+0000\n"
+"Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6008,8 +6008,8 @@ msgid ""
 "It is harder to read than a visual file compare, but will show all file "
 "changes together in a compact format."
 msgstr ""
-"選択したリビジョンで行われた変更点を、 Unified 形式（GNU patch "
-"形式）で表示します。差分のみが数行で表示されます。視覚的なファイル比較よりも分かりにくいのですが、すべての変更をまとめてコンパクトな形式で確認できます。"
+"選択したリビジョンで行われた変更点を、 Unified 差分ファイル（GNU "
+"パッチ形式）で表示します。差分のみが数行で表示されます。視覚的なファイル比較よりも分かりにくいのですが、すべての変更をまとめてコンパクトな形式で確認できます。"
 
 #. (para)
 msgid ""
@@ -6018,8 +6018,8 @@ msgid ""
 "diff. These options include the ability to ignore changes in line endings "
 "and whitespaces."
 msgstr ""
-"<keycap>Shift</keycap> キーを押しながらメニュー項目をクリックすると、最初に Unified-Diff "
-"のためのオプションを設定するためのダイアログが開きます。これらのオプションの中に、行末文字や空白文字の変更を無視するものが含まれています。"
+"<keycap>Shift</keycap> キーを押しながらメニュー項目をクリックすると、最初に Unified "
+"差分ファイルのためのオプションを設定するためのダイアログが開きます。これらのオプションの中に、行末文字や空白文字の変更を無視するものが含まれています。"
 
 #. (term)
 msgid "Compare with previous revision"
@@ -6364,7 +6364,7 @@ msgstr "Unified 形式で差分を表示"
 msgid ""
 "View the differences between the two selected revisions as a Unified-Diff "
 "file. This works for files and folders."
-msgstr "選択した２つのファイルの差分を、 Unified-Diff ファイルで表示します。ファイルとフォルダーで動作します。"
+msgstr "選択した２つのファイルの差分を、 Unified 差分ファイルで表示します。ファイルとフォルダーで動作します。"
 
 #. (para)
 msgid "Copy log messages to clipboard as described above."
@@ -6439,7 +6439,7 @@ msgid ""
 "Show file changes in unified diff format. This context menu is only "
 "available for files shown as <emphasis>modified</emphasis>."
 msgstr ""
-"ファイルの変更点を Unified 形式で表示します。このコンテキストメニューは、ファイルに <emphasis>変更</emphasis> "
+"ファイルの変更点を Unified 差分ファイルで表示します。このコンテキストメニューは、ファイルに <emphasis>変更</emphasis> "
 "がある時のみ有効です。"
 
 #. (para)
@@ -7301,8 +7301,8 @@ msgid ""
 "<guimenuitem>Show Differences as Unified-Diff</guimenuitem> from the context"
 " menu."
 msgstr ""
-"特定のリビジョンで行ったすべてのファイルの変更点を一目で確認したいなら、 Unified 差分形式（GNU patch "
-"形式）を使用できます。ここでは差分が本文内の数行のみで表示されます。視覚的なファイル比較よりは読みにくくなりますが、すべての変更を一度に確認できます。リビジョンログダイアログから確認したいリビジョンを選択し、コンテキストメニューから"
+"特定のリビジョンで行ったすべてのファイルの変更点を一目で確認したいなら、 Unified 差分ファイル（GNU "
+"パッチ形式）を使用できます。ここでは差分が本文内の数行のみで表示されます。視覚的なファイル比較よりは読みにくくなりますが、すべての変更を一度に確認できます。リビジョンログダイアログから確認したいリビジョンを選択し、コンテキストメニューから"
 " <guimenuitem>Unified 形式で差分を表示</guimenuitem> を選択してください。"
 
 #. (term)
@@ -8204,8 +8204,8 @@ msgid ""
 msgstr ""
 "パターン比較では大文字と小文字を区別しますが、これは Windows "
 "で問題の原因になるかもしれません。両方指定すれば、強制的に大文字小文字を区別しないようにできます。例えば、 "
-"<literal>*.tmp</literal> "
-"を大文字小文字にかかわらず無視するには、<literal>*.[Tt][Mm][Pp]</literal> のようなパターンで指定してください。"
+"<literal>*.tmp</literal> を大文字小文字にかかわらず無視するには、 "
+"<literal>*.[Tt][Mm][Pp]</literal> のようなパターンで指定してください。"
 
 #. (para)
 msgid ""
@@ -8456,8 +8456,8 @@ msgid ""
 "the files inside the folder, otherwise your working copy can get really "
 "messed up."
 msgstr ""
-"<emphasis>必ず</emphasis> "
-"フォルダー内のいずれかのファイルに変更を加える前に、フォルダーの名前の変更をコミットしてください。そうしないと、作業コピーが混乱してしまいます。"
+"フォルダー内のいずれかのファイルに変更を加える前に、 <emphasis>必ず</emphasis> "
+"フォルダーの名前の変更をコミットしてください。そうしないと、作業コピーが混乱してしまいます。"
 
 #. (para)
 msgid ""
@@ -8884,8 +8884,8 @@ msgid ""
 " and within TortoiseSVN's status lists, from <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>properties</guimenuitem></menuchoice>."
 msgstr ""
-"<placeholder-1/> Windows のプロパティダイアログから、 Subversion "
-"のプロパティを確認したり設定したりできますが、さらに "
+"<placeholder-1/> Subversion のプロパティは、 Windows のプロパティダイアログから確認したり設定したりできますが、他に"
+" "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice>"
 " や "
 "<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>プロパティ</guimenuitem></menuchoice>"
@@ -8898,9 +8898,9 @@ msgid ""
 "<literal>svn:externals</literal> is such a property; see how to handle "
 "externals in <xref linkend=\"tsvn-dug-externals\"/>."
 msgstr ""
-"自分で定義したプロパティの他、 Subversion で特別な意味のあるプロパティも追加できます。これは <literal>svn:</literal>"
-" で始まります。 <literal>svn:externals</literal> もその一種です。外部参照の扱い方は <xref linkend"
-"=\"tsvn-dug-externals\"/> をご覧ください。"
+"自分でプロパティを定義できるほか、 Subversion で特別な意味をもつプロパティを追加することもできます。これは "
+"<literal>svn:</literal> で始まります。 <literal>svn:externals</literal> "
+"もその一種です。外部参照の扱い方は <xref linkend=\"tsvn-dug-externals\"/> をご覧ください。"
 
 #. (title)
 msgid "svn:keywords"
@@ -8920,16 +8920,16 @@ msgid ""
 "update your working copy. It does <emphasis>not</emphasis> check the "
 "repository to find more recent changes."
 msgstr ""
-"最後にコミットされた日時です。作業コピーを更新したときに与えられた情報を元にしています。それより新しい情報をリポジトリに確認することは "
+"最後にコミットされた日時です。作業コピーに対して更新を実行した時点の情報に基づいています。それより新しい情報をリポジトリに確認することは "
 "<emphasis>ありません</emphasis> 。"
 
 #. (para)
 msgid "Revision of last known commit."
-msgstr "最後のコミットを行ったリビジョンです。"
+msgstr "最後にコミットを行ったリビジョンです。"
 
 #. (para)
 msgid "Author who made the last known commit."
-msgstr "最後のコミットを行った作者です。"
+msgstr "最後にコミットを行ったユーザーです。"
 
 #. (para)
 msgid "The full URL of this file in the repository."
@@ -8937,7 +8937,7 @@ msgstr "このファイルのリポジトリ上のフル URL です。"
 
 #. (para)
 msgid "A compressed combination of the previous four keywords."
-msgstr "前述の４つのキーワードの組み合わせたものです。"
+msgstr "前述の４つのキーワードの短く組み合わせたものです。"
 
 #. (para)
 msgid ""
@@ -8946,7 +8946,7 @@ msgid ""
 " supported are: <placeholder-1/>"
 msgstr ""
 "Subversion は、ファイル自身にファイル名やリビジョン情報を埋め込む CVS "
-"風キーワード展開をサポートしています。現在キーワードは次のものをサポートしています。 <placeholder-1/>"
+"風のキーワード展開をサポートしています。現在、キーワードは次のものをサポートしています。 <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -11700,7 +11700,7 @@ msgstr "パッチ"
 
 #. (primary)
 msgid "unified diff"
-msgstr "unified diff"
+msgstr "Unified 差分ファイル"
 
 #. (para)
 msgid ""
@@ -11724,7 +11724,7 @@ msgstr ""
 msgid ""
 "Patch files are simply Unified-Diff files showing the differences between "
 "your working copy and the base revision."
-msgstr "パッチファイルはシンプルな Unified-Diff ファイルで、作業コピーと元になったリビジョンとの差分を表しています。"
+msgstr "パッチファイルはシンプルな Unified 差分ファイルで、作業コピーと元になったリビジョンとの差分を表しています。"
 
 #. (title)
 msgid "Creating a Patch File"
@@ -12384,9 +12384,8 @@ msgid ""
 "the default diff tool. This can be particularly useful for comparing two "
 "tags, or trunk and branch to see what changed."
 msgstr ""
-"あらかじめマークを付けたフォルダーに対して、unified-diff "
-"として、またはデフォルト差分ツールを用いて差分を取ったファイルのリストとして差分を表示できます。これは 2 "
-"つのタグや、トランクとブランチにどんな変更があるのか比較するのに便利です。"
+"あらかじめマークを付けたフォルダーに対して、 Unified "
+"差分ファイルとして、またはデフォルト差分ツールを用いて差分を取ったファイルのリストとして差分を表示できます。これは２つのタグや、トランクとブランチにどんな変更があるのか比較するのに便利です。"
 
 #. (para)
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
@@ -12398,8 +12397,8 @@ msgid ""
 "either as a unified-diff, or as a list of files which can be visually diffed"
 " using the default diff tool."
 msgstr ""
-"右画面で２つの項目を選択すると、差分を unified-diff  "
-"形式や、またはデフォルトの差分ツールを用いて差分を取ったファイルのリストとして差分を表示できます。"
+"右画面で２つの項目を選択すると、差分を Unified "
+"差分ファイルや、またはデフォルトの差分ツールを用いて差分を取ったファイルのリストとして表示できます。"
 
 #. (para)
 msgid ""
@@ -12996,8 +12995,8 @@ msgid ""
 "changed files. <action>Double click</action> on a file name to fetch both "
 "revisions of the file and compare them using the visual difference tool."
 msgstr ""
-"差分を Unified-Diff ファイル (最小の文脈で全差分を 1 ファイルにまとめたもの) "
-"で見られます。<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンを比較</guimenuitem></menuchoice>"
+"差分を Unified 差分ファイル（最小の文脈で全差分を１ファイルにまとめたもの）で見られます。 "
+"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンを比較</guimenuitem></menuchoice>"
 " を選択すると、変更したファイルの一覧が表示されます。ファイル名を <action>ダブルクリック</action> "
 "すると両リビジョンを取得し、視覚差分ツールで比較します。"
 
@@ -14074,7 +14073,7 @@ msgstr "サウンド"
 
 #. (title)
 msgid "The Settings Dialog, General Page"
-msgstr "設定ダイアログの一般ページ"
+msgstr "設定ダイアログ、「一般」ページ"
 
 #. (para)
 msgid ""
@@ -14286,7 +14285,7 @@ msgstr "コンテキストメニュー設定"
 
 #. (title)
 msgid "The Settings Dialog, Context Menu Page"
-msgstr "設定ダイアログ、コンテキストメニューページ"
+msgstr "設定ダイアログ、「コンテキストメニュー」ページ"
 
 #. (para)
 msgid ""
@@ -14344,11 +14343,11 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 1"
-msgstr "TortoiseSVN ダイアログ設定 1"
+msgstr "TortoiseSVN ダイアログ設定１"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 1 Page"
-msgstr "設定ダイアログ、ダイアログ 1 ページ"
+msgstr "設定ダイアログ、「ダイアログ１」ページ"
 
 #. (para)
 msgid ""
@@ -14527,11 +14526,11 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 2"
-msgstr "TortoiseSVN ダイアログ設定 2"
+msgstr "TortoiseSVN ダイアログ設定２"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 2 Page"
-msgstr "設定ダイアログ、ダイアログ 2 ページ"
+msgstr "設定ダイアログ、「ダイアログ２」ページ"
 
 #. (term)
 msgid "Recurse into unversioned folders"
@@ -14693,12 +14692,61 @@ msgstr ""
 "なので、設定がどうであってもロックダイアログを表示します。"
 
 #. (title)
+msgid "TortoiseSVN Dialog Settings 3"
+msgstr "TortoiseSVN ダイアログ設定３"
+
+#. (title)
+msgid "The Settings Dialog, Dialogs 3 Page"
+msgstr "設定ダイアログ、「ダイアログ３」ページ"
+
+#. (term)
+msgid "Pre-fetch folders for faster browsing"
+msgstr "高速に表示するためにフォルダーを先読みする"
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser fetches "
+"information about shown folders in the background. That way as soon as you "
+"browse into one of those folders, the information is already available."
+msgstr ""
+"このチェックボックスをチェックすると（デフォルトの状態）、リポジトリブラウザーはバックグラウンドでフォルダーに表示される情報を取得します。そのため、フォルダーのうちの１つをクリックしたとき、情報がすでに準備されている状態になります。"
+
+#. (para)
+msgid ""
+"Some servers however can't handle the multiple requests this causes or when "
+"not configured correctly treat so many requests as something bad and start "
+"blocking them. In this case you can disable the pre-fetching here."
+msgstr ""
+"しかし、サーバーによってはこのような場合に並行してアクセスされても処理できなかったり、非常に多数のアクセスを正しく扱うように設定されていなかったために、不具合が発生してブロックされてしまったりすることがあります。この場合、このチェックボックスで先読み機能を無効にしてください。"
+
+#. (term)
+msgid "Show externals"
+msgstr "外部参照を表示する"
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser shows "
+"files and folders that are included with the "
+"<literal>svn:externals</literal> property as normal files and folders, but "
+"with an overlay icon to mark them as from an external source."
+msgstr ""
+"このチェックボックスをチェックすると（デフォルトの状態）、リポジトリブラウザーは <literal>svn:externals</literal> "
+"プロパティで外部参照として設定されたファイルやフォルダーを、普通のファイルやフォルダーと同じように表示します。但し、オーバーレイアイコンでは外部ソースとして扱われます。"
+
+#. (para)
+msgid ""
+"As with the pre-fetch feature explained above, this too can put too much "
+"stress on weak servers. In this case you can disable this feature here."
+msgstr ""
+"上記の先読み機能が有効になっていると、この機能も弱いサーバーには負担になることがあります。この場合、このチェックボックスでこの機能を無効にしてください。"
+
+#. (title)
 msgid "TortoiseSVN Colour Settings"
-msgstr "TortoiseSVN での色設定"
+msgstr "TortoiseSVN の色の設定"
 
 #. (title)
 msgid "The Settings Dialog, Colours Page"
-msgstr "設定ダイアログ、色設定ページ"
+msgstr "設定ダイアログ、「色」ページ"
 
 #. (para)
 msgid ""
@@ -14779,7 +14827,7 @@ msgstr "(追加・コピー・移動操作で) リポジトリに追加した項
 
 #. (term)
 msgid "Renamed node"
-msgstr "ノードの名前を変更"
+msgstr "名前を変更されたノード"
 
 #. (para)
 msgid "An item which has been renamed within the repository."
@@ -14811,7 +14859,7 @@ msgstr "リビジョングラフの設定"
 
 #. (title)
 msgid "The Settings Dialog, Revision Graph Page"
-msgstr "設定ダイアログ、リビジョングラフページ"
+msgstr "設定ダイアログ、「リビジョングラフ」ページ"
 
 #. (term)
 msgid "Classification Patterns"
@@ -14866,7 +14914,7 @@ msgstr "リビジョングラフの色"
 
 #. (title)
 msgid "The Settings Dialog, Revision Graph Colors Page"
-msgstr "設定ダイアログ、リビジョングラフ色設定ページ"
+msgstr "設定ダイアログ、リビジョングラフの「色」ページ"
 
 #. (para)
 msgid ""
@@ -15005,7 +15053,7 @@ msgstr "アイコンオーバレイ設定"
 
 #. (title)
 msgid "The Settings Dialog, Icon Overlays Page"
-msgstr "設定ダイアログ、アイコンオーバーレイページ"
+msgstr "設定ダイアログ、「アイコンオーバーレイ」ページ"
 
 #. (para)
 msgid ""
@@ -15303,7 +15351,7 @@ msgstr "アイコンセットの選択"
 
 #. (title)
 msgid "The Settings Dialog, Icon Set Page"
-msgstr "設定ダイアログ、アイコン設定ページ"
+msgstr "設定ダイアログ、「アイコンセット」ページ"
 
 #. (para)
 msgid ""
@@ -15320,7 +15368,7 @@ msgstr "オーバーレイハンドラーを有効にする"
 
 #. (title)
 msgid "The Settings Dialog, Icon Handlers Page"
-msgstr "設定ダイアログ、アイコンハンドラページ"
+msgstr "設定ダイアログ、「オーバーレイハンドラー」ページ"
 
 #. (para)
 msgid ""
@@ -15345,7 +15393,7 @@ msgstr "プロキシサーバー"
 
 #. (title)
 msgid "The Settings Dialog, Network Page"
-msgstr "設定ダイアログのネットワークページ"
+msgstr "設定ダイアログ、「ネットワーク」ページ"
 
 #. (para)
 msgid ""
@@ -15443,7 +15491,7 @@ msgstr "外部プログラムの設定"
 
 #. (title)
 msgid "The Settings Dialog, Diff Viewer Page"
-msgstr "設定ファイルの差分ビューアーページ"
+msgstr "設定ダイアログ、「差分ビューアー」ページ"
 
 #. (para)
 msgid ""
@@ -15605,11 +15653,29 @@ msgid ""
 "menu</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> uses the "
 "secondary diff tool."
 msgstr ""
-"代替 diff ツールを設定すると、コンテキストメニューから TortoiseMerge <emphasis>と</emphasis> "
-"サードパーティツールにアクセスできます。<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>"
-" で優先 diff ツールを使用し、<keycap>Shift</keycap>+ "
-"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>"
-" で代替 diff ツールを使用します。"
+"代替差分ツールを設定すると、コンテキストメニューから TortoiseMerge <emphasis>と</emphasis> "
+"サードパーティツールにアクセスできます。<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>差分を表示</guimenuitem></menuchoice>"
+" で優先差分ツールを使用し、<keycap>Shift</keycap>+ "
+"<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>差分を表示</guimenuitem></menuchoice>"
+" で代替差分ツールを使用します。"
+
+#. (para)
+msgid ""
+"At the bottom of the dialog you can configure a viewer program for unified-"
+"diff files (patch files). No parameters are required. The "
+"<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
+"installed alongside TortoiseSVN, and colour-codes the added and removed "
+"lines."
+msgstr ""
+"ダイアログの最下部で、 Unified "
+"差分ファイル（パッチファイル）のビューアーを設定することができます。パラメーターは必要ありません。<guilabel>デフォルト</guilabel>の設定では、"
+" TortoiseSVN と一緒にインストールされる TortoiseUDiff を使用するよう設定され、追加・削除された行を色分け表示します。"
+
+#. (para)
+msgid ""
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
+msgstr "Unified 差分ファイルはテキストファイルなので、任意のテキストエディターを使用しても結構です。"
 
 #. (title)
 msgid "Merge Tool"
@@ -15685,7 +15751,7 @@ msgstr "差分・マージの高度な設定"
 
 #. (title)
 msgid "The Settings Dialog, Diff/Merge Advanced Dialog"
-msgstr "設定ダイアログの差分・マージの高度な設定ダイアログ"
+msgstr "設定ダイアログ、「差分・マージの高度な設定」ダイアログ"
 
 #. (para)
 msgid ""
@@ -15713,33 +15779,12 @@ msgstr ""
 "mime type を指定してください。"
 
 #. (title)
-msgid "Unified Diff Viewer"
-msgstr "Unified 形式の差分ビューアー"
-
-#. (para)
-msgid ""
-"A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
-"which is installed alongside TortoiseSVN, and colour-codes the added and "
-"removed lines."
-msgstr ""
-"Unified-Diff "
-"ファイル（パッチファイル）のビューアーです。パラメーターは必要ありません。<guilabel>デフォルト</guilabel>の設定では、 "
-"TortoiseSVN と一緒にインストールされる TortoiseUDiff を使用するよう設定され、追加・削除された行を色分け表示します。"
-
-#. (para)
-msgid ""
-"Since Unified Diff is just a text format, you can use your favourite text "
-"editor if you prefer."
-msgstr "Unified-Diff ファイルはテキストファイルなので、任意のテキストエディターを使用しても結構です。"
-
-#. (title)
 msgid "Saved Data Settings"
 msgstr "保存データの設定"
 
 #. (title)
 msgid "The Settings Dialog, Saved Data Page"
-msgstr "設定ダイアログの保存されたデータページ"
+msgstr "設定ダイアログ、「保存されたデータ」ページ"
 
 #. (para)
 msgid ""
@@ -15872,7 +15917,7 @@ msgstr "ログキャッシュ"
 
 #. (title)
 msgid "The Settings Dialog, Log Cache Page"
-msgstr "設定ダイアログ、ログキャッシュページ"
+msgstr "設定ダイアログ、「ログキャッシュ」ページ"
 
 #. (para)
 msgid ""
@@ -16172,7 +16217,7 @@ msgstr "クライアントフック"
 
 #. (title)
 msgid "The Settings Dialog, Hook Scripts Page"
-msgstr "設定ダイアログ、フックスクリプトページ"
+msgstr "設定ダイアログ、「フックスクリプト」ページ"
 
 #. (para)
 msgid ""
@@ -16469,7 +16514,7 @@ msgstr ""
 
 #. (title)
 msgid "The Settings Dialog, Issue Tracker Integration Page"
-msgstr "設定ダイアログの課題追跡システムとの統合ページ"
+msgstr "設定ダイアログ、「課題追跡システムとの統合」ページ"
 
 #. (para)
 msgid ""
@@ -16532,7 +16577,7 @@ msgstr "TortoiseBlame の設定"
 
 #. (title)
 msgid "The Settings Dialog, TortoiseBlame Page"
-msgstr "設定ダイアログの TortoiseBlame ページ"
+msgstr "設定ダイアログ、「TortoiseBlame」ページ"
 
 #. (para)
 msgid ""
@@ -19544,7 +19589,7 @@ msgstr "削除"
 #. (entry)
 #. (title)
 msgid "Rename"
-msgstr "名前の変更"
+msgstr "名前変更"
 
 #. (entry)
 msgid "Update to revision"
@@ -19623,7 +19668,7 @@ msgstr "URL と差分表示"
 
 #. (entry)
 msgid "Delete unversioned items"
-msgstr "バージョン管理外の項目を削除する"
+msgstr "バージョン管理外の項目を削除"
 
 #. (entry)
 msgid "Merge All"
@@ -20338,7 +20383,7 @@ msgid ""
 "viewer for those two files."
 msgstr ""
 "<option>unified</option> オプションが指定された場合は、Unified "
-"形式の差分ファイルに含まれる変更されたファイルの一覧をダイアログで表示します。 URL "
+"差分ファイルに含まれる変更されたファイルの一覧をダイアログで表示します。 URL "
 "がファイルを指していた場合は、その２ファイルに対して差分ビューアーを起動します。"
 
 #. (para)
@@ -20998,7 +21043,7 @@ msgid ""
 "there is no direct CLI equivalent."
 msgstr ""
 "メインのコンテキストメニューから Diff を使用する場合、BASE リビジョンから変更されたファイルに対して比較を行います。上記 CLI "
-"コマンドの出力では比較を行い、結果 をunified-diff 形式で出力します。しかし、TortoiseSVN "
+"コマンドの出力では比較を行い、結果を Unified 差分ファイルで出力します。しかし、TortoiseSVN "
 "がこれを使用しているわけではありません。TortoiseSVN は TortoiseMerge (や、任意の diff プログラム) "
 "でフルテキストファイルの差分を視覚的に表示します、そのため、直接 CLI で相当するものはありません。"
 
@@ -22116,7 +22161,7 @@ msgid ""
 " to review."
 msgstr ""
 "作業コピーの変更がテキストファイルのみである場合、 Subversion の Diff コマンドを使用すると、変更内容を Unified "
-"差分形式で単一ファイルに出力することができます。この種のファイルはよく<quote>パッチ</quote>と呼ばれており、他の誰か（やメーリングリスト）にメールで送ったり、他の作業コピーに適用したりすることができます。コミットのアクセス権を持たない人は、変更を作成し、パッチファイルをコミット権限を持つ人に送ることができます。また、変更に自信がない場合、他の人にパッチを送ってレビューしてもらうこともできます。"
+"差分ファイルとして単一ファイルに出力することができます。この種のファイルはよく<quote>パッチ</quote>と呼ばれており、他の誰か（やメーリングリスト）にメールで送ったり、他の作業コピーに適用したりすることができます。コミットのアクセス権を持たない人は、変更を作成し、パッチファイルをコミット権限を持つ人に送ることができます。また、変更に自信がない場合、他の人にパッチを送ってレビューしてもらうこともできます。"
 
 #. (glossterm)
 msgid "Property"
@@ -22382,7 +22427,7 @@ msgid ""
 "files, often called <firstterm>patches</firstterm>."
 msgstr ""
 "TortoiseMerge はフリーでオープンソースのアプリケーションです。テキストファイルの差分を表示したり、変更点をマージしたり、 "
-"<firstterm>パッチ</firstterm> と呼ばれる Unified 形式の差分ファイルを検査したり適用したりすることができます。"
+"<firstterm>パッチ</firstterm> と呼ばれる Unified 差分ファイルを検査したり適用したりすることができます。"
 
 #. (para)
 msgid ""
@@ -22623,7 +22668,7 @@ msgid ""
 "repository paths."
 msgstr ""
 "パッチファイルは Subversion の Unified "
-"形式のファイルで、変更を適用するファイルの一覧が含まれています。パッチは、あなたが変更点を確認してからコミットできるように、他の開発者によって作成されたかもしれません。また、"
+"差分ファイルで、変更を適用するファイルの一覧が含まれています。パッチは、あなたが変更点を確認してからコミットできるように、他の開発者によって作成されたかもしれません。また、"
 " TortoiseSVN  "
 "が２つのフォルダーを比較する際に、内部的に作成したかもしれません。これは、リポジトリのリビジョンと作業コピーのフォルダーを比較したり、リポジトリ内の２つのリビジョンを比較したり、２つの異なるリポジトリパスを比較したりすると発生します。"
 
@@ -23305,6 +23350,24 @@ msgstr ""
 
 #. (para)
 msgid ""
+"<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
+"loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+"<guilabel>UTF-8 をデフォルトエンコードにする</guilabel> セットすると、 ANSI のファイルでも UTF-8 "
+"エンコードとして開くようになり、編集すると UTF-8 エンコードとして保存されるようになります。"
+
+#. (para)
+msgid ""
+"<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get "
+"slow when showing inline diffs for very long lines. Because of that only "
+"lines that are shorter than 3000 chars are shown with inline diffs. You can "
+"change this value here."
+msgstr ""
+"<guilabel>行内差分を取る行の最大長</guilabel> TortoiseMerge "
+"で非常に長い行の行内差分を表示すると、遅くなってしまいます。そのため、3000文字未満の行のみ行内差分が表示されるようになっています。ここでその長さを変えることができます。"
+
+#. (para)
+msgid ""
 "<guilabel>Ignore line endings</guilabel> hides changes which are due solely "
 "to difference in line-end style."
 msgstr "<guilabel>改行コードを無視する</guilabel> 改行コードの違いがないかのように違いを隠します。"
@@ -23317,42 +23380,6 @@ msgid ""
 msgstr ""
 "<guilabel>大文字/小文字の変更は無視する</guilabel> テキストファイル中、大文字/小文字しか違わない変更を隠します。 Visual "
 "Basic のような、警告なしで変数の大文字/小文字を変更してしまうようなアプリでは便利です。"
-
-#. (para)
-msgid ""
-"<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the"
-" line diff bar to show the detailed in-line changes within the main display "
-"panes. Lines which have been heavily modified will not be shown using this "
-"method as the results are simply confusing. In this case the line will be "
-"shown as replaced (old line deleted, new line added)."
-msgstr ""
-"<guilabel>行内の変更された部分に色付けする</guilabel> "
-"を使用すると、メイン画面内にある行内の変更を、差分バーと同様に色分けします。大きく変更された行は、この方法で表示すると分かりづらくなります。この場合、行が置き換えられたように（古い行の削除と新しい行の追加として）表示されます。"
-
-#. (para)
-msgid ""
-"<guilabel>Compare whitespaces</guilabel> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-"<guilabel>空白を比較</guilabel> インデントや行内の空白の変更を、行が追加・削除された場合と同様に扱います（Subversion "
-"と同様の扱い）。"
-
-#. (para)
-msgid ""
-"<guilabel>Ignore whitespace changes</guilabel> hides changes which are due "
-"solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-"<guilabel>空白の変更を無視する</guilabel> "
-"空白の種類や数しか変わらない変更（例えばインデントの変更や、タブとスペースの変更など）を隠します。但し、何もないところへの空白の追加や、空白の完全削除は変更として表示します。"
-
-#. (para)
-msgid ""
-"<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only "
-"changes."
-msgstr "<guilabel>空白を無視する</guilabel> 空白のみの変更を隠します。"
 
 #. (title)
 msgid "Colour Settings Page"
@@ -23808,7 +23835,7 @@ msgid ""
 "<placeholder-5/> is set, all other parameters are ignored."
 msgstr ""
 "<placeholder-1/> と <placeholder-2/> で指定したファイルから、 Unified "
-"形式の差分ファイル（パッチファイル）を作成します。ターゲットパスは <placeholder-3/> で指定します。 <placeholder-4/> "
+"差分ファイル（パッチファイル）を作成します。ターゲットパスは <placeholder-3/> で指定します。 <placeholder-4/> "
 "を指定しない場合、パッチファイルを保存する場所を指定するためにファイルの保存ダイアログが表示されます。 <placeholder-5/> "
 "を指定した場合、それ以外のパラメーターはすべて無視されることに注意してください。"
 

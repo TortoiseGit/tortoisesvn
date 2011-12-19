@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-16 07:50+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-12-17 21:13+0000\n"
+"Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17214,6 +17214,65 @@ msgstr ""
 "projekt <emphasis>wymaga</emphasis> wiadomości blokowania."
 
 #. (title)
+msgid "TortoiseSVN Dialog Settings 3"
+msgstr "Ustawienia TortoiseSVN dla okien dialogowych 3"
+
+#. (title)
+msgid "The Settings Dialog, Dialogs 3 Page"
+msgstr "Okno dialogowe ustawień, strona Okna dialogowe 3"
+
+#. (term)
+msgid "Pre-fetch folders for faster browsing"
+msgstr "Wstępnie pobieranie folderów w celu szybszego przeglądania"
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser fetches "
+"information about shown folders in the background. That way as soon as you "
+"browse into one of those folders, the information is already available."
+msgstr ""
+"Jeśli ta opcja jest zaznaczona (stan domyślny), to przeglądarka repozytorium"
+" pobiera informacje o pokazywanych folderach w tle. W ten sposób, gdy tylko "
+"rozpoczniesz przeglądanie jednego z tych folderów, informacje są już "
+"dostępne."
+
+#. (para)
+msgid ""
+"Some servers however can't handle the multiple requests this causes or when "
+"not configured correctly treat so many requests as something bad and start "
+"blocking them. In this case you can disable the pre-fetching here."
+msgstr ""
+"Niektóre serwery jednak nie potrafią obsłużyć wielu żądań, które to powoduje"
+" lub nie są poprawnie skonfigurowane przez co traktują tak wiele żądań jako "
+"coś złego i zaczynają je blokować. W tym przypadku można wyłączyć wstępne "
+"pobieranie tutaj."
+
+#. (term)
+msgid "Show externals"
+msgstr "Pokaż zewnętrzne"
+
+#. (para)
+msgid ""
+"If this box is checked (default state), then the repository browser shows "
+"files and folders that are included with the "
+"<literal>svn:externals</literal> property as normal files and folders, but "
+"with an overlay icon to mark them as from an external source."
+msgstr ""
+"Jeśli ta opcja jest zaznaczona (stan domyślny), to w przeglądarka "
+"repozytorium pokazuje pliki i foldery, które są dołączone z użyciem atrybutu"
+"  <literal>svn:externals</literal> jako normalne pliki i foldery, ale z "
+"ikoną nakładki oznaczającą je jako pochodzące ze źródła zewnętrznego."
+
+#. (para)
+msgid ""
+"As with the pre-fetch feature explained above, this too can put too much "
+"stress on weak servers. In this case you can disable this feature here."
+msgstr ""
+"Podobnie jak w przypadku funkcji pobierania wstępnego wyjaśnionej powyżej, "
+"to również może powodować zbyt wielkie obciążenie na słabych serwerach. W "
+"takim przypadku można wyłączyć tę funkcję tutaj."
+
+#. (title)
 msgid "TortoiseSVN Colour Settings"
 msgstr "Ustawienia kolorów TortoiseSVN"
 
@@ -18274,6 +18333,28 @@ msgstr ""
 "kontekstowe</guimenu><guimenuitem>Porównaj</guimenuitem></menuchoice> używa "
 "drugorzędnego narzędzia porównania."
 
+#. (para)
+msgid ""
+"At the bottom of the dialog you can configure a viewer program for unified-"
+"diff files (patch files). No parameters are required. The "
+"<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
+"installed alongside TortoiseSVN, and colour-codes the added and removed "
+"lines."
+msgstr ""
+"Na dole okna dialogowego programu do przeglądania plików różnicowych "
+"unified-diff (pliki poprawek). Nie są wymagane parametry. Ustawienie "
+"<guilabel>Domyślny</guilabel> oznacza użycie TortoiseUDiff, który jest "
+"instalowany wraz z TortoiseSVN oraz kodów kolorów dodanych i usuniętych "
+"linii."
+
+#. (para)
+msgid ""
+"Since Unified Diff is just a text format, you can use your favourite text "
+"editor if you prefer."
+msgstr ""
+"Ponieważ Unified Diff jest tylko formatem tekstowym, można użyć ulubionego "
+"edytora tekstu, jeśli wolicie."
+
 #. (title)
 msgid "Merge Tool"
 msgstr "Narzędzie do scalania"
@@ -18378,30 +18459,6 @@ msgstr ""
 "Użyjcie <literal>.bmp</literal> do opisania pliki map bitowych Windows. Aby "
 "skojarzyć za pomocą atrybutu <literal>svn:mime-type</literal>, określcie typ"
 " MIME, w tym ukośnik, na przykład <literal>text/xml</literal>."
-
-#. (title)
-msgid "Unified Diff Viewer"
-msgstr "Przeglądarka zunifikowanych DIFFów"
-
-#. (para)
-msgid ""
-"A viewer program for unified-diff files (patch files). No parameters are "
-"required. The <guilabel>Default</guilabel> setting is to use TortoiseUDiff "
-"which is installed alongside TortoiseSVN, and colour-codes the added and "
-"removed lines."
-msgstr ""
-"Program do przeglądania plików różnicowych unified-diff (pliki poprawek). "
-"Nie są wymagane parametry. Ustawienie <guilabel>Domyślny</guilabel> oznacza "
-"użycie TortoiseUDiff który jest instalowany wraz z TortoiseSVN oraz kodów "
-"kolorów dodanych i usuniętych linii."
-
-#. (para)
-msgid ""
-"Since Unified Diff is just a text format, you can use your favourite text "
-"editor if you prefer."
-msgstr ""
-"Ponieważ Unified Diff jest tylko formatem tekstowym, można użyć ulubionego "
-"edytora tekstu, jeśli wolicie."
 
 #. (title)
 msgid "Saved Data Settings"
@@ -26889,6 +26946,27 @@ msgstr ""
 
 #. (para)
 msgid ""
+"<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
+"loaded as UTF8 encoded and saved as such when edited."
+msgstr ""
+"Gdy ustawiono <guilabel>Domyślnie stosuj enkodowanie UTF-8</guilabel>, pliki"
+" ANSI są wczytywane jako kodowane w UTF8 i zapisywane w ten sposób po "
+"edycji."
+
+#. (para)
+msgid ""
+"<guilabel>Max line length for inline diffs</guilabel> TortoiseMerge can get "
+"slow when showing inline diffs for very long lines. Because of that only "
+"lines that are shorter than 3000 chars are shown with inline diffs. You can "
+"change this value here."
+msgstr ""
+"<guilabel>Maks. długość linii dla różnic w linii</guilabel> TortoiseMerge "
+"może doznać spowolnienia podczas pokazywania różnic wewnątrz linii dla "
+"bardzo długich linii. Dlatego tylko linie krótsze niż 3000 znaków pokazywane"
+" są z różnicami wewnątrz linii. Możesz zmienić tutaj tą wartość."
+
+#. (para)
+msgid ""
 "<guilabel>Ignore line endings</guilabel> hides changes which are due solely "
 "to difference in line-end style."
 msgstr ""
@@ -26905,52 +26983,6 @@ msgstr ""
 "wynikają wyłącznie z powodu zmiany wielkości liter w tekście. Może to być "
 "przydatne w aplikacjach takich jak Visual Basic, które zmieniają w wielkość "
 "liter w zmiennych bez ostrzeżenia."
-
-#. (para)
-msgid ""
-"<guilabel>Colour code in-line changes</guilabel> uses the same scheme as the"
-" line diff bar to show the detailed in-line changes within the main display "
-"panes. Lines which have been heavily modified will not be shown using this "
-"method as the results are simply confusing. In this case the line will be "
-"shown as replaced (old line deleted, new line added)."
-msgstr ""
-"<guilabel>Kolor zmian w liniach kodu</guilabel> używa tego samego schematu "
-"jak pasek porównania linii do pokazania szczegółowe zmiany wewnątrz linii w "
-"obrębie głównych paneli wyświetlania. Linie, które zostały poważnie "
-"zmodyfikowane nie będą pokazane przy użyciu tej ​​metody, gdyż wyniki będą "
-"po prostu mylące. W tym przypadku linia pokaże się jako zastąpiona (stara "
-"linia usunięta, nowa linia dodana)."
-
-#. (para)
-msgid ""
-"<guilabel>Compare whitespaces</guilabel> shows all changes in indentation "
-"and inline whitespace as added/removed lines (which is how Subversion treats"
-" such changes)."
-msgstr ""
-"<guilabel>Porównaj białe znaki</guilabel> pokazuje wszystkie zmiany w "
-"wcięcia i białe znaki w linii jak dodane/usunięte linie (tak jak Subversion "
-"traktuje takie zmiany)."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore whitespace changes</guilabel> hides changes which are due "
-"solely to a change in the amount or type of whitespace, e.g. changing the "
-"indentation or changing tabs to spaces. Adding whitespace where there was "
-"none before, or removing a whitespace completely is still shown as a change."
-msgstr ""
-"<guilabel>Ignoruj zmiany białych znaków</guilabel> ukrywa zmiany, które "
-"nastąpiły wyłącznie z powodu zmiany ilości lub rodzaju białych znaków, np. "
-"zmiany wcięcia lub zmiany tabulacji na spacje. Dodawanie białych znaków, "
-"gdzie nie było przedtem żadnego lub usuwanie wszystkich białych znaków jest "
-"nadal wyświetlane jako zmiana."
-
-#. (para)
-msgid ""
-"<guilabel>Ignore all whitespaces</guilabel> hides all whitespace-only "
-"changes."
-msgstr ""
-"<guilabel>Ignoruj wszystkie zmiany białych znaków</guilabel> ukrywa "
-"wszystkie zmiany białych znaków."
 
 #. (title)
 msgid "Colour Settings Page"
