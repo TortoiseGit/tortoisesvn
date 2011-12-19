@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-28 08:55+0000\n"
-"Last-Translator: mikkele <mikkel@elmholdt.dk>\n"
+"PO-Revision-Date: 2011-12-14 12:13+0000\n"
+"Last-Translator: Mikkel Elmholdt <mikkel@elmholdt.dk>\n"
 "Language-Team: Danish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -420,6 +420,10 @@ msgstr "&Avanceret"
 msgid "&Advanced..."
 msgstr "&Avanceret..."
 
+#. Resource IDs: (1505)
+msgid "&All"
+msgstr ""
+
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
 msgstr "&Tillad tvetydige URL'er"
@@ -672,6 +676,10 @@ msgstr "Sammenl&ign med forrige version"
 msgid "&Directories"
 msgstr "&Mapper"
 
+#. Resource IDs: (1562)
+msgid "&Do not ask again"
+msgstr ""
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Dokning"
@@ -695,6 +703,10 @@ msgstr "R&ediger konflikter"
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
 msgstr "&Rediger..."
+
+#. Resource IDs: (1542)
+msgid "&Empty the recycle bin now"
+msgstr ""
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
@@ -784,6 +796,10 @@ msgstr "&Fra: (start-URL og -revision af intervallet der skal flettes)"
 msgid "&Go To Line..."
 msgstr "&Gå til linje..."
 
+#. Resource IDs: (32893)
+msgid "&Goto line"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Green:"
 msgstr "&Grøn:"
@@ -829,6 +845,10 @@ msgstr "&Ignorer %d emner efter navn"
 msgid "&Ignore ancestry"
 msgstr "&Ignorer nedarvning"
 
+#. Resource IDs: (2)
+msgid "&Ignore and proceed"
+msgstr ""
+
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
 msgstr "&Ignorer forskelle i blanktegn"
@@ -860,6 +880,10 @@ msgstr "&Inkluder fletningsinformation"
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
 msgstr "&Standardmappe:"
+
+#. Resource IDs: (32889)
+msgid "&Inline diff"
+msgstr ""
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -896,6 +920,15 @@ msgstr "&Begræns søgning til ændrede linjer"
 #. Resource IDs: (65535)
 msgid "&Limit:"
 msgstr "&Grænse:"
+
+#. Resource IDs: (1078)
+msgid "&Line number"
+msgstr ""
+
+#. Resource IDs: (88)
+#, c-format
+msgid "&Line number (%d - %d)"
+msgstr ""
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
@@ -1025,6 +1058,10 @@ msgstr "&Ingen dobbeltklikhandling"
 #. Resource IDs: (1555)
 msgid "&No locking required"
 msgstr "&Låsning ikke nødvendig"
+
+#. Resource IDs: (1506)
+msgid "&None"
+msgstr ""
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -1971,10 +2008,6 @@ msgstr "Alle filer (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Alle filer (*.*)|*.*||"
 
-#. Resource IDs: (148)
-msgid "All changes since the last update will be lost!"
-msgstr "Alle ændringer siden den sidste opdatering vil blive tabt!"
-
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
@@ -2588,14 +2621,6 @@ msgstr ""
 "Fortryd\n"
 "Jeg vil indtaste en anden sti/URL."
 
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Ignore the outside changes."
-msgstr ""
-"Fortryd\n"
-"Ignorer eksterne ændringer."
-
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
@@ -2612,14 +2637,6 @@ msgstr ""
 "Fortryd\n"
 "Behold den tomme fil."
 
-#. Resource IDs: (148)
-msgid ""
-"Cancel\n"
-"Leave all changes."
-msgstr ""
-"Fortryd\n"
-"Bevar alle ændringer"
-
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
@@ -2627,6 +2644,12 @@ msgid ""
 msgstr ""
 "Fortryd\n"
 "Behold cachen på disken."
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Local modifications are kept."
+msgstr ""
 
 #. Resource IDs: (315)
 msgid ""
@@ -2643,14 +2666,6 @@ msgid ""
 msgstr ""
 "Fortryd\n"
 "Konflikten vil ikke blive løst"
-
-#. Resource IDs: (90)
-msgid ""
-"Cancel\n"
-"The file is not added and not adjusted."
-msgstr ""
-"Fortryd\n"
-"Filen bliver ikke tilføjet og ikke justeret"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3293,6 +3308,10 @@ msgstr "Gennemført"
 msgid "Completed!"
 msgstr "Gennemført!"
 
+#. Resource IDs: (1620)
+msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr ""
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "Konfigurer tilkoblinger"
@@ -3337,6 +3356,10 @@ msgstr "Konflikt løst"
 #. Resource IDs: (263, 65535)
 msgid "Conflicted"
 msgstr "Konfliktramt"
+
+#. Resource IDs: (265)
+msgid "Conflicted (maybe)"
+msgstr ""
 
 #. Resource IDs: (188)
 #, c-format
@@ -4015,6 +4038,14 @@ msgstr "Dialogstørrelser og -placeringer"
 msgid "Diff Options"
 msgstr "Forskels-Indstillinger"
 
+#. Resource IDs: (192)
+msgid "Diff Viewer"
+msgstr ""
+
+#. Resource IDs: (193)
+msgid "Diff Viewer::Merge Tool"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Sammenligningsfil:"
@@ -4172,6 +4203,10 @@ msgstr ""
 "Er du helt sikker på, at du vil tilbageføre alle ændringerne i\n"
 "%s\n"
 "som blev lavet i denne revision? Disse ændringer vil blive tilbageført ved at lave en omvendt fletning af revisionerne ind i din arbejdskopi."
+
+#. Resource IDs: (315)
+msgid "Do you want to load the changed files?"
+msgstr ""
 
 #. Resource IDs: (99)
 #, c-format
@@ -4754,18 +4789,6 @@ msgstr "Ekstern"
 msgid "External Program:"
 msgstr "Eksternt program:"
 
-#. Resource IDs: (192)
-msgid "External Programs::Diff Viewer"
-msgstr "Eksterne programmer::Sammenligningsprogram"
-
-#. Resource IDs: (193)
-msgid "External Programs::Merge Tool"
-msgstr "Eksterne programmer::Fletningsprogram"
-
-#. Resource IDs: (194)
-msgid "External Programs::Unified Diff Viewer"
-msgstr "Eksterne programmer::Unified diff-visningsprogram"
-
 #. Resource IDs: (263)
 msgid "External failed"
 msgstr "Extern mislykket"
@@ -4851,6 +4874,11 @@ msgstr ""
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "Mislykket!"
+
+#. Resource IDs: (199)
+msgid ""
+"Fetches the contents of folders in the background so browsing is faster"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5180,6 +5208,10 @@ msgstr "Tema::Dialoger 1"
 msgid "General::Dialogs 2"
 msgstr "Tema::Dialoger 2"
 
+#. Resource IDs: (332)
+msgid "General::Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Genererer rettelsesfil..."
@@ -5245,6 +5277,10 @@ msgstr "Globalt ignorer-&mønster:"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "Globale indstillinger"
+
+#. Resource IDs: (155)
+msgid "Go To Line"
+msgstr ""
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -5552,6 +5588,10 @@ msgstr "ID:32881:V C +P"
 msgid "ID:32883:V C +A"
 msgstr "ID:32883:V C +A"
 
+#. Accelerator Entry for Menu ID:32893; '&Goto line'
+msgid "ID:32893:V C +G"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5792,6 +5832,12 @@ msgstr "Ignorer alle ændringer i blanktegn"
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Ignorer &store/små bogstaver"
+
+#. Resource IDs: (315)
+msgid ""
+"Ignore changes\n"
+"Ignore the outside changes."
+msgstr ""
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -6155,8 +6201,8 @@ msgid "Keep &locks"
 msgstr "Bevar &låse"
 
 #. Resource IDs: (1126)
-msgid "Keep ch&angelists"
-msgstr "Behold &ændringslister"
+msgid "Keep c&hangelists"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -6301,6 +6347,18 @@ msgstr "Lo&kal sti:"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Hent billeder"
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"Changes made in TortoiseMerge are lost and replaced with the new content."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"The views are updated with the new content."
+msgstr ""
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6723,10 +6781,6 @@ msgstr "Blandet"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "Ændringsdato"
-
-#. Resource IDs: (315)
-msgid "Modifications detected"
-msgstr "Ændringer detekteret"
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
@@ -7708,6 +7762,10 @@ msgstr "Før-forbindelses tilkobling"
 msgid "Pre-Update Hook"
 msgstr "\"Før opdatering\"-tilkobling"
 
+#. Resource IDs: (1562)
+msgid "Pre-fetch folders for faster browsing"
+msgstr ""
+
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Foretræk &lokal"
@@ -8087,6 +8145,10 @@ msgstr ""
 "Rekursivt\n"
 "Fjern også egenskaben fra elementer i undermapper."
 
+#. Resource IDs: (333)
+msgid "Recycle bin"
+msgstr ""
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "Viderestiller til url"
@@ -8204,22 +8266,6 @@ msgstr "Oml&æg..."
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "Genindlæs"
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"Local modifications are lost."
-msgstr ""
-"Opdater\n"
-"Lokale ændringer går tabt."
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"The outside changes are loaded."
-msgstr ""
-"Opdater\n"
-"De eksterne ændringer indlæses."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8488,6 +8534,10 @@ msgstr "URL til versionsarkiv"
 msgid "Repository UUID:"
 msgstr "Versionarkivet-UUID:"
 
+#. Resource IDs: (65535)
+msgid "Repository browser"
+msgstr ""
+
 #. Resource IDs: (324)
 msgid "Repository created"
 msgstr "Versionsarkiv oprettet"
@@ -8608,10 +8658,8 @@ msgstr ""
 #. Resource IDs: (147)
 msgid ""
 "Revert\n"
-"All changes will be lost."
+"All local modifications will be lost."
 msgstr ""
-"Tilbagefør\n"
-"Alle ændringer vil gå tabt."
 
 #. Resource IDs: (119)
 msgid ""
@@ -8690,8 +8738,8 @@ msgid "Revision graph"
 msgstr "Revisionsgraf"
 
 #. Resource IDs: (1492)
-msgid "Revision r&ange to merge"
-msgstr "Revisions&interval for fletning"
+msgid "Revision range to merge"
+msgstr ""
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -9368,6 +9416,12 @@ msgstr ""
 "Vis linjesammenligning ord for ord\n"
 "Sammenlign ordvis ved linjesammenligning"
 
+#. Resource IDs: (2056)
+msgid ""
+"Show Inline-Diff\n"
+"Inline diff"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
 msgstr "Vis låsedialog før låsning af filer"
@@ -9411,6 +9465,10 @@ msgstr "Vis forskelle som &unified diff"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Vis udelukkede rod-foldere som normale"
+
+#. Resource IDs: (1480)
+msgid "Show externals"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9543,6 +9601,10 @@ msgstr ""
 msgid "Shows all revisions where changes were made to this item"
 msgstr "Vis alle revisioner, hvor der blev foretaget ændringer af dette emne"
 
+#. Resource IDs: (200)
+msgid "Shows folders and files included with the svn:externals property"
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Viser information om TortoiseSVN"
@@ -9621,19 +9683,15 @@ msgstr "Glid"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
-"Nogle file(r) er blevet ændret udenfor T-Merge. \n"
-"Ønsker du at indlæse ændringerne?"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
-"Nogle file(r) er blevet ændret udenfor T-Merge. \n"
-"Ønsker du at genindlæse og miste dine egne ændringer?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -10409,6 +10467,11 @@ msgstr "Linjen, der indikerer den nye fil, var forventet på linje %d!"
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "Linjen, der indikerer den gamle fil, var forventet på linje %d!"
 
+#. Resource IDs: (88)
+#, c-format
+msgid "The line number must be in between %d and %d"
+msgstr ""
+
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "Låsen er allerede blevet brudt fra en anden arbejdskopi"
@@ -10780,6 +10843,30 @@ msgstr ""
 "\n"
 "Ønsker du at arkivere alligevel?"
 
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-commit hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-lock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-unlock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "Denne fil eksisterer allerede!"
@@ -11053,20 +11140,21 @@ msgid ""
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "neon %s\r\n"
+"serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
-"zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
 msgstr "TortoiseSVN auto arkivering: ændrede eksterne til låst revision."
+
+#. Resource IDs: (507)
+#, c-format
+msgid ""
+"TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
+"To fix this, you should empty the recycle bin now."
+msgstr ""
 
 #. Resource IDs: (98)
 #, c-format
@@ -12220,6 +12308,10 @@ msgstr "alias (%1!s!): %2!s!"
 msgid "alias: %s"
 msgstr "alias: %s"
 
+#. Resource IDs: (1618)
+msgid "all &revisions"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "en ikke-navngivet fil"
@@ -12646,6 +12738,10 @@ msgstr "gennemser sti:"
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "intervaller der skal springes over:"
+
+#. Resource IDs: (1619)
+msgid "specific r&ange"
+msgstr ""
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"

@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-28 07:25+0000\n"
-"Last-Translator: otik <otik@e-posta.sk>\n"
+"PO-Revision-Date: 2011-12-14 12:13+0000\n"
+"Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -419,6 +419,10 @@ msgstr "&Pokročilé"
 msgid "&Advanced..."
 msgstr "&Pokročilé..."
 
+#. Resource IDs: (1505)
+msgid "&All"
+msgstr ""
+
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
 msgstr "&Povoliť nejednoznačné URL"
@@ -671,6 +675,10 @@ msgstr "&Porovnať s predchádzajúcou verziou."
 msgid "&Directories"
 msgstr "&Adresáre"
 
+#. Resource IDs: (1562)
+msgid "&Do not ask again"
+msgstr ""
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Zachytávanie"
@@ -694,6 +702,10 @@ msgstr "&Upraviť konflikty"
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
 msgstr "&Upraviť..."
+
+#. Resource IDs: (1542)
+msgid "&Empty the recycle bin now"
+msgstr ""
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
@@ -783,6 +795,10 @@ msgstr "&Od: (prvá URL adresa, prvá revízia rozsahu k zlúčeniu)"
 msgid "&Go To Line..."
 msgstr "&Choď na riadok..."
 
+#. Resource IDs: (32893)
+msgid "&Goto line"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Green:"
 msgstr "&Zelené:"
@@ -828,6 +844,10 @@ msgstr "&Ignorovať %d objektov podľa mena"
 msgid "&Ignore ancestry"
 msgstr "&Ignorovať pôvod"
 
+#. Resource IDs: (2)
+msgid "&Ignore and proceed"
+msgstr ""
+
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
 msgstr "Ignorovať zmeny &bielych znakov"
@@ -859,6 +879,10 @@ msgstr "&Zahrnúť info o zlúčení"
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
 msgstr "&Počiatočný adresár:"
+
+#. Resource IDs: (32889)
+msgid "&Inline diff"
+msgstr ""
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -895,6 +919,15 @@ msgstr "&Obmedziť vyhľadávanie na zmenené riadky"
 #. Resource IDs: (65535)
 msgid "&Limit:"
 msgstr "&Limit:"
+
+#. Resource IDs: (1078)
+msgid "&Line number"
+msgstr ""
+
+#. Resource IDs: (88)
+#, c-format
+msgid "&Line number (%d - %d)"
+msgstr ""
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
@@ -1024,6 +1057,10 @@ msgstr "&Žiadna akcia dvojkliku"
 #. Resource IDs: (1555)
 msgid "&No locking required"
 msgstr "&Zamok nie je požadovaný"
+
+#. Resource IDs: (1506)
+msgid "&None"
+msgstr ""
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -1961,10 +1998,6 @@ msgstr "Všetky súbory (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Všetky súbory (*.*)|*.*||"
 
-#. Resource IDs: (148)
-msgid "All changes since the last update will be lost!"
-msgstr "Všetky zmeny od poslednej aktualizácie budú stratené!"
-
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
@@ -2574,14 +2607,6 @@ msgstr ""
 "Zrušiť\n"
 "Zadám inú cestu/URL."
 
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Ignore the outside changes."
-msgstr ""
-"Zrušiť\n"
-"Ignorovať zmeny z vonku."
-
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
@@ -2598,14 +2623,6 @@ msgstr ""
 "Zrušiť\n"
 "Ponechať prázdny súbor."
 
-#. Resource IDs: (148)
-msgid ""
-"Cancel\n"
-"Leave all changes."
-msgstr ""
-"Zrušiť\n"
-"Ponechať zmeny."
-
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
@@ -2613,6 +2630,12 @@ msgid ""
 msgstr ""
 "Zrušiť\n"
 "Ponechať zásobník na disku."
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Local modifications are kept."
+msgstr ""
 
 #. Resource IDs: (315)
 msgid ""
@@ -2629,14 +2652,6 @@ msgid ""
 msgstr ""
 "Zrušiť\n"
 "Konflikty neriešiť."
-
-#. Resource IDs: (90)
-msgid ""
-"Cancel\n"
-"The file is not added and not adjusted."
-msgstr ""
-"Zrušiť\n"
-"Súbor nebude pridaný ani upravený."
 
 #. Resource IDs: (90)
 msgid ""
@@ -3278,6 +3293,10 @@ msgstr "Hotovo"
 msgid "Completed!"
 msgstr "Hotovo!"
 
+#. Resource IDs: (1620)
+msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr ""
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "Nastaviť pripnuté skripty"
@@ -3318,6 +3337,10 @@ msgstr "Konflikt bol vyriešený"
 #. Resource IDs: (263, 65535)
 msgid "Conflicted"
 msgstr "Konfliktné"
+
+#. Resource IDs: (265)
+msgid "Conflicted (maybe)"
+msgstr ""
 
 #. Resource IDs: (188)
 #, c-format
@@ -3997,6 +4020,14 @@ msgstr "Veľkosť a poloha dialógových okien"
 msgid "Diff Options"
 msgstr "Možnosti porovnania"
 
+#. Resource IDs: (192)
+msgid "Diff Viewer"
+msgstr ""
+
+#. Resource IDs: (193)
+msgid "Diff Viewer::Merge Tool"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Súbor porovnania:"
@@ -4153,6 +4184,10 @@ msgstr ""
 "Chcete naozaj vrátiť všetky zmeny v \n"
 "%s\n"
 "ktoré boli v tejto revízií vykonané? Tieto zmeny budú vrátené reverzným zlučovaním revízie do vašej pracovnej kópie."
+
+#. Resource IDs: (315)
+msgid "Do you want to load the changed files?"
+msgstr ""
 
 #. Resource IDs: (99)
 #, c-format
@@ -4733,18 +4768,6 @@ msgstr "Externé"
 msgid "External Program:"
 msgstr "Externý program:"
 
-#. Resource IDs: (192)
-msgid "External Programs::Diff Viewer"
-msgstr "Externý program::Prezerač rozdielov"
-
-#. Resource IDs: (193)
-msgid "External Programs::Merge Tool"
-msgstr "Externý program::Spájací nástroj"
-
-#. Resource IDs: (194)
-msgid "External Programs::Unified Diff Viewer"
-msgstr "Externý program::Prezerač unifikovaného porovnania"
-
 #. Resource IDs: (263)
 msgid "External failed"
 msgstr "Externé zlyhalo"
@@ -4830,6 +4853,11 @@ msgstr ""
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "Zlyhanie!"
+
+#. Resource IDs: (199)
+msgid ""
+"Fetches the contents of folders in the background so browsing is faster"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5163,6 +5191,10 @@ msgstr "Všeobecné::Dialógy I"
 msgid "General::Dialogs 2"
 msgstr "Všeobecné::Dialógy II"
 
+#. Resource IDs: (332)
+msgid "General::Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Vytváram súbor záplaty..."
@@ -5228,6 +5260,10 @@ msgstr "Globálna šablóna &vylúčenia:"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "Globálne nastavenia"
+
+#. Resource IDs: (155)
+msgid "Go To Line"
+msgstr ""
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -5535,6 +5571,10 @@ msgstr "ID:32881:V C +P"
 msgid "ID:32883:V C +A"
 msgstr "ID: 32883: VC +"
 
+#. Accelerator Entry for Menu ID:32893; '&Goto line'
+msgid "ID:32893:V C +G"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5774,6 +5814,12 @@ msgstr "Ignorovať všetky zmeny bielych znakov"
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Ignorovať zmeny vo &veľkosti písma"
+
+#. Resource IDs: (315)
+msgid ""
+"Ignore changes\n"
+"Ignore the outside changes."
+msgstr ""
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -6141,8 +6187,8 @@ msgid "Keep &locks"
 msgstr "Zachovať &zámky"
 
 #. Resource IDs: (1126)
-msgid "Keep ch&angelists"
-msgstr "Z&achovať zoznam zmien"
+msgid "Keep c&hangelists"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -6284,6 +6330,18 @@ msgstr "Miestna &cesta:"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Načítať obrázok"
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"Changes made in TortoiseMerge are lost and replaced with the new content."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"The views are updated with the new content."
+msgstr ""
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6707,10 +6765,6 @@ msgstr "Zmiešané"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "Dátum zmeny"
-
-#. Resource IDs: (315)
-msgid "Modifications detected"
-msgstr "Zistené zmeny"
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
@@ -7691,6 +7745,10 @@ msgstr "Predpripájací pripnutý (hook)skript"
 msgid "Pre-Update Hook"
 msgstr "Predaktulizačný pripnutý (hook)skript"
 
+#. Resource IDs: (1562)
+msgid "Pre-fetch folders for faster browsing"
+msgstr ""
+
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Uprednostniť &miestne"
@@ -8070,6 +8128,10 @@ msgstr ""
 "Rekurzivne\n"
 "Odstráni vlastnosť aj z objektov v podadresároch"
 
+#. Resource IDs: (333)
+msgid "Recycle bin"
+msgstr ""
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "Presmerovávanie na URL"
@@ -8187,22 +8249,6 @@ msgstr "Premie&stniť..."
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "Znovu načítať"
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"Local modifications are lost."
-msgstr ""
-"Znovu načítať\n"
-"Miestne zmeny budú stratené"
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"The outside changes are loaded."
-msgstr ""
-"Znovu načítať\n"
-"Vonkajšie zmeny budú načítané."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8471,6 +8517,10 @@ msgstr "URL úložiska"
 msgid "Repository UUID:"
 msgstr "UUID úložiska:"
 
+#. Resource IDs: (65535)
+msgid "Repository browser"
+msgstr ""
+
 #. Resource IDs: (324)
 msgid "Repository created"
 msgstr "Úložisko bolo vytvorené"
@@ -8590,10 +8640,8 @@ msgstr "Vrátiť prednastavené. Odporúčané pre neskúsených užívateľov."
 #. Resource IDs: (147)
 msgid ""
 "Revert\n"
-"All changes will be lost."
+"All local modifications will be lost."
 msgstr ""
-"Vrátiť\n"
-"Stratíte všetky zmeny."
 
 #. Resource IDs: (119)
 msgid ""
@@ -8672,8 +8720,8 @@ msgid "Revision graph"
 msgstr "Graf revízií"
 
 #. Resource IDs: (1492)
-msgid "Revision r&ange to merge"
-msgstr "Rozs&ah revízií k zlúčeniu"
+msgid "Revision range to merge"
+msgstr ""
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -9349,6 +9397,12 @@ msgstr ""
 "Zobrazí zmeny v riadku slovo po slove\n"
 "Rozdiely v riadkoch po slovách"
 
+#. Resource IDs: (2056)
+msgid ""
+"Show Inline-Diff\n"
+"Inline diff"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
 msgstr "Zobraziť Dialógové okno zamykanie pred zamknutím súborov"
@@ -9392,6 +9446,10 @@ msgstr "Zobraz rozdiely &unifikovaným porovnaním"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Zobraziť vylúčené koreňové adresáre normálne"
+
+#. Resource IDs: (1480)
+msgid "Show externals"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9523,6 +9581,10 @@ msgstr ""
 msgid "Shows all revisions where changes were made to this item"
 msgstr "Zobrazí všetky revízie, v ktorých bol tento objekt zmenený"
 
+#. Resource IDs: (200)
+msgid "Shows folders and files included with the svn:externals property"
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Zobrazí informácie o TortoiseSVN"
@@ -9601,19 +9663,15 @@ msgstr "Posunúť"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
-"Súbor, alebo súbory boli zmené mimo TortoiseMerge.\n"
-"Chcete načítať tieto zmeny?"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
-"Súbor, alebo súbory boli zmené mimo ToroiseMerge.\n"
-"Chcete súbory znova načítať a stratiť vaše zmeny?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -10386,6 +10444,11 @@ msgstr "Na riadku %d bolo očakávane určenie nového súboru!"
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "Na riadku %d bolo očakávane určenie starého súboru!"
 
+#. Resource IDs: (88)
+#, c-format
+msgid "The line number must be in between %d and %d"
+msgstr ""
+
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "Zámok bol zlomený z inej pracovnej kópie"
@@ -10756,6 +10819,30 @@ msgstr ""
 "\n"
 "Chcete napriek tomu odovzdať."
 
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-commit hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-lock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-unlock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "Tento súbor už existuje!"
@@ -11023,20 +11110,21 @@ msgid ""
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "neon %s\r\n"
+"serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
-"zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
 msgstr "TortoiseSVN automatické odovzdanie: zmení externé na pevnú revíziu."
+
+#. Resource IDs: (507)
+#, c-format
+msgid ""
+"TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
+"To fix this, you should empty the recycle bin now."
+msgstr ""
 
 #. Resource IDs: (98)
 #, c-format
@@ -12190,6 +12278,10 @@ msgstr "alias (%1!s!): %2!s!"
 msgid "alias: %s"
 msgstr "alias: %s"
 
+#. Resource IDs: (1618)
+msgid "all &revisions"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "nepomenovaný súbor"
@@ -12616,6 +12708,10 @@ msgstr "hĺbka  analýzy:"
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "preskočiť rozsah:"
+
+#. Resource IDs: (1619)
+msgid "specific r&ange"
+msgstr ""
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"

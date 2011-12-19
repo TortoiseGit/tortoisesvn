@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-25 12:51+0000\n"
-"Last-Translator: JML <j.m.van.leerdam@gmail.com>\n"
+"PO-Revision-Date: 2011-12-14 12:13+0000\n"
+"Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -424,6 +424,10 @@ msgstr "&Geavanceerd"
 msgid "&Advanced..."
 msgstr "&Geavanceerd..."
 
+#. Resource IDs: (1505)
+msgid "&All"
+msgstr ""
+
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
 msgstr "St&a dubbelzinnige URLs toe"
@@ -676,6 +680,10 @@ msgstr "&Vergelijk met vorige revisie"
 msgid "&Directories"
 msgstr "&Mappen"
 
+#. Resource IDs: (1562)
+msgid "&Do not ask again"
+msgstr ""
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Docking"
@@ -699,6 +707,10 @@ msgstr "&Bewerk conflicten"
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
 msgstr "&Wijzigen..."
+
+#. Resource IDs: (1542)
+msgid "&Empty the recycle bin now"
+msgstr ""
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
@@ -788,6 +800,10 @@ msgstr "Bron &start: (begin URL en revisie van het samen te voegen bereik)"
 msgid "&Go To Line..."
 msgstr "&Ga naar regel..."
 
+#. Resource IDs: (32893)
+msgid "&Goto line"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Green:"
 msgstr "&Groen:"
@@ -833,6 +849,10 @@ msgstr "%d zaken &negeren op naam"
 msgid "&Ignore ancestry"
 msgstr "&Negeer oorsprong"
 
+#. Resource IDs: (2)
+msgid "&Ignore and proceed"
+msgstr ""
+
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
 msgstr "Negeer wijzigingen in &spaties en lege regels"
@@ -864,6 +884,10 @@ msgstr "Samenvoeg-informatie &meenemen"
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
 msgstr "&Start-map:"
+
+#. Resource IDs: (32889)
+msgid "&Inline diff"
+msgstr ""
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -900,6 +924,15 @@ msgstr "&Alleen zoeken in gewijzigde regels"
 #. Resource IDs: (65535)
 msgid "&Limit:"
 msgstr "&Limiet:"
+
+#. Resource IDs: (1078)
+msgid "&Line number"
+msgstr ""
+
+#. Resource IDs: (88)
+#, c-format
+msgid "&Line number (%d - %d)"
+msgstr ""
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
@@ -1029,6 +1062,10 @@ msgstr "&Geen dubbelklik event"
 #. Resource IDs: (1555)
 msgid "&No locking required"
 msgstr "&Geen blokkade nodig"
+
+#. Resource IDs: (1506)
+msgid "&None"
+msgstr ""
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -1972,10 +2009,6 @@ msgstr "Alle bestanden (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Alle Bestanden (*.*)|*.*||"
 
-#. Resource IDs: (148)
-msgid "All changes since the last update will be lost!"
-msgstr "Alle wijzigingen sinds het bijwerken gaan verloren!"
-
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
@@ -2587,14 +2620,6 @@ msgstr ""
 "Annuleer\n"
 "Een ander pad/URL opgeven."
 
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Ignore the outside changes."
-msgstr ""
-"Annuleer\n"
-"Negeer de wijzigingen van buitenaf"
-
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
@@ -2611,14 +2636,6 @@ msgstr ""
 "Annuleer\n"
 "Bewaar het lege bestand."
 
-#. Resource IDs: (148)
-msgid ""
-"Cancel\n"
-"Leave all changes."
-msgstr ""
-"Annuleer\n"
-"Handhaaf alle wijzigingen."
-
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
@@ -2626,6 +2643,12 @@ msgid ""
 msgstr ""
 "Annuleer\n"
 "Laat de cache op schijf."
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Local modifications are kept."
+msgstr ""
 
 #. Resource IDs: (315)
 msgid ""
@@ -2642,14 +2665,6 @@ msgid ""
 msgstr ""
 "Annuleer\n"
 "Het conflict wordt niet opgelost."
-
-#. Resource IDs: (90)
-msgid ""
-"Cancel\n"
-"The file is not added and not adjusted."
-msgstr ""
-"Annuleer\n"
-"Het bestand wordt niet toegevoegd en niet aangepast."
 
 #. Resource IDs: (90)
 msgid ""
@@ -3286,6 +3301,10 @@ msgstr "Gereed"
 msgid "Completed!"
 msgstr "Gereed!"
 
+#. Resource IDs: (1620)
+msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr ""
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "Hook-scripts configureren"
@@ -3330,6 +3349,10 @@ msgstr "Conflict opgelost"
 #. Resource IDs: (263, 65535)
 msgid "Conflicted"
 msgstr "In conflict"
+
+#. Resource IDs: (265)
+msgid "Conflicted (maybe)"
+msgstr ""
 
 #. Resource IDs: (188)
 #, c-format
@@ -4004,6 +4027,14 @@ msgstr "Venster afmetingen en posities"
 msgid "Diff Options"
 msgstr "Opties voor Verschillen"
 
+#. Resource IDs: (192)
+msgid "Diff Viewer"
+msgstr ""
+
+#. Resource IDs: (193)
+msgid "Diff Viewer::Merge Tool"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Diff-bestand:"
@@ -4162,6 +4193,10 @@ msgstr ""
 "Wilt u echt alle wijzigingen in\n"
 "%s\n"
 "uit deze revisie ongedaan maken? Deze wijzigingen zullen via omgekeerd-samenvoegen worden aangebracht in uw werkkopie."
+
+#. Resource IDs: (315)
+msgid "Do you want to load the changed files?"
+msgstr ""
 
 #. Resource IDs: (99)
 #, c-format
@@ -4744,18 +4779,6 @@ msgstr "Extern"
 msgid "External Program:"
 msgstr "Extern programma:"
 
-#. Resource IDs: (192)
-msgid "External Programs::Diff Viewer"
-msgstr "Externe programma's::Diff viewer"
-
-#. Resource IDs: (193)
-msgid "External Programs::Merge Tool"
-msgstr "Externe programma's::Samenvoeg gereedschap"
-
-#. Resource IDs: (194)
-msgid "External Programs::Unified Diff Viewer"
-msgstr "Externe programma's::GNU diff-bestandsviewer"
-
 #. Resource IDs: (263)
 msgid "External failed"
 msgstr "Externe mislukt"
@@ -4841,6 +4864,11 @@ msgstr ""
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "Mislukt!"
+
+#. Resource IDs: (199)
+msgid ""
+"Fetches the contents of folders in the background so browsing is faster"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5172,6 +5200,10 @@ msgstr "Algemeen::Dialogen 1"
 msgid "General::Dialogs 2"
 msgstr "Algemeen::Dialogen 2"
 
+#. Resource IDs: (332)
+msgid "General::Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Patchfile maken..."
@@ -5237,6 +5269,10 @@ msgstr "Globaal &negeer-patroon:"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "Instellingen"
+
+#. Resource IDs: (155)
+msgid "Go To Line"
+msgstr ""
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -5544,6 +5580,10 @@ msgstr "ID:32881:V C +P"
 msgid "ID:32883:V C +A"
 msgstr "ID:32883:V C +A"
 
+#. Accelerator Entry for Menu ID:32893; '&Goto line'
+msgid "ID:32893:V C +G"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5784,6 +5824,12 @@ msgstr "Negeer alle wijzigingen in spaties en witregels"
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Negeer wijzigingen in &hoofd- en kleine letters"
+
+#. Resource IDs: (315)
+msgid ""
+"Ignore changes\n"
+"Ignore the outside changes."
+msgstr ""
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -6147,8 +6193,8 @@ msgid "Keep &locks"
 msgstr "&Blokkades handhaven"
 
 #. Resource IDs: (1126)
-msgid "Keep ch&angelists"
-msgstr "Werksets bew&aren"
+msgid "Keep c&hangelists"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -6290,6 +6336,18 @@ msgstr "Lo&kaal pad:"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Afbeeldingen laden"
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"Changes made in TortoiseMerge are lost and replaced with the new content."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"The views are updated with the new content."
+msgstr ""
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6716,10 +6774,6 @@ msgstr "Gemengd"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "Wijzigingsdatum"
-
-#. Resource IDs: (315)
-msgid "Modifications detected"
-msgstr "Wijzigingen gedetecteerd"
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
@@ -7702,6 +7756,10 @@ msgstr "Pre-Vastleggen hook"
 msgid "Pre-Update Hook"
 msgstr "Pre-Ververs Hook"
 
+#. Resource IDs: (1562)
+msgid "Pre-fetch folders for faster browsing"
+msgstr ""
+
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Gebruik &lokale versie"
@@ -8082,6 +8140,10 @@ msgstr ""
 "Recursief\n"
 "Verwijder de eigenschap ook van onderliggende mappen."
 
+#. Resource IDs: (333)
+msgid "Recycle bin"
+msgstr ""
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "Doorverwijzen naar url"
@@ -8202,22 +8264,6 @@ msgstr "&Verhuis..."
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "Herladen"
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"Local modifications are lost."
-msgstr ""
-"Herladen\n"
-"Lokale wijzigingen gaan verloren."
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"The outside changes are loaded."
-msgstr ""
-"Herladen\n"
-"De wijzigingen van buitenaf worden geladen."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8486,6 +8532,10 @@ msgstr "Archief URL"
 msgid "Repository UUID:"
 msgstr "UUID van Archief:"
 
+#. Resource IDs: (65535)
+msgid "Repository browser"
+msgstr ""
+
 #. Resource IDs: (324)
 msgid "Repository created"
 msgstr "Archief aangemaakt"
@@ -8606,10 +8656,8 @@ msgstr ""
 #. Resource IDs: (147)
 msgid ""
 "Revert\n"
-"All changes will be lost."
+"All local modifications will be lost."
 msgstr ""
-"Ongedaan maken\n"
-"Alle wijzigingen gaan verloren."
 
 #. Resource IDs: (119)
 msgid ""
@@ -8688,8 +8736,8 @@ msgid "Revision graph"
 msgstr "Revisie schema"
 
 #. Resource IDs: (1492)
-msgid "Revision r&ange to merge"
-msgstr "Revisie&bereik om samen te voegen"
+msgid "Revision range to merge"
+msgstr ""
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -9370,6 +9418,12 @@ msgstr ""
 "Toon verschillen in een regel per woord\n"
 "Woordelijke verschillen in een regel"
 
+#. Resource IDs: (2056)
+msgid ""
+"Show Inline-Diff\n"
+"Inline diff"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
 msgstr "Toon de Blokkeer dialoog voordat bestanden geblokkeerd worden"
@@ -9413,6 +9467,10 @@ msgstr "Toon verschillen als &unified diff"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Toon uitgesloten hoofd-paden als normaal"
+
+#. Resource IDs: (1480)
+msgid "Show externals"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9545,6 +9603,10 @@ msgstr ""
 msgid "Shows all revisions where changes were made to this item"
 msgstr "Toont alle revisies waarin dit onderdeel gewijzigd is"
 
+#. Resource IDs: (200)
+msgid "Shows folders and files included with the svn:externals property"
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Toont informatie over TortoiseSVN"
@@ -9623,19 +9685,15 @@ msgstr "Verschuiven"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
-"Bestand(en) gewijzigd buiten T-Merge.\n"
-"Wilt u de wijzigingen laden?"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
-"Bestand(en) gewijzigd buiten T-Merge.\n"
-"Wilt u herladen en uw lokale wijzigingen kwijtraken?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -10420,6 +10478,11 @@ msgstr ""
 "De regel met de indicatie voor het oude bestand is niet aangetroffen op "
 "regel %d !"
 
+#. Resource IDs: (88)
+#, c-format
+msgid "The line number must be in between %d and %d"
+msgstr ""
+
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "De blokkade is al vanuit een andere werkkopie verbroken"
@@ -10794,6 +10857,30 @@ msgstr ""
 "\n"
 "Wilt u toch vastleggen?"
 
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-commit hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-lock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-unlock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "Dit bestand bestaat al!"
@@ -11067,22 +11154,23 @@ msgid ""
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "neon %s\r\n"
+"serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
-"zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
 msgstr ""
 "TortoiseSVN automatisch vastleggen: externen veranderd naar vastgestelde "
 "revisie."
+
+#. Resource IDs: (507)
+#, c-format
+msgid ""
+"TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
+"To fix this, you should empty the recycle bin now."
+msgstr ""
 
 #. Resource IDs: (98)
 #, c-format
@@ -12240,6 +12328,10 @@ msgstr "alias (%1!s!): %2!s!"
 msgid "alias: %s"
 msgstr "alias: %s"
 
+#. Resource IDs: (1618)
+msgid "all &revisions"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "een bestand zonder naam"
@@ -12665,6 +12757,10 @@ msgstr "scan pad:"
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "bereiken overslaan: "
+
+#. Resource IDs: (1619)
+msgid "specific r&ange"
+msgstr ""
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"

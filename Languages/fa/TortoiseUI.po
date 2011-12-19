@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-22 11:46+0000\n"
+"PO-Revision-Date: 2011-12-14 12:13+0000\n"
 "Last-Translator: mohsensajjadi <mohsensajjadi@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -418,6 +418,10 @@ msgstr "&پیشرفته"
 msgid "&Advanced..."
 msgstr "&پیشرفته..."
 
+#. Resource IDs: (1505)
+msgid "&All"
+msgstr ""
+
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
 msgstr "پذیرفتن آدرس‌های &مبهم"
@@ -670,6 +674,10 @@ msgstr "&مقایسه با نسخهٔ قبلی"
 msgid "&Directories"
 msgstr "&پوشه‌ها"
 
+#. Resource IDs: (1562)
+msgid "&Do not ask again"
+msgstr ""
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Docking"
@@ -693,6 +701,10 @@ msgstr "&ویرایش برخوردها"
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
 msgstr "&ویرایش..."
+
+#. Resource IDs: (1542)
+msgid "&Empty the recycle bin now"
+msgstr ""
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
@@ -782,6 +794,10 @@ msgstr "&از: (آدرس و اصلاحیهٔ شروع محدودهٔ‌ ادغا
 msgid "&Go To Line..."
 msgstr "&مراجعه به خط..."
 
+#. Resource IDs: (32893)
+msgid "&Goto line"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Green:"
 msgstr "&سبز:"
@@ -827,6 +843,10 @@ msgstr "&نادیده گرفتن %d قلم با نام"
 msgid "&Ignore ancestry"
 msgstr "&نادیده گرفتن اصل و نسب"
 
+#. Resource IDs: (2)
+msgid "&Ignore and proceed"
+msgstr ""
+
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
 msgstr "&نادیده گرفتن تغییرات حروف سفید"
@@ -858,6 +878,10 @@ msgstr "&با درنظرگرفتن اطلاعات ادغام"
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
 msgstr "&دایرکتوری اولیه:"
+
+#. Resource IDs: (32889)
+msgid "&Inline diff"
+msgstr ""
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -894,6 +918,15 @@ msgstr "&محدودکردن جستجو به خطوط تغییر یافته"
 #. Resource IDs: (65535)
 msgid "&Limit:"
 msgstr "&محدوده:"
+
+#. Resource IDs: (1078)
+msgid "&Line number"
+msgstr ""
+
+#. Resource IDs: (88)
+#, c-format
+msgid "&Line number (%d - %d)"
+msgstr ""
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
@@ -1023,6 +1056,10 @@ msgstr "&فاقد رویداد دوبارکلیک"
 #. Resource IDs: (1555)
 msgid "&No locking required"
 msgstr "&به قفل گذاری نیاز نیست"
+
+#. Resource IDs: (1506)
+msgid "&None"
+msgstr ""
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -1963,10 +2000,6 @@ msgstr "تمام پرونده‌ها (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "تمام پرونده‌ها (*.*)|*.*||"
 
-#. Resource IDs: (148)
-msgid "All changes since the last update will be lost!"
-msgstr "همه تغییرات از آخرین به روز رسانی از دست خواهد رفت!"
-
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
@@ -2576,14 +2609,6 @@ msgstr ""
 "ابطال\n"
 "مسیر/آدرس متفاوتی وارد میکنم."
 
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Ignore the outside changes."
-msgstr ""
-"لغو\n"
-"تغییرات خارجی نادیده گرفته شود."
-
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
@@ -2600,14 +2625,6 @@ msgstr ""
 "لغو\n"
 "حفظ فایل خالی."
 
-#. Resource IDs: (148)
-msgid ""
-"Cancel\n"
-"Leave all changes."
-msgstr ""
-"لغو\n"
-"تغییرات را ترک کن"
-
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
@@ -2615,6 +2632,12 @@ msgid ""
 msgstr ""
 "لغو\n"
 "کَش روی دیسک بماند."
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Local modifications are kept."
+msgstr ""
 
 #. Resource IDs: (315)
 msgid ""
@@ -2631,14 +2654,6 @@ msgid ""
 msgstr ""
 "لغو\n"
 "برخورد حل نشد."
-
-#. Resource IDs: (90)
-msgid ""
-"Cancel\n"
-"The file is not added and not adjusted."
-msgstr ""
-"لغو\n"
-"فایل اضافه نشده و تنظیم نشده است."
 
 #. Resource IDs: (90)
 msgid ""
@@ -3275,6 +3290,10 @@ msgstr "تکمیل‌شده"
 msgid "Completed!"
 msgstr "تکمیل‌شده!"
 
+#. Resource IDs: (1620)
+msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr ""
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "Configure Hook Scripts"
@@ -3316,6 +3335,10 @@ msgstr "برخورد حل شد"
 #. Resource IDs: (263, 65535)
 msgid "Conflicted"
 msgstr "دارای برخورد"
+
+#. Resource IDs: (265)
+msgid "Conflicted (maybe)"
+msgstr ""
 
 #. Resource IDs: (188)
 #, c-format
@@ -3990,6 +4013,14 @@ msgstr "اندازه و مکان پنجره های محاوره ای"
 msgid "Diff Options"
 msgstr "تنظیمات مقایسه"
 
+#. Resource IDs: (192)
+msgid "Diff Viewer"
+msgstr ""
+
+#. Resource IDs: (193)
+msgid "Diff Viewer::Merge Tool"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "فایل Diff:"
@@ -4146,6 +4177,10 @@ msgstr ""
 "آیا مایلید تمامی تغییرات در\n"
 "%s\n"
 " که در این اصلاحیه انجام شده اند، برگشت  داده شوند؟ این تغییرات با استفاده از ادغام معکوس اصلاحیه ها به نسخه کاری بازگشت خواهند شد."
+
+#. Resource IDs: (315)
+msgid "Do you want to load the changed files?"
+msgstr ""
 
 #. Resource IDs: (99)
 #, c-format
@@ -4729,18 +4764,6 @@ msgstr "خارجی"
 msgid "External Program:"
 msgstr "برنامه خارجی:"
 
-#. Resource IDs: (192)
-msgid "External Programs::Diff Viewer"
-msgstr "برنامه های خارجی::نمایشگر Diff"
-
-#. Resource IDs: (193)
-msgid "External Programs::Merge Tool"
-msgstr "برنامه های خارجی::ابزار ادغام"
-
-#. Resource IDs: (194)
-msgid "External Programs::Unified Diff Viewer"
-msgstr "برنامه های خارجی::نمایشگر Unified Diff"
-
 #. Resource IDs: (263)
 msgid "External failed"
 msgstr "فرمان خراب شده "
@@ -4826,6 +4849,11 @@ msgstr ""
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "عدم موفقیت!"
+
+#. Resource IDs: (199)
+msgid ""
+"Fetches the contents of folders in the background so browsing is faster"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5158,6 +5186,10 @@ msgstr "عمومی::دیالوگ 1"
 msgid "General::Dialogs 2"
 msgstr "عمومی::دیالوگ 2"
 
+#. Resource IDs: (332)
+msgid "General::Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "درحال تولید فایل وصله..."
@@ -5223,6 +5255,10 @@ msgstr "الگوی عمومی &نادیده ها:"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "تنظیمات عمومی: "
+
+#. Resource IDs: (155)
+msgid "Go To Line"
+msgstr ""
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -5530,6 +5566,10 @@ msgstr "ID:32881:V C +P"
 msgid "ID:32883:V C +A"
 msgstr "ID:32883:V C +A"
 
+#. Accelerator Entry for Menu ID:32893; '&Goto line'
+msgid "ID:32893:V C +G"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5773,6 +5813,12 @@ msgstr "نادیده گرفتن همه تغییرات فضاهای خالی"
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "نادیده گرفتن &حروف کوچک و بزرگ"
+
+#. Resource IDs: (315)
+msgid ""
+"Ignore changes\n"
+"Ignore the outside changes."
+msgstr ""
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -6136,8 +6182,8 @@ msgid "Keep &locks"
 msgstr "نگهداری &قفل ها"
 
 #. Resource IDs: (1126)
-msgid "Keep ch&angelists"
-msgstr "نگهداری لیست &تغییرات"
+msgid "Keep c&hangelists"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -6279,6 +6325,18 @@ msgstr "مسیر &محلی:"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "بارگزاری تصاویر"
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"Changes made in TortoiseMerge are lost and replaced with the new content."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"The views are updated with the new content."
+msgstr ""
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6702,10 +6760,6 @@ msgstr "مخلوط"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "تاریخ تغییر"
-
-#. Resource IDs: (315)
-msgid "Modifications detected"
-msgstr "تغییرات شناسایی شد"
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
@@ -7684,6 +7738,10 @@ msgstr "Pre-Connect Hook"
 msgid "Pre-Update Hook"
 msgstr "Hook قبل­بروزرسانی"
 
+#. Resource IDs: (1562)
+msgid "Pre-fetch folders for faster browsing"
+msgstr ""
+
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "ترجیح &محلی"
@@ -8063,6 +8121,10 @@ msgstr ""
 "برگشتی\n"
 "خصوصیت را از اقلام در زیر پوشه ها نیز حذف کن.ض"
 
+#. Resource IDs: (333)
+msgid "Recycle bin"
+msgstr ""
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "تغییر مسیر به آدرس"
@@ -8181,22 +8243,6 @@ msgstr "&تغییر مکان..."
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "بارگذاری مجدد "
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"Local modifications are lost."
-msgstr ""
-"بارگزاری مجدد\n"
-"تغییرات محلی از بین خواهند رفت."
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"The outside changes are loaded."
-msgstr ""
-"بارگزاری مجدد\n"
-"تغییرات بیرونی بارگزاری میشوند."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8465,6 +8511,10 @@ msgstr "آدرس مخزن"
 msgid "Repository UUID:"
 msgstr "UUID مخزن:"
 
+#. Resource IDs: (65535)
+msgid "Repository browser"
+msgstr ""
+
 #. Resource IDs: (324)
 msgid "Repository created"
 msgstr "مخزن ایجاد شد"
@@ -8584,10 +8634,8 @@ msgstr "بازگشت به تنظیمات پیش فرض. برای کاربران 
 #. Resource IDs: (147)
 msgid ""
 "Revert\n"
-"All changes will be lost."
+"All local modifications will be lost."
 msgstr ""
-"برگشت\n"
-"همه تغییرات از بین خواهند رفت."
 
 #. Resource IDs: (119)
 msgid ""
@@ -8666,8 +8714,8 @@ msgid "Revision graph"
 msgstr "نمودار اصلاحیه"
 
 #. Resource IDs: (1492)
-msgid "Revision r&ange to merge"
-msgstr "&محدوده اصلاحیه جهت ادغام"
+msgid "Revision range to merge"
+msgstr ""
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -9346,6 +9394,12 @@ msgstr ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 
+#. Resource IDs: (2056)
+msgid ""
+"Show Inline-Diff\n"
+"Inline diff"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
 msgstr "نمایش دیالوگ قفل قبل از قفل کردن فایلها"
@@ -9389,6 +9443,10 @@ msgstr "نمایش تفاوتها بصورت diff &متحد"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Show excluded root folders as normal"
+
+#. Resource IDs: (1480)
+msgid "Show externals"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9521,6 +9579,10 @@ msgstr ""
 msgid "Shows all revisions where changes were made to this item"
 msgstr "تمامی اصلاحیه هایی که طی آنها این قلم تغییر یافته را نمایش میدهد"
 
+#. Resource IDs: (200)
+msgid "Shows folders and files included with the svn:externals property"
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "نمایش اطلاعات درباره TortoiseSVN"
@@ -9599,19 +9661,15 @@ msgstr "لغزش"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
-"برخی فایل(ها) خارج از T-Merge تغییر یافته اند.\n"
-"مایل هستید تغییرات بارگزاری گردند؟"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
-"برخی فایل(ها) خارج از T-Merge تغییر یافته اند.\n"
-"مایل هستید تغییرات بارگزاری و تغییرات شما از بین بروند؟"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -10376,6 +10434,11 @@ msgstr "The line indicating the new file was expected in line %d !"
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "The line indicating the old file was expected in line %d !"
 
+#. Resource IDs: (88)
+#, c-format
+msgid "The line number must be in between %d and %d"
+msgstr ""
+
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "The lock has already been broken from another working copy"
@@ -10749,6 +10812,30 @@ msgstr ""
 "\n"
 "Do you want to commit anyway?"
 
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-commit hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-lock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-unlock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "فایل وجود دارد!"
@@ -11019,20 +11106,21 @@ msgid ""
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "neon %s\r\n"
+"serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
-"zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
 msgstr "TortoiseSVN auto commit: changed externals to fixed revision."
+
+#. Resource IDs: (507)
+#, c-format
+msgid ""
+"TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
+"To fix this, you should empty the recycle bin now."
+msgstr ""
 
 #. Resource IDs: (98)
 #, c-format
@@ -12187,6 +12275,10 @@ msgstr "مستعار (%1!s!): %2!s!"
 msgid "alias: %s"
 msgstr "نام مستعار: %s"
 
+#. Resource IDs: (1618)
+msgid "all &revisions"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "یک پرونده فاقد نام "
@@ -12613,6 +12705,10 @@ msgstr "درحال پیمایش مسیر:"
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "محدوده های پرش:"
+
+#. Resource IDs: (1619)
+msgid "specific r&ange"
+msgstr ""
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"

@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-11-22 19:45+0000\n"
-"Last-Translator: MiloradSPopovic <MiloradSPopovic@gmail.com>\n"
+"PO-Revision-Date: 2011-12-14 21:04+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -420,6 +420,10 @@ msgstr "Н&апредно"
 msgid "&Advanced..."
 msgstr "Н&апредно..."
 
+#. Resource IDs: (1505)
+msgid "&All"
+msgstr "&Све"
+
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
 msgstr "Дозволи вишезн&ачне УРЛ-ове"
@@ -672,6 +676,10 @@ msgstr "&Дифф са претходном верзијом"
 msgid "&Directories"
 msgstr "&Именици"
 
+#. Resource IDs: (1562)
+msgid "&Do not ask again"
+msgstr "&Не питај поново"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "&Углављивање"
@@ -695,6 +703,10 @@ msgstr "Ур&еди сукобе"
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
 msgstr "Ур&еди..."
+
+#. Resource IDs: (1542)
+msgid "&Empty the recycle bin now"
+msgstr "&Испразни корпу за рециклирање"
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
@@ -784,6 +796,10 @@ msgstr "&Од: (почетни УРЛ и ревизија у распону сп
 msgid "&Go To Line..."
 msgstr "&Иди на линију..."
 
+#. Resource IDs: (32893)
+msgid "&Goto line"
+msgstr "&Иди на линију"
+
 #. Resource IDs: (65535)
 msgid "&Green:"
 msgstr "&Зелена:"
@@ -829,6 +845,10 @@ msgstr "&Занемари %d ставки по имену"
 msgid "&Ignore ancestry"
 msgstr "Занемар&ити претке"
 
+#. Resource IDs: (2)
+msgid "&Ignore and proceed"
+msgstr "&Занемари и настави"
+
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
 msgstr "&Занемари промене белине"
@@ -860,6 +880,10 @@ msgstr "&Укључи стопљене ревизије"
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
 msgstr "&Почетни фолдер:"
+
+#. Resource IDs: (32889)
+msgid "&Inline diff"
+msgstr "&Инлајн диф"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -896,6 +920,15 @@ msgstr "&Ограничено тражење у измењеним линија�
 #. Resource IDs: (65535)
 msgid "&Limit:"
 msgstr "&Граница:"
+
+#. Resource IDs: (1078)
+msgid "&Line number"
+msgstr "&Бројеви линија"
+
+#. Resource IDs: (88)
+#, c-format
+msgid "&Line number (%d - %d)"
+msgstr "&Бројеви линија (%d - %d)"
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
@@ -1025,6 +1058,10 @@ msgstr "&Без двоструки-клик догађаја"
 #. Resource IDs: (1555)
 msgid "&No locking required"
 msgstr "&Не закључавати се захтева"
+
+#. Resource IDs: (1506)
+msgid "&None"
+msgstr "&Ништа"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -1966,10 +2003,6 @@ msgstr "Сви фајлови (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Сви фајлови (*.*)|*.*||"
 
-#. Resource IDs: (148)
-msgid "All changes since the last update will be lost!"
-msgstr "Све измене од задњег обнављања ће бити изгубљене!"
-
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
@@ -2578,14 +2611,6 @@ msgstr ""
 "Одустани\n"
 "Унећу различиту путању/УРЛ"
 
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Ignore the outside changes."
-msgstr ""
-"Откажи\n"
-"Занемарите спољашње измене."
-
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
@@ -2602,14 +2627,6 @@ msgstr ""
 "Откажи\n"
 "Држите празан фајл."
 
-#. Resource IDs: (148)
-msgid ""
-"Cancel\n"
-"Leave all changes."
-msgstr ""
-"Откажи\n"
-"Оставите све измене."
-
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
@@ -2617,6 +2634,14 @@ msgid ""
 msgstr ""
 "Откажи\n"
 "Оставите кеш на диску."
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Local modifications are kept."
+msgstr ""
+"Одустни\n"
+"Локалне измене су сачуване"
 
 #. Resource IDs: (315)
 msgid ""
@@ -2633,14 +2658,6 @@ msgid ""
 msgstr ""
 "Откажи\n"
 "Конфликт није решен."
-
-#. Resource IDs: (90)
-msgid ""
-"Cancel\n"
-"The file is not added and not adjusted."
-msgstr ""
-"Откажи\n"
-"Фајл није додат ни подешен."
 
 #. Resource IDs: (90)
 msgid ""
@@ -3281,6 +3298,10 @@ msgstr "Завршено"
 msgid "Completed!"
 msgstr "Завршено!"
 
+#. Resource IDs: (1620)
+msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr "Конфигуриши да &ТортоисеСВН никад не користи корпу за рециклирање"
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "Подеси закачиве скрипте"
@@ -3323,6 +3344,10 @@ msgstr "Цонфликт разрешен."
 #. Resource IDs: (263, 65535)
 msgid "Conflicted"
 msgstr "Конфликтан"
+
+#. Resource IDs: (265)
+msgid "Conflicted (maybe)"
+msgstr "Конфликт (можда)"
 
 #. Resource IDs: (188)
 #, c-format
@@ -4003,6 +4028,14 @@ msgstr "Дијалог величина и позиције"
 msgid "Diff Options"
 msgstr "Диф опције"
 
+#. Resource IDs: (192)
+msgid "Diff Viewer"
+msgstr "Диф прегледач"
+
+#. Resource IDs: (193)
+msgid "Diff Viewer::Merge Tool"
+msgstr "Диф прегледач::алат стапања"
+
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "Дифф фајл:"
@@ -4159,6 +4192,10 @@ msgstr ""
 "Желите ли заиста вратити све измене у\n"
 "%s\n"
 "које су настале у овој ревизији?  Ове промене биће стопљене у вашој радној копији."
+
+#. Resource IDs: (315)
+msgid "Do you want to load the changed files?"
+msgstr "Желите ли да учитате измењене фајлове?"
 
 #. Resource IDs: (99)
 #, c-format
@@ -4740,18 +4777,6 @@ msgstr "Спољашњи"
 msgid "External Program:"
 msgstr "Спољашњи програм:"
 
-#. Resource IDs: (192)
-msgid "External Programs::Diff Viewer"
-msgstr "Спољашњи програми::Дифф прегледач"
-
-#. Resource IDs: (193)
-msgid "External Programs::Merge Tool"
-msgstr "Спољашњи програми::Мерге алат"
-
-#. Resource IDs: (194)
-msgid "External Programs::Unified Diff Viewer"
-msgstr "Спољашњи програми::Прегледач обједињених разлика"
-
 #. Resource IDs: (263)
 msgid "External failed"
 msgstr "Екстернал неисправан"
@@ -4837,6 +4862,11 @@ msgstr ""
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "Неуспело!"
+
+#. Resource IDs: (199)
+msgid ""
+"Fetches the contents of folders in the background so browsing is faster"
+msgstr "Добавља садржај фолдера у беграунду тако да је претраживање брже"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5169,6 +5199,10 @@ msgstr "Уопштено::Дијалози 1"
 msgid "General::Dialogs 2"
 msgstr "Уопштено::Дијалози 2"
 
+#. Resource IDs: (332)
+msgid "General::Dialogs 3"
+msgstr "Генерално::дијалози 3"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "Израђујем фајл закрпа..."
@@ -5234,6 +5268,10 @@ msgstr "Глобални &модел занемаривања:"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "Глобалне поставке"
+
+#. Resource IDs: (155)
+msgid "Go To Line"
+msgstr "Иди на линију"
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -5541,6 +5579,10 @@ msgstr "ID:32881:V C +P"
 msgid "ID:32883:V C +A"
 msgstr "ID:32883:V C +A"
 
+#. Accelerator Entry for Menu ID:32893; '&Goto line'
+msgid "ID:32893:V C +G"
+msgstr "ID:32893:V C +G"
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5782,6 +5824,14 @@ msgstr "Занемарује све измене белине"
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "Занемари проме&не великих и малих слова"
+
+#. Resource IDs: (315)
+msgid ""
+"Ignore changes\n"
+"Ignore the outside changes."
+msgstr ""
+"Занемари измене\n"
+"Занемари спољашње измене."
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -6145,8 +6195,8 @@ msgid "Keep &locks"
 msgstr "Држи &закључан"
 
 #. Resource IDs: (1126)
-msgid "Keep ch&angelists"
-msgstr "С&ачувај листу измена"
+msgid "Keep c&hangelists"
+msgstr "Чувај л&исте измена"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -6288,6 +6338,22 @@ msgstr "Лок&ална путања:"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "Учитај слике"
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"Changes made in TortoiseMerge are lost and replaced with the new content."
+msgstr ""
+"Учитај измене\n"
+"Измене направљене у ТортоисеМерге су изгубљене и замењене новим садржајем."
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"The views are updated with the new content."
+msgstr ""
+"Учитај измене\n"
+"Прегледи су усклађени новим садржајем."
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6710,10 +6776,6 @@ msgstr "Мешано"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "Датум промене"
-
-#. Resource IDs: (315)
-msgid "Modifications detected"
-msgstr "Измене детектоване"
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
@@ -7689,6 +7751,10 @@ msgstr "Пре-повезивања закачаљка"
 msgid "Pre-Update Hook"
 msgstr "Закачив Скрипт пре обнављања"
 
+#. Resource IDs: (1562)
+msgid "Pre-fetch folders for faster browsing"
+msgstr "Прибави фолдере за брже претраживање"
+
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "Претпостави &локално "
@@ -8071,6 +8137,10 @@ msgstr ""
 "Рекурзивно\n"
 "Уклони особине такође из ставки подфолдера"
 
+#. Resource IDs: (333)
+msgid "Recycle bin"
+msgstr "Корпа рециклирања"
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "Преусмеравање ка урл"
@@ -8188,22 +8258,6 @@ msgstr "Пре&мести..."
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "Поново учитај"
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"Local modifications are lost."
-msgstr ""
-"Реунос\n"
-"Локалне измене су изгубљене."
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"The outside changes are loaded."
-msgstr ""
-"Реунос\n"
-"Спољашње измене су унете."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8472,6 +8526,10 @@ msgstr "УРЛ спремишта"
 msgid "Repository UUID:"
 msgstr "УУИД спремишта:"
 
+#. Resource IDs: (65535)
+msgid "Repository browser"
+msgstr "Претраживач спремишта"
+
 #. Resource IDs: (324)
 msgid "Repository created"
 msgstr "Спремиште креирано"
@@ -8591,10 +8649,10 @@ msgstr "Вратите на уобичајено подешавање. Преп�
 #. Resource IDs: (147)
 msgid ""
 "Revert\n"
-"All changes will be lost."
+"All local modifications will be lost."
 msgstr ""
-"Врати\n"
-"Све промене ће бити изгубљене."
+"Враћање\n"
+"Све локалне измене ће бити изгубљене."
 
 #. Resource IDs: (119)
 msgid ""
@@ -8673,8 +8731,8 @@ msgid "Revision graph"
 msgstr "Ревизиони граф"
 
 #. Resource IDs: (1492)
-msgid "Revision r&ange to merge"
-msgstr "Р&аспон ревизија за стапање"
+msgid "Revision range to merge"
+msgstr "Ревизиони опсег за стапање"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -9351,6 +9409,14 @@ msgstr ""
 "Прикажи разлике у реду реч по реч\n"
 "Разлике по речима унутар линије"
 
+#. Resource IDs: (2056)
+msgid ""
+"Show Inline-Diff\n"
+"Inline diff"
+msgstr ""
+"Прикажи Инлајн-диф\n"
+"Инлајн диф"
+
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
 msgstr "Прикажи дијалог закључавања пре закључавања фајлова"
@@ -9394,6 +9460,10 @@ msgstr "Прикажи &обједињене разлике"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "Приказује искључен фолдер као нормално"
+
+#. Resource IDs: (1480)
+msgid "Show externals"
+msgstr "Прикажи екстернале"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9525,6 +9595,10 @@ msgstr ""
 msgid "Shows all revisions where changes were made to this item"
 msgstr "Приказује све ревизије у којима је мењана ова ставка"
 
+#. Resource IDs: (200)
+msgid "Shows folders and files included with the svn:externals property"
+msgstr "Приказује фолдере и фајлове укључене са особином свн:екстернали"
+
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "Приказ података о ТортоисеСВН"
@@ -9603,19 +9677,19 @@ msgstr "Слајд"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
-"Неки фајл(ови) је промењен ван Т-Стопи.\n"
-"Да ли желите да унесет измене?"
+"Неки фајл(ови) је измењен ван  Т-Мерге.\n"
+"Да ли желите да унесете измене?"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
-"Неки фајл(ови) је промењен ван Т-Стопи.\n"
-"Да ли желите да га поновите и изгубите измене?"
+"Неки фајл(ови) је измењен ван  Т-Мерге.\n"
+"Да ли желите да поново учитате и изгубите измене?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -10386,6 +10460,11 @@ msgstr "Ред који указује на нови фајл се очекив�
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "Ред који указује на стари фајл се очекивао у линији бр. %d!"
 
+#. Resource IDs: (88)
+#, c-format
+msgid "The line number must be in between %d and %d"
+msgstr "Бројеви линија морају бити између %d и %d"
+
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "Катанац је већ уклоњен из неке друге радне копије"
@@ -10757,6 +10836,38 @@ msgstr ""
 "\n"
 "Да ли свакако желите да урежете?"
 
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+"Грешка је генерисана уобичајеном скриптом закачаљком на Субверзионом серверу.\n"
+"Молим контактирајте вашег администратора сервера за помоћ при решавању тог проблема."
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-commit hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+"Грешка је генерисана уобичајеном пост-урезивања скриптом закачаљком на Субверзионом серверу.\n"
+"Молим контактирајте вашег администратора сервера за помоћ при решавању тог проблема."
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-lock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+"Грешка је генерисана уобичајеном пост-закључавања скриптом закачаљком на Субверзионом серверу.\n"
+"Молим контактирајте вашег администратора сервера за помоћ при решавању тог проблема."
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-unlock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+"Грешка је генерисана уобичајеном пост-откључавања скриптом закачаљком на Субверзионом серверу.\n"
+"Молим контактирајте вашег администратора сервера за помоћ при решавању тог проблема."
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "Овај фајл већ постоји!"
@@ -11029,22 +11140,33 @@ msgid ""
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "neon %s\r\n"
+"serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"ТортоисеСВН %d.%d.%d,Gradi %d - %s, %s\r\n"
-"Субверсион %d.%d.%d, %s\r\n"
-"апр %d.%d.%d\r\n"
-"апр-утилс %d.%d.%d\r\n"
-"неон %s\r\n"
+"ТортоисеСВН %d.%d.%d, Изради %d - %s, %s\r\n"
+"Субверзија %d.%d.%d, %s\r\n"
+"apr %d.%d.%d\r\n"
+"apr-utils %d.%d.%d\r\n"
+"neon %s\r\n"
+"serf %d.%d.%d\r\n"
 "%s\r\n"
-"злиб %s"
+"zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
 msgstr ""
 "ТортоисеСВН аутоматско урезивање: измењени екстернали према фиксној "
 "ревизији."
+
+#. Resource IDs: (507)
+#, c-format
+msgid ""
+"TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
+"To fix this, you should empty the recycle bin now."
+msgstr ""
+"ТортоисеСВН је детектовала озбиљна успорења при померању %1!ld! ставки у корпу за рециклирање. Корпа за рециклирање тренутно садржи %2!ld! ставки, што је могући разлог успоравања.\n"
+"Да се ово фиксира, потребно је сада испразнити корпу за рециклирање."
 
 #. Resource IDs: (98)
 #, c-format
@@ -12201,6 +12323,10 @@ msgstr "односно: (%1!s!): %2!s!"
 msgid "alias: %s"
 msgstr "алиас: %s"
 
+#. Resource IDs: (1618)
+msgid "all &revisions"
+msgstr "све &ревизије"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "фајл без имена"
@@ -12627,6 +12753,10 @@ msgstr "тражи путању:"
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "прескочи распоне:"
+
+#. Resource IDs: (1619)
+msgid "specific r&ange"
+msgstr "специфич&ан опсег "
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"

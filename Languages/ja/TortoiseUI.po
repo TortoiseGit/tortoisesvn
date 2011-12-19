@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-04 18:17+0000\n"
-"Last-Translator: mfuji <fujimoto@internet.ne.jp>\n"
+"PO-Revision-Date: 2011-12-14 14:50+0000\n"
+"Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -418,6 +418,10 @@ msgstr "高度な設定(&A)"
 msgid "&Advanced..."
 msgstr "高度な設定(&A)..."
 
+#. Resource IDs: (1505)
+msgid "&All"
+msgstr "すべて(&A)"
+
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
 msgstr "あいまいなURLを許可(&A)"
@@ -512,7 +516,7 @@ msgstr "参照(&B)..."
 
 #. Resource IDs: (32850)
 msgid "&Bugtraq (Issue tracker integration)"
-msgstr "課題追跡（課題追跡システムの統合）(&B)"
+msgstr "課題追跡（課題追跡システムとの統合）(&B)"
 
 #. Resource IDs: (16913)
 msgid "&Button Appearance..."
@@ -670,6 +674,10 @@ msgstr "直前のバージョンとの差分を表示(&D)"
 msgid "&Directories"
 msgstr "ディレクトリ(&D)"
 
+#. Resource IDs: (1562)
+msgid "&Do not ask again"
+msgstr "再び表示しない(&D)"
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "ドッキング(&D)"
@@ -693,6 +701,10 @@ msgstr "競合の編集(&E)"
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
 msgstr "編集(&E)..."
+
+#. Resource IDs: (1542)
+msgid "&Empty the recycle bin now"
+msgstr "ごみ箱を空にする(&E)"
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
@@ -782,6 +794,10 @@ msgstr "開始点(&F): （マージする範囲の始点を指すURLとリビジ
 msgid "&Go To Line..."
 msgstr "指定した行へ移動(&G)..."
 
+#. Resource IDs: (32893)
+msgid "&Goto line"
+msgstr "行へ移動(&G)"
+
 #. Resource IDs: (65535)
 msgid "&Green:"
 msgstr "緑(&G)"
@@ -827,6 +843,10 @@ msgstr "名前によって %d 個の項目を無視する(&I)"
 msgid "&Ignore ancestry"
 msgstr "履歴を無視する(&I)"
 
+#. Resource IDs: (2)
+msgid "&Ignore and proceed"
+msgstr "無視して続行する(&I)"
+
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
 msgstr "空白の変更は無視する(&I)"
@@ -858,6 +878,10 @@ msgstr "マージ情報を含める(&I)"
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
 msgstr "初期ディレクトリ:(&I):"
+
+#. Resource IDs: (32889)
+msgid "&Inline diff"
+msgstr "行内差分(&I)"
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -894,6 +918,15 @@ msgstr "変更された行内でのみ検索する(&L)"
 #. Resource IDs: (65535)
 msgid "&Limit:"
 msgstr "最大値（&L):"
+
+#. Resource IDs: (1078)
+msgid "&Line number"
+msgstr "行番号(&L)"
+
+#. Resource IDs: (88)
+#, c-format
+msgid "&Line number (%d - %d)"
+msgstr "行番号(&L)(%d～%d)"
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
@@ -1023,6 +1056,10 @@ msgstr "ダブルクリックイベントを発生しない(&N)"
 #. Resource IDs: (1555)
 msgid "&No locking required"
 msgstr "ロックは不要(&N)"
+
+#. Resource IDs: (1506)
+msgid "&None"
+msgstr "なし(&N)"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -1930,7 +1967,7 @@ msgstr "差分の高度な設定"
 
 #. Resource IDs: (110)
 msgid "Advanced merge settings"
-msgstr "マージに関する高度な設定"
+msgstr "マージの高度な設定"
 
 #. Resource IDs: (65535)
 msgid "Age"
@@ -1955,10 +1992,6 @@ msgstr "すべてのファイル (*.*)"
 #. Resource IDs: (157)
 msgid "All Files (*.*)|*.*||"
 msgstr "すべてのファイル (*.*)|*.*||"
-
-#. Resource IDs: (148)
-msgid "All changes since the last update will be lost!"
-msgstr "前回の更新以降のすべての変更が失われます。"
 
 #. Resource IDs: (1008)
 msgid ""
@@ -2554,14 +2587,6 @@ msgstr ""
 "キャンセル\n"
 "異なるパス/URLを入力する。"
 
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Ignore the outside changes."
-msgstr ""
-"キャンセル\n"
-"外部の変更を無視する。"
-
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
@@ -2578,14 +2603,6 @@ msgstr ""
 "キャンセル\n"
 "空のファイルを保つ。"
 
-#. Resource IDs: (148)
-msgid ""
-"Cancel\n"
-"Leave all changes."
-msgstr ""
-"キャンセル\n"
-"すべての変更をそのままにする。"
-
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
@@ -2593,6 +2610,14 @@ msgid ""
 msgstr ""
 "キャンセル\n"
 "ディスク上にキャッシュを残す。"
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Local modifications are kept."
+msgstr ""
+"キャンセル\n"
+"ローカルの変更を保持する。"
 
 #. Resource IDs: (315)
 msgid ""
@@ -2609,14 +2634,6 @@ msgid ""
 msgstr ""
 "キャンセル\n"
 "競合は解決されません。"
-
-#. Resource IDs: (90)
-msgid ""
-"Cancel\n"
-"The file is not added and not adjusted."
-msgstr ""
-"キャンセル\n"
-"ファイルは追加も調整もされません。"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3238,13 +3255,17 @@ msgstr "完了"
 msgid "Completed!"
 msgstr "完了"
 
+#. Resource IDs: (1620)
+msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr "TortoiseSVNがごみ箱を使用しないように設定(&T)"
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "フックスクリプトの設定"
 
 #. Resource IDs: (284)
 msgid "Configure Issue Tracker Integration"
-msgstr "課題追跡システムの統合に関する設定"
+msgstr "課題追跡システムとの統合に関する設定"
 
 #. Resource IDs: (65535)
 msgid "Configure the program used for comparing different revisions of files"
@@ -3278,6 +3299,10 @@ msgstr "解決済みの競合"
 #. Resource IDs: (263, 65535)
 msgid "Conflicted"
 msgstr "競合"
+
+#. Resource IDs: (265)
+msgid "Conflicted (maybe)"
+msgstr "競合（おそらく）"
 
 #. Resource IDs: (188)
 #, c-format
@@ -3950,6 +3975,14 @@ msgstr "ダイアログのサイズと位置"
 msgid "Diff Options"
 msgstr "差分設定"
 
+#. Resource IDs: (192)
+msgid "Diff Viewer"
+msgstr "差分ビューアー"
+
+#. Resource IDs: (193)
+msgid "Diff Viewer::Merge Tool"
+msgstr "差分ビューアー::マージツール"
+
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "差分ファイル:"
@@ -4106,6 +4139,10 @@ msgstr ""
 "%s\n"
 "のこのリビジョンで行われたすべての変更を取り消してもよろしいですか？\n"
 "この間のリビジョンを作業コピーに対して逆マージすることで、この間に行われた変更を取り消します。"
+
+#. Resource IDs: (315)
+msgid "Do you want to load the changed files?"
+msgstr "変更されたファイルを読み込み直しますか？"
 
 #. Resource IDs: (99)
 #, c-format
@@ -4684,18 +4721,6 @@ msgstr "外部"
 msgid "External Program:"
 msgstr "外部プログラム:"
 
-#. Resource IDs: (192)
-msgid "External Programs::Diff Viewer"
-msgstr "外部プログラム::差分ビューアー"
-
-#. Resource IDs: (193)
-msgid "External Programs::Merge Tool"
-msgstr "外部プログラム::マージツール"
-
-#. Resource IDs: (194)
-msgid "External Programs::Unified Diff Viewer"
-msgstr "外部プログラム::Unified形式の差分ビューアー"
-
 #. Resource IDs: (263)
 msgid "External failed"
 msgstr "外部が失敗しました"
@@ -4779,6 +4804,11 @@ msgstr ""
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "失敗"
+
+#. Resource IDs: (199)
+msgid ""
+"Fetches the contents of folders in the background so browsing is faster"
+msgstr "フォルダーの中身をバックグラウンドで先読みし、表示を高速化します"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5108,6 +5138,10 @@ msgstr "一般::ダイアログ１"
 msgid "General::Dialogs 2"
 msgstr "一般::ダイアログ２"
 
+#. Resource IDs: (332)
+msgid "General::Dialogs 3"
+msgstr "一般::ダイアログ３"
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "パッチファイルを作成中..."
@@ -5173,6 +5207,10 @@ msgstr "常に無視するパターン(&P):"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "全般的な設定"
+
+#. Resource IDs: (155)
+msgid "Go To Line"
+msgstr "指定した行へ移動"
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -5335,7 +5373,7 @@ msgstr "フックスクリプト"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "フックスクリプト::課題追跡システムの統合"
+msgstr "フックスクリプト::課題追跡システムとの統合"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
@@ -5477,6 +5515,10 @@ msgstr "ID:32881:V C +P"
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
 msgstr "ID:32883:V C +A"
+
+#. Accelerator Entry for Menu ID:32893; '&Goto line'
+msgid "ID:32893:V C +G"
+msgstr "ID:32893:V C +G"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5709,6 +5751,14 @@ msgstr "すべての空白の変更を無視する"
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "大文字/小文字の変更は無視する(&N)"
+
+#. Resource IDs: (315)
+msgid ""
+"Ignore changes\n"
+"Ignore the outside changes."
+msgstr ""
+"変更を無視する\n"
+"外部での変更を無視します。"
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -6072,8 +6122,8 @@ msgid "Keep &locks"
 msgstr "ロックを保持する(&L)"
 
 #. Resource IDs: (1126)
-msgid "Keep ch&angelists"
-msgstr "変更リストを保持する(&A)"
+msgid "Keep c&hangelists"
+msgstr "変更リストを保持する(&H)"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -6215,6 +6265,22 @@ msgstr "ローカルパス(&C):"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "画像を開く"
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"Changes made in TortoiseMerge are lost and replaced with the new content."
+msgstr ""
+"変更を読み込み直す\n"
+"TortoiseMergeで行った変更を破棄し、新しい内容で置き換えます。"
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"The views are updated with the new content."
+msgstr ""
+"変更を読み込み直す\n"
+"ビューは新しい内容で更新されます。"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6631,10 +6697,6 @@ msgstr "ミックス"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "変更日:"
-
-#. Resource IDs: (315)
-msgid "Modifications detected"
-msgstr "変更が検出されました"
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
@@ -7411,7 +7473,7 @@ msgstr "クリップボードから SVN のパスを貼り付け、移動（切�
 
 #. Resource IDs: (1076)
 msgid "Patch &all items"
-msgstr "全ての項目にパッチを適用(&A)"
+msgstr "すべての項目にパッチを適用(&A)"
 
 #. Resource IDs: (1075)
 msgid "Patch &selected item"
@@ -7419,7 +7481,7 @@ msgstr "選択された項目にパッチを適用(&S)"
 
 #. Resource IDs: (376)
 msgid "Patch all files"
-msgstr "全てのファイルにパッチを適用"
+msgstr "すべてのファイルにパッチを適用"
 
 #. Resource IDs: (376)
 msgid "Patch selected files"
@@ -7595,6 +7657,10 @@ msgstr "Pre-Connect フック"
 #. Resource IDs: (570)
 msgid "Pre-Update Hook"
 msgstr "Pre-Update フック"
+
+#. Resource IDs: (1562)
+msgid "Pre-fetch folders for faster browsing"
+msgstr "高速に表示するためにフォルダーを先読みする"
 
 #. Resource IDs: (3)
 msgid "Prefer &local"
@@ -7973,6 +8039,10 @@ msgstr ""
 "再帰的\n"
 "サブフォルダー内の項目からもプロパティを削除する。"
 
+#. Resource IDs: (333)
+msgid "Recycle bin"
+msgstr "ごみ箱"
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "URLにリダイレクト中"
@@ -8090,22 +8160,6 @@ msgstr "再配置(&C)..."
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "再読み込み"
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"Local modifications are lost."
-msgstr ""
-"再読込み\n"
-"ローカルの変更は失われます。"
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"The outside changes are loaded."
-msgstr ""
-"再読み込み\n"
-"外部の変更が失われます。"
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8374,6 +8428,10 @@ msgstr "リポジトリのURL"
 msgid "Repository UUID:"
 msgstr "リポジトリ UUID:"
 
+#. Resource IDs: (65535)
+msgid "Repository browser"
+msgstr "リポジトリブラウザー"
+
 #. Resource IDs: (324)
 msgid "Repository created"
 msgstr "リポジトリを作成"
@@ -8491,10 +8549,10 @@ msgstr "デフォルトの設定に戻す。経験のあまりないユーザー
 #. Resource IDs: (147)
 msgid ""
 "Revert\n"
-"All changes will be lost."
+"All local modifications will be lost."
 msgstr ""
 "変更の取り消し\n"
-"すべての変更は失われます。"
+"ローカルで行ったすべての変更は失われます。"
 
 #. Resource IDs: (119)
 msgid ""
@@ -8573,8 +8631,8 @@ msgid "Revision graph"
 msgstr "リビジョングラフ"
 
 #. Resource IDs: (1492)
-msgid "Revision r&ange to merge"
-msgstr "マージするリビジョンの範囲(&A)"
+msgid "Revision range to merge"
+msgstr "マージするリビジョンの範囲"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -9247,6 +9305,14 @@ msgstr ""
 "単語単位での行内差分を表示する\n"
 "行内差分（単語単位）"
 
+#. Resource IDs: (2056)
+msgid ""
+"Show Inline-Diff\n"
+"Inline diff"
+msgstr ""
+"行内の差分を表示する\n"
+"行内差分"
+
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
 msgstr "ファイルをロックする前にロックダイアログを表示する"
@@ -9290,6 +9356,10 @@ msgstr "&Unified 形式で差分を表示"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "表示対象外にある作業フォルダーの最上位を通常として表示する"
+
+#. Resource IDs: (1480)
+msgid "Show externals"
+msgstr "外部参照を表示する"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9416,6 +9486,10 @@ msgstr "最後の更新後に、ローカルおよびリポジトリ上で変更
 msgid "Shows all revisions where changes were made to this item"
 msgstr "この項目に対して変更が行われたすべてのリビジョンを表示する"
 
+#. Resource IDs: (200)
+msgid "Shows folders and files included with the svn:externals property"
+msgstr "svn:externalsプロパティで指定されたフォルダーやファイルを表示する"
+
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "TortoiseSVN についての情報を表示"
@@ -9494,7 +9568,7 @@ msgstr "スライド"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
 "ファイルが TortoiseMerge の外で変更されました。\n"
@@ -9502,7 +9576,7 @@ msgstr ""
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
 "ファイルが TortoiseMerge の外で変更されました。\n"
@@ -10254,6 +10328,11 @@ msgstr "新しいファイルを示している行は、%d行目だと思われ�
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "古いファイルを示している行は、%d行目だと思われます。"
 
+#. Resource IDs: (88)
+#, c-format
+msgid "The line number must be in between %d and %d"
+msgstr "行番号は%d～%dの間でなければなりません"
+
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "ロックは他の作業コピーですでに解除されています"
@@ -10618,6 +10697,38 @@ msgstr ""
 "\n"
 "本当にコミットしてもよろしいですか？"
 
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+"このエラーは、 Subversion サーバー上のカスタムフックスクリプトで発生したものです。\n"
+"問題解決を助けになるように、サーバーの管理者に連絡してください。"
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-commit hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+"このエラーは、 Subversion サーバー上のカスタム post-commit フックスクリプトで発生したものです。\n"
+"問題解決を助けになるように、サーバーの管理者に連絡してください。"
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-lock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+"このエラーは、 Subversion サーバー上のカスタム post-lock フックスクリプトで発生したものです。\n"
+"問題解決を助けになるように、サーバーの管理者に連絡してください。"
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-unlock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+"このエラーは、 Subversion サーバー上のカスタム post-unlock フックスクリプトで発生したものです。\n"
+"問題解決を助けになるように、サーバーの管理者に連絡してください。"
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "このファイルはすでに存在しています。"
@@ -10873,6 +10984,7 @@ msgid ""
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "neon %s\r\n"
+"serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
 msgstr ""
@@ -10881,12 +10993,22 @@ msgstr ""
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "neon %s\r\n"
+"serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
 msgstr "TortoiseSVN 自動コミット: 修正されたリビジョンへ外部参照を変更。"
+
+#. Resource IDs: (507)
+#, c-format
+msgid ""
+"TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
+"To fix this, you should empty the recycle bin now."
+msgstr ""
+"%1!ld!個の項目をごみ箱に入れるのに、非常に時間がかかっています。ごみ箱に現在%2!ld!個の項目が入っていることが原因と考えられます。\n"
+"解決するには、ごみ箱を空にしてください。"
 
 #. Resource IDs: (98)
 #, c-format
@@ -12030,6 +12152,10 @@ msgstr "エイリアス (%1!s!): %2!s!"
 msgid "alias: %s"
 msgstr "エイリアス: %s"
 
+#. Resource IDs: (1618)
+msgid "all &revisions"
+msgstr "すべてのリビジョン(&R)"
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "名前無しファイル"
@@ -12455,6 +12581,10 @@ msgstr "スキャンするパス:"
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "スキップ範囲: "
+
+#. Resource IDs: (1619)
+msgid "specific r&ange"
+msgstr "指定された範囲(&A)"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"

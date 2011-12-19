@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-10-20 07:54+0000\n"
-"Last-Translator: luebbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2011-12-14 12:13+0000\n"
+"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -420,6 +420,10 @@ msgstr "고급(&A)"
 msgid "&Advanced..."
 msgstr "고급 설정(&A)..."
 
+#. Resource IDs: (1505)
+msgid "&All"
+msgstr ""
+
 #. Resource IDs: (1471)
 msgid "&Allow ambiguous URLs"
 msgstr "모호한 URL들을 허용합니다.(&A)"
@@ -672,6 +676,10 @@ msgstr "이전 리비전 비교(&D)"
 msgid "&Directories"
 msgstr "디렉토리들(&D)"
 
+#. Resource IDs: (1562)
+msgid "&Do not ask again"
+msgstr ""
+
 #. Resource IDs: (1066)
 msgid "&Docking"
 msgstr "붙이기(&D)"
@@ -695,6 +703,10 @@ msgstr "충돌 상황 편집(&E)"
 #. Resource IDs: (619, 1099, 1282, 1596, 16510)
 msgid "&Edit..."
 msgstr "편집(&E)..."
+
+#. Resource IDs: (1542)
+msgid "&Empty the recycle bin now"
+msgstr ""
 
 #. Resource IDs: (1023)
 msgid "&Enable Proxy Server"
@@ -784,6 +796,10 @@ msgstr "시작(&F): (병합할 범위의 시작 URL과 리비전)"
 msgid "&Go To Line..."
 msgstr "행으로 이동(&G)..."
 
+#. Resource IDs: (32893)
+msgid "&Goto line"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "&Green:"
 msgstr "녹색(&G):"
@@ -829,6 +845,10 @@ msgstr "이름에 따라 %d개 아이템들 무시함(&I)"
 msgid "&Ignore ancestry"
 msgstr "변경 기록 무시(&I)"
 
+#. Resource IDs: (2)
+msgid "&Ignore and proceed"
+msgstr ""
+
 #. Resource IDs: (1021)
 msgid "&Ignore whitespace changes"
 msgstr "공백의 차이는 무시함(&I)"
@@ -860,6 +880,10 @@ msgstr "병합 정보 포함(&I)"
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
 msgstr "초기 디렉토리(&I):"
+
+#. Resource IDs: (32889)
+msgid "&Inline diff"
+msgstr ""
 
 #. Resource IDs: (32825)
 msgid "&Inline diff word-wise"
@@ -896,6 +920,15 @@ msgstr "수정된 행에 대해서만 찾습니다(&L)"
 #. Resource IDs: (65535)
 msgid "&Limit:"
 msgstr "제한(&L):"
+
+#. Resource IDs: (1078)
+msgid "&Line number"
+msgstr ""
+
+#. Resource IDs: (88)
+#, c-format
+msgid "&Line number (%d - %d)"
+msgstr ""
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
@@ -1025,6 +1058,10 @@ msgstr "드블클릭 이벤트 없음(&N)"
 #. Resource IDs: (1555)
 msgid "&No locking required"
 msgstr "요구된 잠금 없음(&N)"
+
+#. Resource IDs: (1506)
+msgid "&None"
+msgstr ""
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -1961,10 +1998,6 @@ msgstr "모든 파일 (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "모든 파일 (*.*)|*.*||"
 
-#. Resource IDs: (148)
-msgid "All changes since the last update will be lost!"
-msgstr "마지막 업데이트 후의 모든 변경사항을 잃을 것입니다!"
-
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
@@ -2557,14 +2590,6 @@ msgstr ""
 "취소\n"
 "다른 경로/URL을 입력할 것입니다."
 
-#. Resource IDs: (315)
-msgid ""
-"Cancel\n"
-"Ignore the outside changes."
-msgstr ""
-"취소\n"
-"외부변경을 무시합니다."
-
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
@@ -2581,14 +2606,6 @@ msgstr ""
 "취소\n"
 "빈 파일을 유지합니다."
 
-#. Resource IDs: (148)
-msgid ""
-"Cancel\n"
-"Leave all changes."
-msgstr ""
-"취소\n"
-"모든 변경사항을 남겨둡니다."
-
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
@@ -2596,6 +2613,12 @@ msgid ""
 msgstr ""
 "취소\n"
 "디스크에 캐시를 남겨둡니다."
+
+#. Resource IDs: (148)
+msgid ""
+"Cancel\n"
+"Local modifications are kept."
+msgstr ""
 
 #. Resource IDs: (315)
 msgid ""
@@ -2612,14 +2635,6 @@ msgid ""
 msgstr ""
 "취소\n"
 "충돌을 해결하지 않습니다."
-
-#. Resource IDs: (90)
-msgid ""
-"Cancel\n"
-"The file is not added and not adjusted."
-msgstr ""
-"취소\n"
-"파일 추가도 조정도 되지 않습니다."
 
 #. Resource IDs: (90)
 msgid ""
@@ -3245,6 +3260,10 @@ msgstr "완료"
 msgid "Completed!"
 msgstr "완료됨!"
 
+#. Resource IDs: (1620)
+msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr ""
+
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
 msgstr "훅 스크립트 구성"
@@ -3285,6 +3304,10 @@ msgstr "충돌 상황 해결됨"
 #. Resource IDs: (263, 65535)
 msgid "Conflicted"
 msgstr "충돌"
+
+#. Resource IDs: (265)
+msgid "Conflicted (maybe)"
+msgstr ""
 
 #. Resource IDs: (188)
 #, c-format
@@ -3957,6 +3980,14 @@ msgstr "대화상자의 크기와 위치"
 msgid "Diff Options"
 msgstr "차이점 보기 옵션"
 
+#. Resource IDs: (192)
+msgid "Diff Viewer"
+msgstr ""
+
+#. Resource IDs: (193)
+msgid "Diff Viewer::Merge Tool"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Diff file:"
 msgstr "비교 파일:"
@@ -4113,6 +4144,10 @@ msgstr ""
 "이번 리비전에서 작업한 \n"
 "%s 의 바뀐 내용들을 되돌리시겠습니까?\n"
 "거꾸로 병합하여 작업사본에 반영하는 방법으로 변경한 내용이 되돌려질 것입니다."
+
+#. Resource IDs: (315)
+msgid "Do you want to load the changed files?"
+msgstr ""
 
 #. Resource IDs: (99)
 #, c-format
@@ -4690,18 +4725,6 @@ msgstr "외부"
 msgid "External Program:"
 msgstr "외부 프로그램:"
 
-#. Resource IDs: (192)
-msgid "External Programs::Diff Viewer"
-msgstr "외부 프로그램::Diff"
-
-#. Resource IDs: (193)
-msgid "External Programs::Merge Tool"
-msgstr "외부 프로그램::Merge"
-
-#. Resource IDs: (194)
-msgid "External Programs::Unified Diff Viewer"
-msgstr "외부 프로그램::Unified diff"
-
 #. Resource IDs: (263)
 msgid "External failed"
 msgstr "외부경로 실패"
@@ -4785,6 +4808,11 @@ msgstr ""
 #. Resource IDs: (220)
 msgid "Failed!"
 msgstr "실패하였습니다"
+
+#. Resource IDs: (199)
+msgid ""
+"Fetches the contents of folders in the background so browsing is faster"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5114,6 +5142,10 @@ msgstr "일반::대화상자 1"
 msgid "General::Dialogs 2"
 msgstr "일반::대화상자 2"
 
+#. Resource IDs: (332)
+msgid "General::Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
 msgstr "패치 파일 생성 중..."
@@ -5179,6 +5211,10 @@ msgstr "제외/무시 패턴(&P):"
 #. Resource IDs: (65535)
 msgid "Global settings"
 msgstr "전체 설정"
+
+#. Resource IDs: (155)
+msgid "Go To Line"
+msgstr ""
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -5484,6 +5520,10 @@ msgstr "ID:32881:V C +P"
 msgid "ID:32883:V C +A"
 msgstr "ID:32883:V C +A"
 
+#. Accelerator Entry for Menu ID:32893; '&Goto line'
+msgid "ID:32893:V C +G"
+msgstr ""
+
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
 msgstr "ID:57601:V C +O"
@@ -5713,6 +5753,12 @@ msgstr "모든 공백문자의 변경을 무시"
 #. Resource IDs: (1067)
 msgid "Ignore case cha&nges"
 msgstr "대소문자 변경 무시(&N)"
+
+#. Resource IDs: (315)
+msgid ""
+"Ignore changes\n"
+"Ignore the outside changes."
+msgstr ""
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -6076,8 +6122,8 @@ msgid "Keep &locks"
 msgstr "잠금 유지(&L)"
 
 #. Resource IDs: (1126)
-msgid "Keep ch&angelists"
-msgstr "변경 리스트들 유지(&A)"
+msgid "Keep c&hangelists"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -6219,6 +6265,18 @@ msgstr "지역경로(&C):"
 #. Resource IDs: (130)
 msgid "Load Images"
 msgstr "이미지 불러오기"
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"Changes made in TortoiseMerge are lost and replaced with the new content."
+msgstr ""
+
+#. Resource IDs: (315)
+msgid ""
+"Load changes\n"
+"The views are updated with the new content."
+msgstr ""
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6633,10 +6691,6 @@ msgstr "Mixed"
 #. Resource IDs: (208)
 msgid "Modification date"
 msgstr "수정일"
-
-#. Resource IDs: (315)
-msgid "Modifications detected"
-msgstr "수정 사항이 검출되었습니다."
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
@@ -7599,6 +7653,10 @@ msgstr "연결 전 훅"
 msgid "Pre-Update Hook"
 msgstr "업데이트 전 확인 훅"
 
+#. Resource IDs: (1562)
+msgid "Pre-fetch folders for faster browsing"
+msgstr ""
+
 #. Resource IDs: (3)
 msgid "Prefer &local"
 msgstr "작업 사본 선호(&L)"
@@ -7974,6 +8032,10 @@ msgstr ""
 "재귀\n"
 "하위 폴더의 항목에서도 속성을 제거합니다."
 
+#. Resource IDs: (333)
+msgid "Recycle bin"
+msgstr ""
+
 #. Resource IDs: (265)
 msgid "Redirecting to url"
 msgstr "URL로 리디렉션"
@@ -8091,22 +8153,6 @@ msgstr "저장소 URL 변경(&C)"
 #. Resource IDs: (32794)
 msgid "Reload"
 msgstr "다시 읽기"
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"Local modifications are lost."
-msgstr ""
-"리로드\n"
-"로컬 변경사항을 잃습니다."
-
-#. Resource IDs: (315)
-msgid ""
-"Reload\n"
-"The outside changes are loaded."
-msgstr ""
-"리로드\n"
-"외부 변경사항을 로드합니다."
 
 #. Resource IDs: (2050)
 msgid ""
@@ -8375,6 +8421,10 @@ msgstr "저장소 URL"
 msgid "Repository UUID:"
 msgstr "저장소 UUID:"
 
+#. Resource IDs: (65535)
+msgid "Repository browser"
+msgstr ""
+
 #. Resource IDs: (324)
 msgid "Repository created"
 msgstr "생성된 저장소"
@@ -8494,10 +8544,8 @@ msgstr "기본 설정으로 되돌립니다. 경험이 없는 사용자에게 �
 #. Resource IDs: (147)
 msgid ""
 "Revert\n"
-"All changes will be lost."
+"All local modifications will be lost."
 msgstr ""
-"되돌리기\n"
-"모든 변경사항을 잃을 것입니다."
 
 #. Resource IDs: (119)
 msgid ""
@@ -8576,8 +8624,8 @@ msgid "Revision graph"
 msgstr "리비전 그래프"
 
 #. Resource IDs: (1492)
-msgid "Revision r&ange to merge"
-msgstr "병합할 리비전 구간(&A)"
+msgid "Revision range to merge"
+msgstr ""
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -9248,6 +9296,12 @@ msgstr ""
 "단어 단위 비교를 보여줍니다\n"
 "라인내의 단어단위 비교"
 
+#. Resource IDs: (2056)
+msgid ""
+"Show Inline-Diff\n"
+"Inline diff"
+msgstr ""
+
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
 msgstr "파일을 잠그기 전에 대화상자를 표시"
@@ -9291,6 +9345,10 @@ msgstr "Unified Diff 형식으로 차이점 보기(&U)"
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
 msgstr "표시대상에서 제외된 최상위 폴더를 정상적으로 보기"
+
+#. Resource IDs: (1480)
+msgid "Show externals"
+msgstr ""
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9419,6 +9477,10 @@ msgstr "작업 사본과 저장소에서 마지막 업데이트 후에 변경된
 msgid "Shows all revisions where changes were made to this item"
 msgstr "이 파일에 대하여 변경된 모든 리비전을 보여줌"
 
+#. Resource IDs: (200)
+msgid "Shows folders and files included with the svn:externals property"
+msgstr ""
+
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
 msgstr "TortoiseSVN에 대한 정보 보기"
@@ -9497,15 +9559,15 @@ msgstr "슬라이드"
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
-msgstr "일부 파일이 TortoiseMerge 외부에서 변경되었습니다. 변경된 파일을 로드하시겠습니까?"
+msgstr ""
 
 #. Resource IDs: (314)
 msgid ""
-"Some File(s) has been changed outside T-Merge.\n"
+"Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
-msgstr "일부 파일이 TortoiseMerge 외부에서 변경되었습니다. 변경사항을 잃게 되는 데, 리로드 하시겠습니까?"
+msgstr ""
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -10243,6 +10305,11 @@ msgstr "새 파일을 지시하는 곳은 %d 행 입니다."
 msgid "The line indicating the old file was expected in line %d !"
 msgstr "이전 파일을 지시하는 곳은 %d 행 입니다."
 
+#. Resource IDs: (88)
+#, c-format
+msgid "The line number must be in between %d and %d"
+msgstr ""
+
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
 msgstr "잠금이 다른 작업 사본에 의해 이미 깨졌습니다."
@@ -10605,6 +10672,30 @@ msgstr ""
 "\n"
 "정말로 커밋을 원하십니까?"
 
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-commit hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-lock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
+#. Resource IDs: (251)
+msgid ""
+"This error was generated by a custom post-unlock hook script on the Subversion server.\n"
+"Please contact your server administrator for help with resolving this issue."
+msgstr ""
+
 #. Resource IDs: (84)
 msgid "This file already exists!"
 msgstr "이 파일이 이미 존재합니다!"
@@ -10860,20 +10951,21 @@ msgid ""
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
 "neon %s\r\n"
+"serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
 msgstr ""
-"TortoiseSVN %d.%d.%d, 빌드번호 %d - %s, %s\r\n"
-"Subversion %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d\r\n"
-"neon %s\r\n"
-"%s\r\n"
-"zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
 msgstr "TortoiseSVN 자동 커밋: 외부경로를 고정된 리비전으로 변경함."
+
+#. Resource IDs: (507)
+#, c-format
+msgid ""
+"TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
+"To fix this, you should empty the recycle bin now."
+msgstr ""
 
 #. Resource IDs: (98)
 #, c-format
@@ -12014,6 +12106,10 @@ msgstr "별칭 (%1!s!): %2!s!"
 msgid "alias: %s"
 msgstr "별칭: %s"
 
+#. Resource IDs: (1618)
+msgid "all &revisions"
+msgstr ""
+
 #. Resource IDs: (3841)
 msgid "an unnamed file"
 msgstr "제목 없음"
@@ -12440,6 +12536,10 @@ msgstr "경로 스캔중:"
 #. Resource IDs: (65535)
 msgid "skip ranges: "
 msgstr "건너 뛰는 구간:"
+
+#. Resource IDs: (1619)
+msgid "specific r&ange"
+msgstr ""
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
