@@ -284,6 +284,8 @@ private:
      */
     void AutoUpdateRegex();
 
+    bool CheckStringProp(CString& s, const std::string& propname, const CString& propval, LPCSTR prop);
+
     bool regExNeedUpdate;
     tr1::wregex regCheck;
     tr1::wregex regBugID;
@@ -317,4 +319,6 @@ private:
     CString     sLogTemplatePropset;
     CString     sLogTemplateLock;
     int         nBugIdPos;              ///< result of sMessage.Find(L"%BUGID%");
+
+    bool        m_bFound;
 };

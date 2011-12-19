@@ -43,6 +43,7 @@ ProjectProperties::ProjectProperties(void)
     , bAppend (TRUE)
     , lProjectLanguage (0)
     , nBugIdPos(-1)
+    , m_bFound(false)
 {
 }
 
@@ -67,43 +68,14 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
 {
     regExNeedUpdate = true;
 
-    BOOL bFoundBugtraqLabel = FALSE;
-    BOOL bFoundBugtraqMessage = FALSE;
     BOOL bFoundBugtraqNumber = FALSE;
-    BOOL bFoundBugtraqLogRe = FALSE;
-    BOOL bFoundBugtraqURL = FALSE;
     BOOL bFoundBugtraqWarnIssue = FALSE;
     BOOL bFoundBugtraqAppend = FALSE;
     BOOL bFoundLogWidth = FALSE;
-    BOOL bFoundLogTemplate = FALSE;
-    BOOL bFoundLogTemplateCommit = FALSE;
-    BOOL bFoundLogTemplateBranch = FALSE;
-    BOOL bFoundLogTemplateImport = FALSE;
-    BOOL bFoundLogTemplateDelete = FALSE;
-    BOOL bFoundLogTemplateMove = FALSE;
-    BOOL bFoundLogTemplateMkDir = FALSE;
-    BOOL bFoundLogTemplatePropset = FALSE;
-    BOOL bFoundLogTemplateLock = FALSE;
     BOOL bFoundMinLogSize = FALSE;
     BOOL bFoundMinLockMsgSize = FALSE;
     BOOL bFoundFileListEnglish = FALSE;
     BOOL bFoundProjectLanguage = FALSE;
-    BOOL bFoundUserFileProps = FALSE;
-    BOOL bFoundUserDirProps = FALSE;
-    BOOL bFoundWebViewRev = FALSE;
-    BOOL bFoundWebViewPathRev = FALSE;
-    BOOL bFoundAutoProps = FALSE;
-    BOOL bFoundLogSummary = FALSE;
-    BOOL bFoundBugtraqProviderUuid = FALSE;
-    BOOL bFoundBugtraqProviderUuid64 = FALSE;
-    BOOL bFoundBugtraqProviderParams = FALSE;
-    BOOL bFoundLogRevRegex = FALSE;
-    BOOL bFoundStartCommit = FALSE;
-    BOOL bFoundPreCommit = FALSE;
-    BOOL bFoundPostCommit = FALSE;
-    BOOL bFoundStartUpdate = FALSE;
-    BOOL bFoundPreUpdate = FALSE;
-    BOOL bFoundPostUpdate = FALSE;
 
     if (!path.IsDirectory())
         path = path.GetContainingDirectory();
@@ -116,17 +88,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         {
             std::string sPropName = props.GetItemName(i);
             CString sPropVal = CUnicodeUtils::GetUnicode(((char *)props.GetItemValue(i).c_str()));
-            if ((!bFoundBugtraqLabel)&&(sPropName.compare (BUGTRAQPROPNAME_LABEL)==0))
-            {
-                sLabel = sPropVal;
-                bFoundBugtraqLabel = TRUE;
-            }
-            if ((!bFoundBugtraqMessage)&&(sPropName.compare(BUGTRAQPROPNAME_MESSAGE)==0))
-            {
-                sMessage = sPropVal;
+            if (CheckStringProp(sMessage, sPropName, sPropVal, BUGTRAQPROPNAME_MESSAGE))
                 nBugIdPos = sMessage.Find(L"%BUGID%");
-                bFoundBugtraqMessage = TRUE;
-            }
             if ((!bFoundBugtraqNumber)&&(sPropName.compare(BUGTRAQPROPNAME_NUMBER)==0))
             {
                 CString val;
@@ -138,9 +101,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                     bNumber = TRUE;
                 bFoundBugtraqNumber = TRUE;
             }
-            if ((!bFoundBugtraqLogRe)&&(sPropName.compare(BUGTRAQPROPNAME_LOGREGEX)==0))
+            if (CheckStringProp(sCheckRe, sPropName, sPropVal, BUGTRAQPROPNAME_LOGREGEX))
             {
-                sCheckRe = sPropVal;
                 if (sCheckRe.Find('\n')>=0)
                 {
                     sBugIDRe = sCheckRe.Mid(sCheckRe.Find('\n')).Trim();
@@ -150,13 +112,9 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                 {
                     sCheckRe = sCheckRe.Trim();
                 }
-                bFoundBugtraqLogRe = TRUE;
             }
-            if ((!bFoundBugtraqURL)&&(sPropName.compare(BUGTRAQPROPNAME_URL)==0))
-            {
-                sUrl = sPropVal;
-                bFoundBugtraqURL = TRUE;
-            }
+            CheckStringProp(sLabel, sPropName, sPropVal, BUGTRAQPROPNAME_LABEL);
+            CheckStringProp(sUrl, sPropName, sPropVal, BUGTRAQPROPNAME_URL);
             if ((!bFoundBugtraqWarnIssue)&&(sPropName.compare(BUGTRAQPROPNAME_WARNIFNOISSUE)==0))
             {
                 CString val;
@@ -179,21 +137,9 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                     bAppend = FALSE;
                 bFoundBugtraqAppend = TRUE;
             }
-            if ((!bFoundBugtraqProviderUuid)&&(sPropName.compare(BUGTRAQPROPNAME_PROVIDERUUID)==0))
-            {
-                sProviderUuid = sPropVal;
-                bFoundBugtraqProviderUuid = TRUE;
-            }
-            if ((!bFoundBugtraqProviderUuid64)&&(sPropName.compare(BUGTRAQPROPNAME_PROVIDERUUID64)==0))
-            {
-                sProviderUuid64 = sPropVal;
-                bFoundBugtraqProviderUuid64 = TRUE;
-            }
-            if ((!bFoundBugtraqProviderParams)&&(sPropName.compare(BUGTRAQPROPNAME_PROVIDERPARAMS)==0))
-            {
-                sProviderParams = sPropVal;
-                bFoundBugtraqProviderParams = TRUE;
-            }
+            CheckStringProp(sProviderUuid, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERUUID);
+            CheckStringProp(sProviderUuid64, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERUUID64);
+            CheckStringProp(sProviderParams, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERPARAMS);
             if ((!bFoundLogWidth)&&(sPropName.compare(PROJECTPROPNAME_LOGWIDTHLINE)==0))
             {
                 CString val;
@@ -204,69 +150,15 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                 }
                 bFoundLogWidth = TRUE;
             }
-            if ((!bFoundLogTemplate)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATE)==0))
-            {
-                sLogTemplate = sPropVal;
-                sLogTemplate.Remove(_T('\r'));
-                sLogTemplate.Replace(_T("\n"), _T("\r\n"));
-                bFoundLogTemplate = TRUE;
-            }
-            if ((!bFoundLogTemplateCommit)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATECOMMIT)==0))
-            {
-                sLogTemplateCommit = sPropVal;
-                sLogTemplateCommit.Remove(_T('\r'));
-                sLogTemplateCommit.Replace(_T("\n"), _T("\r\n"));
-                bFoundLogTemplateCommit = TRUE;
-            }
-            if ((!bFoundLogTemplateBranch)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEBRANCH)==0))
-            {
-                sLogTemplateBranch = sPropVal;
-                sLogTemplateBranch.Remove(_T('\r'));
-                sLogTemplateBranch.Replace(_T("\n"), _T("\r\n"));
-                bFoundLogTemplateBranch = TRUE;
-            }
-            if ((!bFoundLogTemplateImport)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEIMPORT)==0))
-            {
-                sLogTemplateImport = sPropVal;
-                sLogTemplateImport.Remove(_T('\r'));
-                sLogTemplateImport.Replace(_T("\n"), _T("\r\n"));
-                bFoundLogTemplateImport = TRUE;
-            }
-            if ((!bFoundLogTemplateDelete)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEDEL)==0))
-            {
-                sLogTemplateDelete = sPropVal;
-                sLogTemplateDelete.Remove(_T('\r'));
-                sLogTemplateDelete.Replace(_T("\n"), _T("\r\n"));
-                bFoundLogTemplateDelete = TRUE;
-            }
-            if ((!bFoundLogTemplateMove)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEMOVE)==0))
-            {
-                sLogTemplateMove = sPropVal;
-                sLogTemplateMove.Remove(_T('\r'));
-                sLogTemplateMove.Replace(_T("\n"), _T("\r\n"));
-                bFoundLogTemplateMove = TRUE;
-            }
-            if ((!bFoundLogTemplateMkDir)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEMKDIR)==0))
-            {
-                sLogTemplateMkDir = sPropVal;
-                sLogTemplateMkDir.Remove(_T('\r'));
-                sLogTemplateMkDir.Replace(_T("\n"), _T("\r\n"));
-                bFoundLogTemplateMkDir = TRUE;
-            }
-            if ((!bFoundLogTemplatePropset)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATEPROPSET)==0))
-            {
-                sLogTemplatePropset = sPropVal;
-                sLogTemplatePropset.Remove(_T('\r'));
-                sLogTemplatePropset.Replace(_T("\n"), _T("\r\n"));
-                bFoundLogTemplatePropset = TRUE;
-            }
-            if ((!bFoundLogTemplateLock)&&(sPropName.compare(PROJECTPROPNAME_LOGTEMPLATELOCK)==0))
-            {
-                sLogTemplateLock = sPropVal;
-                sLogTemplateLock.Remove(_T('\r'));
-                sLogTemplateLock.Replace(_T("\n"), _T("\r\n"));
-                bFoundLogTemplateLock = TRUE;
-            }
+            CheckStringProp(sLogTemplate, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATE);
+            CheckStringProp(sLogTemplateCommit, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATECOMMIT);
+            CheckStringProp(sLogTemplateBranch, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEBRANCH);
+            CheckStringProp(sLogTemplateImport, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEIMPORT);
+            CheckStringProp(sLogTemplateDelete, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEDEL);
+            CheckStringProp(sLogTemplateMove, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEMOVE);
+            CheckStringProp(sLogTemplateMkDir, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEMKDIR);
+            CheckStringProp(sLogTemplatePropset, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
+            CheckStringProp(sLogTemplateLock, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATELOCK);
             if ((!bFoundMinLogSize)&&(sPropName.compare(PROJECTPROPNAME_LOGMINSIZE)==0))
             {
                 CString val;
@@ -309,101 +201,29 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                 }
                 bFoundProjectLanguage = TRUE;
             }
-            if ((!bFoundUserFileProps)&&(sPropName.compare(PROJECTPROPNAME_USERFILEPROPERTY)==0))
-            {
-                sFPPath = sPropVal;
-                sFPPath.Replace(_T("\r\n"), _T("\n"));
-                bFoundUserFileProps = TRUE;
-            }
-            if ((!bFoundUserDirProps)&&(sPropName.compare(PROJECTPROPNAME_USERDIRPROPERTY)==0))
-            {
-                sDPPath = sPropVal;
-                sDPPath.Replace(_T("\r\n"), _T("\n"));
-                bFoundUserDirProps = TRUE;
-            }
-            if ((!bFoundAutoProps)&&(sPropName.compare(PROJECTPROPNAME_AUTOPROPS)==0))
-            {
-                sAutoProps = sPropVal;
-                sAutoProps.Replace(_T("\r\n"), _T("\n"));
-                bFoundAutoProps = TRUE;
-            }
-            if ((!bFoundWebViewRev)&&(sPropName.compare(PROJECTPROPNAME_WEBVIEWER_REV)==0))
-            {
-                sWebViewerRev = sPropVal;
-                bFoundWebViewRev = TRUE;
-            }
-            if ((!bFoundWebViewPathRev)&&(sPropName.compare(PROJECTPROPNAME_WEBVIEWER_PATHREV)==0))
-            {
-                sWebViewerPathRev = sPropVal;
-                bFoundWebViewPathRev = TRUE;
-            }
-            if ((!bFoundLogSummary)&&(sPropName.compare(PROJECTPROPNAME_LOGSUMMARY)==0))
-            {
-                sLogSummaryRe = sPropVal;
-                bFoundLogSummary = TRUE;
-            }
-            if ((!bFoundLogRevRegex)&&(sPropName.compare(PROJECTPROPNAME_LOGREVREGEX)==0))
-            {
-                sLogRevRegex = sPropVal;
-                bFoundLogRevRegex = TRUE;
-            }
-            if ((!bFoundStartCommit)&&(sPropName.compare(PROJECTPROPNAME_STARTCOMMITHOOK)==0))
-            {
-                sStartCommitHook = sPropVal;
-                sStartCommitHook.Replace(_T("\r\n"), _T("\n"));
-                bFoundStartCommit = TRUE;
-            }
-            if ((!bFoundPreCommit)&&(sPropName.compare(PROJECTPROPNAME_PRECOMMITHOOK)==0))
-            {
-                sPreCommitHook = sPropVal;
-                sPreCommitHook.Replace(_T("\r\n"), _T("\n"));
-                bFoundPreCommit = TRUE;
-            }
-            if ((!bFoundPostCommit)&&(sPropName.compare(PROJECTPROPNAME_POSTCOMMITHOOK)==0))
-            {
-                sPostCommitHook = sPropVal;
-                sPostCommitHook.Replace(_T("\r\n"), _T("\n"));
-                bFoundPostCommit = TRUE;
-            }
-            if ((!bFoundStartUpdate)&&(sPropName.compare(PROJECTPROPNAME_STARTUPDATEHOOK)==0))
-            {
-                sStartUpdateHook = sPropVal;
-                sStartUpdateHook.Replace(_T("\r\n"), _T("\n"));
-                bFoundStartUpdate = TRUE;
-            }
-            if ((!bFoundPreUpdate)&&(sPropName.compare(PROJECTPROPNAME_PREUPDATEHOOK)==0))
-            {
-                sPreUpdateHook = sPropVal;
-                sPreUpdateHook.Replace(_T("\r\n"), _T("\n"));
-                bFoundPreUpdate = TRUE;
-            }
-            if ((!bFoundPostUpdate)&&(sPropName.compare(PROJECTPROPNAME_POSTUPDATEHOOK)==0))
-            {
-                sPostUpdateHook = sPropVal;
-                sPostUpdateHook.Replace(_T("\r\n"), _T("\n"));
-                bFoundPostUpdate = TRUE;
-            }
+            CheckStringProp(sFPPath, sPropName, sPropVal, PROJECTPROPNAME_USERFILEPROPERTY);
+            CheckStringProp(sDPPath, sPropName, sPropVal, PROJECTPROPNAME_USERDIRPROPERTY);
+            CheckStringProp(sAutoProps, sPropName, sPropVal, PROJECTPROPNAME_AUTOPROPS);
+            CheckStringProp(sWebViewerRev, sPropName, sPropVal, PROJECTPROPNAME_WEBVIEWER_REV);
+            CheckStringProp(sWebViewerPathRev, sPropName, sPropVal, PROJECTPROPNAME_WEBVIEWER_PATHREV);
+            CheckStringProp(sLogSummaryRe, sPropName, sPropVal, PROJECTPROPNAME_LOGSUMMARY);
+            CheckStringProp(sLogRevRegex, sPropName, sPropVal, PROJECTPROPNAME_LOGREVREGEX);
+            CheckStringProp(sStartCommitHook, sPropName, sPropVal, PROJECTPROPNAME_STARTCOMMITHOOK);
+            CheckStringProp(sPreCommitHook, sPropName, sPropVal, PROJECTPROPNAME_PRECOMMITHOOK);
+            CheckStringProp(sPostCommitHook, sPropName, sPropVal, PROJECTPROPNAME_POSTCOMMITHOOK);
+            CheckStringProp(sStartUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_STARTUPDATEHOOK);
+            CheckStringProp(sPreUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_PREUPDATEHOOK);
+            CheckStringProp(sPostUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_POSTUPDATEHOOK);
         }
         if (PathIsRoot(path.GetWinPath()))
             return FALSE;
         propsPath = path;
         path = path.GetContainingDirectory();
-        if (!bFoundLogRevRegex)
-            sLogRevRegex = LOG_REVISIONREGEX;
         if ((!SVNHelper::IsVersioned(path, true))||(path.IsEmpty()))
         {
-            if (bFoundBugtraqLabel | bFoundBugtraqMessage | bFoundBugtraqNumber
-                | bFoundBugtraqURL | bFoundBugtraqWarnIssue | bFoundLogWidth
-                | bFoundLogTemplate | bFoundLogTemplateBranch | bFoundLogTemplateCommit
-                | bFoundLogTemplateImport | bFoundLogTemplateMove | bFoundLogTemplateDelete
-                | bFoundLogTemplateMkDir | bFoundLogTemplatePropset | bFoundLogTemplateLock
-                | bFoundBugtraqLogRe | bFoundMinLockMsgSize
-                | bFoundUserFileProps | bFoundUserDirProps | bFoundAutoProps
-                | bFoundWebViewRev | bFoundWebViewPathRev | bFoundLogSummary | bFoundLogRevRegex
-                | bFoundBugtraqProviderUuid | bFoundBugtraqProviderUuid64
-                | bFoundBugtraqProviderParams | bFoundStartCommit | bFoundPostCommit
-                | bFoundStartUpdate | bFoundPreUpdate | bFoundPostUpdate
-                | bFoundPreCommit)
+            if (sLogRevRegex.IsEmpty())
+                sLogRevRegex = LOG_REVISIONREGEX;
+            if (m_bFound)
             {
                 sRepositoryRootUrl = svn.GetRepositoryRoot(propsPath);
                 sRepositoryPathUrl = svn.GetURLFromPath(propsPath);
@@ -415,6 +235,22 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         }
     }
     //return FALSE;     //never reached
+}
+
+bool ProjectProperties::CheckStringProp( CString& s, const std::string& propname, const CString& propval, LPCSTR prop )
+{
+    if (propname.compare(prop)==0)
+    {
+        if (s.IsEmpty())
+        {
+            s = propval;
+            s.Remove(_T('\r'));
+            s.Replace(_T("\r\n"), _T("\n"));
+            m_bFound = true;
+            return true;
+        }
+    }
+    return false;
 }
 
 CString ProjectProperties::GetBugIDFromLog(CString& msg)
