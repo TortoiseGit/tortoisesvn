@@ -89,8 +89,7 @@ BOOL CSwitchDlg::OnInitDialog()
     if (!url.IsEmpty())
     {
         CString relPath = url.Mid(m_repoRoot.GetLength());
-        CTSVNPath r = CTSVNPath(relPath);
-        relPath = r.GetUIPathString();
+        relPath = CPathUtils::PathUnescape(relPath);
         relPath.Replace('\\', '/');
         m_URLCombo.AddString(relPath, 0);
         m_URLCombo.SelectString(-1, relPath);
