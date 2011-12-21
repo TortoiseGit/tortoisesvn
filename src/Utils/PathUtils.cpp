@@ -378,12 +378,15 @@ CString CPathUtils::GetLongPathname(const CString& path)
         // convert the path to its short form, then back to its long form.
         // That will fix the wrong casing of the path.
         int shortret = ::GetShortPathName(pathbuf, NULL, 0);
-        auto_buffer<TCHAR> shortpath(shortret+2);
-        if (::GetShortPathName(pathbuf, shortpath, shortret+1))
+        if (shortret)
         {
-            int ret2 = ::GetLongPathName(shortpath, pathbuf, ret+1);
-            if (ret2)
-                sRet = CString(pathbuf, ret2);
+            auto_buffer<TCHAR> shortpath(shortret+2);
+            if (::GetShortPathName(pathbuf, shortpath, shortret+1))
+            {
+                int ret2 = ::GetLongPathName(shortpath, pathbuf, ret+1);
+                if (ret2)
+                    sRet = CString(pathbuf, ret2);
+            }
         }
     }
     else
@@ -394,12 +397,15 @@ CString CPathUtils::GetLongPathname(const CString& path)
         sRet = CString(pathbuf, ret);
         // fix the wrong casing of the path. See above for details.
         int shortret = ::GetShortPathName(pathbuf, NULL, 0);
-        auto_buffer<TCHAR> shortpath(shortret+2);
-        if (::GetShortPathName(pathbuf, shortpath, shortret+1))
+        if (shortret)
         {
-            int ret2 = ::GetLongPathName(shortpath, pathbuf, ret+1);
-            if (ret2)
-                sRet = CString(pathbuf, ret2);
+            auto_buffer<TCHAR> shortpath(shortret+2);
+            if (::GetShortPathName(pathbuf, shortpath, shortret+1))
+            {
+                int ret2 = ::GetLongPathName(shortpath, pathbuf, ret+1);
+                if (ret2)
+                    sRet = CString(pathbuf, ret2);
+            }
         }
     }
     if (ret == 0)

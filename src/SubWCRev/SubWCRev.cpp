@@ -703,9 +703,12 @@ int _tmain(int argc, _TCHAR* argv[])
     // convert the path to its short form, then back to its long form.
     // That will fix the wrong casing of the path.
     int shortlen = GetShortPathName(fullPath, NULL, 0);
-    std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
-    GetShortPathName(fullPath, shortPath.get(), shortlen+1);
-    GetLongPathName(shortPath.get(), fullPath, reqLen);
+    if (shortlen)
+    {
+        std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
+        if (GetShortPathName(fullPath, shortPath.get(), shortlen+1))
+            GetLongPathName(shortPath.get(), fullPath, reqLen);
+    }
     wc = fullPath;
     if (dst)
     {
@@ -713,9 +716,12 @@ int _tmain(int argc, _TCHAR* argv[])
         fullPath = new TCHAR[reqLen+1];
         GetFullPathName(dst, reqLen, fullPath, NULL);
         shortlen = GetShortPathName(fullPath, NULL, 0);
-        std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
-        GetShortPathName(fullPath, shortPath.get(), shortlen+1);
-        GetLongPathName(shortPath.get(), fullPath, reqLen);
+        if (shortlen)
+        {
+            std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
+            if (GetShortPathName(fullPath, shortPath.get(), shortlen+1))
+                GetLongPathName(shortPath.get(), fullPath, reqLen);
+        }
         dst = fullPath;
     }
     if (src)
@@ -724,9 +730,12 @@ int _tmain(int argc, _TCHAR* argv[])
         fullPath = new TCHAR[reqLen+1];
         GetFullPathName(src, reqLen, fullPath, NULL);
         shortlen = GetShortPathName(fullPath, NULL, 0);
-        std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
-        GetShortPathName(fullPath, shortPath.get(), shortlen+1);
-        GetLongPathName(shortPath.get(), fullPath, reqLen);
+        if (shortlen)
+        {
+            std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
+            if (GetShortPathName(fullPath, shortPath.get(), shortlen+1))
+                GetLongPathName(shortPath.get(), fullPath, reqLen);
+        }
         src = fullPath;
     }
 
