@@ -3596,7 +3596,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             break;
         case ID_REFRESH:
             {
-                RefreshNode(m_RepoTree.GetSelectedItem(), true);
+                OnRefresh();
             }
             break;
         case ID_GNUDIFF:
