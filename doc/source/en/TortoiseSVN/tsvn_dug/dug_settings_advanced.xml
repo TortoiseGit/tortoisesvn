@@ -163,6 +163,25 @@
             </listitem>
         </varlistentry>
         <varlistentry>
+            <term condition="pot">FixCaseRenames</term>
+            <listitem>
+                <para>
+                    Some apps change the case of filenames without notice
+                    but those changes aren't really necessary nor wanted.
+                    For example a change from <filename>file.txt</filename>
+                    to <filename>FILE.TXT</filename> wouldn't bother
+                    normal Windows applications, but Subversion is case
+                    sensitive in these situations. So TortoiseSVN automatically
+                    fixes such case changes.
+                </para>
+                <para>
+                    If you don't want TortoiseSVN to automatically fix
+                    such case changes for you, you can set this value
+                    to <literal>false</literal>.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
             <term condition="pot">FullRowSelect</term>
             <listitem>
                 <para>
