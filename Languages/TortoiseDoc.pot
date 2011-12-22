@@ -8680,6 +8680,14 @@ msgid "TortoiseSVN allows you to assign an external diff viewer. Most such viewe
 msgstr ""
 
 #. (para)
+msgid "Some apps change the case of filenames without notice but those changes aren't really necessary nor wanted. For example a change from <filename>file.txt</filename> to <filename>FILE.TXT</filename> wouldn't bother normal Windows applications, but Subversion is case sensitive in these situations. So TortoiseSVN automatically fixes such case changes."
+msgstr ""
+
+#. (para)
+msgid "If you don't want TortoiseSVN to automatically fix such case changes for you, you can set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
 msgid "The status list control which is used in various dialogs (e.g., commit, check-for-modifications, add, revert, ...) uses full row selection (i.e., if you select an entry, the full row is selected, not just the first column). This is fine, but the selected row then also covers the background image on the bottom right, which can look ugly. To disable full row select, set this value to <literal>false</literal>."
 msgstr ""
 
