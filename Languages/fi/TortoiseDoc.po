@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-16 15:04+0000\n"
+"PO-Revision-Date: 2011-12-19 08:58+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -10860,6 +10860,55 @@ msgid ""
 msgstr ""
 "Jos ominaisuutta ei ole asetettu, versioviittausten hakemiseen käytetään "
 "oletusarvoista säännöllistä lauseketta."
+
+#. (para)
+msgid ""
+"There are several properties available to configure client-side hook "
+"scripts. Each property is for one specific hook script type."
+msgstr ""
+
+#. (para)
+msgid ""
+"The available properties/hook-scripts are "
+"<literal>tsvn:startcommithook</literal>, "
+"<literal>tsvn:precommithook</literal>, "
+"<literal>tsvn:postcommithook</literal>, "
+"<literal>tsvn:startupdatehook</literal>, "
+"<literal>tsvn:preupdatehook</literal> and "
+"<literal>tsvn:postupdatehook</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"The parameters are the same as if you would configure the hook scripts in "
+"the settings dialog. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for the"
+" details."
+msgstr ""
+
+#. (para)
+msgid ""
+"Since not every user has his or her working copy checked out at the same "
+"location with the same name, you can configure a script/tool to execute that"
+" resides in your working copy by specifying the url in the repository "
+"instead, using <filename>%REPOROOT%</filename> as the part of the url to the"
+" repository root. For example, if your hook script is in your working copy "
+"under <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, "
+"you would specify the path to the script as "
+"<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
+"side/checkyear.js</filename>. This way even if you move your repository to "
+"another server you do not have to adjust the hook script properties."
+msgstr ""
+
+#. (title)
+msgid "Property dialog for hook scripts"
+msgstr ""
+
+#. (para)
+msgid ""
+"The following screenshot shows how the script to check for current copyright"
+" years in source file headers is configured for TortoiseSVN. "
+"<placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""

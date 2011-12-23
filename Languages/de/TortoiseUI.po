@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-14 13:35+0000\n"
+"PO-Revision-Date: 2011-12-21 07:54+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -854,10 +854,6 @@ msgstr "Ignoriere &Vorfahren"
 msgid "&Ignore and proceed"
 msgstr "&Ignorieren und fortsetzen"
 
-#. Resource IDs: (1021)
-msgid "&Ignore whitespace changes"
-msgstr "&Ignoriere Änderungen in der Anzahl von Leerzeichen"
-
 #. Resource IDs: (16914)
 msgid "&Image"
 msgstr "&Bild"
@@ -974,6 +970,10 @@ msgstr "Aktualisierungstiefe &merken"
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "Revisionseigenschaft &bearbeiten"
+
+#. Resource IDs: (65535)
+msgid "&Max line length for inline diffs"
+msgstr "&Max Zeilenlänge für Unterschiede in der Zeile"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2172,6 +2172,22 @@ msgstr "Patch anwenden..."
 msgid "Apply unified diff"
 msgstr "Standard-Diff anwenden"
 
+#. Resource IDs: (363)
+msgid "Approve or reject client-side hook script"
+msgstr "Clienseitiges Aktionsskript annehmen oder ablehnen"
+
+#. Resource IDs: (363)
+msgid ""
+"Approve\n"
+"Run the hook script"
+msgstr ""
+"Annehmen\n"
+"Aktionsskript ausführen"
+
+#. Resource IDs: (1282)
+msgid "Approved hook scripts"
+msgstr "Zugelassene Aktionsskripte"
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "&Beliebiger Text"
@@ -2567,6 +2583,14 @@ msgid ""
 msgstr ""
 "Abbrechen\n"
 "Nicht rückgängig machen."
+
+#. Resource IDs: (363)
+msgid ""
+"Cancel\n"
+"Do not run the script"
+msgstr ""
+"Abbrechen\n"
+"Das Skript nicht ausführen"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3035,6 +3059,11 @@ msgstr ""
 "Löscht %1!ld! Name/Passwort Paare, %2!ld! SSL Zertifikate und %3!ld! "
 "Benutzernamen"
 
+#. Resource IDs: (198)
+#, c-format
+msgid "Clears all %ld approved client-side hook scripts"
+msgstr "Löscht alle %ld genehmigten clientseitigen Aktionsskripte"
+
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
@@ -3140,10 +3169,6 @@ msgstr "Farbe 1"
 msgid "Color 2"
 msgstr "Farbe 2"
 
-#. Resource IDs: (1068)
-msgid "Color co&de in-line changes"
-msgstr "Änderungen in Zeile &farbig hervorheben"
-
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "Farben"
@@ -3167,6 +3192,14 @@ msgstr "Befehlszeile"
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
 msgstr "Befehlszeile:"
+
+#. Resource IDs: (1336)
+msgid ""
+"Command Line To Execute:\n"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
+msgstr ""
+"Auszuführende Befehlszeile:\n"
+"Um einen Pfad innerhalb einer Arbeitskopie anzugeben, verwenden Sie die URL im Projektarchiv mit %REPOROOT% als Basis URL."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4042,6 +4075,10 @@ msgstr ""
 "Geräteunabhängiges Bitmap\n"
 "Ein geräteunabhängiges Bild"
 
+#. Resource IDs: (334)
+msgid "Dialog"
+msgstr "Dialog"
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "Dialoggrößen und -positionen"
@@ -4152,6 +4189,10 @@ msgid ""
 msgstr ""
 "Zeigt Informationen übers Programm, Versionsnummer und Copyright an\n"
 "Über"
+
+#. Resource IDs: (363)
+msgid "Do not ask again for this script"
+msgstr "Bei diesem Skript nicht wieder fragen"
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -6387,6 +6428,10 @@ msgid ""
 msgstr ""
 "Änderungen laden\n"
 "Die Ansichten werden mit dem neuen Inhalt ersetzt."
+
+#. Resource IDs: (32861)
+msgid "Local &Hooks"
+msgstr "Lokale &Aktionsskripte"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -11096,6 +11141,17 @@ msgid ""
 msgstr ""
 "Dies wird ihre Arbeitskopie auf das neue 1.7 Format hochstufen und damit für"
 " ältere Clients unbrauchbar machen."
+
+#. Resource IDs: (363)
+#, c-format
+msgid ""
+"This working copy has a client-side hook script configured. Do you want this script to run?\n"
+"The command line to run is:\n"
+"%s"
+msgstr ""
+"Bei dieser Arbeitskopie ist ein clientseitiges Aktionsskript eingerichtet. Wollen Sie das Skript ausführen?\n"
+"Die Befehlszeile lautet:\n"
+"%s"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"

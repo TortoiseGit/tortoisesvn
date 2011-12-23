@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-15 12:44+0000\n"
+"PO-Revision-Date: 2011-12-21 08:53+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -849,10 +849,6 @@ msgstr "&Ignorovat původ"
 msgid "&Ignore and proceed"
 msgstr "&Ignorovat a pokračovat"
 
-#. Resource IDs: (1021)
-msgid "&Ignore whitespace changes"
-msgstr "&Ignorovat změny mezer"
-
 #. Resource IDs: (16914)
 msgid "&Image"
 msgstr "&Obrázek"
@@ -969,6 +965,10 @@ msgstr "&Nastavit hloubku jako výchozí"
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "&Ručně změnit vlastnost"
+
+#. Resource IDs: (65535)
+msgid "&Max line length for inline diffs"
+msgstr "&Maximální délka řádku pro jeho rozdíly"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2159,6 +2159,22 @@ msgstr "Použít Záplatu..."
 msgid "Apply unified diff"
 msgstr "Aplikovat sjednocený rozdíl"
 
+#. Resource IDs: (363)
+msgid "Approve or reject client-side hook script"
+msgstr "Schválit nebo zamítnout hákový skript na straně klienta"
+
+#. Resource IDs: (363)
+msgid ""
+"Approve\n"
+"Run the hook script"
+msgstr ""
+"Schválit\n"
+"Spustit hákový skript"
+
+#. Resource IDs: (1282)
+msgid "Approved hook scripts"
+msgstr "Schválené hákové skripty"
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "L&ibovolný text"
@@ -2547,6 +2563,14 @@ msgid ""
 msgstr ""
 "Zrušit\n"
 "Nevracet."
+
+#. Resource IDs: (363)
+msgid ""
+"Cancel\n"
+"Do not run the script"
+msgstr ""
+"Zrušit\n"
+"Skript nespouštět"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3010,6 +3034,11 @@ msgstr ""
 "Smazat %1!ld! uživatelská jména/hesla, %2!ld! ssl certifikáty a %3!ld! "
 "uživatelů"
 
+#. Resource IDs: (198)
+#, c-format
+msgid "Clears all %ld approved client-side hook scripts"
+msgstr "Vyčistit všech %ld schválených hákových skriptů na straně klienta"
+
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
@@ -3112,10 +3141,6 @@ msgstr "Barva 1"
 msgid "Color 2"
 msgstr "Barva 2"
 
-#. Resource IDs: (1068)
-msgid "Color co&de in-line changes"
-msgstr "Barevně vyznačit změny v řá&dce"
-
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "Barvy"
@@ -3139,6 +3164,14 @@ msgstr "Příkazová řádka"
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
 msgstr "Příkaz ke spuštění:"
+
+#. Resource IDs: (1336)
+msgid ""
+"Command Line To Execute:\n"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
+msgstr ""
+"Příkazový řádek ke spuštění:\n"
+"Pro určení cesty uvnitř pracovní kopie zadejte url v úložišti pomocí url kořene úložiště jako %REPOROOT%"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4009,6 +4042,10 @@ msgstr ""
 "Bitmapa Nezávislá na Zařízení\n"
 "bitmapa nezávislá na zařízení"
 
+#. Resource IDs: (334)
+msgid "Dialog"
+msgstr "Dialogové okno"
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "Velikosti a pozice dialogových oken"
@@ -4118,6 +4155,10 @@ msgid ""
 msgstr ""
 "Ukáže informace o programu, číslo verze a copyright\n"
 "O aplikaci"
+
+#. Resource IDs: (363)
+msgid "Do not ask again for this script"
+msgstr "Pro tento skript se již neptat"
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -6341,6 +6382,10 @@ msgid ""
 msgstr ""
 "Načíst změny\n"
 "Zobrazení jsou aktualizována novým obsahem"
+
+#. Resource IDs: (32861)
+msgid "Local &Hooks"
+msgstr "Místní &Háky"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -10954,6 +10999,17 @@ msgid ""
 msgstr ""
 "Toto aktualizuje Vaší pracovní kopie do nového formátu 1.7 a tím ji "
 "znepřístupní pro starší klienty."
+
+#. Resource IDs: (363)
+#, c-format
+msgid ""
+"This working copy has a client-side hook script configured. Do you want this script to run?\n"
+"The command line to run is:\n"
+"%s"
+msgstr ""
+"Tato pracovní kopie má nastaven hákový skript na straně klienta. Chcete tento skript spustit?\n"
+"Příkazový řádek ke spuštění je:\n"
+"%s"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"

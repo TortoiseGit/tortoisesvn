@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-14 12:13+0000\n"
+"PO-Revision-Date: 2011-12-21 07:44+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -852,10 +852,6 @@ msgstr "&Игнорирай предхождащи"
 msgid "&Ignore and proceed"
 msgstr ""
 
-#. Resource IDs: (1021)
-msgid "&Ignore whitespace changes"
-msgstr "&Игнориране на промените в празните символи"
-
 #. Resource IDs: (16914)
 msgid "&Image"
 msgstr "&Изображение"
@@ -972,6 +968,10 @@ msgstr "&Направи постоянна дълбочина"
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "&Ръчна редакция на свойство"
+
+#. Resource IDs: (65535)
+msgid "&Max line length for inline diffs"
+msgstr ""
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2176,6 +2176,20 @@ msgstr "Кърпене..."
 msgid "Apply unified diff"
 msgstr "Кърпене с Unified Diff"
 
+#. Resource IDs: (363)
+msgid "Approve or reject client-side hook script"
+msgstr ""
+
+#. Resource IDs: (363)
+msgid ""
+"Approve\n"
+"Run the hook script"
+msgstr ""
+
+#. Resource IDs: (1282)
+msgid "Approved hook scripts"
+msgstr ""
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "Про&изволен текст"
@@ -2568,6 +2582,12 @@ msgid ""
 msgstr ""
 "Отмени\n"
 "Не връщай."
+
+#. Resource IDs: (363)
+msgid ""
+"Cancel\n"
+"Do not run the script"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -3031,6 +3051,11 @@ msgstr ""
 "Изчиства %1!ld! двойки потребителско име/парола, %2!ld! SSL сертификата и "
 "%3!ld! потребителски имена."
 
+#. Resource IDs: (198)
+#, c-format
+msgid "Clears all %ld approved client-side hook scripts"
+msgstr ""
+
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
@@ -3134,10 +3159,6 @@ msgstr "Цветове 1"
 msgid "Color 2"
 msgstr "Цветове 2"
 
-#. Resource IDs: (1068)
-msgid "Color co&de in-line changes"
-msgstr "&Цветно кодиране на промените по редове"
-
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "Цветове"
@@ -3161,6 +3182,12 @@ msgstr "Команден ред"
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
 msgstr "Команден ред за изпълнение:"
+
+#. Resource IDs: (1336)
+msgid ""
+"Command Line To Execute:\n"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4036,6 +4063,10 @@ msgstr ""
 "Хардуерно независимо растерно изображение\n"
 "хардуерно независимо растерно изображение"
 
+#. Resource IDs: (334)
+msgid "Dialog"
+msgstr ""
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "Размер и позиция на диалоговите прозорци"
@@ -4147,6 +4178,10 @@ msgid ""
 msgstr ""
 "Информация за програмата, версията й и авторското право\n"
 "Относно"
+
+#. Resource IDs: (363)
+msgid "Do not ask again for this script"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -6369,6 +6404,10 @@ msgstr ""
 msgid ""
 "Load changes\n"
 "The views are updated with the new content."
+msgstr ""
+
+#. Resource IDs: (32861)
+msgid "Local &Hooks"
 msgstr ""
 
 #. Resource IDs: (63)
@@ -11017,6 +11056,14 @@ msgid ""
 msgstr ""
 "Твояето работно копие ще бъде актуализирано към новия формат 1.7 и ще бъде "
 "неизползваемо за старите версии."
+
+#. Resource IDs: (363)
+#, c-format
+msgid ""
+"This working copy has a client-side hook script configured. Do you want this script to run?\n"
+"The command line to run is:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"

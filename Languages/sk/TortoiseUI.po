@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-14 12:13+0000\n"
-"Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
+"PO-Revision-Date: 2011-12-21 07:44+0000\n"
+"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -848,10 +848,6 @@ msgstr "&Ignorovať pôvod"
 msgid "&Ignore and proceed"
 msgstr ""
 
-#. Resource IDs: (1021)
-msgid "&Ignore whitespace changes"
-msgstr "Ignorovať zmeny &bielych znakov"
-
 #. Resource IDs: (16914)
 msgid "&Image"
 msgstr "&Obrázok"
@@ -968,6 +964,10 @@ msgstr "&Pamäť si hĺbku"
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "&Zmeniť vlastnosť ručne"
+
+#. Resource IDs: (65535)
+msgid "&Max line length for inline diffs"
+msgstr ""
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2161,6 +2161,20 @@ msgstr "Použiť záplatu..."
 msgid "Apply unified diff"
 msgstr "Použiť unifikované porovnanie"
 
+#. Resource IDs: (363)
+msgid "Approve or reject client-side hook script"
+msgstr ""
+
+#. Resource IDs: (363)
+msgid ""
+"Approve\n"
+"Run the hook script"
+msgstr ""
+
+#. Resource IDs: (1282)
+msgid "Approved hook scripts"
+msgstr ""
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "Ľu&bovolný text"
@@ -2550,6 +2564,12 @@ msgid ""
 msgstr ""
 "Zrušiť\n"
 "Nevrátiť."
+
+#. Resource IDs: (363)
+msgid ""
+"Cancel\n"
+"Do not run the script"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -3013,6 +3033,11 @@ msgstr ""
 "Vymaže užívateľské mená a heslá(%1!ld!), SSL certifikáty (%2!ld!) a "
 "užívateľské mená (%3!ld!)"
 
+#. Resource IDs: (198)
+#, c-format
+msgid "Clears all %ld approved client-side hook scripts"
+msgstr ""
+
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
@@ -3115,10 +3140,6 @@ msgstr "Farba 1"
 msgid "Color 2"
 msgstr "Farba 2"
 
-#. Resource IDs: (1068)
-msgid "Color co&de in-line changes"
-msgstr "&Farebné značky zmien v riadkoch"
-
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "Farby"
@@ -3142,6 +3163,12 @@ msgstr "Príkazový riadok"
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
 msgstr "Príkazový riadok na vykonanie:"
+
+#. Resource IDs: (1336)
+msgid ""
+"Command Line To Execute:\n"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4012,6 +4039,10 @@ msgstr ""
 "Bitmapa nezávislá na zariadení\n"
 "bitmapa nezávislá na zariadení"
 
+#. Resource IDs: (334)
+msgid "Dialog"
+msgstr ""
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "Veľkosť a poloha dialógových okien"
@@ -4121,6 +4152,10 @@ msgid ""
 msgstr ""
 "Zobraz informácie o programe, číslo verzie a copyright\n"
 "O programe"
+
+#. Resource IDs: (363)
+msgid "Do not ask again for this script"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -6341,6 +6376,10 @@ msgstr ""
 msgid ""
 "Load changes\n"
 "The views are updated with the new content."
+msgstr ""
+
+#. Resource IDs: (32861)
+msgid "Local &Hooks"
 msgstr ""
 
 #. Resource IDs: (63)
@@ -10946,6 +10985,14 @@ msgid ""
 msgstr ""
 "Toto vynoví vašu pracovnú kópiu do nového formátu 1.7 a spraví ju "
 "nepoužiteľnou pre starších klientov."
+
+#. Resource IDs: (363)
+#, c-format
+msgid ""
+"This working copy has a client-side hook script configured. Do you want this script to run?\n"
+"The command line to run is:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"

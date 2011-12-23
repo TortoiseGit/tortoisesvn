@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-14 12:13+0000\n"
-"Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
+"PO-Revision-Date: 2011-12-21 07:44+0000\n"
+"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -853,10 +853,6 @@ msgstr "&Negeer oorsprong"
 msgid "&Ignore and proceed"
 msgstr ""
 
-#. Resource IDs: (1021)
-msgid "&Ignore whitespace changes"
-msgstr "Negeer wijzigingen in &spaties en lege regels"
-
 #. Resource IDs: (16914)
 msgid "&Image"
 msgstr "&Afbeelding"
@@ -973,6 +969,10 @@ msgstr "&Maak diepte permanent"
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "Eigenschap &Handmatig wijzigen"
+
+#. Resource IDs: (65535)
+msgid "&Max line length for inline diffs"
+msgstr ""
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2170,6 +2170,20 @@ msgstr "Pas patch toe..."
 msgid "Apply unified diff"
 msgstr "Voer unified diff uit"
 
+#. Resource IDs: (363)
+msgid "Approve or reject client-side hook script"
+msgstr ""
+
+#. Resource IDs: (363)
+msgid ""
+"Approve\n"
+"Run the hook script"
+msgstr ""
+
+#. Resource IDs: (1282)
+msgid "Approved hook scripts"
+msgstr ""
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "&Willekeurige tekst"
@@ -2563,6 +2577,12 @@ msgid ""
 msgstr ""
 "Annuleer\n"
 "Niet ongedaan maken."
+
+#. Resource IDs: (363)
+msgid ""
+"Cancel\n"
+"Do not run the script"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -3024,6 +3044,11 @@ msgstr ""
 "Wist %1!ld! gebruikersnaam/wachtwoord-paren, %2!ld! SSL certificaten en "
 "%3!ld! gebruikersnamen"
 
+#. Resource IDs: (198)
+#, c-format
+msgid "Clears all %ld approved client-side hook scripts"
+msgstr ""
+
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
@@ -3122,10 +3147,6 @@ msgstr "Kleur 1"
 msgid "Color 2"
 msgstr "Kleur 2"
 
-#. Resource IDs: (1068)
-msgid "Color co&de in-line changes"
-msgstr "&Kleurcoderen van in-line wijzigingen"
-
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "Kleuren"
@@ -3149,6 +3170,12 @@ msgstr "Commandoregel"
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
 msgstr "Uit te voeren commando:"
+
+#. Resource IDs: (1336)
+msgid ""
+"Command Line To Execute:\n"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4019,6 +4046,10 @@ msgstr ""
 "Device onafhankelijke bitmap\n"
 "een device onafhankelijke bitmap"
 
+#. Resource IDs: (334)
+msgid "Dialog"
+msgstr ""
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "Venster afmetingen en posities"
@@ -4130,6 +4161,10 @@ msgid ""
 msgstr ""
 "Toon informatie over het programma\n"
 "Info"
+
+#. Resource IDs: (363)
+msgid "Do not ask again for this script"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -6347,6 +6382,10 @@ msgstr ""
 msgid ""
 "Load changes\n"
 "The views are updated with the new content."
+msgstr ""
+
+#. Resource IDs: (32861)
+msgid "Local &Hooks"
 msgstr ""
 
 #. Resource IDs: (63)
@@ -10989,6 +11028,14 @@ msgid ""
 msgstr ""
 "Hiermee wordt uw werkkopie opgewaardeerd naar het nieuwe 1.7 formaat, "
 "waardoor hij onbruikbaar wordt voor oudere tools."
+
+#. Resource IDs: (363)
+#, c-format
+msgid ""
+"This working copy has a client-side hook script configured. Do you want this script to run?\n"
+"The command line to run is:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"

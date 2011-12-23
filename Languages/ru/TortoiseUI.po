@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-15 09:58+0000\n"
+"PO-Revision-Date: 2011-12-21 08:27+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -853,10 +853,6 @@ msgstr "&Игнорировать предков"
 msgid "&Ignore and proceed"
 msgstr "&Игнорировать и продолжить"
 
-#. Resource IDs: (1021)
-msgid "&Ignore whitespace changes"
-msgstr "Игнорировать изменения &непечатаемых знаков"
-
 #. Resource IDs: (16914)
 msgid "&Image"
 msgstr "&Изображение"
@@ -973,6 +969,10 @@ msgstr "&Сделать глубину постоянной"
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "&Редактировать свойство вручную"
+
+#. Resource IDs: (65535)
+msgid "&Max line length for inline diffs"
+msgstr "&Максимальная длина строки для внутристрочных различий"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2175,6 +2175,22 @@ msgstr "Применить заплатку..."
 msgid "Apply unified diff"
 msgstr "Применение объединённых различий"
 
+#. Resource IDs: (363)
+msgid "Approve or reject client-side hook script"
+msgstr "Одобрить или отклонить клиентский скрипт обработчика"
+
+#. Resource IDs: (363)
+msgid ""
+"Approve\n"
+"Run the hook script"
+msgstr ""
+"Одобрить\n"
+"Выполнить скрипт обработчика"
+
+#. Resource IDs: (1282)
+msgid "Approved hook scripts"
+msgstr "Одобренные скрипты обработчика"
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "Произ&вольный текст"
@@ -2567,6 +2583,14 @@ msgid ""
 msgstr ""
 "Отмена\n"
 "Не убирать."
+
+#. Resource IDs: (363)
+msgid ""
+"Cancel\n"
+"Do not run the script"
+msgstr ""
+"Отменить\n"
+"Не выполнять скрипт"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3034,6 +3058,11 @@ msgstr ""
 "Очищает %1!ld! пар(ы) имя-пользователя/пароль, %2!ld! сертификатов ssl и "
 "%3!ld! имён пользователей"
 
+#. Resource IDs: (198)
+#, c-format
+msgid "Clears all %ld approved client-side hook scripts"
+msgstr "Очищает все %ld одобренных клиентских скриптов обработчика"
+
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
@@ -3136,10 +3165,6 @@ msgstr "Цвет 1"
 msgid "Color 2"
 msgstr "Цвет 2"
 
-#. Resource IDs: (1068)
-msgid "Color co&de in-line changes"
-msgstr "Помечать &цветом изменения внутри строк"
-
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "Цвета"
@@ -3163,6 +3188,14 @@ msgstr "Командная строка"
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
 msgstr "Командная строка для выполнения:"
+
+#. Resource IDs: (1336)
+msgid ""
+"Command Line To Execute:\n"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
+msgstr ""
+"Командная строка для выполнения:\n"
+"Для указания пути внутри рабочей копии укажите url в хранилище и %REPOROOT% вместо url корня хранилища"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4037,6 +4070,10 @@ msgstr ""
 "Независимый от устройства растр\n"
 "независимый от устройства растр"
 
+#. Resource IDs: (334)
+msgid "Dialog"
+msgstr "Диалог"
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "Размеры и расположение окон"
@@ -4147,6 +4184,10 @@ msgid ""
 msgstr ""
 "Показать информацию о программе, номер версии и авторские права\n"
 "О программе"
+
+#. Resource IDs: (363)
+msgid "Do not ask again for this script"
+msgstr "Не спрашивать больше для этого скрипта"
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -6380,6 +6421,10 @@ msgid ""
 msgstr ""
 "Загрузить изменения\n"
 "Представления обновляются новым содержимым."
+
+#. Resource IDs: (32861)
+msgid "Local &Hooks"
+msgstr "Локальные &обработчики"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -11038,6 +11083,17 @@ msgid ""
 msgstr ""
 "Это преобразует вашу рабочую копию в новый формат 1.7 и сделает ее "
 "недоступной для использования клиентами старых версий."
+
+#. Resource IDs: (363)
+#, c-format
+msgid ""
+"This working copy has a client-side hook script configured. Do you want this script to run?\n"
+"The command line to run is:\n"
+"%s"
+msgstr ""
+"Эта рабочая копия имеет настроенный клиентский скрипт обработчика. Вы хотите выполнить этот скрипт?\n"
+"Командная строка для выполнения:\n"
+"%s"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"

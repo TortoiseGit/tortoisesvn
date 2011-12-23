@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-14 21:05+0000\n"
+"PO-Revision-Date: 2011-12-21 19:56+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -850,10 +850,6 @@ msgstr "Zanemar&iti pretke"
 msgid "&Ignore and proceed"
 msgstr "&Zanemari i nastavi"
 
-#. Resource IDs: (1021)
-msgid "&Ignore whitespace changes"
-msgstr "&Zanemari promene beline"
-
 #. Resource IDs: (16914)
 msgid "&Image"
 msgstr "&Slika"
@@ -970,6 +966,10 @@ msgstr "&Učini debljinu prijemčivom"
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "&Manualno uređene osobine"
+
+#. Resource IDs: (65535)
+msgid "&Max line length for inline diffs"
+msgstr "&Maks dužina linije za linijske difove"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2167,6 +2167,22 @@ msgstr "Primena zakrpe..."
 msgid "Apply unified diff"
 msgstr "Primena objedinjenih razl"
 
+#. Resource IDs: (363)
+msgid "Approve or reject client-side hook script"
+msgstr "Potvrdi ili odbaci klijentske zakačive skripte"
+
+#. Resource IDs: (363)
+msgid ""
+"Approve\n"
+"Run the hook script"
+msgstr ""
+"Potvrdi\n"
+"Izvrši zakačivu skriptu"
+
+#. Resource IDs: (1282)
+msgid "Approved hook scripts"
+msgstr "Potvrđene zakačive skripte"
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "Pro&izvoljan tekst"
@@ -2557,6 +2573,14 @@ msgid ""
 msgstr ""
 "Odustani\n"
 "Ne vraćaj."
+
+#. Resource IDs: (363)
+msgid ""
+"Cancel\n"
+"Do not run the script"
+msgstr ""
+"Odustani\n"
+"Ne izvršavaj skriptu"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3021,6 +3045,11 @@ msgstr ""
 " Čisti %1!ld! parova ime korisnika/lozinka, %2!ld! ssl sertifikata i %3!ld! "
 "imena korisnika"
 
+#. Resource IDs: (198)
+#, c-format
+msgid "Clears all %ld approved client-side hook scripts"
+msgstr "Briše svih %ld potvrđenih klijentskih skripti"
+
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
@@ -3123,10 +3152,6 @@ msgstr "Boja 1"
 msgid "Color 2"
 msgstr "Boja 2"
 
-#. Resource IDs: (1068)
-msgid "Color co&de in-line changes"
-msgstr "Ko&d boje unutar linije"
-
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "Boje"
@@ -3150,6 +3175,14 @@ msgstr "Komandna linija"
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
 msgstr "Komandna linija za izvršenje:"
+
+#. Resource IDs: (1336)
+msgid ""
+"Command Line To Execute:\n"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
+msgstr ""
+"Komandna linija za izvršenje:\n"
+"Da bi se specificirala putanja unutar radne kopije, specificiraj url u spremištu sa korenom url spremišta kao %REPOROOT%"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4024,6 +4057,10 @@ msgstr ""
 "Bitmapa nezavisna od uređaja\n"
 "bitmapa nezavisna od uređaja"
 
+#. Resource IDs: (334)
+msgid "Dialog"
+msgstr "Fijalog"
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "Dijalog veličina i pozicije"
@@ -4134,6 +4171,10 @@ msgid ""
 msgstr ""
 "Prikaz podataka o programu, broj verzije i autorska prava\n"
 "O programu"
+
+#. Resource IDs: (363)
+msgid "Do not ask again for this script"
+msgstr "Ne pitaj ponovo za ovu skriptu"
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -6359,6 +6400,10 @@ msgid ""
 msgstr ""
 "Učitaj izmene\n"
 "Pregledi su usklađeni novim sadržajem."
+
+#. Resource IDs: (32861)
+msgid "Local &Hooks"
+msgstr "Lokalne &Zakačaljke"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -10984,6 +11029,17 @@ msgid ""
 msgstr ""
 "Ovo će dograditi vašu radnu kopiju na novi 1.7 format i učiniće je nekorisnu"
 " za starije klijente."
+
+#. Resource IDs: (363)
+#, c-format
+msgid ""
+"This working copy has a client-side hook script configured. Do you want this script to run?\n"
+"The command line to run is:\n"
+"%s"
+msgstr ""
+"Ova radna kopija ima konfigurisane klijentske zakačaljke. Želite li da se ova skripta pokrene?\n"
+"Komandna linija za rad je:\n"
+"%s"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"

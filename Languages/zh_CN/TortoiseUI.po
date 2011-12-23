@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-14 12:13+0000\n"
-"Last-Translator: Verplusor <sailen@live.com>\n"
+"PO-Revision-Date: 2011-12-21 07:44+0000\n"
+"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -855,10 +855,6 @@ msgstr "忽略根源(&I)"
 msgid "&Ignore and proceed"
 msgstr ""
 
-#. Resource IDs: (1021)
-msgid "&Ignore whitespace changes"
-msgstr "忽略空白字符的变化(&I)"
-
 #. Resource IDs: (16914)
 msgid "&Image"
 msgstr "图片(&I)"
@@ -975,6 +971,10 @@ msgstr "粘滞深度(&M)"
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "手工编辑属性(&M)"
+
+#. Resource IDs: (65535)
+msgid "&Max line length for inline diffs"
+msgstr ""
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2154,6 +2154,20 @@ msgstr "应用补丁..."
 msgid "Apply unified diff"
 msgstr "应用标准差异文件"
 
+#. Resource IDs: (363)
+msgid "Approve or reject client-side hook script"
+msgstr ""
+
+#. Resource IDs: (363)
+msgid ""
+"Approve\n"
+"Run the hook script"
+msgstr ""
+
+#. Resource IDs: (1282)
+msgid "Approved hook scripts"
+msgstr ""
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "任意文本(&I)"
@@ -2540,6 +2554,12 @@ msgid ""
 msgstr ""
 "取消\n"
 "不还原。"
+
+#. Resource IDs: (363)
+msgid ""
+"Cancel\n"
+"Do not run the script"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid ""
@@ -2989,6 +3009,11 @@ msgid ""
 "usernames"
 msgstr "清除%1!ld!个用户名/密码、%2!ld!个SSL认证数据及%3!ld!个用户名"
 
+#. Resource IDs: (198)
+#, c-format
+msgid "Clears all %ld approved client-side hook scripts"
+msgstr ""
+
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
@@ -3087,10 +3112,6 @@ msgstr "颜色 1"
 msgid "Color 2"
 msgstr "颜色 2"
 
-#. Resource IDs: (1068)
-msgid "Color co&de in-line changes"
-msgstr "用颜色标记行内改变(&D)"
-
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "颜色"
@@ -3114,6 +3135,12 @@ msgstr "命令行"
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
 msgstr "要执行的命令行: "
+
+#. Resource IDs: (1336)
+msgid ""
+"Command Line To Execute:\n"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3975,6 +4002,10 @@ msgstr ""
 "设备中立位图\n"
 "一种设备中立的位图"
 
+#. Resource IDs: (334)
+msgid "Dialog"
+msgstr ""
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "窗口大小及位置"
@@ -4084,6 +4115,10 @@ msgid ""
 msgstr ""
 "显示文件信息, 版本号码, 以及版权声明\n"
 "关于"
+
+#. Resource IDs: (363)
+msgid "Do not ask again for this script"
+msgstr ""
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -6273,6 +6308,10 @@ msgstr ""
 msgid ""
 "Load changes\n"
 "The views are updated with the new content."
+msgstr ""
+
+#. Resource IDs: (32861)
+msgid "Local &Hooks"
 msgstr ""
 
 #. Resource IDs: (63)
@@ -10775,6 +10814,14 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr "这会升级您的工作副本到新的 1.7 格式并让旧版的客户端不能访问。"
+
+#. Resource IDs: (363)
+#, c-format
+msgid ""
+"This working copy has a client-side hook script configured. Do you want this script to run?\n"
+"The command line to run is:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"

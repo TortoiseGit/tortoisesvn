@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-14 15:20+0000\n"
+"PO-Revision-Date: 2011-12-22 14:58+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,9 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr "# 單獨顯示作者:"
+msgstr ""
+"將會執行指令:\n"
+"要設定工作複本內的路徑, 請使用 %REPOROOT% 變數作為檔案庫中的最上層URL"
 
 #. Resource IDs: (357)
 #, c-format
@@ -851,10 +853,6 @@ msgstr "無視之前版本(&I)"
 msgid "&Ignore and proceed"
 msgstr "忽略並繼續(&I)"
 
-#. Resource IDs: (1021)
-msgid "&Ignore whitespace changes"
-msgstr "無視空白字元變更(&I)"
-
 #. Resource IDs: (16914)
 msgid "&Image"
 msgstr "影像(&I)"
@@ -971,6 +969,10 @@ msgstr "記住深度(&M)"
 #. Resource IDs: (1282)
 msgid "&Manually edit property"
 msgstr "手動編輯屬性(&M)"
+
+#. Resource IDs: (65535)
+msgid "&Max line length for inline diffs"
+msgstr "行內差異最大長度(&M)"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2149,6 +2151,22 @@ msgstr "套用補綴..."
 msgid "Apply unified diff"
 msgstr "套用單一差異檔"
 
+#. Resource IDs: (363)
+msgid "Approve or reject client-side hook script"
+msgstr "允許或拒絕用戶端掛勾指令檔"
+
+#. Resource IDs: (363)
+msgid ""
+"Approve\n"
+"Run the hook script"
+msgstr ""
+"允許\n"
+"執行掛勾指令檔"
+
+#. Resource IDs: (1282)
+msgid "Approved hook scripts"
+msgstr "已允許的掛勾指令檔"
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "任意文字(&I)"
@@ -2535,6 +2553,14 @@ msgid ""
 msgstr ""
 "取消\n"
 "不復原變更."
+
+#. Resource IDs: (363)
+msgid ""
+"Cancel\n"
+"Do not run the script"
+msgstr ""
+"取消\n"
+"不執行指令檔"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2984,6 +3010,11 @@ msgid ""
 "usernames"
 msgstr "清除了 %1!ld! 組帳號密碼, %2!ld! 份 SSL 憑證, 以及 %3!ld! 組帳號"
 
+#. Resource IDs: (198)
+#, c-format
+msgid "Clears all %ld approved client-side hook scripts"
+msgstr "清除所有已允許的用戶端掛勾指令檔(共 %ld 個)"
+
 #. Resource IDs: (197)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
@@ -3082,10 +3113,6 @@ msgstr "色彩 1"
 msgid "Color 2"
 msgstr "色彩 2"
 
-#. Resource IDs: (1068)
-msgid "Color co&de in-line changes"
-msgstr "以顏色標記行內程式碼變更(&D)"
-
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "色彩"
@@ -3109,6 +3136,14 @@ msgstr "命令列"
 #. Resource IDs: (1336)
 msgid "Command Line To Execute:"
 msgstr "要執行的命令列:"
+
+#. Resource IDs: (1336)
+msgid ""
+"Command Line To Execute:\n"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
+msgstr ""
+"將會執行指令:\n"
+"如果要指定工作複本內的路徑, 請使用 %REPOROOT% 來代表檔案庫的最上層URL."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3970,6 +4005,10 @@ msgstr ""
 "裝置無關點陣圖\n"
 "與裝置無關的點陣圖"
 
+#. Resource IDs: (334)
+msgid "Dialog"
+msgstr "視窗"
+
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
 msgstr "視窗大小與位置"
@@ -4079,6 +4118,10 @@ msgid ""
 msgstr ""
 "顯示檔案資訊, 版本號碼, 以及版權宣告\n"
 "關於"
+
+#. Resource IDs: (363)
+msgid "Do not ask again for this script"
+msgstr "不再詢問"
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -6277,6 +6320,10 @@ msgid ""
 msgstr ""
 "載入變更\n"
 "已更新為新的內容"
+
+#. Resource IDs: (32861)
+msgid "Local &Hooks"
+msgstr "本地掛勾指令(&H)"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -10796,6 +10843,17 @@ msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
 msgstr "這項作業會將工作複本升級至1.7版的新格式, 舊的用戶端程式將無法使用."
+
+#. Resource IDs: (363)
+#, c-format
+msgid ""
+"This working copy has a client-side hook script configured. Do you want this script to run?\n"
+"The command line to run is:\n"
+"%s"
+msgstr ""
+"目前有用戶端掛勾指令設定在工作複本上. 要執行掛勾指令檔嗎?\n"
+"將會執行命令:\n"
+"%s"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
