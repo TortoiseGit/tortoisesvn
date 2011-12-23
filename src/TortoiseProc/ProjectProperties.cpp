@@ -26,11 +26,19 @@
 #include "TSVNPath.h"
 #include "AppUtils.h"
 #include <regex>
+#include <Shlwapi.h>
 
 using namespace std;
 
 #define LOG_REVISIONREGEX _T("\\b(r\\d+)|\\b(revisions?(\\(s\\))?\\s#?\\d+([, ]+(and\\s?)?\\d+)*)|\\b(revs?\\.?\\s?\\d+([, ]+(and\\s?)?\\d+)*)")
 
+struct num_compare
+{
+    bool operator() (const CString& lhs, const CString& rhs) const
+    {
+        return StrCmpLogicalW(lhs, rhs) < 0;
+    }
+};
 
 ProjectProperties::ProjectProperties(void)
     : regExNeedUpdate (true)
@@ -503,9 +511,16 @@ CString ProjectProperties::FindBugID(const CString& msg)
     CString sRet;
     if (!sCheckRe.IsEmpty() || (nBugIdPos >= 0))
     {
-        std::set<CString> bugIDs = FindBugIDs(msg);
+        std::vector<CHARRANGE> positions = FindBugIDPositions (msg);
+        std::set<CString, num_compare> bugIDs;
+        for ( auto iter = positions.begin(), end = positions.end()
+            ; iter != end
+            ; ++iter)
+        {
+            bugIDs.insert (msg.Mid (iter->cpMin, iter->cpMax - iter->cpMin));
+        }
 
-        for (std::set<CString>::iterator it = bugIDs.begin(); it != bugIDs.end(); ++it)
+        for (std::set<CString, num_compare>::iterator it = bugIDs.begin(); it != bugIDs.end(); ++it)
         {
             sRet += *it;
             sRet += _T(" ");
@@ -803,6 +818,9 @@ public:
         ATLASSERT(!props.HasBugID(_T("This is a test for Issue 7463,666")));
         sRet.Trim();
         ATLASSERT(sRet.Compare(_T("666 7463"))==0);
+        sRet = props.FindBugID(_T("This is a test for Issue #850,#1234,#1345"));
+        sRet.Trim();
+        ATLASSERT(sRet.Compare(_T("850 1234 1345"))==0);
         props.sCheckRe = _T("^\\[(\\d+)\\].*");
         props.sUrl = _T("http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%");
         props.regExNeedUpdate = true;
