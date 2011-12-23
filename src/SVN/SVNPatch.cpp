@@ -197,7 +197,9 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
     m_pProgDlg = NULL;
     apr_pool_destroy(scratchpool);
 
-    if (err)
+    // since we're doing a dry-run, a 'path not found' can happen
+    // since new files/dirs aren't added in the patch func.
+    if ((err)&&(err->apr_err != SVN_ERR_WC_PATH_NOT_FOUND))
     {
         m_errorStr = GetErrorMessage(err);
         m_filePaths.clear();
