@@ -2569,6 +2569,28 @@ BOOL CBaseView::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pResult)
     CString strTipText;
     strTipText = m_sWindowName + _T("\r\n") + m_sFullFilePath;
 
+    DWORD pos = GetMessagePos();
+    CPoint point(GET_X_LPARAM(pos), GET_Y_LPARAM(pos));
+    ScreenToClient(&point);
+    const int nLine = GetButtonEventLineIndex(point);
+
+    if (nLine >= 0)
+    {
+        int nViewLine = GetViewLineForScreen(nLine);
+        if((m_pViewData)&&(nViewLine < m_pViewData->GetCount()))
+        {
+            if (m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_FROM)
+            {
+                strTipText.Format(IDS_MOVED_TO_TT, m_pViewData->GetMovedIndex(nViewLine)+1);
+            }
+            if (m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_TO)
+            {
+                strTipText.Format(IDS_MOVED_FROM_TT, m_pViewData->GetMovedIndex(nViewLine)+1);
+            }
+        }
+    }
+
+
     *pResult = 0;
     if (strTipText.IsEmpty())
         return TRUE;
@@ -2595,7 +2617,14 @@ INT_PTR CBaseView::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
     CRect rcClient;
     GetClientRect(rcClient);
     CRect textrect(rcClient.left, rcClient.top, rcClient.Width(), m_nLineHeight+HEADERHEIGHT);
-    if (textrect.PtInRect(point))
+    int marginwidth = MARGINWIDTH;
+    if ((m_bViewLinenumbers)&&(m_pViewData)&&(m_pViewData->GetCount())&&(m_nDigits > 0))
+    {
+        marginwidth = (MARGINWIDTH + (m_nDigits * m_nCharWidth) + 2);
+    }
+    CRect borderrect(rcClient.left, rcClient.top+m_nLineHeight+HEADERHEIGHT, marginwidth, rcClient.bottom);
+
+    if (textrect.PtInRect(point) || borderrect.PtInRect(point))
     {
         // inside the header part of the view (showing the filename)
         pTI->hwnd = this->m_hWnd;
@@ -2611,8 +2640,9 @@ INT_PTR CBaseView::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
             pToolTip->SetMaxTipWidth(INT_MAX);
         }
 
-        return 1;
+        return (textrect.PtInRect(point) ? 1 : 2);
     }
+
     return -1;
 }
 
