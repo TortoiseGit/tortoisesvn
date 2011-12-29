@@ -552,6 +552,123 @@
                         the properties of any child item, your custom properties will
                         appear in the list of pre-defined property names.
                     </para>
+                    <para>
+                        You can also specify whether a custom dialog is used
+                        to add/edit your property. TortoiseSVN offers four
+                        different dialog, depending on the type of your property.
+                        <variablelist>
+                            <varlistentry>
+                                <term>bool</term>
+                                <listitem>
+                                    <para>
+                                        If your property can only have two states, 
+                                        e.g., true and false, then you can configure
+                                        your property as a <literal>bool</literal> type.
+                                        <figure id="tsvn-dug-propertypage-tsvn-props-userbool">
+                                            <title>Property dialog boolean user types</title>
+                                            <graphic fileref="../images/userpropbool.png"/>
+                                        </figure>
+                                        Specify your property like this:
+                                    </para>
+                                    <para>
+                                    <literal>propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)</literal>
+                                    </para>
+                                    <para>
+                                        the <literal>labeltext</literal> is the text shown
+                                        in the dialog above the checkbox where you can explain the purpose
+                                        and use of the property. The other parameters should be self explanatory.
+                                    </para>
+                                </listitem>
+                            </varlistentry>
+                            <varlistentry>
+                                <term>state</term>
+                                <listitem>
+                                    <para>
+                                        If your property represents one of many possible
+                                        states, e.g., <literal>yes, no, maybe</literal>,
+                                        then you can configure your property as a <literal>state</literal>
+                                        <figure id="tsvn-dug-propertypage-tsvn-props-userstate">
+                                            <title>Property dialog state user types</title>
+                                            <graphic fileref="../images/userpropstate1.png"/>
+                                            <graphic fileref="../images/userpropstate2.png"/>
+                                            <graphic fileref="../images/userpropstate3.png"/>
+                                        </figure>
+                                        property like this:
+                                    </para>
+                                    <para>
+                                    <literal>propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)</literal>
+                                    </para>
+                                    <para>
+                                        The parameters are the same as for the <literal>bool</literal>
+                                        property, with <literal>DEFVAL</literal> being the default
+                                        value to be used if the property isn't set yet or has a value that's
+                                        not configured.
+                                    </para>
+                                    <para>
+                                        For up to three different values, the dialog shows
+                                        up to three radio buttons. If there are more values
+                                        configured, it uses a combo box from where the user
+                                        can select the required state.
+                                    </para>
+                                </listitem>
+                            </varlistentry>
+                            <varlistentry>
+                                <term>singleline</term>
+                                <listitem>
+                                    <para>
+                                        For properties that consist of one line of text,
+                                        use the <literal>singleline</literal> property type:
+                                        <figure id="tsvn-dug-propertypage-tsvn-props-usersingleline">
+                                            <title>Property dialog singleline user types</title>
+                                            <graphic fileref="../images/userpropsingleline.png"/>
+                                        </figure>
+                                    </para>
+                                    <para>
+                                    <literal>propertyname=singleline;labeltext(regex)</literal>
+                                    </para>
+                                    <para>
+                                        the <literal>regex</literal> specifies a regular
+                                        expression which is used to validate (match)
+                                        the text the user entered. If the text does
+                                        not match the regex, then the user is shown an error
+                                        and the property isn't set.
+                                    </para>
+                                </listitem>
+                            </varlistentry>
+                            <varlistentry>
+                                <term>multiline</term>
+                                <listitem>
+                                    <para>
+                                        For properties that consist of multiple lines of text,
+                                        use the <literal>multiline</literal> property type:
+                                        <figure id="tsvn-dug-propertypage-tsvn-props-usermultiline">
+                                            <title>Property dialog multiline user types</title>
+                                            <graphic fileref="../images/userpropmultiline.png"/>
+                                        </figure>
+                                    </para>
+                                    <para>
+                                    <literal>propertyname=multiline;labeltext(regex)</literal>
+                                    </para>
+                                    <para>
+                                        the <literal>regex</literal> specifies a regular
+                                        expression which is used to validate (match)
+                                        the text the user entered. Don't forget to
+                                        include the newline (\n) character in the regex!
+                                    </para>
+                                </listitem>
+                            </varlistentry>
+                        </variablelist>
+                        The screenshots above were made with the following
+                        <literal>tsvn:userdirproperties</literal>:
+<screen>
+my:boolprop=bool;This is a bool type property. Either check or uncheck it.(true;false;my bool prop)
+my:stateprop1=state;This is a state property. Select one of the two states.(true;true;true value;false;false value)
+my:stateprop2=state;This is a state property. Select one of the three states.(maybe;true;answer is correct;false;answer is wrong;maybe;not answered)
+my:stateprop3=state;Specify the day to set this property.(1;1;Monday;2;Tuesday;3;Wednesday;4;Thursday;5;Friday;6;Saturday;7;Sunday)
+my:singlelineprop=singleline;enter a small comment(.*)
+my:multilineprop=multiline;copy and paste a full chapter here(.*)
+</screen>
+                    </para>
                 </listitem>
             </itemizedlist>
         </para>
