@@ -108,6 +108,12 @@ bool UserProp::Parse( const CString& line )
                     sVal = resToken;
                     resToken = temp.Tokenize(L";",curPos);
                     sText = resToken;
+                    if (curPos < 0)
+                    {
+                        // property has invalid format!
+                        propType = UserPropTypeUnknown;
+                        return false;
+                    }
                     resToken = temp.Tokenize(L";",curPos);
                     if (!sText.IsEmpty() && !sVal.IsEmpty())
                         stateEntries[sVal] = sText;
