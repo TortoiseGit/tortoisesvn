@@ -579,6 +579,11 @@
     <ClCompile Include="Properties\EditPropsLocalHooks.cpp" />
     <ClCompile Include="Properties\EditPropTSVNLang.cpp" />
     <ClCompile Include="Properties\EditPropTSVNSizes.cpp" />
+    <ClCompile Include="Properties\EditPropUserBool.cpp" />
+    <ClCompile Include="Properties\EditPropUserMultiLine.cpp" />
+    <ClCompile Include="Properties\EditPropUserSingleLine.cpp" />
+    <ClCompile Include="Properties\EditPropUserState.cpp" />
+    <ClCompile Include="Properties\UserProperties.cpp" />
     <ClCompile Include="RecycleBinDlg.cpp" />
     <ClCompile Include="RepoCreationFinished.cpp" />
     <ClCompile Include="RevisionGraph\RemoveTags.cpp" />
@@ -911,6 +916,11 @@
     <ClInclude Include="Properties\EditPropsLocalHooks.h" />
     <ClInclude Include="Properties\EditPropTSVNLang.h" />
     <ClInclude Include="Properties\EditPropTSVNSizes.h" />
+    <ClInclude Include="Properties\EditPropUserBool.h" />
+    <ClInclude Include="Properties\EditPropUserMultiLine.h" />
+    <ClInclude Include="Properties\EditPropUserSingleLine.h" />
+    <ClInclude Include="Properties\EditPropUserState.h" />
+    <ClInclude Include="Properties\UserProperties.h" />
     <ClInclude Include="RecycleBinDlg.h" />
     <ClInclude Include="RepoCreationFinished.h" />
     <ClInclude Include="RevisionGraph\RemoveTags.h" />

@@ -1079,6 +1079,21 @@
     <ClCompile Include="Properties\EditPropsLocalHooks.cpp">
       <Filter>Commands\Properties</Filter>
     </ClCompile>
+    <ClCompile Include="Properties\UserProperties.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropUserMultiLine.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropUserSingleLine.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropUserState.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties\EditPropUserBool.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2063,6 +2078,21 @@
       <Filter>Utility Dialogs</Filter>
     </ClInclude>
     <ClInclude Include="Properties\EditPropsLocalHooks.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\UserProperties.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropUserMultiLine.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropUserSingleLine.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropUserState.h">
+      <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropUserBool.h">
       <Filter>Commands\Properties</Filter>
     </ClInclude>
   </ItemGroup>
