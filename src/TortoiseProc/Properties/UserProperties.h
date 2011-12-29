@@ -18,6 +18,7 @@
 //
 #pragma once
 #include <map>
+#include <tuple>
 
 enum UserPropType
 {
@@ -50,7 +51,7 @@ public:
     CString         boolNo;
     CString         boolCheckText;
     CString         stateDefaultVal;
-    std::map<CString, CString>  stateEntries;
+    std::vector<std::tuple<CString, CString>>  stateEntries;
 private:
     int             m_menuID;
 };

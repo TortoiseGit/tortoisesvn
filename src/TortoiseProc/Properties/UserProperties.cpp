@@ -116,7 +116,7 @@ bool UserProp::Parse( const CString& line )
                     }
                     resToken = temp.Tokenize(L";",curPos);
                     if (!sText.IsEmpty() && !sVal.IsEmpty())
-                        stateEntries[sVal] = sText;
+                        stateEntries.push_back(std::make_pair(sVal, sText));
                     else
                     {
                         // property has invalid format!
