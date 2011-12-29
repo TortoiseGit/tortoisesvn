@@ -2884,18 +2884,22 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
             if((m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_FROM)||
                 (m_pViewData->GetState(nViewLine)==DIFFSTATE_MOVED_TO))
             {
-                int screenLine = nClickedLine;
-                ScrollAllToLine(screenLine - GetScreenLines() / 2);
+                int movedindex = m_pViewData->GetMovedIndex(nViewLine);
+                int screenLine = FindViewLineNumber(movedindex);
+                int nTop = screenLine - GetScreenLines()/2;
+                if (nTop < 0)
+                    nTop = 0;
+                ScrollAllToLine(nTop);
                 // find and select the whole moved block
-                int startSel = screenLine;
-                int endSel = screenLine;
+                int startSel = movedindex;
+                int endSel = movedindex;
                 while ((startSel > 0) && ((m_pOtherViewData->GetState(startSel) == DIFFSTATE_MOVED_FROM) || (m_pOtherViewData->GetState(startSel) == DIFFSTATE_MOVED_TO)))
                     startSel--;
                 startSel++;
                 while ((endSel < GetLineCount()) && ((m_pOtherViewData->GetState(endSel) == DIFFSTATE_MOVED_FROM) || (m_pOtherViewData->GetState(endSel) == DIFFSTATE_MOVED_TO)))
                     endSel++;
                 endSel--;
-                SetupSelection(startSel, endSel);
+                m_pOtherView->SetupSelection(startSel, endSel);
                 return CView::OnLButtonDblClk(nFlags, point);
             }
         }
