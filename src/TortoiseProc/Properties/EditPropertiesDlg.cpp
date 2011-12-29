@@ -689,6 +689,9 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                         {
                             for (IT propsit = dlgprops.begin(); propsit != dlgprops.end(); ++propsit)
                             {
+                                if (dlg->IsFolderOnlyProperty())
+                                    props.AddFolderPropName(propsit->first);
+
                                 prog.SetLine(1, CUnicodeUtils::StdGetUnicode(propsit->first).c_str());
                                 BOOL ret = FALSE;
                                 if (propsit->second.remove)
@@ -715,6 +718,8 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                         }
                         else
                         {
+                            if (dlg->IsFolderOnlyProperty())
+                                props.AddFolderPropName(sName);
                             bool bRemove = false;
                             if ((sName.substr(0, 4).compare("svn:") == 0) ||
                                 (sName.substr(0, 5).compare("tsvn:") == 0) ||

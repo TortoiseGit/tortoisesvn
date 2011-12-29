@@ -33,6 +33,7 @@ public:
     EditPropUserMultiLine(CWnd* pParent, const UserProp * p);   // standard constructor
     virtual ~EditPropUserMultiLine();
 
+    virtual bool IsFolderOnlyProperty() { return !m_userprop->file; }
     void SetUserProp(UserProp * p) {m_userprop = p;}
 
     // Dialog Data

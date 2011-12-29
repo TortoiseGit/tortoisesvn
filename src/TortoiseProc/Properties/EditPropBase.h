@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,6 +58,7 @@ public:
     virtual void            SetProperties(const TProperties& props) { m_properties = props; }
     virtual TProperties     GetProperties() const { return m_properties; }
     virtual bool            HasMultipleProperties() { return false; }
+    virtual bool            IsFolderOnlyProperty() { return false; }
 
     virtual void            SetFolder() {m_bFolder = true;}
     virtual void            SetMultiple() {m_bMultiple = true;}

@@ -143,6 +143,11 @@ public:
      */
     std::string GetSerializedForm() const;
 
+    /**
+     * Adds a property name to the list of properties that can only be set on folders
+     */
+    void AddFolderPropName(const std::string& p) {m_folderprops.push_back(p);}
+
     CTSVNPath GetPath() const { return m_path; }
 private:        //methods
     /**
@@ -163,7 +168,7 @@ protected:        //members
     int                         m_propCount;        ///< number of properties found
     SVNRev                      m_rev;
     bool                        m_bRevProps;
-
+    std::vector<std::string>    m_folderprops;
 #ifdef _MFC_VER
     SVNPrompt                   m_prompt;
     CProgressDlg *              m_pProgress;
