@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010-2011 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,8 @@
 #include "diff.h"
 #include "MovedBlocks.h"
 #include "DiffData.h"
+#include <set>
+#include <map>
 
 // This file implements moved blocks detection algorithm, based
 // on WinMerges(http:\\winmerge.org) one
@@ -33,7 +35,7 @@ public:
     bool IsPresent(int val) const;
     int GetSingle() const;
 private:
-    CMap<int, int, int, int> m_map;
+    std::set<int>      m_set;
 };
 
 struct EquivalencyGroup
@@ -44,7 +46,7 @@ struct EquivalencyGroup
     bool IsPerfectMatch() const;
 };
 
-class LineToGroupMap : public CTypedPtrMap<CMapStringToPtr, CString, EquivalencyGroup *>
+class LineToGroupMap : public std::map<CString, EquivalencyGroup*>
 {
 public:
     void Add(int lineno, const CString &line, int nside);
@@ -54,31 +56,31 @@ public:
 
 void IntSet::Add(int val)
 {
-    m_map.SetAt(val, 1);
+    m_set.insert(val);
 }
 
 void IntSet::Remove(int val)
 {
-    m_map.RemoveKey(val);
+    m_set.erase(val);
 }
 
 int IntSet::Count() const
 {
-    return (int)m_map.GetCount();
+    return (int)m_set.size();
 }
 
 bool IntSet::IsPresent(int val) const
 {
-    int parm;
-    return !!m_map.Lookup(val, parm);
+    return m_set.find(val) != m_set.end();
 }
 
 int IntSet::GetSingle() const
 {
-    int val, parm;
-    POSITION pos = m_map.GetStartPosition();
-    m_map.GetNextAssoc(pos, val, parm);
-    return val;
+    if (m_set.size())
+    {
+        return *m_set.cbegin();
+    }
+    return 0;
 }
 
 bool EquivalencyGroup::IsPerfectMatch() const
@@ -89,11 +91,14 @@ bool EquivalencyGroup::IsPerfectMatch() const
 void LineToGroupMap::Add(int lineno, const CString &line, int nside)
 {
     EquivalencyGroup *pGroup = NULL;
-    if ( !Lookup(line, pGroup) )
+    auto it = __super::find(line);
+    if ( it == cend() )
     {
         pGroup = new EquivalencyGroup;
-        SetAt(line, pGroup);
+        insert(std::pair<CString, EquivalencyGroup*>(line, pGroup));
     }
+    else
+        pGroup = it->second;
     if(nside)
     {
         pGroup->m_LinesRight.Add(lineno);
@@ -107,18 +112,17 @@ void LineToGroupMap::Add(int lineno, const CString &line, int nside)
 EquivalencyGroup *LineToGroupMap::find(const CString &line) const
 {
     EquivalencyGroup *pGroup = NULL;
-    Lookup(line, pGroup);
+    auto it = __super::find(line);
+    if ( it != cend() )
+        pGroup = it->second;
     return pGroup;
 }
 
 LineToGroupMap::~LineToGroupMap()
 {
-    for (POSITION pos = GetStartPosition(); pos; )
+    for (auto it = cbegin(); it != cend(); ++it)
     {
-        CString str;
-        EquivalencyGroup *pGroup = NULL;
-        GetNextAssoc(pos, str, pGroup);
-        delete pGroup;
+        delete it->second;
     }
 }
 
