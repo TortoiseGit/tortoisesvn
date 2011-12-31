@@ -1555,47 +1555,12 @@ void CLogDlg::CopyChangedSelectionToClipBoard()
 
     CString sPaths;
 
-    PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos));
-    if (pos)
+    POSITION pos2 = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
+    while (pos2)
     {
-        POSITION pos2 = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
-        while (pos2)
-        {
-            int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
-            sPaths += m_currentChangedPathList[nItem].GetSVNPathString();
-            sPaths += _T("\r\n");
-        }
-    }
-    else
-    {
-        // only one revision is selected in the log dialog top pane
-        // but multiple items could be selected  in the changed items list
-        POSITION pos2 = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
-        while (pos2)
-        {
-            int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
-            const CLogChangedPathArray& paths = pLogEntry->GetChangedPaths();
-
-            if ((m_cShowPaths.GetState() & 0x0003)==BST_CHECKED)
-            {
-                // some items are hidden! So find out which item the user really selected
-                int selRealIndex = -1;
-                for (size_t hiddenindex=0; hiddenindex<paths.GetCount(); ++hiddenindex)
-                {
-                    if (paths[hiddenindex].IsRelevantForStartPath())
-                        selRealIndex++;
-                    if (selRealIndex == nItem)
-                    {
-                        nItem = static_cast<int>(hiddenindex);
-                        break;
-                    }
-                }
-            }
-
-            const CLogChangedPath& changedlogpath = paths[nItem];
-            sPaths += changedlogpath.GetPath();
-            sPaths += _T("\r\n");
-        }
+        int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
+        sPaths += m_currentChangedArray[nItem].GetPath();
+        sPaths += _T("\r\n");
     }
     sPaths.Trim();
     CStringUtils::WriteAsciiStringToClipboard(sPaths, GetSafeHwnd());
