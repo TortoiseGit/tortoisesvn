@@ -1716,7 +1716,11 @@ void CBaseView::DrawTextLine(
             int nRight = nLeft + Size.cx;
             if ((nRight > rc.left) && (nLeft < rc.right))
             {
-                pDC->ExtTextOut(nLeft, coords.y, ETO_CLIPPED, &rc, p_zBlockText, nTextLength, NULL);
+                // note: ExtTextOut has a limit for the length of the string. That limit is supposed
+                // to be 8192, but that's not really true: I found that the limit (at least on my machine and a few others)
+                // is 4095 (4096 doesn't work anymore).
+                // So we limit the length here to that 4095 chars.
+                pDC->ExtTextOut(nLeft, coords.y, ETO_CLIPPED, &rc, p_zBlockText, min(nTextLength, 4095), NULL);
                 if ((itStart->second.shot != itStart->second.background) && (itStart->first == nStart + nTextOffset))
                 {
                     pDC->FillSolidRect(nLeft-1, rc.top, 1, rc.Height(), itStart->second.shot);
