@@ -109,7 +109,6 @@ void CSetProgsAdvDlg::DoDataExchange(CDataExchange* pDX)
         for (TOOL_MAP::iterator it = m_Tools.begin(); it != m_Tools.end() ; ++it)
         {
             CString ext = it->first;
-            ext.TrimLeft('.');
             CString value = it->second;
             AddExtension(ext, value);
         }
