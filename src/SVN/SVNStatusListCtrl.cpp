@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3462,6 +3462,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         CSVNProgressDlg progDlg;
                         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
                         progDlg.SetPathList(dlg.m_pathList);
+                        DWORD dwOpts = ProgOptForce;
+                        if (dlg.m_UseAutoprops)
+                            dwOpts |= ProgOptUseAutoprops;
+                        progDlg.SetOptions(dwOpts);
                         ProjectProperties props;
                         props.ReadPropsPathList(dlg.m_pathList);
                         progDlg.SetProjectProperties(props);
