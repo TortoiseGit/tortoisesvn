@@ -253,6 +253,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     ExtendFrameIntoClientArea(IDC_REPOS_BAR_CNR, IDC_REPOS_BAR_CNR, IDC_REPOS_BAR_CNR, IDC_REPOTREE);
+    m_aeroControls.SubclassControl(this, IDC_INFOLABEL);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     GetWindowText(m_origDlgTitle);
@@ -308,6 +309,11 @@ BOOL CRepositoryBrowser::OnInitDialog()
         GetDlgItem(IDCANCEL)->ShowWindow(SW_HIDE);
         ScreenToClient(rect_cancel);
         GetDlgItem(IDOK)->MoveWindow(rect_cancel);
+        CRect inforect;
+        GetDlgItem(IDC_INFOLABEL)->GetWindowRect(inforect);
+        inforect.right += rect_cancel.Width();
+        ScreenToClient(inforect);
+        GetDlgItem(IDC_INFOLABEL)->MoveWindow(inforect);
     }
 
     m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
@@ -346,6 +352,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
     AddAnchor(IDC_REPOTREE, TOP_LEFT, BOTTOM_LEFT);
     AddAnchor(IDC_REPOLIST, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
+    AddAnchor(IDC_INFOLABEL, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     EnableSaveRestore(_T("RepositoryBrowser"));
@@ -1110,6 +1117,8 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     temp.LoadString(IDS_STATUSLIST_COLLOCK);
     m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
 
+    int files = 0;
+    int folders = 0;
     // special case: error to show
     if (!pTreeItem->error.IsEmpty() && pTreeItem->children.empty())
     {
@@ -1125,9 +1134,15 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
         {
             int icon_idx;
             if (it->kind == svn_node_dir)
+            {
                 icon_idx =  m_nIconFolder;
+                folders++;
+            }
             else
+            {
                 icon_idx = SYS_IMAGE_LIST().GetFileIconIndex(it->path);
+                files++;
+            }
             int index = m_RepoList.InsertItem(nCount, it->path, icon_idx);
             SetListItemInfo(index, &(*it));
         }
@@ -1154,6 +1169,14 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     }
 
     m_RepoList.SetRedraw(true);
+
+    temp.FormatMessage(IDS_REPOBROWSE_INFO, 
+                      (LPCTSTR)pTreeItem->unescapedname,
+                      files, folders, files+folders);
+    if (!pTreeItem->error.IsEmpty() && pTreeItem->children.empty())
+        SetDlgItemText(IDC_INFOLABEL, L"");
+    else
+        SetDlgItemText(IDC_INFOLABEL, temp);
 }
 
 HTREEITEM CRepositoryBrowser::FindUrl (const CString& fullurl)
@@ -2175,7 +2198,37 @@ void CRepositoryBrowser::OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResul
             {
                 m_barRepository.ShowUrl ( pItem->absolutepath
                     , pItem->repository.revision);
+                CString temp;
+                CString rev;
+
+                if (pItem->is_external)
+                {
+                    temp.FormatMessage(IDS_REPOBROWSE_INFOEXT,
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 0),
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 2),
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 5));
+                }
+                else if (pItem->kind == svn_node_dir)
+                {
+                    temp.FormatMessage(IDS_REPOBROWSE_INFODIR,
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 0),
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 2),
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 3),
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 5));
+                }
+                else
+                {
+                    temp.FormatMessage(IDS_REPOBROWSE_INFOFILE,
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 0),
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 2),
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 3),
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 4),
+                        (LPCTSTR)m_RepoList.GetItemText(pNMLV->iItem, 5));
+                }
+                SetDlgItemText(IDC_INFOLABEL, temp);
             }
+            else
+                SetDlgItemText(IDC_INFOLABEL, L"");
         }
     }
 }
