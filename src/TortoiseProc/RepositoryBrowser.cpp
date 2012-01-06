@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -234,6 +234,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_NOTIFY(TVN_KEYDOWN, IDC_REPOTREE, &CRepositoryBrowser::OnTvnKeydownRepotree)
     ON_WM_CAPTURECHANGED()
     ON_REGISTERED_MESSAGE(WM_SVNAUTHCANCELLED, OnAuthCancelled)
+    ON_NOTIFY(NM_CUSTOMDRAW, IDC_REPOLIST, &CRepositoryBrowser::OnNMCustomdrawRepolist)
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -448,7 +449,7 @@ void CRepositoryBrowser::InitRepo()
             ; path.GetLength() >= m_repository.root.GetLength()
             ; path = path.Left (path.ReverseFind ('/')))
         {
-            m_lister.Enqueue (path, pegRev, m_repository, !m_bSparseCheckoutMode && m_bShowExternals);
+            m_lister.Enqueue (path, pegRev, m_repository, path==m_InitialUrl, !m_bSparseCheckoutMode && m_bShowExternals);
         }
 
     // (try to) fetch the HEAD revision
@@ -464,7 +465,7 @@ void CRepositoryBrowser::InitRepo()
     CString error
         = m_cancelled
         ? userCancelledError
-        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, !m_bSparseCheckoutMode && m_bShowExternals, dummy);
+        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, !m_bSparseCheckoutMode && m_bShowExternals, dummy);
 
     // the only way CQuery::List will return the following error
     // is by calling it with a file path instead of a dir path
@@ -477,7 +478,7 @@ void CRepositoryBrowser::InitRepo()
     if (error == wasFileError)
     {
         m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
-        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, !m_bSparseCheckoutMode && m_bShowExternals, dummy);
+        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, !m_bSparseCheckoutMode && m_bShowExternals, dummy);
     }
 
     // exit upon cancel
@@ -1118,7 +1119,6 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     {
         // now fill in the data
 
-        TCHAR date_native[SVN_DATE_BUFFER];
         int nCount = 0;
         const deque<CItem>& items = pTreeItem->children;
         for (auto it = items.begin(); it != items.end(); ++it)
@@ -1129,45 +1129,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
             else
                 icon_idx = SYS_IMAGE_LIST().GetFileIconIndex(it->path);
             int index = m_RepoList.InsertItem(nCount, it->path, icon_idx);
-
-            if (it->is_external)
-                m_RepoList.SetItemState(index, INDEXTOOVERLAYMASK(OVERLAY_EXTERNAL), LVIS_OVERLAYMASK);
-
-            // extension
-            temp = CPathUtils::GetFileExtFromPath(it->path);
-            if (it->kind == svn_node_file)
-                m_RepoList.SetItemText(index, 1, temp);
-
-            // revision
-            if ((it->created_rev == SVN_IGNORED_REVNUM) && (it->is_external))
-                temp = it->time != 0 ? _T("") : _T("HEAD");
-            else
-                temp.Format(_T("%ld"), it->created_rev);
-            m_RepoList.SetItemText(index, 2, temp);
-
-            // author
-            m_RepoList.SetItemText(index, 3, it->author);
-
-            // size
-            if (it->kind == svn_node_file)
-            {
-                StrFormatByteSize(it->size, temp.GetBuffer(20), 20);
-                temp.ReleaseBuffer();
-                m_RepoList.SetItemText(index, 4, temp);
-            }
-
-            // date
-            if ((it->time == 0) && (it->is_external))
-                date_native[0] = 0;
-            else
-                SVN::formatDate(date_native, (apr_time_t&)it->time, true);
-            m_RepoList.SetItemText(index, 5, date_native);
-
-            // lock owner
-            m_RepoList.SetItemText(index, 6, it->lockowner);
-
-            // pointer to the CItem structure
-            m_RepoList.SetItemData(index, (DWORD_PTR)&(*it));
+            SetListItemInfo(index, &(*it));
         }
 
         ListView_SortItemsEx(m_RepoList, ListSort, this);
@@ -1254,6 +1216,7 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
                                              ? pTreeItem->repository.peg_revision
                                              : SVNRev()
                                         , pTreeItem->repository
+                                        , true
                                         , !m_bSparseCheckoutMode && m_bShowExternals
                                         , children);
 
@@ -1406,7 +1369,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                         tvitem.cChildren = 1;
                         m_RepoTree.SetItem(&tvitem);
                     }
-                    CItem * manualItem = new CItem(currentPath.Mid (currentPath.ReverseFind ('/') + 1), L"", svn_node_dir, 0, true, -1, 0, L"", L"", L"", L"", false, 0, 0, currentPath, pTreeItem->repository);
+                    CItem * manualItem = new CItem(currentPath.Mid (currentPath.ReverseFind ('/') + 1), L"", svn_node_dir, 0, true, false, -1, 0, L"", L"", L"", L"", false, 0, 0, currentPath, pTreeItem->repository);
                     node = AutoInsert (node, *manualItem);
                 }
                 else
@@ -1431,6 +1394,7 @@ HTREEITEM CRepositoryBrowser::AutoInsert (const CString& path)
                                  ? pTreeItem->repository.peg_revision
                                  : SVNRev()
                                  , pTreeItem->repository
+                                 , true
                                  , !m_bSparseCheckoutMode && m_bShowExternals);
         }
     }
@@ -1597,13 +1561,14 @@ void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
         if ((item.kind == svn_node_dir)&&(item.absolutepath.GetLength() > 0))
         {
             pTreeItem->has_child_folders = true;
-            if (m_bFetchChildren)
+            if (m_bFetchChildren && (pTreeItem->children.size() < 30))
             {
                 m_lister.Enqueue ( item.absolutepath
                                  , item.is_external
                                  ? item.repository.peg_revision
                                  : SVNRev()
                                  , item.repository
+                                 , true
                                  , item.has_props);
             }
         }
@@ -2207,8 +2172,10 @@ void CRepositoryBrowser::OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResul
             CAutoReadLock locker(m_guard);
             CItem * pItem = (CItem*)m_RepoList.GetItemData(pNMLV->iItem);
             if (pItem)
+            {
                 m_barRepository.ShowUrl ( pItem->absolutepath
-                                        , pItem->repository.revision);
+                    , pItem->repository.revision);
+            }
         }
     }
 }
@@ -4198,5 +4165,83 @@ void CRepositoryBrowser::FilterInfinityDepthItems(std::map<CString,svn_depth_t>&
                 depths.erase(kill);
             }
         }
+    }
+}
+
+void CRepositoryBrowser::SetListItemInfo( int index, const CItem * it )
+{
+    if (it->is_external)
+        m_RepoList.SetItemState(index, INDEXTOOVERLAYMASK(OVERLAY_EXTERNAL), LVIS_OVERLAYMASK);
+
+    // extension
+    CString temp = CPathUtils::GetFileExtFromPath(it->path);
+    if (it->kind == svn_node_file)
+        m_RepoList.SetItemText(index, 1, temp);
+
+    // pointer to the CItem structure
+    m_RepoList.SetItemData(index, (DWORD_PTR)&(*it));
+
+    if (!it->complete)
+        return;
+
+    // revision
+    if ((it->created_rev == SVN_IGNORED_REVNUM) && (it->is_external))
+        temp = it->time != 0 ? _T("") : _T("HEAD");
+    else
+        temp.Format(_T("%ld"), it->created_rev);
+    m_RepoList.SetItemText(index, 2, temp);
+
+    // author
+    m_RepoList.SetItemText(index, 3, it->author);
+
+    // size
+    if (it->kind == svn_node_file)
+    {
+        StrFormatByteSize(it->size, temp.GetBuffer(20), 20);
+        temp.ReleaseBuffer();
+        m_RepoList.SetItemText(index, 4, temp);
+    }
+
+    // date
+    TCHAR date_native[SVN_DATE_BUFFER];
+    if ((it->time == 0) && (it->is_external))
+        date_native[0] = 0;
+    else
+        SVN::formatDate(date_native, (apr_time_t&)it->time, true);
+    m_RepoList.SetItemText(index, 5, date_native);
+
+    // lock owner
+    m_RepoList.SetItemText(index, 6, it->lockowner);
+}
+
+
+void CRepositoryBrowser::OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
+    // Take the default processing unless we set this to something else below.
+    *pResult = CDRF_DODEFAULT;
+
+    if (m_RepoList.HasText())
+        return;
+
+    // Draw incomplete items in gray.
+    if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
+    {
+        *pResult = CDRF_NOTIFYITEMDRAW;
+    }
+    else if ( CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage )
+    {
+        // Tell Windows to paint the control itself.
+        *pResult = CDRF_DODEFAULT;
+
+        COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+        CAutoReadLock locker(m_guard);
+        CItem * pItem = (CItem*)m_RepoList.GetItemData((int)pLVCD->nmcd.dwItemSpec);
+        if (pItem && !pItem->complete)
+        {
+            crText = GetSysColor(COLOR_GRAYTEXT);
+        }
+        // Store the color back in the NMLVCUSTOMDRAW struct.
+        pLVCD->clrText = crText;
     }
 }

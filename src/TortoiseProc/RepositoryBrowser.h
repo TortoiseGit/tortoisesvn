@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -135,6 +135,7 @@ protected:
     afx_msg void OnNMDblclkRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnBegindragRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnBeginrdragRepolist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnTvnBegindragRepotree(NMHDR *pNMHDR, LRESULT *pResult);
@@ -265,7 +266,7 @@ protected:
 
     void ShowText(const CString& sText, bool forceupdate = false);
     static void FilterInfinityDepthItems(std::map<CString,svn_depth_t>& depths);
-
+    void SetListItemInfo( int index, const CItem * it );
 protected:
     bool                m_bInitDone;
     CRepositoryBar      m_barRepository;

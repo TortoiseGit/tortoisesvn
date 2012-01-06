@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -104,6 +104,7 @@ SVN::SVN(bool suppressUI)
     , m_commitRev(-1)
     , m_prompt(suppressUI)
     , m_pbCancel(nullptr)
+    , m_bListComplete(false)
 {
     parentpool = svn_pool_create(NULL);
     svn_error_clear(svn_client_create_context(&m_pctx, parentpool));
@@ -228,7 +229,7 @@ BOOL SVN::BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision
                         const CStringA& log_msg, const CStringA& merged_log_msg) {return TRUE;}
 svn_error_t* SVN::DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node) {return SVN_NO_ERROR;}
 BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind,
-                     svn_filesize_t size, bool has_props,
+                     svn_filesize_t size, bool has_props, bool complete,
                      svn_revnum_t created_rev, apr_time_t time,
                      const CString& author, const CString& locktoken,
                      const CString& lockowner, const CString& lockcomment,
@@ -1652,6 +1653,7 @@ svn_error_t* SVN::listReceiver(void* baton, const char* path,
                                   dirent->kind,
                                   dirent->size,
                                   !!dirent->has_props,
+                                  svn->m_bListComplete,
                                   dirent->created_rev,
                                   dirent->time,
                                   CUnicodeUtils::GetUnicode(dirent->last_author),
@@ -1934,7 +1936,7 @@ CTSVNPath SVN::GetWCRootFromPath(const CTSVNPath& path)
     return ret;
 }
 
-bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks)
+bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, bool complete)
 {
     SVNPool subpool(pool);
     svn_error_clear(Err);
@@ -1942,12 +1944,13 @@ bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegre
 
     const char* svnPath = url.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(url));
+    m_bListComplete = complete;
     SVNTRACE (
         Err = svn_client_list2(svnPath,
                               pegrev,
                               revision,
                               depth,
-                              SVN_DIRENT_ALL,
+                              complete ? SVN_DIRENT_ALL : 0,
                               fetchlocks,
                               listReceiver,
                               this,

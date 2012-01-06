@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,7 +90,7 @@ public:
                             const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg);
     virtual svn_error_t* DiffSummarizeCallback(const CTSVNPath& path, svn_client_diff_summarize_kind_t kind, bool propchanged, svn_node_kind_t node);
     virtual BOOL ReportList(const CString& path, svn_node_kind_t kind,
-                            svn_filesize_t size, bool has_props,
+                            svn_filesize_t size, bool has_props, bool complete,
                             svn_revnum_t created_rev, apr_time_t time,
                             const CString& author,
                             const CString& locktoken, const CString& lockowner,
@@ -624,7 +624,7 @@ public:
      * If \c fetchlocks is true, include locks when reporting directory entries.
      * \return TRUE if successful
      */
-    bool List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks);
+    bool List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, bool complete);
 
     /**
      * Relocates a working copy to a new/changes repository URL. Use this function
@@ -909,6 +909,7 @@ protected:
     SVNPrompt                   m_prompt;
     svn_revnum_t                m_commitRev;    ///< revision of the last commit/add/mkdir
     bool *                      m_pbCancel;
+    bool                        m_bListComplete;///< used for the List() command
 
     static LCID                 s_locale;
     static bool                 s_useSystemLocale;
