@@ -11,7 +11,7 @@
 # Authors:
 # Translators:
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
-# Lübbe Onken <l.onken@rac.de>, 2011.
+# Lübbe Onken <l.onken@rac.de>, 2011, 2012.
 # Stefan Kueng <tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
@@ -19,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-19 11:15+0200\n"
+"PO-Revision-Date: 2012-01-09 08:53+0200\n"
 "Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
 "Language-Team: RA Consulting GmbH <support@rac.de>\n"
 "Language: de\n"
@@ -11241,9 +11241,9 @@ msgid ""
 msgstr ""
 "Da nicht jeder Anwender seine Arbeitskopie unter dem selben Namen am selben "
 "Ort ausgecheckt hat, können Sie ein in Ihrer Arbeitskopie auszuführendes "
-"Skript/Programm, festlegen, indem Sie mittels <filename>%REPOROOT</filename> "
-" seine URL im Projektarchiv angeben. Wenn Ihr Aktionsskript zum Beispiel in "
-"<filename>contrib/hook-scripts/client-side/checkyear.js</filename> liegt, "
+"Skript/Programm, festlegen, indem Sie mittels <filename>%REPOROOT</filename>"
+"  seine URL im Projektarchiv angeben. Wenn Ihr Aktionsskript zum Beispiel in"
+" <filename>contrib/hook-scripts/client-side/checkyear.js</filename> liegt, "
 "können Sie den Pfad zum Skript als <filename>%REPOROOT/trunk/contrib/hook-"
 "scripts/client-side/checkyear.js</filename> angeben. Auf diese Weise müssen "
 "Sie die Eigenschaften des Aktionsskripts nicht anpassen, wenn sich die URL "
@@ -20013,6 +20013,29 @@ msgstr ""
 "Änderungen zu annotieren (<xref linkend=\"tsvn-dug-blame-diffs\"/>), so dass"
 " Sie dafür wieder TortoiseMerge verwenden möchten. Zu diesem Zweck setzen "
 "Sie den Wert auf <literal>true</literal>."
+
+#. (para)
+msgid ""
+"Some apps change the case of filenames without notice but those changes "
+"aren't really necessary nor wanted. For example a change from "
+"<filename>file.txt</filename> to <filename>FILE.TXT</filename> wouldn't "
+"bother normal Windows applications, but Subversion is case sensitive in "
+"these situations. So TortoiseSVN automatically fixes such case changes."
+msgstr ""
+"Manche Anwendungen ändern die Groß-/Kleinschreibung von Dateinamen ohne "
+"darauf hinzuweisen. Diese Änderungen sind bei Versionskontrollsystemen weder "
+"notwendig noch erwünscht. Eine Umbenennung von "
+"<filename>file.txt</filename> in <filename>FILE.TXT</filename> wird von "
+"normalen Windows Programmen ignoriert, von Subversion jedoch als Änderung "
+"erkannt. TortoiseSVN repariert solche Umbenennungen automatisch."
+
+#. (para)
+msgid ""
+"If you don't want TortoiseSVN to automatically fix such case changes for "
+"you, you can set this value to <literal>false</literal>."
+msgstr ""
+"Wenn Sie nicht möchten, dass TortoiseSVN solche Umbenennungen automatisch "
+"repariert, setzen Sie diesen Wert auf <literal>false</literal>."
 
 #. (para)
 msgid ""

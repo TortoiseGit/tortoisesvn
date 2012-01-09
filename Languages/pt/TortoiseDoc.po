@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-19 08:58+0000\n"
+"PO-Revision-Date: 2011-12-27 22:21+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11123,6 +11123,9 @@ msgid ""
 "There are several properties available to configure client-side hook "
 "scripts. Each property is for one specific hook script type."
 msgstr ""
+"Existe disponíveis várias propriedades para configurar scripts de gancho de "
+"cliente. Cada propriedade corresponde a um tipo específico de script de "
+"gancho."
 
 #. (para)
 msgid ""
@@ -11134,6 +11137,13 @@ msgid ""
 "<literal>tsvn:preupdatehook</literal> and "
 "<literal>tsvn:postupdatehook</literal>."
 msgstr ""
+"As propriedades disponíveis/scripts-gancho são "
+"<literal>tsvn:startcommithook</literal>, "
+"<literal>tsvn:precommithook</literal>, "
+"<literal>tsvn:postcommithook</literal>, "
+"<literal>tsvn:startupdatehook</literal>, "
+"<literal>tsvn:preupdatehook</literal> and "
+"<literal>tsvn:postupdatehook</literal>."
 
 #. (para)
 msgid ""
@@ -11141,6 +11151,9 @@ msgid ""
 "the settings dialog. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for the"
 " details."
 msgstr ""
+"Os parâmetros são os mesmos tal com se tu configurasses os scripts-gancho na"
+" caixa de diálogo preferências. Ver <xref linkend=\"tsvn-dug-settings-"
+"hooks\"/> para mais detalhes."
 
 #. (para)
 msgid ""
@@ -11158,7 +11171,7 @@ msgstr ""
 
 #. (title)
 msgid "Property dialog for hook scripts"
-msgstr ""
+msgstr "Caixa de diálogo de propriedades para scripts gancho"
 
 #. (para)
 msgid ""
@@ -11166,6 +11179,9 @@ msgid ""
 " years in source file headers is configured for TortoiseSVN. "
 "<placeholder-1/>"
 msgstr ""
+"A próxima captura de ecrã mostra como é configurado o script para verificar "
+"os anos de copyright nos cabeçalhos dos ficheiros fonte no TortoiseSVN. "
+"<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -17465,15 +17481,15 @@ msgstr ""
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 3"
-msgstr ""
+msgstr "Caixa de diálogo de preferências 3 do TortoiseSVN "
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 3 Page"
-msgstr ""
+msgstr "Caixa de diálogo de preferências, página de diálogos 3"
 
 #. (term)
 msgid "Pre-fetch folders for faster browsing"
-msgstr ""
+msgstr "Pré-colecta de pastas para navegação rápida"
 
 #. (para)
 msgid ""
@@ -17481,6 +17497,10 @@ msgid ""
 "information about shown folders in the background. That way as soon as you "
 "browse into one of those folders, the information is already available."
 msgstr ""
+"Se esta caixa estiver verificada (estado por defeito), o navegador de "
+"repositório recolherá informação sobre as pastas visualizadas no plano de "
+"fundo. Deste modo, assim que navegares numa dessas pastas, a informação já "
+"estará assim disponível."
 
 #. (para)
 msgid ""
@@ -17488,10 +17508,14 @@ msgid ""
 "not configured correctly treat so many requests as something bad and start "
 "blocking them. In this case you can disable the pre-fetching here."
 msgstr ""
+"No entanto, alguns servidores não conseguem lidar com pedidos múltiplos que "
+"isto provoca, ou quando não configurado correctamente trata tantos pedidos "
+"como algo nefasto e começa a bloqueá-los. Neste caso poderás desactivar a "
+"pré-colecta aqui."
 
 #. (term)
 msgid "Show externals"
-msgstr ""
+msgstr "Mostrar externos"
 
 #. (para)
 msgid ""
@@ -17506,6 +17530,9 @@ msgid ""
 "As with the pre-fetch feature explained above, this too can put too much "
 "stress on weak servers. In this case you can disable this feature here."
 msgstr ""
+"Tal como a funcionalidade da pré-colecta exposta acima, esta também pode "
+"colocar muito esforço em servidores fracos. Neste caso pode desactivar esta "
+"funcionalidade aqui."
 
 #. (title)
 msgid "TortoiseSVN Colour Settings"
@@ -19842,6 +19869,24 @@ msgstr ""
 "modificar responsabilidades (<xref linkend=\"tsvn-dug-blame-diffs\"/>), pelo"
 " que tu poderás desejar voltar neste caso ao TortoiseMerge. Para o fazer, "
 "fixa este valor a <literal>true</literal>."
+
+#. (para)
+msgid ""
+"Some apps change the case of filenames without notice but those changes "
+"aren't really necessary nor wanted. For example a change from "
+"<filename>file.txt</filename> to <filename>FILE.TXT</filename> wouldn't "
+"bother normal Windows applications, but Subversion is case sensitive in "
+"these situations. So TortoiseSVN automatically fixes such case changes."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you don't want TortoiseSVN to automatically fix such case changes for "
+"you, you can set this value to <literal>false</literal>."
+msgstr ""
+"Se não pretenderes que o TortoiseSVN corrija automaticamente por ti essas "
+"alterações de altura de letra, podes colocar este valor a "
+"<literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -27306,6 +27351,9 @@ msgid ""
 "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
 "loaded as UTF8 encoded and saved as such when edited."
 msgstr ""
+"<guilabel>Por defeito com codificação UTF-8</guilabel> quando activado, os "
+"ficheiros ANSI são carregados como tendo codificação UTF8, e guardados com "
+"tal quando editados."
 
 #. (para)
 msgid ""

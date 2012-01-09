@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-19 08:58+0000\n"
+"PO-Revision-Date: 2011-12-23 10:13+0000\n"
 "Last-Translator: uring <uringinteristi@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -15961,6 +15961,21 @@ msgid ""
 " however, are not suited for change blaming (<xref linkend=\"tsvn-dug-blame-"
 "diffs\"/>), so you might wish to fall back to TortoiseMerge in this case. To"
 " do so, set this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"Some apps change the case of filenames without notice but those changes "
+"aren't really necessary nor wanted. For example a change from "
+"<filename>file.txt</filename> to <filename>FILE.TXT</filename> wouldn't "
+"bother normal Windows applications, but Subversion is case sensitive in "
+"these situations. So TortoiseSVN automatically fixes such case changes."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you don't want TortoiseSVN to automatically fix such case changes for "
+"you, you can set this value to <literal>false</literal>."
 msgstr ""
 
 #. (para)

@@ -11,14 +11,14 @@
 # Authors:
 # Translators:
 # Begina Felicysym <>, 2011.
-# Begina Felicysym <begina.felicysym@wp.eu>, 2011.
+# Begina Felicysym <begina.felicysym@wp.eu>, 2011, 2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-21 21:15+0000\n"
+"PO-Revision-Date: 2012-01-02 22:39+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -19680,6 +19680,29 @@ msgstr ""
 "linkend=\"tsvn-dug-blame-diffs\"/>), więc może chcecie wrócić w tym "
 "przypadku do TortoiseMerge. Aby to zrobić, ustawcie tę wartość na "
 "<literal>true</literal>."
+
+#. (para)
+msgid ""
+"Some apps change the case of filenames without notice but those changes "
+"aren't really necessary nor wanted. For example a change from "
+"<filename>file.txt</filename> to <filename>FILE.TXT</filename> wouldn't "
+"bother normal Windows applications, but Subversion is case sensitive in "
+"these situations. So TortoiseSVN automatically fixes such case changes."
+msgstr ""
+"Niektóre aplikacje zmieniają wielkość liter w nazwach plików bez "
+"ostrzeżenia, jednak te zmiany nie są tak naprawdę potrzebne ani pożądane. Na"
+" przykład zmiana z <filename>file.txt</filename> na "
+"<filename>FILE.TXT</filename> nie przeszkadza normalnym aplikacjom Windows, "
+"ale Subversion jest wrażliwe nawielkość liter w takich sytuacjach. Dlatego "
+"TortoiseSVN naprawia takie zmiany wielkości liter."
+
+#. (para)
+msgid ""
+"If you don't want TortoiseSVN to automatically fix such case changes for "
+"you, you can set this value to <literal>false</literal>."
+msgstr ""
+"Jeśli nie chcecie, by TortoiseSVN automatycznie naprawiało takie zmiany "
+"wielkości liter, możecie ustalić tę wartość na <literal>false</literal>."
 
 #. (para)
 msgid ""

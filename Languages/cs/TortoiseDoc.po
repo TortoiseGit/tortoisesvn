@@ -11,13 +11,13 @@
 # Authors:
 # Translators:
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011.
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-19 22:12+0000\n"
+"PO-Revision-Date: 2012-01-02 10:08+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -19297,6 +19297,29 @@ msgstr ""
 
 #. (para)
 msgid ""
+"Some apps change the case of filenames without notice but those changes "
+"aren't really necessary nor wanted. For example a change from "
+"<filename>file.txt</filename> to <filename>FILE.TXT</filename> wouldn't "
+"bother normal Windows applications, but Subversion is case sensitive in "
+"these situations. So TortoiseSVN automatically fixes such case changes."
+msgstr ""
+"Některé aplikace mění velikost písmen v názvů souboru bez upozornění, ale "
+"tyto změny nejsou ani žádané či chtěné. Například změna z "
+"filename>soubor.txt</filename> na <filename>SOUBOR.TXT</filename> by "
+"normálním aplikacím ve Windows nevadilo, ale Subversion je v těchto "
+"situacích citlivé na velikost písmen, Takže TortoiseSVN takovéto změny "
+"automaticky opravuje."
+
+#. (para)
+msgid ""
+"If you don't want TortoiseSVN to automatically fix such case changes for "
+"you, you can set this value to <literal>false</literal>."
+msgstr ""
+"Pokud nechcete, aby TortoiseSVN takovéto změny automaticky opravoval, můžete"
+" tuto hodnotu nastavit na <literal>false</literal>."
+
+#. (para)
+msgid ""
 "The status list control which is used in various dialogs (e.g., commit, "
 "check-for-modifications, add, revert, ...) uses full row selection (i.e., if"
 " you select an entry, the full row is selected, not just the first column). "
@@ -25957,11 +25980,11 @@ msgid ""
 " get applied directly because you already changed that file."
 msgstr ""
 "Až TortoiseMerge záplatový soubor rozebere, zobrazí Vám malé okno se všemi "
-"soubory, které se mají změny podle záplatového souboru. <placeholder-1/> Je-"
-"li název souboru zobrazen v černé barvě, pak záplatu lze použít bez "
-"problémů. To znamená, že soubor není podle záplaty zastaralý. Nicméně pokud "
-"název souboru je zobrazen v červené barvě, pak záplatu nelze použít přímo, "
-"protože jste již tento soubor změnili."
+"soubory, které mají změny podle záplatového souboru. <placeholder-1/> Je-li "
+"název souboru zobrazen v černé barvě, pak záplatu lze použít bez problémů. "
+"To znamená, že soubor není podle záplaty zastaralý. Nicméně pokud název "
+"souboru je zobrazen v červené barvě, pak záplatu nelze použít přímo, protože"
+" jste již tento soubor změnili."
 
 #. (para)
 msgid ""
