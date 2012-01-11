@@ -747,11 +747,13 @@ CString CRepositoryLister::AddSubTreeExternals
 
         int levels = CItem::Levels (externalsRelPath);
         for (TI iter = begin; iter != end; ++iter)
+        {
             if (   (iter->external_position == levels)
                 && (iter->external_rel_path.Find (externalsRelPath) == 0))
             {
                 items.push_back (*iter);
             }
+        }
     }
 
     return query->GetError();
