@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -5524,7 +5524,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 
                 bool bTargetSelected = false;
                 CTSVNPath TargetPath;
-                if (m_ChangedFileListCtrl.GetSelectedCount() > 1)
+                if (m_ChangedFileListCtrl.GetSelectedCount() > 0)
                 {
                     CBrowseFolder browseFolder;
                     browseFolder.SetInfo(CString(MAKEINTRESOURCE(IDS_LOG_SAVEFOLDERTOHINT)));
