@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-21 07:44+0000\n"
-"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2012-01-11 22:56+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -974,7 +974,7 @@ msgstr "&Muokkaa ominaisuutta"
 
 #. Resource IDs: (65535)
 msgid "&Max line length for inline diffs"
-msgstr ""
+msgstr "&Suurin rivinpituus rivin sisäiselle vertailulle"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2175,17 +2175,19 @@ msgstr "Sovella unified diff"
 
 #. Resource IDs: (363)
 msgid "Approve or reject client-side hook script"
-msgstr ""
+msgstr "Hyväksy tai hylkää asiakaspään toimintokomento"
 
 #. Resource IDs: (363)
 msgid ""
 "Approve\n"
 "Run the hook script"
 msgstr ""
+"Hyväksy\n"
+"Suorita toimintokomento"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
-msgstr ""
+msgstr "Hyväksytyt toimintokomennot"
 
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
@@ -2584,6 +2586,8 @@ msgid ""
 "Cancel\n"
 "Do not run the script"
 msgstr ""
+"Peruuta\n"
+"Älä suorita komentoa"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3051,7 +3055,7 @@ msgstr ""
 #. Resource IDs: (198)
 #, c-format
 msgid "Clears all %ld approved client-side hook scripts"
-msgstr ""
+msgstr "Tyhjentää kaikki %ld hyväksyttyä asiakaspään toimintokomentoa"
 
 #. Resource IDs: (197)
 #, c-format
@@ -3184,6 +3188,8 @@ msgid ""
 "Command Line To Execute:\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
 msgstr ""
+"Suoritettava komentorivi:\n"
+"Määrittääksesi polun työkopion sisällä, anna arkistossa oleva paikannin, kun arkiston juuripaikannin on %REPOROOT%"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4057,7 +4063,7 @@ msgstr ""
 
 #. Resource IDs: (334)
 msgid "Dialog"
-msgstr ""
+msgstr "Ikkuna"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -4173,7 +4179,7 @@ msgstr ""
 
 #. Resource IDs: (363)
 msgid "Do not ask again for this script"
-msgstr ""
+msgstr "Älä kysy uudestaan tälle toimintokomennolle"
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -6405,7 +6411,7 @@ msgstr ""
 
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
-msgstr ""
+msgstr "Paikalliset &toimintokomennot"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -11051,6 +11057,9 @@ msgid ""
 "The command line to run is:\n"
 "%s"
 msgstr ""
+"Tähän työkopioon on määritelty asiakaspään toimintokomentoja. Haluatko suorittaa komennon?\n"
+"Komentorivi on muotoa:\n"
+"%s"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"

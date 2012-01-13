@@ -12,15 +12,15 @@
 # Translators:
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # okloster <okl@sintef.no>, 2011.
-#   <okl@sintef.no>, 2011.
+#   <okl@sintef.no>, 2011, 2012.
 # Ronny N. Olsen <rnolsen@hotmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-21 07:44+0000\n"
-"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2012-01-09 10:36+0000\n"
+"Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -970,7 +970,7 @@ msgstr "&Rediger egenskap manuelt"
 
 #. Resource IDs: (65535)
 msgid "&Max line length for inline diffs"
-msgstr ""
+msgstr "&Maks linjelengde for linjeforskjeller"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -1355,7 +1355,7 @@ msgstr "&Til revisjon"
 
 #. Resource IDs: (1305, 1384)
 msgid "&To URL:"
-msgstr "&Til adresse:"
+msgstr "&Til URL:"
 
 #. Resource IDs: (1305, 1384)
 msgid "&To path:"
@@ -2170,17 +2170,19 @@ msgstr "Flett inn enhetlig diff"
 
 #. Resource IDs: (363)
 msgid "Approve or reject client-side hook script"
-msgstr ""
+msgstr "Godkjenn eller avvis klient-påhakingsskript"
 
 #. Resource IDs: (363)
 msgid ""
 "Approve\n"
 "Run the hook script"
 msgstr ""
+"Godkjenn\n"
+"Kjør påhakingsskriptet"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
-msgstr ""
+msgstr "Godkjente påhakingsskript"
 
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
@@ -2583,6 +2585,8 @@ msgid ""
 "Cancel\n"
 "Do not run the script"
 msgstr ""
+"Avbryt\n"
+"Ikke kjør skriptet"
 
 #. Resource IDs: (90)
 msgid ""
@@ -3047,7 +3051,7 @@ msgstr ""
 #. Resource IDs: (198)
 #, c-format
 msgid "Clears all %ld approved client-side hook scripts"
-msgstr ""
+msgstr "Sletter alle %ld godkjente klient-påhakingsskript"
 
 #. Resource IDs: (197)
 #, c-format
@@ -3180,6 +3184,8 @@ msgid ""
 "Command Line To Execute:\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
 msgstr ""
+"Kommandolinje som skal kjøres:\n"
+"For å angi en sti i en arbeidskopi, angi url-en i depotet med url for depotroten som %REPOROOT%"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4054,7 +4060,7 @@ msgstr ""
 
 #. Resource IDs: (334)
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -4169,7 +4175,7 @@ msgstr ""
 
 #. Resource IDs: (363)
 msgid "Do not ask again for this script"
-msgstr ""
+msgstr "Ikke spør igjen for dette skriptet"
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -5474,19 +5480,19 @@ msgstr "Hjem"
 
 #. Resource IDs: (103)
 msgid "Hook Scripts"
-msgstr "Påhakings-skript"
+msgstr "Påhakingsskript"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Påhakings-skript::Integrasjon med Saksporingssystem"
+msgstr "Påhakingsskript::Integrasjon med Saksporingssystem"
 
 #. Resource IDs: (198)
 msgid "Hook Type"
-msgstr "Påhakings-type"
+msgstr "Påhakingstype"
 
 #. Resource IDs: (1334)
 msgid "Hook Type:"
-msgstr "Påhakings-type:"
+msgstr "Påhakingstype:"
 
 #. Resource IDs: (173)
 msgid "Hook script failed!"
@@ -5737,7 +5743,7 @@ msgid ""
 "If not checked then the import goes directly to the specified URL."
 msgstr ""
 "Hvis huket av, opprettes en ny mappe i depotet.\n"
-"Hvis ikke huket av, går importen direkte til den angitte nettadressen."
+"Hvis ikke huket av, går importen direkte til den angitte URL."
 
 #. Resource IDs: (79)
 msgid ""
@@ -6398,7 +6404,7 @@ msgstr ""
 
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
-msgstr ""
+msgstr "Lokale &Påhakinger"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6409,8 +6415,8 @@ msgid ""
 "Location where the contents of the\n"
 "repository URL(s) will be saved to."
 msgstr ""
-"Plasseringen som innholdet i\n"
-"depotadressen(e) lagres til."
+"Plasseringen hvor innholdet i\n"
+"depot-URLen(e) lagres."
 
 #. Resource IDs: (32854)
 msgid "Locator Bar"
@@ -11029,6 +11035,9 @@ msgid ""
 "The command line to run is:\n"
 "%s"
 msgstr ""
+"Denne arbeidskopien har et klient-påhakingsskript. Vil du kjøre dette skriptet?\n"
+"Kommandolinjen som vil kjøres er:\n"
+"%s"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
