@@ -1,3 +1,31 @@
+Version 1.7.4
+- BUG: Issue #169: Error "Access to 
+       C:\Users\<windowsAccount> was denied." (Stefan)
+- BUG: Issue #170: svn url fomatting broken
+       on 'switch'. (Stefan)
+- BUG: Issue #171: Right-Click Refresh not working
+       in Repo Browser correctly. (Stefan)
+- NEW: Issue #172: Option to turn off
+       case-fixing. (Stefan)
+- BUG: Issue #174: applying patch fails
+       with "path/path not found". (Stefan)
+- BUG: Issue #175: Scroll to moved block
+       doesn't work. (Stefan)
+- BUG: Issue #176: Diff settings "restore defaults"
+       doesn't work correctly. (Stefan)
+- BUG: Issue #177: TortoiseMerge shows
+       long lines incorrect. (Stefan)
+- BUG: Issue #178: copy of changed files list when
+       sorted copies wrong items. (Stefan)
+- BUG: Issue #179: Autoprops not applied when adding
+       folders from the CSVNStatusListCtrl. (Stefan)
+- NEW: Issue #180: Optimize repo browser for
+       big repositories. (Stefan)
+- BUG: Issue #182: Tagging externals
+       stopped working. (Stefan)
+- BUG: Issue #183: exporting single files from
+       log dialog doesn't work. (Stefan)
+
 Version 1.7.3
 - BUG: Issue #149: Crash in OpenSSL. (Stefan)
 - BUG: Issue #150: Repobrowser: Don't show
