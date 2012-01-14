@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007,2009-2011 - TortoiseSVN
+// Copyright (C) 2003-2007,2009-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -535,7 +535,7 @@ void CLogDataVector::Add ( svn_revnum_t revision
     minDate = min (minDate, tmDate);
 
     minRevision = min (minRevision, revision);
-    minRevision = max (minRevision, revision);
+    maxRevision = max (maxRevision, revision);
 
     // update parent info
 
