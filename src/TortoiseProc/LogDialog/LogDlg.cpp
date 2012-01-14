@@ -939,6 +939,8 @@ void CLogDlg::Refresh (bool autoGoOnline)
 
     // refreshing means re-downloading the already shown log messages
     UpdateData();
+    if (m_logEntries.size())
+        m_startrev = m_logEntries.GetMaxRevision();
     if ((m_startrev < m_head)&&(m_bRefresh))
     {
         m_startrev = -1;
