@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2529,6 +2529,13 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
         {
             ReportHookFailed(error);
             return false;
+        }
+    }
+    if (m_restorepaths.size())
+    {
+        for (auto it = m_restorepaths.cbegin(); it != m_restorepaths.cend(); ++it)
+        {
+            CopyFile(it->first, it->second, FALSE);
         }
     }
     return true;

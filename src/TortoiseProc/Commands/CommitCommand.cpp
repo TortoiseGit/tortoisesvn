@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -101,6 +101,7 @@ bool CommitCommand::Execute()
         }
     }
     CTSVNPathList updatelist = pathList;
+    std::map<CString, CString> restorepaths;
     while (bFailed)
     {
         bFailed = false;
@@ -114,6 +115,7 @@ bool CommitCommand::Execute()
         dlg.m_pathList = pathList;
         dlg.m_checkedPathList = selectedList;
         dlg.m_bSelectFilesForCommit = bSelectFilesForCommit;
+        dlg.m_restorepaths = restorepaths;
         if (dlg.DoModal() == IDOK)
         {
             if (dlg.m_pathList.GetCount()==0)
@@ -133,6 +135,8 @@ bool CommitCommand::Execute()
             bSelectFilesForCommit = true;
             CSVNProgressDlg progDlg;
             InitProgressDialog (dlg, progDlg);
+            progDlg.SetRestorePaths(dlg.m_restorepaths);
+            restorepaths = dlg.m_restorepaths;
             progDlg.SetProjectProperties(props);
             progDlg.DoModal();
 

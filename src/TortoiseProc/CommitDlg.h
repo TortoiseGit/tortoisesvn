@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -119,7 +119,7 @@ public:
     INT_PTR             m_itemsCount;
     bool                m_bSelectFilesForCommit;
     CComPtr<IBugTraqProvider> m_BugTraqProvider;
-
+    std::map<CString, CString> m_restorepaths;
 private:
     CWinThread*         m_pThread;
     std::set<CString>   m_autolist;

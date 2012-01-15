@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -127,7 +127,8 @@ BOOL CCommitDlg::OnInitDialog()
 
     UpdateData(FALSE);
 
-    m_ListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLLOCK, _T("CommitDlg"));
+    m_ListCtrl.SetRestorePaths(m_restorepaths);
+    m_ListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS | SVNSLC_COLLOCK, _T("CommitDlg"), SVNSLC_POPALL ^ SVNSLC_POPCOMMIT);
     m_ListCtrl.SetStatLabel(GetDlgItem(IDC_STATISTICS));
     m_ListCtrl.SetCancelBool(&m_bCancelled);
     m_ListCtrl.SetEmptyString(IDS_COMMITDLG_NOTHINGTOCOMMIT);
@@ -456,6 +457,7 @@ void CCommitDlg::OnOK()
     bool bHasCopyPlus = false;
     std::set<CString> checkedLists;
     std::set<CString> uncheckedLists;
+    m_restorepaths.clear();
     for (int j=0; j<nListItems; j++)
     {
         const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(j);
@@ -488,6 +490,10 @@ void CCommitDlg::OnOK()
             if (entry->IsCopied())
             {
                 bHasCopyPlus = true;
+            }
+            if (!entry->GetRestorePath().IsEmpty())
+            {
+                m_restorepaths[entry->GetRestorePath()] = entry->GetPath().GetWinPathString();
             }
             checkedLists.insert(entry->GetChangeList());
         }

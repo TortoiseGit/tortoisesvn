@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -138,6 +138,7 @@ SVNSLC_SHOWINCOMPLETE|SVNSLC_SHOWEXTERNAL|SVNSLC_SHOWINEXTERNALS)
 #define SVNSLC_POPREPAIRCOPY            0x00800000
 #define SVNSLC_POPSWITCH                0x01000000
 #define SVNSLC_POPCOMPARETWO            0x02000000
+#define SVNSLC_POPRESTORE               0x04000000
 
 #define SVNSLC_IGNORECHANGELIST         _T("ignore-on-commit")
 
@@ -165,6 +166,7 @@ typedef CComCritSecLock<CComCriticalSection> Locker;
 #define OVL_DEPTHFILES      3
 #define OVL_DEPTHIMMEDIATES 4
 #define OVL_DEPTHEMPTY      5
+#define OVL_RESTORE         6
 
 /**
  * \ingroup SVN
@@ -373,6 +375,10 @@ public:
         {
             return url;
         }
+        CString GetRestorePath() const
+        {
+            return restorepath;
+        }
     public:
         svn_wc_status_kind      status;                 ///< local status
         svn_wc_status_kind      textstatus;             ///< local text status
@@ -389,6 +395,7 @@ public:
         CString                 lock_remoteowner;       ///< the username which owns the lock in the repository
         CString                 lock_remotetoken;       ///< the unique URI in the repository of the lock
         CString                 lock_comment;           ///< the message for the lock
+        CString                 restorepath;            ///< path to a copy of the file, to be restored after a commit
         apr_time_t              lock_date;              ///< the date when this item was locked
         CString                 changelist;             ///< the name of the changelist the item belongs to
         CString                 last_commit_author;     ///< the author which last committed this item
@@ -586,7 +593,7 @@ public:
      *                       Use the SVNSLC_POPxxx defines.
      * \param bHasCheckboxes TRUE if the control should show check boxes on the left of each file entry.
      */
-    void Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus = (SVNSLC_POPALL ^ SVNSLC_POPCOMMIT), bool bHasCheckboxes = true);
+    void Init(DWORD dwColumns, const CString& sColumnInfoContainer, DWORD dwContextMenus = ((SVNSLC_POPALL ^ SVNSLC_POPCOMMIT) ^ SVNSLC_POPRESTORE), bool bHasCheckboxes = true);
     /**
      * Sets a background image for the list control.
      * The image is shown in the right bottom corner.
@@ -827,6 +834,11 @@ public:
      */
     DWORD GetShowFlags() {return m_dwShow;}
 
+    /**
+     * Sets restore paths from a previous run
+     */
+    void SetRestorePaths(const std::map<CString,CString>& restorepaths) {m_restorepaths = restorepaths;}
+
     CString GetLastErrorMessage() {return m_sLastError;}
 
     void BusyCursor(bool bBusy) { m_bWaitCursor = bBusy; }
@@ -1065,6 +1077,7 @@ private:
     int                         m_nDepthFilesOvl;
     int                         m_nDepthImmediatesOvl;
     int                         m_nDepthEmptyOvl;
+    int                         m_nRestoreOvl;
 
     CWnd *                      m_pStatLabel;
     CButton *                   m_pSelectButton;
@@ -1087,6 +1100,7 @@ private:
     std::map<CString,bool>      m_mapFilenameToChecked; ///< Remember manually de-/selected items
     bool                        m_bBlockItemChangeHandler;
     std::set<CTSVNPath>         m_externalSet;
+    std::map<CString, CString>  m_restorepaths;
     mutable CReaderWriterLock   m_guard;
 
     friend class CSVNStatusListCtrlDropTarget;
