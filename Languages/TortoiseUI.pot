@@ -1,6 +1,6 @@
 #
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2011 the TortoiseSVN team
+# Copyright (C) 2004-2012 the TortoiseSVN team
 #
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -130,6 +130,21 @@ msgstr ""
 #. Resource IDs: (145)
 #, c-format
 msgid "%1!s!\\%2!s! - Export (%3!d!)"
+msgstr ""
+
+#. Resource IDs: (105)
+#, c-format
+msgid "%1!s!\r\nRevision %2!s!, Author %3!s!, Date %4!s!"
+msgstr ""
+
+#. Resource IDs: (105)
+#, c-format
+msgid "%1!s!\r\nRevision %2!s!, Author %3!s!, Size %4!s!, Date %5!s!"
+msgstr ""
+
+#. Resource IDs: (105)
+#, c-format
+msgid "%1!s!\r\nShowing %2!d! files and %3!d! folders, %4!d! items in total"
 msgstr ""
 
 #. Resource IDs: (3860)
@@ -4176,6 +4191,11 @@ msgstr ""
 msgid "External Program:"
 msgstr ""
 
+#. Resource IDs: (105)
+#, c-format
+msgid "External \"%1!s!\"\r\nRevision %2!s!"
+msgstr ""
+
 #. Resource IDs: (263)
 msgid "External failed"
 msgstr ""
@@ -5339,6 +5359,16 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Line differences"
+msgstr ""
+
+#. Resource IDs: (176)
+#, c-format
+msgid "Line moved from line %ld"
+msgstr ""
+
+#. Resource IDs: (176)
+#, c-format
+msgid "Line moved to line %ld"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -7315,8 +7345,16 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr ""
 
+#. Resource IDs: (620)
+msgid "Restore"
+msgstr ""
+
 #. Resource IDs: (1254)
 msgid "Restore Default"
+msgstr ""
+
+#. Resource IDs: (620)
+msgid "Restore after commit"
 msgstr ""
 
 #. Resource IDs: (3826)
@@ -9676,6 +9714,10 @@ msgstr ""
 msgid "Valid command line options are:\n/base:<path to base file>\n/theirs:<path to their file>\n/mine:<path to your file>\n/merged:<path to resulting merged file>\n/diff:<path to unified diff file>\n/patchpath:<path to folder>"
 msgstr ""
 
+#. Resource IDs: (84)
+msgid "Validation of the property value failed!"
+msgstr ""
+
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr ""
@@ -10593,6 +10635,22 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "user revprops total: "
+msgstr ""
+
+#. Resource IDs: (336, 1562)
+msgid "user:bool"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "user:multiline"
+msgstr ""
+
+#. Resource IDs: (338)
+msgid "user:singleline"
+msgstr ""
+
+#. Resource IDs: (337, 1622, 1623, 1624)
+msgid "user:state"
 msgstr ""
 
 #. Resource IDs: (1583)
