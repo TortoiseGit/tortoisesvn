@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-16 08:24+0000\n"
+"PO-Revision-Date: 2012-01-16 13:49+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4866,7 +4866,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "Nur Teile von Dateien übertragen"
 
 #. (para)
 msgid ""
@@ -4875,6 +4875,11 @@ msgid ""
 "an urgent fix needs to be committed, and that fix happens to be in the same "
 "file you're working on."
 msgstr ""
+"Manchmal möchten Sie vielleicht nur einen Teil der Änderungen, die Sie an "
+"einer Datei vorgenommen haben, übertragen. So etwas passiert normalerweise, "
+"wenn Sie an etwas arbeiten, jedoch eine dringende Änderung (z.B. ein Bugfix)"
+" übertragen werden muss, die sich in der selben Datei befindet, an der Sie "
+"gerade arbeiten."
 
 #. (para)
 msgid ""
@@ -4885,6 +4890,12 @@ msgid ""
 "changes you don't want to commit. After saving those changes you can commit "
 "the file."
 msgstr ""
+"Machen Sie einen <action>Rechtsklick</action> auf die Datei und wählen Sie "
+"<menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Nach dem Übertragen "
+"wieder herstellen</guimenuitem></menuchoice>. Dadurch wird eine Kopie der "
+"Datei im aktuellen Zustand erstellt. Anschließend können Sie die Datei, z.B."
+" in TortoiseMerge bearbeiten und die Änderungen entfernen, die Sie nicht "
+"übertragen möchten. Nach dem Speichern übertragen Sie die Datei."
 
 #. (para)
 msgid ""
@@ -4892,6 +4903,9 @@ msgid ""
 "and you have the file with all your modifications that were not committed "
 "back."
 msgstr ""
+"Nachdem die Übertragung durchgeführt wurde, wird die Kopie der Datei "
+"automatisch wieder hergestellt und Sie erhalten Ihre Datei inklusive der "
+"nicht übertragenen Änderungen zurück."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -11316,11 +11330,11 @@ msgstr ""
 
 #. (term)
 msgid "bool"
-msgstr ""
+msgstr "bool"
 
 #. (title)
 msgid "Property dialog boolean user types"
-msgstr ""
+msgstr "Boolesche Benutzerdaten im Eigenschaftsdialog"
 
 #. (para)
 msgid ""
@@ -11328,10 +11342,13 @@ msgid ""
 "can configure your property as a <literal>bool</literal> type. "
 "<placeholder-1/> Specify your property like this:"
 msgstr ""
+"Wenn Ihre Eigenschaft nur zwei Zustände haben kann, z.B. true und false, "
+"legen Sie sie als <literal>bool</literal> Typen fest. <placeholder-1/> Geben"
+" Sie die Eigenschaft folgendermaßen an:"
 
 #. (literal)
 msgid "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
-msgstr ""
+msgstr "Eigenschaftsname=bool;Beschreibung(JA-WERT;NEIN-WERT;Checkboxtext)"
 
 #. (para)
 msgid ""
@@ -11339,14 +11356,17 @@ msgid ""
 "checkbox where you can explain the purpose and use of the property. The "
 "other parameters should be self explanatory."
 msgstr ""
+"Die <literal>Beschreibung</literal> wird im Dialog oberhalb der Checkbox "
+"angezeigt. Sie können damit den Zweck und die Verwendung der Eigenschaft "
+"erklären."
 
 #. (term)
 msgid "state"
-msgstr ""
+msgstr "state"
 
 #. (title)
 msgid "Property dialog state user types"
-msgstr ""
+msgstr "Status als Benutzerdatentyp im Eigenschaftsdialog"
 
 #. (para)
 msgid ""
@@ -11354,11 +11374,16 @@ msgid ""
 " no, maybe</literal>, then you can configure your property as a "
 "<literal>state</literal><placeholder-1/> property like this:"
 msgstr ""
+"Wenn Ihre Eigenschaft einen von mehreren möglichen Zuständen annehmen kann, "
+"z. B. <literal>Ja, Nein, Vielleicht</literal>, dann können Sie diese als "
+"<literal>state</literal> <placeholder-1> folgendermaßen konfigurieren:"
 
 #. (literal)
 msgid ""
 "propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
 msgstr ""
+"Eigenschaftsname=state;Beschreibung "
+"(STANDARD;WERT1;TEXT1;WERT2;TEXT2;WERT3;TEXT3;...)"
 
 #. (para)
 msgid ""
@@ -11366,6 +11391,10 @@ msgid ""
 "with <literal>DEFVAL</literal> being the default value to be used if the "
 "property isn't set yet or has a value that's not configured."
 msgstr ""
+"Die Eigenschaften sind die gleichen wie bei der <literal>bool</literal> "
+"Eigenschaft, wobei <literal>STANDARD</literal> der Vorgabewert ist, der "
+"verwendet wird, wenn die Eigenschaft nicht definiert ist oder einen nicht "
+"konfigurierten Wert enthält."
 
 #. (para)
 msgid ""
@@ -11373,14 +11402,17 @@ msgid ""
 "buttons. If there are more values configured, it uses a combo box from where"
 " the user can select the required state."
 msgstr ""
+"Bei bis zu drei verschiedenen Werten zeigt der Dialog Radioknöpfe an. Bei "
+"mehr Werten wird eine Kombinationsliste verwendet, aus der der Anwender den "
+"gewünschten Status auswählen kann."
 
 #. (term)
 msgid "singleline"
-msgstr ""
+msgstr "singleline"
 
 #. (title)
 msgid "Property dialog singleline user types"
-msgstr ""
+msgstr "Einzelne Zeile als Benutzerdatentyp im Eigenschaftsdialog"
 
 #. (para)
 msgid ""
@@ -11401,11 +11433,11 @@ msgstr ""
 
 #. (term)
 msgid "multiline"
-msgstr ""
+msgstr "multiline"
 
 #. (title)
 msgid "Property dialog multiline user types"
-msgstr ""
+msgstr "Mehrzeilige Benutzerdaten im Eigenschaftsdialog"
 
 #. (para)
 msgid ""
