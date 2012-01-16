@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2011 the TortoiseSVN team
+# Copyright (C) 2004-2012 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-21 07:44+0000\n"
-"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2012-01-16 08:47+0000\n"
+"Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: Hungarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -130,6 +130,27 @@ msgstr ""
 #. Resource IDs: (145)
 #, c-format
 msgid "%1!s!\\%2!s! - Export (%3!d!)"
+msgstr ""
+
+#. Resource IDs: (105)
+#, c-format
+msgid ""
+"%1!s!\r\n"
+"Revision %2!s!, Author %3!s!, Date %4!s!"
+msgstr ""
+
+#. Resource IDs: (105)
+#, c-format
+msgid ""
+"%1!s!\r\n"
+"Revision %2!s!, Author %3!s!, Size %4!s!, Date %5!s!"
+msgstr ""
+
+#. Resource IDs: (105)
+#, c-format
+msgid ""
+"%1!s!\r\n"
+"Showing %2!d! files and %3!d! folders, %4!d! items in total"
 msgstr ""
 
 #. Resource IDs: (3860)
@@ -4672,6 +4693,13 @@ msgstr "Külső"
 msgid "External Program:"
 msgstr "Külső program:"
 
+#. Resource IDs: (105)
+#, c-format
+msgid ""
+"External \"%1!s!\"\r\n"
+"Revision %2!s!"
+msgstr ""
+
 #. Resource IDs: (263)
 msgid "External failed"
 msgstr "Külső hiba"
@@ -6169,6 +6197,16 @@ msgstr "Aktuális sor"
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "Soreltérések"
+
+#. Resource IDs: (176)
+#, c-format
+msgid "Line moved from line %ld"
+msgstr ""
+
+#. Resource IDs: (176)
+#, c-format
+msgid "Line moved to line %ld"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Line:"
@@ -8417,9 +8455,17 @@ msgstr ""
 msgid "Resolves conflicted files"
 msgstr "Konfliktusok feloldása"
 
+#. Resource IDs: (620)
+msgid "Restore"
+msgstr ""
+
 #. Resource IDs: (1254)
 msgid "Restore Default"
 msgstr "Alapértelmezett"
+
+#. Resource IDs: (620)
+msgid "Restore after commit"
+msgstr ""
 
 #. Resource IDs: (3826)
 msgid "Restore the window to normal size"
@@ -11438,6 +11484,10 @@ msgstr ""
 "/diff:<útvonal az \"egyesített diff\" fájlhoz>\n"
 "/patchpath:<útvonal a mappához>"
 
+#. Resource IDs: (84)
+msgid "Validation of the property value failed!"
+msgstr ""
+
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "Érték"
@@ -12716,6 +12766,22 @@ msgstr ""
 #. Resource IDs: (65535)
 msgid "user revprops total: "
 msgstr "felh. tulajdonságok: "
+
+#. Resource IDs: (336, 1562)
+msgid "user:bool"
+msgstr ""
+
+#. Resource IDs: (339)
+msgid "user:multiline"
+msgstr ""
+
+#. Resource IDs: (338)
+msgid "user:singleline"
+msgstr ""
+
+#. Resource IDs: (337, 1622, 1623, 1624)
+msgid "user:state"
+msgstr ""
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"

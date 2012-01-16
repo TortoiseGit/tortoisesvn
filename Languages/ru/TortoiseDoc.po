@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN manuals
-# Copyright (C) 2004-2011 the TortoiseSVN team
+# Copyright (C) 2004-2012 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2011-12-26 09:02+0000\n"
+"PO-Revision-Date: 2012-01-16 08:24+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4802,6 +4802,35 @@ msgstr ""
 "Диалог фиксации поддерживает группы изменений Subversion, предназначенных "
 "для группировки связанных файлов. Об этой возможности рассказывает <xref "
 "linkend=\"tsvn-dug-changelists\"/>."
+
+#. (title)
+msgid "Commit only parts of files"
+msgstr ""
+
+#. (para)
+msgid ""
+"Sometimes you want to only commit parts of the changes you made to a file. "
+"Such a situation usually happens when you're working on something but then "
+"an urgent fix needs to be committed, and that fix happens to be in the same "
+"file you're working on."
+msgstr ""
+
+#. (para)
+msgid ""
+"<action>right click</action> on the file and use "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Restore after "
+"commit</guimenuitem></menuchoice>. This will create a copy of the file as it"
+" is. Then you can edit the file, e.g. in TortoiseMerge and undo all the "
+"changes you don't want to commit. After saving those changes you can commit "
+"the file."
+msgstr ""
+
+#. (para)
+msgid ""
+"After the commit is done, the copy of the file is restored automatically, "
+"and you have the file with all your modifications that were not committed "
+"back."
+msgstr ""
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -11175,6 +11204,128 @@ msgstr ""
 "<literal>tsvn:userdirproperties</literal>. Примените эти свойства к папке. "
 "Когда вы будете редактировать свойства любого дочернего элемента, ваши "
 "собственные свойства появятся в списке среди предопределённых имён свойств."
+
+#. (term)
+msgid "bool"
+msgstr ""
+
+#. (title)
+msgid "Property dialog boolean user types"
+msgstr ""
+
+#. (para)
+msgid ""
+"If your property can only have two states, e.g., true and false, then you "
+"can configure your property as a <literal>bool</literal> type. "
+"<placeholder-1/> Specify your property like this:"
+msgstr ""
+
+#. (literal)
+msgid "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
+msgstr ""
+
+#. (para)
+msgid ""
+"the <literal>labeltext</literal> is the text shown in the dialog above the "
+"checkbox where you can explain the purpose and use of the property. The "
+"other parameters should be self explanatory."
+msgstr ""
+
+#. (term)
+msgid "state"
+msgstr ""
+
+#. (title)
+msgid "Property dialog state user types"
+msgstr ""
+
+#. (para)
+msgid ""
+"If your property represents one of many possible states, e.g., <literal>yes,"
+" no, maybe</literal>, then you can configure your property as a "
+"<literal>state</literal><placeholder-1/> property like this:"
+msgstr ""
+
+#. (literal)
+msgid ""
+"propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
+msgstr ""
+
+#. (para)
+msgid ""
+"The parameters are the same as for the <literal>bool</literal> property, "
+"with <literal>DEFVAL</literal> being the default value to be used if the "
+"property isn't set yet or has a value that's not configured."
+msgstr ""
+
+#. (para)
+msgid ""
+"For up to three different values, the dialog shows up to three radio "
+"buttons. If there are more values configured, it uses a combo box from where"
+" the user can select the required state."
+msgstr ""
+
+#. (term)
+msgid "singleline"
+msgstr ""
+
+#. (title)
+msgid "Property dialog singleline user types"
+msgstr ""
+
+#. (para)
+msgid ""
+"For properties that consist of one line of text, use the "
+"<literal>singleline</literal> property type: <placeholder-1/>"
+msgstr ""
+
+#. (literal)
+msgid "propertyname=singleline;labeltext(regex)"
+msgstr ""
+
+#. (para)
+msgid ""
+"the <literal>regex</literal> specifies a regular expression which is used to"
+" validate (match) the text the user entered. If the text does not match the "
+"regex, then the user is shown an error and the property isn't set."
+msgstr ""
+
+#. (term)
+msgid "multiline"
+msgstr ""
+
+#. (title)
+msgid "Property dialog multiline user types"
+msgstr ""
+
+#. (para)
+msgid ""
+"For properties that consist of multiple lines of text, use the "
+"<literal>multiline</literal> property type: <placeholder-1/>"
+msgstr ""
+
+#. (literal)
+msgid "propertyname=multiline;labeltext(regex)"
+msgstr ""
+
+#. (para)
+msgid ""
+"the <literal>regex</literal> specifies a regular expression which is used to"
+" validate (match) the text the user entered. Don't forget to include the "
+"newline (\\n) character in the regex!"
+msgstr ""
+
+#. (para)
+msgid ""
+"You can also specify whether a custom dialog is used to add/edit your property. TortoiseSVN offers four different dialog, depending on the type of your property. <placeholder-1/> The screenshots above were made with the following <literal>tsvn:userdirproperties</literal>: <screen>\n"
+"my:boolprop=bool;This is a bool type property. Either check or uncheck it.(true;false;my bool prop)\n"
+"my:stateprop1=state;This is a state property. Select one of the two states.(true;true;true value;false;false value)\n"
+"my:stateprop2=state;This is a state property. Select one of the three states.(maybe;true;answer is correct;false;answer is wrong;maybe;not answered)\n"
+"my:stateprop3=state;Specify the day to set this property.(1;1;Monday;2;Tuesday;3;Wednesday;4;Thursday;5;Friday;6;Saturday;7;Sunday)\n"
+"my:singlelineprop=singleline;enter a small comment(.*)\n"
+"my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
+"</screen>"
+msgstr ""
 
 #. (para)
 msgid ""
