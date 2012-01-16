@@ -270,6 +270,7 @@
         <Control Id="Browse" Type="PushButton" X="304" Y="210" Width="56" Height="17" Text="[ButtonText_Browse]">
           <Publish Event="SelectionBrowse" Value="BrowseDlg">1</Publish>
           <Condition Action="hide">Installed</Condition>
+          <Condition Action="disable">Installed</Condition>
         </Control>
 
         <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
