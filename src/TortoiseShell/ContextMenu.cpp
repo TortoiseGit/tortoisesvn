@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1415,6 +1415,11 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
                         if (size == patchlen)
                         {
                             itemStates |= ITEMIS_PATCHFILE;
+                            if ((folder_.size()==0)&&(files_.size()))
+                            {
+                                folder_ = files_[0];
+                            }
+                            itemStatesFolder |= ITEMIS_FOLDERINSVN;
                             files_.clear();
                             files_.push_back(sTempFile);
                         }
