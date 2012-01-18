@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-16 08:24+0000\n"
+"PO-Revision-Date: 2012-01-16 20:36+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4650,7 +4650,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "Урезивање само дела фајлова"
 
 #. (para)
 msgid ""
@@ -4659,6 +4659,9 @@ msgid ""
 "an urgent fix needs to be committed, and that fix happens to be in the same "
 "file you're working on."
 msgstr ""
+"Понекад желите да урежете, само део измена које сте урадили, у фајл. Такава "
+"ситуација се обично дешава када радите на нечему кад је неко хитно фиксирање"
+" потребно да се уреже, и то фиксирање се дешава у истом фајлу где радите. "
 
 #. (para)
 msgid ""
@@ -4669,6 +4672,12 @@ msgid ""
 "changes you don't want to commit. After saving those changes you can commit "
 "the file."
 msgstr ""
+"<action>десни клик</action> на фајл и користите "
+"<menuchoice><guimenu>Контекст мени</guimenu><guimenuitem>Обнови после "
+"урезивања</guimenuitem></menuchoice>. Ово ће креирати копију фајла онакав "
+"какав је. Затим можете уређивати фајл, нпр. у ТортоисеМерге и вратити измене"
+" које не желите да урежете. После меморисања ових измена можете урезати "
+"фајл."
 
 #. (para)
 msgid ""
@@ -4676,6 +4685,8 @@ msgid ""
 "and you have the file with all your modifications that were not committed "
 "back."
 msgstr ""
+"Када се урезивање заврши, копија фајла се враћа аутомарски, и имате фајл са "
+"свим вашим изменама које још нису урезане."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -10835,11 +10846,11 @@ msgstr ""
 
 #. (term)
 msgid "bool"
-msgstr ""
+msgstr "бул"
 
 #. (title)
 msgid "Property dialog boolean user types"
-msgstr ""
+msgstr "Дијалог особина  корисничких бул типова "
 
 #. (para)
 msgid ""
@@ -10847,10 +10858,13 @@ msgid ""
 "can configure your property as a <literal>bool</literal> type. "
 "<placeholder-1/> Specify your property like this:"
 msgstr ""
+"Ако ваше особине могу имати само два стања, нпр. истина и лаж, онда можете "
+"конфигурисати ваше особине као <literal>бул</literal> тип. <placeholder-1/> "
+"Специфицирајте ваше особине као :"
 
 #. (literal)
 msgid "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
-msgstr ""
+msgstr "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
 
 #. (para)
 msgid ""
@@ -10858,14 +10872,17 @@ msgid ""
 "checkbox where you can explain the purpose and use of the property. The "
 "other parameters should be self explanatory."
 msgstr ""
+"<literal>labeltext</literal> је текст приказан у горњем дијалогу изнад "
+"чекбокса где можете објаснити сврху и употребу особине. Други параметри "
+"треба да буду самообјашњиве."
 
 #. (term)
 msgid "state"
-msgstr ""
+msgstr "стање"
 
 #. (title)
 msgid "Property dialog state user types"
-msgstr ""
+msgstr "Дијалог особина корисничких типова стања"
 
 #. (para)
 msgid ""
@@ -10873,11 +10890,15 @@ msgid ""
 " no, maybe</literal>, then you can configure your property as a "
 "<literal>state</literal><placeholder-1/> property like this:"
 msgstr ""
+"Ако ваше особине приказују једну од многих могућих стања, нпр. <literal>да, "
+"не, можда</literal>, онда можете конфигурисати вашу особину као "
+"<literal>стање</literal><placeholder-1/> особину слично овоме:"
 
 #. (literal)
 msgid ""
 "propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
 msgstr ""
+"propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
 
 #. (para)
 msgid ""
@@ -10885,6 +10906,9 @@ msgid ""
 "with <literal>DEFVAL</literal> being the default value to be used if the "
 "property isn't set yet or has a value that's not configured."
 msgstr ""
+"Параметри су исти као и за <literal>бул</literal> особине, са "
+"<literal>DEFVAL</literal> уобичајеном вредношћу која се користи ако особина "
+"још није подешена или има вредност која није конфигурисана."
 
 #. (para)
 msgid ""
@@ -10892,24 +10916,29 @@ msgid ""
 "buttons. If there are more values configured, it uses a combo box from where"
 " the user can select the required state."
 msgstr ""
+"За до три различите вредности дијалог приказује до три радио дугмета. Ако "
+"има више вредности користи се комбо бокс где корисник бира одговарајуће "
+"стање."
 
 #. (term)
 msgid "singleline"
-msgstr ""
+msgstr "посебна линија"
 
 #. (title)
 msgid "Property dialog singleline user types"
-msgstr ""
+msgstr "Дијалог особина косрисничких типова појединачне линије"
 
 #. (para)
 msgid ""
 "For properties that consist of one line of text, use the "
 "<literal>singleline</literal> property type: <placeholder-1/>"
 msgstr ""
+"За особине које се састоје од линије текста користи <literal>посебна "
+"линија</literal> тип особине: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=singleline;labeltext(regex)"
-msgstr ""
+msgstr "propertyname=singleline;labeltext(regex)"
 
 #. (para)
 msgid ""
@@ -10917,24 +10946,29 @@ msgid ""
 " validate (match) the text the user entered. If the text does not match the "
 "regex, then the user is shown an error and the property isn't set."
 msgstr ""
+"<literal>regex</literal> специфицира регуларни израз који се користи да "
+"провери (нађе) текст који је корисник унео. Ако текст не налази регекс онда "
+"кориснику се приказује грешка и особина није подешена."
 
 #. (term)
 msgid "multiline"
-msgstr ""
+msgstr "мултилинија"
 
 #. (title)
 msgid "Property dialog multiline user types"
-msgstr ""
+msgstr "Дијалог особина мултилајн корисничких типова"
 
 #. (para)
 msgid ""
 "For properties that consist of multiple lines of text, use the "
 "<literal>multiline</literal> property type: <placeholder-1/>"
 msgstr ""
+"Особине које се састоје од вишеструких линија текста, користите "
+"<literal>мултилинија</literal> тип особина: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=multiline;labeltext(regex)"
-msgstr ""
+msgstr "propertyname=multiline;labeltext(regex)"
 
 #. (para)
 msgid ""
@@ -10942,6 +10976,9 @@ msgid ""
 " validate (match) the text the user entered. Don't forget to include the "
 "newline (\\n) character in the regex!"
 msgstr ""
+"<literal>regex</literal> специфицира регуларни израз који се користи да "
+"провери (нађе) текст који је корисник унео. Не заборавите да укључите нову "
+"линију (\\n) карактер у регекс."
 
 #. (para)
 msgid ""
@@ -10954,6 +10991,14 @@ msgid ""
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
 "</screen>"
 msgstr ""
+"Можете, такође, специфицирати да ли користити прилагођен дијалог да се додају/уреде ваше особине. ТортоисеСВН нуди четири различита дијалога, у зависности од типа особина <placeholder-1/> Горња слика је направљена са следећим <literal>tsvn:userdirproperties</literal>: <screen>\n"
+"my:boolprop=bool;This is a bool type property. Either check or uncheck it.(true;false;my bool prop)\n"
+"my:stateprop1=state;This is a state property. Select one of the two states.(true;true;true value;false;false value)\n"
+"my:stateprop2=state;This is a state property. Select one of the three states.(maybe;true;answer is correct;false;answer is wrong;maybe;not answered)\n"
+"my:stateprop3=state;Specify the day to set this property.(1;1;Monday;2;Tuesday;3;Wednesday;4;Thursday;5;Friday;6;Saturday;7;Sunday)\n"
+"my:singlelineprop=singleline;enter a small comment(.*)\n"
+"my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
+"</screen>"
 
 #. (para)
 msgid ""

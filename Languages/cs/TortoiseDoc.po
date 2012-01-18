@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-16 08:23+0000\n"
+"PO-Revision-Date: 2012-01-16 14:33+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4685,7 +4685,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "Odevzdat pouze části souborů"
 
 #. (para)
 msgid ""
@@ -4694,6 +4694,10 @@ msgid ""
 "an urgent fix needs to be committed, and that fix happens to be in the same "
 "file you're working on."
 msgstr ""
+"Někdy chcete odevzdat pouze části změn, které jste v souboru provedli. "
+"Takové situace většinou nastanou, když na něčem pracujete, ale pak je třeba "
+"odevzdat důležitou opravu a tato oprava se nachází ve stejném souboru, na "
+"kterém pracujete."
 
 #. (para)
 msgid ""
@@ -4704,6 +4708,11 @@ msgid ""
 "changes you don't want to commit. After saving those changes you can commit "
 "the file."
 msgstr ""
+"<action>Klikněte pravým tlačítkem</action> na soubor a použijte "
+"<menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Obnovit po "
+"odevzdání</guimenuitem></menuchoice>. Toto vytvoří kopii souboru tak jak je."
+" Pak můžete soubor upravit, např. v TortoiseMerge a vrátit všechny změny, "
+"které nechcete odevzdat. Po uložení těchto změn můžete soubor odevzdat."
 
 #. (para)
 msgid ""
@@ -4711,6 +4720,8 @@ msgid ""
 "and you have the file with all your modifications that were not committed "
 "back."
 msgstr ""
+"Po odevzdání je kopie souboru automaticky obnovena a máte zpět soubor se "
+"všemi změnami, které nebyly odevzdány."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -10927,11 +10938,11 @@ msgstr ""
 
 #. (term)
 msgid "bool"
-msgstr ""
+msgstr "bool"
 
 #. (title)
 msgid "Property dialog boolean user types"
-msgstr ""
+msgstr "Dialogové okno vlastností uživatelských booleanských typů"
 
 #. (para)
 msgid ""
@@ -10939,10 +10950,13 @@ msgid ""
 "can configure your property as a <literal>bool</literal> type. "
 "<placeholder-1/> Specify your property like this:"
 msgstr ""
+"Pokud Vaše vlastnost může míst pouze dva stavy např.: pravda a nepravda, pak"
+" můžete nastavit Vaši vlastnost jako typ  <literal>bool</literal>. "
+"<placeholder-1/> Určete Vaši vlastnost takto:"
 
 #. (literal)
 msgid "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
-msgstr ""
+msgstr "propertyname=bool;textštítku(HODNOTAANO;HODNOTENE;textpolíčka)"
 
 #. (para)
 msgid ""
@@ -10950,14 +10964,17 @@ msgid ""
 "checkbox where you can explain the purpose and use of the property. The "
 "other parameters should be self explanatory."
 msgstr ""
+"<literal>textštítku</literal> je text, zobrazený v dialogovém okně nad "
+"zaškrtávacím políčkem, kde můžete vysvětlit smysl a použití této vlastnosti."
+" Ostatní parametry by nemělo být třeba vysvětlovat."
 
 #. (term)
 msgid "state"
-msgstr ""
+msgstr "stav"
 
 #. (title)
 msgid "Property dialog state user types"
-msgstr ""
+msgstr "Dialogové okno vlastností uživatelských stavových typů"
 
 #. (para)
 msgid ""
@@ -10965,11 +10982,15 @@ msgid ""
 " no, maybe</literal>, then you can configure your property as a "
 "<literal>state</literal><placeholder-1/> property like this:"
 msgstr ""
+"Pokud Vaše vlastnist představuje jeden z možných stavů, např.: <literal>ano,"
+" ne, možná</literal>, pak můžete nastavit Vaší vlastnost jako "
+"<literal>state</literal><placeholder-1/> takto:"
 
 #. (literal)
 msgid ""
 "propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
 msgstr ""
+"propertyname=state;texštítku(VÝCHHOD;HOD1;TEXT1;HOD2;TEXT2;HOD3;TEXT3;...)"
 
 #. (para)
 msgid ""
@@ -10977,6 +10998,9 @@ msgid ""
 "with <literal>DEFVAL</literal> being the default value to be used if the "
 "property isn't set yet or has a value that's not configured."
 msgstr ""
+"Parametry jsou stejné jako pro vlastnost <literal>bool</literal> a "
+"<literal>VÝCHHOD</literal> je výcohzí hodnota, která bude použita, když "
+"vlastnost, nebo hodnota, kterou vlastnost má, ještě není nastavena."
 
 #. (para)
 msgid ""
@@ -10984,24 +11008,29 @@ msgid ""
 "buttons. If there are more values configured, it uses a combo box from where"
 " the user can select the required state."
 msgstr ""
+"Pro až tři různé hodnoty, dialogové okno zobrazuje až tři přepínací "
+"tlačítka. Pokud je nastaveno více hodnot, používá rozbalovací seznam, odkud "
+"uživatel může zvolit požadovaný stav."
 
 #. (term)
 msgid "singleline"
-msgstr ""
+msgstr "jednořádková"
 
 #. (title)
 msgid "Property dialog singleline user types"
-msgstr ""
+msgstr "Dialogové okno vlastností uživatelských jednořádkových typů"
 
 #. (para)
 msgid ""
 "For properties that consist of one line of text, use the "
 "<literal>singleline</literal> property type: <placeholder-1/>"
 msgstr ""
+"Pro vlastnosti, které se skládají z jednoho řádku textu, použijte typ "
+"vlastnosti <literal>singleline</literal>: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=singleline;labeltext(regex)"
-msgstr ""
+msgstr "propertyname=singleline;textštítku(regex)"
 
 #. (para)
 msgid ""
@@ -11009,24 +11038,29 @@ msgid ""
 " validate (match) the text the user entered. If the text does not match the "
 "regex, then the user is shown an error and the property isn't set."
 msgstr ""
+"<literal>regex</literal> určuje regulární výraz, který je použit k ověření "
+"(shodě) textu zadaného uživatelem. Pokud se text neshoduje s výrazem "
+"neshoduje, pak je uživateli zobrazena chyba a vlastnost není nastavena."
 
 #. (term)
 msgid "multiline"
-msgstr ""
+msgstr "víceřádkový"
 
 #. (title)
 msgid "Property dialog multiline user types"
-msgstr ""
+msgstr "Dialogové okno vlastností uživatelských víceřádkových typů"
 
 #. (para)
 msgid ""
 "For properties that consist of multiple lines of text, use the "
 "<literal>multiline</literal> property type: <placeholder-1/>"
 msgstr ""
+"Pro vlastnosti, které se skládají z mnoha řádků textu, použijte typ "
+"vlastnosti <literal>multiline</literal>: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=multiline;labeltext(regex)"
-msgstr ""
+msgstr "propertyname=multiline;ltextštítku(regex)"
 
 #. (para)
 msgid ""
@@ -11034,6 +11068,9 @@ msgid ""
 " validate (match) the text the user entered. Don't forget to include the "
 "newline (\\n) character in the regex!"
 msgstr ""
+"<literal>regex</literal> určuje regulární výraz, který je použit k ověření "
+"(shodě) textu zadaného uživatelem. Nezapomeňte zadat znak nového řádku (\\n)"
+" v řetězci"
 
 #. (para)
 msgid ""
@@ -11046,6 +11083,14 @@ msgid ""
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
 "</screen>"
 msgstr ""
+"Můžete také určit, zdali bude použit vlastní dialogové okno při přidávání/úpravě Vaší vlastnosti. TortoiseSVN nabízí čtyři různá okna, v závislosti na typu Vaší vlastnosti. <placeholder-1/> Snímky obrazovky výše byly vytvořeny pomocí následujících <literal>tsvn:userdirproperties</literal>: <screen>\n"
+"moje:vlastbool=bool;Toto je vlastnost typu bool. Buď ji zaškrtněte, nebo odškrtněte.(true;false;Moje vlastnost bool)\n"
+"moje:vlaststav1=state;Toto je stavová vlastnost. Vyberte jeden ze dvou stavů.(true;true;Hodnota pravda;false;Hodnota nepravda)\n"
+"moje:vlaststav2=state;Toto je stavová vlastnost. Vyberte jeden ze tří stavů.(maybe;true;Odpověď je správně;false;Odpověď je špatně;maybe;Nezodpovězeno)\n"
+"moje:vlaststav3=state;Určete den pro nastavení této vlastnosti.(1;1;Pondělí;2;Úterý;3;Středa;4;Čtvrtek;5;Pátek;6;Sobota;7;Neděle)\n"
+"moje;jednořádkovávlast=singleline;Zadejte krátký komentář(.*)\n"
+"moje:mnohořádkovávlast=multiline;Zde můžete ze scránky vložit celou kapitolu(.*)\n"
+"</screen>"
 
 #. (para)
 msgid ""
@@ -19466,8 +19511,8 @@ msgid ""
 "If you don't want TortoiseSVN to automatically fix such case changes for "
 "you, you can set this value to <literal>false</literal>."
 msgstr ""
-"Pokud nechcete, aby TortoiseSVN takovéto změny automaticky opravoval, můžete"
-" tuto hodnotu nastavit na <literal>false</literal>."
+"Pokud nechcete, aby TortoiseSVN automaticky opravoval takovéto případy "
+"velikosti můžete tuto hodnotu nastavit na <literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -26131,11 +26176,11 @@ msgid ""
 " get applied directly because you already changed that file."
 msgstr ""
 "Až TortoiseMerge záplatový soubor rozebere, zobrazí Vám malé okno se všemi "
-"soubory, které mají změny podle záplatového souboru. <placeholder-1/> Je-li "
-"název souboru zobrazen v černé barvě, pak záplatu lze použít bez problémů. "
-"To znamená, že soubor není podle záplaty zastaralý. Nicméně pokud název "
-"souboru je zobrazen v červené barvě, pak záplatu nelze použít přímo, protože"
-" jste již tento soubor změnili."
+"soubory, které se mají změny podle záplatového souboru. <placeholder-1/> Je-"
+"li název souboru zobrazen v černé barvě, pak záplatu lze použít bez "
+"problémů. To znamená, že soubor není podle záplaty zastaralý. Nicméně pokud "
+"název souboru je zobrazen v červené barvě, pak záplatu nelze použít přímo, "
+"protože jste již tento soubor změnili."
 
 #. (para)
 msgid ""

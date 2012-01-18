@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-16 13:49+0000\n"
+"PO-Revision-Date: 2012-01-17 08:56+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -11376,7 +11376,7 @@ msgid ""
 msgstr ""
 "Wenn Ihre Eigenschaft einen von mehreren möglichen Zuständen annehmen kann, "
 "z. B. <literal>Ja, Nein, Vielleicht</literal>, dann können Sie diese als "
-"<literal>state</literal> <placeholder-1> folgendermaßen konfigurieren:"
+"<literal>state</literal><placeholder-1> folgendermaßen konfigurieren:"
 
 #. (literal)
 msgid ""
@@ -11419,10 +11419,12 @@ msgid ""
 "For properties that consist of one line of text, use the "
 "<literal>singleline</literal> property type: <placeholder-1/>"
 msgstr ""
+"Für Eigenschaften, die nur aus einer Textzeile bestehen, verwenden Sie den "
+"Typ <literal>singleline</literal>: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=singleline;labeltext(regex)"
-msgstr ""
+msgstr "Eigenschaftsname=singleline;Beschreibung(RegEx)"
 
 #. (para)
 msgid ""
@@ -11430,6 +11432,10 @@ msgid ""
 " validate (match) the text the user entered. If the text does not match the "
 "regex, then the user is shown an error and the property isn't set."
 msgstr ""
+"Die <literal>RegEx</literal> definiert einen regulären Ausdruck, der "
+"verwendet wird, um den vom Anwender eingegebenen  Eigenschaftswert zu "
+"überprüfen. Falls der Wert nicht korrekt ist, wird eine Fehlermeldung "
+"angezeigt und die Eigenschaft wird nicht gesetzt."
 
 #. (term)
 msgid "multiline"
@@ -11444,10 +11450,12 @@ msgid ""
 "For properties that consist of multiple lines of text, use the "
 "<literal>multiline</literal> property type: <placeholder-1/>"
 msgstr ""
+"Für Eigenschaften, die aus mehreren Textzeilen bestehen, verwenden Sie den "
+"Typ <literal>multiline</literal>: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=multiline;labeltext(regex)"
-msgstr ""
+msgstr "Eigenschaftsname=multiline;Beschreibung(RegEx)"
 
 #. (para)
 msgid ""
@@ -11455,6 +11463,9 @@ msgid ""
 " validate (match) the text the user entered. Don't forget to include the "
 "newline (\\n) character in the regex!"
 msgstr ""
+"Die <literal>RegEx</literal> definiert einen regulären Ausdruck, der "
+"verwendet wird, um den vom Anwender eingegebenen  Eigenschaftswert zu "
+"überprüfen. Vergessen Sie die Zeilenumbrüche (\\n) in der RegEx nicht!"
 
 #. (para)
 msgid ""
@@ -11467,6 +11478,13 @@ msgid ""
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
 "</screen>"
 msgstr ""
+"Sie können auch angeben, ob ein benutzerdefiniertes Dialogfeld zum Hinzufügen und Bearbeiten Ihrer Eigenschaft verwendet wird. TortoiseSVN bietet, je nach Art der Eigenschaft, vier verschiedene Dialoge. <placeholder-1/> Die Bilder oben wurden mit den folgenden <literal>tsvn:userdirproperties</literal> erstellt:\n"
+"<screen>my:boolprop=bool;Dies ist eine boolesche Eigenschaft. Entweder aktivieren Sie oder deaktivieren Sie sie.(True;False;meine boolesche Eigenschaft)\n"
+"my:stateprop1=state;Dies ist eine Status-Eigenschaft. Wählen Sie einen der beiden Status.(Ja;Ja;Ja Wert;Nein;Nein Wert)\n"
+"my:stateprop2=state;Dies ist eine Status-Eigenschaft. Wählen Sie einen der drei Status.(Vielleicht;Ja;Antwort ist richtig;Nein;Antwort ist falsch;Vielleicht;nicht beantwortet)\n"
+"my:stateprop3=state;Geben Sie den Tag an, um diese Eigenschaft festzulegen.(1;1;Montag;2;Dienstag;3;Mittwoch;4;Donnerstag;5;Freitag;6;Samstag;7;Sonntag)\n"
+"my:singlelineprop=singleline;Geben Sie einen kurzen Kommentar ein.(.*)\n"
+"my:multilineprop=multline;Kopieren und fügen Sie ein vollständiges Kapitel hier ein(.*)</screen>"
 
 #. (para)
 msgid ""

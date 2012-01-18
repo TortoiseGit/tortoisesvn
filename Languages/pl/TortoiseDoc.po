@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-16 08:24+0000\n"
+"PO-Revision-Date: 2012-01-17 00:13+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4796,7 +4796,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "Zatwierdzaj tylko części plików"
 
 #. (para)
 msgid ""
@@ -4805,6 +4805,10 @@ msgid ""
 "an urgent fix needs to be committed, and that fix happens to be in the same "
 "file you're working on."
 msgstr ""
+"Czasami chcecie zatwierdzić tylko część zmian, jakie wprowadziliście do "
+"pliku. Taka sytuacja powstaje zazwyczaj gdy pracujecie nad czymś a w "
+"międzyczasie musi być zatwierdzona pilna poprawka, przy czym ta pilna "
+"poprawka znajduje się w tym samym pliku, który właśnie rozgrzebaliście. "
 
 #. (para)
 msgid ""
@@ -4815,6 +4819,12 @@ msgid ""
 "changes you don't want to commit. After saving those changes you can commit "
 "the file."
 msgstr ""
+"<action>kliknijcie prawym przyciskiem myszy</action> na pliku i użyjcie "
+"<menuchoice><guimenu>Menu kontekstowe</guimenu><guimenuitem>Przywróć po "
+"zatwierdzeniu</guimenuitem></menuchoice>. Spowoduje to utworzenie kopii "
+"pliku w stanie, w jakim się znajduje. Następnie możecie edytowac plik, np. w"
+" TortoiseMerge i wycofać zmiany jakich nie chcecie zatwierdzić. Po zapisaniu"
+" zmian możecie zatwierdzić plik."
 
 #. (para)
 msgid ""
@@ -4822,6 +4832,9 @@ msgid ""
 "and you have the file with all your modifications that were not committed "
 "back."
 msgstr ""
+"Po wykonaniu zatwierdzenia kopia pliku zostaje automatycznie odtworzona i "
+"otrzymujecie z powrotem plik ze wszystkimi waszymi niezatwierdzonymi "
+"modyfikacjami."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -11132,11 +11145,11 @@ msgstr ""
 
 #. (term)
 msgid "bool"
-msgstr ""
+msgstr "bool"
 
 #. (title)
 msgid "Property dialog boolean user types"
-msgstr ""
+msgstr "Dialog atrybutu typu logicznego zdefiniowanego przez użytkownika"
 
 #. (para)
 msgid ""
@@ -11144,10 +11157,14 @@ msgid ""
 "can configure your property as a <literal>bool</literal> type. "
 "<placeholder-1/> Specify your property like this:"
 msgstr ""
+"Jeśli wasz atrybut może przyjmować tylko dwa stany, np.. prawda i fałsz, "
+"możecie ustawić wasz atrybut jako typu <literal>bool</literal>. "
+"<placeholder-1/> Zdefiniuj atrybut w poniższy sposób:"
 
 #. (literal)
 msgid "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
 msgstr ""
+"nazwaatrybutu=bool;tekstEtykiety(WARTOSCTAK;WARTOSCNIE;TekstPolaWyboru)"
 
 #. (para)
 msgid ""
@@ -11155,14 +11172,17 @@ msgid ""
 "checkbox where you can explain the purpose and use of the property. The "
 "other parameters should be self explanatory."
 msgstr ""
+"<literal>tekstEtykiety</literal> to tekst pokazywany w dialogu nad polem "
+"wyboru gdzie możesz wyjaśnić cel i sposób użycia atrybutu. Inne parametry "
+"powinny wyjaśniać się same."
 
 #. (term)
 msgid "state"
-msgstr ""
+msgstr "state"
 
 #. (title)
 msgid "Property dialog state user types"
-msgstr ""
+msgstr "Dialog atrybutu typu enumeracyjnego zdefiniowanego przez użytkownika"
 
 #. (para)
 msgid ""
@@ -11170,11 +11190,15 @@ msgid ""
 " no, maybe</literal>, then you can configure your property as a "
 "<literal>state</literal><placeholder-1/> property like this:"
 msgstr ""
+"Jeśli atrybut może przyjmować jeden z wielu możliwych stanów, np. "
+"<literal>tak, nie, może</literal>, możecie zdefiniować atrybut jako typu "
+"<literal>state</literal><placeholder-1/> w ten sposób:"
 
 #. (literal)
 msgid ""
 "propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
 msgstr ""
+"nazwaatrybutu=state;tekstEtykiety(WARTDOM;WART1;TEKST1;WART2;TEKST2;WART3;TEKST3;...)"
 
 #. (para)
 msgid ""
@@ -11182,6 +11206,9 @@ msgid ""
 "with <literal>DEFVAL</literal> being the default value to be used if the "
 "property isn't set yet or has a value that's not configured."
 msgstr ""
+"Parametry są takie same jak w atrybutach <literal>bool</literal>, wraz z "
+"<literal>WARTDOM</literal> określającą wartość domyślną wykorzystywaną, gdy "
+"atrybut nie jest ustawiony lub ma wartość spoza dozwolonego zbioru."
 
 #. (para)
 msgid ""
@@ -11189,24 +11216,30 @@ msgid ""
 "buttons. If there are more values configured, it uses a combo box from where"
 " the user can select the required state."
 msgstr ""
+"Dla trzech lub mniej wartości, dialog wyświetla odpowiednią liczbę "
+"przycisków opcji. Jeśli zdefiniowano więcej wartości, wykorzystuje się listę"
+" rozwijalną, z której użytkownik może wybrać wymagany stan. "
 
 #. (term)
 msgid "singleline"
-msgstr ""
+msgstr "singleline"
 
 #. (title)
 msgid "Property dialog singleline user types"
 msgstr ""
+"Dialog atrybutu typu jednowierszowego zdefiniowanego przez użytkownika"
 
 #. (para)
 msgid ""
 "For properties that consist of one line of text, use the "
 "<literal>singleline</literal> property type: <placeholder-1/>"
 msgstr ""
+"Dla atrybutów tekstowych mieszczących się w jednym wierszu, użyjcie typu "
+"atrybutu  <literal>singleline</literal>: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=singleline;labeltext(regex)"
-msgstr ""
+msgstr "nazwaatrybutu=singleline;tekstetykiety(wyrreg)"
 
 #. (para)
 msgid ""
@@ -11214,24 +11247,31 @@ msgid ""
 " validate (match) the text the user entered. If the text does not match the "
 "regex, then the user is shown an error and the property isn't set."
 msgstr ""
+"<literal>wyrreg</literal> określa wyrażenie regularne używane do sprawdzenia"
+" poprawności (dopasowanie) tekstu wprowadzonego przez użytkownika. Jeśli "
+"tekst nie pasuje do wyrreg, wyświetlony zostanie komunikat o błędzie a "
+"atrybut nie zostaje ustawiony."
 
 #. (term)
 msgid "multiline"
-msgstr ""
+msgstr "multiline"
 
 #. (title)
 msgid "Property dialog multiline user types"
 msgstr ""
+"Dialog atrybutu typu wielowierszowego zdefiniowanego przez użytkownika"
 
 #. (para)
 msgid ""
 "For properties that consist of multiple lines of text, use the "
 "<literal>multiline</literal> property type: <placeholder-1/>"
 msgstr ""
+"Dla atrybutów tekstowych mieszczących się w wielu wierszach, użyjcie typu "
+"atrybutu <literal>multiline</literal>: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=multiline;labeltext(regex)"
-msgstr ""
+msgstr "nazwaatrybutu=multiline;tekstetykiety(wyrreg)"
 
 #. (para)
 msgid ""
@@ -11239,6 +11279,9 @@ msgid ""
 " validate (match) the text the user entered. Don't forget to include the "
 "newline (\\n) character in the regex!"
 msgstr ""
+"<literal>wyrreg</literal> określa wyrażenie regularne używane do sprawdzenia"
+" poprawności (dopasowanie) tekstu wprowadzonego przez użytkownika. Nie "
+"zapomnijcie o wpisaniu znaku nowej linii (\\n) w wyrażeniu regularnym!"
 
 #. (para)
 msgid ""
@@ -11251,6 +11294,14 @@ msgid ""
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
 "</screen>"
 msgstr ""
+"Można również określić, czy niestandardowego dialogowe służy do dodawania/edycji atrybutu. TortoiseSVN oferuje cztery różne okna dialogowe, w zależności od rodzaju atrybutu. <placeholder-1/> Zrzuty ekranu powyżej zostały wykonane dla następujących <literal>tsvn:userdirproperties</literal> <screen>\n"
+"my:boolprop=bool; To atrybut typu logicznego. Zaznacza się go lub odznacza. (true;false;własny atrybut logiczny)\n"
+"my:stateprop1=state;To atrybut enumeracyjny. Wybiera się jeden z dwóch stanów. (true;true;wartość prawdy;false;wartość fałszu)\n"
+"my:stateprop2=state;To atrybut enumeracyjny. Wybiera się jeden z trzech stanów.(maybe;true;odpowiedź jest poprawna;false;ospowiedź jest zła;maybe;nie odpowiedziano)\n"
+"my:stateprop3=state;Wskaż dzień by ustawić atrybut.(1;1;Poniedziałek;2;Wtorek;3;Środa;4;Czwartek;5;Piątek;6;Sobota;7;Niedziela)\n"
+"my:singlelineprop=singleline;wprowadź krótki komentarz(.*)\n"
+"my:multilineprop=multiline;skopiuj i wklej cały rozdział tutaj(.*)\n"
+"</screen>"
 
 #. (para)
 msgid ""
