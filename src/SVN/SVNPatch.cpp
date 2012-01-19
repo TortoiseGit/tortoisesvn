@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2011 - TortoiseSVN
+// Copyright (C) 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -148,7 +148,8 @@ svn_error_t * SVNPatch::patchfile_func( void *baton, svn_boolean_t * filtered, c
 
 int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgressDlg *pPprogDlg )
 {
-    if (patchfile.IsEmpty() || targetpath.IsEmpty() || !svn_dirent_is_absolute(CTSVNPath(targetpath).GetSVNApiPath(m_pool)))
+    CTSVNPath target = CTSVNPath(targetpath);
+    if (patchfile.IsEmpty() || targetpath.IsEmpty() || !svn_dirent_is_absolute(target.GetSVNApiPath(m_pool)))
     {
         m_errorStr.LoadString(IDS_ERR_PATCHPATHS);
         return 0;
@@ -182,8 +183,11 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
     m_filePaths.clear();
     m_nRejected = 0;
     m_nStrip = 0;
-    err = svn_client_patch(CTSVNPath(m_patchfile).GetSVNApiPath(scratchpool),     // patch_abspath
-                           CTSVNPath(m_targetpath).GetSVNApiPath(scratchpool),    // local_abspath
+    CTSVNPath tsvnpatchfile = CTSVNPath(m_patchfile);
+    CTSVNPath tsvntargetpath = CTSVNPath(m_targetpath);
+
+    err = svn_client_patch(tsvnpatchfile.GetSVNApiPath(scratchpool),     // patch_abspath
+                           tsvntargetpath.GetSVNApiPath(scratchpool),    // local_abspath
                            true,                                    // dry_run
                            m_nStrip,                                // strip_count
                            false,                                   // reverse

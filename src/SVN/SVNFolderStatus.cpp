@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -168,8 +168,8 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
             rev.kind = svn_opt_revision_unspecified;
             try
             {
-                folderpath = filepath;
-                const char * svnapipath = filepath.GetDirectory().GetSVNApiPath(pool);
+                folderpath = filepath.GetDirectory();
+                const char * svnapipath = folderpath.GetSVNApiPath(pool);
                 if (svnapipath && svnapipath[0])
                 {
                     err = svn_client_status5 (&youngest,
@@ -228,7 +228,8 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     rev.kind = svn_opt_revision_unspecified;
     try
     {
-        const char * svnapipath = filepath.GetDirectory().GetSVNApiPath(pool);
+        CTSVNPath dirpath = filepath.GetDirectory();
+        const char * svnapipath = dirpath.GetSVNApiPath(pool);
         if (svnapipath && svnapipath[0])
         {
             err = svn_client_status5 (&youngest,
