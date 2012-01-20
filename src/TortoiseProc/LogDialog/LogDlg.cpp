@@ -2237,7 +2237,7 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
     dlg.m_sTitle.LoadString(IDS_LOG_AUTHOREDITTITLE);
     if (dlg.DoModal() == IDOK)
     {
-        if(sOldValue.CompareNoCase(dlg.m_sInputText))
+        if(sOldValue.Compare(dlg.m_sInputText))
         {
             dlg.m_sInputText.Remove(_T('\r'));
 
@@ -2315,7 +2315,7 @@ void CLogDlg::EditLogMessage(int index)
     dlg.m_sTitle.LoadString(IDS_LOG_MESSAGEEDITTITLE);
     if (dlg.DoModal() == IDOK)
     {
-        if(sOldValue.CompareNoCase(dlg.m_sInputText))
+        if(sOldValue.Compare(dlg.m_sInputText))
         {
         dlg.m_sInputText.Remove(_T('\r'));
         if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), pLogEntry->GetRevision()))
