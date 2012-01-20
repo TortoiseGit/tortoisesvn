@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-16 08:24+0000\n"
+"PO-Revision-Date: 2012-01-18 13:14+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4805,7 +4805,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "Фиксировать только части файлов"
 
 #. (para)
 msgid ""
@@ -4814,6 +4814,10 @@ msgid ""
 "an urgent fix needs to be committed, and that fix happens to be in the same "
 "file you're working on."
 msgstr ""
+"Иногда вы хотите фиксировать только часть изменений сделанных вами в файле. "
+"Обычно, такая ситуация возникает, когда вы работаете над чем-то и вдруг "
+"требуется внести срочное исправление и зафиксировать, и это исправление в "
+"том же файле, с которым вы работаете."
 
 #. (para)
 msgid ""
@@ -4824,6 +4828,12 @@ msgid ""
 "changes you don't want to commit. After saving those changes you can commit "
 "the file."
 msgstr ""
+"Щёлкните <action>правой кнопкой мыши</action> на файле и используйте "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Восстановить после "
+"фиксации</guimenuitem></menuchoice>. При этом будет создана копия файла. "
+"Затем вы можете редактировать файл, например, в TortoiseMerge и отменить все"
+" изменения, которые вы не хотите фиксировать. После сохранения всех таких "
+"изменений вы можете фиксировать файл."
 
 #. (para)
 msgid ""
@@ -4831,6 +4841,9 @@ msgid ""
 "and you have the file with all your modifications that were not committed "
 "back."
 msgstr ""
+"После того, как фиксация выполнена, копия файла восстанавливается "
+"автоматически и у вас есть файл со всеми вашими изменениями, которые не были"
+" зафиксированы."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -11207,11 +11220,11 @@ msgstr ""
 
 #. (term)
 msgid "bool"
-msgstr ""
+msgstr "булев"
 
 #. (title)
 msgid "Property dialog boolean user types"
-msgstr ""
+msgstr "Диалог свойства пользовательских булевых типов"
 
 #. (para)
 msgid ""
@@ -11219,10 +11232,13 @@ msgid ""
 "can configure your property as a <literal>bool</literal> type. "
 "<placeholder-1/> Specify your property like this:"
 msgstr ""
+"Если ваше свойство может иметь только два состояния, например, истина и "
+"ложь, то вы можете сконфигурировать свойство типа <literal>булев</literal>. "
+"<placeholder-1/> Определите ваше свойство вот так:"
 
 #. (literal)
 msgid "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
-msgstr ""
+msgstr "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
 
 #. (para)
 msgid ""
@@ -11230,14 +11246,17 @@ msgid ""
 "checkbox where you can explain the purpose and use of the property. The "
 "other parameters should be self explanatory."
 msgstr ""
+"<literal>labeltext</literal> — это текст, отображаемый в диалоге над "
+"флажком, в котором вы можете пояснить назначение и использование свойства. "
+"Остальные параметры говорят сами за себя."
 
 #. (term)
 msgid "state"
-msgstr ""
+msgstr "состояние"
 
 #. (title)
 msgid "Property dialog state user types"
-msgstr ""
+msgstr "Диалог свойства пользовательских типов состояния"
 
 #. (para)
 msgid ""
@@ -11245,11 +11264,15 @@ msgid ""
 " no, maybe</literal>, then you can configure your property as a "
 "<literal>state</literal><placeholder-1/> property like this:"
 msgstr ""
+"Если ваше свойство представляет одно из возможных значений, например, "
+"<literal>да, нет, может быть</literal>, то вы можете сконфигурировать ваше "
+"свойство как свойство <literal>состояние</literal><placeholder-1/> вот так:"
 
 #. (literal)
 msgid ""
 "propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
 msgstr ""
+"propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
 
 #. (para)
 msgid ""
@@ -11257,6 +11280,9 @@ msgid ""
 "with <literal>DEFVAL</literal> being the default value to be used if the "
 "property isn't set yet or has a value that's not configured."
 msgstr ""
+"Параметры такие же как для свойства <literal>булев</literal>, где "
+"<literal>DEFVAL</literal> — значение по умолчанию, используемое если "
+"свойство еще не установлено или имеет значение, которое не сконфигурировано."
 
 #. (para)
 msgid ""
@@ -11264,24 +11290,29 @@ msgid ""
 "buttons. If there are more values configured, it uses a combo box from where"
 " the user can select the required state."
 msgstr ""
+"Для не более трёх разных значений в диалоге отображается до трёх "
+"переключателей. Если сконфигурировано больше значений, то используется "
+"выпадающий список, из которого пользователь может выбрать нужное состояние."
 
 #. (term)
 msgid "singleline"
-msgstr ""
+msgstr "однострочный"
 
 #. (title)
 msgid "Property dialog singleline user types"
-msgstr ""
+msgstr "Диалог свойства пользовательских однострочных типов"
 
 #. (para)
 msgid ""
 "For properties that consist of one line of text, use the "
 "<literal>singleline</literal> property type: <placeholder-1/>"
 msgstr ""
+"Для свойств, которые состоят из одной строки текста используйте свойство "
+"типа <literal>однострочный</literal>: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=singleline;labeltext(regex)"
-msgstr ""
+msgstr "propertyname=singleline;labeltext(regex)"
 
 #. (para)
 msgid ""
@@ -11289,24 +11320,30 @@ msgid ""
 " validate (match) the text the user entered. If the text does not match the "
 "regex, then the user is shown an error and the property isn't set."
 msgstr ""
+"<literal>regex</literal> определяет регулярное выражение, которое "
+"используется для проверки соответствия введенного пользователем текста. Если"
+" текст не соответствует регулярному выражению, то пользователю показывается "
+"ошибка и свойство не устанавливается."
 
 #. (term)
 msgid "multiline"
-msgstr ""
+msgstr "многострочный"
 
 #. (title)
 msgid "Property dialog multiline user types"
-msgstr ""
+msgstr "Диалог свойства пользовательских многострочных типов"
 
 #. (para)
 msgid ""
 "For properties that consist of multiple lines of text, use the "
 "<literal>multiline</literal> property type: <placeholder-1/>"
 msgstr ""
+"Для свойств, которые состоят из множества строк текста, используйте свойство"
+" типа <literal>многострочный</literal>: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=multiline;labeltext(regex)"
-msgstr ""
+msgstr "propertyname=multiline;labeltext(regex)"
 
 #. (para)
 msgid ""
@@ -11314,6 +11351,9 @@ msgid ""
 " validate (match) the text the user entered. Don't forget to include the "
 "newline (\\n) character in the regex!"
 msgstr ""
+"<literal>regex</literal> определяет регулярное выражение, которое "
+"используется для проверки соответствия введенного пользователем текста. Не "
+"забывайте добавлять символ новой строки (\\n) в регулярное выражение!"
 
 #. (para)
 msgid ""
@@ -11326,6 +11366,14 @@ msgid ""
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
 "</screen>"
 msgstr ""
+"Вы также можете указать, используется ли специальный диалог для добавления/редактирования свойства. TortoiseSVN предлагает четыре различных диалога, в зависимости от типа вашего свойства. <placeholder-1/> Приведенные выше скриншоты были сделаны со следующими свойствами <literal>tsvn:userdirproperties</literal>: <screen>\n"
+"my:boolprop=bool;This is a bool type property. Either check or uncheck it.(true;false;my bool prop)\n"
+"my:stateprop1=state;This is a state property. Select one of the two states.(true;true;true value;false;false value)\n"
+"my:stateprop2=state;This is a state property. Select one of the three states.(maybe;true;answer is correct;false;answer is wrong;maybe;not answered)\n"
+"my:stateprop3=state;Specify the day to set this property.(1;1;Monday;2;Tuesday;3;Wednesday;4;Thursday;5;Friday;6;Saturday;7;Sunday)\n"
+"my:singlelineprop=singleline;enter a small comment(.*)\n"
+"my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
+"</screen>"
 
 #. (para)
 msgid ""
