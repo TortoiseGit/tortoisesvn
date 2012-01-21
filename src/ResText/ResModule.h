@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2011 - TortoiseSVN
+// Copyright (C) 2003-2007, 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -98,11 +98,13 @@ private:
     BOOL    ExtractString(UINT nID);
     BOOL    ExtractDialog(UINT nID);
     BOOL    ExtractMenu(UINT nID);
+    BOOL    ExtractRibbon(UINT nID);
     BOOL    ReplaceString(UINT nID, WORD wLanguage);
     BOOL    ReplaceDialog(UINT nID, WORD wLanguage);
     BOOL    ReplaceMenu(UINT nID, WORD wLanguage);
     BOOL    ExtractAccelerator(UINT nID);
     BOOL    ReplaceAccelerator(UINT nID, WORD wLanguage);
+    BOOL    ReplaceRibbon(UINT nID, WORD wLanguage);
 
     const WORD* ParseMenuResource(const WORD * res);
     const WORD* CountMemReplaceMenuResource(const WORD * res, size_t * wordcount, WORD * newMenu);
@@ -134,6 +136,8 @@ private:
     int             m_bDefaultMenuStrings;
     int             m_bTranslatedAcceleratorStrings;
     int             m_bDefaultAcceleratorStrings;
+    int             m_bTranslatedRibbonTexts;
+    int             m_bDefaultRibbonTexts;
 
     WORD            m_wTargetLang;
 };
