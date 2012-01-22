@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2011 - TortoiseSVN
+// Copyright (C) 2006-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,7 +43,6 @@ public:
     virtual ~CMainFrame();
 
     void            ShowDiffBar(bool bShow);
-    const CMFCToolBar *   GetToolbar() const { return &m_wndToolBar; }
 #ifdef _DEBUG
     virtual void    AssertValid() const;
     virtual void    Dump(CDumpContext& dc) const;
@@ -116,6 +115,7 @@ protected:
     afx_msg void    OnUpdateViewLocatorbar(CCmdUI *pCmdUI);
     afx_msg void    OnViewLocatorbar();
     afx_msg void    OnEditUseleftblock();
+    afx_msg void    OnUpdateUseBlock(CCmdUI *pCmdUI);
     afx_msg void    OnUpdateEditUseleftblock(CCmdUI *pCmdUI);
     afx_msg void    OnEditUseleftfile();
     afx_msg void    OnUpdateEditUseleftfile(CCmdUI *pCmdUI);
@@ -174,9 +174,7 @@ protected:
     static bool     HasPrevInlineDiff(CBaseView* view);
     static bool     HasNextInlineDiff(CBaseView* view);
 protected:
-    CMFCMenuBar     m_wndMenuBar;
     CMFCStatusBar   m_wndStatusBar;
-    CMFCToolBar     m_wndToolBar;
     CLocatorBar     m_wndLocatorBar;
     CLineDiffBar    m_wndLineDiffBar;
     CXSplitter      m_wndSplitter;
@@ -193,6 +191,9 @@ protected:
     bool            m_bInlineDiff;
     bool            m_bLineDiff;
     bool            m_bLocatorBar;
+
+    CMFCRibbonBar               m_wndRibbonBar;
+    CMFCRibbonApplicationButton m_MainButton;
 
 public:
     CLeftView *     m_pwndLeftView;

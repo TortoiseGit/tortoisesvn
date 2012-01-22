@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2011 - TortoiseSVN
+// Copyright (C) 2006-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -189,6 +189,14 @@ BOOL CTortoiseMergeApp::InitInstance()
     // if not yet present
     InitContextMenuManager();
     InitKeyboardManager();
+    InitTooltipManager ();
+    CMFCToolTipInfo params;
+    params.m_bVislManagerTheme = TRUE;
+
+    GetTooltipManager ()->SetTooltipParams (
+        AFX_TOOLTIP_TYPE_ALL,
+        RUNTIME_CLASS (CMFCToolTipCtrl),
+        &params);
 
     CCmdLineParser parser = CCmdLineParser(this->m_lpCmdLine);
 

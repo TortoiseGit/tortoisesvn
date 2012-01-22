@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -4821,20 +4821,6 @@ bool CBaseView::Screen2View::ResetScreenedViewLineCache(CBaseView* pwndView, con
         pwndView->m_ScreenedViewLine[i].Clear();
     }
     return false;
-}
-
-HICON CBaseView::GetIconForCommand(UINT cmdId)
-{
-    if (m_pMainFrame)
-    {
-        int offset = m_pMainFrame->GetToolbar()->CommandToIndex(cmdId);
-        UINT nid, style;
-        int imgIndex = 0;
-        m_pMainFrame->GetToolbar()->GetButtonInfo(offset, nid, style, imgIndex);
-        HICON h = m_pMainFrame->GetToolbar()->GetImages()->ExtractIcon(imgIndex);
-        return h;
-    }
-    return 0;
 }
 
 void CBaseView::WrapChanged()

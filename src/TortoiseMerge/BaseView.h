@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -386,7 +386,6 @@ protected:  // methods
     void            AddCutCopyAndPaste(CIconMenu& popup);
     void            CompensateForKeyboard(CPoint& point);
     static HICON    LoadIcon(WORD iconId);
-    HICON           GetIconForCommand(UINT cmdId);
     void            ReleaseBitmap();
     static bool     LinesInOneChange( int direction, DiffStates firstLineState, DiffStates currentLineState );
     static void     FilterWhitespaces(CString& first, CString& second);

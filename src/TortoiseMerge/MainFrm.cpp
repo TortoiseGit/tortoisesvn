@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2011 - TortoiseSVN
+// Copyright (C) 2004-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,8 +47,8 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWndEx)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_WM_CREATE()
-    ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnApplicationLook)
-    ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnUpdateApplicationLook)
+    ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN7, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnApplicationLook)
+    ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN7, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnUpdateApplicationLook)
     // Global help commands
     ON_COMMAND(ID_HELP_FINDER, CFrameWndEx::OnHelpFinder)
     ON_COMMAND(ID_HELP, CFrameWndEx::OnHelp)
@@ -106,6 +106,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI(ID_VIEW_LOCATORBAR, &CMainFrame::OnUpdateViewLocatorbar)
     ON_COMMAND(ID_VIEW_LOCATORBAR, &CMainFrame::OnViewLocatorbar)
     ON_COMMAND(ID_EDIT_USELEFTBLOCK, &CMainFrame::OnEditUseleftblock)
+    ON_UPDATE_COMMAND_UI(ID_USEBLOCKS, &CMainFrame::OnUpdateUseBlock)
     ON_UPDATE_COMMAND_UI(ID_EDIT_USELEFTBLOCK, &CMainFrame::OnUpdateEditUseleftblock)
     ON_COMMAND(ID_EDIT_USELEFTFILE, &CMainFrame::OnEditUseleftfile)
     ON_UPDATE_COMMAND_UI(ID_EDIT_USELEFTFILE, &CMainFrame::OnUpdateEditUseleftfile)
@@ -166,6 +167,7 @@ CMainFrame::CMainFrame()
     m_bViewMovedBlocks = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\ViewMovedBlocks"), 0);
     m_bWrapLines = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\WrapLines"), 0);
     m_bInlineDiff = !!CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
+    CMFCVisualManagerWindows::m_b3DTabsXPTheme = TRUE;
 }
 
 CMainFrame::~CMainFrame()
@@ -186,24 +188,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
     OnApplicationLook(theApp.m_nAppLook);
 
-    if (!m_wndMenuBar.Create(this))
-    {
-        TRACE0("Failed to create menubar\n");
-        return -1;      // fail to create
-    }
-
-    m_wndMenuBar.SetPaneStyle(m_wndMenuBar.GetPaneStyle() | CBRS_SIZE_DYNAMIC | CBRS_TOOLTIPS | CBRS_FLYBY);
-
-    // prevent the menu bar from taking the focus on activation
-    CMFCPopupMenu::SetForceMenuFocus(FALSE);
-
-    if (!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_ALIGN_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY) ||
-        !m_wndToolBar.LoadToolBar(IDR_MAINFRAME))
-    {
-        TRACE0("Failed to create toolbar\n");
-        return -1;      // fail to create
-    }
-    m_wndToolBar.SetWindowText(_T("Main"));
+    m_wndRibbonBar.Create (this);
+    m_wndRibbonBar.LoadFromResource(IDR_RIBBON);
 
     if (!m_wndStatusBar.Create(this) ||
         !m_wndStatusBar.SetIndicators(indicators,
@@ -229,10 +215,6 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
     m_wndLineDiffBar.m_pMainFrm = this;
 
     EnableDocking(CBRS_ALIGN_ANY);
-    m_wndMenuBar.EnableDocking(CBRS_ALIGN_TOP);
-    m_wndToolBar.EnableDocking(CBRS_ALIGN_TOP);
-    DockPane(&m_wndMenuBar);
-    DockPane(&m_wndToolBar);
     DockPane(&m_wndLocatorBar);
     DockPane(&m_wndLineDiffBar);
     ShowPane(&m_wndLocatorBar, true, false, true);
@@ -272,6 +254,11 @@ void CMainFrame::OnApplicationLook(UINT id)
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
         break;
 
+    case ID_VIEW_APPLOOK_WIN7:
+        CMFCVisualManagerWindows::m_b3DTabsXPTheme = TRUE;
+        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows7));
+        break;
+
     case ID_VIEW_APPLOOK_OFF_2003:
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2003));
         CDockingManager::SetDockingMode(DT_SMART);
@@ -279,6 +266,11 @@ void CMainFrame::OnApplicationLook(UINT id)
 
     case ID_VIEW_APPLOOK_VS_2005:
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerVS2005));
+        CDockingManager::SetDockingMode(DT_SMART);
+        break;
+
+    case ID_VIEW_APPLOOK_VS_2008:
+        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerVS2008));
         CDockingManager::SetDockingMode(DT_SMART);
         break;
 
@@ -1486,6 +1478,11 @@ void CMainFrame::OnEditUseleftblock()
 void CMainFrame::OnUpdateEditUseleftblock(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(IsViewGood(m_pwndRightView) && m_pwndRightView->IsTarget() && m_pwndRightView->HasSelection());
+}
+
+void CMainFrame::OnUpdateUseBlock(CCmdUI *pCmdUI)
+{
+    pCmdUI->Enable(TRUE);
 }
 
 void CMainFrame::OnEditUseleftfile()
