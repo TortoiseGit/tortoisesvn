@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-16 17:00+0000\n"
+"PO-Revision-Date: 2012-01-23 08:37+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -413,10 +413,6 @@ msgstr ""
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (57664)
-msgid "&About TortoiseMerge..."
-msgstr "TortoiseMerge について(&A)..."
-
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "アクティブにする(&A)"
@@ -453,10 +449,6 @@ msgstr "すべて(&A)"
 msgid "&Allow ambiguous URLs"
 msgstr "あいまいなURLを許可(&A)"
 
-#. Resource IDs: (65535)
-msgid "&Application Look"
-msgstr "アプリケーションの外観(&A)"
-
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
 msgstr "プロパティを再帰的に適用する(&A)"
@@ -464,10 +456,6 @@ msgstr "プロパティを再帰的に適用する(&A)"
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
 msgstr "Unified形式の差分を適用(&A)"
-
-#. Resource IDs: (32852)
-msgid "&Aqua Style"
-msgstr "&Aqua スタイル"
 
 #. Resource IDs: (65535)
 msgid "&Arguments:"
@@ -512,10 +500,6 @@ msgstr "リビジョンの注釈履歴(&B)"
 #. Resource IDs: (13)
 msgid "&Blame..."
 msgstr "注釈履歴(&B)..."
-
-#. Resource IDs: (32849)
-msgid "&Blue Style"
-msgstr "&Blue スタイル"
 
 #. Resource IDs: (65535)
 msgid "&Blue:"
@@ -821,10 +805,6 @@ msgstr "開始点(&F): （マージする範囲の始点を指すURLとリビジ
 msgid "&Go To Line..."
 msgstr "指定した行へ移動(&G)..."
 
-#. Resource IDs: (32893)
-msgid "&Goto line"
-msgstr "行へ移動(&G)"
-
 #. Resource IDs: (65535)
 msgid "&Green:"
 msgstr "緑(&G)"
@@ -847,10 +827,6 @@ msgstr "リポジトリ内の最新リビジョン(&HEAD)"
 
 #. Resource IDs: (9, 12, 563, 32781, 57670, 65535)
 msgid "&Help"
-msgstr "ヘルプ(&H)"
-
-#. Resource IDs: (57670)
-msgid "&Help Topics"
 msgstr "ヘルプ(&H)"
 
 #. Resource IDs: (1066, 3842)
@@ -901,14 +877,6 @@ msgstr "マージ情報を含める(&I)"
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
 msgstr "初期ディレクトリ:(&I):"
-
-#. Resource IDs: (32889)
-msgid "&Inline diff"
-msgstr "行内差分(&I)"
-
-#. Resource IDs: (32825)
-msgid "&Inline diff word-wise"
-msgstr "単語単位での行内差分(&I)"
 
 #. Resource IDs: (275)
 msgid "&Join all"
@@ -1039,14 +1007,6 @@ msgstr "タグのコピーの色を変更(&M)"
 msgid "&Modify color for trunk copies"
 msgstr "トランクのコピーの色を変更(&M)"
 
-#. Resource IDs: (32880)
-msgid "&Moved blocks"
-msgstr "移動したブロック(&M)"
-
-#. Resource IDs: (65535)
-msgid "&Navigate"
-msgstr "移動(&N)"
-
 #. Resource IDs: (1049)
 msgid "&Network drives"
 msgstr "ネットワークドライブ(&N)"
@@ -1067,10 +1027,6 @@ msgstr "次の%ld件(&N)"
 #. Resource IDs: (332)
 msgid "&Next >"
 msgstr "次へ(&N) >"
-
-#. Resource IDs: (32779)
-msgid "&Next Difference"
-msgstr "次の相違点へ(&N)"
 
 #. Resource IDs: (58114)
 msgid "&Next Page"
@@ -1151,10 +1107,6 @@ msgstr "ポート(&P):"
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "&Power User デフォルト"
-
-#. Resource IDs: (32780)
-msgid "&Previous Difference"
-msgstr "前の相違点へ(&P)"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -1300,10 +1252,6 @@ msgstr "メニューを表示(&S):"
 msgid "&Show text labels"
 msgstr "テキストラベルを表示(&S)"
 
-#. Resource IDs: (32851)
-msgid "&Silver Style"
-msgstr "&Silver スタイル"
-
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
 msgstr "リポジトリ内の特定リビジョン(&S):"
@@ -1315,10 +1263,6 @@ msgstr "グループの始まり(&S)"
 #. Resource IDs: (1605)
 msgid "&Start Repobrowser"
 msgstr "リポジトリブラウザーを起動(&S)"
-
-#. Resource IDs: (59393)
-msgid "&Status Bar"
-msgstr "ステータスバー(&S)"
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
@@ -1387,10 +1331,6 @@ msgstr "宛先パス(&T): "
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "終了点(&T): （マージする範囲の終点を指すURLとリビジョン）"
-
-#. Resource IDs: (59392)
-msgid "&Toolbar"
-msgstr "ツールバー(&T)"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
@@ -1480,10 +1420,6 @@ msgstr "表示(&V)"
 msgid "&View:"
 msgstr "表示(&V):"
 
-#. Resource IDs: (32774)
-msgid "&Whitespaces"
-msgstr "空白を表示(&W)"
-
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "単語単位(&W)"
@@ -1492,17 +1428,9 @@ msgstr "単語単位(&W)"
 msgid "&Windows (CRLF)"
 msgstr "&Windows (CRLF)"
 
-#. Resource IDs: (32846)
-msgid "&Windows XP"
-msgstr "&Windows XP"
-
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "作業コピー(&W)"
-
-#. Resource IDs: (32881)
-msgid "&Wrap long lines"
-msgstr "長い行を折り返す(&W)"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2188,6 +2116,10 @@ msgstr ""
 msgid "Approved hook scripts"
 msgstr "フックスクリプトを承認"
 
+#. Resource IDs: (156, 564)
+msgid "Aqua Style"
+msgstr ""
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "任意のテキスト(&I)"
@@ -2325,10 +2257,6 @@ msgstr "自動文字列テスター"
 msgid "Average"
 msgstr "平均"
 
-#. Resource IDs: (32850)
-msgid "B&lack Style"
-msgstr "B&lack スタイル"
-
 #. Resource IDs: (1003, 1011)
 msgid "B&rowse..."
 msgstr "参照(&R)..."
@@ -2357,6 +2285,10 @@ msgstr ""
 "ビットマップ\n"
 "ビットマップ"
 
+#. Resource IDs: (156, 564)
+msgid "Black Style"
+msgstr ""
+
 #. Resource IDs: (162)
 msgid "Blame"
 msgstr "注釈履歴"
@@ -2376,6 +2308,10 @@ msgstr "ファイルのそれぞれの行に注釈履歴をつける"
 #. Resource IDs: (32812)
 msgid "Blend alpha"
 msgstr "アルファブレンド"
+
+#. Resource IDs: (156, 563)
+msgid "Blue Style"
+msgstr ""
 
 #. Resource IDs: (83)
 msgid ""
@@ -2800,6 +2736,12 @@ msgstr "証明書の確認に失敗しました"
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "証明書|*.p12;*.pkcs12;*.pfx|すべてのファイル|*.*||"
 
+#. Resource IDs: (2061)
+msgid ""
+"Change the style of the application\n"
+"Change Style"
+msgstr ""
+
 #. Resource IDs: (3825)
 msgid "Change the window position"
 msgstr "ウィンドウ位置を変更する"
@@ -2834,6 +2776,10 @@ msgstr "変更リスト:"
 #. Resource IDs: (1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "変更した項目（ダブルクリックで差分を表示）"
+
+#. Resource IDs: (2060)
+msgid "Changes the style of the application"
+msgstr ""
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
@@ -3075,6 +3021,12 @@ msgid ""
 "extension"
 msgstr "「高度な設定」をクリックすると、それぞれのファイル拡張子に対応するマージプログラムを指定することができます。"
 
+#. Resource IDs: (2058)
+msgid ""
+"Click to see commands to move blocks of text\n"
+"Use text blocks"
+msgstr ""
+
 #. Resource IDs: (257)
 msgid "Clipboard"
 msgstr "クリップボード"
@@ -3107,6 +3059,10 @@ msgstr "ドキュメントを保存するために、アクティブなウィン
 msgid "Coll&apse source tree"
 msgstr "ソースツリーを折りたたむ(&A)"
 
+#. Resource IDs: (156)
+msgid "Collapse"
+msgstr ""
+
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
 msgstr "次のツリーを折りたたむ(&F)"
@@ -3118,10 +3074,6 @@ msgid ""
 msgstr ""
 "変更されていない箇所を折りたたむ\n"
 "折りたたむ"
-
-#. Resource IDs: (32870)
-msgid "Collapsed"
-msgstr "折りたたむ"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3749,6 +3701,10 @@ msgstr ""
 "新しいディレクトリを作成:\r\n"
 "%s"
 
+#. Resource IDs: (156)
+msgid "Create patch file"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "ここにリポジトリを作成(&Y)"
@@ -3756,10 +3712,6 @@ msgstr "ここにリポジトリを作成(&Y)"
 #. Resource IDs: (102)
 msgid "Create shortcut"
 msgstr "ショートカットを作成"
-
-#. Resource IDs: (32828)
-msgid "Create unified diff file"
-msgstr "Unified形式の差分ファイルを作成"
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
@@ -5309,6 +5261,12 @@ msgstr ""
 "次の相違点へ移動する\n"
 "次の相違点へ"
 
+#. Resource IDs: (2055)
+msgid ""
+"Go to the next inline difference\n"
+"Next inline difference"
+msgstr ""
+
 #. Resource IDs: (2051)
 msgid ""
 "Go to the previous conflict\n"
@@ -5324,6 +5282,16 @@ msgid ""
 msgstr ""
 "前の相違点へ移動する\n"
 "前の相違点へ"
+
+#. Resource IDs: (2055)
+msgid ""
+"Go to the previous inline difference\n"
+"Previous inline difference"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Goto Line"
+msgstr ""
 
 #. Resource IDs: (1134)
 msgid "Graph type:"
@@ -5421,6 +5389,10 @@ msgstr "実行時はスクリプトを非表示にする"
 #. Resource IDs: (32830)
 msgid "Hide unused &branches"
 msgstr "未使用のブランチを隠す(&B)"
+
+#. Resource IDs: (156)
+msgid "Hide/Show the patch file list"
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid ""
@@ -6008,6 +5980,14 @@ msgstr "ファイル名が正しくありません。"
 msgid "Initial import"
 msgstr "初期インポート"
 
+#. Resource IDs: (156)
+msgid "Inline diff"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Inline diff word-wise"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Inline differences"
 msgstr "行内差分"
@@ -6298,10 +6278,6 @@ msgstr ""
 "線ツール\n"
 "線"
 
-#. Resource IDs: (32853)
-msgid "Line diff bar"
-msgstr "行差分表示バー"
-
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "行差分"
@@ -6382,10 +6358,6 @@ msgid ""
 "Location where the contents of the\n"
 "repository URL(s) will be saved to."
 msgstr "リポジトリURLの内容を保存する位置。"
-
-#. Resource IDs: (32854)
-msgid "Locator Bar"
-msgstr "ロケーターバー"
 
 #. Resource IDs: (65535)
 msgid "Locator bar"
@@ -6526,10 +6498,6 @@ msgstr "デフォルトに設定する"
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
 msgstr "Subversion のプロパティを管理する"
-
-#. Resource IDs: (32808)
-msgid "Mark as &resolved"
-msgstr "解決済みとする(&R)"
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -6938,13 +6906,15 @@ msgstr "複数、独立した作業コピー(&I)"
 msgid "My file:"
 msgstr "My ファイル:"
 
-#. Resource IDs: (32804)
-msgid "N&ext Conflict"
-msgstr "次の競合点へ(&E)"
-
 #. Resource IDs: (3697)
 msgid "NUM"
 msgstr "NUM"
+
+#. Resource IDs: (2056)
+msgid ""
+"Navigate to a specific line in the view\n"
+"Goto Line"
+msgstr ""
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
@@ -7004,10 +6974,6 @@ msgstr "%s の新しい名前"
 msgid "New name:"
 msgstr "新しい名前:"
 
-#. Resource IDs: (32875)
-msgid "Next &Inline Difference"
-msgstr "次の行内の相違点へ(&I)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -7015,6 +6981,18 @@ msgid ""
 msgstr ""
 "次のページ\n"
 "次のページ"
+
+#. Resource IDs: (156)
+msgid "Next conflict"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Next difference"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Next inline difference"
+msgstr ""
 
 #. Resource IDs: (564)
 msgid "No"
@@ -7292,17 +7270,21 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (32845)
-msgid "Office &XP"
-msgstr "Office &XP"
+#. Resource IDs: (156, 563)
+msgid "Office 2003"
+msgstr ""
 
-#. Resource IDs: (32847)
-msgid "Office 200&3"
-msgstr "Office 200&3"
+#. Resource IDs: (156)
+msgid "Office 2007"
+msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Office 200&7"
-msgstr "Office 200&7"
+#. Resource IDs: (2060)
+msgid "Office 2007 colors"
+msgstr ""
+
+#. Resource IDs: (156, 563)
+msgid "Office XP"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -7392,11 +7374,9 @@ msgstr "クライアントの証明書を開く"
 
 #. Resource IDs: (3601)
 msgid ""
-"Open files\n"
-"Open files for diff"
+"Open files for diff or to apply a patch\n"
+"Open files"
 msgstr ""
-"ファイルを開く\n"
-"差分のためにファイルを開く"
 
 #. Resource IDs: (376, 1132)
 msgid "Open from clipboard"
@@ -7502,10 +7482,6 @@ msgstr ""
 "上書き\n"
 "ターゲットファイルを置き換えます。"
 
-#. Resource IDs: (32802)
-msgid "P&revious Conflict"
-msgstr "前の競合点へ(&R)"
-
 #. Resource IDs: (76)
 msgid "PEM"
 msgstr "PEM"
@@ -7543,6 +7519,10 @@ msgstr "パラメーター:"
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "パスワード:"
+
+#. Resource IDs: (156)
+msgid "Paste"
+msgstr ""
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7785,10 +7765,6 @@ msgstr "パッチ結果をプレビューする"
 msgid "Preview: "
 msgstr "プレビュー: "
 
-#. Resource IDs: (32876)
-msgid "Previous In&line Difference"
-msgstr "前の行内の相違点へ(&L)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Previous Page\n"
@@ -7796,6 +7772,18 @@ msgid ""
 msgstr ""
 "前のページ\n"
 "前のページ"
+
+#. Resource IDs: (156)
+msgid "Previous conflict"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Previous difference"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Previous inline difference"
+msgstr ""
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
@@ -8825,10 +8813,6 @@ msgstr "クリーンアップを今すぐ実行(&N)"
 msgid "S&elect..."
 msgstr "選択(&E)..."
 
-#. Resource IDs: (32782)
-msgid "S&ettings"
-msgstr "設定(&E)"
-
 #. Resource IDs: (1065)
 msgid "S&how Buttons on One Row"
 msgstr "ボタンを1行で表示(&H)"
@@ -8945,9 +8929,9 @@ msgstr ""
 msgid "Sample text:"
 msgstr "サンプルテキスト:"
 
-#. Resource IDs: (57604)
-msgid "Save &As..."
-msgstr "名前を付けて保存(&A)..."
+#. Resource IDs: (156)
+msgid "Save"
+msgstr ""
 
 #. Resource IDs: (101)
 msgid "Save &as..."
@@ -8956,6 +8940,10 @@ msgstr "名前を付けて保存(&A)..."
 #. Resource IDs: (3841)
 msgid "Save As"
 msgstr "名前を付けて保存"
+
+#. Resource IDs: (156)
+msgid "Save as"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid "Save as..."
@@ -9388,10 +9376,6 @@ msgstr "ブランチのログを表示(&O)"
 msgid "Show Fewer Buttons"
 msgstr "少しのボタンを表示"
 
-#. Resource IDs: (32817)
-msgid "Show File List"
-msgstr "ファイルリストを表示"
-
 #. Resource IDs: (2051)
 msgid "Show HEAD revision nodes"
 msgstr "最新リビジョン(HEAD)のノードを表示する"
@@ -9439,6 +9423,10 @@ msgstr "ツールバーの上にスクリーンチップを表示(&T)"
 #. Resource IDs: (32831)
 msgid "Show WC &modifications"
 msgstr "作業コピーの変更を表示(&M)"
+
+#. Resource IDs: (156)
+msgid "Show Whitespaces"
+msgstr ""
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -9536,11 +9524,9 @@ msgstr "スクリーンチップ上にショートカットキーを表示(&K)"
 
 #. Resource IDs: (2049)
 msgid ""
-"Show special characters for whitespaces\n"
+"Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
 msgstr ""
-"空白文字用に特殊な記号を表示する\n"
-"空白を表示"
 
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"
@@ -9609,9 +9595,9 @@ msgstr "選択したファイル/フォルダーのログを表示"
 msgid "Shows the mime type of the versioned file"
 msgstr "バージョン管理されたファイルの Mime タイプを表示する"
 
-#. Resource IDs: (32775)
-msgid "Single/&double-pane view"
-msgstr "1画面/2画面表示(&D)"
+#. Resource IDs: (156, 564)
+msgid "Silver Style"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Size"
@@ -9838,6 +9824,10 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid "Stripes"
 msgstr "縞模様"
 
+#. Resource IDs: (156)
+msgid "Style"
+msgstr ""
+
 #. Resource IDs: (117)
 msgid ""
 "Sub-string filter:\r\n"
@@ -9982,10 +9972,6 @@ msgstr "%1!s! を %2!s! のリビジョン%3!s!に切り替え"
 msgid "Switch Depth"
 msgstr "切り替えの深さ"
 
-#. Resource IDs: (32811)
-msgid "Switch Left<->Right"
-msgstr "左右の入れ替え"
-
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "ブランチ/タグへ切り替え"
@@ -10002,6 +9988,10 @@ msgstr ""
 "前のウィンドウ区画に切り替える\n"
 "前の区画"
 
+#. Resource IDs: (156)
+msgid "Switch between single and double pane view"
+msgstr ""
+
 #. Resource IDs: (2049)
 msgid ""
 "Switch between single and double pane view\n"
@@ -10009,6 +9999,10 @@ msgid ""
 msgstr ""
 "1画面・2画面表示を切り替える\n"
 "1画面・2画面表示の切り替え"
+
+#. Resource IDs: (156)
+msgid "Switch left and right view"
+msgstr ""
 
 #. Resource IDs: (2051)
 msgid ""
@@ -11298,6 +11292,10 @@ msgstr "未変更のノード"
 msgid "Uncheck"
 msgstr "未チェック"
 
+#. Resource IDs: (156)
+msgid "Undo"
+msgstr ""
+
 #. Resource IDs: (1069)
 #, c-format
 msgid "Undo %d Actions"
@@ -11313,11 +11311,9 @@ msgstr "追加を取り消す..."
 
 #. Resource IDs: (3603)
 msgid ""
-"Undo the last action\n"
+"Undo the last modifications\n"
 "Undo"
 msgstr ""
-"直前に行った操作を取り消します\n"
-"元に戻す"
 
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
@@ -11499,10 +11495,6 @@ msgstr "「%1!s!」をアップグレード中"
 msgid "Use &Default Image: "
 msgstr "デフォルトの画像を使用(&D): "
 
-#. Resource IDs: (32855)
-msgid "Use &left block"
-msgstr "左側のブロックを使用(&L)"
-
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "2つのファイルの差分に、デフォルトで1画面表示を使用する(&O)"
@@ -11525,9 +11517,29 @@ msgstr ""
 "複数指定する場合はコンマ（「,」）を使用します。\r\n"
 "【例】*.mylan.com, *.company.com"
 
+#. Resource IDs: (156)
+msgid "Use 'mine' text block"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Use 'mine' text block then 'theirs'"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Use 'theirs' text block"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Use 'theirs' text block then 'mine'"
+msgstr ""
+
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "Aeroのダイアログを使用する"
+
+#. Resource IDs: (156)
+msgid "Use Blocks"
+msgstr ""
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11576,6 +11588,10 @@ msgstr "両方のテキストブロックを使用（こちらを前にする）
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
 msgstr "両方のテキストブロックを使用（こちらを後にする）"
+
+#. Resource IDs: (156)
+msgid "Use left block"
+msgstr ""
 
 #. Resource IDs: (32856)
 msgid "Use left file"
@@ -11644,22 +11660,6 @@ msgid ""
 msgstr ""
 "「theirs」のテキストブロックを使用する\n"
 "「theirs」のテキストブロックを使用"
-
-#. Resource IDs: (32820)
-msgid "Use text block from \"&mine\""
-msgstr "「mine」のテキストブロックを使用(&M)"
-
-#. Resource IDs: (32819)
-msgid "Use text block from \"&theirs\""
-msgstr "「theirs」のテキストブロックを使用(&T)"
-
-#. Resource IDs: (32822)
-msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "「theirs」の前に「mine」のテキストブロックを使用(&I)"
-
-#. Resource IDs: (32821)
-msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "「mine」の前に「theirs」のテキストブロックを使用(&H)"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -11784,9 +11784,13 @@ msgstr "リビジョンをウェブビューアーで表示(&W)"
 msgid "Visit our website"
 msgstr "私たちのウェブサイトへお越しください"
 
-#. Resource IDs: (32848)
-msgid "Visual Studio.NET 200&5"
-msgstr "Visual Studio.NET 200&5"
+#. Resource IDs: (156, 563)
+msgid "Visual Studio 2005"
+msgstr ""
+
+#. Resource IDs: (156, 563)
+msgid "Visual Studio 2008"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11877,9 +11881,17 @@ msgstr "ウィンドウ位置"
 msgid "Windows"
 msgstr "Windows"
 
-#. Resource IDs: (32844)
-msgid "Windows &2000"
-msgstr "Windows &2000"
+#. Resource IDs: (156, 563)
+msgid "Windows 2000"
+msgstr ""
+
+#. Resource IDs: (156, 563)
+msgid "Windows 7"
+msgstr ""
+
+#. Resource IDs: (156, 563)
+msgid "Windows XP"
+msgstr ""
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -11911,13 +11923,15 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "作業コピー: %s\n"
 
+#. Resource IDs: (156)
+msgid "Wrap long lines"
+msgstr ""
+
 #. Resource IDs: (2056)
 msgid ""
-"Wrap long lines\n"
+"Wrap long lines at the right border of the view\n"
 "Wrap long lines"
 msgstr ""
-"長い行を折り返す\n"
-"長い行を折り返します"
 
 #. Resource IDs: (563)
 msgid "Yes"

@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-19 06:19+0000\n"
+"PO-Revision-Date: 2012-01-23 08:37+0000\n"
 "Last-Translator: fang zheng <fz0000@sina.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -415,10 +415,6 @@ msgstr ""
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (57664)
-msgid "&About TortoiseMerge..."
-msgstr "关于 TortoiseMerge(&A)..."
-
 #. Resource IDs: (16920)
 msgid "&Activate"
 msgstr "激活(&A)"
@@ -455,10 +451,6 @@ msgstr "全部(&A)"
 msgid "&Allow ambiguous URLs"
 msgstr "允许不明确的 URL(&A)"
 
-#. Resource IDs: (65535)
-msgid "&Application Look"
-msgstr "应用程序外观(&A)"
-
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
 msgstr "递归应用该属性(&A)"
@@ -466,10 +458,6 @@ msgstr "递归应用该属性(&A)"
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
 msgstr "应用标准差异文件(&A)"
-
-#. Resource IDs: (32852)
-msgid "&Aqua Style"
-msgstr "浅绿样式(&A)"
 
 #. Resource IDs: (65535)
 msgid "&Arguments:"
@@ -514,10 +502,6 @@ msgstr "追溯版本(&B)"
 #. Resource IDs: (13)
 msgid "&Blame..."
 msgstr "追溯(&B)..."
-
-#. Resource IDs: (32849)
-msgid "&Blue Style"
-msgstr "蓝色样式(&B)"
 
 #. Resource IDs: (65535)
 msgid "&Blue:"
@@ -823,10 +807,6 @@ msgstr "起始: （合并范围的起始URL和版本）(&F)"
 msgid "&Go To Line..."
 msgstr "跳转到指定行(&G)..."
 
-#. Resource IDs: (32893)
-msgid "&Goto line"
-msgstr ""
-
 #. Resource IDs: (65535)
 msgid "&Green:"
 msgstr "绿色(&G):"
@@ -850,10 +830,6 @@ msgstr "版本库中的最新版本(&H)"
 #. Resource IDs: (9, 12, 563, 32781, 57670, 65535)
 msgid "&Help"
 msgstr "帮助(&H)"
-
-#. Resource IDs: (57670)
-msgid "&Help Topics"
-msgstr "帮助主题(&H)"
 
 #. Resource IDs: (1066, 3842)
 msgid "&Hide"
@@ -903,14 +879,6 @@ msgstr "包含合并信息(&I)"
 #. Resource IDs: (65535)
 msgid "&Initial directory:"
 msgstr "初始目录(&I):"
-
-#. Resource IDs: (32889)
-msgid "&Inline diff"
-msgstr ""
-
-#. Resource IDs: (32825)
-msgid "&Inline diff word-wise"
-msgstr "识别单词的内嵌差异(&I)"
 
 #. Resource IDs: (275)
 msgid "&Join all"
@@ -1041,14 +1009,6 @@ msgstr "修改标签副本的颜色(&M)"
 msgid "&Modify color for trunk copies"
 msgstr "修改主干副本的颜色(&M)"
 
-#. Resource IDs: (32880)
-msgid "&Moved blocks"
-msgstr "移动的块(&M)"
-
-#. Resource IDs: (65535)
-msgid "&Navigate"
-msgstr "导航(&N)"
-
 #. Resource IDs: (1049)
 msgid "&Network drives"
 msgstr "网络磁盘(&N)"
@@ -1069,10 +1029,6 @@ msgstr "下 %ld (&N)"
 #. Resource IDs: (332)
 msgid "&Next >"
 msgstr "下一步(&N) >"
-
-#. Resource IDs: (32779)
-msgid "&Next Difference"
-msgstr "下一条差异(&N)"
 
 #. Resource IDs: (58114)
 msgid "&Next Page"
@@ -1153,10 +1109,6 @@ msgstr "端口(&P): "
 #. Resource IDs: (1489)
 msgid "&Power user defaults"
 msgstr "“Power user”的默认值(&P)"
-
-#. Resource IDs: (32780)
-msgid "&Previous Difference"
-msgstr "上一条差异(&P)"
 
 #. Resource IDs: (1069)
 msgid "&Print Preview"
@@ -1302,10 +1254,6 @@ msgstr "显示菜单(&S):"
 msgid "&Show text labels"
 msgstr "现实文本标签(&S)"
 
-#. Resource IDs: (32851)
-msgid "&Silver Style"
-msgstr "银色样式(&S)"
-
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
 msgstr "版本库中的指定版本(&S)"
@@ -1317,10 +1265,6 @@ msgstr "启动组(&S)"
 #. Resource IDs: (1605)
 msgid "&Start Repobrowser"
 msgstr "启动版本库浏览器(&S)"
-
-#. Resource IDs: (59393)
-msgid "&Status Bar"
-msgstr "状态栏(&S)"
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
@@ -1389,10 +1333,6 @@ msgstr "至路径(&T): "
 #. Resource IDs: (1495)
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "结束:  （合并范围的结束URL和版本）(&T)"
-
-#. Resource IDs: (59392)
-msgid "&Toolbar"
-msgstr "工具栏(&T)"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
@@ -1482,10 +1422,6 @@ msgstr "查看(&V)"
 msgid "&View:"
 msgstr "查看(&V):"
 
-#. Resource IDs: (32774)
-msgid "&Whitespaces"
-msgstr "空白字符(&W)"
-
 #. Resource IDs: (1066)
 msgid "&Whole word"
 msgstr "全字匹配(&W)"
@@ -1494,17 +1430,9 @@ msgstr "全字匹配(&W)"
 msgid "&Windows (CRLF)"
 msgstr "Windows(CRLF)(&W)"
 
-#. Resource IDs: (32846)
-msgid "&Windows XP"
-msgstr "&Windows XP"
-
 #. Resource IDs: (1183)
 msgid "&Working copy"
 msgstr "工作副本(&W)"
-
-#. Resource IDs: (32881)
-msgid "&Wrap long lines"
-msgstr "拆开长行(&W)"
 
 #. Resource IDs: (1540)
 msgid "&file list control"
@@ -2189,6 +2117,10 @@ msgstr ""
 msgid "Approved hook scripts"
 msgstr ""
 
+#. Resource IDs: (156, 564)
+msgid "Aqua Style"
+msgstr ""
+
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
 msgstr "任意文本(&I)"
@@ -2326,10 +2258,6 @@ msgstr "Autotext 测试"
 msgid "Average"
 msgstr "平均"
 
-#. Resource IDs: (32850)
-msgid "B&lack Style"
-msgstr "黑色样式(&L)"
-
 #. Resource IDs: (1003, 1011)
 msgid "B&rowse..."
 msgstr "浏览(&R)..."
@@ -2358,6 +2286,10 @@ msgstr ""
 "位图\n"
 "一种位图"
 
+#. Resource IDs: (156, 564)
+msgid "Black Style"
+msgstr ""
+
 #. Resource IDs: (162)
 msgid "Blame"
 msgstr "追溯"
@@ -2377,6 +2309,10 @@ msgstr "列出文件每一行的作者"
 #. Resource IDs: (32812)
 msgid "Blend alpha"
 msgstr "Alpha 混和"
+
+#. Resource IDs: (156, 563)
+msgid "Blue Style"
+msgstr ""
 
 #. Resource IDs: (83)
 msgid ""
@@ -2798,6 +2734,12 @@ msgstr "证书认证失败"
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "凭证|*.p12;*.pkcs12|所有文件|*.*||"
 
+#. Resource IDs: (2061)
+msgid ""
+"Change the style of the application\n"
+"Change Style"
+msgstr ""
+
 #. Resource IDs: (3825)
 msgid "Change the window position"
 msgstr "更改窗口位置"
@@ -2832,6 +2774,10 @@ msgstr "修改列表: "
 #. Resource IDs: (1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "变更列表（双击文件查看差异）: "
+
+#. Resource IDs: (2060)
+msgid "Changes the style of the application"
+msgstr ""
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
@@ -3073,6 +3019,12 @@ msgid ""
 "extension"
 msgstr "点击“高级设置”可根据不同扩展名指定不同合并程序"
 
+#. Resource IDs: (2058)
+msgid ""
+"Click to see commands to move blocks of text\n"
+"Use text blocks"
+msgstr ""
+
 #. Resource IDs: (257)
 msgid "Clipboard"
 msgstr "剪贴板"
@@ -3105,6 +3057,10 @@ msgstr "关闭当前窗口并提示保存文件"
 msgid "Coll&apse source tree"
 msgstr "折叠源树(&A)"
 
+#. Resource IDs: (156)
+msgid "Collapse"
+msgstr ""
+
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
 msgstr "折叠下列树(&F)"
@@ -3116,10 +3072,6 @@ msgid ""
 msgstr ""
 "折叠未改变的部分\n"
 "折叠"
-
-#. Resource IDs: (32870)
-msgid "Collapsed"
-msgstr "已折叠"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3745,6 +3697,10 @@ msgstr ""
 "新建目录: \r\n"
 "%s"
 
+#. Resource IDs: (156)
+msgid "Create patch file"
+msgstr ""
+
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
 msgstr "在此创建版本库(&Y)"
@@ -3752,10 +3708,6 @@ msgstr "在此创建版本库(&Y)"
 #. Resource IDs: (102)
 msgid "Create shortcut"
 msgstr "创建快捷方式"
-
-#. Resource IDs: (32828)
-msgid "Create unified diff file"
-msgstr "创建标准差异文件"
 
 #. Resource IDs: (126)
 msgid "Created folder remotely"
@@ -5300,6 +5252,12 @@ msgstr ""
 "跳到下个差异处\n"
 "下个差异"
 
+#. Resource IDs: (2055)
+msgid ""
+"Go to the next inline difference\n"
+"Next inline difference"
+msgstr ""
+
 #. Resource IDs: (2051)
 msgid ""
 "Go to the previous conflict\n"
@@ -5315,6 +5273,16 @@ msgid ""
 msgstr ""
 "跳到上个差异处\n"
 "上个差异"
+
+#. Resource IDs: (2055)
+msgid ""
+"Go to the previous inline difference\n"
+"Previous inline difference"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Goto Line"
+msgstr ""
 
 #. Resource IDs: (1134)
 msgid "Graph type:"
@@ -5412,6 +5380,10 @@ msgstr "运行时隐藏脚本"
 #. Resource IDs: (32830)
 msgid "Hide unused &branches"
 msgstr "隐藏没有使用的分支(&B)"
+
+#. Resource IDs: (156)
+msgid "Hide/Show the patch file list"
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid ""
@@ -5991,6 +5963,14 @@ msgstr "错误的文件名。"
 msgid "Initial import"
 msgstr "初始化导入"
 
+#. Resource IDs: (156)
+msgid "Inline diff"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Inline diff word-wise"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Inline differences"
 msgstr "内嵌差异"
@@ -6281,10 +6261,6 @@ msgstr ""
 "线型工具\n"
 "线型"
 
-#. Resource IDs: (32853)
-msgid "Line diff bar"
-msgstr "行差异工具栏"
-
 #. Resource IDs: (65535)
 msgid "Line differences"
 msgstr "行差异"
@@ -6363,10 +6339,6 @@ msgid ""
 msgstr ""
 "版本库 URL 的内容\n"
 "将要保存到的位置。"
-
-#. Resource IDs: (32854)
-msgid "Locator Bar"
-msgstr "定位工具栏"
 
 #. Resource IDs: (65535)
 msgid "Locator bar"
@@ -6507,10 +6479,6 @@ msgstr "设为默认值"
 #. Resource IDs: (17)
 msgid "Manage Subversion properties"
 msgstr "管理 Subversion 属性"
-
-#. Resource IDs: (32808)
-msgid "Mark as &resolved"
-msgstr "标记为已解决(&R)"
 
 #. Resource IDs: (148, 282)
 msgid "Mark as resolved"
@@ -6917,13 +6885,15 @@ msgstr "多个、独立的工作副本(&I)"
 msgid "My file:"
 msgstr "我的文件: "
 
-#. Resource IDs: (32804)
-msgid "N&ext Conflict"
-msgstr "下个冲突(&E)"
-
 #. Resource IDs: (3697)
 msgid "NUM"
 msgstr "NUM"
+
+#. Resource IDs: (2056)
+msgid ""
+"Navigate to a specific line in the view\n"
+"Goto Line"
+msgstr ""
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
@@ -6983,10 +6953,6 @@ msgstr "%s 的新名称"
 msgid "New name:"
 msgstr "新名称: "
 
-#. Resource IDs: (32875)
-msgid "Next &Inline Difference"
-msgstr "下一条内嵌差异(&I)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Next Page\n"
@@ -6994,6 +6960,18 @@ msgid ""
 msgstr ""
 "下页\n"
 "下页"
+
+#. Resource IDs: (156)
+msgid "Next conflict"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Next difference"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Next inline difference"
+msgstr ""
 
 #. Resource IDs: (564)
 msgid "No"
@@ -7268,17 +7246,21 @@ msgstr "确定"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (32845)
-msgid "Office &XP"
-msgstr "Office &XP"
+#. Resource IDs: (156, 563)
+msgid "Office 2003"
+msgstr ""
 
-#. Resource IDs: (32847)
-msgid "Office 200&3"
-msgstr "Office 200&3"
+#. Resource IDs: (156)
+msgid "Office 2007"
+msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Office 200&7"
-msgstr "Office 200&7"
+#. Resource IDs: (2060)
+msgid "Office 2007 colors"
+msgstr ""
+
+#. Resource IDs: (156, 563)
+msgid "Office XP"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -7367,11 +7349,9 @@ msgstr "打开用户端凭证文件"
 
 #. Resource IDs: (3601)
 msgid ""
-"Open files\n"
-"Open files for diff"
+"Open files for diff or to apply a patch\n"
+"Open files"
 msgstr ""
-"打开文件\n"
-"打开文件并比较差异"
 
 #. Resource IDs: (376, 1132)
 msgid "Open from clipboard"
@@ -7477,10 +7457,6 @@ msgstr ""
 "覆盖\n"
 "替换目标文件。"
 
-#. Resource IDs: (32802)
-msgid "P&revious Conflict"
-msgstr "前一个冲突(&R)"
-
 #. Resource IDs: (76)
 msgid "PEM"
 msgstr "PEM"
@@ -7518,6 +7494,10 @@ msgstr "参数:"
 #. Resource IDs: (69)
 msgid "Password:"
 msgstr "密码: "
+
+#. Resource IDs: (156)
+msgid "Paste"
+msgstr ""
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7759,10 +7739,6 @@ msgstr "预览打过补丁的文件"
 msgid "Preview: "
 msgstr "预览: "
 
-#. Resource IDs: (32876)
-msgid "Previous In&line Difference"
-msgstr "上一条差异(&L)"
-
 #. Resource IDs: (3633)
 msgid ""
 "Previous Page\n"
@@ -7770,6 +7746,18 @@ msgid ""
 msgstr ""
 "前页\n"
 "前页"
+
+#. Resource IDs: (156)
+msgid "Previous conflict"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Previous difference"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Previous inline difference"
+msgstr ""
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
@@ -8799,10 +8787,6 @@ msgstr "立即执行清理(&N)"
 msgid "S&elect..."
 msgstr "选择(&E)..."
 
-#. Resource IDs: (32782)
-msgid "S&ettings"
-msgstr "设置(&E)"
-
 #. Resource IDs: (1065)
 msgid "S&how Buttons on One Row"
 msgstr "在一行显示按钮(&H)"
@@ -8919,9 +8903,9 @@ msgstr ""
 msgid "Sample text:"
 msgstr "范例文字:"
 
-#. Resource IDs: (57604)
-msgid "Save &As..."
-msgstr "另存为(&A)..."
+#. Resource IDs: (156)
+msgid "Save"
+msgstr ""
 
 #. Resource IDs: (101)
 msgid "Save &as..."
@@ -8930,6 +8914,10 @@ msgstr "另存为(&A)..."
 #. Resource IDs: (3841)
 msgid "Save As"
 msgstr "另存为"
+
+#. Resource IDs: (156)
+msgid "Save as"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid "Save as..."
@@ -9361,10 +9349,6 @@ msgstr "显示分支日志(&O)"
 msgid "Show Fewer Buttons"
 msgstr "显示更少的按钮"
 
-#. Resource IDs: (32817)
-msgid "Show File List"
-msgstr "显示文件列表"
-
 #. Resource IDs: (2051)
 msgid "Show HEAD revision nodes"
 msgstr "显示 HEAD 版本节点"
@@ -9410,6 +9394,10 @@ msgstr "在工具栏中显示屏幕提示(&T)"
 #. Resource IDs: (32831)
 msgid "Show WC &modifications"
 msgstr "显示本地的更新(&M)"
+
+#. Resource IDs: (156)
+msgid "Show Whitespaces"
+msgstr ""
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -9507,11 +9495,9 @@ msgstr "在屏幕提示中显示快捷键(&K)"
 
 #. Resource IDs: (2049)
 msgid ""
-"Show special characters for whitespaces\n"
+"Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
 msgstr ""
-"以特殊字符显示空白字符\n"
-"显示空白字符"
 
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"
@@ -9582,9 +9568,9 @@ msgstr "显示选定的文件/文件夹的日志"
 msgid "Shows the mime type of the versioned file"
 msgstr "显示在版本控制下文件的 mime 类型"
 
-#. Resource IDs: (32775)
-msgid "Single/&double-pane view"
-msgstr "单/双(&D)窗格视图"
+#. Resource IDs: (156, 564)
+msgid "Silver Style"
+msgstr ""
 
 #. Resource IDs: (74, 207)
 msgid "Size"
@@ -9805,6 +9791,10 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid "Stripes"
 msgstr "修剪"
 
+#. Resource IDs: (156)
+msgid "Style"
+msgstr ""
+
 #. Resource IDs: (117)
 msgid ""
 "Sub-string filter:\r\n"
@@ -9946,10 +9936,6 @@ msgstr "切换%1!s! 到 %2!s!, 版本 %3!s!"
 msgid "Switch Depth"
 msgstr "切换深度"
 
-#. Resource IDs: (32811)
-msgid "Switch Left<->Right"
-msgstr "左右切换"
-
 #. Resource IDs: (140)
 msgid "Switch To Branch / Tag"
 msgstr "切换至分支/标记"
@@ -9966,6 +9952,10 @@ msgstr ""
 "切换回前一个窗口区块\n"
 "前一区块"
 
+#. Resource IDs: (156)
+msgid "Switch between single and double pane view"
+msgstr ""
+
 #. Resource IDs: (2049)
 msgid ""
 "Switch between single and double pane view\n"
@@ -9973,6 +9963,10 @@ msgid ""
 msgstr ""
 "在单区块与双区块查看模式间切换\n"
 "切换单/双区块模式"
+
+#. Resource IDs: (156)
+msgid "Switch left and right view"
+msgstr ""
 
 #. Resource IDs: (2051)
 msgid ""
@@ -11223,6 +11217,10 @@ msgstr "未修改的节点"
 msgid "Uncheck"
 msgstr "取消选中"
 
+#. Resource IDs: (156)
+msgid "Undo"
+msgstr ""
+
 #. Resource IDs: (1069)
 #, c-format
 msgid "Undo %d Actions"
@@ -11238,11 +11236,9 @@ msgstr "撤销增加..."
 
 #. Resource IDs: (3603)
 msgid ""
-"Undo the last action\n"
+"Undo the last modifications\n"
 "Undo"
 msgstr ""
-"还原上次动作\n"
-"还原"
 
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
@@ -11426,10 +11422,6 @@ msgstr "正在升级'%1!s!'"
 msgid "Use &Default Image: "
 msgstr "使用默认图片(&D): "
 
-#. Resource IDs: (32855)
-msgid "Use &left block"
-msgstr "使用左边的块(&L)"
-
 #. Resource IDs: (1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "对两个文件进行比较时默认使用单窗口方式(&O)"
@@ -11452,9 +11444,29 @@ msgstr ""
 "多个例外可以使用逗号“,”进行分隔。\r\n"
 "例: *.mylan.com, *.company.com"
 
+#. Resource IDs: (156)
+msgid "Use 'mine' text block"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Use 'mine' text block then 'theirs'"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Use 'theirs' text block"
+msgstr ""
+
+#. Resource IDs: (156)
+msgid "Use 'theirs' text block then 'mine'"
+msgstr ""
+
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
 msgstr "使用Aero对话框"
+
+#. Resource IDs: (156)
+msgid "Use Blocks"
+msgstr ""
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11503,6 +11515,10 @@ msgstr "使用两个文本块（这个块最前）"
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one last)"
 msgstr "使用两个文本块（这个块最后）"
+
+#. Resource IDs: (156)
+msgid "Use left block"
+msgstr ""
 
 #. Resource IDs: (32856)
 msgid "Use left file"
@@ -11571,22 +11587,6 @@ msgid ""
 msgstr ""
 "使用“他们的”文本块\n"
 "使用“他们的”文本块"
-
-#. Resource IDs: (32820)
-msgid "Use text block from \"&mine\""
-msgstr "使用本地的文本块(&M)"
-
-#. Resource IDs: (32819)
-msgid "Use text block from \"&theirs\""
-msgstr "使用远程的文本块(&T)"
-
-#. Resource IDs: (32822)
-msgid "Use text block from \"m&ine\" before \"theirs\""
-msgstr "优先使用本地的而非远程的文本块(&I)"
-
-#. Resource IDs: (32821)
-msgid "Use text block from \"t&heirs\" before \"mine\""
-msgstr "优先使用远程的而非本地的文本块(&H)"
 
 #. Resource IDs: (2054)
 msgid ""
@@ -11710,9 +11710,13 @@ msgstr "在 &Web 浏览器中查看版本"
 msgid "Visit our website"
 msgstr "浏览我们的网站"
 
-#. Resource IDs: (32848)
-msgid "Visual Studio.NET 200&5"
-msgstr "Visual Studio.NET 200&5"
+#. Resource IDs: (156, 563)
+msgid "Visual Studio 2005"
+msgstr ""
+
+#. Resource IDs: (156, 563)
+msgid "Visual Studio 2008"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11797,9 +11801,17 @@ msgstr "窗口位置"
 msgid "Windows"
 msgstr "窗口"
 
-#. Resource IDs: (32844)
-msgid "Windows &2000"
-msgstr "Windows &2000"
+#. Resource IDs: (156, 563)
+msgid "Windows 2000"
+msgstr ""
+
+#. Resource IDs: (156, 563)
+msgid "Windows 7"
+msgstr ""
+
+#. Resource IDs: (156, 563)
+msgid "Windows XP"
+msgstr ""
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -11831,13 +11843,15 @@ msgstr ""
 msgid "Working copy: %s\n"
 msgstr "工作副本: %s\n"
 
+#. Resource IDs: (156)
+msgid "Wrap long lines"
+msgstr ""
+
 #. Resource IDs: (2056)
 msgid ""
-"Wrap long lines\n"
+"Wrap long lines at the right border of the view\n"
 "Wrap long lines"
 msgstr ""
-"拆开长行\n"
-"拆开长行"
 
 #. Resource IDs: (563)
 msgid "Yes"
