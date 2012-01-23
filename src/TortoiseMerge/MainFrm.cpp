@@ -48,7 +48,7 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWndEx)
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_WM_CREATE()
     ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN7, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnApplicationLook)
-    ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN7, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnUpdateApplicationLook)
+    ON_UPDATE_COMMAND_UI_RANGE(IDC_STYLEBUTTON, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnUpdateApplicationLook)
     // Global help commands
     ON_COMMAND(ID_HELP_FINDER, CFrameWndEx::OnHelpFinder)
     ON_COMMAND(ID_HELP, CFrameWndEx::OnHelp)
@@ -305,6 +305,7 @@ void CMainFrame::OnApplicationLook(UINT id)
 
 void CMainFrame::OnUpdateApplicationLook(CCmdUI* pCmdUI)
 {
+    pCmdUI->Enable();
     pCmdUI->SetRadio(theApp.m_nAppLook == pCmdUI->m_nID);
 }
 
