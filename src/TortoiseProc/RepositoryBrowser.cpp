@@ -3872,21 +3872,31 @@ void CRepositoryBrowser::InvalidateData (HTREEITEM node)
 {
     if (node == NULL)
         return;
-    CAutoReadLock locker(m_guard);
-    CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
-    InvalidateData (node, pItem->repository.revision);
+    SVNRev r;
+    {
+        CAutoReadLock locker(m_guard);
+        CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+        r = pItem->repository.revision;
+    }
+    InvalidateData (node, r);
 }
 
 void CRepositoryBrowser::InvalidateData (HTREEITEM node, const SVNRev& revision)
 {
-    CAutoReadLock locker(m_guard);
-    CTreeItem * pItem = NULL;
-    if (node != NULL)
-        pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
-    if (pItem == NULL)
+    CString url;
+    {
+        CAutoReadLock locker(m_guard);
+        CTreeItem * pItem = NULL;
+        if (node != NULL)
+        {
+            pItem = (CTreeItem *)m_RepoTree.GetItemData (node);
+            url = pItem->url;
+        }
+    }
+    if (url.IsEmpty())
         m_lister.Refresh (revision);
     else
-        m_lister.RefreshSubTree (revision, pItem->url);
+        m_lister.RefreshSubTree (revision, url);
 }
 
 void CRepositoryBrowser::InvalidateDataParents
