@@ -2829,7 +2829,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
         }
     }
 
-    CAutoWriteLock locker(m_guard);
+    CAutoReadLock locker(m_guard);
     CRepositoryBrowserSelection selection;
     if (pWnd == &m_RepoList)
     {
