@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -707,7 +707,12 @@ int _tmain(int argc, _TCHAR* argv[])
     {
         std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
         if (GetShortPathName(fullPath, shortPath.get(), shortlen+1))
+        {
+            delete [] fullPath;
+            reqLen = GetLongPathName(shortPath.get(), NULL, 0);
+            fullPath = new TCHAR[reqLen+1];
             GetLongPathName(shortPath.get(), fullPath, reqLen);
+        }
     }
     wc = fullPath;
     if (dst)
@@ -720,7 +725,12 @@ int _tmain(int argc, _TCHAR* argv[])
         {
             std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
             if (GetShortPathName(fullPath, shortPath.get(), shortlen+1))
+            {
+                delete [] fullPath;
+                reqLen = GetLongPathName(shortPath.get(), NULL, 0);
+                fullPath = new TCHAR[reqLen+1];
                 GetLongPathName(shortPath.get(), fullPath, reqLen);
+            }
         }
         dst = fullPath;
     }
@@ -734,7 +744,12 @@ int _tmain(int argc, _TCHAR* argv[])
         {
             std::unique_ptr<TCHAR[]> shortPath(new TCHAR[shortlen+1]);
             if (GetShortPathName(fullPath, shortPath.get(), shortlen+1))
+            {
+                delete [] fullPath;
+                reqLen = GetLongPathName(shortPath.get(), NULL, 0);
+                fullPath = new TCHAR[reqLen+1];
                 GetLongPathName(shortPath.get(), fullPath, reqLen);
+            }
         }
         src = fullPath;
     }
