@@ -13,14 +13,14 @@
 # Bernardo Silva <benny.stuff@gmail.com>, 2011.
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
-#   <paulojustino.nec@gmail.com>, 2011.
+#   <paulojustino.nec@gmail.com>, 2011, 2012.
 # Sandro Amaral <sandro123iv@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-16 08:24+0000\n"
+"PO-Revision-Date: 2012-01-26 19:35+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4822,7 +4822,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "Submeter apenas secções de ficheiros"
 
 #. (para)
 msgid ""
@@ -4848,6 +4848,8 @@ msgid ""
 "and you have the file with all your modifications that were not committed "
 "back."
 msgstr ""
+"Após submeter, a cópia do ficheiro é automaticamente restaurada e terás o "
+"ficheiro com  todas as tuas modificações que não foram ainda submetidas."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -11237,7 +11239,7 @@ msgstr ""
 
 #. (term)
 msgid "bool"
-msgstr ""
+msgstr "bool"
 
 #. (title)
 msgid "Property dialog boolean user types"
@@ -11263,7 +11265,7 @@ msgstr ""
 
 #. (term)
 msgid "state"
-msgstr ""
+msgstr "estado"
 
 #. (title)
 msgid "Property dialog state user types"
@@ -11297,7 +11299,7 @@ msgstr ""
 
 #. (term)
 msgid "singleline"
-msgstr ""
+msgstr "linha-única"
 
 #. (title)
 msgid "Property dialog singleline user types"
@@ -11322,7 +11324,7 @@ msgstr ""
 
 #. (term)
 msgid "multiline"
-msgstr ""
+msgstr "multi-linha"
 
 #. (title)
 msgid "Property dialog multiline user types"
@@ -17675,6 +17677,8 @@ msgid ""
 "<literal>svn:externals</literal> property as normal files and folders, but "
 "with an overlay icon to mark them as from an external source."
 msgstr ""
+"Se esta caixa estiver verificada (estado por defeito), o navegador de "
+"repositório mostra os ficheiros"
 
 #. (para)
 msgid ""
