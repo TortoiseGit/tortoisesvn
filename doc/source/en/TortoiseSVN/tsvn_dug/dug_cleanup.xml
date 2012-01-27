@@ -35,19 +35,24 @@
                 </listitem>
             </varlistentry>
             <varlistentry>
-                <term>Revert all changes recursively</term>
+                <term>Refresh shell overlays</term>
                 <listitem>
                     <para>
-                        This command reverts all your local modifications which
-                        are not committed yet.
+                        Sometimes the shell overlays, especially on the tree view
+                        on the left side of the explorer don't show the current
+                        status, or the status cache failed to recognize changes.
+                        In this situation, you can use this command to force
+                        a refresh.
                     </para>
+                </listitem>
+            </varlistentry>
+            <varlistentry>
+                <term>Include externals</term>
+                <listitem>
                     <para>
-                        Note: it's better to use the
-                        <menuchoice>
-                            <guimenu>TortoiseSVN</guimenu>
-                            <guimenuitem>Revert</guimenuitem>
-                        </menuchoice> command instead, because there you can
-                        first see and select the files which you want to revert.
+                        If this is checked, then all actions are done for all
+                        files and folders included with the <literal>svn:externals</literal>
+                        property as well.
                     </para>
                 </listitem>
             </varlistentry>
@@ -70,24 +75,19 @@
                 </listitem>
             </varlistentry>
             <varlistentry>
-                <term>Refresh shell overlays</term>
+                <term>Revert all changes recursively</term>
                 <listitem>
                     <para>
-                        Sometimes the shell overlays, especially on the tree view
-                        on the left side of the explorer don't show the current
-                        status, or the status cache failed to recognize changes.
-                        In this situation, you can use this command to force
-                        a refresh.
+                        This command reverts all your local modifications which
+                        are not committed yet.
                     </para>
-                </listitem>
-            </varlistentry>
-            <varlistentry>
-                <term>Include externals</term>
-                <listitem>
                     <para>
-                        If this is checked, then all actions are done for all
-                        files and folders included with the <literal>svn:externals</literal>
-                        property as well.
+                        Note: it's better to use the
+                        <menuchoice>
+                            <guimenu>TortoiseSVN</guimenu>
+                            <guimenuitem>Revert</guimenuitem>
+                        </menuchoice> command instead, because there you can
+                        first see and select the files which you want to revert.
                     </para>
                 </listitem>
             </varlistentry>
