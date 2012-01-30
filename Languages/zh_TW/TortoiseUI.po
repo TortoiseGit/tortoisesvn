@@ -13,14 +13,14 @@
 # Arith Hsu <arithmandar@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Nick Vrvilo <nick@vrvilo.com>, 2011.
-#   <zcecil@csie.org>, 2011.
+#   <zcecil@csie.org>, 2011, 2012.
 # zcecil <zcecil@csie.org>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-23 08:37+0000\n"
+"PO-Revision-Date: 2012-01-29 10:58+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -145,6 +145,8 @@ msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Date %4!s!"
 msgstr ""
+"%1!s!\n"
+"版本 %2!s!, 作者 %3!s!, 日期 %4!s!"
 
 #. Resource IDs: (105)
 #, c-format
@@ -152,6 +154,8 @@ msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Size %4!s!, Date %5!s!"
 msgstr ""
+"%1!s!\n"
+"版本 %2!s!, 作者 %3!s!, 大小 %4!s!, 日期 %5!s!"
 
 #. Resource IDs: (105)
 #, c-format
@@ -159,6 +163,8 @@ msgid ""
 "%1!s!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
 msgstr ""
+"%1!s!\n"
+"正在顯示 %2!d! 個檔案以及 %3!d! 個目錄, 總共 %4!d! 個項目"
 
 #. Resource IDs: (3860)
 #, c-format
@@ -2118,7 +2124,7 @@ msgstr "已允許的掛勾指令檔"
 
 #. Resource IDs: (156, 564)
 msgid "Aqua Style"
-msgstr ""
+msgstr "Aqua 樣式"
 
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
@@ -2287,7 +2293,7 @@ msgstr ""
 
 #. Resource IDs: (156, 564)
 msgid "Black Style"
-msgstr ""
+msgstr "黑色樣式"
 
 #. Resource IDs: (162)
 msgid "Blame"
@@ -2311,7 +2317,7 @@ msgstr "透明度"
 
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
-msgstr ""
+msgstr "藍色樣式"
 
 #. Resource IDs: (83)
 msgid ""
@@ -2742,6 +2748,8 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr ""
+"變更應用程式的顯示樣式\n"
+"變更樣式"
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -2780,7 +2788,7 @@ msgstr "異動(雙點可查詢細節):"
 
 #. Resource IDs: (2060)
 msgid "Changes the style of the application"
-msgstr ""
+msgstr "變更應用程式的顯示樣式"
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
@@ -3025,6 +3033,8 @@ msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
 msgstr ""
+"點選可顯示移動文字方塊的指令\n"
+"使用文字方塊"
 
 #. Resource IDs: (257)
 msgid "Clipboard"
@@ -3060,7 +3070,7 @@ msgstr "展開原始目錄樹(&A)"
 
 #. Resource IDs: (156)
 msgid "Collapse"
-msgstr ""
+msgstr "展開"
 
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
@@ -3702,7 +3712,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Create patch file"
-msgstr ""
+msgstr "產生補綴檔"
 
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
@@ -4745,6 +4755,8 @@ msgid ""
 "External \"%1!s!\"\r\n"
 "Revision %2!s!"
 msgstr ""
+"外部 \"%1!s!\"\n"
+"版本 %2!s!"
 
 #. Resource IDs: (263)
 msgid "External failed"
@@ -5262,6 +5274,8 @@ msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr ""
+"前往下一個行內差異\n"
+"下一個行內差異"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -5284,10 +5298,12 @@ msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr ""
+"前往上一個行內差異\n"
+"上一個行內差異"
 
 #. Resource IDs: (156)
 msgid "Goto Line"
-msgstr ""
+msgstr "前往行號"
 
 #. Resource IDs: (1134)
 msgid "Graph type:"
@@ -5388,7 +5404,7 @@ msgstr "隱藏未使用的分支(&B)"
 
 #. Resource IDs: (156)
 msgid "Hide/Show the patch file list"
-msgstr ""
+msgstr "隱藏/顯示補綴檔列表"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -5972,11 +5988,11 @@ msgstr "初次匯入"
 
 #. Resource IDs: (156)
 msgid "Inline diff"
-msgstr ""
+msgstr "行內差異"
 
 #. Resource IDs: (156)
 msgid "Inline diff word-wise"
-msgstr ""
+msgstr "行內逐字差異"
 
 #. Resource IDs: (65535)
 msgid "Inline differences"
@@ -6275,12 +6291,12 @@ msgstr "單行差異"
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved from line %ld"
-msgstr ""
+msgstr "本行移動自第 %ld 行"
 
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved to line %ld"
-msgstr ""
+msgstr "本行移至第 %ld 行"
 
 #. Resource IDs: (65535)
 msgid "Line:"
@@ -6903,6 +6919,8 @@ msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr ""
+"移動至特定的行數\n"
+"前往行號"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
@@ -6972,15 +6990,15 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Next conflict"
-msgstr ""
+msgstr "下一個衝突"
 
 #. Resource IDs: (156)
 msgid "Next difference"
-msgstr ""
+msgstr "下一個差異"
 
 #. Resource IDs: (156)
 msgid "Next inline difference"
-msgstr ""
+msgstr "下一個行內差異"
 
 #. Resource IDs: (564)
 msgid "No"
@@ -7260,19 +7278,19 @@ msgstr "OVR"
 
 #. Resource IDs: (156, 563)
 msgid "Office 2003"
-msgstr ""
+msgstr "Office 2003"
 
 #. Resource IDs: (156)
 msgid "Office 2007"
-msgstr ""
+msgstr "Office 2007"
 
 #. Resource IDs: (2060)
 msgid "Office 2007 colors"
-msgstr ""
+msgstr "Office 2007 色彩"
 
 #. Resource IDs: (156, 563)
 msgid "Office XP"
-msgstr ""
+msgstr "Office XP"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -7365,6 +7383,8 @@ msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
 msgstr ""
+"開啟檔案並比對差異或套用補綴\n"
+"開啟檔案"
 
 #. Resource IDs: (376, 1132)
 msgid "Open from clipboard"
@@ -7510,7 +7530,7 @@ msgstr "密碼:"
 
 #. Resource IDs: (156)
 msgid "Paste"
-msgstr ""
+msgstr "貼上"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7762,15 +7782,15 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Previous conflict"
-msgstr ""
+msgstr "上一個衝突"
 
 #. Resource IDs: (156)
 msgid "Previous difference"
-msgstr ""
+msgstr "上一個差異"
 
 #. Resource IDs: (156)
 msgid "Previous inline difference"
-msgstr ""
+msgstr "上一個行內差異"
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
@@ -8577,7 +8597,7 @@ msgstr "解決有衝突的檔案"
 
 #. Resource IDs: (620)
 msgid "Restore"
-msgstr ""
+msgstr "還原"
 
 #. Resource IDs: (1254)
 msgid "Restore Default"
@@ -8585,7 +8605,7 @@ msgstr "還原預設值"
 
 #. Resource IDs: (620)
 msgid "Restore after commit"
-msgstr ""
+msgstr "送交後還原"
 
 #. Resource IDs: (3826)
 msgid "Restore the window to normal size"
@@ -8920,7 +8940,7 @@ msgstr "範例文字:"
 
 #. Resource IDs: (156)
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #. Resource IDs: (101)
 msgid "Save &as..."
@@ -8932,7 +8952,7 @@ msgstr "另存新檔"
 
 #. Resource IDs: (156)
 msgid "Save as"
-msgstr ""
+msgstr "另存新檔"
 
 #. Resource IDs: (313)
 msgid "Save as..."
@@ -9415,7 +9435,7 @@ msgstr "顯示工作複本修改(&M)"
 
 #. Resource IDs: (156)
 msgid "Show Whitespaces"
-msgstr ""
+msgstr "顯示空白字元"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -9516,6 +9536,8 @@ msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
 msgstr ""
+"以特殊字元顯示空白和換行\n"
+"顯示空白字元"
 
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"
@@ -9587,7 +9609,7 @@ msgstr "顯示在版本控制下檔案的 mime 類型"
 
 #. Resource IDs: (156, 564)
 msgid "Silver Style"
-msgstr ""
+msgstr "銀色樣式"
 
 #. Resource IDs: (74, 207)
 msgid "Size"
@@ -9816,7 +9838,7 @@ msgstr "條紋"
 
 #. Resource IDs: (156)
 msgid "Style"
-msgstr ""
+msgstr "樣式"
 
 #. Resource IDs: (117)
 msgid ""
@@ -9973,7 +9995,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Switch between single and double pane view"
-msgstr ""
+msgstr "切換單一或雙重檢視"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -9985,7 +10007,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Switch left and right view"
-msgstr ""
+msgstr "對調左右檢視"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -11262,7 +11284,7 @@ msgstr "取消勾選"
 
 #. Resource IDs: (156)
 msgid "Undo"
-msgstr ""
+msgstr "復原"
 
 #. Resource IDs: (1069)
 #, c-format
@@ -11282,6 +11304,8 @@ msgid ""
 "Undo the last modifications\n"
 "Undo"
 msgstr ""
+"復原最近一次修改\n"
+"復原"
 
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
@@ -11489,19 +11513,19 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block"
-msgstr ""
+msgstr "使用本地端文字區塊"
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block then 'theirs'"
-msgstr ""
+msgstr "先套用本地再套用遠端的文字區塊"
 
 #. Resource IDs: (156)
 msgid "Use 'theirs' text block"
-msgstr ""
+msgstr "使用遠端的文字區塊"
 
 #. Resource IDs: (156)
 msgid "Use 'theirs' text block then 'mine'"
-msgstr ""
+msgstr "先套用遠端再套用本地的文字區塊"
 
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
@@ -11509,7 +11533,7 @@ msgstr "使用 Aero 風格半透明視窗"
 
 #. Resource IDs: (156)
 msgid "Use Blocks"
-msgstr ""
+msgstr "使用文字區塊"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11561,7 +11585,7 @@ msgstr "使用兩個文字區塊(最後使用本區塊)"
 
 #. Resource IDs: (156)
 msgid "Use left block"
-msgstr ""
+msgstr " 使用左方區塊"
 
 #. Resource IDs: (32856)
 msgid "Use left file"
@@ -11719,7 +11743,7 @@ msgstr ""
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
-msgstr ""
+msgstr "屬性檢查失敗!"
 
 #. Resource IDs: (11, 348)
 msgid "Value"
@@ -11756,11 +11780,11 @@ msgstr "瀏覽我們的網站"
 
 #. Resource IDs: (156, 563)
 msgid "Visual Studio 2005"
-msgstr ""
+msgstr "Visual Studio 2005"
 
 #. Resource IDs: (156, 563)
 msgid "Visual Studio 2008"
-msgstr ""
+msgstr "Visual Studio 2008"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11852,15 +11876,15 @@ msgstr "Windows"
 
 #. Resource IDs: (156, 563)
 msgid "Windows 2000"
-msgstr ""
+msgstr "Windows 2000"
 
 #. Resource IDs: (156, 563)
 msgid "Windows 7"
-msgstr ""
+msgstr "Windows 7"
 
 #. Resource IDs: (156, 563)
 msgid "Windows XP"
-msgstr ""
+msgstr "Windows XP"
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -11894,13 +11918,15 @@ msgstr "工作複本: %s\n"
 
 #. Resource IDs: (156)
 msgid "Wrap long lines"
-msgstr ""
+msgstr "自動折行"
 
 #. Resource IDs: (2056)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
 msgstr ""
+"在畫面右端自動折行\n"
+"自動折行"
 
 #. Resource IDs: (563)
 msgid "Yes"
@@ -13071,19 +13097,19 @@ msgstr "用戶版本性質總數:"
 
 #. Resource IDs: (336, 1562)
 msgid "user:bool"
-msgstr ""
+msgstr "user:bool"
 
 #. Resource IDs: (339)
 msgid "user:multiline"
-msgstr ""
+msgstr "user:multiline"
 
 #. Resource IDs: (338)
 msgid "user:singleline"
-msgstr ""
+msgstr "user:singleline"
 
 #. Resource IDs: (337, 1622, 1623, 1624)
 msgid "user:state"
-msgstr ""
+msgstr "user:state"
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"

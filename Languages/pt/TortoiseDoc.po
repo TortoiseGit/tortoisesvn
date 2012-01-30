@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-26 19:35+0000\n"
+"PO-Revision-Date: 2012-01-27 18:20+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr ""
 #. (title)
 #. (secondary)
 msgid "TortoiseSVN"
-msgstr "TortoiseSVN"
+msgstr "Maximizar Janelas"
 
 #. (subtitle)
 msgid "A Subversion client for Windows"
@@ -3849,7 +3849,7 @@ msgstr ""
 
 #. (title)
 msgid "Importing Data Into A Repository"
-msgstr "Importando Dados Para Um Repositório"
+msgstr "Importar Dados Para Um Repositório"
 
 #. (primary)
 msgid "import"
@@ -4831,6 +4831,11 @@ msgid ""
 "an urgent fix needs to be committed, and that fix happens to be in the same "
 "file you're working on."
 msgstr ""
+"Às vezes, poderás querer efectuar a submissão de apenas uma parte das "
+"alterações que efectuaste num ficheiro. Essa situação acontece com "
+"frequência quando estás a trabalhar em algo, e surge uma correcção urgente "
+"para ser submetida, e essa correcção calha estar no mesmo ficheiro em que "
+"estás a trabalhar."
 
 #. (para)
 msgid ""
@@ -11243,7 +11248,7 @@ msgstr "bool"
 
 #. (title)
 msgid "Property dialog boolean user types"
-msgstr ""
+msgstr "Caixa de diálogo da propriedade tipos de utilizador booleano"
 
 #. (para)
 msgid ""
@@ -11251,10 +11256,13 @@ msgid ""
 "can configure your property as a <literal>bool</literal> type. "
 "<placeholder-1/> Specify your property like this:"
 msgstr ""
+"Se a tua propriedade só pode ter dois estados, e.g., true ou false, podes "
+"então configurar a tua propriedade como do tipo <literal>bool</literal>. "
+"<placeholder-1/>. Especifica a tua propriedade deste modo:"
 
 #. (literal)
 msgid "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
-msgstr ""
+msgstr "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
 
 #. (para)
 msgid ""
@@ -11269,7 +11277,7 @@ msgstr "estado"
 
 #. (title)
 msgid "Property dialog state user types"
-msgstr ""
+msgstr "Caixa de diálogo da propriedade tipos de utilizador estado"
 
 #. (para)
 msgid ""
@@ -11282,6 +11290,7 @@ msgstr ""
 msgid ""
 "propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
 msgstr ""
+"propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
 
 #. (para)
 msgid ""
@@ -11296,6 +11305,9 @@ msgid ""
 "buttons. If there are more values configured, it uses a combo box from where"
 " the user can select the required state."
 msgstr ""
+"Para até três valores diferentes, aparece na caixa de diálogo até 3 radio "
+"buttons. Se existirem mais valores configurados, irá usar uma combo box, a "
+"partir da qual o utilizador pode seleccionar o estado requerido."
 
 #. (term)
 msgid "singleline"
@@ -11303,17 +11315,19 @@ msgstr "linha-única"
 
 #. (title)
 msgid "Property dialog singleline user types"
-msgstr ""
+msgstr "Caixa de diálogo da propriedade tipos de utilizador linha-única"
 
 #. (para)
 msgid ""
 "For properties that consist of one line of text, use the "
 "<literal>singleline</literal> property type: <placeholder-1/>"
 msgstr ""
+"Para as propriedades que consitem numa única linha de texto, usar o tipo de "
+"propriedade <literal>linha-única</literal>: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=singleline;labeltext(regex)"
-msgstr ""
+msgstr "propertyname=singleline;labeltext(regex)"
 
 #. (para)
 msgid ""
@@ -11321,6 +11335,10 @@ msgid ""
 " validate (match) the text the user entered. If the text does not match the "
 "regex, then the user is shown an error and the property isn't set."
 msgstr ""
+"O <literal>regex</literal> indica a expressão regular que é usada para "
+"validar (condizer) o texto que o utilizador inseriu. Se o texto não condizer"
+" com a regex, é mostrado ao utilizador um erro e a propriedade não é "
+"aplicada."
 
 #. (term)
 msgid "multiline"
@@ -11328,17 +11346,19 @@ msgstr "multi-linha"
 
 #. (title)
 msgid "Property dialog multiline user types"
-msgstr ""
+msgstr "Caixa de diálogo da propriedade tipos de utilizador multi-linha"
 
 #. (para)
 msgid ""
 "For properties that consist of multiple lines of text, use the "
 "<literal>multiline</literal> property type: <placeholder-1/>"
 msgstr ""
+" propriedades que consistem em múltiplas linhas, usar o tipo de propriedade "
+"<literal>multi-linha</literal>: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=multiline;labeltext(regex)"
-msgstr ""
+msgstr "propertyname=multiline;labeltext(regex)"
 
 #. (para)
 msgid ""
@@ -11346,6 +11366,9 @@ msgid ""
 " validate (match) the text the user entered. Don't forget to include the "
 "newline (\\n) character in the regex!"
 msgstr ""
+"O <literal>regex</literal> indica a expressão regular que é usada para "
+"validar (condizer) o texto que o utilizador inseriu. Não te esqueças de "
+"incluir um caracter de nova-linha (\\n) na regex!"
 
 #. (para)
 msgid ""
@@ -18751,6 +18774,11 @@ msgid ""
 "installed alongside TortoiseSVN, and colour-codes the added and removed "
 "lines."
 msgstr ""
+"No fundo da caixa de diálogo podes configurar um programa para visualizar os"
+" ficheiros comp-unificada (ficheiros correcção). Não são requeridos "
+"parâmetros. A preferência <guilabel>omissão</guilabel> dá indicação para "
+"usar o TortoiseUDiff, que é instalado com o TrotoiseSVN, e os códigos de "
+"cores para as linhas adicionadas e removidas."
 
 #. (para)
 msgid ""
@@ -26730,7 +26758,7 @@ msgstr "Vista de Um Painel"
 
 #. (title)
 msgid "Two Pane View"
-msgstr "Vista de Dois Painéis"
+msgstr "Vista de dois painéis"
 
 #. (para)
 msgid ""
@@ -26741,10 +26769,10 @@ msgid ""
 "works."
 msgstr ""
 "As alterações feitas dentro das linhas modificadas são mostradas em "
-"diferentes cores. As string parts adicionadsa são mostradas com um cor mais "
-"clara, mas é lhe é possivel configurar as cores usadas aí. As partes "
-"removidas são indicadas com uma linha vertical Castanho-escuro nas strings. "
-"Veja também o screenshot acima para ver como funciona."
+"diferentes cores. As secções de linhas adicionadas são mostradas a uma cor "
+"mais clara, sendo também possível configurar as cores utilizadas. As secções"
+" removidas são indicadas com uma linha vertical castanho-escuro nas strings."
+" Ver também a imagem acima para visualizar o seu funcionamento."
 
 #. (para)
 msgid ""
@@ -26753,10 +26781,10 @@ msgid ""
 "long line into several lines, or you sometimes compact several lines "
 "together into one."
 msgstr ""
-"Código reorganizado geralmente significa muitas alteraões em espaços-brancos"
-" (space, tab, nova linha) mas na verdade o código não sofreu qualquer "
-"alteração. Por exemplo, o utilizador divide uma linha muito comprida em "
-"várias linhas, ou compacta diferentes linhas numa."
+"A reorganização de código geralmente significa que houve muitas alterações "
+"em espaços-brancos (espaço, tab, nova linha), mas na realidade o código não "
+"sofreu qualquer alterações. Por exemplo, o utilizador divide uma linha muito"
+" comprida em várias linhas, ou apenas compacta diferentes linhas numa só."
 
 #. (para)
 msgid ""
@@ -26774,16 +26802,16 @@ msgid ""
 "Hand editing of the file in the right pane is possible in two-pane view. "
 "Such changes are marked with a pencil symbol."
 msgstr ""
-"Edição manual do ficheiro no painél da direita é possivel na vista dos dois "
-"paineis. Essas alterações são marcadas com o símbolo de um lápis."
+"Edição manual do ficheiro no painel da direita é possível na vista dos dois "
+"painéis. Essas alterações são marcadas com o símbolo de um lápis."
 
 #. (para)
 msgid ""
 "The two pane view has some features which are not available in the one pane "
 "view: <placeholder-1/>"
 msgstr ""
-"A vista de dois painéis tem funções que não estão disponivéis na vista de um"
-" painel: <placeholder-1/>"
+"A vista com dois painéis, tem funcionalidades que não estão disponíveis na "
+"vista com um painel: <placeholder-1/>"
 
 #. (para)
 msgid ""
