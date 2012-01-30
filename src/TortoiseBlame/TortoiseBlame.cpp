@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -573,6 +573,22 @@ void TortoiseBlame::SelectLine(int yPos, bool bAlwaysSelect)
     }
 }
 
+void TortoiseBlame::StartSearchSel()
+{
+    int selTextLen = (int)SendEditor(SCI_GETSELTEXT);
+    if (selTextLen == 0)
+        return;
+
+    std::unique_ptr<char[]> seltextbuffer = std::unique_ptr<char[]>(new char[selTextLen+1]);
+    SendEditor(SCI_GETSELTEXT, 0, (LPARAM)(char*)seltextbuffer.get());
+    if (seltextbuffer[0] == 0)
+        return;
+    wcsncpy_s(m_szFindWhat, _countof(m_szFindWhat), CUnicodeUtils::StdGetUnicode(seltextbuffer.get()).c_str(), _countof(m_szFindWhat)-1);
+    m_fr.Flags = FR_HIDEUPDOWN | FR_HIDEWHOLEWORD;
+    m_fr.Flags |= FR_MATCHCASE;
+    DoSearch(m_szFindWhat, m_fr.Flags);
+}
+
 void TortoiseBlame::StartSearch()
 {
     if (currentDialog)
@@ -590,6 +606,13 @@ void TortoiseBlame::StartSearch()
     m_fr.Flags |= bCase ? FR_MATCHCASE : 0;
 
     currentDialog = FindText(&m_fr);
+}
+
+void TortoiseBlame::DoSearchNext()
+{
+    if (wcslen(m_szFindWhat)==0)
+        return StartSearchSel();
+    DoSearch(m_szFindWhat, m_fr.Flags);
 }
 
 bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
@@ -959,6 +982,12 @@ void TortoiseBlame::Command(int id)
         break;
     case ID_EDIT_FIND:
         StartSearch();
+        break;
+    case ID_EDIT_FINDSEL:
+        StartSearchSel();
+        break;
+    case ID_EDIT_FINDNEXT:
+        DoSearchNext();
         break;
     case ID_COPYTOCLIPBOARD:
         CopySelectedLogToClipboard();
