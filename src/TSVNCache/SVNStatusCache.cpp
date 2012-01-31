@@ -341,6 +341,7 @@ bool CSVNStatusCache::UnBlockPath(const CTSVNPath& path)
                 m_NoWatchPaths.erase(it);
                 ret = true;
             }
+            break;
         }
     } while (!p.IsEmpty());
 
