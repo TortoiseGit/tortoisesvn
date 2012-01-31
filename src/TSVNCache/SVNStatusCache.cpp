@@ -299,6 +299,21 @@ bool CSVNStatusCache::BlockPath(const CTSVNPath& path, DWORD timeout /* = 0 */)
 
     timeout = GetTickCount() + (timeout * 1000);    // timeout is in seconds, but we need the milliseconds
 
+    CTSVNPath p(path);
+    do
+    {
+        CTSVNPath dbPath(p);
+        dbPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\wc.db"));
+        if (!dbPath.Exists())
+            p = p.GetContainingDirectory();
+        else
+        {
+            AutoLocker lock(m_NoWatchPathCritSec);
+            m_NoWatchPaths[p] = timeout;
+            return true;
+        }
+    } while (!p.IsEmpty());
+
     AutoLocker lock(m_NoWatchPathCritSec);
     m_NoWatchPaths[path.GetDirectory()] = timeout;
 
@@ -308,6 +323,27 @@ bool CSVNStatusCache::BlockPath(const CTSVNPath& path, DWORD timeout /* = 0 */)
 bool CSVNStatusCache::UnBlockPath(const CTSVNPath& path)
 {
     bool ret = false;
+
+    CTSVNPath p(path);
+    do
+    {
+        CTSVNPath dbPath(p);
+        dbPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\wc.db"));
+        if (!dbPath.Exists())
+            p = p.GetContainingDirectory();
+        else
+        {
+            AutoLocker lock(m_NoWatchPathCritSec);
+            std::map<CTSVNPath, DWORD>::iterator it = m_NoWatchPaths.find(p);
+            if (it != m_NoWatchPaths.end())
+            {
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": path removed from no good: %s\n"), it->first.GetWinPath());
+                m_NoWatchPaths.erase(it);
+                ret = true;
+            }
+        }
+    } while (!p.IsEmpty());
+
     AutoLocker lock(m_NoWatchPathCritSec);
     std::map<CTSVNPath, DWORD>::iterator it = m_NoWatchPaths.find(path.GetDirectory());
     if (it != m_NoWatchPaths.end())

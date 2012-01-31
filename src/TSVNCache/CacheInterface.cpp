@@ -144,6 +144,11 @@ CBlockCacheForPath::CBlockCacheForPath(const WCHAR * aPath)
     path[MAX_PATH] = 0;
 
     SendCacheCommand (TSVNCACHECOMMAND_BLOCK, path);
+    // Wait a short while to make sure the cache has
+    // processed this command. Without this, we risk
+    // executing the svn command before the cache has
+    // blocked the path and already gets change notifications.
+    Sleep(20);
 }
 
 CBlockCacheForPath::~CBlockCacheForPath()
