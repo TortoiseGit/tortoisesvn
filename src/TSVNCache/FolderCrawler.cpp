@@ -236,7 +236,7 @@ void CFolderCrawler::WorkerThread()
 
                     {
                         AutoLocker print(critSec);
-                        _stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Invalidating and refreshing folder: %s"), workingPath.GetWinPath());
+                        _sntprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _TRUNCATE, _T("Invalidating and refreshing folder: %s"), workingPath.GetWinPath());
                         nCurrentCrawledpathIndex++;
                         if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
                             nCurrentCrawledpathIndex = 0;
@@ -287,7 +287,7 @@ void CFolderCrawler::WorkerThread()
                     }
                     {
                         AutoLocker print(critSec);
-                        _stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Updating path: %s"), workingPath.GetWinPath());
+                        _sntprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _TRUNCATE, _T("Updating path: %s"), workingPath.GetWinPath());
                         nCurrentCrawledpathIndex++;
                         if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
                             nCurrentCrawledpathIndex = 0;
@@ -357,7 +357,7 @@ void CFolderCrawler::WorkerThread()
 
                 {
                     AutoLocker print(critSec);
-                    _stprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _T("Crawling folder: %s"), workingPath.GetWinPath());
+                    _sntprintf_s(szCurrentCrawledPath[nCurrentCrawledpathIndex], MAX_CRAWLEDPATHSLEN, _TRUNCATE, _T("Crawling folder: %s"), workingPath.GetWinPath());
                     nCurrentCrawledpathIndex++;
                     if (nCurrentCrawledpathIndex >= MAX_CRAWLEDPATHS)
                         nCurrentCrawledpathIndex = 0;
