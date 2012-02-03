@@ -1861,8 +1861,6 @@ CString SVN::GetURLFromPath(const CTSVNPath& path)
     const char * URL;
     if (path.IsUrl())
         return path.GetSVNPathString();
-    if (!path.Exists())
-        return _T("");
     svn_error_clear(Err);
     Err = NULL;
     SVNPool subpool(pool);
