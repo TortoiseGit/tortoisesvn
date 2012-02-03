@@ -13,6 +13,7 @@
 # Entong Shen <dexter_shen@hotmail.com>, 2011.
 # fang zheng <fz0000@sina.com>, 2011, 2012.
 # Garfield Yao <field977@gmail.com>, 2011.
+# Hong Xu <icehong@gmail.com>, 2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Nick Vrvilo <nick@vrvilo.com>, 2011.
 #   <pluwen@gmail.com>, 2011.
@@ -24,8 +25,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-23 08:37+0000\n"
-"Last-Translator: fang zheng <fz0000@sina.com>\n"
+"PO-Revision-Date: 2012-02-02 15:43+0000\n"
+"Last-Translator: Hong Xu <icehong@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -963,7 +964,7 @@ msgstr "手工编辑属性(&M)"
 
 #. Resource IDs: (65535)
 msgid "&Max line length for inline diffs"
-msgstr ""
+msgstr "(&M)显示行间差异时一行最大长度"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -1044,7 +1045,7 @@ msgstr "不请求锁定(&N)"
 
 #. Resource IDs: (1506)
 msgid "&None"
-msgstr ""
+msgstr "无(&N)"
 
 #. Resource IDs: (1555)
 msgid "&Not executable"
@@ -2105,17 +2106,19 @@ msgstr "应用标准差异文件"
 
 #. Resource IDs: (363)
 msgid "Approve or reject client-side hook script"
-msgstr ""
+msgstr "接受或者拒绝客户侧钩子脚本"
 
 #. Resource IDs: (363)
 msgid ""
 "Approve\n"
 "Run the hook script"
 msgstr ""
+"接受\n"
+"运行钩子脚本"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
-msgstr ""
+msgstr "已经允许的钩子脚本"
 
 #. Resource IDs: (156, 564)
 msgid "Aqua Style"
@@ -2517,6 +2520,8 @@ msgid ""
 "Cancel\n"
 "Do not run the script"
 msgstr ""
+"取消\n"
+"不运行钩子脚本"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2602,7 +2607,7 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Local modifications are kept."
-msgstr ""
+msgstr "本地的修改被保留"
 
 #. Resource IDs: (315)
 msgid ""
@@ -2739,6 +2744,8 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr ""
+"更改应用风格\n"
+"更改风格"
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -2777,7 +2784,7 @@ msgstr "变更列表（双击文件查看差异）: "
 
 #. Resource IDs: (2060)
 msgid "Changes the style of the application"
-msgstr ""
+msgstr "更改应用风格"
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
@@ -2979,7 +2986,7 @@ msgstr "清除%1!ld!个用户名/密码、%2!ld!个SSL认证数据及%3!ld!个�
 #. Resource IDs: (198)
 #, c-format
 msgid "Clears all %ld approved client-side hook scripts"
-msgstr ""
+msgstr "取消所有 %ld 个已经允许的客户侧钩子脚本"
 
 #. Resource IDs: (197)
 #, c-format
@@ -3059,7 +3066,7 @@ msgstr "折叠源树(&A)"
 
 #. Resource IDs: (156)
 msgid "Collapse"
-msgstr ""
+msgstr "冲突"
 
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
@@ -3265,7 +3272,7 @@ msgstr "完毕！"
 
 #. Resource IDs: (1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
-msgstr ""
+msgstr "配置 &TortoiseSVN 不使用回收站"
 
 #. Resource IDs: (236)
 msgid "Configure Hook Scripts"
@@ -3310,7 +3317,7 @@ msgstr "冲突"
 
 #. Resource IDs: (265)
 msgid "Conflicted (maybe)"
-msgstr ""
+msgstr "(可能)冲突"
 
 #. Resource IDs: (188)
 #, c-format
@@ -3699,7 +3706,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Create patch file"
-msgstr ""
+msgstr "生成补丁文件"
 
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
@@ -3977,7 +3984,7 @@ msgstr ""
 
 #. Resource IDs: (334)
 msgid "Dialog"
-msgstr ""
+msgstr "对话框"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -3993,7 +4000,7 @@ msgstr "差异查看器"
 
 #. Resource IDs: (193)
 msgid "Diff Viewer::Merge Tool"
-msgstr ""
+msgstr "差异查看/合并工具"
 
 #. Resource IDs: (65535)
 msgid "Diff file:"
@@ -4091,7 +4098,7 @@ msgstr ""
 
 #. Resource IDs: (363)
 msgid "Do not ask again for this script"
-msgstr ""
+msgstr "对于这个脚本不再提醒"
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -4158,7 +4165,7 @@ msgstr ""
 
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
-msgstr ""
+msgstr "文件发生变化，希望重新加载吗？"
 
 #. Resource IDs: (99)
 #, c-format
@@ -4830,7 +4837,7 @@ msgstr "失败！"
 #. Resource IDs: (199)
 msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
-msgstr ""
+msgstr "后台下载文件夹内容以加速浏览"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5230,7 +5237,7 @@ msgstr "全局设置"
 
 #. Resource IDs: (155)
 msgid "Go To Line"
-msgstr ""
+msgstr "跳转到行"
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -5257,6 +5264,8 @@ msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr ""
+"跳转到下一处差异\n"
+"下一处差异"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -5279,10 +5288,12 @@ msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr ""
+"跳转到前一处差异\n"
+"前一处差异"
 
 #. Resource IDs: (156)
 msgid "Goto Line"
-msgstr ""
+msgstr "跳转到行"
 
 #. Resource IDs: (1134)
 msgid "Graph type:"
@@ -5383,7 +5394,7 @@ msgstr "隐藏没有使用的分支(&B)"
 
 #. Resource IDs: (156)
 msgid "Hide/Show the patch file list"
-msgstr ""
+msgstr "隐藏/显示补丁文件列表"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -5791,6 +5802,8 @@ msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
 msgstr ""
+"忽略改动\n"
+"忽略外部的变化"
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -5965,11 +5978,11 @@ msgstr "初始化导入"
 
 #. Resource IDs: (156)
 msgid "Inline diff"
-msgstr ""
+msgstr "行间差异"
 
 #. Resource IDs: (156)
 msgid "Inline diff word-wise"
-msgstr ""
+msgstr "行间差异（智能）"
 
 #. Resource IDs: (65535)
 msgid "Inline differences"
@@ -6163,7 +6176,7 @@ msgstr "保持锁定(&L)"
 
 #. Resource IDs: (1126)
 msgid "Keep c&hangelists"
-msgstr ""
+msgstr "保留(c&)修改列表"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
@@ -6268,12 +6281,12 @@ msgstr "行差异"
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved from line %ld"
-msgstr ""
+msgstr "从 %ld 行处移动"
 
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved to line %ld"
-msgstr ""
+msgstr "移动到 %ld 行"
 
 #. Resource IDs: (65535)
 msgid "Line:"
@@ -6317,16 +6330,20 @@ msgid ""
 "Load changes\n"
 "Changes made in TortoiseMerge are lost and replaced with the new content."
 msgstr ""
+"加载变化\n"
+" TortoiseMerge 中所做的修改将被新加载的内容替换。"
 
 #. Resource IDs: (315)
 msgid ""
 "Load changes\n"
 "The views are updated with the new content."
 msgstr ""
+"加载变化\n"
+"视图中的内容将被更新。"
 
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
-msgstr ""
+msgstr "本地(&H)钩子"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6894,6 +6911,8 @@ msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr ""
+"在视图中跳转到指定行\n"
+"跳转到行"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
@@ -6963,15 +6982,15 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Next conflict"
-msgstr ""
+msgstr "下一处冲突"
 
 #. Resource IDs: (156)
 msgid "Next difference"
-msgstr ""
+msgstr "下一处差异"
 
 #. Resource IDs: (156)
 msgid "Next inline difference"
-msgstr ""
+msgstr "下一处行间差异"
 
 #. Resource IDs: (564)
 msgid "No"
@@ -7248,19 +7267,19 @@ msgstr "OVR"
 
 #. Resource IDs: (156, 563)
 msgid "Office 2003"
-msgstr ""
+msgstr "Office 2003"
 
 #. Resource IDs: (156)
 msgid "Office 2007"
-msgstr ""
+msgstr "Office 2007"
 
 #. Resource IDs: (2060)
 msgid "Office 2007 colors"
-msgstr ""
+msgstr "Office 2007 颜色"
 
 #. Resource IDs: (156, 563)
 msgid "Office XP"
-msgstr ""
+msgstr "Office XP"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -7497,7 +7516,7 @@ msgstr "密码: "
 
 #. Resource IDs: (156)
 msgid "Paste"
-msgstr ""
+msgstr "粘贴"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7705,7 +7724,7 @@ msgstr "更新之前钩子"
 
 #. Resource IDs: (1562)
 msgid "Pre-fetch folders for faster browsing"
-msgstr ""
+msgstr "预取文件夹以加速浏览"
 
 #. Resource IDs: (3)
 msgid "Prefer &local"
@@ -7749,15 +7768,15 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Previous conflict"
-msgstr ""
+msgstr "前一处冲突"
 
 #. Resource IDs: (156)
 msgid "Previous difference"
-msgstr ""
+msgstr "前一处差异"
 
 #. Resource IDs: (156)
 msgid "Previous inline difference"
-msgstr ""
+msgstr "前一处行间差异"
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
@@ -8564,7 +8583,7 @@ msgstr "解决有冲突的文件"
 
 #. Resource IDs: (620)
 msgid "Restore"
-msgstr ""
+msgstr "恢复"
 
 #. Resource IDs: (1254)
 msgid "Restore Default"
@@ -8572,7 +8591,7 @@ msgstr "恢复默认值"
 
 #. Resource IDs: (620)
 msgid "Restore after commit"
-msgstr ""
+msgstr "提交后恢复"
 
 #. Resource IDs: (3826)
 msgid "Restore the window to normal size"
@@ -8614,6 +8633,8 @@ msgid ""
 "Revert\n"
 "All local modifications will be lost."
 msgstr ""
+"还原\n"
+"所有本地的未提交改动将会丢失。"
 
 #. Resource IDs: (119)
 msgid ""
@@ -8693,7 +8714,7 @@ msgstr "版本分支图"
 
 #. Resource IDs: (1492)
 msgid "Revision range to merge"
-msgstr ""
+msgstr "将要合并的修改版本范围"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -8905,7 +8926,7 @@ msgstr "范例文字:"
 
 #. Resource IDs: (156)
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #. Resource IDs: (101)
 msgid "Save &as..."
@@ -8917,7 +8938,7 @@ msgstr "另存为"
 
 #. Resource IDs: (156)
 msgid "Save as"
-msgstr ""
+msgstr "另存为"
 
 #. Resource IDs: (313)
 msgid "Save as..."
@@ -9366,6 +9387,8 @@ msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
 msgstr ""
+"显示行内差异\n"
+"行内差异"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
@@ -9397,7 +9420,7 @@ msgstr "显示本地的更新(&M)"
 
 #. Resource IDs: (156)
 msgid "Show Whitespaces"
-msgstr ""
+msgstr "显示空白"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -9417,7 +9440,7 @@ msgstr "被排除的文件夹根目录仍显示正常状态的图标"
 
 #. Resource IDs: (1480)
 msgid "Show externals"
-msgstr ""
+msgstr "显示外部"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9570,7 +9593,7 @@ msgstr "显示在版本控制下文件的 mime 类型"
 
 #. Resource IDs: (156, 564)
 msgid "Silver Style"
-msgstr ""
+msgstr "银色风格"
 
 #. Resource IDs: (74, 207)
 msgid "Size"
@@ -9629,12 +9652,16 @@ msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
+"有的文件在 T-Merge 之外改过。\n"
+"您想加载改过的文件吗？"
 
 #. Resource IDs: (314)
 msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
+"有的文件在 T-Merge 之外改过。\n"
+"您想重新加载改过的文件并放弃您所修改的吗？"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9793,7 +9820,7 @@ msgstr "修剪"
 
 #. Resource IDs: (156)
 msgid "Style"
-msgstr ""
+msgstr "风格"
 
 #. Resource IDs: (117)
 msgid ""
@@ -10749,24 +10776,32 @@ msgid ""
 "This error was generated by a custom hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
 msgstr ""
+"这个错误是由于服务器上的自定义钩子函数处理导致\n"
+"请联系服务器管理员协助解决"
 
 #. Resource IDs: (251)
 msgid ""
 "This error was generated by a custom post-commit hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
 msgstr ""
+"这个错误是由于服务器上的自定义“(post-commit hook)\"钩子函数处理导致\n"
+"请联系服务器管理员协助解决"
 
 #. Resource IDs: (251)
 msgid ""
 "This error was generated by a custom post-lock hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
 msgstr ""
+"这个错误是由于服务器上的自定义“(post-lock hook)\"钩子函数处理导致\n"
+"请联系服务器管理员协助解决"
 
 #. Resource IDs: (251)
 msgid ""
 "This error was generated by a custom post-unlock hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
 msgstr ""
+"这个错误是由于服务器上的自定义“(post-unkock hook)\"钩子函数处理导致\n"
+"请联系服务器管理员协助解决"
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
@@ -11028,6 +11063,14 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\n"
+"Subversion %d.%d.%d, %s\n"
+"apr %d.%d.%d\n"
+"apr-utils %d.%d.%d\n"
+"neon %s\n"
+"serf %d.%d.%d\n"
+"%s\n"
+"zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11039,6 +11082,8 @@ msgid ""
 "TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
 "To fix this, you should empty the recycle bin now."
 msgstr ""
+"TortoiseSVN 发现在移动 %1!ld! 个项到回收站时非常缓慢. 回收站里现在有 %2!ld! 个项, 这可能是导致处理变慢的原因.\n"
+"如果要修复这个问题, 请立即清空回收站."
 
 #. Resource IDs: (98)
 #, c-format
@@ -11675,7 +11720,7 @@ msgstr ""
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
-msgstr ""
+msgstr "检查属性值失败"
 
 #. Resource IDs: (11, 348)
 msgid "Value"
@@ -11712,11 +11757,11 @@ msgstr "浏览我们的网站"
 
 #. Resource IDs: (156, 563)
 msgid "Visual Studio 2005"
-msgstr ""
+msgstr "Visual Studio 2005"
 
 #. Resource IDs: (156, 563)
 msgid "Visual Studio 2008"
-msgstr ""
+msgstr "Visual Studio 2008"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11803,15 +11848,15 @@ msgstr "窗口"
 
 #. Resource IDs: (156, 563)
 msgid "Windows 2000"
-msgstr ""
+msgstr "Windows 2000"
 
 #. Resource IDs: (156, 563)
 msgid "Windows 7"
-msgstr ""
+msgstr "Windows 7"
 
 #. Resource IDs: (156, 563)
 msgid "Windows XP"
-msgstr ""
+msgstr "Windows XP"
 
 #. Resource IDs: (146)
 msgid "With URL:"

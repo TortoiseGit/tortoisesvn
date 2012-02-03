@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-23 08:37+0000\n"
+"PO-Revision-Date: 2012-01-30 21:33+0000\n"
 "Last-Translator: Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -145,6 +145,8 @@ msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Date %4!s!"
 msgstr ""
+"%1!s!\n"
+"Revisie %2!s!, auteur %3!s!, datum %4!s!"
 
 #. Resource IDs: (105)
 #, c-format
@@ -152,6 +154,8 @@ msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Size %4!s!, Date %5!s!"
 msgstr ""
+"%1!s!\n"
+"Revisie %2!s!, auteur %3!s!, grootte %4!s!, datum %5!s!"
 
 #. Resource IDs: (105)
 #, c-format
@@ -159,6 +163,8 @@ msgid ""
 "%1!s!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
 msgstr ""
+"%1!s!\n"
+"%2!d! bestanden en %3!d! mappen, %4!d! objecten totaal"
 
 #. Resource IDs: (3860)
 #, c-format
@@ -961,7 +967,7 @@ msgstr "Eigenschap &Handmatig wijzigen"
 
 #. Resource IDs: (65535)
 msgid "&Max line length for inline diffs"
-msgstr ""
+msgstr "&Maximale lengte voor inline-verschillen"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -2121,21 +2127,23 @@ msgstr "Voer unified diff uit"
 
 #. Resource IDs: (363)
 msgid "Approve or reject client-side hook script"
-msgstr ""
+msgstr "Accepteer of weiger lokaal hook-script"
 
 #. Resource IDs: (363)
 msgid ""
 "Approve\n"
 "Run the hook script"
 msgstr ""
+"Accepteer\n"
+"Hook-script uitvoeren"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
-msgstr ""
+msgstr "Geaccepteerde hook-scripts"
 
 #. Resource IDs: (156, 564)
 msgid "Aqua Style"
-msgstr ""
+msgstr "Aqua stijl"
 
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
@@ -2309,7 +2317,7 @@ msgstr ""
 
 #. Resource IDs: (156, 564)
 msgid "Black Style"
-msgstr ""
+msgstr "Zwarte stijl"
 
 #. Resource IDs: (162)
 msgid "Blame"
@@ -2333,7 +2341,7 @@ msgstr "Alpha mixen"
 
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
-msgstr ""
+msgstr "Blauwe stijl"
 
 #. Resource IDs: (83)
 msgid ""
@@ -2540,6 +2548,8 @@ msgid ""
 "Cancel\n"
 "Do not run the script"
 msgstr ""
+"Annuleer\n"
+"Hook-script niet uitvoeren"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2766,6 +2776,8 @@ msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr ""
+"Wijzig de stijl van de applicatie\n"
+"Wijzig stijl"
 
 #. Resource IDs: (3825)
 msgid "Change the window position"
@@ -2804,7 +2816,7 @@ msgstr "Gemaakte wijzigingen (dubbelklik op het bestand voor details):"
 
 #. Resource IDs: (2060)
 msgid "Changes the style of the application"
-msgstr ""
+msgstr "Wijzigt de stijl van de applicatie"
 
 #. Resource IDs: (230)
 msgid "Changing externals to fixed revision"
@@ -3016,7 +3028,7 @@ msgstr ""
 #. Resource IDs: (198)
 #, c-format
 msgid "Clears all %ld approved client-side hook scripts"
-msgstr ""
+msgstr "Wist alle %ld geaccepteerde lokale hook-scripts"
 
 #. Resource IDs: (197)
 #, c-format
@@ -3061,6 +3073,8 @@ msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
 msgstr ""
+"Klik om opdrachten te zien voor het verplaatsen van blokken tekst\n"
+"Gebruik tekstblokken"
 
 #. Resource IDs: (257)
 msgid "Clipboard"
@@ -3096,7 +3110,7 @@ msgstr "&Bron inklappen"
 
 #. Resource IDs: (156)
 msgid "Collapse"
-msgstr ""
+msgstr "Inklappen"
 
 #. Resource IDs: (275)
 msgid "Collapse &following tree"
@@ -3151,6 +3165,8 @@ msgid ""
 "Command Line To Execute:\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
 msgstr ""
+"Commando om uit te voeren:\n"
+"Om een pad in een werkkopie op te geven, geeft u de URL in de bibliotheek met %REPOROOT% als startpunt"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3741,7 +3757,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Create patch file"
-msgstr ""
+msgstr "Maak patch-bestand"
 
 #. Resource IDs: (8)
 msgid "Create repositor&y here"
@@ -4023,7 +4039,7 @@ msgstr ""
 
 #. Resource IDs: (334)
 msgid "Dialog"
-msgstr ""
+msgstr "Dialoog"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -4139,7 +4155,7 @@ msgstr ""
 
 #. Resource IDs: (363)
 msgid "Do not ask again for this script"
-msgstr ""
+msgstr "Niet meer vragen voor dit script"
 
 #. Resource IDs: (1562)
 msgid "Do not expand keywords"
@@ -4795,6 +4811,8 @@ msgid ""
 "External \"%1!s!\"\r\n"
 "Revision %2!s!"
 msgstr ""
+"Externe \"%1!s!\"\n"
+"Revisie %2!s!"
 
 #. Resource IDs: (263)
 msgid "External failed"
@@ -5316,6 +5334,8 @@ msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr ""
+"Ga naar het volgende inline-verschil\n"
+"Volgend inline-verschil"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -5338,10 +5358,12 @@ msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr ""
+"Ga naar het vorige inline-verschil\n"
+"Vorig inline-verschil"
 
 #. Resource IDs: (156)
 msgid "Goto Line"
-msgstr ""
+msgstr "Ga naar regel"
 
 #. Resource IDs: (1134)
 msgid "Graph type:"
@@ -5442,7 +5464,7 @@ msgstr "Verberg ongebruikte &takken"
 
 #. Resource IDs: (156)
 msgid "Hide/Show the patch file list"
-msgstr ""
+msgstr "Verberg/toon bestandslijst uit patch"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -6043,11 +6065,11 @@ msgstr "Initiële import"
 
 #. Resource IDs: (156)
 msgid "Inline diff"
-msgstr ""
+msgstr "Inline-verschil"
 
 #. Resource IDs: (156)
 msgid "Inline diff word-wise"
-msgstr ""
+msgstr "Inline-verschil per woord"
 
 #. Resource IDs: (65535)
 msgid "Inline differences"
@@ -6346,12 +6368,12 @@ msgstr "Regelverschillen"
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved from line %ld"
-msgstr ""
+msgstr "Regel verplaatst vanaf regel %ld"
 
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved to line %ld"
-msgstr ""
+msgstr "Regel verplaatst naar regel %ld"
 
 #. Resource IDs: (65535)
 msgid "Line:"
@@ -6408,7 +6430,7 @@ msgstr ""
 
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
-msgstr ""
+msgstr "Lokale hook-scripts"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -6988,6 +7010,8 @@ msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr ""
+"Ga naar een specifieke regel\n"
+"Ga naar regel"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
@@ -7057,15 +7081,15 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Next conflict"
-msgstr ""
+msgstr "Volgend conflict"
 
 #. Resource IDs: (156)
 msgid "Next difference"
-msgstr ""
+msgstr "Volgend verschil"
 
 #. Resource IDs: (156)
 msgid "Next inline difference"
-msgstr ""
+msgstr "Volgend inline-verschil"
 
 #. Resource IDs: (564)
 msgid "No"
@@ -7357,19 +7381,19 @@ msgstr "OVR"
 
 #. Resource IDs: (156, 563)
 msgid "Office 2003"
-msgstr ""
+msgstr "Office 2003"
 
 #. Resource IDs: (156)
 msgid "Office 2007"
-msgstr ""
+msgstr "Office 2007"
 
 #. Resource IDs: (2060)
 msgid "Office 2007 colors"
-msgstr ""
+msgstr "Office 2007 kleuren"
 
 #. Resource IDs: (156, 563)
 msgid "Office XP"
-msgstr ""
+msgstr "Office XP"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -7466,6 +7490,8 @@ msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
 msgstr ""
+"Open bestanden om verschillen te tonen of patch uit te voeren\n"
+"Open bestanden"
 
 #. Resource IDs: (376, 1132)
 msgid "Open from clipboard"
@@ -7611,7 +7637,7 @@ msgstr "Wachtwoord:"
 
 #. Resource IDs: (156)
 msgid "Paste"
-msgstr ""
+msgstr "Plakken"
 
 #. Resource IDs: (1057)
 msgid ""
@@ -7869,15 +7895,15 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Previous conflict"
-msgstr ""
+msgstr "Vorig conflict"
 
 #. Resource IDs: (156)
 msgid "Previous difference"
-msgstr ""
+msgstr "Vorig verschil"
 
 #. Resource IDs: (156)
 msgid "Previous inline difference"
-msgstr ""
+msgstr "Vorig inline-verschil"
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
@@ -8688,7 +8714,7 @@ msgstr "Lost conflicten in bestanden op"
 
 #. Resource IDs: (620)
 msgid "Restore"
-msgstr ""
+msgstr "Herstel"
 
 #. Resource IDs: (1254)
 msgid "Restore Default"
@@ -8696,7 +8722,7 @@ msgstr "Standaard herstellen"
 
 #. Resource IDs: (620)
 msgid "Restore after commit"
-msgstr ""
+msgstr "Herstel na vastleggen"
 
 #. Resource IDs: (3826)
 msgid "Restore the window to normal size"
@@ -8820,7 +8846,7 @@ msgstr "Revisie schema"
 
 #. Resource IDs: (1492)
 msgid "Revision range to merge"
-msgstr ""
+msgstr "Revisiebereik voor samenvoegen"
 
 #. Resource IDs: (75)
 msgid "Revision: "
@@ -9032,7 +9058,7 @@ msgstr "Voorbeeldtekst:"
 
 #. Resource IDs: (156)
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #. Resource IDs: (101)
 msgid "Save &as..."
@@ -9044,7 +9070,7 @@ msgstr "Opslaan als"
 
 #. Resource IDs: (156)
 msgid "Save as"
-msgstr ""
+msgstr "Opslaan als"
 
 #. Resource IDs: (313)
 msgid "Save as..."
@@ -9502,6 +9528,8 @@ msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
 msgstr ""
+"Toon inline-verschil\n"
+"Inline-verschil"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
@@ -9533,7 +9561,7 @@ msgstr "Toon &wijzigingen in werkkopie"
 
 #. Resource IDs: (156)
 msgid "Show Whitespaces"
-msgstr ""
+msgstr "Toon witregels, tabs en spaties"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -9553,7 +9581,7 @@ msgstr "Toon uitgesloten hoofd-paden als normaal"
 
 #. Resource IDs: (1480)
 msgid "Show externals"
-msgstr ""
+msgstr "Toon externen"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
@@ -9636,6 +9664,8 @@ msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
 msgstr ""
+"Toon tekens voor witregels, tabs en spaties\n"
+"Toon witregels, tabs en spaties"
 
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"
@@ -9686,7 +9716,7 @@ msgstr "Toont alle revisies waarin dit onderdeel gewijzigd is"
 
 #. Resource IDs: (200)
 msgid "Shows folders and files included with the svn:externals property"
-msgstr ""
+msgstr "Toon mappen en bestanden die via svn:externals zijn binnengehaald"
 
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
@@ -9710,7 +9740,7 @@ msgstr "Toont het mime-type van het bestand onder versiebeheer"
 
 #. Resource IDs: (156, 564)
 msgid "Silver Style"
-msgstr ""
+msgstr "Zilveren stijl"
 
 #. Resource IDs: (74, 207)
 msgid "Size"
@@ -9769,12 +9799,16 @@ msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
 msgstr ""
+"Sommige bestanden zijn buiten TMerge gewijzigd.\n"
+"Wilt u de wijzigingen inladen?"
 
 #. Resource IDs: (314)
 msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
 msgstr ""
+"Sommige bestanden zijn buiten TMerge gewijzigd.\n"
+"Wilt u opnieuw laden en uw wijzigingen verliezen?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9940,7 +9974,7 @@ msgstr "Strepen"
 
 #. Resource IDs: (156)
 msgid "Style"
-msgstr ""
+msgstr "Stijl"
 
 #. Resource IDs: (117)
 msgid ""
@@ -10104,7 +10138,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Switch between single and double pane view"
-msgstr ""
+msgstr "Wissel tussen enkel en dubbel venster"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -10116,7 +10150,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Switch left and right view"
-msgstr ""
+msgstr "Wissel linker en rechter venster"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -10570,7 +10604,7 @@ msgstr ""
 #. Resource IDs: (88)
 #, c-format
 msgid "The line number must be in between %d and %d"
-msgstr ""
+msgstr "Het regelnummer moet tussen %d en %d liggen"
 
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
@@ -10951,24 +10985,32 @@ msgid ""
 "This error was generated by a custom hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
 msgstr ""
+"Deze foutmelding komt van een hook-script op de Subversion server.\n"
+"Neem alstublieft contact op met de systeembeheerder voor ondersteuning bij het oplossen."
 
 #. Resource IDs: (251)
 msgid ""
 "This error was generated by a custom post-commit hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
 msgstr ""
+"Deze foutmelding komt van een post-commit hook-script op de Subversion server.\n"
+"Neem alstublieft contact op met de systeembeheerder voor ondersteuning bij het oplossen."
 
 #. Resource IDs: (251)
 msgid ""
 "This error was generated by a custom post-lock hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
 msgstr ""
+"Deze foutmelding komt van een post-lock hook-script op de Subversion server.\n"
+"Neem alstublieft contact op met de systeembeheerder voor ondersteuning bij het oplossen."
 
 #. Resource IDs: (251)
 msgid ""
 "This error was generated by a custom post-unlock hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
 msgstr ""
+"Deze foutmelding komt van een post-unlock hook-script op de Subversion server.\n"
+"Neem alstublieft contact op met de systeembeheerder voor ondersteuning bij het oplossen."
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
@@ -11086,6 +11128,9 @@ msgid ""
 "The command line to run is:\n"
 "%s"
 msgstr ""
+"Bij deze werkkopie is een lokaal hook-script beschikbaar. Wilt u het script uitvoeren?\n"
+"Het uit te voeren commando is:\n"
+"%s"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -11276,6 +11321,8 @@ msgid ""
 "TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
 "To fix this, you should empty the recycle bin now."
 msgstr ""
+"TortioseSVN heeft een ernstige vertraging ondervonden bij het plaatsen van %1!ld! objecten in de prullenbak. De prullenbak bevat momenteel %2!ld! objecten, wat hoogstwaarschijnlijk de oorzaak van de vertraging is.\n"
+"Om dit op te lossen dient u nu de prullenbak te legen."
 
 #. Resource IDs: (98)
 #, c-format
@@ -11462,7 +11509,7 @@ msgstr "Niet markeren"
 
 #. Resource IDs: (156)
 msgid "Undo"
-msgstr ""
+msgstr "Ongedaan maken"
 
 #. Resource IDs: (1069)
 #, c-format
@@ -11482,6 +11529,8 @@ msgid ""
 "Undo the last modifications\n"
 "Undo"
 msgstr ""
+"De laatste wijzigingen ongedaan maken\n"
+"Ongedaan maken"
 
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
@@ -11691,19 +11740,19 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block"
-msgstr ""
+msgstr "Gebruik 'mijn' tekstblok"
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block then 'theirs'"
-msgstr ""
+msgstr "Gebruik 'mijn' tekstblok en dan 'hun' tekstblok"
 
 #. Resource IDs: (156)
 msgid "Use 'theirs' text block"
-msgstr ""
+msgstr "Gebruik 'hun' tekstblok"
 
 #. Resource IDs: (156)
 msgid "Use 'theirs' text block then 'mine'"
-msgstr ""
+msgstr "Gebruik 'hun' tekstblok en dan 'mijn' tekstblok"
 
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
@@ -11711,7 +11760,7 @@ msgstr "Gebruik Aero vensters"
 
 #. Resource IDs: (156)
 msgid "Use Blocks"
-msgstr ""
+msgstr "Gebruik blokken"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11763,7 +11812,7 @@ msgstr "Gebruik beide tekstgedeeltes (deze laatst)"
 
 #. Resource IDs: (156)
 msgid "Use left block"
-msgstr ""
+msgstr "Gebruik linker blok"
 
 #. Resource IDs: (32856)
 msgid "Use left file"
@@ -11921,7 +11970,7 @@ msgstr ""
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
-msgstr ""
+msgstr "Validatie van eigenschap waarde mislukt!"
 
 #. Resource IDs: (11, 348)
 msgid "Value"
@@ -11958,11 +12007,11 @@ msgstr "Bezoek onze website"
 
 #. Resource IDs: (156, 563)
 msgid "Visual Studio 2005"
-msgstr ""
+msgstr "Visual Studio 2005"
 
 #. Resource IDs: (156, 563)
 msgid "Visual Studio 2008"
-msgstr ""
+msgstr "Visual Studio 2008"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -12058,15 +12107,15 @@ msgstr "Vensters"
 
 #. Resource IDs: (156, 563)
 msgid "Windows 2000"
-msgstr ""
+msgstr "Windows 2000"
 
 #. Resource IDs: (156, 563)
 msgid "Windows 7"
-msgstr ""
+msgstr "Windows 7"
 
 #. Resource IDs: (156, 563)
 msgid "Windows XP"
-msgstr ""
+msgstr "Windows XP"
 
 #. Resource IDs: (146)
 msgid "With URL:"
@@ -12100,13 +12149,15 @@ msgstr "Werkkopie: %s\n"
 
 #. Resource IDs: (156)
 msgid "Wrap long lines"
-msgstr ""
+msgstr "Terugloop bij lange regels"
 
 #. Resource IDs: (2056)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
 msgstr ""
+"Laat lange regels afbreken aan het einde van het venster\n"
+"Terugloop bij lange regels"
 
 #. Resource IDs: (563)
 msgid "Yes"
@@ -12459,7 +12510,7 @@ msgstr "alias: %s"
 
 #. Resource IDs: (1618)
 msgid "all &revisions"
-msgstr ""
+msgstr "alle &revisies"
 
 #. Resource IDs: (3841)
 msgid "an unnamed file"
@@ -12889,7 +12940,7 @@ msgstr "bereiken overslaan: "
 
 #. Resource IDs: (1619)
 msgid "specific r&ange"
-msgstr ""
+msgstr "specifiek &bereik"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -13283,19 +13334,19 @@ msgstr "totaal gebruikers revprops: "
 
 #. Resource IDs: (336, 1562)
 msgid "user:bool"
-msgstr ""
+msgstr "user:bool"
 
 #. Resource IDs: (339)
 msgid "user:multiline"
-msgstr ""
+msgstr "user:multiline"
 
 #. Resource IDs: (338)
 msgid "user:singleline"
-msgstr ""
+msgstr "user:singleline"
 
 #. Resource IDs: (337, 1622, 1623, 1624)
 msgid "user:state"
-msgstr ""
+msgstr "user:state"
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"
