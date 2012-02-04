@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "TortoiseProc.h"
 #include "SettingsTBlame.h"
 
-
 // CSettingsTBlame dialog
 
 IMPLEMENT_DYNAMIC(CSettingsTBlame, ISettingsPropPage)
@@ -31,13 +30,26 @@ CSettingsTBlame::CSettingsTBlame()
     , m_sFontName(_T(""))
     , m_dwTabSize(4)
 {
-    m_regNewLinesColor = CRegDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), RGB(255, 230, 230));
-    m_regOldLinesColor = CRegDWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), RGB(255, 255, 255));
-    m_regNewLinesColorBar = CRegDWORD(_T("Software\\TortoiseSVN\\BlameLocatorNewColor"), RGB(230, 0, 0));
-    m_regOldLinesColorBar = CRegDWORD(_T("Software\\TortoiseSVN\\BlameLocatorOldColor"), RGB(255, 255, 255));
+    m_regNewLinesColor = CRegDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), BLAMENEWCOLOR);
+    m_regOldLinesColor = CRegDWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), BLAMEOLDCOLOR);
+    m_regNewLinesColorBar = CRegDWORD(_T("Software\\TortoiseSVN\\BlameLocatorNewColor"), BLAMENEWCOLORBAR);
+    m_regOldLinesColorBar = CRegDWORD(_T("Software\\TortoiseSVN\\BlameLocatorOldColor"), BLAMEOLDCOLORBAR);
     m_regFontName = CRegString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"));
     m_regFontSize = CRegDWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10);
     m_regTabSize = CRegDWORD(_T("Software\\TortoiseSVN\\BlameTabSize"), 4);
+
+    m_regIndexColors[0] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor1", BLAMEINDEXCOLOR1);
+    m_regIndexColors[1] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor2", BLAMEINDEXCOLOR2);
+    m_regIndexColors[2] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor3", BLAMEINDEXCOLOR3);
+    m_regIndexColors[3] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor4", BLAMEINDEXCOLOR4);
+    m_regIndexColors[4] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor5", BLAMEINDEXCOLOR5);
+    m_regIndexColors[5] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor6", BLAMEINDEXCOLOR6);
+    m_regIndexColors[6] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor7", BLAMEINDEXCOLOR7);
+    m_regIndexColors[7] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor8", BLAMEINDEXCOLOR8);
+    m_regIndexColors[8] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor9", BLAMEINDEXCOLOR9);
+    m_regIndexColors[9] =  CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor10", BLAMEINDEXCOLOR10);
+    m_regIndexColors[10] = CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor11", BLAMEINDEXCOLOR11);
+    m_regIndexColors[11] = CRegDWORD(L"Software\\TortoiseSVN\\BlameIndexColor12", BLAMEINDEXCOLOR12);
 }
 
 CSettingsTBlame::~CSettingsTBlame()
@@ -61,6 +73,19 @@ void CSettingsTBlame::DoDataExchange(CDataExchange* pDX)
     }
     DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
     DDX_Text(pDX, IDC_TABSIZE, m_dwTabSize);
+    
+    DDX_Control(pDX, IDC_INDEXCOLOR1,  m_indexColors[0]);
+    DDX_Control(pDX, IDC_INDEXCOLOR2,  m_indexColors[1]);
+    DDX_Control(pDX, IDC_INDEXCOLOR3,  m_indexColors[2]);
+    DDX_Control(pDX, IDC_INDEXCOLOR4,  m_indexColors[3]);
+    DDX_Control(pDX, IDC_INDEXCOLOR5,  m_indexColors[4]);
+    DDX_Control(pDX, IDC_INDEXCOLOR6,  m_indexColors[5]);
+    DDX_Control(pDX, IDC_INDEXCOLOR7,  m_indexColors[6]);
+    DDX_Control(pDX, IDC_INDEXCOLOR8,  m_indexColors[7]);
+    DDX_Control(pDX, IDC_INDEXCOLOR9,  m_indexColors[8]);
+    DDX_Control(pDX, IDC_INDEXCOLOR10, m_indexColors[9]);
+    DDX_Control(pDX, IDC_INDEXCOLOR11, m_indexColors[10]);
+    DDX_Control(pDX, IDC_INDEXCOLOR12, m_indexColors[11]);
 }
 
 
@@ -73,6 +98,18 @@ BEGIN_MESSAGE_MAP(CSettingsTBlame, ISettingsPropPage)
     ON_BN_CLICKED(IDC_OLDLINESCOLOR, &CSettingsTBlame::OnBnClickedColor)
     ON_BN_CLICKED(IDC_NEWLINESCOLORBAR, &CSettingsTBlame::OnBnClickedColor)
     ON_BN_CLICKED(IDC_OLDLINESCOLORBAR, &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR1,  &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR2,  &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR3,  &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR4,  &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR5,  &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR6,  &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR7,  &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR8,  &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR9,  &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR10, &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR11, &CSettingsTBlame::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_INDEXCOLOR12, &CSettingsTBlame::OnBnClickedColor)
 END_MESSAGE_MAP()
 
 
@@ -92,14 +129,44 @@ BOOL CSettingsTBlame::OnInitDialog()
     CString sDefaultText, sCustomText;
     sDefaultText.LoadString(IDS_COLOURPICKER_DEFAULTTEXT);
     sCustomText.LoadString(IDS_COLOURPICKER_CUSTOMTEXT);
-    m_cNewLinesColor.EnableAutomaticButton(sDefaultText, RGB(255, 230, 230));
+    m_cNewLinesColor.EnableAutomaticButton(sDefaultText, BLAMENEWCOLOR);
     m_cNewLinesColor.EnableOtherButton(sCustomText);
-    m_cOldLinesColor.EnableAutomaticButton(sDefaultText, RGB(230, 230, 255));
+    m_cOldLinesColor.EnableAutomaticButton(sDefaultText, BLAMEOLDCOLOR);
     m_cOldLinesColor.EnableOtherButton(sCustomText);
-    m_cNewLinesColorBar.EnableAutomaticButton(sDefaultText, RGB(255, 230, 230));
+    m_cNewLinesColorBar.EnableAutomaticButton(sDefaultText, BLAMENEWCOLORBAR);
     m_cNewLinesColorBar.EnableOtherButton(sCustomText);
-    m_cOldLinesColorBar.EnableAutomaticButton(sDefaultText, RGB(230, 230, 255));
+    m_cOldLinesColorBar.EnableAutomaticButton(sDefaultText, BLAMEOLDCOLORBAR);
     m_cOldLinesColorBar.EnableOtherButton(sCustomText);
+
+    for (int i = 0; i < MAX_BLAMECOLORS; ++i)
+    {
+        m_indexColors[i].EnableOtherButton(sCustomText);
+    }
+    m_indexColors[0].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR1);
+    m_indexColors[1].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR2);
+    m_indexColors[2].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR3);
+    m_indexColors[3].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR4);
+    m_indexColors[4].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR5);
+    m_indexColors[5].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR6);
+    m_indexColors[6].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR7);
+    m_indexColors[7].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR8);
+    m_indexColors[8].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR9);
+    m_indexColors[9].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR10);
+    m_indexColors[10].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR11);
+    m_indexColors[11].EnableAutomaticButton(sDefaultText, BLAMEINDEXCOLOR12);
+    m_indexColors[0].SetColor(BLAMEINDEXCOLOR1);
+    m_indexColors[1].SetColor(BLAMEINDEXCOLOR2);
+    m_indexColors[2].SetColor(BLAMEINDEXCOLOR3);
+    m_indexColors[3].SetColor(BLAMEINDEXCOLOR4);
+    m_indexColors[4].SetColor(BLAMEINDEXCOLOR5);
+    m_indexColors[5].SetColor(BLAMEINDEXCOLOR6);
+    m_indexColors[6].SetColor(BLAMEINDEXCOLOR7);
+    m_indexColors[7].SetColor(BLAMEINDEXCOLOR8);
+    m_indexColors[8].SetColor(BLAMEINDEXCOLOR9);
+    m_indexColors[9].SetColor(BLAMEINDEXCOLOR10);
+    m_indexColors[10].SetColor(BLAMEINDEXCOLOR11);
+    m_indexColors[11].SetColor(BLAMEINDEXCOLOR12);
+
 
     m_dwTabSize = m_regTabSize;
     m_sFontName = m_regFontName;
@@ -140,10 +207,24 @@ void CSettingsTBlame::OnChange()
 
 void CSettingsTBlame::OnBnClickedRestore()
 {
-    m_cOldLinesColor.SetColor(RGB(255, 255, 255));
-    m_cNewLinesColor.SetColor(RGB(255, 230, 230));
-    m_cOldLinesColorBar.SetColor(RGB(255, 255, 255));
-    m_cNewLinesColorBar.SetColor(RGB(230, 0, 0));
+    m_cOldLinesColor.SetColor(BLAMEOLDCOLOR);
+    m_cNewLinesColor.SetColor(BLAMENEWCOLOR);
+    m_cOldLinesColorBar.SetColor(BLAMEOLDCOLORBAR);
+    m_cNewLinesColorBar.SetColor(BLAMENEWCOLORBAR);
+
+    m_indexColors[0].SetColor(BLAMEINDEXCOLOR1);
+    m_indexColors[1].SetColor(BLAMEINDEXCOLOR2);
+    m_indexColors[2].SetColor(BLAMEINDEXCOLOR3);
+    m_indexColors[3].SetColor(BLAMEINDEXCOLOR4);
+    m_indexColors[4].SetColor(BLAMEINDEXCOLOR5);
+    m_indexColors[5].SetColor(BLAMEINDEXCOLOR6);
+    m_indexColors[6].SetColor(BLAMEINDEXCOLOR7);
+    m_indexColors[7].SetColor(BLAMEINDEXCOLOR8);
+    m_indexColors[8].SetColor(BLAMEINDEXCOLOR9);
+    m_indexColors[9].SetColor(BLAMEINDEXCOLOR10);
+    m_indexColors[10].SetColor(BLAMEINDEXCOLOR11);
+    m_indexColors[11].SetColor(BLAMEINDEXCOLOR12);
+
     SetModified(TRUE);
 }
 
@@ -162,6 +243,9 @@ BOOL CSettingsTBlame::OnApply()
     Store ((LPCTSTR)m_sFontName, m_regFontName);
     Store (m_dwFontSize, m_regFontSize);
     Store (m_dwTabSize, m_regTabSize);
+
+    for (int i = 0; i < MAX_BLAMECOLORS; ++i)
+        Store ((m_indexColors[i].GetColor() == -1 ? m_indexColors[i].GetAutomaticColor() : m_indexColors[i].GetColor()), m_regIndexColors[i]);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();

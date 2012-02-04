@@ -41,7 +41,9 @@ BEGIN
     END
     POPUP "&View"
     BEGIN
-        MENUITEM "&Color age of lines",         ID_VIEW_COLORAGEOFLINES
+        MENUITEM "Color by &age, indexed",      ID_VIEW_COLORAGEOFLINES
+        MENUITEM "Color by age, &continuous",   ID_VIEW_COLORBYAGE
+        MENUITEM "Color by au&thor",            ID_VIEW_COLORBYAUTHOR
         MENUITEM "&Merge paths",                ID_VIEW_MERGEPATH
     END
 END

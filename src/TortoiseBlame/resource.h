@@ -28,6 +28,8 @@
 #define ID_VIEW_MERGEPATH               32786
 #define ID_EDIT_FINDSEL                 32791
 #define ID_EDIT_FINDNEXT                32792
+#define ID_VIEW_COLORBYAUTHOR           32793
+#define ID_VIEW_COLORBYAGE              32794
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -36,7 +38,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
 #define _APS_NEXT_RESOURCE_VALUE        131
-#define _APS_NEXT_COMMAND_VALUE         32793
+#define _APS_NEXT_COMMAND_VALUE         32795
 #define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           110
 #endif

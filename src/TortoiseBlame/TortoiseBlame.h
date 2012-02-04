@@ -23,6 +23,8 @@
 #include "SciLexer.h"
 #include "registry.h"
 
+#include <set>
+
 const COLORREF black = RGB(0,0,0);
 const COLORREF white = RGB(0xff,0xff,0xff);
 const COLORREF red = RGB(0xFF, 0, 0);
@@ -113,7 +115,7 @@ public:
     static long                 m_gotoLine;
     long                        m_lowestRev;
     long                        m_highestRev;
-    bool                        m_colorAge;
+    int                         m_colorby;
 
     std::vector<svn_revnum_t>   m_revs;
     std::vector<svn_revnum_t>   m_mergedRevs;
@@ -123,6 +125,10 @@ public:
     std::vector<tstring>        m_mergedAuthors;
     std::vector<tstring>        m_mergedPaths;
     std::map<LONG, tstring>     m_logMessages;
+    std::set<svn_revnum_t>      m_revset;
+    std::set<tstring>           m_authorset;
+    std::map<svn_revnum_t, COLORREF>    m_revcolormap;
+    std::map<tstring, COLORREF>         m_authorcolormap;
     char                        m_szTip[MAX_LOG_LENGTH*2+6];
     wchar_t                     m_wszTip[MAX_LOG_LENGTH*2+6];
     void StringExpand(LPSTR str);
@@ -133,7 +139,10 @@ protected:
     void SetupLexer(LPCTSTR fileName);
     void SetupCppLexer();
     COLORREF InterColor(COLORREF c1, COLORREF c2, int Slider);
+    COLORREF GetLineColor(int line);
+    void SetupColoring();
     static std::wstring GetAppDirectory();
+
     //std::vector<COLORREF>     m_colors;
     HFONT                       m_font;
     HFONT                       m_italicFont;
@@ -162,6 +171,7 @@ protected:
     CRegStdDWORD                m_regNewLinesColor;
     CRegStdDWORD                m_regLocatorOldLinesColor;
     CRegStdDWORD                m_regLocatorNewLinesColor;
+    CRegStdDWORD                m_regcolorby;
 
 private:
     static void MakeLower(TCHAR* buffer, size_t length );
