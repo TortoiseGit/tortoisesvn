@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-02 15:43+0000\n"
+"PO-Revision-Date: 2012-02-03 14:03+0000\n"
 "Last-Translator: Hong Xu <icehong@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -148,6 +148,8 @@ msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Date %4!s!"
 msgstr ""
+"%1!s!\n"
+"修改版本 %2!s!, 作者 %3!s!, 日期 %4!s!"
 
 #. Resource IDs: (105)
 #, c-format
@@ -155,6 +157,8 @@ msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Size %4!s!, Date %5!s!"
 msgstr ""
+"%1!s!\n"
+"修定版本 %2!s!, 作者 %3!s!, 大小 %4!s!, 日期 %5!s!"
 
 #. Resource IDs: (105)
 #, c-format
@@ -162,6 +166,8 @@ msgid ""
 "%1!s!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
 msgstr ""
+"%1!s!\n"
+"显示 %2!d! 个文件和 %3!d! 文件夹, %4!d!  总共。"
 
 #. Resource IDs: (3860)
 #, c-format
@@ -1073,7 +1079,7 @@ msgstr "打开(&O)"
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
-msgstr ""
+msgstr "&Operative:"
 
 #. Resource IDs: (1382)
 msgid "&Options"
@@ -2122,7 +2128,7 @@ msgstr "已经允许的钩子脚本"
 
 #. Resource IDs: (156, 564)
 msgid "Aqua Style"
-msgstr ""
+msgstr "Aqua 样式"
 
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
@@ -2291,7 +2297,7 @@ msgstr ""
 
 #. Resource IDs: (156, 564)
 msgid "Black Style"
-msgstr ""
+msgstr "黑色样式"
 
 #. Resource IDs: (162)
 msgid "Blame"
@@ -2315,7 +2321,7 @@ msgstr "Alpha 混和"
 
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
-msgstr ""
+msgstr "蓝色样式"
 
 #. Resource IDs: (83)
 msgid ""
@@ -3031,6 +3037,8 @@ msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
 msgstr ""
+"单击查看移动文件本块的命令\n"
+"使用文件块"
 
 #. Resource IDs: (257)
 msgid "Clipboard"
@@ -3121,6 +3129,8 @@ msgid ""
 "Command Line To Execute:\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
 msgstr ""
+"要执行的命令行：\n"
+"要在本地工作拷贝中指定一个路径，用 %REPOROOT% 当成是代码仓库的根路径"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -4749,6 +4759,8 @@ msgid ""
 "External \"%1!s!\"\r\n"
 "Revision %2!s!"
 msgstr ""
+"外部引用 \"%1!s!\"\n"
+"修定版本 %2!s!"
 
 #. Resource IDs: (263)
 msgid "External failed"
@@ -5167,7 +5179,7 @@ msgstr "常规::对话框组二"
 
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
-msgstr ""
+msgstr "通用::对话框 3"
 
 #. Resource IDs: (144)
 msgid "Generating patchfile..."
@@ -7371,6 +7383,8 @@ msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
 msgstr ""
+"打开diff 差异文件或者应用一个补丁\n"
+"打开文件"
 
 #. Resource IDs: (376, 1132)
 msgid "Open from clipboard"
@@ -7406,7 +7420,7 @@ msgstr "现在只在日志缓存中操作"
 
 #. Resource IDs: (218)
 msgid "Operative"
-msgstr ""
+msgstr "Operative"
 
 #. Resource IDs: (348)
 msgid "Option"
@@ -9521,6 +9535,8 @@ msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
 msgstr ""
+"空白和换行显示为特殊字符\n"
+"显示空白"
 
 #. Resource IDs: (345)
 msgid "Show statistics for the selected log cache"
@@ -9569,7 +9585,7 @@ msgstr "显示所有修改过该项的版本"
 
 #. Resource IDs: (200)
 msgid "Shows folders and files included with the svn:externals property"
-msgstr ""
+msgstr "显示svn:externals属性中的外部的文件夹及文件"
 
 #. Resource IDs: (10)
 msgid "Shows information about TortoiseSVN"
@@ -9981,7 +9997,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Switch between single and double pane view"
-msgstr ""
+msgstr "在单个和两个视图间切换"
 
 #. Resource IDs: (2049)
 msgid ""
@@ -9993,7 +10009,7 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Switch left and right view"
-msgstr ""
+msgstr "切换左边和右边的视图"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -10897,6 +10913,9 @@ msgid ""
 "The command line to run is:\n"
 "%s"
 msgstr ""
+"此工作拷贝有客户侧钩子脚本，是否执行脚本？\n"
+"要执行的命令是：\n"
+"%s"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -11264,7 +11283,7 @@ msgstr "取消选中"
 
 #. Resource IDs: (156)
 msgid "Undo"
-msgstr ""
+msgstr "撤消"
 
 #. Resource IDs: (1069)
 #, c-format
@@ -11284,6 +11303,8 @@ msgid ""
 "Undo the last modifications\n"
 "Undo"
 msgstr ""
+"撤消掉上次的修改\n"
+"撤消"
 
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
@@ -11491,19 +11512,19 @@ msgstr ""
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block"
-msgstr ""
+msgstr "使用’我的‘文本块"
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block then 'theirs'"
-msgstr ""
+msgstr "使用’我的‘文本块在前面 然后是‘它们的’"
 
 #. Resource IDs: (156)
 msgid "Use 'theirs' text block"
-msgstr ""
+msgstr "使用‘它们的’文本块"
 
 #. Resource IDs: (156)
 msgid "Use 'theirs' text block then 'mine'"
-msgstr ""
+msgstr "使用‘它们的’文件块在前面 然后是‘我的’"
 
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
@@ -11511,7 +11532,7 @@ msgstr "使用Aero对话框"
 
 #. Resource IDs: (156)
 msgid "Use Blocks"
-msgstr ""
+msgstr "使用文本块"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11563,7 +11584,7 @@ msgstr "使用两个文本块（这个块最后）"
 
 #. Resource IDs: (156)
 msgid "Use left block"
-msgstr ""
+msgstr "使用左边文件块"
 
 #. Resource IDs: (32856)
 msgid "Use left file"
@@ -11890,13 +11911,15 @@ msgstr "工作副本: %s\n"
 
 #. Resource IDs: (156)
 msgid "Wrap long lines"
-msgstr ""
+msgstr "长行换行"
 
 #. Resource IDs: (2056)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
 msgstr ""
+"在视图中长行达到右边框时换行\n"
+"长行换行"
 
 #. Resource IDs: (563)
 msgid "Yes"
@@ -12677,7 +12700,7 @@ msgstr "跳过范围: "
 
 #. Resource IDs: (1619)
 msgid "specific r&ange"
-msgstr ""
+msgstr "指定(&a)范围"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -13062,19 +13085,19 @@ msgstr "用户属性总计: "
 
 #. Resource IDs: (336, 1562)
 msgid "user:bool"
-msgstr ""
+msgstr "user:bool"
 
 #. Resource IDs: (339)
 msgid "user:multiline"
-msgstr ""
+msgstr "user:multiline"
 
 #. Resource IDs: (338)
 msgid "user:singleline"
-msgstr ""
+msgstr "user:singleline"
 
 #. Resource IDs: (337, 1622, 1623, 1624)
 msgid "user:state"
-msgstr ""
+msgstr "user:state"
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"
