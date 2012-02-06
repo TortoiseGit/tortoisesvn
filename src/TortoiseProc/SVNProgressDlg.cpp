@@ -2283,20 +2283,27 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
     {
         if (index == 0)
             rootUrl = it->first;
-        if (it->second == svn_depth_unknown)
+        svn_depth_t depth = it->second;
+        CTSVNPath url = CTSVNPath(it->first);
+        CTSVNPath checkoutdir = m_targetPathList[0];
+        CString fileordir = it->first.Mid(rootUrl.GetLength());
+        if ((index >= 1)||(SVNHelper::IsVersioned(checkoutdir, false)))
+        {
+            fileordir = CPathUtils::PathUnescape(fileordir);
+            checkoutdir.AppendPathString(fileordir);
+            fileordir.TrimLeft('/');
+        }
+        if ((depth == svn_depth_unknown)&&(checkoutdir.Exists()))
         {
             ++index;
             continue;
         }
-        CTSVNPath url = CTSVNPath(it->first);
+        if (depth == svn_depth_unknown)
+            depth = svn_depth_empty;
+
         CAppUtils::SetWindowTitle(m_hWnd, url.GetUIFileOrDirectoryName(), sWindowTitle);
-        CTSVNPath checkoutdir = m_targetPathList[0];
         if ((index >= 1)||(SVNHelper::IsVersioned(checkoutdir, false)))
         {
-            CString fileordir = it->first.Mid(rootUrl.GetLength());
-            fileordir = CPathUtils::PathUnescape(fileordir);
-            checkoutdir.AppendPathString(fileordir);
-            fileordir.TrimLeft('/');
             sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SPARSEUPDATE, (LPCTSTR)fileordir, (LPCTSTR)SVNStatus::GetDepthString(it->second));
             ReportCmd(sCmdInfo);
         }
@@ -2333,9 +2340,9 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
         }
         else
         {
-            if ((it->second != svn_depth_exclude)||(checkoutdir.Exists()))
+            if ((depth != svn_depth_exclude)||(checkoutdir.Exists()))
             {
-                if (!Update(CTSVNPathList(checkoutdir), m_Revision, it->second, true, (m_options & ProgOptIgnoreExternals) != 0, true, false))
+                if (!Update(CTSVNPathList(checkoutdir), m_Revision, depth, true, (m_options & ProgOptIgnoreExternals) != 0, true, false))
                 {
                     ReportSVNError();
                     return false;
