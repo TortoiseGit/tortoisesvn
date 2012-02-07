@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -208,7 +208,7 @@ void CHistoryCombo::SaveHistory()
     GetWindowText(sCurItem);
     if (m_bTrim)
         sCurItem.Trim();
-    if (!sCurItem.IsEmpty())
+    if (!sCurItem.IsEmpty()&&(sCurItem.GetLength() < MAX_PATH))
         AddString(sCurItem, 0);
     //save history to registry/inifile
     int nMax = min(GetCount(), m_nMaxHistoryItems + 1);
@@ -311,7 +311,15 @@ CString CHistoryCombo::GetString() const
     CString str;
     int sel;
     sel = GetCurSel();
+    int len = 0;
+    if (sel != CB_ERR)
+        len = GetLBTextLen(sel);
     if (sel == CB_ERR)
+    {
+        GetWindowText(str);
+        return str;
+    }
+    if (len >= (MAX_PATH-1))
     {
         GetWindowText(str);
         return str;
