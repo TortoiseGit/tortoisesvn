@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,7 +52,7 @@ protected:
     afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
     afx_msg void    OnLButtonDown(UINT nFlags, CPoint point);
     afx_msg void    OnMouseMove(UINT nFlags, CPoint point);
-    LRESULT         OnMouseLeave(WPARAM, LPARAM);
+    afx_msg void    OnLButtonUp(UINT nFlags, CPoint point);
     void            ScrollOnMouseMove(const CPoint& point );
     void            ScrollViewToLine(CBaseView* view, int nLine) const;
     void            PaintView(CDC& cacheDC, CBaseView* view, CDWordArray& indents, CDWordArray& states,
@@ -64,7 +64,6 @@ protected:
 
     int             m_nLines;
     CPoint          m_MousePos;
-    BOOL            m_bMouseWithin;
     CDWordArray     m_arLeftIdent;
     CDWordArray     m_arLeftState;
     CDWordArray     m_arRightIdent;

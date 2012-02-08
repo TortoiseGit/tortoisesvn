@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2011 - TortoiseSVN
+// Copyright (C) 2006-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,6 @@ IMPLEMENT_DYNAMIC(CLocatorBar, CPaneDialog)
 CLocatorBar::CLocatorBar() : CPaneDialog()
     , m_pMainFrm(NULL)
     , m_pCacheBitmap(NULL)
-    , m_bMouseWithin(FALSE)
     , m_regUseFishEye(_T("Software\\TortoiseMerge\\UseFishEye"), TRUE)
     , m_nLines(-1)
 {
@@ -53,7 +52,7 @@ BEGIN_MESSAGE_MAP(CLocatorBar, CPaneDialog)
     ON_WM_ERASEBKGND()
     ON_WM_LBUTTONDOWN()
     ON_WM_MOUSEMOVE()
-    ON_MESSAGE(WM_MOUSELEAVE, OnMouseLeave)
+    ON_WM_LBUTTONUP()
 END_MESSAGE_MAP()
 
 void CLocatorBar::DocumentUpdated()
@@ -163,7 +162,14 @@ void CLocatorBar::OnPaint()
     cacheDC.FillSolidRect(rect.left + (width*2/3), rect.top, 1, height, RGB(0,0,0));
 
     // draw the fish eye
-    if ((m_bMouseWithin)&&(DWORD(m_regUseFishEye)))
+    DWORD pos = GetMessagePos();
+    CRect screenRect = rect;
+    ClientToScreen(screenRect);
+    POINT pt;
+    pt.x = GET_X_LPARAM(pos);
+    pt.y = GET_Y_LPARAM(pos);
+
+    if ((screenRect.PtInRect(pt))&&(DWORD(m_regUseFishEye)))
         DrawFishEye (cacheDC, rect);
 
     VERIFY(dc.BitBlt(rect.left, rect.top, width, height, &cacheDC, 0, 0, SRCCOPY));
@@ -200,27 +206,22 @@ void CLocatorBar::OnLButtonDown(UINT nFlags, CPoint point)
 void CLocatorBar::OnMouseMove(UINT nFlags, CPoint point)
 {
     m_MousePos = point;
-    if (!m_bMouseWithin)
-    {
-        m_bMouseWithin = TRUE;
-        TRACKMOUSEEVENT tme;
-        tme.cbSize = sizeof(TRACKMOUSEEVENT);
-        tme.dwFlags = TME_LEAVE;
-        tme.hwndTrack = m_hWnd;
-        _TrackMouseEvent(&tme);
-    }
 
     if (nFlags & MK_LBUTTON)
+    {
+        SetCapture();
         ScrollOnMouseMove(point);
+    }
 
     Invalidate();
 }
 
-LRESULT CLocatorBar::OnMouseLeave(WPARAM, LPARAM)
+void CLocatorBar::OnLButtonUp(UINT nFlags, CPoint point)
 {
-    m_bMouseWithin = FALSE;
+    ReleaseCapture();
     Invalidate();
-    return 0;
+
+    CPaneDialog::OnLButtonUp(nFlags, point);
 }
 
 void CLocatorBar::ScrollOnMouseMove(const CPoint& point )
@@ -324,3 +325,4 @@ void CLocatorBar::DrawFishEye(CDC& cacheDC, const CRect& rect )
         }
     }
 }
+

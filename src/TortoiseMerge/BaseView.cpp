@@ -79,7 +79,6 @@ CBaseView::CBaseView()
     m_nDigits = 0;
     m_nMouseLine = -1;
     m_mouseInMargin = false;
-    m_bMouseWithin = FALSE;
     m_bIsHidden = FALSE;
     lineendings = EOL_AUTOLINE;
     m_bReadonly = true;
@@ -182,7 +181,6 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
     ON_COMMAND(ID_CARET_WORDRIGHT, &CBaseView::OnCaretWordright)
     ON_COMMAND(ID_EDIT_CUT, &CBaseView::OnEditCut)
     ON_COMMAND(ID_EDIT_PASTE, &CBaseView::OnEditPaste)
-    ON_WM_MOUSELEAVE()
     ON_WM_TIMER()
     ON_WM_LBUTTONDBLCLK()
     ON_COMMAND(ID_NAVIGATE_NEXTINLINEDIFF, &CBaseView::OnNavigateNextinlinediff)
@@ -195,6 +193,7 @@ BEGIN_MESSAGE_MAP(CBaseView, CView)
     ON_COMMAND(ID_EDIT_FINDNEXTSTART, OnEditFindnextStart)
     ON_COMMAND(ID_EDIT_FINDPREVSTART, OnEditFindprevStart)
     ON_COMMAND(ID_EDIT_GOTOLINE, &CBaseView::OnEditGotoline)
+    ON_WM_LBUTTONUP()
 END_MESSAGE_MAP()
 
 
@@ -3091,27 +3090,20 @@ void CBaseView::OnMouseMove(UINT nFlags, CPoint point)
             ScrollAllSide(1);
             SetTimer(IDT_SCROLLTIMER, 20, NULL);
         }
+        SetCapture();
     }
 
-    if (!m_bMouseWithin)
-    {
-        m_bMouseWithin = TRUE;
-        TRACKMOUSEEVENT tme;
-        tme.cbSize = sizeof(TRACKMOUSEEVENT);
-        tme.dwFlags = TME_LEAVE;
-        tme.hwndTrack = m_hWnd;
-        _TrackMouseEvent(&tme);
-    }
 
     CView::OnMouseMove(nFlags, point);
 }
 
-void CBaseView::OnMouseLeave()
+void CBaseView::OnLButtonUp(UINT nFlags, CPoint point)
 {
     ShowDiffLines(-1);
-    m_bMouseWithin = FALSE;
+    ReleaseCapture();
     KillTimer(IDT_SCROLLTIMER);
-    CView::OnMouseLeave();
+
+    __super::OnLButtonUp(nFlags, point);
 }
 
 void CBaseView::OnTimer(UINT_PTR nIDEvent)
