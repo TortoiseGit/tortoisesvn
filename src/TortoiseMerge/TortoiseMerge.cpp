@@ -69,6 +69,7 @@ CTortoiseMergeApp::CTortoiseMergeApp()
     EnableHtmlHelp();
     m_bLoadUserToolbars = FALSE;
     m_bSaveState = FALSE;
+    m_bHiColorIcons = TRUE;
 }
 
 // The one and only CTortoiseMergeApp object
@@ -82,9 +83,6 @@ BOOL CTortoiseMergeApp::InitInstance()
 {
     SetDllDirectory(L"");
     SetTaskIDPerUUID();
-
-    CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
-    CMFCButton::EnableWindowsTheming();
 
     {
         DWORD len = GetCurrentDirectory(0, NULL);
@@ -184,6 +182,10 @@ BOOL CTortoiseMergeApp::InitInstance()
     // manifest specifies use of ComCtl32.dll version 6 or later to enable
     // visual styles.  Otherwise, any window creation will fail.
     InitCommonControls();
+
+    CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
+    CMFCButton::EnableWindowsTheming();
+    EnableTaskbarInteraction(FALSE);
 
     // Initialize all Managers for usage. They are automatically constructed
     // if not yet present
