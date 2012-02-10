@@ -243,35 +243,42 @@ void CMainFrame::OnApplicationLook(UINT id)
     {
     case ID_VIEW_APPLOOK_WIN_2000:
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManager));
+        m_wndRibbonBar.SetWindows7Look(FALSE);
         break;
 
     case ID_VIEW_APPLOOK_OFF_XP:
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOfficeXP));
+        m_wndRibbonBar.SetWindows7Look(FALSE);
         break;
 
     case ID_VIEW_APPLOOK_WIN_XP:
         CMFCVisualManagerWindows::m_b3DTabsXPTheme = TRUE;
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
-        break;
-
-    case ID_VIEW_APPLOOK_WIN7:
-        CMFCVisualManagerWindows::m_b3DTabsXPTheme = TRUE;
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows7));
+        m_wndRibbonBar.SetWindows7Look(FALSE);
         break;
 
     case ID_VIEW_APPLOOK_OFF_2003:
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2003));
         CDockingManager::SetDockingMode(DT_SMART);
+        m_wndRibbonBar.SetWindows7Look(FALSE);
         break;
 
     case ID_VIEW_APPLOOK_VS_2005:
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerVS2005));
         CDockingManager::SetDockingMode(DT_SMART);
+        m_wndRibbonBar.SetWindows7Look(FALSE);
         break;
 
     case ID_VIEW_APPLOOK_VS_2008:
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerVS2008));
         CDockingManager::SetDockingMode(DT_SMART);
+        m_wndRibbonBar.SetWindows7Look(FALSE);
+        break;
+
+    case ID_VIEW_APPLOOK_WIN7:
+        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows7));
+        CDockingManager::SetDockingMode(DT_SMART);
+        m_wndRibbonBar.SetWindows7Look(TRUE);
         break;
 
     default:
@@ -296,6 +303,7 @@ void CMainFrame::OnApplicationLook(UINT id)
 
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2007));
         CDockingManager::SetDockingMode(DT_SMART);
+        m_wndRibbonBar.SetWindows7Look(FALSE);
     }
 
     RedrawWindow(NULL, NULL, RDW_ALLCHILDREN | RDW_INVALIDATE | RDW_UPDATENOW | RDW_FRAME | RDW_ERASE);
