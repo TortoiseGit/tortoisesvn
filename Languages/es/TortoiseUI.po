@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-01 11:15+0000\n"
+"PO-Revision-Date: 2012-02-09 14:10+0000\n"
 "Last-Translator: Tomás Christie <tommychristie@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -147,6 +147,8 @@ msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Date %4!s!"
 msgstr ""
+"%1!s!\n"
+"Revisión %2!s!, Autor %3!s!, Fecha %4!s!"
 
 #. Resource IDs: (105)
 #, c-format
@@ -154,6 +156,8 @@ msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Size %4!s!, Date %5!s!"
 msgstr ""
+"%1!s!\n"
+"Revisión %2!s!, Autor %3!s!, Tamaño %4!s!, Fecha %5!s!"
 
 #. Resource IDs: (105)
 #, c-format
@@ -161,6 +165,8 @@ msgid ""
 "%1!s!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
 msgstr ""
+"%1!s!\n"
+"Mostrando %2!d! archivos y %3!d! carpetas, %4!d! elementos en total"
 
 #. Resource IDs: (3860)
 #, c-format
@@ -4838,6 +4844,8 @@ msgid ""
 "External \"%1!s!\"\r\n"
 "Revision %2!s!"
 msgstr ""
+"Externos \"%1!s!\"\n"
+"Revisión %2!s!"
 
 #. Resource IDs: (263)
 msgid "External failed"
@@ -6402,12 +6410,12 @@ msgstr "Diferencias de líneas"
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved from line %ld"
-msgstr ""
+msgstr "Linea movida desde linea %ld"
 
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved to line %ld"
-msgstr ""
+msgstr "Linea movida hacia linea %ld"
 
 #. Resource IDs: (65535)
 msgid "Line:"
@@ -6465,7 +6473,7 @@ msgstr ""
 
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
-msgstr ""
+msgstr "&Ganchos locales"
 
 #. Resource IDs: (63)
 msgid "Local status"
@@ -8760,7 +8768,7 @@ msgstr "Resuelve archivos en conflicto"
 
 #. Resource IDs: (620)
 msgid "Restore"
-msgstr ""
+msgstr "Restaurar"
 
 #. Resource IDs: (1254)
 msgid "Restore Default"
@@ -8768,7 +8776,7 @@ msgstr "Restaurar por Defecto"
 
 #. Resource IDs: (620)
 msgid "Restore after commit"
-msgstr ""
+msgstr "Restaurar después de confirmar"
 
 #. Resource IDs: (3826)
 msgid "Restore the window to normal size"
@@ -11360,6 +11368,14 @@ msgid ""
 "%s\r\n"
 "zlib %s"
 msgstr ""
+"TortoiseSVN %d.%d.%d, Build %d - %s, %s\n"
+"Subversion %d.%d.%d, %s\n"
+"apr %d.%d.%d\n"
+"apr-utils %d.%d.%d\n"
+"neon %s\n"
+"serf %d.%d.%d\n"
+"%s\n"
+"zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11373,6 +11389,8 @@ msgid ""
 "TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
 "To fix this, you should empty the recycle bin now."
 msgstr ""
+"TortoiseSVN detecto un serio enlentecimiento al mover %1!ld! elementos a la papelera de reciclaje. La papelera de reciclaje actualmente contiene %2!ld! elementos, lo cual probablemente sea la causa de este enlentecimiento.\n"
+"Para solucionar esto, se recomienda vaciar la papelera de reciclaje ahora."
 
 #. Resource IDs: (98)
 #, c-format
@@ -12016,7 +12034,7 @@ msgstr ""
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
-msgstr ""
+msgstr "Fallo en la validación del valor de la propiedad!"
 
 #. Resource IDs: (11, 348)
 msgid "Value"
@@ -13379,19 +13397,19 @@ msgstr "total de revprops del usuario: "
 
 #. Resource IDs: (336, 1562)
 msgid "user:bool"
-msgstr ""
+msgstr "user:bool"
 
 #. Resource IDs: (339)
 msgid "user:multiline"
-msgstr ""
+msgstr "user:multiline"
 
 #. Resource IDs: (338)
 msgid "user:singleline"
-msgstr ""
+msgstr "user:singleline"
 
 #. Resource IDs: (337, 1622, 1623, 1624)
 msgid "user:state"
-msgstr ""
+msgstr "user:state"
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"
