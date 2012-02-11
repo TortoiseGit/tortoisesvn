@@ -469,10 +469,14 @@ void CRepositoryBrowser::InitRepo()
     userCancelledError.LoadStringW (IDS_SVN_USERCANCELLED);
 
     std::deque<CItem> dummy;
+    CString redirectedUrl;
     CString error
         = m_cancelled
         ? userCancelledError
-        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, !m_bSparseCheckoutMode && m_bShowExternals, dummy);
+        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, !m_bSparseCheckoutMode && m_bShowExternals, dummy, redirectedUrl);
+
+    if (!redirectedUrl.IsEmpty() && svn_path_is_url(CUnicodeUtils::GetUTF8(m_InitialUrl)))
+        m_InitialUrl = CPathUtils::PathUnescape(redirectedUrl);
 
     // the only way CQuery::List will return the following error
     // is by calling it with a file path instead of a dir path
@@ -485,7 +489,7 @@ void CRepositoryBrowser::InitRepo()
     if (error == wasFileError)
     {
         m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
-        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, !m_bSparseCheckoutMode && m_bShowExternals, dummy);
+        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, !m_bSparseCheckoutMode && m_bShowExternals, dummy, redirectedUrl);
     }
 
     // exit upon cancel
@@ -1232,6 +1236,7 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
     // standard list plus immediate externals
 
     std::deque<CItem>& children = pTreeItem->children;
+    CString redirectedUrl;
     children.clear();
     pTreeItem->has_child_folders = false;
     pTreeItem->error = m_lister.GetList ( pTreeItem->url
@@ -1241,7 +1246,8 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
                                         , pTreeItem->repository
                                         , true
                                         , !m_bSparseCheckoutMode && m_bShowExternals
-                                        , children);
+                                        , children
+                                        , redirectedUrl);
 
     // add parent sub-tree externals
 
@@ -3737,7 +3743,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                                                      , dlg.StartRev
                                                      , dlg.EndRev
                                                      , dlg.EndRev
-                                                     , SVN::GetOptionsString (!!dlg.m_bIgnoreEOL, !!dlg.m_IgnoreSpaces)
+                                                     , SVN::GetOptionsString (!!dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces)
                                                      , dlg.m_bIncludeMerge
                                                      , TRUE
                                                      , TRUE);

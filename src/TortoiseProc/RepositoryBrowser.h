@@ -285,6 +285,7 @@ private:
     bool                m_bStandAlone;
     bool                m_bSparseCheckoutMode;
     CString             m_InitialUrl;
+    CTSVNPath           m_redirectedUrl;
     CString             m_selectedURLs; ///< only valid after <OK>
     bool                m_bThreadRunning;
     static const UINT   m_AfterInitMessage;

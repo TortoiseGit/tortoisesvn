@@ -175,6 +175,8 @@ void CRepositoryLister::CListQuery::InternalExecute()
     else
     {
         // add results from the sub-query
+        if (!m_redirectedUrl.IsEmpty())
+            redirectedUrl = m_redirectedUrl.GetSVNPathString();
 
         if (externalsQuery != NULL)
         {
@@ -703,7 +705,8 @@ CString CRepositoryLister::GetList
     , const SRepositoryInfo& repository
     , bool complete
     , bool includeExternals
-    , std::deque<CItem>& items)
+    , std::deque<CItem>& items
+    , CString& redirUrl)
 {
     async::CCriticalSectionLock lock (mutex);
 
@@ -715,6 +718,7 @@ CString CRepositoryLister::GetList
     // get "ordinary" list plus direct externals
 
     items = query->GetResult();
+    redirUrl = query->GetRedirectedUrl();
     return query->GetError();
 }
 

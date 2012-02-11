@@ -183,6 +183,10 @@ private:
 
         CString error;
 
+        /// in case of a redirect
+        
+        CString redirectedUrl;
+
         /// copy copying supported
 
         CQuery (const CQuery&);
@@ -211,6 +215,7 @@ private:
 
         const std::deque<CItem>& GetResult();
         const CString& GetError();
+        const CString& GetRedirectedUrl() {return redirectedUrl;}
         bool Succeeded();
     };
 
@@ -463,7 +468,8 @@ public:
                     , const SRepositoryInfo& repository
                     , bool complete
                     , bool includeExternals
-                    , std::deque<CItem>& items);
+                    , std::deque<CItem>& items
+                    , CString& redirUrl);
 
     /// get an already stored query result, if available.
     /// Otherwise, get the list directly.
