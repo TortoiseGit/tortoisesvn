@@ -4920,11 +4920,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
     if (GetSelectedCount() == 0)
         return false;
 
-    WORD langID = (WORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), GetUserDefaultLangID());
-
     CString sClipboard;
-    CString temp;
-    TCHAR buf[100];
 
     // count the bits
     int c = 0;
