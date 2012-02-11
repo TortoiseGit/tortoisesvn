@@ -34,6 +34,8 @@ Version 1.7.5
        with non-ASCII chars. (Stefan)
 - BUG: Issue #209: repo browser doesn't
        handle redirects properly. (Stefan)
+- BUG: Issue #210: blame "ignore all whitespaces"
+       uses -b instead of -w. (Stefan)
 
 Version 1.7.4
 - BUG: Issue #169: Error "Access to 

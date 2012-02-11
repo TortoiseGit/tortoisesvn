@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2011 - TortoiseSVN
+// Copyright (C) 2007-2009, 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,7 +32,7 @@ bool MergeAllCommand::Execute()
         progDlg.SetAutoClose (parser);
         progDlg.SetPathList(pathList);
         progDlg.SetDepth(dlg.m_depth);
-        progDlg.SetDiffOptions(SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, !!dlg.m_IgnoreSpaces));
+        progDlg.SetDiffOptions(SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces));
         int options = dlg.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
         options |= dlg.m_bForce ? ProgOptForce : 0;
         progDlg.SetOptions(options);

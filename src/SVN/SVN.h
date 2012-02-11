@@ -892,7 +892,7 @@ public:
      * Returns a string which can be passed as the options string for the Merge()
      * methods and the Blame() method.
      */
-    static CString GetOptionsString(bool bIgnoreEOL, bool bIgnoreSpaces = FALSE, bool bIgnoreAllSpaces = FALSE);
+    static CString GetOptionsString(bool bIgnoreEOL, bool bIgnoreSpaces, bool bIgnoreAllSpaces);
     static CString GetOptionsString(bool bIgnoreEOL, svn_diff_file_ignore_space_t space = svn_diff_file_ignore_space_none);
 
     /**

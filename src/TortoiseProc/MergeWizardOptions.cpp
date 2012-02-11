@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -231,7 +231,7 @@ void CMergeWizardOptions::OnBnClickedDryrun()
 
     progDlg.SetDepth(pWizard->m_depth);
     pWizard->m_IgnoreSpaces = GetIgnores();
-    progDlg.SetDiffOptions(SVN::GetOptionsString(!!pWizard->m_bIgnoreEOL, !!pWizard->m_IgnoreSpaces));
+    progDlg.SetDiffOptions(SVN::GetOptionsString(!!pWizard->m_bIgnoreEOL, pWizard->m_IgnoreSpaces));
     progDlg.DoModal();
 }
 
