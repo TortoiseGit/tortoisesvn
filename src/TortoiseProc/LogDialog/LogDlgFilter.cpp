@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2011 - TortoiseSVN
+// Copyright (C) 2009-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -181,15 +181,15 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
 std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (wstring& textUTF16) const
 {
     std::vector<CHARRANGE> ranges;
+
+    // normalize to lower case
+
+    if (!caseSensitive && !textUTF16.empty())
+        _wcslwr_s (&textUTF16.at(0), textUTF16.length()+1);
     std::string textUTF8 = CUnicodeUtils::StdGetUTF8 (textUTF16);
 
     if (patterns.empty())
     {
-        // normalize to lower case
-
-        if (!caseSensitive && !textUTF8.empty())
-            _strlwr_s (&textUTF8.at(0), textUTF8.length()+1);
-
         // require all strings to be present
 
         const char* toScan = textUTF8.c_str();
