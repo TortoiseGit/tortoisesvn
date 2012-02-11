@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,6 +62,7 @@ CEditPropertiesDlg::CEditPropertiesDlg(CWnd* pParent /*=NULL*/)
     , m_revision(SVNRev::REV_WC)
     , m_bRevProps(false)
     , m_pProjectProperties(NULL)
+    , m_bUrlIsFolder(false)
 {
 }
 
@@ -189,6 +190,19 @@ BOOL CEditPropertiesDlg::OnInitDialog()
         {
             bFolder = false;
             bFile = true;
+        }
+        if (m_pathlist[0].IsUrl())
+        {
+            if (m_bUrlIsFolder)
+            {
+                bFolder = true;
+                bFile = false;
+            }
+            else
+            {
+                bFolder = false;
+                bFile = true;
+            }
         }
     }
     for (auto it = m_userProperties.begin(); it != m_userProperties.end(); ++it)
@@ -369,7 +383,7 @@ UINT CEditPropertiesDlg::PropsThread()
 
     InterlockedExchange(&m_bThreadRunning, FALSE);
     m_propList.SetRedraw(TRUE);
-    if (!PathIsDirectory(m_pathlist[0].GetWinPath()))
+    if (!PathIsDirectory(m_pathlist[0].GetWinPath()) && !m_bUrlIsFolder)
     {
         // properties for one or more files:
         // remove the menu entries which are only useful for folders

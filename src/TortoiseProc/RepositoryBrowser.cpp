@@ -3707,6 +3707,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     dlg.SetUUID(selection.GetRepository(0).uuid);
                     dlg.SetPathList(selection.GetURLsEscaped(0));
                     dlg.SetRevision(GetHEADRevision(selection.GetURL (0, 0)));
+                    dlg.UrlIsFolder(selection.GetFolderCount(0)!=0);
                     dlg.DoModal();
                 }
                 else
