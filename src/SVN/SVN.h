@@ -903,7 +903,7 @@ public:
 
     void SetCancelBool(bool * bCancel) { m_pbCancel = bCancel; }
 
-    const CTSVNPath& GetRedirectedUrl() const {return m_redirectedUrl;}
+    const CTSVNPath& GetRedirectedUrlPath() const {return m_redirectedUrl;}
 protected:
     apr_pool_t *                parentpool;     ///< the main memory pool
     apr_pool_t *                pool;           ///< 'root' memory pool
