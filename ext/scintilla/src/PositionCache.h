@@ -51,7 +51,7 @@ public:
 	// Wrapped line support
 	int widthLine;
 	int lines;
-	int wrapIndent; // In pixels
+	XYPOSITION wrapIndent; // In pixels
 
 	LineLayout(int maxLineLength_);
 	virtual ~LineLayout();
@@ -65,7 +65,7 @@ public:
 	void SetBracesHighlight(Range rangeLine, Position braces[],
 		char bracesMatchStyle, int xHighlight, bool ignoreStyle);
 	void RestoreBracesHighlight(Range rangeLine, Position braces[], bool ignoreStyle);
-	int FindBefore(int x, int lower, int upper) const;
+	int FindBefore(XYPOSITION x, int lower, int upper) const;
 	int EndLineStyle() const;
 };
 

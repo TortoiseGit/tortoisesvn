@@ -71,8 +71,8 @@ public:
 	int lineHeight;
 	unsigned int maxAscent;
 	unsigned int maxDescent;
-	unsigned int aveCharWidth;
-	unsigned int spaceWidth;
+	XYPOSITION aveCharWidth;
+	XYPOSITION spaceWidth;
 	bool selforeset;
 	ColourDesired selforeground;
 	ColourDesired selAdditionalForeground;

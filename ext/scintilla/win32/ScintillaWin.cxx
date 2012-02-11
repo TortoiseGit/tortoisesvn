@@ -24,7 +24,7 @@
 #include <richedit.h>
 #include <windowsx.h>
 
-#if defined(_MSC_VER)
+#if defined(_MSC_VER) && (_MSC_VER > 1200)
 #define USE_D2D 1
 #endif
 
@@ -204,6 +204,7 @@ class ScintillaWin :
 
 #if defined(USE_D2D)
 	ID2D1HwndRenderTarget *pRenderTarget;
+	bool renderTargetValid;
 #endif
 
 	ScintillaWin(HWND hwnd);
@@ -249,7 +250,6 @@ class ScintillaWin :
 	virtual void SetCtrlID(int identifier);
 	virtual int GetCtrlID();
 	virtual void NotifyParent(SCNotification scn);
-	virtual void NotifyParent(SCNotification * scn);
 	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
 	virtual CaseFolder *CaseFolderForEncoding();
 	virtual std::string CaseMapString(const std::string &s, int caseMapping);
@@ -363,6 +363,7 @@ ScintillaWin::ScintillaWin(HWND hwnd) {
 
 #if defined(USE_D2D)
 	pRenderTarget = 0;
+	renderTargetValid = true;
 #endif
 
 	keysAlwaysUnicode = false;
@@ -408,6 +409,10 @@ void ScintillaWin::Finalise() {
 
 void ScintillaWin::EnsureRenderTarget() {
 #if defined(USE_D2D)
+	if (!renderTargetValid) {
+		DropRenderTarget();
+		renderTargetValid = true;
+	}
 	if (pD2DFactory && !pRenderTarget) {
 		RECT rc;
 		HWND hw = MainHWND();
@@ -430,6 +435,9 @@ void ScintillaWin::EnsureRenderTarget() {
 			D2D1::HwndRenderTargetProperties(hw, size),
 			&pRenderTarget);
 #endif
+		// Pixmaps were created to be compatible with previous render target so
+		// need to be recreated.
+		DropGraphics(false);
 	}
 #endif
 }
@@ -746,7 +754,13 @@ sptr_t ScintillaWin::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam
 			break;
 
 		case WM_SIZE: {
-				DropRenderTarget();
+#if defined(USE_D2D)
+				if (paintState == notPainting) {
+					DropRenderTarget();
+				} else {
+					renderTargetValid = false;
+				}
+#endif
 				//Platform::DebugPrintf("Scintilla WM_SIZE %d %d\n", LoWord(lParam), HiWord(lParam));
 				ChangeSize();
 			}
@@ -887,16 +901,17 @@ sptr_t ScintillaWin::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam
 				} else {
 					// Display regular (drag) cursor over selection
 					POINT pt;
-					::GetCursorPos(&pt);
-					::ScreenToClient(MainHWND(), &pt);
-					if (PointInSelMargin(Point(pt.x, pt.y))) {
-						DisplayCursor(GetMarginCursor(Point(pt.x, pt.y)));
-					} else if (PointInSelection(Point(pt.x, pt.y)) && !SelectionEmpty()) {
-						DisplayCursor(Window::cursorArrow);
-					} else if (PointIsHotspot(Point(pt.x, pt.y))) {
-						DisplayCursor(Window::cursorHand);
-					} else {
-						DisplayCursor(Window::cursorText);
+					if (0 != ::GetCursorPos(&pt)) {
+						::ScreenToClient(MainHWND(), &pt);
+						if (PointInSelMargin(Point(pt.x, pt.y))) {
+							DisplayCursor(GetMarginCursor(Point(pt.x, pt.y)));
+						} else if (PointInSelection(Point(pt.x, pt.y)) && !SelectionEmpty()) {
+							DisplayCursor(Window::cursorArrow);
+						} else if (PointIsHotspot(Point(pt.x, pt.y))) {
+							DisplayCursor(Window::cursorHand);
+						} else {
+							DisplayCursor(Window::cursorText);
+						}
 					}
 				}
 				return TRUE;
@@ -1403,13 +1418,6 @@ void ScintillaWin::NotifyParent(SCNotification scn) {
 	scn.nmhdr.idFrom = GetCtrlID();
 	::SendMessage(::GetParent(MainHWND()), WM_NOTIFY,
 	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
-}
-
-void ScintillaWin::NotifyParent(SCNotification * scn) {
-	scn->nmhdr.hwndFrom = MainHWND();
-	scn->nmhdr.idFrom = GetCtrlID();
-	::SendMessage(::GetParent(MainHWND()), WM_NOTIFY,
-		GetCtrlID(), reinterpret_cast<LPARAM>(scn));
 }
 
 void ScintillaWin::NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt) {
@@ -2181,7 +2189,7 @@ void ScintillaWin::ImeStartComposition() {
 				deviceHeight = (sizeZoomed * surface->LogPixelsY()) / 72;
 			}
 			// The negative is to allow for leading
-			lf.lfHeight = -(abs(deviceHeight));
+			lf.lfHeight = -(abs(deviceHeight / SC_FONT_SIZE_MULTIPLIER));
 			lf.lfWeight = vs.styles[styleHere].weight;
 			lf.lfItalic = static_cast<BYTE>(vs.styles[styleHere].italic ? 1 : 0);
 			lf.lfCharSet = DEFAULT_CHARSET;
