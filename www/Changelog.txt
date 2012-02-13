@@ -1,3 +1,44 @@
+Version 1.7.5
+- BUG: Issue #184: Refresh in log dialog only refreshes
+       the last fetched block. (Stefan)
+- BUG: Issue #185: apply patch from clipboard fails
+       for direct items. (Stefan)
+- BUG: Issue #186: Overlays can crash the 
+       shell. (Stefan)
+- BUG: Issue #188: edit log message fails to edit
+       case changes. (Stefan)
+- BUG: Issue #191: SubWRev fails when started
+       from a short path. (Stefan)
+- BUG: Issue #192: CL client does not
+       expand wildcards. (Stefan)
+- BUG: Issue #193: Bogus warning about
+       non-recursive commit. (Stefan)
+- BUG: Issue #194: 'Copy all information to clipboard'
+       tree conflict information missing. (Stefan)
+- BUG: Issue #197: "Update item to revision" missing
+       in Repo-browser. (Stefan)
+- BUG: Issue #198: Overlay lost on revert. (Stefan)
+- BUG: Issue #199: cache crashes with
+       too long paths. (Stefan)
+- BUG: Issue #200: Result message box shows doubled
+       entries when (un)ignoring. (Stefan)
+- BUG: Issue #201: "Show Log" missing from
+       renamed/copied files. (Stefan)
+- BUG: Issue #204: Sparse update fails to
+       fetch new items. (Stefan)
+- BUG: Issue #205: Long urls fail to
+       checkout/export. (Stefan)
+- BUG: Issue #206: Scroll problem in
+       TortoiseMerge. (Stefan)
+- BUG: Issue #208: filter highlighting fails
+       with non-ASCII chars. (Stefan)
+- BUG: Issue #209: repo browser doesn't
+       handle redirects properly. (Stefan)
+- BUG: Issue #210: blame "ignore all whitespaces"
+       uses -b instead of -w. (Stefan)
+- BUG: Issue #211: Properties dialog only
+       shows files menu items. (Stefan)
+
 Version 1.7.4
 - BUG: Issue #169: Error "Access to 
        C:\Users\<windowsAccount> was denied." (Stefan)
