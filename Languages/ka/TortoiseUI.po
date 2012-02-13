@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-23 08:37+0000\n"
+"PO-Revision-Date: 2012-02-13 09:01+0000\n"
 "Last-Translator: Gia Shervashidze <giasher@gmail.com>\n"
 "Language-Team: Georgian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -159,9 +159,7 @@ msgstr ""
 msgid ""
 "%1: %2\n"
 "Continue running script?"
-msgstr ""
-"%1: %2\n"
-"გავაგრძელო სცენარის შესრულება?"
+msgstr "%1: %2\nგავაგრძელო სცენარის შესრულება?"
 
 #. Resource IDs: (3859)
 #, c-format
@@ -169,10 +167,7 @@ msgid ""
 "%1\n"
 "Cannot find this file.\n"
 "Verify that the correct path and file name are given."
-msgstr ""
-"%1\n"
-"ვერ ვპოულობ ამ ფაილს.\n"
-"გადაამოწმეთ ფაილის სახელისა და გეზის მართებულობა."
+msgstr "%1\nვერ ვპოულობ ამ ფაილს.\nგადაამოწმეთ ფაილის სახელისა და გეზის მართებულობა."
 
 #. Resource IDs: (357)
 #, c-format
@@ -195,10 +190,7 @@ msgid ""
 "%i%% alpha\n"
 "click to toggle alpha\n"
 "double click to automatically toggle alpha"
-msgstr ""
-"%i%% ალფა არხი\n"
-"დაწკაპეთ ალფა არხის გადასართავად\n"
-"ორმაგად დაწკაპეთ ალფა არხის თვითგადასართავად"
+msgstr "%i%% ალფა არხი\nდაწკაპეთ ალფა არხის გადასართავად\nორმაგად დაწკაპეთ ალფა არხის თვითგადასართავად"
 
 #. Resource IDs: (7)
 #, c-format
@@ -315,45 +307,35 @@ msgstr "%s, მაგრამ ფაილი ჩანაცვლდა"
 msgid ""
 "%s\n"
 "%ld failed hunk(s)"
-msgstr ""
-"%s\n"
-"%ld ცალკეული ნაწილი"
+msgstr "%s\n%ld ცალკეული ნაწილი"
 
 #. Resource IDs: (3850)
 #, c-format
 msgid ""
 "%s\n"
 "%s"
-msgstr ""
-"%s\n"
-"%s"
+msgstr "%s\n%s"
 
 #. Resource IDs: (145)
 #, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
-msgstr ""
-"%s\n"
-"მაინც გსურთ მისი ამოშლა?"
+msgstr "%s\nმაინც გსურთ მისი ამოშლა?"
 
 #. Resource IDs: (147)
 #, c-format
 msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
-msgstr ""
-"%s\n"
-"მაინც გსურთ %d ფაილის ამოღება?"
+msgstr "%s\nმაინც გსურთ %d ფაილის ამოღება?"
 
 #. Resource IDs: (147)
 #, c-format
 msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
-msgstr ""
-"%s\n"
-"მაინც გსურთ '%s' ფაილის ამოღება?"
+msgstr "%s\nმაინც გსურთ '%s' ფაილის ამოღება?"
 
 #. Resource IDs: (147)
 #, c-format
@@ -361,10 +343,7 @@ msgid ""
 "%s\n"
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr ""
-"%s\n"
-"დასტა %s\n"
-"შეიცავს არავერსიულ ან/და შეცვლილ ფაილ(ებ)ს. მაინც გსურთ მისი ამოღება?"
+msgstr "%s\nდასტა %s\nშეიცავს არავერსიულ ან/და შეცვლილ ფაილ(ებ)ს. მაინც გსურთ მისი ამოღება?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -373,11 +352,7 @@ msgid ""
 "\n"
 "Shall I update the working copy now\n"
 "and then retry?"
-msgstr ""
-"%s\n"
-"\n"
-"განვაახლო სამუშაო ვერსია ახლა\n"
-"და შემდეგ ვცადო ხელახლა?"
+msgstr "%s\n\nგანვაახლო სამუშაო ვერსია ახლა\nდა შემდეგ ვცადო ხელახლა?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -385,10 +360,7 @@ msgid ""
 "%s\n"
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
-msgstr ""
-"%s\n"
-"დასტაა და არა ფაილი!\n"
-"TortoiseMerge დასტებს ვერ ადარებს."
+msgstr "%s\nდასტაა და არა ფაილი!\nTortoiseMerge დასტებს ვერ ადარებს."
 
 #. Resource IDs: (286)
 #, c-format
@@ -397,11 +369,7 @@ msgid ""
 "r%s | %s\n"
 "\n"
 "%s\n"
-msgstr ""
-"%s\n"
-"r%s | %s\n"
-"\n"
-"%s\n"
+msgstr "%s\nr%s | %s\n\n%s\n"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -1435,16 +1403,12 @@ msgstr "&ფაილთა სიის კონტროლი"
 msgid ""
 "'%s'\n"
 "is not a valid URL or path!"
-msgstr ""
-"'%s'\n"
-"უმართებლო მისამართი ან გეზია!"
+msgstr "'%s'\nუმართებლო მისამართი ან გეზია!"
 
 #. Resource IDs: (338)
 msgid ""
 "'skip ranges' are used to mark revision ranges that have not been cached yet"
-msgstr ""
-"'გამოტოვებული დიაპაზონები' გამოიყენება ჯერ კიდევ არაბუფერირებული ვერსიათა "
-"დიაპაზონების მისათითებლად"
+msgstr "'გამოტოვებული დიაპაზონები' გამოიყენება ჯერ კიდევ არაბუფერირებული ვერსიათა დიაპაზონების მისათითებლად"
 
 #. Resource IDs: (272)
 #, c-format
@@ -1552,8 +1516,7 @@ msgstr "- %d"
 #. Resource IDs: (1007)
 msgid ""
 "-------------------------------------------------------------------------------------------"
-msgstr ""
-"-------------------------------------------------------------------------------------------"
+msgstr "-------------------------------------------------------------------------------------------"
 
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1324, 1333,
 #. 1362, 1474)
@@ -1625,29 +1588,21 @@ msgstr "საკუთარი პარამეტრების სია 
 msgid ""
 "A newer version is available.\r\n"
 "Please go to http://tortoisesvn.net and download the current version."
-msgstr ""
-"გამოვიდა ახალი ვერსია.\n"
-"ესტუმრეთ საიტს http://tortoisesvn.net და ჩამოტვირთეთ."
+msgstr "გამოვიდა ახალი ვერსია.\nესტუმრეთ საიტს http://tortoisesvn.net და ჩამოტვირთეთ."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an '?' char at the end of a path, then only this path will be included.\r\n"
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
-msgstr ""
-"გეზების სია (თითოეული ახალ სტრიქონზე) სადაც ხატულები აისახება.\n"
-"თუ გეზის ბოლოს დაამატებთ სიმბოლოს '?' გათვალისწინდება მხოლოდ ეს გეზი.\n"
-"თუ გეზის ბოლოს დაამატებთ სიმბოლოს '*' გათვალისწინდება ყველა ფაილი და ქვედასტა."
+msgstr "გეზების სია (თითოეული ახალ სტრიქონზე) სადაც ხატულები აისახება.\nთუ გეზის ბოლოს დაამატებთ სიმბოლოს '?' გათვალისწინდება მხოლოდ ეს გეზი.\nთუ გეზის ბოლოს დაამატებთ სიმბოლოს '*' გათვალისწინდება ყველა ფაილი და ქვედასტა."
 
 #. Resource IDs: (197)
 msgid ""
 "A newline separated list of paths for which no context menu is shown.\r\n"
 "If you add an '*' char at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow the context menu on all paths."
-msgstr ""
-"გეზები რომლებიც პიქტოგრამების ზედდებით ნაჩვენები არ იქნება.\r\n"
-"თუ გეზის ბოლოს '*' სიმბოლოს დაამატებთ, ყველა ფაილი და ქვედასტაც ასევე გამოირიცხება.\r\n"
-"ცარიელი სია კონტექსტური მენიუს ნებას რთავს ყველა გეზისთვის."
+msgstr "გეზები რომლებიც პიქტოგრამების ზედდებით ნაჩვენები არ იქნება.\r\nთუ გეზის ბოლოს '*' სიმბოლოს დაამატებთ, ყველა ფაილი და ქვედასტაც ასევე გამოირიცხება.\r\nცარიელი სია კონტექსტური მენიუს ნებას რთავს ყველა გეზისთვის."
 
 #. Resource IDs: (194)
 msgid ""
@@ -1655,10 +1610,7 @@ msgid ""
 "If you add an '?' char at the end of a path, then only this path will be excluded.\r\n"
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are excluded too.\r\n"
 "An empty list will allow overlays on all paths."
-msgstr ""
-"გეზების სია (თითოეული ახალ სტრიქონზე) სადაც ხატულები არ აისახება.\n"
-"თუ გეზის ბოლოს დაამატებთ სიმბოლოს '?' არ გათვალისწინდება მხოლოდ ეს გეზი.\n"
-"თუ გეზის ბოლოს დაამატებთ სიმბოლოს '*' არ გათვალისწინდება ყველა ფაილი და ქვედასტა."
+msgstr "გეზების სია (თითოეული ახალ სტრიქონზე) სადაც ხატულები არ აისახება.\nთუ გეზის ბოლოს დაამატებთ სიმბოლოს '?' არ გათვალისწინდება მხოლოდ ეს გეზი.\nთუ გეზის ბოლოს დაამატებთ სიმბოლოს '*' არ გათვალისწინდება ყველა ფაილი და ქვედასტა."
 
 #. Resource IDs: (90)
 msgid ""
@@ -1666,11 +1618,7 @@ msgid ""
 "Changing to a different path inside a repository is done by a switch operation.\n"
 "\n"
 "If you are not sure what to do, try a switch operation first."
-msgstr ""
-"გადაადგილება საჭიროა მხოლოდ საცავის გეზის შეცვლისას.\n"
-"გეზის შეცვლა საცავის შიგნით გადართვის ოპერაციით ხორციელდება.\n"
-"\n"
-"თუ არ ხართ დარწმუნებული, ჯერ გადართვის ოპერაცია სცადეთ."
+msgstr "გადაადგილება საჭიროა მხოლოდ საცავის გეზის შეცვლისას.\nგეზის შეცვლა საცავის შიგნით გადართვის ოპერაციით ხორციელდება.\n\nთუ არ ხართ დარწმუნებული, ჯერ გადართვის ოპერაცია სცადეთ."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1682,18 +1630,13 @@ msgid ""
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
-msgstr ""
-"მართებული გეზი არ შეიძლება შეიცავდეს სიმბოლოებს '<>|\"?*:' ან შემდეგი მოწყობილობების სახელებს:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
-"იხილეთ <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">დოკუმენტაცია</a> Microsoft-ისგან."
+msgstr "მართებული გეზი არ შეიძლება შეიცავდეს სიმბოლოებს '<>|\"?*:' ან შემდეგი მოწყობილობების სახელებს:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\nიხილეთ <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">დოკუმენტაცია</a> Microsoft-ისგან."
 
 #. Resource IDs: (79)
 msgid ""
 "A viewer program for GNU diff files (patch files).\r\n"
 "If you don't have one use NotePad."
-msgstr ""
-"GNU შედარების (diff) ბებკი (patch) ფაილების ჩვენების პროგრამა.\r\n"
-"თუ ამგვარი არ გაქვთ, შეგიძლიათ NotePad გამოიყენოთ."
+msgstr "GNU შედარების (diff) ბებკი (patch) ფაილების ჩვენების პროგრამა.\r\nთუ ამგვარი არ გაქვთ, შეგიძლიათ NotePad გამოიყენოთ."
 
 #. Resource IDs: (101)
 msgid "A&dd folder..."
@@ -1731,17 +1674,13 @@ msgstr "მიღება ყოველთვის"
 msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
-msgstr ""
-"სერთიფიკატის მუდმივად მიღება\n"
-"ამ სერთიფიკატის მიღების დასტური აღარ მოგეთხოვებათ."
+msgstr "სერთიფიკატის მუდმივად მიღება\nამ სერთიფიკატის მიღების დასტური აღარ მოგეთხოვებათ."
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
-msgstr ""
-"სერთიფიკატის მიღება\n"
-"ეს სერთიფიკატი მიიღება მხოლოდ ამ ჯერზე."
+msgstr "სერთიფიკატის მიღება\nეს სერთიფიკატი მიიღება მხოლოდ ამ ჯერზე."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1773,9 +1712,7 @@ msgstr "აქტიური ფაილები"
 msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
-msgstr ""
-"ActiveX ობიექტები ვერ შეინახება Windows-ის დახურვისას!\n"
-"გავაუქმო ცვლილებები - %1?"
+msgstr "ActiveX ობიექტები ვერ შეინახება Windows-ის დახურვისას!\nგავაუქმო ცვლილებები - %1?"
 
 #. Resource IDs: (77, 155, 209, 229)
 msgid "Add"
@@ -1810,9 +1747,7 @@ msgstr "შერწყმის პროგრამის გაფართ�
 msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
-msgstr ""
-"ელემენტის დამატება\n"
-"ეს პრობლემებს გამოიწვევს Windows-ში."
+msgstr "ელემენტის დამატება\nეს პრობლემებს გამოიწვევს Windows-ში."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -1869,10 +1804,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
-msgstr ""
-"ფაილ(ებ)ის ნიმუშ(ებ)ის\n"
-"%s\n"
-"დამატება იგნორირების სიაში."
+msgstr "ფაილ(ებ)ის ნიმუშ(ებ)ის\n%s\nდამატება იგნორირების სიაში."
 
 #. Resource IDs: (263)
 msgid "Adding"
@@ -1888,24 +1820,19 @@ msgstr "ფაილ(ებ)ის დამატება ქვევერ�
 
 #. Resource IDs: (13)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr ""
-"მონიშნული ფაილების ან ფაილების თარგების დამატება 'იგნორირებულთა' სიაში"
+msgstr "მონიშნული ფაილების ან ფაილების თარგების დამატება 'იგნორირებულთა' სიაში"
 
 #. Resource IDs: (90)
 msgid ""
 "Adjust case\n"
 "The file is not added."
-msgstr ""
-"რეგისტრის შესწორება\n"
-"ფაილი არ დამატებულა."
+msgstr "რეგისტრის შესწორება\nფაილი არ დამატებულა."
 
 #. Resource IDs: (2049)
 msgid ""
 "Adjust the settings\n"
 "Settings"
-msgstr ""
-"პარამეტრების გამართვა\n"
-"პარამეტრები"
+msgstr "პარამეტრების გამართვა\nპარამეტრები"
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -1951,31 +1878,25 @@ msgstr "ყველა ფაილი (*.*)|*.*||"
 msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
 "menus?"
-msgstr ""
-"თქვენი ყველა ცვლილება დაიკარგება! ნამდვილად გსურთ ყველა პულტისა და მენიუს "
-"აღდგენა?"
+msgstr "თქვენი ყველა ცვლილება დაიკარგება! ნამდვილად გსურთ ყველა პულტისა და მენიუს აღდგენა?"
 
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset the keyboard "
 "assignments?"
-msgstr ""
-"თქვენი ყველა ცვლილება დაიკარგება! ნამდვილად გსურთ კლავიატურის გაპიროვნებათა "
-"აღდგენა?"
+msgstr "თქვენი ყველა ცვლილება დაიკარგება! ნამდვილად გსურთ კლავიატურის გაპიროვნებათა აღდგენა?"
 
 #. Resource IDs: (1008)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%s'?"
-msgstr ""
-"თქვენი ყველა ცვლილება დაიკარგება! ნამდვილად გსურთ '%s' მენიუს აღდგენა?"
+msgstr "თქვენი ყველა ცვლილება დაიკარგება! ნამდვილად გსურთ '%s' მენიუს აღდგენა?"
 
 #. Resource IDs: (1007)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar '%s'?"
-msgstr ""
-"თქვენი ყველა ცვლილება დაიკარგება! ნამდვილად გსურთ '%s' პულტის აღდგენა?"
+msgstr "თქვენი ყველა ცვლილება დაიკარგება! ნამდვილად გსურთ '%s' პულტის აღდგენა?"
 
 #. Resource IDs: (1484)
 msgid "Allow ambiguous &UUIDs"
@@ -1985,16 +1906,12 @@ msgstr "არაცალსახა მისამართების (UUI
 msgid ""
 "Allow different repositories to use the same URL, e.g. "
 "http://localhost/myrepos/"
-msgstr ""
-"სხვადასხვა საცავისთვის იგივე მისამართით სარგებლობის უფლება, მაგ., "
-"http://localhost/myrepos/"
+msgstr "სხვადასხვა საცავისთვის იგივე მისამართით სარგებლობის უფლება, მაგ., http://localhost/myrepos/"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
-msgstr ""
-"სხვადასხვა საცავებისთვის იგივე მისამართით (UUID) სარგებლობის უფლება, მაგ., "
-"http://localhost/myrepos/"
+msgstr "სხვადასხვა საცავებისთვის იგივე მისამართით (UUID) სარგებლობის უფლება, მაგ., http://localhost/myrepos/"
 
 #. Resource IDs: (119)
 msgid "Already merged"
@@ -2025,13 +1942,7 @@ msgid ""
 "You can specify the following parameters to the path:\r\n"
 "%base : the base file\r\n"
 "%mine : the modified file"
-msgstr ""
-"შედარების გარე პროგრამა გამოიყენება\r\n"
-"ფაილთა სხვადასხვა ვერსიების შესადარებლად\r\n"
-"\r\n"
-"გეზისთვის შეგიძლიათ შემდეგი პარამეტრების მითითება:\r\n"
-"%base : საწყისი ფაილი\r\n"
-"%mine : შეცვლილი ფაილი"
+msgstr "შედარების გარე პროგრამა გამოიყენება\r\nფაილთა სხვადასხვა ვერსიების შესადარებლად\r\n\r\nგეზისთვის შეგიძლიათ შემდეგი პარამეტრების მითითება:\r\n%base : საწყისი ფაილი\r\n%mine : შეცვლილი ფაილი"
 
 #. Resource IDs: (79)
 #, c-format
@@ -2044,15 +1955,7 @@ msgid ""
 "%theirs : the file as it is in the repository\r\n"
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
-msgstr ""
-"შერწყმის გარე პროგრამა გამოიყენება\r\n"
-"ფაილთა კონფლიქტების მოსაგვარებლად\r\n"
-"\r\n"
-"გეზისთვის შეგიძლიათ შემდეგი პარამეტრების მითითება:\r\n"
-"%merged : კონფლიქტური ფაილის შესანახი ადგილი\r\n"
-"%theirs : საცავის ფაილის ასლი\r\n"
-"%mine : თქვენი საკუთარი შეცვლილი ფაილი\r\n"
-"%base : tფაილის დედანი ცვლილებების გარეშე"
+msgstr "შერწყმის გარე პროგრამა გამოიყენება\r\nფაილთა კონფლიქტების მოსაგვარებლად\r\n\r\nგეზისთვის შეგიძლიათ შემდეგი პარამეტრების მითითება:\r\n%merged : კონფლიქტური ფაილის შესანახი ადგილი\r\n%theirs : საცავის ფაილის ასლი\r\n%mine : თქვენი საკუთარი შეცვლილი ფაილი\r\n%base : tფაილის დედანი ცვლილებების გარეშე"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2085,9 +1988,7 @@ msgstr "ბებკი ფაილის გამოყენება სა
 msgid ""
 "Applies the properties recursively to all files/folders.\r\n"
 "bugtraq:, tsvn: and webviewer: properties are only applied to folders."
-msgstr ""
-"პარამეტრების რეკურსიული მინიჭება ყველა ფაილის/დასტისთვის.\r\n"
-"bugtraq: და tsvn: მხოლდ დასტებს მიენიჭება."
+msgstr "პარამეტრების რეკურსიული მინიჭება ყველა ფაილის/დასტისთვის.\r\nbugtraq: და tsvn: მხოლდ დასტებს მიენიჭება."
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -2097,9 +1998,7 @@ msgstr "&ბებკის გამოყენება..."
 msgid ""
 "Apply 'Power User' defaults. Those will provide a smoother experience.\n"
 "You should know the meaning of all the settings above."
-msgstr ""
-"ნაგულისხმები 'სპეციალური პარამეტრების' გამოყენება.\n"
-"უნდა გესმოთედ ზემოთ მოტანილი ყველა პარამეტრის მნიშვნელობა."
+msgstr "ნაგულისხმები 'სპეციალური პარამეტრების' გამოყენება.\nუნდა გესმოთედ ზემოთ მოტანილი ყველა პარამეტრის მნიშვნელობა."
 
 #. Resource IDs: (313)
 msgid "Apply Patch..."
@@ -2117,9 +2016,7 @@ msgstr "კლიენტის დამუშავების სკრი�
 msgid ""
 "Approve\n"
 "Run the hook script"
-msgstr ""
-"დამტკიცება\n"
-"დამუშავების სკრიპტის შესრულება"
+msgstr "დამტკიცება\nდამუშავების სკრიპტის შესრულება"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
@@ -2135,8 +2032,7 @@ msgstr "&ნებისმიერი ტექსტი"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr ""
-"ნამდვილად გსურთ კონფლიქტური ფაილ(ებ)ისთვის მოგვარებულის სტატუსის მინიჭება?"
+msgstr "ნამდვილად გსურთ კონფლიქტური ფაილ(ებ)ისთვის მოგვარებულის სტატუსის მინიჭება?"
 
 #. Resource IDs: (199)
 #, c-format
@@ -2148,9 +2044,7 @@ msgstr "ნამდვილად გსურთ მონიშნული 
 msgid ""
 "Are you sure you want to revert %d item(s)? You will lose all changes since "
 "the last update!"
-msgstr ""
-"ნამდვილად გსურთ აღადგინოთ %d ელემენტი? თქვენ დაკარგავთ ყველა ცვლილებას ბოლო "
-"განახლების შემდეგ!"
+msgstr "ნამდვილად გსურთ აღადგინოთ %d ელემენტი? თქვენ დაკარგავთ ყველა ცვლილებას ბოლო განახლების შემდეგ!"
 
 #. Resource IDs: (32793)
 msgid "Arrange &vertical"
@@ -2253,9 +2147,7 @@ msgstr "თვითდახურვა შერწყმების, და
 msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
-msgstr ""
-"თვითდასრულება ტექსტის შეტანისას შემოგთავაზებთ სიტყვებს\r\n"
-"(ჩვეულებრივ კლასებისა და წევრთა სახელებს) შეცვლილი ფაილებიდან."
+msgstr "თვითდასრულება ტექსტის შეტანისას შემოგთავაზებთ სიტყვებს\r\n(ჩვეულებრივ კლასებისა და წევრთა სახელებს) შეცვლილი ფაილებიდან."
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2293,9 +2185,7 @@ msgstr "ძირითადი ფაილი:"
 msgid ""
 "Bitmap\n"
 "a bitmap"
-msgstr ""
-"რასტრული\n"
-"რასტრული"
+msgstr "რასტრული\nრასტრული"
 
 #. Resource IDs: (156, 564)
 msgid "Black Style"
@@ -2329,9 +2219,7 @@ msgstr ""
 msgid ""
 "Both /logmsg and /logmsgfile were specified!\n"
 "Only one of those can be specified."
-msgstr ""
-"ორივე /logmsg და /logmsgfile მიეთითეა!\n"
-"დასაშვებია მხოლოდ ერთის მითითება."
+msgstr "ორივე /logmsg და /logmsgfile მიეთითეა!\nდასაშვებია მხოლოდ ერთის მითითება."
 
 #. Resource IDs: (70)
 msgid ""
@@ -2457,11 +2345,7 @@ msgid ""
 "%1!s!\n"
 "to\n"
 "%2!s!"
-msgstr ""
-"ვერ კოპირდება \n"
-"%1!s!\n"
-"აქ\n"
-"%2!s!"
+msgstr "ვერ კოპირდება \n%1!s!\nაქ\n%2!s!"
 
 #. Resource IDs: (1001)
 msgid "Can't copy bitmap image into the clipboard!"
@@ -2487,217 +2371,163 @@ msgstr "გაუქმება"
 msgid ""
 "Cancel\n"
 "Change the selection for the commit."
-msgstr ""
-"გაუქმება\n"
-"მონიშნულის შეცვლა ფიქსაციისთვის."
+msgstr "გაუქმება\nმონიშნულის შეცვლა ფიქსაციისთვის."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
-msgstr ""
-"გაუქმება\n"
-"შეარჩიეთ სხვა დასტა ექსპორტისთვის"
+msgstr "გაუქმება\nშეარჩიეთ სხვა დასტა ექსპორტისთვის"
 
 #. Resource IDs: (221)
 msgid ""
 "Cancel\n"
 "Do not commit to a tag."
-msgstr ""
-"გაუქმება\n"
-"ჭდე არ გაიგზავნება."
+msgstr "გაუქმება\nჭდე არ გაიგზავნება."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "Do not remove"
-msgstr ""
-"გაუქმება\n"
-"ამოღების გარეშე"
+msgstr "გაუქმება\nამოღების გარეშე"
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
-msgstr ""
-"გაუქმება\n"
-"აღდგენა არ შესრულდება."
+msgstr "გაუქმება\nაღდგენა არ შესრულდება."
 
 #. Resource IDs: (363)
 msgid ""
 "Cancel\n"
 "Do not run the script"
-msgstr ""
-"გაუქმება\n"
-"სკრიპტის შესრულების გარეშე"
+msgstr "გაუქმება\nსკრიპტის შესრულების გარეშე"
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Do not update the working copy."
-msgstr ""
-"გაუქმება\n"
-"სამუშაო ასლის განახლების გარეშე."
+msgstr "გაუქმება\nსამუშაო ასლის განახლების გარეშე."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
-msgstr ""
-"გაუქმება\n"
-"TortoiseMerge პროგრამის ღიად დატოვება"
+msgstr "გაუქმება\nTortoiseMerge პროგრამის ღიად დატოვება"
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
-msgstr ""
-"გაუქმება\n"
-"მოგვარების გარეშე."
+msgstr "გაუქმება\nმოგვარების გარეშე."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't switch the views"
-msgstr ""
-"გაუქმება\n"
-"ხედების უცვლელად დატოვება"
+msgstr "გაუქმება\nხედების უცვლელად დატოვება"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
-msgstr ""
-"გაუქმება\n"
-"დაბრუნდით უკან და მიუთითეთ პრობლემის ნომერი."
+msgstr "გაუქმება\nდაბრუნდით უკან და მიუთითეთ პრობლემის ნომერი."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Go back and select a different folder."
-msgstr ""
-"გაუქმება\n"
-"უკან დაბრუნება და სხვა დასტის შერჩევა."
+msgstr "გაუქმება\nუკან დაბრუნება და სხვა დასტის შერჩევა."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
-msgstr ""
-"გაუქმება\n"
-"მივუთითებ სხვა მისამართს."
+msgstr "გაუქმება\nმივუთითებ სხვა მისამართს."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
-msgstr ""
-"გაუქმება\n"
-"მიმდინარე მისამართის შენარჩუნება."
+msgstr "გაუქმება\nმიმდინარე მისამართის შენარჩუნება."
 
 #. Resource IDs: (314)
 msgid ""
 "Cancel\n"
 "Keep the empty file."
-msgstr ""
-"გაუქმება\n"
-"ცარიელი ფაილის შენარჩუნება."
+msgstr "გაუქმება\nცარიელი ფაილის შენარჩუნება."
 
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
 "Leave the cache on disk."
-msgstr ""
-"გაუქმება\n"
-"ბუფერის დისკზე დატოვება."
+msgstr "გაუქმება\nბუფერის დისკზე დატოვება."
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Local modifications are kept."
-msgstr ""
-"გაუქმება\n"
-"ლოკალური ცვლილებები შენარჩუნდება."
+msgstr "გაუქმება\nლოკალური ცვლილებები შენარჩუნდება."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
-msgstr ""
-"გაუქმება\n"
-"ჯერ კონფლიქტების მოგვარება."
+msgstr "გაუქმება\nჯერ კონფლიქტების მოგვარება."
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
-msgstr ""
-"გაუქმება\n"
-"კონფლიქტი არ მოგვარებულა."
+msgstr "გაუქმება\nკონფლიქტი არ მოგვარებულა."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not copied."
-msgstr ""
-"გაუქმება\n"
-"ფაილი არ გადაწერილა."
+msgstr "გაუქმება\nფაილი არ გადაწერილა."
 
 #. Resource IDs: (91)
 msgid ""
 "Cancel\n"
 "The folder is not exported."
-msgstr ""
-"გაუქმება\n"
-"დასტა არ დაექსპორტებულა."
+msgstr "გაუქმება\nდასტა არ დაექსპორტებულა."
 
 #. Resource IDs: (105)
 msgid ""
 "Cancel\n"
 "The items are not imported."
-msgstr ""
-"გაუქმება\n"
-"ელემენტები არ გადმოტანილა."
+msgstr "გაუქმება\nელემენტები არ გადმოტანილა."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
-msgstr ""
-"გაუქმება\n"
-"ჭდე არ გადატანილა."
+msgstr "გაუქმება\nჭდე არ გადატანილა."
 
 #. Resource IDs: (589)
 msgid ""
 "Cancel\n"
 "The property is not removed."
-msgstr ""
-"გაუქმება\n"
-"პარამეტრი არ ამოღებულა."
+msgstr "გაუქმება\nპარამეტრი არ ამოღებულა."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "The target file is left as is"
-msgstr ""
-"გაუქმება\n"
-"სამიზნე ფაილი უცვლელადაა დატოვებული"
+msgstr "გაუქმება\nსამიზნე ფაილი უცვლელადაა დატოვებული"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
-msgstr ""
-"გაუქმება\n"
-"დასტა თავად უნდა დაამატოთ."
+msgstr "გაუქმება\nდასტა თავად უნდა დაამატოთ."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
-msgstr ""
-"გაუქმება\n"
-"მიმდინარე ფორმატის შენარჩუნება"
+msgstr "გაუქმება\nმიმდინარე ფორმატის შენარჩუნება"
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2842,29 +2672,21 @@ msgstr "სამუშაო ასლის შექმნა საცავ
 msgid ""
 "Check the files which you want to\n"
 "delete before importing."
-msgstr ""
-"იმ ფაილების მონიშვნა, რომელთა\n"
-"წაშლაც გნებავთ იმპორტირებამდე."
+msgstr "იმ ფაილების მონიშვნა, რომელთა\nწაშლაც გნებავთ იმპორტირებამდე."
 
 #. Resource IDs: (612)
 msgid ""
 "Check the log to find out how the file/folder got renamed/moved and decide "
 "whether you want to keep your rename/move or the one from the repository. "
 "Then mark the conflict as resolved."
-msgstr ""
-"შეამოწმეთ დავთარი ფაილის/დასტის გადარქმევის/გადატანის დეტალების სანახავად და"
-" გადაწყვიტეთ, გსურთ თუ არა რომელიმეს გადარქმევა/გადატანა საცავიდან. შემდეგ "
-"კონფლიქტი მოგვარებულად მონიშნეთ."
+msgstr "შეამოწმეთ დავთარი ფაილის/დასტის გადარქმევის/გადატანის დეტალების სანახავად და გადაწყვიტეთ, გსურთ თუ არა რომელიმეს გადარქმევა/გადატანა საცავიდან. შემდეგ კონფლიქტი მოგვარებულად მონიშნეთ."
 
 #. Resource IDs: (612)
 msgid ""
 "Check the log to find out how the file/folder got renamed/moved and decide "
 "whether you want to merge the change into your renamed file, or restore the "
 "original file."
-msgstr ""
-"შეამოწმეთ დავთარი ფაილის/დასტის გადარქმევის/გადატანის დეტალების სანახავად და"
-" გადაწყვიტეთ, გსურთ ცვლილებების შერწყმა გადარქმეულ ფაილში თუ პირველადი "
-"ფაილის აღდგენა."
+msgstr "შეამოწმეთ დავთარი ფაილის/დასტის გადარქმევის/გადატანის დეტალების სანახავად და გადაწყვიტეთ, გსურთ ცვლილებების შერწყმა გადარქმეულ ფაილში თუ პირველადი ფაილის აღდგენა."
 
 #. Resource IDs: (251)
 msgid "Check the path and/or URL you've entered."
@@ -2874,14 +2696,11 @@ msgstr "შეამოწმეთ მითითებული გეზი 
 msgid ""
 "Check those menu entries you want to appear in the top context menu instead "
 "of the TortoiseSVN submenu"
-msgstr ""
-"მენიუს იმ ელემენტების შერჩევა, რომელთა ჩვენებაც ზედა კონტექსტურ მენიუში "
-"TortoiseSVN ქვემენიუს ნაცვლად გნებავთ"
+msgstr "მენიუს იმ ელემენტების შერჩევა, რომელთა ჩვენებაც ზედა კონტექსტურ მენიუში TortoiseSVN ქვემენიუს ნაცვლად გნებავთ"
 
 #. Resource IDs: (80)
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr ""
-"შეარჩიეთ, თუ დავთრის ჩანაწერებში თარიღის ნაკლებად დეტალური მითითება გსურთ."
+msgstr "შეარჩიეთ, თუ დავთრის ჩანაწერებში თარიღის ნაკლებად დეტალური მითითება გსურთ."
 
 #. Resource IDs: (2052)
 msgid "Check working copy for modifications"
@@ -2916,9 +2735,7 @@ msgstr "გადმოტანა: %1!s!, ვერსია: %2!s!, %3!s!, %4
 msgid ""
 "Checkout\n"
 "Checkout into the non empty folder."
-msgstr ""
-"გადმოტანა\n"
-"გადმოტანა არაცარიელ დასტაში."
+msgstr "გადმოტანა\nგადმოტანა არაცარიელ დასტაში."
 
 #. Resource IDs: (65535)
 msgid "Checksum:"
@@ -2954,18 +2771,14 @@ msgstr "დასუფთავება"
 msgid ""
 "Cleanup failed to process the following paths:\n"
 "%s"
-msgstr ""
-"გასუფთავება ვერ მოხერხდა შემდეგი გეზებისთვის:\n"
-"%s"
+msgstr "გასუფთავება ვერ მოხერხდა შემდეგი გეზებისთვის:\n%s"
 
 #. Resource IDs: (79)
 #, c-format
 msgid ""
 "Cleanup has successfully processed the following paths:\n"
 "%s"
-msgstr ""
-"გასუფთავება წარმატებით შედგა შემდეგი გეზებისთვის:\n"
-"%s"
+msgstr "გასუფთავება წარმატებით შედგა შემდეგი გეზებისთვის:\n%s"
 
 #. Resource IDs: (9)
 msgid "Cleanup interrupted operations, locked files, ..."
@@ -2979,9 +2792,7 @@ msgstr "გასუფთავება"
 msgid ""
 "Clear Tool\n"
 "Clear"
-msgstr ""
-"გასუფთავების სამარჯვი\n"
-"გასუფთავება"
+msgstr "გასუფთავების სამარჯვი\nგასუფთავება"
 
 #. Resource IDs: (196)
 #, c-format
@@ -2998,9 +2809,7 @@ msgstr "გაასუფთავებს %1!ld! შენახულ ჩა
 msgid ""
 "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! "
 "usernames"
-msgstr ""
-"გაასუფთავებს %1!ld! სახელის/მონაწილის წყვილს,  %2!ld! ssl სერთიფიკატს და "
-"%3!ld! სახელს"
+msgstr "გაასუფთავებს %1!ld! სახელის/მონაწილის წყვილს,  %2!ld! ssl სერთიფიკატს და %3!ld! სახელს"
 
 #. Resource IDs: (198)
 #, c-format
@@ -3016,9 +2825,7 @@ msgstr "დავთრის ჩანაწერების ბუფერ�
 msgid ""
 "Clears the stored authentication.\r\n"
 "You will have to enter your username/password again for all repositories."
-msgstr ""
-"ასუფთავებს ავტორიზების ყველა შენახულ მონაცემს.\r\n"
-"თქვენ ყველა საცავისთვის სახელის/პაროლის თავიდან მითითება მოგიწევთ."
+msgstr "ასუფთავებს ავტორიზების ყველა შენახულ მონაცემს.\r\nთქვენ ყველა საცავისთვის სახელის/პაროლის თავიდან მითითება მოგიწევთ."
 
 #. Resource IDs: (196)
 #, c-format
@@ -3037,15 +2844,13 @@ msgstr "დაწკაპეთ აქ ბოლო შეტყობინე
 msgid ""
 "Click on \"Advanced\" to specify alternate diff programs based on file "
 "extension"
-msgstr ""
-"დაწკაპეთ «დეტალები» ფაილების შედარების ალტერნატული პროგრამების მისათითებლად"
+msgstr "დაწკაპეთ «დეტალები» ფაილების შედარების ალტერნატული პროგრამების მისათითებლად"
 
 #. Resource IDs: (65535)
 msgid ""
 "Click on \"Advanced\" to specify alternate merge programs based on file "
 "extension"
-msgstr ""
-"დაწკაპეთ «დეტალები» ფაილების შერწყმის ალტერნატული პროგრამების მისათითებლად"
+msgstr "დაწკაპეთ «დეტალები» ფაილების შერწყმის ალტერნატული პროგრამების მისათითებლად"
 
 #. Resource IDs: (2058)
 msgid ""
@@ -3069,9 +2874,7 @@ msgstr "სრული ეკრანის დახურვა"
 msgid ""
 "Close Print Preview\n"
 "&Close"
-msgstr ""
-"ბეჭდვის ესკიზის დახურვა\n"
-"&დახურვა"
+msgstr "ბეჭდვის ესკიზის დახურვა\n&დახურვა"
 
 #. Resource IDs: (222)
 msgid "Close manually"
@@ -3097,9 +2900,7 @@ msgstr "&შემდეგი განტოტვის აკეცვა"
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
-msgstr ""
-"უცვლელი სექციების აკეცვა\n"
-"აკეცვა"
+msgstr "უცვლელი სექციების აკეცვა\nაკეცვა"
 
 #. Resource IDs: (16662)
 msgid "Color"
@@ -3141,9 +2942,7 @@ msgstr "შესასრულებელი ბრძანება:"
 msgid ""
 "Command Line To Execute:\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr ""
-"ბრძანება:\n"
-"სამუშაო ასლის შიდა გეზის მისათითებლად, მიუთითეთ საცავის გეზი ძირეული გეზით %REPOROOT%"
+msgstr "ბრძანება:\nსამუშაო ასლის შიდა გეზის მისათითებლად, მიუთითეთ საცავის გეზი ძირეული გეზით %REPOROOT%"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3165,9 +2964,7 @@ msgstr "ფიქსაცია..."
 msgid ""
 "Commit only the folder\n"
 "Files inside the folder won't get committed."
-msgstr ""
-"მხოლოდ დასტის ფიქსაცია\n"
-"ფაილები დასტის შიგნით არ დაფიქსირდება."
+msgstr "მხოლოდ დასტის ფიქსაცია\nფაილები დასტის შიგნით არ დაფიქსირდება."
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3181,9 +2978,7 @@ msgstr "ფიქსაცია..."
 msgid ""
 "Commit\n"
 "Commit the changes to the target."
-msgstr ""
-"ფიქსაცია\n"
-"ცვლილებების ფიქსაცია სამიზნეში."
+msgstr "ფიქსაცია\nცვლილებების ფიქსაცია სამიზნეში."
 
 #. Resource IDs: (244)
 msgid "Commits by author"
@@ -3210,9 +3005,7 @@ msgstr "თქვენი ცვლილებების საცავშ�
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
-msgstr ""
-"არავერსიული დასტის ფიქსაციისას მის ქვეელემენტები რეკურსიულად არ ემატება!\n"
-"ქვეელემენტების რეკურსიული დამატება შეგიძლიათ კონტექსტური მენიუდან 'დამატება...'."
+msgstr "არავერსიული დასტის ფიქსაციისას მის ქვეელემენტები რეკურსიულად არ ემატება!\nქვეელემენტების რეკურსიული დამატება შეგიძლიათ კონტექსტური მენიუდან 'დამატება...'."
 
 #. Resource IDs: (170)
 msgid ""
@@ -3220,12 +3013,7 @@ msgid ""
 "You might want to add these folders recursively by using the 'Add...' context menu item.\n"
 "\n"
 "Are you sure that you want to continue the commit?"
-msgstr ""
-"არავერსიული დასტის ფიქსაცია მის ქვეელემენტებს რეკურსიულად არ ამატებს!\n"
-"ამ დასტების რეკურსიული დამატება შეგიძლიათ კონტექსტური მენიუს ელემენტით\n"
-"'დამატება...'.\n"
-"\n"
-"ნამდვილად გნებავთ ფიქსაციის გაგრძელება?"
+msgstr "არავერსიული დასტის ფიქსაცია მის ქვეელემენტებს რეკურსიულად არ ამატებს!\nამ დასტების რეკურსიული დამატება შეგიძლიათ კონტექსტური მენიუს ელემენტით\n'დამატება...'.\n\nნამდვილად გნებავთ ფიქსაციის გაგრძელება?"
 
 #. Resource IDs: (221)
 msgid "Committing to a tag"
@@ -3267,9 +3055,7 @@ msgstr "შედარება წინა ვერსიასთან"
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
-msgstr ""
-"შეადარებს შორისებს განსხვავებების პოვნისას\n"
-"შორისების შედარება"
+msgstr "შეადარებს შორისებს განსხვავებების პოვნისას\nშორისების შედარება"
 
 #. Resource IDs: (12)
 msgid ""
@@ -3313,8 +3099,7 @@ msgstr "პროგრამის კონფიგურაცია ფა�
 #. Resource IDs: (65535)
 msgid ""
 "Configure the program used for comparing different revisions of properties"
-msgstr ""
-"პროგრამის კონფიგურაცია პარამეტრების სხვადასხვა ვერსიების შედარებისთვის."
+msgstr "პროგრამის კონფიგურაცია პარამეტრების სხვადასხვა ვერსიების შედარებისთვის."
 
 #. Resource IDs: (65535)
 msgid "Configure the program used to resolve conflicted files."
@@ -3407,9 +3192,7 @@ msgstr "კოპირება"
 msgid ""
 "Copy %1!ld! items to\r\n"
 "%2!s!"
-msgstr ""
-"%1!ld! ელემენტის კოპირება\r\n"
-"%2!s!"
+msgstr "%1!ld! ელემენტის კოპირება\r\n%2!s!"
 
 #. Resource IDs: (229)
 #, c-format
@@ -3421,9 +3204,7 @@ msgstr "ასლი: %1!s! - %2!s!, ვერსია: %3!s!"
 msgid ""
 "Copy %1!s!\r\n"
 "to %2!s!"
-msgstr ""
-"კოპირება: %1!s!\r\n"
-"აქ %2!s!"
+msgstr "კოპირება: %1!s!\r\nაქ %2!s!"
 
 #. Resource IDs: (103)
 #, c-format
@@ -3438,9 +3219,7 @@ msgstr "კოპირება (შტო / ჭდე)"
 msgid ""
 "Copy Tool\n"
 "Copy"
-msgstr ""
-"კოპირების სამარჯვი\n"
-"კოპირება"
+msgstr "კოპირების სამარჯვი\nკოპირება"
 
 #. Resource IDs: (101)
 msgid "Copy URL to clipboard"
@@ -3486,9 +3265,7 @@ msgstr "შერჩეულის &ბუფერში კოპირებ
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
-msgstr ""
-"მონიშნულის კოპირება და ბუფერში გადატანა\n"
-"კოპირება"
+msgstr "მონიშნულის კოპირება და ბუფერში გადატანა\nკოპირება"
 
 #. Resource IDs: (613)
 #, c-format
@@ -3549,9 +3326,7 @@ msgstr "ვერ ვამოწმებ ახალ ვერსიაზე
 msgid ""
 "Could not copy the files!\n"
 "%s"
-msgstr ""
-"ვერ ვაკოპირებ ფაილებს!\n"
-"%s"
+msgstr "ვერ ვაკოპირებ ფაილებს!\n%s"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -3581,9 +3356,7 @@ msgstr "ბოლო ფიქსირებული ვერსიის გ
 msgid ""
 "Could not find a parent folder for\n"
 "%s"
-msgstr ""
-"ვერ ხერხდება ძირეული დასტის პოვნა:\n"
-"%s"
+msgstr "ვერ ხერხდება ძირეული დასტის პოვნა:\n%s"
 
 #. Resource IDs: (81)
 msgid "Could not get the status!"
@@ -3609,9 +3382,7 @@ msgstr "%1 ვერ გაიხსნება უკვე გახსნი
 msgid ""
 "Could not open the file\n"
 "%s"
-msgstr ""
-"ვერ ვხსნი ფაილს\n"
-"%s"
+msgstr "ვერ ვხსნი ფაილს\n%s"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -3638,18 +3409,14 @@ msgstr "ვერ ხერხდება ჩანაცვლება: '%1!s
 msgid ""
 "Could not retrieve URL of the file!\n"
 "%s"
-msgstr ""
-"ვერ ვიღებ ფაილის მისამართს!\n"
-"%s"
+msgstr "ვერ ვიღებ ფაილის მისამართს!\n%s"
 
 #. Resource IDs: (66)
 #, c-format
 msgid ""
 "Could not retrieve revision %1!s! of the file %2!s!.\n"
 "Patching is not possible!"
-msgstr ""
-"ვერ ვკითხულობ ვერსიას %1!s! ფაილისთვის %2!s!.\n"
-"ბებკი შეუძლებელია!"
+msgstr "ვერ ვკითხულობ ვერსიას %1!s! ფაილისთვის %2!s!.\nბებკი შეუძლებელია!"
 
 #. Resource IDs: (64)
 #, c-format
@@ -3661,27 +3428,21 @@ msgstr "ვერ ვინახავ %s ფაილს!"
 msgid ""
 "Could not start diff viewer!\n"
 "%s"
-msgstr ""
-"ვერ ვიწყებ შედარების ჩვენებას!\n"
-"%s"
+msgstr "ვერ ვიწყებ შედარების ჩვენებას!\n%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external diff program!\n"
 "%s"
-msgstr ""
-"ვერ ვხსნი შედარების გარე პროგრამას!\n"
-"%s"
+msgstr "ვერ ვხსნი შედარების გარე პროგრამას!\n%s"
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Could not start external merge program!\n"
 "%s"
-msgstr ""
-"ვერ ვხსნი შერწყმის გარე პროგრამას!\n"
-"%s"
+msgstr "ვერ ვხსნი შერწყმის გარე პროგრამას!\n%s"
 
 #. Resource IDs: (3857)
 msgid "Could not start print job."
@@ -3692,9 +3453,7 @@ msgstr "ვერ ვიწყებ ბეჭდვას."
 msgid ""
 "Could not start text viewer!\n"
 "%s"
-msgstr ""
-"ტექსტის ჩვენება ვერ ხერხდება!\n"
-"%s"
+msgstr "ტექსტის ჩვენება ვერ ხერხდება!\n%s"
 
 #. Resource IDs: (81)
 msgid "Could not start thread!"
@@ -3725,9 +3484,7 @@ msgstr "საცავში ასლის შექმნა აქედა
 msgid ""
 "Create new directory:\r\n"
 "%s"
-msgstr ""
-"ახალი დასტის შექმნა:\r\n"
-"%s"
+msgstr "ახალი დასტის შექმნა:\r\n%s"
 
 #. Resource IDs: (156)
 msgid "Create patch file"
@@ -3759,9 +3516,7 @@ msgstr "ბიბლიოთეკის შექმნა სპეცია�
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
-msgstr ""
-"ბებკის ფაილის შექმნა ორი ფაილის სხვაობისთვის\n"
-"ბებკის ფაილის შექმნა"
+msgstr "ბებკის ფაილის შექმნა ორი ფაილის სხვაობისთვის\nბებკის ფაილის შექმნა"
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
@@ -3824,9 +3579,7 @@ msgstr "სწრაფი წვდომის პულტის მორგ
 msgid ""
 "Cut the selection and put it on the Clipboard\n"
 "Cut"
-msgstr ""
-"მონიშნულის ამოჭრა და ბუფერში გადატანა\n"
-"ამოჭრა"
+msgstr "მონიშნულის ამოჭრა და ბუფერში გადატანა\nამოჭრა"
 
 #. Resource IDs: (1279)
 msgid "D&etails"
@@ -3914,17 +3667,13 @@ msgstr "არავერსიული ელემენტების წ�
 msgid ""
 "Delete\n"
 "Remove the cache files."
-msgstr ""
-"წაშლა\n"
-"ბუფერის გასუფთავება."
+msgstr "წაშლა\nბუფერის გასუფთავება."
 
 #. Resource IDs: (314)
 msgid ""
 "Delete\n"
 "The file is removed."
-msgstr ""
-"წაშლა\n"
-"ფაილი ამოღებულია."
+msgstr "წაშლა\nფაილი ამოღებულია."
 
 #. Resource IDs: (73, 264, 1510, 1551)
 msgid "Deleted"
@@ -3937,8 +3686,7 @@ msgstr "წაშლილი კვანძი"
 #. Resource IDs: (15)
 msgid ""
 "Deletes and adds the selected file(s) or the filemask to the 'ignore' list"
-msgstr ""
-"მონიშნული ფაილ(ებ)ის ან თარგების 'იგნორირებულთა' სიაში წაშლა და დამატება"
+msgstr "მონიშნული ფაილ(ებ)ის ან თარგების 'იგნორირებულთა' სიაში წაშლა და დამატება"
 
 #. Resource IDs: (11)
 msgid "Deletes files / folders from version control"
@@ -4004,9 +3752,7 @@ msgstr "გადანაცვლებული ბლოკების მ�
 msgid ""
 "Device Independent Bitmap\n"
 "a device independent bitmap"
-msgstr ""
-"მოწყობილობისგან დამოუკიდებელი წერტილოვანი გამოსახულება\n"
-"მოწყობილობისგან დამოუკიდებელი გამოსახულება"
+msgstr "მოწყობილობისგან დამოუკიდებელი წერტილოვანი გამოსახულება\nმოწყობილობისგან დამოუკიდებელი გამოსახულება"
 
 #. Resource IDs: (334)
 msgid "Dialog"
@@ -4068,9 +3814,7 @@ msgstr "მიმართულება:"
 msgid ""
 "Disable this option if you have really big working copies and experience\r\n"
 "too much disk access when browsing the working copy."
-msgstr ""
-"გამორთეთ ეს პარამეტრი თუ მართლაც დიდი სამუშაო ასლები\r\n"
-"მის წასაკითხად დისკზე მეტისმეტად ინტენსიური მიმართვაა საჭირო."
+msgstr "გამორთეთ ეს პარამეტრი თუ მართლაც დიდი სამუშაო ასლები\r\nმის წასაკითხად დისკზე მეტისმეტად ინტენსიური მიმართვაა საჭირო."
 
 #. Resource IDs: (596)
 msgid "Discards local changes upon incoming deletes"
@@ -4094,33 +3838,25 @@ msgstr "&ღილაკების ჩვენება ამ რიგი�
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
-msgstr ""
-"მენიუს, ღილაკებისა და ფანჯრების დახმარების ჩვენება\n"
-"დახმარება"
+msgstr "მენიუს, ღილაკებისა და ფანჯრების დახმარების ჩვენება\nდახმარება"
 
 #. Resource IDs: (3605)
 msgid ""
 "Display help for current task or command\n"
 "Help"
-msgstr ""
-"მიმდინარე ამოცანის ან ბრძანების დახმარების ჩვენება\n"
-"დახმარება"
+msgstr "მიმდინარე ამოცანის ან ბრძანების დახმარების ჩვენება\nდახმარება"
 
 #. Resource IDs: (3605)
 msgid ""
 "Display instructions about how to use help\n"
 "Help"
-msgstr ""
-"დახმარების გამოყენების ინსტრუქციების ჩვენება\n"
-"დახმარება"
+msgstr "დახმარების გამოყენების ინსტრუქციების ჩვენება\nდახმარება"
 
 #. Resource IDs: (3605)
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
-msgstr ""
-"პროგრამის შესახებ ინფორმაციის, ვერსიის ნომრისა და საავტორო უფლებების ჩვენება\n"
-"პროგრამის შესახებ"
+msgstr "პროგრამის შესახებ ინფორმაციის, ვერსიის ნომრისა და საავტორო უფლებების ჩვენება\nპროგრამის შესახებ"
 
 #. Resource IDs: (363)
 msgid "Do not ask again for this script"
@@ -4173,10 +3909,7 @@ msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
 "and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr ""
-"ნამდვილად გსურთ გააუქმოთ ყველა ცვლილება\n"
-"%s\n"
-"და ის ამ ვერსიაზე დაბრუნება? ეს ცვლილებები აღდგება ამ ვერსიის თქვენს სამუშაო ასლთან უკუშერწყმით."
+msgstr "ნამდვილად გსურთ გააუქმოთ ყველა ცვლილება\n%s\nდა ის ამ ვერსიაზე დაბრუნება? ეს ცვლილებები აღდგება ამ ვერსიის თქვენს სამუშაო ასლთან უკუშერწყმით."
 
 #. Resource IDs: (76)
 #, c-format
@@ -4184,10 +3917,7 @@ msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
 "which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr ""
-"ნამდვილად გსურთ გააუქმოთ ყველა ცვლილება\n"
-"%s\n"
-"რომლებიც ამ ვერსიაშია შეტანილი? ეს ცვლილებები აღდგება ამ ვერსიის თქვენს სამუშაო ასლთან უკუშერწყმით."
+msgstr "ნამდვილად გსურთ გააუქმოთ ყველა ცვლილება\n%s\nრომლებიც ამ ვერსიაშია შეტანილი? ეს ცვლილებები აღდგება ამ ვერსიის თქვენს სამუშაო ასლთან უკუშერწყმით."
 
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
@@ -4199,10 +3929,7 @@ msgid ""
 "Do you want to make this working copy unversioned?\n"
 "This will remove all Subversion admin directories from\n"
 "%s!"
-msgstr ""
-"გნებავთ ამ სამუშაო ასლის არავერსიულდა მითითება?\n"
-"წაიშლება ადმინის ყველა დასტა ქვევერსიიდან\n"
-"%s!"
+msgstr "გნებავთ ამ სამუშაო ასლის არავერსიულდა მითითება?\nწაიშლება ადმინის ყველა დასტა ქვევერსიიდან\n%s!"
 
 #. Resource IDs: (148)
 #, c-format
@@ -4221,9 +3948,7 @@ msgstr "ნამდვილად გსურთ თვითშენახ�
 msgid ""
 "Do you want to reload the documents to reflect the settings changes?\n"
 "Note: you will lose all changes you've made!"
-msgstr ""
-"გსურთ პარამეტრების ცვლილებების დოკუმენტების განახლება?\n"
-"ყურადღება: თქვენ დაკარგავთ ყველა შეტანილ ცვლილებას!"
+msgstr "გსურთ პარამეტრების ცვლილებების დოკუმენტების განახლება?\nყურადღება: თქვენ დაკარგავთ ყველა შეტანილ ცვლილებას!"
 
 #. Resource IDs: (588)
 #, c-format
@@ -4241,10 +3966,7 @@ msgid ""
 "Do you want to revert all changes in\n"
 "%s\n"
 "and go back to this revision?"
-msgstr ""
-"გნებავთ ყველა ცვლილების გაუქმება\n"
-"%s\n"
-"და ამ ვერსიაზე დაბრუნება?"
+msgstr "გნებავთ ყველა ცვლილების გაუქმება\n%s\nდა ამ ვერსიაზე დაბრუნება?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -4252,10 +3974,7 @@ msgid ""
 "Do you want to revert all changes in\n"
 "%s\n"
 "which were made in this revision?"
-msgstr ""
-"გნებავთ ყველა ცვლილების გაუქმება\n"
-"%s\n"
-"რომელიც ამ ვერსიისთვის გაკეთდა?"
+msgstr "გნებავთ ყველა ცვლილების გაუქმება\n%s\nრომელიც ამ ვერსიისთვის გაკეთდა?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
@@ -4269,9 +3988,7 @@ msgstr "დოკუმენტი :"
 msgid ""
 "Documentation : Simon Large\n"
 "Code : Tobias Schäfer, Stefan Fuhrmann"
-msgstr ""
-"დოკუმენტაცია : საიმონ ლარჯი\n"
-"კოდი : ტობიას შაფერი, შტეფან ფურმანი"
+msgstr "დოკუმენტაცია : საიმონ ლარჯი\nკოდი : ტობიას შაფერი, შტეფან ფურმანი"
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
@@ -4283,27 +4000,19 @@ msgid ""
 "Instead, all URLs get checked out into a separate\n"
 "working copies next to each other.\n"
 "This works for directory URLs only."
-msgstr ""
-"მეჩხერი სამუშაო ასლის თავიდან აცილება.\n"
-"ყველა URL თანმიმდევრობით გადმოიტანება\n"
-"ცალკე სამუშაო ასლებად.\n"
-"მუშაობს მხოლოდ დასტის URL-ებისთვის."
+msgstr "მეჩხერი სამუშაო ასლის თავიდან აცილება.\nყველა URL თანმიმდევრობით გადმოიტანება\nცალკე სამუშაო ასლებად.\nმუშაობს მხოლოდ დასტის URL-ებისთვის."
 
 #. Resource IDs: (3887)
 msgid ""
 "Don't recover the auto-saved documents\n"
 "Use the last explicitly saved versions of the documents"
-msgstr ""
-"თვითშენახული დოკუმენტების შენარჩუნება\n"
-"დოკუმენტების უახლესი შენახული ვერსიების გამოყენება"
+msgstr "თვითშენახული დოკუმენტების შენარჩუნება\nდოკუმენტების უახლესი შენახული ვერსიების გამოყენება"
 
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
-msgstr ""
-"შენახვის გარეშე\n"
-"ხედების ხელახლა ჩატვირთვა ცვლილებების შენახვის გარეშე"
+msgstr "შენახვის გარეშე\nხედების ხელახლა ჩატვირთვა ცვლილებების შენახვის გარეშე"
 
 #. Resource IDs: (80, 564)
 msgid "Don't show this message again"
@@ -4427,9 +4136,7 @@ msgstr "დავთრის რედაქტირება"
 msgid ""
 "Edit property '%1!S!' on\r\n"
 "%2!s!"
-msgstr ""
-"პარამეტრის რედაქტირება  '%1!S!' :\r\n"
-"%2!s!"
+msgstr "პარამეტრის რედაქტირება  '%1!S!' :\r\n%2!s!"
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4451,9 +4158,7 @@ msgstr "შერწყმის მონაცემთა რედაქც�
 msgid ""
 "Ellipse Tools\n"
 "Ellipse"
-msgstr ""
-"ელიფსის სამარჯვები\n"
-"ელიფსი"
+msgstr "ელიფსის სამარჯვები\nელიფსი"
 
 #. Resource IDs: (65535)
 msgid "Empty"
@@ -4469,9 +4174,7 @@ msgstr "თვითპარამეტრიზაციის ჩართ�
 
 #. Resource IDs: (344)
 msgid "Enable log caching to speed up log and revision graph dialogs"
-msgstr ""
-"დავთრის ბუფერის ჩართვა დავთრისა და ვერსიათა დიაგრამების დიალოგების "
-"დასაჩქარებლად"
+msgstr "დავთრის ბუფერის ჩართვა დავთრისა და ვერსიათა დიაგრამების დიალოგების დასაჩქარებლად"
 
 #. Resource IDs: (65535)
 msgid "Enabled Overlay Handlers"
@@ -4481,9 +4184,7 @@ msgstr "თარგის ჩართული სამარჯვები"
 msgid ""
 "Enables the spellchecker only if the\n"
 "tsvn:projectlanguage property is set."
-msgstr ""
-"მართლწერის შემოწმება თუ მითითებულია\n"
-"tsvn:projectlanguage პარამეტრი."
+msgstr "მართლწერის შემოწმება თუ მითითებულია\ntsvn:projectlanguage პარამეტრი."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -4609,25 +4310,19 @@ msgstr "მიუთითეთ მარტივი გამოსახუ�
 msgid ""
 "Enter the regular expression patterns for filtering out the bug-ID from a "
 "commit message."
-msgstr ""
-"შეიტანეთ მარტივი გამოსახულება შეცდომის ID-ის გასაფილტრად ფიქსაციის "
-"გზავნილში."
+msgstr "შეიტანეთ მარტივი გამოსახულება შეცდომის ID-ის გასაფილტრად ფიქსაციის გზავნილში."
 
 #. Resource IDs: (3603)
 msgid ""
 "Erase everything\n"
 "Erase All"
-msgstr ""
-"ყველაფრის წაშლა\n"
-"ყველას წაშლა"
+msgstr "ყველაფრის წაშლა\nყველას წაშლა"
 
 #. Resource IDs: (3603)
 msgid ""
 "Erase the selection\n"
 "Erase"
-msgstr ""
-"მონიშნულის წაშლა\n"
-"წაშლა"
+msgstr "მონიშნულის წაშლა\nწაშლა"
 
 #. Resource IDs: (82)
 msgid "Error"
@@ -4647,9 +4342,7 @@ msgstr "სერვერის სერთიფიკატის შემ�
 msgid ""
 "Error while reading/writing the registry key %1!s!\n"
 "%2!s!"
-msgstr ""
-"შეცდომა რეგისტრის მნიშვნელობის %1!s! წაკითხვა/ჩაწერისას\n"
-"%2!s!"
+msgstr "შეცდომა რეგისტრის მნიშვნელობის %1!s! წაკითხვა/ჩაწერისას\n%2!s!"
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
@@ -4671,9 +4364,7 @@ msgstr "გამომაკლისი"
 msgid ""
 "Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
 "(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr ""
-"შესრულებადი (*.exe)|*.exe|ბრძანების (*.com)|*.com|საინფორმაციო "
-"(*.pdf)|*.pdf|მჭიდი (*.bat)|*.bat|ყველა ფაილი (*.*)|*.*||"
+msgstr "შესრულებადი (*.exe)|*.exe|ბრძანების (*.com)|*.com|საინფორმაციო (*.pdf)|*.pdf|მჭიდი (*.bat)|*.bat|ყველა ფაილი (*.*)|*.*||"
 
 #. Resource IDs: (1002)
 msgid "Existing"
@@ -4733,9 +4424,7 @@ msgstr "არავერსიული ფაილების ექსპ�
 msgid ""
 "Export\n"
 "Export into the non-empty folder."
-msgstr ""
-"ექსპორტი\n"
-"ექსპორტი არაცარიელ დასტაში."
+msgstr "ექსპორტი\nექსპორტი არაცარიელ დასტაში."
 
 #. Resource IDs: (284)
 #, c-format
@@ -4809,9 +4498,7 @@ msgstr "აღდგენა ვერ მოხერხდა"
 msgid ""
 "Failed to connect.\n"
 "Link may be broken."
-msgstr ""
-"დაკავშირება ვერ ხერხდება.\n"
-"შესაძლოა ბმა დაზიანებულია."
+msgstr "დაკავშირება ვერ ხერხდება.\nშესაძლოა ბმა დაზიანებულია."
 
 #. Resource IDs: (3865)
 msgid "Failed to convert ActiveX object."
@@ -4825,9 +4512,7 @@ msgstr "ცარიელი დოკუმენტის შექმნა 
 msgid ""
 "Failed to create object.  Make sure the application is entered in the system"
 " registry."
-msgstr ""
-"ობიექტის შექმნა ვერ ხერხდება. გადაამოწმეთ პროგრამის სისტემურ რეგისტრში "
-"არსებობა."
+msgstr "ობიექტის შექმნა ვერ ხერხდება. გადაამოწმეთ პროგრამის სისტემურ რეგისტრში არსებობა."
 
 #. Resource IDs: (3857)
 msgid "Failed to launch help."
@@ -4859,9 +4544,7 @@ msgstr "ცვლილებათა სიის '%s' მითითებ�
 msgid ""
 "Failed to start the issue tracker COM provider '%1!s!'.\n"
 "%2!s!"
-msgstr ""
-"ვერ ხერხდება პრობლემათა თვალმიდევნების გახსნა COM პროვაიდერზე '%1!s!'.\n"
-"%2!s!"
+msgstr "ვერ ხერხდება პრობლემათა თვალმიდევნების გახსნა COM პროვაიდერზე '%1!s!'.\n%2!s!"
 
 #. Resource IDs: (220)
 msgid "Failed!"
@@ -4933,14 +4616,7 @@ msgid ""
 "Vertical Resolution:\t%.1f dpi\n"
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
-msgstr ""
-"ფაილის ზომა:\t\t%s (%s)\n"
-"სიგანე:\t\t\t%ld პიქსელი\n"
-"სიმაღლე:\t\t\t%ld პიქსელი\n"
-"განივი გარჩევადობა:\t%.1f dpi\n"
-"მართობული გარჩევადობა:\t%.1f dpi\n"
-"სიღრმე:\t\t\t%d ბიტი\n"
-"მასშტაბი:\t\t\t%d%%"
+msgstr "ფაილის ზომა:\t\t%s (%s)\nსიგანე:\t\t\t%ld პიქსელი\nსიმაღლე:\t\t\t%ld პიქსელი\nგანივი გარჩევადობა:\t%.1f dpi\nმართობული გარჩევადობა:\t%.1f dpi\nსიღრმე:\t\t\t%d ბიტი\nმასშტაბი:\t\t\t%d%%"
 
 #. Resource IDs: (8)
 #, c-format
@@ -4960,22 +4636,7 @@ msgid ""
 "Vertical Resolution:\t%.1f dpi\n"
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
-msgstr ""
-"ფაილის ზომა:\t\t%s (%s)\n"
-"სიგანე:\t\t\t%ld პიქსელი\n"
-"სიმაღლე:\t\t\t%ld პიქსელი\n"
-"განივი გარჩევადობა:\t%.1f dpi\n"
-"მართობული გარჩევადობა:\t%.1f dpi\n"
-"სიღრმე:\t\t\t%d ბიტი\n"
-"მასშტაბი:\t\t\t%d%%\n"
-"\n"
-"ფაილის ზომა:\t\t%s (%s)\n"
-"სიგანე:\t\t\t%ld პიქსელი\n"
-"სიმაღლე:\t\t\t%ld პიქსელი\n"
-"განივი გარჩევადობა:\t%.1f dpi\n"
-"მართობული გარჩევადობა:\t%.1f dpi\n"
-"სიღრმე:\t\t\t%d ბიტი\n"
-"მასშტაბი:\t\t\t%d%%"
+msgstr "ფაილის ზომა:\t\t%s (%s)\nსიგანე:\t\t\t%ld პიქსელი\nსიმაღლე:\t\t\t%ld პიქსელი\nგანივი გარჩევადობა:\t%.1f dpi\nმართობული გარჩევადობა:\t%.1f dpi\nსიღრმე:\t\t\t%d ბიტი\nმასშტაბი:\t\t\t%d%%\n\nფაილის ზომა:\t\t%s (%s)\nსიგანე:\t\t\t%ld პიქსელი\nსიმაღლე:\t\t\t%ld პიქსელი\nგანივი გარჩევადობა:\t%.1f dpi\nმართობული გარჩევადობა:\t%.1f dpi\nსიღრმე:\t\t\t%d ბიტი\nმასშტაბი:\t\t\t%d%%"
 
 #. Resource IDs: (7)
 #, c-format
@@ -4987,14 +4648,7 @@ msgid ""
 "Vertical Resolution:\t\t%.1f dpi\n"
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
-msgstr ""
-"ფაილის ზომა:\t\t\t%s (%s)\n"
-"სიგანე:\t\t\t%ld პიქსელი\n"
-"სიმაღლე:\t\t\t%ld პიქსელი\n"
-"განივი გარჩევადობა:\t%.1f dpi\n"
-"მართობული გარჩევადობა:\t\t%.1f dpi\n"
-"სიღრმე:\t\t\t%d ბიტი\n"
-"მასშტაბი:\t\t\t%d%%"
+msgstr "ფაილის ზომა:\t\t\t%s (%s)\nსიგანე:\t\t\t%ld პიქსელი\nსიმაღლე:\t\t\t%ld პიქსელი\nგანივი გარჩევადობა:\t%.1f dpi\nმართობული გარჩევადობა:\t\t%.1f dpi\nსიღრმე:\t\t\t%d ბიტი\nმასშტაბი:\t\t\t%d%%"
 
 #. Resource IDs: (7)
 #, c-format
@@ -5014,22 +4668,7 @@ msgid ""
 "Vertical Resolution:\t\t%.1f dpi\n"
 "Depth:\t\t\t%d bit\n"
 "Zoom:\t\t\t%d%%"
-msgstr ""
-"ფაილის ზომა:\t\t\t%s (%s)\n"
-"სიგანე:\t\t\t%ld პიქსელი\n"
-"სიმაღლე:\t\t\t%ld პიქსელი\n"
-"განივი გარჩევადობა:\t%.1f dpi\n"
-"მართობული გარჩევადობა:\t\t%.1f dpi\n"
-"სიღრმე:\t\t\t%d ბიტი\n"
-"მასშტაბი:\t\t\t%d%%\n"
-"\n"
-"ფაილის ზომა:\t\t\t%s (%s)\n"
-"სიგანე:\t\t\t%ld პიქსელი\n"
-"სიმაღლე:\t\t\t%ld პიქსელი\n"
-"განივი გარჩევადობა:\t%.1f dpi\n"
-"მართობული გარჩევადობა:\t\t%.1f dpi\n"
-"სიღრმე:\t\t\t%d ბიტი\n"
-"მასშტაბი:\t\t\t%d%%"
+msgstr "ფაილის ზომა:\t\t\t%s (%s)\nსიგანე:\t\t\t%ld პიქსელი\nსიმაღლე:\t\t\t%ld პიქსელი\nგანივი გარჩევადობა:\t%.1f dpi\nმართობული გარჩევადობა:\t\t%.1f dpi\nსიღრმე:\t\t\t%d ბიტი\nმასშტაბი:\t\t\t%d%%\n\nფაილის ზომა:\t\t\t%s (%s)\nსიგანე:\t\t\t%ld პიქსელი\nსიმაღლე:\t\t\t%ld პიქსელი\nგანივი გარჩევადობა:\t%.1f dpi\nმართობული გარჩევადობა:\t\t%.1f dpi\nსიღრმე:\t\t\t%d ბიტი\nმასშტაბი:\t\t\t%d%%"
 
 #. Resource IDs: (208)
 msgid "Filename"
@@ -5051,9 +4690,7 @@ msgstr "ფაილები"
 msgid ""
 "Fill Tool\n"
 "Fill"
-msgstr ""
-"ჩასხმის სამარჯვი\n"
-"ჩასხმა"
+msgstr "ჩასხმის სამარჯვი\nჩასხმა"
 
 #. Resource IDs: (117)
 msgid "Filter by"
@@ -5067,9 +4704,7 @@ msgstr "ფილრის თანხვედრა"
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
-msgstr ""
-"შემდეგი კონტექსტის შემცველი გეზების გაფილტვრა\n"
-"(სხვადასხვა გეზები გამოყავით '*' სიმბოლოთი):"
+msgstr "შემდეგი კონტექსტის შემცველი გეზების გაფილტვრა\n(სხვადასხვა გეზები გამოყავით '*' სიმბოლოთი):"
 
 #. Resource IDs: (321)
 msgid "Filter paths"
@@ -5083,9 +4718,7 @@ msgstr "პოვნა"
 msgid ""
 "Find the specified text\n"
 "Find"
-msgstr ""
-"ტექსტის პოვნა\n"
-"პოვნა"
+msgstr "ტექსტის პოვნა\nპოვნა"
 
 #. Resource IDs: (77)
 msgid "Finished!"
@@ -5222,11 +4855,7 @@ msgid ""
 "To enable strict locking please add the 'svn:needs-lock' property to all files that need locking, and commit those files.\n"
 "Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
 "Note that other users will need to update their working copies before they see the files as read-only."
-msgstr ""
-"ფაილების დაბლოკვა 'svn:needs-lock' პარამეტრის გარეშე არ იცავს მათ სხვების მიერ მათივე სამუშაო ასლებში რედაქტირებისგან.\n"
-"მკაცრი დაბლოკვისთვის გთხოვთ დაამატოთ 'svn:needs-lock' ყველა ფაილს, რომელთა დაბლოკვაც გსურთ და ისე გაგზავნოთ.\n"
-"Each file will have the file-system read-only flag set, and getting a lock will make the file writable.\n"
-"გაითვალისწინეთ, რომ სხვა მომხმარებლებმა თავიანთი სამუშაო ასლები უნდა განაახლონ ვიდრე ფაილების, როგორც კითხვადად აღქმას შეძლებენ."
+msgstr "ფაილების დაბლოკვა 'svn:needs-lock' პარამეტრის გარეშე არ იცავს მათ სხვების მიერ მათივე სამუშაო ასლებში რედაქტირებისგან.\nმკაცრი დაბლოკვისთვის გთხოვთ დაამატოთ 'svn:needs-lock' ყველა ფაილს, რომელთა დაბლოკვაც გსურთ და ისე გაგზავნოთ.\nEach file will have the file-system read-only flag set, and getting a lock will make the file writable.\nგაითვალისწინეთ, რომ სხვა მომხმარებლებმა თავიანთი სამუშაო ასლები უნდა განაახლონ ვიდრე ფაილების, როგორც კითხვადად აღქმას შეძლებენ."
 
 #. Resource IDs: (119)
 #, c-format
@@ -5282,17 +4911,13 @@ msgstr "გადასვლა ხაზზე"
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
-msgstr ""
-"გადასვლა შემდეგ კონფლიქტზე\n"
-"შემდეგი კონფლიქტი"
+msgstr "გადასვლა შემდეგ კონფლიქტზე\nშემდეგი კონფლიქტი"
 
 #. Resource IDs: (2049)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
-msgstr ""
-"გადასვლა შემდეგ განსხვავებაზე\n"
-"შემდეგი განსხვავება"
+msgstr "გადასვლა შემდეგ განსხვავებაზე\nშემდეგი განსხვავება"
 
 #. Resource IDs: (2055)
 msgid ""
@@ -5304,17 +4929,13 @@ msgstr ""
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
-msgstr ""
-"გადასვლა წინა კონფლიქტზე\n"
-"წინა კონფლიქტი"
+msgstr "გადასვლა წინა კონფლიქტზე\nწინა კონფლიქტი"
 
 #. Resource IDs: (2049)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
-msgstr ""
-"გადასვლა წინა განსხვავებაზე\n"
-"წინა განსხვავება"
+msgstr "გადასვლა წინა განსხვავებაზე\nწინა განსხვავება"
 
 #. Resource IDs: (2055)
 msgid ""
@@ -5431,9 +5052,7 @@ msgstr ""
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
-msgstr ""
-"ბებკი ფაილების სიის ჩვენება/დამალვა\n"
-"აჩვენებს ან დამალავს ბებკი ფაილების სიას"
+msgstr "ბებკი ფაილების სიის ჩვენება/დამალვა\nაჩვენებს ან დამალავს ბებკი ფაილების სიას"
 
 #. Resource IDs: (339)
 msgid "Highest revision number in the cache"
@@ -5443,9 +5062,7 @@ msgstr "ვერსიის მაქსიმალური ნომერ�
 msgid ""
 "Hint: select the context menu, change the page to 'Commands' and drag the "
 "toolbar buttons into the menu window."
-msgstr ""
-"რჩევა: კონტექსტური მენიუდან გადადით გვერდზე 'ბრძანებები' და გადაათრიეთ "
-"პულტის ღილაკები მენიუს სარკმელში."
+msgstr "რჩევა: კონტექსტური მენიუდან გადადით გვერდზე 'ბრძანებები' და გადაათრიეთ პულტის ღილაკები მენიუს სარკმელში."
 
 #. Resource IDs: (1064)
 msgid "Home"
@@ -5674,120 +5291,91 @@ msgstr "პიქტოგრამები/დიზაინი/კოდი:
 msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'branch'."
-msgstr ""
-"თუ მოცემული გეზის ელემენტი (ორ '/' სიმბოლოს შორის)\n"
-"შეესაბამება ერთერთს ამ თარგთაგან, იგულისხმება 'branch'."
+msgstr "თუ მოცემული გეზის ელემენტი (ორ '/' სიმბოლოს შორის)\nშეესაბამება ერთერთს ამ თარგთაგან, იგულისხმება 'branch'."
 
 #. Resource IDs: (346)
 msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'tag'."
-msgstr ""
-"თუ მოცემული გეზის ელემენტი (ორ '/' სიმბოლოს შორის)\n"
-"შეესაბამება ერთერთს ამ თარგთაგან, იგულისხმება 'tag'."
+msgstr "თუ მოცემული გეზის ელემენტი (ორ '/' სიმბოლოს შორის)\nშეესაბამება ერთერთს ამ თარგთაგან, იგულისხმება 'tag'."
 
 #. Resource IDs: (346)
 msgid ""
 "If a component (part between two '/') of a given path matches one\n"
 "of these patterns, it is considered a 'trunk'."
-msgstr ""
-"თუ მოცემული გეზის ელემენტი (ორ '/' სიმბოლოს შორის)\n"
-"შეესაბამება ერთერთს ამ თარგთაგან, იგულისხმება 'trunk'."
+msgstr "თუ მოცემული გეზის ელემენტი (ორ '/' სიმბოლოს შორის)\nშეესაბამება ერთერთს ამ თარგთაგან, იგულისხმება 'trunk'."
 
 #. Resource IDs: (194)
 msgid ""
 "If activated, prevents the overlays and the context menu from showing in "
 "'save as...' or 'open' dialogs"
-msgstr ""
-"თუ მონიშნულია, თარგები და კონტექსტური მენიუ დიალოგებში ''შენახვა როგორც...' "
-"ან 'გახსნა' არ აისახება"
+msgstr "თუ მონიშნულია, თარგები და კონტექსტური მენიუ დიალოგებში ''შენახვა როგორც...' ან 'გახსნა' არ აისახება"
 
 #. Resource IDs: (198)
 msgid ""
 "If activated, the menu entry 'Get Lock' is always shown in the top level menu\n"
 "if the selected file has the svn:needs-lock property set"
-msgstr ""
-"თუ აქტიურია, მენიუს ელემეტი 'დაბლოკვა' ყოველთვის მენიუს ზედა დონეზე\n"
-"გამოჩნდება თუ შერჩეული ფაილისთვის svn:needs-lock პარამეტრია მითითებული"
+msgstr "თუ აქტიურია, მენიუს ელემეტი 'დაბლოკვა' ყოველთვის მენიუს ზედა დონეზე\nგამოჩნდება თუ შერჩეული ფაილისთვის svn:needs-lock პარამეტრია მითითებული"
 
 #. Resource IDs: (95)
 msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
-msgstr ""
-"თუ ჩართულია, საცავში ახალი დასტა შეიქმნება.\n"
-"თუ ამორთულია, პირდაპირ პითითებულ URL-ში დაიმპორტდება."
+msgstr "თუ ჩართულია, საცავში ახალი დასტა შეიქმნება.\nთუ ამორთულია, პირდაპირ პითითებულ URL-ში დაიმპორტდება."
 
 #. Resource IDs: (79)
 msgid ""
 "If checked, TortoiseSVN creates a temporary file of the BASE to do the diff\n"
 "with the keywords expanded and the line endings adjusted."
-msgstr ""
-"თუ ჩართულია, TortoiseSVN შესადარებლად სბაზო ვერსიის (BASE) სხვაობის დროებით\n"
-"ფაილს შექმნის საკვანძო სიტყვებით და მართებული სტრიქონის დაბოლოებებით."
+msgstr "თუ ჩართულია, TortoiseSVN შესადარებლად სბაზო ვერსიის (BASE) სხვაობის დროებით\nფაილს შექმნის საკვანძო სიტყვებით და მართებული სტრიქონის დაბოლოებებით."
 
 #. Resource IDs: (197)
 msgid ""
 "If checked, double-clicking on a revision in the log list compares it with "
 "the previous revision"
-msgstr ""
-"თუ ჩართულია, დავთრის სიებში ვერსიის ორმაგი დაწკაპვით იგი წინა ვერსიასთან "
-"შედარდება"
+msgstr "თუ ჩართულია, დავთრის სიებში ვერსიის ორმაგი დაწკაპვით იგი წინა ვერსიასთან შედარდება"
 
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the Merge dialog initializes the 'From:' URL with the URL of the selected working copy\r\n"
 "instead of the last used URL."
-msgstr ""
-"თუ ჩართულია, შერწყმის დიალოგში ველში 'აქედან:' ჩაისმება მითითებული სამუშაო ასლის URL,\r\n"
-"და არა ბოლოს გამოყენებული URL."
+msgstr "თუ ჩართულია, შერწყმის დიალოგში ველში 'აქედან:' ჩაისმება მითითებული სამუშაო ასლის URL,\r\nდა არა ბოლოს გამოყენებული URL."
 
 #. Resource IDs: (195)
 msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
 "You don't have to click on 'Check Repository' anymore."
-msgstr ""
-"თუ ჩართულია, დიალოგის დაწყებისას საცავს დაუკავშირდება.\r\n"
-"'საცავის შემოწმების' დაწკაპვა თქვენ აღარ დაგჭირდებათ."
+msgstr "თუ ჩართულია, დიალოგის დაწყებისას საცავს დაუკავშირდება.\r\n'საცავის შემოწმების' დაწკაპვა თქვენ აღარ დაგჭირდებათ."
 
 #. Resource IDs: (197)
 msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
-msgstr ""
-"თუ ჩართულია, თარგების ჩვენებიდან გამონაკლისი სამუშაო\n"
-"ასლების დასტები კვლავ იქნება ნაჩვენები სტატუსით 'ჩვეულებრივი'"
+msgstr "თუ ჩართულია, თარგების ჩვენებიდან გამონაკლისი სამუშაო\nასლების დასტები კვლავ იქნება ნაჩვენები სტატუსით 'ჩვეულებრივი'"
 
 #. Resource IDs: (195)
 msgid ""
 "If set, TortoiseSVN will set the filetimes to the time they\r\n"
 "were last committed. If not set, TortoiseSVN uses the current time."
-msgstr ""
-"თუ ჩართულია, TortoiseSVN ფაილების დროს მათი ბოლო\r\n"
-"ფიქსაციით მიუთითებს. თუ ამორთულია – მიმდინარე დროით."
+msgstr "თუ ჩართულია, TortoiseSVN ფაილების დროს მათი ბოლო\r\nფიქსაციით მიუთითებს. თუ ამორთულია – მიმდინარე დროით."
 
 #. Resource IDs: (196)
 msgid ""
 "If set, files inside unversioned folders can be shown in the status control.\r\n"
 "The status control is used for example in the commit dialog."
-msgstr ""
-"თუ ჩართულია, სტატუსის კონტროლში ფაილების არავერსიულ დასტაში ჩვენება შეიძლება.\r\n"
-"სტატუსის კონტროლი გამოიყენება, მაგალითად, ფიქსაციის დიალოგში."
+msgstr "თუ ჩართულია, სტატუსის კონტროლში ფაილების არავერსიულ დასტაში ჩვენება შეიძლება.\r\nსტატუსის კონტროლი გამოიყენება, მაგალითად, ფიქსაციის დიალოგში."
 
 #. Resource IDs: (196)
 msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
-msgstr ""
-"თუ ჩართულია, არავერსიული ფაილები ძირეული დასტის სტატუსს შეცვლილად\r\n"
-"მონიშნავს, ე.ი. მათ შეცვლილის აღმნიშვნელი პიქტოგრამა მიენიჭებათ."
+msgstr "თუ ჩართულია, არავერსიული ფაილები ძირეული დასტის სტატუსს შეცვლილად\r\nმონიშნავს, ე.ი. მათ შეცვლილის აღმნიშვნელი პიქტოგრამა მიენიჭებათ."
 
 #. Resource IDs: (2052)
 msgid ""
 "If the graph contains multiple trees, separate them by slight variations in "
 "background color."
-msgstr ""
-"თუ გრაფიკში რამდენიმე განტოტვაა, გამოყავით ისინი ფონის მცირეს ცვლილებებით."
+msgstr "თუ გრაფიკში რამდენიმე განტოტვაა, გამოყავით ისინი ფონის მცირეს ცვლილებებით."
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
@@ -5798,18 +5386,13 @@ msgid ""
 "If you use other SVN clients besides TortoiseSVN on this computer, you have "
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
-msgstr ""
-"თუ TortoiseSVN-ის გარდა სხვა SVN კლიენტითაც სარგებლობთ, მათი განახლებაც "
-"მოგიწევთ. წინააღმდეგ შემთხვევაში ეს კლიენტები ვერ განახორციელებენ სამუშაო "
-"ასლის წვდომას ახალ ფორმატში."
+msgstr "თუ TortoiseSVN-ის გარდა სხვა SVN კლიენტითაც სარგებლობთ, მათი განახლებაც მოგიწევთ. წინააღმდეგ შემთხვევაში ეს კლიენტები ვერ განახორციელებენ სამუშაო ასლის წვდომას ახალ ფორმატში."
 
 #. Resource IDs: (251)
 msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
-msgstr ""
-"დაბლოკვის მოსახსნელად ისარგებლეთ დიალოგით 'შემოწმება ცვლილებებზე' ან საცავის"
-" ბრაუზერით."
+msgstr "დაბლოკვის მოსახსნელად ისარგებლეთ დიალოგით 'შემოწმება ცვლილებებზე' ან საცავის ბრაუზერით."
 
 #. Resource IDs: (563)
 msgid "Ignore"
@@ -5848,9 +5431,7 @@ msgstr "&რეგისტრის ცვლილების იგნორ
 msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
-msgstr ""
-"ცვლილებათა იგნორირება\n"
-"გარე ცვლილებათა იგნორირება."
+msgstr "ცვლილებათა იგნორირება\nგარე ცვლილებათა იგნორირება."
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -5884,17 +5465,13 @@ msgstr "იგნორირებულ ელემენტთა ჩათ�
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
-msgstr ""
-"გამოტოვებს შორისებს განსხვავებების პოვნისას\n"
-"შორისების იგნორირება"
+msgstr "გამოტოვებს შორისებს განსხვავებების პოვნისას\nშორისების იგნორირება"
 
 #. Resource IDs: (2055)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
-msgstr ""
-"გამოტოვებს შორისებს განსხვავებების პოვნისას\n"
-"შორისების ცვლილებათა იგნორირება"
+msgstr "გამოტოვებს შორისებს განსხვავებების პოვნისას\nშორისების ცვლილებათა იგნორირება"
 
 #. Resource IDs: (89)
 msgid "Illegal path"
@@ -5943,27 +5520,21 @@ msgstr "ადრე შენახული პარამეტრები�
 msgid ""
 "Import file %1!s!\r\n"
 "to %2!s!"
-msgstr ""
-"ფაილის იმპორტი: %1!s!\r\n"
-"აქ %2!s!"
+msgstr "ფაილის იმპორტი: %1!s!\r\nაქ %2!s!"
 
 #. Resource IDs: (126)
 #, c-format
 msgid ""
 "Import file to\r\n"
 "%s"
-msgstr ""
-"ფაილის იმპორტი აქ\r\n"
-"%s"
+msgstr "ფაილის იმპორტი აქ\r\n%s"
 
 #. Resource IDs: (126)
 #, c-format
 msgid ""
 "Import folder %1!s!\r\n"
 "to %2!s!"
-msgstr ""
-"ფაილის იმპორტი: %1!s!\r\n"
-"აქ %2!s!"
+msgstr "ფაილის იმპორტი: %1!s!\r\nაქ %2!s!"
 
 #. Resource IDs: (613)
 #, c-format
@@ -5974,9 +5545,7 @@ msgstr "იმპორტი - %1"
 msgid ""
 "Import\n"
 "The items are imported, creating a new revision for each item."
-msgstr ""
-"იმპორტი\n"
-"ელემენტები დაიმპორტდა, თითოეულისთვის ახალი ვერსია იქმნება."
+msgstr "იმპორტი\nელემენტები დაიმპორტდა, თითოეულისთვის ახალი ვერსია იქმნება."
 
 #. Resource IDs: (80)
 msgid "Imported folder structure"
@@ -6011,9 +5580,7 @@ msgstr "მხოლოდ შემდეგი ვერსიების რ
 msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
-msgstr ""
-"ითვალისწინებს საცავებს სტატუსის შემოწმებისას\n"
-"დაჭერილი გქონდეთ ღილაკი shift სრული მონაცემების წაკითხვისას."
+msgstr "ითვალისწინებს საცავებს სტატუსის შემოწმებისას\nდაჭერილი გქონდეთ ღილაკი shift სრული მონაცემების წაკითხვისას."
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -6043,9 +5610,7 @@ msgstr "შეტანა"
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
-msgstr ""
-"ბუფერის შიგთავსის ჩასმა\n"
-"ჩასმა"
+msgstr "ბუფერის შიგთავსის ჩასმა\nჩასმა"
 
 #. Resource IDs: (1575)
 msgid "Insert message at:"
@@ -6088,22 +5653,7 @@ msgid ""
 "{20020217T1530}\n"
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
-msgstr ""
-"ვერსიის მცდარი ნომერი! მართებული ვერსიებია:\n"
-"HEAD, BASE, PREV, COMMITTED, WC\n"
-"დადებითი ათობითი რიცხვები,\n"
-"თარიღები შემდეგ ფორმატში:\n"
-"{2002-02-17}\n"
-"{15:30}\n"
-"{15:30:00.200000}\n"
-"{\"2002-02-17 15:30\"}\n"
-"{\"2002-02-17 15:30 +0230\"}\n"
-"{2002-02-17T15:30}\n"
-"{2002-02-17T15:30Z}\n"
-"{2002-02-17T15:30-04:00}\n"
-"{20020217T1530}\n"
-"{20020217T1530Z}\n"
-"{20020217T1530-0500}"
+msgstr "ვერსიის მცდარი ნომერი! მართებული ვერსიებია:\nHEAD, BASE, PREV, COMMITTED, WC\nდადებითი ათობითი რიცხვები,\nთარიღები შემდეგ ფორმატში:\n{2002-02-17}\n{15:30}\n{15:30:00.200000}\n{\"2002-02-17 15:30\"}\n{\"2002-02-17 15:30 +0230\"}\n{2002-02-17T15:30}\n{2002-02-17T15:30Z}\n{2002-02-17T15:30-04:00}\n{20020217T1530}\n{20020217T1530Z}\n{20020217T1530-0500}"
 
 #. Resource IDs: (83)
 msgid ""
@@ -6122,22 +5672,7 @@ msgid ""
 "{20020217T1530}\n"
 "{20020217T1530Z}\n"
 "{20020217T1530-0500}"
-msgstr ""
-"ვერსიის მცდარი ნომერი! მართებული ვერსიებია:\n"
-"HEAD\n"
-"დადებითი ათობითი რიცხვები,\n"
-"თარიღები შემდეგ ფორმატშია:\n"
-"{2002-02-17}\n"
-"{15:30}\n"
-"{15:30:00.200000}\n"
-"{\"2002-02-17 15:30\"}\n"
-"{\"2002-02-17 15:30 +0230\"}\n"
-"{2002-02-17T15:30}\n"
-"{2002-02-17T15:30Z}\n"
-"{2002-02-17T15:30-04:00}\n"
-"{20020217T1530}\n"
-"{20020217T1530Z}\n"
-"{20020217T1530-0500}"
+msgstr "ვერსიის მცდარი ნომერი! მართებული ვერსიებია:\nHEAD\nდადებითი ათობითი რიცხვები,\nთარიღები შემდეგ ფორმატშია:\n{2002-02-17}\n{15:30}\n{15:30:00.200000}\n{\"2002-02-17 15:30\"}\n{\"2002-02-17 15:30 +0230\"}\n{2002-02-17T15:30}\n{2002-02-17T15:30Z}\n{2002-02-17T15:30-04:00}\n{20020217T1530}\n{20020217T1530Z}\n{20020217T1530-0500}"
 
 #. Resource IDs: (83)
 msgid ""
@@ -6145,11 +5680,7 @@ msgid ""
 "Valid revisions are numbers and HEAD, separated by commas.\n"
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
-msgstr ""
-"ვერსიის მცდარი დიაპაზონი!\n"
-"ვერსიებისთვის მისაღებია მძიმით დაყოფილი რიცხვები და  HEAD.\n"
-"დიაპაზონი შეგიძლიათ მიუთითოთ ტირეს საშუალებით.\n"
-"მაგალითი: 2-5,7,10,44-70,300-HEAD"
+msgstr "ვერსიის მცდარი დიაპაზონი!\nვერსიებისთვის მისაღებია მძიმით დაყოფილი რიცხვები და  HEAD.\nდიაპაზონი შეგიძლიათ მიუთითოთ ტირეს საშუალებით.\nმაგალითი: 2-5,7,10,44-70,300-HEAD"
 
 #. Resource IDs: (1571)
 msgid "Issue tracker"
@@ -6163,12 +5694,7 @@ msgid ""
 "To: %2!s!\n"
 "\n"
 "Improper use of relocate will corrupt your working copy!"
-msgstr ""
-"როგორც ჩანს, თქვენი სამუშაო ასლის სხვა გეზზე გადაადგილებას აპირებთ იგივე საცავში.\n"
-"აქედან: %1!s!\n"
-"აქ: %2!s!\n"
-"\n"
-"Improper use of relocate will corrupt your working copy!"
+msgstr "როგორც ჩანს, თქვენი სამუშაო ასლის სხვა გეზზე გადაადგილებას აპირებთ იგივე საცავში.\nაქედან: %1!s!\nაქ: %2!s!\n\nImproper use of relocate will corrupt your working copy!"
 
 #. Resource IDs: (88)
 #, c-format
@@ -6184,18 +5710,7 @@ msgid ""
 "Improper use of relocate will corrupt your working copy!\n"
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
-msgstr ""
-"როგორც ჩანს, სამუშაო ასლის იგივე საცავის განსხვავებულ გეზზე გადაადგილებას ცდილობთ.\n"
-"\n"
-"აქედან:<span class=\"whitespace other\" title=\"Tab\">»</span>%1!s!\n"
-"აქ:<span class=\"whitespace other\" title=\"Tab\">»</span>%2!s!\n"
-"\n"
-"გადაადგილება საჭიროა მხოლოდ საცავის გეზის ცვლილებისას.\n"
-"გეზის შეცვლა საცავის შიგნით გადართვის ოპერაციით ხორციელდება.\n"
-"\n"
-"უმართებლო გადაადგილებამ შესაძლო თქვენი სამუშაო ასლი დააზიანოს!\n"
-"თუ არ ხართ დარწმუნებული, გთხოვთ გაეცნოთ დოკუმენტაციას გადაადგილების შესახებ.\n"
-"ნამდვილად გსურთ გადაადგილება?"
+msgstr "როგორც ჩანს, სამუშაო ასლის იგივე საცავის განსხვავებულ გეზზე გადაადგილებას ცდილობთ.\n\nაქედან:<span class=\"whitespace other\" title=\"Tab\">»</span>%1!s!\nაქ:<span class=\"whitespace other\" title=\"Tab\">»</span>%2!s!\n\nგადაადგილება საჭიროა მხოლოდ საცავის გეზის ცვლილებისას.\nგეზის შეცვლა საცავის შიგნით გადართვის ოპერაციით ხორციელდება.\n\nუმართებლო გადაადგილებამ შესაძლო თქვენი სამუშაო ასლი დააზიანოს!\nთუ არ ხართ დარწმუნებული, გთხოვთ გაეცნოთ დოკუმენტაციას გადაადგილების შესახებ.\nნამდვილად გსურთ გადაადგილება?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -6287,9 +5802,7 @@ msgstr "საცავიდან HEAD ვერსიის ნომრი�
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
-msgstr ""
-"შედარების გარე პროგრამის გამოყენება / შერწყმის პროგრამა კონფლიქტების "
-"მოსაგვარებლად"
+msgstr "შედარების გარე პროგრამის გამოყენება / შერწყმის პროგრამა კონფლიქტების მოსაგვარებლად"
 
 #. Resource IDs: (1137)
 msgid "Least active author:"
@@ -6319,9 +5832,7 @@ msgstr "ხაზოვანი დიაგრამა"
 msgid ""
 "Line Tool\n"
 "Line"
-msgstr ""
-"ხაზის სამარჯვი\n"
-"ხაზი"
+msgstr "ხაზის სამარჯვი\nხაზი"
 
 #. Resource IDs: (65535)
 msgid "Line differences"
@@ -6350,9 +5861,7 @@ msgstr "სტრიქონი: %*ld"
 msgid ""
 "List Help topics\n"
 "Help Topics"
-msgstr ""
-"კარნახის თემების ჩვენება\n"
-"კარნახის თემები"
+msgstr "კარნახის თემების ჩვენება\nკარნახის თემები"
 
 #. Resource IDs: (344)
 msgid "List of repositories for which log information has been cached"
@@ -6378,17 +5887,13 @@ msgstr "ნახატების ჩატვირთვა"
 msgid ""
 "Load changes\n"
 "Changes made in TortoiseMerge are lost and replaced with the new content."
-msgstr ""
-"ცვლილებების ჩატვირთვა\n"
-"ცვლილებები TortoiseMerge პროგრამაში დაიკარგება და ჩანაცვლდება ახლით."
+msgstr "ცვლილებების ჩატვირთვა\nცვლილებები TortoiseMerge პროგრამაში დაიკარგება და ჩანაცვლდება ახლით."
 
 #. Resource IDs: (315)
 msgid ""
 "Load changes\n"
 "The views are updated with the new content."
-msgstr ""
-"ცვლილებების ჩატვირთვა\n"
-"აისახება ახალი მონაცემები."
+msgstr "ცვლილებების ჩატვირთვა\nაისახება ახალი მონაცემები."
 
 #. Resource IDs: (32861)
 msgid "Local &Hooks"
@@ -6402,9 +5907,7 @@ msgstr "ლოკალური სტატუსი"
 msgid ""
 "Location where the contents of the\n"
 "repository URL(s) will be saved to."
-msgstr ""
-"ადგილი, სადაც საცავების URL-ს\n"
-"შიგთავსი შეინახება."
+msgstr "ადგილი, სადაც საცავების URL-ს\nშიგთავსი შეინახება."
 
 #. Resource IDs: (65535)
 msgid "Locator bar"
@@ -6464,9 +5967,7 @@ msgstr "დაბლოკვა ვერ ხერხდება"
 msgid ""
 "Locking failed because a newer version exists!\n"
 "Do you want to update and try again?"
-msgstr ""
-"დაბლოკვა ვერ მოხერხდა ახალი ვერსიის არსებობის გამო!\n"
-"გნებავთ განახლება და კვლავ ცდა?"
+msgstr "დაბლოკვა ვერ მოხერხდა ახალი ვერსიის არსებობის გამო!\nგნებავთ განახლება და კვლავ ცდა?"
 
 #. Resource IDs: (16)
 msgid "Locks a file for other users and makes it editable by you."
@@ -6526,9 +6027,7 @@ msgstr "უმცროსი ნაჩვენები ვერსია: %1
 msgid ""
 "Lowest shown revision: %1!ld! - Highest shown revision: %2!ld!\n"
 "HEAD revision: %3!ld!"
-msgstr ""
-"უმცროსი ნაჩვენები ვერსია: %1!ld! - უფროსი ნაჩვენები ვერსია: %2!ld!\n"
-"სათაო (HEAD) ვერსია: %3!ld!"
+msgstr "უმცროსი ნაჩვენები ვერსია: %1!ld! - უფროსი ნაჩვენები ვერსია: %2!ld!\nსათაო (HEAD) ვერსია: %3!ld!"
 
 #. Resource IDs: (16973)
 msgid "Lum"
@@ -6554,9 +6053,7 @@ msgstr "მონიშვნა მოგვარებულად"
 msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
-msgstr ""
-"მონიშვნა მოგვარებულად\n"
-"კონფლიქტი მოგვარებულია."
+msgstr "მონიშვნა მოგვარებულად\nკონფლიქტი მოგვარებულია."
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6578,17 +6075,13 @@ msgstr "ნიშნულები"
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
-msgstr ""
-"ფაილის ქვევერსიაში მოგვარებულად მონიშვნა\n"
-"მოგვარებულად მონიშვნა"
+msgstr "ფაილის ქვევერსიაში მოგვარებულად მონიშვნა\nმოგვარებულად მონიშვნა"
 
 #. Resource IDs: (596)
 msgid ""
 "Marks the revisions as merged, without actually doing the merge.\r\n"
 "This blocks the revisions from getting merged in the future."
-msgstr ""
-"მიუთითებს ვერსიებს შერწყმულად, რეალური შერწყმის გარეშე.\r\n"
-"ეს დაბლოკავს ვერსიების შერწყმას მომავალში."
+msgstr "მიუთითებს ვერსიებს შერწყმულად, რეალური შერწყმის გარეშე.\r\nეს დაბლოკავს ვერსიების შერწყმას მომავალში."
 
 #. Resource IDs: (1064)
 msgid "Match &case"
@@ -6700,9 +6193,7 @@ msgstr "შერწყმული ვერსია/ები %s - %s:\n"
 msgid ""
 "Merges all missing revisions back into the working copy using merge-tracking"
 " information"
-msgstr ""
-"ყველა გამოტოვებული ვერსიის შერწყმა სამუშაო ასლთან შერწყმის თვალმიდევნების "
-"მონაცმებზე დაყრდნობით"
+msgstr "ყველა გამოტოვებული ვერსიის შერწყმა სამუშაო ასლთან შერწყმის თვალმიდევნების მონაცმებზე დაყრდნობით"
 
 #. Resource IDs: (1073)
 msgid "Merging"
@@ -6722,9 +6213,7 @@ msgstr "საცავების მისამართებსშორ�
 msgid ""
 "Merging from %1!s!, revision %2!s! to %3!s!, revision %4!s! into %5!s!, "
 "%6!s!%7!s!%8!s!"
-msgstr ""
-"შერწყმა: %1!s!, ვერსია %2!s! -> %3!s!, ვერსია %4!s! -> %5!s!, "
-"%6!s!%7!s!%8!s!"
+msgstr "შერწყმა: %1!s!, ვერსია %2!s! -> %3!s!, ვერსია %4!s! -> %5!s!, %6!s!%7!s!%8!s!"
 
 #. Resource IDs: (264)
 #, c-format
@@ -6739,8 +6228,7 @@ msgstr "შერწყმა r%ld"
 #. Resource IDs: (83)
 msgid ""
 "Merging requires different revisions or different URLs in 'From:' and 'To:'"
-msgstr ""
-"შერწყმა საჭიროებს 'ვისგან:' და 'ვის:' სხვადასხვა ვერსიებს ან მისამართებს"
+msgstr "შერწყმა საჭიროებს 'ვისგან:' და 'ვის:' სხვადასხვა ვერსიებს ან მისამართებს"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6852,18 +6340,14 @@ msgstr "თაგუნა"
 msgid ""
 "Move %1!ld! items to\r\n"
 "%2!s!"
-msgstr ""
-"%1!ld! ელემენტის გადატანა\r\n"
-"აქ %2!s!"
+msgstr "%1!ld! ელემენტის გადატანა\r\nაქ %2!s!"
 
 #. Resource IDs: (127)
 #, c-format
 msgid ""
 "Move %1!s!\r\n"
 "to %2!s!"
-msgstr ""
-"გადატანა: %1!s!\r\n"
-"აქ %2!s!"
+msgstr "გადატანა: %1!s!\r\nაქ %2!s!"
 
 #. Resource IDs: (17026)
 msgid "Move &Down"
@@ -6919,9 +6403,7 @@ msgstr "გადატანა: %s - ახალი სახელი"
 msgid ""
 "Move\n"
 "The items are moved to the target path."
-msgstr ""
-"გადატანა\n"
-"ელემენტები გადატანილია სამიზნე გეზზე."
+msgstr "გადატანა\nელემენტები გადატანილია სამიზნე გეზზე."
 
 #. Resource IDs: (65535)
 msgid "Moved from"
@@ -7028,9 +6510,7 @@ msgstr "ახალი სახელი:"
 msgid ""
 "Next Page\n"
 "Next Page"
-msgstr ""
-"შემდეგი გვერდი\n"
-"შემდეგი გვერდი"
+msgstr "შემდეგი გვერდი\nშემდეგი გვერდი"
 
 #. Resource IDs: (156)
 msgid "Next conflict"
@@ -7052,9 +6532,7 @@ msgstr "არა"
 msgid ""
 "No command specified!\n"
 "TortoiseProc.exe is used by the Shell extension and should not be called directly!"
-msgstr ""
-"ბრძანება არ მითითებულა!\n"
-"TortoiseProc.exe გამოიყენება Shell გაფართოებით და უშუალოდ ვერ გამოიძახებთ!"
+msgstr "ბრძანება არ მითითებულა!\nTortoiseProc.exe გამოიყენება Shell გაფართოებით და უშუალოდ ვერ გამოიძახებთ!"
 
 #. Resource IDs: (81)
 msgid "No command value specified!"
@@ -7080,20 +6558,14 @@ msgstr "გარე ელემენტები ვერ მოიძებ
 msgid ""
 "No files or folders were modified. There is nothing for TortoiseSVN to "
 "revert!"
-msgstr ""
-"ფაილები ან დასტები არ შეცვლილა. არაფერია, რაც TortoiseSVN-მა შეიძლება "
-"აღადგინოს!"
+msgstr "ფაილები ან დასტები არ შეცვლილა. არაფერია, რაც TortoiseSVN-მა შეიძლება აღადგინოს!"
 
 #. Resource IDs: (239)
 msgid ""
 "No files to show with the current setting.\n"
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
 "To see remote changes, click on 'Check Repository'"
-msgstr ""
-"ფაილები ასახვისთვის ამ კრიტერიუმით ვერ მოიძებნა.\n"
-"შეცვალეთ ერთი ან რამდენიმე პარამეტრი არავერსიული, გამოტოვებული\n"
-"ანდა უცვლელი ფაილების საჩვენებლად.\n"
-"გარედან ცვლილებების საჩვენებლად დაწკაპეთ «საცავის შემოწმება»"
+msgstr "ფაილები ასახვისთვის ამ კრიტერიუმით ვერ მოიძებნა.\nშეცვალეთ ერთი ან რამდენიმე პარამეტრი არავერსიული, გამოტოვებული\nანდა უცვლელი ფაილების საჩვენებლად.\nგარედან ცვლილებების საჩვენებლად დაწკაპეთ «საცავის შემოწმება»"
 
 #. Resource IDs: (170)
 msgid ""
@@ -7101,21 +6573,14 @@ msgid ""
 "There's nothing for TortoiseSVN to do here...\n"
 "You can show the unversioned items by enabling them\n"
 "with the checkbox at the bottom."
-msgstr ""
-"ბოლო ფიქსაციის შემდეგ ფაილები არ შეცვლილა.\n"
-"TortoiseSVN პროგრამას აქ არაფერი ესაქმება...\n"
-"შეგიძლიათ არავერსიული ელემენტების ჩვენება\n"
-"თუ ჩაურთავთ ქვედა ალმებს."
+msgstr "ბოლო ფიქსაციის შემდეგ ფაილები არ შეცვლილა.\nTortoiseSVN პროგრამას აქ არაფერი ესაქმება...\nშეგიძლიათ არავერსიული ელემენტების ჩვენება\nთუ ჩაურთავთ ქვედა ალმებს."
 
 #. Resource IDs: (77)
 msgid ""
 "No files were changed or added since\n"
 "the last commit. There's nothing\n"
 "for TortoiseSVN to do here..."
-msgstr ""
-"ბოლო ფიქსაციის შემდეგ არცერთი \n"
-"ფაილი არ შეცვლილა ან დამატებულა.\n"
-"TortoiseSVN–ს აქ არაფერი ესაქმება..."
+msgstr "ბოლო ფიქსაციის შემდეგ არცერთი \nფაილი არ შეცვლილა ან დამატებულა.\nTortoiseSVN–ს აქ არაფერი ესაქმება..."
 
 #. Resource IDs: (273)
 msgid "No graph available"
@@ -7138,9 +6603,7 @@ msgstr "მართლწერის შესწორების გარ�
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
 "overlay"
-msgstr ""
-"სტატუსის ქეში არაა. განთავსდა მხოლოდ ვერსიული დასტები, ფაილები არ "
-"განთავსებულა"
+msgstr "სტატუსის ქეში არაა. განთავსდა მხოლოდ ვერსიული დასტები, ფაილები არ განთავსებულა"
 
 #. Resource IDs: (84)
 #, c-format
@@ -7192,10 +6655,7 @@ msgid ""
 "Not enough memory!\n"
 "Try reducing the size of the revision graph by either\n"
 "collapsing nodes or reducing the zoom factor."
-msgstr ""
-"მეხსიერების უკმარისობა!\n"
-"სცადეთ ვერსიის დიაგრამის ზომის შემცირება\n"
-"კვანძების შეკუმშვით ან მასშტაბის შემცირებით."
+msgstr "მეხსიერების უკმარისობა!\nსცადეთ ვერსიის დიაგრამის ზომის შემცირება\nკვანძების შეკუმშვით ან მასშტაბის შემცირებით."
 
 #. Resource IDs: (588)
 msgid "Not recursive"
@@ -7210,10 +6670,7 @@ msgid ""
 "Note that if you choose to recover the auto-saved documents, you must "
 "explicitly save them to overwrite the original documents.  If you choose to "
 "not recover the auto-saved versions, they will be deleted."
-msgstr ""
-"გაითვალისწინეთ, თუ თვითშენახული დოკუმენტების აღდგენას შეეცდებით, ისინი "
-"დედნის დოკუმენტებს ჩაანაცვკლბენ.  თუ მათ აღდგენას არ შეეცდებით - ისინი "
-"წაიშლება."
+msgstr "გაითვალისწინეთ, თუ თვითშენახული დოკუმენტების აღდგენას შეეცდებით, ისინი დედნის დოკუმენტებს ჩაანაცვკლბენ.  თუ მათ აღდგენას არ შეეცდებით - ისინი წაიშლება."
 
 #. Resource IDs: (1481)
 msgid "Note: the folder contains unversioned items"
@@ -7221,13 +6678,11 @@ msgstr "შენიშვნა: დასტა არავერსიულ
 
 #. Resource IDs: (65535)
 msgid "Note: the font settings also affect the TortoiseUDiff viewer"
-msgstr ""
-"შენიშვნა: შრიფტის პარამეტრები TortoiseUDiff ჩვენების პროგრამასაც შეეხება"
+msgstr "შენიშვნა: შრიფტის პარამეტრები TortoiseUDiff ჩვენების პროგრამასაც შეეხება"
 
 #. Resource IDs: (65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
-msgstr ""
-"შენიშვნა: ეს ეხება ყველა Tortoise კლიენტს, არა მხოლოდ პროგრამას TortoiseSVN!"
+msgstr "შენიშვნა: ეს ეხება ყველა Tortoise კლიენტს, არა მხოლოდ პროგრამას TortoiseSVN!"
 
 #. Resource IDs: (1557)
 msgid "Note: this property has no effect on Windows"
@@ -7245,9 +6700,7 @@ msgstr "შენიშვნა"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
-"შენიშვნა: თუ სამუშაო ვერსიას აახლებთ, განახლებული ასლის წვდომას SVN 1.7-ზე ადრეული ვერსიით ვეღარ განახორციელებთ!\n"
-"ნამდვილად გსურთ ამ სამუშაო ასლის განახლება?"
+msgstr "შენიშვნა: თუ სამუშაო ვერსიას აახლებთ, განახლებული ასლის წვდომას SVN 1.7-ზე ადრეული ვერსიით ვეღარ განახორციელებთ!\nნამდვილად გსურთ ამ სამუშაო ასლის განახლება?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7280,22 +6733,17 @@ msgstr "ბუფერირებულ ვერსიათა რაოდ�
 
 #. Resource IDs: (339)
 msgid "Number of cached revisions whose change list is not cached yet"
-msgstr ""
-"ბუფერირებულ ვერსიათა რაოდენობა რომელთა ცვლილებების სია ჯერ არ ბუფერირებულა"
+msgstr "ბუფერირებულ ვერსიათა რაოდენობა რომელთა ცვლილებების სია ჯერ არ ბუფერირებულა"
 
 #. Resource IDs: (339)
 msgid ""
 "Number of cached revisions whose user revision properties are not cached yet"
-msgstr ""
-"ბუფერირებულ ვერსიათა რაოდენობა რომელთა მონაწილის პარამეტრები ჯერ არ "
-"ბუფერირებულა"
+msgstr "ბუფერირებულ ვერსიათა რაოდენობა რომელთა მონაწილის პარამეტრები ჯერ არ ბუფერირებულა"
 
 #. Resource IDs: (338)
 msgid ""
 "Number of different paths shown in the log dialog, including parent paths"
-msgstr ""
-"სხვადასხვა გეზების რაოდენობა ძირეული გეზების ჩათვლით დავთრის დიალოგში "
-"საჩვენებლად"
+msgstr "სხვადასხვა გეზების რაოდენობა ძირეული გეზების ჩათვლით დავთრის დიალოგში საჩვენებლად"
 
 #. Resource IDs: (338)
 msgid "Number of different words used in log messages"
@@ -7309,17 +6757,13 @@ msgstr "შერწყმულ არაბუფერირებულ ვ�
 msgid ""
 "Number of path elements. A path element is a folder or file name like "
 "'foo.txt' or 'mybranch'."
-msgstr ""
-"გეზის ელემენტთა რაოდენობა. გეზის ელემენტი დასტა ან ფაილის სახელია. მაგ., "
-"'foo.txt' ან 'mybranch'."
+msgstr "გეზის ელემენტთა რაოდენობა. გეზის ელემენტი დასტა ან ფაილის სახელია. მაგ., 'foo.txt' ან 'mybranch'."
 
 #. Resource IDs: (345)
 msgid ""
 "Number of times a log cache can fail to close properly\n"
 "due to crashes etc. until it gets deleted automatically."
-msgstr ""
-"დასაშვები რაოდენობა დავთრის ბუფერის წარუმატებლი\n"
-" დახურვისთვის ვიდრე იგი ავტომატურად წაიშლებოდეს."
+msgstr "დასაშვები რაოდენობა დავთრის ბუფერის წარუმატებლი\n დახურვისთვის ვიდრე იგი ავტომატურად წაიშლებოდეს."
 
 #. Resource IDs: (1160)
 msgid "Number of weeks:"
@@ -7373,9 +6817,7 @@ msgstr "გარეს გამოტოვება"
 msgid ""
 "One of the paths you are attempting to move appears to be a special path\n"
 "(one of 'branches', 'tags' or 'trunk')."
-msgstr ""
-"როგორც ჩანს, ერთერთი გეზი, რომლის გადატანაც გსურთ, სპეციფიკურია\n"
-"('branches', 'tags' ან 'trunk')."
+msgstr "როგორც ჩანს, ერთერთი გეზი, რომლის გადატანაც გსურთ, სპეციფიკურია\n('branches', 'tags' ან 'trunk')."
 
 #. Resource IDs: (63)
 msgid ""
@@ -7383,11 +6825,7 @@ msgid ""
 "(one of 'branches', 'tags' or 'trunk').\n"
 "\n"
 "Are you sure you want to move the selected paths?"
-msgstr ""
-"ერთერთი გეზი, რომლის გადატანაც გსურთ, როგორც ჩანს სპეციალურია\n"
-"(ერთერთი 'branches', 'tags' ან 'trunk').\n"
-"\n"
-"ნამდვილად გნებავთ მონიშნული გეზ(ებ)ის გადატანა?"
+msgstr "ერთერთი გეზი, რომლის გადატანაც გსურთ, როგორც ჩანს სპეციალურია\n(ერთერთი 'branches', 'tags' ან 'trunk').\n\nნამდვილად გნებავთ მონიშნული გეზ(ებ)ის გადატანა?"
 
 #. Resource IDs: (3887)
 msgid "One or more auto-saved documents were found."
@@ -7413,9 +6851,7 @@ msgstr "მხოლოდ ფაილური ქვეელემენტ�
 msgid ""
 "Only numbers (optionally separated by commas)\n"
 "are allowed!"
-msgstr ""
-"დასაშვებია მხოლოდ რიცხვები\n"
-"(შესაძლოა მძიმით გამოყოფილი)!"
+msgstr "დასაშვებია მხოლოდ რიცხვები\n(შესაძლოა მძიმით გამოყოფილი)!"
 
 #. Resource IDs: (626)
 msgid "Only properties changed"
@@ -7427,8 +6863,7 @@ msgstr "მხოლოდ ეს ელემენტი"
 
 #. Resource IDs: (1224)
 msgid "Only use s&pellchecker when tsvn:projectlanguage is set"
-msgstr ""
-"&მართლწერის შემოწმების გამოყენება მხოლოდ tsvn:projectlanguage ჩართვისას"
+msgstr "&მართლწერის შემოწმების გამოყენება მხოლოდ tsvn:projectlanguage ჩართვისას"
 
 #. Resource IDs: (65535)
 msgid "Opacity"
@@ -7468,9 +6903,7 @@ msgstr "გახსნა პროგრამით..."
 msgid ""
 "Opens Help\n"
 "Help Topics"
-msgstr ""
-"დახმარების გახსნა\n"
-"დახმარების თემები"
+msgstr "დახმარების გახსნა\nდახმარების თემები"
 
 #. Resource IDs: (13)
 msgid "Opens the repository browser to tweak the repository online"
@@ -7520,9 +6953,7 @@ msgstr "თარგები"
 msgid ""
 "Override the svn:eol-style property setting.\n"
 "Files which don't have this property set are not affected."
-msgstr ""
-"ჩაანაცვლებს svn:eol-style პარამეტრის მნიშვნელობას.\n"
-"ფაილები ამ პარამეტრის გარეშე არ გათვალისწინდება."
+msgstr "ჩაანაცვლებს svn:eol-style პარამეტრის მნიშვნელობას.\nფაილები ამ პარამეტრის გარეშე არ გათვალისწინდება."
 
 #. Resource IDs: (99)
 msgid "Overwrite"
@@ -7532,25 +6963,19 @@ msgstr "ჩანაცვლება"
 msgid ""
 "Overwrite\n"
 "Replace the target folder."
-msgstr ""
-"გადაწერა\n"
-"სამიზნე დასტის ჩანაცვლება."
+msgstr "გადაწერა\nსამიზნე დასტის ჩანაცვლება."
 
 #. Resource IDs: (147)
 msgid ""
 "Overwrite\n"
 "The target file gets replaced"
-msgstr ""
-"გადაწერა\n"
-"სამიზნე ფაილი ჩანაცვლდება"
+msgstr "გადაწერა\nსამიზნე ფაილი ჩანაცვლდება"
 
 #. Resource IDs: (90)
 msgid ""
 "Overwrite\n"
 "The target file is replaced."
-msgstr ""
-"გადაწერა\n"
-"სამიზნე ფაილი ჩანაცვლდება."
+msgstr "გადაწერა\nსამიზნე ფაილი ჩანაცვლდება."
 
 #. Resource IDs: (76)
 msgid "PEM"
@@ -7570,9 +6995,7 @@ msgstr "გვერდი %u"
 msgid ""
 "Page %u\n"
 "Pages %u-%u\n"
-msgstr ""
-"გვერდი %u\n"
-"გვერდები %u-%u\n"
+msgstr "გვერდი %u\nგვერდები %u-%u\n"
 
 #. Resource IDs: (65535)
 msgid "Page :"
@@ -7598,9 +7021,7 @@ msgstr ""
 msgid ""
 "Paste Tool\n"
 "Paste"
-msgstr ""
-"ჩასმის სამარჯვი\n"
-"ჩასმა"
+msgstr "ჩასმის სამარჯვი\nჩასმა"
 
 #. Resource IDs: (172)
 msgid "Paste filename list"
@@ -7610,8 +7031,7 @@ msgstr "ფაილთა სახელების სიის ჩასმ
 msgid ""
 "Pastes the svn path from the clipboard, resulting in a move (cut) or copy "
 "operation"
-msgstr ""
-"svn გეზის ბუფერიდან ჩასმა, გადატანის (ამოჭრის) ან კოპირების ოპერაციისას"
+msgstr "svn გეზის ბუფერიდან ჩასმა, გადატანის (ამოჭრის) ან კოპირების ოპერაციისას"
 
 #. Resource IDs: (1076)
 msgid "Patch &all items"
@@ -7662,9 +7082,7 @@ msgstr "ძირეული (Peg)"
 msgid ""
 "Pencil Tool\n"
 "Pencil"
-msgstr ""
-"ფანქრის სამარჯვი\n"
-"ფანქარი"
+msgstr "ფანქრის სამარჯვი\nფანქარი"
 
 #. Resource IDs: (245)
 msgid "Percent of authorship"
@@ -7682,9 +7100,7 @@ msgstr "მორგებული მენიუები და პულტ
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
-msgstr ""
-"გამოსახულება (მეტაფაილი)\n"
-"გამოსახულება"
+msgstr "გამოსახულება (მეტაფაილი)\nგამოსახულება"
 
 #. Resource IDs: (65535)
 msgid "Picture:"
@@ -7694,9 +7110,7 @@ msgstr "გამოსახულება:"
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, "
 "*.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr ""
-"გამოსახულებები(*.svg, *.wmf, *.jpg, *.png, *.bmp, "
-"*.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|ყველა (*.*)|*.*||"
+msgstr "გამოსახულებები(*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|ყველა (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7721,12 +7135,7 @@ msgid ""
 "to be committed to the copy or branch you have just created,\n"
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
-msgstr ""
-"გაითვალისწინეთ:\n"
-"თქვენი სამუშაო ასლი ძველ გეზზე დარჩა. თუ გსურთ, რომ თქვენი\n"
-"შემდეგი ცვლილებები განშტოების ახლად შექმნილ ასლში შევიდეს,\n"
-"თქვენი სამუშაო ასლი ახალ მისამართზე უნდა გადართოთ.\n"
-"ამისთვის ისარგებლეთ ბრძანებით გადართვა"
+msgstr "გაითვალისწინეთ:\nთქვენი სამუშაო ასლი ძველ გეზზე დარჩა. თუ გსურთ, რომ თქვენი\nშემდეგი ცვლილებები განშტოების ახლად შექმნილ ასლში შევიდეს,\nთქვენი სამუშაო ასლი ახალ მისამართზე უნდა გადართოთ.\nამისთვის ისარგებლეთ ბრძანებით გადართვა"
 
 #. Resource IDs: (1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
@@ -7822,8 +7231,7 @@ msgstr "&ახალი - მიუთითეთ მალმხმობი:
 
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
-msgstr ""
-"ამცირებს დამაკავშირებელი ხაზების ვერსიების კვანძებთან კვეთის შემთხვევებს"
+msgstr "ამცირებს დამაკავშირებელი ხაზების ვერსიების კვანძებთან კვეთის შემთხვევებს"
 
 #. Resource IDs: (1069)
 msgid "Preview"
@@ -7841,9 +7249,7 @@ msgstr "ესკიზი:"
 msgid ""
 "Previous Page\n"
 "Previous Page"
-msgstr ""
-"წინა გვერდი\n"
-"წინა გვერდი"
+msgstr "წინა გვერდი\nწინა გვერდი"
 
 #. Resource IDs: (156)
 msgid "Previous conflict"
@@ -7865,9 +7271,7 @@ msgstr "დაბეჭდვა"
 msgid ""
 "Print Document\n"
 "&Print"
-msgstr ""
-"დოკუმენტის დაბეჭდვა\n"
-"&დაბეჭდვა"
+msgstr "დოკუმენტის დაბეჭდვა\n&დაბეჭდვა"
 
 #. Resource IDs: (3845)
 msgid "Print to File"
@@ -7889,17 +7293,13 @@ msgstr "ბეჭდვა"
 msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
-msgstr ""
-"გაგრძელება ფიქსაციით\n"
-"გადარქმეული/გადატანილი დასტები საცავში რეკურსიულადაა ფიქსირებული."
+msgstr "გაგრძელება ფიქსაციით\nგადარქმეული/გადატანილი დასტები საცავში რეკურსიულადაა ფიქსირებული."
 
 #. Resource IDs: (89)
 msgid ""
 "Proceed with the entered path\n"
 "I'm aware of the possible problems."
-msgstr ""
-"გაგრძელება მითითებული გეზით\n"
-"ჩემთვის ცნობილია შესაძლო პრობლემების შესახებ."
+msgstr "გაგრძელება მითითებული გეზით\nჩემთვის ცნობილია შესაძლო პრობლემების შესახებ."
 
 #. Resource IDs: (279)
 msgid "Proceed with the merge."
@@ -7909,9 +7309,7 @@ msgstr "შერწყმის გაგრძელება."
 msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
-msgstr ""
-"გაგრძელება შეცდომის ნომრის გარეშე\n"
-"ფიქსაცია პრობლემასთან დაკავშირებული არ იქნება."
+msgstr "გაგრძელება შეცდომის ნომრის გარეშე\nფიქსაცია პრობლემასთან დაკავშირებული არ იქნება."
 
 #. Resource IDs: (132)
 #, c-format
@@ -8042,17 +7440,13 @@ msgstr "Q%d/%.2d"
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
-msgstr ""
-"პროგრამის დასრულება; დოკუმენტების შენახვის მოთხოვნა\n"
-"გამოსვლა"
+msgstr "პროგრამის დასრულება; დოკუმენტების შენახვის მოთხოვნა\nგამოსვლა"
 
 #. Resource IDs: (315)
 msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
-msgstr ""
-"გამოსვლა\n"
-"TortoiseMerge პროგრამის დახურვა ცვლილებების შენახვის გარეშე"
+msgstr "გამოსვლა\nTortoiseMerge პროგრამის დახურვა ცვლილებების შენახვის გარეშე"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -8158,17 +7552,13 @@ msgstr "შერყმის მონაცემთა ჩაწერა უ
 msgid ""
 "Recover the auto-saved documents\n"
 "Open the auto-saved versions instead of the explicitly saved versions"
-msgstr ""
-"დამარქაფებული დოკუმენტების აღდგენა\n"
-"დამარქაფებული ვერსიების გახსნა ნაცვლად შენახულების"
+msgstr "დამარქაფებული დოკუმენტების აღდგენა\nდამარქაფებული ვერსიების გახსნა ნაცვლად შენახულების"
 
 #. Resource IDs: (1057)
 msgid ""
 "Rectangle Tool\n"
 "Rectangle"
-msgstr ""
-"მართკუთხედის სამარჯვი\n"
-"მართკუთხედი"
+msgstr "მართკუთხედის სამარჯვი\nმართკუთხედი"
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
@@ -8186,9 +7576,7 @@ msgstr "რეკურსიული ოპერაცია"
 msgid ""
 "Recursive\n"
 "Remove the property also from items in Subfolders."
-msgstr ""
-"რეკურსიულად\n"
-"ქვედასტის ელემენტების პარამეტრების ამოღებაც."
+msgstr "რეკურსიულად\nქვედასტის ელემენტების პარამეტრების ამოღებაც."
 
 #. Resource IDs: (333)
 msgid "Recycle bin"
@@ -8202,9 +7590,7 @@ msgstr "გადამისამართება"
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
-msgstr ""
-"წინა გაუქმებული ქმედების ხელახლა გამეორება\n"
-"გამეორება"
+msgstr "წინა გაუქმებული ქმედების ხელახლა გამეორება\nგამეორება"
 
 #. Resource IDs: (32819)
 msgid "Reduce cross-&lines"
@@ -8248,22 +7634,7 @@ msgid ""
 "\\W   : any non-alphanumeric character\r\n"
 "\\d   : digits 0-9\r\n"
 "\\s   : whitespaces"
-msgstr ""
-"მარტივი გამოსახულების ფილტრი:\r\n"
-".   : ნებისმიერი სიმბოლო\r\n"
-"c+   : c სიმბოლოს ერთი ან მეტი თანხვედრა\r\n"
-"c*   : c სიმბოლოს ნულოვანი ან მეტი თანხვედრა\r\n"
-"^   : სტრიქონის დასაწყისი\r\n"
-"$   : სტრიქონის ბოლო\r\n"
-"(string){n} : სტრიქონის n თანხვედრა\r\n"
-"(abcd)   : ქვეგამოსახულება\r\n"
-"[aei0-9]   : თანხვედრა a,e,i და 0..9\r\n"
-"[^aei0-9] : ყველა გარდა a,e,i და 0..9\r\n"
-"\r\n"
-"\\w   : თანხვედრა a-z,A-Z,0-9 და _\r\n"
-"\\W   : ნებისმიერი არა ასო-ნიშანი\r\n"
-"\\d   : ციფრები 0-9\r\n"
-"\\s   : შორისები"
+msgstr "მარტივი გამოსახულების ფილტრი:\r\n.   : ნებისმიერი სიმბოლო\r\nc+   : c სიმბოლოს ერთი ან მეტი თანხვედრა\r\nc*   : c სიმბოლოს ნულოვანი ან მეტი თანხვედრა\r\n^   : სტრიქონის დასაწყისი\r\n$   : სტრიქონის ბოლო\r\n(string){n} : სტრიქონის n თანხვედრა\r\n(abcd)   : ქვეგამოსახულება\r\n[aei0-9]   : თანხვედრა a,e,i და 0..9\r\n[^aei0-9] : ყველა გარდა a,e,i და 0..9\r\n\r\n\\w   : თანხვედრა a-z,A-Z,0-9 და _\r\n\\W   : ნებისმიერი არა ასო-ნიშანი\r\n\\d   : ციფრები 0-9\r\n\\s   : შორისები"
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
@@ -8282,9 +7653,7 @@ msgstr "უარყოფა"
 msgid ""
 "Reject the certificate\n"
 "Cancel the connection."
-msgstr ""
-"სერთიფიკატის უარყოფა\n"
-"კავშირის გაუქმება."
+msgstr "სერთიფიკატის უარყოფა\nკავშირის გაუქმება."
 
 #. Resource IDs: (7)
 #, c-format
@@ -8302,9 +7671,7 @@ msgstr "დაბლოკვის მაშინაც თუ მისი �
 
 #. Resource IDs: (16)
 msgid "Releases locks on files so other users can edit them again."
-msgstr ""
-"ფაილების დაბლოკვის მოხსნა, რათა სხვა მონაწილეებს მათი რედაქტირება კვლავაც "
-"შეეძლოთ."
+msgstr "ფაილების დაბლოკვის მოხსნა, რათა სხვა მონაწილეებს მათი რედაქტირება კვლავაც შეეძლოთ."
 
 #. Resource IDs: (12)
 msgid "Relo&cate..."
@@ -8318,9 +7685,7 @@ msgstr "კვლავჩატვირთვა"
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
-msgstr ""
-"გახსნილი ფაილების ხელახლა ჩატვირთვა და ცვლილებების გაუქმება.\n"
-"კვლავჩატვირთვა"
+msgstr "გახსნილი ფაილების ხელახლა ჩატვირთვა და ცვლილებების გაუქმება.\nკვლავჩატვირთვა"
 
 #. Resource IDs: (157)
 msgid "Relocate"
@@ -8338,9 +7703,7 @@ msgstr "გადაადგილება სადაც გადართ�
 msgid ""
 "Relocate\n"
 "The working copy is relocated to the new URL."
-msgstr ""
-"გადაადგილება\n"
-"სამუშაო ასლი გადაადგილდა ახალ მისამართზე."
+msgstr "გადაადგილება\nსამუშაო ასლი გადაადგილდა ახალ მისამართზე."
 
 #. Resource IDs: (80)
 msgid "Relocating..."
@@ -8396,18 +7759,14 @@ msgstr "ამოღება ცვლილებათა სიიდან"
 msgid ""
 "Remove from version control\n"
 "All .svn folders are removed"
-msgstr ""
-"ამოღება ვერსიის მართვიდან\n"
-"ყველა .svn დასტა ამოღებულია"
+msgstr "ამოღება ვერსიის მართვიდან\nყველა .svn დასტა ამოღებულია"
 
 #. Resource IDs: (127)
 #, c-format
 msgid ""
 "Remove property '%1!S!' from\r\n"
 "%2!s!"
-msgstr ""
-"პარამეტრის ამოღება '%1!S!' აქედან\r\n"
-"%2!s!"
+msgstr "პარამეტრის ამოღება '%1!S!' აქედან\r\n%2!s!"
 
 #. Resource IDs: (610)
 msgid "Remove the directory"
@@ -8429,17 +7788,13 @@ msgstr "ყველა ქვეგანტოტვის ამოღებ�
 msgid ""
 "Remove\n"
 "Force the removal"
-msgstr ""
-"ამოღება\n"
-"იძულებითი ამოღება"
+msgstr "ამოღება\nიძულებითი ამოღება"
 
 #. Resource IDs: (589)
 msgid ""
 "Remove\n"
 "Remove the property only from this item."
-msgstr ""
-"ამოღება\n"
-"პარამეტრის ამოღება მხოლოდ ამ ელემენტისთვის."
+msgstr "ამოღება\nპარამეტრის ამოღება მხოლოდ ამ ელემენტისთვის."
 
 #. Resource IDs: (65535)
 msgid "Removed"
@@ -8459,10 +7814,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the ignore list."
-msgstr ""
-"ფაილის თარგ(ებ) ამოღებულია\n"
-"%s\n"
-"იგნორირებულთა სიიდან."
+msgstr "ფაილის თარგ(ებ) ამოღებულია\n%s\nიგნორირებულთა სიიდან."
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
@@ -8504,9 +7856,7 @@ msgstr "გადარქმევა - %s"
 msgid ""
 "Rename item from %1!s!\r\n"
 "to %2!s!"
-msgstr ""
-"ელემენტის გადარქმევა აქედან %1!s!\r\n"
-"აქ %2!s!"
+msgstr "ელემენტის გადარქმევა აქედან %1!s!\r\nაქ %2!s!"
 
 #. Resource IDs: (221)
 msgid "Rename/move"
@@ -8517,9 +7867,7 @@ msgstr "გადარქმევა/გადატანა"
 msgid ""
 "Rename\n"
 "The folder is exported as '%s'."
-msgstr ""
-"გადარქმევა\n"
-"დასტა დაექსპორტდა როგორც '%s'."
+msgstr "გადარქმევა\nდასტა დაექსპორტდა როგორც '%s'."
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
@@ -8545,17 +7893,13 @@ msgstr "გადატანა აღდგენა"
 msgid ""
 "Repeat the last action\n"
 "Repeat"
-msgstr ""
-"ბოლო ქმედების გამეორება\n"
-"გამეორება"
+msgstr "ბოლო ქმედების გამეორება\nგამეორება"
 
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
 "Replace"
-msgstr ""
-"ამ ტექსტის სხვა ტექსტით შეცვლა\n"
-"შეცვლა"
+msgstr "ამ ტექსტის სხვა ტექსტით შეცვლა\nშეცვლა"
 
 #. Resource IDs: (74)
 msgid "Replacing"
@@ -8641,9 +7985,7 @@ msgstr "გადაწყვეტა &მოგვიანებით"
 msgid ""
 "Resolve\n"
 "The item is marked as resolved."
-msgstr ""
-"მოგვარება\n"
-"ელემენტი მონიშნულია როგორც მოგვარებული."
+msgstr "მოგვარება\nელემენტი მონიშნულია როგორც მოგვარებული."
 
 #. Resource IDs: (74, 209)
 msgid "Resolved"
@@ -8654,9 +7996,7 @@ msgstr "მოგვარებულია"
 msgid ""
 "Resolved:\n"
 "%s"
-msgstr ""
-"მოგვარდა:\n"
-"%s"
+msgstr "მოგვარდა:\n%s"
 
 #. Resource IDs: (9)
 msgid "Resolves conflicted files"
@@ -8713,17 +8053,13 @@ msgstr "ნაგულისხმები პარამეტრები�
 msgid ""
 "Revert\n"
 "All local modifications will be lost."
-msgstr ""
-"აღდგენა\n"
-"ყველა ადგილობრივი ცვლილება დაიკარგება."
+msgstr "აღდგენა\nყველა ადგილობრივი ცვლილება დაიკარგება."
 
 #. Resource IDs: (119)
 msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
-msgstr ""
-"ცვლილებების გაუქმება\n"
-"ცვლილებები შეეხება სამუშაო ასლს."
+msgstr "ცვლილებების გაუქმება\nცვლილებები შეეხება სამუშაო ასლს."
 
 #. Resource IDs: (73)
 msgid "Reverted"
@@ -8811,14 +8147,7 @@ msgid ""
 "\r\n"
 "Logmessage:\r\n"
 "%7!s!"
-msgstr ""
-"ვერსია: %1!ld! %2!s!\r\n"
-"მისამართი: %3!s!\r\n"
-"%4!s!ავტორი: %5!s!\r\n"
-"თარიღი: %6!s!\r\n"
-"\r\n"
-"ჩანაწერი:\r\n"
-"%7!s!"
+msgstr "ვერსია: %1!ld! %2!s!\r\nმისამართი: %3!s!\r\n%4!s!ავტორი: %5!s!\r\nთარიღი: %6!s!\r\n\r\nჩანაწერი:\r\n%7!s!"
 
 #. Resource IDs: (272)
 #, c-format
@@ -8832,16 +8161,7 @@ msgid ""
 "\r\n"
 "Logmessage:\r\n"
 "%9!s!"
-msgstr ""
-"ვერსია: %1!ld! %2!s!\r\n"
-"მისამართი: %3!s!\r\n"
-"%4!s!ავტორი: %5!s!\r\n"
-"თარიღი: %6!s!\r\n"
-"\r\n"
-"ჭდეები (%7!d!):%8!s!\r\n"
-"\r\n"
-"ჩანაწერი:\r\n"
-"%9!s!"
+msgstr "ვერსია: %1!ld! %2!s!\r\nმისამართი: %3!s!\r\n%4!s!ავტორი: %5!s!\r\nთარიღი: %6!s!\r\n\r\nჭდეები (%7!d!):%8!s!\r\n\r\nჩანაწერი:\r\n%9!s!"
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
@@ -8851,9 +8171,7 @@ msgstr "ვერსიები"
 msgid ""
 "Rich Text (RTF)\n"
 "text with font and paragraph formatting"
-msgstr ""
-"დაფორმატებული ტექტი (RTF)\n"
-"ტექსტი დაფორმატებული პარაგრაფებით და შრიფტებით"
+msgstr "დაფორმატებული ტექტი (RTF)\nტექსტი დაფორმატებული პარაგრაფებით და შრიფტებით"
 
 #. Resource IDs: (188)
 msgid "Right View: "
@@ -8991,15 +8309,7 @@ msgid ""
 "Fixes issue #202\n"
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
-msgstr ""
-"დავთრის ჩანაწერის ნიმუში მარტივი გამოსახულებისთვის.\n"
-"\n"
-"პრობლემის აღწერის შემოწმება ტექსტში: პრობლემის ბმა #55. პრობლემის ბმა #77, #78.\n"
-"\n"
-"პრობლემის განახლება #101\n"
-"პრობლემის აღმოფხვრა #202\n"
-"პრობლემის გადაჭრა #88.\n"
-"პრობლემის დახურვა #99.\n"
+msgstr "დავთრის ჩანაწერის ნიმუში მარტივი გამოსახულებისთვის.\n\nპრობლემის აღწერის შემოწმება ტექსტში: პრობლემის ბმა #55. პრობლემის ბმა #77, #78.\n\nპრობლემის განახლება #101\nპრობლემის აღმოფხვრა #202\nპრობლემის გადაჭრა #88.\nპრობლემის დახურვა #99.\n"
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
@@ -9029,9 +8339,7 @@ msgstr "შენახვა როგორც..."
 msgid ""
 "Save as\n"
 "You're asked where to save the file"
-msgstr ""
-"შენახვა, როგორც\n"
-"თქვენ გთხოვეს ფაილის ადგილის მითითება"
+msgstr "შენახვა, როგორც\nთქვენ გთხოვეს ფაილის ადგილის მითითება"
 
 #. Resource IDs: (3857)
 #, c-format
@@ -9058,9 +8366,7 @@ msgstr "&აგრეთვე ვერსიის შენახვა"
 msgid ""
 "Save the modified file\n"
 "Save file"
-msgstr ""
-"შეცვლილი ფაილის შენახვა\n"
-"ფაილის შენახვა"
+msgstr "შეცვლილი ფაილის შენახვა\nფაილის შენახვა"
 
 #. Resource IDs: (617, 1132)
 msgid "Save to clipboard"
@@ -9070,9 +8376,7 @@ msgstr "შენახვა გაცვლის ბუფერში"
 msgid ""
 "Save\n"
 "Save the file with the conflict markers."
-msgstr ""
-"შენახვა\n"
-"ფაილის შენახვა კონფლიქტების ნიშნულებით."
+msgstr "შენახვა\nფაილის შენახვა კონფლიქტების ნიშნულებით."
 
 #. Resource IDs: (314)
 #, c-format
@@ -9080,10 +8384,7 @@ msgid ""
 "Save\n"
 "The modifications are saved to\n"
 "%s"
-msgstr ""
-"შენახვა\n"
-"ცვლილებები შენახულია:\n"
-"%s"
+msgstr "შენახვა\nცვლილებები შენახულია:\n%s"
 
 #. Resource IDs: (108)
 msgid "Saved Data"
@@ -9171,9 +8472,7 @@ msgstr "&სრული მონიშვნა/მოხსნა"
 msgid ""
 "Select Color Tool\n"
 "Select Color"
-msgstr ""
-"ფერის შერჩევის სამარჯვი\n"
-"ფერის შერჩევა"
+msgstr "ფერის შერჩევის სამარჯვი\nფერის შერჩევა"
 
 #. Resource IDs: (13)
 msgid "Select File..."
@@ -9219,9 +8518,7 @@ msgstr "დასტის შერჩევა ამ პრობლემი
 msgid ""
 "Select folder to export to.\n"
 "You might need to create a new folder before performing this export."
-msgstr ""
-"საექსპორტო დასტის არჩევა.\n"
-"ამ ექსპორტამდე ახალი დასტის შექმნა შეგიძლიათ"
+msgstr "საექსპორტო დასტის არჩევა.\nამ ექსპორტამდე ახალი დასტის შექმნა შეგიძლიათ"
 
 #. Resource IDs: (197)
 msgid "Select folder to run script for"
@@ -9280,17 +8577,13 @@ msgstr "ქმედებების დასრულების შემ�
 msgid ""
 "Select the entire document\n"
 "Select All"
-msgstr ""
-"დოკუმენტის სრულად მონიშვნა\n"
-"სრული მონიშვნა"
+msgstr "დოკუმენტის სრულად მონიშვნა\nსრული მონიშვნა"
 
 #. Resource IDs: (65535)
 msgid ""
 "Select the language this project is using. This settings affects the spell "
 "checker used for commit messages."
-msgstr ""
-"შეარჩიეთ ენა ამ პროექტისთვის. ეს პარამეტრი გავლენას ახდენს მართლწერის "
-"შემოწმებაზე."
+msgstr "შეარჩიეთ ენა ამ პროექტისთვის. ეს პარამეტრი გავლენას ახდენს მართლწერის შემოწმებაზე."
 
 #. Resource IDs: (595)
 msgid "Select the merge options"
@@ -9341,9 +8634,7 @@ msgstr "ფაილთა თარიღებად «ბოლო ფიქ�
 msgid ""
 "Set property '%1!S!' on\r\n"
 "%2!s!"
-msgstr ""
-"პარამეტრის მითითება '%1!S!'\r\n"
-"აქ %2!s!"
+msgstr "პარამეტრის მითითება '%1!S!'\r\nაქ %2!s!"
 
 #. Resource IDs: (13)
 msgid "Setting properties..."
@@ -9372,9 +8663,7 @@ msgstr "გარსის პიქტოგრამის ქეში გა
 #. Resource IDs: (2052)
 msgid ""
 "Shift trees to the top of the window. Alignment to other trees will be lost."
-msgstr ""
-"განტოტვების სარკმლის ზედა კიდეზე აწევა. განთავსება სხვა განტოტვებთან "
-"დაიკარგება."
+msgstr "განტოტვების სარკმლის ზედა კიდეზე აწევა. განთავსება სხვა განტოტვებთან დაიკარგება."
 
 #. Resource IDs: (101)
 msgid "Sho&w properties"
@@ -9464,17 +8753,13 @@ msgstr "HEAD ვერსიის კვანძების ჩვენე�
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
-msgstr ""
-"შიდა ტქსტური სიტყვა-სიტყვითი შედარება\n"
-"შიდა ტქსტური შედარება სიტყვებით"
+msgstr "შიდა ტქსტური სიტყვა-სიტყვითი შედარება\nშიდა ტქსტური შედარება სიტყვებით"
 
 #. Resource IDs: (2056)
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
-msgstr ""
-"შიდა სხვაობის ჩვენება\n"
-"შიდა სხვაობა"
+msgstr "შიდა სხვაობის ჩვენება\nშიდა სხვაობა"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
@@ -9560,41 +8845,31 @@ msgstr "მხოლოდ &შეცვლილი გეზების ჩ�
 msgid ""
 "Show only the changed parts of the path name. Replace unchanged elements "
 "with dots."
-msgstr ""
-"გეზის მხოლოდ შეცვლილი ნაწილების ჩვენება. უცვლელი ელემენტების წერტილებით "
-"ჩანაცვლება."
+msgstr "გეზის მხოლოდ შეცვლილი ნაწილების ჩვენება. უცვლელი ელემენტების წერტილებით ჩანაცვლება."
 
 #. Resource IDs: (2054)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
-msgstr ""
-"სტრიქონთა სხვაობის პანელის ჩვენება ან დამალვა\n"
-"სტრიქონთა სხვაობის პანელის გადართვა"
+msgstr "სტრიქონთა სხვაობის პანელის ჩვენება ან დამალვა\nსტრიქონთა სხვაობის პანელის გადართვა"
 
 #. Resource IDs: (2054)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
-msgstr ""
-"მისამართების პანელის ჩვენება ან დამალვა\n"
-"მისამართების პანელის გადართვა"
+msgstr "მისამართების პანელის ჩვენება ან დამალვა\nმისამართების პანელის გადართვა"
 
 #. Resource IDs: (3713)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
-msgstr ""
-"სტატუსის პანელის ჩვენება ან დამალვა\n"
-"სტატუსის პანელის გადართვა"
+msgstr "სტატუსის პანელის ჩვენება ან დამალვა\nსტატუსის პანელის გადართვა"
 
 #. Resource IDs: (3713)
 msgid ""
 "Show or hide the toolbar\n"
 "Toggle ToolBar"
-msgstr ""
-"ხელსაწყოების პანელის ჩვენება ან დამალვა\n"
-"ხელსაწყოების პანელის გადართვა"
+msgstr "ხელსაწყოების პანელის ჩვენება ან დამალვა\nხელსაწყოების პანელის გადართვა"
 
 #. Resource IDs: (102)
 msgid "Show revision properties"
@@ -9627,9 +8902,7 @@ msgstr "ჩვენება/დამალვა"
 msgid ""
 "Showing %1!ld! revision(s), from revision %2!ld! to revision %3!ld! - %4!ld!"
 " revision(s) selected, showing %5!ld! changed paths"
-msgstr ""
-"%1!ld! ვერსიის ჩვენება, ვერსიდან %2!ld! ვერსიამდე %3!ld! - შერჩეულია %4!ld! "
-"ვერსია,  ასახულია %5!ld! შეცვლილი გეზი"
+msgstr "%1!ld! ვერსიის ჩვენება, ვერსიდან %2!ld! ვერსიამდე %3!ld! - შერჩეულია %4!ld! ვერსია,  ასახულია %5!ld! შეცვლილი გეზი"
 
 #. Resource IDs: (272)
 #, c-format
@@ -9649,8 +8922,7 @@ msgstr "ასლების/ჭდეების/შტოების გრ
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
 " repository"
-msgstr ""
-"ბოლო განახლების შემდგომ შეცვლილი ყველა ლოკალური და საცავის ფაილის ჩვენება"
+msgstr "ბოლო განახლების შემდგომ შეცვლილი ყველა ლოკალური და საცავის ფაილის ჩვენება"
 
 #. Resource IDs: (2050)
 msgid "Shows all revisions where changes were made to this item"
@@ -9740,17 +9012,13 @@ msgstr "წანაცვლება"
 msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
 "Do you want to load the changes?"
-msgstr ""
-"ზოგი ფაილი შეიცვალა T-Merge-ს გარეთ.\n"
-"გნებავთ ცვლილებების ჩატვირთვა?"
+msgstr "ზოგი ფაილი შეიცვალა T-Merge-ს გარეთ.\nგნებავთ ცვლილებების ჩატვირთვა?"
 
 #. Resource IDs: (314)
 msgid ""
 "Some file(s) have been changed outside T-Merge.\n"
 "Would you like to reload and lose your changes?"
-msgstr ""
-"ზოგი ფაილი შეიცვალა T-Merge-ს გარეთ.\n"
-"გნებავთ ხელახლა ჩატვირთვა და თქვენი ცვლილებების დაკარგვა?"
+msgstr "ზოგი ფაილი შეიცვალა T-Merge-ს გარეთ.\nგნებავთ ხელახლა ჩატვირთვა და თქვენი ცვლილებების დაკარგვა?"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -9784,27 +9052,20 @@ msgid ""
 "Specify how the commit message should be built from the entered bug-ID. Use "
 "the placeholder %BUGID% for the real bug-ID. If you leave these settings "
 "empty, TortoiseSVN will use the regular expressions instead."
-msgstr ""
-"მიუთითეთ როგორ აიგოს ფიქსაციის გზავნილი შეცდომის ID-ის მიხედვით. გამოიყენეთ "
-"%BUGID% შეცდომის ნომრისთვის. თუ ამ ველს ცარიელს დატოვებთ, TortoiseSVN მის "
-"ნაცვლად მარტივ გამოსახულებას გამოიყენებს."
+msgstr "მიუთითეთ როგორ აიგოს ფიქსაციის გზავნილი შეცდომის ID-ის მიხედვით. გამოიყენეთ %BUGID% შეცდომის ნომრისთვის. თუ ამ ველს ცარიელს დატოვებთ, TortoiseSVN მის ნაცვლად მარტივ გამოსახულებას გამოიყენებს."
 
 #. Resource IDs: (1305)
 msgid ""
 "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder "
 "for the real issue number."
-msgstr ""
-"მიუთითეთ URL შეცდომების წვდომისთვის. გამოიყენეთ %BUGID% შეცდომის ნომრისთვის."
+msgstr "მიუთითეთ URL შეცდომების წვდომისთვის. გამოიყენეთ %BUGID% შეცდომის ნომრისთვის."
 
 #. Resource IDs: (79)
 msgid ""
 "Specify the files or folders which TortoiseSVN\r\n"
 "should ignore in all working copies.\r\n"
 "Separate the patterns with a space."
-msgstr ""
-"იმ ფაილების ან დასტების მითითება, რომლებიც\r\n"
-"გამოსატოვებელია ყველა სამუშაო ასლიდან.\r\n"
-"თარგები შორისით გამოყავით."
+msgstr "იმ ფაილების ან დასტების მითითება, რომლებიც\r\nგამოსატოვებელია ყველა სამუშაო ასლიდან.\r\nთარგები შორისით გამოყავით."
 
 #. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
 msgid "Spin1"
@@ -9830,9 +9091,7 @@ msgstr "ქვეგანტოტვების გახლეჩა"
 msgid ""
 "Split the active window into panes\n"
 "Split"
-msgstr ""
-"აქტიური ფანჯრის სარკმლებად დაყოფა\n"
-"დაყოფა"
+msgstr "აქტიური ფანჯრის სარკმლებად დაყოფა\nდაყოფა"
 
 #. Resource IDs: (246)
 msgid "Stacked Bar Graph"
@@ -9885,9 +9144,7 @@ msgstr "სტატუსის ქეში"
 #. Resource IDs: (196)
 msgid ""
 "Status cache kept in an external process, can show the overlay recursively"
-msgstr ""
-"სტატუსის ქეში გარე პროცესში ინახება, შესაძლებელია თარგების რეკურსიული "
-"ჩვენება"
+msgstr "სტატუსის ქეში გარე პროცესში ინახება, შესაძლებელია თარგების რეკურსიული ჩვენება"
 
 #. Resource IDs: (196)
 msgid "Status cache only for one folder, no recursive overlays"
@@ -9933,21 +9190,7 @@ msgid ""
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
-msgstr ""
-"კონტექსტების ფილტრი:\n"
-"* მიუთითეთ ერთი ან რამდენიმე შორისებით დაყოფილი კონტექსტი. ისინ დამუშავდება მარცხნიდან მარჯვნივ.\n"
-"* მითითებული კონტექსტების შემცველი ვერსიების გამოსატოვებლად წინ დაამატეთ \"-\".\n"
-"* მითითებული კონტექსტების შემცველი ვერსიების გასათვალისწინებლად წინ დაამატეთ \"+\".\n"
-"* შორისებიანი კონტექსტები ჩასვით ბრჭყალებში - \".\n"
-"* ფილტრის პირობების ინვერსიისთვის წინ დაამატეთ \"!\".\n"
-"\n"
-"მაგალითები:\n"
-"ჩემი_სახელი  2008    : ჩემი ფიქსაციები - 2008\n"
-".h  -.cpp              : ფიქსაცია, რომელიც ცვლის თავსართებს, მაგრამ არა რეალიზაციას\n"
-".doc +.xls 2010  : ფიქსაცია - 2010 .doc ან .xls ფაილებით\n"
-"\" \"                        : ფიქსაცია შორისებით (მაგალითად, ძიებისას მხოლოდ გეზში)\n"
-"-\"\"show all\"\"        : ფიქსაცია, რომელიც არ შეიცავს კონტექსტს \"show all\"\n"
-"!ჩემი_სახელი  .cpp    : ყველა, ჩემი ფიქსაციების გარეშე .cpp ფაილებში"
+msgstr "კონტექსტების ფილტრი:\n* მიუთითეთ ერთი ან რამდენიმე შორისებით დაყოფილი კონტექსტი. ისინ დამუშავდება მარცხნიდან მარჯვნივ.\n* მითითებული კონტექსტების შემცველი ვერსიების გამოსატოვებლად წინ დაამატეთ \"-\".\n* მითითებული კონტექსტების შემცველი ვერსიების გასათვალისწინებლად წინ დაამატეთ \"+\".\n* შორისებიანი კონტექსტები ჩასვით ბრჭყალებში - \".\n* ფილტრის პირობების ინვერსიისთვის წინ დაამატეთ \"!\".\n\nმაგალითები:\nჩემი_სახელი  2008    : ჩემი ფიქსაციები - 2008\n.h  -.cpp              : ფიქსაცია, რომელიც ცვლის თავსართებს, მაგრამ არა რეალიზაციას\n.doc +.xls 2010  : ფიქსაცია - 2010 .doc ან .xls ფაილებით\n\" \"                        : ფიქსაცია შორისებით (მაგალითად, ძიებისას მხოლოდ გეზში)\n-\"\"show all\"\"        : ფიქსაცია, რომელიც არ შეიცავს კონტექსტს \"show all\"\n!ჩემი_სახელი  .cpp    : ყველა, ჩემი ფიქსაციების გარეშე .cpp ფაილებში"
 
 #. Resource IDs: (65535)
 msgid "Subversion"
@@ -9975,22 +9218,7 @@ msgid ""
 "\n"
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
-msgstr ""
-"ქვევერსიაში სერიოზული პრობლემაა.\n"
-"გთხოვთ გამონახოთ დრო და გამოგზავნოთ ფორუმზე\n"
-"რაც შეიძლება მეტი ინფორმაცია, იმის შესახებ\n"
-"თუ რის გაკეთებას ცდილობდით.\n"
-"მაგრამ ჯერ სცადეთ მოიძიოთ მსგავსი შეცდომა ფორუმის არქივებში,\n"
-"რათა თავიდან აიცილოთ დუბლირება.\n"
-"ფორუმის არქივების მისამართია:\n"
-"http://subversion.apache.org/mailing-lists.html\n"
-"\n"
-"ქვევერსიაში სერიოზული პრობლემაა:\n"
-"ფაილი %1!s!, სტრიქონი %2!ld!\n"
-"გამოსახულება = %3!s!\n"
-"\n"
-"ამ დიალოგის ასლის ბუფერში გადატანა\n"
-"შეგიძლიათ ღილაკებით Ctrl-C."
+msgstr "ქვევერსიაში სერიოზული პრობლემაა.\nგთხოვთ გამონახოთ დრო და გამოგზავნოთ ფორუმზე\nრაც შეიძლება მეტი ინფორმაცია, იმის შესახებ\nთუ რის გაკეთებას ცდილობდით.\nმაგრამ ჯერ სცადეთ მოიძიოთ მსგავსი შეცდომა ფორუმის არქივებში,\nრათა თავიდან აიცილოთ დუბლირება.\nფორუმის არქივების მისამართია:\nhttp://subversion.apache.org/mailing-lists.html\n\nქვევერსიაში სერიოზული პრობლემაა:\nფაილი %1!s!, სტრიქონი %2!ld!\nგამოსახულება = %3!s!\n\nამ დიალოგის ასლის ბუფერში გადატანა\nშეგიძლიათ ღილაკებით Ctrl-C."
 
 #. Resource IDs: (84)
 msgid ""
@@ -10006,36 +9234,20 @@ msgid ""
 "Subversion reported the following\n"
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
-msgstr ""
-"ქვევერსიაში სერიოზული პრობლემაა.\n"
-"გთხოვთ გამონახოთ დრო და გამოგზავნოთ ფორუმზე\n"
-"რაც შეიძლება მეტი ინფორმაცია, იმის შესახებ\n"
-"თუ რის გაკეთებას ცდილობდით.\n"
-"მაგრამ ჯერ სცადეთ მოიძიოთ მსგავსი შეცდომა ფორუმის არქივებში,\n"
-"რათა თავიდან აიცილოთ დუბლირება.\n"
-"ფორუმის არქივების მისამართია:\n"
-"http://subversion.apache.org/mailing-lists.html\n"
-"\n"
-"ქვევერსიის შეცდომის შეტყობინებაა\n"
-"(ამ დიალოგის ასლის ბუფერში გადატანა\n"
-"შეგიძლიათ ღილაკებით Ctrl-C):"
+msgstr "ქვევერსიაში სერიოზული პრობლემაა.\nგთხოვთ გამონახოთ დრო და გამოგზავნოთ ფორუმზე\nრაც შეიძლება მეტი ინფორმაცია, იმის შესახებ\nთუ რის გაკეთებას ცდილობდით.\nმაგრამ ჯერ სცადეთ მოიძიოთ მსგავსი შეცდომა ფორუმის არქივებში,\nრათა თავიდან აიცილოთ დუბლირება.\nფორუმის არქივების მისამართია:\nhttp://subversion.apache.org/mailing-lists.html\n\nქვევერსიის შეცდომის შეტყობინებაა\n(ამ დიალოგის ასლის ბუფერში გადატანა\nშეგიძლიათ ღილაკებით Ctrl-C):"
 
 #. Resource IDs: (79)
 msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
-msgstr ""
-"ქვევერსია იტყობინება საცავის შექმნის შეცდომას!\n"
-"გადაამოწმეთ, რომ დასტა ცარიელია და ჩაწერადი."
+msgstr "ქვევერსია იტყობინება საცავის შექმნის შეცდომას!\nგადაამოწმეთ, რომ დასტა ცარიელია და ჩაწერადი."
 
 #. Resource IDs: (81)
 #, c-format
 msgid ""
 "Subversion reported an error while doing a cleanup!\n"
 "%s"
-msgstr ""
-"ქვევერსია დასუფთავების შეცდომას იტყობინება!\n"
-"%s"
+msgstr "ქვევერსია დასუფთავების შეცდომას იტყობინება!\n%s"
 
 #. Resource IDs: (15)
 msgid "Subversion reported an error:"
@@ -10074,9 +9286,7 @@ msgstr "გადმორთვა უკან - ძირეულზე"
 msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
-msgstr ""
-"გადმორთვა წინა პანელზე\n"
-"წინა პანელი"
+msgstr "გადმორთვა წინა პანელზე\nწინა პანელი"
 
 #. Resource IDs: (156)
 msgid "Switch between single and double pane view"
@@ -10086,9 +9296,7 @@ msgstr ""
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
-msgstr ""
-"გადართვა ერთსარკმლიან/ორსარკმლიან რეჟიმზე\n"
-"გადართვა ერთ/ორ სარკმლიან რეჟიმზე"
+msgstr "გადართვა ერთსარკმლიან/ორსარკმლიან რეჟიმზე\nგადართვა ერთ/ორ სარკმლიან რეჟიმზე"
 
 #. Resource IDs: (156)
 msgid "Switch left and right view"
@@ -10098,9 +9306,7 @@ msgstr ""
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
-msgstr ""
-"მარცხენა და მარჯვენა ხედების პანელების გაცვლა\n"
-"მარცხენა და მარჯვენა ხედების გაცვლა"
+msgstr "მარცხენა და მარჯვენა ხედების პანელების გაცვლა\nმარცხენა და მარჯვენა ხედების გაცვლა"
 
 #. Resource IDs: (3825)
 msgid "Switch to the next document window"
@@ -10110,9 +9316,7 @@ msgstr "გადართვა დოკუმენტის შემდე�
 msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
-msgstr ""
-"გადართვა ფანჯრის შემდეგ სარკმელზე\n"
-"შემდეგი ფანჯარა"
+msgstr "გადართვა ფანჯრის შემდეგ სარკმელზე\nშემდეგი ფანჯარა"
 
 #. Resource IDs: (3825)
 msgid "Switch to the previous document window"
@@ -10142,8 +9346,7 @@ msgstr "სისტემური &ხმები"
 msgid ""
 "System registry entries have been removed and the INI file (if any) was "
 "deleted."
-msgstr ""
-"სისტემური რეგისტრის ჩანაწერები ამოღებულია და INI ფაილი (თუ იყო) წაიშალა."
+msgstr "სისტემური რეგისტრის ჩანაწერები ამოღებულია და INI ფაილი (თუ იყო) წაიშალა."
 
 #. Resource IDs: (7)
 msgid "TORTOISEBLAME"
@@ -10203,9 +9406,7 @@ msgid ""
 "The changes will be applied to your working copy with a reverse merge "
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
-msgstr ""
-"ცვლილებები შეეხება თქვენს სამუშაო ასლს უკუშერწყმის ოპერაციით. საცავი "
-"ხელუხელებელი დარჩება. ფიქსაციამდე შეგიძლიათ ცვლილებებს გადახედოთ. "
+msgstr "ცვლილებები შეეხება თქვენს სამუშაო ასლს უკუშერწყმის ოპერაციით. საცავი ხელუხელებელი დარჩება. ფიქსაციამდე შეგიძლიათ ცვლილებებს გადახედოთ. "
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -10220,17 +9421,13 @@ msgstr "მოსალოდნელი იყო კოდის '@@' და�
 msgid ""
 "The color of creation, copy and rename nodes of tags will be shifted towards"
 " yellow."
-msgstr ""
-"შექმნის, კოპირების და გადარქმევის კვანძების ფერი ჭდეებში ყვითლისკენ "
-"წაინაცვლებს."
+msgstr "შექმნის, კოპირების და გადარქმევის კვანძების ფერი ჭდეებში ყვითლისკენ წაინაცვლებს."
 
 #. Resource IDs: (346)
 msgid ""
 "The color of creation, copy and rename nodes of the trunk will be shifted "
 "towards green."
-msgstr ""
-"შექმნის, კოპირების და გადარქმევის კვანძების ფერი ჭდეებში მწვანისკენ "
-"წაინაცვლებს."
+msgstr "შექმნის, კოპირების და გადარქმევის კვანძების ფერი ჭდეებში მწვანისკენ წაინაცვლებს."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -10245,18 +9442,14 @@ msgstr "განახლების ნაგულისხმები გ�
 msgid ""
 "The depth of this commit is \"%s\", but copies are always performed "
 "recursively in the repository."
-msgstr ""
-"ამ ფიქსაციის სიღრმეა \"%s\", მაგრამ ასლები საცავში ყოველთვის რეკურსიულად "
-"სრულდება."
+msgstr "ამ ფიქსაციის სიღრმეა \"%s\", მაგრამ ასლები საცავში ყოველთვის რეკურსიულად სრულდება."
 
 #. Resource IDs: (68)
 #, c-format
 msgid ""
 "The diffing engine aborted because of an error:\n"
 "%s"
-msgstr ""
-"შედარების ძრავმა მუშაობა შეწყვიტა შეცდომის გამო:\n"
-"%s"
+msgstr "შედარების ძრავმა მუშაობა შეწყვიტა შეცდომის გამო:\n%s"
 
 #. Resource IDs: (64)
 #, c-format
@@ -10275,11 +9468,7 @@ msgid ""
 "%s\n"
 "is empty.\n"
 "Do you want to remove the file?"
-msgstr ""
-"ფაილი\n"
-"%s\n"
-"ცარიელია.\n"
-"გნებავთ ამ ფაილის ამოღება?"
+msgstr "ფაილი\n%s\nცარიელია.\nგნებავთ ამ ფაილის ამოღება?"
 
 #. Resource IDs: (69)
 msgid "The file is too big"
@@ -10295,10 +9484,7 @@ msgid ""
 "The file\n"
 "%s\n"
 "already exists! Do you want to overwrite it?"
-msgstr ""
-"ფაილი\n"
-"%s\n"
-"უკვე არსებობს! გნებავთ მისი ზემოდან გადაწერა?"
+msgstr "ფაილი\n%s\nუკვე არსებობს! გნებავთ მისი ზემოდან გადაწერა?"
 
 #. Resource IDs: (69)
 #, c-format
@@ -10307,20 +9493,14 @@ msgid ""
 "%s\n"
 "is not a valid text file!\n"
 "Note that UTF32 files are treated as binary too."
-msgstr ""
-"ფაილი\n"
-"%s\n"
-"უმართებლო ტექსტური ფაილია!\n"
-"შენიშვნა: UTF32 ფაილებიც ორობითის მსგავსად განიხილება."
+msgstr "ფაილი\n%s\nუმართებლო ტექსტური ფაილია!\nშენიშვნა: UTF32 ფაილებიც ორობითის მსგავსად განიხილება."
 
 #. Resource IDs: (145)
 #, c-format
 msgid ""
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr ""
-"დასტა %s\n"
-"შეიცავს არავერსიულ ანდა შეცვლილ ფაილ(ებ)ს. მაინც გსურთ მისი ამოღება?"
+msgstr "დასტა %s\nშეიცავს არავერსიულ ანდა შეცვლილ ფაილ(ებ)ს. მაინც გსურთ მისი ამოღება?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -10329,11 +9509,7 @@ msgid ""
 "%s\n"
 "does not exist.\n"
 "Would you like to create it first?"
-msgstr ""
-"დასტა\n"
-"%s\n"
-"არ არსებობს.\n"
-"გნებავთ მისი შექმნა?"
+msgstr "დასტა\n%s\nარ არსებობს.\nგნებავთ მისი შექმნა?"
 
 #. Resource IDs: (99)
 #, c-format
@@ -10341,19 +9517,14 @@ msgid ""
 "The folder\n"
 "%s\n"
 "already exists!"
-msgstr ""
-"დასტა\n"
-"%s\n"
-"უკვე არსებობს!"
+msgstr "დასტა\n%s\nუკვე არსებობს!"
 
 #. Resource IDs: (83)
 #, c-format
 msgid ""
 "The hook script returned an error:\n"
 "%s"
-msgstr ""
-"ბმული სცენარის შეცდომა:\n"
-"%s"
+msgstr "ბმული სცენარის შეცდომა:\n%s"
 
 #. Resource IDs: (7)
 msgid "The image can not be shown."
@@ -10363,14 +9534,11 @@ msgstr "ნახატის ჩვენება ვერ ხერხდე
 msgid ""
 "The issue-tracker provider could not be created. Please check that it is "
 "installed correctly."
-msgstr ""
-"ვერ ხერხდება პრობლემათა თვალმიდევნების პროვაიდერის შექმნა. გადაამოწმეთ "
-"ჩადგმა."
+msgstr "ვერ ხერხდება პრობლემათა თვალმიდევნების პროვაიდერის შექმნა. გადაამოწმეთ ჩადგმა."
 
 #. Resource IDs: (64)
 msgid "The issue-tracker provider was unable to validate the parameter string"
-msgstr ""
-"პრობლემათა თვალმიდევნების პროვაიდერი პარამეტრების შემოწმებას ვერ ახერხებს"
+msgstr "პრობლემათა თვალმიდევნების პროვაიდერი პარამეტრების შემოწმებას ვერ ახერხებს"
 
 #. Resource IDs: (597)
 #, c-format
@@ -10391,14 +9559,12 @@ msgstr "შერწყმის ბოლო ოპერაცია ცდი
 #, c-format
 msgid ""
 "The last merge operation tried to delete/move/rename the directory '%s'"
-msgstr ""
-"შერწყმის ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა დასტა '%s'"
+msgstr "შერწყმის ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა დასტა '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last merge operation tried to delete/move/rename the file '%s'"
-msgstr ""
-"შერწყმის ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა ფაილი '%s'"
+msgstr "შერწყმის ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა ფაილი '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10434,14 +9600,12 @@ msgstr "გადართვის ბოლო ოპერაცია ცდ
 #, c-format
 msgid ""
 "The last switch operation tried to delete/move/rename the directory '%s'"
-msgstr ""
-"გადართვის ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა დასტა '%s'"
+msgstr "გადართვის ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა დასტა '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last switch operation tried to delete/move/rename the file '%s'"
-msgstr ""
-"გადართვის ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა ფაილი '%s'"
+msgstr "გადართვის ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა ფაილი '%s'"
 
 #. Resource IDs: (608)
 #, c-format
@@ -10477,14 +9641,12 @@ msgstr "განახლების ბოლო ოპერაცია ც
 #, c-format
 msgid ""
 "The last update operation tried to delete/move/rename the directory '%s'"
-msgstr ""
-"განახლების ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა დასტა '%s'"
+msgstr "განახლების ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა დასტა '%s'"
 
 #. Resource IDs: (607)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the file '%s'"
-msgstr ""
-"განახლების ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა ფაილი '%s'"
+msgstr "განახლების ბოლო ოპერაცია ცდილობდა წაეშალა/გადაეტანა/გადაერქვა ფაილი '%s'"
 
 #. Resource IDs: (607)
 #, c-format
@@ -10515,9 +9677,7 @@ msgstr "კონტექსტი '====' მოსალოდნელი ი
 msgid ""
 "The line 'Index: ' was not found!\n"
 "Either this is not a diff file or the diff is empty."
-msgstr ""
-"სტრიქონი 'ინდექსი: ' ვერ მოიძებნა!\n"
-"ეს არ გახლავთ შედარების ფაილი ან ცარიელია."
+msgstr "სტრიქონი 'ინდექსი: ' ვერ მოიძებნა!\nეს არ გახლავთ შედარების ფაილი ან ცარიელია."
 
 #. Resource IDs: (63)
 #, c-format
@@ -10542,17 +9702,13 @@ msgstr "დაბლოკვა უკვე გატეხილია სხ
 msgid ""
 "The maximum number of action log lines to keep.\n"
 "Any lines added over this limit will remove the oldest lines from the file."
-msgstr ""
-"დავთრის ქმედებათა ჩანაწერების მაქსიმალური რაოდენობა.\n"
-"მითითებულზე მეტის დამატებისას ძველი სტრიქონები ფაილიდან ამოიშლება."
+msgstr "დავთრის ქმედებათა ჩანაწერების მაქსიმალური რაოდენობა.\nმითითებულზე მეტის დამატებისას ძველი სტრიქონები ფაილიდან ამოიშლება."
 
 #. Resource IDs: (63)
 msgid ""
 "The old file does not match the new file.\n"
 "Renaming of files is not (yet) supported!"
-msgstr ""
-"ძველი ფაილი ახალს არ შეესაბამება.\n"
-"გადარქმევა (ჯერ) რეალიზებული არაა!!"
+msgstr "ძველი ფაილი ახალს არ შეესაბამება.\nგადარქმევა (ჯერ) რეალიზებული არაა!!"
 
 #. Resource IDs: (220)
 msgid "The operation failed."
@@ -10562,9 +9718,7 @@ msgstr "ოპერაცია არ შედგა."
 msgid ""
 "The parameters '/path' and '/pathfile' are mutually exclusive.\n"
 "You must only specify one of them."
-msgstr ""
-"პარამეტრები  '/path' და '/pathfile' ურთიერთგამომრიცხავია.\n"
-"უნდა მიუთითოთ ერთი მათგანი."
+msgstr "პარამეტრები  '/path' და '/pathfile' ურთიერთგამომრიცხავია.\nუნდა მიუთითოთ ერთი მათგანი."
 
 #. Resource IDs: (64)
 #, c-format
@@ -10574,21 +9728,14 @@ msgid ""
 "and the patchline\n"
 "%2!s!\n"
 "do not match!"
-msgstr ""
-"ჩანს, ბებკი მოძველდა! ფაილის სტრიქონი\n"
-"%1!s!\n"
-"და ბებკის სტრიქონი\n"
-"%2!s!\n"
-"არ ემთხვევა!"
+msgstr "ჩანს, ბებკი მოძველდა! ფაილის სტრიქონი\n%1!s!\nდა ბებკის სტრიქონი\n%2!s!\nარ ემთხვევა!"
 
 #. Resource IDs: (89)
 #, c-format
 msgid ""
 "The path/URL '%s' seems to be illegal on Windows!\n"
 "You can try it anyway, but you might get an error later."
-msgstr ""
-"გეზი/URL '%s' უმართებლო ჩანს Windows-ისთვის!\n"
-"შეგიძლიათ მაინც სცადოთ, თუმცა მომავალში შესაძლოა შეცდომა."
+msgstr "გეზი/URL '%s' უმართებლო ჩანს Windows-ისთვის!\nშეგიძლიათ მაინც სცადოთ, თუმცა მომავალში შესაძლოა შეცდომა."
 
 #. Resource IDs: (88)
 msgid ""
@@ -10599,14 +9746,7 @@ msgid ""
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "\n"
 "Do you want to proceed anyway?"
-msgstr ""
-"თქვენი მითითებული გეზი/მისამართი ჩანს Windows-ისთვის დაუშვებელია!\n"
-"შეგიძლიათ კვლავ სცადოთ, მაგრამ მოგვიანებით შესაძლოა შეცდომა.\n"
-"\n"
-"მართებული გეზი არ შეიძლება შეიცავდეს '<>|\"?*:' სიმბოლოებს ან მოწყობილობას:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
-"\n"
-"მაინც გსურთ გაგრძელება?"
+msgstr "თქვენი მითითებული გეზი/მისამართი ჩანს Windows-ისთვის დაუშვებელია!\nშეგიძლიათ კვლავ სცადოთ, მაგრამ მოგვიანებით შესაძლოა შეცდომა.\n\nმართებული გეზი არ შეიძლება შეიცავდეს '<>|\"?*:' სიმბოლოებს ან მოწყობილობას:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n\nმაინც გსურთ გაგრძელება?"
 
 #. Resource IDs: (314)
 #, c-format
@@ -10619,15 +9759,7 @@ msgid ""
 "which seems to match the directory you're applying the patch.\n"
 "\n"
 "Do you want to use the suggested path? Answering 'no' will quit TortoiseMerge."
-msgstr ""
-"გეზი\n"
-"%1!s!\n"
-"ბებკი ფაილში არ არსებობს.\n"
-"პროგრამამ ფარდობითი გეზი მოიძია\n"
-"%2!s!\n"
-"რომელიც შესაძლოა გამოსაყენებელი ბებკის გეზს შეესაბამაბა.\n"
-"\n"
-"გნებავთ შემოთავაზებული ბებკის გამოყენება? პასუხი 'არა'-ს შემთხვევაში პროგრამა დასრულდება."
+msgstr "გეზი\n%1!s!\nბებკი ფაილში არ არსებობს.\nპროგრამამ ფარდობითი გეზი მოიძია\n%2!s!\nრომელიც შესაძლოა გამოსაყენებელი ბებკის გეზს შეესაბამაბა.\n\nგნებავთ შემოთავაზებული ბებკის გამოყენება? პასუხი 'არა'-ს შემთხვევაში პროგრამა დასრულდება."
 
 #. Resource IDs: (314)
 #, c-format
@@ -10638,13 +9770,7 @@ msgid ""
 "But TortoiseMerge found the path\n"
 "%2!s!\n"
 "matches it better. Do you want to use the suggested path instead?"
-msgstr ""
-"ჩანს ბებკი\n"
-"%1!s!\n"
-"არ შეესაბამება გეზსებს ბებკი ფაილში.\n"
-"მაგრამ TortoiseMerge-მ იპოვნა უკეთესი გეზი\n"
-"%2!s!\n"
-"გნებავთ შემოთავაზებული გეზის გამოყენება?"
+msgstr "ჩანს ბებკი\n%1!s!\nარ შეესაბამება გეზსებს ბებკი ფაილში.\nმაგრამ TortoiseMerge-მ იპოვნა უკეთესი გეზი\n%2!s!\nგნებავთ შემოთავაზებული გეზის გამოყენება?"
 
 #. Resource IDs: (314)
 #, c-format
@@ -10653,44 +9779,32 @@ msgid ""
 "%s\n"
 "in the patchfile does not exist.\n"
 "TortoiseMerge tried to apply the patch by stripping prefixes but no matching path could be found."
-msgstr ""
-"გეზი\n"
-"%s\n"
-"ბებკი ფაილში არ არსებობს.\n"
-"პროგრამა შეეცადა ბებკის გამოყენებას პრეფიქსების დამუშავებით, მაგარამ შესაბამისი გეზი ვერ მოიძებნა."
+msgstr "გეზი\n%s\nბებკი ფაილში არ არსებობს.\nპროგრამა შეეცადა ბებკის გამოყენებას პრეფიქსების დამუშავებით, მაგარამ შესაბამისი გეზი ვერ მოიძებნა."
 
 #. Resource IDs: (84)
 msgid ""
 "The regular expression is invalid!\n"
 "Please enter a valid regular expression."
-msgstr ""
-"მარტივი გამოსახულება უმართებლოა!\n"
-"გთხოვთ მიუთითოთ მართებული მარტივი გამოსახულება."
+msgstr "მარტივი გამოსახულება უმართებლოა!\nგთხოვთ მიუთითოთ მართებული მარტივი გამოსახულება."
 
 #. Resource IDs: (80, 65535)
 msgid ""
 "The repository was successfully created.\n"
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
-msgstr ""
-"საცავი წარმატებით შეიქმნა.\n"
-"გნებავთ ნაგულისხმები სტრუქტურის (trunk/branches/tags) შექმნა ახლავე?"
+msgstr "საცავი წარმატებით შეიქმნა.\nგნებავთ ნაგულისხმები სტრუქტურის (trunk/branches/tags) შექმნა ახლავე?"
 
 #. Resource IDs: (616)
 #, c-format
 msgid ""
 "The returned error was:\n"
 "%s"
-msgstr ""
-"შეცდომის შეტყობინებაა:\n"
-"%s"
+msgstr "შეცდომის შეტყობინებაა:\n%s"
 
 #. Resource IDs: (78)
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
-msgstr ""
-"როგორც ჩანს, მონიშნულ ფაილში კონფლიქტის ნიშნულები დარჩა.\n"
-"გნებავთ მისი მოგვარებულად მითითება?"
+msgstr "როგორც ჩანს, მონიშნულ ფაილში კონფლიქტის ნიშნულები დარჩა.\nგნებავთ მისი მოგვარებულად მითითება?"
 
 #. Resource IDs: (102)
 #, c-format
@@ -10698,10 +9812,7 @@ msgid ""
 "The target URL\n"
 "%s\n"
 "already exists!"
-msgstr ""
-"დანიშნულების URL\n"
-"%s\n"
-"უკვე არსებობს!"
+msgstr "დანიშნულების URL\n%s\nუკვე არსებობს!"
 
 #. Resource IDs: (147)
 msgid "The target already exists."
@@ -10714,11 +9825,7 @@ msgid ""
 "%s\n"
 " already exists.\n"
 "Do you want to replace the file?"
-msgstr ""
-"სამიზნე ფაილი\n"
-"%s\n"
-"უკვე არსებობს.\n"
-"გნებავთ მისი ჩანაცვლება?"
+msgstr "სამიზნე ფაილი\n%s\nუკვე არსებობს.\nგნებავთ მისი ჩანაცვლება?"
 
 #. Resource IDs: (88)
 #, c-format
@@ -10727,11 +9834,7 @@ msgid ""
 "%s\n"
 "is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
-msgstr ""
-"სამიზნე დასტა \n"
-"%s\n"
-"არაა ცარიელი!\n"
-"დარწმუნებული ხართ რომ ამ დასტაში გსურთ გადმოტანა/ექსპორტი?"
+msgstr "სამიზნე დასტა \n%s\nარაა ცარიელი!\nდარწმუნებული ხართ რომ ამ დასტაში გსურთ გადმოტანა/ექსპორტი?"
 
 #. Resource IDs: (279)
 msgid "The target has local modifications"
@@ -10742,9 +9845,7 @@ msgstr "სამიზნეში ადგილობრივი ცვლ�
 msgid ""
 "The target working copy '%s' has local modifications. It is recommended to "
 "commit those changes first before merging new changes."
-msgstr ""
-"სამიზნე სამუშაო ასლში '%s' ლოკალური ცვლილებებია. რეკომენდებულია ამ "
-"ცვლილებების ფიქსაცია ახალი ცვლილებების შერწყმამდე."
+msgstr "სამიზნე სამუშაო ასლში '%s' ლოკალური ცვლილებებია. რეკომენდებულია ამ ცვლილებების ფიქსაცია ახალი ცვლილებების შერწყმამდე."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
@@ -10754,27 +9855,20 @@ msgstr "სამიზნე სამუშაო ასლში ლოკა
 msgid ""
 "The target working copy has local modifications.\n"
 "Do you want to merge anyway?"
-msgstr ""
-"სამიზნე სამუშაო ასლში ლოკალური ცვლილებებია.\n"
-"მაინც გსურთ შერწყმა?"
+msgstr "სამიზნე სამუშაო ასლში ლოკალური ცვლილებებია.\nმაინც გსურთ შერწყმა?"
 
 #. Resource IDs: (195)
 msgid ""
 "The time in seconds after which the parsing of the selected files stops.\r\n"
 "A lower value will make the auto-completion list available sooner,\r\n"
 "but maybe not scan all files."
-msgstr ""
-"დრო წამებში, რომლის შემდეგაც შერჩეული ფაილების დამუშავება შეჩერდება.\r\n"
-"მცირე მნიშვნელობის შემთხვევაში თვითდასრულების სია უფრო მალე გახდება\r\n"
-"მისაწვდომი, თუმცა ყველა ფაილის დამუშავება შეიძლება ვერ მოესწროს."
+msgstr "დრო წამებში, რომლის შემდეგაც შერჩეული ფაილების დამუშავება შეჩერდება.\r\nმცირე მნიშვნელობის შემთხვევაში თვითდასრულების სია უფრო მალე გახდება\r\nმისაწვდომი, თუმცა ყველა ფაილის დამუშავება შეიძლება ვერ მოესწროს."
 
 #. Resource IDs: (82)
 msgid ""
 "The two selected URL's are not created from the same root.\n"
 "It's not possible to show the log messages between them!"
-msgstr ""
-"ორი შერჩეული URL ერთი და იგივე ძირიდან არ შექმნილა.\n"
-"შეუძლებელია მათ შორის დავთრის ჩანაწერების ჩვენება!"
+msgstr "ორი შერჩეული URL ერთი და იგივე ძირიდან არ შექმნილა.\nშეუძლებელია მათ შორის დავთრის ჩანაწერების ჩვენება!"
 
 #. Resource IDs: (16)
 msgid "The user who did the last commit"
@@ -10788,17 +9882,13 @@ msgstr "ფაილის დაბლოკვის მფლობელი 
 msgid ""
 "The working copy has changed!\n"
 "Please commit your changes first or revert."
-msgstr ""
-"სამუშაო ასლი შეიცვალა!\n"
-"გთხოვთ დააფიქსიროთ ან გააუქმოთ თქვენი ცვლილებები."
+msgstr "სამუშაო ასლი შეიცვალა!\nგთხოვთ დააფიქსიროთ ან გააუქმოთ თქვენი ცვლილებები."
 
 #. Resource IDs: (81)
 msgid ""
 "The working copy is not up to date!\n"
 "Please Update first."
-msgstr ""
-"სამუშაო ასლი მოძველდა!\n"
-"გთხოვთ ჯერ განაახლოთ."
+msgstr "სამუშაო ასლი მოძველდა!\nგთხოვთ ჯერ განაახლოთ."
 
 #. Resource IDs: (65535)
 msgid "Their file:"
@@ -10812,9 +9902,7 @@ msgstr "მათი"
 msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
-msgstr ""
-"არის ცვლილებები ერთ ან მეტ დასტაში რომლებიც თქვენს მიერ svn:externals-შია მითითებულია.\n"
-"ეს ფაილები არ არიან ფიქსაციის სიაში.  საჭიროა მათი ცალკე ფიქსაცია."
+msgstr "არის ცვლილებები ერთ ან მეტ დასტაში რომლებიც თქვენს მიერ svn:externals-შია მითითებულია.\nეს ფაილები არ არიან ფიქსაციის სიაში.  საჭიროა მათი ცალკე ფიქსაცია."
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
@@ -10827,19 +9915,13 @@ msgid ""
 "You should resolve those conflicts first before saving.\n"
 "Do you want to save the file with the conflicts still there?\n"
 "If you click YES, then you have to manually resolve the conflicts in another editor!"
-msgstr ""
-"სტრიქონში %d მოუგვარებელი კონფლიქტები დარჩა!\n"
-"შენახვამდე ეს კონფლიქტები უნდა მოაგვაროთ.\n"
-"ნამდვილად გსურთ კონფლიქტებიანი ფაილის შენახვა?\n"
-"თუ უპასუხებთ 'დიახ', კონფლიქტის მოგვარება ხელით სხვა რედაქტორში მოგიწევთ!"
+msgstr "სტრიქონში %d მოუგვარებელი კონფლიქტები დარჩა!\nშენახვამდე ეს კონფლიქტები უნდა მოაგვაროთ.\nნამდვილად გსურთ კონფლიქტებიანი ფაილის შენახვა?\nთუ უპასუხებთ 'დიახ', კონფლიქტის მოგვარება ხელით სხვა რედაქტორში მოგიწევთ!"
 
 #. Resource IDs: (313)
 msgid ""
 "There are unsaved modifications!\n"
 "Do you want to save your changes?"
-msgstr ""
-"არის ცვლილებები, რომლებიც არ შენახულა!\n"
-"გსურთ თქვენი შეტანილი ცვლილებების შენახვა?"
+msgstr "არის ცვლილებები, რომლებიც არ შენახულა!\nგსურთ თქვენი შეტანილი ცვლილებების შენახვა?"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -10848,26 +9930,18 @@ msgid ""
 "\n"
 "Please understand that the cached data may be outdated,\n"
 "incomplete or even misleading due to incomplete history data."
-msgstr ""
-"პრობლემა სერვერთან დაკავშირებისას.\n"
-"გნებავთ ბუფერირებული მონაცმების ნახვა?\n"
-"\n"
-"გაითვალისწინეთ, შესაძლოა ისინი მოძველებული,\n"
-"არასრული ან შესაძლოა მცდარიც კი იყოს."
+msgstr "პრობლემა სერვერთან დაკავშირებისას.\nგნებავთ ბუფერირებული მონაცმების ნახვა?\n\nგაითვალისწინეთ, შესაძლოა ისინი მოძველებული,\nარასრული ან შესაძლოა მცდარიც კი იყოს."
 
 #. Resource IDs: (82)
 msgid ""
 "There is nothing to add. All the files and folders are either under version "
 "control or have been ignored using the svn:ignore property or the global "
 "ignore configuration setting."
-msgstr ""
-"დასამატებელი არაფერია. ყველა ფაილი და დასტა ან ვერსიი კონტროლის პროცესშია ან"
-" გამოტოვებულია svn:ignore ან გლობალური გამოტოვების პარამეტრის გამოყენებით."
+msgstr "დასამატებელი არაფერია. ყველა ფაილი და დასტა ან ვერსიი კონტროლის პროცესშია ან გამოტოვებულია svn:ignore ან გლობალური გამოტოვების პარამეტრის გამოყენებით."
 
 #. Resource IDs: (83)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
-msgstr ""
-"არაფერია დაბლოკვის მოხსახსნელი. ამ სამუშაო ასლში დაბლოკილი ფაილი არაა."
+msgstr "არაფერია დაბლოკვის მოხსახსნელი. ამ სამუშაო ასლში დაბლოკილი ფაილი არაა."
 
 #. Resource IDs: (188)
 msgid "Thesaurus"
@@ -10877,19 +9951,14 @@ msgstr "თეზაურუსი"
 msgid ""
 "These are more recently saved than the currently open documents and contain "
 "changes that were made before the application closed."
-msgstr ""
-"ესენი ბოლოს შეცვლილი და შენახული დოკუმენტებია, რომლებიც შეიცავს პროგრამის "
-"დახურვამდე განხორციელებულ ცვლილებებს."
+msgstr "ესენი ბოლოს შეცვლილი და შენახული დოკუმენტებია, რომლებიც შეიცავს პროგრამის დახურვამდე განხორციელებულ ცვლილებებს."
 
 #. Resource IDs: (170)
 msgid ""
 "This commit is not recursive, and there are moved/renamed folders selected "
 "for commit. Such moves/renames are always performed recursively in the "
 "repository. Do you want to commit anyway?"
-msgstr ""
-"ამ არარეკურსიული ფიქსაციისთვის გადარქმეული/გადატანილი დასტებია შერჩეული. "
-"ასეთი გადარქმეული/გადატანილი დასტები საცავში ყოველთვის რეკურსიულად "
-"ფიქსირდება. მაინც გსურთ ფიქსაცია?"
+msgstr "ამ არარეკურსიული ფიქსაციისთვის გადარქმეული/გადატანილი დასტებია შერჩეული. ასეთი გადარქმეული/გადატანილი დასტები საცავში ყოველთვის რეკურსიულად ფიქსირდება. მაინც გსურთ ფიქსაცია?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10898,44 +9967,31 @@ msgid ""
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr ""
-"ამ არარეკურსიული ფიქსაციისთვის გადარქმეული/გადატანილი\n"
-"დასტებია შერჩეული. ასეთი გადარქმეული/გადატანილი\n"
-"დასტები საცავში ყოველთვის რეკურსიულად ფიქსირდება.\n"
-"\n"
-"მაინც გსურთ ფიქსაცია?"
+msgstr "ამ არარეკურსიული ფიქსაციისთვის გადარქმეული/გადატანილი\nდასტებია შერჩეული. ასეთი გადარქმეული/გადატანილი\nდასტები საცავში ყოველთვის რეკურსიულად ფიქსირდება.\n\nმაინც გსურთ ფიქსაცია?"
 
 #. Resource IDs: (251)
 msgid ""
 "This error was generated by a custom hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
-msgstr ""
-"საკუთარი სკრიპტის შეცდომა ქვევერსიის სერვერზე.\n"
-"პრობლემის გადასაჭრელად გთხოვთ მიმართოთ თქვენი სერვერის ადმინს."
+msgstr "საკუთარი სკრიპტის შეცდომა ქვევერსიის სერვერზე.\nპრობლემის გადასაჭრელად გთხოვთ მიმართოთ თქვენი სერვერის ადმინს."
 
 #. Resource IDs: (251)
 msgid ""
 "This error was generated by a custom post-commit hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
-msgstr ""
-"ფიქსაციის შემდგომი საკუთარი სკრიპტის შეცდომა ქვევერსიის სერვერზე.\n"
-"პრობლემის გადასაჭრელად გთხოვთ მიმართოთ თქვენი სერვერის ადმინს."
+msgstr "ფიქსაციის შემდგომი საკუთარი სკრიპტის შეცდომა ქვევერსიის სერვერზე.\nპრობლემის გადასაჭრელად გთხოვთ მიმართოთ თქვენი სერვერის ადმინს."
 
 #. Resource IDs: (251)
 msgid ""
 "This error was generated by a custom post-lock hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
-msgstr ""
-"დაბლოკვის შემდგომი საკუთარი სკრიპტის შეცდომა ქვევერსიის სერვერზე.\n"
-"პრობლემის გადასაჭრელად გთხოვთ მიმართოთ თქვენი სერვერის ადმინს."
+msgstr "დაბლოკვის შემდგომი საკუთარი სკრიპტის შეცდომა ქვევერსიის სერვერზე.\nპრობლემის გადასაჭრელად გთხოვთ მიმართოთ თქვენი სერვერის ადმინს."
 
 #. Resource IDs: (251)
 msgid ""
 "This error was generated by a custom post-unlock hook script on the Subversion server.\n"
 "Please contact your server administrator for help with resolving this issue."
-msgstr ""
-"დაბლოკვის მოხსნის შემდგომი საკუთარი სკრიპტის შეცდომა ქვევერსიის სერვერზე.\n"
-"პრობლემის გადასაჭრელად გთხოვთ მიმართოთ თქვენი სერვერის ადმინს."
+msgstr "დაბლოკვის მოხსნის შემდგომი საკუთარი სკრიპტის შეცდომა ქვევერსიის სერვერზე.\nპრობლემის გადასაჭრელად გთხოვთ მიმართოთ თქვენი სერვერის ადმინს."
 
 #. Resource IDs: (84)
 msgid "This file already exists!"
@@ -10945,71 +10001,53 @@ msgstr "ასეთი ფაილი უკვე არსებობს!"
 msgid ""
 "This is not a valid URL.\n"
 "Please enter an URL here."
-msgstr ""
-"ეს მისამართი მცდარია.\n"
-"გთხოვთ მიუთითოთ მისამართი აქ."
+msgstr "ეს მისამართი მცდარია.\nგთხოვთ მიუთითოთ მისამართი აქ."
 
 #. Resource IDs: (82)
 msgid ""
 "This is not a valid path!\n"
 "A valid path must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
-msgstr ""
-"ეს გეზი უმართებლოა!\n"
-"მართებული გეზი არ უნდა შეიცავდეს '<>|\"?*:'  სიმბოლოებს ან მოწყობილობას:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
+msgstr "ეს გეზი უმართებლოა!\nმართებული გეზი არ უნდა შეიცავდეს '<>|\"?*:'  სიმბოლოებს ან მოწყობილობას:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$"
 
 #. Resource IDs: (594)
 msgid ""
 "This method covers the case when you have made a feature branch as discussed"
 " in the Subversion book. Use this to merge all changes of a branch back to "
 "trunk."
-msgstr ""
-"ეს მეთოდი ეხება იმ შემთხვევას, როცა შექმენით განშტოება როგორც აღწერილია "
-"Subversion წიგნში. ისარგებლეთ განშტოების ყველა ცვლილების მაგისტრალში "
-"შერწყმისთვის."
+msgstr "ეს მეთოდი ეხება იმ შემთხვევას, როცა შექმენით განშტოება როგორც აღწერილია Subversion წიგნში. ისარგებლეთ განშტოების ყველა ცვლილების მაგისტრალში შერწყმისთვის."
 
 #. Resource IDs: (594)
 msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
-msgstr ""
-"ეს მეთოდი ეხება იმ შემთხვევას, როცა განშტოებაში (ან მაგისტრალში) ერთი ან "
-"მეტი ვერსიული ცვლილებაა და ამ ცვლილებების სხვა განშტოებაში გადატანა გსურთ."
+msgstr "ეს მეთოდი ეხება იმ შემთხვევას, როცა განშტოებაში (ან მაგისტრალში) ერთი ან მეტი ვერსიული ცვლილებაა და ამ ცვლილებების სხვა განშტოებაში გადატანა გსურთ."
 
 #. Resource IDs: (594)
 msgid ""
 "This method covers the case when you want to merge the differences of two "
 "different branches into your working copy."
-msgstr ""
-"ეს მეთოდი ეხება იმ შემთხვევას, როცა ორი განსხვავებული განშტოების თქვენს "
-"სამუშაო ასლში შერწყმა გსურთ."
+msgstr "ეს მეთოდი ეხება იმ შემთხვევას, როცა ორი განსხვავებული განშტოების თქვენს სამუშაო ასლში შერწყმა გსურთ."
 
 #. Resource IDs: (1532)
 msgid ""
 "This product includes software developed by the OpenSSL Project for use in "
 "the OpenSSL Toolkit (http://www.openssl.org/)"
-msgstr ""
-"ეს პროდუქტი შეიცავს OpenSSL-ის მიერ შემუშავებულ პროგრამას OpenSSL "
-"ხელსაწყოებში გამოსაყენებლად (http://www.openssl.org/)"
+msgstr "ეს პროდუქტი შეიცავს OpenSSL-ის მიერ შემუშავებულ პროგრამას OpenSSL ხელსაწყოებში გამოსაყენებლად (http://www.openssl.org/)"
 
 #. Resource IDs: (1531)
 msgid ""
 "This product includes software from Apache™ Subversion® "
 "(http://subversion.apache.org)"
-msgstr ""
-"ეს პროდუქტი შეიცავს პროგრამას Apache™ Subversion® "
-"(http://subversion.apache.org)-დან"
+msgstr "ეს პროდუქტი შეიცავს პროგრამას Apache™ Subversion® (http://subversion.apache.org)-დან"
 
 #. Resource IDs: (3857)
 #, c-format
 msgid ""
 "This program is linked to the missing export %s in the file %s. This machine"
 " may have an incompatible version of %s."
-msgstr ""
-"ეს პროგრამა დაკავშირებულია არარსებულ ექსპორტთან %s ფაილში %s.  შესაძლოა "
-"კომპიუტერში %s არათავსებადი ვერსია ."
+msgstr "ეს პროგრამა დაკავშირებულია არარსებულ ექსპორტთან %s ფაილში %s.  შესაძლოა კომპიუტერში %s არათავსებადი ვერსია ."
 
 #. Resource IDs: (3857)
 #, c-format
@@ -11029,18 +10067,13 @@ msgid ""
 "This will delete the record of commands you've used in this application and "
 "restore the default set of visible commands to the menus and toolbars. It "
 "will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr ""
-"წაიშლება ამ პროგრამაში გამოყენებული ყველა ბრძანება და აღდგება ბრძანებათა "
-"ნაგულისხმები ნაკრები მენიუებისა და სამარჯვებისთვის. ეს არ შეეხება უშუალო "
-"მითითებულ პარამეტრებს. ნამდვილად გსურთ ამის გაკეთება?"
+msgstr "წაიშლება ამ პროგრამაში გამოყენებული ყველა ბრძანება და აღდგება ბრძანებათა ნაგულისხმები ნაკრები მენიუებისა და სამარჯვებისთვის. ეს არ შეეხება უშუალო მითითებულ პარამეტრებს. ნამდვილად გსურთ ამის გაკეთება?"
 
 #. Resource IDs: (99)
 msgid ""
 "This will upgrade your working copy to the new 1.7 format and make it "
 "unusable for older clients."
-msgstr ""
-"ეს თქვენს სამუშაო ასლს 1.7 ფორმატამდე განაახლებს, რაც მას ძველი "
-"კლიენტებისთვის მიუწვდომელს გახდის."
+msgstr "ეს თქვენს სამუშაო ასლს 1.7 ფორმატამდე განაახლებს, რაც მას ძველი კლიენტებისთვის მიუწვდომელს გახდის."
 
 #. Resource IDs: (363)
 #, c-format
@@ -11048,10 +10081,7 @@ msgid ""
 "This working copy has a client-side hook script configured. Do you want this script to run?\n"
 "The command line to run is:\n"
 "%s"
-msgstr ""
-"სამუშაო ასლში კლიენტის დამუშავების სკრიპტია მითითებული. გნებავთ ამ სკრიპტის შესრულება?\n"
-"ბრძანება შემდეგია:\n"
-"%s"
+msgstr "სამუშაო ასლში კლიენტის დამუშავების სკრიპტია მითითებული. გნებავთ ამ სკრიპტის შესრულება?\nბრძანება შემდეგია:\n%s"
 
 #. Resource IDs: (16928)
 msgid "Tile &Vertically"
@@ -11072,20 +10102,13 @@ msgid ""
 "are also checked in the commit dialog.\n"
 "Otherwise, TortoiseSVN must do a non-recursive commit\n"
 "which does not allow directory deletion."
-msgstr ""
-"რეკურსიული შემოწმებისა და შეცდომის თავიდან ასაცილებლად,\n"
-"გადაამოწმეთ, რომ მონიშნული დასტის ყველა ქვეელემენტი\n"
-"ასევე მონიშნული ფიქსაციის დიალოგშიც.\n"
-"სხვა შემთხვევაში პროგრამამ არარეკურსიული ფიქსაცია უნდა\n"
-"განახორციელოს, რომლის დროსაც დასტის წაშლა იკრძალება."
+msgstr "რეკურსიული შემოწმებისა და შეცდომის თავიდან ასაცილებლად,\nგადაამოწმეთ, რომ მონიშნული დასტის ყველა ქვეელემენტი\nასევე მონიშნული ფიქსაციის დიალოგშიც.\nსხვა შემთხვევაში პროგრამამ არარეკურსიული ფიქსაცია უნდა\nგანახორციელოს, რომლის დროსაც დასტის წაშლა იკრძალება."
 
 #. Resource IDs: (284)
 msgid ""
 "To steal the lock, right-click on the parent folder of this item and select 'Get Lock' from the context menu.\n"
 "This will bring up the locking dialog where you can enforce the lock, i.e., 'steal' it from the one currently holding it."
-msgstr ""
-"დაბლოკვის გადასახვეწად, ელემენტის ძირეულ დასტაზე მარჯვენა დაწკაპვის კონტექსტური მენიუდან აირჩიეთ 'დაბლოკვის მიღება'.\n"
-"ეს გამოიტანს დაბლოკვის დიალოგს საიდანაც შეგიძლიათ დაბლოკვის გადახვეწა, ე.ი. 'მოპარვა' დაბლოკვის მიმდანარე მფლობელისგან."
+msgstr "დაბლოკვის გადასახვეწად, ელემენტის ძირეულ დასტაზე მარჯვენა დაწკაპვის კონტექსტური მენიუდან აირჩიეთ 'დაბლოკვის მიღება'.\nეს გამოიტანს დაბლოკვის დიალოგს საიდანაც შეგიძლიათ დაბლოკვის გადახვეწა, ე.ი. 'მოპარვა' დაბლოკვის მიმდანარე მფლობელისგან."
 
 #. Resource IDs: (1201, 65535)
 msgid "To:"
@@ -11095,9 +10118,7 @@ msgstr "აქ:"
 msgid ""
 "Toggle One/Two Pages display\n"
 "Toggle One/Two Pages display"
-msgstr ""
-"ერთი/ორი გვერდის ჩვენების გადართვა\n"
-"ერთი/ორი გვერდის ჩვენების გადართვა"
+msgstr "ერთი/ორი გვერდის ჩვენების გადართვა\nერთი/ორი გვერდის ჩვენების გადართვა"
 
 #. Resource IDs: (65535)
 msgid "Toolbar"
@@ -11138,12 +10159,7 @@ msgid ""
 "instead.\n"
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr ""
-"TortoiseBlame უშუალოდ ვერ დაიწყება! მის ნაცვლად ისარგებლეთ\n"
-"TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
-"ბრძანებით.\n"
-"\n"
-"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+msgstr "TortoiseBlame უშუალოდ ვერ დაიწყება! მის ნაცვლად ისარგებლეთ\nTortoiseProc.exe /command:blame /path:\"path\\to\\file\"\nბრძანებით.\n\nTortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -11151,9 +10167,7 @@ msgstr "TortoiseIDiff"
 
 #. Resource IDs: (65535)
 msgid "TortoiseIDiff - An image diff tool, part of TortoiseSVN"
-msgstr ""
-"TortoiseIDiff - გამოსახულებათა შედარების ხელსაწყო, TortoiseSVN პროგრამის "
-"ნაწილი"
+msgstr "TortoiseIDiff - გამოსახულებათა შედარების ხელსაწყო, TortoiseSVN პროგრამის ნაწილი"
 
 #. Resource IDs: (7)
 msgid ""
@@ -11167,17 +10181,7 @@ msgid ""
 "/overlay\t\tto enable overlay mode\n"
 "/fit\t\tto fit the images sizes\n"
 "/showinfo\t\tto show the image info boxes"
-msgstr ""
-"TortoiseIDiff: ნახატების შედარების პროგრამა TortoiseSVN-ისთვის\n"
-"\n"
-"შესაძლო ბრძანებები და პარამეტრებია:\n"
-"/left:\"მარცხენა ნახატის გეზი\"\n"
-"/lefttitle:\"სათაური მარცხენა ნახატისთვის\"\n"
-"/right:\"მარჯვენა ნახატის გეზი\"\n"
-"/righttitle:\"სათაური მარჯვენა ნახატისთვის\"\n"
-"/overlay\t\tto თარგების რეჟიმის ჩართვა\n"
-"/fit\t\tto გამოსახულებათა ზომების მორგება\n"
-"/showinfo\t\tto გამოსახულებათა მონაცემთა დაფების ჩვენება"
+msgstr "TortoiseIDiff: ნახატების შედარების პროგრამა TortoiseSVN-ისთვის\n\nშესაძლო ბრძანებები და პარამეტრებია:\n/left:\"მარცხენა ნახატის გეზი\"\n/lefttitle:\"სათაური მარცხენა ნახატისთვის\"\n/right:\"მარჯვენა ნახატის გეზი\"\n/righttitle:\"სათაური მარჯვენა ნახატისთვის\"\n/overlay\t\tto თარგების რეჟიმის ჩართვა\n/fit\t\tto გამოსახულებათა ზომების მორგება\n/showinfo\t\tto გამოსახულებათა მონაცემთა დაფების ჩვენება"
 
 #. Resource IDs: (7, 80, 130, 3585)
 msgid "TortoiseMerge"
@@ -11195,11 +10199,7 @@ msgid ""
 "libsvn_diff %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d"
-msgstr ""
-"TortoiseMerge %d.%d.%d, გამოშვება %d - %s, %s\r\n"
-"libsvn_diff %d.%d.%d, %s\r\n"
-"apr %d.%d.%d\r\n"
-"apr-utils %d.%d.%d"
+msgstr "TortoiseMerge %d.%d.%d, გამოშვება %d - %s, %s\r\nlibsvn_diff %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d"
 
 #. Resource IDs: (80, 65535)
 msgid "TortoiseSVN"
@@ -11221,38 +10221,25 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
-"TortoiseSVN %d.%d.%d, Build %d - %s, %s\n"
-"Subversion %d.%d.%d, %s\n"
-"apr %d.%d.%d\n"
-"apr-utils %d.%d.%d\n"
-"neon %s\n"
-"serf %d.%d.%d\n"
-"%s\n"
-"zlib %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nneon %s\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
-msgstr ""
-"TortoiseSVN თვითფიქსაცია: ფიქსირებულ ვერსიამდე შეცვლილი გარე ელემენტები."
+msgstr "TortoiseSVN თვითფიქსაცია: ფიქსირებულ ვერსიამდე შეცვლილი გარე ელემენტები."
 
 #. Resource IDs: (507)
 #, c-format
 msgid ""
 "TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
 "To fix this, you should empty the recycle bin now."
-msgstr ""
-"TortoiseSVN მნიშვნელოვნად შენელდა %1!ld! ელემენტის ურნაში გადატანისას. ურნა ამ დროისთვის %2!ld! ელემენტს შეიცავს, რაც შენელების ყველაზე ალბათური მიზეზია.\n"
-"ამის გამოსასწორებალდ შეგიძლიათ ურნის გასუფთავება ახლავე."
+msgstr "TortoiseSVN მნიშვნელოვნად შენელდა %1!ld! ელემენტის ურნაში გადატანისას. ურნა ამ დროისთვის %2!ld! ელემენტს შეიცავს, რაც შენელების ყველაზე ალბათური მიზეზია.\nამის გამოსასწორებალდ შეგიძლიათ ურნის გასუფთავება ახლავე."
 
 #. Resource IDs: (98)
 #, c-format
 msgid ""
 "TortoiseSVN has detected similar filenames. Do you want the files:%s\n"
 "to be renamed too?"
-msgstr ""
-"TortoiseSVN-მა აღმოაჩინა ფაილები ერთიდაიგივე სახელით.  გნებავთ ფაილების:%s\n"
-"ასევე გადარქმევა?"
+msgstr "TortoiseSVN-მა აღმოაჩინა ფაილები ერთიდაიგივე სახელით.  გნებავთ ფაილების:%s\nასევე გადარქმევა?"
 
 #. Resource IDs: (145)
 msgid ""
@@ -11261,12 +10248,7 @@ msgid ""
 "To use TortoiseSVN please open the explorer and right-click on any folder you like\n"
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
-msgstr ""
-"TortoiseSVN - გარსის გაფართოება.\n"
-"იგი იდგმება Windows explorer-ში.\n"
-"TortoiseSVN-ის გამოსაყენებლად გახსენით მიმომხილველი და თაგუნას მარჯვენა ღილაკით დაწკაპეთ ნებისმიერი დასტა.\n"
-"გამოჩნდება მენიუ სადაც იპოვნით TortoiseSVN ყველა ბრძანებას.\n"
-"ასევე, წაიკითხეთ სახელმძღვანელო!"
+msgstr "TortoiseSVN - გარსის გაფართოება.\nიგი იდგმება Windows explorer-ში.\nTortoiseSVN-ის გამოსაყენებლად გახსენით მიმომხილველი და თაგუნას მარჯვენა ღილაკით დაწკაპეთ ნებისმიერი დასტა.\nგამოჩნდება მენიუ სადაც იპოვნით TortoiseSVN ყველა ბრძანებას.\nასევე, წაიკითხეთ სახელმძღვანელო!"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -11372,10 +10354,7 @@ msgid ""
 "Unable to determine merge source for\n"
 "%s\n"
 "Please use the main merge dialog."
-msgstr ""
-"ვრე ხერხდება შერწყმის წყაროს განსაზღვრა\n"
-"%s\n"
-"გთხოვთ ისარგებლოთ შერწყმის მთავარი დიალოგით."
+msgstr "ვრე ხერხდება შერწყმის წყაროს განსაზღვრა\n%s\nგთხოვთ ისარგებლოთ შერწყმის მთავარი დიალოგით."
 
 #. Resource IDs: (3866)
 msgid "Unable to load mail system support."
@@ -11400,11 +10379,7 @@ msgid ""
 "This can happen if the file has been renamed.\n"
 "Please start the log dialog on this specific file alone and then revert the changes\n"
 "from the top pane in the log dialog."
-msgstr ""
-"სამუშაო ასლის გეზის აღდგენა ვერ ხერხდება!\n"
-"ეს შესაძლებელია თუ ფაილს სახელი გადაერქვა.\n"
-"გთხოვთ გახსნათ მხოლოდ მითითებული ფაილის დავთრის დიალოგი  და აღადგინოთ\n"
-"ცვლილებები დავთრის დიალოგის ზედა პანელიდან."
+msgstr "სამუშაო ასლის გეზის აღდგენა ვერ ხერხდება!\nეს შესაძლებელია თუ ფაილს სახელი გადაერქვა.\nგთხოვთ გახსნათ მხოლოდ მითითებული ფაილის დავთრის დიალოგი  და აღადგინოთ\nცვლილებები დავთრის დიალოგის ზედა პანელიდან."
 
 #. Resource IDs: (3865)
 msgid "Unable to write read-only property."
@@ -11458,9 +10433,7 @@ msgstr "ჩამოშლა"
 msgid ""
 "Unformatted Text\n"
 "text without any formatting"
-msgstr ""
-"დაუფორმატებეოი ტექსტი\n"
-"ტექსტი ყოველგვარი დაფორმატების გარეშე"
+msgstr "დაუფორმატებეოი ტექსტი\nტექსტი ყოველგვარი დაფორმატების გარეშე"
 
 #. Resource IDs: (274, 32786)
 msgid "Unified &diff of HEAD revisions"
@@ -11472,10 +10445,7 @@ msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %1!s!\n"
 "  Distinguished name: %2!s!"
-msgstr ""
-"სერთიფიკატის უცნობი გამცემი.\n"
-"  თითის ანაბეჭდიt: %1!s!\n"
-"  განმასხვავებელი სახელი: %2!s!"
+msgstr "სერთიფიკატის უცნობი გამცემი.\n  თითის ანაბეჭდიt: %1!s!\n  განმასხვავებელი სახელი: %2!s!"
 
 #. Resource IDs: (20)
 msgid "Unknown depth"
@@ -11513,9 +10483,7 @@ msgstr "უსახელო"
 msgid ""
 "Unused log caches will only be removed if the respective\n"
 "file is smaller than the given size in kBytes."
-msgstr ""
-"გამოუყენებელი დავთრის ბუფერი ამოიღება თუ\n"
-"მისი ფაილი მოცემულ ზომაზე ნაკლებია (კბაიტები)."
+msgstr "გამოუყენებელი დავთრის ბუფერი ამოიღება თუ\nმისი ფაილი მოცემულ ზომაზე ნაკლებია (კბაიტები)."
 
 #. Resource IDs: (146)
 msgid "Unversion"
@@ -11562,17 +10530,13 @@ msgstr "სამუშაო ასლის განახლება ვე
 msgid ""
 "Update\n"
 "Update the file and try locking again."
-msgstr ""
-"განახლება\n"
-"ფაილის განახლება და ხელახლა დბლოკვა."
+msgstr "განახლება\nფაილის განახლება და ხელახლა დბლოკვა."
 
 #. Resource IDs: (90)
 msgid ""
 "Update\n"
 "Update the working copy and reopen the commit dialog to try again."
-msgstr ""
-"განახლება\n"
-"სამუშაო დასტის განახლება და ფიქსაციის დიალოგის ხელახლა გახსნა."
+msgstr "განახლება\nსამუშაო დასტის განახლება და ფიქსაციის დიალოგის ხელახლა გახსნა."
 
 #. Resource IDs: (74)
 msgid "Updated"
@@ -11611,9 +10575,7 @@ msgstr "დავთრის ბუფერის განახლება"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.7 format."
-msgstr ""
-"სამუშაო ასლის განახლება\n"
-"ახალ, 1.7 ფორმატში."
+msgstr "სამუშაო ასლის განახლება\nახალ, 1.7 ფორმატში."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11645,10 +10607,7 @@ msgid ""
 "Use '*' as a wildcard character when specifying an exception.\r\n"
 "To separate multiple exceptions, use commas (',').\r\n"
 "Example: *.mylan.com, *.company.com"
-msgstr ""
-"გამოიყენეთ სპეცსიმბოლო '*' გამონაკლისის მისათითებლად.\r\n"
-"რამდენიმე გამონაკლისის გასაყოფად გამოიყენეთ მძიმეები (',').\r\n"
-"მაგალითად: *.mylan.com, *.company.com"
+msgstr "გამოიყენეთ სპეცსიმბოლო '*' გამონაკლისის მისათითებლად.\r\nრამდენიმე გამონაკლისის გასაყოფად გამოიყენეთ მძიმეები (',').\r\nმაგალითად: *.mylan.com, *.company.com"
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block"
@@ -11686,9 +10645,7 @@ msgstr "უნიფიცირებული ბებკის გამო�
 msgid ""
 "Use all content from the left view\n"
 "Use left file"
-msgstr ""
-"ყველა მონაცემის გამოყენება მარცხნიდან\n"
-"მარცხენა ფაილით სარგებლობა"
+msgstr "ყველა მონაცემის გამოყენება მარცხნიდან\nმარცხენა ფაილით სარგებლობა"
 
 #. Resource IDs: (32857)
 msgid "Use block from left before right"
@@ -11698,9 +10655,7 @@ msgstr "მარცხენა ბლოკის გამოყენებ�
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
-msgstr ""
-"მარცხენა ბლოკის გამოყენება მარჯვენამდე\n"
-"მარცხენა ბლოკის გამოყენება მარჯვენამდე"
+msgstr "მარცხენა ბლოკის გამოყენება მარჯვენამდე\nმარცხენა ბლოკის გამოყენება მარჯვენამდე"
 
 #. Resource IDs: (32859)
 msgid "Use block from right before left"
@@ -11710,9 +10665,7 @@ msgstr "მარჯვენა ბლოკის გამოყენებ�
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
-msgstr ""
-"მარჯვენა ბლოკის გამოყენება მარცხენამდე\n"
-"მარჯვენა ბლოკის გამოყენება მარცხენამდე"
+msgstr "მარჯვენა ბლოკის გამოყენება მარცხენამდე\nმარჯვენა ბლოკის გამოყენება მარცხენამდე"
 
 #. Resource IDs: (251)
 msgid "Use both text blocks (this one first)"
@@ -11762,17 +10715,13 @@ msgstr "ტექსტური ბლოკის გამოყენებ�
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
-msgstr ""
-"ტექსტური ბლოკის გამოყენება «ჩემი»-დან «მათი»-მდე\n"
-"ჯერ «ჩემი» ტექსტური ბლოკის გამოყენება, შემდეგ «მათი»"
+msgstr "ტექსტური ბლოკის გამოყენება «ჩემი»-დან «მათი»-მდე\nჯერ «ჩემი» ტექსტური ბლოკის გამოყენება, შემდეგ «მათი»"
 
 #. Resource IDs: (2052)
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
-msgstr ""
-"ტექსტური ბლოკის გამოყენება «ჩემი»-დან\n"
-"ტექსტური ბლოკის გამოყენება «ჩემი»"
+msgstr "ტექსტური ბლოკის გამოყენება «ჩემი»-დან\nტექსტური ბლოკის გამოყენება «ჩემი»"
 
 #. Resource IDs: (251)
 msgid "Use text block from 't&heirs' before 'mine'"
@@ -11782,25 +10731,19 @@ msgstr "ტექსტური ბლოკის გამოყენებ�
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
-msgstr ""
-"ტექსტური ბლოკის გამოყენება «მათი»-დან «ჩემი»-მდე\n"
-"ჯერ «მათი» ტექსტური ბლოკის გამოყენება, შემდეგ «ჩემი»"
+msgstr "ტექსტური ბლოკის გამოყენება «მათი»-დან «ჩემი»-მდე\nჯერ «მათი» ტექსტური ბლოკის გამოყენება, შემდეგ «ჩემი»"
 
 #. Resource IDs: (2052)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
-msgstr ""
-"ტექსტური ბლოკის გამოყენება «მათი»-დან\n"
-"ტექსტური ბლოკის გამოყენება «მათი»"
+msgstr "ტექსტური ბლოკის გამოყენება «მათი»-დან\nტექსტური ბლოკის გამოყენება «მათი»"
 
 #. Resource IDs: (2054)
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
-msgstr ""
-"ტექსტური გამოყენება მარცხენა ხედიდან\n"
-"მარცხენა ბლოკის გამოყენება "
+msgstr "ტექსტური გამოყენება მარცხენა ხედიდან\nმარცხენა ბლოკის გამოყენება "
 
 #. Resource IDs: (251)
 msgid "Use th&is text block"
@@ -11812,10 +10755,7 @@ msgid ""
 "Use the found path.\n"
 "Apply the patch to\n"
 "%s"
-msgstr ""
-"ნაპოვნი გეზის გამოყენება.\n"
-"ბებკის გამოყენება:\n"
-"%s"
+msgstr "ნაპოვნი გეზის გამოყენება.\nბებკის გამოყენება:\n%s"
 
 #. Resource IDs: (594)
 msgid ""
@@ -11824,12 +10764,7 @@ msgid ""
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions, leave the box empty."
-msgstr ""
-"ისარგებლეთ დავთრის დიალოგით შერწყმისთვის სასურველი ვერსიების შესარჩევად ან მძიმით დაყოფილი მიუთითეთ ვერსიების სია. ვერსიების დიაპაზონის მისათითებლად გამოიყენეთ ტირე.\n"
-"\n"
-"მაგალითი: 4-7,9,11,15-HEAD@pegrevision\n"
-"\n"
-"ყველა ვერსიის შერწყმისათვის, დაფა ცარიელი დატოვეთ."
+msgstr "ისარგებლეთ დავთრის დიალოგით შერწყმისთვის სასურველი ვერსიების შესარჩევად ან მძიმით დაყოფილი მიუთითეთ ვერსიების სია. ვერსიების დიაპაზონის მისათითებლად გამოიყენეთ ტირე.\n\nმაგალითი: 4-7,9,11,15-HEAD@pegrevision\n\nყველა ვერსიის შერწყმისათვის, დაფა ცარიელი დატოვეთ."
 
 #. Resource IDs: (314)
 #, c-format
@@ -11837,10 +10772,7 @@ msgid ""
 "Use the original path.\n"
 "Apply the patch to\n"
 "%s"
-msgstr ""
-"პირველადი გეზის გამოყენება.\n"
-"ბებკის გამოყენება:\n"
-"%s"
+msgstr "პირველადი გეზის გამოყენება.\nბებკის გამოყენება:\n%s"
 
 #. Resource IDs: (251)
 msgid "Use this &whole file"
@@ -11871,14 +10803,7 @@ msgid ""
 "/merged:<path to resulting merged file>\n"
 "/diff:<path to unified diff file>\n"
 "/patchpath:<path to folder>"
-msgstr ""
-"ბრძანების მართებული პარამეტრებია:\n"
-"/base:<საბაზო ფაილის გეზი>\n"
-"/theirs:<მათი ფაილის გეზი>\n"
-"/yours:<თქვენი ფაილის გეზი>\n"
-"/merged:<შერწყმული ფაილის გეზი>\n"
-"/diff:<ბებკი ფაილის გეზი>\n"
-"/patchpath:<დასტის გეზი>"
+msgstr "ბრძანების მართებული პარამეტრებია:\n/base:<საბაზო ფაილის გეზი>\n/theirs:<მათი ფაილის გეზი>\n/yours:<თქვენი ფაილის გეზი>\n/merged:<შერწყმული ფაილის გეზი>\n/diff:<ბებკი ფაილის გეზი>\n/patchpath:<დასტის გეზი>"
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
@@ -11930,10 +10855,7 @@ msgid ""
 "WARNING:\r\n"
 "Only change these settings if you are absolutely sure what you are doing!\r\n"
 "To set the values to their default, delete the value text."
-msgstr ""
-"გაფრთხილება:\r\n"
-"შეცვალეთ ეს პარამეტრები თუ აბსოლუტურად დარწმუნებული ხართ რას აკეთებთ!\r\n"
-"ნაგულისხმები პარამეტრების დასაბრუნებლად წაშალეთ მნიშვნელობები.."
+msgstr "გაფრთხილება:\r\nშეცვალეთ ეს პარამეტრები თუ აბსოლუტურად დარწმუნებული ხართ რას აკეთებთ!\r\nნაგულისხმები პარამეტრების დასაბრუნებლად წაშალეთ მნიშვნელობები.."
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -11967,42 +10889,32 @@ msgstr "გაფრთხილება!"
 msgid ""
 "When a small log cache has not been used for the given\n"
 "number of days, it will be removed automatically."
-msgstr ""
-"როცა მცირე დავთრის ბუფერი არ გამოიყენება მოცემული\n"
-"დღეების განმავლობაში იგი ავტომატურად ამოიღება."
+msgstr "როცა მცირე დავთრის ბუფერი არ გამოიყენება მოცემული\nდღეების განმავლობაში იგი ავტომატურად ამოიღება."
 
 #. Resource IDs: (198)
 msgid ""
 "When activated, hold down the SHIFT key when right-clicking to get the "
 "TortoiseSVN menus added to the context menu"
-msgstr ""
-"გააქტივებისას, დაჭერილი SHIFT კლავიშით და მარჯვენა დაწკაპვით გამოიტანთ "
-"TortoiseSVN კონტექსტური მენიუს დამატებით ელემენტებს"
+msgstr "გააქტივებისას, დაჭერილი SHIFT კლავიშით და მარჯვენა დაწკაპვით გამოიტანთ TortoiseSVN კონტექსტური მენიუს დამატებით ელემენტებს"
 
 #. Resource IDs: (344)
 msgid ""
 "When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
-msgstr ""
-"თუ საცავის სერვერთან დაკავშირება ვერ ხერხდება,\n"
-"TSVN შეიძლება გადაერთოს მხოლოდ ბუფერზე.\n"
-"მიუთითეთ სასურველი ქცევის წესები."
+msgstr "თუ საცავის სერვერთან დაკავშირება ვერ ხერხდება,\nTSVN შეიძლება გადაერთოს მხოლოდ ბუფერზე.\nმიუთითეთ სასურველი ქცევის წესები."
 
 #. Resource IDs: (197)
 msgid ""
 "When enabled, the versioned items listed in the commit dialog are "
 "automatically selected"
-msgstr ""
-"თუ ჩართულია ფიქსაციის დიალოგში ვერსიული ელემენტები ავტომატურად შეირჩევა"
+msgstr "თუ ჩართულია ფიქსაციის დიალოგში ვერსიული ელემენტები ავტომატურად შეირჩევა"
 
 #. Resource IDs: (197)
 msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
-msgstr ""
-"ერთი ან მეტი ფაილის დაბლოკვისას, აჩვენებს დიალოგს\n"
-"დაბლოკვის აღწერილობის მოთხოვნით"
+msgstr "ერთი ან მეტი ფაილის დაბლოკვისას, აჩვენებს დიალოგს\nდაბლოკვის აღწერილობის მოთხოვნით"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -12049,9 +10961,7 @@ msgstr "სამუშაო ასლი"
 msgid ""
 "Working copy relocated to\n"
 "%s"
-msgstr ""
-"სამუშაო ასლი გადატანილია აქ:\n"
-"%s"
+msgstr "სამუშაო ასლი გადატანილია აქ:\n%s"
 
 #. Resource IDs: (277)
 #, c-format
@@ -12086,11 +10996,7 @@ msgid ""
 "This is safe, but once the repository is created you must access it by some other means.\n"
 "Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
-msgstr ""
-"თქვენ ქმნით ქსელის საზიარო საცავს.\n"
-"ეს უსაფრთხოა, მაგრამ ამ საცავს სხვა საშუალებით უნდა მიმართოთ.\n"
-"საზიარო ქსელში ფაილის საშუალებით მიმართვისას -  file:/// შესაძლოა მონაცემების დაზიანება!\n"
-"მაინც შევქმნა საცავი?"
+msgstr "თქვენ ქმნით ქსელის საზიარო საცავს.\nეს უსაფრთხოა, მაგრამ ამ საცავს სხვა საშუალებით უნდა მიმართოთ.\nსაზიარო ქსელში ფაილის საშუალებით მიმართვისას -  file:/// შესაძლოა მონაცემების დაზიანება!\nმაინც შევქმნა საცავი?"
 
 #. Resource IDs: (88)
 msgid ""
@@ -12098,25 +11004,18 @@ msgid ""
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
-msgstr ""
-"თქვენ ცდილობთ ქსელურ დისკზე საცავს \n"
-"ფაილის საშუალებით - file:///  დაუკავშირდეთ.\n"
-"ამან საცავის ძლიერი დაზიანება შეიძლება გამოიწვიოს!\n"
-"ნამდვილად გსურთ ამის გაკეთება?"
+msgstr "თქვენ ცდილობთ ქსელურ დისკზე საცავს \nფაილის საშუალებით - file:///  დაუკავშირდეთ.\nამან საცავის ძლიერი დაზიანება შეიძლება გამოიწვიოს!\nნამდვილად გსურთ ამის გაკეთება?"
 
 #. Resource IDs: (65535)
 msgid ""
 "You can disable specific Overlay handlers here.\n"
 "Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
-msgstr ""
-"შეგიძლიათ თარგების ცალკეული სამარჯვების ამორთვა.\n"
-"ამორთული სამარჯვები აღარ დაიკავებენ თარგების ბუდეებს და შესაძლებლობას მისცემენ სხვა პკეტებს აჩვენონ თარგები."
+msgstr "შეგიძლიათ თარგების ცალკეული სამარჯვების ამორთვა.\nამორთული სამარჯვები აღარ დაიკავებენ თარგების ბუდეებს და შესაძლებლობას მისცემენ სხვა პკეტებს აჩვენონ თარგები."
 
 #. Resource IDs: (1001)
 #, c-format
 msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr ""
-"რასტრული ნახატის ჩასმა მხოლოდ შეზღუდული ზომითაა (%d x %d) შესაძლებელი!"
+msgstr "რასტრული ნახატის ჩასმა მხოლოდ შეზღუდული ზომითაა (%d x %d) შესაძლებელი!"
 
 #. Resource IDs: (1016)
 #, c-format
@@ -12128,20 +11027,14 @@ msgid ""
 "You can't set this property on folders, only on files!\n"
 "If you want to set it on all files within that folder,\n"
 "you must activate the 'recursive' checkbox."
-msgstr ""
-"ამ პარამეტრებს დასტებისთვის ვერ მიუთითებთ, მხოლოდ ფაილებისთვის\n"
-"თუ გსურთ დასტის ყველა ფაილისთვის მითითება,\n"
-"უნდა გაააქტივოთ 'რეკურსიული' ჩამრთველი."
+msgstr "ამ პარამეტრებს დასტებისთვის ვერ მიუთითებთ, მხოლოდ ფაილებისთვის\nთუ გსურთ დასტის ყველა ფაილისთვის მითითება,\nუნდა გაააქტივოთ 'რეკურსიული' ჩამრთველი."
 
 #. Resource IDs: (105)
 msgid ""
 "You dropped more than one file or folder to add to the repository.\n"
 "It's not possible to do that in one step, so TortoiseSVN will add each file/folder\n"
 "individually, creating a new revision for every added item."
-msgstr ""
-"თქვენ საცავში ერთზე მეტი ფაილის ან დასტის დამატებას აპირებთ.\n"
-"ეს ერთ ჯერზე შეუძლებელია, ამიტომ TortoiseSVN თითოეულ ფაილს/დასტას\n"
-"ცალკე დაამატებს და მათ ახალ ვერსიას შექმნის."
+msgstr "თქვენ საცავში ერთზე მეტი ფაილის ან დასტის დამატებას აპირებთ.\nეს ერთ ჯერზე შეუძლებელია, ამიტომ TortoiseSVN თითოეულ ფაილს/დასტას\nცალკე დაამატებს და მათ ახალ ვერსიას შექმნის."
 
 #. Resource IDs: (105)
 msgid ""
@@ -12150,20 +11043,13 @@ msgid ""
 "individually, creating a new revision for every added item.\n"
 "\n"
 "Do you still want to do this?"
-msgstr ""
-"თქვენ გადმოგაქვთ ერთზე მეტი ფაილი ან დასტა საცავში დასამატებლად.\n"
-"ერთ ჯერზე ეს შეუძლებელია, ამიტომ TortoiseSVN ინდივიდუალურად დაამატებს\n"
-"თითოეულ ფაილს/დასტას და თითოეული დამატებული ელემენტისთვის ახალ ვერსიას შექმნის.\n"
-"\n"
-"კვლავაც გსურთ ამის გაკეთება?"
+msgstr "თქვენ გადმოგაქვთ ერთზე მეტი ფაილი ან დასტა საცავში დასამატებლად.\nერთ ჯერზე ეს შეუძლებელია, ამიტომ TortoiseSVN ინდივიდუალურად დაამატებს\nთითოეულ ფაილს/დასტას და თითოეული დამატებული ელემენტისთვის ახალ ვერსიას შექმნის.\n\nკვლავაც გსურთ ამის გაკეთება?"
 
 #. Resource IDs: (16)
 msgid ""
 "You have modified properties without saving them first.\n"
 "Do you want to save them now?"
-msgstr ""
-"თქვენ პარამეტრები შეცვალეთ ისე რომ არ შეგინახავთ.\n"
-"გნებავთ მათი შენახვა ახლა?"
+msgstr "თქვენ პარამეტრები შეცვალეთ ისე რომ არ შეგინახავთ.\nგნებავთ მათი შენახვა ახლა?"
 
 #. Resource IDs: (251)
 msgid "You have to update your working copy first."
@@ -12173,9 +11059,7 @@ msgstr "ჯერ თქვენი სამუშაო ასლი უნ�
 msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
-msgstr ""
-"პრობლემის ნომერი არ მიგითითებიათ!\n"
-"ნამდვილად გსურთ ფაილ(ებ)ის ფიქსაცია პრობლემის ნომრის გარეშე?"
+msgstr "პრობლემის ნომერი არ მიგითითებიათ!\nნამდვილად გსურთ ფაილ(ებ)ის ფიქსაცია პრობლემის ნომრის გარეშე?"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
@@ -12194,9 +11078,7 @@ msgstr "ცვლილებების გასააქტივებლ�
 msgid ""
 "You selected an unversioned file.\n"
 "The file will be added to version control when you commit."
-msgstr ""
-"თქვენ აირჩიეთ არავერსიული ფაილი.\n"
-"ეს ფაილი ფიქსაციისას საკონტროლო ვერსიას დაემატება."
+msgstr "თქვენ აირჩიეთ არავერსიული ფაილი.\nეს ფაილი ფიქსაციისას საკონტროლო ვერსიას დაემატება."
 
 #. Resource IDs: (173)
 msgid "You selected an unversioned folder for a commit!"
@@ -12221,23 +11103,13 @@ msgid ""
 "\n"
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
-msgstr ""
-"თქვენ ელემენტის დამატებას ცდილობთ\n"
-"'%1!s!',\n"
-"მაგრამ ელემენტი\n"
-"'%2!s!'\n"
-"უკვე არსებობს.\n"
-"\n"
-"ჩანს ელემენტს ქვევერსიის გარეთ სახელი გადაერქვა მხოლოდ რეგისტრის ცვლილებებით.\n"
-"ნამდვილად გსურთ მისი დამატება?"
+msgstr "თქვენ ელემენტის დამატებას ცდილობთ\n'%1!s!',\nმაგრამ ელემენტი\n'%2!s!'\nუკვე არსებობს.\n\nჩანს ელემენტს ქვევერსიის გარეთ სახელი გადაერქვა მხოლოდ რეგისტრის ცვლილებებით.\nნამდვილად გსურთ მისი დამატება?"
 
 #. Resource IDs: (170)
 msgid ""
 "Your previously entered log messages have been saved.\n"
 "Click here to read and insert them again."
-msgstr ""
-"დავთარში შეტანილი წინა ჩანაწერები შენახულია.\n"
-"მათ ხელახლა წასაკითხად და ჩასამატებლად დაწკაპეთ აქ."
+msgstr "დავთარში შეტანილი წინა ჩანაწერები შენახულია.\nმათ ხელახლა წასაკითხად და ჩასამატებლად დაწკაპეთ აქ."
 
 #. Resource IDs: (1112)
 msgid "Your version is:"
@@ -12254,11 +11126,7 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr ""
-"ჩანს თქვენი სამიშაო ასლი იმყოფება ჭდის გეზზე!\n"
-"ფიქსაციამდე უნდა გადაერთოთ მთავარი მაგისტრალის განშტოებაზე.\n"
-"\n"
-"მაინც გსურთ ფიქსაცია?"
+msgstr "ჩანს თქვენი სამიშაო ასლი იმყოფება ჭდის გეზზე!\nფიქსაციამდე უნდა გადაერთოთ მთავარი მაგისტრალის განშტოებაზე.\n\nმაინც გსურთ ფიქსაცია?"
 
 #. Resource IDs: (276)
 #, c-format
@@ -12266,39 +11134,28 @@ msgid ""
 "Your working copy contains modifications.\n"
 "Lowest revision in working copy: %1!ld!\n"
 "Path: %2!s!"
-msgstr ""
-"თქვენი სამუშაო ასლი შეიცვალა.\n"
-"სამუშაო ასლის უდაბლესი ვერსიაა: %1!ld!\n"
-"გეზი: %2!s!"
+msgstr "თქვენი სამუშაო ასლი შეიცვალა.\nსამუშაო ასლის უდაბლესი ვერსიაა: %1!ld!\nგეზი: %2!s!"
 
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
 "Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
-msgstr ""
-"თქვენი სამუშაო ასლი ლოკალურ ცვლილებებს შეიცავს!\n"
-"გაითვალისწინეთ: სხვა ვერსიამდე განახლებისას ეს ცვლილებები დაიკარგება, ასე რომ,\n"
-"სამუშაო ასლი განახლების შემდეგ ვერ იქნება გნახლებული ვერსიის შესაბამისი!"
+msgstr "თქვენი სამუშაო ასლი ლოკალურ ცვლილებებს შეიცავს!\nგაითვალისწინეთ: სხვა ვერსიამდე განახლებისას ეს ცვლილებები დაიკარგება, ასე რომ,\nსამუშაო ასლი განახლების შემდეგ ვერ იქნება გნახლებული ვერსიის შესაბამისი!"
 
 #. Resource IDs: (89)
 msgid ""
 "Your working copy has local modifications.\n"
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
-msgstr ""
-"თქვენი სამუშაო ასლის ადგილობრივი ცვლილებები.\n"
-"თუ თქვენი განშტოება/ჭდე HEAD ვერსიისდანაა, თქვენი ადგილობრივი\n"
-"ცვლილებები განშტოებაში/ჭდეში არ გამოჩნდება!"
+msgstr "თქვენი სამუშაო ასლის ადგილობრივი ცვლილებები.\nთუ თქვენი განშტოება/ჭდე HEAD ვერსიისდანაა, თქვენი ადგილობრივი\nცვლილებები განშტოებაში/ჭდეში არ გამოჩნდება!"
 
 #. Resource IDs: (221)
 #, c-format
 msgid ""
 "Your working copy points to %s which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
-msgstr ""
-"თქვენი სამუშაო ასლი მიანიშნებს ელემენტზე %s, რომელიც, როგორც ჩანს, ჭდეა!\n"
-"ფიქსაციამდე განშტოებაზე ან ძირითად ღერძზე უნდა გადაერთოთ."
+msgstr "თქვენი სამუშაო ასლი მიანიშნებს ელემენტზე %s, რომელიც, როგორც ჩანს, ჭდეა!\nფიქსაციამდე განშტოებაზე ან ძირითად ღერძზე უნდა გადაერთოთ."
 
 #. Resource IDs: (32783)
 msgid "Zoo&m out"
@@ -12333,17 +11190,13 @@ msgstr "მასშტაბი 100%"
 msgid ""
 "Zoom In\n"
 "Zoom In"
-msgstr ""
-"გაზრდა\n"
-"შემცირება"
+msgstr "გაზრდა\nშემცირება"
 
 #. Resource IDs: (3633)
 msgid ""
 "Zoom Out\n"
 "Zoom Out"
-msgstr ""
-"შემცირება\n"
-"გაზრდა"
+msgstr "შემცირება\nგაზრდა"
 
 #. Resource IDs: (32784)
 msgid "Zoom i&n"
@@ -12389,13 +11242,7 @@ msgid ""
 "Whitespaces will become part of the pattern.\n"
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
-msgstr ""
-"\n"
-"\n"
-"თარგები დარდება რეგისტრის გაუთვალისწინებლად და მიეთითება მხედრულით.\n"
-"შორისები თარგების ნაწილები ხდებიან.\n"
-"დასაშვები სპეცსიმბოლოებია '?' და '*'.\n"
-"თარგების დამყოფია ';'"
+msgstr "\n\nთარგები დარდება რეგისტრის გაუთვალისწინებლად და მიეთითება მხედრულით.\nშორისები თარგების ნაწილები ხდებიან.\nდასაშვები სპეცსიმბოლოებია '?' და '*'.\nთარგების დამყოფია ';'"
 
 #. Resource IDs: (65535)
 msgid "_POPUP_"
@@ -12443,9 +11290,7 @@ msgstr "მის ადგილას სხვა ელემენტია
 msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
-msgstr ""
-"შემოწმება არის თუ არა საცავი 'ხაზზე' -\n"
-"მუშაობა ბუფერიდან 'ავტონომიურია'"
+msgstr "შემოწმება არის თუ არა საცავი 'ხაზზე' -\nმუშაობა ბუფერიდან 'ავტონომიურია'"
 
 #. Resource IDs: (278)
 msgid "at this revision"
@@ -12465,19 +11310,13 @@ msgid ""
 "Set to 'false' if you want the bugtracking ID to be inserted at the top of the\r\n"
 "log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
-msgstr ""
-"bugtraq:append\r\n"
-"მიუთითეთ «მცდარი» თუ გსურთ, რომ ბზიკების კოდი შეტყობინებების დავთარში\r\n"
-"პირველი იყოს.  საწყისი «ჭეშმარიტი» ნიშნავს, რომ პრობლემის კოდი დაემატება\r\n"
-"დავთრის ჩანაწერების ბოლოს."
+msgstr "bugtraq:append\r\nმიუთითეთ «მცდარი» თუ გსურთ, რომ ბზიკების კოდი შეტყობინებების დავთარში\r\nპირველი იყოს.  საწყისი «ჭეშმარიტი» ნიშნავს, რომ პრობლემის კოდი დაემატება\r\nდავთრის ჩანაწერების ბოლოს."
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
-msgstr ""
-"bugtraq:label\r\n"
-"პრობლემის ნომრის შესატანი ველის წარწერა შეტანის ველისთვის."
+msgstr "bugtraq:label\r\nპრობლემის ნომრის შესატანი ველის წარწერა შეტანის ველისთვის."
 
 #. Resource IDs: (577)
 msgid ""
@@ -12485,11 +11324,7 @@ msgid ""
 "two regular expressions separated by a newline.\r\n"
 "The first expression is used to find a string referring to an issue,\r\n"
 "the second expression is used to extract the bare bug ID from that string."
-msgstr ""
-"bugtraq:logregex\r\n"
-"ორი რეგულარული გამოსახულება თითოეული ახალ სტრიქონზე\r\n"
-"პირველი გამოსახულება პრობლემასთან დაკავშირებული კონტექსტის\r\n"
-"მოსაძებნად გამოიყენება, მეორე - შესაბამისი პრობლემის კოდის მისაღებად."
+msgstr "bugtraq:logregex\r\nორი რეგულარული გამოსახულება თითოეული ახალ სტრიქონზე\r\nპირველი გამოსახულება პრობლემასთან დაკავშირებული კონტექსტის\r\nმოსაძებნად გამოიყენება, მეორე - შესაბამისი პრობლემის კოდის მისაღებად."
 
 #. Resource IDs: (577)
 #, c-format
@@ -12497,34 +11332,25 @@ msgid ""
 "bugtraq:message\r\n"
 "String which is appended to a log message when an issue number is entered.\r\n"
 "The string must contain '%BUGID%' which gets replaced with the issue number."
-msgstr ""
-"bugtraq:message\r\n"
-"ტექსტი, რომელიც დავთრის ჩანაწერებს დაემატება პრობლემის ნომრის შეტანისას.\r\n"
-"ტესტი უნდა შეიცავდეს '%BUGID%'-ს რომელიც პრობლემის ნომრით შეიცვლება."
+msgstr "bugtraq:message\r\nტექსტი, რომელიც დავთრის ჩანაწერებს დაემატება პრობლემის ნომრის შეტანისას.\r\nტესტი უნდა შეიცავდეს '%BUGID%'-ს რომელიც პრობლემის ნომრით შეიცვლება."
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:number\r\n"
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
-msgstr ""
-"bugtraq:number\r\n"
-"მიუთითეთ «მცდარი» თუ თქვენს სისტემაში პრობლემები გადანომრილი არაა."
+msgstr "bugtraq:number\r\nმიუთითეთ «მცდარი» თუ თქვენს სისტემაში პრობლემები გადანომრილი არაა."
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:providerparams\r\n"
 "the parameters passed to the IBugTraqProvider"
-msgstr ""
-"bugtraq:providerparams\r\n"
-"პარამეტრები ელემენტისთვის IBugTraqProvider"
+msgstr "bugtraq:providerparams\r\nპარამეტრები ელემენტისთვის IBugTraqProvider"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:provideruuid\r\n"
 "the COM uuid of the IBugTraqProvider"
-msgstr ""
-"bugtraq:provideruuid\r\n"
-"COM uuid ელემენტისთვის IBugTraqProvider"
+msgstr "bugtraq:provideruuid\r\nCOM uuid ელემენტისთვის IBugTraqProvider"
 
 #. Resource IDs: (577)
 #, c-format
@@ -12532,10 +11358,7 @@ msgid ""
 "bugtraq:url\r\n"
 "URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
-msgstr ""
-"bugtraq:url\r\n"
-"URL მიუთითებს პრობლემის ისტორიაზე. უნდა შეიცავდეს '%BUGID%'-ს\r\n"
-"რომელიც პრობლემის ნომრით შეიცვლება."
+msgstr "bugtraq:url\r\nURL მიუთითებს პრობლემის ისტორიაზე. უნდა შეიცავდეს '%BUGID%'-ს\r\nრომელიც პრობლემის ნომრით შეიცვლება."
 
 #. Resource IDs: (65535)
 msgid "changes total: "
@@ -12562,9 +11385,7 @@ msgstr "კავშირი:"
 msgid ""
 "copied from\r\n"
 "%1!s! - revision %2!ld!"
-msgstr ""
-"დაკოპირდა აქედან\r\n"
-"%1!s! - ვერსია %2!ld!"
+msgstr "დაკოპირდა აქედან\r\n%1!s! - ვერსია %2!ld!"
 
 #. Resource IDs: (65535)
 msgid "copied:"
@@ -12576,10 +11397,7 @@ msgid ""
 "current size: %1!s!\r\n"
 "old size: %2!s!\r\n"
 "change: %3!s!"
-msgstr ""
-"მიმდინარე ზომა: %1!s!\n"
-"ძველი ზომა: %2!s!\n"
-"ცვლილება: %3!s!"
+msgstr "მიმდინარე ზომა: %1!s!\nძველი ზომა: %2!s!\nცვლილება: %3!s!"
 
 #. Resource IDs: (247)
 msgid "day"
@@ -12608,11 +11426,7 @@ msgid ""
 "%s\n"
 "to\n"
 "%s"
-msgstr ""
-"დაექსპორტდა\n"
-"%s\n"
-"აქ\n"
-"%s"
+msgstr "დაექსპორტდა\n%s\nაქ\n%s"
 
 #. Resource IDs: (13)
 msgid "external"
@@ -12862,9 +11676,7 @@ msgstr "svn:eol-სტილი"
 msgid ""
 "svn:eol-style\r\n"
 "One of 'native', 'LF', 'CR', 'CRLF'."
-msgstr ""
-"svn:eol-style\r\n"
-"ერთერთი ამათგან 'native', 'LF', 'CR', 'CRLF'."
+msgstr "svn:eol-style\r\nერთერთი ამათგან 'native', 'LF', 'CR', 'CRLF'."
 
 #. Resource IDs: (312)
 msgid "svn:executable"
@@ -12875,10 +11687,7 @@ msgid ""
 "svn:executable\r\n"
 "If present, make the file executable. This property cannot be set on a directory.\r\n"
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
-msgstr ""
-"svn:executable\r\n"
-"თუ მითითებულია, პროგრამა შესრულებადია. ამ პარამეტრს დასტას ვერ მიუსადაგებთ.\r\n"
-"არარეკურსიული მცდელობა უშედეგოდ დამთავრდება, ხოლო რეკურსიული მსგავსი თვისებას მხოლოდ ქვედასტის ფაილებს მიანიჭებს."
+msgstr "svn:executable\r\nთუ მითითებულია, პროგრამა შესრულებადია. ამ პარამეტრს დასტას ვერ მიუსადაგებთ.\r\nარარეკურსიული მცდელობა უშედეგოდ დამთავრდება, ხოლო რეკურსიული მსგავსი თვისებას მხოლოდ ქვედასტის ფაილებს მიანიჭებს."
 
 #. Resource IDs: (318)
 msgid "svn:externals"
@@ -12898,27 +11707,13 @@ msgid ""
 "^/ relative to the repository root\r\n"
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
-msgstr ""
-"svn:გარე\n"
-"სია ცალკე სტრიქონებით, სადაც თითოეული შეიცავს \n"
-"ვერსიას (სურვილისამებრ), URL მისამართს შესაძლო peg ვერსიით და დასტის ფარდობით გეზს. მაგალითად\n"
-"http://example.com/repos/zig foo\n"
-"-r 1234 http://example.com/repos/zag@1234 foo/bar\n"
-"\n"
-"URL მისამართები შესაძლოა იყოს სრული ან ფარდობითი.\n"
-"ფარდობითი URL-ს ფორმატია:\n"
-"../ ძირეულ დასტასთან ან გარესთან მიმართებით\n"
-"^/ საცავის ძირეულთან მიმართებით\n"
-"// URL სქემასთან მიმართებით\n"
-"/ სერვერის ჰოსტთან მიმართებით"
+msgstr "svn:გარე\nსია ცალკე სტრიქონებით, სადაც თითოეული შეიცავს \nვერსიას (სურვილისამებრ), URL მისამართს შესაძლო peg ვერსიით და დასტის ფარდობით გეზს. მაგალითად\nhttp://example.com/repos/zig foo\n-r 1234 http://example.com/repos/zag@1234 foo/bar\n\nURL მისამართები შესაძლოა იყოს სრული ან ფარდობითი.\nფარდობითი URL-ს ფორმატია:\n../ ძირეულ დასტასთან ან გარესთან მიმართებით\n^/ საცავის ძირეულთან მიმართებით\n// URL სქემასთან მიმართებით\n/ სერვერის ჰოსტთან მიმართებით"
 
 #. Resource IDs: (576)
 msgid ""
 "svn:ignore\r\n"
 "A newline separated list of file patterns to ignore."
-msgstr ""
-"svn:ignore\r\n"
-"სტრიქონების გადატანით გამოყოფილი იგნორირების თარგები"
+msgstr "svn:ignore\r\nსტრიქონების გადატანით გამოყოფილი იგნორირების თარგები"
 
 #. Resource IDs: (317)
 msgid "svn:keywords"
@@ -12933,14 +11728,7 @@ msgid ""
 "Date, LastChangedDate : The date/time the object was last modified.\r\n"
 "Rev, LastChangedRevision : The last revision the object changed.\r\n"
 "Id : A compressed summary of the previous 4 keywords."
-msgstr ""
-"svn:keywords\r\n"
-"წარმოდგენილია საკვანძო სიტყვები. მართებული საკვანძო სიტყვებია:\r\n"
-"URL, HeadURL : URL ობიექტის სათაო ვერსიისთვის.\r\n"
-"Author, LastChangedBy : ფაილში ცვლილებების ბოლო შემტანი.\r\n"
-"Date, LastChangedDate : თარიღის/ფაილის შეცვლის ბოლო დრო.\r\n"
-"Rev, LastChangedRevision : ობიექტის ცვლილების ბოლო ვერსია.\r\n"
-"Id : წინა ოთხი საკვანძო სიტყვის შეკუმშული რეზიუმე."
+msgstr "svn:keywords\r\nწარმოდგენილია საკვანძო სიტყვები. მართებული საკვანძო სიტყვებია:\r\nURL, HeadURL : URL ობიექტის სათაო ვერსიისთვის.\r\nAuthor, LastChangedBy : ფაილში ცვლილებების ბოლო შემტანი.\r\nDate, LastChangedDate : თარიღის/ფაილის შეცვლის ბოლო დრო.\r\nRev, LastChangedRevision : ობიექტის ცვლილების ბოლო ვერსია.\r\nId : წინა ოთხი საკვანძო სიტყვის შეკუმშული რეზიუმე."
 
 #. Resource IDs: (576)
 msgid ""
@@ -12949,12 +11737,7 @@ msgid ""
 "path followed by a colon and a list of comma separated revision numbers.\r\n"
 "For example\r\n"
 "/trunk:123-125,129"
-msgstr ""
-"svn:mergeinfo\r\n"
-"შერწყმის თვალმიდევნების მონაცემთა ჩამონათვალი. თითოეული ხაზი\r\n"
-"შეიცავს აბსოლუტურ მისამართს და მძიმეებით დაყოფილ ვერსიათა ნომრებს.\r\n"
-"მაგალითად\r\n"
-"/trunk:123-125,129"
+msgstr "svn:mergeinfo\r\nშერწყმის თვალმიდევნების მონაცემთა ჩამონათვალი. თითოეული ხაზი\r\nშეიცავს აბსოლუტურ მისამართს და მძიმეებით დაყოფილ ვერსიათა ნომრებს.\r\nმაგალითად\r\n/trunk:123-125,129"
 
 #. Resource IDs: (314)
 msgid "svn:mime-type"
@@ -12966,11 +11749,7 @@ msgid ""
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
 "A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
-msgstr ""
-"svn:mime-type\r\n"
-"ფაილის Mime ტიპი. გამოიყენება იმის განსასაზღვრად, საჭიროა თუ არა ფაილის შერწყმა და როგორ გამოიყენება იგი Apache-დან.\r\n"
-"Mime ტიპი, რომელიც იწყება 'text'-ით (ან არარსებული mime ტიპით) დამუშავდება როგორც ტექსტი.\r\n"
-"ყველა დანარჩენი ჩაითვლება როგორც ორობითი."
+msgstr "svn:mime-type\r\nფაილის Mime ტიპი. გამოიყენება იმის განსასაზღვრად, საჭიროა თუ არა ფაილის შერწყმა და როგორ გამოიყენება იგი Apache-დან.\r\nMime ტიპი, რომელიც იწყება 'text'-ით (ან არარსებული mime ტიპით) დამუშავდება როგორც ტექსტი.\r\nყველა დანარჩენი ჩაითვლება როგორც ორობითი."
 
 #. Resource IDs: (313)
 msgid "svn:needs-lock"
@@ -12983,21 +11762,14 @@ msgid ""
 "The file will be set to read-only when checked out or updated,\r\n"
 "indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
-msgstr ""
-"svn:needs-lock\r\n"
-"მიუთითეთ ნებისმიერი მნიშვნელობა (მაგ., '*') ამ ფაილის დასაბლოკად.\r\n"
-"იგი მოინიშნება როგორც მხოლოდ კითხვადი გადმოტანის ან განახლებისას,\r\n"
-"რაც იმას ნიშნავს, რომ მონაწილემ უნდა გაითვალისწინოს დაბლოკვა\r\n"
-"ფაილის რედაქტირებამდე ან ფიქსაციამდე."
+msgstr "svn:needs-lock\r\nმიუთითეთ ნებისმიერი მნიშვნელობა (მაგ., '*') ამ ფაილის დასაბლოკად.\r\nიგი მოინიშნება როგორც მხოლოდ კითხვადი გადმოტანის ან განახლებისას,\r\nრაც იმას ნიშნავს, რომ მონაწილემ უნდა გაითვალისწინოს დაბლოკვა\r\nფაილის რედაქტირებამდე ან ფიქსაციამდე."
 
 #. Resource IDs: (208)
 #, c-format
 msgid ""
 "switched to\r\n"
 "%s"
-msgstr ""
-"გადართვა -\r\n"
-"%s"
+msgstr "გადართვა -\r\n%s"
 
 #. Resource IDs: (65535)
 msgid "switched:"
@@ -13044,191 +11816,135 @@ msgid ""
 "A list of properties separated by newlines which get applied automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
-"tsvn:autoprops\r\n"
-"პარამეტრების სია ახალ სტრიქონზე, რომელიც ავტომატურად გამოიყენება ფაილების დამატება/იმპორტისას.\r\n"
-"ფორმატი: <filemask> = property=value;property=value\r\n"
-"მაგალითი: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "tsvn:autoprops\r\nპარამეტრების სია ახალ სტრიქონზე, რომელიც ავტომატურად გამოიყენება ფაილების დამატება/იმპორტისას.\r\nფორმატი: <filemask> = property=value;property=value\r\nმაგალითი: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:lockmsgminsize\r\n"
 "Minimum size in chars a lock message must have before a lock is allowed."
-msgstr ""
-"tsvn:lockmsgminsize\r\n"
-"სიმბოლოების მინიმალური რაოდენობა დაბლოკვის შეტყობინებაში დაბლოკვის ნებართვისთვის."
+msgstr "tsvn:lockmsgminsize\r\nსიმბოლოების მინიმალური რაოდენობა დაბლოკვის შეტყობინებაში დაბლოკვის ნებართვისთვის."
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logfilelistenglish\r\n"
 "Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
-msgstr ""
-"tsvn:logfilelistenglish\r\n"
-"მიუთითეთ როგორც 'მცდარი' თუ არ გსურთ შეცვლილი ფაილების სიის\r\n"
-"ფიქსაციის დიალოგში ჩვენება."
+msgstr "tsvn:logfilelistenglish\r\nმიუთითეთ როგორც 'მცდარი' თუ არ გსურთ შეცვლილი ფაილების სიის\r\nფიქსაციის დიალოგში ჩვენება."
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logminsize\r\n"
 "Minimum size in chars a log message must have before a commit is allowed."
-msgstr ""
-"tsvn:logminsize\r\n"
-"სიმბოლოების მინიმალური რაოდენობა დავთრის ჩანაწერებში ფიქსაციამდე."
+msgstr "tsvn:logminsize\r\nსიმბოლოების მინიმალური რაოდენობა დავთრის ჩანაწერებში ფიქსაციამდე."
 
 #. Resource IDs: (579)
 msgid ""
 "tsvn:logrevregex\r\n"
 "A regular expression matching revision numbers in a log message"
-msgstr ""
-"tsvn:logrevregex\r\n"
-"დავთრებში ვერსიის ნომრების შესაბამისი მარტივი გამოსახულება "
+msgstr "tsvn:logrevregex\r\nდავთრებში ვერსიის ნომრების შესაბამისი მარტივი გამოსახულება "
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logsummary\r\n"
 "A regex string which extracts a summary from a log message in its first group."
-msgstr ""
-"tsvn:logsummary\r\n"
-"regex ტექსტი, რომელსაც დავთრიდან რეზიუმე გამოაქვს პირველ ჯგუფში.."
+msgstr "tsvn:logsummary\r\nregex ტექსტი, რომელსაც დავთრიდან რეზიუმე გამოაქვს პირველ ჯგუფში.."
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logtemplate\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for users to fill in."
-msgstr ""
-"tsvn:logtemplate\r\n"
-"ტექსტი, რომელიც ჩაემატება ფიქსაციის დიალოგის დავთრის ჩანაწერების ველში.\r\n"
-"მომხმარებლის მიერ გამოიყენება დავთრის შეტყობინებების თარგად."
+msgstr "tsvn:logtemplate\r\nტექსტი, რომელიც ჩაემატება ფიქსაციის დიალოგის დავთრის ჩანაწერების ველში.\r\nმომხმარებლის მიერ გამოიყენება დავთრის შეტყობინებების თარგად."
 
 #. Resource IDs: (579)
 msgid ""
 "tsvn:logtemplatebranch\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for branch/tags/copies for users to fill in."
-msgstr ""
-"tsvn:logtemplatebranch\n"
-"ტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\n"
-"გამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად განშტოებია/ჭდეების/ასლებისთვის."
+msgstr "tsvn:logtemplatebranch\nტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\nგამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად განშტოებია/ჭდეების/ასლებისთვის."
 
 #. Resource IDs: (579)
 msgid ""
 "tsvn:logtemplatecommit\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for commits for users to fill in."
-msgstr ""
-"tsvn:logtemplatecommit\n"
-"ტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\n"
-"გამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად ფიქსაციისას."
+msgstr "tsvn:logtemplatecommit\nტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\nგამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად ფიქსაციისას."
 
 #. Resource IDs: (579)
 msgid ""
 "tsvn:logtemplatedelete\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for deletes for users to fill in."
-msgstr ""
-"tsvn:logtemplatedelete\n"
-"ტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\n"
-"გამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად წაშლისას."
+msgstr "tsvn:logtemplatedelete\nტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\nგამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად წაშლისას."
 
 #. Resource IDs: (579)
 msgid ""
 "tsvn:logtemplateimport\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for imports for users to fill in."
-msgstr ""
-"tsvn:logtemplateimport\n"
-"ტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\n"
-"გამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად იმპორტისას."
+msgstr "tsvn:logtemplateimport\nტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\nგამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად იმპორტისას."
 
 #. Resource IDs: (579)
 msgid ""
 "tsvn:logtemplatelock\r\n"
 "String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
 "Use this as a log message template for get-locks for users to fill in."
-msgstr ""
-"tsvn:logtemplatelock\n"
-"ტექსტი, რომელიც ემატება დავთრის გზავნილის ველს დაბლოკვისას.\n"
-"გამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად დაბლოკვისას."
+msgstr "tsvn:logtemplatelock\nტექსტი, რომელიც ემატება დავთრის გზავნილის ველს დაბლოკვისას.\nგამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად დაბლოკვისას."
 
 #. Resource IDs: (579)
 msgid ""
 "tsvn:logtemplatemkdir\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for directory creations for users to fill in."
-msgstr ""
-"tsvn:logtemplatemkdir\n"
-"ტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\n"
-"გამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად დასტის შექმნისას."
+msgstr "tsvn:logtemplatemkdir\nტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\nგამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად დასტის შექმნისას."
 
 #. Resource IDs: (579)
 msgid ""
 "tsvn:logtemplatemove\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for moves/renames for users to fill in."
-msgstr ""
-"tsvn:logtemplatemove\n"
-"ტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\n"
-"გამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად გადატანისას/ჩანაცვლებისას."
+msgstr "tsvn:logtemplatemove\nტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\nგამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად გადატანისას/ჩანაცვლებისას."
 
 #. Resource IDs: (579)
 msgid ""
 "tsvn:logtemplatepropset\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
-msgstr ""
-"tsvn:logtemplatepropset\n"
-"ტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\n"
-"გამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად პარამეტრის ცვლილებისას."
+msgstr "tsvn:logtemplatepropset\nტექსტი, რომელიც ემატება დავთრის გზავნილის ველს ფიქსაციისას.\nგამოიყენეთ, მონაწილეებისთვის დავთრის ჩანაწერის თარგად პარამეტრის ცვლილებისას."
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:logwidthmarker\r\n"
 "Set this to the number of chars the log message should not exceed its width.\r\n"
 "A faded line is shown in the commit dialogs at that position. The default is 80 chars."
-msgstr ""
-"tsvn:logwidthmarker\r\n"
-"სიმბოლოთა მაქსიმალური დასაშვები რაოდენობა ჩანაწერში.\r\n"
-"ამ ადგილას ფიქსაციის დიალოგში მქრქალი ხაზი გამოჩნდება.  ნაგულისხმები - 80."
+msgstr "tsvn:logwidthmarker\r\nსიმბოლოთა მაქსიმალური დასაშვები რაოდენობა ჩანაწერში.\r\nამ ადგილას ფიქსაციის დიალოგში მქრქალი ხაზი გამოჩნდება.  ნაგულისხმები - 80."
 
 #. Resource IDs: (578)
 msgid ""
 "tsvn:projectlanguage\r\n"
 "Set this to the language number you want your log messages written in.\r\n"
 "TortoiseSVN will then load the appropriate spell checker module if available."
-msgstr ""
-"tsvn:projectlanguage\r\n"
-"მიუთითეთ ენის კოდური ნომერი დავთრის ჩანაწერებისთვის.\r\n"
-"TortoiseSVN მართლწერის შესაძლო შესაბამისი მოდულის ჩამოტვირთვას შეეცდება."
+msgstr "tsvn:projectlanguage\r\nმიუთითეთ ენის კოდური ნომერი დავთრის ჩანაწერებისთვის.\r\nTortoiseSVN მართლწერის შესაძლო შესაბამისი მოდულის ჩამოტვირთვას შეეცდება."
 
 #. Resource IDs: (581)
 msgid ""
 "tsvn:userfileproperties\r\n"
 "Newline separated list of user defined properties for files which will\r\n"
 "be shown in the property dialog to choose from."
-msgstr ""
-"tsvn:userfileproperties\r\n"
-"ფაილთა საკუთარი ნაგულისხმები პარამეტრების ჩამონათვალი (თითოეული\r\n"
-"ახალ სტრიქონზე), რომელიც პარამეტრების არჩევის დიალოგში გამოჩნდება."
+msgstr "tsvn:userfileproperties\r\nფაილთა საკუთარი ნაგულისხმები პარამეტრების ჩამონათვალი (თითოეული\r\nახალ სტრიქონზე), რომელიც პარამეტრების არჩევის დიალოგში გამოჩნდება."
 
 #. Resource IDs: (581)
 msgid ""
 "tsvn:userfolderproperties\r\n"
 "Newline separated list of user defined properties for folders which will\r\n"
 "be shown in the property dialog to choose from."
-msgstr ""
-"tsvn:userfolderproperties\r\n"
-"დასტების საკუთარი ნაგულისხმები პარამეტრების ჩამონათვალი (თითოეული\r\n"
-"ახალ სტრიქონზე), რომელიც პარამეტრების არჩევის დიალოგში გამოჩნდება."
+msgstr "tsvn:userfolderproperties\r\nდასტების საკუთარი ნაგულისხმები პარამეტრების ჩამონათვალი (თითოეული\r\nახალ სტრიქონზე), რომელიც პარამეტრების არჩევის დიალოგში გამოჩნდება."
 
 #. Resource IDs: (577)
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
-msgstr ""
-"tsvn:warnifnoissue\r\n"
-"მიუთითეთ 'დიახ' გასაფრთხილებლად როცა ფიქსაციის დიალოგში არაფერია მითითებული."
+msgstr "tsvn:warnifnoissue\r\nმიუთითეთ 'დიახ' გასაფრთხილებლად როცა ფიქსაციის დიალოგში არაფერია მითითებული."
 
 #. Resource IDs: (104)
 #, c-format
@@ -13270,11 +11986,7 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
-msgstr ""
-"webviewer:pathrevision\r\n"
-"საცავის ვებ მიმოხილველის მისამართი სპეციფიური ფაილის ან ვერსიისთვის.\r\n"
-"ტექსტი %REVISION% ამ მისამართში ჩაინაცვლება ვერსიის ნომრით,\r\n"
-"ტექსტი  %PATH% ჩაინაცვლება ფაილის გეზით საცავის ძირეულთან მიმართებით."
+msgstr "webviewer:pathrevision\r\nსაცავის ვებ მიმოხილველის მისამართი სპეციფიური ფაილის ან ვერსიისთვის.\r\nტექსტი %REVISION% ამ მისამართში ჩაინაცვლება ვერსიის ნომრით,\r\nტექსტი  %PATH% ჩაინაცვლება ფაილის გეზით საცავის ძირეულთან მიმართებით."
 
 #. Resource IDs: (579)
 #, c-format
@@ -13282,10 +11994,7 @@ msgid ""
 "webviewer:revision\r\n"
 "URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
-msgstr ""
-"webviewer:revision\r\n"
-"საცავის ვებ მიმოხილველის მისამართი სპეციფიური ვერსიისთვის.\r\n"
-"ტექსტი %REVISION% ამ მისამართში ჩაინაცვლება ვერსიის ნომრით."
+msgstr "webviewer:revision\r\nსაცავის ვებ მიმოხილველის მისამართი სპეციფიური ვერსიისთვის.\r\nტექსტი %REVISION% ამ მისამართში ჩაინაცვლება ვერსიის ნომრით."
 
 #. Resource IDs: (245)
 msgid "week"
@@ -13310,5 +12019,3 @@ msgstr "დიახ"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-

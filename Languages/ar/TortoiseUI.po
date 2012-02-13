@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-01-23 08:37+0000\n"
+"PO-Revision-Date: 2012-02-13 09:01+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: Arabic <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -161,9 +161,7 @@ msgstr ""
 msgid ""
 "%1: %2\n"
 "Continue running script?"
-msgstr ""
-"%1: %2\n"
-"الأستمرار في تشغيل المخطوطة البرمجية?"
+msgstr "%1: %2\nالأستمرار في تشغيل المخطوطة البرمجية?"
 
 #. Resource IDs: (3859)
 #, c-format
@@ -171,10 +169,7 @@ msgid ""
 "%1\n"
 "Cannot find this file.\n"
 "Verify that the correct path and file name are given."
-msgstr ""
-"%1\n"
-"لا يمكن العثور على هذا الملف.\n"
-"تأكد من ادخال اسم الملف الصحيح ومساره الصحيح."
+msgstr "%1\nلا يمكن العثور على هذا الملف.\nتأكد من ادخال اسم الملف الصحيح ومساره الصحيح."
 
 #. Resource IDs: (357)
 #, c-format
@@ -314,45 +309,35 @@ msgstr "%s, ولكن الملف استُبدل"
 msgid ""
 "%s\n"
 "%ld failed hunk(s)"
-msgstr ""
-"%s\n"
-"فشلة الكتلة %ld"
+msgstr "%s\nفشلة الكتلة %ld"
 
 #. Resource IDs: (3850)
 #, c-format
 msgid ""
 "%s\n"
 "%s"
-msgstr ""
-"%s\n"
-"%s"
+msgstr "%s\n%s"
 
 #. Resource IDs: (145)
 #, c-format
 msgid ""
 "%s\n"
 "Do you want to remove it anyway?"
-msgstr ""
-"%s\n"
-"هل تود حذفه على اية حال؟"
+msgstr "%s\nهل تود حذفه على اية حال؟"
 
 #. Resource IDs: (147)
 #, c-format
 msgid ""
 "%s\n"
 "Do you want to remove the %d files anyway?"
-msgstr ""
-"%s\n"
-"هل تود حذف الـ%d ملفات على اية حال؟"
+msgstr "%s\nهل تود حذف الـ%d ملفات على اية حال؟"
 
 #. Resource IDs: (147)
 #, c-format
 msgid ""
 "%s\n"
 "Do you want to remove the file '%s' anyway?"
-msgstr ""
-"%s\n"
-"هل تود حذف الملف %s على اية حال؟"
+msgstr "%s\nهل تود حذف الملف %s على اية حال؟"
 
 #. Resource IDs: (147)
 #, c-format
@@ -360,10 +345,7 @@ msgid ""
 "%s\n"
 "The folder %s\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr ""
-"%s\n"
-"المجلد %s\n"
-"يحتوي على ملفات معدلة و/أو ملفات غير متحكمة في الإصدار، هل أنت متأكد أنك تود حذفه على اية حال؟"
+msgstr "%s\nالمجلد %s\nيحتوي على ملفات معدلة و/أو ملفات غير متحكمة في الإصدار، هل أنت متأكد أنك تود حذفه على اية حال؟"
 
 #. Resource IDs: (616)
 #, c-format
@@ -372,11 +354,7 @@ msgid ""
 "\n"
 "Shall I update the working copy now\n"
 "and then retry?"
-msgstr ""
-"%s\n"
-"\n"
-"هل تريد تجديد نسخة العمل الأن؟\n"
-"حاول مرة اخرى"
+msgstr "%s\n\nهل تريد تجديد نسخة العمل الأن؟\nحاول مرة اخرى"
 
 #. Resource IDs: (69)
 #, c-format
@@ -384,10 +362,7 @@ msgid ""
 "%s\n"
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
-msgstr ""
-"%s\n"
-"هو مجلد وليس ملف!\n"
-"لم يستطع TortoiseMerge من فرق المجلدات."
+msgstr "%s\nهو مجلد وليس ملف!\nلم يستطع TortoiseMerge من فرق المجلدات."
 
 #. Resource IDs: (286)
 #, c-format
@@ -396,11 +371,7 @@ msgid ""
 "r%s | %s\n"
 "\n"
 "%s\n"
-msgstr ""
-"%s\n"
-"r%s | %s\n"
-"\n"
-"%s\n"
+msgstr "%s\nr%s | %s\n\n%s\n"
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -1434,9 +1405,7 @@ msgstr "ملف قائمة المتحكم(&f)"
 msgid ""
 "'%s'\n"
 "is not a valid URL or path!"
-msgstr ""
-"%s\n"
-"ليس مسار أو URL صحيح"
+msgstr "%s\nليس مسار أو URL صحيح"
 
 #. Resource IDs: (338)
 msgid ""
@@ -1549,8 +1518,7 @@ msgstr "- %d"
 #. Resource IDs: (1007)
 msgid ""
 "-------------------------------------------------------------------------------------------"
-msgstr ""
-"-------------------------------------------------------------------------------------------"
+msgstr "-------------------------------------------------------------------------------------------"
 
 #. Resource IDs: (1002, 1003, 1021, 1022, 1035, 1036, 1089, 1104, 1324, 1333,
 #. 1362, 1474)
@@ -1622,19 +1590,14 @@ msgstr "قائمة بخصائص المحددة من قبل المستحدم لل
 msgid ""
 "A newer version is available.\r\n"
 "Please go to http://tortoisesvn.net and download the current version."
-msgstr ""
-"اصدار أحدث موجود حالياً.\r\n"
-"الرجاء الذهاب إلى http://tortoisesvn.net و تحميل الأصدار الجديد."
+msgstr "اصدار أحدث موجود حالياً.\r\nالرجاء الذهاب إلى http://tortoisesvn.net و تحميل الأصدار الجديد."
 
 #. Resource IDs: (195)
 msgid ""
 "A newline separated list of paths for which icon overlays are shown.\r\n"
 "If you add an '?' char at the end of a path, then only this path will be included.\r\n"
 "If you add an '*' or no char at all at the end of a path, then all files and subdirs inside that path are included too."
-msgstr ""
-"سطر جديد قد فصل لإحة من المسارات التي تغطي الايقونات المظهرة.\r\n"
-" إذا قمت بإضافة '?' في نهاية المسار, اذن سيتم تضمن المسار المحدد فقط.\r\n"
-"إذا قمت بإضافة '*' أو لم تضف أي شيء في نهاية المسار, اذن سيتم تضمن المسار المحدد و جميع الفروعه ايضاً."
+msgstr "سطر جديد قد فصل لإحة من المسارات التي تغطي الايقونات المظهرة.\r\n إذا قمت بإضافة '?' في نهاية المسار, اذن سيتم تضمن المسار المحدد فقط.\r\nإذا قمت بإضافة '*' أو لم تضف أي شيء في نهاية المسار, اذن سيتم تضمن المسار المحدد و جميع الفروعه ايضاً."
 
 #. Resource IDs: (197)
 msgid ""
@@ -1669,10 +1632,7 @@ msgid ""
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
-msgstr ""
-"إن المسار صحيح في Windows لا يمكن ان يحتوي على '<>|\"?*:'' أو أي من اسماء الأجهزة التالية:\n"
-"com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
-"ألقي نظرة على هذه <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">الوثيقة</a> من Microsoft عن هذا الموضوع"
+msgstr "إن المسار صحيح في Windows لا يمكن ان يحتوي على '<>|\"?*:'' أو أي من اسماء الأجهزة التالية:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\nألقي نظرة على هذه <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">الوثيقة</a> من Microsoft عن هذا الموضوع"
 
 #. Resource IDs: (79)
 msgid ""
@@ -1716,17 +1676,13 @@ msgstr "قبول بشكل دائم"
 msgid ""
 "Accept the certificate permanently\n"
 "You won't get asked about this certificate again."
-msgstr ""
-"قبول الشهادة بشكل دائم\n"
-"لن يتم سؤالك عن الشهادة مرة أخرى."
+msgstr "قبول الشهادة بشكل دائم\nلن يتم سؤالك عن الشهادة مرة أخرى."
 
 #. Resource IDs: (148)
 msgid ""
 "Accept the certificate\n"
 "The certificate is accepted only this one time."
-msgstr ""
-"قبول الشهادة\n"
-"تم قبول الشهادة لهذه المرة فقط."
+msgstr "قبول الشهادة\nتم قبول الشهادة لهذه المرة فقط."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -1758,9 +1714,7 @@ msgstr "الملفات الفعالة"
 msgid ""
 "ActiveX objects cannot be saved while exiting Windows!\n"
 "Discard all changes to %1?"
-msgstr ""
-"لا يمكن حفظ عناصر ActiveX في نفس وقت مغادرة Windows!\n"
-"تخلص من كل التغييرات لـ %1?"
+msgstr "لا يمكن حفظ عناصر ActiveX في نفس وقت مغادرة Windows!\nتخلص من كل التغييرات لـ %1?"
 
 #. Resource IDs: (77, 155, 209, 229)
 msgid "Add"
@@ -1795,9 +1749,7 @@ msgstr "إضافة إمتداد لبرنامج معيّن للدمج "
 msgid ""
 "Add item\n"
 "This will lead to problems on Windows."
-msgstr ""
-"إضافة بند\n"
-"سيقود هذا إلى مشاكل في نظام Windows."
+msgstr "إضافة بند\nسيقود هذا إلى مشاكل في نظام Windows."
 
 #. Resource IDs: (1065)
 msgid "Add new files automatically to SVN"
@@ -1854,10 +1806,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
-msgstr ""
-"تم إضافة أنماط الملفات\n"
-"%s\n"
-"إلى قائمة التجاهل."
+msgstr "تم إضافة أنماط الملفات\n%s\nإلى قائمة التجاهل."
 
 #. Resource IDs: (263)
 msgid "Adding"
@@ -1879,17 +1828,13 @@ msgstr "يُضيف الملفات المحددة أو قناع الملفات ل
 msgid ""
 "Adjust case\n"
 "The file is not added."
-msgstr ""
-"صندوق التعديل\n"
-"لم يتم إضافة الملف"
+msgstr "صندوق التعديل\nلم يتم إضافة الملف"
 
 #. Resource IDs: (2049)
 msgid ""
 "Adjust the settings\n"
 "Settings"
-msgstr ""
-"تعديل الأعدادات\n"
-"الأعدادات"
+msgstr "تعديل الأعدادات\nالأعدادات"
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -1935,15 +1880,13 @@ msgstr "كل الملفات(*.*)|*.*||"
 msgid ""
 "All your changes will be lost! Do you really want to reset all toolbars and "
 "menus?"
-msgstr ""
-"كل تغييراتك سوف تُفقد! هل تريد حقاً ان تعيد تعيين أشرطة الأدوات و القوائم؟"
+msgstr "كل تغييراتك سوف تُفقد! هل تريد حقاً ان تعيد تعيين أشرطة الأدوات و القوائم؟"
 
 #. Resource IDs: (1008)
 msgid ""
 "All your changes will be lost! Do you really want to reset the keyboard "
 "assignments?"
-msgstr ""
-"كل تغييراتك سوف تُفقد! هل تريد حقاً ان تعيد تعيين تخصيصات لوحة المفاتيح؟"
+msgstr "كل تغييراتك سوف تُفقد! هل تريد حقاً ان تعيد تعيين تخصيصات لوحة المفاتيح؟"
 
 #. Resource IDs: (1008)
 #, c-format
@@ -1965,16 +1908,12 @@ msgstr "إسمح بالـ UUIDs الغامضة(&U)"
 msgid ""
 "Allow different repositories to use the same URL, e.g. "
 "http://localhost/myrepos/"
-msgstr ""
-"السماح للمستودعات المختلفة بأستخدام نفس الـURL, على سبيل المثال. "
-"http://localhost/myrepos/"
+msgstr "السماح للمستودعات المختلفة بأستخدام نفس الـURL, على سبيل المثال. http://localhost/myrepos/"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
-msgstr ""
-"السماح للمستودعات المختلفة بأستخدام نفس الـUUID, على سبيل المثال. المستودعات"
-" المنسوخة"
+msgstr "السماح للمستودعات المختلفة بأستخدام نفس الـUUID, على سبيل المثال. المستودعات المنسوخة"
 
 #. Resource IDs: (119)
 msgid "Already merged"
@@ -2005,13 +1944,7 @@ msgid ""
 "You can specify the following parameters to the path:\r\n"
 "%base : the base file\r\n"
 "%mine : the modified file"
-msgstr ""
-"تم استخدام برنامج خارجي لمقارنة الفروق\r\n"
-"لمقارنة إصدارات مختلفة من الملفات.\r\n"
-"\r\n"
-"بأمكانك تحديد العوامل التالية للمسار:\r\n"
-"%base : الملف الأساسي\r\n"
-"%mine : الملفات المعدلة"
+msgstr "تم استخدام برنامج خارجي لمقارنة الفروق\r\nلمقارنة إصدارات مختلفة من الملفات.\r\n\r\nبأمكانك تحديد العوامل التالية للمسار:\r\n%base : الملف الأساسي\r\n%mine : الملفات المعدلة"
 
 #. Resource IDs: (79)
 #, c-format
@@ -2024,15 +1957,7 @@ msgid ""
 "%theirs : the file as it is in the repository\r\n"
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
-msgstr ""
-"تم استخدام برنامج خارجي للدمج\r\n"
-"لحل المعارضات في الملفات.\r\n"
-"\r\n"
-"بأمكانك تحديد العوامل التالية للمسار:\r\n"
-"%merged : الملفات المعارضة, اين تريد الحفظ\r\n"
-"%theirs : الملفات كما هي في المستودع\r\n"
-"%mine : ملفاتك, مع تعديلاتك\r\n"
-"%base : الملفات الأصلية, بدون تعديلاتك"
+msgstr "تم استخدام برنامج خارجي للدمج\r\nلحل المعارضات في الملفات.\r\n\r\nبأمكانك تحديد العوامل التالية للمسار:\r\n%merged : الملفات المعارضة, اين تريد الحفظ\r\n%theirs : الملفات كما هي في المستودع\r\n%mine : ملفاتك, مع تعديلاتك\r\n%base : الملفات الأصلية, بدون تعديلاتك"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2051,9 +1976,7 @@ msgstr "لقد حدث خطأ مجهول في محاولة الوصول إلى %1
 #. Resource IDs: (63)
 #, c-format
 msgid "An unknown line type was found in line %d !"
-msgstr ""
-"لقد وجد سطر مجهول النوع!\n"
-"السطر: %d"
+msgstr "لقد وجد سطر مجهول النوع!\nالسطر: %d"
 
 #. Resource IDs: (65535)
 msgid "Application Frame Menus: "
@@ -2067,9 +1990,7 @@ msgstr "يُطبق ملف الفرق الموحد لنسخة العمل"
 msgid ""
 "Applies the properties recursively to all files/folders.\r\n"
 "bugtraq:, tsvn: and webviewer: properties are only applied to folders."
-msgstr ""
-"يُطبق خصائص بشكل متكرر لكل الملفات و المجلدات.\r\n"
-"bugtraq:, tsvn: و webviewer: خصائص طُبقت على المجلدات فقط"
+msgstr "يُطبق خصائص بشكل متكرر لكل الملفات و المجلدات.\r\nbugtraq:, tsvn: و webviewer: خصائص طُبقت على المجلدات فقط"
 
 #. Resource IDs: (13)
 msgid "Apply &patch..."
@@ -2079,9 +2000,7 @@ msgstr "تطبيق الرقعة(&p)..."
 msgid ""
 "Apply 'Power User' defaults. Those will provide a smoother experience.\n"
 "You should know the meaning of all the settings above."
-msgstr ""
-"تطبيق افتراضيات 'Power User'. مما سيجهز خبرة أسهل.\n"
-"يجب عليك معرفة معنى كلل الأعدادات التي إعلى هذا النص"
+msgstr "تطبيق افتراضيات 'Power User'. مما سيجهز خبرة أسهل.\nيجب عليك معرفة معنى كلل الأعدادات التي إعلى هذا النص"
 
 #. Resource IDs: (313)
 msgid "Apply Patch..."
@@ -2428,11 +2347,7 @@ msgid ""
 "%1!s!\n"
 "to\n"
 "%2!s!"
-msgstr ""
-"لم يتمكن من نسخ \n"
-"%1!s!\n"
-"إلى\n"
-"%2!s!"
+msgstr "لم يتمكن من نسخ \n%1!s!\nإلى\n%2!s!"
 
 #. Resource IDs: (1001)
 msgid "Can't copy bitmap image into the clipboard!"
@@ -2458,41 +2373,31 @@ msgstr "الغاء"
 msgid ""
 "Cancel\n"
 "Change the selection for the commit."
-msgstr ""
-"إلغاء\n"
-"غير المحدد للأيداع"
+msgstr "إلغاء\nغير المحدد للأيداع"
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "Choose a different folder to export to"
-msgstr ""
-"إلغاء\n"
-"إختر مجلد اّخر للأستخراج"
+msgstr "إلغاء\nإختر مجلد اّخر للأستخراج"
 
 #. Resource IDs: (221)
 msgid ""
 "Cancel\n"
 "Do not commit to a tag."
-msgstr ""
-"إلغاء\n"
-"لا تودع إلى الـTag"
+msgstr "إلغاء\nلا تودع إلى الـTag"
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "Do not remove"
-msgstr ""
-"الغاء\n"
-"لا تزيل"
+msgstr "الغاء\nلا تزيل"
 
 #. Resource IDs: (119)
 msgid ""
 "Cancel\n"
 "Do not revert."
-msgstr ""
-"إلغاء\n"
-"لا تعود."
+msgstr "إلغاء\nلا تعود."
 
 #. Resource IDs: (363)
 msgid ""
@@ -2504,81 +2409,61 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Do not update the working copy."
-msgstr ""
-"إلغاء\n"
-"لا تجدد نسخة العمل."
+msgstr "إلغاء\nلا تجدد نسخة العمل."
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
-msgstr ""
-"إلغاء\n"
-"لا تخرج من TortoiseMerge"
+msgstr "إلغاء\nلا تخرج من TortoiseMerge"
 
 #. Resource IDs: (148)
 msgid ""
 "Cancel\n"
 "Don't resolve the item."
-msgstr ""
-"إلغاء\n"
-"لا تحل البند"
+msgstr "إلغاء\nلا تحل البند"
 
 #. Resource IDs: (315)
 msgid ""
 "Cancel\n"
 "Don't switch the views"
-msgstr ""
-"إلغاء\n"
-"لا تغير المشاهد"
+msgstr "إلغاء\nلا تغير المشاهد"
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
-msgstr ""
-"إلغاء\n"
-"عد للخلف و  قم بأدخل رقم الخطأ"
+msgstr "إلغاء\nعد للخلف و  قم بأدخل رقم الخطأ"
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "Go back and select a different folder."
-msgstr ""
-"إلغاء\n"
-"عد للخلف و قم بتحديد مجلد اّخر"
+msgstr "إلغاء\nعد للخلف و قم بتحديد مجلد اّخر"
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "I will enter a different path/URL."
-msgstr ""
-"إلغاء\n"
-"سوف اُدخل مسار/URL اّخر."
+msgstr "إلغاء\nسوف اُدخل مسار/URL اّخر."
 
 #. Resource IDs: (89)
 msgid ""
 "Cancel\n"
 "Keep the current URL."
-msgstr ""
-"إلغاء\n"
-"إبقاء الـURL الحالي"
+msgstr "إلغاء\nإبقاء الـURL الحالي"
 
 #. Resource IDs: (314)
 msgid ""
 "Cancel\n"
 "Keep the empty file."
-msgstr ""
-"إلغاء\n"
-"إيقاء الملف الفارغ."
+msgstr "إلغاء\nإيقاء الملف الفارغ."
 
 #. Resource IDs: (199)
 msgid ""
 "Cancel\n"
 "Leave the cache on disk."
-msgstr ""
-"إلغاء\n"
-"ترك المخابئ على القرص."
+msgstr "إلغاء\nترك المخابئ على القرص."
 
 #. Resource IDs: (148)
 msgid ""
@@ -2590,81 +2475,61 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Resolve the conflicts first."
-msgstr ""
-"إلغاء\n"
-"حل التعارضات أولاً."
+msgstr "إلغاء\nحل التعارضات أولاً."
 
 #. Resource IDs: (226)
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
-msgstr ""
-"إلغاء\n"
-"لم يتم حل التعارض."
+msgstr "إلغاء\nلم يتم حل التعارض."
 
 #. Resource IDs: (90)
 msgid ""
 "Cancel\n"
 "The file is not copied."
-msgstr ""
-"إلغاء\n"
-"لم يتم نسخ الملف."
+msgstr "إلغاء\nلم يتم نسخ الملف."
 
 #. Resource IDs: (91)
 msgid ""
 "Cancel\n"
 "The folder is not exported."
-msgstr ""
-"إلغاء\n"
-"لم يتم أستخراج المجلد."
+msgstr "إلغاء\nلم يتم أستخراج المجلد."
 
 #. Resource IDs: (105)
 msgid ""
 "Cancel\n"
 "The items are not imported."
-msgstr ""
-"إلغاء\n"
-"لم يتم استيراد البنود."
+msgstr "إلغاء\nلم يتم استيراد البنود."
 
 #. Resource IDs: (107)
 msgid ""
 "Cancel\n"
 "The items are not moved."
-msgstr ""
-"إلغاء\n"
-"لم يتم تحريك البند."
+msgstr "إلغاء\nلم يتم تحريك البند."
 
 #. Resource IDs: (589)
 msgid ""
 "Cancel\n"
 "The property is not removed."
-msgstr ""
-"إلغاء\n"
-"لم تتم إزالة الخاصية."
+msgstr "إلغاء\nلم تتم إزالة الخاصية."
 
 #. Resource IDs: (147)
 msgid ""
 "Cancel\n"
 "The target file is left as is"
-msgstr ""
-"إلغاء\n"
-"لقد تُرك الملف المستهدف كما هو."
+msgstr "إلغاء\nلقد تُرك الملف المستهدف كما هو."
 
 #. Resource IDs: (173)
 msgid ""
 "Cancel\n"
 "You have to add the folder manually."
-msgstr ""
-"إلغاء\n"
-"عليك إضافة الملف يدوياً."
+msgstr "إلغاء\nعليك إضافة الملف يدوياً."
 
 #. Resource IDs: (100)
 msgid ""
 "Cancel\n"
 "keep the current format."
-msgstr ""
-"إلغاء\n"
-"دع التهيئة الحالية."
+msgstr "إلغاء\nدع التهيئة الحالية."
 
 #. Resource IDs: (132)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2676,8 +2541,7 @@ msgstr "يتم إلغاء العملية..."
 
 #. Resource IDs: (68)
 msgid "Cannot show diff because of inconsistent newlines in the file."
-msgstr ""
-"لم يستطع إضهار الفرق بسبب السطور الجديدة (newlines) المتناقضة  في الملف."
+msgstr "لم يستطع إضهار الفرق بسبب السطور الجديدة (newlines) المتناقضة  في الملف."
 
 #. Resource IDs: (16926)
 msgid "Casca&de"
@@ -2930,9 +2794,7 @@ msgstr "تنظيف"
 msgid ""
 "Clear Tool\n"
 "Clear"
-msgstr ""
-"تنظيف الأداةّ\n"
-"تنظيف"
+msgstr "تنظيف الأداةّ\nتنظيف"
 
 #. Resource IDs: (196)
 #, c-format
@@ -7586,9 +7448,7 @@ msgstr ""
 msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
-msgstr ""
-"خروج\n"
-"المغادرة  من TortoiseMerge بدون حفظ التعديلات"
+msgstr "خروج\nالمغادرة  من TortoiseMerge بدون حفظ التعديلات"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -11891,11 +11751,7 @@ msgid ""
 "The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
 "A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
 "Anything else is treated as binary."
-msgstr ""
-"svn:mime-type\r\n"
-"The mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\n"
-"A mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\n"
-"Anything else is treated as binary."
+msgstr "svn:mime-type\r\nThe mime type of the file. Used to determine whether to merge the file, and how to serve it from Apache.\r\nA mime type beginning with 'text/' (or an absent mime type) is treated as text.\r\nAnything else is treated as binary."
 
 #. Resource IDs: (313)
 msgid "svn:needs-lock"
@@ -11908,21 +11764,14 @@ msgid ""
 "The file will be set to read-only when checked out or updated,\r\n"
 "indicating that a user must acquire a lock on the file\r\n"
 "before they can edit it and commit changes."
-msgstr ""
-"svn:needs-lock\r\n"
-"إضبط  هذه إلى أي قثمة (على سبيل المثال. '*'( لأجبار القفل لهذا الملف.\r\n"
-"سيضبط الملف للقراءة فقط عندما يتم سحبه أو يتم تجديده,\r\n"
-"يشير ذلك إلى انه يجب على المستخدم الحصول على قفل على الملف\r\n"
-"قبل ان يمكنهم تحريره و قبل ان يقوم بأي تغيير."
+msgstr "svn:needs-lock\r\nإضبط  هذه إلى أي قثمة (على سبيل المثال. '*'( لأجبار القفل لهذا الملف.\r\nسيضبط الملف للقراءة فقط عندما يتم سحبه أو يتم تجديده,\r\nيشير ذلك إلى انه يجب على المستخدم الحصول على قفل على الملف\r\nقبل ان يمكنهم تحريره و قبل ان يقوم بأي تغيير."
 
 #. Resource IDs: (208)
 #, c-format
 msgid ""
 "switched to\r\n"
 "%s"
-msgstr ""
-"تَبَدْل إلى\r\n"
-"%s"
+msgstr "تَبَدْل إلى\r\n%s"
 
 #. Resource IDs: (65535)
 msgid "switched:"
@@ -12172,5 +12021,3 @@ msgstr "نعم"
 #. Resource IDs: (1382)
 msgid "{BugTraq}"
 msgstr "{BugTraq}"
-
-
