@@ -435,8 +435,20 @@ void CRepositoryBrowser::InitRepo()
         m_InitialUrl.Empty();
         return;
     }
-    m_repository.root
-        = CPathUtils::PathUnescape(GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), true, m_repository.uuid));
+    // Since an url passed here isn't necessarily the real/final url, for
+    // example in case of redirects or if the urls is a putty session name,
+    // we have to first find out the real url here and store that real/final
+    // url in m_InitialUrl.
+    SVNInfo inf;
+    const SVNInfoData * pInfData = inf.GetFirstFileInfo(CTSVNPath(m_InitialUrl), m_repository.peg_revision, m_repository.revision);
+    if (pInfData)
+    {
+        m_repository.root = CPathUtils::PathUnescape(pInfData->reposRoot);
+        m_repository.uuid = pInfData->reposUUID;
+        m_InitialUrl = CPathUtils::PathUnescape(pInfData->url);
+    }
+    else
+        m_repository.root = CPathUtils::PathUnescape(GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), true, m_repository.uuid));
 
     // problem: SVN reports the repository root without the port number if it's
     // the default port!
