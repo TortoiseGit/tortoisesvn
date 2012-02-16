@@ -564,8 +564,8 @@ void TortoiseBlame::InitialiseEditor()
     SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
     SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
     SendEditor(SCI_SETFONTQUALITY, SC_EFF_QUALITY_LCD_OPTIMIZED);
-    m_regOldLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), BLAMENEWCOLOR);
-    m_regNewLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), BLAMEOLDCOLOR);
+    m_regOldLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), BLAMEOLDCOLOR);
+    m_regNewLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), BLAMENEWCOLOR);
     m_regLocatorOldLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameLocatorOldColor"), BLAMEOLDCOLORBAR);
     m_regLocatorNewLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameLocatorNewColor"), BLAMENEWCOLORBAR);
 }
