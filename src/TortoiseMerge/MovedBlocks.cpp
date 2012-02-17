@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2011 - TortoiseSVN
+// Copyright (C) 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -231,7 +231,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
         // extend moved block upward as far as possible
         int i1 = i - 1;
         int j1 = j - 1;
-        for(; i1 >= tempdiff->original_start; --i1, --j1)
+        for(; (i1 >= tempdiff->original_start) && (j1>=0); --i1, --j1)
         {
             EquivalencyGroup * pGroup0 = ExtractGroup(map, m_arBaseFile.GetAt(i1), dwIgnoreWS);
             EquivalencyGroup * pGroup1 = ExtractGroup(map, m_arYourFile.GetAt(j1), dwIgnoreWS);
@@ -248,7 +248,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
 
         int i2 = i + 1;
         int j2 = j + 1;
-        for(; (i2-tempdiff->original_start) < tempdiff->original_length; ++i2, ++j2)
+        for(; ((i2-tempdiff->original_start) < tempdiff->original_length)&&(j2>=0); ++i2, ++j2)
         {
             if(i2 >= m_arBaseFile.GetCount() || j2 >= m_arYourFile.GetCount())
                 break;
@@ -364,7 +364,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
         // extend moved block upward as far as possible
         int i1 = i-1;
         int j1 = j-1;
-        for ( ; j1>=tempdiff->modified_start; --i1, --j1)
+        for ( ; (j1>=tempdiff->modified_start) && (j1>=0); --i1, --j1)
         {
             EquivalencyGroup * pGroup0 = ExtractGroup(map, m_arBaseFile.GetAt(i1), dwIgnoreWS);
             EquivalencyGroup * pGroup1 = ExtractGroup(map, m_arYourFile.GetAt(j1), dwIgnoreWS);
@@ -380,7 +380,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
         // extend moved block downward as far as possible
         int i2 = i+1;
         int j2 = j+1;
-        for ( ; j2-(tempdiff->modified_start) < tempdiff->modified_length; ++i2,++j2)
+        for ( ; (j2-(tempdiff->modified_start) < tempdiff->modified_length) && (i2>=0); ++i2,++j2)
         {
             if(i2 >= m_arBaseFile.GetCount() || j2 >= m_arYourFile.GetCount())
                 break;

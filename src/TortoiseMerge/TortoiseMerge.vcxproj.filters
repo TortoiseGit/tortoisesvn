@@ -371,9 +371,6 @@
     <ClInclude Include="MovedBlocks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\SVN\SVNPatch.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\StandAloneDlg.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
@@ -423,6 +420,9 @@
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GotoLineDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNPatch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
