@@ -287,8 +287,8 @@ bool SVNPatch::PatchPath( const CString& path )
 
     m_nRejected = 0;
     m_nStrip = 0;
-    err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile),     // patch_abspath
-        CUnicodeUtils::GetUTF8(m_targetpath),    // local_abspath
+    err = svn_client_patch(svn_dirent_canonicalize(CUnicodeUtils::GetUTF8(m_patchfile), scratchpool),    // patch_abspath
+        svn_dirent_canonicalize(CUnicodeUtils::GetUTF8(m_targetpath), scratchpool),                      // local_abspath
         false,                                   // dry_run
         m_nStrip,                                // strip_count
         false,                                   // reverse
@@ -522,5 +522,30 @@ CString	 SVNPatch::GetErrorMessageForNode(svn_error_t* Err) const
         msg = CStringUtils::LinesWrap(msg, 80);
     }
     return msg;
+}
+
+bool SVNPatch::RemoveFile( const CString& path )
+{
+    svn_error_t *               err         = NULL;
+    apr_pool_t *                scratchpool = NULL;
+    svn_client_ctx_t *          ctx         = NULL;
+
+    apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
+    svn_error_clear(svn_client_create_context(&ctx, scratchpool));
+
+    apr_array_header_t *targets = apr_array_make (scratchpool, 1, sizeof(const char *));
+
+    (*((const char **) apr_array_push (targets))) = svn_dirent_canonicalize(CUnicodeUtils::GetUTF8(path), scratchpool);
+
+    err = svn_client_delete4(targets, true, false, NULL, NULL, NULL, ctx, scratchpool);
+
+    apr_pool_destroy(scratchpool);
+
+    if (err)
+    {
+        svn_error_clear(err);
+        return false;
+    }
+    return true;
 }
 

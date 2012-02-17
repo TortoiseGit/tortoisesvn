@@ -1152,6 +1152,8 @@ void CMainFrame::PatchSave()
     if (saveret==0)
     {
         // file was saved with 0 lines, remove it.
+        m_Patch.RemoveFile(m_Data.m_mergedFile.GetFilename());
+        // just in case
         DeleteFile(m_Data.m_mergedFile.GetFilename());
     }
     m_Data.m_mergedFile.StoreFileAttributes();
@@ -1220,6 +1222,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         }
         if (bDelete)
         {
+            m_Patch.RemoveFile(m_Data.m_mergedFile.GetFilename());
             DeleteFile(m_Data.m_mergedFile.GetFilename());
         }
     }

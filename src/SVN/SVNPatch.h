@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2011 - TortoiseSVN
+// Copyright (C) 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -101,6 +101,11 @@ public:
      * Returns a string containing the last error message.
      */
     CString                 GetErrorMessage() const { return m_errorStr; }
+
+    /**
+     * Removes the file from version control
+     */
+    bool                    RemoveFile(const CString& path);
 
 private:
     int                     CountMatches(const CString& path) const;
