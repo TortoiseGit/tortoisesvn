@@ -1572,13 +1572,13 @@ void CBaseView::DrawTextLine(
 
     LineColors lineCols = GetLineColors(nViewLine);
 
+    CString sViewLine = GetViewLineChars(nViewLine);
     // mark selection
     if (m_bShowSelection && HasTextSelection())
     {
         // has this line selection ?
         if ((m_ptSelectionViewPosStart.y <= nViewLine) && (nViewLine <= m_ptSelectionViewPosEnd.y))
         {
-            CString sViewLine = GetViewLineChars(nViewLine);
             int nViewLineLength = sViewLine.GetLength();
 
             // first suppose the whole line is selected
@@ -1619,7 +1619,6 @@ void CBaseView::DrawTextLine(
     if (!m_sMarkedWord.IsEmpty())
     {
         int nMarkLength = m_sMarkedWord.GetLength();
-        CString sViewLine = GetViewLineChars(nViewLine);
         //int nViewLineLength = sViewLine.GetLength();
         const TCHAR * text = sViewLine;
         const TCHAR * findText = text;
@@ -1648,7 +1647,6 @@ void CBaseView::DrawTextLine(
     }
     if (!m_sFindText.IsEmpty())
     {
-        CString sViewLine = GetViewLineChars(nViewLine);
         int nMarkStart = 0;
         int nMarkEnd = 0;
         int nStringPos = nMarkStart;
