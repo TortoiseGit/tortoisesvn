@@ -500,10 +500,6 @@ msgstr ""
 msgid "&Close Window(s)"
 msgstr ""
 
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr ""
-
 #. Resource IDs: (65535)
 msgid "&Command:"
 msgstr ""
@@ -2702,6 +2698,18 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Color 2"
+msgstr ""
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr ""
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr ""
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
 msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
@@ -5129,6 +5137,10 @@ msgstr ""
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
 msgstr ""
 
 #. Resource IDs: (76)
@@ -8353,6 +8365,10 @@ msgstr ""
 msgid "Start Update Hook"
 msgstr ""
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr ""
@@ -8972,6 +8988,11 @@ msgstr ""
 msgid "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\nThose files are not listed for commit. You need to commit those files separately."
 msgstr ""
 
+#. Resource IDs: (200)
+#, c-format
+msgid "There are currently %d overlay handlers installed besides the ones Tortoise uses."
+msgstr ""
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr ""
@@ -9212,6 +9233,11 @@ msgstr ""
 
 #. Resource IDs: (145)
 msgid "TortoiseSVN is a shell extension.\nThat means it is integrated into the Windows explorer.\nTo use TortoiseSVN please open the explorer and right-click on any folder you like\nto bring up the context menu where you will find all TortoiseSVN commands.\nAnd read the manual!"
+msgstr ""
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
 msgstr ""
 
 #. Resource IDs: (1162)
