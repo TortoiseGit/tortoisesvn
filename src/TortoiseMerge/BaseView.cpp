@@ -1715,8 +1715,8 @@ void CBaseView::DrawTextLine(
             {
                 // note: ExtTextOut has a limit for the length of the string. That limit is supposed
                 // to be 8192, but that's not really true: I found that the limit (at least on my machine and a few others)
-                // is 4095 (4096 doesn't work anymore).
-                // So we limit the length here to that 4095 chars.
+                // is 4094 (4095 doesn't work anymore).
+                // So we limit the length here to that 4094 chars.
                 // In case we're scrolled to the right, there's no need to draw the string
                 // from way outside our window, so we also offset the drawing to the start of the window.
                 // This reduces the string length as well.
@@ -1729,7 +1729,7 @@ void CBaseView::DrawTextLine(
                     leftcoord = nLeft % GetCharWidth();
                 }
 
-                pDC->ExtTextOut(leftcoord, coords.y, ETO_CLIPPED, &rc, p_zBlockText+offset, min(nTextLength, 4095), NULL);
+                pDC->ExtTextOut(leftcoord, coords.y, ETO_CLIPPED, &rc, p_zBlockText+offset, min(nTextLength, 4094), NULL);
                 if ((itStart->second.shot != itStart->second.background) && (itStart->first == nStart + nTextOffset))
                 {
                     pDC->FillSolidRect(nLeft-1, rc.top, 1, rc.Height(), itStart->second.shot);
