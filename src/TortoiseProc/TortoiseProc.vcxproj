@@ -261,6 +261,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Utils\Callback.cpp" />
     <ClCompile Include="..\Utils\CommonAppUtils.cpp" />
     <ClCompile Include="..\Utils\IconExtractor.cpp" />
     <ClCompile Include="..\Utils\Libraries.cpp" />
@@ -753,6 +754,7 @@
   <ItemGroup>
     <ClInclude Include="..\SVN\SVNBase.h" />
     <ClInclude Include="..\SVN\SVNReadProperties.h" />
+    <ClInclude Include="..\Utils\Callback.h" />
     <ClInclude Include="..\Utils\CommonAppUtils.h" />
     <ClInclude Include="..\Utils\IconExtractor.h" />
     <ClInclude Include="..\Utils\IInputValidator.h" />

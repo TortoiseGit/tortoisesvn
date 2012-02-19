@@ -1094,6 +1094,9 @@
     <ClCompile Include="Properties\EditPropUserBool.cpp">
       <Filter>Commands\Properties</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\Callback.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2094,6 +2097,9 @@
     </ClInclude>
     <ClInclude Include="Properties\EditPropUserBool.h">
       <Filter>Commands\Properties</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\Callback.h">
+      <Filter>Utils\General</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

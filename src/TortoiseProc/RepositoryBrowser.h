@@ -51,6 +51,7 @@ public:
         , has_child_folders(false)
         , is_external(false)
         , kind(svn_node_unknown)
+        , svnparentpathroot(false)
     {
     }
 
@@ -64,6 +65,7 @@ public:
     deque<CItem>    children;
     CString         error;
     svn_node_kind_t kind;
+    bool            svnparentpathroot;
 };
 
 
@@ -257,6 +259,11 @@ protected:
     /// extract info from controls before they get destroyed
     void StoreSelectedURLs();
 
+    /// tries to fetch the html page returned by an apache server
+    /// set up with the SVNParentPath directive, parse all the listed
+    /// repositories and fill them in to the repo browser
+    bool TrySVNParentPath();
+
     /// resizes the control so that the divider is at position 'point'
     void HandleDividerMove(CPoint point, bool bDraw);
     bool CheckoutDepthForItem( HTREEITEM hItem );
@@ -295,6 +302,7 @@ private:
     int                 m_nIconFolder;
     int                 m_nOpenIconFolder;
     int                 m_nExternalOvl;
+    int                 m_nSVNParentPath;
 
     volatile bool       m_blockEvents;
 

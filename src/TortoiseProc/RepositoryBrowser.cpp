@@ -52,6 +52,12 @@
 #include "Commands\EditFileCommand.h"
 #include "AsyncCall.h"
 #include "DiffOptionsDlg.h"
+#include "Callback.h"
+
+#include <fstream>
+#include <sstream>
+#include <Urlmon.h>
+#pragma comment(lib, "Urlmon.lib")
 
 #define OVERLAY_EXTERNAL        1
 
@@ -264,6 +270,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
     m_nExternalOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EXTERNALOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
     if (m_nExternalOvl >= 0)
         SYS_IMAGE_LIST().SetOverlayImage(m_nExternalOvl, OVERLAY_EXTERNAL);
+    m_nSVNParentPath = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_CACHE), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
 
     m_cnrRepositoryBar.SubclassDlgItem(IDC_REPOS_BAR_CNR, this);
     m_barRepository.Create(&m_cnrRepositoryBar, 12345);
@@ -448,7 +455,11 @@ void CRepositoryBrowser::InitRepo()
         m_InitialUrl = CPathUtils::PathUnescape(pInfData->url);
     }
     else
+    {
+        if (TrySVNParentPath())
+            return;
         m_repository.root = CPathUtils::PathUnescape(GetRepositoryRootAndUUID (CTSVNPath (m_InitialUrl), true, m_repository.uuid));
+    }
 
     // problem: SVN reports the repository root without the port number if it's
     // the default port!
@@ -1271,6 +1282,8 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
         CTreeItem* parentItem = (CTreeItem *)m_RepoTree.GetItemData (node);
         if (parentItem == NULL)
             continue;
+        if (parentItem->svnparentpathroot)
+            continue;
         pTreeItem->error = m_lister.AddSubTreeExternals ( parentItem->url
                                                         , parentItem->is_external
                                                              ? parentItem->repository.peg_revision
@@ -1625,6 +1638,8 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
     CWaitCursorEx wait;
     CAutoReadLock locker(m_guard);
     CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hNode);
+    if (pTreeItem->svnparentpathroot)
+        return false;
     HTREEITEM hSel1 = m_RepoTree.GetSelectedItem();
     if (m_RepoTree.ItemHasChildren(hNode))
     {
@@ -4332,4 +4347,141 @@ void CRepositoryBrowser::OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult)
         // Store the color back in the NMLVCUSTOMDRAW struct.
         pLVCD->clrText = crText;
     }
+}
+
+bool CRepositoryBrowser::TrySVNParentPath()
+{
+    if (m_bSparseCheckoutMode)
+        return false;
+
+    CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true);
+    // custom callback object required to bypass invalid SSL certificates
+    // and handle possible authentication dialogs
+    std::unique_ptr<CCallback> callback(new CCallback());
+    callback->SetAuthParentWindow(GetSafeHwnd());
+
+    HRESULT hResUDL = URLDownloadToFile(NULL, m_InitialUrl+L"/", tempfile.GetWinPath(), 0, callback.get());
+    if (hResUDL != S_OK)
+    {
+        hResUDL = URLDownloadToFile(NULL, m_InitialUrl, tempfile.GetWinPath(), 0, callback.get());
+    }
+    if (hResUDL == S_OK)
+    {
+        // set up the SVNParentPath url as the repo root, even though it isn't a real repo root
+        m_repository.root = m_InitialUrl;
+        m_repository.revision = SVNRev::REV_HEAD;
+        m_repository.peg_revision = SVNRev::REV_HEAD;
+
+        // insert our pseudo repo root into the tree view.
+        CTreeItem * pTreeItem = new CTreeItem();
+        pTreeItem->unescapedname = m_InitialUrl;
+        pTreeItem->url = m_InitialUrl;
+        pTreeItem->logicalPath = m_InitialUrl;
+        pTreeItem->repository = m_repository;
+        pTreeItem->kind = svn_node_dir;
+        pTreeItem->svnparentpathroot = true;
+        TVINSERTSTRUCT tvinsert = {0};
+        tvinsert.hParent = TVI_ROOT;
+        tvinsert.hInsertAfter = TVI_ROOT;
+        tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
+        tvinsert.itemex.pszText = m_InitialUrl.GetBuffer (m_InitialUrl.GetLength());
+        tvinsert.itemex.cChildren = 1;
+        tvinsert.itemex.lParam = (LPARAM)pTreeItem;
+        tvinsert.itemex.iImage = m_nSVNParentPath;
+        tvinsert.itemex.iSelectedImage = m_nSVNParentPath;
+
+        HTREEITEM hRoot = m_RepoTree.InsertItem(&tvinsert);
+        m_InitialUrl.ReleaseBuffer();
+
+        // we got a web page! But we can't be sure that it's the page from SVNParentPath.
+        // Use a regex to parse the website and find out...
+        std::ifstream fs(tempfile.GetWinPath());
+        string in;
+        if (!fs.bad())
+        {
+            in.reserve((unsigned int)fs.rdbuf()->in_avail());
+            char c;
+            while (fs.get(c))
+            {
+                if (in.capacity() == in.size())
+                    in.reserve(in.capacity() * 3);
+                in.append(1, c);
+            }
+            fs.close();
+
+            // make sure this is a html page from an SVNParentPathList
+            // we do this by checking for header titles looking like
+            // "<h2>Revision XX: /</h2> - if we find that, it's a html
+            // page from inside a repository
+            const char * reTitle = "<\\s*h2\\s*>[^/]+/\\s*<\\s*/\\s*h2\\s*>";
+            // xsl transformed pages don't have an easy way to determine
+            // the inside from outside of a repository.
+            // We therefore check for <index rev="0" to make sure it's either
+            // an empty repository or really an SVNParentPathList
+            const char * reTitle2 = "<\\s*index\\s*rev\\s*=\\s*\"0\"";
+            const tr1::regex titex(reTitle, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+            const tr1::regex titex2(reTitle2, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+            tr1::match_results<string::const_iterator> fwhat;
+            if (tr1::regex_search(in.begin(), in.end(), titex, tr1::regex_constants::match_default))
+            {
+                TRACE(_T("found repository url instead of SVNParentPathList\n"));
+                return false;
+            }
+
+            const char * re = "<\\s*LI\\s*>\\s*<\\s*A\\s+[^>]*HREF\\s*=\\s*\"([^\"]*)\"\\s*>([^<]+)<\\s*/\\s*A\\s*>\\s*<\\s*/\\s*LI\\s*>";
+            const char * re2 = "<\\s*DIR\\s*name\\s*=\\s*\"([^\"]*)\"\\s*HREF\\s*=\\s*\"([^\"]*)\"\\s*/\\s*>";
+
+            const tr1::regex expression(re, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+            const tr1::regex expression2(re2, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+            tr1::match_results<string::const_iterator> what;
+            int nCountNewEntries = 0;
+            wstring popupText;
+            const tr1::sregex_iterator end;
+            for (tr1::sregex_iterator i(in.begin(), in.end(), expression); i != end; ++i)
+            {
+                const tr1::smatch match = *i;
+                // what[0] contains the whole string
+                // what[1] contains the url part.
+                // what[2] contains the name
+                CString url = m_InitialUrl+L"/"+CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                CItem item;
+                item.absolutepath = url;
+                item.kind = svn_node_dir;
+                item.path = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                SRepositoryInfo repoinfo;
+                repoinfo.root = url;
+                repoinfo.revision = SVNRev::REV_HEAD;
+                repoinfo.peg_revision = SVNRev::REV_HEAD;
+                item.repository = repoinfo;
+                AutoInsert(hRoot, item);
+                ++nCountNewEntries;
+            }
+            if (!regex_search(in.begin(), in.end(), titex2))
+            {
+                TRACE(_T("found repository url instead of SVNParentPathList\n"));
+                return false;
+            }
+            for (tr1::sregex_iterator i(in.begin(), in.end(), expression2); i != end; ++i)
+            {
+                const tr1::smatch match = *i;
+                // what[0] contains the whole string
+                // what[1] contains the url part.
+                // what[2] contains the name
+                CString url = m_InitialUrl+L"/"+CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                CItem item;
+                item.absolutepath = url;
+                item.kind = svn_node_dir;
+                item.path = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                SRepositoryInfo repoinfo;
+                repoinfo.root = url;
+                repoinfo.revision = SVNRev::REV_HEAD;
+                repoinfo.peg_revision = SVNRev::REV_HEAD;
+                item.repository = repoinfo;
+                AutoInsert(hRoot, item);
+                ++nCountNewEntries;
+            }
+            return (nCountNewEntries>0);
+        }
+    }
+    return false;
 }
