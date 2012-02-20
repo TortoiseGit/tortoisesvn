@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,6 @@
 #include "PathUtils.h"
 #include "SVNStatus.h"
 #include "SVNInfo.h"
-#include "auto_buffer.h"
 #include "CreateProcessHelper.h"
 
 #define MAX_STRING_LENGTH       4096            //should be big enough
@@ -189,13 +188,13 @@ void CSVNPropertyPage::PageProcOnCommand(WPARAM wParam)
     if (LOWORD(wParam) == IDC_EDITPROPERTIES)
     {
         DWORD pathlength = GetTempPath(0, NULL);
-        auto_buffer<TCHAR> path(pathlength+1);
-        auto_buffer<TCHAR> tempFile(pathlength + 100);
-        GetTempPath (pathlength+1, path);
-        GetTempFileName (path, _T("svn"), 0, tempFile);
-        tstring retFilePath = tstring(tempFile);
+        std::unique_ptr<TCHAR[]> path(new TCHAR[pathlength+1]);
+        std::unique_ptr<TCHAR[]> tempFile(new TCHAR[pathlength + 100]);
+        GetTempPath (pathlength+1, path.get());
+        GetTempFileName (path.get(), _T("svn"), 0, tempFile.get());
+        tstring retFilePath = tstring(tempFile.get());
 
-        CAutoFile file = ::CreateFile (tempFile,
+        CAutoFile file = ::CreateFile (tempFile.get(),
                                        GENERIC_WRITE,
                                        FILE_SHARE_READ,
                                        0,
@@ -293,16 +292,16 @@ void CSVNPropertyPage::InitWorkfileView()
                 {
                     size_t len = strlen(svn.status->repos_relpath) + strlen(svn.status->repos_root_url);
                     len += 2;
-                    auto_buffer<char> url(len*4);
-                    strcpy_s(url, len*4, svn.status->repos_root_url);
-                    strcat_s(url, len*4, "/");
-                    strcat_s(url, len*4, svn.status->repos_relpath);
+                    std::unique_ptr<char[]> url(new char[len*4]);
+                    strcpy_s(url.get(), len*4, svn.status->repos_root_url);
+                    strcat_s(url.get(), len*4, "/");
+                    strcat_s(url.get(), len*4, svn.status->repos_relpath);
 
-                    auto_buffer<char> unescapedurl(len);
-                    strcpy_s(unescapedurl, len, url.get());
+                    std::unique_ptr<char[]> unescapedurl(new char[len]);
+                    strcpy_s(unescapedurl.get(), len, url.get());
                     CStringA escapedurl = CPathUtils::PathEscape(url.get());
-                    CPathUtils::Unescape(unescapedurl);
-                    strcpy_s(url, len*4, escapedurl);
+                    CPathUtils::Unescape(unescapedurl.get());
+                    strcpy_s(url.get(), len*4, escapedurl);
                     SetDlgItemText(m_hwnd, IDC_REPOURL, CUnicodeUtils::StdGetUnicode(unescapedurl.get()).c_str());
                     if (strcmp(unescapedurl.get(), url.get()))
                     {

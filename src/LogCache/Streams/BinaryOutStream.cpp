@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -67,7 +67,7 @@ CBinaryOutStreamBase::CBinaryOutStreamBase ( CCacheFileOutBuffer* aBuffer
     , current (NULL)
     , last (NULL)
 {
-    data.reset (CHUNK_SIZE);
+    data.reset (new unsigned char[CHUNK_SIZE]);
     current = data.get();
     last = current + CHUNK_SIZE;
 }

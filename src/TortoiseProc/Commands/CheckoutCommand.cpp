@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,6 @@
 #include "CheckoutDlg.h"
 #include "SVNProgressDlg.h"
 #include "BrowseFolder.h"
-#include "auto_buffer.h"
 
 bool CheckoutCommand::Execute()
 {
@@ -39,9 +38,9 @@ bool CheckoutCommand::Execute()
         {
             checkoutDirectory.SetFromWin(sOrigCWD, true);
             DWORD len = ::GetTempPath(0, NULL);
-            auto_buffer<TCHAR> tszPath(len);
-            ::GetTempPath(len, tszPath);
-            if (_tcsncicmp(checkoutDirectory.GetWinPath(), tszPath, len-2 /* \\ and \0 */) == 0)
+            std::unique_ptr<TCHAR[]> tszPath(new TCHAR[len]);
+            ::GetTempPath(len, tszPath.get());
+            if (_tcsncicmp(checkoutDirectory.GetWinPath(), tszPath.get(), len-2 /* \\ and \0 */) == 0)
             {
                 // if the current directory is set to a temp directory,
                 // we don't use that but leave it empty instead.

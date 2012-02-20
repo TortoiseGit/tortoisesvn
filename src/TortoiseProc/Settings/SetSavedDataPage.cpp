@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -312,15 +312,15 @@ void CSetSavedDataPage::DeleteViaShell(LPCTSTR path, UINT progressText)
     CString p(path);
     p += L"||";
     int len = p.GetLength();
-    auto_buffer<TCHAR> buf(len+2);
-    wcscpy_s(buf, len+2, p);
-    CStringUtils::PipesToNulls(buf, len);
+    std::unique_ptr<TCHAR[]> buf(new TCHAR[len+2]);
+    wcscpy_s(buf.get(), len+2, p);
+    CStringUtils::PipesToNulls(buf.get(), len);
 
     CString progText(MAKEINTRESOURCE(progressText));
     SHFILEOPSTRUCT fileop;
     fileop.hwnd = m_hWnd;
     fileop.wFunc = FO_DELETE;
-    fileop.pFrom = buf;
+    fileop.pFrom = buf.get();
     fileop.pTo = NULL;
     fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION;
     fileop.lpszProgressTitle = progText;

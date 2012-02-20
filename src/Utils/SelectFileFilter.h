@@ -1,6 +1,23 @@
+// TortoiseSVN - a Windows shell extension for easy version control
+
+// Copyright (C) 2010-2012 - TortoiseSVN
+
+// This program is free software; you can redistribute it and/or
+// modify it under the terms of the GNU General Public License
+// as published by the Free Software Foundation; either version 2
+// of the License, or (at your option) any later version.
+
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software Foundation,
+// 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+//
 #pragma once
 
-#include "auto_buffer.h"
 #include "StringUtils.h"
 
 class CSelectFileFilter {
@@ -9,14 +26,14 @@ public:
     CSelectFileFilter() {}
     ~CSelectFileFilter() {}
 
-    operator const TCHAR*() { return buffer; }
+    operator const TCHAR*() { return buffer.get(); }
     void Load(UINT stringId);
     UINT GetCount() { return (UINT)filternames.size(); }
-    operator const COMDLG_FILTERSPEC*() { return filterspec; }
+    operator const COMDLG_FILTERSPEC*() { return filterspec.get(); }
 
 private:
-    auto_buffer<TCHAR> buffer;
-    auto_buffer<COMDLG_FILTERSPEC> filterspec;
+    std::unique_ptr<TCHAR[]> buffer;
+    std::unique_ptr<COMDLG_FILTERSPEC[]> filterspec;
     std::vector<CString> filternames;
     std::vector<CString> filtermasks;
 
@@ -34,9 +51,9 @@ inline void CSelectFileFilter::Load(UINT stringId)
     CString sFilter;
     sFilter.LoadString(stringId);
     const int bufferLength = sFilter.GetLength()+4;
-    buffer.reset(bufferLength);
-    _tcscpy_s (buffer, bufferLength, sFilter);
-    CStringUtils::PipesToNulls(buffer);
+    buffer.reset(new TCHAR[bufferLength]);
+    _tcscpy_s (buffer.get(), bufferLength, sFilter);
+    CStringUtils::PipesToNulls(buffer.get());
     //Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||
     int pos = 0;
     CString temp;
@@ -51,7 +68,7 @@ inline void CSelectFileFilter::Load(UINT stringId)
         temp = sFilter.Tokenize(_T("|"), pos);
         filtermasks.push_back(temp);
     }
-    filterspec.reset(filternames.size());
+    filterspec.reset(new COMDLG_FILTERSPEC[filternames.size()]);
     for (size_t i = 0; i < filternames.size(); ++i)
     {
         filterspec[i].pszName = filternames[i];

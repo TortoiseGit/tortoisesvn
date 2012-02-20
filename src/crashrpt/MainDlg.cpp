@@ -2,7 +2,6 @@
 
 #include "MainDlg.h"
 #include "resource.h"
-#include "auto_buffer.h"
 
 CMainDlg::CMainDlg()
 {
@@ -81,13 +80,13 @@ LRESULT CMainDlg::DoCommand(int id)
             int      nEmailLen = ::GetWindowTextLength(hWndEmail) + 1;
             int      nDescLen = ::GetWindowTextLength(hWndDesc) + 1;
 
-            auto_buffer<TCHAR> lpStr(nEmailLen+1);
-            ::GetWindowText(hWndEmail, lpStr, nEmailLen);
-            m_sEmail = lpStr;
+            std::unique_ptr<TCHAR[]> lpStr(new TCHAR[nEmailLen+1]);
+            ::GetWindowText(hWndEmail, lpStr.get(), nEmailLen);
+            m_sEmail = lpStr.get();
 
-            lpStr.reset(nDescLen+1);
-            ::GetWindowText(hWndDesc, lpStr, nDescLen);
-            m_sDescription = lpStr;
+            lpStr.reset(new TCHAR[nDescLen+1]);
+            ::GetWindowText(hWndDesc, lpStr.get(), nDescLen);
+            m_sDescription = lpStr.get();
         }
         EndDialog(*this, IDOK);
         return 0;

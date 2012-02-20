@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2011 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
 //
 #include "StdAfx.h"
 #include "unicodeutils.h"
-#include "auto_buffer.h"
+#include <memory>
 
 static BOOL sse2supported = ::IsProcessorFeaturePresent( PF_XMMI64_INSTRUCTIONS_AVAILABLE );
 
@@ -312,7 +312,7 @@ namespace
         enum {FIXED_BUFFER_SIZE = 1024};
 
         T fixedBuffer[FIXED_BUFFER_SIZE];
-        auto_buffer<T> dynamicBuffer;
+        std::unique_ptr<T[]> dynamicBuffer;
 
         T* buffer;
 
@@ -326,8 +326,8 @@ namespace
             }
             else
             {
-                dynamicBuffer.reset (minCapacity);
-                buffer = dynamicBuffer;
+                dynamicBuffer.reset (new T[minCapacity]);
+                buffer = dynamicBuffer.get();
             }
         }
 
@@ -394,9 +394,9 @@ std::wstring CUnicodeUtils::StdGetUnicode(const std::string& utf8)
 
 std::string WideToMultibyte(const std::wstring& wide)
 {
-    auto_buffer<char> narrow (wide.length()*3+2);
+    std::unique_ptr<char[]> narrow (new char[wide.length()*3+2]);
     BOOL defaultCharUsed;
-    int ret = (int)WideCharToMultiByte(CP_ACP, 0, wide.c_str(), (int)wide.size(), narrow, (int)wide.length()*3 - 1, ".", &defaultCharUsed);
+    int ret = (int)WideCharToMultiByte(CP_ACP, 0, wide.c_str(), (int)wide.size(), narrow.get(), (int)wide.length()*3 - 1, ".", &defaultCharUsed);
 
     return std::string (narrow.get(), ret);
 }

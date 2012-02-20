@@ -1,4 +1,4 @@
-// Copyright (C) 2007,2010-2011 - TortoiseSVN
+// Copyright (C) 2007,2010-2012 - TortoiseSVN
 
 // this program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -15,19 +15,19 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "StdAfx.h"
 #include "UnicodeUtils.h"
-#include "auto_buffer.h"
+#include <memory>
 
 char * AnsiToUtf8(const char * pszAnsi, apr_pool_t *pool)
 {
     // convert ANSI --> UTF16
     int utf16_count = MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, NULL, 0);
-    auto_buffer<WCHAR> pwc(utf16_count);
-    MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, pwc, utf16_count);
+    std::unique_ptr<WCHAR[]> pwc(new WCHAR[utf16_count]);
+    MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, pwc.get(), utf16_count);
 
     // and now from URF16 --> UTF-8
-    int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pwc, utf16_count, NULL, 0, NULL, NULL);
+    int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pwc.get(), utf16_count, NULL, 0, NULL, NULL);
     char * pch = (char*) apr_palloc(pool, utf8_count);
-    WideCharToMultiByte(CP_UTF8, 0, pwc, utf16_count, pch, utf8_count, NULL, NULL);
+    WideCharToMultiByte(CP_UTF8, 0, pwc.get(), utf16_count, pch, utf8_count, NULL, NULL);
     return pch;
 }
 
@@ -43,9 +43,9 @@ char * Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool)
 std::wstring Utf8ToWide(const std::string string)
 {
     const size_t len = string.size();
-    auto_buffer<WCHAR> buf(len*4 + 1);
-    SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
-    MultiByteToWideChar(CP_UTF8, 0, string.c_str(), -1, buf, (int)len*4);
-    std::wstring ret = std::wstring(buf);
+    std::unique_ptr<WCHAR[]> buf(new WCHAR[len*4 + 1]);
+    SecureZeroMemory(buf.get(), (len*4 + 1)*sizeof(WCHAR));
+    MultiByteToWideChar(CP_UTF8, 0, string.c_str(), -1, buf.get(), (int)len*4);
+    std::wstring ret = std::wstring(buf.get());
     return ret;
 }

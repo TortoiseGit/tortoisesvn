@@ -18,7 +18,6 @@
 //
 #include "StdAfx.h"
 #include "TempFile.h"
-#include "auto_buffer.h"
 #include "PathUtils.h"
 #include "DirFileEnum.h"
 #include "SmartHandle.h"
@@ -41,14 +40,14 @@ CTempFiles& CTempFiles::Instance()
 CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& revision)
 {
     DWORD len = ::GetTempPath(0, NULL);
-    auto_buffer<TCHAR> temppath (len+1);
-    auto_buffer<TCHAR> tempF (len+50);
-    ::GetTempPath (len+1, temppath);
+    std::unique_ptr<TCHAR[]> temppath (new TCHAR[len+1]);
+    std::unique_ptr<TCHAR[]> tempF (new TCHAR[len+50]);
+    ::GetTempPath (len+1, temppath.get());
     CTSVNPath tempfile;
     CString possibletempfile;
     if (path.IsEmpty())
     {
-        ::GetTempFileName (temppath, TEXT("svn"), 0, tempF);
+        ::GetTempFileName (temppath.get(), TEXT("svn"), 0, tempF.get());
         tempfile = CTSVNPath (tempF.get());
     }
     else
@@ -155,8 +154,8 @@ CTSVNPath CTempFiles::GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path /*
 void CTempFiles::DeleteOldTempFiles(LPCTSTR wildCard)
 {
     DWORD len = ::GetTempPath(0, NULL);
-    auto_buffer<TCHAR> path(len + 100);
-    len = ::GetTempPath (len+100, path);
+    std::unique_ptr<TCHAR[]> path(new TCHAR[len + 100]);
+    len = ::GetTempPath (len+100, path.get());
     if (len == 0)
         return;
 

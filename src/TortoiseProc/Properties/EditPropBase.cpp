@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,6 @@
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "EditPropBase.h"
-#include "auto_buffer.h"
 
 
 EditPropBase::EditPropBase()

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,6 @@
 #pragma warning(pop)
 #include "Register.h"
 #include "UnicodeUtils.h"
-#include "auto_buffer.h"
 #include <atlbase.h>
 
 STDAPI DllRegisterServer();
@@ -270,10 +269,10 @@ HRESULT SubWCRev::Utf8StringToVariant(const char* string, VARIANT* result )
 
     result->vt = VT_BSTR;
     const size_t len = strlen(string);
-    auto_buffer<WCHAR> buf(len*4 + 1);
-    SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
-    MultiByteToWideChar(CP_UTF8, 0, string, -1, buf, (int)len*4);
-    result->bstrVal = SysAllocString(buf);
+    std::unique_ptr<WCHAR[]> buf(new WCHAR[len*4 + 1]);
+    SecureZeroMemory(buf.get(), (len*4 + 1)*sizeof(WCHAR));
+    MultiByteToWideChar(CP_UTF8, 0, string, -1, buf.get(), (int)len*4);
+    result->bstrVal = SysAllocString(buf.get());
     return S_OK;
 }
 
@@ -363,15 +362,15 @@ HRESULT __stdcall SubWCRev::get_LockOwner(/*[out, retval]*/VARIANT* owner)
         result = S_OK;
     }
 
-    auto_buffer<WCHAR> buf (len*4 + 1);
-    SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+    std::unique_ptr<WCHAR[]> buf (new WCHAR[len*4 + 1]);
+    SecureZeroMemory(buf.get(), (len*4 + 1)*sizeof(WCHAR));
 
     if(TRUE == SubStat.LockData.NeedsLocks)
     {
-        MultiByteToWideChar(CP_UTF8, 0, SubStat.LockData.Owner, -1, buf, (int)len*4);
+        MultiByteToWideChar(CP_UTF8, 0, SubStat.LockData.Owner, -1, buf.get(), (int)len*4);
     }
 
-    owner->bstrVal = SysAllocString(buf);
+    owner->bstrVal = SysAllocString(buf.get());
     return result;
 }
 
@@ -396,15 +395,15 @@ HRESULT __stdcall SubWCRev::get_LockComment(/*[out, retval]*/VARIANT* comment)
         result = S_OK;
     }
 
-    auto_buffer<WCHAR> buf (len*4 + 1);
-    SecureZeroMemory(buf, (len*4 + 1)*sizeof(WCHAR));
+    std::unique_ptr<WCHAR[]> buf (new WCHAR[len*4 + 1]);
+    SecureZeroMemory(buf.get(), (len*4 + 1)*sizeof(WCHAR));
 
     if(TRUE == SubStat.LockData.NeedsLocks)
     {
-        MultiByteToWideChar(CP_UTF8, 0, SubStat.LockData.Comment, -1, buf, (int)len*4);
+        MultiByteToWideChar(CP_UTF8, 0, SubStat.LockData.Comment, -1, buf.get(), (int)len*4);
     }
 
-    comment->bstrVal = SysAllocString(buf);
+    comment->bstrVal = SysAllocString(buf.get());
     return result;
 }
 

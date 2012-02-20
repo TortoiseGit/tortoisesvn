@@ -30,7 +30,6 @@ USE_BUGSLAYERUTIL - If defined, the class will have another
 // You could include either IMAGEHLP.DLL or DBGHELP.DLL.
 #include "imagehlp.h"
 #include <tchar.h>
-#include "auto_buffer.h"
 
 // Include these in case the user forgets to link against them.
 #pragma comment (lib,"dbghelp.lib")
@@ -157,7 +156,7 @@ public      :
         }
 
         // Got the version size, now get the version information.
-        auto_buffer<TCHAR> lpData(dwVerSize);
+        std::unique_ptr<TCHAR[]> lpData(new TCHAR[dwVerSize]);
         if ( FALSE == GetFileVersionInfo ( szImageHlp       ,
                                            dwVerInfoHandle  ,
                                            dwVerSize        ,

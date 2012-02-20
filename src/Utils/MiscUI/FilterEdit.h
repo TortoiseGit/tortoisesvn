@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,8 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-
-#include "auto_buffer.h"
 
 /**
  * \ingroup Utils
@@ -146,7 +144,7 @@ protected:
     COLORREF                m_backColor;
     HBRUSH                  m_brBack;
     IFilterEditValidator *  m_pValidator;
-    auto_buffer<TCHAR>      m_pCueBanner;
+    std::unique_ptr<TCHAR[]> m_pCueBanner;
 };
 
 

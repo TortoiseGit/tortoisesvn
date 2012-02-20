@@ -10,7 +10,6 @@
 
 #include "stdafx.h"
 #include "MailMsg.h"
-#include "auto_buffer.h"
 
 CMailMsg::CMailMsg()
 {
@@ -173,18 +172,18 @@ int CMailMsg::MAPISend()
     }
 
     const size_t nRecipients = m_to.size() + m_cc.size() + m_bcc.size() + m_from.size();
-    auto_buffer<MapiRecipDesc> pRecipients(nRecipients);
+    std::unique_ptr<MapiRecipDesc[]> pRecipients(new MapiRecipDesc[nRecipients]);
     if (nRecipients)
     {
-        memset(pRecipients, 0, nRecipients * sizeof  MapiRecipDesc);
+        memset(pRecipients.get(), 0, nRecipients * sizeof  MapiRecipDesc);
     }
 
     const ULONG nAttachments = (ULONG)m_attachments.size();
-    auto_buffer<MapiFileDesc> pAttachments(nAttachments);
+    std::unique_ptr<MapiFileDesc[]> pAttachments(new MapiFileDesc[nAttachments]);
 
     if (pRecipients)
     {
-        pFirstRecipient = pRecipients;
+        pFirstRecipient = pRecipients.get();
         if (m_from.size())
         {
             // set from
@@ -280,7 +279,7 @@ int CMailMsg::MAPISend()
     message.nRecipCount                       = nIndex;
     message.lpRecips                          = pFirstRecipient;
     message.nFileCount                        = nAttachments;
-    message.lpFiles                           = pAttachments;
+    message.lpFiles                           = pAttachments.get();
 
     status = m_lpMapiSendMail(hMapiSession, 0, &message, MAPI_DIALOG, 0);
     m_lpMapiLogoff(hMapiSession, NULL, 0, 0);
@@ -358,8 +357,8 @@ BOOL CMailMsg::CMCSend()
         return FALSE;
     }
 
-    auto_buffer<CMC_recipient> pRecipients(m_to.size() + m_cc.size() + m_bcc.size() + m_from.size());
-    auto_buffer<CMC_attachment> pAttachments(m_attachments.size());
+    std::unique_ptr<CMC_recipient[]> pRecipients(new CMC_recipient[m_to.size() + m_cc.size() + m_bcc.size() + m_from.size()]);
+    std::unique_ptr<CMC_attachment[]> pAttachments(new CMC_attachment[m_attachments.size()]);
 
     TStrStrVector::iterator p;
     int                  nIndex = 0;
@@ -429,8 +428,8 @@ BOOL CMailMsg::CMCSend()
     else
         message.text_note = (LPTSTR)(LPCTSTR)m_sMessage.c_str();
 
-    message.recipients                        = pRecipients;
-    message.attachments                       = pAttachments;
+    message.recipients                        = pRecipients.get();
+    message.attachments                       = pAttachments.get();
     message.message_flags                     = 0;
     message.message_extensions                = NULL;
 

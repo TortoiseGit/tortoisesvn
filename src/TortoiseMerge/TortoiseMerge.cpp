@@ -27,7 +27,6 @@
 #include "PathUtils.h"
 #include "BrowseFolder.h"
 #include "DirFileEnum.h"
-#include "auto_buffer.h"
 #include "SelectFileFilter.h"
 #include "FileDlgEventHandler.h"
 #include "TempFile.h"
@@ -88,10 +87,10 @@ BOOL CTortoiseMergeApp::InitInstance()
         DWORD len = GetCurrentDirectory(0, NULL);
         if (len)
         {
-            auto_buffer<TCHAR> originalCurrentDirectory(len);
-            if (GetCurrentDirectory(len, originalCurrentDirectory))
+            std::unique_ptr<TCHAR[]> originalCurrentDirectory(new TCHAR[len]);
+            if (GetCurrentDirectory(len, originalCurrentDirectory.get()))
             {
-                sOrigCWD = originalCurrentDirectory;
+                sOrigCWD = originalCurrentDirectory.get();
                 sOrigCWD = CPathUtils::GetLongPathname(sOrigCWD);
             }
         }
@@ -570,11 +569,11 @@ bool CTortoiseMergeApp::TrySavePatchFromClipboard(std::wstring& resultFile)
     LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
 
     DWORD len = GetTempPath(0, NULL);
-    auto_buffer<TCHAR> path(len+1);
-    auto_buffer<TCHAR> tempF(len+100);
-    GetTempPath (len+1, path);
-    GetTempFileName (path, TEXT("tsm"), 0, tempF);
-    std::wstring sTempFile = std::wstring(tempF);
+    std::unique_ptr<TCHAR[]> path(new TCHAR[len+1]);
+    std::unique_ptr<TCHAR[]> tempF(new TCHAR[len+100]);
+    GetTempPath (len+1, path.get());
+    GetTempFileName (path.get(), TEXT("tsm"), 0, tempF.get());
+    std::wstring sTempFile = std::wstring(tempF.get());
 
     FILE* outFile = 0;
     _tfopen_s(&outFile, sTempFile.c_str(), _T("wb"));

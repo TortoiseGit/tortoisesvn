@@ -21,7 +21,6 @@
 #include "TortoiseBlame.h"
 #include "registry.h"
 #include "LangDll.h"
-#include "auto_buffer.h"
 #include "CreateProcessHelper.h"
 #include "UnicodeUtils.h"
 #include <ClipboardHelper.h>
@@ -134,9 +133,9 @@ std::wstring TortoiseBlame::GetAppDirectory()
     do
     {
         bufferlen += MAX_PATH;      // MAX_PATH is not the limit here!
-        auto_buffer<TCHAR> pBuf(bufferlen);
-        len = GetModuleFileName(NULL, pBuf, bufferlen);
-        path = std::wstring(pBuf, len);
+        std::unique_ptr<TCHAR[]> pBuf(new TCHAR[bufferlen]);
+        len = GetModuleFileName(NULL, pBuf.get(), bufferlen);
+        path = std::wstring(pBuf.get(), len);
     } while(len == bufferlen);
     path = path.substr(0, path.rfind('\\') + 1);
 
@@ -267,7 +266,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            auto_buffer<char> stringbuf(strLen+1);
+            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -286,7 +285,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            auto_buffer<char> stringbuf(strLen+1);
+            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -316,7 +315,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            auto_buffer<char> stringbuf(strLen+1);
+            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -331,7 +330,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            auto_buffer<char> stringbuf(strLen+1);
+            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -346,7 +345,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            auto_buffer<char> stringbuf(strLen+1);
+            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -360,7 +359,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
         len = fread(&strLen, sizeof(int), 1, File);
         if (strLen)
         {
-            auto_buffer<char> stringbuf(strLen+1);
+            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -454,7 +453,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            auto_buffer<char> stringbuf(strLen+1);
+            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             stringbuf[strLen] = 0;
             tstring msg = CUnicodeUtils::StdGetUnicode(stringbuf.get());
@@ -473,7 +472,7 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            auto_buffer<char> stringbuf(strLen+1);
+            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             stringbuf[strLen] = 0;
             tstring msg = CUnicodeUtils::StdGetUnicode(stringbuf.get());
@@ -668,8 +667,8 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
     for (i=line; (i<(int)m_authors.size())&&(!bFound); ++i)
     {
         const int bufsize = (int)SendEditor(SCI_GETLINE, i);
-        auto_buffer<char> linebuf(bufsize+1);
-        SecureZeroMemory(linebuf, bufsize+1);
+        std::unique_ptr<char[]> linebuf(new char[bufsize+1]);
+        SecureZeroMemory(linebuf.get(), bufsize+1);
         SendEditor(SCI_GETLINE, i, (LPARAM)linebuf.get());
         tstring sLine = CUnicodeUtils::StdGetUnicode(linebuf.get());
         if (!bCaseSensitive)
@@ -696,8 +695,8 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
         for (i=0; (i<line)&&(!bFound); ++i)
         {
             const int bufsize = (int)SendEditor(SCI_GETLINE, i);
-            auto_buffer<char> linebuf(bufsize+1);
-            SecureZeroMemory(linebuf, bufsize+1);
+            std::unique_ptr<char[]> linebuf(new char[bufsize+1]);
+            SecureZeroMemory(linebuf.get(), bufsize+1);
             SendEditor(SCI_GETLINE, i, (LPARAM)linebuf.get());
             tstring sLine = CUnicodeUtils::StdGetUnicode(linebuf.get());
             if (!bCaseSensitive)
@@ -968,8 +967,8 @@ void TortoiseBlame::Notify(SCNotification *notification)
             if (selTextLen == 0)
                 break;
 
-            auto_buffer<char> seltextbuffer(selTextLen + 1);
-            SendEditor(SCI_GETSELTEXT, 0, (LPARAM)(char*)seltextbuffer);
+            std::unique_ptr<char[]> seltextbuffer(new char[selTextLen + 1]);
+            SendEditor(SCI_GETSELTEXT, 0, (LPARAM)(char*)seltextbuffer.get());
             if (seltextbuffer[0] == 0)
                 break;
 
@@ -981,9 +980,9 @@ void TortoiseBlame::Notify(SCNotification *notification)
                 endstylepos = (long)SendEditor(SCI_GETLENGTH)-startstylepos;
 
             int len = endstylepos - startstylepos + 1;
-            auto_buffer<char> textbuffer(len + 1);
+            std::unique_ptr<char[]> textbuffer(new char[len + 1]);
             TEXTRANGEA textrange;
-            textrange.lpstrText = textbuffer;
+            textrange.lpstrText = textbuffer.get();
             textrange.chrg.cpMin = startstylepos;
             textrange.chrg.cpMax = endstylepos;
             SendEditor(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
@@ -991,11 +990,11 @@ void TortoiseBlame::Notify(SCNotification *notification)
             // reset indicators
             SendEditor(SCI_SETINDICATORCURRENT, STYLE_MARK);
             SendEditor(SCI_INDICATORCLEARRANGE, startstylepos, len);
-            char * startPos = strstr(textbuffer, seltextbuffer);
+            char * startPos = strstr(textbuffer.get(), seltextbuffer.get());
             while (startPos)
             {
-                SendEditor(SCI_INDICATORFILLRANGE, startstylepos + ((char*)startPos - (char*)textbuffer), selTextLen-1);
-                startPos = strstr(startPos+1, seltextbuffer);
+                SendEditor(SCI_INDICATORFILLRANGE, startstylepos + ((char*)startPos - (char*)textbuffer.get()), selTextLen-1);
+                startPos = strstr(startPos+1, seltextbuffer.get());
             }
         }
         break;

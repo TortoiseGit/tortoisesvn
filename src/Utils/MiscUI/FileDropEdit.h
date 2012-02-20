@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 
 #include "DragDropImpl.h"
 #include "UnicodeUtils.h"
-#include "auto_buffer.h"
 
 /**
  * \ingroup Utils
@@ -37,15 +36,15 @@ public:
             if(medium.pstm != NULL)
             {
                 const int BUF_SIZE = 10000;
-                auto_buffer<char> buff(BUF_SIZE+1);
+                std::unique_ptr<char[]> buff(new char[BUF_SIZE+1]);
                 ULONG cbRead=0;
-                HRESULT hr = medium.pstm->Read(buff, BUF_SIZE, &cbRead);
+                HRESULT hr = medium.pstm->Read(buff.get(), BUF_SIZE, &cbRead);
                 if (SUCCEEDED(hr) && (cbRead > 0) && (cbRead < BUF_SIZE))
                 {
                     buff[cbRead]=0;
                     LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
                     ::SendMessage(m_hTargetWnd, EM_SETSEL, nLen, -1);
-                    std::wstring str = CUnicodeUtils::StdGetUnicode(std::string(buff));
+                    std::wstring str = CUnicodeUtils::StdGetUnicode(std::string(buff.get()));
                     ::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)str.c_str());
                 }
                 else
@@ -55,10 +54,10 @@ public:
                         buff[cbRead]=0;
                         LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
                         ::SendMessage(m_hTargetWnd, EM_SETSEL, nLen, -1);
-                        std::wstring str = CUnicodeUtils::StdGetUnicode(std::string(buff));
+                        std::wstring str = CUnicodeUtils::StdGetUnicode(std::string(buff.get()));
                         ::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)str.c_str());
                         cbRead=0;
-                        hr = medium.pstm->Read(buff, BUF_SIZE, &cbRead);
+                        hr = medium.pstm->Read(buff.get(), BUF_SIZE, &cbRead);
                     }
                 }
             }
@@ -68,15 +67,15 @@ public:
             if(medium.pstm != NULL)
             {
                 const int BUF_SIZE = 10000;
-                auto_buffer<WCHAR> buff(BUF_SIZE+1);
+                std::unique_ptr<WCHAR[]> buff(new WCHAR[BUF_SIZE+1]);
                 ULONG cbRead=0;
-                HRESULT hr = medium.pstm->Read(buff, BUF_SIZE, &cbRead);
+                HRESULT hr = medium.pstm->Read(buff.get(), BUF_SIZE, &cbRead);
                 if (SUCCEEDED(hr) && (cbRead > 0) && (cbRead < BUF_SIZE))
                 {
                     buff[cbRead]=0;
                     LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
                     ::SendMessage(m_hTargetWnd, EM_SETSEL, nLen, -1);
-                    ::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)buff);
+                    ::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)buff.get());
                 }
                 else
                 {
@@ -85,9 +84,9 @@ public:
                         buff[cbRead]=0;
                         LRESULT nLen = ::SendMessage(m_hTargetWnd, WM_GETTEXTLENGTH, 0, 0);
                         ::SendMessage(m_hTargetWnd, EM_SETSEL, nLen, -1);
-                        ::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)buff);
+                        ::SendMessage(m_hTargetWnd, EM_REPLACESEL, TRUE, (LPARAM)buff.get());
                         cbRead=0;
-                        hr = medium.pstm->Read(buff, BUF_SIZE, &cbRead);
+                        hr = medium.pstm->Read(buff.get(), BUF_SIZE, &cbRead);
                     }
                 }
             }

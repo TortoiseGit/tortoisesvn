@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #include "StdAfx.h"
 #include "DelUnversionedCommand.h"
 #include "DeleteUnversionedDlg.h"
-#include "auto_buffer.h"
 #include "StringUtils.h"
 
 bool DelUnversionedCommand::Execute()
@@ -41,13 +40,13 @@ bool DelUnversionedCommand::Execute()
         }
         filelist += _T("|");
         int len = filelist.GetLength();
-        auto_buffer<TCHAR> buf(len+2);
-        _tcscpy_s(buf, len+2, filelist);
-        CStringUtils::PipesToNulls(buf, len);
+        std::unique_ptr<TCHAR[]> buf(new TCHAR[len+2]);
+        _tcscpy_s(buf.get(), len+2, filelist);
+        CStringUtils::PipesToNulls(buf.get(), len);
         SHFILEOPSTRUCT fileop;
         fileop.hwnd = GetExplorerHWND();
         fileop.wFunc = FO_DELETE;
-        fileop.pFrom = buf;
+        fileop.pFrom = buf.get();
         fileop.pTo = NULL;
         fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS;
         fileop.fFlags |= dlg.m_bUseRecycleBin ? FOF_ALLOWUNDO : 0;

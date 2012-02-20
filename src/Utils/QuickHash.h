@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,8 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-
-#include "auto_buffer.h"
 
 /**
  * A quick linear (array) hash index class. It requires HF to
@@ -325,7 +323,7 @@ public:
         while (((size_t)MAX_CLUSTERS << shift) < grower.capacity())
             ++shift;
 
-        auto_buffer<TPair> tempBuffer (MAX_CLUSTERS * clusterSize);
+        std::unique_ptr<TPair[]> tempBuffer (new TPair[MAX_CLUSTERS * clusterSize]);
         TPair* temp = tempBuffer.get();
 
         size_t used[MAX_CLUSTERS];

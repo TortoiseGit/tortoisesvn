@@ -51,7 +51,6 @@
 #include "SysInfo.h"
 #include "ProgressDlg.h"
 #include "StringUtils.h"
-#include "auto_buffer.h"
 #include "svntrace.h"
 #include "FormatMessageWrapper.h"
 #include "AsyncCall.h"
@@ -2404,13 +2403,13 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
     }
     filelist += _T("|");
     int len = filelist.GetLength();
-    auto_buffer<TCHAR> buf(len+2);
-    _tcscpy_s(buf, len+2, filelist);
-    CStringUtils::PipesToNulls(buf, len);
+    std::unique_ptr<TCHAR[]> buf(new TCHAR[len+2]);
+    _tcscpy_s(buf.get(), len+2, filelist);
+    CStringUtils::PipesToNulls(buf.get(), len);
     SHFILEOPSTRUCT fileop;
     fileop.hwnd = this->m_hWnd;
     fileop.wFunc = FO_DELETE;
-    fileop.pFrom = buf;
+    fileop.pFrom = buf.get();
     fileop.pTo = NULL;
     fileop.fAnyOperationsAborted = FALSE;
     bool useTrash = DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\RevertWithRecycleBin"), TRUE)) != 0;

@@ -27,7 +27,6 @@
 #include "StringUtils.h"
 #include "ProgressDlg.h"
 #include "InputLogDlg.h"
-#include "auto_buffer.h"
 #include "JobScheduler.h"
 #include "AsyncCall.h"
 #include "IconMenu.h"
@@ -1050,16 +1049,16 @@ void CEditPropertiesDlg::OnBnClickedImport()
                     bFailed = true;
                     continue;
                 }
-                auto_buffer<TCHAR> pNameBuf(nNameBytes/sizeof(TCHAR));
-                if (fread(pNameBuf, 1, nNameBytes, stream) == (size_t)nNameBytes)
+                std::unique_ptr<TCHAR[]> pNameBuf(new TCHAR[nNameBytes/sizeof(TCHAR)]);
+                if (fread(pNameBuf.get(), 1, nNameBytes, stream) == (size_t)nNameBytes)
                 {
-                    std::string sName = CUnicodeUtils::StdGetUTF8 (tstring (pNameBuf, nNameBytes/sizeof(TCHAR)));
+                    std::string sName = CUnicodeUtils::StdGetUTF8 (tstring (pNameBuf.get(), nNameBytes/sizeof(TCHAR)));
                     tstring sUName = CUnicodeUtils::StdGetUnicode(sName);
                     int nValueBytes = 0;
                     if (fread(&nValueBytes, sizeof(int), 1, stream) == 1)
                     {
-                        auto_buffer<BYTE> pValueBuf(nValueBytes);
-                        if (fread(pValueBuf, sizeof(char), nValueBytes, stream) == (size_t)nValueBytes)
+                        std::unique_ptr<BYTE[]> pValueBuf(new BYTE[nValueBytes]);
+                        if (fread(pValueBuf.get(), sizeof(char), nValueBytes, stream) == (size_t)nValueBytes)
                         {
                             std::string propertyvalue;
                             propertyvalue.assign((const char*)pValueBuf.get(), nValueBytes);

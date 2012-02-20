@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,6 @@
 #include "ShellObjects.h"
 #include "..\version.h"
 #include "libintl.h"
-#include "auto_buffer.h"
 #undef swprintf
 
 extern ShellObjects g_shellObjects;
@@ -112,7 +111,7 @@ void LoadLangDll()
 
             if (dwBufferSize > 0)
             {
-                auto_buffer<char> buffer(dwBufferSize);
+                std::unique_ptr<char[]> buffer(new char[dwBufferSize]);
 
                 if (buffer.get() != 0)
                 {
@@ -201,9 +200,9 @@ tstring GetAppDirectory()
     do
     {
         bufferlen += MAX_PATH;      // MAX_PATH is not the limit here!
-        auto_buffer<TCHAR> pBuf(bufferlen);
-        len = GetModuleFileName(g_hmodThisDll, pBuf, bufferlen);
-        path = tstring(pBuf, len);
+        std::unique_ptr<TCHAR[]> pBuf(new TCHAR[bufferlen]);
+        len = GetModuleFileName(g_hmodThisDll, pBuf.get(), bufferlen);
+        path = tstring(pBuf.get(), len);
     } while(len == bufferlen);
     path = path.substr(0, path.rfind('\\') + 1);
 

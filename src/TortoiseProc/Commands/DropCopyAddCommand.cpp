@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -96,17 +96,17 @@ bool DropCopyAddCommand::Execute()
             {
                 CString fromPath = pathList[nPath].GetWinPathString() + L"||";
                 CString toPath = droppath + L"\\" + name + L"||";
-                auto_buffer<TCHAR> fromBuf(fromPath.GetLength()+2);
-                auto_buffer<TCHAR> toBuf(toPath.GetLength()+2);
-                wcscpy_s(fromBuf, fromPath.GetLength()+2, fromPath);
-                wcscpy_s(toBuf, toPath.GetLength()+2, toPath);
-                CStringUtils::PipesToNulls(fromBuf, fromPath.GetLength()+2);
-                CStringUtils::PipesToNulls(toBuf, toPath.GetLength()+2);
+                std::unique_ptr<TCHAR[]> fromBuf(new TCHAR[fromPath.GetLength()+2]);
+                std::unique_ptr<TCHAR[]> toBuf(new TCHAR[toPath.GetLength()+2]);
+                wcscpy_s(fromBuf.get(), fromPath.GetLength()+2, fromPath);
+                wcscpy_s(toBuf.get(), toPath.GetLength()+2, toPath);
+                CStringUtils::PipesToNulls(fromBuf.get(), fromPath.GetLength()+2);
+                CStringUtils::PipesToNulls(toBuf.get(), toPath.GetLength()+2);
 
                 SHFILEOPSTRUCT fileop = {0};
                 fileop.wFunc = FO_COPY;
-                fileop.pFrom = fromBuf;
-                fileop.pTo = toBuf;
+                fileop.pFrom = fromBuf.get();
+                fileop.pTo = toBuf.get();
                 fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_NOCONFIRMATION | FOF_NOCONFIRMMKDIR | FOF_NOCOPYSECURITYATTRIBS | FOF_SILENT;
                 SHFileOperation(&fileop);
             }

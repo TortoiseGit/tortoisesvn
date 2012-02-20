@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008, 2011 - TortoiseSVN
+// Copyright (C) 2008, 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #include "StdAfx.h"
 #include "TSVNAuth.h"
-#include "auto_buffer.h"
 
 std::map<CStringA,Creds> tsvn_creds;
 
@@ -77,12 +76,12 @@ char * Creds::Decrypt( const char * text )
     DWORD dwLen = 0;
     CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL);
 
-    auto_buffer<BYTE> strIn(dwLen + 1);
-    CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, strIn, &dwLen, NULL, NULL);
+    std::unique_ptr<BYTE[]> strIn(new BYTE[dwLen + 1]);
+    CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL);
 
     DATA_BLOB blobin;
     blobin.cbData = dwLen;
-    blobin.pbData = strIn;
+    blobin.pbData = strIn.get();
     LPWSTR descr;
     DATA_BLOB blobout;
     CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout);
@@ -106,11 +105,11 @@ CStringA Creds::Encrypt( const char * text )
     CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout);
     DWORD dwLen = 0;
     CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, NULL, &dwLen);
-    auto_buffer<char> strOut(dwLen + 1);
-    CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut, &dwLen);
+    std::unique_ptr<char[]> strOut(new char[dwLen + 1]);
+    CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut.get(), &dwLen);
     LocalFree(blobout.pbData);
 
-    CStringA result = strOut;
+    CStringA result = strOut.get();
 
     return result;
 }

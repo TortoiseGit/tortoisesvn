@@ -31,7 +31,6 @@
 #include "SVNStatus.h"
 #include "HistoryDlg.h"
 #include "Hooks.h"
-#include "auto_buffer.h"
 #include "COMError.h"
 #include "..\version.h"
 #include "BstrSafeVector.h"
@@ -1274,12 +1273,12 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const
             return;
         }
         // allocate memory to hold file contents
-        auto_buffer<char> buffer(size);
+        std::unique_ptr<char[]> buffer(new char[size]);
         DWORD readbytes;
-        if (!ReadFile(hFile, buffer, size, &readbytes, NULL))
+        if (!ReadFile(hFile, buffer.get(), size, &readbytes, NULL))
             return;
         int opts = 0;
-        IsTextUnicode(buffer, readbytes, &opts);
+        IsTextUnicode(buffer.get(), readbytes, &opts);
         if (opts & IS_TEXT_UNICODE_NULL_BYTES)
         {
             return;
@@ -1290,11 +1289,11 @@ void CCommitDlg::ScanFile(const CString& sFilePath, const CString& sRegex, const
         }
         if ((opts & IS_TEXT_UNICODE_NOT_UNICODE_MASK)||(opts == 0))
         {
-            const int ret = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer, readbytes, NULL, 0);
-            auto_buffer<wchar_t> pWideBuf(ret);
-            const int ret2 = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer, readbytes, pWideBuf, ret);
+            const int ret = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer.get(), readbytes, NULL, 0);
+            std::unique_ptr<wchar_t[]> pWideBuf(new wchar_t[ret]);
+            const int ret2 = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)buffer.get(), readbytes, pWideBuf.get(), ret);
             if (ret2 == ret)
-                sFileContent = wstring(pWideBuf, ret);
+                sFileContent = wstring(pWideBuf.get(), ret);
         }
     }
     if (sFileContent.empty()|| !m_bRunThread)

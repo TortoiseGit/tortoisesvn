@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,6 @@
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "EditPropertyValueDlg.h"
-#include "auto_buffer.h"
 #include "SmartHandle.h"
 
 IMPLEMENT_DYNAMIC(CEditPropertyValueDlg, CResizableStandAloneDialog)
@@ -428,10 +427,10 @@ void CEditPropertyValueDlg::OnBnClickedLoadprop()
         DWORD size = GetFileSize(hFile, NULL);
         FILE * stream;
         _tfopen_s(&stream, openPath, _T("rbS"));
-        auto_buffer<char> buf(size);
-        if (fread(buf, sizeof(char), size, stream)==size)
+        std::unique_ptr<char[]> buf(new char[size]);
+        if (fread(buf.get(), sizeof(char), size, stream)==size)
         {
-            m_PropValue.assign(buf, size);
+            m_PropValue.assign(buf.get(), size);
         }
         fclose(stream);
         // see if the loaded file contents are binary

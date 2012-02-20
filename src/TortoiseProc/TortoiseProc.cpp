@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,7 +42,6 @@
 #include "..\version.h"
 #include "JumpListHelpers.h"
 #include "CmdUrlParser.h"
-#include "auto_buffer.h"
 #include "Libraries.h"
 #include "TempFile.h"
 #include "SmartHandle.h"
@@ -385,10 +384,10 @@ BOOL CTortoiseProcApp::InitInstance()
         DWORD len = GetCurrentDirectory(0, NULL);
         if (len)
         {
-            auto_buffer<TCHAR> originalCurrentDirectory(len);
-            if (GetCurrentDirectory(len, originalCurrentDirectory))
+            std::unique_ptr<TCHAR[]> originalCurrentDirectory(new TCHAR[len]);
+            if (GetCurrentDirectory(len, originalCurrentDirectory.get()))
             {
-                sOrigCWD = originalCurrentDirectory;
+                sOrigCWD = originalCurrentDirectory.get();
                 sOrigCWD = CPathUtils::GetLongPathname(sOrigCWD);
             }
         }

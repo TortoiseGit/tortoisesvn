@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "TortoiseMerge.h"
 #include "BrowseFolder.h"
 #include ".\opendlg.h"
-#include "auto_buffer.h"
 #include "CommonAppUtils.h"
 #include "registry.h"
 
@@ -239,11 +238,11 @@ void COpenDlg::OnOK()
             LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
 
             DWORD len = GetTempPath(0, NULL);
-            auto_buffer<TCHAR> path(len+1);
-            auto_buffer<TCHAR> tempF(len+100);
-            GetTempPath (len+1, path);
-            GetTempFileName (path, TEXT("tsm"), 0, tempF);
-            CString sTempFile = CString(tempF);
+            std::unique_ptr<TCHAR[]> path(new TCHAR[len+1]);
+            std::unique_ptr<TCHAR[]> tempF(new TCHAR[len+100]);
+            GetTempPath (len+1, path.get());
+            GetTempFileName (path.get(), TEXT("tsm"), 0, tempF.get());
+            CString sTempFile = CString(tempF.get());
 
             FILE * outFile;
             size_t patchlen = strlen(lpstr);

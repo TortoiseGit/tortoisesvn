@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,6 @@
 #endif
 
 #include "FileName.h"
-#include "auto_buffer.h"
 
 /**
  * class that provides a simple, buffered file write stream.
@@ -50,7 +49,7 @@ private:
 
     enum {BUFFER_SIZE = 1024*1024};
 
-    auto_buffer<unsigned char> buffer;
+    std::unique_ptr<unsigned char[]> buffer;
     unsigned used;
 
     // physical file size + used

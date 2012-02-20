@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,7 +77,7 @@ void CBufferedOutFile::InternalClose()
 CBufferedOutFile::CBufferedOutFile (const TFileName& fileName)
     : fileName (fileName)
     , file (INVALID_HANDLE_VALUE)
-    , buffer (BUFFER_SIZE)
+    , buffer (new unsigned char[BUFFER_SIZE])
     , used (0)
     , fileSize (0)
 {
@@ -95,7 +95,7 @@ CBufferedOutFile::CBufferedOutFile (const TFileName& fileName)
 #else
 CBufferedOutFile::CBufferedOutFile (const TFileName& fileName)
     : fileName (fileName)
-    , buffer (BUFFER_SIZE)
+    , buffer (new unsigned char[BUFFER_SIZE])
     , used (0)
     , fileSize (0)
 {

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,6 @@
 #include "svn_dirent_uri.h"
 #include "svn_path.h"
 #include <regex>
-#include "auto_buffer.h"
 
 #if defined(_MFC_VER)
 #include "AppUtils.h"
@@ -332,11 +331,11 @@ bool CTSVNPath::Delete(bool bTrash) const
     {
         if ((bTrash)||(IsDirectory()))
         {
-            auto_buffer<TCHAR> buf(m_sBackslashPath.GetLength()+2);
-            _tcscpy_s(buf, m_sBackslashPath.GetLength()+2, m_sBackslashPath);
+            std::unique_ptr<TCHAR[]> buf(new TCHAR[m_sBackslashPath.GetLength()+2]);
+            _tcscpy_s(buf.get(), m_sBackslashPath.GetLength()+2, m_sBackslashPath);
             buf[m_sBackslashPath.GetLength()] = 0;
             buf[m_sBackslashPath.GetLength()+1] = 0;
-            bRet = CTSVNPathList::DeleteViaShell(buf, bTrash);
+            bRet = CTSVNPathList::DeleteViaShell(buf.get(), bTrash);
         }
         else
         {
@@ -926,9 +925,9 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
     }
     catch (CFileException* pE)
     {
-        auto_buffer<TCHAR> error(10000);
-        pE->GetErrorMessage(error, 10000);
-        ::MessageBox(NULL, error, _T("TortoiseSVN"), MB_ICONERROR);
+        std::unique_ptr<TCHAR[]> error(new TCHAR[10000]);
+        pE->GetErrorMessage(error.get(), 10000);
+        ::MessageBox(NULL, error.get(), _T("TortoiseSVN"), MB_ICONERROR);
         pE->Delete();
         return false;
     }
