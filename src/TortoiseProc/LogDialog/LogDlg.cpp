@@ -5548,9 +5548,10 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         progDlg.SetTitle(IDS_APPNAME);
                         progDlg.SetAnimation(IDR_DOWNLOAD);
                         progDlg.SetTime(true);
-                        for ( size_t i = 0; i < changedpaths.size(); ++i)
+                        for ( size_t i = 0; i < changedlogpathindices.size(); ++i)
                         {
-                            const CString& changedlogpath = changedpaths[i];
+                            const CString& changedlogpath
+                                = m_currentChangedArray[changedlogpathindices[i]].GetPath();
 
                             SVNRev getrev = rev1;
 
@@ -5561,7 +5562,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                             sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)changedlogpath, (LPCTSTR)getrev.ToString());
                             progDlg.SetLine(1, sInfoLine, true);
                             progDlg.SetLine(2, tempfile.GetWinPath(), true);
-                            progDlg.SetProgress64(i, changedpaths.size());
+                            progDlg.SetProgress64(i, changedlogpathindices.size());
                             progDlg.ShowModeless(m_hWnd);
 
                             SHCreateDirectoryEx(m_hWnd, tempfile.GetContainingDirectory().GetWinPath(), NULL);
