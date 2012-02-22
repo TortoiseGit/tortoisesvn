@@ -3015,6 +3015,8 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
 void CBaseView::OnLButtonTrippleClick( UINT /*nFlags*/, CPoint point )
 {
     const int nClickedLine = GetButtonEventLineIndex(point);
+    if (nClickedLine < 0)
+        return;
     POINT ptCaretPos;
     ptCaretPos.y = nClickedLine;
     ptCaretPos.x = CalculateCharIndex(ptCaretPos.y, m_nOffsetChar + (point.x - GetMarginWidth()) / GetCharWidth());
