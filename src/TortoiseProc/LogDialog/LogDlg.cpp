@@ -1230,8 +1230,8 @@ void CLogDlg::LogThread()
         if ((m_startrev == SVNRev::REV_HEAD) || (m_endrev == SVNRev::REV_HEAD) || (m_head < 0))
         {
             // expensive repository lookup
-            // (if maxHeadAge has expired, which is the default setting)
-
+            int maxheadage = LogCache::CSettings::GetMaxHeadAge();
+            LogCache::CSettings::SetMaxHeadAge(0);
             svn_revnum_t head = -1;
             succeeded = GetRootAndHead(m_path, rootpath, head);
             m_head = head;
@@ -1241,6 +1241,7 @@ void CLogDlg::LogThread()
             }
             if (m_endrev == SVNRev::REV_HEAD)
                 m_endrev = head;
+            LogCache::CSettings::SetMaxHeadAge(maxheadage);
         }
         else
         {
