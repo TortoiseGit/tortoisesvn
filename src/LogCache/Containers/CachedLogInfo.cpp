@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,7 +79,7 @@ bool CCachedLogInfo::CCacheFileManager::ShouldDrop
                                    , 0
                                    , 0
                                    , OPEN_ALWAYS
-                                   , FILE_ATTRIBUTE_NORMAL
+                                   , FILE_ATTRIBUTE_NORMAL|FILE_ATTRIBUTE_NOT_CONTENT_INDEXED
                                    , NULL);
     if (tempHandle == INVALID_HANDLE_VALUE)
         return false;
@@ -187,7 +187,7 @@ void CCachedLogInfo::CCacheFileManager::AutoAcquire
                             , 0
                             , 0
                             , OPEN_ALWAYS
-                            , FILE_ATTRIBUTE_NORMAL
+                            , FILE_ATTRIBUTE_NORMAL|FILE_ATTRIBUTE_NOT_CONTENT_INDEXED
                             , NULL);
     if (OwnsFile())
     {

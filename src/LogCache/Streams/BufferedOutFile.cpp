@@ -81,13 +81,16 @@ CBufferedOutFile::CBufferedOutFile (const TFileName& fileName)
     , used (0)
     , fileSize (0)
 {
-    CPathUtils::MakeSureDirectoryPathExists(fileName.substr(0, fileName.find_last_of('\\')).c_str());
+    const TFileName dir = fileName.substr(0, fileName.find_last_of('\\'));
+    CPathUtils::MakeSureDirectoryPathExists(dir.c_str());
+    DWORD attr = GetFileAttributes(dir.c_str());
+    SetFileAttributes(dir.c_str(), attr | FILE_ATTRIBUTE_NOT_CONTENT_INDEXED);
     file = CreateFile ( fileName.c_str()
                       , GENERIC_WRITE
                       , 0
                       , NULL
                       , CREATE_ALWAYS
-                      , FILE_ATTRIBUTE_NORMAL
+                      , FILE_ATTRIBUTE_NORMAL | FILE_ATTRIBUTE_NOT_CONTENT_INDEXED
                       , NULL);
     if (file == INVALID_HANDLE_VALUE)
         throw CStreamException ("can't create log cache file");
