@@ -162,6 +162,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_bAscendingPathList(false)
     , m_bHideNonMergeables(FALSE)
     , m_copyfromrev(0)
+    , m_bStartRevIsHead(true)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
@@ -264,6 +265,7 @@ void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, S
     m_path = path;
     m_pegrev = pegrev;
     m_startrev = startrev;
+    m_bStartRevIsHead = m_startrev.IsHead();
     m_LogRevision = startrev;
     m_endrev = endrev;
     m_hasWC = !path.IsUrl();
@@ -1227,7 +1229,7 @@ void CLogDlg::LogThread()
         // start and end revs.
         // -> we don't need to look for the head revision in these cases
 
-        if ((m_startrev == SVNRev::REV_HEAD) || (m_endrev == SVNRev::REV_HEAD) || (m_head < 0))
+        if (m_bStartRevIsHead || (m_startrev == SVNRev::REV_HEAD) || (m_endrev == SVNRev::REV_HEAD) || (m_head < 0))
         {
             // expensive repository lookup
             int maxheadage = LogCache::CSettings::GetMaxHeadAge();
