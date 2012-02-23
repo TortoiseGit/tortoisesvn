@@ -247,10 +247,10 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
 
 CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2)
 {
-    CString difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\.") + file2.GetFilename().MakeLower());
+    CString difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + file2.GetFilename().MakeLower());
     if (!difftool.IsEmpty())
         return difftool;
-    difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\.") + file1.GetFilename().MakeLower());
+    difftool = CRegString(_T("Software\\TortoiseSVN\\DiffTools\\") + file1.GetFilename().MakeLower());
     if (!difftool.IsEmpty())
         return difftool;
 

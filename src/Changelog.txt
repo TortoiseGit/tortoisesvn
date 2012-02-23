@@ -9,6 +9,8 @@ Version 1.7.6
        wrong files when sorted. (Stefan)
 - BUG: Issue #220: tripple-click on empty space
        crashes TortoiseMerge. (Stefan)
+- BUG: Issue #221: diff uses wrong tool in case the
+       filename matches a registered extension. (Stefan)
 
 Version 1.7.5
 - BUG: Issue #184: Refresh in log dialog only refreshes
