@@ -93,7 +93,7 @@ public:
     bool IsPathGood(const CTSVNPath& path);
     bool IsPathWatched(const CTSVNPath& path) {return watcher.IsPathWatched(path);}
     bool AddPathToWatch(const CTSVNPath& path) {return watcher.AddPath(path);}
-    bool BlockPath(const CTSVNPath& path, DWORD timeout = 0);
+    bool BlockPath(const CTSVNPath& path, bool specific, DWORD timeout = 0);
     bool UnBlockPath(const CTSVNPath& path);
     bool RemoveTimedoutBlocks();
 

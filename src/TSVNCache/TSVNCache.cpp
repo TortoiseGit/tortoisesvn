@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2009, 2011 - TortoiseSVN
+// External Cache Copyright (C) 2005 - 2009, 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -764,7 +764,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
                     CTSVNPath changedpath;
                     changedpath.SetFromWin(CString(command.path));
                     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": block path %s\n"), changedpath.GetWinPath());
-                    CSVNStatusCache::Instance().BlockPath(changedpath);
+                    CSVNStatusCache::Instance().BlockPath(changedpath, false);
                 }
                 break;
             case TSVNCACHECOMMAND_UNBLOCK:

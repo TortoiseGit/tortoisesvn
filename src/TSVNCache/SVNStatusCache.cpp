@@ -289,7 +289,7 @@ bool CSVNStatusCache::IsPathGood(const CTSVNPath& path)
     return true;
 }
 
-bool CSVNStatusCache::BlockPath(const CTSVNPath& path, DWORD timeout /* = 0 */)
+bool CSVNStatusCache::BlockPath(const CTSVNPath& path, bool specific, DWORD timeout /* = 0 */)
 {
     if (timeout == 0)
         timeout = BLOCK_PATH_DEFAULT_TIMEOUT;
@@ -299,21 +299,26 @@ bool CSVNStatusCache::BlockPath(const CTSVNPath& path, DWORD timeout /* = 0 */)
 
     timeout = GetTickCount() + (timeout * 1000);    // timeout is in seconds, but we need the milliseconds
 
-    CTSVNPath p(path);
-    do
+    if (!specific)
     {
-        CTSVNPath dbPath(p);
-        dbPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\wc.db"));
-        if (!dbPath.Exists())
-            p = p.GetContainingDirectory();
-        else
+        CTSVNPath p(path);
+        do
         {
-            AutoLocker lock(m_NoWatchPathCritSec);
-            m_NoWatchPaths[p] = timeout;
-            return true;
-        }
-    } while (!p.IsEmpty());
+            CTSVNPath dbPath(p);
+            dbPath.AppendPathString(g_SVNAdminDir.GetAdminDirName() + _T("\\wc.db"));
+            if (!dbPath.Exists())
+                p = p.GetContainingDirectory();
+            else
+            {
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": block path %s\n"), p.GetWinPath());
+                AutoLocker lock(m_NoWatchPathCritSec);
+                m_NoWatchPaths[p] = timeout;
+                return true;
+            }
+        } while (!p.IsEmpty());
+    }
 
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": block path %s\n"), path.GetWinPath());
     AutoLocker lock(m_NoWatchPathCritSec);
     m_NoWatchPaths[path.GetDirectory()] = timeout;
 

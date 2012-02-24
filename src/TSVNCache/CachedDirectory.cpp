@@ -506,14 +506,14 @@ CCachedDirectory::SvnUpdateMembersStatus()
     {
         InterlockedExchange(&m_FetchingStatus, FALSE);
         m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-        CSVNStatusCache::Instance().BlockPath(m_directoryPath);
+        CSVNStatusCache::Instance().BlockPath(m_directoryPath, true, 5);
         return false;
     }
     m_pCtx = CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool);
     svn_error_t* pErr = svn_client_status5 (
         NULL,
         m_pCtx,
-        m_directoryPath.GetSVNApiPath(subPool),
+        svnapipath,
         &revision,
         svn_depth_immediates,
         TRUE,       // get all
@@ -552,7 +552,7 @@ CCachedDirectory::SvnUpdateMembersStatus()
         case SVN_ERR_WC_PATH_NOT_FOUND:
             {
                 m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
-                CSVNStatusCache::Instance().BlockPath(m_directoryPath);
+                CSVNStatusCache::Instance().BlockPath(m_directoryPath, true);
             }
             break;
         case SVN_ERR_WC_NOT_FILE:
