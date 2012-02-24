@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
+"PO-Revision-Date: 2012-02-20 09:11+0000\n"
 "Last-Translator: Gia Shervashidze <giasher@gmail.com>\n"
 "Language-Team: Georgian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -538,10 +538,6 @@ msgstr "&დახურვა"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "სარკმლ(ებ)ის &დახურვა"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "სტრიქონთა ასაკით &დაფერვა"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2913,6 +2909,18 @@ msgstr "ფერი 1"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "ფერი 2"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr ""
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr ""
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5585,6 +5593,10 @@ msgstr "ითვალისწინებს საცავებს სტ�
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "ფაილის მცდარი სახელი."
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9117,6 +9129,10 @@ msgstr "შემოწმების დაწყება"
 msgid "Start Update Hook"
 msgstr "ბმულის განახლების დაწყება"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "სტატიკური"
@@ -9904,6 +9920,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "არის ცვლილებები ერთ ან მეტ დასტაში რომლებიც თქვენს მიერ svn:externals-შია მითითებულია.\nეს ფაილები არ არიან ფიქსაციის სიაში.  საჭიროა მათი ცალკე ფიქსაცია."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr ""
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "პრობლემათა თვალმიდევნების პროვაიდერები არაა."
@@ -10249,6 +10272,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN - გარსის გაფართოება.\nიგი იდგმება Windows explorer-ში.\nTortoiseSVN-ის გამოსაყენებლად გახსენით მიმომხილველი და თაგუნას მარჯვენა ღილაკით დაწკაპეთ ნებისმიერი დასტა.\nგამოჩნდება მენიუ სადაც იპოვნით TortoiseSVN ყველა ბრძანებას.\nასევე, წაიკითხეთ სახელმძღვანელო!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

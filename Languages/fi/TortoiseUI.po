@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
+"PO-Revision-Date: 2012-02-20 09:11+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -540,10 +540,6 @@ msgstr "&Sulje"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "&Sulje ikkuna(t)"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "&Väritä rivien ikä"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2915,6 +2911,18 @@ msgstr "Väri 1"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "Väri 2"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr ""
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr ""
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5587,6 +5595,10 @@ msgstr "Sisällyttää arkiston tilatarkistukseen\nPidä shift-näppäin pohjass
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "Väärä tiedostonimi."
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9119,6 +9131,10 @@ msgstr "Alkuversio"
 msgid "Start Update Hook"
 msgstr "Aloita päivitys"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Staattinen"
@@ -9906,6 +9922,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "Yhdessä tai useammassa svn:externals -kohteessa on muutoksia tai versioimattomia tiedostoja.\nNäitä ei voi valita suoraan toimitettavaksi arkistoon, vaan svn:externals -kohteet on toimitettava erikseen."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr ""
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "Vikaseurantaohjelmia ei ole saatavilla."
@@ -10251,6 +10274,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN on komentotulkin laajennos.\nTämä tarkoittaa, että se on integroitu Windowsin resurssienhallintaan.\nKäyttääksesi TortoiseSVN-työkalua, avaa resurssienhallinta ja napsauta hiiren oikealla näppäimellä haluamaasi kansiota.\nAvautuvasta kontekstivalikosta löydät kaikki TortoiseSVN -komennot.\nMuista lukea ohjeet!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

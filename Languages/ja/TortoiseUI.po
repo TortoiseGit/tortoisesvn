@@ -11,14 +11,14 @@
 # Authors:
 # Translators:
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011, 2012.
-# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011.
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
-"Last-Translator: Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>\n"
+"PO-Revision-Date: 2012-02-20 12:12+0000\n"
+"Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -539,10 +539,6 @@ msgstr "閉じる(&C)"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "ウィンドウを閉じる(&C)"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "各行の変更時期を色分けする(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2914,6 +2910,18 @@ msgstr "色１"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "色２"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr "変更時期で原色で色分け(&A)"
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr "変更時期で連続色で色分け(&C)"
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr "作者で色分け(&T)"
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5586,6 +5594,10 @@ msgstr "状態チェックのためにリポジトリを含める\nすべてを�
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "ファイル名が正しくありません。"
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr "原色:"
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9118,6 +9130,10 @@ msgstr "開始リビジョン"
 msgid "Start Update Hook"
 msgstr "Start Update フック"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr "レジストリエディターを起動する"
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Static"
@@ -9905,6 +9921,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "svn:externals でインクルードされた１つ以上のディレクトリ内に変更もしくはバージョン管理外の項目が存在します。\nそれらのファイルはコミットのリストには現れません。それらのファイルは別途コミットする必要があります。"
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr "現在、Tortoiseが使用しているもののほかに%d件のオーバーレイハンドラ―が使われています。"
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "使用可能な課題追跡システムのプロバイダーが見つかりませんでした。"
@@ -10250,6 +10273,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN はシェル拡張です。\nつまり、エクスプローラに統合されます。\nTortoiseSVN を使用するために、エクスプローラを開いて適当なフォルダー上で右クリックして\nコンテキストメニューを表示させてください。そこから TortoiseSVN のすべてのコマンドが使用できます。\nあとは、マニュアルをお読みください。"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr "TortoiseSVNは %s のオーバーレイを表示できません。"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

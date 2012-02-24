@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
+"PO-Revision-Date: 2012-02-20 19:00+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -539,10 +539,6 @@ msgstr "&Затвори"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "&Затвори прозор(е) "
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "&Боја старости линија"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2914,6 +2910,18 @@ msgstr "Боја 1"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "Боја 2"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr "Боје по ст&арости, индексирано"
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr "Боје по ст&арости, &континуално"
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr "Боје по ау&тору"
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5586,6 +5594,10 @@ msgstr "Укључује спремиште за проверу статуса\n
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "Погрешно име фајла."
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr "Индекс боја:"
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9118,6 +9130,10 @@ msgstr "Почетна ревизија"
 msgid "Start Update Hook"
 msgstr "Старт обнављања закачаљка"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr "Покрени уређивач регистра"
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Статички"
@@ -9905,6 +9921,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "Постоје измене или неверзионисани фајлови  унутар једног или више фолдера  који су укључени преко својства свн:еxтерналс.\nТи фајлови нису на попису за урезивање. Њих морате урезати засебно."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr "Постоји текућих %d руковаоца прекривача инсталираних по Тортоисе кориснику"
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "Нема набављача проблем-трагача."
@@ -10250,6 +10273,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "ТортоисеСВЊе проширење програмске шкољке.\nТо значи да је интегрисан у  Wиндоwс еxплорер.\nДа бисте користили ТортоисеСВНмолим вас отворите претраживач и кликните десним тастером на жељени фолдер\nда бисте добили конекстни мени где ћете наћи све ТортозСВН команде.\nИ прочитајте упутство!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr "ТортоисеСВН неће приказати следеће прекриваче: %s"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
+"PO-Revision-Date: 2012-02-20 09:12+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: Slovenian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -539,10 +539,6 @@ msgstr "&Zapri"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "&Zapri okna"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "&Prikaz starosti vrstic z barvami"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2914,6 +2910,18 @@ msgstr "Barva 1"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "Barva 2"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr ""
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr ""
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5586,6 +5594,10 @@ msgstr "Dodaj skladišče v preverjanje statusa\nZa prenos vseh elementov držit
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "Neveljavno ime datoteke."
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9118,6 +9130,10 @@ msgstr "Začetna revizija"
 msgid "Start Update Hook"
 msgstr "Pred prikazom okna posodobitve"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statično"
@@ -9905,6 +9921,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "V eni ali več mapah, ki ste jih vključili s svn:externals, so spremembe ali elementi brez različic.\nTe datoteke niso na seznamu za objavo. Objaviti jih boste morali ločeno."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr ""
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "Na voljo ni nobenega ponudnika sledilnika zadev."
@@ -10250,6 +10273,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN je razširitev lupine.\nTo pomeni, da se vključi v Raziskovalca.\nZa uporabo TortoiseSVN, prosimo, odprite Raziskovalca in desno kliknite na katerokoli mapo,\ns čimer odprete kontekstni meni, kjer najdete vse ukaze orodja TortoiseSVN.\nIn preberite priročnik!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

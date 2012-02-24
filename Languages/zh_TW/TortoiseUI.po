@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:52+0000\n"
+"PO-Revision-Date: 2012-02-20 13:55+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -542,10 +542,6 @@ msgstr "關閉(&C)"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "關閉視窗(&C)"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "以顏色標記各行的年齡(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2917,6 +2913,18 @@ msgstr "色彩 1"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "色彩 2"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr "依照時間上色及索引(&A)"
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr "依照時間上色(&C)"
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr "依照作者上色 (&T)"
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5589,6 +5597,10 @@ msgstr "將此檔案庫也加入狀態檢查\n點擊時按住 SHIFT 鍵可以抓
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "檔案名稱錯誤."
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr "索引色:"
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9121,6 +9133,10 @@ msgstr "開始版本"
 msgid "Start Update Hook"
 msgstr "開始更新掛勾"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr "啟動登錄編輯器"
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "靜態"
@@ -9908,6 +9924,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "以 svn:externals 指定的目錄中有異動或是未納入版本控制的檔案.\n那些檔案不會列在送交列表中, 您必須自行送交那些檔案."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr "包含 Tortoise 在內，目前共有 %d 個覆蓋圖示處理程式"
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "目前沒有可用的問題追踪程式提供者."
@@ -10253,6 +10276,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN 是 shell 延伸程式.\n它與 Windows 檔案總管整合.\n要使用 TortoiseSVN 請從檔案總管中右鍵點擊任何目錄\n以帶出快顯式選單. 從那裡就可以找到所有 TortoiseSVN 的指令\n並請閱讀說明書!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr "TortoiseSVN 不再顯示以下覆蓋圖示: %s"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

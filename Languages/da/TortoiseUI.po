@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
+"PO-Revision-Date: 2012-02-20 09:11+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: Danish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -539,10 +539,6 @@ msgstr "&Luk"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "&Luk Vindue(r)"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "&Farv linjer efter alder"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2914,6 +2910,18 @@ msgstr "Farve 1"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "Farve 2"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr ""
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr ""
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5586,6 +5594,10 @@ msgstr "Indkluderer versionsarkivet for status check\nHold shift-tasten nede nå
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "Forkert filnavn."
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9118,6 +9130,10 @@ msgstr "Start-revision"
 msgid "Start Update Hook"
 msgstr "\"Start opdatering\"-tilkobling"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statisk"
@@ -9905,6 +9921,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "Der er ændringer eller ikke-versionerede emner i en eller flere mapper som er inkluderet med svn:externals.\nDisse filer er ikke oplistet til arkivering. Du bliver nødt til at arkivere disse filer separat."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr ""
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "Der er ingen tilgængelige sagsbehandlerudbydere."
@@ -10250,6 +10273,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN er en såkaldt shell-udvidelse.\nDet betyder, at den er integreret i Windows Stifinder.\nFor at benytte TortoiseSVN skal du åbne Windows Stifinder og højreklikke på en mappe\nfor at vise kontekstmenuen, hvor du finder alle kommandoerne i TortoiseSVN.\nHusk at læse manualen!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

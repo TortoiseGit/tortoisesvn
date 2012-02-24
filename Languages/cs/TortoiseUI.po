@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
+"PO-Revision-Date: 2012-02-21 12:05+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -539,10 +539,6 @@ msgstr "&Zavřít"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "&Zavřít okno(a)"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "&Zabarvit stáří řádků"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2914,6 +2910,18 @@ msgstr "Barva 1"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "Barva 2"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr "Zbarvit podle stáří, &indexováno"
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr "Zbarvit podle stáří, &nepřetržité"
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr "Zbarvit podle &autora"
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5586,6 +5594,10 @@ msgstr "Obsahuje úložiště pro kontrolu stavu\nPodržte klávesu shift při k
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "Neplatný název souboru."
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr "Barvy indexu:"
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9118,6 +9130,10 @@ msgstr "Počáteční revize"
 msgid "Start Update Hook"
 msgstr "Spustit hák aktualizace"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr "Spustit editor registru"
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statický"
@@ -9905,6 +9921,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "Existují změny nebo položky bez verze v rámci jednoho nebo více adresářů, které jste připojil pomocí svn:externals.\nTyto soubory nejsou vypsány pro odevzdání. Musíte je odevzdat zvlášť."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr "V současnosti je nainstalováno %d obslužných rutin překrytí kromě těch, co používá Tortoise."
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "Není dostupný žádný poskytovatel sledovače problémů."
@@ -10250,6 +10273,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN je rozšíření rozhraní.\nTo znamená, že je integrované do průzkumníka Windows.\nPro použití TortoiseSVN otevřete průzkumníka a klikněte pravým tlačítkem na libovolný adresář\npro vyvolání kontextového menu, kde naleznete všechny příkazy TortoiseSVN.\nA přečtěte si manuál!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr "TortoiseSVN nezobrazí následující překrytí: %s"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

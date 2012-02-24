@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
+"PO-Revision-Date: 2012-02-20 13:52+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -542,10 +542,6 @@ msgstr "&Lukk"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "&Lukk Vindu(er)"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "&Fargelegg linjealder"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2918,6 +2914,18 @@ msgstr "Farge 1"
 msgid "Color 2"
 msgstr "Farge 2"
 
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr "Gi &farge etter alder, indeksert"
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr "Gi farge etter alder, &kontinuerlig"
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr "Gi farge etter &forfatter"
+
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
 msgstr "Farger"
@@ -4182,7 +4190,7 @@ msgstr "Slå på loggmellomlagring for å gjøre logg- og revisjonsgrafdialogene
 
 #. Resource IDs: (65535)
 msgid "Enabled Overlay Handlers"
-msgstr "Aktiverte Ikoner"
+msgstr "Aktiverte Ikonlag"
 
 #. Resource IDs: (195)
 msgid ""
@@ -5277,7 +5285,7 @@ msgstr "Ikonlag"
 
 #. Resource IDs: (65535)
 msgid "Icon Overlays / Status Columns"
-msgstr "Ikon-lag / Statuskolonner"
+msgstr "Ikonlag / Statuskolonner"
 
 #. Resource IDs: (184)
 msgid "Icon Overlays::Icon Set"
@@ -5589,6 +5597,10 @@ msgstr "Tar med depotet i statussjekk\nHold inne shift-tasten når du klikker fo
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "Ukorrekt filnavn"
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr "Indekserte farger:"
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9121,6 +9133,10 @@ msgstr "Første revisjon"
 msgid "Start Update Hook"
 msgstr "Start Oppdatering Påhaking"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr "Start register-redigeringsverktøyet"
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statisk"
@@ -9425,13 +9441,13 @@ msgstr "Avsnittsmarkøren '@@' var forventet i linje %d !"
 msgid ""
 "The color of creation, copy and rename nodes of tags will be shifted towards"
 " yellow."
-msgstr "Fargen til noder for oppretting, kopiering og omdøping av merker vil skyves mot gult."
+msgstr "Fargen til noder for oppretting, kopiering og omdøping av merker vil tones mot gult."
 
 #. Resource IDs: (346)
 msgid ""
 "The color of creation, copy and rename nodes of the trunk will be shifted "
 "towards green."
-msgstr "Fargen til noder for oppretting, kopiering og omdøping av stammen vil skyves mot gult."
+msgstr "Fargen til noder for oppretting, kopiering og omdøping av stammen vil tones mot grønt."
 
 #. Resource IDs: (197)
 msgid "The default URL to checkout from if nothing else is specified"
@@ -9908,6 +9924,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "Det er endringer eller ikke-versjonerte elementer i en eller flere kataloger som du har inkludert med svn:externals.\nDisse filene er ikke tatt med for innsending og må sendes inn separat."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr "Det er nå %d ikonlag installert i tillegg til de Tortoise bruker."
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "Det er ingen leverandører av saksporing tilgjengelig."
@@ -10253,6 +10276,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN er en skallutvidelse.\nDet betyr at den er integrert i Windows-utforskeren.\nFor å bruke TortoiseSVN åpner du utforskeren og høyreklikker på en mappe\nfor å få opp en meny hvor du får tilgang til alle TortoiseSVNs kommandoer.\nOg les manualen!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr "TortoiseSVN vil ikke vise følgende ikonlag: %s"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

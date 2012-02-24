@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
+"PO-Revision-Date: 2012-02-20 09:12+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: Hungarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -537,10 +537,6 @@ msgstr "&Bezárás"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "Ablak(ok) &bezárása"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "&Sorok színezése életkor szerint"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2912,6 +2908,18 @@ msgstr "Egyik szín"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "Másik szín"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr ""
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr ""
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5584,6 +5592,10 @@ msgstr "Állapot ellenőrzés a tárolóban is\nMinden elem feldolgozásához ta
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "Rossz fájlnév."
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9116,6 +9128,10 @@ msgstr "Kezdeti verzió"
 msgid "Start Update Hook"
 msgstr "Frissítés-kezdeti hook"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Statikus"
@@ -9903,6 +9919,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "Egy vagy több mappa, amely az svn:externals hatására lett lekérve külső tárolóból, változásokat vagy nem verziókezelt fájlokat tartalmaz.\nEzen fájlok nincsenek itt listázva, külön kell beküldeni őket."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr ""
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "Nincs elérhető hibakövető-szolgáltató!"
@@ -10248,6 +10271,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN egy beépülő modul.\nEz azt jelenti, hogy a Windows Intézőn keresztül lehet használni.\nA TortoiseSVN használatához kattints jobb gombbal egy mappára, hogy\nfeljöjjön a TortoiseSVN menüje a parancsokkal.\nTovábbi segítségért olvasd el a leírástl!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

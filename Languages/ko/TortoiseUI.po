@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
+"PO-Revision-Date: 2012-02-20 09:12+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -542,10 +542,6 @@ msgstr "닫기(&C)"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "창(들) 닫기(&C)"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "만들어진 순서대로 색을 칠합니다(&C)"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2917,6 +2913,18 @@ msgstr "색상 1"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "색상 2"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr ""
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr ""
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5589,6 +5597,10 @@ msgstr "상태 체크를 위해 저장소를 포함합니다.\n모든 것을 가
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "잘못된 파일명."
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9121,6 +9133,10 @@ msgstr "시작 리비전"
 msgid "Start Update Hook"
 msgstr "업데이트 시작 훅"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "정적인"
@@ -9908,6 +9924,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "svn:externals로 설정된 디렉토리속에 변경 사항이나 버전관리되지 않는 아이템들이 존재합니다.\n변경된 해당 파일들은 커밋시에 보이지 않습니다. 변경된 해당 파일들은 각각 커밋해야만 합니다."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr ""
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "이용 가능한 이슈 트래커 프로바이더가 존재하지 않습니다."
@@ -10253,6 +10276,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN은 쉘 익스텐션입니다.\n이 말은 곧 윈도우의 탐색기에 통합되어 있다는 뜻입니다.\nTortoiseSVN을 사용하려면, 탐색기를 열고 오른쪽 버튼을 폴더 위에서 눌러\n단축 메뉴를 통해야합니다. 이 메뉴상에 원하는 TortoiseSVN 명령이 있을 것입니다.\n그리고 메뉴얼을 이용해 주세요!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"

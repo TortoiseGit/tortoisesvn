@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:53+0000\n"
+"PO-Revision-Date: 2012-02-20 09:12+0000\n"
 "Last-Translator: Tomás Christie <tommychristie@gmail.com>\n"
 "Language-Team: Spanish (Castilian) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -544,10 +544,6 @@ msgstr "&Cerrar"
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
 msgstr "&Cerrar ventana(s)"
-
-#. Resource IDs: (32785)
-msgid "&Color age of lines"
-msgstr "&Colorear la antigüedad de las líneas"
 
 #. Resource IDs: (65535)
 msgid "&Command:"
@@ -2919,6 +2915,18 @@ msgstr "Color 1"
 #. Resource IDs: (65535)
 msgid "Color 2"
 msgstr "Color 2"
+
+#. Resource IDs: (32785)
+msgid "Color by &age, indexed"
+msgstr ""
+
+#. Resource IDs: (32794)
+msgid "Color by age, &continuous"
+msgstr ""
+
+#. Resource IDs: (32793)
+msgid "Color by au&thor"
+msgstr ""
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -5591,6 +5599,10 @@ msgstr "Incluye el repositorio para la comprobación del estado\nMantenga pulsad
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
 msgstr "Nombre de archivo incorrecto."
+
+#. Resource IDs: (65535)
+msgid "Index colors:"
+msgstr ""
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -9123,6 +9135,10 @@ msgstr "Revisión de Inicio"
 msgid "Start Update Hook"
 msgstr "Gancho inicio actualización"
 
+#. Resource IDs: (1542)
+msgid "Start registry editor"
+msgstr ""
+
 #. Resource IDs: (16514)
 msgid "Static"
 msgstr "Estático"
@@ -9910,6 +9926,13 @@ msgid ""
 "Those files are not listed for commit. You need to commit those files separately."
 msgstr "Hay cambios o ítems sin versionar dentro de uno o más directorios que han sido incluidos con svn:externals.\nEsos archivos no se muestran para su confirmación. Necesita confirmar esos archivos de forma separada."
 
+#. Resource IDs: (200)
+#, c-format
+msgid ""
+"There are currently %d overlay handlers installed besides the ones Tortoise "
+"uses."
+msgstr ""
+
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
 msgstr "No hay proveedores de control de incidentes disponibles."
@@ -10255,6 +10278,11 @@ msgid ""
 "to bring up the context menu where you will find all TortoiseSVN commands.\n"
 "And read the manual!"
 msgstr "TortoiseSVN es una extensión del shell.\nEso significa que está integrado en el Explorador de Windows.\nPara usar TortoiseSVN por favor abra el Explorador y haga click con el botón derecho en cualquier carpeta que desee\npara que aparezca el menú contextual donde encontrará todos los comandos de TortoiseSVN.\nY lea el manual!"
+
+#. Resource IDs: (200)
+#, c-format
+msgid "TortoiseSVN will not show the following overlays: %s"
+msgstr ""
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
