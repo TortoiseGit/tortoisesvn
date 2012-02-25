@@ -265,7 +265,7 @@ void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, S
     m_path = path;
     m_pegrev = pegrev;
     m_startrev = startrev;
-    m_bStartRevIsHead = m_startrev.IsHead();
+    m_bStartRevIsHead = !!m_startrev.IsHead();
     m_LogRevision = startrev;
     m_endrev = endrev;
     m_hasWC = !path.IsUrl();
