@@ -64,7 +64,7 @@ END_MESSAGE_MAP()
 
 
 //////////////////////////////////////////////////////////////////////////
-CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TortoiseSVN " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
+CCrashReportTSVN crasher(L"TortoiseSVN " _T(APP_X64_STRING));
 
 CTortoiseProcApp::CTortoiseProcApp() : hWndExplorer(NULL)
 {
@@ -100,7 +100,6 @@ CTortoiseProcApp::~CTortoiseProcApp()
     CHooks::Destroy();
     SYS_IMAGE_LIST().Cleanup();
     apr_terminate();
-    crasher.Uninstall();
 }
 
 // The one and only CTortoiseProcApp object
