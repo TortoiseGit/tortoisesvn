@@ -80,4 +80,4 @@ typedef CComCritSecLock<CComAutoCriticalSection> AutoLocker;
 #endif
 
 #include "ProfilingInfo.h"
-
+#include "CrashReport.h"

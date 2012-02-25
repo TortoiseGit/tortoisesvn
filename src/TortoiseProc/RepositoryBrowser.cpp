@@ -619,6 +619,7 @@ void CRepositoryBrowser::InitRepo()
 
 UINT CRepositoryBrowser::InitThreadEntry(LPVOID pVoid)
 {
+    CCrashReportThread crashthread;
     return ((CRepositoryBrowser*)pVoid)->InitThread();
 }
 

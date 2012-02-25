@@ -759,6 +759,7 @@ void CCommitDlg::SaveSplitterPos()
 
 UINT CCommitDlg::StatusThreadEntry(LPVOID pVoid)
 {
+    CCrashReportThread crashthread;
     return ((CCommitDlg*)pVoid)->StatusThread();
 }
 

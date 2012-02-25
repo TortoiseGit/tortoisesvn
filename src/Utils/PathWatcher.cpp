@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2007 - 2011 - TortoiseSVN
+// External Cache Copyright (C) 2007-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -178,6 +178,7 @@ bool CPathWatcher::AddPath(const CTSVNPath& path)
 
 unsigned int CPathWatcher::ThreadEntry(void* pContext)
 {
+    CCrashReportThread crashthread;
     ((CPathWatcher*)pContext)->WorkerThread();
     return 0;
 }

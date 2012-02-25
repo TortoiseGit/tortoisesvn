@@ -286,6 +286,7 @@ BOOL CCopyDlg::OnInitDialog()
 
 UINT CCopyDlg::FindRevThreadEntry(LPVOID pVoid)
 {
+    CCrashReportThread crashthread;
     return ((CCopyDlg*)pVoid)->FindRevThread();
 }
 

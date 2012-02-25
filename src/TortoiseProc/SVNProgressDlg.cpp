@@ -1059,6 +1059,7 @@ void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, CO
 
 UINT CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
 {
+    CCrashReportThread crashthread;
     return ((CSVNProgressDlg*)pVoid)->ProgressThread();
 }
 

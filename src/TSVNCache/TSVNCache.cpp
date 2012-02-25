@@ -461,6 +461,7 @@ VOID GetAnswerToRequest(const TSVNCacheRequest* pRequest, TSVNCacheResponse* pRe
 
 unsigned int __stdcall PipeThread(LPVOID lpvParam)
 {
+    CCrashReportThread crashthread;
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": PipeThread started\n");
     bool * bRun = (bool *)lpvParam;
     // The main loop creates an instance of the named pipe and
@@ -534,6 +535,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
 
 unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
 {
+    CCrashReportThread crashthread;
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CommandWaitThread started\n");
     bool * bRun = (bool *)lpvParam;
     // The main loop creates an instance of the named pipe and
@@ -607,6 +609,7 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
 
 unsigned int __stdcall InstanceThread(LPVOID lpvParam)
 {
+    CCrashReportThread crashthread;
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": InstanceThread started\n");
     TSVNCacheResponse response;
     DWORD cbBytesRead, cbWritten;
@@ -683,6 +686,7 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
 
 unsigned int __stdcall CommandThread(LPVOID lpvParam)
 {
+    CCrashReportThread crashthread;
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CommandThread started\n");
     DWORD cbBytesRead;
     BOOL fSuccess;
