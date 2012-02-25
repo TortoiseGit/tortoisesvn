@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "stdafx.h"
 #include "SmartHandle.h"
+#include "../Utils/CrashReport.h"
 
 #include <iostream>
 #include <tchar.h>
@@ -596,15 +597,6 @@ int abort_on_pool_failure (int /*retcode*/)
 }
 #pragma warning(pop)
 
-void customInvalidParameterHandler(const wchar_t* /*expression*/,
-                               const wchar_t* /*function*/,
-                               const wchar_t* /*file*/,
-                               unsigned int /*line*/,
-                               uintptr_t /*pReserved*/)
-{
-    printf("Invalid parameter detected\n");
-}
-
 int _tmain(int argc, _TCHAR* argv[])
 {
     // we have three parameters
@@ -618,7 +610,7 @@ int _tmain(int argc, _TCHAR* argv[])
     SubStat.bFolders = FALSE;
 
     SetDllDirectory(L"");
-    //_set_invalid_parameter_handler(customInvalidParameterHandler);
+    CCrashReportTSVN crasher(L"SubWCRev " _T(APP_X64_STRING));
 
     if (argc >= 2 && argc <= 5)
     {

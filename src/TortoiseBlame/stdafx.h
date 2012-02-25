@@ -41,3 +41,9 @@
 #include <map>
 #include <fstream>
 #pragma warning(pop)
+
+#ifdef _WIN64
+#   define APP_X64_STRING   "x64"
+#else
+#   define APP_X64_STRING ""
+#endif

@@ -26,6 +26,7 @@
 #include <ClipboardHelper.h>
 #include "TaskbarUUID.h"
 #include "BlameIndexColors.h"
+#include "../Utils/CrashReport.h"
 
 #include <algorithm>
 #include <cctype>
@@ -1466,6 +1467,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     app.hInstance = hInstance;
 
     SetDllDirectory(L"");
+    CCrashReportTSVN crasher(L"TortoiseBlame " _T(APP_X64_STRING));
     if (::LoadLibrary(_T("SciLexer.DLL")) == NULL)
         return FALSE;
 
