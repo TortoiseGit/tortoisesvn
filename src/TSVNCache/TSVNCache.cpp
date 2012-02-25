@@ -24,7 +24,7 @@
 #include "CacheInterface.h"
 #include "Resource.h"
 #include "registry.h"
-#include "..\crashrpt\CrashReport.h"
+#include "CrashReport.h"
 #include "SVNAdminDir.h"
 #include "Dbt.h"
 #include <initguid.h>
@@ -45,7 +45,7 @@
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
-CCrashReport crasher("tortoisesvn@gmail.com", "Crash Report for TSVNCache " APP_X64_STRING " : " STRPRODUCTVER, TRUE);// crash
+CCrashReportTSVN crasher(L"TSVNCache " _T(APP_X64_STRING));
 
 unsigned int __stdcall InstanceThread(LPVOID);
 unsigned int __stdcall PipeThread(LPVOID lpvParam);
