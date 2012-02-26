@@ -241,6 +241,8 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_WM_CAPTURECHANGED()
     ON_REGISTERED_MESSAGE(WM_SVNAUTHCANCELLED, OnAuthCancelled)
     ON_NOTIFY(NM_CUSTOMDRAW, IDC_REPOLIST, &CRepositoryBrowser::OnNMCustomdrawRepolist)
+    ON_COMMAND(ID_URL_HISTORY_BACK, &CRepositoryBrowser::OnUrlHistoryBack)
+    ON_COMMAND(ID_URL_HISTORY_FORWARD, &CRepositoryBrowser::OnUrlHistoryForward)
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -1205,6 +1207,11 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
         SetDlgItemText(IDC_INFOLABEL, L"");
     else
         SetDlgItemText(IDC_INFOLABEL, temp);
+
+    if (m_UrlHistory.empty() || m_UrlHistory.front() != pTreeItem->url)
+        m_UrlHistory.push_front(pTreeItem->url);
+    if (m_UrlHistoryForward.empty() || m_UrlHistoryForward.front() != GetPath())
+        m_UrlHistoryForward.clear();
 }
 
 HTREEITEM CRepositoryBrowser::FindUrl (const CString& fullurl)
@@ -4486,3 +4493,44 @@ bool CRepositoryBrowser::TrySVNParentPath()
     }
     return false;
 }
+
+void CRepositoryBrowser::OnUrlHistoryBack()
+{
+    if (m_UrlHistory.empty())
+        return;
+
+    CString url = m_UrlHistory.front();
+    if (url == GetPath())
+    {
+        m_UrlHistory.pop_front();
+        if (m_UrlHistory.empty())
+            return;
+        url = m_UrlHistory.front();
+    }
+    SVNRev r = GetRevision();
+    m_UrlHistoryForward.push_front(GetPath());
+    ChangeToUrl(url, r, true);
+    m_UrlHistory.pop_front();
+    m_barRepository.ShowUrl (url, r);
+}
+
+void CRepositoryBrowser::OnUrlHistoryForward()
+{
+    if (m_UrlHistoryForward.empty())
+        return;
+
+    CString url = m_UrlHistoryForward.front();
+    if (url == GetPath())
+    {
+        m_UrlHistoryForward.pop_front();
+        if (m_UrlHistoryForward.empty())
+            return;
+        url = m_UrlHistoryForward.front();
+    }
+    SVNRev r = GetRevision();
+    m_barRepository.ShowUrl (url, r);
+    ChangeToUrl(url, r, true);
+    m_UrlHistoryForward.pop_front();
+    m_barRepository.ShowUrl (url, r);
+}
+

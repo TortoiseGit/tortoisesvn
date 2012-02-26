@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,6 +27,8 @@
 #define IDC_URL_COMBO     10000
 #define IDC_REVISION_BTN  10001
 #define IDC_UP_BTN        10002
+#define IDC_BACK_BTN      10003
+#define IDC_FORWARD_BTN   10004
 
 IMPLEMENT_DYNAMIC(CRepositoryBar, CReBarCtrl)
 
@@ -48,6 +50,8 @@ BEGIN_MESSAGE_MAP(CRepositoryBar, CReBarCtrl)
     ON_CBN_SELENDOK(IDC_URL_COMBO, OnCbnSelEndOK)
     ON_BN_CLICKED(IDC_REVISION_BTN, OnBnClicked)
     ON_BN_CLICKED(IDC_UP_BTN, OnGoUp)
+    ON_BN_CLICKED(IDC_BACK_BTN, OnHistoryBack)
+    ON_BN_CLICKED(IDC_FORWARD_BTN, OnHistoryForward)
     ON_WM_DESTROY()
     ON_NOTIFY(CBEN_DRAGBEGIN, IDC_URL_COMBO, OnCbenDragbeginUrlcombo)
 END_MESSAGE_MAP()
@@ -96,6 +100,37 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
             rbbi.fMask |= RBBIM_COLORS;
         else
             rbbi.fMask |= RBBS_CHILDEDGE;
+        int bandpos = 0;
+        // Create the "Back" button control to be added
+        rect = CRect(0, 0, 24, 24);
+        m_btnBack.Create(_T("BACK"), WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_BACK_BTN);
+        m_btnBack.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_BACKWARD), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+        m_btnBack.SetWindowText(_T(""));
+        m_btnBack.Invalidate();
+        rbbi.lpText     = _T("");
+        rbbi.hwndChild  = m_btnBack.m_hWnd;
+        rbbi.clrFore    = ::GetSysColor(COLOR_WINDOWTEXT);
+        rbbi.clrBack    = ::GetSysColor(COLOR_BTNFACE);
+        rbbi.cx         = rect.right - rect.left;
+        rbbi.cxMinChild = rect.right - rect.left;
+        rbbi.cyMinChild = rect.bottom - rect.top;
+        if (!InsertBand(bandpos++, &rbbi))
+            return false;
+        // Create the "Forward" button control to be added
+        rect = CRect(0, 0, 24, 24);
+        m_btnForward.Create(_T("FORWARD"), WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_FORWARD_BTN);
+        m_btnForward.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_FORWARD), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+        m_btnForward.SetWindowText(_T(""));
+        m_btnForward.Invalidate();
+        rbbi.lpText     = _T("");
+        rbbi.hwndChild  = m_btnForward.m_hWnd;
+        rbbi.clrFore    = ::GetSysColor(COLOR_WINDOWTEXT);
+        rbbi.clrBack    = ::GetSysColor(COLOR_BTNFACE);
+        rbbi.cx         = rect.right - rect.left;
+        rbbi.cxMinChild = rect.right - rect.left;
+        rbbi.cyMinChild = rect.bottom - rect.top;
+        if (!InsertBand(bandpos++, &rbbi))
+            return false;
 
         // Create the "URL" combo box control to be added
         rect = CRect(0, 0, 100, 400);
@@ -111,7 +146,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         rbbi.cx         = rect.right - rect.left;
         rbbi.cxMinChild = rect.right - rect.left;
         rbbi.cyMinChild = m_cbxUrl.GetItemHeight(-1) + 10;
-        if (!InsertBand(0, &rbbi))
+        if (!InsertBand(bandpos++, &rbbi))
             return false;
 
         // Reposition the combobox for correct redrawing
@@ -131,7 +166,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         rbbi.cx         = rect.right - rect.left;
         rbbi.cxMinChild = rect.right - rect.left;
         rbbi.cyMinChild = rect.bottom - rect.top;
-        if (!InsertBand(1, &rbbi))
+        if (!InsertBand(bandpos++, &rbbi))
             return false;
 
         // Create the "Revision" button control to be added
@@ -146,13 +181,15 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         rbbi.cx         = rect.right - rect.left;
         rbbi.cxMinChild = rect.right - rect.left;
         rbbi.cyMinChild = rect.bottom - rect.top;
-        if (!InsertBand(2, &rbbi))
+        if (!InsertBand(bandpos++, &rbbi))
             return false;
 
-        MaximizeBand(0);
+        MaximizeBand(2);
 
         m_tooltips.Create(this);
         m_tooltips.AddTool(&m_btnUp, IDS_REPOBROWSE_TT_UPFOLDER);
+        m_tooltips.AddTool(&m_btnBack, IDS_REPOBROWSE_TT_BACKWARD);
+        m_tooltips.AddTool(&m_btnForward, IDS_REPOBROWSE_TT_FORWARD);
 
         return true;
     }
@@ -190,6 +227,12 @@ void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
     }
     else
         m_tooltips.DelTool(&m_btnRevision);
+
+    if (m_pRepo)
+    {
+        m_btnBack.EnableWindow(m_pRepo->GetHistoryBackwardCount() != 0);
+        m_btnForward.EnableWindow(m_pRepo->GetHistoryForwardCount() != 0);
+    }
 }
 
 void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecked /* = false */)
@@ -366,6 +409,18 @@ BOOL CRepositoryBar::PreTranslateMessage(MSG* pMsg)
     return CReBarCtrl::PreTranslateMessage(pMsg);
 }
 
+void CRepositoryBar::OnHistoryBack()
+{
+    if (m_pRepo)
+        ::SendMessage(m_pRepo->GetHWND(), WM_COMMAND, MAKEWPARAM(ID_URL_HISTORY_BACK, 1), 0);
+}
+
+void CRepositoryBar::OnHistoryForward()
+{
+    if (m_pRepo)
+        ::SendMessage(m_pRepo->GetHWND(), WM_COMMAND, MAKEWPARAM(ID_URL_HISTORY_FORWARD, 1), 0);
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 CRepositoryBarCnr::CRepositoryBarCnr(CRepositoryBar *repository_bar) :
@@ -393,7 +448,7 @@ BOOL CRepositoryBarCnr::OnEraseBkgnd(CDC* /* pDC */)
 
 void CRepositoryBarCnr::OnSize(UINT /* nType */, int cx, int cy)
 {
-    m_pbarRepository->MoveWindow(0, 0, cx, cy);
+    m_pbarRepository->MoveWindow(48, 0, cx, cy);
 }
 
 void CRepositoryBarCnr::DrawItem(LPDRAWITEMSTRUCT)

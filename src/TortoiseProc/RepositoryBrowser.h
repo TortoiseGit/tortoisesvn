@@ -27,6 +27,8 @@
 #include "RepositoryLister.h"
 #include "ReaderWriterLock.h"
 
+#include <list>
+
 #define REPOBROWSER_CTRL_MIN_WIDTH  20
 #define REPOBROWSER_FETCHTIMER      101
 
@@ -102,6 +104,10 @@ public:
 
     void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult);
 
+    HWND GetHWND() const { return GetSafeHwnd(); }
+    size_t GetHistoryForwardCount() const { return m_UrlHistoryForward.size(); }
+    size_t GetHistoryBackwardCount() const { return m_UrlHistory.size(); }
+
     void SetSparseCheckoutMode() { m_bSparseCheckoutMode = true; m_bStandAlone = false; }
 
     /// overwrite SVN callbacks
@@ -157,6 +163,8 @@ protected:
     afx_msg void OnRefresh();
     afx_msg void OnDelete();
     afx_msg void OnGoUp();
+    afx_msg void OnUrlHistoryBack();
+    afx_msg void OnUrlHistoryForward();
 
     DECLARE_MESSAGE_MAP()
 
@@ -327,6 +335,8 @@ private:
     CRepositoryLister   m_lister;
     std::map<CString,svn_depth_t> m_checkoutDepths;
     std::map<CString,svn_depth_t> m_updateDepths;
+    std::list<CString>  m_UrlHistory;
+    std::list<CString>  m_UrlHistoryForward;
 
     /// used to execute user ops (e.g. context menu actions) in the background
     async::CJobScheduler m_backgroundJobs;
