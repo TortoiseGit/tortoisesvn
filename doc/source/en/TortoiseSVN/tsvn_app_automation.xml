@@ -315,7 +315,8 @@ Don't touch these lines:
                             <entry condition="pot">:switch</entry>
                             <entry>
                                 Opens the switch dialog. The <option>/path</option> specifies the
-                                target directory.
+                                target directory and <option>/url</option> the
+                                url to switch to.
                             </entry>
                         </row>
                         <row>
@@ -376,7 +377,9 @@ Don't touch these lines:
                                 The <option>/path</option>
                                 is the working copy to branch/tag from.
                                 And the <option>/url</option> is the
-                                target URL.
+                                target URL. To already check the option <literal>Switch 
+                                working copy to new branch/tag</literal> you can pass
+                                the <option>/switchaftercopy</option> switch.
                                 You can also specify the <option>/logmsg</option> switch
                                 to pass a predefined log message to the branch/tag dialog.
                                 Or, if you don't want to pass the log message on the
