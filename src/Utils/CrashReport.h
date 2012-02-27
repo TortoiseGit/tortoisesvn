@@ -24,19 +24,19 @@
 #include <tchar.h>
 
 
-typedef int crInstallFN(PCR_INSTALL_INFO pInfo);
-typedef int crUninstallFN(void);
-typedef int crInstallToCurrentThreadFN(void);
-typedef int crInstallToCurrentThread2FN(DWORD dwFlags);
-typedef int crUninstallFromCurrentThreadFN(void);
-typedef int crAddFile2FN(LPCTSTR pszFile,LPCTSTR pszDestFile,LPCTSTR pszDesc,DWORD dwFlags);
-typedef int crAddScreenshotFN(DWORD dwFlags);
-typedef int crAddScreenshot2FN(DWORD dwFlags,int nJpegQuality);
-typedef int crAddPropertyFN(LPCTSTR pszPropName,LPCTSTR pszPropValue);
-typedef int crAddRegKeyFN(LPCTSTR pszRegKey,LPCTSTR pszDstFileName,DWORD dwFlags);
-typedef int crGenerateErrorReportFN(CR_EXCEPTION_INFO* pExceptionInfo);
-typedef int crEmulateCrashFN(unsigned ExceptionType);
-typedef int crGetLastErrorMsgFN(LPTSTR pszBuffer,UINT uBuffSize);
+typedef int WINAPI crInstallFN(PCR_INSTALL_INFO pInfo);
+typedef int WINAPI crUninstallFN(void);
+typedef int WINAPI crInstallToCurrentThreadFN(void);
+typedef int WINAPI crInstallToCurrentThread2FN(DWORD dwFlags);
+typedef int WINAPI crUninstallFromCurrentThreadFN(void);
+typedef int WINAPI crAddFile2FN(LPCTSTR pszFile,LPCTSTR pszDestFile,LPCTSTR pszDesc,DWORD dwFlags);
+typedef int WINAPI crAddScreenshotFN(DWORD dwFlags);
+typedef int WINAPI crAddScreenshot2FN(DWORD dwFlags,int nJpegQuality);
+typedef int WINAPI crAddPropertyFN(LPCTSTR pszPropName,LPCTSTR pszPropValue);
+typedef int WINAPI crAddRegKeyFN(LPCTSTR pszRegKey,LPCTSTR pszDstFileName,DWORD dwFlags);
+typedef int WINAPI crGenerateErrorReportFN(CR_EXCEPTION_INFO* pExceptionInfo);
+typedef int WINAPI crEmulateCrashFN(unsigned ExceptionType);
+typedef int WINAPI crGetLastErrorMsgFN(LPTSTR pszBuffer,UINT uBuffSize);
 
 /**
  * \ingroup Utils
