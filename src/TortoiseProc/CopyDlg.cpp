@@ -136,7 +136,7 @@ BOOL CCopyDlg::OnInitDialog()
     m_repoRoot = svn.GetRepositoryRootAndUUID(path, true, sUUID);
     m_repoRoot.TrimRight('/');
     m_wcURL = svn.GetURLFromPath(path);
-    if (m_wcURL.IsEmpty() || !path.Exists())
+    if (m_wcURL.IsEmpty() || (!path.IsUrl() && !path.Exists()))
     {
         CString Wrong_URL=path.GetSVNPathString();
         CString temp;
@@ -274,11 +274,14 @@ BOOL CCopyDlg::OnInitDialog()
     EnableSaveRestore(_T("CopyDlg"));
 
     m_bSettingChanged = false;
-    // start a thread to obtain the highest revision number of the working copy
-    // without blocking the dialog
-    if ((m_pThread = AfxBeginThread(FindRevThreadEntry, this))==NULL)
+    if (!m_path.IsUrl())
     {
-        OnCantStartThread();
+        // start a thread to obtain the highest revision number of the working copy
+        // without blocking the dialog
+        if ((m_pThread = AfxBeginThread(FindRevThreadEntry, this))==NULL)
+        {
+            OnCantStartThread();
+        }
     }
 
     return TRUE;
