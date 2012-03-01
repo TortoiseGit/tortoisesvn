@@ -84,15 +84,16 @@ BOOL CSwitchDlg::OnInitDialog()
     m_repoRoot = svn.GetRepositoryRootAndUUID(svnPath, true, sUUID);
     m_repoRoot.TrimRight('/');
     CString url = svn.GetURLFromPath(svnPath);
+    CString destUrl;
     if (m_URL != _T(""))
     {
-        url = m_URL;
+        destUrl = m_URL;
     }
     m_URLCombo.LoadHistory(_T("Software\\TortoiseSVN\\History\\repoPaths\\")+sUUID, _T("url"));
     m_URLCombo.SetCurSel(0);
     if (!url.IsEmpty())
     {
-        CString relPath = url.Mid(m_repoRoot.GetLength());
+        CString relPath = destUrl.Mid(m_repoRoot.GetLength());
         relPath = CPathUtils::PathUnescape(relPath);
         relPath.Replace('\\', '/');
         m_URLCombo.AddString(relPath, 0);
