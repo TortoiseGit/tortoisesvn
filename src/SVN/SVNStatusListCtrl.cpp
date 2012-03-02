@@ -5264,6 +5264,7 @@ void CSVNStatusListCtrl::OnIgnoreMask(const CTSVNPath& filepath)
         RemoveListEntries(toremove);
     }
     SetRedraw(TRUE);
+    GetStatisticsString();
 }
 
 void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path)
@@ -5335,6 +5336,7 @@ void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path)
         RemoveListEntries(toremove);
     }
     SetRedraw(TRUE);
+    GetStatisticsString();
 }
 
 void CSVNStatusListCtrl::OnResolve(svn_wc_conflict_choice_t resolveStrategy)
