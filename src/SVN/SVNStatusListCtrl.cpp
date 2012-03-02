@@ -2361,6 +2361,24 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
         POSITION pos = GetFirstSelectedItemPosition();
         int index;
         std::vector<int> entriesToRemove;
+        if (pos == NULL)
+        {
+            index = GetIndex(filepath);
+            FileEntry * e = GetListEntry(index);
+            if (!bKeepLocal &&
+                ((e->status == svn_wc_status_unversioned)||
+                (e->status == svn_wc_status_none)||
+                (e->status == svn_wc_status_ignored)))
+            {
+                m_nTotal--;
+                entriesToRemove.push_back(index);
+            }
+            else
+            {
+                e->textstatus = svn_wc_status_deleted;
+                e->status = svn_wc_status_deleted;
+            }
+        }
         while ((index = GetNextSelectedItem(pos)) >= 0)
         {
             FileEntry * e = GetListEntry(index);
@@ -2423,12 +2441,12 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
         {
             CAutoWriteLock locker(m_guard);
             SetRedraw(FALSE);
-            POSITION pos = NULL;
+            POSITION pos = GetFirstSelectedItemPosition();
+            int index;
             CTSVNPathList deletedlist;  // to store list of deleted folders
             bool bHadSelected = false;
-            while ((pos = GetFirstSelectedItemPosition()) != 0)
+            while ((index = GetNextSelectedItem(pos)) >= 0)
             {
-                int index = GetNextSelectedItem(pos);
                 if (GetCheck(index))
                     m_nSelected--;
                 m_nTotal--;
@@ -2478,6 +2496,8 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
     bool bRecursive     = false;
     CAutoReadLock locker(m_guard);
     POSITION pos = GetFirstSelectedItemPosition();
+    if (pos == NULL)
+        bConfirm = true;
     int index;
     while ((index = GetNextSelectedItem(pos)) >= 0)
     {
@@ -2557,6 +2577,21 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
     // status because they are not restored by the revert.
     CTSVNPathList delList;
     pos = GetFirstSelectedItemPosition();
+    if (pos == NULL)
+    {
+        FileEntry * entry2 = GetListEntry(filepath);
+        if (entry2)
+        {
+            svn_wc_status_kind status = entry2->status;
+            if ((status != svn_wc_status_added)&&
+                (status != svn_wc_status_none)&&
+                (status != svn_wc_status_unversioned)&&
+                (status != svn_wc_status_missing))
+            {
+                delList.AddPath(entry2->GetPath());
+            }
+        }
+    }
     while ((index = GetNextSelectedItem(pos)) >= 0)
     {
         FileEntry * entry2 = GetListEntry(index);
@@ -2592,9 +2627,13 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
     SetRedraw(FALSE);
     {
         CAutoWriteLock writelocker(m_guard);
-        while ((pos = GetFirstSelectedItemPosition())!=0)
+        pos = GetFirstSelectedItemPosition();
+        if (pos==NULL)
         {
-            index = GetNextSelectedItem(pos);
+            SendNeedsRefresh();
+        }
+        while ((index = GetNextSelectedItem(pos)) >= 0)
+        {
             FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
             if ( fentry->IsFolder() )
             {
@@ -3070,11 +3109,14 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     popup.AppendMenu(MF_SEPARATOR);
                     popup.AppendMenuIcon(IDSVNLC_PROPERTIES, IDS_STATUSLIST_CONTEXT_PROPERTIES, IDI_PROPERTIES);
                 }
-                popup.AppendMenu(MF_SEPARATOR);
-                popup.AppendMenuIcon(IDSVNLC_COPY, IDS_STATUSLIST_CONTEXT_COPY, IDI_COPYCLIP);
-                popup.AppendMenuIcon(IDSVNLC_COPYEXT, IDS_STATUSLIST_CONTEXT_COPYEXT, IDI_COPYCLIP);
-                if (selSubitem >= 0)
-                    popup.AppendMenuIcon(IDSVNLC_COPYCOL, IDS_STATUSLIST_CONTEXT_COPYCOL, IDI_COPYCLIP);
+                if (!bInactiveItem)
+                {
+                    popup.AppendMenu(MF_SEPARATOR);
+                    popup.AppendMenuIcon(IDSVNLC_COPY, IDS_STATUSLIST_CONTEXT_COPY, IDI_COPYCLIP);
+                    popup.AppendMenuIcon(IDSVNLC_COPYEXT, IDS_STATUSLIST_CONTEXT_COPYEXT, IDI_COPYCLIP);
+                    if (selSubitem >= 0)
+                        popup.AppendMenuIcon(IDSVNLC_COPYCOL, IDS_STATUSLIST_CONTEXT_COPYCOL, IDI_COPYCLIP);
+                }
                 if ((m_dwContextMenus & SVNSLC_POPCHANGELISTS)
                     &&(wcStatus != svn_wc_status_unversioned)&&(wcStatus != svn_wc_status_none))
                 {
@@ -3426,7 +3468,8 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 {
                     CTSVNPathList targetList;
                     FillListOfSelectedItemPaths(targetList);
-
+                    if (targetList.GetCount()==0)
+                        targetList.AddPath(filepath);
                     CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
                     targetList.WriteToFile(sTempFile, false);
                     CString sCmd;
