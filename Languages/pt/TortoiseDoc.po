@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:21+0000\n"
+"PO-Revision-Date: 2012-02-29 23:43+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3406,7 +3406,7 @@ msgid ""
 " is. Then you can edit the file, e.g. in TortoiseMerge and undo all the "
 "changes you don't want to commit. After saving those changes you can commit "
 "the file."
-msgstr ""
+msgstr "<action>clica à direita</action> no ficheiro e usa o <menuchoice><guimenu>Menu Contexto</guimenu><guimenuitem>Restaurar após submeter</guimenuitem></menuchoice>. Irá então ser criada uma cópia do ficheiro tal como está. Então poderás editar o ficheiro, e.g. no TortoiseMerge e desfazer todas as alterações que não queres submeter. Após guardares todas essas alterações, poderás submeter o ficheiro."
 
 #. (para)
 msgid ""
@@ -7867,7 +7867,7 @@ msgid ""
 "<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
-msgstr ""
+msgstr "Visto que nem todos os utilizadores têm a sua cópia de trabalho em checkout no mesmo lugar com o mesmo nome, poderás configurar um script/ferramenta a executar, que reside na tua cópia de trabalho, especificando em alternativa apenas o url no repositório, usando <filename>%REPOROOT%</filename> como parte do url até à raiz do repositório. Por exemplo, se o teu script de gancho está na tua cópia de trabalho sob  <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, irias especificar o caminho para o script como  <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. Deste modo, mesmo que movas o teu repositório para outro servidor, não terás de ajustar as propriedades do script de gancho."
 
 #. (title)
 msgid "Property dialog for hook scripts"
@@ -7917,7 +7917,7 @@ msgid ""
 "the <literal>labeltext</literal> is the text shown in the dialog above the "
 "checkbox where you can explain the purpose and use of the property. The "
 "other parameters should be self explanatory."
-msgstr ""
+msgstr "Na <oliteral>labeltext</literal> está o texto mostrado na caixa de diálogo acima da caixa de verificação, onde podes explicar o propósito e uso da propriedade.Os outros parâmetros deverão ser auto-explicativos."
 
 #. (term)
 msgid "state"
@@ -7932,7 +7932,7 @@ msgid ""
 "If your property represents one of many possible states, e.g., <literal>yes,"
 " no, maybe</literal>, then you can configure your property as a "
 "<literal>state</literal><placeholder-1/> property like this:"
-msgstr ""
+msgstr "Se a tua propriedade representar um de muitos estados, e.g., <literal>sim,não,talvez</literal>, podes então configurar a tua propriedade como propriedade <literal>state</literal> <placeholder-1/> do seguinte modo:"
 
 #. (literal)
 msgid ""
@@ -7944,7 +7944,7 @@ msgid ""
 "The parameters are the same as for the <literal>bool</literal> property, "
 "with <literal>DEFVAL</literal> being the default value to be used if the "
 "property isn't set yet or has a value that's not configured."
-msgstr ""
+msgstr "Os parâmetros são os mesmos que para a propriedade <literal>bool</literal>, com <literal>DEFVAL</literal> como parâmetro por defeito a ser usado se a propriedade não tiver sido inicializada, ou tiver um valor não configurado. "
 
 #. (para)
 msgid ""
@@ -8013,7 +8013,7 @@ msgid ""
 "my:singlelineprop=singleline;enter a small comment(.*)\n"
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
 "</screen>"
-msgstr ""
+msgstr "Podes também especificar quando é que uma caixa de diálogo personalizada poderá ser usada para adicionar/editar a tua propriedade. O TortoiseSVN oferece quatro diferentes caixas de diálogo, dependendo do tipo da tua propriedade. <placeholder-1/> Os screenshots acima foram tirados com as seguintes <literal>tsvn:userdirproperties</literal>: <screen>⏎\nmy:boolprop=bool;This is a bool type property. Either check or uncheck it.(true;false;my bool prop)⏎\nmy:stateprop1=state;This is a state property. Select one of the two states.(true;true;true value;false;false value)⏎\nmy:stateprop2=state;This is a state property. Select one of the three states.(maybe;true;answer is correct;false;answer is wrong;maybe;not answered)⏎\nmy:stateprop3=state;Specify the day to set this property.(1;1;Monday;2;Tuesday;3;Wednesday;4;Thursday;5;Friday;6;Saturday;7;Sunday)⏎\nmy:singlelineprop=singleline;enter a small comment(.*)⏎\nmy:multilineprop=multiline;copy and paste a full chapter here(.*)⏎\n</screen>"
 
 #. (para)
 msgid ""
@@ -14070,7 +14070,7 @@ msgid ""
 "<filename>file.txt</filename> to <filename>FILE.TXT</filename> wouldn't "
 "bother normal Windows applications, but Subversion is case sensitive in "
 "these situations. So TortoiseSVN automatically fixes such case changes."
-msgstr ""
+msgstr "Algumas aplicações alteram a altura da letra dos nomes de ficheiros sem aviso, mas essas alterações não são desejadas nem necessárias. Por exemplo uma mudança de  <filename>file.txt</filename> para <filename>FILE.TXT</filename> não afectaria aplicações normais de Windows, mas o Subversion é sensivel à altura da letra nessas situações. Pelo que, o TortoiseSVN repara automaticamente essas situações. "
 
 #. (para)
 msgid ""
@@ -19381,7 +19381,7 @@ msgid ""
 "slow when showing inline diffs for very long lines. Because of that only "
 "lines that are shorter than 3000 chars are shown with inline diffs. You can "
 "change this value here."
-msgstr ""
+msgstr "<guilabel>Comprimento máximo de linha para difs em linha</guilabel> o TortoiseMerge pode ficar lento para comparações (dif) em linha, para linhs muito longas. Devido a esse comportamento, apenas linhas inferiores a 3000 caracters serão mostradas nas difs em linha. Poderás alterar aqui esse valor."
 
 #. (para)
 msgid ""
