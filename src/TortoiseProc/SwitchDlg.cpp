@@ -84,7 +84,7 @@ BOOL CSwitchDlg::OnInitDialog()
     m_repoRoot = svn.GetRepositoryRootAndUUID(svnPath, true, sUUID);
     m_repoRoot.TrimRight('/');
     CString url = svn.GetURLFromPath(svnPath);
-    CString destUrl;
+    CString destUrl = url;
     if (m_URL != _T(""))
     {
         destUrl = m_URL;
@@ -98,9 +98,9 @@ BOOL CSwitchDlg::OnInitDialog()
         relPath.Replace('\\', '/');
         m_URLCombo.AddString(relPath, 0);
         m_URLCombo.SelectString(-1, relPath);
-        m_URL = url;
+        m_URL = destUrl;
 
-        SetDlgItemText(IDC_SRCURL, CTSVNPath(m_URL).GetUIPathString());
+        SetDlgItemText(IDC_SRCURL, CTSVNPath(url).GetUIPathString());
         SetDlgItemText(IDC_DESTURL, CTSVNPath(CPathUtils::CombineUrls(m_repoRoot, relPath)).GetUIPathString());
     }
 
