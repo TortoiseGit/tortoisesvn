@@ -20,13 +20,14 @@
 # Linus Fredrich Levisse <linukcs@live.fr>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Lübbe Onken <l.onken@rac.de>, 2011.
+# Mickael Patron <mickael_patron@hotmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-20 09:11+0000\n"
-"Last-Translator: grokwik <grokwik@gmail.com>\n"
+"PO-Revision-Date: 2012-03-04 12:04+0000\n"
+"Last-Translator: Mickael Patron <mickael_patron@hotmail.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -161,7 +162,7 @@ msgstr "%1!s!\nRévision %2!s!, Auteur %3!s!, Taille %4!s!, Date %5!s!"
 msgid ""
 "%1!s!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
-msgstr ""
+msgstr "%1!s!\nAffichage de %2!d! fichiers et de %3!d! dossiers, de %4!d! éléments au total"
 
 #. Resource IDs: (3860)
 #, c-format
@@ -2861,7 +2862,7 @@ msgstr "Cliquez sur \"Avancé\" pour spécifier un programme de fusion par exten
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
-msgstr ""
+msgstr "Cliquez pour voir les commandes afin de déplacer les blocs de texte\nUtilisez les blocs de texte"
 
 #. Resource IDs: (257)
 msgid "Clipboard"
@@ -2921,15 +2922,15 @@ msgstr "Couleur 2"
 
 #. Resource IDs: (32785)
 msgid "Color by &age, indexed"
-msgstr ""
+msgstr "Couleur par l'&age, indexé"
 
 #. Resource IDs: (32794)
 msgid "Color by age, &continuous"
-msgstr ""
+msgstr "Couleur selon l'âge, &continue"
 
 #. Resource IDs: (32793)
 msgid "Color by au&thor"
-msgstr ""
+msgstr "Couleur par au&teur"
 
 #. Resource IDs: (138, 16961, 65535)
 msgid "Colors"
@@ -4940,7 +4941,7 @@ msgstr "Aller à la différence suivante\nDifférence suivante"
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
-msgstr ""
+msgstr "Aller à la prochaine ligne différente\nProchaine ligne différente"
 
 #. Resource IDs: (2051)
 msgid ""
@@ -4958,7 +4959,7 @@ msgstr "Aller à la différence précédente\nDifférence précédente"
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
-msgstr ""
+msgstr "Aller à la précedente ligne différente\nPrécedente ligne différente"
 
 #. Resource IDs: (156)
 msgid "Goto Line"
@@ -5063,7 +5064,7 @@ msgstr "Cacher les &branches inutilisées"
 
 #. Resource IDs: (156)
 msgid "Hide/Show the patch file list"
-msgstr ""
+msgstr "Masquer / Afficher la liste fichier du patch"
 
 #. Resource IDs: (2052)
 msgid ""
@@ -5605,7 +5606,7 @@ msgstr "Nom de fichier incorrect."
 
 #. Resource IDs: (65535)
 msgid "Index colors:"
-msgstr ""
+msgstr "Index des couleurs :"
 
 #. Resource IDs: (76)
 msgid "Initial import"
@@ -5613,11 +5614,11 @@ msgstr "Import initial"
 
 #. Resource IDs: (156)
 msgid "Inline diff"
-msgstr ""
+msgstr "Les différences dans la ligne"
 
 #. Resource IDs: (156)
 msgid "Inline diff word-wise"
-msgstr ""
+msgstr "Différences de ligne dans les mots"
 
 #. Resource IDs: (65535)
 msgid "Inline differences"
@@ -6467,7 +6468,7 @@ msgstr "NUM"
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
-msgstr ""
+msgstr "Aller à une ligne spécifique dans la vue\nAller à la ligne"
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
@@ -6543,7 +6544,7 @@ msgstr "Difference suivante"
 
 #. Resource IDs: (156)
 msgid "Next inline difference"
-msgstr ""
+msgstr "Prochaine ligne différente"
 
 #. Resource IDs: (564)
 msgid "No"
@@ -6902,7 +6903,7 @@ msgstr "Ouvrir fichier certificat du client"
 msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
-msgstr ""
+msgstr "Ouvrez les fichiers différents ou appliquer le patch\nOuvrez les fichiers"
 
 #. Resource IDs: (376, 1132)
 msgid "Open from clipboard"
@@ -7282,7 +7283,7 @@ msgstr "Différence précédente"
 
 #. Resource IDs: (156)
 msgid "Previous inline difference"
-msgstr ""
+msgstr "Précedente ligne différente"
 
 #. Resource IDs: (1069, 16990)
 msgid "Print"
@@ -9140,7 +9141,7 @@ msgstr "Hook de début de mise à jour"
 
 #. Resource IDs: (1542)
 msgid "Start registry editor"
-msgstr ""
+msgstr "Démarrer l'éditeur de registre"
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9934,7 +9935,7 @@ msgstr "Il y a des changements ou éléments non versionnés dans un ou plusieur
 msgid ""
 "There are currently %d overlay handlers installed besides the ones Tortoise "
 "uses."
-msgstr ""
+msgstr "Il y a actuellement %d superpositions de plus que de celles utilisés par TortoiseSVN."
 
 #. Resource IDs: (64)
 msgid "There are no issue-tracker providers available."
@@ -10285,7 +10286,7 @@ msgstr "TortoiseSVN est une extension du shell.\nCela signifie qu'il est intégr
 #. Resource IDs: (200)
 #, c-format
 msgid "TortoiseSVN will not show the following overlays: %s"
-msgstr ""
+msgstr "TortoiseSVN n'affichera pas les superpositions suivantes:%s"
 
 #. Resource IDs: (1162)
 msgid "Total commits analyzed:"
@@ -10648,19 +10649,19 @@ msgstr "Utilisez '*' comme caractère générique quand vous spécifiez une exce
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block"
-msgstr ""
+msgstr "Utilisez 'mon' bloc de texte"
 
 #. Resource IDs: (156)
 msgid "Use 'mine' text block then 'theirs'"
-msgstr ""
+msgstr "Utilisez 'mon' bloc de texte puis le 'leur'"
 
 #. Resource IDs: (156)
 msgid "Use 'theirs' text block"
-msgstr ""
+msgstr "Utilisez 'leur' bloc de texte"
 
 #. Resource IDs: (156)
 msgid "Use 'theirs' text block then 'mine'"
-msgstr ""
+msgstr "Utilisez 'leur' bloc de texte puis le 'mien'"
 
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
@@ -11007,13 +11008,13 @@ msgstr "Copie de travail : %s\n"
 
 #. Resource IDs: (156)
 msgid "Wrap long lines"
-msgstr ""
+msgstr "Enveloppez les longues lignes"
 
 #. Resource IDs: (2056)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
-msgstr ""
+msgstr "Enveloppez les longues lignes sur le bord droit de la vue\nEnveloppez les longues lignes "
 
 #. Resource IDs: (563)
 msgid "Yes"
@@ -11994,19 +11995,19 @@ msgstr "Total des propriétés de révision de l'utilisateur:"
 
 #. Resource IDs: (336, 1562)
 msgid "user:bool"
-msgstr ""
+msgstr "user:bool"
 
 #. Resource IDs: (339)
 msgid "user:multiline"
-msgstr ""
+msgstr "user:multiline"
 
 #. Resource IDs: (338)
 msgid "user:singleline"
-msgstr ""
+msgstr "user:singleline"
 
 #. Resource IDs: (337, 1622, 1623, 1624)
 msgid "user:state"
-msgstr ""
+msgstr "user:state"
 
 #. Resource IDs: (1583)
 msgid "uuid x6&4:"
