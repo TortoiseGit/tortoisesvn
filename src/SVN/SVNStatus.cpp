@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -118,6 +118,9 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
     pool = svn_pool_create (NULL);              // create the memory pool
 
     svn_error_clear(svn_client_create_context(&ctx, pool));
+
+    // set up the configuration
+    ctx->config = SVNConfig::Instance().GetConfig();
 
     svn_revnum_t youngest = SVN_INVALID_REVNUM;
     svn_opt_revision_t rev;
