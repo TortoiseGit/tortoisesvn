@@ -5709,7 +5709,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     // fetch the log from the previous revision where it
                     // still existed.
                     sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%ld /pegrev:%ld"),
-                        (LPCTSTR)filepath, logrev, logrev-1);
+                        (LPCTSTR)filepath, logrev-1, logrev-1);
                 }
                 else
                 {
