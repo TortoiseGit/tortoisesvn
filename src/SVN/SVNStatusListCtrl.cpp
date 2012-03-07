@@ -4995,7 +4995,7 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
     if (c > 1)
         sClipboard += _T("\r\n");
 
-#define ADDTOCLIPBOARDSTRING(x) sClipboard += sClipboard.IsEmpty() ? x : L"\t" + x
+#define ADDTOCLIPBOARDSTRING(x) sClipboard += sClipboard.IsEmpty() ? x : (sClipboard.Right(1)==_T("\n") ? x : '\t' + x)
 
     CAutoReadLock locker(m_guard);
 
