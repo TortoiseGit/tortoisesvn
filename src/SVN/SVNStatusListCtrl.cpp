@@ -2445,6 +2445,7 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
             int index;
             CTSVNPathList deletedlist;  // to store list of deleted folders
             bool bHadSelected = false;
+            std::vector<int> itemstoremove;
             while ((index = GetNextSelectedItem(pos)) >= 0)
             {
                 if (GetCheck(index))
@@ -2453,7 +2454,7 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
                 FileEntry * fentry = GetListEntry(index);
                 if ((fentry)&&(fentry->isfolder))
                     deletedlist.AddPath(fentry->path);
-                RemoveListEntry(index);
+                itemstoremove.push_back(index);
                 bHadSelected = true;
             }
             if (!bHadSelected)
@@ -2464,7 +2465,7 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
                 FileEntry * fentry = GetListEntry(selIndex);
                 if ((fentry)&&(fentry->isfolder))
                     deletedlist.AddPath(fentry->path);
-                RemoveListEntry(selIndex);
+                itemstoremove.push_back(selIndex);
             }
             // now go through the list of deleted folders
             // and remove all their children from the list too!
@@ -2477,11 +2478,11 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
                     FileEntry * entry2 = GetListEntry(i);
                     if (folderpath.IsAncestorOf(entry2->path))
                     {
-                        RemoveListEntry(i--);
-                        nListboxEntries--;
+                        itemstoremove.push_back(i);
                     }
                 }
             }
+            RemoveListEntries(itemstoremove);
         }
         SetRedraw(TRUE);
     }
@@ -2632,6 +2633,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
         {
             SendNeedsRefresh();
         }
+        std::vector<int> itemstoremove;
         while ((index = GetNextSelectedItem(pos)) >= 0)
         {
             FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
@@ -2671,7 +2673,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
                     m_nTotal--;
                     if (GetCheck(index))
                         m_nSelected--;
-                    RemoveListEntry(index);
+                    itemstoremove.push_back(index);
                     Invalidate();
                 }
             }
@@ -2680,6 +2682,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
                 SetItemState(index, 0, LVIS_SELECTED);
             }
         }
+        RemoveListEntries(itemstoremove);
     }
     BuildStatistics();
     SetRedraw(TRUE);
