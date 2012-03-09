@@ -1218,15 +1218,14 @@ UINT CSVNProgressDlg::ProgressThread()
     if (m_bHookError)
         GetDlgItem(IDC_RETRYNOHOOKS)->ShowWindow(SW_SHOW);
 
-    DialogEnableWindow(IDCANCEL, FALSE);
-    DialogEnableWindow(IDOK, TRUE);
-    RefreshCursor();
-
     CString info = BuildInfoString();
     if (!bSuccess)
         info.LoadString(IDS_PROGRS_INFOFAILED);
     SetDlgItemText(IDC_INFOTEXT, info);
     ResizeColumns();
+    DialogEnableWindow(IDCANCEL, FALSE);
+    DialogEnableWindow(IDOK, TRUE);
+    RefreshCursor();
     SendMessage(DM_SETDEFID, IDOK);
     GetDlgItem(IDOK)->SetFocus();
 
