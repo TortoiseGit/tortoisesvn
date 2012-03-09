@@ -118,13 +118,19 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
         if (can_return)
             return err;
         if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
+        {
+            CCrashReport::Instance().Uninstall();
             abort();    // ugly, ugly! But at least we showed a messagebox first
+        }
     }
     CStringA sFormatErr;
     sFormatErr.Format("Subversion error in TSVNCache: file %s, line %ld, error %s\n", file, line, expr);
     OutputDebugStringA(sFormatErr);
     if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
+    {
+        CCrashReport::Instance().Uninstall();
         abort();    // ugly, ugly! But at least we showed a messagebox first
+    }
     return NULL;    // never reached, only to silence compiler warning
 }
 
