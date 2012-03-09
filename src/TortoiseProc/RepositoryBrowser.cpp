@@ -4345,15 +4345,18 @@ void CRepositoryBrowser::OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult)
         // Tell Windows to paint the control itself.
         *pResult = CDRF_DODEFAULT;
 
-        COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
-        CAutoReadLock locker(m_guard);
-        CItem * pItem = (CItem*)m_RepoList.GetItemData((int)pLVCD->nmcd.dwItemSpec);
-        if (pItem && !pItem->complete)
+        if (m_RepoList.GetItemCount() > pLVCD->nmcd.dwItemSpec)
         {
-            crText = GetSysColor(COLOR_GRAYTEXT);
+            COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+            CAutoReadLock locker(m_guard);
+            CItem * pItem = (CItem*)m_RepoList.GetItemData((int)pLVCD->nmcd.dwItemSpec);
+            if (pItem && !pItem->complete)
+            {
+                crText = GetSysColor(COLOR_GRAYTEXT);
+            }
+            // Store the color back in the NMLVCUSTOMDRAW struct.
+            pLVCD->clrText = crText;
         }
-        // Store the color back in the NMLVCUSTOMDRAW struct.
-        pLVCD->clrText = crText;
     }
 }
 
