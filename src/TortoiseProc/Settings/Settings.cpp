@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -83,6 +83,8 @@ void CSettings::AddPropPages()
     SetPageIcon(m_pTBlamePage, m_pTBlamePage->GetIconID());
     SetPageIcon(m_pAdvanced, m_pAdvanced->GetIconID());
 
+    // don't change the order here, since the
+    // page number can be passed on the command line!
     AddPage(m_pMainPage);
     AddPage(m_pRevisionGraphPage);
     AddPage(m_pRevisionGraphColorsPage);

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,8 @@ bool SettingsCommand::Execute()
     CSettings dlg(IDS_PROC_SETTINGS_TITLE);
     dlg.SetTreeViewMode(TRUE, TRUE, TRUE);
     dlg.SetTreeWidth(220);
-
+    long page = parser.GetLongVal(L"page");
+    dlg.SetActivePage(page);
     dlg.DoModal();
     dlg.HandleRestart();
     return true;
