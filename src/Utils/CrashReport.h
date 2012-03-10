@@ -194,9 +194,9 @@ public:
         info.pszEmailSubject = subject;
         info.pszEmailTo = _T("tortoisesvn@gmail.com");
         info.pszUrl = _T("http://tortoisesvn.net/scripts/crashrpt.php");
-        info.uPriorities[CR_HTTP] = 3;  // First try send report over HTTP
-        info.uPriorities[CR_SMTP] = 2;  // Second try send report over SMTP
-        info.uPriorities[CR_SMAPI] = 1; // Third try send report over Simple MAPI
+        info.uPriorities[CR_HTTP] = 1;  // First (and only) try send report over HTTP
+        info.uPriorities[CR_SMTP] = CR_NEGATIVE_PRIORITY;  // don't send report over SMTP
+        info.uPriorities[CR_SMAPI] = CR_NEGATIVE_PRIORITY; // don't send report over Simple MAPI
         // Install all available exception handlers, use HTTP binary transfer encoding (recommended).
         info.dwFlags |= CR_INST_ALL_POSSIBLE_HANDLERS;
         info.dwFlags |= CR_INST_HTTP_BINARY_ENCODING;
