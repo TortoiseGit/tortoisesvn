@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,6 +37,7 @@ private:
     static HFONT    g_NormalFont;                   // Font for default display
     static int      g_counter;                      // Global resources user counter
     bool            m_bOverControl;                 // cursor over control?
+    bool            m_bMouseDownPressed;            // was WM_LBUTTONDOWN received?
     HFONT           m_StdFont;                      // Standard font
     WNDPROC         m_pfnOrigCtlProc;
 

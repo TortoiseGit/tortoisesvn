@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,6 +49,7 @@ int      CLinkControl::g_counter         = 0;
 
 CLinkControl::CLinkControl(void)
     : m_bOverControl(false)
+    , m_bMouseDownPressed(false)
     , m_StdFont(NULL)
     , m_pfnOrigCtlProc(NULL)
 {
@@ -201,9 +202,15 @@ LRESULT CALLBACK CLinkControl::_HyperlinkProc(HWND hwnd, UINT message,
         }
         break;
     case BM_CLICK:
+        PostMessage(::GetParent(hwnd), LK_LINKITEMCLICKED, (WPARAM)hwnd, (LPARAM)0);
+        break;
+    case WM_LBUTTONDOWN:
+        pHyperLink->m_bMouseDownPressed = true;
     case WM_LBUTTONUP:
         {
-            PostMessage(::GetParent(hwnd), LK_LINKITEMCLICKED, (WPARAM)hwnd, (LPARAM)0);
+            if (pHyperLink->m_bMouseDownPressed)
+                PostMessage(::GetParent(hwnd), LK_LINKITEMCLICKED, (WPARAM)hwnd, (LPARAM)0);
+            pHyperLink->m_bMouseDownPressed = false;
         }
         break;
     case WM_GETDLGCODE:
