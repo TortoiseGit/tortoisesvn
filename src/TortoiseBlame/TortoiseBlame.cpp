@@ -1009,6 +1009,12 @@ void TortoiseBlame::Command(int id)
     case IDM_EXIT:
         ::PostQuitMessage(0);
         break;
+    case ID_FILE_SETTINGS:
+        {
+            tstring svnCmd = _T(" /command:settings /page:19");
+            RunCommand(svnCmd);
+        }
+        break;
     case ID_EDIT_FIND:
         StartSearch();
         break;

@@ -82,6 +82,8 @@ BEGIN
         MENUITEM "&Save",                       ID_FILE_SAVE
         MENUITEM "Save &as",                    ID_FILE_SAVEAS
         MENUITEM SEPARATOR
+        MENUITEM "Se&ttings",                   ID_FILE_SETTINGS
+        MENUITEM SEPARATOR
         MENUITEM "&Exit",                       ID_FILE_EXIT
     END
 END

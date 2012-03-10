@@ -21,6 +21,7 @@
 #include "UnicodeUtils.h"
 #include "StringUtils.h"
 #include "TaskbarUUID.h"
+#include "CreateProcessHelper.h"
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
@@ -242,12 +243,40 @@ LRESULT CMainWindow::DoCommand(int id)
         else
             PostQuitMessage(0);
         break;
+    case ID_FILE_SETTINGS:
+        {
+            tstring svnCmd = _T(" /command:settings /page:19");
+            RunCommand(svnCmd);
+        }
+        break;
     default:
         break;
     };
     return 1;
 }
 
+std::wstring CMainWindow::GetAppDirectory()
+{
+    std::wstring path;
+    DWORD len = 0;
+    DWORD bufferlen = MAX_PATH;     // MAX_PATH is not the limit here!
+    do
+    {
+        bufferlen += MAX_PATH;      // MAX_PATH is not the limit here!
+        std::unique_ptr<TCHAR[]> pBuf(new TCHAR[bufferlen]);
+        len = GetModuleFileName(NULL, pBuf.get(), bufferlen);
+        path = std::wstring(pBuf.get(), len);
+    } while(len == bufferlen);
+    path = path.substr(0, path.rfind('\\') + 1);
+
+    return path;
+}
+
+void CMainWindow::RunCommand(const std::wstring& command)
+{
+    tstring tortoiseProcPath = GetAppDirectory() + _T("TortoiseProc.exe");
+    CCreateProcessHelper::CreateProcessDetached(tortoiseProcPath.c_str(), const_cast<TCHAR*>(command.c_str()));
+}
 
 LRESULT CMainWindow::SendEditor(UINT Msg, WPARAM wParam, LPARAM lParam)
 {

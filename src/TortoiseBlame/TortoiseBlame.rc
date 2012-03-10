@@ -32,6 +32,8 @@ IDC_TORTOISEBLAME MENU
 BEGIN
     POPUP "&File"
     BEGIN
+        MENUITEM "&Settings",                   ID_FILE_SETTINGS
+        MENUITEM SEPARATOR
         MENUITEM "E&xit",                       IDM_EXIT
     END
     POPUP "&Edit"
