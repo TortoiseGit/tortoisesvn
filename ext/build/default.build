@@ -13,6 +13,7 @@
         <buildfiles>
           <include name="*.build" />
           <exclude name="default.build" />
+          <exclude name="crashrpt.build" />
         </buildfiles>
       </nant>
     </if>
@@ -32,7 +33,8 @@
     <nant target="build" buildfile="serf.build" />
     <nant target="build" buildfile="libintl.build" />
     <nant target="build" buildfile="subversion.build" />
-    <nant target="build" buildfile="crashrpt.build" />
+    <!-- <nant target="build" buildfile="crashrpt.build" /> -->
+    <nant target="build" buildfile="crashserver.build" />
   </target>
 
 </project>

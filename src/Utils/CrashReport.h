@@ -17,56 +17,226 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "../../ext/crashrpt/include/CrashRpt.h"
+#include "../../ext/CrashServer/CrashHandler/CrashHandler/CrashHandler.h"
 #include "../version.h"
 #include <time.h>
 #include <string>
 #include <tchar.h>
 
-
-typedef int WINAPI crInstallFN(PCR_INSTALL_INFO pInfo);
-typedef int WINAPI crUninstallFN(void);
-typedef int WINAPI crInstallToCurrentThreadFN(void);
-typedef int WINAPI crInstallToCurrentThread2FN(DWORD dwFlags);
-typedef int WINAPI crUninstallFromCurrentThreadFN(void);
-typedef int WINAPI crAddFile2FN(LPCTSTR pszFile,LPCTSTR pszDestFile,LPCTSTR pszDesc,DWORD dwFlags);
-typedef int WINAPI crAddScreenshotFN(DWORD dwFlags);
-typedef int WINAPI crAddScreenshot2FN(DWORD dwFlags,int nJpegQuality);
-typedef int WINAPI crAddPropertyFN(LPCTSTR pszPropName,LPCTSTR pszPropValue);
-typedef int WINAPI crAddRegKeyFN(LPCTSTR pszRegKey,LPCTSTR pszDstFileName,DWORD dwFlags);
-typedef int WINAPI crGenerateErrorReportFN(CR_EXCEPTION_INFO* pExceptionInfo);
-typedef int WINAPI crEmulateCrashFN(unsigned ExceptionType);
-typedef int WINAPI crGetLastErrorMsgFN(LPTSTR pszBuffer,UINT uBuffSize);
+// dummy define, needed only when we use crashrpt instead of this.
+#define CR_AF_MAKE_FILE_COPY 0
 
 /**
  * \ingroup Utils
- * This class wraps the most important functions the CrashRpt-library
- * offers. To learn more about the CrashRpt-library go to
- * http://code.google.com/p/crashrpt/ \n
- * \n
- *
- * \remark the dll is dynamically linked at runtime. So the main application
- * will still work even if the dll is not shipped.
- *
+ * helper class for the CrashServerSDK
  */
 class CCrashReport
 {
 private:
     CCrashReport(void)
-        : m_hDll(NULL)
-        , pfnInstall(nullptr)
-        , pfnUninstall(nullptr)
-        , pfnInstallToCurrentThread(nullptr)
-        , pfnInstallToCurrentThread2(nullptr)
-        , pfnUninstallFromCurrentThread(nullptr)
-        , pfnAddFile2(nullptr)
-        , pfnAddScreenshot(nullptr)
-        , pfnAddScreenshot2(nullptr)
-        , pfnAddProperty(nullptr)
-        , pfnAddregKey(nullptr)
-        , pfnGenerateErrorReport(nullptr)
-        , pfnEmulateCrash(nullptr)
-        , pfnGetLastErrorMsg(nullptr)
+    {
+        LoadDll();
+    }
+
+    ~CCrashReport(void)
+    {
+    }
+
+public:
+    static CCrashReport&    Instance()
+    {
+        static CCrashReport instance;
+        return instance;
+    }
+
+    int                     Uninstall(void) { return FALSE; }
+    int                     AddFile2(LPCTSTR pszFile,LPCTSTR pszDestFile,LPCTSTR /*pszDesc*/,DWORD /*dwFlags*/)
+    {
+        return AddFileToReport(pszFile, pszDestFile) ? 1 : 0;
+    }
+
+
+    //! Initializes crash handler.
+    //! \note You may call this function multiple times if some data has changed.
+    //! \return Return \b true if crash handling was enabled.
+    bool InitCrashHandler(
+        ApplicationInfo* applicationInfo,	//!< [in] Pointer to the ApplicationInfo structure that identifies your application.
+        HandlerSettings* handlerSettings,	//!< [in] Pointer to the HandlerSettings structure that customizes crash handling behavior. This paramenter can be \b NULL.
+        BOOL    ownProcess = TRUE           //!< [in] If you own the process your code running in set this option to \b TRUE. If don't (for example you write
+        //!<      a plugin to some external application) set this option to \b FALSE. In that case you need to explicitly
+        //!<      catch exceptions. See \ref SendReport for more information.
+        ) throw()
+    {
+        if (!m_InitCrashHandler)
+            return false;
+
+        return m_InitCrashHandler(applicationInfo, handlerSettings, ownProcess) != FALSE;
+    }
+
+    //! You may add any file to crash report. This file will be read when crash appears and will be sent within the report.
+    //! Multiple files may be added. Filename of the file in the report may be changed to any name.
+    //! \return If the function succeeds, the return value is \b true.
+    bool AddFileToReport(
+        LPCWSTR path,						//!< [in] Path to the file, that will be added to the report.
+        LPCWSTR reportFileName /* = NULL */	//!< [in] Filename that will be used in report for this file. If parameter is \b NULL, original name from path will be used.
+        ) throw()
+    {
+        if (!m_AddFileToReport)
+            return false;
+        m_AddFileToReport(path, reportFileName);
+        return true;
+    }
+
+    //! Remove from report the file that was registered earlier to be sent within report.
+    //! \return If the function succeeds, the return value is \b true.
+    bool RemoveFileFromReport(
+        LPCWSTR path	//!< [in] Path to the file, that will be removed from the report.
+        ) throw()
+    {
+        if (!m_RemoveFileFromReport)
+            return false;
+        m_RemoveFileFromReport(path);
+        return true;
+    }
+
+    //! Fills version field (V) of ApplicationInfo with product version
+    //! found in the executable file of the current process.
+    //! \return If the function succeeds, the return value is \b true.
+    bool GetVersionFromApp(
+        ApplicationInfo* appInfo //!< [out] Pointer to ApplicationInfo structure. Its version field (V) will be set to product version.
+        ) throw()
+    {
+        if (!m_GetVersionFromApp)
+            return false;
+        return m_GetVersionFromApp(appInfo) != FALSE;
+    }
+
+    //! Fill version field (V) of ApplicationInfo with product version found in the file specified.
+    //! \return If the function succeeds, the return value is \b true.
+    bool GetVersionFromFile(
+        LPCWSTR path,				//!< [in] Path to the file product version will be extracted from.
+        ApplicationInfo* appInfo	//!< [out] Pointer to ApplicationInfo structure. Its version field (V) will be set to product version.
+        ) throw()
+    {
+        if (!m_GetVersionFromFile)
+            return false;
+        return m_GetVersionFromFile(path, appInfo) != FALSE;
+    }
+
+    //! If you do not own the process your code running in (for example you write a plugin to some
+    //! external application) you need to properly initialize CrashHandler using \b ownProcess option.
+    //! Also you need to explicitly catch all exceptions in all entry points to your code and in all
+    //! threads you create. To do so use this construction:
+    //! \code
+    //! bool SomeEntryPoint(PARAM p)
+    //! {
+    //!		__try
+    //!		{
+    //!			return YouCode(p);
+    //!		}
+    //!		__except (CrashHandler::SendReport(GetExceptionInformation()))
+    //!		{
+    //!			::ExitProcess(0); // It is better to stop the process here or else corrupted data may incomprehensibly crash it later.
+    //!			return false;
+    //!		}
+    //! }
+    //! \endcode
+    LONG SendReport(
+        EXCEPTION_POINTERS* exceptionPointers	//!< [in] Pointer to EXCEPTION_POINTERS structure. You should get it using GetExceptionInformation()
+        //!<      function inside __except keyword.
+        )
+    {
+        if (!m_SendReport)
+            return EXCEPTION_CONTINUE_SEARCH;
+        // There is no crash handler but asserts should continue anyway
+        if (exceptionPointers->ExceptionRecord->ExceptionCode == ExceptionAssertionViolated)
+            return EXCEPTION_CONTINUE_EXECUTION;
+        return m_SendReport(exceptionPointers);
+    }
+
+    //! To send a report about violated assertion you can throw exception with this exception code
+    //! using: \code RaiseException(CrashHandler::ExceptionAssertionViolated, 0, 0, NULL); \endcode
+    //! Execution will continue after report will be sent (EXCEPTION_CONTINUE_EXECUTION would be used).
+    //! \note If you called CrashHandler constructor and crshhdnl.dll was missing you still may using this exception.
+    //!		  It will be catched, ignored and execution will continue. \ref SendReport function also works safely
+    //!       when crshhdnl.dll was missing.
+    static const DWORD ExceptionAssertionViolated = ((DWORD)0xCCE17000);
+
+    //! Sends assertion violation report from this point and continue execution.
+    //! \sa ExceptionAssertionViolated
+    //! \note Functions prefixed with "CrashServer_" will be ignored in stack parsing.
+    void CrashServer_SendAssertionViolated()
+    {
+        if (!m_InitCrashHandler)
+            return;
+        ::RaiseException(CrashHandler::ExceptionAssertionViolated, 0, 0, NULL);
+    }
+
+private:
+    bool LoadDll() throw()
+    {
+        bool result = false;
+
+        // hCrshhndlDll should not be unloaded, crash may appear even after return from main().
+        // So hCrshhndlDll is not saved after construction.
+        HMODULE hCrshhndlDll = ::LoadLibraryW(L"crshhndl.dll");
+        if (hCrshhndlDll != NULL)
+        {
+            m_InitCrashHandler = (pfnInitCrashHandler) GetProcAddress(hCrshhndlDll, "InitCrashHandler");
+            m_SendReport = (pfnSendReport) GetProcAddress(hCrshhndlDll, "SendReport");
+            m_IsReadyToExit = (pfnIsReadyToExit) GetProcAddress(hCrshhndlDll, "IsReadyToExit");
+            m_AddFileToReport = (pfnAddFileToReport) GetProcAddress(hCrshhndlDll, "AddFileToReport");
+            m_RemoveFileFromReport = (pfnRemoveFileFromReport) GetProcAddress(hCrshhndlDll, "RemoveFileFromReport");
+            m_GetVersionFromApp = (pfnGetVersionFromApp) GetProcAddress(hCrshhndlDll, "GetVersionFromApp");
+            m_GetVersionFromFile = (pfnGetVersionFromFile) GetProcAddress(hCrshhndlDll, "GetVersionFromFile");
+
+            result = m_InitCrashHandler
+                && m_SendReport
+                && m_IsReadyToExit
+                && m_AddFileToReport
+                && m_RemoveFileFromReport
+                && m_GetVersionFromApp
+                && m_GetVersionFromFile;
+        }
+
+        // if no crash processing was started, we need to ignore ExceptionAssertionViolated exceptions.
+        if (!result)
+            ::AddVectoredExceptionHandler(TRUE, SkipAsserts);
+
+        return result;
+    }
+
+    static LONG CALLBACK SkipAsserts(EXCEPTION_POINTERS* pExceptionInfo)
+    {
+        if (pExceptionInfo->ExceptionRecord->ExceptionCode == ExceptionAssertionViolated)
+            return EXCEPTION_CONTINUE_EXECUTION;
+        return EXCEPTION_CONTINUE_SEARCH;
+    }
+
+    typedef BOOL (*pfnInitCrashHandler)(ApplicationInfo* applicationInfo, HandlerSettings* handlerSettings, BOOL ownProcess);
+    typedef LONG (*pfnSendReport)(EXCEPTION_POINTERS* exceptionPointers);
+    typedef BOOL (*pfnIsReadyToExit)();
+    typedef void (*pfnAddFileToReport)(LPCWSTR path, LPCWSTR reportFileName /* = NULL */);
+    typedef void (*pfnRemoveFileFromReport)(LPCWSTR path);
+    typedef BOOL (*pfnGetVersionFromApp)(ApplicationInfo* appInfo);
+    typedef BOOL (*pfnGetVersionFromFile)(LPCWSTR path, ApplicationInfo* appInfo);
+
+    pfnInitCrashHandler m_InitCrashHandler;
+    pfnSendReport m_SendReport;
+    pfnIsReadyToExit m_IsReadyToExit;
+    pfnAddFileToReport m_AddFileToReport;
+    pfnRemoveFileFromReport m_RemoveFileFromReport;
+    pfnGetVersionFromApp m_GetVersionFromApp;
+    pfnGetVersionFromFile m_GetVersionFromFile;
+};
+
+
+class CCrashReportTSVN
+{
+public:
+
+    //! Installs exception handlers to the caller process
+    CCrashReportTSVN(LPCTSTR appname)
     {
         char s_month[6];
         int month, day, year;
@@ -86,132 +256,30 @@ private:
 
         if ((now - compiletime)<(60*60*24*31*3))
         {
-            // less than three months since this version was compiled
-            TCHAR szFileName[_MAX_FNAME];
-            GetModuleFileName(NULL, szFileName, _MAX_FNAME);
+            ApplicationInfo appInfo;
+            memset(&appInfo, 0, sizeof(appInfo));
+            appInfo.ApplicationInfoSize = sizeof(ApplicationInfo);
+            appInfo.ApplicationGUID = "71040f62-f78a-4953-b5b3-5c148349fed7";
+            appInfo.Prefix = "tsvn";
+            appInfo.AppName = appname; 
+            appInfo.Company = L"TortoiseSVN";
 
-            // C:\Programme\TortoiseSVN\bin\TortoiseProc.exe -> C:\Programme\TortoiseSVN\bin\CrashRpt.dll
-            std::wstring strFilename = szFileName;
-            strFilename = strFilename.substr(0, strFilename.find_last_of('\\')+1);
-            strFilename += L"CrashRpt1300.dll";
+            appInfo.Hotfix = 0;
+            appInfo.V[0] = TSVN_VERMAJOR;
+            appInfo.V[1] = TSVN_VERMINOR;
+            appInfo.V[2] = TSVN_VERMICRO;
+            appInfo.V[3] = TSVN_VERBUILD;
 
-            m_hDll = LoadLibrary(strFilename.c_str());
-            if (m_hDll)
-            {
-#ifdef UNICODE
-                pfnInstall = (crInstallFN*)GetProcAddress(m_hDll, "crInstallW");
-#else
-                pfnInstall = (crInstallFN*)GetProcAddress(m_hDll, "crInstallA");
-#endif
-                pfnUninstall = (crUninstallFN*)GetProcAddress(m_hDll, "crUninstall");
-                pfnInstallToCurrentThread = (crInstallToCurrentThreadFN*)GetProcAddress(m_hDll, "crInstallToCurrentThread");
-                pfnInstallToCurrentThread2 = (crInstallToCurrentThread2FN*)GetProcAddress(m_hDll, "crInstallToCurrentThread2");
-                pfnUninstallFromCurrentThread = (crUninstallFromCurrentThreadFN*)GetProcAddress(m_hDll, "crUninstallFromCurrentThread");
-#ifdef UNICODE
-                pfnAddFile2 = (crAddFile2FN*)GetProcAddress(m_hDll, "crAddFile2W");
-#else
-                pfnAddFile2 = (crAddFile2FN*)GetProcAddress(m_hDll, "crAddFile2A");
-#endif
-                pfnAddScreenshot = (crAddScreenshotFN*)GetProcAddress(m_hDll, "crAddScreenshot");
-                pfnAddScreenshot2 = (crAddScreenshot2FN*)GetProcAddress(m_hDll, "crAddScreenshot2");
-#ifdef UNICODE
-                pfnAddProperty = (crAddPropertyFN*)GetProcAddress(m_hDll, "crAddPropertyW");
-                pfnAddregKey = (crAddRegKeyFN*)GetProcAddress(m_hDll, "crAddRegKeyW");
-#else
-                pfnAddProperty = (crAddPropertyFN*)GetProcAddress(m_hDll, "crAddPropertyA");
-                pfnAddregKey = (crAddRegKeyFN*)GetProcAddress(m_hDll, "crAddRegKeyA");
-#endif
-                pfnGenerateErrorReport = (crGenerateErrorReportFN*)GetProcAddress(m_hDll, "crGenerateErrorReport");
-                pfnEmulateCrash = (crEmulateCrashFN*)GetProcAddress(m_hDll, "crEmulateCrash");
-#ifdef UNICODE
-                pfnGetLastErrorMsg = (crGetLastErrorMsgFN*)GetProcAddress(m_hDll, "crGetLastErrorMsgW");
-#else
-                pfnGetLastErrorMsg = (crGetLastErrorMsgFN*)GetProcAddress(m_hDll, "crGetLastErrorMsgA");
-#endif
-            }
+            HandlerSettings handlerSettings;
+            memset(&handlerSettings, 0, sizeof(handlerSettings));
+            handlerSettings.HandlerSettingsSize = sizeof(handlerSettings);
+            handlerSettings.LeaveDumpFilesInTempFolder = FALSE;
+            handlerSettings.UseWER = FALSE;
+            handlerSettings.OpenProblemInBrowser = TRUE;
+            handlerSettings.SubmitterID = 0;
+
+            CCrashReport::Instance().InitCrashHandler(&appInfo, &handlerSettings);
         }
-    }
-
-    ~CCrashReport(void)
-    {
-        if (m_hDll)
-            FreeLibrary(m_hDll);
-    }
-public:
-    static CCrashReport&    Instance()
-    {
-        static CCrashReport instance;
-        return instance;
-    }
-
-    int                     Install(PCR_INSTALL_INFO pInfo) { if (m_hDll && pfnInstall) return pfnInstall(pInfo); return FALSE; }
-    int                     Uninstall(void) { if (m_hDll && pfnUninstall) return pfnUninstall(); return FALSE; }
-    int                     InstallToCurrentThread(void) { if (m_hDll && pfnInstallToCurrentThread) return pfnInstallToCurrentThread(); return FALSE; }
-    int                     InstallToCurrentThread2(DWORD dwFlags) { if (m_hDll && pfnInstallToCurrentThread2) return pfnInstallToCurrentThread2(dwFlags); return FALSE; }
-    int                     UninstallFromCurrentThread(void) { if (m_hDll && pfnUninstallFromCurrentThread) return pfnUninstallFromCurrentThread(); return FALSE; }
-    int                     AddFile2(LPCTSTR pszFile,LPCTSTR pszDestFile,LPCTSTR pszDesc,DWORD dwFlags) { if (m_hDll && pfnAddFile2) return pfnAddFile2(pszFile, pszDestFile, pszDesc, dwFlags); return FALSE; }
-    int                     AddScreenshot(DWORD dwFlags) { if (m_hDll && pfnAddScreenshot) return pfnAddScreenshot(dwFlags); return FALSE; }
-    int                     AddScreenshot2(DWORD dwFlags,int nJpegQuality) { if (m_hDll && pfnAddScreenshot2) return pfnAddScreenshot2(dwFlags, nJpegQuality); return FALSE; }
-    int                     AddProperty(LPCTSTR pszPropName,LPCTSTR pszPropValue) { if (m_hDll && pfnAddProperty) return pfnAddProperty(pszPropName, pszPropValue); return FALSE; }
-    int                     AddRegKey(LPCTSTR pszRegKey,LPCTSTR pszDstFileName,DWORD dwFlags) { if (m_hDll && pfnAddregKey) return pfnAddregKey(pszRegKey, pszDstFileName, dwFlags); return FALSE; }
-    int                     GenerateErrorReport(CR_EXCEPTION_INFO* pExceptionInfo) { if (m_hDll && pfnGenerateErrorReport) return pfnGenerateErrorReport(pExceptionInfo); return FALSE; }
-    int                     EmulateCrash(unsigned ExceptionType) { if (m_hDll && pfnEmulateCrash) return pfnEmulateCrash(ExceptionType); return FALSE; }
-    int                     GetLastErrorMsg(LPTSTR pszBuffer,UINT uBuffSize) { if (m_hDll && pfnGetLastErrorMsg) return pfnGetLastErrorMsg(pszBuffer, uBuffSize); return FALSE; }
-
-private:
-    HMODULE                         m_hDll;
-
-    crInstallFN *                   pfnInstall;
-    crUninstallFN *                 pfnUninstall;
-    crInstallToCurrentThreadFN *    pfnInstallToCurrentThread;
-    crInstallToCurrentThread2FN *   pfnInstallToCurrentThread2;
-    crUninstallFromCurrentThreadFN *pfnUninstallFromCurrentThread;
-    crAddFile2FN *                  pfnAddFile2;
-    crAddScreenshotFN *             pfnAddScreenshot;
-    crAddScreenshot2FN *            pfnAddScreenshot2;
-    crAddPropertyFN *               pfnAddProperty;
-    crAddRegKeyFN *                 pfnAddregKey;
-    crGenerateErrorReportFN *       pfnGenerateErrorReport;
-    crEmulateCrashFN *              pfnEmulateCrash;
-    crGetLastErrorMsgFN *           pfnGetLastErrorMsg;
-};
-
-
-class CCrashReportTSVN
-{
-public:
-
-    //! Installs exception handlers to the caller process
-    CCrashReportTSVN(LPCTSTR appname)
-    {
-        CR_INSTALL_INFO info;
-        memset(&info, 0, sizeof(CR_INSTALL_INFO));
-        info.cb = sizeof(CR_INSTALL_INFO);
-        info.pszAppName = appname;
-        info.pszAppVersion = _T(STRPRODUCTVER);
-        TCHAR subject[MAX_PATH] = {0};
-        _stprintf_s(subject, _T("Crash report for %s, Version %d.%d.%d.%d"), appname, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
-        info.pszEmailSubject = subject;
-        info.pszEmailTo = _T("tortoisesvn@gmail.com");
-        info.pszUrl = _T("http://tortoisesvn.net/scripts/crashrpt.php");
-        info.uPriorities[CR_HTTP] = 1;  // First (and only) try send report over HTTP
-        info.uPriorities[CR_SMTP] = CR_NEGATIVE_PRIORITY;  // don't send report over SMTP
-        info.uPriorities[CR_SMAPI] = CR_NEGATIVE_PRIORITY; // don't send report over Simple MAPI
-        // Install all available exception handlers, use HTTP binary transfer encoding (recommended).
-        info.dwFlags |= CR_INST_ALL_POSSIBLE_HANDLERS;
-        info.dwFlags |= CR_INST_HTTP_BINARY_ENCODING;
-        info.dwFlags |= CR_INST_APP_RESTART;
-        info.dwFlags |= CR_INST_SEND_QUEUED_REPORTS;
-        // Define the Privacy Policy URL
-        info.pszPrivacyPolicyURL = _T("http://tortoisesvn.net/crashreport_privacy.html");
-
-        TCHAR module[MAX_PATH] = {0};
-        GetModuleFileName(NULL, module, MAX_PATH);
-        info.pszCustomSenderIcon = module;
-
-        m_nInstallStatus = CCrashReport::Instance().Install(&info);
-        CCrashReport::Instance().AddRegKey(_T("HKEY_CURRENT_USER\\Software\\TortoiseSVN"), _T("regkey1.xml"), 0);
-        CCrashReport::Instance().AddRegKey(_T("HKEY_CURRENT_USER\\Software\\TortoiseMerge"), _T("regkey2.xml"), 0);
     }
 
 
@@ -232,16 +300,12 @@ public:
     /// Installs exception handlers to the caller thread
     CCrashReportThread(DWORD dwFlags=0)
     {
-        m_nInstallStatus = CCrashReport::Instance().InstallToCurrentThread2(dwFlags);
+        UNREFERENCED_PARAMETER(dwFlags);
     }
 
     /// Deinstalls exception handlers from the caller thread
     ~CCrashReportThread()
     {
-        CCrashReport::Instance().UninstallFromCurrentThread();
     }
-
-    /// Install status
-    int m_nInstallStatus;
 };
 
