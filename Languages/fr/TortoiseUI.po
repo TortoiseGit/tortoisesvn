@@ -21,13 +21,14 @@
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Lübbe Onken <l.onken@rac.de>, 2011.
 # Mickael Patron <mickael_patron@hotmail.com>, 2012.
+# Philippe Villiers <kissifrot@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-03-04 12:04+0000\n"
-"Last-Translator: Mickael Patron <mickael_patron@hotmail.com>\n"
+"PO-Revision-Date: 2012-03-08 12:47+0000\n"
+"Last-Translator: Philippe <kissifrot@gmail.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -491,7 +492,7 @@ msgstr "&Branches"
 
 #. Resource IDs: (138)
 msgid "&Browse repository"
-msgstr "&Parcourir le référentiel "
+msgstr "&Parcourir le dépôt "
 
 #. Resource IDs: (1001, 1009)
 msgid "&Browse..."
@@ -575,7 +576,7 @@ msgstr "&Configurer"
 
 #. Resource IDs: (1227)
 msgid "&Contact the repository on startup"
-msgstr "&Contacter le référentiel au démarrage"
+msgstr "&Contacter le dépôt au démarrage"
 
 #. Resource IDs: (1073)
 msgid "&Convert files when diffing against BASE"
@@ -791,7 +792,7 @@ msgstr "Révision &HEAD"
 
 #. Resource IDs: (1182)
 msgid "&HEAD revision in the repository"
-msgstr "Révision &HEAD dans le référentiel"
+msgstr "Révision &HEAD dans le dépôt"
 
 #. Resource IDs: (9, 12, 563, 32781, 57670, 65535)
 msgid "&Help"
@@ -1122,7 +1123,7 @@ msgstr "&Renommer"
 
 #. Resource IDs: (13)
 msgid "&Repo-browser"
-msgstr "Navigateur de &référentiel"
+msgstr "Navigateur de &dépôt"
 
 #. Resource IDs: (16613, 16624)
 msgid "&Reset"
@@ -1222,7 +1223,7 @@ msgstr "&Afficher les labels texte"
 
 #. Resource IDs: (1185)
 msgid "&Specific revision in repository"
-msgstr "Révision &spécifique dans le référentiel"
+msgstr "Révision &spécifique dans le dépôt"
 
 #. Resource IDs: (16917)
 msgid "&Start Group"
@@ -1230,7 +1231,7 @@ msgstr "Groupe de &Départ"
 
 #. Resource IDs: (1605)
 msgid "&Start Repobrowser"
-msgstr "Lancer l'&explorateur de référentiel"
+msgstr "Lancer l'&explorateur de dépôt"
 
 #. Resource IDs: (1211)
 msgid "&Steal the locks"
@@ -1334,7 +1335,7 @@ msgstr "&Deux Pages"
 
 #. Resource IDs: (1058, 1376, 1394)
 msgid "&URL of repository:"
-msgstr "&URL du référentiel :"
+msgstr "&URL du dépôt :"
 
 #. Resource IDs: (1076, 1305, 1561)
 msgid "&URL:"
@@ -1624,7 +1625,7 @@ msgid ""
 "Changing to a different path inside a repository is done by a switch operation.\n"
 "\n"
 "If you are not sure what to do, try a switch operation first."
-msgstr "Une relocalisation est nécessaire uniquement si le chemin d'accès à un référentiel a changé. Le passage à un chemin différent à l'intérieur d'un référentiel se fait par une opération de commutation.\n\nSi vous n'êtes pas sûr de ce qu'il faut faire, essayez d'une opération de commutation en premier."
+msgstr "Une relocalisation est nécessaire uniquement si le chemin d'accès à un dépôt a changé. Le passage à un chemin différent à l'intérieur d'un dépôt se fait par une opération de commutation.\n\nSi vous n'êtes pas sûr de ce qu'il faut faire, essayez d'une opération de commutation en premier."
 
 #. Resource IDs: (3843)
 msgid "A required resource was unavailable."
@@ -1912,12 +1913,12 @@ msgstr "Autoriser les &UUIDs ambiguës"
 msgid ""
 "Allow different repositories to use the same URL, e.g. "
 "http://localhost/myrepos/"
-msgstr "Autoriser différents référentiels à utiliser la même URL, ex. http://localhost/monreferentiel/"
+msgstr "Autoriser différents dépôts à utiliser la même URL, ex. http://localhost/monreferentiel/"
 
 #. Resource IDs: (345)
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
-msgstr "Autoriser plusieurs référentiels à utiliser le same UUID, par exemple les copies de référentiels"
+msgstr "Autoriser plusieurs dépôts à utiliser le same UUID, par exemple les copies de dépôts"
 
 #. Resource IDs: (119)
 msgid "Already merged"
@@ -1961,7 +1962,7 @@ msgid ""
 "%theirs : the file as it is in the repository\r\n"
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
-msgstr "Un programme de fusion externe est utilisé\r\npour résoudre les fichiers en conflit\r\n\r\nVous pouvez utiliser les paramètres suivant pour le chemin :\r\n%merged : où enregistrer le fichier en conflit\r\n%theirs : le fichier dans le référentiel\r\n%mine : votre fichier avec vos modifications\r\n%base : le fichier original sans changement"
+msgstr "Un programme de fusion externe est utilisé\r\npour résoudre les fichiers en conflit\r\n\r\nVous pouvez utiliser les paramètres suivant pour le chemin :\r\n%merged : où enregistrer le fichier en conflit\r\n%theirs : le fichier dans le dépôt\r\n%mine : votre fichier avec vos modifications\r\n%base : le fichier original sans changement"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -2294,7 +2295,7 @@ msgstr "&Vérifier maintenant"
 
 #. Resource IDs: (1132)
 msgid "C&heck repository"
-msgstr "&Vérifier le référentiel"
+msgstr "&Vérifier le dépôt"
 
 #. Resource IDs: (275)
 msgid "C&ollapse sub-trees"
@@ -2330,7 +2331,7 @@ msgstr "Taille du cache [ko]"
 
 #. Resource IDs: (1440)
 msgid "Cached Repositories"
-msgstr "Référentiels Mis en Cache"
+msgstr "Dépôts Mis en Cache"
 
 #. Resource IDs: (197)
 msgid "Caches the log messages to speed up log fetching"
@@ -2672,7 +2673,7 @@ msgstr "Vérifier les mises à jours"
 
 #. Resource IDs: (9)
 msgid "Check out a working copy from a repository"
-msgstr "Extraire une copie de travail depuis le référentiel"
+msgstr "Extraire une copie de travail depuis le dépôt"
 
 #. Resource IDs: (95)
 msgid ""
@@ -2685,7 +2686,7 @@ msgid ""
 "Check the log to find out how the file/folder got renamed/moved and decide "
 "whether you want to keep your rename/move or the one from the repository. "
 "Then mark the conflict as resolved."
-msgstr "Vérifiez le journal pour retrouver le fichier/dossier renommé/déplacé et décidez si vous souhaitez garder la version renommée/déplacée ou celle du référentiel. Marquez ensuite le conflit comme résolu."
+msgstr "Vérifiez le journal pour retrouver le fichier/dossier renommé/déplacé et décidez si vous souhaitez garder la version renommée/déplacée ou celle du dépôt. Marquez ensuite le conflit comme résolu."
 
 #. Resource IDs: (612)
 msgid ""
@@ -2831,7 +2832,7 @@ msgstr "Supprime les commentaires des répertoires %ld"
 msgid ""
 "Clears the stored authentication.\r\n"
 "You will have to enter your username/password again for all repositories."
-msgstr "Supprime l'authentification stockée.\r\nVous devrez ressaisir vos nom/mot de passe pour tous les référentiels."
+msgstr "Supprime l'authentification stockée.\r\nVous devrez ressaisir vos nom/mot de passe pour tous les dépôts."
 
 #. Resource IDs: (196)
 #, c-format
@@ -2960,7 +2961,7 @@ msgstr "Ligne de commande à exécuter :"
 msgid ""
 "Command Line To Execute:\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr "Ligne de Commande à Exécuter :\nPour spécifique un chemin à l'intérieur d'une copie de travail, spécifiez l'url dans le référentiel en utilisant %REPOROOT% comme racine du référentiel"
+msgstr "Ligne de Commande à Exécuter :\nPour spécifique un chemin à l'intérieur d'une copie de travail, spécifiez l'url dans le dépôt en utilisant %REPOROOT% comme racine du dépôt"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3017,7 +3018,7 @@ msgstr "Livraisons chaque semaine :"
 
 #. Resource IDs: (9)
 msgid "Commits your changes to the repository"
-msgstr "Livrer vos modifications dans le référentiel"
+msgstr "Livrer vos modifications dans le dépôt"
 
 #. Resource IDs: (173)
 msgid ""
@@ -3083,7 +3084,7 @@ msgstr "Compare le fichier avec la dernière version mise à jour pour afficher 
 
 #. Resource IDs: (17)
 msgid "Compares the selected file with a file in the repository"
-msgstr "Compare le fichier sélectionné avec un fichier dans le référentiel"
+msgstr "Compare le fichier sélectionné avec un fichier dans le dépôt"
 
 #. Resource IDs: (120)
 #, c-format
@@ -3154,7 +3155,7 @@ msgstr "Conflits : %d"
 
 #. Resource IDs: (345)
 msgid "Connect to the repository server and download missing log data"
-msgstr "Se connecter au serveur du référentiel et télécharger les données du journal manquante"
+msgstr "Se connecter au serveur du dépôt et télécharger les données du journal manquante"
 
 #. Resource IDs: (65535)
 msgid "Container sizes"
@@ -3495,7 +3496,7 @@ msgstr "Créer un patch"
 
 #. Resource IDs: (1385)
 msgid "Create copy in the repository from:"
-msgstr "Créer une copie dans le référentiel depuis :"
+msgstr "Créer une copie dans le dépôt depuis :"
 
 #. Resource IDs: (126)
 #, c-format
@@ -3523,7 +3524,7 @@ msgstr "Créé répertoire à distance"
 #. Resource IDs: (10)
 msgid ""
 "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr "Crée une copie 'légère' dans le référentiel utilisé pour le branchement ou l'étiquettage"
+msgstr "Crée une copie 'légère' dans le dépôt utilisé pour le branchement ou l'étiquettage"
 
 #. Resource IDs: (199)
 msgid ""
@@ -3538,7 +3539,7 @@ msgstr "Crée un fichier de mise à jour des différences entre les deux fichier
 
 #. Resource IDs: (10)
 msgid "Creates a repository database at the current location"
-msgstr "Crée un référentiel dans le répertoire courant"
+msgstr "Crée un dépôt dans le répertoire courant"
 
 #. Resource IDs: (14)
 msgid "Creates a unified diff file with all changes you made"
@@ -3657,7 +3658,7 @@ msgstr "S&upprimer les fichiers et les dossiers non versionnés"
 
 #. Resource IDs: (199)
 msgid "Delete Repository cache"
-msgstr "Supprimer le cache du référentiel"
+msgstr "Supprimer le cache du dépôt"
 
 #. Resource IDs: (240)
 msgid "Delete Unversioned Items"
@@ -3836,7 +3837,7 @@ msgstr "Désactivez cette option si vous avez de réellement grosses copies de t
 
 #. Resource IDs: (596)
 msgid "Discards local changes upon incoming deletes"
-msgstr "Abandonner les modifications locales au profit des suppressions du référentiel"
+msgstr "Abandonner les modifications locales au profit des suppressions du dépôt"
 
 #. Resource IDs: (3867)
 #, c-format
@@ -4891,7 +4892,7 @@ msgstr "Réception fichier info..."
 
 #. Resource IDs: (269)
 msgid "Getting information from repository..."
-msgstr "Obtention d'informations depuis le référentiel..."
+msgstr "Obtention d'informations depuis le dépôt..."
 
 #. Resource IDs: (120)
 msgid "Getting information..."
@@ -4971,7 +4972,7 @@ msgstr "Type de graphique :"
 
 #. Resource IDs: (273)
 msgid "Graphs for repository roots are always empty!"
-msgstr "Les graphes des racines de référentiel sont toujours vides !"
+msgstr "Les graphes des racines de dépôt sont toujours vides !"
 
 #. Resource IDs: (16972)
 msgid "Gray"
@@ -5339,7 +5340,7 @@ msgstr "Si activé, l'entrée du menu 'Obtenir un verrou' est toujours affichée
 msgid ""
 "If checked then a new folder is created in the repository.\n"
 "If not checked then the import goes directly to the specified URL."
-msgstr "Si sélectionné alors un nouveau répertoire est créer dans le référentiel.\nSi non sélectionné, alors l'importation ira directement dans l'URL spécifiée."
+msgstr "Si sélectionné alors un nouveau répertoire est créer dans le dépôt.\nSi non sélectionné, alors l'importation ira directement dans l'URL spécifiée."
 
 #. Resource IDs: (79)
 msgid ""
@@ -5363,7 +5364,7 @@ msgstr "Si activé, le dialogue Fusionner initialise l'URL 'Depuis :' avec l'URL
 msgid ""
 "If enabled, the repository is contacted when the dialog starts up.\r\n"
 "You don't have to click on 'Check Repository' anymore."
-msgstr "Si activé, le référentiel est contacté quand le dialogue démarre.\r\nVous n'aurez plus à cliquer sur 'Vérifier le référentiel'."
+msgstr "Si activé, le dépôt est contacté quand le dialogue démarre.\r\nVous n'aurez plus à cliquer sur 'Vérifier le dépôt'."
 
 #. Resource IDs: (197)
 msgid ""
@@ -5397,7 +5398,7 @@ msgstr "Si le graphique contient plusieurs arborescences, les différencier par 
 
 #. Resource IDs: (1439)
 msgid "If the repository can not be contacted"
-msgstr "Si le référentiel ne peut être contacté"
+msgstr "Si le dépôt ne peut être contacté"
 
 #. Resource IDs: (100)
 msgid ""
@@ -5410,7 +5411,7 @@ msgstr "Si vous utilisez d'autres clients SVN en plus de TortoiseSVN sur cet ord
 msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
-msgstr "Si vous souhaitez cassez le verrou, utilisez la boîte de dialogue 'Vérifier les Modifications' ou le navigateur de référentiel."
+msgstr "Si vous souhaitez cassez le verrou, utilisez la boîte de dialogue 'Vérifier les Modifications' ou le navigateur de dépôt."
 
 #. Resource IDs: (563)
 msgid "Ignore"
@@ -5576,7 +5577,7 @@ msgstr "Import du fichier %1!s!"
 
 #. Resource IDs: (10)
 msgid "Imports the directory to a repository"
-msgstr "Importe le répertoire dans un référentiel"
+msgstr "Importe le répertoire dans un dépôt"
 
 #. Resource IDs: (1616)
 msgid "Include e&xternals"
@@ -5598,7 +5599,7 @@ msgstr "Inclure seulement la plage de révisions suivante :"
 msgid ""
 "Includes the repository for status check\n"
 "Hold down the shift key when clicking to fetch everything."
-msgstr "Inclut le référentiel dans la vérification d'état\nAppuyez sur la touche Shift lorsque vous cliquez pour tout lister."
+msgstr "Inclut le dépôt dans la vérification d'état\nAppuyez sur la touche Shift lorsque vous cliquez pour tout lister."
 
 #. Resource IDs: (3857)
 msgid "Incorrect filename."
@@ -5716,7 +5717,7 @@ msgid ""
 "To: %2!s!\n"
 "\n"
 "Improper use of relocate will corrupt your working copy!"
-msgstr "Il semble que vous essayez de déplacer votre copie de travail vers un autre chemin à l'intérieur du même référentiel.\nDe : %1!s!\nVers : %2!s!\n\nUne utilisation incorrecte de la relocalisation va corrompre votre copie de travail !"
+msgstr "Il semble que vous essayez de déplacer votre copie de travail vers un autre chemin à l'intérieur du même dépôt.\nDe : %1!s!\nVers : %2!s!\n\nUne utilisation incorrecte de la relocalisation va corrompre votre copie de travail !"
 
 #. Resource IDs: (88)
 #, c-format
@@ -5732,7 +5733,7 @@ msgid ""
 "Improper use of relocate will corrupt your working copy!\n"
 "If you are not sure what to do, please refer to our docs on relocate.\n"
 "Do you really want to relocate?"
-msgstr "Il semble que vous essayez de déplacer votre copie de travail vers un autre chemin à l'intérieur du même référentiel.\nDe : %1!s!\nVers : %2!s!\n\nUne relocalisation est nécessaire uniquement si le chemin d'accès au référentiel a changé.\nLe passage à un chemin différent à l'intérieur d'un dépôt se fait par un switch - commutation.\n\nL'utilisation incorrecte de la relocalisation va corrompre votre copie de travail !\nSi vous n'êtes pas sûr de ce qu'il faut faire, veuillez vous référer à notre documentation sur les relocalisations.\nVoulez-vous vraiment faire la relocalisation ?"
+msgstr "Il semble que vous essayez de déplacer votre copie de travail vers un autre chemin à l'intérieur du même dépôt.\nDe : %1!s!\nVers : %2!s!\n\nUne relocalisation est nécessaire uniquement si le chemin d'accès au dépôt a changé.\nLe passage à un chemin différent à l'intérieur d'un dépôt se fait par un switch - commutation.\n\nL'utilisation incorrecte de la relocalisation va corrompre votre copie de travail !\nSi vous n'êtes pas sûr de ce qu'il faut faire, veuillez vous référer à notre documentation sur les relocalisations.\nVoulez-vous vraiment faire la relocalisation ?"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -5764,11 +5765,11 @@ msgstr "Conserver les listes de &modifications"
 
 #. Resource IDs: (610)
 msgid "Keep the directory from the repository"
-msgstr "Garder le répertoire du référentiel"
+msgstr "Garder le répertoire du dépôt"
 
 #. Resource IDs: (610)
 msgid "Keep the file from the repository"
-msgstr "Conserver les fichiers du référentiel"
+msgstr "Conserver les fichiers du dépôt"
 
 #. Resource IDs: (610)
 msgid "Keep the local directory"
@@ -5820,7 +5821,7 @@ msgstr "Dernière fois que le cache a été consulté"
 
 #. Resource IDs: (338)
 msgid "Last time the repository was asked for the HEAD revision number"
-msgstr "Dernière fois que le référentiel a été contacté pour obtenir le numéro de révision de tête"
+msgstr "Dernière fois que le dépôt a été contacté pour obtenir le numéro de révision de tête"
 
 #. Resource IDs: (12)
 msgid "Launches the external diff / merge program to solve the conflicts"
@@ -5887,7 +5888,7 @@ msgstr "Voir les sujets de l'aide\nAide"
 
 #. Resource IDs: (344)
 msgid "List of repositories for which log information has been cached"
-msgstr "Liste des référentiels dont les informations de journal ont été mises en cache"
+msgstr "Liste des dépôts dont les informations de journal ont été mises en cache"
 
 #. Resource IDs: (16631, 16992)
 msgid "List1"
@@ -5895,7 +5896,7 @@ msgstr "Liste1"
 
 #. Resource IDs: (104)
 msgid "Listing repository recursively..."
-msgstr "Lister le référentiel récursivement ..."
+msgstr "Lister le dépôt récursivement ..."
 
 #. Resource IDs: (1599)
 msgid "Lo&cal path:"
@@ -5929,7 +5930,7 @@ msgstr "Statut local"
 msgid ""
 "Location where the contents of the\n"
 "repository URL(s) will be saved to."
-msgstr "Endroit où le contenu de(s) l'URL(s)\ndu référentiel va être sauvegardé."
+msgstr "Endroit où le contenu de(s) l'URL(s)\ndu dépôt va être sauvegardé."
 
 #. Resource IDs: (65535)
 msgid "Locator bar"
@@ -6009,7 +6010,7 @@ msgstr "Mise en Cache du Journal"
 
 #. Resource IDs: (295)
 msgid "Log Caching::Cached Repositories"
-msgstr "Mise en cache::Référentiels Mis en Cache"
+msgstr "Mise en cache::Dépôts Mis en Cache"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -6228,7 +6229,7 @@ msgstr "Fusion de %1!s! dans %2!s!, %3!s!%4!s!"
 
 #. Resource IDs: (264)
 msgid "Merging differences between repository URLs"
-msgstr "Fusionner les différences entre les URLs des référentiels"
+msgstr "Fusionner les différences entre les URLs des dépôts"
 
 #. Resource IDs: (229)
 #, c-format
@@ -6505,7 +6506,7 @@ msgstr "Réseau"
 
 #. Resource IDs: (199)
 msgid "Never try to contact the repository again"
-msgstr "Ne plus jamais essayer de contacter le référentiel à nouveau"
+msgstr "Ne plus jamais essayer de contacter le dépôt à nouveau"
 
 #. Resource IDs: (1002, 30721, 65535)
 msgid "New"
@@ -6587,7 +6588,7 @@ msgid ""
 "No files to show with the current setting.\n"
 "Check one or more settings below to see unversioned, ignored and/or unmodified files.\n"
 "To see remote changes, click on 'Check Repository'"
-msgstr "Aucun fichier à afficher avec les paramètres actuels.\nCochez un des paramètres ci-dessous pour voir les fichiers non-versionnés, ignorés et/ou non modifiés.\nPour voir les changements de la version distance, cliquez sur 'Vérifier le Référentiel'"
+msgstr "Aucun fichier à afficher avec les paramètres actuels.\nCochez un des paramètres ci-dessous pour voir les fichiers non-versionnés, ignorés et/ou non modifiés.\nPour voir les changements de la version distance, cliquez sur 'Vérifier le Dépôt'"
 
 #. Resource IDs: (170)
 msgid ""
@@ -6929,7 +6930,7 @@ msgstr "Ouvre l'aide\nAide"
 
 #. Resource IDs: (13)
 msgid "Opens the repository browser to tweak the repository online"
-msgstr "Ouvre le navigateur de référentiel pour optimiser le référentiel en ligne"
+msgstr "Ouvre le navigateur de dépôt pour optimiser le dépôt en ligne"
 
 #. Resource IDs: (199)
 msgid "Operate from log cache for now only"
@@ -7189,7 +7190,7 @@ msgstr "Veuillez patienter pendant la mise en commun des éléments externes..."
 
 #. Resource IDs: (104)
 msgid "Please wait while the repository browser is initializing..."
-msgstr "Veuillez patienter pendant l'initialisation du navigateur de référentiel..."
+msgstr "Veuillez patienter pendant l'initialisation du navigateur de dépôt..."
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
@@ -7241,7 +7242,7 @@ msgstr "Privilégier la copie &locale"
 
 #. Resource IDs: (4)
 msgid "Prefer &repository"
-msgstr "Privilégier le &référentiel "
+msgstr "Privilégier le &dépôt "
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
@@ -7315,7 +7316,7 @@ msgstr "Impression"
 msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
-msgstr "Procéder à la livraison\nles dossiers renommés / déplacés sont livrés de façon récursive dans le référentiel."
+msgstr "Procéder à la livraison\nles dossiers renommés / déplacés sont livrés de façon récursive dans le dépôt."
 
 #. Resource IDs: (89)
 msgid ""
@@ -7933,27 +7934,27 @@ msgstr "Rapport"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
-msgstr "Référentiel"
+msgstr "Dépôt"
 
 #. Resource IDs: (153)
 msgid "Repository Browser"
-msgstr "Navigateur de référentiel"
+msgstr "Navigateur de dépôt"
 
 #. Resource IDs: (199)
 msgid "Repository URL"
-msgstr "URL du Référentiel"
+msgstr "URL du Dépôt"
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
-msgstr "UUID du référentiel :"
+msgstr "UUID du dépôt :"
 
 #. Resource IDs: (65535)
 msgid "Repository browser"
-msgstr "Navigateur de référentiel"
+msgstr "Navigateur de dépôt"
 
 #. Resource IDs: (324)
 msgid "Repository created"
-msgstr "Référentiel créé"
+msgstr "Dépôt créé"
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
@@ -8837,7 +8838,7 @@ msgstr "Voir les externes"
 
 #. Resource IDs: (1480)
 msgid "Show externals from &different repositories"
-msgstr "Afficher les références externes &d'autres référentiels"
+msgstr "Afficher les références externes &d'autres dépôts"
 
 #. Resource IDs: (16656)
 msgid "Show f&ull menus after a short delay"
@@ -8944,7 +8945,7 @@ msgstr "Affiche une représentation graphique des copies/étiquettes/branches"
 msgid ""
 "Shows all files which were changed since the last update, locally and in the"
 " repository"
-msgstr "Affiche tous les fichiers modifiés depuis la dernière mise à jour, localement et dans le référentiel"
+msgstr "Affiche tous les fichiers modifiés depuis la dernière mise à jour, localement et dans le dépôt"
 
 #. Resource IDs: (2050)
 msgid "Shows all revisions where changes were made to this item"
@@ -9266,7 +9267,7 @@ msgstr "Un problème grave est arrivé à Subversion.\nVeuillez prendre le temps
 msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
-msgstr "Subversion a reporté une erreur pendant la création du référentiel !\nContrôler que le répertoire est vide et non protégé en écriture."
+msgstr "Subversion a reporté une erreur pendant la création du dépôt !\nContrôler que le répertoire est vide et non protégé en écriture."
 
 #. Resource IDs: (81)
 #, c-format
@@ -9432,7 +9433,7 @@ msgid ""
 "The changes will be applied to your working copy with a reverse merge "
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
-msgstr "Les modifications seront appliquées à votre copie de travail avec une opération de fusion inversée. Le référentiel ne sera pas impacté. Vous pouvez examiner les modifications avant de les livrer."
+msgstr "Les modifications seront appliquées à votre copie de travail avec une opération de fusion inversée. Le dépôt ne sera pas impacté. Vous pouvez examiner les modifications avant de les livrer."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"
@@ -9468,7 +9469,7 @@ msgstr "Le chemin par défaut où extraire si aucun autre n'est précisé"
 msgid ""
 "The depth of this commit is \"%s\", but copies are always performed "
 "recursively in the repository."
-msgstr "La profondeur de cette livraison est \"%s\", mais des copies sont toujours réalisées de façon récursive dans le référentiel."
+msgstr "La profondeur de cette livraison est \"%s\", mais des copies sont toujours réalisées de façon récursive dans le dépôt."
 
 #. Resource IDs: (68)
 #, c-format
@@ -9817,7 +9818,7 @@ msgstr "L'expression régulière n'est pas valide !\nVeuillez entrer un expressi
 msgid ""
 "The repository was successfully created.\n"
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
-msgstr "Le référentiel a été créé avec succès.\nVoulez vous dès à présent créer la structure de répertoires par défaut (trunk/tags/branches) ?"
+msgstr "Le dépôt a été créé avec succès.\nVoulez vous dès à présent créer la structure de répertoires par défaut (trunk/tags/branches) ?"
 
 #. Resource IDs: (616)
 #, c-format
@@ -9991,7 +9992,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed folders selected "
 "for commit. Such moves/renames are always performed recursively in the "
 "repository. Do you want to commit anyway?"
-msgstr "Cette livraison n'est pas récursive, et des dossiers sélectionnés ont été déplacés / renommés. Ces mouvements / renommages sont toujours réalisés de façon récursive dans le référentiel. Voulez-vous quand même livrer ?"
+msgstr "Cette livraison n'est pas récursive, et des dossiers sélectionnés ont été déplacés / renommés. Ces mouvements / renommages sont toujours réalisés de façon récursive dans le dépôt. Voulez-vous quand même livrer ?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10000,7 +10001,7 @@ msgid ""
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr "Cette livraison n'est pas récursive, et des dossiers\nsélectionnés ont été déplacés / renommés. Ces\nmouvements / renommages sont toujours réalisés de\nfaçon récursive dans le référentiel.\n\nVoulez-vous quand même livrer ?"
+msgstr "Cette livraison n'est pas récursive, et des dossiers\nsélectionnés ont été déplacés / renommés. Ces\nmouvements / renommages sont toujours réalisés de\nfaçon récursive dans le dépôt.\n\nVoulez-vous quand même livrer ?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10586,7 +10587,7 @@ msgstr "Met à jour la copie de travail à une révision spécifique"
 
 #. Resource IDs: (9)
 msgid "Updates the working copy to the current revision"
-msgstr "Met à jour la copie de travail dans le référentiel"
+msgstr "Met à jour la copie de travail dans le dépôt"
 
 #. Resource IDs: (265)
 msgid "Updating"
@@ -10818,7 +10819,7 @@ msgstr "Utiliser la &totalité de ce fichier"
 
 #. Resource IDs: (12)
 msgid "Use this if the URL of the repository has changed"
-msgstr "Utiliser ceci si l'URL du référentiel a changé"
+msgstr "Utiliser ceci si l'URL du dépôt a changé"
 
 #. Resource IDs: (251)
 msgid "Use whole other &file"
@@ -10940,7 +10941,7 @@ msgid ""
 "When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
-msgstr "Quand la connexion à un serveur de référentiel est impossible,\nTSVN peut opter pour l'utilisation des données du cache uniquement.\nSélectionnez le comportement par défaut ici."
+msgstr "Quand la connexion à un serveur de dépôt est impossible,\nTSVN peut opter pour l'utilisation des données du cache uniquement.\nSélectionnez le comportement par défaut ici."
 
 #. Resource IDs: (197)
 msgid ""
@@ -11034,7 +11035,7 @@ msgid ""
 "This is safe, but once the repository is created you must access it by some other means.\n"
 "Accessing a repository via file:// on a network share may corrupt your data!\n"
 "Create the repository anyway?"
-msgstr "Vous créer un référentiel sur un réseau partagé.\nCeci est sûr, mais une fois le référentiel créé, vous devez y accéder par d'autres moyens.\nL'accès au référentiel par file:// sur un réseau partagé peut corrompre vos données !\nCréer le référentiel tout de même ?"
+msgstr "Vous créer un dépôt sur un réseau partagé.\nCeci est sûr, mais une fois le dépôt créé, vous devez y accéder par d'autres moyens.\nL'accès au dépôt par file:// sur un réseau partagé peut corrompre vos données !\nCréer le dépôt tout de même ?"
 
 #. Resource IDs: (88)
 msgid ""
@@ -11042,7 +11043,7 @@ msgid ""
 "a shared network drive.\n"
 "This could lead to severe repository corruption!\n"
 "Do you really want to do that?"
-msgstr "Vous essayez d'accéder à un référentiel avec file:/// sur\nun réseau partagé.\nCeci peut conduire à une grave corruption du référentiel !\nVoulez vous vraiment faire ceci ?"
+msgstr "Vous essayez d'accéder à un dépôt avec file:/// sur\nun réseau partagé.\nCeci peut conduire à une grave corruption du dépôt !\nVoulez vous vraiment faire ceci ?"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11328,7 +11329,7 @@ msgstr "un autre élément existe déjà à l'emplacement."
 msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
-msgstr "contacter le référentiel en premier si 'en ligne' -\ntravailler entièrement d'après le cache si 'hors ligne'"
+msgstr "contacter le dépôt en premier si 'en ligne' -\ntravailler entièrement d'après le cache si 'hors ligne'"
 
 #. Resource IDs: (278)
 msgid "at this revision"
@@ -11745,7 +11746,7 @@ msgid ""
 "^/ relative to the repository root\r\n"
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
-msgstr "svn:externals\nUne liste d'identifiants de modules séparée par un saut de ligne, chacun constitué\nd'une révision piquet, d'une URL et d'un chemin relatif. Par exemple\nhttp://example.com/repos/zig foo\n-r 1234 http://example.com/repos/zag@1234 foo/bar\n\nLes URLs peuvent être soit absolues soit relatives. Le format pour\nles URLs relatives est :\n../ relative au répertoire parent de la référence externe\n^/ relative à la racine du référentiel\n// relative au schéma d'URL\n/ relative au nom d'hôte du serveur"
+msgstr "svn:externals\nUne liste d'identifiants de modules séparée par un saut de ligne, chacun constitué\nd'une révision piquet, d'une URL et d'un chemin relatif. Par exemple\nhttp://example.com/repos/zig foo\n-r 1234 http://example.com/repos/zag@1234 foo/bar\n\nLes URLs peuvent être soit absolues soit relatives. Le format pour\nles URLs relatives est :\n../ relative au répertoire parent de la référence externe\n^/ relative à la racine du dépôt\n// relative au schéma d'URL\n/ relative au nom d'hôte du serveur"
 
 #. Resource IDs: (576)
 msgid ""
@@ -12024,7 +12025,7 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
-msgstr "webviewer:pathrevision\r\nURL pointant sur sur la visionneuse web du référentiel pour un fichier et une révision spécifiques.\r\nLa chaîne %REVISION% dans l'URL est remplacée par le numéro de la révision,\r\nla chaîne %PATH% est remplacée par le chemin du fichier en fonction de la racine du référentiel."
+msgstr "webviewer:pathrevision\r\nURL pointant sur sur la visionneuse web du dépôt pour un fichier et une révision spécifiques.\r\nLa chaîne %REVISION% dans l'URL est remplacée par le numéro de la révision,\r\nla chaîne %PATH% est remplacée par le chemin du fichier en fonction de la racine du dépôt."
 
 #. Resource IDs: (579)
 #, c-format
@@ -12032,7 +12033,7 @@ msgid ""
 "webviewer:revision\r\n"
 "URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
-msgstr "webviewer:revision\r\nURL pointant sur la visionneuse web pour le référentiel pour une révision particulière.\r\nLa chaîne %REVISION% dans l'URL est remplacée par le numéro de la révision."
+msgstr "webviewer:revision\r\nURL pointant sur la visionneuse web pour le dépôt pour une révision particulière.\r\nLa chaîne %REVISION% dans l'URL est remplacée par le numéro de la révision."
 
 #. Resource IDs: (245)
 msgid "week"
