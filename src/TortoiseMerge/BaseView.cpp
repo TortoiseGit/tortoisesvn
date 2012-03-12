@@ -3479,28 +3479,33 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         CString sLine = GetViewLineChars(nViewLine);
         CString sLineLeft = sLine.Left(nLeft);
         CString sLineRight = sLine.Right(sLine.GetLength() - nLeft);
-        EOL eOriginalEnding = GetViewLineEnding(nViewLine);
+        EOL eOriginalEnding = EOL_AUTOLINE;
+        if (m_pViewData && (m_pViewData->GetCount() > nViewLine))
+            eOriginalEnding = GetViewLineEnding(nViewLine);
         if (!sLineRight.IsEmpty() || (eOriginalEnding!=lineendings))
         {
             viewdata newFirstLine(sLineLeft, DIFFSTATE_EDITED, 1, lineendings, HIDESTATE_SHOWN, -1);
             SetViewData(nViewLine, newFirstLine);
         }
         viewdata newLastLine(sLineRight, DIFFSTATE_EDITED, 1, eOriginalEnding, HIDESTATE_SHOWN, -1);
-        InsertViewData(nViewLine+1, newLastLine);
+        int nInsertLine = nViewLine+1;
+        if (m_pViewData && (m_pViewData->GetCount()==0))
+            nInsertLine = 0;
+        InsertViewData(nInsertLine, newLastLine);
         SaveUndoStep();
 
         // adds new line everywhere except me
         if (IsViewGood(m_pwndLeft) && m_pwndLeft!=this)
         {
-            m_pwndLeft->InsertViewEmptyLines(nViewLine+1, 1);
+            m_pwndLeft->InsertViewEmptyLines(nInsertLine, 1);
         }
         if (IsViewGood(m_pwndRight) && m_pwndRight!=this)
         {
-            m_pwndRight->InsertViewEmptyLines(nViewLine+1, 1);
+            m_pwndRight->InsertViewEmptyLines(nInsertLine, 1);
         }
         if (IsViewGood(m_pwndBottom) && m_pwndBottom!=this)
         {
-            m_pwndBottom->InsertViewEmptyLines(nViewLine+1, 1);
+            m_pwndBottom->InsertViewEmptyLines(nInsertLine, 1);
         }
         SaveUndoStep();
 
