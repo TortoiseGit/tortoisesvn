@@ -150,17 +150,21 @@ SVN::SVN(bool suppressUI)
         // check whether the ssh client is already set in the Subversion config
         svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
             APR_HASH_KEY_STRING);
-        const char * sshValue = NULL;
-        svn_config_get(cfg, &sshValue, SVN_CONFIG_SECTION_TUNNELS, "ssh", "");
-        if ((sshValue == NULL)||(sshValue[0] == 0))
-            tsvn_ssh = _T("\"") + CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe") + _T("\"");
+        if (cfg)
+        {
+            const char * sshValue = NULL;
+            svn_config_get(cfg, &sshValue, SVN_CONFIG_SECTION_TUNNELS, "ssh", "");
+            if ((sshValue == NULL)||(sshValue[0] == 0))
+                tsvn_ssh = _T("\"") + CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe") + _T("\"");
+        }
     }
     tsvn_ssh.Replace('\\', '/');
     if (!tsvn_ssh.IsEmpty())
     {
         svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
             APR_HASH_KEY_STRING);
-        svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
+        if (cfg)
+            svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
     }
 }
 
@@ -352,23 +356,26 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
 
     svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
         APR_HASH_KEY_STRING);
-    if (bUseAutoprops)
+    if (opt)
     {
-        svn_config_get(opt, &mimetypes_file,
-            SVN_CONFIG_SECTION_MISCELLANY,
-            SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
-        if (mimetypes_file && *mimetypes_file)
+        if (bUseAutoprops)
         {
-            Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
-                mimetypes_file, pool);
-            if (Err)
-                return false;
+            svn_config_get(opt, &mimetypes_file,
+                SVN_CONFIG_SECTION_MISCELLANY,
+                SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
+            if (mimetypes_file && *mimetypes_file)
+            {
+                Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
+                    mimetypes_file, pool);
+                if (Err)
+                    return false;
+            }
+            if (props)
+                props->InsertAutoProps(opt);
         }
-        if (props)
-            props->InsertAutoProps(opt);
+        else
+            svn_config_set_bool(opt, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_ENABLE_AUTO_PROPS, false);
     }
-    else
-        svn_config_set_bool(opt, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_ENABLE_AUTO_PROPS, false);
 
     for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
     {
@@ -1040,18 +1047,26 @@ bool SVN::CreatePatch(const CTSVNPath& path1, const SVNRev& revision1,
 {
     // to create a patch, we need to remove any custom diff tools which might be set in the config file
     svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG, APR_HASH_KEY_STRING);
-    const char * value;
-    svn_config_get(cfg, &value, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, NULL);
-    CStringA diffCmd = CStringA(value);
-    svn_config_get(cfg, &value, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, NULL);
-    CStringA diff3Cmd = CStringA(value);
+    CStringA diffCmd;
+    CStringA diff3Cmd;
+    if (cfg)
+    {
+        const char * value;
+        svn_config_get(cfg, &value, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, NULL);
+        diffCmd = CStringA(value);
+        svn_config_get(cfg, &value, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, NULL);
+        diff3Cmd = CStringA(value);
 
-    svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, NULL);
-    svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, NULL);
+        svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, NULL);
+        svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, NULL);
+    }
 
     bool bRet = Diff(path1, revision1, path2, revision2, relativeToDir, depth, ignoreancestry, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, options, bAppend, outputfile, CTSVNPath());
-    svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, (LPCSTR)diffCmd);
-    svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, (LPCSTR)diff3Cmd);
+    if (cfg)
+    {
+        svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF_CMD, (LPCSTR)diffCmd);
+        svn_config_set(cfg, SVN_CONFIG_SECTION_HELPERS, SVN_CONFIG_OPTION_DIFF3_CMD, (LPCSTR)diff3Cmd);
+    }
     return bRet;
 }
 
