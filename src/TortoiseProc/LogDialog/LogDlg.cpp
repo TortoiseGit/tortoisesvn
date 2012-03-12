@@ -1744,7 +1744,8 @@ void CLogDlg::UpdateSelectedRevs()
         while (pos)
         {
             pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
-            revisions.push_back (pLogEntry->GetRevision());
+            if (pLogEntry)
+                revisions.push_back (pLogEntry->GetRevision());
         }
 
         m_selectedRevs.AddRevisions (revisions);
