@@ -2939,7 +2939,7 @@ void CBaseView::OnLButtonDblClk(UINT nFlags, CPoint point)
         if (m_pwndBottom)
             m_pwndBottom->Invalidate();
     }
-    else
+    else if (m_pViewData)
     {
         POINT ptCaretPos;
         ptCaretPos.y = nClickedLine;
