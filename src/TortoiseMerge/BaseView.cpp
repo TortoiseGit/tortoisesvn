@@ -2089,7 +2089,10 @@ void CBaseView::OnMouseHWheel(UINT nFlags, short zDelta, CPoint pt)
 
 void CBaseView::OnDoMouseWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 {
-    if ((GetKeyState(VK_CONTROL)&0x8000)||(GetKeyState(VK_SHIFT)&0x8000))
+    bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
+    bool bShift = !!(GetKeyState(VK_SHIFT)&0x8000);
+
+    if (bControl || bShift)
     {
         if (m_pMainFrame->m_bWrapLines)
             return;
@@ -2104,7 +2107,10 @@ void CBaseView::OnDoMouseWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 
 void CBaseView::OnDoMouseHWheel(UINT /*nFlags*/, short zDelta, CPoint /*pt*/)
 {
-    if ((GetKeyState(VK_CONTROL)&0x8000)||(GetKeyState(VK_SHIFT)&0x8000))
+    bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
+    bool bShift = !!(GetKeyState(VK_SHIFT)&0x8000);
+
+    if (bControl || bShift)
     {
         ScrollVertical(zDelta);
     }
@@ -2663,10 +2669,11 @@ void CBaseView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
     bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
     bool bShift = !!(GetKeyState(VK_SHIFT)&0x8000);
+
     switch (nChar)
     {
     case VK_TAB:
-        if ((nChar == '\t') && ((GetKeyState(VK_CONTROL)&0x8000) != 0))
+        if ((nChar == '\t') && bControl)
         {
             if (this==m_pwndLeft)
             {
@@ -4019,8 +4026,8 @@ void CBaseView::DeleteFonts()
 
 void CBaseView::OnCaretMove(bool bMoveLeft)
 {
-    const bool isShiftPressed = (GetKeyState(VK_SHIFT)&0x8000) != 0;
-    OnCaretMove(bMoveLeft, isShiftPressed);
+    bool bShift = !!(GetKeyState(VK_SHIFT)&0x8000);
+    OnCaretMove(bMoveLeft, bShift);
 }
 
 void CBaseView::OnCaretMove(bool bMoveLeft, bool isShiftPressed)
