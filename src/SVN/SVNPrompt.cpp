@@ -171,8 +171,7 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
         ret->may_save = may_save;
         *cred = ret;
         Creds c;
-        c.SetUsername(CStringA(username));
-        if (strcmp(c.GetUsername(), CStringA(username))==0)
+        if (c.SetUsername(CStringA(username)))
             tsvn_creds[realm] = c;
     }
     else
