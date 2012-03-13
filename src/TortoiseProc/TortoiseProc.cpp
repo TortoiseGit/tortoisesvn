@@ -84,8 +84,6 @@ CTortoiseProcApp::CTortoiseProcApp() : hWndExplorer(NULL)
 
 CTortoiseProcApp::~CTortoiseProcApp()
 {
-    sasl_done();
-
     // global application exit cleanup (after all SSL activity is shutdown)
     // we have to clean up SSL ourselves, since neon doesn't do that (can't do it)
     // because those cleanup functions work globally per process.
@@ -100,6 +98,7 @@ CTortoiseProcApp::~CTortoiseProcApp()
     CHooks::Destroy();
     SYS_IMAGE_LIST().Cleanup();
     apr_terminate();
+    sasl_done();
 }
 
 // The one and only CTortoiseProcApp object
