@@ -32,14 +32,19 @@ svn_error_t * tsvn_simple_first_creds(void **credentials,
     *iter_baton = NULL;
     if (tsvn_creds.find(realmstring) != tsvn_creds.end())
     {
+        *credentials = NULL;
         Creds cr = tsvn_creds[realmstring];
         svn_auth_cred_simple_t *creds = (svn_auth_cred_simple_t *)apr_pcalloc(pool, sizeof(*creds));
         char * t = cr.GetUsername();
+        if (t==NULL)
+            return SVN_NO_ERROR;
         creds->username = (char *)apr_pcalloc(pool, strlen(t)+1);
         strcpy_s((char*)creds->username, strlen(t)+1, t);
         SecureZeroMemory(t, strlen(t));
         delete [] t;
         t = cr.GetPassword();
+        if (t==NULL)
+            return SVN_NO_ERROR;
         creds->password = (char *)apr_pcalloc(pool, strlen(t)+1);
         strcpy_s((char*)creds->password, strlen(t)+1, t);
         SecureZeroMemory(t, strlen(t));
@@ -74,17 +79,20 @@ void svn_auth_get_tsvn_simple_provider(svn_auth_provider_object_t **provider,
 char * Creds::Decrypt( const char * text )
 {
     DWORD dwLen = 0;
-    CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL);
+    if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL)==FALSE)
+        return NULL;
 
     std::unique_ptr<BYTE[]> strIn(new BYTE[dwLen + 1]);
-    CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL);
+    if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL)==FALSE)
+        return NULL;
 
     DATA_BLOB blobin;
     blobin.cbData = dwLen;
     blobin.pbData = strIn.get();
     LPWSTR descr;
-    DATA_BLOB blobout;
-    CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout);
+    DATA_BLOB blobout = {0};
+    if (CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
+        return NULL;
     SecureZeroMemory(blobin.pbData, blobin.cbData);
 
     char * result = new char[blobout.cbData+1];
@@ -97,19 +105,23 @@ char * Creds::Decrypt( const char * text )
 
 CStringA Creds::Encrypt( const char * text )
 {
-    DATA_BLOB blobin;
-    DATA_BLOB blobout;
+    DATA_BLOB blobin = {0};
+    DATA_BLOB blobout = {0};
+    CStringA result;
 
     blobin.cbData = (DWORD)strlen(text);
     blobin.pbData = (BYTE*) (LPCSTR)text;
-    CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout);
+    if (CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
+        return result;
     DWORD dwLen = 0;
-    CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, NULL, &dwLen);
+    if (CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, NULL, &dwLen)==FALSE)
+        return result;
     std::unique_ptr<char[]> strOut(new char[dwLen + 1]);
-    CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut.get(), &dwLen);
+    if (CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX, strOut.get(), &dwLen)==FALSE)
+        return result;
     LocalFree(blobout.pbData);
 
-    CStringA result = strOut.get();
+    result = strOut.get();
 
     return result;
 }

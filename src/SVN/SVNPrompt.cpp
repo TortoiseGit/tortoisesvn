@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -172,7 +172,8 @@ svn_error_t* SVNPrompt::userprompt(svn_auth_cred_username_t **cred, void *baton,
         *cred = ret;
         Creds c;
         c.SetUsername(CStringA(username));
-        tsvn_creds[realm] = c;
+        if (strcmp(c.GetUsername(), CStringA(username))==0)
+            tsvn_creds[realm] = c;
     }
     else
     {
@@ -199,9 +200,8 @@ svn_error_t* SVNPrompt::simpleprompt(svn_auth_cred_simple_t **cred, void *baton,
         ret->may_save = may_save;
         *cred = ret;
         Creds c;
-        c.SetUsername(ret->username);
-        c.SetPassword(ret->password);
-        tsvn_creds[realm] = c;
+        if (c.SetUsername(ret->username) && c.SetPassword(ret->password))
+            tsvn_creds[realm] = c;
     }
     else
     {
