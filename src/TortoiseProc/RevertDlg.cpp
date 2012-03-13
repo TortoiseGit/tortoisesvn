@@ -115,6 +115,7 @@ UINT CRevertDlg::RevertThreadEntry(LPVOID pVoid)
 
 UINT CRevertDlg::RevertThread()
 {
+    InterlockedExchange(&m_bThreadRunning, TRUE);
     // get the status of all selected file/folders recursively
     // and show the ones which can be reverted to the user
     // in a list control.

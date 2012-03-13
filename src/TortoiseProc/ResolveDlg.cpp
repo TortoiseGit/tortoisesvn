@@ -136,6 +136,7 @@ UINT CResolveDlg::ResolveThreadEntry(LPVOID pVoid)
 }
 UINT CResolveDlg::ResolveThread()
 {
+    InterlockedExchange(&m_bThreadRunning, TRUE);
     // get the status of all selected file/folders recursively
     // and show the ones which are in conflict
     DialogEnableWindow(IDOK, false);

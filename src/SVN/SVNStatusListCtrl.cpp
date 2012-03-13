@@ -458,7 +458,9 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
     m_bWaitCursor = false;
     GetCursorPos(&pt);
     SetCursorPos(pt.x, pt.y);
-    GetHeaderCtrl()->Invalidate();
+    CHeaderCtrl * pHeader = GetHeaderCtrl();
+    if (::IsWindow(pHeader->GetSafeHwnd()))
+        pHeader->Invalidate();
     Invalidate();
     return bRet;
 }
