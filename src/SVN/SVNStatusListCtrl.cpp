@@ -4969,38 +4969,34 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 
     CString sClipboard;
 
-    // count the bits
-    int c = 0;
-    DWORD v = dwCols;
-    for (c = 0; v; c++)
-    {
-        v &= v - 1; // clear the least significant bit set
-    }
+    bool bMultipleColumnSelected = ((dwCols & dwCols-1) != 0 ); //  multiple columns are selected (clear least signifient bit and check for zero)
+
+#define ADDTOCLIPBOARDSTRING(x) sClipboard += (sClipboard.IsEmpty() || (sClipboard.Right(1)==_T("\n"))) ? (x) : ('\t' + x)
+#define ADDNEWLINETOCLIPBOARDSTRING() sClipboard += (sClipboard.IsEmpty()) ? _T("") : _T("\r\n")
 
     // first add the column titles as the first line
     DWORD selection = 0;
-    for (int i = 0, count = m_ColumnManager.GetColumnCount(); i < count; ++i)
+    int count = m_ColumnManager.GetColumnCount();
+    for (int column = 0; column < count; ++column)
     {
-        if (   ((dwCols == -1) && m_ColumnManager.IsVisible (i))
-            || ((i < SVNSLC_NUMCOLUMNS) && (dwCols & (1 << i))))
+        if (   ((dwCols == -1) && m_ColumnManager.IsVisible(column))
+            || ((column < SVNSLC_NUMCOLUMNS) && (dwCols & (1 << column))))
         {
-            if ( c > 1)
+            if ( bMultipleColumnSelected )
             {
-                if (!sClipboard.IsEmpty())
-                    sClipboard += _T("\t");
-
-                sClipboard += m_ColumnManager.GetName(i);
+                ADDTOCLIPBOARDSTRING(m_ColumnManager.GetName(column));
             }
 
-            if (i < sizeof(selection)*CHAR_BIT)
-                selection += 1 << i;
+            selection |= 1 << column;
         }
     }
 
-    if (c > 1)
-        sClipboard += _T("\r\n");
+    if ( bMultipleColumnSelected )
+        ADDNEWLINETOCLIPBOARDSTRING();
 
-#define ADDTOCLIPBOARDSTRING(x) sClipboard += sClipboard.IsEmpty() ? x : (sClipboard.Right(1)==_T("\n") ? x : '\t' + x)
+    // maybe clear first line when only one column is selected (btw by select not by dwCols) is simplier(not faster) way
+    // but why no title on single column output ?
+    // if (selection & selection-1) == 0 ) sClipboard = "";
 
     CAutoReadLock locker(m_guard);
 
@@ -5008,20 +5004,14 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
     int index;
     while ((index = GetNextSelectedItem(pos)) >= 0)
     {
-        for (int column = 0; column < SVNSLC_NUMCOLUMNS; ++column)
+        // we selected only cols we want, so not other then select test needed
+        for (int column = 0; column < count; ++column)
         {
             if (selection & (1<<column))
                 ADDTOCLIPBOARDSTRING(GetCellText(index, column));
         }
-        for ( int column = SVNSLC_NUMCOLUMNS, count = m_ColumnManager.GetColumnCount()
-            ; column < count
-            ; ++column)
-        {
-            if ((selection & (1<<column)) && m_ColumnManager.IsVisible (column))
-                ADDTOCLIPBOARDSTRING(GetCellText(index, column));
-        }
 
-        sClipboard += _T("\r\n");
+        ADDNEWLINETOCLIPBOARDSTRING();
     }
 
     return CStringUtils::WriteAsciiStringToClipboard(sClipboard);
