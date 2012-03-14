@@ -142,6 +142,7 @@ protected:
     afx_msg void OnNMClickLoglist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnEnscrollMsgview();
 
+    afx_msg void OnClose();
     virtual void OnCancel();
     virtual void OnOK();
     virtual BOOL OnInitDialog();

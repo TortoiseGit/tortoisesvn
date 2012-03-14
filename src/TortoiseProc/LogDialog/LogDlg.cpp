@@ -258,6 +258,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_NOTIFY(NM_CLICK, IDC_LOGLIST, &CLogDlg::OnNMClickLoglist)
     ON_EN_VSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
     ON_EN_HSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
+    ON_WM_CLOSE()
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */, int limit)
@@ -1119,6 +1120,22 @@ void CLogDlg::OnCancel()
 
         __super::OnCancel();
     }
+}
+
+void CLogDlg::OnClose()
+{
+    if (m_bLogThreadRunning)
+    {
+        m_bCancelled = true;
+
+        bool threadsStillRunning
+            =    !netScheduler.WaitForEmptyQueueOrTimeout(5000)
+            || !diskScheduler.WaitForEmptyQueueOrTimeout(5000);
+
+        if (threadsStillRunning)
+            return;
+    }
+    __super::OnClose();
 }
 
 BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, const MergeInfo* mergeInfo)
