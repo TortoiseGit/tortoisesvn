@@ -66,8 +66,6 @@ public:
 CTortoiseMergeApp::CTortoiseMergeApp()
 {
     EnableHtmlHelp();
-    m_bLoadUserToolbars = FALSE;
-    m_bSaveState = FALSE;
     m_bHiColorIcons = TRUE;
 }
 
