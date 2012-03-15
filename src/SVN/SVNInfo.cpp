@@ -91,17 +91,7 @@ SVNInfo::SVNInfo (bool)
 #ifdef _MFC_VER
     else
     {
-        //set up the SVN_SSH param
-        CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
-        if (tsvn_ssh.IsEmpty())
-            tsvn_ssh = CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe");
-        tsvn_ssh.Replace('\\', '/');
-        if (!tsvn_ssh.IsEmpty() && m_pctx->config)
-        {
-            svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
-                APR_HASH_KEY_STRING);
-            svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
-        }
+        SVNConfig::SetUpSSH(m_pctx);
     }
 #endif
 }

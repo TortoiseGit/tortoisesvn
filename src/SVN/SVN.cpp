@@ -142,30 +142,7 @@ SVN::SVN(bool suppressUI)
     m_pctx->progress_baton = this;
     m_pctx->client_name = SVNHelper::GetUserAgentString(pool);
 
-
-    //set up the SVN_SSH param
-    CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
-    if (tsvn_ssh.IsEmpty() && m_pctx->config)
-    {
-        // check whether the ssh client is already set in the Subversion config
-        svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
-            APR_HASH_KEY_STRING);
-        if (cfg)
-        {
-            const char * sshValue = NULL;
-            svn_config_get(cfg, &sshValue, SVN_CONFIG_SECTION_TUNNELS, "ssh", "");
-            if ((sshValue == NULL)||(sshValue[0] == 0))
-                tsvn_ssh = _T("\"") + CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe") + _T("\"");
-        }
-    }
-    tsvn_ssh.Replace('\\', '/');
-    if (!tsvn_ssh.IsEmpty() && m_pctx->config)
-    {
-        svn_config_t * cfg = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
-            APR_HASH_KEY_STRING);
-        if (cfg)
-            svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
-    }
+    SVNConfig::SetUpSSH(m_pctx);
 }
 
 SVN::~SVN(void)

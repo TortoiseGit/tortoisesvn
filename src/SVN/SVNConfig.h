@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2010 - TortoiseSVN
+// Copyright (C) 2003-2006, 2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #pragma once
 #include "SVNGlobal.h"
 #pragma warning(push)
+#include "svn_client.h"
 #include "apr_hash.h"
 #include "apr_tables.h"
 #pragma warning(pop)
@@ -66,6 +67,8 @@ public:
     BOOL MatchIgnorePattern(const CString& name);
 
     BOOL KeepLocks();
+
+    static bool SetUpSSH(svn_client_ctx_t * ctx);
 private:
     apr_pool_t *                parentpool;
     apr_pool_t *                pool;
