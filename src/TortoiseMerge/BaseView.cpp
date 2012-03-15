@@ -4508,6 +4508,8 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
 
 void CBaseView::OnEditSelectall()
 {
+    if (m_pViewData == nullptr)
+        return;
     int nLastViewLine = m_pViewData->GetCount()-1;
     SetupAllViewSelection(0, nLastViewLine);
 
@@ -4887,6 +4889,8 @@ LRESULT CBaseView::OnFindDialogMessage(WPARAM /*wParam*/, LPARAM /*lParam*/)
 
 void CBaseView::OnEditFindnextStart()
 {
+    if (m_pViewData == nullptr)
+        return;
     if (HasTextSelection())
     {
         m_sFindText = GetSelectedText();
@@ -4907,6 +4911,8 @@ void CBaseView::OnEditFindnextStart()
 
 void CBaseView::OnEditFindprevStart()
 {
+    if (m_pViewData == nullptr)
+        return;
     if (HasTextSelection())
     {
         m_sFindText = GetSelectedText();
