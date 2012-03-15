@@ -1901,10 +1901,11 @@ BOOL CResModule::ReplaceRibbon(UINT nID, WORD wLanguage)
         std::wstring ret = bufw.get();
 
         RESOURCEENTRY entry = m_StringEntries[ret];
+        ret = L"<TEXT>" + ret + L"</TEXT>";
 
         if (entry.msgstr.size())
         {
-            CUtils::SearchReplace(ssw, ret, entry.msgstr);
+            CUtils::SearchReplace(ssw, ret, L"<TEXT>" + entry.msgstr + L"</TEXT>");
             m_bTranslatedDialogStrings++;
         }
     }
