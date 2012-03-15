@@ -80,7 +80,7 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
     if (tsvn_ssh.IsEmpty())
         tsvn_ssh = CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe");
     tsvn_ssh.Replace('\\', '/');
-    if (!tsvn_ssh.IsEmpty())
+    if (!tsvn_ssh.IsEmpty() && m_pctx->config)
     {
         svn_config_t * cfg = (svn_config_t *)apr_hash_get ((apr_hash_t *)m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
             APR_HASH_KEY_STRING);

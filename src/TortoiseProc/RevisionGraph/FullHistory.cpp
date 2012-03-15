@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -84,7 +84,7 @@ CFullHistory::CFullHistory(void)
     if (tsvn_ssh.IsEmpty())
         tsvn_ssh = CPathUtils::GetAppDirectory() + _T("TortoisePlink.exe");
     tsvn_ssh.Replace('\\', '/');
-    if (!tsvn_ssh.IsEmpty())
+    if (!tsvn_ssh.IsEmpty() && ctx->config)
     {
         svn_config_t * cfg = (svn_config_t *)apr_hash_get (ctx->config, SVN_CONFIG_CATEGORY_CONFIG,
             APR_HASH_KEY_STRING);
