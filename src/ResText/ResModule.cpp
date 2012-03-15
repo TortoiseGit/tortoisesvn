@@ -234,7 +234,7 @@ BOOL CResModule::CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR l
         _ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedAcceleratorStrings, m_bDefaultAcceleratorStrings);
 
     if (!m_bQuiet)
-        _ftprintf(stdout, _T("Translating Ribbons.."));
+        _ftprintf(stdout, _T("Translating Ribbons......."));
     bRes = EnumResourceNames(m_hResDll, RT_RIBBON, EnumResNameWriteCallback, (long)this);
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedRibbonTexts, m_bDefaultRibbonTexts);
@@ -1061,7 +1061,6 @@ BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
     WORD xkey;
     for (i = 0; i < cAccelerators; i++)
     {
-        m_bDefaultAcceleratorStrings++;
         if ((lpaccelNew[i].key < 0x30) ||
             (lpaccelNew[i].key > 0x5A) ||
             (lpaccelNew[i].key >= 0x3A && lpaccelNew[i].key <= 0x40))
@@ -1129,6 +1128,8 @@ BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
                 lpaccelNew[i].key = xkey;
             }
         }
+        else
+            m_bDefaultAcceleratorStrings++;
     }
 
     // Create the new accelerator table
@@ -1855,6 +1856,25 @@ BOOL CResModule::ExtractRibbon(UINT nID)
         m_bDefaultRibbonTexts++;
     }
 
+    // extract all </ELEMENT_NAME><NAME>blahblah</NAME> elements
+
+    const std::regex regRevMatchName("</ELEMENT_NAME><NAME>([^<]+)</NAME>");
+    for (std::sregex_iterator it(ss.begin(), ss.end(), regRevMatchName); it != end; ++it)
+    {
+        std::string str = (*it)[1];
+        size_t len = str.size();
+        std::unique_ptr<wchar_t[]> bufw(new wchar_t[len*4 + 1]);
+        SecureZeroMemory(bufw.get(), (len*4 + 1)*sizeof(wchar_t));
+        MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, bufw.get(), (int)len*4);
+        std::wstring ret = bufw.get();
+        RESOURCEENTRY entry = m_StringEntries[ret];
+        entry.resourceIDs.insert(nID);
+        if (wcschr(ret.c_str(), '%'))
+            entry.flag = _T("#, c-format");
+        m_StringEntries[ret] = entry;
+        m_bDefaultRibbonTexts++;
+    }
+
     UnlockResource(hglRibbonTemplate);
     FreeResource(hglRibbonTemplate);
     return TRUE;
@@ -1906,8 +1926,32 @@ BOOL CResModule::ReplaceRibbon(UINT nID, WORD wLanguage)
         if (entry.msgstr.size())
         {
             CUtils::SearchReplace(ssw, ret, L"<TEXT>" + entry.msgstr + L"</TEXT>");
-            m_bTranslatedDialogStrings++;
+            m_bTranslatedRibbonTexts++;
         }
+        else
+            m_bDefaultRibbonTexts++;
+    }
+
+    const std::regex regRevMatchName("</ELEMENT_NAME><NAME>([^<]+)</NAME>");
+    for (std::sregex_iterator it(ss.begin(), ss.end(), regRevMatchName); it != end; ++it)
+    {
+        std::string str = (*it)[1];
+        size_t len = str.size();
+        std::unique_ptr<wchar_t[]> bufw(new wchar_t[len*4 + 1]);
+        SecureZeroMemory(bufw.get(), (len*4 + 1)*sizeof(wchar_t));
+        MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, bufw.get(), (int)len*4);
+        std::wstring ret = bufw.get();
+
+        RESOURCEENTRY entry = m_StringEntries[ret];
+        ret = L"</ELEMENT_NAME><NAME>" + ret + L"</NAME>";
+
+        if (entry.msgstr.size())
+        {
+            CUtils::SearchReplace(ssw, ret, L"</ELEMENT_NAME><NAME>" + entry.msgstr + L"</NAME>");
+            m_bTranslatedRibbonTexts++;
+        }
+        else
+            m_bDefaultRibbonTexts++;
     }
 
     std::unique_ptr<char[]> buf(new char[ssw.size()*4 + 1]);
