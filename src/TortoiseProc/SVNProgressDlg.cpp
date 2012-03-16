@@ -1335,7 +1335,11 @@ void CSVNProgressDlg::OnOK()
         // don't do any more operations on the window which might require message passing
         // If you try to send windows messages once we're waiting here, then the thread can't finished
         // because the Window's message loop is blocked at this wait
-        WaitForSingleObject(m_pThread->m_hThread, 10000);
+        if (WaitForSingleObject(m_pThread->m_hThread, 10000)==WAIT_TIMEOUT)
+        {
+            // end the process the hard way
+            TerminateProcess(GetCurrentProcess(), 0);
+        }
         if (CheckUpdateAndRetry())
             return;
         __super::OnOK();
