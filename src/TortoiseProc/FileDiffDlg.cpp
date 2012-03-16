@@ -827,6 +827,7 @@ UINT CFileDiffDlg::ExportThread()
             {
                 if ((!m_bDoPegDiff)||(!Export(url2, savepath, m_rev2, m_rev2, true, true)))
                 {
+                    SetAndClearProgressInfo(NULL, false);
                     delete m_pProgDlg;
                     m_pProgDlg = NULL;
                     ShowErrorDialog(m_hWnd);
@@ -842,6 +843,7 @@ UINT CFileDiffDlg::ExportThread()
             {
                 if ((!m_bDoPegDiff)||(!Export(url2, savepath, m_rev2, m_rev2)))
                 {
+                    SetAndClearProgressInfo(NULL, false);
                     delete m_pProgDlg;
                     m_pProgDlg = NULL;
                     ShowErrorDialog(m_hWnd);
