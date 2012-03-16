@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2011 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@ CProgressDlg::~CProgressDlg()
         if (m_isVisible)            //still visible, so stop first before destroying
             m_pIDlg->StopProgressDialog();
 
-        m_pIDlg.Release();
+        m_pIDlg = nullptr;
         m_hWndProgDlg = NULL;
     }
 }
@@ -278,8 +278,7 @@ void CProgressDlg::Stop()
             ShowWindow(m_hWndProgDlg, SW_HIDE);
         }
         m_isVisible = false;
-        m_pIDlg.Release();
-
+        m_pIDlg = nullptr;
         m_hWndProgDlg = NULL;
     }
 }
