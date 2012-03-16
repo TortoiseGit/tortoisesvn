@@ -2231,7 +2231,9 @@ void CRepositoryBrowser::OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResul
     LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
     if (pNMLV->uChanged & LVIF_STATE)
     {
-        if (pNMLV->uNewState & LVIS_SELECTED)
+        if ((pNMLV->uNewState & LVIS_SELECTED) &&
+            (pNMLV->iItem >= 0) &&
+            (pNMLV->iItem < m_RepoList.GetItemCount()))
         {
             CAutoReadLock locker(m_guard);
             CItem * pItem = (CItem*)m_RepoList.GetItemData(pNMLV->iItem);
