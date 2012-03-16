@@ -97,6 +97,7 @@ svn_error_t*    SVNReadProperties::Refresh()
     const char* svnPath = m_path.GetSVNApiPath(m_pool);
     if ((svnPath == 0)||(svnPath[0] == 0))
         return NULL;
+    m_props = NULL;
     if (m_bRevProps)
     {
         svn_revnum_t rev_set;
@@ -111,8 +112,8 @@ svn_error_t*    SVNReadProperties::Refresh()
                                                 m_pool),
             svnPath
         )
-
-        m_props = apr_hash_copy(m_pool, props);
+        if (Err == NULL)
+            m_props = apr_hash_copy(m_pool, props);
     }
     else
     {
