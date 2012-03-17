@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,11 @@
 #include "SVNInfo.h"
 #include "DragDropImpl.h"
 #include <vector>
+#include <Shldisp.h>
+
+#ifndef __IDataObjectAsyncCapability_FWD_DEFINED__
+#define IDataObjectAsyncCapability IAsyncOperation
+#endif
 
 using namespace std;
 
@@ -41,7 +46,7 @@ extern  CLIPFORMAT  CF_SHELLURL;
  * This can be used for drag and drop operations to other applications like
  * the shell itself.
  */
-class SVNDataObject : public IDataObject, public IAsyncOperation
+class SVNDataObject : public IDataObject, public IDataObjectAsyncCapability
 {
 public:
     /**
@@ -70,7 +75,7 @@ public:
     virtual HRESULT STDMETHODCALLTYPE DUnadvise(DWORD dwConnection);
     virtual HRESULT STDMETHODCALLTYPE EnumDAdvise(IEnumSTATDATA** ppenumAdvise);
 
-    //IAsyncOperation
+    //IDataObjectAsyncCapability
     virtual HRESULT STDMETHODCALLTYPE SetAsyncMode(BOOL fDoOpAsync);
     virtual HRESULT STDMETHODCALLTYPE GetAsyncMode(BOOL* pfIsOpAsync);
     virtual HRESULT STDMETHODCALLTYPE StartOperation(IBindCtx* pbcReserved);
