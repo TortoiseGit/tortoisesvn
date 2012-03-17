@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -190,19 +190,22 @@ bool CPicture::Load(tstring sFilePathName)
                             // we are going to open same file second time so we have to close the file now
                             hFile.CloseHandle();
 
-                            nCurrentIcon = 0;
                             LPICONDIR lpIconDir = (LPICONDIR)lpIcons;
-                            hIcons = new HICON[lpIconDir->idCount];
-                            m_Width = lpIconDir->idEntries[0].bWidth;
-                            m_Height = lpIconDir->idEntries[0].bHeight;
-                            for (int i=0; i<lpIconDir->idCount; ++i)
+                            if (lpIconDir->idCount * sizeof(ICONDIR) <= fileinfo.nFileIndexLow)
                             {
-                                hIcons[i] = (HICON)LoadImage(NULL, sFilePathName.c_str(), IMAGE_ICON,
-                                    lpIconDir->idEntries[i].bWidth,
-                                    lpIconDir->idEntries[i].bHeight,
-                                    LR_LOADFROMFILE);
+                                nCurrentIcon = 0;
+                                hIcons = new HICON[lpIconDir->idCount];
+                                m_Width = lpIconDir->idEntries[0].bWidth;
+                                m_Height = lpIconDir->idEntries[0].bHeight;
+                                for (int i=0; i<lpIconDir->idCount; ++i)
+                                {
+                                    hIcons[i] = (HICON)LoadImage(NULL, sFilePathName.c_str(), IMAGE_ICON,
+                                        lpIconDir->idEntries[i].bWidth,
+                                        lpIconDir->idEntries[i].bHeight,
+                                        LR_LOADFROMFILE);
+                                }
+                                bResult = true;
                             }
-                            bResult = true;
                         }
                         else
                         {
