@@ -522,6 +522,23 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
         EnableMenuItem(hMenu, ID_VIEW_MERGEPATH, MF_DISABLED | MF_GRAYED | MF_BYCOMMAND);
     }
 
+    if ( (m_revs.size() != m_mergedRevs.size()) ||
+        (m_mergedRevs.size() != m_dates.size()) ||
+        (m_dates.size() != m_mergedDates.size()) ||
+        (m_mergedDates.size() != m_authors.size()) ||
+        (m_authors.size() != m_mergedAuthors.size()) ||
+        (m_mergedAuthors.size() != m_mergedPaths.size()) )
+    {
+        m_revs.clear();
+        m_mergedRevs.clear();
+        m_dates.clear();
+        m_mergedDates.clear();
+        m_authors.clear();
+        m_mergedAuthors.clear();
+        m_mergedPaths.clear();
+        return FALSE;
+    }
+
     return TRUE;
 }
 
