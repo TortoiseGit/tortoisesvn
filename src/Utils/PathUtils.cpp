@@ -24,6 +24,7 @@
 #include "SVNHelpers.h"
 #include "apr_uri.h"
 #include "svn_path.h"
+#include <emmintrin.h>
 
 static BOOL sse2supported = ::IsProcessorFeaturePresent( PF_XMMI64_INSTRUCTIONS_AVAILABLE );
 

@@ -63,6 +63,11 @@
           <variable name="VCVERSION" value="100" />
         </setenv>
       </if>
+      <if test="${studioversion == 'VS11'}">
+        <setenv>
+          <variable name="VCVERSION" value="110" />
+        </setenv>
+      </if>
 
       <!-- find the path to the merge modules -->
       <script language="C#">

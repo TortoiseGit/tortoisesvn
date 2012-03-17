@@ -7,7 +7,7 @@
   <property name="devrelease" value="-dev" unless="${property::exists('devrelease')}"/>
   <!-- default build for win32 platform -->
   <property name="platform" value="win32" />
-  <!-- default build tool is VS.NET2008 -->
+  <!-- default build tool is VS2010 -->
   <property name="buildtool" value="devenv.com" />
   <!-- default: don't add a platform specific extension
      to the bin folders 'release' / 'debug'	 -->
@@ -24,6 +24,9 @@
   <property name="studioversion" value="2010"/>
 
   <include buildfile="default.build.user" />
+
+  <!-- build with VS2011, if there is a 11.0 in the VC path -->
+  <property name="studioversion" value="VS11" if="${string::contains (environment::get-variable('VCINSTALLDIR'), '11.0')}"/>
 
   <!-- the signinfo.txt file has to contain one line with parameters for signtool.exe,
        for example:

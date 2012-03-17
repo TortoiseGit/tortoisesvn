@@ -26,6 +26,7 @@
 #include "svn_dirent_uri.h"
 #include "svn_path.h"
 #include <regex>
+#include <functional>
 
 #if defined(_MFC_VER)
 #include "AppUtils.h"

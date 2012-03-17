@@ -19,6 +19,7 @@
 #include "StdAfx.h"
 #include "unicodeutils.h"
 #include <memory>
+#include <emmintrin.h>
 
 static BOOL sse2supported = ::IsProcessorFeaturePresent( PF_XMMI64_INSTRUCTIONS_AVAILABLE );
 

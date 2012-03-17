@@ -26,6 +26,7 @@
 #include <shlwapi.h>
 #include <Shellapi.h>
 #include <comutil.h>
+#include <memory>
 
 #pragma warning(push)
 #include <apr_pools.h>

@@ -26,6 +26,7 @@
 #include <shellapi.h>
 #include <io.h>
 #include <fcntl.h>
+#include <memory>
 
 
 #pragma warning(push)

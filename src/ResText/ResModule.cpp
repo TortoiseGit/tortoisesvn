@@ -19,6 +19,7 @@
 #include "Utils.h"
 #include ".\resmodule.h"
 #include <regex>
+#include <memory>
 
 #ifndef RT_RIBBON
 #define RT_RIBBON MAKEINTRESOURCE(28)
