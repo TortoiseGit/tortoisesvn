@@ -56,6 +56,7 @@
 #include "AsyncCall.h"
 #include "DiffOptionsDlg.h"
 #include "RecycleBinDlg.h"
+#include "BrowseFolder.h"
 
 #include <tuple>
 
@@ -114,9 +115,10 @@ const static CString svnPropIgnore (SVN_PROP_IGNORE);
 #define IDSVNLC_COMPARETWO      40
 #define IDSVNLC_CREATERESTORE   41
 #define IDSVNLC_RESTOREPATH     42
+#define IDSVNLC_EXPORT          43
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS        43
+#define IDSVNLC_MOVETOCS        44
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -2913,6 +2915,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         else
                             popup.AppendMenuIcon(IDSVNLC_RESTOREPATH, IDS_MENURESTORE, IDI_RESTORE);
                     }
+                    if (m_dwContextMenus & SVNSLC_POPEXPORT)
+                    {
+                        popup.AppendMenuIcon(IDSVNLC_EXPORT, IDS_MENUEXPORT, IDI_EXPORT);
+                    }
                 }
                 if (entry->remotestatus > svn_wc_status_normal)
                 {
@@ -3239,6 +3245,50 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         }
                     }
                     Invalidate();
+                }
+                break;
+            case IDSVNLC_EXPORT:
+                {
+                    // ask where the export should go to.
+                    CBrowseFolder folderBrowser;
+                    CString strTemp;
+                    strTemp.LoadString(IDS_PROC_EXPORT_1);
+                    folderBrowser.SetInfo(strTemp);
+                    folderBrowser.m_style = BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_VALIDATE | BIF_EDITBOX;
+                    TCHAR saveto[MAX_PATH];
+                    if (folderBrowser.Show(m_hWnd, saveto, _countof(saveto))==CBrowseFolder::OK)
+                    {
+                        CString saveplace = CString(saveto);
+
+                        CProgressDlg progress;
+                        progress.SetTitle(IDS_PROC_EXPORT_3);
+                        progress.SetAnimation(IDR_MOVEANI);
+                        progress.FormatNonPathLine(1, IDS_SVNPROGRESS_EXPORTINGWAIT);
+                        progress.SetTime(true);
+                        progress.ShowModeless(m_hWnd);
+                        size_t count = 0;
+                        size_t total = GetSelectedCount();
+
+                        POSITION pos = GetFirstSelectedItemPosition();
+                        while ( pos )
+                        {
+                            int index = GetNextSelectedItem(pos);
+                            FileEntry * entry2 = GetListEntry(index);
+                            ASSERT(entry2 != NULL);
+                            if (entry2 == NULL)
+                                continue;
+                            if (entry2->IsFolder())
+                                continue;
+
+                            CString targetpath = saveplace + L"\\" + entry2->GetRelativeSVNPath(true);
+                            targetpath.Replace('/', '\\');
+                            progress.FormatPathLine(1, IDS_SVNPROGRESS_EXPORTING, entry2->GetPath().GetWinPath());
+                            progress.FormatPathLine(2, IDS_SVNPROGRESS_EXPORTINGTO, targetpath);
+                            progress.SetProgress64(count, total);
+                            CPathUtils::FileCopy(entry2->GetPath().GetWinPath(), targetpath);
+                        }
+                        progress.Stop();
+                    }
                 }
                 break;
             case IDSVNLC_RESTOREPATH:
