@@ -341,7 +341,10 @@ Don't touch these lines:
                                 user confirmation, and the option <option>/autorename</option>
                                 specifies that if files already exist, the exported
                                 files get automatically renamed to avoid overwriting
-                                them.
+                                them. The option <option>/extended</option> can specify either
+                                <literal>localchanges</literal> to only export files that
+                                got changed locally, or <literal>unversioned</literal>
+                                to also export all unversioned items as well.
                             </entry>
                         </row>
                         <row>

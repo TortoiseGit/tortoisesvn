@@ -835,6 +835,11 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
     if ((itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_FOLDER)&&(itemStates & ITEMIS_WCROOT))
         InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTEXTENDEDMENU, 0, idCmdFirst, ShellMenuDropExportExtended, _T("tsvn_dropexportextended"));
 
+    // SVN export changed here
+    // available if source is versioned and a folder
+    if ((itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_FOLDER))
+        InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTCHANGEDMENU, 0, idCmdFirst, ShellMenuDropExportChanged, _T("tsvn_dropexportchanged"));
+
     // apply patch
     // available if source is a patchfile
     if (itemStates & ITEMIS_PATCHFILE)
@@ -1357,7 +1362,11 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
             break;
         case ShellMenuDropExportExtended:
             AddPathFileDropCommand(svnCmd, L"dropexport");
-            svnCmd += _T(" /extended");
+            svnCmd += _T(" /extended:unversioned");
+            break;
+        case ShellMenuDropExportChanged:
+            AddPathFileDropCommand(svnCmd, L"dropexport");
+            svnCmd += _T(" /extended:localchanges");
             break;
         case ShellMenuLog:
             AddPathCommand(svnCmd, L"log", true);

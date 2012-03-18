@@ -143,6 +143,7 @@
 #define IDS_ERR_PROPNOMULTILINE         232
 #define IDS_MENUREVISIONGRAPH           233
 #define IDS_MENUDESCREVISIONGRAPH       234
+#define IDS_DROPEXPORTCHANGEDMENU       235
 #define IDS_MENUUNIGNORE                237
 #define IDS_MENUDESCUNIGNORE            238
 #define IDS_SVNREPORTEDANERROR          239
@@ -238,7 +239,7 @@
 #define IDC_CHECKSUM                    11027
 
 // Next default values for new objects
-//
+// 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        5165

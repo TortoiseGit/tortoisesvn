@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,6 +27,7 @@
 #include "DirFileEnum.h"
 #include "MessageBox.h"
 #include "SVNStatus.h"
+#include "SVN.h"
 
 bool ExportCommand::Execute()
 {
@@ -164,7 +165,7 @@ bool ExportCommand::Execute()
                 SVN svn;
                 if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC,
                     bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, false, svn_depth_infinity,
-                    GetExplorerHWND(), !!folderBrowser.m_bCheck))
+                    GetExplorerHWND(), folderBrowser.m_bCheck ? SVN::SVNExportIncludeUnversioned : SVN::SVNExportNormal))
                 {
                     svn.ShowErrorDialog(GetExplorerHWND(), cmdLinePath);
                     bRet = false;
