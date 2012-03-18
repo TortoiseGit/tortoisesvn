@@ -56,6 +56,7 @@
 #include "LogDlgFilter.h"
 #include "SVNLogHelper.h"
 #include "DiffOptionsDlg.h"
+#include "../LogCache/Streams/StreamException.h"
 
 #if (NTDDI_VERSION < NTDDI_LONGHORN)
 
@@ -2291,7 +2292,14 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
                     , 0
                     , LogCache::CRevisionInfoContainer::HAS_AUTHOR);
                 toUpdate->Update (newInfo);
-                toUpdate->Save();
+                try
+                {
+                    toUpdate->Save();
+                }
+                catch (CStreamException&)
+                {
+                    // can't save the file right now
+                }
 
                 progDlg.SetProgress64(i, logs.size());
 
@@ -2336,41 +2344,48 @@ void CLogDlg::EditLogMessage(int index)
     {
         if(sOldValue.Compare(dlg.m_sInputText))
         {
-        dlg.m_sInputText.Remove(_T('\r'));
-        if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), pLogEntry->GetRevision()))
-        {
-            ShowErrorDialog(m_hWnd);
-        }
-        else
-        {
-            pLogEntry->SetMessage (CUnicodeUtils::StdGetUTF8
-                                     ( (LPCTSTR)dlg.m_sInputText));
-
-            CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
-            pMsgView->SetWindowText(_T(" "));
-            pMsgView->SetWindowText(dlg.m_sInputText);
-            m_ProjectProperties.FindBugID(dlg.m_sInputText, pMsgView);
-            m_LogList.Invalidate();
-
-            // update the log cache
-
-            LogCache::CCachedLogInfo* toUpdate
-                = GetLogCache (CTSVNPath (m_sRepositoryRoot));
-            if (toUpdate != NULL)
+            dlg.m_sInputText.Remove(_T('\r'));
+            if (!RevPropertySet(name, dlg.m_sInputText, sOldValue, CTSVNPath(url), pLogEntry->GetRevision()))
             {
-                // log caching is active
-
-                LogCache::CCachedLogInfo newInfo;
-                newInfo.Insert ( pLogEntry->GetRevision()
-                               , ""
-                               , pLogEntry->GetMessage().c_str()
-                               , 0
-                               , LogCache::CRevisionInfoContainer::HAS_COMMENT);
-
-                toUpdate->Update (newInfo);
-                toUpdate->Save();
+                ShowErrorDialog(m_hWnd);
             }
-        }
+            else
+            {
+                pLogEntry->SetMessage (CUnicodeUtils::StdGetUTF8
+                    ( (LPCTSTR)dlg.m_sInputText));
+
+                CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+                pMsgView->SetWindowText(_T(" "));
+                pMsgView->SetWindowText(dlg.m_sInputText);
+                m_ProjectProperties.FindBugID(dlg.m_sInputText, pMsgView);
+                m_LogList.Invalidate();
+
+                // update the log cache
+
+                LogCache::CCachedLogInfo* toUpdate
+                    = GetLogCache (CTSVNPath (m_sRepositoryRoot));
+                if (toUpdate != NULL)
+                {
+                    // log caching is active
+
+                    LogCache::CCachedLogInfo newInfo;
+                    newInfo.Insert ( pLogEntry->GetRevision()
+                        , ""
+                        , pLogEntry->GetMessage().c_str()
+                        , 0
+                        , LogCache::CRevisionInfoContainer::HAS_COMMENT);
+
+                    toUpdate->Update (newInfo);
+                    try
+                    {
+                        toUpdate->Save();
+                    }
+                    catch (CStreamException&)
+                    {
+                        // can't save the file right now
+                    }
+                }
+            }
         }
     }
     theApp.DoWaitCursor(-1);
