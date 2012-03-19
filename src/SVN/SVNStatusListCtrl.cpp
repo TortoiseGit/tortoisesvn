@@ -2445,20 +2445,22 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
         {
             CAutoWriteLock locker(m_guard);
             SetRedraw(FALSE);
-            POSITION pos = GetFirstSelectedItemPosition();
-            int index;
+            POSITION pos = NULL;
             CTSVNPathList deletedlist;  // to store list of deleted folders
             bool bHadSelected = false;
-            std::vector<int> itemstoremove;
-            while ((index = GetNextSelectedItem(pos)) >= 0)
+            // re-start the selected positions every time: since on each loop
+            // the first selected entry is removed, GetFirstSelectedItemPosition
+            // is required on each loop start.
+            while ((pos = GetFirstSelectedItemPosition()) != 0)
             {
+                int index = GetNextSelectedItem(pos);
                 if (GetCheck(index))
                     m_nSelected--;
                 m_nTotal--;
                 FileEntry * fentry = GetListEntry(index);
                 if ((fentry)&&(fentry->isfolder))
                     deletedlist.AddPath(fentry->path);
-                itemstoremove.push_back(index);
+                RemoveListEntry(index);
                 bHadSelected = true;
             }
             if (!bHadSelected)
@@ -2469,7 +2471,7 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
                 FileEntry * fentry = GetListEntry(selIndex);
                 if ((fentry)&&(fentry->isfolder))
                     deletedlist.AddPath(fentry->path);
-                itemstoremove.push_back(selIndex);
+                RemoveListEntry(selIndex);
             }
             // now go through the list of deleted folders
             // and remove all their children from the list too!
@@ -2482,11 +2484,11 @@ void CSVNStatusListCtrl::Delete (const CTSVNPath& filepath, int selIndex)
                     FileEntry * entry2 = GetListEntry(i);
                     if (folderpath.IsAncestorOf(entry2->path))
                     {
-                        itemstoremove.push_back(i);
+                        RemoveListEntry(i--);
+                        nListboxEntries--;
                     }
                 }
             }
-            RemoveListEntries(itemstoremove);
         }
         SetRedraw(TRUE);
     }
