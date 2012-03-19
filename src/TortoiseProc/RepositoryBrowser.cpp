@@ -188,6 +188,7 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
 
 void CRepositoryBrowser::ClearUI()
 {
+    CAutoWriteLock locker(m_guard);
     RecursiveRemove (m_RepoTree.GetRootItem());
 
     m_RepoTree.DeleteAllItems();
@@ -1106,6 +1107,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     if (pTreeItem == NULL)
         return;
 
+    CAutoWriteLock locker(m_guard);
     CWaitCursorEx wait;
     m_RepoList.SetRedraw(false);
     m_RepoList.DeleteAllItems();
@@ -2113,6 +2115,7 @@ void CRepositoryBrowser::OnHdnItemclickRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMHEADER phdr = reinterpret_cast<LPNMHEADER>(pNMHDR);
     // a click on a header means sorting the items
+    CAutoWriteLock locker(m_guard);
     if (m_nSortedColumn != phdr->iItem)
         m_bSortAscending = true;
     else
