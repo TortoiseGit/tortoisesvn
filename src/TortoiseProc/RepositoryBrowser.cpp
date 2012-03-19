@@ -714,6 +714,10 @@ void CRepositoryBrowser::OnOK()
         return;
     }
 
+    m_cancelled = TRUE;
+    m_lister.Cancel();
+
+
     m_backgroundJobs.WaitForEmptyQueue();
     if (!m_bSparseCheckoutMode)
     {

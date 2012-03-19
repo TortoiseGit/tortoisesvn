@@ -322,8 +322,12 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
                 url.SetFromSVN (absoluteURL);
                 externalRepository.root
                     = svn.GetRepositoryRootAndUUID (url, true, externalRepository.uuid);
+                if (HasBeenTerminated())
+                    break;
                 SVNInfo info;
                 const SVNInfoData * pInfoData = info.GetFirstFileInfo(url, external->peg_revision, external->revision, svn_depth_empty);
+                if (HasBeenTerminated())
+                    break;
 
                 externalRepository.revision = external->revision;
                 externalRepository.peg_revision = external->peg_revision;
