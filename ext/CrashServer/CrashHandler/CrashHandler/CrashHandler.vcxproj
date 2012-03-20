@@ -267,7 +267,6 @@
   <ItemGroup>
     <ClInclude Include="..\SendRpt\Serializer.h" />
     <ClInclude Include="..\SendRpt\Config.h" />
-    <ClInclude Include="APIHook.h" />
     <ClInclude Include="CrashHandlerExport.h" />
     <ClInclude Include="projectinfo.h" />
     <ClInclude Include="CrashHandler.h" />
@@ -279,7 +278,6 @@
     <ResourceCompile Include="CrashHandler.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="APIHook.cpp" />
     <ClCompile Include="CrashHandler.cpp" />
     <ClCompile Include="..\SendRpt\Serializer.cpp" />
     <ClCompile Include="stdafx.cpp">

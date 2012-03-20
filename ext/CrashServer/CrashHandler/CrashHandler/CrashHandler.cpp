@@ -22,13 +22,12 @@
 #include "..\SendRpt\Serializer.h"
 #include <signal.h>
 #include <algorithm>
-#include "APIHook.h"
 
-CAPIHook g_SetUnhandledExceptionFilterHook;
 HINSTANCE g_hThisDLL = NULL;
 bool g_applicationVerifierPresent = false;
 bool g_ownProcess = false;
 volatile LONG g_insideCrashHandler = 0;
+LPTOP_LEVEL_EXCEPTION_FILTER g_prevTopLevelExceptionFilter = NULL;
 
 // It should not be destroyed on PROCESS_DETACH, because it may be used later if someone will crash on deinitialization
 // so it is on heap, but not static (runtime destroy static objects on PROCESS_DETACH)
@@ -192,9 +191,76 @@ LONG CALLBACK VectoredExceptionHandler(EXCEPTION_POINTERS* pExceptionPointers)
 	return EXCEPTION_CONTINUE_SEARCH;
 }
 
-LPTOP_LEVEL_EXCEPTION_FILTER WINAPI DummySetUnhandledExceptionFilter(LPTOP_LEVEL_EXCEPTION_FILTER lpTopLevelExceptionFilter)
+FARPROC GetSetUnhandledExceptionFilterPointer()
 {
-	return NULL;
+	FARPROC suef = NULL;
+	// In Windows 8 SetUnhandledExceptionFilter implementation is in kernelbase
+	if (HMODULE kernelbase = GetModuleHandle(_T("kernelbase")))
+		suef = GetProcAddress(kernelbase, "SetUnhandledExceptionFilter");
+	if (!suef)
+	{
+		if (HMODULE kernel32 = GetModuleHandle(_T("kernel32")))
+			suef = GetProcAddress(kernel32, "SetUnhandledExceptionFilter");
+	}
+	return suef;
+}
+
+void SwitchSetUnhandledExceptionFilter(bool enable)
+{
+	FARPROC suef = GetSetUnhandledExceptionFilterPointer();
+	if (!suef)
+		return;
+
+	// newBody is something like that:
+	//
+	//	LPTOP_LEVEL_EXCEPTION_FILTER WINAPI SetUnhandledExceptionFilter(LPTOP_LEVEL_EXCEPTION_FILTER)
+	//	{
+	//	 return NULL;
+	//	}
+#if defined(_M_X64)
+	static const BYTE newBody[] = 
+	{
+		0x33, 0xC0,	// xor eax,eax  
+		0xC3		// ret  
+	};
+#elif defined(_M_IX86)
+	static const BYTE newBody[] = 
+	{
+		0x8B, 0xFF,			// mov edi,edi <- for hotpatching
+		0x33, 0xC0,			// xor eax,eax  
+		0xC2, 0x04, 0x00	// ret 4 
+	};
+#else
+#	error Unsupported architecture
+#endif
+	const SIZE_T bodySize = sizeof(newBody);
+
+	static BYTE oldBody[bodySize] = { 0 };
+
+	DWORD oldProtection;
+	if (!VirtualProtect(suef, bodySize, PAGE_EXECUTE_READWRITE, &oldProtection))
+		return;
+	if (!enable)
+	{
+		memcpy(oldBody, suef, bodySize);
+		memcpy(suef, newBody, bodySize);
+	}
+	else if (oldBody[0] != 0)
+	{
+		memcpy(suef, oldBody, bodySize);
+	}
+
+	VirtualProtect(suef, bodySize, oldProtection, &oldProtection);
+}
+
+void DisableSetUnhandledExceptionFilter()
+{
+	SwitchSetUnhandledExceptionFilter(false);
+}
+
+void ReenableSetUnhandledExceptionFilter()
+{
+	SwitchSetUnhandledExceptionFilter(true);
 }
 
 // This code should be inplace, so it is a macro
@@ -366,11 +432,11 @@ BOOL InitCrashHandler(ApplicationInfo* applicationInfo, HandlerSettings* handler
 			if (g_applicationVerifierPresent)
 				AddVectoredExceptionHandler(TRUE, VectoredExceptionHandler);
 
-			SetUnhandledExceptionFilter(TopLevelExceptionFilter);
+			g_prevTopLevelExceptionFilter = SetUnhandledExceptionFilter(TopLevelExceptionFilter);
 			// There is a lot of libraries that want to set their own wrong UnhandledExceptionFilter in our application.
 			// One of these is MSVCRT with __report_gsfailure and _call_reportfault leading to many 
 			// of MSVCRT error reports to be redirected to Dr. Watson.
-			g_SetUnhandledExceptionFilterHook.Install("kernel32.dll", "SetUnhandledExceptionFilter", (PROC)DummySetUnhandledExceptionFilter);
+			DisableSetUnhandledExceptionFilter();
 
 			InitCrtErrorHandlers();
 			MakePerThreadInitialization();
@@ -484,6 +550,13 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 			TlsFree(g_tlsPrevTerminatePtr);
 			g_tlsPrevTerminatePtr = TLS_OUT_OF_INDEXES;
 		}
+		if (g_prevTopLevelExceptionFilter)
+		{
+			ReenableSetUnhandledExceptionFilter();
+			SetUnhandledExceptionFilter(g_prevTopLevelExceptionFilter);
+		}
+		if (g_applicationVerifierPresent)
+			RemoveVectoredExceptionHandler(VectoredExceptionHandler);
 		break;
 	case DLL_THREAD_ATTACH:
 		if (g_ownProcess)

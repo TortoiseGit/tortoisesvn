@@ -33,9 +33,6 @@
     <ClInclude Include="projectinfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="APIHook.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\SendRpt\Serializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -56,9 +53,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\SendRpt\Serializer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="APIHook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
