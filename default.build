@@ -266,7 +266,7 @@
     </description>
   </target>
 
-  <target name="uploadsymbols" depends="env">
+  <target name="uploadsymbols" depends="env,VersionInfo">
     <description>
       Uploads all the debug symbols and binaries to the crash report
       server http://crash-server.com
@@ -274,6 +274,12 @@
     <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
     <property name="platformfoldername" value=""   if="${platform == 'win32'}"/>
     <property name="platformfoldername" value="64" if="${platform == 'x64'}"/>
+
+    <exec program="${environment::get-variable('DEBUGTOOLS')}\srcsrv\svnindex.cmd">
+      <arg value="/debug" />
+      <arg value="/symbols=bin\${configuration}${platformfoldername}\bin\" />
+      <arg value="/source=.;ext\apr;ext\apr-util;ext\subversion" />
+    </exec>
     <exec program="ext\CrashServer\SymUpload.exe">
       <arg value="-publish" />
       <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
