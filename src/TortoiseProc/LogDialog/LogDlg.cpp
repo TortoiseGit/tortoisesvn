@@ -315,7 +315,8 @@ BOOL CLogDlg::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     m_pTaskbarList.Release();
-    m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList);
+    if (FAILED(m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList)))
+        m_pTaskbarList = nullptr;
 
     // use the default GUI font, create a copy of it and
     // change the copy to BOLD (leave the rest of the font

@@ -923,7 +923,8 @@ BOOL CSVNProgressDlg::OnInitDialog()
         }
     }
     m_pTaskbarList.Release();
-    m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList);
+    if (FAILED(m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList)))
+        m_pTaskbarList = nullptr;
 
     m_ProgList.SetExtendedStyle (LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
@@ -3478,7 +3479,8 @@ CString CSVNProgressDlg::GetPathFromColumnText(const CString& sColumnText)
 LRESULT CSVNProgressDlg::OnTaskbarBtnCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     m_pTaskbarList.Release();
-    m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList);
+    if (FAILED(m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList)))
+        m_pTaskbarList = nullptr;
     SetUUIDOverlayIcon(m_hWnd);
     return 0;
 }
