@@ -639,9 +639,11 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
             if ((pThis->m_pCtx)&&(nodeStatus == svn_wc_status_normal))
             {
                 const svn_string_t * value = NULL;
-                svn_wc_prop_get2(&value, pThis->m_pCtx->wc_ctx, path, "svn:needs-lock", pool, pool);
-                if (value)
+                svn_error_t * err = svn_wc_prop_get2(&value, pThis->m_pCtx->wc_ctx, path, "svn:needs-lock", pool, pool);
+                if ((err==NULL) && value)
                     needsLock = (value->len > 0);
+                if (err)
+                    svn_error_clear(err);
             }
         }
     }
