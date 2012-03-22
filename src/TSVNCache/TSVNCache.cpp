@@ -120,6 +120,9 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
         if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
         {
             CCrashReport::Instance().Uninstall();
+            CAutoWriteWeakLock writeLock(CSVNStatusCache::Instance().GetGuard(), 5000);
+            bRun = false;
+            CSVNStatusCache::Instance().Stop();
             abort();    // ugly, ugly! But at least we showed a messagebox first
         }
     }
@@ -129,6 +132,9 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
     if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
     {
         CCrashReport::Instance().Uninstall();
+        CAutoWriteWeakLock writeLock(CSVNStatusCache::Instance().GetGuard(), 5000);
+        bRun = false;
+        CSVNStatusCache::Instance().Stop();
         abort();    // ugly, ugly! But at least we showed a messagebox first
     }
     return NULL;    // never reached, only to silence compiler warning
@@ -505,7 +511,7 @@ unsigned int __stdcall PipeThread(LPVOID lpvParam)
         // the function returns a nonzero value. If the function returns
         // zero, GetLastError returns ERROR_PIPE_CONNECTED.
         fConnected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED);
-        if (fConnected)
+        if (fConnected && (*bRun))
         {
             // Create a thread for this client.
             CAutoGeneralHandle hInstanceThread = (HANDLE)_beginthreadex(NULL, 0, InstanceThread, (HANDLE)hPipe, 0, &dwThreadId);
@@ -579,7 +585,7 @@ unsigned int __stdcall CommandWaitThread(LPVOID lpvParam)
         // the function returns a nonzero value. If the function returns
         // zero, GetLastError returns ERROR_PIPE_CONNECTED.
         fConnected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED);
-        if (fConnected)
+        if (fConnected && (*bRun))
         {
             // Create a thread for this client.
             CAutoGeneralHandle hCommandThread = (HANDLE)_beginthreadex(NULL, 0, CommandThread, (HANDLE)hPipe, 0, &dwThreadId);

@@ -93,9 +93,9 @@ void CDirectoryWatcher::CleanupWatchInfo()
 void CDirectoryWatcher::Stop()
 {
     InterlockedExchange(&m_bRunning, FALSE);
-    m_hThread.CloseHandle();
-
     CloseWatchHandles();
+    WaitForSingleObject(m_hThread, 4000);
+    m_hThread.CloseHandle();
 }
 
 void CDirectoryWatcher::SetFolderCrawler(CFolderCrawler * crawler)
