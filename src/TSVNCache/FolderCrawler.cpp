@@ -381,6 +381,8 @@ void CFolderCrawler::WorkerThread()
                         {
                             CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
                             CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
+                            // now cacheDir is invalid because it got deleted in the RemoveCacheForPath() call above.
+                            cachedDir = NULL;
                         }
                     }
                     if (cachedDir)
