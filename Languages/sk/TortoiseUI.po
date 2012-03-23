@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-03-16 08:32+0000\n"
+"PO-Revision-Date: 2012-03-20 09:26+0000\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "%.2f kB/s"
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contained an unexpected object."
-msgstr "%1 obsahuje neočakávaný objekt."
+msgstr "%1 obsahoval neočakávaný objekt."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -92,7 +92,7 @@ msgstr "Vybraných %1!d! súborov, celkom %2!d! súborov"
 #, c-format
 msgid ""
 "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
-msgstr "%1!d! najaktívnejších autorov s aspoň %2!d! odovzdaní každých %3!d! %%)"
+msgstr "%1!d! najaktívnejších autorov s aspoň %2!d! odovzdaní každý (%3!d! %%)"
 
 #. Resource IDs: (226)
 #, c-format
@@ -112,7 +112,7 @@ msgstr "%1!s! - na revízii: %2!d!"
 #. Resource IDs: (151)
 #, c-format
 msgid "%1!s! : Working Base, Revision %2!ld!"
-msgstr "%1!s! : Pracovný základ, Revízia %2!ld!"
+msgstr "%1!s! : Pracovný základ, revízia %2!ld!"
 
 #. Resource IDs: (226)
 #, c-format
@@ -168,7 +168,7 @@ msgid ""
 "%1\n"
 "Cannot find this file.\n"
 "Verify that the correct path and file name are given."
-msgstr "%1\nSúbor nemožno nájsť.\nSkontrolujte, či je zadaná správna cesta a meno súboru."
+msgstr "%1\nTento súbor nemožno nájsť.\nSkontrolujte, či je zadaná správna cesta a meno súboru."
 
 #. Resource IDs: (357)
 #, c-format
@@ -2172,7 +2172,7 @@ msgstr "Pozadie"
 
 #. Resource IDs: (106)
 msgid "Backwards in browsing history"
-msgstr ""
+msgstr "Dopredu v historií prehliadania"
 
 #. Resource IDs: (246)
 msgid "Bar Graph"
@@ -2761,7 +2761,7 @@ msgstr "Čistenie"
 #. Resource IDs: (146)
 #, c-format
 msgid "Cleaning up directory '%1!s!'"
-msgstr "Čistenie adresára\n%1!s!"
+msgstr "Čistenie adresára %1!s!"
 
 #. Resource IDs: (329)
 msgid "Cleanup"
@@ -4799,7 +4799,7 @@ msgstr "Dopredu"
 
 #. Resource IDs: (106)
 msgid "Forwards in browsing history"
-msgstr ""
+msgstr "Naspäť v historií prehliadania"
 
 #. Resource IDs: (65535)
 msgid "Found auto words:"
@@ -6060,7 +6060,7 @@ msgstr "Neplatná DLL knižnica pre emaily."
 
 #. Resource IDs: (156)
 msgid "Main"
-msgstr ""
+msgstr "Hlavné"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
@@ -6469,7 +6469,7 @@ msgstr "NUM"
 
 #. Resource IDs: (156)
 msgid "Navigate"
-msgstr ""
+msgstr "Navigácia"
 
 #. Resource IDs: (2056)
 msgid ""
@@ -10668,7 +10668,7 @@ msgstr "Použiť blok \"Ich\""
 
 #. Resource IDs: (156)
 msgid "Use 'theirs' text block then 'mine'"
-msgstr "Použiť blok  \"Ich\" potom \"Moje\""
+msgstr "Použiť blok \"Ich\" potom \"Moje\""
 
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
@@ -10877,7 +10877,7 @@ msgstr "Verziované"
 
 #. Resource IDs: (156)
 msgid "View"
-msgstr ""
+msgstr "Zobrazenie"
 
 #. Resource IDs: (114)
 msgid "View revision for path in &webviewer"
