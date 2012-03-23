@@ -435,6 +435,10 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
         {
             if (cdir->m_directoryPath.IsAncestorOf(itMap->first))
             {
+                // just in case (see issue #255)
+                if (itMap->second == cdir)
+                    break;
+
                 RemoveCacheForDirectory(itMap->second);
             }
         }

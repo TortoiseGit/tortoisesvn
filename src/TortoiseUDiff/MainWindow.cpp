@@ -318,7 +318,7 @@ bool CMainWindow::Initialize()
         // pane in TortoiseSVN's Settings dialog, while there is no such
         // pane for TortoiseUDiff.
         CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameFontSize"), 10),
-        WideToMultibyte(CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"))).c_str());
+        CUnicodeUtils::StdGetUTF8(CRegStdString(_T("Software\\TortoiseSVN\\BlameFontName"), _T("Courier New"))).c_str());
     SendEditor(SCI_SETTABWIDTH, 4);
     SendEditor(SCI_SETREADONLY, TRUE);
     LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)"_99999");

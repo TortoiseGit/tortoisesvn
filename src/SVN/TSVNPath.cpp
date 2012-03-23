@@ -96,12 +96,7 @@ void CTSVNPath::SetFromSVN(const char* pPath)
     Reset();
     if (pPath == NULL)
         return;
-    int len = MultiByteToWideChar(CP_UTF8, 0, pPath, -1, NULL, 0);
-    if (len)
-    {
-        len = MultiByteToWideChar(CP_UTF8, 0, pPath, -1, m_sFwdslashPath.GetBuffer(len+1), len+1);
-        m_sFwdslashPath.ReleaseBuffer(len-1);
-    }
+    m_sFwdslashPath = CUnicodeUtils::GetUnicode(pPath);
     SanitizeRootPath(m_sFwdslashPath, true);
 }
 

@@ -1602,7 +1602,7 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
     {
     case GCS_HELPTEXTA:
         {
-            std::string help = WideToMultibyte(desc);
+            std::string help = CUnicodeUtils::StdGetUTF8(desc);
             lstrcpynA(pszName, help.c_str(), cchMax);
             hr = S_OK;
             break;
@@ -1619,7 +1619,7 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
             std::map<UINT_PTR, tstring>::const_iterator verb_id_it = myVerbsIDMap.lower_bound(idCmd);
             if (verb_id_it != myVerbsIDMap.end() && verb_id_it->first == idCmd)
             {
-                std::string help = WideToMultibyte(verb_id_it->second);
+                std::string help = CUnicodeUtils::StdGetUTF8(verb_id_it->second);
                 lstrcpynA(pszName, help.c_str(), cchMax);
                 hr = S_OK;
             }

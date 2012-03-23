@@ -619,19 +619,11 @@ CStringW CPathUtils::PathUnescape(const CStringW& path)
     int len = path.GetLength();
     if (len==0)
         return CStringW();
-    CStringA patha;
-    char * buf = patha.GetBuffer(len*4 + 1);
-    int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, path, -1, buf, len*4, NULL, NULL);
-    patha.ReleaseBuffer(lengthIncTerminator-1);
+    CStringA patha = CUnicodeUtils::GetUTF8(path);
 
     patha = PathUnescape(patha);
 
-    len = patha.GetLength();
-    std::unique_ptr<WCHAR[]> bufw(new WCHAR[len*4 + 1]);
-    SecureZeroMemory(bufw.get(), (len*4 + 1)*sizeof(WCHAR));
-    MultiByteToWideChar(CP_UTF8, 0, patha, -1, bufw.get(), len*4);
-    CStringW ret = CStringW(bufw.get());
-    return ret;
+    return CUnicodeUtils::GetUnicode(patha);
 }
 
 CString CPathUtils::PathUnescape (const char* path)

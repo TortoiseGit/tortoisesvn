@@ -391,17 +391,6 @@ std::wstring CUnicodeUtils::StdGetUnicode(const std::string& utf8)
     return std::wstring (buffer, end - buffer);
 }
 
-// use system function for string conversion
-
-std::string WideToMultibyte(const std::wstring& wide)
-{
-    std::unique_ptr<char[]> narrow (new char[wide.length()*3+2]);
-    BOOL defaultCharUsed;
-    int ret = (int)WideCharToMultiByte(CP_ACP, 0, wide.c_str(), (int)wide.size(), narrow.get(), (int)wide.length()*3 - 1, ".", &defaultCharUsed);
-
-    return std::string (narrow.get(), ret);
-}
-
 // load a string resource
 
 #pragma warning(push)
