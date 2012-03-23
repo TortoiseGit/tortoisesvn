@@ -351,7 +351,10 @@ CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
     CBuffer<char> buffer (3 * size);
 
     char* end = UTF16ToUTF8 ((const wchar_t*)string, size, buffer);
-    return CStringA (buffer, static_cast<int>(end - buffer));
+    int len = static_cast<int>(end - buffer);
+    if (len)
+        return CStringA (buffer, len);
+    return CStringA();
 }
 
 CString CUnicodeUtils::GetUnicode(const CStringA& string)
@@ -360,7 +363,10 @@ CString CUnicodeUtils::GetUnicode(const CStringA& string)
     CBuffer<wchar_t> buffer (size);
 
     wchar_t* end = UTF8ToUTF16 ((const char*)string, size, buffer);
-    return CString (buffer, static_cast<int>(end - buffer));
+    int len = static_cast<int>(end - buffer);
+    if (len)
+        return CString (buffer, len);
+    return CString();
 }
 
 CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
@@ -369,7 +375,10 @@ CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
     CBuffer<wchar_t> buffer (size);
 
     wchar_t* end = UTF8ToUTF16 (string.c_str(), size, buffer);
-    return CString (buffer, static_cast<int>(end - buffer));
+    int len = static_cast<int>(end - buffer);
+    if (len)
+        return CString (buffer, len);
+    return CString();
 }
 #endif //_MFC_VER
 
@@ -379,7 +388,10 @@ std::string CUnicodeUtils::StdGetUTF8(const std::wstring& wide)
     CBuffer<char> buffer (3 * size);
 
     char* end = UTF16ToUTF8 (wide.c_str(), size, buffer);
-    return std::string (buffer, end - buffer);
+    int len = static_cast<int>(end - buffer);
+    if (len)
+        return std::string (buffer, len);
+    return std::string();
 }
 
 std::wstring CUnicodeUtils::StdGetUnicode(const std::string& utf8)
@@ -388,7 +400,10 @@ std::wstring CUnicodeUtils::StdGetUnicode(const std::string& utf8)
     CBuffer<wchar_t> buffer (size);
 
     wchar_t* end = UTF8ToUTF16 (utf8.c_str(), size, buffer);
-    return std::wstring (buffer, end - buffer);
+    int len = static_cast<int>(end - buffer);
+    if (len)
+        return std::wstring (buffer, len);
+    return std::wstring();
 }
 
 // load a string resource
