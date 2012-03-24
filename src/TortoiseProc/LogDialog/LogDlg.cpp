@@ -1019,11 +1019,19 @@ void CLogDlg::OnBnClickedNexthundred()
     m_limit = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseSVN\\NumberOfLogs"), 100) +1;
     InterlockedExchange(&m_bLogThreadRunning, TRUE);
     SetSortArrow(&m_LogList, -1, true);
+
+    // clear the list controls: after the thread is finished
+    // the controls will be populated again.
+    m_ChangedFileListCtrl.SetItemCountEx(0);
+    m_ChangedFileListCtrl.Invalidate();
     // We need to create CStoreSelection on the heap or else
     // the variable will run out of the scope before the
     // thread ends. Therefore we let the thread delete
     // the instance.
     AutoStoreSelection();
+
+    m_LogList.SetItemCountEx(0);
+    m_LogList.Invalidate();
 
     // since we fetch the log from the last revision we already have,
     // we have to remove that revision entry to avoid getting it twice
