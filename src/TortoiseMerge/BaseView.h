@@ -78,7 +78,7 @@ public: // methods
     void            SetWritable(bool bWritable = true) {m_bReadonly = !bWritable;}
     void            SetTarget(bool bTarget = true) {m_bTarget = bTarget;}
     bool            IsReadonly() const {return m_bReadonly;}
-    bool            IsWritable() const {return !m_bReadonly;}
+    bool            IsWritable() const {return !m_bReadonly && m_pViewData;}
     bool            IsTarget() const {return m_bTarget;}
     void            SetCaretAndGoalPosition(const POINT& pt) {UpdateCaretPosition(pt); UpdateGoalPos(); }
     void            SetCaretAndGoalViewPosition(const POINT& pt) {UpdateCaretViewPosition(pt); UpdateGoalPos(); }
