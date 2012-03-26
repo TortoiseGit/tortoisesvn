@@ -55,6 +55,8 @@ Version 1.7.7
        views as writable. (Stefan)
 - BUG: Issue #260: endless recursion when unchecking
        item in status list control. (Stefan)
+- BUG: Issue #261: unchecking deleted items does
+       not uncheck its parents. (Stefan)
 
 Version 1.7.6
 - BUG: Issue #209: repo browser doesn't

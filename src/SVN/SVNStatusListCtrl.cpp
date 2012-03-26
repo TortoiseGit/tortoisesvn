@@ -1503,7 +1503,7 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
         case 18: // SVNSLC_COLMODIFICATIONDATE
             {
                 __int64 filetime = entry->GetPath().GetLastWriteTime();
-                if ( (filetime) && (entry->textstatus!=svn_wc_status_deleted) )
+                if ( (filetime) && (entry->status!=svn_wc_status_deleted) )
                 {
                     FILETIME* f = (FILETIME*)(__int64*)&filetime;
                     SVN::formatDate(buf,*f,true);
@@ -1917,11 +1917,11 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
         }
     }
     bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
-    if ( (entry->textstatus == svn_wc_status_deleted) || (m_bCheckChildrenWithParent) || (bShift) )
+    if ( (entry->status == svn_wc_status_deleted) || (m_bCheckChildrenWithParent) || (bShift) )
     {
         // if a deleted folder gets checked, we have to check all
         // children of that folder too.
-        if (entry->path.IsDirectory())
+        if (entry->IsFolder() || (entry->path.IsDirectory()))
         {
             SetCheckOnAllDescendentsOf(entry, true);
         }
@@ -1938,7 +1938,7 @@ void CSVNStatusListCtrl::CheckEntry(int index, int nListItems)
                 continue;
             if (testEntry->path.IsAncestorOf(entry->path) && (!testEntry->path.IsEquivalentTo(entry->path)))
             {
-                if ((testEntry->textstatus == svn_wc_status_deleted)||(m_bCheckChildrenWithParent))
+                if ((testEntry->status == svn_wc_status_deleted)||(m_bCheckChildrenWithParent))
                 {
                     SetEntryCheck(testEntry,i,true);
                     m_nSelected++;
@@ -1966,7 +1966,7 @@ void CSVNStatusListCtrl::UncheckEntry(int index, int nListItems)
     SetCheck(index, FALSE);
     entry = GetListEntry(index);
     // item was unchecked
-    if (entry->path.IsDirectory())
+    if (entry->IsFolder() || (entry->path.IsDirectory()))
     {
         // disable all files within an unselected folder, except when unchecking a folder with property changes
         bool bShift = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
@@ -1975,7 +1975,7 @@ void CSVNStatusListCtrl::UncheckEntry(int index, int nListItems)
             SetCheckOnAllDescendentsOf(entry, false);
         }
     }
-    else if (entry->textstatus == svn_wc_status_deleted)
+    else if (entry->status == svn_wc_status_deleted)
     {
         // a "deleted" file was unchecked, so uncheck all parent folders
         // and all children of those parents
@@ -1989,7 +1989,7 @@ void CSVNStatusListCtrl::UncheckEntry(int index, int nListItems)
                 continue;
             if (!testEntry->path.IsAncestorOf(entry->path))
                 continue;
-            if (testEntry->textstatus != svn_wc_status_deleted)
+            if (testEntry->status != svn_wc_status_deleted)
                 continue;
             SetEntryCheck(testEntry,i,false);
             m_nSelected--;
@@ -2383,7 +2383,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
             }
             else
             {
-                e->textstatus = svn_wc_status_deleted;
+                e->textstatus = svn_wc_status_normal;
                 e->status = svn_wc_status_deleted;
             }
         }
@@ -2402,7 +2402,7 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
             }
             else
             {
-                e->textstatus = svn_wc_status_deleted;
+                e->textstatus = svn_wc_status_normal;
                 e->status = svn_wc_status_deleted;
                 SetEntryCheck(e,index,true);
             }
@@ -3592,7 +3592,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         while ((index = GetNextSelectedItem(pos)) >= 0)
                         {
                             FileEntry * e = GetListEntry(index);
-                            e->textstatus = svn_wc_status_added;
+                            e->textstatus = svn_wc_status_normal;
                             e->propstatus = svn_wc_status_none;
                             e->status = svn_wc_status_added;
                             SetEntryCheck(e,index,true);
@@ -3608,7 +3608,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                     continue;
                                 if (testEntry->path.IsAncestorOf(folderpath) && (!testEntry->path.IsEquivalentTo(folderpath)))
                                 {
-                                    testEntry->textstatus = svn_wc_status_added;
+                                    testEntry->textstatus = svn_wc_status_normal;
                                     testEntry->propstatus = svn_wc_status_none;
                                     testEntry->status = svn_wc_status_added;
                                     if (!testEntry->checked)
@@ -4325,7 +4325,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                         else if (entry->remotestatus == svn_wc_status_deleted)
                             // locally modified, but already deleted in the repository
                             crText = m_Colors.GetColor(CColors::Conflict);
-                        else if (entry->textstatus == svn_wc_status_missing)
+                        else if (entry->status == svn_wc_status_missing)
                             crText = m_Colors.GetColor(CColors::Deleted);
                         else
                             crText = m_Colors.GetColor(CColors::Modified);
