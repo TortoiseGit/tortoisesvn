@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-03-20 09:26+0000\n"
+"PO-Revision-Date: 2012-03-24 06:52+0000\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -51,12 +51,12 @@ msgstr "počet samostatne zobrazených autorov:"
 #. Resource IDs: (357)
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "Prenesené dáta: %.2f MB"
+msgstr "Prenesené dáta: %.2f MiB"
 
 #. Resource IDs: (357)
 #, c-format
 msgid "%.2f kBytes/s"
-msgstr "%.2f kB/s"
+msgstr "%.2f KiB/s"
 
 #. Resource IDs: (3868)
 #, c-format
@@ -183,7 +183,7 @@ msgstr "%I64d B/s"
 #. Resource IDs: (357)
 #, c-format
 msgid "%I64d kBytes transferred"
-msgstr "Prenesené dáta: %I64d kB"
+msgstr "Prenesené dáta: %I64d KiB"
 
 #. Resource IDs: (8)
 #, c-format
@@ -924,7 +924,7 @@ msgstr "&Maximálna dĺžka riadku pre riadkové porovnanie"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
-msgstr "&Maximálna veľkosť odstráneného neaktívneho zásobníka [kB]"
+msgstr "&Maximálna veľkosť odstráneného neaktívneho zásobníka [KiB]"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -2321,7 +2321,7 @@ msgstr "CAP"
 
 #. Resource IDs: (199)
 msgid "Cache size [kB]"
-msgstr "Veľkosť zásobníka [kB]"
+msgstr "Veľkosť zásobníka [KiB]"
 
 #. Resource IDs: (1440)
 msgid "Cached Repositories"
@@ -7499,7 +7499,7 @@ msgstr "Vrátiť do tejto re&vízie"
 
 #. Resource IDs: (65535)
 msgid "RAM [kB]: "
-msgstr "RAM [kB]: "
+msgstr "RAM [KiB]: "
 
 #. Resource IDs: (3697)
 msgid "REC"
@@ -10528,7 +10528,7 @@ msgstr "Nepomenované"
 msgid ""
 "Unused log caches will only be removed if the respective\n"
 "file is smaller than the given size in kBytes."
-msgstr "Nepoužitý zásobník denníka bude vymazaný iba keď jeho\nsúbor je väčší ako udaná veľkosť v kBytes."
+msgstr "Nepoužitý zásobník denníka bude vymazaný iba keď jeho\nsúbor je menší ako udaná veľkosť v KiB."
 
 #. Resource IDs: (146)
 msgid "Unversion"
@@ -11458,7 +11458,7 @@ msgstr "vymazané"
 
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
-msgstr "disk [kB]: "
+msgstr "disk [KiB]: "
 
 #. Resource IDs: (58116)
 msgid "dummy"
