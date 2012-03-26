@@ -53,6 +53,8 @@ Version 1.7.7
        during "next 100". (Stefan)
 - BUG: Issue #259: TMerge considers invalid
        views as writable. (Stefan)
+- BUG: Issue #260: endless recursion when unchecking
+       item in status list control. (Stefan)
 
 Version 1.7.6
 - BUG: Issue #209: repo browser doesn't

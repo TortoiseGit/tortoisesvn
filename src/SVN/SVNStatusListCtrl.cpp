@@ -1805,7 +1805,9 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
         // was the item checked?
         if (GetCheck(pNMLV->iItem))
         {
+            m_bBlockItemChangeHandler = true;
             CheckEntry(pNMLV->iItem, nListItems);
+            m_bBlockItemChangeHandler = false;
             if (bSelected)
             {
                 m_bBlockItemChangeHandler = true;
@@ -1821,7 +1823,9 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
         }
         else
         {
+            m_bBlockItemChangeHandler = true;
             UncheckEntry(pNMLV->iItem, nListItems);
+            m_bBlockItemChangeHandler = false;
             if (bSelected)
             {
                 m_bBlockItemChangeHandler = true;
