@@ -891,7 +891,7 @@ private:
     bool FetchStatusForSingleTarget(SVNStatus& status, const CTSVNPath& target, const CTSVNPath& basepath, bool bFetchStatusFromRepository, CStringA& strCurrentRepositoryUUID, CTSVNPathList& arExtPaths, bool bAllDirect, svn_depth_t depth = svn_depth_infinity, bool bShowIgnores = false);
 
     /// Create 'status' data for each item in an unversioned folder
-    void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath);
+    void AddUnversionedFolder(const CTSVNPath& strFolderName, const CTSVNPath& strBasePath, bool inexternal);
 
     /// Add unversioned / ignored folder
     void PostProcessEntry (const FileEntry* entry, svn_wc_status_kind wcFileStatus);
