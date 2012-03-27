@@ -628,7 +628,9 @@ Don't touch these lines:
                             <entry condition="pot">:properties</entry>
                             <entry>
                                 Shows the properties dialog for the path given in
-                                <option>/path</option>.
+                                <option>/path</option>. If <option>/rev:XXX</option>
+                                is specified and <option>/path</option> is an URL,
+                                the dialog shows and edits revision properties.
                             </entry>
                         </row>
                     </tbody>
