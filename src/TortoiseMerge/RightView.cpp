@@ -41,7 +41,8 @@ void CRightView::UseBothLeftFirst()
 {
     int nFirstViewLine; // first view line in selection
     int nLastViewLine; // last view line in selection
-
+    if (!IsWritable())
+        return;
     if (!GetViewSelection(nFirstViewLine, nLastViewLine))
         return;
 
@@ -100,6 +101,8 @@ void CRightView::UseBothRightFirst()
     int nFirstViewLine; // first view line in selection
     int nLastViewLine; // last view line in selection
 
+    if (!IsWritable())
+        return;
     if (!GetViewSelection(nFirstViewLine, nLastViewLine))
         return;
 
@@ -161,6 +164,8 @@ void CRightView::UseLeftBlock()
     int nFirstViewLine;
     int nLastViewLine;
 
+    if (!IsWritable())
+        return;
     if (!GetViewSelection(nFirstViewLine, nLastViewLine))
         return;
 
@@ -172,6 +177,8 @@ void CRightView::UseLeftFile()
     int nFirstViewLine = 0;
     int nLastViewLine = GetViewCount()-1;
 
+    if (!IsWritable())
+        return;
     return UseBlock(nFirstViewLine, nLastViewLine);
 }
 
@@ -209,6 +216,8 @@ void CRightView::AddContextItems(CIconMenu& popup, DiffStates state)
 
 void CRightView::UseBlock(int nFirstViewLine, int nLastViewLine)
 {
+    if (!IsWritable())
+        return;
     CUndo::GetInstance().BeginGrouping();
 
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
