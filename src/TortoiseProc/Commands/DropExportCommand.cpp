@@ -113,7 +113,7 @@ bool DropExportCommand::Execute()
                 int exportcount = 1;
                 while (PathFileExists(renameddropper))
                 {
-                    renameddropper.FormatMessage(IDS_PROC_EXPORTFOLDERNAME2, (LPCTSTR)droppath, exportcount++, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
+                    renameddropper.FormatMessage(IDS_PROC_EXPORTFOLDERNAME2, (LPCTSTR)droppath, (LPCTSTR)pathList[nPath].GetFileOrDirectoryName(), exportcount++);
                 }
 
                 UINT ret = retDefault;
