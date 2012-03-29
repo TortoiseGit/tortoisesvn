@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,6 +39,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
     , m_bIndependentWCs(FALSE)
     , m_parentExists(false)
     , m_blockPathAdjustments(FALSE)
+    , m_bBlockMessages(false)
 {
 }
 
@@ -237,11 +238,18 @@ BOOL CCheckoutDlg::OnInitDialog()
 
 void CCheckoutDlg::OnOK()
 {
+    if (m_bBlockMessages)
+        return;
+    m_bBlockMessages = true;
     if (!UpdateData(TRUE))
+    {
+        m_bBlockMessages = false;
         return; // don't dismiss dialog (error message already shown by MFC framework)
+    }
     if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
+        m_bBlockMessages = false;
         return;
     }
 
@@ -249,6 +257,7 @@ void CCheckoutDlg::OnOK()
 
     if (m_strCheckoutDirectory.IsEmpty())
     {
+        m_bBlockMessages = false;
         return;         //don't dismiss the dialog
     }
 
@@ -264,6 +273,7 @@ void CCheckoutDlg::OnOK()
     if (!checkoutDirectory.IsValidOnWindows())
     {
         ShowEditBalloon(IDC_CHECKOUTDIRECTORY, IDS_ERR_NOVALIDPATH, IDS_ERR_ERROR, TTI_ERROR);
+        m_bBlockMessages = false;
         return;
     }
 
@@ -272,6 +282,7 @@ void CCheckoutDlg::OnOK()
     if (!Revision.IsValid())
     {
         ShowEditBalloon(IDC_REVISION_NUM, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
+        m_bBlockMessages = false;
         return;
     }
 
@@ -288,6 +299,7 @@ void CCheckoutDlg::OnOK()
         {
             m_tooltips.ShowBalloon(IDC_URLCOMBO, IDS_ERR_MUSTBEURL, IDS_ERR_ERROR, TTI_ERROR);
             m_bAutoCreateTargetName = bAutoCreateTargetName;
+            m_bBlockMessages = false;
             return;
         }
 
