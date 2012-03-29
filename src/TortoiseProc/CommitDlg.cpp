@@ -580,15 +580,6 @@ void CCommitDlg::OnOK()
         return;
     }
 
-    // Release all locks to unchanged items - they won't be released by commit.
-    if (!m_bKeepLocks && !svn.Unlock (itemsToUnlock, false))
-    {
-        svn.ShowErrorDialog(m_hWnd);
-        InterlockedExchange(&m_bBlock, FALSE);
-        Refresh();
-        return;
-    }
-
     // Remove any missing items
     // Not sure that this sort is really necessary - indeed, it might be better to do a reverse sort at this point
     itemsToRemove.SortByPathname();
@@ -676,6 +667,15 @@ void CCommitDlg::OnOK()
     }
 
     UpdateData();
+    // Release all locks to unchanged items - they won't be released by commit.
+    if (!m_bKeepLocks && !svn.Unlock (itemsToUnlock, false))
+    {
+        svn.ShowErrorDialog(m_hWnd);
+        InterlockedExchange(&m_bBlock, FALSE);
+        Refresh();
+        return;
+    }
+
     m_regAddBeforeCommit = m_bShowUnversioned;
     m_regShowExternals = m_bShowExternals;
     if (!GetDlgItem(IDC_KEEPLOCK)->IsWindowEnabled())
