@@ -13,14 +13,14 @@
 # Arkadiy Shapkin <arkadiy_s@inbox.ru>, 2011.
 # _deniska <denis_levin@mail.ru>, 2011.
 # Lübbe Onken <l.onken@rac.de>, 2011.
-# Nikolay Osinin <nikolay.osinin@gmail.com>, 2011.
+# Nikolay Osinin <nikolay.osinin@gmail.com>, 2011, 2012.
 # sytkov <sytkov@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-03-18 22:26+0000\n"
+"PO-Revision-Date: 2012-03-28 15:30+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -866,7 +866,7 @@ msgstr "&Крупные значки"
 
 #. Resource IDs: (1065)
 msgid "&Limit search to modified lines"
-msgstr "Поиск только в &изменённых строках"
+msgstr "Рабочая копия имеет локальные изменения!"
 
 #. Resource IDs: (65535)
 msgid "&Limit:"
@@ -963,11 +963,11 @@ msgstr "&Свернуть"
 
 #. Resource IDs: (1493)
 msgid "&Modify color for tag copies"
-msgstr "&Изменить цвет копий меток"
+msgstr "Рабочая копия имеет локальные изменения.\nВсе равно желаете слить?"
 
 #. Resource IDs: (1492)
 msgid "&Modify color for trunk copies"
-msgstr "И&зменить цвет копий ствола"
+msgstr "Ваша рабочая копия имеет локальные изменения!\nЗамечание: обновление до другой ревизии не потеряет эти изменения,\nследовательно, рабочая копия после обновления не будет в точности\nсоответствовать той ревизии, до которой вы обновляетесь!"
 
 #. Resource IDs: (1049)
 msgid "&Network drives"
@@ -1465,7 +1465,7 @@ msgstr "(без номера строки)"
 
 #. Resource IDs: (277)
 msgid "(no modification but copy created from here)"
-msgstr "(без изменений, но копия создана отсюда)"
+msgstr "Целевая рабочая копия '%s' имеет локальные изменения. Рекомендуется зафиксировать эти изменения перед тем, как сливать новые изменения."
 
 #. Resource IDs: (278)
 msgid "(no modification but relevant for working copy)"
@@ -9881,17 +9881,17 @@ msgstr "В указанном месте есть изменения"
 msgid ""
 "The target working copy '%s' has local modifications. It is recommended to "
 "commit those changes first before merging new changes."
-msgstr "Целевая рабочая копия '%s' имеет локальные модификации. Рекомендуется зафиксировать эти изменения перед тем, как сливать новые измеения."
+msgstr "Целевая рабочая копия '%s' имеет локальные изменения. Рекомендуется зафиксировать эти изменения перед тем, как сливать новые изменения."
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
-msgstr "Проверка рабочей копии на наличие изменений"
+msgstr "В рабочей копии есть локальные изменения!"
 
 #. Resource IDs: (279)
 msgid ""
 "The target working copy has local modifications.\n"
 "Do you want to merge anyway?"
-msgstr "Произведённые изменения не были сохранены!\nЖелаете ли вы сохранить эти изменения?"
+msgstr "В рабочей копии есть локальные изменения.\nВсе равно желаете выполнить слияние?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -11193,14 +11193,14 @@ msgid ""
 "Your working copy has local modifications!\n"
 "Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
-msgstr "Ваша рабочая копия содержит локальные модификации!\nУчтите: обновление до другой ревизии приведет к потере этих модификаций,\nследовательно, рабочая копия после обновления не будет в точности\nсоответствовать той ревизии до которой вы обновляетесь!"
+msgstr "Ваша рабочая копия содержит локальные изменения!\nЗамечание: обновление до другой ревизии не потеряет эти изменения,\nследовательно, рабочая копия после обновления не будет в точности\nсоответствовать той ревизии, до которой вы обновляетесь!"
 
 #. Resource IDs: (89)
 msgid ""
 "Your working copy has local modifications.\n"
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
-msgstr "В вашей рабочей копии обнаружены локальные изменения.\nЕсли вы создаёте ответвление/метку из ведущей ревизии, эти\nлокальные изменения не попадут в ответвление/метку!"
+msgstr "Ваша рабочая копия содержит локальные изменения.\nЕсли вы создаёте ответвление/метку из ведущей ревизии, эти\nлокальные изменения не попадут в ответвление/метку!"
 
 #. Resource IDs: (221)
 #, c-format
