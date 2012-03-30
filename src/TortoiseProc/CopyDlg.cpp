@@ -346,7 +346,7 @@ void CCopyDlg::OnOK()
     }
     m_bCancelled = true;
     // check if the status thread has already finished
-    if (m_pThread)
+    if ((m_pThread)&&(m_bThreadRunning))
     {
         WaitForSingleObject(m_pThread->m_hThread, 1000);
         if (m_bThreadRunning)
@@ -632,7 +632,7 @@ void CCopyDlg::OnCancel()
     }
     m_bCancelled = true;
     // check if the status thread has already finished
-    if (m_pThread)
+    if ((m_pThread)&&(m_bThreadRunning))
     {
         WaitForSingleObject(m_pThread->m_hThread, 1000);
         if (m_bThreadRunning)

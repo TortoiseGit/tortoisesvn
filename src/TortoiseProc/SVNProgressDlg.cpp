@@ -1308,7 +1308,7 @@ void CSVNProgressDlg::OnBnClickedRetrynohooks()
 
 void CSVNProgressDlg::OnClose()
 {
-    if (m_bCancelled)
+    if ((m_bCancelled)&&(m_bThreadRunning))
     {
         TerminateThread(m_pThread->m_hThread, (DWORD)-1);
         InterlockedExchange(&m_bThreadRunning, FALSE);
@@ -1355,7 +1355,7 @@ LRESULT CSVNProgressDlg::OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/)
     // always wait for the thread to truely terminate.
     // (this function can only be triggered from that thread)
 
-    if (   (m_pThread != NULL)
+    if (   (m_pThread != NULL) && (m_bThreadRunning)
         && (WaitForSingleObject(m_pThread->m_hThread, 1000) != WAIT_OBJECT_0))
     {
         // end the process the hard way
