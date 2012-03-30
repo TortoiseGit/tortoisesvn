@@ -33,6 +33,11 @@ bool PropertiesCommand::Execute()
         dlg.SetRevision(SVNRev(parser.GetVal(L"rev")));
         dlg.RevProps(true);
     }
+    if (parser.HasKey(L"property"))
+    {
+        dlg.SetInitPropName(parser.GetVal(L"property"));
+    }
     dlg.DoModal();
     return true;
 }
+

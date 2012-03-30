@@ -80,6 +80,7 @@ void CEditPropertiesDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CEditPropertiesDlg, CResizableStandAloneDialog)
+    ON_REGISTERED_MESSAGE(WM_AFTERTHREAD, OnAfterThread)
     ON_BN_CLICKED(IDHELP, &CEditPropertiesDlg::OnBnClickedHelp)
     ON_NOTIFY(NM_CUSTOMDRAW, IDC_EDITPROPLIST, &CEditPropertiesDlg::OnNMCustomdrawEditproplist)
     ON_BN_CLICKED(IDC_REMOVEPROPS, &CEditPropertiesDlg::OnBnClickedRemoveProps)
@@ -393,6 +394,7 @@ UINT CEditPropertiesDlg::PropsThread()
         RemoveMenu(m_btnNew.m_hMenu, ID_NEW_LANGUAGES, MF_BYCOMMAND);
         RemoveMenu(m_btnNew.m_hMenu, ID_NEW_LOCALHOOKS, MF_BYCOMMAND);
     }
+    PostMessage(WM_AFTERTHREAD);
     return 0;
 }
 
@@ -1186,3 +1188,11 @@ void CEditPropertiesDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         }
     }
 }
+
+LRESULT CEditPropertiesDlg::OnAfterThread(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    if (m_propname.size())
+        EditProps(true, CUnicodeUtils::StdGetUTF8(m_propname), true);
+    return 0;
+}
+

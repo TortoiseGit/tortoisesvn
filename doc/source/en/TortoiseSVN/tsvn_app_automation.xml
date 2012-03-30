@@ -627,10 +627,16 @@ Don't touch these lines:
                         <row>
                             <entry condition="pot">:properties</entry>
                             <entry>
-                                Shows the properties dialog for the path given in
-                                <option>/path</option>. If <option>/rev:XXX</option>
-                                is specified and <option>/path</option> is an URL,
-                                the dialog shows and edits revision properties.
+                                <para>
+                                    Shows the properties dialog for the path given in
+                                    <option>/path</option>. If <option>/rev:XXX</option>
+                                    is specified and <option>/path</option> is an URL,
+                                    the dialog shows and edits revision properties.
+                                </para>
+                                <para>
+                                    To open the properties dialog directly for a specific
+                                    property, pass the property name as <option>/property:name</option>.
+                                </para>
                             </entry>
                         </row>
                     </tbody>
