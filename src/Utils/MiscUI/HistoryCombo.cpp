@@ -54,29 +54,38 @@ BOOL CHistoryCombo::PreCreateWindow(CREATESTRUCT& cs)
 
 BOOL CHistoryCombo::PreTranslateMessage(MSG* pMsg)
 {
-    if (pMsg->message == WM_KEYDOWN)
+    switch (pMsg->message)
     {
-        bool bShift = !!(GetKeyState(VK_SHIFT) & 0x8000);
-        int nVirtKey = (int) pMsg->wParam;
+    case WM_KEYDOWN:
+        {
+            bool bShift = !!(GetKeyState(VK_SHIFT) & 0x8000);
+            int nVirtKey = (int) pMsg->wParam;
 
-        if (nVirtKey == VK_RETURN)
-            return OnReturnKeyPressed();
-        else if (nVirtKey == VK_DELETE && bShift && GetDroppedState() )
-        {
-            RemoveSelectedItem();
-            return TRUE;
+            if (nVirtKey == VK_RETURN)
+                return OnReturnKeyPressed();
+            else if (nVirtKey == VK_DELETE && bShift && GetDroppedState() )
+            {
+                RemoveSelectedItem();
+                return TRUE;
+            }
         }
-    }
-    if (pMsg->message == WM_MOUSEMOVE)
-    {
-        if ((pMsg->wParam & MK_LBUTTON) == 0)
+        break;
+    case WM_MOUSEMOVE:
         {
-            CPoint pt;
-            pt.x = LOWORD(pMsg->lParam);
-            pt.y = HIWORD(pMsg->lParam);
-            OnMouseMove((UINT)pMsg->wParam, pt);
-            return TRUE;
+            if ((pMsg->wParam & MK_LBUTTON) == 0)
+            {
+                CPoint pt;
+                pt.x = LOWORD(pMsg->lParam);
+                pt.y = HIWORD(pMsg->lParam);
+                OnMouseMove((UINT)pMsg->wParam, pt);
+                return TRUE;
+            }
         }
+        break;
+    case WM_MOUSEWHEEL:
+    case WM_MOUSEHWHEEL:
+        if (!GetDroppedState())
+            return TRUE;
     }
     return CComboBoxEx::PreTranslateMessage(pMsg);
 }
