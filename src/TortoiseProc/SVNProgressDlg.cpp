@@ -49,6 +49,7 @@
 #include "..\..\TSVNCache\CacheInterface.h"
 #include "SmartHandle.h"
 #include "RecycleBinDlg.h"
+#include "BrowseFolder.h"
 
 BOOL    CSVNProgressDlg::m_bAscending = FALSE;
 int     CSVNProgressDlg::m_nSortedColumn = -1;
@@ -1273,18 +1274,25 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
 {
     if (m_targetPathList.GetCount() != 1)
         return;
-    StringRevMap::iterator it = m_UpdateStartRevMap.begin();
-    svn_revnum_t rev = -1;
-    if (it != m_UpdateStartRevMap.end())
-    {
-        rev = it->second;
-    }
-    SVNRev endRev(rev);
-    CString sCmd;
-    sCmd.Format(_T("/command:log /path:\"%s\" /endrev:%s"),
-        m_targetPathList[0].GetWinPath(), (LPCTSTR)endRev.ToString());
 
-    CAppUtils::RunTortoiseProc(sCmd);
+    if (m_Command == SVNProgress_Commit)
+    {
+        MergeAfterCommit();
+    }
+    else
+    {
+        StringRevMap::iterator it = m_UpdateStartRevMap.begin();
+        svn_revnum_t rev = -1;
+        if (it != m_UpdateStartRevMap.end())
+        {
+            rev = it->second;
+        }
+        SVNRev endRev(rev);
+        CString sCmd;
+        sCmd.Format(_T("/command:log /path:\"%s\" /endrev:%s"),
+                    m_targetPathList[0].GetWinPath(), (LPCTSTR)endRev.ToString());
+        CAppUtils::RunTortoiseProc(sCmd);
+    }
 }
 
 void CSVNProgressDlg::OnBnClickedRetrynohooks()
@@ -2550,6 +2558,15 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
             CopyFile(it->first, it->second, FALSE);
         }
     }
+
+    // after a commit, show the user the merge button, but only if only one single item was committed
+    // (either a file or a directory)
+    if ((m_targetPathList.GetCount() == 1)&&(m_RevisionEnd.IsValid()))
+    {
+        SetDlgItemText(IDC_LOGBUTTON, CString(MAKEINTRESOURCE(IDS_MERGE_MERGE)));
+        GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
+    }
+
     return true;
 }
 
@@ -3611,5 +3628,70 @@ void CSVNProgressDlg::ResetVars()
 
     SetTimer(VISIBLETIMER, 300, NULL);
     SetDlgItemText(IDC_INFOTEXT, L"");
+}
+
+void CSVNProgressDlg::MergeAfterCommit()
+{
+    CString url = GetURLFromPath(m_targetPathList[0]);
+    if (url.IsEmpty())
+        return;
+
+    CString path = m_targetPathList[0].GetWinPathString();
+    bool bGotSavePath = false;
+    if (!m_targetPathList[0].IsDirectory())
+    {
+        bGotSavePath = CAppUtils::FileOpenSave(path, NULL, IDS_LOG_MERGETO, IDS_COMMONFILEFILTER, true, GetSafeHwnd());
+    }
+    else
+    {
+        CBrowseFolder folderBrowser;
+        folderBrowser.SetInfo(CString(MAKEINTRESOURCE(IDS_LOG_MERGETO)));
+        bGotSavePath = (folderBrowser.Show(GetSafeHwnd(), path, path) == CBrowseFolder::OK);
+    }
+    if (bGotSavePath)
+    {
+        svn_revnum_t    minrev;
+        svn_revnum_t    maxrev;
+        bool            bswitched;
+        bool            bmodified;
+        bool            bSparse;
+
+        if (GetWCRevisionStatus(CTSVNPath(path), true, minrev, maxrev, bswitched, bmodified, bSparse))
+        {
+            if (bmodified)
+            {
+                if (CTaskDialog::IsSupported())
+                {
+                    CString sTask1;
+                    sTask1.Format(IDS_MERGE_WCDIRTYASK_TASK1, (LPCTSTR)path);
+                    CTaskDialog taskdlg(sTask1,
+                                        CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)),
+                                        L"TortoiseSVN",
+                                        0,
+                                        TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
+                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
+                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                    taskdlg.SetDefaultCommandControl(2);
+                    taskdlg.SetMainIcon(TD_WARNING_ICON);
+                    if (taskdlg.DoModal(m_hWnd) != 1)
+                        return;
+                }
+                else
+                {
+                    if (TSVNMessageBox(this->m_hWnd, IDS_MERGE_WCDIRTYASK, IDS_APPNAME, MB_YESNO | MB_ICONWARNING) != IDYES)
+                        return;
+                }
+            }
+        }
+        CSVNProgressDlg dlg(this);
+        dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+        dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
+        dlg.SetUrl(url);
+        dlg.SetSecondUrl(url);
+        dlg.SetRevision(m_RevisionEnd);
+        dlg.SetPegRevision(m_RevisionEnd);
+        dlg.DoModal();
+    }
 }
 

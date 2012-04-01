@@ -263,6 +263,7 @@ private:
     void        OnCommitFinished();
     bool        CheckUpdateAndRetry();
     void        ResetVars();
+    void        MergeAfterCommit();
 
     /**
      * Resizes the columns of the progress list so that the headings are visible.
