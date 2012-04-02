@@ -561,7 +561,7 @@ void CCheckoutDlg::OnBnClickedSparse()
 
     CString strUrl = paths.GetCommonRoot().GetSVNPathString();
     CRepositoryBrowser browser(strUrl, rev, this);
-    browser.SetSparseCheckoutMode();
+    browser.SetSparseCheckoutMode(CTSVNPath());
     if (browser.DoModal() == IDOK)
     {
         m_checkoutDepths = browser.GetCheckoutDepths();

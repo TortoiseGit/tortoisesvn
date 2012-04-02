@@ -108,7 +108,7 @@ public:
     size_t GetHistoryForwardCount() const { return m_UrlHistoryForward.size(); }
     size_t GetHistoryBackwardCount() const { return m_UrlHistory.size(); }
 
-    void SetSparseCheckoutMode() { m_bSparseCheckoutMode = true; m_bStandAlone = false; }
+    void SetSparseCheckoutMode(const CTSVNPath& path) { m_bSparseCheckoutMode = true; m_bStandAlone = false; m_wcPath = path; }
 
     /// overwrite SVN callbacks
     virtual BOOL Cancel();
@@ -210,6 +210,9 @@ protected:
      * control is refilled again.
      */
     bool RefreshNode(HTREEITEM hNode, bool force = false);
+    /// fetches the status of the associated working copy, used to fill
+    /// the check states in sparse checkout mode
+    void GetStatus();
     /// Fills the list control with all the children of \c pTreeItem.
     void FillList(CTreeItem * pTreeItem);
     /// Open / enter folder for entry number \ref item
@@ -301,6 +304,7 @@ private:
     bool                m_bSparseCheckoutMode;
     CString             m_InitialUrl;
     CTSVNPath           m_redirectedUrl;
+    CTSVNPath           m_wcPath;
     CString             m_selectedURLs; ///< only valid after <OK>
     bool                m_bThreadRunning;
     static const UINT   m_AfterInitMessage;
@@ -337,6 +341,7 @@ private:
     std::map<CString,svn_depth_t> m_updateDepths;
     std::list<CString>  m_UrlHistory;
     std::list<CString>  m_UrlHistoryForward;
+    std::map<CString, svn_depth_t> m_wcDepths;
 
     /// used to execute user ops (e.g. context menu actions) in the background
     async::CJobScheduler m_backgroundJobs;

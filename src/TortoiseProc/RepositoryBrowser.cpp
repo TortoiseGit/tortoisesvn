@@ -53,6 +53,7 @@
 #include "AsyncCall.h"
 #include "DiffOptionsDlg.h"
 #include "Callback.h"
+#include "SVNStatus.h"
 
 #include <fstream>
 #include <sstream>
@@ -407,6 +408,13 @@ void CRepositoryBrowser::InitRepo()
 
     m_lister.Cancel();
 
+    if (m_bSparseCheckoutMode && !m_wcPath.IsEmpty())
+    {
+        new async::CAsyncCall ( this
+            , &CRepositoryBrowser::GetStatus
+            , &m_backgroundJobs);
+    }
+
     // repository properties
 
     m_InitialUrl = CPathUtils::PathUnescape(m_InitialUrl);
@@ -474,6 +482,8 @@ void CRepositoryBrowser::InitRepo()
     if (m_InitialUrl.Left(8) == L"https://")
         m_InitialUrl.Replace(L":443/", L"/");
     m_InitialUrl.TrimRight('/');
+
+    m_backgroundJobs.WaitForEmptyQueue();
 
     // let's (try to) access all levels in the folder path
     SVNRev pegRev = m_repository.peg_revision;
@@ -1596,6 +1606,30 @@ HTREEITEM CRepositoryBrowser::Insert
     }
     HTREEITEM hNewItem = m_RepoTree.InsertItem(&tvinsert);
     name.ReleaseBuffer();
+
+    if (m_bSparseCheckoutMode)
+    {
+        auto it = m_wcDepths.find(pTreeItem->url);
+        if (it != m_wcDepths.end())
+        {
+            switch (it->second)
+            {
+            case svn_depth_infinity:
+            case svn_depth_immediates:
+            case svn_depth_files:
+            case svn_depth_empty:
+            case svn_depth_unknown:
+                m_RepoTree.SetCheck(hNewItem);
+                break;
+            default:
+                m_RepoTree.SetCheck(hNewItem, false);
+                break;
+            }
+        }
+        else
+            m_RepoTree.SetCheck(hNewItem, false);
+
+    }
 
     return hNewItem;
 }
@@ -4544,5 +4578,25 @@ void CRepositoryBrowser::OnUrlHistoryForward()
     ChangeToUrl(url, r, true);
     m_UrlHistoryForward.pop_front();
     m_barRepository.ShowUrl (url, r);
+}
+
+void CRepositoryBrowser::GetStatus()
+{
+    if (!m_bSparseCheckoutMode || m_wcPath.IsEmpty())
+        return;
+
+    CTSVNPath retPath;
+    SVNStatus status(m_pbCancel, true);
+    svn_client_status_t * s = NULL;
+    s = status.GetFirstFileStatus(m_wcPath, retPath, false, svn_depth_infinity, true, true);
+    while ((s) && (!m_pbCancel))
+    {
+        CStringA url = s->repos_root_url;
+        url += '/';
+        url += s->repos_relpath;
+        m_wcDepths[CUnicodeUtils::GetUnicode(url)] = s->depth;
+
+        s = status.GetNextFileStatus(retPath);
+    }
 }
 
