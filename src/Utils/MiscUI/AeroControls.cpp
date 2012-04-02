@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2011 - TortoiseSVN
+// Copyright (C) 2009-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,13 +35,16 @@ enum ControlType
 #endif
 
 AeroControlBase::AeroControlBase()
+    : gdiplusToken(0)
 {
     GdiplusStartupInput gdiplusStartupInput;
-
-    m_dwm.Initialize();
-    m_theme.Initialize();
     m_regEnableDWMFrame = CRegDWORD(_T("Software\\TortoiseSVN\\EnableDWMFrame"), TRUE);
-    GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
+
+    if (GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL)==Ok)
+    {
+        m_dwm.Initialize();
+    }
+    m_theme.Initialize();
 }
 
 AeroControlBase::~AeroControlBase()
@@ -50,7 +53,8 @@ AeroControlBase::~AeroControlBase()
     {
         RemoveWindowSubclass(it->first, SubclassProc, it->second);
     }
-    GdiplusShutdown(gdiplusToken);
+    if (gdiplusToken)
+        GdiplusShutdown(gdiplusToken);
 }
 
 bool AeroControlBase::SubclassControl(HWND hControl)
