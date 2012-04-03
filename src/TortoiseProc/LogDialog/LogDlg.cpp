@@ -693,6 +693,8 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
     // according to the selected revision(s).
 
     CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
+    if (pMsgView == NULL)
+        return; // can happen if the dialog is already closed, but the threads are still running
     // empty the log message view
     pMsgView->SetWindowText(_T(" "));
     // empty the changed files list
