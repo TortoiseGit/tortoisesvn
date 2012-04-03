@@ -61,8 +61,7 @@ CDirectoryWatcher::CDirectoryWatcher(void)
 
 CDirectoryWatcher::~CDirectoryWatcher(void)
 {
-    InterlockedExchange(&m_bRunning, FALSE);
-    m_hThread.CloseHandle();
+    Stop();
     AutoLocker lock(m_critSec);
     ClearInfoMap();
     CleanupWatchInfo();
