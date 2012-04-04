@@ -71,6 +71,8 @@ Version 1.7.7
        not initialized. (Stefan)
 - BUG: Issue #270: Exception when quitting
        the log dialog. (Stefan)
+- BUG: Issue #271: Crash when showing RevGraph
+       on an uncommitted, added node (Stefan Fuhrmann)
 
 Version 1.7.6
 - BUG: Issue #209: repo browser doesn't
