@@ -264,6 +264,7 @@ private:
     bool        CheckUpdateAndRetry();
     void        ResetVars();
     void        MergeAfterCommit();
+    void        GenerateMergeLogMessage();
 
     /**
      * Resizes the columns of the progress list so that the headings are visible.
@@ -320,6 +321,7 @@ private:
     SVNRev                  m_RevisionEnd;
     SVNRev                  m_pegRev;
     SVNRevRangeArray        m_revisionArray;
+    SVNRevRangeArray        m_mergedRevisions;
     CString                 m_changelist;
     bool                    m_keepchangelist;
     RevPropHash             m_revProps;
