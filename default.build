@@ -22,6 +22,8 @@
   <property name="skipssl" value="" />
   <!-- default: we build with VS2010 -->
   <property name="studioversion" value="2010"/>
+  <!-- default: we build in a user session -->
+  <property name="schedule" value="no"/>
 
   <include buildfile="default.build.user" />
 
@@ -82,6 +84,12 @@
     <property name="skipssl" value="yes" />
   </target>
 
+  <target name="schedule">
+    <description>
+      run this task if the whole build is done via task scheduler
+    </description>
+    <property name="schedule" value="yes"/>
+  </target>
   <!-- ====================================================================== -->
   <!-- Project targets                                                        -->
   <!-- ====================================================================== -->

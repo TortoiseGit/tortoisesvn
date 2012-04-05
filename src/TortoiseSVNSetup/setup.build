@@ -123,7 +123,7 @@
         <arg value="-sice:ICE61" />
         <arg value="-sice:ICE82" />
         <arg value="-sice:ICE83" />
-        <arg value="-sval" if="${platform == 'x64'}" />
+        <arg value="-sval" if="${schedule == 'yes'}" />
         <arg value="-out" />
         <arg value="..\..\bin\${msifilename}.msi" />
         <arg value="..\..\bin\TortoiseSVN.wixobj" />
