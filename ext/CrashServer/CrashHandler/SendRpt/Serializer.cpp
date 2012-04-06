@@ -108,6 +108,7 @@ Serializer& operator << (Serializer& ser, Config& cfg)
 	return ser << cfg.Prefix
 		<< cfg.AppName
 		<< cfg.Company
+		<< cfg.PrivacyPolicyUrl
 		<< cfg.V[0] << cfg.V[1] << cfg.V[2] << cfg.V[3] 
 		<< cfg.Hotfix
 		<< cfg.ApplicationGUID

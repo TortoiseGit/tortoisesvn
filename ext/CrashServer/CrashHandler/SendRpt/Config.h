@@ -24,6 +24,7 @@ struct Config
 	CStringA Prefix;
 	CStringW AppName;
 	CStringW Company;
+	CStringW PrivacyPolicyUrl;
 	USHORT   V[4];
 	USHORT   Hotfix;
 	CStringW ApplicationGUID;

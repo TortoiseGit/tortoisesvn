@@ -192,7 +192,7 @@ BEGIN
     CONTROL         "Do you want to send more information about the problem?",IDC_HEADER_TEXT,
                     "Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,7,201,25
     LTEXT           "Additional details about what went wrong can help [Company] create a solution.",IDC_TEXT,5,37,201,27
-    LTEXT           "",IDC_DETAILS_TEXT,5,96,201,75,SS_SUNKEN
+    CONTROL         "",IDC_DETAILS_TEXT,"RichEdit20W",ES_MULTILINE | ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_NOHIDESEL | ES_READONLY | WS_BORDER | WS_VSCROLL | WS_TABSTOP,5,96,201,75
     PUSHBUTTON      "Details >>",IDC_DETAILS,5,74,50,14
 END
 
@@ -297,9 +297,11 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_PRIVATE_INFO_TEXT   "Report contains application state at the moment of failure including all memory. Report may unintentionally contain personal information, but this information is not used to identify you or contact you. For example, a report may include your name, part of a document you were working on, or data that you recently submitted to a website. If you are concerned that a report may contain personal or confidential information, you should not send the report."
+    IDS_PRIVATE_INFO_TEXT   "<a>Read our privacy statement</a>\n\nReport contains application state at the moment of failure\nincluding all memory. Report may unintentionally contain\npersonal information, but this information is not used to\nidentify you or contact you. For example, a report may\ninclude your name, part of a document you were working\non, or data that you recently submitted to a website. If\nyou are concerned that a report may contain personal or\nconfidential information, you should not send the report."
     IDS_SOLUTION_URL        "Do you want to read it?"
     IDS_SOLUTION_EXE        "Do you want to install it?"
+    IDS_MOTIVATE_TO_SEND_FULL 
+                            "This problem occurs first time and [Company] really need this report to fix the problem in a future version of [AppName].\nAre you sure you don't want to send it?"
 END
 
 #endif    // English resources

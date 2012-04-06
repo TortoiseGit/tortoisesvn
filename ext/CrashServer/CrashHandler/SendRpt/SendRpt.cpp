@@ -18,6 +18,7 @@
 #include "StdAfx.h"
 #include <shellapi.h>
 #include <locale.h>
+#include "SendReportDlg.h"
 
 #ifdef _UNICODE
 #	if defined _M_IX86
@@ -39,6 +40,10 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
                       int       nCmdShow)
 {
 	setlocale(LC_ALL, ".ACP");
+
+	LoadLibrary(_T("riched20"));
+
+	// CAskSendFullDumpDlg(L"Sample App", L"Idol Software", L"http://www.idolsoftware.ru").DoModal(); return 0;
 
 	int argc;
 	LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);

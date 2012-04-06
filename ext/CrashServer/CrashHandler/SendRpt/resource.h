@@ -15,6 +15,7 @@
 #define IDD_SOLUTIONDLG                 106
 #define IDS_SOLUTION_EXE                107
 #define IDD_SENDASSERTREPORTDLG         107
+#define IDS_MOTIVATE_TO_SEND_FULL       108
 #define IDC_QUESTION                    1001
 #define IDC_HEADER_TEXT                 1002
 #define IDC_PROGRESS                    1008

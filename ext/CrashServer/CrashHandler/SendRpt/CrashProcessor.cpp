@@ -401,6 +401,9 @@ public:
 
 		if (!bReqOK)
 			throw runtime_error((const char*)CW2A(m_WebService.GetErrorText().c_str()));
+		
+		if (m_bStop)
+			throw std::runtime_error("canceled");
 
 		return result;
 	}
@@ -481,6 +484,9 @@ public:
 
 		if (!bReqOK)
 			throw runtime_error((const char*)CW2A(m_WebService.GetErrorText().c_str()));
+
+		if (m_bStop)
+			throw std::runtime_error("canceled");
 
 		return result;
 	}
@@ -719,10 +725,10 @@ public:
 
 		InitPathes();
 
-		DWORD t;
 		HANDLE hThreadTemp = NULL;
 		if (!g_Config.ServiceMode)
 		{
+			DWORD t;
 			hThreadTemp = CreateThread(NULL, 0, wasAssert ? _SendAssertReportDlgThread : _SendReportDlgThread, this, 0, &t);		
 			if (!hThreadTemp)
 				throw runtime_error("Failed to create thread");
@@ -772,17 +778,18 @@ public:
 
 						if (!g_Config.ServiceMode)
 						{
-							if (!additionalInfoAlreadyApproved && CAskSendFullDumpDlg(g_Config.AppName, g_Config.Company).DoModal() == IDCANCEL)
+							if (!additionalInfoAlreadyApproved && CAskSendFullDumpDlg(g_Config.AppName, g_Config.Company, g_Config.PrivacyPolicyUrl).DoModal() == IDCANCEL)
 							{
 								response = SendAdditionalInfoUploadRejected(response.dumpID);
 								continue;
 							}
 							additionalInfoAlreadyApproved = true;
 
-							HANDLE hThreadTemp2 = CreateThread(NULL, 0, _SendFullDumpDlgThread, this, 0, &t);
+							DWORD t;
+							CHandle hThreadTemp2(CreateThread(NULL, 0, _SendFullDumpDlgThread, this, 0, &t));
 							if (!hThreadTemp2)
 								throw runtime_error("Failed to create thread");
-							hShowProgressThread = CHandle(hThreadTemp2);
+							hShowProgressThread = hThreadTemp2;
 							Sleep(100); // Give time to draw a dialog before writing a dump (it will freeze a process and a dialog)
 						}
 

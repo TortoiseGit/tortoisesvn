@@ -34,29 +34,7 @@ public:
 
 	COLORREF m_TextColor;
 
-	LRESULT OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
-	{
-		PAINTSTRUCT ps;
-		CDCHandle dc(BeginPaint(&ps));
-
-		dc.SetTextColor(m_TextColor);
-
-		CFontHandle font(GetFont());
-		dc.SelectFont(font);
-
-		RECT rect;
-		GetClientRect(&rect);
-
-		CString text;
-		GetWindowText(text);
-		dc.DrawText(text, -1, &rect, DT_END_ELLIPSIS | DT_WORDBREAK);
-
-		EndPaint(&ps);
-
-		bHandled = TRUE;
-		
-		return 0;
-	}
+	LRESULT OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 };
 
 // CBaseDlgT
@@ -91,13 +69,19 @@ public:
 	//  LRESULT CommandHandler(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 	//  LRESULT NotifyHandler(int idCtrl, LPNMHDR pnmh, BOOL& bHandled);
 
+	CString SubstituteText(const CString& text)
+	{
+		CString res = text;
+		res.Replace(_T("[AppName]"), m_AppName);
+		res.Replace(_T("[Company]"), m_Company);
+		return res;
+	}
+
 	void SubstituteText(CWindow& window)
 	{
 		CString text;
 		window.GetWindowText(text);
-		text.Replace(_T("[AppName]"), m_AppName);
-		text.Replace(_T("[Company]"), m_Company);
-		window.SetWindowText(text);
+		window.SetWindowText(SubstituteText(text));
 	}
 
 	virtual LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
@@ -131,7 +115,7 @@ public:
 		return 1;  // Let the system set the focus
 	}
 
-	LRESULT OnClickedOKCancel(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled)
+	virtual LRESULT OnClickedOKCancel(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled)
 	{
 		EndDialog(wID);
 		return 0;
@@ -172,28 +156,19 @@ public:
 	}
 };
 
+// CSolutionDlg
 
 class CSolutionDlg : public CBaseDlgT<IDD_SOLUTIONDLG>
 {
 	CStaticEx m_Quest;
-	CString m_strQuest;
+	CString m_question;
 public:
 	CSolutionDlg(const wchar_t* pszAppName, const wchar_t* pszCompany, DWORD question)
-		: CBaseDlgT(pszAppName, pszCompany), m_strQuest(MAKEINTRESOURCE(question))
+		: CBaseDlgT(pszAppName, pszCompany), m_question(MAKEINTRESOURCE(question))
 	{
 	}
 
-	LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
-	{
-		LRESULT res = Base::OnInitDialog(uMsg, wParam, lParam, bHandled);
-		GetDlgItem(IDC_QUESTION).SetWindowText(m_strQuest);		
-		SubstituteText(GetDlgItem(IDC_QUESTION));
-
-		m_Quest.m_TextColor = CDC(GetDlgItem(IDC_QUESTION).GetDC()).GetTextColor();
-		m_Quest.SubclassWindow(GetDlgItem(IDC_QUESTION));
-
-		return res;
-	}
+	LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 };
 
 // CAskSendFullDumpDlg
@@ -201,42 +176,24 @@ public:
 class CAskSendFullDumpDlg : public CBaseDlgT<IDD_ASKSENDFULLDUMPDLG>
 {
 	int m_nWidth, m_nFullHeight;
+	CRichEditCtrl m_Details;
+	CString m_url;
 public:
-	CAskSendFullDumpDlg(const wchar_t* pszAppName, const wchar_t* pszCompany)
-		: CBaseDlgT(pszAppName, pszCompany)
+	CAskSendFullDumpDlg(const wchar_t* pszAppName, const wchar_t* pszCompany, const wchar_t* pszUrl)
+		: CBaseDlgT(pszAppName, pszCompany), m_url(pszUrl)
 	{
 	}
 
 	BEGIN_MSG_MAP(CAskSendFullDumpDlg)
 		COMMAND_HANDLER(IDC_DETAILS, BN_CLICKED, OnClickedDetails)
+		NOTIFY_HANDLER(IDC_DETAILS_TEXT, EN_LINK, OnLinkClicked)
 		CHAIN_MSG_MAP(Base)
 	END_MSG_MAP()
 
-	LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
-	{
-		Base::OnInitDialog(uMsg, wParam, lParam, bHandled);
-		RECT rect_client, rect_main, rect_details;
-		GetClientRect(&rect_client);
-		ClientToScreen(&rect_client);
-		GetWindowRect(&rect_main);
-		GetDlgItem(IDC_DETAILS).GetWindowRect(&rect_details);
-		m_nWidth = rect_client.right - rect_client.left;
-		m_nFullHeight = rect_client.bottom - rect_client.top;
-		int nNewHeight = rect_details.bottom - rect_client.top + 8;
-
-		ResizeClient(m_nWidth, nNewHeight);
-
-		CString text((LPCSTR)IDS_PRIVATE_INFO_TEXT);
-		GetDlgItem(IDC_DETAILS_TEXT).SetWindowText(text);		
-
-		return 0;
-	}
-
-	LRESULT OnClickedDetails(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled)
-	{
-		ResizeClient(m_nWidth, m_nFullHeight);
-		GetDlgItem(IDC_DETAILS).EnableWindow(FALSE);
-		return 0;
-	}
+	LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+	void SetDetailsText(const CString &text);
+	LRESULT OnClickedDetails(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
+	LRESULT OnLinkClicked(int windowId, LPNMHDR wParam, BOOL& bHandled);
+	LRESULT OnClickedOKCancel(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 };
 

@@ -30,6 +30,7 @@ struct ApplicationInfo
 	LPCWSTR Company;                    //!< Company name that will be used in message box.
 	USHORT  V[4];                       //!< Version of this application.
 	USHORT  Hotfix;                     //!< Version of hotfix for this application (reserved for future use, should be 0).
+	LPCWSTR PrivacyPolicyUrl;           //!< URL to privacy policy. If NULL default privacy policy is used.
 };
 
 //! \brief Contains crash handling behavior customization parameters. 
