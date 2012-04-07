@@ -291,6 +291,8 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
         SYS_IMAGE_LIST().SetOverlayImage(m_nDepthEmptyOvl, OVL_DEPTHEMPTY);
         m_nRestoreOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_RESTOREOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
         SYS_IMAGE_LIST().SetOverlayImage(m_nRestoreOvl, OVL_RESTORE);
+        m_nMergeInfoOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MERGEINFOOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+        SYS_IMAGE_LIST().SetOverlayImage(m_nMergeInfoOvl, OVL_MERGEINFO);
         SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 
         m_ColumnManager.ReadSettings (m_dwDefaultColumns, sColumnInfoContainer);
@@ -533,7 +535,7 @@ svn_error_t * proplist_receiver(void *baton, const char *path, apr_hash_t *prop_
     if (proplist.Count())
     {
         CTSVNPath listPath;
-        listPath.SetFromSVN(CUnicodeUtils::GetUnicode(path));
+        listPath.SetFromSVN(path);
         CReaderWriterLock* l = std::get<0>(*t);
         CAutoWriteLock lock(*l);
         (*std::get<1>(*t))[listPath] = proplist;
@@ -2662,6 +2664,8 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             fentry->textstatus = svn_wc_status_normal;
             fentry->copied = false;
             fentry->isConflicted = false;
+            fentry->onlyMergeInfoMods = false;
+
             if ((fentry->GetChangeList().IsEmpty()&&(fentry->remotestatus <= svn_wc_status_normal))||(m_dwShow & SVNSLC_SHOWNORMAL))
             {
                 if ( bAdded )
@@ -4356,6 +4360,72 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested()))
                     {
                         crText = GetSysColor(COLOR_GRAYTEXT);
+                    }
+
+                    if (!entry->onlyMergeInfoModsKnown)
+                    {
+                        entry->onlyMergeInfoModsKnown = true;
+                        switch (entry->propstatus)
+                        {
+                        case svn_wc_status_none:
+                        case svn_wc_status_normal:
+                        case svn_wc_status_unversioned:
+                            break;
+                        default:
+                            {
+                                SVNProperties wcProps(entry->path, SVNRev(), false);
+                                int mwci = wcProps.IndexOf("svn:mergeinfo");
+                                if (mwci >= 0)
+                                {
+                                    SVNProperties baseProps(entry->path, SVNRev::REV_BASE, false);
+                                    int mii = baseProps.IndexOf("svn:mergeinfo");
+                                    if ((mii < 0)||(wcProps.GetItemValue(mwci).compare(baseProps.GetItemValue(mii))))
+                                    {
+                                        // svn:mergeinfo properties are different.
+                                        // now check if there are other properties with modifications
+                                        bool othermods = false;
+                                        for (int wcp = 0; wcp < wcProps.GetCount(); ++wcp)
+                                        {
+                                            if (wcp == mwci)
+                                                continue;
+                                            int propindex = baseProps.IndexOf(wcProps.GetItemName(wcp));
+                                            if (propindex < 0)
+                                            {
+                                                // added property
+                                                othermods = true;
+                                                break;
+                                            }
+                                            if (wcProps.GetItemValue(wcp).compare(baseProps.GetItemValue(propindex)))
+                                            {
+                                                othermods = true;
+                                                break;
+                                            }
+                                        }
+                                        for (int bp = 0; bp < baseProps.GetCount(); ++bp)
+                                        {
+                                            int propindex = wcProps.IndexOf(baseProps.GetItemName(bp));
+                                            if (propindex < 0)
+                                            {
+                                                // removed property
+                                                othermods = true;
+                                                break;
+                                            }
+                                        }
+                                        if (!othermods)
+                                            entry->onlyMergeInfoMods = true;
+                                    }
+
+                                }
+                            }
+                            break;
+                        }
+                    }
+
+                    if (entry->onlyMergeInfoModsKnown && entry->onlyMergeInfoMods)
+                    {
+                        UINT state = GetItemState((int)pLVCD->nmcd.dwItemSpec, LVIS_OVERLAYMASK);
+                        if (state != INDEXTOOVERLAYMASK(OVL_MERGEINFO))
+                            SetItemState((int)pLVCD->nmcd.dwItemSpec, INDEXTOOVERLAYMASK(OVL_MERGEINFO), LVIS_OVERLAYMASK);
                     }
 
                     // Store the color back in the NMLVCUSTOMDRAW struct.

@@ -168,6 +168,7 @@ typedef CComCritSecLock<CComCriticalSection> Locker;
 #define OVL_DEPTHIMMEDIATES 4
 #define OVL_DEPTHEMPTY      5
 #define OVL_RESTORE         6
+#define OVL_MERGEINFO       7
 
 /**
  * \ingroup SVN
@@ -308,6 +309,8 @@ public:
             , isNested(false)
             , Revision(0)
             , isConflicted(false)
+            , onlyMergeInfoMods(false)
+            , onlyMergeInfoModsKnown(false)
             , working_size(SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN)
             , depth(svn_depth_unknown)
         {
@@ -413,6 +416,8 @@ public:
         bool                    isfolder;               ///< TRUE if entry refers to a folder
         bool                    isNested;               ///< TRUE if the folder from a different repository and/or path
         bool                    isConflicted;           ///< TRUE if a file entry is conflicted, i.e. if it has the conflicted paths set
+        bool                    onlyMergeInfoMods;      ///< TRUE if only the svn:mergeinfo property has mods, no other properties
+        bool                    onlyMergeInfoModsKnown; ///< TRUE if onlyMergeInfoMods has been calculated
         svn_revnum_t            Revision;               ///< the base revision
         svn_filesize_t          working_size;           ///< Size of the file after being translated into local representation or SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN
         svn_depth_t             depth;                  ///< the depth of this entry
@@ -1079,6 +1084,7 @@ private:
     int                         m_nDepthImmediatesOvl;
     int                         m_nDepthEmptyOvl;
     int                         m_nRestoreOvl;
+    int                         m_nMergeInfoOvl;
 
     CWnd *                      m_pStatLabel;
     CButton *                   m_pSelectButton;
