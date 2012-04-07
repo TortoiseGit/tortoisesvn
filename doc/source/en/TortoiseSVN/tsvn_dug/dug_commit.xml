@@ -51,6 +51,11 @@
             just check that file to add it to the commit.
         </para>
         <para>
+            For information on the coloring and overlays of the items
+            according to their status, please see
+            <xref linkend="tsvn-dug-wcstatus-2"/>.
+        </para>
+        <para>
             Items which have been switched to a different repository path are
             also indicated using an <literal>(s)</literal> marker. You may have
             switched something while working on a branch and forgotten to switch
