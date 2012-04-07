@@ -281,6 +281,60 @@
             Read <xref linkend="tsvn-dug-settings-colours"/> for more information.
         </para>
         <para>
+            Overlay icons are used to indicate other states as well. The screenshot
+            below shows all the possible overlays that are shown if necessary.
+            <graphic fileref="../images/statuslistoverlays.png"/>
+            Overlays are shown for the following states:
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        Checkout depth <literal>empty</literal>, meaning
+                        only the item itself.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Checkout depth <literal>files</literal>, meaning
+                        only the item itself and all file children without child folders.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Checkout depth <literal>immediates</literal>, meaning
+                        only the item itself and all file and folder children, but
+                        without children of the child folders.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Nested items, i.e., working copies inside the
+                        working copy.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        External items, i.e., all items that are added
+                        via an <literal>svn:externals</literal> property.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Items that are restored after a commit. See
+                        <xref linkend="tsvn-dug-commit-restore"/> for
+                        details.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        Items that have property modifications, but
+                        only to the <literal>svn:mergeinfo</literal>
+                        property. If any other property is modified,
+                        the overlay is not used.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>
             Items which have been switched to a different repository path are
             also indicated using an <literal>(s)</literal> marker. You may have
             switched something while working on a branch and forgotten to switch
