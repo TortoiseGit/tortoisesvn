@@ -75,6 +75,8 @@ Version 1.7.7
        on an uncommitted, added node (Stefan Fuhrmann)
 - BUG: Issue #282: "Merge all revisions" generates
        empty log message. (Stefan)
+- BUG: Issue #273: quotes are not escaped
+       in repo browser. (Stefan)
 
 Version 1.7.6
 - BUG: Issue #209: repo browser doesn't
