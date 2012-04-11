@@ -659,7 +659,8 @@ HRESULT STDMETHODCALLTYPE CIDropTarget::Drop(
     m_bAllowDrop=false;
     *pdwEffect = DROPEFFECT_NONE;
     m_pSupportedFrmt = NULL;
-    m_pIDataObject->Release();
+    if (m_pIDataObject) // just in case we get a drop without first receiving DragEnter()
+        m_pIDataObject->Release();
     m_pIDataObject = NULL;
     return S_OK;
 }
