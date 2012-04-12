@@ -21,283 +21,12 @@
 #include <memory>
 #include <emmintrin.h>
 
-static BOOL sse2supported = ::IsProcessorFeaturePresent( PF_XMMI64_INSTRUCTIONS_AVAILABLE );
-
 CUnicodeUtils::CUnicodeUtils(void)
 {
 }
 
 CUnicodeUtils::~CUnicodeUtils(void)
 {
-}
-
-char* CUnicodeUtils::UTF16ToUTF8
-    (const wchar_t* source, size_t size, char* target)
-{
-    // most of our strings will be longer, plain ASCII strings
-    // -> affort some minor overhead to handle them very fast
-
-    if (sse2supported)
-    {
-        __m128i zero = _mm_setzero_si128();
-        for (
-            ; size >= sizeof(zero)
-            ; size -= sizeof(zero), source += sizeof(zero), target += sizeof(zero))
-        {
-            // fetch the next 16 words from the source
-
-            __m128i chunk0 = _mm_loadu_si128 ((const __m128i*)source);
-            __m128i chunk1 = _mm_loadu_si128 ((const __m128i*)(source + 8));
-
-            // check for chars > 0x80 - these are not ASCII
-
-            int ascii_flags = _mm_movemask_epi8 (chunk0);
-            if (ascii_flags != 0)
-                break;
-            ascii_flags = _mm_movemask_epi8 (chunk1);
-            if (ascii_flags != 0)
-                break;
-
-            // convert to 8-bit chars. Values > 0xff will be mapped to 0xff
-            // Note: values > 0x8000 will be mapped to zero, that's why
-            // the ascii check above is necessary
-
-            __m128i packedChunk = _mm_packus_epi16 (chunk0, chunk1);
-
-            // check for non-ASCII (SSE2 cmp* operations are signed!)
-
-            ascii_flags = _mm_movemask_epi8 (_mm_cmplt_epi8 (packedChunk, zero));
-            if (ascii_flags != 0)
-                break;
-
-            // calculate end of string condition
-
-            int zero_flags = _mm_movemask_epi8 (_mm_cmpeq_epi16 (packedChunk, zero));
-
-            // all 16 chars are ASCII.
-            // Since we have not exceeded SIZE, we can savely write all data,
-            // even if it should include a terminal 0.
-
-            _mm_storeu_si128 ((__m128i*)target, packedChunk);
-
-            // end of string?
-
-            if (zero_flags != 0)
-            {
-                // terminator has already been written, we only need to update
-                // the target pointer
-
-                if ((zero_flags & 0xff) == 0)
-                {
-                    zero_flags >>= 8;
-                    target += 8;
-                }
-
-                while ((zero_flags & 1) == 0)
-                {
-                    zero_flags >>= 1;
-                    ++target;
-                }
-
-                // done
-
-                return target;
-            }
-        }
-    }
-
-    // non-ASCII and string tail handling
-
-    const unsigned short* s = reinterpret_cast<const unsigned short*>(source);
-    if (size > 0)
-    {
-        unsigned c;
-        do
-        {
-            if (--size == 0)
-            {
-                *target = 0;
-                ++target;
-                break;
-            }
-
-            c = *s;
-
-            // decode 1 and 2 word sequences
-
-            if ((c < 0xd800) || (c > 0xe000))
-            {
-                ++s;
-            }
-            else
-            {
-                c = ((c & 0x3ff) << 10) + (s[1] & 0x3ff) + 0x10000;
-                s += 2;
-            }
-
-            // write result (1 to 4 bytes)
-
-            if (c < 0x80)
-            {
-                *target = static_cast<char>(c);
-                ++target;
-            }
-            else if (c < 0x7ff)
-            {
-                *target = static_cast<char>((c >> 6) + 0xC0);
-                *(target+1) = static_cast<char>((c & 0x3f) + 0x80);
-                target += 2;
-            }
-            else if (c < 0xffff)
-            {
-                *target = static_cast<char>((c >> 12) + 0xE0);
-                *(target+1) = static_cast<char>(((c >> 6) & 0x3f) + 0x80);
-                *(target+2) = static_cast<char>((c & 0x3f) + 0x80);
-                target += 3;
-            }
-            else
-            {
-                *target = static_cast<char>((c >> 18) + 0xF0);
-                *(target+1) = static_cast<char>(((c >> 12) & 0x3f) + 0x80);
-                *(target+2) = static_cast<char>(((c >> 6) & 0x3f) + 0x80);
-                *(target+3) = static_cast<char>((c & 0x3f) + 0x80);
-                target += 4;
-            }
-        }
-        while (c != 0);
-    }
-    else
-    {
-        *target = 0;
-    }
-
-    return target-1;
-}
-
-wchar_t* CUnicodeUtils::UTF8ToUTF16
-    (const char* source, size_t size, wchar_t* target)
-{
-    // most of our strings will be longer, plain ASCII strings
-    // -> affort some minor overhead to handle them very fast
-
-    if (sse2supported)
-    {
-        __m128i zero = _mm_setzero_si128();
-        for (
-            ; size >= sizeof(zero)
-            ; size -= sizeof(zero), source += sizeof(zero), target += sizeof(zero))
-        {
-            // fetch the next 16 bytes from the source
-
-            __m128i chunk = _mm_loadu_si128 ((const __m128i*)source);
-
-            // check for non-ASCII (SSE2 cmp* operations are signed!)
-
-            int zero_flags = _mm_movemask_epi8 (_mm_cmpeq_epi8 (chunk, zero));
-            int ascii_flags = _mm_movemask_epi8 (_mm_cmplt_epi8 (chunk, zero));
-            if (ascii_flags != 0)
-                break;
-
-            // all 16 bytes in chunk are ASCII.
-            // Since we have not exceeded SIZE, we can savely write all data,
-            // even if it should include a terminal 0.
-
-            _mm_storeu_si128 ((__m128i*)target, _mm_unpacklo_epi8 (chunk, zero));
-            _mm_storeu_si128 ((__m128i*)(target+8), _mm_unpackhi_epi8 (chunk, zero));
-
-            // end of string?
-
-            if (zero_flags != 0)
-            {
-                // terminator has already been written, we only need to update
-                // the target pointer
-
-                if ((zero_flags & 0xff) == 0)
-                {
-                    zero_flags >>= 8;
-                    target += 8;
-                }
-
-                while ((zero_flags & 1) == 0)
-                {
-                    zero_flags >>= 1;
-                    ++target;
-                }
-
-                // done
-
-                return target;
-            }
-        }
-    }
-
-    // non-ASCII and string tail handling
-
-    const unsigned char* s = reinterpret_cast<const unsigned char*>(source);
-    if (size > 0)
-    {
-        unsigned c;
-        do
-        {
-            if (--size == 0)
-            {
-                *target = 0;
-                ++target;
-                break;
-            }
-
-            c = *s;
-
-            // decode 1 .. 4 byte sequences
-
-            if (c < 0x80)
-            {
-                ++s;
-            }
-            else if (c < 0xE0)
-            {
-                c = ((c & 0x1f) << 6) + (s[1] & 0x3f);
-                s += 2;
-            }
-            else if (c < 0xF0)
-            {
-                c =   ((c & 0x1f) << 12)
-                    + (static_cast<unsigned>(s[1] & 0x3f) << 6)
-                    + (s[2] & 0x3f);
-                s += 3;
-            }
-            else
-            {
-                c =   ((c & 0x1f) << 12)
-                    + (static_cast<unsigned>(s[1] & 0x3f) << 6)
-                    + (static_cast<unsigned>(s[2] & 0x3f) << 6)
-                    + (s[3] & 0x3f);
-                s += 4;
-            }
-
-            // write result (1 or 2 wchars)
-
-            if (c < 0x10000)
-            {
-                *target = static_cast<wchar_t>(c);
-                ++target;
-            }
-            else
-            {
-                c -= 0x10000;
-                *target = static_cast<wchar_t>((c >> 10) + 0xd800);
-                *(target+1) = static_cast<wchar_t>((c & 0x3ff) + 0xdc00);
-                target += 2;
-            }
-        }
-        while (c != 0);
-    }
-    else
-    {
-        *target = 0;
-    }
-
-    return target-1;
 }
 
 namespace
@@ -347,63 +76,62 @@ namespace
 
 CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
 {
-    size_t size = string.GetLength()+1;
-    CBuffer<char> buffer (3 * size);
+    int size = string.GetLength()+1;
+    CBuffer<char> buffer (4 * size);
 
-    char* end = UTF16ToUTF8 ((const wchar_t*)string, size, buffer);
-    int len = static_cast<int>(end - buffer);
-    if (len)
-        return CStringA (buffer, len);
-    return CStringA();
+    // Note: always use the Windows API function, do NOT try to implement a function that's faster.
+    // The API takes this long because it can handle all edge cases, and that's what we need.
+    int len = WideCharToMultiByte(CP_UTF8, 0, (const wchar_t*)string, size, buffer, 4*size, 0, NULL);
+    if (len == 0)
+        return CStringA();
+    return CStringA (buffer, len);
 }
 
 CString CUnicodeUtils::GetUnicode(const CStringA& string)
 {
-    size_t size = string.GetLength()+1;
-    CBuffer<wchar_t> buffer (size);
+    int size = string.GetLength()+1;
+    CBuffer<wchar_t> buffer (2*size);
 
-    wchar_t* end = UTF8ToUTF16 ((const char*)string, size, buffer);
-    int len = static_cast<int>(end - buffer);
-    if (len)
-        return CString (buffer, len);
-    return CString();
+    // Note: always use the Windows API function, do NOT try to implement a function that's faster.
+    // The API takes this long because it can handle all edge cases, and that's what we need.
+    int len = MultiByteToWideChar(CP_UTF8, 0, (const char*)string, size, buffer, 2*size);
+    if (len == 0)
+        return CString();
+    return CString (buffer, len);
 }
 
 CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
 {
-    size_t size = string.length()+1;
-    CBuffer<wchar_t> buffer (size);
+    int size = (int)string.length()+1;
+    CBuffer<wchar_t> buffer (2*size);
 
-    wchar_t* end = UTF8ToUTF16 (string.c_str(), size, buffer);
-    int len = static_cast<int>(end - buffer);
-    if (len)
-        return CString (buffer, len);
-    return CString();
+    int len = MultiByteToWideChar(CP_UTF8, 0, string.c_str(), size, buffer, 2*size);
+    if (len==0)
+        return CString();
+    return CString (buffer, len);
 }
 #endif //_MFC_VER
 
 std::string CUnicodeUtils::StdGetUTF8(const std::wstring& wide)
 {
-    size_t size = wide.length()+1;
-    CBuffer<char> buffer (3 * size);
+    int size = (int)wide.length()+1;
+    CBuffer<char> buffer (4 * size);
 
-    char* end = UTF16ToUTF8 (wide.c_str(), size, buffer);
-    int len = static_cast<int>(end - buffer);
-    if (len)
-        return std::string (buffer, len);
-    return std::string();
+    int len = WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), size, buffer, 4*size, 0, NULL);
+    if (len == 0)
+        return std::string();
+    return std::string (buffer, len);
 }
 
 std::wstring CUnicodeUtils::StdGetUnicode(const std::string& utf8)
 {
-    size_t size = utf8.length()+1;
-    CBuffer<wchar_t> buffer (size);
+    int size = (int)utf8.length()+1;
+    CBuffer<wchar_t> buffer (2*size);
 
-    wchar_t* end = UTF8ToUTF16 (utf8.c_str(), size, buffer);
-    int len = static_cast<int>(end - buffer);
-    if (len)
-        return std::wstring (buffer, len);
-    return std::wstring();
+    int len = MultiByteToWideChar(CP_UTF8, 0, utf8.c_str(), size, buffer, 2*size);
+    if (len==0)
+        return std::wstring();
+    return std::wstring (buffer, len);
 }
 
 // load a string resource

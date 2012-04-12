@@ -3641,15 +3641,13 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
         case 2: //author
             if (pLogEntry)
             {
-                size_t size = min (pLogEntry->GetAuthor().length() + 1, (size_t)pItem->cchTextMax);
-                CUnicodeUtils::UTF8ToUTF16 (pLogEntry->GetAuthor().c_str(), size, pItem->pszText);
+                lstrcpyn(pItem->pszText, CUnicodeUtils::StdGetUnicode(pLogEntry->GetAuthor()).c_str(), pItem->cchTextMax);
             }
             break;
         case 3: //date
             if (pLogEntry)
             {
-                size_t size = min (pLogEntry->GetDateString().length() + 1, (size_t)pItem->cchTextMax);
-                CUnicodeUtils::UTF8ToUTF16 (pLogEntry->GetDateString().c_str(), size, pItem->pszText);
+                lstrcpyn(pItem->pszText, CUnicodeUtils::StdGetUnicode(pLogEntry->GetDateString()).c_str(), pItem->cchTextMax);
             }
             break;
         case 4: //message or bug id
@@ -3657,8 +3655,7 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR *pNMHDR, LRESULT *pResult)
             {
                 if (pLogEntry)
                 {
-                    size_t size = min (pLogEntry->GetBugIDs().length() + 1, (size_t)pItem->cchTextMax);
-                    CUnicodeUtils::UTF8ToUTF16 (pLogEntry->GetBugIDs().c_str(), size, pItem->pszText);
+                    lstrcpyn(pItem->pszText, CUnicodeUtils::StdGetUnicode(pLogEntry->GetBugIDs()).c_str(), pItem->cchTextMax);
                 }
                 break;
             }

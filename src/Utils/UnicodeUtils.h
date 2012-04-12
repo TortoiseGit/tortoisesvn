@@ -32,11 +32,6 @@ public:
     CUnicodeUtils(void);
     ~CUnicodeUtils(void);
 
-    // highly efficient conversion core routines
-
-    static wchar_t* UTF8ToUTF16 (const char* source, size_t size, wchar_t* target);
-    static char* UTF16ToUTF8 (const wchar_t* source, size_t size, char* target);
-
     // conversion from / to MFC strings
 
 #if defined(_MFC_VER) || defined(CSTRING_AVAILABLE)
