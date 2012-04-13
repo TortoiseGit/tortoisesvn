@@ -866,10 +866,7 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
                 ft.LowPart = FindFileData.ftLastWriteTime.dwLowDateTime;
                 ft.HighPart = FindFileData.ftLastWriteTime.dwHighDateTime;
 
-                char nameUTF8 [3 * MAX_PATH];
-                CUnicodeUtils::UTF16ToUTF8 ( FindFileData.cFileName
-                                           , _tcslen (FindFileData.cFileName)
-                                           , nameUTF8);
+                CStringA nameUTF8 = CUnicodeUtils::GetUTF8(FindFileData.cFileName);
                 filetimes[nameUTF8] = ft.QuadPart;
             }
             hFind.CloseHandle(); // explicit close handle to shorten its life time
