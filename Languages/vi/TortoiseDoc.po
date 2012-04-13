@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:21+0000\n"
+"PO-Revision-Date: 2012-04-08 08:26+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -2846,9 +2846,9 @@ msgstr "Sử dụng trình duyệt kho để tạo ra một thư mục dự án 
 #. (para)
 msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
-"will get a warning that the local folder is not empty. Now you have a "
-"versioned top level folder with unversioned content."
-msgstr "Kiểm xu các thư mục mới trên đầu trang của thư mục mà bạn muốn nhập khẩu. Bạn sẽ nhận được một cảnh báo rằng các thư mục địa phương là không rỗng. Bây giờ bạn có một thư mục cấp cao có phiên bản đầu với nội dung không phiên bản."
+"will get a warning that the local folder is not empty. Ignore the warning. "
+"Now you have a versioned top level folder with unversioned content."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -3226,6 +3226,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "Hộp thoại cam kết sẽ cho bạn thấy tất cả các tập tin thay đổi, bao gồm cả các tập tin được thêm, xoá và không được phiên bản. Nếu bạn không muốn một tập tin thay đổi được cam kết, chỉ cần bỏ chọn tập tin đó. Nếu bạn muốn để bao gồm một tập tin không được phiên bản, chỉ cần kiểm tra tập tin để thêm vào cam kết."
+
+#. (para)
+msgid ""
+"For information on the coloring and overlays of the items according to their"
+" status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -4612,6 +4618,53 @@ msgstr "Các mục không thay đổi và không được phiên bản."
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "Hộp thoại sử dụng mã màu để làm nổi bật tình trạng. <placeholder-1/>"
+
+#. (para)
+msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
+msgstr ""
+
+#. (para)
+msgid ""
+"Checkout depth <literal>files</literal>, meaning only the item itself and "
+"all file children without child folders."
+msgstr ""
+
+#. (para)
+msgid ""
+"Checkout depth <literal>immediates</literal>, meaning only the item itself "
+"and all file and folder children, but without children of the child folders."
+msgstr ""
+
+#. (para)
+msgid "Nested items, i.e., working copies inside the working copy."
+msgstr ""
+
+#. (para)
+msgid ""
+"External items, i.e., all items that are added via an "
+"<literal>svn:externals</literal> property."
+msgstr ""
+
+#. (para)
+msgid ""
+"Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
+"restore\"/> for details."
+msgstr ""
+
+#. (para)
+msgid ""
+"Items that have property modifications, but only to the "
+"<literal>svn:mergeinfo</literal> property. If any other property is "
+"modified, the overlay is not used."
+msgstr ""
+
+#. (para)
+msgid ""
+"Overlay icons are used to indicate other states as well. The screenshot "
+"below shows all the possible overlays that are shown if necessary. <graphic "
+"fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
+"following states: <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7262,22 +7315,26 @@ msgid ""
 msgstr "Như đã nêu ở trên, tùy chọn này cố gắng để có được một bản sao làm việc không nhất quán vào một trạng thái khả thi và có thể sử dụng. Điều này không ảnh hưởng đến bất kỳ dữ liệu nào mà bạn có nhưng chỉ trạng thái nội bộ của cơ sở dữ liệu bản sao làm việc. Điều này thực tế là lệnh <literal> Dọn dẹp </literal> mà bạn biết từ các trịnh khách TortoiseSVN cũ hoặc các trình khách SVN khác."
 
 #. (term)
-msgid "Revert all changes recursively"
-msgstr "Hoàn nguyên tất cả các thay đổi một cách đệ quy"
+msgid "Refresh shell overlays"
+msgstr "Làm mới các lớp phủ shell"
 
 #. (para)
 msgid ""
-"This command reverts all your local modifications which are not committed "
-"yet."
-msgstr "Lệnh này sẽ hoàn nguyên tất cả các sửa đổi địa phương mà chưa được cam kết."
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr "Đôi khi các lớp phủ shell, đặc biệt là trên màn hình cây ở phía bên trái của explorer không hiển thị trạng thái hiện tại, hoặc trạng thái được lưu trữ tạm không nhận ra những thay đổi. Trong trường hợp này, bạn có thể sử dụng lệnh này để ép buộc một hành động làm mới."
+
+#. (term)
+msgid "Include externals"
+msgstr "Bao gồm các thành phần ngoài"
 
 #. (para)
 msgid ""
-"Note: it's better to use the "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
-" command instead, because there you can first see and select the files which"
-" you want to revert."
-msgstr "Lưu ý: tốt hơn là sử dụng lệnh <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Hoàn nguyên </guimenuitem></menuchoice> thay vào đó, bởi vì bạn có thể xem trước và chọn các tập tin mà bạn muốn hoàn nguyên."
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
+msgstr "Nếu điều này được kiểm tra, thì tất cả các hành động cũng được thực hiện cho tất cả các tập tin và thư mục với thuộc tính <literal> svn:externals </literal>."
 
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
@@ -7299,26 +7356,22 @@ msgid ""
 msgstr "Lưu ý: bạn cũng có thể làm tương tự từ hộp thoại <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Hoàn nguyên </guimenuitem></menuchoice>. Ở đó bạn cũng có được một danh sách của tất cả các tập tin không phiên bản và thư mục để lựa chọn để loại bỏ."
 
 #. (term)
-msgid "Refresh shell overlays"
-msgstr "Làm mới các lớp phủ shell"
+msgid "Revert all changes recursively"
+msgstr "Hoàn nguyên tất cả các thay đổi một cách đệ quy"
 
 #. (para)
 msgid ""
-"Sometimes the shell overlays, especially on the tree view on the left side "
-"of the explorer don't show the current status, or the status cache failed to"
-" recognize changes. In this situation, you can use this command to force a "
-"refresh."
-msgstr "Đôi khi các lớp phủ shell, đặc biệt là trên màn hình cây ở phía bên trái của explorer không hiển thị trạng thái hiện tại, hoặc trạng thái được lưu trữ tạm không nhận ra những thay đổi. Trong trường hợp này, bạn có thể sử dụng lệnh này để ép buộc một hành động làm mới."
-
-#. (term)
-msgid "Include externals"
-msgstr "Bao gồm các thành phần ngoài"
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr "Lệnh này sẽ hoàn nguyên tất cả các sửa đổi địa phương mà chưa được cam kết."
 
 #. (para)
 msgid ""
-"If this is checked, then all actions are done for all files and folders "
-"included with the <literal>svn:externals</literal> property as well."
-msgstr "Nếu điều này được kiểm tra, thì tất cả các hành động cũng được thực hiện cho tất cả các tập tin và thư mục với thuộc tính <literal> svn:externals </literal>."
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr "Lưu ý: tốt hơn là sử dụng lệnh <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Hoàn nguyên </guimenuitem></menuchoice> thay vào đó, bởi vì bạn có thể xem trước và chọn các tập tin mà bạn muốn hoàn nguyên."
 
 #. (para)
 msgid ""
@@ -16521,7 +16574,6 @@ msgstr "Hiển thị hộp thoại nói về. Cái này cũng được hiển th
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -16619,6 +16671,7 @@ msgid ""
 "dialog."
 msgstr "Mở hộp thoại tường trình. Các <placeholder-1/> xác định tập tin hoặc thư mục mà tường trình được hiển thị. Các tùy chọn bổ sung có thể được thiết lập: <placeholder-2/> , <placeholder-3/> , <placeholder-4/> cho phép hộp kiểm 'dừng lại-tại-sao chép \", <placeholder-5/> cho phép hộp kiểm 'bao gồm các phiên bản sáp nhập', <placeholder-6/> điền vào bộ lọc văn bản, <placeholder-7/> buộc bộ lọc sử dụng văn bản, không regex, hoặc <placeholder-8/> buộc bộ lọc sử dụng regex, không phải tìm kiếm văn bản đơn giản, và <placeholder-9/> với X là một số giữa 0 và 511. Những con số này là tổng của các tùy chọn sau đây: <placeholder-10/> Nếu <placeholder-11/> được quy định, các bản sửa đổi được lựa chọn được ghi vào tập tin đó khi hộp thoại tường trình được đóng lại. Các bản sửa đổi được viết bằng định dạng tương tự như được sử dụng để xác định các sửa đổi trong hộp thoại hợp nhất."
 
+#. (option)
 #. (option)
 #. (option)
 msgid "/url"
@@ -16796,9 +16849,9 @@ msgstr "Tạo ra một kho lưu trữ trong <placeholder-1/>"
 
 #. (entry)
 msgid ""
-"Opens the switch dialog. The <placeholder-1/> specifies the target "
-"directory."
-msgstr "Mở hộp thoại chuyển đổi. Các <placeholder-1/> xác định thư mục đích."
+"Opens the switch dialog. The <placeholder-1/> specifies the target directory"
+" and <placeholder-2/> the url to switch to."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -16820,6 +16873,18 @@ msgstr "/overwrite"
 msgid "/autorename"
 msgstr "/autorename"
 
+#. (option)
+msgid "/extended"
+msgstr ""
+
+#. (literal)
+msgid "localchanges"
+msgstr ""
+
+#. (literal)
+msgid "unversioned"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Exports the working copy in <placeholder-1/> to the directory specified in "
@@ -16827,8 +16892,10 @@ msgid ""
 " directly. The option <placeholder-3/> specifies that existing files are "
 "overwritten without user confirmation, and the option <placeholder-4/> "
 "specifies that if files already exist, the exported files get automatically "
-"renamed to avoid overwriting them."
-msgstr "Xuất khẩu bản sao làm việc trong <placeholder-1/> vào thư mục quy định tại <placeholder-2/> . Việc xuất khẩu này không sử dụng hộp thoại xuất khẩu nhưng thực hiện trực tiếp. Tùy chọn <placeholder-3/> xác định rằng tập tin hiện tại được ghi đè mà không có xác nhận của người sử dụng, và tùy chọn <placeholder-4/> quy định cụ thể rằng nếu các tập tin đã tồn tại, các tập tin xuất khẩu được tự động đổi tên để tránh ghi đè lên chúng."
+"renamed to avoid overwriting them. The option <placeholder-5/> can specify "
+"either <placeholder-6/> to only export files that got changed locally, or "
+"<placeholder-7/> to also export all unversioned items as well."
+msgstr ""
 
 #. (option)
 #. (option)
@@ -16873,15 +16940,24 @@ msgid ""
 "directory."
 msgstr "Mở hộp thoại kết hợp tất cả. Các <placeholder-1/> xác định thư mục đích."
 
+#. (literal)
+msgid "Switch working copy to new branch/tag"
+msgstr ""
+
+#. (option)
+msgid "/switchaftercopy"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. You can also "
-"specify the <placeholder-3/> switch to pass a predefined log message to the "
-"branch/tag dialog. Or, if you don't want to pass the log message on the "
-"command line, use <placeholder-4/>, where <placeholder-5/> points to a file "
-"containing the log message."
-msgstr "Đem lên hộp thoại chi nhánh/thẻ. Các <placeholder-1/> là bản sao làm việc đến chi nhánh/thẻ. Và <placeholder-2/> là URL mục tiêu. Bạn cũng có thể chỉ định <placeholder-3/> chuyển đổi để truyền qua một thông điệp tường trình được định nghĩa trước vào hộp thoại chi nhánh/thẻ. Hoặc, nếu bạn không muốn truyền qua các thông điệp tường trình trên dòng lệnh, sử dụng <placeholder-4/> , nơi <placeholder-5/> chỉ vào một tập tin có chứa thông điệp tường trình."
+" branch/tag from. And the <placeholder-2/> is the target URL. To already "
+"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
+"You can also specify the <placeholder-5/> switch to pass a predefined log "
+"message to the branch/tag dialog. Or, if you don't want to pass the log "
+"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
+"points to a file containing the log message."
+msgstr ""
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -17104,9 +17180,18 @@ msgid ""
 "<placeholder-1/>."
 msgstr "Xây dựng lại bộ nhớ cache biểu tượng cửa sổ. Chỉ sử dụng trong trường hợp các biểu tượng cửa sổ bị hỏng. Một tác dụng phụ của việc này (không có thể tránh được) là các biểu tượng trên máy tính để bàn được sắp xếp lại. Để ngăn chặn các hộp thông báo, truyền vào <placeholder-1/> ."
 
-#. (entry)
-msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr "Hiển thị hộp thoại thuộc tính cho đường dẫn được đưa ra trong <placeholder-1/> ."
+#. (para)
+msgid ""
+"Shows the properties dialog for the path given in <option>/path</option>. If"
+" <option>/rev:XXX</option> is specified and <option>/path</option> is an "
+"URL, the dialog shows and edits revision properties."
+msgstr ""
+
+#. (para)
+msgid ""
+"To open the properties dialog directly for a specific property, pass the "
+"property name as <option>/property:name</option>."
+msgstr ""
 
 #. (para)
 msgid ""

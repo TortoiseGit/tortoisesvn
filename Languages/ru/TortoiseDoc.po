@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:21+0000\n"
+"PO-Revision-Date: 2012-04-09 12:50+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2847,9 +2847,9 @@ msgstr "Чтобы создать папку нового проекта пря�
 #. (para)
 msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
-"will get a warning that the local folder is not empty. Now you have a "
-"versioned top level folder with unversioned content."
-msgstr "Извлеките эту новую папку поверх той папки, которую вы желаете импортировать. Появится предупреждение о том, что локальная папка не пуста. Теперь у вас есть версированная папка верхнего уровня с неверсированным содержимым."
+"will get a warning that the local folder is not empty. Ignore the warning. "
+"Now you have a versioned top level folder with unversioned content."
+msgstr "Извлеките эту новую папку поверх той папки, которую вы желаете импортировать. Появится предупреждение о том, что локальная папка не пуста. Не обращайте внимания на предупреждение. Теперь у вас есть версированная папка верхнего уровня с неверсированным содержимым."
 
 #. (para)
 msgid ""
@@ -3227,6 +3227,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "Диалог фиксации покажет все изменённые файлы, включая добавленные, удалённые и неверсированные. Если вы не хотите фиксировать какой-то изменённый файл, просто разотметьте его. Если вы хотите включить неверсированный файл, тогда пометьте его для добавления к фиксации."
+
+#. (para)
+msgid ""
+"For information on the coloring and overlays of the items according to their"
+" status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
+msgstr "Для информации о расцветке и оверлейных значках соответствующих статусу обратитесь к <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
 
 #. (para)
 msgid ""
@@ -4613,6 +4619,53 @@ msgstr "Неизменённые и неверсированные элемен�
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "Диалог использует различные цвета для обозначения статуса. <placeholder-1/>"
+
+#. (para)
+msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
+msgstr "Глубина извлечения <literal>empty</literal> обозначает только сам элемент."
+
+#. (para)
+msgid ""
+"Checkout depth <literal>files</literal>, meaning only the item itself and "
+"all file children without child folders."
+msgstr "Глубина извлечения <literal>files</literal> обозначает только сам элемент и все дочерние файлы без дочерних папок."
+
+#. (para)
+msgid ""
+"Checkout depth <literal>immediates</literal>, meaning only the item itself "
+"and all file and folder children, but without children of the child folders."
+msgstr "Глубина извлечения <literal>immediates</literal> обозначает только сам элемент и все дочерние файлы и папки, но без элементов дочерних папок."
+
+#. (para)
+msgid "Nested items, i.e., working copies inside the working copy."
+msgstr "Вложенные элементы, т.е. рабочие копии внутри рабочей копии."
+
+#. (para)
+msgid ""
+"External items, i.e., all items that are added via an "
+"<literal>svn:externals</literal> property."
+msgstr "Внешние элементы, т.е. все элементы добавленные с использованием свойства <literal>svn:externals</literal>."
+
+#. (para)
+msgid ""
+"Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
+"restore\"/> for details."
+msgstr "Элементы, которые были восстановлены после фиксации. Более подробно см. <xref linkend=\"tsvn-dug-commit-restore\"/>."
+
+#. (para)
+msgid ""
+"Items that have property modifications, but only to the "
+"<literal>svn:mergeinfo</literal> property. If any other property is "
+"modified, the overlay is not used."
+msgstr "Элементы, у которых изменены свойства, но только свойство <literal>svn:mergeinfo</literal>. Если изменено любое другое свойство, то оверлей не используется."
+
+#. (para)
+msgid ""
+"Overlay icons are used to indicate other states as well. The screenshot "
+"below shows all the possible overlays that are shown if necessary. <graphic "
+"fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
+"following states: <placeholder-1/>"
+msgstr "Оверелейные значки также используются для обозначения других состояний. Нижеприведённый скриншот демонстрирует все возможные оверлеи, которые отображаются при необходимости. <graphic fileref=\"../images/statuslistoverlays.png\"/> Оверелеи показаны для следующих состояний: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -7263,22 +7316,26 @@ msgid ""
 msgstr "Как говорилось выше, этот вариант пытается привести рабочую копию из несогласованного в рабочее состояние. Это не затрагивает ваши данные, а только внутреннее состояние базы данных рабочей копии. Фактически это команда <literal>Очистить</literal>, которая знакома вам по предыдущим версиям TortoiseSVN или другим клиентам SVN."
 
 #. (term)
-msgid "Revert all changes recursively"
-msgstr "Отменить все изменения рекурсивно"
+msgid "Refresh shell overlays"
+msgstr "Обновить оверлеи оболочки"
 
 #. (para)
 msgid ""
-"This command reverts all your local modifications which are not committed "
-"yet."
-msgstr "Эта команда отменяет все ваши локальные изменения, которые ещё не зафиксированы."
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr "Иногда оверлеи оболочки, особенно в дереве просмотра в левой части проводника, не отображают текущий статус, или кэш статуса не может определить изменения. В этой ситуации вы можете использовать данную команду для принудительного обновления."
+
+#. (term)
+msgid "Include externals"
+msgstr "Включая внешние"
 
 #. (para)
 msgid ""
-"Note: it's better to use the "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
-" command instead, because there you can first see and select the files which"
-" you want to revert."
-msgstr "Примечание: лучше использовать команду <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Убрать изменения</guimenuitem></menuchoice>, потому что вы сначала можете посмотреть и выбрать файлы, в которых хотите убрать изменения."
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
+msgstr "Если отмечено, то все действия выполняются для всех файлов и папок включая те, которые со свойством <literal>svn:externals</literal>."
 
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
@@ -7300,26 +7357,22 @@ msgid ""
 msgstr "Примечание: вы можете сделать тоже самое из диалога <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Убрать изменения</guimenuitem></menuchoice>. Там вы также получаете список всех неверсированных файлов и папок, чтобы выбрать их для удаления."
 
 #. (term)
-msgid "Refresh shell overlays"
-msgstr "Обновить оверлеи оболочки"
+msgid "Revert all changes recursively"
+msgstr "Отменить все изменения рекурсивно"
 
 #. (para)
 msgid ""
-"Sometimes the shell overlays, especially on the tree view on the left side "
-"of the explorer don't show the current status, or the status cache failed to"
-" recognize changes. In this situation, you can use this command to force a "
-"refresh."
-msgstr "Иногда оверлеи оболочки, особенно в дереве просмотра в левой части проводника, не отображают текущий статус, или кэш статуса не может определить изменения. В этой ситуации вы можете использовать данную команду для принудительного обновления."
-
-#. (term)
-msgid "Include externals"
-msgstr "Включая внешние"
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr "Эта команда отменяет все ваши локальные изменения, которые ещё не зафиксированы."
 
 #. (para)
 msgid ""
-"If this is checked, then all actions are done for all files and folders "
-"included with the <literal>svn:externals</literal> property as well."
-msgstr "Если отмечено, то все действия выполняются для всех файлов и папок включая те, которые со свойством <literal>svn:externals</literal>."
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr "Примечание: лучше использовать команду <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Убрать изменения</guimenuitem></menuchoice>, потому что вы сначала можете посмотреть и выбрать файлы, в которых хотите убрать изменения."
 
 #. (para)
 msgid ""
@@ -16522,7 +16575,6 @@ msgstr "Показывает диалог 'О программе'. Он же о�
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -16620,6 +16672,7 @@ msgid ""
 "dialog."
 msgstr "Открывает диалог журнала. <placeholder-1/> указывает файл или папку, для которой должен быть показан журнал. Могут быть указаны дополнительные параметры: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> включает флажок 'остановиться на копировании', <placeholder-5/> включает флажок 'включая слитые ревизии', <placeholder-6/> заполняет текст фильтра, <placeholder-7/> заставляет фильтр использовать текст, а не регулярное выражение, или <placeholder-8/> заставляет фильтр использовать регулярное выражение, а не простой текстовый поиск, и <placeholder-9/> с X числом между 0 и 511. Числа равны сумме следующих параметров: <placeholder-10/> Если <placeholder-11/> указан, то выбранные ревизии сохраняются в этот файл при закрытии диалога. Ревизии записываются в том же формате, который используется в диалоге слияния для указания ревизий.\""
 
+#. (option)
 #. (option)
 #. (option)
 msgid "/url"
@@ -16797,9 +16850,9 @@ msgstr "Создаёт хранилище в папке, указанной па
 
 #. (entry)
 msgid ""
-"Opens the switch dialog. The <placeholder-1/> specifies the target "
-"directory."
-msgstr "Открывает диалог переключения. Параметр <placeholder-1/> задаёт целевую папку."
+"Opens the switch dialog. The <placeholder-1/> specifies the target directory"
+" and <placeholder-2/> the url to switch to."
+msgstr "Открывает диалог переключения. Параметр <placeholder-1/> задаёт целевую папку и параметр <placeholder-2/> задаёт URL, на который надо переключиться."
 
 #. (entry)
 msgid ""
@@ -16821,6 +16874,18 @@ msgstr "/overwrite"
 msgid "/autorename"
 msgstr "/autorename"
 
+#. (option)
+msgid "/extended"
+msgstr "/extended"
+
+#. (literal)
+msgid "localchanges"
+msgstr "localchanges"
+
+#. (literal)
+msgid "unversioned"
+msgstr "unversioned"
+
 #. (entry)
 msgid ""
 "Exports the working copy in <placeholder-1/> to the directory specified in "
@@ -16828,8 +16893,10 @@ msgid ""
 " directly. The option <placeholder-3/> specifies that existing files are "
 "overwritten without user confirmation, and the option <placeholder-4/> "
 "specifies that if files already exist, the exported files get automatically "
-"renamed to avoid overwriting them."
-msgstr "Экспортирует рабочую копию <placeholder-1/> в директорию указанную в <placeholder-2/>. Этот экспорт не использует диалог экспорта и выполняется напрямую. Параметр <placeholder-3/> указывает, что существующие файлы перезаписываются без подтверждения пользователя, и параметр <placeholder-4/> указывает, что если файлы уже существуют, то экспортируемые файлы переименовываются автоматически во избежание их перезаписывания."
+"renamed to avoid overwriting them. The option <placeholder-5/> can specify "
+"either <placeholder-6/> to only export files that got changed locally, or "
+"<placeholder-7/> to also export all unversioned items as well."
+msgstr "Экспортирует рабочую копию <placeholder-1/> в директорию указанную в <placeholder-2/>. Этот экспорт не использует диалог экспорта и выполняется напрямую. Параметр <placeholder-3/> указывает, что существующие файлы перезаписываются без подтверждения пользователя, и параметр <placeholder-4/> указывает, что если файлы уже существуют, то экспортируемые файлы переименовываются автоматически во избежание их перезаписывания. Параметр <placeholder-5/> может определять либо <placeholder-6/> для экспорта только файлов изменённых локально, либо <placeholder-7/> для экспорта также всех неверсированных элементов."
 
 #. (option)
 #. (option)
@@ -16874,15 +16941,24 @@ msgid ""
 "directory."
 msgstr "Открывает диалог 'Слить все'. Параметр <placeholder-1/> задаёт целевую папку."
 
+#. (literal)
+msgid "Switch working copy to new branch/tag"
+msgstr "Переключить рабочую копию на новую ветку/метку."
+
+#. (option)
+msgid "/switchaftercopy"
+msgstr "/switchaftercopy"
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. You can also "
-"specify the <placeholder-3/> switch to pass a predefined log message to the "
-"branch/tag dialog. Or, if you don't want to pass the log message on the "
-"command line, use <placeholder-4/>, where <placeholder-5/> points to a file "
-"containing the log message."
-msgstr "Открывает диалог ответвления/метки. Параметр <placeholder-1/> задаёт рабочую копию, из которой будет выполнятся создаваться ответвление/метка. Параметр <placeholder-2/> задаёт целевой URL. Вы можете также задать параметр <placeholder-3/> для указания предопределённого сообщения журнала, которое будет передано в диалог ответвления/метки. Или, если вы не желаете передавать сообщение журнала в командной строке, воспользуйтесь <placeholder-4/>, где <placeholder-5/> задаёт файл, содержащий сообщение журнала."
+" branch/tag from. And the <placeholder-2/> is the target URL. To already "
+"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
+"You can also specify the <placeholder-5/> switch to pass a predefined log "
+"message to the branch/tag dialog. Or, if you don't want to pass the log "
+"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
+"points to a file containing the log message."
+msgstr "Открывает диалог ответвления/метки. Параметр <placeholder-1/> задаёт рабочую копию, из которой будет создаваться ответвление/метка. Параметр <placeholder-2/> задаёт целевой URL. Для уже заданного параметра <placeholder-3/> вы можете передать переключатель <placeholder-4/>. Вы можете также задать параметр <placeholder-5/> для указания предопределённого сообщения журнала, которое будет передано в диалог ответвления/метки. Или, если вы не желаете передавать сообщение журнала в командной строке, воспользуйтесь <placeholder-6/>, где <placeholder-7/> задаёт файл, содержащий сообщение журнала."
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -17105,9 +17181,18 @@ msgid ""
 "<placeholder-1/>."
 msgstr "Восстанавливает кэш значков Windows. Используйте только в случае, если значки Windows испорчены. Побочный эффект этой команды (которого нельзя избежать) состоит в переупорядочивании значков на рабочем столе. Чтобы не появлялось окно сообщения, укажите <placeholder-1/>."
 
-#. (entry)
-msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr "Показывает диалог работы со свойствами для пути, указанному в <placeholder-1/>."
+#. (para)
+msgid ""
+"Shows the properties dialog for the path given in <option>/path</option>. If"
+" <option>/rev:XXX</option> is specified and <option>/path</option> is an "
+"URL, the dialog shows and edits revision properties."
+msgstr "Показывает диалог работы со свойствами для пути, указанному в <option>/path</option>. Если задан параметр <option>/rev:XXX</option> и параметр <option>/path</option> является URL, то показывается диалог редактирования свойств ревизии."
+
+#. (para)
+msgid ""
+"To open the properties dialog directly for a specific property, pass the "
+"property name as <option>/property:name</option>."
+msgstr "Чтобы непосредственно открыть диалог для определённого свойства, передайте имя свойства в параметре <option>/property:name</option>."
 
 #. (para)
 msgid ""

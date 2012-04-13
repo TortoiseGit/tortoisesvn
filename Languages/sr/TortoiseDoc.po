@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-03-10 06:58+0000\n"
+"PO-Revision-Date: 2012-04-08 08:26+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2846,9 +2846,9 @@ msgstr "Користите претраживач спремишта да кре
 #. (para)
 msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
-"will get a warning that the local folder is not empty. Now you have a "
-"versioned top level folder with unversioned content."
-msgstr "Преузмите нови фолдер преко врха фолдера који желите да увезете. Добићете упозорење да локални фолдер није празан. Сада имате верзионисани фолдер вршног нивоа са неверзионисаним садржајем."
+"will get a warning that the local folder is not empty. Ignore the warning. "
+"Now you have a versioned top level folder with unversioned content."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -3226,6 +3226,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "Дијалог урезивања ће вам показати сваки измњени фајл, укључујући додате, неверзионисане фајлове. Ако не желите да измењени фајлови буду урезани, само отчекирјте те фајлове. Ако желите да укључите неверзионисани фајл, само чекирајте тај фајл да га додате у урезивање."
+
+#. (para)
+msgid ""
+"For information on the coloring and overlays of the items according to their"
+" status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -4612,6 +4618,53 @@ msgstr "Непромењен и неверзионисане ставке."
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "Дијалог користи колор кодирање да осветли сатус. <placeholder-1/>"
+
+#. (para)
+msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
+msgstr ""
+
+#. (para)
+msgid ""
+"Checkout depth <literal>files</literal>, meaning only the item itself and "
+"all file children without child folders."
+msgstr ""
+
+#. (para)
+msgid ""
+"Checkout depth <literal>immediates</literal>, meaning only the item itself "
+"and all file and folder children, but without children of the child folders."
+msgstr ""
+
+#. (para)
+msgid "Nested items, i.e., working copies inside the working copy."
+msgstr ""
+
+#. (para)
+msgid ""
+"External items, i.e., all items that are added via an "
+"<literal>svn:externals</literal> property."
+msgstr ""
+
+#. (para)
+msgid ""
+"Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
+"restore\"/> for details."
+msgstr ""
+
+#. (para)
+msgid ""
+"Items that have property modifications, but only to the "
+"<literal>svn:mergeinfo</literal> property. If any other property is "
+"modified, the overlay is not used."
+msgstr ""
+
+#. (para)
+msgid ""
+"Overlay icons are used to indicate other states as well. The screenshot "
+"below shows all the possible overlays that are shown if necessary. <graphic "
+"fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
+"following states: <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7262,22 +7315,26 @@ msgid ""
 msgstr "Као што је горе изложено, ова опција покушава да пребаци некозистентну радну копију у радно и корисно стање.Ово не утиче на податке које имате већ само на стање базе података радне копије. Ово је актуелна  команда <literal>Чишћење</literal>  коју знате од старих ТортоисеСВН клијената или других СВН клијената."
 
 #. (term)
-msgid "Revert all changes recursively"
-msgstr "Враћа све измене рекурзивно"
+msgid "Refresh shell overlays"
+msgstr "Обнавља прекриваче шкољке"
 
 #. (para)
 msgid ""
-"This command reverts all your local modifications which are not committed "
-"yet."
-msgstr "Ова команда враћа све локалне измене које још нису урезане."
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr "Понекад прекривачи шкољке, специјално на стаблу прегледа  са леве стране претраживача не приказује текући статус, или  статус кеш одбија да препозна измене. У овој ситуацији можете користити ову команду да присилите обнављање."
+
+#. (term)
+msgid "Include externals"
+msgstr "Укључи екстернале"
 
 #. (para)
 msgid ""
-"Note: it's better to use the "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
-" command instead, because there you can first see and select the files which"
-" you want to revert."
-msgstr "Примедба: боље је користити <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Врати</guimenuitem></menuchoice> команду уместо тога, јер тад можете видети и изабрати фајлове које хоћете да вратите."
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
+msgstr "Ако је чекирано, онда све акције су дате за све фајлове и фолдере укључене са <literal>svn:externals</literal> особинама."
 
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
@@ -7299,26 +7356,22 @@ msgid ""
 msgstr "Примедба: ви можете урадити исто од <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Врати</guimenuitem></menuchoice> дијалог. Ту добијете листу свих неверзионисаних фајлова и фолдера да бирате за уклањање."
 
 #. (term)
-msgid "Refresh shell overlays"
-msgstr "Обнавља прекриваче шкољке"
+msgid "Revert all changes recursively"
+msgstr "Враћа све измене рекурзивно"
 
 #. (para)
 msgid ""
-"Sometimes the shell overlays, especially on the tree view on the left side "
-"of the explorer don't show the current status, or the status cache failed to"
-" recognize changes. In this situation, you can use this command to force a "
-"refresh."
-msgstr "Понекад прекривачи шкољке, специјално на стаблу прегледа  са леве стране претраживача не приказује текући статус, или  статус кеш одбија да препозна измене. У овој ситуацији можете користити ову команду да присилите обнављање."
-
-#. (term)
-msgid "Include externals"
-msgstr "Укључи екстернале"
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr "Ова команда враћа све локалне измене које још нису урезане."
 
 #. (para)
 msgid ""
-"If this is checked, then all actions are done for all files and folders "
-"included with the <literal>svn:externals</literal> property as well."
-msgstr "Ако је чекирано, онда све акције су дате за све фајлове и фолдере укључене са <literal>svn:externals</literal> особинама."
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr "Примедба: боље је користити <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Врати</guimenuitem></menuchoice> команду уместо тога, јер тад можете видети и изабрати фајлове које хоћете да вратите."
 
 #. (para)
 msgid ""
@@ -16521,7 +16574,6 @@ msgstr "Приказује дијалог са описом програма. О
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/путања"
 
@@ -16619,6 +16671,7 @@ msgid ""
 "dialog."
 msgstr "Отворите дневник дијалогом.  <placeholder-1/> специфицира фајл или фолдер за које ће дневник бити приказан. Додатне опције се могу подесити:  <placeholder-2/>, <placeholder-3/>, <placeholder-4/> омогућавају 'стоп-на-копи'  чекбокс, <placeholder-5/> омогућава 'укључује стопљене ревизије'чекбокс, <placeholder-6/> фајлове у филтер тексту,  <placeholder-7/> форсира филтер да користи текст, а не регекс, или <placeholder-8/> форсира филтер да користи регекс, не једноставно претраживање текста, и <placeholder-9/> са Х као број између 0 и 511. Бројеви су збир следећих опција: <placeholder-10/> Ако <placeholder-11/> је специфицирате, изабране ревизије су написане у тај фајл док је дијалог дневника затворен. Ревизије су написане у истом формату као што је коришћено да се специфицирају ревизије у дијалогу стапања. "
 
+#. (option)
 #. (option)
 #. (option)
 msgid "/url"
@@ -16796,9 +16849,9 @@ msgstr "Креира спремиште у <placeholder-1/>"
 
 #. (entry)
 msgid ""
-"Opens the switch dialog. The <placeholder-1/> specifies the target "
-"directory."
-msgstr "Отвара прекидач дијалог. <placeholder-1/> специфицира циљни фолдер."
+"Opens the switch dialog. The <placeholder-1/> specifies the target directory"
+" and <placeholder-2/> the url to switch to."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -16820,6 +16873,18 @@ msgstr "/overwrite"
 msgid "/autorename"
 msgstr "/autorename"
 
+#. (option)
+msgid "/extended"
+msgstr ""
+
+#. (literal)
+msgid "localchanges"
+msgstr ""
+
+#. (literal)
+msgid "unversioned"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Exports the working copy in <placeholder-1/> to the directory specified in "
@@ -16827,8 +16892,10 @@ msgid ""
 " directly. The option <placeholder-3/> specifies that existing files are "
 "overwritten without user confirmation, and the option <placeholder-4/> "
 "specifies that if files already exist, the exported files get automatically "
-"renamed to avoid overwriting them."
-msgstr "Извози радну копију у <placeholder-1/> у фолдер специфициран у <placeholder-2/>. Ово извожење не користи дијалог извоза већ се извршава директно. Опција <placeholder-3/> специфицира да се постојећи фајлови прекрију без корисникове потврде и опција  <placeholder-4/> специфицира да ако фајлови већ постоје извезени фајлови се аутоматски преименују да би се избегло њихово преписивање."
+"renamed to avoid overwriting them. The option <placeholder-5/> can specify "
+"either <placeholder-6/> to only export files that got changed locally, or "
+"<placeholder-7/> to also export all unversioned items as well."
+msgstr ""
 
 #. (option)
 #. (option)
@@ -16873,15 +16940,24 @@ msgid ""
 "directory."
 msgstr "Отвара дијалог стапања. <placeholder-1/>  специфицира циљни фолдер."
 
+#. (literal)
+msgid "Switch working copy to new branch/tag"
+msgstr ""
+
+#. (option)
+msgid "/switchaftercopy"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. You can also "
-"specify the <placeholder-3/> switch to pass a predefined log message to the "
-"branch/tag dialog. Or, if you don't want to pass the log message on the "
-"command line, use <placeholder-4/>, where <placeholder-5/> points to a file "
-"containing the log message."
-msgstr "Доводи грана/ознака дијалог. <placeholder-1/>  је радна копија из грана/ознака. И <placeholder-2/> је циљ УРЛ. Можете такође специфицирати <placeholder-3/>  прекидач да провучете предефинисану дневник поруку до грана/ознака дијалога. Или, ако не желите да провучете дневник поруку на командну линију, користите <placeholder-4/>, где <placeholder-5/> указује на фајл који садржи дневник поруку."
+" branch/tag from. And the <placeholder-2/> is the target URL. To already "
+"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
+"You can also specify the <placeholder-5/> switch to pass a predefined log "
+"message to the branch/tag dialog. Or, if you don't want to pass the log "
+"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
+"points to a file containing the log message."
+msgstr ""
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -17104,9 +17180,18 @@ msgid ""
 "<placeholder-1/>."
 msgstr "Прерађује кеш икона прозора. Само користите ово у случају да су иконе прозора уништене. Споредни ефекат овога је (који може бити избегнут) то да иконе на десктопу буду преуређене. Да се спречи бокс поруке, провуците <placeholder-1/>."
 
-#. (entry)
-msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr "Приказује дијалог карактеристика за путању у <placeholder-1/>."
+#. (para)
+msgid ""
+"Shows the properties dialog for the path given in <option>/path</option>. If"
+" <option>/rev:XXX</option> is specified and <option>/path</option> is an "
+"URL, the dialog shows and edits revision properties."
+msgstr ""
+
+#. (para)
+msgid ""
+"To open the properties dialog directly for a specific property, pass the "
+"property name as <option>/property:name</option>."
+msgstr ""
 
 #. (para)
 msgid ""

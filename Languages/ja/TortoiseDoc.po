@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011.
+# Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011, 2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011, 2012.
 msgid ""
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:21+0000\n"
+"PO-Revision-Date: 2012-04-08 11:52+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2848,9 +2848,9 @@ msgstr "リポジトリブラウザーを使用して、リポジトリに新し
 #. (para)
 msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
-"will get a warning that the local folder is not empty. Now you have a "
-"versioned top level folder with unversioned content."
-msgstr "インポートしたいフォルダーの最上位に対して、新しいフォルダーをチェックアウトしてください。ローカルフォルダーが空でないという警告が出ます。バージョン管理下のフォルダーの中に、バージョン管理外の中身があるという状態になります。"
+"will get a warning that the local folder is not empty. Ignore the warning. "
+"Now you have a versioned top level folder with unversioned content."
+msgstr "新しいフォルダーを、インポートしたいフォルダーの上位層にチェックアウトします。ローカルフォルダーが空でないという警告が表示されますが、無視してください。バージョン管理下のフォルダーの中に、バージョン管理外の中身がある状態になります。"
 
 #. (para)
 msgid ""
@@ -3228,6 +3228,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "コミットダイアログには変更したファイルや、追加・削除・バージョン管理外のファイルが表示されます。変更したファイルをコミットしたくない場合は、ファイルのチェックをはずしてください。バージョン管理外のファイルを含める場合は、追加・コミットするファイルにチェックをつけてください。"
+
+#. (para)
+msgid ""
+"For information on the coloring and overlays of the items according to their"
+" status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
+msgstr "項目の状態に応じた色やオーバーレイについての詳細は、<xref linkend=\"tsvn-dug-wcstatus-2\"/>をご覧ください。"
 
 #. (para)
 msgid ""
@@ -4614,6 +4620,53 @@ msgstr "変更がなくバージョン管理外の項目です。"
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "このダイアログでは、状態が色分けして表示されます。 <placeholder-1/>"
+
+#. (para)
+msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
+msgstr "チェックアウトの深さが<literal>この項目のみ</literal>、つまりこの項目のみであることを示します。"
+
+#. (para)
+msgid ""
+"Checkout depth <literal>files</literal>, meaning only the item itself and "
+"all file children without child folders."
+msgstr "チェックアウトの深さが<literal>子階層のファイルのみ</literal>、つまりこの項目と、子フォルダーを除いたすべての子階層のファイルのみであることを示します。"
+
+#. (para)
+msgid ""
+"Checkout depth <literal>immediates</literal>, meaning only the item itself "
+"and all file and folder children, but without children of the child folders."
+msgstr "チェックアウトの深さが<literal>直接の子階層</literal>、つまりこの項目と、すべての子階層のファイルとフォルダーを含め、子フォルダーの子フォルダーは除外されていることを示します。"
+
+#. (para)
+msgid "Nested items, i.e., working copies inside the working copy."
+msgstr "ネストされた項目、つまり、作業コピーの中にある作業コピー。"
+
+#. (para)
+msgid ""
+"External items, i.e., all items that are added via an "
+"<literal>svn:externals</literal> property."
+msgstr "外部項目、つまり、<literal>svn:externals</literal>プロパティで追加されたすべての項目。"
+
+#. (para)
+msgid ""
+"Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
+"restore\"/> for details."
+msgstr "コミット後に復元された項目。詳しくは<xref linkend=\"tsvn-dug-commit-restore\"/>をご覧ください。"
+
+#. (para)
+msgid ""
+"Items that have property modifications, but only to the "
+"<literal>svn:mergeinfo</literal> property. If any other property is "
+"modified, the overlay is not used."
+msgstr "<literal>svn:mergeinfo</literal>プロパティが変更された項目。それ以外のプロパティが変更されても、このオーバーレイは使われません。"
+
+#. (para)
+msgid ""
+"Overlay icons are used to indicate other states as well. The screenshot "
+"below shows all the possible overlays that are shown if necessary. <graphic "
+"fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
+"following states: <placeholder-1/>"
+msgstr "オーバーレイアイコンは他の状態を表示するためにも使われます。次のスクリーンショットは、必要な時に表示される可能性のあるすべてのオーバーレイを示しています。 <graphic fileref=\"../images/statuslistoverlays.png\"/> オーバーレイは次の状態を示しています。 <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -6550,7 +6603,7 @@ msgid ""
 "select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Add files"
 " to this WC</guimenuitem></menuchoice>. The files will then be copied to the"
 " working copy and added to version control."
-msgstr "<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN この作業コピーにファイルを追加する</guimenuitem></menuchoice> を選択する。そのファイルが作業コピーにコピーされ、バージョン管理に追加される。"
+msgstr "<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN この作業コピーにファイルを追加</guimenuitem></menuchoice> を選択する。そのファイルが作業コピーにコピーされ、バージョン管理に追加される。"
 
 #. (para)
 msgid ""
@@ -7264,22 +7317,26 @@ msgid ""
 msgstr "前述のように、このオプションは、矛盾した作業コピーを使用可能な状態にしようとします。これは、作業コピーのデータベースの内部状態にのみ影響し、それ以外のデータには影響しません。これは、以前の TortoiseSVN クライアントや他の SVN クライアントで<literal>クリーンアップ</literal>コマンドを実行した時と同じ動作です。"
 
 #. (term)
-msgid "Revert all changes recursively"
-msgstr "すべての変更を再帰的に取り消す"
+msgid "Refresh shell overlays"
+msgstr "シェルのオーバーレイを更新"
 
 #. (para)
 msgid ""
-"This command reverts all your local modifications which are not committed "
-"yet."
-msgstr "このコマンドは、まだコミットされていないローカルの変更をすべて取り消します。"
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr "ときどき、特にエクスプローラーの左側のツリービューでは、シェルのオーバーレイでは状態のキャッシュが変更を認識するのに失敗して、現在の状態が表示されなくなってしまうことがあります。このような場合、このコマンドで強制的に更新させることができます。"
+
+#. (term)
+msgid "Include externals"
+msgstr "外部参照を含める"
 
 #. (para)
 msgid ""
-"Note: it's better to use the "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
-" command instead, because there you can first see and select the files which"
-" you want to revert."
-msgstr "【注意】<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>変更の取り消し...</guimenuitem></menuchoice> コマンドを使用したほうが、事前に元に戻すファイルを確認して選択することができるので便利です。"
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
+msgstr "チェックすると、 <literal>svn:externals</literal> プロパティに含まれているすべてのファイルやフォルダーにも、すべての処理が実行されます。"
 
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
@@ -7301,26 +7358,22 @@ msgid ""
 msgstr "【注意】<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>変更の取り消し...</guimenuitem></menuchoice> のダイアログを使用しても同じことができます。こちらはバージョン管理されていないファイルやフォルダーを一覧表示し、削除するファイルを選択することができます。"
 
 #. (term)
-msgid "Refresh shell overlays"
-msgstr "シェルのオーバーレイを更新"
+msgid "Revert all changes recursively"
+msgstr "すべての変更を再帰的に取り消す"
 
 #. (para)
 msgid ""
-"Sometimes the shell overlays, especially on the tree view on the left side "
-"of the explorer don't show the current status, or the status cache failed to"
-" recognize changes. In this situation, you can use this command to force a "
-"refresh."
-msgstr "ときどき、特にエクスプローラーの左側のツリービューでは、シェルのオーバーレイでは状態のキャッシュが変更を認識するのに失敗して、現在の状態が表示されなくなってしまうことがあります。このような場合、このコマンドで強制的に更新させることができます。"
-
-#. (term)
-msgid "Include externals"
-msgstr "外部参照を含める"
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr "このコマンドは、まだコミットされていないローカルの変更をすべて取り消します。"
 
 #. (para)
 msgid ""
-"If this is checked, then all actions are done for all files and folders "
-"included with the <literal>svn:externals</literal> property as well."
-msgstr "チェックすると、 <literal>svn:externals</literal> プロパティに含まれているすべてのファイルやフォルダーにも、すべての処理が実行されます。"
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr "【注意】<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>変更の取り消し...</guimenuitem></menuchoice> コマンドを使用したほうが、事前に元に戻すファイルを確認して選択することができるので便利です。"
 
 #. (para)
 msgid ""
@@ -11080,7 +11133,7 @@ msgid ""
 "here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>SVN Export all here</guimenuitem></menuchoice>. "
 "The second option includes the unversioned files as well."
-msgstr "その他、作業コピーからエクスポートするには、作業コピーのフォルダーを別の場所に <action>右ドラッグ</action> し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN ここにエクスポートする</guimenuitem></menuchoice> や <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN ここに全てをエクスポートする</guimenuitem></menuchoice> を選んでもできます。後者は、バージョン管理外のファイルもエクスポートします。"
+msgstr "その他、作業コピーからエクスポートするには、作業コピーのフォルダーを別の場所に <action>右ドラッグ</action> し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN ここにエクスポート</guimenuitem></menuchoice> や <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN すべてをここにエクスポート</guimenuitem></menuchoice> を選んでもできます。後者は、バージョン管理外のファイルもエクスポートします。"
 
 #. (para)
 msgid ""
@@ -12378,7 +12431,7 @@ msgstr "リポジトリから削除された項目、作業コピーから紛失
 
 #. (term)
 msgid "Merged"
-msgstr "マージ終了"
+msgstr "マージ済み"
 
 #. (para)
 msgid ""
@@ -16523,7 +16576,6 @@ msgstr "「バージョン情報」ダイアログを表示します。コマン
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -16621,6 +16673,7 @@ msgid ""
 "dialog."
 msgstr "ログダイアログを開きます。 <placeholder-1/> でログを表示するファイルやフォルダーを指定します。それ以外に、以下のオプションを指定できます。 <placeholder-2/> は先頭のリビジョンを指定します。 <placeholder-3/> は末尾のリビジョンを指定します。 <placeholder-4/> が指定されると「コピー/名前の変更が発生したら停止」チェックボックスを有効にします。 <placeholder-5/> が指定されると「マージされたリビジョンを含める」を有効にします。 <placeholder-6/> は絞り込み文字列を入力します。 <placeholder-7/> が指定されると正規表現ではなく単純文字列で絞り込みます。 <placeholder-8/> が指定されると単純文字列ではなく正規表現で絞り込みます。 <placeholder-9/> で絞り込み条件を指定し、 X には 0 〜 511 の数値で、次のオプションの合計値を指定します。 <placeholder-10/> <placeholder-11/> を指定すると、ログダイアログを閉じたときに選択されたリビジョンの一覧がファイルに書きだされます。これは、マージダイアログでリビジョンを指定する場合と同じ書式で記述されます。"
 
+#. (option)
 #. (option)
 #. (option)
 msgid "/url"
@@ -16798,9 +16851,9 @@ msgstr "<placeholder-1/> にリポジトリを作成します。"
 
 #. (entry)
 msgid ""
-"Opens the switch dialog. The <placeholder-1/> specifies the target "
-"directory."
-msgstr "切り替えダイアログを開きます。 <placeholder-1/> に対象ディレクトリを指定します。"
+"Opens the switch dialog. The <placeholder-1/> specifies the target directory"
+" and <placeholder-2/> the url to switch to."
+msgstr "切り替えダイアログを開きます。<placeholder-1/>で切り替えるディレクトリ、<placeholder-2/>で切り替え先のURLを指定します。"
 
 #. (entry)
 msgid ""
@@ -16822,6 +16875,18 @@ msgstr "/overwrite"
 msgid "/autorename"
 msgstr "/autorename"
 
+#. (option)
+msgid "/extended"
+msgstr "/extended"
+
+#. (literal)
+msgid "localchanges"
+msgstr "localchanges"
+
+#. (literal)
+msgid "unversioned"
+msgstr "unversioned"
+
 #. (entry)
 msgid ""
 "Exports the working copy in <placeholder-1/> to the directory specified in "
@@ -16829,8 +16894,10 @@ msgid ""
 " directly. The option <placeholder-3/> specifies that existing files are "
 "overwritten without user confirmation, and the option <placeholder-4/> "
 "specifies that if files already exist, the exported files get automatically "
-"renamed to avoid overwriting them."
-msgstr "作業コピーを <placeholder-1/> から <placeholder-2/> で指定されたディレクトリにエクスポートします。このコマンドでは、エクスポートダイアログを表示せずに直接実行します。 <placeholder-3/> を指定すると、既存のファイルを確認なしで上書きします。 <placeholder-4/> を指定すると、ファイルが既に存在するとき、上書きせずにエクスポートされたファイルの名前を自動的に変更します。"
+"renamed to avoid overwriting them. The option <placeholder-5/> can specify "
+"either <placeholder-6/> to only export files that got changed locally, or "
+"<placeholder-7/> to also export all unversioned items as well."
+msgstr "作業コピーを <placeholder-1/> から <placeholder-2/> で指定されたディレクトリにエクスポートします。このコマンドでは、エクスポートダイアログを表示せずに直接実行します。 <placeholder-3/> を指定すると、既存のファイルを確認なしで上書きします。 <placeholder-4/> を指定すると、ファイルが既に存在するとき、上書きせずにエクスポートされたファイルの名前を自動的に変更します。<placeholder-5/>オプションは、<placeholder-6/>と共に指定すると、ローカルで変更されたファイルのみをエクスポートし、<placeholder-7/>と共に指定すると、それに加えてバージョン管理されていない項目もすべてエクスポートします。"
 
 #. (option)
 #. (option)
@@ -16875,15 +16942,24 @@ msgid ""
 "directory."
 msgstr "「すべてマージ」ダイアログを開きます。 <placeholder-1/> で対象ディレクトリを指定します。"
 
+#. (literal)
+msgid "Switch working copy to new branch/tag"
+msgstr "新しいブランチ/タグへ作業コピーを切り替え"
+
+#. (option)
+msgid "/switchaftercopy"
+msgstr "/switchaftercopy"
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. You can also "
-"specify the <placeholder-3/> switch to pass a predefined log message to the "
-"branch/tag dialog. Or, if you don't want to pass the log message on the "
-"command line, use <placeholder-4/>, where <placeholder-5/> points to a file "
-"containing the log message."
-msgstr "「ブランチ/タグ」ダイアログを開きます。 <placeholder-1/> でブランチ/タグの作成元の作業コピーを指定します。また、 <placeholder-2/> はターゲットの URL です。 <placeholder-3/> でログメッセージを初期値を指定できます。また、 <placeholder-4/> でログメッセージの初期値をファイルで指定することもできます。この場合、 <placeholder-5/> でログメッセージの入ったファイルの場所を指定します。"
+" branch/tag from. And the <placeholder-2/> is the target URL. To already "
+"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
+"You can also specify the <placeholder-5/> switch to pass a predefined log "
+"message to the branch/tag dialog. Or, if you don't want to pass the log "
+"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
+"points to a file containing the log message."
+msgstr "ブランチ/タグダイアログを開きます。<placeholder-1/>でブランチ/タグの作成元の作業コピーを指定します。また、<placeholder-2/>は作成先のURLです。 <placeholder-3/>オプションを既定でチェックしておきたい場合は、<placeholder-4/>を指定してください。<placeholder-5/>でログメッセージの初期値を指定できます。また、コマンドラインでログメッセージを渡したくない場合は、<placeholder-6/>を使用します。<placeholder-7/>でログメッセージが入ったファイルの場所を指定します。"
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -17106,9 +17182,18 @@ msgid ""
 "<placeholder-1/>."
 msgstr "Windows のアイコンキャッシュを再生成します。Windows のアイコンが破損したときのみ使用してください。（避けられない）副作用として、デスクトップのアイコンが再配置されてしまうことがあります。メッセージボックスの表示を抑制するには、 <placeholder-1/> を指定してください。"
 
-#. (entry)
-msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr "<placeholder-1/> で指定したパスのプロパティダイアログを表示します。"
+#. (para)
+msgid ""
+"Shows the properties dialog for the path given in <option>/path</option>. If"
+" <option>/rev:XXX</option> is specified and <option>/path</option> is an "
+"URL, the dialog shows and edits revision properties."
+msgstr "<placeholder-1/>で指定されたパスのプロパティダイアログを表示します。<option>/rev:XXX</option>が指定されていて、<option>/path</option>がURLであれば、ダイアログでリビジョンプロパティを表示・編集します。"
+
+#. (para)
+msgid ""
+"To open the properties dialog directly for a specific property, pass the "
+"property name as <option>/property:name</option>."
+msgstr "特定のプロパティのプロパティダイアログを直接開く場合は、プロパティ名を<option>/property:name</option>の指定してください。"
 
 #. (para)
 msgid ""

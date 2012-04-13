@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-03-07 21:08+0000\n"
+"PO-Revision-Date: 2012-04-08 08:26+0000\n"
 "Last-Translator: mmarcottulio <mmarcottulio@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2850,9 +2850,9 @@ msgstr ""
 #. (para)
 msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
-"will get a warning that the local folder is not empty. Now you have a "
-"versioned top level folder with unversioned content."
-msgstr "Checkout a nova pasta em um nível superior à pasta que você deseja importar. Você receberá um aviso de que a pasta local não está vazia. Agora você tem uma pasta de nível superior com controle de versão, mas com conteúdo sem controle de versão."
+"will get a warning that the local folder is not empty. Ignore the warning. "
+"Now you have a versioned top level folder with unversioned content."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -3230,6 +3230,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "A janela de submissão irá exibir todos os arquivos modificados, incluindo arquivos adicionados, deletados e não versionados. Se você não quiser que um arquivo alterado seja submetido, apenas desmarque o arquivo. Se você quiser incluir um arquivo não versionado, apenas marque o arquivo para adiciona-lo a submissão"
+
+#. (para)
+msgid ""
+"For information on the coloring and overlays of the items according to their"
+" status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -4616,6 +4622,53 @@ msgstr "Itens não modificados ou não controlados."
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "A janela usa codificação de cores para demarcar o estado. <placeholder-1/>"
+
+#. (para)
+msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
+msgstr ""
+
+#. (para)
+msgid ""
+"Checkout depth <literal>files</literal>, meaning only the item itself and "
+"all file children without child folders."
+msgstr ""
+
+#. (para)
+msgid ""
+"Checkout depth <literal>immediates</literal>, meaning only the item itself "
+"and all file and folder children, but without children of the child folders."
+msgstr ""
+
+#. (para)
+msgid "Nested items, i.e., working copies inside the working copy."
+msgstr ""
+
+#. (para)
+msgid ""
+"External items, i.e., all items that are added via an "
+"<literal>svn:externals</literal> property."
+msgstr ""
+
+#. (para)
+msgid ""
+"Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
+"restore\"/> for details."
+msgstr ""
+
+#. (para)
+msgid ""
+"Items that have property modifications, but only to the "
+"<literal>svn:mergeinfo</literal> property. If any other property is "
+"modified, the overlay is not used."
+msgstr ""
+
+#. (para)
+msgid ""
+"Overlay icons are used to indicate other states as well. The screenshot "
+"below shows all the possible overlays that are shown if necessary. <graphic "
+"fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
+"following states: <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7266,21 +7319,25 @@ msgid ""
 msgstr ""
 
 #. (term)
-msgid "Revert all changes recursively"
+msgid "Refresh shell overlays"
 msgstr ""
 
 #. (para)
 msgid ""
-"This command reverts all your local modifications which are not committed "
-"yet."
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr ""
+
+#. (term)
+msgid "Include externals"
 msgstr ""
 
 #. (para)
 msgid ""
-"Note: it's better to use the "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
-" command instead, because there you can first see and select the files which"
-" you want to revert."
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
 msgstr ""
 
 #. (term)
@@ -7303,25 +7360,21 @@ msgid ""
 msgstr ""
 
 #. (term)
-msgid "Refresh shell overlays"
+msgid "Revert all changes recursively"
 msgstr ""
 
 #. (para)
 msgid ""
-"Sometimes the shell overlays, especially on the tree view on the left side "
-"of the explorer don't show the current status, or the status cache failed to"
-" recognize changes. In this situation, you can use this command to force a "
-"refresh."
-msgstr ""
-
-#. (term)
-msgid "Include externals"
+"This command reverts all your local modifications which are not committed "
+"yet."
 msgstr ""
 
 #. (para)
 msgid ""
-"If this is checked, then all actions are done for all files and folders "
-"included with the <literal>svn:externals</literal> property as well."
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
 msgstr ""
 
 #. (para)
@@ -16525,7 +16578,6 @@ msgstr ""
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -16623,6 +16675,7 @@ msgid ""
 "dialog."
 msgstr ""
 
+#. (option)
 #. (option)
 #. (option)
 msgid "/url"
@@ -16800,8 +16853,8 @@ msgstr "Cria um repositório em <placeholder-1/>"
 
 #. (entry)
 msgid ""
-"Opens the switch dialog. The <placeholder-1/> specifies the target "
-"directory."
+"Opens the switch dialog. The <placeholder-1/> specifies the target directory"
+" and <placeholder-2/> the url to switch to."
 msgstr ""
 
 #. (entry)
@@ -16824,6 +16877,18 @@ msgstr ""
 msgid "/autorename"
 msgstr ""
 
+#. (option)
+msgid "/extended"
+msgstr ""
+
+#. (literal)
+msgid "localchanges"
+msgstr ""
+
+#. (literal)
+msgid "unversioned"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Exports the working copy in <placeholder-1/> to the directory specified in "
@@ -16831,7 +16896,9 @@ msgid ""
 " directly. The option <placeholder-3/> specifies that existing files are "
 "overwritten without user confirmation, and the option <placeholder-4/> "
 "specifies that if files already exist, the exported files get automatically "
-"renamed to avoid overwriting them."
+"renamed to avoid overwriting them. The option <placeholder-5/> can specify "
+"either <placeholder-6/> to only export files that got changed locally, or "
+"<placeholder-7/> to also export all unversioned items as well."
 msgstr ""
 
 #. (option)
@@ -16877,14 +16944,23 @@ msgid ""
 "directory."
 msgstr ""
 
+#. (literal)
+msgid "Switch working copy to new branch/tag"
+msgstr ""
+
+#. (option)
+msgid "/switchaftercopy"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. You can also "
-"specify the <placeholder-3/> switch to pass a predefined log message to the "
-"branch/tag dialog. Or, if you don't want to pass the log message on the "
-"command line, use <placeholder-4/>, where <placeholder-5/> points to a file "
-"containing the log message."
+" branch/tag from. And the <placeholder-2/> is the target URL. To already "
+"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
+"You can also specify the <placeholder-5/> switch to pass a predefined log "
+"message to the branch/tag dialog. Or, if you don't want to pass the log "
+"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
+"points to a file containing the log message."
 msgstr ""
 
 #. (entry)
@@ -17108,8 +17184,17 @@ msgid ""
 "<placeholder-1/>."
 msgstr ""
 
-#. (entry)
-msgid "Shows the properties dialog for the path given in <placeholder-1/>."
+#. (para)
+msgid ""
+"Shows the properties dialog for the path given in <option>/path</option>. If"
+" <option>/rev:XXX</option> is specified and <option>/path</option> is an "
+"URL, the dialog shows and edits revision properties."
+msgstr ""
+
+#. (para)
+msgid ""
+"To open the properties dialog directly for a specific property, pass the "
+"property name as <option>/property:name</option>."
 msgstr ""
 
 #. (para)

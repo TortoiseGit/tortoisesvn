@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:21+0000\n"
+"PO-Revision-Date: 2012-04-08 16:14+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2847,9 +2847,9 @@ msgstr "Použitím Průzkumníka úložiště vytvořte nový adresář projektu
 #. (para)
 msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
-"will get a warning that the local folder is not empty. Now you have a "
-"versioned top level folder with unversioned content."
-msgstr "Získejte nový adresář, který bude o úroveň výše než Váš adresářem, který chcete importovat. Budete varování, že místní adresář není prázdný. Nyní máte adresář nejvyšší úrovně s verzí s obsahem bez verze."
+"will get a warning that the local folder is not empty. Ignore the warning. "
+"Now you have a versioned top level folder with unversioned content."
+msgstr "Získejte nový adresář, který bude o úroveň výše než adresář, který chcete importovat. Budete varování, že místní adresář není prázdný. Toto varování ignorujte. Nyní máte adresář nejvyšší úrovně s verzí s obsahem bez verze."
 
 #. (para)
 msgid ""
@@ -3227,6 +3227,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "Dialogové okno odevzdání Vám ukáže každý změněný soubor, včetně přidaných, smazaných a bez verze. Pokud si nepřejete, aby změněný soubor byl odevzdán, stačí zrušit zaškrtnutí tohoto souboru. Pokud chcete zařadit soubor bez verze, stačí zaškrtnout tento soubor k přidání do odevzdání."
+
+#. (para)
+msgid ""
+"For information on the coloring and overlays of the items according to their"
+" status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
+msgstr "Pro informace o barvení a překryvech položek podle jejich stavu, si prosím prohlédněte <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
 
 #. (para)
 msgid ""
@@ -4613,6 +4619,53 @@ msgstr "Položky nezměněné a bez verze."
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "Dialogové okno používá barevné označení pro zvýraznění stavu. <placeholder-1/>"
+
+#. (para)
+msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
+msgstr "Hloubka získání <literal>prázdný</literal>, znamená pouze samotnou položku."
+
+#. (para)
+msgid ""
+"Checkout depth <literal>files</literal>, meaning only the item itself and "
+"all file children without child folders."
+msgstr "Hloubka získání <literal>soubory</literal>, znamená pouze samotnou položku a všechny podřazené soubory bez podřazených adresářů."
+
+#. (para)
+msgid ""
+"Checkout depth <literal>immediates</literal>, meaning only the item itself "
+"and all file and folder children, but without children of the child folders."
+msgstr "Hloubka získání <literal>bezprostřední</literal>, znamená pouze samotnou položku a všechny podřazené soubory a adresáře, ale bez podřazených z podřazených adresářů."
+
+#. (para)
+msgid "Nested items, i.e., working copies inside the working copy."
+msgstr "Vnořené položky, tj. pracovní kopie uvnitř pracovní kopie."
+
+#. (para)
+msgid ""
+"External items, i.e., all items that are added via an "
+"<literal>svn:externals</literal> property."
+msgstr "Externí položky, tj. všechny položky přidané pomocí vlastnosti <literal>svn:externals</literal>."
+
+#. (para)
+msgid ""
+"Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
+"restore\"/> for details."
+msgstr "Položky, které jsou po odevzdání obnoveny. Viz <xref linkend=\"tsvn-dug-commit-restore\"/> pro podrobnosti."
+
+#. (para)
+msgid ""
+"Items that have property modifications, but only to the "
+"<literal>svn:mergeinfo</literal> property. If any other property is "
+"modified, the overlay is not used."
+msgstr "Položky, které mají změnu vlastností, ale pouze ve vlastnosti <literal>svn:mergeinfo</literal>. Pokud je změněna jiná vlastnost, překryv nebude použit."
+
+#. (para)
+msgid ""
+"Overlay icons are used to indicate other states as well. The screenshot "
+"below shows all the possible overlays that are shown if necessary. <graphic "
+"fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
+"following states: <placeholder-1/>"
+msgstr "Ikony překryvu jsou také použity k naznačení jiných stavů. Snímek obrazovky níže zobrazuje všechny možné překryvy, které jsou podle potřeby zobrazeny. <graphic fileref=\"../images/statuslistoverlays.png\"/> Překryvy jsou zobrazeny pro následující stavy: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -7263,22 +7316,26 @@ msgid ""
 msgstr "Jak je uvedeno výše, tato možnost se snaží dostat praovní kopii v rozporu v rozporu do práceschopného a použitelného stavu. Toto nemá žádný vliv na data, která máte, ale pouze na vnitřní stavy databáze pracovní kopie. Toto je ve skutečnosti příkaz <literal>Vyčistit</literal>, který znáte ze starších klientů TortoiseSVN nebo jiných klientů SVN."
 
 #. (term)
-msgid "Revert all changes recursively"
-msgstr "Vrátit všechny změny rekurzivně"
+msgid "Refresh shell overlays"
+msgstr "Obnovit překryvy rozhraní"
 
 #. (para)
 msgid ""
-"This command reverts all your local modifications which are not committed "
-"yet."
-msgstr "Tento příkaz vrátí všechny Vaše místní změny, které jste ještě neodevzdali."
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr "Někdy překryvy rozhraní, zejména na stromovém zobrazení vlevo v průzkumníkovy, neukazuje aktuální stav, nebo úschova stavu nerozeznala změny. V této situaci můžete použít tento příkaz, abyste vynutili aktualizaci."
+
+#. (term)
+msgid "Include externals"
+msgstr "Zahrnout externí"
 
 #. (para)
 msgid ""
-"Note: it's better to use the "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
-" command instead, because there you can first see and select the files which"
-" you want to revert."
-msgstr "Poznámka: je lepší místo toho použít příkaz <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vrátit</guimenuitem></menuchoice>, protože tam můžete nejprve vidět a vybrat soubory, které chcete vrátit."
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
+msgstr "Pokud je toto zaškrtnuto, pak jsou všechny činnosti také provedeny pro všechny soubory a adresáře zahrnuté ve vlastnosti <literal>svn:externals</literal>."
 
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
@@ -7300,26 +7357,22 @@ msgid ""
 msgstr "Poznámka: to samé můžete také udělat z dialogového okna <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vrátit</guimenuitem></menuchoice>. Tam také můžete získat seznam všech souborů a adresářů bez verze, abyste je mohli vybrat k odstranění."
 
 #. (term)
-msgid "Refresh shell overlays"
-msgstr "Obnovit překryvy rozhraní"
+msgid "Revert all changes recursively"
+msgstr "Vrátit všechny změny rekurzivně"
 
 #. (para)
 msgid ""
-"Sometimes the shell overlays, especially on the tree view on the left side "
-"of the explorer don't show the current status, or the status cache failed to"
-" recognize changes. In this situation, you can use this command to force a "
-"refresh."
-msgstr "Někdy překryvy rozhraní, zejména na stromovém zobrazení vlevo v průzkumníkovy, neukazuje aktuální stav, nebo úschova stavu nerozeznala změny. V této situaci můžete použít tento příkaz, abyste vynutili aktualizaci."
-
-#. (term)
-msgid "Include externals"
-msgstr "Zahrnout externí"
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr "Tento příkaz vrátí všechny Vaše místní změny, které jste ještě neodevzdali."
 
 #. (para)
 msgid ""
-"If this is checked, then all actions are done for all files and folders "
-"included with the <literal>svn:externals</literal> property as well."
-msgstr "Pokud je toto zaškrtnuto, pak jsou všechny činnosti také provedeny pro všechny soubory a adresáře zahrnuté ve vlastnosti <literal>svn:externals</literal>."
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr "Poznámka: je lepší místo toho použít příkaz <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vrátit</guimenuitem></menuchoice>, protože tam můžete nejprve vidět a vybrat soubory, které chcete vrátit."
 
 #. (para)
 msgid ""
@@ -16522,7 +16575,6 @@ msgstr "Zobrazuje informace o programu. Také je zobrazen, není-li zadán pří
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -16620,6 +16672,7 @@ msgid ""
 "dialog."
 msgstr "Otevře dialogové okno záznamu. <placeholder-1/> Určuje soubor nebo adresář, které by měly být v záznamu uvedeny. Další možnosti lze nastavit: <placeholder-2/> , <placeholder-3/> , <placeholder-4/> povoluje políčko 'Zastavit na kopírování', <placeholder-5/> povoluje políčko 'Zahrnout sloučené revize', <placeholder-6/> vyplní text filtru, <placeholder-7/> donutí filtr použít textu, ne regulární výraz, nebo <placeholder-8/> donutí filtr použít regulární výraz, ne jednoduché textové vyhledávání a <placeholder-9/> kde X je číslo mezi 0 a 511. Čísla jsou součtem následujících možností: <placeholder-10/> Pokud je zadáno <placeholder-11/>, jsou vybrané revize zapsány do tohoto souboru, když dialogové okno zavřeno. Revize jsou psány ve stejném formátu jako se používá k určení revizí v dialogovém okně sloučení."
 
+#. (option)
 #. (option)
 #. (option)
 msgid "/url"
@@ -16797,9 +16850,9 @@ msgstr "Vytvoří úložiště v <placeholder-1/>"
 
 #. (entry)
 msgid ""
-"Opens the switch dialog. The <placeholder-1/> specifies the target "
-"directory."
-msgstr "Otevře dialogové okno překlopení. <placeholder-1/> určuje cílový adresář."
+"Opens the switch dialog. The <placeholder-1/> specifies the target directory"
+" and <placeholder-2/> the url to switch to."
+msgstr "Otevře dialogové okno překlopení. <placeholder-1/> určuje cílový adresář a <placeholder-2/> url na kterou překlopit."
 
 #. (entry)
 msgid ""
@@ -16821,6 +16874,18 @@ msgstr "/overwrite"
 msgid "/autorename"
 msgstr "/autorename"
 
+#. (option)
+msgid "/extended"
+msgstr "/extended"
+
+#. (literal)
+msgid "localchanges"
+msgstr "localchanges"
+
+#. (literal)
+msgid "unversioned"
+msgstr "unversioned"
+
 #. (entry)
 msgid ""
 "Exports the working copy in <placeholder-1/> to the directory specified in "
@@ -16828,8 +16893,10 @@ msgid ""
 " directly. The option <placeholder-3/> specifies that existing files are "
 "overwritten without user confirmation, and the option <placeholder-4/> "
 "specifies that if files already exist, the exported files get automatically "
-"renamed to avoid overwriting them."
-msgstr "Exportuje pracovní kopii v <placeholder-1/> do adresáře uvedeném v <placeholder-2/>. Tento export nepoužívá dialogové okno, ale je spuštěn přímo. Možnost <placeholder-3/> určuje, jestli existující soubory mají být přepsány bez potvrzení uživatelem, a možnost <placeholder-4/> určuje, jestli exportované soubory budou automaticky přejmenovány, pokud soubory již existují, aby se zabránilo jejich přepsání."
+"renamed to avoid overwriting them. The option <placeholder-5/> can specify "
+"either <placeholder-6/> to only export files that got changed locally, or "
+"<placeholder-7/> to also export all unversioned items as well."
+msgstr "Exportuje pracovní kopii v <placeholder-1/> do adresáře uvedeném v <placeholder-2/>. Tento export nepoužívá dialogové okno, ale je spuštěn přímo. Možnost <placeholder-3/> určuje, jestli existující soubory mají být přepsány bez potvrzení uživatelem, a možnost <placeholder-4/> určuje, jestli exportované soubory budou automaticky přejmenovány, pokud soubory již existují, aby se zabránilo jejich přepsání. Možnost <placeholder-5/> může zadat buď <placeholder-6/> pro export pouze těch souborů, které jsou změněny místně, nebo <placeholder-7/> k exportování také položek bez verze."
 
 #. (option)
 #. (option)
@@ -16874,15 +16941,24 @@ msgid ""
 "directory."
 msgstr "Otevře dialogové okno sloučit vše. <placeholder-1/> určuje cílový adresář."
 
+#. (literal)
+msgid "Switch working copy to new branch/tag"
+msgstr "Překlopit pracovní kopii do nové větve / značky"
+
+#. (option)
+msgid "/switchaftercopy"
+msgstr "/switchaftercopy"
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. You can also "
-"specify the <placeholder-3/> switch to pass a predefined log message to the "
-"branch/tag dialog. Or, if you don't want to pass the log message on the "
-"command line, use <placeholder-4/>, where <placeholder-5/> points to a file "
-"containing the log message."
-msgstr "Zobrazí dialogové okno větev/značka. <placeholder-1/> je pracovní kopie z, které má být větev/tag vytvořena. A <placeholder-2/> je cílová URL. Můžete také zadat přepínač <placeholder-3/> k předání předem nastavené zprávy záznamu do dialogového okna větve/značky. Nebo pokud nechcete předat zprávu záznamu na příkazovém řádku, použijte <placeholder-4/>, kde <placeholder-5/> odkazuje na soubor, obsahující zprávu záznamu."
+" branch/tag from. And the <placeholder-2/> is the target URL. To already "
+"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
+"You can also specify the <placeholder-5/> switch to pass a predefined log "
+"message to the branch/tag dialog. Or, if you don't want to pass the log "
+"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
+"points to a file containing the log message."
+msgstr "Zobrazí dialogové okno větev/značka. <placeholder-1/> je pracovní kopie, z které má být větev/značka vytvořena. A <placeholder-2/> je cílová URL. Pokud chcete mít volbu <placeholder-3/> již zaškrtnutou, můžete předat přepínač <placeholder-4/>. Také můžete zadat přepínač <placeholder-5/> k předání předem nastavené zprávy záznamu do dialogového okna větve/značky. Nebo pokud nechcete předat zprávu záznamu na příkazovém řádku, použijte <placeholder-6/>, kde <placeholder-7/> odkazuje na soubor, obsahující zprávu záznamu."
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -16945,7 +17021,7 @@ msgid ""
 "<option>revision1</option> and <option>revision2</option> must be specified."
 " The options <option>pegrevision</option>, <option>ignoreancestry</option>, "
 "<option>blame</option> and <option>unified</option> are optional."
-msgstr "Možnosti <option>url1</option>, <option>url2</option>, <option>revize1</option> a <option>revize2</option> musí být zadány. Možnosti <option>udržetrevizi</option>, <option>ignorovatpůvod</option>, <option>obvinit</option> a <option>sjednocený</option> jsou volitelné."
+msgstr "Možnosti <option>url1</option>, <option>url2</option>, <option>revize1</option> a <option>revize2</option> musí být zadány. Možnosti <option>pegrevision</option>, <option>ignoreancestry</option>, <option>blame</option> a <option>unified</option> jsou volitelné."
 
 #. (entry)
 msgid ""
@@ -17105,9 +17181,18 @@ msgid ""
 "<placeholder-1/>."
 msgstr "Znovu obnoví windows rozhraní uložených ikon. Použijte pouze v případě, že ikony Windows jsou poškozené. Vedlejším efektem tohoto (kterému se nelze vyhnout) je, že ikony na ploše budou zpřeházeny. Chcete-li potlačit rámeček se zprávou, předejte <placeholder-1/>."
 
-#. (entry)
-msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr "Zobrazí dialogové okno vlastností pro cesty uvedené v <placeholder-1/> ."
+#. (para)
+msgid ""
+"Shows the properties dialog for the path given in <option>/path</option>. If"
+" <option>/rev:XXX</option> is specified and <option>/path</option> is an "
+"URL, the dialog shows and edits revision properties."
+msgstr "Zobrazit dialogové okno vlastností pro zadanou cestu v <option>/cesta</option>. Pokud je zadáno <option>/rev:XXX</option> a <option>/path</option> je URL, dialogové okno zobrazuje a upravuje vlastnosti revize."
+
+#. (para)
+msgid ""
+"To open the properties dialog directly for a specific property, pass the "
+"property name as <option>/property:name</option>."
+msgstr "Pro otevření dialogového okna vlastností přímo pro určitou vlastnost, předejte její název jako <option>/vlastnost:název</option>."
 
 #. (para)
 msgid ""

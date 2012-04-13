@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:21+0000\n"
+"PO-Revision-Date: 2012-04-12 21:01+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2847,9 +2847,9 @@ msgstr "Käytä arkistoselainta luodaksesi uuden projektikansion suoraan arkisto
 #. (para)
 msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
-"will get a warning that the local folder is not empty. Now you have a "
-"versioned top level folder with unversioned content."
-msgstr "Hae työkopio uudesta kansiosta siihen kansioon, jonka haluat tuoda. Näet varoituksen, että paikallinen kansio ei ole tyhjä. Nyt sinulla on versioitu ylätason kansio, jossa on versioimatonta sisältöä."
+"will get a warning that the local folder is not empty. Ignore the warning. "
+"Now you have a versioned top level folder with unversioned content."
+msgstr "Hae työkopio uudesta kansiosta siihen kansioon, jonka haluat tuoda. Näet varoituksen, että paikallinen kansio ei ole tyhjä. Älä välitä siitä. Nyt sinulla on versioitu ylätason kansio, jossa on versioimatonta sisältöä."
 
 #. (para)
 msgid ""
@@ -3227,6 +3227,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "Toimitusikkuna näyttää kaikki muuttuneet tiedostot, mukaan lukien lisätyt, poistetut ja versioimattomat tiedostot. Jos et halua toimittaa jotain muuttunutta tiedostoa, poista sen valinta. Jos taas haluat sisällyttää toimitukseen versioimattoman tiedoston, ruksaa sen valinta."
+
+#. (para)
+msgid ""
+"For information on the coloring and overlays of the items according to their"
+" status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
+msgstr "Luvussa <xref linkend=\"tsvn-dug-wcstatus-2\"/> on kuvattu, miten tiedostojen tilan mukaan tapahtuva väritys ja kuvakepäällykset toimivat."
 
 #. (para)
 msgid ""
@@ -4613,6 +4619,53 @@ msgstr "Muuttumattomat ja versioimattomat kohteet."
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "Ikkuna käyttää värikoodausta korostaakseen tilaa. <placeholder-1/>"
+
+#. (para)
+msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
+msgstr "Hakusyvyys <literal>tyhjä</literal>, tarkoittaen vain itse tiedostoa."
+
+#. (para)
+msgid ""
+"Checkout depth <literal>files</literal>, meaning only the item itself and "
+"all file children without child folders."
+msgstr "Hakusyvyys <literal>tiedostot</literal>, tarkoittaen vain itse kansiota ja sen välittömästi sisältämiä tiedostoja."
+
+#. (para)
+msgid ""
+"Checkout depth <literal>immediates</literal>, meaning only the item itself "
+"and all file and folder children, but without children of the child folders."
+msgstr "Hakusyvyys <literal>välittömät</literal>, tarkoittaen itse kansiota ja sen välittömästi sisältämiä tiedostoja ja kansioita."
+
+#. (para)
+msgid "Nested items, i.e., working copies inside the working copy."
+msgstr "Sisällytetyt tiedostot, ts. työkopiot työkopion sisällä."
+
+#. (para)
+msgid ""
+"External items, i.e., all items that are added via an "
+"<literal>svn:externals</literal> property."
+msgstr "Ulkoiset tiedostot, ts. ominaisuuden <literal>svn:externals</literal> kautta lisätyt tiedostot."
+
+#. (para)
+msgid ""
+"Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
+"restore\"/> for details."
+msgstr "Tiedostot, jotka on palautettu toimituksen jälkeen. Katso lisätietoja luvusta <xref linkend=\"tsvn-dug-commit-restore\"/>."
+
+#. (para)
+msgid ""
+"Items that have property modifications, but only to the "
+"<literal>svn:mergeinfo</literal> property. If any other property is "
+"modified, the overlay is not used."
+msgstr "Tiedostot, joiden <literal>svn:mergeinfo</literal> -ominaisuuksia on muutettu. Mikäli muita ominaisuuksia on muokattu, kuvakepäällyksiä ei käytetä."
+
+#. (para)
+msgid ""
+"Overlay icons are used to indicate other states as well. The screenshot "
+"below shows all the possible overlays that are shown if necessary. <graphic "
+"fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
+"following states: <placeholder-1/>"
+msgstr "Kuvakepäällyksiä käytetään kuvaamaan myös muita tiloja. Seuraava kuva näyttää kaikki mahdolliset kuvakepäällykset jotka näytetään tarpeen vaatiessa. <graphic fileref=\"../images/statuslistoverlays.png\"/> Kuvakepäällykset näytetään seuraavissa tiloissa:\n<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -7263,22 +7316,26 @@ msgid ""
 msgstr "Kuten yllä kuvattiin, tämä valinta koettaa korjata vikaantuneen työkopion käytettävään kuntoon. Korjaukset eivät kohdistu tiedostoihin vaan työkopiotietokannan sisäiseen tilaan. Kyseessä on aiemmista TortoiseSVN-versioista ja muista SVN-asiakkaista tuttu <literal>Siivoa</literal> -komento."
 
 #. (term)
-msgid "Revert all changes recursively"
-msgstr "Palauta kaikki muutokset palautuvasti"
+msgid "Refresh shell overlays"
+msgstr "Päivitä kuvakepäällykset"
 
 #. (para)
 msgid ""
-"This command reverts all your local modifications which are not committed "
-"yet."
-msgstr "Tämä komento peruuttaa kaikki paikallisest muutokset, joita ei ole vielä toimitettu arkistoon."
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr "Joskus Resurssienhallinnan kuvakepäällykset (erityisesti vasemman paneelin puunäkymässä) eivät näytä oikeaa tilaa. Voi myös käydä niin, ettei TortoiseSVN havaitse muutoksia. Näissä tapauksissa voit käyttää tätä komentoa pakottaaksesi päivityksen."
+
+#. (term)
+msgid "Include externals"
+msgstr "Sisällytä ulkoiset viitteet"
 
 #. (para)
 msgid ""
-"Note: it's better to use the "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
-" command instead, because there you can first see and select the files which"
-" you want to revert."
-msgstr "Huomaa: On parempi käyttää komentoa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Palauta</guimenuitem></menuchoice>, koska siten voit ensin nähdä ja valita palautettavat tiedostot."
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
+msgstr "Kun tämä valinta on aktiivinen, toimenpiteet suoritetaan myös kaikille tiedostoille ja kansioille, jotka kuuluvat työkopioon <literal>svn:externals</literal>-ominaisuuden kautta."
 
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
@@ -7300,26 +7357,22 @@ msgid ""
 msgstr "Huomaa: Voit tehdä saman <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Palauta</guimenuitem></menuchoice>-ikkunassa. Ikkuna antaa myös mahdollisuuden luetella ja valita poistettavat tiedostot ja kansiot."
 
 #. (term)
-msgid "Refresh shell overlays"
-msgstr "Päivitä kuvakepäällykset"
+msgid "Revert all changes recursively"
+msgstr "Palauta kaikki muutokset palautuvasti"
 
 #. (para)
 msgid ""
-"Sometimes the shell overlays, especially on the tree view on the left side "
-"of the explorer don't show the current status, or the status cache failed to"
-" recognize changes. In this situation, you can use this command to force a "
-"refresh."
-msgstr "Joskus Resurssienhallinnan kuvakepäällykset (erityisesti vasemman paneelin puunäkymässä) eivät näytä oikeaa tilaa. Voi myös käydä niin, ettei TortoiseSVN havaitse muutoksia. Näissä tapauksissa voit käyttää tätä komentoa pakottaaksesi päivityksen."
-
-#. (term)
-msgid "Include externals"
-msgstr "Sisällytä ulkoiset viitteet"
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr "Tämä komento peruuttaa kaikki paikallisest muutokset, joita ei ole vielä toimitettu arkistoon."
 
 #. (para)
 msgid ""
-"If this is checked, then all actions are done for all files and folders "
-"included with the <literal>svn:externals</literal> property as well."
-msgstr "Kun tämä valinta on aktiivinen, toimenpiteet suoritetaan myös kaikille tiedostoille ja kansioille, jotka kuuluvat työkopioon <literal>svn:externals</literal>-ominaisuuden kautta."
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr "Huomaa: On parempi käyttää komentoa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Palauta</guimenuitem></menuchoice>, koska siten voit ensin nähdä ja valita palautettavat tiedostot."
 
 #. (para)
 msgid ""
@@ -16522,7 +16575,6 @@ msgstr "Näyttää Tietoja-ikkunan. Tämä aukeaa myös, jos komentoa ei anneta.
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -16620,6 +16672,7 @@ msgid ""
 "dialog."
 msgstr "Avaa loki-ikkunan. Valitsin <placeholder-1/> määrittää tiedoston tai kansion, jolle loki näytetään. Lisäksi voidaan antaa muita valitsimia: <placeholder-2/>, <placeholder-3/> ja <placeholder-4/> valitsee 'pysäytä kopiointiin'-asetuksen, <placeholder-5/> valitsee 'sisällytä yhdistetyt versiot'-asetuksen, <placeholder-6/> asettaa suodatustekstin, <placeholder-7/> suodattaa käyttämällä tekstiä säännöllisen lausekkeen sijaan, tai <placeholder-8/> suodattaa käyttämällä säännöllistä lauseketta, ja <placeholder-9/>, missä X on luku väliltä 0-511. Numerot ovat summa seuraavista vaihtoehdoista: <placeholder-10/> Jos <placeholder-11/> on määritelty, valitut versiot kirjoitetaan annettuun tiedostoon, kun loki-ikkuna suljetaan. Versiot kirjoitetaan samassa muodossa, jota käytetään annettaessa versiot yhdistämisikkunassa."
 
+#. (option)
 #. (option)
 #. (option)
 msgid "/url"
@@ -16797,9 +16850,9 @@ msgstr "Luo arkiston paikkaan <placeholder-1/>"
 
 #. (entry)
 msgid ""
-"Opens the switch dialog. The <placeholder-1/> specifies the target "
-"directory."
-msgstr "Avaa vaihtoikkunan. Valitsin <placeholder-1/> määrittää kohdehakemiston."
+"Opens the switch dialog. The <placeholder-1/> specifies the target directory"
+" and <placeholder-2/> the url to switch to."
+msgstr "Avaa vaihtoikkunan. <placeholder-1/> määrittää kohdehakemiston ja <placeholder-2/> paikantimen, johon siirrytään."
 
 #. (entry)
 msgid ""
@@ -16821,6 +16874,18 @@ msgstr "/overwrite"
 msgid "/autorename"
 msgstr "/autorename"
 
+#. (option)
+msgid "/extended"
+msgstr "/extended"
+
+#. (literal)
+msgid "localchanges"
+msgstr "localchanges"
+
+#. (literal)
+msgid "unversioned"
+msgstr "versioimaton"
+
 #. (entry)
 msgid ""
 "Exports the working copy in <placeholder-1/> to the directory specified in "
@@ -16828,8 +16893,10 @@ msgid ""
 " directly. The option <placeholder-3/> specifies that existing files are "
 "overwritten without user confirmation, and the option <placeholder-4/> "
 "specifies that if files already exist, the exported files get automatically "
-"renamed to avoid overwriting them."
-msgstr "Vie työkopion hakemistosta <placeholder-1/> hakemistoon <placeholder-2/>. Toimenpide ei avaa vienti-ikkunaa. Valitsin <placeholder-3/> määrittää, että olemassa olevat tiedostot ylikirjoitetaan ilman käyttäjän vahvistusta. Valitsin <placeholder-4/> puolestaan määrittää, että olemassa olevat tiedostot nimetään uudelleen ylikirjoituksen välttämiseksi."
+"renamed to avoid overwriting them. The option <placeholder-5/> can specify "
+"either <placeholder-6/> to only export files that got changed locally, or "
+"<placeholder-7/> to also export all unversioned items as well."
+msgstr "Vie paikassa <placeholder-1/> olevan työkopion hakemistoon <placeholder-2/>. Vienti ei käytä vienti-ikkunaa vaan toimii suoraan.  Valinta <placeholder-3/> ohjaa ylikirjoittamaan olemassa olevat tiedostot ilman käyttäjän vahvistusta, ja valinta <placeholder-4/> määrittää, että viedyt tiedosot nimetään automaattisesti uudelleen ylikirjoituksen välttämikseksi. Valinta <placeholder-5/> voi olla joko <placeholder-6/> pelkkien paikallisesti muuttuneiden tiedostojen viemiseksi tai <placeholder-7/> myös versioimattomien tiedostojen viemiseksi."
 
 #. (option)
 #. (option)
@@ -16874,15 +16941,24 @@ msgid ""
 "directory."
 msgstr "Avaa Yhdistä kaikki -ikkunan. Valitsin <placeholder-1/> määrittää kohdehakemiston."
 
+#. (literal)
+msgid "Switch working copy to new branch/tag"
+msgstr "Vaihda työkopio osoittamaan &uuteen haaraan / merkittyyn versioon"
+
+#. (option)
+msgid "/switchaftercopy"
+msgstr "/switchaftercopy"
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. You can also "
-"specify the <placeholder-3/> switch to pass a predefined log message to the "
-"branch/tag dialog. Or, if you don't want to pass the log message on the "
-"command line, use <placeholder-4/>, where <placeholder-5/> points to a file "
-"containing the log message."
-msgstr "Avaa haarautumisikkunan. Valitsin <placeholder-1/> kertoo työkopion, josta haara / merkitty versio tehdään."
+" branch/tag from. And the <placeholder-2/> is the target URL. To already "
+"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
+"You can also specify the <placeholder-5/> switch to pass a predefined log "
+"message to the branch/tag dialog. Or, if you don't want to pass the log "
+"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
+"points to a file containing the log message."
+msgstr "Avaa haarautumisikkunan. Valitsin <placeholder-1/> kertoo työkopion, josta haara / merkitty versio tehdään. Valitsin <placeholder-2/> on kohdepaikannin. Valinnan <placeholder-3/> määrittämiseksi ennakkoon voit antaa valitsimen <placeholder-4/>. Voit myös määrittää valitsimen <placeholder-5/> lokiviestipohjan antamiseksi.  Mikäli et halua antaa lokiviestiä komentorivillä. käytä valitsinta <placeholder-6/>, missä <placeholder-7/> kertoo tiedoston, missä lokiviesti on."
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -17105,9 +17181,18 @@ msgid ""
 "<placeholder-1/>."
 msgstr "Korjaa Windowsin kuvakemuistin. Käytä tätä vain, jos ikkunoiden kuvakkeet eivät näy oikein. Toiminnon (väistämätön) sivuvaikutus on, että työpöydän kuvakkeet järjestetään uudelleen. Ohittaaksesi viestin, välitä valitsin <placeholder-1/>."
 
-#. (entry)
-msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr "Näyttää valitsimella <placeholder-1/> määritellyn polun ominaisuudet."
+#. (para)
+msgid ""
+"Shows the properties dialog for the path given in <option>/path</option>. If"
+" <option>/rev:XXX</option> is specified and <option>/path</option> is an "
+"URL, the dialog shows and edits revision properties."
+msgstr "Näyttää ominaisuusikkunan polulle <option>/path</option>. Mikäli <option>/rev:XXX</option> on määritetty ja <option>/path</option> on paikannin, ikkuna näyttää ja muokkaa versio-ominausuuksia."
+
+#. (para)
+msgid ""
+"To open the properties dialog directly for a specific property, pass the "
+"property name as <option>/property:name</option>."
+msgstr "Avataksesi ominaisuusikkunan suoraan halutulle ominaisuudelle, välitä sen nimi muodossa <option>/property:name</option>."
 
 #. (para)
 msgid ""

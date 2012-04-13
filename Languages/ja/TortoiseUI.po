@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-03-21 09:38+0000\n"
+"PO-Revision-Date: 2012-04-08 11:53+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -414,7 +414,7 @@ msgstr "あいまいなURLを許可(&A)"
 
 #. Resource IDs: (1294)
 msgid "&Apply property recursively"
-msgstr "プロパティを再帰的に適用する(&A)"
+msgstr "プロパティを再帰的に適用(&A)"
 
 #. Resource IDs: (1013)
 msgid "&Apply unified diff"
@@ -442,7 +442,7 @@ msgstr "ダイアログを閉じる条件(&A):"
 
 #. Resource IDs: (1015)
 msgid "&Backup original file"
-msgstr "オリジナルファイルをバックアップする(&B)"
+msgstr "オリジナルファイルをバックアップ(&B)"
 
 #. Resource IDs: (1559)
 msgid "&Binary"
@@ -4179,7 +4179,7 @@ msgstr "空"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-&Properties"
-msgstr "自動プロパティを有効にする(&P)"
+msgstr "プロパティの自動付与を有効化(&P)"
 
 #. Resource IDs: (1562)
 msgid "Enable Auto-Properties"
@@ -8270,11 +8270,11 @@ msgstr "SVN 作者"
 
 #. Resource IDs: (12)
 msgid "SVN Copy and add files to this WC"
-msgstr "SVN この作業コピーにファイルをコピーし追加する"
+msgstr "SVN この作業コピーにファイルをコピーし追加"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned item here"
-msgstr "SVN バージョン管理下の項目をここにコピーし名前を変更する"
+msgstr "SVN バージョン管理下の項目をここにコピーし名前を変更"
 
 #. Resource IDs: (13)
 msgid "SVN Copy versioned item(s) here"
@@ -8282,11 +8282,15 @@ msgstr "SVN バージョン管理下の項目をここにコピー"
 
 #. Resource IDs: (14)
 msgid "SVN Export all items here"
-msgstr "SVN ここにすべての項目をエクスポートする"
+msgstr "SVN すべての項目をここにエクスポート"
+
+#. Resource IDs: (15)
+msgid "SVN Export changed items here"
+msgstr "SVN 変更された項目をここにエクスポート"
 
 #. Resource IDs: (14)
 msgid "SVN Export versioned items here"
-msgstr "SVN バージョン管理下の項目をここにエクスポートする"
+msgstr "SVN バージョン管理下の項目をここにエクスポート"
 
 #. Resource IDs: (16)
 msgid "SVN Local lock owner"
@@ -8294,7 +8298,7 @@ msgstr "SVN ローカルのロック所持者"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned item here"
-msgstr "SVN バージョン管理下の項目をここに移動し名前を変更する"
+msgstr "SVN バージョン管理下の項目をここに移動し名前を変更"
 
 #. Resource IDs: (12)
 msgid "SVN Move versioned item(s) here"
@@ -8338,7 +8342,7 @@ msgid ""
 "Fixes issue #202\n"
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
-msgstr "bugtraq の正規表現をテストするためのサンプルログメッセージ。\n\nTesting mentions of issues inside a text: Mention issue #55. Mention issues #77, #78.\n\nUpdate issue #101\nFixes issue #202\nResolves issue #88.\nCloses issue #99.\n"
+msgstr "bugtraq をテストするためのサンプルログメッセージ（正規表現）。\n\nTesting mentions of issues inside a text: Mention issue #55. Mention issues #77, #78.\n\nUpdate issue #101\nFixes issue #202\nResolves issue #88.\nCloses issue #99.\n"
 
 #. Resource IDs: (1612)
 msgid "Sample text:"
@@ -8395,7 +8399,7 @@ msgstr "リビジョンを保存(&T)..."
 msgid ""
 "Save the modified file\n"
 "Save file"
-msgstr "変更されたファイルを保存する\nファイルを保存する"
+msgstr "変更されたファイルを保存する\nファイルを保存"
 
 #. Resource IDs: (617, 1132)
 msgid "Save to clipboard"
@@ -8656,7 +8660,7 @@ msgstr "これらの外部参照に対してリビジョンを明示的に指定
 
 #. Resource IDs: (1088)
 msgid "Set file dates to the \"last commit &time\""
-msgstr "ファイルの更新日時を「最後にコミットした日時」に設定する(&T)"
+msgstr "ファイルの更新日時を「最後にコミットした日時」に設定(&T)"
 
 #. Resource IDs: (127)
 #, c-format
@@ -8752,11 +8756,11 @@ msgstr "ログを表示(&L)..."
 
 #. Resource IDs: (1088)
 msgid "Show &overlays and context menu only in explorer"
-msgstr "エクスプローラ上でのみオーバーレイとコンテキストメニューを表示する(&O)"
+msgstr "エクスプローラー上でのみオーバーレイとコンテキストメニューを表示(&O)"
 
 #. Resource IDs: (1073)
 msgid "Show &unversioned files"
-msgstr "バージョン管理外のファイルを表示する(&U)"
+msgstr "バージョン管理外のファイルを表示(&U)"
 
 #. Resource IDs: (1069)
 msgid "Show Above the Ribbon"
@@ -10672,7 +10676,7 @@ msgstr "「theirs」→「mine」の順でテキストブロックを使用"
 
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
-msgstr "Aeroのダイアログを使用する"
+msgstr "Aeroのダイアログを使用"
 
 #. Resource IDs: (156)
 msgid "Use Blocks"

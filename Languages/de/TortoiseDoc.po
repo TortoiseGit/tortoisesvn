@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-02-14 08:21+0000\n"
+"PO-Revision-Date: 2012-04-13 08:51+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2848,9 +2848,9 @@ msgstr "Verwenden Sie den Projektarchivbetrachter, um einen neuen Projektordner 
 #. (para)
 msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
-"will get a warning that the local folder is not empty. Now you have a "
-"versioned top level folder with unversioned content."
-msgstr "Checken Sie den neu erstellten Ordner über den zu importierenden Ordner aus. Es wird eine Warnung angezeigt, dass der Zielordner nicht leer ist. Nun haben Sie einen lokal versionierten Ordner mit nicht versioniertem Inhalt."
+"will get a warning that the local folder is not empty. Ignore the warning. "
+"Now you have a versioned top level folder with unversioned content."
+msgstr "Checken Sie den neu erstellten Ordner über den zu importierenden Ordner aus. Es wird eine Warnung angezeigt, dass der Zielordner nicht leer ist. Ignorieren Sie die Warnung. Nun haben Sie einen versionierten Ordner mit nicht versioniertem Inhalt."
 
 #. (para)
 msgid ""
@@ -3046,7 +3046,7 @@ msgid ""
 "fetch additional sub-folders later by using the repository browser (<xref "
 "linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog "
 "(<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
-msgstr "Wenn Sie eine dünn besetzte Arbeitskopie auschecken, indem Sie etwas anderes als <literal>vollständig rekursiv</literal> für die Auschecktiefe wählen, können Sie weitere Ordner mittels des Projektarchivbetrachters (<xref linkend=\"tsvn-dug-repobrowser\"/>) oder des <guilabel>Auf Änderungen prüfen</guilabel>-Dialoges (<xref linkend=\"tsvn-dug-wcstatus-2\"/>) holen."
+msgstr "Wenn Sie eine dünn besetzte Arbeitskopie auschecken, indem Sie etwas anderes als <literal>vollständig rekursiv</literal> für die Rekursionstiefe wählen, können Sie weitere Ordner mittels des Projektarchivbetrachters (<xref linkend=\"tsvn-dug-repobrowser\"/>) oder des <guilabel>Auf Änderungen prüfen</guilabel>-Dialoges (<xref linkend=\"tsvn-dug-wcstatus-2\"/>) holen."
 
 #. (para)
 msgid ""
@@ -3228,6 +3228,12 @@ msgid ""
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
 msgstr "Der Dialog zeigt alle geänderten Dateien einschließlich hinzugefügter, gelöschter oder nicht versionierter Dateien an. Wenn Sie bestimmte Dateien nicht übertragen wollen, wählen Sie diese einfach ab. Dateien, die noch nicht unter Versionskontrolle stehen, können Sie durch Markieren vor dem Übertragen hinzufügen."
+
+#. (para)
+msgid ""
+"For information on the coloring and overlays of the items according to their"
+" status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
+msgstr "Informationen über die Färbung und Überlagerungen der Objekte entsprechend ihres Status finden Sie unter <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
 
 #. (para)
 msgid ""
@@ -4614,6 +4620,53 @@ msgstr "Unveränderte und nicht versionierte Objekte."
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
 msgstr "Der Dialog verwendet eine Farbcodierung, um verschiedene Status anzuzeigen. <placeholder-1/>"
+
+#. (para)
+msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
+msgstr "Rekursionstiefe <literal>leer</literal>, bedeutet nur das Objekt selbst."
+
+#. (para)
+msgid ""
+"Checkout depth <literal>files</literal>, meaning only the item itself and "
+"all file children without child folders."
+msgstr "Rekursionstiefe <literal>Dateien</literal>, bedeutet das Objekt selbst sowie dessen untergeordneten Dateien, aber keine Ordner."
+
+#. (para)
+msgid ""
+"Checkout depth <literal>immediates</literal>, meaning only the item itself "
+"and all file and folder children, but without children of the child folders."
+msgstr "Rekursionstiefe <literal>Direkte Unterobjekte</literal>, bedeutet das Objekt selbst sowie dessen untergeordnete Dateien und Ordner, aber nicht die Unterobjekte der Ordner."
+
+#. (para)
+msgid "Nested items, i.e., working copies inside the working copy."
+msgstr "Verschachtelte Elemente, d.h. Arbeitskopien innerhalb der Arbeitskopie."
+
+#. (para)
+msgid ""
+"External items, i.e., all items that are added via an "
+"<literal>svn:externals</literal> property."
+msgstr "Externe Objekte, d. h., alle Elemente, die über eine <literal>svn:externals</literal> Eigenschaft eingebunden werden."
+
+#. (para)
+msgid ""
+"Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
+"restore\"/> for details."
+msgstr "Elemente, die nach dem Übertragen wiederhergestellt werden. Lesen Sie <xref linkend=\"tsvn-dug-commit-restore\"/> für Details."
+
+#. (para)
+msgid ""
+"Items that have property modifications, but only to the "
+"<literal>svn:mergeinfo</literal> property. If any other property is "
+"modified, the overlay is not used."
+msgstr "Elemente, deren <literal>svn:mergeinfo</literal> Eigenschaft geändert wurde. Für Änderungen an anderen Eigenschaften wird das Symbol nicht verwendet."
+
+#. (para)
+msgid ""
+"Overlay icons are used to indicate other states as well. The screenshot "
+"below shows all the possible overlays that are shown if necessary. <graphic "
+"fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
+"following states: <placeholder-1/>"
+msgstr "Die überlagerten Symbole dienen auch dazu, andere Status anzuzeigen. Das folgende Bild zeigt alle möglichen, bei Bedarf angezeigten, überlagerten Symbole. <graphic fileref=\"../images/statuslistoverlays.png\"/> Überlagerte Symbole werden für die folgenden Zustände angezeigt: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -7264,22 +7317,26 @@ msgid ""
 msgstr "Wie oben erwähnt, versucht diese Option, eine inkonsistente Arbeitskopie in einen nutzbaren Zustand zu versetzen. Dies hat keine Auswirkungen auf Ihre Daten, sondern auf den internen Zustand der Datenbank innerhalb der Arbeitskopie. Es handelt sich um den <literal>Bereinigen</literal> Befehl, den Sie von älteren SVN Clients kennen."
 
 #. (term)
-msgid "Revert all changes recursively"
-msgstr "Alle Änderungen rekursiv zurücknehmen"
+msgid "Refresh shell overlays"
+msgstr "Aktualisiert die überlagerten Symbole"
 
 #. (para)
 msgid ""
-"This command reverts all your local modifications which are not committed "
-"yet."
-msgstr "Dieser Befehl wird alle Ihre lokalen Änderungen zurücknehmen, die noch nicht übertragen wurden."
+"Sometimes the shell overlays, especially on the tree view on the left side "
+"of the explorer don't show the current status, or the status cache failed to"
+" recognize changes. In this situation, you can use this command to force a "
+"refresh."
+msgstr "Manchmal zeigen die überlagerten Symbole, besonders in der Strukturansicht der linken Seite des Explorers nicht den korrekten Status an oder der Statuscache hat die Änderungen noch nicht erkannt. Dann können Sie mit diesem Befehl eine Aktualisierung erzwingen."
+
+#. (term)
+msgid "Include externals"
+msgstr "Externals einschließen"
 
 #. (para)
 msgid ""
-"Note: it's better to use the "
-"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
-" command instead, because there you can first see and select the files which"
-" you want to revert."
-msgstr "Hinweis: Es ist besser, stattdessen den Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rückgängig</guimenuitem></menuchoice> zu verwenden, da Sie hier zuerst die Dateien, die Sie wiederherstellen möchten, auswählen können."
+"If this is checked, then all actions are done for all files and folders "
+"included with the <literal>svn:externals</literal> property as well."
+msgstr "Wenn diese Option aktiv ist, werden alle Aktionen auch für die mittels <literal>svn:externals</literal> eingeschlossenen Dateien und Ordner durchgeführt."
 
 #. (term)
 msgid "Delete unversioned files and folders, Delete ignored files and folders"
@@ -7301,26 +7358,22 @@ msgid ""
 msgstr "Hinweis: Sie können das gleiche auch über den <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rückgängig</guimenuitem></menuchoice> Dialog erreichen. Dort erhalten Sie eine Liste aller nicht versionierten Dateien und Ordner, die Sie entfernen können."
 
 #. (term)
-msgid "Refresh shell overlays"
-msgstr "Aktualisiert die überlagerten Symbole"
+msgid "Revert all changes recursively"
+msgstr "Alle Änderungen rekursiv zurücknehmen"
 
 #. (para)
 msgid ""
-"Sometimes the shell overlays, especially on the tree view on the left side "
-"of the explorer don't show the current status, or the status cache failed to"
-" recognize changes. In this situation, you can use this command to force a "
-"refresh."
-msgstr "Manchmal zeigen die überlagerten Symbole, besonders in der Strukturansicht der linken Seite des Explorers nicht den korrekten Status an oder der Statuscache hat die Änderungen noch nicht erkannt. Dann können Sie mit diesem Befehl eine Aktualisierung erzwingen."
-
-#. (term)
-msgid "Include externals"
-msgstr "Externals einschließen"
+"This command reverts all your local modifications which are not committed "
+"yet."
+msgstr "Dieser Befehl wird alle Ihre lokalen Änderungen zurücknehmen, die noch nicht übertragen wurden."
 
 #. (para)
 msgid ""
-"If this is checked, then all actions are done for all files and folders "
-"included with the <literal>svn:externals</literal> property as well."
-msgstr "Wenn diese Option aktiv ist, werden alle Aktionen auch für die mittels <literal>svn:externals</literal> eingeschlossenen Dateien und Ordner durchgeführt."
+"Note: it's better to use the "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
+" command instead, because there you can first see and select the files which"
+" you want to revert."
+msgstr "Hinweis: Es ist besser, stattdessen den Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Rückgängig</guimenuitem></menuchoice> zu verwenden, da Sie hier zuerst die Dateien, die Sie wiederherstellen möchten, auswählen können."
 
 #. (para)
 msgid ""
@@ -16523,7 +16576,6 @@ msgstr "Öffnet den <guilabel>Über TortoiseSVN</guilabel>-Dialog. Dies ist das 
 #. (option)
 #. (option)
 #. (option)
-#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -16621,6 +16673,7 @@ msgid ""
 "dialog."
 msgstr "Öffnet den Log-Dialog. Der <placeholder-1/> definiert die Datei oder den Ordner, für den das Log angezeigt werden soll. Folgende weitere Optionen können angegeben werden: <placeholder-2/>, <placeholder-3/>, <placeholder-4/> (aktiviert die 'Bei Kopien anhalten' Option), <placeholder-5/> aktiviert die 'Zusammengeführte Revisionen einschließen' Option <placeholder-6/> enthält den Filtertext, <placeholder-7/> erzwingt Filterung nach Text anstatt RegEx,<placeholder-8/> erzwingt Filterung nach RegEx anstatt einfachem Text und <placeholder-9/>, mit X als Zahl von 0 bis 511. Die Zahlen entsprechen: <placeholder-10/> Wenn <placeholder-11/> spezifiziert ist, werden die angegebenen Revisionen in diese Datei geschrieben sobald der Dialog geschlossen wird. Die Revisionen werden im selben Format geschrieben, wie die Revisionen im Zusammenführen-Dialog angegeben werden."
 
+#. (option)
 #. (option)
 #. (option)
 msgid "/url"
@@ -16798,9 +16851,9 @@ msgstr "Erstellt ein Projektarchiv in <placeholder-1/>"
 
 #. (entry)
 msgid ""
-"Opens the switch dialog. The <placeholder-1/> specifies the target "
-"directory."
-msgstr "Öffnet den <guilabel>Wechseln Zu</guilabel>-Dialog. Der <placeholder-1/> bezeichnet das Zielverzeichnis."
+"Opens the switch dialog. The <placeholder-1/> specifies the target directory"
+" and <placeholder-2/> the url to switch to."
+msgstr "Öffnet den <guilabel>Wechseln zu</guilabel>-Dialog. <placeholder-1/> legt das Zielverzeichnis fest und <placeholder-2/> definiert die URL zu der gewechselt werden soll."
 
 #. (entry)
 msgid ""
@@ -16822,6 +16875,18 @@ msgstr "/overwrite"
 msgid "/autorename"
 msgstr "/autorename"
 
+#. (option)
+msgid "/extended"
+msgstr "/extended"
+
+#. (literal)
+msgid "localchanges"
+msgstr "localchanges"
+
+#. (literal)
+msgid "unversioned"
+msgstr "unversioned"
+
 #. (entry)
 msgid ""
 "Exports the working copy in <placeholder-1/> to the directory specified in "
@@ -16829,8 +16894,10 @@ msgid ""
 " directly. The option <placeholder-3/> specifies that existing files are "
 "overwritten without user confirmation, and the option <placeholder-4/> "
 "specifies that if files already exist, the exported files get automatically "
-"renamed to avoid overwriting them."
-msgstr "Exportiert die Arbeitskopie in <placeholder-1/> in das in <placeholder-2/> angegebene Verzeichnis. Dieser Export verwendet nicht den Export-Dialog sonder wird direkt ausgeführt. Die Option <placeholder-3/> legt fest, dass vorhandene Dateien ohne Rückfrage überschrieben werden und die Option <placeholder-4/> sorgt dafür, dass exportierte Dateien automatisch umbenannt werden, damit vorhandene Dateien nicht überschrieben werden."
+"renamed to avoid overwriting them. The option <placeholder-5/> can specify "
+"either <placeholder-6/> to only export files that got changed locally, or "
+"<placeholder-7/> to also export all unversioned items as well."
+msgstr "Exportiert die Arbeitskopie in <placeholder-1/> in das in <placeholder-2/> angegebene Verzeichnis. Dieser Export verwendet nicht den Dialog sondern wird direkt ausgeführt. Mit der Option <placeholder-3/> legen Sie fest, dass vorhandene Dateien ohne Rückfrage überschrieben werden. Die Option <placeholder-4/> bedeutet, dass exportierte Dateien im Konfliktfall umbenannt werden, damit vorhandene Dateien nicht überschrieben werden. Option <placeholder-5/> hat die Parameter <placeholder-6/>, mit dem nur lokal veränderte Objekte exportiert werden und <placeholder-7/> mit dem zusätzlich alle nicht versionierten Objekte exportiert werden."
 
 #. (option)
 #. (option)
@@ -16875,15 +16942,24 @@ msgid ""
 "directory."
 msgstr "Öffnet den <guilabel>Alle Zusammenführen</guilabel>-Dialog. Der <placeholder-1/> bezeichnet das Zielverzeichnis."
 
+#. (literal)
+msgid "Switch working copy to new branch/tag"
+msgstr "Wechselt die Arbeitskopie zum neuen Zweig / zur neuen Marke"
+
+#. (option)
+msgid "/switchaftercopy"
+msgstr "/switchaftercopy"
+
 #. (entry)
 msgid ""
 "Brings up the branch/tag dialog. The <placeholder-1/> is the working copy to"
-" branch/tag from. And the <placeholder-2/> is the target URL. You can also "
-"specify the <placeholder-3/> switch to pass a predefined log message to the "
-"branch/tag dialog. Or, if you don't want to pass the log message on the "
-"command line, use <placeholder-4/>, where <placeholder-5/> points to a file "
-"containing the log message."
-msgstr "Öffnet den Verzweigen/Markieren-Dialog. Der <placeholder-1/> gibt die Arbeitskopie an. Der <placeholder-2/> ist die Ziel URL. Sie können mit dem <placeholder-3/> Parameter eine Logmeldung übergeben oder, falls Sie das nicht per Kommandozeile tun wollen, <placeholder-4/> verwenden, wobei <placeholder-5/> auf eine Datei zeigt, die die Logmeldung enthält."
+" branch/tag from. And the <placeholder-2/> is the target URL. To already "
+"check the option <placeholder-3/> you can pass the <placeholder-4/> switch. "
+"You can also specify the <placeholder-5/> switch to pass a predefined log "
+"message to the branch/tag dialog. Or, if you don't want to pass the log "
+"message on the command line, use <placeholder-6/>, where <placeholder-7/> "
+"points to a file containing the log message."
+msgstr "Öffnet den Verzweigen/Markieren-Dialog. Der <placeholder-1/> gibt die Arbeitskopie an. Der <placeholder-2/> ist die Ziel URL. Um die Option <placeholder-3/> zu aktivieren, können Sie den <placeholder-4/> Parameter mit übergeben. Sie können mit dem <placeholder-5/> Parameter eine Logmeldung übergeben oder, falls Sie das nicht per Kommandozeile tun wollen, <placeholder-6/> verwenden, wobei <placeholder-7/> auf eine Datei zeigt, die die Logmeldung enthält."
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -17106,9 +17182,18 @@ msgid ""
 "<placeholder-1/>."
 msgstr "Rekonstruiert den Windows Symbolspeicher. Verwenden Sie diese Funktion nur, wenn die Windows Symbole beschädigt sind. Ein (nicht vermeidbarer) Seiteneffekt dieser Aktion ist, dass die Desktopsymbole neu arrangiert werden. <placeholder-1/>."
 
-#. (entry)
-msgid "Shows the properties dialog for the path given in <placeholder-1/>."
-msgstr "Zeigt den Eingenschaftsdialog für den in <placeholder-1/> angegebenen Pfad."
+#. (para)
+msgid ""
+"Shows the properties dialog for the path given in <option>/path</option>. If"
+" <option>/rev:XXX</option> is specified and <option>/path</option> is an "
+"URL, the dialog shows and edits revision properties."
+msgstr "Zeigt den Eigenschaftsdialog für den in <option>/path</option> angegebenen Pfad. Falls <option>/rev:XXX</option> gesetzt und <option>/path</option> eine URL ist, zeigt der Dialog Revisionseigenschaften an und erlaubt Ihnen, diese zu ändern."
+
+#. (para)
+msgid ""
+"To open the properties dialog directly for a specific property, pass the "
+"property name as <option>/property:name</option>."
+msgstr ""
 
 #. (para)
 msgid ""
