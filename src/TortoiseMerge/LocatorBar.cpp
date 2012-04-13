@@ -146,9 +146,12 @@ void CLocatorBar::OnPaint()
         cacheDC.FillSolidRect(rect.left, height*nTopLine/m_nLines,
             width, (height*nBottomLine/m_nLines)-(height*nTopLine/m_nLines), RGB(180,180,255));
 
-        PaintView (cacheDC, m_pMainFrm->m_pwndLeftView, m_arLeftIdent, m_arLeftState, rect, 0);
-        PaintView (cacheDC, m_pMainFrm->m_pwndRightView, m_arRightIdent, m_arRightState, rect, 2);
-        PaintView (cacheDC, m_pMainFrm->m_pwndBottomView, m_arBottomIdent, m_arBottomState, rect, 1);
+        if (m_pMainFrm)
+        {
+            PaintView (cacheDC, m_pMainFrm->m_pwndLeftView, m_arLeftIdent, m_arLeftState, rect, 0);
+            PaintView (cacheDC, m_pMainFrm->m_pwndRightView, m_arRightIdent, m_arRightState, rect, 2);
+            PaintView (cacheDC, m_pMainFrm->m_pwndBottomView, m_arBottomIdent, m_arBottomState, rect, 1);
+        }
     }
 
     if (m_nLines == 0)
