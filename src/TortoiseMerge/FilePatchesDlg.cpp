@@ -34,7 +34,7 @@ CFilePatchesDlg::CFilePatchesDlg(CWnd* pParent /*=NULL*/)
     , m_pCallBack(NULL)
     , m_nWindowHeight(-1)
     , m_pMainFrame(NULL)
-	, m_boldFont(NULL)
+    , m_boldFont(NULL)
 {
     m_ImgList.Create(16, 16, ILC_COLOR16 | ILC_MASK, 4, 1);
 }
