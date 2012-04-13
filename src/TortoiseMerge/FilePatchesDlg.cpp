@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2006, 2008, 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,6 +34,7 @@ CFilePatchesDlg::CFilePatchesDlg(CWnd* pParent /*=NULL*/)
     , m_pCallBack(NULL)
     , m_nWindowHeight(-1)
     , m_pMainFrame(NULL)
+	, m_boldFont(NULL)
 {
     m_ImgList.Create(16, 16, ILC_COLOR16 | ILC_MASK, 4, 1);
 }
