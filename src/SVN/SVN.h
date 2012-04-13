@@ -72,7 +72,7 @@ private:
     SVN& operator=(SVN&){};
 public:
     SVN(bool suppressUI = false);
-    ~SVN(void);
+    virtual ~SVN(void);
 
     virtual BOOL Cancel();
     virtual BOOL Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
