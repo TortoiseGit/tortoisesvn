@@ -1650,7 +1650,10 @@ void CBaseView::DrawTextLine(
         int nMarkStart = 0;
         int nMarkEnd = 0;
         int nStringPos = nMarkStart;
-        while (StringFound(sViewLine, SearchNext, nMarkStart, nMarkEnd)!=0)
+        CString searchLine = sViewLine;
+        if (!m_bMatchCase)
+            searchLine.MakeLower();
+        while (StringFound(searchLine, SearchNext, nMarkStart, nMarkEnd)!=0)
         {
             // First enforce start and end point
             lineCols.SplitBlock(nMarkStart+nStringPos);
@@ -1668,7 +1671,7 @@ void CBaseView::DrawTextLine(
                 it->second.background = crBk;
                 it->second.text = CAppUtils::IntenseColor(nIntenseColorScale, it->second.text);
             }
-            sViewLine = sViewLine.Mid(nMarkEnd);
+            searchLine = searchLine.Mid(nMarkEnd);
             nStringPos = nMarkEnd;
         }
     }
