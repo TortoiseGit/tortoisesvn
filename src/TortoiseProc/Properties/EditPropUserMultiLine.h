@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011 - TortoiseSVN
+// Copyright (C) 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,7 +33,7 @@ public:
     EditPropUserMultiLine(CWnd* pParent, const UserProp * p);   // standard constructor
     virtual ~EditPropUserMultiLine();
 
-    virtual bool IsFolderOnlyProperty() { return !m_userprop->file; }
+    virtual bool IsFolderOnlyProperty() override { return !m_userprop->file; }
     void SetUserProp(UserProp * p) {m_userprop = p;}
 
     // Dialog Data
@@ -46,7 +46,7 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
-    INT_PTR DoModal() { return CStandAloneDialog::DoModal(); }
+    INT_PTR DoModal() override { return CStandAloneDialog::DoModal(); }
 private:
     CString             m_sLine;
     CString             m_sLabel;

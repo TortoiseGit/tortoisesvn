@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,8 +53,8 @@ public:
 private:
     BOOL        BlameCallback(LONG linenumber, bool localchange, svn_revnum_t revision, const CString& author, const CString& date,
                                 svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
-                                const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg);
-    BOOL        Cancel();
+                                const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg) override;
+    BOOL        Cancel() override;
     BOOL        Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
                        svn_node_kind_t kind, const CString& mime_type,
                        svn_wc_notify_state_t content_state,
@@ -63,7 +63,7 @@ private:
                        const CString& changelistname,
                        const CString& propertyName,
                        svn_merge_range_t * range,
-                       svn_error_t * err, apr_pool_t * pool);
+                       svn_error_t * err, apr_pool_t * pool) override;
 
 private:
     BOOL        m_bCancelled;           ///< TRUE if the operation should be canceled

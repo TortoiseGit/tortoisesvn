@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010-2011 - TortoiseSVN
+// Copyright (C) 2007, 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,7 +32,7 @@ public:
     /**
      * Executes the command.
      */
-    virtual bool            Execute()
+    virtual bool            Execute() override
     {
         // If the user tries to start TortoiseProc from the link in the programs start menu
         // show an explanation about what TSVN is (shell extension) and open up an explorer window
@@ -42,7 +42,7 @@ public:
         ShellExecute(0, _T("explore"), path, NULL, NULL, SW_SHOWNORMAL);
         return true;
     }
-    virtual bool            CheckPaths() {return true;}
+    virtual bool            CheckPaths() override {return true;}
 };
 
 

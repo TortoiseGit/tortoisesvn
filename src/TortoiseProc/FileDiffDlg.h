@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -87,7 +87,7 @@ protected:
     virtual svn_error_t* DiffSummarizeCallback(const CTSVNPath& path,
                                             svn_client_diff_summarize_kind_t kind,
                                             bool propchanged,
-                                            svn_node_kind_t node);
+                                            svn_node_kind_t node) override;
 
     void                DoDiff(int selIndex, bool blame);
     void                DiffProps(int selIndex);
@@ -101,7 +101,7 @@ private:
     UINT                ExportThread();
     void                GetSelectedPaths(CTSVNPathList& urls1, CTSVNPathList& urls2);
 
-    virtual BOOL        Cancel() {return m_bCancelled;}
+    virtual BOOL        Cancel() override {return m_bCancelled;}
 
     CToolTips           m_tooltips;
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,7 +34,7 @@ public:
     CSetSavedDataPage();
     virtual ~CSetSavedDataPage();
 
-    UINT GetIconID() {return IDI_SAVEDDATA;}
+    UINT GetIconID() override {return IDI_SAVEDDATA;}
 
     enum { IDD = IDD_SETTINGSSAVEDDATA };
 

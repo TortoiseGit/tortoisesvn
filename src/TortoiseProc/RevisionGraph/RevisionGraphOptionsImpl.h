@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -50,16 +50,16 @@ public:
 
     /// implement IRevisionGraphOption
 
-    virtual UINT CommandID() const;
-    virtual int Priority() const;
+    virtual UINT CommandID() const override;
+    virtual int Priority() const override;
 
-    virtual bool IsAvailable() const;
-    virtual bool IsSelected() const;
-    virtual bool IsActive() const;
+    virtual bool IsAvailable() const override;
+    virtual bool IsSelected() const override;
+    virtual bool IsActive() const override;
 
-    virtual void ToggleSelection();
+    virtual void ToggleSelection() override;
 
-    virtual void Prepare();
+    virtual void Prepare() override;
 };
 
 // construction
@@ -167,12 +167,12 @@ public:
 
     /// implement IOrderedTraversalOption
 
-    virtual bool WantsCopiesFirst() const
+    virtual bool WantsCopiesFirst() const override
     {
         return CopyiesFirst;
     }
 
-    virtual bool WantsRootFirst() const
+    virtual bool WantsRootFirst() const override
     {
         return RootFirst;
     }

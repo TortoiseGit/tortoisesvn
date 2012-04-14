@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -133,13 +133,13 @@ public:
 
     // implement IHierarchicalInStream
 
-    virtual void AutoOpen();
-    virtual void AutoClose();
-    virtual void Prefetch();
+    virtual void AutoOpen() override;
+    virtual void AutoClose() override;
+    virtual void Prefetch() override;
 
-    virtual bool HasSubStream (SUB_STREAM_ID subStreamID) const;
+    virtual bool HasSubStream (SUB_STREAM_ID subStreamID) const override;
     virtual IHierarchicalInStream* GetSubStream ( SUB_STREAM_ID subStreamID
-                                                , bool autoOpen = true);
+                                                , bool autoOpen = true) override;
     template<class S>
     S* GetSubStream ( SUB_STREAM_ID subStreamID
                     , bool autoOpen = true

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,8 +38,8 @@ private:
 
     // this stream does not have any local stream data
 
-    virtual const unsigned char* GetStreamData() {return NULL;}
-    virtual size_t GetStreamSize() {return 0;}
+    virtual const unsigned char* GetStreamData() override {return NULL;}
+    virtual size_t GetStreamSize() override {return 0;}
 
 public:
 

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008,2010 - TortoiseSVN
+// Copyright (C) 2003-2008,2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -191,16 +191,16 @@ public:
 
     /// implement IRevisionGraphLayout
 
-    virtual CRect GetRect() const;
+    virtual CRect GetRect() const override;
 
-    virtual const ILayoutRectList* GetTrees() const;
-    virtual const ILayoutNodeList* GetNodes() const;
-    virtual const ILayoutConnectionList* GetConnections() const;
-    virtual const ILayoutTextList* GetTexts() const;
+    virtual const ILayoutRectList* GetTrees() const override;
+    virtual const ILayoutNodeList* GetNodes() const override;
+    virtual const ILayoutConnectionList* GetConnections() const override;
+    virtual const ILayoutTextList* GetTexts() const override;
 
     /// implement IStandardLayoutNodeAccess
 
-    virtual index_t GetNodeCount() const;
-    virtual CStandardLayoutNodeInfo* GetNode (index_t index);
+    virtual index_t GetNodeCount() const override;
+    virtual CStandardLayoutNodeInfo* GetNode (index_t index) override;
 };
 

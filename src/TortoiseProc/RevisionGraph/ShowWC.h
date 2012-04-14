@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,13 +51,13 @@ public:
     /// this one must always be executed
     /// (ICopyFilterOption, if selected; IModificationOption is not)
 
-    virtual bool IsActive() const;
+    virtual bool IsActive() const override;
 
     /// implement ICopyFilterOption (pre-filter most nodes)
 
-    virtual EResult ShallRemove (const CFullGraphNode* node) const;
+    virtual EResult ShallRemove (const CFullGraphNode* node) const override;
 
     /// implement IModificationOption (post-filter deleted non-tagged branches)
 
-    virtual void Apply (CVisibleGraph*, CVisibleGraphNode* node);
+    virtual void Apply (CVisibleGraph*, CVisibleGraphNode* node) override;
 };

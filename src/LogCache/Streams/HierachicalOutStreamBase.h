@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -151,13 +151,13 @@ public:
 
     // implement most of IHierarchicalOutStream
 
-    virtual SUB_STREAM_ID GetID() const;
+    virtual SUB_STREAM_ID GetID() const override;
     virtual IHierarchicalOutStream* OpenSubStream ( SUB_STREAM_ID subStreamID
                                                   , STREAM_TYPE_ID type);
     template<class S>
     S* OpenSubStream (SUB_STREAM_ID subStreamID, S* = NULL);
 
-    virtual STREAM_INDEX AutoClose();
+    virtual STREAM_INDEX AutoClose() override;
 };
 
 template<class S>
@@ -212,7 +212,7 @@ public:
 
     // implement the rest of IHierarchicalOutStream
 
-    virtual STREAM_TYPE_ID GetTypeID() const
+    virtual STREAM_TYPE_ID GetTypeID() const override
     {
         return TYPE_ID;
     }

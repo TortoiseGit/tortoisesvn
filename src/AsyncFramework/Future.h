@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009 by Stefan Fuhrmann                                 *
+ *   Copyright (C) 2009, 2012 by Stefan Fuhrmann                           *
  *   stefanfuhrmann@alice-dsl.de                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -54,7 +54,7 @@ private:
 
     protected:
 
-        virtual void InternalExecute()
+        virtual void InternalExecute() override
         {
             result = (*func)();
         }
@@ -80,7 +80,7 @@ private:
 
     protected:
 
-        virtual void InternalExecute()
+        virtual void InternalExecute() override
         {
             result = (instance->*func)();
         }
@@ -107,7 +107,7 @@ private:
 
     protected:
 
-        virtual void InternalExecute()
+        virtual void InternalExecute() override
         {
             result = (*func)(parameter1);
         }
@@ -135,7 +135,7 @@ private:
 
     protected:
 
-        virtual void InternalExecute()
+        virtual void InternalExecute() override
         {
             result = (instance->*func)(parameter1);
         }
@@ -164,7 +164,7 @@ private:
 
     protected:
 
-        virtual void InternalExecute()
+        virtual void InternalExecute() override
         {
             result = (*func)(parameter1, parameter2);
         }
@@ -194,7 +194,7 @@ private:
 
     protected:
 
-        virtual void InternalExecute()
+        virtual void InternalExecute() override
         {
             result = (instance->*func)(parameter1, parameter2);
         }
@@ -225,7 +225,7 @@ private:
 
     protected:
 
-        virtual void InternalExecute()
+        virtual void InternalExecute() override
         {
             result = (*func)(parameter1, parameter2, parameter3);
         }
@@ -257,7 +257,7 @@ private:
 
     protected:
 
-        virtual void InternalExecute()
+        virtual void InternalExecute() override
         {
             result = (instance->*func)(parameter1, parameter2, parameter3);
         }

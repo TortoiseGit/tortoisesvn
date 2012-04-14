@@ -259,7 +259,7 @@ protected:  // methods
     afx_msg void    OnLButtonDown(UINT nFlags, CPoint point);
     afx_msg void    OnLButtonUp(UINT nFlags, CPoint point);
     afx_msg void    OnLButtonDblClk(UINT nFlags, CPoint point);
-    virtual void    OnLButtonTrippleClick(UINT nFlags, CPoint point);
+    virtual void    OnLButtonTrippleClick(UINT nFlags, CPoint point) override;
     afx_msg void    OnEditCopy();
     afx_msg void    OnMouseMove(UINT nFlags, CPoint point);
     afx_msg void    OnTimer(UINT_PTR nIDEvent);

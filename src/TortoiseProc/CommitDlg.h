@@ -53,8 +53,8 @@ public:
     virtual ~CCommitDlg();
 
     // CSciEditContextMenuInterface
-    virtual void        InsertMenuItems(CMenu& mPopup, int& nCmd);
-    virtual bool        HandleMenuItemClick(int cmd, CSciEdit * pSciEdit);
+    virtual void        InsertMenuItems(CMenu& mPopup, int& nCmd) override;
+    virtual bool        HandleMenuItemClick(int cmd, CSciEdit * pSciEdit) override;
 
 private:
     static UINT StatusThreadEntry(LPVOID pVoid);

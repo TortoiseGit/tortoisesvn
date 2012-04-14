@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,10 +47,10 @@ public:
 
     /// implement IRevisionGraphOption: Active if top-down is not selected.
 
-    virtual bool IsActive() const;
+    virtual bool IsActive() const override;
 
     /// cast @a layout pointer to the respective modification
     /// interface and write the data.
 
-    virtual void ApplyTo (IRevisionGraphLayout* layout);
+    virtual void ApplyTo (IRevisionGraphLayout* layout) override;
 };

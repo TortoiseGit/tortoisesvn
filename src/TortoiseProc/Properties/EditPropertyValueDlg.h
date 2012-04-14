@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,8 +39,8 @@ public:
 
     enum { IDD = IDD_EDITPROPERTYVALUE };
 
-    void            SetPropertyName(const std::string& sName);
-    void            SetPropertyValue(const std::string& sValue);
+    void            SetPropertyName(const std::string& sName) override;
+    void            SetPropertyValue(const std::string& sValue) override;
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
@@ -54,7 +54,7 @@ protected:
     DECLARE_MESSAGE_MAP()
 
     void CheckRecursive();
-    INT_PTR DoModal() { return CResizableStandAloneDialog::DoModal(); }
+    INT_PTR DoModal() override { return CResizableStandAloneDialog::DoModal(); }
 protected:
     CToolTips   m_tooltips;
     CComboBox   m_PropNames;

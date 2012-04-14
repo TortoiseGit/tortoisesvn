@@ -972,7 +972,7 @@ protected:
                     , svn_revnum_t rev
                     , const StandardRevProps* stdRevProps
                     , UserRevPropArray* userRevProps
-                    , const MergeInfo* mergeInfo);
+                    , const MergeInfo* mergeInfo) override;
 
     // logCachePool management utilities
 

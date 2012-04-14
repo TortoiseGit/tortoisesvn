@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009,2011 - TortoiseSVN
+// Copyright (C) 2007-2009,2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -215,7 +215,7 @@ private:
                                 , svn_revnum_t rev
                                 , const StandardRevProps* stdRevProps
                                 , UserRevPropArray* userRevProps
-                                , const MergeInfo* mergeInfo);
+                                , const MergeInfo* mergeInfo) override;
 
     public:
 
@@ -258,7 +258,7 @@ private:
                                 , svn_revnum_t rev
                                 , const StandardRevProps* stdRevProps
                                 , UserRevPropArray* userRevProps
-                                , const MergeInfo* mergeInfo);
+                                , const MergeInfo* mergeInfo) override;
 
     public:
 
@@ -388,7 +388,7 @@ public:
                      , bool includeMerges
                      , bool includeStandardRevProps
                      , bool includeUserRevProps
-                     , const TRevPropNames& userRevProps);
+                     , const TRevPropNames& userRevProps) override;
 
     /// relay the content of a single revision to the receiver
     /// (if the latter is not NULL)

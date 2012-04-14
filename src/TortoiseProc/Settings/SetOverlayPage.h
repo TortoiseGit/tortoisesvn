@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010,2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@ public:
     CSetOverlayPage();
     virtual ~CSetOverlayPage();
 
-    UINT GetIconID() {return IDI_SET_OVERLAYS;}
+    UINT GetIconID() override {return IDI_SET_OVERLAYS;}
 
 // Dialog Data
     enum { IDD = IDD_SETTINGSOVERLAY };

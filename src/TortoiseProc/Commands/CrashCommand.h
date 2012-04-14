@@ -33,14 +33,14 @@ public:
     /**
      * Executes the command.
      */
-    virtual bool            Execute()
+    virtual bool            Execute() override
     {
         MessageBox(NULL, _T("You are testing the crashhandler.\nDo NOT send the crashreport!!!!"), _T("TortoiseSVN"), MB_ICONINFORMATION);
         CrashProgram();
         TSVNMessageBox(NULL, IDS_ERR_NOCOMMAND, IDS_APPNAME, MB_ICONERROR);
         return true;
     }
-    virtual bool            CheckPaths() {return true;}
+    virtual bool            CheckPaths() override {return true;}
 
     void CrashProgram()
     {

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -83,9 +83,10 @@ protected:
     afx_msg void OnNMClickExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnBnClickedBugtraqbutton();
     afx_msg LRESULT OnCheck(WPARAM count, LPARAM);
+    afx_msg void OnEnChangeCopyrevtext();
     DECLARE_MESSAGE_MAP()
 
-    virtual BOOL    Cancel() {return m_bCancelled;}
+    virtual BOOL    Cancel() override {return m_bCancelled;}
     void            SetRevision(const SVNRev& rev);
     void            ToggleCheckbox(int index);
     void            OnComError( HRESULT hr );
@@ -127,6 +128,4 @@ private:
     volatile LONG   m_bThreadRunning;
     SVNExternals    m_externals;
     CLinkControl    m_linkControl;
-public:
-    afx_msg void OnEnChangeCopyrevtext();
 };

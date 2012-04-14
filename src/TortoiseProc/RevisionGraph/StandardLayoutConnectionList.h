@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,15 +37,15 @@ public:
 
     /// implement ILayoutItemList
 
-    virtual index_t GetCount() const;
+    virtual index_t GetCount() const override;
 
-    virtual CString GetToolTip (index_t index) const;
+    virtual CString GetToolTip (index_t index) const override;
 
-    virtual index_t GetFirstVisible (const CRect& viewRect) const;
-    virtual index_t GetNextVisible (index_t prev, const CRect& viewRect) const;
-    virtual index_t GetAt (const CPoint& point, CSize delta) const;
+    virtual index_t GetFirstVisible (const CRect& viewRect) const override;
+    virtual index_t GetNextVisible (index_t prev, const CRect& viewRect) const override;
+    virtual index_t GetAt (const CPoint& point, CSize delta) const override;
 
     /// implement ILayoutConnectionList
 
-    virtual SConnection GetConnection (index_t index) const;
+    virtual SConnection GetConnection (index_t index) const override;
 };

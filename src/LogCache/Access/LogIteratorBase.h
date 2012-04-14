@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008,2011 - TortoiseSVN
+// Copyright (C) 2007-2008,2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -124,20 +124,20 @@ public:
 
     // implement ILogIterator
 
-    virtual bool DataIsMissing() const;
-    virtual revision_t GetRevision() const;
-    virtual revision_t GetAddRevision() const;
-    virtual const CDictionaryBasedTempPath& GetPath() const;
-    virtual const CDictionaryBasedTempPath& GetAddPath() const;
-    virtual bool EndOfPath() const;
+    virtual bool DataIsMissing() const override;
+    virtual revision_t GetRevision() const override;
+    virtual revision_t GetAddRevision() const override;
+    virtual const CDictionaryBasedTempPath& GetPath() const override;
+    virtual const CDictionaryBasedTempPath& GetAddPath() const override;
+    virtual bool EndOfPath() const override;
 
-    virtual void Advance (revision_t last = 0);
-    virtual void ToNextAvailableData();
+    virtual void Advance (revision_t last = 0) override;
+    virtual void ToNextAvailableData() override;
 
-    virtual void Retry (revision_t last = 0);
+    virtual void Retry (revision_t last = 0) override;
 
-    virtual void SetRevision (revision_t revision);
-    virtual void SetPath (const CDictionaryBasedTempPath& path);
+    virtual void SetRevision (revision_t revision) override;
+    virtual void SetPath (const CDictionaryBasedTempPath& path) override;
 };
 
 ///////////////////////////////////////////////////////////////

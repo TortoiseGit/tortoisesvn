@@ -96,22 +96,22 @@ public:
 
     /// switches to the \c url at \c rev. If the url is valid and exists,
     /// the repository browser will show the content of that url.
-    bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked);
+    bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked) override;
 
-    CString GetRepoRoot() { return m_repository.root; }
+    CString GetRepoRoot() override { return m_repository.root; }
     std::map<CString,svn_depth_t> GetCheckoutDepths() { return m_checkoutDepths; }
     std::map<CString,svn_depth_t> GetUpdateDepths() { return m_updateDepths; }
 
-    void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult);
+    void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult) override;
 
-    HWND GetHWND() const { return GetSafeHwnd(); }
-    size_t GetHistoryForwardCount() const { return m_UrlHistoryForward.size(); }
-    size_t GetHistoryBackwardCount() const { return m_UrlHistory.size(); }
+    HWND GetHWND() const override { return GetSafeHwnd(); }
+    size_t GetHistoryForwardCount() const override { return m_UrlHistoryForward.size(); }
+    size_t GetHistoryBackwardCount() const override { return m_UrlHistory.size(); }
 
     void SetSparseCheckoutMode(const CTSVNPath& path) { m_bSparseCheckoutMode = true; m_bStandAlone = false; m_wcPath = path; }
 
     /// overwrite SVN callbacks
-    virtual BOOL Cancel();
+    virtual BOOL Cancel() override;
 
     enum
     {

@@ -236,7 +236,7 @@ private:
 
         /// actual job code: fetch externals and parse them
 
-        virtual void InternalExecute();
+        virtual void InternalExecute() override;
 
         /// not meant to be destroyed directly
 
@@ -277,17 +277,17 @@ private:
             apr_time_t time, const CString& author, const CString& locktoken,
             const CString& lockowner, const CString& lockcomment,
             bool is_dav_comment, apr_time_t lock_creationdate,
-            apr_time_t lock_expirationdate, const CString& absolutepath);
+            apr_time_t lock_expirationdate, const CString& absolutepath) override;
 
         /// early termination
 
-        virtual BOOL Cancel();
+        virtual BOOL Cancel() override;
 
     protected:
 
         /// actual job code: just call \ref SVN::List
 
-        virtual void InternalExecute();
+        virtual void InternalExecute() override;
 
         /// not meant to be destroyed directly
 
@@ -307,7 +307,7 @@ private:
 
         /// cancel the svn:externals sub query as well
 
-        virtual void Terminate();
+        virtual void Terminate() override;
 
         /// access additional results
 

@@ -34,7 +34,7 @@ public:
     CSettingsTBlame();
     virtual ~CSettingsTBlame();
 
-    UINT GetIconID() {return IDI_TORTOISEBLAME;}
+    UINT GetIconID() override {return IDI_TORTOISEBLAME;}
 
 // Dialog Data
     enum { IDD = IDD_SETTINGSTBLAME };

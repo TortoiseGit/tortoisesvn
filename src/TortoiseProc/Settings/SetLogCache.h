@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,7 @@ public:
     CSetLogCache();
     virtual ~CSetLogCache();
 
-    UINT GetIconID() {return IDI_CACHE;}
+    UINT GetIconID() override {return IDI_CACHE;}
 
 // Dialog Data
     enum { IDD = IDD_SETTINGSLOGCACHE };

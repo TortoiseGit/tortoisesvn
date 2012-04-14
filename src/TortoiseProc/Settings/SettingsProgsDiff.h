@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@ public:
     CSettingsProgsDiff();
     virtual ~CSettingsProgsDiff();
 
-    UINT GetIconID() {return IDI_DIFF;}
+    UINT GetIconID() override {return IDI_DIFF;}
 
     enum { IDD = IDD_SETTINGSPROGSDIFF };
 

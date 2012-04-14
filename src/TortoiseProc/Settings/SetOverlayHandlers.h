@@ -35,7 +35,7 @@ public:
     CSetOverlayHandlers();
     virtual ~CSetOverlayHandlers();
 
-    UINT GetIconID() {return IDI_SET_OVERLAYS;}
+    UINT GetIconID() override {return IDI_SET_OVERLAYS;}
 
 // Dialog Data
     enum { IDD = IDD_SETTINGSOVERLAYHANDLERS };
@@ -43,8 +43,9 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
-    afx_msg void OnChange();
     virtual BOOL OnApply();
+    afx_msg void OnChange();
+    afx_msg void OnBnClickedRegedt();
 
     DECLARE_MESSAGE_MAP()
 
@@ -64,6 +65,4 @@ private:
     CRegDWORD       m_regShowLockedOverlay;
     CRegDWORD       m_regShowReadonlyOverlay;
     CRegDWORD       m_regShowDeletedOverlay;
-public:
-    afx_msg void OnBnClickedRegedt();
 };

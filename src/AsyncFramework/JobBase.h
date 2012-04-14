@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2009-2010 by Stefan Fuhrmann                            *
+ *   Copyright (C) 2009-2010, 2012 by Stefan Fuhrmann                      *
  *   stefanfuhrmann@alice-dsl.de                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -83,21 +83,21 @@ public:
 
     /// call this to put the job into the scheduler
 
-    virtual void Schedule (bool transferOwnership, CJobScheduler* scheduler);
+    virtual void Schedule (bool transferOwnership, CJobScheduler* scheduler) override;
 
     // will be called by job execution thread
 
-    virtual void Execute();
+    virtual void Execute() override;
 
     /// may be called by other (observing) threads
 
-    virtual Status GetStatus() const;
+    virtual Status GetStatus() const override;
 
     /// wait until job execution finished.
     /// If @ref inlineExecution is set, the job will be
     /// executed in the current thread if it is still waiting.
 
-    virtual void WaitUntilDone (bool inlineExecution = false);
+    virtual void WaitUntilDone (bool inlineExecution = false) override;
 
     /// returns false in case of a timeout
 

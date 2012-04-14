@@ -209,10 +209,11 @@ protected:
         const CString& changelistname,
         const CString& propertyName,
         svn_merge_range_t * range,
-        svn_error_t * err, apr_pool_t * pool);
-    virtual svn_wc_conflict_choice_t    ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile);
+        svn_error_t * err, apr_pool_t * pool) override;
+    virtual svn_wc_conflict_choice_t    ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile) override;
+    virtual BOOL                        Cancel() override;
+
     virtual BOOL                        OnInitDialog();
-    virtual BOOL                        Cancel();
     virtual void                        OnCancel();
     virtual BOOL                        PreTranslateMessage(MSG* pMsg);
     virtual void                        DoDataExchange(CDataExchange* pDX);

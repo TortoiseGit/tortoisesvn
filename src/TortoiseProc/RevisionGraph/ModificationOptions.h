@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -78,8 +78,8 @@ public:
 
     /// implement IModificationOption
 
-    virtual bool IsCyclic() const {return Cyclic;}
-    virtual void PostFilter (CVisibleGraph*) {};
+    virtual bool IsCyclic() const override {return Cyclic;}
+    virtual void PostFilter (CVisibleGraph*) override {};
 };
 
 /**

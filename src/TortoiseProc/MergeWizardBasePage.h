@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -50,7 +50,7 @@ protected:
 
     static UINT     FindRevThreadEntry(LPVOID pVoid);
     UINT            FindRevThread();
-    virtual BOOL    Cancel() {return m_bCancelled;}
+    virtual BOOL    Cancel() override {return m_bCancelled;}
 
 private:
     CTSVNPath       m_path;

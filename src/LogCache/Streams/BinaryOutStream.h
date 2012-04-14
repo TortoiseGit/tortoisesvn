@@ -59,9 +59,9 @@ protected:
 
     // return the stream data
 
-    virtual const unsigned char* GetStreamData();
-    virtual size_t GetStreamSize();
-    virtual void ReleaseStreamData();
+    virtual const unsigned char* GetStreamData() override;
+    virtual size_t GetStreamSize() override;
+    virtual void ReleaseStreamData() override;
 
     // add data to the stream
 

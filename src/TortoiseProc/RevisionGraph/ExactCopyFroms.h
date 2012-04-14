@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,9 +43,9 @@ public:
 
     /// implement IRevisionGraphOption: This option must always be applied.
 
-    virtual bool IsActive() const;
+    virtual bool IsActive() const override;
 
     /// implement IModificationOption
 
-    virtual void Apply (CVisibleGraph* graph, CVisibleGraphNode* node);
+    virtual void Apply (CVisibleGraph* graph, CVisibleGraphNode* node) override;
 };
