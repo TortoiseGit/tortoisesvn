@@ -421,8 +421,8 @@ void CHistoryCombo::OnMouseMove(UINT nFlags, CPoint point)
     {
         ClientToScreen(&rectClient);
 
-        CString strText = GetString();
-        m_ToolInfo.lpszText = (LPTSTR)(LPCTSTR)strText;
+        m_ToolText = GetString();
+        m_ToolInfo.lpszText = (LPTSTR)(LPCTSTR)m_ToolText;
 
         HDC hDC = ::GetDC(m_hWnd);
 
@@ -430,7 +430,7 @@ void CHistoryCombo::OnMouseMove(UINT nFlags, CPoint point)
         HFONT hOldFont = (HFONT) ::SelectObject(hDC, (HFONT) *pFont);
 
         SIZE size;
-        ::GetTextExtentPoint32(hDC, strText, strText.GetLength(), &size);
+        ::GetTextExtentPoint32(hDC, m_ToolText, m_ToolText.GetLength(), &size);
         ::SelectObject(hDC, hOldFont);
         ::ReleaseDC(m_hWnd, hDC);
 
