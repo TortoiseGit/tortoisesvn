@@ -851,8 +851,6 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 {
     if (!m_bUnversionedRecurse)
         return;
-    int len1 = folderName.GetWinPathString().GetLength();
-    int len2 = CString(folderName.GetWinPath()).GetLength();
     CSimpleFileFind filefinder(folderName.GetWinPathString());
 
     CTSVNPath filename;
