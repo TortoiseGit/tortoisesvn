@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2011 - TortoiseSVN
+// Copyright (C) 2008-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,9 +39,11 @@ BOOL CToolTips::OnTtnNeedText(NMHDR *pNMHDR, LRESULT *pResult)
             // idFrom is actually the HWND of the tool
             nID = ::GetDlgCtrlID((HWND)nID);
         }
-        if (toolTextMap.find((unsigned int)nID) != toolTextMap.end())
+
+        auto iterFind = toolTextMap.find((unsigned int)nID);
+        if (iterFind != toolTextMap.end())
         {
-            lpnmtdi->lpszText = (LPTSTR)(LPCTSTR)(CString)toolTextMap[(unsigned int)nID];
+            lpnmtdi->lpszText = (LPTSTR)(LPCTSTR)iterFind->second;
             lpnmtdi->hinst = AfxGetResourceHandle();
             *pResult = 0;
             return TRUE;

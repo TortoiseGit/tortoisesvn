@@ -3349,13 +3349,13 @@ int CBaseView::CalculateCharIndex(int nLineIndex, int nActualOffset)
             }
         }
     }
-    LPCTSTR pszLine = GetLineChars(nLineIndex);
+    CString Line = GetLineChars(nLineIndex);
     int nIndex = 0;
     int nOffset = 0;
     int nTabSize = GetTabSize();
     while (nOffset < nActualOffset && nIndex < nLength)
     {
-        if (pszLine[nIndex] == _T('\t'))
+        if (Line.GetAt(nIndex) == _T('\t'))
             nOffset += (nTabSize - nOffset % nTabSize);
         else
             ++nOffset;
@@ -3494,12 +3494,16 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         CString sLineLeft = sLine.Left(nLeft);
         CString sLineRight = sLine.Right(sLine.GetLength() - nLeft);
         EOL eOriginalEnding = EOL_AUTOLINE;
-        if (m_pViewData && (m_pViewData->GetCount() > nViewLine))
-            eOriginalEnding = GetViewLineEnding(nViewLine);
-        if (!sLineRight.IsEmpty() || (eOriginalEnding!=lineendings))
+        if (m_pViewData)
         {
-            viewdata newFirstLine(sLineLeft, DIFFSTATE_EDITED, 1, lineendings, HIDESTATE_SHOWN, -1);
-            SetViewData(nViewLine, newFirstLine);
+            if (m_pViewData->GetCount() > nViewLine)
+                eOriginalEnding = GetViewLineEnding(nViewLine);
+
+            if (!sLineRight.IsEmpty() || (eOriginalEnding!=lineendings))
+            {
+                viewdata newFirstLine(sLineLeft, DIFFSTATE_EDITED, 1, lineendings, HIDESTATE_SHOWN, -1);
+                SetViewData(nViewLine, newFirstLine);
+            }
         }
         viewdata newLastLine(sLineRight, DIFFSTATE_EDITED, 1, eOriginalEnding, HIDESTATE_SHOWN, -1);
         int nInsertLine = nViewLine+1;
@@ -3907,16 +3911,16 @@ bool CBaseView::IsWordSeparator(const wchar_t ch) const
 bool CBaseView::IsCaretAtWordBoundary()
 {
     POINT ptViewCaret = GetCaretViewPosition();
-    LPCTSTR line = GetViewLineChars(ptViewCaret.y);
-    if (!*line)
+    CString line = GetViewLineChars(ptViewCaret.y);
+    if (line.IsEmpty())
         return false; // no boundary at the empty lines
     if (ptViewCaret.x == 0)
-        return !IsWordSeparator(line[ptViewCaret.x]);
+        return !IsWordSeparator(line.GetAt(ptViewCaret.x));
     if (ptViewCaret.x >= GetViewLineLength(ptViewCaret.y))
-        return !IsWordSeparator(line[ptViewCaret.x - 1]);
+        return !IsWordSeparator(line.GetAt(ptViewCaret.x - 1));
     return
-        IsWordSeparator(line[ptViewCaret.x]) !=
-        IsWordSeparator(line[ptViewCaret.x - 1]);
+        IsWordSeparator(line.GetAt(ptViewCaret.x)) !=
+        IsWordSeparator(line.GetAt(ptViewCaret.x - 1));
 }
 
 void CBaseView::UpdateViewsCaretPosition()

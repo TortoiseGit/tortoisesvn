@@ -206,6 +206,7 @@ LRESULT CALLBACK CLinkControl::_HyperlinkProc(HWND hwnd, UINT message,
         break;
     case WM_LBUTTONDOWN:
         pHyperLink->m_bMouseDownPressed = true;
+        // fallthrough
     case WM_LBUTTONUP:
         {
             if (pHyperLink->m_bMouseDownPressed)

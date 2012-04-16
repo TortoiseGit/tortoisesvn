@@ -3255,7 +3255,7 @@ bool CSVNProgressDlg::CmdSwitchBackToParent( CString& sWindowTitle, bool& /*loca
                 (LPCTSTR)m_Revision.ToString());
             ReportCmd(sCmdInfo);
 
-            if (!Switch(m_targetPathList[i], switchUrl, s->revision, s->revision, svn_depth_unknown, false, true, true, false))
+            if (!Switch(m_targetPathList[i], switchUrl, s->revision, s->revision, svn_depth_unknown, false, true, true, true))
             {
                 ReportSVNError();
                 return false;
