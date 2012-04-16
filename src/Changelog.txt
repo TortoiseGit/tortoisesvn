@@ -78,6 +78,8 @@ Version 1.7.7
 - BUG: Issue #273: quotes are not escaped
        in repo browser. (Stefan)
 - BUG: Issue #274: exception when dragging. (Stefan)
+- BUG: Issue #275: "repair move" fails if
+       target dir is missing/deleted. (Stefan)
 
 Version 1.7.6
 - BUG: Issue #209: repo browser doesn't

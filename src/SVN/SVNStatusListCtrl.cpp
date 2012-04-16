@@ -851,6 +851,8 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
 {
     if (!m_bUnversionedRecurse)
         return;
+    int len1 = folderName.GetWinPathString().GetLength();
+    int len2 = CString(folderName.GetWinPath()).GetLength();
     CSimpleFileFind filefinder(folderName.GetWinPathString());
 
     CTSVNPath filename;
@@ -5598,6 +5600,7 @@ void CSVNStatusListCtrl::OnRepairMove()
     // entry1 was renamed to entry2 but outside of Subversion
     // fix this by moving entry2 back to entry1 first,
     // then do an svn-move from entry1 to entry2
+    CPathUtils::MakeSureDirectoryPathExists(entry1->GetPath().GetContainingDirectory().GetWinPath());
     if (!MoveFile(entry2->GetPath().GetWinPath(), entry1->GetPath().GetWinPath()))
     {
         ShowErrorMessage();
