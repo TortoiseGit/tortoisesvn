@@ -3445,15 +3445,12 @@ LRESULT CSVNProgressDlg::OnTaskbarBtnCreated(WPARAM /*wParam*/, LPARAM /*lParam*
 bool CSVNProgressDlg::IsCommittingToTag(CString& url)
 {
     bool isTag = false;
-    bool bURLFetched = false;
-    for (int i=0; i<m_targetPathList.GetCount(); ++i)
+    CRegString regTagsPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
+    for (int i=0; (i<m_targetPathList.GetCount()) && (!isTag); ++i)
     {
-        if (bURLFetched)
-            continue;
-
         url = GetURLFromPath(m_targetPathList[i]);
-        if (!url.IsEmpty())
-            bURLFetched = true;
+        if (url.IsEmpty())
+            continue;
         CString urllower = url;
         urllower.MakeLower();
         // test if the commit goes to a tag.
@@ -3462,7 +3459,6 @@ bool CSVNProgressDlg::IsCommittingToTag(CString& url)
         // only a warning is shown. This won't work if the tags
         // are stored in a non-recommended place, but the check
         // still helps those who do.
-        CRegString regTagsPattern (_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
         CString sTags = regTagsPattern;
         int pos = 0;
         CString temp;
@@ -3487,7 +3483,6 @@ bool CSVNProgressDlg::IsCommittingToTag(CString& url)
                 }
             }
         }
-        break;
     }
     return isTag;
 }
