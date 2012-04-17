@@ -228,9 +228,6 @@ LRESULT AeroControlBase::StaticWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
                             case SS_WHITEFRAME:
                                 argb = 0xFFFFFFFF;
                                 break;
-                            default:
-                                ASSERT(0);
-                                break;
                             }
                             Color clr(argb);
 

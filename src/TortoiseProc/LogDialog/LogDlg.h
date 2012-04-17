@@ -161,7 +161,7 @@ private:
     BOOL IsDiffPossible (const CLogChangedPath& changedpath, svn_revnum_t rev);
     BOOL Open(bool bOpenWith, CString changedpath, svn_revnum_t rev);
     void EditAuthor(const std::vector<PLOGENTRYDATA>& logs);
-    void EditLogMessage(int index);
+    void EditLogMessage(size_t index);
     void DoSizeV1(int delta);
     void DoSizeV2(int delta);
     void AdjustMinSize();

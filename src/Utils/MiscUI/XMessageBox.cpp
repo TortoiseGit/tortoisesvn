@@ -342,7 +342,7 @@ public:
 protected:
     enum { FirstControlId = 1001};
     enum { MessageControlId = 1001};
-    enum { MaxButtonStringSize = 100};
+    enum { MaxButtonStringSize = MAX_PATH};
     enum
     {
         ButtonWidth             = 38,       // dialog units  +++1.7

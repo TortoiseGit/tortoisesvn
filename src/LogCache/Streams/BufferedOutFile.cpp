@@ -65,6 +65,7 @@ void CBufferedOutFile::InternalClose()
 
 #ifdef _WIN32
         CloseHandle (file);
+        file = INVALID_HANDLE_VALUE;
 #else
         stream.close();
 #endif

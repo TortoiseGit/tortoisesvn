@@ -163,8 +163,8 @@ bool ExportCommand::Execute()
             {
                 CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": export %s to %s\n"), (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveto);
                 SVN svn;
-                if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC,
-                    bURL ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, false, svn_depth_infinity,
+                if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), SVNRev::REV_WC,
+                    SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, false, svn_depth_infinity,
                     GetExplorerHWND(), folderBrowser.m_bCheck ? SVN::SVNExportIncludeUnversioned : SVN::SVNExportNormal))
                 {
                     svn.ShowErrorDialog(GetExplorerHWND(), cmdLinePath);

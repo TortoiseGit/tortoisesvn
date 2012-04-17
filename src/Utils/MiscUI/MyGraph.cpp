@@ -1627,10 +1627,6 @@ CPoint MyGraph::WedgeEndFromDegrees(double degrees, const CPoint& ptCenter,
 /* static */ WORD MyGraph::HueToRGB(WORD w1, WORD w2, WORD wH)
 {
     // Range check: note values passed add/subtract thirds of range.
-    if (wH < 0) {
-        wH += HLSMAX;
-    }
-
     if (wH > HLSMAX) {
         wH -= HLSMAX;
     }

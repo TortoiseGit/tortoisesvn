@@ -1668,7 +1668,8 @@ void CLogDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 ::SendMessage(GetDlgItem(IDC_MSGVIEW)->GetSafeHwnd(), cmd, 0, -1);
                 break;
             case ID_EDITLOG:
-                EditLogMessage(selIndex);
+                if (selIndex >= 0)
+                    EditLogMessage(selIndex);
                 break;
             }
         }
@@ -2328,7 +2329,7 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
     EnableOKButton();
 }
 
-void CLogDlg::EditLogMessage(int index)
+void CLogDlg::EditLogMessage( size_t index )
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
@@ -4957,6 +4958,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_OPENWITH:
             bOpenWith = true;
+            // fallthrough
         case ID_OPEN:
             {
                 auto f = [=]()
@@ -5638,6 +5640,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_OPENWITH:
             bOpenWith = true;
+            // fallthrough
         case ID_OPEN:
             {
                 SVNRev getrev = m_currentChangedArray[selIndex].GetAction() == LOGACTIONS_DELETED ? rev2 : rev1;

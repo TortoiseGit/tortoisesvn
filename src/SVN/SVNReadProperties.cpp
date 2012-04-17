@@ -283,9 +283,9 @@ std::string SVNReadProperties::GetItem(int index, BOOL name) const
 BOOL SVNReadProperties::IsSVNProperty(int index) const
 {
     const char *pname_utf8;
-    const char *name = SVNReadProperties::GetItem(index, true).c_str();
+    std::string name = SVNReadProperties::GetItem(index, true);
 
-    svn_error_clear(svn_utf_cstring_to_utf8 (&pname_utf8, name, m_pool));
+    svn_error_clear(svn_utf_cstring_to_utf8 (&pname_utf8, name.c_str(), m_pool));
     svn_boolean_t is_svn_prop = svn_prop_needs_translation (pname_utf8);
 
     return is_svn_prop;

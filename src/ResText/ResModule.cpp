@@ -54,7 +54,6 @@ CResModule::~CResModule(void)
 
 BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lpszPOFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile)
 {
-    BOOL bRet = TRUE;
     for (std::vector<std::wstring>::iterator I = filelist.begin(); I != filelist.end(); ++I)
     {
         m_hResDll = LoadLibraryEx(I->c_str(), NULL, LOAD_LIBRARY_AS_IMAGE_RESOURCE|LOAD_LIBRARY_AS_DATAFILE);
@@ -102,13 +101,10 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
         m_StringEntries.ParseFile(lpszPOFilePath, !bNoUpdate, m_bAdjustEOLs);
 
         FreeLibrary(m_hResDll);
-        continue;
     }
 
     // at last, save the new file
-    if (bRet)
-        return m_StringEntries.SaveFile(lpszPOFilePath, lpszHeaderFile);
-    return FALSE;
+    return m_StringEntries.SaveFile(lpszPOFilePath, lpszHeaderFile);
 }
 
 BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile)

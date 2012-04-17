@@ -135,7 +135,7 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
             {
                 case and_not:
                     found = !found;
-
+                    // fallthrough
                 case and:
                     if (!found)
                     {
