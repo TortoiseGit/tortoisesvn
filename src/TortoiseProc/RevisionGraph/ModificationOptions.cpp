@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,7 @@ void CModificationOptions::TraverseFromRootCopiesFirst
     , CVisibleGraph* graph
     , CVisibleGraphNode* node)
 {
-    for (CVisibleGraphNode* next = node->GetNext(); node != NULL; node = next)
+    for (CVisibleGraphNode* next; node != NULL; node = next)
     {
         next = node->GetNext();
 
@@ -60,7 +60,7 @@ void CModificationOptions::TraverseToRootCopiesFirst
     while (node->GetNext() != NULL)
         node = node->GetNext();
 
-    for (CVisibleGraphNode* prev = node->GetPrevious(); node != NULL; node = prev)
+    for (CVisibleGraphNode* prev; node != NULL; node = prev)
     {
         prev = node->GetPrevious();
 
@@ -86,7 +86,7 @@ void CModificationOptions::TraverseFromRootCopiesLast
     , CVisibleGraph* graph
     , CVisibleGraphNode* node)
 {
-    for (CVisibleGraphNode* next = node->GetNext(); node != NULL; node = next)
+    for (CVisibleGraphNode* next; node != NULL; node = next)
     {
         next = node->GetNext();
 
@@ -117,7 +117,7 @@ void CModificationOptions::TraverseToRootCopiesLast
     while (node->GetNext() != NULL)
         node = node->GetNext();
 
-    for (CVisibleGraphNode* prev = node->GetPrevious(); node != NULL; node = prev)
+    for (CVisibleGraphNode* prev; node != NULL; node = prev)
     {
         prev = node->GetPrevious();
 

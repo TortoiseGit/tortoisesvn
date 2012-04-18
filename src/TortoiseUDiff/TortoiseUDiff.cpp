@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -59,7 +59,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     InitCommonControlsEx(&used);
 
 
-    if (::LoadLibrary(_T("SciLexer.DLL")) == NULL)
+    HMODULE hSciLexerDll = ::LoadLibrary(_T("SciLexer.DLL"));
+    if (hSciLexerDll == NULL)
         return FALSE;
 
     CMainWindow mainWindow(hInstance);
@@ -71,44 +72,53 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     else
         mainWindow.SetTitle(_T("diff from pipe"));
 
-    if (mainWindow.RegisterAndCreateWindow())
+    if (!mainWindow.RegisterAndCreateWindow())
     {
-        bool bLoadedSuccessfully = false;
-        if ( (lpCmdLine[0] == 0) ||
-            (parser.HasKey(_T("p"))) )
+        FreeLibrary(hSciLexerDll);
+        return 0;
+    }
+
+    bool bLoadedSuccessfully = false;
+    if ( (lpCmdLine[0] == 0) ||
+        (parser.HasKey(_T("p"))) )
+    {
+        // input from console pipe
+        // set console to raw mode
+        DWORD oldMode;
+        GetConsoleMode(GetStdHandle(STD_INPUT_HANDLE), &oldMode);
+        SetConsoleMode(GetStdHandle(STD_INPUT_HANDLE), oldMode & ~(ENABLE_LINE_INPUT | ENABLE_ECHO_INPUT));
+
+        bLoadedSuccessfully = mainWindow.LoadFile(GetStdHandle(STD_INPUT_HANDLE));
+    }
+    else if (parser.HasVal(_T("patchfile")))
+        bLoadedSuccessfully = mainWindow.LoadFile(parser.GetVal(_T("patchfile")));
+    else if (lpCmdLine[0] != 0)
+        bLoadedSuccessfully = mainWindow.LoadFile(lpCmdLine);
+
+
+    if (!bLoadedSuccessfully)
+    {
+        FreeLibrary(hSciLexerDll);
+        return 0;
+    }
+
+    ::ShowWindow(mainWindow.GetHWNDEdit(), SW_SHOW);
+    ::SetFocus(mainWindow.GetHWNDEdit());
+
+    hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_TORTOISEUDIFF));
+
+    // Main message loop:
+    while (GetMessage(&msg, NULL, 0, 0))
+    {
+        if (!TranslateAccelerator(mainWindow, hAccelTable, &msg))
         {
-            // input from console pipe
-            // set console to raw mode
-            DWORD oldMode;
-            GetConsoleMode(GetStdHandle(STD_INPUT_HANDLE), &oldMode);
-            SetConsoleMode(GetStdHandle(STD_INPUT_HANDLE), oldMode & ~(ENABLE_LINE_INPUT | ENABLE_ECHO_INPUT));
-
-            bLoadedSuccessfully = mainWindow.LoadFile(GetStdHandle(STD_INPUT_HANDLE));
-        }
-        else if (parser.HasVal(_T("patchfile")))
-            bLoadedSuccessfully = mainWindow.LoadFile(parser.GetVal(_T("patchfile")));
-        else if (lpCmdLine[0] != 0)
-            bLoadedSuccessfully = mainWindow.LoadFile(lpCmdLine);
-        if (bLoadedSuccessfully)
-        {
-            ::ShowWindow(mainWindow.GetHWNDEdit(), SW_SHOW);
-            ::SetFocus(mainWindow.GetHWNDEdit());
-
-            hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_TORTOISEUDIFF));
-
-            // Main message loop:
-            while (GetMessage(&msg, NULL, 0, 0))
-            {
-                if (!TranslateAccelerator(mainWindow, hAccelTable, &msg))
-                {
-                    TranslateMessage(&msg);
-                    DispatchMessage(&msg);
-                }
-            }
-            return (int) msg.wParam;
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
         }
     }
-    return 0;
+
+    FreeLibrary(hSciLexerDll);
+    return (int) msg.wParam;
 }
 
 

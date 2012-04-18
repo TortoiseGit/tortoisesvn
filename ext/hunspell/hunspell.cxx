@@ -569,6 +569,7 @@ struct hentry * Hunspell::checkword(const char * w, int * info, char ** root)
         remove_ignored_chars(w2,ignoredchars);
      }
      word = w2;
+     free(ignoredchars);
   } else word = w;
 
   // word reversing wrapper for complex prefixes

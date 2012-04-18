@@ -292,7 +292,10 @@ int  AffixMgr::parse_file(const char * affpath)
              utf8 = 1;
 #ifndef OPENOFFICEORG
 #ifndef MOZILLA_CLIENT
-             if (initialize_utf_tbl()) return 1;
+             if (initialize_utf_tbl()) {
+               fclose(afflst);
+               return 1;
+             }
 #endif
 #endif
           }
@@ -3204,7 +3207,10 @@ int  AffixMgr::parse_reptable(char * line, FILE * af)
                           return 1;
                        }
                        reptable = (replentry *) malloc(numrep * sizeof(struct replentry));
-                       if (!reptable) return 1;
+                       if (!reptable) {
+                         free(piece);
+                         return 1;
+                       }
                        np++;
                        break;
                      }
@@ -3282,7 +3288,10 @@ int  AffixMgr::parse_checkcpdtable(char * line, FILE * af)
                           return 1;
                        }
                        checkcpdtable = (replentry *) malloc(numcheckcpd * sizeof(struct replentry));
-                       if (!checkcpdtable) return 1;
+                       if (!checkcpdtable) {
+                         free(piece);
+                         return 1;
+                       }
                        np++;
                        break;
                      }
@@ -3360,7 +3369,10 @@ int  AffixMgr::parse_defcpdtable(char * line, FILE * af)
                           return 1;
                        }
                        defcpdtable = (flagentry *) malloc(numdefcpd * sizeof(flagentry));
-                       if (!defcpdtable) return 1;
+                       if (!defcpdtable) {
+                           free(piece);
+                           return 1;
+                       }
                        np++;
                        break;
                      }
@@ -3441,7 +3453,10 @@ int  AffixMgr::parse_maptable(char * line, FILE * af)
                           return 1;
                        }
                        maptable = (mapentry *) malloc(nummap * sizeof(struct mapentry));
-                       if (!maptable) return 1;
+                       if (!maptable) {
+                         free(piece);
+                         return 1;
+                       }
                        np++;
                        break;
                      }
@@ -3536,7 +3551,10 @@ int  AffixMgr::parse_breaktable(char * line, FILE * af)
                           return 1;
                        }
                        breaktable = (char **) malloc(numbreak * sizeof(char *));
-                       if (!breaktable) return 1;
+                       if (!breaktable) {
+                         free(piece);
+                         return 1;
+                       }
                        np++;
                        break;
                      }

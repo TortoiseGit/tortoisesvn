@@ -422,20 +422,23 @@ public:
 
     quick_hash& operator=(const quick_hash& rhs)
     {
-        if (grower.capacity() != rhs.grower.capacity())
+        if (this != &rhs)
         {
-            delete[] data;
-            data = new index_type [rhs.grower.capacity()];
-        }
+            if (grower.capacity() != rhs.grower.capacity())
+            {
+                delete[] data;
+                data = new index_type [rhs.grower.capacity()];
+            }
 
-        grower = rhs.grower;
+            grower = rhs.grower;
 
-        for ( index_type* source = rhs.data, *target = data
-            , *end = source + rhs.grower.capacity()
-            ; source != end
-            ; ++source, ++target)
-        {
-            *target = *source;
+            for ( index_type* source = rhs.data, *target = data
+                , *end = source + rhs.grower.capacity()
+                ; source != end
+                ; ++source, ++target)
+            {
+                *target = *source;
+            }
         }
 
         return *this;

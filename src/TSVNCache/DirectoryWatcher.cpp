@@ -453,7 +453,7 @@ void CDirectoryWatcher::WorkerThread()
                                         continue;
                                     }
                                 }
-                                if ((pFound = wcsstr(buf, L".tmp"))!=NULL)
+                                if ((wcsstr(buf, L".tmp"))!=NULL)
                                 {
                                     // assume files with a .tmp extension are not versioned and interesting,
                                     // so ignore them.

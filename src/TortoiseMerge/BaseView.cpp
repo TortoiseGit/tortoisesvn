@@ -87,7 +87,7 @@ CBaseView::CBaseView()
     m_ptCaretViewPos.y = 0;
     m_nCaretGoalPos = 0;
     m_ptSelectionViewPosStart = m_ptCaretViewPos;
-    m_ptSelectionViewPosEnd = m_ptSelectionViewPosEnd;
+    m_ptSelectionViewPosEnd = m_ptSelectionViewPosStart;
     m_ptSelectionViewPosOrigin = m_ptSelectionViewPosEnd;
     m_nSelViewBlockStart = -1;
     m_nSelViewBlockEnd = -1;
@@ -3494,6 +3494,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         CString sLineLeft = sLine.Left(nLeft);
         CString sLineRight = sLine.Right(sLine.GetLength() - nLeft);
         EOL eOriginalEnding = EOL_AUTOLINE;
+		int nInsertLine = (m_pViewData && m_pViewData->GetCount()==0) ? 0 : nViewLine + 1;
         if (m_pViewData)
         {
             if (m_pViewData->GetCount() > nViewLine)
@@ -3504,12 +3505,10 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
                 viewdata newFirstLine(sLineLeft, DIFFSTATE_EDITED, 1, lineendings, HIDESTATE_SHOWN, -1);
                 SetViewData(nViewLine, newFirstLine);
             }
-        }
-        viewdata newLastLine(sLineRight, DIFFSTATE_EDITED, 1, eOriginalEnding, HIDESTATE_SHOWN, -1);
-        int nInsertLine = nViewLine+1;
-        if (m_pViewData && (m_pViewData->GetCount()==0))
-            nInsertLine = 0;
-        InsertViewData(nInsertLine, newLastLine);
+
+			viewdata newLastLine(sLineRight, DIFFSTATE_EDITED, 1, eOriginalEnding, HIDESTATE_SHOWN, -1);
+	        InsertViewData(nInsertLine, newLastLine);
+		}
         SaveUndoStep();
 
         // adds new line everywhere except me

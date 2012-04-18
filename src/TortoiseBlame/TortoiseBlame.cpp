@@ -1491,7 +1491,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     SetDllDirectory(L"");
     CCrashReportTSVN crasher(L"TortoiseBlame " _T(APP_X64_STRING));
-    if (::LoadLibrary(_T("SciLexer.DLL")) == NULL)
+
+    HMODULE hSciLexerDll = ::LoadLibrary(_T("SciLexer.DLL"));
+    if (hSciLexerDll == NULL)
         return FALSE;
 
     SetTaskIDPerUUID();
@@ -1517,6 +1519,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     if (!InitInstance (app.hResource, nCmdShow))
     {
         langDLL.Close();
+        FreeLibrary(hSciLexerDll);
         return FALSE;
     }
 
@@ -1553,6 +1556,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         LoadString(app.hResource, IDS_COMMANDLINE_INFO, szInfo, MAX_LOADSTRING);
         MessageBox(NULL, szInfo, _T("TortoiseBlame"), MB_ICONERROR);
         langDLL.Close();
+        FreeLibrary(hSciLexerDll);
         return 0;
     }
 
@@ -1588,6 +1592,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         }
     }
     langDLL.Close();
+    FreeLibrary(hSciLexerDll);
     return (int)msg.wParam;
 }
 
