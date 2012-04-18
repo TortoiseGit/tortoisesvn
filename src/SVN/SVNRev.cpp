@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -216,7 +216,11 @@ int SVNRevRangeArray::AddRevRange(const SVNRev& start, const SVNRev& end)
 
 int SVNRevRangeArray::AddRevRange(const SVNRevRange& revrange)
 {
-    m_array.push_back(revrange);
+    for (svn_revnum_t r = revrange.GetStartRevision(); r <= revrange.GetEndRevision(); ++r)
+        AddRevision(r);
+    for (svn_revnum_t r = revrange.GetEndRevision(); r >= revrange.GetStartRevision(); --r)
+        AddRevision(r);
+
     return GetCount();
 }
 
@@ -255,7 +259,8 @@ int SVNRevRangeArray::AddRevision(const SVNRev& revision)
             return count;
         }
     }
-    return AddRevRange(SVNRevRange(revision, revision));
+    m_array.push_back(SVNRevRange(revision, revision));
+    return GetCount();
 }
 
 void SVNRevRangeArray::AddRevisions(const std::vector<svn_revnum_t>& revisions)
@@ -507,10 +512,13 @@ public:
         array.AddRevRange(SVNRev(3), SVNRev(5));
         array.AddRevRange(SVNRev(7), SVNRev(9));
         array.AddRevRange(SVNRev(20), SVNRev(20));
-        ATLASSERT(_tcscmp((LPCTSTR)array.ToListString(), _T("1,3-5,7-9,20"))==0);
+        array.AddRevRange(SVNRev(20), SVNRev(20));
+        array.AddRevRange(SVNRev(25), SVNRev(29));
+        array.AddRevRange(SVNRev(26), SVNRev(30));
+        ATLASSERT(_tcscmp((LPCTSTR)array.ToListString(), _T("1,3-5,7-9,20,25-30"))==0);
         SVNRevRangeArray array2;
         array2.FromListString(array.ToListString());
-        ATLASSERT(array2.GetCount()==4);
+        ATLASSERT(array2.GetCount()==5);
     }
 } SVNRevListTests;
 #endif
