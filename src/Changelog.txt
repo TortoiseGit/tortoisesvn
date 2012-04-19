@@ -80,6 +80,8 @@ Version 1.7.7
 - BUG: Issue #274: exception when dragging. (Stefan)
 - BUG: Issue #275: "repair move" fails if
        target dir is missing/deleted. (Stefan)
+- BUG: Issue #276: exception if more than 192 user
+       defined properties are found. (Stefan)
 
 Version 1.7.6
 - BUG: Issue #209: repo browser doesn't

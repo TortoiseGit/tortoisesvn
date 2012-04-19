@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2011 - TortoiseSVN
+// Copyright (C) 2008-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -438,8 +438,7 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
     for (size_t i = 0, count = userProps.size(); i < count; ++i)
         newProps.erase (userProps[i].name);
 
-    while (   newProps.size() + userProps.size()
-            > SVNSLC_MAXCOLUMNCOUNT - SVNSLC_USERPROPCOLOFFSET)
+    while (newProps.size() && (newProps.size() + userProps.size() > SVNSLC_MAXCOLUMNCOUNT - SVNSLC_USERPROPCOLOFFSET))
         newProps.erase (--newProps.end());
 
     typedef std::set<CString>::const_iterator CIT;
@@ -495,7 +494,11 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
                 break;
             }
 
-        assert (index != -1);
+        if (index == -1)
+        {
+            // property got removed because there were more than SVNSLC_MAXCOLUMNCOUNT-SVNSLC_USERPROPCOLOFFSET
+            continue;
+        }
 
         // find insertion position
 
