@@ -437,9 +437,11 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
             {
                 // just in case (see issue #255)
                 if (itMap->second == cdir)
-                    break;
-
-                RemoveCacheForDirectory(itMap->second);
+                {
+                    m_directoryCache.erase(itMap);
+                }
+                else
+                    RemoveCacheForDirectory(itMap->second);
             }
         }
         itMap = m_directoryCache.lower_bound(cdir->m_directoryPath);
