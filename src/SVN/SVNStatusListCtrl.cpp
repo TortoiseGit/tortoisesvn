@@ -3339,10 +3339,15 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
             case IDSVNLC_COMPARE:
                 {
                     POSITION pos = GetFirstSelectedItemPosition();
-                    while ( pos )
+                    if (pos == NULL)
+                        StartDiff(entry);
+                    else
                     {
-                        int index = GetNextSelectedItem(pos);
-                        StartDiff(index);
+                        while ( pos )
+                        {
+                            int index = GetNextSelectedItem(pos);
+                            StartDiff(index);
+                        }
                     }
                 }
                 break;
