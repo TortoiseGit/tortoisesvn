@@ -1706,7 +1706,8 @@ svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t **result,
     SVN * svn = (SVN *)baton;
     CString file;
     svn_wc_conflict_choice_t choice = svn->ConflictResolveCallback(description, file);
-    *result = svn_wc_create_conflict_result(choice, file.IsEmpty() ? NULL : apr_pstrdup(resultpool, (const char*)CUnicodeUtils::GetUTF8(file)), resultpool);
+    CTSVNPath f(file);
+    *result = svn_wc_create_conflict_result(choice, file.IsEmpty() ? NULL : apr_pstrdup(resultpool, f.GetSVNApiPath(resultpool)), resultpool);
     if (svn->Cancel())
     {
         CString temp;

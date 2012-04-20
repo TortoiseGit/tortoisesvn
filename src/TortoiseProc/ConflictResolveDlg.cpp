@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -216,12 +216,7 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
     }
     else
     {
-        // Subversion segfaults (1.5.1) if the path of the merged file is not a child of the
-        // folder where the conflict occurs. That's why we try to use the provided file path first...
-        if (m_pConflictDescription->merged_file)
-            m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file);
-        else
-            m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath))).GetWinPath();
+        m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath))).GetWinPath();
         CAppUtils::MergeFlags flags;
         flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
         flags.bReadOnly = true;
