@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-08 11:52+0000\n"
+"PO-Revision-Date: 2012-04-17 17:19+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3006,7 +3006,7 @@ msgid ""
 "Retain the depth specified in the working copy. This option is not used in "
 "the checkout dialog, but it is the default in all other dialogs which have a"
 " depth setting."
-msgstr "作業コピーに指定した深さを保持します。このオプションは、チェックアウトダイアログでは使用されませんが、その他の深さの設定を持つダイアログでは、デフォルト設定となっています。"
+msgstr "作業コピーに指定した深さを記憶します。このオプションは、チェックアウトダイアログでは使用されませんが、その他の深さの設定を持つダイアログでは、デフォルト設定となっています。"
 
 #. (term)
 msgid "Exclude"
@@ -3123,7 +3123,7 @@ msgid ""
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>. In that dialog, be sure to check the"
 " <guilabel>Make depth sticky</guilabel> checkbox."
-msgstr "作業コピーをある深さでチェックアウトしたあと、 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>項目を特定リビジョンへ更新...</guimenuitem></menuchoice> を使用することで、後から深さを変更できます。そのダイアログで、 <guilabel>深さを固定する</guilabel> のチェックボックスにチェックしてください。"
+msgstr "作業コピーをある深さでチェックアウトしたあと、 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>項目を特定リビジョンへ更新...</guimenuitem></menuchoice> を使用することで、後から深さを変更できます。そのダイアログで、 <guilabel>深さを記憶する</guilabel> のチェックボックスにチェックしてください。"
 
 #. (title)
 msgid "Using an older server"
@@ -3741,7 +3741,7 @@ msgid ""
 "setting. You can also set the depth <literal>sticky</literal> which means "
 "subsequent updates will use that new depth, i.e. that depth is then used as "
 "the default depth."
-msgstr "同じダイアログで、現在のフォルダーを更新するときの <firstterm>深さ</firstterm> を選択することもできます。選択肢の意味については、 <xref linkend=\"tsvn-dug-checkout-depth\"/>をご覧ください。デフォルトでは <guilabel>作業コピー</guilabel> が選択されており、これは現在の深さを維持します。また、<literal>深さを固定する</literal>を選択することもできます。これを選択すると、以降の更新ではそれが新しい深さの初期値として使用されます。"
+msgstr "同じダイアログで、現在のフォルダーを更新するときの <firstterm>深さ</firstterm> を選択することもできます。選択肢の意味については、 <xref linkend=\"tsvn-dug-checkout-depth\"/>をご覧ください。デフォルトでは <guilabel>作業コピー</guilabel> が選択されており、これは現在の深さを維持します。また、<literal>深さを記憶する</literal>を選択することもできます。これを選択すると、以降の更新ではそれが新しい深さの初期値として使用されます。"
 
 #. (para)
 msgid ""
@@ -11870,7 +11870,7 @@ msgstr "TortoiseSVN にはデフォルトで3つのカスタムサウンドが�
 
 #. (term)
 msgid "Use Aero Dialogs"
-msgstr "Aero のダイアログを使用する"
+msgstr "Aero のダイアログを使用"
 
 #. (para)
 msgid ""
@@ -11937,7 +11937,7 @@ msgstr "この無視パターンはすべてのプロジェクトに影響を与
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
-msgstr "ファイルの更新日時に <quote>最後にコミットした日時</quote> を設定する"
+msgstr "ファイルの更新日時を<quote>最後にコミットした日時</quote>に設定"
 
 #. (para)
 msgid ""
@@ -12056,7 +12056,7 @@ msgid ""
 "Log</guimenuitem></menuchoice> Useful for slow server connections. You can "
 "always use <guibutton>Show All</guibutton> or <guibutton>Next "
 "100</guibutton> to get more messages."
-msgstr "最初に <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ログを表示</guimenuitem></menuchoice> を選択したとき、 TortoiseSVN が取得するログメッセージをこの数に制限します。サーバーへの接続が遅い場合に便利です。もっとメッセージを取得するには <guibutton>全て表示</guibutton> や <guibutton>次の 100</guibutton> を使用してください。"
+msgstr "最初に <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ログを表示</guimenuitem></menuchoice> を選択したとき、 TortoiseSVN が取得するログメッセージをこの数に制限します。サーバーへの接続が遅い場合に便利です。もっとメッセージを取得するには <guibutton>全て表示</guibutton> や <guibutton>次の100件</guibutton> を使用してください。"
 
 #. (term)
 msgid "Font for log messages"
@@ -12431,7 +12431,7 @@ msgstr "リポジトリから削除された項目、作業コピーから紛失
 
 #. (term)
 msgid "Merged"
-msgstr "マージ済み"
+msgstr "マージ終了"
 
 #. (para)
 msgid ""
@@ -12788,7 +12788,7 @@ msgid ""
 "dialogs as well as in Windows Explorer. If you want them to appear "
 "<emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show "
 "overlays and context menu only in explorer</guilabel> box."
-msgstr "デフォルトでは、ファイルを開く・保存ダイアログでも、Windows エクスプローラーと同様に、オーバレイアイコンやコンテキストメニューが表示されます。 Windows エクスプローラーで <emphasis>のみ</emphasis> 表示させる場合は、 <guilabel>エクスプローラー上でのみオーバレイを表示する</guilabel> をチェックしてください。"
+msgstr "デフォルトでは、ファイルを開く・保存ダイアログでも、Windows エクスプローラーと同様に、オーバレイアイコンやコンテキストメニューが表示されます。 Windows エクスプローラーで <emphasis>のみ</emphasis> 表示させる場合は、<guilabel>エクスプローラー上でのみオーバーレイとコンテキストメニューを表示</guilabel>をチェックしてください。"
 
 #. (para)
 msgid ""
@@ -15684,7 +15684,7 @@ msgid ""
 "Log</guimenuitem></menuchoice> to display a list of revisions. You may need "
 "to use <guibutton>Show All</guibutton> or <guibutton>Next 100</guibutton> to"
 " show the revision(s) you are interested in."
-msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ログを表示</guimenuitem></menuchoice> を選択してリビジョン一覧を表示します。参照したいリビジョンを表示するのに <guibutton>すべて取得</guibutton> や <guibutton>次の 100</guibutton> を使用する必要があるでしょう。"
+msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ログを表示</guimenuitem></menuchoice> を選択してリビジョン一覧を表示します。参照したいリビジョンを表示するのに <guibutton>すべて取得</guibutton> や <guibutton>次の100件</guibutton> を使用する必要があるでしょう。"
 
 #. (para)
 msgid ""
@@ -16959,7 +16959,7 @@ msgid ""
 "message to the branch/tag dialog. Or, if you don't want to pass the log "
 "message on the command line, use <placeholder-6/>, where <placeholder-7/> "
 "points to a file containing the log message."
-msgstr "ブランチ/タグダイアログを開きます。<placeholder-1/>でブランチ/タグの作成元の作業コピーを指定します。また、<placeholder-2/>は作成先のURLです。 <placeholder-3/>オプションを既定でチェックしておきたい場合は、<placeholder-4/>を指定してください。<placeholder-5/>でログメッセージの初期値を指定できます。また、コマンドラインでログメッセージを渡したくない場合は、<placeholder-6/>を使用します。<placeholder-7/>でログメッセージが入ったファイルの場所を指定します。"
+msgstr "ブランチ/タグダイアログを開きます。 <placeholder-1/> でブランチ/タグの作成元の作業コピーを指定します。また、 <placeholder-2/> は作成先の URL です。 <placeholder-3/> オプションを既定でチェックしておきたい場合は、 <placeholder-4/> を指定してください。 <placeholder-5/> でログメッセージの初期値を指定できます。また、コマンドラインでログメッセージを渡したくない場合は、 <placeholder-6/> を使用します。 <placeholder-7/> でログメッセージが入ったファイルの場所を指定します。"
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -17187,13 +17187,13 @@ msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>. If"
 " <option>/rev:XXX</option> is specified and <option>/path</option> is an "
 "URL, the dialog shows and edits revision properties."
-msgstr "<placeholder-1/>で指定されたパスのプロパティダイアログを表示します。<option>/rev:XXX</option>が指定されていて、<option>/path</option>がURLであれば、ダイアログでリビジョンプロパティを表示・編集します。"
+msgstr "<placeholder-1/> で指定されたパスのプロパティダイアログを表示します。 <option>/rev:XXX</option> が指定されていて、 <option>/path</option> が URL であれば、ダイアログでリビジョンプロパティを表示・編集します。"
 
 #. (para)
 msgid ""
 "To open the properties dialog directly for a specific property, pass the "
 "property name as <option>/property:name</option>."
-msgstr "特定のプロパティのプロパティダイアログを直接開く場合は、プロパティ名を<option>/property:name</option>の指定してください。"
+msgstr "特定のプロパティのプロパティダイアログを直接開く場合は、プロパティ名を <option>/property:name</option> の指定してください。"
 
 #. (para)
 msgid ""
@@ -17494,7 +17494,7 @@ msgid ""
 "taking account of the ignore rules. This particular feature has no direct "
 "equivalent in Subversion, as the <literal>svn status</literal> command does "
 "not descend into unversioned folders."
-msgstr "<guilabel>バージョン管理外のファイルを表示する</guilabel> にチェックがあると、TortoiseSVN は作業コピーの階層にあるバージョン管理外のファイルやフォルダーも (無視ルールを考慮して) 表示します。<literal>svn status</literal> コマンドはバージョン管理外のフォルダー以下は検索しないため、この特殊な機能は直接対応する Subversion コマンドがありません。"
+msgstr "<guilabel>バージョン管理外のファイルを表示</guilabel>にチェックがあると、TortoiseSVN は作業コピーの階層にあるバージョン管理外のファイルやフォルダーも (無視ルールを考慮して) 表示します。<literal>svn status</literal> コマンドはバージョン管理外のフォルダー以下は検索しないため、この特殊な機能は直接対応する Subversion コマンドがありません。"
 
 #. (para)
 msgid ""
@@ -19662,7 +19662,7 @@ msgstr "Ctrl+S"
 
 #. (para)
 msgid "Save the changes"
-msgstr "変更を保存する"
+msgstr "変更を保存"
 
 #. (term)
 msgid "Ctrl-Shift-S"

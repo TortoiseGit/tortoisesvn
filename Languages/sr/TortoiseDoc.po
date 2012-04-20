@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-08 08:26+0000\n"
+"PO-Revision-Date: 2012-04-16 13:18+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2848,7 +2848,7 @@ msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
 "will get a warning that the local folder is not empty. Ignore the warning. "
 "Now you have a versioned top level folder with unversioned content."
-msgstr ""
+msgstr "Преузимање новог фолдера преко врха фолдера који желите да увезете. Добићете упозорење да локални фолдер није празан. Занемарити упозорење. Сада имате верзионисани фодер вршног нивоа са неверзионисаним садржајем."
 
 #. (para)
 msgid ""
@@ -3231,7 +3231,7 @@ msgstr "Дијалог урезивања ће вам показати свак�
 msgid ""
 "For information on the coloring and overlays of the items according to their"
 " status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
-msgstr ""
+msgstr "За информације о бојењу и прекривачима ставки у складу са њиховим статусом молим видите <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
 
 #. (para)
 msgid ""
@@ -4621,42 +4621,42 @@ msgstr "Дијалог користи колор кодирање да осве�
 
 #. (para)
 msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
-msgstr ""
+msgstr "Дубина преузима <literal>празан</literal>, значи само сама ставка."
 
 #. (para)
 msgid ""
 "Checkout depth <literal>files</literal>, meaning only the item itself and "
 "all file children without child folders."
-msgstr ""
+msgstr "Дубина преузимања <literal>фајлови</literal>, значи само те ставке и сви фајлови потомци без потомачког фолдера."
 
 #. (para)
 msgid ""
 "Checkout depth <literal>immediates</literal>, meaning only the item itself "
 "and all file and folder children, but without children of the child folders."
-msgstr ""
+msgstr "Дубина преузимања <literal>тренитно</literal>, значи само сама ставка и фајл и фолдер потомак, али без потомака потомачког фолдера."
 
 #. (para)
 msgid "Nested items, i.e., working copies inside the working copy."
-msgstr ""
+msgstr "Угњеждене ставке, тј. радне копије унутар радне копије."
 
 #. (para)
 msgid ""
 "External items, i.e., all items that are added via an "
 "<literal>svn:externals</literal> property."
-msgstr ""
+msgstr "Екстерне ставке, тј, све ставке које су додате преко <literal>svn:externals</literal> особина."
 
 #. (para)
 msgid ""
 "Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
 "restore\"/> for details."
-msgstr ""
+msgstr "Ставке које су враћене после урезивања. Види <xref linkend=\"tsvn-dug-commit-restore\"/> за детаље."
 
 #. (para)
 msgid ""
 "Items that have property modifications, but only to the "
 "<literal>svn:mergeinfo</literal> property. If any other property is "
 "modified, the overlay is not used."
-msgstr ""
+msgstr "Ставке које имају измене особина, али само у <literal>svn:mergeinfo</literal> особине. Ако је било која особина измењена, прекривачи нису коришћени."
 
 #. (para)
 msgid ""
@@ -4664,7 +4664,7 @@ msgid ""
 "below shows all the possible overlays that are shown if necessary. <graphic "
 "fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
 "following states: <placeholder-1/>"
-msgstr ""
+msgstr "Прекривачке иконе су коришћене да добро означе друга стања. Доња слика приказује све могуће прекриваче који се приказују ако су неопходни. <graphic fileref=\"../images/statuslistoverlays.png\"/> Прекривачи су приказани за следећа стања: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -16851,7 +16851,7 @@ msgstr "Креира спремиште у <placeholder-1/>"
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the url to switch to."
-msgstr ""
+msgstr "Отвара дијалог скретања. <placeholder-1/>  одређује циљни директоријум и <placeholder-2/> урл у који скреће."
 
 #. (entry)
 msgid ""
@@ -16875,15 +16875,15 @@ msgstr "/autorename"
 
 #. (option)
 msgid "/extended"
-msgstr ""
+msgstr "/extended"
 
 #. (literal)
 msgid "localchanges"
-msgstr ""
+msgstr "локалне измене"
 
 #. (literal)
 msgid "unversioned"
-msgstr ""
+msgstr "неверзионисан"
 
 #. (entry)
 msgid ""
@@ -16895,7 +16895,7 @@ msgid ""
 "renamed to avoid overwriting them. The option <placeholder-5/> can specify "
 "either <placeholder-6/> to only export files that got changed locally, or "
 "<placeholder-7/> to also export all unversioned items as well."
-msgstr ""
+msgstr "Извози тадну копију у <placeholder-1/> у директоријум одређен у <placeholder-2/>. Извоз не користи извозни дијалог већ се изводи директно. Опција <placeholder-3/> одређује да се постојећи фајлови преписују без потврђивања, а опција <placeholder-4/> одређује да сви фајлови већ постоје, извозни фајлови се аутоматски преименују да се избегне да се препишу. Опција <placeholder-5/> може одређује или <placeholder-6/> да се само извезу фајлови који су измењени локално, или <placeholder-7/> да се такође извезу све неверзионисане ставке такође."
 
 #. (option)
 #. (option)
@@ -16942,11 +16942,11 @@ msgstr "Отвара дијалог стапања. <placeholder-1/>  специ
 
 #. (literal)
 msgid "Switch working copy to new branch/tag"
-msgstr ""
+msgstr "Скрени радну копију у нову грану/знак."
 
 #. (option)
 msgid "/switchaftercopy"
-msgstr ""
+msgstr "/switchaftercopy"
 
 #. (entry)
 msgid ""
@@ -16957,7 +16957,7 @@ msgid ""
 "message to the branch/tag dialog. Or, if you don't want to pass the log "
 "message on the command line, use <placeholder-6/>, where <placeholder-7/> "
 "points to a file containing the log message."
-msgstr ""
+msgstr "Доводи грана/знак дијалог. <placeholder-1/> је радна копија из грана/знак. А <placeholder-2/> је циљни УРЛ. Да се истовремено провери опција <placeholder-3/> морати провући <placeholder-4/> скретање.Такође морате одредити <placeholder-5/> скретање да провучете предефинисати дневник порука за грана/знак дијалог. Или, ако не желите да провучете поруку дневника у командну линију користите <placeholder-6/>, где <placeholder-7/> указује на фајл који садржи поруку дневника."
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -17185,13 +17185,13 @@ msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>. If"
 " <option>/rev:XXX</option> is specified and <option>/path</option> is an "
 "URL, the dialog shows and edits revision properties."
-msgstr ""
+msgstr "Приказује дијалог особина за путању дату у <option>/path</option>. Ако је <option>/rev:XXX</option> одређена и <option>/path</option> је УРЛ дијалог приказује и уређује особине ревизије."
 
 #. (para)
 msgid ""
 "To open the properties dialog directly for a specific property, pass the "
 "property name as <option>/property:name</option>."
-msgstr ""
+msgstr "Да се отвори дијалог особина за одређену особину провуците име особине као <option>/property:name</option>."
 
 #. (para)
 msgid ""
