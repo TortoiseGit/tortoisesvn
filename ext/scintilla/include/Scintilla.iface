@@ -791,7 +791,7 @@ set void SetHighlightGuide=2134(int column,)
 get int GetHighlightGuide=2135(,)
 
 # Get the position after the last visible characters on a line.
-get int GetLineEndPosition=2136(int line,)
+get position GetLineEndPosition=2136(int line,)
 
 # Get the code page used to interpret the bytes of the document as characters.
 get int GetCodePage=2137(,)
@@ -1806,6 +1806,16 @@ fun int AutoCGetCurrent=2445(,)
 # Returns the length of the item text
 fun int AutoCGetCurrentText=2610(, stringresult s)
 
+enu CaseInsensitiveBehaviour=SC_CASEINSENSITIVEBEHAVIOUR_
+val SC_CASEINSENSITIVEBEHAVIOUR_RESPECTCASE=0
+val SC_CASEINSENSITIVEBEHAVIOUR_IGNORECASE=1
+
+# Set auto-completion case insensitive behaviour to either prefer case-sensitive matches or have no preference.
+set void AutoCSetCaseInsensitiveBehaviour=2634(int behaviour,)
+
+# Get auto-completion case insensitive behaviour.
+get int AutoCGetCaseInsensitiveBehaviour=2635(,)
+
 # Enlarge the document to a particular size of text bytes.
 fun void Allocate=2446(int bytes,)
 
@@ -2207,6 +2217,15 @@ get int GetTechnology=2631(,)
 # Create an ILoader*.
 fun int CreateLoader=2632(int bytes,)
 
+# On OS X, show a find indicator.
+fun void FindIndicatorShow=2640(position start, position end)
+
+# On OS X, flash a find indicator, then fade out.
+fun void FindIndicatorFlash=2641(position start, position end)
+
+# On OS X, hide the find indicator.
+fun void FindIndicatorHide=2642(,)
+
 # Start notifying the container of all key presses and commands.
 fun void StartRecord=3001(,)
 
@@ -2456,6 +2475,7 @@ val SCLEX_MODULA=101
 val SCLEX_COFFEESCRIPT=102
 val SCLEX_TCMD=103
 val SCLEX_AVS=104
+val SCLEX_ECL=105
 
 # When a lexer specifies its language as SCLEX_AUTOMATIC it receives a
 # value assigned in sequence from SCLEX_AUTOMATIC+1.
@@ -4063,6 +4083,36 @@ val SCE_AVS_PLUGIN=11
 val SCE_AVS_FUNCTION=12
 val SCE_AVS_CLIPPROP=13
 val SCE_AVS_USERDFN=14
+# Lexical states for SCLEX_ECL
+lex ECL=SCLEX_ECL SCE_ECL_
+val SCE_ECL_DEFAULT=0
+val SCE_ECL_COMMENT=1
+val SCE_ECL_COMMENTLINE=2
+val SCE_ECL_NUMBER=3
+val SCE_ECL_STRING=4
+val SCE_ECL_WORD0=5
+val SCE_ECL_OPERATOR=6
+val SCE_ECL_CHARACTER=7
+val SCE_ECL_UUID=8
+val SCE_ECL_PREPROCESSOR=9
+val SCE_ECL_UNKNOWN=10
+val SCE_ECL_IDENTIFIER=11
+val SCE_ECL_STRINGEOL=12
+val SCE_ECL_VERBATIM=13
+val SCE_ECL_REGEX=14
+val SCE_ECL_COMMENTLINEDOC=15
+val SCE_ECL_WORD1=16
+val SCE_ECL_COMMENTDOCKEYWORD=17
+val SCE_ECL_COMMENTDOCKEYWORDERROR=18
+val SCE_ECL_WORD2=19
+val SCE_ECL_WORD3=20
+val SCE_ECL_WORD4=21
+val SCE_ECL_WORD5=22
+val SCE_ECL_COMMENTDOC=23
+val SCE_ECL_ADDED=24
+val SCE_ECL_DELETED=25
+val SCE_ECL_CHANGED=26
+val SCE_ECL_MOVED=27
 
 # Events
 

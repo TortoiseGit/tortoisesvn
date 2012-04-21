@@ -57,7 +57,6 @@ static inline bool IsUpperCase(char ch) {
 }
 
 void LexInterface::Colourise(int start, int end) {
-	ElapsedTime et;
 	if (pdoc && instance && !performingStyle) {
 		// Protect against reentrance, which may occur, for example, when
 		// fold points are discovered while performing styling and the folding
@@ -470,8 +469,8 @@ int Document::LenChar(int pos) {
 	}
 }
 
-static bool IsTrailByte(int ch) {
-	return (ch >= 0x80) && (ch < (0x80 + 0x40));
+static inline bool IsTrailByte(int ch) {
+	return (ch >= 0x80) && (ch < 0xc0);
 }
 
 static int BytesFromLead(int leadByte) {
@@ -687,7 +686,7 @@ bool SCI_METHOD Document::IsDBCSLeadByte(char ch) const {
 	return false;
 }
 
-inline bool IsSpaceOrTab(int ch) {
+static inline bool IsSpaceOrTab(int ch) {
 	return ch == ' ' || ch == '\t';
 }
 
@@ -721,7 +720,12 @@ int Document::SafeSegment(const char *text, int length, int lengthSegment) {
 		lastEncodingAllowedBreak = j;
 
 		if (dbcsCodePage == SC_CP_UTF8) {
-			j += (ch < 0x80) ? 1 : BytesFromLead(ch);
+			if (ch < 0x80) {
+				j++;
+			} else {
+				int bytes = BytesFromLead(ch);
+				j += bytes ? bytes : 1;
+			}
 		} else if (dbcsCodePage) {
 			j += IsDBCSLeadByte(ch) ? 2 : 1;
 		} else {
@@ -976,7 +980,7 @@ bool Document::InsertChar(int pos, char ch) {
  * Insert a null terminated string.
  */
 bool Document::InsertCString(int position, const char *s) {
-	return InsertString(position, s, static_cast<int>(strlen(s)));
+	return InsertString(position, s, static_cast<int>(s ? strlen(s) : 0));
 }
 
 void Document::ChangeChar(int pos, char ch) {
@@ -999,10 +1003,6 @@ void Document::DelCharBack(int pos) {
 	} else {
 		DeleteChars(pos - 1, 1);
 	}
-}
-
-static bool isindentchar(char ch) {
-	return (ch == ' ') || (ch == '\t');
 }
 
 static int NextTab(int pos, int tabSize) {
@@ -1064,7 +1064,7 @@ int Document::GetLineIndentPosition(int line) const {
 		return 0;
 	int pos = LineStart(line);
 	int length = Length();
-	while ((pos < length) && isindentchar(cb.CharAt(pos))) {
+	while ((pos < length) && IsSpaceOrTab(cb.CharAt(pos))) {
 		pos++;
 	}
 	return pos;
@@ -1116,6 +1116,8 @@ int Document::FindColumn(int line, int column) {
 			char ch = cb.CharAt(position);
 			if (ch == '\t') {
 				columnCurrent = NextTab(columnCurrent, tabInChars);
+				if (columnCurrent > column)
+					return position;
 				position++;
 			} else if (ch == '\r') {
 				return position;
@@ -1380,17 +1382,13 @@ static inline char MakeLowerCase(char ch) {
 		return static_cast<char>(ch - 'A' + 'a');
 }
 
-static bool GoodTrailByte(int v) {
-	return (v >= 0x80) && (v < 0xc0);
-}
-
 size_t Document::ExtractChar(int pos, char *bytes) {
 	unsigned char ch = static_cast<unsigned char>(cb.CharAt(pos));
 	size_t widthChar = UTF8CharLength(ch);
 	bytes[0] = ch;
 	for (size_t i=1; i<widthChar; i++) {
 		bytes[i] = cb.CharAt(static_cast<int>(pos+i));
-		if (!GoodTrailByte(static_cast<unsigned char>(bytes[i]))) { // Bad byte
+		if (!IsTrailByte(static_cast<unsigned char>(bytes[i]))) { // Bad byte
 			widthChar = 1;
 		}
 	}
@@ -1768,12 +1766,14 @@ StyledText Document::AnnotationStyledText(int line) {
 }
 
 void Document::AnnotationSetText(int line, const char *text) {
-	const int linesBefore = AnnotationLines(line);
-	static_cast<LineAnnotation *>(perLineData[ldAnnotation])->SetText(line, text);
-	const int linesAfter = AnnotationLines(line);
-	DocModification mh(SC_MOD_CHANGEANNOTATION, LineStart(line), 0, 0, 0, line);
-	mh.annotationLinesAdded = linesAfter - linesBefore;
-	NotifyModified(mh);
+	if (line >= 0 && line < LinesTotal()) {
+		const int linesBefore = AnnotationLines(line);
+		static_cast<LineAnnotation *>(perLineData[ldAnnotation])->SetText(line, text);
+		const int linesAfter = AnnotationLines(line);
+		DocModification mh(SC_MOD_CHANGEANNOTATION, LineStart(line), 0, 0, 0, line);
+		mh.annotationLinesAdded = linesAfter - linesBefore;
+		NotifyModified(mh);
+	}
 }
 
 void Document::AnnotationSetStyle(int line, int style) {
@@ -1783,7 +1783,9 @@ void Document::AnnotationSetStyle(int line, int style) {
 }
 
 void Document::AnnotationSetStyles(int line, const unsigned char *styles) {
-	static_cast<LineAnnotation *>(perLineData[ldAnnotation])->SetStyles(line, styles);
+	if (line >= 0 && line < LinesTotal()) {
+		static_cast<LineAnnotation *>(perLineData[ldAnnotation])->SetStyles(line, styles);
+	}
 }
 
 int Document::AnnotationLength(int line) const {
@@ -2189,7 +2191,7 @@ const char *BuiltinRegex::SubstituteByPosition(Document *doc, const char *text, 
 	unsigned int lenResult = 0;
 	for (int i = 0; i < *length; i++) {
 		if (text[i] == '\\') {
-			if (text[i + 1] >= '1' && text[i + 1] <= '9') {
+			if (text[i + 1] >= '0' && text[i + 1] <= '9') {
 				unsigned int patNum = text[i + 1] - '0';
 				lenResult += search.eopat[patNum] - search.bopat[patNum];
 				i++;
@@ -2215,7 +2217,7 @@ const char *BuiltinRegex::SubstituteByPosition(Document *doc, const char *text, 
 	char *o = substituted;
 	for (int j = 0; j < *length; j++) {
 		if (text[j] == '\\') {
-			if (text[j + 1] >= '1' && text[j + 1] <= '9') {
+			if (text[j + 1] >= '0' && text[j + 1] <= '9') {
 				unsigned int patNum = text[j + 1] - '0';
 				unsigned int len = search.eopat[patNum] - search.bopat[patNum];
 				if (search.pat[patNum])	// Will be null if try for a match that did not occur
