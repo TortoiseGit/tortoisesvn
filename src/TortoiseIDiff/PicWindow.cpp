@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2011 - TortoiseSVN
+// Copyright (C) 2006-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1301,6 +1301,20 @@ void CPicWindow::Paint(HWND hwnd)
             ::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
             SIZE stringsize;
             ResString str = ResString(hResource, IDS_INVALIDIMAGEINFO);
+
+            // set the font
+            NONCLIENTMETRICS metrics = {0};
+            metrics.cbSize = sizeof(NONCLIENTMETRICS);
+#if (WINVER >= 0x600)
+            if (!SysInfo::Instance().IsVistaOrLater())
+            {
+                metrics.cbSize -= sizeof(int);  // subtract the size of the iPaddedBorderWidth member which is not available on XP
+            }
+#endif
+            SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
+            HFONT hFont = CreateFontIndirect(&metrics.lfStatusFont);
+            HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
+
             if (GetTextExtentPoint32(memDC, str, (int)_tcslen(str), &stringsize))
             {
                 int nStringLength = stringsize.cx;
@@ -1314,6 +1328,8 @@ void CPicWindow::Paint(HWND hwnd)
                     (UINT)_tcslen(str),
                     NULL);
             }
+            SelectObject(memDC, (HGDIOBJ)hFontOld);
+            DeleteObject(hFont);
         }
         DrawViewTitle(memDC, &fullrect);
     }
