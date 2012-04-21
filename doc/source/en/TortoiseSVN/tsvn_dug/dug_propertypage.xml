@@ -518,8 +518,8 @@
                         checked out at the same location with the same
                         name, you can configure a script/tool to execute
                         that resides in your working copy by specifying
-                        the url in the repository instead, using <filename>%REPOROOT%</filename>
-                        as the part of the url to the repository root.
+                        the URL in the repository instead, using <filename>%REPOROOT%</filename>
+                        as the part of the URL to the repository root.
                         For example, if your hook script is in your working copy
                         under <filename>contrib/hook-scripts/client-side/checkyear.js</filename>,
                         you would specify the path to the script as
@@ -558,7 +558,7 @@
                         different dialog, depending on the type of your property.
                         <variablelist>
                             <varlistentry>
-                                <term>bool</term>
+                                <term condition="pot">bool</term>
                                 <listitem>
                                     <para>
                                         If your property can only have two states, 
@@ -581,7 +581,7 @@
                                 </listitem>
                             </varlistentry>
                             <varlistentry>
-                                <term>state</term>
+                                <term condition="pot">state</term>
                                 <listitem>
                                     <para>
                                         If your property represents one of many possible
@@ -613,13 +613,13 @@
                                 </listitem>
                             </varlistentry>
                             <varlistentry>
-                                <term>singleline</term>
+                                <term condition="pot">singleline</term>
                                 <listitem>
                                     <para>
                                         For properties that consist of one line of text,
                                         use the <literal>singleline</literal> property type:
                                         <figure id="tsvn-dug-propertypage-tsvn-props-usersingleline">
-                                            <title>Property dialog singleline user types</title>
+                                            <title>Property dialog single-line user types</title>
                                             <graphic fileref="../images/userpropsingleline.png"/>
                                         </figure>
                                     </para>
@@ -636,13 +636,13 @@
                                 </listitem>
                             </varlistentry>
                             <varlistentry>
-                                <term>multiline</term>
+                                <term condition="pot">multiline</term>
                                 <listitem>
                                     <para>
                                         For properties that consist of multiple lines of text,
                                         use the <literal>multiline</literal> property type:
                                         <figure id="tsvn-dug-propertypage-tsvn-props-usermultiline">
-                                            <title>Property dialog multiline user types</title>
+                                            <title>Property dialog multi-line user types</title>
                                             <graphic fileref="../images/userpropmultiline.png"/>
                                         </figure>
                                     </para>
