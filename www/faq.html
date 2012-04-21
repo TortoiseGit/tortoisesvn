@@ -36,6 +36,7 @@
                         <li><a href="#whymsi">Why are you using MSI instead of an exe or no installer at all?</a></li>
                         <li><a href="#installerror">The installer aborts with an error message</a></li>
                         <li><a href="#nomenus">After installing, TortoiseSVN does not show up, no context menus are available</a></li>
+                        <li><a href="#nofilemenus">After installing, there is no TortoiseSVN context menu for files</a></li>
                     </ul>
 
                     <h3>Overlay icons:</h3>
@@ -199,6 +200,24 @@
                         <h3>After installing, TortoiseSVN does not show up, no context menus are available</h3>
                         <p>Make sure you have installed the x64 version of TortoiseSVN if you're using XP or Vista 64-bit. Since the explorer on those OS versions is a 64-bit application, it can not load the 32-bit version of TortoiseSVN.</p>
                         <p>You can still keep the 32-bit version of TortoiseSVN installed on those OS versions though: it will show up in the 32-bit applications file-open/save dialogs of those applications.</p>
+                        </div>
+
+                        <div class="h3" id="nofilemenus" title="No context menu for files">
+                        <h3>After installing, there is no TortoiseSVN context menu for files</h3>
+                        <p>This problem may be caused by permission settings in registry. Try the following:</p>
+                        <ol>
+                            <li>Go to registry editor using regedit.</li>
+                            <li>Click on HKEY_CLASSES_ROOT/*/​shellex/ContextMenuH​andlers/TortoiseSVN</li>
+                            <li>Observe error message box saying access is denied.</li>
+                            <li>Right click on the key mentioned above, go to "Permissions"...</li>
+                            <li>In the permission dialog, click on "Advanced"</li>
+                            <li>Click on "Owner" tab, click on your account and click "Apply"</li>
+                            <li>OK the dialog, click on "Add..."</li>
+                            <li>Enter your account name in the text area and click "OK"</li>
+                            <li>OK the permission dialog.</li>
+                            <li>Click on HKEY_CLASSES_ROOT/*/​shellex/ContextMenuH​andlers/TortoiseSVN</li>
+                            <li>Check there is NO error message box.</li>
+                        </ol>
                         </div>
 
                     </div>
