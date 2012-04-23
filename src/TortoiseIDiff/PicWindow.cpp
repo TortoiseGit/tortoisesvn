@@ -1114,10 +1114,12 @@ void CPicWindow::CenterImage()
     if (!bPicWidthBigger)
     {
         nHScrollPos = -((rect.right-rect.left+4)-int(width))/2;
+        nHSecondScrollPos = nHScrollPos;
     }
     if (!bPicHeightBigger)
     {
         nVScrollPos = -((rect.bottom-rect.top+4)-int(height))/2;
+        nVSecondScrollPos = nVScrollPos;
     }
     SetupScrollBars();
 }
