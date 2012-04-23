@@ -779,6 +779,7 @@ void CPicWindow::OnVScroll(UINT nSBCode, UINT nPos)
     if (pSecondPic)
     {
         height = max(height, LONG(double(pSecondPic->GetHeight())*picscale));
+        nVSecondScrollPos = nVScrollPos;
     }
     SetupScrollBars();
     PositionChildren();
@@ -823,6 +824,7 @@ void CPicWindow::OnHScroll(UINT nSBCode, UINT nPos)
     if (pSecondPic)
     {
         width = max(width, LONG(double(pSecondPic->GetWidth())*picscale));
+        nHSecondScrollPos = nHScrollPos;
     }
     SetupScrollBars();
     PositionChildren();
