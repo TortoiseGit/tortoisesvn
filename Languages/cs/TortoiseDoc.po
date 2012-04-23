@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-08 16:14+0000\n"
+"PO-Revision-Date: 2012-04-20 13:56+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4628,13 +4628,13 @@ msgstr "Hloubka získání <literal>prázdný</literal>, znamená pouze samotnou
 msgid ""
 "Checkout depth <literal>files</literal>, meaning only the item itself and "
 "all file children without child folders."
-msgstr "Hloubka získání <literal>soubory</literal>, znamená pouze samotnou položku a všechny podřazené soubory bez podřazených adresářů."
+msgstr "Hloubka získání <literal>podřazené soubory</literal>, znamená pouze samotnou položku a všechny podřazené soubory bez podřazených adresářů."
 
 #. (para)
 msgid ""
 "Checkout depth <literal>immediates</literal>, meaning only the item itself "
 "and all file and folder children, but without children of the child folders."
-msgstr "Hloubka získání <literal>bezprostřední</literal>, znamená pouze samotnou položku a všechny podřazené soubory a adresáře, ale bez podřazených z podřazených adresářů."
+msgstr "Hloubka získání <literal>bezprostřední prvky</literal>, znamená pouze samotnou položku a všechny podřazené soubory a adresáře, ale bez podřazených z podřazených adresářů."
 
 #. (para)
 msgid "Nested items, i.e., working copies inside the working copy."
