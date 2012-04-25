@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -282,6 +282,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
         }
     }
 
+    progDlg.Stop();
     if(bToClipboard)
     {
         // The user actually asked for the patch to be written to the clipboard
@@ -299,13 +300,12 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             fclose(inFile);
 
             CStringUtils::WriteDiffToClipboard(sClipdata);
-            CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath.GetWinPathString(), tempPatchFilePath.GetFilename());
+            CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath.GetWinPathString(), tempPatchFilePath.GetFilename(), TRUE);
         }
     }
     else
         CAppUtils::StartUnifiedDiffViewer(tempPatchFilePath.GetWinPathString(), tempPatchFilePath.GetFilename());
 
-    progDlg.Stop();
     return TRUE;
 }
 
