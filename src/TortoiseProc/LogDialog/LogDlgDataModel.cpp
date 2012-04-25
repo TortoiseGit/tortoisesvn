@@ -595,6 +595,12 @@ void CLogDataVector::Finalize
     else
         query = std::move(aQuery);
 
+    // if we don't have any data, the cache in query may be NULL
+    // -> shortcut it here
+
+    if (empty())
+        return;
+
     // construct an object for the path that 'log' was called for
 
     CStringA utf8Path = CUnicodeUtils::GetUTF8 (startLogPath);
