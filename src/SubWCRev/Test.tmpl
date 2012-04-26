@@ -1,6 +1,9 @@
 // Test file for SubWCRev
 
 char *Revision      = "$WCREV$";
+char *Revision16    = "$WCREV&0xFF$";
+char *Revisionp100  = "$WCREV+100$";
+char *Revisionm100  = "$WCREV-100$";
 char *Modified      = "$WCMODS?Modified:Not modified$";
 char *Date          = "$WCDATE$";
 char *CustDate      = "$WCDATE=%a, %d %B %Y$";

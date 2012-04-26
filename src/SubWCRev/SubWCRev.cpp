@@ -79,6 +79,12 @@ SrcVersionFile is then copied to DstVersionFile but the placeholders\n\
 are replaced with information about the working copy as follows:\n\
 \n\
 $WCREV$         Highest committed revision number\n\
+$WCREV&$        Highest committed revision number ANDed with the number\n\
+                after the &\n\
+$WCREV+$        Highest committed revision number added with the number\n\
+                after the &\n\
+$WCREV-$        Highest committed revision number subtracted with the\n\
+                number after the &\n\
 $WCDATE$        Date of highest committed revision\n\
 $WCDATE=$       Like $WCDATE$ with an added strftime format after the =\n\
 $WCRANGE$       Update revision range\n\
@@ -106,6 +112,9 @@ $WCISLOCKED$    True if the item is locked\n"
 // End of multi-line help text.
 
 #define VERDEF           "$WCREV$"
+#define VERDEFAND        "$WCREV&"
+#define VERDEFOFFSET1    "$WCREV-"
+#define VERDEFOFFSET2    "$WCREV+"
 #define DATEDEF          "$WCDATE$"
 #define DATEDEFUTC       "$WCDATEUTC$"
 #define DATEWFMTDEF      "$WCDATE="
@@ -179,6 +188,46 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
         // No more matches found.
         return FALSE;
     }
+    ptrdiff_t exp = 0;
+    if ((strcmp(def,VERDEFAND) == 0) || (strcmp(def,VERDEFOFFSET1) == 0) || (strcmp(def,VERDEFOFFSET2) == 0))
+    {
+        char format[1024];
+        char * pStart = pBuf + index + strlen(def);
+        char * pEnd = pStart;
+
+        while (*pEnd != '$')
+        {
+            pEnd++;
+            if (pEnd - pBuf >= (__int64)filelength)
+                return FALSE;   // No terminator - malformed so give up.
+        }
+        if ((pEnd - pStart) > 1024)
+        {
+            return FALSE; // value specifier too big
+        }
+        exp = pEnd - pStart + 1;
+        memset(format,0,1024);
+        memcpy(format,pStart,pEnd - pStart);
+        unsigned long number = strtoul(format, NULL, 0);
+        if (strcmp(def,VERDEFAND) == 0)
+        {
+            if (MinRev != -1)
+                MinRev &= number;
+            MaxRev &= number;
+        }
+        if (strcmp(def,VERDEFOFFSET1) == 0)
+        {
+            if (MinRev != -1)
+                MinRev -= number;
+            MaxRev -= number;
+        }
+        if (strcmp(def,VERDEFOFFSET2) == 0)
+        {
+            if (MinRev != -1)
+                MinRev += number;
+            MaxRev += number;
+        }
+    }
     // Format the text to insert at the placeholder
     char destbuf[40];
     if (MinRev == -1 || MinRev == MaxRev)
@@ -201,7 +250,7 @@ int InsertRevision(char * def, char * pBuf, size_t & index,
     }
     // Replace the $WCxxx$ string with the actual revision number
     char * pBuild = pBuf + index;
-    ptrdiff_t Expansion = strlen(destbuf) - strlen(def);
+    ptrdiff_t Expansion = strlen(destbuf) - exp - strlen(def);
     if (Expansion < 0)
     {
         memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
@@ -226,6 +275,48 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
         // No more matches found.
         return FALSE;
     }
+
+    ptrdiff_t exp = 0;
+    if ((wcscmp(def,TEXT(VERDEFAND)) == 0) || (wcscmp(def,TEXT(VERDEFOFFSET1)) == 0) || (wcscmp(def,TEXT(VERDEFOFFSET2)) == 0))
+    {
+        wchar_t format[1024];
+        wchar_t * pStart = pBuf + index + wcslen(def);
+        wchar_t * pEnd = pStart;
+
+        while (*pEnd != '$')
+        {
+            pEnd++;
+            if (((__int64)(pEnd - pBuf))*sizeof(wchar_t) >= (__int64)filelength)
+                return FALSE;   // No terminator - malformed so give up.
+        }
+        if ((pEnd - pStart) > 1024)
+        {
+            return FALSE; // Format specifier too big
+        }
+        exp = pEnd - pStart + 1;
+        memset(format,0,1024*sizeof(wchar_t));
+        memcpy(format,pStart,(pEnd - pStart)*sizeof(wchar_t));
+        unsigned long number = wcstoul(format, NULL, 0);
+        if (wcscmp(def,TEXT(VERDEFAND)) == 0)
+        {
+            if (MinRev != -1)
+                MinRev &= number;
+            MaxRev &= number;
+        }
+        if (wcscmp(def,TEXT(VERDEFOFFSET1)) == 0)
+        {
+            if (MinRev != -1)
+                MinRev -= number;
+            MaxRev -= number;
+        }
+        if (wcscmp(def,TEXT(VERDEFOFFSET2)) == 0)
+        {
+            if (MinRev != -1)
+                MinRev += number;
+            MaxRev += number;
+        }
+    }
+
     // Format the text to insert at the placeholder
     wchar_t destbuf[40];
     if (MinRev == -1 || MinRev == MaxRev)
@@ -248,7 +339,7 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
     }
     // Replace the $WCxxx$ string with the actual revision number
     wchar_t * pBuild = pBuf + index;
-    ptrdiff_t Expansion = wcslen(destbuf) - wcslen(def);
+    ptrdiff_t Expansion = wcslen(destbuf) - exp - wcslen(def);
     if (Expansion < 0)
     {
         memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf))*sizeof(wchar_t));
@@ -952,6 +1043,21 @@ int _tmain(int argc, _TCHAR* argv[])
     while (InsertRevision(VERDEF, pBuf, index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
     index = 0;
     while (InsertRevisionW(TEXT(VERDEF), (wchar_t*)pBuf, index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+
+    index = 0;
+    while (InsertRevision(VERDEFAND, pBuf, index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    index = 0;
+    while (InsertRevisionW(TEXT(VERDEFAND), (wchar_t*)pBuf, index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+
+    index = 0;
+    while (InsertRevision(VERDEFOFFSET1, pBuf, index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    index = 0;
+    while (InsertRevisionW(TEXT(VERDEFOFFSET1), (wchar_t*)pBuf, index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+
+    index = 0;
+    while (InsertRevision(VERDEFOFFSET2, pBuf, index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    index = 0;
+    while (InsertRevisionW(TEXT(VERDEFOFFSET2), (wchar_t*)pBuf, index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
 
     index = 0;
     while (InsertRevision(RANGEDEF, pBuf, index, filelength, maxlength, SubStat.MinRev, SubStat.MaxRev, &SubStat));

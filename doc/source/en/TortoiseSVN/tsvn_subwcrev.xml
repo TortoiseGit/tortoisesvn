@@ -171,6 +171,25 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             </entry>
                         </row>
                         <row>
+                            <entry condition="pot">$WCREV&amp;$</entry>
+                            <entry>
+                                Replaced with the highest commit revision
+                                in the working copy, ANDed with the value
+                                after the &amp; char. For example:
+                                <literal>$WCREV&amp;0xFFFF$</literal>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">$WCREV-$, $WCREV+$</entry>
+                            <entry>
+                                Replaced with the highest commit revision
+                                in the working copy, with the value
+                                after the + or - char added or subtracted.
+                                For example:
+                                <literal>$WCREV-1000$</literal>
+                            </entry>
+                        </row>
+                        <row>
                             <entry condition="pot">$WCDATE$, $WCDATEUTC$</entry>
                             <entry>
                                 Replaced with the commit date/time of the
@@ -319,12 +338,29 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
 <programlisting>
 // Test file for SubWCRev: testfile.tmpl
 
-char *Revision = "$WCREV$";
-char *Modified = "$WCMODS?Modified:Not modified$";
-char *Date     = "$WCDATE$";
-char *Range    = "$WCRANGE$";
-char *Mixed    = "$WCMIXED?Mixed revision WC:Not mixed$";
-char *URL      = "$WCURL$";
+char *Revision      = "$WCREV$";
+char *Revision16    = "$WCREV&amp;0xFF$";
+char *Revisionp100  = "$WCREV+100$";
+char *Revisionm100  = "$WCREV-100$";
+char *Modified      = "$WCMODS?Modified:Not modified$";
+char *Date          = "$WCDATE$";
+char *CustDate      = "$WCDATE=%a, %d %B %Y$";
+char *DateUTC       = "$WCDATEUTC$";
+char *CustDateUTC   = "$WCDATEUTC=%a, %d %B %Y$";
+char *TimeNow       = "$WCNOW$";
+char *TimeNowUTC    = "$WCNOWUTC$";
+char *RevRange      = "$WCRANGE$";
+char *Mixed         = "$WCMIXED?Mixed revision WC:Not mixed$";
+char *URL           = "$WCURL$";
+char *isInSVN       = "$WCINSVN?versioned:not versioned$";
+char *needslck      = "$WCNEEDSLOCK?TRUE:FALSE$";
+char *islocked      = "$WCISLOCKED?locked:not locked$";
+char *lockdateutc   = "$WCLOCKDATEUTC$";
+char *lockdate      = "$WCLOCKDATE$";
+char *lockcustutc   = "$WCLOCKDATEUTC=%a, %d %B %Y$";
+char *lockcust      = "$WCLOCKDATE=%a, %d %B %Y$";
+char *lockown       = "$WCLOCKOWNER$";
+char *lockcmt       = "$WCLOCKCOMMENT$";
 
 #if $WCMODS?1:0$
 #error Source is modified
@@ -339,12 +375,29 @@ char *URL      = "$WCURL$";
 <programlisting>
 // Test file for SubWCRev: testfile.txt
 
-char *Revision = "3701";
-char *Modified = "Modified";
-char *Date     = "2005/06/15 11:15:12";
-char *Range    = "3699:3701";
-char *Mixed    = "Mixed revision WC";
-char *URL      = "http://project.domain.org/svn/trunk/src";
+char *Revision      = "22837";
+char *Revision16    = "53";
+char *Revisionp100  = "22937";
+char *Revisionm100  = "22737";
+char *Modified      = "Modified";
+char *Date          = "2012/04/26 18:47:57";
+char *CustDate      = "Thu, 26 April 2012";
+char *DateUTC       = "2012/04/26 16:47:57";
+char *CustDateUTC   = "Thu, 26 April 2012";
+char *TimeNow       = "2012/04/26 20:51:17";
+char *TimeNowUTC    = "2012/04/26 18:51:17";
+char *RevRange      = "22836:22837";
+char *Mixed         = "Mixed revision WC";
+char *URL           = "https://tortoisesvn.googlecode.com/svn/trunk";
+char *isInSVN       = "versioned";
+char *needslck      = "FALSE";
+char *islocked      = "not locked";
+char *lockdateutc   = "1970/01/01 00:00:00";
+char *lockdate      = "1970/01/01 01:00:00";
+char *lockcustutc   = "Thu, 01 January 1970";
+char *lockcust      = "Thu, 01 January 1970";
+char *lockown       = "";
+char *lockcmt       = "";
 
 #if 1
 #error Source is modified
