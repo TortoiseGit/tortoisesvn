@@ -87,6 +87,10 @@ Version 1.7.7
        changes shows error. (Stefan)
 - BUG: Issue #280: saving patch to clipboard
        fails to open patch viewer. (Stefan)
+- BUG: Issue #281: Log view may segfault
+       for empty logs. (Stefan Fuhrmann)
+- BUG: Issue #282: Vector index exception when
+       updating the log cache. (Stefan Fuhrmann)
 
 Version 1.7.6
 - BUG: Issue #209: repo browser doesn't
