@@ -163,7 +163,7 @@ BEGIN
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,-4,0,214,67
     PUSHBUTTON      "Cancel",IDCANCEL,156,73,50,14
     CONTROL         "[AppName] has stopped working",IDC_HEADER_TEXT,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,7,201,25
-    LTEXT           "Checking for a solution to the problem...",IDC_TEXT,5,35,201,8
+    LTEXT           "Sending crash data...",IDC_TEXT,5,35,201,8
     CONTROL         "",IDC_PROGRESS,"msctls_progress32",PBS_MARQUEE | WS_BORDER,5,49,201,10
     LTEXT           "www.crash-server.com",IDC_STATIC,5,76,75,8,WS_DISABLED
 END
@@ -176,7 +176,7 @@ BEGIN
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,-4,0,214,76
     PUSHBUTTON      "Cancel",IDCANCEL,156,82,50,14
     CONTROL         "[AppName] has stopped working",IDC_HEADER_TEXT,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,7,201,25
-    LTEXT           "Collecting more information about the problem.\nThis might take several minutes...",IDC_TEXT,5,35,201,23
+    LTEXT           "Sending more information about the problem.\nThis might take several minutes...",IDC_TEXT,5,35,201,23
     CONTROL         "",IDC_PROGRESS,"msctls_progress32",PBS_MARQUEE | WS_BORDER,5,58,201,10
 END
 
@@ -219,7 +219,7 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,156,73,50,14
     CONTROL         "[AppName] has encountered a problem",IDC_HEADER_TEXT,
                     "Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,7,201,25
-    LTEXT           "Checking for a solution to the problem...",IDC_TEXT,5,35,201,8
+    LTEXT           "Sending crash data...",IDC_TEXT,5,35,201,8
     CONTROL         "",IDC_PROGRESS,"msctls_progress32",PBS_MARQUEE | WS_BORDER,5,49,201,10
     LTEXT           "www.crash-server.com",IDC_STATIC,5,76,75,8,WS_DISABLED
 END
