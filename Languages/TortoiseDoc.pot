@@ -4967,7 +4967,7 @@ msgid "The parameters are the same as if you would configure the hook scripts in
 msgstr ""
 
 #. (para)
-msgid "Since not every user has his or her working copy checked out at the same location with the same name, you can configure a script/tool to execute that resides in your working copy by specifying the url in the repository instead, using <filename>%REPOROOT%</filename> as the part of the url to the repository root. For example, if your hook script is in your working copy under <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, you would specify the path to the script as <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. This way even if you move your repository to another server you do not have to adjust the hook script properties."
+msgid "Since not every user has his or her working copy checked out at the same location with the same name, you can configure a script/tool to execute that resides in your working copy by specifying the URL in the repository instead, using <filename>%REPOROOT%</filename> as the part of the URL to the repository root. For example, if your hook script is in your working copy under <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, you would specify the path to the script as <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. This way even if you move your repository to another server you do not have to adjust the hook script properties."
 msgstr ""
 
 #. (title)
@@ -4980,10 +4980,6 @@ msgstr ""
 
 #. (para)
 msgid "When you want to add a new property, you can either pick one from the list in the combo box, or you can enter any property name you like. If your project uses some custom properties, and you want those properties to appear in the list in the combo box (to avoid typos when you enter a property name), you can create a list of your custom properties using <literal>tsvn:userfileproperties</literal> and <literal>tsvn:userdirproperties</literal>. Apply these properties to a folder. When you go to edit the properties of any child item, your custom properties will appear in the list of pre-defined property names."
-msgstr ""
-
-#. (term)
-msgid "bool"
 msgstr ""
 
 #. (title)
@@ -5000,10 +4996,6 @@ msgstr ""
 
 #. (para)
 msgid "the <literal>labeltext</literal> is the text shown in the dialog above the checkbox where you can explain the purpose and use of the property. The other parameters should be self explanatory."
-msgstr ""
-
-#. (term)
-msgid "state"
 msgstr ""
 
 #. (title)
@@ -5026,12 +5018,8 @@ msgstr ""
 msgid "For up to three different values, the dialog shows up to three radio buttons. If there are more values configured, it uses a combo box from where the user can select the required state."
 msgstr ""
 
-#. (term)
-msgid "singleline"
-msgstr ""
-
 #. (title)
-msgid "Property dialog singleline user types"
+msgid "Property dialog single-line user types"
 msgstr ""
 
 #. (para)
@@ -5046,12 +5034,8 @@ msgstr ""
 msgid "the <literal>regex</literal> specifies a regular expression which is used to validate (match) the text the user entered. If the text does not match the regex, then the user is shown an error and the property isn't set."
 msgstr ""
 
-#. (term)
-msgid "multiline"
-msgstr ""
-
 #. (title)
-msgid "Property dialog multiline user types"
+msgid "Property dialog multi-line user types"
 msgstr ""
 
 #. (para)
@@ -9093,6 +9077,22 @@ msgid "Replaced with the highest commit revision in the working copy."
 msgstr ""
 
 #. (literal)
+msgid "$WCREV&amp;0xFFFF$"
+msgstr ""
+
+#. (entry)
+msgid "Replaced with the highest commit revision in the working copy, ANDed with the value after the &amp; char. For example: <placeholder-1/>"
+msgstr ""
+
+#. (literal)
+msgid "$WCREV-1000$"
+msgstr ""
+
+#. (entry)
+msgid "Replaced with the highest commit revision in the working copy, with the value after the + or - char added or subtracted. For example: <placeholder-1/>"
+msgstr ""
+
+#. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
 msgstr ""
 
@@ -9231,12 +9231,29 @@ msgid ""
 "\n"
 "// Test file for SubWCRev: testfile.tmpl\n"
 "\n"
-"char *Revision = \"$WCREV$\";\n"
-"char *Modified = \"$WCMODS?Modified:Not modified$\";\n"
-"char *Date     = \"$WCDATE$\";\n"
-"char *Range    = \"$WCRANGE$\";\n"
-"char *Mixed    = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
-"char *URL      = \"$WCURL$\";\n"
+"char *Revision      = \"$WCREV$\";\n"
+"char *Revision16    = \"$WCREV&amp;0xFF$\";\n"
+"char *Revisionp100  = \"$WCREV+100$\";\n"
+"char *Revisionm100  = \"$WCREV-100$\";\n"
+"char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Date          = \"$WCDATE$\";\n"
+"char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
+"char *DateUTC       = \"$WCDATEUTC$\";\n"
+"char *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\n"
+"char *TimeNow       = \"$WCNOW$\";\n"
+"char *TimeNowUTC    = \"$WCNOWUTC$\";\n"
+"char *RevRange      = \"$WCRANGE$\";\n"
+"char *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *URL           = \"$WCURL$\";\n"
+"char *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\n"
+"char *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\n"
+"char *islocked      = \"$WCISLOCKED?locked:not locked$\";\n"
+"char *lockdateutc   = \"$WCLOCKDATEUTC$\";\n"
+"char *lockdate      = \"$WCLOCKDATE$\";\n"
+"char *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\n"
+"char *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\n"
+"char *lockown       = \"$WCLOCKOWNER$\";\n"
+"char *lockcmt       = \"$WCLOCKCOMMENT$\";\n"
 "\n"
 "#if $WCMODS?1:0$\n"
 "#error Source is modified\n"
@@ -9255,12 +9272,29 @@ msgid ""
 "\n"
 "// Test file for SubWCRev: testfile.txt\n"
 "\n"
-"char *Revision = \"3701\";\n"
-"char *Modified = \"Modified\";\n"
-"char *Date     = \"2005/06/15 11:15:12\";\n"
-"char *Range    = \"3699:3701\";\n"
-"char *Mixed    = \"Mixed revision WC\";\n"
-"char *URL      = \"http://project.domain.org/svn/trunk/src\";\n"
+"char *Revision      = \"22837\";\n"
+"char *Revision16    = \"53\";\n"
+"char *Revisionp100  = \"22937\";\n"
+"char *Revisionm100  = \"22737\";\n"
+"char *Modified      = \"Modified\";\n"
+"char *Date          = \"2012/04/26 18:47:57\";\n"
+"char *CustDate      = \"Thu, 26 April 2012\";\n"
+"char *DateUTC       = \"2012/04/26 16:47:57\";\n"
+"char *CustDateUTC   = \"Thu, 26 April 2012\";\n"
+"char *TimeNow       = \"2012/04/26 20:51:17\";\n"
+"char *TimeNowUTC    = \"2012/04/26 18:51:17\";\n"
+"char *RevRange      = \"22836:22837\";\n"
+"char *Mixed         = \"Mixed revision WC\";\n"
+"char *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\n"
+"char *isInSVN       = \"versioned\";\n"
+"char *needslck      = \"FALSE\";\n"
+"char *islocked      = \"not locked\";\n"
+"char *lockdateutc   = \"1970/01/01 00:00:00\";\n"
+"char *lockdate      = \"1970/01/01 01:00:00\";\n"
+"char *lockcustutc   = \"Thu, 01 January 1970\";\n"
+"char *lockcust      = \"Thu, 01 January 1970\";\n"
+"char *lockown       = \"\";\n"
+"char *lockcmt       = \"\";\n"
 "\n"
 "#if 1\n"
 "#error Source is modified\n"
@@ -10859,7 +10893,7 @@ msgid "Creates a repository in <placeholder-1/>"
 msgstr ""
 
 #. (entry)
-msgid "Opens the switch dialog. The <placeholder-1/> specifies the target directory and <placeholder-2/> the url to switch to."
+msgid "Opens the switch dialog. The <placeholder-1/> specifies the target directory and <placeholder-2/> the URL to switch to."
 msgstr ""
 
 #. (entry)
