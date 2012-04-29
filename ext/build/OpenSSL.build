@@ -11,10 +11,10 @@
       </exec>
       <delete>
         <fileset>
-          <include name="..\..\..\common\out32\**.*" />
-          <include name="..\..\..\common\out32.dbg\**.*" />
-          <include name="..\..\..\common\tmp32\**.*" />
-          <include name="..\..\..\common\tmp32.dbg\**.*" />
+          <include name="..\..\..\common\openssl\out32\**.*" />
+          <include name="..\..\..\common\openssl\out32.dbg\**.*" />
+          <include name="..\..\..\common\openssl\tmp32\**.*" />
+          <include name="..\..\..\common\openssl\tmp32.dbg\**.*" />
         </fileset>
       </delete>
     </if>
