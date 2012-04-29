@@ -199,6 +199,10 @@ CRYPTO_cleanup_all_ex_data' />
       <sources>
         <include name="${configuration}_${platform}\libsvn_*\**.obj" />
       </sources>
+      <libdirs>
+        <include name="..\..\..\common\openssl\out32${ssldbg}" />
+        <include name="..\neon\${configuration}_${platform}" />
+      </libdirs>
     </link>
     <foreach item="Folder" property="foldername">
       <in>
