@@ -234,8 +234,7 @@
       <BaseAddress>0x5960000</BaseAddress>
       <ImportLibrary>..\..\obj\TortoiseShell\Release/TortoiseSVN.lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <LinkTimeCodeGeneration>
-      </LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -282,8 +281,7 @@
       <BaseAddress>0x5960000</BaseAddress>
       <ImportLibrary>..\..\obj\TortoiseShell\Release64/TortoiseSVN.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
-      <LinkTimeCodeGeneration>
-      </LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
