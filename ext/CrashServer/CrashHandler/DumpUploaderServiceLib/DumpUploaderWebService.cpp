@@ -70,7 +70,7 @@ std::wstring DumpUploaderWebService::GetErrorText()
 	std::ostringstream o;
 	soap_stream_fault(o); 
 	std::vector<wchar_t> buf(o.str().size() + 1);
-	buf.resize(MultiByteToWideChar(CP_UTF8, 0, (LPCSTR) o.str().c_str(), o.str().size() + 1, &buf.front(), buf.size()));
+	buf.resize(MultiByteToWideChar(CP_UTF8, 0, (LPCSTR) o.str().c_str(), (int)o.str().size() + 1, &buf.front(), (int)buf.size()));
 
 	return std::wstring(buf.begin(), buf.end());
 }

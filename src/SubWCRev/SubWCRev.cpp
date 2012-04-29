@@ -286,7 +286,7 @@ int InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
         while (*pEnd != '$')
         {
             pEnd++;
-            if (((__int64)(pEnd - pBuf))*sizeof(wchar_t) >= (__int64)filelength)
+            if (((__int64)(pEnd - pBuf))*((__int64)sizeof(wchar_t)) >= (__int64)filelength)
                 return FALSE;   // No terminator - malformed so give up.
         }
         if ((pEnd - pStart) > 1024)
@@ -481,7 +481,7 @@ int InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
         while (*pEnd != '$')
         {
             pEnd++;
-            if (((__int64)(pEnd - pBuf))*sizeof(wchar_t) >= (__int64)filelength)
+            if (((__int64)(pEnd - pBuf))*((__int64)sizeof(wchar_t)) >= (__int64)filelength)
                 return FALSE;   // No terminator - malformed so give up.
         }
         if ((pEnd - pStart) > 1024)
