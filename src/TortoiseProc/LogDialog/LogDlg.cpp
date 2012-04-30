@@ -1266,7 +1266,7 @@ void CLogDlg::LogThread()
             svn_revnum_t head = -1;
             succeeded = GetRootAndHead(m_path, rootpath, head);
             m_head = head;
-            if (m_startrev == SVNRev::REV_HEAD)
+            if ((m_startrev == SVNRev::REV_HEAD) || m_bStartRevIsHead)
             {
                 m_startrev = head;
             }
