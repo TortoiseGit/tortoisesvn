@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-12 21:01+0000\n"
+"PO-Revision-Date: 2012-04-28 08:21+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7909,15 +7909,15 @@ msgstr "Parametrit vastaavat toimintokomennoille asetusikkunassa annettavia para
 msgid ""
 "Since not every user has his or her working copy checked out at the same "
 "location with the same name, you can configure a script/tool to execute that"
-" resides in your working copy by specifying the url in the repository "
-"instead, using <filename>%REPOROOT%</filename> as the part of the url to the"
+" resides in your working copy by specifying the URL in the repository "
+"instead, using <filename>%REPOROOT%</filename> as the part of the URL to the"
 " repository root. For example, if your hook script is in your working copy "
 "under <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, "
 "you would specify the path to the script as "
 "<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
-msgstr "Koska käyttäjien työkopioiden nimet ja sijaintipaikat vaihtelevat, voit asettaa työkopiostasi suoritettavan toimintokomennon sijainnin arkistopaikantimen avulla käyttämällä symbolia <filename>%REPOROOT%</filename> osana paikanninta.  Esimerkki: Jos toimintokomentosi sijaitsee työkopiossa polulla <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, voit määritellä polun paikantimen muodossa <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. Tällöin voit jopa siirtää arkistosi eri palvelimelle ilman, että toimintokomentojen ominaisuuksia tarvitsee säätää."
+msgstr ""
 
 #. (title)
 msgid "Property dialog for hook scripts"
@@ -7943,10 +7943,6 @@ msgid ""
 "properties will appear in the list of pre-defined property names."
 msgstr "Kun haluat lisätä uuden ominaisuuden, voit valita jonkun pudotusvalikosta tai nimetä sen itse. Jos projektisi käyttää omia ominaisuuksia ja haluat niiden löytyvän suoraan pudotusvalikosta  (kirjoitusvihreiden välttämiseksi), voit lisätä ne ominaisuuksiin <literal>tsvn:userfileproperties</literal> ja <literal>tsvn:userdirproperties</literal>. Lisää nämä ominaisuudet projektin juurikansiolle. Kun sitten muokkaat projektin alla olevia ominaisuuksia, niin omat ominaisuutesi näkyvät suoraan pudotusvalikossa."
 
-#. (term)
-msgid "bool"
-msgstr "bool"
-
 #. (title)
 msgid "Property dialog boolean user types"
 msgstr "Ominaisuusikkunan boolean-tyyppi"
@@ -7968,10 +7964,6 @@ msgid ""
 "checkbox where you can explain the purpose and use of the property. The "
 "other parameters should be self explanatory."
 msgstr "<literal>labeltext</literal> on valintalaatikon yläpuolella näytettävä teksti, jonka avulla voit kuvata ominaisuuden tarkoituksen. Muiden parametrien pitäisi olla itsensä selittäviä."
-
-#. (term)
-msgid "state"
-msgstr "state"
 
 #. (title)
 msgid "Property dialog state user types"
@@ -8003,13 +7995,9 @@ msgid ""
 " the user can select the required state."
 msgstr "Mikäli tila-arvoja on vähemmän kuin neljä, valinta suoritetaan valintanapeilla. Muussa tapauksessa tilan valinta suoritetaan pudotusvalikosta."
 
-#. (term)
-msgid "singleline"
-msgstr "singleline"
-
 #. (title)
-msgid "Property dialog singleline user types"
-msgstr "Ominaisuusikkunan singleline-tyyppi"
+msgid "Property dialog single-line user types"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8028,13 +8016,9 @@ msgid ""
 "regex, then the user is shown an error and the property isn't set."
 msgstr "<literal>regex</literal> määrittelee säännöllisen lausekkeen, jolla tarkistetaan käyttäjän syöttämä teksti. Jos teksti ei täsmää lausekkeen kanssa, käyttäjälle näytetään virheilmoitus ja ominausuutta ei aseteta."
 
-#. (term)
-msgid "multiline"
-msgstr "multiline"
-
 #. (title)
-msgid "Property dialog multiline user types"
-msgstr "Ominaisuusikkunan multiline-tyyppi"
+msgid "Property dialog multi-line user types"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14541,6 +14525,27 @@ msgid "Replaced with the highest commit revision in the working copy."
 msgstr "Korvataan työkopion korkeimmalla versionumerolla."
 
 #. (literal)
+msgid "$WCREV&amp;0xFFFF$"
+msgstr ""
+
+#. (entry)
+msgid ""
+"Replaced with the highest commit revision in the working copy, ANDed with "
+"the value after the &amp; char. For example: <placeholder-1/>"
+msgstr ""
+
+#. (literal)
+msgid "$WCREV-1000$"
+msgstr ""
+
+#. (entry)
+msgid ""
+"Replaced with the highest commit revision in the working copy, with the "
+"value after the + or - char added or subtracted. For example: "
+"<placeholder-1/>"
+msgstr ""
+
+#. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
 msgstr "yyyy-mm-dd hh:mm:ss"
 
@@ -14716,19 +14721,36 @@ msgid ""
 "\n"
 "// Test file for SubWCRev: testfile.tmpl\n"
 "\n"
-"char *Revision = \"$WCREV$\";\n"
-"char *Modified = \"$WCMODS?Modified:Not modified$\";\n"
-"char *Date     = \"$WCDATE$\";\n"
-"char *Range    = \"$WCRANGE$\";\n"
-"char *Mixed    = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
-"char *URL      = \"$WCURL$\";\n"
+"char *Revision      = \"$WCREV$\";\n"
+"char *Revision16    = \"$WCREV&amp;0xFF$\";\n"
+"char *Revisionp100  = \"$WCREV+100$\";\n"
+"char *Revisionm100  = \"$WCREV-100$\";\n"
+"char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Date          = \"$WCDATE$\";\n"
+"char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
+"char *DateUTC       = \"$WCDATEUTC$\";\n"
+"char *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\n"
+"char *TimeNow       = \"$WCNOW$\";\n"
+"char *TimeNowUTC    = \"$WCNOWUTC$\";\n"
+"char *RevRange      = \"$WCRANGE$\";\n"
+"char *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *URL           = \"$WCURL$\";\n"
+"char *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\n"
+"char *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\n"
+"char *islocked      = \"$WCISLOCKED?locked:not locked$\";\n"
+"char *lockdateutc   = \"$WCLOCKDATEUTC$\";\n"
+"char *lockdate      = \"$WCLOCKDATE$\";\n"
+"char *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\n"
+"char *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\n"
+"char *lockown       = \"$WCLOCKOWNER$\";\n"
+"char *lockcmt       = \"$WCLOCKCOMMENT$\";\n"
 "\n"
 "#if $WCMODS?1:0$\n"
 "#error Source is modified\n"
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// SubWCRev-testitiedosto: testi.tmpl\n\nchar *Revision = \"$WCREV$\";\nchar *Modified = \"$WCMODS?Muutettu:Ei muutettu$\";\nchar *Date     = \"$WCDATE$\";\nchar *Range    = \"$WCRANGE$\";\nchar *Mixed    = \"$WCMIXED?Usean version työkopio:Ei useita versioita$\";\nchar *URL      = \"$WCURL$\";\n\n#if $WCMODS?1:0$\n#error Tiedostoja on muutettu\n#endif\n\n// Tiedoston loppu\n"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14743,19 +14765,36 @@ msgid ""
 "\n"
 "// Test file for SubWCRev: testfile.txt\n"
 "\n"
-"char *Revision = \"3701\";\n"
-"char *Modified = \"Modified\";\n"
-"char *Date     = \"2005/06/15 11:15:12\";\n"
-"char *Range    = \"3699:3701\";\n"
-"char *Mixed    = \"Mixed revision WC\";\n"
-"char *URL      = \"http://project.domain.org/svn/trunk/src\";\n"
+"char *Revision      = \"22837\";\n"
+"char *Revision16    = \"53\";\n"
+"char *Revisionp100  = \"22937\";\n"
+"char *Revisionm100  = \"22737\";\n"
+"char *Modified      = \"Modified\";\n"
+"char *Date          = \"2012/04/26 18:47:57\";\n"
+"char *CustDate      = \"Thu, 26 April 2012\";\n"
+"char *DateUTC       = \"2012/04/26 16:47:57\";\n"
+"char *CustDateUTC   = \"Thu, 26 April 2012\";\n"
+"char *TimeNow       = \"2012/04/26 20:51:17\";\n"
+"char *TimeNowUTC    = \"2012/04/26 18:51:17\";\n"
+"char *RevRange      = \"22836:22837\";\n"
+"char *Mixed         = \"Mixed revision WC\";\n"
+"char *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\n"
+"char *isInSVN       = \"versioned\";\n"
+"char *needslck      = \"FALSE\";\n"
+"char *islocked      = \"not locked\";\n"
+"char *lockdateutc   = \"1970/01/01 00:00:00\";\n"
+"char *lockdate      = \"1970/01/01 01:00:00\";\n"
+"char *lockcustutc   = \"Thu, 01 January 1970\";\n"
+"char *lockcust      = \"Thu, 01 January 1970\";\n"
+"char *lockown       = \"\";\n"
+"char *lockcmt       = \"\";\n"
 "\n"
 "#if 1\n"
 "#error Source is modified\n"
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// SubWCRev-testitiedosto: testi.txt\n\nchar *Revision = \"3701\";\nchar *Modified = \"Muutettu\";\nchar *Date     = \"2005/06/15 11:15:12\";\nchar *Range    = \"3699:3701\";\nchar *Mixed    = \"Usean version työkopio\";\nchar *URL      = \"http://project.domain.org/svn/trunk/src\";\n\n#if 1\n#error Tiedostoja on muutettu\n#endif\n\n// Tiedoston loppu\n"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16851,8 +16890,8 @@ msgstr "Luo arkiston paikkaan <placeholder-1/>"
 #. (entry)
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
-" and <placeholder-2/> the url to switch to."
-msgstr "Avaa vaihtoikkunan. <placeholder-1/> määrittää kohdehakemiston ja <placeholder-2/> paikantimen, johon siirrytään."
+" and <placeholder-2/> the URL to switch to."
+msgstr ""
 
 #. (entry)
 msgid ""

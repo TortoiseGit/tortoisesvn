@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-09 21:45+0000\n"
+"PO-Revision-Date: 2012-04-29 21:21+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7910,15 +7910,15 @@ msgstr "Parametry są takie same jak przy skonfigurowaniu skryptu przechwytując
 msgid ""
 "Since not every user has his or her working copy checked out at the same "
 "location with the same name, you can configure a script/tool to execute that"
-" resides in your working copy by specifying the url in the repository "
-"instead, using <filename>%REPOROOT%</filename> as the part of the url to the"
+" resides in your working copy by specifying the URL in the repository "
+"instead, using <filename>%REPOROOT%</filename> as the part of the URL to the"
 " repository root. For example, if your hook script is in your working copy "
 "under <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, "
 "you would specify the path to the script as "
 "<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
-msgstr "Ponieważ nie każdy użytkownik pobiera swoją kopię roboczą do takiego samego miejsca o tej samej nazwie, daliśmy możliwość skonfigurowania skryptu/narzędzia do wykonania, które znajduje się wewnątrz kopii roboczej przez określenie tylko części url wewnątrz repozytorium, wpisując <filename>%REPOROOT%</filename> jako część adresu zastępującą katalog główny repozytorium. Na przykład, jeśli skrypt znajduje się w kopii roboczej w <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, należy podać ścieżkę do skryptu jako <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. W ten sposób nawet jeśli nastąpi przeniesienie repozytorium na inny komputer nie musicie modyfikować właściwości skryptu."
+msgstr "Jako że nie każdy użytkownik pobiera do takiego samgo położenia , możecie skonfigurować skrypt/narzędzie, które wykonuje się na kopii roboczej wskazując URL w repozytorium, używając do tego <filename>%REPOROOT%</filename>jako część adresu URL do kattlaogu głównego repozytorium. Na przykład, jeśli wasz skrypt przechwytujący znajduje się w kopii roboczej pod nazwą <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, możesz wskazać ścieżkę do niego jako <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. W ten sposób nawet jeśli przeniesiecie repozytorium na inny serwer, nie musicie dostosowywać atrybutów skryptu."
 
 #. (title)
 msgid "Property dialog for hook scripts"
@@ -7944,10 +7944,6 @@ msgid ""
 "properties will appear in the list of pre-defined property names."
 msgstr "Jeśli chcecie dodać nowy atrybut, można wybrać jeden z listy menu rozwijalnego lub wpisać dowolną nazwę atrybutu jaką chcecie. Jeśli projekt korzysta z niektórych niestandardowych atrybutów i chcecie, żeby te atrybuty pojawiły się na liście w menu rozwijalnym (aby uniknąć literówek przy wpisywaniu nazwy atrybutu), można utworzyć listę niestandardowych atrybutów za pomocą <literal>tsvn:userfileproperties</literal> i <literal>tsvn:userdirproperties</literal>. Zastosujcie te atrybuty w folderze. Gdy przechodzicie do edycji właściwości każdego elementu podrzędnego, niestandardowe atrybuty pojawią się na liście predefiniowanych nazw atrybutów."
 
-#. (term)
-msgid "bool"
-msgstr "bool"
-
 #. (title)
 msgid "Property dialog boolean user types"
 msgstr "Dialog atrybutu typu logicznego zdefiniowanego przez użytkownika"
@@ -7969,10 +7965,6 @@ msgid ""
 "checkbox where you can explain the purpose and use of the property. The "
 "other parameters should be self explanatory."
 msgstr "<literal>tekstEtykiety</literal> to tekst pokazywany w dialogu nad polem wyboru gdzie możesz wyjaśnić cel i sposób użycia atrybutu. Inne parametry powinny wyjaśniać się same."
-
-#. (term)
-msgid "state"
-msgstr "state"
 
 #. (title)
 msgid "Property dialog state user types"
@@ -8004,13 +7996,9 @@ msgid ""
 " the user can select the required state."
 msgstr "Dla trzech lub mniej wartości, dialog wyświetla odpowiednią liczbę przycisków opcji. Jeśli zdefiniowano więcej wartości, wykorzystuje się listę rozwijalną, z której użytkownik może wybrać wymagany stan. "
 
-#. (term)
-msgid "singleline"
-msgstr "singleline"
-
 #. (title)
-msgid "Property dialog singleline user types"
-msgstr "Dialog atrybutu typu jednowierszowego zdefiniowanego przez użytkownika"
+msgid "Property dialog single-line user types"
+msgstr "Okno atrybutów jednoliniowych typów użytkownika"
 
 #. (para)
 msgid ""
@@ -8029,13 +8017,9 @@ msgid ""
 "regex, then the user is shown an error and the property isn't set."
 msgstr "<literal>wyrreg</literal> określa wyrażenie regularne używane do sprawdzenia poprawności (dopasowanie) tekstu wprowadzonego przez użytkownika. Jeśli tekst nie pasuje do wyrreg, wyświetlony zostanie komunikat o błędzie a atrybut nie zostaje ustawiony."
 
-#. (term)
-msgid "multiline"
-msgstr "multiline"
-
 #. (title)
-msgid "Property dialog multiline user types"
-msgstr "Dialog atrybutu typu wielowierszowego zdefiniowanego przez użytkownika"
+msgid "Property dialog multi-line user types"
+msgstr "Okno atrybutów wieloliniowych typów użytkownika"
 
 #. (para)
 msgid ""
@@ -14542,6 +14526,27 @@ msgid "Replaced with the highest commit revision in the working copy."
 msgstr "Zastępowane przez najwyższą wersję zatwierdzenia w kopii roboczej."
 
 #. (literal)
+msgid "$WCREV&amp;0xFFFF$"
+msgstr "$WCREV&amp;0xFFFF$"
+
+#. (entry)
+msgid ""
+"Replaced with the highest commit revision in the working copy, ANDed with "
+"the value after the &amp; char. For example: <placeholder-1/>"
+msgstr "Zastąpiona przez najwyższą wersję zatwierdzenia w kopii roboczej, połączona koniunkcją logiczną AND z wartością po znaku &amp;. Na przykład: <placeholder-1/>"
+
+#. (literal)
+msgid "$WCREV-1000$"
+msgstr "$WCREV-1000$"
+
+#. (entry)
+msgid ""
+"Replaced with the highest commit revision in the working copy, with the "
+"value after the + or - char added or subtracted. For example: "
+"<placeholder-1/>"
+msgstr "Zastąpiona przez najwyższą wersję zatwierdzenia w kopii roboczej, z wartością po + lub - odpowiednio dodaną lub odjętą. Na przykład: <placeholder-1/>\n\n\t\n\n "
+
+#. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
 msgstr "yyyy-mm-dd hh:mm:ss"
 
@@ -14717,19 +14722,36 @@ msgid ""
 "\n"
 "// Test file for SubWCRev: testfile.tmpl\n"
 "\n"
-"char *Revision = \"$WCREV$\";\n"
-"char *Modified = \"$WCMODS?Modified:Not modified$\";\n"
-"char *Date     = \"$WCDATE$\";\n"
-"char *Range    = \"$WCRANGE$\";\n"
-"char *Mixed    = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
-"char *URL      = \"$WCURL$\";\n"
+"char *Revision      = \"$WCREV$\";\n"
+"char *Revision16    = \"$WCREV&amp;0xFF$\";\n"
+"char *Revisionp100  = \"$WCREV+100$\";\n"
+"char *Revisionm100  = \"$WCREV-100$\";\n"
+"char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Date          = \"$WCDATE$\";\n"
+"char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
+"char *DateUTC       = \"$WCDATEUTC$\";\n"
+"char *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\n"
+"char *TimeNow       = \"$WCNOW$\";\n"
+"char *TimeNowUTC    = \"$WCNOWUTC$\";\n"
+"char *RevRange      = \"$WCRANGE$\";\n"
+"char *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *URL           = \"$WCURL$\";\n"
+"char *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\n"
+"char *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\n"
+"char *islocked      = \"$WCISLOCKED?locked:not locked$\";\n"
+"char *lockdateutc   = \"$WCLOCKDATEUTC$\";\n"
+"char *lockdate      = \"$WCLOCKDATE$\";\n"
+"char *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\n"
+"char *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\n"
+"char *lockown       = \"$WCLOCKOWNER$\";\n"
+"char *lockcmt       = \"$WCLOCKCOMMENT$\";\n"
 "\n"
 "#if $WCMODS?1:0$\n"
 "#error Source is modified\n"
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Plik testowy dla SubWCRev: testfile.tmpl\n\nchar *Revision = \"$WCREV$\";\nchar *Modified = \"$WCMODS?Modified:Not modified$\";\nchar *Date     = \"$WCDATE$\";\nchar *Range    = \"$WCRANGE$\";\nchar *Mixed    = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL      = \"$WCURL$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// Koniec pliku\n"
+msgstr "\n// Plik testowy dla SubWCRev: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// Koniec pliku\n"
 
 #. (para)
 msgid ""
@@ -14744,19 +14766,36 @@ msgid ""
 "\n"
 "// Test file for SubWCRev: testfile.txt\n"
 "\n"
-"char *Revision = \"3701\";\n"
-"char *Modified = \"Modified\";\n"
-"char *Date     = \"2005/06/15 11:15:12\";\n"
-"char *Range    = \"3699:3701\";\n"
-"char *Mixed    = \"Mixed revision WC\";\n"
-"char *URL      = \"http://project.domain.org/svn/trunk/src\";\n"
+"char *Revision      = \"22837\";\n"
+"char *Revision16    = \"53\";\n"
+"char *Revisionp100  = \"22937\";\n"
+"char *Revisionm100  = \"22737\";\n"
+"char *Modified      = \"Modified\";\n"
+"char *Date          = \"2012/04/26 18:47:57\";\n"
+"char *CustDate      = \"Thu, 26 April 2012\";\n"
+"char *DateUTC       = \"2012/04/26 16:47:57\";\n"
+"char *CustDateUTC   = \"Thu, 26 April 2012\";\n"
+"char *TimeNow       = \"2012/04/26 20:51:17\";\n"
+"char *TimeNowUTC    = \"2012/04/26 18:51:17\";\n"
+"char *RevRange      = \"22836:22837\";\n"
+"char *Mixed         = \"Mixed revision WC\";\n"
+"char *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\n"
+"char *isInSVN       = \"versioned\";\n"
+"char *needslck      = \"FALSE\";\n"
+"char *islocked      = \"not locked\";\n"
+"char *lockdateutc   = \"1970/01/01 00:00:00\";\n"
+"char *lockdate      = \"1970/01/01 01:00:00\";\n"
+"char *lockcustutc   = \"Thu, 01 January 1970\";\n"
+"char *lockcust      = \"Thu, 01 January 1970\";\n"
+"char *lockown       = \"\";\n"
+"char *lockcmt       = \"\";\n"
 "\n"
 "#if 1\n"
 "#error Source is modified\n"
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Plik testowy dla SubWCRev: testfile.txt\n\nchar *Revision = \"3701\";\nchar *Modified = \"Modified\";\nchar *Date     = \"2005/06/15 11:15:12\";\nchar *Range    = \"3699:3701\";\nchar *Mixed    = \"Mixed revision WC\";\nchar *URL      = \"http://project.domain.org/svn/trunk/src\";\n\n#if 1\n#error Source is modified\n#endif\n\n// Koniec pliku\n"
+msgstr "\n// Plik testowy dla SubWCRev: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// Koniec pliku\n"
 
 #. (para)
 msgid ""
@@ -16852,8 +16891,8 @@ msgstr "Tworzy repozytorium w <placeholder-1/>"
 #. (entry)
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
-" and <placeholder-2/> the url to switch to."
-msgstr "Otwiera okno dialogowe przełącznika. Zapis <placeholder-1/> określa folder docelowy, a <placeholder-2/> - adres URL do przełączenia."
+" and <placeholder-2/> the URL to switch to."
+msgstr "Otwiera okno przełączenia. Folder <placeholder-1/> określa miejsce docelowe zaś <placeholder-2/> to adres URL do przełączenia."
 
 #. (entry)
 msgid ""

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-20 13:56+0000\n"
+"PO-Revision-Date: 2012-04-29 05:27+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7909,15 +7909,15 @@ msgstr "Parametry jsou stejné jako kdybyste nastavovali hákové skripty v dial
 msgid ""
 "Since not every user has his or her working copy checked out at the same "
 "location with the same name, you can configure a script/tool to execute that"
-" resides in your working copy by specifying the url in the repository "
-"instead, using <filename>%REPOROOT%</filename> as the part of the url to the"
+" resides in your working copy by specifying the URL in the repository "
+"instead, using <filename>%REPOROOT%</filename> as the part of the URL to the"
 " repository root. For example, if your hook script is in your working copy "
 "under <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, "
 "you would specify the path to the script as "
 "<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
-msgstr "Protože ne každý uživatel má svoji pracovní kopii získánu ve stejném umístění a se stejným názvem, můžete nastavit skript/nástroj pro spuštění, který j umístěn ve Vaší pracovní kopii určením url v úložišti místo použití <filename>%REPOROOT%</filename> jako součást url kořene úložiště. Například, pokud Váš hákový skript je ve Vaší pracovní kopii umístěn ve <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, pak byste cestu ke skriptu určili jako <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. Takto nemusíte upravovat vlastnosti skriptu i když bude Vaše úložiště přesunuto na jiný server."
+msgstr "Protože ne každý uživatel má svoji pracovní kopii získánu ve stejném umístění a se stejným názvem, můžete nastavit skript/nástroj pro spuštění, který je umístěn ve Vaší pracovní kopii určením URL v úložišti místo použití <filename>%REPOROOT</filename> jako součást URL kořene úložiště. Například, pokud Váš hákový skript je ve Vaší pracovní kopii umístěn ve <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, pak byste cestu ke skriptu určili jako <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. Takto nemusíte upravovat vlastnosti skriptu i když bude Vaše úložiště přesunuto na jiný server."
 
 #. (title)
 msgid "Property dialog for hook scripts"
@@ -7943,10 +7943,6 @@ msgid ""
 "properties will appear in the list of pre-defined property names."
 msgstr "Když chcete přidat nové vlastnosti, můžete je buď vybrat ze seznamu v rámečku, nebo můžete zadat jakékoli jméno vlastnosti, které se Vám líbí. Pokud Váš projekt používá nějaké vlastní vlastnosti a chcete, aby se tyto vlastnosti objevili v seznamu v rámečku (aby se předešlo překlepům, když zadáváte název vlastnosti), můžete vytvořit seznam Vašich vlastních vlastností pomocí <literal>tsvn:userfileproperties</literal> a <literal>tsvn:userdirproperties</literal>. Použijte tyto vlastnosti na adresář. Když pak upravujete vlastnost každé podřazené položky, budou Vaše uživatelské vlastnosti uvedeny v seznamu přednastavených názvů vlastností."
 
-#. (term)
-msgid "bool"
-msgstr "bool"
-
 #. (title)
 msgid "Property dialog boolean user types"
 msgstr "Dialogové okno vlastností uživatelských booleanských typů"
@@ -7968,10 +7964,6 @@ msgid ""
 "checkbox where you can explain the purpose and use of the property. The "
 "other parameters should be self explanatory."
 msgstr "<literal>textštítku</literal> je text, zobrazený v dialogovém okně nad zaškrtávacím políčkem, kde můžete vysvětlit smysl a použití této vlastnosti. Ostatní parametry by nemělo být třeba vysvětlovat."
-
-#. (term)
-msgid "state"
-msgstr "stav"
 
 #. (title)
 msgid "Property dialog state user types"
@@ -8003,12 +7995,8 @@ msgid ""
 " the user can select the required state."
 msgstr "Pro až tři různé hodnoty, dialogové okno zobrazuje až tři přepínací tlačítka. Pokud je nastaveno více hodnot, používá rozbalovací seznam, odkud uživatel může zvolit požadovaný stav."
 
-#. (term)
-msgid "singleline"
-msgstr "jednořádková"
-
 #. (title)
-msgid "Property dialog singleline user types"
+msgid "Property dialog single-line user types"
 msgstr "Dialogové okno vlastností uživatelských jednořádkových typů"
 
 #. (para)
@@ -8028,12 +8016,8 @@ msgid ""
 "regex, then the user is shown an error and the property isn't set."
 msgstr "<literal>regex</literal> určuje regulární výraz, který je použit k ověření (shodě) textu zadaného uživatelem. Pokud se text neshoduje s výrazem neshoduje, pak je uživateli zobrazena chyba a vlastnost není nastavena."
 
-#. (term)
-msgid "multiline"
-msgstr "víceřádkový"
-
 #. (title)
-msgid "Property dialog multiline user types"
+msgid "Property dialog multi-line user types"
 msgstr "Dialogové okno vlastností uživatelských víceřádkových typů"
 
 #. (para)
@@ -14541,6 +14525,27 @@ msgid "Replaced with the highest commit revision in the working copy."
 msgstr "Nahrazeno nejvyšší odevzdanou revizi pracovní kopie."
 
 #. (literal)
+msgid "$WCREV&amp;0xFFFF$"
+msgstr "$WCREV&amp;0xFFFF$"
+
+#. (entry)
+msgid ""
+"Replaced with the highest commit revision in the working copy, ANDed with "
+"the value after the &amp; char. For example: <placeholder-1/>"
+msgstr "Nahrazeno nejvyšší odevzdanou revizi pracovní kopie. Spojeno pomocí AND s hodnotou po znaku &amp;. Například: <placeholder-1/>"
+
+#. (literal)
+msgid "$WCREV-1000$"
+msgstr "$WCREV-1000$"
+
+#. (entry)
+msgid ""
+"Replaced with the highest commit revision in the working copy, with the "
+"value after the + or - char added or subtracted. For example: "
+"<placeholder-1/>"
+msgstr "Nahrazeno nejvyšší odevzdanou revizi pracovní kopie hodnotou po znaku + nebo -, která je buď přičtena nebo odečtena. Například: <placeholder-1/>"
+
+#. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
 msgstr "rrrr-mm-dd hh:mm:ss"
 
@@ -14716,19 +14721,36 @@ msgid ""
 "\n"
 "// Test file for SubWCRev: testfile.tmpl\n"
 "\n"
-"char *Revision = \"$WCREV$\";\n"
-"char *Modified = \"$WCMODS?Modified:Not modified$\";\n"
-"char *Date     = \"$WCDATE$\";\n"
-"char *Range    = \"$WCRANGE$\";\n"
-"char *Mixed    = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
-"char *URL      = \"$WCURL$\";\n"
+"char *Revision      = \"$WCREV$\";\n"
+"char *Revision16    = \"$WCREV&amp;0xFF$\";\n"
+"char *Revisionp100  = \"$WCREV+100$\";\n"
+"char *Revisionm100  = \"$WCREV-100$\";\n"
+"char *Modified      = \"$WCMODS?Modified:Not modified$\";\n"
+"char *Date          = \"$WCDATE$\";\n"
+"char *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\n"
+"char *DateUTC       = \"$WCDATEUTC$\";\n"
+"char *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\n"
+"char *TimeNow       = \"$WCNOW$\";\n"
+"char *TimeNowUTC    = \"$WCNOWUTC$\";\n"
+"char *RevRange      = \"$WCRANGE$\";\n"
+"char *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *URL           = \"$WCURL$\";\n"
+"char *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\n"
+"char *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\n"
+"char *islocked      = \"$WCISLOCKED?locked:not locked$\";\n"
+"char *lockdateutc   = \"$WCLOCKDATEUTC$\";\n"
+"char *lockdate      = \"$WCLOCKDATE$\";\n"
+"char *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\n"
+"char *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\n"
+"char *lockown       = \"$WCLOCKOWNER$\";\n"
+"char *lockcmt       = \"$WCLOCKCOMMENT$\";\n"
 "\n"
 "#if $WCMODS?1:0$\n"
 "#error Source is modified\n"
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Testovací soubor: testsoubor.tmpl\n\nchar *Revize = \"$WCREV$\";\nchar *Změna = \"$WCMODS?Změněná:Nezměněná$\";\nchar *Datum     = \"$WCDATE$\";\nchar *Rozsah    = \"$WCRANGE$\";\nchar *Smíšená    = \"$WCMIXED?Smíšené revize pracovní kopie:Nesmíšené$\";\nchar *URL      = \"$WCURL$\";\n\n#if $WCMODS?1:0$\n#error Zdroj se změnil\n#endif\n\n// Konec souboru\n"
+msgstr "\n// Zkouškový soubor pro SubWCRev: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Změněno:Nezměněno$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Smíšené revize PK:Nesmíšené$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?s verzí:bez verze$\";\nchar *needslck      = \"$WCNEEDSLOCK?PRAVDA:NEPRAVDA$\";\nchar *islocked      = \"$WCISLOCKED?uzamčeno:neuzamčeno$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Soubor je změněn\n#endif\n\n// Konec souboru\n"
 
 #. (para)
 msgid ""
@@ -14743,19 +14765,36 @@ msgid ""
 "\n"
 "// Test file for SubWCRev: testfile.txt\n"
 "\n"
-"char *Revision = \"3701\";\n"
-"char *Modified = \"Modified\";\n"
-"char *Date     = \"2005/06/15 11:15:12\";\n"
-"char *Range    = \"3699:3701\";\n"
-"char *Mixed    = \"Mixed revision WC\";\n"
-"char *URL      = \"http://project.domain.org/svn/trunk/src\";\n"
+"char *Revision      = \"22837\";\n"
+"char *Revision16    = \"53\";\n"
+"char *Revisionp100  = \"22937\";\n"
+"char *Revisionm100  = \"22737\";\n"
+"char *Modified      = \"Modified\";\n"
+"char *Date          = \"2012/04/26 18:47:57\";\n"
+"char *CustDate      = \"Thu, 26 April 2012\";\n"
+"char *DateUTC       = \"2012/04/26 16:47:57\";\n"
+"char *CustDateUTC   = \"Thu, 26 April 2012\";\n"
+"char *TimeNow       = \"2012/04/26 20:51:17\";\n"
+"char *TimeNowUTC    = \"2012/04/26 18:51:17\";\n"
+"char *RevRange      = \"22836:22837\";\n"
+"char *Mixed         = \"Mixed revision WC\";\n"
+"char *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\n"
+"char *isInSVN       = \"versioned\";\n"
+"char *needslck      = \"FALSE\";\n"
+"char *islocked      = \"not locked\";\n"
+"char *lockdateutc   = \"1970/01/01 00:00:00\";\n"
+"char *lockdate      = \"1970/01/01 01:00:00\";\n"
+"char *lockcustutc   = \"Thu, 01 January 1970\";\n"
+"char *lockcust      = \"Thu, 01 January 1970\";\n"
+"char *lockown       = \"\";\n"
+"char *lockcmt       = \"\";\n"
 "\n"
 "#if 1\n"
 "#error Source is modified\n"
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Testovací soubor pro SubWCRev: testsoubor.txt\n\nchar *Revize = \"3701\";\nchar *Změna = \"Změněno\";\nchar *Datum     = \"2005/06/15 11:15:12\";\nchar *Rozsah    = \"3699:3701\";\nchar *Smíšená    = \"Mixed revision WC\";\nchar *URL      = \"http://domena.projektu.cz/svn/kmen/zdr\";\n\n#if 1\n#error Zdroj se změnil\n#endif\n\n// Konec souboru\n"
+msgstr "\n// Zkouškový soubor pro SubWCRev: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Změněno\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Čtv, 26.dubna 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Čtv, 26. dubna 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Smíšená revize PK\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"s verzí\";\nchar *needslck      = \"NEPRAVDA\";\nchar *islocked      = \"neuzamčeno\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Čtv, 01. ledna 1970\";\nchar *lockcust      = \"Čtv, 01. ledna 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Soubor je změněn\n#endif\n\n// Konec souboru\n"
 
 #. (para)
 msgid ""
@@ -16851,8 +16890,8 @@ msgstr "Vytvoří úložiště v <placeholder-1/>"
 #. (entry)
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
-" and <placeholder-2/> the url to switch to."
-msgstr "Otevře dialogové okno překlopení. <placeholder-1/> určuje cílový adresář a <placeholder-2/> url na kterou překlopit."
+" and <placeholder-2/> the URL to switch to."
+msgstr "Otevře dialogové okno překlopení. <placeholder-1/> určuje cílový adresář a <placeholder-2/> URL na kterou překlopit."
 
 #. (entry)
 msgid ""
