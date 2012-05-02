@@ -36,6 +36,9 @@
     <ClCompile Include="..\..\CommonLibs\Log\log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CrashInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="projectinfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CrashInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

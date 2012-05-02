@@ -184,6 +184,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="CrashInfo.cpp" />
     <ClCompile Include="CrashProcessor.cpp" />
     <ClCompile Include="DumpWriter.cpp" />
     <ClCompile Include="SendReportDlg.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="..\..\CommonLibs\Log\log_media.h" />
     <ClInclude Include="..\..\CommonLibs\Log\synchro.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="CrashInfo.h" />
     <ClInclude Include="DumpWriter.h" />
     <ClInclude Include="projectinfo.h" />
     <ClInclude Include="resource.h" />

@@ -176,7 +176,7 @@ BEGIN
     CONTROL         "",IDC_STATIC,"Static",SS_WHITERECT,-4,0,214,76
     PUSHBUTTON      "Cancel",IDCANCEL,156,82,50,14
     CONTROL         "[AppName] has stopped working",IDC_HEADER_TEXT,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,7,201,25
-    LTEXT           "Sending more information about the problem.\nThis might take several minutes...",IDC_TEXT,5,35,201,23
+    LTEXT           "Collecting more information about the problem.\nThis might take several minutes...",IDC_TEXT,5,35,201,23
     CONTROL         "",IDC_PROGRESS,"msctls_progress32",PBS_MARQUEE | WS_BORDER,5,58,201,10
 END
 
@@ -302,6 +302,7 @@ BEGIN
     IDS_SOLUTION_EXE        "Do you want to install it?"
     IDS_MOTIVATE_TO_SEND_FULL 
                             "This problem occurs first time and [Company] really need this report to fix the problem in a future version of [AppName].\nAre you sure you don't want to send it?"
+    IDS_SENDING_DATA        "Sending collected information to the [Company].\nThis might take several minutes..."
 END
 
 #endif    // English resources

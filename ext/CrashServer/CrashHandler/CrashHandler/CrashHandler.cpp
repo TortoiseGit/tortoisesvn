@@ -71,14 +71,21 @@ DWORD WINAPI SendReportThread(LPVOID lpParameter)
 	MINIDUMP_EXCEPTION_INFORMATION* pExceptInfo = (MINIDUMP_EXCEPTION_INFORMATION*)lpParameter;
 	try
 	{
-		TCHAR SendRptExe[MAX_PATH];
-		GetTempPath(_countof(SendRptExe), SendRptExe);
-		_tcscat_s(SendRptExe, _T("SendRpt.exe"));
+		WCHAR sendRptExe[MAX_PATH], drive[4], dir[MAX_PATH], fname[MAX_PATH], ext[MAX_PATH];
+		GetModuleFileNameW(NULL, sendRptExe, _countof(sendRptExe));
+		_wsplitpath_s(sendRptExe, drive, dir, fname, ext);
+		_wmakepath_s(sendRptExe, drive, dir, L"SendRpt", L".exe");
+		bool localSendRpt = 0 == _waccess_s(sendRptExe, 00/* Existence only */);
+		if (!localSendRpt)
+		{
+			GetTempPathW(_countof(sendRptExe), sendRptExe);
+			wcscat_s(sendRptExe, L"SendRpt.exe");
 
-		ExtractFileFromResource(g_hThisDLL, IDR_SENDRPT, SendRptExe);
+			ExtractFileFromResource(g_hThisDLL, IDR_SENDRPT, sendRptExe);
+		}
 
 		CString cmd;
-		cmd.Format(_T("\"%s\" "), SendRptExe);
+		cmd.Format(_T("\"%s\" "), sendRptExe);
 
 		CHandle hProcess;
 		DuplicateHandle(GetCurrentProcess(), GetCurrentProcess(), GetCurrentProcess(), &hProcess.m_h, PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | THREAD_ALL_ACCESS, TRUE, 0);
@@ -109,8 +116,8 @@ DWORD WINAPI SendReportThread(LPVOID lpParameter)
 		CloseHandle(pi.hProcess);
 
 		// if hReportReady event signaled, SendRpt is still working, so delete only when SendRpt has finished.
-		if (handles[res - WAIT_OBJECT_0] == pi.hProcess)
-			DeleteFile(SendRptExe);
+		if (!localSendRpt && handles[res - WAIT_OBJECT_0] == pi.hProcess)
+			DeleteFileW(sendRptExe);
 
 		InterlockedDecrement(&g_insideCrashHandler);
 

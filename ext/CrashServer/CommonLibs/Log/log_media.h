@@ -32,6 +32,7 @@ private:
 	CriticalSection m_cs;
 	HANDLE m_hConsole;
 	CONSOLE_SCREEN_BUFFER_INFO m_info;
+	bool m_bRedirectedToFile;
 };
 
 class FileMedia: public ILogMedia

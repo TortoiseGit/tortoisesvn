@@ -371,6 +371,8 @@ CString GetModuleInformation()
 
 ConsoleMedia::ConsoleMedia()
 {
+	m_bRedirectedToFile = true;
+
 	m_hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	if (m_hConsole == NULL)
 	{
@@ -379,6 +381,9 @@ ConsoleMedia::ConsoleMedia()
 			return;
 	}
 	GetConsoleScreenBufferInfo(m_hConsole, &m_info);
+
+	DWORD t;
+	m_bRedirectedToFile = GetConsoleMode(m_hConsole, &t) == FALSE;
 }
 
 void ConsoleMedia::Write(ELogMessageType type,
@@ -409,17 +414,30 @@ void ConsoleMedia::Write(ELogMessageType type,
 	
 	CString output;
 	FormatLogMessage(type, nLevel, pszDate, pszTime, pszThreadId, pszThreadName, pszModule, pszMessage, output);
+
+	if (m_bRedirectedToFile)
+	{
+		output += _T("\n");
+		CStringA outputA = output;
+		outputA.AnsiToOem();
+
+		CriticalSection::SyncLock lock(m_cs);
+		DWORD dwWritten;
+		WriteFile(m_hConsole, (LPCSTR)outputA, (DWORD)outputA.GetLength(), &dwWritten, NULL);
+	}
+	else
+	{
 #ifndef _UNICODE
-	output.AnsiToOem();
+		output.AnsiToOem();
 #endif
-	
-	CriticalSection::SyncLock lock(m_cs);
-	SetConsoleTextAttribute(m_hConsole, color);
-	DWORD dwWritten;
-	WriteConsole(m_hConsole, (LPCTSTR)output, (DWORD)output.GetLength(), &dwWritten, NULL);
-	
-	SetConsoleTextAttribute(m_hConsole, m_info.wAttributes);
-	WriteConsole(m_hConsole, _T("\n"), 1, &dwWritten, NULL);
+		CriticalSection::SyncLock lock(m_cs);
+		SetConsoleTextAttribute(m_hConsole, color);
+		DWORD dwWritten;
+		WriteConsole(m_hConsole, (LPCTSTR)output, (DWORD)output.GetLength(), &dwWritten, NULL);
+
+		SetConsoleTextAttribute(m_hConsole, m_info.wAttributes);
+		WriteConsole(m_hConsole, _T("\n"), 1, &dwWritten, NULL);
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////

@@ -45,10 +45,11 @@ class CBaseDlgT :
 {
 	CString m_AppName, m_Company;
 	HFONT m_Big;
-	CStaticEx m_Header, m_Text;
-	CProgressBarCtrl m_Progress;
+	CStaticEx m_Header;
 protected:
 	typedef CBaseDlgT<T> Base;
+	CStaticEx m_Text;
+	CProgressBarCtrl m_Progress;
 public:
 	CBaseDlgT(const wchar_t* pszAppName, const wchar_t* pszCompany)
 		: m_AppName(pszAppName), m_Company(pszCompany)
@@ -109,8 +110,8 @@ public:
 		m_Text.SubclassWindow(GetDlgItem(IDC_TEXT));
 
 		m_Progress = GetDlgItem(IDC_PROGRESS);
-		if (m_Progress.IsWindow())
-			m_Progress.SetMarquee(TRUE);
+ 		if (m_Progress.IsWindow())
+ 			m_Progress.SetMarquee(TRUE);
 
 		return 1;  // Let the system set the focus
 	}
@@ -149,11 +150,19 @@ public:
 
 class CSendFullDumpDlg : public CBaseDlgT<IDD_SENDFULLDUMPDLG>
 {
+	bool m_progressBegan;
 public:
 	CSendFullDumpDlg(const wchar_t* pszAppName, const wchar_t* pszCompany)
-		: CBaseDlgT(pszAppName, pszCompany)
+		: CBaseDlgT(pszAppName, pszCompany), m_progressBegan(false)
 	{
 	}
+
+	BEGIN_MSG_MAP(CSendFullDumpDlg)
+		MESSAGE_HANDLER(WM_USER, OnSetProgress)
+		CHAIN_MSG_MAP(Base)
+	END_MSG_MAP()
+
+	LRESULT OnSetProgress(UINT uMsg, WPARAM wTotal, LPARAM lSent, BOOL& bHandled);
 };
 
 // CSolutionDlg
@@ -168,7 +177,7 @@ public:
 	{
 	}
 
-	LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+	LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled) override;
 };
 
 // CAskSendFullDumpDlg
@@ -190,10 +199,10 @@ public:
 		CHAIN_MSG_MAP(Base)
 	END_MSG_MAP()
 
-	LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+	LRESULT OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled) override;
 	void SetDetailsText(const CString &text);
 	LRESULT OnClickedDetails(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
 	LRESULT OnLinkClicked(int windowId, LPNMHDR wParam, BOOL& bHandled);
-	LRESULT OnClickedOKCancel(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled);
+	LRESULT OnClickedOKCancel(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled) override;
 };
 

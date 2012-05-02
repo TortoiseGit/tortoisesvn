@@ -37,12 +37,18 @@ struct wininet_data
     size_t              uiBufferLen;        /* length of data in buffer */
     BOOL                bIsChunkSize;       /* expecting a chunk size buffer */
     wininet_rse_callback pRseCallback;      /* wininet_resolve_send_error callback.  Allows clients to resolve ssl errors programatically */
+	wininet_progress_callback pProgressCallback; /* callback to report a progress */
+	LPVOID              pProgressCallbackContext; /* context for pProgressCallback */
     char *              pRespHeaders;       /* buffer for response headers */
     size_t              uiRespHeadersLen;   /* length of data in response headers buffer */
     size_t              uiRespHeadersReaded;/* length of data readed from response headers buffer */
     char *              pszErrorMessage;    /* wininet/system error message */
 };
 
+#if 1
+#define Trace(pszFunc, pBuffer, uiBufferLen)	\
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "wininet %p: %s 0x%p %d\n", soap, pszFunc, pBuffer, uiBufferLen));
+#else
 void Trace(const char* pszFunc, const void* pBuffer, DWORD uiBufferLen)
 {
 /*
@@ -58,6 +64,7 @@ void Trace(const char* pszFunc, const void* pBuffer, DWORD uiBufferLen)
 	}
 */
 }
+#endif
 
 /* forward declarations */
 static BOOL
@@ -237,6 +244,20 @@ wininet_set_rse_callback(
     pData->pRseCallback = a_pRsecallback;
 }
 
+void 
+wininet_set_progress_callback(
+	struct soap *                soap,
+	wininet_progress_callback    a_pProgressCallback,
+	LPVOID a_pContext)
+{
+	struct wininet_data * pData = (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
+
+	DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+		"wininet %p: progress callback = '%p', context = '%p'\n", soap, a_pProgressCallback, a_pContext ));
+
+	pData->pProgressCallback = a_pProgressCallback;
+	pData->pProgressCallbackContext = a_pContext;
+}
 
 /* copy the private data structure */
 static int  
@@ -633,10 +654,38 @@ wininet_fsend(
     {
         bRetryPost = FALSE;
 
-        Trace("HttpSendRequestA", pData->pBuffer, (DWORD)pData->uiBufferLen);
+		/* to report a progress when sending a big buffer we need to send it by small
+		   chunks since INTERNET_STATUS_REQUEST_SENT callback is sent for entire buffer */
+		const DWORD dwChunkSize = 64 * 1024;
+		if ( pData->pProgressCallback && (DWORD)pData->uiBufferLen > dwChunkSize )
+		{
+			INTERNET_BUFFERSA buffer;
+			memset(&buffer, 0, sizeof(buffer));
+			buffer.dwStructSize = sizeof(buffer);
+			buffer.lpvBuffer = pData->pBuffer;
+			buffer.dwBufferLength = min((DWORD)pData->uiBufferLen, dwChunkSize);
+			buffer.dwBufferTotal = (DWORD)pData->uiBufferLen;
+			Trace("HttpSendRequestExA", pData->pBuffer, buffer.dwBufferLength);
+			bResult = HttpSendRequestExA( hHttpRequest, &buffer, NULL, 0, 0 );
+			while ( bResult && buffer.dwBufferLength < buffer.dwBufferTotal )
+			{
+				DWORD bytesWritten = min(buffer.dwBufferTotal - buffer.dwBufferLength, dwChunkSize);
+				Trace("InternetWriteFile", pData->pBuffer + buffer.dwBufferLength, bytesWritten);
+				bResult = InternetWriteFile( hHttpRequest, pData->pBuffer + buffer.dwBufferLength, bytesWritten, &bytesWritten );
+				buffer.dwBufferLength += bytesWritten;
+			}
+			if ( bResult )
+			{
+				bResult = HttpEndRequestA( hHttpRequest, NULL, 0, 0 );
+			}
+		}
+		else
+		{
+			Trace("HttpSendRequestA", pData->pBuffer, (DWORD)pData->uiBufferLen);
 
-        bResult = HttpSendRequestA( 
-            hHttpRequest, NULL, 0, pData->pBuffer, (DWORD)pData->uiBufferLen );
+			bResult = HttpSendRequestA( 
+				hHttpRequest, NULL, 0, pData->pBuffer, (DWORD)pData->uiBufferLen );
+		}
         if ( !bResult )
         {
             soap->error = GetLastError();
@@ -970,18 +1019,34 @@ wininet_callback(
             "wininet %p: INTERNET_STATUS_SENDING_REQUEST\n", soap));
         break;
     case INTERNET_STATUS_REQUEST_SENT:
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
-            "wininet %p: INTERNET_STATUS_REQUEST_SENT, bytes sent = %lu\n", 
-            soap, *(DWORD *)lpvStatusInformation ));
+		{
+			DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+				"wininet %p: INTERNET_STATUS_REQUEST_SENT, bytes sent = %lu\n", 
+				soap, *(DWORD *)lpvStatusInformation ));
+			struct wininet_data * pData = 
+				(struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
+			if ( pData->pProgressCallback )
+			{
+				pData->pProgressCallback( TRUE, *(DWORD *)lpvStatusInformation, pData->pProgressCallbackContext );
+			}
+		}
         break;
     case INTERNET_STATUS_RECEIVING_RESPONSE:
         DBGLOG(TEST, SOAP_MESSAGE(fdebug,
             "wininet %p: INTERNET_STATUS_RECEIVING_RESPONSE\n", soap));
         break;
     case INTERNET_STATUS_RESPONSE_RECEIVED:
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
-            "wininet %p: INTERNET_STATUS_RESPONSE_RECEIVED, bytes received = %lu\n", 
-            soap, *(DWORD *)lpvStatusInformation ));
+		{
+			DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+				"wininet %p: INTERNET_STATUS_RESPONSE_RECEIVED, bytes received = %lu\n", 
+				soap, *(DWORD *)lpvStatusInformation ));
+			struct wininet_data * pData = 
+				(struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
+			if ( pData->pProgressCallback )
+			{
+				pData->pProgressCallback( FALSE, *(DWORD *)lpvStatusInformation, pData->pProgressCallbackContext );
+			}
+		}
         break;
     case INTERNET_STATUS_CTL_RESPONSE_RECEIVED:
         DBGLOG(TEST, SOAP_MESSAGE(fdebug,

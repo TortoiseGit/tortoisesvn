@@ -24,6 +24,7 @@
 #include "SendReportDlg.h"
 #include "..\DumpUploaderServiceLib\DumpUploaderWebService.h"
 #include "..\CrashHandler\CrashHandler.h"
+#include "CrashInfo.h"
 
 Config g_Config;
 Log g_Log(NULL, _T("sendrpt"));
@@ -193,6 +194,7 @@ struct Response
 
 class CrashProcessor
 {
+	auto_ptr<CrashInfo> m_CrashInfo;
 	CString m_TempFolder;
 	CString m_MiniDumpFile;
 	CString m_MiniDumpZipFile;
@@ -203,7 +205,7 @@ class CrashProcessor
 	CString m_Patch;
 	DumpWriter m_DumpWriter;
 	DumpUploaderWebService m_WebService;
-	CWindow* m_pProgressDlg;
+	CWindow* volatile m_pProgressDlg;
 	bool m_bStop;
 
 public:
@@ -444,7 +446,31 @@ public:
 		return data;
 	}
 
-	Response UploadAdditionalInfo(const int miniDumpId, vector<unsigned char> *data, const ns1__AdditionalInfoType infoType) 
+	struct ProgressNotifier
+	{
+		size_t m_sent;
+		size_t m_total;
+		CrashProcessor& m_crashProcessor;
+		ProgressNotifier(size_t total, CrashProcessor& crashProcessor) : m_sent(0), m_total(total), m_crashProcessor(crashProcessor) {}
+		
+		static void ProgressCallback(BOOL send, SIZE_T bytesCount, LPVOID context)
+		{
+			static_cast<ProgressNotifier*>(context)->ProgressCallback(send, bytesCount);
+		}
+		void ProgressCallback(BOOL send, SIZE_T bytesCount)
+		{
+			if (!send)
+				return;
+			m_sent += bytesCount;
+			if (m_sent > m_total)
+				m_sent = m_total;
+
+			if (m_crashProcessor.m_pProgressDlg)
+				m_crashProcessor.m_pProgressDlg->PostMessage(WM_USER, m_total, m_sent);
+		}
+	};
+
+	Response UploadAdditionalInfo(const int miniDumpId, vector<unsigned char> *data, const ns1__AdditionalInfoType infoType)
 	{
 		Response result;
 
@@ -463,14 +489,26 @@ public:
 			pRequest->info->__ptr = &(*data->begin());
 			pRequest->info->__size = static_cast<int>(data->size());
 		}
+		else
+		{
+			pRequest->info->__ptr = NULL;
+			pRequest->info->__size = 0;
+		}
 		pRequest->info->id = NULL;
 		pRequest->info->options = NULL;
 		pRequest->info->type = "binary";
 		pRequest->infoType = infoType;
 
 		_ns1__UploadAdditionalInfoResponse* pResponse = soap_new__ns1__UploadAdditionalInfoResponse(&m_WebService, 1);
-
+		auto_ptr<ProgressNotifier> pProgress;
+		if (data)
+		{
+			pProgress.reset(new ProgressNotifier(data->size(), *this));
+			m_WebService.SetProgressCallback(ProgressNotifier::ProgressCallback, pProgress.get());
+		}
 		bool bReqOK = m_WebService.UploadAdditionalInfo(pRequest, pResponse) == SOAP_OK;
+		if (data)
+			m_WebService.SetProgressCallback(NULL, NULL);
 
 		if (bReqOK)
 			result.Fill(*pResponse->UploadAdditionalInfoResult);
@@ -518,6 +556,10 @@ public:
 			zip.AddFile(dumpFile, dumpFile.Mid(dumpFile.ReverseFind(_T('\\')) + 1));
 			if (attachFiles)
 			{
+				CString crashInfoFile = m_TempFolder + _T("\\crashinfo.xml");
+				if (m_CrashInfo->GetCrashInfoFile(crashInfoFile))
+					g_Config.FilesToAttach.push_back(std::make_pair<CStringW, CStringW>(crashInfoFile, L"crashinfo.xml"));
+
 				WIN32_FIND_DATAW ff;
 				FindClose(FindFirstFileW(dumpFile, &ff));
 				__int64 attachedSizeLimit = max(1024*1024I64, (static_cast<__int64>(ff.nFileSizeHigh) << 32) | ff.nFileSizeLow);
@@ -545,6 +587,7 @@ public:
 					zip.AddFile(it->first, it->second);
 					g_Log.Info(_T("Done."));
 				}
+				DeleteFile(crashInfoFile);
 			}
 		}
 		g_Log.Info(_T("Zipping done."));
@@ -723,6 +766,9 @@ public:
 	{
 		m_DumpWriter.Init();
 
+		// we need to get CrashInfo before writing the dumps, since dumps writing will change WorkingSet
+		m_CrashInfo.reset(new CrashInfo(hProcess));
+
 		InitPathes();
 
 		HANDLE hThreadTemp = NULL;
@@ -739,6 +785,25 @@ public:
 		int problemID = 0;
 		int dumpGroupID = 0;
 		int dumpID = 0;
+
+#if 0
+		// This code is for test purposes
+		{
+			CloseProgress(hShowProgressThread, false);
+			DWORD t;
+			CHandle hThreadTemp2(CreateThread(NULL, 0, _SendFullDumpDlgThread, this, 0, &t));
+			if (!hThreadTemp2)
+				throw runtime_error("Failed to create thread");
+			hShowProgressThread = hThreadTemp2;
+			Sleep(1000); // Give time to draw a dialog before writing a dump (it will freeze a process and a dialog)
+			for (int i = 0; m_pProgressDlg && i < 100; ++i)
+			{
+				m_pProgressDlg->PostMessage(WM_USER, 100, i);
+				Sleep(30);
+			}
+			throw runtime_error("end");
+		}
+#endif
 
 		try
 		{

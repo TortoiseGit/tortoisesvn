@@ -23,6 +23,9 @@ class DumpUploaderWebService : public UploaderSoapProxy
 {
 	std::string m_serviceUrl;
 public:
-	DumpUploaderWebService(int ResponseTimeoutSec = 0);
+	DumpUploaderWebService(int responseTimeoutSec = 0);
 	std::wstring GetErrorText();
+
+	typedef void (*pfnProgressCallback)(BOOL send, SIZE_T bytesCount, LPVOID context);
+	void SetProgressCallback(pfnProgressCallback progressCallback, LPVOID context);
 };

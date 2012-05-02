@@ -17,12 +17,12 @@
 
 #include "DumpUploaderWebService.h"
 #include "generated\UploaderSoap.nsmap"
-#include "mod_gsoap\gsoap_win\wininet\gsoapWinInet.h"
+#include "gsoapWinInet.h"
 #include <sstream>
 #include <atlbase.h>
 #include <atlstr.h>
 
-DumpUploaderWebService::DumpUploaderWebService(int ResponseTimeoutSec)
+DumpUploaderWebService::DumpUploaderWebService(int responseTimeoutSec)
 	: UploaderSoapProxy(SOAP_ENC_MTOM|SOAP_IO_KEEPALIVE|SOAP_C_UTFSTRING/*SOAP_C_MBSTRING*/)
 {
 	m_serviceUrl = "https://www.crash-server.com";
@@ -40,7 +40,7 @@ DumpUploaderWebService::DumpUploaderWebService(int ResponseTimeoutSec)
 
 		DWORD cfgResponseTimeoutSec = 0;
 		if (ERROR_SUCCESS == reg.QueryDWORDValue(_T("ResponseTimeoutSec"), cfgResponseTimeoutSec) && cfgResponseTimeoutSec != 0)
-			ResponseTimeoutSec = static_cast<int>(cfgResponseTimeoutSec);
+			responseTimeoutSec = static_cast<int>(cfgResponseTimeoutSec);
 
 #ifdef _DEBUG // soap_set_*_logfile defined only in DEBUG build of GSOAP
 		DWORD traceEnable = FALSE;
@@ -61,7 +61,7 @@ DumpUploaderWebService::DumpUploaderWebService(int ResponseTimeoutSec)
 	m_serviceUrl += "/DumpUploader.asmx";
 
 	soap_endpoint = m_serviceUrl.c_str();
-	recv_timeout = ResponseTimeoutSec;
+	recv_timeout = responseTimeoutSec;
 	soap_register_plugin(this, wininet_plugin);
 }
 
@@ -73,4 +73,9 @@ std::wstring DumpUploaderWebService::GetErrorText()
 	buf.resize(MultiByteToWideChar(CP_UTF8, 0, (LPCSTR) o.str().c_str(), (int)o.str().size() + 1, &buf.front(), (int)buf.size()));
 
 	return std::wstring(buf.begin(), buf.end());
+}
+
+void DumpUploaderWebService::SetProgressCallback(pfnProgressCallback progressCallback, LPVOID context)
+{
+	wininet_set_progress_callback(this, progressCallback, context);
 }

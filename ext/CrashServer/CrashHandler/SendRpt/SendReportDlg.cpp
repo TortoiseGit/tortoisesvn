@@ -18,7 +18,7 @@
 #include "StdAfx.h"
 #include "SendReportDlg.h"
 
-LRESULT CStaticEx::OnPaint( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
+LRESULT CStaticEx::OnPaint(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
 	PAINTSTRUCT ps;
 	CDCHandle dc(BeginPaint(&ps));
@@ -42,7 +42,7 @@ LRESULT CStaticEx::OnPaint( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
 	return 0;
 }
 
-LRESULT CSolutionDlg::OnInitDialog( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
+LRESULT CSolutionDlg::OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
 	LRESULT res = Base::OnInitDialog(uMsg, wParam, lParam, bHandled);
 	GetDlgItem(IDC_QUESTION).SetWindowText(m_question);		
@@ -52,6 +52,24 @@ LRESULT CSolutionDlg::OnInitDialog( UINT uMsg, WPARAM wParam, LPARAM lParam, BOO
 	m_Quest.SubclassWindow(GetDlgItem(IDC_QUESTION));
 
 	return res;
+}
+
+LRESULT CSendFullDumpDlg::OnSetProgress(UINT uMsg, WPARAM wTotal, LPARAM lSent, BOOL& bHandled)
+{
+	if (m_Progress.IsWindow())
+	{
+		if (!m_progressBegan)
+		{
+			m_Text.LockWindowUpdate(); // without that CStaticEx::OnPaint doesn't called ???
+			m_Text.SetWindowText(SubstituteText(CString((LPCSTR)IDS_SENDING_DATA)));
+			m_Text.LockWindowUpdate(FALSE);
+			m_Progress.ModifyStyle(PBS_MARQUEE, 0);
+			m_Progress.SetRange(0, 1000); // 1000 to make moving smooth (not less than pixels in progress bar)
+			m_progressBegan = true;
+		}
+		m_Progress.SetPos(int((1000.0 * lSent) / wTotal));
+	}
+	return 0;
 }
 
 LRESULT CAskSendFullDumpDlg::OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)

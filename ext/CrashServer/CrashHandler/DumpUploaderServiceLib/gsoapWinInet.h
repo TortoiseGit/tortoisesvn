@@ -187,6 +187,10 @@ typedef wininet_rseReturn(*wininet_rse_callback)(HINTERNET a_hHttpRequest, DWORD
 
 extern void wininet_set_rse_callback(struct soap *a_pSoap, wininet_rse_callback a_pRseCallback);
 
+typedef void (*wininet_progress_callback)(BOOL a_bSend, SIZE_T a_dwBytesCount, LPVOID pContext);
+
+extern void wininet_set_progress_callback(struct soap *a_pSoap, wininet_progress_callback a_pProgressCallback, LPVOID a_pContext);
+
 extern int wininet_plugin(struct soap *a_pSoap, struct soap_plugin *a_pPluginData, void *a_pUnused);
 
 #ifdef __cplusplus

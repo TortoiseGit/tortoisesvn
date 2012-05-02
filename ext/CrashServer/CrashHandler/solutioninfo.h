@@ -21,7 +21,7 @@
 #define VERSION_PRODUCTNAME_STR                 "Crash Server"
 #define VERSION_PRODUCTVERSION_HIGH             1
 #define VERSION_PRODUCTVERSION_LOW              0
-#define VERSION_PRODUCTVERSION_BUILD            9
+#define VERSION_PRODUCTVERSION_BUILD            10
 #define VERSION_PRODUCTVERSION_COMPILATION      0
 
 #include "CommonLibs\Version\version.h"
