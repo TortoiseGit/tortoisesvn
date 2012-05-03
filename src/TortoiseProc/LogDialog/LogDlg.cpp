@@ -190,10 +190,6 @@ CLogDlg::~CLogDlg()
     }
     if (m_boldFont)
         DeleteObject(m_boldFont);
-    if (m_pLogListAccServer)
-        m_pLogListAccServer->Release();
-    if (m_pChangedListAccServer)
-        m_pChangedListAccServer->Release();
 }
 
 void CLogDlg::DoDataExchange(CDataExchange* pDX)
@@ -260,6 +256,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_EN_VSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
     ON_EN_HSCROLL(IDC_MSGVIEW, &CLogDlg::OnEnscrollMsgview)
     ON_WM_CLOSE()
+    ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev, BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */, int limit)
@@ -1148,6 +1145,25 @@ void CLogDlg::OnClose()
             return;
     }
     __super::OnClose();
+}
+
+void CLogDlg::OnDestroy()
+{
+    if (m_pLogListAccServer)
+    {
+        ListViewAccServer::ClearProvider(m_LogList.GetSafeHwnd());
+        m_pLogListAccServer->Release();
+        delete m_pLogListAccServer;
+        m_pLogListAccServer = nullptr;
+    }
+    if (m_pChangedListAccServer)
+    {
+        ListViewAccServer::ClearProvider(m_ChangedFileListCtrl.GetSafeHwnd());
+        m_pChangedListAccServer->Release();
+        delete m_pChangedListAccServer;
+        m_pChangedListAccServer = nullptr;
+    }
+    __super::OnDestroy();
 }
 
 BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string& message, apr_time_t time, const MergeInfo* mergeInfo)

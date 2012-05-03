@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2011 - TortoiseSVN
+// Copyright (C) 2009-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -106,4 +106,15 @@ ListViewAccServer * ListViewAccServer::CreateProvider(HWND hControl, ListViewAcc
         return pLVServer;
     }
     return NULL;
+}
+
+void ListViewAccServer::ClearProvider( HWND hControl )
+{
+    ATL::CComPtr<IAccPropServices> pAccPropSvc;
+    HRESULT hr = pAccPropSvc.CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER);
+    if (hr == S_OK && pAccPropSvc)
+    {
+        MSAAPROPID propid = PROPID_ACC_HELP;
+        hr = pAccPropSvc->ClearHwndProps(hControl, (DWORD)OBJID_CLIENT, CHILDID_SELF, &propid, 1);
+    }
 }

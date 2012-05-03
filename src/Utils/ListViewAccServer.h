@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -57,6 +57,8 @@ public:
     }
 
     static ListViewAccServer * CreateProvider(HWND hControl, ListViewAccProvider * provider);
+    /// must be called in the WM_DESTROY handler!
+    static void ClearProvider(HWND hControl);
 
     HRESULT STDMETHODCALLTYPE GetPropValue(const BYTE * pIDString, DWORD dwIDStringLen, MSAAPROPID idProp, VARIANT * pvarValue, BOOL * pfGotProp);
 
