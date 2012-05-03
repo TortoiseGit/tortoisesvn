@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -227,7 +227,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             return FALSE;
         propsPath = path;
         path = path.GetContainingDirectory();
-        if ((!SVNHelper::IsVersioned(path, true))||(path.IsEmpty()))
+        if ((!SVNHelper::IsVersioned(path, true)) || (path.IsEmpty()) || propsPath.IsWCRoot())
         {
             if (sLogRevRegex.IsEmpty())
                 sLogRevRegex = LOG_REVISIONREGEX;
