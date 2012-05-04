@@ -268,7 +268,6 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keeplocal, cons
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subPool);
 
     CallPreConnectHookIfUrl(pathlist);
-    PostCommitErr.Empty();
 
     SVNTRACE(
         Err = svn_client_delete4 (pathlist.MakePathArray(subPool),
@@ -449,7 +448,6 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
     m_pctx->log_msg_baton3 = logMessage(message);
 
     CHooks::Instance().PreConnect(pathlist);
-    PostCommitErr.Empty();
 
     SVNTRACE(
         Err = svn_client_commit5 (
@@ -489,7 +487,6 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
 
     CallPreConnectHookIfUrl(srcPathList, destPath);
-    PostCommitErr.Empty();
 
     SVNTRACE(
         Err = svn_client_copy6 (MakeCopyArray(srcPathList, revision, pegrev),
@@ -523,7 +520,6 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     m_pctx->log_msg_baton3 = logMessage(message);
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
     CallPreConnectHookIfUrl(srcPathList, destPath);
-    PostCommitErr.Empty();
     SVNTRACE (
         Err = svn_client_move6 (srcPathList.MakePathArray(subpool),
                                 destPath.GetSVNApiPath(subpool),
@@ -552,7 +548,6 @@ bool SVN::MakeDir(const CTSVNPathList& pathlist, const CString& message, bool ma
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, pool);
 
     CallPreConnectHookIfUrl(pathlist);
-    PostCommitErr.Empty();
 
     SVNTRACE (
         Err = svn_client_mkdir4 (pathlist.MakePathArray(pool),
@@ -878,7 +873,6 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
 
     const char* svnPath = path.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(path));
-    PostCommitErr.Empty();
     SVNTRACE (
         Err = svn_client_import4(svnPath,
                                 url.GetSVNApiPath(subpool),
@@ -2970,6 +2964,7 @@ void SVN::Prepare()
     svn_error_clear(Err);
     Err = NULL;
     m_redirectedUrl.Reset();
+    PostCommitErr.Empty();
 }
 
 svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
