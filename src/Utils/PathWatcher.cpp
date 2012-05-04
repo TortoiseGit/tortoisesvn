@@ -194,11 +194,11 @@ void CPathWatcher::WorkerThread()
     {
         if (watchedPaths.GetCount())
         {
-            if (!GetQueuedCompletionStatus(m_hCompPort,
-                                            &numBytes,
-                                            (PULONG_PTR) &pdi,
-                                            &lpOverlapped,
-                                            INFINITE))
+            if (!m_hCompPort || !GetQueuedCompletionStatus(m_hCompPort,
+                                                           &numBytes,
+                                                           (PULONG_PTR) &pdi,
+                                                           &lpOverlapped,
+                                                           INFINITE))
             {
                 // Error retrieving changes
                 // Clear the list of watched objects and recreate that list
