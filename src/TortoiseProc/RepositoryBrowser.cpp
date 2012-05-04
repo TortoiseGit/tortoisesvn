@@ -1825,11 +1825,13 @@ void CRepositoryBrowser::OnDelete()
     input.SetActionText(hint);
     if (input.DoModal() == IDOK)
     {
-        if (!Remove(urlList, true, false, input.GetLogMessage()))
+        bool bRet = Remove(urlList, true, false, input.GetLogMessage());
+        if (!bRet || !PostCommitErr.IsEmpty())
         {
             wait_cursor.Hide();
             ShowErrorDialog(m_hWnd);
-            return;
+            if (!bRet)
+                return;
         }
         if (bTreeItem)
         {
@@ -2356,13 +2358,15 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
     {
         CWaitCursorEx wait_cursor;
 
-        if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(absolutepath)))),
-            targetUrl,
-            input.GetLogMessage()))
+        bool bRet = Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(absolutepath)))),
+                         targetUrl,
+                         input.GetLogMessage());
+        if (!bRet || !PostCommitErr.IsEmpty())
         {
             wait_cursor.Hide();
             ShowErrorDialog(m_hWnd);
-            return;
+            if (!bRet)
+                return;
         }
         *pResult = 0;
 
@@ -2420,13 +2424,15 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
     {
         CWaitCursorEx wait_cursor;
 
-        if (!Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->url)))),
-            targetUrl,
-            input.GetLogMessage()))
+        bool bRet = Move(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(pItem->url)))),
+                         targetUrl,
+                         input.GetLogMessage());
+        if (!bRet || !PostCommitErr.IsEmpty())
         {
             wait_cursor.Hide();
             ShowErrorDialog(m_hWnd);
-            return;
+            if (!bRet)
+                return;
         }
 
         HTREEITEM parent = m_RepoTree.GetParentItem (hSelectedItem);
@@ -2718,7 +2724,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     bRet = Move(pathlist, CTSVNPath(target.GetSVNPathString() + _T("/") + targetName), input.GetLogMessage(), false);
                 else
                     bRet = Move(pathlist, target, input.GetLogMessage(), true);
-            if (!bRet)
+            if (!bRet || !PostCommitErr.IsEmpty())
             {
                 wait_cursor.Hide();
                 ShowErrorDialog(m_hWnd);
@@ -2833,12 +2839,14 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
             for (int importindex = 0; importindex<pathlist.GetCount(); ++importindex)
             {
                 CString filename = pathlist[importindex].GetFileOrDirectoryName();
-                if (!Import(pathlist[importindex],
-                    CTSVNPath(target.GetSVNPathString()+_T("/")+filename),
-                    input.GetLogMessage(), &m_ProjectProperties, svn_depth_infinity, true, true, false))
+                bool bRet = Import(pathlist[importindex],
+                                   CTSVNPath(target.GetSVNPathString()+_T("/")+filename),
+                                   input.GetLogMessage(), &m_ProjectProperties, svn_depth_infinity, true, true, false);
+                if (!bRet || !PostCommitErr.IsEmpty())
                 {
                     ShowErrorDialog(m_hWnd);
-                    return false;
+                    if (!bRet)
+                        return false;
                 }
             }
             if (GetRevision().IsHead())
@@ -3433,11 +3441,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 input.SetActionText(hint);
                 if (input.DoModal() == IDOK)
                 {
-                    if (!Remove (selection.GetURLsEscaped (0), true, false, input.GetLogMessage()))
+                    bool bRet = Remove (selection.GetURLsEscaped (0), true, false, input.GetLogMessage());
+                    if (!bRet || !PostCommitErr.IsEmpty())
                     {
                         wait_cursor.Hide();
                         ShowErrorDialog(m_hWnd);
-                        break;
+                        if (!bRet)
+                            break;
                     }
                     m_barRepository.SetHeadRevision(GetCommitRevision());
                     if (hChosenTreeItem)
@@ -3492,18 +3502,20 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         progDlg.SetLine(1, sInfoLine, true);
                         SetAndClearProgressInfo(&progDlg);
                         progDlg.ShowModeless(m_hWnd);
-                        if (!Import(svnPath,
-                            CTSVNPath(EscapeUrl(CTSVNPath(url.GetSVNPathString()+_T("/")+filename))),
-                            input.GetLogMessage(),
-                            &m_ProjectProperties,
-                            svn_depth_infinity,
-                            true, false, false))
+                        bool bRet = Import(svnPath,
+                                           CTSVNPath(EscapeUrl(CTSVNPath(url.GetSVNPathString()+_T("/")+filename))),
+                                           input.GetLogMessage(),
+                                           &m_ProjectProperties,
+                                           svn_depth_infinity,
+                                           true, false, false);
+                        if (!bRet || !PostCommitErr.IsEmpty())
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
                             wait_cursor.Hide();
                             ShowErrorDialog(m_hWnd);
-                            break;
+                            if (!bRet)
+                                break;
                         }
                         m_barRepository.SetHeadRevision(GetCommitRevision());
                         progDlg.Stop();
@@ -3541,18 +3553,20 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         progDlg.SetLine(1, sInfoLine, true);
                         SetAndClearProgressInfo(&progDlg);
                         progDlg.ShowModeless(m_hWnd);
-                        if (!Import(path,
-                            CTSVNPath(EscapeUrl(CTSVNPath(url.GetSVNPathString()+_T("/")+filename))),
-                            input.GetLogMessage(),
-                            &m_ProjectProperties,
-                            svn_depth_empty,
-                            true, true, false))
+                        bool bRet = Import(path,
+                                           CTSVNPath(EscapeUrl(CTSVNPath(url.GetSVNPathString()+_T("/")+filename))),
+                                           input.GetLogMessage(),
+                                           &m_ProjectProperties,
+                                           svn_depth_empty,
+                                           true, true, false);
+                        if (!bRet || !PostCommitErr.IsEmpty())
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
                             wait_cursor.Hide();
                             ShowErrorDialog(m_hWnd);
-                            break;
+                            if (!bRet)
+                                break;
                         }
                         m_barRepository.SetHeadRevision(GetCommitRevision());
                         progDlg.Stop();
@@ -3617,11 +3631,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     {
                         InvalidateDataParents (selection);
 
-                        if (!Copy (selection.GetURLsEscaped (0), CTSVNPath(dlg.m_name), revision, revision, input.GetLogMessage()))
+                        bool bRet = Copy(selection.GetURLsEscaped (0), CTSVNPath(dlg.m_name), revision, revision, input.GetLogMessage());
+                        if (!bRet || !PostCommitErr.IsEmpty())
                         {
                             wait_cursor.Hide();
                             ShowErrorDialog(m_hWnd);
-                            break;
+                            if (!bRet)
+                                break;
                         }
                         if (revision.IsHead())
                         {
@@ -3686,11 +3702,13 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         InvalidateDataParents (selection);
 
                         // when creating the new folder, also trim any whitespace chars from it
-                        if (!MakeDir(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(path.GetSVNPathString()+_T("/")+dlg.m_name.Trim())))), input.GetLogMessage(), true))
+                        bool bRet = MakeDir(CTSVNPathList(CTSVNPath(EscapeUrl(CTSVNPath(path.GetSVNPathString()+_T("/")+dlg.m_name.Trim())))), input.GetLogMessage(), true);
+                        if (!bRet || !PostCommitErr.IsEmpty())
                         {
                             wait_cursor.Hide();
                             ShowErrorDialog(m_hWnd);
-                            break;
+                            if (!bRet)
+                                break;
                         }
                         m_barRepository.SetHeadRevision(GetCommitRevision());
                         RefreshNode(m_RepoTree.GetSelectedItem(), true);
