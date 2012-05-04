@@ -10,14 +10,14 @@
 # 
 # Authors:
 # Translators:
-# Khoa Dang <dndk82@yahoo.com>, 2011.
+# Khoa Dang <dndk82@yahoo.com>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-28 08:21+0000\n"
-"Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
+"PO-Revision-Date: 2012-05-02 04:41+0000\n"
+"Last-Translator: Khoa Dang <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3231,7 +3231,7 @@ msgstr "Hộp thoại cam kết sẽ cho bạn thấy tất cả các tập tin 
 msgid ""
 "For information on the coloring and overlays of the items according to their"
 " status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
-msgstr ""
+msgstr "Để biết thêm thông tin về màu sắc và lớp phủ của các mục tùy theo trạng thái của chúng, xin xem <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
 
 #. (para)
 msgid ""
@@ -3390,7 +3390,7 @@ msgstr "Hộp thoại cam kết hỗ trợ tính năng danh sách thay đổi Su
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "Chỉ cam kết các phần của tập tin"
 
 #. (para)
 msgid ""
@@ -3398,7 +3398,7 @@ msgid ""
 "Such a situation usually happens when you're working on something but then "
 "an urgent fix needs to be committed, and that fix happens to be in the same "
 "file you're working on."
-msgstr ""
+msgstr "Thỉnh thoảng bạn chỉ muốn cam kết vài phần của các thay đổi bạn thực hiện tới một tập tin. Tình huống như vậy thường xảy ra khi bạn làm việc trên vài thứ nhưng rồi một việc sửa chửa khẩn cấp cần được cam kết, và việc sửa chửa đó tình cờ xảy ra trong cùng tập tin bạn đang làm việc."
 
 #. (para)
 msgid ""
@@ -3408,14 +3408,14 @@ msgid ""
 " is. Then you can edit the file, e.g. in TortoiseMerge and undo all the "
 "changes you don't want to commit. After saving those changes you can commit "
 "the file."
-msgstr ""
+msgstr "<action>nhấn chuột phải</action> trên tập tin và dùng <menuchoice><guimenu>Trình Đơn Ngữ Cảnh</guimenu><guimenuitem>Khôi phục sau khi cam kết</guimenuitem></menuchoice>. Việc này sẽ tạo ra một bản sao của tập tin. Rồi thì bạn có thể biên tập tập tin, ví dụ như với TortoiseMerge và hoàn tác các thay đổi bạn không muốn cam kết. Sau khi lưu các thay đổi đó bạn có thể cam kết tập tin."
 
 #. (para)
 msgid ""
 "After the commit is done, the copy of the file is restored automatically, "
 "and you have the file with all your modifications that were not committed "
 "back."
-msgstr ""
+msgstr "Sau khi việc cam kết xong, bản sao của tập tin được khôi phục một cách tự động, và bạn nhận lại một tập tin với tất cả các chỉnh sửa không được cam kết."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
@@ -4621,13 +4621,13 @@ msgstr "Hộp thoại sử dụng mã màu để làm nổi bật tình trạng.
 
 #. (para)
 msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
-msgstr ""
+msgstr "Độ sâu kiểm xuất <literal>để trống</literal>, có nghĩa là chỉ bản thân món đó."
 
 #. (para)
 msgid ""
 "Checkout depth <literal>files</literal>, meaning only the item itself and "
 "all file children without child folders."
-msgstr ""
+msgstr "Độ sâu kiểm xuất <literal>các tập tin</literal>, có nghĩa chỉ là bản thân món đó và tất cả các tập tin con mà không có các thư mục con."
 
 #. (para)
 msgid ""
@@ -4637,19 +4637,19 @@ msgstr ""
 
 #. (para)
 msgid "Nested items, i.e., working copies inside the working copy."
-msgstr ""
+msgstr "Các món lồng ghép, nghĩa là các bản sao làm việc bên trong một bản sao làm việc."
 
 #. (para)
 msgid ""
 "External items, i.e., all items that are added via an "
 "<literal>svn:externals</literal> property."
-msgstr ""
+msgstr "Các món từ bên ngoài, nghĩa là, tất cả các món được thêm và qua thuộc tính <literal>svn:externals</literal>."
 
 #. (para)
 msgid ""
 "Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
 "restore\"/> for details."
-msgstr ""
+msgstr "Các món được phục hồi sau một lệnh cam kết. Xem chi tiết ở <xref linkend=\"tsvn-dug-commit-restore\"/>."
 
 #. (para)
 msgid ""
@@ -7884,7 +7884,7 @@ msgstr "Nếu thuộc tính này không được thiết lập, một biểu th�
 msgid ""
 "There are several properties available to configure client-side hook "
 "scripts. Each property is for one specific hook script type."
-msgstr ""
+msgstr "Có nhiều thuộc tính cho phép cấu hình các kịch bản hook trên máy khách. Mỗi thuộc tính là cho một loại kịch bản hook cụ thể."
 
 #. (para)
 msgid ""
@@ -7895,14 +7895,14 @@ msgid ""
 "<literal>tsvn:startupdatehook</literal>, "
 "<literal>tsvn:preupdatehook</literal> and "
 "<literal>tsvn:postupdatehook</literal>."
-msgstr ""
+msgstr "Các thuộc tính/kịch bản hook có thể dùng là <literal>tsvn:startcommithook</literal>, <literal>tsvn:precommithook</literal>, <literal>tsvn:postcommithook</literal>, <literal>tsvn:startupdatehook</literal>, <literal>tsvn:preupdatehook</literal> và <literal>tsvn:postupdatehook</literal>."
 
 #. (para)
 msgid ""
 "The parameters are the same as if you would configure the hook scripts in "
 "the settings dialog. See <xref linkend=\"tsvn-dug-settings-hooks\"/> for the"
 " details."
-msgstr ""
+msgstr "Các tham số là giống nhau như là bạn có thể cấu hình các kịch bản hook trong hộp thoại thiết lập. Xem chi tiết ở <xref linkend=\"tsvn-dug-settings-hooks\"/>."
 
 #. (para)
 msgid ""
@@ -7920,14 +7920,14 @@ msgstr ""
 
 #. (title)
 msgid "Property dialog for hook scripts"
-msgstr ""
+msgstr "Hộp thoại thuộc tính cho các kịch bản hook"
 
 #. (para)
 msgid ""
 "The following screenshot shows how the script to check for current copyright"
 " years in source file headers is configured for TortoiseSVN. "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Các ảnh chụp màn hình sau đây cho thấy cách các kịch bản kiểm tra các bản quyền năm trong đầu mục của các tập tin nguồn được cấu hình cho TortoiseSVN. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -7944,41 +7944,41 @@ msgstr "Khi bạn muốn thêm một thuộc tính mới, bạn có thể chọn
 
 #. (title)
 msgid "Property dialog boolean user types"
-msgstr ""
+msgstr "Hộp thoại thuộc tính cho các kiểu người dùng lô gíc"
 
 #. (para)
 msgid ""
 "If your property can only have two states, e.g., true and false, then you "
 "can configure your property as a <literal>bool</literal> type. "
 "<placeholder-1/> Specify your property like this:"
-msgstr ""
+msgstr "Nếu thuộc tính của bạn chỉ có thể có hai trạng thái, ví dụ, true và false, thì bạn có thể cấu hình thuộc tính của bạn dưới dạng một kiểu <literal>bool</literal>. <placeholder-1/> Chỉ định thuộc tính của bạn như thế này:"
 
 #. (literal)
 msgid "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
-msgstr ""
+msgstr "propertyname=bool;labeltext(YESVALUE;NOVALUE;Checkboxtext)"
 
 #. (para)
 msgid ""
 "the <literal>labeltext</literal> is the text shown in the dialog above the "
 "checkbox where you can explain the purpose and use of the property. The "
 "other parameters should be self explanatory."
-msgstr ""
+msgstr "<literal>labeltext</literal> là văn bản được hiển thị trên hộp thoại phía trên hộp kiểm nơi bạn có thể giải thích mục đích và cách sử dụng thuộc tính. Các tham số khác nên tự giải thích về chúng."
 
 #. (title)
 msgid "Property dialog state user types"
-msgstr ""
+msgstr "Hộp thoại thuộc tính cho các kiểu người dùng trạng thái"
 
 #. (para)
 msgid ""
 "If your property represents one of many possible states, e.g., <literal>yes,"
 " no, maybe</literal>, then you can configure your property as a "
 "<literal>state</literal><placeholder-1/> property like this:"
-msgstr ""
+msgstr "Nếu thuộc tính của bạn có thể thể hiện nhiều trạng thái, ví dụ, <literal>yes, no, maybe</literal>, thì bạn có thể cấu hình thuộc tính của bạn như một thuộc tính <literal>trạng thái</literal><placeholder-1/> như thế này:"
 
 #. (literal)
 msgid ""
 "propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
-msgstr ""
+msgstr "propertyname=state;labeltext(DEFVAL;VAL1;TEXT1;VAL2;TEXT2;VAL3;TEXT3;...)"
 
 #. (para)
 msgid ""
@@ -7996,17 +7996,17 @@ msgstr ""
 
 #. (title)
 msgid "Property dialog single-line user types"
-msgstr ""
+msgstr "Hộp thoại thuộc tính kiểu người dùng một dòng"
 
 #. (para)
 msgid ""
 "For properties that consist of one line of text, use the "
 "<literal>singleline</literal> property type: <placeholder-1/>"
-msgstr ""
+msgstr "Cho các thuộc tính bao gồm chỉ một dòng văn bản, sử dụng thuộc tính <literal>singleline</literal> kiểu: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=singleline;labeltext(regex)"
-msgstr ""
+msgstr "propertyname=singleline;labeltext(regex)"
 
 #. (para)
 msgid ""
@@ -8017,17 +8017,17 @@ msgstr ""
 
 #. (title)
 msgid "Property dialog multi-line user types"
-msgstr ""
+msgstr "Hộp thoại thuộc tính kiểu người dùng nhiều dòng"
 
 #. (para)
 msgid ""
 "For properties that consist of multiple lines of text, use the "
 "<literal>multiline</literal> property type: <placeholder-1/>"
-msgstr ""
+msgstr "Cho các thuộc tính bao gồm nhiều dòng văn bản, sử dụng thuộc tính <literal>multiline</literal> kiểu: <placeholder-1/>"
 
 #. (literal)
 msgid "propertyname=multiline;labeltext(regex)"
-msgstr ""
+msgstr "propertyname=multiline;labeltext(regex)"
 
 #. (para)
 msgid ""
@@ -12322,33 +12322,33 @@ msgstr "Nếu dự án của bạn đang sử dụng thuộc tính <literal> tsv
 
 #. (title)
 msgid "TortoiseSVN Dialog Settings 3"
-msgstr ""
+msgstr "Thiết Lập Hộp Thoại TortoiseSVN 3"
 
 #. (title)
 msgid "The Settings Dialog, Dialogs 3 Page"
-msgstr ""
+msgstr "Hộp Thoại Thiết Lập, Trang Hộp Thoại 3"
 
 #. (term)
 msgid "Pre-fetch folders for faster browsing"
-msgstr ""
+msgstr "Nạp trước các thư mục để duyệt nhanh hơn"
 
 #. (para)
 msgid ""
 "If this box is checked (default state), then the repository browser fetches "
 "information about shown folders in the background. That way as soon as you "
 "browse into one of those folders, the information is already available."
-msgstr ""
+msgstr "Nếu hộp này được đánh dấu (trạng thái mặc định), thì trình duyệt kho sẽ ngầm nạp thông tin về các thư mục được hiển thị. Theo cách đó khi bạn duyệt tới một trong các thư mục, thông tin sẽ được sẵn sàng"
 
 #. (para)
 msgid ""
 "Some servers however can't handle the multiple requests this causes or when "
 "not configured correctly treat so many requests as something bad and start "
 "blocking them. In this case you can disable the pre-fetching here."
-msgstr ""
+msgstr "Tuy nhiên một số máy chủ không thể xử lý nhiều truy xuất mà việc này gây ra hoặc khi không được cấu hình đúng sẽ xem những truy xuất bị hỏng hoặc sẽ chặn chúng. Trong trường hợp này bạn có thể vô hiệu hóa việc nạp trước ở đây."
 
 #. (term)
 msgid "Show externals"
-msgstr ""
+msgstr "Hiển thị các thành phần ngoài"
 
 #. (para)
 msgid ""
@@ -12356,13 +12356,13 @@ msgid ""
 "files and folders that are included with the "
 "<literal>svn:externals</literal> property as normal files and folders, but "
 "with an overlay icon to mark them as from an external source."
-msgstr ""
+msgstr "Nếu hộp này được đánh dấu (trạng thái mặc định), thì trình duyệt kho sẽ hiển thị các tập tin và thư mục được bao gồm với thuộc tính <literal>svn:externals</literal> như những tập tin và thư mục bình thường, nhưng với biểu tượng che phủ để đánh dấu chúng là từ nguồn bên ngoài."
 
 #. (para)
 msgid ""
 "As with the pre-fetch feature explained above, this too can put too much "
 "stress on weak servers. In this case you can disable this feature here."
-msgstr ""
+msgstr "Với tính năng nạp-trước được giải thích phía trên, việc này cũng có thể tạo nhiều áp lực lên các máy chủ. Trong trường hợp này bạn có thể vô hiệu hóa tính năng này ở đây."
 
 #. (title)
 msgid "TortoiseSVN Colour Settings"
@@ -13153,7 +13153,7 @@ msgid ""
 "<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
 "installed alongside TortoiseSVN, and colour-codes the added and removed "
 "lines."
-msgstr ""
+msgstr "Tại cuối hộp thoại bạn có thể cấu hình một chương trình xem các tập tin khác biệt thống nhất (các tập tin vá). Không cần tham số nào. Thiết lập <guilabel>Default</guilabel> là để dùng TortoiseUDiff được cài đặt theo TortoiseSVN, và dùng các mã màu cho các dòng được thêm và xóa."
 
 #. (para)
 msgid ""
@@ -14103,13 +14103,13 @@ msgid ""
 "<filename>file.txt</filename> to <filename>FILE.TXT</filename> wouldn't "
 "bother normal Windows applications, but Subversion is case sensitive in "
 "these situations. So TortoiseSVN automatically fixes such case changes."
-msgstr ""
+msgstr "Một số ứng dụng thay đổi kiểu chữ hoa của tên tập tin mà không thông báo nhưng những thay đổi đó thật sự không cần thiết hoặc không mong muốn. Ví dụ một thay đổi từ <filename>file.txt</filename> to <filename>FILE.TXT</filename> sẽ không làm phiền các ứng dụng Windows, nhưng Subversion thì phân biệt chữ hoa trong những tình huống này. Vì vậy TortoiseSVN tự động sửa những thay đổi chữ hoa."
 
 #. (para)
 msgid ""
 "If you don't want TortoiseSVN to automatically fix such case changes for "
 "you, you can set this value to <literal>false</literal>."
-msgstr ""
+msgstr "Nếu bạn không muốn TortoiseSVN tự động sửa những thay đổi chữ hoa cho bạn, bạn có thể đặt giá trị này thành <literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -14525,24 +14525,24 @@ msgstr "Thay thế với sửa đổi cam kết cao nhất trong bản sao làm 
 
 #. (literal)
 msgid "$WCREV&amp;0xFFFF$"
-msgstr ""
+msgstr "$WCREV&amp;0xFFFF$"
 
 #. (entry)
 msgid ""
 "Replaced with the highest commit revision in the working copy, ANDed with "
 "the value after the &amp; char. For example: <placeholder-1/>"
-msgstr ""
+msgstr "Thay thế bằng bản sửa đổi cam kết cao nhất trong bản làm việc, được AND với giá trị sau ký tự &amp;. Ví dụ: <placeholder-1/>"
 
 #. (literal)
 msgid "$WCREV-1000$"
-msgstr ""
+msgstr "$WCREV-1000$"
 
 #. (entry)
 msgid ""
 "Replaced with the highest commit revision in the working copy, with the "
 "value after the + or - char added or subtracted. For example: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Thay thế bằng bản sửa đổi cam kết cao nhất trong bản làm việc, với giá trị sau dấu + hoặc - được thêm hay bớt. Ví dụ: <placeholder-1/>"
 
 #. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
@@ -14749,7 +14749,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test file for SubWCRev: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -14793,7 +14793,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test file for SubWCRev: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -16890,7 +16890,7 @@ msgstr "Tạo ra một kho lưu trữ trong <placeholder-1/>"
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the URL to switch to."
-msgstr ""
+msgstr "Mở hộp thoại chuyển. Mục <placeholder-1/> chỉ ra thư mục đích và <placeholder-2/> là URL để chuyển đến."
 
 #. (entry)
 msgid ""
@@ -16914,15 +16914,15 @@ msgstr "/autorename"
 
 #. (option)
 msgid "/extended"
-msgstr ""
+msgstr "/extended"
 
 #. (literal)
 msgid "localchanges"
-msgstr ""
+msgstr "localchanges"
 
 #. (literal)
 msgid "unversioned"
-msgstr ""
+msgstr "unversioned"
 
 #. (entry)
 msgid ""
@@ -16981,11 +16981,11 @@ msgstr "Mở hộp thoại kết hợp tất cả. Các <placeholder-1/> xác đ
 
 #. (literal)
 msgid "Switch working copy to new branch/tag"
-msgstr ""
+msgstr "Chuyển bản sao làm việc sang nhánh/thẻ mới"
 
 #. (option)
 msgid "/switchaftercopy"
-msgstr ""
+msgstr "/switchaftercopy"
 
 #. (entry)
 msgid ""
@@ -17230,7 +17230,7 @@ msgstr ""
 msgid ""
 "To open the properties dialog directly for a specific property, pass the "
 "property name as <option>/property:name</option>."
-msgstr ""
+msgstr "Để mở hộp thoại thuộc tính trực tiếp cho một thuộc tính cụ thể, truyền vào tên thuộc tính dưới dạng <option>/property:name</option>."
 
 #. (para)
 msgid ""
@@ -19493,7 +19493,7 @@ msgstr "<guilabel> Sao lưu tập tin ban đầu </guilabel> đặt lại tên t
 msgid ""
 "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
 "loaded as UTF8 encoded and saved as such when edited."
-msgstr ""
+msgstr "<guilabel>Đặt mặc định là mã UTF-8</guilabel> khi được chọn, các tập tin ANSI được tải với mã UTF8 và được lưu như vậy khi được biên tập."
 
 #. (para)
 msgid ""
@@ -19501,7 +19501,7 @@ msgid ""
 "slow when showing inline diffs for very long lines. Because of that only "
 "lines that are shorter than 3000 chars are shown with inline diffs. You can "
 "change this value here."
-msgstr ""
+msgstr "<guilabel>Độ dài dòng tối đa cho các diffs nội tuyến</guilabel> TortoiseMerge có thể bị chậm lại khi hiển thị các diffs nội tuyến cho các dòng quá dài. Vì vậy chỉ các dòng ngắn hơn 3000 chữ được hiển thị với diffs nội tuyến. Bạn có thể thay đổi giá trị này ở đây."
 
 #. (para)
 msgid ""

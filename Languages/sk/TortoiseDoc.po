@@ -11,14 +11,14 @@
 # Authors:
 # Translators:
 # Michal Nosál <a2.nosal@gmail.com>, 2011.
-# Oto BREZINA <otik@e-posta.sk>, 2011.
+# Oto BREZINA <otik@e-posta.sk>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-28 08:21+0000\n"
-"Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
+"PO-Revision-Date: 2012-05-03 08:01+0000\n"
+"Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2465,7 +2465,7 @@ msgstr "Prekrývané ikony"
 #. (title)
 #. (title)
 msgid "Explorer showing icon overlays"
-msgstr ""
+msgstr "Prieskumník zobrazujúci ikonky prekrytia"
 
 #. (para)
 msgid ""
@@ -2474,7 +2474,7 @@ msgid ""
 "glance which of your files have been modified. Refer to <xref linkend"
 "=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
 "represent."
-msgstr ""
+msgstr "<placeholder-1/>Jedna z najviditeľnejších vlastností TortoiseSVN sú prekrytia ikon, ktoré sa objavia na súboroch vašej pracovnej kópie. Tieto vám ukazujú, ktoré súbory boli zmenené. Pozrite si <xref linkend=\"tsvn-dug-wcstatus-1\"/> aby ste mali prehľad čo rôzne prekrytia znamenajú."
 
 #. (title)
 msgid "Context Menus"
@@ -2490,7 +2490,7 @@ msgstr "pravý klik"
 
 #. (title)
 msgid "Context menu for a directory under version control"
-msgstr ""
+msgstr "Kontextova ponuka pre adresáre pod správou verzií"
 
 #. (para)
 msgid ""
@@ -2537,7 +2537,7 @@ msgstr ""
 #. (title)
 #. (title)
 msgid "Drag and Drop"
-msgstr ""
+msgstr "Preťahovanie"
 
 #. (primary)
 msgid "drag handler"
@@ -2545,11 +2545,11 @@ msgstr ""
 
 #. (primary)
 msgid "drag-n-drop"
-msgstr ""
+msgstr "preťahovanie"
 
 #. (primary)
 msgid "right drag"
-msgstr ""
+msgstr "ťahanie pravým tlačidlom"
 
 #. (title)
 #. (title)
@@ -2597,7 +2597,7 @@ msgstr "Ctrl-A"
 msgid ""
 "Select all. This can be used if you get an error message and want to copy "
 "and paste into an email. Use Ctrl-A to select the error message and then ..."
-msgstr ""
+msgstr "Vybrať všetko. Toto môže byť použité keď dostanete chybové hlásenie a chcete ho vložiť do email-u. Použite Ctrl-A k vybraniu celého chybového hlásenia a potom ..."
 
 #. (term)
 msgid "Ctrl-C"
@@ -2605,7 +2605,7 @@ msgstr "Ctrl-C"
 
 #. (para)
 msgid "... Copy the selected text."
-msgstr ""
+msgstr "... vložíte vybraný text do schánky."
 
 #. (para)
 msgid ""
@@ -2628,24 +2628,24 @@ msgstr "zásobník autentifikácie"
 
 #. (title)
 msgid "Authentication Dialog"
-msgstr ""
+msgstr "Dialógové okno autentifikácie"
 
 #. (para)
 msgid ""
 "<filename>svn.simple</filename> contains credentials for basic "
 "authentication (username/password). Note that passwords are stored using the"
 " WinCrypt API, not in plain text form."
-msgstr ""
+msgstr "<filename>svn.simple</filename> obsahuje autentifikacne údaje pre jednoduchú autentifikáciu (meno/heslo). Poznamenávame, že tieto údaje sú uložené pomocou WinCrypt API."
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
-msgstr ""
+msgstr "<filename>svn.ssl.server</filename> obsahuje SSL certifikát servera."
 
 #. (para)
 msgid ""
 "<filename>svn.username</filename> contains credentials for username-only "
 "authentication (no password needed)."
-msgstr ""
+msgstr "<filename>svn.username</filename> obsahuje autentifikačné údaje pre autentifikaciu iba menom (bez potreby hesla)."
 
 #. (para)
 msgid ""
@@ -5527,7 +5527,7 @@ msgid ""
 "messages fetched is limited to 100, but you can change this value in "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
 " (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
-msgstr ""
+msgstr "Vo väčších úložiskách môžu byť stovky či tisice zmien a ich získanie by mohlo trvať dosť dlho. Zvyčajne vás bude zaujímať niekoľko ostatných zmien. Preto je predvolené získanie 100 posledných zmien, ale toto obmedzenie je možné zmeniť v <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Nastavenia</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
 
 #. (para)
 msgid ""

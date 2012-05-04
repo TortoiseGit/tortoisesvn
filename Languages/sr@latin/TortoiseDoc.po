@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-28 08:21+0000\n"
+"PO-Revision-Date: 2012-04-30 19:53+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -7916,7 +7916,7 @@ msgid ""
 "<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
-msgstr ""
+msgstr "Kako nema svaki korisnik svoju radnu kopiju preuzetu u istu lokaciju sa istim imenom možete konfigurisati skriptu/alat da izvršite premeštanje u vašoj radnoj kopiji određujući URL u spremištu umesto toga, koristeći <filename>%REPOROOT%</filename> kao deo URL za koren spremišta. Na primer, ako je vaša zakačiva skripta u vašoj radnoj kopiji pod <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, vi ćete odrediti putanju za skriptu kao <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. Na taj način čak i ako pomerite vaše spremište na drugi server ne morate podešavati osobine zakačive skripte."
 
 #. (title)
 msgid "Property dialog for hook scripts"
@@ -7996,7 +7996,7 @@ msgstr "Za do tri različite vrednosti dijalog prikazuje do tri radio dugmeta. A
 
 #. (title)
 msgid "Property dialog single-line user types"
-msgstr ""
+msgstr "Dijalog osobina jedna linija  korisnički tipovi"
 
 #. (para)
 msgid ""
@@ -8017,7 +8017,7 @@ msgstr "<literal>regex</literal> specificira regularni izraz koji se koristi da 
 
 #. (title)
 msgid "Property dialog multi-line user types"
-msgstr ""
+msgstr "Dijalog osobina više linija korisnički tipovi"
 
 #. (para)
 msgid ""
@@ -14525,24 +14525,24 @@ msgstr "Zamenjeno najvišom urezanom revizijom u radnoj kopiji."
 
 #. (literal)
 msgid "$WCREV&amp;0xFFFF$"
-msgstr ""
+msgstr "$WCREV&amp;0xFFFF$"
 
 #. (entry)
 msgid ""
 "Replaced with the highest commit revision in the working copy, ANDed with "
 "the value after the &amp; char. For example: <placeholder-1/>"
-msgstr ""
+msgstr "Zamenjeno najvišom urezanom revizijom u radnoj kopiji. Dodato sa vrednošću posle &amp; karaktera. Na primer: <placeholder-1/>"
 
 #. (literal)
 msgid "$WCREV-1000$"
-msgstr ""
+msgstr "$WCREV-1000$"
 
 #. (entry)
 msgid ""
 "Replaced with the highest commit revision in the working copy, with the "
 "value after the + or - char added or subtracted. For example: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Zamenjeno najvišom urezanom revizijom u radnoj kopiji, sa vrednošću posle + ili - karaktera dodatoj ili oduzetoj. Na primer: <placeholder-1/>"
 
 #. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
@@ -14749,7 +14749,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test fajl za SubWCRev: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -14793,7 +14793,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test fajl za SubWCRev: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -16890,7 +16890,7 @@ msgstr "Kreira spremište u <placeholder-1/>"
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the URL to switch to."
-msgstr ""
+msgstr "Otvara dijalog skretanja. <placeholder-1/> određuje ciljni direktorijum i <placeholder-2/> URL za skretanje."
 
 #. (entry)
 msgid ""

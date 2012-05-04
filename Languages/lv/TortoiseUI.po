@@ -11,12 +11,13 @@
 # Authors:
 # Translators:
 # Kristofers  <kristozz@gmail.com>, 2012.
+# Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-28 08:29+0000\n"
+"PO-Revision-Date: 2012-05-03 12:05+0000\n"
 "Last-Translator: andziks <andris.volohs@gmail.com>\n"
 "Language-Team: Latvian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +46,7 @@ msgstr "! %d"
 
 #. Resource IDs: (1262)
 msgid "# authors shown individually:"
-msgstr ""
+msgstr "# autori parādīti atsevišķi:"
 
 #. Resource IDs: (357)
 #, c-format
@@ -60,7 +61,7 @@ msgstr "%.2f kB/s"
 #. Resource IDs: (3868)
 #, c-format
 msgid "%1 contained an unexpected object."
-msgstr ""
+msgstr "%1 saturēja negaidītu objektu."
 
 #. Resource IDs: (3867)
 #, c-format
@@ -111,7 +112,7 @@ msgstr "%1!s! - revīzijā: %2!d!"
 #. Resource IDs: (151)
 #, c-format
 msgid "%1!s! : Working Base, Revision %2!ld!"
-msgstr ""
+msgstr "%1!s! : Darba bāze, revīzija %2!ld!"
 
 #. Resource IDs: (226)
 #, c-format
@@ -121,7 +122,7 @@ msgstr "%1!s! iekš %2!s!"
 #. Resource IDs: (357)
 #, c-format
 msgid "%1!s!, at %2!s!"
-msgstr ""
+msgstr "%1!s!, pie %2!s!"
 
 #. Resource IDs: (145)
 #, c-format
@@ -138,14 +139,14 @@ msgstr "%1!s!\\%2!s! - Eksportēt (%3!d!)"
 msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Date %4!s!"
-msgstr "Revīzija %2!s!, Autors %3!s!, Datums %4!s!"
+msgstr "%1!s!\r\nRevīzija %2!s!, Autors %3!s!, Datums %4!s!"
 
 #. Resource IDs: (105)
 #, c-format
 msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Size %4!s!, Date %5!s!"
-msgstr ""
+msgstr "%1!s!\r\nRevīzija %2!s!, Autors %3!s!, Izmērs %4!s!, Datums %4!s!"
 
 #. Resource IDs: (105)
 #, c-format
@@ -159,7 +160,7 @@ msgstr "%1!s!\r\nRādu %2!d! failus un %3!d! mapes, %4!d! vienumu kopā"
 msgid ""
 "%1: %2\n"
 "Continue running script?"
-msgstr ""
+msgstr "%1: %2\nTurpināt izpildīt skriptu?"
 
 #. Resource IDs: (3859)
 #, c-format
@@ -260,7 +261,7 @@ msgstr "%s, bet mape tika lokāli izdzēsta, pārvietota vai pārsaukta."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
-msgstr ""
+msgstr "%s, bet tika skarta direktorija darba kopijā"
 
 #. Resource IDs: (609)
 #, c-format
@@ -270,7 +271,7 @@ msgstr "%s, bet mape tika aizvietota"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
-msgstr ""
+msgstr "%s, bet šis fails jau pastāv neversionēts, lokāli."
 
 #. Resource IDs: (609)
 #, c-format
@@ -295,7 +296,7 @@ msgstr "%s, bet fails tika lokāli izdzēsts, pārvietots vai pārsaukts."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
-msgstr ""
+msgstr "%s, bet fails tika skarts iekš darba kopijas"
 
 #. Resource IDs: (609)
 #, c-format
@@ -314,7 +315,7 @@ msgstr "%s\n%ld nesekmīgi gabali(s)"
 msgid ""
 "%s\n"
 "%s"
-msgstr "%s\n%s"
+msgstr "%s\n %s"
 
 #. Resource IDs: (145)
 #, c-format
@@ -441,7 +442,7 @@ msgstr "&Automātiski aizvērt:"
 
 #. Resource IDs: (1015)
 msgid "&Backup original file"
-msgstr ""
+msgstr "&Rezerves kopija oriģinālajam failam"
 
 #. Resource IDs: (1559)
 msgid "&Binary"
@@ -649,7 +650,7 @@ msgstr "&Neprasīt atkārtoti"
 
 #. Resource IDs: (1066)
 msgid "&Docking"
-msgstr ""
+msgstr "&Piestiprināt"
 
 #. Resource IDs: (32851)
 msgid "&EOL"
@@ -879,7 +880,7 @@ msgstr "&Rindas numurs (%d - %d)"
 
 #. Resource IDs: (32797)
 msgid "&Link image positions"
-msgstr ""
+msgstr "Savienot bi&ldes pozīcijas"
 
 #. Resource IDs: (1590)
 msgid "&Linux (LF)"
@@ -903,7 +904,7 @@ msgstr "&Log-u izmēri"
 
 #. Resource IDs: (65535)
 msgid "&Luminence:"
-msgstr ""
+msgstr "Ap&gaismojums"
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
@@ -1028,7 +1029,7 @@ msgstr "&Atvērt"
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
-msgstr ""
+msgstr "&Operatīvs:"
 
 #. Resource IDs: (1382)
 msgid "&Options"
@@ -1092,7 +1093,7 @@ msgstr "&Sarkans:"
 
 #. Resource IDs: (376)
 msgid "&Redo"
-msgstr ""
+msgstr "Pā&rtaisīt"
 
 #. Resource IDs: (1382)
 msgid "&Refresh"
@@ -1140,11 +1141,11 @@ msgstr "&Atiestatīt noklusējumus"
 
 #. Resource IDs: (1542)
 msgid "&Retry without hooks"
-msgstr ""
+msgstr "Mēģināt vēl&reiz bez āķiem"
 
 #. Resource IDs: (1529)
 msgid "&Revert all changes recursively"
-msgstr "&rekursīvi atgriezt visas izmaiņas"
+msgstr "&Rekursīvi atgriezt visas izmaiņas"
 
 #. Resource IDs: (114)
 msgid "&Revert changes from these revisions"
@@ -1316,7 +1317,7 @@ msgstr "&TortoiseUDiff"
 
 #. Resource IDs: (65535)
 msgid "&Trunk"
-msgstr ""
+msgstr "S&tumbrs"
 
 #. Resource IDs: (3845)
 msgid "&Two Page"
@@ -2006,17 +2007,17 @@ msgstr "Pielietot vienotās atšķirības"
 
 #. Resource IDs: (363)
 msgid "Approve or reject client-side hook script"
-msgstr ""
+msgstr "Apstiprināt vai noraidīt klienta puses āķu skriptu"
 
 #. Resource IDs: (363)
 msgid ""
 "Approve\n"
 "Run the hook script"
-msgstr ""
+msgstr "Apstiprināt\nIzpildīt āķu skriptu"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
-msgstr ""
+msgstr "Apstiprinātie āķu skripti"
 
 #. Resource IDs: (156, 564)
 msgid "Aqua Style"
@@ -2024,7 +2025,7 @@ msgstr "Aqua stils"
 
 #. Resource IDs: (1565)
 msgid "Arb&itrary text"
-msgstr ""
+msgstr "Patvaļ&īgs teksts"
 
 #. Resource IDs: (145)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
@@ -2209,7 +2210,7 @@ msgstr "Vaino autoru katrā faila rindiņā"
 
 #. Resource IDs: (32812)
 msgid "Blend alpha"
-msgstr ""
+msgstr "Sapludināt alfa"
 
 #. Resource IDs: (156, 563)
 msgid "Blue Style"
@@ -2809,7 +2810,7 @@ msgstr "Notīra %1!ld! log ziņojumus, kas noglabāti priekš %2!ld! darba kopij
 msgid ""
 "Clears %1!ld! username/password pairs, %2!ld! ssl certificates and %3!ld! "
 "usernames"
-msgstr "Notīra %1!ld! lietotāju/paroļu pārus, %2!ld SSL sertifikātus un %3!ld! "
+msgstr "Notīra %1!ld! lietotāju/paroļu pārus, %2!ld! SSL sertifikātus un %3!ld! lietotājvārdus"
 
 #. Resource IDs: (198)
 #, c-format
@@ -3978,7 +3979,7 @@ msgid ""
 "Do you want to revert all changes in\n"
 "%s\n"
 "and go back to this revision?"
-msgstr ""
+msgstr "Vai vēlaties atgriezt visas izmaiņas iekš\n%s\nun atgriezties uz šo revīziju?"
 
 #. Resource IDs: (120)
 #, c-format
@@ -3986,25 +3987,25 @@ msgid ""
 "Do you want to revert all changes in\n"
 "%s\n"
 "which were made in this revision?"
-msgstr ""
+msgstr "Vai vēlaties atgriezt visas izmaiņas iekš\n%s\n, kuras veiktas šajā revīzijā?"
 
 #. Resource IDs: (313)
 msgid "Do you want to save your changes?"
-msgstr ""
+msgstr "Vai vēlaties saglabāt jūsu izmaiņas?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
-msgstr ""
+msgstr "Dokuments :"
 
 #. Resource IDs: (65535)
 msgid ""
 "Documentation : Simon Large\n"
 "Code : Tobias Schäfer, Stefan Fuhrmann"
-msgstr ""
+msgstr "Dokumentācija: Saimons Lārdžs\nKods: Tobias Šēfers, Stefans Fūrmans"
 
 #. Resource IDs: (564)
 msgid "Don't ask me again"
-msgstr ""
+msgstr "Vairs nejautāt"
 
 #. Resource IDs: (94)
 msgid ""
@@ -4012,112 +4013,112 @@ msgid ""
 "Instead, all URLs get checked out into a separate\n"
 "working copies next to each other.\n"
 "This works for directory URLs only."
-msgstr ""
+msgstr "Neveidot izdošanas direktoriju par atsevišķu darba kopiju.\nTā vietā visas adreses tiek izdotas iekš atsevišķām\ndarba kopijām blakus viena otrai.\nŠis strādā tikai direktoriju adresēm."
 
 #. Resource IDs: (3887)
 msgid ""
 "Don't recover the auto-saved documents\n"
 "Use the last explicitly saved versions of the documents"
-msgstr ""
+msgstr "Neatgūt automātiski saglabātos dokumentus\nLietot pēdējās atsevišķi saglabātās dokumentu versijas"
 
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
-msgstr ""
+msgstr "Nesaglabāt\nVēleiz ielādēt skatus, nesaglabājot modifikācijas"
 
 #. Resource IDs: (80, 564)
 msgid "Don't show this message again"
-msgstr ""
+msgstr "Vairs nerādīt šo paziņojumu"
 
 #. Resource IDs: (564)
 msgid "Don't tell me again"
-msgstr ""
+msgstr "Neteikt man atkārtoti"
 
 #. Resource IDs: (1002)
 msgid "Drag to make this menu float"
-msgstr ""
+msgstr "Vilkt, lai liktu šai izvēlnei peldēt"
 
 #. Resource IDs: (16513)
 msgid "Draw"
-msgstr ""
+msgstr "Zīmēt"
 
 #. Resource IDs: (1079)
 msgid "Drive Types"
-msgstr ""
+msgstr "Diskdziņu tipi"
 
 #. Resource IDs: (1315)
 msgid "Drives A: and B:"
-msgstr ""
+msgstr "Diskdziņi A: un B:"
 
 #. Resource IDs: (613)
 #, c-format
 msgid "Drop not possible on %1"
-msgstr ""
+msgstr "Mešana nav iespējama uz %1"
 
 #. Resource IDs: (32816)
 msgid "E&xact copy sources"
-msgstr ""
+msgstr "E&kstraktēt kopijas avotus"
 
 #. Resource IDs: (1518)
 msgid "E&xclude paths:"
-msgstr ""
+msgstr "Neiekļaut ceļus:"
 
 #. Resource IDs: (32839)
 msgid "E&xecutable"
-msgstr ""
+msgstr "Iz&pildāmais"
 
 #. Resource IDs: (105, 57665)
 msgid "E&xit"
-msgstr ""
+msgstr "I&zeja"
 
 #. Resource IDs: (275)
 msgid "E&xpand all"
-msgstr ""
+msgstr "I&zvērst visu"
 
 #. Resource IDs: (275)
 msgid "E&xpand sub-trees"
-msgstr ""
+msgstr "I&zvērst apakškokus"
 
 #. Resource IDs: (1437)
 msgid "E&xport"
-msgstr ""
+msgstr "Ek&sportēt"
 
 #. Resource IDs: (9, 1382)
 msgid "E&xport..."
-msgstr ""
+msgstr "Ek&sportēt..."
 
 #. Resource IDs: (3697)
 msgid "EXT"
-msgstr ""
+msgstr "EXT"
 
 #. Resource IDs: (1237, 65535)
 msgid "Edit"
-msgstr ""
+msgstr "Rediģēt"
 
 #. Resource IDs: (16133)
 msgid "Edit Button Image"
-msgstr ""
+msgstr "Rediģēt pogas bildi"
 
 #. Resource IDs: (319)
 msgid "Edit External"
-msgstr ""
+msgstr "Rediģēt ārējo"
 
 #. Resource IDs: (227, 589)
 msgid "Edit Properties"
-msgstr ""
+msgstr "Rediģēt īpašības"
 
 #. Resource IDs: (297)
 msgid "Edit Property Conflict"
-msgstr ""
+msgstr "Rediģēt īpašību konfliktu"
 
 #. Resource IDs: (298)
 msgid "Edit Tree Conflicts"
-msgstr ""
+msgstr "Rediģēt koka konfliktus"
 
 #. Resource IDs: (113)
 msgid "Edit author"
-msgstr ""
+msgstr "Rediģēt autoru"
 
 #. Resource IDs: (115)
 msgid "Edit author name"
