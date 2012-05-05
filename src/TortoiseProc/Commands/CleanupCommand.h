@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "Command.h"
+#include "ProgressDlg.h"
 
 /**
  * \ingroup TortoiseProc
@@ -30,7 +31,9 @@ public:
      * Executes the command.
      */
     virtual bool            Execute() override;
+
 private:
+    bool                    CleanupPaths(CProgressDlg &progress, int &actionCounter, int actionTotal, CString &strFailedString);
     CString                 GetCleanupPaths(const CTSVNPathList& paths, CTSVNPathList& unversioned, CTSVNPathList& ignored, CTSVNPathList& reverts, bool includeExts, CTSVNPathList& externals);
 };
 
