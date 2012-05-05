@@ -53,7 +53,6 @@ CPathWatcher::CPathWatcher(void) : m_hCompPort(NULL)
 CPathWatcher::~CPathWatcher(void)
 {
     Stop();
-    m_hThread.CloseHandle();
     AutoLocker lock(m_critSec);
     ClearInfoMap();
 }
