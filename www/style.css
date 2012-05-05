@@ -415,6 +415,21 @@ blockquote.style2 {
 	color: #FFFFFF;
 }
 
+/* ad group box */
+#adgroup
+{
+    border-top: 1px solid #D0D0D0;
+    border-left: 1px solid #D0D0D0;
+    border-right: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+}
+#adgroup legend 
+{
+    padding:0;
+    color:#417FDA;
+    padding:2em;
+}
+
 /* all A tags whose HREF attribute ends in .pdf */
 a[href$='.pdf'] { 
 	padding-right: 18px;
