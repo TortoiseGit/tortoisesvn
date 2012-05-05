@@ -2741,8 +2741,8 @@ apr_array_header_t * SVN::MakeCopyArray(const CTSVNPathList& pathList, const SVN
         const char *target = apr_pstrdup (pool, pathList[nItem].GetSVNApiPath(pool));
         svn_client_copy_source_t *source = (svn_client_copy_source_t*)apr_palloc(pool, sizeof(*source));
         source->path = target;
-        source->revision = pegrev;
-        source->peg_revision = rev;
+        source->revision = rev;
+        source->peg_revision = pegrev;
         APR_ARRAY_PUSH(sources, svn_client_copy_source_t *) = source;
     }
     return sources;
