@@ -3659,12 +3659,7 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
             svn_revnum_t endRev = range.GetEndRevision();
             bool bReverse = startRev > endRev;
             if (bReverse)
-            {
-                ++endRev;
                 fmtMsg = IDS_SVNPROGRESS_MERGELOGRANGEREVERSE;
-            }
-            else
-                ++startRev;
             if (!sRevList.IsEmpty())
                 sRevList += L", ";
             if (startRev == endRev)
