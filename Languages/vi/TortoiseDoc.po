@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-05-02 04:41+0000\n"
+"PO-Revision-Date: 2012-05-04 19:18+0000\n"
 "Last-Translator: Khoa Dang <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -2848,7 +2848,7 @@ msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
 "will get a warning that the local folder is not empty. Ignore the warning. "
 "Now you have a versioned top level folder with unversioned content."
-msgstr ""
+msgstr "Kiểm tra các thư mục mới trên đầu trang của thư mục mà bạn muốn nhập khẩu. Bạn sẽ nhận được một cảnh báo rằng các thư mục địa phương không rỗng. Bỏ qua cảnh báo đó. Bây giờ bạn có một thư mục cấp cao được phiên bản với nội dung không được phiên bản."
 
 #. (para)
 msgid ""
@@ -4633,7 +4633,7 @@ msgstr "Độ sâu kiểm xuất <literal>các tập tin</literal>, có nghĩa c
 msgid ""
 "Checkout depth <literal>immediates</literal>, meaning only the item itself "
 "and all file and folder children, but without children of the child folders."
-msgstr ""
+msgstr "Độ sâu kiểm xuất <literal>immediates</literal>, có nghĩa là chỉ bản thân mục đó và tất cả các tập tin và thư mục con, nhưng không có con của các thư mục con."
 
 #. (para)
 msgid "Nested items, i.e., working copies inside the working copy."
@@ -4656,7 +4656,7 @@ msgid ""
 "Items that have property modifications, but only to the "
 "<literal>svn:mergeinfo</literal> property. If any other property is "
 "modified, the overlay is not used."
-msgstr ""
+msgstr "Các mục có sửa đổi thuộc tính, nhưng chỉ với thuộc tính <literal>svn:mergeinfo</literal>. Nếu có thuộc tính khác được sửa đổi, lớp phủ sẽ không được dùng."
 
 #. (para)
 msgid ""
@@ -4664,7 +4664,7 @@ msgid ""
 "below shows all the possible overlays that are shown if necessary. <graphic "
 "fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
 "following states: <placeholder-1/>"
-msgstr ""
+msgstr "Biểu tượng lớp phủ cũng được dùng để thể hiện các trạng thái khác. Ảnh chụp màn hình dưới đây cho thấy tất các các lớp phủ có thể mà được hiển thị khi cần. <graphic fileref=\"../images/statuslistoverlays.png\"/> Các lớp phủ được hiển thị cho các trạng thái sau đây: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -7916,7 +7916,7 @@ msgid ""
 "<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
-msgstr ""
+msgstr "Bởi vì không phải người sử dụng nào cũng có bản sao làm việc của mình kiểm xuất tại cùng một vị trí với cùng một tên, bạn có thể cấu hình một kịch bản / công cụ để thực hiện nằm trong bản sao làm việc của bạn bằng cách xác định các URL trong kho thay vì, sử dụng% <filename>%REPOROOT%</filename> như là một phần của URL đến gốc của kho chứa. Ví dụ, nếu kịch bản móc của bạn nằm trong bản sao làm việc của bạn theo <filename>contrib/hook-scripts/ client-side/checkyear.js</filename>, bạn sẽ chỉ định đường dẫn đến kịch bản là <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. Bằng cách này ngay cả khi bạn di chuyển kho lưu trữ của bạn đến máy chủ khác, bạn không cần phải điều chỉnh các thuộc tính kịch bản móc."
 
 #. (title)
 msgid "Property dialog for hook scripts"
@@ -7985,14 +7985,14 @@ msgid ""
 "The parameters are the same as for the <literal>bool</literal> property, "
 "with <literal>DEFVAL</literal> being the default value to be used if the "
 "property isn't set yet or has a value that's not configured."
-msgstr ""
+msgstr "Các tham số là như nhau như với thuộc tính <literal>bool</literal>, với <literal>DEFVAL</literal> là giá trị mặc định được dùng nếu thuộc tính chưa được đặt hoặc có giá trị mà chưa được cấu hình."
 
 #. (para)
 msgid ""
 "For up to three different values, the dialog shows up to three radio "
 "buttons. If there are more values configured, it uses a combo box from where"
 " the user can select the required state."
-msgstr ""
+msgstr "Cho tới 3 giá trị khác nhau, hộp thoại hiển thị nhiều nhất ba nút chọn. Nếu có nhiều giá trị được cấu hình, nó sẽ dùng một hộp chọn tổng hợp mà từ đó người dùng có thể chọn trạng thái được yêu cầu."
 
 #. (title)
 msgid "Property dialog single-line user types"
@@ -8013,7 +8013,7 @@ msgid ""
 "the <literal>regex</literal> specifies a regular expression which is used to"
 " validate (match) the text the user entered. If the text does not match the "
 "regex, then the user is shown an error and the property isn't set."
-msgstr ""
+msgstr "<literal>regex</literal> chỉ định một biểu thức thông thường được dùng để xác nhận (khớp) văn bản người dùng nhập vào. Nếu văn bản không khớp regex, thì người dùng được cho thấy một lỗi và thuộc tính không được đặt."
 
 #. (title)
 msgid "Property dialog multi-line user types"
@@ -8034,7 +8034,7 @@ msgid ""
 "the <literal>regex</literal> specifies a regular expression which is used to"
 " validate (match) the text the user entered. Don't forget to include the "
 "newline (\\n) character in the regex!"
-msgstr ""
+msgstr "<literal>regex</literal> chỉ định một biểu thức thông thường được dùng để xác nhận (khớp) văn bản mà người dùng nhập vào. Đừng quên thêm vào ký tự dòng mới (\\n) trong regex!"
 
 #. (para)
 msgid ""
@@ -8046,7 +8046,7 @@ msgid ""
 "my:singlelineprop=singleline;enter a small comment(.*)\n"
 "my:multilineprop=multiline;copy and paste a full chapter here(.*)\n"
 "</screen>"
-msgstr ""
+msgstr "Bạn có thể chỉ ra việc một hộp thoại tùy chỉnh được dùng để thêm/biên tập thuộc tính của bạn hay không. TortoiseSVN cung cấp bốn hộp thoại, tùy thuộc vào kiều thuộc tính của bạn. <placeholder-1/> Các ảnh chụp màn hình phía trên được làm với những thứ sau <literal>tsvn:userdirproperties</literal>: <screen>\nmy:boolprop=bool;Đây là kiểu thuộc tính kiểu bool. Đánh dấu không không đánh dấu nó.(true;false;thuộc tính bool của tôi)\nmy:stateprop1=state;Đây là thuộc tính trạng thái. Chọn một trong hai trạng thái.(true;true;true value;false;false value)\nmy:stateprop2=state;Đây là thuộc tính trạng thái. Chọn một trong ba trạng thái.(maybe;true;câu trả lời là đúng;false;câu trả lời là sai;có lẽ;không trả lời)\nmy:stateprop3=state;Chỉ ra ngày để đặt thuộc tính này.(1;1;Thứ hai;2;Thứ ba;3;Thứ tư;4;Thứ năm;5;Thứ sáu;6;Thứ bảy;7;Chủ nhật)\nmy:singlelineprop=singleline;nhập vào một bình luận nhỏ(.*)\nmy:multilineprop=multiline;sao chép và dán một chương đầy đủ ở đây(.*)\n</screen>"
 
 #. (para)
 msgid ""
@@ -16934,7 +16934,7 @@ msgid ""
 "renamed to avoid overwriting them. The option <placeholder-5/> can specify "
 "either <placeholder-6/> to only export files that got changed locally, or "
 "<placeholder-7/> to also export all unversioned items as well."
-msgstr ""
+msgstr "Xuất khẩu các bản sao làm việc trong <placeholder-1/> vào thư mục quy định tại <placeholder-2/>. Việc xuất khẩu này không sử dụng hộp thoại xuất khẩu mà thực hiện trực tiếp. <placeholder-3/> Tùy chọn xác định rằng các tập tin có sẵn được ghi đè mà không cần xác nhận của người sử dụng, và tùy chọn <placeholder-4/> xác định rằng nếu các tập tin đã tồn tại, các tập tin được xuất khẩu được tự động đổi tên để tránh ghi đè lên chúng. Tùy chọn <placeholder-5/>  có thể chỉ định một trong <placeholder-6/> để chỉ xuất khẩu các tập tin đã thay đổi cục bộ, hoặc <placeholder-7/> để xuất khẩu tất cả các mục không được phiên bản."
 
 #. (option)
 #. (option)
@@ -16996,7 +16996,7 @@ msgid ""
 "message to the branch/tag dialog. Or, if you don't want to pass the log "
 "message on the command line, use <placeholder-6/>, where <placeholder-7/> "
 "points to a file containing the log message."
-msgstr ""
+msgstr "Bật lên hộp thoại chi nhánh/thẻ. <placeholder-1/> là bản sao làm việc đến từ chi nhánh/thẻ. Và <placeholder-2/> là URL mục tiêu. Đã kiểm tra tùy chọn <placeholder-3/>, bạn có thể truyền vào chuyển đổi <placeholder-4/>. Bạn cũng có thể chỉ định chuyển đổi <placeholder-5/> để truyền vào một thông điệp tường trình được xác định trước đến hộp thoại chi nhánh/thẻ. Hoặc, nếu bạn không muốn truyền vào thông điệp tường trình bằng dòng lệnh, sử dụng <placeholder-6/>, nơi <placeholder-7/> chỉ tới một tập tin có chứa các thông điệp tường trình."
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -17224,7 +17224,7 @@ msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>. If"
 " <option>/rev:XXX</option> is specified and <option>/path</option> is an "
 "URL, the dialog shows and edits revision properties."
-msgstr ""
+msgstr "Hiển thị hộp thoại thuộc tính cho đường dẫn chỉ ra trong <option>/path</option>. Nếu <option>/rev:XXX</option> được quy định và <option>/path</option> là một URL, hộp thoại sẽ hiển thị và biên tập thuộc tính bản chỉnh sửa."
 
 #. (para)
 msgid ""

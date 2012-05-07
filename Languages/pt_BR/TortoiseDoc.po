@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-28 08:21+0000\n"
-"Last-Translator: Marco Tulio Costa <mmarcottulio@gmail.com>\n"
+"PO-Revision-Date: 2012-05-06 22:48+0000\n"
+"Last-Translator: Crhistian <crhistian.ti@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5560,27 +5560,27 @@ msgid ""
 "Note that Subversion currently implements renaming as a copy/delete pair, so"
 " renaming a file or folder will also cause the log display to stop if this "
 "option is checked."
-msgstr ""
+msgstr "Note que o Subversion implementa atualmente a ação de renomear como um par cópia/deleção, portanto renomear um arquivo ou pasta irá fazer com que o display de log pare se esta opção tiver marcada."
 
 #. (para)
 msgid ""
 "The Log dialog does not always show all changes ever made for a number of "
 "reasons: <placeholder-1/>"
-msgstr ""
+msgstr "A caixa de diálogo Log nem sempre motra todas as alterações já feitas por uma série de motivos: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "If you want to see more log messages, click the <guibutton>Next "
 "100</guibutton> to retrieve the next 100 log messages. You can repeat this "
 "as many times as needed."
-msgstr ""
+msgstr "Se você quer ver mais mensagens de log, clique no <guibutton>Próximos 100</guibutton> para recuperar as próximas 100 mensagens de log. Você pode repetir isso quantas vezes for preciso."
 
 #. (para)
 msgid ""
 "Next to this button there is a multi-function button which remembers the "
 "last option you used it for. Click on the arrow to see the other options "
 "offered."
-msgstr ""
+msgstr "Próximo a este botão existe um botão multi-funcional que lembra a última opção que você usou. Clique na seta para ver as outras opções fornecidas."
 
 #. (para)
 msgid ""
@@ -5599,7 +5599,7 @@ msgstr ""
 msgid ""
 "To refresh the latest revision in case there were other commits while the "
 "log dialog was open, hit the <keycap>F5</keycap> key."
-msgstr ""
+msgstr "Para atualizar as últimas revisões no caso de terem havido outros commits enquanto a caixa de diálogo de log esteve aberta, pressione a tecla <keycap>F5</keycap>."
 
 #. (para)
 msgid "To refresh the log cache, hit the <keycap>Ctrl-F5</keycap> keys."
@@ -5876,7 +5876,7 @@ msgid ""
 "<placeholder-1/> This graph shows you which authors have been active on the "
 "project as a simple histogram, stacked histogram or pie chart. "
 "<placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/>Este gráfico mostra a você quais autores têm estado ativos no projeto com um histograma simples, histograma de barras ou gráfico de pizza. <placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -5901,7 +5901,7 @@ msgid ""
 "activity in terms of number of commits <emphasis>and</emphasis> author. This"
 " gives some idea of when a project is being worked on, and who was working "
 "at which time."
-msgstr ""
+msgstr "<placeholder-1/> Esta página dá a você uma representação gráfica da atividade do projeto em termos de número de submissões <emphasis>e</emphasis> autor. Isso dá alguma ideia de quando um projeto está sendo trabalhado e quem estava trabalhando em que tempo."
 
 #. (para)
 msgid ""
@@ -5930,7 +5930,7 @@ msgid ""
 "Note that the statistics cover the same period as the Log dialog. If that is"
 " only displaying one revision then the statistics will not tell you very "
 "much."
-msgstr ""
+msgstr "Observe que as estatísticas cobrem o mesmo período que o diálogo de Log. Se este está mostrando apenas uma revisão então as estatísticas não irão informar muito."
 
 #. (title)
 msgid "Offline Mode"
@@ -5956,7 +5956,7 @@ msgstr "Desconectado agora"
 msgid ""
 "Complete the current operation in offline mode, but retry the repository "
 "next time log data is requested."
-msgstr ""
+msgstr "Complete a operação corrente em modo offline, mas obtenha o repositório da próxima vez que os dados de log forem solicitados."
 
 #. (term)
 msgid "Permanently offline"
@@ -5966,7 +5966,7 @@ msgstr "Permanentemente desconectado"
 msgid ""
 "Remain in offline mode until a repository check is specifically requested. "
 "See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
-msgstr ""
+msgstr "Permaneça em modo offline até que uma verificação de repositório for especificamente requisitada. Veja <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 
 #. (term)
 msgid "Cancel"
@@ -5976,7 +5976,7 @@ msgstr "Cancelar"
 msgid ""
 "If you don't want to continue the operation with possibly stale data, just "
 "cancel."
-msgstr ""
+msgstr "Se você não quiser continuar a operação com dados possivelmente obsoletos, basta cancelar."
 
 #. (para)
 msgid "Here you have three options: <placeholder-1/>"
@@ -6085,7 +6085,7 @@ msgid ""
 "working copy, use the Revision Log dialog, select the revision of interest, "
 "then select <guimenuitem>Compare with working copy</guimenuitem> from the "
 "context menu."
-msgstr ""
+msgstr "Se você quer ver a diferença entre uma revisão particular e sua cópia de trabalho, utilize o diálogo Revisão de Log, selecione a revisão do seu interesse, então selecione <guimenuitem>Comparar com cópia de trabalho</guimenuitem> do menu de contexto."
 
 #. (para)
 msgid ""
