@@ -2915,7 +2915,23 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 {
                     if (m_dwContextMenus & SVNSLC_POPREVERT)
                     {
-                        if (wcStatus == svn_wc_status_added)
+                        bool allAdded = wcStatus == svn_wc_status_added;
+                        if (allAdded && (selectedCount > 1))
+                        {
+                            // find out if all selected items have status 'added'
+                            POSITION pos = GetFirstSelectedItemPosition();
+                            while ( pos && allAdded)
+                            {
+                                int index = GetNextSelectedItem(pos);
+                                FileEntry * entry2 = GetListEntry(index);
+                                ASSERT(entry2 != NULL);
+                                if (entry2 == NULL)
+                                    continue;
+                                if (entry2->status != svn_wc_status_added)
+                                    allAdded = false;
+                            }
+                        }
+                        if (allAdded)
                             popup.AppendMenuIcon(IDSVNLC_REVERT, IDS_MENUUNDOADD, IDI_REVERT);
                         else
                             popup.AppendMenuIcon(IDSVNLC_REVERT, IDS_MENUREVERT, IDI_REVERT);
