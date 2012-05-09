@@ -3899,7 +3899,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
 {
     if (nIDEvent == LOGFILTER_TIMER)
     {
-        if (m_bLogThreadRunning)
+        if (m_bLogThreadRunning || IsIconic())
         {
             // thread still running! So just restart the timer.
             SetTimer(LOGFILTER_TIMER, 1000, NULL);
