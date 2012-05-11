@@ -60,6 +60,13 @@ using namespace std;
 
 typedef int (__cdecl *GENERICCOMPAREFN)(const void * elem1, const void * elem2);
 
+enum RefreshEnum
+{
+    None,
+    Simple,
+    Cache
+};
+
 /**
  * \ingroup TortoiseProc
  * Shows log messages of a single file or folder in a listbox.
@@ -244,7 +251,7 @@ private:
     SVNRev              m_startrev;
     bool                m_bStartRevIsHead;
     svn_revnum_t        m_head;     ///< only used in Range case of log
-    bool                m_bRefresh;
+    RefreshEnum         m_nRefresh;
     svn_revnum_t        m_temprev;  ///< only used during ReceiveLog
     SVNRev              m_LogRevision;
     SVNRev              m_endrev;

@@ -153,7 +153,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_limit(0)
     , m_bIncludeMerges(FALSE)
     , m_hAccel(NULL)
-    , m_bRefresh(false)
+    , m_nRefresh(None)
     , netScheduler(1, 0, true)
     , diskScheduler(1, 0, true)
     , m_pLogListAccServer(NULL)
@@ -938,17 +938,16 @@ void CLogDlg::OnBnClickedRefresh()
 void CLogDlg::Refresh (bool autoGoOnline)
 {
     //does the user force the cache to refresh (shift or control key down)?
-    m_bRefresh =   (GetKeyState (VK_CONTROL) < 0)
-                || (GetKeyState (VK_SHIFT) < 0);
+    m_nRefresh = ((GetKeyState (VK_CONTROL) < 0) || (GetKeyState (VK_SHIFT) < 0)) ? Cache : Simple;
 
     // refreshing means re-downloading the already shown log messages
     UpdateData();
     if (m_logEntries.size())
         m_startrev = m_logEntries.GetMaxRevision();
-    if ((m_startrev < m_head)&&(m_bRefresh))
+    if ((m_startrev < m_head)&&(m_nRefresh==Cache))
     {
         m_startrev = -1;
-        m_bRefresh = false;
+        m_nRefresh = Simple;
     }
     if (m_startrev >= m_head)
     {
@@ -1011,6 +1010,7 @@ void CLogDlg::OnBnClickedNexthundred()
     m_startrev = rev;
     m_endrev = 0;
     m_bCancelled = FALSE;
+    m_nRefresh = None;
 
     // rev is is revision we already have and we will receive it again
     // -> fetch one extra revision to get NumberOfLogs *new* revisions
@@ -1282,7 +1282,8 @@ void CLogDlg::LogThread()
             svn_revnum_t head = -1;
             succeeded = GetRootAndHead(m_path, rootpath, head);
             m_head = head;
-            if ((m_startrev == SVNRev::REV_HEAD) || m_bStartRevIsHead)
+            if ((m_startrev == SVNRev::REV_HEAD) || 
+                (m_bStartRevIsHead && ((m_nRefresh==Simple) || (m_nRefresh==Cache)) ))
             {
                 m_startrev = head;
             }
@@ -1402,12 +1403,12 @@ void CLogDlg::LogThread()
     std::unique_ptr<const CCacheLogQuery> cachedData;
     if (succeeded)
     {
-        cachedData = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_bRefresh);
+        cachedData = ReceiveLog (CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_nRefresh==Cache);
         if ((cachedData.get() == NULL)&&(!m_path.IsUrl()))
         {
             // try again with REV_WC as the start revision, just in case the path doesn't
             // exist anymore in HEAD
-            cachedData = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_bRefresh);
+            cachedData = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_nRefresh==Cache);
         }
 
         // Err will also be set if the user cancelled.
