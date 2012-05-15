@@ -33,32 +33,15 @@
                 <guimenu>TortoiseSVN</guimenu>
                 <guimenuitem>Delete</guimenuitem>
             </menuchoice>
-            a file, it is removed from your working copy immediately as well
+            a file or folder, it is removed from your working copy immediately as well
             as being marked for deletion in the repository on next commit.
-            The file's parent folder shows a <quote>deleted</quote> icon overlay.
+            The item's parent folder shows a <quote>modified</quote> icon overlay.
             Up until you commit the change, you can get the file back using
             <menuchoice>
                 <guimenu>TortoiseSVN</guimenu>
                 <guimenuitem>Revert</guimenuitem>
             </menuchoice>
             on the parent folder.
-        </para>
-        <para>
-            When you
-            <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Delete</guimenuitem>
-            </menuchoice>
-            a folder, it remains in your working copy, but the overlay
-            changes to indicate that it is marked for deletion.
-            Up until you commit the change, you can get the folder back using
-            <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Revert</guimenuitem>
-            </menuchoice>
-            on the folder itself.
-            This difference in behaviour between files and folders
-            is a part of Subversion, not TortoiseSVN.
         </para>
         <para>
             If you want to delete an item from the repository, but keep it
@@ -72,11 +55,11 @@
             in the extended context menu.
         </para>
         <para>
-            If a <emphasis>file</emphasis> is deleted via the explorer
+            If an item is deleted via the explorer
             instead of using the TortoiseSVN context menu, the commit
-            dialog shows those files and lets you remove them from
+            dialog shows those items as missing and lets you remove them from
             version control too before the commit. However, if you update
-            your working copy, Subversion will spot the missing file and
+            your working copy, Subversion will spot the missing item and
             replace it with the latest version from the repository.
             If you need to delete a version-controlled file, always use
             <menuchoice>
@@ -84,18 +67,6 @@
                 <guimenuitem>Delete</guimenuitem>
             </menuchoice> so that Subversion doesn't have to guess what
             you really want to do.
-        </para>
-        <para>
-            If a <emphasis>folder</emphasis> is deleted via the explorer instead
-            of using the TortoiseSVN context menu,  your working copy will be broken
-            and you will be unable to commit. If you update your working copy,
-            Subversion will replace the missing folder with the latest version
-            from the repository and you can then delete it the correct way
-            using
-            <menuchoice>
-                <guimenu>TortoiseSVN</guimenu>
-                <guimenuitem>Delete</guimenuitem>
-            </menuchoice>.
         </para>
         <tip>
             <title>Getting a deleted file or folder back</title>
