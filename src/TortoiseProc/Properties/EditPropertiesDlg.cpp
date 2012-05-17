@@ -46,6 +46,7 @@
 #include "EditPropUserState.h"
 #include "EditPropUserSingleLine.h"
 #include "EditPropUserMultiLine.h"
+#include "EditPropMergeLogTemplate.h"
 
 #define ID_CMD_PROP_SAVEVALUE   1
 #define ID_CMD_PROP_REMOVE      2
@@ -512,6 +513,9 @@ void CEditPropertiesDlg::OnBnClickedAddprops()
     case ID_NEW_ADVANCED:
         EditProps(false, "", true);
         break;
+    case ID_NEW_MERGELOGTEMPLATES:
+        EditProps(true, PROJECTPROPNAME_MERGELOGTEMPLATEMSG, true);
+        break;
     default:
         // maybe a user property?
         {
@@ -569,6 +573,8 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
         (sName.compare(PROJECTPROPNAME_PREUPDATEHOOK) == 0) ||
         (sName.compare(PROJECTPROPNAME_POSTUPDATEHOOK) == 0))
         dlg = new CEditPropsLocalHooks(this);
+    else if ((sName.substr(0, 21).compare("tsvn:mergelogtemplate") == 0))
+        dlg = new CEditPropMergeLogTemplate(this);
     else
     {
         // before using the default dialog find out if this

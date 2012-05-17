@@ -1097,6 +1097,9 @@
     <ClCompile Include="..\Utils\Callback.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="Properties\EditPropMergeLogTemplate.cpp">
+      <Filter>Commands\Properties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2097,6 +2100,9 @@
     </ClInclude>
     <ClInclude Include="..\Utils\Callback.h">
       <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties\EditPropMergeLogTemplate.h">
+      <Filter>Commands\Properties</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
