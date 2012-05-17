@@ -1104,6 +1104,11 @@ UINT CSVNProgressDlg::ProgressThread()
     if (m_pTaskbarList)
         m_pTaskbarList->SetProgressState(m_hWnd, TBPF_INDETERMINATE);
 
+    if (!m_ProjectProperties.PropsRead())
+    {
+        m_ProjectProperties.ReadPropsPathList(m_targetPathList);
+    }
+
     switch (m_Command)
     {
     case SVNProgress_Add:
