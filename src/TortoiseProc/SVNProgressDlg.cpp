@@ -3651,9 +3651,18 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
     CString sRepositoryRoot = GetRepositoryRoot(m_targetPathList[0]);
     CString relUrl = m_url.GetSVNPathString().Mid(sRepositoryRoot.GetLength()+1);
     CString sSeparator = CRegString(_T("Software\\TortoiseSVN\\MergeLogSeparator"), _T("........"));
+    CString sRevListRange;
     CString sRevList;
+    CString sRevListR;
     CString sLogMessages;
-    UINT fmtMsg = IDS_SVNPROGRESS_MERGELOGRANGE;
+
+    CString sFormatTitle = CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_MERGELOGRANGE));
+    if (!m_ProjectProperties.sMergeLogTemplateTitle.IsEmpty())
+        sFormatTitle = m_ProjectProperties.sMergeLogTemplateTitle;
+    CString sFormatMsg = L"{msg}\n" + sSeparator + L"\n";
+    if (!m_ProjectProperties.sMergeLogTemplateMsg.IsEmpty())
+        sFormatMsg = m_ProjectProperties.sMergeLogTemplateMsg;
+
     try
     {
         CLogCacheUtility logUtil(GetLogCachePool()->GetCache(sUUID, sRepositoryRoot), &m_ProjectProperties);
@@ -3664,13 +3673,35 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
             svn_revnum_t endRev = range.GetEndRevision();
             bool bReverse = startRev > endRev;
             if (bReverse)
-                fmtMsg = IDS_SVNPROGRESS_MERGELOGRANGEREVERSE;
+            {
+                sFormatTitle = CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_MERGELOGRANGEREVERSE));
+                if (!m_ProjectProperties.sMergeLogTemplateReverseTitle.IsEmpty())
+                    sFormatTitle = m_ProjectProperties.sMergeLogTemplateReverseTitle;
+            }
             if (!sRevList.IsEmpty())
                 sRevList += L", ";
+            if (!sRevListR.IsEmpty())
+                sRevListR += L", ";
+            if (!sRevListRange.IsEmpty())
+                sRevListRange += L", ";
             if (startRev == endRev)
+            {
                 sRevList += SVNRev(startRev).ToString();
+                sRevListR += L"r" + SVNRev(startRev).ToString();
+                sRevListRange += SVNRev(startRev).ToString();
+            }
             else
-                sRevList += SVNRev(startRev).ToString() + L"-" + SVNRev(endRev).ToString();
+            {
+                sRevListRange += SVNRev(startRev).ToString() + L"-" + SVNRev(endRev).ToString();
+                for (svn_revnum_t r = startRev; r <= endRev; startRev < endRev ? ++r : --r)
+                {
+                    if (!sRevList.IsEmpty())
+                        sRevList += L", ";
+                    if (!sRevListR.IsEmpty())
+                        sRevListR += L", ";
+                    sRevListR += L"r" + SVNRev(r).ToString();
+                }
+            }
             if (bReverse)
             {
                 svn_revnum_t r = startRev;
@@ -3684,10 +3715,16 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
                     PLOGENTRYDATA pLogItem = logUtil.GetRevisionData(rev);
                     if (pLogItem)
                     {
-                        sLogMessages += CUnicodeUtils::StdGetUnicode(pLogItem->GetMessage()).c_str();
-                        sLogMessages += L"\n";
-                        sLogMessages += sSeparator;
-                        sLogMessages += L"\n";
+                        CString sFormattedMsg = sFormatMsg;
+                        CString sMsg = CUnicodeUtils::StdGetUnicode(pLogItem->GetMessage()).c_str();
+                        sFormattedMsg.Replace(L"{msg}", sMsg);
+                        sMsg.Replace(L"\r\n", L" ");
+                        sMsg.Replace('\n', ' ');
+                        sFormattedMsg.Replace(L"{msgoneline}", sMsg);
+                        sFormattedMsg.Replace(L"{author}", CUnicodeUtils::StdGetUnicode(pLogItem->GetAuthor()).c_str());
+                        sFormattedMsg.Replace(L"{rev}", SVNRev(pLogItem->GetRevision()).ToString());
+                        sFormattedMsg.Replace(L"{bugids}", CUnicodeUtils::StdGetUnicode(pLogItem->GetBugIDs()).c_str());
+                        sLogMessages += sFormattedMsg;
                     }
                 }
             }
@@ -3698,8 +3735,11 @@ void CSVNProgressDlg::GenerateMergeLogMessage()
         e->Delete();
     }
 
-    CString sSuggestedMessage;
-    sSuggestedMessage.Format(fmtMsg, sRevList, (LPCTSTR)relUrl);
+    CString sSuggestedMessage = sFormatTitle;
+    sSuggestedMessage.Replace(L"{revisions}", sRevList);
+    sSuggestedMessage.Replace(L"{revisionsr}", sRevListR);
+    sSuggestedMessage.Replace(L"{revrange}", sRevListRange);
+    sSuggestedMessage.Replace(L"{mergeurl}", relUrl);
     sSuggestedMessage += sLogMessages;
 
     CRegHistory history;
