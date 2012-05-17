@@ -417,6 +417,19 @@
             merge and see if it's as expected. Merging is usually quite complicated.
             Conflicts often arise if the branch has drifted far from the trunk.
         </para>
+        <tip>
+            <para>
+                Whenever revisions are merged into a working copy,
+                TortoiseSVN generates a log message from all the
+                merged revisions. Those are then available from the
+                <guibutton>Recent Messages</guibutton> button in the
+                commit dialog.
+            </para>
+            <para>
+                To customize that generated message, set the corresponding
+                project properties on your working copy. See <xref linkend="tsvn-dug-propertypage-tsvn-props"/>
+            </para>
+        </tip>
         <para>
             For Subversion clients and servers prior to 1.5, no merge information
             is stored and merged revisions have to be tracked manually.

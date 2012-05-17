@@ -670,6 +670,144 @@ my:multilineprop=multiline;copy and paste a full chapter here(.*)
 </screen>
                     </para>
                 </listitem>
+                <listitem>
+                    <para>
+                        Whenever revisions are merged into a working copy,
+                        TortoiseSVN generates a log message from all the
+                        merged revisions. Those are then available from the
+                        <guibutton>Recent Messages</guibutton> button in the
+                        commit dialog.
+                    </para>
+                    <para>
+                        You can customize that generated message with the following
+                        properties:
+                    </para>
+                    <para>
+                        <variablelist>
+                            <varlistentry>
+                                <term condition="pot">tsvn:mergelogtemplatetitle, tsvn:mergelogtemplatereversetitle</term>
+                                <listitem>
+                                    <para>
+                                        This property specifies the first part of the generated
+                                        log message. The following keywords can be used:
+                                        <variablelist>
+                                            <varlistentry>
+                                                <term condition="pot">{revisions}</term>
+                                                <listitem>
+                                                    <para>
+                                                        A comma separated list of the merged revisions,
+                                                        e.g., <literal>3, 5, 6, 7</literal>
+                                                    </para>
+                                                </listitem>
+                                            </varlistentry>
+                                            <varlistentry>
+                                                <term condition="pot">{revisionsr}</term>
+                                                <listitem>
+                                                    <para>
+                                                        Like <literal>{revisions}</literal>, but with each
+                                                        revision preceeded with an <literal>r</literal>,
+                                                        e.g., <literal>r3, r5, r6, r7</literal>
+                                                    </para>
+                                                </listitem>
+                                            </varlistentry>
+                                            <varlistentry>
+                                                <term condition="pot">{revrange}</term>
+                                                <listitem>
+                                                    <para>
+                                                        A comma separated list of the merged revisions,
+                                                        grouped into ranges if possible,
+                                                        e.g., <literal>3, 5-7</literal>
+                                                    </para>
+                                                </listitem>
+                                            </varlistentry>
+                                            <varlistentry>
+                                                <term condition="pot">{mergeurl}</term>
+                                                <listitem>
+                                                    <para>
+                                                        The source url of the merge, i.e., where the
+                                                        revisions are merged from.
+                                                    </para>
+                                                </listitem>
+                                            </varlistentry>
+                                        </variablelist>
+                                    </para>
+                                    <para>
+                                        The default value for this string is
+                                        <literal>Merged revision(s) {revrange} from {mergeurl}:</literal>
+                                        with a newline at the end.
+                                    </para>
+                                </listitem>
+                            </varlistentry>
+                            <varlistentry>
+                                <term condition="pot">tsvn:mergelogtemplatemsg</term>
+                                <listitem>
+                                    <para>
+                                        This property specifies how the text for each
+                                        merged revision should look like. The following
+                                        keywords can be used:
+                                        <variablelist>
+                                            <varlistentry>
+                                                <term condition="pot">{msg}</term>
+                                                <listitem>
+                                                    <para>
+                                                        The log message of the merged revision, as it was entered.
+                                                    </para>
+                                                </listitem>
+                                            </varlistentry>
+                                            <varlistentry>
+                                                <term condition="pot">{msgoneline}</term>
+                                                <listitem>
+                                                    <para>
+                                                        Like <literal>{msg}</literal>, but all
+                                                        newlines are replaced with a space, so that
+                                                        the whole log message appears on one single line.
+                                                    </para>
+                                                </listitem>
+                                            </varlistentry>
+                                            <varlistentry>
+                                                <term condition="pot">{author}</term>
+                                                <listitem>
+                                                    <para>
+                                                        The author of the merged revision.
+                                                    </para>
+                                                </listitem>
+                                            </varlistentry>
+                                            <varlistentry>
+                                                <term condition="pot">{rev}</term>
+                                                <listitem>
+                                                    <para>
+                                                        The merged revision itself.
+                                                    </para>
+                                                </listitem>
+                                            </varlistentry>
+                                            <varlistentry>
+                                                <term condition="pot">{bugid}</term>
+                                                <listitem>
+                                                    <para>
+                                                        The bug IDs of the merged revision, if
+                                                        there are any.
+                                                    </para>
+                                                </listitem>
+                                            </varlistentry>
+                                        </variablelist>
+                                    </para>
+                                    <para>
+                                        <important>
+                                            <para>
+                                                This only works if the merged revisions
+                                                are already in the log cache. If you have disabled
+                                                the log cache or not shown the log first
+                                                before the merge, the generated message
+                                                won't contain any information about the merged
+                                                revisions.
+                                            </para>
+                                        </important>
+                                    </para>
+                                </listitem>
+                            </varlistentry>
+                        </variablelist>
+                    </para>
+                </listitem>
             </itemizedlist>
         </para>
         <para>
