@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,8 +64,14 @@ BOOL CAboutDlg::OnInitDialog()
     CString temp;
     const svn_version_t * svnver = svn_client_version();
 
+    CString svnvertag = CString(svnver->tag);
+    if (svnvertag.IsEmpty())
+    {
+        svnvertag = L"-release";
+    }
+
     temp.Format(IDS_ABOUTVERSION, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD, _T(TSVN_PLATFORM), _T(TSVN_VERDATE),
-        svnver->major, svnver->minor, svnver->patch, CString(svnver->tag),
+        svnver->major, svnver->minor, svnver->patch, (LPCWSTR)svnvertag,
         APR_MAJOR_VERSION, APR_MINOR_VERSION, APR_PATCH_VERSION,
         APU_MAJOR_VERSION, APU_MINOR_VERSION, APU_PATCH_VERSION,
         _T(NEON_VERSION),
