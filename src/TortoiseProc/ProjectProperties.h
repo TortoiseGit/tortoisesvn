@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -46,6 +46,9 @@ using namespace std;
 #define PROJECTPROPNAME_LOGTEMPLATEMKDIR  "tsvn:logtemplatemkdir"
 #define PROJECTPROPNAME_LOGTEMPLATEPROPSET "tsvn:logtemplatepropset"
 #define PROJECTPROPNAME_LOGTEMPLATELOCK   "tsvn:logtemplatelock"
+#define PROJECTPROPNAME_MERGELOGTEMPLATETITLE "tsvn:mergelogtemplatetitle"
+#define PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE "tsvn:mergelogtemplatereversetitle"
+#define PROJECTPROPNAME_MERGELOGTEMPLATEMSG "tsvn:mergelogtemplatemsg"
 
 #define PROJECTPROPNAME_LOGWIDTHLINE      "tsvn:logwidthmarker"
 #define PROJECTPROPNAME_LOGMINSIZE        "tsvn:logminsize"
@@ -94,6 +97,9 @@ public:
      * \param list of paths
      */
     BOOL ReadPropsPathList(const CTSVNPathList& pathList);
+
+    /// returns true if ReadProps() or ReadPropsPathList() has been called before
+    bool PropsRead() const { return m_bPropsRead; }
 
     /**
      * Searches for the BugID inside a log message. If one is found,
@@ -277,6 +283,14 @@ public:
     /// the repository url of the directory for which the project properties
     /// are meant for
     CString     sRepositoryPathUrl;
+
+    /// template for the first line (title) of the generated log message of a merge
+    CString     sMergeLogTemplateTitle;
+    /// template for the first line (title) of the generated log message of a merge in case of a reverse merge
+    CString     sMergeLogTemplateReverseTitle;
+    /// template for the messge lines of the generated log message of a merge
+    CString     sMergeLogTemplateMsg;
+
 private:
 
     /**
@@ -321,4 +335,5 @@ private:
     int         nBugIdPos;              ///< result of sMessage.Find(L"%BUGID%");
 
     bool        m_bFound;
+    bool        m_bPropsRead;
 };

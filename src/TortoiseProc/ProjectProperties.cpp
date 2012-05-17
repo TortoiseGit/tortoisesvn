@@ -52,6 +52,7 @@ ProjectProperties::ProjectProperties(void)
     , lProjectLanguage (0)
     , nBugIdPos(-1)
     , m_bFound(false)
+    , m_bPropsRead(false)
 {
 }
 
@@ -75,6 +76,7 @@ BOOL ProjectProperties::ReadPropsPathList(const CTSVNPathList& pathList)
 BOOL ProjectProperties::ReadProps(CTSVNPath path)
 {
     regExNeedUpdate = true;
+    m_bPropsRead = true;
 
     BOOL bFoundBugtraqNumber = FALSE;
     BOOL bFoundBugtraqWarnIssue = FALSE;
@@ -222,6 +224,10 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             CheckStringProp(sStartUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_STARTUPDATEHOOK);
             CheckStringProp(sPreUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_PREUPDATEHOOK);
             CheckStringProp(sPostUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_POSTUPDATEHOOK);
+
+            CheckStringProp(sMergeLogTemplateTitle, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATETITLE);
+            CheckStringProp(sMergeLogTemplateReverseTitle, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE);
+            CheckStringProp(sMergeLogTemplateMsg, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATEMSG);
         }
         if (PathIsRoot(path.GetWinPath()))
             return FALSE;
