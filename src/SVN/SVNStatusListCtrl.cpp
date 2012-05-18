@@ -279,20 +279,22 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
         SetWindowTheme(m_hWnd, L"Explorer", NULL);
 
         m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
-        m_nExternalOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EXTERNALOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
-        SYS_IMAGE_LIST().SetOverlayImage(m_nExternalOvl, OVL_EXTERNAL);
-        m_nNestedOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_NESTEDOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
-        SYS_IMAGE_LIST().SetOverlayImage(m_nNestedOvl, OVL_NESTED);
-        m_nDepthFilesOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DEPTHFILESOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
-        SYS_IMAGE_LIST().SetOverlayImage(m_nDepthFilesOvl, OVL_DEPTHFILES);
-        m_nDepthImmediatesOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DEPTHIMMEDIATEDOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
-        SYS_IMAGE_LIST().SetOverlayImage(m_nDepthImmediatesOvl, OVL_DEPTHIMMEDIATES);
-        m_nDepthEmptyOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DEPTHEMPTYOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
-        SYS_IMAGE_LIST().SetOverlayImage(m_nDepthEmptyOvl, OVL_DEPTHEMPTY);
-        m_nRestoreOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_RESTOREOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
-        SYS_IMAGE_LIST().SetOverlayImage(m_nRestoreOvl, OVL_RESTORE);
-        m_nMergeInfoOvl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MERGEINFOOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
-        SYS_IMAGE_LIST().SetOverlayImage(m_nMergeInfoOvl, OVL_MERGEINFO);
+        int ovl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EXTERNALOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+        SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_EXTERNAL);
+        ovl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_EXTERNALPEGGEDOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+        SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_EXTERNALPEGGED);
+        ovl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_NESTEDOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+        SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_NESTED);
+        ovl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DEPTHFILESOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+        SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_DEPTHFILES);
+        ovl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DEPTHIMMEDIATEDOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+        SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_DEPTHIMMEDIATES);
+        ovl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_DEPTHEMPTYOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+        SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_DEPTHEMPTY);
+        ovl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_RESTOREOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+        SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_RESTORE);
+        ovl = SYS_IMAGE_LIST().AddIcon((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MERGEINFOOVL), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE));
+        SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_MERGEINFO);
         SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 
         m_ColumnManager.ReadSettings (m_dwDefaultColumns, sColumnInfoContainer);
@@ -457,6 +459,67 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
         FetchUserProperties();
 
     m_ColumnManager.UpdateUserPropList (m_PropertyMap);
+
+    if (m_bHasExternals)
+    {
+        // go through all externals and determine whether they're pointing to HEAD
+        // or a pegged revision
+        // if the external is pegged, then that entry has to be treated specially:
+        // even if the external is from the same repository, it must not be checked
+        // for commits.
+        std::set<CTSVNPath> extproppaths;
+        for (auto it = m_externalSet.cbegin(); it != m_externalSet.cend(); ++it)
+        {
+            extproppaths.insert(it->GetContainingDirectory());
+        }
+        for (auto it = extproppaths.cbegin(); it != extproppaths.cend(); ++it)
+        {
+            SVNReadProperties props(*it, SVNRev::REV_WC, false);
+            for (int i = 0; i < props.GetCount(); ++i)
+            {
+                if (props.GetItemName(i).compare(SVN_PROP_EXTERNALS)==0)
+                {
+                    SVNPool pool;
+                    apr_array_header_t* parsedExternals = NULL;
+                    svn_error_t * err = svn_wc_parse_externals_description3( &parsedExternals
+                                                                           , it->GetSVNApiPath(pool)
+                                                                           , (LPCSTR)props.GetItemValue(i).c_str()
+                                                                           , TRUE
+                                                                           , pool);
+                    if (err == nullptr)
+                    {
+                        for (long i=0; i < parsedExternals->nelts; ++i)
+                        {
+                            svn_wc_external_item2_t * e = APR_ARRAY_IDX(parsedExternals, i, svn_wc_external_item2_t*);
+
+                            if (e != NULL)
+                            {
+                                if (((e->revision.kind != svn_opt_revision_unspecified) &&
+                                    (e->revision.kind != svn_opt_revision_head)) ||
+                                    ((e->peg_revision.kind != svn_opt_revision_unspecified) &&
+                                    (e->peg_revision.kind != svn_opt_revision_head)))
+                                {
+                                    // external is pegged to a specific revision
+                                    // mark the entry as not committable
+                                    CTSVNPath extPath = *it;
+                                    extPath.AppendPathString(CUnicodeUtils::GetUnicode(e->target_dir));
+                                    // go through the whole list and mark the ext path and all its
+                                    // children as pegged
+                                    for (auto entry = m_arStatusArray.begin(); entry != m_arStatusArray.end(); ++entry)
+                                    {
+                                        if (extPath.IsAncestorOf((*entry)->GetPath()))
+                                        {
+                                            (*entry)->peggedexternal = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     m_bBusy = false;
     m_bWaitCursor = false;
@@ -1048,7 +1111,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
             // to one of them
             for (int ix=0; ix<arExtPaths.GetCount(); ix++)
             {
-                if (arExtPaths[ix].IsAncestorOf(svnPath))
+                if (arExtPaths[ix].IsAncestorOf(svnPath) && !svnPath.IsEquivalentToWithoutCase(arExtPaths[ix]))
                 {
                     bDirectoryIsExternal = true;
                     break;
@@ -1212,7 +1275,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                 {
                     if (entry->GetPath().IsEquivalentTo(checkedList[npath]))
                     {
-                        if (!entry->IsFromDifferentRepository())
+                        if (!entry->IsFromDifferentRepository() && !entry->IsPeggedExternal())
                             entry->checked = true;
                         break;
                     }
@@ -1224,7 +1287,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                         m_arListArray.push_back(i);
                         if ((dwCheck & SVNSLC_SHOWREMOVEDANDPRESENT)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
                         {
-                            if ((bAllowCheck)&&(!entry->IsFromDifferentRepository())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
+                            if ((bAllowCheck)&&(!entry->IsFromDifferentRepository() && !entry->IsPeggedExternal())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
                                 entry->checked = true;
                         }
                         AddEntry(entry, listIndex++);
@@ -1235,7 +1298,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                     m_arListArray.push_back(i);
                     if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
                     {
-                        if ((bAllowCheck)&&(!entry->IsFromDifferentRepository())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
+                        if ((bAllowCheck)&&(!entry->IsFromDifferentRepository() && !entry->IsPeggedExternal())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
                             entry->checked = true;
                     }
                     AddEntry(entry, listIndex++);
@@ -1245,7 +1308,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
                     m_arListArray.push_back(i);
                     if ((dwCheck & showFlags)||((dwCheck & SVNSLC_SHOWDIRECTS)&&(entry->direct)))
                     {
-                        if ((bAllowCheck)&&(!entry->IsFromDifferentRepository())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
+                        if ((bAllowCheck)&&(!entry->IsFromDifferentRepository() && !entry->IsPeggedExternal())&&(entry->changelist.Compare(SVNSLC_IGNORECHANGELIST) != 0))
                             entry->checked = true;
                     }
                     AddEntry(entry, listIndex++);
@@ -1628,7 +1691,12 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
     if (entry->IsNested())
         lvItem.state = INDEXTOOVERLAYMASK(OVL_NESTED);
     else if (entry->IsInExternal()||entry->file_external)
-        lvItem.state = INDEXTOOVERLAYMASK(OVL_EXTERNAL);
+    {
+        if (entry->IsPeggedExternal())
+            lvItem.state = INDEXTOOVERLAYMASK(OVL_EXTERNALPEGGED);
+        else
+            lvItem.state = INDEXTOOVERLAYMASK(OVL_EXTERNAL);
+    }
     else if (entry->depth == svn_depth_files)
         lvItem.state = INDEXTOOVERLAYMASK(OVL_DEPTHFILES);
     else if (entry->depth == svn_depth_immediates)
@@ -1783,7 +1851,7 @@ void CSVNStatusListCtrl::OnLvnItemchanging(NMHDR *pNMHDR, LRESULT *pResult)
     if (readLock.IsAcquired())
     {
         FileEntry * entry = GetListEntry(pNMLV->iItem);
-        if (entry&&(m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested()))
+        if (entry&&(m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested() || entry->IsPeggedExternal()))
         {
             // if we're blocked or an item from a different repository, prevent changing of the check state
             if ((!ISCHECKED(pNMLV->uOldState) && ISCHECKED(pNMLV->uNewState))||
@@ -3339,7 +3407,12 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             if (entry2->IsNested())
                                 state = INDEXTOOVERLAYMASK(OVL_NESTED);
                             else if (entry2->IsInExternal()||entry2->file_external)
-                                state = INDEXTOOVERLAYMASK(OVL_EXTERNAL);
+                            {
+                                if (entry2->IsPeggedExternal())
+                                    state = INDEXTOOVERLAYMASK(OVL_EXTERNALPEGGED);
+                                else
+                                    state = INDEXTOOVERLAYMASK(OVL_EXTERNAL);
+                            }
                             else if (entry2->depth == svn_depth_files)
                                 state = INDEXTOOVERLAYMASK(OVL_DEPTHFILES);
                             else if (entry2->depth == svn_depth_immediates)
@@ -4378,7 +4451,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     if (entry->isConflicted)
                         crText = m_Colors.GetColor(CColors::Conflict);
 
-                    if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested()))
+                    if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested() || entry->IsPeggedExternal()))
                     {
                         crText = GetSysColor(COLOR_GRAYTEXT);
                     }

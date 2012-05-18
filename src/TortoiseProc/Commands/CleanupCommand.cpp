@@ -273,7 +273,8 @@ CString CleanupCommand::GetCleanupPaths( const CTSVNPathList& paths, CTSVNPathLi
         status.GetExternals(extset);
         for (auto it = extset.cbegin(); it != extset.cend(); ++it)
         {
-            externals.AddPath(*it);
+            if (it->IsDirectory())
+                externals.AddPath(*it);
         }
     }
     return L"";

@@ -169,6 +169,7 @@ typedef CComCritSecLock<CComCriticalSection> Locker;
 #define OVL_DEPTHEMPTY      5
 #define OVL_RESTORE         6
 #define OVL_MERGEINFO       7
+#define OVL_EXTERNALPEGGED  8
 
 /**
  * \ingroup SVN
@@ -313,6 +314,7 @@ public:
             , onlyMergeInfoModsKnown(false)
             , working_size(SVN_WC_ENTRY_WORKING_SIZE_UNKNOWN)
             , depth(svn_depth_unknown)
+            , peggedexternal(false)
         {
         }
         const CTSVNPath& GetPath() const
@@ -340,6 +342,10 @@ public:
         const bool IsInExternal() const
         {
             return inexternal;
+        }
+        const bool IsPeggedExternal() const
+        {
+            return peggedexternal;
         }
         const bool IsNested() const
         {
@@ -411,6 +417,7 @@ public:
         bool                    checked;                ///< if the file is checked in the list control
         bool                    inunversionedfolder;    ///< if the file is inside an unversioned folder
         bool                    inexternal;             ///< if the item is in an external folder
+        bool                    peggedexternal;         ///< if inexternal is true, then this is true if the external the item refers to is pegged to a specific revision, not HEAD
         bool                    differentrepo;          ///< if the item is from a different repository than the rest
         bool                    direct;                 ///< directly included (TRUE) or just a child of a folder
         bool                    isfolder;               ///< TRUE if entry refers to a folder
@@ -1078,13 +1085,6 @@ private:
     bool                        m_bDepthInfinity;
 
     int                         m_nIconFolder;
-    int                         m_nExternalOvl;
-    int                         m_nNestedOvl;
-    int                         m_nDepthFilesOvl;
-    int                         m_nDepthImmediatesOvl;
-    int                         m_nDepthEmptyOvl;
-    int                         m_nRestoreOvl;
-    int                         m_nMergeInfoOvl;
 
     CWnd *                      m_pStatLabel;
     CButton *                   m_pSelectButton;

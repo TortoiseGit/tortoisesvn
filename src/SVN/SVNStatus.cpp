@@ -663,10 +663,15 @@ svn_error_t * SVNStatus::getallstatus(void * baton, const char * /*path*/, const
 svn_error_t * SVNStatus::getstatushash(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * /*pool*/)
 {
     hashbaton_t * hash = (hashbaton_t *)baton;
+    static CStringA lastDir;
     if (status->node_status == svn_wc_status_external)
     {
         apr_hash_set (hash->exthash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, (const void*)1);
         return SVN_NO_ERROR;
+    }
+    if (status->file_external)
+    {
+        apr_hash_set (hash->exthash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, (const void*)1);
     }
     svn_client_status_t * statuscopy = svn_client_status_dup (status, hash->pThis->m_pool);
     apr_hash_set (hash->hash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, statuscopy);
