@@ -364,11 +364,15 @@ bool CAppUtils::StartExtDiff(
 
     if (viewer.Find(_T("%burl")) >= 0)
     {
-        viewer.Replace(_T("%burl"),  _T("\"")+url1.GetSVNPathString()+_T("\""));
+        CString s = L"\""+url1.GetSVNPathString();
+        s += L"\"";
+        viewer.Replace(_T("%burl"), s);
     }
     if (viewer.Find(_T("%yurl")) >= 0)
     {
-        viewer.Replace(_T("%yurl"),  _T("\"")+url2.GetSVNPathString()+_T("\""));
+        CString s = L"\""+url2.GetSVNPathString();
+        s += L"\"";
+        viewer.Replace(_T("%yurl"), s);
     }
     if (viewer.Find(_T("%brev")) >= 0)
     {
@@ -905,10 +909,12 @@ bool CAppUtils::StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVN
                                      bool bAlternateDiff /* = false */, bool bIgnoreAncestry /* = false */, bool /* blame = false */)
 {
     CString sCmd = _T("/command:showcompare /unified");
-    sCmd += _T(" /url1:\"") + url1.GetSVNPathString() + _T("\"");
+    sCmd += _T(" /url1:\"") + url1.GetSVNPathString();
+    sCmd += _T("\"");
     if (rev1.IsValid())
         sCmd += _T(" /revision1:") + rev1.ToString();
-    sCmd += _T(" /url2:\"") + url2.GetSVNPathString() + _T("\"");
+    sCmd += _T(" /url2:\"") + url2.GetSVNPathString();
+    sCmd += _T("\"");
     if (rev2.IsValid())
         sCmd += _T(" /revision2:") + rev2.ToString();
     if (peg.IsValid())
@@ -946,10 +952,12 @@ bool CAppUtils::StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev&
 {
     CString sCmd;
     sCmd.Format(_T("/command:showcompare /nodekind:%d"), nodekind);
-    sCmd += _T(" /url1:\"") + url1.GetSVNPathString() + _T("\"");
+    sCmd += _T(" /url1:\"") + url1.GetSVNPathString();
+    sCmd += _T("\"");
     if (rev1.IsValid())
         sCmd += _T(" /revision1:") + rev1.ToString();
-    sCmd += _T(" /url2:\"") + url2.GetSVNPathString() + _T("\"");
+    sCmd += _T(" /url2:\"") + url2.GetSVNPathString();
+    sCmd += _T("\"");
     if (rev2.IsValid())
         sCmd += _T(" /revision2:") + rev2.ToString();
     if (peg.IsValid())
