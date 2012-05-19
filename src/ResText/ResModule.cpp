@@ -65,33 +65,33 @@ BOOL CResModule::ExtractResources(std::vector<std::wstring> filelist, LPCTSTR lp
 
         if (!m_bQuiet)
             _ftprintf(stdout, _T("Extracting StringTable...."));
-        EnumResourceNames(m_hResDll, RT_STRING,  EnumResNameCallback, (long)this);
+        EnumResourceNames(m_hResDll, RT_STRING,  EnumResNameCallback, (LONG_PTR)this);
         if (!m_bQuiet)
             _ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
         nEntries = m_StringEntries.size();
 
         if (!m_bQuiet)
             _ftprintf(stdout, _T("Extracting Dialogs........"));
-        EnumResourceNames(m_hResDll, RT_DIALOG,  EnumResNameCallback, (long)this);
+        EnumResourceNames(m_hResDll, RT_DIALOG,  EnumResNameCallback, (LONG_PTR)this);
         if (!m_bQuiet)
             _ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
         nEntries = m_StringEntries.size();
 
         if (!m_bQuiet)
             _ftprintf(stdout, _T("Extracting Menus.........."));
-        EnumResourceNames(m_hResDll, RT_MENU,    EnumResNameCallback, (long)this);
+        EnumResourceNames(m_hResDll, RT_MENU,    EnumResNameCallback, (LONG_PTR)this);
         if (!m_bQuiet)
             _ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
         nEntries = m_StringEntries.size();
         if (!m_bQuiet)
             _ftprintf(stdout, _T("Extracting Accelerators..."));
-        EnumResourceNames(m_hResDll, RT_ACCELERATOR, EnumResNameCallback, (long)this);
+        EnumResourceNames(m_hResDll, RT_ACCELERATOR, EnumResNameCallback, (LONG_PTR)this);
         if (!m_bQuiet)
             _ftprintf(stdout, _T("%4d Accelerators\n"), m_StringEntries.size()-nEntries);
         nEntries = m_StringEntries.size();
         if (!m_bQuiet)
             _ftprintf(stdout, _T("Extracting Ribbons........"));
-        EnumResourceNames(m_hResDll, RT_RIBBON, EnumResNameCallback, (long)this);
+        EnumResourceNames(m_hResDll, RT_RIBBON, EnumResNameCallback, (LONG_PTR)this);
         if (!m_bQuiet)
             _ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
         nEntries = m_StringEntries.size();
@@ -118,28 +118,28 @@ BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFile
 
     if (!m_bQuiet)
         _ftprintf(stdout, _T("Extracting StringTable...."));
-    EnumResourceNames(m_hResDll, RT_STRING,  EnumResNameCallback, (long)this);
+    EnumResourceNames(m_hResDll, RT_STRING,  EnumResNameCallback, (LONG_PTR)this);
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size());
     nEntries = m_StringEntries.size();
 
     if (!m_bQuiet)
         _ftprintf(stdout, _T("Extracting Dialogs........"));
-    EnumResourceNames(m_hResDll, RT_DIALOG,  EnumResNameCallback, (long)this);
+    EnumResourceNames(m_hResDll, RT_DIALOG,  EnumResNameCallback, (LONG_PTR)this);
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
     nEntries = m_StringEntries.size();
 
     if (!m_bQuiet)
         _ftprintf(stdout, _T("Extracting Menus.........."));
-    EnumResourceNames(m_hResDll, RT_MENU,    EnumResNameCallback, (long)this);
+    EnumResourceNames(m_hResDll, RT_MENU,    EnumResNameCallback, (LONG_PTR)this);
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%4d Strings\n"), m_StringEntries.size()-nEntries);
     nEntries = m_StringEntries.size();
 
     if (!m_bQuiet)
         _ftprintf(stdout, _T("Extracting Accelerators..."));
-    EnumResourceNames(m_hResDll, RT_ACCELERATOR, EnumResNameCallback, (long)this);
+    EnumResourceNames(m_hResDll, RT_ACCELERATOR, EnumResNameCallback, (LONG_PTR)this);
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%4d Accelerators\n"), m_StringEntries.size()-nEntries);
     nEntries = m_StringEntries.size();
@@ -208,31 +208,31 @@ BOOL CResModule::CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR l
 
     if (!m_bQuiet)
         _ftprintf(stdout, _T("Translating StringTable..."));
-    bRes = EnumResourceNames(m_hResDll, RT_STRING, EnumResNameWriteCallback, (long)this);
+    bRes = EnumResourceNames(m_hResDll, RT_STRING, EnumResNameWriteCallback, (LONG_PTR)this);
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedStrings, m_bDefaultStrings);
 
     if (!m_bQuiet)
         _ftprintf(stdout, _T("Translating Dialogs......."));
-    bRes = EnumResourceNames(m_hResDll, RT_DIALOG, EnumResNameWriteCallback, (long)this);
+    bRes = EnumResourceNames(m_hResDll, RT_DIALOG, EnumResNameWriteCallback, (LONG_PTR)this);
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedDialogStrings, m_bDefaultDialogStrings);
 
     if (!m_bQuiet)
         _ftprintf(stdout, _T("Translating Menus........."));
-    bRes = EnumResourceNames(m_hResDll, RT_MENU, EnumResNameWriteCallback, (long)this);
+    bRes = EnumResourceNames(m_hResDll, RT_MENU, EnumResNameWriteCallback, (LONG_PTR)this);
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedMenuStrings, m_bDefaultMenuStrings);
 
     if (!m_bQuiet)
         _ftprintf(stdout, _T("Translating Accelerators.."));
-    bRes = EnumResourceNames(m_hResDll, RT_ACCELERATOR, EnumResNameWriteCallback, (long)this);
+    bRes = EnumResourceNames(m_hResDll, RT_ACCELERATOR, EnumResNameWriteCallback, (LONG_PTR)this);
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedAcceleratorStrings, m_bDefaultAcceleratorStrings);
 
     if (!m_bQuiet)
         _ftprintf(stdout, _T("Translating Ribbons......."));
-    bRes = EnumResourceNames(m_hResDll, RT_RIBBON, EnumResNameWriteCallback, (long)this);
+    bRes = EnumResourceNames(m_hResDll, RT_RIBBON, EnumResNameWriteCallback, (LONG_PTR)this);
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%4d translated, %4d not translated\n"), m_bTranslatedRibbonTexts, m_bDefaultRibbonTexts);
     bRes = TRUE;
