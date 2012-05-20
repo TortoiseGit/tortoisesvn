@@ -190,10 +190,11 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
 void CRepositoryBrowser::ClearUI()
 {
     CAutoWriteLock locker(m_guard);
+    m_RepoList.DeleteAllItems();
+
     RecursiveRemove (m_RepoTree.GetRootItem());
 
     m_RepoTree.DeleteAllItems();
-    m_RepoList.DeleteAllItems();
 }
 
 BOOL CRepositoryBrowser::Cancel()
@@ -1685,6 +1686,8 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
     SaveColumnWidths();
     CWaitCursorEx wait;
     CAutoReadLock locker(m_guard);
+    // block all events until the list control is refreshed as well
+    m_blockEvents = true;
     CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData(hNode);
     if (!pTreeItem || pTreeItem->svnparentpathroot)
         return false;
@@ -1693,7 +1696,6 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
     {
         HTREEITEM hChild = m_RepoTree.GetChildItem(hNode);
         HTREEITEM hNext;
-        m_blockEvents = true;
 
         CAutoWriteLock locker(m_guard);
         while (hChild)
@@ -1703,7 +1705,6 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
             m_RepoTree.DeleteItem(hChild);
             hChild = hNext;
         }
-        m_blockEvents = false;
     }
 
     RefreshChildren (hNode);
@@ -1722,7 +1723,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
     if (pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
         if ((force)||(hSel1 == hNode)||(hSel1 != m_RepoTree.GetSelectedItem()))
             FillList(pTreeItem);
-
+    m_blockEvents = false;
     return true;
 }
 
