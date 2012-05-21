@@ -1551,7 +1551,10 @@ void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
         while (pos)
         {
             CString sLogCopyText;
-            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index >= m_logEntries.GetVisibleCount())
+                continue;
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (index);
             if (bIncludeChangedList)
             {
                 CString sPaths;
@@ -1790,9 +1793,13 @@ void CLogDlg::UpdateSelectedRevs()
     {
         while (pos)
         {
-            pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
-            if (pLogEntry)
-                revisions.push_back (pLogEntry->GetRevision());
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index < m_logEntries.GetVisibleCount())
+            {
+                pLogEntry = m_logEntries.GetVisible (index);
+                if (pLogEntry)
+                    revisions.push_back (pLogEntry->GetRevision());
+            }
         }
 
         m_selectedRevs.AddRevisions (revisions);
@@ -1956,12 +1963,16 @@ void CLogDlg::DiffSelectedFile()
         while (pos)
         {
             // there's at least a second entry selected in the log list: several revisions selected!
-            pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos));
-            if (pLogEntry)
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index < m_logEntries.GetVisibleCount())
             {
-                const long entryRevision = (long)pLogEntry->GetRevision();
-                rev1 = max(rev1, entryRevision);
-                rev2 = min(rev2, entryRevision);
+                pLogEntry = m_logEntries.GetVisible(index);
+                if (pLogEntry)
+                {
+                    const long entryRevision = (long)pLogEntry->GetRevision();
+                    rev1 = max(rev1, entryRevision);
+                    rev2 = min(rev2, entryRevision);
+                }
             }
         }
         rev2--;
@@ -2524,6 +2535,8 @@ void CLogDlg::SelectAllVisibleRevisions()
     }
 
     m_LogList.SetItemState (-1, LVIS_SELECTED, LVIS_SELECTED);
+    if (m_bStrict && m_bStrictStopped)
+        m_LogList.SetItemState(m_LogList.GetItemCount()-1, 0, LVIS_SELECTED);
     m_LogList.RedrawWindow();
 }
 
@@ -4358,7 +4371,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     CString relPathURL = pathURL.Mid(m_sRepositoryRoot.GetLength());
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
     int indexNext = m_LogList.GetNextSelectedItem(pos);
-    if (indexNext < 0)
+    if ((indexNext < 0)||(indexNext >= m_logEntries.GetVisibleCount()))
         return;
     PLOGENTRYDATA pSelLogEntry = m_logEntries.GetVisible(indexNext);
     SVNRev revSelected = pSelLogEntry->GetRevision();
@@ -4396,11 +4409,15 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
         const std::string& firstAuthor = pLogEntry->GetAuthor();
         while (pos2)
         {
-            pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos2));
-            revisions.push_back (pLogEntry->GetRevision());
-            selEntries.push_back(pLogEntry);
-            if (firstAuthor != pLogEntry->GetAuthor())
-                bAllFromTheSameAuthor = false;
+            int index2 = m_LogList.GetNextSelectedItem(pos2);
+            if (index2 < m_logEntries.GetVisibleCount())
+            {
+                pLogEntry = m_logEntries.GetVisible(index2);
+                revisions.push_back (pLogEntry->GetRevision());
+                selEntries.push_back(pLogEntry);
+                if (firstAuthor != pLogEntry->GetAuthor())
+                    bAllFromTheSameAuthor = false;
+            }
         }
 
         revisionRanges.AddRevisions (revisions);
@@ -5188,12 +5205,16 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
     {
         while (pos)
         {
-            pLogEntry = m_logEntries.GetVisible (m_LogList.GetNextSelectedItem(pos));
-            if (pLogEntry)
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index < m_logEntries.GetVisibleCount())
             {
-                rev1 = max(rev1,(svn_revnum_t)pLogEntry->GetRevision());
-                rev2 = min(rev2,(svn_revnum_t)pLogEntry->GetRevision());
-                bOneRev = false;
+                pLogEntry = m_logEntries.GetVisible (index);
+                if (pLogEntry)
+                {
+                    rev1 = max(rev1,(svn_revnum_t)pLogEntry->GetRevision());
+                    rev2 = min(rev2,(svn_revnum_t)pLogEntry->GetRevision());
+                    bOneRev = false;
+                }
             }
         }
         if (!bOneRev)
