@@ -415,7 +415,7 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
             path.SetFromWin (winPath, true);
 
             CCachedDirectory * childdir = CSVNStatusCache::Instance().GetDirectoryCacheEntryNoCreate(path);
-            if ((childdir)&&(!cdir->m_directoryPath.IsEquivalentTo(childdir->m_directoryPath)))
+            if ((childdir)&&(!cdir->m_directoryPath.IsEquivalentTo(childdir->m_directoryPath))&&(cdir->m_directoryPath.GetFileOrDirectoryName()!=L".."))
                 RemoveCacheForDirectory(childdir);
             cdir->m_childDirectories.erase(it->first);
             it = cdir->m_childDirectories.begin();

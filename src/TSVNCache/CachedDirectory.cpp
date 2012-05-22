@@ -862,6 +862,9 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
         {
             while (FindNextFile(hFind, &FindFileData))
             {
+                if ( (wcscmp(FindFileData.cFileName, L"..")==0) ||
+                     (wcscmp(FindFileData.cFileName, L".")==0) )
+                     continue;
                 ULARGE_INTEGER ft;
                 ft.LowPart = FindFileData.ftLastWriteTime.dwLowDateTime;
                 ft.HighPart = FindFileData.ftLastWriteTime.dwHighDateTime;
