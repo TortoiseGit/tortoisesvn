@@ -6,6 +6,8 @@ Version 1.7.8
 - BUG: Issue #301: Crash in log dialog when
        selecting all revisions with Ctrl-A. (Stefan)
 - BUG: issue #302: segfault in status cache. (Stefan)
+- BUG: Issue #304: buffer overflow when
+       saving column data. (Stefan)
 
 Version 1.7.7
 - BUG: Issue #233: Crash when closing the

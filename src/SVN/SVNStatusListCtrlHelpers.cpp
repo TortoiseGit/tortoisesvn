@@ -448,7 +448,8 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
     {
         int index = static_cast<int>(userProps.size())
                   + SVNSLC_USERPROPCOLOFFSET;
-        columnOrder.push_back (index);
+        if (columnOrder.size() < SVNSLC_MAXCOLUMNCOUNT)
+            columnOrder.push_back (index);
 
         UserProp userProp;
         userProp.name = *iter;
@@ -914,8 +915,11 @@ CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
     TCHAR buf[3];
     for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
     {
-        _stprintf_s (buf, _T("%02X"), columnOrder[i]);
-        result += buf;
+        if (columnOrder[i] < SVNSLC_MAXCOLUMNCOUNT)
+        {
+            _stprintf_s (buf, _T("%02X"), columnOrder[i]);
+            result += buf;
+        }
     }
 
     return result;
