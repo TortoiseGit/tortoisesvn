@@ -2111,13 +2111,18 @@ void CLogDlg::DiffSelectedRevWithPrevious()
             lastChangedIndex = c;
         }
 
-    if (m_path.IsDirectory() && nChanged == 1)
+    svn_node_kind_t nodekind = svn_node_unknown;
+    if (!m_path.IsUrl())
+        nodekind = m_path.IsDirectory() ? svn_node_dir : svn_node_file;
+
+    if (nChanged == 1)
     {
         // We're looking at the log for a directory and only one file under dir was changed in the revision
         // Do diff on that file instead of whole directory
 
         const CLogChangedPath& cpath = pLogEntry->GetChangedPaths()[lastChangedIndex];
         path.SetFromWin (m_sRepositoryRoot + cpath.GetPath());
+        nodekind = cpath.GetNodeKind() < 0 ? svn_node_unknown : cpath.GetNodeKind();
     }
 
     m_bCancelled = FALSE;
@@ -2130,11 +2135,11 @@ void CLogDlg::DiffSelectedRevWithPrevious()
         SVNDiff diff(this, m_hWnd, true);
         diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
         diff.SetHEADPeg(m_LogRevision);
-        diff.ShowCompare(path, rev2, path, rev1, SVNRev(), L"", false, false, m_path.IsDirectory() && (nChanged != 1) ? svn_node_dir : svn_node_file);
+        diff.ShowCompare(path, rev2, path, rev1, SVNRev(), L"", false, false, nodekind);
     }
     else
     {
-        CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(), m_LogRevision, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, m_path.IsDirectory() && (nChanged != 1) ? svn_node_dir : svn_node_file);
+        CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(), m_LogRevision, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
     }
 
     theApp.DoWaitCursor(-1);
