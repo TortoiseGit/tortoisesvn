@@ -187,6 +187,19 @@ UINT CCheckForUpdatesDlg::CheckThread()
                 {
                     temp.LoadString(IDS_CHECKNEWER_YOURUPTODATE);
                     SetDlgItemText(IDC_CHECKRESULT, temp);
+                    if(file.ReadString(temp) && !temp.IsEmpty())
+                    {
+                        // Read the next line, it could contain a message for the user
+                        if(file.ReadString(temp) && !temp.IsEmpty())
+                        {
+                            // Read another line to find out the download link-URL, if any
+                            m_sUpdateDownloadLink = temp;
+                        }
+                    }
+                    else
+                    {
+                        temp.LoadString(IDS_CHECKNEWER_NEWERVERSIONAVAILABLE);
+                    }
                 }
             }
         }
