@@ -14,6 +14,8 @@ Version 1.7.8
        in repo browser. (Stefan)
 - BUG: Issue #307: Repository browser does not
        check empty selections. (Stefan)
+- BUG: Issue #308: closing merge wizard with
+       log dialog open segfaults. (Stefan)
 
 Version 1.7.7
 - BUG: Issue #233: Crash when closing the

@@ -77,6 +77,8 @@ BEGIN_MESSAGE_MAP(CMergeWizard, CResizableSheetEx)
     ON_WM_QUERYDRAGICON()
     ON_WM_ERASEBKGND()
     ON_REGISTERED_MESSAGE( TaskBarButtonCreated, OnTaskbarButtonCreated )
+    ON_WM_SYSCOMMAND()
+    ON_COMMAND(IDCANCEL, &CMergeWizard::OnCancel)
 END_MESSAGE_MAP()
 
 
@@ -117,7 +119,29 @@ BOOL CMergeWizard::OnInitDialog()
     return bResult;
 }
 
+void CMergeWizard::OnSysCommand(UINT nID, LPARAM lParam)
+{
+    switch (nID & 0xFFF0)
+    {
+    case SC_CLOSE:
+        {
+            CMergeWizardBasePage * page = (CMergeWizardBasePage*)GetActivePage();
+            if (!page->OkToCancel())
+                break;
+        }
+        // fall through
+    default:
+        __super::OnSysCommand(nID, lParam);
+        break;
+    }
+}
 
+void CMergeWizard::OnCancel()
+{
+    CMergeWizardBasePage * page = (CMergeWizardBasePage*)GetActivePage();
+    if (page->OkToCancel())
+        Default();
+}
 void CMergeWizard::SaveMode()
 {
     CRegDWORD regMergeWizardMode(_T("Software\\TortoiseSVN\\MergeWizardMode"), 0);

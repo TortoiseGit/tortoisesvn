@@ -40,6 +40,7 @@ public:
         , m_pThread(NULL) {;}
 
     virtual ~CMergeWizardBasePage() {;}
+    virtual bool    OkToCancel() { return true; }
 
 protected:
     virtual void    SetButtonTexts();
