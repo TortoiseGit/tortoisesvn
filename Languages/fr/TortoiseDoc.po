@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-05-16 08:16+0000\n"
+"PO-Revision-Date: 2012-05-23 11:01+0000\n"
 "Last-Translator: Stéphane Aulery <lkppo@free.fr>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -4645,13 +4645,13 @@ msgstr ""
 
 #. (para)
 msgid "Nested items, i.e., working copies inside the working copy."
-msgstr ""
+msgstr "Éléments imbriqués, c-à-d, des copies de travail dans d'autres copies de travail."
 
 #. (para)
 msgid ""
 "External items, i.e., all items that are added via an "
 "<literal>svn:externals</literal> property."
-msgstr ""
+msgstr "Éléments externes, c-à-d, tous élément ajouté via une propriété <literal>svn:externals</literal>."
 
 #. (para)
 msgid ""
@@ -8647,7 +8647,7 @@ msgid ""
 "the source URL and the revision is shown. The revision of the external is "
 "determined from the working copy, which means it shows the revision that "
 "external actually points to."
-msgstr ""
+msgstr "Si votre copie de travail contient d'autres projets inclus par des propriétés <literal>svn:externals</literal>, ces ressources externes seront énumérées au bas de la fenêtre de branche / étiquette. Pour chaque ressource externe, le chemin cible, l'URL source et la révision sont affichés. La révision de la ressource externe est déterminée à partir de la copie de travail, ce qui signifie qu'elle refléte la révision de la ressource externe vers laquelle elle pointe en ce moment."
 
 #. (para)
 msgid ""
@@ -14735,7 +14735,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test file for SubWCRev: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -14779,7 +14779,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test file for SubWCRev: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -16904,11 +16904,11 @@ msgstr "/extended"
 
 #. (literal)
 msgid "localchanges"
-msgstr ""
+msgstr "modifications locales"
 
 #. (literal)
 msgid "unversioned"
-msgstr ""
+msgstr "non versionnés"
 
 #. (entry)
 msgid ""
