@@ -172,6 +172,17 @@ void CSwitchDlg::OnBnClickedBrowse()
     SetRevision(rev);
 }
 
+void CSwitchDlg::OnCancel()
+{
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return;
+    }
+
+    CResizableStandAloneDialog::OnCancel();
+}
+
 void CSwitchDlg::OnOK()
 {
     if (!UpdateData(TRUE))

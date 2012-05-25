@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -168,6 +168,17 @@ BOOL CExportDlg::OnInitDialog()
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("ExportDlg"));
     return TRUE;
+}
+
+void CExportDlg::OnCancel()
+{
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return;
+    }
+
+    CResizableStandAloneDialog::OnCancel();
 }
 
 void CExportDlg::OnOK()

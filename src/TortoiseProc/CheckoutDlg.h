@@ -50,6 +50,7 @@ protected:
     virtual BOOL OnInitDialog();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual void OnOK();
+    virtual void OnCancel();
     afx_msg void OnBnClickedBrowse();
     afx_msg void OnBnClickedCheckoutdirectoryBrowse();
     afx_msg void OnEnChangeCheckoutdirectory();

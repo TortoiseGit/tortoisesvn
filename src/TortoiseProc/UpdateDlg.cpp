@@ -92,6 +92,17 @@ BOOL CUpdateDlg::OnInitDialog()
     return FALSE;
 }
 
+void CUpdateDlg::OnCancel()
+{
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return;
+    }
+
+    CStandAloneDialog::OnCancel();
+}
+
 void CUpdateDlg::OnOK()
 {
     if (!UpdateData(TRUE))

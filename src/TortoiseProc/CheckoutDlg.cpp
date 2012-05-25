@@ -236,6 +236,17 @@ BOOL CCheckoutDlg::OnInitDialog()
     return TRUE;
 }
 
+void CCheckoutDlg::OnCancel()
+{
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    {
+        m_pLogDlg->SendMessage(WM_CLOSE);
+        return;
+    }
+
+    CResizableStandAloneDialog::OnCancel();
+}
+
 void CCheckoutDlg::OnOK()
 {
     if (m_bBlockMessages)
