@@ -729,6 +729,8 @@ void CRepositoryBrowser::OnOK()
     m_lister.Cancel();
 
 
+    if (m_EditFileCommand)
+        m_EditFileCommand->StopWaitingForEditor();
     m_backgroundJobs.WaitForEmptyQueue();
     if (!m_bSparseCheckoutMode)
     {
@@ -762,6 +764,8 @@ void CRepositoryBrowser::OnCancel()
     RevokeDragDrop(m_RepoList.GetSafeHwnd());
     RevokeDragDrop(m_RepoTree.GetSafeHwnd());
 
+    if (m_EditFileCommand)
+        m_EditFileCommand->StopWaitingForEditor();
     m_backgroundJobs.WaitForEmptyQueue();
     if (!m_bSparseCheckoutMode)
     {
@@ -2135,11 +2139,11 @@ void CRepositoryBrowser::EditFile(CTSVNPath url, CTSVNPath urlEscaped)
         = _T("/closeonend:1 /closeforlocal /hideprogress /revision:");
     CCmdLineParser parameters (paramString + revision.ToString());
 
-    EditFileCommand command;
-    command.SetPaths (CTSVNPathList (url), url);
-    command.SetParser (parameters);
+    m_EditFileCommand = std::unique_ptr<EditFileCommand>(new EditFileCommand());
+    m_EditFileCommand->SetPaths (CTSVNPathList (url), url);
+    m_EditFileCommand->SetParser (parameters);
 
-    if (command.Execute() && revision.IsHead())
+    if (m_EditFileCommand->Execute() && revision.IsHead())
     {
         CString dir = urlEscaped.GetContainingDirectory().GetSVNPathString();
         m_lister.RefreshSubTree (revision, dir);

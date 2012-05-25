@@ -38,7 +38,7 @@ class CInputLogDlg;
 class CTreeDropTarget;
 class CListDropTarget;
 class CRepositoryBrowserSelection;
-
+class EditFileCommand;
 
 /**
  * \ingroup TortoiseProc
@@ -342,6 +342,8 @@ private:
     std::list<CString>  m_UrlHistory;
     std::list<CString>  m_UrlHistoryForward;
     std::map<CString, svn_depth_t> m_wcDepths;
+
+    std::unique_ptr<EditFileCommand>    m_EditFileCommand;
 
     /// used to execute user ops (e.g. context menu actions) in the background
     async::CJobScheduler m_backgroundJobs;

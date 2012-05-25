@@ -43,6 +43,11 @@ private:
 
     bool needsUnLock;
 
+    /// additional wait handle, used to stop waiting for the editor to close
+
+    HANDLE hWaitHandle;
+    bool abandonedWait;
+
     /// status check
 
     bool IsModified();
@@ -67,6 +72,9 @@ public:
      * Executes the command.
      */
     virtual bool            Execute() override;
+
+    /// stop waiting for the editor to finish
+    bool StopWaitingForEditor();
 };
 
 
