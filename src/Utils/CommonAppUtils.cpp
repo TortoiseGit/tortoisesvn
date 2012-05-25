@@ -211,7 +211,8 @@ bool CCommonAppUtils::LaunchApplication
     ( const CString& sCommandLine
     , UINT idErrMessageFormat
     , bool bWaitForStartup
-    , bool bWaitForExit)
+    , bool bWaitForExit
+    , HANDLE hWaitHandle)
 {
     PROCESS_INFORMATION process;
 
@@ -242,7 +243,19 @@ bool CCommonAppUtils::LaunchApplication
         WaitForInputIdle(process.hProcess, 10000);
 
     if (bWaitForExit)
-        WaitForSingleObject (process.hProcess, INFINITE);
+    {
+        DWORD count = 1;
+        HANDLE handles[2];
+        handles[0] = process.hProcess;
+        if (hWaitHandle)
+        {
+            count = 2;
+            handles[1] = hWaitHandle;
+        }
+        WaitForMultipleObjects(count, handles, FALSE, INFINITE);
+        if (hWaitHandle)
+            CloseHandle(hWaitHandle);
+    }
 
     CloseHandle(process.hThread);
     CloseHandle(process.hProcess);

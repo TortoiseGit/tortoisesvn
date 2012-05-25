@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011 - TortoiseSVN
+// Copyright (C) 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,7 +73,8 @@ public:
         const CString& sCommandLine,
         UINT idErrMessageFormat,
         bool bWaitForStartup,
-        bool bWaitForExit = false);
+        bool bWaitForExit = false,
+        HANDLE hWaitHandle = NULL);
 
     static bool RunTortoiseProc(const CString& sCommandLine);
 
