@@ -281,6 +281,8 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!Export(url1, tempfile, m_rev1, m_rev1)))
         {
+            SetAndClearProgressInfo((HWND)NULL);
+            m_blamer.SetAndClearProgressInfo(NULL, 3);
             ShowErrorDialog(m_hWnd);
             return;
         }
@@ -289,6 +291,8 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!m_blamer.BlameToFile(url1, 1, m_rev1, m_rev1, tempfile, _T(""), TRUE, TRUE)))
         {
+            SetAndClearProgressInfo((HWND)NULL);
+            m_blamer.SetAndClearProgressInfo(NULL, 3);
             m_blamer.ShowErrorDialog(m_hWnd);
             return;
         }
@@ -302,6 +306,8 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!Export(url2, tempfile2, m_rev2, m_rev2)))
         {
+            SetAndClearProgressInfo((HWND)NULL);
+            m_blamer.SetAndClearProgressInfo(NULL, 3);
             ShowErrorDialog(m_hWnd);
             return;
         }
@@ -310,6 +316,8 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     {
         if ((!m_bDoPegDiff)||(!m_blamer.BlameToFile(url2, 1, m_rev2, m_rev2, tempfile2, _T(""), TRUE, TRUE)))
         {
+            SetAndClearProgressInfo((HWND)NULL);
+            m_blamer.SetAndClearProgressInfo(NULL, 3);
             m_blamer.ShowErrorDialog(m_hWnd);
             return;
         }
@@ -317,6 +325,8 @@ void CFileDiffDlg::DoDiff(int selIndex, bool blame)
     SetFileAttributes(tempfile2.GetWinPath(), FILE_ATTRIBUTE_READONLY);
     progDlg.SetProgress(2,2);
     progDlg.Stop();
+    SetAndClearProgressInfo((HWND)NULL);
+    m_blamer.SetAndClearProgressInfo(NULL, 3);
 
     CString rev1name, rev2name;
     if (m_bDoPegDiff)
@@ -678,6 +688,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                         break;
                 }
                 progDlg.Stop();
+                SetAndClearProgressInfo((HWND)NULL);
                 CAppUtils::StartUnifiedDiffViewer(diffFile.GetWinPathString(), CString(), false);
 
                 this->EnableWindow(TRUE);
