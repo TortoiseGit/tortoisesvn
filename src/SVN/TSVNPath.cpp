@@ -118,6 +118,7 @@ void CTSVNPath::SetFromWin(LPCTSTR pPath)
 {
     Reset();
     m_sBackslashPath = pPath;
+    m_sBackslashPath.Replace(L"\\\\?\\", L"");
     SanitizeRootPath(m_sBackslashPath, false);
     ATLASSERT(m_sBackslashPath.Find('/')<0);
 }
@@ -125,6 +126,7 @@ void CTSVNPath::SetFromWin(const CString& sPath)
 {
     Reset();
     m_sBackslashPath = sPath;
+    m_sBackslashPath.Replace(L"\\\\?\\", L"");
     SanitizeRootPath(m_sBackslashPath, false);
 }
 void CTSVNPath::SetFromWin(const CString& sPath, bool bIsDirectory)
@@ -251,6 +253,7 @@ void CTSVNPath::SetFwdslashPath(const CString& sPath) const
 
     // We don't leave a trailing /
     m_sFwdslashPath.TrimRight('/');
+    m_sFwdslashPath.Replace(L"//?/", L"");
 
     SanitizeRootPath(m_sFwdslashPath, true);
 
@@ -1476,6 +1479,10 @@ private:
         ATLASSERT(strlen(testPath.GetSVNApiPath(pool))==0);
         testPath.SetFromWin(_T("\\\\a\\b\\c\\d\\e"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "//a/b/c/d/e") == 0);
+        testPath.SetFromWin(L"\\\\?\\C:\\Windows");
+        ATLASSERT(wcscmp(testPath.GetWinPath(), L"C:\\Windows")==0);
+        testPath.SetFromUnknown(L"\\\\?\\C:\\Windows");
+        ATLASSERT(wcscmp(testPath.GetWinPath(), L"C:\\Windows")==0);
 #if defined(_MFC_VER)
         testPath.SetFromUnknown(_T("http://testing again"));
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
