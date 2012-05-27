@@ -45,7 +45,7 @@ protected:
     virtual LRESULT     OnWizardNext();
     virtual LRESULT     OnWizardBack();
     virtual BOOL        OnSetActive();
-    virtual bool        OkToCancel();
+    virtual bool        OkToCancel() override;
 
     BOOL                CheckData(bool bShowErrors = true);
 

@@ -44,7 +44,7 @@ protected:
     virtual BOOL        OnInitDialog();
     virtual LRESULT     OnWizardNext();
     virtual BOOL        OnSetActive();
-    virtual bool        OkToCancel();
+    virtual bool        OkToCancel() override;
 
     afx_msg void        OnBnClickedShowlog();
     afx_msg void        OnBnClickedBrowse();

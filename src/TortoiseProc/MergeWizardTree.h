@@ -46,7 +46,7 @@ protected:
     virtual LRESULT     OnWizardNext();
     virtual LRESULT     OnWizardBack();
     virtual BOOL        OnSetActive();
-    virtual bool        OkToCancel();
+    virtual bool        OkToCancel() override;
     afx_msg void        OnBnClickedBrowse();
     afx_msg void        OnBnClickedFindbranchstart();
     afx_msg void        OnBnClickedFindbranchend();
