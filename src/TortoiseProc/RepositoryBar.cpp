@@ -237,6 +237,10 @@ void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
 
 void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecked /* = false */)
 {
+    if (m_pRepo && m_pRepo->IsThreadRunning())
+    {
+        return;
+    }
     CString new_url = url;
     SVNRev new_rev = rev;
     CWaitCursorEx wait;

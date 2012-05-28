@@ -20,6 +20,8 @@ Version 1.7.8
        can segfault. (Stefan)
 - BUG: Issue #315: long paths handled
        incorrectly. (Stefan)
+- BUG: Issue #316: Threads not correctly synchronized
+       in repo browser. (Stefan)
 
 Version 1.7.7
 - BUG: Issue #233: Crash when closing the

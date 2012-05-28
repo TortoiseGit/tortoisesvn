@@ -107,7 +107,7 @@ public:
     HWND GetHWND() const override { return GetSafeHwnd(); }
     size_t GetHistoryForwardCount() const override { return m_UrlHistoryForward.size(); }
     size_t GetHistoryBackwardCount() const override { return m_UrlHistory.size(); }
-
+    bool IsThreadRunning() const override { return m_bThreadRunning; }
     void SetSparseCheckoutMode(const CTSVNPath& path) { m_bSparseCheckoutMode = true; m_bStandAlone = false; m_wcPath = path; }
 
     /// overwrite SVN callbacks

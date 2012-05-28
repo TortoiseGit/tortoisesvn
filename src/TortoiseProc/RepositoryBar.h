@@ -37,6 +37,7 @@ public:
     virtual HWND GetHWND() const = 0;
     virtual size_t GetHistoryForwardCount() const = 0;
     virtual size_t GetHistoryBackwardCount() const = 0;
+    virtual bool IsThreadRunning() const = 0;
 };
 
 /**
