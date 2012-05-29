@@ -80,7 +80,10 @@ CString CmdUrlParser::GetCommandLine()
         // if the param has spaces in it, enquote it
         if (temp.Find(_T(" ")) >= 0)
         {
-            temp.Replace(_T(":"), _T(":\""));
+            // only insert a quote after the first colon: subsequent colons might be
+            // part of an url (e.g., http_:_//something)
+            int keyIndex = temp.Find(_T(":")) + 1;
+            temp.Insert(keyIndex, _T("\""));
             temp = temp + _T("\"");
         }
         sCmdLine += _T(" /");
@@ -89,3 +92,16 @@ CString CmdUrlParser::GetCommandLine()
 
     return sCmdLine;
 }
+
+#ifdef _DEBUG
+static class CmdUrlParserTest
+{
+public:
+    CmdUrlParserTest()
+    {
+        CmdUrlParser p(L"tsvncmd:command:showcompare?url1:https://svn/trunk/Scripts/Desert Storm.ini?url2:https://svn/trunk/Scripts/Desert Storm.ini?revision1:229?revision2:230");
+        CString cmdline = p.GetCommandLine();
+        ATLASSERT(cmdline==L" /command:showcompare /url1:\"https://svn/trunk/Scripts/Desert Storm.ini\" /url2:\"https://svn/trunk/Scripts/Desert Storm.ini\" /revision1:229 /revision2:230");
+    }
+} CmdUrlParserTestObject;
+#endif
