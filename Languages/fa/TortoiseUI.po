@@ -11,14 +11,15 @@
 # Authors:
 # Translators:
 # Ebrahim Ebrahim <ebraminio@gmail.com>, 2012.
+# Hossein Montazeri <hm.webmaster@gmail.com>, 2012.
 #   <mohsensajjadi@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-28 08:29+0000\n"
-"Last-Translator: Ebrahim Ebrahim <ebraminio@gmail.com>\n"
+"PO-Revision-Date: 2012-05-28 05:41+0000\n"
+"Last-Translator: Hossein Montazeri <hm.webmaster@gmail.com>\n"
 "Language-Team: Persian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,21 +140,21 @@ msgstr "%1!s!\\%2!s! - صادر کردن (%3!d!)"
 msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Date %4!s!"
-msgstr ""
+msgstr "%1!s!\nویرایش%2!s!, k,نویسنده%3!s!, تاریخ%4!s!"
 
 #. Resource IDs: (105)
 #, c-format
 msgid ""
 "%1!s!\r\n"
 "Revision %2!s!, Author %3!s!, Size %4!s!, Date %5!s!"
-msgstr ""
+msgstr "%1!s!\nویرایش%2!s!, نویسنده%3!s!, حجم%4!s!, تاریخ %5!s!"
 
 #. Resource IDs: (105)
 #, c-format
 msgid ""
 "%1!s!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
-msgstr ""
+msgstr "%1!s!\n%2!d! فایل و %3!d! پوشه، %4!d! در مجموع "
 
 #. Resource IDs: (3860)
 #, c-format
@@ -2402,7 +2403,7 @@ msgstr "ابطال\nبرگشت نشود."
 msgid ""
 "Cancel\n"
 "Do not run the script"
-msgstr ""
+msgstr "لغو\nاسکریپت را اجرا نکن"
 
 #. Resource IDs: (90)
 msgid ""
@@ -2815,7 +2816,7 @@ msgstr "پاکسازی %1!ld! نام کاربری/رمز ورود, %2!ld! مجو
 #. Resource IDs: (198)
 #, c-format
 msgid "Clears all %ld approved client-side hook scripts"
-msgstr ""
+msgstr "همه %ld هوک اسکریپت مورد تایید کاربر را پاک کن"
 
 #. Resource IDs: (197)
 #, c-format
@@ -3769,7 +3770,7 @@ msgstr "Device Independent Bitmap\na device independent bitmap"
 
 #. Resource IDs: (334)
 msgid "Dialog"
-msgstr ""
+msgstr "محاوره"
 
 #. Resource IDs: (1277)
 msgid "Dialog sizes and positions"
@@ -4918,7 +4919,7 @@ msgstr "تنظیمات عمومی: "
 
 #. Resource IDs: (155)
 msgid "Go To Line"
-msgstr ""
+msgstr "برو به خط"
 
 #. Resource IDs: (130)
 msgid "Go to line"
@@ -5236,7 +5237,7 @@ msgstr "ID:32883:V C +A"
 
 #. Accelerator Entry for Menu ID:32893; '&Goto line'
 msgid "ID:32893:V C +G"
-msgstr ""
+msgstr "ID:32893:V C +G"
 
 #. Accelerator Entry for Menu ID:57601; '&Open'
 msgid "ID:57601:V C +O"
@@ -5448,7 +5449,7 @@ msgstr "نادیده گرفتن &حروف کوچک و بزرگ"
 msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
-msgstr ""
+msgstr "تغییرات را نادیده بگیر\nتغییرات خارجی را نادیده بگیر"
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -5862,12 +5863,12 @@ msgstr "تغییرات خط"
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved from line %ld"
-msgstr ""
+msgstr "خط از سطر %ld منتقل شد "
 
 #. Resource IDs: (176)
 #, c-format
 msgid "Line moved to line %ld"
-msgstr ""
+msgstr "خط به سطر %ld منتقل شد "
 
 #. Resource IDs: (65535)
 msgid "Line:"
@@ -6824,7 +6825,7 @@ msgstr ""
 
 #. Resource IDs: (156, 563)
 msgid "Office XP"
-msgstr ""
+msgstr "Office XP"
 
 #. Resource IDs: (65535)
 msgid "Older lines"
@@ -7282,7 +7283,7 @@ msgstr "صفحه قبلی\nصفحه قبلی"
 
 #. Resource IDs: (156)
 msgid "Previous conflict"
-msgstr ""
+msgstr "تداخل قبلی"
 
 #. Resource IDs: (156)
 msgid "Previous difference"
@@ -8037,7 +8038,7 @@ msgstr "فایلهای دارای برخورد را حل میکند"
 
 #. Resource IDs: (620)
 msgid "Restore"
-msgstr ""
+msgstr "بازیافت"
 
 #. Resource IDs: (1254)
 msgid "Restore Default"
@@ -8045,7 +8046,7 @@ msgstr "بازنشانی پیش فرض"
 
 #. Resource IDs: (620)
 msgid "Restore after commit"
-msgstr ""
+msgstr "بازگرداندن بعد از اعمال"
 
 #. Resource IDs: (3826)
 msgid "Restore the window to normal size"
@@ -8086,7 +8087,7 @@ msgstr "بازگشت به تنظیمات پیش فرض. برای کاربران 
 msgid ""
 "Revert\n"
 "All local modifications will be lost."
-msgstr ""
+msgstr "باز گرداندن\nتمام تغییرات محلی از بین خواهند رفت."
 
 #. Resource IDs: (119)
 msgid ""
@@ -8354,7 +8355,7 @@ msgstr "متن نمونه:"
 
 #. Resource IDs: (156)
 msgid "Save"
-msgstr ""
+msgstr "ذخیره"
 
 #. Resource IDs: (101)
 msgid "Save &as..."
@@ -8366,7 +8367,7 @@ msgstr "ذخیره بن نام"
 
 #. Resource IDs: (156)
 msgid "Save as"
-msgstr ""
+msgstr "ذخیره با نام ..."
 
 #. Resource IDs: (313)
 msgid "Save as..."
@@ -8828,7 +8829,7 @@ msgstr "نمایش &تغییرات نسخه کاری"
 
 #. Resource IDs: (156)
 msgid "Show Whitespaces"
-msgstr ""
+msgstr "نمایش فاصله ها"
 
 #. Resource IDs: (2051)
 msgid "Show an overview of the whole graph"
@@ -9733,7 +9734,7 @@ msgstr "The line indicating the old file was expected in line %d !"
 #. Resource IDs: (88)
 #, c-format
 msgid "The line number must be in between %d and %d"
-msgstr ""
+msgstr "شماره خط باید بین %d و %d باشد"
 
 #. Resource IDs: (251)
 msgid "The lock has already been broken from another working copy"
@@ -10269,7 +10270,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nneon %s\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10860,7 +10861,7 @@ msgstr "گزینه های معتبر دستورات خط فرمان عبارتن
 
 #. Resource IDs: (84)
 msgid "Validation of the property value failed!"
-msgstr ""
+msgstr "خطای اعتبار سنجی در مقدار ویژگی "
 
 #. Resource IDs: (11, 348)
 msgid "Value"
@@ -11325,7 +11326,7 @@ msgstr "نام مستعار: %s"
 
 #. Resource IDs: (1618)
 msgid "all &revisions"
-msgstr ""
+msgstr "همه ویرایشها"
 
 #. Resource IDs: (3841)
 msgid "an unnamed file"
@@ -11723,7 +11724,7 @@ msgstr "محدوده های پرش:"
 
 #. Resource IDs: (1619)
 msgid "specific r&ange"
-msgstr ""
+msgstr "محدوده مشخص"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -12014,15 +12015,15 @@ msgstr "مجموع بازنگرهای کاربر:"
 
 #. Resource IDs: (336, 1562)
 msgid "user:bool"
-msgstr ""
+msgstr "user:bool"
 
 #. Resource IDs: (339)
 msgid "user:multiline"
-msgstr ""
+msgstr "user:multiline"
 
 #. Resource IDs: (338)
 msgid "user:singleline"
-msgstr ""
+msgstr "user:singleline"
 
 #. Resource IDs: (337, 1622, 1623, 1624)
 msgid "user:state"
