@@ -26,6 +26,8 @@ Version 1.7.8
        with the red X button. (Stefan)
 - BUG: Issue #318: Command URLs with spaces parsed
        incorrectly. (Stefan)
+- BUG: Issue #320: segfault when unloading the
+       shell extension. (Stefan)
 
 Version 1.7.7
 - BUG: Issue #233: Crash when closing the
