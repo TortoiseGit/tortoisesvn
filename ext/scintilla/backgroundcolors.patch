@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(Revision 22819)
-+++ include/Scintilla.h	(Arbeitskopie)
-@@ -944,6 +944,9 @@
+--- include/Scintilla.h	(revision 22963)
++++ include/Scintilla.h	(working copy)
+@@ -948,6 +948,9 @@
  #define SCN_AUTOCCANCELLED 2025
  #define SCN_AUTOCCHARDELETED 2026
  #define SCN_HOTSPOTRELEASECLICK 2027
@@ -14,9 +14,9 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(Revision 22819)
-+++ src/Editor.cxx	(Arbeitskopie)
-@@ -2844,6 +2844,17 @@
+--- src/Editor.cxx	(revision 22963)
++++ src/Editor.cxx	(working copy)
+@@ -2769,6 +2769,17 @@
  		}
  	}
  
@@ -36,8 +36,8 @@ Index: src/Editor.cxx
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(Revision 22819)
-+++ src/Editor.h	(Arbeitskopie)
+--- src/Editor.h	(revision 22963)
++++ src/Editor.h	(working copy)
 @@ -426,6 +426,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID() { return ctrlID; }
@@ -48,8 +48,8 @@ Index: src/Editor.h
  	void NotifySavePoint(bool isSavePoint);
 Index: win32/scintilla.mak
 ===================================================================
---- win32/scintilla.mak	(Revision 22819)
-+++ win32/scintilla.mak	(Arbeitskopie)
+--- win32/scintilla.mak	(revision 22963)
++++ win32/scintilla.mak	(working copy)
 @@ -21,7 +21,7 @@
  RC=rc
  LD=link
@@ -61,8 +61,8 @@ Index: win32/scintilla.mak
  NAME=-Fo
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(Revision 22819)
-+++ win32/ScintillaWin.cxx	(Arbeitskopie)
+--- win32/ScintillaWin.cxx	(revision 22963)
++++ win32/ScintillaWin.cxx	(working copy)
 @@ -250,6 +250,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID();
