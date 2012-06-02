@@ -426,7 +426,6 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	virtual void SetCtrlID(int identifier);
 	virtual int GetCtrlID() { return ctrlID; }
 	virtual void NotifyParent(SCNotification scn) = 0;
-	virtual void NotifyParent(SCNotification * scn) = 0;
 	virtual void NotifyStyleToNeeded(int endStyleNeeded);
 	void NotifyChar(int ch);
 	void NotifySavePoint(bool isSavePoint);
@@ -494,6 +493,7 @@ protected:	// ScintillaBase subclass needs access to much of Editor
 	bool PointInSelection(Point pt);
 	bool PointInSelMargin(Point pt);
 	Window::Cursor GetMarginCursor(Point pt);
+	void TrimAndSetSelection(int currentPos_, int anchor_);
 	void LineSelection(int lineCurrentPos_, int lineAnchorPos_, bool wholeLine);
 	void WordSelection(int pos);
 	void DwellEnd(bool mouseMoved);
