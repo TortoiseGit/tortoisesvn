@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2011 - TortoiseSVN
+// Copyright (C) 2009-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -121,6 +121,10 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = true;
 
+    settings[i].sName   = L"ScintillaDirect2D";
+    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
+    settings[i++].def.b = true;
+
     settings[i].sName   = L"ShellMenuAccelerators";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = true;
@@ -149,7 +153,8 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].type    = CSettingsAdvanced::SettingTypeNone;
     settings[i++].def.b = false;
 
-    // 31 so far...
+    // 32 so far...
+    ASSERT(i < _countof(settings));
 }
 
 CSettingsAdvanced::~CSettingsAdvanced()

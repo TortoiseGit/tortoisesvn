@@ -22,6 +22,7 @@
 #include "StringUtils.h"
 #include "TaskbarUUID.h"
 #include "CreateProcessHelper.h"
+#include "SysInfo.h"
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
@@ -331,7 +332,12 @@ bool CMainWindow::Initialize()
     SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
     SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
     SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
-    SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
+    CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
+    if (SysInfo::Instance().IsWin7OrLater() && DWORD(used2d))
+    {
+        SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
+        SendEditor(SCI_SETBUFFEREDDRAW, 0);
+    }
     SendEditor(SCI_SETFONTQUALITY, SC_EFF_QUALITY_LCD_OPTIMIZED);
 
     return true;
