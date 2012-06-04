@@ -100,8 +100,8 @@ engelen@genivia.com / engelen@acm.org
 \******************************************************************************/
 
 // This service uses SOAP 1.2 namespaces:
-//gsoap SOAP-ENV schema namespace:	http://www.w3.org/2003/05/soap-envelope
-//gsoap SOAP-ENC schema namespace:	http://www.w3.org/2003/05/soap-encoding
+//gsoap SOAP-ENV schema namespace:  http://www.w3.org/2003/05/soap-envelope
+//gsoap SOAP-ENC schema namespace:  http://www.w3.org/2003/05/soap-encoding
 
 /* NOTE:
 
@@ -114,15 +114,15 @@ ns2 = "http://microsoft.com/wsdl/types/"
 
 */
 
-#define SOAP_NAMESPACE_OF_ns1	"https://www.crash-server.com/"
-//gsoap ns1   schema namespace:	https://www.crash-server.com/
-//gsoap ns1   schema elementForm:	qualified
-//gsoap ns1   schema attributeForm:	unqualified
+#define SOAP_NAMESPACE_OF_ns1   "https://www.crash-server.com/"
+//gsoap ns1   schema namespace: https://www.crash-server.com/
+//gsoap ns1   schema elementForm:   qualified
+//gsoap ns1   schema attributeForm: unqualified
 
-#define SOAP_NAMESPACE_OF_ns2	"http://microsoft.com/wsdl/types/"
-//gsoap ns2   schema namespace:	http://microsoft.com/wsdl/types/
-//gsoap ns2   schema elementForm:	qualified
-//gsoap ns2   schema attributeForm:	unqualified
+#define SOAP_NAMESPACE_OF_ns2   "http://microsoft.com/wsdl/types/"
+//gsoap ns2   schema namespace: http://microsoft.com/wsdl/types/
+//gsoap ns2   schema elementForm:   qualified
+//gsoap ns2   schema attributeForm: unqualified
 
 /******************************************************************************\
  *                                                                            *
@@ -198,36 +198,36 @@ class _ns1__UploadSymbolResponse;
 /// Note: enum values are prefixed with 'ns1__Architecture' to avoid name clashes, please use wsdl2h option -e to omit this prefix
 enum ns1__Architecture
 {
-	ns1__Architecture__x32,	///< xs:string value="x32"
-	ns1__Architecture__x64,	///< xs:string value="x64"
+    ns1__Architecture__x32, ///< xs:string value="x32"
+    ns1__Architecture__x64, ///< xs:string value="x64"
 };
 
 /// "https://www.crash-server.com/":ResponseType is a simpleType restriction of xs:string.
 /// Note: enum values are prefixed with 'ns1__ResponseType' to avoid name clashes, please use wsdl2h option -e to omit this prefix
 enum ns1__ResponseType
 {
-	ns1__ResponseType__HaveSolution,	///< xs:string value="HaveSolution"
-	ns1__ResponseType__NeedMiniDump,	///< xs:string value="NeedMiniDump"
-	ns1__ResponseType__NeedMoreInfo,	///< xs:string value="NeedMoreInfo"
-	ns1__ResponseType__Stop,	///< xs:string value="Stop"
-	ns1__ResponseType__Error,	///< xs:string value="Error"
+    ns1__ResponseType__HaveSolution,    ///< xs:string value="HaveSolution"
+    ns1__ResponseType__NeedMiniDump,    ///< xs:string value="NeedMiniDump"
+    ns1__ResponseType__NeedMoreInfo,    ///< xs:string value="NeedMoreInfo"
+    ns1__ResponseType__Stop,    ///< xs:string value="Stop"
+    ns1__ResponseType__Error,   ///< xs:string value="Error"
 };
 
 /// "https://www.crash-server.com/":SolutionType is a simpleType restriction of xs:string.
 /// Note: enum values are prefixed with 'ns1__SolutionType' to avoid name clashes, please use wsdl2h option -e to omit this prefix
 enum ns1__SolutionType
 {
-	ns1__SolutionType__Url,	///< xs:string value="Url"
-	ns1__SolutionType__Exe,	///< xs:string value="Exe"
+    ns1__SolutionType__Url, ///< xs:string value="Url"
+    ns1__SolutionType__Exe, ///< xs:string value="Exe"
 };
 
 /// "https://www.crash-server.com/":AdditionalInfoType is a simpleType restriction of xs:string.
 /// Note: enum values are prefixed with 'ns1__AdditionalInfoType' to avoid name clashes, please use wsdl2h option -e to omit this prefix
 enum ns1__AdditionalInfoType
 {
-	ns1__AdditionalInfoType__None,	///< xs:string value="None"
-	ns1__AdditionalInfoType__FullDump,	///< xs:string value="FullDump"
-	ns1__AdditionalInfoType__Info,	///< xs:string value="Info"
+    ns1__AdditionalInfoType__None,  ///< xs:string value="None"
+    ns1__AdditionalInfoType__FullDump,  ///< xs:string value="FullDump"
+    ns1__AdditionalInfoType__Info,  ///< xs:string value="Info"
 };
 
 /******************************************************************************\
@@ -254,15 +254,15 @@ typedef std::wstring ns2__guid "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-
 class ns1__ClientLib
 { public:
 /// Element v1 of type xs:unsignedShort.
-    unsigned short                       v1                             1;	///< Required element.
+    unsigned short                       v1                             1;  ///< Required element.
 /// Element v2 of type xs:unsignedShort.
-    unsigned short                       v2                             1;	///< Required element.
+    unsigned short                       v2                             1;  ///< Required element.
 /// Element v3 of type xs:unsignedShort.
-    unsigned short                       v3                             1;	///< Required element.
+    unsigned short                       v3                             1;  ///< Required element.
 /// Element v4 of type xs:unsignedShort.
-    unsigned short                       v4                             1;	///< Required element.
+    unsigned short                       v4                             1;  ///< Required element.
 /// Element arch of type "https://www.crash-server.com/":Architecture.
-    enum ns1__Architecture               arch                           1;	///< Required element.
+    enum ns1__Architecture               arch                           1;  ///< Required element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -271,17 +271,17 @@ class ns1__ClientLib
 class ns1__Application
 { public:
 /// Element applicationGUID of type "http://microsoft.com/wsdl/types/":guid.
-    ns2__guid                            applicationGUID                1;	///< Required element.
+    ns2__guid                            applicationGUID                1;  ///< Required element.
 /// Element v1 of type xs:unsignedShort.
-    unsigned short                       v1                             1;	///< Required element.
+    unsigned short                       v1                             1;  ///< Required element.
 /// Element v2 of type xs:unsignedShort.
-    unsigned short                       v2                             1;	///< Required element.
+    unsigned short                       v2                             1;  ///< Required element.
 /// Element v3 of type xs:unsignedShort.
-    unsigned short                       v3                             1;	///< Required element.
+    unsigned short                       v3                             1;  ///< Required element.
 /// Element v4 of type xs:unsignedShort.
-    unsigned short                       v4                             1;	///< Required element.
+    unsigned short                       v4                             1;  ///< Required element.
 /// Element hotfix of type xs:unsignedShort.
-    unsigned short                       hotfix                         1;	///< Required element.
+    unsigned short                       hotfix                         1;  ///< Required element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -290,27 +290,27 @@ class ns1__Application
 class ns1__Response
 { public:
 /// Element type of type "https://www.crash-server.com/":ResponseType.
-    enum ns1__ResponseType               type                           1;	///< Required element.
+    enum ns1__ResponseType               type                           1;  ///< Required element.
 /// Element error of type xs:string.
-    std::wstring*                        error                          0;	///< Optional element.
+    std::wstring*                        error                          0;  ///< Optional element.
 /// Element solution of type "https://www.crash-server.com/":Solution.
-    ns1__Solution*                       solution                       0;	///< Optional element.
+    ns1__Solution*                       solution                       0;  ///< Optional element.
 /// Element clientID of type xs:string.
-    std::wstring*                        clientID                       0;	///< Optional element.
+    std::wstring*                        clientID                       0;  ///< Optional element.
 /// Element problemID of type xs:int.
-    int                                  problemID                      1;	///< Required element.
+    int                                  problemID                      1;  ///< Required element.
 /// Element dumpGroupID of type xs:int.
-    int                                  dumpGroupID                    1;	///< Required element.
+    int                                  dumpGroupID                    1;  ///< Required element.
 /// Element dumpID of type xs:int.
-    int                                  dumpID                         1;	///< Required element.
+    int                                  dumpID                         1;  ///< Required element.
 /// Element urlToProblem of type xs:string.
-    std::wstring*                        urlToProblem                   0;	///< Optional element.
+    std::wstring*                        urlToProblem                   0;  ///< Optional element.
 /// Element infoType of type "https://www.crash-server.com/":AdditionalInfoType.
-    enum ns1__AdditionalInfoType         infoType                       1;	///< Required element.
+    enum ns1__AdditionalInfoType         infoType                       1;  ///< Required element.
 /// Element infoModule of type xs:base64Binary.
-    _xop__Include*                       infoModule                     0;	///< Optional element.
+    _xop__Include*                       infoModule                     0;  ///< Optional element.
 /// Element infoModuleCfg of type xs:string.
-    std::wstring*                        infoModuleCfg                  0;	///< Optional element.
+    std::wstring*                        infoModuleCfg                  0;  ///< Optional element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -319,13 +319,13 @@ class ns1__Response
 class ns1__Solution
 { public:
 /// Element askConfirmation of type xs:boolean.
-    bool                                 askConfirmation                1;	///< Required element.
+    bool                                 askConfirmation                1;  ///< Required element.
 /// Element type of type "https://www.crash-server.com/":SolutionType.
-    enum ns1__SolutionType               type                           1;	///< Required element.
+    enum ns1__SolutionType               type                           1;  ///< Required element.
 /// Element url of type xs:string.
-    std::wstring*                        url                            0;	///< Optional element.
+    std::wstring*                        url                            0;  ///< Optional element.
 /// Element exe of type xs:base64Binary.
-    _xop__Include*                       exe                            0;	///< Optional element.
+    _xop__Include*                       exe                            0;  ///< Optional element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -337,11 +337,11 @@ class ns1__Solution
 class _ns1__Hello
 { public:
 /// Element client of type "https://www.crash-server.com/":ClientLib.
-    ns1__ClientLib*                      client                         0;	///< Optional element.
+    ns1__ClientLib*                      client                         0;  ///< Optional element.
 /// Element app of type "https://www.crash-server.com/":Application.
-    ns1__Application*                    app                            0;	///< Optional element.
+    ns1__Application*                    app                            0;  ///< Optional element.
 /// Element mainModule of type xs:string.
-    std::wstring*                        mainModule                     0;	///< Optional element.
+    std::wstring*                        mainModule                     0;  ///< Optional element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -353,7 +353,7 @@ class _ns1__Hello
 class _ns1__HelloResponse
 { public:
 /// Element HelloResult of type "https://www.crash-server.com/":Response.
-    ns1__Response*                       HelloResult                    0;	///< Optional element.
+    ns1__Response*                       HelloResult                    0;  ///< Optional element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -365,17 +365,17 @@ class _ns1__HelloResponse
 class _ns1__UploadMiniDump
 { public:
 /// Element client of type "https://www.crash-server.com/":ClientLib.
-    ns1__ClientLib*                      client                         0;	///< Optional element.
+    ns1__ClientLib*                      client                         0;  ///< Optional element.
 /// Element app of type "https://www.crash-server.com/":Application.
-    ns1__Application*                    app                            0;	///< Optional element.
+    ns1__Application*                    app                            0;  ///< Optional element.
 /// Element mainModule of type xs:string.
-    std::wstring*                        mainModule                     0;	///< Optional element.
+    std::wstring*                        mainModule                     0;  ///< Optional element.
 /// Element PCID of type xs:int.
-    int                                  PCID                           1;	///< Required element.
+    int                                  PCID                           1;  ///< Required element.
 /// Element submitterID of type xs:int.
-    int                                  submitterID                    1;	///< Required element.
+    int                                  submitterID                    1;  ///< Required element.
 /// Element dump of type xs:base64Binary.
-    _xop__Include*                       dump                           0;	///< Optional element.
+    _xop__Include*                       dump                           0;  ///< Optional element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -387,7 +387,7 @@ class _ns1__UploadMiniDump
 class _ns1__UploadMiniDumpResponse
 { public:
 /// Element UploadMiniDumpResult of type "https://www.crash-server.com/":Response.
-    ns1__Response*                       UploadMiniDumpResult           0;	///< Optional element.
+    ns1__Response*                       UploadMiniDumpResult           0;  ///< Optional element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -399,17 +399,17 @@ class _ns1__UploadMiniDumpResponse
 class _ns1__UploadAdditionalInfo
 { public:
 /// Element client of type "https://www.crash-server.com/":ClientLib.
-    ns1__ClientLib*                      client                         0;	///< Optional element.
+    ns1__ClientLib*                      client                         0;  ///< Optional element.
 /// Element app of type "https://www.crash-server.com/":Application.
-    ns1__Application*                    app                            0;	///< Optional element.
+    ns1__Application*                    app                            0;  ///< Optional element.
 /// Element mainModule of type xs:string.
-    std::wstring*                        mainModule                     0;	///< Optional element.
+    std::wstring*                        mainModule                     0;  ///< Optional element.
 /// Element miniDumpID of type xs:int.
-    int                                  miniDumpID                     1;	///< Required element.
+    int                                  miniDumpID                     1;  ///< Required element.
 /// Element info of type xs:base64Binary.
-    _xop__Include*                       info                           0;	///< Optional element.
+    _xop__Include*                       info                           0;  ///< Optional element.
 /// Element infoType of type "https://www.crash-server.com/":AdditionalInfoType.
-    enum ns1__AdditionalInfoType         infoType                       1;	///< Required element.
+    enum ns1__AdditionalInfoType         infoType                       1;  ///< Required element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -421,7 +421,7 @@ class _ns1__UploadAdditionalInfo
 class _ns1__UploadAdditionalInfoResponse
 { public:
 /// Element UploadAdditionalInfoResult of type "https://www.crash-server.com/":Response.
-    ns1__Response*                       UploadAdditionalInfoResult     0;	///< Optional element.
+    ns1__Response*                       UploadAdditionalInfoResult     0;  ///< Optional element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -433,13 +433,13 @@ class _ns1__UploadAdditionalInfoResponse
 class _ns1__UploadSymbol
 { public:
 /// Element client of type "https://www.crash-server.com/":ClientLib.
-    ns1__ClientLib*                      client                         0;	///< Optional element.
+    ns1__ClientLib*                      client                         0;  ///< Optional element.
 /// Element app of type "https://www.crash-server.com/":Application.
-    ns1__Application*                    app                            0;	///< Optional element.
+    ns1__Application*                    app                            0;  ///< Optional element.
 /// Element publish of type xs:boolean.
-    bool                                 publish                        1;	///< Required element.
+    bool                                 publish                        1;  ///< Required element.
 /// Element sym of type xs:base64Binary.
-    _xop__Include*                       sym                            0;	///< Optional element.
+    _xop__Include*                       sym                            0;  ///< Optional element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -451,7 +451,7 @@ class _ns1__UploadSymbol
 class _ns1__UploadSymbolResponse
 { public:
 /// Element UploadSymbolResult of type xs:string.
-    std::wstring*                        UploadSymbolResult             0;	///< Optional element.
+    std::wstring*                        UploadSymbolResult             0;  ///< Optional element.
 /// A handle to the soap struct that manages this instance (automatically set)
     struct soap                         *soap                          ;
 };
@@ -503,17 +503,17 @@ class _ns1__UploadSymbolResponse
 \******************************************************************************/
 
 
-//gsoap ns3  service name:	UploaderSoap 
-//gsoap ns3  service type:	UploaderSoap 
-//gsoap ns3  service port:	http://localhost:59175/DumpUploader.asmx 
-//gsoap ns3  service namespace:	https://www.crash-server.com/UploaderSoap 
-//gsoap ns3  service transport:	http://schemas.xmlsoap.org/soap/http 
+//gsoap ns3  service name:  UploaderSoap
+//gsoap ns3  service type:  UploaderSoap
+//gsoap ns3  service port:  http://localhost:59175/DumpUploader.asmx
+//gsoap ns3  service namespace: https://www.crash-server.com/UploaderSoap
+//gsoap ns3  service transport: http://schemas.xmlsoap.org/soap/http
 
-//gsoap ns4  service name:	UploaderSoap12 
-//gsoap ns4  service type:	UploaderSoap 
-//gsoap ns4  service port:	http://localhost:59175/DumpUploader.asmx 
-//gsoap ns4  service namespace:	https://www.crash-server.com/UploaderSoap12 
-//gsoap ns4  service transport:	http://schemas.xmlsoap.org/soap/http 
+//gsoap ns4  service name:  UploaderSoap12
+//gsoap ns4  service type:  UploaderSoap
+//gsoap ns4  service port:  http://localhost:59175/DumpUploader.asmx
+//gsoap ns4  service namespace: https://www.crash-server.com/UploaderSoap12
+//gsoap ns4  service transport: http://schemas.xmlsoap.org/soap/http
 
 /** @mainpage Service Definitions
 
@@ -645,12 +645,12 @@ Important: use soapcpp2 option '-i' to generate greatly improved and easy-to-use
 
 */
 
-//gsoap ns3  service method-style:	Hello document
-//gsoap ns3  service method-encoding:	Hello literal
-//gsoap ns3  service method-action:	Hello https://www.crash-server.com/Hello
+//gsoap ns3  service method-style:  Hello document
+//gsoap ns3  service method-encoding:   Hello literal
+//gsoap ns3  service method-action: Hello https://www.crash-server.com/Hello
 int __ns3__Hello(
-    _ns1__Hello*                        ns1__Hello,	///< Request parameter
-    _ns1__HelloResponse*                ns1__HelloResponse	///< Response parameter
+    _ns1__Hello*                        ns1__Hello, ///< Request parameter
+    _ns1__HelloResponse*                ns1__HelloResponse  ///< Response parameter
 );
 
 /******************************************************************************\
@@ -710,12 +710,12 @@ Important: use soapcpp2 option '-i' to generate greatly improved and easy-to-use
 
 */
 
-//gsoap ns3  service method-style:	UploadMiniDump document
-//gsoap ns3  service method-encoding:	UploadMiniDump literal
-//gsoap ns3  service method-action:	UploadMiniDump https://www.crash-server.com/UploadMiniDump
+//gsoap ns3  service method-style:  UploadMiniDump document
+//gsoap ns3  service method-encoding:   UploadMiniDump literal
+//gsoap ns3  service method-action: UploadMiniDump https://www.crash-server.com/UploadMiniDump
 int __ns3__UploadMiniDump(
-    _ns1__UploadMiniDump*               ns1__UploadMiniDump,	///< Request parameter
-    _ns1__UploadMiniDumpResponse*       ns1__UploadMiniDumpResponse	///< Response parameter
+    _ns1__UploadMiniDump*               ns1__UploadMiniDump,    ///< Request parameter
+    _ns1__UploadMiniDumpResponse*       ns1__UploadMiniDumpResponse ///< Response parameter
 );
 
 /******************************************************************************\
@@ -775,12 +775,12 @@ Important: use soapcpp2 option '-i' to generate greatly improved and easy-to-use
 
 */
 
-//gsoap ns3  service method-style:	UploadAdditionalInfo document
-//gsoap ns3  service method-encoding:	UploadAdditionalInfo literal
-//gsoap ns3  service method-action:	UploadAdditionalInfo https://www.crash-server.com/UploadAdditionalInfo
+//gsoap ns3  service method-style:  UploadAdditionalInfo document
+//gsoap ns3  service method-encoding:   UploadAdditionalInfo literal
+//gsoap ns3  service method-action: UploadAdditionalInfo https://www.crash-server.com/UploadAdditionalInfo
 int __ns3__UploadAdditionalInfo(
-    _ns1__UploadAdditionalInfo*         ns1__UploadAdditionalInfo,	///< Request parameter
-    _ns1__UploadAdditionalInfoResponse* ns1__UploadAdditionalInfoResponse	///< Response parameter
+    _ns1__UploadAdditionalInfo*         ns1__UploadAdditionalInfo,  ///< Request parameter
+    _ns1__UploadAdditionalInfoResponse* ns1__UploadAdditionalInfoResponse   ///< Response parameter
 );
 
 /******************************************************************************\
@@ -840,12 +840,12 @@ Important: use soapcpp2 option '-i' to generate greatly improved and easy-to-use
 
 */
 
-//gsoap ns3  service method-style:	UploadSymbol document
-//gsoap ns3  service method-encoding:	UploadSymbol literal
-//gsoap ns3  service method-action:	UploadSymbol https://www.crash-server.com/UploadSymbol
+//gsoap ns3  service method-style:  UploadSymbol document
+//gsoap ns3  service method-encoding:   UploadSymbol literal
+//gsoap ns3  service method-action: UploadSymbol https://www.crash-server.com/UploadSymbol
 int __ns3__UploadSymbol(
-    _ns1__UploadSymbol*                 ns1__UploadSymbol,	///< Request parameter
-    _ns1__UploadSymbolResponse*         ns1__UploadSymbolResponse	///< Response parameter
+    _ns1__UploadSymbol*                 ns1__UploadSymbol,  ///< Request parameter
+    _ns1__UploadSymbolResponse*         ns1__UploadSymbolResponse   ///< Response parameter
 );
 
 /******************************************************************************\
@@ -913,12 +913,12 @@ Important: use soapcpp2 option '-i' to generate greatly improved and easy-to-use
 
 */
 
-//gsoap ns4  service method-style:	Hello document
-//gsoap ns4  service method-encoding:	Hello literal
-//gsoap ns4  service method-action:	Hello https://www.crash-server.com/Hello
+//gsoap ns4  service method-style:  Hello document
+//gsoap ns4  service method-encoding:   Hello literal
+//gsoap ns4  service method-action: Hello https://www.crash-server.com/Hello
 int __ns4__Hello(
-    _ns1__Hello*                        ns1__Hello,	///< Request parameter
-    _ns1__HelloResponse*                ns1__HelloResponse	///< Response parameter
+    _ns1__Hello*                        ns1__Hello, ///< Request parameter
+    _ns1__HelloResponse*                ns1__HelloResponse  ///< Response parameter
 );
 
 /******************************************************************************\
@@ -978,12 +978,12 @@ Important: use soapcpp2 option '-i' to generate greatly improved and easy-to-use
 
 */
 
-//gsoap ns4  service method-style:	UploadMiniDump document
-//gsoap ns4  service method-encoding:	UploadMiniDump literal
-//gsoap ns4  service method-action:	UploadMiniDump https://www.crash-server.com/UploadMiniDump
+//gsoap ns4  service method-style:  UploadMiniDump document
+//gsoap ns4  service method-encoding:   UploadMiniDump literal
+//gsoap ns4  service method-action: UploadMiniDump https://www.crash-server.com/UploadMiniDump
 int __ns4__UploadMiniDump(
-    _ns1__UploadMiniDump*               ns1__UploadMiniDump,	///< Request parameter
-    _ns1__UploadMiniDumpResponse*       ns1__UploadMiniDumpResponse	///< Response parameter
+    _ns1__UploadMiniDump*               ns1__UploadMiniDump,    ///< Request parameter
+    _ns1__UploadMiniDumpResponse*       ns1__UploadMiniDumpResponse ///< Response parameter
 );
 
 /******************************************************************************\
@@ -1043,12 +1043,12 @@ Important: use soapcpp2 option '-i' to generate greatly improved and easy-to-use
 
 */
 
-//gsoap ns4  service method-style:	UploadAdditionalInfo document
-//gsoap ns4  service method-encoding:	UploadAdditionalInfo literal
-//gsoap ns4  service method-action:	UploadAdditionalInfo https://www.crash-server.com/UploadAdditionalInfo
+//gsoap ns4  service method-style:  UploadAdditionalInfo document
+//gsoap ns4  service method-encoding:   UploadAdditionalInfo literal
+//gsoap ns4  service method-action: UploadAdditionalInfo https://www.crash-server.com/UploadAdditionalInfo
 int __ns4__UploadAdditionalInfo(
-    _ns1__UploadAdditionalInfo*         ns1__UploadAdditionalInfo,	///< Request parameter
-    _ns1__UploadAdditionalInfoResponse* ns1__UploadAdditionalInfoResponse	///< Response parameter
+    _ns1__UploadAdditionalInfo*         ns1__UploadAdditionalInfo,  ///< Request parameter
+    _ns1__UploadAdditionalInfoResponse* ns1__UploadAdditionalInfoResponse   ///< Response parameter
 );
 
 /******************************************************************************\
@@ -1108,12 +1108,12 @@ Important: use soapcpp2 option '-i' to generate greatly improved and easy-to-use
 
 */
 
-//gsoap ns4  service method-style:	UploadSymbol document
-//gsoap ns4  service method-encoding:	UploadSymbol literal
-//gsoap ns4  service method-action:	UploadSymbol https://www.crash-server.com/UploadSymbol
+//gsoap ns4  service method-style:  UploadSymbol document
+//gsoap ns4  service method-encoding:   UploadSymbol literal
+//gsoap ns4  service method-action: UploadSymbol https://www.crash-server.com/UploadSymbol
 int __ns4__UploadSymbol(
-    _ns1__UploadSymbol*                 ns1__UploadSymbol,	///< Request parameter
-    _ns1__UploadSymbolResponse*         ns1__UploadSymbolResponse	///< Response parameter
+    _ns1__UploadSymbol*                 ns1__UploadSymbol,  ///< Request parameter
+    _ns1__UploadSymbolResponse*         ns1__UploadSymbolResponse   ///< Response parameter
 );
 
 /******************************************************************************\

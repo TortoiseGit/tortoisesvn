@@ -21,15 +21,15 @@
 #include "SendReportDlg.h"
 
 #ifdef _UNICODE
-#	if defined _M_IX86
-#		pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")
-#	elif defined _M_IA64
-#		pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='ia64' publicKeyToken='6595b64144ccf1df' language='*'\"")
-#	elif defined _M_X64
-#		pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='amd64' publicKeyToken='6595b64144ccf1df' language='*'\"")
-#	else
-#		pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
-#	endif
+#   if defined _M_IX86
+#       pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#   elif defined _M_IA64
+#       pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='ia64' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#   elif defined _M_X64
+#       pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='amd64' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#   else
+#       pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#   endif
 #endif
 
 int __cdecl SendReport(int argc, wchar_t* argv[]);
@@ -39,21 +39,21 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
                       LPTSTR    lpCmdLine,
                       int       nCmdShow)
 {
-	setlocale(LC_ALL, ".ACP");
+    setlocale(LC_ALL, ".ACP");
 
-	LoadLibrary(_T("riched20"));
+    LoadLibrary(_T("riched20"));
 
-	// CAskSendFullDumpDlg(L"Sample App", L"Idol Software", L"http://www.idolsoftware.ru").DoModal(); return 0;
+    // CAskSendFullDumpDlg(L"Sample App", L"Idol Software", L"http://www.idolsoftware.ru").DoModal(); return 0;
 
-	int argc;
-	LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
+    int argc;
+    LPWSTR* argv = CommandLineToArgvW(GetCommandLineW(), &argc);
 
-	if (argc != 2)
-		return 0;
+    if (argc != 2)
+        return 0;
 
-	int res = SendReport(argc, argv);
+    int res = SendReport(argc, argv);
 
-	TerminateProcess(GetCurrentProcess(), res);
+    TerminateProcess(GetCurrentProcess(), res);
 
-	return res;
+    return res;
 }

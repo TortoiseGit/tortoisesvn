@@ -37,8 +37,8 @@ struct wininet_data
     size_t              uiBufferLen;        /* length of data in buffer */
     BOOL                bIsChunkSize;       /* expecting a chunk size buffer */
     wininet_rse_callback pRseCallback;      /* wininet_resolve_send_error callback.  Allows clients to resolve ssl errors programatically */
-	wininet_progress_callback pProgressCallback; /* callback to report a progress */
-	LPVOID              pProgressCallbackContext; /* context for pProgressCallback */
+    wininet_progress_callback pProgressCallback; /* callback to report a progress */
+    LPVOID              pProgressCallbackContext; /* context for pProgressCallback */
     char *              pRespHeaders;       /* buffer for response headers */
     size_t              uiRespHeadersLen;   /* length of data in response headers buffer */
     size_t              uiRespHeadersReaded;/* length of data readed from response headers buffer */
@@ -46,22 +46,22 @@ struct wininet_data
 };
 
 #if 1
-#define Trace(pszFunc, pBuffer, uiBufferLen)	\
-	DBGLOG(TEST, SOAP_MESSAGE(fdebug, "wininet %p: %s 0x%p %d\n", soap, pszFunc, pBuffer, uiBufferLen));
+#define Trace(pszFunc, pBuffer, uiBufferLen)    \
+    DBGLOG(TEST, SOAP_MESSAGE(fdebug, "wininet %p: %s 0x%p %d\n", soap, pszFunc, pBuffer, uiBufferLen));
 #else
 void Trace(const char* pszFunc, const void* pBuffer, DWORD uiBufferLen)
 {
 /*
-	static bool newOne = true;
-	FILE* f = fopen("C:\\log.log", newOne ? "wt" : "at");
-	newOne = false;
-	if (f)
-	{
-		fprintf(f, "\n============================================\n%s:\n", pszFunc);
-		if (pBuffer)
-			fwrite(pBuffer, uiBufferLen, 1, f);
-		fclose(f);
-	}
+    static bool newOne = true;
+    FILE* f = fopen("C:\\log.log", newOne ? "wt" : "at");
+    newOne = false;
+    if (f)
+    {
+        fprintf(f, "\n============================================\n%s:\n", pszFunc);
+        if (pBuffer)
+            fwrite(pBuffer, uiBufferLen, 1, f);
+        fclose(f);
+    }
 */
 }
 #endif
@@ -69,41 +69,41 @@ void Trace(const char* pszFunc, const void* pBuffer, DWORD uiBufferLen)
 /* forward declarations */
 static BOOL
 wininet_init(
-    struct soap *           soap, 
+    struct soap *           soap,
     struct wininet_data *   a_pData,
     DWORD                   a_dwRequestFlags );
-static int  
-wininet_copy( 
-    struct soap *           soap, 
-    struct soap_plugin *    a_pDst, 
+static int
+wininet_copy(
+    struct soap *           soap,
+    struct soap_plugin *    a_pDst,
     struct soap_plugin *    a_pSrc );
-static void 
-wininet_delete( 
-    struct soap *           soap, 
+static void
+wininet_delete(
+    struct soap *           soap,
     struct soap_plugin *    a_pPluginData );
-static SOAP_SOCKET  
-wininet_connect( 
-    struct soap *   soap, 
-    const char *    a_pszEndpoint, 
-    const char *    a_pszHost, 
+static SOAP_SOCKET
+wininet_connect(
+    struct soap *   soap,
+    const char *    a_pszEndpoint,
+    const char *    a_pszHost,
     int             a_nPort );
-static int 
+static int
 wininet_post_header(
-    struct soap *   soap, 
-    const char *    a_pszKey, 
+    struct soap *   soap,
+    const char *    a_pszKey,
     const char *    a_pszValue );
-static int 
-wininet_fsend( 
-    struct soap *   soap, 
-    const char *    a_pBuffer, 
+static int
+wininet_fsend(
+    struct soap *   soap,
+    const char *    a_pBuffer,
     size_t          a_uiBufferLen );
-static size_t 
+static size_t
 wininet_frecv(
-    struct soap *   soap, 
-    char *          a_pBuffer, 
+    struct soap *   soap,
+    char *          a_pBuffer,
     size_t          a_uiBufferLen );
-static int 
-wininet_disconnect( 
+static int
+wininet_disconnect(
     struct soap *   soap );
 void CALLBACK
 wininet_callback(
@@ -121,14 +121,14 @@ wininet_fpoll(
     struct soap *           soap );
 static DWORD
 wininet_set_timeout(
-    struct soap *           soap, 
+    struct soap *           soap,
     struct wininet_data *   a_pData,
     const char *            a_pszTimeout,
     DWORD                   a_dwOption,
     int                     a_nTimeout );
 static BOOL
-wininet_resolve_send_error( 
-    HINTERNET   a_hHttpRequest, 
+wininet_resolve_send_error(
+    HINTERNET   a_hHttpRequest,
     DWORD       a_dwErrorCode );
 static const char *
 wininet_error_message(
@@ -139,16 +139,16 @@ wininet_free_error_message(
     struct wininet_data *   a_pData );
 
 /* plugin registration */
-int 
-wininet_plugin( 
-    struct soap *           soap, 
-    struct soap_plugin *    a_pPluginData, 
+int
+wininet_plugin(
+    struct soap *           soap,
+    struct soap_plugin *    a_pPluginData,
     void *                  a_dwRequestFlags )
 {
     if ( !soap )
         return SOAP_FATAL_ERROR;
 
-	DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+    DBGLOG(TEST, SOAP_MESSAGE(fdebug,
         "wininet %p: plugin registration\n", soap ));
 
     a_pPluginData->id        = wininet_id;
@@ -159,8 +159,8 @@ wininet_plugin(
     {
         return SOAP_EOM;
     }
-    if ( !wininet_init( soap, 
-        (struct wininet_data *) a_pPluginData->data, 
+    if ( !wininet_init( soap,
+        (struct wininet_data *) a_pPluginData->data,
         (DWORD) (size_t) a_dwRequestFlags ) )
     {
         free( a_pPluginData->data );
@@ -170,7 +170,7 @@ wininet_plugin(
 #ifdef SOAP_DEBUG
     if ( (soap->omode & SOAP_IO) == SOAP_IO_STORE )
     {
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
             "wininet %p: use of SOAP_IO_STORE is not recommended\n", soap ));
     }
 #endif
@@ -181,14 +181,14 @@ wininet_plugin(
 /* initialize private data */
 static BOOL
 wininet_init(
-    struct soap *           soap, 
+    struct soap *           soap,
     struct wininet_data *   a_pData,
     DWORD                   a_dwRequestFlags )
 {
     if ( !soap )
         return SOAP_FATAL_ERROR;
 
-	DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+    DBGLOG(TEST, SOAP_MESSAGE(fdebug,
         "wininet %p: init private data\n", soap ));
 
     memset( a_pData, 0, sizeof(struct wininet_data) );
@@ -197,24 +197,24 @@ wininet_init(
     Trace("InternetOpenA", 0, 0);
 
     /* start our internet session */
-    a_pData->hInternet = InternetOpenA( 
+    a_pData->hInternet = InternetOpenA(
         "gSOAP", INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0 );
     if ( !a_pData->hInternet )
     {
         soap->error = GetLastError();
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-            "wininet %p: init, error %d (%s) in InternetOpen\n", 
+        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+            "wininet %p: init, error %d (%s) in InternetOpen\n",
             soap, soap->error, wininet_error_message(soap,soap->error) ));
         wininet_free_error_message( a_pData );
         return FALSE;
     }
 
     /* set the timeouts, if any of these fail the error isn't fatal */
-    wininet_set_timeout( soap, a_pData, "connect", 
+    wininet_set_timeout( soap, a_pData, "connect",
         INTERNET_OPTION_CONNECT_TIMEOUT, soap->connect_timeout );
-    wininet_set_timeout( soap, a_pData, "receive", 
+    wininet_set_timeout( soap, a_pData, "receive",
         INTERNET_OPTION_RECEIVE_TIMEOUT, soap->recv_timeout );
-    wininet_set_timeout( soap, a_pData, "send",    
+    wininet_set_timeout( soap, a_pData, "send",
         INTERNET_OPTION_SEND_TIMEOUT, soap->send_timeout );
 
     /* set up the callback function so we get notifications */
@@ -231,39 +231,39 @@ wininet_init(
     return TRUE;
 }
 
-void 
+void
 wininet_set_rse_callback(
     struct soap *           soap,
     wininet_rse_callback    a_pRsecallback)
 {
     struct wininet_data * pData = (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
 
-    DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+    DBGLOG(TEST, SOAP_MESSAGE(fdebug,
         "wininet %p: resolve_send_error callback = '%p'\n", soap, a_pRsecallback ));
 
     pData->pRseCallback = a_pRsecallback;
 }
 
-void 
+void
 wininet_set_progress_callback(
-	struct soap *                soap,
-	wininet_progress_callback    a_pProgressCallback,
-	LPVOID a_pContext)
+    struct soap *                soap,
+    wininet_progress_callback    a_pProgressCallback,
+    LPVOID a_pContext)
 {
-	struct wininet_data * pData = (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
+    struct wininet_data * pData = (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
 
-	DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-		"wininet %p: progress callback = '%p', context = '%p'\n", soap, a_pProgressCallback, a_pContext ));
+    DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+        "wininet %p: progress callback = '%p', context = '%p'\n", soap, a_pProgressCallback, a_pContext ));
 
-	pData->pProgressCallback = a_pProgressCallback;
-	pData->pProgressCallbackContext = a_pContext;
+    pData->pProgressCallback = a_pProgressCallback;
+    pData->pProgressCallbackContext = a_pContext;
 }
 
 /* copy the private data structure */
-static int  
-wininet_copy( 
-    struct soap *           soap, 
-    struct soap_plugin *    a_pDst, 
+static int
+wininet_copy(
+    struct soap *           soap,
+    struct soap_plugin *    a_pDst,
     struct soap_plugin *    a_pSrc )
 {
     UNUSED_ARG( soap );
@@ -275,17 +275,17 @@ wininet_copy(
 }
 
 /* deallocate of our private structure */
-static void 
-wininet_delete( 
-    struct soap *           soap, 
+static void
+wininet_delete(
+    struct soap *           soap,
     struct soap_plugin *    a_pPluginData )
 {
-    struct wininet_data * pData = 
+    struct wininet_data * pData =
         (struct wininet_data *) a_pPluginData->data;
 
     UNUSED_ARG( soap );
 
-    DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+    DBGLOG(TEST, SOAP_MESSAGE(fdebug,
         "wininet %p: delete private data\n", soap ));
 
     /* force a disconnect of any existing connection */
@@ -295,7 +295,7 @@ wininet_delete(
     /* close down the internet */
     if ( pData->hInternet )
     {
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
             "wininet %p: closing internet handle\n", soap));
         InternetCloseHandle( pData->hInternet );
         pData->hInternet = NULL;
@@ -307,25 +307,25 @@ wininet_delete(
 }
 
 /* gsoap documentation:
-    Called from a client proxy to open a connection to a Web Service located 
+    Called from a client proxy to open a connection to a Web Service located
     at endpoint. Input parameters host and port are micro-parsed from endpoint.
-    Should return a valid file descriptor, or SOAP_INVALID_SOCKET and 
+    Should return a valid file descriptor, or SOAP_INVALID_SOCKET and
     soap->error set to an error code. Built-in gSOAP function: tcp_connect
 */
-static SOAP_SOCKET  
-wininet_connect( 
-    struct soap *   soap, 
-    const char *    a_pszEndpoint, 
-    const char *    a_pszHost, 
+static SOAP_SOCKET
+wininet_connect(
+    struct soap *   soap,
+    const char *    a_pszEndpoint,
+    const char *    a_pszHost,
     int             a_nPort )
 {
     URL_COMPONENTSA urlComponents;
-	char            szUrlPath[MAX_PATH] = {0};
-	char            szHost[MAX_PATH] = {0};
+    char            szUrlPath[MAX_PATH] = {0};
+    char            szHost[MAX_PATH] = {0};
     DWORD           dwFlags;
     HINTERNET       hConnection  = NULL;
     HINTERNET       hHttpRequest = NULL;
-    struct wininet_data * pData = 
+    struct wininet_data * pData =
         (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
 
     soap->error = SOAP_OK;
@@ -334,7 +334,7 @@ wininet_connect(
     UNUSED_ARG( a_pszHost );
     UNUSED_ARG( a_nPort );
 
-    DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+    DBGLOG(TEST, SOAP_MESSAGE(fdebug,
         "wininet %p: connect, endpoint = '%s'\n", soap, a_pszEndpoint ));
 
     /* we should be initialized but not connected */
@@ -358,8 +358,8 @@ wininet_connect(
     if ( !InternetCrackUrlA( a_pszEndpoint, 0, 0, &urlComponents ) )
     {
         soap->error = GetLastError();
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-            "wininet %p: connect, error %d (%s) in InternetCrackUrl\n", 
+        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+            "wininet %p: connect, error %d (%s) in InternetCrackUrl\n",
             soap, soap->error, wininet_error_message(soap,soap->error) ));
         return SOAP_INVALID_SOCKET;
     }
@@ -368,16 +368,16 @@ wininet_connect(
     {
         Trace("InternetConnectA", szHost, (DWORD)strlen(szHost));
 
-        /* connect to the target url, if we haven't connected yet 
+        /* connect to the target url, if we haven't connected yet
            or if it was dropped */
-        hConnection = InternetConnectA( pData->hInternet, 
-            szHost, urlComponents.nPort, "", "", INTERNET_SERVICE_HTTP, 
+        hConnection = InternetConnectA( pData->hInternet,
+            szHost, urlComponents.nPort, "", "", INTERNET_SERVICE_HTTP,
             0, (DWORD_PTR) soap );
         if ( !hConnection )
         {
             soap->error = GetLastError();
-            DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-                "wininet %p: connect, error %d (%s) in InternetConnect\n", 
+            DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                "wininet %p: connect, error %d (%s) in InternetConnect\n",
                 soap, soap->error, wininet_error_message(soap,soap->error) ));
             return SOAP_INVALID_SOCKET;
         }
@@ -388,9 +388,9 @@ wininet_connect(
         pData->hConnection = NULL;
     }
 
-    /* 
-        Note that although we specify HTTP/1.1 for the connection here, the 
-        actual connection may be HTTP/1.0 depending on the settings in the 
+    /*
+        Note that although we specify HTTP/1.1 for the connection here, the
+        actual connection may be HTTP/1.0 depending on the settings in the
         control panel. See the "Internet Options", "HTTP 1.1 settings".
      */
     dwFlags = pData->dwRequestFlags | INTERNET_FLAG_NO_CACHE_WRITE;
@@ -399,7 +399,7 @@ wininet_connect(
         dwFlags |= INTERNET_FLAG_KEEP_CONNECTION;
         pData->bKeepAlive = TRUE;
     }
-    if ( urlComponents.nScheme == INTERNET_SCHEME_HTTPS ) 
+    if ( urlComponents.nScheme == INTERNET_SCHEME_HTTPS )
     {
         dwFlags |= INTERNET_FLAG_SECURE;
     }
@@ -407,17 +407,17 @@ wininet_connect(
     Trace("HttpOpenRequestA", szUrlPath, (DWORD)strlen(szUrlPath));
 
     hHttpRequest = HttpOpenRequestA(
-        hConnection, "POST", szUrlPath, "HTTP/1.1", NULL, NULL, 
+        hConnection, "POST", szUrlPath, "HTTP/1.1", NULL, NULL,
         dwFlags, (DWORD_PTR) soap );
     if ( !hHttpRequest )
     {
         InternetCloseHandle( hConnection );
         pData->bKeepAlive = FALSE;
         soap->error = GetLastError();
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-            "wininet %p: connect, error %d (%s) in HttpOpenRequest\n", 
+        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+            "wininet %p: connect, error %d (%s) in HttpOpenRequest\n",
             soap, soap->error, wininet_error_message(soap,soap->error) ));
-		wininet_free_error_message(pData);
+        wininet_free_error_message(pData);
         return SOAP_INVALID_SOCKET;
     }
 
@@ -430,24 +430,24 @@ wininet_connect(
 }
 
 /* gsoap documentation:
-    Called by http_post and http_response (through the callbacks). Emits HTTP 
-    key: val header entries. Should return SOAP_OK, or a gSOAP error code. 
+    Called by http_post and http_response (through the callbacks). Emits HTTP
+    key: val header entries. Should return SOAP_OK, or a gSOAP error code.
     Built-in gSOAP function: http_post_header.
  */
-static int 
+static int
 wininet_post_header(
-    struct soap *   soap, 
+    struct soap *   soap,
     const char *    a_pszKey,
-    const char *    a_pszValue )  
+    const char *    a_pszValue )
 {
     HINTERNET hHttpRequest = (HINTERNET) soap->socket;
     char      szHeader[4096];
     int       nLen;
     BOOL      bResult = FALSE;
-    struct wininet_data * pData = 
+    struct wininet_data * pData =
         (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
 
-	soap->error = SOAP_OK;
+    soap->error = SOAP_OK;
 
     /* ensure that our connection hasn't been disconnected */
     if ( !wininet_have_connection( soap, pData ) )
@@ -466,9 +466,9 @@ wininet_post_header(
         pData->bIsChunkSize = ( (soap->omode & SOAP_IO) == SOAP_IO_CHUNK );
     }
     else if ( a_pszValue )
-    { 
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-            "wininet %p: post_header, adding '%s: %s'\n", 
+    {
+        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+            "wininet %p: post_header, adding '%s: %s'\n",
             soap, a_pszKey, a_pszValue ));
 
         /* determine the maximum length of this message so that we can
@@ -479,7 +479,7 @@ wininet_post_header(
             pData->uiBufferLenMax = strtoul( a_pszValue, NULL, 10 );
         }
 
-        nLen = _snprintf( 
+        nLen = _snprintf(
             szHeader, 4096, "%s: %s\r\n", a_pszKey, a_pszValue );
         if ( nLen < 0 )
         {
@@ -488,42 +488,42 @@ wininet_post_header(
 
         Trace("HttpAddRequestHeadersA", szHeader, nLen);
 
-        bResult = HttpAddRequestHeadersA( hHttpRequest, szHeader, nLen, 
+        bResult = HttpAddRequestHeadersA( hHttpRequest, szHeader, nLen,
             HTTP_ADDREQ_FLAG_ADD_IF_NEW );
 #ifdef SOAP_DEBUG
-        /* 
-            we don't return an error if this fails because it isn't 
+        /*
+            we don't return an error if this fails because it isn't
             (or shouldn't be) critical.
          */
         if ( !bResult )
         {
-            DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-                "wininet %p: post_header, error %d (%s) in HttpAddRequestHeaders\n", 
+            DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                "wininet %p: post_header, error %d (%s) in HttpAddRequestHeaders\n",
                 soap, soap->error, wininet_error_message(soap,GetLastError()) ));
         }
 #endif
     }
-    return SOAP_OK; 
+    return SOAP_OK;
 }
 
 /* gsoap documentation:
-    Called for all send operations to emit contents of s of length n. 
-    Should return SOAP_OK, or a gSOAP error code. Built-in gSOAP 
+    Called for all send operations to emit contents of s of length n.
+    Should return SOAP_OK, or a gSOAP error code. Built-in gSOAP
     function: fsend
 
    Notes:
     I do a heap of buffering here because we need the entire message available
-    in a single buffer in order to iterate through the sending loop. I had 
+    in a single buffer in order to iterate through the sending loop. I had
     hoped that the SOAP_IO_STORE flag would have worked to do the same, however
     this still breaks the messages up into blocks. Although there were a number
     of ways this could've been implemented, this works and supports all of the
-    possible SOAP_IO flags, even though the entire message is still buffered 
+    possible SOAP_IO flags, even though the entire message is still buffered
     the same as if SOAP_IO_STORE was used.
 */
-static int 
-wininet_fsend( 
-    struct soap *   soap, 
-    const char *    a_pBuffer, 
+static int
+wininet_fsend(
+    struct soap *   soap,
+    const char *    a_pBuffer,
     size_t          a_uiBufferLen )
 {
     HINTERNET   hHttpRequest = (HINTERNET) soap->socket;
@@ -532,12 +532,12 @@ wininet_fsend(
     DWORD       dwStatusCode;
     DWORD       dwStatusCodeLen;
     int         nResult = SOAP_OK;
-    struct wininet_data * pData = 
+    struct wininet_data * pData =
         (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
 
     soap->error = SOAP_OK;
 
-    DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+    DBGLOG(TEST, SOAP_MESSAGE(fdebug,
         "wininet %p: fsend, data len = %lu bytes\n", soap, a_uiBufferLen ));
 
     /* allow the request to be sent with a NULL buffer */
@@ -552,11 +552,11 @@ wininet_fsend(
         return SOAP_EOF;
     }
 
-    /* initialize on our first time through. pData->pBuffer will always be 
+    /* initialize on our first time through. pData->pBuffer will always be
        non-null if this is not the first call. */
     if ( !pData->pBuffer )
     {
-        /* 
+        /*
             If we are using chunked sending, then we don't know how big the
             buffer will need to be. So we start with a 0 length buffer and
             grow it later to ensure that it is always large enough.
@@ -566,21 +566,21 @@ wininet_fsend(
          */
         if ( (soap->mode & SOAP_IO) == SOAP_IO_CHUNK )
         {
-            /* we make the initial allocation large enough for this chunksize 
-               buffer, plus the next chunk of actual data, and a few extra 
+            /* we make the initial allocation large enough for this chunksize
+               buffer, plus the next chunk of actual data, and a few extra
                bytes for the final "0" chunksize block. */
             size_t uiChunkSize = strtoul( a_pBuffer, NULL, 16 );
             pData->uiBufferLenMax = uiChunkSize + a_uiBufferLen + 16;
         }
         else if ( a_uiBufferLen == pData->uiBufferLenMax )
         {
-            /*  
-                If the currently supplied buffer from gsoap holds the entire 
-                message then we just use their buffer and avoid any memory 
-                allocation. This will only be true when (1) we are not using 
-                chunked send (so uiBufferLenMax has been previously set to 
-                the Content-Length header length), and (2) gsoap is sending 
-                the entire message at one time. 
+            /*
+                If the currently supplied buffer from gsoap holds the entire
+                message then we just use their buffer and avoid any memory
+                allocation. This will only be true when (1) we are not using
+                chunked send (so uiBufferLenMax has been previously set to
+                the Content-Length header length), and (2) gsoap is sending
+                the entire message at one time.
              */
             pData->pBuffer     = (char *) a_pBuffer;
             pData->uiBufferLen = a_uiBufferLen;
@@ -591,21 +591,21 @@ wininet_fsend(
 
     /*
         If we can't use the gsoap buffer, then we need to allocate our own
-        buffer for the entire message. This is because authentication may 
+        buffer for the entire message. This is because authentication may
         require the entire message to be sent multiple times. Since this send
-        is only a part of the message, we need to buffer until we have the 
+        is only a part of the message, we need to buffer until we have the
         entire message.
     */
     if ( pData->pBuffer != a_pBuffer )
     {
-        /* 
-            We already have a buffer pointer, this means that it isn't the 
-            first time we have been called. We have allocated a buffer and 
-            are current filling it. 
-            
-            If we don't have enough room in the our buffer to add this new 
-            data, then we need to reallocate. This case will only occur with 
-            chunked sends. 
+        /*
+            We already have a buffer pointer, this means that it isn't the
+            first time we have been called. We have allocated a buffer and
+            are current filling it.
+
+            If we don't have enough room in the our buffer to add this new
+            data, then we need to reallocate. This case will only occur with
+            chunked sends.
          */
         size_t uiNewBufferLen = pData->uiBufferLen + a_uiBufferLen;
         if ( !pData->pBuffer || uiNewBufferLen > pData->uiBufferLenMax )
@@ -614,14 +614,14 @@ wininet_fsend(
             {
                 pData->uiBufferLenMax = pData->uiBufferLenMax * 2;
             }
-			char *pReallocatedBuffer = (char *) realloc( pData->pBuffer, pData->uiBufferLenMax );
+            char *pReallocatedBuffer = (char *) realloc( pData->pBuffer, pData->uiBufferLenMax );
             if ( !pReallocatedBuffer )
             {
                 return SOAP_EOM;
             }
-			pData->pBuffer = pReallocatedBuffer;
+            pData->pBuffer = pReallocatedBuffer;
         }
-        memcpy( pData->pBuffer + pData->uiBufferLen, 
+        memcpy( pData->pBuffer + pData->uiBufferLen,
             a_pBuffer, a_uiBufferLen );
         pData->uiBufferLen = uiNewBufferLen;
 
@@ -629,21 +629,21 @@ wininet_fsend(
            and it is "0", then this is the last block in the transfer and we
            can set the maximum size now to continue to the actual send. */
         if ( (soap->mode & SOAP_IO) == SOAP_IO_CHUNK
-             && pData->bIsChunkSize 
+             && pData->bIsChunkSize
              && a_pBuffer[2] == '0' && !isalnum((unsigned char)a_pBuffer[3]) )
         {
             pData->uiBufferLenMax = pData->uiBufferLen;
         }
     }
 
-    /* if we haven't got the entire length of the message yet, then 
+    /* if we haven't got the entire length of the message yet, then
        we return to gsoap and let it continue */
     if ( pData->uiBufferLen < pData->uiBufferLenMax )
     {
         /* toggle our chunk size marker if we are chunking */
-        pData->bIsChunkSize = 
-            ((soap->mode & SOAP_IO) == SOAP_IO_CHUNK) 
-            && !pData->bIsChunkSize; 
+        pData->bIsChunkSize =
+            ((soap->mode & SOAP_IO) == SOAP_IO_CHUNK)
+            && !pData->bIsChunkSize;
         return SOAP_OK;
     }
     _ASSERTE( pData->uiBufferLen == pData->uiBufferLenMax );
@@ -654,43 +654,43 @@ wininet_fsend(
     {
         bRetryPost = FALSE;
 
-		/* to report a progress when sending a big buffer we need to send it by small
-		   chunks since INTERNET_STATUS_REQUEST_SENT callback is sent for entire buffer */
-		const DWORD dwChunkSize = 64 * 1024;
-		if ( pData->pProgressCallback && (DWORD)pData->uiBufferLen > dwChunkSize )
-		{
-			INTERNET_BUFFERSA buffer;
-			memset(&buffer, 0, sizeof(buffer));
-			buffer.dwStructSize = sizeof(buffer);
-			buffer.lpvBuffer = pData->pBuffer;
-			buffer.dwBufferLength = min((DWORD)pData->uiBufferLen, dwChunkSize);
-			buffer.dwBufferTotal = (DWORD)pData->uiBufferLen;
-			Trace("HttpSendRequestExA", pData->pBuffer, buffer.dwBufferLength);
-			bResult = HttpSendRequestExA( hHttpRequest, &buffer, NULL, 0, 0 );
-			while ( bResult && buffer.dwBufferLength < buffer.dwBufferTotal )
-			{
-				DWORD bytesWritten = min(buffer.dwBufferTotal - buffer.dwBufferLength, dwChunkSize);
-				Trace("InternetWriteFile", pData->pBuffer + buffer.dwBufferLength, bytesWritten);
-				bResult = InternetWriteFile( hHttpRequest, pData->pBuffer + buffer.dwBufferLength, bytesWritten, &bytesWritten );
-				buffer.dwBufferLength += bytesWritten;
-			}
-			if ( bResult )
-			{
-				bResult = HttpEndRequestA( hHttpRequest, NULL, 0, 0 );
-			}
-		}
-		else
-		{
-			Trace("HttpSendRequestA", pData->pBuffer, (DWORD)pData->uiBufferLen);
+        /* to report a progress when sending a big buffer we need to send it by small
+           chunks since INTERNET_STATUS_REQUEST_SENT callback is sent for entire buffer */
+        const DWORD dwChunkSize = 64 * 1024;
+        if ( pData->pProgressCallback && (DWORD)pData->uiBufferLen > dwChunkSize )
+        {
+            INTERNET_BUFFERSA buffer;
+            memset(&buffer, 0, sizeof(buffer));
+            buffer.dwStructSize = sizeof(buffer);
+            buffer.lpvBuffer = pData->pBuffer;
+            buffer.dwBufferLength = min((DWORD)pData->uiBufferLen, dwChunkSize);
+            buffer.dwBufferTotal = (DWORD)pData->uiBufferLen;
+            Trace("HttpSendRequestExA", pData->pBuffer, buffer.dwBufferLength);
+            bResult = HttpSendRequestExA( hHttpRequest, &buffer, NULL, 0, 0 );
+            while ( bResult && buffer.dwBufferLength < buffer.dwBufferTotal )
+            {
+                DWORD bytesWritten = min(buffer.dwBufferTotal - buffer.dwBufferLength, dwChunkSize);
+                Trace("InternetWriteFile", pData->pBuffer + buffer.dwBufferLength, bytesWritten);
+                bResult = InternetWriteFile( hHttpRequest, pData->pBuffer + buffer.dwBufferLength, bytesWritten, &bytesWritten );
+                buffer.dwBufferLength += bytesWritten;
+            }
+            if ( bResult )
+            {
+                bResult = HttpEndRequestA( hHttpRequest, NULL, 0, 0 );
+            }
+        }
+        else
+        {
+            Trace("HttpSendRequestA", pData->pBuffer, (DWORD)pData->uiBufferLen);
 
-			bResult = HttpSendRequestA( 
-				hHttpRequest, NULL, 0, pData->pBuffer, (DWORD)pData->uiBufferLen );
-		}
+            bResult = HttpSendRequestA(
+                hHttpRequest, NULL, 0, pData->pBuffer, (DWORD)pData->uiBufferLen );
+        }
         if ( !bResult )
         {
             soap->error = GetLastError();
-            DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-                "wininet %p: fsend, error %d (%s) in HttpSendRequest\n", 
+            DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                "wininet %p: fsend, error %d (%s) in HttpSendRequest\n",
                 soap, soap->error, wininet_error_message(soap,soap->error) ));
 
             /* see if we can handle this error, see the MSDN documentation
@@ -717,18 +717,18 @@ wininet_fsend(
                         wininet_resolve_send_error( hHttpRequest, soap->error );
                     if ( errorResolved == rseTrue )
                     {
-                        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-                            "wininet %p: fsend, error %d has been resolved\n", 
+                        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                            "wininet %p: fsend, error %d has been resolved\n",
                             soap, soap->error ));
                         bRetryPost = TRUE;
 
-                        /* 
-                            we would have been disconnected by the error. Since we 
-                            are going to try again, we will automatically be 
-                            reconnected. Therefore we want to disregard any 
-                            previous disconnection messages. 
+                        /*
+                            we would have been disconnected by the error. Since we
+                            are going to try again, we will automatically be
+                            reconnected. Therefore we want to disregard any
+                            previous disconnection messages.
                         */
-                        pData->bDisconnect = FALSE; 
+                        pData->bDisconnect = FALSE;
                         continue;
                     }
                 }
@@ -737,47 +737,47 @@ wininet_fsend(
             }
 
             /* if the error wasn't handled then we exit */
-			switch ( soap->error )
-			{
-			case ERROR_INTERNET_CANNOT_CONNECT:
-				nResult = SOAP_TCP_ERROR;
-			default:
-				nResult = SOAP_HTTP_ERROR;
-			}
-			soap_set_sender_error(soap, "HttpSendRequest failed", wininet_error_message(soap,soap->error), nResult);
+            switch ( soap->error )
+            {
+            case ERROR_INTERNET_CANNOT_CONNECT:
+                nResult = SOAP_TCP_ERROR;
+            default:
+                nResult = SOAP_HTTP_ERROR;
+            }
+            soap_set_sender_error(soap, "HttpSendRequest failed", wininet_error_message(soap,soap->error), nResult);
             break;
         }
 
-        /* get the status code from the response to determine if we need 
+        /* get the status code from the response to determine if we need
            to authorize */
         dwStatusCodeLen = sizeof(dwStatusCode);
         Trace("HttpQueryInfo - wininet_fsend", 0, 0);
-        bResult = HttpQueryInfo( 
-            hHttpRequest, HTTP_QUERY_STATUS_CODE | HTTP_QUERY_FLAG_NUMBER, 
+        bResult = HttpQueryInfo(
+            hHttpRequest, HTTP_QUERY_STATUS_CODE | HTTP_QUERY_FLAG_NUMBER,
             &dwStatusCode, &dwStatusCodeLen, NULL);
 
-		char buf[1024];dwStatusCodeLen = sizeof(buf);
-		bResult = HttpQueryInfo( 
-			hHttpRequest, HTTP_QUERY_STATUS_TEXT, 
-			buf, &dwStatusCodeLen, NULL);
-		
+        char buf[1024];dwStatusCodeLen = sizeof(buf);
+        bResult = HttpQueryInfo(
+            hHttpRequest, HTTP_QUERY_STATUS_TEXT,
+            buf, &dwStatusCodeLen, NULL);
+
         if ( !bResult )
         {
             soap->error = GetLastError();
-            DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-                "wininet %p: fsend, error %d (%s) in HttpQueryInfo\n", 
+            DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                "wininet %p: fsend, error %d (%s) in HttpQueryInfo\n",
                 soap, soap->error, wininet_error_message(soap,soap->error) ));
             nResult = SOAP_HTTP_ERROR;
             break;
         }
 
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-            "wininet %p: fsend, HTTP status code = %lu\n", 
+        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+            "wininet %p: fsend, HTTP status code = %lu\n",
             soap, dwStatusCode));
 
-        /* 
-            if we need authentication, then request the user for the 
-            appropriate data. Their reply is saved into the request so 
+        /*
+            if we need authentication, then request the user for the
+            appropriate data. Their reply is saved into the request so
             that we can use it later.
          */
         switch ( dwStatusCode )
@@ -786,8 +786,8 @@ wininet_fsend(
         case HTTP_STATUS_PROXY_AUTH_REQ:
             {
             wininet_rseReturn errorResolved = rseDisplayDlg;
-                DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-                    "wininet %p: fsend, user authenication required\n", 
+                DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                    "wininet %p: fsend, user authenication required\n",
                     soap ));
             if (pData->pRseCallback)
             {
@@ -800,17 +800,17 @@ wininet_fsend(
             }
             if ( errorResolved == rseTrue )
             {
-                DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-                    "wininet %p: fsend, authentication has been provided\n", 
+                DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                    "wininet %p: fsend, authentication has been provided\n",
                     soap ));
 
-                /* 
-                    we may have been disconnected by the error. Since we 
-                    are going to try again, we will automatically be 
+                /*
+                    we may have been disconnected by the error. Since we
+                    are going to try again, we will automatically be
                     reconnected. Therefore we want to disregard any previous
-                    disconnection messages. 
+                    disconnection messages.
                     */
-                pData->bDisconnect = FALSE; 
+                pData->bDisconnect = FALSE;
                 bRetryPost = TRUE;
                 continue;
             }
@@ -831,86 +831,86 @@ wininet_fsend(
 
     pData->pRespHeaders = 0;
 
-    return nResult; 
+    return nResult;
 }
 
 /* gsoap documentation:
-    Called for all receive operations to fill buffer s of maximum length n. 
+    Called for all receive operations to fill buffer s of maximum length n.
     Should return the number of bytes read or 0 in case of an error, e.g. EOF.
     Built-in gSOAP function: frecv
  */
-static size_t 
+static size_t
 wininet_frecv(
-    struct soap *   soap, 
-    char *          a_pBuffer, 
-    size_t          a_uiBufferLen ) 
-{ 
+    struct soap *   soap,
+    char *          a_pBuffer,
+    size_t          a_uiBufferLen )
+{
     HINTERNET   hHttpRequest = (HINTERNET) soap->socket;
     DWORD       dwBytesRead = 0;
     size_t      uiTotalBytesRead = 0;
     BOOL        bResult;
 
-	struct wininet_data * pData = 
-		(struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
+    struct wininet_data * pData =
+        (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
 
-	if (!pData->pRespHeaders)
-	{
-		DWORD size = 0;
+    if (!pData->pRespHeaders)
+    {
+        DWORD size = 0;
 
 retry:
-		// This call will fail on the first pass, because no buffer is allocated.
-		if (!HttpQueryInfo(hHttpRequest, HTTP_QUERY_RAW_HEADERS_CRLF,
-			(LPVOID)pData->pRespHeaders, &size, NULL))
-		{
-			// Check for an insufficient buffer.
-			if (GetLastError() == ERROR_INSUFFICIENT_BUFFER)
-			{
-				// Allocate the necessary buffer.
-				pData->pRespHeaders = (char*) malloc(size);
+        // This call will fail on the first pass, because no buffer is allocated.
+        if (!HttpQueryInfo(hHttpRequest, HTTP_QUERY_RAW_HEADERS_CRLF,
+            (LPVOID)pData->pRespHeaders, &size, NULL))
+        {
+            // Check for an insufficient buffer.
+            if (GetLastError() == ERROR_INSUFFICIENT_BUFFER)
+            {
+                // Allocate the necessary buffer.
+                pData->pRespHeaders = (char*) malloc(size);
 
-				// Retry the call.
-				goto retry;				
-			}		
-			else
-			{
-				pData->pRespHeaders = (char*) malloc(0);
-				pData->uiRespHeadersLen = 0;
-				pData->uiRespHeadersReaded = 0;
-				Trace("HttpQueryInfo - no headers", 0, 0);
-			}		
-		}	
-		else
-		{
-			pData->uiRespHeadersLen = size;
-			pData->uiRespHeadersReaded = 0;
-			Trace("HttpQueryInfo - reading headers", pData->pRespHeaders, static_cast<DWORD>(pData->uiRespHeadersLen));
-		}
-	}
+                // Retry the call.
+                goto retry;
+            }
+            else
+            {
+                pData->pRespHeaders = (char*) malloc(0);
+                pData->uiRespHeadersLen = 0;
+                pData->uiRespHeadersReaded = 0;
+                Trace("HttpQueryInfo - no headers", 0, 0);
+            }
+        }
+        else
+        {
+            pData->uiRespHeadersLen = size;
+            pData->uiRespHeadersReaded = 0;
+            Trace("HttpQueryInfo - reading headers", pData->pRespHeaders, static_cast<DWORD>(pData->uiRespHeadersLen));
+        }
+    }
 
-	if (pData->pRespHeaders && pData->uiRespHeadersReaded < pData->uiRespHeadersLen)
-	{
-		size_t notReceivedPart = pData->uiRespHeadersLen - pData->uiRespHeadersReaded;
-		size_t recvSize = min(a_uiBufferLen, notReceivedPart);
+    if (pData->pRespHeaders && pData->uiRespHeadersReaded < pData->uiRespHeadersLen)
+    {
+        size_t notReceivedPart = pData->uiRespHeadersLen - pData->uiRespHeadersReaded;
+        size_t recvSize = min(a_uiBufferLen, notReceivedPart);
 
-		memcpy(a_pBuffer, pData->pRespHeaders + pData->uiRespHeadersReaded, recvSize);
-		pData->uiRespHeadersReaded += recvSize;
-		if (a_uiBufferLen == recvSize)
-			return a_uiBufferLen;
-		uiTotalBytesRead = recvSize;
-	}
+        memcpy(a_pBuffer, pData->pRespHeaders + pData->uiRespHeadersReaded, recvSize);
+        pData->uiRespHeadersReaded += recvSize;
+        if (a_uiBufferLen == recvSize)
+            return a_uiBufferLen;
+        uiTotalBytesRead = recvSize;
+    }
 
     soap->error = SOAP_OK;
 
-    DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-        "wininet %p: frecv, available buffer len = %lu\n", 
+    DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+        "wininet %p: frecv, available buffer len = %lu\n",
         soap, a_uiBufferLen ));
 
-    /* 
-        NOTE: we do not check here that our connection hasn't been 
+    /*
+        NOTE: we do not check here that our connection hasn't been
         disconnected because in HTTP/1.0 connections, it will always have been
-        disconnected by now. This is because the response is checked by the 
-        wininet_fsend function to ensure that we didn't need any special 
-        authentication. At that time the connection would have been 
+        disconnected by now. This is because the response is checked by the
+        wininet_fsend function to ensure that we didn't need any special
+        authentication. At that time the connection would have been
         disconnected. This is okay however as we can still read the response
         from the request handle.
      */
@@ -919,10 +919,10 @@ retry:
     {
         /* read from the connection up to our maximum amount of data */
         _ASSERTE( a_uiBufferLen <= ULONG_MAX );
-        bResult = InternetReadFile( 
-            hHttpRequest, 
-            &a_pBuffer[uiTotalBytesRead], 
-            static_cast<DWORD>(a_uiBufferLen - uiTotalBytesRead), 
+        bResult = InternetReadFile(
+            hHttpRequest,
+            &a_pBuffer[uiTotalBytesRead],
+            static_cast<DWORD>(a_uiBufferLen - uiTotalBytesRead),
             &dwBytesRead );
         Trace("InternetReadFile", &a_pBuffer[uiTotalBytesRead], dwBytesRead);
         if ( bResult )
@@ -941,32 +941,32 @@ retry:
         else
         {
             soap->error = GetLastError();
-            DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-                "wininet %p: frecv, error %d (%s) in InternetReadFile\n", 
+            DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                "wininet %p: frecv, error %d (%s) in InternetReadFile\n",
                 soap, soap->error, wininet_error_message(soap,soap->error) ));
-			soap_set_sender_error(soap, "InternetReadFile failed", wininet_error_message(soap,soap->error), SOAP_HTTP_ERROR);
+            soap_set_sender_error(soap, "InternetReadFile failed", wininet_error_message(soap,soap->error), SOAP_HTTP_ERROR);
         }
-    } 
+    }
     while ( bResult && dwBytesRead && uiTotalBytesRead < a_uiBufferLen );
 
-    DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+    DBGLOG(TEST, SOAP_MESSAGE(fdebug,
         "wininet %p: recv, received %lu bytes\n", soap, uiTotalBytesRead ));
 
     return uiTotalBytesRead;
-} 
+}
 
 /* gsoap documentation:
     Called by client proxy multiple times, to close a socket connection before
-    a new socket connection is established and at the end of communications 
-    when the SOAP_IO_KEEPALIVE flag is not set and soap.keep_alive = 0 
-    (indicating that the other party supports keep alive). Should return 
+    a new socket connection is established and at the end of communications
+    when the SOAP_IO_KEEPALIVE flag is not set and soap.keep_alive = 0
+    (indicating that the other party supports keep alive). Should return
     SOAP_OK, or a gSOAP error code. Built-in gSOAP function: tcp_disconnect
  */
-static int 
-wininet_disconnect( 
+static int
+wininet_disconnect(
     struct soap *   soap )
 {
-    struct wininet_data * pData = 
+    struct wininet_data * pData =
         (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
 
     soap->error = SOAP_OK;
@@ -1006,7 +1006,7 @@ wininet_callback(
         DBGLOG(TEST, SOAP_MESSAGE(fdebug,
             "wininet %p: INTERNET_STATUS_NAME_RESOLVED\n", soap ));
         break;
-    case INTERNET_STATUS_CONNECTING_TO_SERVER: 
+    case INTERNET_STATUS_CONNECTING_TO_SERVER:
         DBGLOG(TEST, SOAP_MESSAGE(fdebug,
             "wininet %p: INTERNET_STATUS_CONNECTING_TO_SERVER\n", soap));
         break;
@@ -1019,34 +1019,34 @@ wininet_callback(
             "wininet %p: INTERNET_STATUS_SENDING_REQUEST\n", soap));
         break;
     case INTERNET_STATUS_REQUEST_SENT:
-		{
-			DBGLOG(TEST, SOAP_MESSAGE(fdebug,
-				"wininet %p: INTERNET_STATUS_REQUEST_SENT, bytes sent = %lu\n", 
-				soap, *(DWORD *)lpvStatusInformation ));
-			struct wininet_data * pData = 
-				(struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
-			if ( pData->pProgressCallback )
-			{
-				pData->pProgressCallback( TRUE, *(DWORD *)lpvStatusInformation, pData->pProgressCallbackContext );
-			}
-		}
+        {
+            DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                "wininet %p: INTERNET_STATUS_REQUEST_SENT, bytes sent = %lu\n",
+                soap, *(DWORD *)lpvStatusInformation ));
+            struct wininet_data * pData =
+                (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
+            if ( pData->pProgressCallback )
+            {
+                pData->pProgressCallback( TRUE, *(DWORD *)lpvStatusInformation, pData->pProgressCallbackContext );
+            }
+        }
         break;
     case INTERNET_STATUS_RECEIVING_RESPONSE:
         DBGLOG(TEST, SOAP_MESSAGE(fdebug,
             "wininet %p: INTERNET_STATUS_RECEIVING_RESPONSE\n", soap));
         break;
     case INTERNET_STATUS_RESPONSE_RECEIVED:
-		{
-			DBGLOG(TEST, SOAP_MESSAGE(fdebug,
-				"wininet %p: INTERNET_STATUS_RESPONSE_RECEIVED, bytes received = %lu\n", 
-				soap, *(DWORD *)lpvStatusInformation ));
-			struct wininet_data * pData = 
-				(struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
-			if ( pData->pProgressCallback )
-			{
-				pData->pProgressCallback( FALSE, *(DWORD *)lpvStatusInformation, pData->pProgressCallbackContext );
-			}
-		}
+        {
+            DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                "wininet %p: INTERNET_STATUS_RESPONSE_RECEIVED, bytes received = %lu\n",
+                soap, *(DWORD *)lpvStatusInformation ));
+            struct wininet_data * pData =
+                (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
+            if ( pData->pProgressCallback )
+            {
+                pData->pProgressCallback( FALSE, *(DWORD *)lpvStatusInformation, pData->pProgressCallbackContext );
+            }
+        }
         break;
     case INTERNET_STATUS_CTL_RESPONSE_RECEIVED:
         DBGLOG(TEST, SOAP_MESSAGE(fdebug,
@@ -1065,14 +1065,14 @@ wininet_callback(
             "wininet %p: INTERNET_STATUS_CONNECTION_CLOSED\n", soap));
         {
             /* the connection has been closed, so we close the handle here */
-            struct wininet_data * pData = 
+            struct wininet_data * pData =
                 (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
             if ( pData->hConnection )
             {
-                /* 
-                    we only mark this for disconnection otherwise we get 
-                    errors when reading the data from the handle. In every 
-                    function that we use the connection we will check first to 
+                /*
+                    we only mark this for disconnection otherwise we get
+                    errors when reading the data from the handle. In every
+                    function that we use the connection we will check first to
                     see if it has been disconnected.
                  */
                 pData->bDisconnect = TRUE;
@@ -1099,7 +1099,7 @@ wininet_callback(
         break;
     case INTERNET_STATUS_REDIRECT:
         DBGLOG(TEST, SOAP_MESSAGE(fdebug,
-            "wininet %p: INTERNET_STATUS_REDIRECT, new url = %s\n", 
+            "wininet %p: INTERNET_STATUS_REDIRECT, new url = %s\n",
             soap, (char*) lpvStatusInformation ));
         break;
     case INTERNET_STATUS_INTERMEDIATE_RESPONSE:
@@ -1155,8 +1155,8 @@ wininet_callback(
     }
 }
 
-/* 
-    check to ensure that our connection hasn't been disconnected 
+/*
+    check to ensure that our connection hasn't been disconnected
     and disconnect remaining handles if necessary.
  */
 static BOOL
@@ -1168,7 +1168,7 @@ wininet_have_connection(
     BOOL bCloseRequest = a_pData->bDisconnect || !a_pData->hConnection;
     if ( bCloseRequest && soap->socket != SOAP_INVALID_SOCKET )
     {
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
             "wininet %p: closing request\n", soap));
 
         Trace("InternetCloseHandle (closing request)", 0, 0);
@@ -1176,36 +1176,36 @@ wininet_have_connection(
         soap->socket = SOAP_INVALID_SOCKET;
 
 #if 0
-		if ( a_pData->bKeepAlive )
-		{
-			DWORD           dwFlags;
-			HINTERNET       hHttpRequest = NULL;
-			dwFlags = a_pData->dwRequestFlags | INTERNET_FLAG_NO_CACHE_WRITE;
-			if ( soap->omode & SOAP_IO_KEEPALIVE )
-			{
-				dwFlags |= INTERNET_FLAG_KEEP_CONNECTION;
-				a_pData->bKeepAlive = TRUE;
-			}
-			/*if ( urlComponents.nScheme == INTERNET_SCHEME_HTTPS ) 
-			{
-				dwFlags |= INTERNET_FLAG_SECURE;
-			}*/
+        if ( a_pData->bKeepAlive )
+        {
+            DWORD           dwFlags;
+            HINTERNET       hHttpRequest = NULL;
+            dwFlags = a_pData->dwRequestFlags | INTERNET_FLAG_NO_CACHE_WRITE;
+            if ( soap->omode & SOAP_IO_KEEPALIVE )
+            {
+                dwFlags |= INTERNET_FLAG_KEEP_CONNECTION;
+                a_pData->bKeepAlive = TRUE;
+            }
+            /*if ( urlComponents.nScheme == INTERNET_SCHEME_HTTPS )
+            {
+                dwFlags |= INTERNET_FLAG_SECURE;
+            }*/
 
-			hHttpRequest = HttpOpenRequestA(
-				a_pData->hConnection, "POST", "/MyWebService/Service.asmx"/*szUrlPath*/, "HTTP/1.1", NULL, NULL, 
-				dwFlags, (DWORD_PTR) soap );
-			if ( hHttpRequest )
-				soap->socket = (SOAP_SOCKET) hHttpRequest;
-			else
-				a_pData->bKeepAlive = FALSE;
-		}
+            hHttpRequest = HttpOpenRequestA(
+                a_pData->hConnection, "POST", "/MyWebService/Service.asmx"/*szUrlPath*/, "HTTP/1.1", NULL, NULL,
+                dwFlags, (DWORD_PTR) soap );
+            if ( hHttpRequest )
+                soap->socket = (SOAP_SOCKET) hHttpRequest;
+            else
+                a_pData->bKeepAlive = FALSE;
+        }
 #endif
     }
 
     /* close the connection if we don't have a request */
-	if ( soap->socket == SOAP_INVALID_SOCKET && a_pData->hConnection && !a_pData->bKeepAlive )
+    if ( soap->socket == SOAP_INVALID_SOCKET && a_pData->hConnection && !a_pData->bKeepAlive )
     {
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
             "wininet %p: closing connection\n", soap));
 
         Trace("InternetCloseHandle (closing connection)", 0, 0);
@@ -1226,22 +1226,22 @@ wininet_have_connection(
         a_pData->uiBufferLenMax = INVALID_BUFFER_LENGTH;
     }
 
-	return (soap->socket != SOAP_INVALID_SOCKET);
+    return (soap->socket != SOAP_INVALID_SOCKET);
 }
 
 static int
 wininet_fpoll(
-	struct soap *           soap)
+    struct soap *           soap)
 {
-    struct wininet_data * pData = 
+    struct wininet_data * pData =
         (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
-	return wininet_have_connection(soap, pData) ? SOAP_OK : SOAP_EOF;
+    return wininet_have_connection(soap, pData) ? SOAP_OK : SOAP_EOF;
 }
 
 
 static DWORD
 wininet_set_timeout(
-    struct soap *           soap, 
+    struct soap *           soap,
     struct wininet_data *   a_pData,
     const char *            a_pszTimeout,
     DWORD                   a_dwOption,
@@ -1253,13 +1253,13 @@ wininet_set_timeout(
     if ( a_nTimeout > 0 )
     {
         DWORD dwTimeout = a_nTimeout * 1000;
-        if ( !InternetSetOption( a_pData->hInternet, 
+        if ( !InternetSetOption( a_pData->hInternet,
             a_dwOption, &dwTimeout, sizeof(DWORD) ) )
         {
             DWORD dwErrorCode = GetLastError();
-            DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
-                "wininet %p: failed to set %s timeout, error %d (%s)\n", 
-                soap, a_pszTimeout, dwErrorCode, 
+            DBGLOG(TEST, SOAP_MESSAGE(fdebug,
+                "wininet %p: failed to set %s timeout, error %d (%s)\n",
+                soap, a_pszTimeout, dwErrorCode,
                 wininet_error_message(soap,dwErrorCode) ));
             return dwErrorCode;
         }
@@ -1293,7 +1293,7 @@ wininet_flag_set_option(
 #ifdef SOAP_DEBUG
     if ( !bSuccess ) {
         DWORD dwErrorCode = GetLastError();
-        DBGLOG(TEST, SOAP_MESSAGE(fdebug, 
+        DBGLOG(TEST, SOAP_MESSAGE(fdebug,
             "wininet %p: failed to set option: %X, error %d (%s)\n",
             a_hHttpRequest, a_dwOption, dwErrorCode,
             wininet_error_message(soap,dwErrorCode) ));
@@ -1304,13 +1304,13 @@ wininet_flag_set_option(
 */
 
 static BOOL
-wininet_resolve_send_error( 
-    HINTERNET   a_hHttpRequest, 
+wininet_resolve_send_error(
+    HINTERNET   a_hHttpRequest,
     DWORD       a_dwErrorCode )
 {
     DWORD dwResult = InternetErrorDlg(
-        GetDesktopWindow(), 
-        a_hHttpRequest, 
+        GetDesktopWindow(),
+        a_hHttpRequest,
         a_dwErrorCode,
         FLAGS_ERROR_UI_FILTER_FOR_ERRORS |
         FLAGS_ERROR_UI_FLAGS_GENERATE_DATA |
@@ -1321,7 +1321,7 @@ wininet_resolve_send_error(
         (dwResult == ERROR_SUCCESS);
     /* If appropriate for your application, it is possible to ignore
        errors in future once they have been handled or ignored once.
-       For example, to ignore invalid SSL certificate dates on this 
+       For example, to ignore invalid SSL certificate dates on this
        connection once the client has indicated to ignore them this
        time, uncomment this code.
     */
@@ -1331,8 +1331,8 @@ wininet_resolve_send_error(
         switch (a_dwErrorCode)
         {
         case ERROR_INTERNET_SEC_CERT_CN_INVALID:
-            wininet_flag_set_option(a_hHttpRequest, 
-                INTERNET_OPTION_SECURITY_FLAGS, 
+            wininet_flag_set_option(a_hHttpRequest,
+                INTERNET_OPTION_SECURITY_FLAGS,
                 SECURITY_FLAG_IGNORE_CERT_CN_INVALID );
             break;
         }
@@ -1350,13 +1350,13 @@ wininet_error_message(
     HINSTANCE   hModule;
     DWORD       dwResult;
     DWORD       dwFormatFlags;
-    struct wininet_data * pData = 
+    struct wininet_data * pData =
         (struct wininet_data *) soap_lookup_plugin( soap, wininet_id );
 
     /* free any existing error message */
     wininet_free_error_message( pData );
 
-    dwFormatFlags = 
+    dwFormatFlags =
         FORMAT_MESSAGE_ALLOCATE_BUFFER |
         FORMAT_MESSAGE_IGNORE_INSERTS |
         FORMAT_MESSAGE_FROM_SYSTEM;
@@ -1370,39 +1370,39 @@ wininet_error_message(
     }
 
     /* format the messages */
-	wchar_t* pszErrorMessage = NULL;
-    dwResult = FormatMessageW( 
-        dwFormatFlags, 
-        hModule, 
-        a_dwErrorMsgId, 
+    wchar_t* pszErrorMessage = NULL;
+    dwResult = FormatMessageW(
+        dwFormatFlags,
+        hModule,
+        a_dwErrorMsgId,
         MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
         (LPWSTR) &pszErrorMessage,
         0,
         NULL );
-	
-	/* remove the CR LF from the error message and convert to proper char set */
-	if ( dwResult > 2 )
-	{
-		pszErrorMessage[dwResult-2] = 0;
 
-		UINT newCodePage = CP_UTF8; // TODO: May be it should use SOAP_C_UTFSTRING or SOAP_C_MBSTRING?
-		int len = WideCharToMultiByte(newCodePage, 0, pszErrorMessage, -1, NULL, 0, NULL, NULL);
-		if (len)
-		{
-			pData->pszErrorMessage = new char[len];
-			WideCharToMultiByte(newCodePage, 0, pszErrorMessage, -1, pData->pszErrorMessage, len, NULL, NULL);
-		}
-		else
-		{
-			pData->pszErrorMessage = NULL;
-		}
-		LocalFree( pszErrorMessage );
-	}
-	else
-	{
-		pData->pszErrorMessage = NULL;
-	}
-	
+    /* remove the CR LF from the error message and convert to proper char set */
+    if ( dwResult > 2 )
+    {
+        pszErrorMessage[dwResult-2] = 0;
+
+        UINT newCodePage = CP_UTF8; // TODO: May be it should use SOAP_C_UTFSTRING or SOAP_C_MBSTRING?
+        int len = WideCharToMultiByte(newCodePage, 0, pszErrorMessage, -1, NULL, 0, NULL, NULL);
+        if (len)
+        {
+            pData->pszErrorMessage = new char[len];
+            WideCharToMultiByte(newCodePage, 0, pszErrorMessage, -1, pData->pszErrorMessage, len, NULL, NULL);
+        }
+        else
+        {
+            pData->pszErrorMessage = NULL;
+        }
+        LocalFree( pszErrorMessage );
+    }
+    else
+    {
+        pData->pszErrorMessage = NULL;
+    }
+
     /* free the library if we loaded it */
     if ( hModule )
     {

@@ -8,8 +8,8 @@
 #ifndef soapStub_H
 #define soapStub_H
 #include <vector>
-#define SOAP_NAMESPACE_OF_ns1	"https://www.crash-server.com/"
-#define SOAP_NAMESPACE_OF_ns2	"http://microsoft.com/wsdl/types/"
+#define SOAP_NAMESPACE_OF_ns1   "https://www.crash-server.com/"
+#define SOAP_NAMESPACE_OF_ns2   "http://microsoft.com/wsdl/types/"
 #include "stdsoap2.h"
 
 /******************************************************************************\
@@ -67,11 +67,11 @@ enum ns1__AdditionalInfoType {ns1__AdditionalInfoType__None = 0, ns1__Additional
 struct _xop__Include
 {
 public:
-	unsigned char *__ptr;
-	int __size;
-	char *id;	/* optional element of type xsd:string */
-	char *type;	/* optional element of type xsd:string */
-	char *options;	/* optional element of type xsd:string */
+    unsigned char *__ptr;
+    int __size;
+    char *id;   /* optional element of type xsd:string */
+    char *type; /* optional element of type xsd:string */
+    char *options;  /* optional element of type xsd:string */
 };
 typedef struct _xop__Include _xop__Include;
 #endif
@@ -86,22 +86,22 @@ typedef struct _xop__Include _xop__Include;
 class SOAP_CMAC ns1__ClientLib
 {
 public:
-	unsigned short v1;	/* required element of type xsd:unsignedShort */
-	unsigned short v2;	/* required element of type xsd:unsignedShort */
-	unsigned short v3;	/* required element of type xsd:unsignedShort */
-	unsigned short v4;	/* required element of type xsd:unsignedShort */
-	enum ns1__Architecture arch;	/* required element of type ns1:Architecture */
-	struct soap *soap;	/* transient */
+    unsigned short v1;  /* required element of type xsd:unsignedShort */
+    unsigned short v2;  /* required element of type xsd:unsignedShort */
+    unsigned short v3;  /* required element of type xsd:unsignedShort */
+    unsigned short v4;  /* required element of type xsd:unsignedShort */
+    enum ns1__Architecture arch;    /* required element of type ns1:Architecture */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 12; } /* = unique id SOAP_TYPE_ns1__ClientLib */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         ns1__ClientLib(): soap(NULL) { ns1__ClientLib::soap_default(NULL); }
-	virtual ~ns1__ClientLib() { }
+    virtual int soap_type() const { return 12; } /* = unique id SOAP_TYPE_ns1__ClientLib */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             ns1__ClientLib(): soap(NULL) { ns1__ClientLib::soap_default(NULL); }
+    virtual ~ns1__ClientLib() { }
 };
 #endif
 
@@ -111,23 +111,23 @@ public:
 class SOAP_CMAC ns1__Application
 {
 public:
-	std::wstring applicationGUID;	/* required element of type ns2:guid */
-	unsigned short v1;	/* required element of type xsd:unsignedShort */
-	unsigned short v2;	/* required element of type xsd:unsignedShort */
-	unsigned short v3;	/* required element of type xsd:unsignedShort */
-	unsigned short v4;	/* required element of type xsd:unsignedShort */
-	unsigned short hotfix;	/* required element of type xsd:unsignedShort */
-	struct soap *soap;	/* transient */
+    std::wstring applicationGUID;   /* required element of type ns2:guid */
+    unsigned short v1;  /* required element of type xsd:unsignedShort */
+    unsigned short v2;  /* required element of type xsd:unsignedShort */
+    unsigned short v3;  /* required element of type xsd:unsignedShort */
+    unsigned short v4;  /* required element of type xsd:unsignedShort */
+    unsigned short hotfix;  /* required element of type xsd:unsignedShort */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 13; } /* = unique id SOAP_TYPE_ns1__Application */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         ns1__Application(): soap(NULL) { ns1__Application::soap_default(NULL); }
-	virtual ~ns1__Application() { }
+    virtual int soap_type() const { return 13; } /* = unique id SOAP_TYPE_ns1__Application */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             ns1__Application(): soap(NULL) { ns1__Application::soap_default(NULL); }
+    virtual ~ns1__Application() { }
 };
 #endif
 
@@ -137,28 +137,28 @@ public:
 class SOAP_CMAC ns1__Response
 {
 public:
-	enum ns1__ResponseType type;	/* required element of type ns1:ResponseType */
-	std::wstring *error;	/* optional element of type xsd:string */
-	class ns1__Solution *solution;	/* optional element of type ns1:Solution */
-	std::wstring *clientID;	/* optional element of type xsd:string */
-	int problemID;	/* required element of type xsd:int */
-	int dumpGroupID;	/* required element of type xsd:int */
-	int dumpID;	/* required element of type xsd:int */
-	std::wstring *urlToProblem;	/* optional element of type xsd:string */
-	enum ns1__AdditionalInfoType infoType;	/* required element of type ns1:AdditionalInfoType */
-	struct _xop__Include *infoModule;	/* optional element of type xop:Include */
-	std::wstring *infoModuleCfg;	/* optional element of type xsd:string */
-	struct soap *soap;	/* transient */
+    enum ns1__ResponseType type;    /* required element of type ns1:ResponseType */
+    std::wstring *error;    /* optional element of type xsd:string */
+    class ns1__Solution *solution;  /* optional element of type ns1:Solution */
+    std::wstring *clientID; /* optional element of type xsd:string */
+    int problemID;  /* required element of type xsd:int */
+    int dumpGroupID;    /* required element of type xsd:int */
+    int dumpID; /* required element of type xsd:int */
+    std::wstring *urlToProblem; /* optional element of type xsd:string */
+    enum ns1__AdditionalInfoType infoType;  /* required element of type ns1:AdditionalInfoType */
+    struct _xop__Include *infoModule;   /* optional element of type xop:Include */
+    std::wstring *infoModuleCfg;    /* optional element of type xsd:string */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 14; } /* = unique id SOAP_TYPE_ns1__Response */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         ns1__Response(): error(NULL), solution(NULL), clientID(NULL), urlToProblem(NULL), infoModule(NULL), infoModuleCfg(NULL), soap(NULL) { ns1__Response::soap_default(NULL); }
-	virtual ~ns1__Response() { }
+    virtual int soap_type() const { return 14; } /* = unique id SOAP_TYPE_ns1__Response */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             ns1__Response(): error(NULL), solution(NULL), clientID(NULL), urlToProblem(NULL), infoModule(NULL), infoModuleCfg(NULL), soap(NULL) { ns1__Response::soap_default(NULL); }
+    virtual ~ns1__Response() { }
 };
 #endif
 
@@ -168,21 +168,21 @@ public:
 class SOAP_CMAC ns1__Solution
 {
 public:
-	bool askConfirmation;	/* required element of type xsd:boolean */
-	enum ns1__SolutionType type;	/* required element of type ns1:SolutionType */
-	std::wstring *url;	/* optional element of type xsd:string */
-	struct _xop__Include *exe;	/* optional element of type xop:Include */
-	struct soap *soap;	/* transient */
+    bool askConfirmation;   /* required element of type xsd:boolean */
+    enum ns1__SolutionType type;    /* required element of type ns1:SolutionType */
+    std::wstring *url;  /* optional element of type xsd:string */
+    struct _xop__Include *exe;  /* optional element of type xop:Include */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 15; } /* = unique id SOAP_TYPE_ns1__Solution */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         ns1__Solution(): url(NULL), exe(NULL), soap(NULL) { ns1__Solution::soap_default(NULL); }
-	virtual ~ns1__Solution() { }
+    virtual int soap_type() const { return 15; } /* = unique id SOAP_TYPE_ns1__Solution */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             ns1__Solution(): url(NULL), exe(NULL), soap(NULL) { ns1__Solution::soap_default(NULL); }
+    virtual ~ns1__Solution() { }
 };
 #endif
 
@@ -192,20 +192,20 @@ public:
 class SOAP_CMAC _ns1__Hello
 {
 public:
-	ns1__ClientLib *client;	/* optional element of type ns1:ClientLib */
-	ns1__Application *app;	/* optional element of type ns1:Application */
-	std::wstring *mainModule;	/* optional element of type xsd:string */
-	struct soap *soap;	/* transient */
+    ns1__ClientLib *client; /* optional element of type ns1:ClientLib */
+    ns1__Application *app;  /* optional element of type ns1:Application */
+    std::wstring *mainModule;   /* optional element of type xsd:string */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 16; } /* = unique id SOAP_TYPE__ns1__Hello */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         _ns1__Hello(): client(NULL), app(NULL), mainModule(NULL), soap(NULL) { _ns1__Hello::soap_default(NULL); }
-	virtual ~_ns1__Hello() { }
+    virtual int soap_type() const { return 16; } /* = unique id SOAP_TYPE__ns1__Hello */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             _ns1__Hello(): client(NULL), app(NULL), mainModule(NULL), soap(NULL) { _ns1__Hello::soap_default(NULL); }
+    virtual ~_ns1__Hello() { }
 };
 #endif
 
@@ -215,18 +215,18 @@ public:
 class SOAP_CMAC _ns1__HelloResponse
 {
 public:
-	ns1__Response *HelloResult;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type ns1:Response */
-	struct soap *soap;	/* transient */
+    ns1__Response *HelloResult; /* SOAP 1.2 RPC return element (when namespace qualified) */    /* optional element of type ns1:Response */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 17; } /* = unique id SOAP_TYPE__ns1__HelloResponse */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         _ns1__HelloResponse(): HelloResult(NULL), soap(NULL) { _ns1__HelloResponse::soap_default(NULL); }
-	virtual ~_ns1__HelloResponse() { }
+    virtual int soap_type() const { return 17; } /* = unique id SOAP_TYPE__ns1__HelloResponse */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             _ns1__HelloResponse(): HelloResult(NULL), soap(NULL) { _ns1__HelloResponse::soap_default(NULL); }
+    virtual ~_ns1__HelloResponse() { }
 };
 #endif
 
@@ -236,23 +236,23 @@ public:
 class SOAP_CMAC _ns1__UploadMiniDump
 {
 public:
-	ns1__ClientLib *client;	/* optional element of type ns1:ClientLib */
-	ns1__Application *app;	/* optional element of type ns1:Application */
-	std::wstring *mainModule;	/* optional element of type xsd:string */
-	int PCID;	/* required element of type xsd:int */
-	int submitterID;	/* required element of type xsd:int */
-	struct _xop__Include *dump;	/* optional element of type xop:Include */
-	struct soap *soap;	/* transient */
+    ns1__ClientLib *client; /* optional element of type ns1:ClientLib */
+    ns1__Application *app;  /* optional element of type ns1:Application */
+    std::wstring *mainModule;   /* optional element of type xsd:string */
+    int PCID;   /* required element of type xsd:int */
+    int submitterID;    /* required element of type xsd:int */
+    struct _xop__Include *dump; /* optional element of type xop:Include */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 18; } /* = unique id SOAP_TYPE__ns1__UploadMiniDump */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         _ns1__UploadMiniDump(): client(NULL), app(NULL), mainModule(NULL), dump(NULL), soap(NULL) { _ns1__UploadMiniDump::soap_default(NULL); }
-	virtual ~_ns1__UploadMiniDump() { }
+    virtual int soap_type() const { return 18; } /* = unique id SOAP_TYPE__ns1__UploadMiniDump */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             _ns1__UploadMiniDump(): client(NULL), app(NULL), mainModule(NULL), dump(NULL), soap(NULL) { _ns1__UploadMiniDump::soap_default(NULL); }
+    virtual ~_ns1__UploadMiniDump() { }
 };
 #endif
 
@@ -262,18 +262,18 @@ public:
 class SOAP_CMAC _ns1__UploadMiniDumpResponse
 {
 public:
-	ns1__Response *UploadMiniDumpResult;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type ns1:Response */
-	struct soap *soap;	/* transient */
+    ns1__Response *UploadMiniDumpResult;    /* SOAP 1.2 RPC return element (when namespace qualified) */    /* optional element of type ns1:Response */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 19; } /* = unique id SOAP_TYPE__ns1__UploadMiniDumpResponse */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         _ns1__UploadMiniDumpResponse(): UploadMiniDumpResult(NULL), soap(NULL) { _ns1__UploadMiniDumpResponse::soap_default(NULL); }
-	virtual ~_ns1__UploadMiniDumpResponse() { }
+    virtual int soap_type() const { return 19; } /* = unique id SOAP_TYPE__ns1__UploadMiniDumpResponse */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             _ns1__UploadMiniDumpResponse(): UploadMiniDumpResult(NULL), soap(NULL) { _ns1__UploadMiniDumpResponse::soap_default(NULL); }
+    virtual ~_ns1__UploadMiniDumpResponse() { }
 };
 #endif
 
@@ -283,23 +283,23 @@ public:
 class SOAP_CMAC _ns1__UploadAdditionalInfo
 {
 public:
-	ns1__ClientLib *client;	/* optional element of type ns1:ClientLib */
-	ns1__Application *app;	/* optional element of type ns1:Application */
-	std::wstring *mainModule;	/* optional element of type xsd:string */
-	int miniDumpID;	/* required element of type xsd:int */
-	struct _xop__Include *info;	/* optional element of type xop:Include */
-	enum ns1__AdditionalInfoType infoType;	/* required element of type ns1:AdditionalInfoType */
-	struct soap *soap;	/* transient */
+    ns1__ClientLib *client; /* optional element of type ns1:ClientLib */
+    ns1__Application *app;  /* optional element of type ns1:Application */
+    std::wstring *mainModule;   /* optional element of type xsd:string */
+    int miniDumpID; /* required element of type xsd:int */
+    struct _xop__Include *info; /* optional element of type xop:Include */
+    enum ns1__AdditionalInfoType infoType;  /* required element of type ns1:AdditionalInfoType */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 20; } /* = unique id SOAP_TYPE__ns1__UploadAdditionalInfo */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         _ns1__UploadAdditionalInfo(): client(NULL), app(NULL), mainModule(NULL), info(NULL), soap(NULL) { _ns1__UploadAdditionalInfo::soap_default(NULL); }
-	virtual ~_ns1__UploadAdditionalInfo() { }
+    virtual int soap_type() const { return 20; } /* = unique id SOAP_TYPE__ns1__UploadAdditionalInfo */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             _ns1__UploadAdditionalInfo(): client(NULL), app(NULL), mainModule(NULL), info(NULL), soap(NULL) { _ns1__UploadAdditionalInfo::soap_default(NULL); }
+    virtual ~_ns1__UploadAdditionalInfo() { }
 };
 #endif
 
@@ -309,18 +309,18 @@ public:
 class SOAP_CMAC _ns1__UploadAdditionalInfoResponse
 {
 public:
-	ns1__Response *UploadAdditionalInfoResult;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type ns1:Response */
-	struct soap *soap;	/* transient */
+    ns1__Response *UploadAdditionalInfoResult;  /* SOAP 1.2 RPC return element (when namespace qualified) */    /* optional element of type ns1:Response */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 21; } /* = unique id SOAP_TYPE__ns1__UploadAdditionalInfoResponse */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         _ns1__UploadAdditionalInfoResponse(): UploadAdditionalInfoResult(NULL), soap(NULL) { _ns1__UploadAdditionalInfoResponse::soap_default(NULL); }
-	virtual ~_ns1__UploadAdditionalInfoResponse() { }
+    virtual int soap_type() const { return 21; } /* = unique id SOAP_TYPE__ns1__UploadAdditionalInfoResponse */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             _ns1__UploadAdditionalInfoResponse(): UploadAdditionalInfoResult(NULL), soap(NULL) { _ns1__UploadAdditionalInfoResponse::soap_default(NULL); }
+    virtual ~_ns1__UploadAdditionalInfoResponse() { }
 };
 #endif
 
@@ -330,21 +330,21 @@ public:
 class SOAP_CMAC _ns1__UploadSymbol
 {
 public:
-	ns1__ClientLib *client;	/* optional element of type ns1:ClientLib */
-	ns1__Application *app;	/* optional element of type ns1:Application */
-	bool publish;	/* required element of type xsd:boolean */
-	struct _xop__Include *sym;	/* optional element of type xop:Include */
-	struct soap *soap;	/* transient */
+    ns1__ClientLib *client; /* optional element of type ns1:ClientLib */
+    ns1__Application *app;  /* optional element of type ns1:Application */
+    bool publish;   /* required element of type xsd:boolean */
+    struct _xop__Include *sym;  /* optional element of type xop:Include */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 22; } /* = unique id SOAP_TYPE__ns1__UploadSymbol */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         _ns1__UploadSymbol(): client(NULL), app(NULL), sym(NULL), soap(NULL) { _ns1__UploadSymbol::soap_default(NULL); }
-	virtual ~_ns1__UploadSymbol() { }
+    virtual int soap_type() const { return 22; } /* = unique id SOAP_TYPE__ns1__UploadSymbol */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             _ns1__UploadSymbol(): client(NULL), app(NULL), sym(NULL), soap(NULL) { _ns1__UploadSymbol::soap_default(NULL); }
+    virtual ~_ns1__UploadSymbol() { }
 };
 #endif
 
@@ -354,18 +354,18 @@ public:
 class SOAP_CMAC _ns1__UploadSymbolResponse
 {
 public:
-	std::wstring *UploadSymbolResult;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* optional element of type xsd:string */
-	struct soap *soap;	/* transient */
+    std::wstring *UploadSymbolResult;   /* SOAP 1.2 RPC return element (when namespace qualified) */    /* optional element of type xsd:string */
+    struct soap *soap;  /* transient */
 public:
-	virtual int soap_type() const { return 23; } /* = unique id SOAP_TYPE__ns1__UploadSymbolResponse */
-	virtual void soap_default(struct soap*);
-	virtual void soap_serialize(struct soap*) const;
-	virtual int soap_put(struct soap*, const char*, const char*) const;
-	virtual int soap_out(struct soap*, const char*, int, const char*) const;
-	virtual void *soap_get(struct soap*, const char*, const char*);
-	virtual void *soap_in(struct soap*, const char*, const char*);
-	         _ns1__UploadSymbolResponse(): UploadSymbolResult(NULL), soap(NULL) { _ns1__UploadSymbolResponse::soap_default(NULL); }
-	virtual ~_ns1__UploadSymbolResponse() { }
+    virtual int soap_type() const { return 23; } /* = unique id SOAP_TYPE__ns1__UploadSymbolResponse */
+    virtual void soap_default(struct soap*);
+    virtual void soap_serialize(struct soap*) const;
+    virtual int soap_put(struct soap*, const char*, const char*) const;
+    virtual int soap_out(struct soap*, const char*, int, const char*) const;
+    virtual void *soap_get(struct soap*, const char*, const char*);
+    virtual void *soap_in(struct soap*, const char*, const char*);
+             _ns1__UploadSymbolResponse(): UploadSymbolResult(NULL), soap(NULL) { _ns1__UploadSymbolResponse::soap_default(NULL); }
+    virtual ~_ns1__UploadSymbolResponse() { }
 };
 #endif
 
@@ -375,7 +375,7 @@ public:
 struct __ns3__Hello
 {
 public:
-	_ns1__Hello *ns1__Hello;	/* optional element of type ns1:Hello */
+    _ns1__Hello *ns1__Hello;    /* optional element of type ns1:Hello */
 };
 #endif
 
@@ -385,7 +385,7 @@ public:
 struct __ns3__UploadMiniDump
 {
 public:
-	_ns1__UploadMiniDump *ns1__UploadMiniDump;	/* optional element of type ns1:UploadMiniDump */
+    _ns1__UploadMiniDump *ns1__UploadMiniDump;  /* optional element of type ns1:UploadMiniDump */
 };
 #endif
 
@@ -395,7 +395,7 @@ public:
 struct __ns3__UploadAdditionalInfo
 {
 public:
-	_ns1__UploadAdditionalInfo *ns1__UploadAdditionalInfo;	/* optional element of type ns1:UploadAdditionalInfo */
+    _ns1__UploadAdditionalInfo *ns1__UploadAdditionalInfo;  /* optional element of type ns1:UploadAdditionalInfo */
 };
 #endif
 
@@ -405,7 +405,7 @@ public:
 struct __ns3__UploadSymbol
 {
 public:
-	_ns1__UploadSymbol *ns1__UploadSymbol;	/* optional element of type ns1:UploadSymbol */
+    _ns1__UploadSymbol *ns1__UploadSymbol;  /* optional element of type ns1:UploadSymbol */
 };
 #endif
 
@@ -415,7 +415,7 @@ public:
 struct __ns4__Hello
 {
 public:
-	_ns1__Hello *ns1__Hello;	/* optional element of type ns1:Hello */
+    _ns1__Hello *ns1__Hello;    /* optional element of type ns1:Hello */
 };
 #endif
 
@@ -425,7 +425,7 @@ public:
 struct __ns4__UploadMiniDump
 {
 public:
-	_ns1__UploadMiniDump *ns1__UploadMiniDump;	/* optional element of type ns1:UploadMiniDump */
+    _ns1__UploadMiniDump *ns1__UploadMiniDump;  /* optional element of type ns1:UploadMiniDump */
 };
 #endif
 
@@ -435,7 +435,7 @@ public:
 struct __ns4__UploadAdditionalInfo
 {
 public:
-	_ns1__UploadAdditionalInfo *ns1__UploadAdditionalInfo;	/* optional element of type ns1:UploadAdditionalInfo */
+    _ns1__UploadAdditionalInfo *ns1__UploadAdditionalInfo;  /* optional element of type ns1:UploadAdditionalInfo */
 };
 #endif
 
@@ -445,7 +445,7 @@ public:
 struct __ns4__UploadSymbol
 {
 public:
-	_ns1__UploadSymbol *ns1__UploadSymbol;	/* optional element of type ns1:UploadSymbol */
+    _ns1__UploadSymbol *ns1__UploadSymbol;  /* optional element of type ns1:UploadSymbol */
 };
 #endif
 
@@ -456,7 +456,7 @@ struct SOAP_ENV__Header
 {
 #ifdef WITH_NOEMPTYSTRUCT
 private:
-	char dummy;	/* dummy member to enable compilation */
+    char dummy; /* dummy member to enable compilation */
 #endif
 };
 #endif
@@ -467,8 +467,8 @@ private:
 struct SOAP_ENV__Code
 {
 public:
-	char *SOAP_ENV__Value;	/* optional element of type xsd:QName */
-	struct SOAP_ENV__Code *SOAP_ENV__Subcode;	/* optional element of type SOAP-ENV:Code */
+    char *SOAP_ENV__Value;  /* optional element of type xsd:QName */
+    struct SOAP_ENV__Code *SOAP_ENV__Subcode;   /* optional element of type SOAP-ENV:Code */
 };
 #endif
 
@@ -478,9 +478,9 @@ public:
 struct SOAP_ENV__Detail
 {
 public:
-	int __type;	/* any type of element <fault> (defined below) */
-	void *fault;	/* transient */
-	char *__any;
+    int __type; /* any type of element <fault> (defined below) */
+    void *fault;    /* transient */
+    char *__any;
 };
 #endif
 
@@ -490,7 +490,7 @@ public:
 struct SOAP_ENV__Reason
 {
 public:
-	char *SOAP_ENV__Text;	/* optional element of type xsd:string */
+    char *SOAP_ENV__Text;   /* optional element of type xsd:string */
 };
 #endif
 
@@ -500,15 +500,15 @@ public:
 struct SOAP_ENV__Fault
 {
 public:
-	char *faultcode;	/* optional element of type xsd:QName */
-	char *faultstring;	/* optional element of type xsd:string */
-	char *faultactor;	/* optional element of type xsd:string */
-	struct SOAP_ENV__Detail *detail;	/* optional element of type SOAP-ENV:Detail */
-	struct SOAP_ENV__Code *SOAP_ENV__Code;	/* optional element of type SOAP-ENV:Code */
-	struct SOAP_ENV__Reason *SOAP_ENV__Reason;	/* optional element of type SOAP-ENV:Reason */
-	char *SOAP_ENV__Node;	/* optional element of type xsd:string */
-	char *SOAP_ENV__Role;	/* optional element of type xsd:string */
-	struct SOAP_ENV__Detail *SOAP_ENV__Detail;	/* optional element of type SOAP-ENV:Detail */
+    char *faultcode;    /* optional element of type xsd:QName */
+    char *faultstring;  /* optional element of type xsd:string */
+    char *faultactor;   /* optional element of type xsd:string */
+    struct SOAP_ENV__Detail *detail;    /* optional element of type SOAP-ENV:Detail */
+    struct SOAP_ENV__Code *SOAP_ENV__Code;  /* optional element of type SOAP-ENV:Code */
+    struct SOAP_ENV__Reason *SOAP_ENV__Reason;  /* optional element of type SOAP-ENV:Reason */
+    char *SOAP_ENV__Node;   /* optional element of type xsd:string */
+    char *SOAP_ENV__Role;   /* optional element of type xsd:string */
+    struct SOAP_ENV__Detail *SOAP_ENV__Detail;  /* optional element of type SOAP-ENV:Detail */
 };
 #endif
 

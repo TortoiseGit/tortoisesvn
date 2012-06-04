@@ -23,32 +23,32 @@
 class DumpWriter
 {
 public:
-	DumpWriter();
-	~DumpWriter();
+    DumpWriter();
+    ~DumpWriter();
 
-	void Init();
+    void Init();
 
-	bool WriteMiniDump(
-		HANDLE hProcess,
-		DWORD dwProcessId,
-		MINIDUMP_EXCEPTION_INFORMATION* pExceptInfo,
-		LPCTSTR pszFileName,
-		MINIDUMP_TYPE DumpType,
-		MINIDUMP_CALLBACK_INFORMATION* pCallback);
+    bool WriteMiniDump(
+        HANDLE hProcess,
+        DWORD dwProcessId,
+        MINIDUMP_EXCEPTION_INFORMATION* pExceptInfo,
+        LPCTSTR pszFileName,
+        MINIDUMP_TYPE DumpType,
+        MINIDUMP_CALLBACK_INFORMATION* pCallback);
 
 private:
-	void CreateDbghelp();
+    void CreateDbghelp();
 
-	typedef BOOL (WINAPI *fnMiniDumpWriteDump)(
-		IN HANDLE hProcess,
-		IN DWORD ProcessId,
-		IN HANDLE hFile,
-		IN MINIDUMP_TYPE DumpType,
-		IN CONST PMINIDUMP_EXCEPTION_INFORMATION ExceptionParam, OPTIONAL
-		IN CONST PMINIDUMP_USER_STREAM_INFORMATION UserStreamParam, OPTIONAL
-		IN CONST PMINIDUMP_CALLBACK_INFORMATION CallbackParam OPTIONAL);
+    typedef BOOL (WINAPI *fnMiniDumpWriteDump)(
+        IN HANDLE hProcess,
+        IN DWORD ProcessId,
+        IN HANDLE hFile,
+        IN MINIDUMP_TYPE DumpType,
+        IN CONST PMINIDUMP_EXCEPTION_INFORMATION ExceptionParam, OPTIONAL
+        IN CONST PMINIDUMP_USER_STREAM_INFORMATION UserStreamParam, OPTIONAL
+        IN CONST PMINIDUMP_CALLBACK_INFORMATION CallbackParam OPTIONAL);
 
-	TCHAR m_szDbghelpPath[MAX_PATH];
-	HINSTANCE m_hDbgHelp;
-	fnMiniDumpWriteDump m_pfnMiniDumpWriteDump;
+    TCHAR m_szDbghelpPath[MAX_PATH];
+    HINSTANCE m_hDbgHelp;
+    fnMiniDumpWriteDump m_pfnMiniDumpWriteDump;
 };

@@ -21,28 +21,28 @@
 
 struct Config
 {
-	CStringA Prefix;
-	CStringW AppName;
-	CStringW Company;
-	CStringW PrivacyPolicyUrl;
-	USHORT   V[4];
-	USHORT   Hotfix;
-	CStringW ApplicationGUID;
-	BOOL     ServiceMode; // Service is terminated after all dumps has been collected, then send all needed information.
-	BOOL     LeaveDumpFilesInTempFolder;
-	BOOL     OpenProblemInBrowser;
-	BOOL     UseWER;
-	DWORD    SubmitterID;
-	CStringW ProcessName;
-	std::vector<std::pair<CStringW, CStringW> > FilesToAttach;
-	std::vector<std::pair<CStringW, CStringW> > UserInfo;
+    CStringA Prefix;
+    CStringW AppName;
+    CStringW Company;
+    CStringW PrivacyPolicyUrl;
+    USHORT   V[4];
+    USHORT   Hotfix;
+    CStringW ApplicationGUID;
+    BOOL     ServiceMode; // Service is terminated after all dumps has been collected, then send all needed information.
+    BOOL     LeaveDumpFilesInTempFolder;
+    BOOL     OpenProblemInBrowser;
+    BOOL     UseWER;
+    DWORD    SubmitterID;
+    CStringW ProcessName;
+    std::vector<std::pair<CStringW, CStringW> > FilesToAttach;
+    std::vector<std::pair<CStringW, CStringW> > UserInfo;
 };
 
 struct Params
 {
-	HANDLE Process;
-	DWORD  ProcessId;
-	MINIDUMP_EXCEPTION_INFORMATION ExceptInfo;
-	BOOL   WasAssert;
-	HANDLE ReportReady;
+    HANDLE Process;
+    DWORD  ProcessId;
+    MINIDUMP_EXCEPTION_INFORMATION ExceptInfo;
+    BOOL   WasAssert;
+    HANDLE ReportReady;
 };

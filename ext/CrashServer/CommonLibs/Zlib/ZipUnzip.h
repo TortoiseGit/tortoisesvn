@@ -26,26 +26,26 @@ typedef void* unzFile;
 class Zip
 {
 public:
-	Zip(LPCWSTR pszFilename, bool append = false);
-	~Zip();
+    Zip(LPCWSTR pszFilename, bool append = false);
+    ~Zip();
 
-	void AddFile(LPCWSTR pszFilename, LPCWSTR pszFilenameInZip);
+    void AddFile(LPCWSTR pszFilename, LPCWSTR pszFilenameInZip);
 
 private:
-	zipFile m_zf;
+    zipFile m_zf;
 };
 
 class Unzip
 {
 public:
-	Unzip();
-	~Unzip();
+    Unzip();
+    ~Unzip();
 
-	void Open(LPCWSTR pszFilename);
-	void Extract(LPCWSTR pszFolder);
+    void Open(LPCWSTR pszFilename);
+    void Extract(LPCWSTR pszFolder);
 
-	std::vector<CStringW> m_files;
+    std::vector<CStringW> m_files;
 
 private:
-	unzFile m_uf;
+    unzFile m_uf;
 };

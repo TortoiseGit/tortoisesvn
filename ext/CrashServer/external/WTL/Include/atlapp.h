@@ -15,34 +15,34 @@
 #pragma once
 
 #ifndef __cplusplus
-	#error ATL requires C++ compilation (use a .cpp suffix)
+    #error ATL requires C++ compilation (use a .cpp suffix)
 #endif
 
 #ifndef __ATLBASE_H__
-	#error atlapp.h requires atlbase.h to be included first
+    #error atlapp.h requires atlbase.h to be included first
 #endif
 
 #ifndef _WIN32_WCE
   #if (WINVER < 0x0400)
-	#error WTL requires Windows version 4.0 or higher
+    #error WTL requires Windows version 4.0 or higher
   #endif
 
   #if (_WIN32_IE < 0x0300)
-	#error WTL requires IE version 3.0 or higher
+    #error WTL requires IE version 3.0 or higher
   #endif
 #endif
 
 #ifdef _ATL_NO_COMMODULE
-	#error WTL requires that _ATL_NO_COMMODULE is not defined
+    #error WTL requires that _ATL_NO_COMMODULE is not defined
 #endif // _ATL_NO_COMMODULE
 
 #if defined(_WIN32_WCE) && defined(_ATL_MIN_CRT)
-	#pragma message("Warning: WTL for Windows CE doesn't use _ATL_MIN_CRT")
+    #pragma message("Warning: WTL for Windows CE doesn't use _ATL_MIN_CRT")
 #endif // defined(_WIN32_WCE) && defined(_ATL_MIN_CRT)
 
 #include <limits.h>
 #if !defined(_ATL_MIN_CRT) && defined(_MT) && !defined(_WIN32_WCE)
-  #include <process.h>	// for _beginthreadex
+  #include <process.h>  // for _beginthreadex
 #endif
 
 #if (_ATL_VER < 0x0800) && !defined(_DEBUG)
@@ -67,7 +67,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // WTL version number
 
-#define _WTL_VER	0x0810
+#define _WTL_VER    0x0810
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -92,7 +92,7 @@
 #ifdef _WIN32_WCE
 
 #ifndef SW_SHOWDEFAULT
-  #define SW_SHOWDEFAULT	SW_SHOWNORMAL
+  #define SW_SHOWDEFAULT    SW_SHOWNORMAL
 #endif // !SW_SHOWDEFAULT
 
 // These get's OR-ed in a constant and will have no effect.
@@ -109,12 +109,12 @@
 
 inline BOOL IsMenu(HMENU hMenu)
 {
-	MENUITEMINFO mii = { sizeof(MENUITEMINFO) };
-	::SetLastError(0);
-	BOOL bRet = ::GetMenuItemInfo(hMenu, 0, TRUE, &mii);
-	if(!bRet)
-		bRet = (::GetLastError() != ERROR_INVALID_MENU_HANDLE) ? TRUE : FALSE;
-	return bRet;
+    MENUITEMINFO mii = { sizeof(MENUITEMINFO) };
+    ::SetLastError(0);
+    BOOL bRet = ::GetMenuItemInfo(hMenu, 0, TRUE, &mii);
+    if(!bRet)
+        bRet = (::GetLastError() != ERROR_INVALID_MENU_HANDLE) ? TRUE : FALSE;
+    return bRet;
 }
 
 #if (_WIN32_WCE >= 410)
@@ -123,8 +123,8 @@ extern "C" void WINAPI ListView_SetItemSpacing(HWND hwndLV, int iHeight);
 
 inline int MulDiv(IN int nNumber, IN int nNumerator, IN int nDenominator)
 {
-	__int64 multiple = nNumber * nNumerator;
-	return static_cast<int>(multiple / nDenominator);
+    __int64 multiple = nNumber * nNumerator;
+    return static_cast<int>(multiple / nDenominator);
 }
 
 #if (_ATL_VER >= 0x0800)
@@ -132,16 +132,16 @@ inline int MulDiv(IN int nNumber, IN int nNumerator, IN int nDenominator)
 #ifndef _WTL_KEEP_WS_OVERLAPPEDWINDOW
   #ifdef WS_OVERLAPPEDWINDOW
     #undef WS_OVERLAPPEDWINDOW
-    #define WS_OVERLAPPEDWINDOW	0
+    #define WS_OVERLAPPEDWINDOW 0
   #endif // WS_OVERLAPPEDWINDOW
 #endif // !_WTL_KEEP_WS_OVERLAPPEDWINDOW
 
 #ifndef RDW_FRAME
-  #define RDW_FRAME	0
+  #define RDW_FRAME 0
 #endif // !RDW_FRAME
 
 #ifndef WM_WINDOWPOSCHANGING
-  #define WM_WINDOWPOSCHANGING	0
+  #define WM_WINDOWPOSCHANGING  0
 #endif // !WM_WINDOWPOSCHANGING
 
 #define FreeResource(x)
@@ -156,7 +156,7 @@ namespace ATL
 }; // namespace ATL
 
 #ifndef lstrlenW
-  #define lstrlenW	(int)ATL::lstrlenW
+  #define lstrlenW  (int)ATL::lstrlenW
 #endif // lstrlenW
 
 inline int WINAPI lstrlenA(LPCSTR lpszString)
@@ -164,13 +164,13 @@ inline int WINAPI lstrlenA(LPCSTR lpszString)
 
 #ifdef lstrcpyn
   #undef lstrcpyn
-  #define lstrcpyn	ATL::lstrcpynW
+  #define lstrcpyn  ATL::lstrcpynW
 #endif // lstrcpyn
 
 #ifndef SetWindowLongPtrW
   inline LONG_PTR tmp_SetWindowLongPtrW( HWND hWnd, int nIndex, LONG_PTR dwNewLong )
   {
-	return( ::SetWindowLongW( hWnd, nIndex, LONG( dwNewLong ) ) );
+    return( ::SetWindowLongW( hWnd, nIndex, LONG( dwNewLong ) ) );
   }
   #define SetWindowLongPtrW tmp_SetWindowLongPtrW
 #endif
@@ -178,7 +178,7 @@ inline int WINAPI lstrlenA(LPCSTR lpszString)
 #ifndef GetWindowLongPtrW
   inline LONG_PTR tmp_GetWindowLongPtrW( HWND hWnd, int nIndex )
   {
-	return( ::GetWindowLongW( hWnd, nIndex ) );
+    return( ::GetWindowLongW( hWnd, nIndex ) );
   }
   #define GetWindowLongPtrW tmp_GetWindowLongPtrW
 #endif
@@ -203,31 +203,31 @@ inline int WINAPI lstrlenA(LPCSTR lpszString)
 #ifndef lstrcpyn
   inline LPTSTR lstrcpyn(LPTSTR lpstrDest, LPCTSTR lpstrSrc, int nLength)
   {
-	if(lpstrDest == NULL || lpstrSrc == NULL || nLength <= 0)
-		return NULL;
-	int nLen = min(lstrlen(lpstrSrc), nLength - 1);
-	LPTSTR lpstrRet = (LPTSTR)memcpy(lpstrDest, lpstrSrc, nLen * sizeof(TCHAR));
-	lpstrDest[nLen] = 0;
-	return lpstrRet;
+    if(lpstrDest == NULL || lpstrSrc == NULL || nLength <= 0)
+        return NULL;
+    int nLen = min(lstrlen(lpstrSrc), nLength - 1);
+    LPTSTR lpstrRet = (LPTSTR)memcpy(lpstrDest, lpstrSrc, nLen * sizeof(TCHAR));
+    lpstrDest[nLen] = 0;
+    return lpstrRet;
   }
 #endif // !lstrcpyn
 
 #ifndef lstrcpynW
   inline LPWSTR lstrcpynW(LPWSTR lpstrDest, LPCWSTR lpstrSrc, int nLength)
   {
-	return lstrcpyn(lpstrDest, lpstrSrc, nLength);   // WinCE is Unicode only
+    return lstrcpyn(lpstrDest, lpstrSrc, nLength);   // WinCE is Unicode only
   }
 #endif // !lstrcpynW
 
 #ifndef lstrcpynA
   inline LPSTR lstrcpynA(LPSTR lpstrDest, LPCSTR lpstrSrc, int nLength)
   {
-	if(lpstrDest == NULL || lpstrSrc == NULL || nLength <= 0)
-		return NULL;
-	int nLen = min(lstrlenA(lpstrSrc), nLength - 1);
-	LPSTR lpstrRet = (LPSTR)memcpy(lpstrDest, lpstrSrc, nLen * sizeof(char));
-	lpstrDest[nLen] = 0;
-	return lpstrRet;
+    if(lpstrDest == NULL || lpstrSrc == NULL || nLength <= 0)
+        return NULL;
+    int nLen = min(lstrlenA(lpstrSrc), nLength - 1);
+    LPSTR lpstrRet = (LPSTR)memcpy(lpstrDest, lpstrSrc, nLen * sizeof(char));
+    lpstrDest[nLen] = 0;
+    return lpstrRet;
   }
 #endif // !lstrcpyn
 
@@ -238,17 +238,17 @@ inline int WINAPI lstrlenA(LPCSTR lpszString)
 #define DECLARE_WND_CLASS_EX(WndClassName, style, bkgnd) \
 static CWndClassInfo& GetWndClassInfo() \
 { \
-	static CWndClassInfo wc = \
-	{ \
-		{ style, StartWindowProc, \
-		  0, 0, NULL, NULL, NULL, (HBRUSH)(bkgnd + 1), NULL, WndClassName }, \
-		NULL, NULL, IDC_ARROW, TRUE, 0, _T("") \
-	}; \
-	return wc; \
+    static CWndClassInfo wc = \
+    { \
+        { style, StartWindowProc, \
+          0, 0, NULL, NULL, NULL, (HBRUSH)(bkgnd + 1), NULL, WndClassName }, \
+        NULL, NULL, IDC_ARROW, TRUE, 0, _T("") \
+    }; \
+    return wc; \
 }
 
 #ifndef _MAX_FNAME
-  #define _MAX_FNAME	_MAX_PATH
+  #define _MAX_FNAME    _MAX_PATH
 #endif // _MAX_FNAME
 
 #if (_WIN32_WCE < 400)
@@ -436,10 +436,10 @@ static CWndClassInfo& GetWndClassInfo() \
 
 // define useful macros from windowsx.h
 #ifndef GET_X_LPARAM
-  #define GET_X_LPARAM(lParam)	((int)(short)LOWORD(lParam))
+  #define GET_X_LPARAM(lParam)  ((int)(short)LOWORD(lParam))
 #endif
 #ifndef GET_Y_LPARAM
-  #define GET_Y_LPARAM(lParam)	((int)(short)HIWORD(lParam))
+  #define GET_Y_LPARAM(lParam)  ((int)(short)HIWORD(lParam))
 #endif
 
 // Dummy structs for compiling with /CLR
@@ -477,57 +477,57 @@ namespace WTL
 #else // !(_ATL_VER >= 0x0700)
   enum wtlTraceFlags
   {
-	atlTraceUI = 0x10000000
+    atlTraceUI = 0x10000000
   };
 #endif // !(_ATL_VER >= 0x0700)
 
 // Windows version helper
 inline bool AtlIsOldWindows()
 {
-	OSVERSIONINFO ovi = { 0 };
-	ovi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-	BOOL bRet = ::GetVersionEx(&ovi);
-	return (!bRet || !((ovi.dwMajorVersion >= 5) || (ovi.dwMajorVersion == 4 && ovi.dwMinorVersion >= 90)));
+    OSVERSIONINFO ovi = { 0 };
+    ovi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+    BOOL bRet = ::GetVersionEx(&ovi);
+    return (!bRet || !((ovi.dwMajorVersion >= 5) || (ovi.dwMajorVersion == 4 && ovi.dwMinorVersion >= 90)));
 }
 
 // default GUI font helper
 inline HFONT AtlGetDefaultGuiFont()
 {
 #ifndef _WIN32_WCE
-	return (HFONT)::GetStockObject(DEFAULT_GUI_FONT);
+    return (HFONT)::GetStockObject(DEFAULT_GUI_FONT);
 #else // CE specific
-	return (HFONT)::GetStockObject(SYSTEM_FONT);
+    return (HFONT)::GetStockObject(SYSTEM_FONT);
 #endif // _WIN32_WCE
 }
 
 // bold font helper (NOTE: Caller owns the font, and should destroy it when done using it)
 inline HFONT AtlCreateBoldFont(HFONT hFont = NULL)
 {
-	if(hFont == NULL)
-		hFont = AtlGetDefaultGuiFont();
-	ATLASSERT(hFont != NULL);
-	HFONT hFontBold = NULL;
-	LOGFONT lf = { 0 };
-	if(::GetObject(hFont, sizeof(LOGFONT), &lf) == sizeof(LOGFONT))
-	{
-		lf.lfWeight = FW_BOLD;
-		hFontBold =  ::CreateFontIndirect(&lf);
-		ATLASSERT(hFontBold != NULL);
-	}
-	else
-	{
-		ATLASSERT(FALSE);
-	}
-	return hFontBold;
+    if(hFont == NULL)
+        hFont = AtlGetDefaultGuiFont();
+    ATLASSERT(hFont != NULL);
+    HFONT hFontBold = NULL;
+    LOGFONT lf = { 0 };
+    if(::GetObject(hFont, sizeof(LOGFONT), &lf) == sizeof(LOGFONT))
+    {
+        lf.lfWeight = FW_BOLD;
+        hFontBold =  ::CreateFontIndirect(&lf);
+        ATLASSERT(hFontBold != NULL);
+    }
+    else
+    {
+        ATLASSERT(FALSE);
+    }
+    return hFontBold;
 }
 
 // Common Controls initialization helper
 inline BOOL AtlInitCommonControls(DWORD dwFlags)
 {
-	INITCOMMONCONTROLSEX iccx = { sizeof(INITCOMMONCONTROLSEX), dwFlags };
-	BOOL bRet = ::InitCommonControlsEx(&iccx);
-	ATLASSERT(bRet);
-	return bRet;
+    INITCOMMONCONTROLSEX iccx = { sizeof(INITCOMMONCONTROLSEX), dwFlags };
+    BOOL bRet = ::InitCommonControlsEx(&iccx);
+    ATLASSERT(bRet);
+    return bRet;
 }
 
 
@@ -570,73 +570,73 @@ inline BOOL AtlInitCommonControls(DWORD dwFlags)
 namespace RunTimeHelper
 {
 #ifndef _WIN32_WCE
-	inline bool IsCommCtrl6()
-	{
-		DWORD dwMajor = 0, dwMinor = 0;
-		HRESULT hRet = ATL::AtlGetCommCtrlVersion(&dwMajor, &dwMinor);
-		return (SUCCEEDED(hRet) && (dwMajor >= 6));
-	}
+    inline bool IsCommCtrl6()
+    {
+        DWORD dwMajor = 0, dwMinor = 0;
+        HRESULT hRet = ATL::AtlGetCommCtrlVersion(&dwMajor, &dwMinor);
+        return (SUCCEEDED(hRet) && (dwMajor >= 6));
+    }
 
-	inline bool IsVista()
-	{
-		OSVERSIONINFO ovi = { sizeof(OSVERSIONINFO) };
-		BOOL bRet = ::GetVersionEx(&ovi);
-		return ((bRet != FALSE) && (ovi.dwMajorVersion >= 6));
-	}
+    inline bool IsVista()
+    {
+        OSVERSIONINFO ovi = { sizeof(OSVERSIONINFO) };
+        BOOL bRet = ::GetVersionEx(&ovi);
+        return ((bRet != FALSE) && (ovi.dwMajorVersion >= 6));
+    }
 #endif // !_WIN32_WCE
 
-	inline int SizeOf_REBARBANDINFO()
-	{
-		int nSize = sizeof(REBARBANDINFO);
+    inline int SizeOf_REBARBANDINFO()
+    {
+        int nSize = sizeof(REBARBANDINFO);
 #if !defined(_WTL_NO_RUNTIME_STRUCT_SIZE) && (_WIN32_WINNT >= 0x0600)
-		if(!(IsVista() && IsCommCtrl6()))
-			nSize = REBARBANDINFO_V6_SIZE;
+        if(!(IsVista() && IsCommCtrl6()))
+            nSize = REBARBANDINFO_V6_SIZE;
 #endif // !defined(_WTL_NO_RUNTIME_STRUCT_SIZE) && (_WIN32_WINNT >= 0x0600)
-		return nSize;
-	}
+        return nSize;
+    }
 
 #if (_WIN32_WINNT >= 0x501)
-  	inline int SizeOf_LVGROUP()
-	{
-		int nSize = sizeof(LVGROUP);
+    inline int SizeOf_LVGROUP()
+    {
+        int nSize = sizeof(LVGROUP);
 #if !defined(_WTL_NO_RUNTIME_STRUCT_SIZE) && (_WIN32_WINNT >= 0x0600)
-		if(!IsVista())
-			nSize = LVGROUP_V5_SIZE;
+        if(!IsVista())
+            nSize = LVGROUP_V5_SIZE;
 #endif // !defined(_WTL_NO_RUNTIME_STRUCT_SIZE) && (_WIN32_WINNT >= 0x0600)
-		return nSize;
-	}
+        return nSize;
+    }
 
-	inline int SizeOf_LVTILEINFO()
-	{
-		int nSize = sizeof(LVTILEINFO);
+    inline int SizeOf_LVTILEINFO()
+    {
+        int nSize = sizeof(LVTILEINFO);
 #if !defined(_WTL_NO_RUNTIME_STRUCT_SIZE) && (_WIN32_WINNT >= 0x0600)
-		if(!IsVista())
-			nSize = LVTILEINFO_V5_SIZE;
+        if(!IsVista())
+            nSize = LVTILEINFO_V5_SIZE;
 #endif // !defined(_WTL_NO_RUNTIME_STRUCT_SIZE) && (_WIN32_WINNT >= 0x0600)
-		return nSize;
-	}
+        return nSize;
+    }
 #endif // (_WIN32_WINNT >= 0x501)
 
-	inline int SizeOf_MCHITTESTINFO()
-	{
-		int nSize = sizeof(MCHITTESTINFO);
+    inline int SizeOf_MCHITTESTINFO()
+    {
+        int nSize = sizeof(MCHITTESTINFO);
 #if !defined(_WTL_NO_RUNTIME_STRUCT_SIZE) && defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_LONGHORN)
-		if(!(IsVista() && IsCommCtrl6()))
-			nSize = MCHITTESTINFO_V1_SIZE;
+        if(!(IsVista() && IsCommCtrl6()))
+            nSize = MCHITTESTINFO_V1_SIZE;
 #endif // !defined(_WTL_NO_RUNTIME_STRUCT_SIZE) && defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_LONGHORN)
-		return nSize;
-	}
+        return nSize;
+    }
 
 #ifndef _WIN32_WCE
-	inline int SizeOf_NONCLIENTMETRICS()
-	{
-		int nSize = sizeof(NONCLIENTMETRICS);
+    inline int SizeOf_NONCLIENTMETRICS()
+    {
+        int nSize = sizeof(NONCLIENTMETRICS);
 #if !defined(_WTL_NO_RUNTIME_STRUCT_SIZE) && (WINVER >= 0x0600)
-		if(!IsVista())
-			nSize = NONCLIENTMETRICS_V1_SIZE;
+        if(!IsVista())
+            nSize = NONCLIENTMETRICS_V1_SIZE;
 #endif // !defined(_WTL_NO_RUNTIME_STRUCT_SIZE) && (WINVER >= 0x0600)
-		return nSize;
-	}
+        return nSize;
+    }
 #endif // !_WIN32_WCE
 };
 
@@ -646,41 +646,41 @@ namespace RunTimeHelper
 
 namespace ModuleHelper
 {
-	inline HINSTANCE GetModuleInstance()
-	{
+    inline HINSTANCE GetModuleInstance()
+    {
 #if (_ATL_VER >= 0x0700)
-		return ATL::_AtlBaseModule.GetModuleInstance();
+        return ATL::_AtlBaseModule.GetModuleInstance();
 #else // !(_ATL_VER >= 0x0700)
-		return ATL::_pModule->GetModuleInstance();
+        return ATL::_pModule->GetModuleInstance();
 #endif // !(_ATL_VER >= 0x0700)
-	}
+    }
 
-	inline HINSTANCE GetResourceInstance()
-	{
+    inline HINSTANCE GetResourceInstance()
+    {
 #if (_ATL_VER >= 0x0700)
-		return ATL::_AtlBaseModule.GetResourceInstance();
+        return ATL::_AtlBaseModule.GetResourceInstance();
 #else // !(_ATL_VER >= 0x0700)
-		return ATL::_pModule->GetResourceInstance();
+        return ATL::_pModule->GetResourceInstance();
 #endif // !(_ATL_VER >= 0x0700)
-	}
+    }
 
-	inline void AddCreateWndData(ATL::_AtlCreateWndData* pData, void* pObject)
-	{
+    inline void AddCreateWndData(ATL::_AtlCreateWndData* pData, void* pObject)
+    {
 #if (_ATL_VER >= 0x0700)
-		ATL::_AtlWinModule.AddCreateWndData(pData, pObject);
+        ATL::_AtlWinModule.AddCreateWndData(pData, pObject);
 #else // !(_ATL_VER >= 0x0700)
-		ATL::_pModule->AddCreateWndData(pData, pObject);
+        ATL::_pModule->AddCreateWndData(pData, pObject);
 #endif // !(_ATL_VER >= 0x0700)
-	}
+    }
 
-	inline void* ExtractCreateWndData()
-	{
+    inline void* ExtractCreateWndData()
+    {
 #if (_ATL_VER >= 0x0700)
-		return ATL::_AtlWinModule.ExtractCreateWndData();
+        return ATL::_AtlWinModule.ExtractCreateWndData();
 #else // !(_ATL_VER >= 0x0700)
-		return ATL::_pModule->ExtractCreateWndData();
+        return ATL::_pModule->ExtractCreateWndData();
 #endif // !(_ATL_VER >= 0x0700)
-	}
+    }
 };
 
 
@@ -689,198 +689,198 @@ namespace ModuleHelper
 
 namespace SecureHelper
 {
-	inline void strcpyA_x(char* lpstrDest, size_t cchDest, const char* lpstrSrc)
-	{
+    inline void strcpyA_x(char* lpstrDest, size_t cchDest, const char* lpstrSrc)
+    {
 #if _SECURE_ATL
-		ATL::Checked::strcpy_s(lpstrDest, cchDest, lpstrSrc);
+        ATL::Checked::strcpy_s(lpstrDest, cchDest, lpstrSrc);
 #else
-		if(cchDest > (size_t)lstrlenA(lpstrSrc))
-			ATLVERIFY(lstrcpyA(lpstrDest, lpstrSrc) != NULL);
-		else
-			ATLASSERT(FALSE);
+        if(cchDest > (size_t)lstrlenA(lpstrSrc))
+            ATLVERIFY(lstrcpyA(lpstrDest, lpstrSrc) != NULL);
+        else
+            ATLASSERT(FALSE);
 #endif
-	}
+    }
 
-	inline void strcpyW_x(wchar_t* lpstrDest, size_t cchDest, const wchar_t* lpstrSrc)
-	{
+    inline void strcpyW_x(wchar_t* lpstrDest, size_t cchDest, const wchar_t* lpstrSrc)
+    {
 #if _SECURE_ATL
-		ATL::Checked::wcscpy_s(lpstrDest, cchDest, lpstrSrc);
+        ATL::Checked::wcscpy_s(lpstrDest, cchDest, lpstrSrc);
 #else
-		if(cchDest > (size_t)lstrlenW(lpstrSrc))
-			ATLVERIFY(lstrcpyW(lpstrDest, lpstrSrc) != NULL);
-		else
-			ATLASSERT(FALSE);
+        if(cchDest > (size_t)lstrlenW(lpstrSrc))
+            ATLVERIFY(lstrcpyW(lpstrDest, lpstrSrc) != NULL);
+        else
+            ATLASSERT(FALSE);
 #endif
-	}
+    }
 
-	inline void strcpy_x(LPTSTR lpstrDest, size_t cchDest, LPCTSTR lpstrSrc)
-	{
+    inline void strcpy_x(LPTSTR lpstrDest, size_t cchDest, LPCTSTR lpstrSrc)
+    {
 #ifdef _UNICODE
-		strcpyW_x(lpstrDest, cchDest, lpstrSrc);
+        strcpyW_x(lpstrDest, cchDest, lpstrSrc);
 #else
-		strcpyA_x(lpstrDest, cchDest, lpstrSrc);
+        strcpyA_x(lpstrDest, cchDest, lpstrSrc);
 #endif
-	}
+    }
 
-	inline errno_t strncpyA_x(char* lpstrDest, size_t cchDest, const char* lpstrSrc, size_t cchCount)
-	{
+    inline errno_t strncpyA_x(char* lpstrDest, size_t cchDest, const char* lpstrSrc, size_t cchCount)
+    {
 #if _SECURE_ATL
-		return ATL::Checked::strncpy_s(lpstrDest, cchDest, lpstrSrc, cchCount);
+        return ATL::Checked::strncpy_s(lpstrDest, cchDest, lpstrSrc, cchCount);
 #else
-		errno_t nRet = 0;
-		if(lpstrDest == NULL || cchDest == 0 || lpstrSrc == NULL)
-		{
-			nRet = EINVAL;
-		}
-		else if(cchCount == _TRUNCATE)
-		{
-			cchCount = min(cchDest - 1, size_t(lstrlenA(lpstrSrc)));
-			nRet = STRUNCATE;
-		}
-		else if(cchDest <= cchCount)
-		{
-			lpstrDest[0] = 0;
-			nRet = EINVAL;
-		}
-		if(nRet == 0 || nRet == STRUNCATE)
-			nRet = (lstrcpynA(lpstrDest, lpstrSrc, (int)cchCount + 1) != NULL) ? nRet : EINVAL;
-		ATLASSERT(nRet == 0 || nRet == STRUNCATE);
-		return nRet;
+        errno_t nRet = 0;
+        if(lpstrDest == NULL || cchDest == 0 || lpstrSrc == NULL)
+        {
+            nRet = EINVAL;
+        }
+        else if(cchCount == _TRUNCATE)
+        {
+            cchCount = min(cchDest - 1, size_t(lstrlenA(lpstrSrc)));
+            nRet = STRUNCATE;
+        }
+        else if(cchDest <= cchCount)
+        {
+            lpstrDest[0] = 0;
+            nRet = EINVAL;
+        }
+        if(nRet == 0 || nRet == STRUNCATE)
+            nRet = (lstrcpynA(lpstrDest, lpstrSrc, (int)cchCount + 1) != NULL) ? nRet : EINVAL;
+        ATLASSERT(nRet == 0 || nRet == STRUNCATE);
+        return nRet;
 #endif
-	}
+    }
 
-	inline errno_t strncpyW_x(wchar_t* lpstrDest, size_t cchDest, const wchar_t* lpstrSrc, size_t cchCount)
-	{
+    inline errno_t strncpyW_x(wchar_t* lpstrDest, size_t cchDest, const wchar_t* lpstrSrc, size_t cchCount)
+    {
 #if _SECURE_ATL
-		return ATL::Checked::wcsncpy_s(lpstrDest, cchDest, lpstrSrc, cchCount);
+        return ATL::Checked::wcsncpy_s(lpstrDest, cchDest, lpstrSrc, cchCount);
 #else
-		errno_t nRet = 0;
-		if(lpstrDest == NULL || cchDest == 0 || lpstrSrc == NULL)
-		{
-			nRet = EINVAL;
-		}
-		else if(cchCount == _TRUNCATE)
-		{
-			cchCount = min(cchDest - 1, size_t(lstrlenW(lpstrSrc)));
-			nRet = STRUNCATE;
-		}
-		else if(cchDest <= cchCount)
-		{
-			lpstrDest[0] = 0;
-			nRet = EINVAL;
-		}
-		if(nRet == 0 || nRet == STRUNCATE)
-			nRet = (lstrcpynW(lpstrDest, lpstrSrc, (int)cchCount + 1) != NULL) ? nRet : EINVAL;
-		ATLASSERT(nRet == 0 || nRet == STRUNCATE);
-		return nRet;
+        errno_t nRet = 0;
+        if(lpstrDest == NULL || cchDest == 0 || lpstrSrc == NULL)
+        {
+            nRet = EINVAL;
+        }
+        else if(cchCount == _TRUNCATE)
+        {
+            cchCount = min(cchDest - 1, size_t(lstrlenW(lpstrSrc)));
+            nRet = STRUNCATE;
+        }
+        else if(cchDest <= cchCount)
+        {
+            lpstrDest[0] = 0;
+            nRet = EINVAL;
+        }
+        if(nRet == 0 || nRet == STRUNCATE)
+            nRet = (lstrcpynW(lpstrDest, lpstrSrc, (int)cchCount + 1) != NULL) ? nRet : EINVAL;
+        ATLASSERT(nRet == 0 || nRet == STRUNCATE);
+        return nRet;
 #endif
-	}
+    }
 
-	inline errno_t strncpy_x(LPTSTR lpstrDest, size_t cchDest, LPCTSTR lpstrSrc, size_t cchCount)
-	{
+    inline errno_t strncpy_x(LPTSTR lpstrDest, size_t cchDest, LPCTSTR lpstrSrc, size_t cchCount)
+    {
 #ifdef _UNICODE
-		return strncpyW_x(lpstrDest, cchDest, lpstrSrc, cchCount);
+        return strncpyW_x(lpstrDest, cchDest, lpstrSrc, cchCount);
 #else
-		return strncpyA_x(lpstrDest, cchDest, lpstrSrc, cchCount);
+        return strncpyA_x(lpstrDest, cchDest, lpstrSrc, cchCount);
 #endif
-	}
+    }
 
-	inline void strcatA_x(char* lpstrDest, size_t cchDest, const char* lpstrSrc)
-	{
+    inline void strcatA_x(char* lpstrDest, size_t cchDest, const char* lpstrSrc)
+    {
 #if _SECURE_ATL
-		ATL::Checked::strcat_s(lpstrDest, cchDest, lpstrSrc);
+        ATL::Checked::strcat_s(lpstrDest, cchDest, lpstrSrc);
 #else
-		if(cchDest > (size_t)lstrlenA(lpstrSrc))
-			ATLVERIFY(lstrcatA(lpstrDest, lpstrSrc) != NULL);
-		else
-			ATLASSERT(FALSE);
+        if(cchDest > (size_t)lstrlenA(lpstrSrc))
+            ATLVERIFY(lstrcatA(lpstrDest, lpstrSrc) != NULL);
+        else
+            ATLASSERT(FALSE);
 #endif
-	}
+    }
 
-	inline void strcatW_x(wchar_t* lpstrDest, size_t cchDest, const wchar_t* lpstrSrc)
-	{
+    inline void strcatW_x(wchar_t* lpstrDest, size_t cchDest, const wchar_t* lpstrSrc)
+    {
 #if _SECURE_ATL
-		ATL::Checked::wcscat_s(lpstrDest, cchDest, lpstrSrc);
+        ATL::Checked::wcscat_s(lpstrDest, cchDest, lpstrSrc);
 #else
-		if(cchDest > (size_t)lstrlenW(lpstrSrc))
-			ATLVERIFY(lstrcatW(lpstrDest, lpstrSrc) != NULL);
-		else
-			ATLASSERT(FALSE);
+        if(cchDest > (size_t)lstrlenW(lpstrSrc))
+            ATLVERIFY(lstrcatW(lpstrDest, lpstrSrc) != NULL);
+        else
+            ATLASSERT(FALSE);
 #endif
-	}
+    }
 
-	inline void strcat_x(LPTSTR lpstrDest, size_t cchDest, LPCTSTR lpstrSrc)
-	{
+    inline void strcat_x(LPTSTR lpstrDest, size_t cchDest, LPCTSTR lpstrSrc)
+    {
 #ifdef _UNICODE
-		strcatW_x(lpstrDest, cchDest, lpstrSrc);
+        strcatW_x(lpstrDest, cchDest, lpstrSrc);
 #else
-		strcatA_x(lpstrDest, cchDest, lpstrSrc);
+        strcatA_x(lpstrDest, cchDest, lpstrSrc);
 #endif
-	}
+    }
 
-	inline void memcpy_x(void* pDest, size_t cbDest, const void* pSrc, size_t cbSrc)
-	{
+    inline void memcpy_x(void* pDest, size_t cbDest, const void* pSrc, size_t cbSrc)
+    {
 #if _SECURE_ATL
-		ATL::Checked::memcpy_s(pDest, cbDest, pSrc, cbSrc);
+        ATL::Checked::memcpy_s(pDest, cbDest, pSrc, cbSrc);
 #else
-		if(cbDest >= cbSrc)
-			memcpy(pDest, pSrc, cbSrc);
-		else
-			ATLASSERT(FALSE);
+        if(cbDest >= cbSrc)
+            memcpy(pDest, pSrc, cbSrc);
+        else
+            ATLASSERT(FALSE);
 #endif
-	}
+    }
 
-	inline void memmove_x(void* pDest, size_t cbDest, const void* pSrc, size_t cbSrc)
-	{
+    inline void memmove_x(void* pDest, size_t cbDest, const void* pSrc, size_t cbSrc)
+    {
 #if _SECURE_ATL
-		ATL::Checked::memmove_s(pDest, cbDest, pSrc, cbSrc);
+        ATL::Checked::memmove_s(pDest, cbDest, pSrc, cbSrc);
 #else
-		if(cbDest >= cbSrc)
-			memmove(pDest, pSrc, cbSrc);
-		else
-			ATLASSERT(FALSE);
+        if(cbDest >= cbSrc)
+            memmove(pDest, pSrc, cbSrc);
+        else
+            ATLASSERT(FALSE);
 #endif
-	}
+    }
 
-	inline int vsprintf_x(LPTSTR lpstrBuff, size_t cchBuff, LPCTSTR lpstrFormat, va_list args)
-	{
+    inline int vsprintf_x(LPTSTR lpstrBuff, size_t cchBuff, LPCTSTR lpstrFormat, va_list args)
+    {
 #if _SECURE_ATL && !defined(_ATL_MIN_CRT) && !defined(_WIN32_WCE)
-		return _vstprintf_s(lpstrBuff, cchBuff, lpstrFormat, args);
+        return _vstprintf_s(lpstrBuff, cchBuff, lpstrFormat, args);
 #else
-		cchBuff;   // Avoid unused argument warning
+        cchBuff;   // Avoid unused argument warning
 #pragma warning(disable: 4996)
-		return _vstprintf(lpstrBuff, lpstrFormat, args);
+        return _vstprintf(lpstrBuff, lpstrFormat, args);
 #pragma warning(default: 4996)
 #endif
-	}
+    }
 
-	inline int wvsprintf_x(LPTSTR lpstrBuff, size_t cchBuff, LPCTSTR lpstrFormat, va_list args)
-	{
+    inline int wvsprintf_x(LPTSTR lpstrBuff, size_t cchBuff, LPCTSTR lpstrFormat, va_list args)
+    {
 #if _SECURE_ATL && !defined(_ATL_MIN_CRT) && !defined(_WIN32_WCE)
-		return _vstprintf_s(lpstrBuff, cchBuff, lpstrFormat, args);
+        return _vstprintf_s(lpstrBuff, cchBuff, lpstrFormat, args);
 #else
-		cchBuff;   // Avoid unused argument warning
-		return ::wvsprintf(lpstrBuff, lpstrFormat, args);
+        cchBuff;   // Avoid unused argument warning
+        return ::wvsprintf(lpstrBuff, lpstrFormat, args);
 #endif
-	}
+    }
 
-	inline int sprintf_x(LPTSTR lpstrBuff, size_t cchBuff, LPCTSTR lpstrFormat, ...)
-	{
-		va_list args;
-		va_start(args, lpstrFormat);
-		int nRes = vsprintf_x(lpstrBuff, cchBuff, lpstrFormat, args);
-		va_end(args);
-		return nRes;
-	}
+    inline int sprintf_x(LPTSTR lpstrBuff, size_t cchBuff, LPCTSTR lpstrFormat, ...)
+    {
+        va_list args;
+        va_start(args, lpstrFormat);
+        int nRes = vsprintf_x(lpstrBuff, cchBuff, lpstrFormat, args);
+        va_end(args);
+        return nRes;
+    }
 
-	inline int wsprintf_x(LPTSTR lpstrBuff, size_t cchBuff, LPCTSTR lpstrFormat, ...)
-	{
-		va_list args;
-		va_start(args, lpstrFormat);
-		int nRes = wvsprintf_x(lpstrBuff, cchBuff, lpstrFormat, args);
-		va_end(args);
-		return nRes;
-	}
+    inline int wsprintf_x(LPTSTR lpstrBuff, size_t cchBuff, LPCTSTR lpstrFormat, ...)
+    {
+        va_list args;
+        va_start(args, lpstrFormat);
+        int nRes = wvsprintf_x(lpstrBuff, cchBuff, lpstrFormat, args);
+        va_end(args);
+        return nRes;
+    }
 }; // namespace SecureHelper
 
 
@@ -890,7 +890,7 @@ namespace SecureHelper
 class CMessageFilter
 {
 public:
-	virtual BOOL PreTranslateMessage(MSG* pMsg) = 0;
+    virtual BOOL PreTranslateMessage(MSG* pMsg) = 0;
 };
 
 
@@ -900,7 +900,7 @@ public:
 class CIdleHandler
 {
 public:
-	virtual BOOL OnIdle() = 0;
+    virtual BOOL OnIdle() = 0;
 };
 
 #ifndef _ATL_NO_OLD_NAMES
@@ -916,133 +916,133 @@ public:
 class CMessageLoop
 {
 public:
-	ATL::CSimpleArray<CMessageFilter*> m_aMsgFilter;
-	ATL::CSimpleArray<CIdleHandler*> m_aIdleHandler;
-	MSG m_msg;
+    ATL::CSimpleArray<CMessageFilter*> m_aMsgFilter;
+    ATL::CSimpleArray<CIdleHandler*> m_aIdleHandler;
+    MSG m_msg;
 
 // Message filter operations
-	BOOL AddMessageFilter(CMessageFilter* pMessageFilter)
-	{
-		return m_aMsgFilter.Add(pMessageFilter);
-	}
+    BOOL AddMessageFilter(CMessageFilter* pMessageFilter)
+    {
+        return m_aMsgFilter.Add(pMessageFilter);
+    }
 
-	BOOL RemoveMessageFilter(CMessageFilter* pMessageFilter)
-	{
-		return m_aMsgFilter.Remove(pMessageFilter);
-	}
+    BOOL RemoveMessageFilter(CMessageFilter* pMessageFilter)
+    {
+        return m_aMsgFilter.Remove(pMessageFilter);
+    }
 
 // Idle handler operations
-	BOOL AddIdleHandler(CIdleHandler* pIdleHandler)
-	{
-		return m_aIdleHandler.Add(pIdleHandler);
-	}
+    BOOL AddIdleHandler(CIdleHandler* pIdleHandler)
+    {
+        return m_aIdleHandler.Add(pIdleHandler);
+    }
 
-	BOOL RemoveIdleHandler(CIdleHandler* pIdleHandler)
-	{
-		return m_aIdleHandler.Remove(pIdleHandler);
-	}
+    BOOL RemoveIdleHandler(CIdleHandler* pIdleHandler)
+    {
+        return m_aIdleHandler.Remove(pIdleHandler);
+    }
 
 #ifndef _ATL_NO_OLD_NAMES
-	// for compatilibility with old names only
-	BOOL AddUpdateUI(CIdleHandler* pIdleHandler)
-	{
-		ATLTRACE2(atlTraceUI, 0, _T("CUpdateUIObject and AddUpdateUI are deprecated. Please change your code to use CIdleHandler and OnIdle\n"));
-		return AddIdleHandler(pIdleHandler);
-	}
+    // for compatilibility with old names only
+    BOOL AddUpdateUI(CIdleHandler* pIdleHandler)
+    {
+        ATLTRACE2(atlTraceUI, 0, _T("CUpdateUIObject and AddUpdateUI are deprecated. Please change your code to use CIdleHandler and OnIdle\n"));
+        return AddIdleHandler(pIdleHandler);
+    }
 
-	BOOL RemoveUpdateUI(CIdleHandler* pIdleHandler)
-	{
-		ATLTRACE2(atlTraceUI, 0, _T("CUpdateUIObject and RemoveUpdateUI are deprecated. Please change your code to use CIdleHandler and OnIdle\n"));
-		return RemoveIdleHandler(pIdleHandler);
-	}
+    BOOL RemoveUpdateUI(CIdleHandler* pIdleHandler)
+    {
+        ATLTRACE2(atlTraceUI, 0, _T("CUpdateUIObject and RemoveUpdateUI are deprecated. Please change your code to use CIdleHandler and OnIdle\n"));
+        return RemoveIdleHandler(pIdleHandler);
+    }
 #endif // !_ATL_NO_OLD_NAMES
 
 // message loop
-	int Run()
-	{
-		BOOL bDoIdle = TRUE;
-		int nIdleCount = 0;
-		BOOL bRet;
+    int Run()
+    {
+        BOOL bDoIdle = TRUE;
+        int nIdleCount = 0;
+        BOOL bRet;
 
-		for(;;)
-		{
-			while(bDoIdle && !::PeekMessage(&m_msg, NULL, 0, 0, PM_NOREMOVE))
-			{
-				if(!OnIdle(nIdleCount++))
-					bDoIdle = FALSE;
-			}
+        for(;;)
+        {
+            while(bDoIdle && !::PeekMessage(&m_msg, NULL, 0, 0, PM_NOREMOVE))
+            {
+                if(!OnIdle(nIdleCount++))
+                    bDoIdle = FALSE;
+            }
 
-			bRet = ::GetMessage(&m_msg, NULL, 0, 0);
+            bRet = ::GetMessage(&m_msg, NULL, 0, 0);
 
-			if(bRet == -1)
-			{
-				ATLTRACE2(atlTraceUI, 0, _T("::GetMessage returned -1 (error)\n"));
-				continue;   // error, don't process
-			}
-			else if(!bRet)
-			{
-				ATLTRACE2(atlTraceUI, 0, _T("CMessageLoop::Run - exiting\n"));
-				break;   // WM_QUIT, exit message loop
-			}
+            if(bRet == -1)
+            {
+                ATLTRACE2(atlTraceUI, 0, _T("::GetMessage returned -1 (error)\n"));
+                continue;   // error, don't process
+            }
+            else if(!bRet)
+            {
+                ATLTRACE2(atlTraceUI, 0, _T("CMessageLoop::Run - exiting\n"));
+                break;   // WM_QUIT, exit message loop
+            }
 
-			if(!PreTranslateMessage(&m_msg))
-			{
-				::TranslateMessage(&m_msg);
-				::DispatchMessage(&m_msg);
-			}
+            if(!PreTranslateMessage(&m_msg))
+            {
+                ::TranslateMessage(&m_msg);
+                ::DispatchMessage(&m_msg);
+            }
 
-			if(IsIdleMessage(&m_msg))
-			{
-				bDoIdle = TRUE;
-				nIdleCount = 0;
-			}
-		}
+            if(IsIdleMessage(&m_msg))
+            {
+                bDoIdle = TRUE;
+                nIdleCount = 0;
+            }
+        }
 
-		return (int)m_msg.wParam;
-	}
+        return (int)m_msg.wParam;
+    }
 
-	static BOOL IsIdleMessage(MSG* pMsg)
-	{
-		// These messages should NOT cause idle processing
-		switch(pMsg->message)
-		{
-		case WM_MOUSEMOVE:
+    static BOOL IsIdleMessage(MSG* pMsg)
+    {
+        // These messages should NOT cause idle processing
+        switch(pMsg->message)
+        {
+        case WM_MOUSEMOVE:
 #ifndef _WIN32_WCE
-		case WM_NCMOUSEMOVE:
+        case WM_NCMOUSEMOVE:
 #endif // !_WIN32_WCE
-		case WM_PAINT:
-		case 0x0118:	// WM_SYSTIMER (caret blink)
-			return FALSE;
-		}
+        case WM_PAINT:
+        case 0x0118:    // WM_SYSTIMER (caret blink)
+            return FALSE;
+        }
 
-		return TRUE;
-	}
+        return TRUE;
+    }
 
 // Overrideables
-	// Override to change message filtering
-	virtual BOOL PreTranslateMessage(MSG* pMsg)
-	{
-		// loop backwards
-		for(int i = m_aMsgFilter.GetSize() - 1; i >= 0; i--)
-		{
-			CMessageFilter* pMessageFilter = m_aMsgFilter[i];
-			if(pMessageFilter != NULL && pMessageFilter->PreTranslateMessage(pMsg))
-				return TRUE;
-		}
-		return FALSE;   // not translated
-	}
+    // Override to change message filtering
+    virtual BOOL PreTranslateMessage(MSG* pMsg)
+    {
+        // loop backwards
+        for(int i = m_aMsgFilter.GetSize() - 1; i >= 0; i--)
+        {
+            CMessageFilter* pMessageFilter = m_aMsgFilter[i];
+            if(pMessageFilter != NULL && pMessageFilter->PreTranslateMessage(pMsg))
+                return TRUE;
+        }
+        return FALSE;   // not translated
+    }
 
-	// override to change idle processing
-	virtual BOOL OnIdle(int /*nIdleCount*/)
-	{
-		for(int i = 0; i < m_aIdleHandler.GetSize(); i++)
-		{
-			CIdleHandler* pIdleHandler = m_aIdleHandler[i];
-			if(pIdleHandler != NULL)
-				pIdleHandler->OnIdle();
-		}
-		return FALSE;   // don't continue
-	}
+    // override to change idle processing
+    virtual BOOL OnIdle(int /*nIdleCount*/)
+    {
+        for(int i = 0; i < m_aIdleHandler.GetSize(); i++)
+        {
+            CIdleHandler* pIdleHandler = m_aIdleHandler[i];
+            if(pIdleHandler != NULL)
+                pIdleHandler->OnIdle();
+        }
+        return FALSE;   // don't continue
+    }
 };
 
 
@@ -1054,30 +1054,30 @@ class CStaticDataInitCriticalSectionLock
 {
 public:
 #if (_ATL_VER >= 0x0700)
-	ATL::CComCritSecLock<ATL::CComCriticalSection> m_cslock;
+    ATL::CComCritSecLock<ATL::CComCriticalSection> m_cslock;
 
-	CStaticDataInitCriticalSectionLock() : m_cslock(ATL::_pAtlModule->m_csStaticDataInitAndTypeInfo, false)
-	{ }
+    CStaticDataInitCriticalSectionLock() : m_cslock(ATL::_pAtlModule->m_csStaticDataInitAndTypeInfo, false)
+    { }
 #endif // (_ATL_VER >= 0x0700)
 
-	HRESULT Lock()
-	{
+    HRESULT Lock()
+    {
 #if (_ATL_VER >= 0x0700)
-		return m_cslock.Lock();
+        return m_cslock.Lock();
 #else // !(_ATL_VER >= 0x0700)
-		::EnterCriticalSection(&ATL::_pModule->m_csStaticDataInit);
-		return S_OK;
+        ::EnterCriticalSection(&ATL::_pModule->m_csStaticDataInit);
+        return S_OK;
 #endif // !(_ATL_VER >= 0x0700)
-	}
+    }
 
-	void Unlock()
-	{
+    void Unlock()
+    {
 #if (_ATL_VER >= 0x0700)
-		m_cslock.Unlock();
+        m_cslock.Unlock();
 #else // !(_ATL_VER >= 0x0700)
-		::LeaveCriticalSection(&ATL::_pModule->m_csStaticDataInit);
+        ::LeaveCriticalSection(&ATL::_pModule->m_csStaticDataInit);
 #endif // !(_ATL_VER >= 0x0700)
-	}
+    }
 };
 
 
@@ -1085,30 +1085,30 @@ class CWindowCreateCriticalSectionLock
 {
 public:
 #if (_ATL_VER >= 0x0700)
-	ATL::CComCritSecLock<ATL::CComCriticalSection> m_cslock;
+    ATL::CComCritSecLock<ATL::CComCriticalSection> m_cslock;
 
-	CWindowCreateCriticalSectionLock() : m_cslock(ATL::_AtlWinModule.m_csWindowCreate, false)
-	{ }
+    CWindowCreateCriticalSectionLock() : m_cslock(ATL::_AtlWinModule.m_csWindowCreate, false)
+    { }
 #endif // (_ATL_VER >= 0x0700)
 
-	HRESULT Lock()
-	{
+    HRESULT Lock()
+    {
 #if (_ATL_VER >= 0x0700)
-		return m_cslock.Lock();
+        return m_cslock.Lock();
 #else // !(_ATL_VER >= 0x0700)
-		::EnterCriticalSection(&ATL::_pModule->m_csWindowCreate);
-		return S_OK;
+        ::EnterCriticalSection(&ATL::_pModule->m_csWindowCreate);
+        return S_OK;
 #endif // !(_ATL_VER >= 0x0700)
-	}
+    }
 
-	void Unlock()
-	{
+    void Unlock()
+    {
 #if (_ATL_VER >= 0x0700)
-		m_cslock.Unlock();
+        m_cslock.Unlock();
 #else // !(_ATL_VER >= 0x0700)
-		::LeaveCriticalSection(&ATL::_pModule->m_csWindowCreate);
+        ::LeaveCriticalSection(&ATL::_pModule->m_csWindowCreate);
 #endif // !(_ATL_VER >= 0x0700)
-	}
+    }
 };
 
 
@@ -1126,7 +1126,7 @@ using ATL::CTempBuffer;
 #else // !(_ATL_VER >= 0x0700)
 
 #ifndef SIZE_MAX
-  #ifdef _WIN64 
+  #ifdef _WIN64
     #define SIZE_MAX _UI64_MAX
   #else
     #define SIZE_MAX UINT_MAX
@@ -1139,52 +1139,52 @@ template<typename T, int t_nFixedBytes = 128>
 class CTempBuffer
 {
 public:
-	CTempBuffer() : m_p(NULL)
-	{
-	}
+    CTempBuffer() : m_p(NULL)
+    {
+    }
 
-	CTempBuffer(size_t nElements) : m_p(NULL)
-	{
-		Allocate(nElements);
-	}
+    CTempBuffer(size_t nElements) : m_p(NULL)
+    {
+        Allocate(nElements);
+    }
 
-	~CTempBuffer()
-	{
-		if(m_p != reinterpret_cast<T*>(m_abFixedBuffer))
-			free(m_p);
-	}
+    ~CTempBuffer()
+    {
+        if(m_p != reinterpret_cast<T*>(m_abFixedBuffer))
+            free(m_p);
+    }
 
-	operator T*() const
-	{
-		return m_p;
-	}
+    operator T*() const
+    {
+        return m_p;
+    }
 
-	T* operator ->() const
-	{
-		ATLASSERT(m_p != NULL);
-		return m_p;
-	}
+    T* operator ->() const
+    {
+        ATLASSERT(m_p != NULL);
+        return m_p;
+    }
 
-	T* Allocate(size_t nElements)
-	{
-		ATLASSERT(nElements <= (SIZE_MAX / sizeof(T)));
-		return AllocateBytes(nElements * sizeof(T));
-	}
+    T* Allocate(size_t nElements)
+    {
+        ATLASSERT(nElements <= (SIZE_MAX / sizeof(T)));
+        return AllocateBytes(nElements * sizeof(T));
+    }
 
-	T* AllocateBytes(size_t nBytes)
-	{
-		ATLASSERT(m_p == NULL);
-		if(nBytes > t_nFixedBytes)
-			m_p = static_cast<T*>(malloc(nBytes));
-		else
-			m_p = reinterpret_cast<T*>(m_abFixedBuffer);
+    T* AllocateBytes(size_t nBytes)
+    {
+        ATLASSERT(m_p == NULL);
+        if(nBytes > t_nFixedBytes)
+            m_p = static_cast<T*>(malloc(nBytes));
+        else
+            m_p = reinterpret_cast<T*>(m_abFixedBuffer);
 
-		return m_p;
-	}
+        return m_p;
+    }
 
 private:
-	T* m_p;
-	BYTE m_abFixedBuffer[t_nFixedBytes];
+    T* m_p;
+    BYTE m_abFixedBuffer[t_nFixedBytes];
 };
 
 #pragma warning(default: 4284)
@@ -1198,237 +1198,237 @@ private:
 class CAppModule : public ATL::CComModule
 {
 public:
-	DWORD m_dwMainThreadID;
-	ATL::CSimpleMap<DWORD, CMessageLoop*>* m_pMsgLoopMap;
-	ATL::CSimpleArray<HWND>* m_pSettingChangeNotify;
+    DWORD m_dwMainThreadID;
+    ATL::CSimpleMap<DWORD, CMessageLoop*>* m_pMsgLoopMap;
+    ATL::CSimpleArray<HWND>* m_pSettingChangeNotify;
 
 // Overrides of CComModule::Init and Term
-	HRESULT Init(ATL::_ATL_OBJMAP_ENTRY* pObjMap, HINSTANCE hInstance, const GUID* pLibID = NULL)
-	{
-		HRESULT hRet = CComModule::Init(pObjMap, hInstance, pLibID);
-		if(FAILED(hRet))
-			return hRet;
+    HRESULT Init(ATL::_ATL_OBJMAP_ENTRY* pObjMap, HINSTANCE hInstance, const GUID* pLibID = NULL)
+    {
+        HRESULT hRet = CComModule::Init(pObjMap, hInstance, pLibID);
+        if(FAILED(hRet))
+            return hRet;
 
-		m_dwMainThreadID = ::GetCurrentThreadId();
-		typedef ATL::CSimpleMap<DWORD, CMessageLoop*>   _mapClass;
-		m_pMsgLoopMap = NULL;
-		ATLTRY(m_pMsgLoopMap = new _mapClass);
-		if(m_pMsgLoopMap == NULL)
-			return E_OUTOFMEMORY;
-		m_pSettingChangeNotify = NULL;
+        m_dwMainThreadID = ::GetCurrentThreadId();
+        typedef ATL::CSimpleMap<DWORD, CMessageLoop*>   _mapClass;
+        m_pMsgLoopMap = NULL;
+        ATLTRY(m_pMsgLoopMap = new _mapClass);
+        if(m_pMsgLoopMap == NULL)
+            return E_OUTOFMEMORY;
+        m_pSettingChangeNotify = NULL;
 
-		return hRet;
-	}
+        return hRet;
+    }
 
-	void Term()
-	{
-		TermSettingChangeNotify();
-		delete m_pMsgLoopMap;
-		CComModule::Term();
-	}
+    void Term()
+    {
+        TermSettingChangeNotify();
+        delete m_pMsgLoopMap;
+        CComModule::Term();
+    }
 
 // Message loop map methods
-	BOOL AddMessageLoop(CMessageLoop* pMsgLoop)
-	{
-		CStaticDataInitCriticalSectionLock lock;
-		if(FAILED(lock.Lock()))
-		{
-			ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::AddMessageLoop.\n"));
-			ATLASSERT(FALSE);
-			return FALSE;
-		}
+    BOOL AddMessageLoop(CMessageLoop* pMsgLoop)
+    {
+        CStaticDataInitCriticalSectionLock lock;
+        if(FAILED(lock.Lock()))
+        {
+            ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::AddMessageLoop.\n"));
+            ATLASSERT(FALSE);
+            return FALSE;
+        }
 
-		ATLASSERT(pMsgLoop != NULL);
-		ATLASSERT(m_pMsgLoopMap->Lookup(::GetCurrentThreadId()) == NULL);   // not in map yet
+        ATLASSERT(pMsgLoop != NULL);
+        ATLASSERT(m_pMsgLoopMap->Lookup(::GetCurrentThreadId()) == NULL);   // not in map yet
 
-		BOOL bRet = m_pMsgLoopMap->Add(::GetCurrentThreadId(), pMsgLoop);
+        BOOL bRet = m_pMsgLoopMap->Add(::GetCurrentThreadId(), pMsgLoop);
 
-		lock.Unlock();
+        lock.Unlock();
 
-		return bRet;
-	}
+        return bRet;
+    }
 
-	BOOL RemoveMessageLoop()
-	{
-		CStaticDataInitCriticalSectionLock lock;
-		if(FAILED(lock.Lock()))
-		{
-			ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::RemoveMessageLoop.\n"));
-			ATLASSERT(FALSE);
-			return FALSE;
-		}
+    BOOL RemoveMessageLoop()
+    {
+        CStaticDataInitCriticalSectionLock lock;
+        if(FAILED(lock.Lock()))
+        {
+            ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::RemoveMessageLoop.\n"));
+            ATLASSERT(FALSE);
+            return FALSE;
+        }
 
-		BOOL bRet = m_pMsgLoopMap->Remove(::GetCurrentThreadId());
+        BOOL bRet = m_pMsgLoopMap->Remove(::GetCurrentThreadId());
 
-		lock.Unlock();
+        lock.Unlock();
 
-		return bRet;
-	}
+        return bRet;
+    }
 
-	CMessageLoop* GetMessageLoop(DWORD dwThreadID = ::GetCurrentThreadId()) const
-	{
-		CStaticDataInitCriticalSectionLock lock;
-		if(FAILED(lock.Lock()))
-		{
-			ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::GetMessageLoop.\n"));
-			ATLASSERT(FALSE);
-			return NULL;
-		}
+    CMessageLoop* GetMessageLoop(DWORD dwThreadID = ::GetCurrentThreadId()) const
+    {
+        CStaticDataInitCriticalSectionLock lock;
+        if(FAILED(lock.Lock()))
+        {
+            ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::GetMessageLoop.\n"));
+            ATLASSERT(FALSE);
+            return NULL;
+        }
 
-		CMessageLoop* pLoop =  m_pMsgLoopMap->Lookup(dwThreadID);
+        CMessageLoop* pLoop =  m_pMsgLoopMap->Lookup(dwThreadID);
 
-		lock.Unlock();
+        lock.Unlock();
 
-		return pLoop;
-	}
+        return pLoop;
+    }
 
 // Setting change notify methods
-	// Note: Call this from the main thread for MSDI apps
-	BOOL InitSettingChangeNotify(DLGPROC pfnDlgProc = _SettingChangeDlgProc)
-	{
-		CStaticDataInitCriticalSectionLock lock;
-		if(FAILED(lock.Lock()))
-		{
-			ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::InitSettingChangeNotify.\n"));
-			ATLASSERT(FALSE);
-			return FALSE;
-		}
+    // Note: Call this from the main thread for MSDI apps
+    BOOL InitSettingChangeNotify(DLGPROC pfnDlgProc = _SettingChangeDlgProc)
+    {
+        CStaticDataInitCriticalSectionLock lock;
+        if(FAILED(lock.Lock()))
+        {
+            ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::InitSettingChangeNotify.\n"));
+            ATLASSERT(FALSE);
+            return FALSE;
+        }
 
-		if(m_pSettingChangeNotify == NULL)
-		{
-			typedef ATL::CSimpleArray<HWND>   _notifyClass;
-			ATLTRY(m_pSettingChangeNotify = new _notifyClass);
-			ATLASSERT(m_pSettingChangeNotify != NULL);
-		}
+        if(m_pSettingChangeNotify == NULL)
+        {
+            typedef ATL::CSimpleArray<HWND>   _notifyClass;
+            ATLTRY(m_pSettingChangeNotify = new _notifyClass);
+            ATLASSERT(m_pSettingChangeNotify != NULL);
+        }
 
-		BOOL bRet = (m_pSettingChangeNotify != NULL);
-		if(bRet && m_pSettingChangeNotify->GetSize() == 0)
-		{
-			// init everything
-			_ATL_EMPTY_DLGTEMPLATE templ;
-			HWND hNtfWnd = ::CreateDialogIndirect(GetModuleInstance(), &templ, NULL, pfnDlgProc);
-			ATLASSERT(::IsWindow(hNtfWnd));
-			if(::IsWindow(hNtfWnd))
-			{
+        BOOL bRet = (m_pSettingChangeNotify != NULL);
+        if(bRet && m_pSettingChangeNotify->GetSize() == 0)
+        {
+            // init everything
+            _ATL_EMPTY_DLGTEMPLATE templ;
+            HWND hNtfWnd = ::CreateDialogIndirect(GetModuleInstance(), &templ, NULL, pfnDlgProc);
+            ATLASSERT(::IsWindow(hNtfWnd));
+            if(::IsWindow(hNtfWnd))
+            {
 // need conditional code because types don't match in winuser.h
 #ifdef _WIN64
-				::SetWindowLongPtr(hNtfWnd, GWLP_USERDATA, (LONG_PTR)this);
+                ::SetWindowLongPtr(hNtfWnd, GWLP_USERDATA, (LONG_PTR)this);
 #else
-				::SetWindowLongPtr(hNtfWnd, GWLP_USERDATA, PtrToLong(this));
+                ::SetWindowLongPtr(hNtfWnd, GWLP_USERDATA, PtrToLong(this));
 #endif
-				bRet = m_pSettingChangeNotify->Add(hNtfWnd);
-			}
-			else
-			{
-				bRet = FALSE;
-			}
-		}
+                bRet = m_pSettingChangeNotify->Add(hNtfWnd);
+            }
+            else
+            {
+                bRet = FALSE;
+            }
+        }
 
-		lock.Unlock();
+        lock.Unlock();
 
-		return bRet;
-	}
+        return bRet;
+    }
 
-	void TermSettingChangeNotify()
-	{
-		CStaticDataInitCriticalSectionLock lock;
-		if(FAILED(lock.Lock()))
-		{
-			ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::TermSettingChangeNotify.\n"));
-			ATLASSERT(FALSE);
-			return;
-		}
+    void TermSettingChangeNotify()
+    {
+        CStaticDataInitCriticalSectionLock lock;
+        if(FAILED(lock.Lock()))
+        {
+            ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::TermSettingChangeNotify.\n"));
+            ATLASSERT(FALSE);
+            return;
+        }
 
-		if(m_pSettingChangeNotify != NULL && m_pSettingChangeNotify->GetSize() > 0)
-			::DestroyWindow((*m_pSettingChangeNotify)[0]);
-		delete m_pSettingChangeNotify;
-		m_pSettingChangeNotify = NULL;
+        if(m_pSettingChangeNotify != NULL && m_pSettingChangeNotify->GetSize() > 0)
+            ::DestroyWindow((*m_pSettingChangeNotify)[0]);
+        delete m_pSettingChangeNotify;
+        m_pSettingChangeNotify = NULL;
 
-		lock.Unlock();
-	}
+        lock.Unlock();
+    }
 
-	BOOL AddSettingChangeNotify(HWND hWnd)
-	{
-		CStaticDataInitCriticalSectionLock lock;
-		if(FAILED(lock.Lock()))
-		{
-			ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::AddSettingChangeNotify.\n"));
-			ATLASSERT(FALSE);
-			return FALSE;
-		}
+    BOOL AddSettingChangeNotify(HWND hWnd)
+    {
+        CStaticDataInitCriticalSectionLock lock;
+        if(FAILED(lock.Lock()))
+        {
+            ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::AddSettingChangeNotify.\n"));
+            ATLASSERT(FALSE);
+            return FALSE;
+        }
 
-		ATLASSERT(::IsWindow(hWnd));
-		BOOL bRet = FALSE;
-		if(InitSettingChangeNotify() != FALSE)
-			bRet = m_pSettingChangeNotify->Add(hWnd);
+        ATLASSERT(::IsWindow(hWnd));
+        BOOL bRet = FALSE;
+        if(InitSettingChangeNotify() != FALSE)
+            bRet = m_pSettingChangeNotify->Add(hWnd);
 
-		lock.Unlock();
+        lock.Unlock();
 
-		return bRet;
-	}
+        return bRet;
+    }
 
-	BOOL RemoveSettingChangeNotify(HWND hWnd)
-	{
-		CStaticDataInitCriticalSectionLock lock;
-		if(FAILED(lock.Lock()))
-		{
-			ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::RemoveSettingChangeNotify.\n"));
-			ATLASSERT(FALSE);
-			return FALSE;
-		}
+    BOOL RemoveSettingChangeNotify(HWND hWnd)
+    {
+        CStaticDataInitCriticalSectionLock lock;
+        if(FAILED(lock.Lock()))
+        {
+            ATLTRACE2(atlTraceUI, 0, _T("ERROR : Unable to lock critical section in CAppModule::RemoveSettingChangeNotify.\n"));
+            ATLASSERT(FALSE);
+            return FALSE;
+        }
 
-		BOOL bRet = FALSE;
-		if(m_pSettingChangeNotify != NULL)
-			bRet = m_pSettingChangeNotify->Remove(hWnd);
+        BOOL bRet = FALSE;
+        if(m_pSettingChangeNotify != NULL)
+            bRet = m_pSettingChangeNotify->Remove(hWnd);
 
-		lock.Unlock();
+        lock.Unlock();
 
-		return bRet;
-	}
+        return bRet;
+    }
 
 // Implementation - setting change notify dialog template and dialog procedure
-	struct _ATL_EMPTY_DLGTEMPLATE : DLGTEMPLATE
-	{
-		_ATL_EMPTY_DLGTEMPLATE()
-		{
-			memset(this, 0, sizeof(_ATL_EMPTY_DLGTEMPLATE));
-			style = WS_POPUP;
-		}
-		WORD wMenu, wClass, wTitle;
-	};
+    struct _ATL_EMPTY_DLGTEMPLATE : DLGTEMPLATE
+    {
+        _ATL_EMPTY_DLGTEMPLATE()
+        {
+            memset(this, 0, sizeof(_ATL_EMPTY_DLGTEMPLATE));
+            style = WS_POPUP;
+        }
+        WORD wMenu, wClass, wTitle;
+    };
 
 #ifdef _WIN64
-	static INT_PTR CALLBACK _SettingChangeDlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+    static INT_PTR CALLBACK _SettingChangeDlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 #else
-	static BOOL CALLBACK _SettingChangeDlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+    static BOOL CALLBACK _SettingChangeDlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 #endif
-	{
-		if(uMsg == WM_SETTINGCHANGE)
-		{
+    {
+        if(uMsg == WM_SETTINGCHANGE)
+        {
 // need conditional code because types don't match in winuser.h
 #ifdef _WIN64
-			CAppModule* pModule = (CAppModule*)::GetWindowLongPtr(hWnd, GWLP_USERDATA);
+            CAppModule* pModule = (CAppModule*)::GetWindowLongPtr(hWnd, GWLP_USERDATA);
 #else
-			CAppModule* pModule = (CAppModule*)LongToPtr(::GetWindowLongPtr(hWnd, GWLP_USERDATA));
+            CAppModule* pModule = (CAppModule*)LongToPtr(::GetWindowLongPtr(hWnd, GWLP_USERDATA));
 #endif
-			ATLASSERT(pModule != NULL);
-			ATLASSERT(pModule->m_pSettingChangeNotify != NULL);
-			const UINT uTimeout = 1500;   // ms
-			for(int i = 1; i < pModule->m_pSettingChangeNotify->GetSize(); i++)
-			{
+            ATLASSERT(pModule != NULL);
+            ATLASSERT(pModule->m_pSettingChangeNotify != NULL);
+            const UINT uTimeout = 1500;   // ms
+            for(int i = 1; i < pModule->m_pSettingChangeNotify->GetSize(); i++)
+            {
 #if !defined(_WIN32_WCE)
-				::SendMessageTimeout((*pModule->m_pSettingChangeNotify)[i], uMsg, wParam, lParam, SMTO_ABORTIFHUNG, uTimeout, NULL);
+                ::SendMessageTimeout((*pModule->m_pSettingChangeNotify)[i], uMsg, wParam, lParam, SMTO_ABORTIFHUNG, uTimeout, NULL);
 #elif(_WIN32_WCE >= 400) // CE specific
-				::SendMessageTimeout((*pModule->m_pSettingChangeNotify)[i], uMsg, wParam, lParam, SMTO_NORMAL, uTimeout, NULL);
+                ::SendMessageTimeout((*pModule->m_pSettingChangeNotify)[i], uMsg, wParam, lParam, SMTO_NORMAL, uTimeout, NULL);
 #else // _WIN32_WCE < 400 specific
-				uTimeout;
-				::SendMessage((*pModule->m_pSettingChangeNotify)[i], uMsg, wParam, lParam);
+                uTimeout;
+                ::SendMessage((*pModule->m_pSettingChangeNotify)[i], uMsg, wParam, lParam);
 #endif
-			}
-			return TRUE;
-		}
-		return FALSE;
-	}
+            }
+            return TRUE;
+        }
+        return FALSE;
+    }
 };
 
 
@@ -1438,108 +1438,108 @@ public:
 class CServerAppModule : public CAppModule
 {
 public:
-	HANDLE m_hEventShutdown;
-	bool m_bActivity;
-	DWORD m_dwTimeOut;
-	DWORD m_dwPause;
+    HANDLE m_hEventShutdown;
+    bool m_bActivity;
+    DWORD m_dwTimeOut;
+    DWORD m_dwPause;
 
 // Override of CAppModule::Init
-	HRESULT Init(ATL::_ATL_OBJMAP_ENTRY* pObjMap, HINSTANCE hInstance, const GUID* pLibID = NULL)
-	{
-		m_dwTimeOut = 5000;
-		m_dwPause = 1000;
-		return CAppModule::Init(pObjMap, hInstance, pLibID);
-	}
+    HRESULT Init(ATL::_ATL_OBJMAP_ENTRY* pObjMap, HINSTANCE hInstance, const GUID* pLibID = NULL)
+    {
+        m_dwTimeOut = 5000;
+        m_dwPause = 1000;
+        return CAppModule::Init(pObjMap, hInstance, pLibID);
+    }
 
-	void Term()
-	{
-		if(m_hEventShutdown != NULL && ::CloseHandle(m_hEventShutdown))
-			m_hEventShutdown = NULL;
-		CAppModule::Term();
-	}
+    void Term()
+    {
+        if(m_hEventShutdown != NULL && ::CloseHandle(m_hEventShutdown))
+            m_hEventShutdown = NULL;
+        CAppModule::Term();
+    }
 
 // COM Server methods
-	LONG Unlock()
-	{
-		LONG lRet = CComModule::Unlock();
-		if(lRet == 0)
-		{
-			m_bActivity = true;
-			::SetEvent(m_hEventShutdown); // tell monitor that we transitioned to zero
-		}
-		return lRet;
-	}
+    LONG Unlock()
+    {
+        LONG lRet = CComModule::Unlock();
+        if(lRet == 0)
+        {
+            m_bActivity = true;
+            ::SetEvent(m_hEventShutdown); // tell monitor that we transitioned to zero
+        }
+        return lRet;
+    }
 
-	void MonitorShutdown()
-	{
-		for(;;)
-		{
-			::WaitForSingleObject(m_hEventShutdown, INFINITE);
-			DWORD dwWait = 0;
-			do
-			{
-				m_bActivity = false;
-				dwWait = ::WaitForSingleObject(m_hEventShutdown, m_dwTimeOut);
-			}
-			while(dwWait == WAIT_OBJECT_0);
-			// timed out
-			if(!m_bActivity && m_nLockCnt == 0) // if no activity let's really bail
-			{
+    void MonitorShutdown()
+    {
+        for(;;)
+        {
+            ::WaitForSingleObject(m_hEventShutdown, INFINITE);
+            DWORD dwWait = 0;
+            do
+            {
+                m_bActivity = false;
+                dwWait = ::WaitForSingleObject(m_hEventShutdown, m_dwTimeOut);
+            }
+            while(dwWait == WAIT_OBJECT_0);
+            // timed out
+            if(!m_bActivity && m_nLockCnt == 0) // if no activity let's really bail
+            {
 #if ((_WIN32_WINNT >= 0x0400 ) || defined(_WIN32_DCOM)) && defined(_ATL_FREE_THREADED) && !defined(_WIN32_WCE)
-				::CoSuspendClassObjects();
-				if(!m_bActivity && m_nLockCnt == 0)
+                ::CoSuspendClassObjects();
+                if(!m_bActivity && m_nLockCnt == 0)
 #endif
-					break;
-			}
-		}
-		// This handle should be valid now. If it isn't, 
-		// check if _Module.Term was called first (it shouldn't)
-		if(::CloseHandle(m_hEventShutdown))
-			m_hEventShutdown = NULL;
-		::PostThreadMessage(m_dwMainThreadID, WM_QUIT, 0, 0);
-	}
+                    break;
+            }
+        }
+        // This handle should be valid now. If it isn't,
+        // check if _Module.Term was called first (it shouldn't)
+        if(::CloseHandle(m_hEventShutdown))
+            m_hEventShutdown = NULL;
+        ::PostThreadMessage(m_dwMainThreadID, WM_QUIT, 0, 0);
+    }
 
-	bool StartMonitor()
-	{
-		m_hEventShutdown = ::CreateEvent(NULL, false, false, NULL);
-		if(m_hEventShutdown == NULL)
-			return false;
-		DWORD dwThreadID = 0;
+    bool StartMonitor()
+    {
+        m_hEventShutdown = ::CreateEvent(NULL, false, false, NULL);
+        if(m_hEventShutdown == NULL)
+            return false;
+        DWORD dwThreadID = 0;
 #if !defined(_ATL_MIN_CRT) && defined(_MT) && !defined(_WIN32_WCE)
-		HANDLE hThread = (HANDLE)_beginthreadex(NULL, 0, (UINT (WINAPI*)(void*))MonitorProc, this, 0, (UINT*)&dwThreadID);
+        HANDLE hThread = (HANDLE)_beginthreadex(NULL, 0, (UINT (WINAPI*)(void*))MonitorProc, this, 0, (UINT*)&dwThreadID);
 #else
-		HANDLE hThread = ::CreateThread(NULL, 0, MonitorProc, this, 0, &dwThreadID);
+        HANDLE hThread = ::CreateThread(NULL, 0, MonitorProc, this, 0, &dwThreadID);
 #endif
-		bool bRet = (hThread != NULL);
-		if(bRet)
-			::CloseHandle(hThread);
-		return bRet;
-	}
+        bool bRet = (hThread != NULL);
+        if(bRet)
+            ::CloseHandle(hThread);
+        return bRet;
+    }
 
-	static DWORD WINAPI MonitorProc(void* pv)
-	{
-		CServerAppModule* p = (CServerAppModule*)pv;
-		p->MonitorShutdown();
-		return 0;
-	}
+    static DWORD WINAPI MonitorProc(void* pv)
+    {
+        CServerAppModule* p = (CServerAppModule*)pv;
+        p->MonitorShutdown();
+        return 0;
+    }
 
 #if (_ATL_VER < 0x0700)
-	// search for an occurence of string p2 in string p1
-	static LPCTSTR FindOneOf(LPCTSTR p1, LPCTSTR p2)
-	{
-		while(p1 != NULL && *p1 != NULL)
-		{
-			LPCTSTR p = p2;
-			while(p != NULL && *p != NULL)
-			{
-				if(*p1 == *p)
-					return ::CharNext(p1);
-				p = ::CharNext(p);
-			}
-			p1 = ::CharNext(p1);
-		}
-		return NULL;
-	}
+    // search for an occurence of string p2 in string p1
+    static LPCTSTR FindOneOf(LPCTSTR p1, LPCTSTR p2)
+    {
+        while(p1 != NULL && *p1 != NULL)
+        {
+            LPCTSTR p = p2;
+            while(p != NULL && *p != NULL)
+            {
+                if(*p1 == *p)
+                    return ::CharNext(p1);
+                p = ::CharNext(p);
+            }
+            p1 = ::CharNext(p1);
+        }
+        return NULL;
+    }
 #endif // (_ATL_VER < 0x0700)
 };
 
@@ -1558,9 +1558,9 @@ public:
 // CString namespace
 #ifndef _CSTRING_NS
   #ifdef __ATLSTR_H__
-    #define _CSTRING_NS	ATL
+    #define _CSTRING_NS ATL
   #else
-    #define _CSTRING_NS	WTL
+    #define _CSTRING_NS WTL
   #endif
 #endif // _CSTRING_NS
 
@@ -1569,7 +1569,7 @@ public:
   #ifdef __ATLTYPES_H__
     #define _WTYPES_NS
   #else
-    #define _WTYPES_NS	WTL
+    #define _WTYPES_NS  WTL
   #endif
 #endif // _WTYPES_NS
 
@@ -1586,26 +1586,26 @@ namespace ATL
 
 inline HRESULT AtlGetDllVersion(HINSTANCE hInstDLL, DLLVERSIONINFO* pDllVersionInfo)
 {
-	ATLASSERT(pDllVersionInfo != NULL);
-	if(pDllVersionInfo == NULL)
-		return E_INVALIDARG;
+    ATLASSERT(pDllVersionInfo != NULL);
+    if(pDllVersionInfo == NULL)
+        return E_INVALIDARG;
 
-	// We must get this function explicitly because some DLLs don't implement it.
-	DLLGETVERSIONPROC pfnDllGetVersion = (DLLGETVERSIONPROC)::GetProcAddress(hInstDLL, "DllGetVersion");
-	if(pfnDllGetVersion == NULL)
-		return E_NOTIMPL;
+    // We must get this function explicitly because some DLLs don't implement it.
+    DLLGETVERSIONPROC pfnDllGetVersion = (DLLGETVERSIONPROC)::GetProcAddress(hInstDLL, "DllGetVersion");
+    if(pfnDllGetVersion == NULL)
+        return E_NOTIMPL;
 
-	return (*pfnDllGetVersion)(pDllVersionInfo);
+    return (*pfnDllGetVersion)(pDllVersionInfo);
 }
 
 inline HRESULT AtlGetDllVersion(LPCTSTR lpstrDllName, DLLVERSIONINFO* pDllVersionInfo)
 {
-	HINSTANCE hInstDLL = ::LoadLibrary(lpstrDllName);
-	if(hInstDLL == NULL)
-		return E_FAIL;
-	HRESULT hRet = AtlGetDllVersion(hInstDLL, pDllVersionInfo);
-	::FreeLibrary(hInstDLL);
-	return hRet;
+    HINSTANCE hInstDLL = ::LoadLibrary(lpstrDllName);
+    if(hInstDLL == NULL)
+        return E_FAIL;
+    HRESULT hRet = AtlGetDllVersion(hInstDLL, pDllVersionInfo);
+    ::FreeLibrary(hInstDLL);
+    return hRet;
 }
 
 // Common Control Versions:
@@ -1614,30 +1614,30 @@ inline HRESULT AtlGetDllVersion(LPCTSTR lpstrDllName, DLLVERSIONINFO* pDllVersio
 //   IE 4.0     maj=4 min=71
 inline HRESULT AtlGetCommCtrlVersion(LPDWORD pdwMajor, LPDWORD pdwMinor)
 {
-	ATLASSERT(pdwMajor != NULL && pdwMinor != NULL);
-	if(pdwMajor == NULL || pdwMinor == NULL)
-		return E_INVALIDARG;
+    ATLASSERT(pdwMajor != NULL && pdwMinor != NULL);
+    if(pdwMajor == NULL || pdwMinor == NULL)
+        return E_INVALIDARG;
 
-	DLLVERSIONINFO dvi;
-	::ZeroMemory(&dvi, sizeof(dvi));
-	dvi.cbSize = sizeof(dvi);
-	HRESULT hRet = AtlGetDllVersion(_T("comctl32.dll"), &dvi);
+    DLLVERSIONINFO dvi;
+    ::ZeroMemory(&dvi, sizeof(dvi));
+    dvi.cbSize = sizeof(dvi);
+    HRESULT hRet = AtlGetDllVersion(_T("comctl32.dll"), &dvi);
 
-	if(SUCCEEDED(hRet))
-	{
-		*pdwMajor = dvi.dwMajorVersion;
-		*pdwMinor = dvi.dwMinorVersion;
-	}
-	else if(hRet == E_NOTIMPL)
-	{
-		// If DllGetVersion is not there, then the DLL is a version
-		// previous to the one shipped with IE 3.x
-		*pdwMajor = 4;
-		*pdwMinor = 0;
-		hRet = S_OK;
-	}
+    if(SUCCEEDED(hRet))
+    {
+        *pdwMajor = dvi.dwMajorVersion;
+        *pdwMinor = dvi.dwMinorVersion;
+    }
+    else if(hRet == E_NOTIMPL)
+    {
+        // If DllGetVersion is not there, then the DLL is a version
+        // previous to the one shipped with IE 3.x
+        *pdwMajor = 4;
+        *pdwMinor = 0;
+        hRet = S_OK;
+    }
 
-	return hRet;
+    return hRet;
 }
 
 // Shell Versions:
@@ -1647,30 +1647,30 @@ inline HRESULT AtlGetCommCtrlVersion(LPDWORD pdwMajor, LPDWORD pdwMinor)
 //   IE 4.01 with Web Integrated Desktop        maj=4 min=72
 inline HRESULT AtlGetShellVersion(LPDWORD pdwMajor, LPDWORD pdwMinor)
 {
-	ATLASSERT(pdwMajor != NULL && pdwMinor != NULL);
-	if(pdwMajor == NULL || pdwMinor == NULL)
-		return E_INVALIDARG;
+    ATLASSERT(pdwMajor != NULL && pdwMinor != NULL);
+    if(pdwMajor == NULL || pdwMinor == NULL)
+        return E_INVALIDARG;
 
-	DLLVERSIONINFO dvi;
-	::ZeroMemory(&dvi, sizeof(dvi));
-	dvi.cbSize = sizeof(dvi);
-	HRESULT hRet = AtlGetDllVersion(_T("shell32.dll"), &dvi);
+    DLLVERSIONINFO dvi;
+    ::ZeroMemory(&dvi, sizeof(dvi));
+    dvi.cbSize = sizeof(dvi);
+    HRESULT hRet = AtlGetDllVersion(_T("shell32.dll"), &dvi);
 
-	if(SUCCEEDED(hRet))
-	{
-		*pdwMajor = dvi.dwMajorVersion;
-		*pdwMinor = dvi.dwMinorVersion;
-	}
-	else if(hRet == E_NOTIMPL)
-	{
-		// If DllGetVersion is not there, then the DLL is a version
-		// previous to the one shipped with IE 4.x
-		*pdwMajor = 4;
-		*pdwMinor = 0;
-		hRet = S_OK;
-	}
+    if(SUCCEEDED(hRet))
+    {
+        *pdwMajor = dvi.dwMajorVersion;
+        *pdwMinor = dvi.dwMinorVersion;
+    }
+    else if(hRet == E_NOTIMPL)
+    {
+        // If DllGetVersion is not there, then the DLL is a version
+        // previous to the one shipped with IE 4.x
+        *pdwMajor = 4;
+        *pdwMinor = 0;
+        hRet = S_OK;
+    }
 
-	return hRet;
+    return hRet;
 }
 
 }; // namespace ATL

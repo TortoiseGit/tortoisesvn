@@ -15,7 +15,7 @@
 #pragma once
 
 #if defined(_WIN32_WCE) && !defined(__ATLRESCE_H__)
-	#error Use atlresCE.h instead of atlres.h for Windows CE
+    #error Use atlresCE.h instead of atlres.h for Windows CE
 #endif
 
 
@@ -165,7 +165,7 @@
   #define ATL_IDM_LAST_MDICHILD         0xFFFD
 #endif // !RC_INVOKED
 // TabView
-#define ID_WINDOW_TABFIRST              0xFF00	// = ATL_IDM_FIRST_MDICHILD
+#define ID_WINDOW_TABFIRST              0xFF00  // = ATL_IDM_FIRST_MDICHILD
 #define ID_WINDOW_TABLAST               0xFFFD
 #define ID_WINDOW_SHOWTABLIST           0xFFFE
 
