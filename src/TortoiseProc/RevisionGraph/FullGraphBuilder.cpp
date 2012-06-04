@@ -43,11 +43,11 @@ CFullGraphBuilder::~CFullGraphBuilder(void)
 void CFullGraphBuilder::Run()
 {
     // special cases:
-	// * empty log
-	// * no history for that path (e.g. added but not yet committed)
+    // * empty log
+    // * no history for that path (e.g. added but not yet committed)
 
     if (    (history.GetHeadRevision() == NO_REVISION)
-		 || !history.GetStartPath()->IsValid())
+         || !history.GetStartPath()->IsValid())
         return;
 
     // frequently used objects

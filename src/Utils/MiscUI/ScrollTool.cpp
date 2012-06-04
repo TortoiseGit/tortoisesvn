@@ -84,11 +84,11 @@ bool CScrollTool::Init(LPPOINT pos, bool bRightAligned /* = false */)
 
 void CScrollTool::SetText(LPPOINT pos, const TCHAR * fmt, ...)
 {
-	if (!m_bInitCalled)
-	{
-		ASSERT( 0 );
-		return;
-	}
+    if (!m_bInitCalled)
+    {
+        ASSERT( 0 );
+        return;
+    }
 
     CString s;
     va_list marker;

@@ -4971,7 +4971,7 @@ bool CBaseView::StringFound(const CString& str, SearchDirection srchDir, int& st
     if ((srchDir==SearchPrevious)&&(start>=0))
     {
         int laststart = start;
-        do 
+        do
         {
             start = laststart;
             laststart = str.Find(m_sFindText, laststart+1);
@@ -5023,7 +5023,7 @@ void CBaseView::Search(SearchDirection srchDir)
         end.x = m_ptSelectionViewPosStart.x;
         start.x = 0;
     }
-    
+
     if (!HasTextSelection())
     {
         start.y = m_ptCaretViewPos.y;
@@ -5182,7 +5182,7 @@ void CBaseView::OnEditGotoline()
     for (int nViewLine=nViewLineCount-1; nViewLine>=0; --nViewLine)
     {
          nLastLineNumber = m_pViewData->GetLineNumber(nViewLine);
-         if (nLastLineNumber!=DIFF_EMPTYLINENUMBER) 
+         if (nLastLineNumber!=DIFF_EMPTYLINENUMBER)
          {
              break;
          }

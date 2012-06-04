@@ -332,10 +332,10 @@ bool CFullHistory::FetchRevisionData ( CString path
         {
             cache = query->GetCache();
 
-			// This should never happen:
+            // This should never happen:
 
-			if (cache == NULL)
-				return false;
+            if (cache == NULL)
+                return false;
         }
         else
         {

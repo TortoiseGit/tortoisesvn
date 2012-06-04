@@ -73,7 +73,7 @@ void CSettingsTBlame::DoDataExchange(CDataExchange* pDX)
     }
     DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
     DDX_Text(pDX, IDC_TABSIZE, m_dwTabSize);
-    
+
     DDX_Control(pDX, IDC_INDEXCOLOR1,  m_indexColors[0]);
     DDX_Control(pDX, IDC_INDEXCOLOR2,  m_indexColors[1]);
     DDX_Control(pDX, IDC_INDEXCOLOR3,  m_indexColors[2]);

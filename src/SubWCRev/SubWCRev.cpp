@@ -780,7 +780,7 @@ int _tmain(int argc, _TCHAR* argv[])
     TCHAR * fullPath = new TCHAR[reqLen+1];
     GetFullPathName(wc, reqLen, fullPath, NULL);
     // GetFullPathName() sometimes returns the full path with the wrong
-    // case. This is not a problem on Windows since its filesystem is 
+    // case. This is not a problem on Windows since its filesystem is
     // case-insensitive. But for SVN that's a problem if the wrong case
     // is inside a working copy: the svn wc database is case sensitive.
     // To fix the casing of the path, we use a trick:

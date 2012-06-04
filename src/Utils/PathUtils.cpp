@@ -371,7 +371,7 @@ CString CPathUtils::GetLongPathname(const CString& path)
         std::unique_ptr<TCHAR[]> pathbuf(new TCHAR[ret+2]);
         ret = ::GetLongPathName(pathbufcanonicalized, pathbuf.get(), ret+1);
         // GetFullPathName() sometimes returns the full path with the wrong
-        // case. This is not a problem on Windows since its filesystem is 
+        // case. This is not a problem on Windows since its filesystem is
         // case-insensitive. But for SVN that's a problem if the wrong case
         // is inside a working copy: the svn wc database is case sensitive.
         // To fix the casing of the path, we use a trick:

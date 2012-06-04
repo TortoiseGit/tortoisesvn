@@ -184,7 +184,7 @@ private:
         CString error;
 
         /// in case of a redirect
-        
+
         CString redirectedUrl;
 
         /// copy copying supported

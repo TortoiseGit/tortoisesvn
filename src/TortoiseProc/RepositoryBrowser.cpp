@@ -1222,7 +1222,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
 
     m_RepoList.SetRedraw(true);
 
-    temp.FormatMessage(IDS_REPOBROWSE_INFO, 
+    temp.FormatMessage(IDS_REPOBROWSE_INFO,
                       (LPCTSTR)pTreeItem->unescapedname,
                       files, folders, files+folders);
     if (!pTreeItem->error.IsEmpty() && pTreeItem->children.empty())
