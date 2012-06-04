@@ -35,6 +35,7 @@ struct Config
 	DWORD    SubmitterID;
 	CStringW ProcessName;
 	std::vector<std::pair<CStringW, CStringW> > FilesToAttach;
+	std::vector<std::pair<CStringW, CStringW> > UserInfo;
 };
 
 struct Params

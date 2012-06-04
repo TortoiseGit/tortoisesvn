@@ -462,6 +462,13 @@ BOOL InitCrashHandler(ApplicationInfo* applicationInfo, HandlerSettings* handler
 	return TRUE;
 }
 
+void AddUserInfoToReport(LPCWSTR key, LPCWSTR value)
+{
+	if (!g_pConfig)
+		return;
+	g_pConfig->UserInfo.push_back(make_pair(CStringW(key), value));
+}
+
 void AddFileToReport(LPCWSTR path, LPCWSTR reportFileName)
 {
 	if (!g_pConfig)

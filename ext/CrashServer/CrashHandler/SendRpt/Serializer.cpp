@@ -118,7 +118,8 @@ Serializer& operator << (Serializer& ser, Config& cfg)
 		<< cfg.UseWER
 		<< cfg.SubmitterID
 		<< cfg.ProcessName
-		<< cfg.FilesToAttach;
+		<< cfg.FilesToAttach
+		<< cfg.UserInfo;
 }
 
 Serializer& operator << (Serializer& ser, Params& param)

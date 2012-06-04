@@ -26,6 +26,7 @@ extern "C" {
 
 BOOL InitCrashHandler(ApplicationInfo* applicationInfo, HandlerSettings* handlerSettings, BOOL ownProcess);
 BOOL IsReadyToExit();
+void AddUserInfoToReport(LPCWSTR key, LPCWSTR value);
 void AddFileToReport(LPCWSTR path, LPCWSTR reportFileName /* = NULL */);
 void RemoveFileFromReport(LPCWSTR path);
 BOOL GetVersionFromApp(ApplicationInfo* appInfo);

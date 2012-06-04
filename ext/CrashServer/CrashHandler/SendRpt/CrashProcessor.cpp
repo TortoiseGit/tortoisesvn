@@ -560,6 +560,28 @@ public:
 				if (m_CrashInfo->GetCrashInfoFile(crashInfoFile))
 					g_Config.FilesToAttach.push_back(std::make_pair<CStringW, CStringW>(crashInfoFile, L"crashinfo.xml"));
 
+				CString crashUserInfoFile = m_TempFolder + _T("\\crashuserinfo.xml");
+				if (g_Config.UserInfo.size())
+				{
+					FILE* f = NULL;
+					if (0 == _tfopen_s(&f, crashUserInfoFile, _T("wt")))
+					{
+						fprintf_s(f, "<UserInfo>\n");
+						for (auto it = g_Config.UserInfo.cbegin(), end = g_Config.UserInfo.cend(); it != end; ++it)
+						{
+							g_Log.Info(_T("Adding UserInfo \"%ls\" as \"%ls\"..."), static_cast<LPCWSTR>(it->first), static_cast<LPCWSTR>(it->second));
+							fprintf_s(f,
+								"<%ls>%ls</%ls>\n",
+								static_cast<LPCWSTR>(it->first),
+								static_cast<LPCWSTR>(it->second),
+								static_cast<LPCWSTR>(it->first));
+						}
+						fprintf_s(f, "</UserInfo>");
+						fclose(f);
+						g_Config.FilesToAttach.push_back(std::make_pair<CStringW, CStringW>(crashUserInfoFile, L"crashuserinfo.xml"));
+					}
+				}
+
 				WIN32_FIND_DATAW ff;
 				FindClose(FindFirstFileW(dumpFile, &ff));
 				__int64 attachedSizeLimit = max(1024*1024I64, (static_cast<__int64>(ff.nFileSizeHigh) << 32) | ff.nFileSizeLow);
