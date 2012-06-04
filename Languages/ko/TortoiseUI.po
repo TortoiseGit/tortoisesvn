@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-28 08:29+0000\n"
+"PO-Revision-Date: 2012-06-02 08:31+0000\n"
 "Last-Translator: Seongki Shin <skshin@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2954,11 +2954,12 @@ msgstr "명령 행"
 msgid "Command Line To Execute:"
 msgstr "실행할 명령:"
 
-#. Resource IDs: (1336)
+#. Resource IDs: (590)
+#, c-format
 msgid ""
-"Command Line To Execute:\n"
+"Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr "실행될 커맨드 라인:\n작업 사본의 경로를 지정하려면 저장소의 루트 URL을 %REPOROOT% 로 지정하십시오 "
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3574,6 +3575,15 @@ msgstr "커스텀"
 #. Resource IDs: (17)
 msgid "Custom depths"
 msgstr "사용자 깊이"
+
+#. Resource IDs: (590)
+msgid ""
+"Custom title string. Available keywords are:\r\n"
+"{mergeurl}:\tthe source url of the merge\r\n"
+"{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
+"{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
+"{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
+msgstr ""
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -5844,6 +5854,10 @@ msgstr "왼쪽: "
 msgid "Left image"
 msgstr "왼쪽 이미지"
 
+#. Resource IDs: (590)
+msgid "Like above, but used for reverse merges"
+msgstr ""
+
 #. Resource IDs: (19)
 msgid "Line"
 msgstr "행"
@@ -6155,6 +6169,10 @@ msgstr "병합"
 msgid "Merge &depth:"
 msgstr "병합 깊이(&D):"
 
+#. Resource IDs: (32865)
+msgid "Merge Log &Templates"
+msgstr ""
+
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
 msgstr "재통합 병합"
@@ -6213,9 +6231,8 @@ msgid "Merged"
 msgstr "병합됨"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Merged revision(s) %s from %s:\n"
-msgstr "리비전 %s 이 병합됨 (경로: %s):\n"
+msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr ""
 
 #. Resource IDs: (14)
 msgid ""
@@ -8063,9 +8080,8 @@ msgid "Retry"
 msgstr "재시도"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr "역방향으로 병합된 리비전 %s (%s로 부터)\n"
+msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -9086,6 +9102,17 @@ msgid ""
 "Specifies how many items you want to keep in the most recent log messages "
 "dialog."
 msgstr "사용된 로그는 저장되며, 몇 개까지 저장할 것인지를 지정합니다."
+
+#. Resource IDs: (590)
+msgid ""
+"Specifies how the text for each merged revision should look like.\r\n"
+"The following keywords can be used:\r\n"
+"{msg}:\tThe log message of the merged revision, as it was entered.\r\n"
+"{msgoneline}:\tThe log message force onto one line\r\n"
+"{author}:\tThe author of the merged revision\r\n"
+"{rev}:\tThe merged revision itself\r\n"
+"{bugid}:\tThe bug ids of the merged revision"
+msgstr ""
 
 #. Resource IDs: (1572)
 msgid ""

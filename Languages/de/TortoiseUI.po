@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-05-28 20:01+0000\n"
-"Last-Translator: Sven Strickroth <sstrickroth@googlemail.com>\n"
+"PO-Revision-Date: 2012-06-04 07:11+0000\n"
+"Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1918,7 +1918,7 @@ msgstr "Bereits zusammengeführt"
 
 #. Resource IDs: (119)
 msgid "Already reverse merged"
-msgstr "Bereits rückwärts zusammengeführt"
+msgstr "Bereits umgekehrt zusammengeführt"
 
 #. Resource IDs: (1480)
 msgid "Always close dialogs for local operations"
@@ -2953,9 +2953,10 @@ msgstr "Befehlszeile"
 msgid "Command Line To Execute:"
 msgstr "Befehlszeile:"
 
-#. Resource IDs: (1336)
+#. Resource IDs: (590)
+#, c-format
 msgid ""
-"Command Line To Execute:\n"
+"Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
 msgstr "Auszuführende Befehlszeile:\nUm einen Pfad innerhalb einer Arbeitskopie anzugeben, verwenden Sie die URL im Projektarchiv mit %REPOROOT% als Basis URL."
 
@@ -3574,6 +3575,15 @@ msgstr "Angepasst"
 msgid "Custom depths"
 msgstr "Benutzerdefinierte Tiefen"
 
+#. Resource IDs: (590)
+msgid ""
+"Custom title string. Available keywords are:\r\n"
+"{mergeurl}:\tthe source url of the merge\r\n"
+"{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
+"{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
+"{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
+msgstr "Benutzerdefinierte Titelzeile. Verfügbare Schlüsselwörter:\r\n{mergeurl}:\tDie Quell-URL des Zusammenführens\r\n{revisions}:\tEine kommaseparierte Liste der zusammengeführten Revisionen, z.B., 3, 5, 6, 7\r\n{revisionsr}:\tWie {revisions} aber mit einem 'r' vor den Revisionen\r\n{revrange}:\tEine kommaseparierte Liste der zusammengeführten Revisionen, so weit möglich in Bereiche zusammengefasst, z.B., 3, 5-7"
+
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
 msgstr "Anpassen"
@@ -3924,7 +3934,7 @@ msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
 "and go back to this revision? These changes will be reverted by reverse-merging the revisions into your working copy."
-msgstr "Wollen Sie wirklich alle Änderungen in\n%s\nrückgängig machen und zu dieser Revision zurückgehen? Die Vorgängerversionen werden rückwärts in Ihrer Arbeitskopie zusammengeführt."
+msgstr "Wollen Sie wirklich alle Änderungen in\n%s\nrückgängig machen und zu dieser Revision zurückgehen? Die Vorgängerversionen werden umgekehrt in Ihrer Arbeitskopie zusammengeführt."
 
 #. Resource IDs: (76)
 #, c-format
@@ -3932,7 +3942,7 @@ msgid ""
 "Do you really want to revert all changes in\n"
 "%s\n"
 "which were made in this revision? These changes will be reverted by reverse-merging the revision into your working copy."
-msgstr "Wollen Sie wirklich alle Änderungen an\n%s,\ndie in dieser Revision durchgeführt wurden, rückgängig machen? Die Vorgängerversionen werden rückwärts in Ihrer Arbeitskopie zusammengeführt."
+msgstr "Wollen Sie wirklich alle Änderungen an\n%s,\ndie in dieser Revision durchgeführt wurden, rückgängig machen? Die Vorgängerversionen werden umgekehrt in Ihrer Arbeitskopie zusammengeführt."
 
 #. Resource IDs: (315)
 msgid "Do you want to load the changed files?"
@@ -5843,6 +5853,10 @@ msgstr "Linke Ansicht: "
 msgid "Left image"
 msgstr "Linkes Bild"
 
+#. Resource IDs: (590)
+msgid "Like above, but used for reverse merges"
+msgstr "Wie oben, aber für umgekehrtes Zusammenführen"
+
 #. Resource IDs: (19)
 msgid "Line"
 msgstr "Zeile"
@@ -6154,6 +6168,10 @@ msgstr "Zusammenführen"
 msgid "Merge &depth:"
 msgstr "Rekursions&tiefe:"
 
+#. Resource IDs: (32865)
+msgid "Merge Log &Templates"
+msgstr "Log &Vorlagen für das Zusammenführen"
+
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
 msgstr "Wiedereingliedern"
@@ -6212,9 +6230,8 @@ msgid "Merged"
 msgstr "Zusammengeführt"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Merged revision(s) %s from %s:\n"
-msgstr "Revision(en) %s von %s zusammengeführt:\n"
+msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr "Revision(en) {revrange} von {mergeurl} zusammengeführt:\n"
 
 #. Resource IDs: (14)
 msgid ""
@@ -7572,12 +7589,12 @@ msgstr "Informationen über das Zusammenführen von r%ld aufzeichnen"
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for reverse merge of r%1!ld! through r%2!ld!"
-msgstr "Informationen über das inverse Zusammenführen von r%1!ld! bis r%2!ld! aufzeichnen"
+msgstr "Informationen über das umgekehrte Zusammenführen von r%1!ld! bis r%2!ld! aufzeichnen"
 
 #. Resource IDs: (265)
 #, c-format
 msgid "Recording mergeinfo for reverse merge of r%ld"
-msgstr "Informationen über das inverse Zusammenführen von r%ld aufzeichnen"
+msgstr "Informationen über das umgekehrte Zusammenführen von r%ld aufzeichnen"
 
 #. Resource IDs: (3887)
 msgid ""
@@ -8062,19 +8079,18 @@ msgid "Retry"
 msgstr "Wiederholen"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr "Revision(en) %s von %s rückwärts zusammengeführt:\n"
+msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr "Revision(en) {revrange} von {mergeurl} umgekehrt zusammengeführt:\n"
 
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %1!ld! through %2!ld!"
-msgstr "Von r%1!ld! bis r%2!ld! rückwärts zusammenführen"
+msgstr "Von r%1!ld! bis r%2!ld! umgekehrt zusammenführen"
 
 #. Resource IDs: (264)
 #, c-format
 msgid "Reverse merging %ld"
-msgstr "%ld rückwärts zusammenführen"
+msgstr "%ld umgekehrt zusammenführen"
 
 #. Resource IDs: (77, 175, 229)
 msgid "Revert"
@@ -9086,6 +9102,17 @@ msgid ""
 "dialog."
 msgstr "Legt fest, wie viele Einträge in der Liste der letzten Logmeldungen gespeichert werden sollen."
 
+#. Resource IDs: (590)
+msgid ""
+"Specifies how the text for each merged revision should look like.\r\n"
+"The following keywords can be used:\r\n"
+"{msg}:\tThe log message of the merged revision, as it was entered.\r\n"
+"{msgoneline}:\tThe log message force onto one line\r\n"
+"{author}:\tThe author of the merged revision\r\n"
+"{rev}:\tThe merged revision itself\r\n"
+"{bugid}:\tThe bug ids of the merged revision"
+msgstr "Gibt an, wie der Text für jede zusammengeführte Revision aussehen sollte.\r\nDie folgenden Schlüsselwörter können verwendet werden:\r\n{msg}:\tdie Logmeldung der zusammengeführten Revision, wie sie eingegeben wurde.\r\n{msgoneline}:\tdie Logmeldung auf eine Zeile komprimiert\r\n{author}:\tder Autor der zusammengeführten Revision\r\n{rev}:\tdie zusammengeführte Revision selbst\r\n{bugid}:\tdie Fehler-Ids der zusammengeführten Revision"
+
 #. Resource IDs: (1572)
 msgid ""
 "Specify how the commit message should be built from the entered bug-ID. Use "
@@ -9449,7 +9476,7 @@ msgid ""
 "The changes will be applied to your working copy with a reverse merge "
 "operation. The repository won't be affected. You can review the changes "
 "before you commit them."
-msgstr "Die Änderungen werden rückwärts in Ihrer Arbeitskopie zusammengeführt. Das Projektarchiv wird nicht beeinflusst. Sie können die Änderungen begutachten, bevor Sie sie übertragen."
+msgstr "Die Änderungen werden umgekehrt in Ihrer Arbeitskopie zusammengeführt. Das Projektarchiv wird nicht beeinflusst. Sie können die Änderungen begutachten, bevor Sie sie übertragen."
 
 #. Resource IDs: (63)
 msgid "The chunk size did not match the number of added/removed lines!"

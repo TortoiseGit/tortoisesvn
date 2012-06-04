@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-29 20:58+0000\n"
+"PO-Revision-Date: 2012-06-03 15:00+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2956,11 +2956,12 @@ msgstr "Linia poleceń"
 msgid "Command Line To Execute:"
 msgstr "Linia komend do wykonania:"
 
-#. Resource IDs: (1336)
+#. Resource IDs: (590)
+#, c-format
 msgid ""
-"Command Line To Execute:\n"
+"Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr "Wiersz Poleceń do Wykonania:\nAby określić ścieżkę wewnątrz kopii roboczej, należy podać adres URL w repozytorium zapisując adres URL korzenia repozytorium jako %REPOROOT%"
+msgstr "Linia Polecenia Do Wykonania:\nBy wskazać ścieżkę w kopii roboczej, określ url w repozytorium zastępując korzeń repozytorium zapisem %REPOROOT%"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3576,6 +3577,15 @@ msgstr "Użytkownika"
 #. Resource IDs: (17)
 msgid "Custom depths"
 msgstr "Własne zakresy"
+
+#. Resource IDs: (590)
+msgid ""
+"Custom title string. Available keywords are:\r\n"
+"{mergeurl}:\tthe source url of the merge\r\n"
+"{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
+"{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
+"{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
+msgstr "Tytuł niestandardowy. Dostępne słowa kluczowe to:\n{mergeurl}:»Źródłowy adres url scalenia\n{revisions}:»Lista wersji rozdzielona przecinkami, np. 3, 5, 6, 7\n{revisionsr}:»Tak jak {revisions} tylko z 'r' przed wersjami\n{revrange}:»Lista wersji rozdzielona przecinkami, połączona w zakresy jeśli się da, np. 3, 5-7"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -5846,6 +5856,10 @@ msgstr "Widok lewy: "
 msgid "Left image"
 msgstr "Lewy obraz"
 
+#. Resource IDs: (590)
+msgid "Like above, but used for reverse merges"
+msgstr "Jak powyżej, ale używane do scaleń odwróconych"
+
 #. Resource IDs: (19)
 msgid "Line"
 msgstr "Linia"
@@ -6157,6 +6171,10 @@ msgstr "Scalaj"
 msgid "Merge &depth:"
 msgstr "&Głębokość scalania:"
 
+#. Resource IDs: (32865)
+msgid "Merge Log &Templates"
+msgstr "Sza&blony dziennika scaleń"
+
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
 msgstr "Reintegruj scalanie"
@@ -6215,9 +6233,8 @@ msgid "Merged"
 msgstr "Scalono"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Merged revision(s) %s from %s:\n"
-msgstr "Scalona(-e) wersja(-e) %s z %s:\n"
+msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr "Scalone wersje {revrange} z {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
@@ -8065,9 +8082,8 @@ msgid "Retry"
 msgstr "Ponów próbę"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr "Odwrócone scalenie wersji %s z %s:\n"
+msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr "Wersje scalone odrwotnie {revrange} z {mergeurl}:\n"
 
 #. Resource IDs: (264)
 #, c-format
@@ -9088,6 +9104,17 @@ msgid ""
 "Specifies how many items you want to keep in the most recent log messages "
 "dialog."
 msgstr "Określa, jak wiele elementów chcesz pokazywać w oknie z ostatnimi opisami zmian."
+
+#. Resource IDs: (590)
+msgid ""
+"Specifies how the text for each merged revision should look like.\r\n"
+"The following keywords can be used:\r\n"
+"{msg}:\tThe log message of the merged revision, as it was entered.\r\n"
+"{msgoneline}:\tThe log message force onto one line\r\n"
+"{author}:\tThe author of the merged revision\r\n"
+"{rev}:\tThe merged revision itself\r\n"
+"{bugid}:\tThe bug ids of the merged revision"
+msgstr "Wskazuje, jak powinien wyglądać tekst dla każdej scalonej wersji.\nMogą być użyte następujące słowa kluczowe:\n{msg}:»Komunikat dziennika scalonej wersji, jak go wpisano.\n{msgoneline}:»Komunikat dziennika ściśnięty do jednej linii\n{author}:»Autor scalonej wersji\n{rev}:»Sama scalona wersja\n{bugid}:»Identyfikatory zgłoszeń scalonej wersji"
 
 #. Resource IDs: (1572)
 msgid ""

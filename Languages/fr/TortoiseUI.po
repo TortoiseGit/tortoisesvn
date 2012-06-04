@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-05-08 11:04+0000\n"
+"PO-Revision-Date: 2012-06-02 08:30+0000\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2961,11 +2961,12 @@ msgstr "Ligne de commande"
 msgid "Command Line To Execute:"
 msgstr "Ligne de commande à exécuter :"
 
-#. Resource IDs: (1336)
+#. Resource IDs: (590)
+#, c-format
 msgid ""
-"Command Line To Execute:\n"
+"Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr "Ligne de Commande à Exécuter :\nPour spécifique un chemin à l'intérieur d'une copie de travail, spécifiez l'url dans le dépôt en utilisant %REPOROOT% comme racine du dépôt"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3581,6 +3582,15 @@ msgstr "Personnalisé"
 #. Resource IDs: (17)
 msgid "Custom depths"
 msgstr "Profondeur personnalisée"
+
+#. Resource IDs: (590)
+msgid ""
+"Custom title string. Available keywords are:\r\n"
+"{mergeurl}:\tthe source url of the merge\r\n"
+"{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
+"{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
+"{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
+msgstr ""
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -5851,6 +5861,10 @@ msgstr "Vue de gauche :"
 msgid "Left image"
 msgstr "Image de gauche"
 
+#. Resource IDs: (590)
+msgid "Like above, but used for reverse merges"
+msgstr ""
+
 #. Resource IDs: (19)
 msgid "Line"
 msgstr "Ligne"
@@ -6162,6 +6176,10 @@ msgstr "Fusionner"
 msgid "Merge &depth:"
 msgstr "&Profondeur de fusion:"
 
+#. Resource IDs: (32865)
+msgid "Merge Log &Templates"
+msgstr ""
+
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
 msgstr "Fusionner Réintégrer"
@@ -6220,9 +6238,8 @@ msgid "Merged"
 msgstr "Fusionné"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Merged revision(s) %s from %s:\n"
-msgstr "Révision(s) fusionnée(s) %s depuis %s:\n"
+msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr ""
 
 #. Resource IDs: (14)
 msgid ""
@@ -8070,9 +8087,8 @@ msgid "Retry"
 msgstr "Réessayer"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr "Annuler la/les révision(s) fusionnée(s) %s de %s:\n"
+msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -9093,6 +9109,17 @@ msgid ""
 "Specifies how many items you want to keep in the most recent log messages "
 "dialog."
 msgstr "Spécifie combien d'éléments vous voulez garder dans la boîte de dialogue des commentaires récents."
+
+#. Resource IDs: (590)
+msgid ""
+"Specifies how the text for each merged revision should look like.\r\n"
+"The following keywords can be used:\r\n"
+"{msg}:\tThe log message of the merged revision, as it was entered.\r\n"
+"{msgoneline}:\tThe log message force onto one line\r\n"
+"{author}:\tThe author of the merged revision\r\n"
+"{rev}:\tThe merged revision itself\r\n"
+"{bugid}:\tThe bug ids of the merged revision"
+msgstr ""
 
 #. Resource IDs: (1572)
 msgid ""

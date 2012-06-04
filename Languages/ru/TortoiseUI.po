@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-05-02 08:31+0000\n"
+"PO-Revision-Date: 2012-06-03 23:36+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2954,11 +2954,12 @@ msgstr "Командная строка"
 msgid "Command Line To Execute:"
 msgstr "Командная строка для выполнения:"
 
-#. Resource IDs: (1336)
+#. Resource IDs: (590)
+#, c-format
 msgid ""
-"Command Line To Execute:\n"
+"Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr "Командная строка для выполнения:\nДля указания пути внутри рабочей копии укажите url в хранилище и %REPOROOT% вместо url корня хранилища"
+msgstr "Командная строка для выполнения:\r\nДля указания пути внутри рабочей копии укажите URL-адрес в хранилище, используя при этом %REPOROOT% как корень хранилища."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3574,6 +3575,15 @@ msgstr "Собственные"
 #. Resource IDs: (17)
 msgid "Custom depths"
 msgstr "Пользовательские глубины"
+
+#. Resource IDs: (590)
+msgid ""
+"Custom title string. Available keywords are:\r\n"
+"{mergeurl}:\tthe source url of the merge\r\n"
+"{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
+"{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
+"{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
+msgstr "Настраиваемая строка заголовка. Доступные ключевые слова:\r\n{mergeurl}:\tИсходный URL-адрес слияния\r\n{revisions}:\tРазделённый запятыми список объединённых ревизий, например, 3, 5, 6, 7\r\n{revisionsr}:\tТоже что и {revisions}, но ревизии начинаются с 'r'\r\n{revrange}:\ttРазделённый запятыми список объединённых ревизий, объединённых по возможности в диапазоны, например, 3, 5-7"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -5844,6 +5854,10 @@ msgstr "Вид слева:"
 msgid "Left image"
 msgstr "Левое изображение"
 
+#. Resource IDs: (590)
+msgid "Like above, but used for reverse merges"
+msgstr "Как и выше, но используется для обратного слияния"
+
 #. Resource IDs: (19)
 msgid "Line"
 msgstr "Строка"
@@ -6155,6 +6169,10 @@ msgstr "Слияние"
 msgid "Merge &depth:"
 msgstr "&Глубина слияния:"
 
+#. Resource IDs: (32865)
+msgid "Merge Log &Templates"
+msgstr "&Шаблоны для журнала слияния"
+
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
 msgstr "Воссоединительное слияние"
@@ -6213,9 +6231,8 @@ msgid "Merged"
 msgstr "Слито"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Merged revision(s) %s from %s:\n"
-msgstr "Слияние с ревизией(ями) %s из %s:\n"
+msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr "Объединённые ревизии {revrange} из {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
@@ -8063,9 +8080,8 @@ msgid "Retry"
 msgstr "Повторить"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr "Слиты обратным слиянием ревизии %s из %s:\n"
+msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr "Ревизии объединенные обратным слиянием {revrange} из {mergeurl}:\n"
 
 #. Resource IDs: (264)
 #, c-format
@@ -9086,6 +9102,17 @@ msgid ""
 "Specifies how many items you want to keep in the most recent log messages "
 "dialog."
 msgstr "Задаёт количество недавно введённых сообщений журнала, которые будут доступны для повторного выбора."
+
+#. Resource IDs: (590)
+msgid ""
+"Specifies how the text for each merged revision should look like.\r\n"
+"The following keywords can be used:\r\n"
+"{msg}:\tThe log message of the merged revision, as it was entered.\r\n"
+"{msgoneline}:\tThe log message force onto one line\r\n"
+"{author}:\tThe author of the merged revision\r\n"
+"{rev}:\tThe merged revision itself\r\n"
+"{bugid}:\tThe bug ids of the merged revision"
+msgstr "Определяет, как должен выглядеть текст для каждой объёдиненной ревизии.\r\nМожно использовать следующие ключевые слова:\r\n{msg}:\tСообщение журнала объединённой ревизии, в том виде как оно было введено.\r\n{msgoneline}:\tСообщение журнала одной строкой\r\n{author}:\tАвтор объёдинённой ревизии\r\n{rev}:\tСама объединённая ревизия\r\n{bugid}:\tИдентификаторы ошибок объединённой ревизии"
 
 #. Resource IDs: (1572)
 msgid ""

@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-04-29 07:26+0000\n"
+"PO-Revision-Date: 2012-06-02 08:30+0000\n"
 "Last-Translator: qingxianhao <qinghao1@foxmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2960,11 +2960,12 @@ msgstr "命令行"
 msgid "Command Line To Execute:"
 msgstr "要执行的命令行: "
 
-#. Resource IDs: (1336)
+#. Resource IDs: (590)
+#, c-format
 msgid ""
-"Command Line To Execute:\n"
+"Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr "要执行的命令行：\n要在本地工作拷贝中指定一个路径，用 %REPOROOT% 当成是代码仓库的根路径"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3580,6 +3581,15 @@ msgstr "定制"
 #. Resource IDs: (17)
 msgid "Custom depths"
 msgstr "自定义深度"
+
+#. Resource IDs: (590)
+msgid ""
+"Custom title string. Available keywords are:\r\n"
+"{mergeurl}:\tthe source url of the merge\r\n"
+"{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
+"{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
+"{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
+msgstr ""
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -5850,6 +5860,10 @@ msgstr "左侧查看: "
 msgid "Left image"
 msgstr "左侧图片"
 
+#. Resource IDs: (590)
+msgid "Like above, but used for reverse merges"
+msgstr ""
+
 #. Resource IDs: (19)
 msgid "Line"
 msgstr "行号"
@@ -6161,6 +6175,10 @@ msgstr "合并"
 msgid "Merge &depth:"
 msgstr "合并深度(&D):"
 
+#. Resource IDs: (32865)
+msgid "Merge Log &Templates"
+msgstr ""
+
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
 msgstr "合并复兴分支"
@@ -6219,9 +6237,8 @@ msgid "Merged"
 msgstr "已合并"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Merged revision(s) %s from %s:\n"
-msgstr "已合并版本 %s 自 %s:\n"
+msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr ""
 
 #. Resource IDs: (14)
 msgid ""
@@ -8069,9 +8086,8 @@ msgid "Retry"
 msgstr "重试"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr "还原已合并的版本 %s ，从 %s 开始:\n"
+msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -9092,6 +9108,17 @@ msgid ""
 "Specifies how many items you want to keep in the most recent log messages "
 "dialog."
 msgstr "设定在最新的日志对话框中显示的条目数量。"
+
+#. Resource IDs: (590)
+msgid ""
+"Specifies how the text for each merged revision should look like.\r\n"
+"The following keywords can be used:\r\n"
+"{msg}:\tThe log message of the merged revision, as it was entered.\r\n"
+"{msgoneline}:\tThe log message force onto one line\r\n"
+"{author}:\tThe author of the merged revision\r\n"
+"{rev}:\tThe merged revision itself\r\n"
+"{bugid}:\tThe bug ids of the merged revision"
+msgstr ""
 
 #. Resource IDs: (1572)
 msgid ""

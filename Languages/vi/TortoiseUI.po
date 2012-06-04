@@ -16,9 +16,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-05-04 19:23+0000\n"
+"PO-Revision-Date: 2012-06-02 08:31+0000\n"
 "Last-Translator: Khoa Dang <dndk82@yahoo.com>\n"
-"Language-Team: Vietnamese (http://www.transifex.net/projects/p/tortoisesvn/language/vi/)\n"
+"Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2950,11 +2950,12 @@ msgstr "Dòng lệnh"
 msgid "Command Line To Execute:"
 msgstr "Dòng lệnh để thi hành"
 
-#. Resource IDs: (1336)
+#. Resource IDs: (590)
+#, c-format
 msgid ""
-"Command Line To Execute:\n"
+"Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr "Dòng Lệnh Để Thi Hành:\nĐể chỉ định một đường dẫn bên trong một bản sao làm việc, chỉ định url trong kho chứa với url gốc kho chứa là %REPOROOT%"
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3570,6 +3571,15 @@ msgstr "Thay đổi"
 #. Resource IDs: (17)
 msgid "Custom depths"
 msgstr "Tuỳ biến độ sâu"
+
+#. Resource IDs: (590)
+msgid ""
+"Custom title string. Available keywords are:\r\n"
+"{mergeurl}:\tthe source url of the merge\r\n"
+"{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
+"{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
+"{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
+msgstr ""
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -5840,6 +5850,10 @@ msgstr "Xem bên trái: "
 msgid "Left image"
 msgstr "Ảnh bên trái"
 
+#. Resource IDs: (590)
+msgid "Like above, but used for reverse merges"
+msgstr ""
+
 #. Resource IDs: (19)
 msgid "Line"
 msgstr "Dòng"
@@ -6151,6 +6165,10 @@ msgstr "Hợp nhất"
 msgid "Merge &depth:"
 msgstr "Độ &sâu hợp nhất"
 
+#. Resource IDs: (32865)
+msgid "Merge Log &Templates"
+msgstr ""
+
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
 msgstr "Tái tích hợp cho hợp nhật"
@@ -6209,9 +6227,8 @@ msgid "Merged"
 msgstr "Đã hợp nhất"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Merged revision(s) %s from %s:\n"
-msgstr "Đã hợp nhất bản chỉnh sửa %s từ %s:\n"
+msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr ""
 
 #. Resource IDs: (14)
 msgid ""
@@ -8059,9 +8076,8 @@ msgid "Retry"
 msgstr "Thử lại"
 
 #. Resource IDs: (286)
-#, c-format
-msgid "Reverse merged revision(s) %s from %s:\n"
-msgstr "Đảo hợp nhất bản chỉnh sửa %s từ %s:\n"
+msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
+msgstr ""
 
 #. Resource IDs: (264)
 #, c-format
@@ -9082,6 +9098,17 @@ msgid ""
 "Specifies how many items you want to keep in the most recent log messages "
 "dialog."
 msgstr "Chỉ ra bao nhiêu món bạn muốn giữ lại trong hộp thoại thông điệp tường trình gần nhất."
+
+#. Resource IDs: (590)
+msgid ""
+"Specifies how the text for each merged revision should look like.\r\n"
+"The following keywords can be used:\r\n"
+"{msg}:\tThe log message of the merged revision, as it was entered.\r\n"
+"{msgoneline}:\tThe log message force onto one line\r\n"
+"{author}:\tThe author of the merged revision\r\n"
+"{rev}:\tThe merged revision itself\r\n"
+"{bugid}:\tThe bug ids of the merged revision"
+msgstr ""
 
 #. Resource IDs: (1572)
 msgid ""
