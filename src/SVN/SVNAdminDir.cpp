@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -63,7 +63,16 @@ bool SVNAdminDir::Close()
 
 bool SVNAdminDir::IsAdminDirName(const CString& name) const
 {
-    CStringA nameA = CUnicodeUtils::GetUTF8(name).MakeLower();
+    CStringA nameA = CUnicodeUtils::GetUTF8(name);
+    try 
+    {
+        nameA.MakeLower();
+    }
+    catch(CException *)
+    {
+        return false;
+    }
+
     return !!svn_wc_is_adm_dir(nameA, m_pool);
 }
 
