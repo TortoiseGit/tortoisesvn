@@ -101,21 +101,14 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
     }
     else if (dwReason == DLL_PROCESS_DETACH)
     {
+        // do not clean up memory here:
+        // if an application doesn't release all COM objects
+        // but still unloads the dll, cleaning up ourselves
+        // will lead to crashes.
+        // better to leak some memory than to crash other apps.
         // sometimes an application doesn't release all COM objects
         // but still unloads the dll.
         // in that case, we do it ourselves
-        if (g_cRefThisDll == 0)
-        {
-            {
-                AutoLocker lock(g_csGlobalCOMGuard);
-                g_shellObjects.DeleteAll();
-            }
-            while (g_cAprInit--)
-            {
-                g_SVNAdminDir.Close();
-                apr_terminate();
-            }
-        }
         g_csGlobalCOMGuard.Term();
     }
     return 1;   // ok
