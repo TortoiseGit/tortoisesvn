@@ -42,6 +42,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     SetDllDirectory(L"");
     CCrashReportTSVN crasher(L"TortoiseIDiff " _T(APP_X64_STRING));
+    CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
     SetTaskIDPerUUID();
     CRegStdDWORD loc = CRegStdDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
     long langId = loc;

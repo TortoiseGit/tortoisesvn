@@ -81,6 +81,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 {
     SetDllDirectory(L"");
     SetTaskIDPerUUID();
+    CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
 
     {
         DWORD len = GetCurrentDirectory(0, NULL);

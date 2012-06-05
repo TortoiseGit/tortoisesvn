@@ -2985,6 +2985,7 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
             return err;
         if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
         {
+            CCrashReport::Instance().AddUserInfoToReport(L"SVNException", sErr);
             CCrashReport::Instance().Uninstall();
             abort();    // ugly, ugly! But at least we showed a messagebox first
         }
@@ -2995,6 +2996,7 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
     ::MessageBox(NULL, sFormatErr, _T("Subversion Exception!"), MB_ICONERROR);
     if (CRegDWORD(_T("Software\\TortoiseSVN\\Debug"), FALSE)==FALSE)
     {
+        CCrashReport::Instance().AddUserInfoToReport(L"SVNException", sFormatErr);
         CCrashReport::Instance().Uninstall();
         abort();    // ugly, ugly! But at least we showed a messagebox first
     }

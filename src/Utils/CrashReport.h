@@ -60,8 +60,8 @@ public:
     //! \note You may call this function multiple times if some data has changed.
     //! \return Return \b true if crash handling was enabled.
     bool InitCrashHandler(
-        ApplicationInfo* applicationInfo,	//!< [in] Pointer to the ApplicationInfo structure that identifies your application.
-        HandlerSettings* handlerSettings,	//!< [in] Pointer to the HandlerSettings structure that customizes crash handling behavior. This paramenter can be \b NULL.
+        ApplicationInfo* applicationInfo,   //!< [in] Pointer to the ApplicationInfo structure that identifies your application.
+        HandlerSettings* handlerSettings,   //!< [in] Pointer to the HandlerSettings structure that customizes crash handling behavior. This paramenter can be \b NULL.
         BOOL    ownProcess = TRUE           //!< [in] If you own the process your code running in set this option to \b TRUE. If don't (for example you write
         //!<      a plugin to some external application) set this option to \b FALSE. In that case you need to explicitly
         //!<      catch exceptions. See \ref SendReport for more information.
@@ -73,12 +73,25 @@ public:
         return m_InitCrashHandler(applicationInfo, handlerSettings, ownProcess) != FALSE;
     }
 
+    //! You may add any key/value pair to crash report.
+    //! \return If the function succeeds, the return value is \b true.
+    bool AddUserInfoToReport(
+        LPCWSTR key,                        //!< [in] key string that will be added to the report.
+        LPCWSTR value                       //!< [in] value for the key.
+        ) throw()
+    {
+        if (!m_AddUserInfoToReport)
+            return false;
+        m_AddUserInfoToReport(key, value);
+        return true;
+    }
+
     //! You may add any file to crash report. This file will be read when crash appears and will be sent within the report.
     //! Multiple files may be added. Filename of the file in the report may be changed to any name.
     //! \return If the function succeeds, the return value is \b true.
     bool AddFileToReport(
-        LPCWSTR path,						//!< [in] Path to the file, that will be added to the report.
-        LPCWSTR reportFileName /* = NULL */	//!< [in] Filename that will be used in report for this file. If parameter is \b NULL, original name from path will be used.
+        LPCWSTR path,                       //!< [in] Path to the file, that will be added to the report.
+        LPCWSTR reportFileName /* = NULL */ //!< [in] Filename that will be used in report for this file. If parameter is \b NULL, original name from path will be used.
         ) throw()
     {
         if (!m_AddFileToReport)
@@ -90,7 +103,7 @@ public:
     //! Remove from report the file that was registered earlier to be sent within report.
     //! \return If the function succeeds, the return value is \b true.
     bool RemoveFileFromReport(
-        LPCWSTR path	//!< [in] Path to the file, that will be removed from the report.
+        LPCWSTR path    //!< [in] Path to the file, that will be removed from the report.
         ) throw()
     {
         if (!m_RemoveFileFromReport)
@@ -114,8 +127,8 @@ public:
     //! Fill version field (V) of ApplicationInfo with product version found in the file specified.
     //! \return If the function succeeds, the return value is \b true.
     bool GetVersionFromFile(
-        LPCWSTR path,				//!< [in] Path to the file product version will be extracted from.
-        ApplicationInfo* appInfo	//!< [out] Pointer to ApplicationInfo structure. Its version field (V) will be set to product version.
+        LPCWSTR path,               //!< [in] Path to the file product version will be extracted from.
+        ApplicationInfo* appInfo    //!< [out] Pointer to ApplicationInfo structure. Its version field (V) will be set to product version.
         ) throw()
     {
         if (!m_GetVersionFromFile)
@@ -130,19 +143,19 @@ public:
     //! \code
     //! bool SomeEntryPoint(PARAM p)
     //! {
-    //!		__try
-    //!		{
-    //!			return YouCode(p);
-    //!		}
-    //!		__except (CrashHandler::SendReport(GetExceptionInformation()))
-    //!		{
-    //!			::ExitProcess(0); // It is better to stop the process here or else corrupted data may incomprehensibly crash it later.
-    //!			return false;
-    //!		}
+    //!     __try
+    //!     {
+    //!         return YouCode(p);
+    //!     }
+    //!     __except (CrashHandler::SendReport(GetExceptionInformation()))
+    //!     {
+    //!         ::ExitProcess(0); // It is better to stop the process here or else corrupted data may incomprehensibly crash it later.
+    //!         return false;
+    //!     }
     //! }
     //! \endcode
     LONG SendReport(
-        EXCEPTION_POINTERS* exceptionPointers	//!< [in] Pointer to EXCEPTION_POINTERS structure. You should get it using GetExceptionInformation()
+        EXCEPTION_POINTERS* exceptionPointers   //!< [in] Pointer to EXCEPTION_POINTERS structure. You should get it using GetExceptionInformation()
         //!<      function inside __except keyword.
         )
     {
@@ -158,7 +171,7 @@ public:
     //! using: \code RaiseException(CrashHandler::ExceptionAssertionViolated, 0, 0, NULL); \endcode
     //! Execution will continue after report will be sent (EXCEPTION_CONTINUE_EXECUTION would be used).
     //! \note If you called CrashHandler constructor and crshhdnl.dll was missing you still may using this exception.
-    //!		  It will be catched, ignored and execution will continue. \ref SendReport function also works safely
+    //!       It will be catched, ignored and execution will continue. \ref SendReport function also works safely
     //!       when crshhdnl.dll was missing.
     static const DWORD ExceptionAssertionViolated = ((DWORD)0xCCE17000);
 
@@ -185,6 +198,7 @@ private:
             m_InitCrashHandler = (pfnInitCrashHandler) GetProcAddress(hCrshhndlDll, "InitCrashHandler");
             m_SendReport = (pfnSendReport) GetProcAddress(hCrshhndlDll, "SendReport");
             m_IsReadyToExit = (pfnIsReadyToExit) GetProcAddress(hCrshhndlDll, "IsReadyToExit");
+            m_AddUserInfoToReport = (pfnAddUserInfoToReport) GetProcAddress(hCrshhndlDll, "AddUserInfoToReport");
             m_AddFileToReport = (pfnAddFileToReport) GetProcAddress(hCrshhndlDll, "AddFileToReport");
             m_RemoveFileFromReport = (pfnRemoveFileFromReport) GetProcAddress(hCrshhndlDll, "RemoveFileFromReport");
             m_GetVersionFromApp = (pfnGetVersionFromApp) GetProcAddress(hCrshhndlDll, "GetVersionFromApp");
@@ -193,6 +207,7 @@ private:
             result = m_InitCrashHandler
                 && m_SendReport
                 && m_IsReadyToExit
+                && m_AddUserInfoToReport
                 && m_AddFileToReport
                 && m_RemoveFileFromReport
                 && m_GetVersionFromApp
@@ -216,6 +231,7 @@ private:
     typedef BOOL (*pfnInitCrashHandler)(ApplicationInfo* applicationInfo, HandlerSettings* handlerSettings, BOOL ownProcess);
     typedef LONG (*pfnSendReport)(EXCEPTION_POINTERS* exceptionPointers);
     typedef BOOL (*pfnIsReadyToExit)();
+    typedef void (*pfnAddUserInfoToReport)(LPCWSTR key, LPCWSTR value);
     typedef void (*pfnAddFileToReport)(LPCWSTR path, LPCWSTR reportFileName /* = NULL */);
     typedef void (*pfnRemoveFileFromReport)(LPCWSTR path);
     typedef BOOL (*pfnGetVersionFromApp)(ApplicationInfo* appInfo);
@@ -224,6 +240,7 @@ private:
     pfnInitCrashHandler m_InitCrashHandler;
     pfnSendReport m_SendReport;
     pfnIsReadyToExit m_IsReadyToExit;
+    pfnAddUserInfoToReport m_AddUserInfoToReport;
     pfnAddFileToReport m_AddFileToReport;
     pfnRemoveFileFromReport m_RemoveFileFromReport;
     pfnGetVersionFromApp m_GetVersionFromApp;
@@ -261,7 +278,7 @@ public:
             appInfo.ApplicationInfoSize = sizeof(ApplicationInfo);
             appInfo.ApplicationGUID = "71040f62-f78a-4953-b5b3-5c148349fed7";
             appInfo.Prefix = "tsvn";
-            appInfo.AppName = appname; 
+            appInfo.AppName = appname;
             appInfo.Company = L"TortoiseSVN";
 
             appInfo.Hotfix = 0;

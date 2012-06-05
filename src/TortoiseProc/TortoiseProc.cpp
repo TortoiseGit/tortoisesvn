@@ -123,6 +123,7 @@ HWND FindParentWindow(HWND hWnd)
 // CTortoiseProcApp initialization
 BOOL CTortoiseProcApp::InitInstance()
 {
+    CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
     svn_error_set_malfunction_handler(svn_error_handle_malfunction);
     CheckUpgrade();
     CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
