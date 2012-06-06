@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2012 - TortoiseSVN
 
@@ -68,11 +68,13 @@ bool SVNAdminDir::IsAdminDirName(const CString& name) const
     {
         nameA.MakeLower();
     }
-    catch(CException *)
+    // catch everything: with MFC, an CInvalidArgException is thrown,
+    // but with ATL only an CAtlException is thrown - and those
+    // two exceptions are incompatible
+    catch(...)
     {
         return false;
     }
-
     return !!svn_wc_is_adm_dir(nameA, m_pool);
 }
 
