@@ -98,6 +98,7 @@ BEGIN_MESSAGE_MAP(CCommitDlg, CResizableStandAloneDialog)
     ON_WM_SIZE()
     ON_STN_CLICKED(IDC_EXTERNALWARNING, &CCommitDlg::OnStnClickedExternalwarning)
     ON_BN_CLICKED(IDC_SHOWEXTERNALS, &CCommitDlg::OnBnClickedShowexternals)
+    ON_BN_CLICKED(IDC_LOG, &CCommitDlg::OnBnClickedLog)
 END_MESSAGE_MAP()
 
 
@@ -122,6 +123,7 @@ BOOL CCommitDlg::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_KEEPLOCK);
     m_aeroControls.SubclassControl(this, IDC_KEEPLISTS);
+    m_aeroControls.SubclassControl(this, IDC_LOG);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     UpdateData(FALSE);
@@ -219,6 +221,7 @@ BOOL CCommitDlg::OnInitDialog()
     OnEnChangeLogmessage();
 
     GetWindowText(m_sWindowTitle);
+    DialogEnableWindow(IDC_LOG, m_pathList.GetCount() > 0);
 
     AdjustControlSize(IDC_SHOWUNVERSIONED);
     AdjustControlSize(IDC_KEEPLOCK);
@@ -284,6 +287,7 @@ BOOL CCommitDlg::OnInitDialog()
     AddAnchor(IDC_STATISTICS, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_KEEPLOCK, BOTTOM_LEFT);
     AddAnchor(IDC_KEEPLISTS, BOTTOM_LEFT);
+    AddAnchor(IDC_LOG, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -1527,6 +1531,19 @@ void CCommitDlg::OnBnClickedBugtraqbutton()
     m_cLogMessage.SetFocus();
 }
 
+void CCommitDlg::OnBnClickedLog()
+{
+    CString sCmd;
+    CTSVNPath root = m_pathList.GetCommonRoot();
+    if (root.IsEmpty())
+    {
+        SVN svn;
+        root = svn.GetWCRootFromPath(m_pathList[0]);
+    }
+    sCmd.Format(_T("/command:log /path:\"%s\""), root.GetWinPath());
+    CAppUtils::RunTortoiseProc(sCmd);
+}
+
 LRESULT CCommitDlg::OnSVNStatusListCtrlCheckChanged(WPARAM, LPARAM)
 {
     UpdateOKButton();
@@ -1767,3 +1784,4 @@ void CCommitDlg::VersionCheck()
         m_cUpdateLink.ShowWindow(SW_SHOW);
     }
 }
+

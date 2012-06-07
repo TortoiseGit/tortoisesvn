@@ -78,6 +78,7 @@ protected:
     afx_msg void OnBnClickedShowunversioned();
     afx_msg void OnBnClickedHistory();
     afx_msg void OnBnClickedBugtraqbutton();
+    afx_msg void OnBnClickedLog();
     afx_msg void OnEnChangeLogmessage();
     afx_msg void OnStnClickedExternalwarning();
     afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
@@ -146,5 +147,4 @@ private:
     CPathEdit           m_CommitTo;
     CBugTraqAssociation m_bugtraq_association;
     CHyperLink          m_cUpdateLink;
-
 };
