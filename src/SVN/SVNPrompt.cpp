@@ -53,6 +53,9 @@ SVNPrompt::~SVNPrompt()
 
 void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
 {
+    if (ctx->config == nullptr)
+        return;
+
     // set up authentication
 
     svn_auth_provider_object_t *provider;

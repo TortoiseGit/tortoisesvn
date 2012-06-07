@@ -115,6 +115,11 @@ SVN::SVN(bool suppressUI)
     if (Err == 0)
         m_pctx->config = SVNConfig::Instance().GetConfig();
 
+    if (m_pctx->config == nullptr)
+    {
+        Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, pool);
+    }
+
     if (Err != 0)
     {
         ShowErrorDialog(NULL);
