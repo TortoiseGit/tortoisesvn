@@ -185,6 +185,7 @@ CLogDlg::~CLogDlg()
     DestroyIcon(m_hReverseMergedIcon);
     if ( m_pStoreSelection )
     {
+        m_pStoreSelection->ClearSelection();
         delete m_pStoreSelection;
         m_pStoreSelection = NULL;
     }
