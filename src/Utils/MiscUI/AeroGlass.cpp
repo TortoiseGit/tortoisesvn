@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,7 @@ BOOL CDwmApiImpl::Initialize(void)
         return FALSE;
     }
 
-    m_hDwmApiLib = LoadLibraryW(L"dwmapi.dll");
+    m_hDwmApiLib = AtlLoadSystemLibraryUsingFullPath(L"dwmapi.dll");
     return IsInitialized();
 }
 
@@ -108,7 +108,7 @@ BOOL CUxThemeAeroImpl::Initialize(void)
         return FALSE;
     }
 
-    m_hUxThemeLib = LoadLibraryW(L"uxtheme.dll");
+    m_hUxThemeLib = AtlLoadSystemLibraryUsingFullPath(L"uxtheme.dll");
     return IsInitialized();
 }
 

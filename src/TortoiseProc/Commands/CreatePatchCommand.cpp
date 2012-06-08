@@ -113,7 +113,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             {
                 typedef HRESULT (WINAPI *SHCIFPN)(PCWSTR pszPath, IBindCtx * pbc, REFIID riid, void ** ppv);
 
-                CAutoLibrary hLib = LoadLibrary(L"shell32.dll");
+                CAutoLibrary hLib = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
                 if (hLib)
                 {
                     SHCIFPN pSHCIFPN = (SHCIFPN)GetProcAddress(hLib, "SHCreateItemFromParsingName");

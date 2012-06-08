@@ -205,7 +205,7 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
 
     CString sError = Err ? GetErrorString(Err) : PostCommitErr;
 
-    CAutoLibrary hLib = LoadLibrary(L"Comctl32.dll");
+    CAutoLibrary hLib = AtlLoadSystemLibraryUsingFullPath(L"Comctl32.dll");
     if (hLib)
     {
         TDLG pTDLG = (TDLG)GetProcAddress(hLib, "TaskDialogIndirect");

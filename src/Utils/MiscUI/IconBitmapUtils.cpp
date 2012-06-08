@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2011 - TortoiseSVN
+// Copyright (C) 2009-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,7 @@ IconBitmapUtils::IconBitmapUtils()
 {
     if (SysInfo::Instance().IsVistaOrLater())
     {
-        hUxTheme = LoadLibrary(_T("UXTHEME.DLL"));
+        hUxTheme = AtlLoadSystemLibraryUsingFullPath(_T("UXTHEME.DLL"));
 
         if (hUxTheme)
         {

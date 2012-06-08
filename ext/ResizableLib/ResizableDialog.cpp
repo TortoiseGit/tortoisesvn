@@ -52,7 +52,7 @@ inline void CResizableDialog::PrivateConstruct()
 {
     m_bEnableSaveRestore = FALSE;
     m_dwGripTempState = 1;
-    m_hDwmApiLib = LoadLibraryW(L"dwmapi.dll");
+    m_hDwmApiLib = AtlLoadSystemLibraryUsingFullPath(L"dwmapi.dll");
     m_bShowGrip = !IsDwmCompositionEnabled();
 }
 
