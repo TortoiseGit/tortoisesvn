@@ -61,44 +61,6 @@ int                 nCurrentCrawledpathIndex = 0;
 CComAutoCriticalSection critSec;
 
 #define PACKVERSION(major,minor) MAKELONG(minor,major)
-DWORD GetDllVersion(LPCTSTR lpszDllName)
-{
-    DWORD dwVersion = 0;
-
-    /* For security purposes, LoadLibrary should be provided with a
-    fully-qualified path to the DLL. The lpszDllName variable should be
-    tested to ensure that it is a fully qualified path before it is used. */
-    CAutoLibrary hinstDll = LoadLibrary(lpszDllName);
-
-    if(hinstDll)
-    {
-        DLLGETVERSIONPROC pDllGetVersion;
-        pDllGetVersion = (DLLGETVERSIONPROC)GetProcAddress(hinstDll,
-            "DllGetVersion");
-
-        /* Because some DLLs might not implement this function, you
-        must test for it explicitly. Depending on the particular
-        DLL, the lack of a DllGetVersion function can be a useful
-        indicator of the version. */
-
-        if(pDllGetVersion)
-        {
-            DLLVERSIONINFO dvi;
-            HRESULT hr;
-
-            SecureZeroMemory(&dvi, sizeof(dvi));
-            dvi.cbSize = sizeof(dvi);
-
-            hr = (*pDllGetVersion)(&dvi);
-
-            if(SUCCEEDED(hr))
-            {
-                dwVersion = PACKVERSION(dvi.dwMajorVersion, dvi.dwMinorVersion);
-            }
-        }
-    }
-    return dwVersion;
-}
 
 svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
                                            const char *file, int line,
@@ -191,7 +153,10 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     {
         SecureZeroMemory(&niData,sizeof(NOTIFYICONDATA));
 
-        DWORD dwVersion = GetDllVersion(_T("Shell32.dll"));
+        DWORD dwMajor = 0;
+        DWORD dwMinor = 0;
+        AtlGetShellVersion(&dwMajor, &dwMinor);
+        DWORD dwVersion = PACKVERSION(dwMajor, dwMinor);
 
         if (dwVersion >= PACKVERSION(6,0))
             niData.cbSize = sizeof(NOTIFYICONDATA);
