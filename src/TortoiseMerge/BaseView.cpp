@@ -420,6 +420,8 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/, BOOL
 void CBaseView::CalcLineCharDim()
 {
     CDC *pDC = GetDC();
+    if (pDC == nullptr)
+        return;
     CFont *pOldFont = pDC->SelectObject(GetFont());
     const CSize szCharExt = pDC->GetTextExtent(_T("X"));
     pDC->SelectObject(pOldFont);
