@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-06-02 08:30+0000\n"
+"PO-Revision-Date: 2012-06-06 02:00+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2959,7 +2959,7 @@ msgstr "要執行的命令列:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr ""
+msgstr "命令列指令:\n如果要指定工作複本中的路徑, 請使用檔案庫中的 URL, 並以 %REPOROOT% 代表檔案庫最上層的 URL."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3583,7 +3583,7 @@ msgid ""
 "{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
-msgstr ""
+msgstr "自訂標題. 以下是可使用的關鍵字:\n{mergeurl}:\t要合併的原始 URL.\n{revisions}:\t以逗號分隔的版本號列表. 例如: 3, 5, 6, 7\n{revisionsr}:\t與 {revisions} 相同，但是每個版號的前面會加上 'r'\n{revrange}:\t以逗號分隔的版本號列表, 連續版號會合併為群組, 例如: 3, 5-7"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -5856,7 +5856,7 @@ msgstr "左側影像"
 
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
-msgstr ""
+msgstr "同上, 但是僅用在反向合併"
 
 #. Resource IDs: (19)
 msgid "Line"
@@ -6171,7 +6171,7 @@ msgstr "合併層數(&D):"
 
 #. Resource IDs: (32865)
 msgid "Merge Log &Templates"
-msgstr ""
+msgstr "合併紀錄樣版(&T)"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -6232,7 +6232,7 @@ msgstr "已合併"
 
 #. Resource IDs: (286)
 msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
-msgstr ""
+msgstr "已合併版本 {revrange} 至 {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
@@ -8081,7 +8081,7 @@ msgstr "重試"
 
 #. Resource IDs: (286)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
-msgstr ""
+msgstr "已完成反向合併版本 {revrange} 至 {mergeurl}:\n"
 
 #. Resource IDs: (264)
 #, c-format
@@ -9112,7 +9112,7 @@ msgid ""
 "{author}:\tThe author of the merged revision\r\n"
 "{rev}:\tThe merged revision itself\r\n"
 "{bugid}:\tThe bug ids of the merged revision"
-msgstr ""
+msgstr "設定已合併版本的顯示方式.\n可使用以下的關鍵字:\n{msg}:\t該版本的送交紀錄.\n{msgoneline}:\t送交紀錄, 但是強制合併為一行顯示.\n{author}:\t該版本的作者\n{rev}:\t該版本的版號\n{bugid}:\t該版本的 bug-id"
 
 #. Resource IDs: (1572)
 msgid ""
