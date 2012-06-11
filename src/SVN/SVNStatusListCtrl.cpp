@@ -1885,8 +1885,9 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
                 m_bBlockItemChangeHandler = true;
                 POSITION pos = GetFirstSelectedItemPosition();
                 int index;
-                while ((index = GetNextSelectedItem(pos)) >= 0)
+                while (pos)
                 {
+                    index = GetNextSelectedItem(pos);
                     if (index != pNMLV->iItem)
                         CheckEntry(index, nListItems);
                 }
@@ -1903,8 +1904,9 @@ BOOL CSVNStatusListCtrl::OnLvnItemchanged(NMHDR *pNMHDR, LRESULT *pResult)
                 m_bBlockItemChangeHandler = true;
                 POSITION pos = GetFirstSelectedItemPosition();
                 int index;
-                while ((index = GetNextSelectedItem(pos)) >= 0)
+                while (pos)
                 {
+                    index = GetNextSelectedItem(pos);
                     if (index != pNMLV->iItem)
                         UncheckEntry(index, nListItems);
                 }
@@ -2459,8 +2461,9 @@ void CSVNStatusListCtrl::Remove (const CTSVNPath& filepath, bool bKeepLocal)
                 e->status = svn_wc_status_deleted;
             }
         }
-        while ((index = GetNextSelectedItem(pos)) >= 0)
+        while (pos)
         {
+            index = GetNextSelectedItem(pos);
             FileEntry * e = GetListEntry(index);
             if (!bKeepLocal &&
                 ((e->status == svn_wc_status_unversioned)||
@@ -2582,8 +2585,9 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
     if (pos == NULL)
         bConfirm = true;
     int index;
-    while ((index = GetNextSelectedItem(pos)) >= 0)
+    while (pos)
     {
+        index = GetNextSelectedItem(pos);
         const FileEntry * fentry = GetListEntry(index);
         svn_wc_status_kind entryStatus = fentry->status;
         if (fentry->IsFolder())
@@ -2675,8 +2679,9 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             }
         }
     }
-    while ((index = GetNextSelectedItem(pos)) >= 0)
+    while (pos)
     {
+        index = GetNextSelectedItem(pos);
         FileEntry * entry2 = GetListEntry(index);
         svn_wc_status_kind status = entry2->status;
         if ((status != svn_wc_status_added)&&
@@ -2716,8 +2721,9 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             SendNeedsRefresh();
         }
         std::vector<int> itemstoremove;
-        while ((index = GetNextSelectedItem(pos)) >= 0)
+        while (pos)
         {
+            index = GetNextSelectedItem(pos);
             FileEntry * fentry = m_arStatusArray[m_arListArray[index]];
             if ( fentry->IsFolder() )
             {
@@ -3691,8 +3697,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         int index;
                         int nListItems = GetItemCount();
                         CAutoWriteLock locker(m_guard);
-                        while ((index = GetNextSelectedItem(pos)) >= 0)
+                        while (pos)
                         {
+                            index = GetNextSelectedItem(pos);
                             FileEntry * e = GetListEntry(index);
                             e->textstatus = svn_wc_status_normal;
                             e->propstatus = svn_wc_status_none;
@@ -3965,8 +3972,9 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
 
         POSITION pos = GetFirstSelectedItemPosition();
         int index;
-        while ((index = GetNextSelectedItem(pos)) >= 0)
+        while (pos)
         {
+            index = GetNextSelectedItem(pos);
             FileEntry * e = GetListEntry(index);
             e->changelist = name;
             SetEntryCheck(e, index, FALSE);
@@ -4670,8 +4678,9 @@ void CSVNStatusListCtrl::FillListOfSelectedItemPaths(CTSVNPathList& pathList, bo
 
     POSITION pos = GetFirstSelectedItemPosition();
     int index;
-    while ((index = GetNextSelectedItem(pos)) >= 0)
+    while (pos)
     {
+        index = GetNextSelectedItem(pos);
         FileEntry * entry = GetListEntry(index);
         if ((bNoIgnored)&&(entry->status == svn_wc_status_ignored))
             continue;
@@ -5226,8 +5235,9 @@ bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols)
 
     POSITION pos = GetFirstSelectedItemPosition();
     int index;
-    while ((index = GetNextSelectedItem(pos)) >= 0)
+    while (pos)
     {
+        index = GetNextSelectedItem(pos);
         // we selected only cols we want, so not other then select test needed
         for (int column = 0; column < count; ++column)
         {
@@ -5247,8 +5257,9 @@ size_t CSVNStatusListCtrl::GetNumberOfChangelistsInSelection()
     std::set<CString> changelists;
     POSITION pos = GetFirstSelectedItemPosition();
     int index;
-    while ((index = GetNextSelectedItem(pos)) >= 0)
+    while (pos)
     {
+        index = GetNextSelectedItem(pos);
         FileEntry * entry = GetListEntry(index);
         if (!entry->changelist.IsEmpty())
             changelists.insert(entry->changelist);
@@ -5823,8 +5834,9 @@ void CSVNStatusListCtrl::OnRemoveFromCS(const CTSVNPath& filepath)
         POSITION pos = GetFirstSelectedItemPosition();
         int index;
         std::vector<int> entriesToRemove;
-        while ((index = GetNextSelectedItem(pos)) >= 0)
+        while (pos)
         {
+            index = GetNextSelectedItem(pos);
             FileEntry * e = GetListEntry(index);
             if (e == 0)
                 continue;
@@ -5888,8 +5900,9 @@ void CSVNStatusListCtrl::OnContextMenuListDefault(FileEntry * entry, int command
                 // and update their changelist
                 POSITION pos = GetFirstSelectedItemPosition();
                 int index;
-                while ((index = GetNextSelectedItem(pos)) >= 0)
+                while (pos)
                 {
+                    index = GetNextSelectedItem(pos);
                     FileEntry * e = GetListEntry(index);
                     e->changelist = sChangelist;
                     if (e->IsFolder())
