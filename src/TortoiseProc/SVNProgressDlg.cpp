@@ -1245,8 +1245,12 @@ UINT CSVNProgressDlg::ProgressThread()
     DialogEnableWindow(IDCANCEL, FALSE);
     DialogEnableWindow(IDOK, TRUE);
     RefreshCursor();
-    SendMessage(DM_SETDEFID, IDOK);
-    GetDlgItem(IDOK)->SetFocus();
+    CWnd * pWndOk = GetDlgItem(IDOK);
+    if (pWndOk && ::IsWindow(pWndOk->GetSafeHwnd()))
+    {
+        SendMessage(DM_SETDEFID, IDOK);
+        GetDlgItem(IDOK)->SetFocus();
+    }
 
     DWORD dwAutoClose = CRegStdDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
     BOOL bAutoCloseLocal = CRegStdDWORD(_T("Software\\TortoiseSVN\\AutoCloseLocal"), FALSE);
