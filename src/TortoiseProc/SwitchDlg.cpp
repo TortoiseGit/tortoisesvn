@@ -34,6 +34,8 @@ CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
     , m_bNoExternals(FALSE)
     , m_bStickyDepth(FALSE)
     , m_bIgnoreAncestry(FALSE)
+    , m_bFolder(false)
+    , m_height(0)
 {
 }
 

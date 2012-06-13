@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011 - TortoiseSVN
+// Copyright (C) 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@ CRecycleBinDlg::CRecycleBinDlg(CWnd* pParent /*=NULL*/)
     , m_regDontDoAgain(L"Software\\TortoiseSVN\\RecycleBinSlowDontAskAgain")
     , m_sLabel(_T(""))
     , m_bDontAskAgain(FALSE)
+    , m_startTicks(0)
 {
 
 }

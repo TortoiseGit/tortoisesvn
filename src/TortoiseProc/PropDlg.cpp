@@ -29,6 +29,7 @@ IMPLEMENT_DYNAMIC(CPropDlg, CResizableStandAloneDialog)
 CPropDlg::CPropDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CPropDlg::IDD, pParent)
     , m_rev(SVNRev::REV_WC)
+    , m_hThread(NULL)
 {
 }
 

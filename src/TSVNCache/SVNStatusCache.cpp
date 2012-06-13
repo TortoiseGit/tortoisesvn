@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008-2011 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -257,7 +257,7 @@ void CSVNStatusCache::Refresh()
 {
     m_shellCache.ForceRefresh();
     m_pInstance->m_svnHelp.ReloadConfig();
-    if (m_pInstance->m_directoryCache.size())
+    if (!m_pInstance->m_directoryCache.empty())
     {
         CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin();
         for (/* no init */; I != m_pInstance->m_directoryCache.end(); ++I)
@@ -375,7 +375,7 @@ bool CSVNStatusCache::RemoveTimedoutBlocks()
             toRemove.push_back(it->first);
         }
     }
-    if (toRemove.size() == 0)
+    if (toRemove.empty())
         return false;
 
     for (std::vector<CTSVNPath>::const_iterator it = toRemove.begin(); it != toRemove.end(); ++it)
@@ -405,7 +405,7 @@ bool CSVNStatusCache::RemoveCacheForDirectory(CCachedDirectory * cdir)
 {
     if (cdir == NULL)
         return false;
-    if (cdir->m_childDirectories.size())
+    if (!cdir->m_childDirectories.empty())
     {
         auto it = cdir->m_childDirectories.begin();
         for (; it != cdir->m_childDirectories.end(); )

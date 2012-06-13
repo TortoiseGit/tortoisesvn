@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,9 @@
 #include "SVNDataObject.h"
 
 
-CTreeDropTarget::CTreeDropTarget(CRepositoryBrowser * pRepoBrowser) : CBaseDropTarget(pRepoBrowser, pRepoBrowser->m_RepoTree.GetSafeHwnd())
+CTreeDropTarget::CTreeDropTarget(CRepositoryBrowser * pRepoBrowser)
+    : CBaseDropTarget(pRepoBrowser, pRepoBrowser->m_RepoTree.GetSafeHwnd())
+    , m_dwHoverStartTicks(0)
 {
 }
 

@@ -63,6 +63,7 @@ CEditPropertiesDlg::CEditPropertiesDlg(CWnd* pParent /*=NULL*/)
     , m_bRevProps(false)
     , m_pProjectProperties(NULL)
     , m_bUrlIsFolder(false)
+    , m_bThreadRunning(false)
 {
 }
 
@@ -579,7 +580,7 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
     {
         // before using the default dialog find out if this
         // is maybe a user property with one of the user property dialogs
-        if (m_userProperties.size())
+        if (!m_userProperties.empty())
         {
             for (auto it = m_userProperties.cbegin(); it != m_userProperties.cend(); ++it)
             {
@@ -672,7 +673,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         {
             sName = dlg->GetPropertyName();
             TProperties dlgprops = dlg->GetProperties();
-            if (!sName.empty() || (dlg->HasMultipleProperties()&&dlgprops.size()))
+            if (!sName.empty() || (dlg->HasMultipleProperties()&&!dlgprops.empty()))
             {
                 CString sMsg;
                 bool bDoIt = true;
@@ -937,12 +938,10 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
     int selIndex = m_propList.GetSelectionMark();
 
     std::string sName;
-    std::string sValue;
     if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
     {
         sName = CUnicodeUtils::StdGetUTF8 ((LPCTSTR)m_propList.GetItemText(selIndex, 0));
         PropValue& prop = m_properties[sName];
-        sValue = prop.value.c_str();
         if (prop.allthesamevalue)
         {
             CString savePath;

@@ -64,7 +64,7 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
     if (pThis && notify)
     {
         PathRejects * pInfo = NULL;
-        if (pThis->m_filePaths.size())
+        if (!pThis->m_filePaths.empty())
             pInfo = &pThis->m_filePaths[pThis->m_filePaths.size()-1];
         if ((notify->action == svn_wc_notify_skip)||(notify->action == svn_wc_notify_patch_rejected_hunk))
         {

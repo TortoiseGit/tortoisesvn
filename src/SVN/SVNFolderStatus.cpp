@@ -86,6 +86,8 @@ SVNFolderStatus::SVNFolderStatus(void)
     : m_TimeStamp(0)
     , m_nCounter(0)
     , dirstatus(NULL)
+    , dirstat(0)
+    , m_mostRecentStatus(svn_wc_status_none)
 {
     emptyString[0] = 0;
     invalidstatus.author = emptyString;

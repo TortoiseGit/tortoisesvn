@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,6 +27,7 @@ CRelocateDlg::CRelocateDlg(CWnd* pParent /*=NULL*/)
     , m_sToUrl(_T(""))
     , m_sFromUrl(_T(""))
     , m_bIncludeExternals(FALSE)
+    , m_height(0)
 {
 }
 

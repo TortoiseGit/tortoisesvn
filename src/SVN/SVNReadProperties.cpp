@@ -461,7 +461,7 @@ bool SVNReadProperties::IsFolderOnlyProperty( const std::string& name ) const
     if (name.compare("svn:ignore") == 0)
         return true;
 
-    if (m_folderprops.size())
+    if (!m_folderprops.empty())
     {
         for (auto it = m_folderprops.cbegin(); it != m_folderprops.cend(); ++it)
         {

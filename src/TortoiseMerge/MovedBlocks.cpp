@@ -76,7 +76,7 @@ bool IntSet::IsPresent(int val) const
 
 int IntSet::GetSingle() const
 {
-    if (m_set.size())
+    if (!m_set.empty())
     {
         return *m_set.cbegin();
     }

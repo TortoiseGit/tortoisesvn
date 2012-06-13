@@ -529,7 +529,7 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
     if (patterns.empty() && subStringConditions.empty())
         return !negate;
 
-    if (hideNonMergeable && mergedrevs && mergedrevs->size())
+    if (hideNonMergeable && mergedrevs && !mergedrevs->empty())
     {
         if (mergedrevs->find(entry.GetRevision()) != mergedrevs->end())
             return false;

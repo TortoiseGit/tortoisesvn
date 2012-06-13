@@ -33,6 +33,7 @@
 #include "SVNTrace.h"
 
 SVNConflictData::SVNConflictData()
+    : treeconflict_binary(false)
 {
 }
 
@@ -139,7 +140,7 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
     )
     if (Err != NULL)
         return NULL;
-    if (m_arInfo.size() == 0)
+    if (m_arInfo.empty())
         return NULL;
     return &m_arInfo[0];
 }

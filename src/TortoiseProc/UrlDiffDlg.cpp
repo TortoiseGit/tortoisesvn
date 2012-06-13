@@ -30,6 +30,7 @@ CUrlDiffDlg::CUrlDiffDlg(CWnd* pParent /*=NULL*/)
     , m_URL(_T(""))
     , Revision(_T("HEAD"))
     , m_pLogDlg(NULL)
+    , m_bFolder(false)
 {
 }
 

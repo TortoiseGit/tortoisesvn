@@ -1094,7 +1094,7 @@ void TortoiseBlame::Command(int id)
         break;
     case ID_VIEW_MERGEPATH:
         {
-            bool bUseMerged = (m_mergedPaths.size() != 0);
+            bool bUseMerged = !m_mergedPaths.empty();
             ShowPath = bUseMerged && !ShowPath;
             HMENU hMenu = GetMenu(wMain);
             UINT uCheck = MF_BYCOMMAND;
@@ -1403,7 +1403,7 @@ void TortoiseBlame::DrawLocatorBar(HDC hDC)
         Y = lineRect.bottom;
     }
 
-    if (m_revs.size())
+    if (!m_revs.empty())
     {
         // now draw two lines indicating the scroll position of the source view
         SetBkColor(hDC, blackColor);

@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,6 +44,7 @@ CSetMainPage::CSetMainPage()
     , m_bUTF8Default(FALSE)
     , m_bAutoAdd(TRUE)
     , m_nMaxInline(3000)
+    , m_dwFontSize(0)
 {
     m_regBackup = CRegDWORD(_T("Software\\TortoiseMerge\\Backup"));
     m_regFirstDiffOnLoad = CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE);

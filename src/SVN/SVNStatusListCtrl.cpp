@@ -181,6 +181,33 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_bBlockItemChangeHandler(false)
     , m_nSelected(0)
     , m_bFixCaseRenames(true)
+    , m_nTargetCount(0)
+    , m_bHasExternalsFromDifferentRepos(false)
+    , m_bHasExternals(false)
+    , m_bHasUnversionedItems(false)
+    , m_bHasIgnoreGroup(false)
+    , m_nUnversioned(0)
+    , m_nNormal(0)
+    , m_nModified(0)
+    , m_nAdded(0)
+    , m_nDeleted(0)
+    , m_nConflicted(0)
+    , m_nTotal(0)
+    , m_nSwitched(0)
+    , m_nShownUnversioned(0)
+    , m_nShownNormal(0)
+    , m_nShownModified(0)
+    , m_nShownAdded(0)
+    , m_nShownDeleted(0)
+    , m_nShownConflicted(0)
+    , m_nShownFiles(0)
+    , m_nShownFolders(0)
+    , m_dwShow(0)
+    , m_bShowFolders(false)
+    , m_bShowFiles(false)
+    , m_bUpdate(false)
+    , m_dwContextMenus(0)
+    , m_nIconFolder(0)
 {
 }
 
@@ -349,7 +376,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
     m_mapFilenameToChecked.clear();
     m_StatusUrlList.Clear();
     m_externalSet.clear();
-    bool bHasChangelists = (m_changelists.size()>1 || (m_changelists.size()>0 && !m_bHasIgnoreGroup));
+    bool bHasChangelists = (m_changelists.size()>1 || (!m_changelists.empty() && !m_bHasIgnoreGroup));
     m_changelists.clear();
     for (size_t i=0; i < m_arStatusArray.size(); i++)
     {
@@ -1251,7 +1278,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
         SetItemCount (static_cast<int>(m_arStatusArray.size()));
 
         int listIndex = 0;
-        bool bAllowCheck = (m_bCheckIfGroupsExist || (m_changelists.size()==0 || (m_changelists.size()==1 && m_bHasIgnoreGroup)));
+        bool bAllowCheck = (m_bCheckIfGroupsExist || (m_changelists.empty() || (m_changelists.size()==1 && m_bHasIgnoreGroup)));
         for (size_t i=0; i < m_arStatusArray.size(); ++i)
         {
             FileEntry * entry = m_arStatusArray[i];
@@ -1632,7 +1659,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
 {
     CAutoWriteLock locker(m_guard);
     const CString& path = entry->GetPath().GetSVNPathString();
-    if ( m_mapFilenameToChecked.size()!=0 && m_mapFilenameToChecked.find(path) != m_mapFilenameToChecked.end() )
+    if ( !m_mapFilenameToChecked.empty() && m_mapFilenameToChecked.find(path) != m_mapFilenameToChecked.end() )
     {
         // The user manually de-/selected an item. We now restore this status
         // when refreshing.
@@ -1703,7 +1730,7 @@ void CSVNStatusListCtrl::AddEntry(FileEntry * entry, int listIndex)
         lvItem.state = INDEXTOOVERLAYMASK(OVL_DEPTHIMMEDIATES);
     else if (entry->depth == svn_depth_empty)
         lvItem.state = INDEXTOOVERLAYMASK(OVL_DEPTHEMPTY);
-    if (m_restorepaths.size())
+    if (!m_restorepaths.empty())
     {
         for (auto it = m_restorepaths.cbegin(); it != m_restorepaths.cend(); ++it)
         {
@@ -3252,7 +3279,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             changelistSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_CREATEIGNORECS, SVNSLC_IGNORECHANGELIST);
                         }
 
-                        if (m_changelists.size() > 0)
+                        if (!m_changelists.empty())
                         {
                             // find the changelist names
                             bool bNeedSeparator = true;
@@ -5273,8 +5300,8 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
         return false;   // don't show groups
 
     CAutoWriteLock locker(m_guard);
-    bool bHasChangelistGroups = (m_changelists.size() > 0)||(bForce);
-    bool bHasGroups = bHasChangelistGroups|| ((m_externalSet.size()>0) && (m_dwShow & SVNSLC_SHOWINEXTERNALS));
+    bool bHasChangelistGroups = (!m_changelists.empty())||(bForce);
+    bool bHasGroups = bHasChangelistGroups|| ((!m_externalSet.empty()) && (m_dwShow & SVNSLC_SHOWINEXTERNALS));
     RemoveAllGroups();
     EnableGroupView(bHasGroups);
 
@@ -5876,10 +5903,10 @@ void CSVNStatusListCtrl::OnContextMenuListDefault(FileEntry * entry, int command
 
     // find the changelist name
     CString sChangelist;
-    int cmdID = IDSVNLC_MOVETOCS;
     SetRedraw(FALSE);
     {
         CAutoWriteLock locker(m_guard);
+        int cmdID = IDSVNLC_MOVETOCS;
         for (std::map<CString, int>::const_iterator it = m_changelists.begin(); it != m_changelists.end(); ++it)
         {
             if ((it->first.Compare(SVNSLC_IGNORECHANGELIST))&&(entry->changelist.Compare(it->first)))

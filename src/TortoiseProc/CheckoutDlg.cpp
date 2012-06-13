@@ -40,6 +40,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
     , m_parentExists(false)
     , m_blockPathAdjustments(FALSE)
     , m_bBlockMessages(false)
+    , m_bAutoCreateTargetName(false)
 {
 }
 

@@ -29,14 +29,20 @@
 class CMergeWizardBasePage : public CResizablePageEx, public SVN
 {
 public:
-    CMergeWizardBasePage() : CResizablePageEx() {;}
+    CMergeWizardBasePage()
+        : CResizablePageEx()
+        , m_bCancelled(false)
+        , m_bThreadRunning(false)
+        , m_pThread(NULL) {;}
     explicit CMergeWizardBasePage(UINT nIDTemplate, UINT nIDCaption = 0)
         : CResizablePageEx(nIDTemplate, nIDCaption, 0)
         , m_bCancelled(false)
+        , m_bThreadRunning(false)
         , m_pThread(NULL) {;}
     explicit CMergeWizardBasePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0)
         : CResizablePageEx(lpszTemplateName, nIDCaption, 0)
         , m_bCancelled(false)
+        , m_bThreadRunning(false)
         , m_pThread(NULL) {;}
 
     virtual ~CMergeWizardBasePage() {;}

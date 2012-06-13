@@ -164,6 +164,18 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_bHideNonMergeables(FALSE)
     , m_copyfromrev(0)
     , m_bStartRevIsHead(true)
+    , m_boldFont(NULL)
+    , m_bStrict(false)
+    , m_bSaveStrict(false)
+    , m_hasWC(false)
+    , m_hModifiedIcon(NULL)
+    , m_hReplacedIcon(NULL)
+    , m_hAddedIcon(NULL)
+    , m_hDeletedIcon(NULL)
+    , m_hMergedIcon(NULL)
+    , m_hReverseMergedIcon(NULL)
+    , m_nIconFolder(0)
+    , m_prevLogEntriesSize(0)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);
@@ -1475,7 +1487,7 @@ void CLogDlg::LogThread()
     SetDlgTitle(cachedProperties.IsOffline (m_sUUID, m_sRepositoryRoot, false));
 
     GetDlgItem(IDC_PROGRESS)->ShowWindow(FALSE);
-    GetDlgItem(IDC_HIDENONMERGEABLE)->ShowWindow(m_mergedRevs.size()>0);
+    GetDlgItem(IDC_HIDENONMERGEABLE)->ShowWindow(!m_mergedRevs.empty());
     if (m_pTaskbarList)
     {
         m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
@@ -2279,7 +2291,7 @@ BOOL CLogDlg::Open(bool bOpenWith,CString changedpath, svn_revnum_t rev)
 
 void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
 {
-    if (logs.size() == 0)
+    if (logs.empty())
         return;
 
     DialogEnableWindow(IDOK, FALSE);
@@ -3134,12 +3146,12 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
 {
     wstring text;
     text = (LPCTSTR)listCtrl.GetItemText((int)pLVCD->nmcd.dwItemSpec, pLVCD->iSubItem);
-    if (text.size() == 0)
+    if (text.empty())
         return CDRF_DODEFAULT;
 
     wstring matchtext = text;
     std::vector<CHARRANGE> ranges = m_filter.GetMatchRanges(matchtext);
-    if (ranges.size())
+    if (!ranges.empty())
     {
         int drawPos = 0;
 
@@ -4527,7 +4539,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                 popup.AppendMenu(MF_SEPARATOR, NULL);
         }
 
-        if ((selEntries.size() > 0)&&(bAllFromTheSameAuthor))
+        if ((!selEntries.empty())&&(bAllFromTheSameAuthor))
         {
             popup.AppendMenuIcon(ID_EDITAUTHOR, IDS_LOG_POPUP_EDITAUTHOR);
         }
@@ -5333,13 +5345,13 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     popup.SetDefaultItem(ID_OPEN, FALSE);
             }
         }
-        else if (changedlogpathindices.size())
+        else if (!changedlogpathindices.empty())
         {
             // more than one entry is selected
             popup.AppendMenuIcon(ID_SAVEAS, IDS_LOG_POPUP_SAVE);
             bEntryAdded = true;
         }
-        if (changedpaths.size())
+        if (!changedpaths.empty())
         {
             popup.AppendMenuIcon(ID_EXPORTTREE, IDS_MENUEXPORT, IDI_EXPORT);
             bEntryAdded = true;

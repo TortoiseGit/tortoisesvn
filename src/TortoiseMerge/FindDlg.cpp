@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2011 - TortoiseSVN
+// Copyright (C) 2006, 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,6 +33,7 @@ CFindDlg::CFindDlg(CWnd* pParent /*=NULL*/)
     , m_bMatchCase(FALSE)
     , m_bLimitToDiffs(FALSE)
     , m_bWholeWord(FALSE)
+    , m_FindMsg(0)
 {
 }
 

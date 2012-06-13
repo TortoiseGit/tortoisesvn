@@ -1697,10 +1697,10 @@ void CBaseView::DrawTextLine(
     //int nLineLengthExp = sLineExp.GetLength();
     int nStartExp = 0;
     int nLeft = coords.x;
-    for (std::map<int, linecolors_t>::const_iterator itStart = lineCols.begin(); itStart != lineCols.end(); itStart++)
+    for (std::map<int, linecolors_t>::const_iterator itStart = lineCols.begin(); itStart != lineCols.end(); ++itStart)
     {
         std::map<int, linecolors_t>::const_iterator itEnd = itStart;
-        itEnd++;
+        ++itEnd;
         int nStart = std::max<int>(0, itStart->first - nTextOffset);
         int nEnd = nLineLength;
         if (itEnd != lineCols.end())
@@ -4213,7 +4213,7 @@ bool CBaseView::GetInlineDiffPositions(int nViewLine, std::vector<inlineDiffPos>
         diff = diff->next;
     }
 
-    return (positions.size() > 0);
+    return !positions.empty();
 }
 
 void CBaseView::OnNavigateNextinlinediff()
@@ -4409,7 +4409,7 @@ int CBaseView::FindScreenLineForViewLine( int viewLine )
 
 int CBaseView::CountMultiLines( int nViewLine )
 {
-    if (m_ScreenedViewLine.size()==0)
+    if (m_ScreenedViewLine.empty())
         return 0;   // in case the view is completely empty
 
     ASSERT(nViewLine < (int)m_ScreenedViewLine.size());

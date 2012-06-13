@@ -2784,7 +2784,7 @@ apr_array_header_t * SVN::MakeChangeListArray(const CStringArray& changelists, a
 apr_hash_t * SVN::MakeRevPropHash(const RevPropHash& revProps, apr_pool_t * pool)
 {
     apr_hash_t * revprop_table = NULL;
-    if (revProps.size())
+    if (!revProps.empty())
     {
         revprop_table = apr_hash_make(pool);
         for (RevPropHash::const_iterator it = revProps.begin(); it != revProps.end(); ++it)
