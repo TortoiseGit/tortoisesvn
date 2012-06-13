@@ -110,7 +110,7 @@ BOOL CChangedDlg::OnInitDialog()
     m_FileListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS |
                         SVNSLC_COLREMOTETEXT | SVNSLC_COLREMOTEPROP |
                         SVNSLC_COLLOCK | SVNSLC_COLLOCKCOMMENT |
-                        SVNSLC_COLAUTHOR | SVNSLC_COLAUTHOR |
+                        SVNSLC_COLAUTHOR |
                         SVNSLC_COLREVISION | SVNSLC_COLDATE, _T("ChangedDlg"),
                         SVNSLC_POPALL, false);
     m_FileListCtrl.SetCancelBool(&m_bCanceled);

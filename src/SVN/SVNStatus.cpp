@@ -101,9 +101,6 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
     svn_wc_status_kind          statuskind;
     apr_pool_t *                pool;
     svn_error_t *               err;
-    BOOL                        isDir;
-
-    isDir = path.IsDirectory();
 
     pool = svn_pool_create (NULL);              // create the memory pool
 

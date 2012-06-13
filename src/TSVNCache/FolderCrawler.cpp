@@ -295,10 +295,6 @@ void CFolderCrawler::WorkerThread()
                         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": updating path %s\n"), workingPath.GetWinPath());
                     }
                     InvalidateRect(hWnd, NULL, FALSE);
-                    // HasAdminDir() already checks if the path points to a dir
-                    DWORD flags = TSVNCACHE_FLAGS_FOLDERISKNOWN;
-                    flags |= (workingPath.IsDirectory() ? TSVNCACHE_FLAGS_ISFOLDER : 0);
-                    flags |= (bRecursive ? TSVNCACHE_FLAGS_RECUSIVE_STATUS : 0);
                     {
                         CAutoReadLock readLock(CSVNStatusCache::Instance().GetGuard());
                         // Invalidate the cache of folders manually. The cache of files is invalidated

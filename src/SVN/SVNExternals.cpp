@@ -96,11 +96,11 @@ bool SVNExternals::Add(const CTSVNPath& path, const std::string& extvalue, bool 
                 if (fetchrev)
                 {
                     svn_revnum_t maxrev, minrev;
-                    bool bswitched, bmodified, bsparse;
                     CTSVNPath p = path;
                     p.AppendPathString(ext.targetDir);
                     if (p.IsDirectory())
                     {
+                        bool bswitched, bmodified, bsparse;
                         if (svn.GetWCRevisionStatus(p, true, minrev, maxrev, bswitched, bmodified, bsparse))
                         {
                             ext.revision.kind = svn_opt_revision_number;
