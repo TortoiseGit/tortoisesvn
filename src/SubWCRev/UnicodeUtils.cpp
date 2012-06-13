@@ -40,7 +40,7 @@ char * Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool)
     return pch;
 }
 
-std::wstring Utf8ToWide(const std::string string)
+std::wstring Utf8ToWide(const std::string& string)
 {
     const size_t len = string.size();
     std::unique_ptr<WCHAR[]> buf(new WCHAR[len*4 + 1]);
