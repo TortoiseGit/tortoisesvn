@@ -65,6 +65,7 @@ void CSVNStatusCache::Create()
         _tcscat_s(path, _T("\\TSVNCache"));
         if (!PathIsDirectory(path))
         {
+            DeleteFile(path);
             if (CreateDirectory(path, NULL)==0)
                 goto error;
         }
@@ -144,7 +145,8 @@ exit:
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": cache loaded from disk successfully!\n");
     return;
 error:
-    fclose(pFile);
+    if (pFile)
+        fclose(pFile);
     DeleteFile(path2);
     m_pInstance->watcher.ClearInfoMap();
     Destroy();
