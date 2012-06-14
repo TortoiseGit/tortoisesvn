@@ -1565,7 +1565,7 @@ void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
         {
             CString sLogCopyText;
             int index = m_LogList.GetNextSelectedItem(pos);
-            if (index >= m_logEntries.GetVisibleCount())
+            if (index >= (int)m_logEntries.GetVisibleCount())
                 continue;
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible (index);
             if (bIncludeChangedList)
@@ -1807,7 +1807,7 @@ void CLogDlg::UpdateSelectedRevs()
         while (pos)
         {
             int index = m_LogList.GetNextSelectedItem(pos);
-            if (index < m_logEntries.GetVisibleCount())
+            if (index < (int)m_logEntries.GetVisibleCount())
             {
                 pLogEntry = m_logEntries.GetVisible (index);
                 if (pLogEntry)
@@ -1977,7 +1977,7 @@ void CLogDlg::DiffSelectedFile()
         {
             // there's at least a second entry selected in the log list: several revisions selected!
             int index = m_LogList.GetNextSelectedItem(pos);
-            if (index < m_logEntries.GetVisibleCount())
+            if (index < (int)m_logEntries.GetVisibleCount())
             {
                 pLogEntry = m_logEntries.GetVisible(index);
                 if (pLogEntry)
@@ -4389,7 +4389,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
     CString relPathURL = pathURL.Mid(m_sRepositoryRoot.GetLength());
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
     int indexNext = m_LogList.GetNextSelectedItem(pos);
-    if ((indexNext < 0)||(indexNext >= m_logEntries.GetVisibleCount()))
+    if ((indexNext < 0)||(indexNext >= (int)m_logEntries.GetVisibleCount()))
         return;
     PLOGENTRYDATA pSelLogEntry = m_logEntries.GetVisible(indexNext);
     SVNRev revSelected = pSelLogEntry->GetRevision();
@@ -4428,7 +4428,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
         while (pos2)
         {
             int index2 = m_LogList.GetNextSelectedItem(pos2);
-            if (index2 < m_logEntries.GetVisibleCount())
+            if (index2 < (int)m_logEntries.GetVisibleCount())
             {
                 pLogEntry = m_logEntries.GetVisible(index2);
                 revisions.push_back (pLogEntry->GetRevision());
@@ -5224,7 +5224,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
         while (pos)
         {
             int index = m_LogList.GetNextSelectedItem(pos);
-            if (index < m_logEntries.GetVisibleCount())
+            if (index < (int)m_logEntries.GetVisibleCount())
             {
                 pLogEntry = m_logEntries.GetVisible (index);
                 if (pLogEntry)
