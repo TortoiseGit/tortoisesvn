@@ -31,6 +31,8 @@
 #define MYERROR {CUtils::Error(); return FALSE;}
 
 CPOFile::CPOFile()
+    : m_bQuiet(false)
+    , m_bAdjustEOLs(false)
 {
 }
 
