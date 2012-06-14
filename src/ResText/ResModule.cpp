@@ -418,7 +418,6 @@ BOOL CResModule::ExtractMenu(UINT nID)
     HRSRC       hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_MENU);
     HGLOBAL     hglMenuTemplate;
     WORD        version, offset;
-    DWORD dwHelpId;
     const WORD *p, *p0;
 
     if (!hrsrc)
@@ -466,7 +465,7 @@ BOOL CResModule::ExtractMenu(UINT nID)
         {
             offset = GET_WORD(p);
             p++;
-            dwHelpId = GET_DWORD(p);
+            //dwHelpId = GET_DWORD(p);
             if (!ParseMenuExResource(p0 + offset))
                 goto DONE_ERROR;
         }
@@ -492,7 +491,6 @@ BOOL CResModule::ReplaceMenu(UINT nID, WORD wLanguage)
     WORD        version, offset;
     LPWSTR      p;
     WORD *p0;
-    DWORD dwHelpId;
 
     if (!hrsrc)
         MYERROR;    //just the language wasn't found
@@ -560,7 +558,7 @@ BOOL CResModule::ReplaceMenu(UINT nID, WORD wLanguage)
         {
             offset = GET_WORD(p);
             p++;
-            dwHelpId = GET_DWORD(p);
+            //dwHelpId = GET_DWORD(p);
             size_t nMem = 0;
             if (!CountMemReplaceMenuExResource((WORD *)(p0 + offset), &nMem, NULL))
                 goto DONE_ERROR;
@@ -739,7 +737,7 @@ const WORD* CResModule::CountMemReplaceMenuResource(const WORD * res, size_t * w
 
 const WORD* CResModule::ParseMenuExResource(const WORD * res)
 {
-    DWORD dwType, dwState, menuId;
+    DWORD dwType, menuId;
     WORD bResInfo;
     LPCWSTR     str;
 
@@ -756,7 +754,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
     {
         dwType = GET_DWORD(res);
         res += 2;
-        dwState = GET_DWORD(res);
+        //dwState = GET_DWORD(res);
         res += 2;
         menuId = GET_DWORD(res);
         res += 2;
@@ -827,7 +825,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
 
 const WORD* CResModule::CountMemReplaceMenuExResource(const WORD * res, size_t * wordcount, WORD * newMenu)
 {
-    DWORD dwType, dwState, menuId;
+    DWORD dwType, menuId;
     WORD bResInfo;
     WORD *p0;
 
@@ -845,7 +843,7 @@ const WORD* CResModule::CountMemReplaceMenuExResource(const WORD * res, size_t *
         p0 = (WORD *)res;
         dwType = GET_DWORD(res);
         res += 2;
-        dwState = GET_DWORD(res);
+        //dwState = GET_DWORD(res);
         res += 2;
         menuId = GET_DWORD(res);
         res += 2;
@@ -953,8 +951,10 @@ BOOL CResModule::ExtractAccelerator(UINT nID)
             (wAnsi >= 0x3A && wAnsi <= 0x40))
             continue;
 
-        TCHAR * pBuf = new TCHAR[1024];
-        SecureZeroMemory(pBuf, 1024 * sizeof(TCHAR));
+        std::unique_ptr<WCHAR[]> pBuf(new WCHAR[1024]);
+        std::unique_ptr<WCHAR[]> pBuf2(new WCHAR[1024]);
+        SecureZeroMemory(pBuf.get(), 1024 * sizeof(WCHAR));
+        SecureZeroMemory(pBuf2.get(), 1024 * sizeof(WCHAR));
 
         // include the menu ID in the msgid to make sure that 'duplicate'
         // accelerator keys are listed in the po-file.
@@ -968,7 +968,7 @@ BOOL CResModule::ExtractAccelerator(UINT nID)
         // Since "filter" and "find" are most likely translated to words starting
         // with different letters, we need to have a separate accelerator entry
         // for each of those
-        _stprintf(pBuf, _T("ID:%d:"), wID);
+        _stprintf(pBuf.get(), _T("ID:%d:"), wID);
 
         // EXACTLY 5 characters long "ACS+X"
         // V = Virtual key (or blank if not used)
@@ -978,28 +978,28 @@ BOOL CResModule::ExtractAccelerator(UINT nID)
         // X = upper case character
         // e.g. "V CS+Q" == Ctrl + Shift + 'Q'
         if ((fFlags & FVIRTKEY) == FVIRTKEY)        // 0x01
-            _tcscat(pBuf, _T("V"));
+            _tcscat(pBuf.get(), _T("V"));
         else
-            _tcscat(pBuf, _T(" "));
+            _tcscat(pBuf.get(), _T(" "));
 
         if ((fFlags & FALT) == FALT)                // 0x10
-            _tcscat(pBuf, _T("A"));
+            _tcscat(pBuf.get(), _T("A"));
         else
-            _tcscat(pBuf, _T(" "));
+            _tcscat(pBuf.get(), _T(" "));
 
         if ((fFlags & FCONTROL) == FCONTROL)        // 0x08
-            _tcscat(pBuf, _T("C"));
+            _tcscat(pBuf.get(), _T("C"));
         else
-            _tcscat(pBuf, _T(" "));
+            _tcscat(pBuf.get(), _T(" "));
 
         if ((fFlags & FSHIFT) == FSHIFT)            // 0x04
-            _tcscat(pBuf, _T("S"));
+            _tcscat(pBuf.get(), _T("S"));
         else
-            _tcscat(pBuf, _T(" "));
+            _tcscat(pBuf.get(), _T(" "));
 
-        _stprintf(pBuf, _T("%s+%c"), pBuf, wAnsi);
+        _stprintf(pBuf2.get(), _T("%s+%c"), pBuf.get(), wAnsi);
 
-        std::wstring wstr = std::wstring(pBuf);
+        std::wstring wstr = std::wstring(pBuf2.get());
         RESOURCEENTRY AKey_entry = m_StringEntries[wstr];
 
         TCHAR szTempBuf[1024];
@@ -1014,7 +1014,6 @@ BOOL CResModule::ExtractAccelerator(UINT nID)
         AKey_entry.automaticcomments.push_back(std::wstring(szTempBuf));
 
         m_StringEntries[wstr] = AKey_entry;
-        delete [] pBuf;
     } while (!bEnd);
 
     UnlockResource(hglAccTable);
@@ -1057,7 +1056,8 @@ BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
     BYTE xfVirt;
     WORD xkey;
     static const size_t BufferSize = 1024;
-    TCHAR * pBuf = new TCHAR[BufferSize];
+    std::unique_ptr<WCHAR[]> pBuf(new WCHAR[BufferSize]);
+    std::unique_ptr<WCHAR[]> pBuf2(new WCHAR[BufferSize]);
     for (i = 0; i < cAccelerators; i++)
     {
         if ((lpaccelNew[i].key < 0x30) ||
@@ -1065,35 +1065,36 @@ BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
             (lpaccelNew[i].key >= 0x3A && lpaccelNew[i].key <= 0x40))
             continue;
 
-        SecureZeroMemory(pBuf, BufferSize * sizeof(TCHAR));
+        SecureZeroMemory(pBuf.get(), 1024 * sizeof(WCHAR));
+        SecureZeroMemory(pBuf2.get(), 1024 * sizeof(WCHAR));
 
-        _stprintf(pBuf, _T("ID:%d:"), lpaccelNew[i].cmd);
+        _stprintf(pBuf.get(), _T("ID:%d:"), lpaccelNew[i].cmd);
 
         // get original key combination
         if ((lpaccelNew[i].fVirt & FVIRTKEY) == FVIRTKEY)       // 0x01
-            _tcscat(pBuf, _T("V"));
+            _tcscat(pBuf.get(), _T("V"));
         else
-            _tcscat(pBuf, _T(" "));
+            _tcscat(pBuf.get(), _T(" "));
 
         if ((lpaccelNew[i].fVirt & FALT) == FALT)               // 0x10
-            _tcscat(pBuf, _T("A"));
+            _tcscat(pBuf.get(), _T("A"));
         else
-            _tcscat(pBuf, _T(" "));
+            _tcscat(pBuf.get(), _T(" "));
 
         if ((lpaccelNew[i].fVirt & FCONTROL) == FCONTROL)       // 0x08
-            _tcscat(pBuf, _T("C"));
+            _tcscat(pBuf.get(), _T("C"));
         else
-            _tcscat(pBuf, _T(" "));
+            _tcscat(pBuf.get(), _T(" "));
 
         if ((lpaccelNew[i].fVirt & FSHIFT) == FSHIFT)           // 0x04
-            _tcscat(pBuf, _T("S"));
+            _tcscat(pBuf.get(), _T("S"));
         else
-            _tcscat(pBuf, _T(" "));
+            _tcscat(pBuf.get(), _T(" "));
 
-        _stprintf(pBuf, _T("%s+%c"), pBuf, lpaccelNew[i].key);
+        _stprintf(pBuf2.get(), _T("%s+%c"), pBuf.get(), lpaccelNew[i].key);
 
         // Is it there?
-        std::map<std::wstring, RESOURCEENTRY>::iterator pAK_iter = m_StringEntries.find(pBuf);
+        std::map<std::wstring, RESOURCEENTRY>::iterator pAK_iter = m_StringEntries.find(pBuf2.get());
         if (pAK_iter != m_StringEntries.end())
         {
             m_bTranslatedAcceleratorStrings++;
@@ -1130,7 +1131,6 @@ BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
             m_bDefaultAcceleratorStrings++;
     }
 
-    delete [] pBuf;
 
     // Create the new accelerator table
     hglAccTableNew = LocalAlloc(LPTR, cAccelerators * 4 * sizeof(WORD));
