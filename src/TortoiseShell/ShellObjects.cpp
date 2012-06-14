@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,7 +45,7 @@ void ShellObjects::Erase(CShellExt * obj)
 void ShellObjects::DeleteAll()
 {
     AutoLocker lock(m_critSec);
-    if (m_exts.size())
+    if (!m_exts.empty())
     {
         std::set<CShellExt *>::iterator it = m_exts.begin();
         while (it != m_exts.end())

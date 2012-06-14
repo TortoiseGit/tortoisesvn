@@ -214,11 +214,6 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
             CString sCleanup = CString(MAKEINTRESOURCE(IDS_RUNCLEANUPNOW));
             CString sClose = CString(MAKEINTRESOURCE(IDS_CLOSE));
             CString sInstruction = CString(MAKEINTRESOURCE(IDS_SVNREPORTEDANERROR));
-            TASKDIALOG_BUTTON aCustomButtons[2];
-            aCustomButtons[0].nButtonID = 1000;
-            aCustomButtons[0].pszButtonText = sCleanup;
-            aCustomButtons[1].nButtonID = IDOK;
-            aCustomButtons[1].pszButtonText = sClose;
 
             TASKDIALOGCONFIG tconfig = {0};
             tconfig.cbSize = sizeof(TASKDIALOGCONFIG);
@@ -230,6 +225,11 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
             tconfig.pszMainInstruction = sInstruction;
             tconfig.pszContent = (LPCTSTR)sError;
 #ifdef HAVE_APPUTILS
+            TASKDIALOG_BUTTON aCustomButtons[2];
+            aCustomButtons[0].nButtonID = 1000;
+            aCustomButtons[0].pszButtonText = sCleanup;
+            aCustomButtons[1].nButtonID = IDOK;
+            aCustomButtons[1].pszButtonText = sClose;
             if (Err && (Err->apr_err == SVN_ERR_WC_CLEANUP_REQUIRED) && (!wcPath.IsEmpty()))
             {
                 tconfig.dwCommonButtons = 0;

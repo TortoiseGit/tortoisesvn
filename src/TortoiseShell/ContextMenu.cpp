@@ -568,7 +568,7 @@ STDMETHODIMP CShellExt::Initialize(LPCITEMIDLIST pIDFolder,
         if (status == svn_wc_status_ignored)
             itemStatesFolder |= ITEMIS_IGNORED;
         itemStatesFolder |= ITEMIS_FOLDER;
-        if (files_.size() == 0)
+        if (files_.empty())
             itemStates |= ITEMIS_ONLYONE;
         if (m_State != FileStateDropHandler)
             itemStates |= itemStatesFolder;
@@ -783,7 +783,7 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
     if ((uFlags & CMF_DEFAULTONLY)!=0)
         return S_OK;                    //we don't change the default action
 
-    if ((files_.size() == 0)||(folder_.size() == 0))
+    if (files_.empty()||folder_.empty())
         return S_OK;
 
     if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
@@ -874,7 +874,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
     if ((uFlags & CMF_DEFAULTONLY)!=0)
         return S_OK;                    //we don't change the default action
 
-    if ((files_.size() == 0)&&(folder_.size() == 0))
+    if (files_.empty()||folder_.empty())
         return S_OK;
 
     if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
@@ -908,7 +908,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
     if (folder_.empty())
     {
         // folder is empty, but maybe files are selected
-        if (files_.size() == 0)
+        if (files_.empty())
             return S_OK;    // nothing selected - we don't have a menu to show
         // check whether a selected entry is an UID - those are namespace extensions
         // which we can't handle
@@ -1129,7 +1129,7 @@ void CShellExt::AddPathCommand(tstring& svnCmd, LPCTSTR command, bool bFilesAllo
 {
     svnCmd += command;
     svnCmd += _T(" /path:\"");
-    if ((bFilesAllowed)&&(files_.size() > 0))
+    if ((bFilesAllowed) && !files_.empty())
         svnCmd += files_.front();
     else
         svnCmd += folder_;
@@ -1169,10 +1169,6 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 
     if(files_.empty()&&folder_.empty())
         return hr;
-
-    std::string command;
-    std::string parent;
-    std::string file;
 
     UINT_PTR idCmd = LOWORD(lpcmi->lpVerb);
 
@@ -1440,7 +1436,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
             if (itemStates & ITEMIS_PATCHFILE)
             {
                 svnCmd = _T(" /diff:\"");
-                if (files_.size() > 0)
+                if (!files_.empty())
                 {
                     svnCmd += files_.front();
                     if (itemStatesFolder & ITEMIS_FOLDERINSVN)
@@ -1459,7 +1455,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
             else
             {
                 svnCmd = _T(" /patchpath:\"");
-                if (files_.size() > 0)
+                if (!files_.empty())
                     svnCmd += files_.front();
                 else
                     svnCmd += folder_;
@@ -1723,7 +1719,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
                     accmenus.push_back(It->first);
                 }
             }
-            if (accmenus.size() == 0)
+            if (accmenus.empty())
             {
                 // no menu with that accelerator key.
                 *pResult = MAKELONG(0, MNC_IGNORE);
@@ -1855,7 +1851,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
     bool bShowIgnoreMenu = false;
     TCHAR maskbuf[MAX_PATH];        // MAX_PATH is ok, since this only holds a filename
     TCHAR ignorepath[MAX_PATH];     // MAX_PATH is ok, since this only holds a filename
-    if (files_.size() == 0)
+    if (files_.empty())
         return;
     UINT icon = bShowIcons ? IDI_IGNORE : 0;
 

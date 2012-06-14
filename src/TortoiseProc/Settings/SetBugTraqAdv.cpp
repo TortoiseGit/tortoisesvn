@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010 - TortoiseSVN
+// Copyright (C) 2008-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -68,7 +68,7 @@ BOOL CSetBugTraqAdv::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     std::vector<CBugTraqProvider> providers = CBugTraqAssociations::GetAvailableProviders();
-    if (providers.size() == 0)
+    if (providers.empty())
     {
         AfxMessageBox(IDS_ERR_NO_AVAILABLE_BUGTRAQ_PROVIDERS);
         EndDialog(IDCANCEL);

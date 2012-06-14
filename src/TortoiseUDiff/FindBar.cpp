@@ -26,6 +26,8 @@
 using namespace std;
 
 CFindBar::CFindBar()
+    : m_hParent(NULL)
+    , m_hIcon(NULL)
 {
 }
 

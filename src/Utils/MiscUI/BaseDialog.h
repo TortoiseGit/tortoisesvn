@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2010 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,6 +34,8 @@ public:
         , m_bPseudoEnded(false)
         , m_iPseudoRet(0)
         , m_hToolTips(NULL)
+        , hResource(NULL)
+        , m_hwnd(NULL)
     {;}
 
     INT_PTR DoModal(HINSTANCE hInstance, int resID, HWND hWndParent);

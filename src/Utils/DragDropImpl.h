@@ -189,12 +189,12 @@ public:
     CDragSourceNotify* pDragSourceNotify;
 
 
-    CIDropSource::CIDropSource():m_cRefCount(0),m_bDropped(false),m_pIDataObj(NULL)
+    CIDropSource():m_cRefCount(0),m_bDropped(false),m_pIDataObj(NULL)
     {
         pDragSourceNotify = new CDragSourceNotify();
         pDragSourceNotify->AddRef();
     }
-    CIDropSource::~CIDropSource()
+    ~CIDropSource()
     {
         if (m_pIDataObj)
         {

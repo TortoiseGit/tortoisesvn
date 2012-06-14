@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -305,14 +305,12 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppv)
 
 STDAPI DllCanUnloadNow(void)
 {
-    HRESULT Result;
-
     TRACE(_T("DllCanUnloadNow() - Enter\n"));
 
     if (pDllCanUnloadNow)
     {
         TRACE(_T("DllCanUnloadNow() - Forward\n"));
-        Result = pDllCanUnloadNow();
+        HRESULT Result = pDllCanUnloadNow();
         if (Result != S_OK)
             return Result;
     }

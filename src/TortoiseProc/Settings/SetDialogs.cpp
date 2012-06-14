@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009, 2011 - TortoiseSVN
+// Copyright (C) 2003-2009, 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,6 +41,7 @@ CSetDialogs::CSetDialogs()
     , m_bUseSystemLocaleForDates(FALSE)
     , m_bUseRecycleBin(TRUE)
     , m_bAutoCloseLocal(FALSE)
+    , m_dwAutoClose(0)
 {
     m_regAutoClose = CRegDWORD(_T("Software\\TortoiseSVN\\AutoClose"));
     m_regAutoCloseLocal = CRegDWORD(_T("Software\\TortoiseSVN\\AutoCloseLocal"));

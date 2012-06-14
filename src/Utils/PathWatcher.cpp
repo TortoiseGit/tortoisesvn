@@ -327,7 +327,7 @@ continuewatching:
 
 void CPathWatcher::ClearInfoMap()
 {
-    if (watchInfoMap.size()!=0)
+    if (!watchInfoMap.empty())
     {
         AutoLocker lock(m_critSec);
         for (std::map<HANDLE, CDirWatchInfo *>::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
@@ -341,9 +341,9 @@ void CPathWatcher::ClearInfoMap()
     m_hCompPort.CloseHandle();
 }
 
-CPathWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName) :
-    m_hDir(hDir),
-    m_DirName(DirectoryName)
+CPathWatcher::CDirWatchInfo::CDirWatchInfo(HANDLE hDir, const CTSVNPath& DirectoryName)
+    : m_hDir(hDir)
+    , m_DirName(DirectoryName)
 {
     ATLASSERT( hDir && !DirectoryName.IsEmpty());
     m_Buffer[0] = 0;

@@ -158,6 +158,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
     printf(File.getloc().name().c_str());
     File.close();
     RESOURCEENTRY emptyentry;
+    emptyentry.menuID = 0;
     (*this)[std::wstring(_T(""))] = emptyentry;
     if (!m_bQuiet)
         _ftprintf(stdout, _T("%d Entries found, %d were already translated and %d got deleted\n"), nEntries, nTranslated, nDeleted);

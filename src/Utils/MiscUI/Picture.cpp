@@ -31,21 +31,23 @@
 #define HIMETRIC_INCH 2540
 
 CPicture::CPicture()
+    : m_IPicture(NULL)
+    , m_Height(0)
+    , m_Weight(0)
+    , m_Width(0)
+    , pBitmap(NULL)
+    , bHaveGDIPlus(false)
+    , m_ip(InterpolationModeDefault)
+    , hIcons(NULL)
+    , lpIcons(NULL)
+    , nCurrentIcon(0)
+    , bIsIcon(false)
+    , bIsTiff(false)
+    , m_nSize(0)
+    , m_ColorDepth(0)
+    , hGlobal(NULL)
+    , gdiplusToken(NULL)
 {
-    m_IPicture = NULL;
-    m_Height = 0;
-    m_Weight = 0;
-    m_Width = 0;
-    pBitmap = NULL;
-    bHaveGDIPlus = false;
-    m_ip = InterpolationModeDefault;
-    hIcons = NULL;
-    lpIcons = NULL;
-    nCurrentIcon = 0;
-    bIsIcon = false;
-    bIsTiff = false;
-    m_nSize = 0;
-    m_ColorDepth = 0;
 }
 
 CPicture::~CPicture()

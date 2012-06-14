@@ -67,55 +67,60 @@ std::wstring        uuid;
 COLORREF colorset[MAX_BLAMECOLORS];
 
 TortoiseBlame::TortoiseBlame()
+    : hInstance(0)
+    , hResource(0)
+    , currentDialog(0)
+    , wMain(0)
+    , wEditor(0)
+    , wLocator(0)
+    , wBlame(0)
+    , wHeader(0)
+    , hwndTT(0)
+    , bIgnoreEOL(false)
+    , bIgnoreSpaces(false)
+    , bIgnoreAllSpaces(false)
+    , m_ttVisible(false)
+    , m_font(0)
+    , m_italicFont(0)
+    , m_blameWidth(0)
+    , m_revWidth(0)
+    , m_dateWidth(0)
+    , m_authorWidth(0)
+    , m_pathWidth(0)
+    , m_lineWidth(0)
+    , m_mouseRev(-2)
+    , m_windowColor(GetSysColor(COLOR_WINDOW))
+    , m_textColor(GetSysColor(COLOR_WINDOWTEXT))
+    , m_textHighLightColor(GetSysColor(COLOR_HIGHLIGHTTEXT))
+    , m_mouseRevColor(InterColor(m_windowColor, m_textColor, 20))
+    , m_mouseAuthorColor(InterColor(m_windowColor, m_textColor, 10))
+    , m_selectedRevColor(GetSysColor(COLOR_HIGHLIGHT))
+    , m_selectedAuthorColor(InterColor(m_selectedRevColor, m_textHighLightColor, 35))
+    , m_selectedRev(-1)
+    , m_selectedOrigRev(-1)
+    , m_selectedLine(-1)
+    , m_directPointer(0)
+    , m_directFunction(0)
+    , m_lowestRev(LONG_MAX)
+    , m_highestRev(0)
+    , m_regcolorby(CRegStdDWORD(L"Software\\TortoiseSVN\\BlameColorBy",  COLORBYAGE))
+    , m_colorby(m_regcolorby)
 {
-    hInstance = 0;
-    hResource = 0;
-    currentDialog = 0;
-    wMain = 0;
-    wEditor = 0;
-    wLocator = 0;
-
-    m_font = 0;
-    m_italicFont = 0;
-    m_blameWidth = 0;
-    m_revWidth = 0;
-    m_dateWidth = 0;
-    m_authorWidth = 0;
-    m_pathWidth = 0;
-    m_lineWidth = 0;
-
-    m_windowColor = ::GetSysColor(COLOR_WINDOW);
-    m_textColor = ::GetSysColor(COLOR_WINDOWTEXT);
-    m_textHighLightColor = ::GetSysColor(COLOR_HIGHLIGHTTEXT);
-    m_mouseRevColor = InterColor(m_windowColor, m_textColor, 20);
-    m_mouseAuthorColor = InterColor(m_windowColor, m_textColor, 10);
-    m_selectedRevColor = ::GetSysColor(COLOR_HIGHLIGHT);
-    m_selectedAuthorColor = InterColor(m_selectedRevColor, m_textHighLightColor, 35);
-    m_mouseRev = -2;
-
-    m_selectedRev = -1;
-    m_selectedOrigRev = -1;
-    m_selectedLine = -1;
-    m_directPointer = 0;
-    m_directFunction = 0;
-
-    m_lowestRev = LONG_MAX;
-    m_highestRev = 0;
-    m_regcolorby = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameColorBy",  COLORBYAGE);
-    m_colorby = m_regcolorby;
-
-    colorset[0] =  CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor1",  BLAMEINDEXCOLOR1);
-    colorset[1] =  CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor2",  BLAMEINDEXCOLOR2);
-    colorset[2] =  CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor3",  BLAMEINDEXCOLOR3);
-    colorset[3] =  CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor4",  BLAMEINDEXCOLOR4);
-    colorset[4] =  CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor5",  BLAMEINDEXCOLOR5);
-    colorset[5] =  CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor6",  BLAMEINDEXCOLOR6);
-    colorset[6] =  CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor7",  BLAMEINDEXCOLOR7);
-    colorset[7] =  CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor8",  BLAMEINDEXCOLOR8);
-    colorset[8] =  CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor9",  BLAMEINDEXCOLOR9);
-    colorset[9] =  CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor10", BLAMEINDEXCOLOR10);
-    colorset[10] = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor11", BLAMEINDEXCOLOR11);
-    colorset[11] = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor12", BLAMEINDEXCOLOR12);
+    m_szTip[0]      = 0;
+    m_wszTip[0]     = 0;
+    m_szFindWhat[0] = 0;
+    colorset[0]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor1",  BLAMEINDEXCOLOR1);
+    colorset[1]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor2",  BLAMEINDEXCOLOR2);
+    colorset[2]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor3",  BLAMEINDEXCOLOR3);
+    colorset[3]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor4",  BLAMEINDEXCOLOR4);
+    colorset[4]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor5",  BLAMEINDEXCOLOR5);
+    colorset[5]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor6",  BLAMEINDEXCOLOR6);
+    colorset[6]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor7",  BLAMEINDEXCOLOR7);
+    colorset[7]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor8",  BLAMEINDEXCOLOR8);
+    colorset[8]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor9",  BLAMEINDEXCOLOR9);
+    colorset[9]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor10", BLAMEINDEXCOLOR10);
+    colorset[10]    = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor11", BLAMEINDEXCOLOR11);
+    colorset[11]    = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor12", BLAMEINDEXCOLOR12);
 }
 
 TortoiseBlame::~TortoiseBlame()

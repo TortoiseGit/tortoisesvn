@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,6 +36,7 @@ CSetMainPage::CSetMainPage()
     , m_sTempExtensions(_T(""))
     , m_bLastCommitTime(FALSE)
     , m_bUseAero(TRUE)
+    , m_dwLanguage(0)
 {
     m_regLanguage = CRegDWORD(_T("Software\\TortoiseSVN\\LanguageID"), 1033);
     CString temp(SVN_CONFIG_DEFAULT_GLOBAL_IGNORES);

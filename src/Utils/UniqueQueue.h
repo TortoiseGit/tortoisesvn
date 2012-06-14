@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011 - TortoiseSVN
+// Copyright (C) 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -125,14 +125,14 @@ size_t UniqueQueue<T>::Push( T value )
 template <class T>
 T UniqueQueue<T>::Pop()
 {
-    if (m_Queue.size() == 0)
+    if (m_Queue.empty())
         return T();
 
     T value = m_Queue.front().value;
     m_Queue.pop_front();
     m_QueueTMap.erase(value);
 
-    if (m_Queue.size() == 0)
+    if (m_Queue.empty())
         m_highestValue = 0;
 
     return value;

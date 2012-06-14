@@ -116,7 +116,6 @@ void CFolderCrawler::WorkerThread()
     hWaitHandles[1] = m_hWakeEvent;
     CTSVNPath workingPath;
     bool bFirstRunAfterWakeup = false;
-    DWORD currentTicks = 0;
 
     for(;;)
     {
@@ -182,7 +181,6 @@ void CFolderCrawler::WorkerThread()
                 // Nothing left to do
                 break;
             }
-            currentTicks = GetTickCount();
             if (m_pathsToUpdate.size())
             {
                 {

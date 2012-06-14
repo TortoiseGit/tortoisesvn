@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,6 +28,7 @@
 IMPLEMENT_DYNAMIC(CSetOverlayIcons, ISettingsPropPage)
 CSetOverlayIcons::CSetOverlayIcons()
     : ISettingsPropPage(CSetOverlayIcons::IDD)
+    , m_selIndex(0)
 {
     m_regNormal = CRegString(_T("Software\\TortoiseOverlays\\NormalIcon"));
     m_regModified = CRegString(_T("Software\\TortoiseOverlays\\ModifiedIcon"));

@@ -75,6 +75,8 @@ CSciEdit::CSciEdit(void) : m_DirectFunction(NULL)
     , pChecker(NULL)
     , pThesaur(NULL)
     , m_bDoStyle(false)
+    , m_spellcodepage(0)
+    , m_separator(' ')
 {
     m_hModule = ::LoadLibrary(_T("SciLexer.DLL"));
 }
@@ -568,7 +570,7 @@ void CSciEdit::SuggestSpellingAlternatives()
 
 void CSciEdit::DoAutoCompletion(int nMinPrefixLength)
 {
-    if (m_autolist.size()==0)
+    if (m_autolist.empty())
         return;
     if (Call(SCI_AUTOCACTIVE))
         return;

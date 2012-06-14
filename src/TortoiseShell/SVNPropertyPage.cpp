@@ -46,7 +46,7 @@ STDMETHODIMP CShellExt::AddPages (LPFNADDPROPSHEETPAGE lpfnAddPage,
             return S_OK;
     }
 
-    if (files_.size() == 0)
+    if (files_.empty())
         return S_OK;
 
     LoadLangDll();
@@ -130,8 +130,10 @@ UINT CALLBACK PropPageCallbackProc ( HWND /*hwnd*/, UINT uMsg, LPPROPSHEETPAGE p
 // *********************** CSVNPropertyPage *************************
 
 CSVNPropertyPage::CSVNPropertyPage(const std::vector<tstring> &newFilenames)
-    :filenames(newFilenames)
+    : filenames(newFilenames)
+    , m_hwnd(NULL)
 {
+    stringtablebuffer[0] = 0;
 }
 
 CSVNPropertyPage::~CSVNPropertyPage(void)
@@ -385,7 +387,7 @@ void CSVNPropertyPage::InitWorkfileView()
             }
         }
     }
-    else if (filenames.size() != 0)
+    else if (!filenames.empty())
     {
         //deactivate the show log button
         HWND logwnd = GetDlgItem(m_hwnd, IDC_SHOWLOG);

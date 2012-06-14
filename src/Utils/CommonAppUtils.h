@@ -37,7 +37,7 @@ public:
      * their respective values. If the replacements should fail,
      * the string will be returned unaltered.
      */
-    static CString CCommonAppUtils::ExpandEnvironmentStrings (const CString& s);
+    static CString ExpandEnvironmentStrings (const CString& s);
 
     /**
      * Finds the standard application to open / process the given file
