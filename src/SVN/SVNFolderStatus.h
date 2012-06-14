@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006,2008-2011 - TortoiseSVN
+// Copyright (C) 2003-2006,2008-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,9 +71,26 @@ private:
     char emptyString[1];
 };
 
+#define SVNFOLDERSTATUS_CACHETIMES              10
+#define SVNFOLDERSTATUS_CACHETIMEOUT            2000
+#define SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT   4000
+#define SVNFOLDERSTATUS_FOLDER                  500
 
-typedef struct FileStatusCacheEntry
+class FileStatusCacheEntry
 {
+public:
+    FileStatusCacheEntry()
+        : status(svn_wc_status_none)
+        , author("")
+        , url("")
+        , owner("")
+        , needslock(false)
+        , rev(-1)
+        , askedcounter(SVNFOLDERSTATUS_CACHETIMES)
+        , lock(nullptr)
+        , tree_conflict(false)
+    {
+    }
     svn_wc_status_kind      status;
     const char*             author;     ///< points to a (possibly) shared value
     const char*             url;        ///< points to a (possibly) shared value
@@ -83,12 +100,8 @@ typedef struct FileStatusCacheEntry
     int                     askedcounter;
     const svn_lock_t *      lock;
     bool                    tree_conflict;
-} FileStatusCacheEntry;
+};
 
-#define SVNFOLDERSTATUS_CACHETIMES              10
-#define SVNFOLDERSTATUS_CACHETIMEOUT            2000
-#define SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT   4000
-#define SVNFOLDERSTATUS_FOLDER                  500
 /**
  * \ingroup TortoiseShell
  * This class represents a caching mechanism for the
