@@ -573,12 +573,12 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         else if ((data->merge_range.start == data->merge_range.end) || (data->merge_range.start == data->merge_range.end - 1))
         {
             data->sActionColumnText.Format(IDS_SVNACTION_MERGEBEGINSINGLE, data->merge_range.end);
-            m_mergedRevisions.AddRevision(data->merge_range.end);
+            m_mergedRevisions.AddRevision(data->merge_range.end, false);
         }
         else if (data->merge_range.start - 1 == data->merge_range.end)
         {
             data->sActionColumnText.Format(IDS_SVNACTION_MERGEBEGINSINGLEREVERSE, data->merge_range.start);
-            m_mergedRevisions.AddRevision(data->merge_range.start);
+            m_mergedRevisions.AddRevision(data->merge_range.start, false); // we want the revisions in ascending order for the generated log message
         }
         else if (data->merge_range.start < data->merge_range.end)
         {
