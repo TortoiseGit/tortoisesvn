@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-05-16 08:16+0000\n"
+"PO-Revision-Date: 2012-06-12 22:03+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -6935,7 +6935,7 @@ msgid ""
 "commit the change, you can get the file back using "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
 " on the parent folder."
-msgstr ""
+msgstr "Kun poistat tiedoston tai kansion komennolla <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Poista</guimenuitem></menuchoice>, se häviää heti työkopiostasi ja merkitään poistettavaksi arkistosta seuraavan toimituksen yhteydessä. Tiedoston sisältävä kansio näyttää <quote>muutettu</quote> -kuvakepäällystä. Aina arkistotoimitukseen saakka voit saada tiedoston takaisin suorittamalla komennon <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Palauta</guimenuitem></menuchoice> sen sisältävälle kansiolle."
 
 #. (para)
 msgid ""
@@ -6957,7 +6957,7 @@ msgid ""
 "version-controlled file, always use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>"
 " so that Subversion doesn't have to guess what you really want to do."
-msgstr ""
+msgstr "Jos tiedosto poistetaan Resurssienhallinnan avulla käyttämättä TortoiseSVN-kontekstivalikkoa, toimitusikkuna näyttää sen ja sallii poiston versiohallinnasta ennen toimitusta. Jos kuitenkin päivität työkopiotasi, Subversion havaitsee puuttuvan tiedoston ja korvaa sen viimeisimmällä arkistoversiolla. Jos joudut poistamaan versioidun tiedoston, käytä aina komentoa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Poista</guimenuitem></menuchoice> jotta Subversionin ei tarvitse arvata, mitä todella haluat tehdä."
 
 #. (title)
 msgid "Getting a deleted file or folder back"
@@ -7895,7 +7895,7 @@ msgid ""
 "<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
-msgstr ""
+msgstr "Koska käyttäjien työkopioiden nimet ja sijaintipaikat vaihtelevat, voit asettaa työkopiostasi suoritettavan toimintokomennon sijainnin arkistopaikantimen avulla käyttämällä symbolia <filename>%REPOROOT%</filename> osana paikanninta.  Esimerkki: Jos toimintokomentosi sijaitsee työkopiossa polulla <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, voit määritellä polun paikantimen muodossa <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. Tällöin voit jopa siirtää arkistosi eri palvelimelle ilman, että toimintokomentojen ominaisuuksia tarvitsee säätää."
 
 #. (title)
 msgid "Property dialog for hook scripts"
@@ -7975,7 +7975,7 @@ msgstr "Mikäli tila-arvoja on vähemmän kuin neljä, valinta suoritetaan valin
 
 #. (title)
 msgid "Property dialog single-line user types"
-msgstr ""
+msgstr "Ominaisuusikkunan yksiriviset käyttäjän tyypit"
 
 #. (para)
 msgid ""
@@ -7996,7 +7996,7 @@ msgstr "<literal>regex</literal> määrittelee säännöllisen lausekkeen, jolla
 
 #. (title)
 msgid "Property dialog multi-line user types"
-msgstr ""
+msgstr "Ominaisuusikkunan useampiriviset käyttäjän tyypit"
 
 #. (para)
 msgid ""
@@ -14504,24 +14504,24 @@ msgstr "Korvataan työkopion korkeimmalla versionumerolla."
 
 #. (literal)
 msgid "$WCREV&amp;0xFFFF$"
-msgstr ""
+msgstr "$WCREV&amp;0xFFFF$"
 
 #. (entry)
 msgid ""
 "Replaced with the highest commit revision in the working copy, ANDed with "
 "the value after the &amp; char. For example: <placeholder-1/>"
-msgstr ""
+msgstr "Korvataan työkopion suurimalla versionumerolla, leikaten merkkiä &amp; seuraavalla arvolla. Esimerkki: <placeholder-1/>"
 
 #. (literal)
 msgid "$WCREV-1000$"
-msgstr ""
+msgstr "$WCREV-1000$"
 
 #. (entry)
 msgid ""
 "Replaced with the highest commit revision in the working copy, with the "
 "value after the + or - char added or subtracted. For example: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Korvataan työkopion suurimalla versionumerolla, johon lisätään (+) tai poistetaan (-) seuraava arvo. Esimerkki: <placeholder-1/>"
 
 #. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
@@ -14728,7 +14728,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Testitiedosto SubWCRev-ohjelmalle: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Lähdetekstiä on muutettu\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -16869,7 +16869,7 @@ msgstr "Luo arkiston paikkaan <placeholder-1/>"
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the URL to switch to."
-msgstr ""
+msgstr "Avaa vaihtoikkunan. Valitsin <placeholder-1/> määrittää kohdehakemiston ja <placeholder-2> paikantimen, johon siirrytään."
 
 #. (entry)
 msgid ""

@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-06-02 08:31+0000\n"
+"PO-Revision-Date: 2012-06-14 10:05+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1105,7 +1105,7 @@ msgstr "&Gjenoppfrisk"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr "&Minn meg på å angi en sak-ID"
+msgstr "&Minn meg på å angi en feil-ID"
 
 #. Resource IDs: (619, 1100, 1285, 1597, 16646)
 msgid "&Remove"
@@ -2269,7 +2269,7 @@ msgstr "Feil-ID"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
-msgstr "Sak-ID &uttrykk:"
+msgstr "Feil-ID &uttrykk:"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
@@ -2960,7 +2960,7 @@ msgstr "Kommandolinje som skal utføres:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr ""
+msgstr "Kommandolinje Som Kjøres:\nFor å oppgi en sti inni en arbeidskopi, oppgi url i depotet med url for depotroten som %REPOROOT%"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3584,7 +3584,7 @@ msgid ""
 "{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
-msgstr ""
+msgstr "Egendefinert tittelstreng. Tilgjengelige nøkkelord er:\n{mergeurl}:\tkilde-url for flettingen\n{revisions}:\tEn kommaseparert liste over de flettede revisjonene, f.eks., 3, 5, 6, 7\n{revisionsr}:\tSom {revisions} men med en 'r' foran revisjonene\n{revrange}:\tEn kommaseparert liste over de flettede revisjonene, gruppert i intervaller hvis mulig, f.eks., 3, 5-7"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -5857,7 +5857,7 @@ msgstr "Venstre bilde:"
 
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
-msgstr ""
+msgstr "Som over, men brukes for reversfletting"
 
 #. Resource IDs: (19)
 msgid "Line"
@@ -6172,7 +6172,7 @@ msgstr "Flette&dybde:"
 
 #. Resource IDs: (32865)
 msgid "Merge Log &Templates"
-msgstr ""
+msgstr "&Mønster for flettelogg"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -6233,7 +6233,7 @@ msgstr "Flettet"
 
 #. Resource IDs: (286)
 msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
-msgstr ""
+msgstr "Flettet revisjon(er) {revrange} fra {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
@@ -8082,7 +8082,7 @@ msgstr "Prøv igjen"
 
 #. Resource IDs: (286)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
-msgstr ""
+msgstr "Reversflettet revisjon(er) {revrange} fra {mergeurl}:\n"
 
 #. Resource IDs: (264)
 #, c-format
@@ -9113,7 +9113,7 @@ msgid ""
 "{author}:\tThe author of the merged revision\r\n"
 "{rev}:\tThe merged revision itself\r\n"
 "{bugid}:\tThe bug ids of the merged revision"
-msgstr ""
+msgstr "Angir hvordan teksten for hver flettet revisjon skal se ut.\nFølgende nøkkelord kan brukes:\n{msg}:\tLoggmeldingen for den flettede revisjonen, slik den ble gitt.\n{msgoneline}:\tLoggmeldingen komprimert til en linje\n{author}:\tForfatteren til den flettede revisjonen\n{rev}:\tSelve den flettede revisjonen\n{bugid}:\tFeil-id'ene til den flettede revisjonen"
 
 #. Resource IDs: (1572)
 msgid ""
