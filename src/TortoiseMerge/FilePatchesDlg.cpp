@@ -429,7 +429,9 @@ void CFilePatchesDlg::SetTitleWithPath(int width)
     title.LoadString(IDS_PATCH_TITLE);
     title += _T("  ") + m_sPath;
     title = title.Left(MAX_PATH-1);
-    PathCompactPath(GetDC()->m_hDC, title.GetBuffer(), width);
+    CDC * pDC = GetDC();
+    if (pDC)
+        PathCompactPath(pDC->GetSafeHdc(), title.GetBuffer(), width);
     title.ReleaseBuffer();
     SetWindowText(title);
 }
