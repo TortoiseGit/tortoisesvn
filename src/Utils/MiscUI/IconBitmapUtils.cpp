@@ -104,6 +104,8 @@ HBITMAP IconBitmapUtils::IconToBitmap(HINSTANCE hInst, UINT uIcon)
     if (old_dst_bmp == NULL)
     {
         DestroyIcon(hIcon);
+        ::DeleteDC(dst_hdc);
+        ::ReleaseDC(desktop, screen_dev);
         return NULL;
     }
 
