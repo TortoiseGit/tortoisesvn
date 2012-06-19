@@ -1277,7 +1277,7 @@ HTREEITEM CRepositoryBrowser::FindUrl(const CString& fullurl, const CString& url
 
 void CRepositoryBrowser::FetchChildren (HTREEITEM node)
 {
-    CAutoReadLock locker(m_guard);
+    CAutoReadLock lockerr(m_guard);
     CTreeItem * pTreeItem = (CTreeItem *)m_RepoTree.GetItemData (node);
     if (pTreeItem->children_fetched)
         return;
@@ -1289,18 +1289,21 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
     // standard list plus immediate externals
 
     std::deque<CItem>& children = pTreeItem->children;
-    CString redirectedUrl;
-    children.clear();
-    pTreeItem->has_child_folders = false;
-    pTreeItem->error = m_lister.GetList ( pTreeItem->url
-                                        , pTreeItem->is_external
-                                             ? pTreeItem->repository.peg_revision
-                                             : SVNRev()
-                                        , pTreeItem->repository
-                                        , true
-                                        , !m_bSparseCheckoutMode && m_bShowExternals
-                                        , children
-                                        , redirectedUrl);
+    {
+        CAutoWriteLock lockerw(m_guard);
+        CString redirectedUrl;
+        children.clear();
+        pTreeItem->has_child_folders = false;
+        pTreeItem->error = m_lister.GetList ( pTreeItem->url
+                                            , pTreeItem->is_external
+                                            ? pTreeItem->repository.peg_revision
+                                            : SVNRev()
+                                            , pTreeItem->repository
+                                            , true
+                                            , !m_bSparseCheckoutMode && m_bShowExternals
+                                            , children
+                                            , redirectedUrl);
+    }
 
     // add parent sub-tree externals
 
