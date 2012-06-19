@@ -874,7 +874,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
     if ((uFlags & CMF_DEFAULTONLY)!=0)
         return S_OK;                    //we don't change the default action
 
-    if (files_.empty()||folder_.empty())
+    if (files_.empty()&&folder_.empty())
         return S_OK;
 
     if (((uFlags & 0x000f)!=CMF_NORMAL)&&(!(uFlags & CMF_EXPLORE))&&(!(uFlags & CMF_VERBSONLY)))
