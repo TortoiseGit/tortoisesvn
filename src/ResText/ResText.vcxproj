@@ -202,6 +202,7 @@
     <Link />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Utils\SysInfo.cpp" />
     <ClCompile Include="codecvt.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
@@ -224,6 +225,7 @@
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Utils\SysInfo.h" />
     <ClInclude Include="codecvt.h" />
     <ClInclude Include="POFile.h" />
     <ClInclude Include="ResModule.h" />
