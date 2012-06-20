@@ -103,8 +103,6 @@ TortoiseBlame::TortoiseBlame()
     , m_directFunction(0)
     , m_lowestRev(LONG_MAX)
     , m_highestRev(0)
-    , m_regcolorby(CRegStdDWORD(L"Software\\TortoiseSVN\\BlameColorBy",  COLORBYAGE))
-    , m_colorby(m_regcolorby)
 {
     m_szTip[0]      = 0;
     m_wszTip[0]     = 0;
@@ -121,6 +119,8 @@ TortoiseBlame::TortoiseBlame()
     colorset[9]     = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor10", BLAMEINDEXCOLOR10);
     colorset[10]    = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor11", BLAMEINDEXCOLOR11);
     colorset[11]    = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor12", BLAMEINDEXCOLOR12);
+    m_regcolorby    = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameColorBy",  COLORBYAGE);
+    m_colorby       = m_regcolorby;
 }
 
 TortoiseBlame::~TortoiseBlame()
