@@ -1991,7 +1991,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     revname.Format(_T("%s Revision %ld"), (LPCTSTR)data2->path.GetUIFileOrDirectoryName(), rev);
                     wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)data2->path.GetUIFileOrDirectoryName());
                     CAppUtils::StartExtDiff(
-                        tempfile, data2->path, revname, wcname, data->url, data->url, rev, SVNRev::REV_WC, SVNRev::REV_WC,
+                        tempfile, data2->path, revname, wcname, data2->url, data2->url, rev, SVNRev::REV_WC, SVNRev::REV_WC,
                         CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
                 }
             }
