@@ -1138,7 +1138,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
             // to one of them
             for (int ix=0; ix<arExtPaths.GetCount(); ix++)
             {
-                if (arExtPaths[ix].IsAncestorOf(svnPath) && !svnPath.IsEquivalentToWithoutCase(arExtPaths[ix]))
+                if (arExtPaths[ix].IsAncestorOf(svnPath) && (svnPath.IsDirectory() || !svnPath.IsEquivalentToWithoutCase(arExtPaths[ix])))
                 {
                     bDirectoryIsExternal = true;
                     break;
