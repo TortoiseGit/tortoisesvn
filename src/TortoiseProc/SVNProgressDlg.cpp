@@ -953,17 +953,6 @@ BOOL CSVNProgressDlg::OnInitDialog()
     temp.LoadString(IDS_PROGRS_MIMETYPE);
     m_ProgList.InsertColumn(2, temp);
 
-    m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
-    if (m_pThread==NULL)
-    {
-        ReportError(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)));
-    }
-    else
-    {
-        m_pThread->m_bAutoDelete = FALSE;
-        m_pThread->ResumeThread();
-    }
-
     // use the default GUI font, create a copy of it and
     // change the copy to BOLD (leave the rest of the font
     // the same)
@@ -995,6 +984,18 @@ BOOL CSVNProgressDlg::OnInitDialog()
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(_T("SVNProgressDlg"));
     GetDlgItem(IDOK)->SetFocus();
+
+    m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
+    if (m_pThread==NULL)
+    {
+        ReportError(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)));
+    }
+    else
+    {
+        m_pThread->m_bAutoDelete = FALSE;
+        m_pThread->ResumeThread();
+    }
+
 
     return FALSE;
 }
@@ -1318,6 +1319,9 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
 
 void CSVNProgressDlg::OnBnClickedRetrynohooks()
 {
+    CWnd * pWndButton = GetDlgItem(IDC_RETRYNOHOOKS);
+    if ((pWndButton==nullptr) || !pWndButton->IsWindowVisible())
+        return;
     ResetVars();
 
     m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
@@ -1331,8 +1335,8 @@ void CSVNProgressDlg::OnBnClickedRetrynohooks()
         m_pThread->m_bAutoDelete = FALSE;
         m_pThread->ResumeThread();
     }
-
-    GetDlgItem(IDC_RETRYNOHOOKS)->ShowWindow(SW_HIDE);
+    if (pWndButton)
+        pWndButton->ShowWindow(SW_HIDE);
 }
 
 void CSVNProgressDlg::OnClose()
