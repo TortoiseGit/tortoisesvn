@@ -92,10 +92,6 @@ TortoiseBlame::TortoiseBlame()
     , m_windowColor(GetSysColor(COLOR_WINDOW))
     , m_textColor(GetSysColor(COLOR_WINDOWTEXT))
     , m_textHighLightColor(GetSysColor(COLOR_HIGHLIGHTTEXT))
-    , m_mouseRevColor(InterColor(m_windowColor, m_textColor, 20))
-    , m_mouseAuthorColor(InterColor(m_windowColor, m_textColor, 10))
-    , m_selectedRevColor(GetSysColor(COLOR_HIGHLIGHT))
-    , m_selectedAuthorColor(InterColor(m_selectedRevColor, m_textHighLightColor, 35))
     , m_selectedRev(-1)
     , m_selectedOrigRev(-1)
     , m_selectedLine(-1)
@@ -121,6 +117,11 @@ TortoiseBlame::TortoiseBlame()
     colorset[11]    = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameIndexColor12", BLAMEINDEXCOLOR12);
     m_regcolorby    = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameColorBy",  COLORBYAGE);
     m_colorby       = m_regcolorby;
+
+    m_mouseRevColor = InterColor(m_windowColor, m_textColor, 20);
+    m_mouseAuthorColor = InterColor(m_windowColor, m_textColor, 10);
+    m_selectedRevColor = GetSysColor(COLOR_HIGHLIGHT);
+    m_selectedAuthorColor = InterColor(m_selectedRevColor, m_textHighLightColor, 35);
 }
 
 TortoiseBlame::~TortoiseBlame()
