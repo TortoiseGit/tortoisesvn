@@ -194,20 +194,35 @@ bool CPicture::Load(tstring sFilePathName)
                             hFile.CloseHandle();
 
                             LPICONDIR lpIconDir = (LPICONDIR)lpIcons;
-                            if (lpIconDir->idCount * sizeof(ICONDIR) <= fileinfo.nFileIndexLow)
+                            if ((lpIconDir->idCount)&&(lpIconDir->idCount * sizeof(ICONDIR) <= fileinfo.nFileIndexLow))
                             {
-                                nCurrentIcon = 0;
-                                hIcons = new HICON[lpIconDir->idCount];
-                                m_Width = lpIconDir->idEntries[0].bWidth;
-                                m_Height = lpIconDir->idEntries[0].bHeight;
-                                for (int i=0; i<lpIconDir->idCount; ++i)
+                                try
                                 {
-                                    hIcons[i] = (HICON)LoadImage(NULL, sFilePathName.c_str(), IMAGE_ICON,
-                                        lpIconDir->idEntries[i].bWidth,
-                                        lpIconDir->idEntries[i].bHeight,
-                                        LR_LOADFROMFILE);
+                                    nCurrentIcon = 0;
+                                    hIcons = new HICON[lpIconDir->idCount];
+                                    m_Width = lpIconDir->idEntries[0].bWidth;
+                                    m_Height = lpIconDir->idEntries[0].bHeight;
+                                    for (int i=0; i<lpIconDir->idCount; ++i)
+                                    {
+                                        hIcons[i] = (HICON)LoadImage(NULL, sFilePathName.c_str(), IMAGE_ICON,
+                                            lpIconDir->idEntries[i].bWidth,
+                                            lpIconDir->idEntries[i].bHeight,
+                                            LR_LOADFROMFILE);
+                                    }
+                                    bResult = true;
                                 }
-                                bResult = true;
+                                catch (...)
+                                {
+                                    delete [] lpIcons;
+                                    lpIcons = NULL;
+                                    bResult = false;
+                                }
+                            }
+                            else
+                            {
+                                delete [] lpIcons;
+                                lpIcons = NULL;
+                                bResult = false;
                             }
                         }
                         else
