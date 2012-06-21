@@ -266,6 +266,7 @@ private:
     void        ResetVars();
     void        MergeAfterCommit();
     void        GenerateMergeLogMessage();
+    void        CompareWithWC(NotificationData * data);
 
     /**
      * Resizes the columns of the progress list so that the headings are visible.
