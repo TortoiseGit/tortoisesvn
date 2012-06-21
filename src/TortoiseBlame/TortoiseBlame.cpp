@@ -51,8 +51,8 @@
 // Global Variables:
 TCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 TCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
-TCHAR szViewtitle[MAX_PATH];
-TCHAR szOrigPath[MAX_PATH];
+std::wstring szViewtitle;
+std::wstring szOrigPath;
 TCHAR searchstringnotfound[MAX_LOADSTRING];
 
 const bool ShowDate = false;
@@ -185,9 +185,9 @@ void TortoiseBlame::SetTitle()
 #define MAX_PATH_LENGTH 80
     ASSERT(dialogname.GetLength() < MAX_PATH_LENGTH);
     WCHAR pathbuf[MAX_PATH] = {0};
-    if (_tcslen(szViewtitle) >= MAX_PATH)
+    if (szViewtitle.size() >= MAX_PATH)
     {
-        std::wstring str = (LPCTSTR)szViewtitle;
+        std::wstring str = szViewtitle;
         std::wregex rx(L"^(\\w+:|(?:\\\\|/+))((?:\\\\|/+)[^\\\\/]+(?:\\\\|/)[^\\\\/]+(?:\\\\|/)).*((?:\\\\|/)[^\\\\/]+(?:\\\\|/)[^\\\\/]+)$");
         std::wstring replacement = L"$1$2...$3";
         std::wstring str2 = std::regex_replace(str, rx, replacement);
@@ -196,7 +196,7 @@ void TortoiseBlame::SetTitle()
         PathCompactPathEx(pathbuf, str2.c_str(), MAX_PATH_LENGTH-(UINT)_tcslen(szTitle), 0);
     }
     else
-        PathCompactPathEx(pathbuf, szViewtitle, MAX_PATH_LENGTH-(UINT)_tcslen(szTitle), 0);
+        PathCompactPathEx(pathbuf, szViewtitle.c_str(), MAX_PATH_LENGTH-(UINT)_tcslen(szTitle), 0);
     std::wstring title;
     switch (DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\DialogTitles", 0)))
     {
@@ -1529,8 +1529,6 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         return FALSE;
     }
 
-    SecureZeroMemory(szViewtitle, sizeof(szViewtitle));
-    SecureZeroMemory(szOrigPath, sizeof(szOrigPath));
     TCHAR blamefile[MAX_PATH] = {0};
 
     CCmdLineParser parser(lpCmdLine);
@@ -1547,13 +1545,13 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     if (__argc > 2)
     {
         if ( parser.HasKey(_T("path")) )
-            _tcscpy_s(szViewtitle, parser.GetVal(_T("path")));
-        else
-            _tcscpy_s(szViewtitle, __wargv[3]);
+            szViewtitle = parser.GetVal(_T("path"));
+        else if (__wargv[3])
+            szViewtitle = __wargv[3];
         if (parser.HasVal(_T("revrange")))
         {
-            _tcscat_s(szViewtitle, _T(" : "));
-            _tcscat_s(szViewtitle, parser.GetVal(_T("revrange")));
+            szViewtitle += _T(" : ");
+            szViewtitle += parser.GetVal(_T("revrange"));
         }
     }
     if ((blamefile[0]==0) || parser.HasKey(_T("?")) || parser.HasKey(_T("help")))
@@ -1568,7 +1566,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     if ( parser.HasKey(_T("path")) )
     {
-        _tcscpy_s(szOrigPath, parser.GetVal(_T("path")));
+        szOrigPath = parser.GetVal(_T("path"));
     }
     app.bIgnoreEOL = parser.HasKey(_T("ignoreeol"));
     app.bIgnoreSpaces = parser.HasKey(_T("ignorespaces"));
@@ -2170,7 +2168,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
             HMENU hMenu = LoadMenu(app.hResource, MAKEINTRESOURCE(IDR_BLAMEPOPUP));
             HMENU hPopMenu = GetSubMenu(hMenu, 0);
 
-            if ( szOrigPath[0]==0 )
+            if ( szOrigPath.empty() )
             {
                 // Without knowing the original path we cannot blame the previous revision
                 // because we don't know which filename to pass to tortoiseproc.
