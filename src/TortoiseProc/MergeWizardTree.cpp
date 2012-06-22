@@ -474,6 +474,7 @@ LPARAM CMergeWizardTree::OnWCStatus(WPARAM wParam, LPARAM /*lParam*/)
 
 bool CMergeWizardTree::OkToCancel()
 {
+    StopWCCheckThread();
     if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
