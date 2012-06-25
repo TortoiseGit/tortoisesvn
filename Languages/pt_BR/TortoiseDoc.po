@@ -15,13 +15,14 @@
 #   <edson.chen@gmail.com>, 2011.
 #   <mmarcottulio@gmail.com>, 2012.
 # Rafael Heise <rmheise@gmail.com>, 2011, 2012.
+# Ricardo Souza <srrcdmk@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-05-16 08:16+0000\n"
-"Last-Translator: Crhistian <crhistian.ti@gmail.com>\n"
+"PO-Revision-Date: 2012-06-23 21:35+0000\n"
+"Last-Translator: Ricardo Souza <srrcdmk@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2215,7 +2216,7 @@ msgid ""
 "echo Property '%4' cannot be changed &gt;&amp;2\n"
 "exit 1\n"
 "</screen> Note that anything sent to stdout is discarded. If you want a message to appear in the Commit Reject dialog you must send it to stderr. In a batch file this is achieved using <filename>&gt;&amp;2</filename>."
-msgstr ""
+msgstr "Exemplos de rotinas para eventos podem ser encontradas no diretório <filename>hooks</filename> do repositório. Estas rotinas de exemplos são adaptadas para servidores Unix/Linux e precisam ser modificadas se seu servidor utiliza Windows. A rotina pode ser um arquivo em lote ou um executável. O exemplo abaixo mostra um arquivo em lote que pode ser usado para implementar um evento pre-revpro-change. <screen>\nrem Somente permitir alterações nas mensagens.\nif \"%4\" == \"svn:log\" exit 0\necho Propriedade '%4' não pode ser alterada &gt;&amp;2\nexit 1\n</screen> Note que qualquer saída em vídeo (stdout) será ignorada. Se você quer que uma mensagem seja mostrar na tela de Rejeição da Submissão você deve enviar através da saída de erro (stderr). No arquivo em lote isso pode ser feito usando <filename>&gt;&amp;2</filename>"
 
 #. (title)
 msgid "Overriding Hooks"
@@ -2231,7 +2232,7 @@ msgid ""
 "word then it allows the commit to proceed. If the phrase is not found then "
 "it can block the commit with a message like <quote>You didn't say the magic "
 "word</quote>. :-)"
-msgstr ""
+msgstr "Se uma rotina para evento rejeitar sua submissão, então sua decisão é final. Mas você pode construir um mecanismo de desvio na própria rotina usando a técnica de <emphasis>Palavra Mágica</emphasis>. Se a rotina quiser rejeitar a operação ela primeiro vasculha a mensagem de log por uma senha específica, frase fixa ou talvez o nome do arquivos com um prefixo. Se ela encontrar a palavra mágica, então ela permite que a submissão continue. Se a frase não for encontrada, então ela bloqueia a submissão com uma mensagem como <quote>Você não disse a palavra mágica</quote>. :-)"
 
 #. (title)
 msgid "Checkout Links"
@@ -3499,7 +3500,7 @@ msgid ""
 " and the online documentation and tutorial at <ulink url=\"http://www"
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "A janela de mensagem de log também inclui um nome de arquivo e função de auto-completar. Isto usa expressões regulares para extrair nomes de classes e funções dos (textos dos) arquivos que você está submetendo, assim como os próprios nomes dos arquivos. Se uma palavra que você estiver digitando combinar com alguma coisa na lista (após você ter digitado pelo menos 3 caracteres, ou pressionado <keycap>Ctrl+Espaço</keycap>), uma lista aparece, permitindo que você selecione o nome completo. As expressões regulares disponibilizadas com o TortoiseSVN são mantidas na pasta <filename>bin</filename> no diretório de instalação do TortoiseSVN. Você pode definir suas próprias expressões regulares e guardá-las em <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. É claro que sua auto lista privada não será sobrescrita quando você atualizar sua instalação do TortoiseSVN. se você não é familiarizado com expressões regulares, dê uma olhada na introdução em <ulink url=\"http://pt.wikipedia.org/wiki/Expressões_regulares\"><citetitle>http://pt.wikipedia.org/wiki/Expressões_regulares</citetitle></ulink>, e a documentação online e tutorial em <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -3508,7 +3509,7 @@ msgid ""
 "expression and then type in filenames to test it against. Start it from the "
 "command prompt using the command <literal>TortoiseProc.exe "
 "/command:autotexttest</literal>."
-msgstr ""
+msgstr "Conseguir a regex certa pode ser confuso, mas para ajudar você a criar uma expressão que funcione, há uma janela de testes que permite que você entre uma expressão e então digite nomes de arquivo para testar. Inicie ela da janela de comando usando o comando  <literal>TortoiseProc.exe /command:autotexttest</literal>."
 
 #. (para)
 msgid ""
@@ -4508,7 +4509,7 @@ msgid ""
 " box TortoiseSVN has added a new property page for files/folders under "
 "Subversion control, where you can see all relevant information about the "
 "selected file/directory."
-msgstr ""
+msgstr "<placeholder-1/> Algumas vezes você quer ter informações mais detalhadas sobre um arquivo/diretório do que a sobreposição de ícones. Você pode obter toda a informação que Subversion provê na janela de propriedades no explorer. Apenas selecione o arquivo ou diretório e selecione <menuchoice><guimenu>Menu do Windows</guimenu><guimenuitem>propriedades</guimenuitem></menuchoice> no menu de contexto (nota: esta é a entrada de menu de propriedades do explorer, não o submenu do TortoiseSVN!). No caixa de propriedades da janela, o TortoiseSVN adicionou uma nova página de propriedades para arquivos/pastas sobre o controle do Subersion, onde você pode ver todas as informações relevantes sobre os arquivos/diretórios selecionados."
 
 #. (title)
 msgid "TortoiseSVN Columns In Windows Explorer"
@@ -5235,7 +5236,7 @@ msgid ""
 "test merge. It is a good idea to merge into an unmodified working copy so "
 "that you can revert the changes if it doesn't work out! This is a useful "
 "feature if you want to merge selected revisions from one branch to another."
-msgstr ""
+msgstr "Combinas as revisões selecionadas em uma cópia de trabalho diferente. Uma janela de seleção de pastas permite que você escolha as cópias de trabalho para combinar, mas após isto, não há uma janela de confirmação, nem qualquer oportunidade de tentar uma combinação de teste. É uma boa idéia combinar em uma cópia de trabalho não modificada, assim você pode reverter as mudanças se não funcionar! Isto é um recurso útil se você quer combinar revisões selecionadas de um ramo para outro."
 
 #. (term)
 msgid "Checkout..."
@@ -5375,7 +5376,7 @@ msgid ""
 "or <keycap>Shift</keycap> modifiers), the context menu will include an entry"
 " to Revert all changes which were made in the selected revisions. This is "
 "the easiest way to rollback a group of revisions in one go."
-msgstr ""
+msgstr "Se você selecionar duas ou mais revisões (usando os modificadores <keycap>Ctrl</keycap> ou <keycap>Shift</keycap>), o menu de contexto irá incluir uma entrada para Reverter todas as mudanças que foram reitas pelas revisões selecionadas. Esta é a maneira mais fácil de restaurar um grupo de revisões de uma vez."
 
 #. (para)
 msgid ""
@@ -5539,7 +5540,7 @@ msgid ""
 "somewhere else within the repository. This can be useful when looking at "
 "branches (or tags) as it stops at the root of that branch, and gives a quick"
 " indication of changes made in that branch only."
-msgstr ""
+msgstr "Quando a caixa <guilabel>Parar para copiar/renomear</guilabel> é marcada, Mostrar Log irá parar no ponto de onde o arquivo selecionado ou a pasta foram copiados de outro lugar no repositório. Isto pode ser útil quando observando ramos (ou etiquetas) porque ele pára na raiz do ramo, e dá uma indicação rápida das mudanças que foram feitas apenas naquele ramo."
 
 #. (para)
 msgid ""
@@ -5553,7 +5554,7 @@ msgid ""
 " always checked by default. This is because merging is most often looking at"
 " changes on branches, and going back beyond the root of the branch does not "
 "make sense in that instance."
-msgstr ""
+msgstr "Quando a janela Mostrar Log é chamada da janela de Combinação, a caixa é sempre marcada por padrão. Isto é porque uma combinação está sempre procurando mudanças nos ramos, e voltar além da raiz de um ramo não faz sentido neste caso."
 
 #. (para)
 msgid ""
@@ -5587,13 +5588,13 @@ msgid ""
 "Use <guibutton>Show Range ...</guibutton> if you want to view a specific "
 "range of revisions. A dialog will then prompt you to enter the start and end"
 " revision."
-msgstr ""
+msgstr "Use <guibutton>Mostrar Faixa ...</guibutton> se você quiser ver uma faixa de revisões específica. Uma janela irá pedir que você entre as revisões inicial e final."
 
 #. (para)
 msgid ""
 "Use <guibutton>Show All</guibutton> if you want to see "
 "<emphasis>all</emphasis> log messages from HEAD right back to revision 1."
-msgstr ""
+msgstr "Use <guibutton>Mostrar Todas</guibutton> se você quiser ver <emphasis>todas</emphasis> as mensagens de log de HEAD até a revisão 1."
 
 #. (para)
 msgid ""
@@ -5616,7 +5617,7 @@ msgid ""
 "for content which has not yet been updated in your working copy. To help "
 "make this clearer, the commit message which corresponds to the revision you "
 "have in your working copy is shown in bold."
-msgstr ""
+msgstr "Como a janela de log mostra o log de HEAD, não da revisão da cópia de trabalho atual, é comum que haja mensagens de log para conteúdo que ainda não foi atualizado na cópia de trabalho. Para ajudar a deixar isto mais claro, a mensagem de submissão que corresponde à revisão que você têm na sua cópia de trabalho é mostrada em negrito."
 
 #. (para)
 msgid ""
@@ -5625,11 +5626,11 @@ msgid ""
 "working copy. The crawl takes place within a separate thread so as not to "
 "delay showing the log, but as a result highlighting for folders may not "
 "appear immediately."
-msgstr ""
+msgstr "Quando você exibe o log para uma pasta, a revisão destacada é a maior revisão encontrada dentro daquela pasta, o que requer uma pesquisa da cópia de trabalho. A pesquisa é realizada em um processo separado para não demorar para mostrar o log, mas com isso, o destaque de pastas pode não aparecer imediatamente."
 
 #. (title)
 msgid "Merge Tracking Features"
-msgstr ""
+msgstr "Combinar Recursos Monitorados"
 
 #. (primary)
 msgid "merge tracking log"
@@ -5643,7 +5644,7 @@ msgid ""
 "trunk, the feature development will show up on the trunk log as a single "
 "commit for the merge, even though there may have been 1000 commits during "
 "branch development."
-msgstr ""
+msgstr "Subversion 1.5 e posteriores mantém um registro das combinações usando propriedades. Isto permite que nós tenhamos um histórico mais detalhado das mudanças combinadas. Por exemplo, se você deselvolve um novo recurso em um ramo e então combina este ramo de volta com o tronco, o desenvolvimento do recurso será mostrado no log do tronco como uma única submissão para a combinação, mesmo que possa haver 1000 submissões durante o desenvolvimento no ramo."
 
 #. (title)
 msgid "The Log Dialog Showing Merge Tracking Revisions"
@@ -5656,7 +5657,7 @@ msgid ""
 "This will fetch the log messages again, but will also interleave the log "
 "messages from revisions which were merged. Merged revisions are shown in "
 "grey because they represent changes made on a different part of the tree."
-msgstr ""
+msgstr "Se você quiser ver os detalhes de quais revisões foram combinadas como parte da submissão, use a caixa de marcar <guilabel>Incluir revisões combinadas</guilabel>. Isto irá obter as mensagens de log novamente, mas também irá intercalar as mensagens de log das revisões que foram combinadas. revisões combinadas são mostradas em cinza porquê representam mudanças feiras em partes diferentes da árvore."
 
 #. (para)
 msgid ""
@@ -5665,7 +5666,7 @@ msgid ""
 " in sync with the main line code. So the merge history of the branch will "
 "also include another layer of merge history. These different layers are "
 "shown in the log dialog using indentation levels."
-msgstr ""
+msgstr "É claro que combinar nunca é simples! Durante o desenvolvimento de um recurso no ramo, provavelmente irão ocorrer combinações com o tronco para manter o ramo sincronizado com a linha de código principal. Então o histórico de combinações do ramo também irá mostrar outra camada de histórico de combinações. Estas camadas diferentes são mostradas na janela de log usando níveis de indentação."
 
 #. (title)
 msgid "Changing the Log Message and Author"
@@ -5689,7 +5690,7 @@ msgid ""
 "of each item. Revprops are descriptive items which are associated with one "
 "specific revision number in the repository, such as log message, commit date"
 " and committer name (author)."
-msgstr ""
+msgstr "Propriedades de revisão são completamente diferentes das propriedades da Subversion de cada item. Propriedades de revisão são itens descritivos que são associados com um número de revisão específico no repositório, como uma mensagem de log, data de submissão e nome do autor."
 
 #. (para)
 msgid ""
@@ -5697,7 +5698,7 @@ msgid ""
 "because there's a spelling error in it or you want to improve the message or"
 " change it for other reasons. Or you want to change the author of the commit"
 " because you forgot to set up authentication or..."
-msgstr ""
+msgstr "Algumas vezes você pode querer mudar uma mensagem de log que você entrou, talvez porque há erros ou porque você quer melhorar a mensagem ou mudá-la por outras razões. Ou você quer mudar o autor da submissão porque você esqueceu de configurar a autenticação ou..."
 
 #. (para)
 msgid ""
@@ -5717,7 +5718,7 @@ msgid ""
 "author and log message (or any other revprop) of any revision, using the "
 "context menu from the top pane of the Log dialog. You can also edit a log "
 "message using the context menu for the middle pane."
-msgstr ""
+msgstr "Uma vêz que você já configurou seu servidor com os hooks necessários, você pode mudar o autor e a mensagem de log (ou qualquer outra propriedade de revisão) de qulquer revisão, usando o menu de contexto do painel superior da janela de Log. Você também pode editar uma mensagem de log usando o menu de contexto do painel do meio."
 
 #. (para)
 msgid ""
@@ -5725,7 +5726,7 @@ msgid ""
 "modifications to such a property (for example, the "
 "<literal>svn:log</literal> commit message property) will overwrite the "
 "previous value of that property <emphasis>forever</emphasis>."
-msgstr ""
+msgstr "Como as propriedades de revisão da Subversion não são versionadas, fazer modificações em tais propriedades (por exemplo, a propriedade mensagem de submissão <literal>svn:log</literal>) irá sobrescrever os valores anteriores da propriedade <emphasis>para sempre</emphasis>."
 
 #. (para)
 msgid ""
@@ -5733,7 +5734,7 @@ msgid ""
 "author and log messages will only show up on your local installation. Other "
 "users using TortoiseSVN will still see the cached (old) authors and log "
 "messages until they refresh the log cache."
-msgstr ""
+msgstr "Assim como TortoiseSVN mantém um cachê de todas as informações de log, alterações feitas por um autor e mensagens de log serão exibidas apenas em sua instalação local. Outros usuários usando o TortoiseSVN ainda irão ver os autores e mensagens de log armazenados (antigos) até que atualizem o cachê de log."
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -5750,7 +5751,7 @@ msgid ""
 "the filter controls at the top of the Log Dialog. The start and end date "
 "controls allow you to restrict the output to a known date range. The search "
 "box allows you to show only messages which contain a particular phrase."
-msgstr ""
+msgstr "Se você quiser restringir as mensagen de log para mostrar apenas às que você está interessado ao invés de rolar por toda a lista de milhares, você pode usar os controles de filtro no topo da Janela de Log. Os controles de datas inicial e final permitem que você restrinja a saída à uma faixa de datas conhecida. A caixa de busca permite que você mostre apenas as mensagens que contenham uma frase particular."
 
 #. (para)
 msgid ""
@@ -5762,7 +5763,7 @@ msgid ""
 " functions. The filter works by checking whether your filter string matches "
 "the log entries, and then only those entries which "
 "<emphasis>match</emphasis> the filter string are shown."
-msgstr ""
+msgstr "Clique no ícone de busca para selecionar a informação na qual você quer pesquisar e escolha o modo <emphasis>regex</emphasis>. Normalmente você irá precisar apenas de uma busca simples de palavras, mas se você precisar de  termos de busca mais flexíveis, você pode usar expressões regulares. Se você colocar o curosor sobre a caixa, uma dica de tela irá dar dicas de como usar funções de expressões regulares. O filtro funciona checando quando o texto do filtro combina com as entradas de log, e então apenas estas entradas que <emphasis>combinam</emphasis> com o filtro são exibidas."
 
 #. (para)
 msgid ""
@@ -5791,7 +5792,7 @@ msgid ""
 "this manual, but you can find online documentation and a tutorial at <ulink "
 "url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Descrever o uso de expressões regulares está além do escopo deste manual, mas você pode encontrar documentações online e um  tutorial em <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -5808,7 +5809,7 @@ msgid ""
 "means just that one file. Normally the path list shows any other paths which"
 " are affected by the same commit, but in grey. If the box is checked, those "
 "paths are hidden."
-msgstr ""
+msgstr "Você também pode filtrar os nomes de caminho no painel de baixo usando a caixa <guilabel>Mostrar apenas caminhos afetados</guilabel>. Caminhos afetados são os que contém o caminho usado para mostrar o log. Se você obter o log para uma pasta, isto significa qualquer coisa na pasta ou abaixo dela. Para um arquivo, isto significa apenas aquele arquivo. Normalmente a lista de caminhos mostra quaisquer outros caminhos que são afetados pela mesma submissão, mas em cinza. Se a caixa é marcada, estes caminhos são ocultos."
 
 #. (para)
 msgid ""
@@ -5818,7 +5819,7 @@ msgid ""
 "<literal>tsvn:logsummary</literal> can be used to extract a portion of the "
 "log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-"
 "propertypage-tsvn-props\"/> to find out how to use this property."
-msgstr ""
+msgstr "Algumas vezes suas práticas de trabalho irão precisar que as mensagens de log sigam um formato particular, o que significa que o texto descrevendo as mudanças não é visível no resumo abreviado que é exibido no painel superior. A propriedade <literal>tsvn:logsummary</literal> pode ser usada para extrair uma parte da mensagem de log para ser exibida no painel superior. Leia <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> para saber como usar esta propriedade."
 
 #. (title)
 msgid "No Log Formatting from Repository Browser"
@@ -5830,7 +5831,7 @@ msgid ""
 "will only see the results when using a checked out working copy. Fetching "
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
-msgstr ""
+msgstr "Como a formatação depende do acesso às propriedades da Subversion, você irá ver apenas os resultados quando estiver usando uma cópia de trabalho verificada. Obter propriedades remotamente é uma operação lenta, então você não irá ver este recurso em ação no navegador de repositório."
 
 #. (title)
 msgid "Statistical Information"
@@ -5847,7 +5848,7 @@ msgid ""
 "shows how many authors have been at work, how many commits they have made, "
 "progress by week, and much more. Now you can see at a glance who has been "
 "working hardest and who is slacking ;-)"
-msgstr ""
+msgstr "O botão <guibutton>Estatísticas</guibutton> tráz uma caixa exibindo algumas informações interessantes sobre as revisões mostradas na janela de Log. Isto mostra quantos autores trabalharam, quantas submissões eles fizeram, progresso por semana, e muito mais. Agora você pode ter um relance de quem tem trabalhado duro e quem está enrolando ;-)"
 
 #. (title)
 msgid "Statistics Page"
@@ -5885,7 +5886,7 @@ msgid ""
 "the bottom allows you to set a threshold (as a percentage of total commits) "
 "below which any activity is grouped into an <emphasis>Others</emphasis> "
 "category."
-msgstr ""
+msgstr "Quando houver poucos autores principais e muitos contribuintes menores, o número de segmentos pequenos pode fazer o gráfico mais difícil de ler. O controle deslizante abaixo permite que você ajuste um limite (como uma porcentagem do total de submissões) abaixo do qual qualquer atividade é agrupada na categoria <emphasis>Outros</emphasis>."
 
 #. (title)
 msgid "Commits by date Page"

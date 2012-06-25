@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-06-18 07:01+0000\n"
+"PO-Revision-Date: 2012-06-22 10:35+0000\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3580,7 +3580,7 @@ msgid ""
 "{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
-msgstr ""
+msgstr "Voliteľný nadpis. Dostupne kľúčové slová:\n{mergeurl}:\tZdrojová URL zlúčenia\n{revisions}:\tČiarkmi oddené revízie, napr. 3, 5, 6, 7\n{revisionsr}:\tAko {revisions} ale s \"r\" pred číslami revízií\n{revrange}:\tČiarkami oddelené čísla vevizií zlúčené do rozsahov kde to je možné, napr. 3, 5-7"
 
 #. Resource IDs: (1007, 17074)
 msgid "Customize"
@@ -6168,7 +6168,7 @@ msgstr "&Hĺbka spájania:"
 
 #. Resource IDs: (32865)
 msgid "Merge Log &Templates"
-msgstr "Vzory správ denníka zlúčenia"
+msgstr "&Vzory správ denníka o zlúčení"
 
 #. Resource IDs: (221)
 msgid "Merge Reintegrate"
@@ -9109,7 +9109,7 @@ msgid ""
 "{author}:\tThe author of the merged revision\r\n"
 "{rev}:\tThe merged revision itself\r\n"
 "{bugid}:\tThe bug ids of the merged revision"
-msgstr ""
+msgstr "Udava ako bude vyzerať text pre každú zlúčenú revíziu.\nMožu byť použité nasledovné kľúčové slová:\n{msg}:\tSpráva denníka zlúčenej revízie ako bolo zadaná.\n{msgoneline}:\tSpráva denníka zlúčenej revízie ako jeden riadok-\n{author}:\tAutor zlučenej revízie.\n{rev}:\tČislo zlúčenej revízie.\n{bugid}:\tIdentifikátor chyby zlučenej revízie."
 
 #. Resource IDs: (1572)
 msgid ""
