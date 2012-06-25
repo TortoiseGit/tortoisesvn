@@ -32,7 +32,6 @@
 #include "DiffColors.h"
 #include ".\mainfrm.h"
 #include "SelectFileFilter.h"
-#include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
 #include "TaskbarUUID.h"
 
