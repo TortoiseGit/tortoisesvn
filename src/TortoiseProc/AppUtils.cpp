@@ -496,8 +496,9 @@ void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
 */
 bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sOriginalFile, const CString& sParams, const SVNRev& startrev, const SVNRev& endrev)
 {
-    CString viewer = CPathUtils::GetAppDirectory();
-    viewer += _T("TortoiseBlame.exe");
+    CString viewer = L"\"";
+    viewer += CPathUtils::GetAppDirectory();
+    viewer += _T("TortoiseBlame.exe\"");
     viewer += _T(" \"") + sBlameFile + _T("\"");
     viewer += _T(" \"") + sOriginalFile + _T("\"");
     viewer += _T(" ")+sParams;
