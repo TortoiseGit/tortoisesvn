@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -50,6 +50,7 @@ public:
      */
     void SetFromWin(LPCTSTR pPath);
     void SetFromWin(const CString& sPath);
+    void SetFromWin(LPCTSTR pPath, bool bIsDirectory);
     void SetFromWin(const CString& sPath, bool bIsDirectory);
     /**
      * Set the path from an unknown source.

@@ -715,7 +715,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
             case TSVNCACHECOMMAND_CRAWL:
                 {
                     CTSVNPath changedpath;
-                    changedpath.SetFromWin(CString(command.path), true);
+                    changedpath.SetFromWin(command.path, true);
                     // remove the path from our cache - that will 'invalidate' it.
                     {
                         CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
@@ -733,7 +733,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
             case TSVNCACHECOMMAND_RELEASE:
                 {
                     CTSVNPath changedpath;
-                    changedpath.SetFromWin(CString(command.path), true);
+                    changedpath.SetFromWin(command.path, true);
                     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": release handle for path %s\n"), changedpath.GetWinPath());
                     CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
                     CSVNStatusCache::Instance().CloseWatcherHandles(changedpath);
@@ -743,7 +743,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
             case TSVNCACHECOMMAND_BLOCK:
                 {
                     CTSVNPath changedpath;
-                    changedpath.SetFromWin(CString(command.path));
+                    changedpath.SetFromWin(command.path);
                     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": block path %s\n"), changedpath.GetWinPath());
                     CSVNStatusCache::Instance().BlockPath(changedpath, false);
                 }
@@ -751,7 +751,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
             case TSVNCACHECOMMAND_UNBLOCK:
                 {
                     CTSVNPath changedpath;
-                    changedpath.SetFromWin(CString(command.path));
+                    changedpath.SetFromWin(command.path);
                     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": unblock path %s\n"), changedpath.GetWinPath());
                     CSVNStatusCache::Instance().UnBlockPath(changedpath);
                 }

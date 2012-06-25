@@ -129,6 +129,14 @@ void CTSVNPath::SetFromWin(const CString& sPath)
     m_sBackslashPath.Replace(L"\\\\?\\", L"");
     SanitizeRootPath(m_sBackslashPath, false);
 }
+void CTSVNPath::SetFromWin(LPCTSTR pPath, bool bIsDirectory)
+{
+    Reset();
+    m_sBackslashPath = pPath;
+    m_bIsDirectory = bIsDirectory;
+    m_bDirectoryKnown = true;
+    SanitizeRootPath(m_sBackslashPath, false);
+}
 void CTSVNPath::SetFromWin(const CString& sPath, bool bIsDirectory)
 {
     Reset();
