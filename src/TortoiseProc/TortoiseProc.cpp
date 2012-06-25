@@ -46,6 +46,7 @@
 #include "TempFile.h"
 #include "SmartHandle.h"
 #include "TaskbarUUID.h"
+#include "CreateProcessHelper.h"
 
 #define STRUCT_IOVEC_DEFINED
 #include "sasl.h"
@@ -636,7 +637,6 @@ void CTortoiseProcApp::CheckForNewerVersion()
 
     TCHAR com[MAX_PATH+100];
     GetModuleFileName(NULL, com, MAX_PATH);
-    _tcscat_s(com, _T(" /command:updatecheck"));
 
-    CAppUtils::LaunchApplication(com, 0, false);
+    CCreateProcessHelper::CreateProcessDetached(com, L" /command:updatecheck");
 }
