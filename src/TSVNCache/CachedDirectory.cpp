@@ -390,7 +390,10 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
     if(!bThisDirectoryIsUnversioned)
     {
         if (!SvnUpdateMembersStatus())
+        {
+            m_wcDbFileTime = 0;
             return CStatusCacheEntry();
+        }
     }
     // Now that we've refreshed our SVN status, we can see if it's
     // changed the 'most important' status value for this directory.
