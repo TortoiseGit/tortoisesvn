@@ -84,7 +84,7 @@ public: // methods
     void            SetCaretAndGoalViewPosition(const POINT& pt) {UpdateCaretViewPosition(pt); UpdateGoalPos(); }
     void            SetCaretPosition(const POINT& pt) { SetCaretViewPosition(ConvertScreenPosToView(pt)); }
     POINT           GetCaretPosition() { return ConvertViewPosToScreen(GetCaretViewPosition()); }
-    void            SetCaretViewPosition(const POINT & pt) { m_ptCaretViewPos = pt; }
+    void            SetCaretViewPosition(const POINT & pt) { m_ptCaretViewPos = pt; SetCaretPos(TextToClient(pt)); }
     POINT           GetCaretViewPosition() { return m_ptCaretViewPos; }
     void            UpdateCaretPosition(const POINT& pt) { SetCaretPosition(pt); UpdateCaret(); }
     void            UpdateCaretViewPosition(const POINT& pt) { SetCaretViewPosition(pt); UpdateCaret(); EnsureCaretVisible(); }
