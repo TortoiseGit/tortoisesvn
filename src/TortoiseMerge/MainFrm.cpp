@@ -600,6 +600,12 @@ bool CMainFrame::LoadViews(int line)
         nOldCaretPos = m_pwndBottomView->GetCaretPosition().y;
     if (!m_Data.Load())
     {
+        m_pwndLeftView->BuildAllScreen2ViewVector();
+        m_pwndLeftView->DocumentUpdated();
+        m_pwndRightView->DocumentUpdated();
+        m_pwndBottomView->DocumentUpdated();
+        m_wndLocatorBar.DocumentUpdated();
+        m_wndLineDiffBar.DocumentUpdated();
         ::MessageBox(m_hWnd, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
         m_Data.m_mergedFile.SetOutOfUse();
         return false;
