@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2011 - TortoiseSVN
+// Copyright (C) 2006-2007, 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -120,13 +120,16 @@ bool CWorkingFile::HasSourceFileChanged() const
         return false;
     }
     WIN32_FILE_ATTRIBUTE_DATA attribs = {0};
-    if (GetFileAttributesEx(m_sFilename, GetFileExInfoStandard, &attribs))
+    if (PathFileExists(m_sFilename))
     {
-        if ( (m_attribs.nFileSizeHigh != attribs.nFileSizeHigh) ||
-             (m_attribs.nFileSizeLow != attribs.nFileSizeLow) )
-             return true;
-        return ( (CompareFileTime(&m_attribs.ftCreationTime, &attribs.ftCreationTime)!=0) ||
-                 (CompareFileTime(&m_attribs.ftLastWriteTime, &attribs.ftLastWriteTime)!=0) );
+        if (GetFileAttributesEx(m_sFilename, GetFileExInfoStandard, &attribs))
+        {
+            if ( (m_attribs.nFileSizeHigh != attribs.nFileSizeHigh) ||
+                (m_attribs.nFileSizeLow != attribs.nFileSizeLow) )
+                return true;
+            return ( (CompareFileTime(&m_attribs.ftCreationTime, &attribs.ftCreationTime)!=0) ||
+                (CompareFileTime(&m_attribs.ftLastWriteTime, &attribs.ftLastWriteTime)!=0) );
+        }
     }
 
     return false;
