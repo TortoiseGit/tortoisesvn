@@ -1493,8 +1493,8 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
                 // multiline
                 bMultiline = true;
                 pDC->MoveTo(origin.x, yMiddle-2);
-                pDC->LineTo(origin.x+GetCharWidth(), yMiddle-2);
-                pDC->LineTo(origin.x+GetCharWidth(), yMiddle+2);
+                pDC->LineTo(origin.x+GetCharWidth()-1, yMiddle-2);
+                pDC->LineTo(origin.x+GetCharWidth()-1, yMiddle+2);
                 pDC->LineTo(origin.x, yMiddle+2);
             }
             else if (GetLineLength(nLineIndex) == 0)
@@ -1509,7 +1509,7 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
             {
             case EOL_CR:
                 // arrow from right to left
-                pDC->MoveTo(origin.x+GetCharWidth(), yMiddle);
+                pDC->MoveTo(origin.x+GetCharWidth()-1, yMiddle);
                 pDC->LineTo(origin.x, yMiddle);
                 pDC->LineTo(origin.x+4, yMiddle+4);
                 pDC->MoveTo(origin.x, yMiddle);
@@ -1518,8 +1518,8 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
             case EOL_AUTOLINE:
             case EOL_CRLF:
                 // arrow from top to middle+2, then left
-                pDC->MoveTo(origin.x+GetCharWidth(), rc.top+1);
-                pDC->LineTo(origin.x+GetCharWidth(), yMiddle);
+                pDC->MoveTo(origin.x+GetCharWidth()-1, rc.top+1);
+                pDC->LineTo(origin.x+GetCharWidth()-1, yMiddle);
                 pDC->LineTo(origin.x, yMiddle);
                 pDC->LineTo(origin.x+4, yMiddle+4);
                 pDC->MoveTo(origin.x, yMiddle);
