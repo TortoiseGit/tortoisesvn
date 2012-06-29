@@ -53,6 +53,7 @@ BEGIN_MESSAGE_MAP(CLocatorBar, CPaneDialog)
     ON_WM_LBUTTONDOWN()
     ON_WM_MOUSEMOVE()
     ON_WM_LBUTTONUP()
+    ON_MESSAGE(WM_MOUSELEAVE, OnMouseLeave)
 END_MESSAGE_MAP()
 
 void CLocatorBar::DocumentUpdated()
@@ -216,7 +217,20 @@ void CLocatorBar::OnMouseMove(UINT nFlags, CPoint point)
         ScrollOnMouseMove(point);
     }
 
+    TRACKMOUSEEVENT Tme;
+    Tme.cbSize = sizeof(TRACKMOUSEEVENT);
+    Tme.dwFlags = TME_LEAVE;
+    Tme.hwndTrack = m_hWnd;
+    TrackMouseEvent(&Tme);
+
+
     Invalidate();
+}
+
+LRESULT CLocatorBar::OnMouseLeave(WPARAM /*wParam*/, LPARAM /*lParam*/)
+{
+    Invalidate();
+    return 0;
 }
 
 void CLocatorBar::OnLButtonUp(UINT nFlags, CPoint point)
