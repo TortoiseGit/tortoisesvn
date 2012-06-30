@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,8 +47,20 @@ const static int ColumnFlags = SHCOLSTATE_TYPE_STR | SHCOLSTATE_ONBYDEFAULT;
 
 #define MAX_REV_STRING_LEN 10
 
-// IColumnProvider members
 STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
+{
+    __try
+    {
+        return GetColumnInfo_Wrap(dwIndex, psci);
+    }
+    __except(CCrashReport::Instance().SendReport(GetExceptionInformation()))
+    {
+    }
+    return E_FAIL;
+}
+
+// IColumnProvider members
+STDMETHODIMP CShellExt::GetColumnInfo_Wrap(DWORD dwIndex, SHCOLUMNINFO *psci)
 {
     if (psci == 0)
         return E_POINTER;
@@ -167,6 +179,18 @@ void CShellExt::GetColumnInfo(SHCOLUMNINFO* psci, DWORD dwIndex, UINT characters
 
 STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, VARIANT *pvarData)
 {
+    __try
+    {
+        return GetItemData_Wrap(pscid, pscd, pvarData);
+    }
+    __except(CCrashReport::Instance().SendReport(GetExceptionInformation()))
+    {
+    }
+    return E_FAIL;
+}
+
+STDMETHODIMP CShellExt::GetItemData_Wrap(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, VARIANT *pvarData)
+{
     if((pscid == 0) || (pscd == 0))
         return E_INVALIDARG;
     if(pvarData == 0)
@@ -282,6 +306,18 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 }
 
 STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
+{
+    __try
+    {
+        return Initialize_Wrap(psci);
+    }
+    __except(CCrashReport::Instance().SendReport(GetExceptionInformation()))
+    {
+    }
+    return E_FAIL;
+}
+
+STDMETHODIMP CShellExt::Initialize_Wrap(LPCSHCOLUMNINIT psci)
 {
     if(psci == 0)
         return E_INVALIDARG;
