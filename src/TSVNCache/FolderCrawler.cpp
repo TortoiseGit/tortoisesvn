@@ -282,7 +282,10 @@ void CFolderCrawler::WorkerThread()
                     {
                         CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
                         CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
-                        continue;
+                        if (!workingPath.GetContainingDirectory().Exists())
+                            continue;
+                        else
+                            workingPath = workingPath.GetContainingDirectory();
                     }
                     {
                         AutoLocker print(critSec);
