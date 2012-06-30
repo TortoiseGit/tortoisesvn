@@ -101,7 +101,6 @@
               <File Id="F__crashlang" Name="crashrpt_lang.ini" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\crashrpt_lang.ini" />
               -->
               <File Id="F__crashrpt" Name="crshhndl.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\crshhndl.dll" KeyPath="yes" />
-              <File Id="F__crashsender" Name="SendRpt.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\SendRpt.exe" />
             </Component>
             <?endif ?>
 
