@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2011 - TortoiseSVN
+// Copyright (C) 2006-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -121,14 +121,16 @@ svn_diff_file_options_t * CDiffData::CreateDiffFileOptions(DWORD dwIgnoreWS, boo
 bool CDiffData::HandleSvnError(svn_error_t * svnerr)
 {
     TRACE(_T("diff-error in CDiffData::Load()\n"));
-    CString sMsg = CString(svnerr->message);
+    TRACE(_T("diff-error in CDiffData::Load()\n"));
+    CStringA sMsg = CStringA(svnerr->message);
     while (svnerr->child)
     {
         svnerr = svnerr->child;
         sMsg += _T("\n");
-        sMsg += CString(svnerr->message);
+        sMsg += CStringA(svnerr->message);
     }
-    m_sError.Format(IDS_ERR_DIFF_DIFF, (LPCTSTR)sMsg);
+    CString readableMsg = CUnicodeUtils::GetUnicode(sMsg);
+    m_sError.Format(IDS_ERR_DIFF_DIFF, (LPCTSTR)readableMsg);
     svn_error_clear(svnerr);
     return false;
 }
