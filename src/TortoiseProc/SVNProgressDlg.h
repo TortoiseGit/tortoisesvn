@@ -155,19 +155,20 @@ private:
     class NotificationData
     {
     public:
-        NotificationData() :
-          action((svn_wc_notify_action_t)-1),
-              kind(svn_node_none),
-              content_state(svn_wc_notify_state_inapplicable),
-              prop_state(svn_wc_notify_state_inapplicable),
-              rev(0),
-              color(::GetSysColor(COLOR_WINDOWTEXT)),
-              bConflictedActionItem(false),
-              bTreeConflict(false),
-              bAuxItem(false),
-              lock_state(svn_wc_notify_lock_state_unchanged),
-              bConflictSummary(false),
-              bBold(false)
+        NotificationData()
+            : action((svn_wc_notify_action_t)-1)
+            , kind(svn_node_none)
+            , content_state(svn_wc_notify_state_inapplicable)
+            , prop_state(svn_wc_notify_state_inapplicable)
+            , rev(0)
+            , color(::GetSysColor(COLOR_WINDOWTEXT))
+            , bConflictedActionItem(false)
+            , bTreeConflict(false)
+            , bAuxItem(false)
+            , lock_state(svn_wc_notify_lock_state_unchanged)
+            , bConflictSummary(false)
+            , bBold(false)
+            , indent(0)
           {
               merge_range.end = 0;
               merge_range.start = 0;
@@ -197,6 +198,7 @@ private:
         bool                    bConflictSummary;           ///< if true, the entry is "one or more items are in a conflicted state"
         bool                    bBold;                      ///< if true, the line is shown with a bold font
         CString                 sPathColumnText;
+        int                     indent;                     ///< indentation
 
     };
 protected:

@@ -260,6 +260,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     data->lock_state = lock_state;
     data->changelistname = changelistname;
     data->propertyName = propertyName;
+    data->indent = (int)m_ExtStack.GetCount();
     if ((lock)&&(lock->owner))
         data->owner = CUnicodeUtils::GetUnicode(lock->owner);
     data->sPathColumnText = path.GetUIPathString();
@@ -940,6 +941,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
         m_pTaskbarList = nullptr;
 
     m_ProgList.SetExtendedStyle (LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
+    SetWindowTheme(m_ProgList.GetSafeHwnd(), L"Explorer", NULL);
 
     m_ProgList.DeleteAllItems();
     int c = ((CHeaderCtrl*)(m_ProgList.GetDlgItem(0)))->GetItemCount()-1;
@@ -1431,14 +1433,24 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
     if (data == 0)
         return;
 
-    const int maxLength = min(MAX_PATH-2, pDispInfo->item.cchTextMax);
+    int indent = 0;
+    WCHAR * pColumnBuf = m_columnbuf;
+    if (pDispInfo->item.iSubItem == 0)
+    {
+        indent = data->indent;
+        pColumnBuf = &m_columnbuf[data->indent];
+        for (int i = 0; i < data->indent; ++i)
+            m_columnbuf[i] = ' ';
+    }
+
+    const int maxLength = min(MAX_PATH-2-indent, pDispInfo->item.cchTextMax);
     switch (pDispInfo->item.iSubItem)
     {
     case 0:
-        lstrcpyn(m_columnbuf, data->sActionColumnText, maxLength);
+        lstrcpyn(pColumnBuf, data->sActionColumnText, maxLength);
         break;
     case 1:
-        lstrcpyn(m_columnbuf, data->sPathColumnText, maxLength);
+        lstrcpyn(pColumnBuf, data->sPathColumnText, maxLength);
         if (!data->bAuxItem)
         {
             int cWidth = m_ProgList.GetColumnWidth(1);
@@ -1447,14 +1459,14 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
             if (pDC != NULL)
             {
                 CFont * pFont = pDC->SelectObject(m_ProgList.GetFont());
-                PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+                PathCompactPath(pDC->GetSafeHdc(), pColumnBuf, cWidth);
                 pDC->SelectObject(pFont);
                 ReleaseDC(pDC);
             }
         }
         break;
     case 2:
-        lstrcpyn(m_columnbuf, data->mime_type, maxLength);
+        lstrcpyn(pColumnBuf, data->mime_type, maxLength);
         break;
     default:
         break;
