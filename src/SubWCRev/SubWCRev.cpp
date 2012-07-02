@@ -169,12 +169,13 @@ int FindPlaceholder(char *def, char *pBuf, size_t & index, size_t filelength)
 int FindPlaceholderW(wchar_t *def, wchar_t *pBuf, size_t & index, size_t filelength)
 {
     size_t deflen = wcslen(def);
-    while (index + (deflen*sizeof(wchar_t)) <= filelength)
+    while ((index + deflen)*sizeof(wchar_t) <= filelength)
     {
         if (memcmp(pBuf + index, def, deflen*sizeof(wchar_t)) == 0)
             return TRUE;
         index++;
     }
+
     return FALSE;
 }
 
