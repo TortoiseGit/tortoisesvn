@@ -247,6 +247,8 @@ protected:
     static BOOL     m_bAscending;
     static int      m_nSortedColumn;
     CStringList     m_ExtStack;
+    bool            m_bExtDataAdded;
+    bool            m_bHideExternalInfo;
 
 private:
     static UINT ProgressThreadEntry(LPVOID pVoid);

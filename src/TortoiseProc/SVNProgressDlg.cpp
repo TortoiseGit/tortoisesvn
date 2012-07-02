@@ -103,6 +103,8 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , m_bHookError(false)
     , m_bNoHooks(false)
     , m_bRetryDone(false)
+    , m_bExtDataAdded(false)
+    , m_bHideExternalInfo(true)
     , sIgnoredIncluded(MAKEINTRESOURCE(IDS_PROGRS_IGNOREDINCLUDED))
     , sExtExcluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSEXCLUDED))
     , sExtIncluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSINCLUDED))
@@ -113,6 +115,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , sForce(MAKEINTRESOURCE(IDS_MERGE_FORCE))
 {
     m_arData.reserve(10000);
+    m_bHideExternalInfo = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\HideExternalInfo"), TRUE);
 }
 
 CSVNProgressDlg::~CSVNProgressDlg()
@@ -385,6 +388,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             data->sActionColumnText.LoadString(IDS_SVNACTION_EXISTS);
         break;
     case svn_wc_notify_update_started:
+        if (m_ExtStack.GetCount())
+        {
+            // since we already wrote the "External - path" notification,
+            // showing an "Update - path" for the very same path is just noise.
+            bNoNotify = true;
+            break;
+        }
         data->sActionColumnText.LoadString(IDS_SVNACTION_UPDATING);
         m_bConflictWarningShown = false;
         break;
@@ -436,6 +446,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_update_external:
         {
             m_ExtStack.AddHead(path.GetUIPathString());
+            m_bExtDataAdded = false;
             m_basePath = path;
             SVNStatus status;
             CTSVNPath dummypath;
@@ -444,7 +455,8 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 m_UpdateStartRevMap[m_basePath.GetSVNApiPath(pool)] = s->changed_rev;
             data->sActionColumnText.LoadString(IDS_SVNACTION_EXTERNAL);
             data->bAuxItem = true;
-            data->bBold = true;
+            if (m_bHideExternalInfo)
+                bNoNotify = true;
         }
         break;
 
@@ -475,12 +487,38 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         {
             data->sActionColumnText.LoadString(IDS_SVNACTION_COMPLETED);
             data->bAuxItem = true;
+            data->bBold = true;
             bool bEmpty = !!m_ExtStack.IsEmpty();
             if (!bEmpty)
-                data->sPathColumnText.FormatMessage(IDS_PROGRS_PATHATREV, (LPCTSTR)m_ExtStack.RemoveHead(), rev);
+            {
+                if (m_bHideExternalInfo)
+                {
+                    bNoNotify = true;
+                    break;
+                }
+                CString sExtPath = m_ExtStack.RemoveHead();
+                data->sPathColumnText.FormatMessage(IDS_PROGRS_PATHATREV, (LPCTSTR)sExtPath, rev);
+                if (m_arData.size() && !m_bExtDataAdded)
+                {
+                    NotificationData * pOldData = m_arData[m_arData.size()-1];
+                    if (pOldData && (pOldData->sPathColumnText==sExtPath))
+                    {
+                        // just update the "External" entry instead of adding another one
+                        pOldData->sPathColumnText = data->sPathColumnText;
+                        bNoNotify = true;
+                        m_ProgList.Update((int)m_arData.size()-1);
+                        break;
+                    }
+                }
+                if (!m_bExtDataAdded)
+                {
+                    bNoNotify = true;
+                    break;
+                }
+            }
             else
                 data->sPathColumnText.Format(IDS_PROGRS_ATREV, rev);
-
+            m_bExtDataAdded = false;
             if ((m_nConflicts>0)&&(bEmpty)&&(!m_bConflictWarningShown))
             {
                 // We're going to add another aux item - let's shove this current onto the list first
@@ -667,6 +705,12 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         if (bDoAddData)
         {
             AddItemToList(data);
+            if (m_ExtStack.GetCount())
+            {
+                if ((action != svn_wc_notify_update_completed) &&
+                    (action != svn_wc_notify_update_external))
+                    m_bExtDataAdded = true;
+            }
             if ((!data->bAuxItem)&&(m_itemCount > 0))
             {
                 m_itemCount--;
@@ -680,7 +724,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                     m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NORMAL);
                     m_pTaskbarList->SetProgressValue(m_hWnd, m_itemCountTotal-m_itemCount, m_itemCountTotal);
                 }
-
             }
         }
         if ((action == svn_wc_notify_commit_postfix_txdelta)&&(bSecondResized == FALSE))

@@ -275,6 +275,23 @@
             </listitem>
         </varlistentry>
         <varlistentry>
+            <term condition="pot">HideExternalInfo</term>
+            <listitem>
+                <para>
+                    If this is set to <literal>false</literal>, then
+                    every <literal>svn:externals</literal> is shown
+                    during an update separately.
+                </para>
+                <para>
+                    If it is set to <literal>true</literal> (the default),
+                    then update information for externals is only shown
+                    if the externals are affected by the update, i.e.
+                    changed in some way. Otherwise nothing is shown
+                    as with normal files and folders.
+                </para>
+            </listitem>
+        </varlistentry>
+        <varlistentry>
             <term condition="pot">GroupTaskbarIconsPerRepoOverlay</term>
             <listitem>
                 <para>
