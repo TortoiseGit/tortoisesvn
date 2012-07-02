@@ -1478,7 +1478,7 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR *pNMHDR, LRESULT *pResul
 
     int indent = 0;
     WCHAR * pColumnBuf = m_columnbuf;
-    if (pDispInfo->item.iSubItem == 0)
+    if ((pDispInfo->item.iSubItem == 0) || (pDispInfo->item.iSubItem == 1))
     {
         indent = data->indent;
         pColumnBuf = &m_columnbuf[data->indent];
