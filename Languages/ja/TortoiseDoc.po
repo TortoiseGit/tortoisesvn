@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-05-16 15:20+0000\n"
+"PO-Revision-Date: 2012-07-01 16:50+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3560,7 +3560,7 @@ msgid ""
 "issues should be comma separated. Alternatively, if you are using regex-"
 "based bug tracking support, just add your issue references as part of the "
 "log message. Learn more in <xref linkend=\"tsvn-dug-bugtracker\"/>."
-msgstr "バグ追跡ツールが有効なら、 <guilabel>Bug-ID / Issue-Nr:</guilabel> テキストボックスで課題を複数設定できます。複数の課題はコンマで区切らなければなりません。そうでなければ、正規表現ベースのバグ追跡サポートを使用して、ログメッセージの一部として課題への参照を追加してください。詳細は <xref linkend=\"tsvn-dug-bugtracker\"/> をご覧ください。"
+msgstr "バグ追跡ツールが有効なら、 <guilabel>バグID/課題番号(&I):</guilabel> テキストボックスで課題を複数設定できます。複数の課題はコンマで区切ってください。または、正規表現ベースのバグ追跡サポートを使用して、ログメッセージの一部として課題への参照を追加してください。詳細は <xref linkend=\"tsvn-dug-bugtracker\"/> をご覧ください。"
 
 #. (title)
 msgid "Commit Progress"
@@ -8981,7 +8981,7 @@ msgid ""
 "revisions you want to merge. This can be a single revision, a list of "
 "specific revisions separated by commas, or a range of revisions separated by"
 " a dash, or any combination of these."
-msgstr "<guilabel>マージするリビジョンの範囲</guilabel> フィールドに、マージするリビジョンのリストを入力してください。ここではリビジョン１つ、カンマで区切ったリビジョンの指定、ダッシュでつないだリビジョンの範囲と以上の組み合わせが使用できます。"
+msgstr "<guilabel>マージするリビジョンの範囲</guilabel> フィールドに、マージするリビジョンのリストを入力してください。ここではリビジョン１つ、コンマで区切ったリビジョンの指定、ダッシュでつないだリビジョンの範囲と以上の組み合わせが使用できます。"
 
 #. (para)
 msgid ""
@@ -11264,7 +11264,7 @@ msgstr "以上のような場合に再配置を使用すると、作業コピー
 
 #. (title)
 msgid "Integration with Bug Tracking Systems / Issue Trackers"
-msgstr "バグ追跡ツール / 課題追跡システムとの統合"
+msgstr "バグ追跡ツール／課題追跡システムとの統合"
 
 #. (primary)
 msgid "bug tracking"
@@ -11293,7 +11293,7 @@ msgid ""
 "which the commit is associated. This is somewhat error prone since it relies"
 " on the user to write the log message properly so that the pre-commit hook "
 "script can parse it correctly."
-msgstr "ソフトウェア開発では一般的に、変更を特定のバグ ID や課題 ID に関連づけます。バグ追跡ツール（課題追跡システム）を使用している場合、課題追跡システムの特定の ID と Subversion で行った変更を関連付けできると便利です。そのため、多くの課題追跡システムでは、コミットに関連するバグ ID を探すために、ログメッセージを解釈する、pre-commit フックスクリプトを提供しています。しかし、ログメッセージを書くときに、pre-commit フックスクリプトから正しく解釈できるよう書けるかどうかはユーザー次第であるため、この方法はときどき失敗するという傾向があります。"
+msgstr "ソフトウェア開発ではふつう、変更を特定のバグIDや課題IDに結びつけます。バグ追跡ツール（課題追跡システム）を使用している場合、 Subversion で行った変更を、課題追跡システムの特定のIDと関連付けできると便利です。多くの課題追跡システムではそのために、ログメッセージを解釈してコミットに関連する課題IDを抽出するための pre-commit フックスクリプトを提供しています。しかし、 pre-commit フックスクリプトが正しく解釈できるようにログメッセージを書けるかどうかはユーザーに依存しているため、ときどき失敗する傾向があります。"
 
 #. (para)
 msgid ""
@@ -11301,29 +11301,29 @@ msgid ""
 "number associated with the commit can be added automatically. This reduces "
 "the risk that the user enters the issue number in a way the bug tracking "
 "tools can't parse correctly."
-msgstr "ユーザーがログメッセージを入力すると、定義された書式に従ってコミットに関連付けられた課題番号を含む行が自動で追加されます。これによって、バグ追跡ツールが正しく解釈できない書式で、ユーザーが課題番号を入力してしまう危険を減らせます。"
+msgstr "ユーザーがログメッセージを入力するとき、課題IDを含む行が自動的に正しい書式で追加されるようにします。これによって、ユーザーがバグ追跡ツールで正しく解釈できない形で課題IDを入力してしまうリスクを減らせます。"
 
 #. (para)
 msgid ""
 "Or TortoiseSVN can highlight the part of the entered log message which is "
 "recognized by the issue tracker. That way the user knows that the log "
 "message can be parsed correctly."
-msgstr "また、TortoiseSVN は入力したログメッセージの中で、課題追跡システムが認識した部分を強調表示できます。これにより、ログメッセージが正しく解釈されたか、ユーザーが知ることができます。"
+msgstr "また、 TortoiseSVN は入力されたログメッセージのうち、課題追跡システムが認識した部分を強調表示できます。これにより、ログメッセージが正しく解釈されたか、ユーザーが知ることができます。"
 
 #. (para)
 msgid ""
 "When the user browses the log messages, TortoiseSVN creates a link out of "
 "each bug ID in the log message which fires up the browser to the issue "
 "mentioned."
-msgstr "ユーザーがログメッセージを閲覧する際に、TortoiseSVN は、ログメッセージ内の各バグ ID に、課題に言及したページをブラウザーで開くリンクを張ります。"
+msgstr "ユーザーがログメッセージを閲覧する際に、 TortoiseSVN は、ログメッセージ内の各課題IDに、課題に言及しているページをブラウザーで開くリンクを作成します。"
 
 #. (para)
 msgid "TortoiseSVN can help the user in two ways: <placeholder-1/>"
-msgstr "TortoiseSVN は、以下の 2 種類の方法でユーザーの補助を行います。<placeholder-1/>"
+msgstr "TortoiseSVN は、次の２つの方法でユーザーを補助します。 <placeholder-1/>"
 
 #. (title)
 msgid "Adding Issue Numbers to Log Messages"
-msgstr "ログメッセージの課題番号付与"
+msgstr "ログメッセージへの課題IDの付与"
 
 #. (para)
 msgid ""
@@ -11331,7 +11331,7 @@ msgid ""
 "this, you have to define some properties, which start with "
 "<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
 "=\"tsvn-dug-propertypage\"/>)"
-msgstr "TortoiseSVN はいくつかのバグ追跡ツールと統合できます。このとき <literal>bugtraq:</literal> で始まるプロパティを使用します。以下のようにフォルダーに設定しなければなりません。 (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "TortoiseSVN は任意のバグ追跡ツールと統合できます。そのためには、 <literal>bugtraq:</literal> で始まるプロパティを、フォルダーに対して定義する必要があります。 (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (title)
 msgid "The Bugtraq Properties Dialog"
@@ -11341,7 +11341,7 @@ msgstr "課題追跡システムのプロパティダイアログ"
 msgid ""
 "<placeholder-1/> When you edit any of the bugtraq properties a special "
 "property editor is used to make it easier to set appropriate values."
-msgstr "<placeholder-1/> 課題追跡システムのプロパティを編集する場合、適切な値を簡単に設定するために、専用のプロパティエディターを使用することができます。"
+msgstr "<placeholder-1/> 課題追跡システムのプロパティを編集する場合、適切な値を簡単に設定するために、専用のプロパティエディターを使用します。"
 
 #. (para)
 msgid ""
@@ -11354,7 +11354,7 @@ msgid ""
 "only the issue number and not the link to it. e.g the TortoiseSVN project is"
 " using <systemitem "
 "class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>."
-msgstr "バグ追跡ツールのURLを設定します。適切にURIエンコードし、中に <literal>%BUGID%</literal> を含んでいなければなりません。 <literal>%BUGID%</literal>は入力した課題番号に置き換えられます。これによって  TortoiseSVN のログダイアログ上にリンクを表示し、リビジョンログを参照する際に、バグ追跡ツールに直接ジャンプできるようになります。このプロパティがないと、 TortoiseSVN は課題番号を表示するだけで、リンクを表示しません。例えば、 TortoiseSVN の開発プロジェクトでは、 <systemitem class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> と設定しています。"
+msgstr "バグ追跡ツールのURLを設定します。適切にURIエンコードし、中に <literal>%BUGID%</literal> を含む必要があります。 <literal>%BUGID%</literal> は入力された課題IDに置き換えられます。これによって  TortoiseSVN のログダイアログ上にリンクを表示し、リビジョンログを参照する際に、バグ追跡ツールに直接ジャンプできるようになります。このプロパティがないと、 TortoiseSVN は課題IDを表示するだけで、リンクを表示しません。例えば TortoiseSVN の開発プロジェクトでは、 <systemitem class=\"url\">http://issues.tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> という設定を使用しています。"
 
 #. (para)
 msgid ""
@@ -11363,7 +11363,7 @@ msgid ""
 "In case the domain name ever changes, you don't have to adjust the "
 "<literal>bugtraq:url</literal> property. There are two ways to specify a "
 "relative URL:"
-msgstr "絶対 URL の代わりに相対 URL も使用できます。これは、課題追跡システムが、自分のソースリポジトリと同じドメイン・サーバーにある場合に便利です。ドメイン名を変更したとしても、<literal>bugtraq:url</literal> プロパティを調整する必要はありません。相対 URL を指定するには以下の 2 つの方法があります。"
+msgstr "絶対URLの代わりに相対URLも使用できます。これは、課題追跡システムが、自分のソースリポジトリと同じドメインやサーバーにある場合に便利です。ドメイン名を変更したとしても、<literal>bugtraq:url</literal> プロパティを調整する必要がないからです。相対 URL を指定するには以下の２つの方法があります。"
 
 #. (para)
 msgid ""
@@ -11374,7 +11374,7 @@ msgid ""
 "class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 " if your repository is located on <systemitem "
 "class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
-msgstr "<literal>^/</literal> で始まる場合は、リポジトリルートからの相対 URL であると見なします。例えば、リポジトリが <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem> にある場合、<literal>^/../?do=details&amp;id=%BUGID%</literal> を、<systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> と解釈します。"
+msgstr "文字列が <literal>^/</literal> で始まる場合は、リポジトリルートからの相対 URL であると見なされます。例えば、リポジトリが <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem> にある場合、<literal>^/../?do=details&amp;id=%BUGID%</literal> は、<systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> と解釈されます。"
 
 #. (para)
 msgid ""
@@ -11384,7 +11384,7 @@ msgid ""
 "class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 " if your repository is located anywhere on <systemitem "
 "class=\"url\">http://tortoisesvn.net</systemitem>."
-msgstr "<literal>/</literal> で始まる URL は、サーバーのホスト名からの相対 URL であると見なします。例えば、リポジトリが <systemitem class=\"url\">http://tortoisesvn.net</systemitem> のどこかにある場合、<literal>/?do=details&amp;id=%BUGID%</literal> を、<systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> と解釈します。"
+msgstr "<literal>/</literal> で始まる文字列の URL は、サーバーのホスト名からの相対 URL であると見なします。例えば、リポジトリが <systemitem class=\"url\">http://tortoisesvn.net</systemitem> のどこかにある場合、<literal>/?do=details&amp;id=%BUGID%</literal> は、<systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> と解釈されます。"
 
 #. (para)
 msgid ""
@@ -11392,7 +11392,7 @@ msgid ""
 "because of an empty issue-number text field. Valid values are "
 "<literal>true/false</literal>. <emphasis> If not defined, "
 "<literal>false</literal> is assumed. </emphasis>"
-msgstr "課題番号テキストフィールドが空の場合、TortoiseSVN が警告を発するようにしたければ、<literal>true</literal> に設定してください。有効な値は <literal>true/false</literal> です。<emphasis> 定義されていなければ、<literal>false</literal> として扱います。</emphasis>"
+msgstr "課題IDテキストフィールドが空の場合、TortoiseSVN が警告を発するようにする場合は、 <literal>true</literal> に設定してください。有効な値は <literal>true/false</literal> です。<emphasis> 定義されていなければ、 <literal>false</literal> として扱われます。</emphasis>"
 
 #. (para)
 msgid ""
@@ -11400,11 +11400,11 @@ msgid ""
 "based on simple strings, the other is based on <emphasis>regular "
 "expressions</emphasis>. The properties used by both approaches are: "
 "<placeholder-1/>"
-msgstr "TortoiseSVN と課題追跡システムを統合するには、2 つ方法があります。ひとつは単純な文字列によるもの、もうひとつは <emphasis>正規表現</emphasis> によるものです。プロパティにはどちらの方法も使用できます。 <placeholder-1/>"
+msgstr "TortoiseSVN と課題追跡システムを統合するには、２つ方法があります。ひとつは単純文字列による方法、もうひとつは <emphasis>正規表現</emphasis> による方法です。プロパティにはどちらの方法も使用できます。 <placeholder-1/>"
 
 #. (title)
 msgid "Issue Number in Text Box"
-msgstr "テキストボックスへの課題番号"
+msgstr "テキストボックスを使用した課題ID"
 
 #. (para)
 msgid ""
@@ -11418,7 +11418,7 @@ msgid ""
 "tracking tool to associate the issue number with a particular commit. As an "
 "example you might use <literal>Issue : %BUGID%</literal>, but this depends "
 "on your Tool."
-msgstr "<emphasis>入力フィールド</emphasis>モードでバグ追跡システムを有効にします。このプロパティを設定すると、変更をコミットする際に、TortoiseSVN に課題番号を入力するよう促されます。これはログメッセージの最後に行を追加するのに使用します。中に <literal>%BUGID%</literal> を含んでいなければなりません。これはコミットの際に課題番号に置換されます。この機能を使用することで、確実にコミットログに課題番号への参照を一定の書式で含め、バグ管理ツールがこれを解釈して課題番号と特定のコミットを関連付けることができるようになります。例えば <literal>Issue : %BUGID%</literal> などと設定できますが、これは使用するツールに依存します。"
+msgstr "<emphasis>入力フィールド</emphasis>モードでバグ追跡システムを有効にします。このプロパティを設定すると、変更をコミットする際に課題IDを入力するよう促されます。この書式でログメッセージの末尾に行が追加されます。中に <literal>%BUGID%</literal> を含んでいる必要があり、これはコミットの際に課題IDに置換されます。この機能を使用することで、コミットログに課題IDへの参照を一定の書式で確実に含め、バグ管理ツールがこれを解釈して課題IDと特定のコミットを関連付けることができるようになります。例えば <literal>Issue : %BUGID%</literal> などと設定することができますが、これは使用するツールに依存します。"
 
 #. (para)
 msgid ""
@@ -11427,7 +11427,7 @@ msgid ""
 "Nr:</literal> will be displayed. Keep in mind though that the window will "
 "not be resized to fit this label, so keep the size of the label below 20-25 "
 "characters."
-msgstr "このテキストは、TortoiseSVN がコミットダイアログの、課題番号を入力するエディットボックスのラベルに使用されます。設定されていないと、<literal>Bug-ID / Issue-Nr:</literal> が表示されます。このラベルにぴったり合うようにウィンドウのサイズ変更ができませんので、ラベルは 20-25 文字以下になるよう留意してください。"
+msgstr "このテキストは、コミットダイアログの課題IDを入力するエディットボックスのラベルとして表示されます。設定されていないと、 <literal>バグID/課題番号(&I):</literal> が表示されます。このラベルにぴったり合うようにウィンドウのサイズを変更することができませんので、ラベルは20～25文字未満になるよう留意してください。"
 
 #. (para)
 msgid ""
@@ -11435,7 +11435,7 @@ msgid ""
 "number text field. An exception is the comma, so you can comma separate "
 "several numbers. Valid values are <literal>true/false</literal>. <emphasis> "
 "If not defined, <literal>true</literal> is assumed. </emphasis>"
-msgstr "<literal>true</literal> に設定すると、課題番号テキストフィールドには数値しか入力できなくなります。カンマは例外ですので、カンマで区切って複数の数値を入力できます。有効な値は <literal>true/false</literal> です。<emphasis> 定義されていなければ、<literal>true</literal> として扱います。</emphasis>"
+msgstr "<literal>true</literal> に設定すると、課題IDテキストフィールドには数値しか入力できなくなります。例外はコンマで、複数の数値をコンマで区切って入力できます。有効な値は <literal>true/false</literal> です。<emphasis> 定義されていなければ、 <literal>true</literal> として扱われます。</emphasis>"
 
 #. (para)
 msgid ""
@@ -11444,25 +11444,25 @@ msgid ""
 "are <literal>true/false</literal>. <emphasis> If not defined, "
 "<literal>true</literal> is assumed, so that existing projects don't break. "
 "</emphasis>"
-msgstr "バグ ID をログメッセージの最後に追加する (true) ときや、ログメッセージの先頭に挿入する (false) ときにこのプロパティを定義します。有効な値は <literal>true/false</literal> です。<emphasis> 既存のプロジェクトが壊れないよう、これが定義されていない場合、<literal>true</literal> として扱います。</emphasis>"
+msgstr "課題IDをログメッセージの最後に追加する（true）ときや、ログメッセージの先頭に挿入する（false）ときにこのプロパティを定義します。有効な値は <literal>true/false</literal> です。<emphasis> 定義されていない場合、既存のプロジェクトが壊れないよう、 <literal>true</literal> として扱います。</emphasis>"
 
 #. (para)
 msgid ""
 "In the simple approach, TortoiseSVN shows the user a separate input field "
 "where a bug ID can be entered. Then a separate line is appended/prepended to"
 " the log message the user entered. <placeholder-1/>"
-msgstr "シンプルアプローチでは、TortoiseSVN はユーザーに、バグ ID を入力できる独立した入力フィールドを表示します。すると、ユーザーが入力したログメッセージに独立した行が追加されます。<placeholder-1/>"
+msgstr "単純文字列によるアプローチでは、課題IDを入力できる独立した入力フィールドが表示されます。そして、ユーザーが入力したログメッセージに独立した行が追加されます。 <placeholder-1/>"
 
 #. (title)
 msgid "Issue Numbers Using Regular Expressions"
-msgstr "正規表現を使用した課題番号"
+msgstr "正規表現を使用した課題ID"
 
 #. (para)
 msgid ""
 "This property activates the bug tracking system in "
 "<emphasis>Regex</emphasis> mode. It contains either a single regular "
 "expressions, or two regular expressions separated by a newline."
-msgstr "このプロパティは、<emphasis>正規表現</emphasis> モードでバグ追跡システムを有効にします。ここには改行で区切っていずれかひとつの正規表現を設定できます。"
+msgstr "このプロパティを設定すると、 <emphasis>正規表現</emphasis> モードでバグ追跡システムが有効になります。ここには単一の正規表現か、改行で区切って２つの正規表現を設定できます。"
 
 #. (para)
 msgid ""
@@ -11472,7 +11472,7 @@ msgid ""
 "you to use a list of bug IDs and natural language expressions if you wish. "
 "e.g. you might fix several bugs and include a string something like this: "
 "<quote>This change resolves issues #23, #24 and #25</quote>."
-msgstr "正規表現を２つ設定した場合、最初の正規表現は、含まれているバグ ID を探すための前処理フィルターとして使用します。２つ目の正規表現は、最初の正規表現の結果から、生のバグ ID を抽出します。これにより、必要に応じてバグIDの一覧や自然言語表現を使用することができます。例えば、いくつかのバグを修正し、 <quote>This change resolves issues #23, #24 and #25</quote> といった文字列を入れたとします。"
+msgstr "正規表現を２つ設定した場合、１つ目の正規表現は、含まれている課題IDを探すための前処理フィルターとして使用します。２つ目の正規表現は、最初の正規表現の結果から、課題IDのみを抽出します。これにより、課題IDの一覧を抽出したり、自然言語表現から課題IDを抽出したりすることができます。例えば複数のバグを修正し、 <quote>This change resolves issues #23, #24 and #25</quote> というような文字列を入力したとします。"
 
 #. (para)
 msgid ""
@@ -11481,7 +11481,7 @@ msgid ""
 "by the TortoiseSVN project: "
 "<literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> and "
 "<literal>(\\d+)</literal>."
-msgstr "このログメッセージの中にある表現からバグ ID を抽出するには、<literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> と <literal>(\\d+)</literal>というような正規表現を使用することができます（TortoiseSVN プロジェクトでも使用しているものひとつです）。"
+msgstr "このログメッセージの中にある表現から課題IDを抽出するには、<literal>[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+</literal> と <literal>(\\d+)</literal>のような正規表現を使用することができます（TortoiseSVN プロジェクトで使用しているもののひとつです）。"
 
 #. (para)
 msgid ""
@@ -11489,7 +11489,7 @@ msgid ""
 "the surrounding log message. The second regex extracts plain decimal numbers"
 " from the output of the first regex, so it will return <quote>23</quote>, "
 "<quote>24</quote> and <quote>25</quote> to use as bug IDs."
-msgstr "最初の正規表現で、周囲ののログメッセージから <quote>issues #23, #24 and #25</quote> を抜き出します。ふたつ目の正規表現は、最初の正規表現の出力から、生の 10 進の数値を抽出します。つまり、バグ ID として使われている、<quote>23</quote>, <quote>24</quote>, <quote>25</quote> が返ります。"
+msgstr "１つ目の正規表現で、ログメッセージから <quote>issues #23, #24 and #25</quote> の部分を抜き出します。２つ目の正規表現は、最初の正規表現の出力から、生の十進数の数値を抽出します。つまり、課題IDとして使われている、<quote>23</quote>, <quote>24</quote>, <quote>25</quote> が返ります。"
 
 #. (para)
 msgid ""
@@ -11499,7 +11499,7 @@ msgid ""
 "followed by one or more groups each having zero or more leading whitespace, "
 "an optional comma or <quote>and</quote> and more optional space. Finally "
 "there is a mandatory <quote>#</quote> and a mandatory decimal number."
-msgstr "はじめの正規表現を少しかみ砕くと、<quote>issue</quote> という単語 (先頭が大文字でも可) で始まっていなければなりません。この後に <quote>s</quote> が続いてもよく (複数型)、コロンが続いてもよいです。この後には、0 以上の空白が続き、コンマか <quote>and</quote> が続いてもよく、その後また 0 以上の空白があるグループが 1 つ以上あります。最後に必ず <quote>#</quote> と 10進数の数値が来ます。"
+msgstr "はじめの正規表現を少しかみ砕くと、 <quote>issue</quote> という単語（先頭が大文字でも可）で始まっていなければなりません。この後に<quote>s</quote>（複数の場合）やコロンを続けることもできます。この後、０個以上の空白と、オプションのコンマまたは <quote>and</quote> 、さらに０個以上の空白が来て、さらに<quote>#</quote>と十進数の数値、という形のグループが１つ以上来ます。"
 
 #. (para)
 msgid ""
@@ -11508,7 +11508,7 @@ msgid ""
 "#?(\\d+)</literal> This method is required by a few issue trackers, e.g. "
 "trac, but it is harder to construct the regex. We recommend that you only "
 "use this method if your issue tracker documentation tells you to."
-msgstr "正規表現が 1 個のみの場合は、むき出しのバグ ID と正規表現文字列のグループとがマッチしなければなりません。例: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>。この方法は、trac のような少数の課題追跡システムには必要ですが、その正規表現を構築するのは大変です。使用する課題追跡システムのドキュメントにある場合にのみ、この方法を使用するのをお勧めします。"
+msgstr "正規表現が１個のみの場合は、単体の課題IDと正規表現文字列のグループとがマッチしなければなりません。例: <literal>[Ii]ssue(?:s)? #?(\\d+)</literal>。この方法は、 trac のような一部の課題追跡システムには必要ですが、その正規表現を構築するのは大変です。使用する課題追跡システムのドキュメントにある場合にのみ、この方法を使用するのをお勧めします。"
 
 #. (para)
 msgid ""
@@ -11518,7 +11518,7 @@ msgid ""
 " and the online documentation and tutorial at <ulink url=\"http://www"
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
-msgstr "正規表現になじみがなければ、<ulink url=\"http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE\"><citetitle>http://ja.wikipedia.org/wiki/正規表現</citetitle></ulink> にある導入や、<ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> にあるオンラインのドキュメントやチュートリアルをご覧ください。"
+msgstr "正規表現になじみがなければ、<ulink url=\"http://ja.wikipedia.org/wiki/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE\"><citetitle>http://ja.wikipedia.org/wiki/正規表現</citetitle></ulink> にある解説や、<ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> にあるオンラインのドキュメントやチュートリアルをご覧ください。"
 
 #. (para)
 msgid ""
@@ -11537,28 +11537,28 @@ msgid ""
 " the user writes the log message. This also means that the bug ID can be "
 "anywhere inside a log message! This method is much more flexible, and is the"
 " one used by the TortoiseSVN project itself. <placeholder-1/>"
-msgstr "<emphasis>正規表現</emphasis>でのアプローチでは、TortoiseSVN は独立した入力フィールドを表示しませんが、ユーザーが入力したログメッセージの中の、課題追跡システムに関係する部分をマーク付けします。ログメッセージを入力している間、有効です。これはバグ ID が、ログメッセージのどこにあってもかまわないと言うことです! この方法はとても柔軟で、TortoiseSVN プロジェクトではこれを使用しています。<placeholder-1/>"
+msgstr "<emphasis>正規表現</emphasis> でのアプローチでは、独立した入力フィールドは表示されませんが、ログメッセージを入力中に課題追跡システムによって認識された部分をマークします。これは、ログメッセージの入力中に表示されます。これは課題IDが、ログメッセージのどこにあってもかまわないということです。この方法はとても柔軟で、 TortoiseSVN プロジェクトではこれを使用しています。 <placeholder-1/>"
 
 #. (para)
 msgid ""
 "If both the <literal>bugtraq:message</literal> and "
 "<literal>bugtraq:logregex</literal> properties are set, "
 "<literal>logregex</literal> takes precedence."
-msgstr "<literal>bugtraq:message</literal> と <literal>bugtraq:logregex</literal> の両方をセットしている場合、<literal>logregex</literal> を優先します。"
+msgstr "<literal>bugtraq:message</literal> と <literal>bugtraq:logregex</literal> の両方を設定した場合、<literal>logregex</literal> が優先されます。"
 
 #. (para)
 msgid ""
 "Even if you don't have an issue tracker with a pre-commit hook parsing your "
 "log messages, you still can use this to turn the issues mentioned in your "
 "log messages into links!"
-msgstr "pre-commit フックスクリプトで解釈していれば、課題追跡システムがない場合でも、ログメッセージ内の課題に言及している箇所を、リンクにするために使用できます!"
+msgstr "ログメッセージを解釈する pre-commit フックスクリプトを持つ課題追跡システムがなくても、ログメッセージで言及している問題にリンクするために、この機能を使用することができます。"
 
 #. (para)
 msgid ""
 "And even if you don't need the links, the issue numbers show up as a "
 "separate column in the log dialog, making it easier to find the changes "
 "which relate to a particular issue."
-msgstr "またリンクが必要なくても、課題番号がログダイアログの独立した列に表示されるので、どの課題に対応する変更かがわかりやすくなります。"
+msgstr "またリンクが必要なくても、課題IDがログダイアログの独立した列に表示されるので、どの課題に対応する変更かがわかりやすくなります。"
 
 #. (para)
 msgid ""
@@ -11587,11 +11587,11 @@ msgid ""
 "properties recursively on each sub-folder. A property setting deeper in the "
 "project hierarchy overrides settings on higher levels (closer to "
 "<filename>trunk/</filename>)."
-msgstr "これらのプロパティは、作業するシステムのフォルダーに設定しなければなりません。ファイルやフォルダーをコミットする際に、このフォルダーからプロパティが読み取られます。フォルダーにプロパティが設定されていない場合、プロパティはフォルダー階層を上位に向かって、バージョン管理外フォルダーか、ツリーのルート（例: <literal>C:\\</literal>）に到達するまで検索されます。すべてのユーザーが、例えば <filename>trunk/</filename> からチェックアウトし、サブフォルダーからチェックアウトしないことが確認できるのであれば、 <filename>trunk/</filename> にそのプロパティを設定するだけで充分です。サブフォルダーからもチェックアウトする可能性があるのであれば、プロパティを各サブフォルダーに再帰的に設定するべきです。プロジェクトの深い階層で設定されたプロパティは、高いレベルの（<filename>trunk/</filename> に近い）ものより優先します。"
+msgstr "これらのプロパティは、作業するシステムのフォルダーに設定しなければなりません。ファイルやフォルダーをコミットする際に、このフォルダーからプロパティが読み取られます。フォルダーにプロパティが設定されていない場合、プロパティはフォルダー階層を上位に向かって、バージョン管理外フォルダーか、ツリーのルート（例: <literal>C:\\</literal>）に到達するまで検索されます。すべてのユーザーが、例えば <filename>trunk/</filename> からチェックアウトし、サブフォルダーからチェックアウトしないことが確認できるのであれば、 <filename>trunk/</filename> にそのプロパティを設定するだけで充分です。サブフォルダーからもチェックアウトする可能性があるのであれば、プロパティを各サブフォルダーに再帰的に設定するべきです。プロジェクトの深い階層で設定されたプロパティは、高いレベルの（<filename>trunk/</filename> に近い）ものより優先されます。"
 
 #. (title)
 msgid "No Issue Tracker Information from Repository Browser"
-msgstr "リポジトリブラウザーから課題追跡システムの情報を使用できません"
+msgstr "リポジトリブラウザーからは課題追跡システムの情報を利用できない"
 
 #. (para)
 msgid ""
@@ -11601,7 +11601,7 @@ msgid ""
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr "バグ追跡システムとの統合は、Subversion のプロパティとして保持されているため、チェックアウトした作業コピーを使用するときのみ表示されます。リモートからプロパティを取得するのには時間がかかるため、作業コピーからリポジトリブラウザーを起動しなければ表示されません。リポジトリのURLを入力してリポジトリブラウザーを起動した場合は表示されません。"
+msgstr "バグ追跡システムとの統合は、 Subversion のプロパティとして保持されているため、チェックアウトした作業コピーを使用するときのみ表示されます。リモートからプロパティを取得するのには時間がかかるため、作業コピーからリポジトリブラウザーを起動しなければ表示されません。リポジトリのURLを入力してリポジトリブラウザーを起動した場合は表示されません。"
 
 #. (para)
 #. (para)
@@ -11618,7 +11618,7 @@ msgid ""
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr "この課題追跡システムとの統合は、TortoiseSVN に限定されたものではなく、どの Subversion クライアントでも共通で使用できます。これについての詳細は、TortoiseSVN のソースリポジトリにある、<ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink>の全文をお読みください（リポジトリへのアクセスのしかたは、 <xref linkend=\"tsvn-preface-source\"/>で説明します）。"
+msgstr "この課題追跡システムとの統合は、 TortoiseSVN に限定されたものではなく、どの Subversion クライアントでも共通で使用できます。これについての詳細は、TortoiseSVN のソースリポジトリにある、<ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink>の全文をお読みください（リポジトリへのアクセスのしかたは、 <xref linkend=\"tsvn-preface-source\"/>で説明します）。"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -11632,7 +11632,7 @@ msgid ""
 "program that can talk to your tracker. Typically you might want to query the"
 " tracker to get a list of open issues assigned to you, so that you can pick "
 "the issues that are being addressed in this commit."
-msgstr "前節では、ログメッセージへ課題情報の追加について扱いました。しかし、課題追跡システムから情報を取得する必要がある場合、どのようにしたらよいのでしょう? コミットダイアログは、課題追跡システムと会話ができるような、外部プログラムを統合する COM インターフェイスを備えています。通常、今回のコミットで取り組む課題を取り上げられるように、自分に割り当てられた未解決の課題を取得するよう、課題追跡システムに問い合わせを行うのでしょう。"
+msgstr "前節では、ログメッセージへ課題情報の追加について扱いました。しかし、課題追跡システムから情報を取得する必要がある場合、どのようにしたらよいのでしょう？コミットダイアログは、課題追跡システムと対話できるような、外部プログラムを統合するためのCOMインターフェイスを備えています。通常、自分に割り当てられた未解決の課題の一覧を問い合わせて、このコミットに関連する課題を選択できるといいのではないでしょうか。"
 
 #. (para)
 msgid ""
@@ -11666,7 +11666,7 @@ msgid ""
 "button at the top of the dialog. <placeholder-1/> In this example you can "
 "select one or more open issues. The plugin can then generate specially "
 "formatted text which it adds to your log message."
-msgstr "説明のために、システム管理者が、インストールした課題管理システムプラグインを提供し、TortoiseSVN の設定ダイアログでそのプラグインを使用する作業コピーをセットアップしたとしましょう。プラグインに割り当てられた作業コピーからコミットダイアログを開くと、ダイアログの上部に新しいボタンが現れるはずです。<placeholder-1/>この例では、複数の未解決課題を選択できます。その後、プラグインがログメッセージに追加する、特定のフォーマットのテキストを生成できます。"
+msgstr "説明のために、システム管理者が、インストールした課題管理システムプラグインを提供し、 TortoiseSVN の設定ダイアログでそのプラグインを使用する作業コピーをセットアップしたとしましょう。プラグインに割り当てられた作業コピーからコミットダイアログを開くと、ダイアログの上部に新しいボタンが現れるはずです。<placeholder-1/>この例では、複数の未解決課題を選択できます。その後、プラグインがログメッセージに追加する、特定のフォーマットのテキストを生成できます。"
 
 #. (title)
 msgid "Integration with Web-based Repository Viewers"

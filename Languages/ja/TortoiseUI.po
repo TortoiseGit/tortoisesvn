@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-06-03 08:02+0000\n"
+"PO-Revision-Date: 2012-07-01 16:47+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1101,7 +1101,7 @@ msgstr "更新(&R)"
 
 #. Resource IDs: (1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr "バグIDの入力を確認する(&R)"
+msgstr "課題IDの入力を確認する(&R)"
 
 #. Resource IDs: (619, 1100, 1285, 1597, 16646)
 msgid "&Remove"
@@ -2257,23 +2257,23 @@ msgstr "参照..."
 
 #. Resource IDs: (1119)
 msgid "Bug-&ID / Issue-Nr:"
-msgstr "バグID/問題番号(&I):"
+msgstr "バグID/課題番号(&I):"
 
 #. Resource IDs: (116)
 msgid "Bug-ID"
-msgstr "バグID"
+msgstr "課題ID"
 
 #. Resource IDs: (1578)
 msgid "Bug-ID e&xpression:"
-msgstr "バグIDの表現(&X):"
+msgstr "課題ID部分(&X):"
 
 #. Resource IDs: (1119)
 msgid "Bug-ID is:"
-msgstr "バグID:"
+msgstr "課題ID:"
 
 #. Resource IDs: (117)
 msgid "Bug-IDs"
-msgstr "バグID"
+msgstr "課題ID"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -2432,7 +2432,7 @@ msgstr "キャンセル\nビューを切り替えない"
 msgid ""
 "Cancel\n"
 "Go back and enter an issue number."
-msgstr "キャンセル\n戻って課題番号を入力する。"
+msgstr "キャンセル\n戻って課題IDを入力する。"
 
 #. Resource IDs: (90)
 msgid ""
@@ -4333,7 +4333,7 @@ msgstr "正規表現文字列を入力:"
 msgid ""
 "Enter the regular expression patterns for filtering out the bug-ID from a "
 "commit message."
-msgstr "コミットメッセージから除外するバグIDを表す正規表現を入力してください。"
+msgstr "コミットメッセージから課題IDを抽出する正規表現を入力してください。"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -4369,7 +4369,7 @@ msgstr "レジストリのキー %1!s! の読み込み/書き込み中にエラ�
 
 #. Resource IDs: (172)
 msgid "Every commit should be assigned to an issue."
-msgstr "すべてのコミットは課題に割り当てられなければなりません。"
+msgstr "すべてのコミットに課題を割り当てるべきです。"
 
 #. Resource IDs: (32853)
 msgid "Ex&ternals"
@@ -6291,7 +6291,7 @@ msgstr "メッセージパターン(&P):"
 
 #. Resource IDs: (1579)
 msgid "Message part &expression:"
-msgstr "メッセージ部分表現(&E):"
+msgstr "メッセージ部分(&E):"
 
 #. Resource IDs: (1241)
 msgid "Message:"
@@ -7355,7 +7355,7 @@ msgstr "マージして進める"
 msgid ""
 "Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
-msgstr "課題番号なしで進める\nコミットは課題に関連付けされません。"
+msgstr "課題IDなしで進める\nコミットは課題に関連付けされません。"
 
 #. Resource IDs: (132)
 #, c-format
@@ -9109,20 +9109,20 @@ msgid ""
 "{author}:\tThe author of the merged revision\r\n"
 "{rev}:\tThe merged revision itself\r\n"
 "{bugid}:\tThe bug ids of the merged revision"
-msgstr "それぞれのマージされたリビジョンのテキストをどのように見せるかを指定します。\n以下のキーワードを使用することができます。\n{msg}:\tマージされたリビジョンの入力時のままのログメッセージ\n{msgoneline}:\tログメッセージを強制的に1行にしたもの\n{author}:\tマージされたリビジョンの作者\n{rev}:\tマージされたリビジョン自身\n{bugid}:\tマージされたリビジョンのバグID"
+msgstr "それぞれのマージされたリビジョンのテキストをどのように見せるかを指定します。\n以下のキーワードを使用することができます。\n{msg}:\tマージされたリビジョンの入力時のままのログメッセージ\n{msgoneline}:\tログメッセージを強制的に1行にしたもの\n{author}:\tマージされたリビジョンの作者\n{rev}:\tマージされたリビジョン自身\n{bugid}:\tマージされたリビジョンの課題ID"
 
 #. Resource IDs: (1572)
 msgid ""
 "Specify how the commit message should be built from the entered bug-ID. Use "
 "the placeholder %BUGID% for the real bug-ID. If you leave these settings "
 "empty, TortoiseSVN will use the regular expressions instead."
-msgstr "コミットメッセージを入力されたバグIDからどのように構築するかを指定してください。実際のバグIDの部分には %BUGID% を使用してください。これらの設定に何も入力しない場合は、TortoiseSVN は正規表現を代わりに使用します。"
+msgstr "入力された課題IDからどのようにコミットメッセージを構築するかを指定してください。実際の課題IDの部分には %BUGID% を使用してください。これらの設定を空にした場合は、代わりに正規表現が使用されます。"
 
 #. Resource IDs: (1305)
 msgid ""
 "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder "
 "for the real issue number."
-msgstr "課題追跡システムにアクセスするための URL を指定してください。実際の課題番号の部分には %BUGID% を使用してください。"
+msgstr "課題追跡システムにアクセスするための URL を指定してください。実際の課題IDの部分には %BUGID% を使用してください。"
 
 #. Resource IDs: (79)
 msgid ""
@@ -11143,11 +11143,11 @@ msgstr "まず、作業コピーを更新してください。"
 msgid ""
 "You haven't entered an issue number!\n"
 "Are you sure you want to commit without an issue number?"
-msgstr "課題番号が入力されていません。\n課題番号なしでコミットを行ってもよろしいですか？"
+msgstr "課題IDが入力されていません。\n課題IDなしでコミットを行ってもよろしいですか？"
 
 #. Resource IDs: (173)
 msgid "You haven't entered an issue number."
-msgstr "課題番号が入力されていません。"
+msgstr "課題IDが入力されていません。"
 
 #. Resource IDs: (1002)
 #, c-format
@@ -11394,13 +11394,13 @@ msgid ""
 "Set to 'false' if you want the bugtracking ID to be inserted at the top of the\r\n"
 "log message. The default is 'true' which means the bugtracking ID\r\n"
 "is appended to the log message."
-msgstr "bugtraq:append\r\nログメッセージの先頭にバグトラッキングIDを挿入したいなら、「false」に設定てください。\r\nデフォルトは「true」であり、ログメッセージの末尾にバグトラッキングIDが追加されます。"
+msgstr "bugtraq:append\r\nログメッセージの先頭に課題IDを挿入する場合は「false」に設定してください。\r\nデフォルトは「true」であり、ログメッセージの末尾に課題IDが追加されます。"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
-msgstr "bugtraq:label\r\n課題番号を入力するエディットボックスに表示するラベルテキスト。"
+msgstr "bugtraq:label\r\n課題IDを入力するエディットボックスに表示するラベルテキスト。"
 
 #. Resource IDs: (577)
 msgid ""
@@ -11408,7 +11408,7 @@ msgid ""
 "two regular expressions separated by a newline.\r\n"
 "The first expression is used to find a string referring to an issue,\r\n"
 "the second expression is used to extract the bare bug ID from that string."
-msgstr "bugtraq:logregex\r\n２つの改行で分けられた正規表現。\r\n１つ目の正規表現は課題を参照する文字列を探すために使用し、\r\n２つ目はその文字列からバグIDを抽出するために用いる。"
+msgstr "bugtraq:logregex\r\n２つの改行で分けられた正規表現。\r\n１つ目の正規表現は課題を参照する文字列を探すために使用し、\r\n２つ目はその文字列から課題IDを抽出するために用いる。"
 
 #. Resource IDs: (577)
 #, c-format
@@ -11416,25 +11416,25 @@ msgid ""
 "bugtraq:message\r\n"
 "String which is appended to a log message when an issue number is entered.\r\n"
 "The string must contain '%BUGID%' which gets replaced with the issue number."
-msgstr "bugtraq:message\r\n課題番号が入力されたときに、ログメッセージに追加される文字列。\r\n文字列は、課題番号に置換される「%BUGID%」を含んでいる必要があります。"
+msgstr "bugtraq:message\r\n課題IDが入力されたときに、ログメッセージに追加される文字列。\r\n文字列は、課題IDに置換される「%BUGID%」を含んでいる必要があります。"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:number\r\n"
 "Set to 'false' if your bugtracking system has issues which are referenced not by numbers."
-msgstr "bugtraq:number\r\nバグトラッキングシステムが数値で問題を参照することができない場合は、「false」に設定してください。"
+msgstr "bugtraq:number\r\nバグ追跡システムが数値で課題を参照することができない場合は、「false」に設定してください。"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:providerparams\r\n"
 "the parameters passed to the IBugTraqProvider"
-msgstr "bugtraq:providerparams\r\nIBugTraqProvider に渡すパラメーター"
+msgstr "bugtraq:providerparams\r\nIBugTraqProviderに渡すパラメーター"
 
 #. Resource IDs: (577)
 msgid ""
 "bugtraq:provideruuid\r\n"
 "the COM uuid of the IBugTraqProvider"
-msgstr "bugtraq:provideruuid\r\nIBugTraqProvider の COM uuid"
+msgstr "bugtraq:provideruuid\r\nIBugTraqProviderのCOM uuid"
 
 #. Resource IDs: (577)
 #, c-format
@@ -11442,7 +11442,7 @@ msgid ""
 "bugtraq:url\r\n"
 "URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
-msgstr "bugtraq:url\r\n課題追跡システムを示す URL。\r\n課題番号で置換される「%BUGID%」を含んでいる必要があります。"
+msgstr "bugtraq:url\r\n課題追跡システムを示すURL。\r\n課題IDで置換される「%BUGID%」を含んでいる必要があります。"
 
 #. Resource IDs: (65535)
 msgid "changes total: "
