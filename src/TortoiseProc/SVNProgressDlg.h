@@ -249,6 +249,7 @@ protected:
     CStringList     m_ExtStack;
     bool            m_bExtDataAdded;
     bool            m_bHideExternalInfo;
+    bool            m_bExternalStartInfoShown;
 
 private:
     static UINT ProgressThreadEntry(LPVOID pVoid);

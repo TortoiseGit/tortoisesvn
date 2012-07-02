@@ -105,6 +105,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , m_bRetryDone(false)
     , m_bExtDataAdded(false)
     , m_bHideExternalInfo(true)
+    , m_bExternalStartInfoShown(false)
     , sIgnoredIncluded(MAKEINTRESOURCE(IDS_PROGRS_IGNOREDINCLUDED))
     , sExtExcluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSEXCLUDED))
     , sExtIncluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSINCLUDED))
@@ -456,7 +457,18 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             data->sActionColumnText.LoadString(IDS_SVNACTION_EXTERNAL);
             data->bAuxItem = true;
             if (m_bHideExternalInfo)
-                bNoNotify = true;
+            {
+                if (!m_bExternalStartInfoShown)
+                {
+                    //m_Colors.GetColor(CColors::Cmd)
+                    data->bAuxItem = true;
+                    data->sPathColumnText.LoadString(IDS_PROGRS_STARTING_EXTERNALS);
+                    data->color = m_Colors.GetColor(CColors::Cmd);
+                    m_bExternalStartInfoShown = true;
+                }
+                else
+                    bNoNotify = true;
+            }
         }
         break;
 
@@ -3556,6 +3568,7 @@ void CSVNProgressDlg::ResetVars()
     m_AlwaysConflicted = false;
     m_BugTraqProvider = NULL;
     m_bHookError = false;
+    m_bExternalStartInfoShown = false;
 
     m_ProgList.SetRedraw(FALSE);
     m_ProgList.DeleteAllItems();
