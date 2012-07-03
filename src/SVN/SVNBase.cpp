@@ -196,7 +196,7 @@ int SVNBase::ShowErrorDialog( HWND hParent)
     return ShowErrorDialog(hParent, CTSVNPath());
 }
 
-int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
+int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath, const CString& sErr)
 {
     UNREFERENCED_PARAMETER(wcPath);
     int ret = -1;
@@ -204,6 +204,8 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath)
     typedef HRESULT (WINAPI *TDLG)(const TASKDIALOGCONFIG *pTaskConfig, int *pnButton, int *pnRadioButton, BOOL *pfVerificationFlagChecked);
 
     CString sError = Err ? GetErrorString(Err) : PostCommitErr;
+    if (!sErr.IsEmpty())
+        sError = sErr;
 
     CAutoLibrary hLib = AtlLoadSystemLibraryUsingFullPath(L"Comctl32.dll");
     if (hLib)

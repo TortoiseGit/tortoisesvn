@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -63,8 +63,9 @@ public:
      * Shows a dialog with the last error that occurred.
      * \param hParent the handle of the parent window or NULL
      * \param wcPath path to a working copy folder or url, used to run user actions on if necessary
+     * \param sErr the error string to show, or an empty string if the error to show should be taken from the Err object.
      */
-    int ShowErrorDialog(HWND hParent, const CTSVNPath& wcPath);
+    int ShowErrorDialog(HWND hParent, const CTSVNPath& wcPath, const CString& sErr = CString());
     int ShowErrorDialog(HWND hParent);
 
 #endif
