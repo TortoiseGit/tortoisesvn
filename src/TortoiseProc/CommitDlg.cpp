@@ -533,7 +533,9 @@ void CCommitDlg::OnOK()
             }
         }
     }
-    if (m_pathwatcher.GetNumberOfChangedPaths() && m_bRecursive)
+    if (m_pathwatcher.LimitReached())
+        m_bRecursive = false;
+    else if (m_pathwatcher.GetNumberOfChangedPaths() && m_bRecursive)
     {
         // There are paths which got changed (touched at least).
         // We have to find out if this affects the selection in the commit dialog

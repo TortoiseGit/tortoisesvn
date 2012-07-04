@@ -21,6 +21,7 @@
 #include "SmartHandle.h"
 
 #define READ_DIR_CHANGE_BUFFER_SIZE 4096
+#define MAX_CHANGED_PATHS  4000
 
 typedef CComCritSecLock<CComCriticalSection> AutoLocker;
 
@@ -79,6 +80,12 @@ public:
      */
     void ClearChangedPaths() {AutoLocker lock(m_critSec); m_changedPaths.Clear();}
 
+    /**
+     * If the limit of changed paths has been reached, returns true.
+     * \remark the limit is necessary to avoid memory problems.
+     */
+    bool LimitReached() const { return m_bLimitReached; }
+
 private:
     static unsigned int __stdcall ThreadEntry(void* pContext);
     void WorkerThread();
@@ -93,6 +100,7 @@ private:
 
     CTSVNPathList           watchedPaths;   ///< list of watched paths.
     CTSVNPathList           m_changedPaths; ///< list of paths which got changed
+    bool                    m_bLimitReached;
 
     /**
      * Helper class: provides information about watched directories.
