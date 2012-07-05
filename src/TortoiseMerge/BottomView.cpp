@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2011 - TortoiseSVN
+// Copyright (C) 2006-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,6 +53,8 @@ void CBottomView::AddContextItems(CIconMenu& popup, DiffStates state)
 
 void CBottomView::UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastViewLine)
 {
+    if (!IsViewGood(pwndView))
+        return;
     CUndo::GetInstance().BeginGrouping(); // start group undo
 
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
@@ -80,8 +82,10 @@ void CBottomView::UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastVi
 
 void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
 {
-    int nFirstViewLine; // first view line in selection
-    int nLastViewLine; // last view line in selection
+    if (!IsViewGood(pwndFirst) || !IsViewGood(pwndLast))
+        return;
+    int nFirstViewLine = 0; // first view line in selection
+    int nLastViewLine  = 0; // last view line in selection
 
     if (!GetViewSelection(nFirstViewLine, nLastViewLine))
         return;
@@ -146,8 +150,10 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
 
 void CBottomView::UseViewBlock(CBaseView * pwndView)
 {
-    int nFirstViewLine; // first view line in selection
-    int nLastViewLine; // last view line in selection
+    if (!IsViewGood(pwndView))
+        return;
+    int nFirstViewLine = 0; // first view line in selection
+    int nLastViewLine  = 0; // last view line in selection
 
     if (!GetViewSelection(nFirstViewLine, nLastViewLine))
         return;
@@ -157,6 +163,8 @@ void CBottomView::UseViewBlock(CBaseView * pwndView)
 
 void CBottomView::UseViewFile(CBaseView * pwndView)
 {
+    if (!IsViewGood(pwndView))
+        return;
     int nFirstViewLine = 0;
     int nLastViewLine = GetViewCount()-1;
 

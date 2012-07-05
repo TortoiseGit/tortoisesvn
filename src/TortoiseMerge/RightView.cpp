@@ -39,8 +39,11 @@ CRightView::~CRightView(void)
 
 void CRightView::UseBothLeftFirst()
 {
-    int nFirstViewLine; // first view line in selection
-    int nLastViewLine; // last view line in selection
+    if (!IsLeftViewGood())
+        return;
+    int nFirstViewLine = 0; // first view line in selection
+    int nLastViewLine  = 0; // last view line in selection
+
     if (!IsWritable())
         return;
     if (!GetViewSelection(nFirstViewLine, nLastViewLine))
@@ -98,8 +101,10 @@ void CRightView::UseBothLeftFirst()
 
 void CRightView::UseBothRightFirst()
 {
-    int nFirstViewLine; // first view line in selection
-    int nLastViewLine; // last view line in selection
+    if (!IsLeftViewGood())
+        return;
+    int nFirstViewLine = 0; // first view line in selection
+    int nLastViewLine  = 0; // last view line in selection
 
     if (!IsWritable())
         return;
@@ -161,8 +166,8 @@ void CRightView::UseBothRightFirst()
 
 void CRightView::UseLeftBlock()
 {
-    int nFirstViewLine;
-    int nLastViewLine;
+    int nFirstViewLine = 0;
+    int nLastViewLine  = 0;
 
     if (!IsWritable())
         return;
@@ -216,6 +221,8 @@ void CRightView::AddContextItems(CIconMenu& popup, DiffStates state)
 
 void CRightView::UseBlock(int nFirstViewLine, int nLastViewLine)
 {
+    if (!IsLeftViewGood())
+        return;
     if (!IsWritable())
         return;
     CUndo::GetInstance().BeginGrouping();
