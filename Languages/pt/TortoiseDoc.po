@@ -13,6 +13,7 @@
 # Bernardo Silva <benny.stuff@gmail.com>, 2011.
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
+# Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
 #   <paulojustino.nec@gmail.com>, 2011, 2012.
 # Sandro Amaral <sandro123iv@gmail.com>, 2011.
 msgid ""
@@ -20,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-06-14 00:58+0000\n"
-"Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
+"PO-Revision-Date: 2012-07-05 10:46+0000\n"
+"Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr ""
 #. (title)
 #. (secondary)
 msgid "TortoiseSVN"
-msgstr "Maximizar Janelas"
+msgstr "TortoiseSVN"
 
 #. (subtitle)
 msgid "A Subversion client for Windows"
@@ -64,7 +65,7 @@ msgstr "Simon"
 
 #. (surname)
 msgid "Large"
-msgstr "Grande"
+msgstr "Large"
 
 #. (title)
 msgid "Preface"
@@ -2852,7 +2853,7 @@ msgid ""
 "Checkout the new folder over the top of the folder you want to import. You "
 "will get a warning that the local folder is not empty. Ignore the warning. "
 "Now you have a versioned top level folder with unversioned content."
-msgstr ""
+msgstr "Efectua checkout da nova pasta sobre a pasta que queres importar. Receberás um aviso que a pasta local não está vazia, ignora-o. Terás agora uma pasta de topo versionada com conteudo não-versionado."
 
 #. (para)
 msgid ""
@@ -3008,7 +3009,7 @@ msgid ""
 "Retain the depth specified in the working copy. This option is not used in "
 "the checkout dialog, but it is the default in all other dialogs which have a"
 " depth setting."
-msgstr "Reter a profundidade especificada na cópia de trabalho. Esta opção não é usada na caixa de diálogo do SVN exportar, mas é a opção por defeito para todas as outras caixas de diálogo que têm a configuração de profundidade."
+msgstr "Reter o nível especificado na cópia de trabalho. Esta opção não é usada na caixa de diálogo do checkout, mas é a opção por defeito para todas as outras caixas de diálogo que têm a configuração de nível."
 
 #. (term)
 msgid "Exclude"
@@ -3027,7 +3028,7 @@ msgid ""
 "allows you to specify the depth of recursion into child folders. If you want"
 " just a few sections of a large tree, You can checkout the top level folder "
 "only, then update selected folders recursively. <placeholder-1/>"
-msgstr "Podes escolher a <firstterm>profundidade</firstterm> que queres SVN Exportar, o que te permite especificar a profundidaded da recursividade nas pastas filho. Se quiseres apenas algumas secções de uma grande árvore, podes fazer SVN Exportar apenas da pasta de topo e depois actualizar recursivamente pastas seleccionadas.  <placeholder-1/>"
+msgstr "Podes escolher 0 <firstterm>nível</firstterm> que queres para o checkout, o que te permite especificar o nível da recursividade nas pastas filho. Se quiseres apenas algumas secções de uma grande árvore, podes efectuar checkout apenas da pasta de topo e depois actualizar recursivamente pastas seleccionadas.  <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -3048,7 +3049,7 @@ msgid ""
 "fetch additional sub-folders later by using the repository browser (<xref "
 "linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog "
 "(<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
-msgstr "Se efectuas um checkout a uma cópia de trabalho dispersa (i.e., escolhendo outra opção para além de <literal>totalmente recursiva</literal>, para a profundidade do checkout), poderás obter mais tarde subpastas adicionais utilizando o navegador de repositório (<xref linkend=\"tsvn-dug-repobrowser\"/>) ou a caixa de diálogo verificar alterações (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
+msgstr "Se efectuas um checkout a uma cópia de trabalho dispersa (i.e., escolhendo outra opção para além de <literal>totalmente recursiva</literal>, para o nível do checkout), poderás obter mais tarde subpastas adicionais utilizando o navegador de repositório (<xref linkend=\"tsvn-dug-repobrowser\"/>) ou a caixa de diálogo verificar alterações (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
 
 #. (para)
 msgid ""
@@ -3085,7 +3086,7 @@ msgstr "Esta funcionalidade é muito útil quando só queres SVN exportar partes
 msgid ""
 "Checkout the parent folder with depth <quote>Only this item</quote> You now "
 "have an empty top level folder."
-msgstr "SVN exportar a pasta pai com a profundidade <quote>Só este item</quote>. Agora tens uma pasta de topo vazia."
+msgstr "Checkout na pasta pai com o nível <quote>Só este item</quote>. Terás agora uma pasta de topo vazia."
 
 #. (para)
 msgid ""
@@ -3116,7 +3117,7 @@ msgstr "Navegar para o <literal>Project76/SubProj</literal> e fazer o mesmo. Des
 
 #. (title)
 msgid "Changing working copy depth"
-msgstr "Modificando a profundidade da cópia de trabalho"
+msgstr "Modificando o nível da cópia de trabalho"
 
 #. (para)
 msgid ""
@@ -3125,7 +3126,7 @@ msgid ""
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>. In that dialog, be sure to check the"
 " <guilabel>Make depth sticky</guilabel> checkbox."
-msgstr "Uma vez que tenhas efectuado o checkout de uma cópia de trabalho, com uma profundidade em particular, poderás modificar a mesma mais tarde para obter maior ou menor conteúdo utilizando, <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Actualizar item para revisão...</guimenuitem></menuchoice>. Nessa caixa de diálogo, tem a certeza que verificas a caixa <guilabel>Tornar a profundidade persistente</guilabel>."
+msgstr "Uma vez que tenhas efectuado o checkout de uma cópia de trabalho, com um nível em particular, poderás modificar o mesmo mais tarde de modo a obter maior ou menor conteúdo utilizando, <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Actualizar item para revisão...</guimenuitem></menuchoice>. Nessa caixa de diálogo, tem a certeza que verificas a caixa <guilabel>Tornar o nível  persistente</guilabel>."
 
 #. (title)
 msgid "Using an older server"
@@ -3138,7 +3139,7 @@ msgid ""
 "but an older server may send all the data, leaving the client to filter out "
 "what is not required, which may mean a lot of network traffic. If possible "
 "you should upgrade your server to at least 1.5."
-msgstr "Servidores anteriores à versão 1.5 não compreendem o pedido de profundidade da cópia de trabalho, não lidando eficientemente com os pedidos. O comando continuará a funcionar, mas um servidor mais antigo poderá enviar todos os dados, deixando para o cliente filtrar o que não precisa, o que poderá gerar muito tráfico de rede. Se possível deverás actualizar o teu servidor para a versão 1.5."
+msgstr "Servidores anteriores à versão 1.5 não compreendem o pedido de nível da cópia de trabalho, não lidando eficientemente com os pedidos. O comando continuará a funcionar, mas um servidor mais antigo poderá enviar todos os dados, deixando para o cliente a filtragem do que não precisa, o que poderá gerar muito tráfico de rede. Se possível deves actualizar o teu servidor para pelo menos para a versão 1.5."
 
 #. (para)
 msgid ""
@@ -3155,7 +3156,7 @@ msgid ""
 "Revision...</guimenuitem></menuchoice> instead of "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
 " The standard update will include all externals and keep the existing depth."
-msgstr "Se <guilabel>Omitir externos</guilabel> está verificada, ou se desejas aumentar o valor de profundidade, tens de efectuar actualizações á cópia de trabalho utilizando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar para revisão...</guimenuitem></menuchoice> em vez de <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>. A actualização padrão irá incluir todos os externos e manter a profundidade existente."
+msgstr "Se <guilabel>Omitir externos</guilabel> está verificada, ou se desejas aumentar o valor de nível, tens de efectuar actualizações á cópia de trabalho utilizando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar para revisão...</guimenuitem></menuchoice> em vez de <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Actualizar</guimenuitem></menuchoice>. A actualização padrão irá incluir todos os externos e manter o nível existente."
 
 #. (para)
 msgid ""
@@ -3743,7 +3744,7 @@ msgid ""
 "setting. You can also set the depth <literal>sticky</literal> which means "
 "subsequent updates will use that new depth, i.e. that depth is then used as "
 "the default depth."
-msgstr "Na mesma caixa de diálogo podes também escolher a <firstterm>profundidade</firstterm> para a qual actualizas a pasta corrente. Os termos usados são descritos em <xref linkend=\"tsvn-dug-checkout-depth\"/>. A profundidade por defeito é <guilabel>Cópia de trabalho</guilabel>, que preserva a definição de profundidade existente. Podes também fixar a profundidade <literal>colada</literal> o que significa que actualizações subsequentes irão usar essa nova profundidade, i.e. essa profundidade será então usada como a profundidade por defeito."
+msgstr "Na mesma caixa de diálogo podes também escolher a <firstterm>nível</firstterm> para a qual actualizas a pasta corrente. Os termos usados são descritos em <xref linkend=\"tsvn-dug-checkout-depth\"/>. O nível por defeito é <guilabel>Cópia de trabalho</guilabel>, que preserva a definição de nível existente. Podes também fixar o nível <literal>persistente</literal> o que significa que actualizações subsequentes irão usar essa novo nível, i.e. esse nível será então usado como a nível por defeito."
 
 #. (para)
 msgid ""
@@ -4625,19 +4626,19 @@ msgstr "A caixa de diálogo usa código de cores para evidenciar o estado. <plac
 
 #. (para)
 msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
-msgstr "Profundidade de checkout <literal>vazia</literal>, siginfica apenas o item."
+msgstr "Nível de checkout <literal>vazia</literal>, siginfica apenas o item."
 
 #. (para)
 msgid ""
 "Checkout depth <literal>files</literal>, meaning only the item itself and "
 "all file children without child folders."
-msgstr ""
+msgstr "Nivel de checkout <literal>ficheiros</literal>, significa só o próprio item e todos os ficheiros sem pastas filho."
 
 #. (para)
 msgid ""
 "Checkout depth <literal>immediates</literal>, meaning only the item itself "
 "and all file and folder children, but without children of the child folders."
-msgstr ""
+msgstr "Nivel de checkout <literal>imediatos</literal>, significa só próprio item, todos os ficheiros e pastas filho, mas sem os filhos das pastas filho."
 
 #. (para)
 msgid "Nested items, i.e., working copies inside the working copy."
@@ -4660,7 +4661,7 @@ msgid ""
 "Items that have property modifications, but only to the "
 "<literal>svn:mergeinfo</literal> property. If any other property is "
 "modified, the overlay is not used."
-msgstr ""
+msgstr "Itens que têm modificações de propriedade, mas apenas na propriedade <literal>svn:mergeinfo</literal>. Se qualquer outra propriedade estiver modificada, não será usada a sobreposição."
 
 #. (para)
 msgid ""
@@ -4668,7 +4669,7 @@ msgid ""
 "below shows all the possible overlays that are shown if necessary. <graphic "
 "fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
 "following states: <placeholder-1/>"
-msgstr ""
+msgstr "Ícones de sobreposição são usados para indicar também outros estados. A captura de ecrã abaixo mostra todas as sobreposições possíveis que poderão ser mostradas se necessário. <graphic fileref=\"../images/statuslistoverlays.png\"/> São mostradas sobreposições para os seguintes estados: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -6368,7 +6369,7 @@ msgid ""
 "<menuchoice><guimenu>View</guimenu><guimenuitem>Image "
 "Info</guimenuitem></menuchoice> to hide it. You can get the same information"
 " in a tooltip if you hover the mouse over the image title bar."
-msgstr "Uma caixa de informação de imagem mostra os detalhes sobre a mesma, como o tamanho em píxeis, resolução e profundidade de cor. Se esta caixa está a atrapalhar usa <menuchoice><guimenu>View</guimenu><guimenuitem>Image Info</guimenuitem></menuchoice> para a esconder. Podes obter a mesma informação numa etiqueta, se mantiveres o rato sobre a barra de título da imagem."
+msgstr "Uma caixa de informação de imagem mostra os detalhes sobre a mesma, como o tamanho em píxeis, resolução e nível de cor. Se esta caixa está a atrapalhar usa <menuchoice><guimenu>View</guimenu><guimenuitem>Image Info</guimenuitem></menuchoice> para a esconder. Podes obter a mesma informação numa etiqueta, se mantiveres o rato sobre a barra de título da imagem."
 
 #. (para)
 msgid ""
@@ -8069,7 +8070,7 @@ msgid ""
 "you use different values at different depths in your project hierarchy then "
 "you will get different results depending on where you click in the folder "
 "structure."
-msgstr "Essas propriedades especiais de projecto devem ser fixadas em <emphasis>pastas</emphasis>, para o sistema funcionar. Quando executas um comando do TortoiseSVn que usa essas propriedades, elas são lidas a partir da pasta em que clicaste. Se as propriedades não são encontradas aí, o TortoiseSVN irá procurar em direcção ascendente, através da árvore de ficheiros de modo ás encontrar até encontrar uma pasta não versionada ou a raiz da árvore (e.g. <literal>C:\\</literal>).Se tens a certeza que cada utilizador só efectua checkout só a partir do, e.g. <filename>trunk/</filename> e não de alguma subpasta, então é suficiente fixar as propriedades no <filename>trunk/</filename>. Se não tens a certeza, deverás fixar as propriedades recursivamente em cada subpasta. Se colocares a mesma propriedade, mas usares diferentes valores em diferentes profundidades da hierarquia do projecto, irás então obter resultados diferentes dependendo do sítio na estrutura de pastas em que clicas."
+msgstr "Essas propriedades especiais de projecto devem ser fixadas em <emphasis>pastas</emphasis>, para o sistema funcionar. Quando executas um comando do TortoiseSVn que usa essas propriedades, elas são lidas a partir da pasta em que clicaste. Se as propriedades não são encontradas aí, o TortoiseSVN irá procurar em direcção ascendente, através da árvore de ficheiros de modo ás encontrar até encontrar uma pasta não versionada ou a raiz da árvore (e.g. <literal>C:\\</literal>).Se tens a certeza que cada utilizador só efectua checkout só a partir do, e.g. <filename>trunk/</filename> e não de alguma subpasta, então é suficiente fixar as propriedades no <filename>trunk/</filename>. Se não tens a certeza, deverás fixar as propriedades recursivamente em cada subpasta. Se colocares a mesma propriedade, mas usares diferentes valores em diferentes niveis da hierarquia do projecto, irás então obter resultados diferentes dependendo do sítio na estrutura de pastas em que clicas."
 
 #. (para)
 #. (para)
@@ -9123,7 +9124,7 @@ msgid ""
 "other than HEAD. All changes to trunk made during branch development must "
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
-msgstr "Existem algumas condições que se aplicam a uma integração de reintegração. Primeiramente, o servidor deverá suportar o rastreamento de integração. A cópia de trabalho deverá ser de profundidade infinita (sem exportações SVN dispersas), e não deverá ter nenhumas alterações, itens trocados ou itens que foram actualizadas para revisões diferentes da HEAD. Todas as alterações para o trunk feitas durante o desenvolvimento do ramo, deverão ter sido já integradas transversalmente para o ramo (ou marcadas como tendo sido feitas). O intervalo de revisões a integrar será então calculado automaticamente."
+msgstr "Existem algumas condições que se aplicam a uma integração de reintegração. Primeiramente, o servidor deverá suportar o rastreamento de integração. A cópia de trabalho deverá ser de nível infinito (sem checkouts dispersos), e não deverá ter nenhumas alterações, itens trocados ou itens que foram actualizadas para revisões diferentes da HEAD. Todas as alterações para o trunk feitas durante o desenvolvimento do ramo, deverão ter sido já integradas transversalmente para o ramo (ou marcadas como tendo sido feitas). O intervalo de revisões a integrar será então calculado automaticamente."
 
 #. (title)
 msgid "Merging Two Different Trees"
@@ -9190,7 +9191,7 @@ msgid ""
 "<xref linkend=\"tsvn-dug-checkout-depth\"/>. The default depth is "
 "<guilabel>Working copy</guilabel>, which uses the existing depth setting, "
 "and is almost always what you want."
-msgstr "Tu podes especificar a profundidade a usar na integração, i.e. até que ponto deverá a integração penetrar na tua cópia de trabalho. Os termos de profundidade usados estão descritos em <xref linkend=\"tsvn-dug-checkout-depth\"/>. A profundidade por defeito é a <guilabel>Cópia de trabalho</guilabel>, e é quase sempre o que precisas."
+msgstr "Tu podes especificar o nível a usar na integração, i.e. até que ponto deverá a integração penetrar na tua cópia de trabalho. Os termos do nível usados estão descritos em <xref linkend=\"tsvn-dug-checkout-depth\"/>. O  nível por defeito é a <guilabel>Cópia de trabalho</guilabel>, e é quase sempre o que precisas."
 
 #. (para)
 msgid ""
@@ -13759,7 +13760,7 @@ msgstr "O caminho para um ficheiro temporário, que contém todos os caminhos pa
 
 #. (para)
 msgid "The depth with which the commit/update is done."
-msgstr "A profundidade com que a submissão/actualização é executada."
+msgstr "Nível com que a submissão/actualização é executada."
 
 #. (literal)
 msgid "svn_depth_unknown"
@@ -14513,7 +14514,7 @@ msgstr "$WCREV&amp;0xFFFF$"
 msgid ""
 "Replaced with the highest commit revision in the working copy, ANDed with "
 "the value after the &amp; char. For example: <placeholder-1/>"
-msgstr ""
+msgstr "Substituída com a revisão de submissão mais elevada da cópia de trabalho, AND com o valor após o caracter &amp;. Por exemplo: <placeholder-1/>"
 
 #. (literal)
 msgid "$WCREV-1000$"
@@ -14524,7 +14525,7 @@ msgid ""
 "Replaced with the highest commit revision in the working copy, with the "
 "value after the + or - char added or subtracted. For example: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Substituída com a revisão de submissão mais elevada da cópia de trabalho, com o valor adicionado ou subtraído após o caracter + ou -. Por exemplo: <placeholder-1/> "
 
 #. (literal)
 msgid "yyyy-mm-dd hh:mm:ss"
@@ -14731,7 +14732,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Ficheiro de teste para SubWCRev: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -14775,7 +14776,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Ficheiro de teste para SubWCRev: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -16775,7 +16776,7 @@ msgid ""
 " <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and "
 "<placeholder-6/>. The <placeholder-7/> indicates that the specified depth "
 "should be sticky, creating a sparse checkout."
-msgstr "Actualiza a cópia de trabalho em <placeholder-1/> para a HEAD. Se for dada a opção <placeholder-2/>, então uma caixa de diálogo aparecerá a perguntar ao utilizador para que revisão deverá ser feita a actualização. Para evitar que a caixa de diálogo especifique um número de revisão, usa <placeholder-3/>. Outras opções são <placeholder-4/>, <placeholder-5/> e <placeholder-6/>. O <placeholder-7/> indica que a profundidade especificada deverá ser persistente, ao criar um checkout disperso."
+msgstr "Actualiza a cópia de trabalho em <placeholder-1/> para a HEAD. Se for dada a opção <placeholder-2/>, então uma caixa de diálogo aparecerá a perguntar ao utilizador para que revisão deverá ser feita a actualização. Para evitar que a caixa de diálogo especifique um número de revisão, usa <placeholder-3/>. Outras opções são <placeholder-4/>, <placeholder-5/> e <placeholder-6/>. O <placeholder-7/> indica que o nível especificado deverá ser persistente, ao criar um checkout disperso."
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -17206,13 +17207,13 @@ msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>. If"
 " <option>/rev:XXX</option> is specified and <option>/path</option> is an "
 "URL, the dialog shows and edits revision properties."
-msgstr ""
+msgstr "Mostra a caixa de diálogo de propriedades para o caminho dado por <option>/path</option>. Se for especificado <option>/rev:XXX</option> e <option>/path</option> for um URL, a caixa de diálogo mostra e edita propriedades de revisão."
 
 #. (para)
 msgid ""
 "To open the properties dialog directly for a specific property, pass the "
 "property name as <option>/property:name</option>."
-msgstr ""
+msgstr "Para abrir directamente a caixa de diálogo de propriedades para uma propriedade específica, passa o seu nome como <option>/property:name</option>."
 
 #. (para)
 msgid ""
@@ -17432,7 +17433,7 @@ msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 #. (para)
 msgid ""
 "The depth combo box items relate to the <literal>-depth</literal> argument."
-msgstr "Os itens de profundidade da caixa combo estão relacionados com o parâmetro <literal>-depth</literal>."
+msgstr "Os itens de nível da caixa combo estão relacionados com o parâmetro <literal>-depth</literal>."
 
 #. (para)
 #. (para)
@@ -18614,12 +18615,12 @@ msgstr "Esta é a tua <quote>caixa de areia</quote> local, a área onde tu traba
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
 msgid "translator-credits"
-msgstr " Paulo M. Santana Justino, Luis X. B. Mourão"
+msgstr "Paulo M. Santana Justino\nLuis X. B. Mourão"
 
 #. Place the translation of 'translation' here.
 #. (None)
 msgid "translator-translation"
-msgstr "Tradutor-Tradução"
+msgstr "Tradução"
 
 #. (title)
 msgid "TortoiseMerge"
