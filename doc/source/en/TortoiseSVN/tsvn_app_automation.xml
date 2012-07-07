@@ -629,9 +629,14 @@ Don't touch these lines:
                             <entry>
                                 <para>
                                     Shows the properties dialog for the path given in
-                                    <option>/path</option>. If <option>/rev:XXX</option>
-                                    is specified and <option>/path</option> is an URL,
-                                    the dialog shows and edits revision properties.
+                                    <option>/path</option>.
+                                </para>
+                                <para>
+                                    For dealing with versioned properties this command requires a working copy.
+                                </para>
+                                <para>
+                                    Revision properties can be viewed/changed if <option>/path</option> is an
+                                    URL and <option>/rev:XXX</option> is specified.
                                 </para>
                                 <para>
                                     To open the properties dialog directly for a specific
