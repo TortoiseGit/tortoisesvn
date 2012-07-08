@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -134,6 +134,11 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         SVNStatus stat;
         svn_client_status_t * status = NULL;
         status = stat.GetFirstFileStatus(m_path, path, false, depth, true, true);
+        if (status == NULL)
+        {
+            Err = svn_error_dup(const_cast<svn_error_t*>(stat.GetSVNError()));
+            return FALSE;
+        }
         do
         {
             if ((status)&&(status->kind == svn_node_dir))
@@ -236,6 +241,11 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
             SVNStatus stat;
             svn_client_status_t * status = NULL;
             status = stat.GetFirstFileStatus(m_path, path, false, depth, true, true);
+            if (status == NULL)
+            {
+                Err = svn_error_dup(const_cast<svn_error_t*>(stat.GetSVNError()));
+                return FALSE;
+            }
             do
             {
                 if ((status)&&(status->kind == svn_node_dir))
