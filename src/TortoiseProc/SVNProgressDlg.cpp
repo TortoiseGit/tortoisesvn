@@ -3408,7 +3408,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             CString sNotify;
             sNotify.Format(IDS_PROGRS_UPDATEPATH, m_basePath.GetWinPath());
             ReportString(sNotify, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-
+            m_bExternalStartInfoShown = false;
             CBlockCacheForPath cacheBlock (targetPath.GetWinPath());
             if (!Update(CTSVNPathList(targetPath), revstore, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), true))
             {
