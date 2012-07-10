@@ -506,6 +506,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 if (m_bHideExternalInfo)
                 {
                     bNoNotify = true;
+                    m_ExtStack.RemoveHead();
                     break;
                 }
                 CString sExtPath = m_ExtStack.RemoveHead();
