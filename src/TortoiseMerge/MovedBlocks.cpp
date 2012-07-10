@@ -231,7 +231,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
         // extend moved block upward as far as possible
         int i1 = i - 1;
         int j1 = j - 1;
-        for(; (i1 >= tempdiff->original_start) && (j1>=0); --i1, --j1)
+        for(; (i1 >= tempdiff->original_start) && (j1>=0) && (i1>=0); --i1, --j1)
         {
             EquivalencyGroup * pGroup0 = ExtractGroup(map, m_arBaseFile.GetAt(i1), dwIgnoreWS);
             EquivalencyGroup * pGroup1 = ExtractGroup(map, m_arYourFile.GetAt(j1), dwIgnoreWS);
@@ -364,7 +364,7 @@ tsvn_svn_diff_t_extension * CDiffData::MovedBlocksDetect(svn_diff_t * diffYourBa
         // extend moved block upward as far as possible
         int i1 = i-1;
         int j1 = j-1;
-        for ( ; (j1>=tempdiff->modified_start) && (j1>=0); --i1, --j1)
+        for ( ; (j1>=tempdiff->modified_start) && (j1>=0) && (i1>=0); --i1, --j1)
         {
             EquivalencyGroup * pGroup0 = ExtractGroup(map, m_arBaseFile.GetAt(i1), dwIgnoreWS);
             EquivalencyGroup * pGroup1 = ExtractGroup(map, m_arYourFile.GetAt(j1), dwIgnoreWS);
