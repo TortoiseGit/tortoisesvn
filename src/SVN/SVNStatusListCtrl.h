@@ -1105,7 +1105,7 @@ private:
     ColumnManager               m_ColumnManager;
 
     std::map<CString,bool>      m_mapFilenameToChecked; ///< Remember manually de-/selected items
-    bool                        m_bBlockItemChangeHandler;
+    int                         m_bBlockItemChangeHandler;
     std::set<CTSVNPath>         m_externalSet;
     std::map<CString, CString>  m_restorepaths;
     mutable CReaderWriterLock   m_guard;
