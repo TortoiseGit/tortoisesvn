@@ -57,7 +57,13 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& rev
         {
             // use the UI path, which does unescaping for urls
             CString filename = path.GetUIFileOrDirectoryName();
-
+            // remove illegal chars which could be present in urls
+            filename.Remove('?');
+            filename.Remove('*');
+            filename.Remove('<');
+            filename.Remove('>');
+            filename.Remove('|');
+            filename.Remove('"');
             // the inner loop assures that the resulting path is < MAX_PATH
             // if that's not possible without reducing the 'filename' to less than 5 chars, use a path
             // that's longer than MAX_PATH (in that case, we can't really do much to avoid longer paths)
