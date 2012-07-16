@@ -310,6 +310,7 @@ private:
     static const UINT   m_AfterInitMessage;
     bool                m_bFetchChildren;
     bool                m_bShowExternals;
+    CTreeItem *         m_pListCtrlTreeItem;
 
     int                 m_nIconFolder;
     int                 m_nOpenIconFolder;

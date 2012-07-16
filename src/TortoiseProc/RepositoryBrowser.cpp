@@ -117,6 +117,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
     , m_cancelled(false)
     , bDragMode(FALSE)
     , m_backgroundJobs(0, 1, true)
+    , m_pListCtrlTreeItem(nullptr)
 {
     ConstructorInit(rev);
 }
@@ -138,6 +139,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , m_cancelled(false)
     , bDragMode(FALSE)
     , m_backgroundJobs(0, 1, true)
+    , m_pListCtrlTreeItem(nullptr)
 {
     ConstructorInit(rev);
 }
@@ -172,6 +174,11 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
             if (bChildrenOnly)
             {
                 CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(childItem);
+                if (m_pListCtrlTreeItem == pTreeItem)
+                {
+                    m_RepoList.DeleteAllItems();
+                    m_pListCtrlTreeItem = nullptr;
+                }
                 delete pTreeItem;
                 m_RepoTree.SetItemData(childItem, 0);
                 m_RepoTree.DeleteItem(childItem);
@@ -182,6 +189,11 @@ void CRepositoryBrowser::RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly /* 
     if ((hItem)&&(!bChildrenOnly))
     {
         CTreeItem * pTreeItem = (CTreeItem*)m_RepoTree.GetItemData(hItem);
+        if (m_pListCtrlTreeItem == pTreeItem)
+        {
+            m_RepoList.DeleteAllItems();
+            m_pListCtrlTreeItem = nullptr;
+        }
         delete pTreeItem;
         m_RepoTree.SetItemData(hItem, 0);
     }
@@ -1133,6 +1145,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     m_RepoList.DeleteAllItems();
     m_RepoList.ClearText();
     m_RepoTree.ClearText();
+    m_pListCtrlTreeItem = pTreeItem;
 
     int c = ((CHeaderCtrl*)(m_RepoList.GetDlgItem(0)))->GetItemCount()-1;
     while (c>=0)
@@ -1729,7 +1742,7 @@ bool CRepositoryBrowser::RefreshNode(HTREEITEM hNode, bool force /* = false*/)
         m_RepoTree.SetItem(&tvitem);
     }
     if (pTreeItem->children_fetched && pTreeItem->error.IsEmpty())
-        if ((force)||(hSel1 == hNode)||(hSel1 != m_RepoTree.GetSelectedItem()))
+        if ((force)||(hSel1 == hNode)||(hSel1 != m_RepoTree.GetSelectedItem())||(m_pListCtrlTreeItem == nullptr))
             FillList(pTreeItem);
     m_blockEvents = false;
     return true;
