@@ -64,6 +64,8 @@ void SVNPrompt::Init(apr_pool_t *pool, svn_client_ctx_t* ctx)
     apr_array_header_t *providers = apr_array_make (pool, 13, sizeof (svn_auth_provider_object_t *));
 
     svn_config_t * cfg_config = (svn_config_t *)apr_hash_get(ctx->config, SVN_CONFIG_CATEGORY_CONFIG, APR_HASH_KEY_STRING);
+    if (cfg_config == nullptr)
+        return;
 
     /* Populate the registered providers with the platform-specific providers */
     svn_auth_get_platform_specific_client_providers(&providers, cfg_config, pool);
