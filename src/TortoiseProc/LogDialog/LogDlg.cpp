@@ -1328,7 +1328,7 @@ void CLogDlg::LogThread()
         m_sRelativeRoot = m_sURL.Mid(CPathUtils::PathUnescape(m_sRepositoryRoot).GetLength());
     }
 
-    if (succeeded && !m_mergePath.IsEmpty() && m_mergedRevs.empty())
+    if (succeeded && !m_mergePath.IsEmpty())
     {
         // in case we got a merge path set, retrieve the merge info
         // of that path and check whether one of the merge URLs
