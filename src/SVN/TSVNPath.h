@@ -334,7 +334,7 @@ public:
      * \param bTrash if true, the items are deleted using the Windows trash bin
      * \param bFilesOnly if true, delete file paths only
      */
-    void DeleteAllPaths(bool bTrash, bool bFilesOnly);
+    void DeleteAllPaths(bool bTrash, bool bFilesOnly, HWND hErrorWnd);
     /** Remove duplicate entries from the list (sorts the list as a side-effect */
     void RemoveDuplicates();
     /** Removes all paths which are on or in a Subversion admin directory */
@@ -353,7 +353,7 @@ public:
     /** Convert into the SVN API parameter format */
     apr_array_header_t * MakePathArray (apr_pool_t *pool) const;
 
-    static bool DeleteViaShell(LPCTSTR path, bool useTrashbin);
+    static bool DeleteViaShell(LPCTSTR path, bool useTrashbin, HWND hErrorWnd);
 
 private:
     typedef std::vector<CTSVNPath> PathVector;

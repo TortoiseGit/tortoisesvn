@@ -614,7 +614,7 @@ bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool r
                 conflictedEntries.AddPath(CTSVNPath(it->conflict_wrk));
             }
         }
-        conflictedEntries.DeleteAllPaths(true, false);
+        conflictedEntries.DeleteAllPaths(true, false, NULL);
     }
 
     const char* svnPath = path.GetSVNApiPath(subpool);

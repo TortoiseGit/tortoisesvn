@@ -3191,7 +3191,7 @@ bool CSVNProgressDlg::CmdRevert(CString& sWindowTitle, bool& localoperation)
         CRecycleBinDlg rec;
         rec.StartTime();
         int count = delList.GetCount();
-        delList.DeleteAllPaths(true, true);
+        delList.DeleteAllPaths(true, true, NULL);
         rec.EndTime(count);
     }
 

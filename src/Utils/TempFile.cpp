@@ -28,7 +28,7 @@ CTempFiles::CTempFiles(void)
 
 CTempFiles::~CTempFiles(void)
 {
-    m_TempFileList.DeleteAllPaths(false, false);
+    m_TempFileList.DeleteAllPaths(false, false, NULL);
 }
 
 CTempFiles& CTempFiles::Instance()

@@ -131,7 +131,7 @@ bool CleanupCommand::Execute()
                 CRecycleBinDlg rec;
                 rec.StartTime();
                 int count = itemsToRevert.GetCount();
-                itemsToRevert.DeleteAllPaths(true, true);
+                itemsToRevert.DeleteAllPaths(true, true, NULL);
                 rec.EndTime(count);
             }
             SVN svn;
@@ -149,14 +149,20 @@ bool CleanupCommand::Execute()
         progress.SetProgress(actionCounter++, actionTotal);
         progress.FormatPathLine(2, IDS_PROC_CLEANUP_INFODELUNVERSIONED, pathList.GetCommonRoot().GetWinPath());
         progress.SetProgress(actionCounter++, actionTotal);
-        unversionedItems.DeleteAllPaths(true, false);
+        HWND hErrorWnd = GetExplorerHWND();
+        if (hErrorWnd == NULL)
+            hErrorWnd = GetDesktopWindow();
+        unversionedItems.DeleteAllPaths(true, false, hErrorWnd);
     }
     if (!bFailed && bDelIgnored)
     {
         progress.SetProgress(actionCounter++, actionTotal);
         progress.FormatPathLine(2, IDS_PROC_CLEANUP_INFODELIGNORED, pathList.GetCommonRoot().GetWinPath());
         progress.SetProgress(actionCounter++, actionTotal);
-        ignoredItems.DeleteAllPaths(true, false);
+        HWND hErrorWnd = GetExplorerHWND();
+        if (hErrorWnd == NULL)
+            hErrorWnd = GetDesktopWindow();
+        ignoredItems.DeleteAllPaths(true, false, hErrorWnd);
     }
     if (!bFailed && bRefreshShell)
     {

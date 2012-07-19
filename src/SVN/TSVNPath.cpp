@@ -342,7 +342,7 @@ bool CTSVNPath::Delete(bool bTrash) const
             _tcscpy_s(buf.get(), m_sBackslashPath.GetLength()+2, m_sBackslashPath);
             buf[m_sBackslashPath.GetLength()] = 0;
             buf[m_sBackslashPath.GetLength()+1] = 0;
-            bRet = CTSVNPathList::DeleteViaShell(buf.get(), bTrash);
+            bRet = CTSVNPathList::DeleteViaShell(buf.get(), bTrash, NULL);
         }
         else
         {
@@ -1116,7 +1116,7 @@ void CTSVNPathList::SortByPathname(bool bReverse /*= false*/)
         std::reverse(m_paths.begin(), m_paths.end());
 }
 
-void CTSVNPathList::DeleteAllPaths(bool bTrash, bool bFilesOnly)
+void CTSVNPathList::DeleteAllPaths(bool bTrash, bool bFilesOnly, HWND hErrorWnd)
 {
     PathVector::const_iterator it;
     SortByPathname (true); // nested ones first
@@ -1135,7 +1135,7 @@ void CTSVNPathList::DeleteAllPaths(bool bTrash, bool bFilesOnly)
     }
     sPaths += '\0';
     sPaths += '\0';
-    DeleteViaShell((LPCTSTR)sPaths, bTrash);
+    DeleteViaShell((LPCTSTR)sPaths, bTrash, hErrorWnd);
     Clear();
 }
 
@@ -1208,12 +1208,15 @@ apr_array_header_t * CTSVNPathList::MakePathArray (apr_pool_t *pool) const
     return targets;
 }
 
-bool CTSVNPathList::DeleteViaShell(LPCTSTR path, bool bTrash)
+bool CTSVNPathList::DeleteViaShell(LPCTSTR path, bool bTrash, HWND hErrorWnd)
 {
     SHFILEOPSTRUCT shop = {0};
+    shop.hwnd = hErrorWnd;
     shop.wFunc = FO_DELETE;
     shop.pFrom = path;
-    shop.fFlags = FOF_NOCONFIRMATION|FOF_NOERRORUI|FOF_SILENT|FOF_NO_CONNECTED_ELEMENTS;
+    shop.fFlags = FOF_NOCONFIRMATION|FOF_SILENT|FOF_NO_CONNECTED_ELEMENTS;
+    if (hErrorWnd == NULL)
+        shop.fFlags |= FOF_NOERRORUI;
     if (bTrash)
         shop.fFlags |= FOF_ALLOWUNDO;
     const bool bRet = (SHFileOperation(&shop) == 0);
