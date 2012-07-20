@@ -26,6 +26,7 @@
 #include "SVNExternals.h"
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 #include "Win7.h"
+#include "LinkControl.h"
 
 class CCmdLineParser;
 
@@ -238,6 +239,7 @@ protected:
     afx_msg LRESULT OnTaskbarBtnCreated(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/);
     afx_msg void    OnBnClickedRetrynohooks();
+    afx_msg LRESULT OnCheck(WPARAM wnd, LPARAM);
 
     DECLARE_MESSAGE_MAP()
 
@@ -361,6 +363,7 @@ private:
     int                     nEnsureVisibleCount;
 
     CString                 m_sTotalBytesTransferred;
+    CLinkControl            m_linkControl;
 
     CColors                 m_Colors;
     HFONT                   m_boldFont;

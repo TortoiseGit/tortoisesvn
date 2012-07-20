@@ -154,6 +154,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
     ON_MESSAGE(WM_SHOWCONFLICTRESOLVER, OnShowConflictResolver)
     ON_REGISTERED_MESSAGE(WM_TASKBARBTNCREATED, OnTaskbarBtnCreated)
     ON_BN_CLICKED(IDC_RETRYNOHOOKS, &CSVNProgressDlg::OnBnClickedRetrynohooks)
+    ON_REGISTERED_MESSAGE(CLinkControl::LK_LINKITEMCLICKED, &CSVNProgressDlg::OnCheck)
 END_MESSAGE_MAP()
 
 BOOL CSVNProgressDlg::Cancel()
@@ -991,6 +992,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_SVNPROGRESS, IDC_SVNPROGRESS, IDC_SVNPROGRESS, IDC_SVNPROGRESS);
     m_aeroControls.SubclassControl(this, IDC_PROGRESSLABEL);
+    m_aeroControls.SubclassControl(this, IDC_JUMPCONFLICT);
     m_aeroControls.SubclassControl(this, IDC_RETRYNOHOOKS);
     m_aeroControls.SubclassControl(this, IDC_PROGRESSBAR);
     m_aeroControls.SubclassControl(this, IDC_INFOTEXT);
@@ -1049,8 +1051,13 @@ BOOL CSVNProgressDlg::OnInitDialog()
 
     SetTimer(VISIBLETIMER, 300, NULL);
 
+    AdjustControlSize(IDC_JUMPCONFLICT);
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_JUMPCONFLICT)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
+    m_linkControl.ConvertStaticToLink(m_hWnd, IDC_JUMPCONFLICT);
+
     AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_PROGRESSLABEL, BOTTOM_LEFT, BOTTOM_CENTER);
+    AddAnchor(IDC_JUMPCONFLICT, BOTTOM_CENTER, BOTTOM_RIGHT);
     AddAnchor(IDC_PROGRESSBAR, BOTTOM_CENTER, BOTTOM_RIGHT);
     AddAnchor(IDC_RETRYNOHOOKS, BOTTOM_RIGHT);
     AddAnchor(IDC_INFOTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
@@ -1300,6 +1307,7 @@ UINT CSVNProgressDlg::ProgressThread()
             logfile.AddLine(sFinalInfo);
         logfile.Close();
     }
+    GetDlgItem(IDC_JUMPCONFLICT)->ShowWindow(m_nConflicts ? SW_SHOW : SW_HIDE);
 
     m_bCancelled = TRUE;
     InterlockedExchange(&m_bThreadRunning, FALSE);
@@ -3852,5 +3860,50 @@ void CSVNProgressDlg::CompareWithWC( NotificationData * data )
             tempfile, data->path, revname, wcname, data->url, data->url, rev, SVNRev::REV_WC, SVNRev::REV_WC,
             CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0);
     }
+}
+
+LRESULT CSVNProgressDlg::OnCheck( WPARAM wnd, LPARAM )
+{
+    HWND hwnd = (HWND)wnd;
+    if (hwnd == GetDlgItem(IDC_JUMPCONFLICT)->GetSafeHwnd())
+    {
+        int selIndex = m_ProgList.GetSelectionMark();
+        if (selIndex < 0)
+            selIndex = 0;
+        ++selIndex;
+        bool bNextFound = false;
+        for (int i = selIndex; i < m_arData.size(); ++i)
+        {
+            NotificationData * data = m_arData[i];
+            if (data->bConflictedActionItem)
+            {
+                m_ProgList.SetItemState(-1, 0, LVIS_SELECTED);
+                m_ProgList.SetItemState(i, LVIS_SELECTED|LVIS_FOCUSED, LVIS_SELECTED|LVIS_FOCUSED);
+                m_ProgList.EnsureVisible(i, FALSE);
+                m_ProgList.SetFocus();
+                m_ProgList.SetSelectionMark(i);
+                bNextFound = true;
+                break;
+            }
+        }
+        if (!bNextFound)
+        {
+            // start over at the beginning
+            for (int i = 0; i < selIndex; ++i)
+            {
+                NotificationData * data = m_arData[i];
+                if (data->bConflictedActionItem)
+                {
+                    m_ProgList.SetItemState(-1, 0, LVIS_SELECTED);
+                    m_ProgList.SetItemState(i, LVIS_SELECTED|LVIS_FOCUSED, LVIS_SELECTED|LVIS_FOCUSED);
+                    m_ProgList.EnsureVisible(i, FALSE);
+                    m_ProgList.SetFocus();
+                    m_ProgList.SetSelectionMark(i);
+                    break;
+                }
+            }
+        }
+    }
+    return 0;
 }
 
