@@ -593,11 +593,11 @@ bool CMainFrame::LoadViews(int line)
     int nOldLineNumber =
         m_pwndRightView && m_pwndRightView->m_pViewData ?
         m_pwndRightView->m_pViewData->GetLineNumber(m_pwndRightView->m_nTopLine) : -1;
-    int nOldCaretPos = -1;
+    POINT ptOldCaretPos = {-1, -1};
     if (m_pwndRightView && m_pwndRightView->IsTarget())
-        nOldCaretPos = m_pwndRightView->GetCaretPosition().y;
+        ptOldCaretPos = m_pwndRightView->GetCaretPosition();
     if (m_pwndBottomView && m_pwndBottomView->IsTarget())
-        nOldCaretPos = m_pwndBottomView->GetCaretPosition().y;
+        ptOldCaretPos = m_pwndBottomView->GetCaretPosition();
     if (!m_Data.Load())
     {
         m_pwndLeftView->BuildAllScreen2ViewVector();
@@ -813,8 +813,8 @@ bool CMainFrame::LoadViews(int line)
         POINT p;
         p.x = 0;
         p.y = n;
-        if (nOldCaretPos >= 0)
-            p.y = nOldCaretPos;
+        if ((ptOldCaretPos.x >= 0) || (ptOldCaretPos.y >= 0))
+            p = ptOldCaretPos;
         m_pwndLeftView->SetCaretPosition(p);
         m_pwndRightView->SetCaretPosition(p);
         m_pwndBottomView->SetCaretPosition(p);
