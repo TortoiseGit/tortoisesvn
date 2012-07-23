@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-05 10:51+0000\n"
-"Last-Translator: Lübbe <luebbe.tortoisesvn@googlemail.com>\n"
+"PO-Revision-Date: 2012-07-21 08:26+0000\n"
+"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8292,6 +8292,99 @@ msgid ""
 msgstr "<placeholder-1/> Ten atrybut określa, czy plik otrzyma status wykonywalny po pobraniu na Unix/Linux. Nie ma on wpływu na system Windows."
 
 #. (title)
+msgid "Merge log message templates"
+msgstr ""
+
+#. (para)
+#. (para)
+msgid ""
+"Whenever revisions are merged into a working copy, TortoiseSVN generates a "
+"log message from all the merged revisions. Those are then available from the"
+" <guibutton>Recent Messages</guibutton> button in the commit dialog."
+msgstr ""
+
+#. (title)
+msgid "Property dialog merge log message templates"
+msgstr ""
+
+#. (para)
+msgid ""
+"You can customize that generated message with the following properties: "
+"<placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
+"7</literal>"
+msgstr ""
+
+#. (para)
+msgid ""
+"Like <literal>{revisions}</literal>, but with each revision preceeded with "
+"an <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
+msgstr ""
+
+#. (para)
+msgid ""
+"A comma separated list of the merged revisions, grouped into ranges if "
+"possible, e.g., <literal>3, 5-7</literal>"
+msgstr ""
+
+#. (para)
+msgid ""
+"The source url of the merge, i.e., where the revisions are merged from."
+msgstr ""
+
+#. (para)
+msgid ""
+"This property specifies the first part of the generated log message. The "
+"following keywords can be used: <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"The default value for this string is <literal>Merged revision(s) {revrange} "
+"from {mergeurl}:</literal> with a newline at the end."
+msgstr ""
+
+#. (para)
+msgid "The log message of the merged revision, as it was entered."
+msgstr ""
+
+#. (para)
+msgid ""
+"Like <literal>{msg}</literal>, but all newlines are replaced with a space, "
+"so that the whole log message appears on one single line."
+msgstr ""
+
+#. (para)
+msgid "The author of the merged revision."
+msgstr ""
+
+#. (para)
+msgid "The merged revision itself."
+msgstr ""
+
+#. (para)
+msgid "The bug IDs of the merged revision, if there are any."
+msgstr ""
+
+#. (para)
+msgid ""
+"This property specifies how the text for each merged revision should look "
+"like. The following keywords can be used: <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"This only works if the merged revisions are already in the log cache. If you"
+" have disabled the log cache or not shown the log first before the merge, "
+"the generated message won't contain any information about the merged "
+"revisions."
+msgstr ""
+
+#. (title)
 msgid "External Items"
 msgstr "Elementy zewnętrzne"
 
@@ -9273,6 +9366,13 @@ msgid ""
 "see if it's as expected. Merging is usually quite complicated. Conflicts "
 "often arise if the branch has drifted far from the trunk."
 msgstr "Scalanie zostało zakończone. To dobry pomysł, aby przyjrzeć się scaleniu i sprawdzić czy jest ono zgodnie z oczekiwaniami. Scalanie jest zwykle dość skomplikowane. Konflikty pojawiają się często wtedy, gdy gałąź odpłynęła daleko od linii głównej."
+
+#. (para)
+msgid ""
+"To customize that generated message, set the corresponding project "
+"properties on your working copy. See <xref linkend=\"tsvn_dug_propertypage-"
+"edit-mergelogmsgtemplate\"/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14164,6 +14264,20 @@ msgstr "Jeśli jest ustawiona na 4, grupowanie działa jak przy ustawieniu opcji
 
 #. (para)
 msgid ""
+"If this is set to <literal>false</literal>, then every "
+"<literal>svn:externals</literal> is shown during an update separately."
+msgstr ""
+
+#. (para)
+msgid ""
+"If it is set to <literal>true</literal> (the default), then update "
+"information for externals is only shown if the externals are affected by the"
+" update, i.e. changed in some way. Otherwise nothing is shown as with normal"
+" files and folders."
+msgstr ""
+
+#. (para)
+msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
 msgstr "Nie ma to zastosowania, jeśli opcja <literal>GroupTaskbarIconsPerRepo</literal> jest ustawiona na 0 (patrz wyżej)."
@@ -14233,6 +14347,16 @@ msgid ""
 " with that info. If you prefer the old behavior back where a dialog pops up "
 "notifying you about the update, set this value to <literal>true</literal>."
 msgstr "TortoiseSVN sprawdza raz w tygodniu, czy została już wydana nowa wersja. Jeśli zaktualizowana wersja zostanie znaleziona, okno dialogowe zatwierdzenia wyświetla kontrolkę z linkiem oraz tą informacją. Jeśli wolicie wrócić do poprzedniego zachowania, w którym pojawia się okno dialogowe z powiadomieniem o aktualizacji, ustawcie tę wartość na <literal>true</literal>."
+
+#. (para)
+msgid ""
+"This option enables the use of Direct2D accelerated drawing in the Scintilla"
+" control which is used as the edit box in e.g. the commit dialog, and also "
+"for the unified diff viewer. With some graphic cards however this sometimes "
+"doesn't work properly so that the cursor to enter text isn't always visible."
+" If that happens, you can turn this feature off by setting this value to "
+"<literal>false</literal>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17202,10 +17326,19 @@ msgstr "Odbudowuje bufor ikony windows. Należy go używać tylko w przypadku gd
 
 #. (para)
 msgid ""
-"Shows the properties dialog for the path given in <option>/path</option>. If"
-" <option>/rev:XXX</option> is specified and <option>/path</option> is an "
-"URL, the dialog shows and edits revision properties."
-msgstr "Pokazuje okno dialogowe atrybutów dla ścieżki podanej w <option>/path</option>. Jeśli określono <option>/rev:XXX</option> a <option>/path</option> jest adresem URL, okno pokazuje i zmienia atrybuty wersji."
+"Shows the properties dialog for the path given in <option>/path</option>."
+msgstr ""
+
+#. (para)
+msgid ""
+"For dealing with versioned properties this command requires a working copy."
+msgstr ""
+
+#. (para)
+msgid ""
+"Revision properties can be viewed/changed if <option>/path</option> is an "
+"URL and <option>/rev:XXX</option> is specified."
+msgstr ""
 
 #. (para)
 msgid ""
