@@ -1379,8 +1379,13 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
         }
         if (selMark >= 0)
         {
-            SetSelectionMark(selMark);
-            SetItemState(selMark, LVIS_FOCUSED , LVIS_FOCUSED);
+            // don't restore selection mark on non-selectable items
+            FileEntry * entry = GetListEntry(selMark);
+            if (entry&&((m_dwShow & SVNSLC_SHOWEXTDISABLED)==0)||(!entry->IsFromDifferentRepository() && !entry->IsNested() && !entry->IsPeggedExternal()))
+            {
+                SetSelectionMark(selMark);
+                SetItemState(selMark, LVIS_FOCUSED , LVIS_FOCUSED);
+            }
         }
 
     }
