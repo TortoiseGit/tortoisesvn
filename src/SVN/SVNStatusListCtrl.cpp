@@ -958,7 +958,8 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
             entry->basepath = basePath;
             entry->inunversionedfolder = true;
             entry->isfolder = filefinder.IsDirectory();
-            entry->inexternal = inexternal;
+            entry->differentrepo = inexternal;
+            entry->inexternal = m_bHasExternals;
 
             CAutoWriteLock locker(m_guard);
             m_arStatusArray.push_back(entry);
@@ -1011,7 +1012,7 @@ void CSVNStatusListCtrl::PostProcessEntry ( const FileEntry* entry
         if (entry->isfolder)
         {
             // we have an unversioned folder -> get all files in it recursively!
-            AddUnversionedFolder(entry->path, entry->basepath, entry->inexternal);
+            AddUnversionedFolder(entry->path, entry->basepath, entry->differentrepo);
         }
     }
 }
