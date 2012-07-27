@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:25+0000\n"
+"PO-Revision-Date: 2012-07-24 12:40+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8291,7 +8291,7 @@ msgstr "<placeholder-1/> Это свойство определяет будет
 
 #. (title)
 msgid "Merge log message templates"
-msgstr ""
+msgstr "Шаблоны сообщения журнала для слияния"
 
 #. (para)
 #. (para)
@@ -8299,80 +8299,80 @@ msgid ""
 "Whenever revisions are merged into a working copy, TortoiseSVN generates a "
 "log message from all the merged revisions. Those are then available from the"
 " <guibutton>Recent Messages</guibutton> button in the commit dialog."
-msgstr ""
+msgstr "Всякий раз, когда ревизии объединяются в рабочей копии, TortoiseSVN создает сообщение журнала из всех объединённых ревизий. Они потом доступны по кнопке <guibutton>Недавние сообщения</guibutton> в диалоге фиксации."
 
 #. (title)
 msgid "Property dialog merge log message templates"
-msgstr ""
+msgstr "Диалог свойства шаблонов сообщения журнала для слияния"
 
 #. (para)
 msgid ""
 "You can customize that generated message with the following properties: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Вы можете настроить это созданное сообщение следующими свойствами: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
 "7</literal>"
-msgstr ""
+msgstr "Список объединённых ревизий, разделенный запятыми, например, <literal>3, 5, 6, 7</literal>"
 
 #. (para)
 msgid ""
 "Like <literal>{revisions}</literal>, but with each revision preceeded with "
 "an <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
-msgstr ""
+msgstr "Также как <literal>{revisions}</literal>, но каждая ревизия начинается с <literal>r</literal>, например, <literal>r3, r5, r6, r7</literal>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, grouped into ranges if "
 "possible, e.g., <literal>3, 5-7</literal>"
-msgstr ""
+msgstr "Список объединённых ревизий, разделенный запятыми, при возможности объединённый в диапазоны, например, <literal>3, 5-7</literal>"
 
 #. (para)
 msgid ""
 "The source url of the merge, i.e., where the revisions are merged from."
-msgstr ""
+msgstr "Исходный адрес URL слияния, т.е. откуда объединяются ревизии."
 
 #. (para)
 msgid ""
 "This property specifies the first part of the generated log message. The "
 "following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Это свойство определяет первую часть созданного сообщения журнала. Можно использовать следующие ключевые слова: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "The default value for this string is <literal>Merged revision(s) {revrange} "
 "from {mergeurl}:</literal> with a newline at the end."
-msgstr ""
+msgstr "Значение по умолчанию для этой строки <literal>Объединены ревизии {revrange} из {mergeurl}:</literal> с символом новой строки в конце."
 
 #. (para)
 msgid "The log message of the merged revision, as it was entered."
-msgstr ""
+msgstr "Сообщение журнала объединённой ревизии, как оно было введено."
 
 #. (para)
 msgid ""
 "Like <literal>{msg}</literal>, but all newlines are replaced with a space, "
 "so that the whole log message appears on one single line."
-msgstr ""
+msgstr "Также как <literal>{msg}</literal>, но все символы новой строки заменены на пробелы так, что всё сообщение целиком размещается в одну строку."
 
 #. (para)
 msgid "The author of the merged revision."
-msgstr ""
+msgstr "Автор объединённой ревизии."
 
 #. (para)
 msgid "The merged revision itself."
-msgstr ""
+msgstr "Сама объединённая ревизия."
 
 #. (para)
 msgid "The bug IDs of the merged revision, if there are any."
-msgstr ""
+msgstr "Идентификаторы (ID) ошибок объединённой ревизии, если таковые есть."
 
 #. (para)
 msgid ""
 "This property specifies how the text for each merged revision should look "
 "like. The following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Это свойство определяет как должен выглядеть текст для каждой объединённой ревизии. Можно использовать следующие ключевые слова: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8380,7 +8380,7 @@ msgid ""
 " have disabled the log cache or not shown the log first before the merge, "
 "the generated message won't contain any information about the merged "
 "revisions."
-msgstr ""
+msgstr "Это работает только, если объединённые ревизии уже в кэше журнала. Если вы отключили кэш журнала или не просматривали журнал перед слиянием, то созданное сообщение не будет содержать информацию об объединённых ревизиях."
 
 #. (title)
 msgid "External Items"
@@ -9370,7 +9370,7 @@ msgid ""
 "To customize that generated message, set the corresponding project "
 "properties on your working copy. See <xref linkend=\"tsvn_dug_propertypage-"
 "edit-mergelogmsgtemplate\"/>"
-msgstr ""
+msgstr "Для настройки этого созданного сообщения установите соответствующие свойства проекта в вашей рабочей копии. Смотрите <xref linkend=\"tsvn_dug_propertypage-edit-mergelogmsgtemplate\"/>"
 
 #. (para)
 msgid ""
@@ -14264,7 +14264,7 @@ msgstr "Если установлено значение 4, то группир�
 msgid ""
 "If this is set to <literal>false</literal>, then every "
 "<literal>svn:externals</literal> is shown during an update separately."
-msgstr ""
+msgstr "Если установлено <literal>false</literal>, то каждое <literal>svn:externals</literal> при обновлении отображается отдельно."
 
 #. (para)
 msgid ""
@@ -14272,7 +14272,7 @@ msgid ""
 "information for externals is only shown if the externals are affected by the"
 " update, i.e. changed in some way. Otherwise nothing is shown as with normal"
 " files and folders."
-msgstr ""
+msgstr "Если установлено <literal>true</literal> (по умолчанию), то информация об обновлении внешних показывается только если обновление затрагивает внешние, т.е. изменены каким-либо образом. Иначе ничего не отображается, как и с обычными файлами и папками."
 
 #. (para)
 msgid ""
@@ -14354,7 +14354,7 @@ msgid ""
 "doesn't work properly so that the cursor to enter text isn't always visible."
 " If that happens, you can turn this feature off by setting this value to "
 "<literal>false</literal>."
-msgstr ""
+msgstr "Эта опция включает использование ускоренную отрисовку Direct2D в элементе Scintilla, который используется как поле ввода, например, в диалоге фиксации, и также для просмотра унифицированных различий. С некоторыми графическими картами, тем не менее, это иногда работает некорректно, так что не всегда виден курсор для ввода текста. Если такое происходит, то вы можете выключить эту возможность установив значение <literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -17325,18 +17325,18 @@ msgstr "Восстанавливает кэш значков Windows. Испол
 #. (para)
 msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>."
-msgstr ""
+msgstr "Показывает диалог свойств для пути заданного в <option>/path</option>."
 
 #. (para)
 msgid ""
 "For dealing with versioned properties this command requires a working copy."
-msgstr ""
+msgstr "Для работы с версированными свойствами этой команде нужна рабочая копия."
 
 #. (para)
 msgid ""
 "Revision properties can be viewed/changed if <option>/path</option> is an "
 "URL and <option>/rev:XXX</option> is specified."
-msgstr ""
+msgstr "Свойства ревизии могут быть просмотрены/изменены если <option>/path</option> является адресом URL и указано <option>/rev:XXX</option>."
 
 #. (para)
 msgid ""

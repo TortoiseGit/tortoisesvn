@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:26+0000\n"
-"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2012-07-25 18:32+0000\n"
+"Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8293,7 +8293,7 @@ msgstr "<placeholder-1/> Ten atrybut określa, czy plik otrzyma status wykonywal
 
 #. (title)
 msgid "Merge log message templates"
-msgstr ""
+msgstr "Szablony komunikatów dziennika scaleń"
 
 #. (para)
 #. (para)
@@ -8301,80 +8301,80 @@ msgid ""
 "Whenever revisions are merged into a working copy, TortoiseSVN generates a "
 "log message from all the merged revisions. Those are then available from the"
 " <guibutton>Recent Messages</guibutton> button in the commit dialog."
-msgstr ""
+msgstr "Gdy wersje są scalane do kopii roboczej, TortoiseSVN generuje komunikat dziennika ze wszystkich scalonych wersji. Są one dostępne przez przycisk  <guibutton>Ostatnie komunikaty</guibutton>w oknie dialogowym zatwierdzenia."
 
 #. (title)
 msgid "Property dialog merge log message templates"
-msgstr ""
+msgstr "Okno atrybutu szablonów komunikatów dziennika scaleń"
 
 #. (para)
 msgid ""
 "You can customize that generated message with the following properties: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Możecie dostosować tworzony komunikat korzystając z następujących atrybutów: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
 "7</literal>"
-msgstr ""
+msgstr "Lista rozdzielonych przecinkami wersji, np.  <literal>3, 5, 6, 7</literal> "
 
 #. (para)
 msgid ""
 "Like <literal>{revisions}</literal>, but with each revision preceeded with "
 "an <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
-msgstr ""
+msgstr "Podobnie jak <literal>{revisions}</literal>, ale z jażdą wersją poprzedzoną przez <literal>r</literal>,np. <literal>r3, r5, r6, r7</literal>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, grouped into ranges if "
 "possible, e.g., <literal>3, 5-7</literal>"
-msgstr ""
+msgstr "Lista rozdzielonych przecinkami wersji, zgrupowanych w przedziały jeśli to możliwe, np. <literal>3, 5-7</literal>"
 
 #. (para)
 msgid ""
 "The source url of the merge, i.e., where the revisions are merged from."
-msgstr ""
+msgstr "Url źródłowy scalenia, tj skąd pochodzą scalone wersje."
 
 #. (para)
 msgid ""
 "This property specifies the first part of the generated log message. The "
 "following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Ten atrybut określa pierwszą część generowanegokomunikatu. Użyte mogą być następujące słowa kluczowe: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "The default value for this string is <literal>Merged revision(s) {revrange} "
 "from {mergeurl}:</literal> with a newline at the end."
-msgstr ""
+msgstr "Domyślna wartość ciągu znaków to  <literal>Merged revision(s) {revrange} from {mergeurl}:</literal> ze znakiem nowej linii na końcu."
 
 #. (para)
 msgid "The log message of the merged revision, as it was entered."
-msgstr ""
+msgstr "Komunikat dziennika scalonej wersji, jaki został wpisany."
 
 #. (para)
 msgid ""
 "Like <literal>{msg}</literal>, but all newlines are replaced with a space, "
 "so that the whole log message appears on one single line."
-msgstr ""
+msgstr "Posobnie jak <literal>{msg}</literal>, ale wszystkie znaki końca linii zastąpione są przez spacje, zatem cały komunikat pojawia się w jednej linii."
 
 #. (para)
 msgid "The author of the merged revision."
-msgstr ""
+msgstr "Autor scalonej wersji."
 
 #. (para)
 msgid "The merged revision itself."
-msgstr ""
+msgstr "Sama scalona wersja."
 
 #. (para)
 msgid "The bug IDs of the merged revision, if there are any."
-msgstr ""
+msgstr "Identyfikatory błędów scalonej wersji, jeśli są."
 
 #. (para)
 msgid ""
 "This property specifies how the text for each merged revision should look "
 "like. The following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Ten atrybut wskazuje jak powinien wyglądać tekst dla każdej scalonej wersji. Można wykorzystać następujące słowa kluczowe: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8382,7 +8382,7 @@ msgid ""
 " have disabled the log cache or not shown the log first before the merge, "
 "the generated message won't contain any information about the merged "
 "revisions."
-msgstr ""
+msgstr "Działa to tylko wtedy, gdy scalone rewizje są już w pamięci podręcznej dziennika. Jeśli zablokowano pamięć podręczną lub nie wyświetlono dziennika przed scaleniem, wygenerowany komunikat nie będzie zawierać żadnych informacji o scalonych wersjach."
 
 #. (title)
 msgid "External Items"
@@ -9372,7 +9372,7 @@ msgid ""
 "To customize that generated message, set the corresponding project "
 "properties on your working copy. See <xref linkend=\"tsvn_dug_propertypage-"
 "edit-mergelogmsgtemplate\"/>"
-msgstr ""
+msgstr "By dostosować ten wygenerowany komunikat, ustaw odpowiednie atrybuty projektu w kopii roboczej. Więcej w <xref linkend=\"tsvn_dug_propertypage-edit-mergelogmsgtemplate\"/>"
 
 #. (para)
 msgid ""
@@ -14266,7 +14266,7 @@ msgstr "Jeśli jest ustawiona na 4, grupowanie działa jak przy ustawieniu opcji
 msgid ""
 "If this is set to <literal>false</literal>, then every "
 "<literal>svn:externals</literal> is shown during an update separately."
-msgstr ""
+msgstr "Jeśli ustawiono na <literal>false</literal>, wtedy każda z <literal>svn:externals</literal> jest pokazywana sosbno podczas aktualizacji."
 
 #. (para)
 msgid ""
@@ -14274,7 +14274,7 @@ msgid ""
 "information for externals is only shown if the externals are affected by the"
 " update, i.e. changed in some way. Otherwise nothing is shown as with normal"
 " files and folders."
-msgstr ""
+msgstr "Jeśli ustawiono na <literal>true</literal> (domyślnie), infirmacja aktualizacji dla zewnętrznych jest pokazywana tylko jeśli zewnętrzne podlegają aktualizacji,tj zostały w jwkiś sposób zmienione. W innymprzypadku nie pokazuje się nic jak dla zwykłych plików i folderów."
 
 #. (para)
 msgid ""
@@ -14356,7 +14356,7 @@ msgid ""
 "doesn't work properly so that the cursor to enter text isn't always visible."
 " If that happens, you can turn this feature off by setting this value to "
 "<literal>false</literal>."
-msgstr ""
+msgstr "Ta opcja włącza użycie przyspieszenia rysowania Direct2D w kontrolkach Scintilla, używanych jako obszary edycji w np. oknie zatwierdzenia a także w przeglądarce plików różnicowych. Z niektórymi kartami graficznymi nie działa to jednak poprawnie przez co kursor przy wprowadzaniu tekstu nie zawsze jest widoczny. Jeśli tak się zdarza, można wyłączyć funkcję ustawiając tą wartość na <literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -17327,18 +17327,18 @@ msgstr "Odbudowuje bufor ikony windows. Należy go używać tylko w przypadku gd
 #. (para)
 msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>."
-msgstr ""
+msgstr "Pokazuje okno atrybutów dla ścieżki podanej w <option>/path</option>."
 
 #. (para)
 msgid ""
 "For dealing with versioned properties this command requires a working copy."
-msgstr ""
+msgstr "Aby działać na wersjonowanych atrybutach to polecenie wymaga kopii roboczej."
 
 #. (para)
 msgid ""
 "Revision properties can be viewed/changed if <option>/path</option> is an "
 "URL and <option>/rev:XXX</option> is specified."
-msgstr ""
+msgstr "Atrybuty wersji można przeglądać/zmieniać jeśli <option>/path</option> to URL i wskazano  <option>/rev:XXX</option>."
 
 #. (para)
 msgid ""
