@@ -4160,16 +4160,19 @@ void CRepositoryBrowser::OnTvnItemChangedRepotree(NMHDR *pNMHDR, LRESULT *pResul
 
     CheckTreeItem(pNMTVItemChange->hItem, !!bChecked);
 
-    HTREEITEM hItem = m_RepoTree.GetSelectedItem();
-    HTREEITEM hRoot = m_RepoTree.GetRootItem();
-    while (hItem)
+    if (pNMTVItemChange->uStateNew & TVIS_SELECTED)
     {
-        if ((hItem != pNMTVItemChange->hItem)&&(hItem != hRoot))
+        HTREEITEM hItem = m_RepoTree.GetSelectedItem();
+        HTREEITEM hRoot = m_RepoTree.GetRootItem();
+        while (hItem)
         {
-            m_RepoTree.SetCheck(hItem, !!bChecked);
-            CheckTreeItem(hItem, !!bChecked);
+            if ((hItem != pNMTVItemChange->hItem)&&(hItem != hRoot))
+            {
+                m_RepoTree.SetCheck(hItem, !!bChecked);
+                CheckTreeItem(hItem, !!bChecked);
+            }
+            hItem = m_RepoTree.GetNextItem(hItem, TVGN_NEXTSELECTED);
         }
-        hItem = m_RepoTree.GetNextItem(hItem, TVGN_NEXTSELECTED);
     }
 }
 
