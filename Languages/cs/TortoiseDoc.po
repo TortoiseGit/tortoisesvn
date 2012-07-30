@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:25+0000\n"
+"PO-Revision-Date: 2012-07-27 19:48+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8291,7 +8291,7 @@ msgstr "<placeholder-1/> Tato vlastnost kontroluje, zda je souboru dán stav spu
 
 #. (title)
 msgid "Merge log message templates"
-msgstr ""
+msgstr "Sloučení šablon zpráv záznamu"
 
 #. (para)
 #. (para)
@@ -8299,80 +8299,80 @@ msgid ""
 "Whenever revisions are merged into a working copy, TortoiseSVN generates a "
 "log message from all the merged revisions. Those are then available from the"
 " <guibutton>Recent Messages</guibutton> button in the commit dialog."
-msgstr ""
+msgstr "Kdykoliv jsou revize sloučeny do pracovní kopie, TortoiseSVN vytvoří zprávu záznamu ze všech sloučených revizí. Ty jsou pak dostupné v dialogovém okně odevzdání stisknutím tlačítka <guibutton>Nedávné zprávy</guibutton>."
 
 #. (title)
 msgid "Property dialog merge log message templates"
-msgstr ""
+msgstr "Šablony zpráv sloučení v dialogovém okně vlastností"
 
 #. (para)
 msgid ""
 "You can customize that generated message with the following properties: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Tuto vytvořenou zprávu si můžete přizpůsobit následujícími vlastnostmi: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
 "7</literal>"
-msgstr ""
+msgstr "Čárkou oddělený seznam sloučených revizí např.: <literal>3, 5, 6, 7</literal>"
 
 #. (para)
 msgid ""
 "Like <literal>{revisions}</literal>, but with each revision preceeded with "
 "an <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
-msgstr ""
+msgstr "Podobné jako <literal>{revisions}</literal>, ale tady je před každou revizí umístěno <literal>r</literal>, např.: <literal>r3, r5, r6, r7</literal>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, grouped into ranges if "
 "possible, e.g., <literal>3, 5-7</literal>"
-msgstr ""
+msgstr "Čárkou oddělený seznam sloučených revizí seskupených do rozsahů, pokud je možné, např.: <literal>3, 5-7</literal>"
 
 #. (para)
 msgid ""
 "The source url of the merge, i.e., where the revisions are merged from."
-msgstr ""
+msgstr "Zdrojová url sloučení, např. odkud jsou revize slučovány."
 
 #. (para)
 msgid ""
 "This property specifies the first part of the generated log message. The "
 "following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Tato vlastnost určuje první část vytvořené zprávy záznamu. Můžou být použita následující klíčová slova:  <placeholder-1/>"
 
 #. (para)
 msgid ""
 "The default value for this string is <literal>Merged revision(s) {revrange} "
 "from {mergeurl}:</literal> with a newline at the end."
-msgstr ""
+msgstr "Výchozí hodnota pro tento řetězec je <literal>Merged revision(s) {revrange} from {mergeurl}:</literal> a končí novým řádkem."
 
 #. (para)
 msgid "The log message of the merged revision, as it was entered."
-msgstr ""
+msgstr "Zpráva záznamu sloučené revize, tak jak byla zadána."
 
 #. (para)
 msgid ""
 "Like <literal>{msg}</literal>, but all newlines are replaced with a space, "
 "so that the whole log message appears on one single line."
-msgstr ""
+msgstr "Podobné jako <literal>{msg}</literal>, ale nové řádky jsou nahrazeny mezerou, takže celá zpráv záznamu vypadá, že je na jednom řádku."
 
 #. (para)
 msgid "The author of the merged revision."
-msgstr ""
+msgstr "Autor sloučené revize."
 
 #. (para)
 msgid "The merged revision itself."
-msgstr ""
+msgstr "Vlastní sloučená revize."
 
 #. (para)
 msgid "The bug IDs of the merged revision, if there are any."
-msgstr ""
+msgstr "ID chyb sloučené revize, pokud nějaké jsou."
 
 #. (para)
 msgid ""
 "This property specifies how the text for each merged revision should look "
 "like. The following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Tato vlastnost určuje jak by měl vypadat text pro každou revizi. Můžou být použita následující klíčová slova. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8380,7 +8380,7 @@ msgid ""
 " have disabled the log cache or not shown the log first before the merge, "
 "the generated message won't contain any information about the merged "
 "revisions."
-msgstr ""
+msgstr "Toto funguje pouze, když sloučené revize jsou již v úschově záznamu. Pokud jste úschovu zakázali, nebo jste před sloučením záznam nezobrazili, vytvořená zpráva nebude obsahovat žádné informace o sloučených revizích."
 
 #. (title)
 msgid "External Items"
@@ -9370,7 +9370,7 @@ msgid ""
 "To customize that generated message, set the corresponding project "
 "properties on your working copy. See <xref linkend=\"tsvn_dug_propertypage-"
 "edit-mergelogmsgtemplate\"/>"
-msgstr ""
+msgstr "Pro změnu této vytvořené zprávy nastavte odpovídající vlastnosti projektu ve vaší pracovní kopii. Viz <xref linkend=\"tsvn_dug_propertypage-edit-mergelogmsgtemplate\"/"
 
 #. (para)
 msgid ""
@@ -14264,7 +14264,7 @@ msgstr "Pokud nastaveno na 4, pak seskupení funguje jako když nastaveno na 2, 
 msgid ""
 "If this is set to <literal>false</literal>, then every "
 "<literal>svn:externals</literal> is shown during an update separately."
-msgstr ""
+msgstr "Pokud je toto nastaveno na <literal>false</literal>, pak každé <literal>svn:externals</literal> je při aktualizaci zobrazeno odděleně."
 
 #. (para)
 msgid ""
@@ -14272,7 +14272,7 @@ msgid ""
 "information for externals is only shown if the externals are affected by the"
 " update, i.e. changed in some way. Otherwise nothing is shown as with normal"
 " files and folders."
-msgstr ""
+msgstr "Pokud je toto nastaveno na <literal>true</literal> (výchozí), pak informace o aktualizaci externích je zobrazena pouze, pokud jsou aktualizací ovlivněny tj. nějakým způsobem změněny. Jinak není zobrazeno nic, tak jako u normálních souborů a složek."
 
 #. (para)
 msgid ""
@@ -14354,7 +14354,7 @@ msgid ""
 "doesn't work properly so that the cursor to enter text isn't always visible."
 " If that happens, you can turn this feature off by setting this value to "
 "<literal>false</literal>."
-msgstr ""
+msgstr "Tato možnost povoluje použití vykreslování s akcelerací Direct2D v ovládání Scintilla, které je použito jako rámeček úprav, např. v dialogovém okně odevzdání a také v prohlížeči sjednoceného rozdílu. U některých grafických karet toto ale nefunguje a kurzor pro zadání textu není vždy zobrazen. Pokud se tak děje, můžete tuto funkci vypnout nastavením této hodnoty na      \n<literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -17325,18 +17325,18 @@ msgstr "Znovu obnoví windows rozhraní uložených ikon. Použijte pouze v př�
 #. (para)
 msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>."
-msgstr ""
+msgstr "Zobrazí dialogové okno vlastností pro cestu zadanou v  <option>/path</option>."
 
 #. (para)
 msgid ""
 "For dealing with versioned properties this command requires a working copy."
-msgstr ""
+msgstr "Pro práci s vlastnostmi s verzí tento příkaz vyžaduje pracovní kopii."
 
 #. (para)
 msgid ""
 "Revision properties can be viewed/changed if <option>/path</option> is an "
 "URL and <option>/rev:XXX</option> is specified."
-msgstr ""
+msgstr "Vlastnosti revize můžou být zobrazeny/změněny pokud <option>/path</option> je URL a je zadáno <option>/rev:XXX</option>."
 
 #. (para)
 msgid ""
