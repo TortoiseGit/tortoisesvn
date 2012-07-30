@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2006,2008, 2010 - TortoiseSVN
+// External Cache Copyright (C) 2005-2006,2008, 2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -168,7 +168,7 @@ void CStatusCacheEntry::SetStatus(const svn_client_status_t* pSVNStatus, bool ne
         {
             m_commitRevision = pSVNStatus->changed_rev;
             m_bSVNEntryFieldSet = true;
-            m_bHasOwner = pSVNStatus->lock && *pSVNStatus->lock->owner;
+            m_bHasOwner = pSVNStatus->lock && pSVNStatus->lock->owner && pSVNStatus->lock->owner[0];
             m_needsLock = needsLock;
         }
         else
