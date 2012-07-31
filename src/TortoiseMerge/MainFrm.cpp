@@ -824,8 +824,10 @@ bool CMainFrame::LoadViews(int line)
     }
     else
     {
-        bool bGoFirstDiff = (0 != (DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE));
-        bool bGoFirstConflict = (0 != (DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\FirstConflictOnLoad"), TRUE));
+        CRegDWORD regFirstDiff = CRegDWORD(_T("Software\\TortoiseMerge\\FirstDiffOnLoad"), TRUE);
+        CRegDWORD regFirstConflict = CRegDWORD(_T("Software\\TortoiseMerge\\FirstConflictOnLoad"), TRUE);
+        bool bGoFirstDiff = (0 != (DWORD)regFirstDiff);
+        bool bGoFirstConflict = (0 != (DWORD)regFirstConflict);
         if (bGoFirstConflict && (CheckResolved()>=0))
         {
             pwndActiveView->GoToFirstConflict();
