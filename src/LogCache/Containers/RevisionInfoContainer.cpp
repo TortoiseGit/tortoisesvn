@@ -145,9 +145,9 @@ void CRevisionInfoContainer::UpdateChanges
 
             index_t sourceIndex = iter->value;
             for (index_t k = newData.changesOffsets [sourceIndex]
-                             , last = newData.changesOffsets [sourceIndex+1]
-                                      ; k != last
-                    ; ++k)
+                , last = newData.changesOffsets [sourceIndex+1]
+                ; k != last
+                ; ++k)
             {
                 changes.push_back (newData.changes[k]);
                 changedPathTypes.push_back (newData.changedPathTypes[k]);
@@ -157,9 +157,9 @@ void CRevisionInfoContainer::UpdateChanges
             }
 
             for (index_t k = newData.copyFromOffsets [sourceIndex]
-                             , last = newData.copyFromOffsets [sourceIndex+1]
-                                      ; k != last
-                    ; ++k)
+                , last = newData.copyFromOffsets [sourceIndex+1]
+                ; k != last
+                ; ++k)
             {
                 copyFromRevisions.push_back (newData.copyFromRevisions[k]);
                 copyFromPaths.push_back (*pathIDMapping.find (newData.copyFromPaths[k]));
@@ -260,9 +260,9 @@ void CRevisionInfoContainer::UpdateMergers
 
             index_t sourceIndex = iter->value;
             for (index_t k = newData.mergedRevisionsOffsets [sourceIndex]
-                             , last = newData.mergedRevisionsOffsets [sourceIndex+1]
-                                      ; k != last
-                    ; ++k)
+                , last = newData.mergedRevisionsOffsets [sourceIndex+1]
+                ; k != last
+                ; ++k)
             {
                 mergedFromPaths.push_back (*pathIDMapping.find (newData.mergedFromPaths[k]));
                 mergedToPaths.push_back (*pathIDMapping.find (newData.mergedToPaths[k]));
@@ -510,9 +510,9 @@ void CRevisionInfoContainer::OptimizeAuthors()
         indices [counter[i].author] = i;
 
     for (std::vector<index_t>::iterator iter = authors.begin()
-            , end = authors.end()
-                    ; iter != end
-            ; ++iter)
+        , end = authors.end()
+        ; iter != end
+        ; ++iter)
     {
         *iter = indices[*iter];
     }
@@ -570,9 +570,9 @@ void CRevisionInfoContainer::OptimizeChangeOrder()
         revisionChanges.clear();
 
         for (CChangesIterator iter = GetChangesBegin (index)
-                                     , end = GetChangesEnd (index)
-                                             ; iter != end
-                ; ++iter)
+            , end = GetChangesEnd (index)
+            ; iter != end
+            ; ++iter)
         {
             revisionChanges.push_back (iter);
         }
@@ -587,9 +587,9 @@ void CRevisionInfoContainer::OptimizeChangeOrder()
         index_t copyFromOffset = copyFromOffsets[index];
 
         for (std::vector<SPerChangeInfo>::iterator iter = revisionChanges.begin()
-                , end = revisionChanges.end()
-                        ; iter != end
-                ; ++iter)
+            , end = revisionChanges.end()
+            ; iter != end
+            ; ++iter)
         {
             changedPaths[changeOffset] = iter->changedPath;
             changedPathTypes[changeOffset] = iter->changedPathType;
