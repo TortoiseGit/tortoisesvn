@@ -83,6 +83,11 @@ bool CLogIteratorBase::PathInRevision() const
     if (path.IsRoot())
         return true;
 
+    // if we don't have a path, we won't find any changes
+
+    if (!path.IsValid())
+        return false;
+
     // revision data lookup
 
     revision_t index = revisionIndices[revision];

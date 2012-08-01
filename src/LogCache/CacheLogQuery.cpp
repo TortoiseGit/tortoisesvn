@@ -999,6 +999,11 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
                 return;
             }
 
+            // if we don't know where to proceed, end the log
+
+            if (!iterator->GetPath().IsValid())
+                return;
+
             // we must not fetch revisions twice
             // (this may cause an indefinite loop)
 
