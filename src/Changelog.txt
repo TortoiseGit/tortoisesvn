@@ -100,6 +100,14 @@ Version 1.7.8
        in Repo browser. (Stefan)
 - BUG: Issue #377: file lock without owner
        crashes status cache. (Stefan)
+- BUG: Issue #379: Access violation when reading the w/c
+       state for the revision graph. (Stefan Fuhrmann)
+- BUG: Issue #380: Crash in log reporter when author
+       information is empty. (Stefan Fuhrmann)
+- BUG: Issue #381: Exception when updating revprops in
+       log cache. (Stefan Fuhrmann)
+- BUG: Issue #382: Don't crash in log cache when path
+       info is not available. (Stefan Fuhrmann)
 
 Version 1.7.7
 - BUG: Issue #233: Crash when closing the
