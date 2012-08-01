@@ -102,7 +102,9 @@ void CFullGraphFinalizer::InitWCRevs()
     CDictionaryBasedTempPath path = *history.GetWCPath();
     revision_t pathRevision = history.GetPegRevision();
 
-    while (!revisions.empty() && (revisions.back() >= pathRevision))
+    while (   !revisions.empty()
+           && (revisions.back() >= pathRevision)
+           && path.IsValid())
     {
         wcRevs.insert ( wcRevs.begin()
                       , std::make_pair (revisions.back(), path.GetBasePath()));
@@ -139,8 +141,9 @@ void CFullGraphFinalizer::InitWCRevs()
             }
         }
 
-        wcRevs.insert ( wcRevs.begin()
-                      , std::make_pair (revision, path.GetBasePath()));
+        if (path.IsValid())
+            wcRevs.insert ( wcRevs.begin()
+                          , std::make_pair (revision, path.GetBasePath()));
     }
 }
 
