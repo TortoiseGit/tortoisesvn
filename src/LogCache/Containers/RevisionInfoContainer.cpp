@@ -425,7 +425,7 @@ void CRevisionInfoContainer::AppendNewEntries
     {
         // append a new revision info (no info available)
 
-        authors.insert (authors.end(), toAppend, (index_t) NO_INDEX);
+        authors.insert (authors.end(), toAppend, 0);
         timeStamps.insert (timeStamps.end(), toAppend, 0);
         presenceFlags.insert (presenceFlags.end(), toAppend, 0);
         rootPaths.insert (rootPaths.end(), toAppend, (index_t) NO_INDEX);

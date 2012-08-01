@@ -1067,7 +1067,8 @@ inline index_t CRevisionInfoContainer::GetAuthorID (index_t index) const
 inline const char* CRevisionInfoContainer::GetAuthor (index_t index) const
 {
     CheckIndex (index);
-    return authorPool [authors [index]];
+    index_t author = authors [index];
+    return author == NO_INDEX ? "" : authorPool [author];
 }
 
 inline __time64_t CRevisionInfoContainer::GetTimeStamp (index_t index) const
