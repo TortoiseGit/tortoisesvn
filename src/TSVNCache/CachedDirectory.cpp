@@ -513,28 +513,41 @@ CCachedDirectory::SvnUpdateMembersStatus()
         return false;
     }
     m_pCtx = CSVNStatusCache::Instance().m_svnHelp.ClientContext(subPool);
-    svn_error_t* pErr = svn_client_status5 (
-        NULL,
-        m_pCtx,
-        svnapipath,
-        &revision,
-        svn_depth_immediates,
-        TRUE,       // get all
-        FALSE,      // update
-        TRUE,       // no ignores
-        FALSE,      // ignore externals
-        TRUE,           // depth as sticky
-        NULL,       // changelists
-        GetStatusCallback,
-        this,
-        subPool
-        );
+    svn_error_t * pErr = nullptr;
+    if (m_pCtx)
+    {
+        pErr = svn_client_status5 (
+                                   NULL,
+                                   m_pCtx,
+                                   svnapipath,
+                                   &revision,
+                                   svn_depth_immediates,
+                                   TRUE,       // get all
+                                   FALSE,      // update
+                                   TRUE,       // no ignores
+                                   FALSE,      // ignore externals
+                                   TRUE,       // depth as sticky
+                                   NULL,       // changelists
+                                   GetStatusCallback,
+                                   this,
+                                   subPool
+                                   );
 
-    svn_wc_context_destroy(m_pCtx->wc_ctx);
-    m_pCtx->wc_ctx = NULL;
-    m_pCtx = NULL;
+        svn_wc_context_destroy(m_pCtx->wc_ctx);
+        m_pCtx->wc_ctx = NULL;
+        m_pCtx = NULL;
+    }
+    else
+    {
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": error creating client context!\n");
+        m_currentFullStatus = m_mostImportantFileStatus = svn_wc_status_none;
+        // Since we only assume a none status here due to the fact that we couldn't get a client context,
+        // make sure that this status times out soon.
+        CSVNStatusCache::Instance().m_folderCrawler.BlockPath(m_directoryPath, 20);
+        CSVNStatusCache::Instance().AddFolderForCrawling(m_directoryPath);
+    }
     InterlockedExchange(&m_FetchingStatus, FALSE);
-    if(pErr)
+    if (pErr)
     {
         // Handle an error
         // The most likely error on a folder is that it's not part of a WC

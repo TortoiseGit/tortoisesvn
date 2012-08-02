@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -78,11 +78,14 @@ svn_client_ctx_t * SVNHelper::ClientContext(apr_pool_t * pool) const
     if (pool == NULL)
         return m_ctx;
 
-    svn_client_ctx_t * ctx;
+    svn_client_ctx_t * ctx = nullptr;
     svn_error_clear(svn_client_create_context(&ctx, pool));
-    ctx->cancel_func = cancelfunc;
-    ctx->cancel_baton = (void *)this;
-    ctx->config = m_config;
+    if (ctx)
+    {
+        ctx->cancel_func = cancelfunc;
+        ctx->cancel_baton = (void *)this;
+        ctx->config = m_config;
+    }
 
     return ctx;
 }

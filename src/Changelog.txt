@@ -108,6 +108,8 @@ Version 1.7.8
        log cache. (Stefan Fuhrmann)
 - BUG: Issue #382: Don't crash in log cache when path
        info is not available. (Stefan Fuhrmann)
+- BUG: Issue #383: access violation if context
+       creation fails. (Stefan)
 
 Version 1.7.7
 - BUG: Issue #233: Crash when closing the
