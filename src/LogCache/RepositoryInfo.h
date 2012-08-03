@@ -170,8 +170,8 @@ private:
 
         /// data access
 
-        const SPerRepositoryInfo* const * begin() const;
-        const SPerRepositoryInfo* const * end() const;
+        size_t size() const;
+        const SPerRepositoryInfo* operator[](size_t index) const;
     };
 
     /// cached repository properties

@@ -156,13 +156,18 @@ void CLogCachePool::AutoRemoveUnused()
     // update cache info list and also remove entries
     // that don't have a cache file anymore
 
-    for ( const CRepositoryInfo::SPerRepositoryInfo* const * iter
-             = repositoryInfo->data.end()
-        , * const *end = repositoryInfo->data.begin()
-        ; iter != end
-        ; --iter)
+    for (size_t i = repositoryInfo->data.size(); i > 0; --i)
     {
-        const CRepositoryInfo::SPerRepositoryInfo* info = *(iter-1);
+        // DropEntry may remove more than one entry per call
+
+        if (i > repositoryInfo->data.size())
+            continue;
+
+        // entry still exists. Check whether we have to remove it
+
+        const CRepositoryInfo::SPerRepositoryInfo* info
+            = repositoryInfo->data[i-1];
+
         if (   (deletedCaches.find (info->fileName) != deletedCaches.end())
             || (allFiles.find (info->fileName) == allFiles.end()))
         {
@@ -289,13 +294,11 @@ std::multimap<CString, CString> CLogCachePool::GetRepositoryURLs() const
 {
     std::multimap<CString, CString> result;
 
-    for ( const CRepositoryInfo::SPerRepositoryInfo* const * iter
-             = repositoryInfo->data.begin()
-        , * const *end = repositoryInfo->data.end()
-        ; iter != end
-        ; ++iter)
+    for (size_t i = 0, count = repositoryInfo->data.size(); i != count; ++i)
     {
-        const CRepositoryInfo::SPerRepositoryInfo* info = *iter;
+        const CRepositoryInfo::SPerRepositoryInfo* info
+            = repositoryInfo->data[i];
+
         result.insert (std::make_pair (info->root, info->uuid));
     }
 
