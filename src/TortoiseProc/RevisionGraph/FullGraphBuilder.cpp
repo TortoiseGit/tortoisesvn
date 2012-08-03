@@ -633,6 +633,7 @@ bool CFullGraphBuilder::TargetPathExists ( revision_t revision
                 break;
 
             case CRevisionInfoContainer::ACTION_ADDED:
+            case CRevisionInfoContainer::ACTION_REPLACED:
                 // exact addition? -> does exist
 
                 if (iter->GetPathID() == path.GetIndex())

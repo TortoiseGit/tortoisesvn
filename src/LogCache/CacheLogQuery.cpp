@@ -407,7 +407,8 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
         // end of the requested data. currentPath is NULL, then.)
 
         if (    (  (cache->GetLogInfo().GetSumChanges (index)
-                 & CRevisionInfoContainer::ACTION_ADDED) != 0)
+                 & (  CRevisionInfoContainer::ACTION_ADDED
+                    | CRevisionInfoContainer::ACTION_REPLACED)) != 0)
              && (currentPath.get() != NULL))
         {
             // create the appropriate iterator to follow the potential path change
