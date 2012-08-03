@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:25+0000\n"
+"PO-Revision-Date: 2012-08-03 06:27+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1893,7 +1893,7 @@ msgid ""
 "mapping, or you can use the UNC path. For UNC paths, the form is <systemitem"
 " class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that "
 "there are only 2 leading slashes here."
-msgstr "ネットワークフォルダー上のリポジトリにアクセスするには、ドライブ文字の割り当てと UNC パスの両方が使えます。 UNC パスは <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem> といった形です。先頭にスラッシュ（「/」）が 2 つあることに注意してください。"
+msgstr "ネットワークフォルダー上のリポジトリにアクセスするには、ドライブ文字の割り当てと UNC パスの両方が使えます。 UNC パスは <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem> といった形です。先頭にスラッシュ（「/」）が２つあることに注意してください。"
 
 #. (para)
 msgid ""
@@ -4685,7 +4685,7 @@ msgid ""
 "Base</guimenuitem></menuchoice>. Check the changes in the repository made by"
 " others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show "
 "Differences as Unified Diff</guimenuitem></menuchoice>."
-msgstr "このダイアログのコンテキストメニューから、変更点の差分を表示することができます。 <emphasis>自分</emphasis> が行ったローカルの変更をチェックするには、 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>作業ベースと比較</guimenuitem></menuchoice> を使用してください。他人が行ったリポジトリへの変更は、 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>Unified 形式で差分を表示</guimenuitem></menuchoice> を使用してください。"
+msgstr "このダイアログのコンテキストメニューから、変更点の差分を表示することができます。 <emphasis>自分</emphasis> が行ったローカルの変更をチェックするには、 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>作業ベースと比較</guimenuitem></menuchoice> を使用してください。他人が行ったリポジトリへの変更は、 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>Unified形式で差分を表示</guimenuitem></menuchoice> を使用してください。"
 
 #. (para)
 msgid ""
@@ -5034,7 +5034,7 @@ msgstr "選択したリビジョンと作業ベースのファイルの注釈履
 
 #. (term)
 msgid "Show changes as unified diff"
-msgstr "Unified 形式で変更を表示"
+msgstr "Unified形式で変更を表示"
 
 #. (para)
 msgid ""
@@ -5042,7 +5042,7 @@ msgid ""
 "patch format). This shows only the differences with a few lines of context. "
 "It is harder to read than a visual file compare, but will show all file "
 "changes together in a compact format."
-msgstr "選択したリビジョンで行われた変更点を、 Unified 差分ファイル（GNU パッチ形式）で表示します。差分のみが数行で表示されます。視覚的なファイル比較よりも分かりにくいのですが、すべての変更をまとめてコンパクトな形式で確認できます。"
+msgstr "選択したリビジョンで行われた変更点を、Unified差分ファイル（GNUパッチ形式）で表示します。差分のみが数行で表示されます。視覚的なファイル比較よりも分かりにくいのですが、すべての変更をまとめてコンパクトな形式で確認できます。"
 
 #. (para)
 msgid ""
@@ -5050,7 +5050,7 @@ msgid ""
 "item, a dialog shows up first where you can set options for the unified "
 "diff. These options include the ability to ignore changes in line endings "
 "and whitespaces."
-msgstr "<keycap>Shift</keycap> キーを押しながらメニュー項目をクリックすると、最初に Unified 差分ファイルのためのオプションを設定するためのダイアログが開きます。これらのオプションの中に、行末文字や空白文字の変更を無視するものが含まれています。"
+msgstr "<keycap>Shift</keycap> キーを押しながらメニュー項目をクリックすると、最初にUnified差分ファイルのためのオプションを設定するためのダイアログが開きます。これらのオプションの中に、行末文字や空白文字の変更を無視するものが含まれています。"
 
 #. (term)
 msgid "Compare with previous revision"
@@ -5344,13 +5344,13 @@ msgstr "２つのリビジョンの注釈履歴をとり、差分ツールで比
 
 #. (term)
 msgid "Show differences as unified diff"
-msgstr "Unified 形式で差分を表示"
+msgstr "Unified形式で差分を表示"
 
 #. (para)
 msgid ""
 "View the differences between the two selected revisions as a Unified-Diff "
 "file. This works for files and folders."
-msgstr "選択した２つのファイルの差分を、 Unified 差分ファイルで表示します。ファイルとフォルダーで動作します。"
+msgstr "選択した２つのファイルの差分を、Unified差分ファイルで表示します。ファイルとフォルダーで動作します。"
 
 #. (para)
 msgid "Copy log messages to clipboard as described above."
@@ -5412,13 +5412,13 @@ msgstr "選択したファイルの、選択したリビジョンと直前のリ
 
 #. (term)
 msgid "Show as unified diff"
-msgstr "Unified 形式で変更を表示"
+msgstr "Unified形式で変更を表示"
 
 #. (para)
 msgid ""
 "Show file changes in unified diff format. This context menu is only "
 "available for files shown as <emphasis>modified</emphasis>."
-msgstr "ファイルの変更点を Unified 差分ファイルで表示します。このコンテキストメニューは、ファイルに <emphasis>変更</emphasis> がある時のみ有効です。"
+msgstr "ファイルの変更点をUnified差分ファイルで表示します。このコンテキストメニューは、ファイルに <emphasis>変更</emphasis> がある時のみ有効です。"
 
 #. (para)
 #. (para)
@@ -6130,7 +6130,7 @@ msgid ""
 "Revision Log dialog select the revision of interest, then select "
 "<guimenuitem>Show Differences as Unified-Diff</guimenuitem> from the context"
 " menu."
-msgstr "特定のリビジョンで行ったすべてのファイルの変更点を一目で確認したいなら、 Unified 差分ファイル（GNU パッチ形式）を使用できます。ここでは差分が本文内の数行のみで表示されます。視覚的なファイル比較よりは読みにくくなりますが、すべての変更を一度に確認できます。リビジョンログダイアログから確認したいリビジョンを選択し、コンテキストメニューから <guimenuitem>Unified 形式で差分を表示</guimenuitem> を選択してください。"
+msgstr "特定のリビジョンで行ったすべてのファイルの変更点を一目で確認したいなら、Unified差分ファイル（GNUパッチ形式）を使用できます。ここでは差分が本文内の数行のみで表示されます。視覚的なファイル比較よりは読みにくくなりますが、すべての変更を一度に確認できます。リビジョンログダイアログから確認したいリビジョンを選択し、コンテキストメニューから <guimenuitem>Unified形式で差分を表示</guimenuitem> を選択してください。"
 
 #. (term)
 msgid "Difference between files"
@@ -7778,7 +7778,7 @@ msgid ""
 "adding files. The format is the same as for subversion autoprops, e.g. "
 "<literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two "
 "properties on files with the <literal>.sh</literal> extension."
-msgstr "新しくファイルの追加やインポートを行った際に、拡張子を元にプロパティを付加するように、 Subversion は <quote>autoprops</quote> を設定できます。これはクライアントごとに、 Subversion 設定ファイルに適切に autoprops が設定されているかどうかに依存します。<literal>tsvn:autoprops</literal> をフォルダーに設定しておくと、インポートやファイル追加の際に、ユーザーのローカルに autoprops をマージするようになります。この形式は subversion の autoprops と同じで、<literal>.sh</literal> 拡張子を持つファイルに 2 つのプロパティを セットしたい場合は、<literal>*.sh = svn:eol-style=native;svn:executable</literal> のようになります。"
+msgstr "新しくファイルの追加やインポートを行った際に、拡張子を元にプロパティを付加するように、 Subversion は <quote>autoprops</quote> を設定できます。これはクライアントごとに、 Subversion 設定ファイルに適切に autoprops が設定されているかどうかに依存します。<literal>tsvn:autoprops</literal> をフォルダーに設定しておくと、インポートやファイル追加の際に、ユーザーのローカルに autoprops をマージするようになります。この形式は subversion の autoprops と同じで、<literal>.sh</literal> 拡張子を持つファイルに２つのプロパティを セットしたい場合は、<literal>*.sh = svn:eol-style=native;svn:executable</literal> のようになります。"
 
 #. (para)
 msgid ""
@@ -7794,7 +7794,7 @@ msgid ""
 "<literal>tsvn:logfilelistenglish</literal> defines whether the file status "
 "is inserted in English or in the localized language. If the property is not "
 "set, the default is <literal>true</literal>."
-msgstr "コミットダイアログでは、変更したファイルをファイルごとに状態 (追加、変更、etc.) 込みで張り付けるオプションがあります。<literal>tsvn:logfilelistenglish</literal> は状態を英語で挿入するか、各国後で挿入するかを定義できます。このプロパティがセットされていなければ、デフォルトでは <literal>true</literal> となります。"
+msgstr "コミットダイアログでは、変更したファイルをファイルごとに状態（追加、変更、など）込みで貼りつけるオプションがあります。<literal>tsvn:logfilelistenglish</literal> は状態を英語で挿入するか、各国語で挿入するかを定義できます。このプロパティがセットされていなければ、デフォルトでは <literal>true</literal> となります。"
 
 #. (para)
 msgid ""
@@ -7845,7 +7845,7 @@ msgid ""
 " will either scroll to that revision (if the revision is already shown in "
 "the log dialog, or if it's available from the log cache) or open a new log "
 "dialog showing that revision."
-msgstr "<literal>tsvn:logrevregex</literal> プロパティには、ログメッセージにあるリビジョンの参照にマッチする正規表現を定義します。これはログダイアログで、リビジョンの参照をリンクにするのに使用します。このリンクをクリックすると、そのリビジョンまでスクロール (リビジョンがログダイアログにあるか、ログキャッシュにある場合) したり、そのリビジョンを表示する、新しいログダイアログを開いたりします。"
+msgstr "<literal>tsvn:logrevregex</literal> プロパティには、ログメッセージにあるリビジョンの参照にマッチする正規表現を定義します。これはログダイアログで、リビジョンの参照をリンクにするのに使用します。このリンクをクリックすると、そのリビジョンまでスクロール（リビジョンがログダイアログにあるか、ログキャッシュにある場合）したり、そのリビジョンを表示する、新しいログダイアログを開いたりします。"
 
 #. (para)
 msgid ""
@@ -8292,7 +8292,7 @@ msgstr "<placeholder-1/>このプロパティは、Unix / Linux システム上�
 
 #. (title)
 msgid "Merge log message templates"
-msgstr ""
+msgstr "マージログメッセージのテンプレート"
 
 #. (para)
 #. (para)
@@ -8300,80 +8300,80 @@ msgid ""
 "Whenever revisions are merged into a working copy, TortoiseSVN generates a "
 "log message from all the merged revisions. Those are then available from the"
 " <guibutton>Recent Messages</guibutton> button in the commit dialog."
-msgstr ""
+msgstr "リビジョンが作業コピーにマージされるたびに、TortoiseSVNはマージされた全リビジョンからログメッセージを作成します。コミットダイアログの<guibutton>最近のログメッセージ</guibutton>ボタンを押すと現れます。"
 
 #. (title)
 msgid "Property dialog merge log message templates"
-msgstr ""
+msgstr "プロパティダイアログのマージログメッセージのテンプレート設定"
 
 #. (para)
 msgid ""
 "You can customize that generated message with the following properties: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "以下のプロパティを指定すると、作成されるメッセージをカスタマイズできます。<placeholder-1/>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
 "7</literal>"
-msgstr ""
+msgstr "マージされたリビジョン番号のカンマ区切りのリスト（例えば、<literal>3, 5, 6, 7</literal>）。"
 
 #. (para)
 msgid ""
 "Like <literal>{revisions}</literal>, but with each revision preceeded with "
 "an <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
-msgstr ""
+msgstr "<literal>{revisions}</literal>と同様だが、各リビジョンの前に<literal>r</literal>が付く（例えば、<literal>r3, r5, r6, r7</literal>）。"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, grouped into ranges if "
 "possible, e.g., <literal>3, 5-7</literal>"
-msgstr ""
+msgstr "マージされたリビジョン番号のカンマ区切りのリストだが、可能な場合は範囲をグループ化する（例えば、<literal>3, 5-7</literal>）。"
 
 #. (para)
 msgid ""
 "The source url of the merge, i.e., where the revisions are merged from."
-msgstr ""
+msgstr "マージのソースURL、すなわちリビジョンのマージ元の場所。"
 
 #. (para)
 msgid ""
 "This property specifies the first part of the generated log message. The "
 "following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "このプロパティは生成されるログメッセージの最初の部分になります。次のキーワードを使用することができます。<placeholder-1/>"
 
 #. (para)
 msgid ""
 "The default value for this string is <literal>Merged revision(s) {revrange} "
 "from {mergeurl}:</literal> with a newline at the end."
-msgstr ""
+msgstr "この文字列のデフォルトは「<literal>{mergeurl}からリビジョン{revrange}をマージ:</literal>」で、最後に改行が入ります。"
 
 #. (para)
 msgid "The log message of the merged revision, as it was entered."
-msgstr ""
+msgstr "マージされたリビジョンのログメッセージ（入力されたまま）。"
 
 #. (para)
 msgid ""
 "Like <literal>{msg}</literal>, but all newlines are replaced with a space, "
 "so that the whole log message appears on one single line."
-msgstr ""
+msgstr "<literal>{msg}</literal>と同様だが、改行文字が空白に置き換えられ、ログメッセージ全体が1行で表現されたもの。"
 
 #. (para)
 msgid "The author of the merged revision."
-msgstr ""
+msgstr "マージされたリビジョンの作者。"
 
 #. (para)
 msgid "The merged revision itself."
-msgstr ""
+msgstr "マージされたリビジョン番号。"
 
 #. (para)
 msgid "The bug IDs of the merged revision, if there are any."
-msgstr ""
+msgstr "マージされたリビジョンのバグID（もしあれば）。"
 
 #. (para)
 msgid ""
 "This property specifies how the text for each merged revision should look "
 "like. The following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "このプロパティはマージされた各リビジョンがどのように見えるかを定義します。次のキーワードを使用することができます。<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8381,7 +8381,7 @@ msgid ""
 " have disabled the log cache or not shown the log first before the merge, "
 "the generated message won't contain any information about the merged "
 "revisions."
-msgstr ""
+msgstr "これはマージされたリビジョンがすでにログキャッシュにある場合のみ動作します。もしログキャッシュを無効にしていたり、マージ前にログを表示していなかったりすると、メッセージにはマージされたリビジョンの情報が入りません。"
 
 #. (title)
 msgid "External Items"
@@ -8442,7 +8442,7 @@ msgid ""
 "you must use <literal>/</literal> (forward slash) as a path delimiter. Note "
 "that this behaviour is new in Subversion 1.6 and will not work with older "
 "clients."
-msgstr "ローカルのパスに空白や特殊文字を使用したい場合、二重引用符で囲ったり、Unix シェル形式のエスケープ文字 <literal>\\</literal> (バックスラッシュ) を特殊文字の前に置いてください。もちろんこれは、パス区切り文字に <literal>/</literal> (スラッシュ) を使わなければならない、ということでもあります。この挙動は Subversion 1.6 の新機能で、それ以前のクライアントでは動作しないことに注意してください。"
+msgstr "ローカルのパスに空白や特殊文字を使用したい場合、二重引用符で囲ったり、Unix シェル形式のエスケープ文字 <literal>\\</literal> (バックスラッシュ) を特殊文字の前に置いてください。もちろんこれは、パス区切り文字に <literal>/</literal>（スラッシュ）を使わなければならない、ということでもあります。この挙動は Subversion 1.6 の新機能で、それ以前のクライアントでは動作しないことに注意してください。"
 
 #. (title)
 msgid "Use explicit revision numbers"
@@ -8485,7 +8485,7 @@ msgid ""
 "If you use absolute URLs in <literal>svn:externals</literal> definitions and"
 " you have to relocate your working copy (i.e., if the URL of your repository"
 " changes), then your externals won't change and might not work anymore."
-msgstr "<literal>svn:externals</literal> の定義に絶対 URL を使用し、作業コピーを再配置しなければならない (つまり、リポジトリの URL を変更する) 場合、外部参照は変化せず、もう動作しないかも知れません。"
+msgstr "<literal>svn:externals</literal> の定義に絶対 URL を使用し、作業コピーを再配置しなければならない（つまり、リポジトリの URL を変更する）場合、外部参照は変化せず、もう動作しないかも知れません。"
 
 #. (para)
 msgid ""
@@ -8499,7 +8499,7 @@ msgid ""
 "class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> into"
 " <filename>C:\\Working</filename> and the <literal>svn:externals</literal> "
 "property is set on trunk."
-msgstr "このような問題を避けるため、Subversion クライアントバージョン 1.5 以降では、相対外部参照 URL をサポートします。相対 URL を指定する 4 つの異なる方法をサポートしています。以下の例では、2 つのリポジトリ (<systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> と <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>) があると仮定します。<filename>C:\\Working</filename> に <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> のチェックアウトがあり、トランクに <literal>svn:externals</literal> プロパティをセットしています。"
+msgstr "このような問題を避けるため、Subversion クライアントバージョン 1.5 以降では、相対外部参照 URL をサポートします。相対 URL を指定する４つの異なる方法をサポートしています。以下の例では、２つのリポジトリ（<systemitem class=\"url\">http://example.com/svn/repos-1</systemitem> と <systemitem class=\"url\">http://example.com/svn/repos-2</systemitem>）があると仮定します。<filename>C:\\Working</filename> に <systemitem class=\"url\">http://example.com/svn/repos-1/project/trunk</systemitem> のチェックアウトがあり、トランクに <literal>svn:externals</literal> プロパティをセットしています。"
 
 #. (term)
 msgid "Relative to parent directory"
@@ -8535,7 +8535,7 @@ msgid ""
 "You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
 "</screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
-msgstr "同じ <literal>SVNParentPath</literal> (複数のリポジトリを保持する共通ディレクトリ) にある他のリポジトリに、容易に参照できます。例は以下のようになります。<screen>\n^/../repos-2/hammers/claw  common/claw-hammer\n</screen>これは、<filename>C:\\Working\\common\\claw-hammer</filename> へ <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> を抽出します。"
+msgstr "同じ <literal>SVNParentPath</literal>（複数のリポジトリを保持する共通ディレクトリ）にある他のリポジトリに、容易に参照できます。例は以下のようになります。<screen>\n^/../repos-2/hammers/claw  common/claw-hammer\n</screen>これは、<filename>C:\\Working\\common\\claw-hammer</filename> へ <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> を抽出します。"
 
 #. (term)
 msgid "Relative to scheme"
@@ -8959,7 +8959,7 @@ msgid ""
 "There are three common use cases for merging which are handled in slightly "
 "different ways, as described below. The first page of the merge wizard asks "
 "you to select the method you need."
-msgstr "マージを行うには、以下で説明するような、少し異なる方法で行う、3 つのよくあるケースがあります。マージウィザードの最初のページで、どちらで行うか確認しますので、選択してください。"
+msgstr "マージを行うには、以下で説明するような、少し異なる方法で行う、３つのよくあるケースがあります。マージウィザードの最初のページで、どちらで行うか確認しますので、選択してください。"
 
 #. (term)
 msgid "Merge a range of revisions"
@@ -9024,7 +9024,7 @@ msgstr "一度再統合によるマージを行うと、このブランチを開
 
 #. (term)
 msgid "Merge two different trees"
-msgstr "異なる 2 つのツリーをマージ"
+msgstr "異なる２つのツリーをマージ"
 
 #. (para)
 msgid ""
@@ -9130,7 +9130,7 @@ msgid ""
 "then select that range (using the usual <keycap>Shift</keycap>-modifier). "
 "Click on <guibutton>OK</guibutton> and the list of revision numbers to merge"
 " will be filled in for you."
-msgstr "必要なリビジョンの範囲を選択する最も簡単な方法は、<guibutton>ログを表示</guibutton> をクリックして、最近の変更点一覧をログメッセージと共に表示することです。単一リビジョンからマージしたい場合は、そのリビジョンを選択するだけです。複数のリビジョンからマージしたい場合は、その範囲を (通常 <keycap>Shift</keycap> キーを押しながら) 選択してください。<guibutton>OK</guibutton> をクリックすると、マージするリビジョン番号のリストに入力されます。"
+msgstr "必要なリビジョンの範囲を選択する最も簡単な方法は、<guibutton>ログを表示</guibutton> をクリックして、最近の変更点一覧をログメッセージと共に表示することです。単一リビジョンからマージしたい場合は、そのリビジョンを選択するだけです。複数のリビジョンからマージしたい場合は、その範囲を（通常 <keycap>Shift</keycap> キーを押しながら）選択してください。<guibutton>OK</guibutton> をクリックすると、マージするリビジョン番号のリストに入力されます。"
 
 #. (para)
 msgid ""
@@ -9218,11 +9218,11 @@ msgstr "再統合マージを適用するには、いくつか条件がありま
 
 #. (title)
 msgid "Merging Two Different Trees"
-msgstr "2 つの異なるツリーをマージする"
+msgstr "２つの異なるツリーをマージする"
 
 #. (secondary)
 msgid "two trees"
-msgstr "2 つのツリー"
+msgstr "２つのツリー"
 
 #. (title)
 msgid "The Merge Wizard - Tree Merge"
@@ -9371,7 +9371,7 @@ msgid ""
 "To customize that generated message, set the corresponding project "
 "properties on your working copy. See <xref linkend=\"tsvn_dug_propertypage-"
 "edit-mergelogmsgtemplate\"/>"
-msgstr ""
+msgstr "作成されるメッセージをカスタマイズするには、作業コピーに該当するプロジェクトプロパティを設定してください。詳しくは、<xref linkend=\"tsvn_dug_propertypage-edit-mergelogmsgtemplate\"/>を参照してください。"
 
 #. (para)
 msgid ""
@@ -9433,7 +9433,7 @@ msgid ""
 "You can avoid the danger of merging the same revision twice (repeated merge "
 "problem). Once a revision is marked as having been merged, future merges "
 "which include that revision in the range will skip over it."
-msgstr "再度同じリビジョンをマージする危険 (再マージ問題) を避けられます。一度マージ済みとマークされたリビジョンは、将来のマージで、マージ範囲にそのリビジョンが含まれていてもスキップします。"
+msgstr "再度同じリビジョンをマージする危険（再マージ問題）を避けられます。一度マージ済みとマークされたリビジョンは、将来のマージで、マージ範囲にそのリビジョンが含まれていてもスキップします。"
 
 #. (para)
 msgid ""
@@ -9570,7 +9570,7 @@ msgid ""
 " gets multiple merges (multiple revisions apply a change to that file), "
 "subsequent merges might succeed depending on which lines are affected. But "
 "of course you can't walk away to get a coffee while the merge is running ;)"
-msgstr "この対話的コールバックが必要なければ、マージ進行ダイアログに <guilabel>非対話的なマージ</guilabel> チェックボックスがあります。マージ時にこれをセットし、マージ結果に競合がある場合、ファイルに競合マークが付き、マージを継続します。マージがすべて完了したあとで、競合を解決しなければなりません。セットしない場合は、競合マークがファイルに付く前に、<emphasis>マージ中</emphasis>に競合解決を行う機会があります。ファイルが複数のマージ (複数のリビジョンがそのファイルに変更を与える) を受ける場合、影響を受ける行によって、続くマージが成功するという利点があります。しかしもちろん、マージ実行中には、コーヒーを入れにそこを離れるわけにはいきません。"
+msgstr "この対話的コールバックが必要なければ、マージ進行ダイアログに <guilabel>非対話的なマージ</guilabel> チェックボックスがあります。マージ時にこれをセットし、マージ結果に競合がある場合、ファイルに競合マークが付き、マージを継続します。マージがすべて完了したあとで、競合を解決しなければなりません。セットしない場合は、競合マークがファイルに付く前に、<emphasis>マージ中</emphasis>に競合解決を行う機会があります。ファイルが複数のマージ（複数のリビジョンがそのファイルに変更を与える）を受ける場合、影響を受ける行によって、続くマージが成功するという利点があります。しかしもちろん、マージ実行中には、コーヒーを入れにそこを離れるわけにはいきません。"
 
 #. (title)
 msgid "Merge a Completed Branch"
@@ -9594,7 +9594,7 @@ msgid ""
 "the options for the merge, as described in <xref linkend=\"tsvn-dug-merge-"
 "options\"/>. The rest is done by TortoiseSVN automatically using merge "
 "tracking."
-msgstr "機能ブランチの変更を、トランクにすべてマージして戻す場合、拡張コンテキストメニュー (<keycap>Shift</keycap> キーを押したままファイルを右クリック) にある <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>マージの再統合...</guimenuitem></menuchoice> を使用できます。<placeholder-1/> このダイアログは非常に簡単です。しなければならないことは、 <xref linkend=\"tsvn-dug-merge-options\"/> にあるように、マージオプションを設定することだけです。TortoiseSVN は、マージ追跡を使用して残りを自動的に処理します。 "
+msgstr "機能ブランチの変更を、トランクにすべてマージして戻す場合、拡張コンテキストメニュー（<keycap>Shift</keycap> キーを押したままファイルを右クリック）にある <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>マージの再統合...</guimenuitem></menuchoice> を使用できます。<placeholder-1/> このダイアログは非常に簡単です。しなければならないことは、 <xref linkend=\"tsvn-dug-merge-options\"/> にあるように、マージオプションを設定することだけです。TortoiseSVN は、マージ追跡を使用して残りを自動的に処理します。 "
 
 #. (title)
 msgid "Feature Branch Maintenance"
@@ -9771,7 +9771,7 @@ msgid ""
 "repositories. If (and <emphasis>only</emphasis> if) you need to steal the "
 "lock from someone else, check the <guilabel>Steal lock</guilabel> box, then "
 "click on <guibutton>OK</guibutton>."
-msgstr "ロックを取得したい作業コピーのファイルを選択し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ロックの取得...</guimenuitem></menuchoice> コマンドを選択してください。<placeholder-1/> ダイアログが現れ、コメントを入力できるようになります。そのため他の人はなぜロックしたのかが判ります。コメントはオプションで、現在のところ Svnserve ベースリポジトリでしか使用できません。他の誰かからロックを横取りする場合 (<emphasis>のみ</emphasis>) 、<guilabel>ロックを奪う</guilabel> にチェックをつけてください。その後 <guibutton>OK</guibutton> をクリックしてください。"
+msgstr "ロックを取得したい作業コピーのファイルを選択し、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ロックの取得...</guimenuitem></menuchoice> コマンドを選択してください。<placeholder-1/> ダイアログが現れ、コメントを入力できるようになります。そのため他の人はなぜロックしたのかが判ります。コメントはオプションで、現在のところ Svnserve ベースリポジトリでしか使用できません。他の誰かからロックを横取りする場合（<emphasis>のみ</emphasis>）、<guilabel>ロックを奪う</guilabel> にチェックをつけてください。その後 <guibutton>OK</guibutton> をクリックしてください。"
 
 #. (para)
 msgid ""
@@ -9805,7 +9805,7 @@ msgid ""
 " on certain files, you can uncheck them (if they're not modified). If you "
 "want to keep a lock on a file you've modified, you have to enable the "
 "<guilabel>Keep locks</guilabel> checkbox before you commit your changes."
-msgstr "もう必要でなくなったロックの解除を忘れないように、ロックされたファイルはコミットダイアログに表示され、デフォルトで選択されています。コミットを続けると、変更されていないとしても、選択したままのファイルのロックが解除されます。特定のファイルでロックを解除したくない場合、そのファイルのチェックを外せます (変更されていない場合)。変更したファイルのロックを保持したければ、変更をコミットする前に <guilabel>ロックを保持</guilabel> チェックボックスを有効にしておく必要があります。"
+msgstr "もう必要でなくなったロックの解除を忘れないように、ロックされたファイルはコミットダイアログに表示され、デフォルトで選択されています。コミットを続けると、変更されていないとしても、選択したままのファイルのロックが解除されます。特定のファイルでロックを解除したくない場合、そのファイルのチェックを外せます（変更されていない場合）。変更したファイルのロックを保持したければ、変更をコミットする前に <guilabel>ロックを保持</guilabel> チェックボックスを有効にしておく必要があります。"
 
 #. (para)
 msgid ""
@@ -9833,7 +9833,7 @@ msgid ""
 "up immediately. To check for locks held by others (and to see if any of your"
 " locks are broken or stolen) you need to click on <guibutton>Check "
 "Repository</guibutton>."
-msgstr "<placeholder-1/> 誰がロックをかけているかを確認するのに、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>変更をチェック...</guimenuitem></menuchoice> を使用できます。ローカルに保持したロックの印はすぐに現れます。他の人が保持しているロックをチェックするには (そして誰がロックを強制解除したり横取りしたりしたかを見るには)、<guibutton>リポジトリをチェック</guibutton> をクリックしてください。"
+msgstr "<placeholder-1/> 誰がロックをかけているかを確認するのに、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>変更をチェック...</guimenuitem></menuchoice> を使用できます。ローカルに保持したロックの印はすぐに現れます。他の人が保持しているロックをチェックするには（そして誰がロックを強制解除したり横取りしたりしたかを見るには）、<guibutton>リポジトリをチェック</guibutton> をクリックしてください。"
 
 #. (para)
 msgid ""
@@ -9887,7 +9887,7 @@ msgid ""
 "templates are created in the repository <filename>hooks</filename> "
 "directory. These are called before and after getting a lock, and before and "
 "after releasing a lock."
-msgstr "Subversion 1.2 以降で作成したリポジトリでは、リポジトリの <filename>hooks</filename> ディレクトリに 4 つフックテンプレートが追加されています。それぞれロック取得の前後、ロック解除の前後に呼ばれます。"
+msgstr "Subversion 1.2 以降で作成したリポジトリでは、リポジトリの <filename>hooks</filename> ディレクトリに４つフックテンプレートが追加されています。それぞれロック取得の前後、ロック解除の前後に呼ばれます。"
 
 #. (para)
 msgid ""
@@ -9920,7 +9920,7 @@ msgstr "パッチ"
 
 #. (primary)
 msgid "unified diff"
-msgstr "Unified 差分ファイル"
+msgstr "Unified差分ファイル"
 
 #. (para)
 msgid ""
@@ -9932,13 +9932,13 @@ msgid ""
 "<firstterm>patch</firstterm> file to the development team, who do have write"
 " access. They can review the patch first, and then either submit it to the "
 "repository or reject it back to the author."
-msgstr "(TortoiseSVN のような) オープンソースプロジェクトでは、リポジトリは誰もが読み込みアクセスできるようになっていて、誰もがプロジェクトに貢献できるようになっています。では、どのように貢献をコントロールするのでしょう? 誰もが変更をコミットできるようにすると、プロジェクトは永久に不安定になり、ややもすると永久に壊れた状態になるかもしれません。こういった状況では、変更を開発チーム (書き込む権限がある) への <firstterm>パッチ</firstterm> ファイルの送信といった形で管理しています。開発チームはまずパッチをレビューし、リポジトリに送信したり、拒否して作者に返却したりします。"
+msgstr "（TortoiseSVN のような）オープンソースプロジェクトでは、リポジトリは誰もが読み込みアクセスできるようになっていて、誰もがプロジェクトに貢献できるようになっています。では、どのように貢献をコントロールするのでしょう? 誰もが変更をコミットできるようにすると、プロジェクトは永久に不安定になり、ややもすると永久に壊れた状態になるかもしれません。こういった状況では、変更を開発チーム（書き込む権限がある）への <firstterm>パッチ</firstterm> ファイルの送信といった形で管理しています。開発チームはまずパッチをレビューし、リポジトリに送信したり、拒否して作者に返却したりします。"
 
 #. (para)
 msgid ""
 "Patch files are simply Unified-Diff files showing the differences between "
 "your working copy and the base revision."
-msgstr "パッチファイルはシンプルな Unified 差分ファイルで、作業コピーと元になったリビジョンとの差分を表しています。"
+msgstr "パッチファイルは単なるUnified差分ファイルで、作業コピーと元になったリビジョンとの差分を表しています。"
 
 #. (title)
 msgid "Creating a Patch File"
@@ -9979,7 +9979,7 @@ msgid ""
 "files. Of course, if you create a patch file, make some more changes to the "
 "<emphasis>same</emphasis> files and then create another patch, the second "
 "patch file will include <emphasis>both</emphasis> sets of changes."
-msgstr "違うファイルの変更点を含めた分割したパッチも生成できます。もちろん、パッチファイルを生成してから、<emphasis>同じ</emphasis> ファイルに変更を加えて別のパッチを作成すると、2 つ目のパッチには <emphasis>両方</emphasis> の変更点が含まれることになります。"
+msgstr "違うファイルの変更点を含めた分割したパッチも生成できます。もちろん、パッチファイルを生成してから、<emphasis>同じ</emphasis> ファイルに変更を加えて別のパッチを作成すると、２つ目のパッチには <emphasis>両方</emphasis> の変更点が含まれることになります。"
 
 #. (para)
 msgid ""
@@ -9996,7 +9996,7 @@ msgid ""
 "others. Or if you have two working copies on one machine and you want to "
 "transfer changes from one to the other, a patch on the clipboard is a "
 "convenient way of doing this."
-msgstr "また、ファイルに保存せずクリップボードに保存することもできます。電子メールに貼り付けて誰かにレビューしてもらう際に、そうしたくなると思います。また、1 つのマシンに 2 つ作業コピーがあり、片方からもう片方へ変更を持っていくときに、クリップボードにパッチがあるとべんりです。"
+msgstr "また、ファイルに保存せずクリップボードに保存することもできます。電子メールに貼り付けて誰かにレビューしてもらう際に、そうしたくなると思います。また、１つのマシンに２つ作業コピーがあり、片方からもう片方へ変更を持っていくときに、クリップボードにパッチがあるとべんりです。"
 
 #. (para)
 msgid ""
@@ -10063,7 +10063,7 @@ msgid ""
 "These two methods just offer different ways of doing the same thing. With "
 "the first method you select the WC and browse to the patch file. With the "
 "second you select the patch file and browse to the WC."
-msgstr "この 2 つは同じことを違う方法で行っているだけです。1 つ目は作業コピーを選択してからパッチファイルを閲覧し、2 つ目はパッチファイルを選択してから作業コピーを閲覧します。"
+msgstr "この２つは同じことを違う方法で行っているだけです。１つ目は作業コピーを選択してからパッチファイルを閲覧し、２つ目はパッチファイルを選択してから作業コピーを閲覧します。"
 
 #. (para)
 msgid ""
@@ -10192,7 +10192,7 @@ msgid ""
 "mouse hovers over the blame info column. If you want to copy the log message"
 " for that revision, use the context menu which appears when you right click "
 "on the blame info column."
-msgstr "注釈情報の列の上ならどこでもマウスを持ってくると、ヒントボックスの中にリビジョンのコメント (ログメッセージ) を表示します。そのリビジョンのログメッセージをコピーするには、注釈情報の列を右クリックしてでてくるコンテキストメニューを使用してください。"
+msgstr "注釈情報の列の上ならどこでもマウスを持ってくると、ヒントボックスの中にリビジョンのコメント（ログメッセージ）を表示します。そのリビジョンのログメッセージをコピーするには、注釈情報の列を右クリックしてでてくるコンテキストメニューを使用してください。"
 
 #. (para)
 msgid ""
@@ -10495,7 +10495,7 @@ msgid ""
 "diff, or as a list of changed files which can then be visually diffed using "
 "the default diff tool. This can be particularly useful for comparing two "
 "tags, or trunk and branch to see what changed."
-msgstr "あらかじめマークを付けたフォルダーに対して、 Unified 差分ファイルとして、またはデフォルト差分ツールを用いて差分を取ったファイルのリストとして差分を表示できます。これは２つのタグや、トランクとブランチにどんな変更があるのか比較するのに便利です。"
+msgstr "あらかじめマークを付けたフォルダーに対して、Unified差分ファイルとして、またはデフォルト差分ツールを用いて差分を取ったファイルのリストとして差分を表示できます。これは２つのタグや、トランクとブランチにどんな変更があるのか比較するのに便利です。"
 
 #. (para)
 msgid "The context menu for a folder allows you to: <placeholder-1/>"
@@ -10506,7 +10506,7 @@ msgid ""
 "If you select two folders in the right pane, you can view the differences "
 "either as a unified-diff, or as a list of files which can be visually diffed"
 " using the default diff tool."
-msgstr "右画面で２つの項目を選択すると、差分を Unified 差分ファイルや、またはデフォルトの差分ツールを用いて差分を取ったファイルのリストとして表示できます。"
+msgstr "右画面で２つの項目を選択すると、差分をUnified差分ファイルや、またはデフォルトの差分ツールを用いて差分を取ったファイルのリストとして表示できます。"
 
 #. (para)
 msgid ""
@@ -10520,7 +10520,7 @@ msgid ""
 "<literal>/trunk/</literal>), you can use <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Show Log...</guimenuitem></menuchoice> to view "
 "the list of revisions between the two tag points."
-msgstr "選択した 2 つのタグが同じルート (通常 <literal>/trunk/</literal>) からコピーされたものなら、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>ログ表示...</guimenuitem></menuchoice> を使用して 2 つのタグ間のリビジョンのリストを表示できます。"
+msgstr "選択した２つのタグが同じルート（通常 <literal>/trunk/</literal>）からコピーされたものなら、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>ログ表示...</guimenuitem></menuchoice> を使用して２つのタグ間のリビジョンのリストを表示できます。"
 
 #. (para)
 msgid ""
@@ -10622,7 +10622,7 @@ msgid ""
 "network bandwidth, etc. If you try this with something like the "
 "<emphasis>Apache</emphasis> project which currently has over 500,000 "
 "revisions you could be waiting for some time."
-msgstr "TortoiseSVN がグラフを生成するには、リポジトリのルートからログメッセージをすべて取得しなければなりません。言うまでもなく、数千リビジョンのリポジトリがある場合 (サーバーの速度やネットワークの帯域などににもよりますが) 数分かかるでしょう。現在 500,000 リビジョンを越えている <emphasis>Apache</emphasis> プロジェクトのようなところで試せば、しばらく待っていなければなりません。"
+msgstr "TortoiseSVN がグラフを生成するには、リポジトリのルートからログメッセージをすべて取得しなければなりません。言うまでもなく、数千リビジョンのリポジトリがある場合（サーバーの速度やネットワークの帯域などににもよりますが）数分かかるでしょう。現在 500,000 リビジョンを越えている <emphasis>Apache</emphasis> プロジェクトのようなところで試せば、しばらく待っていなければなりません。"
 
 #. (para)
 msgid ""
@@ -10818,7 +10818,7 @@ msgid ""
 "<literal>/trunk/doc/html</literal> the branch could be shown in compact form"
 " as <literal>/branches/1.2.x/..</literal> because the last two levels, "
 "<literal>doc</literal> and <literal>html</literal>, did not change."
-msgstr "長いパス名はたくさんのスペースを取ってしまい、ノードボックスを非常に大きくしてしまいます。パスの変更された部分のみを表示し、共通部分を点に置換する場合、このオプションを使用してください。つまり、<literal>/trunk/doc/html</literal> から ブランチ <literal>/branches/1.2.x/doc/html</literal> を作成した場合、<literal>/branches/1.2.x/..</literal> という短縮形で表示します。最後のふたつの階層 (<literal>doc</literal> と <literal>html</literal>) が変更されていないからです。"
+msgstr "長いパス名はたくさんのスペースを取ってしまい、ノードボックスを非常に大きくしてしまいます。パスの変更された部分のみを表示し、共通部分を点に置換する場合、このオプションを使用してください。つまり、<literal>/trunk/doc/html</literal> から ブランチ <literal>/branches/1.2.x/doc/html</literal> を作成した場合、<literal>/branches/1.2.x/..</literal> という短縮形で表示します。最後のふたつの階層（<literal>doc</literal> と <literal>html</literal>）が変更されていないからです。"
 
 #. (term)
 msgid "Show all revisions"
@@ -11011,7 +11011,7 @@ msgid ""
 "between these revisions. You can choose to show differences as at the branch"
 " creation points, but usually you will want to show the differences at the "
 "branch end points, i.e. at the HEAD revision."
-msgstr "2 つのリビジョンを選択 (<keycap>Ctrl</keycap>-<action>左クリック</action>) すると、そのリビジョン間の差分を表示するコンテキストメニューを使用できます。ブランチ作成ポイントで差分を表示できますが、通常ブランチ終了ポイント（つまり HEAD リビジョン）について表示したいことでしょう。"
+msgstr "２つのリビジョンを選択（<keycap>Ctrl</keycap>-<action>左クリック</action>）すると、そのリビジョン間の差分を表示するコンテキストメニューを使用できます。ブランチ作成ポイントで差分を表示できますが、通常ブランチ終了ポイント（つまり HEAD リビジョン）について表示したいことでしょう。"
 
 #. (para)
 msgid ""
@@ -11021,7 +11021,7 @@ msgid ""
 "Revisions</guimenuitem></menuchoice> you will be presented with a list of "
 "changed files. <action>Double click</action> on a file name to fetch both "
 "revisions of the file and compare them using the visual difference tool."
-msgstr "差分を Unified 差分ファイル（最小の文脈で全差分を１ファイルにまとめたもの）で見られます。 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンを比較</guimenuitem></menuchoice> を選択すると、変更したファイルの一覧が表示されます。ファイル名を <action>ダブルクリック</action> すると両リビジョンを取得し、視覚差分ツールで比較します。"
+msgstr "差分をUnified差分ファイル（最小の文脈で全差分を１ファイルにまとめたもの）で見られます。 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンを比較</guimenuitem></menuchoice> を選択すると、変更したファイルの一覧が表示されます。ファイル名を <action>ダブルクリック</action> すると両リビジョンを取得し、視覚差分ツールで比較します。"
 
 #. (para)
 msgid ""
@@ -11072,7 +11072,7 @@ msgid ""
 "(enabled by default), this will check the repository for newer commits and "
 "fetch only the new ones. If the log cache was in offline mode, this will "
 "also attempt to go back online."
-msgstr "新しい情報を取得するためサーバーを再チェックする場合、単純に <keycap>F5</keycap> で表示を更新できます。ログキャッシュを使用する場合 (デフォルトで有効)、新しいログメッセージがあるかリポジトリをチェックし、新しいもののみを取得します。ログキャッシュがオフラインモードだった場合、オンラインモードにしようともします。"
+msgstr "新しい情報を取得するためサーバーを再チェックする場合、単純に <keycap>F5</keycap> で表示を更新できます。ログキャッシュを使用する場合（デフォルトで有効）、新しいログメッセージがあるかリポジトリをチェックし、新しいもののみを取得します。ログキャッシュがオフラインモードだった場合、オンラインモードにしようともします。"
 
 #. (para)
 msgid ""
@@ -11431,7 +11431,7 @@ msgid ""
 "this, you have to define some properties, which start with "
 "<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
 "=\"tsvn-dug-propertypage\"/>)"
-msgstr "TortoiseSVN は任意のバグ追跡ツールと統合できます。そのためには、 <literal>bugtraq:</literal> で始まるプロパティを、フォルダーに対して定義する必要があります。 (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "TortoiseSVN は任意のバグ追跡ツールと統合できます。そのためには、 <literal>bugtraq:</literal> で始まるプロパティを、フォルダーに対して定義する必要があります。（<xref linkend=\"tsvn-dug-propertypage\"/>）"
 
 #. (title)
 msgid "The Bugtraq Properties Dialog"
@@ -11803,7 +11803,7 @@ msgid ""
 "You can integrate a repo viewer of your choice in TortoiseSVN. To do this, "
 "you have to define some properties which define the linkage. They must be "
 "set on Folders: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
-msgstr "TortoiseSVN は任意のリポジトリビューアーと統合できます。そのためには、リンク用に用意されているプロパティを定義する必要があります。以下のようにフォルダーに設定しなければなりません。 (<xref linkend=\"tsvn-dug-propertypage\"/>)"
+msgstr "TortoiseSVN は任意のリポジトリビューアーと統合できます。そのためには、リンク用に用意されているプロパティを定義する必要があります。以下のようにフォルダーに設定しなければなりません。（<xref linkend=\"tsvn-dug-propertypage\"/>）"
 
 #. (para)
 msgid ""
@@ -12359,7 +12359,7 @@ msgid ""
 "The normal behaviour in the commit dialog is for all modified (versioned) "
 "items to be selected for commit automatically. If you prefer to start with "
 "nothing selected and pick the items for commit manually, uncheck this box."
-msgstr "コミットダイアログの通常動作は、全ての (バージョン管理下の) 変更があるファイルをコミットするよう、自動的に選択します。はじめに何も選択せず、コミットする項目を手作業で選択する場合、このチェックボックスのチェックを外してください。"
+msgstr "コミットダイアログの通常動作は、全ての（バージョン管理下の）変更があるファイルをコミットするよう、自動的に選択します。はじめに何も選択せず、コミットする項目を手作業で選択する場合、このチェックボックスのチェックを外してください。"
 
 #. (term)
 msgid "Contact the repository on startup"
@@ -12602,7 +12602,7 @@ msgid ""
 "blending is used. If the box is unchecked, color is used to indicate node "
 "type only. Use the color selection dialog to allocate the specific colors "
 "used."
-msgstr "リビジョングラフで、ノードタイプ (つまり追加、削除、名前変更といったノード) を表すのに使用する色です。ノードの分類を識別するため、ノードタイプと分類の両方を表示するよう、リビジョングラフに色をませるよう指示できます。このチェックが付いていないと、ノードタイプを表すためだけに色を使用します。使用するそれぞれの色を指定するには、色選択ダイアログを使用してください。"
+msgstr "リビジョングラフで、ノードタイプ（つまり追加、削除、名前変更といったノード）を表すのに使用する色です。ノードの分類を識別するため、ノードタイプと分類の両方を表示するよう、リビジョングラフに色をませるよう指示できます。このチェックが付いていないと、ノードタイプを表すためだけに色を使用します。使用するそれぞれの色を指定するには、色選択ダイアログを使用してください。"
 
 #. (title)
 msgid "Revision Graph Colors"
@@ -13233,13 +13233,13 @@ msgid ""
 "<guilabel>Default</guilabel> setting is to use TortoiseUDiff which is "
 "installed alongside TortoiseSVN, and colour-codes the added and removed "
 "lines."
-msgstr "ダイアログの最下部で、 Unified 差分ファイル（パッチファイル）のビューアーを設定することができます。パラメーターは必要ありません。<guilabel>デフォルト</guilabel>の設定では、 TortoiseSVN と一緒にインストールされる TortoiseUDiff を使用するよう設定され、追加・削除された行を色分け表示します。"
+msgstr "ダイアログの最下部で、Unified差分ファイル（パッチファイル）のビューアーを設定することができます。パラメーターは必要ありません。<guilabel>デフォルト</guilabel>の設定では、 TortoiseSVN と一緒にインストールされる TortoiseUDiff を使用するよう設定され、追加・削除された行を色分け表示します。"
 
 #. (para)
 msgid ""
 "Since Unified Diff is just a text format, you can use your favourite text "
 "editor if you prefer."
-msgstr "Unified 差分ファイルはテキストファイルなので、任意のテキストエディターを使用しても結構です。"
+msgstr "Unified差分ファイルは単なるテキストファイルなので、任意のテキストエディターを使用しても結構です。"
 
 #. (title)
 msgid "Merge Tool"
@@ -13522,7 +13522,7 @@ msgid ""
 "log dialog frequently and the server is slow, but the data shown may not be "
 "completely up-to-date. If you want to use this feature we suggest using a "
 "value of 300 (5 minutes) as a compromise."
-msgstr "ログダイアログを表示する際、通常、新しいログメッセージをチェックするのにサーバーに接続すると思います。ここでタイムアウトに 0 以外を指定したばあい、前回の接続からその秒数経過しているときだけ、サーバーに接続します。頻繁にログダイアログを開き、サーバーが遅い場合、これによりサーバーとのやりとりを抑えることができますが、表示されるデータが完全に最新であるとは限りません。この機能を使用する場合は、折衷案として 300 (5 分) とするのをお勧めします。"
+msgstr "ログダイアログを表示する際、通常、新しいログメッセージをチェックするのにサーバーに接続すると思います。ここでタイムアウトに0以外を指定したばあい、前回の接続からその秒数経過しているときだけ、サーバーに接続します。頻繁にログダイアログを開き、サーバーが遅い場合、これによりサーバーとのやりとりを抑えることができますが、表示されるデータが完全に最新であるとは限りません。この機能を使用する場合は、折衷案として300（5分）とするのをお勧めします。"
 
 #. (term)
 msgid "Days of inactivity until small caches get removed"
@@ -13777,7 +13777,7 @@ msgstr "Post-commit"
 
 #. (para)
 msgid "Called after the commit finishes (whether successful or not)."
-msgstr "コミットが完了した後で (成功・失敗に関わらず) 呼ばれます。"
+msgstr "コミットが完了した後で（成功・失敗に関わらず）呼ばれます。"
 
 #. (term)
 #. (term)
@@ -14217,7 +14217,7 @@ msgid ""
 "The default value is 0. With this setting, the icons are grouped together by"
 " application type. All dialogs from TortoiseSVN are grouped together, all "
 "windows from TortoiseMerge are grouped together, ... <placeholder-1/>"
-msgstr "デフォルト値は 0 です。この設定では、アイコンがアプリケーションの種類によってグループ化されます。 TortoiseSVN のすべてのダイアログがひとつにグループ化され、 TortoiseMerge のすべてのウィンドウがひとつにグループ化される・・・という形です。 <placeholder-1/>"
+msgstr "デフォルト値は0です。この設定では、アイコンがアプリケーションの種類によってグループ化されます。TortoiseSVNのすべてのダイアログがひとつにグループ化され、TortoiseMergeのすべてのウィンドウがひとつにグループ化される・・・という形です。 <placeholder-1/>"
 
 #. (title)
 #. (title)
@@ -14234,7 +14234,7 @@ msgid ""
 "groups shown in the Win7 taskbar, one group for each repository. But "
 "TortoiseMerge windows are not grouped together with TortoiseSVN dialogs. "
 "<placeholder-1/>"
-msgstr "1 に設定すると、すべてのダイアログがアプリケーション単位ではなく、リポジトリ単位でグループ化されます。たとえば、リポジトリ <literal>A</literal> のログダイアログとコミットダイアログが開いていて、リポジトリ <literal>B</literal> の変更のチェックダイアログとログダイアログが開いていた場合、 Windows 7 のタスクバーには２つのアプリケーションアイコングループが表示され、それぞれリポジトリごとにグループ化されます。但し、 TortoiseMerge のウィンドウは、 TortoiseSVN のダイアログと同じグループにはなりません。 <placeholder-1/>"
+msgstr "1に設定すると、すべてのダイアログがアプリケーション単位ではなく、リポジトリ単位でグループ化されます。たとえば、リポジトリ<literal>A</literal>のログダイアログとコミットダイアログが開いていて、リポジトリ<literal>B</literal>の変更のチェックダイアログとログダイアログが開いていた場合、Windows 7のタスクバーには２つのアプリケーションアイコングループが表示され、それぞれリポジトリごとにグループ化されます。但し、TortoiseMergeのウィンドウは、TortoiseSVNのダイアログと同じグループにはなりません。 <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -14244,7 +14244,7 @@ msgid ""
 " commit dialog open and then double click on a modified file, the opened "
 "TortoiseMerge diff window will be put in the same icon group on the taskbar "
 "as the commit dialog icon. <placeholder-1/>"
-msgstr "2 に設定すると、 1 に設定した場合と同様にグループ化されますが、 TortoiseSVN、 TortoiseMerge、 TortoiseBlame、 TortoiseIDiff、 TortoiseUDiff のウィンドウも一緒にグループ化されます。たとえば、コミットダイアログが開いているときに変更されたファイルをダブルクリックした場合、 TortoiseMerge の差分ウィンドウが開きますが、タスクバー上ではコミットダイアログと同じアイコングループに含められます。 <placeholder-1/>"
+msgstr "2に設定すると、1に設定した場合と同様にグループ化されますが、 TortoiseSVN、 TortoiseMerge、 TortoiseBlame、 TortoiseIDiff、 TortoiseUDiff のウィンドウも一緒にグループ化されます。たとえば、コミットダイアログが開いているときに変更されたファイルをダブルクリックした場合、 TortoiseMerge の差分ウィンドウが開きますが、タスクバー上ではコミットダイアログと同じアイコングループに含められます。 <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -14252,20 +14252,20 @@ msgid ""
 "grouping isn't done according to the repository but according to the working"
 " copy. This is useful if you have all your projects in the same repository "
 "but different working copies for each project."
-msgstr "3 に設定すると、 1 に設定した場合と同様にグループ化されますが、リポジトリごとではなく作業コピーごとにグループ化されます。これは、同じリポジトリですべてのプロジェクトを管理し、プロジェクトごとに異なる作業コピーを使用している場合に便利です。"
+msgstr "3に設定すると、1に設定した場合と同様にグループ化されますが、リポジトリごとではなく作業コピーごとにグループ化されます。これは、同じリポジトリですべてのプロジェクトを管理し、プロジェクトごとに異なる作業コピーを使用している場合に便利です。"
 
 #. (para)
 msgid ""
 "If set to 4, then the grouping works as with the setting set to 2, but the "
 "grouping isn't done according to the repository but according to the working"
 " copy."
-msgstr "4 に設定すると、 2 に設定した場合と同様にグループ化されますが、リポジトリごとではなく作業コピーごとにグループ化されます。"
+msgstr "4に設定すると、2に設定した場合と同様にグループ化されますが、リポジトリごとではなく作業コピーごとにグループ化されます。"
 
 #. (para)
 msgid ""
 "If this is set to <literal>false</literal>, then every "
 "<literal>svn:externals</literal> is shown during an update separately."
-msgstr ""
+msgstr "<literal>false</literal>に設定すると、すべての<literal>svn:externals</literal>がアップデート中に個別に表示されます。"
 
 #. (para)
 msgid ""
@@ -14273,13 +14273,13 @@ msgid ""
 "information for externals is only shown if the externals are affected by the"
 " update, i.e. changed in some way. Otherwise nothing is shown as with normal"
 " files and folders."
-msgstr ""
+msgstr "<literal>true</literal>に設定した場合（デフォルト）、外部参照の更新情報が更新の影響を受けたかどうかのみ（何かが変更された等）が表示されます。通常のファイルやフォルダーの情報は表示されません。"
 
 #. (para)
 msgid ""
 "This has no effect if the option <literal>GroupTaskbarIconsPerRepo</literal>"
 " is set to 0 (see above)."
-msgstr "<literal>GroupTaskbarIconsPerRepo</literal> オプションを 0 に設定した場合は、効果がありません（上記参照）。"
+msgstr "<literal>GroupTaskbarIconsPerRepo</literal> オプションを0に設定した場合は、効果がありません（上記参照）。"
 
 #. (title)
 msgid "Taskbar grouping with repository color overlays"
@@ -14355,7 +14355,7 @@ msgid ""
 "doesn't work properly so that the cursor to enter text isn't always visible."
 " If that happens, you can turn this feature off by setting this value to "
 "<literal>false</literal>."
-msgstr ""
+msgstr "このオプションは、コミットダイアログやunified差分ビューアーなどで使用されているScintillaコントロールで、Direct2Dによるアクセラレーション描画を有効にします。一部のグラフィックカードでは、文字を入力するカーソルが表示されっぱなしになるなどの不具合が発生します。このような場合、この値を<literal>false</literal>にすることでこの機能を無効にしてください。"
 
 #. (para)
 msgid ""
@@ -15591,7 +15591,7 @@ msgstr "<literal>newparameters</literal> 出力パラメーターには、プラ
 
 #. (title)
 msgid "Frequently Asked Questions (FAQ)"
-msgstr "よくある質問 (FAQ)"
+msgstr "よくある質問（FAQ）"
 
 #. (primary)
 msgid "FAQ"
@@ -15707,7 +15707,7 @@ msgid ""
 "There are two ways to prevent users from committing with an empty log "
 "message. One is specific to TortoiseSVN, the other works for all Subversion "
 "clients, but requires access to the server directly."
-msgstr "ログメッセージを空にしてコミットするのを防ぐには、2 つ方法があります。TortoiseSVN 特有の方法と、Subversion クライアント全てで使用できる方法ですがサーバーに直接アクセスできる必要があります。"
+msgstr "ログメッセージを空にしてコミットするのを防ぐには、２つ方法があります。TortoiseSVN 特有の方法と、Subversion クライアント全てで使用できる方法ですがサーバーに直接アクセスできる必要があります。"
 
 #. (title)
 msgid "Hook-script on the server"
@@ -15787,7 +15787,7 @@ msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>変更をチェ�
 
 #. (title)
 msgid "Roll back (Undo) revisions in the repository"
-msgstr "リポジトリのリビジョンのロールバック (取り消し)"
+msgstr "リポジトリのリビジョンのロールバック（取り消し）"
 
 #. (primary)
 msgid "rollback"
@@ -15950,7 +15950,7 @@ msgid ""
 "Pick the two revisions you want to compare then use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Compare "
 "Revisions</guimenuitem></menuchoice>."
-msgstr "項目の履歴にある 2 つのリビジョン (例えば同じファイルのリビジョン 100 と 200) を比較したい場合、単純に <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ログを表示</guimenuitem></menuchoice> を使用して、そのファイルのリビジョンの履歴を表示します。そこで、比較したい 2 つのリビジョンを取り出し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンを比較</guimenuitem></menuchoice> を使用してください。"
+msgstr "項目の履歴にある２つのリビジョン（例えば同じファイルのリビジョン100と200）を比較したい場合、単純に <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ログを表示</guimenuitem></menuchoice> を使用して、そのファイルのリビジョンの履歴を表示します。そこで、比較したい２つのリビジョンを取り出し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンを比較</guimenuitem></menuchoice> を使用してください。"
 
 #. (para)
 msgid ""
@@ -15958,7 +15958,7 @@ msgid ""
 " trunk and a branch, you can use the repository browser to open up both "
 "trees, select the file in both places, then use <menuchoice><guimenu>Context"
 " Menu</guimenu><guimenuitem>Compare Revisions</guimenuitem></menuchoice>."
-msgstr "2 つの別ツリーにある同じ項目 (例えばトランクとブランチ) を比較したい場合、両方のツリーを開くのにリポジトリブラウザーを使用できます。それから同じ場所のファイルを選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンの比較</guimenuitem></menuchoice> を使用してください。"
+msgstr "２つの別ツリーにある同じ項目（例えばトランクとブランチ）を比較したい場合、両方のツリーを開くのにリポジトリブラウザーを使用できます。それから同じ場所のファイルを選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>リビジョンの比較</guimenuitem></menuchoice> を使用してください。"
 
 #. (para)
 msgid ""
@@ -15975,7 +15975,7 @@ msgid ""
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unified Diff of HEAD"
 " Revisions</guimenuitem></menuchoice> to see a summary of all differences, "
 "with minimal context."
-msgstr "２つのツリーでどこが変更されか (例えばトランクとタグ付けされたリリース) を比較したい場合、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>リビジョングラフ</guimenuitem></menuchoice> を使用できます。比較する 2 つのノードを選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>HEAD リビジョンを比較</guimenuitem></menuchoice> を使用してください。これで変更されたファイルの一覧が表示され、変更の詳細を見るよう特定のファイルを選択できます。また、変更したファイルすべてを含むツリー構造をエクスポートしたり、単純に変更したファイルをすべて表示したりできます。詳細は <xref linkend=\"tsvn-dug-compare-revs\"/> をご覧ください。その他には、変更の全サマリを最小コンテキストで見るのに、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>HEAD リビジョンに対する Unified 形式での差分</guimenuitem></menuchoice> を使用してください。"
+msgstr "２つのツリーでどこが変更されか（例えばトランクとタグ付けされたリリース）を比較したい場合、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>リビジョングラフ</guimenuitem></menuchoice> を使用できます。比較する２つのノードを選択し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>HEADリビジョンを比較</guimenuitem></menuchoice> を使用してください。これで変更されたファイルの一覧が表示され、変更の詳細を見るよう特定のファイルを選択できます。また、変更したファイルすべてを含むツリー構造をエクスポートしたり、単純に変更したファイルをすべて表示したりできます。詳細は <xref linkend=\"tsvn-dug-compare-revs\"/> をご覧ください。その他には、変更の全サマリを最小コンテキストで見るのに、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>HEADリビジョンに対するUnified形式での差分</guimenuitem></menuchoice> を使用してください。"
 
 #. (title)
 msgid "Include a common sub-project"
@@ -15996,7 +15996,7 @@ msgid ""
 "in your repository because then you would lose connection with the original "
 "(and maintained) code. Or maybe you have several projects which share core "
 "code. There are at least 3 ways of dealing with this."
-msgstr "時に、作業コピーに別プロジェクト、おそらくライブラリのコードを含めたくなるでしょう。オリジナルの (そしてメンテナンスされる) コードとの関連が切れてしまうので、リポジトリにこのコードの複製を作りたくないでしょう。また、複数のプロジェクトでコアコードを共有したいかもしれません。これに対処する方法が少なくとも 3 つあります。"
+msgstr "時に、作業コピーに別プロジェクト、おそらくライブラリのコードを含めたくなるでしょう。オリジナルの（そしてメンテナンスされる）コードとの関連が切れてしまうので、リポジトリにこのコードの複製を作りたくないでしょう。また、複数のプロジェクトでコアコードを共有したいかもしれません。これに対処する方法が少なくとも３つあります。"
 
 #. (title)
 msgid "Use svn:externals"
@@ -16025,7 +16025,7 @@ msgid ""
 "Of the three methods described, this is the only one which needs no setup on"
 " the client side. Once externals are specified in the folder properties, all"
 " clients will get populated folders when they update."
-msgstr "説明した 3 つの方法のうち、クライアント側でセットアップが必要ないものは 1 つだけです。一度フォルダープロパティに外部参照を設定すると、すべてのクライアントで、更新時に設定したフォルダーを取得します。"
+msgstr "説明した３つの方法のうち、クライアント側でセットアップが必要ないものは１つだけです。一度フォルダープロパティに外部参照を設定すると、すべてのクライアントで、更新時に設定したフォルダーを取得します。"
 
 #. (title)
 msgid "Use a nested working copy"
@@ -16050,7 +16050,7 @@ msgid ""
 "The two working copies are independent. When you commit changes to the "
 "parent, changes to the nested WC are ignored. Likewise when you update the "
 "parent, the nested WC is not updated."
-msgstr "2 つの作業コピーは独立しています。親作業コピーの変更をコミットした際には、ネストした作業コピーの変更は無視されます。同様に、親作業コピーを更新した際には、ネストした作業コピーは更新されません。"
+msgstr "２つの作業コピーは独立しています。親作業コピーの変更をコミットした際には、ネストした作業コピーの変更は無視されます。同様に、親作業コピーを更新した際には、ネストした作業コピーは更新されません。"
 
 #. (title)
 msgid "Use a relative location"
@@ -16342,7 +16342,7 @@ msgid ""
 "only the context menu entries in the <emphasis>explorer</emphasis> are "
 "hidden, and the commands are still available through other means, e.g. the "
 "command line or even other dialogs in TortoiseSVN itself!"
-msgstr "バージョン 1.5.0 以降では、TortoiseSVN はコンテキストメニューエントリを無効 (実際には非表示) にできます。コンパイル上の理由だけではなく、この機能は気軽につかうべきではありませんので、GUI は用意されておらず、レジストリを直接操作する必要があります。特定のコマンドを使うべきでないユーザーがいる場合に、そのコマンドを無効にできます。なお、<emphasis>エクスプローラー</emphasis> のコンテキストメニューエントリを隠すだけで、他の方法では実行することができます。例えば、コマンドラインや、TortoiseSVN 自体の他のダイアログから実行する場合などです。"
+msgstr "バージョン 1.5.0 以降では、TortoiseSVN はコンテキストメニューエントリを無効（実際には非表示）にできます。コンパイル上の理由だけではなく、この機能は気軽につかうべきではありませんので、GUI は用意されておらず、レジストリを直接操作する必要があります。特定のコマンドを使うべきでないユーザーがいる場合に、そのコマンドを無効にできます。なお、<emphasis>エクスプローラー</emphasis> のコンテキストメニューエントリを隠すだけで、他の方法では実行することができます。例えば、コマンドラインや、TortoiseSVN 自体の他のダイアログから実行する場合などです。"
 
 #. (para)
 msgid ""
@@ -16554,11 +16554,11 @@ msgid ""
 "+ 0x2000000000000000\n"
 "= 0x2000000080080000\n"
 "</screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr "例: <quote>再配置</quote>・<quote>バージョン管理外の項目を削除する</quote>・<quote>設定</quote> といったメニューエントリを無効にするには、以下のように値を設定してください。<screen>\n  0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000\n</screen> 下位の <literal>DWORD</literal> 値 (<literal>0x80080000</literal>) は <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> に格納せねばならず、上位の <literal>DWORD</literal> 値 (<literal>0x20000000</literal>) は <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename> に格納せねばなりません。"
+msgstr "例: <quote>再配置</quote>・<quote>バージョン管理外の項目を削除する</quote>・<quote>設定</quote> といったメニューエントリを無効にするには、以下のように値を設定してください。<screen>\n  0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000\n</screen> 下位の <literal>DWORD</literal> 値 (<literal>0x80080000</literal>) は <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename> に格納せねばならず、上位の <literal>DWORD</literal> 値（<literal>0x20000000</literal>）は <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename> に格納せねばなりません。"
 
 #. (para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
-msgstr "メニューエントリを、再度有効にするには、単純に 2 つのレジストリキーを削除してください。"
+msgstr "メニューエントリを、再度有効にするには、単純に２つのレジストリキーを削除してください。"
 
 #. (title)
 msgid "Automating TortoiseSVN"
@@ -17155,7 +17155,7 @@ msgid ""
 "diff (if the option <option>unified</option> is set), a dialog with a list "
 "of files that have changed or if the URLs point to files starts the diff "
 "viewer for those two files."
-msgstr "<option>unified</option> オプションが指定された場合は、Unified 差分ファイルに含まれる変更されたファイルの一覧をダイアログで表示します。 URL がファイルを指していた場合は、その２ファイルに対して差分ビューアーを起動します。"
+msgstr "<option>unified</option> オプションが指定された場合は、Unified差分ファイルに含まれる変更されたファイルの一覧をダイアログで表示します。URLがファイルを指していた場合は、その２ファイルに対して差分ビューアーを起動します。"
 
 #. (para)
 msgid ""
@@ -17326,18 +17326,18 @@ msgstr "Windows のアイコンキャッシュを再生成します。Windows �
 #. (para)
 msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>."
-msgstr ""
+msgstr "<option>/path</option> で指定されたパスのプロパティダイアログを表示します。"
 
 #. (para)
 msgid ""
 "For dealing with versioned properties this command requires a working copy."
-msgstr ""
+msgstr "このコマンドでバージョン管理されたプロパティを扱う場合は、作業コピーを指定する必要があります。"
 
 #. (para)
 msgid ""
 "Revision properties can be viewed/changed if <option>/path</option> is an "
 "URL and <option>/rev:XXX</option> is specified."
-msgstr ""
+msgstr "<option>/rev:XXX</option> が指定されていて、 <option>/path</option> がURLであれば、ダイアログでリビジョンプロパティを表示・編集できます。"
 
 #. (para)
 msgid ""
@@ -17471,7 +17471,7 @@ msgstr "右に表示するファイルのパス。"
 msgid ""
 "If specified, the image diff tool switches to the overlay mode (alpha "
 "blend)."
-msgstr "指定すると、画像差分ツールがオーバーレイモード (アルファブレンディング) に変わります。"
+msgstr "指定すると、画像差分ツールがオーバーレイモード（アルファブレンディング）に変わります。"
 
 #. (entry)
 msgid "If specified, the image diff tool fits both images together."
@@ -17488,7 +17488,7 @@ msgid ""
 "                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n"
 "                  /fit /overlay\n"
 "</screen>"
-msgstr "サンプル (一行で入力してください): <screen>\nTortoiseIDiff.exe /left:\"c:\\images\\img1.jpg\" /lefttitle:\"image 1\"\n                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n                  /fit /overlay\n</screen>"
+msgstr "サンプル（一行で入力してください）: <screen>\nTortoiseIDiff.exe /left:\"c:\\images\\img1.jpg\" /lefttitle:\"image 1\"\n                  /right:\"c:\\images\\img2.jpg\" /righttitle:\"image 2\"\n                  /fit /overlay\n</screen>"
 
 #. (title)
 msgid "Command Line Interface Cross Reference"
@@ -17509,7 +17509,7 @@ msgid ""
 "you understand what TortoiseSVN is doing behind the scenes, we have compiled"
 " a list showing the equivalent CLI commands for each of TortoiseSVN's GUI "
 "operations."
-msgstr "時々このマニュアルは、コマンドラインインターフェイス (CLI) の説明をしている Subversion のドキュメントを参照しています。TortoiseSVN があるシーンの裏で何を行っているか理解する助けになるよう、それぞれの TortoiseSVN の GUI 操作と同等な CLI コマンドを示すリストを用意しました。"
+msgstr "時々このマニュアルは、コマンドラインインターフェイス（CLI）の説明をしている Subversion のドキュメントを参照しています。TortoiseSVN があるシーンの裏で何を行っているか理解する助けになるよう、それぞれの TortoiseSVN の GUI 操作と同等な CLI コマンドを示すリストを用意しました。"
 
 #. (para)
 msgid ""
@@ -17644,7 +17644,7 @@ msgid ""
 "taking account of the ignore rules. This particular feature has no direct "
 "equivalent in Subversion, as the <literal>svn status</literal> command does "
 "not descend into unversioned folders."
-msgstr "<guilabel>バージョン管理外のファイルを表示</guilabel>にチェックがあると、TortoiseSVN は作業コピーの階層にあるバージョン管理外のファイルやフォルダーも (無視ルールを考慮して) 表示します。<literal>svn status</literal> コマンドはバージョン管理外のフォルダー以下は検索しないため、この特殊な機能は直接対応する Subversion コマンドがありません。"
+msgstr "<guilabel>バージョン管理外のファイルを表示</guilabel>にチェックがあると、TortoiseSVN は作業コピーの階層にあるバージョン管理外のファイルやフォルダーも（無視ルールを考慮して）表示します。<literal>svn status</literal> コマンドはバージョン管理外のフォルダー以下は検索しないため、この特殊な機能は直接対応する Subversion コマンドがありません。"
 
 #. (para)
 msgid ""
@@ -17705,7 +17705,7 @@ msgid ""
 "TortoiseSVN is using. TortoiseSVN uses TortoiseMerge (or a diff program of "
 "your choosing) to display differences visually between full-text files, so "
 "there is no direct CLI equivalent."
-msgstr "メインのコンテキストメニューから Diff を使用する場合、BASE リビジョンから変更されたファイルに対して比較を行います。上記 CLI コマンドの出力では比較を行い、結果を Unified 差分ファイルで出力します。しかし、TortoiseSVN がこれを使用しているわけではありません。TortoiseSVN は TortoiseMerge (や、任意の diff プログラム) でフルテキストファイルの差分を視覚的に表示します、そのため、直接 CLI で相当するものはありません。"
+msgstr "メインのコンテキストメニューから差分が実行された場合、BASEリビジョンから変更されたファイルに対して比較を行います。上記のCLIコマンドの出力では比較を行い、結果をUnified差分ファイルで出力します。しかし、TortoiseSVNはこれを使用しているわけではありません。TortoiseSVNはTortoiseMerge（または、任意の差分表示プログラム）でフルテキストファイルの差分を視覚的に表示します、そのため、CLIで直接相当するものはありません。"
 
 #. (para)
 msgid ""
@@ -17769,7 +17769,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn log -v URL\n"
 "</screen> where URL is the repository <emphasis>root</emphasis> and then analyzes the data returned."
-msgstr "TortoiseSVN は <screen>\nsvn info URL_of_WC\nsvn log -v URL\n</screen> を行い (URLはリポジトリの <emphasis>root</emphasis>)、返ってきたデータを解析します。"
+msgstr "TortoiseSVN は <screen>\nsvn info URL_of_WC\nsvn log -v URL\n</screen> を行い（URLはリポジトリの <emphasis>root</emphasis>）、返ってきたデータを解析します。"
 
 #. (title)
 msgid "Repo Browser"
@@ -17920,7 +17920,7 @@ msgid ""
 "The Branch/Tag dialog performs a copy to the repository. There are 3 radio "
 "button options: <placeholder-1/> which correspond to the 3 command line "
 "variants above."
-msgstr "ブランチ/タグダイアログはリポジトリへのコピーを実行します。以下のようにラジオボタンのオプションが 3 つあります。<placeholder-1/> これは上記のコマンドライン 3 種に該当します。"
+msgstr "ブランチ/タグダイアログはリポジトリへのコピーを実行します。以下のようにラジオボタンのオプションが３つあります。<placeholder-1/> これは上記のコマンドライン 3 種に該当します。"
 
 #. (screen)
 #, no-wrap
@@ -17954,7 +17954,7 @@ msgstr "\nsvn diff From_URL@revN To_URL@revM\n"
 msgid ""
 "The <guibutton>Unified diff</guibutton> shows the diff operation which will "
 "be used to do the merge."
-msgstr "<guibutton>Unified diff</guibutton> は merge で使用されるものを diff 操作で示します。"
+msgstr "<guibutton>Unified diff</guibutton> はマージ処理されるものを差分で表示します。"
 
 #. (screen)
 #, no-wrap
@@ -18065,14 +18065,14 @@ msgstr "\nsvn diff PATH &gt; patch-file\n"
 msgid ""
 "TortoiseSVN creates a patch file in unified diff format by comparing the "
 "working copy with its BASE version."
-msgstr "TortoiseSVN は、作業コピーと BASE リビジョンを比較して、unified diff 形式のパッチファイルを作成します。"
+msgstr "TortoiseSVN は、作業コピーと BASE リビジョンを比較して、unified差分形式のパッチファイルを作成します。"
 
 #. (para)
 msgid ""
 "Applying patches is a tricky business unless the patch and working copy are "
 "at the same revision. Luckily for you, you can use TortoiseMerge, which has "
 "no direct equivalent in Subversion."
-msgstr "パッチと作業コピーが同じリビジョンになっていなければ、パッチの適用はやりにくい作業です。運良く TortoiseMerge を使用できます。TortoiseMerge は Subversion に該当する機能がありません。"
+msgstr "パッチと作業コピーが同じリビジョンでない場合、パッチの適用は困難な作業です。幸いなことに、Subversionには該当する機能がありませんが、TortoiseMergeを使用ｓるうことができます。"
 
 #. (title)
 msgid "Implementation Details"
@@ -18182,7 +18182,7 @@ msgid ""
 "disable the <emphasis>Ignored</emphasis> and "
 "<emphasis>Unversioned</emphasis> overlays then no overlay will be shown for "
 "those files either."
-msgstr "Subversion の状態が <literal>none</literal> (作業コピーにない項目) の場合はオーバーレイを表示しません。<emphasis>無視</emphasis> や <emphasis>バージョン管理外</emphasis> のオーバーレイを無効にした場合は、そのファイルにもオーバーレイを表示しません。"
+msgstr "Subversion の状態が <literal>none</literal>（作業コピーにない項目）の場合はオーバーレイを表示しません。<emphasis>無視</emphasis> や <emphasis>バージョン管理外</emphasis> のオーバーレイを無効にした場合は、そのファイルにもオーバーレイを表示しません。"
 
 #. (para)
 msgid ""
@@ -18191,7 +18191,7 @@ msgid ""
 "Subversion returns a single status value - in this case "
 "<literal>deleted</literal>. Those priorities are defined within Subversion "
 "itself."
-msgstr "ファイルは Subversion 状態を 1 つしか持ちません。例えば、ファイルをローカルで変更し、そのファイルを同時に削除するようマークをつけることができます。Subversion は状態値を 1 つ返します。この場合、<literal>削除</literal>です。この優先順は、Subversion で定義しています。"
+msgstr "ファイルは Subversion 状態を１つしか持ちません。例えば、ファイルをローカルで変更し、そのファイルを同時に削除するようマークをつけることができます。Subversion は状態値を１つ返します。この場合、<literal>削除</literal>です。この優先順は、Subversion で定義しています。"
 
 #. (para)
 msgid ""
@@ -18690,7 +18690,7 @@ msgstr "言い換えるとリビジョンは、リビジョンが作成された
 
 #. (glossterm)
 msgid "Revision Property (revprop)"
-msgstr "リビジョンプロパティ (revprop)"
+msgstr "リビジョンプロパティ（revprop）"
 
 #. (para)
 msgid ""
@@ -18796,7 +18796,7 @@ msgstr "TortoiseMergeはフリー!"
 msgid ""
 "TortoiseMerge is free. You don't have to pay for it, you can use it any way "
 "you want. It is developed under the GP license (GPL)."
-msgstr "TortoiseMerge はフリーです。お金を払う必要はありませんし、どんな用途にも使用できます。 GNU Public License (GPL) のもとで開発されています。"
+msgstr "TortoiseMerge はフリーです。お金を払う必要はありませんし、どんな用途にも使用できます。 GNU Public License（GPL）のもとで開発されています。"
 
 #. (para)
 msgid ""

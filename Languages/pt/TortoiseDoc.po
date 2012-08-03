@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:25+0000\n"
-"Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2012-07-31 17:22+0000\n"
+"Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6939,7 +6939,7 @@ msgid ""
 "commit the change, you can get the file back using "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
 " on the parent folder."
-msgstr ""
+msgstr "Quando <guimenu>TortoiseSVN</guimenu><guimenuitem>Remover</guimenuitem></menuchoice> um ficheiro ou pasta, é removida imediatamente da tua cópia de trabalho e também marcada para remoção no repositório na próxima submissão. A pasta pai do item mostra uma sobreposição de ícone <quote>modificado</quote>. Até submeteres a alteração, poderás obter de novo o ficheiro com o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Reverter</guimenuitem></menuchoice> na pasta pai."
 
 #. (para)
 msgid ""
@@ -8295,7 +8295,7 @@ msgstr "<placeholder-1/> Esta propriedade controla se será dado o estado de exe
 
 #. (title)
 msgid "Merge log message templates"
-msgstr ""
+msgstr "Templates de mensagens de registo"
 
 #. (para)
 #. (para)
@@ -8303,7 +8303,7 @@ msgid ""
 "Whenever revisions are merged into a working copy, TortoiseSVN generates a "
 "log message from all the merged revisions. Those are then available from the"
 " <guibutton>Recent Messages</guibutton> button in the commit dialog."
-msgstr ""
+msgstr "Quando são integradas as revisões na cópia de trabalho, o TortoiseSVN gera uma mensagem de registo para todas as revisões integradas. Essas ficam então disponíveis a partir do botão <guibutton>Mensagens recentes</guibutton> na janela de diálogo submeter."
 
 #. (title)
 msgid "Property dialog merge log message templates"
@@ -8313,46 +8313,46 @@ msgstr ""
 msgid ""
 "You can customize that generated message with the following properties: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Podes personalizar essa mensagem gerada com as seguintes propriedades: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
 "7</literal>"
-msgstr ""
+msgstr "Lista de revisões integradas, separadas por virgulas, e.g., <literal>3, 5, 6, 7</literal>"
 
 #. (para)
 msgid ""
 "Like <literal>{revisions}</literal>, but with each revision preceeded with "
 "an <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
-msgstr ""
+msgstr "Tal como <literal>{revisions}</literal>,  mas com cada revisão precedida com <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, grouped into ranges if "
 "possible, e.g., <literal>3, 5-7</literal>"
-msgstr ""
+msgstr "Lista de revisões integradas separadas por virgulas, se possivel agrupadas em intervalos, e.g., <literal>3, 5-7</literal>"
 
 #. (para)
 msgid ""
 "The source url of the merge, i.e., where the revisions are merged from."
-msgstr ""
+msgstr "O url fonte da integração, i.e., de onde vêm as revisões integradas."
 
 #. (para)
 msgid ""
 "This property specifies the first part of the generated log message. The "
 "following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Esta propriedade específica a primeira parte da mensagem de registo gerada. As próximas palavras-chave podem ser usadas: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "The default value for this string is <literal>Merged revision(s) {revrange} "
 "from {mergeurl}:</literal> with a newline at the end."
-msgstr ""
+msgstr "O valor por defeito para esta string é <literal>Merged revision(s) {revrange} from {mergeurl}:</literal>  com uma linha nova no fim."
 
 #. (para)
 msgid "The log message of the merged revision, as it was entered."
-msgstr ""
+msgstr "A mensagem de registo da revisão integrada, como foi introduzida."
 
 #. (para)
 msgid ""
@@ -8362,21 +8362,21 @@ msgstr ""
 
 #. (para)
 msgid "The author of the merged revision."
-msgstr ""
+msgstr "O autor da revisão integrada."
 
 #. (para)
 msgid "The merged revision itself."
-msgstr ""
+msgstr "A própria revisão integrada."
 
 #. (para)
 msgid "The bug IDs of the merged revision, if there are any."
-msgstr ""
+msgstr "Os IDs dos problemas da revisão integrada, se existirem."
 
 #. (para)
 msgid ""
 "This property specifies how the text for each merged revision should look "
 "like. The following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Esta propriedade especifica como o texto em cada revisão integrada deve ficar formatado. Podem ser usadas as seguintes palavras chave: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8384,7 +8384,7 @@ msgid ""
 " have disabled the log cache or not shown the log first before the merge, "
 "the generated message won't contain any information about the merged "
 "revisions."
-msgstr ""
+msgstr "Isto só funciona se as revisões integradas já estão na cache de registo. Se desactivaste a cache de registo ou não indicaste o registo antes do merge, a mensagem gerada não irá então conter qualquer informação sobre as revisões integradas."
 
 #. (title)
 msgid "External Items"
@@ -9374,7 +9374,7 @@ msgid ""
 "To customize that generated message, set the corresponding project "
 "properties on your working copy. See <xref linkend=\"tsvn_dug_propertypage-"
 "edit-mergelogmsgtemplate\"/>"
-msgstr ""
+msgstr "Para personalizar essa mensagem gerada, coloca as respectivas propriedades de projecto na tua cópia de trabalho. Consultar <xref linkend=\"tsvn_dug_propertypage-edit-mergelogmsgtemplate\"/>"
 
 #. (para)
 msgid ""
@@ -14268,7 +14268,7 @@ msgstr "Se definido para 4, então o grupo funciona como se tivesse a configura�
 msgid ""
 "If this is set to <literal>false</literal>, then every "
 "<literal>svn:externals</literal> is shown during an update separately."
-msgstr ""
+msgstr "Se for posto a <literal>false</literal>,  então é mostrado em separado cada <literal>svn:externals</literal> durante uma actualização."
 
 #. (para)
 msgid ""
@@ -14276,7 +14276,7 @@ msgid ""
 "information for externals is only shown if the externals are affected by the"
 " update, i.e. changed in some way. Otherwise nothing is shown as with normal"
 " files and folders."
-msgstr ""
+msgstr "Se for colocado <literal>true</literal> (por defeito), então a actualização de informação para os externos só é mostrada se os externos forem afectados pela actualização, i.e. alteradas de algum modo. De outro modo nada é mostrado, tal como com os ficheiros e pastas normais."
 
 #. (para)
 msgid ""
@@ -14358,7 +14358,7 @@ msgid ""
 "doesn't work properly so that the cursor to enter text isn't always visible."
 " If that happens, you can turn this feature off by setting this value to "
 "<literal>false</literal>."
-msgstr ""
+msgstr "Esta opção activa o uso de aceleração Direct2D em desenho no controlo Scintilla, que é usado como caixa de edição como por exemplo na janela Submeter, e também para o visualizador de comparação unificada. Com algumas placas gráficas esta funcionalidade por vezes não funciona correctamente, pelo que o cursor para introdução de texto não está sempre visível. Se isso acontecer, podes desligar esta funcionalidade colocando este valor a <literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -17329,18 +17329,18 @@ msgstr "Reconstrói a cache de ícones do windows. Usa só isto no caso de os í
 #. (para)
 msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>."
-msgstr ""
+msgstr "Mosta a caixa de diálogo propriedades para o caminho especificado por <option>/path</option>."
 
 #. (para)
 msgid ""
 "For dealing with versioned properties this command requires a working copy."
-msgstr ""
+msgstr "Para este comando lidar com propreidades versionadas é necessário uma cópia de trabalho."
 
 #. (para)
 msgid ""
 "Revision properties can be viewed/changed if <option>/path</option> is an "
 "URL and <option>/rev:XXX</option> is specified."
-msgstr ""
+msgstr "As propriedades da revisão podem ser vistas/alteradas se <option>/path</option> for um URL e for especificado <option>/rev:XXX</option> ."
 
 #. (para)
 msgid ""
