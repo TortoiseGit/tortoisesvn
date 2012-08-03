@@ -6,6 +6,9 @@ rem set LOCAL_FOP_HOME=C:\DocTools\fop\
 rem set CMD="java" 
 rem set FONT_DIR=C:\Windows\Fonts
 
+rem auto-create configuration file
+if not exist config.bat copy config.bat.sample config.bat
+
 rem load configuration file
 call config.bat
 

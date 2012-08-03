@@ -25,6 +25,21 @@
   <!-- default: we build in a user session -->
   <property name="schedule" value="no"/>
 
+  <!-- make sure the user config file exists -->
+  <property name="userconfigfile"
+            value="default.build.user" />
+  <property name="userconfigtemplate" 
+            value="${userconfigfile}.tmpl" />
+  <if test="${not file::exists(userconfigfile)}">
+    <echo level="Warning">
+The file ${userconfigfile} is missing. We will auto-create it
+from the ${userconfigtemplate} file. Please consider adapting
+it to your needs.
+    </echo>
+    <copy file="${userconfigtemplate}"
+          tofile="${userconfigfile}"/>
+  </if>
+
   <include buildfile="default.build.user" />
 
   <!-- build with VS2011, if there is a 11.0 in the VC path -->
