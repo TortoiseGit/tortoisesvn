@@ -1422,6 +1422,7 @@ void CLogDlg::LogThread()
             // try again with REV_WC as the start revision, just in case the path doesn't
             // exist anymore in HEAD
             cachedData = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_nRefresh==Cache);
+            m_pegrev = SVNRev::REV_WC;
         }
 
         // Err will also be set if the user cancelled.
