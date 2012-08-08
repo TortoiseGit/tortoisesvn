@@ -53,6 +53,7 @@ TCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 TCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
 std::wstring szViewtitle;
 std::wstring szOrigPath;
+std::wstring szPegRev;
 TCHAR searchstringnotfound[MAX_LOADSTRING];
 
 const bool ShowDate = false;
@@ -893,6 +894,7 @@ void TortoiseBlame::BlamePreviousRevision()
     svnCmd += bufStartRev;
     svnCmd += _T(" /endrev:");
     svnCmd += bufEndRev;
+    svnCmd += szPegRev;
     svnCmd += _T(" /line:");
     svnCmd += bufLine;
     if (bIgnoreEOL)
@@ -934,6 +936,7 @@ void TortoiseBlame::DiffPreviousRevision()
     svnCmd += bufStartRev;
     svnCmd += _T(" /endrev:");
     svnCmd += bufEndRev;
+    svnCmd += szPegRev;
     if (!uuid.empty())
     {
         svnCmd += L" /groupuuid:\"";
@@ -954,8 +957,7 @@ void TortoiseBlame::ShowLog()
     svnCmd += _T("\"");
     svnCmd += _T(" /startrev:");
     svnCmd += bufRev;
-    svnCmd += _T(" /pegrev:");
-    svnCmd += bufRev;
+    svnCmd += szPegRev;
     if (!uuid.empty())
     {
         svnCmd += L" /groupuuid:\"";
@@ -1569,6 +1571,13 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     {
         szOrigPath = parser.GetVal(_T("path"));
     }
+
+    if ( parser.HasKey(_T("pegrev")) )
+    {
+        szPegRev = _T(" /pegrev:");
+        szPegRev += parser.GetVal(_T("pegrev"));
+    }
+
     app.bIgnoreEOL = parser.HasKey(_T("ignoreeol"));
     app.bIgnoreSpaces = parser.HasKey(_T("ignorespaces"));
     app.bIgnoreAllSpaces = parser.HasKey(_T("ignoreallspaces"));

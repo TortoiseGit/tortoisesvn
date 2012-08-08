@@ -5072,6 +5072,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             {
                 CBlameDlg dlg;
                 dlg.EndRev = revSelected;
+                dlg.PegRev = m_pegrev;
                 if (dlg.DoModal() == IDOK)
                 {
                     SVNRev startrev = dlg.StartRev;
@@ -5085,7 +5086,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
 
                         CBlame blame;
                         CString tempfile;
-                        tempfile = blame.BlameToTempFile(m_path, startrev, endrev, endrev, _T(""), includeMerge, TRUE, TRUE);
+                        tempfile = blame.BlameToTempFile(m_path, startrev, endrev, m_pegrev, _T(""), includeMerge, TRUE, TRUE);
                         if (!tempfile.IsEmpty())
                         {
                             if (textViewer)
@@ -5096,7 +5097,12 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
                             else
                             {
                                 CString sParams = _T("/path:\"") + m_path.GetSVNPathString() + _T("\" ");
-                                CAppUtils::LaunchTortoiseBlame(tempfile, CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),sParams, startrev, endrev);
+                                CAppUtils::LaunchTortoiseBlame(tempfile,
+                                                               CPathUtils::GetFileNameFromPath(m_path.GetFileOrDirectoryName()),
+                                                               sParams,
+                                                               startrev,
+                                                               endrev,
+                                                               m_pegrev);
                             }
                         }
                         else
@@ -5747,6 +5753,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 {
                     SVNRev startrev = dlg.StartRev;
                     SVNRev endrev = dlg.EndRev;
+                    SVNRev pegrev = rev1;
                     bool includeMerge = !!dlg.m_bIncludeMerge;
                     bool textView = !!dlg.m_bTextView;
                     auto f = [=]()
@@ -5755,7 +5762,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                         this->EnableWindow(FALSE);
                         CBlame blame;
                         CString tempfile;
-                        tempfile = blame.BlameToTempFile(CTSVNPath(filepath), startrev, endrev, endrev, _T(""), includeMerge, TRUE, TRUE);
+                        tempfile = blame.BlameToTempFile(CTSVNPath(filepath), startrev, endrev, pegrev, _T(""), includeMerge, TRUE, TRUE);
                         if (!tempfile.IsEmpty())
                         {
                             if (textView)
@@ -5766,7 +5773,12 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                             else
                             {
                                 CString sParams = _T("/path:\"") + filepath + _T("\" ");
-                                CAppUtils::LaunchTortoiseBlame(tempfile, CPathUtils::GetFileNameFromPath(filepath),sParams, startrev, endrev);
+                                CAppUtils::LaunchTortoiseBlame(tempfile,
+                                                               CPathUtils::GetFileNameFromPath(filepath),
+                                                               sParams,
+                                                               startrev,
+                                                               endrev,
+                                                               pegrev);
                             }
                         }
                         else

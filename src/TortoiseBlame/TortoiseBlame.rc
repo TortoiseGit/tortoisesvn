@@ -132,7 +132,7 @@ END
 
 STRINGTABLE
 BEGIN
-    IDS_COMMANDLINE_INFO    "TortoiseBlame should not be started directly! Use\nTortoiseProc.exe /command:blame /path:""path\\to\\file""\ninstead.\n\nTortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+    IDS_COMMANDLINE_INFO    "TortoiseBlame should not be started directly! Use\nTortoiseProc.exe /command:blame /path:""path\\to\\file""\ninstead.\n\nTortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 END
 
 STRINGTABLE

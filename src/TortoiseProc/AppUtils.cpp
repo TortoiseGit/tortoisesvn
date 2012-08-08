@@ -494,7 +494,12 @@ void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
 /**
 * Launch the external blame viewer
 */
-bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sOriginalFile, const CString& sParams, const SVNRev& startrev, const SVNRev& endrev)
+bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile,
+                                    const CString& sOriginalFile,
+                                    const CString& sParams,
+                                    const SVNRev& startrev,
+                                    const SVNRev& endrev,
+                                    const SVNRev& pegrev)
 {
     CString viewer = L"\"";
     viewer += CPathUtils::GetAppDirectory();
@@ -502,8 +507,13 @@ bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile, const CString& sO
     viewer += _T(" \"") + sBlameFile + _T("\"");
     viewer += _T(" \"") + sOriginalFile + _T("\"");
     viewer += _T(" ")+sParams;
+
     if (startrev.IsValid() && endrev.IsValid())
         viewer += _T(" /revrange:\"") + startrev.ToString() + _T("-") + endrev.ToString() + _T("\"");
+
+    if (pegrev.IsValid())
+        viewer += _T(" /pegrev:") + pegrev.ToString();
+
     if (!g_sGroupingUUID.IsEmpty())
     {
         viewer += L" /groupuuid:\"";

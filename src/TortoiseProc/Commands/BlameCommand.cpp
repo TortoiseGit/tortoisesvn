@@ -34,6 +34,24 @@ bool BlameCommand::Execute()
     CString options;
     dlg.EndRev = SVNRev::REV_HEAD;
     dlg.m_path = cmdLinePath;
+
+    if (!parser.HasKey(_T("startrev")) || !parser.HasKey(_T("pegrev")))
+    {
+        // if the file has been moved/deleted/renamed in HEAD, the default
+        // range from 1 to HEAD won't work so we find the WC revision
+        // of the file and use that as the default end revision
+        SVNInfo info;
+        const SVNInfoData * idata = info.GetFirstFileInfo(cmdLinePath, SVNRev(), SVNRev());
+        if (idata)
+        {
+            dlg.EndRev = idata->rev;
+            dlg.PegRev = idata->rev;
+        }
+    }
+
+    if (parser.HasKey(_T("pegrev")))
+        dlg.PegRev = SVNRev(parser.GetVal(_T("pegrev")));
+
     if (parser.HasKey(_T("startrev")) && parser.HasKey(_T("endrev")))
     {
         bShowDialog = false;
@@ -44,16 +62,7 @@ bool BlameCommand::Execute()
             options = SVN::GetOptionsString(!!parser.HasKey(_T("ignoreeol")), !!parser.HasKey(_T("ignorespaces")), !!parser.HasKey(_T("ignoreallspaces")));
         }
     }
-    else
-    {
-        // if the file has been moved/deleted/renamed in HEAD, the default
-        // range from 1 to HEAD won't work so we find the WC revision
-        // of the file and use that as the default end revision
-        SVNInfo info;
-        const SVNInfoData * idata = info.GetFirstFileInfo(cmdLinePath, SVNRev(), SVNRev());
-        if (idata)
-            dlg.EndRev = idata->rev;
-    }
+
     if ((!bShowDialog)||(dlg.DoModal() == IDOK))
     {
         CString tempfile;
@@ -87,6 +96,7 @@ bool BlameCommand::Execute()
                     sVal += _T(" ");
                 }
                 sVal += _T("/path:\"") + cmdLinePath.GetSVNPathString() + _T("\" ");
+
                 if (bShowDialog)
                 {
                     if (dlg.m_bIgnoreEOL)
@@ -110,7 +120,12 @@ bool BlameCommand::Execute()
                         sVal += _T("/ignoreallspaces ");
                 }
 
-                bRet = CAppUtils::LaunchTortoiseBlame(tempfile, cmdLinePath.GetFileOrDirectoryName(), sVal, dlg.StartRev, dlg.EndRev);
+                bRet = CAppUtils::LaunchTortoiseBlame(tempfile,
+                                                      cmdLinePath.GetFileOrDirectoryName(),
+                                                      sVal,
+                                                      dlg.StartRev,
+                                                      dlg.EndRev,
+                                                      dlg.PegRev);
             }
         }
     }

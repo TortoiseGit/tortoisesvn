@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -116,8 +116,8 @@ public:
     * Launch the external blame viewer
     */
     static bool LaunchTortoiseBlame(
-        const CString& sBlameFile, const CString& sOriginalFile, const CString& sParams = CString(),
-        const SVNRev& startrev = SVNRev(), const SVNRev& endrev = SVNRev());
+        const CString& sBlameFile, const CString& sOriginalFile, const CString& sParams,
+        const SVNRev& startrev, const SVNRev& endrev, const SVNRev& pegrev);
 
     /**
      * Formats text in a rich edit control (version 2).
