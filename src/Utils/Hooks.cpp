@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011 - TortoiseSVN
+// Copyright (C) 2007-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -634,12 +634,13 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                 {
                     cmd.bShow = (temp.CompareNoCase(_T("show"))==0);
 
-                    cmd.sRegKey;
-                    cmd.sRegKey.Format(L"%d%s", (int)key.htype, (LPCTSTR)cmd.commandline);
+                    temp.Format(L"%d%s", (int)key.htype, (LPCTSTR)cmd.commandline);
                     SVNPool pool;
-                    cmd.sRegKey = L"Software\\TortoiseSVN\\approvedhooks\\" + SVN::GetChecksumString(svn_checksum_sha1, cmd.sRegKey, pool);
+                    cmd.sRegKey = L"Software\\TortoiseSVN\\approvedhooks\\" + SVN::GetChecksumString(svn_checksum_sha1, temp, pool);
                     CRegDWORD reg(cmd.sRegKey, 0);
                     cmd.bApproved = (DWORD(reg) != 0);
+                    cmd.bStored = reg.exists();
+
                     if (find(key) == end())
                     {
                         m_pInstance->insert(std::pair<hookkey, hookcmd>(key, cmd));
@@ -654,8 +655,8 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
 
 bool CHooks::ApproveHook( HWND hWnd, hookiterator it )
 {
-    if (it->second.bApproved)
-        return true;
+    if (it->second.bApproved || it->second.bStored)
+        return it->second.bApproved;
 
     CString sQuestion;
     sQuestion.Format(IDS_HOOKS_APPROVE_TASK1, it->second.commandline);
@@ -689,6 +690,7 @@ bool CHooks::ApproveHook( HWND hWnd, hookiterator it )
     {
         CRegDWORD reg(it->second.sRegKey, 0);
         reg = bApproved ? 1 : 0;
+        it->second.bStored = true;
     }
     it->second.bApproved = bApproved;
     return bApproved;
