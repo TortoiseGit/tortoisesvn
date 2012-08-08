@@ -71,6 +71,7 @@ typedef struct hookcmd
     CString         commandline;
     bool            bWait;
     bool            bShow;
+    bool            bForce;
     bool            bApproved;
     bool            bStored;    ///< reg key does exist
     CString         sRegKey;
@@ -113,7 +114,7 @@ public:
      * Adds a new hook script. To make the change persistent, call Save().
      */
     void                Add(hooktype ht, const CTSVNPath& Path, LPCTSTR szCmd,
-                            bool bWait, bool bShow);
+                            bool bWait, bool bShow, bool bForce);
 
     /// returns the string representation of the hook type.
     static CString      GetHookTypeString(hooktype t);
@@ -239,6 +240,13 @@ public:
      * SVN functions that contact a repository.
      */
     bool                PreConnect(const CTSVNPathList& pathList);
+
+    /**
+     * Returns cc true if the hook(s) \c t for the paths given in \c pathList
+     * cannot be ignored, i.e. if the user configured it as "forced execution".
+     * \param pathList a list of paths to look for the hook scripts
+     */
+    bool                IsHookExecutionForced(hooktype t, const CTSVNPathList& pathList);
 
 private:
     /**

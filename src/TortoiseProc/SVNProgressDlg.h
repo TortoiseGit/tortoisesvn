@@ -27,6 +27,7 @@
 #include "..\IBugTraqProvider\IBugTraqProvider_h.h"
 #include "Win7.h"
 #include "LinkControl.h"
+#include "Hooks.h"
 
 class CCmdLineParser;
 
@@ -259,7 +260,7 @@ private:
     virtual void OnOK();
     void        ReportSVNError();
     void        ReportError(const CString& sError);
-    void        ReportHookFailed(const CString& error);
+    void        ReportHookFailed(hooktype t, const CTSVNPathList& pathList, const CString& error);
     void        ReportWarning(const CString& sWarning);
     void        ReportNotification(const CString& sNotification);
     void        ReportCmd(const CString& sCmd);
@@ -357,6 +358,7 @@ private:
     bool                    m_bMergesAddsDeletesOccurred;
     bool                    m_bHookError;
     bool                    m_bNoHooks;
+    bool                    m_bHooksAreOptional;
 
     int                     iFirstResized;
     BOOL                    bSecondResized;

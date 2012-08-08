@@ -31,7 +31,6 @@
 #include "UnicodeUtils.h"
 #include "SoundUtils.h"
 #include "SVNDiff.h"
-#include "Hooks.h"
 #include "SVNLogHelper.h"
 #include "SVNHelpers.h"
 #include "RegHistory.h"
@@ -1104,12 +1103,13 @@ void CSVNProgressDlg::ReportError(const CString& sError)
     m_bErrorsOccurred = true;
 }
 
-void CSVNProgressDlg::ReportHookFailed(const CString& error)
+void CSVNProgressDlg::ReportHookFailed(hooktype t, const CTSVNPathList& pathList, const CString& error)
 {
     CString temp;
     temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
     ReportError(temp);
     m_bHookError = true;
+    m_bHooksAreOptional = !CHooks::Instance().IsHookExecutionForced(t, pathList);
 }
 
 void CSVNProgressDlg::ReportWarning(const CString& sWarning)
@@ -1323,7 +1323,7 @@ UINT CSVNProgressDlg::ProgressThread()
         else
             m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NOPROGRESS);
     }
-    if (m_bHookError)
+    if (m_bHookError && m_bHooksAreOptional)
         GetDlgItem(IDC_RETRYNOHOOKS)->ShowWindow(SW_SHOW);
 
     CString info = BuildInfoString();
@@ -2332,7 +2332,7 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(post_update_hook, m_targetPathList, error);
             return false;
         }
     }
@@ -2428,7 +2428,7 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(post_update_hook, m_targetPathList, error);
             return false;
         }
     }
@@ -2560,7 +2560,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(pre_commit_hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -2603,7 +2603,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(post_commit_hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -2647,7 +2647,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(pre_commit_hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -2724,7 +2724,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(post_commit_hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -2773,7 +2773,7 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(pre_commit_hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -2794,7 +2794,7 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(post_commit_hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -3241,7 +3241,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(pre_update_hook, m_targetPathList, error);
             return false;
         }
     }
@@ -3258,7 +3258,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(post_update_hook, m_targetPathList, error);
             return false;
         }
     }
@@ -3286,7 +3286,7 @@ bool CSVNProgressDlg::CmdSwitchBackToParent( CString& sWindowTitle, bool& /*loca
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(pre_update_hook, m_targetPathList, error);
             return false;
         }
     }
@@ -3329,7 +3329,7 @@ bool CSVNProgressDlg::CmdSwitchBackToParent( CString& sWindowTitle, bool& /*loca
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(post_update_hook, m_targetPathList, error);
             return false;
         }
     }
@@ -3410,7 +3410,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(pre_update_hook, m_targetPathList, error);
             return false;
         }
     }
@@ -3449,7 +3449,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(error);
+            ReportHookFailed(post_update_hook, m_targetPathList, error);
             return false;
         }
     }
@@ -3599,6 +3599,7 @@ void CSVNProgressDlg::ResetVars()
     m_AlwaysConflicted = false;
     m_BugTraqProvider = NULL;
     m_bHookError = false;
+    m_bHooksAreOptional = true;
     m_bExternalStartInfoShown = false;
 
     m_ProgList.SetRedraw(FALSE);
@@ -3873,7 +3874,7 @@ LRESULT CSVNProgressDlg::OnCheck( WPARAM wnd, LPARAM )
             selIndex = 0;
         ++selIndex;
         bool bNextFound = false;
-        for (int i = selIndex; i < m_arData.size(); ++i)
+        for (int i = selIndex; i < (int)m_arData.size(); ++i)
         {
             NotificationData * data = m_arData[i];
             if (data->bConflictedActionItem)

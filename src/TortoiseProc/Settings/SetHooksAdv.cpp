@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2010,2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@ CSetHooksAdv::CSetHooksAdv(CWnd* pParent /*=NULL*/)
     , m_sCommandLine(_T(""))
     , m_bWait(FALSE)
     , m_bHide(FALSE)
+    , m_bForce(FALSE)
 {
 }
 
@@ -45,6 +46,7 @@ void CSetHooksAdv::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_HOOKCOMMANDLINE, m_sCommandLine);
     DDX_Check(pDX, IDC_WAITCHECK, m_bWait);
     DDX_Check(pDX, IDC_HIDECHECK, m_bHide);
+    DDX_Check(pDX, IDC_FORCECHECK, m_bForce);
     DDX_Control(pDX, IDC_HOOKTYPECOMBO, m_cHookTypeCombo);
 }
 
@@ -62,6 +64,7 @@ BOOL CSetHooksAdv::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassControl(this, IDC_WAITCHECK);
     m_aeroControls.SubclassControl(this, IDC_HIDECHECK);
+    m_aeroControls.SubclassControl(this, IDC_FORCECHECK);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     // initialize the combo box with all the hook types we have
@@ -96,6 +99,7 @@ BOOL CSetHooksAdv::OnInitDialog()
     m_sCommandLine = cmd.commandline;
     m_bWait = cmd.bWait;
     m_bHide = !cmd.bShow;
+    m_bForce = cmd.bForce;
     m_tooltips.Create(this);
     UpdateData(FALSE);
 
@@ -110,6 +114,7 @@ BOOL CSetHooksAdv::OnInitDialog()
     AddAnchor(IDC_DWM, TOP_RIGHT);
     AddAnchor(IDC_WAITCHECK, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_HIDECHECK, BOTTOM_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_FORCECHECK, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -129,6 +134,7 @@ void CSetHooksAdv::OnOK()
         cmd.commandline = m_sCommandLine;
         cmd.bWait = !!m_bWait;
         cmd.bShow = !m_bHide;
+        cmd.bForce = !!m_bForce;
     }
     if (key.htype == unknown_hook)
     {

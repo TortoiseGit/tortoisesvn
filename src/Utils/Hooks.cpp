@@ -53,6 +53,7 @@ bool CHooks::Create()
     // line 3: command line to execute
     // line 4: 'true' or 'false' for waiting for the script to finish
     // line 5: 'show' or 'hide' on how to start the hook script
+    // line 6: 'force' on whether to aks the user for permission (optinal)
     hookkey key;
     int pos = 0;
     hookcmd cmd;
@@ -81,6 +82,7 @@ bool CHooks::Create()
                     strhooks = strhooks.Mid(pos+1);
                 else
                     strhooks.Empty();
+
                 if ((pos = strhooks.Find('\n')) >= 0)
                 {
                     // line 4
@@ -97,6 +99,17 @@ bool CHooks::Create()
                             strhooks = strhooks.Mid(pos+1);
                         else
                             strhooks.Empty();
+
+                        cmd.bForce = false;
+                        if ((pos = strhooks.Find('\n')) >= 0)
+                        {
+                            // line 5
+                            cmd.bForce = (strhooks.Mid(0, pos).CompareNoCase(_T("force"))==0);
+                            if (pos+1 < strhooks.GetLength())
+                                strhooks = strhooks.Mid(pos+1);
+                            else
+                                strhooks.Empty();
+                        }
                         cmd.bApproved = true;   // user configured scripts are pre-approved
                         bComplete = true;
                     }
@@ -147,6 +160,8 @@ bool CHooks::Save()
         strhooks += '\n';
         strhooks += (it->second.bShow ? _T("show") : _T("hide"));
         strhooks += '\n';
+        if (it->second.bForce)
+          strhooks += _T("force\n");
     }
 
     CRegString reghooks = CRegString(_T("Software\\TortoiseSVN\\hooks"));
@@ -162,7 +177,8 @@ bool CHooks::Remove(hookkey key)
     return (erase(key) > 0);
 }
 
-void CHooks::Add(hooktype ht, const CTSVNPath& Path, LPCTSTR szCmd, bool bWait, bool bShow)
+void CHooks::Add(hooktype ht, const CTSVNPath& Path, LPCTSTR szCmd,
+                 bool bWait, bool bShow, bool bForce)
 {
     hookkey key;
     key.htype = ht;
@@ -175,6 +191,9 @@ void CHooks::Add(hooktype ht, const CTSVNPath& Path, LPCTSTR szCmd, bool bWait, 
     cmd.commandline = szCmd;
     cmd.bWait = bWait;
     cmd.bShow = bShow;
+    cmd.bForce = bForce;
+    cmd.bApproved |= bForce;
+
     insert(std::pair<hookkey, hookcmd>(key, cmd));
 }
 
@@ -408,6 +427,12 @@ bool CHooks::PreConnect(const CTSVNPathList& pathList)
     return false;
 }
 
+bool CHooks::IsHookExecutionForced(hooktype t, const CTSVNPathList& pathList)
+{
+    hookiterator it = FindItem(t, pathList);
+    return it != end() && it->second.bForce;
+}
+
 hookiterator CHooks::FindItem(hooktype t, const CTSVNPathList& pathList)
 {
     hookkey key;
@@ -565,10 +590,11 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
     if (strhook.IsEmpty())
         return false;
     // the string consists of multiple lines, where one hook script is defined
-    // as three lines:
+    // as four lines:
     // line 1: command line to execute
     // line 2: 'true' or 'false' for waiting for the script to finish
     // line 3: 'show' or 'hide' on how to start the hook script
+    // line 4: 'force' on whether to aks the user for permission
     hookkey key;
     hookcmd cmd;
 
@@ -640,6 +666,10 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                     CRegDWORD reg(cmd.sRegKey, 0);
                     cmd.bApproved = (DWORD(reg) != 0);
                     cmd.bStored = reg.exists();
+
+                    temp = strhook.Tokenize(_T("\n"), pos);
+                    cmd.bForce = temp.CompareNoCase(_T("force"))==0;
+                    cmd.bApproved |= cmd.bForce;
 
                     if (find(key) == end())
                     {

@@ -54,6 +54,7 @@ protected:
     CString             m_sCommandLine;
     BOOL                m_bWait;
     BOOL                m_bHide;
+    BOOL                m_bForce;
     CComboBox           m_cHookTypeCombo;
 public:
 };
