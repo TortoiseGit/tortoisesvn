@@ -1420,9 +1420,13 @@ void CLogDlg::LogThread()
         if ((cachedData.get() == NULL)&&(!m_path.IsUrl()))
         {
             // try again with REV_WC as the start revision, just in case the path doesn't
-            // exist anymore in HEAD
-            cachedData = ReceiveLog(CTSVNPathList(m_path), SVNRev(), SVNRev::REV_WC, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_nRefresh==Cache);
+            // exist anymore in HEAD.
+            // Also, make sure we use these parameters for furter requests (like "next 100").
+
             m_pegrev = SVNRev::REV_WC;
+            m_startrev = SVNRev::REV_WC;
+
+            cachedData = ReceiveLog(CTSVNPathList(m_path), m_pegrev, m_startrev, m_endrev, m_limit, !!m_bStrict, !!m_bIncludeMerges, m_nRefresh==Cache);
         }
 
         // Err will also be set if the user cancelled.
