@@ -110,6 +110,10 @@ Version 1.7.8
        info is not available. (Stefan Fuhrmann)
 - BUG: Issue #383: access violation if context
        creation fails. (Stefan)
+- BUG: Issue #384: Crash when removing old log caches.
+       (Stefan Fuhrmann)
+- BUG: Issue #385: Log cache not filled after REPLACE.
+       (Stefan Fuhrmann)
 - BUG: Issue #386: double entries in log dialog
        after "next 100". (Stefan)
 - BUG: Issue #388: Wrong/duplicate info in the
