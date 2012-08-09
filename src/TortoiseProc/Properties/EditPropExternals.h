@@ -41,9 +41,11 @@ protected:
     afx_msg void OnBnClickedAdd();
     afx_msg void OnBnClickedEdit();
     afx_msg void OnBnClickedRemove();
+    afx_msg void OnBnClickedFindhead();
     afx_msg void OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnLvnItemchangedExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMDblclkExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
     afx_msg void OnBnClickedHelp();
 
     DECLARE_MESSAGE_MAP()
