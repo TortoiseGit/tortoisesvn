@@ -195,6 +195,23 @@ void CEditPropExternalsValue::OnBnClickedBrowse()
 {
     SVNRev rev = SVNRev::REV_HEAD;
     CAppUtils::BrowseRepository(m_URLCombo, this, rev, false, m_RepoRoot.GetSVNPathString(), m_URL.GetSVNPathString());
+
+    // if possible, create a repository-root relative url
+    CString strURLs;
+    m_URLCombo.GetWindowText(strURLs);
+    if (strURLs.IsEmpty())
+        strURLs = m_URLCombo.GetString();
+    strURLs.Replace('\\', '/');
+    strURLs.Replace(_T("%"), _T("%25"));
+
+    CString root = m_RepoRoot.GetSVNPathString();
+    int rootlength = root.GetLength();
+    if (strURLs.Left(rootlength).Compare(root)==0)
+    {
+        strURLs = L"^/" + strURLs.Mid(rootlength);
+        strURLs.Replace(L"^//", L"^/");
+        m_URLCombo.SetWindowText(strURLs);
+    }
 }
 
 void CEditPropExternalsValue::OnBnClickedShowLog()
@@ -203,79 +220,25 @@ void CEditPropExternalsValue::OnBnClickedShowLog()
     if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
         return;
     CString urlString = m_URLCombo.GetString();
+    CTSVNPath logUrl = m_URL;
     if (urlString.GetLength()>1)
     {
-        if (urlString[0] == '^')
-        {
-            // relative to repo root
-            urlString = urlString.Mid(1);
-            m_URL = m_RepoRoot;
-            m_URL.AppendPathString(urlString);
-        }
-        else if ((urlString[0] == '/')&&(urlString[1] == '/'))
-        {
-            // relative to scheme
-            CString scheme = m_URL.GetSVNPathString();
-            int pos = scheme.Find(L"://");
-            if (pos >= 0)
-            {
-                m_URL = CTSVNPath(scheme.Left(pos));
-                m_URL.AppendPathString(urlString);
-            }
-        }
-        else if (urlString[0] == '/')
-        {
-            // relative to servers hostname
-            URL_COMPONENTS components = {0};
-            TCHAR urlpath[INTERNET_MAX_PATH_LENGTH+1];
-            TCHAR scheme[INTERNET_MAX_SCHEME_LENGTH+1];
-            TCHAR hostname[INTERNET_MAX_HOST_NAME_LENGTH+1];
-            TCHAR username[INTERNET_MAX_USER_NAME_LENGTH+1];
-            TCHAR password[INTERNET_MAX_PASSWORD_LENGTH+1];
-            components.dwStructSize = sizeof(URL_COMPONENTS);
-            components.dwUrlPathLength = _countof(urlpath) - 1;
-            components.lpszUrlPath = urlpath;
-            components.lpszScheme = scheme;
-            components.dwSchemeLength = _countof(scheme) - 1;
-            components.lpszHostName = hostname;
-            components.dwHostNameLength = _countof(hostname) - 1;
-            components.lpszUserName = username;
-            components.dwUserNameLength = _countof(username) - 1;
-            components.lpszPassword = password;
-            components.dwPasswordLength = _countof(password) - 1;
-            InternetCrackUrl((LPCTSTR)m_RepoRoot.GetSVNPathString(), m_RepoRoot.GetUIPathString().GetLength(), 0, &components);
-            components.dwUrlPathLength = 0;
-            components.lpszUrlPath = NULL;
-            components.dwExtraInfoLength = 0;
-            components.lpszExtraInfo = NULL;
-            WCHAR root[INTERNET_MAX_PATH_LENGTH] = {0};
-            DWORD dwSize = INTERNET_MAX_PATH_LENGTH;
-            InternetCreateUrl(&components, 0, root, &dwSize);
-            m_URL = CTSVNPath(root);
-            m_URL.AppendPathString(urlString);
-        }
-        else if (urlString[0] == '.')
-        {
-            // relative to parent url
-            m_URL.AppendPathString(urlString);
-        }
-        else
-            m_URL = CTSVNPath(urlString);
+        logUrl = CTSVNPath(SVNExternals::GetFullExternalUrl(urlString, m_RepoRoot.GetSVNPathString(), m_URL.GetSVNPathString()));
     }
     else
     {
-        m_URL = m_RepoRoot;
-        m_URL.AppendPathString(urlString);
+        logUrl = m_RepoRoot;
+        logUrl.AppendPathString(urlString);
     }
 
-    if (!m_URL.IsEmpty())
+    if (!logUrl.IsEmpty())
     {
         delete m_pLogDlg;
         m_pLogDlg = new CLogDlg();
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;
         m_pLogDlg->m_wParam = 0;
-        m_pLogDlg->SetParams(CTSVNPath(m_URL), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE);
+        m_pLogDlg->SetParams(CTSVNPath(logUrl), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE);
         m_pLogDlg->ContinuousSelection(true);
         m_pLogDlg->Create(IDD_LOGMESSAGE, this);
         m_pLogDlg->ShowWindow(SW_SHOW);

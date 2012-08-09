@@ -462,3 +462,23 @@ bool SVNExternals::RestoreExternals()
 
     return true;
 }
+
+CString SVNExternals::GetFullExternalUrl( const CString& extUrl, const CString& root, const CString& dirUrl )
+{
+    CStringA extUrlA = CUnicodeUtils::GetUTF8(extUrl);
+    CStringA rootA = CUnicodeUtils::GetUTF8(root);
+    CStringA dirUrlA = CUnicodeUtils::GetUTF8(dirUrl);
+    CString url = extUrl;
+
+    SVNPool pool;
+    const char * pFullUrl = NULL;
+    svn_wc_external_item2_t e;
+    e.url = extUrlA;
+    svn_error_t * error = resolve_relative_external_url(&pFullUrl, &e, rootA, dirUrlA, pool, pool);
+    if ((error == NULL) && (pFullUrl))
+        url = CUnicodeUtils::GetUnicode(pFullUrl);
+    else
+        svn_error_clear(error);
+
+    return url;
+}

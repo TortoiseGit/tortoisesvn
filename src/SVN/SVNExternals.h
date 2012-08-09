@@ -87,6 +87,10 @@ public:
     std::string GetValue(const CTSVNPath& path) const;
     /// return the error string of the last failed operation
     CString GetLastErrorString() { return m_sError; }
+
+    /// returns the full url of a (possible) relative external url
+    static CString GetFullExternalUrl(const CString& extUrl, const CString& root, const CString& dirUrl);
+
 private:
     std::map<CTSVNPath, std::string>    m_originals;
     CString                             m_sError;
