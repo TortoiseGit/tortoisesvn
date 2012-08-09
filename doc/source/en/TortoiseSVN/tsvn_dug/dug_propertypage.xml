@@ -799,6 +799,16 @@ my:multilineprop=multiline;copy and paste a full chapter here(.*)
                 By specifying a peg revision you tell Subversion to look for an item that
                 had that name at the peg revision rather than at HEAD.
             </para>
+            <para>
+                The button <guibutton>Find HEAD-Revision</guibutton>
+                fetches the HEAD revision of every external url and
+                shows that HEAD revision in the rightmost column.
+                After the HEAD revision is known, a simple right click
+                on an external gives you the command to peg the
+                selected externals to their explicit HEAD revision.
+                In case the HEAD revision is not known yet, the right
+                click command will fetch the HEAD revision first.
+            </para>
         </sect3>
         <sect3 id="tsvn_dug_propertypage-edit-keywords">
             <?dbhh topicname="HIDD_EDITPROPKEYWORDS"?>
@@ -842,7 +852,7 @@ my:multilineprop=multiline;copy and paste a full chapter here(.*)
                     <graphic fileref="../images/PropEditLogSize.png"/>
                 </figure>
                 These 3 properties control the formatting of log messages.
-                The first 2 disable the <guibutton>OK</guibutton>OK in the
+                The first 2 disable the <guibutton>OK</guibutton> in the
                 commit or lock dialogs until the message meets the minimum length.
                 The border position shows a marker at the given column width as
                 a guide for projects which have width limits on their log messages.

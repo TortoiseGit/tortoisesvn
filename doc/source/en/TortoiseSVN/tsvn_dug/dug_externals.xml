@@ -74,6 +74,11 @@
                 be the difference between a successful and a failed build of
                 an older snapshot of your complex code base.
             </para>
+            <para>
+                The edit dialog for <literal>svn:externals</literal>
+                properties allows you to select the externals and automatically
+                set them explicitly to the HEAD revision.
+            </para>
         </tip>
         <para>
             If the external project is in the same repository, any changes
