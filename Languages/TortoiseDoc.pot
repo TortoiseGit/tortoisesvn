@@ -5139,6 +5139,10 @@ msgstr ""
 msgid "You need to define the name of the sub-folder that the external folder is checked out as, and the subversion URL of the external item. You can check out an external at its HEAD revision, so when the external item changes in the repository, your working copy will receive those changes on update. However, if you want the external to reference a particular stable point then you can specify the specific revision to use. IN this case you may also want to specify the same revision as a peg revision. If the external item is renamed at some point in the future then Subversion will not be able to update this item in your working copy. By specifying a peg revision you tell Subversion to look for an item that had that name at the peg revision rather than at HEAD."
 msgstr ""
 
+#. (para)
+msgid "The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD revision of every external url and shows that HEAD revision in the rightmost column. After the HEAD revision is known, a simple right click on an external gives you the command to peg the selected externals to their explicit HEAD revision. In case the HEAD revision is not known yet, the right click command will fetch the HEAD revision first."
+msgstr ""
+
 #. (title)
 msgid "SVN Keywords"
 msgstr ""
@@ -5181,7 +5185,7 @@ msgid "Size of log messages property page"
 msgstr ""
 
 #. (para)
-msgid "<placeholder-1/> These 3 properties control the formatting of log messages. The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock dialogs until the message meets the minimum length. The border position shows a marker at the given column width as a guide for projects which have width limits on their log messages. Setting a value to zero will delete the property."
+msgid "<placeholder-1/> These 3 properties control the formatting of log messages. The first 2 disable the <guibutton>OK</guibutton> in the commit or lock dialogs until the message meets the minimum length. The border position shows a marker at the given column width as a guide for projects which have width limits on their log messages. Setting a value to zero will delete the property."
 msgstr ""
 
 #. (title)
@@ -5338,6 +5342,10 @@ msgstr ""
 
 #. (para)
 msgid "You should strongly consider using explicit revision numbers in all of your externals definitions, as described above. Doing so means that you get to decide when to pull down a different snapshot of external information, and exactly which snapshot to pull. Besides the common sense aspect of not being surprised by changes to third-party repositories that you might not have any control over, using explicit revision numbers also means that as you backdate your working copy to a previous revision, your externals definitions will also revert to the way they looked in that previous revision, which in turn means that the external working copies will be updated to match they way <emphasis>they</emphasis> looked back when your repository was at that previous revision. For software projects, this could be the difference between a successful and a failed build of an older snapshot of your complex code base."
+msgstr ""
+
+#. (para)
+msgid "The edit dialog for <literal>svn:externals</literal> properties allows you to select the externals and automatically set them explicitly to the HEAD revision."
 msgstr ""
 
 #. (para)
@@ -12956,11 +12964,33 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr ""
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
 msgstr ""
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-G"
+msgstr ""
+
+#. (para)
+msgid "Go to line"
+msgstr ""
+
+#. (para)
+msgid "Select all text"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-U"
+msgstr ""
+
+#. (para)
+msgid "Switches views"
 msgstr ""
 
 #. (term)
