@@ -370,7 +370,7 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
     while (pos)
     {
         int index = m_ExtList.GetNextSelectedItem(pos);
-        if ((index >= 0)&&(index < m_externals.size()))
+        if ((index >= 0)&&(index < (int)m_externals.size()))
         {
             if (m_externals[index].headrev == SVN_INVALID_REVNUM)
             {
@@ -407,7 +407,7 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 {
                     int index = m_ExtList.GetNextSelectedItem(pos);
                     progDlg.SetProgress(count++, total);
-                    if ((index >= 0)&&(index < m_externals.size()))
+                    if ((index >= 0)&&(index < (int)m_externals.size()))
                     {
                         progDlg.SetLine(2, m_externals[index].url, true);
                         if (m_externals[index].headrev == SVN_INVALID_REVNUM)
@@ -439,7 +439,7 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             while (pos)
             {
                 int index = m_ExtList.GetNextSelectedItem(pos);
-                if ((index >= 0)&&(index < m_externals.size()))
+                if ((index >= 0)&&(index < (int)m_externals.size()))
                 {
                     if (m_externals[index].headrev != SVN_INVALID_REVNUM)
                     {
