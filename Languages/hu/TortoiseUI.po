@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:36+0000\n"
+"PO-Revision-Date: 2012-08-09 08:40+0000\n"
 "Last-Translator: Baquatelle <abel@abel.hu>\n"
 "Language-Team: Hungarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5762,6 +5762,10 @@ msgstr "&Következő forrás-fa összekapcsolása"
 msgid "Join with source tree"
 msgstr "Forrás-fa összekapcsolása"
 
+#. Resource IDs: (1632)
+msgid "Jump to next &conflict"
+msgstr ""
+
 #. Resource IDs: (1203)
 msgid "Keep &locks"
 msgstr "Zárolások &megtartása"
@@ -10236,8 +10240,8 @@ msgid ""
 "TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
 "instead.\n"
 "\n"
-"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr "A TortoiseBlame közvetlenül nem indítható!Használat:\nTortoiseProc.exe /command:blame /path:\"útvonal\\a\\fájlhoz\"\n\nTortoiseBlame.exe blamefájl [naplófájl [címmutatás]] [/line:sorszám] [/path:erediútvonal] [/ignoreeol] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+msgstr ""
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"

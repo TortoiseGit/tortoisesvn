@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:36+0000\n"
+"PO-Revision-Date: 2012-08-09 08:40+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5764,6 +5764,10 @@ msgstr "Спојити са следећим &стаблом"
 msgid "Join with source tree"
 msgstr "Спојити са изворним стаблом"
 
+#. Resource IDs: (1632)
+msgid "Jump to next &conflict"
+msgstr ""
+
 #. Resource IDs: (1203)
 msgid "Keep &locks"
 msgstr "Држи &закључан"
@@ -10238,8 +10242,8 @@ msgid ""
 "TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
 "instead.\n"
 "\n"
-"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr "ТортоисеБламе се не може директно покренути! Користи\nТортоисеПроц.еxе /цомманд:бламе /патх:\"патх\\то\\филе\"\nуместо.\n\nТортоисеБламе.еxе бламефиле [логфиле [виеwтитле]] [/лине:линенумбер] [/патх:оригиналпатх] [/игнорееол] [/игнореспацес] [/игнореаллспацес]"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+msgstr ""
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"

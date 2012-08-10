@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-24 22:25+0000\n"
+"PO-Revision-Date: 2012-08-09 08:40+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -5768,6 +5768,10 @@ msgstr "Połącz z następującym &drzewem"
 msgid "Join with source tree"
 msgstr "Połącz z drzewem źródłowym"
 
+#. Resource IDs: (1632)
+msgid "Jump to next &conflict"
+msgstr ""
+
 #. Resource IDs: (1203)
 msgid "Keep &locks"
 msgstr "Trzymaj b&lokady"
@@ -10242,8 +10246,8 @@ msgid ""
 "TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\n"
 "instead.\n"
 "\n"
-"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr "TortoiseBlame nie powinien być uruchamiany bezpośrednio! Zamiast tego użyj\nTortoiseProc.exe /command:blame /path:\"sciezka\\do\\pliku\"\n\nTortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+"TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
+msgstr ""
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
