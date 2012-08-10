@@ -75,7 +75,7 @@ BOOL CSetHooks::OnInitDialog()
     m_cHookList.InsertColumn(3, temp);
     temp.LoadString(IDS_SETTINGS_HOOKS_SHOWCOL);
     m_cHookList.InsertColumn(4, temp);
-    temp.LoadString(IDS_SETTINGS_HOOKS_FROCE);
+    temp.LoadString(IDS_SETTINGS_HOOKS_FORCE);
     m_cHookList.InsertColumn(5, temp);
 
     SetWindowTheme(m_cHookList.GetSafeHwnd(), L"Explorer", NULL);
