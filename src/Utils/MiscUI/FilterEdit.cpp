@@ -72,6 +72,7 @@ BEGIN_MESSAGE_MAP(CFilterEdit, CEdit)
     ON_WM_PAINT()
     ON_CONTROL_REFLECT(EN_KILLFOCUS, &CFilterEdit::OnEnKillfocus)
     ON_CONTROL_REFLECT(EN_SETFOCUS, &CFilterEdit::OnEnSetfocus)
+    ON_MESSAGE(WM_PASTE,OnPaste)
 END_MESSAGE_MAP()
 
 
@@ -389,4 +390,49 @@ void CFilterEdit::OnEnKillfocus()
 void CFilterEdit::OnEnSetfocus()
 {
     InvalidateRect(NULL);
+}
+
+LRESULT CFilterEdit::OnPaste(WPARAM, LPARAM)
+{
+    if (OpenClipboard()) 
+    {
+	    HANDLE hData = GetClipboardData (CF_TEXT);
+	    CString toInsert ((const char*)GlobalLock(hData));
+	    GlobalUnlock (hData);
+	    CloseClipboard();
+
+        // elimate control chars, especially newlines
+
+        toInsert.Replace(_T("\r\n"), _T(" "));
+        toInsert.Replace(_T('\r'), _T(' '));
+        toInsert.Replace(_T('\n'), _T(' '));
+        toInsert.Replace(_T('\t'), _T(' '));
+
+        // get the current text
+
+        int len = GetWindowTextLength();
+        std::unique_ptr<TCHAR[]> pBuf (new TCHAR[len+1]);
+        GetWindowText(pBuf.get(), len+1);
+        CString text = pBuf.get();
+
+        // construct the new text
+
+        int from, to;
+        GetSel(from, to);
+        text.Delete (from, to - from);
+        text.Insert (from, toInsert);
+        from += toInsert.GetLength();
+
+        // update & notify controls
+
+        SetWindowText (text);
+        SetSel (from, from, FALSE);
+        SetModify (TRUE);
+
+        GetParent()->SendMessage(WM_COMMAND,
+                                 MAKEWPARAM(GetDlgCtrlID(), EN_CHANGE),
+                                 (LPARAM)GetSafeHwnd());
+    }
+
+    return 0;
 }
