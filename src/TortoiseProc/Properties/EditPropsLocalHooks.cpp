@@ -45,7 +45,7 @@ void CEditPropsLocalHooks::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_HOOKCOMMANDLINE, m_sCommandLine);
     DDX_Check(pDX, IDC_WAITCHECK, m_bWait);
     DDX_Check(pDX, IDC_HIDECHECK, m_bHide);
-    DDX_Check(pDX, IDC_FORCECHECK, m_bForce);
+    DDX_Check(pDX, IDC_ENFORCECHECK, m_bEnforce);
     DDX_Control(pDX, IDC_HOOKTYPECOMBO, m_cHookTypeCombo);
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
@@ -108,7 +108,7 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
                     cmd.bShow = (temp.CompareNoCase(_T("show"))==0);
 
                     temp = strhook.Tokenize(_T("\n"), pos);
-                    cmd.bForce = (temp.CompareNoCase(_T("force"))==0);
+                    cmd.bEnforce = (temp.CompareNoCase(_T("enforce"))==0);
                 }
             }
         }
@@ -146,7 +146,7 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     m_sCommandLine = cmd.commandline;
     m_bWait = cmd.bWait;
     m_bHide = !cmd.bShow;
-    m_bForce = cmd.bForce;
+    m_bEnforce = cmd.bEnforce;
     m_tooltips.Create(this);
     UpdateData(FALSE);
 
@@ -156,7 +156,7 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     AddAnchor(IDC_HOOKCOMMANDLINE, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_WAITCHECK, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_HIDECHECK, BOTTOM_LEFT, BOTTOM_RIGHT);
-    AddAnchor(IDC_FORCECHECK, BOTTOM_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_ENFORCECHECK, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_PROPRECURSIVE, BOTTOM_LEFT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -201,7 +201,7 @@ void CEditPropsLocalHooks::OnOK()
     m_PropValue += CUnicodeUtils::StdGetUTF8((LPCWSTR)m_sCommandLine) + "\n";
     m_PropValue += m_bWait ? "true\n" : "false\n";
     m_PropValue += m_bHide ? "hide" : "show";
-    m_PropValue += m_bForce ? "\nforce" : "";
+    m_PropValue += m_bEnforce ? "\nenforce" : "";
 
     switch (htype)
     {

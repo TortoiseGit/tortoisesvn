@@ -75,7 +75,7 @@ BOOL CSetHooks::OnInitDialog()
     m_cHookList.InsertColumn(3, temp);
     temp.LoadString(IDS_SETTINGS_HOOKS_SHOWCOL);
     m_cHookList.InsertColumn(4, temp);
-    temp.LoadString(IDS_SETTINGS_HOOKS_FORCE);
+    temp.LoadString(IDS_SETTINGS_HOOKS_ENFORCE);
     m_cHookList.InsertColumn(5, temp);
 
     SetWindowTheme(m_cHookList.GetSafeHwnd(), L"Explorer", NULL);
@@ -99,7 +99,7 @@ void CSetHooks::RebuildHookList()
             m_cHookList.SetItemText(pos, 2, it->second.commandline);
             m_cHookList.SetItemText(pos, 3, (it->second.bWait ? _T("true") : _T("false")));
             m_cHookList.SetItemText(pos, 4, (it->second.bShow ? _T("show") : _T("hide")));
-            m_cHookList.SetItemText(pos, 5, (it->second.bForce ? _T("true") : _T("false")));
+            m_cHookList.SetItemText(pos, 5, (it->second.bEnforce ? _T("true") : _T("false")));
         }
     }
 
@@ -144,13 +144,13 @@ void CSetHooks::OnBnClickedEditbutton()
         dlg.cmd.commandline = m_cHookList.GetItemText(index, 2);
         dlg.cmd.bWait = (m_cHookList.GetItemText(index, 3).Compare(_T("true"))==0);
         dlg.cmd.bShow = (m_cHookList.GetItemText(index, 4).Compare(_T("show"))==0);
-        dlg.cmd.bForce = (m_cHookList.GetItemText(index, 5).Compare(_T("true"))==0);;
+        dlg.cmd.bEnforce = (m_cHookList.GetItemText(index, 5).Compare(_T("true"))==0);;
         hookkey key = dlg.key;
         if (dlg.DoModal() == IDOK)
         {
             CHooks::Instance().Remove(key);
             CHooks::Instance().Add(dlg.key.htype, dlg.key.path, dlg.cmd.commandline,
-                                   dlg.cmd.bWait, dlg.cmd.bShow, dlg.cmd.bForce);
+                                   dlg.cmd.bWait, dlg.cmd.bShow, dlg.cmd.bEnforce);
             RebuildHookList();
             SetModified();
         }
@@ -163,7 +163,7 @@ void CSetHooks::OnBnClickedAddbutton()
     if (dlg.DoModal() == IDOK)
     {
         CHooks::Instance().Add(dlg.key.htype, dlg.key.path, dlg.cmd.commandline,
-                               dlg.cmd.bWait, dlg.cmd.bShow, dlg.cmd.bForce);
+                               dlg.cmd.bWait, dlg.cmd.bShow, dlg.cmd.bEnforce);
         RebuildHookList();
         SetModified();
     }
@@ -205,12 +205,12 @@ void CSetHooks::OnBnClickedHookcopybutton()
         dlg.cmd.commandline = m_cHookList.GetItemText(index, 2);
         dlg.cmd.bWait = (m_cHookList.GetItemText(index, 3).Compare(_T("true"))==0);
         dlg.cmd.bShow = (m_cHookList.GetItemText(index, 4).Compare(_T("show"))==0);
-        dlg.cmd.bForce = (m_cHookList.GetItemText(index, 5).Compare(_T("true"))==0);
+        dlg.cmd.bEnforce = (m_cHookList.GetItemText(index, 5).Compare(_T("true"))==0);
         hookkey key = dlg.key;
         if (dlg.DoModal() == IDOK)
         {
             CHooks::Instance().Add(dlg.key.htype, dlg.key.path, dlg.cmd.commandline,
-                                   dlg.cmd.bWait, dlg.cmd.bShow, dlg.cmd.bForce);
+                                   dlg.cmd.bWait, dlg.cmd.bShow, dlg.cmd.bEnforce);
             RebuildHookList();
             SetModified();
         }

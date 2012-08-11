@@ -1109,7 +1109,7 @@ void CSVNProgressDlg::ReportHookFailed(hooktype t, const CTSVNPathList& pathList
     temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
     ReportError(temp);
     m_bHookError = true;
-    m_bHooksAreOptional = !CHooks::Instance().IsHookExecutionForced(t, pathList);
+    m_bHooksAreOptional = !CHooks::Instance().IsHookExecutionEnforced(t, pathList);
 }
 
 void CSVNProgressDlg::ReportWarning(const CString& sWarning)

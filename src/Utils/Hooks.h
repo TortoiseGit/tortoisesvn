@@ -68,12 +68,12 @@ public:
  */
 typedef struct hookcmd
 {
-    CString         commandline;
-    bool            bWait;
-    bool            bShow;
-    bool            bForce;
-    bool            bApproved;
-    bool            bStored;    ///< reg key does exist
+    CString         commandline;    ///< command line to be executed
+    bool            bWait;          ///< wait until the hook exited
+    bool            bShow;          ///< show hook executable window
+    bool            bEnforce;       ///< hook can not be skipped
+    bool            bApproved;      ///< user explicitly approved
+    bool            bStored;        ///< use decision is stored in reg
     CString         sRegKey;
 } hookcmd;
 
@@ -114,7 +114,7 @@ public:
      * Adds a new hook script. To make the change persistent, call Save().
      */
     void                Add(hooktype ht, const CTSVNPath& Path, LPCTSTR szCmd,
-                            bool bWait, bool bShow, bool bForce);
+                            bool bWait, bool bShow, bool bEnforce);
 
     /// returns the string representation of the hook type.
     static CString      GetHookTypeString(hooktype t);
@@ -246,7 +246,7 @@ public:
      * cannot be ignored, i.e. if the user configured it as "forced execution".
      * \param pathList a list of paths to look for the hook scripts
      */
-    bool                IsHookExecutionForced(hooktype t, const CTSVNPathList& pathList);
+    bool                IsHookExecutionEnforced(hooktype t, const CTSVNPathList& pathList);
 
 private:
     /**
