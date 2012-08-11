@@ -669,7 +669,7 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
 
                     temp = strhook.Tokenize(_T("\n"), pos);
                     cmd.bForce = temp.CompareNoCase(_T("force"))==0;
-                    cmd.bApproved |= cmd.bForce;
+                    cmd.bApproved = false;  // all repo-dicated hooks require user-approval
 
                     if (find(key) == end())
                     {
