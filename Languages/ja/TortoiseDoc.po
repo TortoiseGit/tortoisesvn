@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-03 06:27+0000\n"
+"PO-Revision-Date: 2012-08-10 15:49+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8175,7 +8175,17 @@ msgid ""
 "update this item in your working copy. By specifying a peg revision you tell"
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
-msgstr "チェックアウトした外部フォルダーや、外部項目の Subversion の URL のサブフォルダーの名前を設定する必要があります。外部フォルダーの HEAD リビジョンをチェックアウトしておけば、外部項目がリポジトリの中で変更されたときに、作業コピーを更新させることができます。しかし、特定の安定した時点のものを外部で参照できるようにするには、使用する特定のリビジョンを指定することもできます。また、この場合、ペグリビジョンと同じリビジョンを指定したいかもしれません。 外部の項目が将来何らかの時点で改名されると、Subversionは作業コピーでこの項目を更新できなくなります。ペグリビジョンを指定することで、最新版ではなくペグリビジョンの時の名前をSubversionに検索させることができます。"
+msgstr "チェックアウトした外部フォルダーや、外部項目の Subversion の URL のサブフォルダーの名前を設定する必要があります。外部フォルダーの最新リビジョンをチェックアウトしておけば、外部項目がリポジトリの中で変更されたときに、作業コピーを更新させることができます。しかし、特定の安定した時点のものを外部で参照できるようにするには、使用する特定のリビジョンを指定することもできます。また、この場合、ペグリビジョンと同じリビジョンを指定したいかもしれません。外部項目が将来何らかの時点で改名されると、Subversionは作業コピーでこの項目を更新できなくなります。ペグリビジョンを指定することで、最新版ではなくペグリビジョンの時の名前をSubversionに検索させることができます。"
+
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr "<guibutton>最新リビジョンを探す</guibutton>を押すと、外部項目の各URLを確認し、右端の列に最新リビジョン表示されます。最新リビジョンが分かったら、外部項目の上で右クリックすると、選択された外部項目を該当する最新リビジョンにペグ付けできます。最新リビジョンが不明な場合、右クリックのコマンドを実行すると、まず最新リビジョンが取得されます。"
 
 #. (title)
 msgid "SVN Keywords"
@@ -8225,12 +8235,12 @@ msgstr "ログメッセージサイズのプロパティページ"
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "<placeholder-1/>これら3つのプロパティは、ログメッセージの書式を制御します。最初の２つを設定すると、コミットダイアログやロックダイアログで、メッセージが最小文字列の長さに達するまで <guibutton>OK</guibutton> ボタンが無効になります。境界の位置は、それらのログメッセージの幅制限が設定されているプロジェクトのためのガイドとして指定されたカラム幅でマーカーを示しています。値をゼロに設定すると、プロパティが削除されます。"
+msgstr "<placeholder-1/>これら3つのプロパティは、ログメッセージの書式を制御します。最初の２つを設定すると、コミットダイアログやロックダイアログで、メッセージが最小文字列の長さに達するまで<guibutton>OK</guibutton>ボタンが無効になります。境界の位置は、それらのログメッセージの幅制限が設定されているプロジェクトのためのガイドとして指定されたカラム幅でマーカーを示しています。値をゼロに設定すると、プロパティが削除されます。"
 
 #. (title)
 msgid "Project Language"
@@ -8466,6 +8476,13 @@ msgid ""
 msgstr "前述のように、外部参照定義のすべてにおいて、明示的なリビジョン番号を使用することを強く意識するべきです。そうすることは、異なる外部参照情報のスナップショットを取り出す際、正確にどのスナップショットを取り出すかを決めることを意味します。コントロールが及ばないサードパーティのリポジトリに変更があっても驚かないと言う常識に加え、明示的なリビジョン番号を使用するということは、作業コピーを以前のリビジョンに戻すということでもあります。外部参照定義はまた、以前のリビジョンを見るように元に戻り、リポジトリが過去のリビジョンになっているなら、<emphasis>外部参照の作業コピー</emphasis>は一致するように以前を参照するように更新されます。ソフトウェアプロジェクトにおいて、これは複雑な古いコードベースを構築するのが成功するか失敗するかと言った違いに現れます。"
 
 #. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr "<literal>svn:externals</literal>プロパティの編集ダイアログでは外部参照を選択できますが、明示的に最新リビジョンが選択されます。"
+
+#. (para)
 #. (para)
 msgid ""
 "If the external project is in the same repository, any changes you make "
@@ -8679,14 +8696,14 @@ msgstr "新しいブランチのコピー先 URL のデフォルトは、作業�
 #. (term)
 #. (listitem)
 msgid "HEAD revision in the repository"
-msgstr "リポジトリ内の HEAD リビジョン"
+msgstr "リポジトリ内の最新リビジョン"
 
 #. (para)
 msgid ""
 "The new branch is copied directly in the repository from the HEAD revision. "
 "No data needs to be transferred from your working copy, and the branch is "
 "created very quickly."
-msgstr "新しいブランチは、リポジトリの最新である HEAD リビジョンから直接コピーされます。作業コピーから転送されるデータはなく、ブランチは非常に高速に作成されます。"
+msgstr "新しいブランチは、リポジトリの最新である最新リビジョンから直接コピーされます。データを作業コピーから転送する必要がないため、ブランチは非常に高速に作成されます。"
 
 #. (term)
 msgid "Specific revision in the repository"
@@ -19828,7 +19845,7 @@ msgstr "F7"
 
 #. (para)
 msgid "Go to next difference"
-msgstr "次の相違点へ移動する"
+msgstr "次の相違点へ移動"
 
 #. (term)
 msgid "Shift-F7"
@@ -19836,7 +19853,7 @@ msgstr "Shift+F7"
 
 #. (para)
 msgid "Go to previous difference"
-msgstr "前の相違点へ移動する"
+msgstr "前の相違点へ移動"
 
 #. (term)
 msgid "F8"
@@ -19844,7 +19861,7 @@ msgstr "F8"
 
 #. (para)
 msgid "Go to next conflict"
-msgstr "次の競合点へ移動する"
+msgstr "次の競合点へ移動"
 
 #. (term)
 msgid "Shift-F8"
@@ -19852,7 +19869,7 @@ msgstr "Shift+F8"
 
 #. (para)
 msgid "Go to previous conflict"
-msgstr "前の競合点へ移動する"
+msgstr "前の競合点へ移動"
 
 #. (term)
 msgid "Ctrl-D"
@@ -19860,7 +19877,7 @@ msgstr "Ctrl+D"
 
 #. (para)
 msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "1画面表示と2画面表示を切り替える"
+msgstr "1画面表示と2画面表示を切り替え"
 
 #. (term)
 msgid "Ctrl-R"
@@ -19868,7 +19885,7 @@ msgstr "Ctrl+R"
 
 #. (para)
 msgid "Reload the files and revert all changes made"
-msgstr "ファイルを再読込し、すべての変更の取り消す"
+msgstr "ファイルを再読込し、すべての変更の取り消し"
 
 #. (term)
 msgid "Ctrl-T"
@@ -19876,7 +19893,7 @@ msgstr "Ctrl+T"
 
 #. (para)
 msgid "Toggles between showing whitespaces or not"
-msgstr "空白の表示・非表示を切り替える"
+msgstr "空白の表示・非表示を切り替え"
 
 #. (term)
 msgid "Ctrl-L"
@@ -19884,15 +19901,37 @@ msgstr "Ctrl+L"
 
 #. (para)
 msgid "Toggles between collapsing unchanged sections or not"
-msgstr "未変更箇所を折りたたむかどうかを切り替える"
+msgstr "未変更箇所を折りたたむかどうかを切り替え"
 
+#. (term)
 #. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl+P"
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
-msgstr "行の折り返しの有無を切り替える"
+msgstr "行の折り返しの有無を切り替え"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr "Ctrl+G"
+
+#. (para)
+msgid "Go to line"
+msgstr "指定した行に移動"
+
+#. (para)
+msgid "Select all text"
+msgstr "文字列全体を選択"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl+U"
+
+#. (para)
+msgid "Switches views"
+msgstr "画面表示の切り替え"
 
 #. (term)
 msgid "Ctrl-mousewheel"

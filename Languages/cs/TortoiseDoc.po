@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-27 19:48+0000\n"
+"PO-Revision-Date: 2012-08-11 08:35+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8176,6 +8176,16 @@ msgid ""
 "rather than at HEAD."
 msgstr "Musíte zadat název podadresáře, do kterého bude vnější adresář získán, a Subversion URL externí položky. Můžete externí získat v revizi HEAD, takže když se vnější položky v archivu změní, Vaše pracovní kopie při aktualizaci obdrží tyto změny. Nicméně pokud chcete, aby externí odkazovala na určitý stabilní bod, pak můžete zadat konkrétní revizi k použití. V takovém případě můžete také chtít zadat stejnou revizi jako zavěšenou revizi. Pokud externí položka bude někdy v budoucnu přejmenována, pak Subversion nebude moci aktualizovat tuto položku v pracovní kopii. Zadáním udržené revize řeknete Subversion, že má hledat položku, která toto jméno měla v udržené revizi spíše než v HEAD."
 
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr "Tlačítko <guibutton>Najít revizi HEAD</guibutton> získá revizi HEAD z každé externí url a zobrazí je ve sloupci vpravo. Poté můžete jednoduše kliknutím pravého tlačítka myši na externí získat příkaz pro zavěšení zvolených externích na jejich explicitní revizi HEAD. V případě, že revize HEAD není zatím známa, kliknutím pravého tlačítka myši budou revize získány."
+
 #. (title)
 msgid "SVN Keywords"
 msgstr "SVN Klíčová slova"
@@ -8224,12 +8234,12 @@ msgstr "Stránka vlastnosti velikost zprávy záznamu"
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "<placeholder-1/> Tyto 3 vlastnosti kontrolují formátování zprávy záznamu. První 2 blokují <guibutton>OK</guibutton> v dialogových oknech odevzdání nebo zamknutí, dokud zpráva nedosáhne minimální délky. Pozice okraje ukazuje značku v dané šířce sloupce jako vodítko pro projekty, které mají omezení šířky v jejich zprávách záznamu. Nastavením nulové hodnoty, tuto vlastnost smaže."
+msgstr "<placeholder-1/> Tyto 3 vlastnosti kontrolují formátování zprávy záznamu. První 2 blokují <guibutton>OK</guibutton> v dialogových oknech odevzdání nebo zamknutí, dokud zpráva nedosáhne minimální délky. Pozice okraje ukazuje značku v dané šířce sloupce jako vodítko pro projekty, které mají omezení šířky v jejich zprávách záznamu. Nastavením nulové hodnoty tuto vlastnost smaže."
 
 #. (title)
 msgid "Project Language"
@@ -8463,6 +8473,13 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr "Měli byste vážně uvažovat o používání jednoznačných čísel revizí pro všechny vaše externí definice, jak je popsáno výše. Pokud tak učiníte, znamená to, že můžete rozhodnout, kdy a který záběr externích informací přesně stáhnout. Kromě hlediska zdravého rozumu nebýt překvapen změnami v úložištích třetí strany, nad kterými nemusíte mít žádnou kontrolu, používání jednoznačných čísel revizí také znamená, že jak Vaše pracovní kopie postupuje zpět na předchozí revizi, Vaše externí nastavení  se také vrátit do stavu, jak vypadali v té předchozí revizi, což znamená, že externí pracovní kopie bude aktualizována, aby odpovídala způsobu, jak <emphasis>ony </emphasis> vypadaly, když Vaše úložiště bylo v předchozí revizi. U softwarových projektů, toto může být rozdíl mezi úspěšným a neúspěšným sestavením staršího záběru Vašeho komplexní sady kódu."
+
+#. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr "Dialogové okno úprav pro vlastnosti <literal>svn:externals</literal> Vám umožňují vybrat externí a automaticky je nastavit na danou revizi HEAD."
 
 #. (para)
 #. (para)
@@ -19886,12 +19903,34 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Přepíná mezi sbalení nezměněných sekcí, nebo ne"
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
 msgstr "Přepíná mezi zalamováním řádků"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr "Ctrl-G"
+
+#. (para)
+msgid "Go to line"
+msgstr "Přejít na řádek"
+
+#. (para)
+msgid "Select all text"
+msgstr "Vybrat všechen text"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl-U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Přepnout zobrazení"
 
 #. (term)
 msgid "Ctrl-mousewheel"

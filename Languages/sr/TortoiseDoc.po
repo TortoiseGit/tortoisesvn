@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:25+0000\n"
+"PO-Revision-Date: 2012-08-10 08:34+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8175,6 +8175,16 @@ msgid ""
 "rather than at HEAD."
 msgstr "Треба да дефинишете име суб-фолдера где  спољашњи фолдер преузима и субверзиони УРЛ спољашње ставке. Можете преузети екстернал у његовој ГЛАВНОЈ ревизији,  када се екстерна ставка  промени у спремишту, ваша радна копија ће примити ове измене при обнављању. Међутим, ако желите да екстернал указује на посебно стабилну тачку тада можете специфицирати коришћење посебне ревизије. У овом случају можете такође желети да специфицирате исту ревизију као пег ревизија. Ако је екстерна ставка преименована у истој тачци у будућности тада Субверзија неће моћи да обнавља ову ставку у вашој радној копији. Специфицирајући пег ревизију кажете Субверзији да тражи ставку која има име у пег ревизији пре него у ГЛАВНОЈ."
 
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr ""
+
 #. (title)
 msgid "SVN Keywords"
 msgstr "СВН кључне речи"
@@ -8223,12 +8233,12 @@ msgstr "Величина стране особина дневника порук
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "<placeholder-1/> Ове 3 особине контролишу форматирање поруке дневника. Прве 2 онемогућава <guibutton>ОК</guibutton> ОК у дијалогу урезивања или закључавања док порука има минималну дужину. Положај границе приказује маркер у датој ширини колоне као водич за пројекте који имају ограничену ширину порука дневника. Подешавање вредности једнаку нули обрисаће особину. "
+msgstr ""
 
 #. (title)
 msgid "Project Language"
@@ -8462,6 +8472,13 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr "Треба чврсто осмислити коришћење спољашњих ревизионих бројева у свим вашим спољашњим дефиницијама, како је описано горе. Радећи тако значи да одлучујете да спустите различите слике спољашњих информација, и тачно коју слику извући. Поред заједничког осећаја шта нас не изненађује променама у спремиштима треће стране то је да може да немате никакакву контролу на њима, користећи експлицитно ревизионе бројеве такође значи да сте уназад датирали вашу радну копију као претходну ревизију, ваше спољне дефиниције су такође враћене на начин како су изгледале у претходној ревизији, која значи то да ће се спољашња радна копија обнавља да ухвати  начин  како <emphasis>оне</emphasis> изгледају назад када је спремиште били у претходној ревизији. За софтверске пројекте,  могло би бити разлика између успешне и неуспешне градње старе слике сложене кодне основе.  "
+
+#. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -19885,12 +19902,34 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Пребацивање између сажимања неизмењених делова или не"
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
 msgstr "Цтрл-П"
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
 msgstr "Измене између прелома линија"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr ""
+
+#. (para)
+msgid "Go to line"
+msgstr ""
+
+#. (para)
+msgid "Select all text"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-U"
+msgstr ""
+
+#. (para)
+msgid "Switches views"
+msgstr ""
 
 #. (term)
 msgid "Ctrl-mousewheel"

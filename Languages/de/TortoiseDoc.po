@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-23 07:47+0000\n"
+"PO-Revision-Date: 2012-08-13 06:52+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2952,7 +2952,7 @@ msgid ""
 " which brings up the following dialog box: <placeholder-1/> If you enter a "
 "folder name that does not yet exist, then a directory with that name is "
 "created."
-msgstr "Wählen Sie nun den Ordner im Windows Explorer in dem Sie Ihre Arbeitskopie erstellen wollen und öffnen Sie mit einem <action>Rechtsklick</action> das Kontextmenü. Wählen Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auschecken...</guimenuitem> </menuchoice> worauf der folgende Dialog erscheint: <placeholder-1/> Wenn Sie einen Ordnernamen angeben, der noch nicht existiert, wird dieser Ordner im Projektarchiv angelegt."
+msgstr "Wählen Sie nun den Ordner im Windows Explorer, in dem Sie Ihre Arbeitskopie erstellen wollen und öffnen Sie mit einem <action>Rechtsklick</action> das Kontextmenü. Wählen Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Auschecken...</guimenuitem> </menuchoice> worauf der folgende Dialog erscheint: <placeholder-1/> Wenn Sie einen Ordnernamen angeben, der noch nicht existiert, wird dieser Ordner angelegt."
 
 #. (title)
 msgid "Checkout Depth"
@@ -5601,7 +5601,7 @@ msgstr "Drücken Sie die <keycap>F5</keycap>-Taste, um die neueste Version zu ak
 
 #. (para)
 msgid "To refresh the log cache, hit the <keycap>Ctrl-F5</keycap> keys."
-msgstr "Um den Log-Puffer zu aktualisieren, drücken Sie <keycap>Strg-F5</keycap>."
+msgstr "Um den Log-Puffer zu aktualisieren, drücken Sie <keycap>Strg+F5</keycap>."
 
 #. (title)
 msgid "Current Working Copy Revision"
@@ -6009,7 +6009,7 @@ msgid ""
 "<keycap>Ctrl-F5</keycap> to re-fetch the displayed messages from the server "
 "and update the log cache. Note that this only affects messages currently "
 "shown and does not invalidate the entire cache for that repository."
-msgstr "Falls Sie den Log-Puffer verwenden und denken, dass sich der Inhalt oder der Autor einer Logmeldung geändert haben, können Sie <keycap>Umsch-F5</keycap> oder <keycap>Strg-F5</keycap> benutzen, um die angezeigten Meldungen erneut vom Server zu holen. Beachten Sie, dass das nur die gerade angezeigten Meldungen betrifft und dass nicht der gesamte Puffer für das Projektarchiv ungültig wird."
+msgstr "Falls Sie den Log-Puffer verwenden und denken, dass sich der Inhalt oder der Autor einer Logmeldung geändert haben, können Sie <keycap>Umsch+F5</keycap> oder <keycap>Strg+F5</keycap> benutzen, um die angezeigten Meldungen erneut vom Server zu holen. Beachten Sie, dass das nur die gerade angezeigten Meldungen betrifft und dass nicht der gesamte Puffer für das Projektarchiv ungültig wird."
 
 #. (title)
 msgid "Viewing Differences"
@@ -8177,6 +8177,16 @@ msgid ""
 "rather than at HEAD."
 msgstr "Sie müssen die Subversion URL des externen Ordners sowie den Namen des Unterordners angeben, als der der externe Ordner ausgecheckt wird. Sie können Externals in der HEAD Revision auschecken, so dass bei Änderungen am externen Objekt ihre Arbeitskopie die Änderungen erhält. Wenn Sie allerdings möchten, dass das External auf eine bestimmte Revision verweist, können Sie die zu verwendende Revisionsnummer als fixe Revision mit angeben. Falls das externe Objekt in der Zukunft umbenannt wird, kann Subversion es in ihrer Arbeitskopie nicht mehr aktualisieren. Indem sie eine fixe Revision angeben, teilen Sie Subversion mit, in einer bestimmten Revision (anstelle HEAD) nach dem Objekt mit dem angegebenen Namen zu suchen."
 
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr "Die Schaltfläche <guibutton>HEAD Revision finden</guibutton> holt die HEAD Revision jeder externen URL und zeigt sie in der rechten Spalte an. Nachdem diese Revision bekannt ist, genügt ein einfacher Doppelklick, um den externen Verweis fest an diese HEAD Revision zu binden. Falls die HEAD Revision noch nicht bekannt ist, wird sie bei einem Rechtsklick zunächst geholt."
+
 #. (title)
 msgid "SVN Keywords"
 msgstr "SVN Schlüsselwörter"
@@ -8225,7 +8235,7 @@ msgstr "Eigenschaften der Logmeldungen"
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
@@ -8464,6 +8474,13 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr "Sie sollten in Erwägung ziehen, in allen <quote>Externals</quote> Definitionen explizite Revisionsnummern anzugeben. Diese Vorgehensweise ermöglicht es Ihnen, exakt zu bestimmen zu welchem Zeitpunkt welcher Stand der externen Informationen herangezogen wird. Neben dem sofort zu erkennenden Aspekt, dass Sie nicht mehr von Änderungen in externen Bibliotheken, über die Sie keine Kontrolle haben, überrascht werden können, bietet die Verwendung expliziter Revisionsnummern den Vorteil, dass, wenn Sie Ihre Arbeitskopie zurückdatieren, auch die externen Verweise entsprechend zurückdatiert werden. Andernfalls enthalten die externen Verweise die HEAD Revision. Für ein Softwareprojekt kann das den Unterschied zwischen einem erfolgreichen und einem fehlgeschlagenen Erzeugen eines älteren Projektstandes ausmachen."
+
+#. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr "Der Bearbeiten-Dialog für <literal>svn:externals</literal> Eigenschaften erlaubt Ihnen, die externen Verweise zu definieren und sie automatisch an die HEAD Revision zu binden."
 
 #. (para)
 #. (para)
@@ -10536,7 +10553,7 @@ msgid ""
 " refresh the information for nodes which have not been opened yet, use "
 "<keycap>Ctrl-F5</keycap>. After that, expanding any node will happen "
 "instantly without a network delay while the information is fetched."
-msgstr "Sie können mit <keycap>F5</keycap> die Anzeige aktualisieren. Wenn Sie die Daten von Knoten, die bisher noch nicht geöffnet wurden, laden wollen, verwenden Sie dafür <keycap>Strg-F5</keycap>. Danach erfolgt das Öffnen eines Knotens ohne Verzögerung, da keine Informationen mehr über das Netzwerk geladen werden müssen."
+msgstr "Sie können mit <keycap>F5</keycap> die Anzeige aktualisieren. Wenn Sie die Daten von Knoten, die bisher noch nicht geöffnet wurden, laden wollen, verwenden Sie dafür <keycap>Strg+F5</keycap>. Danach erfolgt das Öffnen eines Knotens ohne Verzögerung, da keine Informationen mehr über das Netzwerk geladen werden müssen."
 
 #. (para)
 msgid ""
@@ -14372,7 +14389,7 @@ msgid ""
 " <literal>Copy</literal> entry of explorer). If you don't want or need the "
 "accelerators of the TortoiseSVN entries, set this value to "
 "<literal>false</literal>."
-msgstr "TortoiseSVN verwendet Abkürzungstasten für seine Explorer-Kontextmenüs. Da dies zu Duplikaten führen kann (z.B. haben sowohl <literal>Zeige Log</literal> als auch <literal>Löschen</literal> die Kurztaste <keycap>Alt-L</keycap>), besteht die Möglichkeit, diese Funktion abzuschalten, indem Sie diesen Wert auf <literal>false</literal> setzen."
+msgstr "TortoiseSVN verwendet Abkürzungstasten für seine Explorer-Kontextmenüs. Da dies zu Duplikaten führen kann (z.B. haben sowohl <literal>Zeige Log</literal> als auch <literal>Löschen</literal> die Kurztaste <keycap>Alt+L</keycap>), besteht die Möglichkeit, diese Funktion abzuschalten, indem Sie diesen Wert auf <literal>false</literal> setzen."
 
 #. (para)
 msgid ""
@@ -19756,7 +19773,7 @@ msgstr "Tastaturkürzel"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
-msgstr "Strg-Q, Strg-W, Escape"
+msgstr "Strg+Q, Strg+W, Escape"
 
 #. (para)
 msgid "Quit the program"
@@ -19768,7 +19785,7 @@ msgstr "Den markierten Text in die Zwischenablage kopieren"
 
 #. (term)
 msgid "Ctrl-X, Shift-Del"
-msgstr "Strg-X, Umsch-Entf"
+msgstr "Strg+X, Umsch+Entf"
 
 #. (para)
 msgid "Cut the selected text to the clipboard"
@@ -19776,7 +19793,7 @@ msgstr "Den markierten Text in die Zwischenablage ausschneiden"
 
 #. (term)
 msgid "Ctrl-V, Shift-Insert"
-msgstr "Strg-X, Umsch-Einf"
+msgstr "Strg+X, Umsch+Einf"
 
 #. (para)
 msgid "Paste the selected text from the clipboard"
@@ -19784,7 +19801,7 @@ msgstr "Den markierten Text aus der Zwischenablage einfügen"
 
 #. (term)
 msgid "Ctrl-Z, Alt-Backspace"
-msgstr "Strg-Z, Alt-Rück"
+msgstr "Strg+Z, Alt+Rück"
 
 #. (para)
 msgid "Undo the last edits"
@@ -19792,7 +19809,7 @@ msgstr "Die letzten Änderungen rückgängig machen"
 
 #. (term)
 msgid "Ctrl-F"
-msgstr "Strg-F"
+msgstr "Strg+F"
 
 #. (para)
 msgid "Open the Find dialog for text searches"
@@ -19800,7 +19817,7 @@ msgstr "Den Dialog zum Suchen von Text öffnen"
 
 #. (term)
 msgid "Ctrl-O"
-msgstr "Strg-O"
+msgstr "Strg+O"
 
 #. (para)
 msgid "Open files to diff/merge"
@@ -19808,7 +19825,7 @@ msgstr "Dateien zum Vergleichen/Zusammenführen öffnen"
 
 #. (term)
 msgid "Ctrl-S"
-msgstr "Strg-S"
+msgstr "Strg+S"
 
 #. (para)
 msgid "Save the changes"
@@ -19816,7 +19833,7 @@ msgstr "Änderungen speichern"
 
 #. (term)
 msgid "Ctrl-Shift-S"
-msgstr "Strg-Umsch-S"
+msgstr "Strg+Umsch+S"
 
 #. (para)
 msgid "Save as..."
@@ -19832,7 +19849,7 @@ msgstr "Zum nächsten Unterschied gehen"
 
 #. (term)
 msgid "Shift-F7"
-msgstr "Umsch-F7"
+msgstr "Umsch+F7"
 
 #. (para)
 msgid "Go to previous difference"
@@ -19848,7 +19865,7 @@ msgstr "Zum nächsten Konflikt gehen"
 
 #. (term)
 msgid "Shift-F8"
-msgstr "Umsch-F8"
+msgstr "Umsch+F8"
 
 #. (para)
 msgid "Go to previous conflict"
@@ -19856,7 +19873,7 @@ msgstr "Zum vorherigen Konflikt gehen"
 
 #. (term)
 msgid "Ctrl-D"
-msgstr "Strg-D"
+msgstr "Strg+D"
 
 #. (para)
 msgid "Toggle between one-pane diff and two-pane diff"
@@ -19864,7 +19881,7 @@ msgstr "Zwischen Einfenstersicht und Zweifenstersicht wechseln"
 
 #. (term)
 msgid "Ctrl-R"
-msgstr "Strg-R"
+msgstr "Strg+R"
 
 #. (para)
 msgid "Reload the files and revert all changes made"
@@ -19872,7 +19889,7 @@ msgstr "Dateien neu laden und alle Änderungen rückgängig machen"
 
 #. (term)
 msgid "Ctrl-T"
-msgstr "Strg-T"
+msgstr "Strg+T"
 
 #. (para)
 msgid "Toggles between showing whitespaces or not"
@@ -19880,19 +19897,41 @@ msgstr "Platzhalter für nicht druckbare Zeichen anzeigen/verstecken"
 
 #. (term)
 msgid "Ctrl-L"
-msgstr "Ctrl-L"
+msgstr "Strg+L"
 
 #. (para)
 msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Unveränderte Abschnitte anzeigen/verstecken"
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
-msgstr "Ctrl-P"
+msgstr "Strg+P"
 
+#. (para)
 #. (para)
 msgid "Toggles between line wrapping"
 msgstr "Zeilen umbrechen/nicht umbrechen"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr "Strg+G"
+
+#. (para)
+msgid "Go to line"
+msgstr "Gehe zu Zeile"
+
+#. (para)
+msgid "Select all text"
+msgstr "Gesamten Text auswählen"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Strg+U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Ansichten umschalten"
 
 #. (term)
 msgid "Ctrl-mousewheel"

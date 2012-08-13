@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-25 18:32+0000\n"
+"PO-Revision-Date: 2012-08-10 21:27+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8178,6 +8178,16 @@ msgid ""
 "rather than at HEAD."
 msgstr "Musicie określić nazwę podkatalogu, do którego zewnętrzny folder jest pobierany i adres URL subversion zewnętrznego elementu. Możecie pobrać zewnętrzne z jego wersji HEAD, więc gdy zewnętrzne elementy zmieniają się w repozytorium, Wasza kopia robocza otrzyma te zmiany w czasie aktualizacji. Jednak, jeśli chcecie by zewnętrzne odnosiło się do szczególnego stabilnego punktu, można określić konkretną wersję do wykorzystania. W tym przypadku możecie również określić taką wersję jako wieszakową. Jeśli zewnętrzny element zostanie zmieniony w pewnym momencie w przyszłości wtedy Subversion nie będzie mogło zaktualizować tego elementu w kopii roboczej. Określając wersje wieszakowe nakazujemy Subversion szukać elementu, który posiadał taką nazwę w wersji wieszakowej a nie w HEAD."
 
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr "Przycisk <guibutton>Znajdź wersję HEAD</guibutton> pobiera wersję HEAD każdego zewnętrznego url i wyświetla tą wersję HEAD w ostatniej kolumnie. Gdy zostanie ujawniona wersja HEAD, zwykły prawoklik na zewnętrznym wywołuje polecenie założenia wersji wieszakowej na ich wskazanej wersji HEAD. W przypadku, gdy wersja HEAD nie jest jeszcze znana, polecenie prawokliku pobierze najpierw wersję HEAD."
+
 #. (title)
 msgid "SVN Keywords"
 msgstr "Słowa kluczowe SVN"
@@ -8226,12 +8236,12 @@ msgstr "Strona atrybutu rozmiarów opisu zmian"
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "<placeholder-1/> Te 3 atrybuty sterują formatowaniem opisów zmian. Pierwsze 2 wyłącza <guibutton>OK</guibutton> w dialogu zatwierdzenia lub blokady, dopóki opis spełnia minimalne długości. Położenie granicy pokazuje znacznik na szerokości kolumny jako prowadnice dla projektów, które posiadają ograniczenie długości pojedynczej linii na opisie zmiany. Ustawienie wartości na zero usunie atrybut."
+msgstr "<placeholder-1/> Te 3 atrybuty sterują formatowaniem komunikatów dziennika. Pierwsze 2 blokują <guibutton>OK</guibutton> w oknach zatwierdzenia oraz blokady dopóki komunikaty nie osiągną minimalnej długości. Pozycja granicy pokazuje znacznik na kolumnie określonej szerokości służący za wskazźnik w projektach posiadających ograniczenia długości komunikatu. Ustawienie wartości  zero usuwa atrybut."
 
 #. (title)
 msgid "Project Language"
@@ -8465,6 +8475,13 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr "Należy uważnie rozważyć używanie jawnych numerów wersji we wszystkich definicjach zewnętrznych, jak opisano powyżej. Używanie ich oznacza, że ​​trzeba zdecydować, kiedy rozwijacie różne migawki informacji zewnętrznych, i jakie dokładnie migawki rozwijacie. Poza tym ogólny aspekt braku poczucia zaskoczenia przez zmiany repozytoriów osób trzecich, nad którymi możemy nie mieć żadnej kontroli, jawne numery wersji oznaczają, że ​​jeśli cofniecie kopię roboczą do poprzedniej wersji, Wasze zewnętrzne definicje też wrócą do sposobu, w jaki wyglądały w poprzedniej wersji, co z kolei oznacza, że zewnętrzne kopie robocze będą aktualizowane w celu dopasowania w jaki <emphasis>one</emphasis> wyglądały, gdy repozytorium było w tej wcześniejszej wersji. W przypadku projektów oprogramowania, może to być różnica między poprawną a nieudaną kompilacją starszej migawki złożonego kodu bazowego."
+
+#. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr "Okno edycji atrybutów <literal>svn:externals</literal> pozwala wybrać zewnętrzne i automatycznie ustawić je do wersji HEAD."
 
 #. (para)
 #. (para)
@@ -19888,12 +19905,34 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Przełączanie pomiędzy zwijaniem części bez zmian lub nie"
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
 msgstr "Przełączanie sposoby zawijania wierszy"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr "Ctrl-G"
+
+#. (para)
+msgid "Go to line"
+msgstr "Idź do linii"
+
+#. (para)
+msgid "Select all text"
+msgstr "Zaznacza cały tekst"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl-U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Przełącza widoki"
 
 #. (term)
 msgid "Ctrl-mousewheel"

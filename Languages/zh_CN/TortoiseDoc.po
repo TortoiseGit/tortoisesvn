@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:25+0000\n"
+"PO-Revision-Date: 2012-08-10 08:33+0000\n"
 "Last-Translator: Nick Vrvilo <nick@vrvilo.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8187,6 +8187,16 @@ msgid ""
 "rather than at HEAD."
 msgstr "您需要定义检出外部文件夹的子文件夹的名称和外部项目的版本库地址。您能用其最新版本点检出一个外部项目，因此当版本库中的外部项目更改时，您的工作副本将通过更新来接受这些更改。但是，如果您希望外部项目引用某一特定的稳定版本点，您可以指定要使用的特定版本。在这种情况下您可能也要指定跟 Peg 修订版本相同的版本。如果在将来某个时候外部项目被重命名，那么 Subversion 将无法在您的工作副本中更新此项目。通过指定一个 Peg 修订版本来告诉 Subversion 寻找一个跟 Peg 修订版本相同而不是跟最新版本点相同的项目。"
 
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr ""
+
 #. (title)
 msgid "SVN Keywords"
 msgstr "SVN 关键字"
@@ -8235,12 +8245,12 @@ msgstr "日志信息属性页的大小"
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "<placeholder-1/> 3 字节属性用来控制日志信息的格式。前 2 字节禁用在提交中的 <guibutton>OK</guibutton>确定，或锁定对话框直到信息长度符合最小要求。边界位置会在给定的列宽度处显示一个标记，作为有日志信息宽度限制的项目引导。将值设置为零，则将删除该属性。"
+msgstr ""
 
 #. (title)
 msgid "Project Language"
@@ -8474,6 +8484,13 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr "你应当认真考虑在所有外部定义中使用确定的版本号，就像下面介绍的那样。这样做意味着当你下载扩展信息的个别快照时你已经作出决定，并且精确的指明了是哪个快照。而且你不会为第三方版本库的修改感到惊讶，这些版本库你可能没有任何控制，使用精确的版本号能使你回溯工作目录到以前的版本，你的外部定义也遵循此规则，看起来是以前的版本，即外部工作副本的更新匹配<emphasis>它们</emphasis>的老版本。对于软件工程，它是旧版本的复杂代码构建成功或失败的重要区别。"
+
+#. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -19897,12 +19914,34 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "未修改部分显示切换"
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
 msgstr "切换自动换行"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr ""
+
+#. (para)
+msgid "Go to line"
+msgstr ""
+
+#. (para)
+msgid "Select all text"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-U"
+msgstr ""
+
+#. (para)
+msgid "Switches views"
+msgstr ""
 
 #. (term)
 msgid "Ctrl-mousewheel"

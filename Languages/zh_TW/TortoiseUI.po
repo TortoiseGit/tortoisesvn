@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-09 08:40+0000\n"
+"PO-Revision-Date: 2012-08-12 02:39+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1834,6 +1834,10 @@ msgid ""
 "Settings"
 msgstr "調校設定值\n設定"
 
+#. Resource IDs: (591)
+msgid "Adjust to HEAD revision"
+msgstr "調整至 HEAD 版"
+
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
 msgstr "進階"
@@ -1925,6 +1929,10 @@ msgstr "已完成反向合併"
 msgid "Always close dialogs for local operations"
 msgstr "進行本地操作時自動關閉視窗"
 
+#. Resource IDs: (1339)
+msgid "Always execute the script"
+msgstr "永遠執行指令檔"
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "一律使用系統語系顯示時間與日期"
@@ -2011,12 +2019,6 @@ msgstr "套用單一差異檔"
 #. Resource IDs: (363)
 msgid "Approve or reject client-side hook script"
 msgstr "允許或拒絕用戶端掛勾指令檔"
-
-#. Resource IDs: (363)
-msgid ""
-"Approve\n"
-"Run the hook script"
-msgstr "允許\n執行掛勾指令檔"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
@@ -2400,12 +2402,6 @@ msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr "取消\n不復原變更."
-
-#. Resource IDs: (363)
-msgid ""
-"Cancel\n"
-"Do not run the script"
-msgstr "取消\n不執行指令檔"
 
 #. Resource IDs: (90)
 msgid ""
@@ -4034,6 +4030,12 @@ msgid ""
 "Use the last explicitly saved versions of the documents"
 msgstr "不回復自動儲存的文件\n使用最後一次手動儲存的版本"
 
+#. Resource IDs: (363)
+msgid ""
+"Don't run\n"
+"Do not run the script"
+msgstr "不執行\n不執行指令檔"
+
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
@@ -4576,6 +4578,10 @@ msgstr "無法啟動問題追踪系統的 COM 提供者 '%1!s!'.\n%2!s!"
 msgid "Failed!"
 msgstr "失敗!"
 
+#. Resource IDs: (591)
+msgid "Fetch HEAD revision and adjust to it"
+msgstr "取出 HEAD 版並調整至此版"
+
 #. Resource IDs: (199)
 msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
@@ -4739,6 +4745,14 @@ msgstr "過濾路徑"
 #. Resource IDs: (139)
 msgid "Find"
 msgstr "搜尋"
+
+#. Resource IDs: (1633)
+msgid "Find &Head-Revision"
+msgstr "尋找 &HEAD 版"
+
+#. Resource IDs: (591)
+msgid "Find HEAD revisions"
+msgstr "尋找 HEAD 版本"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5013,6 +5027,10 @@ msgstr "HEAD"
 msgid "HEAD node"
 msgstr "最新版本節點"
 
+#. Resource IDs: (218)
+msgid "Head"
+msgstr "Head"
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -5206,6 +5224,10 @@ msgstr "ID:32809:V C +F"
 #. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
+
+#. Accelerator Entry for Menu ID:32811; ''
+msgid "ID:32811:V C +U"
+msgstr "ID:32811:V C +U"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
@@ -5768,7 +5790,7 @@ msgstr "黏合至原始目錄樹"
 
 #. Resource IDs: (1632)
 msgid "Jump to next &conflict"
-msgstr ""
+msgstr "跳到下一筆衝突(&C)"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -5819,8 +5841,12 @@ msgid "Language:"
 msgstr "語系:"
 
 #. Resource IDs: (65535)
-msgid "Last commit revision:"
-msgstr "上次送交版本:"
+msgid "Last changed author:"
+msgstr "最後變更的作者:"
+
+#. Resource IDs: (65535)
+msgid "Last changed revision:"
+msgstr "最後變更的版本:"
 
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
@@ -8161,10 +8187,6 @@ msgstr "版本 %ld"
 msgid "Revision &graph"
 msgstr "版本圖(&G)"
 
-#. Resource IDs: (65535)
-msgid "Revision / Author:"
-msgstr "版本 / 作者:"
-
 #. Resource IDs: (182, 296)
 msgid "Revision Graph"
 msgstr "版本圖"
@@ -8258,6 +8280,12 @@ msgstr "往上一行"
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
 msgstr "立即執行清理(&N)"
+
+#. Resource IDs: (363)
+msgid ""
+"Run\n"
+"Run the hook script"
+msgstr "執行\n執行掛勾指令檔"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9194,7 +9222,7 @@ msgstr "啟動登錄編輯器"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
-msgstr ""
+msgstr "正在啟動外部程式..."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -10245,7 +10273,7 @@ msgid ""
 "instead.\n"
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr ""
+msgstr "請勿直接執行 TortoiseBlame! 請使用\nTortoiseProc.exe /command:blame /path:\"檔案路徑\".\n\nTortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -10953,6 +10981,10 @@ msgid ""
 msgstr "警告:\r\n請在完全確定在做什麼的時候才修改這些設定!\r\n要設定這些為預設值時, 請刪除設定內容."
 
 #. Resource IDs: (65535)
+msgid "WC Revision:"
+msgstr "工作複本版本:"
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "工作複本節點"
 
@@ -11531,6 +11563,14 @@ msgstr "外部"
 msgid "file external:"
 msgstr "檔案外部設定:"
 
+#. Resource IDs: (591)
+msgid "get HEAD revision:"
+msgstr "取得 HEAD 版本:"
+
+#. Resource IDs: (591)
+msgid "get repository root urls:"
+msgstr "取得檔案庫最上層 URL:"
+
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
 msgstr "http://tortoisesvn.net"
@@ -11584,8 +11624,8 @@ msgid "locked"
 msgstr "鎖定"
 
 #. Resource IDs: (65535)
-msgid "locked:"
-msgstr "鎖定:"
+msgid "locked (cleanup required):"
+msgstr "已被鎖定(需要執行清理動作):"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"

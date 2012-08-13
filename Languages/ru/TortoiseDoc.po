@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-24 12:40+0000\n"
+"PO-Revision-Date: 2012-08-11 22:15+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8176,6 +8176,16 @@ msgid ""
 "rather than at HEAD."
 msgstr "Вам необходимо определить имя подпапки, в которую извлекается внешняя папка, и URL-адрес внешнего элемента. Вы можете извлекать внешний элемент с ревизии HEAD, так что при изменении внешнего элемента в хранилище ваша рабочая копия получит эти изменения при обновлении. Однако, если вы хотите, чтобы внешний элемент ссылался на определенную постоянную точку, то вы можете указать определенную ревизию. В этом случае вы возможно захотите указать ту же ревизию как опорную (peg) ревизию. Если внешний элемент переименован в какой-то момент в будущем, то Subversion не сможет обновить этот элемент в вашей рабочей копии. Указывая опорную (peg) ревизию вы сообщаете Subversion, что надо искать элемент по имени в опорной (peg) ревизии, а не в ревизии HEAD."
 
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr "Кнопка <guibutton>Найти HEAD-ревизию</guibutton> получает ревизию HEAD для каждого URL внешнего определения и показывает эту HEAD ревизию в самой правой колонке. После того, как ревизия HEAD известна, простой правый клик на внешнем определении даёт возможность установить опорную (peg) ревизию выбранного внешнего определения на явную ревизию HEAD. В случае если ревизия HEAD не известна, то команда по правому клику сначала получит ревизию HEAD."
+
 #. (title)
 msgid "SVN Keywords"
 msgstr "Ключевые слова SVN"
@@ -8224,12 +8234,12 @@ msgstr "Страница свойств размер журнала сообще
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "<placeholder-1/> Эти 3 свойства управляют форматирванием сообщения журнала. Первые 2 отключают кнопку <guibutton>OK</guibutton> в диалоге фиксации или блокировки пока сообщение не достигнет минимальной длины. Позиция границы показывает маркер в указанной позиции в качестве подсказки для проектов, которые имеют ограничение на ширину сообщений журнала. Установка значения в ноль удалит свойство."
+msgstr "<placeholder-1/> Эти 3 свойства управляют форматированием сообщений журнала. Первые 2 отключают <guibutton>OK</guibutton> в диалогах фиксации или блокировки до тех пор, пока сообщение меньше заданной длины. Позиция границы показывает маркер в заданной ширине колонки в качестве руководства для проектов, в которых есть пределы ширины для сообщений журнала. Установка значения в ноль удалит свойство."
 
 #. (title)
 msgid "Project Language"
@@ -8463,6 +8473,13 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr "Вы должны серьёзно рассмотреть использование явного номера ревизии во всех ваших определениях внешних включений, как описано выше. Применение этого подхода означает, что решение, когда скачивать другую копию внешней информации, и какую конкретно копию, будете принимать вы. Помимо соображений здравого смысла, заключающихся в том, чтобы вы не будете неприятно удивлены изменениями в стороннем хранилище, управлять которым у вас нет возможности, использование явных номеров ревизий означает также, что при возвращении вашей рабочей копии к предыдущей ревизии определения внешних включений тоже вернутся к тому, какими они были в предыдущей ревизии, что, в свою очередь, означает, что внешние рабочие копии будут обновлены до того состояния, в котором <emphasis>они</emphasis> были тогда, когда ваше хранилище было на этой предыдущей ревизии. Для программных проектов это может означать разницу между успешной и не успешной сборкой старого снимка состояния вашей сложной базы исходного кода."
+
+#. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr "Диалог редактирования свойств <literal>svn:externals</literal> позволяет вам выбрать внешние определения и автоматически установить их явно на ревизию HEAD."
 
 #. (para)
 #. (para)
@@ -19886,12 +19903,34 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Переключает между сворачиванием неизмененных секций или нет"
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
 msgstr "Переключить между способами переноса строк"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr "Ctrl-G"
+
+#. (para)
+msgid "Go to line"
+msgstr "Перейти к строке"
+
+#. (para)
+msgid "Select all text"
+msgstr "Выбрать весь текст"
+
+#. (term)
+msgid "Ctrl-U"
+msgstr "Ctrl-U"
+
+#. (para)
+msgid "Switches views"
+msgstr "Переключает виды"
 
 #. (term)
 msgid "Ctrl-mousewheel"

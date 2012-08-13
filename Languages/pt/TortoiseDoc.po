@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-31 17:22+0000\n"
+"PO-Revision-Date: 2012-08-10 08:34+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8180,6 +8180,16 @@ msgid ""
 "rather than at HEAD."
 msgstr "Precisas de definir o nome para a subpasta para a qual é executado o checkout da pasta externa, e também o URL do Subversion para o item externo. Podes efectuar o checkout de um externo para a sua revisão HEAD, para quando o item externo for alterado no repositório, a tua cópia de trabalho receba essas alterações na actualização. No entanto, se queres que o externo referencie um determinado ponto estável, então terás de especificar a revisão específica a usar. Neste caso, poderás também querer especificar essa mesma revisão como uma revisão cavilha. Se o item externo for renomeado em algum ponto no futuro, então o Subversion não poderá actualizar este item na tua cópia de trabalho. Ao especificar uma revisão cavilha, estás a dizer ao Subversion para olhar para um item que teve aquele nome na revisão cavilha, em vez da HEAD."
 
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr ""
+
 #. (title)
 msgid "SVN Keywords"
 msgstr "Palavras-chave SVN"
@@ -8228,12 +8238,12 @@ msgstr "Página de propriedade do tamanho das mensagens de registo"
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "<placeholder-1/> Essas 3 propriedades controlam a formatação das mensagens de registo. As primeiras 2 desactivam o botão OK<guibutton>OK</guibutton> na caixa de submissão ou nas caixas de diálogo bloquear, até a mensagem atingir um tamanho mínimo. A posição da margem mostra um marcador no valor dado para a largura  da coluna, como um guia para os projectos que têm limites de tamanho para as suas mensagens de registo. A Colocação deste valor a zero irá remover a propriedade."
+msgstr ""
 
 #. (title)
 msgid "Project Language"
@@ -8467,6 +8477,13 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr "Deverás considerar seriamente, o uso de números de revisão explícitos em todos as tuas definições externas, como descrito acima. Fazendo-o significa que, terás de decidir a altura de  puxar uma diferente fotografia da informação externa, e exactamente qual a fotografia a puxar. Aparte do senso comum de não ser supreendido por alterações de repositórios de terceiros, que não possas controlar, usar números de revisões explicitos, também significa que se reverters a tua cópia de trabalho para uma revisão anterior, as tuas definições externas irão também reverter para o estado que tinham nessa revisão prévia. O que por sua vez significa que, as cópias de trabalho externas serão actualizadas para corresponder o estado que <emphasis>elas</emphasis> tinham, quando o teu repositório estava nessa revisão prévia. Para projectos de software isto pode ser a diferença entre uma construção(build) falhada ou com sucesso, de uma fotografia antiga da tua complexa base de código. "
+
+#. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -19890,12 +19907,34 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Alterna entre secções inalteradas colapsadas, ou não"
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
 msgstr "Alterna entre quebras de linha"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr ""
+
+#. (para)
+msgid "Go to line"
+msgstr ""
+
+#. (para)
+msgid "Select all text"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-U"
+msgstr ""
+
+#. (para)
+msgid "Switches views"
+msgstr ""
 
 #. (term)
 msgid "Ctrl-mousewheel"

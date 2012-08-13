@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-09 08:40+0000\n"
+"PO-Revision-Date: 2012-08-11 08:45+0000\n"
 "Last-Translator: Lübbe <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1834,6 +1834,10 @@ msgid ""
 "Settings"
 msgstr "Ajustar as preferências\nPreferências"
 
+#. Resource IDs: (591)
+msgid "Adjust to HEAD revision"
+msgstr ""
+
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
 msgstr "Avançado"
@@ -1925,6 +1929,10 @@ msgstr "Já inversamente integrado"
 msgid "Always close dialogs for local operations"
 msgstr "Fechar sempre os diálogos para operações locais"
 
+#. Resource IDs: (1339)
+msgid "Always execute the script"
+msgstr ""
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "Usa sempre as preferências regionais do sistema para mostrar horas e datas"
@@ -2011,12 +2019,6 @@ msgstr "Aplicar comparação unificada"
 #. Resource IDs: (363)
 msgid "Approve or reject client-side hook script"
 msgstr "Aprova ou rejeita script de gancho de lado-cliente"
-
-#. Resource IDs: (363)
-msgid ""
-"Approve\n"
-"Run the hook script"
-msgstr "Aprovar\nCorrer o script de gancho"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
@@ -2400,12 +2402,6 @@ msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr "Cancela\nNão revertas."
-
-#. Resource IDs: (363)
-msgid ""
-"Cancel\n"
-"Do not run the script"
-msgstr "Cancelar\nNão correr o script"
 
 #. Resource IDs: (90)
 msgid ""
@@ -4034,6 +4030,12 @@ msgid ""
 "Use the last explicitly saved versions of the documents"
 msgstr "Não recuperar os documentos salvos automáticamente\nUtilizar as últimas versões explicitamente salvas dos documentos"
 
+#. Resource IDs: (363)
+msgid ""
+"Don't run\n"
+"Do not run the script"
+msgstr ""
+
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
@@ -4576,6 +4578,10 @@ msgstr "Falha ao iniciar o fornecedor COM do controlador de problemas  '%1!s!'.\
 msgid "Failed!"
 msgstr "Falha!"
 
+#. Resource IDs: (591)
+msgid "Fetch HEAD revision and adjust to it"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
@@ -4739,6 +4745,14 @@ msgstr "Filtro de caminhos"
 #. Resource IDs: (139)
 msgid "Find"
 msgstr "Localizar"
+
+#. Resource IDs: (1633)
+msgid "Find &Head-Revision"
+msgstr ""
+
+#. Resource IDs: (591)
+msgid "Find HEAD revisions"
+msgstr ""
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5013,6 +5027,10 @@ msgstr "HEAD (mais recente)"
 msgid "HEAD node"
 msgstr "Nó HEAD"
 
+#. Resource IDs: (218)
+msgid "Head"
+msgstr ""
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -5206,6 +5224,10 @@ msgstr "ID:32809:V C +F"
 #. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
+
+#. Accelerator Entry for Menu ID:32811; ''
+msgid "ID:32811:V C +U"
+msgstr ""
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
@@ -5819,8 +5841,12 @@ msgid "Language:"
 msgstr "Língua:"
 
 #. Resource IDs: (65535)
-msgid "Last commit revision:"
-msgstr "Última revisão submetida:"
+msgid "Last changed author:"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Last changed revision:"
+msgstr ""
 
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
@@ -8161,10 +8187,6 @@ msgstr "Revisão %ld"
 msgid "Revision &graph"
 msgstr "&Gráfico de revisões"
 
-#. Resource IDs: (65535)
-msgid "Revision / Author:"
-msgstr "Revisão / Autor:"
-
 #. Resource IDs: (182, 296)
 msgid "Revision Graph"
 msgstr "Gráfico de Revisões"
@@ -8258,6 +8280,12 @@ msgstr "Linha Anterior"
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
 msgstr "Correr limpeza &agora"
+
+#. Resource IDs: (363)
+msgid ""
+"Run\n"
+"Run the hook script"
+msgstr ""
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -10953,6 +10981,10 @@ msgid ""
 msgstr "AVISO:\r\nModifica estas preferências só se tiveres a certeza absoluta de que sabes o que estás a fazer!\r\nPara reverteres para os valores originais, apaga o texto do valor."
 
 #. Resource IDs: (65535)
+msgid "WC Revision:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "Nó WC"
 
@@ -11531,6 +11563,14 @@ msgstr "externo"
 msgid "file external:"
 msgstr "externo de ficheiro:"
 
+#. Resource IDs: (591)
+msgid "get HEAD revision:"
+msgstr ""
+
+#. Resource IDs: (591)
+msgid "get repository root urls:"
+msgstr ""
+
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
 msgstr "http://tortoisesvn.net/"
@@ -11584,8 +11624,8 @@ msgid "locked"
 msgstr "bloqueado"
 
 #. Resource IDs: (65535)
-msgid "locked:"
-msgstr "bloqueado:"
+msgid "locked (cleanup required):"
+msgstr ""
 
 #. Resource IDs: (1539)
 msgid "log text &editor"

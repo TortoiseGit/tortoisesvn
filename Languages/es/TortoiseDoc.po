@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# Adam Harper <cadamharper@gmail.com>, 2012.
 #   <agua.cuscu@gmail.com>, 2011.
 #   <cool.dark.nexus@gmail.com>, 2011.
 # cuscu <agua.cuscu@gmail.com>, 2011.
@@ -28,8 +29,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:25+0000\n"
-"Last-Translator: Luis Valencia <luis.valencia.medina@gmail.com>\n"
+"PO-Revision-Date: 2012-08-11 17:58+0000\n"
+"Last-Translator: Adam Harper <cadamharper@gmail.com>\n"
 "Language-Team: Spanish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8187,6 +8188,16 @@ msgid ""
 "rather than at HEAD."
 msgstr "Necesitas definir el nombre de la subcarpeta en la cual se obtiene la carpeta externa, y la URL de subversion del objeto externo. Puedes obtener el externo en su revisión HEAD, de modo que cuando el objeto externo cambie en el repositorio, tu copia de trabajo reciba dichos cambios cuando se actualice. Sin embargo, si quieres que el externo se refiera a un punto estable en particular, puedes especificar la revisión que se usará. EN este caso puede que también desees especificar la misma revisión como una revisión gancho. Si en un futuro se renombrara el objeto externo, entonces Subversion no será capaz de actualizar este objeto en tu copia de trabajo. Al especificar la revisión gancho, le dices a Subversion que busque el objeto que tenía dicho nombre en la revisión gancho, en vez de en la HEAD."
 
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr ""
+
 #. (title)
 msgid "SVN Keywords"
 msgstr "Palabras clace de SVN"
@@ -8235,12 +8246,12 @@ msgstr "Tamaño de la página de propiedades del registro de mensajes"
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "<placeholder-1/> Estas 3 propiedades controlan el formato de los mensajes del log. Las 2 primeras deshabilitan el <guibutton>OK</guibutton>OK en los diálogos de commit o bloqueo hasta que el mensaje alcanza la longitud mínima. La posición del borde muestra un marcador en la columna de ancho asignada como guía para los proyectos que tienen límites de ancho en sus mensajes del log. Asignarle el valor cero eliminará esta propiedad."
+msgstr ""
 
 #. (title)
 msgid "Project Language"
@@ -8474,6 +8485,13 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr "Debería considerar seriamente utilizar números de revisión explícitos en todas sus definiciones de externos, como se describe anteriormente. Hacerlo significa que tiene que decidir cuándo utilizar una instantánea diferente de información externa, y exáctamente qué instantánea utilizar. Además del aspecto de sentido común de no ser sorprendido por cambios en repositorios de terceras partes sobre los que puede que no tenga control, utilizar números de revisión explícitos también significa que cuando retroceda su copia de trabajo a una revisión anterior, sus definiciones externas también se revertiran a la forma a la que tenían en esa revisión, lo que a su vez significa que las copias de trabajo externas se actualizarán para concordar en la forma en la que <emphasis>ellas</emphasis> tenían cuando su repositorio estaba en esa revisión anterior. Para proyectos de software, esto puede ser la diferencia entre una compilación válida o fallida de una vieja intentánea de su complejo código."
+
+#. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -18159,7 +18177,7 @@ msgid ""
 "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs "
 "Lock</emphasis> overlay is used to indicate when a file has the <literal>svn"
 ":needs-lock</literal> property set."
-msgstr ""
+msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> El <emphasis> Necesidades de bloqueo </ emphasis> se utiliza sobreimpresión para indicar cuando un archivo tiene la <literal> svn: needs-lock </ literal> conjunto de propiedades."
 
 #. (para)
 msgid ""
@@ -18221,7 +18239,7 @@ msgid ""
 "applications. If there are not enough overlay slots available, TortoiseSVN "
 "tries to be a <emphasis>Good Citizen (TM)</emphasis> and limits its use of "
 "overlays to give other apps a chance."
-msgstr ""
+msgstr "De Hecho, es posible que no todos estos iconos se utilizan en el sistema. Esto es porque el número de sobreimpresiones permitidas por Windows está limitado a 15. Windows utiliza 4 de ellas, y las 11 restantes pueden ser utilizados por otras aplicaciones. Si no hay suficientes huecos de sobreimpresión disponibles, TortoiseSVN intenta ser un <emphasis> Ciudadano Bueno (TM) </ emphasis> y limita su uso de sobreimpresiones para darles otras aplicaciones de una oportunidad."
 
 #. (para)
 msgid ""
@@ -18297,7 +18315,7 @@ msgid ""
 "url=\"http://tortoisesvn.net/translation_status\"><citetitle>translation "
 "status page</citetitle></ulink>. And if there is no language pack available,"
 " why not join the team and submit your own translation ;-)"
-msgstr ""
+msgstr "La interfaz de usuario de TortoiseSVN se ha traducido a muchos idiomas, por eso lo que puedes hacer es descargar un paquete de idioma para satisfacer sus necesidades. Usted puede encontrar los paquetes de idiomas en nuestro <ulink url=\"http://tortoisesvn.net/translation_status\"> <citetitle> traducción de la página de estado </ citetitle> </ ulink>. Y si no hay un paquete de idioma disponible para sus necesidades, ¿por qué no unirse al equipo y enviar su propia traducción;-)"
 
 #. (para)
 msgid ""
@@ -18342,7 +18360,7 @@ msgid ""
 "TortoiseSVN's language packs. This will install the appropriate dictionary "
 "files as well as the TortoiseSVN local user interface. After the "
 "installation finishes, the dictionary will be available too."
-msgstr ""
+msgstr "El instalador añade los EE.UU. y del Reino Unido los diccionarios automáticamente. Si desea otros idiomas, la opción más sencilla es instalar uno de los paquetes de idiomas de TortoiseSVN. Esto instalará los ficheros de diccionario adecuados, así como la interfaz de usuario de TortoiseSVN local. Una vez finalizada la instalación, el diccionario también estará listo para usar."
 
 #. (para)
 msgid ""
@@ -19897,12 +19915,34 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Alterna entre colapsar las secciones sin cambios o no"
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
 msgstr "Alterna entre el ajuste de línea"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr ""
+
+#. (para)
+msgid "Go to line"
+msgstr ""
+
+#. (para)
+msgid "Select all text"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-U"
+msgstr ""
+
+#. (para)
+msgid "Switches views"
+msgstr ""
 
 #. (term)
 msgid "Ctrl-mousewheel"

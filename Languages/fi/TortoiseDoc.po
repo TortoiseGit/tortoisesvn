@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:25+0000\n"
+"PO-Revision-Date: 2012-08-10 08:34+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8176,6 +8176,16 @@ msgid ""
 "rather than at HEAD."
 msgstr "Sinun on määritettävä sen alihakemiston nimi, johon ulkoinen viite noudetaan, sekä ulkoisen viitteen Subversion-paikannin. Voit kytkeä ulkoisen viitteen HEAD-versioon, jolloin työkopioosi lisätään päivityksen yhteydessä automaattisesti ulkoisen viitteen muutokset. Voit myös kytkeä ulkoisen viitteen johonkin kiinteään versionumeroon. Tässä tapauksessa saatat myös haluta antaa saman version ankkuriversioksi, koska jos ulkoinen viite nimetään uudelleen tulevaisuudessa, Subversion ei kykene päivittämään viitettä työkopioosi. Määrittämällä ankkuriversion Subversionille, että ulkoisen viitteen nimeä on etsittävä sellaisena, kun se oli ankkuriversiossa (ankkuriversion oletusarvo on HEAD)."
 
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr ""
+
 #. (title)
 msgid "SVN Keywords"
 msgstr "SVN-avainsanat"
@@ -8224,12 +8234,12 @@ msgstr "Lokiviestien ominaisuussivun koko"
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "<placeholder-1/> Nämä kolme ominaisuutta ohjaavat lokiviestien muotoilua. Ensimmäiset kaksi poistavat  <guibutton>OK</guibutton>-painikkeen käytöstä toimitus- ja lukitusikkunoissa, kunnes toimitusviesti on riittävän pitkä. Reuna-asema näyttää sarkainmerkin asetetun sarakeleveyden kohdalla, mikäli projekti käyttää lokiviesteille leveysrajoitusta. Arvon nollaus poistaa ominaisuuden käytöstä."
+msgstr ""
 
 #. (title)
 msgid "Project Language"
@@ -8463,6 +8473,13 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr "Sinun kannattaa vakavasti harkita versionumeroiden käyttöä kaikissa ulkoisissa viittauksissa, kuten edellä kuvattiin. Kun teet näin, pääset itse päättämään, milloin otat käyttöön uuden ulkoisen komponentin version (ja minkä version siitä). Sen itsestään selvyyden ohella, että et joudu yllätetyksi jonkun kolmannen osapuolen arkistomuutosten takia (joihin et ehkä voi vaikuttaa), versionumeroiden käyttö ulkoisissa viittauksissa auttaa myös silloin, kun haluat palauttaa jonkun projektisi vanhan version - tällöin ulkoiset viittaukset palautuvat oikeisiin arvoihin. Tästä johtuen ulkoiset työkopiot päivittyvät myös tavalla, joka vastaa sitä, miltä <emphasis>ne</emphasis> näyttivät aiemmassa versiossa. Ohjelmistoprojekteille tämä voi merkitä eroa onnistuneen tai epäonnistuneen käännöksen välillä."
+
+#. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -19886,12 +19903,34 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Kytkee muuttumattomien osien piilotuksen päälle/pois"
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
 msgstr "Kytkee rivityksen päälle/pois"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr ""
+
+#. (para)
+msgid "Go to line"
+msgstr ""
+
+#. (para)
+msgid "Select all text"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-U"
+msgstr ""
+
+#. (para)
+msgid "Switches views"
+msgstr ""
 
 #. (term)
 msgid "Ctrl-mousewheel"

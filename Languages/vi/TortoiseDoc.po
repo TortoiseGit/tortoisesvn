@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-07-21 08:26+0000\n"
+"PO-Revision-Date: 2012-08-10 08:34+0000\n"
 "Last-Translator: Khoa Dang <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8175,6 +8175,16 @@ msgid ""
 "rather than at HEAD."
 msgstr "Bạn cần phải xác định tên của thư mục con mà thư mục bên ngoài được kiểm tra ra, và URL subversion của mục bên ngoài. Bạn có thể kiểm tra ra một thành phần bên ngoài tại bản sửa đổi CHÍNH của nó, vì vậy khi mục bên ngoài thay đổi trong kho lưu trữ, bản sao làm việc của bạn sẽ nhận được những thay đổi lúc cập nhật. Tuy nhiên, nếu bạn muốn thành phần bên ngoài để tham chiếu một điểm ổn định cụ thể thì bạn có thể chỉ định sửa đổi cụ thể để sử dụng. Ở trường hợp này bạn cũng có thể muốn chỉ ra cùng một bản chỉnh sửa như là một phiên bản gắn kết. Nếu đối tượng bên ngoài được đổi tên tại một thời điểm nào đó trong tương lai thì Subversion sẽ không thể cập nhật mục này trong bản sao làm việc của bạn. Bằng việc chỉ định một phiên bản gắn kết bạn nói với Subversion tìm một mục có tên đó ở các sửa đổi gắn kết hơn là tại bản CHÍNH."
 
+#. (para)
+msgid ""
+"The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
+"revision of every external url and shows that HEAD revision in the rightmost"
+" column. After the HEAD revision is known, a simple right click on an "
+"external gives you the command to peg the selected externals to their "
+"explicit HEAD revision. In case the HEAD revision is not known yet, the "
+"right click command will fetch the HEAD revision first."
+msgstr ""
+
 #. (title)
 msgid "SVN Keywords"
 msgstr "Từ khóa SVN"
@@ -8223,12 +8233,12 @@ msgstr "Kích thước của trang thuộc tính thông điệp tường trình"
 #. (para)
 msgid ""
 "<placeholder-1/> These 3 properties control the formatting of log messages. "
-"The first 2 disable the <guibutton>OK</guibutton>OK in the commit or lock "
+"The first 2 disable the <guibutton>OK</guibutton> in the commit or lock "
 "dialogs until the message meets the minimum length. The border position "
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "<placeholder-1/> 3 thuộc tính kiểm soát các định dạng của thông điệp tường trình. 2 cái đầu tiên vô hiệu hóa <guibutton> OK </guibutton> trong hộp thoại cam kết hoặc khóa cho đến khi thông điệp đáp ứng chiều dài tối thiểu. Vị trí biên giới cho thấy một dấu hiệu độ rộng cột như một hướng dẫn cho các dự án có giới hạn chiều rộng trên thông điệp tường trình. Thiết lập một giá trị bằng không sẽ xóa các thuộc tính."
+msgstr ""
 
 #. (title)
 msgid "Project Language"
@@ -8462,6 +8472,13 @@ msgid ""
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
 msgstr "Bạn nên xem xét mạnh mẽ việc sử dụng số sửa đổi rõ ràng trong tất cả các định nghĩa bên ngoài của bạn, như mô tả ở trên. Làm như vậy có nghĩa là bạn có thể quyết định khi nào để kéo xuống một bản chụp khác nhau của thông tin bên ngoài, và chính xác là bản chụp nào để kéo. Bên cạnh các khía cạnh chung để  không bị ngạc nhiên bởi những thay đổi đến các kho của bên thứ ba mà bạn có thể không có bất kỳ kiểm soát nào, sử dụng số sửa đổi rõ ràng cũng có nghĩa là khi bạn lùi ngày bản sao làm việc của bạn với một phiên bản trước đó, các định nghĩa bên ngoài của bạn cũng sẽ trở lại theo cách mà chúng được nhìn vào trong phiên bản trước đó, lần lượt có nghĩa là các bản sao làm việc bên ngoài sẽ được cập nhật để phù hợp với họ cách <emphasis> chúng </emphasis> được nhìn lại khi kho của bạn tại sửa đổi trước đó. Đối với các dự án phần mềm, điều này có thể là sự khác biệt giữa một xây dựng thành công và thất bại của một bản chụp cũ của cơ sở mã phức tạp của bạn."
+
+#. (para)
+msgid ""
+"The edit dialog for <literal>svn:externals</literal> properties allows you "
+"to select the externals and automatically set them explicitly to the HEAD "
+"revision."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -19885,12 +19902,34 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Đảo giữa việc sập xuống các phần không thay đổi hay không"
 
 #. (term)
+#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
 #. (para)
+#. (para)
 msgid "Toggles between line wrapping"
 msgstr "Đảo giữa việc gói dòng"
+
+#. (term)
+msgid "Ctrl-G"
+msgstr ""
+
+#. (para)
+msgid "Go to line"
+msgstr ""
+
+#. (para)
+msgid "Select all text"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-U"
+msgstr ""
+
+#. (para)
+msgid "Switches views"
+msgstr ""
 
 #. (term)
 msgid "Ctrl-mousewheel"

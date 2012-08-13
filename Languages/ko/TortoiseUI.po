@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-09 08:40+0000\n"
+"PO-Revision-Date: 2012-08-11 08:45+0000\n"
 "Last-Translator: Seongki Shin <skshin@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1834,6 +1834,10 @@ msgid ""
 "Settings"
 msgstr "설정 조정\n설정"
 
+#. Resource IDs: (591)
+msgid "Adjust to HEAD revision"
+msgstr ""
+
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
 msgstr "고급 설정"
@@ -1925,6 +1929,10 @@ msgstr "이미 역방향 병합되었습니다."
 msgid "Always close dialogs for local operations"
 msgstr "로컬 동작에 대해서 다이얼로그를 항상 닫습니다."
 
+#. Resource IDs: (1339)
+msgid "Always execute the script"
+msgstr ""
+
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
 msgstr "날짜와 시간을 나타내기 위해 항상 시스템 국가 설정을 사용합니다"
@@ -2011,12 +2019,6 @@ msgstr "Unified Diff 적용"
 #. Resource IDs: (363)
 msgid "Approve or reject client-side hook script"
 msgstr "클라이언트 후크 스크립트의 승인 또는 거부"
-
-#. Resource IDs: (363)
-msgid ""
-"Approve\n"
-"Run the hook script"
-msgstr "승인\n후크 스크립트를 실행합니다"
 
 #. Resource IDs: (1282)
 msgid "Approved hook scripts"
@@ -2400,12 +2402,6 @@ msgid ""
 "Cancel\n"
 "Do not revert."
 msgstr "취소\n되돌리지 않습니다."
-
-#. Resource IDs: (363)
-msgid ""
-"Cancel\n"
-"Do not run the script"
-msgstr "취소\n스크립트를 실행하지 않습니다"
 
 #. Resource IDs: (90)
 msgid ""
@@ -4034,6 +4030,12 @@ msgid ""
 "Use the last explicitly saved versions of the documents"
 msgstr "자동으로 저장된 문서를 복구하지 않음\n명시적으로 저장된 이 문서의 마지막 버전을 사용합니다."
 
+#. Resource IDs: (363)
+msgid ""
+"Don't run\n"
+"Do not run the script"
+msgstr ""
+
 #. Resource IDs: (315)
 msgid ""
 "Don't save\n"
@@ -4576,6 +4578,10 @@ msgstr "이슈 트래커 COM 프로바이더 '%1!s!'을/를 시작하는데 실�
 msgid "Failed!"
 msgstr "실패하였습니다"
 
+#. Resource IDs: (591)
+msgid "Fetch HEAD revision and adjust to it"
+msgstr ""
+
 #. Resource IDs: (199)
 msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
@@ -4739,6 +4745,14 @@ msgstr "필터 경로"
 #. Resource IDs: (139)
 msgid "Find"
 msgstr "찾기"
+
+#. Resource IDs: (1633)
+msgid "Find &Head-Revision"
+msgstr ""
+
+#. Resource IDs: (591)
+msgid "Find HEAD revisions"
+msgstr ""
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5013,6 +5027,10 @@ msgstr "HEAD"
 msgid "HEAD node"
 msgstr "HEAD 노드"
 
+#. Resource IDs: (218)
+msgid "Head"
+msgstr ""
+
 #. Resource IDs: (106)
 #, c-format
 msgid "Head revision is %s"
@@ -5206,6 +5224,10 @@ msgstr "ID:32809:V C +F"
 #. Accelerator Entry for Menu ID:32810; 'Fit image &sizes'
 msgid "ID:32810:V   +T"
 msgstr "ID:32810:V   +T"
+
+#. Accelerator Entry for Menu ID:32811; ''
+msgid "ID:32811:V C +U"
+msgstr ""
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
@@ -5819,8 +5841,12 @@ msgid "Language:"
 msgstr "언어:"
 
 #. Resource IDs: (65535)
-msgid "Last commit revision:"
-msgstr "마지막 커밋 리비전:"
+msgid "Last changed author:"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Last changed revision:"
+msgstr ""
 
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
@@ -8161,10 +8187,6 @@ msgstr "리비전 %ld"
 msgid "Revision &graph"
 msgstr "리비전 그래프(&G)"
 
-#. Resource IDs: (65535)
-msgid "Revision / Author:"
-msgstr "리비전 / 작성자"
-
 #. Resource IDs: (182, 296)
 msgid "Revision Graph"
 msgstr "리비전 그래프"
@@ -8258,6 +8280,12 @@ msgstr "행 위로"
 #. Resource IDs: (16)
 msgid "Run cleanup &now"
 msgstr "지금 정리하기 수행(&N)"
+
+#. Resource IDs: (363)
+msgid ""
+"Run\n"
+"Run the hook script"
+msgstr ""
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -10953,6 +10981,10 @@ msgid ""
 msgstr "경고:\r\n무엇을 하는지 절대적으로 확신할 수 있는 경우에만, 이 설정을 변경하십시오!\r\n기본값으로 설정하기 위해서는, 값을 삭제하십시오."
 
 #. Resource IDs: (65535)
+msgid "WC Revision:"
+msgstr ""
+
+#. Resource IDs: (65535)
 msgid "WC node"
 msgstr "작업사본 노드"
 
@@ -11531,6 +11563,14 @@ msgstr "외부"
 msgid "file external:"
 msgstr "파일 외부:"
 
+#. Resource IDs: (591)
+msgid "get HEAD revision:"
+msgstr ""
+
+#. Resource IDs: (591)
+msgid "get repository root urls:"
+msgstr ""
+
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
 msgstr "http://tortoisesvn.net"
@@ -11584,8 +11624,8 @@ msgid "locked"
 msgstr "잠김"
 
 #. Resource IDs: (65535)
-msgid "locked:"
-msgstr "잠김:"
+msgid "locked (cleanup required):"
+msgstr ""
 
 #. Resource IDs: (1539)
 msgid "log text &editor"
