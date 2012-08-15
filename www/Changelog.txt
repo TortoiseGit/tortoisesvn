@@ -1,3 +1,128 @@
+Version 1.7.8
+- BUG: Issue #297: "Show changes as unified diff"
+       from Log window fails. (Stefan)
+- BUG: Issue #299: crash in repobrowser
+       when refreshing. (Stefan)
+- BUG: Issue #301: Crash in log dialog when
+       selecting all revisions with Ctrl-A. (Stefan)
+- BUG: issue #302: segfault in status cache. (Stefan)
+- BUG: Issue #304: buffer overflow when
+       saving column data. (Stefan)
+- BUG: Issue #305: diff from log for
+       url fails. (Stefan)
+- BUG: Issue #298: crash when editing files
+       in repo browser. (Stefan)
+- BUG: Issue #307: Repository browser does not
+       check empty selections. (Stefan)
+- BUG: Issue #308: closing merge wizard with
+       log dialog open segfaults. (Stefan)
+- BUG: Issue #309: file diff dialog
+       can segfault. (Stefan)
+- BUG: Issue #315: long paths handled
+       incorrectly. (Stefan)
+- BUG: Issue #316: Threads not correctly synchronized
+       in repo browser. (Stefan)
+- BUG: Issue #317: progress dlg can't be closed
+       with the red X button. (Stefan)
+- BUG: Issue #318: Command URLs with spaces parsed
+       incorrectly. (Stefan)
+- BUG: Issue #320: segfault when unloading the
+       shell extension. (Stefan)
+- BUG: Issue #321: TortoiseMerge asserts
+       on start. (Stefan)
+- BUG: Issue #324: Exception when checking for
+       admin dirs. (Stefan)
+- BUG: Issue #327: Access violation with
+       "Show log" on copied entry. (Stefan)
+- BUG: Issue #330: crash with invalid
+       config file. (Stefan)
+- BUG: Issue #332: crash when closing
+       log dialog. (Stefan)
+- BUG: Issue #335: stack overflow when unchecking
+       items in the commit dialog. (Stefan)
+- BUG: Issue #336: crash when closing the progress
+       dialog too early. (Stefan)
+- BUG: Issue #337: out of memory exception when
+       opening large files in TortoiseMerge. (Stefan)
+- BUG: Issue #338: cache crash on startup. (Stefan)
+- BUG: Issue #339: too short checkbox and radio
+       controls in high dpi mode. (Stefan)
+- BUG: Issue #340: reverting files from log
+       dialog fails. (Stefan)
+- BUG: Issue #344: DC leaks cause crashes. (Stefan)
+- BUG: Issue #345: Crash in progress
+       dialog. (Stefan)
+- BUG: Issue #346: crash diffing invalid
+       icon files. (Stefan)
+- BUG: Issue #347: long paths crash
+       TortoiseBlame. (Stefan)
+- BUG: Issue #348: crash closing
+       merge wizard. (Stefan)
+- CHG: Issue #349: Language packs
+       downgrade. (Stefan)
+- BUG: Issue #351: crash in status cache. (Stefan)
+- BUG: Issue #352: overlay icons disappear after
+       moving the .svn folder. (Stefan)
+- BUG: Issue #353: Repro browser: Creating folder
+       in just renamed folder with space in
+       name fails. (Stefan)
+- BUG: Issue #354: After reloading cursor and
+       position dont match. (Stefan)
+- BUG: Issue #355: newline symbols are
+       shown incorrectly. (Stefan)
+- BUG: Issue #357: tagging externals from log
+       dialog not implemented. (Stefan)
+- BUG: Issue #359: out of memory exception
+       in commit dialog. (Stefan)
+- BUG: Issue #360: Crash using blocks. (Stefan)
+- BUG: Issue #361: merge log messages not
+       generated for 'record only' merges. (Stefan)
+- BUG: Issue #362: crash when adding/removing
+       properties. (Stefan)
+- CHG: Issue #363: make crash reporter optional
+       during install. (Stefan)
+- BUG: Issue #365: moved line detection
+       can segfault. (Stefan)
+- BUG: Issue #367: temp files created with
+       wrong names. (Stefan)
+- BUG: Issue #368: accessing invalid data
+       in repobrowser. (Stefan)
+- BUG: Issue #370: number of added files
+       is wrong. (Stefan)
+- BUG: Issue #371: Cleaning up
+       unversioned/ignored items can fail
+       without an error being shown. (Stefan)
+- BUG: Issue #372: log dialog refresh does
+       not refresh merged info. (Stefan)
+- BUG: Issue #373: Right-clicking on files ceases
+       to function in Commit dialog on occasion. (Stefan)
+- BUG: Issue #376: Incorrect checkbox selection
+       in Repo browser. (Stefan)
+- BUG: Issue #377: file lock without owner
+       crashes status cache. (Stefan)
+- BUG: Issue #379: Access violation when reading the w/c
+       state for the revision graph. (Stefan Fuhrmann)
+- BUG: Issue #380: Crash in log reporter when author
+       information is empty. (Stefan Fuhrmann)
+- BUG: Issue #381: Exception when updating revprops in
+       log cache. (Stefan Fuhrmann)
+- BUG: Issue #382: Don't crash in log cache when path
+       info is not available. (Stefan Fuhrmann)
+- BUG: Issue #383: access violation if context
+       creation fails. (Stefan)
+- BUG: Issue #384: Crash when removing old log caches.
+       (Stefan Fuhrmann)
+- BUG: Issue #385: Log cache not filled after REPLACE.
+       (Stefan Fuhrmann)
+- BUG: Issue #386: double entries in log dialog
+       after "next 100". (Stefan)
+- BUG: Issue #388: Wrong/duplicate info in the
+       explorer Subversion properties tab. (Stefan)
+- BUG: Issue #389: Blame using the wrong pegrev.
+       (Stefan Fuhrmann)
+- BUG: Issue #393: Crash when dragging files
+       with long paths. (Stefan)
+
 Version 1.7.7
 - BUG: Issue #233: Crash when closing the
        progress dialog. (Stefan)
