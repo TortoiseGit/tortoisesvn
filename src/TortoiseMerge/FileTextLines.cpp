@@ -120,69 +120,31 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 }
 
 
-EOL CFileTextLines::CheckLineEndings(LPVOID pBuffer, int cb)
+/**
+	returns first EOL type
+*/
+EOL CFileTextLines::CheckLineEndings(wchar_t * pBuffer, int nCharCount)
 {
     EOL retval = EOL_AUTOLINE;
-    char * buf = (char *)pBuffer;
-    for (int i=0; i<cb; i++)
+    for (int i=0; i<nCharCount; i++)
     {
         //now search the buffer for line endings
-        if (buf[i] == 0x0a)
+        if (pBuffer[i] == 0x0a)
         {
-            if ((i+1)<cb)
+            if ((i+1)<nCharCount && pBuffer[i+1] == 0x0d)
             {
-                if (buf[i+1] == 0)
-                {
-                    //UNICODE
-                    if ((i+2)<cb)
-                    {
-                        if (buf[i+2] == 0x0d)
-                        {
-                            retval = EOL_LFCR;
-                            break;
-                        }
-                        else
-                        {
-                            retval = EOL_LF;
-                            break;
-                        }
-                    }
-                }
-                else if (buf[i+1] == 0x0d)
-                {
-                    retval = EOL_LFCR;
-                    break;
-                }
+                retval = EOL_LFCR;
+                break;
             }
             retval = EOL_LF;
             break;
         }
-        else if (buf[i] == 0x0d)
+        else if (pBuffer[i] == 0x0d)
         {
-            if ((i+1)<cb)
+            if ((i+1)<nCharCount && pBuffer[i+1] == 0x0a)
             {
-                if (buf[i+1] == 0)
-                {
-                    //UNICODE
-                    if ((i+2)<cb)
-                    {
-                        if (buf[i+2] == 0x0a)
-                        {
-                            retval = EOL_CRLF;
-                            break;
-                        }
-                        else
-                        {
-                            retval = EOL_CR;
-                            break;
-                        }
-                    }
-                }
-                else if (buf[i+1] == 0x0a)
-                {
-                    retval = EOL_CRLF;
-                    break;
-                }
+                retval = EOL_CRLF;
+                break;
             }
             retval = EOL_CR;
             break;
@@ -256,15 +218,12 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         SetErrorString();
         return FALSE;
     }
+    hFile.CloseHandle();
+
     if (m_UnicodeType == CFileTextLines::AUTOTYPE)
     {
         m_UnicodeType = this->CheckUnicodeType(pFileBuf, dwReadBytes);
     }
-    if (m_LineEndings == EOL_AUTOLINE)
-    {
-        m_LineEndings = CheckLineEndings(pFileBuf, min(10000, dwReadBytes));
-    }
-    hFile.CloseHandle();
 
     if (m_UnicodeType == CFileTextLines::BINARY)
     {
@@ -273,6 +232,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         return FALSE;
     }
 
+    // convert text to UTF16LE
     // we may have to convert the file content
     if ((m_UnicodeType == UTF8)||(m_UnicodeType == UTF8BOM))
     {
@@ -323,14 +283,24 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         else
             delete [] pWideBuf;
     }
-    // fill in the lines into the array
-    wchar_t * pTextBuf = pFileBuf;
-    wchar_t * pLineStart = pFileBuf;
     if ((m_UnicodeType == UNICODE_LE)||(m_UnicodeType == UNICODE_BE))
     {
         // UTF16 have two bytes per char
         dwReadBytes/=2;
     }
+    if (m_UnicodeType == UNICODE_BE)
+    {
+        // swap the bytes to little-endian order to get proper strings in wchar_t format
+        wchar_t * pSwapBuf = pFileBuf;
+        for (DWORD i = 0; i<dwReadBytes; ++i)
+        {
+            *pSwapBuf = WideCharSwap(*pSwapBuf);
+            ++pSwapBuf;
+        }
+    }
+
+    wchar_t * pTextBuf = pFileBuf;
+    wchar_t * pLineStart = pFileBuf;
     if ((m_UnicodeType == UTF8BOM)||(m_UnicodeType == UNICODE_LE)||(m_UnicodeType == UNICODE_BE))
     {
         // ignore the BOM
@@ -339,16 +309,13 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         --dwReadBytes;
     }
 
-    if (m_UnicodeType == UNICODE_BE)
+    // detect line EOL
+    if (m_LineEndings == EOL_AUTOLINE)
     {
-        // swap the bytes to little-endian order to get proper strings in wchar_t format
-        wchar_t * pSwapBuf = pTextBuf;
-        for (DWORD i = 0; i<dwReadBytes; ++i)
-        {
-            *pSwapBuf = WideCharSwap(*pSwapBuf);
-            ++pSwapBuf;
-        }
+        m_LineEndings = CheckLineEndings(pTextBuf, min(16*1024, dwReadBytes));
     }
+
+    // fill in the lines into the array
     for (DWORD i = 0; i<dwReadBytes; ++i)
     {
         if (*pTextBuf == '\r')
@@ -446,7 +413,7 @@ void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine,DWORD dwIgnoreWhitespa
         sLine.TrimLeft(" \t");
         break;
     case 3:
-        // Ignore leading whitespace
+        // Ignore ending whitespace
         sLine.TrimRight(" \t");
         break;
     }

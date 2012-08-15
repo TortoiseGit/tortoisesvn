@@ -103,7 +103,7 @@ private:
      * \param pBuffer pointer to the buffer containing text
      * \param cd size of the text buffer in bytes
      */
-    EOL CheckLineEndings(LPVOID pBuffer, int cb);
+    EOL CheckLineEndings(wchar_t * pBuffer, int nCharCount);
     /**
      * Checks the Unicode type in a text buffer
      * \param pBuffer pointer to the buffer containing text
