@@ -153,6 +153,44 @@ EOL CFileTextLines::CheckLineEndings(wchar_t * pBuffer, int nCharCount)
     return retval;
 }
 
+
+bool ConvertToWideChar(const int nCodePage
+        , const LPCSTR & pFileBuf
+        , const DWORD dwReadBytes
+        , wchar_t * & pTextBuf
+        , int & nReadChars)
+{
+#define UTF16LE 1200
+#define UTF16BE 1201
+    if ((nCodePage == UTF16LE)||(nCodePage == UTF16BE))
+    {
+        // UTF16 have two bytes per char
+        nReadChars = dwReadBytes/2;
+        pTextBuf = (wchar_t *)pFileBuf;
+        if (nCodePage == UTF16BE)
+        {
+            // swap the bytes to little-endian order to get proper strings in wchar_t format
+            for (DWORD i = 0; i<nReadChars; ++i)
+            {
+                pTextBuf[i] = WideCharSwap(pTextBuf[i]);
+            }
+        }
+        return TRUE;
+    }
+
+    int nFlags = (nCodePage==CP_ACP) ? MB_PRECOMPOSED : 0;
+    nReadChars = MultiByteToWideChar(nCodePage, nFlags, pFileBuf, dwReadBytes, NULL, 0);
+
+    pTextBuf = new wchar_t[nReadChars];
+    int ret2 = MultiByteToWideChar(nCodePage, nFlags, pFileBuf, dwReadBytes, pTextBuf, nReadChars);
+    if (ret2 != nReadChars)
+    {
+        return FALSE;
+    }
+    return TRUE;
+}
+
+
 BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 {
     WCHAR exceptionError[1000] = {0};
@@ -197,6 +235,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         return FALSE;
     }
 
+    // create buffer
     // If new[] was done for type T delete[] must be called on a pointer of type T*,
     // otherwise the behavior is undefined.
     // +1 is to address possible truncation when integer division is done
@@ -211,6 +250,8 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         m_sErrorString = exceptionError;
         return FALSE;
     }
+
+    // load file
     DWORD dwReadBytes = 0;
     if (!ReadFile(hFile, pFileBuf, fsize.LowPart, &dwReadBytes, NULL))
     {
@@ -220,6 +261,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     }
     hFile.CloseHandle();
 
+    // detect type
     if (m_UnicodeType == CFileTextLines::AUTOTYPE)
     {
         m_UnicodeType = this->CheckUnicodeType(pFileBuf, dwReadBytes);
@@ -234,93 +276,66 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 
     // convert text to UTF16LE
     // we may have to convert the file content
-    if ((m_UnicodeType == UTF8)||(m_UnicodeType == UTF8BOM))
-    {
-        int ret = MultiByteToWideChar(CP_UTF8, 0, (LPCSTR)pFileBuf, dwReadBytes, NULL, 0);
-        wchar_t * pWideBuf = nullptr;
-        try
-        {
-            pWideBuf = new wchar_t[ret];
-        }
-        catch (CMemoryException* e)
-        {
-            e->GetErrorMessage(exceptionError, _countof(exceptionError));
-            m_sErrorString = exceptionError;
-            delete [] pFileBuf;
-            return FALSE;
-        }
-        int ret2 = MultiByteToWideChar(CP_UTF8, 0, (LPCSTR)pFileBuf, dwReadBytes, pWideBuf, ret);
-        if (ret2 == ret)
-        {
-            delete [] pFileBuf;
-            pFileBuf = pWideBuf;
-            dwReadBytes = ret2;
-        } else
-            delete [] pWideBuf;
-    }
-    else if (m_UnicodeType == ASCII)
-    {
-        int ret = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)pFileBuf, dwReadBytes, NULL, 0);
-        wchar_t * pWideBuf = nullptr;
-        try
-        {
-            pWideBuf = new wchar_t[ret];
-        }
-        catch (CMemoryException* e)
-        {
-            e->GetErrorMessage(exceptionError, _countof(exceptionError));
-            m_sErrorString = exceptionError;
-            delete [] pFileBuf;
-            return FALSE;
-        }
-        int ret2 = MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, (LPCSTR)pFileBuf, dwReadBytes, pWideBuf, ret);
-        if (ret2 == ret)
-        {
-            delete [] pFileBuf;
-            pFileBuf = pWideBuf;
-            dwReadBytes = ret2;
-        }
-        else
-            delete [] pWideBuf;
-    }
-    if ((m_UnicodeType == UNICODE_LE)||(m_UnicodeType == UNICODE_BE))
-    {
-        // UTF16 have two bytes per char
-        dwReadBytes/=2;
-    }
-    if (m_UnicodeType == UNICODE_BE)
-    {
-        // swap the bytes to little-endian order to get proper strings in wchar_t format
-        wchar_t * pSwapBuf = pFileBuf;
-        for (DWORD i = 0; i<dwReadBytes; ++i)
-        {
-            *pSwapBuf = WideCharSwap(*pSwapBuf);
-            ++pSwapBuf;
-        }
-    }
-
+    int nReadChars = dwReadBytes/2;
     wchar_t * pTextBuf = pFileBuf;
-    wchar_t * pLineStart = pFileBuf;
+    try
+    {
+        int nSourceCodePage = 0;
+        switch (m_UnicodeType) 
+        {
+        case UTF8:
+        case UTF8BOM:
+            nSourceCodePage = CP_UTF8;
+            break;
+        case ASCII:
+            nSourceCodePage = CP_ACP;
+            break;
+        case UNICODE_BE:
+            nSourceCodePage = UTF16BE;
+            break;
+        case UNICODE_LE:
+            nSourceCodePage = UTF16LE;
+            break;
+        }
+        if (!ConvertToWideChar(nSourceCodePage, (LPCSTR)pFileBuf, dwReadBytes, pTextBuf, nReadChars))
+        {
+            return FALSE;
+        }
+    }
+    catch (CMemoryException* e)
+    {
+        e->GetErrorMessage(exceptionError, _countof(exceptionError));
+        m_sErrorString = exceptionError;
+        delete [] pFileBuf;
+        return FALSE;
+    }
+    if (pTextBuf!=pFileBuf)
+    {
+         delete [] pFileBuf;
+    }
+    pFileBuf = NULL;
+
+    wchar_t * pLineStart = pTextBuf;
     if ((m_UnicodeType == UTF8BOM)||(m_UnicodeType == UNICODE_LE)||(m_UnicodeType == UNICODE_BE))
     {
         // ignore the BOM
         ++pTextBuf;
         ++pLineStart;
-        --dwReadBytes;
+        --nReadChars;
     }
 
     // detect line EOL
     if (m_LineEndings == EOL_AUTOLINE)
     {
-        m_LineEndings = CheckLineEndings(pTextBuf, min(16*1024, dwReadBytes));
+        m_LineEndings = CheckLineEndings(pTextBuf, min(16*1024, nReadChars));
     }
 
     // fill in the lines into the array
-    for (DWORD i = 0; i<dwReadBytes; ++i)
+    for (DWORD i = 0; i<nReadChars; ++i)
     {
         if (*pTextBuf == '\r')
         {
-            if ((i + 1) < dwReadBytes)
+            if ((i + 1) < nReadChars)
             {
                 if (*(pTextBuf+1) == '\n')
                 {
