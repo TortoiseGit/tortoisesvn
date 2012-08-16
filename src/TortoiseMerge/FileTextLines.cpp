@@ -315,6 +315,8 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     }
     pFileBuf = NULL;
 
+
+    wchar_t * pTextStart = pTextBuf;
     wchar_t * pLineStart = pTextBuf;
     if ((m_UnicodeType == UTF8BOM)||(m_UnicodeType == UNICODE_LE)||(m_UnicodeType == UNICODE_BE))
     {
@@ -373,7 +375,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     else
         m_bReturnAtEnd = true;
 
-    delete [] pFileBuf;
+    delete [] pTextStart;
 
     return TRUE;
 }
