@@ -22,6 +22,7 @@
 #include "Svnstatuscache.h"
 #include "CacheInterface.h"
 #include "UnicodeUtils.h"
+#include "SVNConfig.h"
 #include "shlobj.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -258,7 +259,7 @@ CSVNStatusCache::~CSVNStatusCache(void)
 void CSVNStatusCache::Refresh()
 {
     m_shellCache.ForceRefresh();
-    m_pInstance->m_svnHelp.ReloadConfig();
+    SVNConfig::Instance().Refresh();
     if (!m_pInstance->m_directoryCache.empty())
     {
         CCachedDirectory::CachedDirMap::iterator I = m_pInstance->m_directoryCache.begin();

@@ -74,8 +74,6 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
         svn_pool_destroy (m_pool);                  // free the allocated memory
         exit(-1);
     }
-
-    SVNConfig::SetUpSSH(m_pctx);
 #else
     // set up the configuration
     m_pctx->config = SVNConfig::Instance().GetConfig();

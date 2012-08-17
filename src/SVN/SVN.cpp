@@ -117,12 +117,6 @@ SVN::SVN(bool suppressUI)
 
     if (m_pctx->config == nullptr)
     {
-        Err = svn_config_get_config (&(m_pctx->config), g_pConfigDir, pool);
-    }
-
-    if (Err != 0)
-    {
-        ShowErrorDialog(NULL);
         svn_pool_destroy (pool);
         svn_pool_destroy (parentpool);
         exit(-1);
@@ -146,8 +140,6 @@ SVN::SVN(bool suppressUI)
     m_pctx->progress_func = progress_func;
     m_pctx->progress_baton = this;
     m_pctx->client_name = SVNHelper::GetUserAgentString(pool);
-
-    SVNConfig::SetUpSSH(m_pctx);
 }
 
 SVN::~SVN(void)

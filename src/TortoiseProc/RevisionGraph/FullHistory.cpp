@@ -78,9 +78,6 @@ CFullHistory::CFullHistory(void)
 
     ctx->cancel_func = cancel;
     ctx->cancel_baton = this;
-
-    //set up the SVN_SSH param
-    SVNConfig::SetUpSSH(ctx);
 }
 
 CFullHistory::~CFullHistory(void)

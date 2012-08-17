@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007,2010-2011 - TortoiseSVN
+// Copyright (C) 2003-2007,2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,7 +71,6 @@ public:
     apr_pool_t*         Pool() const { return m_pool; }
     svn_client_ctx_t*   ClientContext(apr_pool_t * pool) const;
     void                Cancel(bool bCancelled = true) {m_bCancelled = bCancelled;}
-    void                ReloadConfig();
     static const char * GetUserAgentString(apr_pool_t * pool);
     static bool         IsVersioned(const CTSVNPath& path, bool mustbeok);
 protected:

@@ -35,24 +35,23 @@ SVNConfig* SVNConfig::m_pInstance;
 SVNConfig::SVNConfig(void)
     : config(nullptr)
     , patterns(nullptr)
+    , Err(nullptr)
 {
-    svn_error_t * err;
     parentpool = svn_pool_create(NULL);
-
-    err = svn_config_ensure(NULL, parentpool);
     pool = svn_pool_create (parentpool);
-    // set up the configuration
-    if (err == 0)
-        err = svn_config_get_config (&(config), g_pConfigDir, parentpool);
 
-    if (err != 0)
-    {
-        svn_error_clear(err);
-    }
+    Err = svn_config_ensure(NULL, pool);
+    if (Err == nullptr)
+        // set up the configuration
+        Err = svn_config_get_config (&(config), g_pConfigDir, pool);
+
+    if (config)
+        SetUpSSH();
 }
 
 SVNConfig::~SVNConfig(void)
 {
+    svn_error_clear(Err);
     svn_pool_destroy (pool);
     svn_pool_destroy (parentpool);
     delete m_pInstance;
@@ -93,15 +92,17 @@ BOOL SVNConfig::KeepLocks()
     return no_unlock;
 }
 
-bool SVNConfig::SetUpSSH(svn_client_ctx_t * ctx)
+bool SVNConfig::SetUpSSH()
 {
     bool bRet = false;
+    if (config == nullptr)
+        return bRet;
     //set up the SVN_SSH param
     CString tsvn_ssh = CRegString(_T("Software\\TortoiseSVN\\SSH"));
-    if (tsvn_ssh.IsEmpty() && ctx->config)
+    if (tsvn_ssh.IsEmpty() && config)
     {
         // check whether the ssh client is already set in the Subversion config
-        svn_config_t * cfg = (svn_config_t *)apr_hash_get (ctx->config, SVN_CONFIG_CATEGORY_CONFIG,
+        svn_config_t * cfg = (svn_config_t *)apr_hash_get (config, SVN_CONFIG_CATEGORY_CONFIG,
             APR_HASH_KEY_STRING);
         if (cfg)
         {
@@ -112,9 +113,9 @@ bool SVNConfig::SetUpSSH(svn_client_ctx_t * ctx)
         }
     }
     tsvn_ssh.Replace('\\', '/');
-    if (!tsvn_ssh.IsEmpty() && ctx->config)
+    if (!tsvn_ssh.IsEmpty())
     {
-        svn_config_t * cfg = (svn_config_t *)apr_hash_get (ctx->config, SVN_CONFIG_CATEGORY_CONFIG,
+        svn_config_t * cfg = (svn_config_t *)apr_hash_get (config, SVN_CONFIG_CATEGORY_CONFIG,
             APR_HASH_KEY_STRING);
         if (cfg)
         {
@@ -123,4 +124,34 @@ bool SVNConfig::SetUpSSH(svn_client_ctx_t * ctx)
         }
     }
     return bRet;
+}
+
+void SVNConfig::Refresh()
+{
+    // try to reload the configuration
+    // if it fails, use the originally loaded configuration
+    // if it succeeds, use the reloaded config and clear
+    // the memory of the old configuration
+    apr_pool_t * pool2 = pool;
+    apr_hash_t * config2 = nullptr;
+    if (config)
+        pool2 = svn_pool_create (parentpool);
+
+    svn_error_clear(Err);
+    Err = svn_config_ensure(NULL, pool2);
+    if (Err == nullptr)
+        Err = svn_config_get_config (&(config2), g_pConfigDir, pool2);
+
+    if (config2 == nullptr)
+    {
+        apr_pool_destroy(pool2);
+    }
+    else if (config)
+    {
+        apr_pool_destroy(pool);
+        pool = pool2;
+        config = config2;
+    }
+    if (config)
+        SetUpSSH();
 }

@@ -89,12 +89,6 @@ SVNInfo::SVNInfo (bool)
         svn_error_clear(Err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
     }
-#ifdef _MFC_VER
-    else
-    {
-        SVNConfig::SetUpSSH(m_pctx);
-    }
-#endif
 }
 
 SVNInfo::~SVNInfo(void)

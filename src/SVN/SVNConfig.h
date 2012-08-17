@@ -51,6 +51,19 @@ public:
     }
 
     /**
+     * Reloads the configuration
+     */
+    void Refresh();
+
+    /**
+     * Returns the error object from the initialization, or nullptr if there wasn't any
+     */
+    svn_error_t * GetError() const
+    {
+        return Err;
+    }
+
+    /**
      * Reads the global ignore patterns which will be used later in
      * MatchIgnorePattern().
      * \return TRUE if the function is successful
@@ -68,12 +81,13 @@ public:
 
     BOOL KeepLocks();
 
-    static bool SetUpSSH(svn_client_ctx_t * ctx);
 private:
+    bool SetUpSSH();
+
     apr_pool_t *                parentpool;
     apr_pool_t *                pool;
     apr_hash_t *                config;
     apr_array_header_t *        patterns;
-
+    svn_error_t *               Err;
     static SVNConfig *          m_pInstance;
 };
