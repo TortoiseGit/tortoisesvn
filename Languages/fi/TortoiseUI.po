@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-11 08:45+0000\n"
+"PO-Revision-Date: 2012-08-13 21:32+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1834,7 +1834,7 @@ msgstr "Muokkaa asetuksia\nAsetukset"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"
-msgstr ""
+msgstr "Mukaudu HEAD-versioon"
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -1929,7 +1929,7 @@ msgstr "Sulje aina ikkunat paikallisten toimintojen yhteydessä"
 
 #. Resource IDs: (1339)
 msgid "Always execute the script"
-msgstr ""
+msgstr "Suorita komentojono aina"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -4032,7 +4032,7 @@ msgstr "Älä palauta automaattisesti talletettuja dokumentteja\nKäytä dokumen
 msgid ""
 "Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "Älä suorita\nÄlä suorita komentoa"
 
 #. Resource IDs: (315)
 msgid ""
@@ -4578,7 +4578,7 @@ msgstr "Epäonnistui!"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
-msgstr ""
+msgstr "Nouda HEAD-versio ja mukaudu siihen"
 
 #. Resource IDs: (199)
 msgid ""
@@ -4746,11 +4746,11 @@ msgstr "Etsi"
 
 #. Resource IDs: (1633)
 msgid "Find &Head-Revision"
-msgstr ""
+msgstr "Etsi &HEAD-versio"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
-msgstr ""
+msgstr "Etsi HEAD-versioita"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5027,7 +5027,7 @@ msgstr "HEAD-solmu"
 
 #. Resource IDs: (218)
 msgid "Head"
-msgstr ""
+msgstr "HEAD"
 
 #. Resource IDs: (106)
 #, c-format
@@ -5225,7 +5225,7 @@ msgstr "ID:32778:V   +T"
 
 #. Accelerator Entry for Menu ID:32811; ''
 msgid "ID:32811:V C +U"
-msgstr ""
+msgstr "ID:32811:V C +U"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
@@ -5788,7 +5788,7 @@ msgstr "Yhdistä lähdepuun kanssa"
 
 #. Resource IDs: (1632)
 msgid "Jump to next &conflict"
-msgstr ""
+msgstr "Siirry seuraavaan ristiriitaan"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -5840,11 +5840,11 @@ msgstr "Kieli:"
 
 #. Resource IDs: (65535)
 msgid "Last changed author:"
-msgstr ""
+msgstr "Viimeisimmän muutoksen tekijä:"
 
 #. Resource IDs: (65535)
 msgid "Last changed revision:"
-msgstr ""
+msgstr "Viimeisimmän muutoksen versio:"
 
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
@@ -8283,7 +8283,7 @@ msgstr "Siivoa työkopio &nyt"
 msgid ""
 "Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "Suorita\nSuorita toimintokomento"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9220,7 +9220,7 @@ msgstr "Käynnistä rekisterin muokkaus"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
-msgstr ""
+msgstr "Käynnistetään ulkoiset..."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -10271,7 +10271,7 @@ msgid ""
 "instead.\n"
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr ""
+msgstr "TortoiseBlame-ohjelmaa ei pitäisi käynnistää suoraan!\nKäytä sen sijaan komentoa TortoiseProc.exe /command:blame /path:\"polku\\tiedostoon\".\n\nTortoiseBlame.exe tekijätiedosto [lokitiedosto [ikkunaotsikko]] [/line:rivinumero] [/path:alkuperäinen polku] [/pegrev:ankkuri] [/revrange:versioväli] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -10980,7 +10980,7 @@ msgstr "VAROITUS:\r\nMuuta näitä asetuksia vain, mikäli olet tiedät varmasti
 
 #. Resource IDs: (65535)
 msgid "WC Revision:"
-msgstr ""
+msgstr "Työkopion versio:"
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -11563,11 +11563,11 @@ msgstr "ulkoinen tiedosto:"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
-msgstr ""
+msgstr "hae  HEAD-versio:"
 
 #. Resource IDs: (591)
 msgid "get repository root urls:"
-msgstr ""
+msgstr "hae arkiston juuripaikantimet:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11623,7 +11623,7 @@ msgstr "lukittu"
 
 #. Resource IDs: (65535)
 msgid "locked (cleanup required):"
-msgstr ""
+msgstr "lukittu (siivous tarvitaan):"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"

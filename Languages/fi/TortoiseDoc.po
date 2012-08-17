@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-10 08:34+0000\n"
+"PO-Revision-Date: 2012-08-13 22:08+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8184,7 +8184,7 @@ msgid ""
 "external gives you the command to peg the selected externals to their "
 "explicit HEAD revision. In case the HEAD revision is not known yet, the "
 "right click command will fetch the HEAD revision first."
-msgstr ""
+msgstr "Painike <guibutton>Etsi HEAD-versio</guibutton> noutaa jokaisen ulkoisen viitteen HEAD-version ja näyttää sen oikeanpuolimmaisessa sarakkeessa. Kun HEAD-versio on tiedossa, oikea-napsauta ulkoisen viitteen kohdalla antaa komennon, jolla voit ankkuroida valitut ulkoiset viitteet niiden eksplisiittisiin HEAD-versioihin. Mikäli HEAD-versio ei ole vielä selvillä, oikea-napsauta selvittää sen automaattisesti."
 
 #. (title)
 msgid "SVN Keywords"
@@ -8239,7 +8239,7 @@ msgid ""
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr ""
+msgstr "<placeholder-1/> Nämä kolme ominaisuutta ohjaavat lokiviestien muotoilua. Ensimmäiset kaksi poistavat  <guibutton>OK</guibutton>-painikkeen käytöstä toimitus- ja lukitusikkunoissa, kunnes toimitusviesti on riittävän pitkä. Reuna-asema näyttää sarkainmerkin asetetun sarakeleveyden kohdalla, mikäli projekti käyttää lokiviesteille leveysrajoitusta. Arvon nollaus poistaa ominaisuuden käytöstä."
 
 #. (title)
 msgid "Project Language"
@@ -8301,7 +8301,7 @@ msgstr "<placeholder-1/> Tämä ominaisuus määrittää, merkitäänkö tiedost
 
 #. (title)
 msgid "Merge log message templates"
-msgstr ""
+msgstr "Yhdistä lokiviestikaavaimet"
 
 #. (para)
 #. (para)
@@ -8309,80 +8309,80 @@ msgid ""
 "Whenever revisions are merged into a working copy, TortoiseSVN generates a "
 "log message from all the merged revisions. Those are then available from the"
 " <guibutton>Recent Messages</guibutton> button in the commit dialog."
-msgstr ""
+msgstr "Aina, kun versioita yhdistetään työkopioon, TortoiseSVN luo lokiviestin kaikista yhdistetyistä versioista. Nämä ovat saatavilla painikkeen <guibutton>Viimeaikaiset viestit</guibutton> avulla toimitusikkunassa."
 
 #. (title)
 msgid "Property dialog merge log message templates"
-msgstr ""
+msgstr "Ominaisuusikkuna yhdistä lokiviestikaavaimet"
 
 #. (para)
 msgid ""
 "You can customize that generated message with the following properties: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Voit mukauttaa luodun viestin seuraavien ominaisuuksien avulla: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
 "7</literal>"
-msgstr ""
+msgstr "Pilkuin erotettu lista yhdistettyjä versioita, esim. <literal>3, 5, 6, 7</literal>"
 
 #. (para)
 msgid ""
 "Like <literal>{revisions}</literal>, but with each revision preceeded with "
 "an <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
-msgstr ""
+msgstr "Kuten <literal>{versiot</literal>, mutta kukin versio prefiksoituna merkillä <literal>r</literal>, esim., <literal>r3, r5, r6, r7</literal>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, grouped into ranges if "
 "possible, e.g., <literal>3, 5-7</literal>"
-msgstr ""
+msgstr "Pilkuilla erotettu lista yhdistettyjä versioita ryhmiteltyinä osaväleihin, esim. <literal>3, 5-7</literal>"
 
 #. (para)
 msgid ""
 "The source url of the merge, i.e., where the revisions are merged from."
-msgstr ""
+msgstr "Yhdistämisen lähdepaikannin, ts. paikka, josta yhdistettävät versiot tulevat."
 
 #. (para)
 msgid ""
 "This property specifies the first part of the generated log message. The "
 "following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Tämä ominaisuus määrittää ensimmäisen osan luodusta lokiviestistä. Voit käyttää seuraavia avainsanoja: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "The default value for this string is <literal>Merged revision(s) {revrange} "
 "from {mergeurl}:</literal> with a newline at the end."
-msgstr ""
+msgstr "Tämän merkkijonon oletusarvo on <literal>Yhdistetty versio(t) {versioväli} paikasta {yhdistämispaikannin}:</literal>"
 
 #. (para)
 msgid "The log message of the merged revision, as it was entered."
-msgstr ""
+msgstr "Yhdistetyn version lokiviesti sellaisenaan."
 
 #. (para)
 msgid ""
 "Like <literal>{msg}</literal>, but all newlines are replaced with a space, "
 "so that the whole log message appears on one single line."
-msgstr ""
+msgstr "Kuten <literal>{msg}</literal>, mutta rivinvaihdot korvattuina välilyönnein, jotta koko lokiviesti näkyy yhdellä rivillä."
 
 #. (para)
 msgid "The author of the merged revision."
-msgstr ""
+msgstr "Yhdistetyn version tekijä."
 
 #. (para)
 msgid "The merged revision itself."
-msgstr ""
+msgstr "Itse yhdistetty versio."
 
 #. (para)
 msgid "The bug IDs of the merged revision, if there are any."
-msgstr ""
+msgstr "Yhdistetyn version vikatunnukset, mikäli niitä on."
 
 #. (para)
 msgid ""
 "This property specifies how the text for each merged revision should look "
 "like. The following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Tämä ominaisuus määrittää, miltä kunkin yhdistetyn version tekstin tulisi näyttää. Voit käyttää seuraavia avainsanoja: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8390,7 +8390,7 @@ msgid ""
 " have disabled the log cache or not shown the log first before the merge, "
 "the generated message won't contain any information about the merged "
 "revisions."
-msgstr ""
+msgstr "Tämä toimii vain, jos yhdistetyt versiot ovat jo lokivälimuistissa. Jos olet kytkenyt lokivälimuistin pois päältä, tai lokia ei ole katsottu ennen yhdistämistä, luotu viesti ei sisällä tietoa yhdistetyistä versioista."
 
 #. (title)
 msgid "External Items"
@@ -8479,7 +8479,7 @@ msgid ""
 "The edit dialog for <literal>svn:externals</literal> properties allows you "
 "to select the externals and automatically set them explicitly to the HEAD "
 "revision."
-msgstr ""
+msgstr "<literal>svn:externals</literal> -ominaisuuksien muokkausikkunan avulla on mahdollista valita ulkoiset viitteet ja asettaa ne automaattisesti eksplisiittiseen HEAD-versioon."
 
 #. (para)
 #. (para)
@@ -9387,7 +9387,7 @@ msgid ""
 "To customize that generated message, set the corresponding project "
 "properties on your working copy. See <xref linkend=\"tsvn_dug_propertypage-"
 "edit-mergelogmsgtemplate\"/>"
-msgstr ""
+msgstr "Mukauttaaksesi luodun viestin, aseta työkopioosi vastaavat projektiominaisuudet. Katso lisää luvusta <xref linkend=\"tsvn_dug_propertypage-edit-mergelogmsgtemplate\"/>"
 
 #. (para)
 msgid ""
@@ -14281,7 +14281,7 @@ msgstr "Mikäli arvona on 4, ryhmittely toimii samoin kuin arvolla 2, mutta ryhm
 msgid ""
 "If this is set to <literal>false</literal>, then every "
 "<literal>svn:externals</literal> is shown during an update separately."
-msgstr ""
+msgstr "Mikäli arvona on  <literal>false</literal>, jokainen <literal>svn:externals</literal> näytetään päivityksen aikana erikseen."
 
 #. (para)
 msgid ""
@@ -14289,7 +14289,7 @@ msgid ""
 "information for externals is only shown if the externals are affected by the"
 " update, i.e. changed in some way. Otherwise nothing is shown as with normal"
 " files and folders."
-msgstr ""
+msgstr "Mikäli arvona on <literal>true</literal> (oletus), ulkoisten viitteiden päivitystiedot näytetään vain, mikäli päivitys koskee viitteisiin, ts. muuttaa niitä jotenkin. Muutoin mitään viestiä ei näytetä (vrt. normaalit tiedostot ja kansiot.)"
 
 #. (para)
 msgid ""
@@ -14371,7 +14371,7 @@ msgid ""
 "doesn't work properly so that the cursor to enter text isn't always visible."
 " If that happens, you can turn this feature off by setting this value to "
 "<literal>false</literal>."
-msgstr ""
+msgstr "Tämä valinta asettaa päälle Direct2D-kiihdytyksen Scintilla-kontrollissa, jota käytetään esim. toimitusikkunan lokiviestin muokkauskentässä ja unified diff-katseluohjelmassa. Joillakin näyttökorteilla tämä ei toimi luotettavasti, ja esim. kohdistin voi hävitä. Jos näin käy, voit asettaa kiihdytyksen pois päältä asettamalla ominaisuuden arvoksi <literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -14913,7 +14913,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Testitiedosto SubWCRev-ohjelmalle: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -17342,18 +17342,18 @@ msgstr "Korjaa Windowsin kuvakemuistin. Käytä tätä vain, jos ikkunoiden kuva
 #. (para)
 msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>."
-msgstr ""
+msgstr "Näyttää ominaisuusikkunan valitsimella <option>/path</option> annetulle polulle."
 
 #. (para)
 msgid ""
 "For dealing with versioned properties this command requires a working copy."
-msgstr ""
+msgstr "Versioitujen ominaisuuksien kanssa tämä komento vaatii työkopion."
 
 #. (para)
 msgid ""
 "Revision properties can be viewed/changed if <option>/path</option> is an "
 "URL and <option>/rev:XXX</option> is specified."
-msgstr ""
+msgstr "Versio-ominaisuuksia voidaan katsella/muuttaa, mikäli valitsin <option>/path</option> on paikannin ja valitsin <option>/rev:XXX</option> on annettu."
 
 #. (para)
 msgid ""
@@ -19914,23 +19914,23 @@ msgstr "Kytkee rivityksen päälle/pois"
 
 #. (term)
 msgid "Ctrl-G"
-msgstr ""
+msgstr "Ctrl-G"
 
 #. (para)
 msgid "Go to line"
-msgstr ""
+msgstr "Siirry riville"
 
 #. (para)
 msgid "Select all text"
-msgstr ""
+msgstr "Valitse kaikki"
 
 #. (term)
 msgid "Ctrl-U"
-msgstr ""
+msgstr "Ctrl-U"
 
 #. (para)
 msgid "Switches views"
-msgstr ""
+msgstr "Vaihtaa näkymiä"
 
 #. (term)
 msgid "Ctrl-mousewheel"
