@@ -24,9 +24,10 @@
 #include "FormatMessageWrapper.h"
 #include "SmartHandle.h"
 
-wchar_t WideCharSwap(wchar_t nValue)
+wchar_t inline WideCharSwap(wchar_t nValue)
 {
     return (((nValue>> 8)) | (nValue << 8));
+    //return _byteswap_ushort(nValue);
 }
 
 CFileTextLines::CFileTextLines(void)
@@ -457,6 +458,15 @@ void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine)
     sLine.ReleaseBuffer(outputLen);
 }
 
+/**
+    Encoding pattern:
+        - Get Line
+        - encode line
+        - modify line - whitespaces, lowercase
+        - save line
+        - get encoded eol
+        - save eol
+*/
 BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
 {
     try
@@ -488,142 +498,138 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
             for (int i=0; i<GetCount(); i++)
             {
                 CString sLine = GetAt(i);
-                EOL ending = GetLineEnding(i);
-                StripWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
+                StripWhiteSpace(sLine, dwIgnoreWhitespaces, bBlame);
                 if (bIgnoreCase)
                     sLine = sLine.MakeLower();
                 file.Write((LPCTSTR)sLine, sLine.GetLength()*sizeof(TCHAR));
-                if (ending == EOL_AUTOLINE)
-                    ending = m_LineEndings;
-                switch (ending)
-                {
-                case EOL_CR:
-                    sLine = _T("\x0d");
-                    break;
-                case EOL_CRLF:
-                case EOL_AUTOLINE:
-                    sLine = _T("\x0d\x0a");
-                    break;
-                case EOL_LF:
-                    sLine = _T("\x0a");
-                    break;
-                case EOL_LFCR:
-                    sLine = _T("\x0a\x0d");
-                    break;
-                default:
-                    sLine.Empty();
-                    break;
-                }
+
                 if ((m_bReturnAtEnd)||(i != GetCount()-1))
-                    file.Write((LPCTSTR)sLine, sLine.GetLength()*sizeof(TCHAR));
+                {
+                    EOL ending = GetLineEnding(i);
+                    if (ending == EOL_AUTOLINE)
+                        ending = m_LineEndings;
+                    CString sEol;
+                    switch (ending)
+                    {
+                    case EOL_CR:
+                        sEol = _T("\x0d");
+                        break;
+                    case EOL_CRLF:
+                    case EOL_AUTOLINE:
+                        sEol = _T("\x0d\x0a");
+                        break;
+                    case EOL_LF:
+                        sEol = _T("\x0a");
+                        break;
+                    case EOL_LFCR:
+                        sEol = _T("\x0a\x0d");
+                        break;
+                    }
+                    file.Write((LPCTSTR)sEol, sEol.GetLength()*sizeof(TCHAR));
+                }
             }
         }
         if ((!bSaveAsUTF8)&&(m_UnicodeType == CFileTextLines::UNICODE_BE))
         {
-            int linebuflen = 4096;
-            std::unique_ptr<BYTE[]> beBuf(new BYTE[linebuflen]);
+            int linebuflen = 0;
+            std::unique_ptr<wchar_t[]> beBuf;
             //first write the BOM
             UINT16 wBOM = 0xFFFE;
             file.Write(&wBOM, 2);
             for (int i=0; i<GetCount(); i++)
             {
                 CString sLine = GetAt(i);
-                EOL ending = GetLineEnding(i);
-                StripWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
+                StripWhiteSpace(sLine, dwIgnoreWhitespaces, bBlame);
                 if (bIgnoreCase)
                     sLine = sLine.MakeLower();
-                int bytelen = sLine.GetLength()*sizeof(WCHAR);
-                if (bytelen > linebuflen)
+                int nWcharCount = sLine.GetLength();
+                if (nWcharCount > linebuflen)
                 {
-                    // increase buffer size if necessary
-                    linebuflen = bytelen + 1024;
-                    beBuf = std::unique_ptr<BYTE[]>(new BYTE[linebuflen]);
+                    // create/increase buffer size if necessary
+                    linebuflen = (nWcharCount + 2047)&~0x3ff;
+                    beBuf = std::unique_ptr<wchar_t[]>(new wchar_t[linebuflen]);
                 }
-                for (int spos = 0; spos < bytelen; )
+                for (int spos = 0; spos < nWcharCount; spos++)
                 {
                     // swap the bytes to big-endian order
-                    wchar_t c = sLine[spos/2];
-                    beBuf[spos++] = c>>8;
-                    beBuf[spos++] = c & 0xFF;
+                    beBuf[spos] = WideCharSwap(sLine[spos]);
                 }
                 file.Write(beBuf.get(), sLine.GetLength()*sizeof(WCHAR));
-                if (ending == EOL_AUTOLINE)
-                    ending = m_LineEndings;
-                switch (ending)
-                {
-                case EOL_CR:
-                    sLine = _T("\x0d");
-                    break;
-                case EOL_CRLF:
-                case EOL_AUTOLINE:
-                    sLine = _T("\x0d\x0a");
-                    break;
-                case EOL_LF:
-                    sLine = _T("\x0a");
-                    break;
-                case EOL_LFCR:
-                    sLine = _T("\x0a\x0d");
-                    break;
-                default:
-                    sLine.Empty();
-                    break;
-                }
+
                 if ((m_bReturnAtEnd)||(i != GetCount()-1))
                 {
-                    // swap the bytes to big-endian order
-                    BYTE buf[5];
-                    int p = 0;
-                    if (sLine.GetLength() > 0)
+                    EOL ending = GetLineEnding(i);
+                    if (ending == EOL_AUTOLINE)
+                        ending = m_LineEndings;
+                    CString sEol;
+                    switch (ending)
                     {
-                        wchar_t c = sLine[0];
-                        buf[p++] = c>>8;
-                        buf[p++] = c & 0xFF;
+                    case EOL_CR:
+                        sEol = _T("\x0d");
+                        break;
+                    case EOL_CRLF:
+                    case EOL_AUTOLINE:
+                        sEol = _T("\x0d\x0a");
+                        break;
+                    case EOL_LF:
+                        sEol = _T("\x0a");
+                        break;
+                    case EOL_LFCR:
+                        sEol = _T("\x0a\x0d");
+                        break;
                     }
-                    if (sLine.GetLength() > 1)
+                    // swap the bytes to big-endian order
+                    wchar_t buf[2];
+                    if (sEol.GetLength() > 0)
                     {
-                        wchar_t c = sLine[1];
-                        buf[p++] = c>>8;
-                        buf[p++] = c & 0xFF;
+                        buf[0] = WideCharSwap(sEol[0]);
+                    }
+                    if (sEol.GetLength() > 1)
+                    {
+                        buf[1] = WideCharSwap(sEol[1]);
                     }
 
-                    file.Write(buf, sLine.GetLength()*sizeof(TCHAR));
+                    file.Write(buf, sEol.GetLength()*sizeof(wchar_t));
                 }
             }
         }
         else if ((!bSaveAsUTF8)&&((m_UnicodeType == CFileTextLines::ASCII)||(m_UnicodeType == CFileTextLines::AUTOTYPE)))
         {
+            // ASCII have no BOM
             for (int i=0; i< GetCount(); i++)
             {
-                // Copy CString to 8 bit without conversion
+                // Copy CString to 8 bit without conversion - actualy there should be ASCII maping
                 CString sLineT = GetAt(i);
                 CStringA sLine = CStringA(sLineT);
-                EOL ending = GetLineEnding(i);
-
-                StripAsciiWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
+                StripAsciiWhiteSpace(sLine, dwIgnoreWhitespaces, bBlame);
                 if (bIgnoreCase)
                     sLine = sLine.MakeLower();
+                file.Write((LPCSTR)sLine, sLine.GetLength());
+
                 if ((m_bReturnAtEnd)||(i != GetCount()-1))
                 {
+                    EOL ending = GetLineEnding(i);
                     if (ending == EOL_AUTOLINE)
                         ending = m_LineEndings;
+                    CStringA sEol;
                     switch (ending)
                     {
                     case EOL_CR:
-                        sLine += '\x0d';
+                        sEol = '\x0d';
                         break;
                     case EOL_CRLF:
                     case EOL_AUTOLINE:
-                        sLine.Append("\x0d\x0a", 2);
+                        sEol = "\x0d\x0a";
                         break;
                     case EOL_LF:
-                        sLine += '\x0a';
+                        sEol = '\x0a';
                         break;
                     case EOL_LFCR:
-                        sLine.Append("\x0a\x0d", 2);
+                        sEol = "\x0a\x0d";
                         break;
                     }
+                    file.Write((LPCSTR)sEol, sEol.GetLength());
                 }
-                file.Write((LPCSTR)sLine, sLine.GetLength());
             }
         }
         else if ((bSaveAsUTF8)||((m_UnicodeType == CFileTextLines::UTF8BOM)||(m_UnicodeType == CFileTextLines::UTF8)))
@@ -638,34 +644,37 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
             }
             for (int i=0; i<GetCount(); i++)
             {
-                CStringA sLine = CUnicodeUtils::GetUTF8(GetAt(i));
-                EOL ending = GetLineEnding(i);
-                StripAsciiWhiteSpace(sLine,dwIgnoreWhitespaces, bBlame);
+                CString sLineT = GetAt(i);
+                CStringA sLine = CUnicodeUtils::GetUTF8(sLineT);
+                StripAsciiWhiteSpace(sLine, dwIgnoreWhitespaces, bBlame);
                 if (bIgnoreCase)
                     sLine = sLine.MakeLower();
+                file.Write((LPCSTR)sLine, sLine.GetLength());
 
                 if ((m_bReturnAtEnd)||(i != GetCount()-1))
                 {
+                    EOL ending = GetLineEnding(i);
                     if (ending == EOL_AUTOLINE)
                         ending = m_LineEndings;
+                    CStringA sEol;
                     switch (ending)
                     {
                     case EOL_CR:
-                        sLine += '\x0d';
+                        sEol = '\x0d';
                         break;
                     case EOL_CRLF:
                     case EOL_AUTOLINE:
-                        sLine.Append("\x0d\x0a",2);
+                        sEol = "\x0d\x0a";
                         break;
                     case EOL_LF:
-                        sLine += '\x0a';
+                        sEol = '\x0a';
                         break;
                     case EOL_LFCR:
-                        sLine.Append("\x0a\x0d",2);
+                        sEol = "\x0a\x0d";
                         break;
                     }
+                    file.Write((LPCSTR)sEol, sEol.GetLength());
                 }
-                file.Write((LPCSTR)sLine, sLine.GetLength());
             }
         }
         file.Close();
