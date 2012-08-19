@@ -410,27 +410,6 @@ void CFileTextLines::StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, 
     }
 }
 
-//
-// Fast in-place removal of spaces and tabs from CStringA line
-//
-void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine)
-{
-    int outputLen = 0;
-    char* pWriteChr = sLine.GetBuffer(sLine.GetLength());
-    const char* pReadChr = pWriteChr;
-    while(*pReadChr)
-    {
-        if(*pReadChr != ' ' && *pReadChr != '\t')
-        {
-            *pWriteChr++ = *pReadChr;
-            outputLen++;
-        }
-        ++pReadChr;
-    }
-    *pWriteChr = '\0';
-    sLine.ReleaseBuffer(outputLen);
-}
-
 /**
     Encoding pattern:
         - encode BOM
@@ -559,9 +538,6 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 
             int linebuflen = 0;
             std::unique_ptr<wchar_t[]> beBuf;
-            //first write the BOM
-            UINT16 wBOM = 0xFFFE;
-            file.Write(&wBOM, 2);
             for (int i=0; i<GetCount(); i++)
             {
                 CString sLine = GetAt(i);

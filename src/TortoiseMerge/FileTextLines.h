@@ -113,10 +113,7 @@ private:
 
     void        SetErrorString();
 
-    void StripAsciiWhiteSpace(CStringA& sLine);
-
-    void StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces, bool blame);
-    void StripAsciiWhiteSpace(CStringA& sLine,DWORD dwIgnoreWhitespaces, bool blame);
+    void StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, bool blame);
 
 
 private:
