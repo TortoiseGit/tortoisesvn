@@ -170,7 +170,7 @@ bool ConvertToWideChar(const int nCodePage
         if (nCodePage == UTF16BE)
         {
             // swap the bytes to little-endian order to get proper strings in wchar_t format
-            for (DWORD i = 0; i<nReadChars; ++i)
+            for (int i = 0; i<nReadChars; ++i)
             {
                 pTextBuf[i] = WideCharSwap(pTextBuf[i]);
             }
@@ -333,7 +333,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     }
 
     // fill in the lines into the array
-    for (DWORD i = 0; i<nReadChars; ++i)
+    for (int i = 0; i<nReadChars; ++i)
     {
         if (*pTextBuf == '\r')
         {
@@ -380,7 +380,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     return TRUE;
 }
 
-void CFileTextLines::StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces, bool blame)
+void CFileTextLines::StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, bool blame)
 {
     if (blame)
     {
@@ -409,7 +409,7 @@ void CFileTextLines::StripWhiteSpace(CString& sLine,DWORD dwIgnoreWhitespaces, b
     }
 }
 
-void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine,DWORD dwIgnoreWhitespaces, bool blame)
+void CFileTextLines::StripAsciiWhiteSpace(CStringA& sLine, DWORD dwIgnoreWhitespaces, bool blame)
 {
     if (blame)
     {
