@@ -173,7 +173,7 @@ void CRevertDlg::OnBnClickedOk()
             // the actual revert is done (so the user has the reverted files
             // still in the trash bin to recover from), but it's not good to
             // delete added files because they're not restored by the revert.
-            if (entry->status != svn_wc_status_added)
+            if ((entry->status != svn_wc_status_added) || (entry->IsCopied()))
                 m_selectedPathList.AddPath(entry->GetPath());
             // if an entry inside an external is selected, we can't revert
             // recursively anymore because the recursive revert stops at the
