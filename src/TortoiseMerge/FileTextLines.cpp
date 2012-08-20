@@ -122,7 +122,7 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 
 
 /**
-	returns first EOL type
+    returns first EOL type
 */
 EOL CFileTextLines::CheckLineEndings(wchar_t * pBuffer, int nCharCount)
 {
