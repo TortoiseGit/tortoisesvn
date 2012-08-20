@@ -46,7 +46,7 @@ typedef CStdArray<DWORD> CStdDWORDArray;
  *
  * Represents an array of text lines which are read from a file.
  * This class is also responsible for determining the encoding of
- * the file (e.g. UNICODE, UTF8, ASCII, ...).
+ * the file (e.g. UNICODE(UTF16), UTF8, ASCII, ...).
  */
 class CFileTextLines  : public CStdCStringArray
 {
@@ -59,10 +59,12 @@ public:
         AUTOTYPE,
         BINARY,
         ASCII,
-        UNICODE_LE,
-        UNICODE_BE,
-        UTF8,
-        UTF8BOM,
+        UTF16_LE, //=1200,
+        UTF16_BE, //=1201,
+        UNICODE_LE=UTF16_LE,
+        UNICODE_BE=UTF16_BE,
+        UTF8, //=65001,
+        UTF8BOM, //=UTF8+65536,
     };
 
     /**
@@ -122,4 +124,93 @@ private:
     CFileTextLines::UnicodeType                 m_UnicodeType;
     EOL                                         m_LineEndings;
     bool                                        m_bReturnAtEnd;
+};
+
+
+
+class CBuffer 
+{
+public:
+    CBuffer() {Init(); };
+    CBuffer(const CBuffer & Src) {Init(); Copy(Src); };
+    CBuffer(const CBuffer * const Src) {Init(); Copy(*Src); };
+    ~CBuffer() {Free(); };
+
+    CBuffer & operator =(CBuffer & Src) { Copy(Src); return *this; };
+    operator LPSTR() const { return (LPSTR)m_pBuffer; };
+    operator void * () const { return (void *)m_pBuffer; };
+
+    void Clear() { m_nUsed=0; };
+    void ExpandToAtLeast(int nNewSize);
+    int GetLength() const { return m_nUsed; };
+    void SetLength(int nUsed);
+
+private:
+    void Copy(const CBuffer & Src);
+    void Free() { delete [] m_pBuffer; };
+    void Init() { m_pBuffer=NULL; m_nUsed=0; m_nAllocated=0; };
+
+    BYTE * m_pBuffer;
+    int m_nUsed;
+    int m_nAllocated;
+};
+
+
+class CBaseFilter
+{
+public:
+    CBaseFilter(CStdioFile * p_File) { m_pFile=p_File; m_nCodePage=0; }
+    virtual ~CBaseFilter() {}
+
+    virtual void Encode(const CString s);
+    CBuffer GetBuffer() {return m_oBuffer; }
+    void Write(const CString s) { Encode(s); Write(); } ///< encode into buffer and write
+    void Write() { Write(m_oBuffer); } ///< write preencoded internal buffer
+    void Write(const CBuffer & buffer) { m_pFile->Write((LPCSTR)buffer, buffer.GetLength()); } ///< write preencoded buffer
+
+protected:
+    CBuffer m_oBuffer;
+    /**
+        Code page for WideCharToMultiByte.
+    */
+    UINT m_nCodePage;
+
+private:
+    CStdioFile * m_pFile;
+};
+
+
+class CAsciiFilter : public CBaseFilter
+{
+public:
+    CAsciiFilter(CStdioFile *pFile) : CBaseFilter(pFile){ m_nCodePage=CP_ACP; };
+    virtual ~CAsciiFilter() {};
+};
+
+
+class CUtf8Filter : public CBaseFilter
+{
+public:
+    CUtf8Filter(CStdioFile *pFile) : CBaseFilter(pFile){ m_nCodePage=CP_UTF8;};
+    virtual ~CUtf8Filter() {};
+};
+
+
+class CUtf16leFilter : public CBaseFilter
+{
+public:
+    CUtf16leFilter(CStdioFile *pFile) : CBaseFilter(pFile){};
+    virtual ~CUtf16leFilter() {};
+
+    virtual void Encode(const CString s);
+};
+
+
+class CUtf16beFilter : public CBaseFilter
+{
+public:
+    CUtf16beFilter(CStdioFile *pFile) : CBaseFilter(pFile){};
+    virtual ~CUtf16beFilter() {};
+
+    virtual void Encode(const CString s);
 };

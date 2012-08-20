@@ -181,7 +181,6 @@ bool ConvertToWideChar(const int nCodePage
 
     int nFlags = (nCodePage==CP_ACP) ? MB_PRECOMPOSED : 0;
     nReadChars = MultiByteToWideChar(nCodePage, nFlags, pFileBuf, dwReadBytes, NULL, 0);
-
     pTextBuf = new wchar_t[nReadChars];
     int ret2 = MultiByteToWideChar(nCodePage, nFlags, pFileBuf, dwReadBytes, pTextBuf, nReadChars);
     if (ret2 != nReadChars)
@@ -412,15 +411,12 @@ void CFileTextLines::StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, 
 
 /**
     Encoding pattern:
-        - encode BOM
-        - save BOM
+        - encode & save BOM
         - Get Line
         - modify line - whitespaces, lowercase
-        - encode line
-        - save line
+        - encode & save line
         - get eol
-        - encode eol
-        - save eol
+        - encode & save eol
 */
 BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
 {
@@ -446,191 +442,70 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
             return FALSE;
         }
 
-        const CString sBomT = L"\xfeff"; // BOM
-        if ((bSaveAsUTF8)||((m_UnicodeType == CFileTextLines::UTF8BOM)||(m_UnicodeType == CFileTextLines::UTF8)))
+        CBaseFilter * pFilter = NULL;
+        bool bSaveBom = true;
+        CFileTextLines::UnicodeType eUnicodeType = bSaveAsUTF8 ? CFileTextLines::UTF8 : m_UnicodeType;
+        switch (eUnicodeType)
         {
-            if ((!bSaveAsUTF8)&&(m_UnicodeType == CFileTextLines::UTF8BOM))
-            {
-                //first write the BOM
-                CStringA sBom = CUnicodeUtils::GetUTF8(sBomT);
-                file.Write((LPCSTR)sBom, sBom.GetLength());
-            }
-            for (int i=0; i<GetCount(); i++)
-            {
-                CString sLineT = GetAt(i);
-                StripWhiteSpace(sLineT, dwIgnoreWhitespaces, bBlame);
-                if (bIgnoreCase)
-                    sLineT = sLineT.MakeLower();
-                CStringA sLine = CUnicodeUtils::GetUTF8(sLineT);
-                file.Write((LPCSTR)sLine, sLine.GetLength());
+        default:
+        case CFileTextLines::ASCII:
+        case CFileTextLines::AUTOTYPE:
+            bSaveBom = false;
+            pFilter = new CAsciiFilter(&file);
+            break;
 
-                if ((m_bReturnAtEnd)||(i != GetCount()-1))
-                {
-                    EOL ending = GetLineEnding(i);
-                    if (ending == EOL_AUTOLINE)
-                        ending = m_LineEndings;
-                    CString sEolT;
-                    switch (ending)
-                    {
-                    case EOL_CR:
-                        sEolT = _T("\x0d");
-                        break;
-                    case EOL_CRLF:
-                    case EOL_AUTOLINE:
-                        sEolT = _T("\x0d\x0a");
-                        break;
-                    case EOL_LF:
-                        sEolT = _T("\x0a");
-                        break;
-                    case EOL_LFCR:
-                        sEolT = _T("\x0a\x0d");
-                        break;
-                    }
-                    CStringA sEol = CUnicodeUtils::GetUTF8(sEolT);
-                    file.Write((LPCSTR)sEol, sEol.GetLength());
-                }
-            }
+        case CFileTextLines::UTF8:
+            bSaveBom = false;
+        case CFileTextLines::UTF8BOM:
+            pFilter = new CUtf8Filter(&file);
+            break;
+
+        case CFileTextLines::UTF16_BE:
+            pFilter = new CUtf16beFilter(&file);
+            break;
+
+        case CFileTextLines::UTF16_LE:
+            pFilter = new CUtf16leFilter(&file);
+            break;
         }
-        else if (m_UnicodeType == CFileTextLines::UNICODE_LE)
+
+        if (bSaveBom)
         {
             //first write the BOM
-            file.Write((LPCTSTR)sBomT, sBomT.GetLength()*sizeof(TCHAR));
-            for (int i=0; i<GetCount(); i++)
-            {
-                CString sLine = GetAt(i);
-                StripWhiteSpace(sLine, dwIgnoreWhitespaces, bBlame);
-                if (bIgnoreCase)
-                    sLine = sLine.MakeLower();
-                file.Write((LPCTSTR)sLine, sLine.GetLength()*sizeof(TCHAR));
-
-                if ((m_bReturnAtEnd)||(i != GetCount()-1))
-                {
-                    EOL ending = GetLineEnding(i);
-                    if (ending == EOL_AUTOLINE)
-                        ending = m_LineEndings;
-                    CString sEol;
-                    switch (ending)
-                    {
-                    case EOL_CR:
-                        sEol = _T("\x0d");
-                        break;
-                    case EOL_CRLF:
-                    case EOL_AUTOLINE:
-                        sEol = _T("\x0d\x0a");
-                        break;
-                    case EOL_LF:
-                        sEol = _T("\x0a");
-                        break;
-                    case EOL_LFCR:
-                        sEol = _T("\x0a\x0d");
-                        break;
-                    }
-                    file.Write((LPCTSTR)sEol, sEol.GetLength()*sizeof(TCHAR));
-                }
-            }
+            const CString sBomT = L"\xfeff"; // BOM
+            pFilter->Write(sBomT);
         }
-        else if (m_UnicodeType == CFileTextLines::UNICODE_BE)
+        for (int i=0; i<GetCount(); i++)
         {
-            //first write the BOM
-            wchar_t buf[2];
-            buf[0] = WideCharSwap(sBomT[0]);
-            file.Write(buf, sBomT.GetLength()*sizeof(wchar_t));
+            CString sLineT = GetAt(i);
+            StripWhiteSpace(sLineT, dwIgnoreWhitespaces, bBlame);
+            if (bIgnoreCase)
+                sLineT = sLineT.MakeLower();
+            pFilter->Write(sLineT);
 
-            int linebuflen = 0;
-            std::unique_ptr<wchar_t[]> beBuf;
-            for (int i=0; i<GetCount(); i++)
+            if ((m_bReturnAtEnd)||(i != GetCount()-1))
             {
-                CString sLine = GetAt(i);
-                StripWhiteSpace(sLine, dwIgnoreWhitespaces, bBlame);
-                if (bIgnoreCase)
-                    sLine = sLine.MakeLower();
-                int nWcharCount = sLine.GetLength();
-                if (nWcharCount > linebuflen)
+                EOL ending = GetLineEnding(i);
+                if (ending == EOL_AUTOLINE)
+                    ending = m_LineEndings;
+                CString sEolT;
+                switch (ending)
                 {
-                    // create/increase buffer size if necessary
-                    linebuflen = (nWcharCount + 2047)&~0x3ff;
-                    beBuf = std::unique_ptr<wchar_t[]>(new wchar_t[linebuflen]);
+                case EOL_CR:
+                    sEolT = _T("\x0d");
+                    break;
+                case EOL_CRLF:
+                case EOL_AUTOLINE:
+                    sEolT = _T("\x0d\x0a");
+                    break;
+                case EOL_LF:
+                    sEolT = _T("\x0a");
+                    break;
+                case EOL_LFCR:
+                    sEolT = _T("\x0a\x0d");
+                    break;
                 }
-                for (int spos = 0; spos < nWcharCount; spos++)
-                {
-                    // swap the bytes to big-endian order
-                    beBuf[spos] = WideCharSwap(sLine[spos]);
-                }
-                file.Write(beBuf.get(), sLine.GetLength()*sizeof(WCHAR));
-
-                if ((m_bReturnAtEnd)||(i != GetCount()-1))
-                {
-                    EOL ending = GetLineEnding(i);
-                    if (ending == EOL_AUTOLINE)
-                        ending = m_LineEndings;
-                    CString sEol;
-                    switch (ending)
-                    {
-                    case EOL_CR:
-                        sEol = _T("\x0d");
-                        break;
-                    case EOL_CRLF:
-                    case EOL_AUTOLINE:
-                        sEol = _T("\x0d\x0a");
-                        break;
-                    case EOL_LF:
-                        sEol = _T("\x0a");
-                        break;
-                    case EOL_LFCR:
-                        sEol = _T("\x0a\x0d");
-                        break;
-                    }
-                    // swap the bytes to big-endian order
-                    if (sEol.GetLength() > 0)
-                    {
-                        buf[0] = WideCharSwap(sEol[0]);
-                    }
-                    if (sEol.GetLength() > 1)
-                    {
-                        buf[1] = WideCharSwap(sEol[1]);
-                    }
-                    file.Write(buf, sEol.GetLength()*sizeof(wchar_t));
-                }
-            }
-        }
-        else if ((m_UnicodeType == CFileTextLines::ASCII)||(m_UnicodeType == CFileTextLines::AUTOTYPE))
-        {
-            // ASCII have no BOM
-            for (int i=0; i< GetCount(); i++)
-            {
-                // Copy CString to 8 bit without conversion - actualy there should be ASCII maping
-                CString sLineT = GetAt(i);
-                StripWhiteSpace(sLineT, dwIgnoreWhitespaces, bBlame);
-                if (bIgnoreCase)
-                    sLineT = sLineT.MakeLower();
-                CStringA sLine = CStringA(sLineT);
-                file.Write((LPCSTR)sLine, sLine.GetLength());
-
-                if ((m_bReturnAtEnd)||(i != GetCount()-1))
-                {
-                    EOL ending = GetLineEnding(i);
-                    if (ending == EOL_AUTOLINE)
-                        ending = m_LineEndings;
-                    CStringA sEolT;
-                    switch (ending)
-                    {
-                    case EOL_CR:
-                        sEolT = _T("\x0d");
-                        break;
-                    case EOL_CRLF:
-                    case EOL_AUTOLINE:
-                        sEolT = _T("\x0d\x0a");
-                        break;
-                    case EOL_LF:
-                        sEolT = _T("\x0a");
-                        break;
-                    case EOL_LFCR:
-                        sEolT = _T("\x0a\x0d");
-                        break;
-                    }
-                    CStringA sEol = CStringA(sEolT);
-                    file.Write((LPCSTR)sEol, sEol.GetLength());
-                }
+                pFilter->Write(sEolT);
             }
         }
         file.Close();
@@ -657,5 +532,73 @@ void CFileTextLines::CopySettings(CFileTextLines * pFileToCopySettingsTo)
         pFileToCopySettingsTo->m_UnicodeType = m_UnicodeType;
         pFileToCopySettingsTo->m_LineEndings = m_LineEndings;
         pFileToCopySettingsTo->m_bReturnAtEnd = m_bReturnAtEnd;
+    }
+}
+
+
+
+void CBuffer::ExpandToAtLeast(int nNewSize)
+{ 
+    if (nNewSize>m_nAllocated)
+    {
+        delete [] m_pBuffer; 
+        nNewSize+=2048-1;
+        nNewSize&=~(1024-1);
+        m_pBuffer=new BYTE[nNewSize]; 
+        m_nAllocated=nNewSize; 
+    } 
+}
+
+void CBuffer::SetLength(int nUsed)
+{
+    ExpandToAtLeast(nUsed);
+    m_nUsed = nUsed; 
+}
+
+void CBuffer::Copy(const CBuffer & Src)
+{
+    if (&Src != this)
+    {
+        delete [] m_pBuffer;
+        m_nAllocated=Src.m_nAllocated;
+        m_pBuffer=new BYTE[m_nAllocated];
+        memcpy(m_pBuffer, Src.m_pBuffer, m_nAllocated);
+        m_nUsed=Src.m_nUsed;
+    }
+}
+
+
+
+void CBaseFilter::Encode(const CString s)
+{
+    int nNeedBytes = WideCharToMultiByte(m_nCodePage, 0, (LPCTSTR)s, s.GetLength(), NULL, 0, NULL, NULL);
+    m_oBuffer.SetLength(nNeedBytes);
+    int nConvertedLen = WideCharToMultiByte(m_nCodePage, 0, (LPCTSTR)s, s.GetLength(), (LPSTR)m_oBuffer, m_oBuffer.GetLength(), NULL, NULL);
+    if (nConvertedLen!=nNeedBytes) {
+        m_oBuffer.Clear();
+    }
+}
+
+
+
+void CUtf16leFilter::Encode(const CString s)
+{
+    int nNeedBytes = s.GetLength()*sizeof(TCHAR);
+    m_oBuffer.SetLength(nNeedBytes);
+    memcpy((void *)m_oBuffer, (LPCTSTR)s, nNeedBytes);
+}
+
+
+
+void CUtf16beFilter::Encode(const CString s)
+{
+    int nNeedBytes = s.GetLength()*sizeof(TCHAR);
+    m_oBuffer.SetLength(nNeedBytes);
+    // copy swaping BYTE order in WORDs
+    LPCTSTR p_In = (LPCTSTR)s;
+    wchar_t * p_Out = (wchar_t *)(LPCSTR)m_oBuffer;
+    int nWords = nNeedBytes/2;
+    for (int nWord = 0; nWord<nWords; nWord++) {
+        p_Out[nWord] = WideCharSwap(p_In[nWord]);
     }
 }
