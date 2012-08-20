@@ -69,7 +69,10 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
         if ((notify->action == svn_wc_notify_skip)||(notify->action == svn_wc_notify_patch_rejected_hunk))
         {
             if (pInfo)
+            {
                 pInfo->rejects++;
+                pThis->m_nRejected++;
+            }
         }
         if (notify->action != svn_wc_notify_add)
         {
@@ -242,7 +245,6 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
 
         m_filePaths.clear();
         m_nRejected = 0;
-        m_nStrip = 0;
         err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile),     // patch_abspath
                                CUnicodeUtils::GetUTF8(m_targetpath),    // local_abspath
                                true,                                    // dry_run
@@ -286,7 +288,6 @@ bool SVNPatch::PatchPath( const CString& path )
     svn_error_clear(svn_client_create_context(&ctx, scratchpool));
 
     m_nRejected = 0;
-    m_nStrip = 0;
     err = svn_client_patch(svn_dirent_canonicalize(CUnicodeUtils::GetUTF8(m_patchfile), scratchpool),    // patch_abspath
         svn_dirent_canonicalize(CUnicodeUtils::GetUTF8(m_targetpath), scratchpool),                      // local_abspath
         false,                                   // dry_run
@@ -316,7 +317,7 @@ int SVNPatch::GetPatchResult(const CString& sPath, CString& sSavePath, CString& 
 {
     for (std::vector<PathRejects>::const_iterator it = m_filePaths.begin(); it != m_filePaths.end(); ++it)
     {
-        if (it->path.CompareNoCase(sPath)==0)
+        if (Strip(it->path).CompareNoCase(sPath)==0)
         {
             sSavePath = it->resultPath;
             if (it->rejects > 0)
