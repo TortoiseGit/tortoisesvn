@@ -49,6 +49,7 @@ CFileTextLines::CFileTextLines(void)
     : m_UnicodeType(CFileTextLines::AUTOTYPE)
     , m_LineEndings(EOL_AUTOLINE)
     , m_bReturnAtEnd(false)
+    , m_bNeedsConversion(false)
 {
 }
 
@@ -74,14 +75,26 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
     if (cb >=4 )
     {
         if (*pVal32 == 0x0000FEFF)
+        {
+            m_bNeedsConversion = true;
             return CFileTextLines::UTF32_LE;
+        }
         if (*pVal32 == 0xFFFE0000)
+        {
+            m_bNeedsConversion = true;
             return CFileTextLines::UTF32_BE;
+        }
     }
     if (*pVal16 == 0xFEFF)
+    {
+        m_bNeedsConversion = true;
         return CFileTextLines::UTF16_LE;
+    }
     if (*pVal16 == 0xFFFE)
+    {
+        m_bNeedsConversion = true;
         return CFileTextLines::UTF16_BE;
+    }
     if (cb < 3)
         return CFileTextLines::ASCII;
     if (*pVal16 == 0xBBEF)
@@ -135,39 +148,6 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
     return CFileTextLines::ASCII;
 }
 
-
-/**
-    returns first EOL type
-*/
-EOL CFileTextLines::CheckLineEndings(wchar_t * pBuffer, int nCharCount)
-{
-    EOL retval = EOL_AUTOLINE;
-    for (int i=0; i<nCharCount; i++)
-    {
-        //now search the buffer for line endings
-        if (pBuffer[i] == 0x0a)
-        {
-            if ((i+1)<nCharCount && pBuffer[i+1] == 0x0d)
-            {
-                retval = EOL_LFCR;
-                break;
-            }
-            retval = EOL_LF;
-            break;
-        }
-        else if (pBuffer[i] == 0x0d)
-        {
-            if ((i+1)<nCharCount && pBuffer[i+1] == 0x0a)
-            {
-                retval = EOL_CRLF;
-                break;
-            }
-            retval = EOL_CR;
-            break;
-        }
-    }
-    return retval;
-}
 
 /**
     can throw on memory allocation
@@ -413,13 +393,11 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         --nReadChars;
     }
 
-    // detect line EOL
-    if (m_LineEndings == EOL_AUTOLINE)
-    {
-        m_LineEndings = CheckLineEndings(pTextBuf, min(16*1024, nReadChars));
-    }
-
     // fill in the lines into the array
+    size_t countEOL_CR   = 0;
+    size_t countEOL_CRLF = 0;
+    size_t countEOL_LF   = 0;
+    size_t countEOL_LFCR = 0;
     for (int i = 0; i<nReadChars; ++i)
     {
         if (*pTextBuf == '\r')
@@ -431,6 +409,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
                     // crlf line ending
                     CString line(pLineStart, (int)(pTextBuf-pLineStart));
                     Add(line, EOL_CRLF);
+                    ++countEOL_CRLF;
                     pLineStart = pTextBuf+2;
                     ++pTextBuf;
                     ++i;
@@ -440,19 +419,56 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
                     // cr line ending
                     CString line(pLineStart, (int)(pTextBuf-pLineStart));
                     Add(line, EOL_CR);
+                    ++countEOL_CR;
                     pLineStart =pTextBuf+1;
                 }
             }
         }
         else if (*pTextBuf == '\n')
         {
-            // lf line ending
-            CString line(pLineStart, (int)(pTextBuf-pLineStart));
-            Add(line, EOL_LF);
-            pLineStart =pTextBuf+1;
+            if ((i + 1) < nReadChars)
+            {
+                if (*(pTextBuf+1) == '\r')
+                {
+                    // lfcr line ending
+                    CString line(pLineStart, (int)(pTextBuf-pLineStart));
+                    Add(line, EOL_LFCR);
+                    ++countEOL_LFCR;
+                    pLineStart = pTextBuf+2;
+                    ++pTextBuf;
+                    ++i;
+                    m_bNeedsConversion = true;  // LFCR EOLs are not supported by the svn diff lib.
+                }
+                else
+                {
+                    // lf line ending
+                    CString line(pLineStart, (int)(pTextBuf-pLineStart));
+                    Add(line, EOL_LF);
+                    ++countEOL_LF;
+                    pLineStart =pTextBuf+1;
+                }
+            }
         }
         ++pTextBuf;
     }
+    size_t eolmax = countEOL_CRLF;
+    m_LineEndings = EOL_CRLF;
+    if (eolmax < countEOL_CR)
+    {
+        eolmax = countEOL_CR;
+        m_LineEndings = EOL_CR;
+    }
+    if (eolmax < countEOL_LF)
+    {
+        eolmax = countEOL_LF;
+        m_LineEndings = EOL_LF;
+    }
+    if (eolmax < countEOL_LFCR)
+    {
+        eolmax = countEOL_LFCR;
+        m_LineEndings = EOL_LFCR;
+    }
+
     if (pLineStart < pTextBuf)
     {
         CString line(pLineStart, (int)(pTextBuf-pLineStart));
@@ -505,7 +521,7 @@ void CFileTextLines::StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, 
         - get eol
         - encode & save eol
 */
-BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
+BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseLF_EOLs, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
 {
     try
     {
@@ -597,23 +613,28 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 
             if ((m_bReturnAtEnd)||(i != GetCount()-1))
             {
-                switch (GetLineEnding(i))
-                {
-                case EOL_CR:
-                    pFilter->Write(oCr);
-                    break;
-                case EOL_CRLF:
-                    pFilter->Write(oCrLf);
-                    break;
-                case EOL_AUTOLINE:
-                    pFilter->Write(oAuto);
-                    break;
-                case EOL_LF:
+                if (bUseLF_EOLs)
                     pFilter->Write(oLf);
-                    break;
-                case EOL_LFCR:
-                    pFilter->Write(oLfCr);
-                    break;
+                else
+                {
+                    switch (GetLineEnding(i))
+                    {
+                    case EOL_CR:
+                        pFilter->Write(oCr);
+                        break;
+                    case EOL_CRLF:
+                        pFilter->Write(oCrLf);
+                        break;
+                    case EOL_AUTOLINE:
+                        pFilter->Write(oAuto);
+                        break;
+                    case EOL_LF:
+                        pFilter->Write(oLf);
+                        break;
+                    case EOL_LFCR:
+                        pFilter->Write(oLfCr);
+                        break;
+                    }
                 }
             }
         }

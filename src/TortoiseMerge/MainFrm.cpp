@@ -1111,7 +1111,7 @@ int CMainFrame::SaveFile(const CString& sFilePath)
                 break;
             }
         }
-        if (!file.Save(sFilePath, false))
+        if (!file.Save(sFilePath, false, false))
         {
             ::MessageBox(m_hWnd, file.GetErrorString(), _T("TortoiseMerge"), MB_ICONERROR);
             return -1;

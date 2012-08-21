@@ -77,7 +77,7 @@ public:
      * the line endings detected at Load()
      * \param sFilePath the path to save the file to
      */
-    BOOL        Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIgnoreWhitespaces=0, BOOL bIgnoreCase = FALSE, bool bBlame = false);
+    BOOL        Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseLF_EOLs, DWORD dwIgnoreWhitespaces=0, BOOL bIgnoreCase = FALSE, bool bBlame = false);
     /**
      * Returns an error string of the last failed operation
      */
@@ -88,6 +88,7 @@ public:
      */
     void        CopySettings(CFileTextLines * pFileToCopySettingsTo);
 
+    bool        NeedsConversion() const { return m_bNeedsConversion; }
     CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
     EOL GetLineEndings() const {return m_LineEndings;}
 
@@ -100,12 +101,6 @@ public:
 
     void        RemoveAll() {CStdCStringArray::RemoveAll(); m_endings.clear();}
 private:
-    /**
-     * Checks the line endings in a text buffer
-     * \param pBuffer pointer to the buffer containing text
-     * \param cd size of the text buffer in bytes
-     */
-    EOL CheckLineEndings(wchar_t * pBuffer, int nCharCount);
     /**
      * Checks the Unicode type in a text buffer
      * \param pBuffer pointer to the buffer containing text
@@ -124,6 +119,7 @@ private:
     CFileTextLines::UnicodeType                 m_UnicodeType;
     EOL                                         m_LineEndings;
     bool                                        m_bReturnAtEnd;
+    bool                                        m_bNeedsConversion;
 };
 
 

@@ -266,14 +266,11 @@ BOOL CDiffData::Load()
             return FALSE;
         }
         if ((bIgnoreCase)
-            || (m_arBaseFile.GetUnicodeType() == CFileTextLines::UTF16_LE)
-            || (m_arBaseFile.GetUnicodeType() == CFileTextLines::UTF16_BE)
-            || (m_arBaseFile.GetUnicodeType() == CFileTextLines::UTF32_LE)
-            || (m_arBaseFile.GetUnicodeType() == CFileTextLines::UTF32_BE))
+            || (m_arBaseFile.NeedsConversion()))
         {
             CFileTextLines converted(m_arBaseFile);
             sConvertedBaseFilename = CTempFiles::Instance().GetTempFilePathString();
-            converted.Save(sConvertedBaseFilename, true, 0, bIgnoreCase, m_bBlame);
+            converted.Save(sConvertedBaseFilename, true, true, 0, bIgnoreCase, m_bBlame);
             bBaseConverted = true;
         }
     }
@@ -288,14 +285,11 @@ BOOL CDiffData::Load()
             return FALSE;
         }
         if ((bIgnoreCase)
-            || (m_arTheirFile.GetUnicodeType() == CFileTextLines::UTF16_LE)
-            || (m_arTheirFile.GetUnicodeType() == CFileTextLines::UTF16_BE)
-            || (m_arTheirFile.GetUnicodeType() == CFileTextLines::UTF32_LE)
-            || (m_arTheirFile.GetUnicodeType() == CFileTextLines::UTF32_BE))
+            || (m_arTheirFile.NeedsConversion()))
         {
             CFileTextLines converted(m_arTheirFile);
             sConvertedTheirFilename = CTempFiles::Instance().GetTempFilePathString();
-            converted.Save(sConvertedTheirFilename, true, 0, bIgnoreCase, m_bBlame);
+            converted.Save(sConvertedTheirFilename, true, true, 0, bIgnoreCase, m_bBlame);
             bTheirConverted = true;
         }
     }
@@ -310,15 +304,11 @@ BOOL CDiffData::Load()
             return FALSE;
         }
         if ((bIgnoreCase)
-            || (m_arYourFile.GetUnicodeType() == CFileTextLines::UTF16_LE)
-            || (m_arYourFile.GetUnicodeType() == CFileTextLines::UTF16_BE)
-            || (m_arYourFile.GetUnicodeType() == CFileTextLines::UTF32_LE)
-            || (m_arYourFile.GetUnicodeType() == CFileTextLines::UTF32_BE)
-            )
+            || (m_arYourFile.NeedsConversion()))
         {
             CFileTextLines converted(m_arYourFile);
             sConvertedYourFilename = CTempFiles::Instance().GetTempFilePathString();
-            converted.Save(sConvertedYourFilename, true, 0, bIgnoreCase, m_bBlame);
+            converted.Save(sConvertedYourFilename, true, true, 0, bIgnoreCase, m_bBlame);
             bYourConverted = true;
         }
     }
@@ -333,21 +323,21 @@ BOOL CDiffData::Load()
         {
             CFileTextLines converted(m_arBaseFile);
             sConvertedBaseFilename = CTempFiles::Instance().GetTempFilePathString();
-            converted.Save(sConvertedBaseFilename, true, 0, bIgnoreCase, m_bBlame);
+            converted.Save(sConvertedBaseFilename, true, true, 0, bIgnoreCase, m_bBlame);
             bBaseConverted = true;
         }
         if (!bYourConverted)
         {
             CFileTextLines converted(m_arYourFile);
             sConvertedYourFilename = CTempFiles::Instance().GetTempFilePathString();
-            converted.Save(sConvertedYourFilename, true, 0, bIgnoreCase, m_bBlame);
+            converted.Save(sConvertedYourFilename, true, true, 0, bIgnoreCase, m_bBlame);
             bYourConverted = true;
         }
         if (!bTheirConverted)
         {
             CFileTextLines converted(m_arTheirFile);
             sConvertedTheirFilename = CTempFiles::Instance().GetTempFilePathString();
-            converted.Save(sConvertedTheirFilename, true, 0, bIgnoreCase, m_bBlame);
+            converted.Save(sConvertedTheirFilename, true, true, 0, bIgnoreCase, m_bBlame);
             bTheirConverted = true;
         }
     }
