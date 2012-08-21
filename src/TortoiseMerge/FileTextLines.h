@@ -61,8 +61,8 @@ public:
         ASCII,
         UTF16_LE, //=1200,
         UTF16_BE, //=1201,
-        UNICODE_LE=UTF16_LE,
-        UNICODE_BE=UTF16_BE,
+        UTF32_LE, //=12000,
+        UTF32_BE, //=12001,
         UTF8, //=65001,
         UTF8BOM, //=UTF8+65536,
     };
@@ -211,6 +211,26 @@ class CUtf16beFilter : public CBaseFilter
 public:
     CUtf16beFilter(CStdioFile *pFile) : CBaseFilter(pFile){};
     virtual ~CUtf16beFilter() {};
+
+    virtual void Encode(const CString s);
+};
+
+
+class CUtf32leFilter : public CBaseFilter
+{
+public:
+    CUtf32leFilter(CStdioFile *pFile) : CBaseFilter(pFile){};
+    virtual ~CUtf32leFilter() {};
+
+    virtual void Encode(const CString s);
+};
+
+
+class CUtf32beFilter : public CUtf32leFilter
+{
+public:
+    CUtf32beFilter(CStdioFile *pFile) : CUtf32leFilter(pFile){};
+    virtual ~CUtf32beFilter() {};
 
     virtual void Encode(const CString s);
 };
