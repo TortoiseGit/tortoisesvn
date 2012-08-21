@@ -306,6 +306,21 @@ void CBaseView::UpdateStatusBar()
     case EOL_CR:
         sBarText += _T("CR ");
         break;
+    case EOL_VT:
+        sBarText += _T("VT ");
+        break;
+    case EOL_FF:
+        sBarText += _T("FF ");
+        break;
+    case EOL_NEL:
+        sBarText += _T("NEL ");
+        break;
+    case EOL_LS:
+        sBarText += _T("LS ");
+        break;
+    case EOL_PS:
+        sBarText += _T("PS ");
+        break;
 #ifdef _DEBUG
     case EOL_AUTOLINE:
         sBarText += _T("AEOL ");
@@ -1516,6 +1531,11 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
         {
             switch (ending)
             {
+            case EOL_AUTOLINE:
+            case EOL_CRLF:
+                // arrow from top to middle+2, then left
+                pDC->MoveTo(origin.x+GetCharWidth()-1, rc.top+1);
+                pDC->LineTo(origin.x+GetCharWidth()-1, yMiddle);
             case EOL_CR:
                 // arrow from right to left
                 pDC->MoveTo(origin.x+GetCharWidth()-1, yMiddle);
@@ -1524,15 +1544,14 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
                 pDC->MoveTo(origin.x, yMiddle);
                 pDC->LineTo(origin.x+4, yMiddle-4);
                 break;
-            case EOL_AUTOLINE:
-            case EOL_CRLF:
-                // arrow from top to middle+2, then left
-                pDC->MoveTo(origin.x+GetCharWidth()-1, rc.top+1);
-                pDC->LineTo(origin.x+GetCharWidth()-1, yMiddle);
-                pDC->LineTo(origin.x, yMiddle);
-                pDC->LineTo(origin.x+4, yMiddle+4);
-                pDC->MoveTo(origin.x, yMiddle);
-                pDC->LineTo(origin.x+4, yMiddle-4);
+            case EOL_LFCR:
+                // from right-upper to left then down
+                pDC->MoveTo(origin.x+GetCharWidth()-1, yMiddle-2);
+                pDC->LineTo(xMiddle, yMiddle-2);
+                pDC->LineTo(xMiddle, rc.bottom-1);
+                pDC->LineTo(xMiddle+4, rc.bottom-5);
+                pDC->MoveTo(xMiddle, rc.bottom-1);
+                pDC->LineTo(xMiddle-4, rc.bottom-5);
                 break;
             case EOL_LF:
                 // arrow from top to bottom
@@ -1541,6 +1560,16 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
                 pDC->LineTo(xMiddle+4, rc.bottom-5);
                 pDC->MoveTo(xMiddle, rc.bottom-1);
                 pDC->LineTo(xMiddle-4, rc.bottom-5);
+                break;
+            default: // other EOLs
+                // arrow from top right to bottom left
+                pDC->MoveTo(origin.x+GetCharWidth()-1, rc.bottom-GetCharWidth());
+                pDC->LineTo(origin.x, rc.bottom-1);
+                pDC->LineTo(origin.x+5, rc.bottom-2);
+                pDC->MoveTo(origin.x, rc.bottom-1);
+                pDC->LineTo(origin.x+1, rc.bottom-6);
+                break;
+            case EOL_NOENDING:
                 break;
             }
         }

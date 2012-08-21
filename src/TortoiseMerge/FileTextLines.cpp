@@ -398,59 +398,95 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     size_t countEOL_CRLF = 0;
     size_t countEOL_LF   = 0;
     size_t countEOL_LFCR = 0;
-    for (int i = 0; i<nReadChars; ++i)
+    size_t countEOL_VT   = 0;
+    size_t countEOL_FF   = 0;
+    size_t countEOL_NEL  = 0;
+    size_t countEOL_LS   = 0;
+    size_t countEOL_PS   = 0;
+
+    EOL eEol;
+    int nEolAddBytes = 0;
+    for (int i = nReadChars; i; --i)
     {
-        if (*pTextBuf == '\r')
+        switch (*pTextBuf++)
         {
-            if ((i + 1) < nReadChars)
+        case '\r':
+            if ((i > 1) && *(pTextBuf) == '\n')
             {
-                if (*(pTextBuf+1) == '\n')
-                {
-                    // crlf line ending
-                    CString line(pLineStart, (int)(pTextBuf-pLineStart));
-                    Add(line, EOL_CRLF);
-                    ++countEOL_CRLF;
-                    pLineStart = pTextBuf+2;
-                    ++pTextBuf;
-                    ++i;
-                }
-                else
-                {
-                    // cr line ending
-                    CString line(pLineStart, (int)(pTextBuf-pLineStart));
-                    Add(line, EOL_CR);
-                    ++countEOL_CR;
-                    pLineStart =pTextBuf+1;
-                }
+                // crlf line ending
+                eEol = EOL_CRLF;
+                ++countEOL_CRLF;
+                nEolAddBytes = 1;
             }
-        }
-        else if (*pTextBuf == '\n')
-        {
-            if ((i + 1) < nReadChars)
+            else
             {
-                if (*(pTextBuf+1) == '\r')
-                {
-                    // lfcr line ending
-                    CString line(pLineStart, (int)(pTextBuf-pLineStart));
-                    Add(line, EOL_LFCR);
-                    ++countEOL_LFCR;
-                    pLineStart = pTextBuf+2;
-                    ++pTextBuf;
-                    ++i;
-                    m_bNeedsConversion = true;  // LFCR EOLs are not supported by the svn diff lib.
-                }
-                else
-                {
-                    // lf line ending
-                    CString line(pLineStart, (int)(pTextBuf-pLineStart));
-                    Add(line, EOL_LF);
-                    ++countEOL_LF;
-                    pLineStart =pTextBuf+1;
-                }
+                // cr line ending
+                eEol = EOL_CR;
+                ++countEOL_CR;
             }
+            break;
+        case '\n':
+            if ((i > 1) && *(pTextBuf) == '\r')
+            {
+                // lfcr line ending
+                eEol = EOL_LFCR;
+                ++countEOL_LFCR;
+                nEolAddBytes = 1;
+            }
+            else
+            {
+                // lf line ending
+                eEol = EOL_LF;
+                ++countEOL_LF;
+            }
+            break;
+        case 0x000b:
+            {
+                eEol = EOL_VT;
+                ++countEOL_VT;
+            }
+            break;
+        case 0x000c:
+            {
+                eEol = EOL_FF;
+                ++countEOL_FF;
+            }
+            break;
+        case 0x0085:
+            {
+                eEol = EOL_NEL;
+                ++countEOL_NEL;
+            }
+            break;
+        case 0x2028:
+            {
+                eEol = EOL_LS;
+                ++countEOL_LS;
+            }
+            break;
+        case 0x2029:
+            {
+                eEol = EOL_PS;
+                ++countEOL_PS;
+            }
+            break;
+        default:
+            continue;
         }
-        ++pTextBuf;
+        CString line(pLineStart, (int)(pTextBuf-pLineStart)-1);
+        Add(line, eEol);
+        pLineStart = pTextBuf+=nEolAddBytes;
+        i-=nEolAddBytes;
+        nEolAddBytes = 0;
     }
+    // some EOLs are not supported by the svn diff lib.
+    m_bNeedsConversion |= (countEOL_LFCR!=0);
+    m_bNeedsConversion |= (countEOL_FF!=0);  // LFCR EOLs are not supported by the svn diff lib.
+    m_bNeedsConversion |= (countEOL_VT!=0);  // LFCR EOLs are not supported by the svn diff lib.
+    m_bNeedsConversion |= (countEOL_NEL!=0);  // LFCR EOLs are not supported by the svn diff lib.
+    m_bNeedsConversion |= (countEOL_LS!=0);  // LFCR EOLs are not supported by the svn diff lib.
+    m_bNeedsConversion |= (countEOL_PS!=0);
+
     size_t eolmax = countEOL_CRLF;
     m_LineEndings = EOL_CRLF;
     if (eolmax < countEOL_CR)
@@ -468,7 +504,31 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         eolmax = countEOL_LFCR;
         m_LineEndings = EOL_LFCR;
     }
-
+    if (eolmax < countEOL_VT)
+    {
+        eolmax = countEOL_VT;
+        m_LineEndings = EOL_VT;
+    }
+    if (eolmax < countEOL_FF)
+    {
+        eolmax = countEOL_FF;
+        m_LineEndings = EOL_FF;
+    }
+    if (eolmax < countEOL_NEL)
+    {
+        eolmax = countEOL_NEL;
+        m_LineEndings = EOL_NEL;
+    }
+    if (eolmax < countEOL_LS)
+    {
+        eolmax = countEOL_LS;
+        m_LineEndings = EOL_LS;
+    }
+    if (eolmax < countEOL_PS)
+    {
+        eolmax = countEOL_PS;
+        m_LineEndings = EOL_PS;
+    }
     if (pLineStart < pTextBuf)
     {
         CString line(pLineStart, (int)(pTextBuf-pLineStart));
@@ -585,6 +645,11 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseL
         CBuffer oCrLf = pFilter->Encode(_T("\x0d\x0a"));
         CBuffer oLf = pFilter->Encode(_T("\x0a"));
         CBuffer oLfCr = pFilter->Encode(_T("\x0a\x0d"));
+        CBuffer oVt = pFilter->Encode(_T("\x0b"));
+        CBuffer oFf = pFilter->Encode(_T("\x0c"));
+        CBuffer oNel = pFilter->Encode(_T("\x85"));
+        CBuffer oLs = pFilter->Encode(_T("\x2028"));
+        CBuffer oPs = pFilter->Encode(_T("\x2029"));
         CBuffer oAuto = oCrLf;
         switch (m_LineEndings)
         {
@@ -600,6 +665,21 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseL
             break;
         case EOL_LFCR:
             oAuto = oLfCr;
+            break;
+        case EOL_VT:
+            oAuto = oVt;
+            break;
+        case EOL_FF:
+            oAuto = oFf;
+            break;
+        case EOL_NEL:
+            oAuto = oNel;
+            break;
+        case EOL_LS:
+            oAuto = oLs;
+            break;
+        case EOL_PS:
+            oAuto = oPs;
             break;
         }
 
@@ -633,6 +713,21 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseL
                         break;
                     case EOL_LFCR:
                         pFilter->Write(oLfCr);
+                        break;
+                    case EOL_VT:
+                        pFilter->Write(oVt);
+                        break;
+                    case EOL_FF:
+                        pFilter->Write(oFf);
+                        break;
+                    case EOL_NEL:
+                        pFilter->Write(oNel);
+                        break;
+                    case EOL_LS:
+                        pFilter->Write(oLs);
+                        break;
+                    case EOL_PS:
+                        pFilter->Write(oPs);
                         break;
                     }
                 }
