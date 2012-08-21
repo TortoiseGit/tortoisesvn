@@ -76,23 +76,19 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
     {
         if (*pVal32 == 0x0000FEFF)
         {
-            m_bNeedsConversion = true;
             return CFileTextLines::UTF32_LE;
         }
         if (*pVal32 == 0xFFFE0000)
         {
-            m_bNeedsConversion = true;
             return CFileTextLines::UTF32_BE;
         }
     }
     if (*pVal16 == 0xFEFF)
     {
-        m_bNeedsConversion = true;
         return CFileTextLines::UTF16_LE;
     }
     if (*pVal16 == 0xFFFE)
     {
-        m_bNeedsConversion = true;
         return CFileTextLines::UTF16_BE;
     }
     if (cb < 3)
@@ -130,6 +126,8 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
         }
         else if ((pVal8[i] & 0x20)==0) // top two bits
         {
+            if (pVal8[i]<=0xC1)
+                return CFileTextLines::ASCII;
             nNeedData = 1;
         }
         else if ((pVal8[i] & 0x10)==0) // top three bits
@@ -138,8 +136,12 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
         }
         else if ((pVal8[i] & 0x08)==0) // top four bits
         {
+            if (pVal8[i]>=0xf5)
+                return CFileTextLines::ASCII;
             nNeedData = 3;
         }
+        else
+            return CFileTextLines::ASCII;
     }
     if (bUTF8)
         return CFileTextLines::UTF8;
@@ -322,6 +324,8 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     if (m_UnicodeType == CFileTextLines::AUTOTYPE)
     {
         m_UnicodeType = this->CheckUnicodeType(pFileBuf, dwReadBytes);
+        // enforce conversion for all but ASCII and UTF8 type
+        m_bNeedsConversion = (m_UnicodeType!=CFileTextLines::UTF8)&&(m_UnicodeType!=CFileTextLines::ASCII);
     }
 
     if (m_UnicodeType == CFileTextLines::BINARY)
