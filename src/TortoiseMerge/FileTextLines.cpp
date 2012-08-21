@@ -32,10 +32,17 @@ wchar_t inline WideCharSwap(wchar_t nValue)
 
 UINT32 inline DwordSwapBytes(UINT32 nValue)
 {
-    UINT32 nRet = (nValue>>16) | (nValue<<16);
-    nRet = ((nRet&0xff00ff)<<8) | ((nRet>>8)&0xff00ff);
+    UINT32 nRet = (nValue<<16) | (nValue>>16); // swap WORDs
+    nRet = ((nRet&0xff00ff)<<8) | ((nRet>>8)&0xff00ff); // swap BYTESs in WORDs
     return nRet;
     //return _byteswap_ulong(nValue);
+}
+
+UINT64 inline DwordSwapBytes(UINT64 nValue)
+{
+    UINT64 nRet = ((nValue&0xffff0000ffffL)<<16) | ((nValue>>16)&0xffff0000ffffL); // swap WORDs in DWORDs
+    nRet = ((nRet&0xff00ff00ff00ff)<<8) | ((nRet>>8)&0xff00ff00ff00ff); // swap BYTESs in WORDs
+    return nRet;
 }
 
 CFileTextLines::CFileTextLines(void)
@@ -188,22 +195,24 @@ bool ConvertToWideChar(const int nCodePage
         if (nCodePage == UTF32BE)
         {
             // swap the bytes to little-endian order
-            for (int i = 0; i<nReadChars; ++i)
+            UINT64 * p64 = (UINT64 *)p32;
+            int nQwords = nReadChars/2;
+            for (int nQword = 0; nQword<nQwords; nQword++)
             {
-                p32[i] = DwordSwapBytes(p32[i]);
+                p64[nQword] = DwordSwapBytes(p64[nQword]);
+            }
+
+            for (int nDword = nQwords*2; nDword<nReadChars; nDword++)
+            {
+                p32[nDword] = DwordSwapBytes(p32[nDword]);
             }
         }
 
         // count chars which needs surrogate pair
         int nSurrogatePairCount = 0;
-        int nOverRange = 0;
         for (int i = 0; i<nReadChars; ++i)
         {
-            if (p32[i]>=0x110000)
-            {
-                ++nOverRange;
-            }
-            else if (p32[i]>=0x10000)
+            if (p32[i]<0x110000 && p32[i]>=0x10000)
             {
                 ++nSurrogatePairCount;
             }
@@ -217,7 +226,7 @@ bool ConvertToWideChar(const int nCodePage
             __int32 zChar = p32[i]; 
             if (zChar>=0x110000)
             {
-                *pOut=0xfffd;
+                *pOut=0xfffd; // ? mark
             }
             else if (zChar>=0x10000)
             {
@@ -536,25 +545,20 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
             bSaveBom = false;
             pFilter = new CAsciiFilter(&file);
             break;
-
         case CFileTextLines::UTF8:
             bSaveBom = false;
         case CFileTextLines::UTF8BOM:
             pFilter = new CUtf8Filter(&file);
             break;
-
         case CFileTextLines::UTF16_BE:
             pFilter = new CUtf16beFilter(&file);
             break;
-
         case CFileTextLines::UTF16_LE:
             pFilter = new CUtf16leFilter(&file);
             break;
-
         case CFileTextLines::UTF32_BE:
             pFilter = new CUtf32beFilter(&file);
             break;
-
         case CFileTextLines::UTF32_LE:
             pFilter = new CUtf32leFilter(&file);
             break;
@@ -563,9 +567,31 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
         if (bSaveBom)
         {
             //first write the BOM
-            const CString sBomT = L"\xfeff"; // BOM
-            pFilter->Write(sBomT);
+            pFilter->Write(L"\xfeff");
         }
+        // cache EOLs
+        CBuffer oCr = pFilter->Encode(_T("\x0d"));
+        CBuffer oCrLf = pFilter->Encode(_T("\x0d\x0a"));
+        CBuffer oLf = pFilter->Encode(_T("\x0a"));
+        CBuffer oLfCr = pFilter->Encode(_T("\x0a\x0d"));
+        CBuffer oAuto = oCrLf;
+        switch (m_LineEndings)
+        {
+        case EOL_CR:
+            oAuto = oCr;
+            break;
+        case EOL_CRLF:
+        case EOL_AUTOLINE:
+            oAuto = oCrLf;
+            break;
+        case EOL_LF:
+            oAuto = oLf;
+            break;
+        case EOL_LFCR:
+            oAuto = oLfCr;
+            break;
+        }
+
         for (int i=0; i<GetCount(); i++)
         {
             CString sLineT = GetAt(i);
@@ -576,27 +602,24 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, DWORD dwIg
 
             if ((m_bReturnAtEnd)||(i != GetCount()-1))
             {
-                EOL ending = GetLineEnding(i);
-                if (ending == EOL_AUTOLINE)
-                    ending = m_LineEndings;
-                CString sEolT;
-                switch (ending)
+                switch (GetLineEnding(i))
                 {
                 case EOL_CR:
-                    sEolT = _T("\x0d");
+                    pFilter->Write(oCr);
                     break;
                 case EOL_CRLF:
+                    pFilter->Write(oCrLf);
+                    break;
                 case EOL_AUTOLINE:
-                    sEolT = _T("\x0d\x0a");
+                    pFilter->Write(oAuto);
                     break;
                 case EOL_LF:
-                    sEolT = _T("\x0a");
+                    pFilter->Write(oLf);
                     break;
                 case EOL_LFCR:
-                    sEolT = _T("\x0a\x0d");
+                    pFilter->Write(oLfCr);
                     break;
                 }
-                pFilter->Write(sEolT);
             }
         }
         file.Close();
@@ -660,45 +683,50 @@ void CBuffer::Copy(const CBuffer & Src)
 
 
 
-void CBaseFilter::Encode(const CString s)
+const CBuffer & CBaseFilter::Encode(const CString s)
 {
-    int nNeedBytes = WideCharToMultiByte(m_nCodePage, 0, (LPCTSTR)s, s.GetLength(), NULL, 0, NULL, NULL);
-    m_oBuffer.SetLength(nNeedBytes);
+    m_oBuffer.SetLength(s.GetLength()*3+1); // set buffer to guessed max size
     int nConvertedLen = WideCharToMultiByte(m_nCodePage, 0, (LPCTSTR)s, s.GetLength(), (LPSTR)m_oBuffer, m_oBuffer.GetLength(), NULL, NULL);
-    if (nConvertedLen!=nNeedBytes)
-    {
-        m_oBuffer.Clear();
-    }
+    m_oBuffer.SetLength(nConvertedLen); // set buffer to used size
+    return m_oBuffer;
 }
 
 
 
-void CUtf16leFilter::Encode(const CString s)
+const CBuffer & CUtf16leFilter::Encode(const CString s)
 {
     int nNeedBytes = s.GetLength()*sizeof(TCHAR);
     m_oBuffer.SetLength(nNeedBytes);
     memcpy((void *)m_oBuffer, (LPCTSTR)s, nNeedBytes);
+    return m_oBuffer;
 }
 
 
 
-void CUtf16beFilter::Encode(const CString s)
+const CBuffer & CUtf16beFilter::Encode(const CString s)
 {
     int nNeedBytes = s.GetLength()*sizeof(TCHAR);
     m_oBuffer.SetLength(nNeedBytes);
     // copy swaping BYTE order in WORDs
-    LPCTSTR p_In = (LPCTSTR)s;
-    wchar_t * p_Out = (wchar_t *)(LPCSTR)m_oBuffer;
-    int nWords = nNeedBytes/2;
-    for (int nWord = 0; nWord<nWords; nWord++)
-    {
-        p_Out[nWord] = WideCharSwap(p_In[nWord]);
+    UINT64 * p_qwIn = (UINT64 *)(LPCTSTR)s;
+    UINT64 * p_qwOut = (UINT64 *)(void *)m_oBuffer;
+    int nQwords = nNeedBytes/8;
+    for (int nQword = 0; nQword<nQwords; nQword++) {
+        UINT64 nTemp = p_qwIn[nQword];
+        p_qwOut[nQword] = ((nTemp&0xff00ff00ff00ffL)<<8) | ((nTemp>>8)&0xff00ff00ff00ffL);
     }
+    wchar_t * p_wIn = (wchar_t *)p_qwIn;
+    wchar_t * p_wOut = (wchar_t *)p_qwOut;
+    int nWords = nNeedBytes/2;
+    for (int nWord = nQwords*4; nWord<nWords; nWord++) {
+        p_wOut[nWord] = WideCharSwap(p_wIn[nWord]);
+    }
+    return m_oBuffer;
 }
 
 
 
-void CUtf32leFilter::Encode(const CString s)
+const CBuffer & CUtf32leFilter::Encode(const CString s)
 {
     int nInWords = s.GetLength();
     m_oBuffer.SetLength(nInWords*2);
@@ -721,26 +749,35 @@ void CUtf32leFilter::Encode(const CString s)
             }
         }
         else if ((zChar&0xfc00) == 0xdc00) // trail surrogate without lead
-        { // tail surrogate
+        {
             zChar = 0xfffd; // ? mark
         }
         p_Out[nOutDword] = zChar;
     }
     m_oBuffer.SetLength(nOutDword*4); // store length reduced by surrogates
+    return m_oBuffer;
 }
 
 
 
-void CUtf32beFilter::Encode(const CString s)
+const CBuffer & CUtf32beFilter::Encode(const CString s)
 {
     CUtf32leFilter::Encode(s);
 
     // swap BYTEs order in DWORDs
-    UINT32 * p = (UINT32 *)(void *)m_oBuffer;
-    int nDwords = m_oBuffer.GetLength()/4;
-    for (int nDword = 0; nDword<nDwords; nDword++)
+    UINT64 * p64 = (UINT64 *)(void *)m_oBuffer;
+    int nQwords = m_oBuffer.GetLength()/8;
+    for (int nQword = 0; nQword<nQwords; nQword++)
     {
-        p[nDword] = DwordSwapBytes(p[nDword]);
+        p64[nQword] = DwordSwapBytes(p64[nQword]);
     }
+
+    UINT32 * p32 = (UINT32 *)p64;
+    int nDwords = m_oBuffer.GetLength()/4;
+    for (int nDword = nQwords*2; nDword<nDwords; nDword++)
+    {
+        p32[nDword] = DwordSwapBytes(p32[nDword]);
+    }
+    return m_oBuffer;
 }
 

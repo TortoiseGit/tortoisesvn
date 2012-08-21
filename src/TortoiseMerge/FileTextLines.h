@@ -162,9 +162,9 @@ public:
     CBaseFilter(CStdioFile * p_File) { m_pFile=p_File; m_nCodePage=0; }
     virtual ~CBaseFilter() {}
 
-    virtual void Encode(const CString s);
-    CBuffer GetBuffer() {return m_oBuffer; }
-    void Write(const CString s) { Encode(s); Write(); } ///< encode into buffer and write
+    virtual const CBuffer & Encode(const CString s);
+    const CBuffer & GetBuffer() {return m_oBuffer; }
+    void Write(const CString s) { Write(Encode(s)); } ///< encode into buffer and write
     void Write() { Write(m_oBuffer); } ///< write preencoded internal buffer
     void Write(const CBuffer & buffer) { m_pFile->Write((LPCSTR)buffer, buffer.GetLength()); } ///< write preencoded buffer
 
@@ -202,7 +202,7 @@ public:
     CUtf16leFilter(CStdioFile *pFile) : CBaseFilter(pFile){};
     virtual ~CUtf16leFilter() {};
 
-    virtual void Encode(const CString s);
+    virtual const CBuffer & Encode(const CString s);
 };
 
 
@@ -212,7 +212,7 @@ public:
     CUtf16beFilter(CStdioFile *pFile) : CBaseFilter(pFile){};
     virtual ~CUtf16beFilter() {};
 
-    virtual void Encode(const CString s);
+    virtual const CBuffer & Encode(const CString s);
 };
 
 
@@ -222,7 +222,7 @@ public:
     CUtf32leFilter(CStdioFile *pFile) : CBaseFilter(pFile){};
     virtual ~CUtf32leFilter() {};
 
-    virtual void Encode(const CString s);
+    virtual const CBuffer & Encode(const CString s);
 };
 
 
@@ -232,5 +232,5 @@ public:
     CUtf32beFilter(CStdioFile *pFile) : CUtf32leFilter(pFile){};
     virtual ~CUtf32beFilter() {};
 
-    virtual void Encode(const CString s);
+    virtual const CBuffer & Encode(const CString s);
 };
