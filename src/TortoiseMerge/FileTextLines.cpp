@@ -60,78 +60,73 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 {
     if (cb < 2)
         return CFileTextLines::ASCII;
-    UINT32 * pVal32 = (UINT32 *)pBuffer;
+    const UINT32 * const pVal32 = (UINT32 *)pBuffer;
+    const UINT16 * const pVal16 = (UINT16 *)pBuffer;
+    const UINT8 * const pVal8 = (UINT8 *)pBuffer;
     // scan the whole buffer for a 0x00000000 sequence
     // if found, we assume a binary file
-    for (int i=0; i<(cb-4); i=i+4)
+    int nDwords = cb/4;
+    for (int i=0; i<nDwords; ++i)
     {
-        if (0x00000000 == *pVal32++)
+        if (0x00000000 == pVal32[i])
             return CFileTextLines::BINARY;
     }
-    pVal32 = (UINT32 *)pBuffer;
-    if (*pVal32 == 0x0000FEFF)
-        return CFileTextLines::UTF32_LE;
-    if (*pVal32 == 0xFFFE0000)
-        return CFileTextLines::UTF32_BE;
-    UINT16 * pVal16 = (UINT16 *)pBuffer;
+    if (cb >=4 )
+    {
+        if (*pVal32 == 0x0000FEFF)
+            return CFileTextLines::UTF32_LE;
+        if (*pVal32 == 0xFFFE0000)
+            return CFileTextLines::UTF32_BE;
+    }
     if (*pVal16 == 0xFEFF)
         return CFileTextLines::UTF16_LE;
     if (*pVal16 == 0xFFFE)
         return CFileTextLines::UTF16_BE;
     if (cb < 3)
-        return ASCII;
-    UINT8 * pVal8 = (UINT8 *)(pVal16+1);
+        return CFileTextLines::ASCII;
     if (*pVal16 == 0xBBEF)
     {
-        if (*pVal8 == 0xBF)
+        if (pVal8[2] == 0xBF)
             return CFileTextLines::UTF8BOM;
     }
-    // check for illegal UTF8 chars
-    pVal8 = (UINT8 *)pBuffer;
-    for (int i=0; i<cb; ++i)
-    {
-        if ((*pVal8 == 0xC0)||(*pVal8 == 0xC1)||(*pVal8 >= 0xF5))
-            return CFileTextLines::ASCII;
-        pVal8++;
-    }
-    pVal8 = (UINT8 *)pBuffer;
+    // check for illegal UTF8 sequences
     bool bUTF8 = false;
     bool bNonANSI = false;
-    for (int i=0; i<(cb-3); ++i)
+    int nNeedData = 0;
+    for (int i=0; i<cb; ++i)
     {
-        if (*pVal8 > 127)
-            bNonANSI = true;
-        if ((*pVal8 & 0xE0)==0xC0)
+        if ((pVal8[i] & 0x80)==0) // Ascii
         {
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
+            if (nNeedData)
+            {
                 return CFileTextLines::ASCII;
-            bUTF8 = true;
+            }
+            continue;
         }
-        if ((*pVal8 & 0xF0)==0xE0)
+        bNonANSI = true;
+        if ((pVal8[i] & 0x40)==0) // top bit
         {
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
+            if (!nNeedData)
                 return CFileTextLines::ASCII;
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
-                return CFileTextLines::ASCII;
-            bUTF8 = true;
+            --nNeedData;
+            bUTF8 |= (nNeedData==0);
         }
-        if ((*pVal8 & 0xF8)==0xF0)
+        else if (nNeedData)
         {
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
-                return CFileTextLines::ASCII;
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
-                return CFileTextLines::ASCII;
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
-                return CFileTextLines::ASCII;
-            bUTF8 = true;
+            return CFileTextLines::ASCII;
         }
-        pVal8++;
+        else if ((pVal8[i] & 0x20)==0) // top two bits
+        {
+            nNeedData = 1;
+        }
+        else if ((pVal8[i] & 0x10)==0) // top three bits
+        {
+            nNeedData = 2;
+        }
+        else if ((pVal8[i] & 0x08)==0) // top four bits
+        {
+            nNeedData = 3;
+        }
     }
     if (bUTF8)
         return CFileTextLines::UTF8;
