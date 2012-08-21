@@ -213,7 +213,6 @@ void CDiffData::StickAndSkip(svn_diff_t * &tempdiff, apr_off_t &original_length_
 
 BOOL CDiffData::Load()
 {
-    CString sConvertedBaseFilename, sConvertedTheirFilename, sConvertedYourFilename;
 
     m_arBaseFile.RemoveAll();
     m_arYourFile.RemoveAll();
@@ -245,6 +244,7 @@ BOOL CDiffData::Load()
     // To ignore case changes or to handle UTF-16 files, we have to
     // save the original file in UTF-8 and/or the letters changed to lowercase
     // so the Subversion diff can handle those.
+    CString sConvertedBaseFilename, sConvertedTheirFilename, sConvertedYourFilename;
     sConvertedBaseFilename = m_baseFile.GetFilename();
     sConvertedYourFilename = m_yourFile.GetFilename();
     sConvertedTheirFilename = m_theirFile.GetFilename();
@@ -265,7 +265,11 @@ BOOL CDiffData::Load()
             m_sError = m_arBaseFile.GetErrorString();
             return FALSE;
         }
-        if ((bIgnoreCase)||(m_arBaseFile.GetUnicodeType() == CFileTextLines::UNICODE_LE)||(m_arBaseFile.GetUnicodeType() == CFileTextLines::UNICODE_BE))
+        if ((bIgnoreCase)
+            || (m_arBaseFile.GetUnicodeType() == CFileTextLines::UTF16_LE)
+            || (m_arBaseFile.GetUnicodeType() == CFileTextLines::UTF16_BE)
+            || (m_arBaseFile.GetUnicodeType() == CFileTextLines::UTF32_LE)
+            || (m_arBaseFile.GetUnicodeType() == CFileTextLines::UTF32_BE))
         {
             CFileTextLines converted(m_arBaseFile);
             sConvertedBaseFilename = CTempFiles::Instance().GetTempFilePathString();
@@ -283,7 +287,11 @@ BOOL CDiffData::Load()
             m_sError = m_arTheirFile.GetErrorString();
             return FALSE;
         }
-        if ((bIgnoreCase)||(m_arTheirFile.GetUnicodeType() == CFileTextLines::UNICODE_LE)||(m_arTheirFile.GetUnicodeType() == CFileTextLines::UNICODE_BE))
+        if ((bIgnoreCase)
+            || (m_arTheirFile.GetUnicodeType() == CFileTextLines::UTF16_LE)
+            || (m_arTheirFile.GetUnicodeType() == CFileTextLines::UTF16_BE)
+            || (m_arTheirFile.GetUnicodeType() == CFileTextLines::UTF32_LE)
+            || (m_arTheirFile.GetUnicodeType() == CFileTextLines::UTF32_BE))
         {
             CFileTextLines converted(m_arTheirFile);
             sConvertedTheirFilename = CTempFiles::Instance().GetTempFilePathString();
@@ -301,7 +309,12 @@ BOOL CDiffData::Load()
             m_sError = m_arYourFile.GetErrorString();
             return FALSE;
         }
-        if ((bIgnoreCase)||(m_arYourFile.GetUnicodeType() == CFileTextLines::UNICODE_LE)||(m_arYourFile.GetUnicodeType() == CFileTextLines::UNICODE_BE))
+        if ((bIgnoreCase)
+            || (m_arYourFile.GetUnicodeType() == CFileTextLines::UTF16_LE)
+            || (m_arYourFile.GetUnicodeType() == CFileTextLines::UTF16_BE)
+            || (m_arYourFile.GetUnicodeType() == CFileTextLines::UTF32_LE)
+            || (m_arYourFile.GetUnicodeType() == CFileTextLines::UTF32_BE)
+            )
         {
             CFileTextLines converted(m_arYourFile);
             sConvertedYourFilename = CTempFiles::Instance().GetTempFilePathString();
