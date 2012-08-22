@@ -2104,6 +2104,9 @@
     <ClInclude Include="Properties\EditPropMergeLogTemplate.h">
       <Filter>Commands\Properties</Filter>
     </ClInclude>
+    <ClInclude Include="..\Utils\CrashReport.h">
+      <Filter>Utils\General</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico">
