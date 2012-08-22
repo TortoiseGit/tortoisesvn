@@ -38,4 +38,6 @@ enum EOL
     EOL_LS,    ///< Line Separator, U+2028
     EOL_PS,    ///< Paragraph Separator, U+2029
     EOL_NOENDING,
+
+    EOL__COUNT
 };

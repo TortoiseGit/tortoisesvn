@@ -99,12 +99,23 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
             return CFileTextLines::UTF8BOM;
     }
     // check for illegal UTF8 sequences
-    bool bUTF8 = false;
     bool bNonANSI = false;
     int nNeedData = 0;
-    for (int i=0; i<cb; ++i)
+    int i=0;
+    // run fast for ascii
+    for (; i<cb; i+=8)
     {
-        if ((pVal8[i] & 0x80)==0) // Ascii
+        if ((*(UINT64 *)&pVal8[i] & 0x8080808080808080)!=0) // all Ascii?
+        {
+            bNonANSI = true;
+            break;
+        }
+    }
+    // continue slow
+    for (; i<cb; ++i)
+    {
+        UINT8 zChar = pVal8[i];
+        if ((zChar & 0x80)==0) // Ascii
         {
             if (nNeedData)
             {
@@ -112,38 +123,37 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
             }
             continue;
         }
-        bNonANSI = true;
-        if ((pVal8[i] & 0x40)==0) // top bit
+        if ((zChar & 0x40)==0) // top bit
         {
             if (!nNeedData)
                 return CFileTextLines::ASCII;
             --nNeedData;
-            bUTF8 |= (nNeedData==0);
         }
         else if (nNeedData)
         {
             return CFileTextLines::ASCII;
         }
-        else if ((pVal8[i] & 0x20)==0) // top two bits
+        else if ((zChar & 0x20)==0) // top two bits
         {
-            if (pVal8[i]<=0xC1)
+            if (zChar<=0xC1)
                 return CFileTextLines::ASCII;
             nNeedData = 1;
         }
-        else if ((pVal8[i] & 0x10)==0) // top three bits
+        else if ((zChar & 0x10)==0) // top three bits
         {
             nNeedData = 2;
         }
-        else if ((pVal8[i] & 0x08)==0) // top four bits
+        else if ((zChar & 0x08)==0) // top four bits
         {
-            if (pVal8[i]>=0xf5)
+            if (zChar>=0xf5)
                 return CFileTextLines::ASCII;
             nNeedData = 3;
         }
         else
             return CFileTextLines::ASCII;
     }
-    if (bUTF8)
+    if (bNonANSI && nNeedData==0)
+        // if get here thru nonAscii and no missing data left then its valid UTF8
         return CFileTextLines::UTF8;
     if ((!bNonANSI)&&(DWORD(CRegDWORD(_T("Software\\TortoiseMerge\\UseUTF8"), FALSE))))
         return CFileTextLines::UTF8;
@@ -398,20 +408,11 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     }
 
     // fill in the lines into the array
-    size_t countEOL_CR   = 0;
-    size_t countEOL_CRLF = 0;
-    size_t countEOL_LF   = 0;
-    size_t countEOL_LFCR = 0;
-    size_t countEOL_VT   = 0;
-    size_t countEOL_FF   = 0;
-    size_t countEOL_NEL  = 0;
-    size_t countEOL_LS   = 0;
-    size_t countEOL_PS   = 0;
-
-    EOL eEol;
-    int nEolAddBytes = 0;
+    size_t countEOLs[EOL__COUNT];
+    memset(countEOLs, 0, sizeof(countEOLs));
     for (int i = nReadChars; i; --i)
     {
+        EOL eEol;
         switch (*pTextBuf++)
         {
         case '\r':
@@ -419,14 +420,11 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
             {
                 // crlf line ending
                 eEol = EOL_CRLF;
-                ++countEOL_CRLF;
-                nEolAddBytes = 1;
             }
             else
             {
                 // cr line ending
                 eEol = EOL_CR;
-                ++countEOL_CR;
             }
             break;
         case '\n':
@@ -434,105 +432,59 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
             {
                 // lfcr line ending
                 eEol = EOL_LFCR;
-                ++countEOL_LFCR;
-                nEolAddBytes = 1;
             }
             else
             {
                 // lf line ending
                 eEol = EOL_LF;
-                ++countEOL_LF;
             }
             break;
         case 0x000b:
-            {
-                eEol = EOL_VT;
-                ++countEOL_VT;
-            }
+            eEol = EOL_VT;
             break;
         case 0x000c:
-            {
-                eEol = EOL_FF;
-                ++countEOL_FF;
-            }
+            eEol = EOL_FF;
             break;
         case 0x0085:
-            {
-                eEol = EOL_NEL;
-                ++countEOL_NEL;
-            }
+            eEol = EOL_NEL;
             break;
         case 0x2028:
-            {
-                eEol = EOL_LS;
-                ++countEOL_LS;
-            }
+            eEol = EOL_LS;
             break;
         case 0x2029:
-            {
-                eEol = EOL_PS;
-                ++countEOL_PS;
-            }
+            eEol = EOL_PS;
             break;
         default:
             continue;
         }
         CString line(pLineStart, (int)(pTextBuf-pLineStart)-1);
         Add(line, eEol);
-        pLineStart = pTextBuf+=nEolAddBytes;
-        i-=nEolAddBytes;
-        nEolAddBytes = 0;
+        ++countEOLs[eEol];
+        if (eEol==EOL_CRLF || eEol==EOL_LFCR)
+        {
+            ++pTextBuf;
+            --i;
+        }
+        pLineStart = pTextBuf;
     }
     // some EOLs are not supported by the svn diff lib.
-    m_bNeedsConversion |= (countEOL_LFCR!=0);
-    m_bNeedsConversion |= (countEOL_FF!=0);  // LFCR EOLs are not supported by the svn diff lib.
-    m_bNeedsConversion |= (countEOL_VT!=0);  // LFCR EOLs are not supported by the svn diff lib.
-    m_bNeedsConversion |= (countEOL_NEL!=0);  // LFCR EOLs are not supported by the svn diff lib.
-    m_bNeedsConversion |= (countEOL_LS!=0);  // LFCR EOLs are not supported by the svn diff lib.
-    m_bNeedsConversion |= (countEOL_PS!=0);
+    m_bNeedsConversion |= (countEOLs[EOL_CRLF]!=0);
+    m_bNeedsConversion |= (countEOLs[EOL_FF]!=0);
+    m_bNeedsConversion |= (countEOLs[EOL_VT]!=0);
+    m_bNeedsConversion |= (countEOLs[EOL_NEL]!=0);
+    m_bNeedsConversion |= (countEOLs[EOL_LS]!=0);
+    m_bNeedsConversion |= (countEOLs[EOL_PS]!=0);
 
-    size_t eolmax = countEOL_CRLF;
-    m_LineEndings = EOL_CRLF;
-    if (eolmax < countEOL_CR)
+    size_t eolmax = 0;
+    for (int nEol = 0; nEol<EOL__COUNT; nEol++)
     {
-        eolmax = countEOL_CR;
-        m_LineEndings = EOL_CR;
+        if (eolmax < countEOLs[nEol])
+        {
+            eolmax = countEOLs[nEol];
+            m_LineEndings = (EOL)nEol;
+        }
     }
-    if (eolmax < countEOL_LF)
-    {
-        eolmax = countEOL_LF;
-        m_LineEndings = EOL_LF;
-    }
-    if (eolmax < countEOL_LFCR)
-    {
-        eolmax = countEOL_LFCR;
-        m_LineEndings = EOL_LFCR;
-    }
-    if (eolmax < countEOL_VT)
-    {
-        eolmax = countEOL_VT;
-        m_LineEndings = EOL_VT;
-    }
-    if (eolmax < countEOL_FF)
-    {
-        eolmax = countEOL_FF;
-        m_LineEndings = EOL_FF;
-    }
-    if (eolmax < countEOL_NEL)
-    {
-        eolmax = countEOL_NEL;
-        m_LineEndings = EOL_NEL;
-    }
-    if (eolmax < countEOL_LS)
-    {
-        eolmax = countEOL_LS;
-        m_LineEndings = EOL_LS;
-    }
-    if (eolmax < countEOL_PS)
-    {
-        eolmax = countEOL_PS;
-        m_LineEndings = EOL_PS;
-    }
+
     if (pLineStart < pTextBuf)
     {
         CString line(pLineStart, (int)(pTextBuf-pLineStart));
@@ -582,8 +534,8 @@ void CFileTextLines::StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, 
         - Get Line
         - modify line - whitespaces, lowercase
         - encode & save line
-        - get eol
-        - encode & save eol
+        - get cached encoded eol
+        - save eol
 */
 BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseLF_EOLs, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
 {
@@ -645,46 +597,26 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseL
             pFilter->Write(L"\xfeff");
         }
         // cache EOLs
-        CBuffer oCr = pFilter->Encode(_T("\x0d"));
-        CBuffer oCrLf = pFilter->Encode(_T("\x0d\x0a"));
-        CBuffer oLf = pFilter->Encode(_T("\x0a"));
-        CBuffer oLfCr = pFilter->Encode(_T("\x0a\x0d"));
-        CBuffer oVt = pFilter->Encode(_T("\x0b"));
-        CBuffer oFf = pFilter->Encode(_T("\x0c"));
-        CBuffer oNel = pFilter->Encode(_T("\x85"));
-        CBuffer oLs = pFilter->Encode(_T("\x2028"));
-        CBuffer oPs = pFilter->Encode(_T("\x2029"));
-        CBuffer oAuto = oCrLf;
-        switch (m_LineEndings)
+        CBuffer oEncodedEol[EOL__COUNT];
+        oEncodedEol[EOL_LF] = pFilter->Encode(_T("\x0a"));
+        if (bUseLF_EOLs)
         {
-        case EOL_CR:
-            oAuto = oCr;
-            break;
-        case EOL_CRLF:
-        case EOL_AUTOLINE:
-            oAuto = oCrLf;
-            break;
-        case EOL_LF:
-            oAuto = oLf;
-            break;
-        case EOL_LFCR:
-            oAuto = oLfCr;
-            break;
-        case EOL_VT:
-            oAuto = oVt;
-            break;
-        case EOL_FF:
-            oAuto = oFf;
-            break;
-        case EOL_NEL:
-            oAuto = oNel;
-            break;
-        case EOL_LS:
-            oAuto = oLs;
-            break;
-        case EOL_PS:
-            oAuto = oPs;
-            break;
+            for (int nEol = 0; nEol<EOL_NOENDING; nEol++)
+            {
+                oEncodedEol[nEol] = oEncodedEol[EOL_LF];
+            }
+        }
+        else
+        {
+            oEncodedEol[EOL_CR] = pFilter->Encode(_T("\x0d"));
+            oEncodedEol[EOL_CRLF] = pFilter->Encode(_T("\x0d\x0a"));
+            oEncodedEol[EOL_LFCR] = pFilter->Encode(_T("\x0a\x0d"));
+            oEncodedEol[EOL_VT] = pFilter->Encode(_T("\x0b"));
+            oEncodedEol[EOL_FF] = pFilter->Encode(_T("\x0c"));
+            oEncodedEol[EOL_NEL] = pFilter->Encode(_T("\x85"));
+            oEncodedEol[EOL_LS] = pFilter->Encode(_T("\x2028"));
+            oEncodedEol[EOL_PS] = pFilter->Encode(_T("\x2029"));
+            oEncodedEol[EOL_AUTOLINE] = oEncodedEol[m_LineEndings==EOL_AUTOLINE ? EOL_CRLF : m_LineEndings];
         }
 
         for (int i=0; i<GetCount(); i++)
@@ -697,44 +629,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseL
 
             if ((m_bReturnAtEnd)||(i != GetCount()-1))
             {
-                if (bUseLF_EOLs)
-                    pFilter->Write(oLf);
-                else
-                {
-                    switch (GetLineEnding(i))
-                    {
-                    case EOL_CR:
-                        pFilter->Write(oCr);
-                        break;
-                    case EOL_CRLF:
-                        pFilter->Write(oCrLf);
-                        break;
-                    case EOL_AUTOLINE:
-                        pFilter->Write(oAuto);
-                        break;
-                    case EOL_LF:
-                        pFilter->Write(oLf);
-                        break;
-                    case EOL_LFCR:
-                        pFilter->Write(oLfCr);
-                        break;
-                    case EOL_VT:
-                        pFilter->Write(oVt);
-                        break;
-                    case EOL_FF:
-                        pFilter->Write(oFf);
-                        break;
-                    case EOL_NEL:
-                        pFilter->Write(oNel);
-                        break;
-                    case EOL_LS:
-                        pFilter->Write(oLs);
-                        break;
-                    case EOL_PS:
-                        pFilter->Write(oPs);
-                        break;
-                    }
-                }
+                pFilter->Write(oEncodedEol[GetLineEnding(i)]);
             }
         }
         file.Close();
@@ -788,11 +683,8 @@ void CBuffer::Copy(const CBuffer & Src)
 {
     if (&Src != this)
     {
-        delete [] m_pBuffer;
-        m_nAllocated=Src.m_nAllocated;
-        m_pBuffer=new BYTE[m_nAllocated];
-        memcpy(m_pBuffer, Src.m_pBuffer, m_nAllocated);
-        m_nUsed=Src.m_nUsed;
+        SetLength(Src.m_nUsed);
+        memcpy(m_pBuffer, Src.m_pBuffer, m_nUsed);
     }
 }
 
@@ -826,14 +718,16 @@ const CBuffer & CUtf16beFilter::Encode(const CString s)
     UINT64 * p_qwIn = (UINT64 *)(LPCTSTR)s;
     UINT64 * p_qwOut = (UINT64 *)(void *)m_oBuffer;
     int nQwords = nNeedBytes/8;
-    for (int nQword = 0; nQword<nQwords; nQword++) {
+    for (int nQword = 0; nQword<nQwords; nQword++)
+    {
         UINT64 nTemp = p_qwIn[nQword];
         p_qwOut[nQword] = ((nTemp&0xff00ff00ff00ffL)<<8) | ((nTemp>>8)&0xff00ff00ff00ffL);
     }
     wchar_t * p_wIn = (wchar_t *)p_qwIn;
     wchar_t * p_wOut = (wchar_t *)p_qwOut;
     int nWords = nNeedBytes/2;
-    for (int nWord = nQwords*4; nWord<nWords; nWord++) {
+    for (int nWord = nQwords*4; nWord<nWords; nWord++)
+    {
         p_wOut[nWord] = WideCharSwap(p_wIn[nWord]);
     }
     return m_oBuffer;

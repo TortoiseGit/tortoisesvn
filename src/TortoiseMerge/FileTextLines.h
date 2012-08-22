@@ -132,7 +132,7 @@ public:
     CBuffer(const CBuffer * const Src) {Init(); Copy(*Src); };
     ~CBuffer() {Free(); };
 
-    CBuffer & operator =(CBuffer & Src) { Copy(Src); return *this; };
+    CBuffer & operator =(const CBuffer & Src) { Copy(Src); return *this; };
     operator LPSTR() const { return (LPSTR)m_pBuffer; };
     operator void * () const { return (void *)m_pBuffer; };
 
