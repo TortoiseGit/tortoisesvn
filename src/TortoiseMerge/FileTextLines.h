@@ -126,24 +126,25 @@ private:
 class CBuffer
 {
 public:
-    CBuffer() {Init(); };
-    CBuffer(const CBuffer & Src) {Init(); Copy(Src); };
-    CBuffer(const CBuffer * const Src) {Init(); Copy(*Src); };
-    ~CBuffer() {Free(); };
+    CBuffer() {Init(); }
+    CBuffer(const CBuffer & Src) {Init(); Copy(Src); }
+    CBuffer(const CBuffer * const Src) {Init(); Copy(*Src); }
+    ~CBuffer() {Free(); }
 
-    CBuffer & operator =(const CBuffer & Src) { Copy(Src); return *this; };
-    operator LPSTR() const { return (LPSTR)m_pBuffer; };
-    operator void * () const { return (void *)m_pBuffer; };
+    CBuffer & operator =(const CBuffer & Src) { Copy(Src); return *this; }
+    template<typename T>
+    operator T () const { return  (T)m_pBuffer; }
 
-    void Clear() { m_nUsed=0; };
+    void Clear() { m_nUsed=0; }
     void ExpandToAtLeast(int nNewSize);
-    int GetLength() const { return m_nUsed; };
+    int GetLength() const { return m_nUsed; }
     void SetLength(int nUsed);
+    void Swap(CBuffer & Src);
 
 private:
     void Copy(const CBuffer & Src);
-    void Free() { delete [] m_pBuffer; };
-    void Init() { m_pBuffer=NULL; m_nUsed=0; m_nAllocated=0; };
+    void Free() { delete [] m_pBuffer; }
+    void Init() { m_pBuffer=NULL; m_nUsed=0; m_nAllocated=0; }
 
     BYTE * m_pBuffer;
     int m_nUsed;
@@ -157,11 +158,12 @@ public:
     CBaseFilter(CStdioFile * p_File) { m_pFile=p_File; m_nCodePage=0; }
     virtual ~CBaseFilter() {}
 
-    virtual const CBuffer & Encode(const CString s);
+    virtual bool Decode(/*in out*/ CBuffer & s);
+    virtual const CBuffer & Encode(const CString data);
     const CBuffer & GetBuffer() {return m_oBuffer; }
     void Write(const CString s) { Write(Encode(s)); } ///< encode into buffer and write
     void Write() { Write(m_oBuffer); } ///< write preencoded internal buffer
-    void Write(const CBuffer & buffer) { if (buffer.GetLength()) m_pFile->Write((LPCSTR)buffer, buffer.GetLength()); } ///< write preencoded buffer
+    void Write(const CBuffer & buffer) { if (buffer.GetLength()) m_pFile->Write((void*)buffer, buffer.GetLength()); } ///< write preencoded buffer
 
 protected:
     CBuffer m_oBuffer;
@@ -178,35 +180,37 @@ private:
 class CAsciiFilter : public CBaseFilter
 {
 public:
-    CAsciiFilter(CStdioFile *pFile) : CBaseFilter(pFile){ m_nCodePage=CP_ACP; };
-    virtual ~CAsciiFilter() {};
+    CAsciiFilter(CStdioFile *pFile) : CBaseFilter(pFile){ m_nCodePage=CP_ACP; }
+    virtual ~CAsciiFilter() {}
 };
 
 
 class CUtf8Filter : public CBaseFilter
 {
 public:
-    CUtf8Filter(CStdioFile *pFile) : CBaseFilter(pFile){ m_nCodePage=CP_UTF8;};
-    virtual ~CUtf8Filter() {};
+    CUtf8Filter(CStdioFile *pFile) : CBaseFilter(pFile){ m_nCodePage=CP_UTF8;}
+    virtual ~CUtf8Filter() {}
 };
 
 
 class CUtf16leFilter : public CBaseFilter
 {
 public:
-    CUtf16leFilter(CStdioFile *pFile) : CBaseFilter(pFile){};
-    virtual ~CUtf16leFilter() {};
+    CUtf16leFilter(CStdioFile *pFile) : CBaseFilter(pFile){}
+    virtual ~CUtf16leFilter() {}
 
+    virtual bool Decode(/*in out*/ CBuffer & data);
     virtual const CBuffer & Encode(const CString s);
 };
 
 
-class CUtf16beFilter : public CBaseFilter
+class CUtf16beFilter : public CUtf16leFilter
 {
 public:
-    CUtf16beFilter(CStdioFile *pFile) : CBaseFilter(pFile){};
-    virtual ~CUtf16beFilter() {};
+    CUtf16beFilter(CStdioFile *pFile) : CUtf16leFilter(pFile){}
+    virtual ~CUtf16beFilter() {}
 
+    virtual bool Decode(/*in out*/ CBuffer & data);
     virtual const CBuffer & Encode(const CString s);
 };
 
@@ -214,9 +218,10 @@ public:
 class CUtf32leFilter : public CBaseFilter
 {
 public:
-    CUtf32leFilter(CStdioFile *pFile) : CBaseFilter(pFile){};
-    virtual ~CUtf32leFilter() {};
+    CUtf32leFilter(CStdioFile *pFile) : CBaseFilter(pFile){}
+    virtual ~CUtf32leFilter() {}
 
+    virtual bool Decode(/*in out*/ CBuffer & data);
     virtual const CBuffer & Encode(const CString s);
 };
 
@@ -224,8 +229,9 @@ public:
 class CUtf32beFilter : public CUtf32leFilter
 {
 public:
-    CUtf32beFilter(CStdioFile *pFile) : CUtf32leFilter(pFile){};
-    virtual ~CUtf32beFilter() {};
+    CUtf32beFilter(CStdioFile *pFile) : CUtf32leFilter(pFile){}
+    virtual ~CUtf32beFilter() {}
 
+    virtual bool Decode(/*in out*/ CBuffer & data);
     virtual const CBuffer & Encode(const CString s);
 };

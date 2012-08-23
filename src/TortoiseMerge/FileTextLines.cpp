@@ -30,6 +30,11 @@ wchar_t inline WideCharSwap(wchar_t nValue)
     //return _byteswap_ushort(nValue);
 }
 
+UINT64 inline WordSwapBytes(UINT64 nValue)
+{
+    return ((nValue&0xff00ff00ff00ff)<<8) | ((nValue>>8)&0xff00ff00ff00ff); // swap BYTESs in WORDs
+}
+
 UINT32 inline DwordSwapBytes(UINT32 nValue)
 {
     UINT32 nRet = (nValue<<16) | (nValue>>16); // swap WORDs
@@ -160,105 +165,6 @@ CFileTextLines::UnicodeType CFileTextLines::CheckUnicodeType(LPVOID pBuffer, int
 }
 
 
-/**
-    can throw on memory allocation
-*/
-bool ConvertToWideChar(const int nCodePage
-        , const LPCSTR & pFileBuf
-        , const DWORD dwReadBytes
-        , wchar_t * & pTextBuf
-        , int & nReadChars)
-{
-#define UTF16LE 1200 // Unicode UTF-16, little endian byte order
-#define UTF16BE 1201 // Unicode UTF-16, big endian byte order
-#define UTF32LE 12000 // Unicode UTF-32, little endian byte order
-#define UTF32BE 12001 // Unicode UTF-32, big endian byte order
-    if (nCodePage == UTF32BE || nCodePage == UTF32LE)
-    {
-        // UTF32 have four bytes per char
-        nReadChars = dwReadBytes/4;
-        UINT32 * p32 = (UINT32 *)pFileBuf;
-        if (nCodePage == UTF32BE)
-        {
-            // swap the bytes to little-endian order
-            UINT64 * p64 = (UINT64 *)p32;
-            int nQwords = nReadChars/2;
-            for (int nQword = 0; nQword<nQwords; nQword++)
-            {
-                p64[nQword] = DwordSwapBytes(p64[nQword]);
-            }
-
-            for (int nDword = nQwords*2; nDword<nReadChars; nDword++)
-            {
-                p32[nDword] = DwordSwapBytes(p32[nDword]);
-            }
-        }
-
-        // count chars which needs surrogate pair
-        int nSurrogatePairCount = 0;
-        for (int i = 0; i<nReadChars; ++i)
-        {
-            if (p32[i]<0x110000 && p32[i]>=0x10000)
-            {
-                ++nSurrogatePairCount;
-            }
-        }
-
-        // fill buffer
-        pTextBuf = new wchar_t[nReadChars+nSurrogatePairCount];
-        wchar_t * pOut = pTextBuf;
-        for (int i = 0; i<nReadChars; ++i, ++pOut)
-        {
-            UINT32 zChar = p32[i];
-            if (zChar>=0x110000)
-            {
-                *pOut=0xfffd; // ? mark
-            }
-            else if (zChar>=0x10000)
-            {
-                zChar-=0x10000;
-                pOut[0] = ((zChar>>10)&0x3ff) | 0xd800; // lead surrogate
-                pOut[1] = (zChar&0x7ff) | 0xdc00; // trail surrogate
-                pOut++;
-            }
-            else
-            {
-                *pOut = (wchar_t)zChar;
-            }
-        }
-
-        nReadChars+=nSurrogatePairCount;
-        return TRUE;
-    }
-
-    if ((nCodePage == UTF16LE)||(nCodePage == UTF16BE))
-    {
-        // UTF16 have two bytes per char
-        nReadChars = dwReadBytes/2;
-        pTextBuf = (wchar_t *)pFileBuf;
-        if (nCodePage == UTF16BE)
-        {
-            // swap the bytes to little-endian order to get proper strings in wchar_t format
-            for (int i = 0; i<nReadChars; ++i)
-            {
-                pTextBuf[i] = WideCharSwap(pTextBuf[i]);
-            }
-        }
-        return TRUE;
-    }
-
-    int nFlags = (nCodePage==CP_ACP) ? MB_PRECOMPOSED : 0;
-    nReadChars = MultiByteToWideChar(nCodePage, nFlags, pFileBuf, dwReadBytes, NULL, 0);
-    pTextBuf = new wchar_t[nReadChars];
-    int ret2 = MultiByteToWideChar(nCodePage, nFlags, pFileBuf, dwReadBytes, pTextBuf, nReadChars);
-    if (ret2 != nReadChars)
-    {
-        return FALSE;
-    }
-    return TRUE;
-}
-
-
 BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 {
     WCHAR exceptionError[1000] = {0};
@@ -307,10 +213,10 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     // If new[] was done for type T delete[] must be called on a pointer of type T*,
     // otherwise the behavior is undefined.
     // +1 is to address possible truncation when integer division is done
-    wchar_t* pFileBuf = nullptr;
+    CBuffer oFile;
     try
     {
-        pFileBuf = new wchar_t[fsize.LowPart/sizeof(wchar_t) + 1];
+        oFile.SetLength(fsize.LowPart);
     }
     catch (CMemoryException* e)
     {
@@ -321,9 +227,8 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
 
     // load file
     DWORD dwReadBytes = 0;
-    if (!ReadFile(hFile, pFileBuf, fsize.LowPart, &dwReadBytes, NULL))
+    if (!ReadFile(hFile, (void *)oFile, fsize.LowPart, &dwReadBytes, NULL))
     {
-        delete [] pFileBuf;
         SetErrorString();
         return FALSE;
     }
@@ -332,67 +237,53 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     // detect type
     if (m_UnicodeType == CFileTextLines::AUTOTYPE)
     {
-        m_UnicodeType = this->CheckUnicodeType(pFileBuf, dwReadBytes);
+        m_UnicodeType = this->CheckUnicodeType((LPVOID)oFile, dwReadBytes);
         // enforce conversion for all but ASCII and UTF8 type
         m_bNeedsConversion = (m_UnicodeType!=CFileTextLines::UTF8)&&(m_UnicodeType!=CFileTextLines::ASCII);
     }
 
-    if (m_UnicodeType == CFileTextLines::BINARY)
-    {
-        m_sErrorString.Format(IDS_ERR_FILE_BINARY, (LPCTSTR)sFilePath);
-        delete [] pFileBuf;
-        return FALSE;
-    }
-
-    // convert text to UTF16LE
-    // we may have to convert the file content
-    int nReadChars = dwReadBytes/2;
-    wchar_t * pTextBuf = pFileBuf;
+    // we may have to convert the file content - CString is UTF16LE
     try
     {
-        int nSourceCodePage = 0;
+        CBaseFilter * pFilter = NULL;
         switch (m_UnicodeType)
         {
+        case BINARY:
+            m_sErrorString.Format(IDS_ERR_FILE_BINARY, (LPCTSTR)sFilePath);
+            return FALSE;
         case UTF8:
         case UTF8BOM:
-            nSourceCodePage = CP_UTF8;
+            pFilter = new CUtf8Filter(NULL);
             break;
+        default:
         case ASCII:
-            nSourceCodePage = CP_ACP;
+            pFilter = new CAsciiFilter(NULL);
             break;
         case UTF16_BE:
-            nSourceCodePage = UTF16BE;
+            pFilter = new CUtf16beFilter(NULL);
             break;
         case UTF16_LE:
-            nSourceCodePage = UTF16LE;
+            pFilter = new CUtf16leFilter(NULL);
             break;
         case UTF32_BE:
-            nSourceCodePage = UTF32BE;
+            pFilter = new CUtf32beFilter(NULL);
             break;
         case UTF32_LE:
-            nSourceCodePage = UTF32LE;
+            pFilter = new CUtf32leFilter(NULL);
             break;
         }
-        if (!ConvertToWideChar(nSourceCodePage, (LPCSTR)pFileBuf, dwReadBytes, pTextBuf, nReadChars))
-        {
-            return FALSE;
-        }
+        pFilter->Decode(oFile);
+        delete pFilter;
     }
     catch (CMemoryException* e)
     {
         e->GetErrorMessage(exceptionError, _countof(exceptionError));
         m_sErrorString = exceptionError;
-        delete [] pFileBuf;
         return FALSE;
     }
-    if (pTextBuf!=pFileBuf)
-    {
-         delete [] pFileBuf;
-    }
-    pFileBuf = NULL;
 
-
-    wchar_t * pTextStart = pTextBuf;
+    int nReadChars=oFile.GetLength()/sizeof(wchar_t);
+    wchar_t * pTextBuf = (wchar_t *)oFile;
     wchar_t * pLineStart = pTextBuf;
     if ((m_UnicodeType == UTF8BOM)
         || (m_UnicodeType == UTF16_LE)
@@ -486,8 +377,6 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
             m_LineEndings = (EOL)nEol;
         }
     }
-
-    delete [] pTextStart;
 
     return TRUE;
 }
@@ -622,6 +511,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseL
             EOL eEol = GetLineEnding(i);
             pFilter->Write(oEncodedEol[eEol]);
         }
+        delete pFilter;
         file.Close();
     }
     catch (CException * e)
@@ -668,6 +558,13 @@ void CBuffer::SetLength(int nUsed)
     m_nUsed = nUsed;
 }
 
+void CBuffer::Swap(CBuffer & Src)
+{
+    std::swap(Src.m_nAllocated, m_nAllocated);
+    std::swap(Src.m_pBuffer, m_pBuffer);
+    std::swap(Src.m_nUsed, m_nUsed);
+}
+
 void CBuffer::Copy(const CBuffer & Src)
 {
     if (&Src != this)
@@ -679,6 +576,21 @@ void CBuffer::Copy(const CBuffer & Src)
 
 
 
+bool CBaseFilter::Decode(/*in out*/ CBuffer & data)
+{
+    int nFlags = (m_nCodePage==CP_ACP) ? MB_PRECOMPOSED : 0;
+    // dry decode is around 8 times faster then real one, alternatively we can set buffer to max length
+    int nReadChars = MultiByteToWideChar(m_nCodePage, nFlags, (LPCSTR)data, data.GetLength(), NULL, 0);
+    m_oBuffer.SetLength(nReadChars*sizeof(wchar_t));
+    int ret2 = MultiByteToWideChar(m_nCodePage, nFlags, (LPCSTR)data, data.GetLength(), (LPWSTR)(void *)m_oBuffer, nReadChars);
+    if (ret2 != nReadChars)
+    {
+        return FALSE;
+    }
+    data.Swap(m_oBuffer);
+    return TRUE;
+}
+
 const CBuffer & CBaseFilter::Encode(const CString s)
 {
     m_oBuffer.SetLength(s.GetLength()*3+1); // set buffer to guessed max size
@@ -688,6 +600,12 @@ const CBuffer & CBaseFilter::Encode(const CString s)
 }
 
 
+
+bool CUtf16leFilter::Decode(/*in out*/ CBuffer & /*data*/)
+{
+    // we believe data is ok for use
+    return TRUE;
+}
 
 const CBuffer & CUtf16leFilter::Encode(const CString s)
 {
@@ -699,18 +617,36 @@ const CBuffer & CUtf16leFilter::Encode(const CString s)
 
 
 
+bool CUtf16beFilter::Decode(/*in out*/ CBuffer & data)
+{
+    int nNeedBytes = data.GetLength();
+    // make in place WORD BYTEs swap
+    UINT64 * p_qw = (UINT64 *)(void *)data;
+    int nQwords = nNeedBytes/8;
+    for (int nQword = 0; nQword<nQwords; nQword++)
+    {
+        p_qw[nQword] = WordSwapBytes(p_qw[nQword]);
+    }
+    wchar_t * p_w = (wchar_t *)p_qw;
+    int nWords = nNeedBytes/2;
+    for (int nWord = nQwords*4; nWord<nWords; nWord++)
+    {
+        p_w[nWord] = WideCharSwap(p_w[nWord]);
+    }
+    return CUtf16leFilter::Decode(data);
+}
+
 const CBuffer & CUtf16beFilter::Encode(const CString s)
 {
     int nNeedBytes = s.GetLength()*sizeof(TCHAR);
     m_oBuffer.SetLength(nNeedBytes);
     // copy swaping BYTE order in WORDs
-    UINT64 * p_qwIn = (UINT64 *)(LPCTSTR)s;
+    const UINT64 * p_qwIn = (const UINT64 *)(LPCTSTR)s;
     UINT64 * p_qwOut = (UINT64 *)(void *)m_oBuffer;
     int nQwords = nNeedBytes/8;
     for (int nQword = 0; nQword<nQwords; nQword++)
     {
-        UINT64 nTemp = p_qwIn[nQword];
-        p_qwOut[nQword] = ((nTemp&0xff00ff00ff00ffL)<<8) | ((nTemp>>8)&0xff00ff00ff00ffL);
+        p_qwOut[nQword] = WordSwapBytes(p_qwIn[nQword]);
     }
     wchar_t * p_wIn = (wchar_t *)p_qwIn;
     wchar_t * p_wOut = (wchar_t *)p_qwOut;
@@ -723,6 +659,48 @@ const CBuffer & CUtf16beFilter::Encode(const CString s)
 }
 
 
+
+bool CUtf32leFilter::Decode(/*in out*/ CBuffer & data)
+{
+    // UTF32 have four bytes per char
+    int nReadChars = data.GetLength()/4;
+    UINT32 * p32 = (UINT32 *)(void *)data;
+
+    // count chars which needs surrogate pair
+    int nSurrogatePairCount = 0;
+    for (int i = 0; i<nReadChars; ++i)
+    {
+        if (p32[i]<0x110000 && p32[i]>=0x10000)
+        {
+            ++nSurrogatePairCount;
+        }
+    }
+
+    // fill buffer
+    m_oBuffer.SetLength((nReadChars+nSurrogatePairCount)*sizeof(wchar_t));
+    wchar_t * pOut = (wchar_t *)m_oBuffer;
+    for (int i = 0; i<nReadChars; ++i, ++pOut)
+    {
+        UINT32 zChar = p32[i];
+        if (zChar>=0x110000)
+        {
+            *pOut=0xfffd; // ? mark
+        }
+        else if (zChar>=0x10000)
+        {
+            zChar-=0x10000;
+            pOut[0] = ((zChar>>10)&0x3ff) | 0xd800; // lead surrogate
+            pOut[1] = (zChar&0x7ff) | 0xdc00; // trail surrogate
+            pOut++;
+        }
+        else
+        {
+            *pOut = (wchar_t)zChar;
+        }
+    }
+    data.Swap(m_oBuffer);
+    return TRUE;
+}
 
 const CBuffer & CUtf32leFilter::Encode(const CString s)
 {
@@ -757,6 +735,26 @@ const CBuffer & CUtf32leFilter::Encode(const CString s)
 }
 
 
+
+bool CUtf32beFilter::Decode(/*in out*/ CBuffer & data)
+{
+
+    // swap BYTEs order in DWORDs
+    UINT64 * p64 = (UINT64 *)(void *)data;
+    int nQwords = data.GetLength()/8;
+    for (int nQword = 0; nQword<nQwords; nQword++)
+    {
+        p64[nQword] = DwordSwapBytes(p64[nQword]);
+    }
+
+    UINT32 * p32 = (UINT32 *)p64;
+    int nDwords = data.GetLength()/4;
+    for (int nDword = nQwords*2; nDword<nDwords; nDword++)
+    {
+        p32[nDword] = DwordSwapBytes(p32[nDword]);
+    }
+    return CUtf32leFilter::Decode(data);
+}
 
 const CBuffer & CUtf32beFilter::Encode(const CString s)
 {
