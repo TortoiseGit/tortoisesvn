@@ -124,7 +124,7 @@ private:
 
 
 
-class CBuffer 
+class CBuffer
 {
 public:
     CBuffer() {Init(); };
@@ -162,7 +162,7 @@ public:
     const CBuffer & GetBuffer() {return m_oBuffer; }
     void Write(const CString s) { Write(Encode(s)); } ///< encode into buffer and write
     void Write() { Write(m_oBuffer); } ///< write preencoded internal buffer
-    void Write(const CBuffer & buffer) { m_pFile->Write((LPCSTR)buffer, buffer.GetLength()); } ///< write preencoded buffer
+    void Write(const CBuffer & buffer) { if (buffer.GetLength()) m_pFile->Write((LPCSTR)buffer, buffer.GetLength()); } ///< write preencoded buffer
 
 protected:
     CBuffer m_oBuffer;

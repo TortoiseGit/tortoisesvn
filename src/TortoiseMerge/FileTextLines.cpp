@@ -210,7 +210,7 @@ bool ConvertToWideChar(const int nCodePage
         wchar_t * pOut = pTextBuf;
         for (int i = 0; i<nReadChars; ++i, ++pOut)
         {
-            __int32 zChar = p32[i]; 
+            UINT32 zChar = p32[i];
             if (zChar>=0x110000)
             {
                 *pOut=0xfffd; // ? mark
@@ -222,7 +222,7 @@ bool ConvertToWideChar(const int nCodePage
                 pOut[1] = (zChar&0x7ff) | 0xdc00; // trail surrogate
                 pOut++;
             }
-            else 
+            else
             {
                 *pOut = (wchar_t)zChar;
             }
@@ -352,7 +352,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     try
     {
         int nSourceCodePage = 0;
-        switch (m_UnicodeType) 
+        switch (m_UnicodeType)
         {
         case UTF8:
         case UTF8BOM:
@@ -662,21 +662,21 @@ void CFileTextLines::CopySettings(CFileTextLines * pFileToCopySettingsTo)
 
 
 void CBuffer::ExpandToAtLeast(int nNewSize)
-{ 
+{
     if (nNewSize>m_nAllocated)
     {
-        delete [] m_pBuffer; 
+        delete [] m_pBuffer; // we don't preserve buffer content intentionally
         nNewSize+=2048-1;
         nNewSize&=~(1024-1);
-        m_pBuffer=new BYTE[nNewSize]; 
-        m_nAllocated=nNewSize; 
-    } 
+        m_pBuffer=new BYTE[nNewSize];
+        m_nAllocated=nNewSize;
+    }
 }
 
 void CBuffer::SetLength(int nUsed)
 {
     ExpandToAtLeast(nUsed);
-    m_nUsed = nUsed; 
+    m_nUsed = nUsed;
 }
 
 void CBuffer::Copy(const CBuffer & Src)
