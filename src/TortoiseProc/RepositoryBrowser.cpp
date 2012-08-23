@@ -1304,6 +1304,11 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
     std::deque<CItem>& children = pTreeItem->children;
     {
         CAutoWriteLock lockerw(m_guard);
+        if (pTreeItem == m_pListCtrlTreeItem)
+        {
+            m_RepoList.DeleteAllItems();
+            m_pListCtrlTreeItem = nullptr;
+        }
         CString redirectedUrl;
         children.clear();
         pTreeItem->has_child_folders = false;
