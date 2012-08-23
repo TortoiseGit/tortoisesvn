@@ -561,12 +561,12 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
         }
         tempdiff = tempdiff->next;
     }
-    // add empty last line if needed
-    // this is temporary solution, put it in higher place if there is empty line
+    // add last (empty) lines if needed - diff don't report those
     if (m_arBaseFile.GetCount() > baseline)
     {
         if (m_arYourFile.GetCount() > yourline)
         {
+            // last line is missing in both files add them to end and mark as no diff
             m_YourBaseLeft.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_NORMAL, baseline, m_arBaseFile.GetLineEnding(baseline), HIDESTATE_SHOWN, -1);
             m_YourBaseRight.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_NORMAL, yourline, m_arYourFile.GetLineEnding(yourline), HIDESTATE_SHOWN, -1);
             yourline++;
@@ -574,16 +574,40 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
         }
         else
         {
-            m_YourBaseLeft.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_REMOVED, baseline, m_arBaseFile.GetLineEnding(baseline), HIDESTATE_SHOWN, -1);
-            m_YourBaseRight.AddEmpty();
+            viewdata oViewData(m_arBaseFile.GetAt(baseline), DIFFSTATE_REMOVED, baseline, m_arBaseFile.GetLineEnding(baseline), HIDESTATE_SHOWN, -1);
             baseline++;
+
+            // find first EMPTY line in last blok
+            int nPos = m_YourBaseLeft.GetCount();
+            while (--nPos>=0 && m_YourBaseLeft.GetState(nPos)==DIFFSTATE_EMPTY) ;
+            if (++nPos<m_YourBaseLeft.GetCount())
+            {
+                m_YourBaseLeft.SetData(nPos, oViewData);
+            }
+            else
+            {
+                m_YourBaseLeft.AddData(oViewData);
+                m_YourBaseRight.AddEmpty();
+            }
         }
     }
     else if (m_arYourFile.GetCount() > yourline)
     {
-        m_YourBaseLeft.AddEmpty();
-        m_YourBaseRight.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_ADDED, yourline, m_arYourFile.GetLineEnding(yourline), HIDESTATE_SHOWN, -1);
+        viewdata oViewData(m_arYourFile.GetAt(yourline), DIFFSTATE_ADDED, yourline, m_arYourFile.GetLineEnding(yourline), HIDESTATE_SHOWN, -1);
         yourline++;
+
+        // try to move last line higher
+        int nPos = m_YourBaseRight.GetCount();
+        while (--nPos>=0 && m_YourBaseRight.GetState(nPos)==DIFFSTATE_EMPTY) ;
+        if (++nPos<m_YourBaseRight.GetCount())
+        {
+            m_YourBaseRight.SetData(nPos, oViewData);
+        }
+        else
+        {
+            m_YourBaseLeft.AddEmpty();
+            m_YourBaseRight.AddData(oViewData);
+        }
     }
 
 
