@@ -77,7 +77,7 @@ public:
      * the line endings detected at Load()
      * \param sFilePath the path to save the file to
      */
-    BOOL        Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseLF_EOLs, DWORD dwIgnoreWhitespaces=0, BOOL bIgnoreCase = FALSE, bool bBlame = false);
+    BOOL        Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseSVNCompatibleEOLs, DWORD dwIgnoreWhitespaces=0, BOOL bIgnoreCase = FALSE, bool bBlame = false);
     /**
      * Returns an error string of the last failed operation
      */

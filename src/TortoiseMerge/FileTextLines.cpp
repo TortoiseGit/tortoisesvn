@@ -419,7 +419,7 @@ void CFileTextLines::StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, 
         - get cached encoded eol
         - save eol
 */
-BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseLF_EOLs, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
+BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseSVNCompatibleEOLs, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
 {
     try
     {
@@ -480,18 +480,31 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseL
         }
         // cache EOLs
         CBuffer oEncodedEol[EOL__COUNT];
-        oEncodedEol[EOL_LF] = pFilter->Encode(_T("\x0a"));
-        if (bUseLF_EOLs)
+        oEncodedEol[EOL_LF] = pFilter->Encode(_T("\x0d"));
+        oEncodedEol[EOL_CR] = pFilter->Encode(_T("\x0a"));
+        oEncodedEol[EOL_CRLF] = pFilter->Encode(_T("\x0a"));
+        if (bUseSVNCompatibleEOLs)
         {
-            for (int nEol = 0; nEol<EOL_NOENDING; nEol++)
-            {
-                oEncodedEol[nEol] = oEncodedEol[EOL_LF];
-            }
+            // when using EOLs that are supported by the svn lib,
+            // we have to use the same EOLs as the file has in case
+            // they're already supported, but a different supported one
+            // in case the original one isn't supported.
+            // Only this way the option "ignore EOLs (recommended)" unchecked
+            // actually shows the lines as different.
+            // However, the diff won't find and differences in EOLs
+            // for these special EOLs if they differ between those special ones
+            // listed below.
+            // But it will work properly for the most common EOLs LF/CR/CRLF.
+            oEncodedEol[EOL_LFCR] = pFilter->Encode(_T("\x0d"));
+            oEncodedEol[EOL_VT] = pFilter->Encode(_T("\x0a"));
+            oEncodedEol[EOL_FF] = pFilter->Encode(_T("\x0a"));
+            oEncodedEol[EOL_NEL] = pFilter->Encode(_T("\x0a"));
+            oEncodedEol[EOL_LS] = pFilter->Encode(_T("\x0a"));
+            oEncodedEol[EOL_PS] = pFilter->Encode(_T("\x0a"));
+            oEncodedEol[EOL_AUTOLINE] = pFilter->Encode(_T("\x0d"));
         }
         else
         {
-            oEncodedEol[EOL_CR] = pFilter->Encode(_T("\x0d"));
-            oEncodedEol[EOL_CRLF] = pFilter->Encode(_T("\x0d\x0a"));
             oEncodedEol[EOL_LFCR] = pFilter->Encode(_T("\x0a\x0d"));
             oEncodedEol[EOL_VT] = pFilter->Encode(_T("\x0b"));
             oEncodedEol[EOL_FF] = pFilter->Encode(_T("\x0c"));
