@@ -340,6 +340,16 @@
         (<xref linkend="tsvn-preface-source"/> explains how to access the repository.)
     </para>
     <para>
+        When debugging hook scripts you may want to echo progress lines to the DOS console,
+        or insert a pause to stop the console window disappearing when the script completes.
+        Because I/O is redirected this will not normally work.
+        However you can redirect input and output explicitly to CON to overcome this. e.g.
+<screen>
+echo Checking Status &gt; con
+pause &lt; con &gt; con
+</screen>
+    </para>
+    <para>
         A small tool is included in the TortoiseSVN installation folder named
         <literal>ConnectVPN.exe</literal>. You can use this tool configured as a
         pre-connect hook to connect automatically to your VPN before TortoiseSVN
