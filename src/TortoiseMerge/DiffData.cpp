@@ -547,7 +547,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
                     m_YourBaseRight.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_ADDED, yourline, endingYours, HIDESTATE_SHOWN, -1);
                     if (original_length-- <= 0)
                     {
-                        m_YourBaseLeft.AddData(_T(""), DIFFSTATE_EMPTY, DIFF_EMPTYLINENUMBER, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+                        m_YourBaseLeft.AddEmpty();
                     }
                     else
                     {
@@ -565,13 +565,29 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
                 {
                     EOL endingBase = m_arBaseFile.GetLineEnding(baseline);
                     m_YourBaseLeft.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_REMOVED, baseline, endingBase, HIDESTATE_SHOWN, -1);
-                    m_YourBaseRight.AddData(_T(""), DIFFSTATE_EMPTY, DIFF_EMPTYLINENUMBER, EOL_NOENDING, HIDESTATE_SHOWN, -1);
+                    m_YourBaseRight.AddEmpty();
                     baseline++;
                 }
             }
         }
         tempdiff = tempdiff->next;
     }
+    // add empty last line if needed
+    // this is temporary solution, put it in higher place if there is empty line
+    if (m_arBaseFile.GetCount() > baseline)
+    {
+        m_YourBaseLeft.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_REMOVED, baseline, m_arBaseFile.GetLineEnding(baseline), HIDESTATE_SHOWN, -1);
+        m_YourBaseRight.AddEmpty();
+        baseline++;
+    }
+    if (m_arYourFile.GetCount() > yourline)
+    {
+        m_YourBaseLeft.AddEmpty();
+        m_YourBaseRight.AddData(m_arYourFile.GetAt(yourline), DIFFSTATE_ADDED, yourline, m_arYourFile.GetLineEnding(yourline), HIDESTATE_SHOWN, -1);
+        yourline++;
+    }
+
+
     // Fixing results for conforming moved blocks
 
     while(movedBlocks)

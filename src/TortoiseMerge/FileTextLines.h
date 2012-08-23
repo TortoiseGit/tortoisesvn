@@ -118,7 +118,6 @@ private:
     CString                                     m_sErrorString;
     CFileTextLines::UnicodeType                 m_UnicodeType;
     EOL                                         m_LineEndings;
-    bool                                        m_bReturnAtEnd;
     bool                                        m_bNeedsConversion;
 };
 

@@ -3511,7 +3511,6 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     else if (nChar == 10)
     {
         int nViewLine = GetViewLineForScreen(GetCaretPosition().y);
-        AddUndoViewLine(nViewLine);
         EOL eol = m_pViewData->GetLineEnding(nViewLine);
         EOL newEOL = EOL_CRLF;
         switch (eol)
@@ -3523,9 +3522,16 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
                 newEOL = EOL_LF;
                 break;
             case EOL_LF:
-                newEOL = (nViewLine==GetViewCount()-1) ? EOL_NOENDING : EOL_CRLF;
+                newEOL = EOL_CRLF;
                 break;
         }
+        if (eol==EOL_NOENDING || eol==newEOL)
+            // don't allow to change enter on empty line, or last text line (lines with EOL_NOENDING)
+            // to add EOL on newly edited empty line hit enter
+            // don't store into UNDO if no change happened
+            // and don't mark file as modified
+            return;
+        AddUndoViewLine(nViewLine);
         m_pViewData->SetLineEnding(nViewLine, newEOL);
         m_pViewData->SetState(nViewLine, DIFFSTATE_EDITED);
         UpdateGoalPos();

@@ -48,7 +48,6 @@ UINT64 inline DwordSwapBytes(UINT64 nValue)
 CFileTextLines::CFileTextLines(void)
     : m_UnicodeType(CFileTextLines::AUTOTYPE)
     , m_LineEndings(EOL_AUTOLINE)
-    , m_bReturnAtEnd(false)
     , m_bNeedsConversion(false)
 {
 }
@@ -467,6 +466,9 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         }
         pLineStart = pTextBuf;
     }
+    CString line(pLineStart, (int)(pTextBuf-pLineStart));
+    Add(line, EOL_NOENDING);
+
     // some EOLs are not supported by the svn diff lib.
     m_bNeedsConversion |= (countEOLs[EOL_CRLF]!=0);
     m_bNeedsConversion |= (countEOLs[EOL_FF]!=0);
@@ -484,15 +486,6 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
             m_LineEndings = (EOL)nEol;
         }
     }
-
-    if (pLineStart < pTextBuf)
-    {
-        CString line(pLineStart, (int)(pTextBuf-pLineStart));
-        Add(line, EOL_NOENDING);
-        m_bReturnAtEnd = false;
-    }
-    else
-        m_bReturnAtEnd = true;
 
     delete [] pTextStart;
 
@@ -626,11 +619,8 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseL
             if (bIgnoreCase)
                 sLineT = sLineT.MakeLower();
             pFilter->Write(sLineT);
-
-            if ((m_bReturnAtEnd)||(i != GetCount()-1))
-            {
-                pFilter->Write(oEncodedEol[GetLineEnding(i)]);
-            }
+            EOL eEol = GetLineEnding(i);
+            pFilter->Write(oEncodedEol[eEol]);
         }
         file.Close();
     }
@@ -655,7 +645,6 @@ void CFileTextLines::CopySettings(CFileTextLines * pFileToCopySettingsTo)
     {
         pFileToCopySettingsTo->m_UnicodeType = m_UnicodeType;
         pFileToCopySettingsTo->m_LineEndings = m_LineEndings;
-        pFileToCopySettingsTo->m_bReturnAtEnd = m_bReturnAtEnd;
     }
 }
 

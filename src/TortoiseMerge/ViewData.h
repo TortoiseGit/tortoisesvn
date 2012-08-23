@@ -81,6 +81,7 @@ public:
 
     void            AddData(const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline);
     void            AddData(const viewdata& data);
+    void            AddEmpty() {AddData(CString(), DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN, -1);}
     void            InsertData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline);
     void            InsertData(int index, const viewdata& data);
     void            RemoveData(int index) {m_data.erase(m_data.begin() + index);}
