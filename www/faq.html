@@ -219,6 +219,10 @@
                             <li>Click on HKEY_CLASSES_ROOT/*/​shellex/ContextMenuH​andlers/TortoiseSVN</li>
                             <li>Check there is NO error message box.</li>
                         </ol>
+                        <p>If you have problems with insufficient permissions to edit the registry you can work around it by downloading
+                        <a href="http://technet.microsoft.com/en-us/sysinternals/bb896649">SysInternals PsTools Suite</a> and launching regedit
+                        with the following command:</p>
+                        <pre>PsExec.exe -i -d -s c:\windows\regedit.exe</pre>
                         </div>
 
                     </div>
