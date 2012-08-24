@@ -27,6 +27,7 @@
 #include "TaskbarUUID.h"
 #include "BlameIndexColors.h"
 #include "../Utils/CrashReport.h"
+#include "../Utils/SysInfo.h"
 
 #include <algorithm>
 #include <cctype>
@@ -586,7 +587,12 @@ void TortoiseBlame::InitialiseEditor()
     SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
     SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
     SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
-    SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
+    CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", FALSE);
+    if (SysInfo::Instance().IsWin7OrLater() && DWORD(used2d))
+    {
+        SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITE);
+        SendEditor(SCI_SETBUFFEREDDRAW, 0);
+    }
     SendEditor(SCI_SETFONTQUALITY, SC_EFF_QUALITY_LCD_OPTIMIZED);
     m_regOldLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameOldColor"), BLAMEOLDCOLOR);
     m_regNewLinesColor = CRegStdDWORD(_T("Software\\TortoiseSVN\\BlameNewColor"), BLAMENEWCOLOR);
