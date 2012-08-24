@@ -38,6 +38,40 @@
         are using <literal>file://</literal> access, then of course only your
         client needs to be updated.
     </para>
+    <important>
+        <title>The Three Meanings of <quote>Lock</quote></title>
+        <para>
+            In this section, and almost everywhere in this book, the
+            words <quote>lock</quote> and <quote>locking</quote> describe
+            a mechanism for mutual exclusion between users to avoid
+            clashing commits. Unfortunately, there are two other sorts
+            of <quote>lock</quote> with which Subversion, and therefore
+            this book, sometimes needs to be concerned.
+        </para>
+        <para>
+            The second is <literal>working copy locks</literal>,
+            used internally by Subversion to prevent clashes between
+            multiple Subversion clients operating on the same working
+            copy. Usually you get these locks whenever a command
+            like update/commit/... is interrupted due to an error.
+            These locks can be removed by running the cleanup
+            command on the working copy, as described in <xref 
+            linkend="tsvn-dug-cleanup" />.
+        </para>
+        <para>
+            And third, files and folders can get locked if they're in
+            use by another process, for example if you have a word
+            document opened in Word, that file is locked and can not
+            be accessed by TortoiseSVN.
+        </para>
+        <para>
+            You can generally forget about these other kinds of locks
+            until something goes wrong that requires you to care about
+            them.  In this book, <quote>lock</quote> means the first sort
+            unless the contrary is either clear from context or explicitly
+            stated.
+        </para>
+    </important>
     <sect2 id="tsvn-dug-locking-how">
         <title>How Locking Works in Subversion</title>
         <para>
