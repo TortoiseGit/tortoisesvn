@@ -35,7 +35,7 @@ bool BlameCommand::Execute()
     dlg.EndRev = SVNRev::REV_HEAD;
     dlg.m_path = cmdLinePath;
 
-    if (!parser.HasKey(_T("startrev")) || !parser.HasKey(_T("pegrev")))
+    if (!cmdLinePath.IsUrl() && (!parser.HasKey(_T("startrev")) || !parser.HasKey(_T("pegrev"))))
     {
         // if the file has been moved/deleted/renamed in HEAD, the default
         // range from 1 to HEAD won't work so we find the WC revision

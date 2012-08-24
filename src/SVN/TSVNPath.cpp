@@ -301,11 +301,7 @@ bool CTSVNPath::IsUrl() const
         {
             SetUTF8FwdslashPath(m_sFwdslashPath);
         }
-#ifdef svn_path_is_url
         m_bIsURL = !!svn_path_is_url(m_sUTF8FwdslashPath);
-#else
-        m_bIsURL = !!PathIsURL(m_sFwdslashPath);
-#endif
         m_bURLKnown = true;
     }
     return m_bIsURL;
