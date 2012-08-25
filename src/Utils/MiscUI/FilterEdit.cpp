@@ -394,12 +394,12 @@ void CFilterEdit::OnEnSetfocus()
 
 LRESULT CFilterEdit::OnPaste(WPARAM, LPARAM)
 {
-    if (OpenClipboard()) 
+    if (OpenClipboard())
     {
-	    HANDLE hData = GetClipboardData (CF_TEXT);
-	    CString toInsert ((const char*)GlobalLock(hData));
-	    GlobalUnlock (hData);
-	    CloseClipboard();
+        HANDLE hData = GetClipboardData (CF_TEXT);
+        CString toInsert ((const char*)GlobalLock(hData));
+        GlobalUnlock (hData);
+        CloseClipboard();
 
         // elimate control chars, especially newlines
 

@@ -64,7 +64,7 @@ bool SVNAdminDir::Close()
 bool SVNAdminDir::IsAdminDirName(const CString& name) const
 {
     CStringA nameA = CUnicodeUtils::GetUTF8(name);
-    try 
+    try
     {
         nameA.MakeLower();
     }

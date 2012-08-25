@@ -96,7 +96,7 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i].sName   = L"GroupTaskbarIconsPerRepoOverlay";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = true;
-    
+
     settings[i].sName   = L"HideExternalInfo";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
     settings[i++].def.b = true;
