@@ -722,6 +722,14 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
                 if (!CopyFile(it->first.GetWinPath(), it->second.GetWinPath(), !force))
                 {
                     DWORD lastError = GetLastError();
+                    if (lastError == ERROR_PATH_NOT_FOUND)
+                    {
+                        CPathUtils::MakeSureDirectoryPathExists(it->second.GetContainingDirectory().GetWinPath());
+                        if (!CopyFile(it->first.GetWinPath(), it->second.GetWinPath(), !force))
+                            lastError = GetLastError();
+                        else
+                            lastError = 0;
+                    }
                     if ((lastError == ERROR_ALREADY_EXISTS)||(lastError == ERROR_FILE_EXISTS))
                     {
                         lastError = 0;
