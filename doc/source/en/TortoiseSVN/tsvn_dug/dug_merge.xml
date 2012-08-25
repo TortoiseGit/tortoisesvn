@@ -149,6 +149,13 @@
             previously used URLs.
         </para>
         <para>
+            If you are merging from a renamed or deleted branch then you will
+            have to go back to a revision where that branch still existed. In this
+            case you will also need to specify that revision as a peg revision
+            in the range of revisions being merged (see below), otherwise
+            the merge will fail when it can't find that path at HEAD.
+        </para>
+        <para>
             In the <guilabel>Revision range to merge</guilabel> field
             enter the list of revisions you want to merge. This can
             be a single revision, a list of specific revisions
