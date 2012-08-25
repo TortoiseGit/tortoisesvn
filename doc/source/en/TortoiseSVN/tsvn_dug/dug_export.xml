@@ -107,7 +107,7 @@
         <para>
             If you want to export your working copy tree structure
             but containing only the files which are locally modified,
-            refer to <guilabel>SVN Export changes here</guilabel> above.
+            refer to <guilabel>SVN Export changed items here</guilabel> above.
         </para>
     </tip>
     <sect2 id="tsvn-dug-export-unversion">
@@ -118,12 +118,13 @@
         <para>
             Sometimes you have a working copy which you want to convert back
             to a normal folder without the <literal>.svn</literal> directory.
-            All you need to do is delete the <literal>.svn</literal> directory.
+            All you need to do is delete the <literal>.svn</literal> directory
+            from the working copy root.
         </para>
         <para>
             Alternatively you can export the folder to itself.
-            In Windows Explorer right drag the folder from the file pane
-            onto itself in the folder pane.
+            In Windows Explorer right drag the working copy root folder from
+            the file pane onto itself in the folder pane.
             TortoiseSVN detects this special case and asks if you want to
             make the working copy unversioned. If you answer
             <emphasis>yes</emphasis> the control directory will be removed
