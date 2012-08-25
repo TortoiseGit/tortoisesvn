@@ -10,11 +10,11 @@
         <primary>unversioned 'working copy'</primary>
     </indexterm>
     <para>
-        Sometimes you may want a copy of your working tree without any of
-        those <filename>.svn</filename> directories, e.g. to create a zipped
+        Sometimes you may want a clean copy of your working tree without the
+        <filename>.svn</filename> directory, e.g. to create a zipped
         tarball of your source, or to export to a web server. Instead of
-        making a copy and then deleting all those <filename>.svn</filename>
-        directories manually, TortoiseSVN offers the command
+        making a copy and then deleting the <filename>.svn</filename>
+        directory manually, TortoiseSVN offers the command
         <menuchoice>
             <guimenu>TortoiseSVN</guimenu>
             <guimenuitem>Export...</guimenuitem>
@@ -47,7 +47,7 @@
     <para>
         If you execute this command on your working copy you'll be asked for
         a place to save the <emphasis>clean</emphasis> working copy without the
-        <filename>.svn</filename> folders.
+        <filename>.svn</filename> folder.
         By default, only the versioned files are exported, but you can use the
         <guilabel>Export unversioned files too</guilabel> checkbox to include any other
         unversioned files which exist in your WC and not in the repository.
@@ -59,14 +59,21 @@
         the working copy folder to another location and choose
         <menuchoice>
             <guimenu>Context Menu</guimenu>
-            <guimenuitem>SVN Export here</guimenuitem>
+            <guimenuitem>SVN Export versioned items here</guimenuitem>
         </menuchoice>
         or
         <menuchoice>
             <guimenu>Context Menu</guimenu>
-            <guimenuitem>SVN Export all here</guimenuitem>
+            <guimenuitem>SVN Export all items here</guimenuitem>
+        </menuchoice>
+        or
+        <menuchoice>
+            <guimenu>Context Menu</guimenu>
+            <guimenuitem>SVN Export changed items here</guimenuitem>
         </menuchoice>.
         The second option includes the unversioned files as well.
+        The third option exports only modified items, but maintains
+        the folder structure.
     </para>
     <para>
         When exporting from a working copy,
@@ -97,6 +104,11 @@
             revision, or between any two revisions, use the compare revisions
             feature described in <xref linkend="tsvn-dug-compare-revs"/>.
         </para>
+        <para>
+            If you want to export your working copy tree structure
+            but containing only the files which are locally modified,
+            refer to <guilabel>SVN Export changes here</guilabel> above.
+        </para>
     </tip>
     <sect2 id="tsvn-dug-export-unversion">
         <title>Removing a working copy from version control</title>
@@ -105,16 +117,16 @@
         </indexterm>
         <para>
             Sometimes you have a working copy which you want to convert back
-            to a normal folder without the <literal>.svn</literal> directories.
-            What you really need is an export-in-place command, that just
-            removes the control directories rather than generating a new
-            clean directory tree.
+            to a normal folder without the <literal>.svn</literal> directory.
+            All you need to do is delete the <literal>.svn</literal> directory.
         </para>
         <para>
-            The answer is surprisingly simple - export the folder to itself!
+            Alternatively you can export the folder to itself.
+            In Windows Explorer right drag the folder from the file pane
+            onto itself in the folder pane.
             TortoiseSVN detects this special case and asks if you want to
             make the working copy unversioned. If you answer
-            <emphasis>yes</emphasis> the control directories will be removed
+            <emphasis>yes</emphasis> the control directory will be removed
             and you will have a plain, unversioned directory tree.
         </para>
     </sect2>
