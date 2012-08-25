@@ -116,9 +116,11 @@ const static CString svnPropIgnore (SVN_PROP_IGNORE);
 #define IDSVNLC_CREATERESTORE   41
 #define IDSVNLC_RESTOREPATH     42
 #define IDSVNLC_EXPORT          43
+#define IDSVNLC_UPDATEREV       44
+
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS        44
+#define IDSVNLC_MOVETOCS        45
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -3054,19 +3056,23 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         popup.AppendMenuIcon(IDSVNLC_EXPORT, IDS_MENUEXPORT, IDI_EXPORT);
                     }
                 }
-                if (entry->remotestatus > svn_wc_status_normal)
-                {
-                    if (m_dwContextMenus & SVNSLC_POPUPDATE)
-                    {
-                        popup.AppendMenuIcon(IDSVNLC_UPDATE, IDS_MENUUPDATE, IDI_UPDATE);
-                    }
-                }
                 if (entry->switched)
                 {
                     if (m_dwContextMenus & SVNSLC_POPSWITCH)
                     {
                         popup.AppendMenuIcon(IDSVNLC_SWITCH, IDS_MENUSWITCHTOPARENT, IDI_SWITCH);
                     }
+                }
+            }
+            if ((wcStatus != svn_wc_status_ignored) &&
+                (wcStatus != svn_wc_status_none) &&
+                (wcStatus != svn_wc_status_unversioned) &&
+                (wcStatus != svn_wc_status_added))
+            {
+                if (m_dwContextMenus & SVNSLC_POPUPDATE)
+                {
+                    popup.AppendMenuIcon(IDSVNLC_UPDATE, IDS_MENUUPDATE, IDI_UPDATE);
+                    popup.AppendMenuIcon(IDSVNLC_UPDATEREV, IDS_MENUUPDATEEXT, IDI_UPDATE);
                 }
             }
             if ((selectedCount == 1)&&(wcStatus >= svn_wc_status_normal)
@@ -3559,6 +3565,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 }
                 break;
             case IDSVNLC_UPDATE:
+            case IDSVNLC_UPDATEREV:
                 {
                     CTSVNPathList targetList;
                     FillListOfSelectedItemPaths(targetList);
@@ -3571,7 +3578,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             break;
                         }
                     }
-                    if (bAllExist)
+                    if (bAllExist && (cmd == IDSVNLC_UPDATE))
                     {
                         CSVNProgressDlg dlg;
                         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
