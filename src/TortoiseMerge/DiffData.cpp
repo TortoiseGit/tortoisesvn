@@ -213,7 +213,6 @@ void CDiffData::StickAndSkip(svn_diff_t * &tempdiff, apr_off_t &original_length_
 
 BOOL CDiffData::Load()
 {
-
     m_arBaseFile.RemoveAll();
     m_arYourFile.RemoveAll();
     m_arTheirFile.RemoveAll();
@@ -244,10 +243,9 @@ BOOL CDiffData::Load()
     // To ignore case changes or to handle UTF-16 files, we have to
     // save the original file in UTF-8 and/or the letters changed to lowercase
     // so the Subversion diff can handle those.
-    CString sConvertedBaseFilename, sConvertedTheirFilename, sConvertedYourFilename;
-    sConvertedBaseFilename = m_baseFile.GetFilename();
-    sConvertedYourFilename = m_yourFile.GetFilename();
-    sConvertedTheirFilename = m_theirFile.GetFilename();
+    CString sConvertedBaseFilename = m_baseFile.GetFilename();
+    CString sConvertedYourFilename = m_yourFile.GetFilename();
+    CString sConvertedTheirFilename = m_theirFile.GetFilename();
 
     m_baseFile.StoreFileAttributes();
     m_theirFile.StoreFileAttributes();
@@ -260,8 +258,13 @@ BOOL CDiffData::Load()
     bool bBaseIsUtf8  = false;
     bool bTheirIsUtf8 = false;
     bool bYourIsUtf8  = false;
-    // all but ASCII are converted to UTF8 by default, we may need convert ASCII as well
-    bool bIsNotUtf8 = false; // ASCII
+
+    // in case at least one of the files got converted or is UTF8
+    // we have to convert all non UTF8 (ASCII) files
+    // otherwise one file might be in ANSI and the other in UTF8 and we'll end up
+    // with lines marked as different throughout the files even though the lines
+    // would show no change at all in the viewer.
+    bool bIsNotUtf8 = false; // Any non UTF8 file ?
 
     if (IsBaseFileInUse())
     {
@@ -279,7 +282,7 @@ BOOL CDiffData::Load()
     {
         // m_arBaseFile.GetCount() is passed as a hint for the number of lines in this file
         // It's a fair guess that the files will be roughly the same size
-        if (!m_arTheirFile.Load(m_theirFile.GetFilename(),m_arBaseFile.GetCount()))
+        if (!m_arTheirFile.Load(m_theirFile.GetFilename(), m_arBaseFile.GetCount()))
         {
             m_sError = m_arTheirFile.GetErrorString();
             return FALSE;
@@ -293,7 +296,7 @@ BOOL CDiffData::Load()
     {
         // m_arBaseFile.GetCount() is passed as a hint for the number of lines in this file
         // It's a fair guess that the files will be roughly the same size
-        if (!m_arYourFile.Load(m_yourFile.GetFilename(),m_arBaseFile.GetCount()))
+        if (!m_arYourFile.Load(m_yourFile.GetFilename(), m_arBaseFile.GetCount()))
         {
             m_sError = m_arYourFile.GetErrorString();
             return FALSE;
@@ -303,32 +306,25 @@ BOOL CDiffData::Load()
         bIsNotUtf8 |= !bYourIsUtf8;
     }
 
-    // in case at least one of the files got converted, we have to convert all of the files
-    // otherwise one file might be in ANSI and the other in UTF8 and we'll end up
-    // with lines marked as different throughout the files even though the lines
-    // would show no change at all in the viewer.
-
-    bool bIsUtf8 = bBaseIsUtf8 || bTheirIsUtf8 || bYourIsUtf8;
+    // convert all files we need to
+    bool bIsUtf8 = bBaseIsUtf8 || bTheirIsUtf8 || bYourIsUtf8; // any file end as UTF8
     bBaseNeedConvert |= (IsBaseFileInUse() && !bBaseIsUtf8 && bIsUtf8);
     if (bBaseNeedConvert)
     {
-        CFileTextLines converted(m_arBaseFile);
         sConvertedBaseFilename = CTempFiles::Instance().GetTempFilePathString();
-        converted.Save(sConvertedBaseFilename, true, true, 0, bIgnoreCase, m_bBlame);
+        m_arBaseFile.Save(sConvertedBaseFilename, true, true, 0, bIgnoreCase, m_bBlame);
     }
     bYourNeedConvert |= (IsYourFileInUse() && !bYourIsUtf8 && bIsUtf8);
     if (bYourNeedConvert)
     {
-        CFileTextLines converted(m_arYourFile);
         sConvertedYourFilename = CTempFiles::Instance().GetTempFilePathString();
-        converted.Save(sConvertedYourFilename, true, true, 0, bIgnoreCase, m_bBlame);
+        m_arYourFile.Save(sConvertedYourFilename, true, true, 0, bIgnoreCase, m_bBlame);
     }
     bTheirNeedConvert |= (IsTheirFileInUse() && !bTheirIsUtf8 && bIsUtf8);
     if (bTheirNeedConvert)
     {
-        CFileTextLines converted(m_arTheirFile);
         sConvertedTheirFilename = CTempFiles::Instance().GetTempFilePathString();
-        converted.Save(sConvertedTheirFilename, true, true, 0, bIgnoreCase, m_bBlame);
+        m_arTheirFile.Save(sConvertedTheirFilename, true, true, 0, bIgnoreCase, m_bBlame);
     }
 
     // Calculate the number of lines in the largest of the three files
@@ -387,7 +383,13 @@ BOOL CDiffData::Load()
         }
     }
 
-    apr_pool_destroy (pool);                    // free the allocated memory
+    // free the allocated memory
+    apr_pool_destroy (pool);
+
+    m_arBaseFile.RemoveAll();
+    m_arYourFile.RemoveAll();
+    m_arTheirFile.RemoveAll();
+
     return TRUE;
 }
 

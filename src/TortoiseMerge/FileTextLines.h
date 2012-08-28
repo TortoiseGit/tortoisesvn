@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "EOL.h"
+#include "ListOfObjects.h"
 
 // A template class to make an array which looks like a CStringArray or CDWORDArray but
 // is in fact based on a STL array, which is much faster at large sizes
@@ -31,8 +32,8 @@ public:
     void InsertAt(int index, const T& strVal, int nCopies)  { m_vec.insert(m_vec.begin()+index, nCopies, strVal); }
     void SetAt(int index, const T& strVal)  { m_vec[index] = strVal; }
     void Add(const T& strVal)    { m_vec.push_back(strVal); }
-    void RemoveAll()                { m_vec.clear(); }
-    void Reserve(int lengthHint)    { m_vec.reserve(lengthHint); }
+    void RemoveAll()             { m_vec.clear(); }
+    void Reserve(int lengthHint) { m_vec.reserve(lengthHint); }
 
 private:
     std::vector<T> m_vec;
@@ -41,6 +42,11 @@ private:
 typedef CStdArray<CString> CStdCStringArray;
 typedef CStdArray<DWORD> CStdDWORDArray;
 
+struct CFileTextLine {
+    CString              sLine;
+    EOL                  eEnding;
+};
+typedef CListOfObjects<CFileTextLine> CStdFileLineArray;
 /**
  * \ingroup TortoiseMerge
  *
@@ -48,7 +54,7 @@ typedef CStdArray<DWORD> CStdDWORDArray;
  * This class is also responsible for determining the encoding of
  * the file (e.g. UNICODE(UTF16), UTF8, ASCII, ...).
  */
-class CFileTextLines  : public CStdCStringArray
+class CFileTextLines  : public CStdFileLineArray
 {
 public:
     CFileTextLines(void);
@@ -76,8 +82,18 @@ public:
      * Saves the whole array of text lines to a file, preserving
      * the line endings detected at Load()
      * \param sFilePath the path to save the file to
+     * \param bSaveAsUTF8 enforce encoding for save
+     * \param bUseSVNCompatibleEOLs limit EOLs to CRLF, CR and LF, last one is used instead of all others
+     * \param dwIgnoreWhitespaces "enum" mode of removing whitespaces
+     * \param bIgnoreCase converts whole file to lower case
+     * \param bBlame limit line len
      */
-    BOOL        Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseSVNCompatibleEOLs, DWORD dwIgnoreWhitespaces=0, BOOL bIgnoreCase = FALSE, bool bBlame = false);
+    BOOL        Save(const CString& sFilePath
+                    , bool bSaveAsUTF8 = false
+                    , bool bUseSVNCompatibleEOLs = false
+                    , DWORD dwIgnoreWhitespaces = 0
+                    , BOOL bIgnoreCase = FALSE
+                    , bool bBlame = false) const;
     /**
      * Returns an error string of the last failed operation
      */
@@ -92,14 +108,17 @@ public:
     CFileTextLines::UnicodeType GetUnicodeType() const  {return m_UnicodeType;}
     EOL GetLineEndings() const {return m_LineEndings;}
 
-    void        Add(const CString& sLine, EOL ending) {CStdCStringArray::Add(sLine); m_endings.push_back(ending);}
-    void        RemoveAt(int index) {CStdCStringArray::RemoveAt(index); m_endings.erase(m_endings.begin()+index);}
-    void        InsertAt(int index, const CString& strVal, EOL ending) {CStdCStringArray::InsertAt(index, strVal); m_endings.insert(m_endings.begin()+index, ending);}
+    using CStdFileLineArray::Add;
+    void        Add(const CString& sLine, EOL ending) { CFileTextLine temp={sLine, ending}; CStdFileLineArray::Add(temp); }
+    using CStdFileLineArray::RemoveAt;
+    using CStdFileLineArray::InsertAt;
+    void        InsertAt(int index, const CString& strVal, EOL ending) { CFileTextLine temp={strVal, ending}; CStdFileLineArray::InsertAt(index, temp); }
 
-    EOL         GetLineEnding(int index) {return m_endings[index];}
-    void        SetLineEnding(int index, EOL ending) {m_endings[index] = ending;}
+    const CString& GetAt(int index) const { return CStdFileLineArray::GetAt(index).sLine; }
+    EOL            GetLineEnding(int index) const { return CStdFileLineArray::GetAt(index).eEnding; }
+    //void        SetLineEnding(int index, EOL ending) { CStdFileLineArray::GetAt(index).eEnding = ending; }
 
-    void        RemoveAll() {CStdCStringArray::RemoveAll(); m_endings.clear();}
+    using CStdFileLineArray::RemoveAll;
 private:
     /**
      * Checks the Unicode type in a text buffer
@@ -110,15 +129,14 @@ private:
 
     void        SetErrorString();
 
-    void StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, bool blame);
+    static void StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, bool blame);
 
 
 private:
-    std::vector<EOL>                            m_endings;
-    CString                                     m_sErrorString;
-    CFileTextLines::UnicodeType                 m_UnicodeType;
-    EOL                                         m_LineEndings;
-    bool                                        m_bNeedsConversion;
+    CString              m_sErrorString;
+    UnicodeType          m_UnicodeType;
+    EOL                  m_LineEndings;
+    bool                 m_bNeedsConversion;
 };
 
 

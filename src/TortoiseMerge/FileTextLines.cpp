@@ -171,7 +171,6 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     m_LineEndings = EOL_AUTOLINE;
     m_UnicodeType = CFileTextLines::AUTOTYPE;
     RemoveAll();
-    m_endings.clear();
     if(lengthHint != 0)
     {
         Reserve(lengthHint);
@@ -200,7 +199,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     if (!GetFileSizeEx(hFile, &fsize))
     {
         SetErrorString();
-        return false;
+        return FALSE;
     }
     if (fsize.HighPart)
     {
@@ -300,6 +299,7 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
     // fill in the lines into the array
     size_t countEOLs[EOL__COUNT];
     memset(countEOLs, 0, sizeof(countEOLs));
+    CFileTextLine oTextLine;
     for (int i = nReadChars; i; --i)
     {
         EOL eEol;
@@ -347,8 +347,9 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         default:
             continue;
         }
-        CString line(pLineStart, (int)(pTextBuf-pLineStart)-1);
-        Add(line, eEol);
+        oTextLine.sLine = CString(pLineStart, (int)(pTextBuf-pLineStart)-1);
+        oTextLine.eEnding = eEol;
+        Add(oTextLine);
         ++countEOLs[eEol];
         if (eEol==EOL_CRLF || eEol==EOL_LFCR)
         {
@@ -419,7 +420,12 @@ void CFileTextLines::StripWhiteSpace(CString& sLine, DWORD dwIgnoreWhitespaces, 
         - get cached encoded eol
         - save eol
 */
-BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseSVNCompatibleEOLs, DWORD dwIgnoreWhitespaces /*=0*/, BOOL bIgnoreCase /*= FALSE*/, bool bBlame /*= false*/)
+BOOL CFileTextLines::Save(const CString& sFilePath
+                         , bool bSaveAsUTF8 /*= false*/
+                         , bool bUseSVNCompatibleEOLs /*= false*/
+                         , DWORD dwIgnoreWhitespaces /*=0*/
+                         , BOOL bIgnoreCase /*= FALSE*/
+                         , bool bBlame /*= false*/) const
 {
     try
     {
@@ -450,7 +456,6 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8, bool bUseS
         {
         default:
         case CFileTextLines::ASCII:
-        case CFileTextLines::AUTOTYPE:
             bSaveBom = false;
             pFilter = new CAsciiFilter(&file);
             break;
