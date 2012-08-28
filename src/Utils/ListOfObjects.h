@@ -59,39 +59,38 @@ public:
         return **(tElement); 
     }
     void RemoveAt(int index)    {
-        ASSERT(0); // not implemented/verified
-
         T ** tElement = m_tArray+index;
 
         ASSERT(tElement>=m_tArray && tElement<m_tLast);
 
         delete *tElement;
-        memmove(tElement, tElement+1, (m_tLast-tElement)*sizeof(T*));
+        --m_tLast;
+        memmove(tElement, tElement+1, (BYTE *)m_tLast-(BYTE *)tElement);
     }
-    void InsertAt(int index, const T& /*strVal*/)   {
-        ASSERT(0); // not implemented/verified
-
+    void InsertAt(int index, const T& strVal)   {
         T ** tElement = m_tArray+index;
 
         ASSERT(tElement>=m_tArray && tElement<m_tLast);
-/*        ASSERT(index>=0 && index<m_nUsed);
 
-        if (m_nAlocated<=m_nUsed)
+        if (m_tLast>=m_tTop)
         {
-            // todo expand here to remove one copy
-            calculate new length
-            create new array
-            copy 0-index-1
-            add new on index
-            copy index+1-count-1
-            delete onl array
+            int nNewSize = GetCount() ? GetCount()*2 : 256;
+            T ** pNewArray = new T *[nNewSize];
+            m_tTop = pNewArray + nNewSize;
+            memcpy(pNewArray, m_tArray, (BYTE *)tElement-(BYTE *)m_tArray);
+            *(pNewArray+index) = new T(strVal);
+            memcpy(pNewArray+index+1, tElement, (BYTE *)m_tLast-(BYTE *)tElement);
+            m_tLast += pNewArray - m_tArray;
+            m_tLast++;
+            delete [] m_tArray;
+            m_tArray = pNewArray;
         }
         else
         {
-            memmove(tElement+1, tElement, (m_nUsed-index)*sizeof(T *));
-            m_array[index] = new T(strVal);
-            ++m_tTop;
-        }//*/
+            memmove(tElement+1, tElement, (BYTE *)m_tLast-(BYTE *)tElement);
+            *tElement = new T(strVal);
+            m_tLast++;
+        }
     }
     //void InsertAt(int index, const T& strVal, int nCopies)  { m_vec.insert(m_vec.begin()+index, nCopies, strVal); }
     //void SetAt(int index, const T& strVal)  { m_vec[index] = strVal; }
@@ -119,18 +118,14 @@ public:
     }
 
 private:
-    void Copy(const CListOfObjectsI & /*src*/)
+    void Copy(const CListOfObjectsI & src)
     {
-//        PROFILE_BLOCK;
-
-/*        RemoveAll();
+        RemoveAll();
         Reserve(src.GetCount());
-        m_nUsed = src.m_nUsed;
-        for (int i=0; i<m_nUsed; i++)
+        for (T ** ptSrc = src.m_tArray; ptSrc<src.m_tTop; ptSrc++)
         {
-            // Add()
-            m_array[i] = new T(*src.m_array[i]);
-        }//*/
+            *m_tLast++ = new T(**ptSrc);
+        }
     }
     void Init()
     {
@@ -141,14 +136,12 @@ private:
 
     void Expand()
     {
-//        PROFILE_BLOCK;
         ExpandTo(GetCount() ? GetCount()*2 : 256);
     }
 
     void ExpandTo(int nNewSize)
     {
         T ** pNewArray = new T *[nNewSize];
-//        memcpy(pNewArray, m_tArray, (m_tLast-m_tArray)*sizeof(T*));
         memcpy(pNewArray, m_tArray, ((BYTE *)m_tLast-(BYTE *)m_tArray));
         m_tLast += pNewArray - m_tArray;
         m_tTop = pNewArray + nNewSize;
@@ -161,9 +154,14 @@ private:
     T ** m_tTop; // pointer to element after array
 };
 
-// we are fine with simple solution but it have to be FAST ...
-// note this is non validating solution !
-// index based solution
+/// Object array - Index based solution
+/**
+    A template class to make an array which looks like a CStringArray or CDWORDArray but
+    is faster at large sizes
+    Only used methods are implemented
+
+    Iterator based list was found few % faster leaving this version for reference/comarison purposes
+*/
 template <typename T> class CListOfObjectsN
 {
 public:
@@ -176,12 +174,10 @@ public:
     }
 
     CListOfObjectsN(const CListOfObjectsN & src) {
-        PROFILE_BLOCK;
         Init();
         Copy(src); 
     }
     CListOfObjectsN & operator =(const CListOfObjectsN & src) {
-        PROFILE_BLOCK;
         Init();
         Copy(src);
         return *this;
@@ -199,8 +195,8 @@ public:
         ASSERT(index>=0 && index<m_nUsed);
 
         delete m_array[index];
-        memmove(&m_array[index], &m_array[index+1], (m_nUsed-index)*sizeof(T *));
         --m_nUsed;
+        memmove(&m_array[index], &m_array[index+1], (m_nUsed-index)*sizeof(T *));
     }
     void InsertAt(int index, const T& strVal)   {
         ASSERT(index>=0 && index<m_nUsed);
@@ -222,8 +218,6 @@ public:
     }
     void RemoveAll()
     {
-        PROFILE_BLOCK;
-
         for (int i=0; i<m_nUsed; i++)
         {
             delete m_array[i];
