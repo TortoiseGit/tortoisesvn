@@ -445,7 +445,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath
         CStdioFile file;            // Hugely faster than CFile for big file writes - because it uses buffering
         if (!file.Open(sFilePath, CFile::modeCreate | CFile::modeWrite | CFile::typeBinary))
         {
-            m_sErrorString.Format(IDS_ERR_FILE_OPEN, (LPCTSTR)sFilePath);
+            const_cast<CString *>(&m_sErrorString)->Format(IDS_ERR_FILE_OPEN, (LPCTSTR)sFilePath);
             return FALSE;
         }
 
@@ -534,8 +534,9 @@ BOOL CFileTextLines::Save(const CString& sFilePath
     }
     catch (CException * e)
     {
-        e->GetErrorMessage(m_sErrorString.GetBuffer(4096), 4096);
-        m_sErrorString.ReleaseBuffer();
+        CString * psErrorString = const_cast<CString *>(&m_sErrorString);
+        e->GetErrorMessage(psErrorString->GetBuffer(4096), 4096);
+        psErrorString->ReleaseBuffer();
         e->Delete();
         return FALSE;
     }
