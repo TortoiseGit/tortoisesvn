@@ -18,10 +18,10 @@
 //
 #pragma once
 #include "EOL.h"
-#include "ListOfObjects.h"
+#include <deque>
 
 // A template class to make an array which looks like a CStringArray or CDWORDArray but
-// is in fact based on a STL array, which is much faster at large sizes
+// is in fact based on a STL deque, which is much faster at large sizes
 template <typename T> class CStdArray
 {
 public:
@@ -33,20 +33,19 @@ public:
     void SetAt(int index, const T& strVal)  { m_vec[index] = strVal; }
     void Add(const T& strVal)    { m_vec.push_back(strVal); }
     void RemoveAll()             { m_vec.clear(); }
-    void Reserve(int lengthHint) { m_vec.reserve(lengthHint); }
+    void Reserve(int ) {  }
 
 private:
-    std::vector<T> m_vec;
+    std::deque<T> m_vec;
 };
 
-typedef CStdArray<CString> CStdCStringArray;
 typedef CStdArray<DWORD> CStdDWORDArray;
 
 struct CFileTextLine {
     CString              sLine;
     EOL                  eEnding;
 };
-typedef CListOfObjects<CFileTextLine> CStdFileLineArray;
+typedef CStdArray<CFileTextLine> CStdFileLineArray;
 /**
  * \ingroup TortoiseMerge
  *

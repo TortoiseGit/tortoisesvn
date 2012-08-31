@@ -762,19 +762,14 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
                     {
                         m_Diff3.AddData(m_arBaseFile.GetAt(baseline), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, endingBase , HIDESTATE_SHOWN, -1);
 
-                        m_arDiff3LinesBase.Add(baseline);
-                        m_arDiff3LinesYour.Add(yourline);
-                        m_arDiff3LinesTheir.Add(theirline);
+                        AddLines(baseline, yourline, theirline);
                     }
                 }
                 else if ((originalresolved)||((modifiedresolved)&&(latestresolved)))
                 {
                     m_Diff3.AddData(_T(""), DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, EOL_NOENDING, HIDESTATE_SHOWN, -1);
 
-                    m_arDiff3LinesBase.Add(baseline);
-                    m_arDiff3LinesYour.Add(yourline);
-                    m_arDiff3LinesTheir.Add(theirline);
-
+                    AddLines(baseline, yourline, theirline);
                 }
                 if ((latest)&&(original))
                 {
