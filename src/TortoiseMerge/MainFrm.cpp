@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseMerge.h"
 #include "OpenDlg.h"
-#include "Patch.h"
 #include "ProgressDlg.h"
 #include "Settings.h"
 #include "MessageBox.h"
