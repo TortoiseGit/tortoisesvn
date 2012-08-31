@@ -3674,7 +3674,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     {
                         InvalidateDataParents (selection);
 
-                        bool bRet = Copy(selection.GetURLsEscaped (0), CTSVNPath(dlg.m_name), revision, revision, input.GetLogMessage());
+                        bool bRet = Copy(selection.GetURLsEscaped (0), CTSVNPath(dlg.m_name), revision, revision, input.GetLogMessage(), true, true);
                         if (!bRet || !PostCommitErr.IsEmpty())
                         {
                             wait_cursor.Hide();
