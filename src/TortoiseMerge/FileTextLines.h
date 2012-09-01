@@ -21,8 +21,32 @@
 #include <deque>
 
 // A template class to make an array which looks like a CStringArray or CDWORDArray but
+// is in fact based on a STL vector, which is much faster at large sizes
+template <typename T> class CStdArrayV
+{
+public:
+    int GetCount() const { return (int)m_vec.size(); }
+    const T& GetAt(int index) const { return m_vec[index]; }
+    void RemoveAt(int index)    { m_vec.erase(m_vec.begin()+index); }
+    void InsertAt(int index, const T& strVal)   { m_vec.insert(m_vec.begin()+index, strVal); }
+    void InsertAt(int index, const T& strVal, int nCopies)  { m_vec.insert(m_vec.begin()+index, nCopies, strVal); }
+    void SetAt(int index, const T& strVal)  { m_vec[index] = strVal; }
+    void Add(const T& strVal)    { 
+        if (m_vec.size()==m_vec.capacity()) {
+            m_vec.reserve(m_vec.capacity() ? m_vec.capacity()*2 : 256);
+        }
+        m_vec.push_back(strVal); 
+    }
+    void RemoveAll()             { m_vec.clear(); }
+    void Reserve(int nHintSize) { m_vec.reserve(nHintSize); }
+
+private:
+    std::vector<T> m_vec;
+};
+
+// A template class to make an array which looks like a CStringArray or CDWORDArray but
 // is in fact based on a STL deque, which is much faster at large sizes
-template <typename T> class CStdArray
+template <typename T> class CStdArrayD
 {
 public:
     int GetCount() const { return (int)m_vec.size(); }
@@ -39,13 +63,13 @@ private:
     std::deque<T> m_vec;
 };
 
-typedef CStdArray<DWORD> CStdDWORDArray;
+typedef CStdArrayV<DWORD> CStdDWORDArray;
 
 struct CFileTextLine {
     CString              sLine;
     EOL                  eEnding;
 };
-typedef CStdArray<CFileTextLine> CStdFileLineArray;
+typedef CStdArrayD<CFileTextLine> CStdFileLineArray;
 /**
  * \ingroup TortoiseMerge
  *

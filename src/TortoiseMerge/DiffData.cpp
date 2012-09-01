@@ -189,13 +189,6 @@ bool CDiffData::CompareWithIgnoreWS(CString s1, CString s2, DWORD dwIgnoreWS)
     return s1 != s2;
 }
 
-void CDiffData::AddLines(LONG baseline, LONG yourline, LONG theirline)
-{
-    m_arDiff3LinesBase.Add(baseline);
-    m_arDiff3LinesYour.Add(yourline);
-    m_arDiff3LinesTheir.Add(theirline);
-}
-
 void CDiffData::StickAndSkip(svn_diff_t * &tempdiff, apr_off_t &original_length_sticked, apr_off_t &modified_length_sticked)
 {
     if((m_bViewMovedBlocks)&&(tempdiff->type == svn_diff__type_diff_modified))
@@ -226,10 +219,6 @@ BOOL CDiffData::Load()
     m_TheirBaseRight.Clear();
 
     m_Diff3.Clear();
-
-    m_arDiff3LinesBase.RemoveAll();
-    m_arDiff3LinesYour.RemoveAll();
-    m_arDiff3LinesTheir.RemoveAll();
 
     CRegDWORD regIgnoreWS = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreWS"));
     CRegDWORD regIgnoreEOL = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreEOL"), TRUE);
@@ -340,10 +329,6 @@ BOOL CDiffData::Load()
         m_TheirBaseBoth.Reserve(lengthHint);
         m_TheirBaseLeft.Reserve(lengthHint);
         m_TheirBaseRight.Reserve(lengthHint);
-
-        m_arDiff3LinesBase.Reserve(lengthHint);
-        m_arDiff3LinesYour.Reserve(lengthHint);
-        m_arDiff3LinesTheir.Reserve(lengthHint);
     }
     catch (CMemoryException* e)
     {
@@ -656,6 +641,13 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 bool
 CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, bool bIgnoreCase, apr_pool_t * pool)
 {
+    // the following three arrays are used to check for conflicts even in case the
+    // user has ignored spaces/eols.
+    CStdDWORDArray              m_arDiff3LinesBase;
+    CStdDWORDArray              m_arDiff3LinesYour;
+    CStdDWORDArray              m_arDiff3LinesTheir;
+#define AddLines(baseline, yourline, theirline) m_arDiff3LinesBase.Add(baseline), m_arDiff3LinesYour.Add(yourline), m_arDiff3LinesTheir.Add(theirline)
+
     CRegDWORD contextLines = CRegDWORD(_T("Software\\TortoiseMerge\\ContextLines"), 3);
     svn_diff_file_options_t * options = CreateDiffFileOptions(dwIgnoreWS, bIgnoreEOL, pool);
 
