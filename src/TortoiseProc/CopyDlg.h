@@ -97,6 +97,7 @@ public:
     CString         m_sLogMessage;
     SVNRev          m_CopyRev;
     BOOL            m_bDoSwitch;
+    BOOL            m_bMakeParents;
     std::map<CString, CString> m_revProps;
 
 private:

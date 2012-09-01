@@ -72,6 +72,35 @@
             click the button on the right to open the repository browser
             so you can view the existing repository structure.
         </para>
+        <important>
+            <title>intermediate folders</title>
+            <para>
+                When you specify the target url, all the folders
+                up to the last one must already exist or you will
+                get an error message. In the above example, the url
+                <literal>http://svn.collab.net/repos/ProjectName/tags/</literal>
+                must exist to create the <literal>Release_1.10</literal>
+                tag.
+            </para>
+            <para>
+                However if you want to create a branch/tag to an url
+                that has intermediate folders that don't exist yet
+                you can check the option <option>Create intermediate folders</option>
+                at the bottom of the dialog. If that option is activated,
+                all intermediate folders are automatically created.
+            </para>
+            <para>
+                Note that this option is disabled by default to avoid
+                typos. For example, if you typed the target url as
+                <literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal>
+                instead of
+                <literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal>,
+                you would get an error with the option disabled, but
+                with the option enabled a folder <literal>Tags</literal>
+                would be automatically created, and you would end up with
+                a folder <literal>Tags</literal> and a folder <literal>tags</literal>.
+            </para>
+        </important>
         <para>
             Now you have to select the source of the copy. Here you have
             three options:

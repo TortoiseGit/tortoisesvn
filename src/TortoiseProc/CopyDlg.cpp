@@ -43,6 +43,7 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
     , m_sBugID(_T(""))
     , m_CopyRev(SVNRev::REV_HEAD)
     , m_bDoSwitch(false)
+    , m_bMakeParents(false)
     , m_bSettingChanged(false)
     , m_bCancelled(false)
     , m_pThread(NULL)
@@ -64,6 +65,7 @@ void CCopyDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_BUGID, m_sBugID);
     DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
     DDX_Check(pDX, IDC_DOSWITCH, m_bDoSwitch);
+    DDX_Check(pDX, IDC_MAKEPARENTS, m_bMakeParents);
     DDX_Control(pDX, IDC_FROMURL, m_FromUrl);
     DDX_Control(pDX, IDC_DESTURL, m_DestUrl);
     DDX_Control(pDX, IDC_EXTERNALSLIST, m_ExtList);
@@ -99,6 +101,7 @@ BOOL CCopyDlg::OnInitDialog()
 
     ExtendFrameIntoClientArea(IDC_EXTGROUP);
     m_aeroControls.SubclassControl(this, IDC_DOSWITCH);
+    m_aeroControls.SubclassControl(this, IDC_MAKEPARENTS);
     m_aeroControls.SubclassOkCancelHelp(this);
     m_bCancelled = false;
 
@@ -111,6 +114,7 @@ BOOL CCopyDlg::OnInitDialog()
     AdjustControlSize(IDC_COPYREV);
     AdjustControlSize(IDC_COPYWC);
     AdjustControlSize(IDC_DOSWITCH);
+    AdjustControlSize(IDC_MAKEPARENTS);
 
     CTSVNPath path(m_path);
     CString sWindowTitle;
@@ -265,6 +269,7 @@ BOOL CCopyDlg::OnInitDialog()
     AddAnchor(IDC_CHECKNONE, MIDDLE_LEFT);
     AddAnchor(IDC_EXTERNALSLIST, MIDDLE_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_DOSWITCH, BOTTOM_LEFT);
+    AddAnchor(IDC_MAKEPARENTS, BOTTOM_LEFT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);

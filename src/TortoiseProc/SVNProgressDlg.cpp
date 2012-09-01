@@ -2661,7 +2661,9 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
         (LPCTSTR)m_url.GetSVNPathString(), (LPCTSTR)m_Revision.ToString());
     ReportCmd(sCmdInfo);
 
-    if (!Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage, false, false, (m_options & ProgOptIgnoreExternals) != 0, m_revProps))
+    bool makeparents = (m_options & ProgOptMakeParents)!=0;
+    // when creating intermediate folders with "make parents", always use "copy_as_child"
+    if (!Copy(m_targetPathList, m_url, m_Revision, m_pegRev, m_sMessage, makeparents, makeparents, (m_options & ProgOptIgnoreExternals) != 0, m_revProps))
     {
         ReportSVNError();
         return false;

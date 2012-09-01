@@ -59,6 +59,7 @@ bool CopyCommand::Execute()
             progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Copy);
             progDlg.SetAutoClose (parser);
             DWORD options = dlg.m_bDoSwitch ? ProgOptSwitchAfterCopy : ProgOptNone;
+            options |= dlg.m_bMakeParents ? ProgOptMakeParents : ProgOptNone;
             progDlg.SetOptions(options);
             progDlg.SetPathList(pathList);
             progDlg.SetUrl(dlg.m_URL);

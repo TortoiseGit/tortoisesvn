@@ -60,6 +60,7 @@ typedef enum
     ProgOptStickyDepth              = 0x8000,
     ProgOptUseAutoprops             = 0x10000,
     ProgOptIgnoreKeywords           = 0x20000,
+    ProgOptMakeParents              = 0x40000,
 } ProgressOptions;
 
 typedef enum
