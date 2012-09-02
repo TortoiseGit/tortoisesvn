@@ -45,9 +45,7 @@ public:
     BOOL                        Load();
     void                        SetBlame(bool bBlame = true) {m_bBlame = bBlame;}
     void                        SetMovedBlocks(bool bViewMovedBlocks = true);
-    int                         GetLineCount();
-    int                         GetLineActualLength(int index);
-    LPCTSTR                     GetLineChars(int index);
+    int                         GetLineCount() const;
     CString                     GetError() const  {return m_sError;}
 
     bool    IsBaseFileInUse() const     { return m_baseFile.InUse(); }
