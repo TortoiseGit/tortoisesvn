@@ -63,21 +63,25 @@ bool DropMoveCommand::Execute()
             destPath = CTSVNPath(droppath+_T("\\")+pathList[nPath].GetFileOrDirectoryName());
         else
             destPath = CTSVNPath(droppath+_T("\\")+sNewName);
-        if (destPath.Exists())
+        // path the same but case-changed is ok: results in a case-rename
+        if (!(pathList[nPath].IsEquivalentToWithoutCase(destPath) && !pathList[nPath].IsEquivalentTo(destPath)))
         {
-            CString name = pathList[nPath].GetFileOrDirectoryName();
-            if (!sNewName.IsEmpty())
-                name = sNewName;
-            progress.Stop();
-            CRenameDlg dlg;
-            dlg.SetInputValidator(this);
-            dlg.m_name = name;
-            dlg.m_windowtitle.Format(IDS_PROC_NEWNAMEMOVE, (LPCTSTR)name);
-            if (dlg.DoModal() != IDOK)
+            if (destPath.Exists())
             {
-                return FALSE;
+                CString name = pathList[nPath].GetFileOrDirectoryName();
+                if (!sNewName.IsEmpty())
+                    name = sNewName;
+                progress.Stop();
+                CRenameDlg dlg;
+                dlg.SetInputValidator(this);
+                dlg.m_name = name;
+                dlg.m_windowtitle.Format(IDS_PROC_NEWNAMEMOVE, (LPCTSTR)name);
+                if (dlg.DoModal() != IDOK)
+                {
+                    return FALSE;
+                }
+                destPath.SetFromWin(droppath+_T("\\")+dlg.m_name);
             }
-            destPath.SetFromWin(droppath+_T("\\")+dlg.m_name);
         }
         if (!svn.Move(CTSVNPathList(pathList[nPath]), destPath))
         {
