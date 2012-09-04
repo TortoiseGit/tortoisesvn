@@ -58,9 +58,30 @@ bool CheckoutCommand::Execute()
     }
 
     CCheckoutDlg dlg;
-    dlg.m_strCheckoutDirectory = checkoutDirectory.GetWinPathString();
     dlg.m_URLs.LoadFromAsteriskSeparatedString (parser.GetVal(_T("url")));
-
+    if (dlg.m_URLs.GetCount()==0)
+    {
+        SVN svn;
+        if (svn.IsRepository(cmdLinePath))
+        {
+            CString url;
+            // The path points to a local repository.
+            // Add 'file:///' so the repository browser recognizes
+            // it as an URL to the local repository.
+            if (cmdLinePath.GetWinPathString().GetAt(0) == '\\')    // starts with '\' means an UNC path
+            {
+                CString p = cmdLinePath.GetWinPathString();
+                p.TrimLeft('\\');
+                url = _T("file://")+p;
+            }
+            else
+                url = _T("file:///")+cmdLinePath.GetWinPathString();
+            url.Replace('\\', '/');
+            dlg.m_URLs.AddPath(CTSVNPath(url));
+            checkoutDirectory.AppendRawString(L"wc");
+        }
+    }
+    dlg.m_strCheckoutDirectory = checkoutDirectory.GetWinPathString();
     // if there is no url specified on the command line, check if there's one
     // specified in the settings dialog to use as the default and use that
     CRegString regDefCheckoutUrl(_T("Software\\TortoiseSVN\\DefaultCheckoutUrl"));
