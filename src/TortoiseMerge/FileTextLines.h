@@ -173,12 +173,14 @@ public:
     ~CBuffer() {Free(); }
 
     CBuffer & operator =(const CBuffer & Src) { Copy(Src); return *this; }
+    operator bool () { return !IsEmpty(); }
     template<typename T>
     operator T () const { return  (T)m_pBuffer; }
 
     void Clear() { m_nUsed=0; }
     void ExpandToAtLeast(int nNewSize);
     int GetLength() const { return m_nUsed; }
+    bool IsEmpty() const {  return GetLength()==0; }
     void SetLength(int nUsed);
     void Swap(CBuffer & Src);
 

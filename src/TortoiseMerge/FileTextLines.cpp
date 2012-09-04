@@ -306,28 +306,12 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         switch (*pTextBuf++)
         {
         case '\r':
-            if ((i > 1) && *(pTextBuf) == '\n')
-            {
-                // crlf line ending
-                eEol = EOL_CRLF;
-            }
-            else
-            {
-                // cr line ending
-                eEol = EOL_CR;
-            }
+            // crlf line ending or cr line ending
+            eEol = ((i > 1) && *(pTextBuf) == '\n') ? EOL_CRLF : eEol = EOL_CR;
             break;
         case '\n':
-            if ((i > 1) && *(pTextBuf) == '\r')
-            {
-                // lfcr line ending
-                eEol = EOL_LFCR;
-            }
-            else
-            {
-                // lf line ending
-                eEol = EOL_LF;
-            }
+            // lfcr line ending or lf line ending
+            eEol = ((i > 1) && *(pTextBuf) == '\r') ? EOL_LFCR : eEol = EOL_LF;
             break;
         case 0x000b:
             eEol = EOL_VT;
@@ -485,9 +469,9 @@ BOOL CFileTextLines::Save(const CString& sFilePath
         }
         // cache EOLs
         CBuffer oEncodedEol[EOL__COUNT];
-        oEncodedEol[EOL_LF] = pFilter->Encode(_T("\x0d"));
-        oEncodedEol[EOL_CR] = pFilter->Encode(_T("\x0a"));
-        oEncodedEol[EOL_CRLF] = pFilter->Encode(_T("\x0a"));
+        oEncodedEol[EOL_LF] = pFilter->Encode(_T("\n")); // x0a
+        oEncodedEol[EOL_CR] = pFilter->Encode(_T("\r")); // x0d
+        oEncodedEol[EOL_CRLF] = pFilter->Encode(_T("\r\n")); // x0d x0a
         if (bUseSVNCompatibleEOLs)
         {
             // when using EOLs that are supported by the svn lib,
@@ -500,24 +484,23 @@ BOOL CFileTextLines::Save(const CString& sFilePath
             // for these special EOLs if they differ between those special ones
             // listed below.
             // But it will work properly for the most common EOLs LF/CR/CRLF.
-            oEncodedEol[EOL_LFCR] = pFilter->Encode(_T("\x0d"));
-            oEncodedEol[EOL_VT] = pFilter->Encode(_T("\x0a"));
-            oEncodedEol[EOL_FF] = pFilter->Encode(_T("\x0a"));
-            oEncodedEol[EOL_NEL] = pFilter->Encode(_T("\x0a"));
-            oEncodedEol[EOL_LS] = pFilter->Encode(_T("\x0a"));
-            oEncodedEol[EOL_PS] = pFilter->Encode(_T("\x0a"));
-            oEncodedEol[EOL_AUTOLINE] = pFilter->Encode(_T("\x0d"));
+            oEncodedEol[EOL_LFCR] = oEncodedEol[EOL_CR];
+            for (int nEol = 0; nEol<EOL_NOENDING; nEol++)
+            {
+                if (oEncodedEol[nEol].IsEmpty())
+                    oEncodedEol[nEol] = oEncodedEol[EOL_LF];
+            }
         }
         else
         {
-            oEncodedEol[EOL_LFCR] = pFilter->Encode(_T("\x0a\x0d"));
-            oEncodedEol[EOL_VT] = pFilter->Encode(_T("\x0b"));
-            oEncodedEol[EOL_FF] = pFilter->Encode(_T("\x0c"));
+            oEncodedEol[EOL_LFCR] = pFilter->Encode(_T("\n\r"));
+            oEncodedEol[EOL_VT] = pFilter->Encode(_T("\v")); // x0b
+            oEncodedEol[EOL_FF] = pFilter->Encode(_T("\f")); // x0c
             oEncodedEol[EOL_NEL] = pFilter->Encode(_T("\x85"));
             oEncodedEol[EOL_LS] = pFilter->Encode(_T("\x2028"));
             oEncodedEol[EOL_PS] = pFilter->Encode(_T("\x2029"));
-            oEncodedEol[EOL_AUTOLINE] = oEncodedEol[m_LineEndings==EOL_AUTOLINE ? EOL_CRLF : m_LineEndings];
         }
+        oEncodedEol[EOL_AUTOLINE] = oEncodedEol[m_LineEndings==EOL_AUTOLINE ? EOL_CRLF : m_LineEndings];
 
         for (int i=0; i<GetCount(); i++)
         {
