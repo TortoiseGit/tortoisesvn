@@ -307,11 +307,11 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int lengthHint /* = 0*/)
         {
         case '\r':
             // crlf line ending or cr line ending
-            eEol = ((i > 1) && *(pTextBuf) == '\n') ? EOL_CRLF : eEol = EOL_CR;
+            eEol = ((i > 1) && *(pTextBuf) == '\n') ? EOL_CRLF : EOL_CR;
             break;
         case '\n':
             // lfcr line ending or lf line ending
-            eEol = ((i > 1) && *(pTextBuf) == '\r') ? EOL_LFCR : eEol = EOL_LF;
+            eEol = ((i > 1) && *(pTextBuf) == '\r') ? EOL_LFCR : EOL_LF;
             break;
         case 0x000b:
             eEol = EOL_VT;
