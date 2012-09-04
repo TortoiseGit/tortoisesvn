@@ -172,7 +172,7 @@ std::string CProfilingInfo::GetReport() const
         ; iter != end
         ; ++iter)
     {
-        int nCount = (*iter)->GetCount();
+        size_t nCount = (*iter)->GetCount();
         sprintf_s ( lineBuffer, "%7sx %s\n%s:%s\n"
                   , IntToStr (nCount).c_str()
                   , (*iter)->GetName()
