@@ -113,7 +113,7 @@ SVN::SVN(bool suppressUI)
     svn_ra_initialize(pool);
     // set up the configuration
     if (Err == 0)
-        m_pctx->config = SVNConfig::Instance().GetConfig();
+        m_pctx->config = SVNConfig::Instance().GetConfig(pool);
 
     if (m_pctx->config == nullptr)
     {
@@ -162,7 +162,7 @@ CString SVN::CheckConfigFile()
 
     // set up the configuration
     if (err == 0)
-        ctx->config = SVNConfig::Instance().GetConfig();
+        ctx->config = SVNConfig::Instance().GetConfig(pool);
     CString msg;
     CString temp;
     if (err != NULL)
@@ -1423,7 +1423,7 @@ bool SVN::CreateRepository(const CTSVNPath& path, const CString& fstype)
     apr_hash_set (fs_config, SVN_FS_CONFIG_BDB_LOG_AUTOREMOVE,
         APR_HASH_KEY_STRING, "1");
 
-    config = SVNConfig::Instance().GetConfig();
+    config = SVNConfig::Instance().GetConfig(localpool);
 
     const char * fs_type = apr_pstrdup(localpool, CStringA(fstype));
     apr_hash_set (fs_config, SVN_FS_CONFIG_FS_TYPE,

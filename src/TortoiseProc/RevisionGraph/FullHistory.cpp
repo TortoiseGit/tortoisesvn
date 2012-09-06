@@ -71,7 +71,7 @@ CFullHistory::CFullHistory(void)
 
     pool = svn_pool_create (parentpool);
     // set up the configuration
-    ctx->config = SVNConfig::Instance().GetConfig();
+    ctx->config = SVNConfig::Instance().GetConfig(pool);
 
     // set up authentication
     prompt.Init(pool, ctx);

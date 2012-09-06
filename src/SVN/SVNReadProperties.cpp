@@ -150,7 +150,7 @@ void SVNReadProperties::Construct()
 #ifdef _MFC_VER
 
     // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig();
+    m_pctx->config = SVNConfig::Instance().GetConfig(m_pool);
     if (m_pctx->config == nullptr)
     {
         svn_pool_destroy (m_pool);                  // free the allocated memory

@@ -62,7 +62,7 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
 
 #ifdef _MFC_VER
     // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig();
+    m_pctx->config = SVNConfig::Instance().GetConfig(m_pool);
 
     // set up authentication
     m_prompt.Init(m_pool, m_pctx);
@@ -76,7 +76,7 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
     }
 #else
     // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig();
+    m_pctx->config = SVNConfig::Instance().GetConfig(m_pool);
 
 #endif
 }
@@ -105,7 +105,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
     svn_error_clear(svn_client_create_context(&ctx, pool));
 
     // set up the configuration
-    ctx->config = SVNConfig::Instance().GetConfig();
+    ctx->config = SVNConfig::Instance().GetConfig(pool);
 
     svn_revnum_t youngest = SVN_INVALID_REVNUM;
     svn_opt_revision_t rev;

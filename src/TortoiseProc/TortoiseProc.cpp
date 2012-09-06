@@ -283,7 +283,7 @@ BOOL CTortoiseProcApp::InitInstance()
         g_SVNGlobal.SetConfigDir(sConfigDir);
     }
     // load the configuration now
-    SVNConfig::Instance().GetConfig();
+    SVNConfig::Instance();
 
     CTSVNPath cmdLinePath;
     CTSVNPathList pathList;

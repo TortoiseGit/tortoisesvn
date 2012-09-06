@@ -69,12 +69,12 @@ SVNInfo::SVNInfo (bool)
 
 #ifdef _MFC_VER
     // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig();
+    m_pctx->config = SVNConfig::Instance().GetConfig(m_pool);
     // set up authentication
     m_prompt.Init(m_pool, m_pctx);
 #else
     // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig();
+    m_pctx->config = SVNConfig::Instance().GetConfig(m_pool);
 #endif
     m_pctx->cancel_func = cancel;
     m_pctx->cancel_baton = this;
