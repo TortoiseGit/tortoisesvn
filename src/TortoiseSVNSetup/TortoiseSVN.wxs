@@ -29,7 +29,7 @@
     <Icon Id="TSVNIcon" SourceFile="..\Resources\Tortoise.ico" />
 
     <!-- Launch Condition related properties ................................................................................. -->
-    <Property Id="ALLUSERS">1</Property>
+    <Property Id="ALLUSERS" Secure="yes">1</Property>
 
     <Condition Message="[ProductName] requires Windows XP SP3 or later."><![CDATA[(VersionNT > 501) OR ((VersionNT = 501) AND (ServicePackLevel >= 3))]]></Condition>
     <?if $(env.Platform) = "win32" ?>
@@ -44,7 +44,7 @@
     <?endif ?>
 
     <!-- Show/Don't-show changelog related properties and custom actions ..................................................... -->
-    <Property Id="TEXTEDITOR">
+    <Property Id="TEXTEDITOR" Secure="yes">
       <DirectorySearch Id="FileSearchTextEditorExe" Path="[WindowsFolder]">
         <FileSearch Id="FileSearchTextEditorExe" Name="notepad.exe" />
       </DirectorySearch>
@@ -55,18 +55,18 @@
     <Binary Id="CustomActionsDLL" SourceFile="..\..\bin\$(var.ReleasePath)\bin\CustomActions.dll" />
 
     <!-- Unsafe-check properties and custom actions .......................................................................... -->
-    <Property Id="VSDUIANDADVERTISED">This advertised application will not be installed because it might be unsafe. Contact your administrator to change the installation user interface option of the package to basic.</Property>
+    <Property Id="VSDUIANDADVERTISED" Secure="yes">This advertised application will not be installed because it might be unsafe. Contact your administrator to change the installation user interface option of the package to basic.</Property>
     <CustomAction Id="ERRCA_UIANDADVERTISED" Error="[VSDUIANDADVERTISED]" />
 
     <!-- Figure out where a previous installation was, if any ................................................................ -->
     <?if $(env.Platform) = "x64" ?>
     <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFiles64Folder]$(var.ProductName)" Execute="immediate" />
-    <Property Id="INSTALLDIR">
+    <Property Id="INSTALLDIR" Secure="yes">
       <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
     </Property>
     <?else ?>
     <CustomAction Id="DefaultTargetDir" Property="INSTALLDIR" Value="[ProgramFilesFolder]$(var.ProductName)" Execute="immediate" />
-    <Property Id="INSTALLDIR">
+    <Property Id="INSTALLDIR" Secure="yes">
       <RegistrySearch Id="PreviousInstallLocationRegistrySearch" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
     </Property>
     <?endif ?>

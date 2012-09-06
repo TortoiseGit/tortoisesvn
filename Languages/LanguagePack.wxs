@@ -30,15 +30,15 @@
     <MajorUpgrade AllowDowngrades="yes" Schedule="afterInstallValidate" />
 
     <Media Id='1' Cabinet='langpack.cab' EmbedCab='yes' CompressionLevel="high" />
-    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <Property Id="WIXUI_INSTALLDIR" Secure="yes" Value="INSTALLDIR" />
 
-    <Property Id="ALLUSERS">1</Property>
+    <Property Id="ALLUSERS" Secure="yes">1</Property>
 
     <?if $(env.Platform) = "win32" ?>
     <Condition Message="You are attempting to run the 32-bit installer on a 64-bit version of Windows. Please install the 64-bit version of the TortoiseSVN language pack instead.">NOT Msix64</Condition>
     <?endif ?>
 
-    <Property Id="INSTALLDIR">
+    <Property Id="INSTALLDIR" Secure="yes">
       <RegistrySearch Id="TSVNInstallationDir" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
     </Property>
     <Condition Message="TortoiseSVN is not installed. Please install TortoiseSVN before installing the language pack">INSTALLDIR</Condition>
