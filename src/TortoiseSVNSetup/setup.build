@@ -75,7 +75,7 @@
           <![CDATA[
             public static void ScriptMain(Project project)
             {
-              project.Properties.Add("mergemodulepath", System.Environment.GetFolderPath(System.Environment.SpecialFolder.CommonProgramFiles)+"\\Merge Modules");
+              project.Properties.Add("mergemodulepath", System.Environment.GetFolderPath(System.Environment.SpecialFolder.CommonProgramFilesX86)+"\\Merge Modules");
             }
           ]]>
         </code>
