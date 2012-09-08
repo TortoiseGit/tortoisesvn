@@ -437,10 +437,12 @@ CStatusCacheEntry CCachedDirectory::GetStatusForMember(const CTSVNPath& path, bo
 void
 CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSVNStatus, bool needsLock, bool forceNormal)
 {
-    AutoLocker lock(m_critSec);
     svn_wc_status_kind nodestatus = forceNormal ? svn_wc_status_normal : (pSVNStatus ? pSVNStatus->node_status : svn_wc_status_none);
     if(path.IsDirectory())
     {
+        // no lock here:
+        // AutoLocker lock(m_critSec);
+        // because GetDirectoryCacheEntry() can try to obtain a write lock
         CCachedDirectory * childDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(path);
         if (childDir)
         {
@@ -451,6 +453,7 @@ CCachedDirectory::AddEntry(const CTSVNPath& path, const svn_client_status_t* pSV
     }
     else
     {
+        AutoLocker lock(m_critSec);
         CStringA cachekey = GetCacheKey(path);
         CacheEntryMap::iterator entry_it = m_entryCache.lower_bound(cachekey);
         if (entry_it != m_entryCache.end() && entry_it->first == cachekey)
