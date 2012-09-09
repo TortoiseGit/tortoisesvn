@@ -164,7 +164,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
         flags.bAlternativeTool = m_bAlternativeTool;
         flags.bReadOnly = true;
         return !!CAppUtils::StartExtMerge(flags,
-            basePath, remotePath, filePath, CTSVNPath(), n2, n3, n1);
+            basePath, remotePath, filePath, CTSVNPath(), false, n2, n3, n1);
     }
 }
 

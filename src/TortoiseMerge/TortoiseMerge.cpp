@@ -263,6 +263,8 @@ BOOL CTortoiseMergeApp::InitInstance()
         pFrame->m_bOneWay = FALSE;
     if (parser.HasKey(_T("reversedpatch")))
         pFrame->m_bReversedPatch = TRUE;
+    if (parser.HasKey(_T("saverequired")))
+        pFrame->m_bSaveRequired = true;
     if (pFrame->m_Data.IsBaseFileInUse() && !pFrame->m_Data.IsYourFileInUse() && pFrame->m_Data.IsTheirFileInUse())
     {
         pFrame->m_Data.m_yourFile.TransferDetailsFrom(pFrame->m_Data.m_theirFile);

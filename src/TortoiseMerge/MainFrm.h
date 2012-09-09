@@ -208,4 +208,5 @@ public:
     bool            m_bCollapsed;
     bool            m_bViewMovedBlocks;
     bool            m_bWrapLines;
+    bool            m_bSaveRequired;
 };

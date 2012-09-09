@@ -57,7 +57,7 @@ bool ConflictEditorCommand::Execute()
                 if (mine.IsEmpty())
                     mine = merge;
                 bRet = !!CAppUtils::StartExtMerge(CAppUtils::MergeFlags().AlternativeTool(bAlternativeTool),
-                                                  base, theirs, mine, merge);
+                                                  base, theirs, mine, merge, true);
             }
             break;
         case svn_wc_conflict_kind_property:

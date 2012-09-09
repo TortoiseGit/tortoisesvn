@@ -54,7 +54,7 @@ bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype)
 }
 
 BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
-    const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
+    const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile, bool bSaveRequired,
     const CString& basename, const CString& theirname, const CString& yourname, const CString& mergedname)
 {
 
@@ -112,6 +112,8 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
             com += g_sGroupingUUID;
             com += L"\"";
         }
+        if (bSaveRequired)
+            com += L" /saverequired";
     }
     // check if the params are set. If not, just add the files to the command line
     if ((com.Find(_T("%merged"))<0)&&(com.Find(_T("%base"))<0)&&(com.Find(_T("%theirs"))<0)&&(com.Find(_T("%mine"))<0))

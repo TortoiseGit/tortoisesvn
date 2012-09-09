@@ -158,6 +158,7 @@ CMainFrame::CMainFrame()
     , m_bReadOnly(false)
     , m_bBlame(false)
     , m_bCheckReload(false)
+    , m_bSaveRequired(false)
 {
     m_bOneWay = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"))));
     theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
@@ -568,6 +569,7 @@ void CMainFrame::OnFileOpen()
         // a diff between two files means "Yours" against "Base", not "Theirs" against "Base"
         m_Data.m_yourFile.TransferDetailsFrom(m_Data.m_theirFile);
     }
+    m_bSaveRequired = false;
 
     LoadViews();
 }
@@ -607,6 +609,7 @@ bool CMainFrame::LoadViews(int line)
         m_wndLineDiffBar.DocumentUpdated();
         ::MessageBox(m_hWnd, m_Data.GetError(), _T("TortoiseMerge"), MB_ICONERROR);
         m_Data.m_mergedFile.SetOutOfUse();
+        m_bSaveRequired = false;
         return false;
     }
     SetWindowTitle();
@@ -634,6 +637,7 @@ bool CMainFrame::LoadViews(int line)
             progDlg.Stop();
             ClearViewNamesAndPaths();
             MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
+            m_bSaveRequired = false;
             return false;
         }
         if (m_Patch.GetNumberOfFiles() > 0)
@@ -1240,6 +1244,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         // error while saving the file
         return false;
     }
+    m_bSaveRequired = false;
     m_Data.m_mergedFile.StoreFileAttributes();
 
     if ((bDoesNotExist)&&(DWORD(CRegDWORD(_T("Software\\TortoiseMerge\\AutoAdd"), TRUE))))
@@ -1354,6 +1359,10 @@ void CMainFrame::OnClose()
             taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(IDYES);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
+            if (m_bSaveRequired)
+            {
+                taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_TASK9)));
+            }
             ret = (UINT)taskdlg.DoModal(m_hWnd);
         }
         else
@@ -2028,7 +2037,7 @@ int CMainFrame::CheckForSave()
 
 bool CMainFrame::HasUnsavedEdits() const
 {
-    return HasUnsavedEdits(m_pwndBottomView) || HasUnsavedEdits(m_pwndRightView);
+    return HasUnsavedEdits(m_pwndBottomView) || HasUnsavedEdits(m_pwndRightView) || m_bSaveRequired;
 }
 
 bool CMainFrame::HasUnsavedEdits(const CBaseView* view)

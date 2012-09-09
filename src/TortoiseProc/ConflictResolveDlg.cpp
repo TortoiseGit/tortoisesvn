@@ -224,7 +224,7 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
                                 CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_abspath)),
                                 CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_abspath)),
                                 CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath)),
-                                CTSVNPath(m_mergedfile),
+                                CTSVNPath(m_mergedfile), true,
                                 n2, n3, n1, CString());
     }
 
