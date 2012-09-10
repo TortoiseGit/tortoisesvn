@@ -1078,6 +1078,9 @@
               <File Id="F__CLIsvnserve" Name="svnserve.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnserve.exe" />
               <File Id="F__CLIsvnsync" Name="svnsync.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnsync.exe" />
               <File Id="F__CLIsvnversion" Name="svnversion.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\svnversion.exe" />
+              <RegistryKey Root="HKLM" Key="Software\Carnegie Mellon\Project Cyrus\SASL Library" Action="createAndRemoveOnUninstall" />
+              <RegistryValue Root="HKLM" Key="Software\Carnegie Mellon\Project Cyrus\SASL Library" Name="SearchPath" Value="[INSTALLDIR]bin" Type="string" />
+              <RegistryValue Root="HKLM" Key="Software\Carnegie Mellon\Project Cyrus\SASL Library" Name="ConfFile" Value="" Type="string" />
             </Component>
 
             <Component Id="C__PlainSettingsShortcuts" Guid="$(var.GuidPlainSettingsShortcuts)" Win64="$(var.Win64YesNo)">
