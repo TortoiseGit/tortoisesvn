@@ -13,21 +13,21 @@
 # Arith Hsu <arithmandar@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Nick Vrvilo <nick@vrvilo.com>, 2011.
-#   <zcecil@csie.org>, 2011, 2012.
+#   <zcecil@csie.org>, 2011-2012.
 # zcecil <zcecil@csie.org>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-12 02:39+0000\n"
+"PO-Revision-Date: 2012-09-09 08:41+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_TW\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Resource IDs: (188)
 # msgid/msgstr fields for Accelerator keys
@@ -1836,7 +1836,7 @@ msgstr "調校設定值\n設定"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"
-msgstr "調整至 HEAD 版"
+msgstr ""
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -3492,6 +3492,10 @@ msgstr "建立補綴"
 msgid "Create copy in the repository from:"
 msgstr "建立分支/標記於伺服器端:"
 
+#. Resource IDs: (1562)
+msgid "Create intermediate folders"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -4247,6 +4251,10 @@ msgstr "寫入 %1 時發生預期外的錯誤."
 msgid "End Revision"
 msgstr "結束版本"
 
+#. Resource IDs: (200)
+msgid "Enforce"
+msgstr "強制"
+
 #. Resource IDs: (3825)
 msgid "Enlarge the window to full size"
 msgstr "將視窗放到最大"
@@ -4580,7 +4588,7 @@ msgstr "失敗!"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
-msgstr "取出 HEAD 版並調整至此版"
+msgstr ""
 
 #. Resource IDs: (199)
 msgid ""
@@ -4748,11 +4756,11 @@ msgstr "搜尋"
 
 #. Resource IDs: (1633)
 msgid "Find &Head-Revision"
-msgstr "尋找 &HEAD 版"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
-msgstr "尋找 HEAD 版本"
+msgstr ""
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5029,7 +5037,7 @@ msgstr "最新版本節點"
 
 #. Resource IDs: (218)
 msgid "Head"
-msgstr "Head"
+msgstr ""
 
 #. Resource IDs: (106)
 #, c-format
@@ -9598,9 +9606,8 @@ msgstr "檔案 \n%s\n 已存在! 是否要覆寫?"
 msgid ""
 "The file\n"
 "%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr "檔案\n%s\n不是正確的文字檔!\n請注意: UTF-32 編碼的文字檔會視為二進位檔."
+"is not a valid text file!"
+msgstr "%s\n不是正確的\n文字檔！"
 
 #. Resource IDs: (145)
 #, c-format
@@ -11565,11 +11572,11 @@ msgstr "檔案外部設定:"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
-msgstr "取得 HEAD 版本:"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get repository root urls:"
-msgstr "取得檔案庫最上層 URL:"
+msgstr ""
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"

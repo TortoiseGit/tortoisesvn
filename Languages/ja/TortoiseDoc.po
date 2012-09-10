@@ -10,22 +10,22 @@
 # 
 # Authors:
 # Translators:
-# Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011, 2012.
+# Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011-2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
-# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011, 2012.
+# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-10 15:49+0000\n"
+"PO-Revision-Date: 2012-09-09 18:06+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ja\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. (title)
 #. (secondary)
@@ -2933,6 +2933,14 @@ msgstr "チェックアウト"
 msgid "create working copy"
 msgstr "作業コピーの作成"
 
+#. (primary)
+msgid "sparse checkout"
+msgstr "部分的なチェックアウト"
+
+#. (primary)
+msgid "partial checkout"
+msgstr "不完全なチェックアウト"
+
 #. (para)
 msgid ""
 "To obtain a working copy you need to do a <firstterm>checkout</firstterm> "
@@ -3043,20 +3051,41 @@ msgstr "手っ取り早く必要な項目だけをチェックアウトし、そ
 msgid ""
 "If you check out a sparse working copy (i.e., by choosing something other "
 "than <literal>fully recursive</literal> for the checkout depth), you can "
-"fetch additional sub-folders later by using the repository browser (<xref "
-"linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog "
-"(<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
-msgstr "作業コピーを部分的にチェックアウトした場合（つまり、チェックアウトする深さに<literal>再帰的</literal>以外を指定した場合）、その下のサブフォルダーを後から追加するには、リポジトリブラウザー （<xref linkend=\"tsvn-dug-repobrowser\"/>）または「変更をチェック」ダイアログ （<xref linkend=\"tsvn-dug-wcstatus-2\"/>）を使用してください。"
+"easily add or remove sub-folders later using one of the following methods."
+msgstr "作業コピーを部分的にチェックアウトした場合（つまり、チェックアウトする深さに<literal>再帰的</literal>以外を指定した場合）、次のような方法で後から簡単にサブフォルダーを追加したり除外したりすることができます。"
+
+#. (title)
+msgid "Sparse Update using Update to Revision"
+msgstr "「特定リビジョンへ更新」を使用して部分的に更新"
 
 #. (para)
 msgid ""
-"In windows explorer, <action>Right click</action> on the checked out folder,"
-" then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-"
+"<action>Right click</action> on the checked out folder, then use "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to "
+"Revision</guimenuitem></menuchoice> and select <guibutton>Choose "
+"items...</guibutton>. This opens the same dialog that was available in the "
+"original checkout and allows you to select or deselect items to include in "
+"the checkout. This method is very flexible but can be slow as every item in "
+"the folder is updated individually."
+msgstr "チェックアウトされたフォルダーを<action>右クリック</action>して、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>特定リビジョンへ更新...</guimenuitem></menuchoice>を選択し、<guibutton>項目を選択...</guibutton>を選択してください。最初にチェックアウトしたときと同様のダイアログが表示されるので、チェックアウトに含めたい項目を選択したり解除したりします。この方法はとても柔軟ですが、フォルダーの中の項目が個別に更新されているときは遅くなる可能性があります。"
+
+#. (title)
+msgid "Sparse Update using Repo Browser"
+msgstr "リポジトリブラウザーを使用して部分的に更新"
+
+#. (para)
+msgid ""
+"<action>Right click</action> on the checked out folder, then use "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-"
 "Browser</guimenuitem></menuchoice> to bring up the repository browser. Find "
 "the sub-folder you would like to add to your working copy, then use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
-msgstr "Windows のエクスプローラーでは、チェックアウトされたフォルダーで <action>右クリック</action> し、それから <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>リポジトリブラウザー</guimenuitem></menuchoice> でリポジトリブラウザーを起動してください。作業コピーを追加しようとしているサブフォルダーを選択し、 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>特定リビジョンへ更新...</guimenuitem></menuchoice> を実行してください。"
+msgstr "チェックアウトされたフォルダーで<action>右クリック</action>して、<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>リポジトリブラウザー</guimenuitem></menuchoice>でリポジトリブラウザーを起動してください。作業コピーを追加しようとしているサブフォルダーを選択し、 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>特定リビジョンへ更新...</guimenuitem></menuchoice> を実行してください。"
+
+#. (title)
+msgid "Sparse Update using Check for Modifications"
+msgstr "「変更をチェック」を使用して部分的に更新"
 
 #. (para)
 msgid ""
@@ -3067,7 +3096,7 @@ msgid ""
 "folder(s) you would like to add to your working copy, then use "
 "<menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr "「変更をチェック」ダイアログでは、まず、 <guibutton>リポジトリをチェック</guibutton> ボタンをクリックしてください。リポジトリに存在していてチェックアウトされていないファイルやフォルダーがすべて、<literal>リモート操作による追加</literal>としてダイアログに表示されます。作業コピーに追加したいフォルダーを <action>右クリック</action> し、 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>更新</guimenuitem></menuchoice> を実行してください。"
+msgstr "「変更をチェック」ダイアログでは、まず、<guibutton>リポジトリをチェック</guibutton>ボタンをクリックしてください。リポジトリに存在していてチェックアウトされていないファイルやフォルダーがすべて、<literal>リモート操作による追加</literal>としてダイアログに表示されます。作業コピーに追加したいフォルダーを<action>右クリック</action>し、 <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>更新</guimenuitem></menuchoice> を実行してください。"
 
 #. (para)
 msgid ""
@@ -8180,7 +8209,7 @@ msgstr "チェックアウトした外部フォルダーや、外部項目の Su
 #. (para)
 msgid ""
 "The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
-"revision of every external url and shows that HEAD revision in the rightmost"
+"revision of every external URL and shows that HEAD revision in the rightmost"
 " column. After the HEAD revision is known, a simple right click on an "
 "external gives you the command to peg the selected externals to their "
 "explicit HEAD revision. In case the HEAD revision is not known yet, the "
@@ -8330,8 +8359,8 @@ msgstr "マージされたリビジョン番号のカンマ区切りのリスト
 
 #. (para)
 msgid ""
-"Like <literal>{revisions}</literal>, but with each revision preceeded with "
-"an <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
+"Like <literal>{revisions}</literal>, but with each revision preceded with an"
+" <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
 msgstr "<literal>{revisions}</literal>と同様だが、各リビジョンの前に<literal>r</literal>が付く（例えば、<literal>r3, r5, r6, r7</literal>）。"
 
 #. (para)
@@ -8342,7 +8371,7 @@ msgstr "マージされたリビジョン番号のカンマ区切りのリスト
 
 #. (para)
 msgid ""
-"The source url of the merge, i.e., where the revisions are merged from."
+"The source URL of the merge, i.e., where the revisions are merged from."
 msgstr "マージのソースURL、すなわちリビジョンのマージ元の場所。"
 
 #. (para)
@@ -8456,7 +8485,7 @@ msgstr "ローカルのパスに空白や特殊文字を使用したい場合、
 
 #. (title)
 msgid "Use explicit revision numbers"
-msgstr "明確なリビジョン番号の使用"
+msgstr "リビジョン番号を指定する"
 
 #. (para)
 msgid ""
@@ -8473,7 +8502,7 @@ msgid ""
 "repository was at that previous revision. For software projects, this could "
 "be the difference between a successful and a failed build of an older "
 "snapshot of your complex code base."
-msgstr "前述のように、外部参照定義のすべてにおいて、明示的なリビジョン番号を使用することを強く意識するべきです。そうすることは、異なる外部参照情報のスナップショットを取り出す際、正確にどのスナップショットを取り出すかを決めることを意味します。コントロールが及ばないサードパーティのリポジトリに変更があっても驚かないと言う常識に加え、明示的なリビジョン番号を使用するということは、作業コピーを以前のリビジョンに戻すということでもあります。外部参照定義はまた、以前のリビジョンを見るように元に戻り、リポジトリが過去のリビジョンになっているなら、<emphasis>外部参照の作業コピー</emphasis>は一致するように以前を参照するように更新されます。ソフトウェアプロジェクトにおいて、これは複雑な古いコードベースを構築するのが成功するか失敗するかと言った違いに現れます。"
+msgstr "上に示したように、すべての外部参照定義について、リビジョン番号を指定することを強く意識するべきです。そうすることは、異なる外部参照情報のスナップショットを取り出す際、正確にどのスナップショットを取り出すかを決めることを意味します。コントロールが及ばないサードパーティのリポジトリに変更があっても驚かないと言う常識に加え、リビジョン番号を指定するということは、作業コピーを以前のリビジョンに戻すということでもあります。外部参照定義はまた、以前のリビジョンを見るように元に戻り、リポジトリが過去のリビジョンになっているなら、<emphasis>外部参照の作業コピー</emphasis>は一致するように以前を参照するように更新されます。ソフトウェアプロジェクトにおいて、これは複雑な古いコードベースを構築するのが成功するか失敗するかといおった違いに現れます。"
 
 #. (para)
 msgid ""
@@ -8577,8 +8606,13 @@ msgid ""
 msgstr "<literal>/</literal> で始まる URL は URL のスキーム部とホスト名部をコピーします。以下に例を挙げます。<screen>\n/svn/repos-1/widgets/foo  common/foo-widget\n</screen>これは <filename>C:\\Working\\common\\foo-widget</filename> に <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> を抽出します。しかし、<systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> というように別のサーバーから作業コピーをチェックアウトすると、外部参照は <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem> を抽出します。"
 
 #. (para)
-msgid "You can also specify a peg revision for the URL if required."
-msgstr "また、必要に応じて、URLのペグリビジョンを指定することができます。"
+msgid ""
+"You can also specify a peg and operative revision for the URL if required. "
+"To learn more about peg and operative revisions, please read the <ulink "
+"url=\"http://svnbook.red-"
+"bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
+"chapter</citetitle></ulink> in the Subversion book."
+msgstr "必要に応じて、URLに対してペグリビジョンや操作対象リビジョンを設定することができます。ペグリビジョンや操作対象リビジョンについて詳しいことは、 Subversion book の <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding chapter</citetitle></ulink> をご覧ください。"
 
 #. (para)
 msgid ""
@@ -8692,6 +8726,39 @@ msgid ""
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr "新しいブランチのコピー先 URL のデフォルトは、作業コピーの基準になったコピー元 URL になっています。ブランチ/タグの URL を新しいパスに変更してください。つまり、<screen>\n    http://svn.collab.net/repos/ProjectName/trunk\n</screen> の代わりに、<screen>\n    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n</screen> のようにするということです。前回使用した命名規則を思い出せなければ、右にあるボタンをクリックすれば、リポジトリブラウザーが開かれ、既存のリポジトリの構造を確認することができます。"
+
+#. (title)
+msgid "intermediate folders"
+msgstr "中間フォルダー"
+
+#. (para)
+msgid ""
+"When you specify the target URL, all the folders up to the last one must "
+"already exist or you will get an error message. In the above example, the "
+"URL <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> must "
+"exist to create the <literal>Release_1.10</literal> tag."
+msgstr "ターゲットURLを特定するとき、末端のフォルダーまですべてが存在していなければならず、存在しなければエラーメッセージが表示されます。上記の例の場合、<literal>http://svn.collab.net/repos/ProjectName/tags/</literal>というURLに対応するフォルダーが存在しなければ、<literal>Release_1.10</literal>というタグを作成することができません。"
+
+#. (para)
+msgid ""
+"However if you want to create a branch/tag to an URL that has intermediate "
+"folders that don't exist yet you can check the option <option>Create "
+"intermediate folders</option> at the bottom of the dialog. If that option is"
+" activated, all intermediate folders are automatically created."
+msgstr "まだ中間フォルダーが存在しないURLのブランチやタグを作成したいのであれば、ダイアログ下部の<option>中間フォルダーを作成</option>をチェックしてください。このオプションが有効な場合、すべての中間フォルダーが自動的に作成されます。"
+
+#. (para)
+msgid ""
+"Note that this option is disabled by default to avoid typos. For example, if"
+" you typed the target URL as "
+"<literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal>"
+" instead of "
+"<literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal>,"
+" you would get an error with the option disabled, but with the option "
+"enabled a folder <literal>Tags</literal> would be automatically created, and"
+" you would end up with a folder <literal>Tags</literal> and a folder "
+"<literal>tags</literal>."
+msgstr "なお、入力ミスの影響を防ぐため、このオプションはデフォルトで無効になっています。例えば、<literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal>というURLを間違えて<literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal>と入力した場合、このオプションが無効であればエラーが表示されますが、このオプションが有効であれば<literal>Tags</literal>というフォルダーが自動的に作成され、<literal>Tags</literal>と<literal>tags</literal>の両方のフォルダーができてしまう結果になります。"
 
 #. (term)
 #. (listitem)
@@ -9083,7 +9150,16 @@ msgid ""
 "the repository and find the desired branch. If you have merged from this "
 "branch before, then just use the drop down list which shows a history of "
 "previously used URLs."
-msgstr "<placeholder-1/> <guilabel>マージ元のURL</guilabel> 欄には、作業コピーに取り込みたい変更があるブランチやタグのフォルダーの URL をすべて入力してください。<guibutton>...</guibutton> をクリックしてリポジトリを閲覧し望みのブランチを探すこともできます。このブランチから以前マージしていれば、以前に使用した URL の履歴のドロップダウンリストを使うだけです。"
+msgstr "<placeholder-1/> <guilabel>マージ元のURL</guilabel> 欄には、作業コピーに取り込みたい変更があるブランチやタグのフォルダーの URL をすべて入力してください。<guibutton>...</guibutton> をクリックしてリポジトリを閲覧し望みのブランチを探すこともできます。以前このブランチからマージしたことがあるのであれば、以前使用されたURLの履歴のドロップダウンリストから選択するだけです。"
+
+#. (para)
+msgid ""
+"If you are merging from a renamed or deleted branch then you will have to go"
+" back to a revision where that branch still existed. In this case you will "
+"also need to specify that revision as a peg revision in the range of "
+"revisions being merged (see below), otherwise the merge will fail when it "
+"can't find that path at HEAD."
+msgstr "名前が変更されたり削除されたりしたブランチからマージしようとする場合は、そのブランチが存在したリビジョンに戻らなければなりません。このような場合、マージする範囲のリビジョン（下記）をペグリビジョンで指定しないと、HEADリビジョンのパスが見つけられずにマージが失敗します。"
 
 #. (para)
 msgid ""
@@ -9689,6 +9765,44 @@ msgid ""
 "are using <literal>file://</literal> access, then of course only your client"
 " needs to be updated."
 msgstr "第一に Subversion サーバーをバージョン 1.2 以降に確実にアップグレードする必要があります。それ以前のバージョンでは、ロックを全くサポートしていません。<literal>file://</literal> アクセスを使用するなら、もちろんクライアントの方を更新する必要があります。"
+
+#. (title)
+msgid "The Three Meanings of <quote>Lock</quote>"
+msgstr "<quote>ロック</quote>の３つの意味"
+
+#. (para)
+msgid ""
+"In this section, and almost everywhere in this book, the words "
+"<quote>lock</quote> and <quote>locking</quote> describe a mechanism for "
+"mutual exclusion between users to avoid clashing commits. Unfortunately, "
+"there are two other sorts of <quote>lock</quote> with which Subversion, and "
+"therefore this book, sometimes needs to be concerned."
+msgstr "この節をはじめ、この文書の多くの場所では、<quote>ロック</quote>や<quote>ロックする</quote>という語は、コミットを壊さないためにユーザー間で排他処理を行うことを指しています。しかし、Subversionではさらに２つの<quote>ロック</quote>という用語が使われているため、この文書でも注意しなければならない場合があります。"
+
+#. (para)
+msgid ""
+"The second is <literal>working copy locks</literal>, used internally by "
+"Subversion to prevent clashes between multiple Subversion clients operating "
+"on the same working copy. Usually you get these locks whenever a command "
+"like update/commit/... is interrupted due to an error. These locks can be "
+"removed by running the cleanup command on the working copy, as described in "
+"<xref linkend=\"tsvn-dug-cleanup\"/>."
+msgstr "２番目の意味は<literal>作業コピーのロック</literal>で、Subverionでは、もともと同じ作業コピーを扱う複数のSubversionクライアント間での破壊を防ぐためのものです。通常この意味でのロック状態になるのは、更新やコミットなどのコマンドがエラーで中断された場合です。この意味でのロックは、作業コピーに対してクリーンアップコマンドを実行すると解消できます。詳しくは<xref linkend=\"tsvn-dug-cleanup\"/>をご覧ください。"
+
+#. (para)
+msgid ""
+"And third, files and folders can get locked if they're in use by another "
+"process, for example if you have a word document opened in Word, that file "
+"is locked and can not be accessed by TortoiseSVN."
+msgstr "３番目の意味は、ファイルやフォルダーが他のプロセスから使用中のためにロックされている状態で、例えばWordで文書を開いているとき、ファイルはロックされTortoiseSVNからアクセスできません。"
+
+#. (para)
+msgid ""
+"You can generally forget about these other kinds of locks until something "
+"goes wrong that requires you to care about them. In this book, "
+"<quote>lock</quote> means the first sort unless the contrary is either clear"
+" from context or explicitly stated."
+msgstr "何か対処しなければならない問題が発生したとき、３種類のロックがあることを忘れがちです。この文書では<quote>ロック</quote>という用語を、文脈から明らかであるか、特に明記されていない限り、最初の意味で使用しています。"
 
 #. (title)
 msgid "How Locking Works in Subversion"
@@ -11160,15 +11274,15 @@ msgstr "バージョン管理外の「作業コピー」"
 
 #. (para)
 msgid ""
-"Sometimes you may want a copy of your working tree without any of those "
-"<filename>.svn</filename> directories, e.g. to create a zipped tarball of "
-"your source, or to export to a web server. Instead of making a copy and then"
-" deleting all those <filename>.svn</filename> directories manually, "
-"TortoiseSVN offers the command "
+"Sometimes you may want a clean copy of your working tree without the "
+"<filename>.svn</filename> directory, e.g. to create a zipped tarball of your"
+" source, or to export to a web server. Instead of making a copy and then "
+"deleting the <filename>.svn</filename> directory manually, TortoiseSVN "
+"offers the command "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>."
 " Exporting from a URL and exporting from a working copy are treated slightly"
 " differently."
-msgstr "時には <filename>.svn</filename> ディレクトリを除いてコピーすることもあるかもしれません。圧縮したソースの tarball を作成するときや、web サーバーにエクスポートするときなどです。コピーを作成し、<filename>.svn</filename> ディレクトリを全て手作業で削除するのではなく、TortoiseSVN では <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>エクスポート...</guimenuitem></menuchoice> コマンドを用意しています。URL からのエクスポートと作業コピーからのエクスポートは多少異なります。"
+msgstr "<filename>.svn</filename> ディレクトリのない、作業ツリーのまっさらなコピーが欲しい場合があります。ソースの圧縮アーカイブを作成するときや、WEBサーバーにエクスポートするときなどです。コピーを作成してから<filename>.svn</filename> ディレクトリを手作業で削除する代わりに、TortoiseSVNでは<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>エクスポート...</guimenuitem></menuchoice> コマンドを用意しています。URLからのエクスポートと作業コピーからのエクスポートは多少異なります。"
 
 #. (title)
 msgid "The Export-from-URL Dialog"
@@ -11197,7 +11311,7 @@ msgstr "またもちろん、リポジトリから直接エクスポートもで
 msgid ""
 "If you execute this command on your working copy you'll be asked for a place"
 " to save the <emphasis>clean</emphasis> working copy without the "
-"<filename>.svn</filename> folders. By default, only the versioned files are "
+"<filename>.svn</filename> folder. By default, only the versioned files are "
 "exported, but you can use the <guilabel>Export unversioned files "
 "too</guilabel> checkbox to include any other unversioned files which exist "
 "in your WC and not in the repository. External references using "
@@ -11208,11 +11322,15 @@ msgstr "作業コピーでこのコマンドを実行すると、<filename>.svn<
 msgid ""
 "Another way to export from a working copy is to <action>right drag</action> "
 "the working copy folder to another location and choose "
-"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export versioned"
+" items here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>SVN Export all items "
 "here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
-"Menu</guimenu><guimenuitem>SVN Export all here</guimenuitem></menuchoice>. "
-"The second option includes the unversioned files as well."
-msgstr "その他、作業コピーからエクスポートするには、作業コピーのフォルダーを別の場所に <action>右ドラッグ</action> し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN ここにエクスポート</guimenuitem></menuchoice> や <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN すべてをここにエクスポート</guimenuitem></menuchoice> を選んでもできます。後者は、バージョン管理外のファイルもエクスポートします。"
+"Menu</guimenu><guimenuitem>SVN Export changed items "
+"here</guimenuitem></menuchoice>. The second option includes the unversioned "
+"files as well. The third option exports only modified items, but maintains "
+"the folder structure."
+msgstr "他にも、作業コピーのフォルダーを別の場所に<action>右ドラッグ</action>し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN バージョン管理下の項目をここにエクスポート</guimenuitem></menuchoice>、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN すべての項目をここにエクスポート</guimenuitem></menuchoice>、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN 変更された項目をここにエクスポート</guimenuitem></menuchoice>を選んでも、作業コピーからエクスポートすることができます。２番目はバージョン管理されていないファイルも含みます。３番目はフォルダ構造の中で、変更された項目のみをエクスポートします。"
 
 #. (para)
 msgid ""
@@ -11253,6 +11371,13 @@ msgid ""
 "=\"tsvn-dug-compare-revs\"/>."
 msgstr "プロジェクトツリー構造のコピーをエクスポートしたいのに、特定のリビジョンやふたつのリビジョン間にしかないファイルのみを含めたい場合、 <xref linkend=\"tsvn-dug-compare-revs\"/> で説明する、リビジョン比較機構を使用してください。"
 
+#. (para)
+msgid ""
+"If you want to export your working copy tree structure but containing only "
+"the files which are locally modified, refer to <guilabel>SVN Export changed "
+"items here</guilabel> above."
+msgstr "作業コピーのツリー構造の中で、ローカルで変更されたファイルのみをエクスポートしたい場合は、前述の<guilabel>SVN 変更された項目をここにエクスポート</guilabel>を参照してください。"
+
 #. (title)
 msgid "Removing a working copy from version control"
 msgstr "作業コピーをバージョン管理外へ"
@@ -11265,18 +11390,19 @@ msgstr "バージョン管理外"
 #. (para)
 msgid ""
 "Sometimes you have a working copy which you want to convert back to a normal"
-" folder without the <literal>.svn</literal> directories. What you really "
-"need is an export-in-place command, that just removes the control "
-"directories rather than generating a new clean directory tree."
-msgstr "時には作業コピーから <literal>.svn</literal> ディレクトリを削除し、通常のフォルダーに戻したい場合もあることと思います。本当に必要としているのは、新しくまっさらなディレクトリツリーを生成するのではなく、コントロールディレクトリを削除するだけの、その場でエクスポートコマンドです。"
+" folder without the <literal>.svn</literal> directory. All you need to do is"
+" delete the <literal>.svn</literal> directory from the working copy root."
+msgstr "作業コピーを<literal>.svn</literal>ディレクトリがない通常のフォルダーにしたい場合は、作業コピーのルートにある<literal>.svn</literal>ディレクトリを削除するだけです。"
 
 #. (para)
 msgid ""
-"The answer is surprisingly simple - export the folder to itself! TortoiseSVN"
-" detects this special case and asks if you want to make the working copy "
-"unversioned. If you answer <emphasis>yes</emphasis> the control directories "
-"will be removed and you will have a plain, unversioned directory tree."
-msgstr "答は驚くほど単純です。フォルダーを自身にエクスポートしてください! TortoiseSVN はこの特殊なケースを検出し、作業コピーをバージョン管理下から外すかどうかを聞いてきます。<emphasis>はい</emphasis> と答えると、コントロールディレクトリを削除し、まっさらなバージョン管理されていないディレクトリになります。"
+"Alternatively you can export the folder to itself. In Windows Explorer right"
+" drag the working copy root folder from the file pane onto itself in the "
+"folder pane. TortoiseSVN detects this special case and asks if you want to "
+"make the working copy unversioned. If you answer <emphasis>yes</emphasis> "
+"the control directory will be removed and you will have a plain, unversioned"
+" directory tree."
+msgstr "それ以外にも、作業コピーのフォルダー自身にエクスポートする方法もあります。Windowsエクスプローラーで、ファイルペインにある作業コピーのルートフォルダーを、フォルダーペインの同じフォルダーに右ドラッグしてください。TortoiseSVNはこの特殊なケースを検出し、作業コピーをバージョン管理下から外すかどうかを聞いてきます。<emphasis>はい</emphasis> と答えると、コントロールディレクトリを削除し、まっさらなバージョン管理されていないディレクトリになります。"
 
 #. (title)
 msgid "Relocating a working copy"
@@ -11731,11 +11857,11 @@ msgstr "同じ理由で、プロジェクトのプロパティは、リポジト
 msgid ""
 "This issue tracker integration is not restricted to TortoiseSVN; it can be "
 "used with any Subversion client. For more information, read the full <ulink "
-"url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue"
+"url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue"
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr "この課題追跡システムとの統合は、 TortoiseSVN に限定されたものではなく、どの Subversion クライアントでも共通で使用できます。これについての詳細は、TortoiseSVN のソースリポジトリにある、<ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink>の全文をお読みください（リポジトリへのアクセスのしかたは、 <xref linkend=\"tsvn-preface-source\"/>で説明します）。"
+msgstr "この課題追跡システムとの統合は、 TortoiseSVN に限定されたものではなく、どの Subversion クライアントでも共通で使用できます。これについての詳細は、TortoiseSVN のソースリポジトリにある、<ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink>の全文をお読みください（リポジトリへのアクセスのしかたは、 <xref linkend=\"tsvn-preface-source\"/>で説明します）。"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -13965,6 +14091,14 @@ msgstr "クライアントフックスクリプトのサンプルは、 <ulink u
 
 #. (para)
 msgid ""
+"When debugging hook scripts you may want to echo progress lines to the DOS console, or insert a pause to stop the console window disappearing when the script completes. Because I/O is redirected this will not normally work. However you can redirect input and output explicitly to CON to overcome this. e.g. <screen>\n"
+"echo Checking Status &gt; con\n"
+"pause &lt; con &gt; con\n"
+"</screen>"
+msgstr "フックスクリプトをデバッグするとき、DOSコンソールに実行中の行を表示したり、スクリプトが実行完了したときにウィンドウが閉じるのを防ぐためにpauseを挿入したりしたくなったりすることがあるでしょう。入出力がリダイレクトされているため、これは正しく動作しません。しかし、入出力を明示的にCONにリダイレクトすることはできます。例えば、<screen>\necho Checking Status &gt; con\npause &lt; con &gt; con\n</screen>"
+
+#. (para)
+msgid ""
 "A small tool is included in the TortoiseSVN installation folder named "
 "<literal>ConnectVPN.exe</literal>. You can use this tool configured as a "
 "pre-connect hook to connect automatically to your VPN before TortoiseSVN "
@@ -15824,11 +15958,9 @@ msgstr "リビジョンログダイアログの使用"
 
 #. (para)
 msgid ""
-"The easiest way to revert the changes from a single revision, or from a "
-"range of revisions, is to use the revision log dialog. This is also the "
-"method to use of you want to discard recent changes and make an earlier "
-"revision the new HEAD."
-msgstr "ひとつのリビジョンやリビジョンの範囲から、変更を取り消す簡単な方法は、リビジョンログダイアログを使用することです。最近の変更を破棄して以前のリビジョンを HEAD リビジョンにするのもこの方法が使用します。"
+"By far the easiest way to revert the changes from one or more revisions, is "
+"to use the revision log dialog."
+msgstr "いくつかのリビジョンでの変更を取り消す場合、断然簡単なのはリビジョンログダイアログを使用する方法です。"
 
 #. (para)
 msgid ""
@@ -15842,18 +15974,18 @@ msgid ""
 "Log</guimenuitem></menuchoice> to display a list of revisions. You may need "
 "to use <guibutton>Show All</guibutton> or <guibutton>Next 100</guibutton> to"
 " show the revision(s) you are interested in."
-msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ログを表示</guimenuitem></menuchoice> を選択してリビジョン一覧を表示します。参照したいリビジョンを表示するのに <guibutton>すべて取得</guibutton> や <guibutton>次の100件</guibutton> を使用する必要があるでしょう。"
+msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>ログを表示</guimenuitem></menuchoice> を選択してリビジョン一覧を表示します。参照したいリビジョンを表示させるために、必要に応じて<guibutton>すべて取得</guibutton>や<guibutton>次の100件</guibutton>を使用してください。"
 
 #. (para)
 msgid ""
 "Select the revision you wish to revert. If you want to undo a range of "
 "revisions, select the first one and hold the <keycap>Shift</keycap> key "
-"while selecting the last one. Note that for multiple revisions, the range "
-"must be unbroken with no gaps. <action>Right click</action> on the selected "
-"revision(s), then select <menuchoice><guimenu>Context "
-"Menu</guimenu><guimenuitem>Revert changes from this "
-"revision</guimenuitem></menuchoice>."
-msgstr "変更を取り消したいリビジョンを選択してください。リビジョン範囲を取り消すのなら、最初のものを選択してから、<keycap>Shift</keycap> キーを押したまま最後のものを選択してください。複数のリビジョンを選択する際、選択状態にすき間があってはなりません。選択したリビジョンで  <action>右クリック</action> し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>このリビジョンにおける変更を取り消す</guimenuitem></menuchoice> を選択してください。"
+"while selecting the last one. If you want to pick out individual revisions "
+"and ranges, use the <keycap>Ctrl</keycap> key while selecting revisions. "
+"<action>Right click</action> on the selected revision(s), then select "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from "
+"this revision</guimenuitem></menuchoice>."
+msgstr "変更を取り消したいリビジョンを選択してください。リビジョン範囲を取り消すのなら、最初のものを選択してから、<keycap>Shift</keycap> キーを押したまま最後のものを選択してください。複数のリビジョンやその範囲を選択する場合は、<keycap>Ctrl</keycap>キーを押しながらリビジョンを選択してください。選択したリビジョンで<action>右クリック</action>し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>このリビジョンにおける変更を取り消す</guimenuitem></menuchoice> を選択してください。"
 
 #. (para)
 msgid ""
@@ -15864,7 +15996,6 @@ msgid ""
 "<emphasis>all</emphasis> changes after the selected revision."
 msgstr "もしくは、もっと古いリビジョンを HEAD リビジョンにしたい場合は、選択したリビジョンの上で <action>右クリック</action> し、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>このリビジョンに戻す</guimenuitem></menuchoice> を選択してください。これにより、選択したリビジョン以降の変更が<emphasis>すべて</emphasis>取り消されます。"
 
-#. (para)
 #. (para)
 msgid ""
 "You have reverted the changes within your working copy. Check the results, "
@@ -15877,10 +16008,10 @@ msgstr "マージダイアログの使用"
 
 #. (para)
 msgid ""
-"To undo a larger range of revisions, you can use the Merge dialog. The "
-"previous method uses merging behind the scenes; this method uses it "
-"explicitly."
-msgstr "広い範囲のリビジョンを取り消したい場合、マージダイアログも使用できます。前の方法は裏でマージしていましたが、この方法では、明示的に使用します。"
+"If you want to enter revision numbers as a list, you can use the Merge "
+"dialog. The previous method uses merging behind the scenes; this method uses"
+" it explicitly."
+msgstr "リビジョン番号のリストを入力して指定する場合、マージダイアログを使用することもできます。前の方法では暗黙にマージが使用されましたが、この方法では明示的にマージを使用します。"
 
 #. (para)
 msgid ""
@@ -15890,32 +16021,40 @@ msgstr "作業コピーで <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuite
 
 #. (para)
 msgid ""
-"In the <guilabel>From:</guilabel> field enter the full folder URL of the "
-"branch or tag containing the changes you want to revert in your working "
-"copy. This should come up as the default URL."
-msgstr "<guilabel>元:</guilabel> フィールドに、作業コピーで取り消したい変更のあるブランチやタグの完全なフォルダーの URL を入力してください。デフォルトの URL が入力されているはずです。"
+"In the <guilabel>Merge Type</guilabel> dialog select <guilabel>Merge a range"
+" of revisions</guilabel>."
+msgstr "<guilabel>マージタイプ</guilabel>ダイアログの中で、<guilabel>リビジョンの範囲をマージ</guilabel>を選択してください。"
 
 #. (para)
 msgid ""
-"In the <guilabel>From Revision</guilabel> field enter the revision number "
-"that you are currently at. If you are sure there is no-one else making "
-"changes, you can use the HEAD revision."
-msgstr "<guilabel>元リビジョン</guilabel> フィールドに現在のリビジョン番号を入力してください。他の誰も変更を加えていないことが確認できている場合、 HEAD リビジョンを指定できます。"
-
-#. (para)
-msgid "make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
-msgstr "<guilabel>\"元:\" URL を使用する</guilabel> チェックボックスにチェックが着いていることを確認してください。"
+"In the <guilabel>From:</guilabel> field enter the full repository URL of "
+"your working copy folder. This should come up as the default URL."
+msgstr "<guilabel>マージ元のURL</guilabel>フィールドに、作業コピーのフォルダーに対応するリポジトリの完全なURLを入力してください。デフォルトでURLが入力されているはずです。"
 
 #. (para)
 msgid ""
-"In the <guilabel>To Revision</guilabel> field enter the revision number that"
-" you want to revert to, namely the one <emphasis>before</emphasis> the first"
-" revision to be reverted."
-msgstr "<guilabel>先リビジョン</guilabel>フィールドに戻す先のリビジョン番号を入力してください。すなわち、戻す先頭のリビジョンの<emphasis>前</emphasis>のものです。"
+"In the <guilabel>Revision range to merge</guilabel> field enter the list of "
+"revisions to roll back (or use the log dialog to select them as described "
+"above)."
+msgstr "<guilabel>マージするリビジョンの範囲</guilabel>フィールドに、変更を取り消したいリビジョン番号のリストを入力してください（または、上記の方法と同様にログダイアログを使用して選択してください）。"
 
 #. (para)
-msgid "Click <guibutton>OK</guibutton> to complete the merge."
-msgstr "マージを完了するには <guibutton>OK</guibutton> をクリックしてください"
+msgid "Make sure the <guilabel>Reverse merge</guilabel> checkbox is checked."
+msgstr "<guilabel>逆マージ</guilabel>チェックボックスがチェックされていることを確認してください。"
+
+#. (para)
+msgid "In the <guilabel>Merge options</guilabel> dialog accept the defaults."
+msgstr "<guilabel>マージオプション</guilabel>ダイアログはデフォルトのままにしてください。"
+
+#. (para)
+msgid "Click <guibutton>Merge</guibutton> to complete the merge."
+msgstr "<guibutton>マージ</guibutton>をクリックするとマージを完了します。"
+
+#. (para)
+msgid ""
+"You have reverted the changes within your working copy. Check that the "
+"results are as expected, then commit the changes."
+msgstr "作業コピー内の変更が取り消されました。結果が期待通りかどうかを確認し、変更をコミットしてください。"
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"
@@ -15940,7 +16079,7 @@ msgid ""
 " how this works in the <ulink url=\"http://svnbook.red-"
 "bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Repository "
 "Maintenance</citetitle></ulink>."
-msgstr "リポジトリからデータを削除する唯一の方法は、Subversion コマンドラインツールの <literal>svnadmin</literal> を使うことです。この実行方法の説明は、<ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink> にあります。(訳注: 日本語訳は <ulink url=\"http://subversion.bluegate.org/doc/ch05s03.html#svn.reposadmin.maint.tk.svndumpfilter\"><citetitle>Subversion によるバージョン管理</citetitle></ulink> にあります)"
+msgstr "リポジトリからデータを削除する唯一の方法は、Subversion コマンドラインツールの <literal>svnadmin</literal> を使うことです。この実行方法の説明は、<ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.reposadmin.maint.html\"><citetitle>Repository Maintenance</citetitle></ulink> にあります。"
 
 #. (title)
 msgid "Compare two revisions of a file or folder"

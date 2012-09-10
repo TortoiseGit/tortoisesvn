@@ -16,14 +16,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-10 08:34+0000\n"
+"PO-Revision-Date: 2012-09-09 08:28+0000\n"
 "Last-Translator: Khoa Dang <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. (title)
 #. (secondary)
@@ -2931,6 +2931,14 @@ msgstr "Kiểm xu"
 msgid "create working copy"
 msgstr "tạo ra bản sao làm việc"
 
+#. (primary)
+msgid "sparse checkout"
+msgstr ""
+
+#. (primary)
+msgid "partial checkout"
+msgstr ""
+
 #. (para)
 msgid ""
 "To obtain a working copy you need to do a <firstterm>checkout</firstterm> "
@@ -3041,20 +3049,41 @@ msgstr "Để dễ dàng lựa chọn các chỉ mục mà bạn muốn cho ki�
 msgid ""
 "If you check out a sparse working copy (i.e., by choosing something other "
 "than <literal>fully recursive</literal> for the checkout depth), you can "
-"fetch additional sub-folders later by using the repository browser (<xref "
-"linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog "
-"(<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
-msgstr "Nếu bạn hãy kiểm xuất một bản sao làm việc thưa thớt (tức là, bằng cách chọn cái gì khác hơn <literal> đệ quy đầy đủ </literal> cho độ sâu kiểm xuất), bạn có thể lấy thêm các thư mục sau bằng cách sử dụng trình duyệt kho ( <xref linkend=\"tsvn-dug-repobrowser\"/> ) hoặc hộp thoại kiểm tra cho sửa đổi ( <xref linkend=\"tsvn-dug-wcstatus-2\"/> )."
+"easily add or remove sub-folders later using one of the following methods."
+msgstr ""
+
+#. (title)
+msgid "Sparse Update using Update to Revision"
+msgstr ""
 
 #. (para)
 msgid ""
-"In windows explorer, <action>Right click</action> on the checked out folder,"
-" then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-"
+"<action>Right click</action> on the checked out folder, then use "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to "
+"Revision</guimenuitem></menuchoice> and select <guibutton>Choose "
+"items...</guibutton>. This opens the same dialog that was available in the "
+"original checkout and allows you to select or deselect items to include in "
+"the checkout. This method is very flexible but can be slow as every item in "
+"the folder is updated individually."
+msgstr ""
+
+#. (title)
+msgid "Sparse Update using Repo Browser"
+msgstr ""
+
+#. (para)
+msgid ""
+"<action>Right click</action> on the checked out folder, then use "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-"
 "Browser</guimenuitem></menuchoice> to bring up the repository browser. Find "
 "the sub-folder you would like to add to your working copy, then use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
-msgstr "Trong windows explorer, <action> Nhấp chuột phải </action> vào thư mục được kiểm xuất, sau đó sử dụng <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Trình Duyệt Repo </guimenuitem></menuchoice> để đưa lên trình duyệt kho. Tìm thư mục con bạn muốn thêm vào bản sao làm việc của bạn, sau đó sử dụng <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Cập nhật mục đến bản sửa đổi ... </guimenuitem></menuchoice> ."
+msgstr ""
+
+#. (title)
+msgid "Sparse Update using Check for Modifications"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8178,7 +8207,7 @@ msgstr "Bạn cần phải xác định tên của thư mục con mà thư mục
 #. (para)
 msgid ""
 "The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
-"revision of every external url and shows that HEAD revision in the rightmost"
+"revision of every external URL and shows that HEAD revision in the rightmost"
 " column. After the HEAD revision is known, a simple right click on an "
 "external gives you the command to peg the selected externals to their "
 "explicit HEAD revision. In case the HEAD revision is not known yet, the "
@@ -8328,8 +8357,8 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Like <literal>{revisions}</literal>, but with each revision preceeded with "
-"an <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
+"Like <literal>{revisions}</literal>, but with each revision preceded with an"
+" <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
 msgstr ""
 
 #. (para)
@@ -8340,7 +8369,7 @@ msgstr ""
 
 #. (para)
 msgid ""
-"The source url of the merge, i.e., where the revisions are merged from."
+"The source URL of the merge, i.e., where the revisions are merged from."
 msgstr ""
 
 #. (para)
@@ -8575,8 +8604,13 @@ msgid ""
 msgstr "Các URL bắt đầu với chuỗi <literal>/</literal> sao chép giản dồ và một phần tên chủ của URL, ví dụ: <screen>\n/svn/repos-1/widgets/foo  common/foo-widget\n</screen> Điều này sẽ trích <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> vào <filename>C:\\Working\\common\\foo-widget</filename>. Nhưng nếu bạn kiểm xuất bản sao của bạn làm việc từ một máy chủ khác tại <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem> thì các tham chiếu bên ngoài sẽ trích xuất <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 
 #. (para)
-msgid "You can also specify a peg revision for the URL if required."
-msgstr "Bạn cũng có thể chỉ định một phiên bản peg cho URL nếu cần thiết."
+msgid ""
+"You can also specify a peg and operative revision for the URL if required. "
+"To learn more about peg and operative revisions, please read the <ulink "
+"url=\"http://svnbook.red-"
+"bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
+"chapter</citetitle></ulink> in the Subversion book."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8690,6 +8724,39 @@ msgid ""
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr "URL đích mặc định cho chi nhánh mới sẽ là URL nguồn mà trên đó bản sao làm việc của bạn được dựa trên. Bạn sẽ cần phải chỉnh sửa URL đến đường dẫn mới cho chi nhánh / thẻ của bạn. Vì thế thay vì <screen>\n    http://svn.collab.net/repos/ProjectName/trunk\n</screen> bây giờ bạn có thể sử dụng một cái gì đó như <screen>\n    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n</screen> Nếu bạn không thể nhớ quy ước đặt tên bạn sử dụng lần cuối, nhấn vào nút bên phải để mở trình duyệt kho lưu trữ để bạn có thể xem cấu trúc kho lưu trữ hiện có."
+
+#. (title)
+msgid "intermediate folders"
+msgstr ""
+
+#. (para)
+msgid ""
+"When you specify the target URL, all the folders up to the last one must "
+"already exist or you will get an error message. In the above example, the "
+"URL <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> must "
+"exist to create the <literal>Release_1.10</literal> tag."
+msgstr ""
+
+#. (para)
+msgid ""
+"However if you want to create a branch/tag to an URL that has intermediate "
+"folders that don't exist yet you can check the option <option>Create "
+"intermediate folders</option> at the bottom of the dialog. If that option is"
+" activated, all intermediate folders are automatically created."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note that this option is disabled by default to avoid typos. For example, if"
+" you typed the target URL as "
+"<literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal>"
+" instead of "
+"<literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal>,"
+" you would get an error with the option disabled, but with the option "
+"enabled a folder <literal>Tags</literal> would be automatically created, and"
+" you would end up with a folder <literal>Tags</literal> and a folder "
+"<literal>tags</literal>."
+msgstr ""
 
 #. (term)
 #. (listitem)
@@ -9082,6 +9149,15 @@ msgid ""
 "branch before, then just use the drop down list which shows a history of "
 "previously used URLs."
 msgstr "<placeholder-1/> Trong mục <guilabel> Từ: </guilabel> nhập vào URL thư mục đầy đủ của chi nhánh hoặc thẻ có chứa các thay đổi mà bạn đưa đến bản sao làm việc của bạn. Bạn cũng có thể nhấp chuột vào <guibutton> ... </guibutton> để duyệt qua các kho lưu trữ và tìm những chi nhánh mong muốn. Nếu bạn đã sáp nhập từ chi nhánh này trước đó, thì chỉ cần sử dụng danh sách thả xuống cho thấy một lịch sử của các URL được sử dụng trước đó."
+
+#. (para)
+msgid ""
+"If you are merging from a renamed or deleted branch then you will have to go"
+" back to a revision where that branch still existed. In this case you will "
+"also need to specify that revision as a peg revision in the range of "
+"revisions being merged (see below), otherwise the merge will fail when it "
+"can't find that path at HEAD."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9687,6 +9763,44 @@ msgid ""
 "are using <literal>file://</literal> access, then of course only your client"
 " needs to be updated."
 msgstr "Trước hết bạn cần đảm bảo rằng máy chủ Subversion của bạn được nâng cấp lên phiên bản 1.2. Phiên bản trước đó hoàn toàn không hỗ trợ khóa. Nếu bạn đang sử dụng truy cập <literal> file:// </literal>, thì tất nhiên máy khách của bạn cần được cập nhật."
+
+#. (title)
+msgid "The Three Meanings of <quote>Lock</quote>"
+msgstr ""
+
+#. (para)
+msgid ""
+"In this section, and almost everywhere in this book, the words "
+"<quote>lock</quote> and <quote>locking</quote> describe a mechanism for "
+"mutual exclusion between users to avoid clashing commits. Unfortunately, "
+"there are two other sorts of <quote>lock</quote> with which Subversion, and "
+"therefore this book, sometimes needs to be concerned."
+msgstr ""
+
+#. (para)
+msgid ""
+"The second is <literal>working copy locks</literal>, used internally by "
+"Subversion to prevent clashes between multiple Subversion clients operating "
+"on the same working copy. Usually you get these locks whenever a command "
+"like update/commit/... is interrupted due to an error. These locks can be "
+"removed by running the cleanup command on the working copy, as described in "
+"<xref linkend=\"tsvn-dug-cleanup\"/>."
+msgstr ""
+
+#. (para)
+msgid ""
+"And third, files and folders can get locked if they're in use by another "
+"process, for example if you have a word document opened in Word, that file "
+"is locked and can not be accessed by TortoiseSVN."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can generally forget about these other kinds of locks until something "
+"goes wrong that requires you to care about them. In this book, "
+"<quote>lock</quote> means the first sort unless the contrary is either clear"
+" from context or explicitly stated."
+msgstr ""
 
 #. (title)
 msgid "How Locking Works in Subversion"
@@ -11158,15 +11272,15 @@ msgstr "bản sao làm việc chưa phiên b"
 
 #. (para)
 msgid ""
-"Sometimes you may want a copy of your working tree without any of those "
-"<filename>.svn</filename> directories, e.g. to create a zipped tarball of "
-"your source, or to export to a web server. Instead of making a copy and then"
-" deleting all those <filename>.svn</filename> directories manually, "
-"TortoiseSVN offers the command "
+"Sometimes you may want a clean copy of your working tree without the "
+"<filename>.svn</filename> directory, e.g. to create a zipped tarball of your"
+" source, or to export to a web server. Instead of making a copy and then "
+"deleting the <filename>.svn</filename> directory manually, TortoiseSVN "
+"offers the command "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>."
 " Exporting from a URL and exporting from a working copy are treated slightly"
 " differently."
-msgstr "Đôi khi bạn có thể muốn có một bản sao của cây làm việc của bạn mà không có bất kỳ của những thư mục <filename> .svn </filename>, ví dụ như để tạo ra một tarball nén của nguồn của bạn, hoặc để xuất khẩu sang một máy chủ web. Thay vì làm một bản sao và sau đó xóa tất cả những thư mục <filename> .svn </filename> này bằng tay, TortoiseSVN cung cấp các lệnh <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Xuất khẩu ... </guimenuitem></menuchoice> . Xuất khẩu từ một URL và xuất khẩu từ một bản sao làm việc được đối xử hơi khác nhau."
+msgstr ""
 
 #. (title)
 msgid "The Export-from-URL Dialog"
@@ -11195,22 +11309,26 @@ msgstr "Tất nhiên bạn có thể xuất khẩu trực tiếp từ kho lưu t
 msgid ""
 "If you execute this command on your working copy you'll be asked for a place"
 " to save the <emphasis>clean</emphasis> working copy without the "
-"<filename>.svn</filename> folders. By default, only the versioned files are "
+"<filename>.svn</filename> folder. By default, only the versioned files are "
 "exported, but you can use the <guilabel>Export unversioned files "
 "too</guilabel> checkbox to include any other unversioned files which exist "
 "in your WC and not in the repository. External references using "
 "<literal>svn:externals</literal> can be omitted if required."
-msgstr "Nếu bạn thực hiện lệnh này trên bản sao làm việc của bạn, bạn sẽ được yêu cầu cho một nơi để lưu các bản sao làm việc <emphasis> sạch </emphasis> mà không có các thư mục <filename> .svn </filename>. Theo mặc định, chỉ các tập tin có phiên bản là được xuất khẩu, nhưng bạn có thể sử dụng hộp kiểm <guilabel> Xuất khẩu cả các tập tin không phiên bản</guilabel> để bao gồm bất kỳ tập tin không phiên bản khác tồn tại trong WC của bạn và không có trong kho. Các tham chiếu bên ngoài sử dụng <literal> svn:externals </literal> có thể được bỏ qua nếu cần thiết."
+msgstr ""
 
 #. (para)
 msgid ""
 "Another way to export from a working copy is to <action>right drag</action> "
 "the working copy folder to another location and choose "
-"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export versioned"
+" items here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>SVN Export all items "
 "here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
-"Menu</guimenu><guimenuitem>SVN Export all here</guimenuitem></menuchoice>. "
-"The second option includes the unversioned files as well."
-msgstr "Một cách khác để xuất khẩu từ một bản sao làm việc là <action> kéo phải </action> thư mục bản sao làm việc tới một vị trí khác và chọn <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> SVN xuất khẩu </guimenuitem></menuchoice> hoặc <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> SVN xuất khẩu tất cả ở đây </guimenuitem></menuchoice> . Lựa chọn thứ hai cũng bao gồm các tập tin không phiên bản."
+"Menu</guimenu><guimenuitem>SVN Export changed items "
+"here</guimenuitem></menuchoice>. The second option includes the unversioned "
+"files as well. The third option exports only modified items, but maintains "
+"the folder structure."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -11251,6 +11369,13 @@ msgid ""
 "=\"tsvn-dug-compare-revs\"/>."
 msgstr "Nếu bạn muốn xuất khẩu một bản sao của cấu trúc cây dự án của bạn nhưng chỉ chứa các tập tin đã thay đổi trong một phiên bản cụ thể, hoặc giữa bất kỳ hai phiên bản, sử dụng tính năng so sánh các bản sửa đổi được mô tả trong <xref linkend=\"tsvn-dug-compare-revs\"/> ."
 
+#. (para)
+msgid ""
+"If you want to export your working copy tree structure but containing only "
+"the files which are locally modified, refer to <guilabel>SVN Export changed "
+"items here</guilabel> above."
+msgstr ""
+
 #. (title)
 msgid "Removing a working copy from version control"
 msgstr "Loại bỏ một bản sao làm việc từ kiểm soát phiên bản"
@@ -11263,18 +11388,19 @@ msgstr "không phiên bản"
 #. (para)
 msgid ""
 "Sometimes you have a working copy which you want to convert back to a normal"
-" folder without the <literal>.svn</literal> directories. What you really "
-"need is an export-in-place command, that just removes the control "
-"directories rather than generating a new clean directory tree."
-msgstr "Đôi khi bạn có một bản sao làm việc mà bạn muốn chuyển đổi trở lại thành một thư mục bình thường mà không có các thư mục <literal> .svn </literal>. Những gì bạn thực sự cần là một lệnh-xuất khẩu-tại chỗ, mà chỉ cần loại bỏ các thư mục kiểm soát hơn là tạo ra một cây thư mục sạch mới."
+" folder without the <literal>.svn</literal> directory. All you need to do is"
+" delete the <literal>.svn</literal> directory from the working copy root."
+msgstr ""
 
 #. (para)
 msgid ""
-"The answer is surprisingly simple - export the folder to itself! TortoiseSVN"
-" detects this special case and asks if you want to make the working copy "
-"unversioned. If you answer <emphasis>yes</emphasis> the control directories "
-"will be removed and you will have a plain, unversioned directory tree."
-msgstr "Câu trả lời là đáng ngạc nhiên đơn giản - xuất khẩu thư mục chính nó! TortoiseSVN phát hiện trường hợp đặc biệt này và yêu cầu nếu bạn muốn làm bản sao làm việc không phiên bản. Nếu bạn trả lời <emphasis> vâng </emphasis> các thư mục điều khiển sẽ được gỡ bỏ và bạn sẽ có một cây thư mục đơn giản, không phiên bản."
+"Alternatively you can export the folder to itself. In Windows Explorer right"
+" drag the working copy root folder from the file pane onto itself in the "
+"folder pane. TortoiseSVN detects this special case and asks if you want to "
+"make the working copy unversioned. If you answer <emphasis>yes</emphasis> "
+"the control directory will be removed and you will have a plain, unversioned"
+" directory tree."
+msgstr ""
 
 #. (title)
 msgid "Relocating a working copy"
@@ -11729,11 +11855,11 @@ msgstr "Vì lý do tương tự, các thuộc tính dự án sẽ không đượ
 msgid ""
 "This issue tracker integration is not restricted to TortoiseSVN; it can be "
 "used with any Subversion client. For more information, read the full <ulink "
-"url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue"
+"url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue"
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr "Sự tích hợp bộ theo dõi vấn đề này không bị giới hạn với TortoiseSVN; nó có thể được sử dụng với bất kỳ máy khách Subversion nào. Để biết thêm thông tin, đọc đầy đủ <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle> Đặc điểm Kỹ Thuật của Bộ Tích Hợp Vấn Đề </citetitle></ulink> trong kho lưu trữ nguồn TortoiseSVN. ( <xref linkend=\"tsvn-preface-source\"/> giải thích làm thế nào để truy cập vào kho lưu trữ.)"
+msgstr ""
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -13963,6 +14089,14 @@ msgstr "Kịch bản móc máy khách mẫu có thể được tìm thấy trong
 
 #. (para)
 msgid ""
+"When debugging hook scripts you may want to echo progress lines to the DOS console, or insert a pause to stop the console window disappearing when the script completes. Because I/O is redirected this will not normally work. However you can redirect input and output explicitly to CON to overcome this. e.g. <screen>\n"
+"echo Checking Status &gt; con\n"
+"pause &lt; con &gt; con\n"
+"</screen>"
+msgstr ""
+
+#. (para)
+msgid ""
 "A small tool is included in the TortoiseSVN installation folder named "
 "<literal>ConnectVPN.exe</literal>. You can use this tool configured as a "
 "pre-connect hook to connect automatically to your VPN before TortoiseSVN "
@@ -15822,11 +15956,9 @@ msgstr "Sử dụng hộp thoại tường trình sửa đổi"
 
 #. (para)
 msgid ""
-"The easiest way to revert the changes from a single revision, or from a "
-"range of revisions, is to use the revision log dialog. This is also the "
-"method to use of you want to discard recent changes and make an earlier "
-"revision the new HEAD."
-msgstr "Cách dễ nhất để phục hồi các thay đổi từ một phiên bản duy nhất, hoặc từ một loạt các phiên bản, là sử dụng hộp thoại tường trình sửa đổi. Đây cũng là phương pháp để sử dụng nếu bạn muốn loại bỏ các thay đổi gần đây và đặt một phiên bản trước thành bản CHÍNH mới."
+"By far the easiest way to revert the changes from one or more revisions, is "
+"to use the revision log dialog."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15846,12 +15978,12 @@ msgstr "Chọn <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Hiện 
 msgid ""
 "Select the revision you wish to revert. If you want to undo a range of "
 "revisions, select the first one and hold the <keycap>Shift</keycap> key "
-"while selecting the last one. Note that for multiple revisions, the range "
-"must be unbroken with no gaps. <action>Right click</action> on the selected "
-"revision(s), then select <menuchoice><guimenu>Context "
-"Menu</guimenu><guimenuitem>Revert changes from this "
-"revision</guimenuitem></menuchoice>."
-msgstr "Chọn những sửa đổi mà bạn muốn trở lại. Nếu bạn muốn phục hồi lại một loạt các phiên bản, chọn bản đầu tiên và giữ phím <keycap> Shift</keycap> trong khi lựa chọn bản cuối cùng. Lưu ý rằng đối với nhiều phiên bản, phạm vi phải không gián đoạn không có khoảng trống. <action> Nhấp chuột phải </action> vào bản chỉnh được lựa chọn, sau đó chọn <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Hoàn nguyên các thay đổi từ phiên bản này </guimenuitem></menuchoice> ."
+"while selecting the last one. If you want to pick out individual revisions "
+"and ranges, use the <keycap>Ctrl</keycap> key while selecting revisions. "
+"<action>Right click</action> on the selected revision(s), then select "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from "
+"this revision</guimenuitem></menuchoice>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15862,7 +15994,6 @@ msgid ""
 "<emphasis>all</emphasis> changes after the selected revision."
 msgstr "Hoặc nếu bạn muốn thực hiện một bản sửa đổi trước đó thành bản CHÍNH mới, <action> nhấp chuột phải </action> vào bản chỉnh sửa được lựa chọn, sau đó chọn <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> Hoàn nguyên về phiên bản này </guimenuitem></menuchoice> . Điều này sẽ loại bỏ <emphasis> tất cả </emphasis> thay đổi sau khi sửa đổi được lựa chọn."
 
-#. (para)
 #. (para)
 msgid ""
 "You have reverted the changes within your working copy. Check the results, "
@@ -15875,10 +16006,10 @@ msgstr "Sử dụng hộp thoại hợp nhất"
 
 #. (para)
 msgid ""
-"To undo a larger range of revisions, you can use the Merge dialog. The "
-"previous method uses merging behind the scenes; this method uses it "
-"explicitly."
-msgstr "Để hoàn tác một phạm vi lớn hơn các bản sửa đổi, bạn có thể sử dụng hộp thoại Hợp Nh. Các phương pháp trước đó sử dụng hợp nhất đằng sau hậu trường, phương pháp này sử dụng nó một cách rõ ràng."
+"If you want to enter revision numbers as a list, you can use the Merge "
+"dialog. The previous method uses merging behind the scenes; this method uses"
+" it explicitly."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15888,32 +16019,40 @@ msgstr "Trong bản sao làm việc của bạn chọn <menuchoice><guimenu> Tor
 
 #. (para)
 msgid ""
-"In the <guilabel>From:</guilabel> field enter the full folder URL of the "
-"branch or tag containing the changes you want to revert in your working "
-"copy. This should come up as the default URL."
-msgstr "Trong trường <guilabel> Từ: </guilabel> nhập URL thư mục đầy đủ của chi nhánh hoặc thẻ có chứa các thay đổi mà bạn muốn hoàn nguyên trong bản sao làm việc của bạn. Điều này sẽ hiện ra như địa chỉ URL mặc định."
+"In the <guilabel>Merge Type</guilabel> dialog select <guilabel>Merge a range"
+" of revisions</guilabel>."
+msgstr ""
 
 #. (para)
 msgid ""
-"In the <guilabel>From Revision</guilabel> field enter the revision number "
-"that you are currently at. If you are sure there is no-one else making "
-"changes, you can use the HEAD revision."
-msgstr "Trong trường <guilabel> Từ bản sửa đổi </guilabel> nhập số bản sửa đổi mà bạn đang ở. Nếu bạn chắc chắn không có ai khác thực hiện thay đổi, bạn có thể sử dụng các sửa đổi CHÍNH."
-
-#. (para)
-msgid "make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
-msgstr "đảm bảo hộp kiểm <guilabel> Sử dụng URL \"Từ:\" </guilabel> được chọn."
+"In the <guilabel>From:</guilabel> field enter the full repository URL of "
+"your working copy folder. This should come up as the default URL."
+msgstr ""
 
 #. (para)
 msgid ""
-"In the <guilabel>To Revision</guilabel> field enter the revision number that"
-" you want to revert to, namely the one <emphasis>before</emphasis> the first"
-" revision to be reverted."
-msgstr "Trong trường <guilabel> Đến bản sửa đổi </guilabel> nhập số bản sửa đổi mà bạn muốn trở lại, cụ thể là cái <emphasis> trước khi </emphasis> sửa đổi đầu tiên được hoàn nguyên."
+"In the <guilabel>Revision range to merge</guilabel> field enter the list of "
+"revisions to roll back (or use the log dialog to select them as described "
+"above)."
+msgstr ""
 
 #. (para)
-msgid "Click <guibutton>OK</guibutton> to complete the merge."
-msgstr "Nhấp vào <guibutton> OK </guibutton> để hoàn thành việc hợp nhất."
+msgid "Make sure the <guilabel>Reverse merge</guilabel> checkbox is checked."
+msgstr ""
+
+#. (para)
+msgid "In the <guilabel>Merge options</guilabel> dialog accept the defaults."
+msgstr ""
+
+#. (para)
+msgid "Click <guibutton>Merge</guibutton> to complete the merge."
+msgstr ""
+
+#. (para)
+msgid ""
+"You have reverted the changes within your working copy. Check that the "
+"results are as expected, then commit the changes."
+msgstr ""
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"

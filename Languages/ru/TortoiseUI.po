@@ -20,14 +20,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-11 21:35+0000\n"
+"PO-Revision-Date: 2012-09-09 08:42+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Resource IDs: (188)
 # msgid/msgstr fields for Accelerator keys
@@ -1836,7 +1836,7 @@ msgstr "Поправить настройки\nНастройки"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"
-msgstr "Скорректировать на ревизию HEAD"
+msgstr ""
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -3492,6 +3492,10 @@ msgstr "Создание заплатки"
 msgid "Create copy in the repository from:"
 msgstr "Создать копию в хранилище из:"
 
+#. Resource IDs: (1562)
+msgid "Create intermediate folders"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -4247,6 +4251,10 @@ msgstr "Случилась неожиданная ошибка при запис
 msgid "End Revision"
 msgstr "Конечная ревизия"
 
+#. Resource IDs: (200)
+msgid "Enforce"
+msgstr "Принудительно"
+
 #. Resource IDs: (3825)
 msgid "Enlarge the window to full size"
 msgstr "Увеличить окно до полного размера"
@@ -4580,7 +4588,7 @@ msgstr "Не удалось!"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
-msgstr "Получить ревизию HEAD скорректировать на неё"
+msgstr ""
 
 #. Resource IDs: (199)
 msgid ""
@@ -4748,11 +4756,11 @@ msgstr "Найти"
 
 #. Resource IDs: (1633)
 msgid "Find &Head-Revision"
-msgstr "Найти &HEAD-ревизию"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
-msgstr "Найти ревизии HEAD"
+msgstr ""
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5029,7 +5037,7 @@ msgstr "Ведущий узел"
 
 #. Resource IDs: (218)
 msgid "Head"
-msgstr "Head"
+msgstr ""
 
 #. Resource IDs: (106)
 #, c-format
@@ -9598,9 +9606,8 @@ msgstr "Файл\n%s\nуже существует! Желаете ли вы ег
 msgid ""
 "The file\n"
 "%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr "Файл\n%s\nне является корректным текстовым файлом!\nПримечание: файлы UTF32 также рассматриваются как двоичные."
+"is not a valid text file!"
+msgstr "Файл\n%s\nне является корректным текстовым файлом!"
 
 #. Resource IDs: (145)
 #, c-format
@@ -11565,11 +11572,11 @@ msgstr "внешний файл:"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
-msgstr "получить ревизию HEAD:"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get repository root urls:"
-msgstr "получить URL корня хранилища: "
+msgstr ""
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"

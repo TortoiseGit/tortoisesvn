@@ -17,14 +17,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-15 11:48+0000\n"
+"PO-Revision-Date: 2012-09-09 08:42+0000\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. Resource IDs: (188)
 # msgid/msgstr fields for Accelerator keys
@@ -2607,7 +2607,7 @@ msgstr "Zmenené súbory: %d"
 #. Resource IDs: (264)
 #, c-format
 msgid "Changelist %s moved"
-msgstr "Zoznam zmien %s presunutý:"
+msgstr "Zoznam zmien %s bol presunutý:"
 
 #. Resource IDs: (65535)
 msgid "Changelist:"
@@ -3489,6 +3489,10 @@ msgstr "Vytvoriť záplatu"
 msgid "Create copy in the repository from:"
 msgstr "Vytvoriť kópiu v úložisku z:"
 
+#. Resource IDs: (1562)
+msgid "Create intermediate folders"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -4243,6 +4247,10 @@ msgstr "Pri zápise %1 nastala neočakávaná chyba."
 #. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "Posledná revízia"
+
+#. Resource IDs: (200)
+msgid "Enforce"
+msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Enlarge the window to full size"
@@ -5026,7 +5034,7 @@ msgstr "HEAD uzol"
 
 #. Resource IDs: (218)
 msgid "Head"
-msgstr "Hlavná"
+msgstr ""
 
 #. Resource IDs: (106)
 #, c-format
@@ -7829,7 +7837,7 @@ msgstr "Odstrániť z lišty rýchleho prístupu"
 
 #. Resource IDs: (209)
 msgid "Remove from changelist"
-msgstr "Odstrániť zoznam zmien"
+msgstr "Odstrániť zo zoznamu zmien"
 
 #. Resource IDs: (100)
 msgid ""
@@ -7882,7 +7890,7 @@ msgstr "Odstránený súbor/adresár"
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
-msgstr "Odstrániť zo zoznamu zmien"
+msgstr "Odstránené zo zoznamu zmien"
 
 #. Resource IDs: (145)
 #, c-format
@@ -7898,7 +7906,7 @@ msgstr "Vymazať všetky neverziované a ignorované objekty"
 
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
-msgstr "Odstráni súbor alebo masku súboru zo zoznamu vylúčených súborov"
+msgstr "Odstráni súbor alebo súborovú masku zo zoznamu vylúčených súborov"
 
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
@@ -8884,11 +8892,11 @@ msgstr "Zobrazí náhľad na celý graf"
 
 #. Resource IDs: (114)
 msgid "Show changes as &unified diff"
-msgstr "Zobraz rozdiely &unifikovaným porovnaním"
+msgstr "Zobraziť zmeny &unifikovaným porovnaním"
 
 #. Resource IDs: (113)
 msgid "Show differences as &unified diff"
-msgstr "Zobraz rozdiely &unifikovaným porovnaním"
+msgstr "Zobraziť rozdiely &unifikovaným porovnaním"
 
 #. Resource IDs: (1126)
 msgid "Show excluded root folders as normal"
@@ -9595,9 +9603,8 @@ msgstr "Súbor\n%s\nuž existuje! Chcete ho prepísať?"
 msgid ""
 "The file\n"
 "%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr "Súbor\n%s\nnie je platný textový súbor!\nPoznámka: UTF32 súbory sú tiež považované/spracované ako binárne."
+"is not a valid text file!"
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -11562,11 +11569,11 @@ msgstr "externý súbor:"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
-msgstr "získať HEAD revíziu:"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get repository root urls:"
-msgstr "získať koreňovú url úložiska:"
+msgstr ""
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"

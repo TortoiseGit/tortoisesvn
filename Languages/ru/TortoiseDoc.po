@@ -17,14 +17,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-11 22:15+0000\n"
+"PO-Revision-Date: 2012-09-09 08:28+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. (title)
 #. (secondary)
@@ -2932,6 +2932,14 @@ msgstr "извлечение"
 msgid "create working copy"
 msgstr "создание рабочей копии"
 
+#. (primary)
+msgid "sparse checkout"
+msgstr ""
+
+#. (primary)
+msgid "partial checkout"
+msgstr ""
+
 #. (para)
 msgid ""
 "To obtain a working copy you need to do a <firstterm>checkout</firstterm> "
@@ -3042,20 +3050,41 @@ msgstr "Для легкого выбора элементов, которые в
 msgid ""
 "If you check out a sparse working copy (i.e., by choosing something other "
 "than <literal>fully recursive</literal> for the checkout depth), you can "
-"fetch additional sub-folders later by using the repository browser (<xref "
-"linkend=\"tsvn-dug-repobrowser\"/>) or the check for modifications dialog "
-"(<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
-msgstr "Если вы извлекаете неполную рабочую копию (т.е. выбирая что-то кроме <literal>полностью рекурсивно</literal> для глубины извлечения), то вы можете получить дополнительные подпапки позже используя обозреватель хранилища (<xref linkend=\"tsvn-dug-repobrowser\"/>) или диалог проверки наличия изменений (<xref linkend=\"tsvn-dug-wcstatus-2\"/>)."
+"easily add or remove sub-folders later using one of the following methods."
+msgstr ""
+
+#. (title)
+msgid "Sparse Update using Update to Revision"
+msgstr ""
 
 #. (para)
 msgid ""
-"In windows explorer, <action>Right click</action> on the checked out folder,"
-" then use <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-"
+"<action>Right click</action> on the checked out folder, then use "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update to "
+"Revision</guimenuitem></menuchoice> and select <guibutton>Choose "
+"items...</guibutton>. This opens the same dialog that was available in the "
+"original checkout and allows you to select or deselect items to include in "
+"the checkout. This method is very flexible but can be slow as every item in "
+"the folder is updated individually."
+msgstr ""
+
+#. (title)
+msgid "Sparse Update using Repo Browser"
+msgstr ""
+
+#. (para)
+msgid ""
+"<action>Right click</action> on the checked out folder, then use "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-"
 "Browser</guimenuitem></menuchoice> to bring up the repository browser. Find "
 "the sub-folder you would like to add to your working copy, then use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
-msgstr "В проводнике Windows сделайте <action>правый клик</action> на извлеченной папке, затем воспользуйтесь <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Обозреватель хранилища</guimenuitem></menuchoice> для вызова обозревателя хранилища. Найдите подпапку, которую вы хотите добавить в свою рабочую копию, затем используйте <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Обновить элемент до ревизии...</guimenuitem></menuchoice>."
+msgstr ""
+
+#. (title)
+msgid "Sparse Update using Check for Modifications"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8179,12 +8208,12 @@ msgstr "Вам необходимо определить имя подпапки
 #. (para)
 msgid ""
 "The button <guibutton>Find HEAD-Revision</guibutton> fetches the HEAD "
-"revision of every external url and shows that HEAD revision in the rightmost"
+"revision of every external URL and shows that HEAD revision in the rightmost"
 " column. After the HEAD revision is known, a simple right click on an "
 "external gives you the command to peg the selected externals to their "
 "explicit HEAD revision. In case the HEAD revision is not known yet, the "
 "right click command will fetch the HEAD revision first."
-msgstr "Кнопка <guibutton>Найти HEAD-ревизию</guibutton> получает ревизию HEAD для каждого URL внешнего определения и показывает эту HEAD ревизию в самой правой колонке. После того, как ревизия HEAD известна, простой правый клик на внешнем определении даёт возможность установить опорную (peg) ревизию выбранного внешнего определения на явную ревизию HEAD. В случае если ревизия HEAD не известна, то команда по правому клику сначала получит ревизию HEAD."
+msgstr ""
 
 #. (title)
 msgid "SVN Keywords"
@@ -8329,9 +8358,9 @@ msgstr "Список объединённых ревизий, разделенн
 
 #. (para)
 msgid ""
-"Like <literal>{revisions}</literal>, but with each revision preceeded with "
-"an <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
-msgstr "Также как <literal>{revisions}</literal>, но каждая ревизия начинается с <literal>r</literal>, например, <literal>r3, r5, r6, r7</literal>"
+"Like <literal>{revisions}</literal>, but with each revision preceded with an"
+" <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8341,8 +8370,8 @@ msgstr "Список объединённых ревизий, разделенн
 
 #. (para)
 msgid ""
-"The source url of the merge, i.e., where the revisions are merged from."
-msgstr "Исходный адрес URL слияния, т.е. откуда объединяются ревизии."
+"The source URL of the merge, i.e., where the revisions are merged from."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8576,8 +8605,13 @@ msgid ""
 msgstr "URL, начинающиеся со строки <literal>/</literal> копируют часть URL, содержащую схему и имя сервера, например: <screen>\n/svn/repos-1/widgets/foo  common/foo-widget\n</screen> Это будет извлекать <systemitem class=\"url\">http://example.com/svn/repos-1/widgets/foo</systemitem> в <filename>C:\\Working\\common\\foo-widget</filename>. Но, если извлечь рабочую копию с другого сервера по адресу <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/project1/trunk</systemitem>, то внешнее включение будет извлекать <systemitem class=\"url\">svn+ssh://another.mirror.net/svn/repos-1/widgets/foo</systemitem>."
 
 #. (para)
-msgid "You can also specify a peg revision for the URL if required."
-msgstr "Если необходимо вы также можете указать опорную (peg) ревизию для адреса URL."
+msgid ""
+"You can also specify a peg and operative revision for the URL if required. "
+"To learn more about peg and operative revisions, please read the <ulink "
+"url=\"http://svnbook.red-"
+"bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
+"chapter</citetitle></ulink> in the Subversion book."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8691,6 +8725,39 @@ msgid ""
 "    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n"
 "</screen> If you can't remember the naming convention you used last time, click the button on the right to open the repository browser so you can view the existing repository structure."
 msgstr "По умолчанию, целевым URL для нового ответвления будет URL источника, базового для вашей рабочей копии. Вы должны изменить этот URL так, чтобы он указывал новый путь вашего ответвления/метки. Так, вместо <screen>\n    http://svn.collab.net/repos/ProjectName/trunk\n</screen> вы можете использовать что-то вроде<screen>\n    http://svn.collab.net/repos/ProjectName/tags/Release_1.10\n</screen> Если вы не помните соглашений о наименовании, использованных в последний раз, нажмите кнопку справа - откроется обозреватель хранилища, и вы сможете посмотреть существующую структуру хранилища."
+
+#. (title)
+msgid "intermediate folders"
+msgstr ""
+
+#. (para)
+msgid ""
+"When you specify the target URL, all the folders up to the last one must "
+"already exist or you will get an error message. In the above example, the "
+"URL <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> must "
+"exist to create the <literal>Release_1.10</literal> tag."
+msgstr ""
+
+#. (para)
+msgid ""
+"However if you want to create a branch/tag to an URL that has intermediate "
+"folders that don't exist yet you can check the option <option>Create "
+"intermediate folders</option> at the bottom of the dialog. If that option is"
+" activated, all intermediate folders are automatically created."
+msgstr ""
+
+#. (para)
+msgid ""
+"Note that this option is disabled by default to avoid typos. For example, if"
+" you typed the target URL as "
+"<literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal>"
+" instead of "
+"<literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal>,"
+" you would get an error with the option disabled, but with the option "
+"enabled a folder <literal>Tags</literal> would be automatically created, and"
+" you would end up with a folder <literal>Tags</literal> and a folder "
+"<literal>tags</literal>."
+msgstr ""
 
 #. (term)
 #. (listitem)
@@ -9083,6 +9150,15 @@ msgid ""
 "branch before, then just use the drop down list which shows a history of "
 "previously used URLs."
 msgstr "<placeholder-1/> В поле <guilabel>От:</guilabel> введите полный URL папки ответвления или метки с изменениями, которые вы желаете перенести в вашу рабочую копию. Вы можете также нажать на <guibutton>...</guibutton> для того, чтобы просмотреть хранилище и обнаружить нужное ответвление. Если вы уже производили слияние из этого ответвления, то просто воспользуйтесь выпадающим списком, в котором показывается история использованных ранее URL."
+
+#. (para)
+msgid ""
+"If you are merging from a renamed or deleted branch then you will have to go"
+" back to a revision where that branch still existed. In this case you will "
+"also need to specify that revision as a peg revision in the range of "
+"revisions being merged (see below), otherwise the merge will fail when it "
+"can't find that path at HEAD."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9688,6 +9764,44 @@ msgid ""
 "are using <literal>file://</literal> access, then of course only your client"
 " needs to be updated."
 msgstr "Сначала вы должны убедиться, что ваш сервер Subversion обновлен до версии 1.2 как минимум. Более ранние версии вообще не поддерживали блокирования. Если вы используете доступ через <literal>file://</literal>, тогда, конечно, обновить потребуется только вашего клиента."
+
+#. (title)
+msgid "The Three Meanings of <quote>Lock</quote>"
+msgstr ""
+
+#. (para)
+msgid ""
+"In this section, and almost everywhere in this book, the words "
+"<quote>lock</quote> and <quote>locking</quote> describe a mechanism for "
+"mutual exclusion between users to avoid clashing commits. Unfortunately, "
+"there are two other sorts of <quote>lock</quote> with which Subversion, and "
+"therefore this book, sometimes needs to be concerned."
+msgstr ""
+
+#. (para)
+msgid ""
+"The second is <literal>working copy locks</literal>, used internally by "
+"Subversion to prevent clashes between multiple Subversion clients operating "
+"on the same working copy. Usually you get these locks whenever a command "
+"like update/commit/... is interrupted due to an error. These locks can be "
+"removed by running the cleanup command on the working copy, as described in "
+"<xref linkend=\"tsvn-dug-cleanup\"/>."
+msgstr ""
+
+#. (para)
+msgid ""
+"And third, files and folders can get locked if they're in use by another "
+"process, for example if you have a word document opened in Word, that file "
+"is locked and can not be accessed by TortoiseSVN."
+msgstr ""
+
+#. (para)
+msgid ""
+"You can generally forget about these other kinds of locks until something "
+"goes wrong that requires you to care about them. In this book, "
+"<quote>lock</quote> means the first sort unless the contrary is either clear"
+" from context or explicitly stated."
+msgstr ""
 
 #. (title)
 msgid "How Locking Works in Subversion"
@@ -11159,15 +11273,15 @@ msgstr "неверсированная 'рабочая копия'"
 
 #. (para)
 msgid ""
-"Sometimes you may want a copy of your working tree without any of those "
-"<filename>.svn</filename> directories, e.g. to create a zipped tarball of "
-"your source, or to export to a web server. Instead of making a copy and then"
-" deleting all those <filename>.svn</filename> directories manually, "
-"TortoiseSVN offers the command "
+"Sometimes you may want a clean copy of your working tree without the "
+"<filename>.svn</filename> directory, e.g. to create a zipped tarball of your"
+" source, or to export to a web server. Instead of making a copy and then "
+"deleting the <filename>.svn</filename> directory manually, TortoiseSVN "
+"offers the command "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>."
 " Exporting from a URL and exporting from a working copy are treated slightly"
 " differently."
-msgstr "Иногда вы желаете скопировать ваше рабочее дерево без всех этих папок <filename>.svn</filename>, например, для создания файла архива ваших исходных кодов, или для экспорта на веб-сервер. Вместо того, чтобы выполнить копирование и после этого удалять папки <filename>.svn</filename> вручную, TortoiseSVN предлагает команду <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Экспорт...</guimenuitem></menuchoice>. Экспорт из источника, заданного адресом URL, и экспорт из рабочей копии, обрабатывается немного по-разному."
+msgstr ""
 
 #. (title)
 msgid "The Export-from-URL Dialog"
@@ -11196,22 +11310,26 @@ msgstr "Конечно же, вы также можете экспортиров
 msgid ""
 "If you execute this command on your working copy you'll be asked for a place"
 " to save the <emphasis>clean</emphasis> working copy without the "
-"<filename>.svn</filename> folders. By default, only the versioned files are "
+"<filename>.svn</filename> folder. By default, only the versioned files are "
 "exported, but you can use the <guilabel>Export unversioned files "
 "too</guilabel> checkbox to include any other unversioned files which exist "
 "in your WC and not in the repository. External references using "
 "<literal>svn:externals</literal> can be omitted if required."
-msgstr "Если выполнить эту команду на рабочей копии, вас попросят указать место для сохранения <emphasis>чистой</emphasis> рабочей копии без папок <filename>.svn</filename>. По умолчанию, экспортируются только версированные файлы, но вы можете при помощи флажка <guilabel>Экспортировать также и неверсированные файлы</guilabel> включить также все неверсированные файлы, существующие в вашей рабочей копии и не существующие в хранилище. Внешние ссылки, заданные через <literal>svn:externals</literal>, могут быть опущены при необходимости."
+msgstr ""
 
 #. (para)
 msgid ""
 "Another way to export from a working copy is to <action>right drag</action> "
 "the working copy folder to another location and choose "
-"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Export versioned"
+" items here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>SVN Export all items "
 "here</guimenuitem></menuchoice> or <menuchoice><guimenu>Context "
-"Menu</guimenu><guimenuitem>SVN Export all here</guimenuitem></menuchoice>. "
-"The second option includes the unversioned files as well."
-msgstr "Другой способ сделать экспорт из рабочей копии - <action>правое перетаскивание</action> папки с рабочей копией в новое место путём выбора <menuchoice><guimenu>Контекстное меню</guimenu><guimenuitem>SVN Экспортировать сюда</guimenuitem></menuchoice> или <menuchoice><guimenu>Контекстное меню</guimenu><guimenuitem>SVN Экспортировать всё сюда</guimenuitem></menuchoice>. Второй пункт включает также и неверсированные файлы."
+"Menu</guimenu><guimenuitem>SVN Export changed items "
+"here</guimenuitem></menuchoice>. The second option includes the unversioned "
+"files as well. The third option exports only modified items, but maintains "
+"the folder structure."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -11252,6 +11370,13 @@ msgid ""
 "=\"tsvn-dug-compare-revs\"/>."
 msgstr "Если вы желаете экспортировать копию структуры вашего проекта, содержащую только файлы, изменённые или в определённой ревизии, или между любыми двумя ревизиями, воспользуйтесь возможностью сравнения ревизий, описание которой содержит <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
+#. (para)
+msgid ""
+"If you want to export your working copy tree structure but containing only "
+"the files which are locally modified, refer to <guilabel>SVN Export changed "
+"items here</guilabel> above."
+msgstr ""
+
 #. (title)
 msgid "Removing a working copy from version control"
 msgstr "Выведение рабочей копии из-под управления версиями"
@@ -11264,18 +11389,19 @@ msgstr "разверсирование"
 #. (para)
 msgid ""
 "Sometimes you have a working copy which you want to convert back to a normal"
-" folder without the <literal>.svn</literal> directories. What you really "
-"need is an export-in-place command, that just removes the control "
-"directories rather than generating a new clean directory tree."
-msgstr "Иногда возникает задача преобразовать рабочую копию обратно в нормальную папку без папок <literal>.svn</literal>. Что вам действительно для этого нужно - это команда экспорта-на-месте, которая только убирала бы управляющие папки, нежели генерировала новое чистое дерево папок."
+" folder without the <literal>.svn</literal> directory. All you need to do is"
+" delete the <literal>.svn</literal> directory from the working copy root."
+msgstr ""
 
 #. (para)
 msgid ""
-"The answer is surprisingly simple - export the folder to itself! TortoiseSVN"
-" detects this special case and asks if you want to make the working copy "
-"unversioned. If you answer <emphasis>yes</emphasis> the control directories "
-"will be removed and you will have a plain, unversioned directory tree."
-msgstr "Решение неожиданно простое - экспорт папки в саму себя! TortoiseSVN обнаруживает этот специальный случай и спрашивает, не желаете ли вы разверсировать рабочую копию. При ответе <emphasis>да</emphasis> управляющие папки будут удалены, и у вас будет простое неверсированное дерево папок."
+"Alternatively you can export the folder to itself. In Windows Explorer right"
+" drag the working copy root folder from the file pane onto itself in the "
+"folder pane. TortoiseSVN detects this special case and asks if you want to "
+"make the working copy unversioned. If you answer <emphasis>yes</emphasis> "
+"the control directory will be removed and you will have a plain, unversioned"
+" directory tree."
+msgstr ""
 
 #. (title)
 msgid "Relocating a working copy"
@@ -11730,11 +11856,11 @@ msgstr "По этой же причине свойства проекта не �
 msgid ""
 "This issue tracker integration is not restricted to TortoiseSVN; it can be "
 "used with any Subversion client. For more information, read the full <ulink "
-"url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue"
+"url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue"
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr "Интеграция с системой отслеживания ошибок не ограничена только TortoiseSVN, она может быть использована с любым клиентом Subversion. Для дополнительной информации прочтите <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> в хранилище исходного кода TortoiseSVN. (<xref linkend=\"tsvn-preface-source\"/> объясняет как получить доступ к хранилищу.)"
+msgstr ""
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -13964,6 +14090,14 @@ msgstr "Примерный клиентский скрипт ловушки мо
 
 #. (para)
 msgid ""
+"When debugging hook scripts you may want to echo progress lines to the DOS console, or insert a pause to stop the console window disappearing when the script completes. Because I/O is redirected this will not normally work. However you can redirect input and output explicitly to CON to overcome this. e.g. <screen>\n"
+"echo Checking Status &gt; con\n"
+"pause &lt; con &gt; con\n"
+"</screen>"
+msgstr ""
+
+#. (para)
+msgid ""
 "A small tool is included in the TortoiseSVN installation folder named "
 "<literal>ConnectVPN.exe</literal>. You can use this tool configured as a "
 "pre-connect hook to connect automatically to your VPN before TortoiseSVN "
@@ -15823,11 +15957,9 @@ msgstr "При помощи диалога журнала ревизий"
 
 #. (para)
 msgid ""
-"The easiest way to revert the changes from a single revision, or from a "
-"range of revisions, is to use the revision log dialog. This is also the "
-"method to use of you want to discard recent changes and make an earlier "
-"revision the new HEAD."
-msgstr "Наиболее лёгкий способ убрать изменения, произведённые в одной ревизии, или в диапазоне ревизий, - это применение диалога журнала ревизий. Этот метод также используется, если вы желаете отказаться от последних изменений и сделать более раннюю ревизию новой ведущей."
+"By far the easiest way to revert the changes from one or more revisions, is "
+"to use the revision log dialog."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15847,12 +15979,12 @@ msgstr "Выберите <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>
 msgid ""
 "Select the revision you wish to revert. If you want to undo a range of "
 "revisions, select the first one and hold the <keycap>Shift</keycap> key "
-"while selecting the last one. Note that for multiple revisions, the range "
-"must be unbroken with no gaps. <action>Right click</action> on the selected "
-"revision(s), then select <menuchoice><guimenu>Context "
-"Menu</guimenu><guimenuitem>Revert changes from this "
-"revision</guimenuitem></menuchoice>."
-msgstr "Выберите ревизию, которую вы желаете убрать. Если вы желаете убрать диапазон ревизий, выберите первую, и, нажав клавишу <keycap>Shift</keycap>, выберите последнюю. Обратите внимание: для нескольких ревизий диапазон должен быть непрерывным, без пропусков. Выполните <action>правый щелчок</action> на выбранных ревизиях, после чего выберите <menuchoice><guimenu>Контекстное меню</guimenu><guimenuitem>Отменить изменения из этой ревизии</guimenuitem></menuchoice>."
+"while selecting the last one. If you want to pick out individual revisions "
+"and ranges, use the <keycap>Ctrl</keycap> key while selecting revisions. "
+"<action>Right click</action> on the selected revision(s), then select "
+"<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from "
+"this revision</guimenuitem></menuchoice>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15863,7 +15995,6 @@ msgid ""
 "<emphasis>all</emphasis> changes after the selected revision."
 msgstr "Или, если вы желаете сделать более раннюю ревизию новой ведущей, выполните <action>правый щелчок</action> на выбранной ревизии, затем выберите <menuchoice><guimenu>Контекстное меню</guimenu><guimenuitem>Вернуть к этой ревизии</guimenuitem></menuchoice>. Это действие отменит <emphasis>все</emphasis> изменения после выбранной ревизии."
 
-#. (para)
 #. (para)
 msgid ""
 "You have reverted the changes within your working copy. Check the results, "
@@ -15876,10 +16007,10 @@ msgstr "Используя диалог слияния"
 
 #. (para)
 msgid ""
-"To undo a larger range of revisions, you can use the Merge dialog. The "
-"previous method uses merging behind the scenes; this method uses it "
-"explicitly."
-msgstr "Для отмены большего диапазона ревизий вы можете использовать диалог слияния. В предыдущем методе слияние используется  негласно, в этом методе оно применяется явно."
+"If you want to enter revision numbers as a list, you can use the Merge "
+"dialog. The previous method uses merging behind the scenes; this method uses"
+" it explicitly."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15889,32 +16020,40 @@ msgstr "В вашей рабочей копии выберите <menuchoice><gu
 
 #. (para)
 msgid ""
-"In the <guilabel>From:</guilabel> field enter the full folder URL of the "
-"branch or tag containing the changes you want to revert in your working "
-"copy. This should come up as the default URL."
-msgstr "В поле <guilabel>От:</guilabel> введите полный URL папки ответвления/метки, содержащих изменения, которые вы желаете отменить в вашей рабочей копии. Далее этот URL будет упоминаться как URL по умолчанию."
+"In the <guilabel>Merge Type</guilabel> dialog select <guilabel>Merge a range"
+" of revisions</guilabel>."
+msgstr ""
 
 #. (para)
 msgid ""
-"In the <guilabel>From Revision</guilabel> field enter the revision number "
-"that you are currently at. If you are sure there is no-one else making "
-"changes, you can use the HEAD revision."
-msgstr "В поле <guilabel>От ревизии</guilabel> введите номер вашей текущей ревизии. Если вы уверены, что больше никто не сделает изменений, вы можете указать ведущую ревизию."
-
-#. (para)
-msgid "make sure the <guilabel>Use \"From:\" URL</guilabel> checkbox is checked."
-msgstr "Убедитесь, что флажок <guilabel>Использовать тот же URL, как и в \"От:\"</guilabel> отмечен."
+"In the <guilabel>From:</guilabel> field enter the full repository URL of "
+"your working copy folder. This should come up as the default URL."
+msgstr ""
 
 #. (para)
 msgid ""
-"In the <guilabel>To Revision</guilabel> field enter the revision number that"
-" you want to revert to, namely the one <emphasis>before</emphasis> the first"
-" revision to be reverted."
-msgstr "В поле <guilabel>До ревизии</guilabel> введите номер ревизии, к которой вы желаете вернуться, а именно номер ревизии непосредственно <emphasis>перед</emphasis> первой ревизией, которая будет отменена."
+"In the <guilabel>Revision range to merge</guilabel> field enter the list of "
+"revisions to roll back (or use the log dialog to select them as described "
+"above)."
+msgstr ""
 
 #. (para)
-msgid "Click <guibutton>OK</guibutton> to complete the merge."
-msgstr "Нажмите <guibutton>ОК</guibutton> для выполнения слияния."
+msgid "Make sure the <guilabel>Reverse merge</guilabel> checkbox is checked."
+msgstr ""
+
+#. (para)
+msgid "In the <guilabel>Merge options</guilabel> dialog accept the defaults."
+msgstr ""
+
+#. (para)
+msgid "Click <guibutton>Merge</guibutton> to complete the merge."
+msgstr ""
+
+#. (para)
+msgid ""
+"You have reverted the changes within your working copy. Check that the "
+"results are as expected, then commit the changes."
+msgstr ""
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"

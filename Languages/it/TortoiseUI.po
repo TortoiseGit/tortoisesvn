@@ -22,14 +22,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-17 08:43+0000\n"
+"PO-Revision-Date: 2012-09-09 08:41+0000\n"
 "Last-Translator: bovirus <roberto.boriotti@canon-europe.com>\n"
 "Language-Team: Italian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Resource IDs: (188)
 # msgid/msgstr fields for Accelerator keys
@@ -1838,7 +1838,7 @@ msgstr "Configura le impostazioni\nImpostazioni"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"
-msgstr "Adatta a revisione HEAD"
+msgstr ""
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -3494,6 +3494,10 @@ msgstr "Crea patch"
 msgid "Create copy in the repository from:"
 msgstr "Crea una copia nel repository da:"
 
+#. Resource IDs: (1562)
+msgid "Create intermediate folders"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -4249,6 +4253,10 @@ msgstr "Si è verificato un errore inaspettato durante la scrittura di %1."
 msgid "End Revision"
 msgstr "Fine revisione"
 
+#. Resource IDs: (200)
+msgid "Enforce"
+msgstr "Forza"
+
 #. Resource IDs: (3825)
 msgid "Enlarge the window to full size"
 msgstr "Allarga la finestra a tutto schermo"
@@ -4582,7 +4590,7 @@ msgstr "Fallito!"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
-msgstr "Identifica revisione HEAD e adatta a quella revisione"
+msgstr ""
 
 #. Resource IDs: (199)
 msgid ""
@@ -4750,11 +4758,11 @@ msgstr "Trova"
 
 #. Resource IDs: (1633)
 msgid "Find &Head-Revision"
-msgstr "Trova revisione &Head"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
-msgstr "Trova revisione HEAD"
+msgstr ""
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5031,7 +5039,7 @@ msgstr "Nodo PRINCIPALE"
 
 #. Resource IDs: (218)
 msgid "Head"
-msgstr "Head"
+msgstr ""
 
 #. Resource IDs: (106)
 #, c-format
@@ -9600,9 +9608,8 @@ msgstr "Il file\n%s\nesiste già. Lo si vuole sovrascrivere?"
 msgid ""
 "The file\n"
 "%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr "Il file\n%s\nnon è un file di testo valido!\nAnche i file di tipo UTF32 sono trattati come file binari."
+"is not a valid text file!"
+msgstr "Il file\n%s\nnon è file di testo valido!"
 
 #. Resource IDs: (145)
 #, c-format
@@ -11567,11 +11574,11 @@ msgstr "file esterno:"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
-msgstr "ottieni revisione HEAD:"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "get repository root urls:"
-msgstr "ottieni url radice repository:"
+msgstr ""
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"

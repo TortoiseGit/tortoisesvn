@@ -28,14 +28,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-11 08:45+0000\n"
+"PO-Revision-Date: 2012-09-09 08:41+0000\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Resource IDs: (188)
 # msgid/msgstr fields for Accelerator keys
@@ -1939,7 +1939,7 @@ msgstr "Fermeture automatique pour les opérations locales"
 
 #. Resource IDs: (1339)
 msgid "Always execute the script"
-msgstr ""
+msgstr "Toujours exécuter le script"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -3500,6 +3500,10 @@ msgstr "Créer un patch"
 msgid "Create copy in the repository from:"
 msgstr "Créer une copie dans le dépôt depuis :"
 
+#. Resource IDs: (1562)
+msgid "Create intermediate folders"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -4042,7 +4046,7 @@ msgstr "Ne récupère pas les sauvegardes automatiques\nUtilise les dernières s
 msgid ""
 "Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "Ne pas exécuter\nNe pas exécuter le script"
 
 #. Resource IDs: (315)
 msgid ""
@@ -4254,6 +4258,10 @@ msgstr "Une erreur inconnue est survenue pendant l'écriture de %1."
 #. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "Révision de fin"
+
+#. Resource IDs: (200)
+msgid "Enforce"
+msgstr "Renforcer"
 
 #. Resource IDs: (3825)
 msgid "Enlarge the window to full size"
@@ -5235,7 +5243,7 @@ msgstr "ID:32778:V   +F"
 
 #. Accelerator Entry for Menu ID:32811; ''
 msgid "ID:32811:V C +U"
-msgstr ""
+msgstr "ID:32811:V C +U"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
@@ -5798,7 +5806,7 @@ msgstr "Joindre avec l'arborescence source"
 
 #. Resource IDs: (1632)
 msgid "Jump to next &conflict"
-msgstr ""
+msgstr "Aller au prochain &conflit"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -5850,11 +5858,11 @@ msgstr "Langue :"
 
 #. Resource IDs: (65535)
 msgid "Last changed author:"
-msgstr ""
+msgstr "Dernier auteur modifié :"
 
 #. Resource IDs: (65535)
 msgid "Last changed revision:"
-msgstr ""
+msgstr "Dernière révision modifiée :"
 
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
@@ -8293,7 +8301,7 @@ msgstr "Exécuter le &nettoyage maintenant"
 msgid ""
 "Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "Exécuter\nExécuter le script crocheté"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9230,7 +9238,7 @@ msgstr "Démarrer l'éditeur de registre"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
-msgstr ""
+msgstr "Démarrage des externes..."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9606,9 +9614,8 @@ msgstr "Le fichier\n%s\nexiste déjà ! Voulez-vous l'écraser ?"
 msgid ""
 "The file\n"
 "%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr "Le fichier\n%s\nn'est pas un fichier texte valide !\nNotez que les fichiers UTF32 sont traités comme binaires également."
+"is not a valid text file!"
+msgstr "Le fichier\n%s\nn'est pas un fichier texte valide !"
 
 #. Resource IDs: (145)
 #, c-format
@@ -10281,7 +10288,7 @@ msgid ""
 "instead.\n"
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr ""
+msgstr "TortoiseBlame ne devrait pas être démarré directement ! Utilisez\nTortoiseProc.exe /command:blame /path:\"chemin\\vers\\le\\fichier\"\nà la place.\n\nTortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:numerodeligne] [/path:cheminoriginal] [/pegrev:peg] [/revrange:texte] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -10990,7 +10997,7 @@ msgstr "ATTENTION :\r\nNe changez ces paramètres qui si vous êtes absolument s
 
 #. Resource IDs: (65535)
 msgid "WC Revision:"
-msgstr ""
+msgstr "Révision de la CT :"
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -11633,7 +11640,7 @@ msgstr "verrouillé"
 
 #. Resource IDs: (65535)
 msgid "locked (cleanup required):"
-msgstr ""
+msgstr "verrouillé (nettoyage requis) :"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"

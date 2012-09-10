@@ -23,14 +23,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-08-11 08:45+0000\n"
+"PO-Revision-Date: 2012-09-09 08:42+0000\n"
 "Last-Translator: igorruckert <igorruckert@yahoo.com.br>\n"
 "Language-Team: Portuguese (Brazil) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Resource IDs: (188)
 # msgid/msgstr fields for Accelerator keys
@@ -1934,7 +1934,7 @@ msgstr "Sempre fechar as janelas para operações locais"
 
 #. Resource IDs: (1339)
 msgid "Always execute the script"
-msgstr ""
+msgstr "Sempre executar o script"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -3495,6 +3495,10 @@ msgstr "Criar Correção"
 msgid "Create copy in the repository from:"
 msgstr "Criar cópia no repositório a partir de:"
 
+#. Resource IDs: (1562)
+msgid "Create intermediate folders"
+msgstr ""
+
 #. Resource IDs: (126)
 #, c-format
 msgid ""
@@ -4037,7 +4041,7 @@ msgstr "Não recuperar documentos salvos automaticamente\nUsar a última versão
 msgid ""
 "Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "Não executar⏎ Não executar o script"
 
 #. Resource IDs: (315)
 msgid ""
@@ -4249,6 +4253,10 @@ msgstr "Houve um erro inesperado durante a escrita de %1."
 #. Resource IDs: (1537)
 msgid "End Revision"
 msgstr "Revisão Final"
+
+#. Resource IDs: (200)
+msgid "Enforce"
+msgstr "Forçar"
 
 #. Resource IDs: (3825)
 msgid "Enlarge the window to full size"
@@ -5230,7 +5238,7 @@ msgstr "ID:32810:V   +T"
 
 #. Accelerator Entry for Menu ID:32811; ''
 msgid "ID:32811:V C +U"
-msgstr ""
+msgstr "ID:32811:V C + U"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
@@ -5793,7 +5801,7 @@ msgstr "Juntar à árvore principal"
 
 #. Resource IDs: (1632)
 msgid "Jump to next &conflict"
-msgstr ""
+msgstr "Ir para o próximo &conflito"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -5845,11 +5853,11 @@ msgstr "Idioma:"
 
 #. Resource IDs: (65535)
 msgid "Last changed author:"
-msgstr ""
+msgstr "Último autor alterado:"
 
 #. Resource IDs: (65535)
 msgid "Last changed revision:"
-msgstr ""
+msgstr "Última revisão alterada:"
 
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
@@ -8288,7 +8296,7 @@ msgstr "Executar limpeza &agora"
 msgid ""
 "Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "Executar⏎ Executa o script "
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9601,9 +9609,8 @@ msgstr "O arquivo\n%s\njá existe! Você deseja sobrescrevê-lo?"
 msgid ""
 "The file\n"
 "%s\n"
-"is not a valid text file!\n"
-"Note that UTF32 files are treated as binary too."
-msgstr "O arquivo\n%s\nnão é um arquivo de texto válido!\nNote que arquivos UTF32 também são tratados como binários."
+"is not a valid text file!"
+msgstr "O arquivo⏎ %s⏎ não é um arquivo de texto válido!"
 
 #. Resource IDs: (145)
 #, c-format
@@ -10276,7 +10283,7 @@ msgid ""
 "instead.\n"
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr ""
+msgstr "TortoiseBlame não deve ser iniciado diretamente! Use⏎ TortoiseProc.exe /command:blame /path:\"path\\to\\file\"⏎ em vez disso.⏎ ⏎ TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -10985,7 +10992,7 @@ msgstr "CUIDADO:\r\nSomente mude essas configurações se você tem absoluta cer
 
 #. Resource IDs: (65535)
 msgid "WC Revision:"
-msgstr ""
+msgstr "Revisão WC:"
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -11628,7 +11635,7 @@ msgstr "bloqueado"
 
 #. Resource IDs: (65535)
 msgid "locked (cleanup required):"
-msgstr ""
+msgstr "travado (limpeza necessária):"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"
