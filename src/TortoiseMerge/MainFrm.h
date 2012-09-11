@@ -195,6 +195,11 @@ protected:
     CMFCRibbonBar               m_wndRibbonBar;
     CMFCRibbonApplicationButton m_MainButton;
 
+    CRegDWORD       m_regWrapLines;
+    CRegDWORD       m_regViewModedBlocks;
+    CRegDWORD       m_regOneWay;
+    CRegDWORD       m_regCollapsed;
+    CRegDWORD       m_regInlineDiff;
 public:
     CLeftView *     m_pwndLeftView;
     CRightView *    m_pwndRightView;

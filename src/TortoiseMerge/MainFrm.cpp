@@ -159,13 +159,19 @@ CMainFrame::CMainFrame()
     , m_bBlame(false)
     , m_bCheckReload(false)
     , m_bSaveRequired(false)
+
+    , m_regWrapLines(L"Software\\TortoiseMerge\\WrapLines", 0)
+    , m_regViewModedBlocks(L"Software\\TortoiseMerge\\ViewMovedBlocks", 0)
+    , m_regOneWay(L"Software\\TortoiseMerge\\OnePane")
+    , m_regCollapsed(L"Software\\TortoiseMerge\\Collapsed", 0)
+    , m_regInlineDiff(L"Software\\TortoiseMerge\\DisplayBinDiff", TRUE)
 {
-    m_bOneWay = (0 != ((DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"))));
+    m_bOneWay = (0 != ((DWORD)m_regOneWay));
     theApp.m_nAppLook = theApp.GetInt(_T("ApplicationLook"), ID_VIEW_APPLOOK_VS_2005);
-    m_bCollapsed = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
-    m_bViewMovedBlocks = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\ViewMovedBlocks"), 0);
-    m_bWrapLines = !!(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\WrapLines"), 0);
-    m_bInlineDiff = !!CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
+    m_bCollapsed = !!(DWORD)m_regCollapsed;
+    m_bViewMovedBlocks = !!(DWORD)m_regViewModedBlocks;
+    m_bWrapLines = !!(DWORD)m_regWrapLines;
+    m_bInlineDiff = !!m_regInlineDiff;
     CMFCVisualManagerWindows::m_b3DTabsXPTheme = TRUE;
 }
 
@@ -948,9 +954,8 @@ void CMainFrame::OnUpdateViewWhitespaces(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewCollapsed()
 {
-    CRegDWORD regViewCollapsed = CRegDWORD(_T("Software\\TortoiseMerge\\Collapsed"), 0);
-    regViewCollapsed = !(DWORD)regViewCollapsed;
-    m_bCollapsed = !!(DWORD)regViewCollapsed;
+    m_regCollapsed = !(DWORD)m_regCollapsed;
+    m_bCollapsed = !!(DWORD)m_regCollapsed;
 
     OnViewTextFoldUnfold();
     m_wndLocatorBar.Invalidate();
@@ -963,9 +968,8 @@ void CMainFrame::OnUpdateViewCollapsed(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewWraplonglines()
 {
-    CRegDWORD regViewWrapLines = CRegDWORD(_T("Software\\TortoiseMerge\\WrapLines"), 0);
-    regViewWrapLines = !(DWORD)regViewWrapLines;
-    m_bWrapLines = !!(DWORD)regViewWrapLines;
+    m_bWrapLines = !(DWORD)m_regWrapLines;
+    m_regWrapLines = m_bWrapLines;
 
     if (m_pwndLeftView)   m_pwndLeftView  ->WrapChanged();
     if (m_pwndRightView)  m_pwndRightView ->WrapChanged();
@@ -2224,9 +2228,8 @@ void CMainFrame::OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewMovedBlocks()
 {
-    CRegDWORD regShowMovedBlocks = CRegDWORD(_T("Software\\TortoiseMerge\\ViewMovedBlocks"), 0);
-    m_bViewMovedBlocks = !(DWORD)regShowMovedBlocks;
-    regShowMovedBlocks = m_bViewMovedBlocks;
+    m_bViewMovedBlocks = !(DWORD)m_regViewModedBlocks;
+    m_regViewModedBlocks = m_bViewMovedBlocks;
     LoadViews(-1);
 }
 
