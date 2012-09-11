@@ -38,10 +38,6 @@ CString CLogChangedPath::GetUIPath (const CDictionaryBasedPath& path) const
 {
     std::string utf8Path = path.GetPath();
 
-    // relative path strings are never empty
-
-    CPathUtils::Unescape (&utf8Path[0]);
-
     // we don't need to adjust the path length as
     // the conversion will automatically stop at \0.
 
