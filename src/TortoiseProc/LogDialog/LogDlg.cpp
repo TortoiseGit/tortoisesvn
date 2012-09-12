@@ -5156,7 +5156,6 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             {
                 CEditPropertiesDlg dlg;
                 dlg.SetProjectProperties(&m_ProjectProperties);
-                CTSVNPathList escapedlist;
                 dlg.SetPathList(CTSVNPathList(CTSVNPath(pathURL)));
                 dlg.SetRevision(revSelected);
                 dlg.RevProps(true);
