@@ -122,7 +122,18 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
             if (fastLowerCase)
                 FastLowerCaseConversion (text, size);
             else
-                _strlwr_s (text, size+1);
+            {
+                // all these strings are in utf-8, which means all the
+                // standard c-APIs to convert the string directly to
+                // lowercase won't work: we first have to convert
+                // the string to wide-char. Very very slow, but unavoidable
+                // if we want to make this work right.
+                CStringA as = CStringA(text, size);
+                CString s = CUnicodeUtils::GetUnicode(as);
+                s.MakeLower();
+                as = CUnicodeUtils::GetUTF8(s);
+                strncpy_s(text, size+1, as, size);
+            }
 
         // require all strings to be present
 
@@ -307,7 +318,7 @@ void CLogDlgFilter::AddSubString (CString token, Prefix prefix)
         // to lowercase -> uppercase conversion or they map
         // their lowercase chars beyond U+0x80.
 
-        fastLowerCase |= IsAllASCII7 (token);
+        fastLowerCase &= IsAllASCII7 (token);
     }
 
     // add condition to list
