@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:28+0000\n"
+"PO-Revision-Date: 2012-09-11 19:47+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -8613,7 +8613,7 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
-msgstr ""
+msgstr "Możecie również, jeśli jest to wymagane, wskazać wersję wieszakową i obowiązującą dla URL. By dowiedzieć się więcej o wersjach wieszakowej i obowiązującej, przeczytajcie <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>odpowiedni rozdział</citetitle></ulink> Subversion book (w jęz. angielskim)."
 
 #. (para)
 msgid ""
@@ -8730,7 +8730,7 @@ msgstr "Docelowym domyślnym adresem URL dla nowej gałęzi będzie URL źródł
 
 #. (title)
 msgid "intermediate folders"
-msgstr ""
+msgstr "foldery pośrednie"
 
 #. (para)
 msgid ""
@@ -8738,7 +8738,7 @@ msgid ""
 "already exist or you will get an error message. In the above example, the "
 "URL <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> must "
 "exist to create the <literal>Release_1.10</literal> tag."
-msgstr ""
+msgstr "Po wskazaniu docelowego URL, wszystkie foldery muszą w nim już istnieć, w przeciwnym razie wyświetli się komunikat błedu. W powyższym przykładzie musi istnieć URL <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> by utworzyć tetykietęag <literal>Release_1.10</literal>."
 
 #. (para)
 msgid ""
@@ -8746,7 +8746,7 @@ msgid ""
 "folders that don't exist yet you can check the option <option>Create "
 "intermediate folders</option> at the bottom of the dialog. If that option is"
 " activated, all intermediate folders are automatically created."
-msgstr ""
+msgstr "Jednak jeśli chcecie utworzyć gałąź/etykietę dla adresu URL posiadającego nie istniejące jeszcze foldery pośrednie , możecie zaznaczyć opcję <option>Utwórz foldery pośrednie</option> na dole okna. Gdy opcja jest zaznaczona, wszystkie foldery pośrednie zostaną automatycznie utworzone."
 
 #. (para)
 msgid ""
@@ -8759,7 +8759,7 @@ msgid ""
 "enabled a folder <literal>Tags</literal> would be automatically created, and"
 " you would end up with a folder <literal>Tags</literal> and a folder "
 "<literal>tags</literal>."
-msgstr ""
+msgstr "Należy zauważyć, opcja ta jest domyślnie wyłączona by uniknąć literówek. Na przykład, jeśli wpisano docelowy URL <literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal> zamiast <literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal>, wystąpi błąd przy wyłączonej opcji, natomiast przy opcji zaznaczonej zostanie automatycznie utworzony folder <literal>Tags</literal>, i skończy się to na istnieniu dwóch folderów <literal>Tags</literal> i <literal>tags</literal>."
 
 #. (term)
 #. (listitem)
@@ -11862,7 +11862,7 @@ msgid ""
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr ""
+msgstr "Ta integracja z systemem śledzenia błędów nie jest ograniczona tylko do TortoiseSVN; może być wykonana z dowolnym klientem Subversion. By uzyskać więcej informacji, należy przeczytać <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> z repozytorium źródłowego TortoiseSVN. (<xref linkend=\"tsvn-preface-source\"/> wyjaśnia, jak uzyskać dostęp do repozytorium.)"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -15961,7 +15961,7 @@ msgstr "Okno dialogowe dziennika wersji"
 msgid ""
 "By far the easiest way to revert the changes from one or more revisions, is "
 "to use the revision log dialog."
-msgstr ""
+msgstr "Jak dotąd najprostszą metodą wycofania zmian z jednej lub wielu wersji jest użycie okna dziennika wersji."
 
 #. (para)
 msgid ""
@@ -15986,7 +15986,7 @@ msgid ""
 "<action>Right click</action> on the selected revision(s), then select "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from "
 "this revision</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Należy wybrać wersję, do której należy wycofać. Jeśli chcecie wycofać zakres wersji, wybierzcie pierwszą i przytrzymać klawisz <keycap>Shift</keycap> podczas wybierania ostatniej. Jeśli macie zamiar wybrać pojedyncze wersji i zakresy, używajcie klawisza <keycap>Ctrl</keycap> przy wyborze wersji. <action>Kliknięcie prawymprzyciskiem myszy</action> na wybranej wersji(ach), po czym wybór <menuchoice><guimenu>Menu Kontekstowe</guimenu><guimenuitem>Wycofaj zmiany z tej wersji</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -16012,7 +16012,7 @@ msgid ""
 "If you want to enter revision numbers as a list, you can use the Merge "
 "dialog. The previous method uses merging behind the scenes; this method uses"
 " it explicitly."
-msgstr ""
+msgstr "Jeśli potrzeba wprowadzić numery wersji w postaci listy, można użyć okna Scalenie. Poprzednia metoda wykorzystuje sclaenie w tle; ta metoda korzysta z niego bezpośrednio."
 
 #. (para)
 msgid ""
@@ -16024,38 +16024,38 @@ msgstr "W swojej kopii roboczej wybierzcie <menuchoice><guimenu>TortoiseSVN</gui
 msgid ""
 "In the <guilabel>Merge Type</guilabel> dialog select <guilabel>Merge a range"
 " of revisions</guilabel>."
-msgstr ""
+msgstr "W oknie <guilabel>Typ Scalenia</guilabel> należy wybrać <guilabel>Scalenie zakresu wersji</guilabel>."
 
 #. (para)
 msgid ""
 "In the <guilabel>From:</guilabel> field enter the full repository URL of "
 "your working copy folder. This should come up as the default URL."
-msgstr ""
+msgstr "W polu <guilabel>Z:</guilabel> należy wprowadzić pełny adres URL folderu kopii roboczej. Powinien on pojawić się jako domyślny URL."
 
 #. (para)
 msgid ""
 "In the <guilabel>Revision range to merge</guilabel> field enter the list of "
 "revisions to roll back (or use the log dialog to select them as described "
 "above)."
-msgstr ""
+msgstr "W polu <guilabel>Zakres wersji doscalenia</guilabel> wprowadźcie listęwersji do wycofania (lub użycie okna dziennika by wybrać je jak toopisanopowyżej)."
 
 #. (para)
 msgid "Make sure the <guilabel>Reverse merge</guilabel> checkbox is checked."
-msgstr ""
+msgstr "Upewnijcie się, że pole wyboru <guilabel>Odwrócone scalenie</guilabel> jest zaznaczone."
 
 #. (para)
 msgid "In the <guilabel>Merge options</guilabel> dialog accept the defaults."
-msgstr ""
+msgstr "W oknie <guilabel>Opcje scalenia</guilabel> potwierdźcie wartości domyślne."
 
 #. (para)
 msgid "Click <guibutton>Merge</guibutton> to complete the merge."
-msgstr ""
+msgstr "Kliknijcie <guibutton>Scal</guibutton> by zakończyć scalenie."
 
 #. (para)
 msgid ""
 "You have reverted the changes within your working copy. Check that the "
 "results are as expected, then commit the changes."
-msgstr ""
+msgstr "Przywróciliście zmiany w kopii roboczej. Sprawdźcie, czy wyniki są takie jak się spodziewaliście,po czym zatwierdźcie zmiany."
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"

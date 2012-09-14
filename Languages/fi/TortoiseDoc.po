@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:27+0000\n"
+"PO-Revision-Date: 2012-09-11 21:38+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2934,11 +2934,11 @@ msgstr "luo työkopio"
 
 #. (primary)
 msgid "sparse checkout"
-msgstr ""
+msgstr "epätäydellinen työkopio"
 
 #. (primary)
 msgid "partial checkout"
-msgstr ""
+msgstr "osittainen työkopio"
 
 #. (para)
 msgid ""
@@ -3051,11 +3051,11 @@ msgid ""
 "If you check out a sparse working copy (i.e., by choosing something other "
 "than <literal>fully recursive</literal> for the checkout depth), you can "
 "easily add or remove sub-folders later using one of the following methods."
-msgstr ""
+msgstr "Jos noudat epätäydellisen työkopion (valitsemalla syvyydeksi jotain muuta kuin <literal>täysin palautuva</literal>), voit myöhemmin helposti lisätä tai poistaa alihakemistoja jollain seuraavista tavoista."
 
 #. (title)
 msgid "Sparse Update using Update to Revision"
-msgstr ""
+msgstr "Epätäydellinen päivitys komennon Päivitä versioon kanssa"
 
 #. (para)
 msgid ""
@@ -3066,11 +3066,11 @@ msgid ""
 "original checkout and allows you to select or deselect items to include in "
 "the checkout. This method is very flexible but can be slow as every item in "
 "the folder is updated individually."
-msgstr ""
+msgstr "<action>Oikea-napsauta</action> versioitua kansiota ja valitse komento\n<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Päivitä versioon</guimenuitem></menuchoice>. Painikkeen <guibutton>Valitse kohteet...</guibutton> avulla voit lisätä tai poistaa päivitykseen sisältyviä kansioita. Tämä tapa on näppärä, mutta voi olla hidas, koska kukin kohde päivitetään erikseen."
 
 #. (title)
 msgid "Sparse Update using Repo Browser"
-msgstr ""
+msgstr "Epätäydellinen päivitys arkistoselaimessa"
 
 #. (para)
 msgid ""
@@ -3080,11 +3080,11 @@ msgid ""
 "the sub-folder you would like to add to your working copy, then use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<action>Oikea-napsauta</action> versioitua kansiota ja valitse komento\n<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Arkistoselain</guimenuitem></menuchoice> selataksesi arkiston sisältöä. Etsi hakemisto, jonka haluat sisällyttää työkopioon ja valitse komento <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Päivitä kohde versioon…</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Sparse Update using Check for Modifications"
-msgstr ""
+msgstr "Epätäydellinen päivitys Tarkista muutokset -ikkunassa"
 
 #. (para)
 msgid ""
@@ -8213,7 +8213,7 @@ msgid ""
 "external gives you the command to peg the selected externals to their "
 "explicit HEAD revision. In case the HEAD revision is not known yet, the "
 "right click command will fetch the HEAD revision first."
-msgstr ""
+msgstr "Painike <guibutton>Etsi HEAD-versio</guibutton> noutaa jokaisen ulkoisen viitteen HEAD-version ja näyttää sen oikeanpuolimmaisessa sarakkeessa. Kun HEAD-versio on tiedossa, oikea-napsauta ulkoisen viitteen kohdalla antaa komennon, jolla voit ankkuroida valitut ulkoiset viitteet niiden eksplisiittisiin HEAD-versioihin. Mikäli HEAD-versio ei ole vielä selvillä, oikea-napsauta noutaa sen ensin."
 
 #. (title)
 msgid "SVN Keywords"
@@ -8360,7 +8360,7 @@ msgstr "Pilkuin erotettu lista yhdistettyjä versioita, esim. <literal>3, 5, 6, 
 msgid ""
 "Like <literal>{revisions}</literal>, but with each revision preceded with an"
 " <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
-msgstr ""
+msgstr "Kuten <literal>{versiot}</literal>, mutta kukin versio prefiksoituna merkillä <literal>r</literal>, esim. <literal>r3, r5, r6, r7</literal>"
 
 #. (para)
 msgid ""
@@ -8371,7 +8371,7 @@ msgstr "Pilkuilla erotettu lista yhdistettyjä versioita ryhmiteltyinä osaväle
 #. (para)
 msgid ""
 "The source URL of the merge, i.e., where the revisions are merged from."
-msgstr ""
+msgstr "Yhdistämisen lähdepaikannin, ts. paikka, josta yhdistettävät versiot tulevat."
 
 #. (para)
 msgid ""
@@ -8611,7 +8611,7 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
-msgstr ""
+msgstr "Voit myös tarvittaessa määrittää ankkuri- ja operatiivisen version paikantimelle. Lue lisää näistä tavoista <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>Subversion-kirjasta</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -8728,7 +8728,7 @@ msgstr "Uuden haaran oletusarvoinen kohde on sama kuin se, mistä työkopio on n
 
 #. (title)
 msgid "intermediate folders"
-msgstr ""
+msgstr "välihakemistot"
 
 #. (para)
 msgid ""
@@ -8736,7 +8736,7 @@ msgid ""
 "already exist or you will get an error message. In the above example, the "
 "URL <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> must "
 "exist to create the <literal>Release_1.10</literal> tag."
-msgstr ""
+msgstr "Kun määrität kohdepaikantimen, kaikkiensen  välihakemistojen on oltava olemassa, muuten toiminto päättyy virheeseen. Yllä olevassa esimerkissä paikantimen <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> on oltava olemassa, jotta nimetty versio <literal>Release_1.10</literal> voidaan luoda."
 
 #. (para)
 msgid ""
@@ -8744,7 +8744,7 @@ msgid ""
 "folders that don't exist yet you can check the option <option>Create "
 "intermediate folders</option> at the bottom of the dialog. If that option is"
 " activated, all intermediate folders are automatically created."
-msgstr ""
+msgstr "Tarvittaessa voit luoda puuttuvat välihakemistot automaattisesti ikkunan alaosassa olevan valinnan <option>Luo välihakemistot</option> avulla."
 
 #. (para)
 msgid ""
@@ -8757,7 +8757,7 @@ msgid ""
 "enabled a folder <literal>Tags</literal> would be automatically created, and"
 " you would end up with a folder <literal>Tags</literal> and a folder "
 "<literal>tags</literal>."
-msgstr ""
+msgstr "Huomaa, että valinta on oletusarvoisesti pois päältä kirjoitusvirheiden välttämiseksi. Jos esimerkiksi kirjoitat kohdepaikantimen muodossa <literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal> muodon <literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal> sijaan, saat virheilmoituksen, kun valinta on pois päältä. Jos valinta kuitenkin on päällä, kansio <literal>Tags</literal> luodaan automaattisesti ja lopputuloksena on kaksi kansiota, <literal>Tags</literal> ja <literal>tags</literal>."
 
 #. (term)
 #. (listitem)
@@ -9158,7 +9158,7 @@ msgid ""
 "also need to specify that revision as a peg revision in the range of "
 "revisions being merged (see below), otherwise the merge will fail when it "
 "can't find that path at HEAD."
-msgstr ""
+msgstr "Jos yhdistät uudelleen nimetystä tai poistetusta haarasta, joudut siirtymään takaisin sellaiseen versioon, jossa haara oli vielä olemassa.  Tämä versio on kiinnitettävä ankkuriversioksi yhdistettävään versioväliin (ks. alla), muuten yhdistäminen epäonnistuu, koska HEAD ei sisällä ko. polkua."
 
 #. (para)
 msgid ""
@@ -9767,7 +9767,7 @@ msgstr "Ensin on syytä varmistaa, että Subversion-palvelimesi on päivitetty v
 
 #. (title)
 msgid "The Three Meanings of <quote>Lock</quote>"
-msgstr ""
+msgstr "Kolme merkitystä termille <quote>Lukko</quote>"
 
 #. (para)
 msgid ""
@@ -9776,7 +9776,7 @@ msgid ""
 "mutual exclusion between users to avoid clashing commits. Unfortunately, "
 "there are two other sorts of <quote>lock</quote> with which Subversion, and "
 "therefore this book, sometimes needs to be concerned."
-msgstr ""
+msgstr "Tässä luvussa, samoin kuin miltei kaikkialla tässä kirjassa, sanat <quote>lukko</quote> ja <quote>lukitus</quote> kuvaavat käyttäjien yhteiskäytön estävää mekanismia, jolla vältetään päällekkäiset toimitukset arkistoon. Subversion käyttää kuitenkin lukkoja myös kahteen muuhun tarkoitukseen, joista käyttäjän on hyvä olla tietoinen."
 
 #. (para)
 msgid ""
@@ -9786,14 +9786,14 @@ msgid ""
 "like update/commit/... is interrupted due to an error. These locks can be "
 "removed by running the cleanup command on the working copy, as described in "
 "<xref linkend=\"tsvn-dug-cleanup\"/>."
-msgstr ""
+msgstr "Toinen lukkotyyppi on <literal>työkopiolukko</literal>, jota Subversion käyttää sisäisesti estääkseen yhteentörmäykset samaa työkopiota käyttävien Subversion-asiakkaiden välillä. Tavallisesti tällaisen lukon saa, kun päivitys tai arkistotoimitus keskeytyy virheen vuoksi. Työkopiolukon voi poistaa siivoamalla työkopion luvussa <xref linkend=\"tsvn-dug-cleanup\"/> kuvatulla tavalla."
 
 #. (para)
 msgid ""
 "And third, files and folders can get locked if they're in use by another "
 "process, for example if you have a word document opened in Word, that file "
 "is locked and can not be accessed by TortoiseSVN."
-msgstr ""
+msgstr "Kolmanneksi, tiedostot ja kansiot voivat lukittua, jos ne ovat toisen prosessin käytössä. Jos esimerkiksi olet muokkaat tiedostoa Wordissä, se on lukittu eikä TortoiseSVN voi käyttää sitä."
 
 #. (para)
 msgid ""
@@ -9801,7 +9801,7 @@ msgid ""
 "goes wrong that requires you to care about them. In this book, "
 "<quote>lock</quote> means the first sort unless the contrary is either clear"
 " from context or explicitly stated."
-msgstr ""
+msgstr "Yleisesti ottaen voit unohtaa nämä matalan tason lukot, ellei jotain mene pieleen. Tässä kirjassa termi <quote>lukko</quote> tarkoittaa ensinnä kuvattua tyyppiä, ellei muu ole ilmeistä lauseyhteyden perusteella."
 
 #. (title)
 msgid "How Locking Works in Subversion"
@@ -11281,7 +11281,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>."
 " Exporting from a URL and exporting from a working copy are treated slightly"
 " differently."
-msgstr ""
+msgstr "Joskus on tarpeen saada työkopiosta versio, jossa ei ole <filename>.svn</filename> -hakemistoja, esim. pakatun tiedoston luomiseksi tai verkkopalvelimelle julkaisua varten. TortoiseSVN sisältää komennon <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Vie...</guimenuitem></menuchoice> tätä tarkoitusta varten. Komento toimii hieman eri tavoin riippuen siitä, onko viennin lähde työkopio vai paikannin."
 
 #. (title)
 msgid "The Export-from-URL Dialog"
@@ -11315,7 +11315,7 @@ msgid ""
 "too</guilabel> checkbox to include any other unversioned files which exist "
 "in your WC and not in the repository. External references using "
 "<literal>svn:externals</literal> can be omitted if required."
-msgstr ""
+msgstr "Jos suoritat komennon työkopiossasi, sinulta kysytään, minne hauat tallettaa <emphasis>puhtaan</emphasis> työkopion ilman <filename>.svn</filename>-kansiota. Oletusarvoisesti vain versioidut tiedostot viedään, mutta voit muuttaa tätä ruksaamalla valintalaatikon <guilabel>Vie myös versioimattomat tiedostot</guilabel>. Tällöin mukaan otetaan myös muut versioimattomat tiedostot, jotka löytyvät työkopiostasi mutteivät arkistosta. Muotoa <literal>svn:externals</literal> olevat ulkoiset viittaukset voidaan tarvittaessa ohittaa."
 
 #. (para)
 msgid ""
@@ -11329,7 +11329,7 @@ msgid ""
 "here</guimenuitem></menuchoice>. The second option includes the unversioned "
 "files as well. The third option exports only modified items, but maintains "
 "the folder structure."
-msgstr ""
+msgstr "Toinen tapa viedä tiedostoja työkopiosta on <action>oikea-raahata</action> työkopiokansio kohteeseen ja valita komento <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>SVN: Kopioi versioidut kohteet tänne</guimenuitem></menuchoice>. Toinen valinta sisällyttää mukaan myös versioimattomat tiedostot. Kolmas valinta sisällyttää vain muutetut tiedostot, mutta säilyttää kansiorakenteen. "
 
 #. (para)
 msgid ""
@@ -11375,7 +11375,7 @@ msgid ""
 "If you want to export your working copy tree structure but containing only "
 "the files which are locally modified, refer to <guilabel>SVN Export changed "
 "items here</guilabel> above."
-msgstr ""
+msgstr "Mikäli haluat viedä työkopiosi puurakenteen vain paikallisten muutosten kera, katso  kohtaa <guilabel>SVN: Vie muutetut kohteet tänne</guilabel> yllä."
 
 #. (title)
 msgid "Removing a working copy from version control"
@@ -11391,7 +11391,7 @@ msgid ""
 "Sometimes you have a working copy which you want to convert back to a normal"
 " folder without the <literal>.svn</literal> directory. All you need to do is"
 " delete the <literal>.svn</literal> directory from the working copy root."
-msgstr ""
+msgstr "Joskus on tarpeen muuttaa työkopio tavalliseksi kansioksi ilman <literal>.svn</literal> -hakemistoa. Tällöin riittää poistaa kansio <literal>.svn</literal> työkopion juuresta."
 
 #. (para)
 msgid ""
@@ -11401,7 +11401,7 @@ msgid ""
 "make the working copy unversioned. If you answer <emphasis>yes</emphasis> "
 "the control directory will be removed and you will have a plain, unversioned"
 " directory tree."
-msgstr ""
+msgstr "Vaihtoehtoisesti voit viedä kansion itseensä. Oikea-raahaa työkopion juurihakemisto Windows-resurssienhallinnassa tiedostopaneelista itsensä päälle kansiopaneeliin. TortoiseSVN havaitsee tämän erikoistapauksen ja kysyy haluatko tehdä työkopiostasi versioimattoman. Jos vastaat <emphasis>kyllä</emphasis>, kontrollihakemisto poistetaan ja lopputuloksena kansiopuu on versioimaton."
 
 #. (title)
 msgid "Relocating a working copy"
@@ -11860,7 +11860,7 @@ msgid ""
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr ""
+msgstr "Virheenjäljitysintegraatiota voi käyttää TortoiseSVN:n ohella minkä tahansa Subversion-asiakkaan kanssa. Katso yksityiskohdat dokumentista <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> TortoiseSVN-arkistossa (kappale <xref linkend=\"tsvn-preface-source\"/> kertoo, miten TortoiseSVN-arkistoon kytkeydytään)."
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -14094,7 +14094,7 @@ msgid ""
 "echo Checking Status &gt; con\n"
 "pause &lt; con &gt; con\n"
 "</screen>"
-msgstr ""
+msgstr "Testatessasi toimintokomentoja saatat tarvita konsolille tulostamista tai tauon lisäämistä estääksesi konsoli-ikkunaa katoamasta komentojonon päättyessä. Koska I/O on uudelleen ohjattu, tämä ei normaalisti toimi. Voit kuitenkin saada tämän aikaan ohjaamalla syötön ja tulostuksen CON-laitteelle. Esimerkki: <screen>\necho Tarkistetaan tilaa &gt; con\npause &lt; con &gt; con\n</screen>"
 
 #. (para)
 msgid ""
@@ -15959,7 +15959,7 @@ msgstr "Käytä loki-ikkunaa"
 msgid ""
 "By far the easiest way to revert the changes from one or more revisions, is "
 "to use the revision log dialog."
-msgstr ""
+msgstr "Helpoin tapa peruuttaa muutokset yhdestä tai useammasta versiosta on käyttää loki-ikkunaa."
 
 #. (para)
 msgid ""
@@ -15984,7 +15984,7 @@ msgid ""
 "<action>Right click</action> on the selected revision(s), then select "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from "
 "this revision</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Valitse versio, jonka muutokset haluat perua. Jos haluat perua muutokset versiovälillä, valitse niistä ensimmäinen ja pidä <keycap>Shift</keycap>-näppäin pohjassa valitessasi viimeistä. Jos haluat valita yksittäisiä versioita ja versiovälejä, pidä  <keycap>Ctrl</keycap>-näppäin pohjassa valintoja tehdessä. Lopuksi <action>oikea-napsauta</action> valintaa ja anna komento <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Poista tämän version muutokset</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -16010,7 +16010,7 @@ msgid ""
 "If you want to enter revision numbers as a list, you can use the Merge "
 "dialog. The previous method uses merging behind the scenes; this method uses"
 " it explicitly."
-msgstr ""
+msgstr "Jos haluat luetella versionumerot, voit käyttää yhdistämisikkunaa. Edellinen menetelmä käyttää käyttää yhdistämistä sisäisestitämä menetelmä käyttää sitä suoraan."
 
 #. (para)
 msgid ""
@@ -16022,38 +16022,38 @@ msgstr "Valitse työkopiossasi komento <menuchoice><guimenu>TortoiseSVN</guimenu
 msgid ""
 "In the <guilabel>Merge Type</guilabel> dialog select <guilabel>Merge a range"
 " of revisions</guilabel>."
-msgstr ""
+msgstr "Valitse <guilabel>Yhdistämistyyppi</guilabel>-ikkunasta vaihtoehto <guilabel>Yhdistä versioväli</guilabel>."
 
 #. (para)
 msgid ""
 "In the <guilabel>From:</guilabel> field enter the full repository URL of "
 "your working copy folder. This should come up as the default URL."
-msgstr ""
+msgstr "Syötä <guilabel>Mistä:</guilabel> -kenttään työkopiosi arkistopaikannin. Tämän pitäisi täyttyä oletuspaikantimella."
 
 #. (para)
 msgid ""
 "In the <guilabel>Revision range to merge</guilabel> field enter the list of "
 "revisions to roll back (or use the log dialog to select them as described "
 "above)."
-msgstr ""
+msgstr "Syötä <guilabel>Yhdistettävä versioväli</guilabel> -kenttään peruttavat versiot (tai käytä loki-ikkunaa niiden valitsemiseen kuten yllä on kuvattu)."
 
 #. (para)
 msgid "Make sure the <guilabel>Reverse merge</guilabel> checkbox is checked."
-msgstr ""
+msgstr "Varmista, että asetus <guilabel>Käänteinen yhdistäminen</guilabel> on valittuna."
 
 #. (para)
 msgid "In the <guilabel>Merge options</guilabel> dialog accept the defaults."
-msgstr ""
+msgstr "Hyväksy oletusarvot <guilabel>Yhdistämisvalinnat</guilabel>-ikkunassa."
 
 #. (para)
 msgid "Click <guibutton>Merge</guibutton> to complete the merge."
-msgstr ""
+msgstr "Napsauta <guibutton>Yhdistä</guibutton> viimeistelläksesi yhdistämisen."
 
 #. (para)
 msgid ""
 "You have reverted the changes within your working copy. Check that the "
 "results are as expected, then commit the changes."
-msgstr ""
+msgstr "Olet nyt perunut muutokset työkopiossasi. Tarkista muutokset ja toimita ne sitten arkistoon."
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"

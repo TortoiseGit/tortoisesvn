@@ -11,23 +11,21 @@
 # Authors:
 # Translators:
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
-# Lübbe Onken <l.onken@rac.de>, 2011, 2012.
+# Lübbe Onken <l.onken@rac.de>, 2011-2012.
 # Stefan Kueng <tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
-"Report-Msgid-Bugs-To: "
-"http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-10 11:37+0200\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
-"Language-Team: RA Consulting GmbH <support@rac.de>\n"
-"Language: de\n"
+"PO-Revision-Date: 2012-09-14 07:14+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
 
 #. (title)
 #. (secondary)
@@ -2937,7 +2935,7 @@ msgstr "Arbeitskopie erstellen"
 
 #. (primary)
 msgid "sparse checkout"
-msgstr "dünn besetzte Arbeitskopie"
+msgstr "spärlich ausgecheckt"
 
 #. (primary)
 msgid "partial checkout"
@@ -3047,30 +3045,18 @@ msgid ""
 "checkout</literal>. An update of such a working copy will not fetch the "
 "missing files and folders but only update what you already have in your "
 "working copy."
-msgstr ""
-"Um einfach nur die Elemente, die Sie auschecken wollen, auszuwählen und "
-"dafür zu sorgen, dass die resultierende Arbeitskopie nur die gewählten "
-"Objekte enthält, klicken Sie auf die <guibutton>Wähle Objekte...</guibutton> "
-"Schaltfläche. Diese öffnet einen neuen Dialog, in dem Sie die gewünschten "
-"Objekte markieren können. Die resultierende Arbeitskopie wird als "
-"<literal>dünn besetzte Arbeitskopie</literal> bezeichnet. Wenn sie diese "
-"Arbeitskopie aktualisieren, werden nur die gewählten Dateien und Ordner "
-"aktualisiert und die fehlenden Objekte ignoriert."
+msgstr "Um einfach nur die Elemente, die Sie auschecken wollen, auszuwählen und dafür zu sorgen, dass die resultierende Arbeitskopie nur die gewählten Objekte enthält, klicken Sie auf die <guibutton>Wähle Objekte...</guibutton> Schaltfläche. Diese öffnet einen neuen Dialog, in dem Sie die gewünschten Objekte markieren können. Die resultierende Arbeitskopie wird als <literal>spärliche Arbeitskopie</literal> bezeichnet. Wenn sie diese Arbeitskopie aktualisieren, werden die fehlenden Objekte ignoriert und nur die gewählten Dateien und Ordner aktualisiert."
 
 #. (para)
 msgid ""
 "If you check out a sparse working copy (i.e., by choosing something other "
 "than <literal>fully recursive</literal> for the checkout depth), you can "
 "easily add or remove sub-folders later using one of the following methods."
-msgstr ""
-"Wenn Sie eine dünn besetzte Arbeitskopie erstellen (indem Sie z.B. etwas "
-"anderes als <literal>vollständig rekursiv</literal> für die Auschecktiefe "
-"wählen), können Sie später einfach Unterordner mit einer der folgenden "
-"Methoden hinzufügen oder entfernen."
+msgstr "Wenn Sie eine spärliche Arbeitskopie erstellen (indem Sie z.B. etwas anderes als <literal>vollständig rekursiv</literal> für die Auschecktiefe wählen), können Sie später einfach Unterordner mit einer der folgenden Methoden hinzufügen oder entfernen."
 
 #. (title)
 msgid "Sparse Update using Update to Revision"
-msgstr ""
+msgstr "Spärliches Aktualisieren mittels Aktualisieren zu Revision"
 
 #. (para)
 msgid ""
@@ -3081,11 +3067,11 @@ msgid ""
 "original checkout and allows you to select or deselect items to include in "
 "the checkout. This method is very flexible but can be slow as every item in "
 "the folder is updated individually."
-msgstr ""
+msgstr "Machen Sie einen <action>Rechtsklick</action> auf den ausgecheckten Ordner, wählen Sie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aktualisiere zu Revision...</guimenuitem></menuchoice> und anschließend <guibutton>Objekte auswählen...</guibutton>. Es öffnet sich der gleiche Dialog wie beim ersten Auschecken und sie können die Objekte wählen, die in der Arbeitskopie enthalten sein sollen. Diese Methode ist sehr flexibel, kann aber langsam sein, da jedes Objekt im Ordner individuell aktualisiert wird."
 
 #. (title)
 msgid "Sparse Update using Repo Browser"
-msgstr ""
+msgstr "Spärliches Aktualisieren mit dem Projektarchivbetrachter"
 
 #. (para)
 msgid ""
@@ -3095,11 +3081,11 @@ msgid ""
 "the sub-folder you would like to add to your working copy, then use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Rufen Sie mit einem <action>Rechtsklick</action> auf den ausgecheckten Ordner den Projektarchivbetrachter auf. Suchen Sie den Unterordner, den Sie zu Ihrer Arbeitskopie hinzufügen wollen und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Aktualisiere zu Revision...</guimenuitem> </menuchoice>."
 
 #. (title)
 msgid "Sparse Update using Check for Modifications"
-msgstr ""
+msgstr "Spärliches Aktualisieren mittels Prüfe auf Änderungen"
 
 #. (para)
 msgid ""
@@ -8228,7 +8214,7 @@ msgid ""
 "external gives you the command to peg the selected externals to their "
 "explicit HEAD revision. In case the HEAD revision is not known yet, the "
 "right click command will fetch the HEAD revision first."
-msgstr ""
+msgstr "Die Schaltfläche <guibutton>HEAD Revision finden</guibutton> holt die HEAD Revision jeder externen URL und zeigt sie in der rechten Spalte an. Nachdem diese Revision bekannt ist, genügt ein einfacher Doppelklick, um den externen Verweis fest an diese HEAD Revision zu binden. Falls die HEAD Revision noch nicht bekannt ist, wird sie bei einem Rechtsklick zunächst geholt."
 
 #. (title)
 msgid "SVN Keywords"
@@ -8375,9 +8361,7 @@ msgstr "Eine kommaseparierte Liste der zusammengeführten Revisionen, z. B. <lit
 msgid ""
 "Like <literal>{revisions}</literal>, but with each revision preceded with an"
 " <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
-msgstr ""
-"Wie <literal>{revisions}</literal>, aber jeder Revision wird ein "
-"<literal>r</literal> vorangestellt, z.B. <literal>r3, r5, r6, r7</literal>"
+msgstr "Wie <literal>{revisions}</literal>, aber jeder Revision wird ein <literal>r</literal> vorangestellt, z.B. <literal>r3, r5, r6, r7</literal>"
 
 #. (para)
 msgid ""
@@ -8388,9 +8372,7 @@ msgstr "Eine kommaseparierte Liste der zusammengeführten Revisionen, wenn mögl
 #. (para)
 msgid ""
 "The source URL of the merge, i.e., where the revisions are merged from."
-msgstr ""
-"Die Quell-URL des Zusammenführens, d. h. von wo die Revisionen "
-"zusammengeführt werden."
+msgstr "Die Quell-URL des Zusammenführens, d. h. von wo die Revisionen zusammengeführt werden."
 
 #. (para)
 msgid ""
@@ -8630,7 +8612,7 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
-msgstr ""
+msgstr "Sie können außerdem eine fixe- und Arbeitsrevision für die URL angeben, falls erforderlich. Um mehr über fixe und Arbeitsrevisionen zu erfahren, lesen Sie bitte das <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>entsprechende Kapitel</citetitle></ulink> im Subversion Buch."
 
 #. (para)
 msgid ""
@@ -8747,7 +8729,7 @@ msgstr "Standardmäßig wird die Ziel-URL mit der Quell-URL Ihrer Arbeitskopie v
 
 #. (title)
 msgid "intermediate folders"
-msgstr ""
+msgstr "Zwischenordner"
 
 #. (para)
 msgid ""
@@ -8755,7 +8737,7 @@ msgid ""
 "already exist or you will get an error message. In the above example, the "
 "URL <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> must "
 "exist to create the <literal>Release_1.10</literal> tag."
-msgstr ""
+msgstr "Wenn Sie die Ziel-URL angeben, müssen alle Ordner, bis zum letzten, bereits existieren oder Sie erhalten eine Fehlermeldung. Im obenstehenden Beispiel, muss die URL <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> exisitieren, um die <literal>Release_1.10</literal> Marke anlegen zu können"
 
 #. (para)
 msgid ""
@@ -8763,7 +8745,7 @@ msgid ""
 "folders that don't exist yet you can check the option <option>Create "
 "intermediate folders</option> at the bottom of the dialog. If that option is"
 " activated, all intermediate folders are automatically created."
-msgstr ""
+msgstr "Wenn Sie allerdings einen Zweig/eine Marke erstellen wollen, die Ordner enthält, welche noch nicht existieren, können Sie die Option <option>Zwischenordner erstellen</option> markieren. Dann werden alle Zwischenordner automatisch erstellt."
 
 #. (para)
 msgid ""
@@ -8776,7 +8758,7 @@ msgid ""
 "enabled a folder <literal>Tags</literal> would be automatically created, and"
 " you would end up with a folder <literal>Tags</literal> and a folder "
 "<literal>tags</literal>."
-msgstr ""
+msgstr "Beachten Sie bitte, dass diese Option standardmäßig deaktiviert ist, um Schreibfehler zu vermeiden. Sollten Sie z.B. die Ziel-URL als <literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal> anstelle von <literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal> angegeben haben, so erhalten sie eine Fehlermeldung, wenn die Option nicht aktiv ist. Wenn die Option aktiv ist, würde ihre Markierung in einem neuen Ordner <literal>Tags</literal> angelegt und nicht, wie gewünscht, im vorhandene Ordner <literal>Marken</literal>."
 
 #. (term)
 #. (listitem)
@@ -9177,7 +9159,7 @@ msgid ""
 "also need to specify that revision as a peg revision in the range of "
 "revisions being merged (see below), otherwise the merge will fail when it "
 "can't find that path at HEAD."
-msgstr ""
+msgstr "Wenn sie von einem umbenannten oder gelöschten Zweig zusammenführen möchten, müssen Sie zu einer Revision zurückgehen, in der dieser Zweig noch existierte. In diesem Fall müssen Sie die entsprechende Revision als fixe Revision im Bereich der zusammenzuführenden Revisionen angeben (siehe unten). Andernfalls wird das Zusammenführen fehlschlagen, wenn der Pfad in der HEAD Revision nicht gefunden wird."
 
 #. (para)
 msgid ""
@@ -9325,7 +9307,7 @@ msgid ""
 "other than HEAD. All changes to trunk made during branch development must "
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
-msgstr "Um einen Zweig wieder Eingliedern zu können, müssen einige Bedingungen erfüllt sein. Zunächst muss der Server die Verfolgung der Datenintegration unterstützen. Die Tiefe der Arbeitskopie muss unendlich sein (keine dünn besetzte Arbeitskopie) und sie darf weder lokalen Änderungen noch Objekte auf einer anderen URL oder einer anderen Revision als HEAD enthalten. Alle Änderungen am Stamm während der Entwicklung des Zweiges müssen in den Zweig übertragen worden sein (oder als übertragen markiert worden sein). Der Bereich der zusammenzuführenden Revisionen wird dann automatisch berechnet."
+msgstr "Um einen Zweig wieder eingliedern zu können, müssen einige Bedingungen erfüllt sein. Zunächst muss der Server die Verfolgung der Datenintegration unterstützen. Die Tiefe der Arbeitskopie muss unendlich sein (keine spärliche Arbeitskopie) und sie darf weder lokalen Änderungen noch Objekte auf einer anderen URL oder einer anderen Revision als HEAD enthalten. Alle Änderungen am Stamm während der Entwicklung des Zweiges müssen in den Zweig übertragen worden sein (oder als übertragen markiert worden sein). Der Bereich der zusammenzuführenden Revisionen wird dann automatisch berechnet."
 
 #. (title)
 msgid "Merging Two Different Trees"
@@ -10560,7 +10542,7 @@ msgstr "Annotiert jede Zeile der Datei mit dem Autor und dem Änderungsdatum."
 msgid ""
 "Checkout a single file. This creates a <quote>sparse</quote> working copy "
 "which contains just this one file."
-msgstr "Auschecken einer einzelnen Datei. Dies erstellt eine <quote>dünn besetzte</quote> Arbeitskopie die nur diese eine Datei enthält."
+msgstr "Auschecken einer einzelnen Datei. Dies erstellt eine <quote>spärliche</quote> Arbeitskopie die nur diese eine Datei enthält."
 
 #. (para)
 msgid "Delete or rename the file."
@@ -11300,7 +11282,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>."
 " Exporting from a URL and exporting from a working copy are treated slightly"
 " differently."
-msgstr ""
+msgstr "Es kommt vor dass Sie eine saubere Kopie Ihres Projektes ohne die administrativen Ordner (<filename>.svn</filename>) benötigen, zum Beispiel weil Sie das Projekt zippen oder z.B. auf einen Webserver exportieren möchten. Anstatt eine Kopie Ihrer Arbeitskopie zu erstellen und dann von Hand den <filename>.svn</filename> Ordner zu löschen können Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Exportieren...</guimenuitem> </menuchoice> verwenden. Exportieren von einer URL und von einer Arbeitskopie werden leicht unterschiedlich behandelt."
 
 #. (title)
 msgid "The Export-from-URL Dialog"
@@ -11334,7 +11316,7 @@ msgid ""
 "too</guilabel> checkbox to include any other unversioned files which exist "
 "in your WC and not in the repository. External references using "
 "<literal>svn:externals</literal> can be omitted if required."
-msgstr ""
+msgstr "Wenn Sie den Befehl in einer Arbeitskopie ausführen werden Sie nach einem Ort gefragt an dem Sie eine <emphasis>saubere</emphasis> Kopie Ihrer Arbeitskopie, ohne den <filename>.svn</filename> Ordner speichern möchten. Standardmäßig werden nur die versionierten Dateien exportiert, aber Sie können mit der Option <guilabel>Exportiere alle Dateien</guilabel> festlegen, dass auch die nicht versionierten Dateien exportiert werden sollen. Externe Referenzen via <literal>svn:externals</literal> können, wenn gewünscht, ausgelassen werden."
 
 #. (para)
 msgid ""
@@ -11879,14 +11861,7 @@ msgid ""
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr ""
-"Die Integration mit Fehlerverfolgungssystemen ist nicht auf TortoiseSVN "
-"limitiert, sie kann von jedem Subversion Client benutzt werden. Für weitere "
-"Informationen hierzu lesen Sie bitte die <ulink url=\"http://tortoisesvn.goog"
-"lecode.com/svn/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issuetracker "
-"Integration Specification</citetitle></ulink> im TortoiseSVN Projektarchiv. "
-"(<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN "
-"Projektarchiv zugreift)."
+msgstr "Die Integration mit Fehlerverfolgungssystemen ist nicht auf TortoiseSVN limitiert, sie kann von jedem Subversion Client benutzt werden. Für weitere Informationen hierzu lesen Sie bitte die <ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issuetracker Integration Specification</citetitle></ulink> im TortoiseSVN Projektarchiv. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN Projektarchiv zugreift)."
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -16010,15 +15985,7 @@ msgid ""
 "<action>Right click</action> on the selected revision(s), then select "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from "
 "this revision</guimenuitem></menuchoice>."
-msgstr ""
-"Wählen Sie die Revision, die Sie rückgängig machen wollen. Wenn Sie einen "
-"ganzen Bereich verwerfen wollen, halten Sie die <keycap>Umsch</keycap> Taste "
-"gedrückt, während Sie die letzte Revision markieren. Wenn Sie individuelle "
-"Revisionen und Bereiche auswählen wollen, verwenden Sie die "
-"<keycap>Strg</keycap> Taste. Machen Sie einen <action>Rechtsklick</action> "
-"auf die gewählten Revision(en) und wählen Sie <menuchoice> "
-"<guimenu>Kontextmenü</guimenu> <guimenuitem>Änderungen dieser Revision "
-"rückgängig machen</guimenuitem> </menuchoice>."
+msgstr "Wählen Sie die Revision, die Sie rückgängig machen wollen. Wenn Sie einen ganzen Bereich verwerfen wollen, halten Sie die <keycap>Umsch</keycap> Taste gedrückt, während Sie die letzte Revision markieren. Wenn Sie individuelle Revisionen und Bereiche auswählen wollen, verwenden Sie die <keycap>Strg</keycap> Taste. Machen Sie einen <action>Rechtsklick</action> auf die gewählten Revision(en) und wählen Sie <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Änderungen dieser Revision rückgängig machen</guimenuitem> </menuchoice>."
 
 #. (para)
 msgid ""
@@ -16044,7 +16011,7 @@ msgid ""
 "If you want to enter revision numbers as a list, you can use the Merge "
 "dialog. The previous method uses merging behind the scenes; this method uses"
 " it explicitly."
-msgstr ""
+msgstr "Einen größeren Revisionsbereich können Sie mit Hilfe des Zusammenführen-Dialogs angeben. Die vorherige Methode nutzt das Zusammenführen verdeckt; diese Methode nutzt es explizit."
 
 #. (para)
 msgid ""
@@ -16073,9 +16040,7 @@ msgstr ""
 
 #. (para)
 msgid "Make sure the <guilabel>Reverse merge</guilabel> checkbox is checked."
-msgstr ""
-"Stellen Sie sicher dass die <guilabel>Rückwärts zusammenführen</guilabel> "
-"Option gewählt ist."
+msgstr "Stellen Sie sicher dass die <guilabel>Rückwärts zusammenführen</guilabel> Option gewählt ist."
 
 #. (para)
 msgid "In the <guilabel>Merge options</guilabel> dialog accept the defaults."
@@ -16083,18 +16048,13 @@ msgstr ""
 
 #. (para)
 msgid "Click <guibutton>Merge</guibutton> to complete the merge."
-msgstr ""
-"Klicken Sie auf <guibutton>Zusammenführen</guibutton>, um die Aktion "
-"durchzu."
+msgstr "Klicken Sie auf <guibutton>Zusammenführen</guibutton>, um die Aktion durchzu."
 
 #. (para)
 msgid ""
 "You have reverted the changes within your working copy. Check that the "
 "results are as expected, then commit the changes."
-msgstr ""
-"Sie haben nun die Änderungen in Ihrer Arbeitskopie rückgängig gemacht. "
-"Prüfen Sie, ob die Ergebnisse wie erwartet sind und übertragen Sie die "
-"Änderungen."
+msgstr "Sie haben nun die Änderungen in Ihrer Arbeitskopie rückgängig gemacht. Prüfen Sie, ob die Ergebnisse wie erwartet sind und übertragen Sie die Änderungen."
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"
@@ -17093,7 +17053,7 @@ msgid ""
 " <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and "
 "<placeholder-6/>. The <placeholder-7/> indicates that the specified depth "
 "should be sticky, creating a sparse checkout."
-msgstr "Aktualisiert die Arbeitskopie in <placeholder-1/> zur HEAD Revision. Bei Angabe von <placeholder-2/> wird ein Dialog angezeigt, in dem der Anwender angeben kann, zu welcher Revision aktualisiert werden soll. Um die Anzeige des Dialogs zu vermeiden, geben Sie eine Revisionsnummer an <placeholder-3/>. Weitere Optionen sind <placeholder-4/>, <placeholder-5/> und <placeholder-6/>. <placeholder-7/> sorgt dafür, dass eine dünn besetzte Arbeitskopie mit fixer Aktualisierungstiefe erstellt werden soll."
+msgstr "Aktualisiert die Arbeitskopie in <placeholder-1/> zur HEAD Revision. Bei Angabe von <placeholder-2/> wird ein Dialog angezeigt, in dem der Anwender angeben kann, zu welcher Revision aktualisiert werden soll. Um die Anzeige des Dialogs zu vermeiden, geben Sie eine Revisionsnummer an <placeholder-3/>. Weitere Optionen sind <placeholder-4/>, <placeholder-5/> und <placeholder-6/>. <placeholder-7/> sorgt dafür, dass eine spärliche Arbeitskopie mit fixer Aktualisierungstiefe erstellt werden soll."
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
