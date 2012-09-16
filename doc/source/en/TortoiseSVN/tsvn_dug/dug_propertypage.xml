@@ -233,19 +233,19 @@
                 repository. There are two ways of doing this.
             </para>
             <para>
-                You can edit the subversion configuration file to enable
+                You can edit the Subversion configuration file to enable
                 this feature on your client. The <guilabel>General</guilabel>
                 page of TortoiseSVN's settings dialog has an edit button to
                 take you there directly.
                 The config file is a simple text file which controls some of
-                subversion's workings. You need to change two things:
+                Subversion's workings. You need to change two things:
                 firstly in the section headed
                 <literal>miscellany</literal> uncomment the line
                 <literal>enable-auto-props = yes</literal>.
                 Secondly you need to edit the section below to define which
                 properties you want added to which file types.
-                This method is a standard subversion feature and works with
-                any subversion client. However it has to be defined on each
+                This method is a standard Subversion feature and works with
+                any Subversion client. However it has to be defined on each
                 client individually - there is no way to propagate these settings
                 from the repository.
             </para>
@@ -405,11 +405,11 @@
                         Subversion allows you to set <quote>autoprops</quote> which
                         will be applied to newly added or imported files, based on
                         the file extension. This depends on every client having set
-                        appropriate autoprops in their subversion configuration file.
+                        appropriate autoprops in their Subversion configuration file.
                         <literal>tsvn:autoprops</literal> can be set on folders
                         and these will be merged with the user's local autoprops
                         when importing or adding files.
-                        The format is the same as for subversion autoprops, e.g.
+                        The format is the same as for Subversion autoprops, e.g.
                         <literal>*.sh = svn:eol-style=native;svn:executable</literal>
                         sets two properties on files with the <literal>.sh</literal>
                         extension.
@@ -788,7 +788,7 @@ my:multilineprop=multiline;copy and paste a full chapter here(.*)
             </para>
             <para>
                 You need to define the name of the sub-folder that the external
-                folder is checked out as, and the subversion URL of the external item.
+                folder is checked out as, and the Subversion URL of the external item.
                 You can check out an external at its HEAD revision, so when the external
                 item changes in the repository, your working copy will receive those
                 changes on update. However, if you want the external to reference a
@@ -870,7 +870,7 @@ my:multilineprop=multiline;copy and paste a full chapter here(.*)
                 Choose the language to use for spell-checking log messages in the
                 commit dialog. The file lists checkbox comes into effect when you
                 right click in the log message pane and select
-                <guilabel>Paste file list</guilabel>. By default the subversion
+                <guilabel>Paste file list</guilabel>. By default the Subversion
                 status will be shown in your local language. When this box is checked
                 the status is always given in English, for projects which require
                 English-only log messages.
