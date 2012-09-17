@@ -791,7 +791,7 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
     return true;
 }
 
-const CSVNStatusListCtrl::FileEntry*
+CSVNStatusListCtrl::FileEntry*
 CSVNStatusListCtrl::AddNewFileEntry(
             const svn_client_status_t* pSVNStatus,  // The return from the SVN GetStatus functions
             const CTSVNPath& path,              // The path of the item we're adding
@@ -864,6 +864,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
         entry->url = CPathUtils::PathUnescape(pSVNStatus->repos_relpath);
     }
 
+    entry->kind = pSVNStatus->kind;
     if (pSVNStatus->kind == svn_node_unknown)
         entry->isfolder = path.IsDirectory();
     else
@@ -1024,6 +1025,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
                                           CTSVNPathList& arExtPaths, bool bAllDirect)
 {
     svn_client_status_t * s;
+    FileEntry * lastEntry = nullptr;
 
     CTSVNPath lastexternalpath;
     CTSVNPath svnPath;
@@ -1152,8 +1154,20 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
         if ((wcFileStatus == svn_wc_status_unversioned)&&(!bDirectoryIsExternal))
             m_bHasUnversionedItems = TRUE;
 
-        const FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, bAllDirect, bDirectoryIsExternal, bEntryfromDifferentRepo);
+        FileEntry* entry = AddNewFileEntry(s, svnPath, basePath, bAllDirect, bDirectoryIsExternal, bEntryfromDifferentRepo);
         PostProcessEntry(entry, wcFileStatus);
+
+        if (lastEntry && (lastEntry->kind == svn_node_unknown))
+        {
+            if (lastEntry->GetPath().IsAncestorOf(entry->GetPath()))
+            {
+                lastEntry->isfolder = true;
+                lastEntry->kind = svn_node_dir;
+            }
+        }
+
+        lastEntry = entry;
+
     } // while ((s = status.GetNextFileStatus(svnPath)) != NULL)
 }
 
