@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-14 07:14+0000\n"
+"PO-Revision-Date: 2012-09-17 07:47+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -9768,7 +9768,7 @@ msgstr "Zunächst müssen Sie sicherstellen, dass Ihr Subversion Server zumindes
 
 #. (title)
 msgid "The Three Meanings of <quote>Lock</quote>"
-msgstr ""
+msgstr "Die drei Bedeutungen von <quote>Sperre</quote>"
 
 #. (para)
 msgid ""
@@ -9777,7 +9777,7 @@ msgid ""
 "mutual exclusion between users to avoid clashing commits. Unfortunately, "
 "there are two other sorts of <quote>lock</quote> with which Subversion, and "
 "therefore this book, sometimes needs to be concerned."
-msgstr ""
+msgstr "In diesem Abschnitt, und fast überall in diesem Buch beschreiben die Worte <quote>Sperre</quote> und <quote>Sperren</quote> einen Mechanismus zum wechselseitigen Ausschluss zwischen Benutzern, um  Konflikte zu vermeiden. Leider gibt es zwei andere Arten von <quote>Sperren</quote> mit denen sich Subversion und dieses Buch sich manchmal befassen müssen."
 
 #. (para)
 msgid ""
@@ -9787,14 +9787,14 @@ msgid ""
 "like update/commit/... is interrupted due to an error. These locks can be "
 "removed by running the cleanup command on the working copy, as described in "
 "<xref linkend=\"tsvn-dug-cleanup\"/>."
-msgstr ""
+msgstr "Die zweite Bedeutung bezieht sich auf <literal>gesperrte Arbeitskopien</literal>, die intern von Subversion verwendet werden, um Kollisionen zwischen mehreren Subversion Clients zu verhindern, die auf dieselbe Arbetiskopie zugreifen. Diese Sperren können auftreten, wenn z.B. ein Befehl wie <quote>Aktualisieren/Übertragen/...</quote> aufgrund eines Fehlers unterbrochen wurde. Sie entfernen die Sperren, indem Sie den <quote>Aufräumen</quote> Befehl auf der Arbeitskope ausführen, wie in <xref linkend=\"tsvn-dug-cleanup\"/> beschrieben."
 
 #. (para)
 msgid ""
 "And third, files and folders can get locked if they're in use by another "
 "process, for example if you have a word document opened in Word, that file "
 "is locked and can not be accessed by TortoiseSVN."
-msgstr ""
+msgstr "Drittens können Dateien oder Ordner gesperrt werden, wenn sie von einem anderen Prozess verwendet werden. Wenn Sie z.B. ein Dokument geöffnet haben, kann diese Datei gesperrt sein und durch TortoiseSVN nicht verändert werden."
 
 #. (para)
 msgid ""
@@ -9802,7 +9802,7 @@ msgid ""
 "goes wrong that requires you to care about them. In this book, "
 "<quote>lock</quote> means the first sort unless the contrary is either clear"
 " from context or explicitly stated."
-msgstr ""
+msgstr "Im Allgemeinen brauchen Sie den anderen Sperren so lange keine Beachtung zu schenken, wie alles funktioniert und Sie sich nicht darum kümmern müssen. In diesem Buch hat <quote>Sperre</quote> stets die erste Bedeutung, es sei denn es ist vom Kontext her klar oder es wird explizit darauf hingewiesen."
 
 #. (title)
 msgid "How Locking Works in Subversion"
@@ -11330,7 +11330,7 @@ msgid ""
 "here</guimenuitem></menuchoice>. The second option includes the unversioned "
 "files as well. The third option exports only modified items, but maintains "
 "the folder structure."
-msgstr ""
+msgstr "Eine weitere Möglichkeit, aus einer Arbeitskopie zu exportieren, besteht darin, den Ordner selbst mittels <action>rechts-ziehen</action> an einen anderen Ort zu  kopieren und dort <menuchoice> <guimenu>Kontextmenü</guimenu><guimenuitem>SVN versionierte Objekte hierher exportieren</guimenuitem> </menuchoice> oder <menuchoice> <guimenu>Kontextmenü</guimenu><guimenuitem>SVN alle Objekte hierher exportieren</guimenuitem> </menuchoice> oder <menuchoice> <guimenu>Kontextmenü</guimenu><guimenuitem>SVN geänderte Objekte hierher exportieren</guimenuitem></menuchoice> zu wählen. Die zweite Option beinhaltet auch die nicht versioneierten Objekte. Die dritte Option exportiert nur die geänderten Elemente, behält aber die Ordnerstruktur."
 
 #. (para)
 msgid ""
@@ -19932,7 +19932,7 @@ msgstr "Den markierten Text in die Zwischenablage ausschneiden"
 
 #. (term)
 msgid "Ctrl-V, Shift-Insert"
-msgstr "Strg+X, Umsch+Einf"
+msgstr "Strg+V, Umsch+Einf"
 
 #. (para)
 msgid "Paste the selected text from the clipboard"
