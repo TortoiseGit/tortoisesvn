@@ -406,24 +406,19 @@ BOOL CBaseView::PreCreateWindow(CREATESTRUCT& cs)
     return TRUE;
 }
 
-CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/, BOOL bStrikeOut /*= FALSE*/)
+CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/)
 {
     int nIndex = 0;
     if (bBold)
         nIndex |= 1;
     if (bItalic)
         nIndex |= 2;
-    if (bStrikeOut)
-        nIndex |= 4;
     if (m_apFonts[nIndex] == NULL)
     {
         m_apFonts[nIndex] = new CFont;
         m_lfBaseFont.lfCharSet = DEFAULT_CHARSET;
         m_lfBaseFont.lfWeight = bBold ? FW_BOLD : FW_NORMAL;
         m_lfBaseFont.lfItalic = (BYTE) bItalic;
-        m_lfBaseFont.lfStrikeOut = (BYTE) bStrikeOut;
-        if (bStrikeOut)
-            m_lfBaseFont.lfStrikeOut = (BYTE)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\StrikeOut"), TRUE);
         CDC * pDC = GetDC();
         if (pDC)
         {
@@ -1291,7 +1286,7 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
 
     pdc->SetTextColor(crFg);
 
-    pdc->SelectObject(GetFont(FALSE, TRUE, FALSE));
+    pdc->SelectObject(GetFont(FALSE, TRUE));
 
     CString sViewTitle;
     if (IsModified())
@@ -1852,7 +1847,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 
     // Draw the line
 
-    pDC->SelectObject(GetFont(FALSE, FALSE, IsLineRemoved(nLineIndex)));
+    pDC->SelectObject(GetFont(FALSE, FALSE));
 
     DrawTextLine(pDC, rc, nLineIndex, origin);
 

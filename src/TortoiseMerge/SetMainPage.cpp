@@ -38,7 +38,6 @@ CSetMainPage::CSetMainPage()
     , m_bIgnoreEOL(FALSE)
     , m_bOnePane(FALSE)
     , m_bViewLinenumbers(FALSE)
-    , m_bStrikeout(FALSE)
     , m_bReloadNeeded(FALSE)
     , m_bCaseInsensitive(FALSE)
     , m_bUTF8Default(FALSE)
@@ -53,7 +52,6 @@ CSetMainPage::CSetMainPage()
     m_regIgnoreEOL = CRegDWORD(_T("Software\\TortoiseMerge\\IgnoreEOL"), TRUE);
     m_regOnePane = CRegDWORD(_T("Software\\TortoiseMerge\\OnePane"));
     m_regViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
-    m_regStrikeout = CRegDWORD(_T("Software\\TortoiseMerge\\StrikeOut"), TRUE);
     m_regFontName = CRegString(_T("Software\\TortoiseMerge\\FontName"), _T("Courier New"));
     m_regFontSize = CRegDWORD(_T("Software\\TortoiseMerge\\FontSize"), 10);
     m_regCaseInsensitive = CRegDWORD(_T("Software\\TortoiseMerge\\CaseInsensitive"), FALSE);
@@ -68,7 +66,6 @@ CSetMainPage::CSetMainPage()
     m_bIgnoreEOL = m_regIgnoreEOL;
     m_bOnePane = m_regOnePane;
     m_bViewLinenumbers = m_regViewLinenumbers;
-    m_bStrikeout = m_regStrikeout;
     m_bCaseInsensitive = m_regCaseInsensitive;
     m_bUTF8Default = m_regUTF8Default;
     m_bAutoAdd = m_regAutoAdd;
@@ -99,7 +96,6 @@ void CSetMainPage::DoDataExchange(CDataExchange* pDX)
     }
     DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
     DDX_Check(pDX, IDC_LINENUMBERS, m_bViewLinenumbers);
-    DDX_Check(pDX, IDC_STRIKEOUT, m_bStrikeout);
     DDX_Check(pDX, IDC_CASEINSENSITIVE, m_bCaseInsensitive);
     DDX_Check(pDX, IDC_UTF8DEFAULT, m_bUTF8Default);
     DDX_Check(pDX, IDC_AUTOADD, m_bAutoAdd);
@@ -117,7 +113,6 @@ void CSetMainPage::SaveData()
     m_regFontName = m_sFontName;
     m_regFontSize = m_dwFontSize;
     m_regViewLinenumbers = m_bViewLinenumbers;
-    m_regStrikeout = m_bStrikeout;
     m_regCaseInsensitive = m_bCaseInsensitive;
     m_regUTF8Default = m_bUTF8Default;
     m_regAutoAdd = m_bAutoAdd;
@@ -151,7 +146,6 @@ BOOL CSetMainPage::OnInitDialog()
     m_sFontName = m_regFontName;
     m_dwFontSize = m_regFontSize;
     m_bViewLinenumbers = m_regViewLinenumbers;
-    m_bStrikeout = m_regStrikeout;
     m_bCaseInsensitive = m_regCaseInsensitive;
     m_bUTF8Default = m_regUTF8Default;
     m_bAutoAdd = m_regAutoAdd;
@@ -196,7 +190,6 @@ BEGIN_MESSAGE_MAP(CSetMainPage, CPropertyPage)
     ON_BN_CLICKED(IDC_FIRSTDIFFONLOAD, &CSetMainPage::OnModified)
     ON_BN_CLICKED(IDC_FIRSTCONFLICTONLOAD, &CSetMainPage::OnModified)
     ON_BN_CLICKED(IDC_LINENUMBERS, &CSetMainPage::OnModified)
-    ON_BN_CLICKED(IDC_STRIKEOUT, &CSetMainPage::OnModified)
     ON_EN_CHANGE(IDC_TABSIZE, &CSetMainPage::OnModified)
     ON_CBN_SELCHANGE(IDC_FONTSIZES, &CSetMainPage::OnModified)
     ON_CBN_SELCHANGE(IDC_FONTNAMES, &CSetMainPage::OnModified)

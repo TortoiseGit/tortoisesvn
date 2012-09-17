@@ -325,7 +325,7 @@ protected:  // methods
     CString         GetViewLineChars(int index) const;
     CString         GetLineChars(int index);
     int             GetLineNumber(int index) const;
-    CFont *         GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE, BOOL bStrikeOut = FALSE);
+    CFont *         GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE);
     int             GetLineFromPoint(CPoint point);
     int             GetMarginWidth();
     COLORREF        InlineDiffColor(int nLineIndex);
@@ -462,7 +462,7 @@ protected:  // variables
     HICON           m_hMovedIcon;
 
     LOGFONT         m_lfBaseFont;
-    static const int fontsCount = 8;
+    static const int fontsCount = 4;
     CFont *         m_apFonts[fontsCount];
     CString         m_sConflictedText;
     CString         m_sNoLineNr;

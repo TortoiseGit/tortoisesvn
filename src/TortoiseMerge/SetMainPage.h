@@ -71,8 +71,6 @@ protected:
     CRegDWORD       m_regOnePane;
     BOOL            m_bViewLinenumbers;
     CRegDWORD       m_regViewLinenumbers;
-    BOOL            m_bStrikeout;
-    CRegDWORD       m_regStrikeout;
     BOOL            m_bCaseInsensitive;
     CRegDWORD       m_regCaseInsensitive;
     BOOL            m_bUTF8Default;
