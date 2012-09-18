@@ -1556,6 +1556,18 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
                 pDC->MoveTo(xMiddle, rc.bottom-1);
                 pDC->LineTo(xMiddle-4, rc.bottom-5);
                 break;
+            case EOL_FF:    // Form Feed, U+000C
+            case EOL_NEL:   // Next Line, U+0085
+            case EOL_LS:    // Line Separator, U+2028
+            case EOL_PS:    // Paragraph Separator, U+2029
+                // draw a horizontal line at the bottom of this line
+                pDC->FillSolidRect(rc.left, rc.bottom-1, rc.right, rc.bottom, GetSysColor(COLOR_WINDOWTEXT));
+                pDC->MoveTo(origin.x+GetCharWidth()-1, rc.bottom-GetCharWidth()-2);
+                pDC->LineTo(origin.x, rc.bottom-2);
+                pDC->LineTo(origin.x+5, rc.bottom-2);
+                pDC->MoveTo(origin.x, rc.bottom-2);
+                pDC->LineTo(origin.x+1, rc.bottom-6);
+                break;
             default: // other EOLs
                 // arrow from top right to bottom left
                 pDC->MoveTo(origin.x+GetCharWidth()-1, rc.bottom-GetCharWidth());
