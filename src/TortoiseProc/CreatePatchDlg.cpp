@@ -74,7 +74,7 @@ BOOL CCreatePatch::OnInitDialog()
     m_bShowUnversioned = m_regAddBeforeCommit;
     UpdateData(FALSE);
 
-    m_PatchList.Init(0, _T("CreatePatchDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH));
+    m_PatchList.Init(0, _T("CreatePatchDlg"), SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH|SVNSLC_POPRESTORE));
     m_PatchList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
     m_PatchList.SetSelectButton(&m_SelectAll);
     m_PatchList.SetCancelBool(&m_bCancelled);

@@ -61,7 +61,7 @@ BOOL CUnlockDlg::OnInitDialog()
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     // initialize the svn status list control
-    m_unlockListCtrl.Init(0, _T("UnlockDlg"), SVNSLC_POPALL);
+    m_unlockListCtrl.Init(0, _T("UnlockDlg"), SVNSLC_POPALL ^ SVNSLC_POPRESTORE);
     m_unlockListCtrl.SetIgnoreRemoveOnly(); // when ignoring, don't add the parent folder since we're in the unlock dialog
     m_unlockListCtrl.SetSelectButton(&m_SelectAll);
     m_unlockListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));

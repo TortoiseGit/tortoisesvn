@@ -112,7 +112,7 @@ BOOL CChangedDlg::OnInitDialog()
                         SVNSLC_COLLOCK | SVNSLC_COLLOCKCOMMENT |
                         SVNSLC_COLAUTHOR |
                         SVNSLC_COLREVISION | SVNSLC_COLDATE, _T("ChangedDlg"),
-                        SVNSLC_POPALL, false);
+                        SVNSLC_POPALL ^ SVNSLC_POPRESTORE, false);
     m_FileListCtrl.SetCancelBool(&m_bCanceled);
     m_FileListCtrl.SetBackgroundImage(IDI_CFM_BKG);
     m_FileListCtrl.SetEmptyString(IDS_REPOSTATUS_EMPTYFILELIST);
