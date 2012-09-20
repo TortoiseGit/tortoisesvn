@@ -33,14 +33,27 @@ bool ResolveCommand::Execute()
     {
         if (dlg.m_pathList.GetCount())
         {
-            CSVNProgressDlg progDlg(CWnd::FromHandle(GetExplorerHWND()));
-            theApp.m_pMainWnd = &progDlg;
-            progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Resolve);
-            progDlg.SetAutoClose (parser);
-            progDlg.SetOptions(parser.HasKey(_T("skipcheck")) ? ProgOptSkipConflictCheck : ProgOptNone);
-            progDlg.SetPathList(dlg.m_pathList);
-            progDlg.DoModal();
-            return !progDlg.DidErrorsOccur();
+            if (parser.HasKey(L"silent"))
+            {
+                SVN svn;
+                bool bRet = true;
+                for (auto i = 0; i < pathList.GetCount(); ++i)
+                {
+                    bRet = bRet && svn.Resolve(pathList[i], svn_wc_conflict_choose_merged, true);
+                }
+                return bRet;
+            }
+            else
+            {
+                CSVNProgressDlg progDlg(CWnd::FromHandle(GetExplorerHWND()));
+                theApp.m_pMainWnd = &progDlg;
+                progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Resolve);
+                progDlg.SetAutoClose (parser);
+                progDlg.SetOptions(parser.HasKey(_T("skipcheck")) ? ProgOptSkipConflictCheck : ProgOptNone);
+                progDlg.SetPathList(dlg.m_pathList);
+                progDlg.DoModal();
+                return !progDlg.DidErrorsOccur();
+            }
         }
     }
     return false;
