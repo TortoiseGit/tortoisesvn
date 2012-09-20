@@ -33,6 +33,7 @@
 #include "SelectFileFilter.h"
 #include "FormatMessageWrapper.h"
 #include "TaskbarUUID.h"
+#include "SVNHelpers.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -1187,6 +1188,13 @@ void CMainFrame::PatchSave()
     }
 }
 
+svn_error_t * CMainFrame::getallstatus(void * baton, const char * /*path*/, const svn_client_status_t * status, apr_pool_t * /*pool*/)
+{
+    svn_wc_status_kind * s = (svn_wc_status_kind *)baton;
+    *s = status->node_status;
+    return SVN_NO_ERROR;
+}
+
 bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 {
     if (!m_Data.m_mergedFile.InUse())
@@ -1250,6 +1258,65 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         // error while saving the file
         return false;
     }
+
+    // if we're in conflict resolve mode (three pane view), check if there are no more conflicts
+    // and if there aren't, ask to mark the file as resolved
+    if (IsViewGood(m_pwndBottomView) && !m_bHasConflicts)
+    {
+        CTSVNPath svnpath = CTSVNPath(m_Data.m_mergedFile.GetFilename());
+        if (SVNHelper::IsVersioned(svnpath, true))
+        {
+            SVNPool pool;
+            svn_opt_revision_t rev;
+            rev.kind = svn_opt_revision_unspecified;
+            svn_wc_status_kind statuskind = svn_wc_status_none;
+            svn_client_ctx_t * ctx = NULL;
+            svn_error_clear(svn_client_create_context(&ctx, pool));
+            svn_error_t * err = svn_client_status5(NULL, ctx, svnpath.GetSVNApiPath(pool), &rev,
+                                                   svn_depth_empty,
+                                                   true,
+                                                   false,
+                                                   true,
+                                                   true,
+                                                   false,
+                                                   NULL,
+                                                   getallstatus,
+                                                   &statuskind,
+                                                   pool);
+            if ((err == NULL) && (statuskind == svn_wc_status_conflicted))
+            {
+                bool bResolve = false;
+                if (CTaskDialog::IsSupported())
+                {
+                    CString msg;
+                    msg.Format(IDS_MARKASRESOLVED, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
+                    CTaskDialog taskdlg(msg,
+                        CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK2)),
+                        L"TortoiseMerge",
+                        0,
+                        TDF_ENABLE_HYPERLINKS|TDF_USE_COMMAND_LINKS|TDF_ALLOW_DIALOG_CANCELLATION|TDF_POSITION_RELATIVE_TO_WINDOW);
+                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK3)));
+                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK4)));
+                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                    taskdlg.SetDefaultCommandControl(1);
+                    taskdlg.SetMainIcon(TD_WARNING_ICON);
+                    bResolve = (taskdlg.DoModal(m_hWnd) == 1);
+                }
+                else
+                {
+                    CString sTemp;
+                    sTemp.Format(IDS_MARKASRESOLVED, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
+                    bResolve = (TSVNMessageBox(m_hWnd, sTemp, _T("TortoiseMerge"), MB_YESNO) == IDYES);
+                }
+                if (bResolve)
+                {
+                    MarkAsResolved();
+                }
+            }
+            svn_error_clear(err);
+        }
+    }
+
     m_bSaveRequired = false;
     m_Data.m_mergedFile.StoreFileAttributes();
 
@@ -1674,7 +1741,7 @@ BOOL CMainFrame::MarkAsResolved()
 
     CString cmd = _T("/command:resolve /path:\"");
     cmd += m_Data.m_mergedFile.GetFilename();
-    cmd += _T("\" /closeonend:1 /noquestion /skipcheck");
+    cmd += _T("\" /closeonend:1 /noquestion /skipcheck /silent");
     if(!CAppUtils::RunTortoiseProc(cmd))
         return FALSE;
     return TRUE;

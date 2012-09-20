@@ -22,6 +22,9 @@
     <Filter Include="Utils\Header Files">
       <UniqueIdentifier>{6cd59bb0-ec91-4069-85a4-a8602fc39f64}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SVN">
+      <UniqueIdentifier>{a8c77361-1abb-4157-ab31-bb861784661e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AboutDlg.cpp">
@@ -82,9 +85,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVNLineDiff.cpp">
@@ -159,9 +159,6 @@
     <ClCompile Include="XSplitter.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\SVN\SVNHelpers.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MovedBlocks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -195,9 +192,6 @@
     <ClCompile Include="..\Utils\MiscUI\XMessageBox.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\SVN\SVNRev.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\IconBitmapUtils.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
@@ -207,14 +201,23 @@
     <ClCompile Include="..\Utils\TaskbarUUID.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\SVN\SVNConfig.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\SVN\SVNGlobal.cpp">
-      <Filter>Utils\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GotoLineDlg.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNConfig.cpp">
+      <Filter>SVN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNGlobal.cpp">
+      <Filter>SVN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNHelpers.cpp">
+      <Filter>SVN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNRev.cpp">
+      <Filter>SVN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
+      <Filter>SVN</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -285,9 +288,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Svn\SVNAdminDir.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVNLineDiff.h">
@@ -362,9 +362,6 @@
     <ClInclude Include="..\Utils\MiscUI\WaterEffect.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\SVN\SVNHelpers.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MovedBlocks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -392,9 +389,6 @@
     <ClInclude Include="..\SVN\TSVNPath.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\SVN\SVNRev.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
@@ -410,17 +404,26 @@
     <ClInclude Include="..\Utils\TaskbarUUID.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\SVN\SVNConfig.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SVN\SVNGlobal.h">
-      <Filter>Utils\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GotoLineDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVNPatch.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNConfig.h">
+      <Filter>SVN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNRev.h">
+      <Filter>SVN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNGlobal.h">
+      <Filter>SVN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNHelpers.h">
+      <Filter>SVN</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Svn\SVNAdminDir.h">
+      <Filter>SVN</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

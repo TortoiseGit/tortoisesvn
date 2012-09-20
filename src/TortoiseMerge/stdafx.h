@@ -68,6 +68,21 @@
 #include <vector>
 #pragma warning(pop)
 
+#pragma warning(push)
+#include "apr_general.h"
+#include "svn_pools.h"
+#include "svn_client.h"
+#include "svn_path.h"
+#include "svn_wc.h"
+#include "svn_utf.h"
+#include "svn_config.h"
+#include "svn_error_codes.h"
+#include "svn_subst.h"
+#include "svn_repos.h"
+#include "svn_time.h"
+#include "svn_props.h"
+#pragma warning(pop)
+
 #define USE_GDI_GRADIENT
 
 #define XMESSAGEBOX_APPREGPATH "Software\\TortoiseMerge\\"

@@ -173,6 +173,9 @@ protected:
     static bool     HasNextConflict(CBaseView* view);
     static bool     HasPrevInlineDiff(CBaseView* view);
     static bool     HasNextInlineDiff(CBaseView* view);
+
+    static svn_error_t * getallstatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * pool);
+
 protected:
     CMFCStatusBar   m_wndStatusBar;
     CLocatorBar     m_wndLocatorBar;
