@@ -38,6 +38,7 @@
 #include "SelectFileFilter.h"
 #include "SmartHandle.h"
 #include "SVNExternals.h"
+#include "CmdLineParser.h"
 
 bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype)
 {
@@ -113,7 +114,19 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
             com += L"\"";
         }
         if (bSaveRequired)
+        {
             com += L" /saverequired";
+            CCmdLineParser parser(GetCommandLine());
+            HWND   resolveMsgWnd    = parser.HasVal(L"resolvemsghwnd")   ? (HWND)parser.GetLongLongVal(L"resolvemsghwnd")     : 0;
+            WPARAM resolveMsgWParam = parser.HasVal(L"resolvemsgwparam") ? (WPARAM)parser.GetLongLongVal(L"resolvemsgwparam") : 0;
+            LPARAM resolveMsgLParam = parser.HasVal(L"resolvemsglparam") ? (LPARAM)parser.GetLongLongVal(L"resolvemsglparam") : 0;
+            if (resolveMsgWnd)
+            {
+                CString s;
+                s.Format(L" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d /resolvemsglparam:%I64d", (__int64)resolveMsgWnd, (__int64)resolveMsgWParam, (__int64)resolveMsgLParam);
+                com += s;
+            }
+        }
     }
     // check if the params are set. If not, just add the files to the command line
     if ((com.Find(_T("%merged"))<0)&&(com.Find(_T("%base"))<0)&&(com.Find(_T("%theirs"))<0)&&(com.Find(_T("%mine"))<0))

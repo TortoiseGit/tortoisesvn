@@ -160,7 +160,9 @@ CMainFrame::CMainFrame()
     , m_bBlame(false)
     , m_bCheckReload(false)
     , m_bSaveRequired(false)
-
+    , resolveMsgWnd(0)
+    , resolveMsgWParam(0)
+    , resolveMsgLParam(0)
     , m_regWrapLines(L"Software\\TortoiseMerge\\WrapLines", 0)
     , m_regViewModedBlocks(L"Software\\TortoiseMerge\\ViewMovedBlocks", 0)
     , m_regOneWay(L"Software\\TortoiseMerge\\OnePane")
@@ -1742,6 +1744,12 @@ BOOL CMainFrame::MarkAsResolved()
     CString cmd = _T("/command:resolve /path:\"");
     cmd += m_Data.m_mergedFile.GetFilename();
     cmd += _T("\" /closeonend:1 /noquestion /skipcheck /silent");
+    if (resolveMsgWnd)
+    {
+        CString s;
+        s.Format(L" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d /resolvemsglparam:%I64d", (__int64)resolveMsgWnd, (__int64)resolveMsgWParam, (__int64)resolveMsgLParam);
+        cmd += s;
+    }
     if(!CAppUtils::RunTortoiseProc(cmd))
         return FALSE;
     return TRUE;

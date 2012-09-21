@@ -217,4 +217,7 @@ public:
     bool            m_bViewMovedBlocks;
     bool            m_bWrapLines;
     bool            m_bSaveRequired;
+    HWND            resolveMsgWnd;
+    WPARAM          resolveMsgWParam;
+    LPARAM          resolveMsgLParam;
 };
