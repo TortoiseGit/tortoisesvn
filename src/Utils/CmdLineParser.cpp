@@ -177,6 +177,13 @@ LONG CCmdLineParser::GetLongVal(LPCTSTR sKey) const
     return _tstol(it->second.c_str());
 }
 
+__int64 CCmdLineParser::GetLongLongVal(LPCTSTR sKey) const
+{
+    CValsMap::const_iterator it = findKey(sKey);
+    if (it == m_valueMap.end())
+        return 0;
+    return _ttoi64(it->second.c_str());
+}
 
 CCmdLineParser::ITERPOS CCmdLineParser::begin() const
 {

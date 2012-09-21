@@ -124,6 +124,7 @@ public:
      */
     LONG GetLongVal(LPCTSTR sKey) const;
 
+    __int64 GetLongLongVal(LPCTSTR sKey) const;
 private:
     BOOL Parse(LPCTSTR sCmdLine);
     CValsMap::const_iterator findKey(LPCTSTR sKey) const;
