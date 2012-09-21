@@ -71,6 +71,8 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHECKCHANGED
 const UINT CSVNStatusListCtrl::SVNSLNM_CHANGELISTCHANGED
                     = ::RegisterWindowMessage(_T("SVNSLNM_CHANGELISTCHANGED"));
 
+static UINT WM_RESOLVEMSG = RegisterWindowMessage(_T("TORTOISESVN_RESOLVEDONE_MSG"));
+
 const static CString svnPropIgnore (SVN_PROP_IGNORE);
 
 #define IDSVNLC_REVERT           1
@@ -148,6 +150,7 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
     ON_WM_DESTROY()
     ON_NOTIFY_REFLECT(LVN_BEGINDRAG, OnBeginDrag)
     ON_NOTIFY_REFLECT(LVN_ITEMCHANGING, &CSVNStatusListCtrl::OnLvnItemchanging)
+    ON_REGISTERED_MESSAGE(WM_RESOLVEMSG, &CSVNStatusListCtrl::OnResolveMsg)
 END_MESSAGE_MAP()
 
 
@@ -927,6 +930,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
 
     CAutoWriteLock locker(m_guard);
     // Pass ownership of the entry to the array
+    entry->id = m_arStatusArray.size();
     m_arStatusArray.push_back(entry);
 
     // store the repository root
@@ -965,6 +969,7 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
             entry->inexternal = m_bHasExternals;
 
             CAutoWriteLock locker(m_guard);
+            entry->id = m_arStatusArray.size();
             m_arStatusArray.push_back(entry);
             if (entry->isfolder)
             {
@@ -1057,6 +1062,7 @@ void CSVNStatusListCtrl::ReadRemainingItemsStatus(SVNStatus& status, const CTSVN
                 entry->isfolder = true;
                 entry->isNested = true;
                 m_externalSet.insert(svnPath);
+                entry->id = m_arStatusArray.size();
                 m_arStatusArray.push_back(entry);
                 continue;
             }
@@ -3717,7 +3723,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 OnIgnore(filepath);
                 break;
             case IDSVNLC_EDITCONFLICT:
-                StartConflictEditor(filepath);
+                StartConflictEditor(filepath, entry->id);
                 break;
             case IDSVNLC_RESOLVECONFLICT:
                 OnResolve(svn_wc_conflict_choose_merged);
@@ -4189,7 +4195,7 @@ void CSVNStatusListCtrl::StartDiffOrResolve(int fileindex)
 
     if (entry->isConflicted)
     {
-        StartConflictEditor(entry->GetPath());
+        StartConflictEditor(entry->GetPath(), entry->id);
     }
     else
     {
@@ -4197,10 +4203,10 @@ void CSVNStatusListCtrl::StartDiffOrResolve(int fileindex)
     }
 }
 
-void CSVNStatusListCtrl::StartConflictEditor(const CTSVNPath& filepath)
+void CSVNStatusListCtrl::StartConflictEditor(const CTSVNPath& filepath, __int64 id)
 {
     CString sCmd;
-    sCmd.Format(_T("/command:conflicteditor /path:\"%s\""), (LPCTSTR)(filepath.GetWinPath()));
+    sCmd.Format(_T("/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d"), (LPCTSTR)(filepath.GetWinPath()), (__int64)GetSafeHwnd(), id);
     AddPropsPath(filepath, sCmd);
     CAppUtils::RunTortoiseProc(sCmd);
 }
@@ -5712,6 +5718,7 @@ void CSVNStatusListCtrl::AddEntryOnIgnore(const CTSVNPath& parentFolder, const C
     {
         newEntry->url = CPathUtils::PathUnescape(s->repos_relpath);
     }
+    newEntry->id = m_arStatusArray.size();
     m_arStatusArray.push_back(newEntry);
     m_arListArray.push_back(m_arStatusArray.size()-1);
     AddEntry(newEntry, nListboxEntries);
@@ -6024,6 +6031,28 @@ void CSVNStatusListCtrl::Open( const CTSVNPath& filepath, FileEntry * entry, boo
         c += fp.GetWinPathString();
         CAppUtils::LaunchApplication(c, NULL, false);
     }
+}
+
+LRESULT CSVNStatusListCtrl::OnResolveMsg( WPARAM wParam, LPARAM)
+{
+    for (auto it = m_arStatusArray.begin(); it != m_arStatusArray.end(); ++it)
+    {
+        if ((*it)->id == (__int64)wParam)
+        {
+            if ((*it)->status == svn_wc_status_conflicted)
+            {
+                if ((*it)->status != svn_wc_status_deleted)
+                    (*it)->status = svn_wc_status_modified;
+                (*it)->textstatus = svn_wc_status_modified;
+                (*it)->isConflicted = false;
+                break;
+            }
+        }
+    }
+
+    Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
+
+    return 0;
 }
 
 //////////////////////////////////////////////////////////////////////////

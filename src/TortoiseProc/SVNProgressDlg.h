@@ -202,6 +202,7 @@ private:
         bool                    bBold;                      ///< if true, the line is shown with a bold font
         CString                 sPathColumnText;
         int                     indent;                     ///< indentation
+        long                    id;                         ///< used to identify an entry even after sorting
 
     };
 protected:
@@ -242,6 +243,7 @@ protected:
     afx_msg LRESULT OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/);
     afx_msg void    OnBnClickedRetrynohooks();
     afx_msg LRESULT OnCheck(WPARAM wnd, LPARAM);
+    afx_msg LRESULT OnResolveMsg(WPARAM, LPARAM);
 
     DECLARE_MESSAGE_MAP()
 

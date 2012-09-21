@@ -53,6 +53,8 @@
 BOOL    CSVNProgressDlg::m_bAscending = FALSE;
 int     CSVNProgressDlg::m_nSortedColumn = -1;
 
+static UINT WM_RESOLVEMSG = RegisterWindowMessage(_T("TORTOISESVN_RESOLVEDONE_MSG"));
+
 #define TRANSFERTIMER   100
 #define VISIBLETIMER    101
 
@@ -154,6 +156,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(WM_TASKBARBTNCREATED, OnTaskbarBtnCreated)
     ON_BN_CLICKED(IDC_RETRYNOHOOKS, &CSVNProgressDlg::OnBnClickedRetrynohooks)
     ON_REGISTERED_MESSAGE(CLinkControl::LK_LINKITEMCLICKED, &CSVNProgressDlg::OnCheck)
+    ON_REGISTERED_MESSAGE(WM_RESOLVEMSG, &CSVNProgressDlg::OnResolveMsg)
 END_MESSAGE_MAP()
 
 BOOL CSVNProgressDlg::Cancel()
@@ -209,6 +212,7 @@ svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_c
 
 void CSVNProgressDlg::AddItemToList(NotificationData * data)
 {
+    data->id = (long)m_arData.size();
     m_arData.push_back(data);
     int totalcount = m_ProgList.GetItemCount();
 
@@ -1621,8 +1625,8 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
     {
         // We've double-clicked on a conflicted item - do a three-way merge on it
         CString sCmd;
-        sCmd.Format(_T("/command:conflicteditor /path:\"%s\""),
-            data->path.GetWinPath());
+        sCmd.Format(_T("/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d"),
+                    (LPCTSTR)data->path.GetWinPath(), (__int64)GetSafeHwnd(), (__int64)data->id);
         if (!data->path.IsUrl())
         {
             sCmd += _T(" /propspath:\"");
@@ -1740,6 +1744,32 @@ void CSVNProgressDlg::OnTimer(UINT_PTR nIDEvent)
             m_ProgList.EnsureVisible(m_ProgList.GetItemCount()-1, false);
         nEnsureVisibleCount = 0;
     }
+}
+
+LRESULT CSVNProgressDlg::OnResolveMsg( WPARAM wParam, LPARAM)
+{
+    if ((wParam > 0) && (wParam < m_arData.size()))
+    {
+        for (auto it = m_arData.begin(); it != m_arData.end(); ++it)
+        {
+            if ((*it)->id == wParam)
+            {
+                if ((*it)->bConflictedActionItem)
+                {
+                    (*it)->color = ::GetSysColor(COLOR_WINDOWTEXT);
+                    (*it)->action = svn_wc_notify_resolved;
+                    (*it)->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
+                    (*it)->bConflictedActionItem = false;
+                    m_nConflicts--;
+                    CString info = BuildInfoString();
+                    SetDlgItemText(IDC_INFOTEXT, info);
+                    m_ProgList.Invalidate();
+                    break;
+                }
+            }
+        }
+    }
+    return 0;
 }
 
 void CSVNProgressDlg::Sort()
@@ -2038,8 +2068,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 break;
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
             CString sCmd;
-            sCmd.Format(_T("/command:conflicteditor /path:\"%s\""),
-                (LPCTSTR)sPath);
+            sCmd.Format(_T("/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d"),
+                        (LPCTSTR)sPath, (__int64)GetSafeHwnd(), (__int64)data->id);
             CAppUtils::RunTortoiseProc(sCmd);
         }
         break;
@@ -3844,7 +3874,7 @@ void CSVNProgressDlg::CompareWithWC( NotificationData * data )
         CAppUtils::MergeFlags flags;
         flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
         flags.bReadOnly = true;
-        CAppUtils::StartExtMerge(flags, basefile, theirfile, data->path, data->path, basename, revname, wcname);
+        CAppUtils::StartExtMerge(flags, basefile, theirfile, data->path, data->path, false, basename, revname, wcname);
     }
     else
     {

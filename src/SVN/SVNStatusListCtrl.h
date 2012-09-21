@@ -316,6 +316,7 @@ public:
             , depth(svn_depth_unknown)
             , peggedexternal(false)
             , kind(svn_node_unknown)
+            , id(0)
         {
         }
         const CTSVNPath& GetPath() const
@@ -433,6 +434,7 @@ public:
         bool                    file_external;          ///< if the item is a file that was added to the working copy with an svn:externals; if file_external is TRUE, then switched is always FALSE.
         CString                 copyfrom_url_string;    ///< contains the url which this item was copied from. Note: this is not filled in by the status call but only
                                                         ///< filled in when needed. This member is only here as a cache.
+        _int64                  id;                     ///< id/index of the entry, stays the same even after resorting
         friend class CSVNStatusListCtrl;
         friend class CSVNStatusListCtrlDropTarget;
         friend class CSorter;
@@ -894,7 +896,7 @@ private:
     void StartDiff(int fileindex);  ///< start the external diff program
     void StartDiff(FileEntry * entry);
     void StartDiffOrResolve(int fileindex);
-    void StartConflictEditor(const CTSVNPath& filepath);
+    void StartConflictEditor(const CTSVNPath& filepath, __int64 id);
     void AddPropsPath(const CTSVNPath& filepath, CString& command );
 
     /// fetch all user properties for all items
@@ -1026,6 +1028,7 @@ private:
     afx_msg void OnHdnBegintrack(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnDestroy();
+    afx_msg LRESULT OnResolveMsg(WPARAM, LPARAM);
 
 private:
     bool *                      m_pbCanceled;
