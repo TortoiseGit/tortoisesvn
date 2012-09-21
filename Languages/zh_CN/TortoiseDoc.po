@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:27+0000\n"
+"PO-Revision-Date: 2012-09-19 08:28+0000\n"
 "Last-Translator: Nick Vrvilo <nick@vrvilo.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -660,8 +660,8 @@ msgstr "基本概念"
 #. (para)
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
-"get an overview of how subversion works and the terms that are used."
-msgstr "在我们开始实地操作之前，非常有必要对 subversion 如何工作和用到的术语做一个大致了解。"
+"get an overview of how Subversion works and the terms that are used."
+msgstr ""
 
 #. (term)
 #. (title)
@@ -3099,14 +3099,14 @@ msgstr ""
 
 #. (para)
 msgid ""
-"In the check for modifications dialog, first click on the button "
-"<guibutton>Check repository</guibutton>. The dialog will show all the files "
-"and folders which are in the repository but which you have not checked out "
-"as <literal>remotely added</literal>. <action>Right click</action> on the "
-"folder(s) you would like to add to your working copy, then use "
-"<menuchoice><guimenu>Context "
+"In the check for modifications dialog, first <keycap>shift</keycap> click on"
+" the button <guibutton>Check repository</guibutton>. The dialog will show "
+"all the files and folders which are in the repository but which you have not"
+" checked out as <literal>remotely added</literal>. <action>Right "
+"click</action> on the folder(s) you would like to add to your working copy, "
+"then use <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr "在检查修改对话框中，首先点击<guibutton>检查版本库</guibutton>按钮。对话框会将你未检出，但是位于版本库中的文件和文件夹显示为<literal>远程加入</literal>。<action>右键单击</action>你需要加入工作副本的文件夹，选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>更新</guimenuitem></menuchoice>。"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -5863,11 +5863,11 @@ msgstr "在版本库浏览器中没有日志格式化"
 
 #. (para)
 msgid ""
-"Because the formatting depends upon accessing subversion properties, you "
+"Because the formatting depends upon accessing Subversion properties, you "
 "will only see the results when using a checked out working copy. Fetching "
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
-msgstr "因为格式化依赖于对 subversion 版本库的访问，所以只能在已签出的工作副本中看到结果。从远程获取属性是一个很慢的操作，所以你在从版本库浏览器中进行操作时不能看到这个特性。"
+msgstr ""
 
 #. (title)
 msgid "Statistical Information"
@@ -6962,8 +6962,8 @@ msgstr "删除"
 msgid ""
 "Use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>"
-" to remove files or folders from subversion."
-msgstr "使用 <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>删除</guimenuitem></menuchoice> 从 subversion 中删除文件或文件夹。"
+" to remove files or folders from Subversion."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7643,18 +7643,18 @@ msgstr "你可以配置 Subversion 和 TortoiseSVN 在文件和文件夹添加�
 
 #. (para)
 msgid ""
-"You can edit the subversion configuration file to enable this feature on "
+"You can edit the Subversion configuration file to enable this feature on "
 "your client. The <guilabel>General</guilabel> page of TortoiseSVN's settings"
 " dialog has an edit button to take you there directly. The config file is a "
-"simple text file which controls some of subversion's workings. You need to "
+"simple text file which controls some of Subversion's workings. You need to "
 "change two things: firstly in the section headed "
 "<literal>miscellany</literal> uncomment the line <literal>enable-auto-props "
 "= yes</literal>. Secondly you need to edit the section below to define which"
 " properties you want added to which file types. This method is a standard "
-"subversion feature and works with any subversion client. However it has to "
+"Subversion feature and works with any Subversion client. However it has to "
 "be defined on each client individually - there is no way to propagate these "
 "settings from the repository."
-msgstr "你可以在编辑 subversion 配置文件来在客户端启用这一特性。在 TortoiseSVN 配置对话框的<guilabel>常规设置</guilabel>页中有一个编辑按钮可以直接打开这个文件。配置文件是一个普通的文本文件，它控制着 subversion 的某些运作。你需要修改两处: 首先在 <literal>miscellany</literal> 打头的这一节中取消注释这一行: <literal>enable-auto-props = yes</literal>。其次，你需要编辑后面的一节，定义你想为哪些文件添加哪些属性。这个方法是标准的 subversion 特性而且对任何 subversion 客户端有效。不过它需要在每一个客户端进行定义 - 没有办法从版本库来设置这些参数。"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7811,13 +7811,13 @@ msgstr "这些操作特定模板是: <placeholder-1/>"
 msgid ""
 "Subversion allows you to set <quote>autoprops</quote> which will be applied "
 "to newly added or imported files, based on the file extension. This depends "
-"on every client having set appropriate autoprops in their subversion "
+"on every client having set appropriate autoprops in their Subversion "
 "configuration file. <literal>tsvn:autoprops</literal> can be set on folders "
 "and these will be merged with the user's local autoprops when importing or "
-"adding files. The format is the same as for subversion autoprops, e.g. "
+"adding files. The format is the same as for Subversion autoprops, e.g. "
 "<literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two "
 "properties on files with the <literal>.sh</literal> extension."
-msgstr "Subversion 允许你设置 <quote>自动属性(autoprops)</quote>，它基于文件扩展名，对新增文件或导入的文件生效。这依赖于每个客户端在 Subversion 配置文件中设置适当的自动属性。<literal>tsvn:autoprops</literal> 可以对文件夹设置，当新增文件或导入文件时，它会与用户的本地自动属性合并。其格式与 subversion 的自动属性相同，例如，<literal>*.sh = svn:eol-style=native;svn:executable</literal>为扩展名为 <literal>.sh</literal> 的文件设置两个属性。"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8204,7 +8204,7 @@ msgstr "<placeholder-1/> <literal>svn:外部</literal> 属性可用于从同一�
 #. (para)
 msgid ""
 "You need to define the name of the sub-folder that the external folder is "
-"checked out as, and the subversion URL of the external item. You can check "
+"checked out as, and the Subversion URL of the external item. You can check "
 "out an external at its HEAD revision, so when the external item changes in "
 "the repository, your working copy will receive those changes on update. "
 "However, if you want the external to reference a particular stable point "
@@ -8214,7 +8214,7 @@ msgid ""
 "update this item in your working copy. By specifying a peg revision you tell"
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
-msgstr "您需要定义检出外部文件夹的子文件夹的名称和外部项目的版本库地址。您能用其最新版本点检出一个外部项目，因此当版本库中的外部项目更改时，您的工作副本将通过更新来接受这些更改。但是，如果您希望外部项目引用某一特定的稳定版本点，您可以指定要使用的特定版本。在这种情况下您可能也要指定跟 Peg 修订版本相同的版本。如果在将来某个时候外部项目被重命名，那么 Subversion 将无法在您的工作副本中更新此项目。通过指定一个 Peg 修订版本来告诉 Subversion 寻找一个跟 Peg 修订版本相同而不是跟最新版本点相同的项目。"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8294,10 +8294,10 @@ msgid ""
 "<placeholder-1/> Choose the language to use for spell-checking log messages "
 "in the commit dialog. The file lists checkbox comes into effect when you "
 "right click in the log message pane and select <guilabel>Paste file "
-"list</guilabel>. By default the subversion status will be shown in your "
+"list</guilabel>. By default the Subversion status will be shown in your "
 "local language. When this box is checked the status is always given in "
 "English, for projects which require English-only log messages."
-msgstr "<placeholder-1/> 选择用于在提交对话框中拼写检查日志信息的语言。当你在日志信息窗格中右键单击并选择<guilabel>粘贴文件列表</guilabel>时，文件列表复选框生效。默认情况下 Subversion 将显示为您的本地语言。对于需要仅英文的日志信息的项目，选中此框时总是处于英文状态。"
+msgstr ""
 
 #. (title)
 msgid "MIME-type"
@@ -9211,10 +9211,10 @@ msgstr "在 TortoiseSVN，你使用<quote>栅栏板</quote>来指定要合并的
 
 #. (para)
 msgid ""
-"If you are merging revisions in chunks, the method shown in the subversion "
+"If you are merging revisions in chunks, the method shown in the Subversion "
 "book will have you merge 100-200 this time and 200-300 next time. With "
 "TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr "如果你要合并大量的版本，按照在 subversion 手册中所示的方法，你要在这次合并 100-200 下次合并 200-300。如果使用 TortoiseSVN，你要在这次合并 100-200 下次合并 201-300。"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9587,10 +9587,10 @@ msgstr "执行合并时客户端将合并跟踪信息存储在 <literal>svn:merg
 #. (para)
 msgid ""
 "Find out more about merge tracking from Subversion's <ulink "
-"url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-"
+"url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-"
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
-msgstr "从Subversion中了解更多有关合并追踪的信息<ulink url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-tracking/index.html\"><citetitle>合并追踪文档</citetitle></ulink> 。"
+msgstr ""
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -11848,7 +11848,7 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Because the issue tracker integration depends upon accessing subversion "
+"Because the issue tracker integration depends upon accessing Subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
 "this feature in action from the repo browser unless you started the repo "
@@ -11996,7 +11996,7 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Because the repo viewer integration depends upon accessing subversion "
+"Because the repo viewer integration depends upon accessing Subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
 "this feature in action from the repo browser unless you started the repo "
@@ -16395,7 +16395,7 @@ msgid ""
 "You can customize the MSI file if you wish so that all your users end up "
 "with the same settings. TSVN settings are stored in the registry under "
 "<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
-"Subversion settings (which affect all subversion clients) are stored in "
+"Subversion settings (which affect all Subversion clients) are stored in "
 "config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
 "help with MSI customization, try one of the MSI transform forums or search "
 "the web for <quote>MSI transform</quote>."
@@ -18343,7 +18343,7 @@ msgstr ""
 
 #. (para)
 msgid ""
-"If an item has subversion status <literal>none</literal> (the item is not "
+"If an item has Subversion status <literal>none</literal> (the item is not "
 "within a working copy) then no overlay is shown. If you have chosen to "
 "disable the <emphasis>Ignored</emphasis> and "
 "<emphasis>Unversioned</emphasis> overlays then no overlay will be shown for "

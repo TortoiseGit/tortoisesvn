@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-11 19:47+0000\n"
+"PO-Revision-Date: 2012-09-19 08:29+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -651,8 +651,8 @@ msgstr "Podstawowe pojęcia"
 #. (para)
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
-"get an overview of how subversion works and the terms that are used."
-msgstr "Zanim zakopiecie się w pracy na prawdziwych plikach, ważne jest, aby dowiedzieć się, jak działa subversion oraz poznać zasady, które nim rządzą."
+"get an overview of how Subversion works and the terms that are used."
+msgstr ""
 
 #. (term)
 #. (title)
@@ -3090,14 +3090,14 @@ msgstr "Rzadka Aktualizacja perzy wykorzystaniu Sprawdź Zmiany"
 
 #. (para)
 msgid ""
-"In the check for modifications dialog, first click on the button "
-"<guibutton>Check repository</guibutton>. The dialog will show all the files "
-"and folders which are in the repository but which you have not checked out "
-"as <literal>remotely added</literal>. <action>Right click</action> on the "
-"folder(s) you would like to add to your working copy, then use "
-"<menuchoice><guimenu>Context "
+"In the check for modifications dialog, first <keycap>shift</keycap> click on"
+" the button <guibutton>Check repository</guibutton>. The dialog will show "
+"all the files and folders which are in the repository but which you have not"
+" checked out as <literal>remotely added</literal>. <action>Right "
+"click</action> on the folder(s) you would like to add to your working copy, "
+"then use <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr "W oknie dialogowym sprawdenia zmian kliknijcie na przycisk <guibutton>Sprawdź repozytorium</guibutton>. W oknie dialogowym zostaną wyświetlone wszystkie pliki i foldery, które są w repozytorium, ale które nie zostały zaznaczone jako <literal> dodano zdalnie</literal>. <action>kliknijcie prawym przyciskiem myszy</action> na folder(y), które chcecie dodać do kopii roboczej, a następnie użyjcie <menuchoice><guimenu>menu kontekstowego</guimenu><guimenuitem>Uaktualnij</guimenuitem></menuchoice>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -5854,11 +5854,11 @@ msgstr "Brak Formatowania dziennika z przeglądarki repozytorium"
 
 #. (para)
 msgid ""
-"Because the formatting depends upon accessing subversion properties, you "
+"Because the formatting depends upon accessing Subversion properties, you "
 "will only see the results when using a checked out working copy. Fetching "
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
-msgstr "Ponieważ formatowanie zależy od dostępu do atrybutów subversion zobaczycie wyniki tylko podczas korzystania z pobrania kopii roboczej. Wczytywanie atrybutów zdalnie jest działaniem powolnym, więc nie będzie widać tej funkcji w akcji z przeglądarki repozytorium."
+msgstr ""
 
 #. (title)
 msgid "Statistical Information"
@@ -6953,8 +6953,8 @@ msgstr "usuń"
 msgid ""
 "Use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>"
-" to remove files or folders from subversion."
-msgstr "Użyjcie <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Usuń</guimenuitem></menuchoice> by usunąć pliki lub foldery z subversion."
+" to remove files or folders from Subversion."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7634,18 +7634,18 @@ msgstr "Możecie skonfigurować Subversion i TortoiseSVN by ustawiać automatycz
 
 #. (para)
 msgid ""
-"You can edit the subversion configuration file to enable this feature on "
+"You can edit the Subversion configuration file to enable this feature on "
 "your client. The <guilabel>General</guilabel> page of TortoiseSVN's settings"
 " dialog has an edit button to take you there directly. The config file is a "
-"simple text file which controls some of subversion's workings. You need to "
+"simple text file which controls some of Subversion's workings. You need to "
 "change two things: firstly in the section headed "
 "<literal>miscellany</literal> uncomment the line <literal>enable-auto-props "
 "= yes</literal>. Secondly you need to edit the section below to define which"
 " properties you want added to which file types. This method is a standard "
-"subversion feature and works with any subversion client. However it has to "
+"Subversion feature and works with any Subversion client. However it has to "
 "be defined on each client individually - there is no way to propagate these "
 "settings from the repository."
-msgstr "Możecie edytować plik konfiguracyjny subversion aby włączyć tę funkcję na kliencie. Okno ustawień <guilabel>Ogólne</guilabel> TortoiseSVN ma przycisk Edytuj, aby przenieść cię tam bezpośrednio. Plik konfiguracyjny jest zwykłym plikiem tekstowym, kontrolującym kilka działań Subversion. Musicie zmienić dwie rzeczy: po pierwsze w sekcji zatytułowanej <literal>miscellany</literal> odkomentujcie linię <literal>enable-auto-props = yes</literal>. Po drugie musicie edytować drugą poniżej, aby określić, jakie atrybuty chcecie dodać do których typów plików. Metoda ta jest standardową funkcją subversion i działa z każdym klientem subversion. Jednak musi być określony dla każdego klienta indywidualnie - nie ma sposobu, aby propagować te ustawienia z repozytorium."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7802,13 +7802,13 @@ msgstr "Lista szablonów związanych z akcjami: <placeholder-1/>"
 msgid ""
 "Subversion allows you to set <quote>autoprops</quote> which will be applied "
 "to newly added or imported files, based on the file extension. This depends "
-"on every client having set appropriate autoprops in their subversion "
+"on every client having set appropriate autoprops in their Subversion "
 "configuration file. <literal>tsvn:autoprops</literal> can be set on folders "
 "and these will be merged with the user's local autoprops when importing or "
-"adding files. The format is the same as for subversion autoprops, e.g. "
+"adding files. The format is the same as for Subversion autoprops, e.g. "
 "<literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two "
 "properties on files with the <literal>.sh</literal> extension."
-msgstr "Subversion umożliwia ustawienie <quote>autoprops</quote>, które będą stosowane do nowo dodawanych lub importowanych plików na podstawie rozszerzenia pliku. Każdy klient posiada odrębny zestaw odpowiednich autoprops w swoim pliku konfiguracyjnym subversion. <literal>tsvn:autoprops</literal> można ustawić dla folderów, które zostaną połączone z lokalnymi autoprops użytkownika podczas importowania lub dodawanie plików. Format jest taki sam jak dla autoprops subversion, np. <literal>*.sh = svn:eol-style=native;svn:executable</literal> ustala wartości dwóch atrybutów na pliki z rozszerzeniem <literal>.sh</literal>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8195,7 +8195,7 @@ msgstr "<placeholder-1/> Atrybut <literal>svn:externals</literal> może być sto
 #. (para)
 msgid ""
 "You need to define the name of the sub-folder that the external folder is "
-"checked out as, and the subversion URL of the external item. You can check "
+"checked out as, and the Subversion URL of the external item. You can check "
 "out an external at its HEAD revision, so when the external item changes in "
 "the repository, your working copy will receive those changes on update. "
 "However, if you want the external to reference a particular stable point "
@@ -8205,7 +8205,7 @@ msgid ""
 "update this item in your working copy. By specifying a peg revision you tell"
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
-msgstr "Musicie określić nazwę podkatalogu, do którego zewnętrzny folder jest pobierany i adres URL subversion zewnętrznego elementu. Możecie pobrać zewnętrzne z jego wersji HEAD, więc gdy zewnętrzne elementy zmieniają się w repozytorium, Wasza kopia robocza otrzyma te zmiany w czasie aktualizacji. Jednak, jeśli chcecie by zewnętrzne odnosiło się do szczególnego stabilnego punktu, można określić konkretną wersję do wykorzystania. W tym przypadku możecie również określić taką wersję jako wieszakową. Jeśli zewnętrzny element zostanie zmieniony w pewnym momencie w przyszłości wtedy Subversion nie będzie mogło zaktualizować tego elementu w kopii roboczej. Określając wersje wieszakowe nakazujemy Subversion szukać elementu, który posiadał taką nazwę w wersji wieszakowej a nie w HEAD."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8285,10 +8285,10 @@ msgid ""
 "<placeholder-1/> Choose the language to use for spell-checking log messages "
 "in the commit dialog. The file lists checkbox comes into effect when you "
 "right click in the log message pane and select <guilabel>Paste file "
-"list</guilabel>. By default the subversion status will be shown in your "
+"list</guilabel>. By default the Subversion status will be shown in your "
 "local language. When this box is checked the status is always given in "
 "English, for projects which require English-only log messages."
-msgstr "<placeholder-1/> Wybierzcie język używany do sprawdzania pisowni opisu zmiany w oknie zatwierdzenia. Pole wyboru listy plików pojawia się po kliknięciu prawym przyciskiem myszy w panelu opisu zmiany i wybraniu <guilabel>Wstaw listę plików</guilabel>. Domyślnie stan subversion pojawi się w języku lokalnym. Gdy to pole jest zaznaczone, stan jest zawsze w języku angielskim, dla projektów, które wymagają opisów zmian tylko w języku angielskim."
+msgstr ""
 
 #. (title)
 msgid "MIME-type"
@@ -9202,10 +9202,10 @@ msgstr "Z TortoiseSVN należy określić zestaw zmian do scalenia przy użyciu <
 
 #. (para)
 msgid ""
-"If you are merging revisions in chunks, the method shown in the subversion "
+"If you are merging revisions in chunks, the method shown in the Subversion "
 "book will have you merge 100-200 this time and 200-300 next time. With "
 "TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr "Jeśli scalacie wersje kawałkami, metodą przedstawioną w księdze subversion będzie trzeba scalić 100-200 tym razem i 200-300 następnym razem. Z TortoiseSVN należy scalić wersje 100-200 tym razem i 201-300 następnym razem."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9578,10 +9578,10 @@ msgstr "Informacje śledzenia scalania są przechowywana w atrybucie <literal>sv
 #. (para)
 msgid ""
 "Find out more about merge tracking from Subversion's <ulink "
-"url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-"
+"url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-"
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
-msgstr "Dowiedzcie się więcej o śledzeniu scaleń z rozdziału <ulink url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Dokumentacja śledzenia zmian</citetitle></ulink> Subversion."
+msgstr ""
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -11839,13 +11839,13 @@ msgstr "Brak informacji o trackerze problemów z przeglądarki repozytorium"
 
 #. (para)
 msgid ""
-"Because the issue tracker integration depends upon accessing subversion "
+"Because the issue tracker integration depends upon accessing Subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr "Ponieważ integracja trackera problemów zależy od dostępu do atrybutów subversion można będzie zobaczyć wyniki tylko podczas korzystania z pobranej kopii roboczej. Pobieranie atrybutów zdalnie jest działaniem powolnym, więc nie będzie widać tej cechy w akcji z przeglądarki repo, chyba że uruchomiono przeglądarkę repozytorium z kopii roboczej. Jeśli uruchomiono przeglądarkę repo, wpisując adres URL repozytorium, nie będzie widać tej funkcji."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -11987,13 +11987,13 @@ msgstr "Można również używać względnych adresów URL zamiast bezwzględnyc
 
 #. (para)
 msgid ""
-"Because the repo viewer integration depends upon accessing subversion "
+"Because the repo viewer integration depends upon accessing Subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr "Ponieważ integracja przeglądarki repo zależy od dostępu do atrybutów subversion można będzie zobaczyć wyniki tylko podczas korzystania z pobranej kopii roboczej. Pobieranie atrybutów zdalnie jest działaniem powolnym, więc nie będzie widać tej cechy w akcji z przeglądarki repo, chyba że uruchomiono przeglądarkę repozytorium z kopii roboczej. Jeśli uruchomiono przeglądarkę repo, wpisując adres URL repozytorium, nie będzie widać tej funkcji."
+msgstr ""
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -16386,11 +16386,11 @@ msgid ""
 "You can customize the MSI file if you wish so that all your users end up "
 "with the same settings. TSVN settings are stored in the registry under "
 "<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
-"Subversion settings (which affect all subversion clients) are stored in "
+"Subversion settings (which affect all Subversion clients) are stored in "
 "config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
 "help with MSI customization, try one of the MSI transform forums or search "
 "the web for <quote>MSI transform</quote>."
-msgstr "Można dostosować plik MSI wedle wymagań aby wszyscy użytkownicy otrzymali na końcu te same ustawienia. Ustawienia TSVN są przechowywane w rejestrze pod <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> a ogólne ustawienia Subversion (które dotyczą wszystkich klientów subversion) są przechowywane w plikach konfiguracyjnych w <filename>%APPDATA%\\Subversion</filename>. Jeśli potrzebujesz pomocy z dostosowania MSI, spróbuj poczytać na jednym z forów dotyczących transformacji MSI lub poszukać w internecie <quote>MSI transform</quote>."
+msgstr ""
 
 #. (title)
 msgid "Redirect the upgrade check"
@@ -18334,12 +18334,12 @@ msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> Nakładka <emphasis>ni
 
 #. (para)
 msgid ""
-"If an item has subversion status <literal>none</literal> (the item is not "
+"If an item has Subversion status <literal>none</literal> (the item is not "
 "within a working copy) then no overlay is shown. If you have chosen to "
 "disable the <emphasis>Ignored</emphasis> and "
 "<emphasis>Unversioned</emphasis> overlays then no overlay will be shown for "
 "those files either."
-msgstr "Jeśli element ma status subversion <literal>nic</literal> (element nie jest w kopii roboczej), żadna nakładka nie jest wyświetlana. Jeśli wybrano, aby wyłączyć nakładki <emphasis>ignorowany</emphasis> i <emphasis>niewersjonowany</emphasis> to również nie pojawi się nakładka dla takich plików."
+msgstr ""
 
 #. (para)
 msgid ""

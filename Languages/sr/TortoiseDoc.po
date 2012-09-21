@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:28+0000\n"
+"PO-Revision-Date: 2012-09-19 08:29+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -648,8 +648,8 @@ msgstr "Основни концепти"
 #. (para)
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
-"get an overview of how subversion works and the terms that are used."
-msgstr "Пре него кренемо да радимо са реалним фајловима важно је да прегледамо како субверзија ради и терминимакоје користи."
+"get an overview of how Subversion works and the terms that are used."
+msgstr ""
 
 #. (term)
 #. (title)
@@ -3087,14 +3087,14 @@ msgstr ""
 
 #. (para)
 msgid ""
-"In the check for modifications dialog, first click on the button "
-"<guibutton>Check repository</guibutton>. The dialog will show all the files "
-"and folders which are in the repository but which you have not checked out "
-"as <literal>remotely added</literal>. <action>Right click</action> on the "
-"folder(s) you would like to add to your working copy, then use "
-"<menuchoice><guimenu>Context "
+"In the check for modifications dialog, first <keycap>shift</keycap> click on"
+" the button <guibutton>Check repository</guibutton>. The dialog will show "
+"all the files and folders which are in the repository but which you have not"
+" checked out as <literal>remotely added</literal>. <action>Right "
+"click</action> on the folder(s) you would like to add to your working copy, "
+"then use <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr "У дијалогу поровере модификација, најпре кликните на дугме <guibutton>Провери спремиште</guibutton>. Дијалог ће показати све фајлове и фолдере који су у спремишту али их нису преузети као <literal>даљински додати</literal>. <action>Десни клик</action>на фолдер(е) које желите додати вашој радној копији, затим користите <menuchoice><guimenu>Контекст мени</guimenu><guimenuitem>Усклади</guimenuitem></menuchoice>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -5851,11 +5851,11 @@ msgstr "Нема Дневника Форматирања из Претражив
 
 #. (para)
 msgid ""
-"Because the formatting depends upon accessing subversion properties, you "
+"Because the formatting depends upon accessing Subversion properties, you "
 "will only see the results when using a checked out working copy. Fetching "
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
-msgstr "Зато што форматирање зависи од приступа субверзионим подешавањима, ви само видите резултате када користите преузимање радне копије. Добављање особина даљински је споро, тако не можете видети ову особину у акцији репо претраживача."
+msgstr ""
 
 #. (title)
 msgid "Statistical Information"
@@ -6950,8 +6950,8 @@ msgstr "уклони"
 msgid ""
 "Use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>"
-" to remove files or folders from subversion."
-msgstr "Користи <menuchoice><guimenu>ТортоисеСВН</guimenu><guimenuitem>Бриши</guimenuitem></menuchoice> да се уклоне фајлови и именици из субверзије."
+" to remove files or folders from Subversion."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7631,18 +7631,18 @@ msgstr "Можете конфигурисати Субверзију и Торт
 
 #. (para)
 msgid ""
-"You can edit the subversion configuration file to enable this feature on "
+"You can edit the Subversion configuration file to enable this feature on "
 "your client. The <guilabel>General</guilabel> page of TortoiseSVN's settings"
 " dialog has an edit button to take you there directly. The config file is a "
-"simple text file which controls some of subversion's workings. You need to "
+"simple text file which controls some of Subversion's workings. You need to "
 "change two things: firstly in the section headed "
 "<literal>miscellany</literal> uncomment the line <literal>enable-auto-props "
 "= yes</literal>. Secondly you need to edit the section below to define which"
 " properties you want added to which file types. This method is a standard "
-"subversion feature and works with any subversion client. However it has to "
+"Subversion feature and works with any Subversion client. However it has to "
 "be defined on each client individually - there is no way to propagate these "
 "settings from the repository."
-msgstr "Можете уредити субверзиони конфигурациони фајл да омогућите ову особину на клијенту. <guilabel>Генерална</guilabel> страна ТортоисеСВН подешавања дијалог има дугме за уређење да га покренете директно. Конфиг фајл је једноставан текст фајл који контролише неке од субверзионих деловања. Потребно је да измените две ствари: најпре у заглављу параграфа <literal>асортиман</literal> откоментирајте линију <literal>enable-auto-props = yes</literal>. Друго, потребно је да уредите параграф испод да дефинише које особине желите да додате на који тип фајла. Овај метод је стандардна субверзиона особина и ради са било којим субверзионим клијентом. Међутим то је дефинисано код сваког клијента индивидуално - нема начина да се пренесе ово подешавање из спремишта."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7799,13 +7799,13 @@ msgstr "Акционо специфични шаблони су: <placeholder-1/
 msgid ""
 "Subversion allows you to set <quote>autoprops</quote> which will be applied "
 "to newly added or imported files, based on the file extension. This depends "
-"on every client having set appropriate autoprops in their subversion "
+"on every client having set appropriate autoprops in their Subversion "
 "configuration file. <literal>tsvn:autoprops</literal> can be set on folders "
 "and these will be merged with the user's local autoprops when importing or "
-"adding files. The format is the same as for subversion autoprops, e.g. "
+"adding files. The format is the same as for Subversion autoprops, e.g. "
 "<literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two "
 "properties on files with the <literal>.sh</literal> extension."
-msgstr "Субверзија вам омогућава да подесите <quote>autoprops</quote> који ће бити примењен на ново додате или увезене фајлове, засноване на екстензији фајла. Ово зависи на сваком клијенту који има подешен одговарајучи аутопропс у свом субверзионом конфигурационом фајлу. <literal>tsvn:autoprops</literal> може бити подешен на фолдеру и то ће бити стопљено са корисничким локалним аутопропс када се увезу или додају фајлови. Формат је исти као и за субверзиони аутопропс, нпр. <literal>*.sh = svn:eol-style=native;svn:executable</literal> подешава две особине на фајловима са <literal>.sh</literal> екстензијом."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8192,7 +8192,7 @@ msgstr "<placeholder-1/> Особина <literal>svn:externals</literal> мож�
 #. (para)
 msgid ""
 "You need to define the name of the sub-folder that the external folder is "
-"checked out as, and the subversion URL of the external item. You can check "
+"checked out as, and the Subversion URL of the external item. You can check "
 "out an external at its HEAD revision, so when the external item changes in "
 "the repository, your working copy will receive those changes on update. "
 "However, if you want the external to reference a particular stable point "
@@ -8202,7 +8202,7 @@ msgid ""
 "update this item in your working copy. By specifying a peg revision you tell"
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
-msgstr "Треба да дефинишете име суб-фолдера где  спољашњи фолдер преузима и субверзиони УРЛ спољашње ставке. Можете преузети екстернал у његовој ГЛАВНОЈ ревизији,  када се екстерна ставка  промени у спремишту, ваша радна копија ће примити ове измене при обнављању. Међутим, ако желите да екстернал указује на посебно стабилну тачку тада можете специфицирати коришћење посебне ревизије. У овом случају можете такође желети да специфицирате исту ревизију као пег ревизија. Ако је екстерна ставка преименована у истој тачци у будућности тада Субверзија неће моћи да обнавља ову ставку у вашој радној копији. Специфицирајући пег ревизију кажете Субверзији да тражи ставку која има име у пег ревизији пре него у ГЛАВНОЈ."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8282,10 +8282,10 @@ msgid ""
 "<placeholder-1/> Choose the language to use for spell-checking log messages "
 "in the commit dialog. The file lists checkbox comes into effect when you "
 "right click in the log message pane and select <guilabel>Paste file "
-"list</guilabel>. By default the subversion status will be shown in your "
+"list</guilabel>. By default the Subversion status will be shown in your "
 "local language. When this box is checked the status is always given in "
 "English, for projects which require English-only log messages."
-msgstr "<placeholder-1/> Изаберите језик за коришћење провере правописа порука дневника у дијалогу урезивања. Фајл листа чекбокс постаје ефективан када десно кликнете у панелу поруке дневника и изаберете <guilabel>Налепите фајл листу</guilabel>. Подразумева се да ће статус субверзије бити приказан у локалном језику. Када се овај бок чекира статус је увек дат на енглеском, за пројекте који захтевају само енглеске поруке дневника. "
+msgstr ""
 
 #. (title)
 msgid "MIME-type"
@@ -9199,10 +9199,10 @@ msgstr "Са ТортоисеСВН ви специфицирате изменљ
 
 #. (para)
 msgid ""
-"If you are merging revisions in chunks, the method shown in the subversion "
+"If you are merging revisions in chunks, the method shown in the Subversion "
 "book will have you merge 100-200 this time and 200-300 next time. With "
 "TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr "Ако стапате ревизије у кришкама, приказан метод у субверзионој књизи ће стопити 100-200 сада и 200-300 после. Са ТортоисеСВН стопићете 100-200 сада и 201-300 после."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9575,10 +9575,10 @@ msgstr "Праћење стапања информација је усклади
 #. (para)
 msgid ""
 "Find out more about merge tracking from Subversion's <ulink "
-"url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-"
+"url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-"
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
-msgstr "Пронађите више о праћењу стапања из Субверзионе документације <ulink url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -11836,13 +11836,13 @@ msgstr "Нема Проблем Трагач Информације из Пре�
 
 #. (para)
 msgid ""
-"Because the issue tracker integration depends upon accessing subversion "
+"Because the issue tracker integration depends upon accessing Subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr "Зато што проблем трагач интеграција зависи од приступа субверзионих особина, ви ћете само видети резултате када користите преузету радну копију. Дањинско добављање особина  је спора операција, тако не можете видети ову особину у акцији репо претраживача ако не започнете репо претраживач из ваше радне копије. Ако започнете репо претраживач уносом УРЛ спремишта ви нећете моћи да видите ову особину."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -11984,13 +11984,13 @@ msgstr "Можете такође да користите УРЛ уместо а
 
 #. (para)
 msgid ""
-"Because the repo viewer integration depends upon accessing subversion "
+"Because the repo viewer integration depends upon accessing Subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr "Зато што проблем трагач интеграција зависи од приступа субверзионих особина, ви ћете само видети резултате када користите преузету радну копију. Дањинско добављање особина је спора операција, тако не можете видети ову особину у акцији репо претраживача ако не започнете репо претраживач из ваше радне копије. Ако започнете репо претраживач уносом УРЛ спремишта нећете видети ову особину."
+msgstr ""
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -16383,11 +16383,11 @@ msgid ""
 "You can customize the MSI file if you wish so that all your users end up "
 "with the same settings. TSVN settings are stored in the registry under "
 "<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
-"Subversion settings (which affect all subversion clients) are stored in "
+"Subversion settings (which affect all Subversion clients) are stored in "
 "config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
 "help with MSI customization, try one of the MSI transform forums or search "
 "the web for <quote>MSI transform</quote>."
-msgstr "Можете прилагодити МСИ фајл ако желите то да сви корисници завршавају истим подешавањем. ТСВН подешавања су запамћена у регистрима под <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> и опште Субверзионо подешавање (које утиче на све субверзионе клијенте) је запамћено у конфигурационом фајловима <filename>%APPDATA%\\Subversion</filename>. Ако вам је потребна помоћ са подешавањем МСИ покушајте један од форума  МСИ измена или тражите веб за <quote>МСИ трансформације</quote>."
+msgstr ""
 
 #. (title)
 msgid "Redirect the upgrade check"
@@ -18331,12 +18331,12 @@ msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> <emphasis>Неверз
 
 #. (para)
 msgid ""
-"If an item has subversion status <literal>none</literal> (the item is not "
+"If an item has Subversion status <literal>none</literal> (the item is not "
 "within a working copy) then no overlay is shown. If you have chosen to "
 "disable the <emphasis>Ignored</emphasis> and "
 "<emphasis>Unversioned</emphasis> overlays then no overlay will be shown for "
 "those files either."
-msgstr "Ако ставка има субверзиони статус <literal>ниједан</literal> (ставка није у радној копији) прекривач  онда неће бити приказан за те фајлове."
+msgstr ""
 
 #. (para)
 msgid ""

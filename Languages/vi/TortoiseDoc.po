@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:28+0000\n"
+"PO-Revision-Date: 2012-09-19 08:29+0000\n"
 "Last-Translator: Khoa Dang <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -648,8 +648,8 @@ msgstr "Các khái niệm cơ bản"
 #. (para)
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
-"get an overview of how subversion works and the terms that are used."
-msgstr "Trước khi chúng tôi gặp khó khăn khi làm việc với một số tập tin thực sự, điều quan trọng là để có được một cái nhìn tổng quan về cách subversion và các điều khoản được sử dụng."
+"get an overview of how Subversion works and the terms that are used."
+msgstr ""
 
 #. (term)
 #. (title)
@@ -3087,14 +3087,14 @@ msgstr ""
 
 #. (para)
 msgid ""
-"In the check for modifications dialog, first click on the button "
-"<guibutton>Check repository</guibutton>. The dialog will show all the files "
-"and folders which are in the repository but which you have not checked out "
-"as <literal>remotely added</literal>. <action>Right click</action> on the "
-"folder(s) you would like to add to your working copy, then use "
-"<menuchoice><guimenu>Context "
+"In the check for modifications dialog, first <keycap>shift</keycap> click on"
+" the button <guibutton>Check repository</guibutton>. The dialog will show "
+"all the files and folders which are in the repository but which you have not"
+" checked out as <literal>remotely added</literal>. <action>Right "
+"click</action> on the folder(s) you would like to add to your working copy, "
+"then use <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr "Trong kiểm tra cho hộp thoại sửa đổi, đầu tiên nhấp chuột vào nút <guibutton> Kiểm tra kho lưu trữ </guibutton> . Hộp thoại sẽ hiển thị tất cả các file và thư mục trong kho nhưng mà bạn đã không kiểm xuất bằng <literal> thêm vào từ xa </literal> . <action> Nhấp chuột phải </action> vào thư mục bạn muốn thêm vào bản sao làm việc của bạn, sau đó sử dụng <menuchoice><guimenu> Trình đơn ngữ cảnh </guimenu><guimenuitem> Cập nhật </guimenuitem></menuchoice> ."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -5851,11 +5851,11 @@ msgstr "Không có Định Dạng Tường Trình từ Trình Duyệt Kho"
 
 #. (para)
 msgid ""
-"Because the formatting depends upon accessing subversion properties, you "
+"Because the formatting depends upon accessing Subversion properties, you "
 "will only see the results when using a checked out working copy. Fetching "
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
-msgstr "Bởi vì việc định dạng phụ thuộc trên truy cập vào các thuộc tính subversion, bạn sẽ chỉ thấy các kết quả khi sử dụng một bản sao làm việc được kiểm tra ra. Lấy thuộc tính từ xa là một tác vụ chậm, vì vậy bạn sẽ không thấy tính năng này hành động từ trình duyệt kho."
+msgstr ""
 
 #. (title)
 msgid "Statistical Information"
@@ -6950,8 +6950,8 @@ msgstr "loại bỏ"
 msgid ""
 "Use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>"
-" to remove files or folders from subversion."
-msgstr "Sử dụng <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Xóa </guimenuitem></menuchoice> để loại bỏ các tập tin hoặc thư mục khỏi subversion."
+" to remove files or folders from Subversion."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7631,18 +7631,18 @@ msgstr "Bạn có thể cấu hình Subversion và TortoiseSVN để thiết l�
 
 #. (para)
 msgid ""
-"You can edit the subversion configuration file to enable this feature on "
+"You can edit the Subversion configuration file to enable this feature on "
 "your client. The <guilabel>General</guilabel> page of TortoiseSVN's settings"
 " dialog has an edit button to take you there directly. The config file is a "
-"simple text file which controls some of subversion's workings. You need to "
+"simple text file which controls some of Subversion's workings. You need to "
 "change two things: firstly in the section headed "
 "<literal>miscellany</literal> uncomment the line <literal>enable-auto-props "
 "= yes</literal>. Secondly you need to edit the section below to define which"
 " properties you want added to which file types. This method is a standard "
-"subversion feature and works with any subversion client. However it has to "
+"Subversion feature and works with any Subversion client. However it has to "
 "be defined on each client individually - there is no way to propagate these "
 "settings from the repository."
-msgstr "Bạn có thể chỉnh sửa tập tin cấu hình subversion để kích hoạt tính năng này trên máy khách của bạn. Các trang <guilabel> Tổng quát </guilabel> của hộp thoại thiết lập TortoiseSVN có nút chỉnh sửa để bạn đến đó trực tiếp. Các tập tin cấu hình là một tập tin văn bản đơn giản, kiểm soát một số hoạt động của subversion. Bạn cần thay đổi hai điều: trước hết là trong phần đầu <literal> sự sưu tập </literal> bỏ ghi chú các dòng <literal> cho phép-props-tự động = yes </literal> . Thứ hai, bạn cần phải chỉnh sửa phần dưới đây để xác định những thuộc tính mà bạn muốn thêm vào các loại tập tin nào. Phương pháp này là một tính năng tiêu chuẩn của subversion và làm việc với bất kỳ máy khách subversion nào. Tuy nhiên, nó phải được định nghĩa trên mỗi máy khách - không có cách nào để truyền bá các thiết lập này từ kho."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7799,13 +7799,13 @@ msgstr "Các mẫu hành động cụ thể là: <placeholder-1/>"
 msgid ""
 "Subversion allows you to set <quote>autoprops</quote> which will be applied "
 "to newly added or imported files, based on the file extension. This depends "
-"on every client having set appropriate autoprops in their subversion "
+"on every client having set appropriate autoprops in their Subversion "
 "configuration file. <literal>tsvn:autoprops</literal> can be set on folders "
 "and these will be merged with the user's local autoprops when importing or "
-"adding files. The format is the same as for subversion autoprops, e.g. "
+"adding files. The format is the same as for Subversion autoprops, e.g. "
 "<literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two "
 "properties on files with the <literal>.sh</literal> extension."
-msgstr "Subversion cho phép bạn thiết lập <quote> autoprops </quote> mà sẽ được áp dụng cho các tập tin mới được thêm vào hay nhập khẩu, dựa trên phần mở rộng tập tin. Điều này phụ thuộc vào các máy khách có thiết lập autoprops thích hợp trong tập tin cấu hình subversion của chúng. <literal> tsvn:autoprops </literal> có thể được đặt trên các thư mục và sẽ được sáp nhập với các autoprops địa phương của người sử dụng khi nhập khẩu hoặc thêm các tập tin. Cấu trúc của nó tương tự như đối với autoprops subversion, ví dụ <literal> *.sh = svn:eol-style=native; svn:executable </literal> thiết lập hai thuộc tính trên các tập tin với phần mở rộng <literal> .sh </literal>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8192,7 +8192,7 @@ msgstr "<placeholder-1/> Các <literal> svn: externals </literal> thuộc tính 
 #. (para)
 msgid ""
 "You need to define the name of the sub-folder that the external folder is "
-"checked out as, and the subversion URL of the external item. You can check "
+"checked out as, and the Subversion URL of the external item. You can check "
 "out an external at its HEAD revision, so when the external item changes in "
 "the repository, your working copy will receive those changes on update. "
 "However, if you want the external to reference a particular stable point "
@@ -8202,7 +8202,7 @@ msgid ""
 "update this item in your working copy. By specifying a peg revision you tell"
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
-msgstr "Bạn cần phải xác định tên của thư mục con mà thư mục bên ngoài được kiểm tra ra, và URL subversion của mục bên ngoài. Bạn có thể kiểm tra ra một thành phần bên ngoài tại bản sửa đổi CHÍNH của nó, vì vậy khi mục bên ngoài thay đổi trong kho lưu trữ, bản sao làm việc của bạn sẽ nhận được những thay đổi lúc cập nhật. Tuy nhiên, nếu bạn muốn thành phần bên ngoài để tham chiếu một điểm ổn định cụ thể thì bạn có thể chỉ định sửa đổi cụ thể để sử dụng. Ở trường hợp này bạn cũng có thể muốn chỉ ra cùng một bản chỉnh sửa như là một phiên bản gắn kết. Nếu đối tượng bên ngoài được đổi tên tại một thời điểm nào đó trong tương lai thì Subversion sẽ không thể cập nhật mục này trong bản sao làm việc của bạn. Bằng việc chỉ định một phiên bản gắn kết bạn nói với Subversion tìm một mục có tên đó ở các sửa đổi gắn kết hơn là tại bản CHÍNH."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8282,10 +8282,10 @@ msgid ""
 "<placeholder-1/> Choose the language to use for spell-checking log messages "
 "in the commit dialog. The file lists checkbox comes into effect when you "
 "right click in the log message pane and select <guilabel>Paste file "
-"list</guilabel>. By default the subversion status will be shown in your "
+"list</guilabel>. By default the Subversion status will be shown in your "
 "local language. When this box is checked the status is always given in "
 "English, for projects which require English-only log messages."
-msgstr "<placeholder-1/> Chọn ngôn ngữ để sử dụng cho kiểm tra chính tả của thông điệp tường trình trong hộp thoại cam kết. Hộp kiểm danh sách tập tin có hiệu lực khi bạn kích chuột phải vào cửa sổ thông điệp tường trình và chọn <guilabel> Dán danh sách tập tin </guilabel> . Theo mặc định, tình trạng subversion sẽ được hiển thị bằng ngôn ngữ địa phương của bạn. Khi chọn hộp này, tình trạng luôn luôn được đưa ra trong tiếng Anh, cho các dự án có yêu cầu thông điệp tường trình chỉ dùng tiếng Anh."
+msgstr ""
 
 #. (title)
 msgid "MIME-type"
@@ -9199,10 +9199,10 @@ msgstr "Với TortoiseSVN, bạn chỉ định tập hợp thay đổi để h�
 
 #. (para)
 msgid ""
-"If you are merging revisions in chunks, the method shown in the subversion "
+"If you are merging revisions in chunks, the method shown in the Subversion "
 "book will have you merge 100-200 this time and 200-300 next time. With "
 "TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr "Nếu bạn đang sáp nhập các sửa đổi trong các khối, phương pháp thể hiện trong sách subversion sẽ cho bạn hợp nhất 100-200 trong thời gian này và 200-300 trong thời gian tiếp theo. Với TortoiseSVN, bạn sẽ hợp nhất 100-200 trong thời gian này và 201-300 trong thời gian tới."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9575,10 +9575,10 @@ msgstr "Thông tin theo dõi hợp nhất được lưu trữ trong thuộc tín
 #. (para)
 msgid ""
 "Find out more about merge tracking from Subversion's <ulink "
-"url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-"
+"url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-"
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
-msgstr "Tìm hiểu thêm về kết hợp theo dõi của Subversion <ulink url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Hợp nhất theo dõi tài liệu</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -11836,13 +11836,13 @@ msgstr "Không có Thông Tin về Bộ Theo Dõi Vấn Đề từ Trình Duyệ
 
 #. (para)
 msgid ""
-"Because the issue tracker integration depends upon accessing subversion "
+"Because the issue tracker integration depends upon accessing Subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr "Bởi vì sự tích hợp bộ theo dõi vấn đề phụ thuộc khi truy cập vào các thuộc tính subversion, bạn sẽ chỉ thấy các kết quả khi sử dụng một bản sao làm việc được kiểm xuất. Lấy thuộc tính từ xa là một tác vụ chậm, vì vậy bạn sẽ không thấy tính năng này được dùng từ trình duyệt kho, trừ khi bạn bắt đầu trình duyệt kho từ bản sao làm việc của bạn. Nếu bạn bắt đầu trình duyệt kho bằng cách nhập URL của kho bạn sẽ không thấy tính năng này."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -11984,13 +11984,13 @@ msgstr "Bạn cũng có thể sử dụng các URL tương đối thay vì tuy�
 
 #. (para)
 msgid ""
-"Because the repo viewer integration depends upon accessing subversion "
+"Because the repo viewer integration depends upon accessing Subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr "Bởi vì sự tích hợp trình xem kho tùy thuộc vào truy cập vào các thuộc tính subversion, bạn sẽ chỉ thấy các kết quả khi sử dụng một bản sao làm việc được kiểm xuất. Lấy thuộc tính từ xa là một tác vụ chậm, vì vậy bạn sẽ không thấy tính năng này được dùng từ trình duyệt kho, trừ khi bạn bắt đầu trình duyệt kho từ bản sao làm việc của bạn. Nếu bạn bắt đầu trình duyệt kho bằng cách nhập URL của kho bạn sẽ không thấy tính năng này."
+msgstr ""
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -16383,11 +16383,11 @@ msgid ""
 "You can customize the MSI file if you wish so that all your users end up "
 "with the same settings. TSVN settings are stored in the registry under "
 "<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
-"Subversion settings (which affect all subversion clients) are stored in "
+"Subversion settings (which affect all Subversion clients) are stored in "
 "config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
 "help with MSI customization, try one of the MSI transform forums or search "
 "the web for <quote>MSI transform</quote>."
-msgstr "Bạn có thể tùy chỉnh các tập tin MSI nếu bạn mong muốn rằng tất cả người dùng của bạn kết thúc với các thiết lập tương tự. Thiết lập TSVN được lưu trữ trong registry dưới <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN </filename> và các thiết lập Subversion chung (ảnh hưởng đến tất cả các máy khách subversion) được lưu trữ trong tập tin cấu hình theo <filename> %APPDATA\\Subversion </filename> . Nếu bạn cần giúp đỡ với tùy biến MSI, hãy thử một trong những diễn đàn biến đổi MSI hoặc tìm kiếm trên web cho <quote> biến đổi MSI </quote>."
+msgstr ""
 
 #. (title)
 msgid "Redirect the upgrade check"
@@ -18331,12 +18331,12 @@ msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> Lớp phủ <emphasis>
 
 #. (para)
 msgid ""
-"If an item has subversion status <literal>none</literal> (the item is not "
+"If an item has Subversion status <literal>none</literal> (the item is not "
 "within a working copy) then no overlay is shown. If you have chosen to "
 "disable the <emphasis>Ignored</emphasis> and "
 "<emphasis>Unversioned</emphasis> overlays then no overlay will be shown for "
 "those files either."
-msgstr "Nếu một mục có trạng thái subversion <literal> không </literal> (mục này không thuộc một bản sao làm việc) thì lớp phủ không được hiển thị. Nếu bạn đã chọn để vô hiệu hóa lớp phủ <emphasis> Bỏ qua </emphasis> và <emphasis> Không phiên bản </emphasis> thì không có lớp phủ nào sẽ được hiển thị cho những tập tin đó."
+msgstr ""
 
 #. (para)
 msgid ""

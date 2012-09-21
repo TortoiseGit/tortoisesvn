@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:27+0000\n"
+"PO-Revision-Date: 2012-09-19 08:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -653,8 +653,8 @@ msgstr "Basis Beginselen"
 #. (para)
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
-"get an overview of how subversion works and the terms that are used."
-msgstr "Voordat aan de slag gaan met het werken met echte bestanden, is het goed om een overzicht te hebben over hoe Subversion werkt en welke terminologie gebruikt wordt."
+"get an overview of how Subversion works and the terms that are used."
+msgstr ""
 
 #. (term)
 #. (title)
@@ -3092,14 +3092,14 @@ msgstr ""
 
 #. (para)
 msgid ""
-"In the check for modifications dialog, first click on the button "
-"<guibutton>Check repository</guibutton>. The dialog will show all the files "
-"and folders which are in the repository but which you have not checked out "
-"as <literal>remotely added</literal>. <action>Right click</action> on the "
-"folder(s) you would like to add to your working copy, then use "
-"<menuchoice><guimenu>Context "
+"In the check for modifications dialog, first <keycap>shift</keycap> click on"
+" the button <guibutton>Check repository</guibutton>. The dialog will show "
+"all the files and folders which are in the repository but which you have not"
+" checked out as <literal>remotely added</literal>. <action>Right "
+"click</action> on the folder(s) you would like to add to your working copy, "
+"then use <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr "In het kijk of er updates zijn venster, klik op de knop <guibutton>Controleer archief</guibutton>. Het venster zal alle bestanden en mappen laten zien die in het archief zijn, maar die je niet opgehaald hebt als <literal>Op afstand toegevoegd</literal>. <action>Klik rechts</action> op de map(pen) die je aan je werkkopie wilt toevoegen en kies dan <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Verversen</guimenuitem></menuchoice>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -5856,11 +5856,11 @@ msgstr "Geen Logopmaak van de archief-verkenner"
 
 #. (para)
 msgid ""
-"Because the formatting depends upon accessing subversion properties, you "
+"Because the formatting depends upon accessing Subversion properties, you "
 "will only see the results when using a checked out working copy. Fetching "
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
-msgstr "Aangezien de indeling afhankelijk is van het kunnen bereiken van subversion eigenschappen, zul je alleen de resultaten zien als je een opgehaalde werkkopie gebruikt. Eigenschappen op afstand ophalen is een trage actie, daarom zul je deze functie niet in actie zien vanuit de archief-verkenner."
+msgstr ""
 
 #. (title)
 msgid "Statistical Information"
@@ -6955,8 +6955,8 @@ msgstr "weghalen"
 msgid ""
 "Use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>"
-" to remove files or folders from subversion."
-msgstr "Gebruik <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verwijderen</guimenuitem></menuchoice> om bestanden of mappen uit subversion te verwijderen."
+" to remove files or folders from Subversion."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7636,18 +7636,18 @@ msgstr "Je kunt Subversion en TortoiseSVN zo instellen dat ze automatisch eigens
 
 #. (para)
 msgid ""
-"You can edit the subversion configuration file to enable this feature on "
+"You can edit the Subversion configuration file to enable this feature on "
 "your client. The <guilabel>General</guilabel> page of TortoiseSVN's settings"
 " dialog has an edit button to take you there directly. The config file is a "
-"simple text file which controls some of subversion's workings. You need to "
+"simple text file which controls some of Subversion's workings. You need to "
 "change two things: firstly in the section headed "
 "<literal>miscellany</literal> uncomment the line <literal>enable-auto-props "
 "= yes</literal>. Secondly you need to edit the section below to define which"
 " properties you want added to which file types. This method is a standard "
-"subversion feature and works with any subversion client. However it has to "
+"Subversion feature and works with any Subversion client. However it has to "
 "be defined on each client individually - there is no way to propagate these "
 "settings from the repository."
-msgstr "Je kunt het subversion configuratie bestand bewerken om deze functie voor jouw eigen client aan te zetten. De <guilabel>Algemeen</guilabel> pagina van het TortoiseSVN instellingen scherm heeft een knop waarmee je dit bestand makkelijk kunt vinden. Het configuratie bestand is een plat tekstbestand, waarmee enkele werkinstellingen voor subversion worden gedaan. Je moet twee dingen aanpassen: haal eerst in de sectie met de naam <literal>miscellany</literal> de commentaar tekens weg voor de regel <literal>enable-auto-props = yes</literal>. Als tweede actie moet je de sectie daaronder bewerken om te definiëren welke eigenschappen je op welke bestandstypes wilt toe laten passen. Deze methode is een standaard functie van subversion en werkt met elke subverion client. Dit moet echter wel op elke client apart ingesteld worden - er is geen methode om dit door te laten propageren vanuit het archief."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7804,13 +7804,13 @@ msgstr ""
 msgid ""
 "Subversion allows you to set <quote>autoprops</quote> which will be applied "
 "to newly added or imported files, based on the file extension. This depends "
-"on every client having set appropriate autoprops in their subversion "
+"on every client having set appropriate autoprops in their Subversion "
 "configuration file. <literal>tsvn:autoprops</literal> can be set on folders "
 "and these will be merged with the user's local autoprops when importing or "
-"adding files. The format is the same as for subversion autoprops, e.g. "
+"adding files. The format is the same as for Subversion autoprops, e.g. "
 "<literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two "
 "properties on files with the <literal>.sh</literal> extension."
-msgstr "Subversion heeft de mogelijkheid om <quote>autoprops</quote>  (automatisch eigenschappen) te configureren, welke automatisch toegevoegd worden aan nieuw toegevoegde of geïmporteerde bestanden op basis van de extensie van het bestand. Dit is afhankelijk van de instellingen van de autoprops in het subversion configuratiebestand van elke individuele client. <literal>tsvn:autoprops</literal> kunnen ingesteld worden op mappen. Deze worden dan samengevoegd met de lokale autprops van de gebruiker bij het importeren of toevoegen van nieuwe bestanden. De indeling is gelijk aan die van de subversion autoprops, bijv. <literal>*.sh = svn:eol-style=native;svn:executable</literal> kent twee eigenschappen toe aan bestanden met de <literal>.sh</literal> extensie."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8197,7 +8197,7 @@ msgstr ""
 #. (para)
 msgid ""
 "You need to define the name of the sub-folder that the external folder is "
-"checked out as, and the subversion URL of the external item. You can check "
+"checked out as, and the Subversion URL of the external item. You can check "
 "out an external at its HEAD revision, so when the external item changes in "
 "the repository, your working copy will receive those changes on update. "
 "However, if you want the external to reference a particular stable point "
@@ -8287,7 +8287,7 @@ msgid ""
 "<placeholder-1/> Choose the language to use for spell-checking log messages "
 "in the commit dialog. The file lists checkbox comes into effect when you "
 "right click in the log message pane and select <guilabel>Paste file "
-"list</guilabel>. By default the subversion status will be shown in your "
+"list</guilabel>. By default the Subversion status will be shown in your "
 "local language. When this box is checked the status is always given in "
 "English, for projects which require English-only log messages."
 msgstr ""
@@ -9204,10 +9204,10 @@ msgstr "Met TortoiseSVN geeft u de vast te leggen wijzigingsset aan door gebruik
 
 #. (para)
 msgid ""
-"If you are merging revisions in chunks, the method shown in the subversion "
+"If you are merging revisions in chunks, the method shown in the Subversion "
 "book will have you merge 100-200 this time and 200-300 next time. With "
 "TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr "Als u samenvoegt in blokken, laat de methode welke in het subversion boek wordt getoond u 100-200 nu samenvoegen en 200-300 de volgende keer. Met TortoiseSVN zou u 100-200 nu samenvoegen en 201-300 de volgende keer."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -9580,7 +9580,7 @@ msgstr "De samenvoeg informatie is opgeslagen in de <literal>svn:mergeinfo</lite
 #. (para)
 msgid ""
 "Find out more about merge tracking from Subversion's <ulink "
-"url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-"
+"url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-"
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
 msgstr ""
@@ -11841,13 +11841,13 @@ msgstr "Geen Issue Tracker Informatie vanuit de Archief Verkenner"
 
 #. (para)
 msgid ""
-"Because the issue tracker integration depends upon accessing subversion "
+"Because the issue tracker integration depends upon accessing Subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr "Omdat de issue tracker integratie afhankelijk is van de toegang tot subversion eigenschappen kunt u de resultaten alleen zien wanneer u een opgehaalde werkkopie gebruikt. Het vanaf afstand ophalen van de eigenschappen is een langdurige operatie, daarom zal u deze mogelijkheid niet in actie zien vanuit de archief-verkenner, tenzij u de archief-verkenner vanuit uw werkkopie hebt opgestart. Als u de archief verkenner heeft opgestart met ingave van de URL naar het archief zal u deze mogelijkheid niet zien."
+msgstr ""
 
 #. (para)
 #. (para)
@@ -11989,13 +11989,13 @@ msgstr "U kunt ook gebruik maken van relatieve URL's in plaats van absolute. Dit
 
 #. (para)
 msgid ""
-"Because the repo viewer integration depends upon accessing subversion "
+"Because the repo viewer integration depends upon accessing Subversion "
 "properties, you will only see the results when using a checked out working "
 "copy. Fetching properties remotely is a slow operation, so you will not see "
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr "Omdat de archief viewer integratie afhankelijk is van de toegang tot subversion eigenschappen kunt u de resultaten alleen zien wanneer u een opgehaalde werkkopie gebruikt. Het vanaf afstand ophalen van de eigenschappen is een langdurige operatie, daarom zal u deze mogelijkheid niet in actie zien vanuit de archief-verkenner, tenzij u de archief-verkenner vanuit uw werkkopie hebt opgestart. Als u de archief-verkenner heeft opgestart met ingave van de URL naar het archief zal u deze mogelijkheid niet zien."
+msgstr ""
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -16388,7 +16388,7 @@ msgid ""
 "You can customize the MSI file if you wish so that all your users end up "
 "with the same settings. TSVN settings are stored in the registry under "
 "<filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> and general "
-"Subversion settings (which affect all subversion clients) are stored in "
+"Subversion settings (which affect all Subversion clients) are stored in "
 "config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
 "help with MSI customization, try one of the MSI transform forums or search "
 "the web for <quote>MSI transform</quote>."
@@ -18336,12 +18336,12 @@ msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> Het <emphasis>Niet ond
 
 #. (para)
 msgid ""
-"If an item has subversion status <literal>none</literal> (the item is not "
+"If an item has Subversion status <literal>none</literal> (the item is not "
 "within a working copy) then no overlay is shown. If you have chosen to "
 "disable the <emphasis>Ignored</emphasis> and "
 "<emphasis>Unversioned</emphasis> overlays then no overlay will be shown for "
 "those files either."
-msgstr "Als een item de subversion status <literal>geen</literal> heeft (het item bevindt zich niet in een werkkopie) wordt er geen overlappend pictogram getoond. Als u ervoor heeft gekozen om de overlappende pictogrammen voor <emphasis>Genegeerd</emphasis> en <emphasis>Niet onder versiebeheer</emphasis> niet actief te maken, worden voor deze bestanden ook geen overlappende pictogrammen getoond."
+msgstr ""
 
 #. (para)
 msgid ""
