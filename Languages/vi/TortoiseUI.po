@@ -10,15 +10,15 @@
 # 
 # Authors:
 # Translators:
-# Khoa Dang <dndk82@yahoo.com>, 2011, 2012.
+# Khoa Dang <dndk82@yahoo.com>, 2011-2012.
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:42+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2012-09-21 23:06+0000\n"
+"Last-Translator: Khoa Dang <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1833,7 +1833,7 @@ msgstr "Điều chỉnh thiết lập\nCác thiết lập"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"
-msgstr ""
+msgstr "Điều chỉnh đến bản sửa đổi CHÍNH"
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -1928,7 +1928,7 @@ msgstr "Luôn luôn đóng hộp thoại cho các hoạt động trên máy cụ
 
 #. Resource IDs: (1339)
 msgid "Always execute the script"
-msgstr ""
+msgstr "Luôn luôn thi hành kịch bản"
 
 #. Resource IDs: (197)
 msgid "Always use the system locale settings to show times and dates"
@@ -3491,7 +3491,7 @@ msgstr "Tạo bản sao trong kho chứa từ:"
 
 #. Resource IDs: (1562)
 msgid "Create intermediate folders"
-msgstr ""
+msgstr "Tạo các thư mục trung gian"
 
 #. Resource IDs: (126)
 #, c-format
@@ -4035,7 +4035,7 @@ msgstr "Đừng khôi phục các tài liệu được tự động lưu\nSử d
 msgid ""
 "Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "Đừng chạy\nĐừng chạy kịch bản"
 
 #. Resource IDs: (315)
 msgid ""
@@ -4250,7 +4250,7 @@ msgstr "Kết thúc chỉnh sửa"
 
 #. Resource IDs: (200)
 msgid "Enforce"
-msgstr ""
+msgstr "Giám sát"
 
 #. Resource IDs: (3825)
 msgid "Enlarge the window to full size"
@@ -4585,7 +4585,7 @@ msgstr "Thất bại!"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
-msgstr ""
+msgstr "Nạp bản sửa đổi CHÍNH và điều chỉnh đến nó"
 
 #. Resource IDs: (199)
 msgid ""
@@ -4753,11 +4753,11 @@ msgstr "Tìm"
 
 #. Resource IDs: (1633)
 msgid "Find &Head-Revision"
-msgstr ""
+msgstr "Tìm Bản sửa đổi &Chính"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
-msgstr ""
+msgstr "Tìm các bản sửa đổi CHÍNH"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5034,7 +5034,7 @@ msgstr "Nút CHÍNH"
 
 #. Resource IDs: (218)
 msgid "Head"
-msgstr ""
+msgstr "Chính"
 
 #. Resource IDs: (106)
 #, c-format
@@ -5232,7 +5232,7 @@ msgstr "ID:32810:V   +T"
 
 #. Accelerator Entry for Menu ID:32811; ''
 msgid "ID:32811:V C +U"
-msgstr ""
+msgstr "ID:32811:V C +U"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
@@ -5795,7 +5795,7 @@ msgstr "Kết hợp với cây nguồn"
 
 #. Resource IDs: (1632)
 msgid "Jump to next &conflict"
-msgstr ""
+msgstr "nhảy tới &mâu thuẫn kế tiếp"
 
 #. Resource IDs: (1203)
 msgid "Keep &locks"
@@ -5847,11 +5847,11 @@ msgstr "Ngôn ngữ:"
 
 #. Resource IDs: (65535)
 msgid "Last changed author:"
-msgstr ""
+msgstr "Tác giả được thay đổi cuối:"
 
 #. Resource IDs: (65535)
 msgid "Last changed revision:"
-msgstr ""
+msgstr "Bản sửa đổi được thay đổi cuối:"
 
 #. Resource IDs: (11)
 msgid "Last saved revision of item"
@@ -8290,7 +8290,7 @@ msgstr "Chạy trình dọn dẹp ngay &bây giờ"
 msgid ""
 "Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "Chạy\nChạy kịch bản móc"
 
 #. Resource IDs: (17045)
 msgid "S&elect..."
@@ -9227,7 +9227,7 @@ msgstr "Chạy trình biên tập registry"
 
 #. Resource IDs: (226)
 msgid "Starting externals..."
-msgstr ""
+msgstr "Bắt đầu các thành phần ngoài..."
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -9604,7 +9604,7 @@ msgid ""
 "The file\n"
 "%s\n"
 "is not a valid text file!"
-msgstr ""
+msgstr "Tập tin\n%s\nkhông phải là một tập tin văn bản hợp lệ!"
 
 #. Resource IDs: (145)
 #, c-format
@@ -10277,7 +10277,7 @@ msgid ""
 "instead.\n"
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr ""
+msgstr "TortoiseBlame không nên được chạy trực tiếp! Sử dụng\nTortoiseProc.exe /command:blame /path:\"path\\to\\file\"\nthay vào đó.\n\nTortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (7, 153)
 msgid "TortoiseIDiff"
@@ -10986,7 +10986,7 @@ msgstr "CẢNH BÁO:\nChỉ thay đổi các thiết lập này nếu bạn tuy�
 
 #. Resource IDs: (65535)
 msgid "WC Revision:"
-msgstr ""
+msgstr "Bản sửa đổi WC:"
 
 #. Resource IDs: (65535)
 msgid "WC node"
@@ -11569,11 +11569,11 @@ msgstr "tập tin bên ngoài:"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
-msgstr ""
+msgstr "lấy bản sửa đổi CHÍNH:"
 
 #. Resource IDs: (591)
 msgid "get repository root urls:"
-msgstr ""
+msgstr "lấy các url kho chứa gốc"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11629,7 +11629,7 @@ msgstr "đã khóa"
 
 #. Resource IDs: (65535)
 msgid "locked (cleanup required):"
-msgstr ""
+msgstr "đã khóa (cần được dọn dẹp)"
 
 #. Resource IDs: (1539)
 msgid "log text &editor"

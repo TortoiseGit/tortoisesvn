@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-19 08:29+0000\n"
+"PO-Revision-Date: 2012-09-23 19:53+0000\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -640,7 +640,7 @@ msgid ""
 "If you encounter any problems during or after installing TortoiseSVN please "
 "refer to our online FAQ at <ulink "
 "url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
-msgstr "Pokiaľ počas alebo po inštalácií TortoiseSVN zaznamenáte problém, posím yačnite na našej stránke častých otázok (FAQ) <ulink url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
+msgstr "Pokiaľ počas alebo po inštalácií TortoiseSVN narazíte na problém, posím začnite na našej stránke častých otázok (FAQ) <ulink url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
 
 #. (title)
 msgid "Basic Concepts"
@@ -704,7 +704,7 @@ msgid ""
 "so first of all, start Windows Explorer. Right click on a folder in Explorer"
 " and you should see some new entries in the context menu like this: "
 "<placeholder-1/>"
-msgstr "Tiež musíte vedieť kde TortoiseSVN nájsť, pretože nie v ponuke programov. Je to preto, že TortoiseSVN je rozšírenie šelu, takže najprv spustite Prieskumníka (Windows Explorer). Kliknite pravým na adresár a mali by ste vidieť položky v kontextovom menu podobné ako je: <placeholder-1/>"
+msgstr "Tiež musíte vedieť kde TortoiseSVN nájsť, pretože sa nenáchádza v ponuke programov. Je to preto, že TortoiseSVN je rozšírenie šelu, takže najprv spustite Prieskumníka (Windows Explorer). Kliknite pravým na adresár a mali by ste vidieť položky v kontextovom menu podobné ako je: <placeholder-1/>"
 
 #. (title)
 msgid "Go for a Test Drive"
@@ -779,7 +779,7 @@ msgid ""
 "we add our own project name <filename>Widget1</filename>. Note that there "
 "are 3 slashes after <filename>file:</filename> and that forward slashes are "
 "used throughout."
-msgstr "Už máme úložisko, ale ešte je úplne prázdne. Predpokladajme, že v adresáry <filename>C:\\\\Projects\\\\Widget1</filename> máme sadu súborov, ktoré chceme pridať. V Preskumníkovi (Windows Explorer) najdeme adresár <filename>Widget1</filename> a pravým na neho kliknite. Teraz vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importovať...</guimenuitem></menuchoice>, čo vyvolá dialógové okno <placeholder-1/>. Subversion úložisko je označené ako URL adresa, ktorá nám umožní zadať úložisko nachádzajúce sa kdekoľvek na internete. V našom prípade potrebujeme zadať meno našeho miestneho úložiska, ktorého URL adresa je <filename>file:///c:/svn_repos/Widget1</filename>. Všimnite si tri lomky za <filename>file:</filename> ako aj to, že sú použíte dopredné lomky."
+msgstr "Už máme úložisko, ale ešte je úplne prázdne. Predpokladajme, že v adresáry <filename>C:\\\\Projects\\\\Widget1</filename> máme sadu súborov, ktoré chceme pridať. V Preskumníkovi (Windows Explorer) najdeme adresár <filename>Widget1</filename> a pravým na neho kliknite. Teraz vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importovať...</guimenuitem></menuchoice>, čo vyvolá dialógové okno :<placeholder-1/> Úložisko Subversion je označené ako URL adresa, ktorá nám umožní zadať úložisko nachádzajúce sa kdekoľvek na internete. V našom prípade potrebujeme zadať meno našeho miestneho úložiska, ktorého URL adresa je <filename>file:///c:/svn_repos/Widget1</filename>. Všimnite si tri lomky za <filename>file:</filename> ako aj to, že sú použíte dopredné lomky."
 
 #. (para)
 msgid ""
@@ -958,7 +958,7 @@ msgid ""
 "haven't covered. We strongly recommend that you take the time to read the "
 "rest of this manual, especially <xref linkend=\"tsvn-dug\"/> which gives you"
 " a lot more detail on day-to-day operations."
-msgstr "Tento návod vám dal veľmi rýchly prehľad na niektoé najdôležitejšie a najužitočnejšie vlastnosti, ale samozrejme je omnoho viac toho, čo sme nespomenuli. Veľmi odporúčame, aby ste si našli čas a pečítali zvyšok tohoto návodu, zvlášť <xref linkend=\"tsvn-dug\"/>, ktorý vás prevedie každodennými úkonmi omnoho detailnejšie."
+msgstr "Tento návod vám dal veľmi rýchly prehľad na niektoé najdôležitejšie a najužitočnejšie vlastnosti, ale samozrejme je omnoho viac toho, čo sme nespomenuli. Veľmi odporúčame, aby ste si našli čas a prečítali zvyšok tohoto návodu, zvlášť <xref linkend=\"tsvn-dug\"/>, ktorý vás prevedie každodennými úkonmi omnoho detailnejšie."
 
 #. (para)
 msgid ""
@@ -966,7 +966,7 @@ msgid ""
 "easy to read, but we recognise that there is a lot of it! Take your time and"
 " don't be afraid to try things out on a test repository as you go along. The"
 " best way to learn is by using it."
-msgstr "Mali sme mnoho starostí pri uisťovaní sa aby bol tento návod dosť informatívny aj ľahko čitateľný, ale zistili sme že je toho mnoho. Najdite si čas a neobávajte sa skúšať na testovacom úložisku ako budete postupovať. Najlepšie je sa učiť používaním."
+msgstr "Dali sme si záležať aby bol tento návod dosť informatívny a zároveň ľahko čitateľný, ale zistili sme že je toho mnoho. Najdite si čas a neobávajte sa skúšať na testovacom úložisku ako budete postupovať. Najlepšie je sa učiť používaním."
 
 #. (title)
 msgid "Basic Version-Control Concepts"
@@ -982,7 +982,7 @@ msgid ""
 "Subversion book. An online version of the Subversion book is available here:"
 " <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-"
 "bean.com/</citetitle></ulink>."
-msgstr "Táto kapitola je nepatrne zmenenou verziou kapitoly z Subversion knihy. Online verzia Subversion knihy je prístupná tu:<ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
+msgstr "Táto kapitola je nepatrne zmenenou verziou kapitoly z knihy Subversion. On-line verzia knihy Subversion je prístupná tu: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>http://svnbook.red-bean.com/</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -1073,7 +1073,7 @@ msgid ""
 "because she never saw Harry's changes to begin with. Harry's work is still "
 "effectively lost - or at least missing from the latest version of the file -"
 " and probably by accident. This is definitely a situation we want to avoid!"
-msgstr "Prestavte si takúto situáciu: predpokladajme, že mame dvoch spolupracovníkov: Harry a Sally. Obidvaja sa rozhodnú upraviť ten istý súbor úložiska v jednom čase. Ak Harry odovzdá zmeny ako prvý potom je možné, že (o chvíľu) Sally ich môže omylom prepísať jej novou verziu súboru. Napriek tomu, že Harry-ho verzia nebude stratená, (pretože systém si pamätá každú zmenu), žiadna Harry-ho zmena <emphasis>nebude</emphasis> v Sally-nej novej verzií súboru, pretože nikdy nevidela Harry-ho zmeny. Harry-ho práca je teda efektívne stratená - alebo aspoň chýbajúca v poslednej verzií súboru - a to pravdepodobne omylom. Toto je určite situácia, ktorej sa chceme vyhnúť!"
+msgstr "Predstavte si takúto situáciu: predpokladajme, že mame dvoch spolupracovníkov: Harry a Sally. Obidvaja sa rozhodnú upraviť ten istý súbor úložiska v jednom čase. Ak Harry odovzdá zmeny ako prvý potom je možné, že (o chvíľu) Sally ich môže omylom prepísať jej novou verziu súboru. Napriek tomu, že Harry-ho verzia nebude stratená, (pretože systém si pamätá každú zmenu), žiadna Harry-ho zmena <emphasis>nebude</emphasis> v Sally-nej novej verzií súboru, pretože nikdy nevidela Harry-ho zmeny. Harry-ho práca je teda efektívne stratená - alebo aspoň chýbajúca v poslednej verzií súboru - a to pravdepodobne omylom. Toto je určite situácia, ktorej sa chceme vyhnúť!"
 
 #. (title)
 msgid "The Problem to Avoid"
@@ -1356,7 +1356,7 @@ msgid ""
 "<command>update</command> command. This will incorporate your changes into "
 "her working copy, as well as any others that have been committed since she "
 "checked it out."
-msgstr "Doviesť jej projekt do aktuálneho stavu, Sallz môže požiadať Subversion o <firstterm>aktualizovanie</firstterm> jej pracovnej kópie, využitím príkazu <command>aktualizovať</command> Subverzie.Tento príkaz včlení vaše zmeny do jej pracovnej kópie, takisto ako všetky ostatné, ktoré boli odovzdané odkedy ich Sally získala."
+msgstr "Doviesť jej projekt do aktuálneho stavu, Sallz môže požiadať Subversion o <firstterm>aktualizovanie</firstterm> jej pracovnej kópie, využitím príkazu Subversion: <command>aktualizovať</command>. Tento príkaz včlení vaše zmeny do jej pracovnej kópie, takisto ako všetky ostatné, ktoré boli odovzdané odkedy ich Sally získala."
 
 #. (para)
 msgid ""
@@ -1451,7 +1451,7 @@ msgid ""
 "be either absent or <literal>localhost</literal>. For this reason, local "
 "paths normally appear with three slashes, <systemitem "
 "class=\"url\">file:///path/to/repos</systemitem>."
-msgstr "Pre väčšiu časť, URL Subverzie používa štandardnú skladbu, dovoľujúc menám serverov a číslam portov byť špecifikovaných ako časť URL. <literal>file://</literal> prístupová metóda je obyčajne používaná pre lokálny prístup, hoci môže byť použitá s cestami UNC do sieťového hostiteľa. URL preto zoberie podobu <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. Pre lokálny prístroj, je od <literal>hostname</literal> URL časti požadované, aby bola neprítomná alebo <literal>localhost</literal>. Kvôli tomu, sa lokálne cesty objavujú s tromi lomkami, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
+msgstr "Pre väčšiu časť, Subversion URL adresa používa štandardnú skladbu, dovoľuje špecifikovať mená serverov a čísla portov ako súčasť URL. <literal>file://</literal> prístupová metóda je obyčajne používaná pre lokálny prístup, hoci môže byť použitá s cestami UNC do sieťového hostiteľa. URL preto zoberie podobu <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. Pre lokálny prístroj, je od <literal>hostname</literal> URL časti požadované, aby bola neprítomná alebo <literal>localhost</literal>. Kvôli tomu, sa lokálne cesty objavujú s tromi lomkami, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
 
 #. (para)
 msgid ""
@@ -1510,7 +1510,7 @@ msgid ""
 "of files and directories as a single atomic transaction. In your working "
 "copy, you can change files' contents, create, delete, rename and copy files "
 "and directories, and then commit the complete set of changes as a unit."
-msgstr "Pomocou <command>svn odovzdať</command> akcie môžeme uverejniť zmeny pre ľubovólny počet súborov a zložiek ako jedena nedeliteľná akcia. Vo vašej pracovnej kópii môžete meniť obsah súborov, vytvárať, mazať, premenovávať a kopírovať súbory a zložky a potom vykonať celú množinu zmien ako celok."
+msgstr "Akciou <command>odovzdať</command> môžeme uverejniť zmeny pre ľubovólny počet súborov a zložiek ako jednu nedeliteľnú akciu. Vo vašej pracovnej kópii môžete meniť obsah súborov, vytvárať, mazať, premenovávať a kopírovať súbory a zložky a potom vykonať celú množinu zmien ako celok."
 
 #. (para)
 msgid ""
@@ -1596,7 +1596,7 @@ msgid ""
 "<filename>integer.c</filename>, creating revision 6. If you use <command>svn"
 " update</command> to bring your working copy up to date, then it will look "
 "like this:"
-msgstr "Suppose that, at this point, Sally commits a change to <filename>integer.c</filename>, creating revision 6. If you use <command>svn update</command> to bring your working copy up to date, then it will look like this:"
+msgstr "Predpokladajme, že teraz Sally odovzdá zmenu v <filename>integer.c</filename> vytvoriac tak revíziu 6. Ak použijete <command>aktualizovať</command> na zaktualizovanie vašej pracovnej kópie, bude vaša pracovná kópia vyzerať nasledovne:"
 
 #. (screen)
 #, no-wrap
@@ -1617,7 +1617,7 @@ msgid ""
 " revision 6 to indicate that it is still current. So, after you do a clean "
 "update at the top of your working copy, it will generally correspond to "
 "exactly one revision in the repository."
-msgstr "Sallyne zmeny v <filename>integer.c</filename> sa zobrazia v pracovnej kópii a vaše zmeny budú v súbore <filename>button.c</filename>. V tomto prípade je text súboru <filename>Makefile</filename> rovnaký v revíziach 4, 5 aj 6 ale Subverzia označí vašu pracovnú kópiu súboru <filename>Makefile</filename> z revíziou 6 čo naznačuje, že je stále aktuálna. Takže potom, čo ste si vyčistili aktualizácie v koreni pracovnej kópie, bude to zodpovedať presnej jednej revízii v úložiskui. "
+msgstr "Sallyne zmeny v <filename>integer.c</filename> sa zobrazia v pracovnej kópii a vaše zmeny budú v súbore <filename>button.c</filename>. V tomto prípade je text súboru <filename>Makefile</filename> rovnaký v revíziach 4, 5 aj 6 ale Subverzia označí vašu pracovnú kópiu súboru <filename>Makefile</filename> z revíziou 6 čo naznačuje, že je stále aktuálna. Takže potom, čo ste si vyčistili aktualizácie v koreni pracovnej kópie, bude to zodpovedať presne jednej revízii v úložiskui. "
 
 #. (title)
 msgid "How Working Copies Track the Repository"
@@ -1707,7 +1707,7 @@ msgstr "Súhrn"
 #. (para)
 msgid ""
 "We've covered a number of fundamental Subversion concepts in this chapter:"
-msgstr "Prebrali sme si niekoľko základných pojmov subverzie v tejto kapitole:"
+msgstr "V tejto kapitole sme prebrali niekoľko základných konceptov Subversion:"
 
 #. (para)
 msgid ""
@@ -1733,7 +1733,7 @@ msgid ""
 "No matter which protocol you use to access your repositories, you always "
 "need to create at least one repository. This can either be done with the "
 "Subversion command line client or with TortoiseSVN."
-msgstr "Nezáleží na tom, aký protokol používate pre prístup k svojim úložiskám, vždy je potrebné vytvoriť aspoň jedno úložisko. To sa môže vykonať s pomocou príkazového riadku subverzie klienta alebo s TortoiseSVN."
+msgstr "Nezáleží na tom, aký protokol používate pre prístup k svojim úložiskám, vždy je potrebné vytvoriť aspoň jedno úložisko. To sa môže vykonať s pomocou klienta príkazového riadku Subversion alebo s TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -2176,7 +2176,7 @@ msgstr "pripnutia"
 #. (primary)
 #. (primary)
 msgid "hook scripts"
-msgstr "Pripnuté (hook)skripty"
+msgstr "pripnuté (hook) skripty"
 
 #. (primary)
 msgid "server side hook scripts"
@@ -2294,7 +2294,7 @@ msgid ""
 "url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN"
 " logo</citetitle></ulink> or you can provide your own image. "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Samozrejme vyzeralo by to ešte lepšie, ak by ste pridali vhodný obrázok. Môžete použiť <ulink url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>logo TortoiseSVN</citetitle></ulink>, alebo vlastný obrázok. <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -2324,7 +2324,7 @@ msgid ""
 "server protocols can also be encrypted. You use <literal>https://</literal> "
 "or <literal>svn+ssh://</literal>, or you can use <literal>svn://</literal> "
 "with SASL."
-msgstr "Pre použitie TortoiseSVN (alebo hociakého iného Subversion klienta) potrebujete miesto, kde sa úložisko bude nachádzať. Môžete ho mať buď lokálne a pristupovať ku nemu pomocou <literal>file://</literal> protokolu, alebo ho môžete umiestniť na server a pristupovať ku nemu cez <literal>http://</literal> alebo aj <literal>svn://</literal> protokol. Tieto dva protokoly môžu byť aj šifrované. Stači použiť <literal>https://</literal> alebo <literal>svn+ssh://</literal>, alebo aj <literal>svn://</literal> s SASL."
+msgstr "Pre použitie TortoiseSVN (alebo iného ľubovoľného klienta Subversion) potrebujete miesto, kde sa úložisko bude nachádzať. Môžete ho mať buď lokálne a pristupovať ku nemu pomocou <literal>file://</literal> protokolu, alebo ho môžete umiestniť na server a pristupovať ku nemu cez <literal>http://</literal> alebo aj <literal>svn://</literal> protokol. Tieto dva protokoly môžu byť aj šifrované. Stači použiť <literal>https://</literal> alebo <literal>svn+ssh://</literal>, alebo aj <literal>svn://</literal> s SASL."
 
 #. (para)
 msgid ""
@@ -2708,7 +2708,7 @@ msgstr ""
 
 #. (title)
 msgid "Importing Data Into A Repository"
-msgstr ""
+msgstr "Importovanie dát do úložiska"
 
 #. (primary)
 msgid "import"
@@ -2874,11 +2874,11 @@ msgstr ""
 
 #. (title)
 msgid "Special Files"
-msgstr ""
+msgstr "Zvláštne súbory"
 
 #. (primary)
 msgid "special files"
-msgstr ""
+msgstr "zvláštne súbory"
 
 #. (para)
 msgid ""
@@ -14812,7 +14812,7 @@ msgstr "$WCDATE=%a %b %d %I:%M:%S %p$"
 
 #. (citetitle)
 msgid "online reference"
-msgstr "online referenčný manuál"
+msgstr "on-line referenčný manuál"
 
 #. (entry)
 msgid ""
