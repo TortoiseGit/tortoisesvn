@@ -1217,6 +1217,8 @@ void CCommitDlg::GetAutocompletionList()
         const CSVNStatusListCtrl::FileEntry * entry = m_ListCtrl.GetConstListEntry(i);
         if (!entry)
             continue;
+        if (!entry->IsChecked() && (entry->GetChangeList().Compare(SVNSLC_IGNORECHANGELIST)==0))
+            continue;
 
         // add the path parts to the auto completion list too
         CString sPartPath = entry->GetRelativeSVNPath(false);
