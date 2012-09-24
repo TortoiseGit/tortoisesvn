@@ -45,13 +45,9 @@ IndexIgnore *
 
   RewriteBase /
 
-  # Redirect traffic from tortoisesvn.org to tortoisesvn.net
-  RewriteCond %{HTTP_HOST} ^(www\.)?tortoisesvn\.org$ [NC]
-  RewriteRule ^(.*)$ http://tortoisesvn.net/$1 [L,R=301]
-
   # Redirect traffic to www.tortoisesvn.net to tortoisesvn.net
-  RewriteCond %{HTTP_HOST} !^tortoisesvn.net/?$ [NC]
-  RewriteRule ^(.*)$ http://tortoisesvn.net$1 [L,R=301]
+  RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+  RewriteRule ^(.*)$ http://%1/$1 [R=301,NC,L]
 
   RewriteRule ^node/?$ index.html [R,NC]
   RewriteRule ^downloads/?$ downloads.html [R,NC]
