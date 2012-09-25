@@ -152,7 +152,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
             If a source and destination files are supplied, SubWCRev copies
             source to destination, performing keyword substitution as follows:
             <table id="tsvn-subwcrev-switch-table2">
-                <title>List of available command line switches</title>
+                <title>List of available keywords</title>
                 <tgroup cols="2">
                     <colspec colnum="1" colwidth="3*"/>
                     <colspec colnum="2" colwidth="7*"/>
@@ -336,7 +336,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
             substituted in the output file.
         </para>
 <programlisting>
-// Test file for SubWCRev: testfile.tmpl
+// Test file for SubWCRev
 
 char *Revision      = "$WCREV$";
 char *Revision16    = "$WCREV&amp;0xFF$";
@@ -373,7 +373,7 @@ char *lockcmt       = "$WCLOCKCOMMENT$";
             the output file <literal>testfile.txt</literal> would looks like this:
         </para>
 <programlisting>
-// Test file for SubWCRev: testfile.txt
+// Test file for SubWCRev
 
 char *Revision      = "22837";
 char *Revision16    = "53";
