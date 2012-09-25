@@ -144,7 +144,7 @@ private:
     FILETIME m_wallStart;
 
     /// Temp object for parameters we don't care, but can't be NULL
-    static FILETIME ftTemp; 
+    static FILETIME ftTemp;
 
 public:
 

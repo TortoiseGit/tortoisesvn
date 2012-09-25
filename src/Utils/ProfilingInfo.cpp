@@ -203,7 +203,7 @@ std::string CProfilingInfo::GetReport() const
         result += lineBuffer;
 
         sprintf_s ( lineBuffer, format
-                  , "KernelMode[us]"  
+                  , "KernelMode[us]"
                   , IntToStr ((*iter)->GetK().sum/10).c_str()
                   , IntToStr ((*iter)->GetK().sum/10/nCount).c_str()
                   , IntToStr ((*iter)->GetK().minValue/10).c_str()
