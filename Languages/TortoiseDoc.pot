@@ -1341,7 +1341,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. If you are installing the command line tools on a Windows PC, the best way is to download the Windows installer version. It is compressed more efficiently than the <filename>.zip</filename> version, so the download is smaller, and it takes care of setting the paths for you. You can download the latest version of the Subversion command line client from the <ulink url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink> website."
+msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. The easiest way to get this is to check the option to include the command line tools when installing TortoiseSVN, but if you prefer you can download the latest version of command line tools directly from the <ulink url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink> website."
 msgstr ""
 
 #. (title)
@@ -9090,7 +9090,7 @@ msgid "If you want to export all your client settings to use on another computer
 msgstr ""
 
 #. (para)
-msgid "Remember to save your Subversion settings too, located in the svn config file in <literal>%APPDATA%\\Subversion</literal>."
+msgid "Remember to save Subversion's general settings, which you can find in the Subversion configuration file <literal>%APPDATA%\\Subversion\\config</literal>."
 msgstr ""
 
 #. (title)
@@ -9157,7 +9157,6 @@ msgstr ""
 msgid "If you want SubWCRev to perform keyword substitution, so that fields like repository revision and URL are saved to a text file, you need to supply a template file <literal>SrcVersionFile</literal> and an output file <literal>DstVersionFile</literal> which contains the substituted version of the template."
 msgstr ""
 
-#. (title)
 #. (title)
 msgid "List of available command line switches"
 msgstr ""
@@ -9227,6 +9226,10 @@ msgstr ""
 
 #. (title)
 msgid "Keyword Substitution"
+msgstr ""
+
+#. (title)
+msgid "List of available keywords"
 msgstr ""
 
 #. (entry)
@@ -9390,7 +9393,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.tmpl\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"$WCREV$\";\n"
 "char *Revision16    = \"$WCREV&amp;0xFF$\";\n"
@@ -9431,7 +9434,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.txt\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"22837\";\n"
 "char *Revision16    = \"53\";\n"
@@ -12787,7 +12790,7 @@ msgid "<guilabel>Backup original file</guilabel> renames the original file in th
 msgstr ""
 
 #. (para)
-msgid "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are loaded as UTF8 encoded and saved as such when edited."
+msgid "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are loaded as UTF-8 encoded and saved as such when edited."
 msgstr ""
 
 #. (para)
