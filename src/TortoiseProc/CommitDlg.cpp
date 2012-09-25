@@ -490,7 +490,7 @@ void CCommitDlg::OnOK()
             {
                 itemsToUnlock.AddPath (entry->GetPath());
             }
-            if (entry->IsCopied())
+            if (entry->IsCopied() && entry->IsFolder())
             {
                 bHasCopyPlus = true;
             }
