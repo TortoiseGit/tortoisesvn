@@ -1729,6 +1729,7 @@ void CMainFrame::OnMergeMarkasresolved()
         if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
         {
             FileSave(false);
+            m_bSaveRequired = false;
         }
     }
     MarkAsResolved();
@@ -1752,6 +1753,7 @@ BOOL CMainFrame::MarkAsResolved()
     }
     if(!CAppUtils::RunTortoiseProc(cmd))
         return FALSE;
+    m_bSaveRequired = false;
     return TRUE;
 }
 
