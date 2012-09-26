@@ -457,7 +457,7 @@ void CCommitDlg::OnOK()
 
     bool bCheckedInExternal = false;
     bool bHasConflicted = false;
-    bool bHasCopyPlus = false;
+    bool bHasDirCopyPlus = false;
     std::set<CString> checkedLists;
     std::set<CString> uncheckedLists;
     m_restorepaths.clear();
@@ -492,7 +492,7 @@ void CCommitDlg::OnOK()
             }
             if (entry->IsCopied() && entry->IsFolder())
             {
-                bHasCopyPlus = true;
+                bHasDirCopyPlus = true;
             }
             if (!entry->GetRestorePath().IsEmpty())
             {
@@ -641,7 +641,7 @@ void CCommitDlg::OnOK()
             m_sChangeList = *checkedLists.begin();
     }
 
-    if ((!m_bRecursive)&&(bHasCopyPlus))
+    if ((!m_bRecursive)&&(bHasDirCopyPlus))
     {
         if (CTaskDialog::IsSupported())
         {
