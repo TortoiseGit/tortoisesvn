@@ -2731,6 +2731,11 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             {
                 delList.AddPath(entry2->GetPath());
             }
+            if ((status == svn_wc_status_added) &&
+                (entry2->copied))
+            {
+                delList.AddPath(entry2->GetPath());
+            }
         }
     }
     while (pos)
@@ -2742,6 +2747,11 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             (status != svn_wc_status_none)&&
             (status != svn_wc_status_unversioned)&&
             (status != svn_wc_status_missing))
+        {
+            delList.AddPath(entry2->GetPath());
+        }
+        if ((status == svn_wc_status_added) &&
+            (entry2->copied))
         {
             delList.AddPath(entry2->GetPath());
         }
@@ -2782,11 +2792,12 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             if ( fentry->IsFolder() )
             {
                 // refresh!
-                 SendNeedsRefresh();
+                SendNeedsRefresh();
                 break;
             }
 
             BOOL bAdded = ((fentry->textstatus == svn_wc_status_added)||(fentry->status == svn_wc_status_added));
+            bool copied = fentry->copied;
             fentry->status = svn_wc_status_normal;
             fentry->propstatus = svn_wc_status_normal;
             fentry->textstatus = svn_wc_status_normal;
@@ -2798,15 +2809,27 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
             {
                 if ( bAdded )
                 {
-                    // reverting added items makes them unversioned, not 'normal'
-                    if (fentry->IsFolder())
-                        fentry->propstatus = svn_wc_status_none;
+                    if ( copied )
+                    {
+                        // reverting copied items are removed
+                        m_nTotal--;
+                        if (GetCheck(index))
+                            m_nSelected--;
+                        itemstoremove.push_back(index);
+                        Invalidate();
+                    }
                     else
-                        fentry->propstatus = svn_wc_status_unversioned;
-                    fentry->status = svn_wc_status_unversioned;
-                    fentry->textstatus = svn_wc_status_unversioned;
-                    SetItemState(index, 0, LVIS_SELECTED);
-                    SetEntryCheck(fentry, index, false);
+                    {
+                        // reverting added items makes them unversioned, not 'normal'
+                        if (fentry->IsFolder())
+                            fentry->propstatus = svn_wc_status_none;
+                        else
+                            fentry->propstatus = svn_wc_status_unversioned;
+                        fentry->status = svn_wc_status_unversioned;
+                        fentry->textstatus = svn_wc_status_unversioned;
+                        SetItemState(index, 0, LVIS_SELECTED);
+                        SetEntryCheck(fentry, index, false);
+                    }
                 }
                 else if ((fentry->switched)||(m_dwShow & SVNSLC_SHOWNORMAL))
                 {

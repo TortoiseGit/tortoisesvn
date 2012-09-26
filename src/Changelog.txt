@@ -14,6 +14,8 @@ Version 1.7.10
        folders as files for sparse checkouts. (Stefan)
 - BUG: Issue #418: Unexpected warning - Non-recursive
        commit of moved/renamed folders. (Stefan)
+- BUG: Issue # 398: Copied files don't get reverted
+       to recycle bin. (Stefan)
 
 Version 1.7.9
 - BUG: Issue #394: crash when refreshing
