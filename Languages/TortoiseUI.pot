@@ -3670,6 +3670,11 @@ msgstr ""
 msgid "Do you want to mark '%s' as resolved?"
 msgstr ""
 
+#. Resource IDs: (319)
+#, c-format
+msgid "Do you want to mark the file\n%s\nas resolved?"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr ""
@@ -4294,6 +4299,10 @@ msgstr ""
 msgid "File diffs"
 msgstr ""
 
+#. Resource IDs: (319)
+msgid "File has no conflicts"
+msgstr ""
+
 #. Resource IDs: (314)
 msgid "File is empty."
 msgstr ""
@@ -4367,7 +4376,7 @@ msgid "Find"
 msgstr ""
 
 #. Resource IDs: (1633)
-msgid "Find &Head-Revision"
+msgid "Find &HEAD-Revision"
 msgstr ""
 
 #. Resource IDs: (591)
@@ -4628,13 +4637,9 @@ msgstr ""
 msgid "HEAD node"
 msgstr ""
 
-#. Resource IDs: (218)
-msgid "Head"
-msgstr ""
-
 #. Resource IDs: (106)
 #, c-format
-msgid "Head revision is %s"
+msgid "HEAD revision is %s"
 msgstr ""
 
 #. Resource IDs: (1595)
@@ -5366,6 +5371,10 @@ msgstr ""
 msgid "Least active author:"
 msgstr ""
 
+#. Resource IDs: (319)
+msgid "Leave as conflicted\nThe conflict status of the file is kept"
+msgstr ""
+
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr ""
@@ -5603,6 +5612,10 @@ msgstr ""
 
 #. Resource IDs: (226)
 msgid "Mark as resolved\nThe conflict is resolved."
+msgstr ""
+
+#. Resource IDs: (319)
+msgid "Mark as resolved\nThe file status is changed to modified"
 msgstr ""
 
 #. Resource IDs: (2052)
@@ -9110,11 +9123,11 @@ msgid "These are more recently saved than the currently open documents and conta
 msgstr ""
 
 #. Resource IDs: (170)
-msgid "This commit is not recursive, and there are moved/renamed folders selected for commit. Such moves/renames are always performed recursively in the repository. Do you want to commit anyway?"
+msgid "This commit is not recursive, and there are moved/renamed/copied folders selected for commit. Such moves/renames are always performed recursively in the repository. Do you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (170)
-msgid "This commit is not recursive, and there are moved/renamed\nfolders selected for commit. Such moves/renames\nare always performed recursively in the repository.\n\nDo you want to commit anyway?"
+msgid "This commit is not recursive, and there are moved/renamed/copied\nfolders selected for commit. Such moves/renames\nare always performed recursively in the repository.\n\nDo you want to commit anyway?"
 msgstr ""
 
 #. Resource IDs: (251)
@@ -9733,10 +9746,6 @@ msgstr ""
 msgid "Use regular expression"
 msgstr ""
 
-#. Resource IDs: (1066)
-msgid "Use stri&keout for removed lines"
-msgstr ""
-
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr ""
@@ -9922,6 +9931,10 @@ msgstr ""
 
 #. Resource IDs: (197)
 msgid "When locking one or more selected files, shows a dialog\nasking for a descriptive message about the locking"
+msgstr ""
+
+#. Resource IDs: (316)
+msgid "When resolving conflicts, you always have to save even if there is no conflict shown. TortoiseMerge can merge changes that SVN can't and won't show a conflict for those!"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -10350,7 +10363,7 @@ msgid "get HEAD revision:"
 msgstr ""
 
 #. Resource IDs: (591)
-msgid "get repository root urls:"
+msgid "get repository root URLs:"
 msgstr ""
 
 #. Resource IDs: (1005)
@@ -10390,7 +10403,7 @@ msgid "keep the file lists in English"
 msgstr ""
 
 #. Resource IDs: (65535)
-msgid "last head update: "
+msgid "last HEAD update: "
 msgstr ""
 
 #. Resource IDs: (65535)
