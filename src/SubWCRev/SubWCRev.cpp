@@ -63,7 +63,12 @@ DstVersionFile     :   path to save the resulting parsed file.\n\
                        this only affects $WCREV$ and $WCDATE$.\n\
 -e                 :   if given, also include dirs which are included\n\
                        with svn:externals, but only if they're from the\n\
-                       same repository.\n"
+                       same repository.\n\
+-E                 :   if given, same as -e, but it ignores the externals\n\
+                       with explicit revisions, when the revision range\n\
+                       inside of them is only the given explicit revision\n\
+                       in the properties. So it doesn't lead to mixed\n\
+                       revisions\n"
 #define HelpText3 "\
 -x                 :   if given, then SubWCRev will write the revisions\n\
                        numbers in HEX instead of decimal\n\
@@ -106,6 +111,8 @@ TrueText if the tested condition is true, and FalseText if false.\n\
 \n\
 $WCMODS$        True if local modifications found\n\
 $WCMIXED$       True if mixed update revisions found\n\
+$WCEXTALLFIXED$ True if all externals are fixed to an explicit revision\n\
+$WCISTAGGED$    True if the repository URL contains the tags classification pattern\n\
 $WCINSVN$       True if the item is versioned\n\
 $WCNEEDSLOCK$   True if the svn:needs-lock property is set\n\
 $WCISLOCKED$    True if the item is locked\n"
@@ -122,6 +129,8 @@ $WCISLOCKED$    True if the item is locked\n"
 #define MODDEF           "$WCMODS?"
 #define RANGEDEF         "$WCRANGE$"
 #define MIXEDDEF         "$WCMIXED?"
+#define EXTALLFIXED      "$WCEXTALLFIXED?"
+#define ISTAGGED         "$WCISTAGGED?"
 #define URLDEF           "$WCURL$"
 #define NOWDEF           "$WCNOW$"
 #define NOWDEFUTC        "$WCNOWUTC$"
@@ -751,6 +760,8 @@ int _tmain(int argc, _TCHAR* argv[])
                 SubStat.bFolders = TRUE;
             if (_tcschr(Params, 'e') != 0)
                 SubStat.bExternals = TRUE;
+            if (_tcschr(Params, 'E') != 0)
+                SubStat.bExternalsNoMixedRevision = TRUE;
             if (_tcschr(Params, 'x') != 0)
                 SubStat.bHexPlain = TRUE;
             if (_tcschr(Params, 'X') != 0)
@@ -1110,9 +1121,19 @@ int _tmain(int argc, _TCHAR* argv[])
     while (InsertBooleanW(TEXT(MODDEF), (wchar_t*)pBuf, index, filelength, SubStat.HasMods));
 
     index = 0;
-    while (InsertBoolean(MIXEDDEF, pBuf, index, filelength, SubStat.MinRev != SubStat.MaxRev));
+    while (InsertBoolean(MIXEDDEF, pBuf, index, filelength, (SubStat.MinRev != SubStat.MaxRev) || SubStat.bIsExternalMixed));
     index = 0;
-    while (InsertBooleanW(TEXT(MIXEDDEF), (wchar_t*)pBuf, index, filelength, SubStat.MinRev != SubStat.MaxRev));
+    while (InsertBooleanW(TEXT(MIXEDDEF), (wchar_t*)pBuf, index, filelength, (SubStat.MinRev != SubStat.MaxRev) || SubStat.bIsExternalMixed));
+
+    index = 0;
+    while (InsertBoolean(EXTALLFIXED, pBuf, index, filelength, !SubStat.bIsExternalsNotFixed));
+    index = 0;
+    while (InsertBooleanW(TEXT(EXTALLFIXED), (wchar_t*)pBuf, index, filelength, !SubStat.bIsExternalsNotFixed));
+
+    index = 0;
+    while (InsertBoolean(ISTAGGED, pBuf, index, filelength, SubStat.bIsTagged));
+    index = 0;
+    while (InsertBooleanW(TEXT(ISTAGGED), (wchar_t*)pBuf, index, filelength, SubStat.bIsTagged));
 
     index = 0;
     while (InsertUrl(URLDEF, pBuf, index, filelength, maxlength, SubStat.Url));

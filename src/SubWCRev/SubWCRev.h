@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -56,6 +56,7 @@ typedef struct SubWCRev_t
     BOOL HasMods;           // True if local modifications found
     BOOL bFolders;          // If TRUE, status of folders is included
     BOOL bExternals;        // If TRUE, status of externals is included
+    BOOL bExternalsNoMixedRevision; // If TRUE, externals set to an explicit revision lead not to an mixed revsion error
     BOOL bHexPlain;         // If TRUE, revision numbers are output in HEX
     BOOL bHexX;             // If TRUE, revision numbers are output in HEX with '0x'
     char Url[URL_BUF];      // URL of working copy
@@ -63,7 +64,21 @@ typedef struct SubWCRev_t
     char Author[URL_BUF];   // The author of the wcPath
     BOOL  bIsSvnItem;           // True if the item is under SVN
     SubWcLockData_t LockData;   // Data regarding the lock of the file
+    BOOL  bIsExternalsNotFixed; // True if one external is not fixed to a specified revision
+    BOOL  bIsExternalMixed; // True if one external, which is fixed has not the explicit revsion set
+    BOOL  bIsTagged;   // True if working copy URL contains "tags" keyword
 } SubWCRev_t;
+
+/**
+ * \ingroup SubWCRev
+ * This structure is used as a part of the status baton for crawling externals
+ * and contains the information about the externals path and revision status.
+ */
+typedef struct SubWcExtData_t
+{
+    const char * Path;            // The name of the directory (abosulte path) into which this external should be checked out
+    svn_opt_revision_t Revision;  // What revision to check out.
+} SubWcExtData_t;
 
 /**
  * \ingroup SubWCRev
@@ -72,7 +87,7 @@ typedef struct SubWCRev_t
 typedef struct SubWCRev_StatusBaton_t
 {
     SubWCRev_t * SubStat;
-    std::vector<const char *> * extarray;
+    std::vector<SubWcExtData_t> * extarray;
     apr_pool_t *pool;
     svn_wc_context_t * wc_ctx;
 } SubWCRev_StatusBaton_t;

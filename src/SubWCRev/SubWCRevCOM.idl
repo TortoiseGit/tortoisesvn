@@ -18,7 +18,10 @@ library LibSubWCRev
     interface ISubWCRev : IDispatch
     {
         [helpstring("Fetches the status information. Call this to initialize all the properties")]
-        HRESULT GetWCInfo([in] BSTR	wcPath, [in]VARIANT_BOOL folders, [in]VARIANT_BOOL externals);
+        HRESULT GetWCInfo([in] BSTR wcPath, [in]VARIANT_BOOL folders, [in]VARIANT_BOOL externals);
+
+        [helpstring("Fetches the status information. Call this to initialize all the properties")]
+        HRESULT GetWCInfo2([in] BSTR wcPath, [in]VARIANT_BOOL folders, [in]VARIANT_BOOL externals, [in]VARIANT_BOOL externalsNoMixed);
 
         [propget, helpstring("Returns the working copy revision")]
         HRESULT Revision([out, retval]VARIANT* rev);
@@ -40,6 +43,15 @@ library LibSubWCRev
 
         [propget, helpstring("TRUE if the working copy has modifications")]
         HRESULT HasModifications([out, retval]VARIANT_BOOL* modifications);
+
+        [propget, helpstring("TRUE if mixed update revisions found")]
+        HRESULT HasMixedRevisions([out, retval]VARIANT_BOOL* mixed);
+
+        [propget, helpstring("TRUE if all externals are fixed to an explicit revision")]
+        HRESULT HaveExternalsAllFixedRevision([out, retval]VARIANT_BOOL* modifications);
+
+        [propget, helpstring("TRUE if the repository URL contains the tags classification pattern")]
+        HRESULT IsWcTagged([out, retval]VARIANT_BOOL* modifications);
 
         [propget, helpstring("TRUE if the file or folder is under SVN version control")]
         HRESULT IsSvnItem([out, retval]VARIANT_BOOL* svn_item);

@@ -124,6 +124,16 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             </entry>
                         </row>
                         <row>
+                            <entry condition="pot">-E</entry>
+                            <entry>
+                                If this switch is given, same as <literal>-e</literal>,
+                                but it ignores the externals with explicit revisions,
+                                when the revision range inside of them is only 
+                                the given explicit revision in the properties.
+                                So it doesn't lead to mixed revisions.
+                            </entry>
+                        </row>
+                        <row>
                             <entry condition="pot">-x</entry>
                             <entry>
                                 If this switch is given, SubWCRev will
@@ -244,6 +254,23 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             </entry>
                         </row>
                         <row>
+                            <entry condition="pot">$WCEXTALLFIXED$</entry>
+                            <entry>
+                                <literal>$WCEXTALLFIXED?TText:FText$</literal> is
+                                replaced with <literal>TText</literal> iif all externals are fixed
+                                to an explicit revision, or <literal>FText</literal> if not.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">$WCISTAGGED$</entry>
+                            <entry>
+                                <literal>$WCISTAGGED?TText:FText$</literal> is
+                                replaced with <literal>TText</literal> if the repository 
+                                URL contains the tags classification pattern, or 
+                                <literal>FText</literal> if not.
+                            </entry>
+                        </row>
+                        <row>
                             <entry condition="pot">$WCURL$</entry>
                             <entry>
                                 Replaced with the repository URL of the working
@@ -351,6 +378,8 @@ char *TimeNow       = "$WCNOW$";
 char *TimeNowUTC    = "$WCNOWUTC$";
 char *RevRange      = "$WCRANGE$";
 char *Mixed         = "$WCMIXED?Mixed revision WC:Not mixed$";
+char *ExtAllFixed   = "$WCEXTALLFIXED?All externals fixed:Not all externals fixed$";
+char *IsTagged      = "$WCISTAGGED?Tagged:Not tagged$";
 char *URL           = "$WCURL$";
 char *isInSVN       = "$WCINSVN?versioned:not versioned$";
 char *needslck      = "$WCNEEDSLOCK?TRUE:FALSE$";
@@ -388,6 +417,8 @@ char *TimeNow       = "2012/04/26 20:51:17";
 char *TimeNowUTC    = "2012/04/26 18:51:17";
 char *RevRange      = "22836:22837";
 char *Mixed         = "Mixed revision WC";
+char *ExtAllFixed   = "All externals fixed";
+char *IsTagged      = "Not tagged";
 char *URL           = "https://tortoisesvn.googlecode.com/svn/trunk";
 char *isInSVN       = "versioned";
 char *needslck      = "FALSE";
@@ -452,6 +483,14 @@ char *lockcmt       = "";
                                 command line switch.
                                 The third parameter should be true if you want to include
                                 svn:externals. Equivalent to the <literal>-e</literal>
+                                command line switch.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">.GetWCInfo2</entry>
+                            <entry>
+                                The same as GetWCInfo() but with a fourth parameter
+                                that sets the equivalend to the <literal>-E</literal>
                                 command line switch.
                             </entry>
                         </row>
@@ -558,8 +597,8 @@ revObject2.GetWCInfo(
     filesystem.GetAbsolutePathName(".."), 1, 1);
 revObject3.GetWCInfo(
     filesystem.GetAbsolutePathName("SubWCRev.cpp"), 1, 1);
-revObject4.GetWCInfo(
-    filesystem.GetAbsolutePathName("..\\.."), 1, 1);
+revObject4.GetWCInfo2(
+    filesystem.GetAbsolutePathName("..\\.."), 1, 1, 1);
 
 wcInfoString1 = "Revision = " + revObject1.Revision +
                 "\nMin Revision = " + revObject1.MinRev +

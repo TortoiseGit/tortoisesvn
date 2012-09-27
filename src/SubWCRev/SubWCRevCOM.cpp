@@ -176,15 +176,8 @@ ULONG __stdcall SubWCRev::Release()
     return refCount;
 }
 
-//
-// ISubWCRev implementation
-//
-HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL folders, /*[in]*/VARIANT_BOOL externals)
+HRESULT SubWCRev::GetWCInfoInternal(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL folders, /*[in]*/VARIANT_BOOL externals)
 {
-    if (wcPath==NULL)
-        return E_INVALIDARG;
-
-    memset (&SubStat, 0, sizeof (SubStat));
     SubStat.bFolders = folders;
     SubStat.bExternals = externals;
 
@@ -205,10 +198,10 @@ HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL
     svn_client_create_context(&ctx, pool);
 
     svn_error_t * svnerr = svn_status(  internalpath,   //path
-                                        &SubStat,       //status_baton
-                                        TRUE,           //noignore
-                                        ctx,
-                                        pool);
+        &SubStat,       //status_baton
+        TRUE,           //noignore
+        ctx,
+        pool);
 
     HRESULT hr = S_OK;
     if (svnerr)
@@ -218,6 +211,27 @@ HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL
     }
     apr_pool_destroy(pool);
     return hr;
+}
+//
+// ISubWCRev implementation
+//
+HRESULT __stdcall SubWCRev::GetWCInfo2(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL folders, /*[in]*/VARIANT_BOOL externals, /*[in]*/VARIANT_BOOL externalsNoMixed)
+{
+    if (wcPath==NULL)
+        return E_INVALIDARG;
+
+    memset (&SubStat, 0, sizeof (SubStat));
+    SubStat.bExternalsNoMixedRevision = externalsNoMixed;
+    return GetWCInfoInternal(wcPath, folders, externals);
+}
+
+HRESULT __stdcall SubWCRev::GetWCInfo(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL folders, /*[in]*/VARIANT_BOOL externals)
+{
+    if (wcPath==NULL)
+        return E_INVALIDARG;
+
+    memset (&SubStat, 0, sizeof (SubStat));
+    return GetWCInfoInternal(wcPath, folders, externals);
 }
 
 HRESULT __stdcall SubWCRev::get_Revision(/*[out, retval]*/VARIANT* rev)
@@ -280,6 +294,21 @@ HRESULT SubWCRev::Utf8StringToVariant(const char* string, VARIANT* result )
 HRESULT __stdcall SubWCRev::get_HasModifications(VARIANT_BOOL* modifications)
 {
     return BoolToVariantBool(SubStat.HasMods, modifications);
+}
+
+HRESULT __stdcall SubWCRev::get_HasMixedRevisions(VARIANT_BOOL* modifications)
+{
+    return BoolToVariantBool(((SubStat.MinRev != SubStat.MaxRev) || SubStat.bIsExternalMixed), modifications);
+}
+
+HRESULT __stdcall SubWCRev::get_HaveExternalsAllFixedRevision(VARIANT_BOOL* modifications)
+{
+    return BoolToVariantBool(!SubStat.bIsExternalsNotFixed, modifications);
+}
+
+HRESULT __stdcall SubWCRev::get_IsWcTagged(VARIANT_BOOL* modifications)
+{
+    return BoolToVariantBool(SubStat.bIsTagged, modifications);
 }
 
 HRESULT __stdcall SubWCRev::get_IsSvnItem(/*[out, retval]*/VARIANT_BOOL* svn_item)

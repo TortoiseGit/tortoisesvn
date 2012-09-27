@@ -100,12 +100,13 @@ public:
      * Optimizing wrapper around CompareNoCase.
      */
     static int FastCompareNoCase (const CStringW& lhs, const CStringW& rhs);
-#endif
+
     /**
      * Writes the string \text to the file \path, either in utf16 or utf8 encoding,
      * depending on the \c bUTF8 param.
      */
     static bool WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 = true);
+#endif
 
     /**
      * Replace all pipe (|) character in the string with a NULL character. Used

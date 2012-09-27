@@ -209,6 +209,8 @@
     <Link />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Utils\Registry.cpp" />
+    <ClCompile Include="..\Utils\StringUtils.cpp" />
     <ClCompile Include="Register.cpp" />
     <ClCompile Include="status.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -224,6 +226,7 @@
     <Midl Include="SubWCRevCOM.idl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Utils\StringUtils.h" />
     <ClInclude Include="Register.h" />
     <ClInclude Include="resourcecom.h" />
     <ClInclude Include="stdafx.h" />

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,9 +26,15 @@
 #include "svn_props.h"
 #pragma warning(pop)
 #include "SubWCRev.h"
+#include "Registry.h"
+#include "StringUtils.h"
+#include "UnicodeUtils.h"
+#include <algorithm>
 
 #pragma warning(push)
 #pragma warning(disable:4127)   //conditional expression is constant (cause of SVN_ERR)
+
+CRegStdString regTagsPattern = CRegStdString(_T("Software\\TortoiseSVN\\RevisionGraph\\TagsPattern"), _T("tags"));
 
 // Copy the URL from src to dest, unescaping on the fly.
 void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
@@ -96,6 +102,71 @@ void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
     *pszDest = '\0';
 }
 
+tstring Tokenize(const _TCHAR* str, const _TCHAR* delim, tstring::size_type& iStart)
+{
+    const _TCHAR* pstr = str + iStart;
+    const _TCHAR* r = _tcsstr(pstr, delim);
+    tstring::size_type dlen = _tcslen(delim);
+
+    while( r )
+    {
+        if( r > pstr )
+        {
+            iStart = tstring::size_type(r - str) + dlen;
+            return tstring(pstr, tstring::size_type(r - pstr));
+        }
+        pstr = r + dlen;
+        r = _tcsstr(pstr, delim);
+    }
+
+    if( _tcslen(pstr) > 0)
+    {
+        iStart = tstring::size_type(_tcslen(str));
+        return tstring(pstr);
+    }
+    return tstring();
+}
+
+bool IsTaggedVersion(const char * url)
+{
+    bool isTag = false;
+
+    if (!url)
+    {
+        return false;
+    }
+
+    tstring urllower = Utf8ToWide(url);
+    std::transform(urllower.begin(), urllower.end(), urllower.begin(), tolower);
+
+    // look for the tag pattern inside in the url
+    tstring sTags = regTagsPattern;
+    tstring::size_type pos = 0;
+    tstring temp;
+    while (!isTag)
+    {
+        temp = Tokenize(sTags.c_str(), _T(";"), pos);
+        if (!temp.length())
+            break;
+
+        tstring::size_type urlpos = 0;
+        tstring temp2;
+        for(;;)
+        {
+            temp2 = Tokenize(urllower.c_str(), _T("/"), urlpos);
+            if (!temp2.length())
+                break;
+
+            if (_tcswildcmp(temp.c_str(), temp2.c_str()))
+            {
+                isTag = true;
+                break;
+            }
+        }
+    }
+    return isTag;
+}
+
 svn_error_t * getfirststatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * pool)
 {
     SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
@@ -106,6 +177,7 @@ svn_error_t * getfirststatus(void * baton, const char * path, const svn_client_s
     if ((status->repos_relpath)&&(sb->SubStat->Url[0] == 0))
     {
         UnescapeCopy(status->repos_root_url, status->repos_relpath, sb->SubStat->Url, URL_BUF);
+        sb->SubStat->bIsTagged = IsTaggedVersion(sb->SubStat->Url);
     }
     if (status->kind == svn_node_file)
     {
@@ -117,7 +189,7 @@ svn_error_t * getfirststatus(void * baton, const char * path, const svn_client_s
     return SVN_NO_ERROR;
 }
 
-svn_error_t * getallstatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * /*pool*/)
+svn_error_t * getallstatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * pool)
 {
     SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
     if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
@@ -125,11 +197,41 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
         return SVN_NO_ERROR;
     }
 
-    if ((sb->SubStat->bExternals)&&(status->node_status == svn_wc_status_external) && (NULL != sb->extarray))
+    if (status->kind == svn_node_dir)
     {
-        const char * copypath = apr_pstrdup(sb->pool, path);
-        sb->extarray->push_back(copypath);
+        const svn_string_t * value = NULL;
+        svn_wc_prop_get2(&value, sb->wc_ctx, path, "svn:externals", pool, pool);
+        if (value)
+        {
+            apr_array_header_t* parsedExternals = NULL;
+            svn_error_t * err = svn_wc_parse_externals_description3( &parsedExternals, path, value->data, TRUE, pool);
+
+            if (err == nullptr)
+            {
+                for (long i=0; i < parsedExternals->nelts; ++i)
+                {
+                    svn_wc_external_item2_t * e = APR_ARRAY_IDX(parsedExternals, i, svn_wc_external_item2_t*);
+
+                    if (e != NULL)
+                    {
+                        if (e->revision.kind != svn_opt_revision_number)
+                        {
+                            sb->SubStat->bIsExternalsNotFixed = TRUE;
+                        }
+
+                        if (((sb->SubStat->bExternals) || (sb->SubStat->bExternalsNoMixedRevision)) && (NULL != sb->extarray))
+                        {
+                            SubWcExtData_t extdata;
+                            extdata.Path = apr_pstrcat(sb->pool, path, "/", e->target_dir, NULL);
+                            extdata.Revision = e->revision;
+                            sb->extarray->push_back(extdata);
+                        }
+                    }
+                }
+            }
+        }
     }
+
     if (status->repos_root_url)
     {
         if (sb->SubStat->RootUrl[0] == 0)
@@ -232,7 +334,7 @@ svn_status (    const char *path,
                 apr_pool_t *pool)
 {
     SubWCRev_StatusBaton_t sb;
-    std::vector<const char *> * extarray = new std::vector<const char *>;
+    std::vector<SubWcExtData_t> * extarray = new std::vector<SubWcExtData_t>;
     sb.SubStat = (SubWCRev_t *)status_baton;
     sb.extarray = extarray;
     sb.pool = pool;
@@ -246,11 +348,45 @@ svn_status (    const char *path,
 
 
     // now crawl through all externals
-    for (std::vector<const char *>::iterator I = extarray->begin(); I != extarray->end(); ++I)
+    for (std::vector<SubWcExtData_t>::iterator I = extarray->begin(); I != extarray->end(); ++I)
     {
-        if (strcmp(path, *I))
+        SubWcExtData_t extdata = *I;
+        svn_revnum_t minRev = -1; 
+        svn_revnum_t maxRev = -1; 
+        if (strcmp(path, extdata.Path))
         {
-            svn_status (*I, sb.SubStat, no_ignore, ctx, pool);
+            if (sb.SubStat->bExternalsNoMixedRevision && (extdata.Revision.kind == svn_opt_revision_number))
+            {
+                minRev = sb.SubStat->MinRev;
+                maxRev = sb.SubStat->MaxRev;
+                sb.SubStat->MinRev = 0;
+                sb.SubStat->MaxRev = 0;
+            }
+
+            svn_status (extdata.Path, sb.SubStat, no_ignore, ctx, pool);
+
+            if (sb.SubStat->bExternalsNoMixedRevision && (extdata.Revision.kind == svn_opt_revision_number))
+            {
+                // Check if the used revsions are only same as the external explicit revision
+                if ((extdata.Revision.value.number == sb.SubStat->MaxRev) && (extdata.Revision.value.number == sb.SubStat->MinRev))
+                {
+                    sb.SubStat->MaxRev = maxRev;
+                    sb.SubStat->MinRev = minRev;
+                }
+                else
+                {
+                    if (sb.SubStat->MaxRev < maxRev)
+                    {
+                        sb.SubStat->MaxRev = maxRev;
+                    }
+                    if ((minRev > 0)&&(sb.SubStat->MinRev > minRev || sb.SubStat->MinRev == 0))
+                    {
+                        sb.SubStat->MinRev = minRev;
+                    }
+                    // Set an extra variable, because when an fixed external has been manually updated to head, no error occour.
+                    sb.SubStat->bIsExternalMixed = TRUE;
+                }
+            }
         }
     }
 
