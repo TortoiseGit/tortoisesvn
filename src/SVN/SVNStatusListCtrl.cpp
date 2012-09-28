@@ -366,6 +366,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
     CAutoWriteLock locker(m_guard);
     int refetchcounter = 0;
     BOOL bRet = TRUE;
+    m_bUpdate = bUpdate;
     Invalidate();
     m_bWaitCursor = true;
     // force the cursor to change
@@ -1438,6 +1439,8 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 
 CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
 {
+#define UNKNOWN_DATA L"???"
+
     static const CString ponly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
     static const CString treeconflict(MAKEINTRESOURCE(IDS_STATUSLIST_TREECONFLICT));
     static const CString sNested(MAKEINTRESOURCE(IDS_STATUSLIST_NESTED));
@@ -1489,6 +1492,11 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
             return buf;
 
         case 4: // SVNSLC_COLREMOTESTATUS
+            if (!m_bUpdate)
+            {
+                wcscpy_s(buf, UNKNOWN_DATA);
+                return buf;
+            }
             if (entry->isNested)
                 return sNested;
 
@@ -1536,6 +1544,11 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
             return buf;
 
         case 7: // SVNSLC_COLREMOTETEXT
+            if (!m_bUpdate)
+            {
+                wcscpy_s(buf, UNKNOWN_DATA);
+                return buf;
+            }
             if (entry->isNested)
                 return empty;
 
@@ -1543,6 +1556,11 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
             return buf;
 
         case 8: // SVNSLC_COLREMOTEPROP
+            if (!m_bUpdate)
+            {
+                wcscpy_s(buf, UNKNOWN_DATA);
+                return buf;
+            }
             if (entry->isNested)
                 return empty;
 
@@ -1606,6 +1624,11 @@ CString CSVNStatusListCtrl::GetCellText (int listIndex, int column)
             return empty;
 
         case 16: // SVNSLC_COLREMOTEREVISION
+            if (!m_bUpdate)
+            {
+                wcscpy_s(buf, UNKNOWN_DATA);
+                return buf;
+            }
             if (entry->remoterev > 0)
             {
                 _itot_s (entry->remoterev, buf, 10);
