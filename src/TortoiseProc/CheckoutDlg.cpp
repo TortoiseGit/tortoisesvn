@@ -400,6 +400,7 @@ void CCheckoutDlg::OnOK()
                 if (!doIt)
                 {
                     m_bAutoCreateTargetName = bAutoCreateTargetName;
+                    m_bBlockMessages = false;
                     return;     //don't dismiss the dialog
                 }
             }
@@ -421,6 +422,7 @@ void CCheckoutDlg::OnOK()
             if (::MessageBox(this->m_hWnd, message, _T("TortoiseSVN"), MB_YESNO | MB_ICONQUESTION) != IDYES)
             {
                 m_bAutoCreateTargetName = bAutoCreateTargetName;
+                m_bBlockMessages = false;
                 return;     //don't dismiss the dialog
             }
         }
