@@ -126,7 +126,7 @@ void CMergeWizard::OnSysCommand(UINT nID, LPARAM lParam)
     case SC_CLOSE:
         {
             CMergeWizardBasePage * page = (CMergeWizardBasePage*)GetActivePage();
-            if (!page->OkToCancel())
+            if (page && !page->OkToCancel())
                 break;
         }
         // fall through
