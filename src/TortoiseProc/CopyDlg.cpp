@@ -489,8 +489,11 @@ void CCopyDlg::OnOK()
         }
     }
 
-    m_History.AddEntry(m_sLogMessage);
-    m_History.Save();
+    if (!m_sLogMessage.IsEmpty())
+    {
+        m_History.AddEntry(m_sLogMessage);
+        m_History.Save();
+    }
 
     m_sBugID.Trim();
     if (!m_sBugID.IsEmpty())
@@ -649,8 +652,14 @@ void CCopyDlg::OnCancel()
         }
     }
     if (m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH).Compare(m_cLogMessage.GetText()) != 0)
-        m_History.AddEntry(m_cLogMessage.GetText());
-    m_History.Save();
+    {
+        CString sMsg = m_cLogMessage.GetText();
+        if (!sMsg.IsEmpty())
+        {
+            m_History.AddEntry(sMsg);
+            m_History.Save();
+        }
+    }
     CResizableStandAloneDialog::OnCancel();
 }
 

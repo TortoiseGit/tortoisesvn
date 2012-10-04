@@ -148,8 +148,11 @@ void CLockDlg::OnOK()
     m_cFileList.WriteCheckedNamesToPathList(m_pathList);
     UpdateData();
     m_sLockMessage = m_cEdit.GetText();
-    m_History.AddEntry(m_sLockMessage);
-    m_History.Save();
+    if (!m_sLockMessage.IsEmpty())
+    {
+        m_History.AddEntry(m_sLockMessage);
+        m_History.Save();
+    }
 
     CResizableStandAloneDialog::OnOK();
 }
@@ -162,8 +165,11 @@ void CLockDlg::OnCancel()
     UpdateData();
     if ((m_ProjectProperties == 0)||(m_ProjectProperties->GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATELOCK).Compare(m_cEdit.GetText()) != 0))
         m_sLockMessage = m_cEdit.GetText();
-    m_History.AddEntry(m_sLockMessage);
-    m_History.Save();
+    if (!m_sLockMessage.IsEmpty())
+    {
+        m_History.AddEntry(m_sLockMessage);
+        m_History.Save();
+    }
     CResizableStandAloneDialog::OnCancel();
 }
 
