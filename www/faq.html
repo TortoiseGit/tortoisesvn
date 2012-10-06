@@ -437,7 +437,7 @@
                         <p>By far the best way is to set up a real server process (such as Apache or svnserve), 
                         store the repository on a local filesystem which the server can access, and make the 
                         repository server available over a network. It is easier than you might think. 
-                        <a title='Chapter 6. Server Configuration' href='http://svnbook.red-bean.com/en/1.4/svn.serverconfig.html'>Chapter 6, Server Configuration</a> 
+                        <a title='Chapter 6. Server Configuration' href='http://svnbook.red-bean.com/en/1.7/svn.serverconfig.html'>Chapter 6, Server Configuration</a> 
                         in the Subversion Book covers this process in detail.</p>
                         <p>Here's an incomplete list of user friendly server installers:
                         <ul>
@@ -489,7 +489,7 @@
                         <div class="h3" id="eol" title="EOL style">
                         <h3>Can TortoiseSVN convert line breaks in text files on the fly?</h3>
                         <p>
-                        Check the subversion book about the svn:eol-style property <a title='svn:eol-style' href='http://svnbook.red-bean.com/en/1.4/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style'>here</a>.
+                        Check the subversion book about the svn:eol-style property <a title='svn:eol-style' href='http://svnbook.red-bean.com/en/1.7/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style'>here</a>.
                         If you set that property to e.g. 'native', then the file will have LF line-endings on Linux, but CRLF line-endings on Windows.
                         To see how you can set those properties with TortoiseSVN, read our docs <a title='setting properties' href='/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props'>here</a>.
                         </p>
@@ -571,9 +571,7 @@
                         <p>We often get people asking questions why it needs to get the log for the 
                         repository root, or why it needs to get the full log from the HEAD revision 
                         back down to the first revision.</p>
-                        <p>Just to make this clear: this is not because we're lazy programmers or 
-                        because we're too stupid to optimize it, even though some of you seem to 
-                        imply that. It is really necessary.</p>
+                        <p>Just to make this clear: this is not because we're lazy programmers, it really is necessary.</p>
                         <p>The revision graph shows the history of a selected file or folder by finding 
                         all revisions where the selected item was copied. And the graph has to do that 
                         by using the information that is available.</p>
@@ -815,7 +813,7 @@ http-library = serf
                         <div class="h3" id="keywords" title="Keywords">
                         <h3>... add keyword information like author, revision, date and commit-time to my files?</h3>
                         <p>Read about the Subversion property 
-                        <a href='http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.keywords.html'>svn:keywords</a> 
+                        <a href='http://svnbook.red-bean.com/en/1.7/svn.advanced.props.special.keywords.html'>svn:keywords</a> 
                         in the Subversion book.</p>
                         <p>With TortoiseSVN, set the properties as described 
                         <a href='/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props'>here</a>.</p>
