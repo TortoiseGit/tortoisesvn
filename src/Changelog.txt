@@ -18,6 +18,8 @@ Version 1.7.10
        to recycle bin. (Stefan)
 - BUG: Issue #421: Checkout dialog ignores OK button
        after directory warning. (Stefan)
+- BUG: Issue #426: reverting a file destroys the sort
+       order in the status list control. (Stefan)
 
 Version 1.7.9
 - BUG: Issue #394: crash when refreshing

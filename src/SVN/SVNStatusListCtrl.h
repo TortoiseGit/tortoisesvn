@@ -887,13 +887,13 @@ public:
 
 private:
     void SaveColumnWidths(bool bSaveToRegistry = false);
-    void Sort();    ///< Sorts the control by columns
+    void Sort();                                        ///< Sorts the control by columns
     CString GetCellText (int listIndex, int column);    ///< get the text for a certain grid cell
-    int GetEntryIcon (int listIndex);   ///< get the icon for a certain item
-    void AddEntry(FileEntry * entry, int listIndex);   ///< add an entry to the control
-    void RemoveListEntry(int index);    ///< removes an entry from the listcontrol and both arrays
-    bool BuildStatistics(); ///< build the statistics and correct the case of files/folders
-    void StartDiff(int fileindex);  ///< start the external diff program
+    int GetEntryIcon (int listIndex);                   ///< get the icon for a certain item
+    void AddEntry(FileEntry * entry, int listIndex);    ///< add an entry to the control
+    void RemoveListEntry(int index);                    ///< removes an entry from the listcontrol and both arrays
+    bool BuildStatistics(bool repairCaseRenames);       ///< build the statistics and correct the case of files/folders
+    void StartDiff(int fileindex);                      ///< start the external diff program
     void StartDiff(FileEntry * entry);
     void StartDiffOrResolve(int fileindex);
     void StartConflictEditor(const CTSVNPath& filepath, __int64 id);

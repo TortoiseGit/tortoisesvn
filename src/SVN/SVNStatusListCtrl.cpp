@@ -377,6 +377,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
         m_pSelectButton->EnableWindow(FALSE);
 
     ClearSortsFromHeaders();
+    m_nSortedColumn = -1;
     m_nSelected = 0;
 
     m_mapFilenameToChecked.clear();
@@ -486,7 +487,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
             }
         }
         refetchcounter++;
-    } while(!BuildStatistics() && (refetchcounter < 2) && (*m_pbCanceled==false));
+    } while(!BuildStatistics(true) && (refetchcounter < 2) && (*m_pbCanceled==false));
 
     if (bShowUserProps)
         FetchUserProperties();
@@ -2165,17 +2166,17 @@ bool CSVNStatusListCtrl::IsEntryVersioned(const FileEntry* pEntry1)
     return pEntry1->status != svn_wc_status_unversioned;
 }
 
-bool CSVNStatusListCtrl::BuildStatistics()
+bool CSVNStatusListCtrl::BuildStatistics(bool repairCaseRenames)
 {
     CAutoWriteLock locker(m_guard);
     bool bRefetchStatus = false;
     FileEntryVector::iterator itFirstUnversionedEntry;
-    itFirstUnversionedEntry = std::partition(m_arStatusArray.begin(), m_arStatusArray.end(), IsEntryVersioned);
-    if (m_bUnversionedLast)
+    if (m_bUnversionedLast && repairCaseRenames)
     {
         // We partition the list of items so that it's arrange with all the versioned items first
         // then all the unversioned items afterwards.
         // Then we sort the versioned part of this, so that we can do quick look-ups in it
+        itFirstUnversionedEntry = std::partition(m_arStatusArray.begin(), m_arStatusArray.end(), IsEntryVersioned);
         std::sort(m_arStatusArray.begin(), itFirstUnversionedEntry, EntryPathCompareNoCase);
         // Also sort the unversioned section, to make the list look nice...
         std::sort(itFirstUnversionedEntry, m_arStatusArray.end(), EntryPathCompareNoCase);
@@ -2242,7 +2243,7 @@ bool CSVNStatusListCtrl::BuildStatistics()
             // But nested folders are also considered to be in unversioned folders, we have to do the
             // check in that case too, otherwise we would miss case-renamed folders - they show up
             // as nested folders.
-            if (m_bFixCaseRenames && (((!entry->inunversionedfolder)||(entry->isNested))&&(m_bUnversionedLast)))
+            if (repairCaseRenames && m_bFixCaseRenames && (((!entry->inunversionedfolder)||(entry->isNested))&&(m_bUnversionedLast)))
             {
                 // check if the unversioned item is just
                 // a file differing in case but still versioned
@@ -2874,7 +2875,7 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
         }
         RemoveListEntries(itemstoremove);
     }
-    BuildStatistics();
+    BuildStatistics(false);
     SetRedraw(TRUE);
     SaveColumnWidths();
     Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
