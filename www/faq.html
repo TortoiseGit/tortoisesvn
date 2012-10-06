@@ -79,6 +79,7 @@
                         <li><a href="#eclipse">TortoiseSVN does not work well with Eclipse</a></li>
                         <li><a href="#iesecurity">Security warnings when uploading files in IE</a></li>
                         <li><a href="#smartcard">Repeated dialogs to insert smart card</a></li>
+                        <li><a href="#useserf">How do I make GSSAPI authentication work?</a></li>
                         <li><a href="#ads">Why does your site have advertisements?</a></li>
                     </ul>
 
@@ -537,8 +538,10 @@
                         <div class="h3" id="sharedfiles" title="Shared files">
                         <h3>Is it possible to use 'Shared Files' like in Visual Source Safe?</h3>
                         <p>
-                        You can't share single files in Subversion, but you can share folders. Please 
-                        look at the chapter <a href="http://svnbook.red-bean.com/en/1.4/svn.advanced.externals.html">External Definitions</a> 
+                        Yes, but with some limitations. You can use "File Externals" to pull in single files from a different
+                        part of the same repository as your working copy, but not from a foreign repository.
+                        You can also share folders, and these can be from any repository. Please 
+                        look at the chapter <a href="http://svnbook.red-bean.com/en/1.7/svn.advanced.externals.html">External Definitions</a> 
                         in the <a href="http://svnbook.red-bean.com/">Subversion Book</a>.
                         </p>
                         </div>
@@ -767,6 +770,26 @@ force security mode = 0600
                         </p>
                         </div>
 
+                        <div class="h3" id="useserf" title="Use serf library">
+                        <h3>How do I make GSSAPI authentication work?</h3>
+                        <p>The 'neon' http library, which is the default for a TortoiseSVN installation,
+                        has problems with GSSAPI, but the 'serf' library should work. TSVN is linked with
+                        both of those DAV libraries, you can configure which one to use in the subversion
+                        server file. Go to TSVN->Settings->Network->Subversion server file->Edit.
+                        <ol>
+                            <li>In TortoiseSVN->Settings->Network->Subversion server file, click on the edit button.</li>
+                            <li>At the bottom of the file change the [global] section by editing the http-library
+                            entry (or adding it if it is missing)
+                            <pre>
+[global]
+http-library = serf
+                            </pre>
+                            </li>
+                        </ol>
+                        Note that this change will affect all Subversion clients on your PC.
+                        </p>
+                        </div>
+
                         <div class="h3" id="ads" title="Why does your site have advertisements?">
                         <h3>Why does your site have advertisements?</h3>
                         <p>Yes it's true, our website carries advertisements for other products
@@ -803,8 +826,8 @@ force security mode = 0600
                         <p>Subversion is designed to work with case-sensitive file systems such as are 
                         used on Linux. When it comes to the Windows case-insensitive file system, things 
                         do not always run as you might expect. A case in point is renaming a file where 
-                        only the case changes, e.g. renaming Makefile to MAKEFILE. You cannot do this 
-                        easily within your working copy as Subversion requires both names to exist 
+                        only the case changes, e.g. renaming Makefile to MAKEFILE. Prior to Subversion 1.7 you could not do this 
+                        easily within your working copy as Subversion required both names to exist 
                         simultaneously for a short time, and Windows cannot support this.</p>
                         <p>By far the easiest way is to rename directly using the repository browser:</p>
                         <ol>
@@ -812,6 +835,8 @@ force security mode = 0600
                             <li>Rename the file from UPPERcase to upperCASE directly in the repository using the repository browser.</li>
                             <li>Update your working copy.</li>
                         </ol>
+                        <p>As of Subversion 1.7 this is no longer a problem as the whole working copy structure was changed,
+                        so files can simply be renamed using the normal TSVN->Rename command.</p>
                         </div>
 
                         <div class="h3" id="editlog" title="Edit log message">
