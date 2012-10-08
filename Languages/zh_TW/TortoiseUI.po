@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:41+0000\n"
+"PO-Revision-Date: 2012-10-02 01:27+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1836,7 +1836,7 @@ msgstr "調校設定值\n設定"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"
-msgstr ""
+msgstr "調整為 HEAD 版"
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -3494,7 +3494,7 @@ msgstr "建立分支/標記於伺服器端:"
 
 #. Resource IDs: (1562)
 msgid "Create intermediate folders"
-msgstr ""
+msgstr "建立中繼目錄"
 
 #. Resource IDs: (126)
 #, c-format
@@ -3961,6 +3961,14 @@ msgstr "是否確定要清除這份工作複本的版本控制資訊?\n將會自
 #, c-format
 msgid "Do you want to mark '%s' as resolved?"
 msgstr "是否確定要將 '%s' 的衝突標記為已消除?"
+
+#. Resource IDs: (319)
+#, c-format
+msgid ""
+"Do you want to mark the file\n"
+"%s\n"
+"as resolved?"
+msgstr "確定要將檔案\n%s\n標記為已解決嗎?"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4588,7 +4596,7 @@ msgstr "失敗!"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
-msgstr ""
+msgstr "取出 HEAD 版並調整為該版本"
 
 #. Resource IDs: (199)
 msgid ""
@@ -4633,6 +4641,10 @@ msgstr "檔案中有衝突標記"
 #. Resource IDs: (376)
 msgid "File diffs"
 msgstr "檔案差異"
+
+#. Resource IDs: (319)
+msgid "File has no conflicts"
+msgstr "檔案無衝突"
 
 #. Resource IDs: (314)
 msgid "File is empty."
@@ -4755,12 +4767,12 @@ msgid "Find"
 msgstr "搜尋"
 
 #. Resource IDs: (1633)
-msgid "Find &Head-Revision"
-msgstr ""
+msgid "Find &HEAD-Revision"
+msgstr "尋找 &HEAD 版"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
-msgstr ""
+msgstr "尋找 HEAD 版"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5035,14 +5047,10 @@ msgstr "HEAD"
 msgid "HEAD node"
 msgstr "最新版本節點"
 
-#. Resource IDs: (218)
-msgid "Head"
-msgstr ""
-
 #. Resource IDs: (106)
 #, c-format
-msgid "Head revision is %s"
-msgstr "最新版本是 %s"
+msgid "HEAD revision is %s"
+msgstr "HEAD 版是 %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5880,6 +5888,12 @@ msgstr "啟動外部差異比對/合併程式處理衝突"
 msgid "Least active author:"
 msgstr "最不活躍作者:"
 
+#. Resource IDs: (319)
+msgid ""
+"Leave as conflicted\n"
+"The conflict status of the file is kept"
+msgstr "保留衝突狀態\n保留檔案的衝突狀態"
+
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr "剩餘衝突:"
@@ -6134,6 +6148,12 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr "標記為已消除\n衝突已消除."
+
+#. Resource IDs: (319)
+msgid ""
+"Mark as resolved\n"
+"The file status is changed to modified"
+msgstr "標記為已解決\n清除衝突狀態並標示為已更改"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -10076,19 +10096,19 @@ msgstr "這些是比目前版本還要更新的儲存檔, 並含有程式關閉�
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed folders selected "
-"for commit. Such moves/renames are always performed recursively in the "
-"repository. Do you want to commit anyway?"
-msgstr "本次送交不包含子項目, 但是要送交移動/重新命名的目錄. 檔案庫中對移動/重新命名的送交作業必定包含所有子項目. 是否確定要送交?"
+"This commit is not recursive, and there are moved/renamed/copied folders "
+"selected for commit. Such moves/renames are always performed recursively in "
+"the repository. Do you want to commit anyway?"
+msgstr "送交動作不包含所有子目錄, 而且有移動/更名/複製過的目錄列在此次送交當中. 這些動作會自動包含子目錄進行. 確定要送交嗎?"
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed\n"
+"This commit is not recursive, and there are moved/renamed/copied\n"
 "folders selected for commit. Such moves/renames\n"
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr "本次送交不包含子項目, 但是要送交移動/重新命名的目錄. 檔案庫中對移動/更改名稱的送交作業必\n定包含所有子項目. \n\n是否確定要送交?"
+msgstr "送交動作不包含所有子目錄, 而且有移動/更名/複製\n過的檔案列在此次送交當中. 這些動作會自動包含子\n目錄進行.\n\n確定要送交嗎?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10817,10 +10837,6 @@ msgstr "復原時使用資源回收筒"
 msgid "Use regular expression"
 msgstr "使用正規表示式"
 
-#. Resource IDs: (1066)
-msgid "Use stri&keout for removed lines"
-msgstr "用雙刪除線表示已刪除行(&K)"
-
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "使用系統語系表示日期/時間"
@@ -11049,6 +11065,13 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "在鎖定檔案時, 顯示一個用來詢問\n鎖定原因的視窗."
+
+#. Resource IDs: (316)
+msgid ""
+"When resolving conflicts, you always have to save even if there is no "
+"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
+"show a conflict for those!"
+msgstr "處理衝突時, 就算沒有列出衝突也需要存檔. 因為 TortoiseMerge 能夠自動合併某些 SVN 不能處理的情況, 但是不會顯示有衝突!"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11572,11 +11595,11 @@ msgstr "檔案外部設定:"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
-msgstr ""
+msgstr "取得 HEAD 版:"
 
 #. Resource IDs: (591)
-msgid "get repository root urls:"
-msgstr ""
+msgid "get repository root URLs:"
+msgstr "取得檔案庫最上層 URL:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11615,8 +11638,8 @@ msgid "keep the file lists in English"
 msgstr "檔案列表繼續使用英語"
 
 #. Resource IDs: (65535)
-msgid "last head update: "
-msgstr "上次更新最新版本:"
+msgid "last HEAD update: "
+msgstr "上次 HEAD 更新:"
 
 #. Resource IDs: (65535)
 msgid "last read: "

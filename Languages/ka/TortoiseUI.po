@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:41+0000\n"
+"PO-Revision-Date: 2012-09-28 08:44+0000\n"
 "Last-Translator: Gia Shervashidze <giasher@gmail.com>\n"
 "Language-Team: Georgian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3958,6 +3958,14 @@ msgstr "გნებავთ ამ სამუშაო ასლის ა�
 msgid "Do you want to mark '%s' as resolved?"
 msgstr "გნებავთ მონიშნოთ '%s' როგორც მოგვარებული?"
 
+#. Resource IDs: (319)
+#, c-format
+msgid ""
+"Do you want to mark the file\n"
+"%s\n"
+"as resolved?"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "გსურთ გაგრძელება?"
@@ -4630,6 +4638,10 @@ msgstr "ფაილი შეიცავს კონფლიქტის ნ
 msgid "File diffs"
 msgstr "ფაილების შედარება"
 
+#. Resource IDs: (319)
+msgid "File has no conflicts"
+msgstr ""
+
 #. Resource IDs: (314)
 msgid "File is empty."
 msgstr "ფაილი ცარიელია."
@@ -4751,7 +4763,7 @@ msgid "Find"
 msgstr "პოვნა"
 
 #. Resource IDs: (1633)
-msgid "Find &Head-Revision"
+msgid "Find &HEAD-Revision"
 msgstr ""
 
 #. Resource IDs: (591)
@@ -5031,14 +5043,10 @@ msgstr "HEAD"
 msgid "HEAD node"
 msgstr "HEAD კვანძი"
 
-#. Resource IDs: (218)
-msgid "Head"
-msgstr ""
-
 #. Resource IDs: (106)
 #, c-format
-msgid "Head revision is %s"
-msgstr "ძირეული ვერსიაა %s"
+msgid "HEAD revision is %s"
+msgstr ""
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5876,6 +5884,12 @@ msgstr "შედარების გარე პროგრამის გ
 msgid "Least active author:"
 msgstr "ყველაზე ნაკლებაქტიური ავტორი:"
 
+#. Resource IDs: (319)
+msgid ""
+"Leave as conflicted\n"
+"The conflict status of the file is kept"
+msgstr ""
+
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr "კონფლიქტის დატოვება:"
@@ -6130,6 +6144,12 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr "მონიშვნა მოგვარებულად\nკონფლიქტი მოგვარებულია."
+
+#. Resource IDs: (319)
+msgid ""
+"Mark as resolved\n"
+"The file status is changed to modified"
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -10072,19 +10092,19 @@ msgstr "ესენი ბოლოს შეცვლილი და შე�
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed folders selected "
-"for commit. Such moves/renames are always performed recursively in the "
-"repository. Do you want to commit anyway?"
-msgstr "ამ არარეკურსიული ფიქსაციისთვის გადარქმეული/გადატანილი დასტებია შერჩეული. ასეთი გადარქმეული/გადატანილი დასტები საცავში ყოველთვის რეკურსიულად ფიქსირდება. მაინც გსურთ ფიქსაცია?"
+"This commit is not recursive, and there are moved/renamed/copied folders "
+"selected for commit. Such moves/renames are always performed recursively in "
+"the repository. Do you want to commit anyway?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed\n"
+"This commit is not recursive, and there are moved/renamed/copied\n"
 "folders selected for commit. Such moves/renames\n"
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr "ამ არარეკურსიული ფიქსაციისთვის გადარქმეული/გადატანილი\nდასტებია შერჩეული. ასეთი გადარქმეული/გადატანილი\nდასტები საცავში ყოველთვის რეკურსიულად ფიქსირდება.\n\nმაინც გსურთ ფიქსაცია?"
+msgstr ""
 
 #. Resource IDs: (251)
 msgid ""
@@ -10813,10 +10833,6 @@ msgstr "აღდგენისას ურნით სარგებლო�
 msgid "Use regular expression"
 msgstr "მარტივი გამოსახულების გამოყენება"
 
-#. Resource IDs: (1066)
-msgid "Use stri&keout for removed lines"
-msgstr "წაშლილი სტრიქონების გადა&ხაზვა"
-
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "სისტემური ლოკალით სარგებლობა თარიღის/დროისთვის"
@@ -11045,6 +11061,13 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "ერთი ან მეტი ფაილის დაბლოკვისას, აჩვენებს დიალოგს\nდაბლოკვის აღწერილობის მოთხოვნით"
+
+#. Resource IDs: (316)
+msgid ""
+"When resolving conflicts, you always have to save even if there is no "
+"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
+"show a conflict for those!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11571,7 +11594,7 @@ msgid "get HEAD revision:"
 msgstr ""
 
 #. Resource IDs: (591)
-msgid "get repository root urls:"
+msgid "get repository root URLs:"
 msgstr ""
 
 #. Resource IDs: (1005)
@@ -11611,8 +11634,8 @@ msgid "keep the file lists in English"
 msgstr "ფაილების სიის ინგლისურ ენაზე შენარჩუნება"
 
 #. Resource IDs: (65535)
-msgid "last head update: "
-msgstr "სათაოს ბოლო განახლება:"
+msgid "last HEAD update: "
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "last read: "

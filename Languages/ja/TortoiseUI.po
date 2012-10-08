@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 15:31+0000\n"
+"PO-Revision-Date: 2012-09-28 13:27+0000\n"
 "Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3958,7 +3958,15 @@ msgstr "この作業コピーのバージョン管理を解除してもよろし
 #. Resource IDs: (148)
 #, c-format
 msgid "Do you want to mark '%s' as resolved?"
-msgstr "「%s」を解決済みとしてマークしますか？"
+msgstr "「%s」を解決済みとしてよろしいですか？"
+
+#. Resource IDs: (319)
+#, c-format
+msgid ""
+"Do you want to mark the file\n"
+"%s\n"
+"as resolved?"
+msgstr "%s\nを解決済みとしてよろしいですか？"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4632,6 +4640,10 @@ msgstr "ファイルは競合しています"
 msgid "File diffs"
 msgstr "ファイルの差分"
 
+#. Resource IDs: (319)
+msgid "File has no conflicts"
+msgstr "ファイルの競合はありません"
+
 #. Resource IDs: (314)
 msgid "File is empty."
 msgstr "ファイルは空です。"
@@ -4753,8 +4765,8 @@ msgid "Find"
 msgstr "検索"
 
 #. Resource IDs: (1633)
-msgid "Find &Head-Revision"
-msgstr "最新リビジョンを探す(&H)"
+msgid "Find &HEAD-Revision"
+msgstr "最新(&HEAD)リビジョンを探す"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
@@ -5033,14 +5045,10 @@ msgstr "HEAD"
 msgid "HEAD node"
 msgstr "最新リビジョン(HEAD)ノード"
 
-#. Resource IDs: (218)
-msgid "Head"
-msgstr "最新"
-
 #. Resource IDs: (106)
 #, c-format
-msgid "Head revision is %s"
-msgstr "最新リビジョンは %s"
+msgid "HEAD revision is %s"
+msgstr "最新(HEAD)リビジョンは %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5878,6 +5886,12 @@ msgstr "競合を解決するために、外部の差分/マージプログラ�
 msgid "Least active author:"
 msgstr "活発でない作者:"
 
+#. Resource IDs: (319)
+msgid ""
+"Leave as conflicted\n"
+"The conflict status of the file is kept"
+msgstr "競合のまま残す\nこのファイルの競合状態が保持されます"
+
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr "競合の保持:"
@@ -6132,6 +6146,12 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr "解決済みとする\n競合は解決されます。"
+
+#. Resource IDs: (319)
+msgid ""
+"Mark as resolved\n"
+"The file status is changed to modified"
+msgstr "解決済みとする\nこのファイルの状態が変更に変わります"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -10074,19 +10094,19 @@ msgstr "これらは現在開いているドキュメントよりも最近保存
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed folders selected "
-"for commit. Such moves/renames are always performed recursively in the "
-"repository. Do you want to commit anyway?"
-msgstr "このコミットは再帰的ではありませんが、コミット対象に移動や名前変更を行ったフォルダーが含まれています。移動や名前変更は、リポジトリ上では常に再帰的に実行されます。本当にコミットしてもよろしいですか？"
+"This commit is not recursive, and there are moved/renamed/copied folders "
+"selected for commit. Such moves/renames are always performed recursively in "
+"the repository. Do you want to commit anyway?"
+msgstr "このコミットは再帰的なものではありませんが、コミット対象に移動・名前変更・コピーを行ったフォルダーが含まれまています。移動・名前変更は、リポジトリの中で常に再帰的に実行されます。このままコミットしてよろしいですか？"
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed\n"
+"This commit is not recursive, and there are moved/renamed/copied\n"
 "folders selected for commit. Such moves/renames\n"
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr "このコミットは再帰的ではありませんが、コミット対象に移動や名前\nの変更を行ったフォルダーが含まれています。これらの移動や\n名前変更は、リポジトリ上では常に再帰的に実行されます。\n\n本当にコミットしてもよろしいですか？"
+msgstr "このコミットは再帰的なものではありませんが、コミット対象に\n移動・名前変更・コピーを行ったフォルダーが含まれています。\n移動・名前変更は、常にリポジトリの中で再帰的に実行されます。\n\nこのままコミットしてよろしいですか？"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10815,10 +10835,6 @@ msgstr "変更を取り消す際にごみ箱を使用する"
 msgid "Use regular expression"
 msgstr "正規表現を使用する"
 
-#. Resource IDs: (1066)
-msgid "Use stri&keout for removed lines"
-msgstr "削除された行に取り消し線を引く(&K)"
-
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "日付/時刻にシステムロケールを使用する"
@@ -11047,6 +11063,13 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "選択している１つ以上のファイルをロックする際に、ロックについての\nメッセージを問い合わせるダイアログを表示する。"
+
+#. Resource IDs: (316)
+msgid ""
+"When resolving conflicts, you always have to save even if there is no "
+"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
+"show a conflict for those!"
+msgstr "競合を解決するとき、もし競合が見つからなくても保存する必要があります。TortoiseMergeはSVNが表示できない（しようとしない）競合した変更をマージすることができます。"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11573,7 +11596,7 @@ msgid "get HEAD revision:"
 msgstr "最新リビジョンを取得"
 
 #. Resource IDs: (591)
-msgid "get repository root urls:"
+msgid "get repository root URLs:"
 msgstr "リポジトリのルートURLを取得:"
 
 #. Resource IDs: (1005)
@@ -11613,8 +11636,8 @@ msgid "keep the file lists in English"
 msgstr "ファイルリストを英語に保つ"
 
 #. Resource IDs: (65535)
-msgid "last head update: "
-msgstr "最終取得日: "
+msgid "last HEAD update: "
+msgstr "最新(HEAD)の取得日:"
 
 #. Resource IDs: (65535)
 msgid "last read: "

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-21 23:06+0000\n"
+"PO-Revision-Date: 2012-09-30 21:58+0000\n"
 "Last-Translator: Khoa Dang <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3959,6 +3959,14 @@ msgstr "Bạn có muốn bỏ tạo phiên bản cho bản sao đang làm?\nVi�
 msgid "Do you want to mark '%s' as resolved?"
 msgstr "Bạn có muốn đánh dấu '%s' như là đã được giải quyết?"
 
+#. Resource IDs: (319)
+#, c-format
+msgid ""
+"Do you want to mark the file\n"
+"%s\n"
+"as resolved?"
+msgstr "Bạn có muốn đánh dấu tập tin\n%s\nlàm đã được giải quyết?"
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "Bạn có muốn đi tiếp không?"
@@ -4631,6 +4639,10 @@ msgstr "Tập tin chứa các đánh dấu mâu thuẫn"
 msgid "File diffs"
 msgstr "Khác biệt của tập tin"
 
+#. Resource IDs: (319)
+msgid "File has no conflicts"
+msgstr "Tập tin không có mâu thuẫn nào"
+
 #. Resource IDs: (314)
 msgid "File is empty."
 msgstr "Tập tin trống."
@@ -4752,8 +4764,8 @@ msgid "Find"
 msgstr "Tìm"
 
 #. Resource IDs: (1633)
-msgid "Find &Head-Revision"
-msgstr "Tìm Bản sửa đổi &Chính"
+msgid "Find &HEAD-Revision"
+msgstr "Tìm Bản &CHÍNH"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
@@ -5032,14 +5044,10 @@ msgstr "CHÍNH"
 msgid "HEAD node"
 msgstr "Nút CHÍNH"
 
-#. Resource IDs: (218)
-msgid "Head"
-msgstr "Chính"
-
 #. Resource IDs: (106)
 #, c-format
-msgid "Head revision is %s"
-msgstr "Bản chỉnh sửa chính là %s"
+msgid "HEAD revision is %s"
+msgstr "Bản CHÍNH là %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5877,6 +5885,12 @@ msgstr "Chạy chương trình tìm khác biệt/hợp nhất bên ngoài để 
 msgid "Least active author:"
 msgstr "Tác giả ít hoat động nhất:"
 
+#. Resource IDs: (319)
+msgid ""
+"Leave as conflicted\n"
+"The conflict status of the file is kept"
+msgstr "Để vẫn còn mâu thuẫn\nTrạng thái mâu thuẫn của tập tin được giữ"
+
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr "Để cho mâu thuẫn:"
@@ -6131,6 +6145,12 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr "Đánh dấu như đã được giải quyết\nMâu thuẫn này đã được giải quyết."
+
+#. Resource IDs: (319)
+msgid ""
+"Mark as resolved\n"
+"The file status is changed to modified"
+msgstr "Đánh dấu là đã giải quyết\nTrạng thái của tập tin được đổi thành đã sửa đổi"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -10073,19 +10093,19 @@ msgstr "Có nhiều lưu trữ gần đây hơn các tài liệu đang được 
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed folders selected "
-"for commit. Such moves/renames are always performed recursively in the "
-"repository. Do you want to commit anyway?"
-msgstr "Việc cam kết không dùng đệ quy, và có các thư mục không được di chuyển/đổi tên được lựa chọn cho cam kết. Việc di chuyển/đổi tên như vậy luôn được thực hiện theo cách đệ quy trong kho chứa. Bạn vẫn muốn thực hiện cam kết chứ?"
+"This commit is not recursive, and there are moved/renamed/copied folders "
+"selected for commit. Such moves/renames are always performed recursively in "
+"the repository. Do you want to commit anyway?"
+msgstr "Việc cam kết này không đệ quy, và có các thư mục được di chuyển/đổi tên/sao chép được chọn cho việc cam kết. Những việc di chuyển/đổi tên như vậy luôn được thực hiện một cách đệ quy trong kho. Bạn vẫn muốn cam kết?"
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed\n"
+"This commit is not recursive, and there are moved/renamed/copied\n"
 "folders selected for commit. Such moves/renames\n"
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr "Việc cam kết này không dùng đệ quy, và có các\nthư mục được di chuyển/đổi tên lựa chọn cho việc cam kết. Những việc di chuyển/đổi tên như vậy\nluôn được thực hiện theo cách đệ quy trong kho chứa.\n\nBạn vẫn muốn cam kết chứ?"
+msgstr "Việc cam kết này không đệ quy, và có các thư mục được di chuyển/đổi tên/sao chép được chọn cho việc cam kết. Những việc di chuyển/đổi tên\nnhư vậy luôn được thực hiện một cách đệ quy trong kho.\n\nBạn vẫn muốn cam kết?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10814,10 +10834,6 @@ msgstr "Dùng thùng tái chế khi quay lui"
 msgid "Use regular expression"
 msgstr "Dùng biểu thức thông thường"
 
-#. Resource IDs: (1066)
-msgid "Use stri&keout for removed lines"
-msgstr "Dùng &gạch ngang cho các dòng bị loại bỏ"
-
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Dùng văn hóa hệ thống cho ngày/tháng"
@@ -11046,6 +11062,13 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "Khi khóa một hay nhiều tập tin, hiển thị một thông báo\nhỏi nhập vào một thông điệp mô tả về việc khóa"
+
+#. Resource IDs: (316)
+msgid ""
+"When resolving conflicts, you always have to save even if there is no "
+"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
+"show a conflict for those!"
+msgstr "Khi giải quyết các mâu thuẫn, bạn luôn phải lưu ngay cả khi không có mâu thuẫn nào được hiện ra. TortoiseMerge có thể hợp nhất các thay đổi mà SVN không thể và sẽ không hiện mâu thuẫn cho các thay đổi đó."
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11572,8 +11595,8 @@ msgid "get HEAD revision:"
 msgstr "lấy bản sửa đổi CHÍNH:"
 
 #. Resource IDs: (591)
-msgid "get repository root urls:"
-msgstr "lấy các url kho chứa gốc"
+msgid "get repository root URLs:"
+msgstr "lấy cá URL gốc kho:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11612,8 +11635,8 @@ msgid "keep the file lists in English"
 msgstr "giữ danh sách tập tin bằng tiếng Anh"
 
 #. Resource IDs: (65535)
-msgid "last head update: "
-msgstr "cập nhật bản chính lần cuối: "
+msgid "last HEAD update: "
+msgstr "bản cập nhật CHÍNH cuối cùng:"
 
 #. Resource IDs: (65535)
 msgid "last read: "

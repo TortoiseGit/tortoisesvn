@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-19 08:29+0000\n"
+"PO-Revision-Date: 2012-10-05 22:12+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -649,7 +649,7 @@ msgstr "Osnovni koncepti"
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
 "get an overview of how Subversion works and the terms that are used."
-msgstr ""
+msgstr "Pre nego se zaglavimo u radu sa pravim fajlovima, važno je pogledati kako Subverzija radi i termine koje koristi."
 
 #. (term)
 #. (title)
@@ -2154,15 +2154,13 @@ msgstr "Preporučljiv metod je da se pokrene <screen>\nsvnadmin hotcopy path/to/
 #. (para)
 msgid ""
 "The <literal>svnadmin</literal> tool is installed automatically when you "
-"install the Subversion command line client. If you are installing the "
-"command line tools on a Windows PC, the best way is to download the Windows "
-"installer version. It is compressed more efficiently than the "
-"<filename>.zip</filename> version, so the download is smaller, and it takes "
-"care of setting the paths for you. You can download the latest version of "
-"the Subversion command line client from the <ulink "
-"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
+"install the Subversion command line client. The easiest way to get this is "
+"to check the option to include the command line tools when installing "
+"TortoiseSVN, but if you prefer you can download the latest version of "
+"command line tools directly from the <ulink "
+"url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr "Alat <literal>svnadmin</literal>  je instaliran automatski kada instalirate Subverzionog linijskog klijenta. Ako instalirate alate komandne linije na Vindous PC, najbolji način je skinuti verziju Vindous instalatera. To je efikasnije komprimovano od <filename>.zip</filename> verzije, tako da je skidanje manje i vodi brigu o podešavanju putanja za vas. Možete skinuti zadnju verziju Subverzionog linijskog klijenta sa <ulink url=\"http://subversion.apache.org/packages.html\"><citetitle>Subverzionog</citetitle></ulink> vebsajta."
+msgstr "Alat <literal>svnadmin</literal> instalira se automatski dok instalirate Subverzioni klijent komandne linije. Najlakši način da se on dobije je da se proveri opcija za uključivanje alata komandne linije kada se instalira TortoiseSVN, ali ako više volite možete skinuti zadnju verziju alata komandne linije sa <ulink url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink> vebsajta."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -2933,11 +2931,11 @@ msgstr "kreiranje radne kopije"
 
 #. (primary)
 msgid "sparse checkout"
-msgstr ""
+msgstr "prazno preuzimanje"
 
 #. (primary)
 msgid "partial checkout"
-msgstr ""
+msgstr "delimično preuzimanje"
 
 #. (para)
 msgid ""
@@ -3050,11 +3048,11 @@ msgid ""
 "If you check out a sparse working copy (i.e., by choosing something other "
 "than <literal>fully recursive</literal> for the checkout depth), you can "
 "easily add or remove sub-folders later using one of the following methods."
-msgstr ""
+msgstr "Ako preuzimate praznu radnu kopiju (tj, izborom nečeg drugog od <literal>potpuno rekurzivno</literal> za dubinu preuzimanja), možete lako dodati ili ukloniti subfoldere kasnije korišćenjem jedan od sledećih metoda:"
 
 #. (title)
 msgid "Sparse Update using Update to Revision"
-msgstr ""
+msgstr "Prazno Usklađivanje korišćenjem Usklađivanje prema Reviziji"
 
 #. (para)
 msgid ""
@@ -3065,11 +3063,11 @@ msgid ""
 "original checkout and allows you to select or deselect items to include in "
 "the checkout. This method is very flexible but can be slow as every item in "
 "the folder is updated individually."
-msgstr ""
+msgstr "<action>Desni klik</action> na preuzet folder zatim koristiti <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Uskladi prema reviziji</guimenuitem></menuchoice> i izaberi <guibutton>Izaberi stavke...</guibutton>. Ovo otvara isti dijalog koji je dostupan pri originalnom preuzimanju i omogućava vam da izaberete i onemogućite stavke koje će obuhvatiti preuzimanje. Ovaj metod je veoma fleksibilan ali može biti spor pošto se svaka stavka u folderu usklađuje pojedinačno."
 
 #. (title)
 msgid "Sparse Update using Repo Browser"
-msgstr ""
+msgstr "Prazno Usklađivanje koristeći Repo Pretraživač"
 
 #. (para)
 msgid ""
@@ -3079,11 +3077,11 @@ msgid ""
 "the sub-folder you would like to add to your working copy, then use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<action>Desni klik</action> na preuzeti folder, zatim koristite <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Pretraživač</guimenuitem></menuchoice> da dovede pretraživač spremišta. Nađite subfolder koji želite da dodate u vašu radnu kopiju, zatim kristite <menuchoice><guimenu>Kontekst Meni</guimenu><guimenuitem>Uskladi stavku prema reviziji...</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Sparse Update using Check for Modifications"
-msgstr ""
+msgstr "Prazno Usklađivanje korišćenjem Provera za Izmene"
 
 #. (para)
 msgid ""
@@ -3094,7 +3092,7 @@ msgid ""
 "click</action> on the folder(s) you would like to add to your working copy, "
 "then use <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "U dijalogu provere za izmene, najpre <keycap>šift</keycap> klik na dugme <guibutton>Proveri spremište</guibutton>. Dijalog će prikazati fajlove i foldere, koji su u spremištu a vi ih niste preuzeli, kao <literal>daljinski dodati</literal>. <action>Desni klik</action> na folder(e) koji želite da dodate u vašu radnu kopiju, zatim koristite <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Uskladi</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -5855,7 +5853,7 @@ msgid ""
 "will only see the results when using a checked out working copy. Fetching "
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
-msgstr ""
+msgstr "Pošto formatiranje zavisi od pristupu Subverzionim osobinama, možete videti samo rezultate kada koristite preuzetu radnu kopiju. Nalaženje osobina daljinski je spora operacija, tako da nećete videti ovu osobinu u akciji iz repo pretraživača."
 
 #. (title)
 msgid "Statistical Information"
@@ -6951,7 +6949,7 @@ msgid ""
 "Use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>"
 " to remove files or folders from Subversion."
-msgstr ""
+msgstr "Koristi <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Briši</guimenuitem></menuchoice> da uklonite fajlove ili foldere iz Subverzije."
 
 #. (para)
 msgid ""
@@ -7642,7 +7640,7 @@ msgid ""
 "Subversion feature and works with any Subversion client. However it has to "
 "be defined on each client individually - there is no way to propagate these "
 "settings from the repository."
-msgstr ""
+msgstr "Možete da uređujete Subverzioni konfiguracioni fajl da omogućite ovu osobinu na vašem klijentu. <guilabel>Opšta</guilabel> strana TortoiseSVN dijaloga podešavanja ima dugme za urteđivanje da je pozovete direktno. Konfig fajl je jednostavan tekst fajl koji kontroliše neke Subverzione radnje. Potrebno je da izmenite dve stvari: najpre u delu naslovljenom sa <literal>razno</literal> uklonite oznaku komentara na liniji <literal>enable-auto-props = yes</literal>. Zatim, potrebno je da uredite deo ispod da definišete koje osobine želite da dodate kom tipu fajlova. Ovaj način je standardna Subverziona osobina i radi sa svakim Subverzionim klijentom. Međutim, mora da bude definisana kod svakog klijenta posebno - nema načina da se prenese ovo podešavanje kroz spremište."
 
 #. (para)
 msgid ""
@@ -7805,7 +7803,7 @@ msgid ""
 "adding files. The format is the same as for Subversion autoprops, e.g. "
 "<literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two "
 "properties on files with the <literal>.sh</literal> extension."
-msgstr ""
+msgstr "Subverzija vam omogućava da podesite <quote>autoprops</quote> koji bi se primenjivao na novododate ili uvezene fajlove, u zavisnosti od ekstenzije fajla. Ovo zavisi od toga da svaki klijent ima odgovarajući skup odgovarajućih autopropsova u svmj Subverzion konfiguracionom fajlu. <literal>tsvn:autoprops</literal>  može biti podešen na foldere i oni mogu biti stopljeni sa korisničkim lokalnim autopropsima dok se uvozi ili dodaju fajlovi. Format je ist kao Subverzioni autoprops, npr. <literal>*.sh = svn:eol-style=native;svn:executable</literal> uspostavlja dve osobine na fajlovima sa <literal>.sh</literal> ekstenzijom."
 
 #. (para)
 msgid ""
@@ -8202,7 +8200,7 @@ msgid ""
 "update this item in your working copy. By specifying a peg revision you tell"
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
-msgstr ""
+msgstr "Potrebno je da definišete ime subfoldera gde se vrši preuzimanje iz eksternog foldera i Subverzioni URL edžternal stavke. Možete preuzeti eksternal sa GLAVNE revizije tako da kad se eksternal stavka promeni u spremištu vaša radna kopija će primiti te izmene pri usklađivanju. Međutim, ako ako želite eksternal iz posebne stabilne tačke morate koristiti odreženu reviziju. U ovom slučajumožete i želeti da odredite istu reviziju kao peg reviziju. Ako se eksternal stavka preimenuje u nekoj tački u budućnosti tada Subverzija neće biti sposobna da uskladi tu stavku u vašoj radnoj kopiji. Određivanjem peg revizije vi kažete Subverziji da pogleda za stavku koja ima to ime u peg reviziji pre nego u GLAVNOJ. "
 
 #. (para)
 msgid ""
@@ -8212,7 +8210,7 @@ msgid ""
 "external gives you the command to peg the selected externals to their "
 "explicit HEAD revision. In case the HEAD revision is not known yet, the "
 "right click command will fetch the HEAD revision first."
-msgstr ""
+msgstr "Dugme <guibutton>Nađi GLAVNU-Reviziju</guibutton> nalazi GLAVNU reviziju svakog eksternal URL i prikazuje tu GLAVNU reviziju u krajnje desnoj koloni. Kada je GLAVNA revizija poznata jednostavni desni klik na eksternal daje vam komandu ka peg izabrani eksternal i njegovu eksplicitnu GLAVNU reviziju. U slučaju da GLAVNA revizija još nije poznata, desni klik komanda će najpre naći  GLAVNU reviziju."
 
 #. (title)
 msgid "SVN Keywords"
@@ -8267,7 +8265,7 @@ msgid ""
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr ""
+msgstr "<placeholder-1/> Ove 3 osobine kontrolišu formatiranje dnevnik poruka. Prve 2 onemogućavaju <guibutton>OK</guibutton> pri urezivanju ili zaključavaju dijaloge sve dok poruka ne dostigne minimalnu dužine. Granične pozicije pokazuju marker date širine kolone kao vodič za projekte koji imaju ograničenu širinu svojih dnevnika poruka. Postavljanjem vrednosti na nulu briše osobinu."
 
 #. (title)
 msgid "Project Language"
@@ -8285,7 +8283,7 @@ msgid ""
 "list</guilabel>. By default the Subversion status will be shown in your "
 "local language. When this box is checked the status is always given in "
 "English, for projects which require English-only log messages."
-msgstr ""
+msgstr "<placeholder-1/> Bira jezik koji se koristi za proveru pisanja dnevnika poruka u dijalogu urezivanja. Fajl lista čekboksova postaje efektivna posle desnog klika na panel dnevnika poruka i izaberete <guilabel>Nalepi fajl listu</guilabel>. Uobičajeno je da je status Subverzije prikazan u lokalnom jeziku. Kada je ovaj boks čekiran status je uvek da na engleskom za projekte koji zahtevaju isključivo engleske dnevnik poruke. "
 
 #. (title)
 msgid "MIME-type"
@@ -8329,7 +8327,7 @@ msgstr "<placeholder-1/> Ova osobina kontroliše  da li će fajl imati izvršni 
 
 #. (title)
 msgid "Merge log message templates"
-msgstr ""
+msgstr "Stopi dnevnik poruke obrazac"
 
 #. (para)
 #. (para)
@@ -8337,80 +8335,80 @@ msgid ""
 "Whenever revisions are merged into a working copy, TortoiseSVN generates a "
 "log message from all the merged revisions. Those are then available from the"
 " <guibutton>Recent Messages</guibutton> button in the commit dialog."
-msgstr ""
+msgstr "Kadgod se revizije stapaju u radnoj kopiji, TortoiseSVN generiše dnevnik poruku iz svih stopljenih revizija. One su dostupne preko <guibutton>Skorašnje poruke</guibutton> dugmeta u dijalogu urezivanja."
 
 #. (title)
 msgid "Property dialog merge log message templates"
-msgstr ""
+msgstr "Dijalog osobina stapa dnevnik poruke šablona"
 
 #. (para)
 msgid ""
 "You can customize that generated message with the following properties: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Možete izabrati generisane poruke sledećom osobinom: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
 "7</literal>"
-msgstr ""
+msgstr "Lista razdvojena zapetama stopljenih revizija tj. <literal>3, 5, 6, 7</literal>"
 
 #. (para)
 msgid ""
 "Like <literal>{revisions}</literal>, but with each revision preceded with an"
 " <literal>r</literal>, e.g., <literal>r3, r5, r6, r7</literal>"
-msgstr ""
+msgstr "Kao <literal>{revisions}</literal>,  ali sa svakom revizijom kojoj prethodi jedno <literal>r</literal>, npr. <literal>r3, r5, r6, r7</literal>"
 
 #. (para)
 msgid ""
 "A comma separated list of the merged revisions, grouped into ranges if "
 "possible, e.g., <literal>3, 5-7</literal>"
-msgstr ""
+msgstr "Lista razdvojena zapetama stopljenih revizija grupisanih u opsegge ako je moguće, npr. <literal>3, 5-7</literal>"
 
 #. (para)
 msgid ""
 "The source URL of the merge, i.e., where the revisions are merged from."
-msgstr ""
+msgstr "Izvorni URL stapanja, npr. odakle su revizije stopljene."
 
 #. (para)
 msgid ""
 "This property specifies the first part of the generated log message. The "
 "following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Osobina određuje prvi deo generisanog dnevnika poruke. Sledeće ključne reči mogu da se koriste: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "The default value for this string is <literal>Merged revision(s) {revrange} "
 "from {mergeurl}:</literal> with a newline at the end."
-msgstr ""
+msgstr "Uobičajena vrednost za ovaj string je <literal>Stopljena revizija(e) {revrange} iz {mergeurl}:</literal>  sa njulajn na kraju."
 
 #. (para)
 msgid "The log message of the merged revision, as it was entered."
-msgstr ""
+msgstr "Dnevnik poruke stopljene revizije, kako je unet."
 
 #. (para)
 msgid ""
 "Like <literal>{msg}</literal>, but all newlines are replaced with a space, "
 "so that the whole log message appears on one single line."
-msgstr ""
+msgstr "Kao <literal>{msg}</literal>, ali njulajnovi zamenjeni razmakom tako da se cela dnevnik poruka pojavljuje u istoj liniji. "
 
 #. (para)
 msgid "The author of the merged revision."
-msgstr ""
+msgstr "Autor stopljene revizije."
 
 #. (para)
 msgid "The merged revision itself."
-msgstr ""
+msgstr "Sama stopljena revizija."
 
 #. (para)
 msgid "The bug IDs of the merged revision, if there are any."
-msgstr ""
+msgstr "Bag ID stopljene revizije, ako ima neka."
 
 #. (para)
 msgid ""
 "This property specifies how the text for each merged revision should look "
 "like. The following keywords can be used: <placeholder-1/>"
-msgstr ""
+msgstr "Ova osobina određuje kako će izgledati tekst za svaku stopljenu reviziju. Sledeće ključne reči se mogu koristiti: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -8418,7 +8416,7 @@ msgid ""
 " have disabled the log cache or not shown the log first before the merge, "
 "the generated message won't contain any information about the merged "
 "revisions."
-msgstr ""
+msgstr "Ovo radi samo ako su stopljene revizije već u kešu dnevnika. Ako imate onemogućen dnevnik keša ili nije prikazan dnevnik pre stapanja, generisane poruke neće sadržati bilo kakvu informaciju o stopljenim revizijama."
 
 #. (title)
 msgid "External Items"
@@ -8507,7 +8505,7 @@ msgid ""
 "The edit dialog for <literal>svn:externals</literal> properties allows you "
 "to select the externals and automatically set them explicitly to the HEAD "
 "revision."
-msgstr ""
+msgstr "Dijalog uređenja za <literal>svn:externals</literal> osobine omogućava vam da izaberete eksternal i automatski ga podesite eksplicitno na GLAVNU reviziju."
 
 #. (para)
 #. (para)
@@ -8610,7 +8608,7 @@ msgid ""
 "url=\"http://svnbook.red-"
 "bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding "
 "chapter</citetitle></ulink> in the Subversion book."
-msgstr ""
+msgstr "Možete, takođe, odrediti peg i operativnu reviziju za URL ako je potrebno. Da pročitate više o peg i operativnim revizijama, molim pročitajte <ulink url=\"http://svnbook.red-bean.com/en/1.7/svn.advanced.pegrevs.html\"><citetitle>corresponding chapter</citetitle></ulink> u Subverzionoj knjizi."
 
 #. (para)
 msgid ""
@@ -8727,7 +8725,7 @@ msgstr "Podrazumevan destinacioni URL za novu granu bio bi izvorni URL na kome j
 
 #. (title)
 msgid "intermediate folders"
-msgstr ""
+msgstr "intermedijalni folderi"
 
 #. (para)
 msgid ""
@@ -8735,7 +8733,7 @@ msgid ""
 "already exist or you will get an error message. In the above example, the "
 "URL <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> must "
 "exist to create the <literal>Release_1.10</literal> tag."
-msgstr ""
+msgstr "Kada odredite ciljni URL svi folderi do zadnjeg moraju već postojati ili ćete dobiti poruku o grešci. U gornjem primeru, URL  <literal>http://svn.collab.net/repos/ProjectName/tags/</literal> mora postojati da se kreira <literal>Release_1.10</literal> znak."
 
 #. (para)
 msgid ""
@@ -8743,7 +8741,7 @@ msgid ""
 "folders that don't exist yet you can check the option <option>Create "
 "intermediate folders</option> at the bottom of the dialog. If that option is"
 " activated, all intermediate folders are automatically created."
-msgstr ""
+msgstr "Međutim, ako želite da kreirate grana/znak u URL koji ima središnje foldere koji još ne postoje morate čekirati opciju <option>Kreirajte središnje foldere</option> na dnu dijaloga. Ako je opcija aktivirana svi središnji folderi se automatski kreiraju."
 
 #. (para)
 msgid ""
@@ -8756,7 +8754,7 @@ msgid ""
 "enabled a folder <literal>Tags</literal> would be automatically created, and"
 " you would end up with a folder <literal>Tags</literal> and a folder "
 "<literal>tags</literal>."
-msgstr ""
+msgstr "Primetimo da je ova opcija onemogućena uobičajeno da bi se izbegle greške pri kucanju. Na primer, ako otkucate ciljni URL kao  <literal>http://svn.collab.net/repos/ProjectName/Tags/Release_1.10</literal> umesto <literal>http://svn.collab.net/repos/ProjectName/tags/Release_1.10</literal>, dobićete grešku sa onemogućenom opcijom, ali ako je opcija omogućena folder <literal>Tags</literal> će biti automatski kreiran i završiće se folderom <literal>Tags</literal> i folderom <literal>tags</literal>."
 
 #. (term)
 #. (listitem)
@@ -9157,7 +9155,7 @@ msgid ""
 "also need to specify that revision as a peg revision in the range of "
 "revisions being merged (see below), otherwise the merge will fail when it "
 "can't find that path at HEAD."
-msgstr ""
+msgstr "Ako stapate iz preimenovanih ili obrisanih grana morate da se vratite nazad na reviziju gde te grane još postoje. U tom slučaju potrebno vam je da specificirate tu reviziju kao peg reviziju u opsegu revizija koje se stapaju (vidi dole) u drugačijem slučaju stapanje neće proći kada ne može da nađe putanju u GLAVNOJ."
 
 #. (para)
 msgid ""
@@ -9202,7 +9200,7 @@ msgid ""
 "If you are merging revisions in chunks, the method shown in the Subversion "
 "book will have you merge 100-200 this time and 200-300 next time. With "
 "TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr ""
+msgstr "Ako stapate revizije u delovima, metod prikazan u Subverzijinoj knjizi daje va stapanje 100-200 ovog puta i 200-300 sledeći put. Sa TortoiseSVN možete stapati 100-200 ovoaj put i 201-300 sledeći put."
 
 #. (para)
 msgid ""
@@ -9462,7 +9460,7 @@ msgid ""
 "To customize that generated message, set the corresponding project "
 "properties on your working copy. See <xref linkend=\"tsvn_dug_propertypage-"
 "edit-mergelogmsgtemplate\"/>"
-msgstr ""
+msgstr "Da podesite te generisane poruke postavite odgovarajuće osobine projekta u vašoj radnoj kopiji. Vidi <xref linkend=\"tsvn_dug_propertypage-edit-mergelogmsgtemplate\"/>"
 
 #. (para)
 msgid ""
@@ -9578,7 +9576,7 @@ msgid ""
 "url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-"
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
-msgstr ""
+msgstr "Nađite više o praćenju stapanja u Subverziji  <ulink url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -9766,7 +9764,7 @@ msgstr "Najpre treba obezbediti da Subverzioni server dograđen najmanje na verz
 
 #. (title)
 msgid "The Three Meanings of <quote>Lock</quote>"
-msgstr ""
+msgstr "Stablo značenja <quote>zaključavanja</quote>"
 
 #. (para)
 msgid ""
@@ -9775,7 +9773,7 @@ msgid ""
 "mutual exclusion between users to avoid clashing commits. Unfortunately, "
 "there are two other sorts of <quote>lock</quote> with which Subversion, and "
 "therefore this book, sometimes needs to be concerned."
-msgstr ""
+msgstr "U ovom poglavlju, i skoro svuda u ovoj knjizi, reči <quote>katanac</quote> i <quote>zaključavanje</quote> opisuju mehanizam mežusobnog isključivanja korisnika da se izbegnu sudari pri urezivanju. Na nesreću, postoje dve druge vrste oznake <quote>katanac</quote> sa kojim Subverzija, i ova knjiga, ponekad moraju da računaju."
 
 #. (para)
 msgid ""
@@ -9785,14 +9783,14 @@ msgid ""
 "like update/commit/... is interrupted due to an error. These locks can be "
 "removed by running the cleanup command on the working copy, as described in "
 "<xref linkend=\"tsvn-dug-cleanup\"/>."
-msgstr ""
+msgstr "Drugo je <literal>katanci radne kopije</literal>, koji se koristi interno od Subverzije za prevenciju sudara između više Subverzionih klijenata koji rade na istoj radnoj kopiji. Uobičajeno je da stavite ove katance kad god je komanda kao uskladi/ureži/... prekinuta zbog greške. Ovi katanci se uklanjaju dok radi komanda čišćenja na radnoj kopiji, kako je opisano u <xref linkend=\"tsvn-dug-cleanup\"/>."
 
 #. (para)
 msgid ""
 "And third, files and folders can get locked if they're in use by another "
 "process, for example if you have a word document opened in Word, that file "
 "is locked and can not be accessed by TortoiseSVN."
-msgstr ""
+msgstr "I treće, fajlovi i folderi se mogu zaključati ako ih koristi drugi proces, na primer ako imate dokument u vordu otvoren programom Vord, onda je taj fajl zaključan i ne može mu se pristupiti sa TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -9800,7 +9798,7 @@ msgid ""
 "goes wrong that requires you to care about them. In this book, "
 "<quote>lock</quote> means the first sort unless the contrary is either clear"
 " from context or explicitly stated."
-msgstr ""
+msgstr "Možete generalno zaboraviti ove druge vrste zaključavanja sve dok nešto ne pođe loše i zahteva brigu o zaključavanju. U ovoj knjizi <quote>katanac</quote> znači prvu vrstu sve dok nasuprot ne bude brisanja iz konteksta ili eksplicitni stanje."
 
 #. (title)
 msgid "How Locking Works in Subversion"
@@ -11280,7 +11278,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>."
 " Exporting from a URL and exporting from a working copy are treated slightly"
 " differently."
-msgstr ""
+msgstr "Ponekad možete želeti čistu kopiju vašeg radnog stabla bez <filename>.svn</filename> foldera, npr. da kreirate zipovani fajl vašeg sorsa, ili da izvezete na veb server. Umesto da pravite kopiju i brisanjem <filename>.svn</filename> foldera ručno, TortoiseSV nudi komandu <menuchoice><guimenu>TortoiseSzličito.VN</guimenu><guimenuitem>Izvoz...</guimenuitem></menuchoice>. Izvoz iz URL i izvoz iz radne kopije tretira se pomalo r "
 
 #. (title)
 msgid "The Export-from-URL Dialog"
@@ -11314,7 +11312,7 @@ msgid ""
 "too</guilabel> checkbox to include any other unversioned files which exist "
 "in your WC and not in the repository. External references using "
 "<literal>svn:externals</literal> can be omitted if required."
-msgstr ""
+msgstr "Ako izvršite ovu komandu na radnu kopiju bićete pitani za mesto gde ćete sačuvati  <emphasis>čistu</emphasis> radnu kopiju bez <filename>.svn</filename> foldera. Uobičajeno, samo verzionisani fajlovi se izvoze, ali možete koristiti <guilabel>Izvoz neverzionisanih fajlova takođe</guilabel>  čekboks da uključite bilo koei druge neverzionisane fajlove u vašoj RK koji nisu u spremištu. Eksterne reference koristeći  <literal>svn:externals</literal> mogu biti izostavljene ako je potrebno."
 
 #. (para)
 msgid ""
@@ -11328,7 +11326,7 @@ msgid ""
 "here</guimenuitem></menuchoice>. The second option includes the unversioned "
 "files as well. The third option exports only modified items, but maintains "
 "the folder structure."
-msgstr ""
+msgstr "Drugi način da izvezete iz radne kopije je da <action>desno vučete</action> folder radne kopije na novu lokacije i izaberete  <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>SVN izvoz verzionisanih stavki ovde</guimenuitem></menuchoice> ili <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>SVN izvoz svih stavki ovde</guimenuitem></menuchoice> ili <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>SVN izvoz izmeljenih stavki ovde</guimenuitem></menuchoice>. Druga opcija obuhvata neverzionisane fajlove takođe. Treća opcija izvozi samo modifikovane stavke, ali zadržava folder strukturu. "
 
 #. (para)
 msgid ""
@@ -11374,7 +11372,7 @@ msgid ""
 "If you want to export your working copy tree structure but containing only "
 "the files which are locally modified, refer to <guilabel>SVN Export changed "
 "items here</guilabel> above."
-msgstr ""
+msgstr "Ako želite da izvezete strukturu stabla vaše radne kopije koja sadrži samo fajlove koji su lokalno promenjeni, uporedite sa  <guilabel>SVN izvoz izmenjenih stavki ovde</guilabel> iznad."
 
 #. (title)
 msgid "Removing a working copy from version control"
@@ -11390,7 +11388,7 @@ msgid ""
 "Sometimes you have a working copy which you want to convert back to a normal"
 " folder without the <literal>.svn</literal> directory. All you need to do is"
 " delete the <literal>.svn</literal> directory from the working copy root."
-msgstr ""
+msgstr "Ponekad imate radnu kopiju koju hoćete da konvertujete nazad u normalni folder bez <literal>.svn</literal> foldera. Sve što vam treba da uradite je da obrišete <literal>.svn</literal> folder iz ruta radne kopije."
 
 #. (para)
 msgid ""
@@ -11400,7 +11398,7 @@ msgid ""
 "make the working copy unversioned. If you answer <emphasis>yes</emphasis> "
 "the control directory will be removed and you will have a plain, unversioned"
 " directory tree."
-msgstr ""
+msgstr "Alternativano možete izvesti sam folder. U Vindous Eksploreru desno vučenje rut foldera radne kopije iz fajl panela u samog sebe u folder panelu. TortoiseSVN detektuje ovaj specijalni slučaj i pita da li želite načiniti neverzionisanu radnu kopiju. Ako odgovorite <emphasis>da</emphasis> kontrolni folder će biti uklonjen i imate potpuno, neverzionisano stablo foldera."
 
 #. (title)
 msgid "Relocating a working copy"
@@ -11842,7 +11840,7 @@ msgid ""
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr ""
+msgstr "Pošto integracija problem tragača zavisi od pristupa Subverzijinim osobinama možete videti rezultate samo korišćenjem preuzete radne kopije. Nalaženjem osobina daljinski je spora operacija tako da nećete videti ove osobine na delu iz repo pretraživačaosim ako ne započnete repo pretraživač iz vaše radne kopije. Ako pokrenete repo pretraživač unošenjem URL spremišta nećete videti ove osobine."
 
 #. (para)
 #. (para)
@@ -11859,7 +11857,7 @@ msgid ""
 " Tracker Integration Specification</citetitle></ulink> in the TortoiseSVN "
 "source repository. (<xref linkend=\"tsvn-preface-source\"/> explains how to "
 "access the repository.)"
-msgstr ""
+msgstr "Integracija problem tragača nije ograničena na TortoiseSVN; može je koristiti svaki Subverzioni klijent. Za više informacija pročitajte ulink url=\"http://tortoisesvn.googlecode.com/svn/trunk/doc/notes/issuetrackers.txt\"><citetitle>Issue Tracker Integration Specification</citetitle></ulink> u TortoiseSVN izvornom spremištu. (<xref linkend=\"tsvn-preface-source\"/>objašnjava kako pristupiti spremištu.)"
 
 #. (title)
 msgid "Getting Information from the Issue Tracker"
@@ -11990,7 +11988,7 @@ msgid ""
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr ""
+msgstr "Pošto integracija repo pregledača zavisi od pristupa Subverzionih osobina vi ćete videti samo rezultate kada koristite preuzete radne kopije. Nalaženje osobina daljinski je spora operacija tako da nećete videti osobine u akciji repo pretraživača osim ako ne započnete repo pretraživač iz vaše radne kopije. Ako započnete repo pretraživač unošenjem URL spremišta nećete videti te osobine."
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -14093,7 +14091,7 @@ msgid ""
 "echo Checking Status &gt; con\n"
 "pause &lt; con &gt; con\n"
 "</screen>"
-msgstr ""
+msgstr " Kada debagujete ѕakačive skripte možete želeti eho progres linije na DOS konzoli, ili ubacite pauzu da zaustavite konzolni prozor da nestane kada se skript kompletira. Pošto je U/I preusmeren to neće raditi normalno. Međutim možete preusmeriti ulaz i izlaz eksplicitno na CON da prevaziđete ovo. npr. <screen>\necho Checking Status &gt; con\npause &lt; con &gt; con\n</screen>"
 
 #. (para)
 msgid ""
@@ -14414,7 +14412,7 @@ msgstr "Ako se stavi 4, onda grupisanje radi kao da je stavljeno 2, ali grupisan
 msgid ""
 "If this is set to <literal>false</literal>, then every "
 "<literal>svn:externals</literal> is shown during an update separately."
-msgstr ""
+msgstr "Ako je to podešeno na <literal>laž</literal>, onda svaki <literal>svn:externals</literal> je prikazan u toku usklađivanja posebno."
 
 #. (para)
 msgid ""
@@ -14422,7 +14420,7 @@ msgid ""
 "information for externals is only shown if the externals are affected by the"
 " update, i.e. changed in some way. Otherwise nothing is shown as with normal"
 " files and folders."
-msgstr ""
+msgstr "Ako je podešeno na <literal>istina</literal> (uobičajeno), onda usklađena informacija za eksternale je prikazana samo ako se eksternalima pristupa pri usklađivanju, npr. ako se menjaju na neki način. U drugom slučaju je prikazana sa normalnim fajlovima i folderima."
 
 #. (para)
 msgid ""
@@ -14504,7 +14502,7 @@ msgid ""
 "doesn't work properly so that the cursor to enter text isn't always visible."
 " If that happens, you can turn this feature off by setting this value to "
 "<literal>false</literal>."
-msgstr ""
+msgstr "Ova opcija omogućava korišćenje Direkt2D ubrzano crtanje u Scintila kontroli koja se koristi kao boks uređivanja u npr. dijalogu urezivanja, i takođe, za jedinstvene dif pregledače. Sa nekim grafik kartama, međutim, ovo ponekad ne radi ispravno tako da kursor za unos teksta nije uvek vidljiv. Ako se to desi možete isključiti ovu osobinu podešavanjem vrednosti na <literal>laž</literal>."
 
 #. (para)
 msgid ""
@@ -14576,9 +14574,10 @@ msgstr "Ako želite da izvezete ceo sadržaj podešavanja za korišćenje na dru
 
 #. (para)
 msgid ""
-"Remember to save your Subversion settings too, located in the svn config "
-"file in <literal>%APPDATA%\\Subversion</literal>."
-msgstr "Podsetite se da zapamtite vaše Subverziono podešavanje takođe, locirano u svn config fajlu u <literal>%APPDATA%\\Subversion</literal>."
+"Remember to save Subversion's general settings, which you can find in the "
+"Subversion configuration file "
+"<literal>%APPDATA%\\Subversion\\config</literal>."
+msgstr "Setite se da sačuvate Subverziono opšte podešavanje, koje ćete naći u Subverzionom konfiguracionom fajlu <literal>%APPDATA%\\Subversion\\config</literal>."
 
 #. (title)
 msgid "Final Step"
@@ -14677,7 +14676,6 @@ msgid ""
 msgstr "Ako želite SubWCRev da izvrši zamenu ključne reči, ta polja kao reviziju spremišta i URL se čuvaju u tekst fahlu, potrebno je da obezbedite šablon fajl <literal>SrcVersionFile</literal> i izlazni fajl <literal>DstVersionFile</literal> koji sadrže zamenjenu verziju modela."
 
 #. (title)
-#. (title)
 msgid "List of available command line switches"
 msgstr "Lista dostupnih prekidača komandne linije"
 
@@ -14767,6 +14765,10 @@ msgstr "Postoji veliki broj opcionih prekidača koji utiču na način rada  SubW
 #. (title)
 msgid "Keyword Substitution"
 msgstr "Zamena ključnih reči"
+
+#. (title)
+msgid "List of available keywords"
+msgstr "Lista dostupnih ključnih reči"
 
 #. (entry)
 msgid "Keyword"
@@ -14971,7 +14973,7 @@ msgstr "Sledeći primer prikazuje kako ključne reči u šablon fajlu budu zamen
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.tmpl\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"$WCREV$\";\n"
 "char *Revision16    = \"$WCREV&amp;0xFF$\";\n"
@@ -15002,7 +15004,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Test fajl za SubWCRev: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15015,7 +15017,7 @@ msgstr "Posle izvršenja <literal>SubWCRev.exe path\\to\\workingcopy testfile.tm
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.txt\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"22837\";\n"
 "char *Revision16    = \"53\";\n"
@@ -15046,7 +15048,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Test fajl za SubWCRev: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15958,7 +15960,7 @@ msgstr "Koristi dijalog dnevnika revizija"
 msgid ""
 "By far the easiest way to revert the changes from one or more revisions, is "
 "to use the revision log dialog."
-msgstr ""
+msgstr "Najlakši način da se vrate izmene iz jedne ili više revizija je korišćenje dijaloga dnevnika revizija. "
 
 #. (para)
 msgid ""
@@ -15983,7 +15985,7 @@ msgid ""
 "<action>Right click</action> on the selected revision(s), then select "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Revert changes from "
 "this revision</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Izaberite reviziju koju želite da vratite. Ako želite da poništite deo revizije izaberite najpre jednu i držite <keycap>Šift</keycap> taster dok odabirate sledeći. Ako želite da pokupite pojedine revizije i opsege koristite <keycap>Ctrl</keycap> taster dok odabirate revizije. <action>Desni klik</action> na izabranu reviziju(e), zatim izaberite <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Vrati izmene ove revizije</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -16009,7 +16011,7 @@ msgid ""
 "If you want to enter revision numbers as a list, you can use the Merge "
 "dialog. The previous method uses merging behind the scenes; this method uses"
 " it explicitly."
-msgstr ""
+msgstr "Ako hoćete da unesete brojeve revizija kao listu koristite dijalog Stapanja. Prethodni metod koristi stapanje iza scene; ovaj metod ga koristi eksplicitno."
 
 #. (para)
 msgid ""
@@ -16021,38 +16023,38 @@ msgstr "U vašoj radnoj kopiji izaberite <menuchoice><guimenu>TortoiseSVN</guime
 msgid ""
 "In the <guilabel>Merge Type</guilabel> dialog select <guilabel>Merge a range"
 " of revisions</guilabel>."
-msgstr ""
+msgstr "U <guilabel>Tip stapanja</guilabel> dijalogu izaberite <guilabel>Stopi opseg revizija</guilabel>."
 
 #. (para)
 msgid ""
 "In the <guilabel>From:</guilabel> field enter the full repository URL of "
 "your working copy folder. This should come up as the default URL."
-msgstr ""
+msgstr "U <guilabel>Iz:</guilabel> polju unesite pun URL spremišta foldera vaše radne kopije. Ovo dolazi kao uobičajeni URL."
 
 #. (para)
 msgid ""
 "In the <guilabel>Revision range to merge</guilabel> field enter the list of "
 "revisions to roll back (or use the log dialog to select them as described "
 "above)."
-msgstr ""
+msgstr "U <guilabel>Opseg revizija za stapanje</guilabel> polju unesite listu revizija za vraćanje (ili koristite dijalog dnevnika da ih izaberete kako je opisano ranije)."
 
 #. (para)
 msgid "Make sure the <guilabel>Reverse merge</guilabel> checkbox is checked."
-msgstr ""
+msgstr "Budite sigurni da je <guilabel>Inverzno stapanje</guilabel> čekboks označen."
 
 #. (para)
 msgid "In the <guilabel>Merge options</guilabel> dialog accept the defaults."
-msgstr ""
+msgstr "U <guilabel>Opcije stapanja</guilabel> dijalogu prihvatite uobičajene."
 
 #. (para)
 msgid "Click <guibutton>Merge</guibutton> to complete the merge."
-msgstr ""
+msgstr "Kliknite <guibutton>Stapanje</guibutton>  da kompletirate stapanje."
 
 #. (para)
 msgid ""
 "You have reverted the changes within your working copy. Check that the "
 "results are as expected, then commit the changes."
-msgstr ""
+msgstr "Možete vratiti izmene u okviru vaše radne kopije. Proverite da su rezultati očekivani, zatim urežite izmene."
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"
@@ -16387,7 +16389,7 @@ msgid ""
 "config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
 "help with MSI customization, try one of the MSI transform forums or search "
 "the web for <quote>MSI transform</quote>."
-msgstr ""
+msgstr "Možete podesiti MSI fajl ako želite da svi korisnici završe istim podešavanjem. TSVN podešavanje je zapamćeno u registrima pod <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> i opšte Subverziono podešavanje (koji se tiče svih Subverzionih klijenata) zapamćen je u konfig fajlovima pod <filename>%APPDATA%\\Subversion</filename>. Ako vam treba pomoć sa MSI podešavanjem pokušajte jedan od forum izmena ili pretražite veb za <quote>MSI transformacija</quote>."
 
 #. (title)
 msgid "Redirect the upgrade check"
@@ -17480,18 +17482,18 @@ msgstr "Prerađuje keš ikona prozora. Samo koristite ovo u slučaju da su ikone
 #. (para)
 msgid ""
 "Shows the properties dialog for the path given in <option>/path</option>."
-msgstr ""
+msgstr "Prikazuje dijalog osobina za putanju datu u <option>/path</option>."
 
 #. (para)
 msgid ""
 "For dealing with versioned properties this command requires a working copy."
-msgstr ""
+msgstr "Za rad sa verzionisanim osobinama ova komanda zahteva radnu kopiju."
 
 #. (para)
 msgid ""
 "Revision properties can be viewed/changed if <option>/path</option> is an "
 "URL and <option>/rev:XXX</option> is specified."
-msgstr ""
+msgstr "Revizione osobine mogu biti viđene/izmenjene ako je <option>/path</option> URL i <option>/rev:XXX</option> je specificiran."
 
 #. (para)
 msgid ""
@@ -18336,7 +18338,7 @@ msgid ""
 "disable the <emphasis>Ignored</emphasis> and "
 "<emphasis>Unversioned</emphasis> overlays then no overlay will be shown for "
 "those files either."
-msgstr ""
+msgstr "Ako stavka ima Subverzioni status <literal>ne</literal> (stavka nije u okviru radne kopije) onda prekrivač nije prikazan. Ako ste izabrali da onemogućite <emphasis>Zanemaren</emphasis> i <emphasis>Neverzionisan</emphasis> prekrivače onda nikakvi prekrivači neće biti prikazani za ove fajlove."
 
 #. (para)
 msgid ""
@@ -19759,8 +19761,8 @@ msgstr "<guilabel>Osiguran originalni fajl</guilabel> preimenije originalni fajl
 #. (para)
 msgid ""
 "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
-"loaded as UTF8 encoded and saved as such when edited."
-msgstr "<guilabel>Default to UTF-8 encoding</guilabel> kada je izabrano, ANSI fajlovi se unose kao UTF8 kodirani i pamte kao takvi kada se uređuju."
+"loaded as UTF-8 encoded and saved as such when edited."
+msgstr "<guilabel>Uobičajeno za UTF-8 kodiranje</guilabel> kada se uključi, ANSI fajlovi su učitani kao UTF-8 kodirani i sačuvani isto tako kada se urede."
 
 #. (para)
 msgid ""
@@ -20052,23 +20054,23 @@ msgstr "Izmene između preloma linija"
 
 #. (term)
 msgid "Ctrl-G"
-msgstr ""
+msgstr "CTRL-G"
 
 #. (para)
 msgid "Go to line"
-msgstr ""
+msgstr "Idi na liniju"
 
 #. (para)
 msgid "Select all text"
-msgstr ""
+msgstr "Izaberi ceo tekst"
 
 #. (term)
 msgid "Ctrl-U"
-msgstr ""
+msgstr "CTRL-U"
 
 #. (para)
 msgid "Switches views"
-msgstr ""
+msgstr "Zamenjuje preglede"
 
 #. (term)
 msgid "Ctrl-mousewheel"

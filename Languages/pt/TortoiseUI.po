@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-13 00:51+0000\n"
+"PO-Revision-Date: 2012-10-07 22:46+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3962,6 +3962,14 @@ msgstr "Deseja retirar o controlo de versões a esta cópia de trabalho?\nIsso r
 msgid "Do you want to mark '%s' as resolved?"
 msgstr "Queres marcar '%s' como resolvido?"
 
+#. Resource IDs: (319)
+#, c-format
+msgid ""
+"Do you want to mark the file\n"
+"%s\n"
+"as resolved?"
+msgstr "Queres marcar o ficheiro ⏎ %s⏎ como resolvido?"
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "Deseja continuar?"
@@ -4634,6 +4642,10 @@ msgstr "O ficheiro contém marcadores de conflito"
 msgid "File diffs"
 msgstr "Diferenças entre ficheiros"
 
+#. Resource IDs: (319)
+msgid "File has no conflicts"
+msgstr "O ficheiro não tem conflitos"
+
 #. Resource IDs: (314)
 msgid "File is empty."
 msgstr "O ficheiro está vazio."
@@ -4755,8 +4767,8 @@ msgid "Find"
 msgstr "Localizar"
 
 #. Resource IDs: (1633)
-msgid "Find &Head-Revision"
-msgstr "Encontra a Revisão-&Head"
+msgid "Find &HEAD-Revision"
+msgstr "Encontra a Revisão-&HEAD"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
@@ -5035,14 +5047,10 @@ msgstr "HEAD (mais recente)"
 msgid "HEAD node"
 msgstr "Nó HEAD"
 
-#. Resource IDs: (218)
-msgid "Head"
-msgstr "Head"
-
 #. Resource IDs: (106)
 #, c-format
-msgid "Head revision is %s"
-msgstr "A revisão HEAD (mais recente) é %s"
+msgid "HEAD revision is %s"
+msgstr "A revisão HEAD é %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5880,6 +5888,12 @@ msgstr "Lança um programa externo de comparação / integração para resolver 
 msgid "Least active author:"
 msgstr "Autor menos activo:"
 
+#. Resource IDs: (319)
+msgid ""
+"Leave as conflicted\n"
+"The conflict status of the file is kept"
+msgstr "Deixar em conflito⏎ É mantido o estado de conflito do ficheiro"
+
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr "Deixar com conflito:"
@@ -6134,6 +6148,12 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr "Marca como resolvido\nO conflito está resolvido"
+
+#. Resource IDs: (319)
+msgid ""
+"Mark as resolved\n"
+"The file status is changed to modified"
+msgstr "Marcar como resolvido⏎ O estado do ficheiro é alterado para modificado"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -10076,19 +10096,19 @@ msgstr "Estes documentos são mais recentes que os que estão abertos e contém 
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed folders selected "
-"for commit. Such moves/renames are always performed recursively in the "
-"repository. Do you want to commit anyway?"
-msgstr "Esta submissão não é recursiva, e existem pastas movidas/renomeadas seleccionadas para submeter. Tais pastas movidas/renomeadas são sempre executadas recursivamente no repositório. Desejas mesmo assim submeter?"
+"This commit is not recursive, and there are moved/renamed/copied folders "
+"selected for commit. Such moves/renames are always performed recursively in "
+"the repository. Do you want to commit anyway?"
+msgstr "Esta submissão não é recursiva e estão pastas movidas/renomeadas/copiadas seleccionadas para submeter. Tais operações mover/renomear são sempre executadas recursivamente no repositório. Pretendes na mesma submeter?"
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed\n"
+"This commit is not recursive, and there are moved/renamed/copied\n"
 "folders selected for commit. Such moves/renames\n"
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr "Esta submissão não é recursiva, e existem pastas movidas/renomeadas seleccionadas para submeter. Tais pastas movidas/renomeadas são sempre executas recursivamente no repositório.\n\nDesejas mesmo assim submeter?"
+msgstr "Esta submissão não é recursiva e estão pastas ⏎ movidas/renomeadas/copiadas seleccionadas para submeter. Tais operações mover/renomear são sempre executadas recursivamente no repositório.⏎ ⏎ Pretendes na mesma submeter?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10817,10 +10837,6 @@ msgstr "Usar a reciclagem quando revertendo"
 msgid "Use regular expression"
 msgstr "Usar expressão regular"
 
-#. Resource IDs: (1066)
-msgid "Use stri&keout for removed lines"
-msgstr "Usar &riscado nas linhas removidas"
-
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Usar a configuração de região do sistema para a data/hora"
@@ -11049,6 +11065,13 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "Quando forem bloqueados um ou mais arquivos seleccionados, mostrar uma\ncaixa de diálogo pedindo uma mensagem descritiva acerca do bloqueamento"
+
+#. Resource IDs: (316)
+msgid ""
+"When resolving conflicts, you always have to save even if there is no "
+"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
+"show a conflict for those!"
+msgstr "Ao resolver conflitos terás sempre de salvar, mesmo que não existam conflitos. O TortoiseMerge pode integrar alterações que o SVN não consegue e não mostra como conflito!"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11575,8 +11598,8 @@ msgid "get HEAD revision:"
 msgstr "Obtém a revisão HEAD:"
 
 #. Resource IDs: (591)
-msgid "get repository root urls:"
-msgstr "Obtém  os urls da raiz do repositório:"
+msgid "get repository root URLs:"
+msgstr "obtém URLs da raiz do repositório:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11615,8 +11638,8 @@ msgid "keep the file lists in English"
 msgstr "mantém as listas de ficheiros em Inglês"
 
 #. Resource IDs: (65535)
-msgid "last head update: "
-msgstr "última actualização da cabeça:"
+msgid "last HEAD update: "
+msgstr "última actualização HEAD:"
 
 #. Resource IDs: (65535)
 msgid "last read: "

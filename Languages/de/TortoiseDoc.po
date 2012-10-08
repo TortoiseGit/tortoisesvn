@@ -12,14 +12,15 @@
 # Translators:
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Lübbe Onken <l.onken@rac.de>, 2011-2012.
+#   <peu@rekoba.de>, 2012.
 # Stefan Kueng <tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-20 07:05+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2012-09-26 09:16+0000\n"
+"Last-Translator: peu <peu@rekoba.de>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,7 +81,7 @@ msgid ""
 " the next day. Imagine a team of such developers working concurrently - and "
 "perhaps even simultaneously on the very same files! - and you can see why a "
 "good system is needed to <emphasis>manage the potential chaos</emphasis>."
-msgstr "Versionskontrolle ist die Kunst, die Kontrolle über Änderungen an Informationen zu behalten. Es ist seit langer Zeit ein unverzichtbares Hilfsmittel für Programmierer, welche ihre Zeit damit verbringen, jeweils kleine Änderungen an Software vorzunehmen und dann manchmal diese Änderungen am nächsten Tag zurücknehmen. Stellen Sie sich ein Team von solchen Programmierern vor, welche gleichzeitig an dem selben Projekt - und dabei unter Umständen auch noch gleichzeitig an denselben Dateien! - arbeiten und Sie können sehen, warum ein gutes Versionskontrollsystem notwendig ist, um ein <emphasis>mögliches Chaos zu verhindern </emphasis>."
+msgstr "Versionskontrolle ist die Kunst, die Kontrolle über Änderungen an Informationen zu behalten. Es ist seit langer Zeit ein unverzichtbares Hilfsmittel für Programmierer, die üblicherweise ihre Zeit damit verbringen, kleine Änderungen an Software vorzunehmen, um diese dann am nächsten Tag zurücknehmen oder zu prüfen. Stellen Sie sich ein Team von solchen Programmierern vor, die gleichzeitig am selben Projekt - und vielleicht sogar an denselben Dateien! - arbeiten und Sie können sehen, warum ein gutes Versionskontrollsystem notwendig ist, um <emphasis>das mögliche Chaos im Griff zu behalten</emphasis>."
 
 #. (title)
 msgid "What is TortoiseSVN?"
@@ -108,7 +109,7 @@ msgid ""
 "supplying tools for building software. Subversion, however, is not one of "
 "these systems; it is a general system that can be used to manage "
 "<emphasis>any</emphasis> collection of files, including source code."
-msgstr "Einige Versionskontrollsysteme sind zugleich Programmkonfigurations-Managementsysteme (Software Configuration Management Systems, SCM). Diese Systeme sind speziell dazu ausgelegt, Quellcode zu handhaben und haben viele Funktionen, welche spezifisch für die Softwareentwicklung sind - so verstehen diese etwa verschiedene Programmiersprachen oder stellen Hilfsmittel für die Erstellung von Programmen zur Verfügung. Subversion hingegen ist kein solches System; es ist allgemein gehalten, so dass es für die Handhabung von <emphasis>beliebigen</emphasis> Dateien, einschließlich Quellcode, geeignet ist."
+msgstr "Einige Versionskontrollsysteme sind zugleich Programmkonfigurations-Managementsysteme (Software Configuration Management Systems, SCM). Diese Systeme sind speziell dazu ausgelegt, Quellcode zu handhaben und haben viele Funktionen, die spezifisch für die Softwareentwicklung sind - z.B. bestimmte Programmiersprachen zu verstehen oder Hilfsmittel für die Erstellung von Programmen zur Verfügung zu stellen. Subversion hingegen ist kein solches System; es ist allgemein gehalten, so dass es für die Handhabung von <emphasis>beliebigen</emphasis> Dateien, einschließlich Quellcode, geeignet ist."
 
 #. (title)
 msgid "TortoiseSVN's Features"
@@ -118,7 +119,7 @@ msgstr "Eigenschaften von TortoiseSVN"
 msgid ""
 "What makes TortoiseSVN such a good Subversion client? Here's a short list of"
 " features."
-msgstr "Was macht TortoiseSVN zu einem guten Subversion Client? Hier eine Liste der herausragenden Eigenschaften:"
+msgstr "Was macht TortoiseSVN zu einem guten Subversion-Client? Hier eine Liste der herausragenden Eigenschaften:"
 
 #. (term)
 msgid "Shell integration"
@@ -138,7 +139,7 @@ msgid ""
 "explorer). This means you can keep working with the tools you're already "
 "familiar with. And you do not have to change into a different application "
 "each time you need the functions of version control."
-msgstr "TortoiseSVN fügt sich nahtlos in die Windows Shell (z.B. den Explorer) ein. Das heißt, Sie können weiter mit den gewohnten Programmen arbeiten und müssen sich nicht an ein neues Programm gewöhnen. Und brauchen auch nicht jedes mal erst in ein anderes Programm zu wechseln, wenn Sie Funktionen der Versionskontrolle benötigen."
+msgstr "TortoiseSVN fügt sich nahtlos in die Windows Shell (z.B. den Explorer) ein. Das heißt, Sie können weiter mit den gewohnten Programmen arbeiten und müssen sich nicht an ein neues Programm gewöhnen. Und Sie brauchen auch nicht jedes mal erst in ein anderes Programm zu wechseln, wenn Sie Funktionen der Versionskontrolle benötigen."
 
 #. (para)
 msgid ""
@@ -148,7 +149,7 @@ msgid ""
 "bear in mind that TortoiseSVN is intentionally developed as an extension for"
 " the Windows Explorer. Thus it is possible that in other applications the "
 "integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "Und dabei sind Sie nicht einmal gezwungen, den Windows Explorer zu benutzen. Auch in anderen Dateimanagern stehen Ihnen prinzipiell das Kontextmenü und die anderen Funktionen von TortoiseSVN zur Verfügung. Wobei allerdings zu beachten ist, dass TortoiseSVN speziell als Erweiterung des Windows Explorers entwickelt wird. Daher kann es sein, dass in anderen Programmen die Integration nicht vollständig ist und beispielsweise die überlagerten Symbole nicht angezeigt werden."
+msgstr "Und dabei sind Sie nicht einmal gezwungen, den Windows Explorer zu benutzen. Auch in anderen Dateimanagern stehen Ihnen prinzipiell das Kontextmenü und die anderen Funktionen von TortoiseSVN zur Verfügung. Sie sollten dabei allerdings beachten, dass TortoiseSVN bewusst als Erweiterung des Windows Explorers entwickelt wird. So ist es möglich, dass in anderen Programmen die Integration nicht vollständig ist und beispielsweise die überlagerten Symbole nicht angezeigt werden."
 
 #. (term)
 msgid "Icon overlays"
@@ -178,7 +179,7 @@ msgid ""
 " each item has a checkbox so you can choose which items you want to include."
 " Unversioned files can also be listed, in case you forgot to add that new "
 "file."
-msgstr "Der Übertragen Dialog listet alle möglichen, zu übertragenden Objekte auf. Über die Ankreuzfelder können Sie festlegen, welche Objekte übertragen werden sollen. Nicht versionierte Objekte können ebenfalls angezeigt werden, so dass Sie neue Dateien zur Versionskontrolle hinzufügen können."
+msgstr "Der Übertragen-Dialog listet alle zu übertragenden Objekte auf. Über die Ankreuzfelder können Sie festlegen, welche Objekte übertragen werden sollen. Nicht versionierte Objekte können ebenfalls angezeigt werden, so können Sie neue Dateien leicht zur Versionskontrolle hinzufügen, sollten Sie es zuvor vergessen haben."
 
 #. (term)
 msgid "Easy access to Subversion commands"
@@ -188,13 +189,13 @@ msgstr "Einfacher Zugriff auf Subversion-Befehle"
 msgid ""
 "All Subversion commands are available from the explorer context menu. "
 "TortoiseSVN adds its own submenu there."
-msgstr "Alle Befehle von Subversion sind über das Kontextmenü des Explorers zugänglich; TortoiseSVN fügt dort ein eigenes Untermenü ein."
+msgstr "Alle Subversion-Befehle sind über das Kontextmenü des Explorers zugänglich; TortoiseSVN fügt dort sein eigenes Untermenü ein."
 
 #. (para)
 msgid ""
 "Since TortoiseSVN is a Subversion client, we would also like to show you "
 "some of the features of Subversion itself:"
-msgstr "Da TortoiseSVN ein Subversion Client ist, möchten wir auch ein paar Features von Subversion selbst erwähnen:"
+msgstr "Da TortoiseSVN ein Subversion-Client ist, möchten wir auch ein paar Features von Subversion selbst erwähnen:"
 
 #. (term)
 msgid "Directory versioning"
@@ -207,7 +208,7 @@ msgid ""
 "directory trees over time. Files <emphasis>and</emphasis> directories are "
 "versioned. As a result, there are real client-side <command>move</command> "
 "and <command>copy</command> commands that operate on files and directories."
-msgstr "CVS speichert nur die Geschichte von einzelnen Dateien, aber Subversion implementiert ein <quote>virtuelles</quote> versioniertes Dateisystem, welches auch Änderungen an Ordnern über die Zeit speichert. Dateien <emphasis>und</emphasis> Ordner werden kontrolliert. Daher gibt es clientseitige Befehle, um Dateien/Ordner zu <command>verschieben</command> und zu <command>kopieren</command> die mit Dateien und Ordnern arbeiten."
+msgstr "CVS speichert nur die Geschichte von einzelnen Dateien, aber Subversion implementiert ein <quote>virtuelles</quote> versioniertes Dateisystem, das auch Änderungen an Ordnern über die Zeit speichert. Dateien <emphasis>und</emphasis> Ordner werden versioniert. Daher gibt es clientseitige Befehle, um Dateien/Ordner zu <command>verschieben</command> und zu <command>kopieren</command> die mit Dateien und Ordnern arbeiten."
 
 #. (term)
 msgid "Atomic commits"
@@ -217,7 +218,7 @@ msgstr "Atomare Übertragungen"
 msgid ""
 "A commit either goes into the repository completely, or not at all. This "
 "allows developers to construct and commit changes as logical chunks."
-msgstr "Eine Übertragung von Änderungen geht entweder komplett in das Projektarchiv oder gar nicht. Das erlaubt Entwicklern, Änderungen als zusammenhängende logische Einheit zu übertragen."
+msgstr "Eine Übertragung von Änderungen geht entweder komplett in das Projektarchiv oder gar nicht. Das erlaubt es Entwicklern, Änderungen als logisch zusammenhängende Einheit zu erzeugen und zu übertragen."
 
 #. (term)
 msgid "Versioned metadata"
@@ -228,7 +229,7 @@ msgid ""
 "Each file and directory has an invisible set of <quote>properties</quote> "
 "attached. You can invent and store any arbitrary key/value pairs you wish. "
 "Properties are versioned over time, just like file contents."
-msgstr "Jede Datei und jeder Ordner hat einen unsichtbaren Satz von <quote>Eigenschaften</quote> angehängt. Sie können selbst neue Eigenschaften definieren und jede Art von Schlüssel/Wertepaare speichern. Änderungen an Eigenschaften werden versioniert, genauso wie der normale Dateiinhalt."
+msgstr "Jeder Datei und jedem Ordner ist ein unsichtbarer Satz von <quote>Eigenschaften</quote> zugeordnet. Sie können selbst neue Eigenschaften definieren und jede Art von Schlüssel-Wert-Paaren speichern. Änderungen an Eigenschaften werden versioniert, genauso wie der normale Dateiinhalt."
 
 #. (term)
 msgid "Choice of network layers"
@@ -245,7 +246,7 @@ msgid ""
 "compression, and repository browsing, for example. A smaller, standalone "
 "Subversion server process is also available. This server speaks a custom "
 "protocol which can be easily tunneled over ssh."
-msgstr "Subversion hat einen abstrakten Begriff des Zugriffs auf das Projektarchiv, der es einfach macht, neue Netzwerkschichten zu implementieren. Subversions <quote>fortgeschrittener</quote> Netzwerkserver ist ein Modul für den Apache Web-Server, welcher eine Variante von HTTP genannt WebDAV/DeltaV nutzt. Dies gibt Subversion einen Vorteil an Stabilität und Interoperabilität, und stellt verschiedene Schlüsselfunktionen gratis zur Verfügung: Anmeldung, Autorisierung, Netzwerkdatenkompression, Verschlüsselung via SSL und das Betrachten des Projektarchivs in einem Web-Browser zum Beispiel. Ein kleinerer Subversion Server ist ebenfalls vorhanden. Dieser Server nutzt ein eigenes Netzwerkprotokoll, welches über SSH getunnelt werden kann."
+msgstr "Subversion hat einen abstrakten Begriff des Zugangs zum Projektarchiv, der es einfach macht, neue Netzwerkschichten zu implementieren. Subversions <quote>fortgeschrittener</quote> Netzwerkserver ist ein Modul für den Apache Web-Server, welcher eine Variante von HTTP genannt WebDAV/DeltaV nutzt. Dies gibt Subversion einen Vorteil an Stabilität und Interoperabilität, und stellt verschiedene Schlüsselfunktionen gratis zur Verfügung: Anmeldung, Autorisierung, Netzwerkdatenkompression, Verschlüsselung via SSL und das Betrachten des Projektarchivs in einem Web-Browser zum Beispiel. Ein kleinerer Subversion Server ist ebenfalls vorhanden. Dieser Server nutzt ein eigenes Netzwerkprotokoll, welches über SSH getunnelt werden kann."
 
 #. (term)
 msgid "Consistent data handling"
@@ -258,7 +259,7 @@ msgid ""
 "unreadable) files. Both types of files are stored equally compressed in the "
 "repository, and differences are transmitted in both directions across the "
 "network."
-msgstr "Subversion drückt Dateiunterschiede mit Hilfe eines binären Differenzalgorithmus aus, welcher identisch für Text- und Binärdateien arbeitet. Beide Dateiarten werden gleich komprimiert im Projektarchiv abgespeichert, und jeweils nur diese Differenz wird in beiden Richtungen übers Netzwerk übertragen."
+msgstr "Subversion drückt Dateiunterschiede mit Hilfe eines binären Differenzalgorithmus aus, welcher identisch für Text- und Binärdateien arbeitet. Beide Dateiarten werden gleichermaßen komprimiert im Projektarchiv abgespeichert, und jeweils nur diese Differenz wird in beiden Richtungen übers Netzwerk übertragen."
 
 #. (term)
 msgid "Efficient branching and tagging"
@@ -282,7 +283,7 @@ msgid ""
 "TortoiseSVN is an Open Source project developed under the GNU General Public"
 " License (GPL). It is free to download and free to use, either personally or"
 " commercially, on any number of PCs."
-msgstr "TortoiseSVN ist ein Open Source Projekt, das unter der GNU General Public License (GPL) entwickelt wird. Es ist frei herunterzuladen und zu nutzen, sowohl privat als auch kommerziell auf einer beliebigen Anzahl von Computern."
+msgstr "TortoiseSVN ist ein Open-Source-Projekt, das unter der GNU General Public License (GPL) entwickelt wird. Es ist frei herunterzuladen und zu nutzen, sowohl privat als auch kommerziell auf einer beliebigen Anzahl von Computern."
 
 #. (para)
 msgid ""
@@ -303,7 +304,7 @@ msgid ""
 "Both TortoiseSVN and Subversion are developed by a community of people who "
 "are working on those projects. They come from different countries all over "
 "the world, working together to create great software."
-msgstr "Sowohl TortoiseSVN als auch Subversion werden von einer Gemeinschaft von Personen entwickelt. Diese Leute kommen aus vielen verschiedenen Ländern der Welt und arbeiten zusammen, um diese tollen Programme weiter zu entwickeln."
+msgstr "Sowohl TortoiseSVN als auch Subversion werden von einer Gemeinschaft von Personen entwickelt. Diese Leute kommen aus vielen verschiedenen Ländern der Welt und arbeiten zusammen, um diese tollen Programme zu entwickeln."
 
 #. (title)
 msgid "TortoiseSVN's History"
@@ -336,7 +337,7 @@ msgid ""
 "quickly (and is still growing every day). That's when Lübbe Onken offered to"
 " help out with some nice icons and a logo for TortoiseSVN. He now takes care"
 " of the website and manages the many translations."
-msgstr "Während Subversion immer stabiler wurde, zog es immer mehr Benutzer an, welche auch TortoiseSVN als ihren Subversion Client verwenden. Die Benutzerzahl wuchs schnell (und wächst täglich weiter). Zu dieser Zeit bot Lübbe Onken an, beim Design zu helfen und kreierte die Symbole und das Logo für TortoiseSVN. Er kümmert sich seitdem auch um die Webseite und betreut die vielen Übersetzer."
+msgstr "Während Subversion immer stabiler wurde, zog es immer mehr Benutzer an, welche auch TortoiseSVN als ihren Subversion-Client verwendeten. Die Benutzerzahl wuchs schnell (und wächst täglich weiter). Zu dieser Zeit bot Lübbe Onken an, beim Design zu helfen und kreierte die Symbole und das Logo für TortoiseSVN. Er kümmert sich seitdem auch um die Webseite und betreut die vielen Übersetzer."
 
 #. (title)
 msgid "Acknowledgments"
@@ -348,7 +349,7 @@ msgstr "Tim Kemp"
 
 #. (para)
 msgid "for starting the TortoiseSVN project"
-msgstr "für den Beginn des TortoiseSVN Projekts"
+msgstr "für den Beginn des TortoiseSVN-Projekts"
 
 #. (term)
 msgid "Stefan Küng"
@@ -384,11 +385,11 @@ msgstr "Stefan Fuhrmann"
 
 #. (para)
 msgid "for the log cache and revision graph"
-msgstr "für den Log-Puffer und den Revisionsgraphen"
+msgstr "für den Log-Cache und den Revisionsgraphen"
 
 #. (term)
 msgid "The Subversion Book"
-msgstr "Das Subversion Buch"
+msgstr "Das Subversion-Buch"
 
 #. (para)
 msgid ""
@@ -402,7 +403,7 @@ msgstr "Das Tigris Style Projekt"
 
 #. (para)
 msgid "for some of the styles which are reused in this documentation"
-msgstr "für einige der Stile, welche für diese Dokumentation verwendet wurden."
+msgstr "für einige der Stile, die in dieser Dokumentation wiederverwendet werden."
 
 #. (term)
 msgid "Our Contributors"
@@ -420,7 +421,7 @@ msgstr "Unsere Spender"
 
 #. (para)
 msgid "for many hours of joy with the music they sent us"
-msgstr "für viele Stunden voll toller Musik, welche sie uns geschenkt haben."
+msgstr "für viele Stunden voll toller Musik, die sie uns geschenkt haben."
 
 #. (title)
 msgid "Reading Guide"
@@ -432,7 +433,7 @@ msgid ""
 "to manage their data, but prefer to use a GUI client rather than a command "
 "line client. TortoiseSVN is a windows shell extension and it is assumed that"
 " the user is familiar with the windows explorer and how to use it."
-msgstr "Dieses Buch ist für Computerbenutzer geschrieben, welche Subversion für die Versionierung ihrer Daten nutzen wollen, aber den Umgang mit der Kommandozeile nicht gewohnt sind. Da TortoiseSVN eine Windows Shell-Erweiterung ist, wird angenommen, dass der Leser den Umgang mit dem Explorer gewohnt ist und weiß, wie man diesen benutzt."
+msgstr "Dieses Buch ist für Computerbenutzer geschrieben, die Subversion für die Versionierung ihrer Daten nutzen wollen, aber den Umgang mit der Kommandozeile nicht gewohnt sind. Da TortoiseSVN eine Windows Shell-Erweiterung ist, wird angenommen, dass der Leser den Umgang mit dem Explorer gewohnt ist und weiß, wie man diesen benutzt."
 
 #. (para)
 msgid ""
@@ -445,7 +446,7 @@ msgstr "Dieses <xref linkend=\"tsvn-preface\"/> erklärt das TortoiseSVN Projekt
 msgid ""
 "The <xref linkend=\"tsvn-quick-start\"/> explains how to install TortoiseSVN"
 " on your PC, and how to start using it straight away."
-msgstr "In <xref linkend=\"tsvn-quick-start\"/> wird erklärt, wie TortoiseSVN auf Ihrem PC installiert wird und wie sie es gleich benutzen können."
+msgstr "In <xref linkend=\"tsvn-quick-start\"/> wird erklärt, wie Sie TortoiseSVN auf Ihrem PC installieren und wie Sie es gleich benutzen können."
 
 #. (para)
 msgid ""
@@ -454,7 +455,7 @@ msgid ""
 "TortoiseSVN. This is borrowed from the documentation for the Subversion "
 "project and explains the different approaches to version control, and how "
 "Subversion works."
-msgstr "In <xref linkend=\"tsvn-basics\"/> geben wir eine kurze Einführung in das <emphasis>Subversion</emphasis> Versionskontrollsystem, welches TortoiseSVN zugrunde liegt. Dieses Kapitel stammt aus der Dokumentation des Subversion Projekts und erklärt die verschiedenen Ansätze zur Versionskontrolle und wie Subversion arbeitet."
+msgstr "In <xref linkend=\"tsvn-basics\"/> geben wir eine kurze Einführung in das Versionskontrollsystem <emphasis>Subversion</emphasis>, das TortoiseSVN zugrunde liegt. Dieses Kapitel stammt aus der Dokumentation des Subversion-Projekts und erklärt die verschiedenen Ansätze zur Versionskontrolle und wie Subversion arbeitet."
 
 #. (para)
 msgid ""
@@ -463,7 +464,7 @@ msgid ""
 "using a single PC. It also explains a bit about repository administration "
 "which is also relevant to repositories located on a server. There is also a "
 "section here on how to setup a server if you need one."
-msgstr "In <xref linkend=\"tsvn-repository\"/> wird erklärt, wie ein lokales Projektarchiv angelegt wird, damit Sie TortoiseSVN und Subversion auf einem einzigen PC testen können. Weiterhin wird auf die Verwaltung von Projektarchiven eingegangen, was für Projektarchive, die sich auf einem Server befinden, relevant ist. Darüber hinaus gibt es einen Abschnitt, der sich mit dem Einrichten eines Subverision Servers befasst."
+msgstr "In <xref linkend=\"tsvn-repository\"/> wird erklärt, wie ein lokales Projektarchiv angelegt wird, damit Sie TortoiseSVN und Subversion auf einem einzigen PC testen können. Weiterhin wird auf die Verwaltung von Projektarchiven eingegangen, was für Projektarchive relevant ist, die sich auf einem Server befinden. Darüber hinaus gibt es einen Abschnitt zur Einrichtung eines Subversion-Servers."
 
 #. (para)
 msgid ""
@@ -472,7 +473,7 @@ msgid ""
 "the form of a tutorial, starting with checking out a working copy, modifying"
 " it, committing your changes, etc. It then progresses to more advanced "
 "topics."
-msgstr "<xref linkend=\"tsvn-dug\"/> ist das wichtigste Kapitel der Dokumentation, da darin alle Funktionen von TortoiseSVN sowie ihre Verwendung erklärt werden. Es hat die Form einer Anleitung, beginnend mit dem Auschecken einer Arbeitskopie, Durchführen von Änderungen, Übertragen der Änderungen und so weiter. In den weiteren Abschnitten wird auf fortgeschrittene Themen eingegangen."
+msgstr "<xref linkend=\"tsvn-dug\"/> ist das wichtigste Kapitel der Dokumentation, da darin alle Funktionen von TortoiseSVN sowie ihre Verwendung erklärt werden. Es hat die Form einer Anleitung, beginnend mit dem Auschecken einer Arbeitskopie, Änderungen an dieser, dem Übertragen der Änderungen und so weiter. In den darauf folgenden Abschnitten wird auf fortgeschrittene Themen eingegangen."
 
 #. (para)
 msgid ""
@@ -480,7 +481,7 @@ msgid ""
 "TortoiseSVN which can extract the information from your working copy and "
 "write it into a file. This is useful for including build information in your"
 " projects."
-msgstr "<xref linkend=\"tsvn-subwcrev\"/> ist ein separates Programm des TortoiseSVN Pakets, das Informationen aus einer Arbeitskopie extrahieren und in eine Datei schreiben kann. Dieses Programm ist nützlich, um Informationen beim Erzeugen in Ihr Projekt einzubinden."
+msgstr "<xref linkend=\"tsvn-subwcrev\"/> ist ein separates Programm des TortoiseSVN-Pakets, das Informationen aus einer Arbeitskopie extrahieren und in eine Datei schreiben kann. Dieses Programm ist nützlich, um Informationen in die Erzeugung Ihres Projekts einzubeziehen."
 
 #. (para)
 msgid ""
@@ -493,14 +494,14 @@ msgid ""
 "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN"
 " GUI dialogs can be called from the command line. This is useful for "
 "scripting where you still need user interaction."
-msgstr "Der <xref linkend=\"tsvn-automation\"/> beschreibt, wie die TortoiseSVN GUI-Dialoge von der Kommandozeile aus aufgerufen werden können. Dies ist nützlich, wenn Sie TortoiseSVN aus Skripten heraus aufrufen aber trotzdem noch Benutzereingaben benötigen."
+msgstr "Der <xref linkend=\"tsvn-automation\"/> beschreibt, wie die TortoiseSVN GUI-Dialoge von der Kommandozeile aus aufgerufen werden können. Dies ist nützlich, wenn Sie TortoiseSVN aus Skripten heraus aufrufen, aber trotzdem noch Benutzereingaben benötigen."
 
 #. (para)
 msgid ""
 "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN "
 "commands and their equivalents in the Subversion command line client "
 "<literal>svn.exe</literal>."
-msgstr "In <xref linkend=\"tsvn-cli\"/> geben einen Überblick über die Zusammenhänge zwischen TortoiseSVN Befehlen und ihren Äquivalenten in dem Subversion Kommandozeilenprogramm <literal>svn.exe</literal>."
+msgstr "In <xref linkend=\"tsvn-cli\"/> geben einen Überblick über die Zusammenhänge zwischen TortoiseSVN-Befehlen und ihren Äquivalenten in dem Subversion-Kommandozeilenprogramm <literal>svn.exe</literal>."
 
 #. (title)
 msgid "Terminology used in this document"
@@ -526,13 +527,13 @@ msgid ""
 "Where a local context menu appears within one of the TortoiseSVN dialogs, it"
 " is shown like this: <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
-msgstr "Ein lokales Kontextmenü in einem TortoiseSVN Dialog wird folgendermaßen angezeigt: <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Speichern Unter...</guimenuitem> </menuchoice>"
+msgstr "Ein lokales Kontextmenü in einem TortoiseSVN-Dialog wird folgendermaßen angezeigt: <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Speichern Unter...</guimenuitem> </menuchoice>"
 
 #. (para)
 msgid ""
 "User Interface Buttons are indicated like this: Press "
 "<guibutton>OK</guibutton> to continue."
-msgstr "Schaltflächen werden durch einen 3D Effekt hervorgehoben: Drücken Sie <guibutton>OK</guibutton>, um weiterzumachen."
+msgstr "Schaltflächen werden durch einen 3D-Effekt hervorgehoben: Drücken Sie <guibutton>OK</guibutton>, um weiterzumachen."
 
 #. (para)
 msgid ""
@@ -541,7 +542,7 @@ msgid ""
 "press the <keycap>A</keycap>-Key as well. <action>Right drag</action>: press"
 " the right mouse button and while holding it down <emphasis>drag</emphasis> "
 "the items to the new location."
-msgstr "Benutzeraktionen werden durch Fettdruck hervorgehoben. <keycap>Alt+A</keycap>: Drücken Sie die <keycap>Alt</keycap>-Taste und während Sie diese gedrückt halten, die <keycap>A</keycap>-Taste dazu. <action>Rechts-Ziehen</action>: Halten Sie die rechte Maustaste gedrückt und <emphasis>ziehen</emphasis> Sie die gewählten Einträge an den neuen Ort."
+msgstr "Benutzeraktionen werden durch Fettdruck hervorgehoben. <keycap>Alt+A</keycap>: Drücken Sie die <keycap>Alt</keycap>-Taste und, während Sie diese gedrückt halten, die <keycap>A</keycap>-Taste dazu. <action>Rechts-Ziehen</action>: Halten Sie die rechte Maustaste gedrückt und <emphasis>ziehen</emphasis> Sie die gewählten Einträge an den neuen Ort."
 
 #. (para)
 msgid ""
@@ -594,14 +595,14 @@ msgid ""
 "Windows also includes the 32-bit extension parts. Which means you don't need"
 " to install the 32-bit version separately to get the TortoiseSVN context "
 "menu and overlays in 32-bit applications."
-msgstr "TortoiseSVN läuft unter Windows XP mit Service Pack 3 oder neuer und steht als 32-Bit oder 64-Bit Anwendung zur Verfügung. Das 64-Bit Installationsprogramm enthält auch die 32-Bit Teile. Das bedeutet, dass sie die 32-Bit Applikation nicht separat installieren müssen, um die TortoiseSVN Kontextmenüs und überlagerten Symbole in 32-Bit Anwendungen zu erhalten."
+msgstr "TortoiseSVN läuft unter Windows XP mit Servicepack 3 oder neuer und steht als 32-Bit- oder 64-Bit-Anwendung zur Verfügung. Das 64-Bit-Installationsprogramm enthält auch die 32-Bit-Teile. Das bedeutet, dass sie die 32-Bit-Applikation nicht separat installieren müssen, um die TortoiseSVN-Kontextmenüs und überlagerten Symbole in 32-Bit-Anwendungen zu erhalten."
 
 #. (para)
 msgid ""
 "If you're using Windows XP, you <emphasis>must</emphasis> have at least the "
 "service pack 3 installed. It won't work if you haven't installed that SP "
 "yet!"
-msgstr "Wenn Sie Windows XP verwenden, haben <emphasis>müssen</emphasis> Sie mindestens das Servicepack 3 installiert. Ohne Installation des SP wird es wird nicht funktionieren!"
+msgstr "Wenn Sie Windows XP verwenden, <emphasis>müssen</emphasis> Sie mindestens das Servicepack 3 installiert haben. Ohne Installation dieses Servicepacks wird es wird nicht funktionieren!"
 
 #. (para)
 msgid ""
@@ -2156,15 +2157,13 @@ msgstr "Die empfohlene Methode ist ein\n<screen>svnadmin hotcopy path/to/reposit
 #. (para)
 msgid ""
 "The <literal>svnadmin</literal> tool is installed automatically when you "
-"install the Subversion command line client. If you are installing the "
-"command line tools on a Windows PC, the best way is to download the Windows "
-"installer version. It is compressed more efficiently than the "
-"<filename>.zip</filename> version, so the download is smaller, and it takes "
-"care of setting the paths for you. You can download the latest version of "
-"the Subversion command line client from the <ulink "
-"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
+"install the Subversion command line client. The easiest way to get this is "
+"to check the option to include the command line tools when installing "
+"TortoiseSVN, but if you prefer you can download the latest version of "
+"command line tools directly from the <ulink "
+"url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr "Das <literal>svnadmin</literal> Programm wird automatisch installiert wenn Sie den Subversion Kommandozeilen-Client installieren. Wenn Sie die Kommandozeilenprogramme auf einem Windows-PC installieren ist es am besten, die Windows-Installerversion zu verwenden. Diese ist besser komprimiert als die <filename>zip</filename>-Version und nimmt auch alle Pfad-Einstellungen für Sie vor. Sie können die jeweils aktuellste Version von der <ulink url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink> Webseite herunterladen."
+msgstr ""
 
 #. (title)
 msgid "Server side hook scripts"
@@ -14578,9 +14577,10 @@ msgstr "Wenn Sie Ihre Clienteinstellungen auf einem anderen Computer übertragen
 
 #. (para)
 msgid ""
-"Remember to save your Subversion settings too, located in the svn config "
-"file in <literal>%APPDATA%\\Subversion</literal>."
-msgstr "Denken Sie daran, Ihre Subversion Einstellungen ebenfalls zu speichern. Diese befinden sich in der Svn-Konfigurationsdatei im <literal>%APPDATA%\\Subversion</literal> Verzeichnis."
+"Remember to save Subversion's general settings, which you can find in the "
+"Subversion configuration file "
+"<literal>%APPDATA%\\Subversion\\config</literal>."
+msgstr "Denken Sie daran, Subversions allgemeine Einstellungen zu sichern; diese können Sie in der Subversion-Konfigurationsdatei finden unter <literal>%APPDATA%\\Subversion\\config</literal>."
 
 #. (title)
 msgid "Final Step"
@@ -14679,7 +14679,6 @@ msgid ""
 msgstr "Wenn Sie möchten, dass SubWCRev Schlüsselwortersetzungen durchführt, so dass Felder wie Revisionsnummer und URL in einer Textdatei gespeichert werden, müssen Sie eine Schablone <literal>QuellDatei</literal> und eine Ausgabedatei <literal>ZielDatei</literal> angeben, die die ersetzte Version der Schablone enthält."
 
 #. (title)
-#. (title)
 msgid "List of available command line switches"
 msgstr "Liste der Kommandozeilenoptionen"
 
@@ -14769,6 +14768,10 @@ msgstr "Es gibt mehrere Kommandozeilenoptionen, die die Arbeitsweise von SubWCRe
 #. (title)
 msgid "Keyword Substitution"
 msgstr "Schlüsselwortersetzung"
+
+#. (title)
+msgid "List of available keywords"
+msgstr "Liste verfügbarer Schlüsselwörter"
 
 #. (entry)
 msgid "Keyword"
@@ -14973,7 +14976,7 @@ msgstr "Das Beispiel zeigt, wie Schlüsselwörter aus einer Vorlagendatei in der
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.tmpl\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"$WCREV$\";\n"
 "char *Revision16    = \"$WCREV&amp;0xFF$\";\n"
@@ -15004,7 +15007,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Testdatei für SubWCRev: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15017,7 +15020,7 @@ msgstr "Nachdem Sie <literal>SubWCRev.exe path\\to\\workingcopy testfile.tmpl te
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.txt\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"22837\";\n"
 "char *Revision16    = \"53\";\n"
@@ -15048,7 +15051,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Testdatei für SubWCRev: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -19761,8 +19764,8 @@ msgstr "<guilabel>Erstelle Sicherheitskopie</guilabel> benennt die Originaldatei
 #. (para)
 msgid ""
 "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
-"loaded as UTF8 encoded and saved as such when edited."
-msgstr "Wenn <guilabel>Standardmäßig UTF-8-Codierung</guilabel> festgelegt ist, werden ANSI-Dateien als UTF-8 codiert geladen und, wenn bearbeitet,  als solche gespeichert."
+"loaded as UTF-8 encoded and saved as such when edited."
+msgstr ""
 
 #. (para)
 msgid ""

@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:41+0000\n"
+"PO-Revision-Date: 2012-09-28 08:44+0000\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3970,6 +3970,14 @@ msgstr "Voulez-vous rendre cette copie de travail non versionnée ?\nCela va sup
 msgid "Do you want to mark '%s' as resolved?"
 msgstr "Voulez-vous marquer '%s' comme résolu ?"
 
+#. Resource IDs: (319)
+#, c-format
+msgid ""
+"Do you want to mark the file\n"
+"%s\n"
+"as resolved?"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "Voulez-vous exécuter?"
@@ -4642,6 +4650,10 @@ msgstr "Le fichier contient des marqueurs de conflit"
 msgid "File diffs"
 msgstr "Différences de fichiers"
 
+#. Resource IDs: (319)
+msgid "File has no conflicts"
+msgstr ""
+
 #. Resource IDs: (314)
 msgid "File is empty."
 msgstr "Le fichier est vide."
@@ -4763,7 +4775,7 @@ msgid "Find"
 msgstr "Rechercher"
 
 #. Resource IDs: (1633)
-msgid "Find &Head-Revision"
+msgid "Find &HEAD-Revision"
 msgstr ""
 
 #. Resource IDs: (591)
@@ -5043,14 +5055,10 @@ msgstr "HEAD"
 msgid "HEAD node"
 msgstr "Noeud HEAD"
 
-#. Resource IDs: (218)
-msgid "Head"
-msgstr ""
-
 #. Resource IDs: (106)
 #, c-format
-msgid "Head revision is %s"
-msgstr "La révision de tête est %s"
+msgid "HEAD revision is %s"
+msgstr ""
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5888,6 +5896,12 @@ msgstr "Lancement de l'outil externe de diff / fusion pour résoudre les conflit
 msgid "Least active author:"
 msgstr "Auteur le moins actif :"
 
+#. Resource IDs: (319)
+msgid ""
+"Leave as conflicted\n"
+"The conflict status of the file is kept"
+msgstr ""
+
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr "Laissé en conflit:"
@@ -6142,6 +6156,12 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr "Marquer comme résolu\nLe conflit est résolu."
+
+#. Resource IDs: (319)
+msgid ""
+"Mark as resolved\n"
+"The file status is changed to modified"
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -10084,19 +10104,19 @@ msgstr "Ceux ci ont été sauvés avant les documents ouverts et contient des mo
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed folders selected "
-"for commit. Such moves/renames are always performed recursively in the "
-"repository. Do you want to commit anyway?"
-msgstr "Cette livraison n'est pas récursive, et des dossiers sélectionnés ont été déplacés / renommés. Ces mouvements / renommages sont toujours réalisés de façon récursive dans le dépôt. Voulez-vous quand même livrer ?"
+"This commit is not recursive, and there are moved/renamed/copied folders "
+"selected for commit. Such moves/renames are always performed recursively in "
+"the repository. Do you want to commit anyway?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed\n"
+"This commit is not recursive, and there are moved/renamed/copied\n"
 "folders selected for commit. Such moves/renames\n"
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr "Cette livraison n'est pas récursive, et des dossiers\nsélectionnés ont été déplacés / renommés. Ces\nmouvements / renommages sont toujours réalisés de\nfaçon récursive dans le dépôt.\n\nVoulez-vous quand même livrer ?"
+msgstr ""
 
 #. Resource IDs: (251)
 msgid ""
@@ -10825,10 +10845,6 @@ msgstr "Utiliser la corbeille lors d'un retour en arrière"
 msgid "Use regular expression"
 msgstr "Utiliser les expressions régulières"
 
-#. Resource IDs: (1066)
-msgid "Use stri&keout for removed lines"
-msgstr "Barrer les li&gnes effacées"
-
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Utiliser les réglages internationaux du système pour la date/l'heure"
@@ -11057,6 +11073,13 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "En verrouillant un ou plusieurs fichiers sélectionnés, affiche\nune boîte de dialogue demandant un message descriptif du\nverrou."
+
+#. Resource IDs: (316)
+msgid ""
+"When resolving conflicts, you always have to save even if there is no "
+"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
+"show a conflict for those!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11583,7 +11606,7 @@ msgid "get HEAD revision:"
 msgstr ""
 
 #. Resource IDs: (591)
-msgid "get repository root urls:"
+msgid "get repository root URLs:"
 msgstr ""
 
 #. Resource IDs: (1005)
@@ -11623,8 +11646,8 @@ msgid "keep the file lists in English"
 msgstr "garder les listes de fichier en Anglais"
 
 #. Resource IDs: (65535)
-msgid "last head update: "
-msgstr "dernière mise à jour HEAD:"
+msgid "last HEAD update: "
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "last read: "

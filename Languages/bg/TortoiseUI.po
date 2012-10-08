@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 08:41+0000\n"
+"PO-Revision-Date: 2012-09-28 08:44+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3959,6 +3959,14 @@ msgstr "Желаете ли да премахнете контрола от то
 msgid "Do you want to mark '%s' as resolved?"
 msgstr "Искаш ли да избереш '%s' като разрешен?"
 
+#. Resource IDs: (319)
+#, c-format
+msgid ""
+"Do you want to mark the file\n"
+"%s\n"
+"as resolved?"
+msgstr ""
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "Желаете ли да продължите?"
@@ -4631,6 +4639,10 @@ msgstr "Файлът съдържа конфликти"
 msgid "File diffs"
 msgstr "Промени във файл"
 
+#. Resource IDs: (319)
+msgid "File has no conflicts"
+msgstr ""
+
 #. Resource IDs: (314)
 msgid "File is empty."
 msgstr "Файлът е празен."
@@ -4752,7 +4764,7 @@ msgid "Find"
 msgstr "Търсене"
 
 #. Resource IDs: (1633)
-msgid "Find &Head-Revision"
+msgid "Find &HEAD-Revision"
 msgstr ""
 
 #. Resource IDs: (591)
@@ -5032,14 +5044,10 @@ msgstr "Главна ревизия"
 msgid "HEAD node"
 msgstr "Възел на главната ревизия"
 
-#. Resource IDs: (218)
-msgid "Head"
-msgstr ""
-
 #. Resource IDs: (106)
 #, c-format
-msgid "Head revision is %s"
-msgstr "Главната ревизия е %s"
+msgid "HEAD revision is %s"
+msgstr ""
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5877,6 +5885,12 @@ msgstr "Стартира външната сравняваща / сливаща 
 msgid "Least active author:"
 msgstr "Най-малко активен автор:"
 
+#. Resource IDs: (319)
+msgid ""
+"Leave as conflicted\n"
+"The conflict status of the file is kept"
+msgstr ""
+
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr "С конфликти:"
@@ -6131,6 +6145,12 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr "Маркирай като разрешен\nКонфликта е разрешен."
+
+#. Resource IDs: (319)
+msgid ""
+"Mark as resolved\n"
+"The file status is changed to modified"
+msgstr ""
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -10073,19 +10093,19 @@ msgstr "Това са по-скоро запазени документи от �
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed folders selected "
-"for commit. Such moves/renames are always performed recursively in the "
-"repository. Do you want to commit anyway?"
-msgstr "Поверяването не е рекурсивно и има преместени/преименувани папки избрани за поверяване. Такива премествания/преименувания са винаги рекурсивни в хранилището. Желаете ли да поверите?"
+"This commit is not recursive, and there are moved/renamed/copied folders "
+"selected for commit. Such moves/renames are always performed recursively in "
+"the repository. Do you want to commit anyway?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed\n"
+"This commit is not recursive, and there are moved/renamed/copied\n"
 "folders selected for commit. Such moves/renames\n"
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr "Поверяването не е рекурсивно и има преместени/преименувани\nпапки избрани за поверяване. Такива премествания/преименувания\nвинаги са рекурсивни в хранилището.\n\nЖелаете ли да поверите?"
+msgstr ""
 
 #. Resource IDs: (251)
 msgid ""
@@ -10814,10 +10834,6 @@ msgstr "Използване на кошчето при отмяна"
 msgid "Use regular expression"
 msgstr "С регулярни изрази"
 
-#. Resource IDs: (1066)
-msgid "Use stri&keout for removed lines"
-msgstr "За&черкване на изтритите редове"
-
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Използване на системния локал за дата и час"
@@ -11046,6 +11062,13 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "При заключване на един или повече избрани файлове, показва диалогов прозорец,\nза да се въведе описателно съобщение за заключването"
+
+#. Resource IDs: (316)
+msgid ""
+"When resolving conflicts, you always have to save even if there is no "
+"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
+"show a conflict for those!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11572,7 +11595,7 @@ msgid "get HEAD revision:"
 msgstr ""
 
 #. Resource IDs: (591)
-msgid "get repository root urls:"
+msgid "get repository root URLs:"
 msgstr ""
 
 #. Resource IDs: (1005)
@@ -11612,8 +11635,8 @@ msgid "keep the file lists in English"
 msgstr "пази файловите списъци на английски"
 
 #. Resource IDs: (65535)
-msgid "last head update: "
-msgstr "последно обновяване до главната ревизия:"
+msgid "last HEAD update: "
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "last read: "

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-09 12:48+0000\n"
+"PO-Revision-Date: 2012-09-28 20:06+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3959,6 +3959,14 @@ msgstr "Chcete odebrat verzi této pracovní kopie?\nVšechny adresáře Subvers
 msgid "Do you want to mark '%s' as resolved?"
 msgstr "Chcete označit '%s' jako vyřešený?"
 
+#. Resource IDs: (319)
+#, c-format
+msgid ""
+"Do you want to mark the file\n"
+"%s\n"
+"as resolved?"
+msgstr "Chcete soubor\n%s\noznačit jako vyřešený?"
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "Chcete pokračovat?"
@@ -4631,6 +4639,10 @@ msgstr "Soubor obsahuje značky konfliktu"
 msgid "File diffs"
 msgstr "Rozdíly souborů"
 
+#. Resource IDs: (319)
+msgid "File has no conflicts"
+msgstr "Soubor je bez konfliktů"
+
 #. Resource IDs: (314)
 msgid "File is empty."
 msgstr "Soubor je prázdný."
@@ -4752,8 +4764,8 @@ msgid "Find"
 msgstr "Najít"
 
 #. Resource IDs: (1633)
-msgid "Find &Head-Revision"
-msgstr "Najít revizi &Head"
+msgid "Find &HEAD-Revision"
+msgstr "Najít revizi &HEAD"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
@@ -5032,14 +5044,10 @@ msgstr "HEAD"
 msgid "HEAD node"
 msgstr "HEAD uzel"
 
-#. Resource IDs: (218)
-msgid "Head"
-msgstr "Čelo"
-
 #. Resource IDs: (106)
 #, c-format
-msgid "Head revision is %s"
-msgstr "HEAD revize je %s"
+msgid "HEAD revision is %s"
+msgstr "Revize HEAD je %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5877,6 +5885,12 @@ msgstr "Spustí externí program pro vyřešení konfliktů"
 msgid "Least active author:"
 msgstr "Nejméně aktivní autor:"
 
+#. Resource IDs: (319)
+msgid ""
+"Leave as conflicted\n"
+"The conflict status of the file is kept"
+msgstr "Ponechat v konfliktu\nStav konfliktu v souboru je ponechán"
+
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr "Ponechat v konfliktu:"
@@ -6131,6 +6145,12 @@ msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
 msgstr "Označit jako vyřešený\nKonflikt je vyřešen."
+
+#. Resource IDs: (319)
+msgid ""
+"Mark as resolved\n"
+"The file status is changed to modified"
+msgstr "Označit jako vyřešené\nStav souboru je změněn na se změnou"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -10073,19 +10093,19 @@ msgstr "Tyto jsou uloženy později než právě otevřené dokumenty a obsahuj�
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed folders selected "
-"for commit. Such moves/renames are always performed recursively in the "
-"repository. Do you want to commit anyway?"
-msgstr "Toto odevzdání není rekurzivní a existují přesunuté/přejmenované adresáře, které jsou vybrány pro odevzdání. Takovéto přesuny/přejmenování se v úložišti vždy provádějí rekurzivně. Chcete přesto odevzdávat?"
+"This commit is not recursive, and there are moved/renamed/copied folders "
+"selected for commit. Such moves/renames are always performed recursively in "
+"the repository. Do you want to commit anyway?"
+msgstr "Toto odevzdání není rekurzivní a jsou zvoleny přesunuté/přejmenované/zkopírované složky. Takové přesuny/přejmenování jsou v úložišti vždy prováděny rekurzivně. Chcete přesto odevzdávat?"
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed\n"
+"This commit is not recursive, and there are moved/renamed/copied\n"
 "folders selected for commit. Such moves/renames\n"
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr "Toto odevzdání není rekurzivní a existují přesunuté/přejmenované\nadresáře, které jsou vybrány pro odevzdání. Takovéto přesuny/přejmenování\nse v úložišti vždy provádějí rekurzivně.\n\nChcete přesto odevzdávat?"
+msgstr "Toto odevzdání není rekurzivní a jsou zvoleny přesunuté/přejmenované\nzkopírované složky. Takové přesuny/přejmenování\njsou v úložišti vždy prováděny rekurzivně.\n\nChcete přesto odevzdávat?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10814,10 +10834,6 @@ msgstr "Při vracení zpět použít odpadkový koš"
 msgid "Use regular expression"
 msgstr "Použít regulární výrazy"
 
-#. Resource IDs: (1066)
-msgid "Use stri&keout for removed lines"
-msgstr "Použít &přeškrtnutí pro odstraněné řádky"
-
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Vždy použít systémové nastavení data a času"
@@ -11046,6 +11062,13 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "Při uzamknutí jednoho nebo více souborů se zobrazí dialogové okno, \ns dotazem na popisnou zprávu o důvodu uzamknutí"
+
+#. Resource IDs: (316)
+msgid ""
+"When resolving conflicts, you always have to save even if there is no "
+"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
+"show a conflict for those!"
+msgstr "Při řešen konfliktů musíte vždycky ukládat, i když není zobrazen žádný konflikt. TortoiseMerge může sloučit změny, které SVN nedokáže a v těchto případech konflikt nezobrazí!"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11572,8 +11595,8 @@ msgid "get HEAD revision:"
 msgstr "získat revizi HEAD:"
 
 #. Resource IDs: (591)
-msgid "get repository root urls:"
-msgstr "získat kořenové url úložišť:"
+msgid "get repository root URLs:"
+msgstr "získat URL kořene úložiště:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11612,8 +11635,8 @@ msgid "keep the file lists in English"
 msgstr "udržet seznam souborů v Angličtině"
 
 #. Resource IDs: (65535)
-msgid "last head update: "
-msgstr "poslední HEAD aktualizace: "
+msgid "last HEAD update: "
+msgstr "poslední aktualizace HEAD:"
 
 #. Resource IDs: (65535)
 msgid "last read: "

@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-19 08:29+0000\n"
+"PO-Revision-Date: 2012-09-26 08:30+0000\n"
 "Last-Translator: Adam Harper <cadamharper@gmail.com>\n"
 "Language-Team: Spanish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2167,13 +2167,11 @@ msgstr "El método recomendado es ejecutar <screen>\nsvnadmin hotcopy ruta/al/re
 #. (para)
 msgid ""
 "The <literal>svnadmin</literal> tool is installed automatically when you "
-"install the Subversion command line client. If you are installing the "
-"command line tools on a Windows PC, the best way is to download the Windows "
-"installer version. It is compressed more efficiently than the "
-"<filename>.zip</filename> version, so the download is smaller, and it takes "
-"care of setting the paths for you. You can download the latest version of "
-"the Subversion command line client from the <ulink "
-"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
+"install the Subversion command line client. The easiest way to get this is "
+"to check the option to include the command line tools when installing "
+"TortoiseSVN, but if you prefer you can download the latest version of "
+"command line tools directly from the <ulink "
+"url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
 msgstr ""
 
@@ -14589,8 +14587,9 @@ msgstr ""
 
 #. (para)
 msgid ""
-"Remember to save your Subversion settings too, located in the svn config "
-"file in <literal>%APPDATA%\\Subversion</literal>."
+"Remember to save Subversion's general settings, which you can find in the "
+"Subversion configuration file "
+"<literal>%APPDATA%\\Subversion\\config</literal>."
 msgstr ""
 
 #. (title)
@@ -14690,7 +14689,6 @@ msgid ""
 msgstr "Si quiere que SubWCRev realice sustituciones de palabras clave, para que se graben los campos como la revisión del repositorio y la URL a un archivo de texto, debe proporcionar un archivo plantilla <literal>SrcVersionFile</literal> y un archivo de salida <literal>DstVersionFile</literal> que contendrá la versión sustituida de la plantilla."
 
 #. (title)
-#. (title)
 msgid "List of available command line switches"
 msgstr "Lista de opciones de línea de comandos disponible"
 
@@ -14780,6 +14778,10 @@ msgstr "Hay un número de selecciones opcionales que afectan la manera en que Su
 #. (title)
 msgid "Keyword Substitution"
 msgstr "Sustitución de palabras clave"
+
+#. (title)
+msgid "List of available keywords"
+msgstr ""
 
 #. (entry)
 msgid "Keyword"
@@ -14984,7 +14986,7 @@ msgstr "El siguiente ejemplo le muestra cómo se sustituyen las palabras clave d
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.tmpl\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"$WCREV$\";\n"
 "char *Revision16    = \"$WCREV&amp;0xFF$\";\n"
@@ -15028,7 +15030,7 @@ msgstr "Después de ejecutar <literal>SubWCRev.exe ruta\\a\\la\\copia\\de\\traba
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.txt\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"22837\";\n"
 "char *Revision16    = \"53\";\n"
@@ -19772,7 +19774,7 @@ msgstr "<guilabel>Realizar copia de seguridad del archivo original</guilabel> re
 #. (para)
 msgid ""
 "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
-"loaded as UTF8 encoded and saved as such when edited."
+"loaded as UTF-8 encoded and saved as such when edited."
 msgstr ""
 
 #. (para)

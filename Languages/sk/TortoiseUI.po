@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-23 07:29+0000\n"
+"PO-Revision-Date: 2012-10-01 10:01+0000\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3959,6 +3959,14 @@ msgstr "Chcete zrušiť správu verzií na tejto pracovnej kópií?\nToto odstr�
 msgid "Do you want to mark '%s' as resolved?"
 msgstr "Chcete označiť \"%s\" ako vyriešený?"
 
+#. Resource IDs: (319)
+#, c-format
+msgid ""
+"Do you want to mark the file\n"
+"%s\n"
+"as resolved?"
+msgstr "Checete označiť súbor\n%s\nza vyriešený?"
+
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
 msgstr "Chcete pokračovať?"
@@ -4631,6 +4639,10 @@ msgstr "Súbor obsahuje značky konfliktu"
 msgid "File diffs"
 msgstr "Rozdiely súboru"
 
+#. Resource IDs: (319)
+msgid "File has no conflicts"
+msgstr "Súbor je bez konfliktov"
+
 #. Resource IDs: (314)
 msgid "File is empty."
 msgstr "Súbor je prázny."
@@ -4752,8 +4764,8 @@ msgid "Find"
 msgstr "Nájsť"
 
 #. Resource IDs: (1633)
-msgid "Find &Head-Revision"
-msgstr "Nájsť &HEAD (hlavnú) revíziu"
+msgid "Find &HEAD-Revision"
+msgstr ""
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
@@ -5032,14 +5044,10 @@ msgstr "Hlavná revízia"
 msgid "HEAD node"
 msgstr "HEAD (hlavný) uzol"
 
-#. Resource IDs: (218)
-msgid "Head"
-msgstr "HEAD (hlavná) revízia"
-
 #. Resource IDs: (106)
 #, c-format
-msgid "Head revision is %s"
-msgstr "Hlavná revízia je %s"
+msgid "HEAD revision is %s"
+msgstr ""
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5877,6 +5885,12 @@ msgstr "Spustí porovnávací/spájací program na riešenie konfliktov"
 msgid "Least active author:"
 msgstr "Najmenej aktívny autor:"
 
+#. Resource IDs: (319)
+msgid ""
+"Leave as conflicted\n"
+"The conflict status of the file is kept"
+msgstr "Ponechať v konflikte\nStav konfliktu bude ponechaný"
+
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
 msgstr "Ponechať konfliktné:"
@@ -6132,6 +6146,12 @@ msgid ""
 "The conflict is resolved."
 msgstr "Označiť za vyriešené\nKonflikt je vyriešený."
 
+#. Resource IDs: (319)
+msgid ""
+"Mark as resolved\n"
+"The file status is changed to modified"
+msgstr "Označiť za vyriešný\nZmení stav súboru na vyriešený"
+
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
 msgstr "Označ aktuálnu revíziu vašej pracovnej kópie"
@@ -6267,7 +6287,7 @@ msgstr "Zlúčené"
 
 #. Resource IDs: (286)
 msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
-msgstr "Zlúčené revízia(e) {revrange} až {mergeurl}:\n"
+msgstr "Zlúčené revízia(e) {revrange} do {mergeurl}:\n"
 
 #. Resource IDs: (14)
 msgid ""
@@ -8116,7 +8136,7 @@ msgstr "Znova"
 
 #. Resource IDs: (286)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
-msgstr "Zpätne zlúčená(é) revízia(e) {revrange} až {mergeurl}:\n"
+msgstr "Zpätne zlúčená(é) revízia(e) {revrange} do {mergeurl}:\n"
 
 #. Resource IDs: (264)
 #, c-format
@@ -10073,19 +10093,19 @@ msgstr "Tieto sú neskôr uložené ako práve otvorené dokumenty a obsahujú z
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed folders selected "
-"for commit. Such moves/renames are always performed recursively in the "
-"repository. Do you want to commit anyway?"
-msgstr "Toto odovzdanie nie je rekurzívne a obsahuje resunuté/premenované adresáre k odovzdaniu. Takéto premenovanie/presunutie je vždy v úložisku urobené rekurzívne. Chcete napriek tomu odovzdať?"
+"This commit is not recursive, and there are moved/renamed/copied folders "
+"selected for commit. Such moves/renames are always performed recursively in "
+"the repository. Do you want to commit anyway?"
+msgstr ""
 
 #. Resource IDs: (170)
 msgid ""
-"This commit is not recursive, and there are moved/renamed\n"
+"This commit is not recursive, and there are moved/renamed/copied\n"
 "folders selected for commit. Such moves/renames\n"
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr "Toto odovzdanie je nerekurzívne a obsahuje presunuté/premenované adresáre vybrané k odovzdaniu.\nTakéto presunutia/premenovania sú v úložisku vždy vykonané ako rekurzívne.\n\nChcete napriek tomu odovzdať."
+msgstr ""
 
 #. Resource IDs: (251)
 msgid ""
@@ -10814,10 +10834,6 @@ msgstr "Pri vracaní použiť odpadkový kôš"
 msgid "Use regular expression"
 msgstr "Použiť regulárny výraz"
 
-#. Resource IDs: (1066)
-msgid "Use stri&keout for removed lines"
-msgstr "Použiť &preškrtávanie pre vymazané riadky"
-
 #. Resource IDs: (1426)
 msgid "Use system locale for date/time"
 msgstr "Použiť systémové nastavenie dátumu/času"
@@ -11046,6 +11062,13 @@ msgid ""
 "When locking one or more selected files, shows a dialog\n"
 "asking for a descriptive message about the locking"
 msgstr "Pri zamykaní jedného, alebo viacerých súborov, zobrazí\ndialógové okno na zadanie popisu o zamykaní"
+
+#. Resource IDs: (316)
+msgid ""
+"When resolving conflicts, you always have to save even if there is no "
+"conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
+"show a conflict for those!"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11572,8 +11595,8 @@ msgid "get HEAD revision:"
 msgstr "Získať HEAD (hlavnú) revíziu"
 
 #. Resource IDs: (591)
-msgid "get repository root urls:"
-msgstr "Získať URL adresu HEAD (hlavnej) revízie"
+msgid "get repository root URLs:"
+msgstr ""
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11612,8 +11635,8 @@ msgid "keep the file lists in English"
 msgstr "udržať zoznam súborov v Angličtine"
 
 #. Resource IDs: (65535)
-msgid "last head update: "
-msgstr "posledná hlavná aktualizácia:"
+msgid "last HEAD update: "
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "last read: "

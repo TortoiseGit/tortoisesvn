@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-19 18:29+0000\n"
+"PO-Revision-Date: 2012-09-26 17:13+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2155,15 +2155,13 @@ msgstr "Doporučená metoda je spustit <screen>\nsvnadmin hotcopy cesta/k/úlož
 #. (para)
 msgid ""
 "The <literal>svnadmin</literal> tool is installed automatically when you "
-"install the Subversion command line client. If you are installing the "
-"command line tools on a Windows PC, the best way is to download the Windows "
-"installer version. It is compressed more efficiently than the "
-"<filename>.zip</filename> version, so the download is smaller, and it takes "
-"care of setting the paths for you. You can download the latest version of "
-"the Subversion command line client from the <ulink "
-"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
+"install the Subversion command line client. The easiest way to get this is "
+"to check the option to include the command line tools when installing "
+"TortoiseSVN, but if you prefer you can download the latest version of "
+"command line tools directly from the <ulink "
+"url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr "<literal>Svnadmin</literal> je nástroj automaticky nainstalovaný při instalaci příkazového řádku klienta Subversion. Pokud instalujete nástroje příkazového řádku na Windows PC, nejlepší způsob je stáhnout si verzi Windows Installer. Je lépe komprimován než verze <filename>.zip</filename>, takže má menší velikost a postará se o nastavení cest. Nejnovější verzi příkazové řádky klienta Subversion si můžete stáhnout ze stránky <ulink url=http://subversion.apache.org/packages.html><citetitle>Subversion</citetitle></ulink>."
+msgstr "<literal>Svnadmin</literal> je nástroj automaticky nainstalovaný při instalaci příkazového řádku klienta Subversion. Nejsnáze ho lze nainstalovat zaškrtnutím možnosti pro zahrnutí nástrojů příkazového řádku při instalaci TortoiseSVN, ale pokud chcete, můžete si nejnovější verzi nástrojů příkazové řádky stáhnout přímo z <ulink url='http://subversion.apache.org/packages.html#windows><citetitle>Subversion</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -14577,9 +14575,10 @@ msgstr "Pokud chcete exportovat všechny Vaše nastavení klienta pro použití 
 
 #. (para)
 msgid ""
-"Remember to save your Subversion settings too, located in the svn config "
-"file in <literal>%APPDATA%\\Subversion</literal>."
-msgstr "Nezapomeňte si také uložit Vaše nastavení Subversion, které se nachází v konfiguračním souboru svn v <literal>%APPDATA%\\Subversion</literal>."
+"Remember to save Subversion's general settings, which you can find in the "
+"Subversion configuration file "
+"<literal>%APPDATA%\\Subversion\\config</literal>."
+msgstr "Nezapomeňte si také uložit vaše nastavení Subversion, která se nachází v konfiguračním souboru Subversion v <literal>%APPDATA%\\Subversion\\config</literal>."
 
 #. (title)
 msgid "Final Step"
@@ -14678,7 +14677,6 @@ msgid ""
 msgstr "Pokud chcete, aby SubWCRev provedl nahrazení klíčového slova, takže pole jako revize úložiště a URL jsou uloženy do textového souboru, musíte zadat šablonový soubor <literal>SrcVersionFile</literal> a výstupní soubor <literal>DstVersionFile</literal> který obsahuje nahrazovanou verzi šablony."
 
 #. (title)
-#. (title)
 msgid "List of available command line switches"
 msgstr "Seznam dostupných přepínačů v příkazovém řádku"
 
@@ -14768,6 +14766,10 @@ msgstr "Existuje celá řada nepovinných přepínačů, které ovlivňují způ
 #. (title)
 msgid "Keyword Substitution"
 msgstr "Nahrazení Klíčového Slova"
+
+#. (title)
+msgid "List of available keywords"
+msgstr "Seznam dostupných klíčových slov"
 
 #. (entry)
 msgid "Keyword"
@@ -14972,7 +14974,7 @@ msgstr "Příklad uvedený níže ukazuje, jak jsou klíčová slova v šablonov
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.tmpl\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"$WCREV$\";\n"
 "char *Revision16    = \"$WCREV&amp;0xFF$\";\n"
@@ -15003,7 +15005,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Zkouškový soubor pro SubWCRev: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Změněno:Nezměněno$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Smíšené revize PK:Nesmíšené$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?s verzí:bez verze$\";\nchar *needslck      = \"$WCNEEDSLOCK?PRAVDA:NEPRAVDA$\";\nchar *islocked      = \"$WCISLOCKED?uzamčeno:neuzamčeno$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Soubor je změněn\n#endif\n\n// Konec souboru\n"
+msgstr "\n// Zkouškový soubor pro SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Změněno:Nezměněno$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Smíšené revize PK:Nesmíšené$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?s verzí:bez verze$\";\nchar *needslck      = \"$WCNEEDSLOCK?PRAVDA:NEPRAVDA$\";\nchar *islocked      = \"$WCISLOCKED?uzamčeno:neuzamčeno$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Zdroj je změněn\n#endif\n\n// Konec souboru\n"
 
 #. (para)
 msgid ""
@@ -15016,7 +15018,7 @@ msgstr "Po spuštění <literal>SubWCRev.exe cesta\\k\\pracovníkopii testsoubor
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.txt\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"22837\";\n"
 "char *Revision16    = \"53\";\n"
@@ -15047,7 +15049,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Zkouškový soubor pro SubWCRev: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Změněno\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Čtv, 26.dubna 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Čtv, 26. dubna 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Smíšená revize PK\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"s verzí\";\nchar *needslck      = \"NEPRAVDA\";\nchar *islocked      = \"neuzamčeno\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Čtv, 01. ledna 1970\";\nchar *lockcust      = \"Čtv, 01. ledna 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Soubor je změněn\n#endif\n\n// Konec souboru\n"
+msgstr "\n// Zkouškový soubor pro SubWCRev\n\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Změněno\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Čtv, 26.dubna 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Čtv, 26. dubna 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Smíšená revize PK\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"s verzí\";\nchar *needslck      = \"NEPRAVDA\";\nchar *islocked      = \"neuzamčeno\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Čtv, 01. ledna 1970\";\nchar *lockcust      = \"Čtv, 01. ledna 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Zdroj je změněn\n#endif\n\n// Konec souboru\n"
 
 #. (para)
 msgid ""
@@ -19760,8 +19762,8 @@ msgstr "<guilabel>Zálohovat původní soubor</guilabel> přejmenuje původní s
 #. (para)
 msgid ""
 "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
-"loaded as UTF8 encoded and saved as such when edited."
-msgstr "Když je nastaveno <guilabel>Implicitně kódování UTF-8</guilabel>, soubory ANSI jsou načteny jako zakódované do UTF8 a jsou také tak ukládány po úpravě."
+"loaded as UTF-8 encoded and saved as such when edited."
+msgstr "Když je nastaveno <guilabel>Implicitně kódování UTF-8</guilabel>, soubory ANSI jsou načteny jako zakódované do UTF-8 a jsou také tak ukládány po úpravě."
 
 #. (para)
 msgid ""

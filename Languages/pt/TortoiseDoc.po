@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-23 22:19+0000\n"
+"PO-Revision-Date: 2012-10-07 23:41+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -654,7 +654,7 @@ msgstr "Conceitos Básicos"
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
 "get an overview of how Subversion works and the terms that are used."
-msgstr ""
+msgstr "Antes de ficarmos atarefados com alguns ficheiros reais, é importante ter uma visão geral de como o Subversion funciona e dos termos que são usados."
 
 #. (term)
 #. (title)
@@ -2159,15 +2159,13 @@ msgstr "O método recomendado é correr <screen>\nsvnadmin hotcopy path/to/repos
 #. (para)
 msgid ""
 "The <literal>svnadmin</literal> tool is installed automatically when you "
-"install the Subversion command line client. If you are installing the "
-"command line tools on a Windows PC, the best way is to download the Windows "
-"installer version. It is compressed more efficiently than the "
-"<filename>.zip</filename> version, so the download is smaller, and it takes "
-"care of setting the paths for you. You can download the latest version of "
-"the Subversion command line client from the <ulink "
-"url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
+"install the Subversion command line client. The easiest way to get this is "
+"to check the option to include the command line tools when installing "
+"TortoiseSVN, but if you prefer you can download the latest version of "
+"command line tools directly from the <ulink "
+"url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr "A ferramenta <literal>svnadmin</literal> é automáticamente instalada quando tu instalas o cliente Subversion de linha de comandos. Se estás a instalar as ferramentas de linha de comandos num PC Windows, a melhor maneira é descarregar a versão de instalação Windows. É comprimido mais eficientemente que a versão <filename>.zip</filename>, pelo que a descarga será menor, e tratará das definições dos caminhos por ti. Poderás decarregar a versão mais recente do cliente Subversion de linha de comandos a partir do sítio web <ulink url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>."
+msgstr ""
 
 #. (title)
 msgid "Server side hook scripts"
@@ -2694,7 +2692,7 @@ msgstr "Para mais informações em como configurar o teu servidor para autentica
 
 #. (title)
 msgid "Maximizing Windows"
-msgstr "Maxiizando Janelas"
+msgstr "Maximizar Janelas"
 
 #. (primary)
 msgid "maximize"
@@ -6956,7 +6954,7 @@ msgid ""
 "Use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>"
 " to remove files or folders from Subversion."
-msgstr ""
+msgstr "Para remover ficheiros ou pastas do Subversion usa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Remover</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -7928,7 +7926,7 @@ msgid ""
 "<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
-msgstr ""
+msgstr "Visto que nem todos os utilizadores têm a sua cópia de trabalho colocada na mesma localização, nem com o mesmo nome, podes então configurar um script/ferramenta a executar que resida na tua cópia de trabalho especificando o URL do repositório em alternativa , usando <filename>%REPOROOT%</filename> como a parte do URL referente à raiz do repositório. Por exemplo, se o script de gancho está na tua cópia de trabalho sob <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, irás especificar o caminho para o script como <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. Deste modo mesmo que movas o teu repositório para outro servidor, não terás de ajustar as propriedades dos scripts de gancho."
 
 #. (title)
 msgid "Property dialog for hook scripts"
@@ -8397,7 +8395,7 @@ msgstr "A mensagem de registo da revisão integrada, como foi introduzida."
 msgid ""
 "Like <literal>{msg}</literal>, but all newlines are replaced with a space, "
 "so that the whole log message appears on one single line."
-msgstr ""
+msgstr "Como o <literal>{msg}</literal>, mas todas as linhas novas são substituídas por um espaço, para que toda a mensagem de registo apareça numa única linha."
 
 #. (para)
 msgid "The author of the merged revision."
@@ -8512,7 +8510,7 @@ msgid ""
 "The edit dialog for <literal>svn:externals</literal> properties allows you "
 "to select the externals and automatically set them explicitly to the HEAD "
 "revision."
-msgstr ""
+msgstr "A caixa de diálogo de edição para propriedades <literal>svn:externals</literal> permite-te seleccionar as externas e coloca-las explicitamente na revisão HEAD."
 
 #. (para)
 #. (para)
@@ -9207,7 +9205,7 @@ msgid ""
 "If you are merging revisions in chunks, the method shown in the Subversion "
 "book will have you merge 100-200 this time and 200-300 next time. With "
 "TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr ""
+msgstr "Se estiveres a integrar revisões em bloco, o método mostrado no livro do Subversion integra-te a 100-200 desta vez e 200-300 da próxima. Com o TortoiseSVN integra-te a 100-200 desta vez e 201-300 da próxima."
 
 #. (para)
 msgid ""
@@ -9583,7 +9581,7 @@ msgid ""
 "url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-"
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
-msgstr ""
+msgstr "Mais informações sobre o controlo de integração do Subversion em; <ulink url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -9797,7 +9795,7 @@ msgid ""
 "And third, files and folders can get locked if they're in use by another "
 "process, for example if you have a word document opened in Word, that file "
 "is locked and can not be accessed by TortoiseSVN."
-msgstr ""
+msgstr "E por terceiro, ficheiros e pastas podem ficar bloqueadas se estiverem a ser usadas por outro processo, por exemplo, se tiveres um documento word aberto no Word, esse ficheiro está bloqueado e não pode ser acedido pelo TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -9805,7 +9803,7 @@ msgid ""
 "goes wrong that requires you to care about them. In this book, "
 "<quote>lock</quote> means the first sort unless the contrary is either clear"
 " from context or explicitly stated."
-msgstr ""
+msgstr "Por norma podes descartar esses outros tipos de bloqueios, até acontecer algo errado que requeira o teu apoio"
 
 #. (title)
 msgid "How Locking Works in Subversion"
@@ -14581,9 +14579,10 @@ msgstr "Se quiseres exportar todas as tuas definições de cliente para usares n
 
 #. (para)
 msgid ""
-"Remember to save your Subversion settings too, located in the svn config "
-"file in <literal>%APPDATA%\\Subversion</literal>."
-msgstr "Lembra-te de guardares também as definições do Subversion, localizadas no ficheiro de config. do svn em <literal>%APPDATA%\\Subversion</literal>."
+"Remember to save Subversion's general settings, which you can find in the "
+"Subversion configuration file "
+"<literal>%APPDATA%\\Subversion\\config</literal>."
+msgstr ""
 
 #. (title)
 msgid "Final Step"
@@ -14682,7 +14681,6 @@ msgid ""
 msgstr "Se queres que o SubWCRev execute substituição de palavras-chave, para que campos como a revisão do repositório e URL sejam gravados num ficheiro de texto, irás necessitar de fornecer um ficheiro template <literal>SrcVersionFile</literal> e um ficheiro de destino  <literal>DstVersionFile</literal> que contém a versão substituída do template."
 
 #. (title)
-#. (title)
 msgid "List of available command line switches"
 msgstr "Lista de opções de linha de comando disponíveis"
 
@@ -14772,6 +14770,10 @@ msgstr "Existe um conjunto de opções opcionais que afectam a maneira como o Su
 #. (title)
 msgid "Keyword Substitution"
 msgstr "Substituição de Palavra-Chave"
+
+#. (title)
+msgid "List of available keywords"
+msgstr ""
 
 #. (entry)
 msgid "Keyword"
@@ -14976,7 +14978,7 @@ msgstr "O exemplo abaixo mostra como palavras-chave num ficheiro template são s
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.tmpl\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"$WCREV$\";\n"
 "char *Revision16    = \"$WCREV&amp;0xFF$\";\n"
@@ -15007,7 +15009,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Ficheiro de teste para SubWCRev: testfile.tmpl\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -15020,7 +15022,7 @@ msgstr "Depois de correr o <literal>SubWCRev.exe path\\to\\workingcopy testfile.
 #, no-wrap
 msgid ""
 "\n"
-"// Test file for SubWCRev: testfile.txt\n"
+"// Test file for SubWCRev\n"
 "\n"
 "char *Revision      = \"22837\";\n"
 "char *Revision16    = \"53\";\n"
@@ -15051,7 +15053,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Ficheiro de teste para SubWCRev: testfile.txt\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -16014,7 +16016,7 @@ msgid ""
 "If you want to enter revision numbers as a list, you can use the Merge "
 "dialog. The previous method uses merging behind the scenes; this method uses"
 " it explicitly."
-msgstr ""
+msgstr "Se desejas inserir numeros de revisões como uma lista, podes usar a caixa de diálogo Integrar. O método anterior usa integração nos bastidores; este método usa-a explicitamente."
 
 #. (para)
 msgid ""
@@ -16026,7 +16028,7 @@ msgstr "Na tua cópia de trabalho selecciona  <menuchoice><guimenu>TortoiseSVN</
 msgid ""
 "In the <guilabel>Merge Type</guilabel> dialog select <guilabel>Merge a range"
 " of revisions</guilabel>."
-msgstr ""
+msgstr "Na caixa de diálogo <guilabel>Tipo Integração</guilabel> selecciona <guilabel>Integra um intervalo de revisões</guilabel>."
 
 #. (para)
 msgid ""
@@ -16043,11 +16045,11 @@ msgstr ""
 
 #. (para)
 msgid "Make sure the <guilabel>Reverse merge</guilabel> checkbox is checked."
-msgstr ""
+msgstr "Tem a certeza que a caixa <guilabel>Integração inversa</guilabel> está verificada."
 
 #. (para)
 msgid "In the <guilabel>Merge options</guilabel> dialog accept the defaults."
-msgstr ""
+msgstr "Na caixa de diálogo <guilabel>Opções de integração</guilabel> aceita os valores por defeito."
 
 #. (para)
 msgid "Click <guibutton>Merge</guibutton> to complete the merge."
@@ -17197,7 +17199,7 @@ msgid ""
 "renamed to avoid overwriting them. The option <placeholder-5/> can specify "
 "either <placeholder-6/> to only export files that got changed locally, or "
 "<placeholder-7/> to also export all unversioned items as well."
-msgstr ""
+msgstr "Exporta a cópia de trabalho em <placeholder-1/> para a pasta especificada em <placeholder-2/>. Esta exportação não usa a caixa de diálogo exportar, mas executa-a directamente. A opção <placeholder-3/> indica que os ficheiros existentes são sobrepostos sem informação ao utilizador, e a opção <placeholder-4/> indica que se os ficheiros já existirem, os ficheiros exportados serão automaticamente renomeados para evitar sobreposições. A opção <placeholder-5/> pode indicar <placeholder-6/> para só exportar ficheiros que foram alterados localmente, ou <placeholder-7/> exportar também todos os itens não versionados."
 
 #. (option)
 #. (option)
@@ -17259,7 +17261,7 @@ msgid ""
 "message to the branch/tag dialog. Or, if you don't want to pass the log "
 "message on the command line, use <placeholder-6/>, where <placeholder-7/> "
 "points to a file containing the log message."
-msgstr ""
+msgstr "Lança a caixa de diálogo ramo/etiqueta. O <placeholder-1/> é a cópia de trabalho de origem do ramo/etiqueta, e o <placeholder-2/> é o URL destino. Para activares a opção <placeholder-3/> podes passar o switch <placeholder-4/>. Podes também especificar o switch <placeholder-5/> para colocar uma mensagem de registo por defeito para a caixa de diálogo ramo/etiqueta. Ou, se não quiseres colocar a mensagem de registo na linha de comandos, usa <placeholder-6/>, onde <placeholder-7/> aponta para um ficheiro contendo a mensagem de registo pretendida."
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -19764,8 +19766,8 @@ msgstr "<guilabel>Fazer cópia de segurança do arquivo original</guilabel> alte
 #. (para)
 msgid ""
 "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
-"loaded as UTF8 encoded and saved as such when edited."
-msgstr "<guilabel>Por defeito com codificação UTF-8</guilabel> quando activado, os ficheiros ANSI são carregados como tendo codificação UTF8, e guardados com tal quando editados."
+"loaded as UTF-8 encoded and saved as such when edited."
+msgstr ""
 
 #. (para)
 msgid ""
