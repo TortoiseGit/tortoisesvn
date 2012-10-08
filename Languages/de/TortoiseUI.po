@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-28 08:44+0000\n"
+"PO-Revision-Date: 2012-10-08 11:42+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3968,7 +3968,7 @@ msgid ""
 "Do you want to mark the file\n"
 "%s\n"
 "as resolved?"
-msgstr ""
+msgstr "Möchten Sie die Datei\n%s\nals aufgelöst markieren?"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4644,7 +4644,7 @@ msgstr "Dateiunterschiede"
 
 #. Resource IDs: (319)
 msgid "File has no conflicts"
-msgstr ""
+msgstr "Datei hat keine Konflikte"
 
 #. Resource IDs: (314)
 msgid "File is empty."
@@ -4768,7 +4768,7 @@ msgstr "Suchen"
 
 #. Resource IDs: (1633)
 msgid "Find &HEAD-Revision"
-msgstr ""
+msgstr "&HEAD Revision finden"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
@@ -5017,7 +5017,7 @@ msgstr "Diagrammtyp:"
 
 #. Resource IDs: (273)
 msgid "Graphs for repository roots are always empty!"
-msgstr "Graphen für die Wurzel des Projektarchivs sind immer leer!"
+msgstr "Graphen für die Basis des Projektarchivs sind immer leer!"
 
 #. Resource IDs: (16972)
 msgid "Gray"
@@ -5050,7 +5050,7 @@ msgstr "HEAD Knoten"
 #. Resource IDs: (106)
 #, c-format
 msgid "HEAD revision is %s"
-msgstr ""
+msgstr "Die HEAD Revision ist %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5892,7 +5892,7 @@ msgstr "Die wenigsten Übertragungen:"
 msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
-msgstr ""
+msgstr "Als Konflikt lassen\nDer Status 'Konflikt' der Datei wird beibehalten"
 
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
@@ -6153,7 +6153,7 @@ msgstr "Als aufgelöst markieren\nDer Konflikt ist aufgelöst."
 msgid ""
 "Mark as resolved\n"
 "The file status is changed to modified"
-msgstr ""
+msgstr "Als aufgelöst markieren\nDer Status der Datei wird auf 'verändert' gesetzt"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -10099,7 +10099,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
+msgstr "Diese Übertragung ist nicht rekursiv und es befinden sich kopierte, umbenannte bzw. verschobene Ordner in der Auswahl. Solche Aktionen werden im Projektarchiv stets rekursiv ausgeführt. Wollen Sie trotzdem übertragen?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10108,7 +10108,7 @@ msgid ""
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr ""
+msgstr "Diese Übertragung ist nicht rekursiv und es befinden sich kopierte, umbenannte\nbzw. verschobene Ordner in der Auswahl. Solche Aktionen werden\nim Projektarchiv stets rekursiv ausgeführt.\n\nWollen Sie trotzdem übertragen?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -11071,7 +11071,7 @@ msgid ""
 "When resolving conflicts, you always have to save even if there is no "
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
-msgstr ""
+msgstr "Wenn Sie Konflikte auflösen, müssen Sie stets speichern, auch wenn kein Konflikt angezeigt wird. TortoiseMerge kann manche Änderungen zusammenführen an denen SVN scheitert und zeigt dafür keine Konflikte an!"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11599,7 +11599,7 @@ msgstr "HEAD Revision holen"
 
 #. Resource IDs: (591)
 msgid "get repository root URLs:"
-msgstr ""
+msgstr "Basis-URL des Projektarchivs holen:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11639,7 +11639,7 @@ msgstr "hallte die Dateilisten in Englisch"
 
 #. Resource IDs: (65535)
 msgid "last HEAD update: "
-msgstr ""
+msgstr "HEAD zuletzt aktualisiert: "
 
 #. Resource IDs: (65535)
 msgid "last read: "
