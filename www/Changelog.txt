@@ -1,3 +1,26 @@
+Version 1.7.10
+- BUG: Issue #406: wrong image positioning. (Stefan)
+- BUG: Issue #408: repeated authentication
+       and crashes. (Stefan)
+- BUG: Issue #409: language pack fails to install
+       in silent mode. (Stefan)
+- BUG: Issue #412: TMerge options affect
+       other instances. (Stefan)
+- BUG: Issue #413: wrong unescaped path
+       in Log Dialog. (Stefan)
+- BUG: Issue #414: Words with german umlauts not
+       highlighted after log message search. (Stefan)
+- BUG: Issue #415: Check-for-modifications dialog shows
+       folders as files for sparse checkouts. (Stefan)
+- BUG: Issue #418: Unexpected warning - Non-recursive
+       commit of moved/renamed folders. (Stefan)
+- BUG: Issue # 398: Copied files don't get reverted
+       to recycle bin. (Stefan)
+- BUG: Issue #421: Checkout dialog ignores OK button
+       after directory warning. (Stefan)
+- BUG: Issue #426: reverting a file destroys the sort
+       order in the status list control. (Stefan)
+
 Version 1.7.9
 - BUG: Issue #394: crash when refreshing
        status list control. (Stefan)
