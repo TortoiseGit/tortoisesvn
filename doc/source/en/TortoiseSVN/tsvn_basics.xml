@@ -312,11 +312,11 @@
                 directory help Subversion recognize which files contain
                 unpublished changes, and which files are out-of-date with
                 respect to others' work. Prior to 1.7 Subversion maintained
-				<filename>.svn</filename> administrative subdirectories in every
-				versioned directory of your working copy.
-				Subversion 1.7 takes a completely different approach and each
-				working copy now has only one administrative subdirectory which
-				is an immediate child of the root of that working copy.
+                <filename>.svn</filename> administrative subdirectories in every
+                versioned directory of your working copy.
+                Subversion 1.7 takes a completely different approach and each
+                working copy now has only one administrative subdirectory which
+                is an immediate child of the root of that working copy.
             </para>
             <para>
                 A typical Subversion repository often holds the files (or
