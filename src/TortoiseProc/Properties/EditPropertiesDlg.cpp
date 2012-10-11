@@ -718,10 +718,22 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                 prog.SetLine(1, CUnicodeUtils::StdGetUnicode(propsit->first).c_str());
                                 BOOL ret = FALSE;
                                 if (propsit->second.remove)
-                                    ret = props.Remove(propsit->first, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                                {
+                                    if (dlg->GetRecursive() || props.HasProperty(propsit->first))
+                                        ret = props.Remove(propsit->first, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                                    else
+                                        ret = TRUE;
+                                }
                                 else
-                                    ret = props.Add(propsit->first, SVNProperties::IsBinary(propsit->second.value) ? propsit->second.value : propsit->second.value.c_str(),
-                                                    false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                                {
+                                    if (dlg->GetRecursive() || !props.HasProperty(propsit->first) || props.GetItemValue(props.IndexOf(propsit->first)).compare(propsit->second.value))
+                                    {
+                                        ret = props.Add(propsit->first, SVNProperties::IsBinary(propsit->second.value) ? propsit->second.value : propsit->second.value.c_str(),
+                                                        false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                                    }
+                                    else
+                                        ret = TRUE;
+                                }
                                 if (!ret)
                                 {
                                     prog.Stop();
@@ -735,7 +747,12 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                     m_bChanged = true;
                                     // bump the revision number since we just did a commit
                                     if (!m_bRevProps && m_revision.IsNumber())
-                                        m_revision = LONG(m_revision)+1;
+                                    {
+                                        if (props.GetCommitRev() == SVN_INVALID_REVNUM)
+                                            m_revision = LONG(m_revision)+1;
+                                        else
+                                            m_revision = props.GetCommitRev();
+                                    }
                                 }
                             }
                         }
@@ -753,10 +770,22 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                             }
                             BOOL ret = FALSE;
                             if (bRemove)
-                                ret = props.Remove(sName, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                            {
+                                if (dlg->GetRecursive() || props.HasProperty(sName))
+                                    ret = props.Remove(sName, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                                else
+                                    ret = TRUE;
+                            }
                             else
-                                ret = props.Add(sName, dlg->IsBinary() ? dlg->GetPropertyValue() : dlg->GetPropertyValue().c_str(),
-                                                false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                            {
+                                if (dlg->GetRecursive() || !props.HasProperty(sName) || props.GetItemValue(props.IndexOf(sName)).compare(dlg->IsBinary() ? dlg->GetPropertyValue() : dlg->GetPropertyValue().c_str()))
+                                {
+                                    ret = props.Add(sName, dlg->IsBinary() ? dlg->GetPropertyValue() : dlg->GetPropertyValue().c_str(),
+                                                    false, dlg->GetRecursive() ? svn_depth_infinity : svn_depth_empty, sMsg);
+                                }
+                                else
+                                    ret = TRUE;
+                            }
                             if (!ret)
                             {
                                 prog.Stop();
@@ -768,7 +797,12 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                                 m_bChanged = true;
                                 // bump the revision number since we just did a commit
                                 if (!m_bRevProps && m_revision.IsNumber())
-                                    m_revision = LONG(m_revision)+1;
+                                {
+                                    if (props.GetCommitRev() == SVN_INVALID_REVNUM)
+                                        m_revision = LONG(m_revision)+1;
+                                    else
+                                        m_revision = props.GetCommitRev();
+                                }
                             }
                         }
                     }
