@@ -60,11 +60,13 @@ sMyDoc=Replace(sMyDoc, "\", "/")
 sMyDoc=Replace(sMyDoc, ":", "|")
 sMyDoc=Replace(sMyDoc, "%", "%25")
 sMyDoc=Replace(sMyDoc, " ", "%20")
+sMyDoc=Replace(sMyDoc, "#", "%23")
 sMyDoc="file:///"&sMyDoc
 sTheirDoc=Replace(sTheirDoc, "\", "/")
 sTheirDoc=Replace(sTheirDoc, ":", "|")
 sTheirDoc=Replace(sTheirDoc, "%", "%25")
 sTheirDoc=Replace(sTheirDoc, " ", "%20")
+sTheirDoc=Replace(sTheirDoc, "#", "%23")
 sTheirDoc="file:///"&sTheirDoc
 
 'Open the %mine document

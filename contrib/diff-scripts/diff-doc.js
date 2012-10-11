@@ -89,11 +89,13 @@ catch(e)
 	sBaseDoc = sBaseDoc.replace(/\\/g, "/");
 	sBaseDoc = sBaseDoc.replace(/:/g, "|");
 	sBaseDoc = sBaseDoc.replace(/ /g, "%20");
+	sBaseDoc = sBaseDoc.replace(/#/g, "%23");
 	sBaseDoc="file:///" + sBaseDoc;
 	sBaseDoc=objUriTranslator.translateToInternal(sBaseDoc);
 	sNewDoc = sNewDoc.replace(/\\/g, "/");
 	sNewDoc = sNewDoc.replace(/:/g, "|");
 	sNewDoc = sNewDoc.replace(/ /g, "%20");
+	sNewDoc = sNewDoc.replace(/#/g, "%23");
 	sNewDoc="file:///" + sNewDoc;
 	sNewDoc=objUriTranslator.translateToInternal(sNewDoc);
 

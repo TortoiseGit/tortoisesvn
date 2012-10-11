@@ -69,12 +69,14 @@ sBaseDoc=Replace(sBaseDoc, "\", "/")
 sBaseDoc=Replace(sBaseDoc, ":", "|")
 sBaseDoc=Replace(sBaseDoc, "%", "%25")
 sBaseDoc=Replace(sBaseDoc, " ", "%20")
+sBaseDoc=Replace(sBaseDoc, "#", "%23")
 sBaseDoc="file:///"&sBaseDoc
 sBaseDoc=objUriTranslator.translateToInternal(sBaseDoc)
 sNewDoc=Replace(sNewDoc, "\", "/")
 sNewDoc=Replace(sNewDoc, ":", "|")
 sNewDoc=Replace(sNewDoc, "%", "%25")
 sNewDoc=Replace(sNewDoc, " ", "%20")
+sNewDoc=Replace(sNewDoc, "#", "%23")
 sNewDoc="file:///"&sNewDoc
 sNewDoc=objUriTranslator.translateToInternal(sNewDoc)
 
