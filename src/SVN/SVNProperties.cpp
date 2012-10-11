@@ -141,6 +141,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         }
         do
         {
+            rev_set = SVN_INVALID_REVNUM;
             if ((status)&&(status->kind == svn_node_dir))
             {
 #ifdef _MFC_VER
@@ -153,7 +154,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
                 {
                     const char* svnPath = path.GetSVNApiPath(setPool);
                     SVNTRACE (
-                        Err = svn_client_propset_remote(name.c_str(), pval, svnPath, false, m_rev, NULL, NULL, NULL, m_pctx, setPool),
+                        Err = svn_client_propset_remote(name.c_str(), pval, svnPath, false, m_rev, NULL, &CommitCallback, &rev_set, m_pctx, setPool),
                         svnPath
                         )
                 }
@@ -175,10 +176,10 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
     }
     else
     {
+        rev_set = SVN_INVALID_REVNUM;
         const char* svnPath = m_path.GetSVNApiPath(subpool);
         if (m_bRevProps)
         {
-            svn_revnum_t rev_set;
             SVNTRACE (
                 Err = svn_client_revprop_set2(name.c_str(), pval, NULL, svnPath, m_rev, &rev_set, force, m_pctx, subpool),
                 svnPath
@@ -189,7 +190,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
             if (m_path.IsUrl())
             {
                 SVNTRACE (
-                    Err = svn_client_propset_remote(name.c_str(), pval, svnPath, force, m_rev, NULL, NULL, NULL, m_pctx, subpool),
+                    Err = svn_client_propset_remote(name.c_str(), pval, svnPath, force, m_rev, NULL, &CommitCallback, &rev_set, m_pctx, subpool),
                     svnPath
                     )
             }
@@ -208,6 +209,9 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         return FALSE;
     }
 
+    if (rev_set != SVN_INVALID_REVNUM)
+        m_rev = rev_set;
+
     return TRUE;
 }
 
@@ -220,6 +224,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
     Err = NULL;
     PrepareMsgForUrl(message, subpool);
 
+    rev_set = SVN_INVALID_REVNUM;
     const char* svnPath = m_path.GetSVNApiPath(subpool);
 #ifdef _MFC_VER
     if (m_path.IsUrl() || (!m_rev.IsWorking() && !m_rev.IsValid()))
@@ -227,7 +232,6 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
 #endif
     if (m_bRevProps)
     {
-        svn_revnum_t rev_set;
         SVNTRACE (
             Err = svn_client_revprop_set2(name.c_str(), NULL, NULL, svnPath, m_rev, &rev_set, false, m_pctx, subpool),
             svnPath
@@ -259,7 +263,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
                     if (m_path.IsUrl())
                     {
                         SVNTRACE (
-                            Err = svn_client_propset_remote(name.c_str(), NULL, svnLocalPath, false, m_rev, NULL, NULL, NULL, m_pctx, setPool),
+                            Err = svn_client_propset_remote(name.c_str(), NULL, svnLocalPath, false, m_rev, NULL, &CommitCallback, &rev_set, m_pctx, setPool),
                             svnLocalPath
                             )
                     }
@@ -284,7 +288,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
             if (m_path.IsUrl())
             {
                 SVNTRACE (
-                    Err = svn_client_propset_remote(name.c_str(), NULL, svnPath, true, m_rev, NULL, NULL, NULL, m_pctx, subpool),
+                    Err = svn_client_propset_remote(name.c_str(), NULL, svnPath, true, m_rev, NULL, &CommitCallback, &rev_set, m_pctx, subpool),
                     svnPath
                     )
             }
@@ -303,6 +307,9 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
     {
         return FALSE;
     }
+
+    if (rev_set != SVN_INVALID_REVNUM)
+        m_rev = rev_set;
 
     return TRUE;
 }
@@ -385,5 +392,12 @@ void SVNProperties::PrepareMsgForUrl( const TCHAR * message, SVNPool& subpool )
         baton->pool = subpool;
         m_pctx->log_msg_baton3 = baton;
     }
+}
+
+svn_error_t* SVNProperties::CommitCallback( const svn_commit_info_t *commit_info, void *baton, apr_pool_t *pool )
+{
+    svn_revnum_t* pRev = (svn_revnum_t*)baton;
+    *pRev = commit_info->revision;
+    return SVN_NO_ERROR;
 }
 

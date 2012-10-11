@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -78,6 +78,10 @@ public:
      */
     void SetFromSerializedForm (const std::string& text);
 
+    svn_revnum_t GetCommitRev() const { return rev_set; }
 private:
     void PrepareMsgForUrl( const TCHAR * message, SVNPool& subpool );
+    static svn_error_t* CommitCallback(const svn_commit_info_t *commit_info, void *baton, apr_pool_t *pool);
+
+    svn_revnum_t rev_set;
 };
