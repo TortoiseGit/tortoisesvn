@@ -257,7 +257,7 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                             <entry condition="pot">$WCEXTALLFIXED$</entry>
                             <entry>
                                 <literal>$WCEXTALLFIXED?TText:FText$</literal> is
-                                replaced with <literal>TText</literal> iif all externals are fixed
+                                replaced with <literal>TText</literal> if all externals are fixed
                                 to an explicit revision, or <literal>FText</literal> if not.
                             </entry>
                         </row>
@@ -489,8 +489,8 @@ char *lockcmt       = "";
                         <row>
                             <entry condition="pot">.GetWCInfo2</entry>
                             <entry>
-                                The same as GetWCInfo() but with a fourth parameter
-                                that sets the equivalend to the <literal>-E</literal>
+                                The same as <literal>GetWCInfo()</literal> but with a fourth parameter
+                                that sets the equivalent to the <literal>-E</literal>
                                 command line switch.
                             </entry>
                         </row>
