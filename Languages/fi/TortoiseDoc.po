@@ -10,14 +10,14 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011.
+# Kari Granö <kari.grano@gmail.com>, 2011-2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-26 08:30+0000\n"
+"PO-Revision-Date: 2012-10-08 22:59+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -650,7 +650,7 @@ msgstr "Peruskäsitteitä"
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
 "get an overview of how Subversion works and the terms that are used."
-msgstr ""
+msgstr "Ennen kun sukellamme tiedostojen pariin, on hyvä saada yleiskuva siitä, miten Subversion toimii ja mitkä sen peruskäsitteet ovat."
 
 #. (term)
 #. (title)
@@ -2161,7 +2161,7 @@ msgid ""
 "command line tools directly from the <ulink "
 "url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "<literal>svnadmin</literal>-työkalu asentuu samalla, kun asennat Subversion-komentorivityökalun. Tämä onnistuu helpoiten ruksaamalla komentorivityökalut-valinta TortoiseSVN-asennuksen yhteydessä, mutta voit halutessasi asentaa viimeisimmän version komentorivityökaluista <ulink url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>-sivustosta."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -3093,7 +3093,7 @@ msgid ""
 "click</action> on the folder(s) you would like to add to your working copy, "
 "then use <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Napsauta Tarkista muutokset -ikkunan painiketta <guibutton>Tarkista arkisto</guibutton> pitämällä samalla <keycap>shift</keycap>-näppäin painettuna. Ikkuna näyttää kaikki arkistosta löytyvät tiedostot ja kansiot, joita et ole hakenut työkopioosi, tilassa <literal>lisätty etänä</literal>. <action>Oikea-napsauta</action> kansioita, jotka haluat lisätä työkopioosi ja anna komento <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenutem>Päivitä</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -5854,7 +5854,7 @@ msgid ""
 "will only see the results when using a checked out working copy. Fetching "
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
-msgstr ""
+msgstr "Koska lokiviestien muotoilu vaatii Subversion-ominaisuuksien käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä arkistoselaimessa."
 
 #. (title)
 msgid "Statistical Information"
@@ -6950,7 +6950,7 @@ msgid ""
 "Use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>"
 " to remove files or folders from Subversion."
-msgstr ""
+msgstr "Käytä komentoa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Poista</guimenuitem></menuchoice> poistaaksesi tiedostoja tai kansioita arkistosta."
 
 #. (para)
 msgid ""
@@ -7641,7 +7641,7 @@ msgid ""
 "Subversion feature and works with any Subversion client. However it has to "
 "be defined on each client individually - there is no way to propagate these "
 "settings from the repository."
-msgstr ""
+msgstr "Voit muokata Subversion-määrittelytiedostoa ottaaksesi tämän ominaisuuden käyttöön asiakaspäässä. Sivu<guilabel>Yleiset</guilabel> TortoiseSVN-asetusikkunassa sisältää muokkauspainikkeen, joka tekee tämän suoraan. Määrittelytiedosto on yksinkertainen tekstitiedosto, joka ohjaa joitain Subversionin toimintoja. Sinun on muutettava kaksi asiaa: poista ensinnäkin <literal>miscellany</literal>-osiosta kommenttimerkit riviltä <literal>enable-auto-props = yes</literal>. Lisäksi sinun on määriteltävä seuraavaan osioon, mitkä ominaisuudet haluat lisätä ja mille tiedostotyypille. Tämä on Subversionin vakio-ominaisuus ja toimii kaikilla asiakasohjelmilla. Se on kuitenkin määritettävä jokaiseen työasemaan erikseen - asetusten noutaminen suoraan arkistosta ei ole tuettua."
 
 #. (para)
 msgid ""
@@ -7804,7 +7804,7 @@ msgid ""
 "adding files. The format is the same as for Subversion autoprops, e.g. "
 "<literal>*.sh = svn:eol-style=native;svn:executable</literal> sets two "
 "properties on files with the <literal>.sh</literal> extension."
-msgstr ""
+msgstr "Subversion tukee <quote>automaattisia ominaisuuksia</quote> (autoprops), jotka lisätään uusille tai tuoduille tiedostoille niiden päätteen perusteella. Asetukset ovat työasemakohtaisia ja sijaitsevat Subversionin määrittelytiedostossa. Ominaisuus <literal>tsvn:autoprops</literal> voidaan asettaa kansioille; se yhdistetään käyttäjän paikallisiin automaattisiin ominaisuuksiin ja sitä käytetään lisättäessä tai tuotaessa tiedostoja. Esimerkiksi <literal>*.sh = svn:eol-style=native;svn:executable</literal> asettaa kaksi ominaisuutta tiedostoille, joilla on pääte <literal>.sh</literal>."
 
 #. (para)
 msgid ""
@@ -8201,7 +8201,7 @@ msgid ""
 "update this item in your working copy. By specifying a peg revision you tell"
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
-msgstr ""
+msgstr "Sinun on määritettävä sen alihakemiston nimi, johon ulkoinen viite noudetaan, sekä ulkoisen viitteen Subversion-paikannin. Voit kytkeä ulkoisen viitteen HEAD-versioon, jolloin työkopioosi lisätään päivityksen yhteydessä automaattisesti ulkoisen viitteen muutokset. Voit myös kytkeä ulkoisen viitteen johonkin kiinteään versionumeroon. Tässä tapauksessa saatat myös haluta antaa saman version ankkuriversioksi, koska jos ulkoinen viite nimetään uudelleen tulevaisuudessa, Subversion ei kykene päivittämään viitettä työkopioosi. Määrittämällä ankkuriversion Subversionille, että ulkoisen viitteen nimeä on etsittävä sellaisena, kun se oli ankkuriversiossa (ankkuriversion oletusarvo on HEAD)."
 
 #. (para)
 msgid ""
@@ -8284,7 +8284,7 @@ msgid ""
 "list</guilabel>. By default the Subversion status will be shown in your "
 "local language. When this box is checked the status is always given in "
 "English, for projects which require English-only log messages."
-msgstr ""
+msgstr "<placeholder-1/> Valitse lokiviestien tavutuksen tarkastuksessa käytettävä kieli. Tiedostolistauksen valintaa käytetään, kun napsautat hiiren oikealla painikkeella lokiviestipaneelissa ja valitset toiminnon <guilabel>Liitä tiedostoluettelo</guilabel>. Oletusarvoisesti Subversion-tilatiedoissa käytetään asennuskieltä. Kun tämä valinta on asetettu, tilatiedot näytetään aina englanniksi. Tästä on hyötyä projekteille, joiden lokiviestien on oltava aina englanninkielisiä."
 
 #. (title)
 msgid "MIME-type"
@@ -9201,7 +9201,7 @@ msgid ""
 "If you are merging revisions in chunks, the method shown in the Subversion "
 "book will have you merge 100-200 this time and 200-300 next time. With "
 "TortoiseSVN you would merge 100-200 this time and 201-300 next time."
-msgstr ""
+msgstr "Jos yhdistät versioita paloittain, Subversion-kirjan kuvaamalla menetelmällä yhdistäisit ensin versiot 100-200 ja seuraavalla kerralla versiot 200-300. TortoiseSVN-yhdistäminen sen sijaan tapahtuu yhdistämällä ensin muutosjoukot 100-200 ja seuraavalla kerralla muutosjoukot 201-300."
 
 #. (para)
 msgid ""
@@ -9577,7 +9577,7 @@ msgid ""
 "url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-"
 "tracking/index.html\"><citetitle>Merge tracking "
 "documentation</citetitle></ulink>."
-msgstr ""
+msgstr "Lisätietoa tehtyjen yhdistämisten jäljittämisestä löydät dokumentista <ulink url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
 
 #. (title)
 msgid "Handling Conflicts during Merge"
@@ -11841,7 +11841,7 @@ msgid ""
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr ""
+msgstr "Koska kytkentä web-selaimiin vaatii Subversion-ominaisuuksien käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä arkistoselaimessa, ellet käynnistä arkistoselainta työkopiostasi. Jos siis käynnistät arkistoselaimen antamalla arkiston paikantimen, tämä ominaisuus ei ole käytettävissä."
 
 #. (para)
 #. (para)
@@ -11989,7 +11989,7 @@ msgid ""
 "this feature in action from the repo browser unless you started the repo "
 "browser from your working copy. If you started the repo browser by entering "
 "the URL of the repository you won't see this feature."
-msgstr ""
+msgstr "Koska kytkentä arkistoselaimeen vaatii Subversion-ominaisuuksien käyttöä, näet tulokset vain työkopion kautta. Ominaisuuksien haku palvelimelta on hidasta, joten tämä toiminto ei ole käytettävissä arkistoselaimessa, ellet käynnistä arkistoselainta työkopiostasi. Jos siis käynnistät arkistoselaimen antamalla arkiston paikantimen, tämä ominaisuus ei ole käytettävissä."
 
 #. (title)
 msgid "TortoiseSVN's Settings"
@@ -14578,7 +14578,7 @@ msgid ""
 "Remember to save Subversion's general settings, which you can find in the "
 "Subversion configuration file "
 "<literal>%APPDATA%\\Subversion\\config</literal>."
-msgstr ""
+msgstr "Muista tallentaa Subversion-asetukset, jotka löytyvät Subversion-konfigurointitiedostosta <literal>%APPDATA%\\Subversion\\config</literal>."
 
 #. (title)
 msgid "Final Step"
@@ -14769,7 +14769,7 @@ msgstr "Avainsanojen korvaus"
 
 #. (title)
 msgid "List of available keywords"
-msgstr ""
+msgstr "Luettelo käytettävissä olevista avainsanoista"
 
 #. (entry)
 msgid "Keyword"
@@ -15005,7 +15005,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// SubWCRev-testitiedosto\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15049,7 +15049,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// SubWCRev-testitiedosto\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -16390,7 +16390,7 @@ msgid ""
 "config files under <filename>%APPDATA%\\Subversion</filename>. If you need "
 "help with MSI customization, try one of the MSI transform forums or search "
 "the web for <quote>MSI transform</quote>."
-msgstr ""
+msgstr "Voit halutessasi mukauttaa MSI-tiedoston siten, että kaikilla käyttäjilla on samat asetukset. TSVN-astukset talletetaan Windows-rekisterin haaraan <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN</filename> ja yleiset Subversion-asetukset (jotka vaikuttavat kaikkiin Subversion-asiakkaisiin) tallettuvat asetustiedostoihin hakemistossa <filename>%APPDATA%\\Subversion</filename>. Jos tarvitset apua MSI-mukautuksessa, koeta jotain MSI-uutisryhmää tai hae verkosta avainsanoilla <quote>MSI transform</quote>."
 
 #. (title)
 msgid "Redirect the upgrade check"
@@ -18339,7 +18339,7 @@ msgid ""
 "disable the <emphasis>Ignored</emphasis> and "
 "<emphasis>Unversioned</emphasis> overlays then no overlay will be shown for "
 "those files either."
-msgstr ""
+msgstr "Jos tiedostolla on Subversion-tila <literal>pois käytöstä</literal> (kohde ei ole työkopiossa), kuvakepäällystä ei näytetä. Jos olet estänyt <emphasis>ohitettujen</emphasis> ja <emphasis>versioimattomien</emphasis> kuvakkeiden käytön, päällyksiä ei näytetä myöskään näille kohteille."
 
 #. (para)
 msgid ""
@@ -19763,7 +19763,7 @@ msgstr "Valinta <guilabel>Varmista alkuperäinen tiedosto</guilabel> nimeää al
 msgid ""
 "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
 "loaded as UTF-8 encoded and saved as such when edited."
-msgstr ""
+msgstr "<guilabel>Käytä UTF-8 -muotoa</guilabel> kun asetettu, ANSI-tiedostot avataan ja talletetaan UTF-8 -muodossa."
 
 #. (para)
 msgid ""

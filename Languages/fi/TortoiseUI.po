@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011.
+# Kari Granö <kari.grano@gmail.com>, 2011-2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
 msgid ""
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-28 08:44+0000\n"
+"PO-Revision-Date: 2012-10-08 22:35+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3966,7 +3966,7 @@ msgid ""
 "Do you want to mark the file\n"
 "%s\n"
 "as resolved?"
-msgstr ""
+msgstr "Haluatko merkitä tiedoston\n%s\nratkaistuksi?"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4642,7 +4642,7 @@ msgstr "Tiedostoerot"
 
 #. Resource IDs: (319)
 msgid "File has no conflicts"
-msgstr ""
+msgstr "Tiedostolla ei ole ristiriitoja"
 
 #. Resource IDs: (314)
 msgid "File is empty."
@@ -4766,7 +4766,7 @@ msgstr "Etsi"
 
 #. Resource IDs: (1633)
 msgid "Find &HEAD-Revision"
-msgstr ""
+msgstr "Etsi &HEAD-versio"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
@@ -5048,7 +5048,7 @@ msgstr "HEAD-solmu"
 #. Resource IDs: (106)
 #, c-format
 msgid "HEAD revision is %s"
-msgstr ""
+msgstr "Uusin versio (HEAD) on %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5890,7 +5890,7 @@ msgstr "Vähiten aktiivinen tekijä:"
 msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
-msgstr ""
+msgstr "Jätä ristiriitaiseksi\nTiedoston ristiriitatila säilytetään"
 
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
@@ -6151,7 +6151,7 @@ msgstr "Merkitse ratkaistuksi\nRistiriita on ratkaistu."
 msgid ""
 "Mark as resolved\n"
 "The file status is changed to modified"
-msgstr ""
+msgstr "Merkitse ratkaistuksi\nTiedosto merkitään muuttuneeksi"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -10097,7 +10097,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
+msgstr "Tämä toimitus ei ole palautuva, ja toimitettavaksi on valittu siirrettyjä/uudelleen nimettyjä/kopioituja kansioita. Tällaiset operaatiot suoritetaan aina palautuvasti arkistossa. Haluatko jatkaa toimitusta?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10106,7 +10106,7 @@ msgid ""
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr ""
+msgstr "Tämä toimitus ei ole palautuva, ja toimitettavaksi on valittu siirrettyjä/uudelleen nimettyjä/kopioituja kansioita. Tällaiset siirrot/uudelleen nimennät suoritetaan aina palautuvasti arkistossa.\n\nHaluatko jatkaa toimitusta?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -11069,7 +11069,7 @@ msgid ""
 "When resolving conflicts, you always have to save even if there is no "
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
-msgstr ""
+msgstr "Ristiriitoja ratkaistaessa sinun on aina talletettava vaikka ristiriitoja ei näy. TortoiseMerge osaa yhdistää muutoksia, joita SVN ei osaa, eikä myöskään näytä näitä ristiriitoina!"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11597,7 +11597,7 @@ msgstr "hae HEAD-versio:"
 
 #. Resource IDs: (591)
 msgid "get repository root URLs:"
-msgstr ""
+msgstr "hae arkiston juuripaikantimet:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11637,7 +11637,7 @@ msgstr "säilytä tiedostoluettelot englanninkielisinä"
 
 #. Resource IDs: (65535)
 msgid "last HEAD update: "
-msgstr ""
+msgstr "viimeisin HEAD-päivitys:"
 
 #. Resource IDs: (65535)
 msgid "last read: "
