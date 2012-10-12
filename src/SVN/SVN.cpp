@@ -112,8 +112,7 @@ SVN::SVN(bool suppressUI)
     pool = svn_pool_create (parentpool);
     svn_ra_initialize(pool);
     // set up the configuration
-    if (Err == 0)
-        m_pctx->config = SVNConfig::Instance().GetConfig(pool);
+    m_pctx->config = SVNConfig::Instance().GetConfig(pool);
 
     if (m_pctx->config == nullptr)
     {
