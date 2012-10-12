@@ -3030,7 +3030,14 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 popup.AppendMenuIcon(ID_EDITFILE, IDS_REPOBROWSE_EDITFILE);     // "edit"
                 popup.AppendMenu(MF_SEPARATOR, NULL);
             }
+        }
+        if ( (selection.GetPathCount (0) == 1) ||
+             ((selection.GetPathCount (0) == 2) && (selection.GetFolderCount (0) != 1)) )
+        {
             popup.AppendMenuIcon(ID_SHOWLOG, IDS_REPOBROWSE_SHOWLOG, IDI_LOG);          // "Show Log..."
+        }
+        if (selection.GetPathCount (0) == 1)
+        {
             // the revision graph on the repository root would be empty. We
             // don't show the context menu entry there.
             if (!selection.IsRoot (0, 0))
