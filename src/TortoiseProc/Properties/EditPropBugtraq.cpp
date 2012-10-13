@@ -287,6 +287,10 @@ void CEditPropBugtraq::OnOK()
     CString sLogRegex = m_sBugtraqRegex2 + _T("\n") + m_sBugtraqRegex1;
     if (m_sBugtraqRegex1.IsEmpty() && m_sBugtraqRegex2.IsEmpty())
         sLogRegex.Empty();
+    if (m_sBugtraqRegex2.IsEmpty() && !m_sBugtraqRegex1.IsEmpty())
+        sLogRegex = m_sBugtraqRegex1;
+    if (m_sBugtraqRegex1.IsEmpty() && !m_sBugtraqRegex2.IsEmpty())
+        sLogRegex = m_sBugtraqRegex2;
     propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogRegex);
     pVal.value = propVal;
     pVal.remove = (pVal.value.size() == 0);
