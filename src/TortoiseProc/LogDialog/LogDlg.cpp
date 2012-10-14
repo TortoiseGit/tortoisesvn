@@ -5351,6 +5351,7 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                     popup.AppendMenuIcon(ID_REVERTREV, IDS_LOG_POPUP_REVERTREV, IDI_REVERT);
                 popup.AppendMenuIcon(ID_POPPROPS, IDS_REPOBROWSE_SHOWPROP, IDI_PROPERTIES);         // "Show Properties"
                 popup.AppendMenuIcon(ID_LOG, IDS_MENULOG, IDI_LOG);                     // "Show Log"
+                popup.AppendMenuIcon(ID_REPOBROWSE, IDS_LOG_BROWSEREPO, IDI_REPOBROWSE);
                 popup.AppendMenuIcon(ID_GETMERGELOGS, IDS_LOG_POPUP_GETMERGELOGS, IDI_LOG);     // "Show merge log"
                 popup.AppendMenuIcon(ID_SAVEAS, IDS_LOG_POPUP_SAVE, IDI_SAVEAS);
                 bEntryAdded = true;
@@ -5841,6 +5842,43 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
 
                 if (bMergeLog)
                     sCmd += _T(" /merge");
+                CAppUtils::RunTortoiseProc(sCmd);
+                EnableOKButton();
+                theApp.DoWaitCursor(-1);
+            }
+            break;
+        case ID_REPOBROWSE:
+            {
+                const CLogChangedPath& changedlogpath
+                    = m_currentChangedArray[selIndex];
+
+                DialogEnableWindow(IDOK, FALSE);
+                SetPromptApp(&theApp);
+                theApp.DoWaitCursor(1);
+                CString filepath;
+                if (SVN::PathIsURL(m_path))
+                {
+                    filepath = m_path.GetSVNPathString();
+                }
+                else
+                {
+                    filepath = GetURLFromPath(m_path);
+                    if (filepath.IsEmpty())
+                    {
+                        theApp.DoWaitCursor(-1);
+                        ReportNoUrlOfFile(filepath);
+                        EnableOKButton();
+                        break;
+                    }
+                }
+                m_bCancelled = false;
+                filepath = GetRepositoryRoot(CTSVNPath(filepath));
+                filepath += m_currentChangedArray[selIndex].GetPath();
+                svn_revnum_t logrev = rev1;
+                CString sCmd;
+                sCmd.Format(_T("/command:repobrowser /path:\"%s\" /rev:%ld"),
+                    (LPCTSTR)filepath, logrev);
+
                 CAppUtils::RunTortoiseProc(sCmd);
                 EnableOKButton();
                 theApp.DoWaitCursor(-1);
