@@ -228,6 +228,8 @@ struct cfg_option_t
 
 apr_hash_t * SVNConfig::GetConfig( apr_pool_t * pool )
 {
+    if (config == NULL)
+        return NULL;
     // create a copy of the config object we have
     // to avoid threading issues
     CComCritSecLock<CComCriticalSection> lock(m_critSec);
