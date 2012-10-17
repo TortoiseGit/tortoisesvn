@@ -1680,6 +1680,7 @@ void CRepositoryBrowser::RefreshChildren (HTREEITEM node)
         return;
 
     pTreeItem->children_fetched = false;
+    InvalidateData(node);
     FetchChildren (node);
 
     // update node status and add sub-nodes for all sub-dirs
