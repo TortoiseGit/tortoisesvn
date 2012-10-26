@@ -22,15 +22,15 @@
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
 #   <luiceur@gmail.com>, 2011.
 # Luis Valencia <luis.valencia.medina@gmail.com>, 2012.
-# Tomás Christie <tommychristie@gmail.com>, 2011.
+# Tomás Christie <tommychristie@gmail.com>, 2011-2012.
 #   <victor.velazco@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-26 08:30+0000\n"
-"Last-Translator: Adam Harper <cadamharper@gmail.com>\n"
+"PO-Revision-Date: 2012-10-25 14:44+0000\n"
+"Last-Translator: Tomás Christie <tommychristie@gmail.com>\n"
 "Language-Team: Spanish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8358,7 +8358,7 @@ msgstr ""
 msgid ""
 "You can customize that generated message with the following properties: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Usted puede configurar el mensaje generado con las siguientes propiedades: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -11980,7 +11980,7 @@ msgid ""
 "you right click in the log dialog bottom pane on a file entry "
 "<literal>/trunk/src/file</literal> then the <literal>%PATH%</literal> in the"
 " URL will be replaced with <literal>/trunk/src/file</literal>."
-msgstr ""
+msgstr "Establece esta propiedad en la URL del visualizador del repo para ver los cambios a un archivo específico en un revisión específica. Debe estar URI encodeado y debe contener <literal>%REVISION%</literal> y <literal>%PATH%</literal>. <literal>%PATH%</literal> es reemplazado con la ruta relativa a la raíz del repositorio. Esto le permite a TortoiseSVN mostrar una entrada en el menu contextual en el díalogo del log<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>View revision for path in webviewer</guimenuitem></menuchoice> Por ejemplo, si haces click con el botón derecho en la parte inferior del díalogo del log en un archivo <literal>/trunk/src/file</literal> entonces el <literal>%PATH%</literal> en la URL será reemplazado con <literal>/trunk/src/file</literal>."
 
 #. (para)
 msgid ""
@@ -16067,7 +16067,7 @@ msgstr ""
 msgid ""
 "You have reverted the changes within your working copy. Check that the "
 "results are as expected, then commit the changes."
-msgstr ""
+msgstr "Ha revertido los cambios dentro de su copia de trabajo. Compruebe los resultados son los esperados, y luego confirme los cambios."
 
 #. (title)
 msgid "Use <literal>svndumpfilter</literal>"
