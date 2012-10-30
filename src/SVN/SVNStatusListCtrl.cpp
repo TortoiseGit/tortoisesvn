@@ -3723,7 +3723,13 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 break;
             case IDSVNLC_EXPLORE:
                 {
-                    ShellExecute(this->m_hWnd, _T("explore"), filepath.GetDirectory().GetWinPath(), NULL, NULL, SW_SHOW);
+                    CString p = filepath.Exists() ? filepath.GetWinPathString() : filepath.GetDirectory().GetWinPathString();
+                    ITEMIDLIST __unaligned * pidl = ILCreateFromPath((LPCTSTR)p);
+                    if (pidl)
+                    {
+                        SHOpenFolderAndSelectItems(pidl,0,0,0);
+                        ILFree(pidl);
+                    }
                 }
                 break;
             case IDSVNLC_CHECKFORMODS:
