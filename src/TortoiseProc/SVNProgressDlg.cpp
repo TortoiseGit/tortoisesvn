@@ -1752,7 +1752,7 @@ LRESULT CSVNProgressDlg::OnResolveMsg( WPARAM wParam, LPARAM)
     {
         for (auto it = m_arData.begin(); it != m_arData.end(); ++it)
         {
-            if ((*it)->id == wParam)
+            if ((*it)->id == (LONG)wParam)
             {
                 if ((*it)->bConflictedActionItem)
                 {
