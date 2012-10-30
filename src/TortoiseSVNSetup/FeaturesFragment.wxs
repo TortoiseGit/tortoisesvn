@@ -62,6 +62,7 @@
 
       <Feature Id="CLI" Level="200" Title="command line client tools" Description="The svn command line client tools" TypicalDefault="install" Absent="allow">
         <ComponentRef Id="C__CLI" />
+        <ComponentRef Id="C__CLIREG" />
       </Feature>
 
       <?if $(env.IncludeCrashReportDll) = 1 ?>
