@@ -784,6 +784,11 @@ bool CSVNStatusListCtrl::FetchStatusForSingleTarget(
         // we have an unversioned folder -> get all files in it recursively!
         AddUnversionedFolder(svnPath, workingTarget.GetContainingDirectory(), bEntryFromDifferentRepo);
     }
+    else if (m_bIgnoreRemoveOnly && (wcFileStatus == svn_wc_status_ignored) && svnPath.IsDirectory())
+    {
+        // we have an unversioned folder for the add-dialog -> get all files in it recursively!
+        AddUnversionedFolder(svnPath, workingTarget.GetContainingDirectory(), bEntryFromDifferentRepo);
+    }
 
     // for folders, get all statuses inside it too
     if(workingTarget.IsDirectory())
