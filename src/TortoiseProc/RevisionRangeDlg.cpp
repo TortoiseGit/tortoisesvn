@@ -63,19 +63,19 @@ BOOL CRevisionRangeDlg::OnInitDialog()
 
     if (m_StartRev.IsHead())
     {
-        CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_REVISION_HEAD);
+        CheckRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE, IDC_REVRANGE_HEAD);
     }
     else
     {
         CString sRev;
         if (m_StartRev.IsDate())
         {
-            CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_DATEREV);
+            CheckRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE, IDC_REVRANGE_DATE);
             sRev = m_StartRev.GetDateString();
         }
         else
         {
-            CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_REVISION_N);
+            CheckRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE, IDC_REVRANGE_REV);
             sRev.Format(_T("%ld"), (LONG)(m_StartRev));
         }
         if (!sRev.IsEmpty())
@@ -83,19 +83,19 @@ BOOL CRevisionRangeDlg::OnInitDialog()
     }
     if (m_EndRev.IsHead())
     {
-        CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_REVISION_HEAD1);
+        CheckRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2, IDC_REVRANGE_HEAD2);
     }
     else
     {
         CString sRev;
         if (m_EndRev.IsDate())
         {
-            CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_DATEREV2);
+            CheckRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2, IDC_REVRANGE_DATE2);
             sRev = m_EndRev.GetDateString();
         }
         else
         {
-            CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_REVISION_N2);
+            CheckRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2, IDC_REVRANGE_REV2);
             sRev.Format(_T("%ld"), (LONG)(m_EndRev));
         }
         if (!sRev.IsEmpty())
@@ -117,12 +117,12 @@ void CRevisionRangeDlg::OnOK()
         return; // don't dismiss dialog (error message already shown by MFC framework)
 
     m_StartRev = SVNRev(m_sStartRevision);
-    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_DATEREV) == IDC_REVISION_HEAD)
+    if (GetCheckedRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE) == IDC_REVRANGE_HEAD)
     {
         m_StartRev = SVNRev(_T("HEAD"));
         m_sStartRevision = _T("HEAD");
     }
-    if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_DATEREV) == IDC_DATEREV)
+    if (GetCheckedRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE) == IDC_REVRANGE_DATE)
     {
         CTime _time;
         m_DateFrom.GetTime(_time);
@@ -143,12 +143,12 @@ void CRevisionRangeDlg::OnOK()
     }
 
     m_EndRev = SVNRev(m_sEndRevision);
-    if (GetCheckedRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2) == IDC_REVISION_HEAD1)
+    if (GetCheckedRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2) == IDC_REVRANGE_HEAD2)
     {
         m_EndRev = SVNRev(_T("HEAD"));
         m_sEndRevision = _T("HEAD");
     }
-    if (GetCheckedRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2) == IDC_DATEREV2)
+    if (GetCheckedRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2) == IDC_REVRANGE_DATE2)
     {
         CTime _time;
         m_DateTo.GetTime(_time);
@@ -179,11 +179,11 @@ void CRevisionRangeDlg::OnEnChangeRevnum()
     GetDlgItemText(IDC_REVNUM, sText);
     if (sText.IsEmpty())
     {
-        CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_REVISION_HEAD);
+        CheckRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE, IDC_REVRANGE_HEAD);
     }
     else
     {
-        CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_REVISION_N);
+        CheckRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE, IDC_REVRANGE_REV);
     }
 }
 
@@ -193,24 +193,24 @@ void CRevisionRangeDlg::OnEnChangeRevnum2()
     GetDlgItemText(IDC_REVNUM2, sText);
     if (sText.IsEmpty())
     {
-        CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_REVISION_HEAD1);
+        CheckRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2, IDC_REVRANGE_HEAD2);
     }
     else
     {
-        CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_REVISION_N2);
+        CheckRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2, IDC_REVRANGE_REV2);
     }
 }
 
 void CRevisionRangeDlg::OnDtnDatetimechangeDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-    CheckRadioButton(IDC_REVISION_HEAD1, IDC_DATEREV2, IDC_DATEREV2);
+    CheckRadioButton(IDC_REVRANGE_HEAD2, IDC_REVRANGE_DATE2, IDC_REVRANGE_DATE2);
 
     *pResult = 0;
 }
 
 void CRevisionRangeDlg::OnDtnDatetimechangeDatefrom(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
-    CheckRadioButton(IDC_REVISION_HEAD, IDC_DATEREV, IDC_DATEREV);
+    CheckRadioButton(IDC_REVRANGE_HEAD, IDC_REVRANGE_DATE, IDC_REVRANGE_DATE);
 
     *pResult = 0;
 }
