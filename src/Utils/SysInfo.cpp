@@ -35,6 +35,3 @@ const SysInfo& SysInfo::Instance()
     static SysInfo instance;
     return instance;
 }
-
-
-

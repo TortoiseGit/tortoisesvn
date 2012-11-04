@@ -123,10 +123,3 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     DestroyCursor(curHandDown);
     return 1;
 }
-
-
-
-
-
-
-

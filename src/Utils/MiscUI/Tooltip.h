@@ -63,20 +63,3 @@ private:
 
     static CString LoadTooltip( UINT nIDText );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

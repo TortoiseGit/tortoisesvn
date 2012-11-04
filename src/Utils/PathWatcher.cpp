@@ -367,11 +367,3 @@ bool CPathWatcher::CDirWatchInfo::CloseDirectoryHandle()
 {
     return m_hDir.CloseHandle();
 }
-
-
-
-
-
-
-
-

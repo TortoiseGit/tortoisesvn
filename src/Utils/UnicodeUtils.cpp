@@ -239,6 +239,3 @@ public:
 
 } UnicodeTestobject;
 #endif
-
-
-

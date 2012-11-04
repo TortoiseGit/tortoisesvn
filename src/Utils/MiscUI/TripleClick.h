@@ -76,20 +76,3 @@ private:
     UINT    m_LastDblClickMsg;
     DWORD   m_LastDblClickTime;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
