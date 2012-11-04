@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!--
-============================================================ 
+============================================================
  $Date$
  $Author$
  $Rev$
-============================================================ 
+============================================================
 
 Customization layer for build files.
 
@@ -97,7 +97,7 @@ This will only build the english HTML help file for TortoiseSVN
     <include name="source/${lang.base}/**/version.xml"/>
     <include name="source/${lang.base}/**/pubdate.xml"/>
   </fileset>
-  
+
   <fileset id="files.filtered">
     <include name="source/${lang.base}/TortoiseSVN/**/*.xml"/>
     <include name="source/${lang.base}/**/wishlist.xml"/>

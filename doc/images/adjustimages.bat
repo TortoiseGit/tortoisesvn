@@ -1,7 +1,7 @@
 @echo off & setlocal enableextensions enabledelayedexpansion
-:: ============================================================ 
+:: ============================================================
 :: $Id$
-:: ============================================================ 
+:: ============================================================
 :: This script verifies all .png images to see if they fit
 :: in the PDF version of the documentation. The FOP version we
 :: use doesn't scale images automatically when they are too
@@ -20,7 +20,7 @@
 ::
 :: The image manipulation is done using NConvert.exe from
 :: http://www.xnview.com
-:: ============================================================ 
+:: ============================================================
 :: Set image size limits in 1000ths of an inch
 set /a w_limit = 5750
 set /a h_limit = 9000

@@ -194,7 +194,7 @@ class transReport:
 
     def printStatLine(self, Lang, Gui, Doc):
         print '%-33s: %-19s: %-19s' % (Lang, Gui, Doc)
-    
+
     def checkTranslation(self, wrkDir):
 
         [totGui, tsGui] = self.getTotal(wrkDir, fileGui)
@@ -233,7 +233,7 @@ class transReport:
         if info_err:
             print >> sys.stderr, '\nError: %s' % (info_err)
             sys.exit(0)
-            
+
         # Try different matches for older and newer svn clients
         reposRoot = self.match('Repository Root: (\S+)',info_out)
         if reposRoot is None:
@@ -290,7 +290,7 @@ def main():
     print subject
 
     report.createReport()
-    
+
     timestamp = makeTimeString('%a, %d %b %Y %H:%M UTC', time.time())
 
 if __name__ == '__main__':

@@ -76,4 +76,3 @@ IndexIgnore *
   RewriteCond %{HTTP_REFERER} !^$
   RewriteRule .*\.(jpe?g|gif|bmp|png)$ - [F]
 </IfModule>
-

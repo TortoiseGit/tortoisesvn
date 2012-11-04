@@ -6,7 +6,7 @@ rem variable to point to your scp program the PLINK variable to the plink
 rem program and the ZIP variable to your zip program
 
 rem example docserverlogin.bat file
-rem 
+rem
 rem @echo off
 rem set USERNAME=myname
 rem set PASSWORD=mypassword

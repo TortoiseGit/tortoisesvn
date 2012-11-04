@@ -28,7 +28,7 @@
   <!-- make sure the user config file exists -->
   <property name="userconfigfile"
             value="default.build.user" />
-  <property name="userconfigtemplate" 
+  <property name="userconfigtemplate"
             value="${userconfigfile}.tmpl" />
   <if test="${not file::exists(userconfigfile)}">
     <echo level="Warning">
@@ -326,7 +326,7 @@ it to your needs.
     </exec>
 
   </target>
-  
+
   <!-- ====================================================================== -->
   <!-- Help target                                                            -->
   <!-- ====================================================================== -->
