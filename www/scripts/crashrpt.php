@@ -12,24 +12,24 @@ function done($return_status, $message)
   // Write HTTP responce code
   header("HTTP/1.0 ".$return_status." ".$message);
   // Write HTTP responce body (for backwards compatibility)
-  echo $return_status." ".$message; 
+  echo $return_status." ".$message;
   exit(0);
 }
 
 // Checks that text fild doesn't contain inacceptable symbols
 function checkOK($field)
 {
-  if (stristr($field, "\\r") || stristr($field, "\\n")) 
+  if (stristr($field, "\\r") || stristr($field, "\\n"))
   {
     done(450, "Invalid input parameter.");
   }
 }
 
 $md5_hash = "";    // MD5 hash for error report ZIP
-$file_name = "";   // Destination file name                                  
+$file_name = "";   // Destination file name
 $crash_guid = "";  // Crash GUID
 
-// Check that MD5 hash exists 
+// Check that MD5 hash exists
 if(!isset($_POST['md5']))
 {
   done(450, "MD5 hash is missing.");
@@ -51,7 +51,7 @@ if(array_key_exists("crashguid", $_POST))
   if(strlen($crash_guid)!=36)
   {
     done(450, "Crash GUID has wrong length.");
-  }  
+  }
 }
 
 // Get file attachment
@@ -77,13 +77,13 @@ if(array_key_exists("crashrpt", $_FILES))
   }
 
   if(!empty($crash_guid))
-  { 
+  {
     // If crash GUID presents, use it as file name
     $file_name = $file_root.$crash_guid.".zip";
   }
   else
   {
-    // Generate random file name 
+    // Generate random file name
     $date_time = date(DATE_RFC822);
     $file_name = $file_root.md5(md5_file($tmp_file_name).$date_time).".zip";
   }
@@ -91,13 +91,13 @@ if(array_key_exists("crashrpt", $_FILES))
   // Move uploaded file to an appropriate directory
   if(!move_uploaded_file($tmp_file_name, $file_name))
   {
-    done(452, "Couldn't save data to local storage"); 
+    done(452, "Couldn't save data to local storage");
   }
 }
 else
 {
   // Assume legacy way is used
-  if(!isset($_POST["crashrpt"]))  
+  if(!isset($_POST["crashrpt"]))
   {
     done(450, "Error report data is missing.");
   }
@@ -117,24 +117,24 @@ else
   }
 
   if(!empty($crash_guid))
-  { 
+  {
     // If crash GUID presents, use it as file name
     $file_name = $file_root.$crash_guid.".zip";
   }
   else
   {
-    // Generate random file name 
+    // Generate random file name
     $date_time = date(DATE_RFC822);
     $file_name = $file_root.md5($file_data.$date_time).".zip";
   }
-  
+
   // Write decoded data to file
   $f = fopen($file_name, "w");
   if($f==FALSE)
   {
-    done(452, "Couldn't save data to local storage"); 
+    done(452, "Couldn't save data to local storage");
   }
-         
+
   fwrite($f, $file_data);
   fclose($f);
 }

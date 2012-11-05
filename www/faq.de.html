@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="faq" />
@@ -15,14 +14,14 @@
 </div>
 <div id="wrapper">
     <!--#include FILE="menu.de.html" -->
-	<div id="page">
-		<div id="banner">&nbsp;</div>
-		<div id="content">
-        
-			<div class="post">
-				<h1 class="title"><a href="#">H&auml;ufig gestellte Fragen</a></h1>
+    <div id="page">
+        <div id="banner">&nbsp;</div>
+        <div id="content">
+
+            <div class="post">
+                <h1 class="title"><a href="#">H&auml;ufig gestellte Fragen</a></h1>
                 $ADSENSE_TOPDE$
-				<div class="entry">
+                <div class="entry">
 
                     <h2>Inhaltsverzeichnis</h2>
 
@@ -30,10 +29,10 @@
                     <ul>
                         <li><a href="#ovllostonupgrade">Nach einem Update von TortoiseSVN, werden die Overlay-Icons nicht mehr angezeigt</a></li>
                         <li><a href="#uninstallfirst">Muss TortoiseSVN zuerst deinstalliert werden bevor eine neue Version installiert wird?</a></li>
-                        <li><a href="#adminpriv">Sind Administrator-Rechte notwendig um TortoiseSVN zu installieren?</a></li> 
+                        <li><a href="#adminpriv">Sind Administrator-Rechte notwendig um TortoiseSVN zu installieren?</a></li>
                         <li><a href="#installsubversion">Muss erst Subversion installiert werden?</a></li>
                         <li><a href="#uninstall">Wie kann TortoiseSVN deinstalliert werden?</a></li>
-                        <li><a href="#msidisabled">MSI Installationen sind auf dem Rechner deaktiviert. Gibt es einen .exe Installer?</a></li> 
+                        <li><a href="#msidisabled">MSI Installationen sind auf dem Rechner deaktiviert. Gibt es einen .exe Installer?</a></li>
                         <li><a href="#whymsi">Warum wird MSI verwendet anstatt einem exe Installer oder gar keinem Installer?</a></li>
                         <li><a href="#installerror">Die Installation bricht mit einer Fehlermeldung ab</a></li>
                     </ul>
@@ -107,19 +106,19 @@
 
                         <div class="h3" id="uninstallfirst" title="uninstallfirst">
                         <h3>Muss TortoiseSVN zuerst deinstalliert werden bevor eine neue Version installiert wird?</h3>
-                        <p>Nein. Die neue Version kann installiert werden auch 
+                        <p>Nein. Die neue Version kann installiert werden auch
                         wenn eine alte Version bereits installiert ist.
-                        Der Installer deinstalliert eine alte Version automatisch. 
-                        Nur wenn der Installer einen Neustart fordert muss 
-                        dieser auch durchgef&uuml;hrt werden da ansonsten die neue 
+                        Der Installer deinstalliert eine alte Version automatisch.
+                        Nur wenn der Installer einen Neustart fordert muss
+                        dieser auch durchgef&uuml;hrt werden da ansonsten die neue
                         Version nicht richtig verwendet werden kann.</p>
                         </div>
 
                         <div class="h3" id="adminpriv" title="adminpriv">
                         <h3>Sind Administrator-Rechte notwendig um TortoiseSVN zu installieren?</h3>
-                        <p>Ja, Administratorrechte sind zwingend erforderlich 
+                        <p>Ja, Administratorrechte sind zwingend erforderlich
                         um TortoiseSVN zu installieren.</p>
-                        <p>Nachdem TortoiseSVN installiert ist, sind 
+                        <p>Nachdem TortoiseSVN installiert ist, sind
                         Administratorrechte nicht mehr erforderlich um es zu
                         benutzen. TortoiseSVN kann mit normalen Nutzerrechten
                         ausgef&uuml;hrt und benutzt werden.</p>
@@ -135,7 +134,7 @@
 
                         <div class="h3" id="uninstall" title="uninstall">
                         <h3>Wie kann TortoiseSVN deinstalliert werden?</h3>
-                        <p>TortoiseSVN kann &uuml;ber die Windows Systemsteuerung 
+                        <p>TortoiseSVN kann &uuml;ber die Windows Systemsteuerung
                         deinstalliert werden. Deinstallation von TortoiseSVN
                         entfernt <em>nicht</em> die Arbeitskopien oder Daten.</p>
                         </div>
@@ -145,7 +144,7 @@
                         <p>Ein .exe Installer w&uuml;rde in diesem Fall nicht helfen.
                         Wenn msi wirklich deaktiviert ist, dann sind auch
                         Administratorrechte nicht vorhanden und TortoiseSVN kann
-                        dann nicht installiert werden (Shell-Erweiterungen 
+                        dann nicht installiert werden (Shell-Erweiterungen
                         erforden zwingend Admin-Rechte zur Installation).</p>
                         </div>
 
@@ -233,7 +232,7 @@
                             <li>Gesperrt wird geladen falls m&ouml;glich, wird aber als Normal angezeigt falls nicht genug Overlay-Icons &uuml;brig sind.</li>
                             <li>Hinzugef&uuml;gt wird geladen falls m&ouml;glich, wird aber als Ver&auml;ndert angezeigt falls nicht genug Overlay-Icons &uuml;brig sind.</li>
                         </ul>
-                        <p>Sie k&ouml;nnen &uuml;berpr&uuml;fen welche anderen Programme 
+                        <p>Sie k&ouml;nnen &uuml;berpr&uuml;fen welche anderen Programme
                         Overlay-Icons verwenden indem Sie den folgenden Registry-Key
                         in regedit.exe anzeigen:
                         HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
@@ -249,7 +248,7 @@
 
                         <div class="h3" id="ovlonlylocal" title="ovlonlylocal">
                         <h3>Warum sind die Overlay-Icons nur auf lokalen Datentr&auml;gern angezeigt und nicht auf Netzwerk-Laufwerken?</h3>
-                        <p>Im Einstellungs-Dialog -> &Uuml;berlagerte Symbole 
+                        <p>Im Einstellungs-Dialog -> &Uuml;berlagerte Symbole
                         m&uuml;ssen die Laufwerkstypen aktiviert werden auf welchen
                         Arbeitskopien abgelegt sind. Beachten Sie aber dass
                         wenn Sie die Symbole f&uuml;r Netzlaufwerke aktivieren
@@ -262,14 +261,14 @@
                         <p>Wenn eine Arbeitskopie auf einem SUBST Laufwerk liegt
                         k&ouml;nnen die Symbole durcheinander geraten.</p>
                         <p>Das Problem entsteht dadurch dass der Symbolcache
-                        den SVN Status f&uuml;r zwei unterschiedliche Pfade 
-                        gleichzeitig lesen muss, das Betriebssystem bei 
+                        den SVN Status f&uuml;r zwei unterschiedliche Pfade
+                        gleichzeitig lesen muss, das Betriebssystem bei
                         &Auml;nderungen nur f&uuml;r einen Pfad eine &Auml;nderungsmeldung
                         ausgibt.</p>
-                        <p>Um das Problem zu l&ouml;sen muss einer der Pfade (das 
+                        <p>Um das Problem zu l&ouml;sen muss einer der Pfade (das
                         SUBST-Laufwerk oder der OriginalPfad) in die Liste der
                         ausgeschlossenen Pfade aufgenommen werden:
-                        Einstellungs-Dialog -> &Uuml;berlagerte Symbole -> 
+                        Einstellungs-Dialog -> &Uuml;berlagerte Symbole ->
                         Pfade ausschliessen.</p>
                         <p>Zum Beispiel, wenn \\station\Ordner\AK auf G: verbunden
                         ist, dann muss "\\station\Ordner\AK*" als ausgeschlossener
@@ -313,7 +312,7 @@
                         Dies ist jedoch sehr, sehr langsam weshalb TortoiseSVN
                         diesen Trick nicht laufend anwenden kann - es w&uuml;rde
                         das ganze System zu stark belasten. Sie k&ouml;nnen diesen
-                        Trick jedoch von Hand starten: Wenn Sie die Funktion 
+                        Trick jedoch von Hand starten: Wenn Sie die Funktion
                         "Arbeitskopie aufr&auml;umen" auf dem obersten Ordner einer
                         Arbeitskopie ausf&uuml;hren, wird dieser Trick angewendet
                         und die Symbole sollten im Explorer aktualisiert werden.
@@ -328,7 +327,7 @@
                         <div class="h3" id="ovlmessed" title="ovlmessed">
                         <h3>Warum wechseln die Overlays manchmal zu zuf&auml;lligen Icons?</h3>
                         <p>
-                        Windows hat einen Icon-Cache, welcher nicht sehr stabil 
+                        Windows hat einen Icon-Cache, welcher nicht sehr stabil
                         ist. Dieses Problem l&auml;sst sich folgendermassen l&ouml;sen:</p>
                         <ul>
                             <li>Installieren Sie Microsoft's <a href='http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp'>TweakUI</a> und f&uuml;hren Sie die Option aus um den Icon-Cache neu zu erstellen</li>
@@ -358,10 +357,10 @@
 
                         <div class="h3" id="hundredcpu" title="hundredcpu">
                         <h3>100% CPU bei einem Rechts-Click auf eine Datei.</h3>
-                        <p>Bei jedem Rechts-Klick auf eine Datei, die CPU 
-                        Nutzung steigt auf 100% w&auml;hrend das Kontextmenu 
+                        <p>Bei jedem Rechts-Klick auf eine Datei, die CPU
+                        Nutzung steigt auf 100% w&auml;hrend das Kontextmenu
                         angezeigt wird. Sobald ein Eintrag aus dem Menu gew&auml;hlt
-                        wird geht die CPU Nutzung wieder auf normale Werte 
+                        wird geht die CPU Nutzung wieder auf normale Werte
                         zur&uuml;ck.</p>
                         <p>Windows XP hat einen bekannten Fehler welcher dieses
                         Problem verursacht. Um diesen Fehler in Windows zu
@@ -381,9 +380,9 @@
                         benutzt werden, aber nur von einem einzelnen Benutzer
                         wie auf einem lokalen Laufwerk. Der n&auml;chste FAQ-Eintrag
                         erkl&auml;rt warum die Benutzung durch mehrere Benutzer
-                        eine schlechte Idee ist. Falls keine wirklich 
+                        eine schlechte Idee ist. Falls keine wirklich
                         zwingenden Gr&uuml;nde existieren sollte ein Repository
-                        nicht auf einem Netzlaufwerk benutzt werden. 
+                        nicht auf einem Netzlaufwerk benutzt werden.
                         Stattdessen sollte wenn immer m&ouml;glich ein Subversion
                         Server verwendet werden.</p>
                         <p>Behaupten Sie sp&auml;ter nicht, Sie seien nicht
@@ -400,7 +399,7 @@
                         Dies ist aber <em>nicht</em> empfohlen aus folgenden
                         guten Gr&uuml;nden:</p>
                         <ol>
-                            <li>Sie geben volle Rechte f&uuml;r alle Benutzer auf 
+                            <li>Sie geben volle Rechte f&uuml;r alle Benutzer auf
                             das ganze Repository direkt. Benutzer k&ouml;nnen so sogar
                             das ganze Repository aus versehen (oder auch nicht
                             aus versehen) l&ouml;schen.</li>
@@ -418,13 +417,13 @@
                             mehr auf das Repository zugreifen bis auch diese
                             ihren Subversion-Client auf die neue Version
                             aktualisiert haben.</li>
-                        </ol> 
+                        </ol>
                         <p>Die einfachste L&ouml;sung ist wirklich einen echten
                         Subversion Server einzusetzen (z.B. Apache oder svnserve).
                         Die Installation eines solchen Servers ist einfacher
                         als Sie vielleicht denken. Das Subversion Buch behandelt
                         dies ausf&uuml;hrlich:
-                        <a title='Chapter 6. Server Configuration' href='http://svnbook.red-bean.com/nightly/de/svn.serverconfig.html'>Kapitel 6. Die Administration eines Subversion-Servers</a>. 
+                        <a title='Chapter 6. Server Configuration' href='http://svnbook.red-bean.com/nightly/de/svn.serverconfig.html'>Kapitel 6. Die Administration eines Subversion-Servers</a>.
                         Wir haben ebenfalls ein Kapitel in unserer Doku &uuml;ber
                         dieses Thema:
                         <a title='Setting up a server' href='docs/release/TortoiseSVN_de/tsvn-serversetup.html'>Zugriff auf das Projektarchiv</a>.
@@ -455,7 +454,7 @@
 
                         <div class="h3" id="multiclients" title="multiclients">
                         <h3>K&ouml;nnen verschiedene Subversion-Clients auf derselben Arbeitskopie verwendet werden?</h3>
-                        <p>Ja, es k&ouml;nnen verschiedene Subversion-Clients auf 
+                        <p>Ja, es k&ouml;nnen verschiedene Subversion-Clients auf
                         derselben Arbeitskopie verwendet werden. Mit einer kleinen
                         Einschr&auml;nkung: alle Subversion-Clients m&uuml;ssen dieselbe
                         Version der Subversion-Bibliothek benutzen, d.h. die
@@ -480,7 +479,7 @@
                         auf dem dr&uuml;berliegenden Ordner ausf&uuml;hren.</p>
                         <p>Falls Sie diese &Auml;nderung bereits &uuml;bertragen
                         haben, m&uuml;ssen Sie diese Revision r&uuml;ckg&auml;ngig machen.
-                        Wie das geht ist in unserer 
+                        Wie das geht ist in unserer
                         <a href="docs/release/TortoiseSVN_de/tsvn-howto-rollback.html">Doku</a> beschrieben.</p>
                         </div>
 
@@ -489,7 +488,7 @@
                         <p>Dies ist normal. Ein Eintrag ist f&uuml;r die Verkn&uuml;pfung
                         selbst (die *.lnk Datei), der andere f&uuml;r das Ziel
                         wo die Verkn&uuml;pfung hin zeigt. Auf diese Weise kann
-                        eine Verkn&uuml;pfung selbst versioniert sein und 
+                        eine Verkn&uuml;pfung selbst versioniert sein und
                         gleichzeitig als Ziel f&uuml;r andere versionierte Ziele
                         dienen. Es ist sogar m&ouml;glich, dass bis zu drei
                         Kontextmenu-Eintr&auml;ge angezeigt werden im Dateimenu.</p>
@@ -498,7 +497,7 @@
                         <div class="h3" id="sharedfiles" title="sharedfiles">
                         <h3>Ist etwas wie "Shared Files" von Visual Source Safe m&ouml;glich?</h3>
                         <p>Ja, das ist m&ouml;glich. Lesen Sie dazu das Kapitel
-                        <a href="http://svnbook.red-bean.com/nightly/de/svn.advanced.externals.html">External Definitions</a> 
+                        <a href="http://svnbook.red-bean.com/nightly/de/svn.advanced.externals.html">External Definitions</a>
                         im <a href="http://svnbook.red-bean.com/index.de.html">Subversion Buch</a>.
                         </p>
                         </div>
@@ -524,7 +523,7 @@
                         <h3>Warum ist die "Autor"-Spalte leer im Log-Dialog wenn svn+ssh:// verwendet wird?</h3>
                         <p>Da SSH den ganzen Anmeldeprozess &uuml;bernimmt, bekommt
                         Subversion selber gar nicht mit, mit welchem Benutzernamen
-                        eine &Uuml;bertragung gemacht wurde. Um Subversion 
+                        eine &Uuml;bertragung gemacht wurde. Um Subversion
                         dies dennoch mitzuteilen muss der Benutzername
                         in die URL eingebaut werden, zum Beispiel
                         <em>svn+ssh://benutzername@server.com</em>. Dies muss
@@ -604,14 +603,14 @@
                         nachgelesen werden (Englisch).</p>
                         <p>L&ouml;schen Sie den Log-Cache und vergeben Sie neue UUIDs
                         f&uuml;r die Repositories. Wenn Sie die UUIDs nicht neu
-                        setzen k&ouml;nnen, m&uuml;ssen Sie den Log-Cache im 
+                        setzen k&ouml;nnen, m&uuml;ssen Sie den Log-Cache im
                         Einstellungsdialog deaktivieren.</p>
                         </div>
 
 
                         <div class="h3" id="incompleteupdate" title="incompleteupdate">
                         <h3>Bei einem Update der Arbeitskopie werden neue Dateien nicht eingef&uuml;gt!</h3>
-                        <p>Zwischen TortoiseSVN 1.6.0 und 1.6.1, wurden neue 
+                        <p>Zwischen TortoiseSVN 1.6.0 und 1.6.1, wurden neue
                         Ordner mit Tiefe "Nur dieses Objekt" hinzugef&uuml;gt. Dies
                         f&uuml;hrte zu sogenannten "Sparse Checkouts" f&uuml;r diesen
                         Teil der Arbeitskopie.</p>
@@ -639,7 +638,7 @@
 
                         <div class="h3" id="svnbinaries" title="svn binaries">
                         <h3>Warum ist der Subversion Kommandozeilenclient nicht im Installer dabei?</h3>
-                        <p>Ganz einfach: TortoiseSVN ben&ouml;tigt den 
+                        <p>Ganz einfach: TortoiseSVN ben&ouml;tigt den
                         Kommandozeilenclient nicht, und auch die allermeisten
                         Benutzer von TortoiseSVN ben&ouml;tigen diesen nicht.</p>
                         <p>Diejenigen welche den Kommandozeilenclient ben&ouml;tigen
@@ -653,7 +652,7 @@
 
                         <div class="h3" id="eclipse" title="eclipse">
                         <h3>TortoiseSVN funktioniert nicht mit Eclipse.</h3>
-                        <p>Eclipse kopiert ganze Verzeichnisse als Teil der 
+                        <p>Eclipse kopiert ganze Verzeichnisse als Teil der
                         normalen Arbeit. In einer Subversion-Arbeitskopie
                         befinden sich versteckte .svn-Ordner, welche Eclipse
                         gleich mitkopiert. Dies f&uuml;hrt dazu, dass SVN-Clients
@@ -682,17 +681,17 @@
                         </p>
                         </div>
                     </div>
-                    
+
                     <div class="h2" id="how-can-i" title="how-can-i">
                         <h2>How can I...</h2>
                         <p/>
 
                         <div class="h3" id="keywords" title="keywords">
                         <h3>... Informationen wie Autor, Revision und Commit-Daten in Dateien einf&uuml;gen?</h3>
-                        <p>Read about the Subversion property 
-                        <a href='http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.keywords.html'>svn:keywords</a> 
+                        <p>Read about the Subversion property
+                        <a href='http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.keywords.html'>svn:keywords</a>
                         in the Subversion book.</p>
-                        <p>With TortoiseSVN, set the properties as described 
+                        <p>With TortoiseSVN, set the properties as described
                         <a href='/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props'>here</a>.</p>
                         </div>
 
@@ -738,7 +737,7 @@
 
                         <div class="h3" id="subwcrev" title="subwcrev">
                         <h3>... die Projekt-Revisionsnummer ins Projekt &uuml;bernehmen?</h3>
-                        <p>Benutzen Sie dazu das <em>SubWCRev.exe</em> Tool 
+                        <p>Benutzen Sie dazu das <em>SubWCRev.exe</em> Tool
                         welches mit TortoiseSVN installiert wird.
                         Lesen Sie dazu unsere <a href="docs/release/TortoiseSVN_de/tsvn-subwcrev.html">Doku</a>.
                         </div>
@@ -766,7 +765,7 @@ diff3-cmd = "C:\\false.bat"
                             mit den folgenden zwei Zeilen drin
                             <pre>
 @type %9
-@exit 1 
+@exit 1
                             </pre>
                             </li>
                         </ol>
@@ -800,7 +799,7 @@ msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="Pfad/zum/Zielordner"
 
                         <div class="h3" id="cantmove" title="cantmove">
                         <h3>Kann 'XXX' nicht nach 'YYY' kopieren / verschieben: Die angegebene Datei wurde nicht gefunden.</h3>
-                        <p>Dieser Fehler erscheint normalerweise bei einem 
+                        <p>Dieser Fehler erscheint normalerweise bei einem
                         Update der Arbeitskopie. Der Grund f&uuml;r den Fehler
                         ist entweder:</p>
                         <ul>
@@ -900,7 +899,7 @@ msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="Pfad/zum/Zielordner"
                         <div class="h3" id="four00" title="four00">
                         <h3>400 Bad Request</h3>
                         <p>REPORT request failed on '...' REPORT of '...': 400 Bad Request (http://...)</p>
-                        <p>Dieser Fehler tritt auf, wenn eine Firewall oder 
+                        <p>Dieser Fehler tritt auf, wenn eine Firewall oder
                         Proxyserver die DAV-Requests blockiert. Dies ist leider
                         bei den meisten Firewalls/Proxyservern der Fall in der
                         Standardeinstellung. Sie m&uuml;ssen die Firewall oder Proxyserver
@@ -935,7 +934,7 @@ msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="Pfad/zum/Zielordner"
                             <li><strong>PROPFIND Request Failed</strong>
                             Sie haben vergessen, einen '/' Slash am Ende der URL einzugeben.</li>
                             <li><strong>PROPFIND Request Failed</strong>
-                            Sie versuchen auf das Repository zuzugreifen, aber 
+                            Sie versuchen auf das Repository zuzugreifen, aber
                             ein Proxyserver welcher zwischen TortoiseSVN und dem
                             Repository steht l&auml;sst DAV-Requests nicht durch. Mit
                             einem Webbrowser hingegen k&ouml;nnen Sie auf das Repository
@@ -961,15 +960,15 @@ msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="Pfad/zum/Zielordner"
 
                     </div>
 
-				</div>
-			</div>
-		</div>
-		<!-- end #content -->
-        
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
         <!--#include FILE="sidebar.de.html" -->
-		<div style="clear: both;">&nbsp;</div>
-	</div>
-	<!-- end #page -->
+        <div style="clear: both;">&nbsp;</div>
+    </div>
+    <!-- end #page -->
     <!--#include FILE="footer.html" -->
 </div>
 </body>

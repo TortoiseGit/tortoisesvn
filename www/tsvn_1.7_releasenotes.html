@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="release notes" />
@@ -18,9 +17,9 @@
 </div>
 <div id="wrapper">
     <!--#include FILE="menu.html" -->
-	<div id="page">
-		<div id="banner">&nbsp;</div>
-		<div id="content">
+    <div id="page">
+        <div id="banner">&nbsp;</div>
+        <div id="content">
 
             <div class="post" id="news">
                 <h2>What's New in TortoiseSVN 1.7</h2>
@@ -50,8 +49,8 @@
                       >TortoiseMerge</a></li>
                   <li><a href="#compatibility"
                       >Compatibility concerns</a></li>
-                </ul>                
-                
+                </ul>
+
                 <p>TortoiseSVN 1.7 is a superset of all previous TortoiseSVN releases,
                 and is considered the current stable and "best" release. Anything in earlier versions
                 is also in 1.7, but 1.7 contains features and
@@ -60,9 +59,9 @@
                 at least Windows XP with service pack 3 to work. If you're still
                 using Windows 2000 or Windows XP without service pack 3, you
                 either have to upgrade your OS or keep using TortoiseSVN 1.6.</p>
-                
-                <p>This page describes only major changes. For a complete list 
-                of changes, you can check our 
+
+                <p>This page describes only major changes. For a complete list
+                of changes, you can check our
                 <a href="http://code.google.com/p/tortoisesvn/source/list">commit logs</a>.</p>
             </div>  <!-- news -->
 
@@ -77,7 +76,7 @@
                 <a href="http://subversion.apache.org/docs/release-notes/1.7.html#wc-ng">
                 Subversion 1.7 release notes</a>.</p>
 
-                <div class="h4" id="single-db"> 
+                <div class="h4" id="single-db">
                 <h4>Centralized Metadata Storage</h4>
 
                 <p>A key feature of the changes introduced in Subversion 1.7 is the
@@ -94,7 +93,7 @@
                 result in working copy corruption.</p>
                 </div>  <!-- single-db -->
 
-                <div class="h4" id="wc-upgrade"> 
+                <div class="h4" id="wc-upgrade">
                 <h4>Upgrading the Working Copy</h4>
 
                 <p>Subversion 1.7 introduces substantial changes to the working copy format.
@@ -103,7 +102,7 @@
                 Subversion 1.7, however, will make this a manual step.</p>
                 <p>Before you can use an existing working copy with TortoiseSVN 1.7, you
                 have to upgrade the format first. If you right-click on an old
-                working copy, TortoiseSVN only shows you one command in the 
+                working copy, TortoiseSVN only shows you one command in the
                 context menu: <code>Upgrade working copy</code>.</p>
                 <img src="images/upgradewc.png" />
                 <div class="tip">
@@ -159,7 +158,7 @@
                 <p>The above screenshots show the new property dialogs for
                 the <code>svn:externals</code> and all the <code>bugtraq:</code>
                 properties. There are more custom property dialogs available
-                in TortoiseSVN 1.7. Please have a look at the 
+                in TortoiseSVN 1.7. Please have a look at the
                 <a href="docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-editors">docs</a>
                 to find out about all of them.</p>
             </div>  <!-- propertydialogs -->
@@ -189,7 +188,7 @@
                 resembles more what users are used to from web search engines.
                 For example, filtering for <code>Alice Bob -Eve</code> will
                 show strings containing both Alice and Bob but not Eve. For more
-                detailed examples, please refer to the 
+                detailed examples, please refer to the
                 <a href="http://tortoisesvn.net/docs/nightly/TortoiseSVN_en/tsvn-dug-showlog.html#tsvn-dug-showlog-filter">docs</a>.</p>
                 <p>Another feature the log dialog has is that it highlights
                 filter matches in red. That way it's much easier to find out
@@ -232,18 +231,18 @@
                 <p>The branch/tag dialog now allows you to <i>tag</i> the
                 externals too.</p>
                 <a href="http://tortoisesvn.googlecode.com/svn/trunk/www/images/branchtagexternals.png" rel="lightbox"><img src="images/branchtagexternals-small.png"></a>
-                <p>If externals are set to an explicit revision when creating 
-                a branch or tag, TortoiseSVN automatically changes the 
-                <code>svn:externals</code> property. When the branch/tag is 
-                created from HEAD or a specific revision in the repository, 
-                TortoiseSVN first creates the branch/tag, then adjusts the 
-                properties. This will create additional commits for each 
-                property. When the branch/tag is created from the working copy, 
-                the properties are modified first, then the branch/tag is 
-                created and then the properties are changed back to their 
+                <p>If externals are set to an explicit revision when creating
+                a branch or tag, TortoiseSVN automatically changes the
+                <code>svn:externals</code> property. When the branch/tag is
+                created from HEAD or a specific revision in the repository,
+                TortoiseSVN first creates the branch/tag, then adjusts the
+                properties. This will create additional commits for each
+                property. When the branch/tag is created from the working copy,
+                the properties are modified first, then the branch/tag is
+                created and then the properties are changed back to their
                 original value.</p>
             </div>  <!-- branchtag -->
-            
+
             <div class="post" id="commitdlg" title="Commit dialog">
                 <h2>Commit dialog</h2>
                 <p>The commit dialog got a few UI changes as well. The first
@@ -306,7 +305,7 @@
                     <dt>splitting of long lines</dt>
                     <dd>overly long lines are hard to view since they require
                     a lot of sideways scrolling. A new option allows to split
-                    those lines into multiple lines when viewing so no 
+                    those lines into multiple lines when viewing so no
                     side-scrolling is necessary anymore.</dd>
                     <dt>marking of words</dt>
                     <dd>a doubleclick on a word/variable/statement/... marks
@@ -339,11 +338,11 @@
                 servers and clients.  That is to say, you can use a 1.7 client with
                 an older server, and you can use a 1.7 server with older clients.
                 However, some of the new 1.7 features may
-                not be available unless both client and server are the latest 
-                version.  There are also cases where a new feature will work 
-                but will run less efficiently if the client is new and the 
+                not be available unless both client and server are the latest
+                version.  There are also cases where a new feature will work
+                but will run less efficiently if the client is new and the
                 server old.</p>
-                
+
                 <div class="h4" id="new-feature-compatibility-table">
                 <h4>New Feature Compatibility Table</h4>
                 <table border="1">
@@ -380,7 +379,7 @@
 
         </div>
         <!-- end #content -->
-        
+
         <!--#include FILE="sidebar.html" -->
         <div style="clear: both;">&nbsp;</div>
     </div>

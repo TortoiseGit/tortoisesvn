@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="faq" />
@@ -15,28 +14,28 @@
 </div>
 <div id="wrapper">
     <!--#include FILE="menu.html" -->
-	<div id="page">
-		<div id="banner">&nbsp;</div>
-		<div id="content">
-        
-			<div class="post">
-				<h1 class="title"><a href="#">TortoiseSVN FAQ</a></h1>
-                <p>本文根据原文r13339翻译，由<a 
-                href="http://www.subversion.org.cn">Subversion中文站</a>的中文化翻译小组翻译，欢迎各位参与翻译工作，加入地址：<a 
+    <div id="page">
+        <div id="banner">&nbsp;</div>
+        <div id="content">
+
+            <div class="post">
+                <h1 class="title"><a href="#">TortoiseSVN FAQ</a></h1>
+                <p>本文根据原文r13339翻译，由<a
+                href="http://www.subversion.org.cn">Subversion中文站</a>的中文化翻译小组翻译，欢迎各位参与翻译工作，加入地址：<a
                 href="http://code.google.com/p/svncndoc/">http://code.google.com/p/svncndoc/</a>。
                 </p>
                 $ADSENSE_TOP$
-				<div class="entry">
+                <div class="entry">
 
                     <h2>目录</h2>
 
                     <h3>安装 &amp; 升级</h3>
                     <ul>
                         <li><a href="#uninstallfirst">在升级TortoiseSVN之前，是否需要卸载已安装的版本？</a></li>
-                        <li><a href="#adminpriv">安装TortoiseSVN是否需要管理员权限？</a></li> 
+                        <li><a href="#adminpriv">安装TortoiseSVN是否需要管理员权限？</a></li>
                         <li><a href="#installsubversion">在使用TortoiseSVN之前，是否需要安装Subversion？</a></li>
                         <li><a href="#uninstall">怎样卸载TortoiseSVN？</a></li>
-                        <li><a href="#msidisabled">我的电脑上关闭了MSI的安装模式，是否有.exe的安装文件？</a></li> 
+                        <li><a href="#msidisabled">我的电脑上关闭了MSI的安装模式，是否有.exe的安装文件？</a></li>
                         <li><a href="#whymsi">为什么使用MSI代替其他安装方式？</a></li>
                         <li><a href="#installerror">安装终止的错误信息</a></li>
                         <li><a href="#nomenus">安装完成后，TortoiseSVN不能显示，没有可以使用的菜单</a></li>
@@ -300,7 +299,7 @@
                             <li>你将给所有用户直接访问权限，所以他们会有可能偶然的删除或者破换版本库文件系统。</li>
                             <li>并不是所有的网络共享协议都支持Subversion要求的锁定。总有一天你会发现你的版本库被悄悄的破坏。</li>
                             <li>你不得不设置正确的访问权限，SAMBA 在这一点上特别难以满足。</li>
-                        </ol> 
+                        </ol>
                         <p>更好的办法是创建一个真正的服务器进程（像Apache，svnserve），存储版本库到当地的文件系统上，使版本库服务器可以在网络上有效，可以被访问。这也许会比你想的要简单。Subversion书中
                         <a title='第6章 服务器配置' href='http://www.subversion.org.cn/svnbook/1.4/svn.serverconfig.html'>第6章 服务器配置</a> 有详细的方法说明。</p>
                         </div>
@@ -332,14 +331,14 @@
                         <p>在属性有冲突的文件夹里，有一个<code>dir_conflicts.prej</code>文件，用文本编辑器打开它，你会看到有冲突的属性，用你想保留的属性覆盖有冲突的。</p>
                         </div>
 
-                        <div class="h3" id="getremovedfileback" title="getremovedfileback"> 
-                        <h3>我误删了一个文件，怎么找回来？</h3> 
-                        <p>如果你还没提交，你可以在被删除的文件/文件夹的父文件夹作 <cite>还原</cite> 
+                        <div class="h3" id="getremovedfileback" title="getremovedfileback">
+                        <h3>我误删了一个文件，怎么找回来？</h3>
+                        <p>如果你还没提交，你可以在被删除的文件/文件夹的父文件夹作 <cite>还原</cite>
                         操作。</p>
                         <p>如果你已经提交了删除文件，你可以使用版本库浏览器，回到那文件还存在时的版本，然后在上下文菜单中使用 <cite>拷贝到……</cite> 命令，输入你工作拷贝的路径作为目标路径，被删除的文件就会从版本库复制到你的的工作拷贝。</p>
-                        <p>用这个方法也可以恢复被删除的目录。</p> 
-                        <p>如果用这个方法恢复文件/目录后，日志对话框无法显示它的修改历史，别担心，历史信息还在的。在 SVN 中复制一个文件时，它的历史信息会同时被复制。但TortoiseSVN的查看日志功能默认是“Stop on 
-                        copy”，即当你查看的日志是由分支点开始的。之所以这么做是因为当查看一个真正的分支时，你多数只是想知道那个分支的历史信息。如果要看完整的历史信息，你可以不选 'Stop on copy'，而把‘Get All’选上。 </p> 
+                        <p>用这个方法也可以恢复被删除的目录。</p>
+                        <p>如果用这个方法恢复文件/目录后，日志对话框无法显示它的修改历史，别担心，历史信息还在的。在 SVN 中复制一个文件时，它的历史信息会同时被复制。但TortoiseSVN的查看日志功能默认是“Stop on
+                        copy”，即当你查看的日志是由分支点开始的。之所以这么做是因为当查看一个真正的分支时，你多数只是想知道那个分支的历史信息。如果要看完整的历史信息，你可以不选 'Stop on copy'，而把‘Get All’选上。 </p>
                         </div>
 
                         <div class="h3" id="multiplemenus" title="multiplemenus">
@@ -487,23 +486,23 @@
                         </div>
 
                         <div class="h3" id="noautomerge" title="noautomerge">
-                        <h3>……禁止Subversion自动合并？</h3> 
+                        <h3>……禁止Subversion自动合并？</h3>
                         <p>有些人不喜欢Subversion
                         在更新时自动合并其他人的修改和自己的本地修改，如果要强制这些文件为冲突状态，之后再自己手工合并，可以这么做：</p>
-                        <ol> 
-                            <li>在TortoiseSVN-> 设置 ->Subversion配置文件, 点编辑按钮</li> 
-                            <li>修改 [helpers] 部分，添加 diff-cmd = "C:\\false.bat" diff3-cmd 
-                            = "C:\\false.bat" （注意，有两个反斜杠）</li> 
+                        <ol>
+                            <li>在TortoiseSVN-> 设置 ->Subversion配置文件, 点编辑按钮</li>
+                            <li>修改 [helpers] 部分，添加 diff-cmd = "C:\\false.bat" diff3-cmd
+                            = "C:\\false.bat" （注意，有两个反斜杠）</li>
                             <li>创建文件 C:\false.bat，输入两行
                             <pre>
-@type %9 
-@exit 1 
-                            </pre> 
-                            </li> 
+@type %9
+@exit 1
+                            </pre>
+                            </li>
                         </ol>
 
-                        <p>这可以令自动合并总是失败，从而强制文件变为冲突状态。</p> 
-                        <p>写上 'type %9' 这行是因为 diff3-cmd 会将合并结果输出到标准输出，然后Subversion会以这个合并结果覆盖你的本地文件。写上这句，你的本地文件就不会变成一个空文件。</p> 
+                        <p>这可以令自动合并总是失败，从而强制文件变为冲突状态。</p>
+                        <p>写上 'type %9' 这行是因为 diff3-cmd 会将合并结果输出到标准输出，然后Subversion会以这个合并结果覆盖你的本地文件。写上这句，你的本地文件就不会变成一个空文件。</p>
                         </div>
 
                         <div class="h3" id="currentrepo" title="currentrepo">
@@ -639,15 +638,15 @@ Folder/File2 : revision 2
 
                     </div>
 
-				</div>
-			</div>
-		</div>
-		<!-- end #content -->
-        
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
         <!--#include FILE="sidebar.html" -->
-		<div style="clear: both;">&nbsp;</div>
-	</div>
-	<!-- end #page -->
+        <div style="clear: both;">&nbsp;</div>
+    </div>
+    <!-- end #page -->
     <!--#include FILE="footer.html" -->
 </div>
 </body>
