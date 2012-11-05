@@ -9,7 +9,7 @@
 
 /* Generic tag-level style definitions */
 
-html body{
+html body {
     width: 100%;
     min-width: 800px;
     max-width: 1200px;
@@ -17,49 +17,49 @@ html body{
 
 /*************************/
 p a, p a:hover {
-  margin-left: 5px;
-  padding-left: 10px;
-  background-image: url("images/link.png");
-  background-repeat: no-repeat;
-  background-position: center left;
+    margin-left: 5px;
+    padding-left: 10px;
+    background-image: url("images/link.png");
+    background-repeat: no-repeat;
+    background-position: center left;
 }
 
 /* Don't display indexterms */
 .indexterm {
-  margin: 0;
-  padding: 0;
-  display: inline;
-  background-image: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+    background-image: none;
 }
 
 .caution, .important, .note, .tip, .warning {
-	background-repeat: no-repeat;
-	background-position: 5px 1.33em;
-	padding: 0 0 0 42px;
-	min-height: 52px;
-	width: 80%;
+    background-repeat: no-repeat;
+    background-position: 5px 1.33em;
+    padding: 0 0 0 42px;
+    min-height: 52px;
+    width: 80%;
 }
 
 .tip {
-	background-image: url(images/tip.png);
+    background-image: url("images/tip.png");
 }
 
 .important {
-	background-image: url(images/important.png);
+    background-image: url("images/important.png");
 }
 
 .caution {
-	background-image: url(images/caution.png);
+    background-image: url("images/caution.png");
 }
 
 .warning {
-	background-image: url(images/warning.png);
+    background-image: url("images/warning.png");
 }
 
 div.navheader {
-	width:100%; filter:none;
-	background-repeat: no-repeat;
-	background-image: url(images/Tortoise.png);
-	background-position: 50px 0;
+    width: 100%;
+    filter: none;
+    background-repeat: no-repeat;
+    background-image: url("images/Tortoise.png");
+    background-position: 50px 0;
 }
-
