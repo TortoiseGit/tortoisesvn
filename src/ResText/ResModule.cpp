@@ -251,9 +251,9 @@ DONE_ERROR:
     return FALSE;
 }
 
-BOOL CResModule::ExtractString(UINT nID)
+BOOL CResModule::ExtractString(LPCTSTR lpszType)
 {
-    HRSRC       hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_STRING);
+    HRSRC       hrsrc = FindResource(m_hResDll, lpszType, RT_STRING);
     HGLOBAL     hglStringTable;
     LPWSTR      p;
 
@@ -289,7 +289,7 @@ BOOL CResModule::ExtractString(UINT nID)
         {
             std::wstring str = std::wstring(pBuf);
             RESOURCEENTRY entry = m_StringEntries[str];
-            entry.resourceIDs.insert(nID);
+            entry.resourceIDs.insert((DWORD)lpszType);
             if (wcschr(str.c_str(), '%'))
                 entry.flag = _T("#, c-format");
             m_StringEntries[str] = entry;
@@ -306,9 +306,9 @@ DONE_ERROR:
     MYERROR;
 }
 
-BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
+BOOL CResModule::ReplaceString(LPCTSTR lpszType, WORD wLanguage)
 {
-    HRSRC       hrsrc = FindResourceEx(m_hResDll, RT_STRING, MAKEINTRESOURCE(nID), wLanguage);
+    HRSRC       hrsrc = FindResourceEx(m_hResDll, RT_STRING, lpszType, wLanguage);
     HGLOBAL     hglStringTable;
     LPWSTR      p;
 
@@ -396,13 +396,13 @@ BOOL CResModule::ReplaceString(UINT nID, WORD wLanguage)
         delete [] pBuf;
     }
 
-    if (!UpdateResource(m_hUpdateRes, RT_STRING, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newTable, (DWORD)(nMem + (nMem % 2))*2))
+    if (!UpdateResource(m_hUpdateRes, RT_STRING, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newTable, (DWORD)(nMem + (nMem % 2))*2))
     {
         delete [] newTable;
         goto DONE_ERROR;
     }
 
-    if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_STRING, MAKEINTRESOURCE(nID), wLanguage, NULL, 0)))
+    if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_STRING, lpszType, wLanguage, NULL, 0)))
     {
         delete [] newTable;
         goto DONE_ERROR;
@@ -417,9 +417,9 @@ DONE_ERROR:
     MYERROR;
 }
 
-BOOL CResModule::ExtractMenu(UINT nID)
+BOOL CResModule::ExtractMenu(LPCTSTR lpszType)
 {
-    HRSRC       hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_MENU);
+    HRSRC       hrsrc = FindResource(m_hResDll, lpszType, RT_MENU);
     HGLOBAL     hglMenuTemplate;
     WORD        version, offset;
     const WORD *p, *p0;
@@ -488,9 +488,9 @@ DONE_ERROR:
     MYERROR;
 }
 
-BOOL CResModule::ReplaceMenu(UINT nID, WORD wLanguage)
+BOOL CResModule::ReplaceMenu(LPCTSTR lpszType, WORD wLanguage)
 {
-    HRSRC       hrsrc = FindResourceEx(m_hResDll, RT_MENU, MAKEINTRESOURCE(nID), wLanguage);
+    HRSRC       hrsrc = FindResourceEx(m_hResDll, RT_MENU, lpszType, wLanguage);
     HGLOBAL     hglMenuTemplate;
     WORD        version, offset;
     LPWSTR      p;
@@ -544,13 +544,13 @@ BOOL CResModule::ReplaceMenu(UINT nID, WORD wLanguage)
                 goto DONE_ERROR;
             }
 
-            if (!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu, (DWORD)(nMem + (nMem % 2)+2)*2))
+            if (!UpdateResource(m_hUpdateRes, RT_MENU, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu, (DWORD)(nMem + (nMem % 2)+2)*2))
             {
                 delete [] newMenu;
                 goto DONE_ERROR;
             }
 
-            if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), wLanguage, NULL, 0)))
+            if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_MENU, lpszType, wLanguage, NULL, 0)))
             {
                 delete [] newMenu;
                 goto DONE_ERROR;
@@ -576,13 +576,13 @@ BOOL CResModule::ReplaceMenu(UINT nID, WORD wLanguage)
                 goto DONE_ERROR;
             }
 
-            if (!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu, (DWORD)(nMem + (nMem % 2) + 4) * 2))
+            if (!UpdateResource(m_hUpdateRes, RT_MENU, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu, (DWORD)(nMem + (nMem % 2) + 4) * 2))
             {
                 delete [] newMenu;
                 goto DONE_ERROR;
             }
 
-            if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_MENU, MAKEINTRESOURCE(nID), wLanguage, NULL, 0)))
+            if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_MENU, lpszType, wLanguage, NULL, 0)))
             {
                 delete [] newMenu;
                 goto DONE_ERROR;
@@ -904,9 +904,9 @@ const WORD* CResModule::CountMemReplaceMenuExResource(const WORD * res, size_t *
     return res;
 }
 
-BOOL CResModule::ExtractAccelerator(UINT nID)
+BOOL CResModule::ExtractAccelerator(LPCTSTR lpszType)
 {
-    HRSRC       hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_ACCELERATOR);
+    HRSRC       hrsrc = FindResource(m_hResDll, lpszType, RT_ACCELERATOR);
     HGLOBAL     hglAccTable;
     WORD        fFlags, wAnsi, wID;
     const WORD* p;
@@ -1030,7 +1030,7 @@ DONE_ERROR:
     MYERROR;
 }
 
-BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
+BOOL CResModule::ReplaceAccelerator(LPCTSTR lpszType, WORD wLanguage)
 {
     LPACCEL     lpaccelNew;         // pointer to new accelerator table
     HACCEL      haccelOld;          // handle to old accelerator table
@@ -1039,7 +1039,7 @@ BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
     const WORD* p;
     int         i;
 
-    haccelOld = LoadAccelerators(m_hResDll, MAKEINTRESOURCE(nID));
+    haccelOld = LoadAccelerators(m_hResDll, lpszType);
 
     if (haccelOld == NULL)
         MYERROR;
@@ -1151,13 +1151,13 @@ BOOL CResModule::ReplaceAccelerator(UINT nID, WORD wLanguage)
         p++;
     }
 
-    if (!UpdateResource(m_hUpdateRes, RT_ACCELERATOR, MAKEINTRESOURCE(nID),
+    if (!UpdateResource(m_hUpdateRes, RT_ACCELERATOR, lpszType,
         (m_wTargetLang ? m_wTargetLang : wLanguage), hglAccTableNew /* haccelNew*/, cAccelerators * 4 * sizeof(WORD)))
     {
         goto DONE_ERROR;
     }
 
-    if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_ACCELERATOR, MAKEINTRESOURCE(nID), wLanguage, NULL, 0)))
+    if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_ACCELERATOR, lpszType, wLanguage, NULL, 0)))
     {
         goto DONE_ERROR;
     }
@@ -1172,7 +1172,7 @@ DONE_ERROR:
     MYERROR;
 }
 
-BOOL CResModule::ExtractDialog(UINT nID)
+BOOL CResModule::ExtractDialog(LPCTSTR lpszType)
 {
     const WORD* lpDlg;
     const WORD* lpDlgItem;
@@ -1182,7 +1182,7 @@ BOOL CResModule::ExtractDialog(UINT nID)
     HRSRC       hrsrc;
     HGLOBAL     hGlblDlgTemplate;
 
-    hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_DIALOG);
+    hrsrc = FindResource(m_hResDll, lpszType, RT_DIALOG);
 
     if (hrsrc == NULL)
         MYERROR;
@@ -1208,7 +1208,7 @@ BOOL CResModule::ExtractDialog(UINT nID)
 
         std::wstring wstr = std::wstring(pBuf);
         RESOURCEENTRY entry = m_StringEntries[wstr];
-        entry.resourceIDs.insert(nID);
+        entry.resourceIDs.insert((DWORD)lpszType);
 
         m_StringEntries[wstr] = entry;
         delete [] pBuf;
@@ -1242,13 +1242,13 @@ BOOL CResModule::ExtractDialog(UINT nID)
     return (TRUE);
 }
 
-BOOL CResModule::ReplaceDialog(UINT nID, WORD wLanguage)
+BOOL CResModule::ReplaceDialog(LPCTSTR lpszType, WORD wLanguage)
 {
     const WORD* lpDlg;
     HRSRC       hrsrc;
     HGLOBAL     hGlblDlgTemplate;
 
-    hrsrc = FindResourceEx(m_hResDll, RT_DIALOG, MAKEINTRESOURCE(nID), wLanguage);
+    hrsrc = FindResourceEx(m_hResDll, RT_DIALOG, lpszType, wLanguage);
 
     if (hrsrc == NULL)
         MYERROR;
@@ -1277,13 +1277,13 @@ BOOL CResModule::ReplaceDialog(UINT nID, WORD wLanguage)
         goto DONE_ERROR;
     }
 
-    if (!UpdateResource(m_hUpdateRes, RT_DIALOG, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), newDialog, (DWORD)(nMem + (nMem % 2))*2))
+    if (!UpdateResource(m_hUpdateRes, RT_DIALOG, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newDialog, (DWORD)(nMem + (nMem % 2))*2))
     {
         delete [] newDialog;
         goto DONE_ERROR;
     }
 
-    if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_DIALOG, MAKEINTRESOURCE(nID), wLanguage, NULL, 0)))
+    if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_DIALOG, lpszType, wLanguage, NULL, 0)))
     {
         delete [] newDialog;
         goto DONE_ERROR;
@@ -1817,9 +1817,9 @@ const WORD* CResModule::ReplaceControlInfo(const WORD * res, size_t * wordcount,
     return res;
 }
 
-BOOL CResModule::ExtractRibbon(UINT nID)
+BOOL CResModule::ExtractRibbon(LPCTSTR lpszType)
 {
-    HRSRC       hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_RIBBON);
+    HRSRC       hrsrc = FindResource(m_hResDll, lpszType, RT_RIBBON);
     HGLOBAL     hglRibbonTemplate;
     const BYTE *p;
 
@@ -1855,7 +1855,7 @@ BOOL CResModule::ExtractRibbon(UINT nID)
         MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, bufw.get(), (int)len*4);
         std::wstring ret = bufw.get();
         RESOURCEENTRY entry = m_StringEntries[ret];
-        entry.resourceIDs.insert(nID);
+        entry.resourceIDs.insert((DWORD)lpszType);
         if (wcschr(ret.c_str(), '%'))
             entry.flag = _T("#, c-format");
         m_StringEntries[ret] = entry;
@@ -1874,7 +1874,7 @@ BOOL CResModule::ExtractRibbon(UINT nID)
         MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, bufw.get(), (int)len*4);
         std::wstring ret = bufw.get();
         RESOURCEENTRY entry = m_StringEntries[ret];
-        entry.resourceIDs.insert(nID);
+        entry.resourceIDs.insert((DWORD)lpszType);
         if (wcschr(ret.c_str(), '%'))
             entry.flag = _T("#, c-format");
         m_StringEntries[ret] = entry;
@@ -1886,9 +1886,9 @@ BOOL CResModule::ExtractRibbon(UINT nID)
     return TRUE;
 }
 
-BOOL CResModule::ReplaceRibbon(UINT nID, WORD wLanguage)
+BOOL CResModule::ReplaceRibbon(LPCTSTR lpszType, WORD wLanguage)
 {
-    HRSRC       hrsrc = FindResource(m_hResDll, MAKEINTRESOURCE(nID), RT_RIBBON);
+    HRSRC       hrsrc = FindResource(m_hResDll, lpszType, RT_RIBBON);
     HGLOBAL     hglRibbonTemplate;
     const BYTE *p;
 
@@ -1964,12 +1964,12 @@ BOOL CResModule::ReplaceRibbon(UINT nID, WORD wLanguage)
     int lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, ssw.c_str(), -1, buf.get(), (int)len*4, NULL, NULL);
 
 
-    if (!UpdateResource(m_hUpdateRes, RT_RIBBON, MAKEINTRESOURCE(nID), (m_wTargetLang ? m_wTargetLang : wLanguage), buf.get(), lengthIncTerminator-1))
+    if (!UpdateResource(m_hUpdateRes, RT_RIBBON, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), buf.get(), lengthIncTerminator-1))
     {
         goto DONE_ERROR;
     }
 
-    if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_RIBBON, MAKEINTRESOURCE(nID), wLanguage, NULL, 0)))
+    if ((m_wTargetLang)&&(!UpdateResource(m_hUpdateRes, RT_RIBBON, lpszType, wLanguage, NULL, 0)))
     {
         goto DONE_ERROR;
     }
@@ -1993,7 +1993,7 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszT
     {
         if (IS_INTRESOURCE(lpszName))
         {
-            if (!lpResModule->ExtractString(LOWORD(lpszName)))
+            if (!lpResModule->ExtractString(lpszName))
                 return FALSE;
         }
     }
@@ -2001,7 +2001,7 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszT
     {
         if (IS_INTRESOURCE(lpszName))
         {
-            if (!lpResModule->ExtractMenu(LOWORD(lpszName)))
+            if (!lpResModule->ExtractMenu(lpszName))
                 return FALSE;
         }
     }
@@ -2009,7 +2009,7 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszT
     {
         if (IS_INTRESOURCE(lpszName))
         {
-            if (!lpResModule->ExtractDialog(LOWORD(lpszName)))
+            if (!lpResModule->ExtractDialog(lpszName))
                 return FALSE;
         }
     }
@@ -2017,7 +2017,7 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszT
     {
         if (IS_INTRESOURCE(lpszName))
         {
-            if (!lpResModule->ExtractAccelerator(LOWORD(lpszName)))
+            if (!lpResModule->ExtractAccelerator(lpszName))
                 return FALSE;
         }
     }
@@ -2025,7 +2025,7 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszT
     {
         if (IS_INTRESOURCE(lpszName))
         {
-            if (!lpResModule->ExtractRibbon(LOWORD(lpszName)))
+            if (!lpResModule->ExtractRibbon(lpszName))
                 return FALSE;
         }
     }
@@ -2049,38 +2049,23 @@ BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCTSTR 
 
     if (lpszType == RT_STRING)
     {
-        if (IS_INTRESOURCE(lpszName))
-        {
-            bRes = lpResModule->ReplaceString(LOWORD(lpszName), wLanguage);
-        }
+        bRes = lpResModule->ReplaceString(lpszName, wLanguage);
     }
     else if (lpszType == RT_MENU)
     {
-        if (IS_INTRESOURCE(lpszName))
-        {
-            bRes = lpResModule->ReplaceMenu(LOWORD(lpszName), wLanguage);
-        }
+        bRes = lpResModule->ReplaceMenu(lpszName, wLanguage);
     }
     else if (lpszType == RT_DIALOG)
     {
-        if (IS_INTRESOURCE(lpszName))
-        {
-            bRes = lpResModule->ReplaceDialog(LOWORD(lpszName), wLanguage);
-        }
+        bRes = lpResModule->ReplaceDialog(lpszName, wLanguage);
     }
     else if (lpszType == RT_ACCELERATOR)
     {
-        if (IS_INTRESOURCE(lpszName))
-        {
-            bRes = lpResModule->ReplaceAccelerator(LOWORD(lpszName), wLanguage);
-        }
+        bRes = lpResModule->ReplaceAccelerator(lpszName, wLanguage);
     }
     else if (lpszType == RT_RIBBON)
     {
-        if (IS_INTRESOURCE(lpszName))
-        {
-            bRes = lpResModule->ReplaceRibbon(LOWORD(lpszName), wLanguage);
-        }
+        bRes = lpResModule->ReplaceRibbon(lpszName, wLanguage);
     }
 
     return bRes;
