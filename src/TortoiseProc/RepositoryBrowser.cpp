@@ -1335,13 +1335,13 @@ void CRepositoryBrowser::FetchChildren (HTREEITEM node)
             continue;
         if (parentItem->svnparentpathroot)
             continue;
-        pTreeItem->error = m_lister.AddSubTreeExternals ( parentItem->url
-                                                        , parentItem->is_external
-                                                             ? parentItem->repository.peg_revision
-                                                             : SVNRev()
-                                                        , parentItem->repository
-                                                        , relPath
-                                                        , children);
+        parentItem->error = m_lister.AddSubTreeExternals ( parentItem->url
+                                                         , parentItem->is_external
+                                                              ? parentItem->repository.peg_revision
+                                                              : SVNRev()
+                                                         , parentItem->repository
+                                                         , relPath
+                                                         , children);
         relPath = parentItem->unescapedname + _T('/') + relPath;
     }
 
