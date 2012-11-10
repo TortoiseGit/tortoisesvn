@@ -48,17 +48,17 @@
                     <p>In case you can't connect to the repository, the log
                     dialog will show you a dialog where you can choose to
                     "work offline", i.e., it won't try to connect to the
-                    repository anymore but only use the cache:<br />
+                    repository anymore but only use the cache:<br/>
                     <a href="images/logoffline.png" rel="lightbox[loguuids]"><img src="images/logoffline-small.png"></a>.
                     </p>
 
                     <p>However, there is one problem: the log cache relies
                     upon all your repositories having different UUIDs assigned
-                    to them.<br />You can see the UUID of your repositories if
+                    to them.<br/>You can see the UUID of your repositories if
                     you have a working copy of them in the properties dialog
-                    (Explorer context menu 'properties'):<br />
+                    (Explorer context menu 'properties'):<br/>
                     <a href="images/repouuid.png" rel="lightbox[loguuids]"><img src="images/repouuid-small.png"></a>.
-                    <br />
+                    <br/>
                     The log cache needs the UUID to distinguish between
                     different repositories which of course have different log
                     messages. The reason the log cache can't use URLs alone to
@@ -72,12 +72,12 @@
                     that 'svn' is not a project name.</p>
 
                     <p>But an URL like</p>
-                    <p><em></em><em>http://example.com/svn/project/trunk</em><br />
+                    <p><em></em><em>http://example.com/svn/project/trunk</em><br/>
                     could mean that it points to a repository for 'project',
                     but it could also mean that there's only one repository at
                     'svn' and 'project' is just a folder inside that repository.
-                    So the two URLs<br /><em>http://example.com/svn/project/trunk</em><br />
-                    and<br /><em>http://example.com/svn/otherproject/trunk</em><br />
+                    So the two URLs<br/><em>http://example.com/svn/project/trunk</em><br/>
+                    and<br/><em>http://example.com/svn/otherproject/trunk</em><br/>
                     could be pointing to the same repository, or to two
                     different repositories.</p>
 
@@ -90,7 +90,7 @@
                     this is a big mistake: it's called UUID for a reason: the
                     'U' stands for "Unique". This will confuse the log cache
                     completely and you will get the crash report dialog showing
-                    up a lot.<br />To fix this, you have to set a unique UUID
+                    up a lot.<br/>To fix this, you have to set a unique UUID
                     for every one of your repositories. Get the svnadmin tool
                     from the official Subversion package and run:</p>
 
@@ -100,30 +100,30 @@
                     <p>In case you don't have direct access to your
                     repositories or you can't change the UUID for some other
                     reason, you can disable the log cache in the TortoiseSVN
-                    settings dialog:<br />
+                    settings dialog:<br/>
                     <a href="images/logcachesettings.png" rel="lightbox[loguuids]"><img src="images/logcachesettings-small.png"></a>.
                     </p>
                     <p>In the above screenshot, you may notice the option
                     "Allow ambiguous URLs". Now that I've told you that the
                     cache relies upon the UUIDs being different, why does it
-                    also rely on URLs?<br />Comparing URLs (i.e., simple
+                    also rely on URLs?<br/>Comparing URLs (i.e., simple
                     strings) is much faster than asking the repository or
                     the working copy for the repository UUID. So the cache
                     uses URLs too if possible. For example, if the cache knows
-                    that the URL<br /><em>http://example.com/svn/project/trunk</em><br />
+                    that the URL<br/><em>http://example.com/svn/project/trunk</em><br/>
                     points to a specific repository, it also knows that the
-                    URL<br /><em>http://example.com/svn/project/trunk/subfolder</em><br />
+                    URL<br/><em>http://example.com/svn/project/trunk/subfolder</em><br/>
                     points to the very same repository, since it's not possible
                     to have a repository inside a repository.</p>
                     <p>The option "Allow ambiguous URLs" is for situations where
                     the same URL is used for different repositories - those
                     situations are very rare of course. One situation we ran
                     into problems was with
-                    <a target="_blank" href="http://codeplex.com/SvnBridge">svnbrigde</a>.
+                    <a href="http://codeplex.com/SvnBridge">svnbrigde</a>.
                     That's a nice tool which allows you to access MS Team System
                     repositories with an svn client. But older versions of that
                     tool made all repositories accessible for svn clients at the
-                    same URL.<br />Once we discussed the issue with the
+                    same URL.<br/>Once we discussed the issue with the
                     svnbridge developers, they had a version ready in almost no
                     time which provided different URLs for the different Team
                     System repositories. So with the latest version of

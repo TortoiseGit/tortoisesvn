@@ -24,15 +24,15 @@
                     attempting to use subversion with SSH, I compiled a HowTo
                     for that issue. Perhaps I will expand this HowTo later on
                     and submit it to the Subversion or TortoiseSVN docs.</p>
-                    <p>-------------------------<br />
-                    Our Scenario:<br />
-                    -------------------------<br />
+                    <p>-------------------------<br/>
+                    Our Scenario:<br/>
+                    -------------------------<br/>
 
-                    Server: Linux or unix like system<br />
+                    Server: Linux or unix like system<br/>
                     Client: Windows 2000/XP (or variant)</p>
-                    <p>-----------------------------------------<br />
-                    Installing subversion (server)<br />
-                    -----------------------------------------<br />
+                    <p>-----------------------------------------<br/>
+                    Installing subversion (server)<br/>
+                    -----------------------------------------<br/>
                     I won't go into details here, because this topic is
                     covered in great length in the official Subversion
                     documentation. But one thing I want to point out
@@ -50,7 +50,7 @@
                     <p>To make sure that everything is OK. Login in with SSH
                     and the target user to the system later on and type:
                     "which svnserve". This command should tell you if svnserve
-                    is reachable.<br />
+                    is reachable.<br/>
                     To check if svnserve is available through ssh, type:
                     "ssh  svnserve"</p>
                     <p>Furthermore this document assumes that you already have
@@ -64,10 +64,10 @@
                     bashrc file. This will make connections with TortoisePlink
                     fail, since that line will make SSH throw out an error
                     "stdin: is not a tty". You must remove that line from
-                    your bashrc file.<br />
-                    ------------------------------------------------<br />
-                    OpenSSH and certificates (server)<br />
-                    ------------------------------------------------<br />
+                    your bashrc file.<br/>
+                    ------------------------------------------------<br/>
+                    OpenSSH and certificates (server)<br/>
+                    ------------------------------------------------<br/>
                     Again I wont go into details about OpenSSH installation as
                     this is covered elsewhere better. But on most systems,
                     enabling SSH is just a matter of installing an RPM. If you
@@ -86,10 +86,10 @@
                     private key to your client and converts the private key
                     to a putty-style private key.</p>
                     <p>Lets do this step by step:</p>
-                    <p>- login to your server<br />
-                    - type: ssh-keygen -b 1024 -t dsa -N passphrase -f mykey<br />
+                    <p>- login to your server<br/>
+                    - type: ssh-keygen -b 1024 -t dsa -N passphrase -f mykey<br/>
 
-                    - change "passphrase" to a secret keyword only you know<br />
+                    - change "passphrase" to a secret keyword only you know<br/>
                     - type: ls -l mykey*</p>
                     <p>We just created a SSH2 DSA key with 1024 bit keyphrase.
                     You will see two files. One named "mykey" and one named
@@ -99,7 +99,7 @@
                     <p>- type: useradd -m myuser</p>
                     <p>You will have a directory under /home with the name
                     "myuser", create a new directory in "myuser" called ".ssh":</p>
-                    <p>- type: cd /home/myuser<br />
+                    <p>- type: cd /home/myuser<br/>
                     - type: mkdir .ssh</p>
                     <p>Then go to the directory where you created your keys
                     and copy the public key to the .ssh userfolder with the
@@ -112,10 +112,10 @@
                     be "authorized_keys". In some old OpenSSH implementations,
                     it was "authorized_keys2". Now download the private key
                     file to your client computer. Remember, the file was "mykey"</p>
-                    <p>------------------------------------------------------------<br />
-                    SSH key generation and connection check (client)<br />
-                    ------------------------------------------------------------<br />
-                    Grab the tools we need for doing SSH on windows on this site:<br />
+                    <p>------------------------------------------------------------<br/>
+                    SSH key generation and connection check (client)<br/>
+                    ------------------------------------------------------------<br/>
+                    Grab the tools we need for doing SSH on windows on this site:<br/>
                     http://www.chiark.greenend.org.uk/~sgtatham/putty/</p>
 
                     <p>Just go to the download section and get "Putty", "Plink",
@@ -132,10 +132,10 @@
                     <p>Now we are ready to use this key for the first time to
                     test the connection. In order to do this, we open the
                     program "putty" and create a new session like this:</p>
-                    <p>Session-&gt;HostName: Hostname or IP Adress of your server<br />
-                    Session-&gt;Protocol: SSH<br />
-                    Session-&gt;Saved Sessions: MyConnection<br />
-                    SSH-&gt;Prefered SSH Protocol version: 2<br />
+                    <p>Session-&gt;HostName: Hostname or IP Adress of your server<br/>
+                    Session-&gt;Protocol: SSH<br/>
+                    Session-&gt;Saved Sessions: MyConnection<br/>
+                    SSH-&gt;Prefered SSH Protocol version: 2<br/>
 
                     SSH-&gt;Auth-&gt;Private Key file for auth: $PATH$\mykey.PKK
                     (replace $PATH$ with real path to the mykey.PKK file)</p>
@@ -147,9 +147,9 @@
                     provide a password to your system. If the system still
                     requires a password, something went wrong. See Debugging
                     Section of this HowTo.</p>
-                    <p>-----------------------------------------------<br />
-                    Testing SSH with TortoiseSVN (client)<br />
-                    -----------------------------------------------<br />
+                    <p>-----------------------------------------------<br/>
+                    Testing SSH with TortoiseSVN (client)<br/>
+                    -----------------------------------------------<br/>
                     After installing TortoiseSVN right click on some folder
                     inside your Windows Explorer. You will see a menu item
                     called TortoiseSVN-&gt;RepoBrowser. After opening the
@@ -177,9 +177,9 @@
                     already imported projects and files.</p>
                     <p>Right now, you should have a running SSH Tunnel in
                     conjunction with TortoiseSVN.</p>
-                    <p>-----------------------------------------------<br />
-                    Configuration Variants (pageant)<br />
-                    -----------------------------------------------<br />
+                    <p>-----------------------------------------------<br/>
+                    Configuration Variants (pageant)<br/>
+                    -----------------------------------------------<br/>
                     Now I will continue to show some configuration variants,
                     that can be helpful during everyday work.</p>
                     <p>One way to simplify the URL in TortoiseSVN is to set
@@ -189,7 +189,7 @@
 
                     <p>connection-&gt;Auto Login username: myuser</p>
                     <p>Then save your putty session as before and try the
-                    following URL inside Tortoise:<br />
+                    following URL inside Tortoise:<br/>
                     svn+ssh://MyConnection/usr/local/repos</p>
                     <p>This time we only provide the putty session "MyConnection"
                     to the SSH client TortoiseSVN uses (TortoisePlink.exe).
@@ -229,14 +229,14 @@
                     for TortoiseSVN) is a modified version of the plink tool
                     from the putty suite, also TortoiseSVN looks for a running
                     pageant and will try all the keys stored in pageant.</p>
-                    <p>----------------------------------------<br />
-                    Feedback<br />
-                    -------------------<br />
+                    <p>----------------------------------------<br/>
+                    Feedback<br/>
+                    -------------------<br/>
 
                     For comments or corrections on this howto, please use the
                     <a href="community.html">TortoiseSVN mailinglist</a></p>
                     <p>This is a copy of the original at:
-                    <a href="http://www.logemann.org/day/archives/000099.html">http://www.logemann.org/day/archives/000099.html</a><br />
+                    <a href="http://www.logemann.org/day/archives/000099.html">http://www.logemann.org/day/archives/000099.html</a><br/>
                     Thanks to Marc!</p>
                 </div>
             </div>
