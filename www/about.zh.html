@@ -9,105 +9,105 @@
 </head>
 <body>
 <div id="langselection">
-    <a href="about.html">EN</a> <a href="about.de.html">DE</a> <a href="about.zh.html">ZH</a>
+	<a href="about.html">EN</a> <a href="about.de.html">DE</a> <a href="about.zh.html">ZH</a>
 </div>
 <div id="wrapper">
-    <!--#include FILE="menu.zh.html" -->
-    <div id="page">
-        <div id="banner">&nbsp;</div>
+	<!--#include FILE="menu.zh.html" -->
+	<div id="page">
+		<div id="banner">&nbsp;</div>
 
-        <div id="content">
+		<div id="content">
 
-            <div class="post">
-                <h2 class="title"><a href="#">关于 TortoiseSVN</a></h2>
-                <div class="entry">
-                    $ADSENSE_TOP$
-                    <p>TortoiseSVN 是可用于 Windows 系统的
-                    <a href="http://subversion.apache.org/">Apache<span class="ss">&trade;</span> Subversion (SVN)<span class="ss">&reg;</span></a>
-                    版本控制客户端.
-                    TortoiseSVN 无需使用 Subversion 命令行，是目前最方便的 Subversion 版本控制系统，其操作和使用非常直观和简洁。
-                </div>
-            </div>
-            <div class="post">
-                <h2 class="title"><a href="#">TortoiseSVN 的特色</a></h2>
-                <div class="entry">
-                <li>简单易用</li>
-                    <ul>
-                        <li>你可以通过
-                            <a href="ExplorerIntegration.html#contextmenus">windows explorer</a> 直接使用所有命令。</li>
-                        <li>只显示对当前文件/文件夹可用的命令，其他当前不可用的命令或者操作不会显示。</li>
-                        <li>可以通过  Windows explorer 直接查看<a href="ExplorerIntegration.html#overlays">你的文件状态。</a></li>
-                        <li>描述性对话框，不断根据用户反馈进行改进。</li>
-                        <li>在 windows explorer 中可以直接通过鼠标右键拖拽实现文件移动。</li>
-                    </ul>
-                <li>支持所有 Subversion 协议</li>
-                    <ul>
-                        <li>http://</li>
-                        <li>https://</li>
-                        <li>svn://</li>
-                        <li>svn+ssh://</li>
-                        <li>file:///</li>
-                        <li>svn+XXX://</li>
-                    </ul>
-                <li><a href="commitdialog.html">强大的提交对话框</a></li>
-                    <ul>
-                        <li>在 Log 信息中整合了<a href="commitdialog.html#spellchecker">拼写检查器</a>。</li>
-                        <li>对修改的文件实现<a href="commitdialog.html#autocompletion">自动完成</a>路径和关键字。</li>
-                        <li><a href="commitdialog.html#textformatting">文本格式</a>可带有特殊字符。</li>
-                    </ul>
-                <li>强大的图形功能</li>
-                    <ul>
-                        <li>可以创建关于所有修改/提交的 <a href="bigpicture.html#revisiongraph">图形</a>，因此你可以非常方便的
-                        查看在哪里创建了标签/分支或者是修改了文件/文件夹。</li>
-                        <li>项目<a href="bigpicture.html#statistics">提交数据</a> 图形</li>
-                        <li>可以方便地 <a href="bigpicture.html#dirdiff">对比两个分支或者标签</a></li>
-                    </ul>
-                <li>独立的项目设置</li>
-                    <ul>
-                        <li>设置了最小 Log 信息长度要求，充分避免误提交。</li>
-                        <li>针对不同语言的拼写检查器</li>
-                    </ul>
-                <li><a href="issuetrackers.html">整合问题追踪系统</a></li>
-                    <p>针对不同的基于 Web 的问题追踪系统，TortoiseSVN 提供了灵活的整合机制。</p>
-                    <ul>
-                        <li>为需要提交修改的问题设置单独的 <a href="issuetrackers.html#commit">输入框</a> 用于输入指定的问题追踪号码。
-                            或者是在 log 信息中<a href="issuetrackers.html#commit">用不同颜色</a> 显示问题号码。</li>
-                        <li>当显示所有 log 信息时, 带有问题号码的 <a href="issuetrackers.html#log">单独一栏</a> ，你可以直观的
-                        查看到你的提交所属的问题。</li>
-                        <li>问题号码带有相应的连接，可以直接通过网页浏览器打开。</li>
-                        <li>如果你的提交未指定给任何问题号码，则会收到警示。</li>
-                    </ul>
-                <li>有用的工具</li>
-                    <ul>
-                        <li><a href="TortoiseMerge.html">TortoiseMerge</a></li>
-                            <ul>
-                                <li>显示你对文件作出的 <a href="TortoiseMerge.html#diff">改变</a></li>
-                                <li>帮助 <a href="TortoiseMerge.html#merge">解决冲突</a></li>
-                                <li>如果相应用户并没有提交权限，你可以通过<a href="TortoiseMerge.html#patch">应用补丁文件</a>来实现。</li>
-                            </ul>
-                        <li><a href="blame.html">TortoiseBlame</a>: 显示文件注释，同时也可显示文件中每行的 Log 信息。</li>
-                        <li><a href="TortoiseIDiff.html">TortoiseIDiff</a>: 查看你对图形文件做的改变</li>
-                        <li>SubWCRev: 在你的源文件中包含修改号码/日期等信息。</li>
-                    </ul>
-                <li>目前已提供<a href="translation.html">多种语言</a>版本。</li>
-                <li>TortoiseSVN 一直保持稳定</li>
-                    <ul>
-                        <li>每次正式发布前，我们都会创建'release candidates'给部分用户进行测试。</li>
-                        <li>在开发过程中，有很多人参与了中间版本的测试。这些中间版本会在每天晚上自动创建并开放给所有用户。
-                        这个过程帮助我们在开发过程中及时发现问题，并避免在正式发布时出现。</li>
-                        <li>每次发布前，我们都有非常多的社区/论坛用户帮助进行测试</li>
-                        <li>我们发布的每个 TortoiseSVN 版本中都包含了崩溃报告工具来帮助我们及时修复各种问题。甚至你可能不知道是如何引起了这些问题。</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- end #content -->
+			<div class="post">
+				<h2 class="title"><a href="#">关于 TortoiseSVN</a></h2>
+				<div class="entry">
+					$ADSENSE_TOP$
+					<p>TortoiseSVN 是可用于 Windows 系统的
+					<a href="http://subversion.apache.org/">Apache<span class="ss">&trade;</span> Subversion (SVN)<span class="ss">&reg;</span></a>
+					版本控制客户端.
+					TortoiseSVN 无需使用 Subversion 命令行，是目前最方便的 Subversion 版本控制系统，其操作和使用非常直观和简洁。
+				</div>
+			</div>
+			<div class="post">
+				<h2 class="title"><a href="#">TortoiseSVN 的特色</a></h2>
+				<div class="entry">
+				<li>简单易用</li>
+					<ul>
+						<li>你可以通过
+							<a href="ExplorerIntegration.html#contextmenus">windows explorer</a> 直接使用所有命令。</li>
+						<li>只显示对当前文件/文件夹可用的命令，其他当前不可用的命令或者操作不会显示。</li>
+						<li>可以通过  Windows explorer 直接查看<a href="ExplorerIntegration.html#overlays">你的文件状态。</a></li>
+						<li>描述性对话框，不断根据用户反馈进行改进。</li>
+						<li>在 windows explorer 中可以直接通过鼠标右键拖拽实现文件移动。</li>
+					</ul>
+				<li>支持所有 Subversion 协议</li>
+					<ul>
+						<li>http://</li>
+						<li>https://</li>
+						<li>svn://</li>
+						<li>svn+ssh://</li>
+						<li>file:///</li>
+						<li>svn+XXX://</li>
+					</ul>
+				<li><a href="commitdialog.html">强大的提交对话框</a></li>
+					<ul>
+						<li>在 Log 信息中整合了<a href="commitdialog.html#spellchecker">拼写检查器</a>。</li>
+						<li>对修改的文件实现<a href="commitdialog.html#autocompletion">自动完成</a>路径和关键字。</li>
+						<li><a href="commitdialog.html#textformatting">文本格式</a>可带有特殊字符。</li>
+					</ul>
+				<li>强大的图形功能</li>
+					<ul>
+						<li>可以创建关于所有修改/提交的 <a href="bigpicture.html#revisiongraph">图形</a>，因此你可以非常方便的
+						查看在哪里创建了标签/分支或者是修改了文件/文件夹。</li>
+						<li>项目<a href="bigpicture.html#statistics">提交数据</a> 图形</li>
+						<li>可以方便地 <a href="bigpicture.html#dirdiff">对比两个分支或者标签</a></li>
+					</ul>
+				<li>独立的项目设置</li>
+					<ul>
+						<li>设置了最小 Log 信息长度要求，充分避免误提交。</li>
+						<li>针对不同语言的拼写检查器</li>
+					</ul>
+				<li><a href="issuetrackers.html">整合问题追踪系统</a></li>
+					<p>针对不同的基于 Web 的问题追踪系统，TortoiseSVN 提供了灵活的整合机制。</p>
+					<ul>
+						<li>为需要提交修改的问题设置单独的 <a href="issuetrackers.html#commit">输入框</a> 用于输入指定的问题追踪号码。
+							或者是在 log 信息中<a href="issuetrackers.html#commit">用不同颜色</a> 显示问题号码。</li>
+						<li>当显示所有 log 信息时, 带有问题号码的 <a href="issuetrackers.html#log">单独一栏</a> ，你可以直观的
+						查看到你的提交所属的问题。</li>
+						<li>问题号码带有相应的连接，可以直接通过网页浏览器打开。</li>
+						<li>如果你的提交未指定给任何问题号码，则会收到警示。</li>
+					</ul>
+				<li>有用的工具</li>
+					<ul>
+						<li><a href="TortoiseMerge.html">TortoiseMerge</a></li>
+							<ul>
+								<li>显示你对文件作出的 <a href="TortoiseMerge.html#diff">改变</a></li>
+								<li>帮助 <a href="TortoiseMerge.html#merge">解决冲突</a></li>
+								<li>如果相应用户并没有提交权限，你可以通过<a href="TortoiseMerge.html#patch">应用补丁文件</a>来实现。</li>
+							</ul>
+						<li><a href="blame.html">TortoiseBlame</a>: 显示文件注释，同时也可显示文件中每行的 Log 信息。</li>
+						<li><a href="TortoiseIDiff.html">TortoiseIDiff</a>: 查看你对图形文件做的改变</li>
+						<li>SubWCRev: 在你的源文件中包含修改号码/日期等信息。</li>
+					</ul>
+				<li>目前已提供<a href="translation.html">多种语言</a>版本。</li>
+				<li>TortoiseSVN 一直保持稳定</li>
+					<ul>
+						<li>每次正式发布前，我们都会创建'release candidates'给部分用户进行测试。</li>
+						<li>在开发过程中，有很多人参与了中间版本的测试。这些中间版本会在每天晚上自动创建并开放给所有用户。
+						这个过程帮助我们在开发过程中及时发现问题，并避免在正式发布时出现。</li>
+						<li>每次发布前，我们都有非常多的社区/论坛用户帮助进行测试</li>
+						<li>我们发布的每个 TortoiseSVN 版本中都包含了崩溃报告工具来帮助我们及时修复各种问题。甚至你可能不知道是如何引起了这些问题。</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- end #content -->
 
-        <!--#include FILE="sidebar.zh.html" -->
-        <div style="clear: both;">&nbsp;</div>
-    </div>
-    <!-- end #page -->
-    <!--#include FILE="footer.html" -->
+		<!--#include FILE="sidebar.zh.html" -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<!--#include FILE="footer.html" -->
 </div>
 </body>
 </html>
