@@ -394,7 +394,7 @@ void SVNProperties::PrepareMsgForUrl( const TCHAR * message, SVNPool& subpool )
     }
 }
 
-svn_error_t* SVNProperties::CommitCallback( const svn_commit_info_t *commit_info, void *baton, apr_pool_t *pool )
+svn_error_t* SVNProperties::CommitCallback( const svn_commit_info_t *commit_info, void *baton, apr_pool_t * /*pool*/ )
 {
     svn_revnum_t* pRev = (svn_revnum_t*)baton;
     *pRev = commit_info->revision;
