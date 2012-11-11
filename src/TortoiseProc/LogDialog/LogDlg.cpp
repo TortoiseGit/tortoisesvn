@@ -5876,8 +5876,16 @@ void CLogDlg::ShowContextMenuForChangedpaths(CWnd* /*pWnd*/, CPoint point)
                 filepath += m_currentChangedArray[selIndex].GetPath();
                 svn_revnum_t logrev = rev1;
                 CString sCmd;
-                sCmd.Format(_T("/command:repobrowser /path:\"%s\" /rev:%ld"),
-                    (LPCTSTR)filepath, logrev);
+                if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
+                {
+                    sCmd.Format(_T("/command:repobrowser /path:\"%s\" /rev:%ld"),
+                                (LPCTSTR)filepath, logrev-1);
+                }
+                else
+                {
+                    sCmd.Format(_T("/command:repobrowser /path:\"%s\" /rev:%ld"),
+                                (LPCTSTR)filepath, logrev);
+                }
 
                 CAppUtils::RunTortoiseProc(sCmd);
                 EnableOKButton();
