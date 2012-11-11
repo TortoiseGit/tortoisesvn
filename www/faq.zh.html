@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="langselection">
-	<a href="faq.html">EN</a> <a href="faq.de.html">DE</a> <a href="faq.zh.html">ZH</a>
+	<a href="faq.html">EN</a>&nbsp;<a href="faq.de.html">DE</a>&nbsp;<a href="faq.zh.html">ZH</a>
 </div>
 <div id="wrapper">
 	<!--#include FILE="menu.html" -->
@@ -156,7 +156,7 @@
 						<ul>
 							<li><em>&quot;This installation package is not supported by this processor type. Contact your product vendor.&quot;</em> 这是说你试图将64位的TortoiseSVN安装到32位的操作系统上。你需要下载和使用正确的MSI文件。对于32位的操作系统，请确定MSI文件名里没有<em>x64</em>。</li>
 							<li><em>&quot;The installer was interrupted beforeTortoiseSVNcould be installed. You need to restart the installer to try again&quot;</em>然后用户在 MSI 文件的位置就丢掉正确的读和运行的权限。也不能把 MSI 文件移动到其他的地方或者给用户SYSTEM 读和运行的权限</li>
-							<li><em>&quot;The windows installer service could not be accessed&quot;</em> 这个可能在你运行 Windows 安全模式的时候出现，或者说 windows installer 没有被正确的安装。对于这种类型的错误信息，请核实 Microsoft Knowledgebase 的文章 <a href='http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346'>Q315346</a> (基本上确定 MSI 文件夹没有加密或者被压缩即可)</li>
+							<li><em>&quot;The windows installer service could not be accessed&quot;</em> 这个可能在你运行 Windows 安全模式的时候出现，或者说 windows installer 没有被正确的安装。对于这种类型的错误信息，请核实 Microsoft Knowledgebase 的文章 <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (基本上确定 MSI 文件夹没有加密或者被压缩即可)</li>
 							<li><em>&quot;The system can not open the device of file specified&quot;</em>, 紧接着通常是 <em>&quot;The installer has encountered an unexpected error installing this package. This may indicate a problem with this package. The error code is 2755&quot;</em>. 出现这种错误信息需要:
 								<ul>
 									<li>安装程序没有权限访问临时文件夹，或者系统设定的临时文件夹没有清理，或者说没有足够的空间来完成安装。</li>
@@ -234,8 +234,8 @@
 						<h3>为什么图标覆盖有时会变成一个随机图案？</h3>
 						<p>Windows图标缓存有很多bug。可以使用下面的方法解决这个问题：</p>
 						<ul>
-							<li>安装Microsoft的<a href='http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp'>TweakUI</a> 通过选项来重新创建图标。</li>
-							<li>或者增加图标缓存。到<code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> 增加一个新的字符串 <code>Max Cached Icons</code>。他的默认值为500 - 尝试增加到2048（见微软知识库的<a href='http://support.microsoft.com/support/kb/articles/Q132/6/68.asp'>Q132668</a>）。 </li>
+							<li>安装Microsoft的<a href="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">TweakUI</a> 通过选项来重新创建图标。</li>
+							<li>或者增加图标缓存。到<code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> 增加一个新的字符串 <code>Max Cached Icons</code>。他的默认值为500 - 尝试增加到2048（见微软知识库的<a href="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">Q132668</a>）。 </li>
 							<li>或者在Windows目录下删除ShellIconCache文件，然后重启计算机。</li>
 							<li>TortoiseSVN 1.3.0以后的版本，你可以在命令行调用TortoiseProc重建图标缓存，<code>TortoiseProc.exe /command:rebuildiconcache</code></li>
 						</ul>
@@ -300,7 +300,7 @@
 							<li>你不得不设置正确的访问权限，SAMBA 在这一点上特别难以满足。</li>
 						</ol>
 						<p>更好的办法是创建一个真正的服务器进程（像Apache，svnserve），存储版本库到当地的文件系统上，使版本库服务器可以在网络上有效，可以被访问。这也许会比你想的要简单。Subversion书中
-						<a title='第6章 服务器配置' href='http://www.subversion.org.cn/svnbook/1.4/svn.serverconfig.html'>第6章 服务器配置</a> 有详细的方法说明。</p>
+						<a title="第6章 服务器配置" href="http://www.subversion.org.cn/svnbook/1.4/svn.serverconfig.html">第6章 服务器配置</a> 有详细的方法说明。</p>
 						</div>
 
 						<div class="h3" id="listparentpath" title="listparentpath">
@@ -321,8 +321,8 @@
 
 						<div class="eol" id="eol" title="eol">
 						<h3>TortoiseSVN能实时自动转换文本文件中的换行符吗？</h3>
-						<p>请到查看Subversion书中关于<a title='svn:eol-style' href='http://www.subversion.org.cn/svnbook/1.4/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style'>svn:eol-style</a>属性的内容。
-						比如说，如果你将此属性设置为‘native’，在 Linux 下它就会以LF作为换行符， Windows 下则是 CRLF。想了解如何通过TortoiseSVN设置这些属性，请到 <a title='setting properties' href='/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props'>这里</a> 阅读我们的文档。</p>
+						<p>请到查看Subversion书中关于<a title="svn:eol-style" href="http://www.subversion.org.cn/svnbook/1.4/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style">svn:eol-style</a>属性的内容。
+						比如说，如果你将此属性设置为‘native’，在 Linux 下它就会以LF作为换行符， Windows 下则是 CRLF。想了解如何通过TortoiseSVN设置这些属性，请到 <a title="setting properties" href="/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props">这里</a> 阅读我们的文档。</p>
 						</div>
 
 						<div class="h3" id="propconflict" title="propconflict">
@@ -428,8 +428,8 @@
 
 						<div class="h3" id="keywords" title="keywords">
 						<h3>……为我的文件添加关键字信息，比如作者、版本、日期、提交日期？</h3>
-						<p>请阅读Subversion书中关于<a href='http://www.subversion.org.cn/svnbook/1.4/svn.advanced.props.special.keywords.html'>svn:keywords</a>属性的说明。</p>
-						<p>在TortoiseSVN中，<a href='/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props'>这样</a> 设置。</p>
+						<p>请阅读Subversion书中关于<a href="http://www.subversion.org.cn/svnbook/1.4/svn.advanced.props.special.keywords.html">svn:keywords</a>属性的说明。</p>
+						<p>在TortoiseSVN中，<a href="/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props">这样</a> 设置。</p>
 						</div>
 
 						<div class="h3" id="casechange" title="casechange">
@@ -478,7 +478,7 @@
 							<dt>$WCDATE$</dt>
 							<dd>将会用你工作拷贝的最新修订日期替换</dd>
 						</dl>
-						<p>举个例子，请看 <a href='http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/version.in'>TortoiseSVN 代码树</a> 的 <cite>version.in</cite> 文件，这个文件在TortoiseSVN及它的资源文件中用到。在编译脚本中这样调用 SubWCRev.exe 工具：
+						<p>举个例子，请看 <a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/version.in">TortoiseSVN 代码树</a> 的 <cite>version.in</cite> 文件，这个文件在TortoiseSVN及它的资源文件中用到。在编译脚本中这样调用 SubWCRev.exe 工具：
 						<code>SubWCRev.exe path\\to\\working\\copy version.in version.h</code>
 						将会创建一个新的文件 <cite>version.h</cite>，文件中出现的所有上面提到的字符串都会用工作拷贝的实际值来替换。<cite>version.h</cite> 会放在项目的资源文件里，用来描述版本信息。</p>
 						</div>
@@ -603,7 +603,7 @@ Folder/File2 : revision 2
 						<div class="h3" id="four00" title="four00">
 						<h3>400 服务器未能理解请求(400 Bad Request)</h3>
 						<p>REPORT request failed on '...' REPORT of '...': 400 Bad Request (http://...)</p>
-						<p>你的 DAV 请求被防火墙阻止了，多数防火墙都会这么这么干。你可以让你的管理员更改防火墙的设置，或者以 <strong>https</strong> 访问，如 <a href='https://svn.collab.net/repos/svn/'>https://svn.collab.net/repos/svn/</a> ，这样你与版本库之间的通信是经过 SSL 加密的，防火墙无法阻止（如果它没有封掉 SSL 端口的话）。
+						<p>你的 DAV 请求被防火墙阻止了，多数防火墙都会这么这么干。你可以让你的管理员更改防火墙的设置，或者以 <strong>https</strong> 访问，如 <a href="https://svn.collab.net/repos/svn/">https://svn.collab.net/repos/svn/</a> ，这样你与版本库之间的通信是经过 SSL 加密的，防火墙无法阻止（如果它没有封掉 SSL 端口的话）。
 						</p>
 						<p>另外，现已确认某些病毒扫描程序（如卡巴斯基）也会导致这个错误。</p>
 						</div>

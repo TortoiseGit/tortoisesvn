@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="langselection">
-	<a href="faq.html">EN</a> <a href="faq.de.html">DE</a> <a href="faq.zh.html">&#31616;&#20307;&#20013;&#25991;</a>
+	<a href="faq.html">EN</a>&nbsp;<a href="faq.de.html">DE</a>&nbsp;<a href="faq.zh.html">&#31616;&#20307;&#20013;&#25991;</a>
 </div>
 <div id="wrapper">
 	<!--#include FILE="menu.html" -->
@@ -176,7 +176,7 @@
 						<ul>
 							<li><em>&quot;This installation package is not supported by this processor type. Contact your product vendor.&quot;</em> This means you are trying to install the 64-bit version of TortoiseSVN on a normal 32-bit operating system. You need to download and use the correct msi file for your OS. For normal 32-bit OS, make sure the msi file does not have an <em>x64</em> in it.</li>
 							<li><em>&quot;The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again&quot;</em>Then the user SYSTEM doesn't have read/execution rights in the folder where the installer msi is located. Either move the msi file to another location or give the user SYSTEM read and execution rights.</li>
-							<li><em>&quot;The windows installer service could not be accessed&quot;</em> This can occur if you are running Windows in safe mode, or if the windows installer is not correctly installed. For this kind of error message, please check out the Microsoft Knowledgebase article <a href='http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346'>Q315346</a> (basically, check that the folder where the msi is stored isn't encrypted or compressed)</li>
+							<li><em>&quot;The windows installer service could not be accessed&quot;</em> This can occur if you are running Windows in safe mode, or if the windows installer is not correctly installed. For this kind of error message, please check out the Microsoft Knowledgebase article <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (basically, check that the folder where the msi is stored isn't encrypted or compressed)</li>
 							<li><em>&quot;The system can not open the device of file specified&quot;</em>, followed usually by <em>&quot;The installer has encountered an unexpected error installing this package. This may indicate a problem with this package. The error code is 2755&quot;</em>. This can happen if:
 							<ul>
 								<li>The installation does not have access to the Temp directory or if the default Temp directory of the machine is not clean or does not have enough space to run the setup.</li>
@@ -233,12 +233,11 @@
 						<div class="h3" id="ovllostonupgrade" title="Overlays lost on upgrade">
 						<h3>After upgrading TortoiseSVN, all my icon overlays have disappeared</h3>
 						<p>This is a known issue with some upgrades, and in particular it has been reported for 1.6.8. If this happens to you, try doing a repair install (and reboot of course).</p>
-						<p>If that doesn't work try these other FAQ entries
+						If that doesn't work try these other FAQ entries
 						<ul>
 							<li><a href="#ovlnotshowing">Why don't the icon overlays appear?</a></li>
 							<li><a href="#ovlnotall">The overlay icons appear, but not all of them!</a></li>
 						</ul>
-						</p>
 						</div>
 
 						<div class="h3" id="ovlnotshowing" title="Overlays not showing">
@@ -268,14 +267,13 @@
 						<p>You can check which other apps are using overlays by using regedit to look at
 						HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
 						</p>
-						<p>Other apps which are known to use overlays:
+						Other apps which are known to use overlays:
 						<ul>
 							<li>Windows itself. Vista and Win7 use more than XP.</li>
 							<li>Other Tortoise clients like TCVS. Newer versions of these used a shared icon set, TortoiseOverlays.dll, but you should check what your version uses.</li>
 							<li>Dropbox</li>
 							<li>Microsoft Groove (part of Office 2007/2010)</li>
 						</ul>
-						</p>
 						</div>
 
 						<div class="h3" id="ovlonlylocal" title="No overlays on network drives">
@@ -332,8 +330,8 @@
 						<p>
 						The Windows icon cache is a fairly buggy creature. You can solve this in one of the following ways:</p>
 						<ul>
-							<li>Install Microsoft's <a href='http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp'>TweakUI</a> and run the option to rebuild icons.</li>
-							<li>Or increase the icon cache size. Go to <code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> and add a new String Value called <code>Max Cached Icons</code>. The default value is 500 - try increasing it to 2048 (see <a href='http://support.microsoft.com/support/kb/articles/Q132/6/68.asp'>Q132668</a> in the Microsoft knowledge base for more details). </li>
+							<li>Install Microsoft's <a href="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">TweakUI</a> and run the option to rebuild icons.</li>
+							<li>Or increase the icon cache size. Go to <code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> and add a new String Value called <code>Max Cached Icons</code>. The default value is 500 - try increasing it to 2048 (see <a href="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">Q132668</a> in the Microsoft knowledge base for more details). </li>
 							<li>Or delete the file called ShellIconCache in your Windows directory. And reboot.</li>
 							<li>With TortoiseSVN 1.3.0 and later, you can also rebuild the icon cache by calling TortoiseProc from the command line like this <code>TortoiseProc.exe /command:rebuildiconcache</code></li>
 						</ul>
@@ -435,15 +433,14 @@
 						<p>By far the best way is to set up a real server process (such as Apache or svnserve),
 						store the repository on a local filesystem which the server can access, and make the
 						repository server available over a network. It is easier than you might think.
-						<a title='Chapter 6. Server Configuration' href='http://svnbook.red-bean.com/en/1.7/svn.serverconfig.html'>Chapter 6, Server Configuration</a>
+						<a title="Chapter 6. Server Configuration" href="http://svnbook.red-bean.com/en/1.7/svn.serverconfig.html">Chapter 6, Server Configuration</a>
 						in the Subversion Book covers this process in detail.</p>
-						<p>Here's an incomplete list of user friendly server installers:
+						Here's an incomplete list of user friendly server installers:
 						<ul>
-							<li><a title='CollabNet server download' href='http://www.collab.net/downloads/subversion/' rel="nofollow">CollabNet Subversion Edge</a></li>
-							<li><a title='uberSVN' href='http://www.ubersvn.com/' rel="nofollow">uberSVN</a></li>
-							<li><a title='VisualSVN' href='http://www.visualsvn.com/server/' rel="nofollow">VisualSVN</a></li>
+							<li><a title="CollabNet server download" href="http://www.collab.net/downloads/subversion/" rel="nofollow">CollabNet Subversion Edge</a></li>
+							<li><a title="uberSVN" href="http://www.ubersvn.com/" rel="nofollow">uberSVN</a></li>
+							<li><a title="VisualSVN" href="http://www.visualsvn.com/server/" rel="nofollow">VisualSVN</a></li>
 						</ul>
-						</p>
 						</div>
 
 						<div class="h3" id="listparentpath" title="List repositories on the server">
@@ -487,9 +484,9 @@
 						<div class="h3" id="eol" title="EOL style">
 						<h3>Can TortoiseSVN convert line breaks in text files on the fly?</h3>
 						<p>
-						Check the subversion book about the svn:eol-style property <a title='svn:eol-style' href='http://svnbook.red-bean.com/en/1.7/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style'>here</a>.
+						Check the subversion book about the svn:eol-style property <a title="svn:eol-style" href="http://svnbook.red-bean.com/en/1.7/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style">here</a>.
 						If you set that property to e.g. 'native', then the file will have LF line-endings on Linux, but CRLF line-endings on Windows.
-						To see how you can set those properties with TortoiseSVN, read our docs <a title='setting properties' href='/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props'>here</a>.
+						To see how you can set those properties with TortoiseSVN, read our docs <a title="setting properties" href="/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props">here</a>.
 						</p>
 						</div>
 
@@ -656,7 +653,7 @@
 						<p>After upgrading to TortoiseSVN 1.5.x or later, you get a lot of "Access denied" errors for most
 						of the Subversion commands if your working copy is stored on a SAMBA share.</p>
 						<p>Some users reported that the problem went away after they upgraded SAMBA to the latest version.
-						If that does not help or you can't upgrade, allow readonly files to be deleted in the SAMBA config file:
+						If that does not help or you can't upgrade, allow readonly files to be deleted in the SAMBA config file:</p>
 						<pre>
 [global]
 <a href="http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#DELETEREADONLY">delete readonly</a> = yes
@@ -670,7 +667,6 @@ security mask = 0555
 force security mode = 0600
 						</pre>
 
-						</p>
 						<p>The information we have received suggests that the main problem is fixed in SAMBA 3.2.3.
 						There is a supplementary problem with making files with the svn:needs-lock property read-only.
 						This is reported to be fixed in SAMBA 3.2.6 or 3.3.0.</p>
@@ -741,13 +737,13 @@ force security mode = 0600
 						<p>Don't panic! This is a (mis) feature of the IE security model. Since
 						TortoiseSVN is a shell extension it loads automatically whenever a file-open
 						dialog is created, in order to provide the icon overlays and context menus.</p>
-						<p>There are two ways to stop the warnings:
+						There are two ways to stop the warnings:
 						<ol>
 						<li>In TortoiseSVN's settings go to the Icon Overlay section and check the box
 						<i>Show overlays and context menu only in Explorer</i>.</li>
 						<li>When the warning appears, check the box marked
 						<i>never show for this application again</i>.</li>
-						</ol></p>
+						</ol>
 						</div>
 
 						<div class="h3" id="smartcard" title="Repeated dialogs to insert smart card">
@@ -761,7 +757,7 @@ force security mode = 0600
 						<p>To prevent TortoiseSVN from trying to access the Windows cert store
 						in case a certificate is requested by the repository, create the
 						registry key <em>HKCU\Software\TortoiseSVN\OpenSSLCapi</em> as a DWORD
-						and set its value to <em>0<em>.
+						and set its value to <em>0</em>.
 						</p>
 						</div>
 
@@ -810,10 +806,10 @@ http-library = serf
 						<div class="h3" id="keywords" title="Keywords">
 						<h3>... add keyword information like author, revision, date and commit-time to my files?</h3>
 						<p>Read about the Subversion property
-						<a href='http://svnbook.red-bean.com/en/1.7/svn.advanced.props.special.keywords.html'>svn:keywords</a>
+						<a href="http://svnbook.red-bean.com/en/1.7/svn.advanced.props.special.keywords.html">svn:keywords</a>
 						in the Subversion book.</p>
 						<p>With TortoiseSVN, set the properties as described
-						<a href='/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props'>here</a>.</p>
+						<a href="/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props">here</a>.</p>
 						</div>
 
 						<div class="h3" id="casechange" title="Case change">
@@ -886,7 +882,7 @@ http-library = serf
 							<dd>Will be replaced by the date of the highest revision in your working copy.</dd>
 						</dl>
 						<p>As an example, have a look at the file <cite>version.in</cite> in the
-						<a href='http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/version.in'>TortoiseSVN source tree</a>.
+						<a href="http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/src/version.in">TortoiseSVN source tree</a>.
 						This file is used in TortoiseSVN and its resource files. The SubWCRev.exe tool
 						is called from the build script like this:
 						<code>SubWCRev.exe path\\to\\working\\copy version.in version.h</code>
@@ -1111,7 +1107,7 @@ Folder/File2 : revision 2
 						<p>You're behind a firewall which blocks DAV requests. Most firewalls do that.
 						Either ask your Administrator to change the firewall, or access the repository
 						with <strong>https://</strong> instead of <strong>http://</strong> like in
-						<a href='https://svn.collab.net/repos/svn/'>https://svn.collab.net/repos/svn/</a>
+						<a href="https://svn.collab.net/repos/svn/">https://svn.collab.net/repos/svn/</a>
 						That way you connect to the repository with SSL encryption, which firewalls
 						can't interfere with (if they don't block the SSL port completely).
 						</p>
@@ -1155,7 +1151,7 @@ Folder/File2 : revision 2
 						to plink, and occurs if you have a default hostname set in PuTTY.</p>
 						<p>If this is the case you can fix it by using regedit or regedt32 to clear
 						HKEY_CURRENT_USER/Software/SimonTatham/Putty/Sessions/Default%20Settings/HostName.</p>
-						<p>Another user has reported the following server-side fix:
+						Another user has reported the following server-side fix:
 						<ul>
 							<li>ssh into your account</li>
 							<li>cd ~</li>
@@ -1164,7 +1160,6 @@ Folder/File2 : revision 2
 							<li>put a # before the line "mesg y" (which comments it out)</li>
 							<li>Ctrl+X to exit, press Y when prompted to save.</li>
 						</ul>
-						</p>
 						</div>
 
 					</div>
