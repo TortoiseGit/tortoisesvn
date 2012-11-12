@@ -660,7 +660,7 @@ svn_error_t * CCachedDirectory::GetStatusCallback(void *baton, const char *path,
                 const svn_string_t * value = NULL;
                 svn_error_t * err = svn_wc_prop_get2(&value, pThis->m_pCtx->wc_ctx, path, "svn:needs-lock", pool, pool);
                 if ((err==NULL) && value)
-                    needsLock = (value->len > 0);
+                    needsLock = true;
                 if (err)
                     svn_error_clear(err);
             }
