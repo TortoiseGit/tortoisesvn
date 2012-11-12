@@ -250,7 +250,7 @@ blockquote.style2 {
     height: 50px;
     margin: 0 auto;
     padding: 0;
-    background: #565F68 url("images/img.jpg") no-repeat left top;
+    background-color: #565F68;
     text-shadow: 0 0 2px #B7B7B7;
 }
 
@@ -273,7 +273,6 @@ blockquote.style2 {
     padding: 7px 20px 7px 20px;
     background: #FFFFFF;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
     color: #000000;
     border: none;
@@ -304,13 +303,13 @@ blockquote.style2 {
     color: #000000;
 }
 
-.post .title a {
+.title a {
     background: none;
     color: #417FDA;
     border: none;
 }
 
-.post .title a:hover {
+.title a:hover {
     text-decoration: underline;
 }
 
@@ -395,8 +394,6 @@ blockquote.style2 {
     height: 20px;
     margin: 0 auto;
     padding: 20px 0 15px 0;
-    background: url("images/img02.jpg") no-repeat left top;
-    font-family: Arial, Helvetica, sans-serif;
     color: #B2B2B2;
 }
 
