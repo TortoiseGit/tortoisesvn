@@ -56,7 +56,7 @@ table {
 }
 
 .hover tr:hover {
-    background-color: #e1eafe;
+    background-color: #E1EAFE;
 }
 
 th {
@@ -81,16 +81,11 @@ blockquote p {
     background: transparent url("../img/quoright.png") right bottom no-repeat;
 }
 
-blockquote.style2 {
-    font: 14px/22px normal Helvetica, sans-serif;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 50px;
-    padding-left: 15px;
-    border-left: 3px solid #ccc;
-}
-
-.caution, .important, .note, .tip, .warning {
+.caution,
+.important,
+.note,
+.tip,
+.warning {
     border-top: 5px solid;
     border-left: 1px solid;
     margin: 1em 0 0 1em;
@@ -132,12 +127,12 @@ blockquote.style2 {
 
 .caution {
     background-image: url("../img/caution.png");
-    border-color: #c60;
+    border-color: #C60;
 }
 
 .caution h3 {
     padding-top: 4px;
-    color: #c60;
+    color: #C60;
     font-weight: bold;
     font-style: italic;
     font-size: 1.05em;
@@ -156,25 +151,9 @@ blockquote.style2 {
     font-size: 1.05em;
 }
 
-.ss {
-    font-size: 50%;
+.superscript {
+    font-size: 75%;
     vertical-align: super;
-}
-
-.pullquote {
-    color: #111111;
-    float: right;
-    font-size: 18px;
-    font-variant: normal;
-    font-weight: bold;
-    line-height: 24px;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    text-align: right;
-    text-shadow: 0 0 2px #B7B7B7;
-    width: 40%;
 }
 
 #wrapper {
@@ -214,8 +193,7 @@ blockquote.style2 {
     float: left;
     margin: 0;
     padding: 10px 10px;
-    font: normal 14px Georgia, "Times New Roman", Times, serif;
-    font-style: italic;
+    font: italic 14px Georgia, "Times New Roman", Times, serif;
 }
 
 #logo a {
@@ -251,18 +229,6 @@ blockquote.style2 {
     text-shadow: 0 0 2px #B7B7B7;
 }
 
-#menu ul {
-    margin: 0;
-    padding: 0;
-    padding-left: 10px;
-    list-style: none;
-    line-height: normal;
-}
-
-#menu li {
-    float: left;
-}
-
 #menu a {
     display: block;
     margin-top: 20px;
@@ -277,6 +243,18 @@ blockquote.style2 {
 
 #menu a:hover {
     text-decoration: underline;
+}
+
+#menu li {
+    float: left;
+}
+
+#menu ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    list-style: none;
+    line-height: normal;
 }
 
 /* Page */
@@ -312,9 +290,7 @@ blockquote.style2 {
     border-bottom: 1px dashed #D2D4C9;
     padding-bottom: 5px;
     text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    font-style: italic;
+    font: italic 11px/180% Arial, Helvetica, sans-serif;
 }
 
 .post .entry {
@@ -360,15 +336,9 @@ blockquote.style2 {
 }
 
 #sidebar h2 {
-    letter-spacing: -.5px;
+    letter-spacing: -0.5px;
     color: #417FDA;
     text-shadow: 0 0 2px #B7B7B7;
-}
-
-#sidebar p {
-    font-size: 12px;
-    padding-bottom: 20px;
-    text-align: justify;
 }
 
 #sidebar a {
@@ -398,10 +368,6 @@ blockquote.style2 {
     text-align: center;
 }
 
-#footer a {
-    color: #FFFFFF;
-}
-
 /* ad group box */
 #adgroup
 {
@@ -413,7 +379,6 @@ blockquote.style2 {
 
 #adgroup legend
 {
-    padding: 0;
     color: #417FDA;
     padding: 2em;
 }
