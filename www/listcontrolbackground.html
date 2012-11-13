@@ -34,7 +34,7 @@
 					wanted to show such a watermark image in our main dialogs
 					file list.</p>
 
-					<div style="text-align: center;">
+					<div style="text-align: center">
 					<img src="images/explorer-watermark.png" alt="the watermark in Windows explorer" />
 					</div>
 
@@ -84,7 +84,7 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
 					make the image stay at the right bottom, even with setting
 					the image position in the scroll event handler. Obviously,
 					I was on the wrong path here.</p>
-					<div style="text-align: center;">
+					<div style="text-align: center">
 					<img src="images/first-try.png" alt="SetBkImage the obvious way" />
 					</div>
 					<p>Next I tried to draw the image directly in the
@@ -100,7 +100,7 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
 					<a href="http://msdn2.microsoft.com/en-us/library/ms672574.aspx">CDRF_NOTIFYPOSTERASE</a>
 					isn't used in the list control.</p>
 
-					<div style="text-align: center;">
+					<div style="text-align: center">
 					<img src="images/ownerdraw.png" alt="The watermark drawn in the NM_CUSTOMDRAW handler" />
 
 					</div>
@@ -300,7 +300,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 					the watermark image was painted over when an item got
 					selected, and the first column was not transparent and
 					was also painting over the watermark.</p>
-					<div style="text-align: center;">
+					<div style="text-align: center">
 					<img src="images/fullrowselect.png" alt="The watermark with the LVS_EX_FULLROWSELECT set" />
 					</div>
 					<p>As it turned out, this was due to the fact that I set
@@ -310,7 +310,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 
 					<p>And now (drumroll please): the screenshots of the add
 					and commit dialog:</p>
-					<div style="text-align: center;">
+					<div style="text-align: center">
 					<img src="images/add-dialog.png" alt="The TortoiseSVN Add dialog showing its watermark" /><br/>
 					<img src="images/commit-dialog.png" alt="The TortoiseSVN Commit dialog showing its watermark" />
 					</div>
@@ -322,7 +322,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 		<!-- end #content -->
 
 		<!--#include FILE="sidebar.html"-->
-		<div style="clear: both;">&nbsp;</div>
+		<div style="clear: both">&nbsp;</div>
 	</div>
 	<!-- end #page -->
 	<!--#include FILE="footer.html"-->
