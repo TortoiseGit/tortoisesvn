@@ -182,8 +182,14 @@ svn_error_t * getfirststatus(void * baton, const char * path, const svn_client_s
     if (status->kind == svn_node_file)
     {
         const svn_string_t * value = NULL;
-        svn_wc_prop_get2(&value, sb->wc_ctx, path, "svn:needs-lock", pool, pool);
-        sb->SubStat->LockData.NeedsLocks = (value != 0);
+        svn_error_t * e = svn_wc_prop_get2(&value, sb->wc_ctx, path, "svn:needs-lock", pool, pool);
+        if (e == nullptr)
+            sb->SubStat->LockData.NeedsLocks = (value != 0);
+        else
+        {
+            sb->SubStat->LockData.NeedsLocks = false;
+            svn_error_clear(e);
+        }
     }
 
     return SVN_NO_ERROR;
