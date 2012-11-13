@@ -6,8 +6,8 @@
 <meta http-equiv="content-language" content="en" />
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <title>TortoiseSVN - List control background images</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/prettify/prettify.js"></script>
+<link href="css/pack.css" rel="stylesheet" type="text/css" />
+<script src="js/prettify/prettify.js" type="text/javascript"></script>
 </head>
 <body onload="prettyPrint()">
 <div id="wrapper">
@@ -45,10 +45,10 @@
 					list in our dialogs. So I called that method like this:</p>
 					<pre class="prettyprint">
 HBITMAP hbm = LoadImage(hResource,
-						MAKEINTRESOURCE(IDB_BACKGROUND),
-						IMAGE_BITMAP,
-						128, 128,
-						LR_DEFAULTCOLOR);
+                        MAKEINTRESOURCE(IDB_BACKGROUND),
+                        IMAGE_BITMAP,
+                        128, 128,
+                        LR_DEFAULTCOLOR);
 
 m_ListCtrl.SetBkImage(hbm, FALSE, 100, 100);
 					</pre><p>
@@ -70,8 +70,8 @@ VERIFY(::GetModuleFileName(hResource, szBuffer, MAX_PATH));
 
 CString sPath;
 sPath.Format(_T("res://%s/#%d/#%d"),
-			 szBuffer, RT_BITMAP,
-			 IDB_BACKGROUND);
+             szBuffer, RT_BITMAP,
+             IDB_BACKGROUND);
 
 m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
 					</pre><p>
@@ -134,8 +134,8 @@ VERIFY(::GetModuleFileName(hResource, szBuffer, MAX_PATH));
 
 CString sPath;
 sPath.Format(_T("res://%s/#%d/#%d"),
-			 szBuffer, RT_BITMAP,
-			 IDB_BACKGROUND);
+             szBuffer, RT_BITMAP,
+             IDB_BACKGROUND);
 
 LVBKIMAGE lv = {0};
 lv.ulFlags = LVBKIF_TYPE_WATERMARK|LVBKIF_FLAG_ALPHABLEND;
@@ -152,10 +152,10 @@ m_ListCtrl.SetBkImage(&lv);
 					Out of pure desperation I tried this:</p>
 					<pre class="prettyprint">
 HBITMAP hbm = LoadImage(hResource,
-						MAKEINTRESOURCE(IDB_BACKGROUND),
-						IMAGE_BITMAP,
-						128, 128,
-						LR_DEFAULTCOLOR);
+                        MAKEINTRESOURCE(IDB_BACKGROUND),
+                        IMAGE_BITMAP,
+                        128, 128,
+                        LR_DEFAULTCOLOR);
 
 LVBKIMAGE lv = {0};
 lv.ulFlags = LVBKIF_TYPE_WATERMARK;
@@ -178,10 +178,10 @@ SetBkImage(&lv);
 					LVBKIF_FLAG_ALPHABLEND flag is for:</p>
 					<pre class="prettyprint">
 HBITMAP hbm = LoadImage(hResource,
-						MAKEINTRESOURCE(IDB_BACKGROUND),
-						IMAGE_BITMAP,
-						128, 128,
-						LR_DEFAULTCOLOR);
+                        MAKEINTRESOURCE(IDB_BACKGROUND),
+                        IMAGE_BITMAP,
+                        128, 128,
+                        LR_DEFAULTCOLOR);
 
 LVBKIMAGE lv = {0};
 lv.ulFlags = LVBKIF_TYPE_WATERMARK|LVBKIF_FLAG_ALPHABLEND;
@@ -215,84 +215,84 @@ SetBkImage(&lv);
 bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 
 {
-	SetTextBkColor(CLR_NONE);
-	COLORREF bkColor = GetBkColor();
+    SetTextBkColor(CLR_NONE);
+    COLORREF bkColor = GetBkColor();
 
-	// create a bitmap from the icon
-	HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(),
-								   MAKEINTRESOURCE(nID), IMAGE_ICON,
-								   128, 128, LR_DEFAULTCOLOR);
+    // create a bitmap from the icon
+    HICON hIcon = (HICON)LoadImage(AfxGetResourceHandle(),
+                                   MAKEINTRESOURCE(nID), IMAGE_ICON,
+                                   128, 128, LR_DEFAULTCOLOR);
 
-	if (!hIcon)
-		return false;
+    if (!hIcon)
+        return false;
 
-	RECT rect = {0};
+    RECT rect = {0};
 
-	rect.right = 128;
-	rect.bottom = 128;
+    rect.right = 128;
+    rect.bottom = 128;
 
-	HBITMAP bmp = NULL;
+    HBITMAP bmp = NULL;
 
-	HWND desktop = ::GetDesktopWindow();
+    HWND desktop = ::GetDesktopWindow();
 
-	if (desktop)
-	{
-		HDC screen_dev = ::GetDC(desktop);
+    if (desktop)
+    {
+        HDC screen_dev = ::GetDC(desktop);
 
-		if (screen_dev)
-		{
-			// Create a compatible DC
-			HDC dst_hdc = ::CreateCompatibleDC(screen_dev);
+        if (screen_dev)
+        {
+            // Create a compatible DC
+            HDC dst_hdc = ::CreateCompatibleDC(screen_dev);
 
-			if (dst_hdc)
-			{
-				// Create a new bitmap of icon size
-				bmp = ::CreateCompatibleBitmap(screen_dev,
-											   rect.right, rect.bottom);
+            if (dst_hdc)
+            {
+            // Create a new bitmap of icon size
+            bmp = ::CreateCompatibleBitmap(screen_dev,
+                                           rect.right,
+                                           rect.bottom);
 
-				if (bmp)
-				{
-					// Select it into the compatible DC
-					HBITMAP old_bmp = (HBITMAP)::SelectObject(dst_hdc, bmp);
+                if (bmp)
+                {
+                    // Select it into the compatible DC
+                    HBITMAP old_bmp = (HBITMAP)::SelectObject(dst_hdc, bmp);
 
-					// Fill the background of the compatible DC
-					// with the given colour
-					::SetBkColor(dst_hdc, bkColor);
+                    // Fill the background of the compatible DC
+                    // with the given colour
+                    ::SetBkColor(dst_hdc, bkColor);
 
-					::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect,
-								 NULL, 0, NULL);
+                    ::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect,
+                                 NULL, 0, NULL);
 
-					// Draw the icon into the compatible DC
-					::DrawIconEx(dst_hdc, 0, 0, hIcon,
-								 rect.right, rect.bottom, 0,
-								 NULL, DI_NORMAL);
+                    // Draw the icon into the compatible DC
+                    ::DrawIconEx(dst_hdc, 0, 0, hIcon,
+                                 rect.right, rect.bottom, 0,
+                                 NULL, DI_NORMAL);
 
-					::SelectObject(dst_hdc, old_bmp);
-				}
-				::DeleteDC(dst_hdc);
+                    ::SelectObject(dst_hdc, old_bmp);
+                }
+                ::DeleteDC(dst_hdc);
 
-			}
-		}
-		::ReleaseDC(desktop, screen_dev);
-	}
+            }
+        }
+        ::ReleaseDC(desktop, screen_dev);
+    }
 
-	// Restore settings
-	DestroyIcon(hIcon);
+    // Restore settings
+    DestroyIcon(hIcon);
 
-	if (bmp == NULL)
+    if (bmp == NULL)
+        return false;
 
-		return false;
+    LVBKIMAGE lv;
+    lv.ulFlags = LVBKIF_TYPE_WATERMARK;
 
-	LVBKIMAGE lv;
-	lv.ulFlags = LVBKIF_TYPE_WATERMARK;
+    lv.hbm = bmp;
+    lv.xOffsetPercent = 100;
 
-	lv.hbm = bmp;
-	lv.xOffsetPercent = 100;
+    lv.yOffsetPercent = 100;
+    SetBkImage(&lv);
 
-	lv.yOffsetPercent = 100;
-	SetBkImage(&lv);
-
-	return true;
+    return true;
 }
 					</pre>
 

@@ -14,6 +14,7 @@ if os.path.exists(setpath):
 shutil.copytree(os.path.abspath('..'), setpath)
 
 footerFile = file(os.path.join(setpath, 'templates/footer.html'), 'r')
+footerJSFile = file(os.path.join(setpath, 'templates/footer-js.html'), 'r')
 menuFile = file(os.path.join(setpath, 'templates/menu.html'), 'r')
 menuFileDE = file(os.path.join(setpath, 'templates/menu.de.html'), 'r')
 menuFileZH = file(os.path.join(setpath, 'templates/menu.zh.html'), 'r')
@@ -32,6 +33,9 @@ adinpageFileZH = file(os.path.join(setpath, 'templates/adsense_inpage.zh.html'),
 
 footerText = footerFile.read()
 footerFile.close()
+
+footerJSText = footerJSFile.read()
+footerJSFile.close()
 
 menuText = menuFile.read()
 menuFile.close()
@@ -78,8 +82,8 @@ adinpageFileDE.close()
 adinpageTextZH = adinpageFileZH.read()
 adinpageFileZH.close()
 
-searchfor.extend( [ '<!--#include FILE="menu.html"-->', '<!--#include FILE="menu.de.html"-->', '<!--#include FILE="menu.zh.html"-->', '<!--#include FILE="sidebar.html"-->', '<!--#include FILE="sidebar.de.html"-->', '<!--#include FILE="sidebar.zh.html"-->', '<!--#include FILE="footer.html"-->', '$ADSENSE_TOP$', '$ADSENSE_TOPDE$', '$ADSENSE_TOPZH$', '$ADSENSE_BIGTOP$', '$ADSENSE_BIGTOPDE$', '$ADSENSE_BIGTOPZH$', '$ADSENSE_INPAGE$', '$ADSENSE_INPAGEDE$', '$ADSENSE_INPAGEZH$' ] )
-replacewith.extend( [ menuText, menuTextDE, menuTextZH, sidebarText, sidebarTextDE, sidebarTextZH, footerText, adtopText, adtopTextDE, adtopTextZH, adtopBigText, adtopBigTextDE, adtopBigTextZH, adinpageText, adinpageTextDE, adinpageTextZH ] )
+searchfor.extend( [ '<!--#include FILE="menu.html"-->', '<!--#include FILE="menu.de.html"-->', '<!--#include FILE="menu.zh.html"-->', '<!--#include FILE="sidebar.html"-->', '<!--#include FILE="sidebar.de.html"-->', '<!--#include FILE="sidebar.zh.html"-->', '<!--#include FILE="footer.html"-->', '<!--#include FILE="footer-js.html"-->', '$ADSENSE_TOP$', '$ADSENSE_TOPDE$', '$ADSENSE_TOPZH$', '$ADSENSE_BIGTOP$', '$ADSENSE_BIGTOPDE$', '$ADSENSE_BIGTOPZH$', '$ADSENSE_INPAGE$', '$ADSENSE_INPAGEDE$', '$ADSENSE_INPAGEZH$' ] )
+replacewith.extend( [ menuText, menuTextDE, menuTextZH, sidebarText, sidebarTextDE, sidebarTextZH, footerText, footerJSText, adtopText, adtopTextDE, adtopTextZH, adtopBigText, adtopBigTextDE, adtopBigTextZH, adinpageText, adinpageTextDE, adinpageTextZH ] )
 
 for root, dirs, files in os.walk(setpath):
     fname = files
