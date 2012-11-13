@@ -68,17 +68,17 @@ td {
 }
 
 blockquote {
-    background: transparent url("../images/quoleft.png") left top no-repeat;
+    background: transparent url("../img/quoleft.png") left top no-repeat;
 }
 
 blockquote div {
     padding: 0 48px;
-    background: transparent url("../images/quoright.png") right bottom no-repeat;
+    background: transparent url("../img/quoright.png") right bottom no-repeat;
 }
 
 blockquote p {
     padding: 0 48px;
-    background: transparent url("../images/quoright.png") right bottom no-repeat;
+    background: transparent url("../img/quoright.png") right bottom no-repeat;
 }
 
 blockquote.style2 {
@@ -105,7 +105,7 @@ blockquote.style2 {
 }
 
 .tip {
-    background-image: url("../images/tip.png");
+    background-image: url("../img/tip.png");
     border-color: #090;
 }
 
@@ -118,7 +118,7 @@ blockquote.style2 {
 }
 
 .important {
-    background-image: url("../images/important.png");
+    background-image: url("../img/important.png");
     border-color: #069;
 }
 
@@ -131,7 +131,7 @@ blockquote.style2 {
 }
 
 .caution {
-    background-image: url("../images/caution.png");
+    background-image: url("../img/caution.png");
     border-color: #c60;
 }
 
@@ -144,7 +144,7 @@ blockquote.style2 {
 }
 
 .warning {
-    background-image: url("../images/warning.png");
+    background-image: url("../img/warning.png");
     border-color: #900;
 }
 
@@ -238,7 +238,7 @@ blockquote.style2 {
     height: 64px;
     margin: 0 auto;
     padding: 0;
-    background: url("../images/tortoisesvn_logo_hor468x64.png") no-repeat center top;
+    background: url("../img/tortoisesvn_logo_hor468x64.png") no-repeat center top;
 }
 
 /* Menu */
@@ -421,22 +421,22 @@ blockquote.style2 {
 /* all A tags whose HREF attribute ends in .pdf */
 a[href$='.pdf'] {
     padding-right: 18px;
-    background: transparent url("../images/icon_pdf.gif") no-repeat center right;
+    background: transparent url("../img/icon_pdf.gif") no-repeat center right;
 }
 
 a[href$='.pdf?download'] {
     padding-right: 18px;
-    background: transparent url("../images/icon_pdf.gif") no-repeat center right;
+    background: transparent url("../img/icon_pdf.gif") no-repeat center right;
 }
 
 /* all A tags whose HREF attribute starts with mailto: */
 a[href ^="mailto:"] {
     padding-right: 18px;
-    background: transparent url("../images/icon_mailto.gif") no-repeat center right;
+    background: transparent url("../img/icon_mailto.gif") no-repeat center right;
 
 }
 
 a[rel ~='en'] {
     padding-right: 18px;
-    background: transparent url("../images/icon_english.png") no-repeat center right;
+    background: transparent url("../img/icon_english.png") no-repeat center right;
 }
