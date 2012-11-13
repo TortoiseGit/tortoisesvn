@@ -1,16 +1,16 @@
 body {
-    margin: 20px;
     background: #27343C;
+    color: #000000;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    color: #000000;
+    margin: 20px;
 }
 
 h1, h2, h3 {
-    margin: 0;
+    color: #417FDA;
     font-family: Georgia, "Times New Roman", Times, sans-serif;
     font-weight: normal;
-    color: #417FDA;
+    margin: 0;
 }
 
 h1 {
@@ -30,14 +30,14 @@ h3 {
 }
 
 p, ul, ol {
-    margin-top: 0;
     line-height: 180%;
+    margin-top: 0;
 }
 
 a {
-    text-decoration: none;
     border-bottom: 1px dotted #999999;
     color: #F93D00;
+    text-decoration: none;
 }
 
 a:hover {
@@ -60,9 +60,10 @@ table {
 }
 
 th {
-    text-align: left;
     font-weight: bold;
+    text-align: left;
 }
+
 td {
     text-align: left;
 }
@@ -71,14 +72,10 @@ blockquote {
     background: transparent url("../img/quoleft.png") left top no-repeat;
 }
 
-blockquote div {
-    padding: 0 48px;
-    background: transparent url("../img/quoright.png") right bottom no-repeat;
-}
-
+blockquote div,
 blockquote p {
-    padding: 0 48px;
     background: transparent url("../img/quoright.png") right bottom no-repeat;
+    padding: 0 48px;
 }
 
 .caution,
@@ -86,16 +83,14 @@ blockquote p {
 .note,
 .tip,
 .warning {
-    border-top: 5px solid;
-    border-left: 1px solid;
-    margin: 1em 0 0 1em;
-    padding: 5px 0 10px 0;
-    width: 90%;
-    clear: both;
-    background-repeat: no-repeat;
     background-position: 5px 1.33em;
-    padding: 0 0 0 42px;
+    background-repeat: no-repeat;
+    border-left: 1px solid;
+    border-top: 5px solid;
+    clear: both;
+    margin: 1em 0 0 1em;
     min-height: 52px;
+    padding: 0 0 0 42px;
     width: 80%;
 }
 
@@ -105,11 +100,11 @@ blockquote p {
 }
 
 .tip h3 {
-    padding-top: 4px;
     color: #090;
-    font-weight: bold;
-    font-style: italic;
     font-size: 1.05em;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 4px;
 }
 
 .important {
@@ -118,11 +113,11 @@ blockquote p {
 }
 
 .important h3 {
-    padding-top: 4px;
     color: #069;
-    font-weight: bold;
-    font-style: italic;
     font-size: 1.05em;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 4px;
 }
 
 .caution {
@@ -131,11 +126,11 @@ blockquote p {
 }
 
 .caution h3 {
-    padding-top: 4px;
     color: #C60;
-    font-weight: bold;
-    font-style: italic;
     font-size: 1.05em;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 4px;
 }
 
 .warning {
@@ -144,11 +139,11 @@ blockquote p {
 }
 
 .warning h3 {
-    padding-top: 4px;
     color: #900;
-    font-weight: bold;
-    font-style: italic;
     font-size: 1.05em;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 4px;
 }
 
 .superscript {
@@ -157,43 +152,39 @@ blockquote p {
 }
 
 #wrapper {
-    width: 910px;
     margin: 0 auto;
     padding: 20px;
+    width: 910px;
 }
 
 /* Header */
 #header {
+    margin: 0 auto;
     width: 910px;
     height: 50px;
-    margin: 0 auto;
 }
 
 /* Logo */
 #logo {
-    float: left;
-    width: 640px;
     color: #FFFFFF;
+    float: left;
     text-shadow: 0 0 2px #FFFFFF;
-}
-
-#logo h1 {
-    font-size: 2.6em;
-    margin-top: -10px;
+    width: 640px;
 }
 
 #logo h1 {
     float: left;
-    padding: 0;
-    letter-spacing: -1px;
     font-size: 2.6em;
+    letter-spacing: -1px;
+    margin-top: -10px;
+    padding: 0;
 }
 
 #logo p {
     float: left;
+    font: italic 14px Georgia, "Times New Roman", Times, serif;
     margin: 0;
     padding: 10px;
-    font: italic 14px Georgia, "Times New Roman", Times, serif;
 }
 
 #logo a {
@@ -206,39 +197,39 @@ blockquote p {
 /* Search */
 #langselection {
     float: right;
-    width: 230px;
-    text-align: right;
     padding: 0;
+    text-align: right;
+    width: 230px;
 }
 
 #banner {
-    width: 870px;
-    height: 64px;
+    background: url("../img/tortoisesvn_logo_hor468x64.png") no-repeat center top;
     margin: 0 auto;
     padding: 0;
-    background: url("../img/tortoisesvn_logo_hor468x64.png") no-repeat center top;
+    width: 870px;
+    height: 64px;
 }
 
 /* Menu */
 #menu {
-    width: 910px;
-    height: 50px;
+    background-color: #565F68;
     margin: 0 auto;
     padding: 0;
-    background-color: #565F68;
     text-shadow: 0 0 2px #B7B7B7;
+    width: 910px;
+    height: 50px;
 }
 
 #menu a {
-    display: block;
-    margin-top: 20px;
-    margin-right: 3px;
-    padding: 7px 20px;
     background: #FFFFFF;
-    text-decoration: none;
-    font-size: 13px;
-    color: #000000;
     border: none;
+    color: #000000;
+    display: block;
+    font-size: 13px;
+    margin-right: 3px;
+    margin-top: 20px;
+    padding: 7px 20px;
+    text-decoration: none;
 }
 
 #menu a:hover {
@@ -250,26 +241,25 @@ blockquote p {
 }
 
 #menu ul {
-    margin: 0;
-    padding: 0;
-    padding-left: 10px;
-    list-style: none;
     line-height: normal;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 10px;
 }
 
 /* Page */
 #page {
-    width: 910px;
+    background: #FFFFFF;
     margin: 0 auto;
     padding-top: 20px;
-    background: #FFFFFF;
+    width: 910px;
 }
 
 /* Content */
 #content {
     float: right;
-    width: 590px;
     padding: 20px 30px 0 0;
+    width: 590px;
 }
 
 .post .title {
@@ -278,8 +268,8 @@ blockquote p {
 
 .title a {
     background: none;
-    color: #417FDA;
     border: none;
+    color: #417FDA;
 }
 
 .title a:hover {
@@ -288,9 +278,9 @@ blockquote p {
 
 .post .meta {
     border-bottom: 1px dashed #D2D4C9;
+    font: italic 11px/180% Arial, Helvetica, sans-serif;
     padding-bottom: 5px;
     text-align: left;
-    font: italic 11px/180% Arial, Helvetica, sans-serif;
 }
 
 .post .entry {
@@ -300,16 +290,16 @@ blockquote p {
 
 /* Sidebar */
 #sidebar {
-    float: left;
-    width: 220px;
-    padding: 20px 0 0 30px;
     color: #000000;
+    float: left;
+    padding: 20px 0 0 30px;
+    width: 220px;
 }
 
 #sidebar ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
 }
 
 #sidebar li {
@@ -322,86 +312,79 @@ blockquote p {
 }
 
 #sidebar li li {
-    line-height: 35px;
     border-bottom: 1px dashed #D2D4C9;
+    line-height: 35px;
 }
 
 #sidebar li li span {
     display: block;
-    margin-top: -10px;
-    padding: 0;
     font-size: 14px;
     font-style: italic;
     line-height: 100%;
+    margin-top: -10px;
+    padding: 0;
 }
 
 #sidebar h2 {
-    letter-spacing: -0.5px;
     color: #417FDA;
+    letter-spacing: -0.5px;
     text-shadow: 0 0 2px #B7B7B7;
 }
 
 #sidebar a {
-    color: #417FDA;
     border: none;
+    color: #417FDA;
 }
 
 #sidebar a:hover {
-    text-decoration: underline;
     color: #000000;
+    text-decoration: underline;
 }
 
 /* Footer */
 #footer {
-    width: 910px;
-    height: 20px;
+    color: #B2B2B2;
     margin: 0 auto;
     padding: 20px 0 15px 0;
-    color: #B2B2B2;
+    width: 910px;
+    height: 20px;
 }
 
 #footer p {
-    margin: 0;
-    line-height: normal;
     font-size: 9px;
-    text-transform: uppercase;
+    line-height: normal;
+    margin: 0;
     text-align: center;
+    text-transform: uppercase;
 }
 
 /* ad group box */
-#adgroup
-{
-    border-top: 1px solid #D0D0D0;
+#adgroup {
+    border-bottom: 1px solid #E8E8E8;
     border-left: 1px solid #D0D0D0;
     border-right: 1px solid #E8E8E8;
-    border-bottom: 1px solid #E8E8E8;
+    border-top: 1px solid #D0D0D0;
 }
 
-#adgroup legend
-{
+#adgroup legend {
     color: #417FDA;
     padding: 2em;
 }
 
 /* all A tags whose HREF attribute ends in .pdf */
-a[href$='.pdf'] {
-    padding-right: 18px;
+a[href$=".pdf"],
+a[href$=".pdf?download"] {
     background: transparent url("../img/icon_pdf.gif") no-repeat center right;
-}
-
-a[href$='.pdf?download'] {
     padding-right: 18px;
-    background: transparent url("../img/icon_pdf.gif") no-repeat center right;
 }
 
 /* all A tags whose HREF attribute starts with mailto: */
 a[href ^="mailto:"] {
-    padding-right: 18px;
     background: transparent url("../img/icon_mailto.gif") no-repeat center right;
-
+    padding-right: 18px;
 }
 
-a[rel ~='en'] {
-    padding-right: 18px;
+a[rel ~="en"] {
     background: transparent url("../img/icon_english.png") no-repeat center right;
+    padding-right: 18px;
 }
