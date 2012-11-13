@@ -43,7 +43,7 @@
 					method of the <a href="http://msdn2.microsoft.com/en-gb/library/hfshke78(VS.80).aspx">CListCtrl</a>
 					class, since that's the control we use to show the file
 					list in our dialogs. So I called that method like this:</p>
-					<pre class="prettyprint">
+					<pre class="prettyprint lang-cpp">
 HBITMAP hbm = LoadImage(hResource,
                         MAKEINTRESOURCE(IDB_BACKGROUND),
                         IMAGE_BITMAP,
@@ -51,7 +51,8 @@ HBITMAP hbm = LoadImage(hResource,
                         LR_DEFAULTCOLOR);
 
 m_ListCtrl.SetBkImage(hbm, FALSE, 100, 100);
-					</pre><p>
+					</pre>
+					<p>
 
 					But of course, that didn't work at all. No background image
 					was shown. Stepping through the code of SetBkImage shows
@@ -64,7 +65,7 @@ m_ListCtrl.SetBkImage(hbm, FALSE, 100, 100);
 					structure is "not currently used". Just great. I then tried
 					to use another option:</p>
 
-					<pre class="prettyprint">
+					<pre class="prettyprint lang-cpp">
 TCHAR szBuffer[MAX_PATH];
 VERIFY(::GetModuleFileName(hResource, szBuffer, MAX_PATH));
 
@@ -74,7 +75,8 @@ sPath.Format(_T("res://%s/#%d/#%d"),
              IDB_BACKGROUND);
 
 m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
-					</pre><p>
+					</pre>
+					<p>
 
 					And that actually worked. But for one, the image was drawn
 					solid with all the transparent pixels of the image drawn
@@ -113,13 +115,14 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
 					<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/shellcc/platform/commctls/listview/structures/lvbkimage.asp">LVBKIMAGE</a>:
 					</p>
 
-					<pre class="prettyprint">
+					<pre class="prettyprint lang-cpp">
 #if (_WIN32_WINNT >= 0x0501)
 #define LVBKIF_FLAG_TILEOFFSET  0x00000100
 #define LVBKIF_TYPE_WATERMARK   0x10000000
 #define LVBKIF_FLAG_ALPHABLEND  0x20000000
 #endif
-					</pre><p>
+					</pre>
+					<p>
 					But of these three defines, only the first one is
 					documented. Well, not exactly. Searching
 					<a href="http://msdn.microsoft.com">MSDN</a> for
@@ -128,7 +131,7 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
 					And here those defines are documented. Heureka! Or so I
 					thought.</p>
 
-					<pre class="prettyprint">
+					<pre class="prettyprint lang-cpp">
 TCHAR szBuffer[MAX_PATH];
 VERIFY(::GetModuleFileName(hResource, szBuffer, MAX_PATH));
 
@@ -144,13 +147,13 @@ lv.pszImage = sPath;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-m_ListCtrl.SetBkImage(&lv);
+m_ListCtrl.SetBkImage(&amp;lv);
 					</pre>
 					<p>Nope, didn't work either. Maybe the bitmap I used didn't
 					have a real alpha channel? Removing the
 					<em>LVBKIF_FLAG_ALPHABLEND</em> flag didn't help either.
 					Out of pure desperation I tried this:</p>
-					<pre class="prettyprint">
+					<pre class="prettyprint lang-cpp">
 HBITMAP hbm = LoadImage(hResource,
                         MAKEINTRESOURCE(IDB_BACKGROUND),
                         IMAGE_BITMAP,
@@ -164,8 +167,9 @@ lv.hbm = hbm;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-SetBkImage(&lv);
-					</pre><p>
+SetBkImage(&amp;lv);
+					</pre>
+					<p>
 					And this worked! Unbelievable. Even though the
 					documentation tells that the hbm member of the LVBKIMAGE
 					structure is "not currently used", it obviously is used
@@ -176,7 +180,7 @@ SetBkImage(&lv);
 					with its alpha channel. Where it should have been
 					transparent it was drawn black. But that's what the
 					LVBKIF_FLAG_ALPHABLEND flag is for:</p>
-					<pre class="prettyprint">
+					<pre class="prettyprint lang-cpp">
 HBITMAP hbm = LoadImage(hResource,
                         MAKEINTRESOURCE(IDB_BACKGROUND),
                         IMAGE_BITMAP,
@@ -190,8 +194,9 @@ lv.hbm = hbm;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-SetBkImage(&lv);
-					</pre><p>
+SetBkImage(&amp;lv);
+					</pre>
+					<p>
 					Or at least that's what I thought. Adding the
 					LVBKIF_FLAG_ALPHABLEND flag made the bitmap disappear.
 					I tried different bitmaps, used different image editors
@@ -211,7 +216,7 @@ SetBkImage(&lv);
 					<p>What I finally came up with was to draw the image alpha
 					blended into an empty bitmap where the background was set
 					to the system background the user has set.</p>
-					<pre class="prettyprint">
+					<pre class="prettyprint lang-cpp">
 bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 
 {
@@ -260,7 +265,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
                     // with the given colour
                     ::SetBkColor(dst_hdc, bkColor);
 
-                    ::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect,
+                    ::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &amp;rect,
                                  NULL, 0, NULL);
 
                     // Draw the icon into the compatible DC
@@ -290,7 +295,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
     lv.xOffsetPercent = 100;
 
     lv.yOffsetPercent = 100;
-    SetBkImage(&lv);
+    SetBkImage(&amp;lv);
 
     return true;
 }
