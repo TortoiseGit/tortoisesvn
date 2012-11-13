@@ -8,7 +8,7 @@ body {
 
 h1, h2, h3 {
     margin: 0;
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Georgia, "Times New Roman", Times, sans-serif;
     font-weight: normal;
     color: #417FDA;
 }
@@ -68,21 +68,21 @@ td {
 }
 
 blockquote {
-    background: transparent url("images/quoleft.png") left top no-repeat;
+    background: transparent url("../images/quoleft.png") left top no-repeat;
 }
 
 blockquote div {
     padding: 0 48px;
-    background: transparent url("images/quoright.png") right bottom no-repeat;
+    background: transparent url("../images/quoright.png") right bottom no-repeat;
 }
 
 blockquote p {
     padding: 0 48px;
-    background: transparent url("images/quoright.png") right bottom no-repeat;
+    background: transparent url("../images/quoright.png") right bottom no-repeat;
 }
 
 blockquote.style2 {
-    font: 14px/22px normal helvetica, sans-serif;
+    font: 14px/22px normal Helvetica, sans-serif;
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 50px;
@@ -105,7 +105,7 @@ blockquote.style2 {
 }
 
 .tip {
-    background-image: url("images/tip.png");
+    background-image: url("../images/tip.png");
     border-color: #090;
 }
 
@@ -118,7 +118,7 @@ blockquote.style2 {
 }
 
 .important {
-    background-image: url("images/important.png");
+    background-image: url("../images/important.png");
     border-color: #069;
 }
 
@@ -131,7 +131,7 @@ blockquote.style2 {
 }
 
 .caution {
-    background-image: url("images/caution.png");
+    background-image: url("../images/caution.png");
     border-color: #c60;
 }
 
@@ -144,7 +144,7 @@ blockquote.style2 {
 }
 
 .warning {
-    background-image: url("images/warning.png");
+    background-image: url("../images/warning.png");
     border-color: #900;
 }
 
@@ -184,7 +184,6 @@ blockquote.style2 {
 }
 
 /* Header */
-
 #header {
     width: 910px;
     height: 50px;
@@ -192,7 +191,6 @@ blockquote.style2 {
 }
 
 /* Logo */
-
 #logo {
     float: left;
     width: 640px;
@@ -228,7 +226,6 @@ blockquote.style2 {
 }
 
 /* Search */
-
 #langselection {
     float: right;
     width: 230px;
@@ -241,10 +238,10 @@ blockquote.style2 {
     height: 64px;
     margin: 0 auto;
     padding: 0;
-    background: url("images/tortoisesvn_logo_hor468x64.png") no-repeat center top;
+    background: url("../images/tortoisesvn_logo_hor468x64.png") no-repeat center top;
 }
-/* Menu */
 
+/* Menu */
 #menu {
     width: 910px;
     height: 50px;
@@ -283,7 +280,6 @@ blockquote.style2 {
 }
 
 /* Page */
-
 #page {
     width: 910px;
     margin: 0 auto;
@@ -292,7 +288,6 @@ blockquote.style2 {
 }
 
 /* Content */
-
 #content {
     float: right;
     width: 590px;
@@ -328,7 +323,6 @@ blockquote.style2 {
 }
 
 /* Sidebar */
-
 #sidebar {
     float: left;
     width: 220px;
@@ -388,7 +382,6 @@ blockquote.style2 {
 }
 
 /* Footer */
-
 #footer {
     width: 910px;
     height: 20px;
@@ -428,26 +421,25 @@ blockquote.style2 {
 /* all A tags whose HREF attribute ends in .pdf */
 a[href$='.pdf'] {
     padding-right: 18px;
-    background: transparent url("images/icon_pdf.gif") no-repeat center right;
+    background: transparent url("../images/icon_pdf.gif") no-repeat center right;
 }
 
 a[href$='.pdf?download'] {
     padding-right: 18px;
-    background: transparent url("images/icon_pdf.gif") no-repeat center right;
+    background: transparent url("../images/icon_pdf.gif") no-repeat center right;
 }
 
 /* all A tags whose HREF attribute starts with mailto: */
 a[href ^="mailto:"] {
     padding-right: 18px;
-    background: transparent url("images/icon_mailto.gif") no-repeat center right;
+    background: transparent url("../images/icon_mailto.gif") no-repeat center right;
 
 }
 
 a[rel ~='en'] {
     padding-right: 18px;
-    background: transparent url("images/icon_english.png") no-repeat center right;
+    background: transparent url("../images/icon_english.png") no-repeat center right;
 }
-
 
 /* prettify */
 .str{color:#080}.kwd{color:#008}.com{color:#800}.typ{color:#606}.lit{color:#066}.pun{color:#660}.pln{color:#000}.tag{color:#008}.atn{color:#606}.atv{color:#080}.dec{color:#606}pre.prettyprint{padding:2px;border:1px solid #888}ol.linenums{margin-top:0;margin-bottom:0}li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style:none}li.L1,li.L3,li.L5,li.L7,li.L9{background:#eee}@media print{.str{color:#060}.kwd{color:#006;font-weight:bold}.com{color:#600;font-style:italic}.typ{color:#404;font-weight:bold}.lit{color:#044}.pun{color:#440}.pln{color:#000}.tag{color:#006;font-weight:bold}.atn{color:#404}.atv{color:#060}}
@@ -468,8 +460,8 @@ a[rel ~='en'] {
 #prevLink, #nextLink { width: 49%; height: 100%; background-image: url(data:image/gif;base64,AAAA); /* Trick IE into showing hover */ display: block; }
 #prevLink { left: 0; float: left;}
 #nextLink { right: 0; float: right;}
-#prevLink:hover, #prevLink:visited:hover { background: url("images/prevlabel.png") left 15% no-repeat; }
-#nextLink:hover, #nextLink:visited:hover { background: url("images/nextlabel.png") right 15% no-repeat; }
+#prevLink:hover, #prevLink:visited:hover { background: url("../images/prevlabel.png") left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url("../images/nextlabel.png") right 15% no-repeat; }
 
 #imageDataContainer { font: 10px Verdana, Helvetica, sans-serif; background-color: #fff; margin: 0 auto; line-height: 1.4em; overflow: auto; width: 100%; }
 
