@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="keywords" content="list control, background images" />
-<meta name="description" content="how to get background images to work with list controls" />
-<meta http-equiv="content-language" content="en" />
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta name="keywords" content="list control, background images"/>
+<meta name="description" content="how to get background images to work with list controls"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <title>TortoiseSVN - List control background images</title>
-<link href="css/pack.css" rel="stylesheet" type="text/css" />
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
 <script src="js/prettify/prettify.js" type="text/javascript"></script>
 </head>
 <body onload="prettyPrint()">
@@ -35,7 +35,7 @@
 					file list.</p>
 
 					<div style="text-align: center">
-					<img src="images/explorer-watermark.png" alt="the watermark in Windows explorer" />
+					<img src="images/explorer-watermark.png" alt="the watermark in Windows explorer"/>
 					</div>
 
 					<p>The obvious step to get this done would be the
@@ -85,7 +85,7 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
 					the image position in the scroll event handler. Obviously,
 					I was on the wrong path here.</p>
 					<div style="text-align: center">
-					<img src="images/first-try.png" alt="SetBkImage the obvious way" />
+					<img src="images/first-try.png" alt="SetBkImage the obvious way"/>
 					</div>
 					<p>Next I tried to draw the image directly in the
 					<a href="http://msdn2.microsoft.com/en-us/library/ms670610.aspx">NM_CUSTOMDRAW</a>
@@ -101,7 +101,7 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
 					isn't used in the list control.</p>
 
 					<div style="text-align: center">
-					<img src="images/ownerdraw.png" alt="The watermark drawn in the NM_CUSTOMDRAW handler" />
+					<img src="images/ownerdraw.png" alt="The watermark drawn in the NM_CUSTOMDRAW handler"/>
 
 					</div>
 					<p>But there must be a way, because Microsoft does it with
@@ -301,7 +301,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 					selected, and the first column was not transparent and
 					was also painting over the watermark.</p>
 					<div style="text-align: center">
-					<img src="images/fullrowselect.png" alt="The watermark with the LVS_EX_FULLROWSELECT set" />
+					<img src="images/fullrowselect.png" alt="The watermark with the LVS_EX_FULLROWSELECT set"/>
 					</div>
 					<p>As it turned out, this was due to the fact that I set
 					the LVS_EX_FULLROWSELECT style for the control. Removing
@@ -311,8 +311,8 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 					<p>And now (drumroll please): the screenshots of the add
 					and commit dialog:</p>
 					<div style="text-align: center">
-					<img src="images/add-dialog.png" alt="The TortoiseSVN Add dialog showing its watermark" /><br/>
-					<img src="images/commit-dialog.png" alt="The TortoiseSVN Commit dialog showing its watermark" />
+					<img src="images/add-dialog.png" alt="The TortoiseSVN Add dialog showing its watermark"/><br/>
+					<img src="images/commit-dialog.png" alt="The TortoiseSVN Commit dialog showing its watermark"/>
 					</div>
 					<p>And in case someone knows how to use the
 					LVBKIF_FLAG_ALPHABLEND flag, please let me know!</p>
