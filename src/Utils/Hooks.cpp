@@ -594,7 +594,7 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
     // line 1: command line to execute
     // line 2: 'true' or 'false' for waiting for the script to finish
     // line 3: 'show' or 'hide' on how to start the hook script
-    // line 4: 'force' on whether to aks the user for permission
+    // line 4: 'force' on whether to ask the user for permission
     hookkey key;
     hookcmd cmd;
 
@@ -669,7 +669,6 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
 
                     temp = strhook.Tokenize(_T("\n"), pos);
                     cmd.bEnforce = temp.CompareNoCase(_T("enforce"))==0;
-                    cmd.bApproved = false;  // all repo-dicated hooks require user-approval
 
                     if (find(key) == end())
                     {
