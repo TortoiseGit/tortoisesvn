@@ -491,8 +491,7 @@
 							<li>创建文件 C:\false.bat，输入两行
 							<pre>
 @type %9
-@exit 1
-							</pre>
+@exit 1</pre>
 							</li>
 						</ol>
 
@@ -509,7 +508,7 @@
 						<div class="h3" id="silentinstall" title="silentinstall">
 						<h3>……静默/自动安装 TortoiseSVN？</h3>
 						<p>这样运行 msi 安装程序：</p>
-						<pre>msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="path/to/install/dir"</pre>
+						<code>msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="path/to/install/dir"</code>
 						</div>
 					</div>
 
@@ -576,14 +575,12 @@
 						<pre>
 Add Folder in revision 1
 Add File1 and File2 in revision 2
-Modify File1 and commit in revision 3
-						</pre>
+Modify File1 and commit in revision 3</pre>
 						<p>现在版本库处于修订版本 3，但你的工作拷贝的版本会是这个样子：</p>
 						<pre>
-Folder	   : revision 1
+Folder       : revision 1
 Folder/File1 : revision 3
-Folder/File2 : revision 2
-						</pre>
+Folder/File2 : revision 2</pre>
 						<p>这时如果你修改 File2 然后提交，就会失败。因为客户端告诉版本库 File2 是在版本 2 的基础上作修改的，但是版本库已经处于版本 3 了。如果此时你执行更新命令，就会将 File2 也变成版本 3 （当然，你的本地修改还会在的）。</p>
 						<p>这个错误还可能在你试图创建分支或标记时出现。答案永远都是：如果工作拷贝已经过期，那就更新呗！</p>
 						</div>

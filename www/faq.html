@@ -222,7 +222,7 @@
 						<p>If you have problems with insufficient permissions to edit the registry you can work around it by downloading
 						<a href="http://technet.microsoft.com/en-us/sysinternals/bb896649">SysInternals PsTools Suite</a> and launching regedit
 						with the following command:</p>
-						<pre>PsExec.exe -i -d -s c:\windows\regedit.exe</pre>
+						<code>PsExec.exe -i -d -s c:\windows\regedit.exe</code>
 						</div>
 
 					</div>
@@ -656,16 +656,14 @@
 						If that does not help or you can't upgrade, allow readonly files to be deleted in the SAMBA config file:</p>
 						<pre>
 [global]
-<a href="http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#DELETEREADONLY">delete readonly</a> = yes
-						</pre>
+<a href="http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#DELETEREADONLY">delete readonly</a> = yes</pre>
 						For older versions, try:
 						<pre>
 [global]
 create mask = 0644
 <a href="http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html#FORCECREATEMODE">force create mode</a> = 0600
 security mask = 0555
-force security mode = 0600
-						</pre>
+force security mode = 0600</pre>
 
 						<p>The information we have received suggests that the main problem is fixed in SAMBA 3.2.3.
 						There is a supplementary problem with making files with the svn:needs-lock property read-only.
@@ -773,8 +771,7 @@ force security mode = 0600
 							entry (or adding it if it is missing)
 							<pre>
 [global]
-http-library = serf
-							</pre>
+http-library = serf</pre>
 							</li>
 						</ol>
 						Note that this change will affect all Subversion clients on your PC.
@@ -906,8 +903,7 @@ http-library = serf
 							<li>Create the file C:\false.bat which contains two lines
 							<pre>
 @type %9
-@exit 1
-							</pre>
+@exit 1</pre>
 							</li>
 						</ol>
 						<p>This effectively makes auto-merge fail every time, forcing the file into conflict.</p>
@@ -930,9 +926,7 @@ http-library = serf
 						<div class="h3" id="silentinstall" title="Silent installation">
 						<h3>... install TortoiseSVN silently/automatically?</h3>
 						<p>Just start the msi installer like this:</p>
-						<pre>
-msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="path/to/install/dir"
-						</pre>
+						<code>msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="path/to/install/dir"</code>
 						</div>
 					</div>
 
@@ -1063,14 +1057,12 @@ msiexec /package TortoiseSVN.msi /quiet INSTALLDIR="path/to/install/dir"
 						<pre>
 Add Folder in revision 1
 Add File1 and File2 in revision 2
-Modify File1 and commit in revision 3
-						</pre>
+Modify File1 and commit in revision 3</pre>
 						<p>Now the repository is at revision 3, but in your working copy the revisions look like this:</p>
 						<pre>
-Folder	   : revision 1
+Folder       : revision 1
 Folder/File1 : revision 3
-Folder/File2 : revision 2
-						</pre>
+Folder/File2 : revision 2</pre>
 						<p>Now if you modify File2 and try to commit, it fails. The client tells the
 						repository that File2 is at revision 2 with local modifications, but the repository
 						is already at revision 3. If you then do an update, File2 will be at revision 3

@@ -51,8 +51,7 @@ HBITMAP hbm = LoadImage(hResource,
                         128, 128,
                         LR_DEFAULTCOLOR);
 
-m_ListCtrl.SetBkImage(hbm, FALSE, 100, 100);
-					</pre>
+m_ListCtrl.SetBkImage(hbm, FALSE, 100, 100);</pre>
 					<p>
 
 					But of course, that didn't work at all. No background image
@@ -75,8 +74,7 @@ sPath.Format(_T("res://%s/#%d/#%d"),
              szBuffer, RT_BITMAP,
              IDB_BACKGROUND);
 
-m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
-					</pre>
+m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);</pre>
 					<p>
 
 					And that actually worked. But for one, the image was drawn
@@ -121,8 +119,7 @@ m_ListCtrl.SetBkImage(sPath, FALSE, 100, 100);
 #define LVBKIF_FLAG_TILEOFFSET  0x00000100
 #define LVBKIF_TYPE_WATERMARK   0x10000000
 #define LVBKIF_FLAG_ALPHABLEND  0x20000000
-#endif
-					</pre>
+#endif</pre>
 					<p>
 					But of these three defines, only the first one is
 					documented. Well, not exactly. Searching
@@ -148,8 +145,7 @@ lv.pszImage = sPath;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-m_ListCtrl.SetBkImage(&amp;lv);
-					</pre>
+m_ListCtrl.SetBkImage(&amp;lv);</pre>
 					<p>Nope, didn't work either. Maybe the bitmap I used didn't
 					have a real alpha channel? Removing the
 					<em>LVBKIF_FLAG_ALPHABLEND</em> flag didn't help either.
@@ -168,8 +164,7 @@ lv.hbm = hbm;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-SetBkImage(&amp;lv);
-					</pre>
+SetBkImage(&amp;lv);</pre>
 					<p>
 					And this worked! Unbelievable. Even though the
 					documentation tells that the hbm member of the LVBKIMAGE
@@ -195,8 +190,7 @@ lv.hbm = hbm;
 lv.xOffsetPercent = 100;
 
 lv.yOffsetPercent = 100;
-SetBkImage(&amp;lv);
-					</pre>
+SetBkImage(&amp;lv);</pre>
 					<p>
 					Or at least that's what I thought. Adding the
 					LVBKIF_FLAG_ALPHABLEND flag made the bitmap disappear.
@@ -299,8 +293,7 @@ bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
     SetBkImage(&amp;lv);
 
     return true;
-}
-					</pre>
+}</pre>
 
 					<p>And that's how I got this to work. One problem remained:
 					the watermark image was painted over when an item got

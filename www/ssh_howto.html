@@ -212,8 +212,7 @@ cat keyfile.pub &gt;&gt; /home/svnuser/.ssh/authorized_keys
 PubkeyAuthentication yes
 PasswordAuthentication no
 PermitEmptyPasswords no
-ChallengeResponseAuthentication no
-</pre>
+ChallengeResponseAuthentication no</pre>
 		<h2>Testing SSH with TortoiseSVN</h2>
 		<p>
 			So far we have only tested that you can login using SSH. Now we need
@@ -226,9 +225,8 @@ ChallengeResponseAuthentication no
 		</p>
 <pre>
 command="svnserve -t -r &lt;ReposRootPath&gt; --tunnel-user=&lt;author&gt;",
-			no-port-forwarding,no-agent-forwarding,no-X11-forwarding,
-			no-pty ssh-rsa &lt;PublicKey&gt; &lt;Comment&gt;
-</pre>
+         no-port-forwarding,no-agent-forwarding,no-X11-forwarding,
+         no-pty ssh-rsa &lt;PublicKey&gt; &lt;Comment&gt;</pre>
 		<p>
 			There are several values that you need to set according to your setup.
 		</p>
@@ -341,8 +339,7 @@ svn+ssh://SvnConnection/repos
 		</p>
 <pre>
 svn+ssh://svnuser@100.101.102.103/repos
-svn+ssh://svnuser@mydomain.com/repos
-</pre>
+svn+ssh://svnuser@mydomain.com/repos</pre>
 		<p>
 			As you can see, we don't use a saved PuTTY session but an IP address
 			(or domain name) as the connection target. We also supply the user,
