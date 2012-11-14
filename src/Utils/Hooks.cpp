@@ -650,6 +650,60 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                 // now replace the full url in the command line with the local path
                 temp.Replace(fullUrl, sLocalPath);
             }
+            urlstart = temp.Find(L"%REPOROOT+%");
+            if (urlstart >= 0)
+            {
+                CString temp2 = temp;
+                CString sExt = rootUrl.Mid(repoRootUrl.GetLength());
+                CString sLocalPath;
+                do 
+                {
+                    temp = temp2;
+                    CString repoRootUrlExt = repoRootUrl + sExt;
+                    int slp = sExt.ReverseFind('/');
+                    if (slp >= 0)
+                        sExt = sExt.Left(sExt.ReverseFind('/'));
+                    else if (sExt.IsEmpty())
+                        return false;
+                    else
+                        sExt.Empty();
+                    temp.Replace(L"%REPOROOT+%", repoRootUrlExt);
+                    CString fullUrl = temp.Mid(urlstart);
+                    int urlend = -1;
+                    if ((urlstart > 0)&&(temp[urlstart-1]=='\"'))
+                        urlend = temp.Find('\"', urlstart);
+                    else
+                        urlend = temp.Find(' ', urlstart);
+                    if (urlend < 0)
+                        urlend = temp.GetLength();
+                    fullUrl = temp.Mid(urlstart, urlend-urlstart);
+                    fullUrl.Replace('\\', '/');
+                    // now we have the full url of the script, e.g.
+                    // https://tortoisesvn.googlecode.com/svn/trunk/contrib/hook-scripts/client-side/checkyear.js
+
+                    CString sLocalPathUrl = rootUrl;
+                    sLocalPath = rootPath;
+                    // find the lowest common ancestor of the local path url and the script url
+                    while (fullUrl.Left(sLocalPathUrl.GetLength()).Compare(sLocalPathUrl))
+                    {
+                        int sp = sLocalPathUrl.ReverseFind('/');
+                        if (sp < 0)
+                            return false;
+                        sLocalPathUrl = sLocalPathUrl.Left(sp);
+
+                        sp = sLocalPath.ReverseFind('\\');
+                        if (sp < 0)
+                            return false;
+                        sLocalPath = sLocalPath.Left(sp);
+                    }
+                    // now both sLocalPathUrl and sLocalPath can be used to construct
+                    // the path to the script
+                    sLocalPath = sLocalPath + L"\\" + fullUrl.Mid(sLocalPathUrl.GetLength());
+                    sLocalPath.Replace('/', '\\');
+                    // now replace the full url in the command line with the local path
+                    temp.Replace(fullUrl, sLocalPath);
+                } while (!PathFileExists(sLocalPath));
+            }
             cmd.commandline = temp;
             temp = strhook.Tokenize(_T("\n"), pos);
             if (!temp.IsEmpty())
