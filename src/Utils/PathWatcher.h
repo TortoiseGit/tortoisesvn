@@ -67,18 +67,18 @@ public:
     /**
      * Returns the number of changed paths up to now.
      */
-    int GetNumberOfChangedPaths() {return m_changedPaths.GetCount();}
+    int GetNumberOfChangedPaths() { AutoLocker lock(m_critSec); return m_changedPaths.GetCount(); }
 
     /**
      * Returns the list of paths which maybe got changed, i.e., for which
      * a change notification was received.
      */
-    CTSVNPathList GetChangedPaths() {return m_changedPaths;}
+    CTSVNPathList GetChangedPaths() {AutoLocker lock(m_critSec); return m_changedPaths; }
 
     /**
      * Clears the list of changed paths
      */
-    void ClearChangedPaths() {AutoLocker lock(m_critSec); m_changedPaths.Clear();}
+    void ClearChangedPaths() { AutoLocker lock(m_critSec); m_changedPaths.Clear(); }
 
     /**
      * If the limit of changed paths has been reached, returns true.

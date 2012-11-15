@@ -296,15 +296,21 @@ void CPathWatcher::WorkerThread()
                         buf[min(bufferSize-1, pdi->m_DirPath.GetLength()+(pnotify->FileNameLength/sizeof(WCHAR)))] = 0;
                         pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
                         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": change notification: %s\n"), buf);
-                        if (m_changedPaths.GetCount() < MAX_CHANGED_PATHS)
-                            m_changedPaths.AddPath(CTSVNPath(buf));
-                        else
-                            m_bLimitReached = true;
+                        {
+                            AutoLocker lock(m_critSec);
+                            if (m_changedPaths.GetCount() < MAX_CHANGED_PATHS)
+                                m_changedPaths.AddPath(CTSVNPath(buf));
+                            else
+                                m_bLimitReached = true;
+                        }
                         if ((ULONG_PTR)pnotify - (ULONG_PTR)pdi->m_Buffer > READ_DIR_CHANGE_BUFFER_SIZE)
                             break;
                     } while (nOffset);
 continuewatching:
-                    m_changedPaths.RemoveDuplicates();
+                    {
+                        AutoLocker lock(m_critSec);
+                        m_changedPaths.RemoveDuplicates();
+                    }
                     SecureZeroMemory(pdi->m_Buffer, sizeof(pdi->m_Buffer));
                     SecureZeroMemory(&pdi->m_Overlapped, sizeof(OVERLAPPED));
                     if (!ReadDirectoryChangesW(pdi->m_hDir,
