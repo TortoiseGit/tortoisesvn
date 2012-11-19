@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-26 08:30+0000\n"
+"PO-Revision-Date: 2012-11-15 08:15+0000\n"
 "Last-Translator: Endra Granasamsa <endra.granasamsa@gmail.com>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1277,14 +1277,17 @@ msgstr ""
 #. (para)
 msgid ""
 "A working copy also contains some extra files, created and maintained by "
-"Subversion, to help it carry out these commands. In particular, each "
-"directory in your working copy contains a subdirectory named "
-"<filename>.svn</filename>, also known as the working copy "
-"<firstterm>administrative directory</firstterm>. The files in each "
-"administrative directory help Subversion recognize which files contain "
-"unpublished changes, and which files are out-of-date with respect to others'"
-" work."
-msgstr "Copy pekerjaan juga berisi beberapa file ekstra, dibuat dan dipelihara oleh Subversion, untuk membantunya menjalankan perintah ini. Pada khususnya, setiap direktori dalam copy pekerjaan Anda berisi subdirektori yang dinamai <filename>.svn</filename>, juga dikenal sebagai <firstterm>direktori administratif</firstterm> copy pekerjaan. File dalam setiap direktori administratif membantu Subversion mengenal file mana yang berisi perubahan yang belum diterbitkan, dan file mana yang ketinggalan zaman dibandingkan dengan pekerjaan orang lain."
+"Subversion, to help it carry out these commands. In particular, your working"
+" copy contains a subdirectory named <filename>.svn</filename>, also known as"
+" the working copy <firstterm>administrative directory</firstterm>. The files"
+" in this administrative directory help Subversion recognize which files "
+"contain unpublished changes, and which files are out-of-date with respect to"
+" others' work. Prior to 1.7 Subversion maintained <filename>.svn</filename> "
+"administrative subdirectories in every versioned directory of your working "
+"copy. Subversion 1.7 takes a completely different approach and each working "
+"copy now has only one administrative subdirectory which is an immediate "
+"child of the root of that working copy."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7894,15 +7897,32 @@ msgid ""
 "scripts. Each property is for one specific hook script type."
 msgstr ""
 
+#. (listitem)
+msgid "tsvn:startcommithook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:precommithook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:postcommithook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:startupdatehook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:preupdatehook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:postupdatehook"
+msgstr ""
+
 #. (para)
-msgid ""
-"The available properties/hook-scripts are "
-"<literal>tsvn:startcommithook</literal>, "
-"<literal>tsvn:precommithook</literal>, "
-"<literal>tsvn:postcommithook</literal>, "
-"<literal>tsvn:startupdatehook</literal>, "
-"<literal>tsvn:preupdatehook</literal> and "
-"<literal>tsvn:postupdatehook</literal>."
+msgid "The available properties/hook-scripts are <placeholder-1/>"
 msgstr ""
 
 #. (para)
@@ -7924,6 +7944,18 @@ msgid ""
 "<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
+msgstr ""
+
+#. (para)
+msgid ""
+"Instead of <filename>%REPOROOT%</filename> you can also specify "
+"<filename>%REPOROOT+%</filename>. The <literal>+</literal> is used to insert"
+" any number of folder paths necessary to find the script. This is useful if "
+"you want to specify your script so that if you create a branch the script is"
+" still found even though the url of the working copy is now different. Using"
+" the example above, you would specify the path to the script as "
+"<filename>%REPOROOT+%/contrib/hook-scripts/client-"
+"side/checkyear.js</filename>."
 msgstr ""
 
 #. (title)
@@ -14747,6 +14779,19 @@ msgid ""
 "repository. The default behaviour is to ignore externals."
 msgstr ""
 
+#. (literal)
+#. (literal)
+msgid "-e"
+msgstr "-e"
+
+#. (entry)
+msgid ""
+"If this switch is given, same as <placeholder-1/>, but it ignores the "
+"externals with explicit revisions, when the revision range inside of them is"
+" only the given explicit revision in the properties. So it doesn't lead to "
+"mixed revisions."
+msgstr ""
+
 #. (entry)
 msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX."
@@ -14858,9 +14903,13 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -14883,6 +14932,26 @@ msgstr "$WCMODS?TText:FText$"
 msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are local "
 "modifications, or <placeholder-3/> if not."
+msgstr ""
+
+#. (literal)
+msgid "$WCEXTALLFIXED?TText:FText$"
+msgstr ""
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if all externals are "
+"fixed to an explicit revision, or <placeholder-3/> if not."
+msgstr ""
+
+#. (literal)
+msgid "$WCISTAGGED?TText:FText$"
+msgstr ""
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if the repository URL "
+"contains the tags classification pattern, or <placeholder-3/> if not."
 msgstr ""
 
 #. (entry)
@@ -14991,6 +15060,8 @@ msgid ""
 "char *TimeNowUTC    = \"$WCNOWUTC$\";\n"
 "char *RevRange      = \"$WCRANGE$\";\n"
 "char *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *ExtAllFixed   = \"$WCEXTALLFIXED?All externals fixed:Not all externals fixed$\";\n"
+"char *IsTagged      = \"$WCISTAGGED?Tagged:Not tagged$\";\n"
 "char *URL           = \"$WCURL$\";\n"
 "char *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\n"
 "char *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\n"
@@ -15035,6 +15106,8 @@ msgid ""
 "char *TimeNowUTC    = \"2012/04/26 18:51:17\";\n"
 "char *RevRange      = \"22836:22837\";\n"
 "char *Mixed         = \"Mixed revision WC\";\n"
+"char *ExtAllFixed   = \"All externals fixed\";\n"
+"char *IsTagged      = \"Not tagged\";\n"
 "char *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\n"
 "char *isInSVN       = \"versioned\";\n"
 "char *needslck      = \"FALSE\";\n"
@@ -15081,10 +15154,6 @@ msgstr ""
 msgid "-f"
 msgstr "-f"
 
-#. (literal)
-msgid "-e"
-msgstr "-e"
-
 #. (entry)
 msgid ""
 "This method traverses the working copy gathering the revision information. "
@@ -15094,6 +15163,20 @@ msgid ""
 "<placeholder-1/> command line switch. The third parameter should be true if "
 "you want to include svn:externals. Equivalent to the <placeholder-2/> "
 "command line switch."
+msgstr ""
+
+#. (literal)
+msgid "GetWCInfo()"
+msgstr ""
+
+#. (literal)
+msgid "-E"
+msgstr ""
+
+#. (entry)
+msgid ""
+"The same as <placeholder-1/> but with a fourth parameter that sets the "
+"equivalent to the <placeholder-2/> command line switch."
 msgstr ""
 
 #. (literal)
@@ -15211,8 +15294,8 @@ msgid ""
 "    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\n"
 "revObject3.GetWCInfo(\n"
 "    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\n"
-"revObject4.GetWCInfo(\n"
-"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n"
+"revObject4.GetWCInfo2(\n"
+"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1, 1);\n"
 "\n"
 "wcInfoString1 = \"Revision = \" + revObject1.Revision +\n"
 "                \"\\nMin Revision = \" + revObject1.MinRev +\n"

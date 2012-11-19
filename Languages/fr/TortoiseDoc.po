@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-26 08:30+0000\n"
+"PO-Revision-Date: 2012-11-15 08:15+0000\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1283,14 +1283,17 @@ msgstr "Après avoir fait des changements dans votre copie de travail et avoir v
 #. (para)
 msgid ""
 "A working copy also contains some extra files, created and maintained by "
-"Subversion, to help it carry out these commands. In particular, each "
-"directory in your working copy contains a subdirectory named "
-"<filename>.svn</filename>, also known as the working copy "
-"<firstterm>administrative directory</firstterm>. The files in each "
-"administrative directory help Subversion recognize which files contain "
-"unpublished changes, and which files are out-of-date with respect to others'"
-" work."
-msgstr "Une copie de travail contient aussi quelques fichiers supplémentaires, créés et entretenus par Subversion, pour l'aider à effectuer ces commandes. Particulièrement chaque répertoire dans votre copie de travail contient un sous-répertoire nommé <filename>.svn</filename>, aussi connu comme le <firstterm>répertoire administratif</firstterm> de la copie de travail. Les fichiers de chaque répertoire administratif aident Subversion à reconnaître quels fichiers contiennent des changements non publiés et quels fichiers sont périmés par rapport au travail des autres."
+"Subversion, to help it carry out these commands. In particular, your working"
+" copy contains a subdirectory named <filename>.svn</filename>, also known as"
+" the working copy <firstterm>administrative directory</firstterm>. The files"
+" in this administrative directory help Subversion recognize which files "
+"contain unpublished changes, and which files are out-of-date with respect to"
+" others' work. Prior to 1.7 Subversion maintained <filename>.svn</filename> "
+"administrative subdirectories in every versioned directory of your working "
+"copy. Subversion 1.7 takes a completely different approach and each working "
+"copy now has only one administrative subdirectory which is an immediate "
+"child of the root of that working copy."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -7900,15 +7903,32 @@ msgid ""
 "scripts. Each property is for one specific hook script type."
 msgstr ""
 
+#. (listitem)
+msgid "tsvn:startcommithook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:precommithook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:postcommithook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:startupdatehook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:preupdatehook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:postupdatehook"
+msgstr ""
+
 #. (para)
-msgid ""
-"The available properties/hook-scripts are "
-"<literal>tsvn:startcommithook</literal>, "
-"<literal>tsvn:precommithook</literal>, "
-"<literal>tsvn:postcommithook</literal>, "
-"<literal>tsvn:startupdatehook</literal>, "
-"<literal>tsvn:preupdatehook</literal> and "
-"<literal>tsvn:postupdatehook</literal>."
+msgid "The available properties/hook-scripts are <placeholder-1/>"
 msgstr ""
 
 #. (para)
@@ -7930,6 +7950,18 @@ msgid ""
 "<filename>%REPOROOT%/trunk/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
+msgstr ""
+
+#. (para)
+msgid ""
+"Instead of <filename>%REPOROOT%</filename> you can also specify "
+"<filename>%REPOROOT+%</filename>. The <literal>+</literal> is used to insert"
+" any number of folder paths necessary to find the script. This is useful if "
+"you want to specify your script so that if you create a branch the script is"
+" still found even though the url of the working copy is now different. Using"
+" the example above, you would specify the path to the script as "
+"<filename>%REPOROOT+%/contrib/hook-scripts/client-"
+"side/checkyear.js</filename>."
 msgstr ""
 
 #. (title)
@@ -14753,6 +14785,19 @@ msgid ""
 "repository. The default behaviour is to ignore externals."
 msgstr "Si ce commutateur est donné, SubWCRev examinera les répertoires qui sont inclus avec <placeholder-1/>, mais seulement s'ils sont du même dépôt. Le comportement par défaut est d'ignorer les références externes."
 
+#. (literal)
+#. (literal)
+msgid "-e"
+msgstr "-e"
+
+#. (entry)
+msgid ""
+"If this switch is given, same as <placeholder-1/>, but it ignores the "
+"externals with explicit revisions, when the revision range inside of them is"
+" only the given explicit revision in the properties. So it doesn't lead to "
+"mixed revisions."
+msgstr ""
+
 #. (entry)
 msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX."
@@ -14864,9 +14909,13 @@ msgstr "$WCMIXED?VTexte:FTexte$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -14890,6 +14939,26 @@ msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are local "
 "modifications, or <placeholder-3/> if not."
 msgstr "<placeholder-1/> est remplacé par <placeholder-2/> s'il y a des modifications locales, ou <placeholder-3/> sinon."
+
+#. (literal)
+msgid "$WCEXTALLFIXED?TText:FText$"
+msgstr ""
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if all externals are "
+"fixed to an explicit revision, or <placeholder-3/> if not."
+msgstr ""
+
+#. (literal)
+msgid "$WCISTAGGED?TText:FText$"
+msgstr ""
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if the repository URL "
+"contains the tags classification pattern, or <placeholder-3/> if not."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -14997,6 +15066,8 @@ msgid ""
 "char *TimeNowUTC    = \"$WCNOWUTC$\";\n"
 "char *RevRange      = \"$WCRANGE$\";\n"
 "char *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *ExtAllFixed   = \"$WCEXTALLFIXED?All externals fixed:Not all externals fixed$\";\n"
+"char *IsTagged      = \"$WCISTAGGED?Tagged:Not tagged$\";\n"
 "char *URL           = \"$WCURL$\";\n"
 "char *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\n"
 "char *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\n"
@@ -15041,6 +15112,8 @@ msgid ""
 "char *TimeNowUTC    = \"2012/04/26 18:51:17\";\n"
 "char *RevRange      = \"22836:22837\";\n"
 "char *Mixed         = \"Mixed revision WC\";\n"
+"char *ExtAllFixed   = \"All externals fixed\";\n"
+"char *IsTagged      = \"Not tagged\";\n"
 "char *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\n"
 "char *isInSVN       = \"versioned\";\n"
 "char *needslck      = \"FALSE\";\n"
@@ -15087,10 +15160,6 @@ msgstr "Méthode"
 msgid "-f"
 msgstr "-f"
 
-#. (literal)
-msgid "-e"
-msgstr "-e"
-
 #. (entry)
 msgid ""
 "This method traverses the working copy gathering the revision information. "
@@ -15101,6 +15170,20 @@ msgid ""
 "you want to include svn:externals. Equivalent to the <placeholder-2/> "
 "command line switch."
 msgstr "Cette méthode parcourt la copie de travail en regroupant les informations de révision. Naturellement, vous devez l'appeler avant d'utiliser les autres méthodes pour accéder à l'information. Le premier paramètre est le chemin. Le deuxième paramètre doit être vrai si vous souhaitez inclure les révisions de dossier. Équivalent à la commande <placeholder-1/>. Le troisième paramètre doit être vrai si vous voulez inclure svn:externals. Équivalent à la commande <placeholder-2/>."
+
+#. (literal)
+msgid "GetWCInfo()"
+msgstr ""
+
+#. (literal)
+msgid "-E"
+msgstr ""
+
+#. (entry)
+msgid ""
+"The same as <placeholder-1/> but with a fourth parameter that sets the "
+"equivalent to the <placeholder-2/> command line switch."
+msgstr ""
 
 #. (literal)
 msgid "$WCREV$"
@@ -15217,8 +15300,8 @@ msgid ""
 "    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\n"
 "revObject3.GetWCInfo(\n"
 "    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\n"
-"revObject4.GetWCInfo(\n"
-"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n"
+"revObject4.GetWCInfo2(\n"
+"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1, 1);\n"
 "\n"
 "wcInfoString1 = \"Revision = \" + revObject1.Revision +\n"
 "                \"\\nMin Revision = \" + revObject1.MinRev +\n"
@@ -15278,7 +15361,7 @@ msgid ""
 "WScript.Echo(wcInfoString3);\n"
 "WScript.Echo(wcInfoString4);\n"
 "\n"
-msgstr "\n// testCOM.js - javascript file\n// test script for the SubWCRev COM/Automation-object\n\nfilesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n\nrevObject1 = new ActiveXObject(\"SubWCRev.object\");\nrevObject2 = new ActiveXObject(\"SubWCRev.object\");\nrevObject3 = new ActiveXObject(\"SubWCRev.object\");\nrevObject4 = new ActiveXObject(\"SubWCRev.object\");\n\nrevObject1.GetWCInfo(\n    filesystem.GetAbsolutePathName(\".\"), 1, 1);\nrevObject2.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\nrevObject3.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\nrevObject4.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n\nwcInfoString1 = \"Revision = \" + revObject1.Revision +\n                \"\\nMin Revision = \" + revObject1.MinRev +\n                \"\\nMax Revision = \" + revObject1.MaxRev +\n                \"\\nDate = \" + revObject1.Date +\n                \"\\nURL = \" + revObject1.Url + \"\\nAuthor = \" +\n                revObject1.Author + \"\\nHasMods = \" +\n                revObject1.HasModifications + \"\\nIsSvnItem = \" +\n                revObject1.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject1.NeedsLocking + \"\\nIsLocked = \" +\n                revObject1.IsLocked + \"\\nLockCreationDate = \" +\n                revObject1.LockCreationDate + \"\\nLockOwner = \" +\n                revObject1.LockOwner + \"\\nLockComment = \" +\n                revObject1.LockComment;\nwcInfoString2 = \"Revision = \" + revObject2.Revision +\n                \"\\nMin Revision = \" + revObject2.MinRev +\n                \"\\nMax Revision = \" + revObject2.MaxRev +\n                \"\\nDate = \" + revObject2.Date +\n                \"\\nURL = \" + revObject2.Url + \"\\nAuthor = \" +\n                revObject2.Author + \"\\nHasMods = \" +\n                revObject2.HasModifications + \"\\nIsSvnItem = \" +\n                revObject2.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject2.NeedsLocking + \"\\nIsLocked = \" +\n                revObject2.IsLocked + \"\\nLockCreationDate = \" +\n                revObject2.LockCreationDate + \"\\nLockOwner = \" +\n                revObject2.LockOwner + \"\\nLockComment = \" +\n                revObject2.LockComment;\nwcInfoString3 = \"Revision = \" + revObject3.Revision +\n                \"\\nMin Revision = \" + revObject3.MinRev +\n                \"\\nMax Revision = \" + revObject3.MaxRev +\n                \"\\nDate = \" + revObject3.Date +\n                \"\\nURL = \" + revObject3.Url + \"\\nAuthor = \" +\n                revObject3.Author + \"\\nHasMods = \" +\n                revObject3.HasModifications + \"\\nIsSvnItem = \" +\n                revObject3.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject3.NeedsLocking + \"\\nIsLocked = \" +\n                revObject3.IsLocked + \"\\nLockCreationDate = \" +\n                revObject3.LockCreationDate + \"\\nLockOwner = \" +\n                revObject3.LockOwner + \"\\nLockComment = \" +\n                revObject3.LockComment;\nwcInfoString4 = \"Revision = \" + revObject4.Revision +\n                \"\\nMin Revision = \" + revObject4.MinRev +\n                \"\\nMax Revision = \" + revObject4.MaxRev +\n                \"\\nDate = \" + revObject4.Date +\n                \"\\nURL = \" + revObject4.Url + \"\\nAuthor = \" +\n                revObject4.Author + \"\\nHasMods = \" +\n                revObject4.HasModifications + \"\\nIsSvnItem = \" +\n                revObject4.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject4.NeedsLocking + \"\\nIsLocked = \" +\n                revObject4.IsLocked + \"\\nLockCreationDate = \" +\n                revObject4.LockCreationDate + \"\\nLockOwner = \" +\n                revObject4.LockOwner + \"\\nLockComment = \" +\n                revObject4.LockComment;\n\nWScript.Echo(wcInfoString1);\nWScript.Echo(wcInfoString2);\nWScript.Echo(wcInfoString3);\nWScript.Echo(wcInfoString4);\n\n"
+msgstr ""
 
 #. (para)
 msgid ""

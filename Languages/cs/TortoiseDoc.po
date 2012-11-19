@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-26 17:13+0000\n"
+"PO-Revision-Date: 2012-11-16 07:48+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1275,14 +1275,17 @@ msgstr "Poté, co jste provedli nějaké změny v souborech v pracovní kopii a 
 #. (para)
 msgid ""
 "A working copy also contains some extra files, created and maintained by "
-"Subversion, to help it carry out these commands. In particular, each "
-"directory in your working copy contains a subdirectory named "
-"<filename>.svn</filename>, also known as the working copy "
-"<firstterm>administrative directory</firstterm>. The files in each "
-"administrative directory help Subversion recognize which files contain "
-"unpublished changes, and which files are out-of-date with respect to others'"
-" work."
-msgstr "Pracovní kopie také obsahuje i některé další soubory, vytvořené a udržované Subversion, na pomoc při provádění těchto příkazů. Zejména každý adresář v pracovní kopii obsahuje podadresář <filename>.svn</filename>, také známý jako pracovní kopie <firstterm>správcovského adresáře</firstterm>. Soubory v  každém správcovském adresáři pomáhají Subversion poznat, které soubory obsahují nepublikované změny a soubory, které jsou zastaralé s ohledem na práci ostatních."
+"Subversion, to help it carry out these commands. In particular, your working"
+" copy contains a subdirectory named <filename>.svn</filename>, also known as"
+" the working copy <firstterm>administrative directory</firstterm>. The files"
+" in this administrative directory help Subversion recognize which files "
+"contain unpublished changes, and which files are out-of-date with respect to"
+" others' work. Prior to 1.7 Subversion maintained <filename>.svn</filename> "
+"administrative subdirectories in every versioned directory of your working "
+"copy. Subversion 1.7 takes a completely different approach and each working "
+"copy now has only one administrative subdirectory which is an immediate "
+"child of the root of that working copy."
+msgstr "Pracovní kopie také obsahuje i některé další soubory, vytvořené a udržované Subversion, na pomoc při provádění těchto příkazů. Zejména vaše pracovní kopie obsahuje podadresář <filename>.svn</filename>, také známý jako <firstterm>správcovský adresář</firstterm> pracovní kopie. Soubory ve správcovském adresáři pomáhají Subversion poznat, které soubory obsahují nezveřejněné změny a které jsou zastaralé s ohledem na práci ostatních. Před verzí 1.7 Subversion měl správcovské podadresáře <filename>.svn</filename> v každém adresáři s verzí ve vaší pracovní kopii. Subversion 1.7 má úplně jiný přístup a každá pracovní kopie má pouze jeden správcovský podadresář, která je přímý potomek kořene této pracovní kopie."
 
 #. (para)
 msgid ""
@@ -7892,16 +7895,33 @@ msgid ""
 "scripts. Each property is for one specific hook script type."
 msgstr "Existuje několik vlastností pro nastavení hákových skriptů na straně klienta. Každá vlastnost je pro jeden určitý typ hákového skriptu."
 
+#. (listitem)
+msgid "tsvn:startcommithook"
+msgstr "tsvn:startcommithook"
+
+#. (listitem)
+msgid "tsvn:precommithook"
+msgstr "tsvn:precommithook"
+
+#. (listitem)
+msgid "tsvn:postcommithook"
+msgstr "tsvn:postcommithook"
+
+#. (listitem)
+msgid "tsvn:startupdatehook"
+msgstr "tsvn:startupdatehook"
+
+#. (listitem)
+msgid "tsvn:preupdatehook"
+msgstr "tsvn:preupdatehook"
+
+#. (listitem)
+msgid "tsvn:postupdatehook"
+msgstr "tsvn:postupdatehook"
+
 #. (para)
-msgid ""
-"The available properties/hook-scripts are "
-"<literal>tsvn:startcommithook</literal>, "
-"<literal>tsvn:precommithook</literal>, "
-"<literal>tsvn:postcommithook</literal>, "
-"<literal>tsvn:startupdatehook</literal>, "
-"<literal>tsvn:preupdatehook</literal> and "
-"<literal>tsvn:postupdatehook</literal>."
-msgstr "Dostupné vlastnosti/hákové skripty jsou <literal>tsvn:startcommithook</literal>, <literal>tsvn:precommithook</literal>, <literal>tsvn:postcommithook</literal>, <literal>tsvn:startupdatehook</literal>, <literal>tsvn:preupdatehook</literal> a <literal>tsvn:postupdatehook</literal>."
+msgid "The available properties/hook-scripts are <placeholder-1/>"
+msgstr "Dostupné vlastnosti/hákové skripty jsou <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -7923,6 +7943,18 @@ msgid ""
 "side/checkyear.js</filename>. This way even if you move your repository to "
 "another server you do not have to adjust the hook script properties."
 msgstr "Protože ne každý uživatel má svoji pracovní kopii získánu ve stejném umístění a se stejným názvem, můžete nastavit skript/nástroj pro spuštění, který je umístěn ve Vaší pracovní kopii určením URL v úložišti místo použití <filename>%REPOROOT</filename> jako součást URL kořene úložiště. Například, pokud Váš hákový skript je ve Vaší pracovní kopii umístěn ve <filename>contrib/hook-scripts/client-side/checkyear.js</filename>, pak byste cestu ke skriptu určili jako <filename>%REPOROOT%/trunk/contrib/hook-scripts/client-side/checkyear.js</filename>. Takto nemusíte upravovat vlastnosti skriptu i když bude Vaše úložiště přesunuto na jiný server."
+
+#. (para)
+msgid ""
+"Instead of <filename>%REPOROOT%</filename> you can also specify "
+"<filename>%REPOROOT+%</filename>. The <literal>+</literal> is used to insert"
+" any number of folder paths necessary to find the script. This is useful if "
+"you want to specify your script so that if you create a branch the script is"
+" still found even though the url of the working copy is now different. Using"
+" the example above, you would specify the path to the script as "
+"<filename>%REPOROOT+%/contrib/hook-scripts/client-"
+"side/checkyear.js</filename>."
+msgstr "Místo <filename>%REPOROOT%</filename> můžete také zadat <filename>%REPOROOT+%</filename>. <literal>+</literal> je použito ke vložení jakéhokoliv množství potřebných cest ke složkám, kde nalézt skript. To se hodí, když chcete zadat svůj skript a stále ho používat, i když vytvoříte větev a url pracovní kopie je tím pádem jiná. Použitím příkladu výše můžete zadat cestu ke skriptu jako <filename>%REPOROOT+%/contrib/hook-scripts/client-side/checkyear.js</filename>."
 
 #. (title)
 msgid "Property dialog for hook scripts"
@@ -14745,6 +14777,19 @@ msgid ""
 "repository. The default behaviour is to ignore externals."
 msgstr "Pokud je tento přepínač zadán, bude SubWCRev zkoumat adresáře, které jsou součástí <placeholder-1/>, ale pouze v případě, že jsou ze stejného úložiště. Výchozí chování je externí ignorovat."
 
+#. (literal)
+#. (literal)
+msgid "-e"
+msgstr "-e"
+
+#. (entry)
+msgid ""
+"If this switch is given, same as <placeholder-1/>, but it ignores the "
+"externals with explicit revisions, when the revision range inside of them is"
+" only the given explicit revision in the properties. So it doesn't lead to "
+"mixed revisions."
+msgstr "Je-li tento přepínač zadán, stejné jako <placeholder-1/>, ale ignoruje externí s konkrétními revizemi, když rozsah revizí, který je zadán v jejich vlastnostech, je pouze daná konkrétní revize. Takže nevede ke smíšeným revizím."
+
 #. (entry)
 msgid ""
 "If this switch is given, SubWCRev will output the revision numbers in HEX."
@@ -14856,9 +14901,13 @@ msgstr "$WCMIXED?TText:FText$"
 #. (literal)
 #. (literal)
 #. (literal)
+#. (literal)
+#. (literal)
 msgid "TText"
 msgstr "TText"
 
+#. (literal)
+#. (literal)
 #. (literal)
 #. (literal)
 #. (literal)
@@ -14882,6 +14931,26 @@ msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if there are local "
 "modifications, or <placeholder-3/> if not."
 msgstr "<placeholder-1/> je nahrazeno <placeholder-2/> v případě, že existují místní úpravy, nebo <placeholder-3/> pokud ne."
+
+#. (literal)
+msgid "$WCEXTALLFIXED?TText:FText$"
+msgstr "$WCEXTALLFIXED?TText:FText$"
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if all externals are "
+"fixed to an explicit revision, or <placeholder-3/> if not."
+msgstr "<placeholder-1/> je nahrazen <placeholder-2/> když všechny externí jsou zadány na konkrétní revizi, nebo <placeholder-3/>, pokud ne."
+
+#. (literal)
+msgid "$WCISTAGGED?TText:FText$"
+msgstr "$WCISTAGGED?TText:FText$"
+
+#. (entry)
+msgid ""
+"<placeholder-1/> is replaced with <placeholder-2/> if the repository URL "
+"contains the tags classification pattern, or <placeholder-3/> if not."
+msgstr "<placeholder-1/> je nahrazen <placeholder-2/> pokud URL úložiště obsahuje vzor zařazení značky, nebo <placeholder-3/> pokud ne."
 
 #. (entry)
 msgid ""
@@ -14989,6 +15058,8 @@ msgid ""
 "char *TimeNowUTC    = \"$WCNOWUTC$\";\n"
 "char *RevRange      = \"$WCRANGE$\";\n"
 "char *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\n"
+"char *ExtAllFixed   = \"$WCEXTALLFIXED?All externals fixed:Not all externals fixed$\";\n"
+"char *IsTagged      = \"$WCISTAGGED?Tagged:Not tagged$\";\n"
 "char *URL           = \"$WCURL$\";\n"
 "char *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\n"
 "char *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\n"
@@ -15005,7 +15076,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Zkouškový soubor pro SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Změněno:Nezměněno$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Smíšené revize PK:Nesmíšené$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?s verzí:bez verze$\";\nchar *needslck      = \"$WCNEEDSLOCK?PRAVDA:NEPRAVDA$\";\nchar *islocked      = \"$WCISLOCKED?uzamčeno:neuzamčeno$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Zdroj je změněn\n#endif\n\n// Konec souboru\n"
+msgstr "\n// Zkouškový soubor pro SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Změněno:Nezměněno$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Smíšená revize PK:Nesmíšená$\";\nchar *ExtAllFixed   = \"$WCEXTALLFIXED?Všechny externí pevné:Ne všechny externí pevné$\";\nchar *IsTagged      = \"$WCISTAGGED?Označeno:Neoznačeno$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?s verzí:bez verze$\";\nchar *needslck      = \"$WCNEEDSLOCK?PRAVDA:NEPRAVDA$\";\nchar *islocked      = \"$WCISLOCKED?uzamčeno:neuzamčeno$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Zdroj je změněn\n#endif\n\n// Konec souboru\n"
 
 #. (para)
 msgid ""
@@ -15033,6 +15104,8 @@ msgid ""
 "char *TimeNowUTC    = \"2012/04/26 18:51:17\";\n"
 "char *RevRange      = \"22836:22837\";\n"
 "char *Mixed         = \"Mixed revision WC\";\n"
+"char *ExtAllFixed   = \"All externals fixed\";\n"
+"char *IsTagged      = \"Not tagged\";\n"
 "char *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\n"
 "char *isInSVN       = \"versioned\";\n"
 "char *needslck      = \"FALSE\";\n"
@@ -15049,7 +15122,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr "\n// Zkouškový soubor pro SubWCRev\n\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Změněno\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Čtv, 26.dubna 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Čtv, 26. dubna 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Smíšená revize PK\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"s verzí\";\nchar *needslck      = \"NEPRAVDA\";\nchar *islocked      = \"neuzamčeno\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Čtv, 01. ledna 1970\";\nchar *lockcust      = \"Čtv, 01. ledna 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Zdroj je změněn\n#endif\n\n// Konec souboru\n"
+msgstr "\n// Zkouškový souboru pro SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Změněno\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Čt, 26 duben 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Čt, 26 duben 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Smíšená revize PK\";\nchar *ExtAllFixed   = \"Všechny externí pevné\";\nchar *IsTagged      = \"Neoznačeno\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"s verzí\";\nchar *needslck      = \"NEPRAVDA\";\nchar *islocked      = \"neuzamčeno\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Čt, 01 leden 1970\";\nchar *lockcust      = \"Čt, 01 leden 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Zdroj je změněn\n#endif\n\n// Konec souboru\n"
 
 #. (para)
 msgid ""
@@ -15079,10 +15152,6 @@ msgstr "Metoda"
 msgid "-f"
 msgstr "-f"
 
-#. (literal)
-msgid "-e"
-msgstr "-e"
-
 #. (entry)
 msgid ""
 "This method traverses the working copy gathering the revision information. "
@@ -15093,6 +15162,20 @@ msgid ""
 "you want to include svn:externals. Equivalent to the <placeholder-2/> "
 "command line switch."
 msgstr "Tato metoda prochází pracovní kopii a shromažďuje revize. Přirozeně je třeba toto zavolat předtím, než budete moci přistupovat k informacím pomocí zbývajících metod. První parametr je cesta. Druhý parametr by měl být true, pokud chcete zahrnout revize adresářů. Obdoba přepínače <placeholder-1/> příkazové řádky. Třetí parametr by měl být true, pokud chcete zahrnout svn:externals. Obdoba přepínače <placeholder-2/> příkazové řádky."
+
+#. (literal)
+msgid "GetWCInfo()"
+msgstr "GetWCInfo()"
+
+#. (literal)
+msgid "-E"
+msgstr "-E"
+
+#. (entry)
+msgid ""
+"The same as <placeholder-1/> but with a fourth parameter that sets the "
+"equivalent to the <placeholder-2/> command line switch."
+msgstr "Stejné jako <placeholder-1/> ale se čtvrtým parametrem, který nastavuje ekvivalent přepínače příkazového řádku <placeholder-2/>."
 
 #. (literal)
 msgid "$WCREV$"
@@ -15209,8 +15292,8 @@ msgid ""
 "    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\n"
 "revObject3.GetWCInfo(\n"
 "    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\n"
-"revObject4.GetWCInfo(\n"
-"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1);\n"
+"revObject4.GetWCInfo2(\n"
+"    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1, 1);\n"
 "\n"
 "wcInfoString1 = \"Revision = \" + revObject1.Revision +\n"
 "                \"\\nMin Revision = \" + revObject1.MinRev +\n"
@@ -15270,7 +15353,7 @@ msgid ""
 "WScript.Echo(wcInfoString3);\n"
 "WScript.Echo(wcInfoString4);\n"
 "\n"
-msgstr "\n// testCOM.js - javascript file\n// test script for the SubWCRev COM/Automation-object\n\nfilesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n\nrevObject1 = new ActiveXObject(\"SubWCRev.object\");\nrevObject2 = new ActiveXObject(\"SubWCRev.object\");\nrevObject3 = new ActiveXObject(\"SubWCRev.object\");\nrevObject4 = new ActiveXObject(\"SubWCRev.object\");\n\nrevObject1.GetWCInfo(\n    filesystem.GetAbsolutePathName(\".\"), 1, 1);\nrevObject2.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\nrevObject3.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\nrevObject4.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\\..\"), 1, 1);\n\nwcInfoString1 = \"Revision = \" + revObject1.Revision +\n                \"\nMin Revision = \" + revObject1.MinRev +\n                \"\nMax Revision = \" + revObject1.MaxRev +\n                \"\nDate = \" + revObject1.Date +\n                \"\nURL = \" + revObject1.Url + \"\nAuthor = \" +\n                revObject1.Author + \"\nHasMods = \" +\n                revObject1.HasModifications + \"\nIsSvnItem = \" +\n                revObject1.IsSvnItem + \"\nNeedsLocking = \" +\n                revObject1.NeedsLocking + \"\nIsLocked = \" +\n                revObject1.IsLocked + \"\nLockCreationDate = \" +\n                revObject1.LockCreationDate + \"\nLockOwner = \" +\n                revObject1.LockOwner + \"\nLockComment = \" +\n                revObject1.LockComment;\nwcInfoString2 = \"Revision = \" + revObject2.Revision +\n                \"\nMin Revision = \" + revObject2.MinRev +\n                \"\nMax Revision = \" + revObject2.MaxRev +\n                \"\nDate = \" + revObject2.Date +\n                \"\nURL = \" + revObject2.Url + \"\nAuthor = \" +\n                revObject2.Author + \"\nHasMods = \" +\n                revObject2.HasModifications + \"\nIsSvnItem = \" +\n                revObject2.IsSvnItem + \"\nNeedsLocking = \" +\n                revObject2.NeedsLocking + \"\nIsLocked = \" +\n                revObject2.IsLocked + \"\nLockCreationDate = \" +\n                revObject2.LockCreationDate + \"\nLockOwner = \" +\n                revObject2.LockOwner + \"\nLockComment = \" +\n                revObject2.LockComment;\nwcInfoString3 = \"Revision = \" + revObject3.Revision +\n                \"\nMin Revision = \" + revObject3.MinRev +\n                \"\nMax Revision = \" + revObject3.MaxRev +\n                \"\nDate = \" + revObject3.Date +\n                \"\nURL = \" + revObject3.Url + \"\nAuthor = \" +\n                revObject3.Author + \"\nHasMods = \" +\n                revObject3.HasModifications + \"\nIsSvnItem = \" +\n                revObject3.IsSvnItem + \"\nNeedsLocking = \" +\n                revObject3.NeedsLocking + \"\nIsLocked = \" +\n                revObject3.IsLocked + \"\nLockCreationDate = \" +\n                revObject3.LockCreationDate + \"\nLockOwner = \" +\n                revObject3.LockOwner + \"\nLockComment = \" +\n                revObject3.LockComment;\nwcInfoString4 = \"Revision = \" + revObject4.Revision +\n                \"\nMin Revision = \" + revObject4.MinRev +\n                \"\nMax Revision = \" + revObject4.MaxRev +\n                \"\nDate = \" + revObject4.Date +\n                \"\nURL = \" + revObject4.Url + \"\nAuthor = \" +\n                revObject4.Author + \"\nHasMods = \" +\n                revObject4.HasModifications + \"\nIsSvnItem = \" +\n                revObject4.IsSvnItem + \"\nNeedsLocking = \" +\n                revObject4.NeedsLocking + \"\nIsLocked = \" +\n                revObject4.IsLocked + \"\nLockCreationDate = \" +\n                revObject4.LockCreationDate + \"\nLockOwner = \" +\n                revObject4.LockOwner + \"\nLockComment = \" +\n                revObject4.LockComment;\n\nWScript.Echo(wcInfoString1);\nWScript.Echo(wcInfoString2);\nWScript.Echo(wcInfoString3);\nWScript.Echo(wcInfoString4);\n\n"
+msgstr "\n// testCOM.js - soubor javascript\n// zkouškový skript pro SubWCRev COM/objekt automatizace\n\nfilesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n\nrevObject1 = new ActiveXObject(\"SubWCRev.object\");\nrevObject2 = new ActiveXObject(\"SubWCRev.object\");\nrevObject3 = new ActiveXObject(\"SubWCRev.object\");\nrevObject4 = new ActiveXObject(\"SubWCRev.object\");\n\nrevObject1.GetWCInfo(\n    filesystem.GetAbsolutePathName(\".\"), 1, 1);\nrevObject2.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\nrevObject3.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\nrevObject4.GetWCInfo2(\n    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1, 1);\n\nwcInfoString1 = \"Revize = \" + revObject1.Revision +\n                \"\\nMin Revize = \" + revObject1.MinRev +\n                \"\\nMax Revize = \" + revObject1.MaxRev +\n                \"\\nDatum = \" + revObject1.Date +\n                \"\\nURL = \" + revObject1.Url + \"\\nAutor = \" +\n                revObject1.Author + \"\\nMáZměny = \" +\n                revObject1.HasModifications + \"\\nJeZeSvn = \" +\n                revObject1.IsSvnItem + \"\\nPotřebaZámku = \" +\n                revObject1.NeedsLocking + \"\\nJeUzamčeno = \" +\n                revObject1.IsLocked + \"\\nDatumVznikuZámku = \" +\n                revObject1.LockCreationDate + \"\\nVlastníkZámku = \" +\n                revObject1.LockOwner + \"\\nKomentářUzamčení = \" +\n                revObject1.LockComment;\nwcInfoString2 = \"Revize = \" + revObject2.Revision +\n                \"\\nMin Revize = \" + revObject2.MinRev +\n                \"\\nMax Revize = \" + revObject2.MaxRev +\n                \"\\nDatum = \" + revObject2.Date +\n                \"\\nURL = \" + revObject2.Url + \"\\nAutor = \" +\n                revObject2.Author + \"\\nMáZměny = \" +\n                revObject2.HasModifications + \"\\nJeZeSvn = \" +\n                revObject2.IsSvnItem + \"\\nPotřebaZámku = \" +\n                revObject2.NeedsLocking + \"\\nJeUzamčeno = \" +\n                revObject2.IsLocked + \"\\nDatumVznikuZámku = \" +\n                revObject2.LockCreationDate + \"\\nVlastníkZámku = \" +\n                revObject2.LockOwner + \"\\nKomentářUzamčení = \" +\n                revObject2.LockComment;\nwcInfoString3 = \"Revize = \" + revObject3.Revision +\n                \"\\nMin Revize = \" + revObject3.MinRev +\n                \"\\nMax Revize = \" + revObject3.MaxRev +\n                \"\\nDatum = \" + revObject3.Date +\n                \"\\nURL = \" + revObject3.Url + \"\\nAutor = \" +\n                revObject3.Author + \"\\nMáZměny = \" +\n                revObject3.HasModifications + \"\\nJeZeSvn = \" +\n                revObject3.IsSvnItem + \"\\nPotřebaZámku = \" +\n                revObject3.NeedsLocking + \"\\nJeUzamčeno = \" +\n                revObject3.IsLocked + \"\\nDatumVznikuZámku = \" +\n                revObject3.LockCreationDate + \"\\nVlastníkZámku = \" +\n                revObject3.LockOwner + \"\\nKomentářUzamčení = \" +\n                revObject3.LockComment;\nwcInfoString4 = \"Revize = \" + revObject4.Revision +\n                \"\\nMin Revize = \" + revObject4.MinRev +\n                \"\\nMax Revize = \" + revObject4.MaxRev +\n                \"\\nDatum = \" + revObject4.Date +\n                \"\\nURL = \" + revObject4.Url + \"\\nAutor = \" +\n                revObject4.Author + \"\\nMáZměny = \" +\n                revObject4.HasModifications + \"\\nJeZeSvn = \" +\n                revObject4.IsSvnItem + \"\\nPotřebujeZámek = \" +\n                revObject4.NeedsLocking + \"\\nJeUzamčeno = \" +\n                revObject4.IsLocked + \"\\nDatumVznikuZámku = \" +\n                revObject4.LockCreationDate + \"\\nVlastníkZámku = \" +\n                revObject4.LockOwner + \"\\nKomentářUzamčení = \" +\n                revObject4.LockComment;\n\nWScript.Echo(wcInfoString1);\nWScript.Echo(wcInfoString2);\nWScript.Echo(wcInfoString3);\nWScript.Echo(wcInfoString4);\n\n"
 
 #. (para)
 msgid ""
