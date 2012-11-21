@@ -55,8 +55,8 @@ objExcelApp.Visible = True
 'Create a compare side by side view
 objExcelApp.Windows.CompareSideBySideWith(objExcelApp.Windows(2).Caption)
 If Err.Number <> 0 Then
-	objExcelApp.Application.WindowState = xlMaximized
-	objExcelApp.Windows.Arrange(-4128)
+    objExcelApp.Application.WindowState = xlMaximized
+    objExcelApp.Windows.Arrange(-4128)
 End If
 
 'Mark differences in sNewDoc red
@@ -64,26 +64,26 @@ i = 1
 
 For Each objWorkSheet In objExcelApp.Workbooks(2).Worksheets
 
-		objworksheet.Cells.FormatConditions.Delete
+        objworksheet.Cells.FormatConditions.Delete
 
-		objExcelApp.Workbooks(1).Sheets(i).Copy ,objExcelApp.Workbooks(2).Sheets(objExcelApp.Workbooks(2).Sheets.Count)
+        objExcelApp.Workbooks(1).Sheets(i).Copy ,objExcelApp.Workbooks(2).Sheets(objExcelApp.Workbooks(2).Sheets.Count)
 
-		objExcelApp.Workbooks(2).Sheets(objExcelApp.Workbooks(2).Sheets.Count).Name = "Dummy_for_Comparison" & i
+        objExcelApp.Workbooks(2).Sheets(objExcelApp.Workbooks(2).Sheets.Count).Name = "Dummy_for_Comparison" & i
 
-		objworksheet.Activate
-		'To create a local formula the cell A1 is used
-		original_content = objworksheet.Cells(1,1).Formula
-		String sFormula
-		'objworksheet.Cells(1,1).Formula = "=INDIRECT(""" & objExcelApp.Workbooks(2).Sheets(i).name & " (2)"& "!""&ADDRESS(ROW(),COLUMN()))"
-		objworksheet.Cells(1,1).Formula = "=INDIRECT(""Dummy_for_Comparison" & i & "!""&ADDRESS(ROW(),COLUMN()))" 
-		sFormula = objworksheet.Cells(1,1).FormulaLocal
+        objworksheet.Activate
+        'To create a local formula the cell A1 is used
+        original_content = objworksheet.Cells(1,1).Formula
+        String sFormula
+        'objworksheet.Cells(1,1).Formula = "=INDIRECT(""" & objExcelApp.Workbooks(2).Sheets(i).name & " (2)"& "!""&ADDRESS(ROW(),COLUMN()))"
+        objworksheet.Cells(1,1).Formula = "=INDIRECT(""Dummy_for_Comparison" & i & "!""&ADDRESS(ROW(),COLUMN()))"
+        sFormula = objworksheet.Cells(1,1).FormulaLocal
 
-		objworksheet.Cells(1,1).Formula = original_content
-		'with the local formula the conditional formatting is used to mark the cells that are different
-		const xlCellValue = 1
-		const xlNotEqual = 4
-		objworksheet.Cells.FormatConditions.Add xlCellValue, xlNotEqual, sFormula
-		objworksheet.Cells.FormatConditions(1).Interior.ColorIndex = 3
+        objworksheet.Cells(1,1).Formula = original_content
+        'with the local formula the conditional formatting is used to mark the cells that are different
+        const xlCellValue = 1
+        const xlNotEqual = 4
+        objworksheet.Cells.FormatConditions.Add xlCellValue, xlNotEqual, sFormula
+        objworksheet.Cells.FormatConditions(1).Interior.ColorIndex = 3
 
-	i = i + 1 
+    i = i + 1
 next

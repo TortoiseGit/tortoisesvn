@@ -59,7 +59,7 @@ objScript = null
 
 try
 {
-	word = WScript.CreateObject("Word.Application");
+    word = WScript.CreateObject("Word.Application");
 }
 catch(e)
 {
@@ -107,7 +107,7 @@ else //2010 - handle slightly differently as the basic merge isn't that good
 // Show the merge result
 if (parseInt(word.Version) < vOffice2007)
 {
-	word.ActiveDocument.Windows(1).Visible = 1;
+    word.ActiveDocument.Windows(1).Visible = 1;
 }
 
 // Close the first document

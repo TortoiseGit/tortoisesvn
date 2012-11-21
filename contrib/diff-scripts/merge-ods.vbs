@@ -53,7 +53,7 @@ If Err.Number <> 0 Then
 End If
 
 On Error Goto 0
-'Create the DesktopSet 
+'Create the DesktopSet
 Set objDesktop = objServiceManager.createInstance("com.sun.star.frame.Desktop")
 'Adjust the paths for OO
 sMyDoc=Replace(sMyDoc, "\", "/")

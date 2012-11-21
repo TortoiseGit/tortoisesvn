@@ -26,7 +26,7 @@ function PptAppMajorVersion(PowerPoint)
     try
     {
         pptVersion = PowerPoint.Version.toString();
-        if (pptVersion.indexOf(".") > 0) 
+        if (pptVersion.indexOf(".") > 0)
         {
             pptVersion = pptVersion.substr(0, pptVersion.indexOf("."));
         }
@@ -38,7 +38,7 @@ function PptAppMajorVersion(PowerPoint)
     catch(e)
     {
         return 0;
-    }    
+    }
 }
 
 var objArgs,num,sBasePpt,sNewPpt,objScript,powerpoint,source;
@@ -78,12 +78,12 @@ catch(e)
    WScript.Quit(1);
 }
 
-if (PptAppMajorVersion(powerpoint) == 12) 
+if (PptAppMajorVersion(powerpoint) == 12)
 {
     WScript.Echo("Microsoft Powerpoint 2007 doesn't provide the DIFF features any more. Sorry!");
     WScript.Quit(1);
 }
-else 
+else
 {
     powerpoint.visible = true;
 

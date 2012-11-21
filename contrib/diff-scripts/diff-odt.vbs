@@ -58,10 +58,10 @@ On Error Goto 0
 Set objFSO = CreateObject("Scripting.FileSystemObject")
 Set objFile = objFSO.GetFile(sNewDoc)
 If (objFile.Attributes AND 1)=1 Then
-    objFile.Attributes = objFile.Attributes XOR 1 
+    objFile.Attributes = objFile.Attributes XOR 1
 End If
 
-'Create the DesktopSet 
+'Create the DesktopSet
 Set objDesktop = objServiceManager.createInstance("com.sun.star.frame.Desktop")
 Set objUriTranslator = objServiceManager.createInstance("com.sun.star.uri.ExternalUriReferenceTranslator")
 'Adjust the paths for OO
