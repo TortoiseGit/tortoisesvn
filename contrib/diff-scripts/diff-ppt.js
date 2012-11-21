@@ -30,7 +30,7 @@ function PptAppMajorVersion(PowerPoint)
         {
             pptVersion = pptVersion.substr(0, pptVersion.indexOf("."));
         }
-        if (pptVersion == "")
+        if (pptVersion === "")
             return 0;
         else
             return parseInt(pptVersion);
@@ -78,7 +78,7 @@ catch(e)
    WScript.Quit(1);
 }
 
-if (PptAppMajorVersion(powerpoint) == 12)
+if (PptAppMajorVersion(powerpoint) === 12)
 {
     WScript.Echo("Microsoft Powerpoint 2007 doesn't provide the DIFF features any more. Sorry!");
     WScript.Quit(1);

@@ -21,12 +21,12 @@ var objArgs,num,sTheirDoc,sMyDoc,sBaseDoc,sMergedDoc,objScript,word,baseDoc,myDo
 // Microsoft Office versions for Microsoft Windows OS
 var vOffice2000 = 9;
 var vOffice2002 = 10;
-var vOffice2003 = 11;
+//var vOffice2003 = 11;
 var vOffice2007 = 12;
 var vOffice2010 = 14;
 // WdCompareTarget
 var wdCompareTargetSelected = 0;
-var wdCompareTargetCurrent = 1;
+//var wdCompareTargetCurrent = 1;
 var wdCompareTargetNew = 2;
 var wdMergeTargetCurrent = 1;
 
@@ -43,7 +43,7 @@ sTheirDoc=objArgs(1);
 sMyDoc=objArgs(2);
 sBaseDoc=objArgs(3);
 
-objScript = new ActiveXObject("Scripting.FileSystemObject")
+objScript = new ActiveXObject("Scripting.FileSystemObject");
 if ( ! objScript.FileExists(sTheirDoc))
 {
     WScript.Echo("File " + sTheirDoc +" does not exist.  Cannot compare the documents.", vbExclamation, "File not found");
@@ -55,7 +55,7 @@ if ( ! objScript.FileExists(sMergedDoc))
     WScript.Quit(1);
 }
 
-objScript = null
+objScript = null;
 
 try
 {
@@ -67,7 +67,7 @@ catch(e)
    WScript.Quit(1);
 }
 
-word.visible = true
+word.visible = true;
 
 // Open the base document
 baseDoc = word.Documents.Open(sTheirDoc);
@@ -111,14 +111,14 @@ if (parseInt(word.Version) < vOffice2007)
 }
 
 // Close the first document
-if ((parseInt(word.Version) >= vOffice2002)&&(parseInt(word.Version) < vOffice2010))
+if ((parseInt(word.Version) >= vOffice2002) && (parseInt(word.Version) < vOffice2010))
 {
         baseDoc.Close();
 }
 
 // Show usage hint message
 WSHShell = WScript.CreateObject("WScript.Shell");
-if(WSHShell.Popup("You have to accept or reject the changes before\nsaving the document to prevent future problems.\n\nWould you like to see a help page on how to do this?", 0, "TSVN Word Merge", 4 + 64) == 6)
+if (WSHShell.Popup("You have to accept or reject the changes before\nsaving the document to prevent future problems.\n\nWould you like to see a help page on how to do this?", 0, "TSVN Word Merge", 4 + 64) === 6)
 {
     WSHShell.Run("http://office.microsoft.com/en-us/assistance/HP030823691033.aspx");
 }

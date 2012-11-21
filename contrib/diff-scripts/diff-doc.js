@@ -20,11 +20,11 @@ var objArgs,num,sBaseDoc,sNewDoc,sTempDoc,objScript,word,destination;
 // Microsoft Office versions for Microsoft Windows OS
 var vOffice2000 = 9;
 var vOffice2002 = 10;
-var vOffice2003 = 11;
+//var vOffice2003 = 11;
 var vOffice2007 = 12;
 // WdCompareTarget
-var wdCompareTargetSelected = 0;
-var wdCompareTargetCurrent = 1;
+//var wdCompareTargetSelected = 0;
+//var wdCompareTargetCurrent = 1;
 var wdCompareTargetNew = 2;
 // WdViewType
 var wdMasterView = 5;
@@ -32,8 +32,8 @@ var wdNormalView = 1;
 var wdOutlineView = 2;
 // WdSaveOptions
 var wdDoNotSaveChanges = 0;
-var wdPromptToSaveChanges = -2;
-var wdSaveChanges = -1;
+//var wdPromptToSaveChanges = -2;
+//var wdSaveChanges = -1;
 
 objArgs = WScript.Arguments;
 num = objArgs.length;
@@ -77,7 +77,7 @@ catch(e)
     }
     // yes, OO is installed - do the diff with that one instead
     var objFile = objScript.GetFile(sNewDoc);
-    if ((objFile.Attributes & 1)==1)
+    if ((objFile.Attributes & 1) === 1)
     {
         // reset the readonly attribute
         objFile.Attributes = objFile.Attributes & (~1);
@@ -104,7 +104,7 @@ catch(e)
     oPropertyValue[0] = OO.Bridge_GetStruct("com.sun.star.beans.PropertyValue");
     oPropertyValue[0].Name = "ShowTrackedChanges";
     oPropertyValue[0].Value = true;
-    var objDocument=objDesktop.loadComponentFromURL(sNewDoc,"_blank", 0, oPropertyValue);
+    var objDocument = objDesktop.loadComponentFromURL(sNewDoc,"_blank", 0, oPropertyValue);
 
     //Set the frame
     var Frame = objDesktop.getCurrentFrame();
@@ -152,7 +152,7 @@ catch(e)
 }
 
 // If the Type property returns either wdOutlineView or wdMasterView and the Count property returns zero, the current document is an outline.
-if (((destination.ActiveWindow.View.Type == wdOutlineView) || (destination.ActiveWindow.View.Type == wdMasterView)) && (destination.Subdocuments.Count == 0))
+if (((destination.ActiveWindow.View.Type === wdOutlineView) || (destination.ActiveWindow.View.Type === wdMasterView)) && (destination.Subdocuments.Count === 0))
 {
     // Change the Type property of the current document to normal
     destination.ActiveWindow.View.Type = wdNormalView;
