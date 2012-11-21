@@ -41,7 +41,7 @@
 					this page.</p>
 
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-
+					<fieldset>
 					<input type="hidden" name="cmd" value="_xclick"/>
 					<input type="hidden" name="business" value="steveking@gmx.ch"/>
 					<input type="hidden" name="no_shipping" value="1"/>
@@ -51,7 +51,6 @@
 					<input type="hidden" name="tax" value="0"/>
 					<input type="hidden" name="bn" value="PP-DonationsBF"/>
 					<input type="hidden" name="item_name" value="Donation to the TortoiseSVN project"/>
-					<br/>
 					<table width="0" border="0" cellspacing="0" cellpadding="0">
 					  <tr>
 						<td>
@@ -61,15 +60,16 @@
 						<td>Currency:&nbsp;<select name="currency_code">
 
 						<option value="USD">U.S. Dollar</option>
-						<option value="EUR" selected>Euro</option>
+						<option value="EUR" selected="selected">Euro</option>
 						<option value="GBP">Pound Sterling</option>
 						<option value="CHF">Swiss Franc</option>
 						<!--<option value="AUD">Australian Dollar</option>
-						<option value="CAD">Canadian Dollar</option>
-						--></select>
+						<option value="CAD">Canadian Dollar</option>-->
+						</select>
 						</td>
 					  </tr>
 					</table>
+					</fieldset>
 					</form>
 
 					<br/>
@@ -115,6 +115,7 @@
 					bottom of this page.</p>
 
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<fieldset>
 					<input type="hidden" name="cmd" value="_xclick-subscriptions"/>
 					<input type="hidden" name="business" value="steveking@gmx.ch"/>
 					<input type="hidden" name="no_shipping" value="1"/>
@@ -136,7 +137,7 @@
 							<select name="a3">
 							<option value="5.00">5</option>
 							<option value="10.00">10</option>
-							<option value="20.00" selected>20</option>
+							<option value="20.00" selected="selected">20</option>
 							<option value="30.00">30</option>
 							<option value="50.00">50</option>
 							<option value="100.00">100</option>
@@ -147,7 +148,7 @@
 						<td>&nbsp;&nbsp;Currency:&nbsp;
 						<select name="currency_code">
 					<option value="USD">U.S. Dollar</option>
-					<option value="EUR" selected>Euro</option>
+					<option value="EUR" selected="selected">Euro</option>
 					<option value="GBP">Pound Sterling</option>
 					<option value="CHF">Swiss Franc</option>
 					<!--<option value="AUD">Australian Dollar</option>
@@ -157,6 +158,7 @@
 					</tr>
 
 					</table>
+					</fieldset>
 					</form>
 
 					<br/>
