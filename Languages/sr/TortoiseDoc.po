@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-15 08:15+0000\n"
+"PO-Revision-Date: 2012-11-19 21:51+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1284,7 +1284,7 @@ msgid ""
 "copy. Subversion 1.7 takes a completely different approach and each working "
 "copy now has only one administrative subdirectory which is an immediate "
 "child of the root of that working copy."
-msgstr ""
+msgstr "Радна копија садржи и неке додатне фајлове, креиране и подржане од Субверзије, да помогну у спровођењу ових команди. Посебно, ваша радна копија садржи субдиректоријуме по имену <filename>.свн</filename>, такође познате као  <firstterm>административне директоријуме</firstterm>  радне копије. Фајлови у овом административном директорјуму помажу Субверзији да препозна који фајлови садрже непубликоване измене и који фајл је застарео у односу на измене осталих. Пре 1.7 Субверзија је одржавала  <filename>.свн</filename> административне субдиректоријуме у сваком верзионисаном директоријуму ваше радне копије. Субверзија 1.7 узима потпуно различит приступ у свакој радној копији сада има само један адмиснистративни субдиректоријум који је први потомак корена радне копије."
 
 #. (para)
 msgid ""
@@ -7896,31 +7896,31 @@ msgstr "Постоји више особина доступних за конф�
 
 #. (listitem)
 msgid "tsvn:startcommithook"
-msgstr ""
+msgstr "тсвн:стартцоммитхоок"
 
 #. (listitem)
 msgid "tsvn:precommithook"
-msgstr ""
+msgstr "тсвн:прецоммитхоок"
 
 #. (listitem)
 msgid "tsvn:postcommithook"
-msgstr ""
+msgstr "тсвн:постцоммитхоок"
 
 #. (listitem)
 msgid "tsvn:startupdatehook"
-msgstr ""
+msgstr "тсвн:стартууодатехоок"
 
 #. (listitem)
 msgid "tsvn:preupdatehook"
-msgstr ""
+msgstr "тсвн:преупдатехоок"
 
 #. (listitem)
 msgid "tsvn:postupdatehook"
-msgstr ""
+msgstr "тсвн:поступдатехоок"
 
 #. (para)
 msgid "The available properties/hook-scripts are <placeholder-1/>"
-msgstr ""
+msgstr "Доступне особине/закачиве-скрипте су <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -7953,7 +7953,7 @@ msgid ""
 " the example above, you would specify the path to the script as "
 "<filename>%REPOROOT+%/contrib/hook-scripts/client-"
 "side/checkyear.js</filename>."
-msgstr ""
+msgstr "Уместо <filename>%REPOROOT%</filename> можете специфицирати <filename>%REPOROOT+%</filename>. Знак <literal>+</literal> се користи да убаци било који број фолдер путања неопходних да нађу скрипту.Ово је корисно ако желите да одредите вашу скрипту тако да и ако креирате грану скрипта се још увекналази чак и ако је урл радне копије различит. Користећи горњи пример ви можете специфицирати путању ка скрипти као  <filename>%REPOROOT+%/contrib/hook-scripts/client-side/checkyear.js</filename>. "
 
 #. (title)
 msgid "Property dialog for hook scripts"
@@ -14787,7 +14787,7 @@ msgid ""
 "externals with explicit revisions, when the revision range inside of them is"
 " only the given explicit revision in the properties. So it doesn't lead to "
 "mixed revisions."
-msgstr ""
+msgstr "Ако је овај прекидач дат, исти као <placeholder-1/>, али он занемарује екстернале са експлицитном ревизијом, када је опсег ревизија унутар њега је само дата експлицитна ревизија у особинама. Тако да то не води ка измешаним ревизијама."
 
 #. (entry)
 msgid ""
@@ -14933,23 +14933,23 @@ msgstr "<placeholder-1/> је замењено са <placeholder-2/> ако по
 
 #. (literal)
 msgid "$WCEXTALLFIXED?TText:FText$"
-msgstr ""
+msgstr "$WCEXTALLFIXED?TText:FText$"
 
 #. (entry)
 msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if all externals are "
 "fixed to an explicit revision, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/> је замењено са <placeholder-2/>  ако су сви екстернали фиксирани на експлицитну ревизију, или <placeholder-3/> ако нису. "
 
 #. (literal)
 msgid "$WCISTAGGED?TText:FText$"
-msgstr ""
+msgstr "$WCISTAGGED?TText:FText$"
 
 #. (entry)
 msgid ""
 "<placeholder-1/> is replaced with <placeholder-2/> if the repository URL "
 "contains the tags classification pattern, or <placeholder-3/> if not."
-msgstr ""
+msgstr "<placeholder-1/>  је замењен са <placeholder-2/>  ако УРЛ спремишта садржи знакекласификационих шаблона, или <placeholder-3/> ако не садржи. "
 
 #. (entry)
 msgid ""
@@ -15075,7 +15075,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"$WCREV$\";\nchar *Revision16    = \"$WCREV&amp;0xFF$\";\nchar *Revisionp100  = \"$WCREV+100$\";\nchar *Revisionm100  = \"$WCREV-100$\";\nchar *Modified      = \"$WCMODS?Modified:Not modified$\";\nchar *Date          = \"$WCDATE$\";\nchar *CustDate      = \"$WCDATE=%a, %d %B %Y$\";\nchar *DateUTC       = \"$WCDATEUTC$\";\nchar *CustDateUTC   = \"$WCDATEUTC=%a, %d %B %Y$\";\nchar *TimeNow       = \"$WCNOW$\";\nchar *TimeNowUTC    = \"$WCNOWUTC$\";\nchar *RevRange      = \"$WCRANGE$\";\nchar *Mixed         = \"$WCMIXED?Mixed revision WC:Not mixed$\";\nchar *ExtAllFixed   = \"$WCEXTALLFIXED?All externals fixed:Not all externals fixed$\";\nchar *IsTagged      = \"$WCISTAGGED?Tagged:Not tagged$\";\nchar *URL           = \"$WCURL$\";\nchar *isInSVN       = \"$WCINSVN?versioned:not versioned$\";\nchar *needslck      = \"$WCNEEDSLOCK?TRUE:FALSE$\";\nchar *islocked      = \"$WCISLOCKED?locked:not locked$\";\nchar *lockdateutc   = \"$WCLOCKDATEUTC$\";\nchar *lockdate      = \"$WCLOCKDATE$\";\nchar *lockcustutc   = \"$WCLOCKDATEUTC=%a, %d %B %Y$\";\nchar *lockcust      = \"$WCLOCKDATE=%a, %d %B %Y$\";\nchar *lockown       = \"$WCLOCKOWNER$\";\nchar *lockcmt       = \"$WCLOCKCOMMENT$\";\n\n#if $WCMODS?1:0$\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15121,7 +15121,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Test file for SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Modified\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Thu, 26 April 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Thu, 26 April 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Mixed revision WC\";\nchar *ExtAllFixed   = \"All externals fixed\";\nchar *IsTagged      = \"Not tagged\";\nchar *URL           = \"https://tortoisesvn.googlecode.com/svn/trunk\";\nchar *isInSVN       = \"versioned\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"not locked\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Thu, 01 January 1970\";\nchar *lockcust      = \"Thu, 01 January 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Source is modified\n#endif\n\n// End of file\n"
 
 #. (para)
 msgid ""
@@ -15164,17 +15164,17 @@ msgstr "Овај метод прелази радну копију сакупљ�
 
 #. (literal)
 msgid "GetWCInfo()"
-msgstr ""
+msgstr "GetWCInfo()"
 
 #. (literal)
 msgid "-E"
-msgstr ""
+msgstr "-E"
 
 #. (entry)
 msgid ""
 "The same as <placeholder-1/> but with a fourth parameter that sets the "
 "equivalent to the <placeholder-2/> command line switch."
-msgstr ""
+msgstr "Исто као <placeholder-1/> али са четвртим параметром који се подешава исто као <placeholder-2/> прекидач командне линије. "
 
 #. (literal)
 msgid "$WCREV$"
@@ -15352,7 +15352,7 @@ msgid ""
 "WScript.Echo(wcInfoString3);\n"
 "WScript.Echo(wcInfoString4);\n"
 "\n"
-msgstr ""
+msgstr "\n// testCOM.js - javascript file\n// test script for the SubWCRev COM/Automation-object\n\nfilesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n\nrevObject1 = new ActiveXObject(\"SubWCRev.object\");\nrevObject2 = new ActiveXObject(\"SubWCRev.object\");\nrevObject3 = new ActiveXObject(\"SubWCRev.object\");\nrevObject4 = new ActiveXObject(\"SubWCRev.object\");\n\nrevObject1.GetWCInfo(\n    filesystem.GetAbsolutePathName(\".\"), 1, 1);\nrevObject2.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\nrevObject3.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\nrevObject4.GetWCInfo2(\n    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1, 1);\n\nwcInfoString1 = \"Revision = \" + revObject1.Revision +\n                \"\\nMin Revision = \" + revObject1.MinRev +\n                \"\\nMax Revision = \" + revObject1.MaxRev +\n                \"\\nDate = \" + revObject1.Date +\n                \"\\nURL = \" + revObject1.Url + \"\\nAuthor = \" +\n                revObject1.Author + \"\\nHasMods = \" +\n                revObject1.HasModifications + \"\\nIsSvnItem = \" +\n                revObject1.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject1.NeedsLocking + \"\\nIsLocked = \" +\n                revObject1.IsLocked + \"\\nLockCreationDate = \" +\n                revObject1.LockCreationDate + \"\\nLockOwner = \" +\n                revObject1.LockOwner + \"\\nLockComment = \" +\n                revObject1.LockComment;\nwcInfoString2 = \"Revision = \" + revObject2.Revision +\n                \"\\nMin Revision = \" + revObject2.MinRev +\n                \"\\nMax Revision = \" + revObject2.MaxRev +\n                \"\\nDate = \" + revObject2.Date +\n                \"\\nURL = \" + revObject2.Url + \"\\nAuthor = \" +\n                revObject2.Author + \"\\nHasMods = \" +\n                revObject2.HasModifications + \"\\nIsSvnItem = \" +\n                revObject2.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject2.NeedsLocking + \"\\nIsLocked = \" +\n                revObject2.IsLocked + \"\\nLockCreationDate = \" +\n                revObject2.LockCreationDate + \"\\nLockOwner = \" +\n                revObject2.LockOwner + \"\\nLockComment = \" +\n                revObject2.LockComment;\nwcInfoString3 = \"Revision = \" + revObject3.Revision +\n                \"\\nMin Revision = \" + revObject3.MinRev +\n                \"\\nMax Revision = \" + revObject3.MaxRev +\n                \"\\nDate = \" + revObject3.Date +\n                \"\\nURL = \" + revObject3.Url + \"\\nAuthor = \" +\n                revObject3.Author + \"\\nHasMods = \" +\n                revObject3.HasModifications + \"\\nIsSvnItem = \" +\n                revObject3.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject3.NeedsLocking + \"\\nIsLocked = \" +\n                revObject3.IsLocked + \"\\nLockCreationDate = \" +\n                revObject3.LockCreationDate + \"\\nLockOwner = \" +\n                revObject3.LockOwner + \"\\nLockComment = \" +\n                revObject3.LockComment;\nwcInfoString4 = \"Revision = \" + revObject4.Revision +\n                \"\\nMin Revision = \" + revObject4.MinRev +\n                \"\\nMax Revision = \" + revObject4.MaxRev +\n                \"\\nDate = \" + revObject4.Date +\n                \"\\nURL = \" + revObject4.Url + \"\\nAuthor = \" +\n                revObject4.Author + \"\\nHasMods = \" +\n                revObject4.HasModifications + \"\\nIsSvnItem = \" +\n                revObject4.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject4.NeedsLocking + \"\\nIsLocked = \" +\n                revObject4.IsLocked + \"\\nLockCreationDate = \" +\n                revObject4.LockCreationDate + \"\\nLockOwner = \" +\n                revObject4.LockOwner + \"\\nLockComment = \" +\n                revObject4.LockComment;\n\nWScript.Echo(wcInfoString1);\nWScript.Echo(wcInfoString2);\nWScript.Echo(wcInfoString3);\nWScript.Echo(wcInfoString4);\n\n"
 
 #. (para)
 msgid ""
