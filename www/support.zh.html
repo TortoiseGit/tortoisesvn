@@ -26,17 +26,7 @@
                     <p>这里提供了TortoiseSVN的各种支持方式.</p>
 
                     <h2>在线文档</h2>
-                    <p> <!-- google search -->
-                    <form action="http://www.google.com/cse" id="cse-search-box">
-                      <div>
-                        <input type="hidden" name="cx" value="partner-pub-0430507460695576:j0zyjq-56po"/>
-                        <input type="hidden" name="ie" value="ISO-8859-1"/>
-                        <input type="text" name="q" size="31"/>
-                        <input type="submit" name="sa" value="Search"/>
-                      </div>
-                    </form>
-                    <script src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en" type="text/javascript"></script><!-- end google search -->
-                    </p>
+                    <div class="gcse-searchbox-only"></div>
                 </div>
             </div>
 
@@ -396,6 +386,14 @@
     </div>
     <!-- end #page -->
     <!--#include FILE="footer.html"-->
+    <script type="text/javascript">
+        (function() {
+            var cx = 'partner-pub-0430507460695576:j0zyjq-56po';
+            var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+            gcse.src = 'http://www.google.com/cse/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
 </div>
 </body>
 </html>
