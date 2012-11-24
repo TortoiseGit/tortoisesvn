@@ -11,378 +11,378 @@
 </head>
 <body>
 <div id="langselection">
-	<a href="support.html">EN</a>&nbsp;<a href="support.de.html">DE</a>
+    <a href="support.html">EN</a>&nbsp;<a href="support.de.html">DE</a>
 </div>
 <div id="wrapper">
-	<!--#include FILE="menu.html"-->
-	<div id="page">
-		<div id="banner">&nbsp;</div>
-		<div id="content">
+    <!--#include FILE="menu.html"-->
+    <div id="page">
+        <div id="banner">&nbsp;</div>
+        <div id="content">
 
-			<div class="post" id="news">
-				<h2>What's New in TortoiseSVN 1.7</h2>
+            <div class="post" id="news">
+                <h2>What's New in TortoiseSVN 1.7</h2>
 
-				<ul>
-				  <li><a href="#wcformat"
-					  >Working copy metadata storage improvements</a></li>
-				  <li><a href="#x64"
-					  >x64 Installer</a></li>
-				  <li><a href="#propertydialogs"
-					  >Property dialogs</a></li>
-				  <li><a href="#win7libs"
-					  >Windows 7 Library</a></li>
-				  <li><a href="#logdlg"
-					  >Log dialog</a></li>
-				  <li><a href="#revgraph"
-					  >Revision graph</a></li>
-				  <li><a href="#branchtag"
-					  >Branch/Tag dialog</a></li>
-				  <li><a href="#commitdlg"
-					  >Commit dialog</a></li>
-				  <li><a href="#repobrowser"
-					  >Repository browser</a></li>
-				  <li><a href="#sparse"
-					  >Sparse checkouts</a></li>
-				  <li><a href="#tmerge"
-					  >TortoiseMerge</a></li>
-				  <li><a href="#compatibility"
-					  >Compatibility concerns</a></li>
-				</ul>
+                <ul>
+                  <li><a href="#wcformat"
+                      >Working copy metadata storage improvements</a></li>
+                  <li><a href="#x64"
+                      >x64 Installer</a></li>
+                  <li><a href="#propertydialogs"
+                      >Property dialogs</a></li>
+                  <li><a href="#win7libs"
+                      >Windows 7 Library</a></li>
+                  <li><a href="#logdlg"
+                      >Log dialog</a></li>
+                  <li><a href="#revgraph"
+                      >Revision graph</a></li>
+                  <li><a href="#branchtag"
+                      >Branch/Tag dialog</a></li>
+                  <li><a href="#commitdlg"
+                      >Commit dialog</a></li>
+                  <li><a href="#repobrowser"
+                      >Repository browser</a></li>
+                  <li><a href="#sparse"
+                      >Sparse checkouts</a></li>
+                  <li><a href="#tmerge"
+                      >TortoiseMerge</a></li>
+                  <li><a href="#compatibility"
+                      >Compatibility concerns</a></li>
+                </ul>
 
-				<p>TortoiseSVN 1.7 is a superset of all previous TortoiseSVN releases,
-				and is considered the current stable and "best" release. Anything in earlier versions
-				is also in 1.7, but 1.7 contains features and
-				bugfixes not present in any earlier release.</p>
-				<p>TortoiseSVN 1.7 dropped support for Windows 2000. It requires
-				at least Windows XP with service pack 3 to work. If you're still
-				using Windows 2000 or Windows XP without service pack 3, you
-				either have to upgrade your OS or keep using TortoiseSVN 1.6.</p>
+                <p>TortoiseSVN 1.7 is a superset of all previous TortoiseSVN releases,
+                and is considered the current stable and "best" release. Anything in earlier versions
+                is also in 1.7, but 1.7 contains features and
+                bugfixes not present in any earlier release.</p>
+                <p>TortoiseSVN 1.7 dropped support for Windows 2000. It requires
+                at least Windows XP with service pack 3 to work. If you're still
+                using Windows 2000 or Windows XP without service pack 3, you
+                either have to upgrade your OS or keep using TortoiseSVN 1.6.</p>
 
-				<p>This page describes only major changes. For a complete list
-				of changes, you can check our
-				<a href="http://code.google.com/p/tortoisesvn/source/list">commit logs</a>.</p>
-			</div>  <!-- news -->
+                <p>This page describes only major changes. For a complete list
+                of changes, you can check our
+                <a href="http://code.google.com/p/tortoisesvn/source/list">commit logs</a>.</p>
+            </div>  <!-- news -->
 
-			$ADSENSE_INPAGE$
+            $ADSENSE_INPAGE$
 
-			<div class="post" id="wcformat" title="WC format">
-				<h2>working copy metadata storage improvements</h2>
+            <div class="post" id="wcformat" title="WC format">
+                <h2>working copy metadata storage improvements</h2>
 
-				<p>Subversion 1.7 features a complete re-write of the working copy
-				metadata management system of Subversion, code named <b>WC-NG</b>.
-				You can find out more about this new format in the
-				<a href="http://subversion.apache.org/docs/release-notes/1.7.html#wc-ng">
-				Subversion 1.7 release notes</a>.</p>
+                <p>Subversion 1.7 features a complete re-write of the working copy
+                metadata management system of Subversion, code named <b>WC-NG</b>.
+                You can find out more about this new format in the
+                <a href="http://subversion.apache.org/docs/release-notes/1.7.html#wc-ng">
+                Subversion 1.7 release notes</a>.</p>
 
-				<div class="h4" id="single-db">
-				<h4>Centralized Metadata Storage</h4>
+                <div class="h4" id="single-db">
+                <h4>Centralized Metadata Storage</h4>
 
-				<p>A key feature of the changes introduced in Subversion 1.7 is the
-				centralization of working copy metadata storage into a single location.
-				Instead of a <code>.svn</code> directory in every directory in the working
-				copy, Subversion 1.7 working copies have just one <code>.svn</code>
-				directory&mdash;in the root of the working copy.  This directory includes
-				(among other things) an SQLite-backed database which contains all of the
-				metadata Subversion needs for that working copy.</p>
+                <p>A key feature of the changes introduced in Subversion 1.7 is the
+                centralization of working copy metadata storage into a single location.
+                Instead of a <code>.svn</code> directory in every directory in the working
+                copy, Subversion 1.7 working copies have just one <code>.svn</code>
+                directory&mdash;in the root of the working copy.  This directory includes
+                (among other things) an SQLite-backed database which contains all of the
+                metadata Subversion needs for that working copy.</p>
 
-				<p>Even though the data is stored in a structured format, the relationships
-				between the data are complex.  We highly discourage external tools from
-				modifying the data held in this database, as such modification is likely to
-				result in working copy corruption.</p>
-				</div>  <!-- single-db -->
+                <p>Even though the data is stored in a structured format, the relationships
+                between the data are complex.  We highly discourage external tools from
+                modifying the data held in this database, as such modification is likely to
+                result in working copy corruption.</p>
+                </div>  <!-- single-db -->
 
-				<div class="h4" id="wc-upgrade">
-				<h4>Upgrading the Working Copy</h4>
+                <div class="h4" id="wc-upgrade">
+                <h4>Upgrading the Working Copy</h4>
 
-				<p>Subversion 1.7 introduces substantial changes to the working copy format.
-				In previous releases, Subversion would automatically update
-				the working copy to the new format when a write operation was performed.
-				Subversion 1.7, however, will make this a manual step.</p>
-				<p>Before you can use an existing working copy with TortoiseSVN 1.7, you
-				have to upgrade the format first. If you right-click on an old
-				working copy, TortoiseSVN only shows you one command in the
-				context menu: <code>Upgrade working copy</code>.</p>
-				<img src="img/upgradewc.png"/>
-				<div class="tip">
-				<p>
-				To be on the safe side, you should run a <code>cleanup</code>
-				with your pre-1.7 svn client on all your working copies, because
-				if the working copy is in an inconsistent state the upgrade
-				process might fail. Best to run cleanup before installing the new
-				version of TortoiseSVN.
-				</p>
-				<p>
-				Even after cleanup the upgrade process does not always run as
-				smoothly as it should, and it can be quite slow. We recommend that
-				you commit all changes to your working copy (using your pre-1.7 client)
-				before upgrading. If the upgrade fails for any reason, just make
-				a fresh checkout.
-				</p>
-				</div>
-				<div class="caution">
-				<p>
-				Once you've upgraded your working copies, older SVN clients
-				won't be able to access those working copies. So make sure
-				that you update all your SVN clients (in case you use not
-				just TortoiseSVN).
-				</p>
-				<p>
-				For your convenience TortoiseSVN includes a copy of the 1.7 SVN
-				command line client in the <code>TortoiseSVN/bin</code> directory.
-				</p>
-				</div>
-				</div>  <!-- wc-upgrade -->
-			</div>  <!-- wcformat -->
+                <p>Subversion 1.7 introduces substantial changes to the working copy format.
+                In previous releases, Subversion would automatically update
+                the working copy to the new format when a write operation was performed.
+                Subversion 1.7, however, will make this a manual step.</p>
+                <p>Before you can use an existing working copy with TortoiseSVN 1.7, you
+                have to upgrade the format first. If you right-click on an old
+                working copy, TortoiseSVN only shows you one command in the
+                context menu: <code>Upgrade working copy</code>.</p>
+                <img src="img/upgradewc.png"/>
+                <div class="tip">
+                <p>
+                To be on the safe side, you should run a <code>cleanup</code>
+                with your pre-1.7 svn client on all your working copies, because
+                if the working copy is in an inconsistent state the upgrade
+                process might fail. Best to run cleanup before installing the new
+                version of TortoiseSVN.
+                </p>
+                <p>
+                Even after cleanup the upgrade process does not always run as
+                smoothly as it should, and it can be quite slow. We recommend that
+                you commit all changes to your working copy (using your pre-1.7 client)
+                before upgrading. If the upgrade fails for any reason, just make
+                a fresh checkout.
+                </p>
+                </div>
+                <div class="caution">
+                <p>
+                Once you've upgraded your working copies, older SVN clients
+                won't be able to access those working copies. So make sure
+                that you update all your SVN clients (in case you use not
+                just TortoiseSVN).
+                </p>
+                <p>
+                For your convenience TortoiseSVN includes a copy of the 1.7 SVN
+                command line client in the <code>TortoiseSVN/bin</code> directory.
+                </p>
+                </div>
+                </div>  <!-- wc-upgrade -->
+            </div>  <!-- wcformat -->
 
-			<div class="post" id="x64" title="x64">
-				<h2>x64 Installer</h2>
-				<p>In previous releases, users who installed TortoiseSVN on an
-				x64 OS also had to separately install the 32-bit version of
-				TortoiseSVN to get its features for 32-bit applications too.</p>
-				<p>TortoiseSVN 1.7 includes the required 32-bit parts in its
-				x64 installers. There's no need to install the 32-bit version
-				of TortoiseSVN on x64 OS.</p>
-			</div>  <!-- x64 -->
+            <div class="post" id="x64" title="x64">
+                <h2>x64 Installer</h2>
+                <p>In previous releases, users who installed TortoiseSVN on an
+                x64 OS also had to separately install the 32-bit version of
+                TortoiseSVN to get its features for 32-bit applications too.</p>
+                <p>TortoiseSVN 1.7 includes the required 32-bit parts in its
+                x64 installers. There's no need to install the 32-bit version
+                of TortoiseSVN on x64 OS.</p>
+            </div>  <!-- x64 -->
 
-			<div class="post" id="propertydialogs" title="Property dialogs">
-				<h2>Property dialogs</h2>
-				<p>Handling SVN properties is now much easier. Most of the
-				properties you want or need to set on your working copies
-				can now be set and modified without knowing the exact format.
-				TortoiseSVN 1.7 provides custom dialogs for most of the known
-				properties.</p>
-				<a href="img/propertydlgexternals.png" rel="lightbox"><img src="img/propertydlgexternals-small.png"></a>
-				<a href="img/propertydlgbugtraq.png" rel="lightbox"><img src="img/propertydlgbugtraq-small.png"></a>
-				<p>The above screenshots show the new property dialogs for
-				the <code>svn:externals</code> and all the <code>bugtraq:</code>
-				properties. There are more custom property dialogs available
-				in TortoiseSVN 1.7. Please have a look at the
-				<a href="docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-editors">docs</a>
-				to find out about all of them.</p>
-			</div>  <!-- propertydialogs -->
+            <div class="post" id="propertydialogs" title="Property dialogs">
+                <h2>Property dialogs</h2>
+                <p>Handling SVN properties is now much easier. Most of the
+                properties you want or need to set on your working copies
+                can now be set and modified without knowing the exact format.
+                TortoiseSVN 1.7 provides custom dialogs for most of the known
+                properties.</p>
+                <a href="img/propertydlgexternals.png" rel="lightbox"><img src="img/propertydlgexternals-small.png"></a>
+                <a href="img/propertydlgbugtraq.png" rel="lightbox"><img src="img/propertydlgbugtraq-small.png"></a>
+                <p>The above screenshots show the new property dialogs for
+                the <code>svn:externals</code> and all the <code>bugtraq:</code>
+                properties. There are more custom property dialogs available
+                in TortoiseSVN 1.7. Please have a look at the
+                <a href="docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-editors">docs</a>
+                to find out about all of them.</p>
+            </div>  <!-- propertydialogs -->
 
-			<div class="post" id="win7libs" title="Win7 libraries">
-				<h2>Windows 7 Library</h2>
-				<p>The explorer in Windows 7 introduced libraries, which are
-				containers for files and folders that have something in common.</p>
-				<p>TortoiseSVN 1.7 creates a new library type for SVN working
-				copies.</p>
-				<img src="img/win7svnlib.png"/>
-				<p>If you put the root folder of your working copies in that new
-				library folder, you get four buttons at the top of the explorer
-				which execute the most used commands: Commit, Update, Check for
-				modifications and Show log.</p>
-				<p>This saves you from using the right-click context menu for
-				these often used commands and really saves a lot of mouse clicks.</p>
-			</div>  <!-- win7libs -->
+            <div class="post" id="win7libs" title="Win7 libraries">
+                <h2>Windows 7 Library</h2>
+                <p>The explorer in Windows 7 introduced libraries, which are
+                containers for files and folders that have something in common.</p>
+                <p>TortoiseSVN 1.7 creates a new library type for SVN working
+                copies.</p>
+                <img src="img/win7svnlib.png"/>
+                <p>If you put the root folder of your working copies in that new
+                library folder, you get four buttons at the top of the explorer
+                which execute the most used commands: Commit, Update, Check for
+                modifications and Show log.</p>
+                <p>This saves you from using the right-click context menu for
+                these often used commands and really saves a lot of mouse clicks.</p>
+            </div>  <!-- win7libs -->
 
-			<div class="post" id="logdlg" title="Log dialog">
-				<h2>Log dialog</h2>
-				<p>The log dialog doesn't look much different. But in its core
-				it gained a lot of changes. Most noticable may be the increase
-				in performance. Showing and filtering hundred thousand entries
-				is now done almost instantly.</p>
-				<p>Filtering also has improved a lot. Especially the syntax now
-				resembles more what users are used to from web search engines.
-				For example, filtering for <code>Alice Bob -Eve</code> will
-				show strings containing both Alice and Bob but not Eve. For more
-				detailed examples, please refer to the
-				<a href="http://tortoisesvn.net/docs/nightly/TortoiseSVN_en/tsvn-dug-showlog.html#tsvn-dug-showlog-filter">docs</a>.</p>
-				<p>Another feature the log dialog has is that it highlights
-				filter matches in red. That way it's much easier to find out
-				which part of a log entry matched the filter string.</p>
-				<a href="img/logfilter.png" rel="lightbox"><img src="img/logfilter-small.png"></a>
-				<p>If revisions are mentioned in a log message, then the log
-				dialog turns those into links. Clicking on those links will
-				automatically select the mentioned revision in the log dialog.</p>
-				<a href="img/loglinks.png" rel="lightbox"><img src="img/loglinks-small.png"></a>
-			</div>  <!-- logdlg -->
+            <div class="post" id="logdlg" title="Log dialog">
+                <h2>Log dialog</h2>
+                <p>The log dialog doesn't look much different. But in its core
+                it gained a lot of changes. Most noticable may be the increase
+                in performance. Showing and filtering hundred thousand entries
+                is now done almost instantly.</p>
+                <p>Filtering also has improved a lot. Especially the syntax now
+                resembles more what users are used to from web search engines.
+                For example, filtering for <code>Alice Bob -Eve</code> will
+                show strings containing both Alice and Bob but not Eve. For more
+                detailed examples, please refer to the
+                <a href="http://tortoisesvn.net/docs/nightly/TortoiseSVN_en/tsvn-dug-showlog.html#tsvn-dug-showlog-filter">docs</a>.</p>
+                <p>Another feature the log dialog has is that it highlights
+                filter matches in red. That way it's much easier to find out
+                which part of a log entry matched the filter string.</p>
+                <a href="img/logfilter.png" rel="lightbox"><img src="img/logfilter-small.png"></a>
+                <p>If revisions are mentioned in a log message, then the log
+                dialog turns those into links. Clicking on those links will
+                automatically select the mentioned revision in the log dialog.</p>
+                <a href="img/loglinks.png" rel="lightbox"><img src="img/loglinks-small.png"></a>
+            </div>  <!-- logdlg -->
 
-			<div class="post" id="revgraph" title="Revision graph">
-				<h2>Revision graph</h2>
-				<p>The revision graph also got a lot of improvements. Escpecially
-				the startup time has been reduced a lot, which will be most
-				noticable for very big repositories.</p>
-				<p>Since revision graphs can get very big, saving them as bitmap
-				images can lead to very big images. While it was possible to
-				save the graph as a <a href="http://en.wikipedia.org/wiki/Windows_Metafile">wmf file</a>,
-				that format can only be used on Windows. And of course, you can't
-				show it in a web browser.</p>
-				<p>The revision graph in version 1.7 can save the graph in
-				the <a href="http://en.wikipedia.org/wiki/Svg">svg format</a>.
-				Most web browsers can show that format natively, and even Internet
-				Explorer in its latest version is able to show those files directly.</p>
-				<p>If your browser supports this format, you can have a look
-				at the TortoiseSVN revision graph following <a href="img/tsvn.svg">this link</a>.</p>
-			</div>  <!-- revgraph -->
+            <div class="post" id="revgraph" title="Revision graph">
+                <h2>Revision graph</h2>
+                <p>The revision graph also got a lot of improvements. Escpecially
+                the startup time has been reduced a lot, which will be most
+                noticable for very big repositories.</p>
+                <p>Since revision graphs can get very big, saving them as bitmap
+                images can lead to very big images. While it was possible to
+                save the graph as a <a href="http://en.wikipedia.org/wiki/Windows_Metafile">wmf file</a>,
+                that format can only be used on Windows. And of course, you can't
+                show it in a web browser.</p>
+                <p>The revision graph in version 1.7 can save the graph in
+                the <a href="http://en.wikipedia.org/wiki/Svg">svg format</a>.
+                Most web browsers can show that format natively, and even Internet
+                Explorer in its latest version is able to show those files directly.</p>
+                <p>If your browser supports this format, you can have a look
+                at the TortoiseSVN revision graph following <a href="img/tsvn.svg">this link</a>.</p>
+            </div>  <!-- revgraph -->
 
-			<div class="post" id="branchtag" title="Branch/Tag dialog">
-				<h2>Branch/Tag dialog</h2>
-				<p>When creating a branch or tag, the <code>svn:externals</code>
-				properties are branched/tagged as they are, usually pointing
-				to the HEAD revision of another repository or even the same
-				repository but different path.</p>
-				<p>If the <code>svn:externals</code> are not <i>tagged</i> too,
-				a later checkout from the created tag would fetch the HEAD
-				revision of the external, which can lead to inconsistent builds
-				if the external got additional commits.</p>
-				<p>The branch/tag dialog now allows you to <i>tag</i> the
-				externals too.</p>
-				<a href="img/branchtagexternals.png" rel="lightbox"><img src="img/branchtagexternals-small.png"></a>
-				<p>If externals are set to an explicit revision when creating
-				a branch or tag, TortoiseSVN automatically changes the
-				<code>svn:externals</code> property. When the branch/tag is
-				created from HEAD or a specific revision in the repository,
-				TortoiseSVN first creates the branch/tag, then adjusts the
-				properties. This will create additional commits for each
-				property. When the branch/tag is created from the working copy,
-				the properties are modified first, then the branch/tag is
-				created and then the properties are changed back to their
-				original value.</p>
-			</div>  <!-- branchtag -->
+            <div class="post" id="branchtag" title="Branch/Tag dialog">
+                <h2>Branch/Tag dialog</h2>
+                <p>When creating a branch or tag, the <code>svn:externals</code>
+                properties are branched/tagged as they are, usually pointing
+                to the HEAD revision of another repository or even the same
+                repository but different path.</p>
+                <p>If the <code>svn:externals</code> are not <i>tagged</i> too,
+                a later checkout from the created tag would fetch the HEAD
+                revision of the external, which can lead to inconsistent builds
+                if the external got additional commits.</p>
+                <p>The branch/tag dialog now allows you to <i>tag</i> the
+                externals too.</p>
+                <a href="img/branchtagexternals.png" rel="lightbox"><img src="img/branchtagexternals-small.png"></a>
+                <p>If externals are set to an explicit revision when creating
+                a branch or tag, TortoiseSVN automatically changes the
+                <code>svn:externals</code> property. When the branch/tag is
+                created from HEAD or a specific revision in the repository,
+                TortoiseSVN first creates the branch/tag, then adjusts the
+                properties. This will create additional commits for each
+                property. When the branch/tag is created from the working copy,
+                the properties are modified first, then the branch/tag is
+                created and then the properties are changed back to their
+                original value.</p>
+            </div>  <!-- branchtag -->
 
-			<div class="post" id="commitdlg" title="Commit dialog">
-				<h2>Commit dialog</h2>
-				<p>The commit dialog got a few UI changes as well. The first
-				thing you'll notice are the new link labels just above the
-				list with the items to commit. These links are used to check
-				or uncheck specific items. With those link labels, that task
-				is much easier to accomplish than with the checkboxes that were
-				used in earlier versions.</p>
-				<a href="img/commitdlg.png" rel="lightbox"><img src="img/commitdlg-small.png"></a>
-				<p>The commit dialog now also shows a notification if there
-				are updates for TortoiseSVN available, i.e., if you don't have
-				the latest version installed. This replaces the separate dialog
-				that popped up in previous versions since many users got annoyed
-				by that pop up dialog.</p>
-				<a href="img/upgradecheck.png" rel="lightbox"><img src="img/upgradecheck-small.png"></a>
-			</div>  <!-- commitdlg -->
+            <div class="post" id="commitdlg" title="Commit dialog">
+                <h2>Commit dialog</h2>
+                <p>The commit dialog got a few UI changes as well. The first
+                thing you'll notice are the new link labels just above the
+                list with the items to commit. These links are used to check
+                or uncheck specific items. With those link labels, that task
+                is much easier to accomplish than with the checkboxes that were
+                used in earlier versions.</p>
+                <a href="img/commitdlg.png" rel="lightbox"><img src="img/commitdlg-small.png"></a>
+                <p>The commit dialog now also shows a notification if there
+                are updates for TortoiseSVN available, i.e., if you don't have
+                the latest version installed. This replaces the separate dialog
+                that popped up in previous versions since many users got annoyed
+                by that pop up dialog.</p>
+                <a href="img/upgradecheck.png" rel="lightbox"><img src="img/upgradecheck-small.png"></a>
+            </div>  <!-- commitdlg -->
 
-			<div class="post" id="repobrowser" title="Repo browser">
-				<h2>Repository browser</h2>
-				<p>The repository browser shows folders that are included with
-				the <code>svn:externals</code> property. It's also possible to
-				browse to those folders, even if they are located in different
-				repositories. The external folders are marked with a red arrow
-				to distinguish them from normal folders in the repository.</p>
-				<a href="img/repobrowserexternals.png" rel="lightbox"><img src="img/repobrowserexternals-small.png"></a>
-				<p>It's now also possible to edit a file directly from the
-				repository browser. This makes it easy to make quick changes
-				to a file without having to check out a whole working copy.</p>
-				<p>Starting up the repository browser and browsing itself
-				also got a lot faster in 1.7 due to heavy caching and pre-fetching
-				information in the background.</p>
-			</div>  <!-- repobrowser -->
+            <div class="post" id="repobrowser" title="Repo browser">
+                <h2>Repository browser</h2>
+                <p>The repository browser shows folders that are included with
+                the <code>svn:externals</code> property. It's also possible to
+                browse to those folders, even if they are located in different
+                repositories. The external folders are marked with a red arrow
+                to distinguish them from normal folders in the repository.</p>
+                <a href="img/repobrowserexternals.png" rel="lightbox"><img src="img/repobrowserexternals-small.png"></a>
+                <p>It's now also possible to edit a file directly from the
+                repository browser. This makes it easy to make quick changes
+                to a file without having to check out a whole working copy.</p>
+                <p>Starting up the repository browser and browsing itself
+                also got a lot faster in 1.7 due to heavy caching and pre-fetching
+                information in the background.</p>
+            </div>  <!-- repobrowser -->
 
-			<div class="post" id="sparse" title="Sparse checkouts">
-				<h2>Sparse checkouts</h2>
-				<p>If you only need a working copy that has only a few folders
-				of the project, you have to do a so called <code>sparse checkout</code>.
-				In previous versions this was done in multiple steps by first
-				checking out the parent folder with depth empty, then updating
-				the folders you want one by one with the required depth.</p>
-				<p>Now this is much easier: in the checkout dialog there's
-				a button <code>choose items...</code> which opens a new dialog
-				where you can easily check the folders and files you want and
-				uncheck those you do not need.</p>
-				<a href="img/sparsecheckout.png" rel="lightbox"><img src="img/sparsecheckout-small.png"></a>
-				<p>After everything is selected, the checkout will take care
-				of the rest and you'll end up with the sparse working copy
-				you want - all in one easy step.</p>
-			</div>  <!-- sparse -->
+            <div class="post" id="sparse" title="Sparse checkouts">
+                <h2>Sparse checkouts</h2>
+                <p>If you only need a working copy that has only a few folders
+                of the project, you have to do a so called <code>sparse checkout</code>.
+                In previous versions this was done in multiple steps by first
+                checking out the parent folder with depth empty, then updating
+                the folders you want one by one with the required depth.</p>
+                <p>Now this is much easier: in the checkout dialog there's
+                a button <code>choose items...</code> which opens a new dialog
+                where you can easily check the folders and files you want and
+                uncheck those you do not need.</p>
+                <a href="img/sparsecheckout.png" rel="lightbox"><img src="img/sparsecheckout-small.png"></a>
+                <p>After everything is selected, the checkout will take care
+                of the rest and you'll end up with the sparse working copy
+                you want - all in one easy step.</p>
+            </div>  <!-- sparse -->
 
-			<div class="post" id="tmerge" title="TortoiseMerge">
-				<h2>TortoiseMerge</h2>
-				TortoiseMerge gained a few often requested features:
-				<dl>
-					<dt>hiding of unchanged sections</dt>
-					<dd>Sections which do not contain any differences can be
-					hidden so that only the changes are visible. This helps
-					to get a better overview of the changes without too much
-					scrolling.</dd>
-					<dt>splitting of long lines</dt>
-					<dd>overly long lines are hard to view since they require
-					a lot of sideways scrolling. A new option allows to split
-					those lines into multiple lines when viewing so no
-					side-scrolling is necessary anymore.</dd>
-					<dt>marking of words</dt>
-					<dd>a doubleclick on a word/variable/statement/... marks
-					that word throughout the whole document. And the view bar
-					on the left also indicates where the same word/variable/statement
-					in the document can be found. This allows for a much easier
-					review of changes.</dd>
-				</dl>
-			</div>  <!-- repobrowser -->
+            <div class="post" id="tmerge" title="TortoiseMerge">
+                <h2>TortoiseMerge</h2>
+                TortoiseMerge gained a few often requested features:
+                <dl>
+                    <dt>hiding of unchanged sections</dt>
+                    <dd>Sections which do not contain any differences can be
+                    hidden so that only the changes are visible. This helps
+                    to get a better overview of the changes without too much
+                    scrolling.</dd>
+                    <dt>splitting of long lines</dt>
+                    <dd>overly long lines are hard to view since they require
+                    a lot of sideways scrolling. A new option allows to split
+                    those lines into multiple lines when viewing so no
+                    side-scrolling is necessary anymore.</dd>
+                    <dt>marking of words</dt>
+                    <dd>a doubleclick on a word/variable/statement/... marks
+                    that word throughout the whole document. And the view bar
+                    on the left also indicates where the same word/variable/statement
+                    in the document can be found. This allows for a much easier
+                    review of changes.</dd>
+                </dl>
+            </div>  <!-- repobrowser -->
 
-			<div class="post" id="compatibility" title="Compatibility">
-				<h2>Compatibility concerns</h2>
+            <div class="post" id="compatibility" title="Compatibility">
+                <h2>Compatibility concerns</h2>
 
-				<h3>Local Client Compatibility</h3>
-				<p>Subversion working copies are sometimes accessed using
-				several different clients, e.g. TortoiseSVN, AnkhSVN,
-				and the svn command line client. Because the working copy format
-				has changed with this release, 1.7 clients cannot access an earlier
-				working copy without first upgrading it. Pre-1.7 clients cannot access
-				1.7 working copies at all and there is no downgrade option.
-				</p>
-				<p>Migrating to 1.7 working copies must be considered a one-way
-				operation. If you need to use multiple clients on the same working
-				copy then be sure that you can update all the clients before upgrading
-				the working copy.
-				</p>
+                <h3>Local Client Compatibility</h3>
+                <p>Subversion working copies are sometimes accessed using
+                several different clients, e.g. TortoiseSVN, AnkhSVN,
+                and the svn command line client. Because the working copy format
+                has changed with this release, 1.7 clients cannot access an earlier
+                working copy without first upgrading it. Pre-1.7 clients cannot access
+                1.7 working copies at all and there is no downgrade option.
+                </p>
+                <p>Migrating to 1.7 working copies must be considered a one-way
+                operation. If you need to use multiple clients on the same working
+                copy then be sure that you can update all the clients before upgrading
+                the working copy.
+                </p>
 
-				<h3>Client Server Compatibility</h3>
-				<p>Older clients and servers interoperate transparently with 1.7
-				servers and clients.  That is to say, you can use a 1.7 client with
-				an older server, and you can use a 1.7 server with older clients.
-				However, some of the new 1.7 features may
-				not be available unless both client and server are the latest
-				version.  There are also cases where a new feature will work
-				but will run less efficiently if the client is new and the
-				server old.</p>
+                <h3>Client Server Compatibility</h3>
+                <p>Older clients and servers interoperate transparently with 1.7
+                servers and clients.  That is to say, you can use a 1.7 client with
+                an older server, and you can use a 1.7 server with older clients.
+                However, some of the new 1.7 features may
+                not be available unless both client and server are the latest
+                version.  There are also cases where a new feature will work
+                but will run less efficiently if the client is new and the
+                server old.</p>
 
-				<div class="h4" id="new-feature-compatibility-table">
-				<h4>New Feature Compatibility Table</h4>
-				<table border="1">
-				  <tr>
-					<th>New Feature</th>
-					<th>Minimum Client<sup>1</sup></th>
-					<th>Minimum Server</th>
-					<th>Minimum Repository</th>
-					<th>Notes</th></tr>
-				  <tr>
-					<td><a href="http://subversion.apache.org/docs/release-notes/1.7.html#httpv2">HTTPv2</a></td>
-					<td>1.7</td>
-					<td>1.7</td>
-					<td>any</td>
-					<td>Permutations of older client/server combinations will continue to
-					  function at the pre-1.7 feature level.</td></tr>
-				  <tr>
-					<td><a href="http://subversion.apache.org/docs/release-notes/1.7.html#wc-ng">WC-NG</a></td>
-					<td>1.7</td>
-					<td>any</td>
-					<td>any</td>
-					<td>1.6 working copies cannot be used with 1.7 and will
-						<strong>not</strong> be upgraded to the new 1.7 format
-						automatically.</td></tr>
-				   <tr>
-					 <td colspan="5"><sup>1</sup>Reminder: when using the <code>file://</code>
-					   repository access method, the Subversion program is both the client
-					   <em>and</em> the server.</td></tr>
-				</table>
+                <div class="h4" id="new-feature-compatibility-table">
+                <h4>New Feature Compatibility Table</h4>
+                <table border="1">
+                  <tr>
+                    <th>New Feature</th>
+                    <th>Minimum Client<sup>1</sup></th>
+                    <th>Minimum Server</th>
+                    <th>Minimum Repository</th>
+                    <th>Notes</th></tr>
+                  <tr>
+                    <td><a href="http://subversion.apache.org/docs/release-notes/1.7.html#httpv2">HTTPv2</a></td>
+                    <td>1.7</td>
+                    <td>1.7</td>
+                    <td>any</td>
+                    <td>Permutations of older client/server combinations will continue to
+                      function at the pre-1.7 feature level.</td></tr>
+                  <tr>
+                    <td><a href="http://subversion.apache.org/docs/release-notes/1.7.html#wc-ng">WC-NG</a></td>
+                    <td>1.7</td>
+                    <td>any</td>
+                    <td>any</td>
+                    <td>1.6 working copies cannot be used with 1.7 and will
+                        <strong>not</strong> be upgraded to the new 1.7 format
+                        automatically.</td></tr>
+                   <tr>
+                     <td colspan="5"><sup>1</sup>Reminder: when using the <code>file://</code>
+                       repository access method, the Subversion program is both the client
+                       <em>and</em> the server.</td></tr>
+                </table>
 
-				</div>  <!-- new-feature-compatibility-table -->
+                </div>  <!-- new-feature-compatibility-table -->
 
-			</div>  <!-- compatibility -->
+            </div>  <!-- compatibility -->
 
-		</div>
-		<!-- end #content -->
+        </div>
+        <!-- end #content -->
 
-		<!--#include FILE="sidebar.html"-->
-		<div style="clear: both">&nbsp;</div>
-	</div>
-	<!-- end #page -->
-	<!--#include FILE="footer-js.html"-->
+        <!--#include FILE="sidebar.html"-->
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    <!--#include FILE="footer-js.html"-->
 </div>
 </body>
 </html>

@@ -11,165 +11,165 @@
 </head>
 <body>
 <div id="wrapper">
-	<!--#include FILE="menu.html"-->
-	<div id="page">
-		<div id="banner">&nbsp;</div>
-		<div id="content">
+    <!--#include FILE="menu.html"-->
+    <div id="page">
+        <div id="banner">&nbsp;</div>
+        <div id="content">
 
-			<div class="post">
-				<h1 class="title"><a href="#">Problems with upgrading</a></h1>
-				<p class="meta">Posted on September 17, 2010</p>
-				$ADSENSE_TOP$
-				<div class="entry">
-					<p>Some of you may have noticed that the last two versions
-					of TortoiseSVN did not always install properly if an older
-					version was already installed. To fix the problem, all you
-					needed to do was to run the installer again and choose
-					"Repair" in the dialog.</p>
-					<p>Unfortunately, the next version (supposed to be 1.6.10)
-					will have the very same problem. I'm sorry about that. But
-					the versions after that should work fine again. That means
-					an update from any version to version 1.6.10 or later will
-					require a repair install!</p>
+            <div class="post">
+                <h1 class="title"><a href="#">Problems with upgrading</a></h1>
+                <p class="meta">Posted on September 17, 2010</p>
+                $ADSENSE_TOP$
+                <div class="entry">
+                    <p>Some of you may have noticed that the last two versions
+                    of TortoiseSVN did not always install properly if an older
+                    version was already installed. To fix the problem, all you
+                    needed to do was to run the installer again and choose
+                    "Repair" in the dialog.</p>
+                    <p>Unfortunately, the next version (supposed to be 1.6.10)
+                    will have the very same problem. I'm sorry about that. But
+                    the versions after that should work fine again. That means
+                    an update from any version to version 1.6.10 or later will
+                    require a repair install!</p>
 
-					<p>If you want to know more about the technical details of
-					the problem, read on. If not, just remember that all you
-					have to do is to run the installer again and choose
-					"Repair".</p>
+                    <p>If you want to know more about the technical details of
+                    the problem, read on. If not, just remember that all you
+                    have to do is to run the installer again and choose
+                    "Repair".</p>
 
-					<p>Now the technical details:</p>
-					<p>TortoiseSVN uses <a href="http://wix.sourceforge.net/">WiX</a>
-					to create the msi installer. MSI has a built in mechanism
-					for upgrading packages. In TortoiseSVN, we always use
-					the <a href="http://msdn.microsoft.com/en-us/library/aa370579%28VS.85%29.aspx">major upgrade</a>.</p>
+                    <p>Now the technical details:</p>
+                    <p>TortoiseSVN uses <a href="http://wix.sourceforge.net/">WiX</a>
+                    to create the msi installer. MSI has a built in mechanism
+                    for upgrading packages. In TortoiseSVN, we always use
+                    the <a href="http://msdn.microsoft.com/en-us/library/aa370579%28VS.85%29.aspx">major upgrade</a>.</p>
 
-					<p>Msi groups files/registry entries/settings/... which are
-					to be installed into <a href="http://msdn.microsoft.com/en-us/library/aa368007%28VS.85%29.aspx">components</a>.
-					Each component then contains the files/registry entries/...
-					to install. It either installs everything that's grouped
-					into a component or nothing. Installing only part of a
-					component is not possible. Of course, that also applies for
-					upgrades: either the whole component is upgraded or the
-					whole component is left unchanged.</p>
+                    <p>Msi groups files/registry entries/settings/... which are
+                    to be installed into <a href="http://msdn.microsoft.com/en-us/library/aa368007%28VS.85%29.aspx">components</a>.
+                    Each component then contains the files/registry entries/...
+                    to install. It either installs everything that's grouped
+                    into a component or nothing. Installing only part of a
+                    component is not possible. Of course, that also applies for
+                    upgrades: either the whole component is upgraded or the
+                    whole component is left unchanged.</p>
 
-					<p>When upgrading, TortoiseSVN also schedules the
-					<a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
-					action right after the InstallFinalize action. This is to
-					make sure that even when upgrading, nothing old and unused
-					is left lying around.</p>
+                    <p>When upgrading, TortoiseSVN also schedules the
+                    <a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
+                    action right after the InstallFinalize action. This is to
+                    make sure that even when upgrading, nothing old and unused
+                    is left lying around.</p>
 
-					<p>When upgrading, msi doesn't just upgrade unconditionally
-					but first checks whether a component actually needs upgrading.
-					To help msi check whether an upgrade is necessary, each component
-					has a <a href="http://robmensching.com/blog/posts/2003/10/4/Windows-Installer-Components-Introduction">keypath</a>.
-					A keypath is usually a file or a registry key. In case of a
-					file, msi uses the file's version info and/or the filedate
-					to determine whether to upgrade or not and whether the
-					component is already installed or not. If the keypath points
-					to a registry key, msi can only determine whether the
-					component is already installed or not, since a registry key
-					has no version info and no date.</p>
+                    <p>When upgrading, msi doesn't just upgrade unconditionally
+                    but first checks whether a component actually needs upgrading.
+                    To help msi check whether an upgrade is necessary, each component
+                    has a <a href="http://robmensching.com/blog/posts/2003/10/4/Windows-Installer-Components-Introduction">keypath</a>.
+                    A keypath is usually a file or a registry key. In case of a
+                    file, msi uses the file's version info and/or the filedate
+                    to determine whether to upgrade or not and whether the
+                    component is already installed or not. If the keypath points
+                    to a registry key, msi can only determine whether the
+                    component is already installed or not, since a registry key
+                    has no version info and no date.</p>
 
-					<p>In Version 1.6.8 of TortoiseSVN, we changed the values
-					and names of some registry keys that are used for the icon
-					overlays. We had all those registry entries placed into a
-					separate component, so that component only had registry
-					entries and no files. That of course also means that the
-					keypath of that component is a registry key.</p>
-					<p>Now here's what happened when you upgraded to version 1.6.8:</p>
-					<ol>
-						<li>msi starts</li>
-						<li>it detects the older version and all old components,
-						also whether a component needs updating or not. </li>
-						<li>msi installs the new version. All components that
-						need upgrading are upgraded/installed. And here's the
-						problem: components that have a registry key as the
-						keypath are not upgraded if that keypath already exists!</li>
-						<li>After the installation of the new components is done,
-						msi removes all old components. Of course, the
-						components that were upgraded are not removed since
-						they are now newer than the one it has to remove.</li>
-					</ol>
-					<p>As you can see, the problem with version 1.6.8 was in
-					step 3. The old component was left in place in the upgrade.
-					Doing a repair install forces msi to reinstall all components
-					in step 3, so that fixed the problem.</p>
-					<p>So I thought to fix the problem in our msi, scheduling
-					the <a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
-					action after the InstallValidate action was all that's
-					needed. Which leads to the following install steps in
-					version 1.6.9:</p>
-					<ol>
-						<li>msi starts</li>
-						<li>it detects the older version and all old components,
-						also whether a component needs updating or not. </li>
-						<li>msi removes all components of the previous version</li>
-						<li>msi installs the new version. All components are
-						installed since the older components were just removed.
-						So even components that have a registry key as the
-						keypath get properly upgraded.</li>
-					</ol>
-					<p>So everything's fine, right? As it turned out: not so
-					much. Unfortunately there's a problem when using components
-					that get installed in the <a href="http://msdn.microsoft.com/en-us/library/aa376307%28VS.85%29.aspx">SxS</a>
-					cache. TortoiseSVN uses the C-runtime and MFC components of
-					Visual Studio which happen to be such components, the
-					problem described in <a href="http://support.microsoft.com/kb/905238">kb905238</a>
-					happened. It's a long read but worth it if you're interested.
-					Short version: such components get removed but not installed
-					again, so they're missing after the installation.</p>
-					<p>Of course, as with the problem with the 1.6.8 version, a
-					repair install was all you had to do to get TortoiseSVN
-					installed and running correctly again.</p>
-					<p>As it seems, there is no solution that really works.</p>
-					<p>The only way we can get an installer that works properly
-					when upgrading, i.e., upgrades all components reliably even
-					if we just change registry entries is to <b>not</b> use
-					registry keys as the keypath of components.</p>
+                    <p>In Version 1.6.8 of TortoiseSVN, we changed the values
+                    and names of some registry keys that are used for the icon
+                    overlays. We had all those registry entries placed into a
+                    separate component, so that component only had registry
+                    entries and no files. That of course also means that the
+                    keypath of that component is a registry key.</p>
+                    <p>Now here's what happened when you upgraded to version 1.6.8:</p>
+                    <ol>
+                        <li>msi starts</li>
+                        <li>it detects the older version and all old components,
+                        also whether a component needs updating or not. </li>
+                        <li>msi installs the new version. All components that
+                        need upgrading are upgraded/installed. And here's the
+                        problem: components that have a registry key as the
+                        keypath are not upgraded if that keypath already exists!</li>
+                        <li>After the installation of the new components is done,
+                        msi removes all old components. Of course, the
+                        components that were upgraded are not removed since
+                        they are now newer than the one it has to remove.</li>
+                    </ol>
+                    <p>As you can see, the problem with version 1.6.8 was in
+                    step 3. The old component was left in place in the upgrade.
+                    Doing a repair install forces msi to reinstall all components
+                    in step 3, so that fixed the problem.</p>
+                    <p>So I thought to fix the problem in our msi, scheduling
+                    the <a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
+                    action after the InstallValidate action was all that's
+                    needed. Which leads to the following install steps in
+                    version 1.6.9:</p>
+                    <ol>
+                        <li>msi starts</li>
+                        <li>it detects the older version and all old components,
+                        also whether a component needs updating or not. </li>
+                        <li>msi removes all components of the previous version</li>
+                        <li>msi installs the new version. All components are
+                        installed since the older components were just removed.
+                        So even components that have a registry key as the
+                        keypath get properly upgraded.</li>
+                    </ol>
+                    <p>So everything's fine, right? As it turned out: not so
+                    much. Unfortunately there's a problem when using components
+                    that get installed in the <a href="http://msdn.microsoft.com/en-us/library/aa376307%28VS.85%29.aspx">SxS</a>
+                    cache. TortoiseSVN uses the C-runtime and MFC components of
+                    Visual Studio which happen to be such components, the
+                    problem described in <a href="http://support.microsoft.com/kb/905238">kb905238</a>
+                    happened. It's a long read but worth it if you're interested.
+                    Short version: such components get removed but not installed
+                    again, so they're missing after the installation.</p>
+                    <p>Of course, as with the problem with the 1.6.8 version, a
+                    repair install was all you had to do to get TortoiseSVN
+                    installed and running correctly again.</p>
+                    <p>As it seems, there is no solution that really works.</p>
+                    <p>The only way we can get an installer that works properly
+                    when upgrading, i.e., upgrades all components reliably even
+                    if we just change registry entries is to <b>not</b> use
+                    registry keys as the keypath of components.</p>
 
-					<p>So that's what I did now: I moved all registry entries
-					to components that have a file as the keypath, and a file
-					that has version info. That way, msi detects the version
-					and always installs the new version. And of course I've
-					rescheduled the <a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
-					action to run after the InstallFinalize action to avoid the
-					problem described in <a href="http://support.microsoft.com/kb/905238">kb905238</a>.
-					So after you've installed the next version of TortoiseSVN
-					(will be version 1.6.10), upgrading to newer versions
-					(>= 1.6.11) should work properly again.</p>
-					<p>But of course: upgrading to 1.6.10 from any previous
-					version will have the same problem as version 1.6.8 had.
-					That's because the components that installed only the
-					registry entries are installed in step 3 properly since
-					they're now part of a component with a file path as the
-					keypath, but then the old components are removed in step 4.
-					And because the old components had the same registry
-					entries as were installed in step 3, they're gone now.</p>
-					<p>To sum up: the problems we have were due to my mistake
-					of using registry keys as keypaths for components. There's
-					no way to fix this in msi so that upgrades from older
-					versions (which had this mistake built in) work. But it
-					will work again properly for upgrades with versions that
-					don't have that mistake anymore. That means once you have
-					1.6.10 installed, upgrades to higher versions will work
-					again properly.</p>
-					<h2>Update:</h2>
-					<p>Ivan Zhakov <a href="http://tortoisesvn.tigris.org/ds/viewMessage.do?dsForumId=757&amp;dsMessageId=2646381">suggested</a>
-					a solution that could have worked better: mark the
-					registry-only components to use the parent folder as the
-					keypath. To do this just add KeyPath='yes' to the Component
-					element and remove KeyPath='yes' from the RegistryKey
-					element.</p>
-				</div>
-			</div>
-		</div>
-		<!-- end #content -->
+                    <p>So that's what I did now: I moved all registry entries
+                    to components that have a file as the keypath, and a file
+                    that has version info. That way, msi detects the version
+                    and always installs the new version. And of course I've
+                    rescheduled the <a href="http://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
+                    action to run after the InstallFinalize action to avoid the
+                    problem described in <a href="http://support.microsoft.com/kb/905238">kb905238</a>.
+                    So after you've installed the next version of TortoiseSVN
+                    (will be version 1.6.10), upgrading to newer versions
+                    (>= 1.6.11) should work properly again.</p>
+                    <p>But of course: upgrading to 1.6.10 from any previous
+                    version will have the same problem as version 1.6.8 had.
+                    That's because the components that installed only the
+                    registry entries are installed in step 3 properly since
+                    they're now part of a component with a file path as the
+                    keypath, but then the old components are removed in step 4.
+                    And because the old components had the same registry
+                    entries as were installed in step 3, they're gone now.</p>
+                    <p>To sum up: the problems we have were due to my mistake
+                    of using registry keys as keypaths for components. There's
+                    no way to fix this in msi so that upgrades from older
+                    versions (which had this mistake built in) work. But it
+                    will work again properly for upgrades with versions that
+                    don't have that mistake anymore. That means once you have
+                    1.6.10 installed, upgrades to higher versions will work
+                    again properly.</p>
+                    <h2>Update:</h2>
+                    <p>Ivan Zhakov <a href="http://tortoisesvn.tigris.org/ds/viewMessage.do?dsForumId=757&amp;dsMessageId=2646381">suggested</a>
+                    a solution that could have worked better: mark the
+                    registry-only components to use the parent folder as the
+                    keypath. To do this just add KeyPath='yes' to the Component
+                    element and remove KeyPath='yes' from the RegistryKey
+                    element.</p>
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
 
-		<!--#include FILE="sidebar.html"-->
-		<div style="clear: both">&nbsp;</div>
-	</div>
-	<!-- end #page -->
-	<!--#include FILE="footer.html"-->
+        <!--#include FILE="sidebar.html"-->
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    <!--#include FILE="footer.html"-->
 </div>
 </body>
 </html>
