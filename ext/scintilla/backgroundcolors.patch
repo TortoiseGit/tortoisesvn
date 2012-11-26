@@ -1,8 +1,8 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(revision 23103)
+--- include/Scintilla.h	(revision 23509)
 +++ include/Scintilla.h	(working copy)
-@@ -952,6 +952,9 @@
+@@ -957,6 +957,9 @@
  #define SCN_AUTOCCANCELLED 2025
  #define SCN_AUTOCCHARDELETED 2026
  #define SCN_HOTSPOTRELEASECLICK 2027
@@ -14,9 +14,9 @@ Index: include/Scintilla.h
  /* These structures are defined to be exactly the same shape as the Win32
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(revision 23103)
+--- src/Editor.cxx	(revision 23509)
 +++ src/Editor.cxx	(working copy)
-@@ -2770,6 +2770,17 @@
+@@ -2774,6 +2774,17 @@
  		}
  	}
  
@@ -36,9 +36,9 @@ Index: src/Editor.cxx
  
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(revision 23103)
+--- src/Editor.h	(revision 23509)
 +++ src/Editor.h	(working copy)
-@@ -426,6 +426,7 @@
+@@ -431,6 +431,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID() { return ctrlID; }
  	virtual void NotifyParent(SCNotification scn) = 0;
@@ -48,7 +48,7 @@ Index: src/Editor.h
  	void NotifySavePoint(bool isSavePoint);
 Index: win32/scintilla.mak
 ===================================================================
---- win32/scintilla.mak	(revision 23103)
+--- win32/scintilla.mak	(revision 23509)
 +++ win32/scintilla.mak	(working copy)
 @@ -21,7 +21,7 @@
  RC=rc
@@ -61,9 +61,9 @@ Index: win32/scintilla.mak
  NAME=-Fo
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(revision 23103)
+--- win32/ScintillaWin.cxx	(revision 23509)
 +++ win32/ScintillaWin.cxx	(working copy)
-@@ -250,6 +250,7 @@
+@@ -252,6 +252,7 @@
  	virtual void SetCtrlID(int identifier);
  	virtual int GetCtrlID();
  	virtual void NotifyParent(SCNotification scn);
@@ -71,7 +71,7 @@ Index: win32/ScintillaWin.cxx
  	virtual void NotifyDoubleClick(Point pt, bool shift, bool ctrl, bool alt);
  	virtual CaseFolder *CaseFolderForEncoding();
  	virtual std::string CaseMapString(const std::string &s, int caseMapping);
-@@ -1420,6 +1421,13 @@
+@@ -1417,6 +1418,13 @@
  	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
  }
  
