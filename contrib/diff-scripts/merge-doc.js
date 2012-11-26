@@ -16,7 +16,8 @@
 // Richard Horton, 2011
 //
 
-var objArgs,num,sTheirDoc,sMyDoc,sBaseDoc,sMergedDoc,objScript,word,baseDoc,myDoc,theirDoc,WSHShell;
+var objArgs, num, sTheirDoc, sMyDoc, sBaseDoc, sMergedDoc,
+    objScript, word, baseDoc, myDoc, theirDoc, WSHShell;
 
 // Microsoft Office versions for Microsoft Windows OS
 var vOffice2000 = 9;

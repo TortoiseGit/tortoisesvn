@@ -1,21 +1,21 @@
 /*****************************************************
-	post update hook script for TSVN.
-	automates compilation of WC of JAWS scripts just in place (user folder of appropriate version of JAWS).
-	Intended to be used by blind or visually impaired developers using JAWS screen reader.
-	Licensed under GNU GPL v2.
-	(c) by Serge Tumanyan 2010.
+    post update hook script for TSVN.
+    automates compilation of WC of JAWS scripts just in place (user folder of appropriate version of JAWS).
+    Intended to be used by blind or visually impaired developers using JAWS screen reader.
+    Licensed under GNU GPL v2.
+    (c) by Serge Tumanyan 2010.
 
-	Installation:
-		1. Open TSVN Settings.
-		2. Go to 'Hooks' item in a treeview.
-		3. Tab to the 'Add' button and press it.
-		4. From the dialogue opened select post update hook, then set the path to the JAWS user folder 
-		   (e. g. 'c:\documents and settings\Administrator\application data\freedom scientific\jaws\11.0\settings\enu').
-		5. In the command line field type 'WScript ReCompileJAWSScriptsWC.js'.
-		6. Select the checkboxes according to your choice.
-		7. Issue an 'Ok' button.
-		8. Save the changes.
-		9. Enjoy the automatic compilation of your scripts after updating...
+    Installation:
+        1. Open TSVN Settings.
+        2. Go to 'Hooks' item in a treeview.
+        3. Tab to the 'Add' button and press it.
+        4. From the dialogue opened select post update hook, then set the path to the JAWS user folder
+           (e. g. 'c:\documents and settings\Administrator\application data\freedom scientific\jaws\11.0\settings\enu').
+        5. In the command line field type 'WScript ReCompileJAWSScriptsWC.js'.
+        6. Select the checkboxes according to your choice.
+        7. Issue an 'Ok' button.
+        8. Save the changes.
+        9. Enjoy the automatic compilation of your scripts after updating...
 *****************************************************************/
 
 // you can change the script name in the next line to compile the scripts more specific, not all the scripts in the folder...
@@ -31,10 +31,12 @@ var SAPI5Object = WScript.CreateObject ("SAPI.SpVoice");
 var ArgumentsObject = WScript.Arguments;
 var Version, PathParts, PathToSCompile;
 
-if (ArgumentsObject.length != 5)
-	{	SAPI5Object.Speak (StartedIncorrectly, 0);
-		WScript.Quit(1);
-	}
+if (ArgumentsObject.length !== 5)
+{
+    SAPI5Object.Speak (StartedIncorrectly, 0);
+    WScript.Quit(1);
+}
+
 SAPI5Object.Speak (LastRevision + ArgumentsObject.Item (2), 0);
 SAPI5Object.Speak (WorkingFolder + ArgumentsObject.Item (4), 0);
 PathParts = WScript.ScriptFullName.split ("\\");

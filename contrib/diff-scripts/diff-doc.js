@@ -16,7 +16,7 @@
 // Davide Orlandi and Hans-Emil Skogh, 2005
 //
 
-var objArgs,num,sBaseDoc,sNewDoc,sTempDoc,objScript,word,destination;
+var objArgs, num, sBaseDoc, sNewDoc, sTempDoc, objScript, word, destination;
 // Microsoft Office versions for Microsoft Windows OS
 var vOffice2000 = 9;
 var vOffice2002 = 10;
@@ -47,12 +47,12 @@ sBaseDoc = objArgs(0);
 sNewDoc = objArgs(1);
 
 objScript = new ActiveXObject("Scripting.FileSystemObject");
-if ( ! objScript.FileExists(sBaseDoc))
+if ( !objScript.FileExists(sBaseDoc))
 {
     WScript.Echo("File " + sBaseDoc + " does not exist.  Cannot compare the documents.");
     WScript.Quit(1);
 }
-if ( ! objScript.FileExists(sNewDoc))
+if ( !objScript.FileExists(sNewDoc))
 {
     WScript.Echo("File " + sNewDoc + " does not exist.  Cannot compare the documents.");
     WScript.Quit(1);
@@ -65,9 +65,9 @@ try
 catch(e)
 {
     // before giving up, try with OpenOffice
+    var OO;
     try
     {
-        var OO;
         OO = WScript.CreateObject("com.sun.star.ServiceManager");
     }
     catch(e)
@@ -104,12 +104,11 @@ catch(e)
     oPropertyValue[0] = OO.Bridge_GetStruct("com.sun.star.beans.PropertyValue");
     oPropertyValue[0].Name = "ShowTrackedChanges";
     oPropertyValue[0].Value = true;
-    var objDocument = objDesktop.loadComponentFromURL(sNewDoc,"_blank", 0, oPropertyValue);
 
     //Set the frame
     var Frame = objDesktop.getCurrentFrame();
 
-    var dispatcher=OO.CreateInstance("com.sun.star.frame.DispatchHelper");
+    var dispatcher = OO.CreateInstance("com.sun.star.frame.DispatchHelper");
 
     //Execute the comparison
     dispatcher.executeDispatch(Frame, ".uno:ShowTrackedChanges", "", 0, oPropertyValue);
@@ -127,7 +126,6 @@ if (parseInt(word.Version) >= vOffice2007)
 }
 
 objScript = null;
-
 word.visible = true;
 
 // Open the new document

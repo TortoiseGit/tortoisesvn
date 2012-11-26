@@ -41,7 +41,7 @@ function PptAppMajorVersion(PowerPoint)
     }
 }
 
-var objArgs,num,sBasePpt,sNewPpt,objScript,powerpoint,source;
+var objArgs, num, sBasePpt, sNewPpt, objScript, powerpoint, source;
 
 objArgs = WScript.Arguments;
 num = objArgs.length;
@@ -55,12 +55,12 @@ sBasePpt = objArgs(0);
 sNewPpt = objArgs(1);
 
 objScript = new ActiveXObject("Scripting.FileSystemObject");
-if ( ! objScript.FileExists(sBasePpt))
+if ( !objScript.FileExists(sBasePpt))
 {
     WScript.Echo("File " + sBasePpt + " does not exist.  Cannot compare the presentations.");
     WScript.Quit(1);
 }
-if ( ! objScript.FileExists(sNewPpt))
+if ( !objScript.FileExists(sNewPpt))
 {
     WScript.Echo("File " + sNewPpt +" does not exist.  Cannot compare the presentations.");
     WScript.Quit(1);
