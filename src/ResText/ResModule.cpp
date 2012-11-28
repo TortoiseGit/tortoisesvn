@@ -666,7 +666,7 @@ const WORD* CResModule::ParseMenuResource(const WORD * res)
             entry.resourceIDs.insert(id);
 
             TCHAR szTempBuf[1024];
-            _stprintf(szTempBuf, _T("#: MenuEntry; ID:%d"), id);
+            _stprintf(szTempBuf, _T("#: MenuEntry; ID:%u"), id);
             MENUENTRY menu_entry;
             menu_entry.wID = id;
             menu_entry.reference = szTempBuf;
@@ -791,7 +791,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
 
             entry.resourceIDs.insert(menuId);
             TCHAR szTempBuf[1024];
-            _stprintf(szTempBuf, _T("#: MenuExPopupEntry; ID:%d"), menuId);
+            _stprintf(szTempBuf, _T("#: MenuExPopupEntry; ID:%u"), menuId);
             MENUENTRY menu_entry;
             menu_entry.wID = (WORD)menuId;
             menu_entry.reference = szTempBuf;
@@ -814,7 +814,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD * res)
             entry.resourceIDs.insert(menuId);
 
             TCHAR szTempBuf[1024];
-            _stprintf(szTempBuf, _T("#: MenuExEntry; ID:%d"), menuId);
+            _stprintf(szTempBuf, _T("#: MenuExEntry; ID:%u"), menuId);
             MENUENTRY menu_entry;
             menu_entry.wID = (WORD)menuId;
             menu_entry.reference = szTempBuf;
@@ -972,7 +972,7 @@ BOOL CResModule::ExtractAccelerator(LPCTSTR lpszType)
         // Since "filter" and "find" are most likely translated to words starting
         // with different letters, we need to have a separate accelerator entry
         // for each of those
-        _stprintf(pBuf.get(), _T("ID:%d:"), wID);
+        _stprintf(pBuf.get(), _T("ID:%u:"), wID);
 
         // EXACTLY 5 characters long "ACS+X"
         // V = Virtual key (or blank if not used)
@@ -1014,7 +1014,7 @@ BOOL CResModule::ExtractAccelerator(LPCTSTR lpszType)
         {
             wmenu = pME_iter->second.msgstr;
         }
-        _stprintf(szTempBuf, _T("#. Accelerator Entry for Menu ID:%d; '%s'"), wID, wmenu.c_str());
+        _stprintf(szTempBuf, _T("#. Accelerator Entry for Menu ID:%u; '%s'"), wID, wmenu.c_str());
         AKey_entry.automaticcomments.push_back(std::wstring(szTempBuf));
 
         m_StringEntries[wstr] = AKey_entry;

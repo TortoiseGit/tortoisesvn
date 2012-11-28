@@ -2064,7 +2064,7 @@ void CRepositoryBrowser::OnTvnItemexpandingRepotree(NMHDR *pNMHDR, LRESULT *pRes
     {
         // if there are no child folders, remove the '+' in front of the node
 
-        if (!pTreeItem->has_child_folders && (!m_bSparseCheckoutMode && (pTreeItem->children.size()==0)))
+        if (!pTreeItem->has_child_folders && (!m_bSparseCheckoutMode && (pTreeItem->children.empty())))
         {
             TVITEM tvitem = {0};
             tvitem.hItem = pNMTreeView->itemNew.hItem;
@@ -4368,7 +4368,7 @@ void CRepositoryBrowser::ShowText( const CString& sText, bool forceupdate /*= fa
 
 void CRepositoryBrowser::FilterInfinityDepthItems(std::map<CString,svn_depth_t>& depths)
 {
-    if (depths.size() == 0)
+    if (depths.empty())
         return;
 
     // now go through the whole list and remove all children of items that have infinity depth
@@ -4546,7 +4546,6 @@ bool CRepositoryBrowser::TrySVNParentPath()
             const char * reTitle2 = "<\\s*index\\s*rev\\s*=\\s*\"0\"";
             const tr1::regex titex(reTitle, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
             const tr1::regex titex2(reTitle2, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-            tr1::match_results<string::const_iterator> fwhat;
             if (tr1::regex_search(in.begin(), in.end(), titex, tr1::regex_constants::match_default))
             {
                 TRACE(_T("found repository url instead of SVNParentPathList\n"));
@@ -4558,9 +4557,7 @@ bool CRepositoryBrowser::TrySVNParentPath()
 
             const tr1::regex expression(re, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
             const tr1::regex expression2(re2, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-            tr1::match_results<string::const_iterator> what;
             int nCountNewEntries = 0;
-            wstring popupText;
             const tr1::sregex_iterator end;
             for (tr1::sregex_iterator i(in.begin(), in.end(), expression); i != end; ++i)
             {
