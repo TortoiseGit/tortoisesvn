@@ -39,21 +39,7 @@
     <copy file="include\apr_ldap.hw" tofile="include\apr_ldap.h" overwrite="true" />
     <copy file="include\private\apu_select_dbm.hw" tofile="include\private\apu_select_dbm.h" overwrite="true" />
     <copy file="include\private\apu_config.hw" tofile="include\private\apu_config.h" overwrite="true" />
-    <loadfile file="include\apu_version.h" property="versionfile" />
-    <regex pattern="#define APU_MAJOR_VERSION( )+(?'APU_MAJOR_VERSION'\d+)" input="${versionfile}" />
-    <echo message="${APU_MAJOR_VERSION}" />
-    <regex pattern="#define APU_MINOR_VERSION[ ]+(?'APU_MINOR_VERSION'\d+)" input="${versionfile}" />
-    <echo message="${APU_MINOR_VERSION}" />
-    <regex pattern="#define APU_PATCH_VERSION[ ]+(?'APU_PATCH_VERSION'\d+)" input="${versionfile}" />
-    <echo message="${APU_PATCH_VERSION}" />
-    <loadfile file="libaprutil.rc" property="rcfile">
-      <filterchain>
-        <replacestring from="0,0,0" to="${APU_MAJOR_VERSION},${APU_MINOR_VERSION},${APU_PATCH_VERSION}" />
-        <replacestring from="0.0.0" to="${APU_MAJOR_VERSION},${APU_MINOR_VERSION},${APU_PATCH_VERSION}" />
-      </filterchain>
-    </loadfile>
-    <echo file="libaprutilver.rc" message="${rcfile}" />
-    <rc rcfile="libaprutilver.rc" output="${configuration}_${platform}\libaprutil_tsvn.res">
+    <rc rcfile="libaprutil.rc" output="${configuration}_${platform}\libaprutil_tsvn.res">
       <includedirs>
         <include name="..\apr\include" />
         <include name="include" />
