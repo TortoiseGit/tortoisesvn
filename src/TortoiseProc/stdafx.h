@@ -100,7 +100,6 @@
 #include "..\..\ext\apr\include\apr_version.h"
 #include "..\..\ext\apr-util\include\apu_version.h"
 //#include "..\..\ext\berkeley-db\db4.3-win32\include\db.h"
-#include "..\..\ext\neon\config.h"
 #include "..\..\..\common\openssl\inc32\openssl\opensslv.h"
 #include "..\..\..\common\zlib\zlib.h"
 #pragma warning(pop)

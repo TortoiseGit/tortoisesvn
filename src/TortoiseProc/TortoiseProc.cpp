@@ -87,7 +87,7 @@ CTortoiseProcApp::CTortoiseProcApp() : hWndExplorer(NULL)
 CTortoiseProcApp::~CTortoiseProcApp()
 {
     // global application exit cleanup (after all SSL activity is shutdown)
-    // we have to clean up SSL ourselves, since neon doesn't do that (can't do it)
+    // we have to clean up SSL ourselves, since serf doesn't do that (can't do it)
     // because those cleanup functions work globally per process.
     ERR_free_strings();
     EVP_cleanup();
