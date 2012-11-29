@@ -317,8 +317,6 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
 {
     SVNTRACE_BLOCK
 
-    // the add command should use the mime-type file
-    const char *mimetypes_file;
     Prepare();
 
     for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
