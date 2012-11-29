@@ -67,11 +67,9 @@ CFullHistory::CFullHistory(void)
                                     // plus as much as we got left from the shared pool
 {
     parentpool = svn_pool_create(NULL);
-    svn_error_clear(svn_client_create_context(&ctx, parentpool));
+    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), parentpool));
 
     pool = svn_pool_create (parentpool);
-    // set up the configuration
-    ctx->config = SVNConfig::Instance().GetConfig(pool);
 
     // set up authentication
     prompt.Init(pool, ctx);

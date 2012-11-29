@@ -170,7 +170,7 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
     m_targetpath.Replace('\\', '/');
 
     apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
-    svn_error_clear(svn_client_create_context(&ctx, scratchpool));
+    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchpool));
     ctx->notify_func2 = notify;
     ctx->notify_baton2 = this;
 
@@ -239,7 +239,7 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
     else if (m_nStrip > 0)
     {
         apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
-        svn_error_clear(svn_client_create_context(&ctx, scratchpool));
+        svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchpool));
         ctx->notify_func2 = notify;
         ctx->notify_baton2 = this;
 
@@ -285,7 +285,7 @@ bool SVNPatch::PatchPath( const CString& path )
     m_filetopatch.Replace('\\', '/');
 
     apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
-    svn_error_clear(svn_client_create_context(&ctx, scratchpool));
+    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchpool));
 
     m_nRejected = 0;
     err = svn_client_patch(svn_dirent_canonicalize(CUnicodeUtils::GetUTF8(m_patchfile), scratchpool),    // patch_abspath
@@ -532,7 +532,7 @@ bool SVNPatch::RemoveFile( const CString& path )
     svn_client_ctx_t *          ctx         = NULL;
 
     apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
-    svn_error_clear(svn_client_create_context(&ctx, scratchpool));
+    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchpool));
 
     apr_array_header_t *targets = apr_array_make (scratchpool, 1, sizeof(const char *));
 

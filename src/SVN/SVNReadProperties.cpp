@@ -145,12 +145,10 @@ void SVNReadProperties::Construct()
 
     m_pool = svn_pool_create (NULL);                // create the memory pool
     Err = NULL;
-    svn_error_clear(svn_client_create_context(&m_pctx, m_pool));
+    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
 
 #ifdef _MFC_VER
 
-    // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig(m_pool);
     if (m_pctx->config == nullptr)
     {
         svn_pool_destroy (m_pool);                  // free the allocated memory

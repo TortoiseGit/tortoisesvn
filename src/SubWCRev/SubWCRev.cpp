@@ -935,7 +935,7 @@ int _tmain(int argc, _TCHAR* argv[])
     apr_initialize();
     svn_dso_initialize2();
     apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
-    svn_client_create_context(&ctx, pool);
+    svn_client_create_context2(&ctx, NULL, pool);
 
     size_t ret = 0;
     getenv_s(&ret, NULL, 0, "SVN_ASP_DOT_NET_HACK");

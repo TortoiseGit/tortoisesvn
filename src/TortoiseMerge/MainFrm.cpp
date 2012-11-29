@@ -1273,7 +1273,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
             rev.kind = svn_opt_revision_unspecified;
             svn_wc_status_kind statuskind = svn_wc_status_none;
             svn_client_ctx_t * ctx = NULL;
-            svn_error_clear(svn_client_create_context(&ctx, pool));
+            svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), pool));
             svn_error_t * err = svn_client_status5(NULL, ctx, svnpath.GetSVNApiPath(pool), &rev,
                                                    svn_depth_empty,
                                                    true,

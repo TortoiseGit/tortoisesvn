@@ -134,7 +134,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     pool = svn_pool_create (rootpool);              // create the memory pool
 
     ClearCache();
-    svn_error_clear(svn_client_create_context(&localctx, pool));
+    svn_error_clear(svn_client_create_context2(&localctx, NULL, pool));
     // set up the configuration
     // Note: I know this is an 'expensive' call, but without this, ignores
     // done in the global ignore pattern won't show up.

@@ -195,7 +195,7 @@ HRESULT SubWCRev::GetWCInfoInternal(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL f
     const char * internalpath = svn_path_internal_style (wc_utf8, pool);
 
     svn_client_ctx_t * ctx;
-    svn_client_create_context(&ctx, pool);
+    svn_client_create_context2(&ctx, NULL, pool);
 
     svn_error_t * svnerr = svn_status(  internalpath,   //path
         &SubStat,       //status_baton

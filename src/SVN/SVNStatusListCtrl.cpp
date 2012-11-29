@@ -648,7 +648,7 @@ void CSVNStatusListCtrl::FetchUserProperties (size_t first, size_t last)
     // local / temp pool to hold parameters and props for a single item
     SVNPool pool;
     svn_client_ctx_t * pCtx = nullptr;
-    svn_error_clear(svn_client_create_context(&pCtx, pool));
+    svn_error_clear(svn_client_create_context2(&pCtx, SVNConfig::Instance().GetConfig(pool), pool));
     svn_error_t * error = nullptr;
 
     for (size_t i = first; i < last; ++i)

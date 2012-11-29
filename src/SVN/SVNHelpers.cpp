@@ -55,11 +55,11 @@ SVNHelper::SVNHelper(void)
 {
     m_pool = svn_pool_create (NULL);                // create the memory pool
 
-    svn_error_clear(svn_client_create_context(&m_ctx, m_pool));
+    m_config = SVNConfig::Instance().GetConfig(m_pool);
+    svn_error_clear(svn_client_create_context2(&m_ctx, m_config, m_pool));
     m_ctx->cancel_func = cancelfunc;
     m_ctx->cancel_baton = this;
     m_ctx->client_name = SVNHelper::GetUserAgentString(m_pool);
-    m_config = SVNConfig::Instance().GetConfig(m_pool);
 }
 
 SVNHelper::~SVNHelper(void)
@@ -73,12 +73,11 @@ svn_client_ctx_t * SVNHelper::ClientContext(apr_pool_t * pool) const
         return m_ctx;
 
     svn_client_ctx_t * ctx = nullptr;
-    svn_error_clear(svn_client_create_context(&ctx, pool));
+    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), pool));
     if (ctx)
     {
         ctx->cancel_func = cancelfunc;
         ctx->cancel_baton = (void *)this;
-        ctx->config = SVNConfig::Instance().GetConfig(m_pool);
     }
 
     return ctx;

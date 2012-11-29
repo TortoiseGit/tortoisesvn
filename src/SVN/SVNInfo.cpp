@@ -65,16 +65,11 @@ SVNInfo::SVNInfo (bool)
 {
     m_pool = svn_pool_create (NULL);
 
-    svn_error_clear(svn_client_create_context(&m_pctx, m_pool));
+    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
 
 #ifdef _MFC_VER
-    // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig(m_pool);
     // set up authentication
     m_prompt.Init(m_pool, m_pctx);
-#else
-    // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig(m_pool);
 #endif
     m_pctx->cancel_func = cancel;
     m_pctx->cancel_baton = this;

@@ -107,12 +107,10 @@ SVN::SVN(bool suppressUI)
     , m_bListComplete(false)
 {
     parentpool = svn_pool_create(NULL);
-    svn_error_clear(svn_client_create_context(&m_pctx, parentpool));
+    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(parentpool), parentpool));
 
     pool = svn_pool_create (parentpool);
     svn_ra_initialize(pool);
-    // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig(pool);
 
     if (m_pctx->config == nullptr)
     {
@@ -157,11 +155,8 @@ CString SVN::CheckConfigFile()
     SVNPool                     pool;
     svn_error_t *               err = NULL;
 
-    svn_error_clear(svn_client_create_context(&ctx, pool));
+    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), pool));
 
-    // set up the configuration
-    if (err == 0)
-        ctx->config = SVNConfig::Instance().GetConfig(pool);
     CString msg;
     CString temp;
     if (err != NULL)

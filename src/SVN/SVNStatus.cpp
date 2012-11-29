@@ -50,7 +50,7 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
 {
     m_pool = svn_pool_create (NULL);
 
-    svn_error_clear(svn_client_create_context(&m_pctx, m_pool));
+    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
 
     if (pbCancelled)
     {
@@ -61,9 +61,6 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
 
 
 #ifdef _MFC_VER
-    // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig(m_pool);
-
     // set up authentication
     m_prompt.Init(m_pool, m_pctx);
 
@@ -74,10 +71,6 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
         svn_pool_destroy (m_pool);                  // free the allocated memory
         exit(-1);
     }
-#else
-    // set up the configuration
-    m_pctx->config = SVNConfig::Instance().GetConfig(m_pool);
-
 #endif
 }
 
@@ -102,10 +95,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
 
     pool = svn_pool_create (NULL);              // create the memory pool
 
-    svn_error_clear(svn_client_create_context(&ctx, pool));
-
-    // set up the configuration
-    ctx->config = SVNConfig::Instance().GetConfig(pool);
+    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), pool));
 
     svn_revnum_t youngest = SVN_INVALID_REVNUM;
     svn_opt_revision_t rev;
