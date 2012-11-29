@@ -813,33 +813,29 @@ bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
     return (Err == NULL);
 }
 
+svn_error_t * SVN::import_filter(void * baton,
+                                 svn_boolean_t * filtered,
+                                 const char * local_abspath,
+                                 const svn_io_dirent2_t * dirent,
+                                 apr_pool_t * scratch_pool)
+{
+    // TODO: we could use this when importing files in the repo browser
+    // via drag/drop maybe.
+    UNREFERENCED_PARAMETER(baton);
+    UNREFERENCED_PARAMETER(local_abspath);
+    UNREFERENCED_PARAMETER(dirent);
+    UNREFERENCED_PARAMETER(scratch_pool);
+    if (filtered)
+        *filtered = FALSE;
+    return SVN_NO_ERROR;
+}
+
 bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& message,
                  ProjectProperties * props, svn_depth_t depth, bool bUseAutoprops,
                  bool no_ignore, bool ignore_unknown,
                  const RevPropHash& revProps)
 {
-    // the import command should use the mime-type file
-    const char *mimetypes_file = NULL;
     Prepare();
-    svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
-        APR_HASH_KEY_STRING);
-    if (bUseAutoprops)
-    {
-        svn_config_get(opt, &mimetypes_file,
-            SVN_CONFIG_SECTION_MISCELLANY,
-            SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
-        if (mimetypes_file && *mimetypes_file)
-        {
-            Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
-                mimetypes_file, pool);
-            if (Err)
-                return FALSE;
-        }
-        if (props)
-            props->InsertAutoProps(opt);
-    }
-    else
-        svn_config_set_bool(opt, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_ENABLE_AUTO_PROPS, false);
 
     SVNPool subpool(pool);
     m_pctx->log_msg_baton3 = logMessage(message);
@@ -848,16 +844,19 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
     const char* svnPath = path.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE (
-        Err = svn_client_import4(svnPath,
-                                url.GetSVNApiPath(subpool),
-                                depth,
-                                no_ignore,
-                                ignore_unknown,
-                                revPropHash,
-                                commitcallback2,
-                                this,
-                                m_pctx,
-                                subpool),
+        Err = svn_client_import5(svnPath,
+                                 url.GetSVNApiPath(subpool),
+                                 depth,
+                                 no_ignore,
+                                 !bUseAutoprops,
+                                 ignore_unknown,
+                                 revPropHash,
+                                 import_filter,
+                                 this,
+                                 commitcallback2,
+                                 this,
+                                 m_pctx,
+                                 subpool),
         svnPath
     );
     m_pctx->log_msg_baton3 = logMessage(_T(""));

@@ -966,6 +966,13 @@ protected:
                     apr_pool_t * resultpool,
                     apr_pool_t * scratchpool);
 
+    static svn_error_t * import_filter(void *baton,
+                                       svn_boolean_t *filtered,
+                                       const char *local_abspath,
+                                       const svn_io_dirent2_t *dirent,
+                                       apr_pool_t *scratch_pool);
+
+
     // implement ILogReceiver
 
     void ReceiveLog ( TChangedPaths* changes
