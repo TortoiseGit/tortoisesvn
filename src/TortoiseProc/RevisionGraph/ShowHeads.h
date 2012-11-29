@@ -22,7 +22,7 @@
 
 #include "CopyFilterOptions.h"
 #include "revisiongraphoptionsimpl.h"
-#include "Resource.h"
+#include "resource.h"
 
 /** "Pin" all Head nodes, i.e. keep them from being removed by other rules.
 */

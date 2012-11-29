@@ -23,7 +23,7 @@
 #include "./Containers/LogCacheGlobals.h"
 #include "CopyFilterOptions.h"
 #include "revisiongraphoptionsimpl.h"
-#include "Resource.h"
+#include "resource.h"
 
 /** Remove all branches / tags that have been deleted and have
 * no surviving copy. Upper and lower bounds are inclusive.

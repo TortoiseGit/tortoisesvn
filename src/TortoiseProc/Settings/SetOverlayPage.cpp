@@ -23,7 +23,7 @@
 #include "Globals.h"
 #include "ShellUpdater.h"
 #include "..\TSVNCache\CacheInterface.h"
-#include ".\setoverlaypage.h"
+#include "setoverlaypage.h"
 
 
 IMPLEMENT_DYNAMIC(CSetOverlayPage, ISettingsPropPage)

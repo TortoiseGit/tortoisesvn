@@ -18,7 +18,7 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include ".\lockdlg.h"
+#include "lockdlg.h"
 #include "UnicodeUtils.h"
 #include "SVNProperties.h"
 #include "SVN.h"

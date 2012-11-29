@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include ".\splittercontrol.h"
+#include "splittercontrol.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

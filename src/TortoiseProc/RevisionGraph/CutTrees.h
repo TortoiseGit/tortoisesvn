@@ -21,7 +21,7 @@
 // include base classes
 
 #include "ModificationOptions.h"
-#include "Resource.h"
+#include "resource.h"
 
 // forward declarations
 

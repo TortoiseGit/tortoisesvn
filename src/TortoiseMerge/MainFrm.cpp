@@ -29,7 +29,7 @@
 #include "RightView.h"
 #include "BottomView.h"
 #include "DiffColors.h"
-#include ".\mainfrm.h"
+#include "mainfrm.h"
 #include "SelectFileFilter.h"
 #include "FormatMessageWrapper.h"
 #include "TaskbarUUID.h"

@@ -10,6 +10,6 @@
 #include <windows.h>
 #include <tchar.h>
 
-#include   <msi.h>
-#include   <msiquery.h>
-#include   <stdio.h>
+#include <msi.h>
+#include <msiquery.h>
+#include <stdio.h>

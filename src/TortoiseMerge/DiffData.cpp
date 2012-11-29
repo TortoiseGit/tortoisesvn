@@ -16,13 +16,13 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
+#include "stdafx.h"
 #pragma warning(push)
 #include "diff.h"
 #pragma warning(pop)
 #include "TempFile.h"
 #include "registry.h"
-#include "Resource.h"
+#include "resource.h"
 #include "Diffdata.h"
 #include "UnicodeUtils.h"
 #include "SVNAdminDir.h"

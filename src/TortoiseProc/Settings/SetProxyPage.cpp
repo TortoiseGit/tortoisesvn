@@ -22,7 +22,7 @@
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "SVN.h"
-#include ".\setproxypage.h"
+#include "setproxypage.h"
 
 IMPLEMENT_DYNAMIC(CSetProxyPage, ISettingsPropPage)
 CSetProxyPage::CSetProxyPage()

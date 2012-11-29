@@ -20,7 +20,7 @@
 
 #include "TortoiseProc.h"
 #include "URLDlg.h"
-#include ".\urldlg.h"
+#include "urldlg.h"
 #include "ControlsBridge.h"
 #include "AppUtils.h"
 

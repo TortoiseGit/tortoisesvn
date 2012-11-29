@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
-#include ".\settingsprogsdiff.h"
+#include "settingsprogsdiff.h"
 
 
 IMPLEMENT_DYNAMIC(CSettingsProgsDiff, ISettingsPropPage)

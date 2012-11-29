@@ -24,7 +24,7 @@
 #include "DirFileEnum.h"
 #include "SVNProgressDlg.h"
 #include "..\version.h"
-#include ".\setmainpage.h"
+#include "setmainpage.h"
 #include "SVN.h"
 #include "SysInfo.h"
 #include "Libraries.h"

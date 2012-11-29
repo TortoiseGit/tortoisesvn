@@ -16,8 +16,8 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#include "StdAfx.h"
-#include ".\cacheddirectory.h"
+#include "stdafx.h"
+#include "cacheddirectory.h"
 #include "SVNHelpers.h"
 #include "SVNStatusCache.h"
 #include "SVNStatus.h"

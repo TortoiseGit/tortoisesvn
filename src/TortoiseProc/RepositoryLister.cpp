@@ -20,7 +20,7 @@
 #include "RepositoryLister.h"
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
-#include "Resource.h"
+#include "resource.h"
 
 #include "SVNProperties.h"
 #include "SVNInfo.h"

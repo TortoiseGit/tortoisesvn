@@ -18,7 +18,7 @@
 //
 #pragma once
 
-#include "Resource.h"
+#include "resource.h"
 #include "RevisionGraphOptions.h"
 #include "RevisionGraphOptionsImpl.h"
 

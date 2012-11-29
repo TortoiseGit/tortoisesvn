@@ -35,7 +35,7 @@ DEFINE_GUID(FOLDERTYPEID_SVNWC,       0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x
 
 #endif /* (NTDDI_VERSION < NTDDI_WIN7) */
 
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "Libraries.h"
 #include "win7.h"
 #include "SmartHandle.h"

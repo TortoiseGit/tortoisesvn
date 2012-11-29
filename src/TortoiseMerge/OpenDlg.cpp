@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseMerge.h"
 #include "BrowseFolder.h"
-#include ".\opendlg.h"
+#include "opendlg.h"
 #include "CommonAppUtils.h"
 #include "registry.h"
 

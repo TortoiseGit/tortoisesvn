@@ -18,7 +18,7 @@
 //
 #include "stdafx.h"
 #include "FileDropEdit.h"
-#include ".\filedropedit.h"
+#include "filedropedit.h"
 
 
 // CFileDropEdit

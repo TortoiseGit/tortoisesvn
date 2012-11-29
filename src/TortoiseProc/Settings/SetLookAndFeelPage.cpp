@@ -22,7 +22,7 @@
 #include "ShellUpdater.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
-#include ".\setlookandfeelpage.h"
+#include "setlookandfeelpage.h"
 
 IMPLEMENT_DYNAMIC(CSetLookAndFeelPage, ISettingsPropPage)
 CSetLookAndFeelPage::CSetLookAndFeelPage()

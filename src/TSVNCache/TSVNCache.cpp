@@ -22,7 +22,7 @@
 #include "TSVNCache.h"
 #include "SVNStatusCache.h"
 #include "CacheInterface.h"
-#include "Resource.h"
+#include "resource.h"
 #include "registry.h"
 #include "CrashReport.h"
 #include "SVNAdminDir.h"

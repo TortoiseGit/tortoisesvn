@@ -23,7 +23,7 @@
 #include "CopyFilterOptions.h"
 #include "ModificationOptions.h"
 #include "revisiongraphoptionsimpl.h"
-#include "Resource.h"
+#include "resource.h"
 
 /** Remove all "M" nodes that are neither HEAD nor the root of sub-paths.
 */

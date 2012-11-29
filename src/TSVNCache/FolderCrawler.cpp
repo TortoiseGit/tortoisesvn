@@ -17,8 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 
-#include "StdAfx.h"
-#include ".\foldercrawler.h"
+#include "stdafx.h"
+#include "foldercrawler.h"
 #include "SVNStatusCache.h"
 #include "registry.h"
 #include "TSVNCache.h"

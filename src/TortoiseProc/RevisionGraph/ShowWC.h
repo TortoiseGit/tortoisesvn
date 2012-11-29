@@ -23,7 +23,7 @@
 #include "CopyFilterOptions.h"
 #include "ModificationOptions.h"
 #include "revisiongraphoptionsimpl.h"
-#include "Resource.h"
+#include "resource.h"
 
 /**
 * "Pin" current working copy revision,

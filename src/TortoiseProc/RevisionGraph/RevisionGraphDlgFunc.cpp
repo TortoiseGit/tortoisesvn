@@ -26,7 +26,7 @@
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"
 #include "SVNInfo.h"
-#include ".\revisiongraphwnd.h"
+#include "revisiongraphwnd.h"
 #include "CachedLogInfo.h"
 #include "RevisionGraph/IRevisionGraphLayout.h"
 #include "RevisionGraph/FullGraphBuilder.h"

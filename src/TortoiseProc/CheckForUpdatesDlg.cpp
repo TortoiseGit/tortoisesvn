@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "..\version.h"
 #include "MessageBox.h"
-#include ".\checkforupdatesdlg.h"
+#include "checkforupdatesdlg.h"
 #include "Registry.h"
 #include "AppUtils.h"
 #include "TempFile.h"

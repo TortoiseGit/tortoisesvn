@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SettingsColors.h"
-#include ".\settingscolors.h"
+#include "settingscolors.h"
 
 IMPLEMENT_DYNAMIC(CSettingsColors, ISettingsPropPage)
 CSettingsColors::CSettingsColors()

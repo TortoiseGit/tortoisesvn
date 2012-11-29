@@ -29,7 +29,7 @@
 #include "SVNInfo.h"
 #include "SVNDiff.h"
 #include "RevGraphFilterDlg.h"
-#include ".\revisiongraphdlg.h"
+#include "revisiongraphdlg.h"
 #include "RepositoryInfo.h"
 #include "RevisionInRange.h"
 #include "RemovePathsBySubString.h"

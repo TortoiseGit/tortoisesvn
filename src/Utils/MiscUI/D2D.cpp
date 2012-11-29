@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "stdafx.h"
 #include "D2D.h"
 #include "SmartHandle.h"
 

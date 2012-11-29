@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "ChangedDlg.h"
 #include "messagebox.h"
-#include ".\changeddlg.h"
+#include "changeddlg.h"
 #include "AppUtils.h"
 
 

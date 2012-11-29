@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "DirFileEnum.h"
-#include ".\setoverlayicons.h"
+#include "setoverlayicons.h"
 #include "SVNStatus.h"
 #include "AppUtils.h"
 #include "PathUtils.h"

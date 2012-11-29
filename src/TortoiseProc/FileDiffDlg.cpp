@@ -30,7 +30,7 @@
 #include "BrowseFolder.h"
 #include "RevisionDlg.h"
 #include "IconMenu.h"
-#include ".\filediffdlg.h"
+#include "filediffdlg.h"
 #include "DiffOptionsDlg.h"
 #include "AsyncCall.h"
 

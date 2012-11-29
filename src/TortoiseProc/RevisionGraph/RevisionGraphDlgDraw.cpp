@@ -27,7 +27,7 @@
 #include "TSVNPath.h"
 #include "SVNInfo.h"
 #include "SVNDiff.h"
-#include ".\revisiongraphwnd.h"
+#include "revisiongraphwnd.h"
 #include "IRevisionGraphLayout.h"
 #include "UpsideDownLayout.h"
 #include "ShowTreeStripes.h"

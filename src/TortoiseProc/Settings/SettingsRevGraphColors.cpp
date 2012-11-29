@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SettingsRevGraphColors.h"
-#include ".\settingscolors.h"
+#include "settingscolors.h"
 
 IMPLEMENT_DYNAMIC(CSettingsRevisionGraphColors, ISettingsPropPage)
 CSettingsRevisionGraphColors::CSettingsRevisionGraphColors()
