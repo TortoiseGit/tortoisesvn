@@ -234,61 +234,12 @@ apr_hash_t * SVNConfig::GetConfig( apr_pool_t * pool )
     // to avoid threading issues
     CComCritSecLock<CComCriticalSection> lock(m_critSec);
 
-    // TODO: once 1.8 is out, use svn_config_copy_config() instead
-    // of this custom copy stuff.
     apr_hash_t * rethash = apr_hash_make(pool);
-    for (apr_hash_index_t * cidx = apr_hash_first(pool, config); cidx != NULL; cidx = apr_hash_next(cidx))
+    svn_error_t * error = svn_config_copy_config(&rethash, config, pool);
+    if (error)
     {
-        const void *ckey = NULL;
-        void *cval = NULL;
-        apr_ssize_t ckeyLength = 0;
-
-        apr_hash_this(cidx, &ckey, &ckeyLength, &cval);
-        svn_config_t * c = (svn_config_t*)cval;
-
-
-        svn_config_t * newconfig = NULL;
-        svn_config_create(&newconfig, false, pool);
-
-        newconfig->sections = apr_hash_make(pool);
-        newconfig->pool = pool;
-        newconfig->x_pool = svn_pool_create(pool);
-        newconfig->x_values = c->x_values;
-        newconfig->tmp_key = svn_stringbuf_dup(c->tmp_key, pool);
-        newconfig->tmp_value = svn_stringbuf_dup(c->tmp_value, pool);
-        newconfig->section_names_case_sensitive = c->section_names_case_sensitive;
-
-        for (apr_hash_index_t * sectidx = apr_hash_first(pool, c->sections); sectidx != NULL; sectidx = apr_hash_next(sectidx))
-        {
-            const void *sectkey = NULL;
-            void *sectval = NULL;
-            apr_ssize_t sectkeyLength = 0;
-            apr_hash_this(sectidx, &sectkey, &sectkeyLength, &sectval);
-            cfg_section_t * sect = (cfg_section_t*)sectval;
-
-            cfg_section_t * newsec = (cfg_section_t *)apr_palloc(pool, sizeof(*newsec));
-            newsec->name = apr_pstrdup(pool, sect->name);
-            newsec->hash_key = apr_pstrdup(pool, sect->hash_key);
-            newsec->options = apr_hash_make(pool);
-            for (apr_hash_index_t * optidx = apr_hash_first(pool, sect->options); optidx != NULL; optidx = apr_hash_next(optidx))
-            {
-                const void *optkey = NULL;
-                void *optval = NULL;
-                apr_ssize_t optkeyLength = 0;
-                apr_hash_this(optidx, &optkey, &optkeyLength, &optval);
-                cfg_option_t * opt = (cfg_option_t*)optval;
-
-                cfg_option_t * newopt = (cfg_option_t*)apr_palloc(pool, sizeof(*newopt));
-                newopt->name = apr_pstrdup(pool, opt->name);
-                newopt->hash_key = apr_pstrdup(pool, opt->hash_key);
-                newopt->value = apr_pstrdup(pool, opt->value);
-                newopt->x_value = apr_pstrdup(pool, opt->x_value);
-                newopt->expanded = opt->expanded;
-                apr_hash_set(newsec->options, apr_pstrdup(pool, (const char*)optkey), optkeyLength, newopt);
-            }
-            apr_hash_set(newconfig->sections, apr_pstrdup(pool, (const char*)sectkey), sectkeyLength, newsec);
-        }
-        apr_hash_set(rethash, apr_pstrdup(pool, (const char*)ckey), ckeyLength, newconfig);
+        svn_error_clear(error);
+        return NULL;
     }
 
     return rethash;
