@@ -83,7 +83,6 @@ void CAutoTextTestDlg::OnBnClickedAutotextscan()
             CHighResClock timer;
 
             tr1::wregex regCheck;
-            std::map<CString, tr1::wregex>::const_iterator regIt;
             regCheck = tr1::wregex(m_sRegex, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
             const tr1::wsregex_iterator end;
             for (tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)

@@ -60,7 +60,6 @@ bool CLogFile::AddLine(const CString& line)
 
 bool CLogFile::Close()
 {
-    std::deque<CString> lines;
     try
     {
         // limit log file growth
