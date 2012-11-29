@@ -7,7 +7,7 @@
   <property name="devrelease" value="-dev" unless="${property::exists('devrelease')}"/>
   <!-- default build for win32 platform -->
   <property name="platform" value="win32" />
-  <!-- default build tool is VS2010 -->
+  <!-- default build tool is VS2012 -->
   <property name="buildtool" value="devenv.com" />
   <!-- default: don't add a platform specific extension
      to the bin folders 'release' / 'debug'	 -->
@@ -20,8 +20,8 @@
   <property name="ipv6" value="" />
   <!-- default: we build with openssl support -->
   <property name="skipssl" value="" />
-  <!-- default: we build with VS2010 -->
-  <property name="studioversion" value="2010"/>
+  <!-- default: we build with VS2012 -->
+  <property name="studioversion" value="2012"/>
   <!-- default: we build in a user session -->
   <property name="schedule" value="no"/>
 
