@@ -43,7 +43,6 @@
             <File Id="F__openssllicense" Name="OpenSSL License.txt" DiskId="1" Source="include\OpenSSL_License.txt" />
             <File Id="F__aprlicense" Name="apr License.txt" DiskId="1" Source="..\..\ext\apr\LICENSE" />
             <File Id="F__sasllicense" Name="CyrusSASL License.txt" DiskId="1" Source="include\CyrusSASL_License.txt" />
-            <!-- <File Id="F__crashlicense" Name="CrashRpt License.txt" DiskId="1" Source="include\CrashRpt_License.txt" /> -->
           </Component>
 
           <Component Id="C__ProgramMenuFolder" Guid="$(var.GuidProgramMenuFolder)" Win64="$(var.Win64YesNo)">
