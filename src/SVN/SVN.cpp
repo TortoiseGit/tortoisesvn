@@ -321,29 +321,6 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
     const char *mimetypes_file;
     Prepare();
 
-    svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
-        APR_HASH_KEY_STRING);
-    if (opt)
-    {
-        if (bUseAutoprops)
-        {
-            svn_config_get(opt, &mimetypes_file,
-                SVN_CONFIG_SECTION_MISCELLANY,
-                SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
-            if (mimetypes_file && *mimetypes_file)
-            {
-                Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
-                    mimetypes_file, pool);
-                if (Err)
-                    return false;
-            }
-            if (props)
-                props->InsertAutoProps(opt);
-        }
-        else
-            svn_config_set_bool(opt, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_ENABLE_AUTO_PROPS, false);
-    }
-
     for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
     {
         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) _T(": add file %s\n"), pathList[nItem].GetWinPath());
@@ -353,7 +330,7 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
             return false;
         }
         SVNPool subpool(pool);
-        Err = svn_client_add4 (pathList[nItem].GetSVNApiPath(subpool), depth, force, no_ignore, addparents, m_pctx, subpool);
+        Err = svn_client_add5 (pathList[nItem].GetSVNApiPath(subpool), depth, force, no_ignore, !bUseAutoprops, addparents, m_pctx, subpool);
         if(Err != NULL)
         {
             return false;
