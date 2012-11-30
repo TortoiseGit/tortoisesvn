@@ -1862,44 +1862,6 @@ CString SVN::GetURLFromPath(const CTSVNPath& path)
     return CString(URL);
 }
 
-CString SVN::GetUUIDFromPath(const CTSVNPath& path)
-{
-    const char * UUID;
-    Prepare();
-    SVNPool subpool(pool);
-    const char* svnPath = path.GetSVNApiPath(subpool);
-    if (PathIsURL(path))
-    {
-        SVNTRACE (
-            Err = svn_client_uuid_from_url(&UUID, svnPath, m_pctx, subpool),
-            svnPath
-        )
-    }
-    else
-    {
-        SVNTRACE (
-            Err = get_uuid_from_target(&UUID, svnPath),
-            svnPath
-        )
-    }
-    if (Err)
-        return _T("");
-    if (UUID==NULL)
-        return _T("");
-    CString ret = CString(UUID);
-    return ret;
-}
-
-svn_error_t * SVN::get_uuid_from_target (const char **UUID, const char *target)
-{
-#pragma warning(push)
-#pragma warning(disable: 4127)  // conditional expression is constant
-    SVN_ERR (svn_client_uuid_from_path2(UUID, target, m_pctx, pool, pool));
-#pragma warning(pop)
-
-    return SVN_NO_ERROR;
-}
-
 CTSVNPath SVN::GetWCRootFromPath(const CTSVNPath& path)
 {
     const char * wcroot = NULL;
@@ -1994,55 +1956,13 @@ bool SVN::IsRepository(const CTSVNPath& path)
     return false;
 }
 
-CString SVN::GetRepositoryRoot(const CTSVNPath& url)
-{
-    const char * returl = NULL;
-
-    SVNPool localpool(pool);
-    Prepare();
-
-    // make sure the url is canonical.
-    const char * goodurl = url.GetSVNApiPath(localpool);
-
-    // use cached information, if allowed
-
-    if (url.IsUrl() && LogCache::CSettings::GetEnabled())
-    {
-        // look up in cached repository properties
-        // (missing entries will be added automatically)
-
-        CTSVNPath canonicalURL;
-        canonicalURL.SetFromSVN (goodurl);
-
-        CRepositoryInfo& cachedProperties = GetLogCachePool()->GetRepositoryInfo();
-
-        CString result = cachedProperties.GetRepositoryRoot (canonicalURL);
-        if (result.IsEmpty())
-            assert (Err != NULL);
-
-        return result;
-    }
-    else
-    {
-        SVNTRACE (
-            Err = svn_client_root_url_from_path(&returl, goodurl, m_pctx, pool) ,
-            goodurl
-        );
-        if (Err)
-            return _T("");
-
-        return CString(returl);
-    }
-}
-
 CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, bool useLogCache, CString& sUUID)
 {
     if (useLogCache && GetLogCachePool()->IsEnabled())
         return GetLogCachePool()->GetRepositoryInfo().GetRepositoryRootAndUUID (path, sUUID);
 
-    const char * returl;
-    const char * uuid;
-    svn_ra_session_t *ra_session;
+    const char * returl = nullptr;
+    const char * uuid   = nullptr;
 
     SVNPool localpool(pool);
     Prepare();
@@ -2050,63 +1970,36 @@ CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, bool useLogCache, C
     // empty the sUUID first
     sUUID.Empty();
 
+    if (path.IsUrl())
+        CHooks::Instance().PreConnect(CTSVNPathList(path));
+
     // make sure the url is canonical.
-
-    const char * goodurl = NULL;
-    if (!path.IsUrl())
-    {
-        // try to use local WC info to get root and UUID
-
-        SVNInfo info;
-        const SVNInfoData * baseInfo
-            = info.GetFirstFileInfo (path, SVNRev(), SVNRev());
-        if (baseInfo && !baseInfo->reposRoot.IsEmpty() && !baseInfo->reposUUID.IsEmpty())
-        {
-            sUUID = baseInfo->reposUUID;
-            return baseInfo->reposRoot;
-        }
-
-        // fall back to RA layer
-
-        const char* svnPath = path.GetSVNApiPath(localpool);
-        SVNTRACE (
-            Err = svn_client_url_from_path2 (&goodurl, svnPath, m_pctx, localpool, localpool),
-            svnPath
-        );
-    }
-    else
-    {
-        goodurl = path.GetSVNApiPath(localpool);
-    }
-
-    if (goodurl == NULL)
-    {
-        return _T("");
-    }
-    CHooks::Instance().PreConnect(CTSVNPathList(path));
-    /* use subpool to create a temporary RA session */
+    const char * goodurl = path.GetSVNApiPath(localpool);
     SVNTRACE (
-        Err = svn_client_open_ra_session (&ra_session, goodurl, m_pctx, localpool),
-        goodurl
-    );
-    if (Err)
-        return _T("");
-
-    SVNTRACE (
-        Err = svn_ra_get_repos_root2(ra_session, &returl, localpool),
-        goodurl
-    );
-    if (Err)
-        return _T("");
-
-    SVNTRACE (
-        Err = svn_ra_get_uuid2(ra_session, &uuid, localpool),
+        Err = svn_client_get_repos_root(&returl, &uuid, goodurl, m_pctx, localpool, localpool),
         goodurl
     );
     if (Err == NULL)
+    {
         sUUID = CString(uuid);
+    }
 
     return CString(returl);
+}
+
+
+CString SVN::GetRepositoryRoot( const CTSVNPath& url )
+{
+    CString sUUID;
+    return GetRepositoryRootAndUUID(url, true, sUUID);
+}
+
+
+CString SVN::GetUUIDFromPath( const CTSVNPath& path )
+{
+    CString sUUID;
+    GetRepositoryRootAndUUID(path, true, sUUID);
+    return sUUID;
 }
 
 svn_revnum_t SVN::GetHEADRevision(const CTSVNPath& path, bool cacheAllowed)

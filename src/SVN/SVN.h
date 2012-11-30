@@ -693,7 +693,11 @@ public:
     bool IsRepository(const CTSVNPath& path);
 
     /**
-     * Finds the repository root of a given url.
+     * Returns the repository UUID for the \c path.
+     */
+    CString GetUUIDFromPath(const CTSVNPath& path);
+    /**
+     * Finds the repository root of a given url or path.
      * \return The root url or an empty string
      */
     CString GetRepositoryRoot(const CTSVNPath& url);
@@ -778,10 +782,6 @@ public:
      * Returns the URL associated with the \c path.
      */
     CString GetURLFromPath(const CTSVNPath& path);
-    /**
-     * Returns the repository UUID for the \c path.
-     */
-    CString GetUUIDFromPath(const CTSVNPath& path);
     /**
      * Returns the wc root of the specified \c path.
      */
@@ -937,7 +937,6 @@ protected:
 
     void                 CallPreConnectHookIfUrl(const CTSVNPathList& pathList, const CTSVNPath& path = CTSVNPath());
     void                 Prepare();
-    svn_error_t * get_uuid_from_target (const char **UUID, const char *target);
 
     void cancel();
     static svn_error_t* cancel(void *baton);
