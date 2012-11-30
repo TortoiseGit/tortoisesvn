@@ -24,6 +24,7 @@
 #include <tchar.h>
 #include <atlstr.h>
 #include <atlfile.h>
+#include <DllVersion.h>
 #include <memory>
 #include <vector>
 #include <exception>
