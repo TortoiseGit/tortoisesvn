@@ -23,6 +23,7 @@
 #include "ProgressDlg.h"
 #include "DirFileEnum.h"
 #include "SVNAdminDir.h"
+#include "SVNConfig.h"
 #include "StringUtils.h"
 
 #pragma warning(push)

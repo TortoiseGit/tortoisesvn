@@ -34,6 +34,7 @@
 #include "FormatMessageWrapper.h"
 #include "TaskbarUUID.h"
 #include "SVNHelpers.h"
+#include "SVNConfig.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
