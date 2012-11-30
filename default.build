@@ -43,7 +43,7 @@ it to your needs.
   <include buildfile="default.build.user" />
 
   <!-- build with VS2011, if there is a 11.0 in the VC path -->
-  <property name="studioversion" value="VS11" if="${string::contains (environment::get-variable('VCINSTALLDIR'), '11.0')}"/>
+  <property name="studioversion" value="2012" if="${string::contains (environment::get-variable('VCINSTALLDIR'), '11.0')}"/>
 
   <!-- the signinfo.txt file has to contain one line with parameters for signtool.exe,
        for example:

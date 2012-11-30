@@ -63,7 +63,7 @@
           <variable name="VCVERSION" value="100" />
         </setenv>
       </if>
-      <if test="${studioversion == 'VS11'}">
+      <if test="${studioversion == '2012'}">
         <setenv>
           <variable name="VCVERSION" value="110" />
         </setenv>
