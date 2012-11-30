@@ -528,16 +528,19 @@ public:
         const CTSVNPath& path2, const SVNRev& revision2,
         const CTSVNPath& relativeToDir, svn_depth_t depth,
         bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
+        bool ignoreproperties, bool propertiesonly,
         const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
     bool Diff(const CTSVNPath& path1, const SVNRev& revision1,
         const CTSVNPath& path2, const SVNRev& revision2,
         const CTSVNPath& relativeToDir, svn_depth_t depth, bool ignoreancestry,
-        bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat, const CString& options,
+        bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat, 
+        bool ignoreproperties, bool propertiesonly, const CString& options,
         bool bAppend, const CTSVNPath& outputfile);
     bool CreatePatch(const CTSVNPath& path1, const SVNRev& revision1,
         const CTSVNPath& path2, const SVNRev& revision2,
         const CTSVNPath& relativeToDir, svn_depth_t depth, bool ignoreancestry,
-        bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat, const CString& options, bool bAppend, const CTSVNPath& outputfile);
+        bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat, 
+        bool ignoreproperties, bool propertiesonly, const CString& options, bool bAppend, const CTSVNPath& outputfile);
 
     /**
      * Produce diff output which describes the delta between the file system object \a path in

@@ -687,7 +687,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     }
                     else
                     {
-                        Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, options, true, diffFile);
+                        Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, true, false, options, true, diffFile);
                     }
                     if (progDlg.HasUserCancelled() || m_bCancelled)
                         break;
