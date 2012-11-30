@@ -206,7 +206,8 @@ BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind,
                      const CString& author, const CString& locktoken,
                      const CString& lockowner, const CString& lockcomment,
                      bool is_dav_comment, apr_time_t lock_creationdate,
-                     apr_time_t lock_expirationdate, const CString& absolutepath) {return TRUE;}
+                     apr_time_t lock_expirationdate, const CString& absolutepath,
+                     const CString& externalParentUrl, const CString& externalTarget) {return TRUE;}
 svn_wc_conflict_choice_t SVN::ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile) {return svn_wc_conflict_choose_postpone;}
 
 #pragma warning(pop)
@@ -1634,6 +1635,8 @@ svn_error_t* SVN::listReceiver(void* baton, const char* path,
                                const svn_dirent_t *dirent,
                                const svn_lock_t *lock,
                                const char *abs_path,
+                               const char *external_parent_url,
+                               const char *external_target,
                                apr_pool_t * /*pool*/)
 {
     SVN * svn = (SVN *)baton;
@@ -1651,7 +1654,10 @@ svn_error_t* SVN::listReceiver(void* baton, const char* path,
                                   lock ? !!lock->is_dav_comment : false,
                                   lock ? lock->creation_date : 0,
                                   lock ? lock->expiration_date : 0,
-                                  CUnicodeUtils::GetUnicode(abs_path));
+                                  CUnicodeUtils::GetUnicode(abs_path),
+                                  CUnicodeUtils::GetUnicode(external_parent_url),
+                                  CUnicodeUtils::GetUnicode(external_target)
+                                  );
     svn_error_t * err = NULL;
     if ((result == false) || svn->Cancel())
     {
@@ -1884,7 +1890,7 @@ CTSVNPath SVN::GetWCRootFromPath(const CTSVNPath& path)
     return ret;
 }
 
-bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, bool complete)
+bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, bool complete, bool includeExternals)
 {
     SVNPool subpool(pool);
     Prepare();
@@ -1893,16 +1899,17 @@ bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegre
     CHooks::Instance().PreConnect(CTSVNPathList(url));
     m_bListComplete = complete;
     SVNTRACE (
-        Err = svn_client_list2(svnPath,
-                              pegrev,
-                              revision,
-                              depth,
-                              complete ? SVN_DIRENT_ALL : 0,
-                              fetchlocks,
-                              listReceiver,
-                              this,
-                              m_pctx,
-                              subpool),
+        Err = svn_client_list3(svnPath,
+                               pegrev,
+                               revision,
+                               depth,
+                               complete ? SVN_DIRENT_ALL : 0,
+                               fetchlocks,
+                               includeExternals,
+                               listReceiver,
+                               this,
+                               m_pctx,
+                               subpool),
         svnPath
     )
     return (Err == NULL);

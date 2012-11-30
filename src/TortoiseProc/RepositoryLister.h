@@ -277,7 +277,8 @@ private:
             apr_time_t time, const CString& author, const CString& locktoken,
             const CString& lockowner, const CString& lockcomment,
             bool is_dav_comment, apr_time_t lock_creationdate,
-            apr_time_t lock_expirationdate, const CString& absolutepath) override;
+            apr_time_t lock_expirationdate, const CString& absolutepath,
+            const CString& externalParentUrl, const CString& externalTarget) override;
 
         /// early termination
 

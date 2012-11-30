@@ -96,7 +96,7 @@ public:
                             const CString& locktoken, const CString& lockowner,
                             const CString& lockcomment, bool is_dav_comment,
                             apr_time_t lock_creationdate, apr_time_t lock_expirationdate,
-                            const CString& absolutepath);
+                            const CString& absolutepath, const CString& externalParentUrl, const CString& externalTarget);
     virtual svn_wc_conflict_choice_t ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile);
 
     struct SVNLock
@@ -636,7 +636,7 @@ public:
      * If \c fetchlocks is true, include locks when reporting directory entries.
      * \return TRUE if successful
      */
-    bool List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, bool complete);
+    bool List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegrev, svn_depth_t depth, bool fetchlocks, bool complete, bool includeExternals);
 
     /**
      * Relocates a working copy to a new/changes repository URL. Use this function
@@ -963,6 +963,8 @@ protected:
                     const svn_dirent_t *dirent,
                     const svn_lock_t *lock,
                     const char *abs_path,
+                    const char *external_parent_url,
+                    const char *external_target,
                     apr_pool_t *pool);
     static svn_error_t* conflict_resolver(svn_wc_conflict_result_t **result,
                     const svn_wc_conflict_description2_t *description,

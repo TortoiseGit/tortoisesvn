@@ -108,8 +108,12 @@ BOOL CRepositoryLister::CListQuery::ReportList
     , bool is_dav_comment
     , apr_time_t lock_creationdate
     , apr_time_t lock_expirationdate
-    , const CString& absolutepath)
+    , const CString& absolutepath
+    , const CString& externalParentUrl
+    , const CString& externalTarget)
 {
+    UNREFERENCED_PARAMETER(externalParentUrl);
+    UNREFERENCED_PARAMETER(externalTarget);
     // skip the parent path
 
     if (path.IsEmpty())
@@ -125,7 +129,7 @@ BOOL CRepositoryLister::CListQuery::ReportList
     CString relPath = absolutepath + (abspath_has_slash ? _T("") : _T("/"));
     CItem entry
         ( path
-        , CString()
+        , externalTarget 
         , kind
         , size
         , has_props
@@ -158,7 +162,8 @@ BOOL CRepositoryLister::CListQuery::Cancel()
 
 void CRepositoryLister::CListQuery::InternalExecute()
 {
-    if (!List (path, GetRevision(), GetPegRevision(), svn_depth_immediates, true, complete))
+    // TODO: let the svn API fetch the externals
+    if (!List (path, GetRevision(), GetPegRevision(), svn_depth_immediates, true, complete, false))
     {
         // something went wrong or query was cancelled
         // -> store error, clear results and terminate sub-queries
