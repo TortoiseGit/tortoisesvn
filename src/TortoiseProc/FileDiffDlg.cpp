@@ -683,7 +683,7 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     progDlg.SetProgress(i+1, urls1.GetCount());
                     if (bDoPegDiff)
                     {
-                        PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, options, true, diffFile);
+                        PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, true, true, false, true, false, options, true, diffFile);
                     }
                     else
                     {

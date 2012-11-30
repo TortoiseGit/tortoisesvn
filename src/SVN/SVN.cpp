@@ -1160,16 +1160,16 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
                   const SVNRev& startrev, const SVNRev& endrev,
                   const CTSVNPath& relativeToDir, svn_depth_t depth,
                   bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
-                    bool useGitFormat, const CString& options, bool bAppend, const CTSVNPath& outputfile)
+                    bool useGitFormat, bool ignoreproperties, bool propertiesonly, const CString& options, bool bAppend, const CTSVNPath& outputfile)
 {
-    return PegDiff(path, pegrevision, startrev, endrev, relativeToDir, depth, ignoreancestry, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, options, bAppend, outputfile, CTSVNPath());
+    return PegDiff(path, pegrevision, startrev, endrev, relativeToDir, depth, ignoreancestry, nodiffdeleted, showCopiesAsAdds, ignorecontenttype, useGitFormat, ignoreproperties, propertiesonly, options, bAppend, outputfile, CTSVNPath());
 }
 
 bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
                   const SVNRev& startrev, const SVNRev& endrev,
                   const CTSVNPath& relativeToDir, svn_depth_t depth,
                   bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype,
-                  bool useGitFormat, const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
+                  bool useGitFormat, bool ignoreproperties, bool propertiesonly, const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile)
 {
     bool del = false;
     apr_file_t * outfile;
@@ -1210,10 +1210,13 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
     if (Err)
         return false;
 
+    svn_stream_t * outstream = svn_stream_from_aprfile2(outfile, false, localpool);
+    svn_stream_t * errstream = svn_stream_from_aprfile2(errfile, false, localpool);
+
     const char* svnPath = path.GetSVNApiPath(localpool);
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE (
-        Err = svn_client_diff_peg5 (opts,
+        Err = svn_client_diff_peg6 (opts,
             svnPath,
             pegrevision,
             startrev,
@@ -1224,10 +1227,12 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegrevision,
             nodiffdeleted,
             showCopiesAsAdds,
             ignorecontenttype,
+            ignoreproperties,
+            propertiesonly,
             useGitFormat,
             APR_LOCALE_CHARSET,
-            outfile,
-            errfile,
+            outstream,
+            errstream,
             NULL, // we don't deal with change lists when diffing
             m_pctx,
             localpool),

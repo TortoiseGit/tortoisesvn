@@ -553,11 +553,13 @@ public:
      */
     bool PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev,
         const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth,
-        bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat, const CString& options,
+        bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
+        bool ignoreproperties, bool propertiesonly, const CString& options,
         bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
     bool PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev,
         const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth,
-        bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat, const CString& options,
+        bool ignoreancestry, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
+        bool ignoreproperties, bool propertiesonly, const CString& options,
         bool bAppend, const CTSVNPath& outputfile);
 
     /**
