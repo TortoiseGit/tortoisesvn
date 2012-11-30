@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-28 13:27+0000\n"
-"Last-Translator: Masahiro Fujimoto <fujimoto@internet.ne.jp>\n"
+"PO-Revision-Date: 2012-11-29 13:03+0000\n"
+"Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2952,8 +2952,8 @@ msgstr "実行するコマンドライン:"
 #, c-format
 msgid ""
 "Command Line To Execute:\r\n"
-"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr "実行するコマンドライン:\n作業コピー内のパスを指定する場合、リポジトリ中のURLで、リポジトリのルートURLを%REPOROOT%として指定してください"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
+msgstr "実行するコマンドライン:\r\n作業コピー内のパスは、リポジトリ中のURLで指定してください。%REPOROOT%でリポジトリのルートURL、%REPOROOT+%で作業コピーのルートを表します。"
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -6508,7 +6508,7 @@ msgstr "移動\n項目をターゲットパスへ移動する"
 
 #. Resource IDs: (65535)
 msgid "Moved from"
-msgstr "～から移動"
+msgstr "移動元"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
@@ -6516,7 +6516,7 @@ msgstr "リモート操作による移動"
 
 #. Resource IDs: (65535)
 msgid "Moved to"
-msgstr "～へ移動"
+msgstr "移動先"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6542,6 +6542,10 @@ msgstr "My ファイル:"
 #. Resource IDs: (3697)
 msgid "NUM"
 msgstr "NUM"
+
+#. Resource IDs: (1071)
+msgid "Name"
+msgstr "名前"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -10356,11 +10360,10 @@ msgid ""
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
-"neon %s\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nneon %s\r\nserf %d.%d.%d\r\n%s\r\nzlib %s"
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10450,6 +10453,10 @@ msgstr "やり直し"
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVN を調整"
+
+#. Resource IDs: (1071)
+msgid "Type"
+msgstr "タイプ"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"

@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-25 11:27+0000\n"
+"PO-Revision-Date: 2012-11-30 07:58+0000\n"
 "Last-Translator: Mārtiņš Paukšte <miersuzzemes@inbox.lv>\n"
 "Language-Team: Latvian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1010,7 +1010,7 @@ msgstr "&Nav izpildāms"
 
 #. Resource IDs: (1566)
 msgid "&Numeric"
-msgstr "&Numeric"
+msgstr "&Cipars"
 
 #. Resource IDs: (1, 563, 1607)
 msgid "&OK"
@@ -2952,7 +2952,7 @@ msgstr "Komandas rinda, ko izpildīt:"
 #, c-format
 msgid ""
 "Command Line To Execute:\r\n"
-"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
 msgstr ""
 
 #. Resource IDs: (616)
@@ -5920,7 +5920,7 @@ msgstr ""
 msgid ""
 "Line Tool\n"
 "Line"
-msgstr ""
+msgstr "Līnijas rīks\nLīnija"
 
 #. Resource IDs: (65535)
 msgid "Line differences"
@@ -6508,28 +6508,28 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Moved from"
-msgstr ""
+msgstr "Pārvietots no"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
-msgstr ""
+msgstr "Pārvietots attālināti"
 
 #. Resource IDs: (65535)
 msgid "Moved to"
-msgstr ""
+msgstr "Pārvietots uz"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
-msgstr ""
+msgstr "Pārvieto modificētos failus uz miskasti pirms to atjaunošanas"
 
 #. Resource IDs: (80)
 #, c-format
 msgid "Moving %1!s!"
-msgstr ""
+msgstr "Pārvieto %1!s!"
 
 #. Resource IDs: (80)
 msgid "Moving..."
-msgstr ""
+msgstr "Pārvieto..."
 
 #. Resource IDs: (1204)
 msgid "Multiple, &independent working copies"
@@ -6537,10 +6537,14 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "My file:"
-msgstr ""
+msgstr "Mans fails:"
 
 #. Resource IDs: (3697)
 msgid "NUM"
+msgstr ""
+
+#. Resource IDs: (1071)
+msgid "Name"
 msgstr ""
 
 #. Resource IDs: (156)
@@ -6555,11 +6559,11 @@ msgstr ""
 
 #. Resource IDs: (17004)
 msgid "Navigation Pane Options"
-msgstr ""
+msgstr "Navigācijas rūts īpašības"
 
 #. Resource IDs: (1065)
 msgid "Navigation Pane Options..."
-msgstr ""
+msgstr "Navigācijas rūts īpašības..."
 
 #. Resource IDs: (208)
 msgid "Needs lock"
@@ -6600,7 +6604,7 @@ msgstr "Jauns &name:"
 
 #. Resource IDs: (1001)
 msgid "New Menu"
-msgstr ""
+msgstr "Jauna izvēlne"
 
 #. Resource IDs: (97)
 #, c-format
@@ -6645,15 +6649,15 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "No differences found!"
-msgstr ""
+msgstr "Netika atrastas atšķirības!"
 
 #. Resource IDs: (3843)
 msgid "No error message is available."
-msgstr ""
+msgstr "Nav pieejams neviens kļūdas ziņojums."
 
 #. Resource IDs: (3867, 3868)
 msgid "No error occurred."
-msgstr ""
+msgstr "Neradās neviena kļūda."
 
 #. Resource IDs: (281)
 msgid "No externals found"
@@ -6689,7 +6693,7 @@ msgstr ""
 
 #. Resource IDs: (273)
 msgid "No graph available"
-msgstr ""
+msgstr "Nav pieejams neviens grafiks"
 
 #. Resource IDs: (273)
 #, c-format
@@ -6702,7 +6706,7 @@ msgstr ""
 
 #. Resource IDs: (188)
 msgid "No spell corrections"
-msgstr ""
+msgstr "Nav neviena drukas kļūdas labojuma"
 
 #. Resource IDs: (196)
 msgid ""
@@ -7169,7 +7173,7 @@ msgstr ""
 
 #. Resource IDs: (20, 63, 77, 198, 207)
 msgid "Path"
-msgstr ""
+msgstr "Ceļš"
 
 #. Resource IDs: (314)
 msgid "Path found that matches the patch better."
@@ -7177,7 +7181,7 @@ msgstr ""
 
 #. Resource IDs: (116)
 msgid "Paths"
-msgstr ""
+msgstr "Ceļi"
 
 #. Resource IDs: (218)
 msgid "Peg"
@@ -7215,7 +7219,7 @@ msgstr "Attēls:"
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, "
 "*.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|All (*.*)|*.*||"
-msgstr ""
+msgstr "Attēli (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif|Visi (*.*)|*.*||"
 
 #. Resource IDs: (246)
 msgid "Pie Graph"
@@ -7380,7 +7384,7 @@ msgstr "Printēt dokumentu⏎ &Printēt"
 
 #. Resource IDs: (3845)
 msgid "Print to File"
-msgstr ""
+msgstr "Printēt failā"
 
 #. Resource IDs: (65535)
 msgid "Printer :"
@@ -7388,7 +7392,7 @@ msgstr "Printeris:"
 
 #. Resource IDs: (3845)
 msgid "Printer Files (*.prn)|*.prn|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Printera faili (*.prn)|*.prn|Visi faili (*.*)|*.*||"
 
 #. Resource IDs: (65535)
 msgid "Printing"
@@ -7419,7 +7423,7 @@ msgstr ""
 #. Resource IDs: (132)
 #, c-format
 msgid "Processing revision %1!d! of %2!d!..."
-msgstr ""
+msgstr "Apstrādā revīzijas %1!d! of %2!d!..."
 
 #. Resource IDs: (74)
 msgid "Program"
@@ -7427,7 +7431,7 @@ msgstr "Programma"
 
 #. Resource IDs: (157)
 msgid "Programs (*.exe)|*.exe|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Programmas (*.exe)|*.exe|Visi faili (*.*)|*.*||"
 
 #. Resource IDs: (134)
 msgid "Progress"
@@ -7439,7 +7443,7 @@ msgstr "Īpašības"
 
 #. Resource IDs: (157)
 msgid "Properties (*.svnprops)|*.svnprops|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "Īpašības (*.svnprops)|*.svnprops|Visi faili (*.*)|*.*||"
 
 #. Resource IDs: (1287)
 msgid "Properties for"
@@ -7490,31 +7494,31 @@ msgstr ""
 
 #. Resource IDs: (107)
 msgid "Property Page"
-msgstr ""
+msgstr "Īpašības lapa"
 
 #. Resource IDs: (65535)
 msgid "Property Status:"
-msgstr ""
+msgstr "Īpašības statuss:"
 
 #. Resource IDs: (1292)
 msgid "Property name:"
-msgstr ""
+msgstr "Īpašības nosaukums:"
 
 #. Resource IDs: (207)
 msgid "Property status"
-msgstr ""
+msgstr "Īpašības statuss"
 
 #. Resource IDs: (1293)
 msgid "Property value:"
-msgstr ""
+msgstr "Īpašības vērtība:"
 
 #. Resource IDs: (63)
 msgid "Provider"
-msgstr ""
+msgstr "Sniedzējs"
 
 #. Resource IDs: (1586)
 msgid "Provider para&meters:"
-msgstr ""
+msgstr "Sniedzēja para&metri:"
 
 #. Resource IDs: (1581)
 msgid "Provider uuid win&32:"
@@ -7522,7 +7526,7 @@ msgstr ""
 
 #. Resource IDs: (1475)
 msgid "Provider:"
-msgstr ""
+msgstr "Sniedzējs:"
 
 #. Resource IDs: (1412)
 msgid "Proxy &timeout in seconds:"
@@ -7530,7 +7534,7 @@ msgstr ""
 
 #. Resource IDs: (1080)
 msgid "Proxy Settings"
-msgstr ""
+msgstr "Pilnvaru iestatījumi"
 
 #. Resource IDs: (1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
@@ -7587,7 +7591,7 @@ msgstr ""
 
 #. Resource IDs: (11)
 msgid "Re&name..."
-msgstr ""
+msgstr "Pā&rsaukt..."
 
 #. Resource IDs: (16613)
 msgid "Re&set"
@@ -7607,11 +7611,11 @@ msgstr ""
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
-msgstr ""
+msgstr "At&griezt..."
 
 #. Resource IDs: (1033)
 msgid "Re&vision"
-msgstr ""
+msgstr "Re&vīzija"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
@@ -7703,11 +7707,11 @@ msgstr ""
 
 #. Resource IDs: (3825)
 msgid "Reduce the window to an icon"
-msgstr ""
+msgstr "Samazināt logu līdz ikonai"
 
 #. Resource IDs: (101, 135, 1382)
 msgid "Refresh"
-msgstr ""
+msgstr "Atjaunināt"
 
 #. Resource IDs: (1615)
 msgid "Refresh &shell overlays"
@@ -7743,7 +7747,7 @@ msgstr ""
 
 #. Resource IDs: (595)
 msgid "Reintegrate merge"
-msgstr ""
+msgstr "Reintegrēt sapludināšanu"
 
 #. Resource IDs: (230)
 #, c-format
@@ -7752,7 +7756,7 @@ msgstr ""
 
 #. Resource IDs: (82)
 msgid "Reject"
-msgstr ""
+msgstr "Noraīdīt"
 
 #. Resource IDs: (148)
 msgid ""
@@ -7767,12 +7771,12 @@ msgstr ""
 
 #. Resource IDs: (16)
 msgid "Release loc&k..."
-msgstr ""
+msgstr "At&laist saslēgumu..."
 
 #. Resource IDs: (16)
 msgid ""
 "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr ""
+msgstr "Atlaist saslēgumus pat, ja jūs neesat to autors (salauž tos)."
 
 #. Resource IDs: (16)
 msgid "Releases locks on files so other users can edit them again."
@@ -7780,11 +7784,11 @@ msgstr ""
 
 #. Resource IDs: (12)
 msgid "Relo&cate..."
-msgstr ""
+msgstr "Pār&celt"
 
 #. Resource IDs: (32794)
 msgid "Reload"
-msgstr ""
+msgstr "Pārlādēt"
 
 #. Resource IDs: (2050)
 msgid ""
@@ -7794,11 +7798,11 @@ msgstr ""
 
 #. Resource IDs: (157)
 msgid "Relocate"
-msgstr ""
+msgstr "Pārcelt"
 
 #. Resource IDs: (89)
 msgid "Relocate Warning"
-msgstr ""
+msgstr "Pārcelšanas brīdinājums"
 
 #. Resource IDs: (89)
 msgid "Relocate where a switch might be intended"
@@ -7812,11 +7816,11 @@ msgstr ""
 
 #. Resource IDs: (80)
 msgid "Relocating..."
-msgstr ""
+msgstr "Pārceļ..."
 
 #. Resource IDs: (501)
 msgid "Remember the depth for this working copy"
-msgstr ""
+msgstr "Iegaumēt šīs darba kopijas dziļumu"
 
 #. Resource IDs: (207)
 msgid "Remote property status"
@@ -7836,17 +7840,17 @@ msgstr ""
 
 #. Resource IDs: (1332, 1470)
 msgid "Remove"
-msgstr ""
+msgstr "Noņemt"
 
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %ld items"
-msgstr ""
+msgstr "Noņemt %ld elementus"
 
 #. Resource IDs: (126)
 #, c-format
 msgid "Remove %s"
-msgstr ""
+msgstr "Noņemt %s"
 
 #. Resource IDs: (15)
 msgid "Remove from &ignore list"
@@ -7871,15 +7875,15 @@ msgstr ""
 msgid ""
 "Remove property '%1!S!' from\r\n"
 "%2!s!"
-msgstr ""
+msgstr "Noņemt īpašību '%1!S!' no⏎ %2!s!"
 
 #. Resource IDs: (610)
 msgid "Remove the directory"
-msgstr ""
+msgstr "Noņemt direktoriju"
 
 #. Resource IDs: (610)
 msgid "Remove the file"
-msgstr ""
+msgstr "Noņemt failu"
 
 #. Resource IDs: (345)
 msgid "Remove the selected cache(s) from disk"
@@ -7887,7 +7891,7 @@ msgstr ""
 
 #. Resource IDs: (1352)
 msgid "Remove the whole subtree(s)"
-msgstr ""
+msgstr "Novākt visu apakškoku(s)"
 
 #. Resource IDs: (147)
 msgid ""
@@ -7903,11 +7907,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Removed"
-msgstr ""
+msgstr "Noņemts"
 
 #. Resource IDs: (126)
 msgid "Removed file/folder"
-msgstr ""
+msgstr "Noņemts fails/mape"
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
@@ -7923,7 +7927,7 @@ msgstr ""
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
-msgstr ""
+msgstr "Noņem visus neversionētos un ignorētos elementus"
 
 #. Resource IDs: (15)
 msgid "Removes the file or filemask from the list of ignored items"
@@ -7931,7 +7935,7 @@ msgstr ""
 
 #. Resource IDs: (581)
 msgid "Removes the selected properties"
-msgstr ""
+msgstr "Noņem izvēlētās īpašības"
 
 #. Resource IDs: (148)
 #, c-format
@@ -7945,16 +7949,16 @@ msgstr ""
 
 #. Resource IDs: (16616)
 msgid "Rena&me..."
-msgstr ""
+msgstr "Pārsau&kt..."
 
 #. Resource IDs: (151)
 msgid "Rename"
-msgstr ""
+msgstr "Pārsaukt"
 
 #. Resource IDs: (97)
 #, c-format
 msgid "Rename %s"
-msgstr ""
+msgstr "Pārsaukt %s"
 
 #. Resource IDs: (127)
 #, c-format
@@ -7998,17 +8002,17 @@ msgstr ""
 msgid ""
 "Repeat the last action\n"
 "Repeat"
-msgstr ""
+msgstr "Atkārtot pēdējo darbību\nAtkārtot"
 
 #. Resource IDs: (3603)
 msgid ""
 "Replace specific text with different text\n"
 "Replace"
-msgstr ""
+msgstr "Aizvietot konkrētu tekstu ar citu tekstu⏎ Aizvietot"
 
 #. Resource IDs: (74)
 msgid "Replacing"
-msgstr ""
+msgstr "Aizvietošana"
 
 #. Resource IDs: (564)
 msgid "Report"
@@ -8016,19 +8020,19 @@ msgstr "Atskaite"
 
 #. Resource IDs: (1055, 1374, 1383)
 msgid "Repository"
-msgstr ""
+msgstr "Repozitorijs"
 
 #. Resource IDs: (153)
 msgid "Repository Browser"
-msgstr ""
+msgstr "Repozitorija pārlūks"
 
 #. Resource IDs: (199)
 msgid "Repository URL"
-msgstr ""
+msgstr "Repozitorija URL"
 
 #. Resource IDs: (65535)
 msgid "Repository UUID:"
-msgstr ""
+msgstr "Repozitorija UUID:"
 
 #. Resource IDs: (65535)
 msgid "Repository browser"
@@ -8036,7 +8040,7 @@ msgstr "Repozitorija pārlūks"
 
 #. Resource IDs: (324)
 msgid "Repository created"
-msgstr ""
+msgstr "Repozitorijs izveidots"
 
 #. Resource IDs: (105)
 msgid "Repository query failed. Refresh to retry."
@@ -8044,35 +8048,35 @@ msgstr "Repozitorija vaicājums nenostrādāja. Atjaunojiet, lai atkārtotu."
 
 #. Resource IDs: (106)
 msgid "Request cancelled by TSVN"
-msgstr ""
+msgstr "Pieprasījumu atcēlis TSVN"
 
 #. Resource IDs: (65535)
 msgid "Requests a username and a password"
-msgstr ""
+msgstr "Pieprasa lietotājvārdu un paroli"
 
 #. Resource IDs: (8)
 msgid "Res&olved..."
-msgstr ""
+msgstr "At&risināts..."
 
 #. Resource IDs: (16614)
 msgid "Reset &All"
-msgstr ""
+msgstr "Pāriestatīt &visu"
 
 #. Resource IDs: (214)
 msgid "Reset columns"
-msgstr ""
+msgstr "Pāriestatīt kolonnas"
 
 #. Resource IDs: (77, 207, 229)
 msgid "Resolve"
-msgstr ""
+msgstr "Atrisināt"
 
 #. Resource IDs: (268)
 msgid "Resolve Conflict"
-msgstr ""
+msgstr "Atrsināt konfliktu"
 
 #. Resource IDs: (1382)
 msgid "Resolve all la&ter"
-msgstr ""
+msgstr "Atrisināt visus vē&lāk"
 
 #. Resource IDs: (282)
 msgid "Resolve conflict using 'mine'"
@@ -8084,11 +8088,11 @@ msgstr ""
 
 #. Resource IDs: (1403)
 msgid "Resolve conflict:"
-msgstr ""
+msgstr "Atrisināt konfliktu"
 
 #. Resource IDs: (2)
 msgid "Resolve l&ater"
-msgstr ""
+msgstr "Atrisināt vēlā&k"
 
 #. Resource IDs: (148)
 msgid ""
@@ -8098,18 +8102,18 @@ msgstr ""
 
 #. Resource IDs: (74, 209)
 msgid "Resolved"
-msgstr ""
+msgstr "Atrisināts"
 
 #. Resource IDs: (282)
 #, c-format
 msgid ""
 "Resolved:\n"
 "%s"
-msgstr ""
+msgstr "Atrisināts:⏎ %s"
 
 #. Resource IDs: (9)
 msgid "Resolves conflicted files"
-msgstr ""
+msgstr "Atrisina konfliktējošos failus"
 
 #. Resource IDs: (620)
 msgid "Restore"
@@ -8117,7 +8121,7 @@ msgstr "Atjaunot"
 
 #. Resource IDs: (1254)
 msgid "Restore Default"
-msgstr ""
+msgstr "Atjaunot noklusēto"
 
 #. Resource IDs: (620)
 msgid "Restore after commit"
@@ -10356,7 +10360,6 @@ msgid ""
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
-"neon %s\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
@@ -10449,6 +10452,10 @@ msgstr ""
 
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
+msgstr ""
+
+#. Resource IDs: (1071)
+msgid "Type"
 msgstr ""
 
 #. Resource IDs: (1436)

@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-10-25 17:18+0000\n"
+"PO-Revision-Date: 2012-11-29 08:48+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2951,8 +2951,8 @@ msgstr "Příkaz ke spuštění:"
 #, c-format
 msgid ""
 "Command Line To Execute:\r\n"
-"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr "Příkazový řádek ke spuštění:\nPro určení cesty uvnitř pracovní kopie zadejte url v úložišti pomocí url kořene úložiště jako %REPOROOT%"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -6541,6 +6541,10 @@ msgstr "Můj soubor:"
 #. Resource IDs: (3697)
 msgid "NUM"
 msgstr "NUM"
+
+#. Resource IDs: (1071)
+msgid "Name"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -10355,11 +10359,10 @@ msgid ""
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
-"neon %s\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Sestavení %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nneon %s\nserf %d.%d.%d\n%s\nzlib %s"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10449,6 +10452,10 @@ msgstr "Zkusit znovu"
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "Vyladit TortoiseSVN"
+
+#. Resource IDs: (1071)
+msgid "Type"
+msgstr ""
 
 #. Resource IDs: (1436)
 msgid "U&pdate"

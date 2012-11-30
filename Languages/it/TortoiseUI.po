@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-09-28 08:44+0000\n"
+"PO-Revision-Date: 2012-11-29 08:48+0000\n"
 "Last-Translator: bovirus <roberto.boriotti@canon-europe.com>\n"
 "Language-Team: Italian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2956,8 +2956,8 @@ msgstr "Linea di comando da eseguire:"
 #, c-format
 msgid ""
 "Command Line To Execute:\r\n"
-"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%"
-msgstr "Linea di comando da eseguire:\r\nPer specificare un percorso all'interno di una copia di lavoro, specifica la URL nel repository con la cartella principale del repository come %REPOROOT%"
+"To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
+msgstr ""
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3970,7 +3970,7 @@ msgid ""
 "Do you want to mark the file\n"
 "%s\n"
 "as resolved?"
-msgstr ""
+msgstr "Vuoi marcare il file\n%s\ncome risolto?"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4646,7 +4646,7 @@ msgstr "Confronto di file"
 
 #. Resource IDs: (319)
 msgid "File has no conflicts"
-msgstr ""
+msgstr "Il file non ha conflitti"
 
 #. Resource IDs: (314)
 msgid "File is empty."
@@ -4770,7 +4770,7 @@ msgstr "Trova"
 
 #. Resource IDs: (1633)
 msgid "Find &HEAD-Revision"
-msgstr ""
+msgstr "Trova revisione &INTESTAZIONE"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
@@ -5052,7 +5052,7 @@ msgstr "Nodo PRINCIPALE"
 #. Resource IDs: (106)
 #, c-format
 msgid "HEAD revision is %s"
-msgstr ""
+msgstr "Revisione INTESTAZIONE = %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5894,7 +5894,7 @@ msgstr "Ultimo autore attivo:"
 msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
-msgstr ""
+msgstr "Lascia come in conflitto\nLo stato conflitto del file è mantenuto"
 
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
@@ -6155,7 +6155,7 @@ msgstr "Segna come risolto\nIl conflitto è risolto"
 msgid ""
 "Mark as resolved\n"
 "The file status is changed to modified"
-msgstr ""
+msgstr "Marca come risolto\nLo stato del file diventa modificato"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6546,6 +6546,10 @@ msgstr "Mio file:"
 #. Resource IDs: (3697)
 msgid "NUM"
 msgstr "NUM"
+
+#. Resource IDs: (1071)
+msgid "Name"
+msgstr ""
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -10101,7 +10105,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
+msgstr "L'operazione non è ricorsiva, e ci sono cartelle selezionate per lo spostamento/rinomina/copia. Alcuni spostamenti/rinomine saranno eseguiti ricorsivamente nel repository. Vuoi eseguire comunque?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10110,7 +10114,7 @@ msgid ""
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr ""
+msgstr "L'operazione non è ricorsiva, e ci sono cartelle selezionate per lo \nspostamento/rinomina/copia. Alcuni spostamenti/rinomine\n saranno eseguiti ricorsivamente nel repository.\n \nVuoi eseguire comunque?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10360,11 +10364,10 @@ msgid ""
 "Subversion %d.%d.%d, %s\r\n"
 "apr %d.%d.%d\r\n"
 "apr-utils %d.%d.%d\r\n"
-"neon %s\r\n"
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversion %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nneon %s\r\nserf %d.%d.%d\r\n%s\r\nzlib %s"
+msgstr ""
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10454,6 +10457,10 @@ msgstr "Riprova"
 #. Resource IDs: (10)
 msgid "Tweak TortoiseSVN"
 msgstr "Personalizza TortoiseSVN"
+
+#. Resource IDs: (1071)
+msgid "Type"
+msgstr ""
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -11073,7 +11080,7 @@ msgid ""
 "When resolving conflicts, you always have to save even if there is no "
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
-msgstr ""
+msgstr "Quando risolvi i conflitti, devi sempre salvare anche se non ci sono conflitti visualizzati. TortoiseMerge può unire modifiche che SVN non può fare e non visualizzerà conflitti per questo!"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11601,7 +11608,7 @@ msgstr "ottieni revisione HEAD:"
 
 #. Resource IDs: (591)
 msgid "get repository root URLs:"
-msgstr ""
+msgstr "ottieni URL radice repository:"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11641,7 +11648,7 @@ msgstr "mantieni l'elenco di file in inglese"
 
 #. Resource IDs: (65535)
 msgid "last HEAD update: "
-msgstr ""
+msgstr "ultimo aggiornamento INTESTAZIONE:"
 
 #. Resource IDs: (65535)
 msgid "last read: "
