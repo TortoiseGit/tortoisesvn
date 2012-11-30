@@ -317,7 +317,30 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties * props, svn_dept
 {
     SVNTRACE_BLOCK
 
+    // the add command should use the mime-type file
+    const char *mimetypes_file;
     Prepare();
+
+    svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
+        APR_HASH_KEY_STRING);
+    if (opt)
+    {
+        if (bUseAutoprops)
+        {
+            svn_config_get(opt, &mimetypes_file,
+                SVN_CONFIG_SECTION_MISCELLANY,
+                SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
+            if (mimetypes_file && *mimetypes_file)
+            {
+                Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
+                    mimetypes_file, pool);
+                if (Err)
+                    return false;
+            }
+            if (props)
+                props->InsertAutoProps(opt);
+        }
+    }
 
     for(int nItem = 0; nItem < pathList.GetCount(); nItem++)
     {
@@ -835,7 +858,26 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
                  bool no_ignore, bool ignore_unknown,
                  const RevPropHash& revProps)
 {
+    // the import command should use the mime-type file
+    const char *mimetypes_file = NULL;
     Prepare();
+    svn_config_t * opt = (svn_config_t *)apr_hash_get (m_pctx->config, SVN_CONFIG_CATEGORY_CONFIG,
+        APR_HASH_KEY_STRING);
+    if (bUseAutoprops)
+    {
+        svn_config_get(opt, &mimetypes_file,
+            SVN_CONFIG_SECTION_MISCELLANY,
+            SVN_CONFIG_OPTION_MIMETYPES_FILE, FALSE);
+        if (mimetypes_file && *mimetypes_file)
+        {
+            Err = svn_io_parse_mimetypes_file(&(m_pctx->mimetypes_map),
+                mimetypes_file, pool);
+            if (Err)
+                return FALSE;
+        }
+        if (props)
+            props->InsertAutoProps(opt);
+    }
 
     SVNPool subpool(pool);
     m_pctx->log_msg_baton3 = logMessage(message);
