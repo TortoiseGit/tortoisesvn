@@ -468,7 +468,7 @@ svn_error_t * SVNReadProperties::proplist_receiver(void *baton, const char *path
                     pThis->m_inheritedProperties.push_back(std::make_tuple(iitem->path_or_url, propmap));
                 }
             }
-            if (pThis->m_props)
+            if (pThis->m_props && prop_hash)
                 pThis->m_props = apr_hash_overlay(pThis->m_pool, prop_hash, pThis->m_props);
             else if (prop_hash)
                 pThis->m_props = apr_hash_copy(pThis->m_pool, prop_hash);
