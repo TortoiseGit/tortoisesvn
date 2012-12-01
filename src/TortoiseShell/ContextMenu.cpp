@@ -453,6 +453,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(LPCITEMIDLIST pIDFolder,
                         // offer a 'remove from ignored list' entry
                         SVNProperties props(strpath.GetContainingDirectory(), false, false);
                         ignoredprops.clear();
+                        ignoredglobalprops.clear();
                         for (int p=0; p<props.GetCount(); ++p)
                         {
                             if (props.GetItemName(p).compare(SVN_PROP_IGNORE)==0)
@@ -461,7 +462,13 @@ STDMETHODIMP CShellExt::Initialize_Wrap(LPCITEMIDLIST pIDFolder,
                                 ignoredprops = CUnicodeUtils::StdGetUnicode(st);
                                 // remove all escape chars ('\\')
                                 ignoredprops.erase(std::remove(ignoredprops.begin(), ignoredprops.end(), '\\'), ignoredprops.end());
-                                break;
+                            }
+                            if (props.GetItemName(p).compare(SVN_PROP_INHERITABLE_IGNORES)==0)
+                            {
+                                std::string st = props.GetItemValue(p);
+                                ignoredglobalprops = CUnicodeUtils::StdGetUnicode(st);
+                                // remove all escape chars ('\\')
+                                ignoredglobalprops.erase(std::remove(ignoredglobalprops.begin(), ignoredglobalprops.end(), '\\'), ignoredglobalprops.end());
                             }
                         }
                     }
@@ -1280,25 +1287,51 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
         case ShellMenuIgnore:
             AddPathFileCommand(svnCmd, L"ignore");
             break;
+        case ShellMenuIgnoreGlobal:
+            AddPathFileCommand(svnCmd, L"ignore");
+            svnCmd += _T(" /recursive");
+            break;
         case ShellMenuIgnoreCaseSensitive:
             AddPathFileCommand(svnCmd, L"ignore");
             svnCmd += _T(" /onlymask");
             break;
+        case ShellMenuIgnoreCaseSensitiveGlobal:
+            AddPathFileCommand(svnCmd, L"ignore");
+            svnCmd += _T(" /onlymask /recursive");
+            break;
         case ShellMenuDeleteIgnore:
             AddPathFileCommand(svnCmd, L"ignore");
             svnCmd += _T(" /delete");
+            break;
+        case ShellMenuDeleteIgnoreGlobal:
+            AddPathFileCommand(svnCmd, L"ignore");
+            svnCmd += _T(" /delete /recursive");
             break;
         case ShellMenuDeleteIgnoreCaseSensitive:
             AddPathFileCommand(svnCmd, L"ignore");
             svnCmd += _T(" /delete");
             svnCmd += _T(" /onlymask");
             break;
+        case ShellMenuDeleteIgnoreCaseSensitiveGlobal:
+            AddPathFileCommand(svnCmd, L"ignore");
+            svnCmd += _T(" /delete");
+            svnCmd += _T(" /onlymask");
+            svnCmd += _T(" /recursive");
+            break;
         case ShellMenuUnIgnore:
             AddPathFileCommand(svnCmd, L"unignore");
+            break;
+        case ShellMenuUnIgnoreGlobal:
+            AddPathFileCommand(svnCmd, L"unignore");
+            svnCmd += _T(" /recursive");
             break;
         case ShellMenuUnIgnoreCaseSensitive:
             AddPathFileCommand(svnCmd, L"unignore");
             svnCmd += _T(" /onlymask");
+            break;
+        case ShellMenuUnIgnoreCaseSensitiveGlobal:
+            AddPathFileCommand(svnCmd, L"unignore");
+            svnCmd += _T(" /onlymask /recursive");
             break;
         case ShellMenuRevert:
             AddPathFileCommand(svnCmd, L"revert");
@@ -1942,7 +1975,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
         _tcscpy_s(ignorepath, _tcsrchr(I->c_str(), '\\')+1);
     else
         _tcscpy_s(ignorepath, I->c_str());
-    if ((itemStates & ITEMIS_IGNORED)&&(ignoredprops.size() > 0))
+    if ((itemStates & ITEMIS_IGNORED)&&((ignoredprops.size() > 0)||(ignoredglobalprops.size() > 0)))
     {
         // check if the item name is ignored or the mask
         size_t p = 0;
@@ -1971,6 +2004,33 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
             myIDMap[idCmd++] = ShellMenuUnIgnore;
             bShowIgnoreMenu = true;
         }
+
+        p = 0;
+        while ( (p=ignoredglobalprops.find(ignoredglobalprops,p )) != -1 )
+        {
+            if ( (p==0 || ignoredglobalprops[p-1]==TCHAR('\n')) )
+            {
+                const size_t pathLength = _tcslen(ignorepath);
+                if ( ((p + pathLength)==ignoredglobalprops.length()) || (ignoredglobalprops[p + pathLength]==TCHAR('\n')) || (ignoredglobalprops[p + pathLength]==0) )
+                {
+                    break;
+                }
+            }
+            p++;
+        }
+        if (p!=-1)
+        {
+            CString temp;
+            temp.Format(IDS_MENUIGNOREGLOBAL, ignorepath);
+            InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
+            tstring verb = _T("tsvn_") + tstring(temp);
+            myVerbsMap[verb] = idCmd - idCmdFirst;
+            myVerbsMap[verb] = idCmd;
+            myVerbsIDMap[idCmd - idCmdFirst] = verb;
+            myVerbsIDMap[idCmd] = verb;
+            myIDMap[idCmd - idCmdFirst] = ShellMenuUnIgnoreGlobal;
+            myIDMap[idCmd++] = ShellMenuUnIgnoreGlobal;
+        }
         _tcscpy_s(maskbuf, _T("*"));
         if (_tcsrchr(ignorepath, '.'))
         {
@@ -1990,6 +2050,25 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myVerbsIDMap[idCmd] = verb;
                 myIDMap[idCmd - idCmdFirst] = ShellMenuUnIgnoreCaseSensitive;
                 myIDMap[idCmd++] = ShellMenuUnIgnoreCaseSensitive;
+                bShowIgnoreMenu = true;
+            }
+            p = ignoredglobalprops.find(maskbuf);
+            if ((p!=-1) &&
+                ((ignoredglobalprops.compare(maskbuf)==0) || (ignoredglobalprops.find('\n', p)==p+_tcslen(maskbuf)+1) || (ignoredglobalprops.rfind('\n', p)==p-1)))
+            {
+                if (ignoresubmenu==NULL)
+                    ignoresubmenu = CreateMenu();
+
+                CString temp;
+                temp.Format(IDS_MENUIGNOREGLOBAL, maskbuf);
+                InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
+                tstring verb = _T("tsvn_") + tstring(temp);
+                myVerbsMap[verb] = idCmd - idCmdFirst;
+                myVerbsMap[verb] = idCmd;
+                myVerbsIDMap[idCmd - idCmdFirst] = verb;
+                myVerbsIDMap[idCmd] = verb;
+                myIDMap[idCmd - idCmdFirst] = ShellMenuUnIgnoreCaseSensitiveGlobal;
+                myIDMap[idCmd++] = ShellMenuUnIgnoreCaseSensitiveGlobal;
                 bShowIgnoreMenu = true;
             }
         }
@@ -2019,6 +2098,28 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                     myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnoreCaseSensitive;
                     myIDMap[idCmd++] = ShellMenuDeleteIgnoreCaseSensitive;
                 }
+
+                CString temp;
+                temp.Format(IDS_MENUIGNOREGLOBAL, ignorepath);
+                InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
+                myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnoreGlobal;
+                myIDMap[idCmd++] = ShellMenuDeleteIgnoreGlobal;
+
+                _tcscpy_s(maskbuf, _T("*"));
+                if (_tcsrchr(ignorepath, '.'))
+                {
+                    _tcscat_s(maskbuf, _tcsrchr(ignorepath, '.'));
+                    temp.Format(IDS_MENUIGNOREGLOBAL, maskbuf);
+                    InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
+                    tstring verb = _T("tsvn_") + tstring(temp);
+                    myVerbsMap[verb] = idCmd - idCmdFirst;
+                    myVerbsMap[verb] = idCmd;
+                    myVerbsIDMap[idCmd - idCmdFirst] = verb;
+                    myVerbsIDMap[idCmd] = verb;
+                    myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnoreCaseSensitiveGlobal;
+                    myIDMap[idCmd++] = ShellMenuDeleteIgnoreCaseSensitiveGlobal;
+                }
+
             }
             else
             {
@@ -2038,6 +2139,27 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                     myVerbsIDMap[idCmd] = verb;
                     myIDMap[idCmd - idCmdFirst] = ShellMenuIgnoreCaseSensitive;
                     myIDMap[idCmd++] = ShellMenuIgnoreCaseSensitive;
+                }
+
+                CString temp;
+                temp.Format(IDS_MENUIGNOREGLOBAL, ignorepath);
+                InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
+                myIDMap[idCmd - idCmdFirst] = ShellMenuIgnoreGlobal;
+                myIDMap[idCmd++] = ShellMenuIgnoreGlobal;
+
+                _tcscpy_s(maskbuf, _T("*"));
+                if (_tcsrchr(ignorepath, '.'))
+                {
+                    _tcscat_s(maskbuf, _tcsrchr(ignorepath, '.'));
+                    temp.Format(IDS_MENUIGNOREGLOBAL, maskbuf);
+                    InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
+                    tstring verb = _T("tsvn_") + tstring(temp);
+                    myVerbsMap[verb] = idCmd - idCmdFirst;
+                    myVerbsMap[verb] = idCmd;
+                    myVerbsIDMap[idCmd - idCmdFirst] = verb;
+                    myVerbsIDMap[idCmd] = verb;
+                    myIDMap[idCmd - idCmdFirst] = ShellMenuIgnoreCaseSensitiveGlobal;
+                    myIDMap[idCmd++] = ShellMenuIgnoreCaseSensitiveGlobal;
                 }
             }
         }
@@ -2066,6 +2188,19 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myVerbsIDMap[idCmd] = verb;
                 myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnoreCaseSensitive;
                 myIDMap[idCmd++] = ShellMenuDeleteIgnoreCaseSensitive;
+
+                MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLEMASK);
+                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
+                CString temp;
+                temp.Format(IDS_MENUIGNOREGLOBAL, ignorepath);
+                InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
+                verb = tstring(temp);
+                myVerbsMap[verb] = idCmd - idCmdFirst;
+                myVerbsMap[verb] = idCmd;
+                myVerbsIDMap[idCmd - idCmdFirst] = verb;
+                myVerbsIDMap[idCmd] = verb;
+                myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnoreCaseSensitiveGlobal;
+                myIDMap[idCmd++] = ShellMenuDeleteIgnoreCaseSensitiveGlobal;
             }
             else
             {
@@ -2090,6 +2225,19 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myVerbsIDMap[idCmd] = verb;
                 myIDMap[idCmd - idCmdFirst] = ShellMenuIgnoreCaseSensitive;
                 myIDMap[idCmd++] = ShellMenuIgnoreCaseSensitive;
+
+                MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK);
+                _stprintf_s(ignorepath, stringtablebuffer, files_.size());
+                CString temp;
+                temp.Format(IDS_MENUIGNOREGLOBAL, ignorepath);
+                InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
+                verb = tstring(temp);
+                myVerbsMap[verb] = idCmd - idCmdFirst;
+                myVerbsMap[verb] = idCmd;
+                myVerbsIDMap[idCmd - idCmdFirst] = verb;
+                myVerbsIDMap[idCmd] = verb;
+                myIDMap[idCmd - idCmdFirst] = ShellMenuIgnoreCaseSensitiveGlobal;
+                myIDMap[idCmd++] = ShellMenuIgnoreCaseSensitiveGlobal;
             }
         }
     }

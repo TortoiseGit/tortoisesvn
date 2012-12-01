@@ -75,54 +75,56 @@ static UINT WM_RESOLVEMSG = RegisterWindowMessage(_T("TORTOISESVN_RESOLVEDONE_MS
 
 const static CString svnPropIgnore (SVN_PROP_IGNORE);
 
-#define IDSVNLC_REVERT           1
-#define IDSVNLC_COMPARE          2
-#define IDSVNLC_OPEN             3
-#define IDSVNLC_DELETE           4
-#define IDSVNLC_IGNORE           5
-#define IDSVNLC_GNUDIFF1         6
-#define IDSVNLC_UPDATE           7
-#define IDSVNLC_LOG              8
-#define IDSVNLC_EDITCONFLICT     9
-#define IDSVNLC_IGNOREMASK      10
-#define IDSVNLC_ADD             11
-#define IDSVNLC_RESOLVECONFLICT 12
-#define IDSVNLC_LOCK            13
-#define IDSVNLC_LOCKFORCE       14
-#define IDSVNLC_UNLOCK          15
-#define IDSVNLC_UNLOCKFORCE     16
-#define IDSVNLC_OPENWITH        17
-#define IDSVNLC_EXPLORE         18
-#define IDSVNLC_RESOLVETHEIRS   19
-#define IDSVNLC_RESOLVEMINE     20
-#define IDSVNLC_REMOVE          21
-#define IDSVNLC_COMMIT          22
-#define IDSVNLC_PROPERTIES      23
-#define IDSVNLC_COPY            24
-#define IDSVNLC_COPYEXT         25
-#define IDSVNLC_COPYCOL         26
-#define IDSVNLC_REPAIRMOVE      27
-#define IDSVNLC_REMOVEFROMCS    28
-#define IDSVNLC_CREATECS        29
-#define IDSVNLC_CREATEIGNORECS  30
-#define IDSVNLC_CHECKGROUP      31
-#define IDSVNLC_UNCHECKGROUP    32
-#define IDSVNLC_ADD_RECURSIVE   33
-#define IDSVNLC_COMPAREWC       34
-#define IDSVNLC_BLAME           35
-#define IDSVNLC_CREATEPATCH     36
-#define IDSVNLC_CHECKFORMODS    37
-#define IDSVNLC_REPAIRCOPY      38
-#define IDSVNLC_SWITCH          39
-#define IDSVNLC_COMPARETWO      40
-#define IDSVNLC_CREATERESTORE   41
-#define IDSVNLC_RESTOREPATH     42
-#define IDSVNLC_EXPORT          43
-#define IDSVNLC_UPDATEREV       44
+#define IDSVNLC_REVERT               1
+#define IDSVNLC_COMPARE              2
+#define IDSVNLC_OPEN                 3
+#define IDSVNLC_DELETE               4
+#define IDSVNLC_IGNORE               5
+#define IDSVNLC_GNUDIFF1             6
+#define IDSVNLC_UPDATE               7
+#define IDSVNLC_LOG                  8
+#define IDSVNLC_EDITCONFLICT         9
+#define IDSVNLC_IGNOREMASK          10
+#define IDSVNLC_ADD                 11
+#define IDSVNLC_RESOLVECONFLICT     12
+#define IDSVNLC_LOCK                13
+#define IDSVNLC_LOCKFORCE           14
+#define IDSVNLC_UNLOCK              15
+#define IDSVNLC_UNLOCKFORCE         16
+#define IDSVNLC_OPENWITH            17
+#define IDSVNLC_EXPLORE             18
+#define IDSVNLC_RESOLVETHEIRS       19
+#define IDSVNLC_RESOLVEMINE         20
+#define IDSVNLC_REMOVE              21
+#define IDSVNLC_COMMIT              22
+#define IDSVNLC_PROPERTIES          23
+#define IDSVNLC_COPY                24
+#define IDSVNLC_COPYEXT             25
+#define IDSVNLC_COPYCOL             26
+#define IDSVNLC_REPAIRMOVE          27
+#define IDSVNLC_REMOVEFROMCS        28
+#define IDSVNLC_CREATECS            29
+#define IDSVNLC_CREATEIGNORECS      30
+#define IDSVNLC_CHECKGROUP          31
+#define IDSVNLC_UNCHECKGROUP        32
+#define IDSVNLC_ADD_RECURSIVE       33
+#define IDSVNLC_COMPAREWC           34
+#define IDSVNLC_BLAME               35
+#define IDSVNLC_CREATEPATCH         36
+#define IDSVNLC_CHECKFORMODS        37
+#define IDSVNLC_REPAIRCOPY          38
+#define IDSVNLC_SWITCH              39
+#define IDSVNLC_COMPARETWO          40
+#define IDSVNLC_CREATERESTORE       41
+#define IDSVNLC_RESTOREPATH         42
+#define IDSVNLC_EXPORT              43
+#define IDSVNLC_UPDATEREV           44
+#define IDSVNLC_IGNOREGLOBAL        45
+#define IDSVNLC_IGNOREMASKGLOBAL    46
 
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS        45
+#define IDSVNLC_MOVETOCS            47
 
 
 BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
@@ -3274,9 +3276,16 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                                     ignorepath = ignorelist[0].GetFileOrDirectoryName();
                                 else
                                     ignorepath.Format(IDS_MENUIGNOREMULTIPLE, ignorelist.GetCount());
-                                ignoreSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, ignorepath);
-                                ignorepath = _T("*")+sExt;
-                                ignoreSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASK, ignorepath);
+                                CString menutext = ignorepath;
+                                ignoreSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNORE, menutext);
+                                menutext = _T("*")+sExt;
+                                ignoreSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASK, menutext);
+
+                                menutext.Format(IDS_MENUIGNOREGLOBAL, (LPCWSTR)ignorepath);
+                                ignoreSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREGLOBAL, menutext);
+                                menutext.Format(IDS_MENUIGNOREGLOBAL, (LPCWSTR)(L"*"+sExt));
+                                ignoreSubMenu.AppendMenu(MF_STRING | MF_ENABLED, IDSVNLC_IGNOREMASKGLOBAL, menutext);
+
                                 CString temp;
                                 temp.LoadString(IDS_MENUIGNORE);
                                 popup.InsertMenu((UINT)-1, MF_BYPOSITION | MF_POPUP, (UINT_PTR)ignoreSubMenu.m_hMenu, temp);
@@ -3286,13 +3295,9 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         {
                             CString temp;
                             if (ignorelist.GetCount()==1)
-                            {
                                 temp.LoadString(IDS_MENUIGNORE);
-                            }
                             else
-                            {
                                 temp.Format(IDS_MENUIGNOREMULTIPLE, ignorelist.GetCount());
-                            }
                             popup.AppendMenuIcon(IDSVNLC_IGNORE, temp, IDI_IGNORE);
                         }
                     }
@@ -3809,10 +3814,16 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                 Delete (filepath, selIndex);
                 break;
             case IDSVNLC_IGNOREMASK:
-                OnIgnoreMask(filepath);
+                OnIgnoreMask(filepath, false);
+                break;
+            case IDSVNLC_IGNOREMASKGLOBAL:
+                OnIgnoreMask(filepath, true);
                 break;
             case IDSVNLC_IGNORE:
-                OnIgnore(filepath);
+                OnIgnore(filepath, true);
+                break;
+            case IDSVNLC_IGNOREGLOBAL:
+                OnIgnore(filepath, true);
                 break;
             case IDSVNLC_EDITCONFLICT:
                 StartConflictEditor(filepath, entry->id);
@@ -5579,7 +5590,7 @@ CString CSVNStatusListCtrl::BuildIgnoreList(const CString& name,
     return value;
 }
 
-void CSVNStatusListCtrl::OnIgnoreMask(const CTSVNPath& filepath)
+void CSVNStatusListCtrl::OnIgnoreMask(const CTSVNPath& filepath, bool bRecursive)
 {
     CString name = _T("*")+filepath.GetFileExtension();
     CTSVNPathList ignorelist;
@@ -5601,7 +5612,7 @@ void CSVNStatusListCtrl::OnIgnoreMask(const CTSVNPath& filepath)
             CTSVNPath parentFolder = (*it).GetDirectory();
             SVNProperties props(parentFolder, SVNRev::REV_WC, false, false);
             CString value = BuildIgnoreList( name, props );
-            if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
+            if (!props.Add(bRecursive ? SVN_PROP_INHERITABLE_IGNORES : SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
             {
                 CString temp;
                 temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
@@ -5648,7 +5659,7 @@ void CSVNStatusListCtrl::OnIgnoreMask(const CTSVNPath& filepath)
     GetStatisticsString();
 }
 
-void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path)
+void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path, bool bRecursive)
 {
     CTSVNPathList ignorelist;
     std::vector<CString> toremove;
@@ -5674,7 +5685,7 @@ void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path)
             CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
             SVNProperties props(parentfolder, SVNRev::REV_WC, false, false);
             CString value = BuildIgnoreList(name, props);
-            if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
+            if (!props.Add(bRecursive ? SVN_PROP_INHERITABLE_IGNORES : SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
             {
                 CString temp;
                 temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);

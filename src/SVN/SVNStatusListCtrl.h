@@ -993,8 +993,8 @@ private:
     void RemoveListEntries(const std::vector<int>& indices);
     CString BuildIgnoreList(const CString& fileOrDirectoryName,
         SVNProperties& properties);
-    void OnIgnoreMask(const CTSVNPath& path);
-    void OnIgnore(const CTSVNPath& path);
+    void OnIgnoreMask(const CTSVNPath& path, bool bRecursive);
+    void OnIgnore(const CTSVNPath& path, bool bRecursive);
     void OnResolve(svn_wc_conflict_choice_t resolveStrategy);
     void AddEntryOnIgnore(const CTSVNPath& parentFolder, const CTSVNPath& basepath);
     void OnUnlock(bool bForce);
