@@ -78,177 +78,154 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
     regExNeedUpdate = true;
     m_bPropsRead = true;
 
-    BOOL bFoundBugtraqNumber = FALSE;
-    BOOL bFoundBugtraqWarnIssue = FALSE;
-    BOOL bFoundBugtraqAppend = FALSE;
-    BOOL bFoundLogWidth = FALSE;
-    BOOL bFoundMinLogSize = FALSE;
-    BOOL bFoundMinLockMsgSize = FALSE;
-    BOOL bFoundFileListEnglish = FALSE;
-    BOOL bFoundProjectLanguage = FALSE;
-
     if (!path.IsDirectory())
         path = path.GetContainingDirectory();
 
-    SVN svn;
-    for (;;)
-    {
-        SVNProperties props(path, SVNRev::REV_WC, false, false);
-        for (int i=0; i<props.GetCount(); ++i)
-        {
-            std::string sPropName = props.GetItemName(i);
-            CString sPropVal = CUnicodeUtils::GetUnicode(((char *)props.GetItemValue(i).c_str()));
-            if (CheckStringProp(sMessage, sPropName, sPropVal, BUGTRAQPROPNAME_MESSAGE))
-                nBugIdPos = sMessage.Find(L"%BUGID%");
-            if ((!bFoundBugtraqNumber)&&(sPropName.compare(BUGTRAQPROPNAME_NUMBER)==0))
-            {
-                CString val;
-                val = sPropVal;
-                val = val.Trim(_T(" \n\r\t"));
-                if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
-                    bNumber = FALSE;
-                else
-                    bNumber = TRUE;
-                bFoundBugtraqNumber = TRUE;
-            }
-            if (CheckStringProp(sCheckRe, sPropName, sPropVal, BUGTRAQPROPNAME_LOGREGEX))
-            {
-                if (sCheckRe.Find('\n')>=0)
-                {
-                    sBugIDRe = sCheckRe.Mid(sCheckRe.Find('\n')).Trim();
-                    sCheckRe = sCheckRe.Left(sCheckRe.Find('\n')).Trim();
-                }
-                if (!sCheckRe.IsEmpty())
-                {
-                    sCheckRe = sCheckRe.Trim();
-                }
-            }
-            CheckStringProp(sLabel, sPropName, sPropVal, BUGTRAQPROPNAME_LABEL);
-            CheckStringProp(sUrl, sPropName, sPropVal, BUGTRAQPROPNAME_URL);
-            if ((!bFoundBugtraqWarnIssue)&&(sPropName.compare(BUGTRAQPROPNAME_WARNIFNOISSUE)==0))
-            {
-                CString val;
-                val = sPropVal;
-                val = val.Trim(_T(" \n\r\t"));
-                if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
-                    bWarnIfNoIssue = TRUE;
-                else
-                    bWarnIfNoIssue = FALSE;
-                bFoundBugtraqWarnIssue = TRUE;
-            }
-            if ((!bFoundBugtraqAppend)&&(sPropName.compare(BUGTRAQPROPNAME_APPEND)==0))
-            {
-                CString val;
-                val = sPropVal;
-                val = val.Trim(_T(" \n\r\t"));
-                if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
-                    bAppend = TRUE;
-                else
-                    bAppend = FALSE;
-                bFoundBugtraqAppend = TRUE;
-            }
-            CheckStringProp(sProviderUuid, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERUUID);
-            CheckStringProp(sProviderUuid64, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERUUID64);
-            CheckStringProp(sProviderParams, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERPARAMS);
-            if ((!bFoundLogWidth)&&(sPropName.compare(PROJECTPROPNAME_LOGWIDTHLINE)==0))
-            {
-                CString val;
-                val = sPropVal;
-                if (!val.IsEmpty())
-                {
-                    nLogWidthMarker = _ttoi(val);
-                }
-                bFoundLogWidth = TRUE;
-            }
-            CheckStringProp(sLogTemplate, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATE);
-            CheckStringProp(sLogTemplateCommit, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATECOMMIT);
-            CheckStringProp(sLogTemplateBranch, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEBRANCH);
-            CheckStringProp(sLogTemplateImport, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEIMPORT);
-            CheckStringProp(sLogTemplateDelete, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEDEL);
-            CheckStringProp(sLogTemplateMove, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEMOVE);
-            CheckStringProp(sLogTemplateMkDir, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEMKDIR);
-            CheckStringProp(sLogTemplatePropset, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
-            CheckStringProp(sLogTemplateLock, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATELOCK);
-            if ((!bFoundMinLogSize)&&(sPropName.compare(PROJECTPROPNAME_LOGMINSIZE)==0))
-            {
-                CString val;
-                val = sPropVal;
-                if (!val.IsEmpty())
-                {
-                    nMinLogSize = _ttoi(val);
-                }
-                bFoundMinLogSize = TRUE;
-            }
-            if ((!bFoundMinLockMsgSize)&&(sPropName.compare(PROJECTPROPNAME_LOCKMSGMINSIZE)==0))
-            {
-                CString val;
-                val = sPropVal;
-                if (!val.IsEmpty())
-                {
-                    nMinLockMsgSize = _ttoi(val);
-                }
-                bFoundMinLockMsgSize = TRUE;
-            }
-            if ((!bFoundFileListEnglish)&&(sPropName.compare(PROJECTPROPNAME_LOGFILELISTLANG)==0))
-            {
-                CString val;
-                val = sPropVal;
-                val = val.Trim(_T(" \n\r\t"));
-                if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
-                    bFileListInEnglish = FALSE;
-                else
-                    bFileListInEnglish = TRUE;
-                bFoundFileListEnglish = TRUE;
-            }
-            if ((!bFoundProjectLanguage)&&(sPropName.compare(PROJECTPROPNAME_PROJECTLANGUAGE)==0))
-            {
-                CString val;
-                val = sPropVal;
-                if (!val.IsEmpty())
-                {
-                    LPTSTR strEnd;
-                    lProjectLanguage = _tcstol(val, &strEnd, 0);
-                }
-                bFoundProjectLanguage = TRUE;
-            }
-            CheckStringProp(sFPPath, sPropName, sPropVal, PROJECTPROPNAME_USERFILEPROPERTY);
-            CheckStringProp(sDPPath, sPropName, sPropVal, PROJECTPROPNAME_USERDIRPROPERTY);
-            CheckStringProp(sAutoProps, sPropName, sPropVal, PROJECTPROPNAME_AUTOPROPS);
-            CheckStringProp(sWebViewerRev, sPropName, sPropVal, PROJECTPROPNAME_WEBVIEWER_REV);
-            CheckStringProp(sWebViewerPathRev, sPropName, sPropVal, PROJECTPROPNAME_WEBVIEWER_PATHREV);
-            CheckStringProp(sLogSummaryRe, sPropName, sPropVal, PROJECTPROPNAME_LOGSUMMARY);
-            CheckStringProp(sLogRevRegex, sPropName, sPropVal, PROJECTPROPNAME_LOGREVREGEX);
-            CheckStringProp(sStartCommitHook, sPropName, sPropVal, PROJECTPROPNAME_STARTCOMMITHOOK);
-            CheckStringProp(sPreCommitHook, sPropName, sPropVal, PROJECTPROPNAME_PRECOMMITHOOK);
-            CheckStringProp(sPostCommitHook, sPropName, sPropVal, PROJECTPROPNAME_POSTCOMMITHOOK);
-            CheckStringProp(sStartUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_STARTUPDATEHOOK);
-            CheckStringProp(sPreUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_PREUPDATEHOOK);
-            CheckStringProp(sPostUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_POSTUPDATEHOOK);
-
-            CheckStringProp(sMergeLogTemplateTitle, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATETITLE);
-            CheckStringProp(sMergeLogTemplateReverseTitle, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE);
-            CheckStringProp(sMergeLogTemplateMsg, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATEMSG);
-        }
-        if (PathIsRoot(path.GetWinPath()))
-            return FALSE;
-        propsPath = path;
+    while (!SVNHelper::IsVersioned(path, false) && !path.IsEmpty())
         path = path.GetContainingDirectory();
-        if ((!SVNHelper::IsVersioned(path, true)) || (path.IsEmpty()) || propsPath.IsWCRoot())
-        {
-            if (sLogRevRegex.IsEmpty())
-                sLogRevRegex = LOG_REVISIONREGEX;
-            if (m_bFound)
-            {
-                sRepositoryRootUrl = svn.GetRepositoryRoot(propsPath);
-                sRepositoryPathUrl = svn.GetURLFromPath(propsPath);
 
-                return TRUE;
-            }
-            propsPath.Reset();
-            return FALSE;
+    SVN svn;
+    SVNProperties props(path, SVNRev::REV_WC, false, true);
+    for (int i=0; i<props.GetCount(); ++i)
+    {
+        std::string sPropName = props.GetItemName(i);
+        CString sPropVal = CUnicodeUtils::GetUnicode(((char *)props.GetItemValue(i).c_str()));
+        if (CheckStringProp(sMessage, sPropName, sPropVal, BUGTRAQPROPNAME_MESSAGE))
+            nBugIdPos = sMessage.Find(L"%BUGID%");
+        if (sPropName.compare(BUGTRAQPROPNAME_NUMBER)==0)
+        {
+            CString val;
+            val = sPropVal;
+            val = val.Trim(_T(" \n\r\t"));
+            if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
+                bNumber = FALSE;
+            else
+                bNumber = TRUE;
         }
+        if (CheckStringProp(sCheckRe, sPropName, sPropVal, BUGTRAQPROPNAME_LOGREGEX))
+        {
+            if (sCheckRe.Find('\n')>=0)
+            {
+                sBugIDRe = sCheckRe.Mid(sCheckRe.Find('\n')).Trim();
+                sCheckRe = sCheckRe.Left(sCheckRe.Find('\n')).Trim();
+            }
+            if (!sCheckRe.IsEmpty())
+            {
+                sCheckRe = sCheckRe.Trim();
+            }
+        }
+        CheckStringProp(sLabel, sPropName, sPropVal, BUGTRAQPROPNAME_LABEL);
+        CheckStringProp(sUrl, sPropName, sPropVal, BUGTRAQPROPNAME_URL);
+        if (sPropName.compare(BUGTRAQPROPNAME_WARNIFNOISSUE)==0)
+        {
+            CString val;
+            val = sPropVal;
+            val = val.Trim(_T(" \n\r\t"));
+            if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
+                bWarnIfNoIssue = TRUE;
+            else
+                bWarnIfNoIssue = FALSE;
+        }
+        if (sPropName.compare(BUGTRAQPROPNAME_APPEND)==0)
+        {
+            CString val;
+            val = sPropVal;
+            val = val.Trim(_T(" \n\r\t"));
+            if ((val.CompareNoCase(_T("true"))==0)||(val.CompareNoCase(_T("yes"))==0))
+                bAppend = TRUE;
+            else
+                bAppend = FALSE;
+        }
+        CheckStringProp(sProviderUuid, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERUUID);
+        CheckStringProp(sProviderUuid64, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERUUID64);
+        CheckStringProp(sProviderParams, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERPARAMS);
+        if (sPropName.compare(PROJECTPROPNAME_LOGWIDTHLINE)==0)
+        {
+            CString val;
+            val = sPropVal;
+            if (!val.IsEmpty())
+            {
+                nLogWidthMarker = _ttoi(val);
+            }
+        }
+        CheckStringProp(sLogTemplate, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATE);
+        CheckStringProp(sLogTemplateCommit, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATECOMMIT);
+        CheckStringProp(sLogTemplateBranch, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEBRANCH);
+        CheckStringProp(sLogTemplateImport, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEIMPORT);
+        CheckStringProp(sLogTemplateDelete, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEDEL);
+        CheckStringProp(sLogTemplateMove, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEMOVE);
+        CheckStringProp(sLogTemplateMkDir, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEMKDIR);
+        CheckStringProp(sLogTemplatePropset, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
+        CheckStringProp(sLogTemplateLock, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATELOCK);
+        if (sPropName.compare(PROJECTPROPNAME_LOGMINSIZE)==0)
+        {
+            CString val;
+            val = sPropVal;
+            if (!val.IsEmpty())
+            {
+                nMinLogSize = _ttoi(val);
+            }
+        }
+        if (sPropName.compare(PROJECTPROPNAME_LOCKMSGMINSIZE)==0)
+        {
+            CString val;
+            val = sPropVal;
+            if (!val.IsEmpty())
+            {
+                nMinLockMsgSize = _ttoi(val);
+            }
+        }
+        if (sPropName.compare(PROJECTPROPNAME_LOGFILELISTLANG)==0)
+        {
+            CString val;
+            val = sPropVal;
+            val = val.Trim(_T(" \n\r\t"));
+            if ((val.CompareNoCase(_T("false"))==0)||(val.CompareNoCase(_T("no"))==0))
+                bFileListInEnglish = FALSE;
+            else
+                bFileListInEnglish = TRUE;
+        }
+        if (sPropName.compare(PROJECTPROPNAME_PROJECTLANGUAGE)==0)
+        {
+            CString val;
+            val = sPropVal;
+            if (!val.IsEmpty())
+            {
+                LPTSTR strEnd;
+                lProjectLanguage = _tcstol(val, &strEnd, 0);
+            }
+        }
+        CheckStringProp(sFPPath, sPropName, sPropVal, PROJECTPROPNAME_USERFILEPROPERTY);
+        CheckStringProp(sDPPath, sPropName, sPropVal, PROJECTPROPNAME_USERDIRPROPERTY);
+        CheckStringProp(sAutoProps, sPropName, sPropVal, PROJECTPROPNAME_AUTOPROPS);
+        CheckStringProp(sWebViewerRev, sPropName, sPropVal, PROJECTPROPNAME_WEBVIEWER_REV);
+        CheckStringProp(sWebViewerPathRev, sPropName, sPropVal, PROJECTPROPNAME_WEBVIEWER_PATHREV);
+        CheckStringProp(sLogSummaryRe, sPropName, sPropVal, PROJECTPROPNAME_LOGSUMMARY);
+        CheckStringProp(sLogRevRegex, sPropName, sPropVal, PROJECTPROPNAME_LOGREVREGEX);
+        CheckStringProp(sStartCommitHook, sPropName, sPropVal, PROJECTPROPNAME_STARTCOMMITHOOK);
+        CheckStringProp(sPreCommitHook, sPropName, sPropVal, PROJECTPROPNAME_PRECOMMITHOOK);
+        CheckStringProp(sPostCommitHook, sPropName, sPropVal, PROJECTPROPNAME_POSTCOMMITHOOK);
+        CheckStringProp(sStartUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_STARTUPDATEHOOK);
+        CheckStringProp(sPreUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_PREUPDATEHOOK);
+        CheckStringProp(sPostUpdateHook, sPropName, sPropVal, PROJECTPROPNAME_POSTUPDATEHOOK);
+
+        CheckStringProp(sMergeLogTemplateTitle, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATETITLE);
+        CheckStringProp(sMergeLogTemplateReverseTitle, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE);
+        CheckStringProp(sMergeLogTemplateMsg, sPropName, sPropVal, PROJECTPROPNAME_MERGELOGTEMPLATEMSG);
     }
-    //return FALSE;     //never reached
+
+    propsPath = path;
+    if (sLogRevRegex.IsEmpty())
+        sLogRevRegex = LOG_REVISIONREGEX;
+    if (m_bFound)
+    {
+        sRepositoryRootUrl = svn.GetRepositoryRoot(propsPath);
+        sRepositoryPathUrl = svn.GetURLFromPath(propsPath);
+
+        return TRUE;
+    }
+    propsPath.Reset();
+    return FALSE;
 }
 
 bool ProjectProperties::CheckStringProp( CString& s, const std::string& propname, const CString& propval, LPCSTR prop )
