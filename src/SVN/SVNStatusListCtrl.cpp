@@ -633,32 +633,35 @@ svn_error_t * proplist_receiver(void *baton, const char *path, apr_hash_t *prop_
         }
     }
 
-    for ( apr_hash_index_t *index = apr_hash_first (pool, prop_hash)
-        ; index != NULL
-        ; index = apr_hash_next (index))
+    if (prop_hash)
     {
-        // extract next entry from hash
+        for ( apr_hash_index_t *index = apr_hash_first (pool, prop_hash)
+            ; index != NULL
+            ; index = apr_hash_next (index))
+        {
+            // extract next entry from hash
 
-        const char* key = NULL;
-        ptrdiff_t keyLen;
-        const char** val = NULL;
+            const char* key = NULL;
+            ptrdiff_t keyLen;
+            const char** val = NULL;
 
-        apr_hash_this ( index
-            , reinterpret_cast<const void**>(&key)
-            , &keyLen
-            , reinterpret_cast<void**>(&val));
+            apr_hash_this ( index
+                , reinterpret_cast<const void**>(&key)
+                , &keyLen
+                , reinterpret_cast<void**>(&val));
 
-        // decode / dispatch it
+            // decode / dispatch it
 
-        CString name = CUnicodeUtils::GetUnicode (key);
-        CString value = CUnicodeUtils::GetUnicode (*val);
+            CString name = CUnicodeUtils::GetUnicode (key);
+            CString value = CUnicodeUtils::GetUnicode (*val);
 
-        // store in property container (truncate it after ~100 chars)
+            // store in property container (truncate it after ~100 chars)
 
-        proplist[name]
-        = value.GetLength() > SVNSLC_MAXUSERPROPLENGTH
-            ? value.Left (SVNSLC_MAXUSERPROPLENGTH)
-            : value;
+            proplist[name]
+            = value.GetLength() > SVNSLC_MAXUSERPROPLENGTH
+                ? value.Left (SVNSLC_MAXUSERPROPLENGTH)
+                : value;
+        }
     }
     if (proplist.Count())
     {
