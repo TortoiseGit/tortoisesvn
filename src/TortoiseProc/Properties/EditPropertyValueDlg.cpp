@@ -83,6 +83,8 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
         {
             m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_EXTERNALS));
             m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_IGNORE));
+            m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_INHERITABLE_IGNORES));
+            m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_INHERITABLE_AUTO_PROPS));
         }
         m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_KEYWORDS));
         m_PropNames.AddString(CUnicodeUtils::GetUnicode(SVN_PROP_NEEDS_LOCK));
@@ -299,6 +301,10 @@ void CEditPropertyValueDlg::CheckRecursive()
             nText = IDS_PROP_TT_MIMETYPE;
         if (nameUTF8.compare(SVN_PROP_IGNORE)==0)
             nText = IDS_PROP_TT_IGNORE;
+        if (nameUTF8.compare(SVN_PROP_INHERITABLE_IGNORES)==0)
+            nText = IDS_PROP_TT_INHERITABLEIGNORE;
+        if (nameUTF8.compare(SVN_PROP_INHERITABLE_AUTO_PROPS)==0)
+            nText = IDS_PROP_TT_INHERITABLEAUTOPROPS;
         if (nameUTF8.compare(SVN_PROP_KEYWORDS)==0)
             nText = IDS_PROP_TT_KEYWORDS;
         if (nameUTF8.compare(SVN_PROP_EOL_STYLE)==0)
