@@ -470,7 +470,7 @@ svn_error_t * SVNReadProperties::proplist_receiver(void *baton, const char *path
             }
             if (pThis->m_props)
                 pThis->m_props = apr_hash_overlay(pThis->m_pool, prop_hash, pThis->m_props);
-            else
+            else if (prop_hash)
                 pThis->m_props = apr_hash_copy(pThis->m_pool, prop_hash);
         }
 
