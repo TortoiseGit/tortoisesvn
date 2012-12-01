@@ -508,7 +508,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
         }
         for (auto it = extproppaths.cbegin(); it != extproppaths.cend(); ++it)
         {
-            SVNReadProperties props(*it, SVNRev::REV_WC, false);
+            SVNReadProperties props(*it, SVNRev::REV_WC, false, false);
             for (int i = 0; i < props.GetCount(); ++i)
             {
                 if (props.GetItemName(i).compare(SVN_PROP_EXTERNALS)==0)
@@ -597,10 +597,41 @@ void CSVNStatusListCtrl::GetUserProps (bool bShowUserProps)
 //
 // Fetch all local properties for all elements in the status array
 //
-svn_error_t * proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_pool_t *pool)
+svn_error_t * proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_array_header_t *inherited_props, apr_pool_t *pool)
 {
     std::tuple<CReaderWriterLock*,std::map<CTSVNPath,CSVNStatusListCtrl::PropertyList>*> * t = (std::tuple<CReaderWriterLock*,std::map<CTSVNPath,CSVNStatusListCtrl::PropertyList>*> *)baton;
     CSVNStatusListCtrl::PropertyList proplist;
+
+    if (inherited_props)
+    {
+        for (int i = 0; i < inherited_props->nelts; i++)
+        {
+            svn_prop_inherited_item_t * iitem = (APR_ARRAY_IDX (inherited_props, i, svn_prop_inherited_item_t*));
+            for (apr_hash_index_t * index = apr_hash_first(pool, iitem->prop_hash); index; index = apr_hash_next(index))
+            {
+                const char* key = NULL;
+                ptrdiff_t keyLen;
+                const char** val = NULL;
+
+                apr_hash_this ( index
+                    , reinterpret_cast<const void**>(&key)
+                    , &keyLen
+                    , reinterpret_cast<void**>(&val));
+
+                // decode / dispatch it
+
+                CString name = CUnicodeUtils::GetUnicode (key);
+                CString value = CUnicodeUtils::GetUnicode (*val);
+
+                // store in property container (truncate it after ~100 chars)
+
+                proplist[name]
+                = value.GetLength() > SVNSLC_MAXUSERPROPLENGTH
+                    ? value.Left (SVNSLC_MAXUSERPROPLENGTH)
+                    : value;
+            }
+        }
+    }
 
     for ( apr_hash_index_t *index = apr_hash_first (pool, prop_hash)
         ; index != NULL
@@ -654,8 +685,8 @@ void CSVNStatusListCtrl::FetchUserProperties (size_t first, size_t last)
     for (size_t i = first; i < last; ++i)
     {
         std::tuple<CReaderWriterLock*,std::map<CTSVNPath,PropertyList>*> t = std::make_tuple(&m_PropertyMapGuard, &m_PropertyMap);
-        svn_client_proplist3(m_targetPathList[i].GetSVNApiPath(pool), SVNRev(), SVNRev(),
-                             svn_depth_infinity, NULL, proplist_receiver, &t, pCtx, pool);
+        svn_client_proplist4(m_targetPathList[i].GetSVNApiPath(pool), SVNRev(), SVNRev(),
+                             svn_depth_infinity, NULL, true, proplist_receiver, &t, pCtx, pool, pool);
     }
 
     svn_error_clear (error);
@@ -4594,11 +4625,11 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                             break;
                         default:
                             {
-                                SVNProperties wcProps(entry->path, SVNRev(), false);
+                                SVNProperties wcProps(entry->path, SVNRev(), false, false);
                                 int mwci = wcProps.IndexOf("svn:mergeinfo");
                                 if (mwci >= 0)
                                 {
-                                    SVNProperties baseProps(entry->path, SVNRev::REV_BASE, false);
+                                    SVNProperties baseProps(entry->path, SVNRev::REV_BASE, false, false);
                                     int mii = baseProps.IndexOf("svn:mergeinfo");
                                     if ((mii < 0)||(wcProps.GetItemValue(mwci).compare(baseProps.GetItemValue(mii))))
                                     {
@@ -5565,7 +5596,7 @@ void CSVNStatusListCtrl::OnIgnoreMask(const CTSVNPath& filepath)
         for (it = parentlist.begin(); it != parentlist.end(); ++it)
         {
             CTSVNPath parentFolder = (*it).GetDirectory();
-            SVNProperties props(parentFolder, SVNRev::REV_WC, false);
+            SVNProperties props(parentFolder, SVNRev::REV_WC, false, false);
             CString value = BuildIgnoreList( name, props );
             if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
             {
@@ -5638,7 +5669,7 @@ void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path)
             }
             CString name = CPathUtils::PathPatternEscape(ignorelist[j].GetFileOrDirectoryName());
             CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
-            SVNProperties props(parentfolder, SVNRev::REV_WC, false);
+            SVNProperties props(parentfolder, SVNRev::REV_WC, false, false);
             CString value = BuildIgnoreList(name, props);
             if (!props.Add(SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
             {

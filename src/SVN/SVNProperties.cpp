@@ -49,21 +49,21 @@ struct log_msg_baton3
 };
 
 #ifdef _MFC_VER
-SVNProperties::SVNProperties(SVNRev rev, bool bRevProps)
-    : SVNReadProperties(rev, bRevProps)
+SVNProperties::SVNProperties(SVNRev rev, bool bRevProps, bool bIncludeInherited)
+    : SVNReadProperties(rev, bRevProps, bIncludeInherited)
 #else
-SVNProperties::SVNProperties(bool bRevProps)
-    : SVNReadProperties (bRevProps)
+SVNProperties::SVNProperties(bool bRevProps, bool bIncludeInherited)
+    : SVNReadProperties (bRevProps, bIncludeInherited)
 #endif
 {
 }
 
 #ifdef _MFC_VER
-SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps)
-    : SVNReadProperties (filepath, rev, bRevProps)
+SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps, bool bIncludeInherited)
+    : SVNReadProperties (filepath, rev, bRevProps, bIncludeInherited)
 #else
-SVNProperties::SVNProperties(const CTSVNPath& filepath, bool bRevProps)
-    : SVNReadProperties (filepath, bRevProps)
+SVNProperties::SVNProperties(const CTSVNPath& filepath, bool bRevProps, bool bIncludeInherited)
+    : SVNReadProperties (filepath, bRevProps, bIncludeInherited)
 #endif
 {
 }

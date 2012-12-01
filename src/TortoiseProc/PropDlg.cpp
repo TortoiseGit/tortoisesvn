@@ -103,7 +103,7 @@ UINT CPropDlg::PropThreadEntry(LPVOID pVoid)
 
 UINT CPropDlg::PropThread()
 {
-    SVNProperties props(m_Path, m_rev, false);
+    SVNProperties props(m_Path, m_rev, false, false);
 
     m_proplist.SetRedraw(false);
     int row = 0;

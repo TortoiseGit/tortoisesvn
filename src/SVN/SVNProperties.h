@@ -39,10 +39,10 @@ class SVNProperties : public SVNReadProperties
 public:
 
 #ifdef _MFC_VER
-    SVNProperties(SVNRev rev, bool bRevProps);
-    SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps);
+    SVNProperties(SVNRev rev, bool bRevProps, bool bIncludeInherited);
+    SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps, bool bIncludeInherited);
 #else
-    SVNProperties(bool bRevProps);
+    SVNProperties(bool bRevProps, bool bIncludeInherited);
     /**
      * Constructor. Creates a Subversion properties object for
      * the specified file/directory.

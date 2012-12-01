@@ -118,15 +118,17 @@ svn_error_t*    SVNReadProperties::Refresh()
     else
     {
         SVNTRACE (
-            Err = svn_client_proplist3 (svnPath,
-                                            &peg_rev,
-                                            &rev,
-                                            svn_depth_empty,
-                                            NULL,
-                                            proplist_receiver,
-                                            this,
-                                            m_pctx,
-                                            m_pool),
+            Err = svn_client_proplist4 (svnPath,
+                                        &peg_rev,
+                                        &rev,
+                                        svn_depth_empty,
+                                        NULL,
+                                        m_includeInherited,
+                                        proplist_receiver,
+                                        this,
+                                        m_pctx,
+                                        m_pool,
+                                        m_pool),
             svnPath
         )
     }
@@ -163,16 +165,18 @@ void SVNReadProperties::Construct()
 }
 
 #ifdef _MFC_VER
-SVNReadProperties::SVNReadProperties(SVNRev rev, bool bRevProps)
+SVNReadProperties::SVNReadProperties(SVNRev rev, bool bRevProps, bool includeInherited)
     : SVNBase()
     , m_rev(rev)
     , m_peg_rev(rev)
     , m_bRevProps (bRevProps)
+    , m_includeInherited(includeInherited)
     , m_pProgress(NULL)
 #else
-SVNReadProperties::SVNReadProperties(bool bRevProps)
+SVNReadProperties::SVNReadProperties(bool bRevProps, bool includeInherited)
     : SVNBase()
     , m_bRevProps (bRevProps)
+    , m_includeInherited(includeInherited)
 #endif
     , m_propCount(0)
     , m_props(NULL)
@@ -181,14 +185,15 @@ SVNReadProperties::SVNReadProperties(bool bRevProps)
 }
 
 #ifdef _MFC_VER
-SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps)
+SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps, bool includeInherited)
     : SVNBase()
     , m_path (filepath)
     , m_rev(rev)
     , m_peg_rev(rev)
+    , m_includeInherited(includeInherited)
     , m_pProgress(NULL)
 #else
-SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, bool bRevProps)
+SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, bool bRevProps, bool includeInherited)
     : SVNBase()
     , m_path (filepath)
 #endif
@@ -201,12 +206,13 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, bool bRevProps)
 }
 
 #ifdef _MFC_VER
-SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, SVNRev rev, bool suppressUI)
+SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, SVNRev rev, bool suppressUI, bool includeInherited)
     : SVNBase()
     , m_path (filepath)
     , m_peg_rev (pegRev)
     , m_rev (rev)
     , m_bRevProps (false)
+    , m_includeInherited(includeInherited)
     , m_pProgress(NULL)
     , m_prompt (suppressUI)
     , m_propCount(0)
@@ -422,7 +428,7 @@ std::string SVNReadProperties::GetSerializedForm() const
     return result;
 }
 
-svn_error_t * SVNReadProperties::proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_pool_t *pool)
+svn_error_t * SVNReadProperties::proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_array_header_t *inherited_props, apr_pool_t *pool)
 {
     SVNReadProperties * pThis = (SVNReadProperties*)baton;
     if (pThis)
@@ -430,7 +436,44 @@ svn_error_t * SVNReadProperties::proplist_receiver(void *baton, const char *path
         svn_error_t * error;
         const char *node_name_native;
         error = svn_utf_cstring_from_utf8 (&node_name_native, path, pool);
-        pThis->m_props = apr_hash_copy(pThis->m_pool, prop_hash);
+        if (error == SVN_NO_ERROR)
+        {
+            if (inherited_props)
+            {
+                // properties further down the tree override the properties from above
+                pThis->m_inheritedprops = apr_array_make (pool, 1, sizeof(svn_prop_inherited_item_t*));
+                pThis->m_inheritedProperties.clear();
+                for (int i = 0; i < inherited_props->nelts; i++)
+                {
+                    svn_prop_inherited_item_t * iitem = (APR_ARRAY_IDX (inherited_props, i, svn_prop_inherited_item_t*));
+                    if (pThis->m_props)
+                    {
+                        pThis->m_props = apr_hash_overlay(pThis->m_pool, iitem->prop_hash, pThis->m_props);
+                    }
+                    else
+                        pThis->m_props = apr_hash_copy(pThis->m_pool, iitem->prop_hash);
+
+                    // just in case someone needs the properties from above even though the same
+                    // property is set further below, we store all props in a custom array.
+                    std::map<std::string,std::string> propmap;
+                    for (apr_hash_index_t * hi = apr_hash_first(pool, iitem->prop_hash); hi; hi = apr_hash_next(hi))
+                    {
+                        const void *key;
+                        void *val;
+                        apr_hash_this(hi, &key, NULL, &val);
+                        svn_string_t * propval = (svn_string_t *)val;
+                        const char * pname_utf8 = (char *)key;
+                        propmap[pname_utf8] = std::string(propval->data, propval->len);
+                    }
+                    pThis->m_inheritedProperties.push_back(std::make_tuple(iitem->path_or_url, propmap));
+                }
+            }
+            if (pThis->m_props)
+                pThis->m_props = apr_hash_overlay(pThis->m_pool, prop_hash, pThis->m_props);
+            else
+                pThis->m_props = apr_hash_copy(pThis->m_pool, prop_hash);
+        }
+
         return error;
     }
     return SVN_NO_ERROR;

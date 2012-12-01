@@ -275,7 +275,7 @@ void CRepositoryLister::CExternalsQuery::InternalExecute()
 
     static const std::string svnExternals (SVN_PROP_EXTERNALS);
 
-    SVNReadProperties properties (path, GetRevision(), GetPegRevision(), runSilently);
+    SVNReadProperties properties (path, GetRevision(), GetPegRevision(), runSilently, false);
 
     std::string externals;
     for (int i = 0, count = properties.GetCount(); i < count; ++i)

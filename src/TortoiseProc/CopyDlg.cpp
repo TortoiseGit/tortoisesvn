@@ -315,7 +315,7 @@ UINT CCopyDlg::FindRevThread()
             if (s->kind == svn_node_dir)
             {
                 // read the props of this dir and find out if it has svn:external props
-                SVNProperties props(retPath, SVNRev::REV_WC, false);
+                SVNProperties props(retPath, SVNRev::REV_WC, false, false);
                 for (int i = 0; i < props.GetCount(); ++i)
                 {
                     if (props.GetItemName(i).compare(SVN_PROP_EXTERNALS) == 0)

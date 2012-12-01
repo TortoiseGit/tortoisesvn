@@ -284,7 +284,7 @@ UINT CEditPropertiesDlg::PropsThreadEntry(LPVOID pVoid)
 
 void CEditPropertiesDlg::ReadProperties (int first, int last)
 {
-    SVNProperties props (m_revision, m_bRevProps);
+    SVNProperties props (m_revision, m_bRevProps, false);
     for (int i=first; i < last; ++i)
     {
         props.SetFilePath(m_pathlist[i]);
@@ -706,7 +706,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                     for (int i=0; i<m_pathlist.GetCount(); ++i)
                     {
                         prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-                        SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
+                        SVNProperties props(m_pathlist[i], m_revision, m_bRevProps, false);
                         props.SetProgressDlg(&prog);
                         if (dlg->HasMultipleProperties())
                         {
@@ -898,7 +898,7 @@ void CEditPropertiesDlg::RemoveProps()
         for (int i=0; i<m_pathlist.GetCount(); ++i)
         {
             prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-            SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
+            SVNProperties props(m_pathlist[i], m_revision, m_bRevProps, false);
             props.SetProgressDlg(&prog);
             if (!props.Remove(sName, bRecurse ? svn_depth_infinity : svn_depth_empty, (LPCTSTR)sLogMsg))
             {
@@ -1124,7 +1124,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
                             for (int i=0; i<m_pathlist.GetCount() && !bFailed; ++i)
                             {
                                 prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-                                SVNProperties props(m_pathlist[i], m_revision, m_bRevProps);
+                                SVNProperties props(m_pathlist[i], m_revision, m_bRevProps, false);
                                 if (!props.Add(sName, propertyvalue, false, svn_depth_empty, (LPCTSTR)sMsg))
                                 {
                                     prog.Stop();

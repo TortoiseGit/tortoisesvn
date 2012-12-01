@@ -93,7 +93,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
     SVN svn;
     for (;;)
     {
-        SVNProperties props(path, SVNRev::REV_WC, false);
+        SVNProperties props(path, SVNRev::REV_WC, false, false);
         for (int i=0; i<props.GetCount(); ++i)
         {
             std::string sPropName = props.GetItemName(i);
@@ -633,7 +633,7 @@ bool ProjectProperties::AddAutoProps(const CTSVNPath& path)
     bool bRet = true;
 
     char buf[1024] = {0};
-    SVNProperties props(path, SVNRev::REV_WC, false);
+    SVNProperties props(path, SVNRev::REV_WC, false, true);
     if (!sLabel.IsEmpty())
         bRet = props.Add(BUGTRAQPROPNAME_LABEL, CUnicodeUtils::StdGetUTF8((LPCTSTR)sLabel)) && bRet;
     if (!sMessage.IsEmpty())

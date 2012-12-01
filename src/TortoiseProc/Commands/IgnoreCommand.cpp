@@ -37,7 +37,7 @@ bool IgnoreCommand::Execute()
         }
         addeditems.insert(name);
         CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
-        SVNProperties props(parentfolder, SVNRev::REV_WC, false);
+        SVNProperties props(parentfolder, SVNRev::REV_WC, false, false);
         CString value;
         for (int i=0; i<props.GetCount(); i++)
         {

@@ -103,7 +103,7 @@ bool EditFileCommand::AutoLock()
 {
     // needs lock?
 
-    SVNProperties properties (path, SVNRev::REV_WC, false);
+    SVNProperties properties (path, SVNRev::REV_WC, false, false);
     if (!properties.HasProperty (SVN_PROP_NEEDS_LOCK))
         return true;
 

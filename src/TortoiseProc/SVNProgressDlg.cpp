@@ -3144,7 +3144,7 @@ bool CSVNProgressDlg::CmdResolve(CString& sWindowTitle, bool& localoperation)
                     if (targetPath.GetFileSize() < 100*1024)            // only check files smaller than 100kBytes
                     {
                         bool doCheck = true;
-                        SVNProperties props(targetPath, SVNRev::REV_WC, false);
+                        SVNProperties props(targetPath, SVNRev::REV_WC, false, false);
                         for (int i=0; i<props.GetCount(); i++)
                         {
                             if (props.GetItemName(i).compare(SVN_PROP_MIME_TYPE)==0)

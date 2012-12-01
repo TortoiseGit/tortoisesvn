@@ -42,7 +42,7 @@
 
 bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype)
 {
-    SVNProperties props(file, SVNRev::REV_WC, false);
+    SVNProperties props(file, SVNRev::REV_WC, false, false);
     for (int i = 0; i < props.GetCount(); ++i)
     {
         if (props.GetItemName(i).compare(SVN_PROP_MIME_TYPE)==0)

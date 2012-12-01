@@ -690,8 +690,8 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
 {
     bool retvalue = false;
     // diff the properties
-    SVNProperties propswc(filePath, rev1, false);
-    SVNProperties propsbase(filePath, rev2, false);
+    SVNProperties propswc(filePath, rev1, false, false);
+    SVNProperties propsbase(filePath, rev2, false, false);
 
 #define MAX_PATH_LENGTH 80
     WCHAR pathbuf1[MAX_PATH] = {0};

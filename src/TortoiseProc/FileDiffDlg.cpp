@@ -358,8 +358,8 @@ void CFileDiffDlg::DiffProps(int selIndex)
     CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
     CTSVNPath url2 = m_bDoPegDiff ? url1 : CTSVNPath(m_path2.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
 
-    SVNProperties propsurl1(url1, m_rev1, false);
-    SVNProperties propsurl2(url2, m_rev2, false);
+    SVNProperties propsurl1(url1, m_rev1, false, false);
+    SVNProperties propsurl2(url2, m_rev2, false, false);
 
     // collect the properties of both revisions in a set
     std::set<std::string> properties;
