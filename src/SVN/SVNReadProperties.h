@@ -30,6 +30,8 @@
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"
 
+#include <tuple>
+
 /**
  * \ingroup SVN
  * Read access to Subversion Properties.

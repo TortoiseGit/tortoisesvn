@@ -353,7 +353,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(LPCSHCOLUMNINIT psci)
             {
                 if(!g_ShellCache.IsVersioned(svnpath.GetWinPath(), true, true))
                     break;  // beyond root of working copy
-                SVNProperties props(svnpath, false);
+                SVNProperties props(svnpath, false, false);
                 for (int i=0; i<props.GetCount(); ++i)
                 {
                     std::string name = props.GetItemName(i);
@@ -547,7 +547,7 @@ void CShellExt::GetMainColumnStatus(const TCHAR * path, BOOL bIsDir)
 
 void CShellExt::ExtractProperty(const TCHAR* path, const char* propertyName, tstring& to)
 {
-    SVNProperties props(CTSVNPath(path), false);
+    SVNProperties props(CTSVNPath(path), false, false);
     for (int i=0; i<props.GetCount(); i++)
     {
         if (props.GetItemName(i).compare(propertyName)==0)

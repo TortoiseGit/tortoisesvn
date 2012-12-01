@@ -39,7 +39,6 @@
 extern  HINSTANCE           g_hResInst;
 #endif
 
-
 struct log_msg_baton3
 {
     const char *message;  /* the message. */
@@ -196,6 +195,7 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev rev, bool
 SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, bool bRevProps, bool includeInherited)
     : SVNBase()
     , m_path (filepath)
+    , m_includeInherited(includeInherited)
 #endif
     , m_bRevProps (bRevProps)
     , m_propCount(0)

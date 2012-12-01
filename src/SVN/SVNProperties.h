@@ -48,7 +48,7 @@ public:
      * the specified file/directory.
      * \param filepath the file/directory
      */
-    SVNProperties(const CTSVNPath& filepath, bool bRevProps);
+    SVNProperties(const CTSVNPath& filepath, bool bRevProps, bool bIncludeInherited);
 #endif
     virtual ~SVNProperties(void);
     /**

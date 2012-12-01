@@ -415,7 +415,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(LPCITEMIDLIST pIDFolder,
                                 if ( (status == svn_wc_status_normal) &&
                                     g_ShellCache.IsGetLockTop() )
                                 {
-                                    SVNProperties props(strpath, false);
+                                    SVNProperties props(strpath, false, false);
                                     if (props.HasProperty("svn:needs-lock"))
                                         itemStates |= ITEMIS_NEEDSLOCK;
                                 }
@@ -451,7 +451,7 @@ STDMETHODIMP CShellExt::Initialize_Wrap(LPCITEMIDLIST pIDFolder,
                         itemStates |= ITEMIS_IGNORED;
                         // the item is ignored. Get the svn:ignored properties so we can (maybe) later
                         // offer a 'remove from ignored list' entry
-                        SVNProperties props(strpath.GetContainingDirectory(), false);
+                        SVNProperties props(strpath.GetContainingDirectory(), false, false);
                         ignoredprops.clear();
                         for (int p=0; p<props.GetCount(); ++p)
                         {
