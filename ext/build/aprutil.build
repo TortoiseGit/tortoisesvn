@@ -99,7 +99,7 @@
         <!-- force the export of the expat functions -->
         <define name="XMLIMPORT" value="__declspec(dllexport)" />
         <define name="COMPILED_FROM_DSP" />
-        <define name="USING_V110_SDK71_" />
+        <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" />
