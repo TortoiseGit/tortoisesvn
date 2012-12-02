@@ -197,6 +197,11 @@ msgstr ""
 msgid "%s (offline)"
 msgstr ""
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr ""
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -354,10 +359,6 @@ msgstr ""
 
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
-msgstr ""
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
 msgstr ""
 
 #. Resource IDs: (1090, 1093)
@@ -993,6 +994,10 @@ msgstr ""
 
 #. Resource IDs: (1382)
 msgid "&Options"
+msgstr ""
+
+#. Resource IDs: (32849)
+msgid "&Other"
 msgstr ""
 
 #. Resource IDs: (32772)
@@ -1719,6 +1724,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Added node"
+msgstr ""
+
+#. Resource IDs: (145)
+#, c-format
+msgid "Added the file pattern(s)\n%s\nto the global ignore list."
 msgstr ""
 
 #. Resource IDs: (145)
@@ -6229,7 +6239,7 @@ msgid "Notice"
 msgstr ""
 
 #. Resource IDs: (99)
-msgid "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\nDo you really want to upgrade this working copy?"
+msgid "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\nDo you really want to upgrade this working copy?"
 msgstr ""
 
 #. Resource IDs: (247)
@@ -7241,6 +7251,11 @@ msgstr ""
 
 #. Resource IDs: (264)
 msgid "Removed from changelist"
+msgstr ""
+
+#. Resource IDs: (146)
+#, c-format
+msgid "Removed the file pattern(s)\n%s\nfrom the global ignore list."
 msgstr ""
 
 #. Resource IDs: (145)
@@ -9205,7 +9220,7 @@ msgid "This will delete the record of commands you've used in this application a
 msgstr ""
 
 #. Resource IDs: (99)
-msgid "This will upgrade your working copy to the new 1.7 format and make it unusable for older clients."
+msgid "This will upgrade your working copy to the new 1.8 format and make it unusable for older clients."
 msgstr ""
 
 #. Resource IDs: (363)
@@ -9646,7 +9661,7 @@ msgid "Updating log cache"
 msgstr ""
 
 #. Resource IDs: (99)
-msgid "Upgrade the working copy\nto the new 1.7 format."
+msgid "Upgrade the working copy\nto the new 1.8 format."
 msgstr ""
 
 #. Resource IDs: (15, 99)
@@ -10606,6 +10621,10 @@ msgstr ""
 msgid "specific r&ange"
 msgstr ""
 
+#. Resource IDs: (582)
+msgid "svn:auto-props\r\nA list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\nFormat: <filemask> = property=value;property=value\r\nExample: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr ""
@@ -10628,6 +10647,10 @@ msgstr ""
 
 #. Resource IDs: (576)
 msgid "svn:externals\r\nA newline separated list of module specifiers, each of which consists of\r\nan optional revision, an URL with an optional peg revision and a relative directory path. For example\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n\r\nThe URLs can either be full URLs or relative. The format for\r\nthe relative URLs is:\r\n../ relative to the parent directory of the external\r\n^/ relative to the repository root\r\n// relative to the URL scheme\r\n/ relative to the server's hostname"
+msgstr ""
+
+#. Resource IDs: (582)
+msgid "svn:global-ignores\r\nA newline separated list of file patterns to ignore recursively."
 msgstr ""
 
 #. Resource IDs: (576)
