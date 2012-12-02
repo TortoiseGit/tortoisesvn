@@ -99,6 +99,7 @@
         <!-- force the export of the expat functions -->
         <define name="XMLIMPORT" value="__declspec(dllexport)" />
         <define name="COMPILED_FROM_DSP" />
+        <define name="USING_V110_SDK71_" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" />
@@ -107,7 +108,7 @@
     <property name="platext" value ="" if="${platform == 'x64'}" />
     <link
               output="${configuration}_${platform}\libaprutil_tsvn${platext}.dll"
-              options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libaprutil_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}_${platform}\libapr_tsvn.lib ws2_32.lib Wldap32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+              options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libaprutil_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libaprutil_tsvn.pdb" /DLL ${subsystem} /OPT:REF /BASE:"0x6EE60000" /IMPLIB:".\${configuration}_${platform}/libaprutil_tsvn.lib" ${machineoption} ${configuration}_${platform}\libaprutil_tsvn.res ..\apr\${configuration}_${platform}\libapr_tsvn.lib ws2_32.lib Wldap32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
       </sources>

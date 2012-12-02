@@ -74,13 +74,14 @@
         <define name="NONLS" />
         <define name="NOCRYPT" />
         <define name="SERF_HAVE_SSPI" />
+        <define name="USING_V110_SDK71_" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
     <lib
       output="${configuration}_${platform}\libserf.lib"
-      options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
+      options='/NOLOGO ${subsystem} ${machineoption}'>
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
         <include name="..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib" />

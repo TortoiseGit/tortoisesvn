@@ -1,60 +1,61 @@
 <?xml version="1.0"?>
 <project name="gssapi" default="build"  basedir="..\gssapi">
 
-    <target name="rebuild" depends="clean,build" />
-    <target name="clean">
-        <description>
-            Cleans previous built files.
-        </description>
+  <target name="rebuild" depends="clean,build" />
+  <target name="clean">
+    <description>
+      Cleans previous built files.
+    </description>
 
-        <delete>
-            <fileset>
-                <include name="${configuration}_${platform}\**" />
-            </fileset>
-        </delete>
-    </target>
+    <delete>
+      <fileset>
+        <include name="${configuration}_${platform}\**" />
+      </fileset>
+    </delete>
+  </target>
 
-    <target name="build">
-        <mkdir dir="${configuration}_${platform}" />
-        <cl outputdir="${configuration}_${platform}">
-            <arg value="/Ox" if="${configuration == 'release'}" />
-            <arg value="/Od" if="${configuration != 'release'}" />
-            <arg value="/GF" if="${configuration == 'release'}" />
-            <arg value="/Gs" if="${configuration == 'release'}" />
-            <arg value="/FD" />
-            <arg value="/EHa-" />
-            <arg value="/MD" if="${(configuration == 'release')}" />
-            <arg value="/MDd" if="${(configuration != 'release')}" />
-            <arg value="/Gy" />
-            <arg value="/W0" />
-            <arg value="/nologo" />
-            <arg value="/c" />
-            <arg value="/Zi" />
-            <arg value="/errorReport:prompt" />
-            <sources>
-                <include name="gssapi.cpp" />
-            </sources>
-            <defines>
-                <define name="WIN64" if="${platform == 'x64'}" />
-            </defines>
-        </cl>
+  <target name="build">
+    <mkdir dir="${configuration}_${platform}" />
+    <cl outputdir="${configuration}_${platform}">
+      <arg value="/Ox" if="${configuration == 'release'}" />
+      <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/GF" if="${configuration == 'release'}" />
+      <arg value="/Gs" if="${configuration == 'release'}" />
+      <arg value="/FD" />
+      <arg value="/EHa-" />
+      <arg value="/MD" if="${(configuration == 'release')}" />
+      <arg value="/MDd" if="${(configuration != 'release')}" />
+      <arg value="/Gy" />
+      <arg value="/W0" />
+      <arg value="/nologo" />
+      <arg value="/c" />
+      <arg value="/Zi" />
+      <arg value="/errorReport:prompt" />
+      <sources>
+        <include name="gssapi.cpp" />
+      </sources>
+      <defines>
+        <define name="WIN64" if="${platform == 'x64'}" />
+        <define name="USING_V110_SDK71_" />
+      </defines>
+    </cl>
 
-        <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
-        <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-        <lib
-            output="${configuration}_${platform}\gssapiu.lib"
-            options='/NOLOGO /SUBSYSTEM:WINDOWS ${machineoption}'>
-            <sources>
-                <include name="${configuration}_${platform}\*.obj" />
-            </sources>
-        </lib>
+    <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
+    <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+    <lib
+        output="${configuration}_${platform}\gssapiu.lib"
+        options='/NOLOGO ${subsystem} ${machineoption}'>
+      <sources>
+        <include name="${configuration}_${platform}\*.obj" />
+      </sources>
+    </lib>
 
-        <delete>
-            <fileset>
-                <include name="${configuration}_${platform}\*.obj" />
-            </fileset>
-        </delete>
+    <delete>
+      <fileset>
+        <include name="${configuration}_${platform}\*.obj" />
+      </fileset>
+    </delete>
 
-    </target>
+  </target>
 
 </project>

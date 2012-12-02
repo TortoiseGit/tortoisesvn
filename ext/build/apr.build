@@ -104,6 +104,7 @@
         <define name="_WINDLL" />
         <define name="NDEBUG" if="${configuration == 'release'}"/>
         <define name="_DEBUG" if="${configuration != 'release'}"/>
+        <define name="USING_V110_SDK71_" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}" />
@@ -112,7 +113,7 @@
     <property name="platext" value ="" if="${platform == 'x64'}" />
     <link
               output="${configuration}_${platform}\libapr_tsvn${platext}.dll"
-              options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapr_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapr_tsvn.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}_${platform}/libapr_tsvn.lib" ${machineoption} ${configuration}_${platform}\libapr_tsvn.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib Shell32.lib'>
+              options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libapr_tsvn.dll.intermediate.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libapr_tsvn.pdb" /DLL ${subsystem} /OPT:REF /BASE:"0x6EEC0000" /IMPLIB:".\${configuration}_${platform}/libapr_tsvn.lib" ${machineoption} ${configuration}_${platform}\libapr_tsvn.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib Shell32.lib'>
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
       </sources>

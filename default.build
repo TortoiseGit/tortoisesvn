@@ -24,6 +24,8 @@
   <property name="studioversion" value="2012"/>
   <!-- default: we build in a user session -->
   <property name="schedule" value="no"/>
+  <!-- the ${subsystem} to use -->
+  <property name="subsystem" value="/SUBSYSTEM:WINDOWS,5.01" />
 
   <!-- make sure the user config file exists -->
   <property name="userconfigfile"
@@ -32,9 +34,9 @@
             value="${userconfigfile}.tmpl" />
   <if test="${not file::exists(userconfigfile)}">
     <echo level="Warning">
-The file ${userconfigfile} is missing. We will auto-create it
-from the ${userconfigtemplate} file. Please consider adapting
-it to your needs.
+      The file ${userconfigfile} is missing. We will auto-create it
+      from the ${userconfigtemplate} file. Please consider adapting
+      it to your needs.
     </echo>
     <copy file="${userconfigtemplate}"
           tofile="${userconfigfile}"/>
@@ -42,7 +44,7 @@ it to your needs.
 
   <include buildfile="default.build.user" />
 
-  <!-- build with VS2011, if there is a 11.0 in the VC path -->
+  <!-- build with VS2012, if there is a 11.0 in the VC path -->
   <property name="studioversion" value="2012" if="${string::contains (environment::get-variable('VCINSTALLDIR'), '11.0')}"/>
 
   <!-- the signinfo.txt file has to contain one line with parameters for signtool.exe,
@@ -75,6 +77,7 @@ it to your needs.
     </description>
     <property name="platform" value="x64" />
     <property name="bindirextension" value="64" />
+    <property name="subsystem" value="/SUBSYSTEM:WINDOWS,5.02" />
   </target>
 
   <target name="cross" depends="x64">
@@ -108,6 +111,19 @@ it to your needs.
   <!-- ====================================================================== -->
   <!-- Project targets                                                        -->
   <!-- ====================================================================== -->
+
+  <target name="xp">
+    <!--
+      To target Windows XP with VS2012 as well, we have to set a few
+      environment variables up.
+    -->
+    <setenv>
+      <variable name="INCLUDE" value="%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Include;%INCLUDE%" />
+      <variable name="PATH" value="%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Bin;%PATH%" />
+      <variable name="LIB" value="%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Lib;%LIB%" if="${platform == 'win32'}" />
+      <variable name="LIB" value="%ProgramFiles(x86)%\Microsoft SDKs\Windows\7.1A\Lib\x64;%LIB%" if="${platform == 'x64'}" />
+    </setenv>
+  </target>
 
   <target name="clean" depends="VSNET">
     <description>

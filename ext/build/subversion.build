@@ -117,6 +117,7 @@
             <define name="NDEBUG" if="${configuration == 'release'}"/>
             <define name="_DEBUG" if="${configuration != 'release'}"/>
             <define name="PSAPI_VERSION=1" />
+            <define name="USING_V110_SDK71_" />
           </defines>
         </cl>
       </do>
@@ -188,7 +189,7 @@ CRYPTO_cleanup_all_ex_data' />
     </rc>
     <link
       output="${configuration}_${platform}\libsvn_tsvn${platext}.dll"
-      options='/INCREMENTAL:NO /ERRORREPORT:QUEUE /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /DEF:"${configuration}_${platform}\libsvn_tsvn${platext}.def" /MANIFESTFILE:"${configuration}_${platform}\libsvn_tsvn${platext}.dll.intermediate.manifest" /DEBUG /PDB:"${configuration}_${platform}/libsvn_tsvn${platext}.pdb" /DLL /SUBSYSTEM:WINDOWS /OPT:REF /IMPLIB:"${configuration}_${platform}/libsvn_tsvn${platext}.lib" ${machineoption} ${configuration}_${platform}\svn.res ..\apr\${configuration}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}_${platform}\libaprutil_tsvn.lib ..\serf\${configuration}_${platform}\libserf.lib ..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32${ssldbg}\libeay32.lib ..\..\..\common\openssl\out32${ssldbg}\ssleay32.lib ..\libintl\${configuration}_${platform}\lib\intl3_tsvn.lib ..\cyrus-SASL\${configuration}_${platform}\libsasl.lib ..\sqlite\${configuration}_${platform}\sqlite.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib ole32.lib Secur32.lib Crypt32.lib Psapi.lib Version.lib'>
+      options='/INCREMENTAL:NO /ERRORREPORT:QUEUE /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /DEF:"${configuration}_${platform}\libsvn_tsvn${platext}.def" /MANIFESTFILE:"${configuration}_${platform}\libsvn_tsvn${platext}.dll.intermediate.manifest" /DEBUG /PDB:"${configuration}_${platform}/libsvn_tsvn${platext}.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:"${configuration}_${platform}/libsvn_tsvn${platext}.lib" ${machineoption} ${configuration}_${platform}\svn.res ..\apr\${configuration}_${platform}\libapr_tsvn.lib ..\apr-util\${configuration}_${platform}\libaprutil_tsvn.lib ..\serf\${configuration}_${platform}\libserf.lib ..\..\..\common\zlib\${configuration}_${platform}\zlibstat.lib ..\..\..\common\openssl\out32${ssldbg}\libeay32.lib ..\..\..\common\openssl\out32${ssldbg}\ssleay32.lib ..\libintl\${configuration}_${platform}\lib\intl3_tsvn.lib ..\cyrus-SASL\${configuration}_${platform}\libsasl.lib ..\sqlite\${configuration}_${platform}\sqlite.lib ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib gdi32.lib user32.lib shell32.lib ole32.lib Secur32.lib Crypt32.lib Psapi.lib Version.lib'>
       <sources>
         <include name="${configuration}_${platform}\libsvn_*\**.obj" />
       </sources>
@@ -265,6 +266,7 @@ CRYPTO_cleanup_all_ex_data' />
             <define name="NDEBUG" if="${configuration == 'release'}"/>
             <define name="_DEBUG" if="${configuration != 'release'}"/>
             <define name="PSAPI_VERSION=1" />
+            <define name="USING_V110_SDK71_" />
           </defines>
         </cl>
         <delete file="${configuration}_${platform}\svn.res" />
