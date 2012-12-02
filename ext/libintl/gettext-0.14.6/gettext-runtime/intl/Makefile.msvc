@@ -80,7 +80,7 @@ OPTIMFLAGS = -D_NDEBUG -FD -O2 -EHsc -Zi
 DEBUGFLAGS = -Zi
 !endif
 
-CFLAGS = $(MFLAGS) $(WARN_CFLAGS) $(OPTIMFLAGS) -DHAVE_CONFIG_H -DLOCALEDIR=\"$(IIlocaledir)\" -DLOCALE_ALIAS_PATH=\"$(IIaliaspath)\" -DIN_LIBINTL -DENABLE_RELOCATABLE=1 -DIN_LIBRARY -DINSTALLDIR=\"$(IIbindir)\" -DNO_XMALLOC -Dset_relocation_prefix=libintl_set_relocation_prefix -Drelocate=libintl_relocate -DDEPENDS_ON_LIBICONV=0
+CFLAGS = $(MFLAGS) $(WARN_CFLAGS) $(OPTIMFLAGS) -DHAVE_CONFIG_H -DLOCALEDIR=\"$(IIlocaledir)\" -DLOCALE_ALIAS_PATH=\"$(IIaliaspath)\" -DIN_LIBINTL -DENABLE_RELOCATABLE=1 -DIN_LIBRARY -DINSTALLDIR=\"$(IIbindir)\" -DNO_XMALLOC -Dset_relocation_prefix=libintl_set_relocation_prefix -Drelocate=libintl_relocate -DDEPENDS_ON_LIBICONV=0 -D_USING_V110_SDK71_
 
 INCLUDES = -I. -I.. -I$(includedir)
 
@@ -194,7 +194,7 @@ intl3_tsvn.lib : $(OBJECTS)
 
 # intl.dll and intl.lib are created together.
 intl3_tsvn.lib : $(OBJECTS) $(RESOURCES)
-	$(CC) $(MFLAGS) $(DEBUGFLAGS) -LD $(OBJECTS) $(RESOURCES) -Feintl3_tsvn.dll /link /INCREMENTAL:NO /NOLOGO /MANIFEST 
+	$(CC) $(MFLAGS) $(DEBUGFLAGS) -LD $(OBJECTS) $(RESOURCES) -Feintl3_tsvn.dll /link /INCREMENTAL:NO /NOLOGO /MANIFEST /SUBSYSTEM:WINDOWS,5.02
 
 intl.res : $(srcdir)\..\windows\intl.rc
 	rc -Fo intl.res $(srcdir)\libintl3-dll.rc
