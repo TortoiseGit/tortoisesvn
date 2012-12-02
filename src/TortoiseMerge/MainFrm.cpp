@@ -200,6 +200,15 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
     m_wndRibbonBar.Create (this);
     m_wndRibbonBar.LoadFromResource(IDR_RIBBON);
 
+    // enable the dialog launch button on the view panel
+    CMFCRibbonCategory * pMainCat = m_wndRibbonBar.GetCategory(1);
+    if (pMainCat)
+    {
+        CMFCRibbonPanel * pPanel = pMainCat->GetPanel(3);
+        if (pPanel)
+            pPanel->EnableLaunchButton(ID_VIEW_OPTIONS);
+    }
+
     if (!m_wndStatusBar.Create(this) ||
         !m_wndStatusBar.SetIndicators(indicators,
           sizeof(indicators)/sizeof(UINT)))
