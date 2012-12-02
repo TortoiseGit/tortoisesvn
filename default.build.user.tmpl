@@ -46,7 +46,7 @@
         <!--
           TODO: change path value, if WIX is not defined
         -->
-        <variable name="WIX" value="C:\WiX" />
+        <variable name="WIX" value="C:\Program Files (x86)\WiX Toolset v3.7" />
       </setenv>
     </if>
     <if test="${file::exists(environment::get-variable('WIX') + '\bin\candle.exe')}">
@@ -72,7 +72,7 @@
           TODO: change path value, if neither TSVNTOOLS is defined
           nor have tools be copied directly below the TSVN root.
         -->
-        <variable name="TSVNTOOLS" value="C:\Tools" />
+        <variable name="TSVNTOOLS" value="D:\Development\SVN\TortoiseSVN\Tools" />
       </setenv>
     </if>
 
