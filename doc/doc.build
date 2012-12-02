@@ -128,15 +128,15 @@ All user/site specific configuration is stored in doc.build.user.
       <property name="configmetricsfile" value="xsl/fonts/config.bat" />
       <if test="${not file::exists(configmetricsfile)}">
         <echo level="Warning">
-The file /docs/xsl/fonts/config.bat is missing. We will auto-create
-it from the config.bat.sample file before building the docs. Please
-consider adapting it to your needs.
+          The file /docs/xsl/fonts/config.bat is missing. We will auto-create
+          it from the config.bat.sample file before building the docs. Please
+          consider adapting it to your needs.
         </echo>
       </if>
-        <exec program="createmetrics.bat"
-              basedir="xsl/fonts"
-              workingdir="xsl/fonts"
-              verbose="false"/>
+      <exec program="createmetrics.bat"
+            basedir="xsl/fonts"
+            workingdir="xsl/fonts"
+            verbose="false"/>
     </if>
 
   </target>
@@ -363,7 +363,7 @@ consider adapting it to your needs.
         <replacetokens begintoken="$" endtoken="$">
           <token key="MajorVersion" value="${environment::get-variable('MajorVersion')}"/>
           <token key="MinorVersion" value="${environment::get-variable('MinorVersion')}"/>
-<!--
+          <!--
           <token key="WCREV" value="${environment::get-variable('WCREV')}"/>
 -->
         </replacetokens>
