@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-29 08:48+0000\n"
+"PO-Revision-Date: 2012-12-02 07:04+0000\n"
 "Last-Translator: Hong Xu <icehong@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -1842,7 +1842,7 @@ msgstr "调整系统设置\n设置"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"
-msgstr ""
+msgstr "调整到最新版本"
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -3500,7 +3500,7 @@ msgstr "从此复制到版本库"
 
 #. Resource IDs: (1562)
 msgid "Create intermediate folders"
-msgstr ""
+msgstr "创建临时文件夹"
 
 #. Resource IDs: (126)
 #, c-format
@@ -3974,7 +3974,7 @@ msgid ""
 "Do you want to mark the file\n"
 "%s\n"
 "as resolved?"
-msgstr ""
+msgstr "是否把 %s 这个文件标记成“已解决冲突”？ "
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4602,7 +4602,7 @@ msgstr "失败！"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
-msgstr ""
+msgstr "最下最新版本并且调整到这个版本"
 
 #. Resource IDs: (199)
 msgid ""
@@ -4650,7 +4650,7 @@ msgstr "文件差异比较"
 
 #. Resource IDs: (319)
 msgid "File has no conflicts"
-msgstr ""
+msgstr "文件没有冲突"
 
 #. Resource IDs: (314)
 msgid "File is empty."
@@ -4774,11 +4774,11 @@ msgstr "查找"
 
 #. Resource IDs: (1633)
 msgid "Find &HEAD-Revision"
-msgstr ""
+msgstr "查询最新的版本(&H)"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
-msgstr ""
+msgstr "查找最新版本"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5056,7 +5056,7 @@ msgstr "主干节点"
 #. Resource IDs: (106)
 #, c-format
 msgid "HEAD revision is %s"
-msgstr ""
+msgstr "最亲的版本号是 %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5898,7 +5898,7 @@ msgstr "最不活跃作者: "
 msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
-msgstr ""
+msgstr "保留冲突\n“冲突”状态将被保留"
 
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
@@ -6159,7 +6159,7 @@ msgstr "标记为已解决\n冲突已经解决好了。"
 msgid ""
 "Mark as resolved\n"
 "The file status is changed to modified"
-msgstr ""
+msgstr "标记为解决\n文件状态将被标记成已经被修改"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6553,7 +6553,7 @@ msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -10109,7 +10109,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
+msgstr "已经选择提交已移动/重命名的文件夹，然而这次提交是非递归的。已移动/重命名的文件夹在版本库中始终是递归提交的。您是否确定要提交？"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10118,7 +10118,7 @@ msgid ""
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr ""
+msgstr "已经选择提交已移动/重命名的文件夹，然而这次提交是非递归的。已移动/重命名的文件夹在版本库中始终是递归提交的。\n您是否确定要提交？"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10371,7 +10371,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10464,7 +10464,7 @@ msgstr "调整 TortoiseSVN 设置"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -11608,11 +11608,11 @@ msgstr "外部文件: "
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
-msgstr ""
+msgstr "获取最新版本"
 
 #. Resource IDs: (591)
 msgid "get repository root URLs:"
-msgstr ""
+msgstr "得到代码仓库的根路径："
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11652,7 +11652,7 @@ msgstr "按照英文字母顺序排列文件列表"
 
 #. Resource IDs: (65535)
 msgid "last HEAD update: "
-msgstr ""
+msgstr "上一次最近的更新"
 
 #. Resource IDs: (65535)
 msgid "last read: "
