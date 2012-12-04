@@ -80,6 +80,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 {
     CTSVNPath savePath;
     BOOL gitFormat = false;
+    BOOL ignoreproperties = false;
 
     if (cmdLineSavePath.IsEmpty())
     {
@@ -141,7 +142,8 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
                 {
                     pfdCustomize->StartVisualGroup(100, L"");
                     pfdCustomize->AddCheckButton(101, CString(MAKEINTRESOURCE(IDS_PATCH_SAVEGITFORMAT)), FALSE);
-                    pfdCustomize->AddPushButton(102, CString(MAKEINTRESOURCE(IDS_PATCH_COPYTOCLIPBOARD)));
+                    pfdCustomize->AddCheckButton(102, CString(MAKEINTRESOURCE(IDS_PATCH_INCLUDEPROPS)), TRUE);
+                    pfdCustomize->AddPushButton(103, CString(MAKEINTRESOURCE(IDS_PATCH_COPYTOCLIPBOARD)));
                     pfdCustomize->EndVisualGroup();
 
                     hr = pfd->Advise(pEvents, &dwCookie);
@@ -158,6 +160,8 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
                 if (SUCCEEDED(hr))
                 {
                     pfdCustomize->GetCheckButtonState(101, &gitFormat);
+                    pfdCustomize->GetCheckButtonState(102, &ignoreproperties);
+                    ignoreproperties = !ignoreproperties;
                 }
 
                 // Get the selection from the user
@@ -274,7 +278,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
     for (int fileindex = 0; fileindex < paths.GetCount(); ++fileindex)
     {
         svn_depth_t depth = paths[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
-        if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, false, false, true, false, !!gitFormat, true, false, diffoptions, true, tempPatchFilePath))
+        if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, false, false, true, false, !!gitFormat, !!ignoreproperties, false, diffoptions, true, tempPatchFilePath))
         {
             progDlg.Stop();
             svn.ShowErrorDialog(GetExplorerHWND(), paths[fileindex]);
@@ -312,7 +316,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
 
 STDMETHODIMP PatchSaveDlgEventHandler::OnButtonClicked( IFileDialogCustomize* pfdc, DWORD dwIDCtl )
 {
-    if (dwIDCtl == 102)
+    if (dwIDCtl == 103)
     {
         CComQIPtr<IFileSaveDialog> pDlg = pfdc;
         if (pDlg)
