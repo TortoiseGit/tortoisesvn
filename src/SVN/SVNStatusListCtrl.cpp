@@ -74,6 +74,7 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHANGELISTCHANGED
 static UINT WM_RESOLVEMSG = RegisterWindowMessage(_T("TORTOISESVN_RESOLVEDONE_MSG"));
 
 const static CString svnPropIgnore (SVN_PROP_IGNORE);
+const static CString svnPropGlobalIgnore (SVN_PROP_INHERITABLE_IGNORES);
 
 #define IDSVNLC_REVERT               1
 #define IDSVNLC_COMPARE              2
@@ -5564,13 +5565,14 @@ void CSVNStatusListCtrl::RemoveListEntries(const std::vector<int>& entriesToRemo
 }
 
 CString CSVNStatusListCtrl::BuildIgnoreList(const CString& name,
-                                            SVNProperties& props)
+                                            SVNProperties& props,
+                                            bool bRecursive)
 {
     CString value;
     for (int i=0; i<props.GetCount(); i++)
     {
         CString propname(props.GetItemName(i).c_str());
-        if (propname.CompareNoCase(svnPropIgnore)==0)
+        if (propname.CompareNoCase(bRecursive ? svnPropGlobalIgnore : svnPropIgnore)==0)
         {
             // treat values as normal text even if they're not
             value = CUnicodeUtils::GetUnicode(props.GetItemValue(i).c_str());
@@ -5611,7 +5613,7 @@ void CSVNStatusListCtrl::OnIgnoreMask(const CTSVNPath& filepath, bool bRecursive
         {
             CTSVNPath parentFolder = (*it).GetDirectory();
             SVNProperties props(parentFolder, SVNRev::REV_WC, false, false);
-            CString value = BuildIgnoreList( name, props );
+            CString value = BuildIgnoreList( name, props, bRecursive);
             if (!props.Add(bRecursive ? SVN_PROP_INHERITABLE_IGNORES : SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
             {
                 CString temp;
@@ -5684,7 +5686,7 @@ void CSVNStatusListCtrl::OnIgnore(const CTSVNPath& path, bool bRecursive)
             CString name = CPathUtils::PathPatternEscape(ignorelist[j].GetFileOrDirectoryName());
             CTSVNPath parentfolder = ignorelist[j].GetContainingDirectory();
             SVNProperties props(parentfolder, SVNRev::REV_WC, false, false);
-            CString value = BuildIgnoreList(name, props);
+            CString value = BuildIgnoreList(name, props, bRecursive);
             if (!props.Add(bRecursive ? SVN_PROP_INHERITABLE_IGNORES : SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
             {
                 CString temp;

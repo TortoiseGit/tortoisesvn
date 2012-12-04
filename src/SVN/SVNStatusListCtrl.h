@@ -991,8 +991,7 @@ private:
     int GetGroupId(int itemIndex) const;
     void RemoveListEntries(const std::vector<CString>& paths);
     void RemoveListEntries(const std::vector<int>& indices);
-    CString BuildIgnoreList(const CString& fileOrDirectoryName,
-        SVNProperties& properties);
+    CString BuildIgnoreList(const CString& fileOrDirectoryName, SVNProperties& properties, bool bRecursive);
     void OnIgnoreMask(const CTSVNPath& path, bool bRecursive);
     void OnIgnore(const CTSVNPath& path, bool bRecursive);
     void OnResolve(svn_wc_conflict_choice_t resolveStrategy);
