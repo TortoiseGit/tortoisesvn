@@ -440,18 +440,20 @@ svn_revnum_t SVN::Commit(const CTSVNPathList& pathlist, const CString& message,
     CHooks::Instance().PreConnect(pathlist);
 
     SVNTRACE(
-        Err = svn_client_commit5 (
-                                pathlist.MakePathArray(pool),
-                                depth,
-                                keep_locks,
-                                keepchangelist,
-                                true,       // commit_as_operations
-                                clists,
-                                revprop_table,
-                                commitcallback2,
-                                this,
-                                m_pctx,
-                                localpool),
+        Err = svn_client_commit6 (
+                                  pathlist.MakePathArray(pool),
+                                  depth,
+                                  keep_locks,
+                                  keepchangelist,
+                                  true,       // commit_as_operations
+                                  false,      // include file externals
+                                  false,      // include dir externals
+                                  clists,
+                                  revprop_table,
+                                  commitcallback2,
+                                  this,
+                                  m_pctx,
+                                  localpool),
         NULL
     );
     m_pctx->log_msg_baton3 = logMessage(_T(""));
