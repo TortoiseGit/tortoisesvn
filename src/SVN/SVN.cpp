@@ -504,6 +504,7 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                const CString& message /* = _T("")*/,
                bool move_as_child /* = false*/, bool make_parents /* = false */,
+               bool allow_mixed /* = false */,
                const RevPropHash& revProps /* = RevPropHash() */ )
 {
     SVNPool subpool(pool);
@@ -513,10 +514,11 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     apr_hash_t * revPropHash = MakeRevPropHash(revProps, subpool);
     CallPreConnectHookIfUrl(srcPathList, destPath);
     SVNTRACE (
-        Err = svn_client_move6 (srcPathList.MakePathArray(subpool),
+        Err = svn_client_move7 (srcPathList.MakePathArray(subpool),
                                 destPath.GetSVNApiPath(subpool),
                                 move_as_child,
                                 make_parents,
+                                allow_mixed,
                                 revPropHash,
                                 commitcallback2,
                                 this,

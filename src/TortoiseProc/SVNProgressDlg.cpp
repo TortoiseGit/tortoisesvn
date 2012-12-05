@@ -3115,7 +3115,7 @@ bool CSVNProgressDlg::CmdRename(CString& sWindowTitle, bool& localoperation)
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
     SetBackgroundImage(IDI_RENAME_BKG);
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_RENAME)));
-    if (!Move(m_targetPathList, m_url, m_sMessage, false, false, m_revProps))
+    if (!Move(m_targetPathList, m_url, m_sMessage, false, false, !!(m_options & ProgOptForce), m_revProps))
     {
         ReportSVNError();
         return false;

@@ -312,7 +312,7 @@ public:
      */
     bool Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
                 const CString& message = _T(""), bool move_as_child = false,
-                bool make_parents = false, const RevPropHash& revProps = RevPropHash());
+                bool make_parents = false, bool allow_mixed = false, const RevPropHash& revProps = RevPropHash());
     /**
      * If path is a URL, use the message to immediately
      * attempt to commit the creation of the directory URL in the
