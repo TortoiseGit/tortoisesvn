@@ -375,6 +375,10 @@ blockquote p {
     padding: 2em;
 }
 
+#lightbox a {
+    border: none;
+}
+
 /* all A tags whose HREF attribute ends in .pdf */
 a[href$=".pdf"],
 a[href$=".pdf?download"] {
