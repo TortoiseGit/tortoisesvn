@@ -226,15 +226,15 @@ std::string CProfilingInfo::GetReport() const
     HKEY hKey;
     // open the key where the proc speed is hidden:
     long lError = RegOpenKeyEx(HKEY_LOCAL_MACHINE,
-                                L"HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0",
-                                0,
-                                KEY_READ,
-                                &hKey);
+                               L"HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0",
+                               0,
+                               KEY_READ,
+                               &hKey);
 
     if(lError == ERROR_SUCCESS)
     {
         // query the key:
-        DWORD BufSize = _MAX_PATH;
+        DWORD BufSize = MAX_PATH;
         DWORD dwMHz = 0;
         RegQueryValueEx(hKey, L"~MHz", NULL, NULL, (LPBYTE) &dwMHz, &BufSize);
         RegCloseKey(hKey);
@@ -251,9 +251,9 @@ std::string CProfilingInfo::GetReport() const
 // add a new record
 //////////////////////////////////////////////////////////////////////
 
-CProfilingRecord* CProfilingInfo::Create ( const char* name
-                                         , const char* file
-                                         , int line)
+CProfilingRecord* CProfilingInfo::Create ( const char* name,
+                                           const char* file,
+                                           int line)
 {
     CProfilingRecord* record = new CProfilingRecord (name, file, line);
     records.push_back (record);
