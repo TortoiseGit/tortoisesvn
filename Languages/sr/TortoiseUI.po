@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-29 08:48+0000\n"
+"PO-Revision-Date: 2012-12-04 08:36+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -214,6 +214,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (искључен)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr ""
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -396,10 +401,6 @@ msgstr "&Додај или уклони дугмиће"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "&Додај..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "Н&апредно"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1035,6 +1036,10 @@ msgstr "&Оперативан:"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Опције"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1795,6 +1800,14 @@ msgstr "Додана ставка даљински"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Додат чвор"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -2953,7 +2966,7 @@ msgstr "Командна линија за извршење:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "Командна линија за извршење:\r\nЗа специфицирање путање унутар радне копије специфисирајте урл у спремишту са кореном спремишта као %REPOROOT%, или %REPOROOT+% дубље у корену радне копије."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -6545,7 +6558,7 @@ msgstr "НУМ"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -6807,9 +6820,9 @@ msgstr "Белешка"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "Примедба: ако дограђујете своју радну копију нећете бити у могућности да приступите дограђеној радној копији са  пре 1.7 СВН клијентима !\nДа ли заиста желите да доградите ову радну копију?"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7916,6 +7929,14 @@ msgstr "Уклоњен фајл/фолдер "
 #. Resource IDs: (264)
 msgid "Removed from changelist"
 msgstr "Уклоњено с пописа измена"
+
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -10214,9 +10235,9 @@ msgstr "Ово ће избрисати запис команди које сте
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "Ово ће доградити вашу радну копију на нови 1.7 формат и учиниће је некорисну за старије клијенте."
+msgstr ""
 
 #. Resource IDs: (363)
 #, c-format
@@ -10363,7 +10384,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "ТортоисеСВН%d.%d.%d, Изгради %d - %s, %s\r\nСубверзија %d.%d.%d, %s\r\nапр %d.%d.%d\r\nапр-утилс %d.%d.%d\r\nсерф %d.%d.%d\r\n%s\r\nзлиб %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10456,7 +10477,7 @@ msgstr "Подеси ТортоисеСВН"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -10725,8 +10746,8 @@ msgstr "Усклади кеш дневника"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "Дограђује радну копију\nу нови 1.7 формат"
+"to the new 1.8 format."
+msgstr ""
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11838,6 +11859,14 @@ msgstr "прескочи распоне:"
 msgid "specific r&ange"
 msgstr "специфич&ан опсег "
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "свн:еол-стил"
@@ -11878,6 +11907,12 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr "свн:еxтерналс\r\nЛиста подељена новим редом модул спецификатор, свака од којих се састоји од\r\nнеобавезне ревизије,  УРЛ са опционалном пег ревизијом и  релативном путањом фолдера. На пример\r\nхттп://еxампле.цом/репос/зиг фоо\r\n-р 1234 хттп://еxампле.цом/репос/заг фоо/бар\r\n\r\nУРЛови могу бити или пуни УРЛови или релативни. Формат за\r\nрелатвне УРЛова је:\r\n../ релативан ка предачком фолдеру екстернала\r\n^/ релативан корену спремишта\r\n// релативан УРЛ шеми\r\n/ релативан  имену домаћина сервера"
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
+msgstr ""
 
 #. Resource IDs: (576)
 msgid ""

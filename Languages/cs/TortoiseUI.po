@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-01 22:05+0000\n"
+"PO-Revision-Date: 2012-12-06 14:39+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -213,6 +213,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (offline)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr "%s (rekurzivně)"
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -395,10 +400,6 @@ msgstr "Přid&at nebo odstranit tlačítka"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "Přid&at..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "&Pokročilé"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1034,6 +1035,10 @@ msgstr "&Operativní"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Nastavení"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr "&Ostatní"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1794,6 +1799,14 @@ msgstr "Přidány položky na dálku"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Přidaný uzel"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr "Vzory souboru\n%s\npřidány do globálního seznamu ignorování."
 
 #. Resource IDs: (145)
 #, c-format
@@ -6806,9 +6819,9 @@ msgstr "Upozornění"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "Upozornění: pokud aktualizujete Vaší pracovní kopii, už nebudete moci získat přístup k aktualizované pracovní kopie ze SVN klientů verze před 1.7! Opravdu chcete provést aktualizaci této pracovní kopie?"
+msgstr "Upozornění: pokud vaší pracovní kopii aktualizujete, už nebudete mít přístup k aktualizované pracovní kopie pomocí SVN klientů s verzí před 1.8! Opravdu chcete provést aktualizaci této pracovní kopie?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7915,6 +7928,14 @@ msgstr "Odstraněný soubor/adresář"
 #. Resource IDs: (264)
 msgid "Removed from changelist"
 msgstr "Odstraněno ze seznamu změn"
+
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr "Vzory souboru\n%s\nbyly odstraněny z globálního seznamu ignorování."
 
 #. Resource IDs: (145)
 #, c-format
@@ -10213,9 +10234,9 @@ msgstr "Smaže záznam příkazů, které jste použili v aplikaci a obnoví př
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "Toto aktualizuje Vaší pracovní kopie do nového formátu 1.7 a tím ji znepřístupní pro starší klienty."
+msgstr "Toto aktualizuje vaší pracovní kopii do nového formátu 1.8 a tím ji znepřístupní pro starší klienty."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10724,8 +10745,8 @@ msgstr "Aktualizuji úschovu záznamu"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "Aktualizovat pracovní kopii\nna nový formát 1.7."
+"to the new 1.8 format."
+msgstr "Aktualizovat pracovní kopii\nna nový formát 1.8."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11837,6 +11858,14 @@ msgstr "vynechat rozsahy:"
 msgid "specific r&ange"
 msgstr "&určitý rozsah"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "svn:auto-props\nSeznam vlastností oddělených novým řádkem, které jsou automaticky a rekurzivně použity při přidávání/importování souborů.\nFormát: <maska souboru> = vlastnost=hodnota;vlastnost=hodnota\nPříklad: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "svn:eol-style"
@@ -11877,6 +11906,12 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr "svn: externals\nseznam specifikátorů modulu oddělený novým řádkem, z nichž každá se skládá z \nvolitelné revize, URL s volitelnou udrženou revizi a relativní cestou k adresáři. Například\nhttp://example.com/repos/zig foo\n-r 1234 http://example.com/repos/zag@1234 foo/bar\n\nURL můžou být buď úplné adresy URL nebo relativní. Formát pro relativní adresy URL je: \n.. / vzhledem k nadřazenému adresáři externích \n^ / vzhledem ke kořenu úložiště \n// vzhledem ke schématu adresy URL \n/ vzhledem k doméně serveru"
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
+msgstr "svn:global-ignores\nŘádkem oddělený seznam vzorů souboru pro rekurzivní ignorování."
 
 #. Resource IDs: (576)
 msgid ""

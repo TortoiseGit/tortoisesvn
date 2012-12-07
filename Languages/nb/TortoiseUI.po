@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-29 08:48+0000\n"
+"PO-Revision-Date: 2012-12-04 08:35+0000\n"
 "Last-Translator: okloster <okl@sintef.no>\n"
 "Language-Team: Norwegian Bokmål <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -217,6 +217,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (frakoblet)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr ""
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -399,10 +404,6 @@ msgstr "&Legg til eller Fjern Knapper"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "&Legg til..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "&Avansert"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1038,6 +1039,10 @@ msgstr "&Operativ:"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Valg"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1798,6 +1803,14 @@ msgstr "La til elementer eksternt"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "La til node"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -2956,7 +2969,7 @@ msgstr "Kommandolinje som skal utføres:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "Kommandolinje som utføres:\nFor å angi en sti i en arbeidskopi, oppgi url'en i depotet med depotroten som %REPOROOT%, eller %REPOROOT+% for en mappe et sted under depotroten."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -6548,7 +6561,7 @@ msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -6810,9 +6823,9 @@ msgstr "Notis"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "Bemerk: Hvis du oppgraderer arbeidskopien, vil du ikke lenger kunne bruke den med SVN-klienter fra før versjon 1.7!\nVil du virkelig oppgradere denne arbeiskopien?"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7919,6 +7932,14 @@ msgstr "Slettet fil/mappe"
 #. Resource IDs: (264)
 msgid "Removed from changelist"
 msgstr "Fjernet fra endringslisten"
+
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -10217,9 +10238,9 @@ msgstr "Dette vil slette historien over kommandoer du har brukt i denne applikas
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "Dette oppgraderer arbeidskopien til det nye 1.7-formatet og gjør den ubrukelig for eldre klienter."
+msgstr ""
 
 #. Resource IDs: (363)
 #, c-format
@@ -10366,7 +10387,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Bygget %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10459,7 +10480,7 @@ msgstr "Få mest mulig ut av TortoiseSVN"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -10728,8 +10749,8 @@ msgstr "Oppdaterer loggmellomlager"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "Oppgrader arbeiskopien\ntil det nye 1.7-formatet."
+"to the new 1.8 format."
+msgstr ""
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11841,6 +11862,14 @@ msgstr "oversette intervaller: "
 msgid "specific r&ange"
 msgstr "angitt &intervall"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "svn:eol-style"
@@ -11881,6 +11910,12 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr "svn:externals\r\nEn linjeskift-delt liste med modul-spesifikasjoner. Hver består av en\r\nmulig revisjon, en URL med mulig spikerrevisjon og en relativ katalogsti. Eksempler:\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n\r\nURLene kan enten være hele URLer eller relative. Formatet\r\nfor en relativ URL er:\r\n../ relativt til katalogen over den eksterne\r\n^/ relativt til depotroten\r\n// relativt til URL-skjemaet\r\n/ relativt til tjenerens navn"
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
+msgstr ""
 
 #. Resource IDs: (576)
 msgid ""

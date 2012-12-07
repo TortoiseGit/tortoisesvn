@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-29 08:48+0000\n"
+"PO-Revision-Date: 2012-12-04 08:35+0000\n"
 "Last-Translator: Seongki Shin <skshin@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,6 +216,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (오프라인)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr ""
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -398,10 +403,6 @@ msgstr "버튼 추가 및 제거(&A)"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "추가(&A)..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "고급(&A)"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1037,6 +1038,10 @@ msgstr "Operative(&O):"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "옵션(&O)"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1797,6 +1802,14 @@ msgstr "원격지에 파일 추가됨"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "추가된 노드"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -6809,9 +6822,9 @@ msgstr "주의"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "주의: 작업 사본을 업그레이드한다면, SVN 클라이언트 1.7 이전 버전으로는 업그레이드된 작업 사본에 더 이상 접근할 수 없을 것입니다!\n정말로 이 작업 사본을 업그레이드하시겠습니까?"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7918,6 +7931,14 @@ msgstr "삭제된 파일/폴더"
 #. Resource IDs: (264)
 msgid "Removed from changelist"
 msgstr "변경 리스트에서 제거됨"
+
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -10216,9 +10237,9 @@ msgstr "이것은 이 어플리케이션에서 사용된 명령들을 저장해 
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "이 작업은 작업사본을 새로운 1.7 형식으로 업그레이드 하게 됩니다. 이전 버전의 클라이언트에서는 사용할 수 없게 됩니다."
+msgstr ""
 
 #. Resource IDs: (363)
 #, c-format
@@ -10727,8 +10748,8 @@ msgstr "로그 캐시 업데이트 중"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "작업 사본을 새로운 1.7 형식으로 업그레이드 합니다."
+"to the new 1.8 format."
+msgstr ""
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11840,6 +11861,14 @@ msgstr "건너 뛰는 구간:"
 msgid "specific r&ange"
 msgstr "지정된 범위(&A)"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "svn:eol-style"
@@ -11880,6 +11909,12 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr "svn:externals\r\n한 줄에 하나씩 지정하는 외부 모듈들의 리스트입니다.각 모듈은 리비전(선택사항),\r\npeg 리비전(선택사항)을 가진 URL 그리고 상대 디렉토리 경로로 되어 있습니다. 예를 들면)\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n\r\nURL은 상대 경로 혹은 전체 경로가 될 수 있습니다.\r\n상대 경로 URL들의 형식:\r\n../ 외부 경로의 상위 디렉토리에 대한 상대 경로\r\n^/ 저장소 루트에 대한 상대 경로\r\n// URL 스키마에 대한 상대 경로\r\n/ 서버 호스트 이름에 대한 상대 경로"
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
+msgstr ""
 
 #. Resource IDs: (576)
 msgid ""

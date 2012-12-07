@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-29 08:48+0000\n"
+"PO-Revision-Date: 2012-12-04 08:36+0000\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -213,6 +213,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (odpojené)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr ""
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -395,10 +400,6 @@ msgstr "&Pridať odstrániť tlačítka"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "Prid&ať"
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "&Pokročilé"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1034,6 +1035,10 @@ msgstr "&Operatívne:"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Voľby"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1794,6 +1799,14 @@ msgstr "Objekt bol pridaný vzdialene"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Pridané uzly"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -6806,9 +6819,9 @@ msgstr "Poznámka"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "Upozornenie: ak vynovíte vašu pracovnú kópiu na vyššiu verziu, nebudete môcť získať prístup k takto modernizovanej pracovnej kópii s klientmi SVN pre verziou 1.7! Naozaj chcete vykonať vynovanie tejto pracovnej kópie?"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7915,6 +7928,14 @@ msgstr "Odstránený súbor/adresár"
 #. Resource IDs: (264)
 msgid "Removed from changelist"
 msgstr "Odstránené zo zoznamu zmien"
+
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -10213,9 +10234,9 @@ msgstr "Toto vymaže záznam o použitých príkazoch v aplikácií a obnoví pr
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "Toto vynoví vašu pracovnú kópiu do nového formátu 1.7 a spraví ju nepoužiteľnou pre starších klientov."
+msgstr ""
 
 #. Resource IDs: (363)
 #, c-format
@@ -10724,8 +10745,8 @@ msgstr "Aktualizácia pamäte denníka"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "Vynoviť pracovnú kópiu\ndo nového formátu 1.7."
+"to the new 1.8 format."
+msgstr ""
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11837,6 +11858,14 @@ msgstr "preskočiť rozsah:"
 msgid "specific r&ange"
 msgstr "zadaný &rozsah"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "svn:eol-style"
@@ -11877,6 +11906,12 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr "svn:externals\nNovými riadkami oddelený zoznam modulov. Každý pozostáva\nvoliteľne z revízie, URL s voliteľnou pripevnenou revízou a z relatívnej cesty adresára.\nNapríklad\nhttp://example.com/repos/zig foo\n-r 1234 http://example.com/repos/zag@1234 foo/bar\n\nURL môžu byť buď plné, alebo relatívne.\nFormát relatívnych URL je:\n../ relatívne k externému rodičovskému adresáru\n^/ relatívne ku kmeňu úložiska\n// relatívne k URL schéme\n/ relatívne k menu servera"
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
+msgstr ""
 
 #. Resource IDs: (576)
 msgid ""

@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-29 13:03+0000\n"
+"PO-Revision-Date: 2012-12-04 13:40+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -214,6 +214,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s（オフライン）"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr "%s（再帰的）"
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -396,10 +401,6 @@ msgstr "ボタンの追加/削除(&A)"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "追加(&A)..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "高度な設定(&A)"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1035,6 +1036,10 @@ msgstr "操作対象(&O):"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "オプション(&O)"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr "その他(&O)"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1801,8 +1806,16 @@ msgstr "ノードを追加"
 msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
+"to the global ignore list."
+msgstr "グローバル無視リストに、ファイルパターン\n%s\nを追加しました。"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
 "to the ignore list."
-msgstr "ファイルパターン\n%s\nを無視リストに追加しました。"
+msgstr "無視リストに、ファイルパターン\n%s\nを追加しました。"
 
 #. Resource IDs: (263)
 msgid "Adding"
@@ -6807,9 +6820,9 @@ msgstr "注意"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "【注意】作業コピーをアップグレードすると、アップグレード後の作業コピーにはバージョン1.7以前の SVN クライアントからアクセスできなくなります。\n本当にこの作業コピーをアップグレードしてもよろしいですか？"
+msgstr "【注意】作業コピーをアップグレードすると、アップグレード後の作業コピーにはバージョン1.8以前の SVN クライアントからアクセスできなくなります。\n本当にこの作業コピーをアップグレードしてもよろしいですか？"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7917,13 +7930,21 @@ msgstr "ファイル/フォルダーを削除"
 msgid "Removed from changelist"
 msgstr "変更リストから削除"
 
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr "グローバル無視リストから、ファイルパターン\n%s\nを削除しました。"
+
 #. Resource IDs: (145)
 #, c-format
 msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the ignore list."
-msgstr "ファイルパターン\n%s\nを無視リストから削除しました。"
+msgstr "無視リストから、ファイルパターン\n%s\nを削除しました。"
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
@@ -10214,9 +10235,9 @@ msgstr "このアプリケーションで使用しているコマンドのレコ
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "この操作は作業コピーを新しい1.7形式にアップグレードします。そのため、古いクライアントでは使用できなくなります。"
+msgstr "この操作は作業コピーを新しい1.8形式にアップグレードします。そのため、古いクライアントでは使用できなくなります。"
 
 #. Resource IDs: (363)
 #, c-format
@@ -10725,8 +10746,8 @@ msgstr "ログキャッシュを更新中"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "作業コピーを新しい1.7形式にアップグレード"
+"to the new 1.8 format."
+msgstr "作業コピーを新しい1.8形式にアップグレード"
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11838,6 +11859,14 @@ msgstr "スキップ範囲: "
 msgid "specific r&ange"
 msgstr "指定された範囲(&A)"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "svn:auto-props\r\nファイルを追加したりインポートしたりする際に、自動的に再帰的に適用されるプロパティのリストを、改行で区切って指定します。\r\n書式: <ファイルマスク> = プロパティ=値;プロパティ=値\r\n例: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "svn:eol-style"
@@ -11879,11 +11908,17 @@ msgid ""
 "/ relative to the server's hostname"
 msgstr "svn:externals\r\nモジュールを指定する改行で区切られたリストであり、それぞれはリビジョン、\r\nペグリビジョンや相対的なディレクトリパスからなる URL からなります。\r\n【例】\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n\r\nURL は完全 URL、相対 URL のどちらも指定できます。相対 URL では、次のように記述することができます。\r\n../ 外部参照の親ディレクトリからの相対位置\r\n^/ リポジトリルートからの相対位置\r\n// URL スキームからの相対位置\r\n/ サーバーのホスト名からの相対位置"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
+msgstr "svn:global-ignores\r\n再帰的に無視するファイルパターンのリストを改行で区切って指定します。"
+
 #. Resource IDs: (576)
 msgid ""
 "svn:ignore\r\n"
 "A newline separated list of file patterns to ignore."
-msgstr "svn:ignore\r\n改行で区切られた無視するファイルパターンのリスト。"
+msgstr "svn:ignore\r\n無視するファイルパターンのリストを改行で区切って指定します。"
 
 #. Resource IDs: (317)
 msgid "svn:keywords"

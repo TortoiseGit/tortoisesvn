@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-29 08:48+0000\n"
+"PO-Revision-Date: 2012-12-04 08:35+0000\n"
 "Last-Translator: Chandra <chandra@utama.us>\n"
 "Language-Team: Indonesian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -222,6 +222,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (luring)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr ""
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -404,10 +409,6 @@ msgstr "&Tambah atau Hapus Tombol"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "&Tambah..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "&Lanjutan"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1043,6 +1044,10 @@ msgstr "&Operatif"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Pilihan-pilihan"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1803,6 +1808,14 @@ msgstr "Ditambahkan item secara remote"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Ditambahkan node"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -6815,9 +6828,9 @@ msgstr "Pemberitahuan"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "Catatan: bila anda upgrade working copy anda, anda tidak akan bisa mengakses working copy yang sudah di upgrade dengan menggunakan yang sebelum klien SVN 1.7 lagi!\nAnda benar-benar ingin upgrade working copy ini?"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7924,6 +7937,14 @@ msgstr "Berkas/folder dihapus"
 #. Resource IDs: (264)
 msgid "Removed from changelist"
 msgstr "Dihapus dari daftar perubahan"
+
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -10222,9 +10243,9 @@ msgstr "Ini akan menghapus rekaman perintah yang telah Anda gunakan di aplikasi 
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "Ini akan ipgrade working copy anda untuk format 1.7 yang baru dan membuat klien yang lama menjadi tidak berfungsi."
+msgstr ""
 
 #. Resource IDs: (363)
 #, c-format
@@ -10733,8 +10754,8 @@ msgstr "Memutakhirkan tembolok log"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "Upgrade working copy\nuntuk format 1.7 yang baru."
+"to the new 1.8 format."
+msgstr ""
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11846,6 +11867,14 @@ msgstr "rentang dilompati:"
 msgid "specific r&ange"
 msgstr ""
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "svn:eol-style"
@@ -11885,6 +11914,12 @@ msgid ""
 "^/ relative to the repository root\r\n"
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
+msgstr ""
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
 msgstr ""
 
 #. Resource IDs: (576)

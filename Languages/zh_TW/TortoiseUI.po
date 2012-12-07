@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-29 08:48+0000\n"
+"PO-Revision-Date: 2012-12-05 13:20+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,6 +216,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (離線)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr "%s (包含子項目)"
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -398,10 +403,6 @@ msgstr "加入或移除按鈕(&A)"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "加入(&A)..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "進階(&A)"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1037,6 +1038,10 @@ msgstr "實施修訂(&O):"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "選項(&O)"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr "其它(&O)"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1797,6 +1802,14 @@ msgstr "已在遠端加入項目"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "已加入節點"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr "加入檔案樣式\n%s\n至全域忽略列表"
 
 #. Resource IDs: (145)
 #, c-format
@@ -2955,7 +2968,7 @@ msgstr "要執行的命令列:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "要執行的指令:\n如果要指定工作複本內的路徑, 可使用 %REPOROOT% 來表示檔案庫中的 最上層 URL 或是 %REPOROOT+% 表示工作複本的根目錄."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -6547,7 +6560,7 @@ msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -6809,9 +6822,9 @@ msgstr "注意"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "注意: 如果您更新了您的工作複本, 您將不能再以 SVN 1.7 版以前的客戶端程式對您的工作複本進行更新! \n是否確定要更新這個工作複本?"
+msgstr "請注意: 升級工作複本之後就不能再使用 SVN 1.8 版之前的用戶端軟體存取升級後的工作複本了!\n確定要升級工作複本嗎?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7918,6 +7931,14 @@ msgstr "已移除檔案/目錄"
 #. Resource IDs: (264)
 msgid "Removed from changelist"
 msgstr "已自變更列表移除"
+
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr "自全域忽略列表中刪除\n檔案樣式\n%s"
 
 #. Resource IDs: (145)
 #, c-format
@@ -10216,9 +10237,9 @@ msgstr "這個動作會刪除您在本程式中的所有命令記錄, 並將所�
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "這項作業會將工作複本升級至1.7版的新格式, 舊的用戶端程式將無法使用."
+msgstr "升級您的工作複本至新的 1.8 版格式並使舊版軟體無法存取."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10365,7 +10386,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, 組建 %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10458,7 +10479,7 @@ msgstr "調校 TortoiseSVN"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "類型"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -10727,8 +10748,8 @@ msgstr "正在更新記錄訊息快取"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "升級工作複本至\n1.7版新格式"
+"to the new 1.8 format."
+msgstr "升級工作複本\n至 1.8 版格式"
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11840,6 +11861,14 @@ msgstr "略過範圍:"
 msgid "specific r&ange"
 msgstr "指定範圍 (&A)"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "svn:auto-props\n每行一筆的屬性列表. 這些屬性在新增/匯入檔案時會自動套用在所有檔案及子項目上.\n格式: <檔案樣式>=屬性=值;屬性=值\n範例: *.xml=svn:eol-style=native;svn:mime-type=text/xml"
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "svn:eol-style"
@@ -11880,6 +11909,12 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr "svn:externals\r\n以換行字元分隔的模組名稱列表, 每項可包含相對路徑,\r\n可有可無的版本標記, 以及可搭配版本資訊的 URL. 例如:\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n\r\nURL 可以是完整 URL 或是相對 URL. 相對 URL 的表示\r\n方式如下:\r\n../ 相對於外部路徑的上層目錄\r\n^/ 相對於檔案庫的根目錄\r\n// 相對於 URL 種類\r\n/ 相對於伺服器名稱"
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
+msgstr "svn:global-ignores\n每行一筆的檔案樣式, 會在所有場合下被忽略."
 
 #. Resource IDs: (576)
 msgid ""

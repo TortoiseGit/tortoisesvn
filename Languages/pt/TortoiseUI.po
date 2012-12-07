@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-29 08:48+0000\n"
+"PO-Revision-Date: 2012-12-04 08:35+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,6 +216,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (fora de linha)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr ""
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -398,10 +403,6 @@ msgstr "&Adicionar ou Remover Botões"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "&Adicionar..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "&Avançado"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1037,6 +1038,10 @@ msgstr "&Operativo:"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Opções"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1797,6 +1802,14 @@ msgstr "Itens adicionados remotamente"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Nó adicionado"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -6809,9 +6822,9 @@ msgstr "Notificação"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "Nota: se actualizares a tua cópia de trabalho, não poderás aceder mais à tua cópia actualizada com clientes SVN pré 1.7! Desejas mesmo actualizar esta cópia de trabalho? "
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7918,6 +7931,14 @@ msgstr "Ficheiro/pasta removida(o)"
 #. Resource IDs: (264)
 msgid "Removed from changelist"
 msgstr "Removido da lista de alterações"
+
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -10216,9 +10237,9 @@ msgstr "Irá ser removido o registo dos comandos que usou nesta aplicação e re
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "Esta irá actualizar a tua cópia de trabalho para o novo formato 1.7 e inutiliza-la para clientes mais antigos."
+msgstr ""
 
 #. Resource IDs: (363)
 #, c-format
@@ -10727,8 +10748,8 @@ msgstr "Actualizando a cache de registo"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "Actualiza a cópia de trabalho\npara o novo formato 1.7."
+"to the new 1.8 format."
+msgstr ""
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11840,6 +11861,14 @@ msgstr "intervalos omitidos:"
 msgid "specific r&ange"
 msgstr "&Gama específica"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "svn:eol-style"
@@ -11880,6 +11909,12 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr "svn:externals\r\nUma lista de especificadores de módulo separados por fins-de-linha, cada um consistindo\r\nnuma revisão opcional, num URL e num caminho de pasta relativo. Por exemplo\r\nhttp://exemplo.com/repos/zig foo\r\n-r 1234 http://exemplo.com/repos/zag@1234 foo/bar\r\n\r\nOs URL podem ser completos ou relativos. O formato para os\r\nURLs relativos é:\r\n../ relativo à pasta pai do externo\r\n^/ relativo à raiz do repositório\r\n// relativo ao esquema do URL\r\n/ relativo ao nome de anfitrião do servidor"
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
+msgstr ""
 
 #. Resource IDs: (576)
 msgid ""

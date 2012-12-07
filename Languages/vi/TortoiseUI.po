@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-29 08:49+0000\n"
+"PO-Revision-Date: 2012-12-04 08:36+0000\n"
 "Last-Translator: Khoa Dang <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -213,6 +213,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (ngoài mạng)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr ""
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -395,10 +400,6 @@ msgstr "&Thêm hoặc Bỏ các Nút Bấm"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "&Thêm..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "&Cao Cấp"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1034,6 +1035,10 @@ msgstr "&amp; Điều Hành:"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Lựa chọn"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1794,6 +1799,14 @@ msgstr "Đã thêm các món từ xa"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Đã thêm nút"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -6806,9 +6819,9 @@ msgstr "Chú ý"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "Ghi chú: Nếu bạn nâng cấp bản làm việc của bạn, bạn sẽ không thể truy cập bản làm việc được nâng cấp với các máy khách SVN bản trước 1.7!!\nBạn có thật sự muốn nâng cấp bản làm việc này không?"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7915,6 +7928,14 @@ msgstr "Tập tin/thư mục đã loại bỏ"
 #. Resource IDs: (264)
 msgid "Removed from changelist"
 msgstr "Đã loại bỏ khỏi danh sách thay đổi"
+
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -10213,9 +10234,9 @@ msgstr "Việc này sẽ xóa các bản ghi của các lệnh bạn đã dùng 
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "Cái này sẽ nâng cấp bản sao làm việc của bạn sang định dạng mới 1.7 và làm nó không còn dùng được với các phiên bản khách cũ hơn."
+msgstr ""
 
 #. Resource IDs: (363)
 #, c-format
@@ -10724,8 +10745,8 @@ msgstr "Đang cập nhật lưu trữ tường trình"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "Nâng cấp bản sao làm việc\ntới định dạng mới 1.7"
+"to the new 1.8 format."
+msgstr ""
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11837,6 +11858,14 @@ msgstr "bỏ qua các phạm vi: "
 msgid "specific r&ange"
 msgstr "phạm &vi cụ thể"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "kiểu svn:eol"
@@ -11877,6 +11906,12 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr "svn:externals\nMột danh sách ngăn cách bởi dòng mới cho các phần các định mô-đun, một cái bao gồm\nmột bản chỉnh sửa không bắt buộc, một URL với một bản chỉnh sửa chốt không bắt buộc và một đường dẫn thư mục tương đối. Ví dụ\nhttp://example.com/repos/zig foo\n-r 1234 http://example.com/repos/zag@1234 foo/bar\n\nCác đường dẫn có thể đầy đủ hoặc tương đối. Định dạng của URL tương đối là:\n../ tương đối theo thư mục cha của phần bên ngoài\n^/ tương đối theo kho chứa gốc\n// tương đối theo giản đồ URL\n/ tương đối theo tên máy chủ"
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
+msgstr ""
 
 #. Resource IDs: (576)
 msgid ""

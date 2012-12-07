@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-02 22:30+0000\n"
+"PO-Revision-Date: 2012-12-04 08:35+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -214,6 +214,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (yhteydetön)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr ""
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -396,10 +401,6 @@ msgstr "&Lisää tai poista painikkeita"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "&Lisää..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "&Lisäominaisuudet"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1035,6 +1036,10 @@ msgstr "&Operatiivinen:"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Asetukset"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1795,6 +1800,14 @@ msgstr "Kohteet lisätty etäoperaationa"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Lisätty solmu"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -6807,9 +6820,9 @@ msgstr "Ilmoitus"
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr "Huomaa: Jos muunnat työkopiosi, et voi enää käyttää sitä versiota 1.7 vanhemmilla SVN-ohjelmilla!\nHaluatko todella muuntaa  tämän työkopion?"
+msgstr ""
 
 #. Resource IDs: (247)
 #, c-format
@@ -7916,6 +7929,14 @@ msgstr "Poistettu tiedosto/hakemisto"
 #. Resource IDs: (264)
 msgid "Removed from changelist"
 msgstr "Poistettu muutoslistasta"
+
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -10214,9 +10235,9 @@ msgstr "Tämä poistaa tiedot komennoista, joita olet käyttänyt tässä sovell
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr "Työkopiosi muunnetaan uuteen 1.7-muotoon, jolloin vanhemmat SVN-ohjelmat eivät enää voi käyttää sitä."
+msgstr ""
 
 #. Resource IDs: (363)
 #, c-format
@@ -10725,8 +10746,8 @@ msgstr "Päivitetään lokiviestien välimuisti"
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
-msgstr "Muunna työkopio\nuuteen 1.7-muotoon."
+"to the new 1.8 format."
+msgstr ""
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11838,6 +11859,14 @@ msgstr "ohitettuja välejä:"
 msgid "specific r&ange"
 msgstr "ertyinen &väli"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr "svn:eol-style"
@@ -11878,6 +11907,12 @@ msgid ""
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
 msgstr "svn:externals\r\nRivinvaihdoin eroteltu lista modulimäärityksiä, joista kukin rivi koostuu versiosta (valinnainen), paikantimesta (valinnaisen ankkuriversion kera) ja suhteellisesta hakemistopolusta. Esimerkiksi\r\nhttp://example.com/repos/zig foo\r\n-r 1234 http://example.com/repos/zag@1234 foo/bar\r\n\r\nPaikantimet voidaan antaa täydellisinä tai suhteellisina.\r\nSuhteelliset paikantimet voivat olla seuraavia:\r\n../ suhteellinen ulkoisen viitteen ylähakemistoon nähden\r\n^/ suhteellinen arkiston juureen nähden\r\n// suhteellinen paikantimen skeemaan nähden\r\n/ suhteellinen palvelimen nimeen nähden"
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
+msgstr ""
 
 #. Resource IDs: (576)
 msgid ""

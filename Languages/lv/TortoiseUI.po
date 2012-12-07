@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-30 08:00+0000\n"
+"PO-Revision-Date: 2012-12-04 08:36+0000\n"
 "Last-Translator: Mārtiņš Paukšte <miersuzzemes@inbox.lv>\n"
 "Language-Team: Latvian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -214,6 +214,11 @@ msgstr "%s"
 msgid "%s (offline)"
 msgstr "%s (bezsaistē)"
 
+#. Resource IDs: (15)
+#, c-format
+msgid "%s (recursively)"
+msgstr ""
+
 #. Resource IDs: (151)
 #, c-format
 msgid "%s : Remote file"
@@ -396,10 +401,6 @@ msgstr "&Pievienot vai izmest pogas"
 #. Resource IDs: (8, 1098)
 msgid "&Add..."
 msgstr "&Pievienot..."
-
-#. Resource IDs: (32849)
-msgid "&Advanced"
-msgstr "&Papildus"
 
 #. Resource IDs: (1090, 1093)
 msgid "&Advanced..."
@@ -1035,6 +1036,10 @@ msgstr "&Operatīvs:"
 #. Resource IDs: (1382)
 msgid "&Options"
 msgstr "&Opcijas"
+
+#. Resource IDs: (32849)
+msgid "&Other"
+msgstr ""
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1795,6 +1800,14 @@ msgstr "Attālināti pievienoju vienumus"
 #. Resource IDs: (65535)
 msgid "Added node"
 msgstr "Pievienoju mezglu"
+
+#. Resource IDs: (145)
+#, c-format
+msgid ""
+"Added the file pattern(s)\n"
+"%s\n"
+"to the global ignore list."
+msgstr ""
 
 #. Resource IDs: (145)
 #, c-format
@@ -6807,7 +6820,7 @@ msgstr ""
 
 #. Resource IDs: (99)
 msgid ""
-"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.7 SVN clients anymore!\n"
+"Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
 msgstr ""
 
@@ -7332,11 +7345,11 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Press &New Shortcut Key:"
-msgstr ""
+msgstr "Nospiediet &jauno īsceļa taustiņu:"
 
 #. Resource IDs: (65535)
 msgid "Press &new shortcut key:"
-msgstr ""
+msgstr "Nospiediet &jauno īsceļa taustiņu:"
 
 #. Resource IDs: (2052)
 msgid "Prevents most cases in which connection lines cross revision nodes"
@@ -7460,7 +7473,7 @@ msgstr "Īpašība"
 #. Resource IDs: (151)
 #, c-format
 msgid "Property %1!s! : Revision %2!s!"
-msgstr ""
+msgstr "Īpašība %1!s! : Revīzija %2!s!"
 
 #. Resource IDs: (151)
 #, c-format
@@ -7485,12 +7498,12 @@ msgstr ""
 #. Resource IDs: (262)
 #, c-format
 msgid "Property '%s' deleted"
-msgstr ""
+msgstr "Īpašība '%s' izdzēsta"
 
 #. Resource IDs: (262)
 #, c-format
 msgid "Property '%s' set"
-msgstr ""
+msgstr "Īpašība '%s' iestatīta"
 
 #. Resource IDs: (107)
 msgid "Property Page"
@@ -7522,7 +7535,7 @@ msgstr "Sniedzēja para&metri:"
 
 #. Resource IDs: (1581)
 msgid "Provider uuid win&32:"
-msgstr ""
+msgstr "Apgādātāja uuid win&32:"
 
 #. Resource IDs: (1475)
 msgid "Provider:"
@@ -7543,7 +7556,7 @@ msgstr ""
 #. Resource IDs: (246)
 #, c-format
 msgid "Q%d/%.2d"
-msgstr ""
+msgstr "Q%d/%.2d"
 
 #. Resource IDs: (3605)
 msgid ""
@@ -7559,7 +7572,7 @@ msgstr "Iziet⏎ Iziet no TortoiseMerge bez izmaiņu saglabāšanas"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
-msgstr ""
+msgstr "R&AM diski"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch"
@@ -7567,27 +7580,27 @@ msgstr ""
 
 #. Resource IDs: (16623)
 msgid "R&eset"
-msgstr ""
+msgstr "Pāriestatīt"
 
 #. Resource IDs: (1423)
 msgid "R&everse merge"
-msgstr ""
+msgstr "R&eversā sapludināšana"
 
 #. Resource IDs: (114)
 msgid "R&evert to this revision"
-msgstr ""
+msgstr "A&tgriezt uz šo revīziju"
 
 #. Resource IDs: (65535)
 msgid "RAM [kB]: "
-msgstr ""
+msgstr "RAM [kB]:"
 
 #. Resource IDs: (3697)
 msgid "REC"
-msgstr ""
+msgstr "REC"
 
 #. Resource IDs: (1048)
 msgid "Re&movable drives"
-msgstr ""
+msgstr "Izņe&mamie diski"
 
 #. Resource IDs: (11)
 msgid "Re&name..."
@@ -7595,19 +7608,19 @@ msgstr "Pā&rsaukt..."
 
 #. Resource IDs: (16613)
 msgid "Re&set"
-msgstr ""
+msgstr "Pār&iestatīt"
 
 #. Resource IDs: (16647)
 msgid "Re&set All"
-msgstr ""
+msgstr "Pār&iestatīt visu"
 
 #. Resource IDs: (1400)
 msgid "Re&solved"
-msgstr ""
+msgstr "At&risināts"
 
 #. Resource IDs: (1382)
 msgid "Re&store defaults"
-msgstr ""
+msgstr "At&jaunot noklusētos iestatījumus"
 
 #. Resource IDs: (8)
 msgid "Re&vert..."
@@ -7619,19 +7632,19 @@ msgstr "Re&vīzija"
 
 #. Resource IDs: (12)
 msgid "Read the 'Daily Use Guide' before you are stuck..."
-msgstr ""
+msgstr "Izlasiet 'Ikdienas lietošanas pamācību' pirms nonākat strupceļā..."
 
 #. Resource IDs: (1002)
 msgid "Recent"
-msgstr ""
+msgstr "Nesens"
 
 #. Resource IDs: (65535)
 msgid "Recently modified lines"
-msgstr ""
+msgstr "Nesen labotās rindas"
 
 #. Resource IDs: (279)
 msgid "Record Only"
-msgstr ""
+msgstr "Tikai ierakstīt"
 
 #. Resource IDs: (265)
 msgid "Recording mergeinfo for merge between URLs"
@@ -7667,7 +7680,7 @@ msgstr ""
 msgid ""
 "Rectangle Tool\n"
 "Rectangle"
-msgstr ""
+msgstr "Taisnstūra rīks⏎ Taisnsūtris"
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
@@ -7675,7 +7688,7 @@ msgstr ""
 
 #. Resource IDs: (588)
 msgid "Recursive"
-msgstr ""
+msgstr "Rekursīvi"
 
 #. Resource IDs: (589)
 msgid "Recursive operation"
@@ -7693,7 +7706,7 @@ msgstr "Miskaste"
 
 #. Resource IDs: (265)
 msgid "Redirecting to url"
-msgstr ""
+msgstr "Pāradresē uz url"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -7917,6 +7930,14 @@ msgstr "Noņemts fails/mape"
 msgid "Removed from changelist"
 msgstr ""
 
+#. Resource IDs: (146)
+#, c-format
+msgid ""
+"Removed the file pattern(s)\n"
+"%s\n"
+"from the global ignore list."
+msgstr ""
+
 #. Resource IDs: (145)
 #, c-format
 msgid ""
@@ -7980,7 +8001,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Renamed node"
-msgstr ""
+msgstr "Pārsauktais mezgls"
 
 #. Resource IDs: (126)
 msgid "Renamed remotely"
@@ -8137,7 +8158,7 @@ msgstr "Atgriezts"
 
 #. Resource IDs: (563)
 msgid "Retry"
-msgstr ""
+msgstr "Mēģināt vēlreiz"
 
 #. Resource IDs: (286)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
@@ -8155,7 +8176,7 @@ msgstr ""
 
 #. Resource IDs: (77, 175, 229)
 msgid "Revert"
-msgstr ""
+msgstr "Atgriezt"
 
 #. Resource IDs: (345)
 msgid "Revert to default settings. Recommended for unexperienced users."
@@ -8175,7 +8196,7 @@ msgstr ""
 
 #. Resource IDs: (73)
 msgid "Reverted"
-msgstr ""
+msgstr "Atgriezts"
 
 #. Resource IDs: (148)
 #, c-format
@@ -8196,46 +8217,46 @@ msgstr ""
 
 #. Resource IDs: (19, 76, 208, 1306, 1375, 1393, 1593, 65535)
 msgid "Revision"
-msgstr ""
+msgstr "Revīzija"
 
 #. Resource IDs: (119)
 #, c-format
 msgid "Revision %1!d!"
-msgstr ""
+msgstr "Revīzija %1!d!"
 
 #. Resource IDs: (120)
 #, c-format
 msgid "Revision %1!s!"
-msgstr ""
+msgstr "Revīzija %1!s!"
 
 #. Resource IDs: (269)
 #, c-format
 msgid "Revision %ld"
-msgstr ""
+msgstr "Revīzija %ld"
 
 #. Resource IDs: (15)
 msgid "Revision &graph"
-msgstr ""
+msgstr "Revīziju &grafiks"
 
 #. Resource IDs: (182, 296)
 msgid "Revision Graph"
-msgstr ""
+msgstr "Revīziju grafiks"
 
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
-msgstr ""
+msgstr "Revīziju grafika filtrs"
 
 #. Resource IDs: (299)
 msgid "Revision Graph::Colors"
-msgstr ""
+msgstr "Revīziju grafiks::Krāsas"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
-msgstr ""
+msgstr "Revīziju diapazons"
 
 #. Resource IDs: (269)
 msgid "Revision graph"
-msgstr ""
+msgstr "Revīziju grafiks"
 
 #. Resource IDs: (1492)
 msgid "Revision range to merge"
@@ -8243,7 +8264,7 @@ msgstr ""
 
 #. Resource IDs: (75)
 msgid "Revision: "
-msgstr ""
+msgstr "Revīzija:"
 
 #. Resource IDs: (272)
 #, c-format
@@ -8273,7 +8294,7 @@ msgstr ""
 
 #. Resource IDs: (116, 65535)
 msgid "Revisions"
-msgstr ""
+msgstr "Revīzijas"
 
 #. Resource IDs: (3850)
 msgid ""
@@ -8335,23 +8356,23 @@ msgstr ""
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
-msgstr ""
+msgstr "S&tatistika"
 
 #. Resource IDs: (9)
 msgid "S&witch..."
-msgstr ""
+msgstr "Pārs&lēgties..."
 
 #. Resource IDs: (3697)
 msgid "SCRL"
-msgstr ""
+msgstr "SCRL"
 
 #. Resource IDs: (1081)
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
-msgstr ""
+msgstr "SVN Autors"
 
 #. Resource IDs: (12)
 msgid "SVN Copy and add files to this WC"
@@ -8391,19 +8412,19 @@ msgstr ""
 
 #. Resource IDs: (11)
 msgid "SVN Revision"
-msgstr ""
+msgstr "SVN Revīzija"
 
 #. Resource IDs: (11)
 msgid "SVN Status"
-msgstr ""
+msgstr "SVN Statuss"
 
 #. Resource IDs: (20)
 msgid "SVN Statusnumber"
-msgstr ""
+msgstr "SVN Statusa numurs"
 
 #. Resource IDs: (12)
 msgid "SVN URL"
-msgstr ""
+msgstr "SVN URL"
 
 #. Resource IDs: (17)
 msgid "SVN eol-style"
@@ -8439,11 +8460,11 @@ msgstr "Saglabāt"
 
 #. Resource IDs: (101)
 msgid "Save &as..."
-msgstr ""
+msgstr "Saglabāt &kā..."
 
 #. Resource IDs: (3841)
 msgid "Save As"
-msgstr ""
+msgstr "Saglabāt kā"
 
 #. Resource IDs: (156)
 msgid "Save as"
@@ -8451,7 +8472,7 @@ msgstr "Saglabāt kā"
 
 #. Resource IDs: (313)
 msgid "Save as..."
-msgstr ""
+msgstr "Saglabāt kā..."
 
 #. Resource IDs: (315)
 msgid ""
@@ -8462,7 +8483,7 @@ msgstr "Saglabāt kā⏎ Tiks jautāts, kur saglabāt failu"
 #. Resource IDs: (3857)
 #, c-format
 msgid "Save changes to %1?"
-msgstr ""
+msgstr "Saglabāt izmaiņas %1?"
 
 #. Resource IDs: (232)
 msgid "Save client certificate path"
@@ -10214,7 +10235,7 @@ msgstr ""
 
 #. Resource IDs: (99)
 msgid ""
-"This will upgrade your working copy to the new 1.7 format and make it "
+"This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
 msgstr ""
 
@@ -10725,7 +10746,7 @@ msgstr ""
 #. Resource IDs: (99)
 msgid ""
 "Upgrade the working copy\n"
-"to the new 1.7 format."
+"to the new 1.8 format."
 msgstr ""
 
 #. Resource IDs: (15, 99)
@@ -11838,6 +11859,14 @@ msgstr ""
 msgid "specific r&ange"
 msgstr "konkrēts &diapazons"
 
+#. Resource IDs: (582)
+msgid ""
+"svn:auto-props\r\n"
+"A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
+"Format: <filemask> = property=value;property=value\r\n"
+"Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr ""
+
 #. Resource IDs: (316)
 msgid "svn:eol-style"
 msgstr ""
@@ -11877,6 +11906,12 @@ msgid ""
 "^/ relative to the repository root\r\n"
 "// relative to the URL scheme\r\n"
 "/ relative to the server's hostname"
+msgstr ""
+
+#. Resource IDs: (582)
+msgid ""
+"svn:global-ignores\r\n"
+"A newline separated list of file patterns to ignore recursively."
 msgstr ""
 
 #. Resource IDs: (576)
