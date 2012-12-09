@@ -177,10 +177,24 @@ void CCacheLogQuery::CLogFiller::AutoAddSkipRange (revision_t revision)
             // we must fill this range! Otherwise, we will stumble
             // over this gap and will try to fetch the data again
             // to no avail ... causing an endless loop.
+            try
+            {
+                MakeRangeIterable ( currentPath->GetBasePath()
+                                  , revision+1
+                                  , firstNARevision - revision);
+            }
+            catch (SVNError& e)
+            {
+                // if the path isn't found in the revision range,
+                // then this is most likely due to the path
+                // being copied from an earlier revision: in that
+                // case the revision range is empty.
+                if (e.GetCode() != SVN_ERR_FS_NOT_FOUND) // deleted paths etc.
+                {
+                    throw;
+                }
+            }
 
-            MakeRangeIterable ( currentPath->GetBasePath()
-                              , revision+1
-                              , firstNARevision - revision);
         }
     }
 }

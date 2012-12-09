@@ -14,6 +14,9 @@ Version 1.7.11
 - BUG: Issue #440: svn:needs-lock not recognized
        if it has an empty value. (Stefan)
 - BUG: Issue #441: crash in commit dialog. (Stefan)
+- BUG: Issue #442: "File not found" error when showing log
+       of file whose folder has been copied from
+       an older revision. (Stefan)
 
 Version 1.7.10
 - BUG: Issue #406: wrong image positioning. (Stefan)
