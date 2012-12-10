@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TortoiseSVN Visual Studio integration</title>
+<meta name="keywords" content="TortoiseSVN integrated into Visual Studio"/>
+<meta http-equiv="content-language" content="en"/>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<link href="css/pack.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="wrapper">
+    <!--#include FILE="menu.html"-->
+    <div id="page">
+        <div id="banner">&nbsp;</div>
+
+        <div id="content">
+
+            $ADSENSE_TOP$
+            <div class="post">
+                <h2 class="title"><a href="#">How to integrate TortoiseSVN into Visual Studio</a></h2>
+                <p class="meta">Posted on December 10, 2012</p>
+                <div class="entry">
+                <p>
+                    If you're using <a href="http://msdn.microsoft.com/en-us/vstudio/aa718325.aspx">Visual Studio</a>,
+                    you can integrate TortoiseSVN commands to various context menus.
+                    Of course, there are Subversion plugins for Visual Studio like
+                    <a href="http://ankhsvn.open.collab.net/">AnkhSVN</a>
+                    or <a href="http://www.visualsvn.com/visualsvn/">VisualSVN</a>,
+                    with the latter already using TortoiseSVN for many 
+                    of its UI. Those plugins also have the advantage
+                    that when you do refactoring, they automatically
+                    record the renames and moves in SVN.
+                </p>
+                <p>
+                    But if you're using one of the free versions of VisualStudio,
+                    you can not use those plugins. And sometimes it's
+                    still nice to have some of the TortoiseSVN commands
+                    available from VisualStudio directly, even if you have
+                    such a plugin installed.
+                </p>
+                <p>
+                    The first step is to add the TortoiseSVN commands
+                    as <em>external tools</em>, under the menu <em>TOOLS</em>-><em>External Tools...</em>.
+                </p>
+                    <a href="img/VS_externaltools.png" rel="lightbox[VS]"><img src="img/VS_externaltools-small.png"></a>
+                <p>
+                    Add the name of the command, the path to <em>TortoiseProc.exe</em>
+                    and then the parameters for the command.
+                </p>
+                <p>
+                    Use the VS variables wherever needed. Since I add
+                    my commands to the context menu of the open file tab,
+                    here's the parameters I used:
+                </p>
+                <p>
+                    <ul>
+                        <li><em>/command:blame /path:"$(ItemPath)" /line:$(CurLine)</em></li>
+                        <li><em>/command:diff /path:"$(ItemPath)"</em></li>
+                        <li><em>/command:log /path:"$(ItemPath)"</em></li>
+                    </ul>
+                    Notice the <em>/line:</em> parameter: this will make
+                    TortoiseBlame automatically scroll to the same line
+                    the cursor is located in the opened file in Visual Studio.
+                </p>
+                <p>
+                    Now to add those new commands to the file tab context menu,
+                    go to <em>TOOLS</em>-><em>Customize...</em>, select
+                    the <em>Commands</em> tab, click the radio button
+                    <em>Context menu</em> and then select
+                    <em>Other Context Menus | Easy MDI Document Window</em>.
+                </p>
+                    <a href="img/VS_customize.png" rel="lightbox[VS]"><img src="img/VS_customize-small.png"></a>
+                <p>
+                    Then click the <em>Add command...</em> button:
+                </p>
+                    <a href="img/VS_addcommand.png" rel="lightbox[VS]"><img src="img/VS_addcommand-small.png"></a>
+                <p>
+                    Now you have to select the commands. Problem is that
+                    the custom commands are not shown with their title
+                    but only as <em>External Command X</em> with <em>X<em>
+                    being the number of the external command.
+                </p>
+                <p>
+                    In my case, the commands were number 9-11, you might
+                    have to do some trial-and-error here. Just add the commands
+                    you think are the ones you added and then check if
+                    the right ones show up in the context menu.
+                </p>
+                <p>
+                    And this is how the context menu of the open file
+                    tab looks like:
+                </p>
+                    <a href="img/VS_contextmenu.png.png" rel="lightbox[VS]"><img src="img/VS_contextmenu-small.png"></a>
+                </div>
+            </div>
+        </div>
+        <!-- end #content -->
+
+        <!--#include FILE="sidebar.html"-->
+        <div style="clear: both">&nbsp;</div>
+    </div>
+    <!-- end #page -->
+    <!--#include FILE="footer-js.html"-->
+</div>
+</body>
+</html>
