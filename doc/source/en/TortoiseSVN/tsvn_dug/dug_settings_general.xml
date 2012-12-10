@@ -124,8 +124,8 @@
                     This ignore pattern will affect all your projects.
                     It is not versioned, so it will not affect other users.
                     By contrast you can also use the versioned
-                    <literal>svn:ignore</literal> property to exclude
-                    files or directories from version control. Read
+                    <literal>svn:ignore</literal> or <literal>svn:global-ignores</literal>
+                    property to exclude files or directories from version control. Read
                     <xref linkend="tsvn-dug-ignore"/>
                     for more information.
                 </para>

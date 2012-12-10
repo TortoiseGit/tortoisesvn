@@ -101,6 +101,19 @@
                             <literal>svn:ignore</literal> property for a directory.
                         </para>
                     </listitem>
+                    <listitem>
+                        <para>
+                            add the file to the <literal>svn:global-ignores</literal> list
+                            using
+                            <menuchoice>
+                                <guimenu>TortoiseSVN</guimenu>
+                                <guimenuitem>Add to ignore list (recursively)</guimenuitem>
+                            </menuchoice>
+                            This will affect the directory on
+                            which you set the <literal>svn:global-ignores</literal> property
+                            and all subfolders as well.
+                        </para>
+                    </listitem>
                 </itemizedlist>
                 Read <xref linkend="tsvn-dug-ignore"/> for more information.
             </para>

@@ -35,9 +35,16 @@
             <guimenuitem>Add to Ignore List</guimenuitem>
         </menuchoice>
         from the context menu, a submenu appears allowing you to select just that
-        file, or all files with the same extension.
+        file, or all files with the same extension. Both submenus
+        also have a <literal>(recursively)</literal> equivalent.
         If you select multiple files, there is no submenu and you can only add
         those specific files/folders.
+    </para>
+    <para>
+        If you choose the <literal>(recursively)</literal> version of
+        the ignore context menu, the item will be ignored not just
+        for the selected folder but all subfolders as well. However
+        this requires SVN clients version 1.8 or higher.
     </para>
     <para>
         If you want to remove one or more items from the ignore list,
