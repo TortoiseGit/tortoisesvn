@@ -12,6 +12,7 @@
 # Translators:
 #   <bandoche@hanmail.net>, 2011.
 #   <kmkh12@paran.com>, 2011.
+#   <learder@gmail.com>, 2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Seongki Shin <skshin@gmail.com>, 2011-2012.
 # TaeDong Kim <fly1004@gmail.com>, 2011.
@@ -20,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-04 08:35+0000\n"
-"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
+"PO-Revision-Date: 2012-12-10 07:24+0000\n"
+"Last-Translator: learder <learder@gmail.com>\n"
 "Language-Team: Korean <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -219,7 +220,7 @@ msgstr "%s (오프라인)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (재귀적으로)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -1041,7 +1042,7 @@ msgstr "옵션(&O)"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "다른 것(&O)"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1809,7 +1810,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "파일 패턴⏎ %s⏎ (들)이 전역 무시 목록에 추가되었습니다."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2968,7 +2969,7 @@ msgstr "실행할 명령:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "실행할 명령행:⏎ 작업 사본 내의 경로는 리파지터리의 루트 URL을 %REPOROOT%로 지정하거나, 작업 사본의 루트의 더 하위에 대해서는 %REPORTOOT+%로 지정하십시요."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -6560,7 +6561,7 @@ msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -6824,7 +6825,7 @@ msgstr "주의"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
+msgstr "공지: 작업 사본 형식을 업그레이드하면 1.8 버전 이전 클라이언트로 작업 사본을 이용할 수 없습니다!⏎정말로 이 작업 사본을 업그레이드하시기 원하십니까?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7938,7 +7939,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "파일 패턴⏎ %s⏎(들)이 전역 무시 목록에서 제거되었습니다."
 
 #. Resource IDs: (145)
 #, c-format
@@ -10239,7 +10240,7 @@ msgstr "이것은 이 어플리케이션에서 사용된 명령들을 저장해 
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "작업 사본을 새 1.8 형식으로 업그레이드하면 이전 버전 클라이언트에서 사용할 수 없습니다."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10386,7 +10387,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, 빌드 %d - %s, %s⏎ Subversion %d.%d.%d, %s⏎ apr %d.%d.%d⏎ apr-utils %d.%d.%d⏎ serf %d.%d.%d⏎ %s⏎ zlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10479,7 +10480,7 @@ msgstr "TortoiseSVN 설정 변경"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "종류"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -10749,7 +10750,7 @@ msgstr "로그 캐시 업데이트 중"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "작업 사본을 새 1.8 형식으로 업그레이드"
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11867,7 +11868,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
+msgstr "svn:auto-props⏎ 개행 문자로 분리된 프라퍼티 목록으로 추가/임포트될 때에 재귀적으로 적용됩니다.⏎ 형식: <파일 마스크> = 프라퍼티=값;프라퍼티=값⏎ 예: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -11914,7 +11915,7 @@ msgstr "svn:externals\r\n한 줄에 하나씩 지정하는 외부 모듈들의 �
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr ""
+msgstr "svn:global-ignores⏎ 개행 문자로 분리된 목록상에 파일 패턴을 무시합니다."
 
 #. Resource IDs: (576)
 msgid ""
