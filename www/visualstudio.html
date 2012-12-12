@@ -43,7 +43,7 @@
                     The first step is to add the TortoiseSVN commands
                     as <em>external tools</em>, under the menu <em>TOOLS</em>-><em>External Tools...</em>.
                 </p>
-                    <a href="img/VS_externaltools.png" rel="lightbox[VS]"><img src="img/VS_externaltools-small.png"></a>
+                    <a href="img/VS_externaltools.png" rel="lightbox[VS]"><img src="img/VS_externaltools-small.png"/></a>
                 <p>
                     Add the name of the command, the path to <em>TortoiseProc.exe</em>
                     and then the parameters for the command.
@@ -53,12 +53,12 @@
                     my commands to the context menu of the open file tab,
                     here's the parameters I used:
                 </p>
+                <ul>
+                    <li><code>/command:blame /path:"$(ItemPath)" /line:$(CurLine)</code></li>
+                    <li><code>/command:diff /path:"$(ItemPath)"</code></li>
+                    <li><code>/command:log /path:"$(ItemPath)"</code></li>
+                </ul>
                 <p>
-                    <ul>
-                        <li><em>/command:blame /path:"$(ItemPath)" /line:$(CurLine)</em></li>
-                        <li><em>/command:diff /path:"$(ItemPath)"</em></li>
-                        <li><em>/command:log /path:"$(ItemPath)"</em></li>
-                    </ul>
                     Notice the <em>/line:</em> parameter: this will make
                     TortoiseBlame automatically scroll to the same line
                     the cursor is located in the opened file in Visual Studio.
@@ -70,15 +70,15 @@
                     <em>Context menu</em> and then select
                     <em>Other Context Menus | Easy MDI Document Window</em>.
                 </p>
-                    <a href="img/VS_customize.png" rel="lightbox[VS]"><img src="img/VS_customize-small.png"></a>
+                    <a href="img/VS_customize.png" rel="lightbox[VS]"><img src="img/VS_customize-small.png"/></a>
                 <p>
                     Then click the <em>Add command...</em> button:
                 </p>
-                    <a href="img/VS_addcommand.png" rel="lightbox[VS]"><img src="img/VS_addcommand-small.png"></a>
+                    <a href="img/VS_addcommand.png" rel="lightbox[VS]"><img src="img/VS_addcommand-small.png"/></a>
                 <p>
                     Now you have to select the commands. Problem is that
                     the custom commands are not shown with their title
-                    but only as <em>External Command X</em> with <em>X<em>
+                    but only as <em>External Command X</em> with <em>X</em>
                     being the number of the external command.
                 </p>
                 <p>
@@ -91,7 +91,7 @@
                     And this is how the context menu of the open file
                     tab looks like:
                 </p>
-                    <a href="img/VS_contextmenu.png" rel="lightbox[VS]"><img src="img/VS_contextmenu-small.png"></a>
+                    <a href="img/VS_contextmenu.png" rel="lightbox[VS]"><img src="img/VS_contextmenu-small.png"/></a>
                 </div>
             </div>
         </div>
