@@ -1,10 +1,12 @@
-import os, string, shutil
+import os
+import string
+import shutil
 
-searchfor = [ '$TSVNSHORTVERSION$', '$TSVNVERSION$', '$SVNVERSION$' ]
-replacewith = [ '1.7.10', '1.7.10.23359', '1.7.7' ]
+searchfor = ['$TSVNSHORTVERSION$', '$TSVNVERSION$', '$SVNVERSION$']
+replacewith = ['1.7.10', '1.7.10.23359', '1.7.7']
 setpath = 'D:\\Development\\SVN\\tsvnsite'
 
-for root, dirs, files in os.walk(setpath, topdown=False):
+for root, dirs, files in os.walk(setpath, topdown = False):
     for name in files:
         os.remove(os.path.join(root, name))
     for name in dirs:
@@ -82,23 +84,55 @@ adinpageFileDE.close()
 adinpageTextZH = adinpageFileZH.read()
 adinpageFileZH.close()
 
-searchfor.extend( [ '<!--#include FILE="menu.html"-->', '<!--#include FILE="menu.de.html"-->', '<!--#include FILE="menu.zh.html"-->', '<!--#include FILE="sidebar.html"-->', '<!--#include FILE="sidebar.de.html"-->', '<!--#include FILE="sidebar.zh.html"-->', '<!--#include FILE="footer.html"-->', '<!--#include FILE="footer-js.html"-->', '$ADSENSE_TOP$', '$ADSENSE_TOPDE$', '$ADSENSE_TOPZH$', '$ADSENSE_BIGTOP$', '$ADSENSE_BIGTOPDE$', '$ADSENSE_BIGTOPZH$', '$ADSENSE_INPAGE$', '$ADSENSE_INPAGEDE$', '$ADSENSE_INPAGEZH$' ] )
-replacewith.extend( [ menuText, menuTextDE, menuTextZH, sidebarText, sidebarTextDE, sidebarTextZH, footerText, footerJSText, adtopText, adtopTextDE, adtopTextZH, adtopBigText, adtopBigTextDE, adtopBigTextZH, adinpageText, adinpageTextDE, adinpageTextZH ] )
+searchfor.extend(['<!--#include FILE="menu.html"-->',
+                  '<!--#include FILE="menu.de.html"-->',
+                  '<!--#include FILE="menu.zh.html"-->',
+                  '<!--#include FILE="sidebar.html"-->',
+                  '<!--#include FILE="sidebar.de.html"-->',
+                  '<!--#include FILE="sidebar.zh.html"-->',
+                  '<!--#include FILE="footer.html"-->',
+                  '<!--#include FILE="footer-js.html"-->',
+                  '$ADSENSE_TOP$',
+                  '$ADSENSE_TOPDE$',
+                  '$ADSENSE_TOPZH$',
+                  '$ADSENSE_BIGTOP$',
+                  '$ADSENSE_BIGTOPDE$',
+                  '$ADSENSE_BIGTOPZH$',
+                  '$ADSENSE_INPAGE$',
+                  '$ADSENSE_INPAGEDE$',
+                  '$ADSENSE_INPAGEZH$'])
+replacewith.extend([menuText,
+                    menuTextDE,
+                    menuTextZH,
+                    sidebarText,
+                    sidebarTextDE,
+                    sidebarTextZH,
+                    footerText,
+                    footerJSText,
+                    adtopText,
+                    adtopTextDE,
+                    adtopTextZH,
+                    adtopBigText,
+                    adtopBigTextDE,
+                    adtopBigTextZH,
+                    adinpageText,
+                    adinpageTextDE,
+                    adinpageTextZH])
 
 for root, dirs, files in os.walk(setpath):
     fname = files
     for fname in files:
         if fname.endswith('.html'):
-            inputFile = file(os.path.join(root,fname), 'r')
+            inputFile = file(os.path.join(root, fname), 'r')
             data = inputFile.read()
             inputFile.close()
             for i in range(len(searchfor)):
                 x = searchfor[i]
                 y = replacewith[i]
                 search = string.find(data, x)
-                if search >=1:
+                if search >= 1:
                     data = data.replace(x, y)
 
-            outputFile = file(os.path.join(root,fname), 'w')
+            outputFile = file(os.path.join(root, fname), 'w')
             outputFile.write(data)
             outputFile.close()
