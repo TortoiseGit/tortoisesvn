@@ -9,11 +9,13 @@
 
 /* Generic tag-level style definitions */
 body {
+    background-color: white;
+    color: black;
     font-family: Verdana, Helvetica, Arial, sans-serif;
-    background: #fff;
-    color: #000;
-    margin: 0;
+    margin: auto;
     padding: 0;
+    padding: center;
+
 }
 
 pre {
@@ -24,7 +26,8 @@ tt {
     font-size: 12pt;
 }
 
-tt.filename, tt.literal {
+tt.filename,
+tt.literal {
     font-weight: bold;
 }
 
@@ -35,7 +38,6 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: black;
 }
 
 img {
@@ -46,7 +48,8 @@ em {
     font-style: italic;
 }
 
-.itemizedlist, .variablelist {
+.itemizedlist,
+.variablelist {
     /* margin settings are top - right - bottom - left (think clockwise) */
     margin: 15px 30px 15px 15px;
 }
@@ -72,35 +75,35 @@ varlistentry > listitem {
 }
 
 div.figure {
-    padding: 4px;
     clear: both;
+    margin: 0 0 5px 10px;
+    padding: 4px;
     text-align: center;
-    margin: 0px 0px 5px 10px;
 }
 
 div.figure p {
-    margin-top: 2px;
-    margin-bottom: 0px;
     font-size: 80%;
+    margin-bottom: 0;
+    margin-top: 2px;
     text-align: center;
 }
 
 .author {
+    color: black;
     font-size: 12pt;
     font-style: italic;
     font-weight: normal;
-    color: black;
 }
 
 div.navheader,
 div.navfooter {
-    width: 100%;
-    filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#809BC8', endColorstr='#FFFFFF', gradientType='0');
-    color: white;
-    clear: both;
     border: 1px solid black;
     border-left: 0;
     border-right: 0;
+    clear: both;
+    color: white;
+    filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#809BC8', endColorstr='#FFFFFF', gradientType='0');
+    width: 100%;
 }
 
 div.navheader table th {
@@ -121,8 +124,8 @@ div.navfooter table td a {
 /* links in header and footer */
 div.navheader table td a:hover,
 div.navfooter table td a:hover {
-    text-decoration: underline;
     background-color: transparent;
+    text-decoration: underline;
 }
 
 div.navheader table td a:visited,
@@ -130,7 +133,8 @@ div.navfooter table td a:visited {
     color: black;
 }
 
-div.navheader hr, div.navfooter hr {
+div.navheader hr,
+div.navfooter hr {
     display: none;
 }
 
@@ -148,11 +152,11 @@ div.glossary {
 
 /* table of contents */
 div.toc {
+    background-color: #FFF9CD;
     border: 1px solid black;
-    padding: 0px 10px;
-    background-color: #fff9cd;
     color: black;
     margin-bottom: 1cm;
+    padding: 0 10px;
     width: 80%;
 }
 
@@ -161,22 +165,22 @@ div.toc b {
 }
 
 div.toc a {
-    margin-left: 5px;
     margin-bottom: 5px;
+    margin-left: 5px;
 }
 
 /* toc definitions for different sections and chapters */
 div.book div.toc {
     background-color: transparent;
     border: 0;
-    padding: 0;
     font-size: medium;
+    padding: 0;
 }
 
 div.table title {
-    background-color: #FFFFFF;
+    background-color: white;
+    border: 0;
     width: 100%;
-    border: 0px;
 }
 
 div.table p {
@@ -189,62 +193,73 @@ div.table tr td p {
 
 div.table table {
     background-color: #7099C5;
+    border-width: 0;
     font-size: 90%;
-    border-width: 0px;
 }
 
 div.table th {
-    text-align: center;
-    color: white;
     background-color: #7099C5;
-    padding: 1px 4px 1px 4px;
     border: none;
+    color: white;
+    padding: 1px 4px;
+    text-align: center;
     vertical-align: top;
 }
 
 div.table tr {
-    background-color: #f0f0ff;
+    background-color: #F0F0FF;
 }
 
 div.table td {
-    vertical-align: top;
-    padding: 2px 4px 1px 4px;
     border: none;
+    padding: 2px 4px 1px 4px;
+    vertical-align: top;
 }
 
-.caution, .important, .note, .tip, .warning {
-    border-top: 5px solid;
+.caution,
+.important,
+.note,
+.tip,
+.warning {
     border-left: 1px solid;
+    border-top: 5px solid;
+    clear: both;
     margin: 1em 0 0 1em;
     padding: 5px 0 10px 0;
     width: 90%;
-    clear: both;
 }
 
-.action, .guibutton, .guimenu, .guimenuitem {
+.action,
+.guibutton,
+.guimenu,
+.guimenuitem {
     font-weight: bold;
 }
 
-.guibutton, .guimenu, .guimenuitem {
-    padding: 0px 0.5em 0px 0.5em;
+.guibutton,
+.guimenu,
+.guimenuitem {
+    padding: 0 .5em;
 }
 
-.guimenu, .guimenuitem, .guilabel {
+.guimenu,
+.guimenuitem,
+.guilabel {
     /*font-size: 10pt;*/
     background-color: #EEE;
 }
 
 .guibutton {
-    font-size: 10pt;
-    border-width: 1px 2px 2px 1px;
+    background: #EEE;
+    border-color: #DDD #BBB #BBB #DDD;
     border-style: solid;
-    background: #eee;
-    border-color: #ddd #bbb #bbb #ddd;
+    border-width: 1px 2px 2px 1px;
+    font-size: 10pt;
 }
 
 .sidebar {
     background-color: #DCDCDC;
-    padding: 0.5em 0.5em 0.5em 0.5em;
+    padding: .5em;
 }
 
 .tip {
@@ -252,11 +267,11 @@ div.table td {
 }
 
 .tip h3 {
-    padding-top: 4px;
     color: #090;
-    font-weight: bold;
-    font-style: italic;
     font-size: 1.05em;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 4px;
 }
 
 .note {
@@ -264,11 +279,11 @@ div.table td {
 }
 
 .note h3 {
-    padding-top: 4px;
     color: #069;
-    font-weight: bold;
-    font-style: italic;
     font-size: 1.05em;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 4px;
 }
 
 .important {
@@ -276,23 +291,23 @@ div.table td {
 }
 
 .important h3 {
-    padding-top: 4px;
     color: #069;
-    font-weight: bold;
-    font-style: italic;
     font-size: 1.05em;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 4px;
 }
 
 .caution {
-    border-color: #c60;
+    border-color: #C60;
 }
 
 .caution h3 {
-    padding-top: 4px;
-    color: #c60;
-    font-weight: bold;
-    font-style: italic;
+    color: #C60;
     font-size: 1.05em;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 4px;
 }
 
 .warning {
@@ -300,47 +315,50 @@ div.table td {
 }
 
 .warning h3 {
-    padding-top: 4px;
     color: #900;
-    font-weight: bold;
-    font-style: italic;
     font-size: 1.05em;
+    font-style: italic;
+    font-weight: bold;
+    padding-top: 4px;
 }
 
 .term {
     border-bottom: 1px dotted black;
 }
 
+.screen,
+.programlisting {
+    -webkit-border-radius: 2.5px;
+       -moz-border-radius: 2.5px;
+            border-radius: 2.5px;
+}
+
 .screen {
+    background-color: #EEE;
+    border: 1px solid #BBB;
+    color: black;
+    display: block;
     font-family: monospace;
     font-size: 1em;
-    display: block;
-    padding: 10px;
-    border: 1px solid #bbb;
-    background-color: #eee;
-    color: #000;
+    margin: .5em 2em;
     overflow: auto;
-    border-radius: 2.5px;
-    -moz-border-radius: 2.5px;
-    margin: 0.5em 2em;
+    padding: 10px;
 }
 
 .programlisting {
+    background-color: #DDD;
+    border: 1px solid #BBB;
+    color: black;
+    display: block;
     font-family: monospace;
     font-size: 1em;
-    display: block;
-    padding: 10px;
-    border: 1px solid #bbb;
-    background-color: #ddd;
-    color: #000;
+    margin: .5em 2em;
     overflow: auto;
-    border-radius: 2.5px;
-    -moz-border-radius: 2.5px;
-    margin: 0.5em 2em;
+    padding: 10px;
 }
 
 .FILENAME {
-    color: #007a00;
+    color: #007A00;
     font-family: monospace;
 }
 
@@ -349,31 +367,23 @@ div.example p b,
 .question,
 div.table p b,
 div.procedure p b {
-    color: #990000;
+    color: #900;
 }
 
 #bodycol {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
-body address {
+address {
     line-height: 1.3;
     margin: .6em 0;
 }
 
-body blockquote {
-    margin-top: .75em;
+blockquote {
     line-height: 1.5;
     margin-bottom: .75em;
-}
-
-html body {
-    margin: auto;
-    line-height: 1.2;
-    width: 640;
-    text-align: justify;
-    padding: center;
+    margin-top: .75em;
 }
 
 .legalnotice {
@@ -381,70 +391,79 @@ html body {
     font-variant: small-caps;
 }
 
-body div {
+div {
     margin: 0;
 }
 
 dl {
-    margin: .8em 0;
     line-height: 1.2;
+    margin: .8em 0;
 }
 
-body form {
+form {
     margin: .6em 0;
 }
 
-body h1, body h2, body h3,
-body h4, body h5, body h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     line-height: 1.3;
     margin-left: 0;
 }
 
-body h1, body h2 {
+h1,
+h2 {
     margin: .8em 0 0;
 }
 
-body h3, body h4 {
+h3,
+h4 {
     margin: .8em 0 0;
 }
 
-body h5 {
+h5 {
     margin: .8em 0 0;
 }
 
-body h6 {
+h6 {
     margin: .8em 0 0;
 }
 
-body hr {
-    margin: .6em;
-    border-width: 0 0 1px 0;
+hr {
+    border-color: #CECECE;
     border-style: solid;
-    border-color: #cecece;
+    border-width: 0 0 1px 0;
+    margin: .6em;
 }
 
-BODY IMG.NAVHEADER {
+IMG.NAVHEADER {
     margin: 0 0 0 -4%;
 }
 
 OL {
-    margin: 0 0 0 5%;
     line-height: 1.2;
+    margin: 0 0 0 5%;
 }
 
-BODY PRE {
-    margin: .75em 0;
-    line-height: 1.0;
+PRE {
     font-family: monospace;
+    line-height: 1.0;
+    margin: .75em 0;
 }
 
-BODY TD, BODY TH {
+TD,
+TH {
     line-height: 1.2;
 }
 
-UL, BODY DIR, BODY MENU {
+UL,
+DIR,
+MENU {
+    line-height: 1.2;
     margin: 0 0 0 5%;
-    line-height: 1.2;
 }
 
 HTML {
@@ -452,6 +471,6 @@ HTML {
     padding: 0;
 }
 
-BODY P B.APPLICATION {
-    color: #000000;
+P B.APPLICATION {
+    color: black;
 }

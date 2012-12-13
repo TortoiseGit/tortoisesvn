@@ -9,47 +9,50 @@
 
 /* Generic tag-level style definitions */
 
-html body {
-    width: 100%;
-    min-width: 800px;
+body {
     max-width: 1200px;
+    min-width: 800px;
+    width: 100%;
 }
 
 /*************************/
-p a, p a:hover {
+p a,
+p a:hover {
+    background: url("images/link.png") no-repeat center left;
     margin-left: 5px;
     padding-left: 10px;
-    background-image: url("images/link.png");
-    background-repeat: no-repeat;
-    background-position: center left;
 }
 
 /* Don't display indexterms */
 .indexterm {
+    background-image: none;
+    display: inline;
     margin: 0;
     padding: 0;
-    display: inline;
-    background-image: none;
 }
 
-.caution, .important, .note, .tip, .warning {
-    background-repeat: no-repeat;
+.caution,
+.important,
+.note,
+.tip,
+.warning {
     background-position: 5px 1.33em;
-    padding: 0 0 0 42px;
+    background-repeat: no-repeat;
     min-height: 52px;
+    padding: 0 0 0 42px;
     width: 80%;
 }
 
-.tip {
-    background-image: url("images/tip.png");
+.caution {
+    background-image: url("images/caution.png");
 }
 
 .important {
     background-image: url("images/important.png");
 }
 
-.caution {
-    background-image: url("images/caution.png");
+.tip {
+    background-image: url("images/tip.png");
 }
 
 .warning {
@@ -57,9 +60,7 @@ p a, p a:hover {
 }
 
 div.navheader {
-    width: 100%;
+    background: url("images/Tortoise.png") no-repeat 50px 0;
     filter: none;
-    background-repeat: no-repeat;
-    background-image: url("images/Tortoise.png");
-    background-position: 50px 0;
+    width: 100%;
 }
