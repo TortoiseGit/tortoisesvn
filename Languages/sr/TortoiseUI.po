@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-04 08:36+0000\n"
+"PO-Revision-Date: 2012-12-10 18:58+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -217,7 +217,7 @@ msgstr "%s (искључен)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (рекурзивно)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -1039,7 +1039,7 @@ msgstr "&Опције"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "&Остали"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1807,7 +1807,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "Додати фајл шаблон(и)\n%s\nна глобалну листу занемаривања"
 
 #. Resource IDs: (145)
 #, c-format
@@ -6822,7 +6822,7 @@ msgstr "Белешка"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
+msgstr "Приметимо: ако надоградите вашу радну копију уопште нећете моћи да приступите надограђеној радној копији са клијентом пре 1.8 СВН!\nДа ли стварно желите да надоградите ову радну копију?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7936,7 +7936,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "Уклоњени фајл шабон(и)\n%s\nиз глобалне листе занемаривања."
 
 #. Resource IDs: (145)
 #, c-format
@@ -10237,7 +10237,7 @@ msgstr "Ово ће избрисати запис команди које сте
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Ово ће надоградити вшу радну копију у нови 1.8 формат и учинити је некорисном за старије клијенте."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10747,7 +10747,7 @@ msgstr "Усклади кеш дневника"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Надогради радну копију\nу нови 1.8 формат."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11865,7 +11865,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
+msgstr "svn:auto-props\r\nЛиста особина одвојена новим редом који се примењују рекурзивно аутоматски када се додају/увозе фајлови.\r\nFormat: <filemask> = property=value;property=value\r\nExample: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -11912,7 +11912,7 @@ msgstr "свн:еxтерналс\r\nЛиста подељена новим ре�
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr ""
+msgstr "svn:global-ignores\r\nЛиста раздвојена новим редом фајл шаблона за занемаривање рекурзивно."
 
 #. Resource IDs: (576)
 msgid ""
