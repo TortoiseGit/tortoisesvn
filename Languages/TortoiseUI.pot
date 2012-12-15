@@ -2030,6 +2030,10 @@ msgstr ""
 msgid "Auto Rename"
 msgstr ""
 
+#. Resource IDs: (221)
+msgid "Auto-Merge"
+msgstr ""
+
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
 msgstr ""
@@ -2044,6 +2048,11 @@ msgstr ""
 
 #. Resource IDs: (195)
 msgid "Auto-complete suggests words (usually class or member names)\r\nfrom the files that you have changed as you type a log message."
+msgstr ""
+
+#. Resource IDs: (221)
+#, c-format
+msgid "Auto-merge %1!s! into %2!s!"
 msgstr ""
 
 #. Resource IDs: (438)
@@ -3621,6 +3630,10 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
+msgstr ""
+
+#. Resource IDs: (1562)
+msgid "Do reintegrate instead of automatic merge"
 msgstr ""
 
 #. Resource IDs: (90)
@@ -6666,6 +6679,10 @@ msgstr ""
 msgid "Please wait while the repository browser is initializing..."
 msgstr ""
 
+#. Resource IDs: (280)
+msgid "Please wait while we check the parameters for the merge."
+msgstr ""
+
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
 msgstr ""
@@ -6936,7 +6953,7 @@ msgid "R&AM drives"
 msgstr ""
 
 #. Resource IDs: (1469)
-msgid "R&eintegrate a branch"
+msgid "R&eintegrate a branch / automatic merge"
 msgstr ""
 
 #. Resource IDs: (16623)
@@ -9022,6 +9039,14 @@ msgstr ""
 msgid "The repository was successfully created.\nDo you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr ""
 
+#. Resource IDs: (279)
+msgid "The required automatic merge is reintegrate like, and the \"only record the merge\" option can not be used."
+msgstr ""
+
+#. Resource IDs: (279)
+msgid "The required automatic merge is reintegrate like.\nOnly the merge depth option \"Working copy\" can be used."
+msgstr ""
+
 #. Resource IDs: (616)
 #, c-format
 msgid "The returned error was:\n%s"
@@ -10399,6 +10424,10 @@ msgstr ""
 
 #. Resource IDs: (220)
 msgid "ignoring ancestry"
+msgstr ""
+
+#. Resource IDs: (618)
+msgid "include properties"
 msgstr ""
 
 #. Resource IDs: (13)
