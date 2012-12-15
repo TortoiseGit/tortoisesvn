@@ -33,10 +33,12 @@ CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
     :CResizableSheetEx(nIDCaption, pParentWnd, iSelectPage)
     , bReverseMerge(FALSE)
     , nRevRangeMerge(MERGEWIZARD_REVRANGE)
+    , bReintegrate(false)
     , m_bIgnoreAncestry(FALSE)
     , m_bIgnoreEOL(FALSE)
     , m_depth(svn_depth_unknown)
     , m_bRecordOnly(FALSE)
+    , m_bForce(FALSE)
     , m_FirstPageActivation(true)
 {
     SetWizardMode();

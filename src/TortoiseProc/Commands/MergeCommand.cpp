@@ -104,7 +104,10 @@ bool MergeCommand::Execute()
             break;
         case MERGEWIZARD_REINTEGRATE:
             {
-                progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrate);
+                if (wizard.bReintegrate)
+                    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrateOldStyle);
+                else
+                    progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrate);
             }
             break;
         }

@@ -96,6 +96,7 @@ public:
         SVNProgress_Lock,
         SVNProgress_Merge,
         SVNProgress_MergeReintegrate,
+        SVNProgress_MergeReintegrateOldStyle,
         SVNProgress_MergeAll,
         SVNProgress_Rename,
         SVNProgress_Resolve,
@@ -300,6 +301,7 @@ private:
     bool        CmdMerge(CString& sWindowTitle, bool& localoperation);
     bool        CmdMergeAll(CString& sWindowTitle, bool& localoperation);
     bool        CmdMergeReintegrate(CString& sWindowTitle, bool& localoperation);
+    bool        CmdMergeReintegrateOldStyle(CString& sWindowTitle, bool& localoperation);
     bool        CmdRename(CString& sWindowTitle, bool& localoperation);
     bool        CmdResolve(CString& sWindowTitle, bool& localoperation);
     bool        CmdRevert(CString& sWindowTitle, bool& localoperation);

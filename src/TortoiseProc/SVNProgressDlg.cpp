@@ -197,7 +197,7 @@ LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam
 svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile)
 {
     // we only bother the user when merging
-    if (((m_Command == SVNProgress_Merge)||(m_Command == SVNProgress_MergeAll)||(m_Command == SVNProgress_MergeReintegrate))&&(!m_AlwaysConflicted)&&(description))
+    if (((m_Command == SVNProgress_Merge)||(m_Command == SVNProgress_MergeAll)||(m_Command == SVNProgress_MergeReintegrateOldStyle)||(m_Command == SVNProgress_MergeReintegrate))&&(!m_AlwaysConflicted)&&(description))
     {
         // we're in a worker thread here. That means we must not show a dialog from the thread
         // but let the UI thread do it.
@@ -1238,6 +1238,9 @@ UINT CSVNProgressDlg::ProgressThread()
         break;
     case SVNProgress_MergeReintegrate:
         bSuccess = CmdMergeReintegrate(sWindowTitle, localoperation);
+        break;
+    case SVNProgress_MergeReintegrateOldStyle:
+        bSuccess = CmdMergeReintegrateOldStyle(sWindowTitle, localoperation);
         break;
     case SVNProgress_Rename:
         bSuccess = CmdRename(sWindowTitle, localoperation);
@@ -3064,6 +3067,57 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
 }
 
 bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localoperation*/)
+{
+    ASSERT(m_targetPathList.GetCount() == 1);
+    sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGEAUTOMATIC);
+    SetBackgroundImage(IDI_MERGE_BKG);
+    if (m_options & ProgOptDryRun)
+    {
+        sWindowTitle += _T(" ") + sDryRun;
+    }
+    if (m_options & ProgOptRecordOnly)
+    {
+        sWindowTitle += _T(" ") + sRecordOnly;
+    }
+    CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
+
+    CString sCmdInfo;
+    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEAUTOMATIC,
+        (LPCTSTR)m_url.GetSVNPathString(),
+        m_targetPathList[0].GetWinPath());
+    ReportCmd(sCmdInfo);
+
+    GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
+    CRegDWORD nonint = CRegDWORD(_T("Software\\TortoiseSVN\\MergeNonInteractive"), FALSE);
+    if (DWORD(nonint))
+    {
+        ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
+        m_AlwaysConflicted = true;
+    }
+
+    CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
+    if (!MergeAutomatically(m_url, SVNRev::REV_HEAD, m_targetPathList[0],
+                            true,           // allow mixed revs
+                            true,           // allow local mods
+                            true,           // allow switched subtrees
+                            m_depth,
+                            !!(m_options & ProgOptRecordOnly),
+                            !!(m_options & ProgOptForce),
+                            !!(m_options & ProgOptDryRun),
+                            m_diffoptions))
+    {
+        ReportSVNError();
+        GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
+        return false;
+    }
+
+    GenerateMergeLogMessage();
+
+    GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
+    return true;
+}
+
+bool CSVNProgressDlg::CmdMergeReintegrateOldStyle(CString& sWindowTitle, bool& /*localoperation*/)
 {
     ASSERT(m_targetPathList.GetCount() == 1);
     sWindowTitle.LoadString(IDS_PROGRS_TITLE_MERGEREINTEGRATE);

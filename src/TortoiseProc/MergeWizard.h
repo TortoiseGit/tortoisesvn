@@ -69,6 +69,7 @@ public:
     SVNRev                          pegRev;
     SVNRevRangeArray                revRangeArray;
     BOOL                            bReverseMerge;
+    BOOL                            bReintegrate;
 
     BOOL                            m_bRecordOnly;
 
