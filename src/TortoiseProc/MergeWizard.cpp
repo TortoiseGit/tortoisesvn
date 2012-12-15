@@ -40,6 +40,7 @@ CMergeWizard::CMergeWizard(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
     , m_bRecordOnly(FALSE)
     , m_bForce(FALSE)
     , m_FirstPageActivation(true)
+    , bAllowMixedRev(true)
 {
     SetWizardMode();
     AddPage(&page1);

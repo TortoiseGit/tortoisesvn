@@ -63,6 +63,7 @@ bool MergeCommand::Execute()
         int options = wizard.m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
         options |= wizard.m_bRecordOnly ? ProgOptRecordOnly : 0;
         options |= wizard.m_bForce ? ProgOptForce : 0;
+        options |= wizard.bAllowMixedRev ? ProgOptAllowMixedRev : 0;
         progDlg.SetOptions(options);
         progDlg.SetPathList(CTSVNPathList(wizard.wcPath));
         progDlg.SetUrl(wizard.URL1);

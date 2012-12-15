@@ -719,6 +719,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TortoiseProc.cpp" />
+    <ClCompile Include="WaitDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\SVN\SVNBase.h" />
@@ -1056,6 +1057,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TortoiseProc.h" />
+    <ClInclude Include="WaitDlg.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Resources\actionadded.ico" />

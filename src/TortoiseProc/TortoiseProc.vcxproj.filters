@@ -1100,6 +1100,9 @@
     <ClCompile Include="Properties\EditPropMergeLogTemplate.cpp">
       <Filter>Commands\Properties</Filter>
     </ClCompile>
+    <ClCompile Include="WaitDlg.cpp">
+      <Filter>Utility Dialogs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2106,6 +2109,9 @@
     </ClInclude>
     <ClInclude Include="..\Utils\CrashReport.h">
       <Filter>Utils\General</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitDlg.h">
+      <Filter>Utility Dialogs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -21,7 +21,7 @@
 #include "MergeWizard.h"
 #include "MergeWizardOptions.h"
 #include "SVNProgressDlg.h"
-
+#include "WaitDlg.h"
 
 IMPLEMENT_DYNAMIC(CMergeWizardOptions, CMergeWizardBasePage)
 
@@ -124,28 +124,66 @@ LRESULT CMergeWizardOptions::OnWizardBack()
 
 BOOL CMergeWizardOptions::OnWizardFinish()
 {
+    UpdateData();
+    CMergeWizard * pWizard = ((CMergeWizard*)GetParent());
     switch (m_depthCombo.GetCurSel())
     {
     case 0:
-        ((CMergeWizard*)GetParent())->m_depth = svn_depth_unknown;
+        pWizard->m_depth = svn_depth_unknown;
         break;
     case 1:
-        ((CMergeWizard*)GetParent())->m_depth = svn_depth_infinity;
+        pWizard->m_depth = svn_depth_infinity;
         break;
     case 2:
-        ((CMergeWizard*)GetParent())->m_depth = svn_depth_immediates;
+        pWizard->m_depth = svn_depth_immediates;
         break;
     case 3:
-        ((CMergeWizard*)GetParent())->m_depth = svn_depth_files;
+        pWizard->m_depth = svn_depth_files;
         break;
     case 4:
-        ((CMergeWizard*)GetParent())->m_depth = svn_depth_empty;
+        pWizard->m_depth = svn_depth_empty;
         break;
     default:
-        ((CMergeWizard*)GetParent())->m_depth = svn_depth_empty;
+        pWizard->m_depth = svn_depth_empty;
         break;
     }
-    ((CMergeWizard*)GetParent())->m_IgnoreSpaces = GetIgnores();
+    pWizard->m_IgnoreSpaces = GetIgnores();
+
+    if ((pWizard->nRevRangeMerge == MERGEWIZARD_REINTEGRATE) && (!pWizard->bReintegrate))
+    {
+        CWaitDlg waitdlg;
+        waitdlg.SetInfo(CString(MAKEINTRESOURCE(IDS_MERGE_WAITCHECK)));
+        waitdlg.Create(IDD_PLEASEWAIT, this);
+        waitdlg.ShowWindow(SW_SHOW);
+        // the wait dialog needs to process some messages now, otherwise it
+        // won't show the info text.
+        MSG stMsg;
+        while (::PeekMessage (&stMsg, NULL, 0, 0, PM_REMOVE)) 
+        {
+            ::TranslateMessage (&stMsg);
+            ::DispatchMessage (&stMsg);
+        }
+
+        // now this can take a really, really long time.
+        // should we do this here?
+        // or just have the merge error out later instead?
+        if (IsReintegrateMerge(CTSVNPath(pWizard->URL1), SVNRev(), pWizard->wcPath, true, true, true))
+        {
+            if (pWizard->m_bRecordOnly)
+            {
+                TSVNMessageBox(GetSafeHwnd(), IDS_MERGEAUTO_REINTEGRATELIKE_RECORDONLY, IDS_APPNAME, MB_ICONERROR);
+                return FALSE;
+            }
+            if (pWizard->m_depth != svn_depth_unknown)
+            {
+                TSVNMessageBox(GetSafeHwnd(), IDS_MERGEAUTO_REINTEGRATELIKE_DEPTH, IDS_APPNAME, MB_ICONERROR);
+                return FALSE;
+            }
+            pWizard->bAllowMixedRev = false;
+        }
+        waitdlg.ShowWindow(SW_HIDE);
+        waitdlg.DestroyWindow();
+    }
 
     return CMergeWizardBasePage::OnWizardFinish();
 }

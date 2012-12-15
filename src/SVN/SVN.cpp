@@ -1005,6 +1005,32 @@ bool SVN::MergeReintegrate(const CTSVNPath& source, const SVNRev& pegrevision, c
     return (Err == NULL);
 }
 
+
+bool SVN::IsReintegrateMerge( const CTSVNPath& source, const SVNRev& srcrevision, const CTSVNPath& wcpath, bool allowmixedrev, bool allowlocalmods, bool allowswitchedsubtrees )
+{
+    SVNPool subpool(pool);
+    Prepare();
+
+    // Find the 3-way merges needed (and check suitability of the WC).
+    svn_client_automatic_merge_t *merge;
+    const char* svnSourcePath = source.GetSVNApiPath(subpool);
+    SVNTRACE (
+            Err = svn_client_find_automatic_merge( &merge,
+                                                   svnSourcePath, srcrevision,
+                                                   wcpath.GetSVNApiPath(subpool),
+                                                   allowmixedrev,
+                                                   allowlocalmods,
+                                                   allowswitchedsubtrees,
+                                                   m_pctx, subpool, subpool),
+            svnSourcePath
+        );
+    if (Err == nullptr)
+    {
+        return svn_client_automatic_merge_is_reintegrate_like(merge) != 0;
+    }
+    return false;
+}
+
 bool SVN::MergeAutomatically( const CTSVNPath& source, const SVNRev& srcrevision, const CTSVNPath& wcpath,
                               bool allowmixedrev, bool allowlocalmods, bool allowswitchedsubtrees,
                               svn_depth_t depth, bool recordonly, bool force, bool dryrun, const CString& options )
