@@ -211,7 +211,7 @@
         <include name="include" />
         <include name="plugins" />
         <include name="win32\include" />
-        <include name="..\..\..\common\openssl\inc32" />
+        <include name="..\openssl\inc32" />
         <include name="..\gssapi" />
       </includedirs>
       <defines>
@@ -239,6 +239,8 @@
     <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
     <property name="ssldbg" value="" if="${(configuration == 'release')}" />
     <property name="ssldbg" value=".dbg" if="${(configuration != 'release')}" />
+    <property name="sslplat" value="32" if="${platform == 'win32'}" />
+    <property name="sslplat" value="64" if="${platform == 'x64'}" />
 
     <link
       output="${configuration}_${platform}\saslANONYMOUS.dll"
@@ -272,7 +274,7 @@
 
     <link
       output="${configuration}_${platform}\saslDIGESTMD5.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslDIGESTMD5.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslDIGESTMD5.lib" ${machineoption} ..\..\..\common\openssl\out32${ssldbg}\libeay32.lib ..\..\..\common\openssl\out32${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslDIGESTMD5.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslDIGESTMD5.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
         <include name="${configuration}_${platform}\digest*.obj" />
@@ -302,7 +304,7 @@
 
     <link
       output="${configuration}_${platform}\saslNTLM.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslNTLM.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslNTLM.lib" ${machineoption} ..\..\..\common\openssl\out32${ssldbg}\libeay32.lib ..\..\..\common\openssl\out32${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslNTLM.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslNTLM.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
         <include name="${configuration}_${platform}\ntlm*.obj" />
@@ -332,7 +334,7 @@
 
     <link
       output="${configuration}_${platform}\saslGSSAPI.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslGSSAPI.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslGSSAPI.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslGSSAPI.lib" ${machineoption} ..\gssapi\${configuration}_${platform}\gssapiu.lib" ..\..\..\common\openssl\out32${ssldbg}\libeay32.lib ..\..\..\common\openssl\out32${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslGSSAPI.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslGSSAPI.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslGSSAPI.lib" ${machineoption} ..\gssapi\${configuration}_${platform}\gssapiu.lib" ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
         <include name="${configuration}_${platform}\gssapi*.obj" />

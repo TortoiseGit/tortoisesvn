@@ -3,68 +3,83 @@
   <target name="clean">
     <if test="${cleanup == 'yes'}">
       <!-- to prevent 'nmake clean' to choke on userinput questions, give it our own del command -->
-      <echo file="..\..\..\common\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
-      <exec program="nmake" workingdir="..\..\..\common\openssl" failonerror="false">
+      <echo file="..\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
+      <exec program="nmake" workingdir="..\openssl" failonerror="false">
         <arg value="-f" />
         <arg value="ms\nt.mak" />
         <arg value="clean" />
       </exec>
       <delete>
         <fileset>
-          <include name="..\..\..\common\openssl\out32\**.*" />
-          <include name="..\..\..\common\openssl\out32.dbg\**.*" />
-          <include name="..\..\..\common\openssl\tmp32\**.*" />
-          <include name="..\..\..\common\openssl\tmp32.dbg\**.*" />
+          <include name="..\openssl\out32\**.*" />
+          <include name="..\openssl\out32.dbg\**.*" />
+          <include name="..\openssl\tmp32\**.*" />
+          <include name="..\common\openssl\tmp32.dbg\**.*" />
         </fileset>
       </delete>
     </if>
   </target>
   <target name="OpenSSL" depends="clean">
-    <delete file="..\..\..\common\openssl\del.bat" if="${file::exists('..\..\..\common\openssl\del.bat')}" />
-    <copy file="e_os.h" tofile="..\..\..\common\openssl\e_os.h" overwrite="true" />
+    <delete file="..\openssl\del.bat" if="${file::exists('..\openssl\del.bat')}" />
+    <copy file="e_os.h" tofile="..\openssl\e_os.h" overwrite="true" />
     <!-- patch the capi engine so that we can configure it whether it will load or not.
          the patch also changes the CAPI engine so that when showing the cert selection
          dialog is disabled, it only uses certs from the store if only one cert matches
          and not just return always the first matching cert if there are more of them. -->
-    <copy file="e_capi.c" tofile="..\..\..\common\openssl\engines\e_capi.c" overwrite="true" />
+    <copy file="e_capi.c" tofile="..\openssl\engines\e_capi.c" overwrite="true" />
     <if test="${platform == 'win32'}">
-      <exec program="perl" workingdir="..\..\..\common\openssl">
+      <exec program="perl" workingdir="..\openssl">
         <arg value="Configure" />
         <arg value="VC-WIN32" if="${(configuration == 'release')}" />
-        <arg value="debug-VC-WIN32" if="${(configuration != 'release')}" />
+        <arg value="debug-VC-WIN32" if="${(configuration == 'debug')}" />
         <arg value="no-asm" />
         <arg value="no-gost" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
         <arg value="-DUSING_V110_SDK71_" />
       </exec>
-      <exec program="cmd" workingdir="..\..\..\common\openssl">
+      <exec program="cmd" workingdir="..\openssl">
         <arg value="/c" />
         <arg value="ms\do_ms" />
       </exec>
-      <exec program="nmake" workingdir="..\..\..\common\openssl">
-        <arg value="-f" />
-        <arg value="ms\nt.mak" />
-      </exec>
+      <loadfile file="..\openssl\ms\nt.mak" property="makefile">
+        <filterchain>
+          <replacestring from="/Ox /O2" to="/O2 /Oy /GL" if="${configuration == 'release'}" />
+          <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${configuration == 'release'}" />
+          <replacestring from="/opt:ref /debug" to="/opt:ref,icf /debug /LTCG" if="${configuration == 'release'}" />
+        </filterchain>
+      </loadfile>
     </if>
     <if test="${platform == 'x64'}">
-      <exec program="perl" workingdir="..\..\..\common\openssl">
+      <exec program="perl" workingdir="..\openssl">
         <arg value="Configure" />
         <arg value="VC-WIN64A" if="${(configuration == 'release')}" />
-        <arg value="debug-VC-WIN64A" if="${(configuration != 'release')}" />
+        <arg value="debug-VC-WIN64A" if="${(configuration == 'debug')}" />
         <arg value="no-asm" />
         <arg value="no-gost" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
         <arg value="-DUSING_V110_SDK71_" />
       </exec>
-      <exec program="cmd" workingdir="..\..\..\common\openssl">
+      <exec program="cmd" workingdir="..\openssl">
         <arg value="/c" />
         <arg value="ms\do_win64a" />
       </exec>
-      <exec program="nmake" workingdir="..\..\..\common\openssl">
-        <arg value="-f" />
-        <arg value="ms\nt.mak" />
-      </exec>
+      <loadfile file="..\openssl\ms\nt.mak" property="makefile">
+        <filterchain>
+          <replacestring from="/Ox " to="/O2 /GL " if="${(configuration == 'release')}" />
+          <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${(configuration == 'release')}" />
+          <replacestring from="/opt:ref /debug" to="/opt:ref,icf /debug /LTCG" if="${(configuration == 'release')}" />
+          <replacestring from="OUT_D=out32" to="OUT_D=out64" />
+          <replacestring from="TMP_D=tmp32" to="TMP_D=tmp64" />
+          <replacestring from="INC_D=inc32" to="INC_D=inc64" />
+          <replacestring from="INCO_D=inc32\openssl" to="INCO_D=inc64\openssl" />
+        </filterchain>
+      </loadfile>
     </if>
+    <echo file="..\openssl\ms\nt.mak" message="${makefile}" />
+    <exec program="nmake" workingdir="..\openssl">
+      <arg value="-f" />
+      <arg value="ms\nt.mak" />
+    </exec>
   </target>
 
 </project>
