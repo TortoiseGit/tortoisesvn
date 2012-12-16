@@ -100,7 +100,11 @@
 #include "..\..\ext\apr\include\apr_version.h"
 #include "..\..\ext\apr-util\include\apu_version.h"
 //#include "..\..\ext\berkeley-db\db4.3-win32\include\db.h"
+#ifdef _WIN64
+#include "..\..\ext\openssl\inc64\openssl\opensslv.h"
+#else
 #include "..\..\ext\openssl\inc32\openssl\opensslv.h"
+#endif
 #include "..\..\ext\zlib\zlib.h"
 #pragma warning(pop)
 

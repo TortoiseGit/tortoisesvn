@@ -53,7 +53,8 @@
         <include name="..\apr-util\include" />
         <include name="..\apr-util\xml\expat\lib" />
         <include name="..\zlib" />
-        <include name="..\openssl\inc32" />
+        <include name="..\openssl\inc32" if="${platform == 'win32'}" />
+        <include name="..\openssl\inc64" if="${platform == 'x64'}" />
       </includedirs>
       <defines>
         <define name="APR_DECLARE_EXPORT" />

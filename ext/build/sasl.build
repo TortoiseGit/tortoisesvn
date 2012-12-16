@@ -211,7 +211,8 @@
         <include name="include" />
         <include name="plugins" />
         <include name="win32\include" />
-        <include name="..\openssl\inc32" />
+        <include name="..\openssl\inc32" if="${platform == 'win32'}" />
+        <include name="..\openssl\inc64" if="${platform == 'x64'}" />
         <include name="..\gssapi" />
       </includedirs>
       <defines>
