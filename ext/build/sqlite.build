@@ -24,20 +24,18 @@
     <mkdir dir="${configuration}_${platform}" />
     <cl outputdir="${configuration}_${platform}">
       <arg value="/O2" if="${configuration == 'release'}" />
-      <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/Od" if="${configuration == 'debug'}" />
       <arg value="/GF" if="${configuration == 'release'}" />
-      <arg value="/Gs" if="${configuration == 'release'}" />
-      <arg value="/FD" />
       <arg value="/EHsc" />
-      <arg value="/MD" if="${(configuration == 'release')}" />
-      <arg value="/MDd" if="${(configuration != 'release')}" />
+      <arg value="/MD" if="${configuration == 'release'}" />
+      <arg value="/MDd" if="${configuration == 'debug'}" />
       <arg value="/Gy" />
       <arg value="/W0" />
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
       <arg value="/MP" />
-      <arg value="/errorReport:prompt" />
+      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="sqlite3.c" />
       </sources>
@@ -54,15 +52,16 @@
         <define name="_WIN32_WINNT" value="0x0501" />
         <define name="WIN64" if="${platform == 'x64'}" />
         <define name="NDEBUG" if="${configuration == 'release'}"/>
-        <define name="_DEBUG" if="${configuration != 'release'}"/>
+        <define name="_DEBUG" if="${configuration == 'debug'}"/>
         <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
-    <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+    <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
     <lib
       output="${configuration}_${platform}\sqlite.lib"
       options='/NOLOGO ${subsystem} ${machineoption}'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
       </sources>

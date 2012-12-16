@@ -17,20 +17,17 @@
   <target name="build">
     <mkdir dir="${configuration}_${platform}" />
     <cl outputdir="${configuration}_${platform}">
-      <arg value="/Ox" if="${configuration == 'release'}" />
-      <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/O2" if="${configuration == 'release'}" />
+      <arg value="/Od" if="${configuration == 'debug'}" />
       <arg value="/GF" if="${configuration == 'release'}" />
-      <arg value="/Gs" if="${configuration == 'release'}" />
-      <arg value="/FD" />
-      <arg value="/EHa-" />
-      <arg value="/MD" if="${(configuration == 'release')}" />
-      <arg value="/MDd" if="${(configuration != 'release')}" />
+      <arg value="/EHsc" />
+      <arg value="/MD" if="${configuration == 'release'}" />
+      <arg value="/MDd" if="${configuration == 'debug'}" />
       <arg value="/Gy" />
       <arg value="/W0" />
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
-      <arg value="/errorReport:prompt" />
       <sources>
         <include name="gssapi.cpp" />
       </sources>
@@ -41,10 +38,11 @@
     </cl>
 
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
-    <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+    <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
     <lib
-        output="${configuration}_${platform}\gssapiu.lib"
-        options='/NOLOGO ${subsystem} ${machineoption}'>
+      output="${configuration}_${platform}\gssapiu.lib"
+      options='/NOLOGO ${subsystem} ${machineoption}'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
       </sources>

@@ -30,7 +30,7 @@
     <if test="${platform == 'win32'}">
       <exec program="perl" workingdir="..\openssl">
         <arg value="Configure" />
-        <arg value="VC-WIN32" if="${(configuration == 'release')}" />
+        <arg value="VC-WIN32" if="${configuration == 'release'}" />
         <arg value="debug-VC-WIN32" if="${(configuration == 'debug')}" />
         <arg value="no-asm" />
         <arg value="no-gost" />
@@ -43,6 +43,7 @@
       </exec>
       <loadfile file="..\openssl\ms\nt.mak" property="makefile">
         <filterchain>
+          <replacestring from="/MT" to="/MD" />
           <replacestring from="/Ox /O2" to="/O2 /Oy /GL" if="${configuration == 'release'}" />
           <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${configuration == 'release'}" />
           <replacestring from="/opt:ref /debug" to="/opt:ref,icf /debug /LTCG" if="${configuration == 'release'}" />
@@ -52,7 +53,7 @@
     <if test="${platform == 'x64'}">
       <exec program="perl" workingdir="..\openssl">
         <arg value="Configure" />
-        <arg value="VC-WIN64A" if="${(configuration == 'release')}" />
+        <arg value="VC-WIN64A" if="${configuration == 'release'}" />
         <arg value="debug-VC-WIN64A" if="${(configuration == 'debug')}" />
         <arg value="no-asm" />
         <arg value="no-gost" />
@@ -65,9 +66,10 @@
       </exec>
       <loadfile file="..\openssl\ms\nt.mak" property="makefile">
         <filterchain>
-          <replacestring from="/Ox " to="/O2 /GL " if="${(configuration == 'release')}" />
-          <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${(configuration == 'release')}" />
-          <replacestring from="/opt:ref /debug" to="/opt:ref,icf /debug /LTCG" if="${(configuration == 'release')}" />
+          <replacestring from="/MT" to="/MD" />
+          <replacestring from="/Ox " to="/O2 /GL " if="${configuration == 'release'}" />
+          <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${configuration == 'release'}" />
+          <replacestring from="/opt:ref /debug" to="/opt:ref,icf /debug /LTCG" if="${configuration == 'release'}" />
           <replacestring from="OUT_D=out32" to="OUT_D=out64" />
           <replacestring from="TMP_D=tmp32" to="TMP_D=tmp64" />
           <replacestring from="INC_D=inc32" to="INC_D=inc64" />

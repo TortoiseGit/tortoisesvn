@@ -26,21 +26,19 @@
       </includedirs>
     </rc>
     <cl outputdir="${configuration}_${platform}">
-      <arg value="/Ox" if="${configuration == 'release'}" />
-      <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/O2" if="${configuration == 'release'}" />
+      <arg value="/Od" if="${configuration == 'debug'}" />
       <arg value="/GF" if="${configuration == 'release'}" />
-      <arg value="/Gs" if="${configuration == 'release'}" />
-      <arg value="/FD" />
-      <arg value="/EHa-" />
-      <arg value="/MD" if="${(configuration == 'release')}" />
-      <arg value="/MDd" if="${(configuration != 'release')}" />
+      <arg value="/EHsc" />
+      <arg value="/MD" if="${configuration == 'release'}" />
+      <arg value="/MDd" if="${configuration == 'debug'}" />
       <arg value="/Gy" />
       <arg value="/W0" />
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
       <arg value="/MP" />
-      <arg value="/errorReport:prompt" />
+      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="lib\auxprop.c" />
         <include name="lib\canonusr.c" />
@@ -73,16 +71,17 @@
         <define name="TARGET_WIN_SYSTEM" value="50" />
         <define name="WIN64" if="${platform == 'x64'}" />
         <define name="NDEBUG" if="${configuration == 'release'}"/>
-        <define name="_DEBUG" if="${configuration != 'release'}"/>
+        <define name="_DEBUG" if="${configuration == 'debug'}"/>
         <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
-    <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+    <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
 
     <lib
       output="${configuration}_${platform}\libsasls.lib"
       options='/NOLOGO ${subsystem} ${machineoption}'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
       </sources>
@@ -95,21 +94,19 @@
     </delete>
 
     <cl outputdir="${configuration}_${platform}">
-      <arg value="/Ox" if="${configuration == 'release'}" />
-      <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/O2" if="${configuration == 'release'}" />
+      <arg value="/Od" if="${configuration == 'debug'}" />
       <arg value="/GF" if="${configuration == 'release'}" />
-      <arg value="/Gs" if="${configuration == 'release'}" />
-      <arg value="/FD" />
-      <arg value="/EHa-" />
-      <arg value="/MD" if="${(configuration == 'release')}" />
-      <arg value="/MDd" if="${(configuration != 'release')}" />
+      <arg value="/EHsc" />
+      <arg value="/MD" if="${configuration == 'release'}" />
+      <arg value="/MDd" if="${configuration == 'debug'}" />
       <arg value="/Gy" />
       <arg value="/W0" />
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
       <arg value="/MP" />
-      <arg value="/errorReport:prompt" />
+      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="lib\auxprop.c" />
         <include name="lib\canonusr.c" />
@@ -146,17 +143,20 @@
         <define name="TARGET_WIN_SYSTEM" value="50" />
         <define name="WIN64" if="${platform == 'x64'}" />
         <define name="NDEBUG" if="${configuration == 'release'}"/>
-        <define name="_DEBUG" if="${configuration != 'release'}"/>
+        <define name="_DEBUG" if="${configuration == 'debug'}"/>
         <define name="_USING_V110_SDK71_" />
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
-    <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
+    <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
     <property name="platext" value ="32" if="${platform == 'win32'}" />
     <property name="platext" value ="" if="${platform == 'x64'}" />
     <link
       output="${configuration}_${platform}\libsasl${platext}.dll"
       options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libsasl.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libsasl.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/libsasl.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
+      <arg value="/RELEASE" if="${configuration == 'release'}" />
+      <arg value="/OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
       </sources>
@@ -175,21 +175,19 @@
     </delete>
 
     <cl outputdir="${configuration}_${platform}">
-      <arg value="/Ox" if="${configuration == 'release'}" />
-      <arg value="/Od" if="${configuration != 'release'}" />
+      <arg value="/O2" if="${configuration == 'release'}" />
+      <arg value="/Od" if="${configuration == 'debug'}" />
       <arg value="/GF" if="${configuration == 'release'}" />
-      <arg value="/Gs" if="${configuration == 'release'}" />
-      <arg value="/FD" />
-      <arg value="/EHa-" />
-      <arg value="/MD" if="${(configuration == 'release')}" />
-      <arg value="/MDd" if="${(configuration != 'release')}" />
+      <arg value="/EHsc" />
+      <arg value="/MD" if="${configuration == 'release'}" />
+      <arg value="/MDd" if="${configuration == 'debug'}" />
       <arg value="/Gy" />
       <arg value="/W0" />
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
       <arg value="/MP" />
-      <arg value="/errorReport:prompt" />
+      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="plugins\plugin_common.c" />
         <include name="plugins\anonymous.c" />
@@ -229,7 +227,7 @@
         <define name="TARGET_WIN_SYSTEM" value="50" />
         <define name="WIN64" if="${platform == 'x64'}" />
         <define name="NDEBUG" if="${configuration == 'release'}"/>
-        <define name="_DEBUG" if="${configuration != 'release'}"/>
+        <define name="_DEBUG" if="${configuration == 'debug'}"/>
         <define name="HAVE_GSS_C_NT_HOSTBASED_SERVICE" />
         <define name="SSIZE_T_DEFINED" />
         <define name="HAVE_GSSAPI_H" />
@@ -237,15 +235,18 @@
       </defines>
     </cl>
     <property name="machineoption" value="/MACHINE:X86" if="${platform == 'win32'}"  />
-    <property name="machineoption" value="/MACHINE:x64" if="${platform == 'x64'}" />
-    <property name="ssldbg" value="" if="${(configuration == 'release')}" />
-    <property name="ssldbg" value=".dbg" if="${(configuration != 'release')}" />
+    <property name="machineoption" value="/MACHINE:X64" if="${platform == 'x64'}" />
+    <property name="ssldbg" value="" if="${configuration == 'release'}" />
+    <property name="ssldbg" value=".dbg" if="${configuration == 'debug'}" />
     <property name="sslplat" value="32" if="${platform == 'win32'}" />
     <property name="sslplat" value="64" if="${platform == 'x64'}" />
 
     <link
       output="${configuration}_${platform}\saslANONYMOUS.dll"
       options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslANONYMOUS.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslANONYMOUS.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslANONYMOUS.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
+      <arg value="/RELEASE" if="${configuration == 'release'}" />
+      <arg value="/OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
         <include name="${configuration}_${platform}\anonymous*.obj" />
@@ -261,6 +262,9 @@
     <link
       output="${configuration}_${platform}\saslCRAMMD5.dll"
       options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslCRAMMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslCRAMMD5.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslCRAMMD5.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
+      <arg value="/RELEASE" if="${configuration == 'release'}" />
+      <arg value="/OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
         <include name="${configuration}_${platform}\cram*.obj" />
@@ -276,6 +280,9 @@
     <link
       output="${configuration}_${platform}\saslDIGESTMD5.dll"
       options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslDIGESTMD5.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslDIGESTMD5.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
+      <arg value="/RELEASE" if="${configuration == 'release'}" />
+      <arg value="/OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
         <include name="${configuration}_${platform}\digest*.obj" />
@@ -291,6 +298,9 @@
     <link
       output="${configuration}_${platform}\saslLOGIN.dll"
       options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslLOGIN.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslLOGIN.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslLOGIN.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
+      <arg value="/RELEASE" if="${configuration == 'release'}" />
+      <arg value="/OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
         <include name="${configuration}_${platform}\login*.obj" />
@@ -306,6 +316,9 @@
     <link
       output="${configuration}_${platform}\saslNTLM.dll"
       options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslNTLM.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslNTLM.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
+      <arg value="/RELEASE" if="${configuration == 'release'}" />
+      <arg value="/OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
         <include name="${configuration}_${platform}\ntlm*.obj" />
@@ -321,6 +334,9 @@
     <link
       output="${configuration}_${platform}\saslPLAIN.dll"
       options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslPLAIN.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslPLAIN.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslPLAIN.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
+      <arg value="/RELEASE" if="${configuration == 'release'}" />
+      <arg value="/OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
         <include name="${configuration}_${platform}\plain*.obj" />
@@ -336,6 +352,9 @@
     <link
       output="${configuration}_${platform}\saslGSSAPI.dll"
       options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslGSSAPI.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslGSSAPI.pdb" /DLL ${subsystem} /OPT:REF /IMPLIB:".\${configuration}_${platform}/saslGSSAPI.lib" ${machineoption} ..\gssapi\${configuration}_${platform}\gssapiu.lib" ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      <arg value="/LTCG" if="${configuration == 'release'}" />
+      <arg value="/RELEASE" if="${configuration == 'release'}" />
+      <arg value="/OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
         <include name="${configuration}_${platform}\gssapi*.obj" />
