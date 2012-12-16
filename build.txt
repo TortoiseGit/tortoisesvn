@@ -49,10 +49,6 @@ You only have to do this once.
     logoff/logon to make the new environment variables take effect!
 
 \subsection Requirements3 Next you need to download some more.
-- OpenSSL source              http://www.openssl.org/source/
-                              You will need version 1.0.1c
-- ZLib source                 http://www.gzip.org/zlib/
-                              You will need version 1.2.7
 - tools collection            http://code.google.com/p/tortoisesvn/downloads/list
 - dictionaries/thesauri(\b Optional) http://lingucomponent.openoffice.org/
 
@@ -69,8 +65,6 @@ Now you're almost ready. Only a few more steps to do:
 - create a new folder on your harddisk, e.g. SVN. Make sure you have at least
   1.5 GB of free space left!!!
 - create a new folder in SVN called 'common'
-- unzip the openssl sourcecode into 'common', and rename the folder to 'openssl'
-- unzip the zlib sourcecode into 'common' and rename the folder to 'zlib'
 - copy the dictionaries/thesauri to 'common\spell'.
   note that the names of the files are important!
   They have to be en_US.aff, en_US.dic, en_GB.aff and en_GB.dic (or whatever language you use).
