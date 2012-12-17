@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-06 08:58+0000\n"
+"PO-Revision-Date: 2012-12-17 08:12+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2146,6 +2146,10 @@ msgstr "Alle automatisch verbergen"
 msgid "Auto Rename"
 msgstr "Automatisch Umbenennen"
 
+#. Resource IDs: (221)
+msgid "Auto-Merge"
+msgstr "Automatisch zusammenführen"
+
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
 msgstr "Falls keine Konflikte"
@@ -2163,6 +2167,11 @@ msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr "Automatisch Vervollständigen schlägt bei der Eingabe der\r\nLogmeldung Wörter (üblicherweise Klassen- oder Variablennamen)\r\naus den geänderten Dateien vor."
+
+#. Resource IDs: (221)
+#, c-format
+msgid "Auto-merge %1!s! into %2!s!"
+msgstr "Automatisch %1!s! in %2!s! zusammenführen"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3908,6 +3917,10 @@ msgstr "Schlüsselwörter nicht erweitern"
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Für die folgenden Pfade kein Kontextmenü anzeigen:"
+
+#. Resource IDs: (1562)
+msgid "Do reintegrate instead of automatic merge"
+msgstr "Wiedereingliedern anstatt automatischem Zusammenführen"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -7293,6 +7306,10 @@ msgstr "Bitte warten Sie während die Externals ermittelt werden..."
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Bitte warten Sie, während der Projektarchiv-Betrachter initialisiert wird..."
 
+#. Resource IDs: (280)
+msgid "Please wait while we check the parameters for the merge."
+msgstr "Bitte warten Sie, während wir die Parameter für das Zusammenführen überprüfen."
+
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
 msgstr "Bitte warten Sie während weitere Informationen geladen werden..."
@@ -7577,8 +7594,8 @@ msgid "R&AM drives"
 msgstr "&RAM disks"
 
 #. Resource IDs: (1469)
-msgid "R&eintegrate a branch"
-msgstr "Zweig wieder &eingliedern"
+msgid "R&eintegrate a branch / automatic merge"
+msgstr "Wi&edereingliedern / automatisch zusammenführen"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -9952,6 +9969,18 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr "Das Projektarchiv wurde erfolgreich angelegt.\nMöchten Sie die Standard Ordnerstruktur (trunk/branches/tags) jetzt erstellen?"
 
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like, and the \"only record the "
+"merge\" option can not be used."
+msgstr "Das erforderliche automatische Zusammenführen ist ähnlich zum Wiedereingliedern. Die \"nur aufzeichnen\" Option kann nicht verwendet werden."
+
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like.\n"
+"Only the merge depth option \"Working copy\" can be used."
+msgstr "Das erforderliche automatische Zusammenführen ist ähnlich zum Wiedereingliedern.\nNur die Tiefe \"Arbeitskopie\" kann verwendet werden."
+
 #. Resource IDs: (616)
 #, c-format
 msgid ""
@@ -11640,6 +11669,10 @@ msgstr "Ignoriert"
 #. Resource IDs: (220)
 msgid "ignoring ancestry"
 msgstr "Ignoriere Vorfahren"
+
+#. Resource IDs: (618)
+msgid "include properties"
+msgstr "Eigenschaften einschließen"
 
 #. Resource IDs: (13)
 msgid "incomplete"

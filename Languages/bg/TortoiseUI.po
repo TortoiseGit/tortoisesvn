@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-04 08:35+0000\n"
+"PO-Revision-Date: 2012-12-16 08:39+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2143,6 +2143,10 @@ msgstr "Автоматично скриване на всичко"
 msgid "Auto Rename"
 msgstr "Автоматично преименуване"
 
+#. Resource IDs: (221)
+msgid "Auto-Merge"
+msgstr ""
+
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
 msgstr "Автоматично затваряне, ако няма конфликти"
@@ -2160,6 +2164,11 @@ msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr "Автоматичното дописване подсказва думи (обикновено имена на класове или членове)\r\nот файловете, които сте променили, докато пишете съобщение за дневника."
+
+#. Resource IDs: (221)
+#, c-format
+msgid "Auto-merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3905,6 +3914,10 @@ msgstr "Не разширявай ключовите думи"
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Без контекстно меню за следните пътища:"
+
+#. Resource IDs: (1562)
+msgid "Do reintegrate instead of automatic merge"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -7290,6 +7303,10 @@ msgstr "Моля, изчакайте докато се получават вън
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Моля, изчакайте докато се инициализира програмата за разглеждане на хранилища..."
 
+#. Resource IDs: (280)
+msgid "Please wait while we check the parameters for the merge."
+msgstr ""
+
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
 msgstr "Моля, изчакайте докато се събира повече информация..."
@@ -7574,8 +7591,8 @@ msgid "R&AM drives"
 msgstr "&RAM устройства"
 
 #. Resource IDs: (1469)
-msgid "R&eintegrate a branch"
-msgstr "&Повторна интеграция на разклонение"
+msgid "R&eintegrate a branch / automatic merge"
+msgstr ""
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -9949,6 +9966,18 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr "Хранилището беше създадено успешно.\nЖелаете ли да се създаде подразбиращата се структура от папки (trunk/branches/tags) сега?"
 
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like, and the \"only record the "
+"merge\" option can not be used."
+msgstr ""
+
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like.\n"
+"Only the merge depth option \"Working copy\" can be used."
+msgstr ""
+
 #. Resource IDs: (616)
 #, c-format
 msgid ""
@@ -11637,6 +11666,10 @@ msgstr "игнориран"
 #. Resource IDs: (220)
 msgid "ignoring ancestry"
 msgstr "игнориране на предшествениците"
+
+#. Resource IDs: (618)
+msgid "include properties"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "incomplete"

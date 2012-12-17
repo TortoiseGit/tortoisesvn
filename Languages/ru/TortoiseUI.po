@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-05 09:21+0000\n"
+"PO-Revision-Date: 2012-12-16 08:40+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2147,6 +2147,10 @@ msgstr "Автоскрывать все"
 msgid "Auto Rename"
 msgstr "Авто-переименовать"
 
+#. Resource IDs: (221)
+msgid "Auto-Merge"
+msgstr ""
+
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
 msgstr "Автозакрытие при отсутствии конфликтов"
@@ -2164,6 +2168,11 @@ msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr "Автозавершение во время набора сообщения журнала предлагает слова\r\n(обычно имена классов или членов) из файлов, которые были изменены."
+
+#. Resource IDs: (221)
+#, c-format
+msgid "Auto-merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3909,6 +3918,10 @@ msgstr "Не разворачивать ключевые слова"
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Не показывать контекстное меню для следующих путей:"
+
+#. Resource IDs: (1562)
+msgid "Do reintegrate instead of automatic merge"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -7294,6 +7307,10 @@ msgstr "Подождите, пожалуйста, пока получаются 
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Подождите, пожалуйста, пока обозреватель хранилища инициализируется..."
 
+#. Resource IDs: (280)
+msgid "Please wait while we check the parameters for the merge."
+msgstr ""
+
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
 msgstr "Подождите, пожалуйста, пока собирается дополнительная информация..."
@@ -7578,8 +7595,8 @@ msgid "R&AM drives"
 msgstr "RAM &диски"
 
 #. Resource IDs: (1469)
-msgid "R&eintegrate a branch"
-msgstr "Воссое&динение с ответвлением"
+msgid "R&eintegrate a branch / automatic merge"
+msgstr ""
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -9953,6 +9970,18 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr "Репозиторий был успешно создан.\nВы хотите создать стандартную структуру папок (trunk/branches/tags) сейчас?"
 
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like, and the \"only record the "
+"merge\" option can not be used."
+msgstr ""
+
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like.\n"
+"Only the merge depth option \"Working copy\" can be used."
+msgstr ""
+
 #. Resource IDs: (616)
 #, c-format
 msgid ""
@@ -11641,6 +11670,10 @@ msgstr "игнорируемый"
 #. Resource IDs: (220)
 msgid "ignoring ancestry"
 msgstr "игнорируя предков"
+
+#. Resource IDs: (618)
+msgid "include properties"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "incomplete"

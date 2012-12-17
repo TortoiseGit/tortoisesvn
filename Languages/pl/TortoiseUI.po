@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-04 08:35+0000\n"
+"PO-Revision-Date: 2012-12-16 08:40+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,7 +221,7 @@ msgstr "%s (offline)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (rekurencyjnie)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -1043,7 +1043,7 @@ msgstr "&Opcje"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "&Inne"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1811,7 +1811,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "Dodano wzorzec(ce) plików\n%s\ndo ogólnej listy pomijania."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2148,6 +2148,10 @@ msgstr "Automatycznie ukryj"
 msgid "Auto Rename"
 msgstr "Automatycznie zmień nazwę"
 
+#. Resource IDs: (221)
+msgid "Auto-Merge"
+msgstr ""
+
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
 msgstr "Automatycznie zamykaj jeśli nie ma konfliktów"
@@ -2165,6 +2169,11 @@ msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr "Podpowiadanie sugeruje w trakcie pisania opisu zmian słowa\r\n(zwykle nazwy klas lub członków) z plików, które zmieniłeś."
+
+#. Resource IDs: (221)
+#, c-format
+msgid "Auto-merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3910,6 +3919,10 @@ msgstr "Nie rozwijaj słów kluczowych"
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Nie pokazuj menu kontekstowego dla nast. ścieżek:"
+
+#. Resource IDs: (1562)
+msgid "Do reintegrate instead of automatic merge"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -6826,7 +6839,7 @@ msgstr "Uwaga"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
+msgstr "Uwaga: jeśli zaktualizujesz kopię roboczą, nie będziesz już w stanie korzystać na tej kopii z klientów sprzed wersji 1.8 SVN!\nCzy na pewno chcesz zaktualizować kopię roboczą?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7295,6 +7308,10 @@ msgstr "Poczekaj aż zostaną pobrane zewnętrzne..."
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Proszę czekać na inicjalizację przeglądarki repozytorium..."
 
+#. Resource IDs: (280)
+msgid "Please wait while we check the parameters for the merge."
+msgstr ""
+
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
 msgstr "Proszę czekaj, trwa zbieranie informacji..."
@@ -7579,8 +7596,8 @@ msgid "R&AM drives"
 msgstr "&RAM-dyski"
 
 #. Resource IDs: (1469)
-msgid "R&eintegrate a branch"
-msgstr "Re&integruj gałąź"
+msgid "R&eintegrate a branch / automatic merge"
+msgstr ""
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -7940,7 +7957,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "Usunięto wzorzec(ce) plików\n%s\nz ogólnej listy pomijania."
 
 #. Resource IDs: (145)
 #, c-format
@@ -9954,6 +9971,18 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr "Repozytorium zostało utworzone z powodzeniem.\nCzy chcesz teraz stworzyć domyślną strukturę folderu (trunk/branches/tags)?"
 
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like, and the \"only record the "
+"merge\" option can not be used."
+msgstr ""
+
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like.\n"
+"Only the merge depth option \"Working copy\" can be used."
+msgstr ""
+
 #. Resource IDs: (616)
 #, c-format
 msgid ""
@@ -10241,7 +10270,7 @@ msgstr "To usunie rekord z twoimi komendami, które użyłeś w tej aplikacji i 
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Kopia robocza zostanie zaktualizowana do nowego formatu 1.8 prrzez co stanie się bezużyteczna dla starszych klientów."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10751,7 +10780,7 @@ msgstr "Uaktualnianie bufora dziennika"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Zaktualizuj kopię roboczą\ndo nowego formatu 1.8."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11643,6 +11672,10 @@ msgstr "ignorowany"
 msgid "ignoring ancestry"
 msgstr "ignorowane pochodzenie"
 
+#. Resource IDs: (618)
+msgid "include properties"
+msgstr ""
+
 #. Resource IDs: (13)
 msgid "incomplete"
 msgstr "niekompletny"
@@ -11869,7 +11902,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
+msgstr "svn:auto-props\nLista atrybutów rozdzielonych znakiem nowej linii, które zostaną zastosowane rekurencyjnie podczas dodawania/importowania plików.\nFormat: <filemask> = atrybut=wartość;atrybut=wartość\nPrzykład: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -11916,7 +11949,7 @@ msgstr "svn:externals\nRozdzielona znakami nowej linii lista specyfikatorów mod
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr ""
+msgstr "svn:global-ignores\nLista dzielonych znakiem nowej linii wzorców do ignorowania rekurencyjnie."
 
 #. Resource IDs: (576)
 msgid ""

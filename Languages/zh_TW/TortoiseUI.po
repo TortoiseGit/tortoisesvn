@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-05 13:20+0000\n"
+"PO-Revision-Date: 2012-12-16 14:27+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2146,6 +2146,10 @@ msgstr "自動隱藏全部"
 msgid "Auto Rename"
 msgstr "自動重新命名"
 
+#. Resource IDs: (221)
+msgid "Auto-Merge"
+msgstr "自動合併"
+
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
 msgstr "無衝突時自動關閉視窗"
@@ -2163,6 +2167,11 @@ msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr "在輸入記錄訊息時, 自動從這次有修改的檔案\n內容中提示單字(通常是類別或成員的名字)."
+
+#. Resource IDs: (221)
+#, c-format
+msgid "Auto-merge %1!s! into %2!s!"
+msgstr "自動合併 %1!s! 至 %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3908,6 +3917,10 @@ msgstr "不展開關鍵字"
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "在以下路徑中不顯示快顯式選單:"
+
+#. Resource IDs: (1562)
+msgid "Do reintegrate instead of automatic merge"
+msgstr "重新整合/不使用自動合併"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -7293,6 +7306,10 @@ msgstr "正在蒐集外部連結, 請稍候..."
 msgid "Please wait while the repository browser is initializing..."
 msgstr "請稍候, 檔案庫瀏覽器正在初始化..."
 
+#. Resource IDs: (280)
+msgid "Please wait while we check the parameters for the merge."
+msgstr "正在確認合併的參數, 請稍候"
+
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
 msgstr "正在收集資訊, 請稍候..."
@@ -7577,8 +7594,8 @@ msgid "R&AM drives"
 msgstr "虛擬磁碟(&A)"
 
 #. Resource IDs: (1469)
-msgid "R&eintegrate a branch"
-msgstr "重新整合分支(&E)"
+msgid "R&eintegrate a branch / automatic merge"
+msgstr "重新合併分支/自動合併(&R)"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -7767,7 +7784,7 @@ msgstr "重新整合合併"
 #. Resource IDs: (230)
 #, c-format
 msgid "Reintegrate merge %1!s! into %2!s!"
-msgstr "重新合併 %1!s! 至 %2!s!"
+msgstr "重新整合 %1!s! 至 %2!s!"
 
 #. Resource IDs: (82)
 msgid "Reject"
@@ -9952,6 +9969,18 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr "已成功建立檔案庫.\n是否要為您建立預設的目錄結構(trunk/branches/tags)?"
 
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like, and the \"only record the "
+"merge\" option can not be used."
+msgstr "必須的自動合併方式類似重新整合, 不能使用「僅紀錄合併」的選項."
+
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like.\n"
+"Only the merge depth option \"Working copy\" can be used."
+msgstr "必須的自動合併方式類似重新整合.\n僅能使用「工作複本」的合併深度選項."
+
 #. Resource IDs: (616)
 #, c-format
 msgid ""
@@ -11640,6 +11669,10 @@ msgstr "忽略"
 #. Resource IDs: (220)
 msgid "ignoring ancestry"
 msgstr "無視之前版本"
+
+#. Resource IDs: (618)
+msgid "include properties"
+msgstr "包含性質"
 
 #. Resource IDs: (13)
 msgid "incomplete"

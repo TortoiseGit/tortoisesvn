@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-10 19:00+0000\n"
+"PO-Revision-Date: 2012-12-16 08:40+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -2144,6 +2144,10 @@ msgstr "Automatsko skrivanje svega"
 msgid "Auto Rename"
 msgstr "Automatsko preimenovanje"
 
+#. Resource IDs: (221)
+msgid "Auto-Merge"
+msgstr ""
+
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
 msgstr "Automatsko zatvaranje ako nema sukoba"
@@ -2161,6 +2165,11 @@ msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
 msgstr "Za vreme upisa poruke dnevnika automatska dopuna predlaže reči\r\n(obično imena klasa ili članova) iz fajlova koje ste promenili."
+
+#. Resource IDs: (221)
+#, c-format
+msgid "Auto-merge %1!s! into %2!s!"
+msgstr ""
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3906,6 +3915,10 @@ msgstr "Ne proširuj ključne reči"
 #. Resource IDs: (65535)
 msgid "Do not show the context menu for the following paths:"
 msgstr "Ne prikazuj konetekst meni za sledeće putanje:"
+
+#. Resource IDs: (1562)
+msgid "Do reintegrate instead of automatic merge"
+msgstr ""
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -7291,6 +7304,10 @@ msgstr "Molim pričekajte dok se pokupe razlike..."
 msgid "Please wait while the repository browser is initializing..."
 msgstr "Molim pričekajte inicijalizaciju pretraživača spremišta..."
 
+#. Resource IDs: (280)
+msgid "Please wait while we check the parameters for the merge."
+msgstr ""
+
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
 msgstr "Molim pričekajte dok se dobije više informacija..."
@@ -7575,8 +7592,8 @@ msgid "R&AM drives"
 msgstr "R&AM diskovi"
 
 #. Resource IDs: (1469)
-msgid "R&eintegrate a branch"
-msgstr "R&eintegriši granu"
+msgid "R&eintegrate a branch / automatic merge"
+msgstr ""
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -9950,6 +9967,18 @@ msgid ""
 "Do you want to create the default folder structure (trunk/branches/tags) now?"
 msgstr "Spremište je sukcesivno kreirano.\nDa li sada želite da kreirate strukturu uobičajenog foldera (deblo/grane/oznake)? "
 
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like, and the \"only record the "
+"merge\" option can not be used."
+msgstr ""
+
+#. Resource IDs: (279)
+msgid ""
+"The required automatic merge is reintegrate like.\n"
+"Only the merge depth option \"Working copy\" can be used."
+msgstr ""
+
 #. Resource IDs: (616)
 #, c-format
 msgid ""
@@ -11638,6 +11667,10 @@ msgstr "zanemareno"
 #. Resource IDs: (220)
 msgid "ignoring ancestry"
 msgstr "zanemari poreklo"
+
+#. Resource IDs: (618)
+msgid "include properties"
+msgstr ""
 
 #. Resource IDs: (13)
 msgid "incomplete"
