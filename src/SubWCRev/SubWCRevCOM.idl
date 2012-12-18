@@ -10,10 +10,10 @@ library LibSubWCRev
 {
     importlib("stdole32.tlb");
 
-    [ 
+    [
         uuid(2F5EA5B0-4DE7-4f96-8E6B-FC0C37D9C0D6),
         dual,
-        oleautomation 
+        oleautomation
     ]
     interface ISubWCRev : IDispatch
     {
@@ -74,7 +74,7 @@ library LibSubWCRev
 
 
     [ uuid(F26E2640-0CFF-43dc-8325-575A3261D885),
-        helpstring("SubWCRev object") 
+        helpstring("SubWCRev object")
     ]
     coclass SubWCRev
     {
