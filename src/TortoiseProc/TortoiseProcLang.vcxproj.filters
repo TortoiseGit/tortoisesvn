@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
@@ -224,17 +220,126 @@
     <None Include="..\Resources\warning-general.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\Languages\res\bin167.avi" />
-    <None Include="..\Resources\bin167.avi" />
-    <None Include="..\Languages\res\bin168.avi" />
-    <None Include="..\Resources\bin168.avi" />
-    <None Include="..\Resources\cleananim.avi" />
-    <None Include="..\Resources\download.avi" />
-    <None Include="..\Resources\search.avi" />
+    <None Include="..\Resources\search.avi">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\bin167.avi">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Languages\res\bin167.avi">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Languages\res\bin168.avi">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\bin168.avi">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\cleananim.avi">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\download.avi">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\Resources\TortoiseProcENG.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\revgraphglyphs.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\svnfolder.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\CacheList.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\RevisionGraph.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\TortoiseBlame\TortoiseBlame.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\bugtraq.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\up.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\copy.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\newfolder.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\refresh.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\save.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\saveas.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\explorer.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\open.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\resources\externalovl.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\resources\nestedovl.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\resources\depthemptyovl.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\resources\depthfilesovl.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\resources\depthimmediatesovl.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\CommitBackgroundBranches.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\link.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\actionmerged.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\Library.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\aerobackground.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\actionreversemerged.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\restore.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\restoreovl.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\forward.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\backward.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\mergeinfoovl.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\externalpeggedovl.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
