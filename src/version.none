@@ -1,13 +1,13 @@
-#define FILEVER        0,0,0,0
-#define PRODUCTVER     0,0,0,0
-#define STRFILEVER     "0.0.0.0"
-#define STRPRODUCTVER  "0.0.0.0"
+#define FILEVER         0,0,0,0
+#define PRODUCTVER      0,0,0,0
+#define STRFILEVER      "0.0.0.0"
+#define STRPRODUCTVER   "0.0.0.0"
 
 #define TSVN_VERMAJOR   0
 #define TSVN_VERMINOR   0
 #define TSVN_VERMICRO   0
 #define TSVN_VERBUILD   0
-#define TSVN_VERDATE    "date unknown\n"
+#define TSVN_VERDATE    "date unknown"
 
 #ifdef _WIN64
 #define TSVN_PLATFORM   "64 Bit $DEVBUILD$"
