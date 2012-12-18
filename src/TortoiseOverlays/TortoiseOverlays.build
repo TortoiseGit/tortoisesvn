@@ -31,7 +31,6 @@
           <token key="MicroVersion" value="${environment::get-variable('Microversion')}" />
           <token key="WCREV" value="${environment::get-variable('WCREV')}" />
           <token key="WCDATE" value="${environment::get-variable('WCDATE')}" />
-          <token key="DEVBUILD" value="${devrelease}" />
         </replacetokens>
       </filterchain>
     </loadfile>
