@@ -23,10 +23,12 @@
 #include "SVNHelpers.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
+#include "DebugOutput.h"
 #include "svn_dirent_uri.h"
 #include "svn_path.h"
 #include <regex>
 #include <functional>
+#include <memory>
 
 #if defined(_MFC_VER)
 #include "AppUtils.h"

@@ -19,6 +19,8 @@
 #include "stdafx.h"
 #include "CacheInterface.h"
 #include "SmartHandle.h"
+#include "DebugOutput.h"
+#include <memory>
 
 CString GetCachePipeName()
 {
