@@ -91,6 +91,9 @@ blockquote p {
     background-repeat: no-repeat;
     border-left: 1px solid;
     border-top: 5px solid;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
     clear: both;
     margin: 1em 0 0 1em;
     min-height: 52px;
@@ -300,10 +303,19 @@ blockquote p {
     width: 220px;
 }
 
-#sidebar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+#sidebar a {
+    border: none;
+    color: #417FDA;
+}
+
+#sidebar a:hover {
+    text-decoration: underline;
+}
+
+#sidebar h2 {
+    color: #417FDA;
+    letter-spacing: -0.5px;
+    text-shadow: 0 0 2px #B7B7B7;
 }
 
 #sidebar li {
@@ -329,20 +341,10 @@ blockquote p {
     padding: 0;
 }
 
-#sidebar h2 {
-    color: #417FDA;
-    letter-spacing: -0.5px;
-    text-shadow: 0 0 2px #B7B7B7;
-}
-
-#sidebar a {
-    border: none;
-    color: #417FDA;
-}
-
-#sidebar a:hover {
-    color: #000000;
-    text-decoration: underline;
+#sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 /* Footer */
