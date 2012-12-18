@@ -84,7 +84,6 @@ blockquote p {
 
 .caution,
 .important,
-.note,
 .tip,
 .warning {
     background-position: 5px 1.33em;
@@ -101,26 +100,10 @@ blockquote p {
     width: 80%;
 }
 
-.tip {
-    background-image: url("../img/tip.png");
-    border-color: #090;
-}
-
-.tip h3 {
-    color: #090;
-    font-size: 1.05em;
-    font-style: italic;
-    font-weight: bold;
-    padding-top: 4px;
-}
-
-.important {
-    background-image: url("../img/important.png");
-    border-color: #069;
-}
-
-.important h3 {
-    color: #069;
+.caution h3,
+.important h3,
+.tip h3,
+.warning h3 {
     font-size: 1.05em;
     font-style: italic;
     font-weight: bold;
@@ -134,10 +117,24 @@ blockquote p {
 
 .caution h3 {
     color: #C60;
-    font-size: 1.05em;
-    font-style: italic;
-    font-weight: bold;
-    padding-top: 4px;
+}
+
+.important {
+    background-image: url("../img/important.png");
+    border-color: #069;
+}
+
+.important h3 {
+    color: #069;
+}
+
+.tip {
+    background-image: url("../img/tip.png");
+    border-color: #090;
+}
+
+.tip h3 {
+    color: #090;
 }
 
 .warning {
@@ -147,10 +144,6 @@ blockquote p {
 
 .warning h3 {
     color: #900;
-    font-size: 1.05em;
-    font-style: italic;
-    font-weight: bold;
-    padding-top: 4px;
 }
 
 #wrapper {
