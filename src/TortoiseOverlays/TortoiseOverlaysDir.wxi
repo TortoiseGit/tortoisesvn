@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include Id="TsvnInclude">
-  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidNormal)}" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidNormal)}" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string"/>
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidNormal)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidNormal)}" Value="TortoiseSVN" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidModified)}" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidModified)}" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidModified)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidModified)}" Value="TortoiseSVN" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidConflict)}" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidConflict)}" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidConflict)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidConflict)}" Value="TortoiseSVN" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidLocked)}" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidLocked)}" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidLocked)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidLocked)}" Value="TortoiseSVN" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidReadOnly)}" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidReadOnly)}" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidReadOnly)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidReadOnly)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidReadOnly)}" Value="TortoiseSVN" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidDeleted)}" Value="TortoiseSVN" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidAdded)}" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidAdded)}" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidAdded)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidAdded)}" Value="TortoiseSVN" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidIgnored)}" Value="TortoiseSVN" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Value="[CommonFilesFolder]TortoiseOverlays\TortoiseOverlays.dll" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}\InProcServer32" Name="ThreadingModel" Value="Apartment" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\Classes\CLSID\{$(var.GuidUnversioned)}" Value="TortoiseSVN" Type="string" />
 
-  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseNormal" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseNormal" />
   <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\1TortoiseNormal" Value="{$(var.GuidNormal)}" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseModified" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseModified" />
   <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\2TortoiseModified" Value="{$(var.GuidModified)}" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseConflict" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseConflict" />
   <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\3TortoiseConflict" Value="{$(var.GuidConflict)}" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseLocked" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseLocked" />
   <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\4TortoiseLocked" Value="{$(var.GuidLocked)}" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseReadOnly" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseReadOnly" />
   <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\5TortoiseReadOnly" Value="{$(var.GuidReadOnly)}" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseDeleted" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseDeleted" />
   <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\6TortoiseDeleted" Value="{$(var.GuidDeleted)}" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseAdded" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseAdded" />
   <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\7TortoiseAdded" Value="{$(var.GuidAdded)}" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\8TortoiseIgnored" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\8TortoiseIgnored" />
   <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\8TortoiseIgnored" Value="{$(var.GuidIgnored)}" Type="string" />
-  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\9TortoiseUnversioned" Action="createAndRemoveOnUninstall" />
+  <RegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\9TortoiseUnversioned" />
   <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers\9TortoiseUnversioned" Value="{$(var.GuidUnversioned)}" Type="string" />
 
-  <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays" Action="create" />
+  <RegistryKey Root="HKLM" Key="Software\TortoiseOverlays" />
   <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays" Name="NormalIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\NormalIcon.ico" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays" Name="ModifiedIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\ModifiedIcon.ico" Type="string" />
   <RegistryValue Root="HKLM" Key="Software\TortoiseOverlays" Name="ConflictIcon" Value="[CommonFilesFolder]TortoiseOverlays\icons\XPStyle\ConflictIcon.ico" Type="string" />
