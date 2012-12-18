@@ -23,9 +23,9 @@ LD=link
 
 CXXFLAGS=-Zi -TP -MP -W0 -EHsc -Zc:forScope -Zc:wchar_t -D_CRT_SECURE_NO_DEPRECATE=1
 CXXDEBUG=-Od -MTd -DDEBUG
-CXXNDEBUG=-O1 -MT -DNDEBUG -GL
+CXXNDEBUG=-O2 -MT -DNDEBUG -GL
 NAME=-Fo
-LDFLAGS=-OPT:REF -LTCG -DEBUG
+LDFLAGS=-OPT:REF,ICF -LTCG -DEBUG -RELEASE
 LDDEBUG=
 LIBS=KERNEL32.lib USER32.lib GDI32.lib IMM32.lib OLE32.LIB
 NOLOGO=-nologo
@@ -224,7 +224,7 @@ $(LEXCOMPONENT): $(LOBJS) $(DIR_O)\ScintRes.res
 	$(LD) $(LDFLAGS) -DEF:Scintilla.def -DLL -OUT:$@ $** $(LIBS)
 
 $(LEXLIB): $(LEXOBJS)
-	LIB /OUT:$@ $(LEXOBJS)
+	LIB /LTCG /OUT:$@ $(LEXOBJS)
 
 # Define how to build all the objects and what they depend on
 
