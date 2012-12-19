@@ -47,7 +47,9 @@
                     dialog will show you a dialog where you can choose to
                     "work offline", i.e., it won't try to connect to the
                     repository anymore but only use the cache:<br/>
-                    <a href="img/logoffline.png" rel="lightbox[loguuids]"><img src="img/logoffline-small.png"></a>.
+                    <a href="img/logoffline.png" class="fancybox" rel="loguuids" title="logoffline">
+                        <img src="img/logoffline-small.png" alt="logoffline" width="191" height="114"/>
+                    </a>
                     </p>
 
                     <p>However, there is one problem: the log cache relies
@@ -55,7 +57,9 @@
                     to them.<br/>You can see the UUID of your repositories if
                     you have a working copy of them in the properties dialog
                     (Explorer context menu 'properties'):<br/>
-                    <a href="img/repouuid.png" rel="lightbox[loguuids]"><img src="img/repouuid-small.png"></a>.
+                    <a href="img/repouuid.png" class="fancybox" rel="loguuids" title="repouuid">
+                        <img src="img/repouuid-small.png" alt="repouuid" width="122" height="171"/>
+                    </a>
                     <br/>
                     The log cache needs the UUID to distinguish between
                     different repositories which of course have different log
@@ -63,19 +67,19 @@
                     distinguish between repositories is that URLs just don't
                     provide that information.</p>
 
-                    <p>For example, an URL like</p>
-                    <p><em>http://example.com/svn/trunk</em></p>
+                    <p>For example, a URL like</p>
+                    <p><code>http://example.com/svn/trunk</code></p>
                     <p>would clearly indicate that the repository is located
-                    at <em>http://example.com/svn</em>. Because we can assume
+                    at <code>http://example.com/svn</code>. Because we can assume
                     that 'svn' is not a project name.</p>
 
-                    <p>But an URL like</p>
-                    <p><em></em><em>http://example.com/svn/project/trunk</em><br/>
+                    <p>But a URL like</p>
+                    <p><code>http://example.com/svn/project/trunk</code><br/>
                     could mean that it points to a repository for 'project',
                     but it could also mean that there's only one repository at
                     'svn' and 'project' is just a folder inside that repository.
-                    So the two URLs<br/><em>http://example.com/svn/project/trunk</em><br/>
-                    and<br/><em>http://example.com/svn/otherproject/trunk</em><br/>
+                    So the two URLs<br/><code>http://example.com/svn/project/trunk</code><br/>
+                    and<br/><code>http://example.com/svn/otherproject/trunk</code><br/>
                     could be pointing to the same repository, or to two
                     different repositories.</p>
 
@@ -99,7 +103,9 @@
                     repositories or you can't change the UUID for some other
                     reason, you can disable the log cache in the TortoiseSVN
                     settings dialog:<br/>
-                    <a href="img/logcachesettings.png" rel="lightbox[loguuids]"><img src="img/logcachesettings-small.png"></a>.
+                    <a href="img/logcachesettings.png" class="fancybox" rel="loguuids" title="logcachesettings">
+                        <img src="img/logcachesettings-small.png" alt="logcachesettings" width="214" height="142"/>
+                    </a>
                     </p>
                     <p>In the above screenshot, you may notice the option
                     "Allow ambiguous URLs". Now that I've told you that the
@@ -108,9 +114,9 @@
                     strings) is much faster than asking the repository or
                     the working copy for the repository UUID. So the cache
                     uses URLs too if possible. For example, if the cache knows
-                    that the URL<br/><em>http://example.com/svn/project/trunk</em><br/>
+                    that the URL<br/><code>http://example.com/svn/project/trunk</code><br/>
                     points to a specific repository, it also knows that the
-                    URL<br/><em>http://example.com/svn/project/trunk/subfolder</em><br/>
+                    URL<br/><code>http://example.com/svn/project/trunk/subfolder</code><br/>
                     points to the very same repository, since it's not possible
                     to have a repository inside a repository.</p>
                     <p>The option "Allow ambiguous URLs" is for situations where
