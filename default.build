@@ -357,6 +357,7 @@
     <echo message="          those targets are built with debug support" />
     <echo message="release : call this if you want to create official releases." />
     <echo message="          It removes the '-dev' string from some builds" />
+    <echo message="xp      : target Windows XP" />
     <echo message="x64     : call this if you want to create native 64 bit builds." />
     <echo message="          (AMD64/EM64T only -- will not work on Itanium systems.)" />
     <echo message="cross   : cross-compile on win32 for the given target platform." />
