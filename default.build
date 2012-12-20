@@ -26,6 +26,7 @@
   <property name="schedule" value="no"/>
   <!-- the ${subsystem} to use -->
   <property name="subsystem" value="/SUBSYSTEM:WINDOWS,5.01" />
+  <property name="subsystemcl" value="/SUBSYSTEM:CONSOLE,5.01" />
 
   <!-- make sure the user config file exists -->
   <property name="userconfigfile"
@@ -78,6 +79,7 @@
     <property name="platform" value="x64" />
     <property name="bindirextension" value="64" />
     <property name="subsystem" value="/SUBSYSTEM:WINDOWS,5.02" />
+    <property name="subsystemcl" value="/SUBSYSTEM:CONSOLE,5.02" />
   </target>
 
   <target name="cross" depends="x64">
