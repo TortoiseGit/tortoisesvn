@@ -1,3 +1,23 @@
+Version 1.7.11
+- BUG: Issue #428: out-of-date error when modifying
+       properties from the repository browser. (Stefan)
+- BUG: Issue #429: crash if config file is
+       invalid or corrupted. (Stefan)
+- BUG: Issue #430: repo browser does not
+       refresh properly. (Stefan)
+- BUG: Issue #433: Show log by date range is using
+       only "start" or "end" date, not both. (Stefan)
+- BUG: Issue #435: child items not shown when
+       adding an ignored folder. (Stefan)
+- BUG: Issue #437: wrong error message shown
+       in repo browser. (Stefan)
+- BUG: Issue #440: svn:needs-lock not recognized
+       if it has an empty value. (Stefan)
+- BUG: Issue #441: crash in commit dialog. (Stefan)
+- BUG: Issue #442: "File not found" error when showing log
+       of file whose folder has been copied from
+       an older revision. (Stefan)
+
 Version 1.7.10
 - BUG: Issue #406: wrong image positioning. (Stefan)
 - BUG: Issue #408: repeated authentication
