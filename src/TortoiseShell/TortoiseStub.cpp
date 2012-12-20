@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -233,9 +233,8 @@ static void UnloadRealLibrary(void)
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD Reason, LPVOID Reserved)
 {
 #ifdef _DEBUG
-    // if no debugger is present, then don't load the dll.
-    // this prevents other apps from loading the dll and locking
-    // it.
+    // If no debugger is present, then don't load the dll.
+    // This prevents other apps from loading the dll and locking it.
 
     BOOL bInShellTest = FALSE;
     TCHAR buf[MAX_PATH + 1];       // MAX_PATH ok, the test really is for debugging anyway.
@@ -321,4 +320,3 @@ STDAPI DllCanUnloadNow(void)
     UnloadRealLibrary();
     return S_OK;
 }
-

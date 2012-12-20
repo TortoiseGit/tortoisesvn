@@ -143,7 +143,6 @@
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <CompileAs>CompileAsC</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
@@ -173,7 +172,6 @@
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <CompileAs>CompileAsC</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
@@ -193,8 +191,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Utils\Debug.c" />
-    <ClCompile Include="TortoiseStub.c" />
+    <ClCompile Include="..\Utils\Debug.cpp" />
+    <ClCompile Include="TortoiseStub.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TortoiseStub.def" />
