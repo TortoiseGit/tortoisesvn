@@ -924,7 +924,7 @@ CSVNStatusListCtrl::AddNewFileEntry(
     if(bDirectItem)
     {
         CString sFullUrl = entry->url;
-        if ((pSVNStatus) && (pSVNStatus->repos_root_url) && (pSVNStatus->repos_root_url[0]))
+        if (pSVNStatus->repos_root_url && pSVNStatus->repos_root_url[0])
         {
             sFullUrl = pSVNStatus->repos_root_url;
             sFullUrl += L"/" + entry->url;
