@@ -57,6 +57,7 @@ CFileDiffDlg::CFileDiffDlg(CWnd* pParent /*=NULL*/)
     , m_bIgnoreancestry(false)
     , m_bDoPegDiff(false)
     , m_bThreadRunning(false)
+    , m_depth(svn_depth_unknown)
 {
     m_columnbuf[0] = 0;
 }

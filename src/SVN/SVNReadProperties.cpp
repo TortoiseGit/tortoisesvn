@@ -179,6 +179,7 @@ SVNReadProperties::SVNReadProperties(bool bRevProps, bool includeInherited)
 #endif
     , m_propCount(0)
     , m_props(NULL)
+    , m_inheritedprops(NULL)
 {
     Construct();
 }

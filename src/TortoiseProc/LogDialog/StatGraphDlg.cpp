@@ -65,6 +65,8 @@ CStatGraphDlg::CStatGraphDlg(CWnd* pParent /*=NULL*/)
     , m_lastInterval(0)
     , m_nTotalCommits(0)
     , m_nTotalFileChanges(0)
+    , m_minDate(0)
+    , m_maxDate(0)
 {
     m_parDates = NULL;
     m_parFileChanges = NULL;

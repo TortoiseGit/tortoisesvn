@@ -38,6 +38,7 @@ CExportDlg::CExportDlg(CWnd* pParent /*=NULL*/)
     , m_pLogDlg(NULL)
     , m_blockPathAdjustments(FALSE)
     , m_bAutoCreateTargetName(false)
+    , m_depth(svn_depth_unknown)
 {
 }
 

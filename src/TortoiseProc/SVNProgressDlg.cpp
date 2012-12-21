@@ -108,6 +108,13 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , m_bExtDataAdded(false)
     , m_bHideExternalInfo(true)
     , m_bExternalStartInfoShown(false)
+    , m_Command(SVNProgress_none)
+    , m_keepchangelist(false)
+    , m_bHooksAreOptional(false)
+    , iFirstResized(0)
+    , bSecondResized(false)
+    , nEnsureVisibleCount(0)
+    , m_boldFont(NULL)
     , sIgnoredIncluded(MAKEINTRESOURCE(IDS_PROGRS_IGNOREDINCLUDED))
     , sExtExcluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSEXCLUDED))
     , sExtIncluded(MAKEINTRESOURCE(IDS_PROGRS_EXTERNALSINCLUDED))
@@ -119,6 +126,8 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
 {
     m_arData.reserve(10000);
     m_bHideExternalInfo = !!CRegStdDWORD(_T("Software\\TortoiseSVN\\HideExternalInfo"), TRUE);
+    m_columnbuf[0] = 0;
+    
 }
 
 CSVNProgressDlg::~CSVNProgressDlg()

@@ -40,6 +40,7 @@ CSettingsLogCaches::CSettingsLogCaches()
     : ISettingsPropPage(CSettingsLogCaches::IDD)
     , progress(NULL)
     , m_bThreadRunning(0)
+    , headRevision(-1)
 {
 }
 

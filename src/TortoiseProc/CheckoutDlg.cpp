@@ -41,6 +41,7 @@ CCheckoutDlg::CCheckoutDlg(CWnd* pParent /*=NULL*/)
     , m_blockPathAdjustments(FALSE)
     , m_bBlockMessages(false)
     , m_bAutoCreateTargetName(false)
+    , m_depth(svn_depth_unknown)
 {
 }
 

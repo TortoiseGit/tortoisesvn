@@ -36,6 +36,7 @@ CSwitchDlg::CSwitchDlg(CWnd* pParent /*=NULL*/)
     , m_bIgnoreAncestry(FALSE)
     , m_bFolder(false)
     , m_height(0)
+    , m_depth(svn_depth_unknown)
 {
 }
 

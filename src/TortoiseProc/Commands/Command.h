@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2011 - TortoiseSVN
+// Copyright (C) 2007, 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,10 @@
 class Command
 {
 public:
-
+    Command()
+        : hwndExplorer(NULL)
+    {
+    }
     /// allow sub-classes to execute code during destruction
     virtual ~Command() {};
     /**

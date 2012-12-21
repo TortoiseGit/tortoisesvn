@@ -41,11 +41,23 @@
 SVNStatus::SVNStatus(bool * pbCancelled, bool suppressUI)
     : SVNBase()
     , status(NULL)
+    , headrev(-1)
+    , m_allstatus(svn_wc_status_none)
+    , m_statushash(NULL)
+    , m_statusarray(NULL)
+    , m_statushashindex(0)
+    , m_externalhash(NULL)
     , m_prompt (suppressUI)
 #else
 SVNStatus::SVNStatus(bool * pbCancelled, bool)
     : SVNBase()
     , status(NULL)
+    , headrev(-1)
+    , m_allstatus(svn_wc_status_none)
+    , m_statushash(NULL)
+    , m_statusarray(NULL)
+    , m_statushashindex(0)
+    , m_externalhash(NULL)
 #endif
 {
     m_pool = svn_pool_create (NULL);

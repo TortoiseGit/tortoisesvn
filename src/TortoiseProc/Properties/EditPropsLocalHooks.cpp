@@ -31,6 +31,7 @@ CEditPropsLocalHooks::CEditPropsLocalHooks(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CEditPropsLocalHooks::IDD, pParent)
     , m_bWait(false)
     , m_bHide(false)
+    , m_bEnforce(false)
 {
 
 }

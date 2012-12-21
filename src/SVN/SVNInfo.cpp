@@ -34,6 +34,13 @@
 
 SVNConflictData::SVNConflictData()
     : treeconflict_binary(false)
+    , kind(svn_wc_conflict_kind_text)
+    , treeconflict_nodekind(svn_node_none)
+    , treeconflict_action(svn_wc_conflict_action_edit)
+    , treeconflict_reason(svn_wc_conflict_reason_edited)
+    , treeconflict_operation(svn_wc_operation_none)
+    , src_right_version_kind(svn_node_none)
+    , src_left_version_kind(svn_node_none)
 {
 }
 

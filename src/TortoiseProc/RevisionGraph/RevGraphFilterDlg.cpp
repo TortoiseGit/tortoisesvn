@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - Stefan Kueng
+// Copyright (C) 2003-2006, 2012 - Stefan Kueng
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@ CRevGraphFilterDlg::CRevGraphFilterDlg(CWnd* pParent /*=NULL*/)
     , m_sToRev(_T(""))
     , m_minrev (1)
     , m_maxrev (1)
+    , m_HeadRev(-1)
 {
 
 }

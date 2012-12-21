@@ -86,6 +86,7 @@ class CSVNProgressDlg : public CResizableStandAloneDialog, public SVN
 public:
     typedef enum
     {
+        SVNProgress_none,
         SVNProgress_Add,
         SVNProgress_Checkout,
         SVNProgress_SparseCheckout,
@@ -177,6 +178,7 @@ private:
           {
               merge_range.end = 0;
               merge_range.start = 0;
+              merge_range.inheritable = false;
           }
     public:
         // The text we put into the first column (the SVN action for normal items, just text for aux items)

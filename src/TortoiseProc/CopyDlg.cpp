@@ -49,7 +49,10 @@ CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
     , m_pThread(NULL)
     , m_pLogDlg(NULL)
     , m_bThreadRunning(0)
+    , m_maxrev(0)
+    , m_bmodified(false)
 {
+    m_columnbuf[0] = 0;
 }
 
 CCopyDlg::~CCopyDlg()

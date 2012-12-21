@@ -125,6 +125,7 @@ TortoiseBlame::TortoiseBlame()
     m_mouseAuthorColor = InterColor(m_windowColor, m_textColor, 10);
     m_selectedRevColor = GetSysColor(COLOR_HIGHLIGHT);
     m_selectedAuthorColor = InterColor(m_selectedRevColor, m_textHighLightColor, 35);
+    SecureZeroMemory(&m_fr, sizeof(m_fr));
 }
 
 TortoiseBlame::~TortoiseBlame()

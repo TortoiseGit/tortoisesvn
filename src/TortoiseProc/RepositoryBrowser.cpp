@@ -118,6 +118,14 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev)
     , bDragMode(FALSE)
     , m_backgroundJobs(0, 1, true)
     , m_pListCtrlTreeItem(nullptr)
+    , m_bThreadRunning(false)
+    , m_nIconFolder(0)
+    , m_nOpenIconFolder(0)
+    , m_nExternalOvl(0)
+    , m_nSVNParentPath(0)
+    , m_bRightDrag(false)
+    , oldy(0)
+    , oldx(0)
 {
     ConstructorInit(rev);
 }
@@ -140,6 +148,14 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , bDragMode(FALSE)
     , m_backgroundJobs(0, 1, true)
     , m_pListCtrlTreeItem(nullptr)
+    , m_bThreadRunning(false)
+    , m_nIconFolder(0)
+    , m_nOpenIconFolder(0)
+    , m_nExternalOvl(0)
+    , m_nSVNParentPath(0)
+    , m_bRightDrag(false)
+    , oldy(0)
+    , oldx(0)
 {
     ConstructorInit(rev);
 }
@@ -147,6 +163,8 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
 
 void CRepositoryBrowser::ConstructorInit(const SVNRev& rev)
 {
+    SecureZeroMemory(&m_arColumnWidths, sizeof(m_arColumnWidths));
+    SecureZeroMemory(&m_arColumnAutoWidths, sizeof(m_arColumnAutoWidths));
     m_repository.revision = rev;
     s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
     if (s_bSortLogical)

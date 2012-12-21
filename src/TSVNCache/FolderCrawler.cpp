@@ -27,14 +27,15 @@
 
 
 CFolderCrawler::CFolderCrawler(void)
+    : m_lCrawlInhibitSet(0)
+    , m_crawlHoldoffReleasesAt((long)GetTickCount())
+    , m_bRun(false)
+    , m_bPathsAddedSinceLastCrawl(false)
+    , m_bItemsAddedSinceLastCrawl(false)
+    , m_blockReleasesAt(0)
 {
     m_hWakeEvent = CreateEvent(NULL,FALSE,FALSE,NULL);
     m_hTerminationEvent = CreateEvent(NULL,TRUE,FALSE,NULL);
-    m_lCrawlInhibitSet = 0;
-    m_crawlHoldoffReleasesAt = (long)GetTickCount();
-    m_bRun = false;
-    m_bPathsAddedSinceLastCrawl = false;
-    m_bItemsAddedSinceLastCrawl = false;
 }
 
 CFolderCrawler::~CFolderCrawler(void)

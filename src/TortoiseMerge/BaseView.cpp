@@ -63,37 +63,48 @@ allviewstate CBaseView::m_AllState;
 IMPLEMENT_DYNCREATE(CBaseView, CView)
 
 CBaseView::CBaseView()
+    : m_pCacheBitmap(NULL)
+    , m_pViewData(NULL)
+    , m_pOtherViewData(NULL)
+    , m_pOtherView(NULL)
+    , m_nLineHeight(-1)
+    , m_nCharWidth(-1)
+    , m_nScreenChars(-1)
+    , m_nLastScreenChars(-1)
+    , m_nMaxLineLength(-1)
+    , m_nScreenLines(-1)
+    , m_nTopLine(0)
+    , m_nOffsetChar(0)
+    , m_nDigits(0)
+    , m_nMouseLine(-1)
+    , m_mouseInMargin(false)
+    , m_bIsHidden(FALSE)
+    , lineendings(EOL_AUTOLINE)
+    , m_bReadonly(true)
+    , m_bTarget(false)
+    , m_nCaretGoalPos(0)
+    , m_nSelViewBlockStart(-1)
+    , m_nSelViewBlockEnd(-1)
+    , m_bFocused(FALSE)
+    , m_bShowSelection(true)
+    , texttype(CFileTextLines::AUTOTYPE)
+    , m_bModified(FALSE)
+    , m_bOtherDiffChecked(false)
+    , m_bInlineWordDiff(true)
+    , m_bWhitespaceInlineDiffs(false)
+    , m_pState(NULL)
+    , m_pFindDialog(NULL)
+    , m_nStatusBarID(0)
+    , m_bMatchCase(false)
+    , m_bLimitToDiff(true)
+    , m_bWholeWord(false)
+    , m_pDC(NULL)
 {
-    m_pCacheBitmap = NULL;
-    m_pViewData = NULL;
-    m_pOtherViewData = NULL;
-    m_pOtherView = NULL;
-    m_nLineHeight = -1;
-    m_nCharWidth = -1;
-    m_nScreenChars = -1;
-    m_nLastScreenChars = -1;
-    m_nMaxLineLength = -1;
-    m_nScreenLines = -1;
-    m_nTopLine = 0;
-    m_nOffsetChar = 0;
-    m_nDigits = 0;
-    m_nMouseLine = -1;
-    m_mouseInMargin = false;
-    m_bIsHidden = FALSE;
-    lineendings = EOL_AUTOLINE;
-    m_bReadonly = true;
-    m_bTarget = false;
     m_ptCaretViewPos.x = 0;
     m_ptCaretViewPos.y = 0;
-    m_nCaretGoalPos = 0;
     m_ptSelectionViewPosStart = m_ptCaretViewPos;
     m_ptSelectionViewPosEnd = m_ptSelectionViewPosStart;
     m_ptSelectionViewPosOrigin = m_ptSelectionViewPosEnd;
-    m_nSelViewBlockStart = -1;
-    m_nSelViewBlockEnd = -1;
-    m_bFocused = FALSE;
-    m_bShowSelection = true;
-    texttype = CFileTextLines::AUTOTYPE;
     m_bViewWhitespace = CRegDWORD(_T("Software\\TortoiseMerge\\ViewWhitespaces"), 1);
     m_bViewLinenumbers = CRegDWORD(_T("Software\\TortoiseMerge\\ViewLinenumbers"), 1);
     m_bShowInlineDiff = CRegDWORD(_T("Software\\TortoiseMerge\\DisplayBinDiff"), TRUE);
@@ -104,10 +115,6 @@ CBaseView::CBaseView()
     m_WhiteSpaceFg = CRegDWORD(_T("Software\\TortoiseMerge\\Colors\\Whitespace"), GetSysColor(COLOR_GRAYTEXT));
     m_sWordSeparators = CRegString(_T("Software\\TortoiseMerge\\WordSeparators"), _T("[]();:.,{}!@#$%^&*-+=|/\\<>'`~\""));
     m_bIconLFs = CRegDWORD(_T("Software\\TortoiseMerge\\IconLFs"), 0);
-    m_bModified = FALSE;
-    m_bOtherDiffChecked = false;
-    m_bInlineWordDiff = true;
-    m_bWhitespaceInlineDiffs = false;
     m_nTabSize = (int)(DWORD)CRegDWORD(_T("Software\\TortoiseMerge\\TabSize"), 4);
     std::fill_n(m_apFonts, fontsCount, (CFont*)NULL);
     m_hConflictedIcon = LoadIcon(IDI_CONFLICTEDLINE);
@@ -122,12 +129,13 @@ CBaseView::CBaseView()
     m_hEditedIcon = LoadIcon(IDI_LINEEDITED);
     m_hMovedIcon = LoadIcon(IDI_MOVEDLINE);
     m_margincursor = (HCURSOR)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDC_MARGINCURSOR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
-    m_pState = NULL;
-    m_pFindDialog = NULL;
 
     for (int i=0; i<1024; ++i)
         m_sConflictedText += _T("??");
     m_sNoLineNr.LoadString(IDS_EMPTYLINETT);
+
+    m_szTip[0] = 0;
+    SecureZeroMemory(&m_lfBaseFont, sizeof(m_lfBaseFont));
     EnableToolTips();
 }
 

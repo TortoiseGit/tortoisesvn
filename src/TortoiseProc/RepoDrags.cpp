@@ -25,6 +25,7 @@
 CTreeDropTarget::CTreeDropTarget(CRepositoryBrowser * pRepoBrowser)
     : CBaseDropTarget(pRepoBrowser, pRepoBrowser->m_RepoTree.GetSafeHwnd())
     , m_dwHoverStartTicks(0)
+    , hLastItem(NULL)
 {
 }
 

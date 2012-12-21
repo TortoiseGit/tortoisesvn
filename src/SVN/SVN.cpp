@@ -105,6 +105,9 @@ SVN::SVN(bool suppressUI)
     , m_prompt(suppressUI)
     , m_pbCancel(nullptr)
     , m_bListComplete(false)
+    , m_progressWndIsCProgress(false)
+    , progress_averagehelper(0)
+    , progress_lastTicks(0)
 {
     parentpool = svn_pool_create(NULL);
     svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(parentpool), parentpool));

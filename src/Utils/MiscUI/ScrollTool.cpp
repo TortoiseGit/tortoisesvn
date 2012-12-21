@@ -24,6 +24,7 @@ CScrollTool::CScrollTool()
     : m_bInitCalled(false)
     , m_bRightAligned(false)
 {
+    SecureZeroMemory(&ti, sizeof(ti));
 }
 
 CScrollTool::~CScrollTool()

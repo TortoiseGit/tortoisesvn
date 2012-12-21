@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,6 +27,7 @@
 CRemoteCacheLink::CRemoteCacheLink(void)
 {
     SecureZeroMemory(&m_dummyStatus, sizeof(m_dummyStatus));
+    SecureZeroMemory(&m_Overlapped, sizeof(m_Overlapped));
     m_dummyStatus.node_status = svn_wc_status_none;
     m_dummyStatus.text_status = svn_wc_status_none;
     m_dummyStatus.prop_status = svn_wc_status_none;

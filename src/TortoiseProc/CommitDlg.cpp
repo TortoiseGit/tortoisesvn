@@ -58,6 +58,8 @@ CCommitDlg::CCommitDlg(CWnd* pParent /*=NULL*/)
     , m_bKeepChangeList(TRUE)
     , m_itemsCount(0)
     , m_bSelectFilesForCommit(TRUE)
+    , m_nPopupPasteListCmd(0)
+    , m_bCancelled(FALSE)
 {
 }
 

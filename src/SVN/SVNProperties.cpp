@@ -55,6 +55,7 @@ SVNProperties::SVNProperties(SVNRev rev, bool bRevProps, bool bIncludeInherited)
 SVNProperties::SVNProperties(bool bRevProps, bool bIncludeInherited)
     : SVNReadProperties (bRevProps, bIncludeInherited)
 #endif
+    , rev_set(0)
 {
 }
 
@@ -65,6 +66,7 @@ SVNProperties::SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevPro
 SVNProperties::SVNProperties(const CTSVNPath& filepath, bool bRevProps, bool bIncludeInherited)
     : SVNReadProperties (filepath, bRevProps, bIncludeInherited)
 #endif
+    , rev_set(0)
 {
 }
 

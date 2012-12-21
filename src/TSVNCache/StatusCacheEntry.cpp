@@ -27,12 +27,12 @@
 DWORD cachetimeout = (DWORD)CRegStdDWORD(_T("Software\\TortoiseSVN\\Cachetimeout"), CACHETIMEOUT);
 
 CStatusCacheEntry::CStatusCacheEntry()
+    : m_bSet(false)
+    , m_bSVNEntryFieldSet(false)
+    , m_kind(svn_node_unknown)
+    , m_highestPriorityLocalStatus(svn_wc_status_none)
+    , m_commitRevision(0)
 {
-    m_bSet = false;
-    m_bSVNEntryFieldSet = false;
-    m_kind = svn_node_unknown;
-    m_highestPriorityLocalStatus = svn_wc_status_none;
-
     SetAsUnversioned();
 }
 

@@ -23,6 +23,9 @@
 
 IconBitmapUtils::IconBitmapUtils()
     : hUxTheme(NULL)
+    , pfnGetBufferedPaintBits(NULL)
+    , pfnBeginBufferedPaint(NULL)
+    , pfnEndBufferedPaint(NULL)
 {
     if (SysInfo::Instance().IsVistaOrLater())
     {

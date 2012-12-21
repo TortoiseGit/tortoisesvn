@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009-2011 - TortoiseSVN
+// Copyright (C) 2007, 2009-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,6 +30,7 @@ CMergeAllDlg::CMergeAllDlg(CWnd* pParent /*=NULL*/)
     , m_bIgnoreEOL(FALSE)
     , m_bIgnoreAncestry(FALSE)
     , m_bForce(FALSE)
+    , m_IgnoreSpaces(svn_diff_file_ignore_space_none)
 {
 
 }

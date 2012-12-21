@@ -37,6 +37,10 @@ IMPLEMENT_DYNAMIC(CTreeConflictEditorDlg, CResizableStandAloneDialog)
 CTreeConflictEditorDlg::CTreeConflictEditorDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CTreeConflictEditorDlg::IDD, pParent)
     , m_bThreadRunning(false)
+    , conflict_reason(svn_wc_conflict_reason_edited)
+    , conflict_action(svn_wc_conflict_action_edit)
+    , src_right_version_kind(svn_node_unknown)
+    , src_left_version_kind(svn_node_unknown)
 {
 
 }

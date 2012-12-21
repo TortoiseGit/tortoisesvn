@@ -176,6 +176,9 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_hReverseMergedIcon(NULL)
     , m_nIconFolder(0)
     , m_prevLogEntriesSize(0)
+    , m_temprev(0)
+    , m_tFrom(0)
+    , m_tTo(0)
 {
     m_bFilterWithRegex =
         !!CRegDWORD(_T("Software\\TortoiseSVN\\UseRegexFilter"), FALSE);

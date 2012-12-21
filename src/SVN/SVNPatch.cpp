@@ -44,6 +44,9 @@ int SVNPatch::abort_on_pool_failure (int /*retcode*/)
 SVNPatch::SVNPatch()
     : m_pool(NULL)
     , m_nStrip(0)
+    , m_bSuccessfullyPatched(false)
+    , m_nRejected(0)
+    , m_pProgDlg(NULL)
 {
     apr_initialize();
     svn_dso_initialize2();

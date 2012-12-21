@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@ CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
     , m_bTextView(FALSE)
     , m_bIgnoreEOL(TRUE)
     , m_bIncludeMerge(TRUE)
+    , m_IgnoreSpaces(svn_diff_file_ignore_space_none)
 {
     m_regTextView = CRegDWORD(_T("Software\\TortoiseSVN\\TextBlame"), FALSE);
     m_bTextView = m_regTextView;

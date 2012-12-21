@@ -60,6 +60,7 @@ CFullHistory::CFullHistory(void)
     , copyFromRelationEnd (NULL)
     , cache (NULL)
     , Err (NULL)
+    , startRevision(0)
     , diskIOScheduler (2, 0, true)  // two threads for crawling the disk
                                     // (they will both query info from the same place,
                                     // i.e. read different portions of the same WC status)

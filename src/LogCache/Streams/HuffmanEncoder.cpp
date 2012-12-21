@@ -383,6 +383,10 @@ void CHuffmanEncoder::WriteHuffmanEncoded ( const BYTE* source
 CHuffmanEncoder::CHuffmanEncoder()
     : sortedCount (0)
 {
+    SecureZeroMemory(&key, sizeof(key));
+    SecureZeroMemory(&keyLength, sizeof(keyLength));
+    SecureZeroMemory(&count, sizeof(count));
+    SecureZeroMemory(&sorted, sizeof(sorted));
 }
 
 // write local stream data and close the stream

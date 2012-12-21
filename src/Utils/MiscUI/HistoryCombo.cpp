@@ -37,6 +37,7 @@ CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/ )
     , m_bDyn(FALSE)
     , m_bTrim(TRUE)
 {
+    SecureZeroMemory(&m_ToolInfo, sizeof(m_ToolInfo));
 }
 
 CHistoryCombo::~CHistoryCombo()

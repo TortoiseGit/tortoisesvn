@@ -31,6 +31,7 @@ CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
     , m_bNoExternals(FALSE)
     , m_bStickyDepth(TRUE)
     , m_pLogDlg(NULL)
+    , m_depth(svn_depth_unknown)
 {
 }
 
