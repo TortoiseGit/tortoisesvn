@@ -47,7 +47,7 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& rev
     CString possibletempfile;
     if (path.IsEmpty())
     {
-        ::GetTempFileName (temppath.get(), TEXT("svn"), 0, tempF.get());
+        ::GetTempFileName (temppath.get(), _T("svn"), 0, tempF.get());
         tempfile = CTSVNPath (tempF.get());
     }
     else

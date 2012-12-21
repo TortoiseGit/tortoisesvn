@@ -228,7 +228,7 @@ void CSettingsLogCaches::FillRepositoryList()
         size_t fileSize = caches->FileSize (iter->second, url) / 1024;
 
         CString sizeText;
-        sizeText.Format(TEXT("%d"), fileSize);
+        sizeText.Format(_T("%d"), fileSize);
         m_cRepositoryList.SetItemText (count, 1, sizeText);
     }
 }

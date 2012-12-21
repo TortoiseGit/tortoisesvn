@@ -1482,7 +1482,7 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
                     std::unique_ptr<TCHAR[]> path(new TCHAR[len+1]);
                     std::unique_ptr<TCHAR[]> tempF(new TCHAR[len+100]);
                     GetTempPath (len+1, path.get());
-                    GetTempFileName (path.get(), TEXT("svn"), 0, tempF.get());
+                    GetTempFileName (path.get(), _T("svn"), 0, tempF.get());
                     std::wstring sTempFile = std::wstring(tempF.get());
 
                     FILE * outFile;
