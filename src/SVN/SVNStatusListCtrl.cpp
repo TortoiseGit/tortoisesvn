@@ -59,6 +59,7 @@
 #include "BrowseFolder.h"
 
 #include <tuple>
+#include <strsafe.h>
 
 const UINT CSVNStatusListCtrl::SVNSLNM_ITEMCOUNTCHANGED
                     = ::RegisterWindowMessage(_T("SVNSLNM_ITEMCOUNTCHANGED"));
@@ -5034,7 +5035,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                     // show where the item is switched to in the tooltip
                     CString url;
                     url.Format(IDS_STATUSLIST_SWITCHEDTO, (LPCTSTR)CPathUtils::PathUnescape(fentry->url));
-                    lstrcpyn(pTTTW->szText, (LPCTSTR)url, 80);
+                    StringCchCopy(pTTTW->szText, _countof(pTTTW->szText), (LPCTSTR)url);
                     return TRUE;
                 }
                 if (!fentry->IsFolder())
@@ -5056,7 +5057,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                     StrFormatByteSize64(wcSize-baseSize, changedBuf, _countof(changedBuf));
                     CString sTemp;
                     sTemp.FormatMessage(IDS_STATUSLIST_WCBASESIZES, wcBuf, baseBuf, changedBuf);
-                    lstrcpyn(pTTTW->szText, (LPCTSTR)sTemp, 80);
+                    StringCchCopy(pTTTW->szText, _countof(pTTTW->szText), (LPCTSTR)sTemp);
                     return TRUE;
                 }
             }

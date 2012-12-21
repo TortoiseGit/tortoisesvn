@@ -49,6 +49,7 @@
 #include "SmartHandle.h"
 #include "RecycleBinDlg.h"
 #include "BrowseFolder.h"
+#include <strsafe.h>
 
 BOOL    CSVNProgressDlg::m_bAscending = FALSE;
 int     CSVNProgressDlg::m_nSortedColumn = -1;

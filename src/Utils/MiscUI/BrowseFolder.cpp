@@ -21,6 +21,7 @@
 #include "BrowseFolder.h"
 #include "PathUtils.h"
 #include "SmartHandle.h"
+#include <strsafe.h>
 
 BOOL CBrowseFolder::m_bCheck = FALSE;
 BOOL CBrowseFolder::m_bCheck2 = FALSE;
@@ -251,7 +252,7 @@ void CBrowseFolder::SetFont(HWND hwnd,LPTSTR FontName,int FontSize)
     GetObject(GetWindowFont(hwnd),sizeof(lf),&lf);
     lf.lfWeight = FW_REGULAR;
     lf.lfHeight = (LONG)FontSize;
-    lstrcpy( lf.lfFaceName, FontName );
+    StringCchCopy( lf.lfFaceName, _countof(lf.lfFaceName), FontName );
     hf=CreateFontIndirect(&lf);
     SetBkMode(hdc,OPAQUE);
     SendMessage(hwnd,WM_SETFONT,(WPARAM)hf,TRUE);

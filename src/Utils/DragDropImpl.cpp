@@ -11,6 +11,7 @@
 #include <atlbase.h>
 #include "DragDropImpl.h"
 #include <new>
+#include <Strsafe.h>
 
 //////////////////////////////////////////////////////////////////////
 // CIDataObject Class
@@ -284,8 +285,8 @@ HRESULT CIDataObject::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LP
         return E_OUTOFMEMORY;
 
     DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
-    lstrcpyW(pDropDescription->szInsert, insert);
-    lstrcpyW(pDropDescription->szMessage, format);
+    StringCchCopy(pDropDescription->szInsert, _countof(pDropDescription->szInsert), insert);
+    StringCchCopy(pDropDescription->szMessage, _countof(pDropDescription->szMessage), format);
     pDropDescription->type = image;
     GlobalUnlock(medium.hGlobal);
     return SetData(&fetc, &medium, TRUE);
@@ -683,11 +684,11 @@ HRESULT CIDropTarget::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LP
         DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
 
         if (insert)
-            lstrcpyW(pDropDescription->szInsert, insert);
+            StringCchCopy(pDropDescription->szInsert, _countof(pDropDescription->szInsert), insert);
         else
             pDropDescription->szInsert[0] = 0;
         if (format)
-            lstrcpyW(pDropDescription->szMessage, format);
+            StringCchCopy(pDropDescription->szMessage, _countof(pDropDescription->szMessage), format);
         else
             pDropDescription->szInsert[0] = 0;
         pDropDescription->type = image;

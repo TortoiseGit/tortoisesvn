@@ -32,6 +32,7 @@
 #include <algorithm>
 #include <cctype>
 #include <regex>
+#include <strsafe.h>
 
 #define MAX_LOADSTRING 1000
 
@@ -2085,7 +2086,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                 if (pNMHDR->code == TTN_NEEDTEXTA)
                 {
                     NMTTDISPINFOA* pTTTA = (NMTTDISPINFOA*)pNMHDR;
-                    lstrcpynA(app.m_szTip, CUnicodeUtils::StdGetUTF8(msg).c_str(), MAX_LOG_LENGTH*2);
+                    StringCchCopyA(app.m_szTip, _countof(app.m_szTip), CUnicodeUtils::StdGetUTF8(msg).c_str());
                     app.StringExpand(app.m_szTip);
                     pTTTA->lpszText = app.m_szTip;
                 }
@@ -2093,7 +2094,7 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                 {
                     NMTTDISPINFOW* pTTTW = (NMTTDISPINFOW*)pNMHDR;
                     pTTTW->lpszText = app.m_wszTip;
-                    lstrcpyn(app.m_wszTip, msg.c_str(), MAX_LOG_LENGTH*2);
+                    StringCchCopy(app.m_wszTip, _countof(app.m_wszTip), msg.c_str());
                     app.StringExpand(app.m_wszTip);
                 }
             }

@@ -33,6 +33,7 @@
 #include "RepositoryInfo.h"
 #include "RevisionInRange.h"
 #include "RemovePathsBySubString.h"
+#include <strsafe.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -728,7 +729,7 @@ BOOL CRevisionGraphDlg::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
     else
     {
         ::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, 600);
-        lstrcpyn(m_wszTip, strTipText, strTipText.GetLength()+1);
+        StringCchCopy(m_wszTip, _countof(m_wszTip), strTipText);
         pTTTW->lpszText = m_wszTip;
     }
     // bring the tooltip window above other pop up windows

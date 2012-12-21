@@ -21,6 +21,8 @@
 #include "PathUtils.h"
 #include "TempFile.h"
 #include "StringUtils.h"
+#include <strsafe.h>
+
 
 CLIPFORMAT CF_FILECONTENTS = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_FILECONTENTS);
 CLIPFORMAT CF_FILEDESCRIPTOR = (CLIPFORMAT)RegisterClipboardFormat(CFSTR_FILEDESCRIPTOR);
@@ -724,8 +726,8 @@ HRESULT SVNDataObject::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, L
     DROPDESCRIPTION* pDropDescription = (DROPDESCRIPTION*)GlobalLock(medium.hGlobal);
     if (pDropDescription == nullptr)
         return E_FAIL;
-    lstrcpyW(pDropDescription->szInsert, insert);
-    lstrcpyW(pDropDescription->szMessage, format);
+    StringCchCopy(pDropDescription->szInsert, _countof(pDropDescription->szInsert), insert);
+    StringCchCopy(pDropDescription->szMessage, _countof(pDropDescription->szMessage), format);
     pDropDescription->type = image;
     GlobalUnlock(medium.hGlobal);
     return SetData(&fetc, &medium, TRUE);

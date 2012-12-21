@@ -40,6 +40,7 @@
 #include "RevisionGraph/UpsideDownLayout.h"
 #include "SysInfo.h"
 #include "FormatMessageWrapper.h"
+#include <strsafe.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -659,7 +660,7 @@ BOOL CRevisionGraphWnd::OnToolTipNotify(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRe
     {
         TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
         ::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, tooltipSize.cx);
-        lstrcpyn(m_wszTip, strTipText, strTipText.GetLength()+1);
+        StringCchCopy(m_wszTip, _countof(m_wszTip), strTipText);
         pTTTW->lpszText = m_wszTip;
     }
 
