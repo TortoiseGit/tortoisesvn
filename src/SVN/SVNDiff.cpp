@@ -847,7 +847,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
                 fclose(pFile);
                 FILE * pFile2;
                 _tfopen_s(&pFile2, basepropfile.GetWinPath(), _T("wb"));
-                if (pFile)
+                if (pFile2)
                 {
                     fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile2);
                     fclose(pFile2);
