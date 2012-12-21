@@ -500,14 +500,14 @@
                     </para>
                     <para>
                         The available properties/hook-scripts are
-						<itemizedlist>
-							<listitem>tsvn:startcommithook</listitem>
-							<listitem>tsvn:precommithook</listitem>
-							<listitem>tsvn:postcommithook</listitem>
-							<listitem>tsvn:startupdatehook</listitem>
-							<listitem>tsvn:preupdatehook</listitem>
-							<listitem>tsvn:postupdatehook</listitem>
-						</itemizedlist>
+                        <itemizedlist>
+                            <listitem>tsvn:startcommithook</listitem>
+                            <listitem>tsvn:precommithook</listitem>
+                            <listitem>tsvn:postcommithook</listitem>
+                            <listitem>tsvn:startupdatehook</listitem>
+                            <listitem>tsvn:preupdatehook</listitem>
+                            <listitem>tsvn:postupdatehook</listitem>
+                        </itemizedlist>
                     </para>
                     <para>
                         The parameters are the same as if you would
@@ -530,18 +530,18 @@
                         another server you do not have to adjust the
                         hook script properties.
                     </para>
-					<para>
-						Instead of <filename>%REPOROOT%</filename> you
-						can also specify <filename>%REPOROOT+%</filename>.
-						The <literal>+</literal> is used to insert any
-						number of folder paths necessary to find the script.
-						This is useful if you want to specify your script
-						so that if you create a branch the script is still
-						found even though the url of the working copy is now
-						different. Using the example above, you would
-						specify the path to the script as
-						<filename>%REPOROOT+%/contrib/hook-scripts/client-side/checkyear.js</filename>.
-					</para>
+                    <para>
+                        Instead of <filename>%REPOROOT%</filename> you
+                        can also specify <filename>%REPOROOT+%</filename>.
+                        The <literal>+</literal> is used to insert any
+                        number of folder paths necessary to find the script.
+                        This is useful if you want to specify your script
+                        so that if you create a branch the script is still
+                        found even though the url of the working copy is now
+                        different. Using the example above, you would
+                        specify the path to the script as
+                        <filename>%REPOROOT+%/contrib/hook-scripts/client-side/checkyear.js</filename>.
+                    </para>
                     <para>
                         The following screenshot shows how the script
                         to check for current copyright years in source
