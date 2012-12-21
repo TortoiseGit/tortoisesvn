@@ -86,6 +86,8 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     hookcmd cmd;
     cmd.bShow = false;
     cmd.bWait = false;
+    cmd.bEnforce = false;
+    cmd.bApproved = false;
     hooktype htype = unknown_hook;
     int pos = 0;
     CString temp;
