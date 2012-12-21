@@ -806,12 +806,6 @@ public:
     static CString GetChecksumString(svn_checksum_kind_t type, const CString& s, apr_pool_t * localpool);
 
     /**
-     * Checks if the configuration file is present and valid.
-     * \return the error message string, or an empty string if everything is ok.
-     */
-    static CString CheckConfigFile();
-
-    /**
      * Creates a repository at the specified location.
      * \param path where the repository should be created
      * \return TRUE if operation was successful

@@ -150,38 +150,6 @@ SVN::~SVN(void)
     svn_pool_destroy (parentpool);
 }
 
-CString SVN::CheckConfigFile()
-{
-    SVNTRACE_BLOCK
-
-    svn_client_ctx_t *          ctx;
-    SVNPool                     pool;
-    svn_error_t *               err = NULL;
-
-    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), pool));
-
-    CString msg;
-    CString temp;
-    if (err != NULL)
-    {
-        svn_error_t * ErrPtr = err;
-        msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
-        while (ErrPtr->child)
-        {
-            ErrPtr = ErrPtr->child;
-            msg += _T("\n");
-            msg += CUnicodeUtils::GetUnicode(ErrPtr->message);
-        }
-        if (!temp.IsEmpty())
-        {
-            msg += _T("\n") + temp;
-        }
-        svn_error_clear(err);
-        err = NULL;
-    }
-    return msg;
-}
-
 #pragma warning(push)
 #pragma warning(disable: 4100)  // unreferenced formal parameter
 
