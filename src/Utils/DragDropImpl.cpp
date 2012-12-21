@@ -690,7 +690,7 @@ HRESULT CIDropTarget::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LP
         if (format)
             StringCchCopy(pDropDescription->szMessage, _countof(pDropDescription->szMessage), format);
         else
-            pDropDescription->szInsert[0] = 0;
+            pDropDescription->szMessage[0] = 0;
         pDropDescription->type = image;
         GlobalUnlock(medium.hGlobal);
 
