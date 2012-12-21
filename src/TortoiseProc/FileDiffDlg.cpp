@@ -417,7 +417,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
                 fclose(pFile);
                 FILE * pFile2;
                 _tfopen_s(&pFile2, url2propfile.GetWinPath(), _T("wb"));
-                if (pFile)
+                if (pFile2)
                 {
                     fputs(CUnicodeUtils::StdGetUTF8(url2value).c_str(), pFile2);
                     fclose(pFile2);
