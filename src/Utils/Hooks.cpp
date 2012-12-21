@@ -192,7 +192,7 @@ void CHooks::Add(hooktype ht, const CTSVNPath& Path, LPCTSTR szCmd,
     cmd.bWait = bWait;
     cmd.bShow = bShow;
     cmd.bEnforce = bEnforce;
-    cmd.bApproved |= bEnforce;
+    cmd.bApproved = bEnforce;
 
     insert(std::pair<hookkey, hookcmd>(key, cmd));
 }
