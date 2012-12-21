@@ -50,6 +50,7 @@ namespace
 
         CBuffer (size_t minCapacity)
         {
+            fixedBuffer[0] = 0;
             if (minCapacity <= FIXED_BUFFER_SIZE)
             {
                 buffer = fixedBuffer;
