@@ -217,7 +217,7 @@ void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
     }
     m_cbxUrl.SetWindowText(m_url);
     m_cbxUrl.AddString(m_url, 0);
-    m_btnUp.EnableWindow(m_url.CompareNoCase(m_pRepo->GetRepoRoot()));
+    m_btnUp.EnableWindow(m_pRepo ? m_url.CompareNoCase(m_pRepo->GetRepoRoot()) : FALSE);
     m_btnRevision.SetWindowText(m_rev.ToString());
     if (m_headRev.IsValid())
     {
