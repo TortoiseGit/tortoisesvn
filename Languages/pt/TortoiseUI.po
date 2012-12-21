@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 08:40+0000\n"
+"PO-Revision-Date: 2012-12-19 23:24+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -219,7 +219,7 @@ msgstr "%s (fora de linha)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (recursivamente)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -1041,7 +1041,7 @@ msgstr "&Opções"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "&Outro"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1809,7 +1809,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "Adicionado(s) o(s) padrão(ões) de ficheiro:\n%s\nà lista global a ignorar."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2148,7 +2148,7 @@ msgstr "Alterar Nome Automaticamente"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Auto-Integrar"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2171,7 +2171,7 @@ msgstr "À medida que escreve a mensagem de registo a completação automática 
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Auto-Integrar %1!s! em %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2977,7 +2977,7 @@ msgstr "Linha de Comando A Executar:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "Linha de comando a executar:⏎ Para especificar um caminho dentro da cópia de trabalho, colocar %REPOROOT% como raiz do repositório do url, ou %REPOROOT+% para caminhos além da raiz da cópia de trabalho."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3920,7 +3920,7 @@ msgstr "Não mostrar o menu de atalho para os seguintes caminhos:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge"
-msgstr ""
+msgstr "Reintegra em vez de integrar automaticamente"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -6573,7 +6573,7 @@ msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -6837,7 +6837,7 @@ msgstr "Notificação"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
+msgstr "Nota: se actualizares a tua cópia de trabalho, não poderás mais aceder à cópia actualizada com clientes pré SVN1.8! ⏎ Queres mesmo actualizar esta cópia de trabalho?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7308,7 +7308,7 @@ msgstr "Por favor aguarde enquanto o navegador é inicializado..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
+msgstr "Espere por favor enquanto verificamos os parâmetros de integração."
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
@@ -7595,7 +7595,7 @@ msgstr "Unidades R&AM"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
+msgstr "R&eintegrar um ramo / integrar automaticamente"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -7955,7 +7955,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "Remover os padrão(ões) de ficheiro ⏎ %s⏎ da lista global de ignorados."
 
 #. Resource IDs: (145)
 #, c-format
@@ -9973,13 +9973,13 @@ msgstr "O repositório foi criado com sucesso.\nQueres criar a estrutura de fich
 msgid ""
 "The required automatic merge is reintegrate like, and the \"only record the "
 "merge\" option can not be used."
-msgstr ""
+msgstr "A integração automatica é similar a reintegrar, e não se pode usar a opção \"regista apenas a integração\"."
 
 #. Resource IDs: (279)
 msgid ""
 "The required automatic merge is reintegrate like.\n"
 "Only the merge depth option \"Working copy\" can be used."
-msgstr ""
+msgstr "A integração automatica é similar a reintegrar.⏎ Apenas pode-se usar a opção de profundidade de integração \"Cópia de trabalho\"."
 
 #. Resource IDs: (616)
 #, c-format
@@ -10268,7 +10268,7 @@ msgstr "Irá ser removido o registo dos comandos que usou nesta aplicação e re
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Isto actualizará a tua cópia de trabalho para o novo formato 1.8 e a tornará inutil para clientes antigos."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10415,7 +10415,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10508,7 +10508,7 @@ msgstr "Ajustar o TortoiseSVN"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -10778,7 +10778,7 @@ msgstr "Actualizando a cache de registo"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Actualizar a cópia de trabalho ⏎ para o novo formato 1.8."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11672,7 +11672,7 @@ msgstr "ignorando ascendência"
 
 #. Resource IDs: (618)
 msgid "include properties"
-msgstr ""
+msgstr "propriedades incluídas"
 
 #. Resource IDs: (13)
 msgid "incomplete"
@@ -11900,7 +11900,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
+msgstr "svn:auto-props\nUma lista de propriedades separadas por fim-de-linha, aplicadas recursivamente e automaticamente ao adicionar/importar ficheiros.\nFormato: <filemask> = propriedade=value;propriedade=value\nExemplo: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -11947,7 +11947,7 @@ msgstr "svn:externals\r\nUma lista de especificadores de módulo separados por f
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr ""
+msgstr "svn:global-ignores\nUma lista, separada por fim-de-linhas, de padrões de ficheiros a ignorar recursivamente."
 
 #. Resource IDs: (576)
 msgid ""
