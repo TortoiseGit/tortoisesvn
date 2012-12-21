@@ -1059,7 +1059,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
         return;
     }
     // first check the size of the file
-    FILE * stream;
+    FILE * stream = nullptr;
     _tfopen_s(&stream, openPath, _T("rbS"));
     int nProperties = 0;
     if (fread(&nProperties, sizeof(int), 1, stream) == 1)
@@ -1167,8 +1167,9 @@ void CEditPropertiesDlg::OnBnClickedImport()
             }
         }
         prog.Stop();
-        fclose(stream);
     }
+    if (stream)
+        fclose(stream);
 
     Refresh();
 }
