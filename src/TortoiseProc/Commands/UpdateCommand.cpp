@@ -88,6 +88,8 @@ bool UpdateCommand::Execute()
             options &= ~ProgOptIgnoreExternals;
         if (parser.HasKey(_T("stickydepth")))
             options |= ProgOptStickyDepth;
+        if (parser.HasKey(_T("skipprechecks")))
+            options |= ProgOptSkipPreChecks;
     }
 
     CSVNProgressDlg progDlg;

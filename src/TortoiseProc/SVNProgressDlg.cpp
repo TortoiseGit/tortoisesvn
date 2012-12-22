@@ -1950,7 +1950,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
     NotificationData * data = m_arData[selIndex];
     if ((data)&&(!data->path.IsDirectory()))
     {
-        if (data->action == svn_wc_notify_update_update || data->action == svn_wc_notify_resolved)
+        if ((data->action == svn_wc_notify_update_update || data->action == svn_wc_notify_resolved) && (!m_UpdateStartRevMap.empty()))
         {
             popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARE, IDI_DIFF);
             bAdded = true;
@@ -3473,53 +3473,56 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     SVNRev revstore = m_Revision;
     bool multipleUUIDs = false;
     CString lastUUID;
-    for(int nItem = 0; (nItem < targetcount); nItem++)
+    if ((m_options & ProgOptSkipPreChecks) == 0)
     {
-        const CTSVNPath& targetPath = m_targetPathList[nItem];
-        SVNStatus st;
-        if (revstore.IsHead())
+        for(int nItem = 0; (nItem < targetcount); nItem++)
         {
-            // if the user-specified update revision is HEAD, we have
-            // to find the number of HEAD (but only if all scanned paths are from
-            // the same repository)
-            LONG headrev = -1;
-            if ((targetcount > 1)&&((headrev = st.GetStatus(targetPath, !multipleUUIDs)) != (-2)))
+            const CTSVNPath& targetPath = m_targetPathList[nItem];
+            SVNStatus st;
+            if (revstore.IsHead())
             {
-                m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
-
-                // find out if this target is from the same repository as
-                // the ones before
-                CString uuid = CString(st.status->repos_uuid ? st.status->repos_uuid : "");
-                if (!uuid.IsEmpty())
+                // if the user-specified update revision is HEAD, we have
+                // to find the number of HEAD (but only if all scanned paths are from
+                // the same repository)
+                LONG headrev = -1;
+                if ((targetcount > 1)&&((headrev = st.GetStatus(targetPath, !multipleUUIDs)) != (-2)))
                 {
-                    if (lastUUID.IsEmpty())
-                        lastUUID = uuid;
-                    if (lastUUID.Compare(uuid) != 0)
-                        multipleUUIDs = true;
-                    else
+                    m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
+
+                    // find out if this target is from the same repository as
+                    // the ones before
+                    CString uuid = CString(st.status->repos_uuid ? st.status->repos_uuid : "");
+                    if (!uuid.IsEmpty())
                     {
-                        // same repository (or first target checked):
-                        // set the HEAD to the found HEAD revision *number*.
-                        m_Revision = headrev;
+                        if (lastUUID.IsEmpty())
+                            lastUUID = uuid;
+                        if (lastUUID.Compare(uuid) != 0)
+                            multipleUUIDs = true;
+                        else
+                        {
+                            // same repository (or first target checked):
+                            // set the HEAD to the found HEAD revision *number*.
+                            m_Revision = headrev;
+                        }
+                    }
+                }
+                else
+                {
+                    // only one target, no need to fetch the HEAD revision number
+                    // since there can't be a race condition
+                    if (st.GetStatus(targetPath, false) != (-2))
+                    {
+                        m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
                     }
                 }
             }
             else
             {
-                // only one target, no need to fetch the HEAD revision number
-                // since there can't be a race condition
+                // not updating to HEAD, no need to fetch the HEAD revision number
                 if (st.GetStatus(targetPath, false) != (-2))
                 {
                     m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
                 }
-            }
-        }
-        else
-        {
-            // not updating to HEAD, no need to fetch the HEAD revision number
-            if (st.GetStatus(targetPath, false) != (-2))
-            {
-                m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
             }
         }
     }

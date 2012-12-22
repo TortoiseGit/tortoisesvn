@@ -242,6 +242,11 @@ Don't touch these lines:
                                 The <option>/stickydepth</option> indicates that
                                 the specified depth should be sticky, creating
                                 a sparse checkout.
+								The <option>/skipprechecks</option> can be set
+								to skip all checks that are done before an update. If this
+								is specified, then the <guilabel>Show log</guilabel> button
+								is disabled, and the context menu
+								to show diffs is also disabled after the update.
                             </entry>
                         </row>
                         <row>
