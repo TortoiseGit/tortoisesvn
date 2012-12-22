@@ -3470,67 +3470,41 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     // We also need the 'changed_rev' of every target before the update
     // so we can do diffs and show logs after the update has finished.
     int targetcount = m_targetPathList.GetCount();
-    SVNRev revstore = m_Revision;
-    bool multipleUUIDs = false;
-    CString lastUUID;
     if ((m_options & ProgOptSkipPreChecks) == 0)
     {
+        bool multipleUUIDs = false;
+        CString lastUUID;
         for(int nItem = 0; (nItem < targetcount); nItem++)
         {
             const CTSVNPath& targetPath = m_targetPathList[nItem];
             SVNStatus st;
-            if (revstore.IsHead())
+            if (st.GetStatus(targetPath, false) != (-2))
             {
-                // if the user-specified update revision is HEAD, we have
-                // to find the number of HEAD (but only if all scanned paths are from
-                // the same repository)
-                LONG headrev = -1;
-                if ((targetcount > 1)&&((headrev = st.GetStatus(targetPath, !multipleUUIDs)) != (-2)))
+                m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
+                // find out if this target is from the same repository as
+                // the ones before
+                CString uuid = CString(st.status->repos_uuid ? st.status->repos_uuid : "");
+                if (!uuid.IsEmpty())
                 {
-                    m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
-
-                    // find out if this target is from the same repository as
-                    // the ones before
-                    CString uuid = CString(st.status->repos_uuid ? st.status->repos_uuid : "");
-                    if (!uuid.IsEmpty())
-                    {
-                        if (lastUUID.IsEmpty())
-                            lastUUID = uuid;
-                        if (lastUUID.Compare(uuid) != 0)
-                            multipleUUIDs = true;
-                        else
-                        {
-                            // same repository (or first target checked):
-                            // set the HEAD to the found HEAD revision *number*.
-                            m_Revision = headrev;
-                        }
-                    }
-                }
-                else
-                {
-                    // only one target, no need to fetch the HEAD revision number
-                    // since there can't be a race condition
-                    if (st.GetStatus(targetPath, false) != (-2))
-                    {
-                        m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
-                    }
+                    if (lastUUID.IsEmpty())
+                        lastUUID = uuid;
+                    if (lastUUID.Compare(uuid) != 0)
+                        multipleUUIDs = true;
                 }
             }
-            else
-            {
-                // not updating to HEAD, no need to fetch the HEAD revision number
-                if (st.GetStatus(targetPath, false) != (-2))
-                {
-                    m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
-                }
-            }
+        }
+        // if all targets are from the same repository and we're updating to HEAD,
+        // find the HEAD revision number and update specifically to that.
+        if (m_Revision.IsHead() && !multipleUUIDs)
+        {
+            m_Revision = GetHEADRevision(m_targetPathList[0]);
         }
     }
 
     DWORD exitcode = 0;
     CString error;
     CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
-    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_hWnd, m_targetPathList, m_depth, multipleUUIDs ? revstore : m_Revision, exitcode, error)))
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_hWnd, m_targetPathList, m_depth, m_Revision, exitcode, error)))
     {
         if (exitcode)
         {
@@ -3539,34 +3513,11 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
         }
     }
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)));
-    if (multipleUUIDs)
+    CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
+    if (!Update(m_targetPathList, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), true))
     {
-        // the selected items are from different repositories,
-        // so we have to update them separately
-        for(int nItem = 0; nItem < targetcount; nItem++)
-        {
-            const CTSVNPath& targetPath = m_targetPathList[nItem];
-            m_basePath = targetPath;
-            CString sNotify;
-            sNotify.Format(IDS_PROGRS_UPDATEPATH, m_basePath.GetWinPath());
-            ReportString(sNotify, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
-            m_bExternalStartInfoShown = false;
-            CBlockCacheForPath cacheBlock (targetPath.GetWinPath());
-            if (!Update(CTSVNPathList(targetPath), revstore, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), true))
-            {
-                ReportSVNError();
-                return false;
-            }
-        }
-    }
-    else
-    {
-        CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
-        if (!Update(m_targetPathList, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(_T("Software\\TortoiseSVN\\AllowUnversionedObstruction"), true)), true))
-        {
-            ReportSVNError();
-            return false;
-        }
+        ReportSVNError();
+        return false;
     }
     CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
     if ((!m_bNoHooks)&&(CHooks::Instance().PostUpdate(m_hWnd, m_targetPathList, m_depth, m_RevisionEnd, exitcode, error)))
