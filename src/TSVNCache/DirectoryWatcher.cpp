@@ -149,7 +149,7 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
     pFound = StrStrI(path.GetWinPath(), L":\\$Recycle.Bin");
     if (pFound != NULL)
     {
-        if ((*(pFound + 14) == '\0') || (*(pFound + 10) == '\\'))
+        if ((*(pFound + 14) == '\0') || (*(pFound + 14) == '\\'))
             return false;
     }
 
@@ -459,7 +459,7 @@ void CDirectoryWatcher::WorkerThread()
                                 }
                                 if ((pFound = StrStrI(buf, L":\\$Recycle.Bin"))!=NULL)
                                 {
-                                    if ((*(pFound + 14) == '\0') || (*(pFound + 10) == '\\'))
+                                    if ((*(pFound + 14) == '\0') || (*(pFound + 14) == '\\'))
                                         continue;
                                 }
 

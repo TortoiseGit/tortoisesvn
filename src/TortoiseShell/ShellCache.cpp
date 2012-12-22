@@ -738,7 +738,7 @@ svn_tristate_t ShellCache::CPathFilter::IsPathAllowed (LPCTSTR path) const
     pFound = StrStrI(path, L":\\$Recycle.Bin");
     if (pFound != NULL)
     {
-        if ((*(pFound + 14) == '\0') || (*(pFound + 10) == '\\'))
+        if ((*(pFound + 14) == '\0') || (*(pFound + 14) == '\\'))
             return svn_tristate_false;
     }
     return IsPathAllowed (path, data.begin(), data.end());
