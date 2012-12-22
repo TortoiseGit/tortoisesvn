@@ -3452,56 +3452,82 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
     SetBackgroundImage(IDI_UPDATE_BKG);
 
+    // when updating multiple paths, we try to update all of them to the
+    // same revision. If updating to HEAD there's a race condition:
+    // if between updating the multiple items a commit happens,
+    // then subsequent updates of the remaining items would update
+    // to that new HEAD revision.
+    // To avoid that, we first fetch the HEAD revision of the first target,
+    // then go through the other targets to find out whether they're
+    // from the same repository as the first one. If all targets
+    // are from the same repository, then we use that HEAD revision
+    // we fetched and update to that specific revision (the number)
+    // instead of the (moving) "HEAD".
+    // If the targets are not all from the same repository, then
+    // we abort the scan and just update to the user specified
+    // revision.
+    //
+    // We also need the 'changed_rev' of every target before the update
+    // so we can do diffs and show logs after the update has finished.
     int targetcount = m_targetPathList.GetCount();
-    CString sfile;
-    CString uuid;
-    StringWRevMap uuidmap;
     SVNRev revstore = m_Revision;
-    int nUUIDs = 0;
-    for(int nItem = 0; nItem < targetcount; nItem++)
+    bool multipleUUIDs = false;
+    CString lastUUID;
+    for(int nItem = 0; (nItem < targetcount); nItem++)
     {
         const CTSVNPath& targetPath = m_targetPathList[nItem];
         SVNStatus st;
-        LONG headrev = -1;
-        m_Revision = revstore;
-        if (m_Revision.IsHead())
+        if (revstore.IsHead())
         {
-            if ((targetcount > 1)&&((headrev = st.GetStatus(targetPath, true)) != (-2)))
+            // if the user-specified update revision is HEAD, we have
+            // to find the number of HEAD (but only if all scanned paths are from
+            // the same repository)
+            LONG headrev = -1;
+            if ((targetcount > 1)&&((headrev = st.GetStatus(targetPath, !multipleUUIDs)) != (-2)))
             {
                 m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
 
-                uuid = GetUUIDFromPath(targetPath);
+                // find out if this target is from the same repository as
+                // the ones before
+                CString uuid = CString(st.status->repos_uuid ? st.status->repos_uuid : "");
                 if (!uuid.IsEmpty())
                 {
-                    StringWRevMap::iterator iter = uuidmap.lower_bound(uuid);
-                    if (iter == uuidmap.end() || iter->first != uuid)
-                    {
-                        uuidmap.insert(iter, std::make_pair(uuid, headrev));
-                        nUUIDs++;
-                    }
+                    if (lastUUID.IsEmpty())
+                        lastUUID = uuid;
+                    if (lastUUID.Compare(uuid) != 0)
+                        multipleUUIDs = true;
                     else
-                        headrev = iter->second;
-                    m_Revision = headrev;
+                    {
+                        // same repository (or first target checked):
+                        // set the HEAD to the found HEAD revision *number*.
+                        m_Revision = headrev;
+                    }
                 }
-                else
-                    m_Revision = headrev;
             }
             else
             {
-                if ((headrev = st.GetStatus(targetPath, FALSE)) != (-2))
+                // only one target, no need to fetch the HEAD revision number
+                // since there can't be a race condition
+                if (st.GetStatus(targetPath, false) != (-2))
                 {
                     m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
                 }
             }
-            if (uuidmap.size() > 1)
-                m_Revision = SVNRev::REV_HEAD;
-        } // if (m_Revision.IsHead())
-    } // for(int nItem = 0; nItem < targetcount; nItem++)
+        }
+        else
+        {
+            // not updating to HEAD, no need to fetch the HEAD revision number
+            if (st.GetStatus(targetPath, false) != (-2))
+            {
+                m_UpdateStartRevMap[targetPath.GetSVNApiPath(pool)] = st.status->changed_rev;
+            }
+        }
+    }
 
     DWORD exitcode = 0;
     CString error;
     CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
-    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_hWnd, m_targetPathList, m_depth, nUUIDs > 1 ? revstore : m_Revision, exitcode, error)))
+    if ((!m_bNoHooks)&&(CHooks::Instance().PreUpdate(m_hWnd, m_targetPathList, m_depth, multipleUUIDs ? revstore : m_Revision, exitcode, error)))
     {
         if (exitcode)
         {
@@ -3510,7 +3536,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
         }
     }
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)));
-    if (nUUIDs > 1)
+    if (multipleUUIDs)
     {
         // the selected items are from different repositories,
         // so we have to update them separately
