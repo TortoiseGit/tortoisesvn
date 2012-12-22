@@ -176,6 +176,7 @@ private:
             , bConflictSummary(false)
             , bBold(false)
             , indent(0)
+            , id(0)
           {
               merge_range.end = 0;
               merge_range.start = 0;
