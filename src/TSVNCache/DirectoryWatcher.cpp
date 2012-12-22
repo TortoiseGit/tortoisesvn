@@ -138,10 +138,20 @@ bool CDirectoryWatcher::AddPath(const CTSVNPath& path, bool bCloseInfoMap)
             return false;
         }
     }
-    if (path.GetWinPathString().Find(L":\\RECYCLER\\") >= 0)
-        return false;
-    if (path.GetWinPathString().Find(L":\\$Recycle.Bin\\") >= 0)
-        return false;
+
+    // ignore the recycle bin
+    PTSTR pFound = StrStrI(path.GetWinPath(), L":\\RECYCLER");
+    if (pFound != NULL)
+    {
+        if ((*(pFound + 10) == '\0') || (*(pFound + 10) == '\\'))
+            return false;
+    }
+    pFound = StrStrI(path.GetWinPath(), L":\\$Recycle.Bin");
+    if (pFound != NULL)
+    {
+        if ((*(pFound + 14) == '\0') || (*(pFound + 10) == '\\'))
+            return false;
+    }
 
     AutoLocker lock(m_critSec);
     for (int i=0; i<watchedPaths.GetCount(); ++i)
@@ -434,7 +444,7 @@ void CDirectoryWatcher::WorkerThread()
 
                             if (m_FolderCrawler)
                             {
-                                if ((pFound = wcsstr(buf, L"\\tmp"))!=NULL)
+                                if ((pFound = StrStrI(buf, L"\\tmp"))!=NULL)
                                 {
                                     pFound += 4;
                                     if (((*pFound)=='\\')||((*pFound)=='\0'))
@@ -442,23 +452,18 @@ void CDirectoryWatcher::WorkerThread()
                                         continue;
                                     }
                                 }
-                                if ((pFound = wcsstr(buf, L":\\RECYCLER\\"))!=NULL)
+                                if ((pFound = StrStrI(buf, L":\\RECYCLER"))!=NULL)
                                 {
-                                    if ((pFound-buf) < 5)
-                                    {
-                                        // a notification for the recycle bin - ignore it
+                                    if ((*(pFound + 10) == '\0') || (*(pFound + 10) == '\\'))
                                         continue;
-                                    }
                                 }
-                                if ((pFound = wcsstr(buf, L":\\$Recycle.Bin\\"))!=NULL)
+                                if ((pFound = StrStrI(buf, L":\\$Recycle.Bin"))!=NULL)
                                 {
-                                    if ((pFound-buf) < 5)
-                                    {
-                                        // a notification for the recycle bin - ignore it
+                                    if ((*(pFound + 14) == '\0') || (*(pFound + 10) == '\\'))
                                         continue;
-                                    }
                                 }
-                                if ((wcsstr(buf, L".tmp"))!=NULL)
+
+                                if (StrStrI(buf, L".tmp")!=NULL)
                                 {
                                     // assume files with a .tmp extension are not versioned and interesting,
                                     // so ignore them.

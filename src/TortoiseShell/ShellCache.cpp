@@ -728,5 +728,18 @@ svn_tristate_t ShellCache::CPathFilter::IsPathAllowed (LPCTSTR path) const
 {
     if (path == NULL)
         return svn_tristate_unknown;
+    // always ignore the recycle bin
+    PTSTR pFound = StrStrI(path, L":\\RECYCLER");
+    if (pFound != NULL)
+    {
+        if ((*(pFound + 10) == '\0') || (*(pFound + 10) == '\\'))
+            return svn_tristate_false;
+    }
+    pFound = StrStrI(path, L":\\$Recycle.Bin");
+    if (pFound != NULL)
+    {
+        if ((*(pFound + 14) == '\0') || (*(pFound + 10) == '\\'))
+            return svn_tristate_false;
+    }
     return IsPathAllowed (path, data.begin(), data.end());
 }
