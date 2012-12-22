@@ -309,7 +309,10 @@ UINT __stdcall CShellExt::CopyCallback_Wrap(HWND /*hWnd*/, UINT wFunc, UINT /*wF
     case FO_DELETE:
     case FO_RENAME:
         if (pszSrcFile && pszSrcFile[0])
-            m_remoteCacheLink.ReleaseLockForPath(CTSVNPath(pszSrcFile));
+        {
+            if (g_ShellCache.IsPathAllowed(pszSrcFile))
+                m_remoteCacheLink.ReleaseLockForPath(CTSVNPath(pszSrcFile));
+        }
         break;
     }
 
