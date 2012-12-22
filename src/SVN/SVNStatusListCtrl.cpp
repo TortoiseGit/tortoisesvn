@@ -4516,6 +4516,8 @@ void CSVNStatusListCtrl::OnLvnGetInfoTip(NMHDR *pNMHDR, LRESULT *pResult)
         return;
 
     LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
+    if (pGetInfoTip->dwFlags & LVGIT_UNFOLDED)
+        return; // only show infotip if the item isn't fully visible
     const int itemIndex = pGetInfoTip->iItem;
     FileEntry* entry = GetListEntry(itemIndex);
     if (entry)

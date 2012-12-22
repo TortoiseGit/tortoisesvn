@@ -484,14 +484,16 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
 {
+    *pResult = 0;
     LPNMLVGETINFOTIP pGetInfoTip = reinterpret_cast<LPNMLVGETINFOTIP>(pNMHDR);
+    if (pGetInfoTip->dwFlags & LVGIT_UNFOLDED)
+        return; // only show infotip if the item isn't fully visible
     if (pGetInfoTip->iItem >= (int)m_arFilteredList.size())
         return;
 
     CString path = m_path1.GetSVNPathString() + _T("/") + m_arFilteredList[pGetInfoTip->iItem].path.GetSVNPathString();
     if (pGetInfoTip->cchTextMax > path.GetLength())
             _tcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, path, pGetInfoTip->cchTextMax);
-    *pResult = 0;
 }
 
 void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
