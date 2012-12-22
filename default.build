@@ -141,11 +141,11 @@
     <property name="cleanup" value="yes" />
     <nant target="clean">
       <buildfiles>
-        <include name="doc/doc.build" />
-        <include name="src/TortoiseSVN.build" />
-        <include name="ext/build/OpenSSL.build" />
-        <include name="ext/build/default.build" />
-        <include name="Languages/LanguagePack.build" />
+        <include name="doc\doc.build" />
+        <include name="src\TortoiseSVN.build" />
+        <include name="ext\build\OpenSSL.build" />
+        <include name="ext\build\default.build" />
+        <include name="Languages\LanguagePack.build" />
       </buildfiles>
     </nant>
   </target>
@@ -156,7 +156,7 @@
     </description>
     <nant target="all">
       <buildfiles>
-        <include name="doc/doc.build" />
+        <include name="doc\doc.build" />
       </buildfiles>
     </nant>
   </target>
@@ -167,7 +167,7 @@
     </description>
     <nant target="potfile">
       <buildfiles>
-        <include name="doc/doc.build" />
+        <include name="doc\doc.build" />
       </buildfiles>
     </nant>
   </target>
@@ -178,7 +178,7 @@
     </description>
     <nant target="apidoc">
       <buildfiles>
-        <include name="doc/doc.build" />
+        <include name="doc\doc.build" />
       </buildfiles>
     </nant>
   </target>
@@ -190,7 +190,7 @@
     </description>
     <nant target="versioninfo">
       <buildfiles>
-        <include name="src/TortoiseSVN.build" />
+        <include name="src\TortoiseSVN.build" />
       </buildfiles>
     </nant>
   </target>
@@ -201,7 +201,7 @@
     </description>
     <nant target="all">
       <buildfiles>
-        <include name="src/TortoiseOverlays/TortoiseOverlays.build" />
+        <include name="src\TortoiseOverlays\TortoiseOverlays.build" />
       </buildfiles>
     </nant>
   </target>
@@ -241,7 +241,7 @@
     </description>
     <nant target="TortoiseSVN">
       <buildfiles>
-        <include name="src/TortoiseSVN.build" />
+        <include name="src\TortoiseSVN.build" />
       </buildfiles>
     </nant>
   </target>

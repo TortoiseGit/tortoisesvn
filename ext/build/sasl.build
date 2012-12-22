@@ -153,7 +153,7 @@
     <property name="platext" value ="" if="${platform == 'x64'}" />
     <link
       output="${configuration}_${platform}\libsasl${platext}.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\libsasl.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/libsasl.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:".\${configuration}_${platform}/libsasl.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\libsasl.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\libsasl.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:"${configuration}_${platform}\libsasl.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <arg value="/LTCG" if="${configuration == 'release'}" />
       <arg value="/RELEASE" if="${configuration == 'release'}" />
       <sources>
@@ -163,8 +163,8 @@
     <exec program="mt.exe">
       <arg value="-nologo" />
       <arg value="-manifest" />
-      <arg value=".\${configuration}_${platform}\libsasl.dll.manifest" />
-      <arg value='/outputresource:".\${configuration}_${platform}\libsasl${platext}.dll;#2"' />
+      <arg value="${configuration}_${platform}\libsasl.dll.manifest" />
+      <arg value='/outputresource:"${configuration}_${platform}\libsasl${platext}.dll;#2"' />
     </exec>
 
     <delete>
@@ -242,7 +242,7 @@
 
     <link
       output="${configuration}_${platform}\saslANONYMOUS.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslANONYMOUS.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslANONYMOUS.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:".\${configuration}_${platform}/saslANONYMOUS.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslANONYMOUS.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslANONYMOUS.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:"${configuration}_${platform}\saslANONYMOUS.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <arg value="/LTCG" if="${configuration == 'release'}" />
       <arg value="/RELEASE" if="${configuration == 'release'}" />
       <sources>
@@ -253,13 +253,13 @@
     <exec program="mt.exe">
       <arg value="-nologo" />
       <arg value="-manifest" />
-      <arg value=".\${configuration}_${platform}\saslANONYMOUS.dll.manifest" />
-      <arg value='/outputresource:".\${configuration}_${platform}\saslANONYMOUS.dll;#2"' />
+      <arg value="${configuration}_${platform}\saslANONYMOUS.dll.manifest" />
+      <arg value='/outputresource:"${configuration}_${platform}\saslANONYMOUS.dll;#2"' />
     </exec>
 
     <link
       output="${configuration}_${platform}\saslCRAMMD5.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslCRAMMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslCRAMMD5.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:".\${configuration}_${platform}/saslCRAMMD5.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslCRAMMD5.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslCRAMMD5.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:"${configuration}_${platform}\saslCRAMMD5.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <arg value="/LTCG" if="${configuration == 'release'}" />
       <arg value="/RELEASE" if="${configuration == 'release'}" />
       <sources>
@@ -270,13 +270,13 @@
     <exec program="mt.exe">
       <arg value="-nologo" />
       <arg value="-manifest" />
-      <arg value=".\${configuration}_${platform}\saslCRAMMD5.dll.manifest" />
-      <arg value='/outputresource:".\${configuration}_${platform}\saslCRAMMD5.dll;#2"' />
+      <arg value="${configuration}_${platform}\saslCRAMMD5.dll.manifest" />
+      <arg value='/outputresource:"${configuration}_${platform}\saslCRAMMD5.dll;#2"' />
     </exec>
 
     <link
       output="${configuration}_${platform}\saslDIGESTMD5.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslDIGESTMD5.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:".\${configuration}_${platform}/saslDIGESTMD5.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslDIGESTMD5.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:"${configuration}_${platform}\saslDIGESTMD5.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <arg value="/LTCG" if="${configuration == 'release'}" />
       <arg value="/RELEASE" if="${configuration == 'release'}" />
       <sources>
@@ -287,13 +287,13 @@
     <exec program="mt.exe">
       <arg value="-nologo" />
       <arg value="-manifest" />
-      <arg value=".\${configuration}_${platform}\saslDIGESTMD5.dll.manifest" />
-      <arg value='/outputresource:".\${configuration}_${platform}\saslDIGESTMD5.dll;#2"' />
+      <arg value="${configuration}_${platform}\saslDIGESTMD5.dll.manifest" />
+      <arg value='/outputresource:"${configuration}_${platform}\saslDIGESTMD5.dll;#2"' />
     </exec>
 
     <link
       output="${configuration}_${platform}\saslLOGIN.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslLOGIN.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslLOGIN.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:".\${configuration}_${platform}/saslLOGIN.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslLOGIN.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslLOGIN.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:"${configuration}_${platform}\saslLOGIN.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <arg value="/LTCG" if="${configuration == 'release'}" />
       <arg value="/RELEASE" if="${configuration == 'release'}" />
       <sources>
@@ -304,13 +304,13 @@
     <exec program="mt.exe">
       <arg value="-nologo" />
       <arg value="-manifest" />
-      <arg value=".\${configuration}_${platform}\saslLOGIN.dll.manifest" />
-      <arg value='/outputresource:".\${configuration}_${platform}\saslLOGIN.dll;#2"' />
+      <arg value="${configuration}_${platform}\saslLOGIN.dll.manifest" />
+      <arg value='/outputresource:"${configuration}_${platform}\saslLOGIN.dll;#2"' />
     </exec>
 
     <link
       output="${configuration}_${platform}\saslNTLM.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslNTLM.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:".\${configuration}_${platform}/saslNTLM.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslNTLM.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:"${configuration}_${platform}\saslNTLM.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <arg value="/LTCG" if="${configuration == 'release'}" />
       <arg value="/RELEASE" if="${configuration == 'release'}" />
       <sources>
@@ -321,13 +321,13 @@
     <exec program="mt.exe">
       <arg value="-nologo" />
       <arg value="-manifest" />
-      <arg value=".\${configuration}_${platform}\saslNTLM.dll.manifest" />
-      <arg value='/outputresource:".\${configuration}_${platform}\saslNTLM.dll;#2"' />
+      <arg value="${configuration}_${platform}\saslNTLM.dll.manifest" />
+      <arg value='/outputresource:"${configuration}_${platform}\saslNTLM.dll;#2"' />
     </exec>
 
     <link
       output="${configuration}_${platform}\saslPLAIN.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslPLAIN.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslPLAIN.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:".\${configuration}_${platform}/saslPLAIN.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslPLAIN.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslPLAIN.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:"${configuration}_${platform}\saslPLAIN.lib" ${machineoption} ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib advapi32.lib'>
       <arg value="/LTCG" if="${configuration == 'release'}" />
       <arg value="/RELEASE" if="${configuration == 'release'}" />
       <sources>
@@ -338,13 +338,13 @@
     <exec program="mt.exe">
       <arg value="-nologo" />
       <arg value="-manifest" />
-      <arg value=".\${configuration}_${platform}\saslPLAIN.dll.manifest" />
-      <arg value='/outputresource:".\${configuration}_${platform}\saslPLAIN.dll;#2"' />
+      <arg value="${configuration}_${platform}\saslPLAIN.dll.manifest" />
+      <arg value='/outputresource:"${configuration}_${platform}\saslPLAIN.dll;#2"' />
     </exec>
 
     <link
       output="${configuration}_${platform}\saslGSSAPI.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:".\${configuration}_${platform}\saslGSSAPI.dll.manifest" /DEBUG /PDB:".\${configuration}_${platform}/saslGSSAPI.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:".\${configuration}_${platform}/saslGSSAPI.lib" ${machineoption} ..\gssapi\${configuration}_${platform}\gssapiu.lib" ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslGSSAPI.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslGSSAPI.pdb" /DLL ${subsystem} /OPT:REF /OPT:ICF /IMPLIB:"${configuration}_${platform}\saslGSSAPI.lib" ${machineoption} ..\gssapi\${configuration}_${platform}\gssapiu.lib" ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <arg value="/LTCG" if="${configuration == 'release'}" />
       <arg value="/RELEASE" if="${configuration == 'release'}" />
       <sources>
@@ -355,8 +355,8 @@
     <exec program="mt.exe">
       <arg value="-nologo" />
       <arg value="-manifest" />
-      <arg value=".\${configuration}_${platform}\saslGSSAPI.dll.manifest" />
-      <arg value='/outputresource:".\${configuration}_${platform}\saslGSSAPI.dll;#2"' />
+      <arg value="${configuration}_${platform}\saslGSSAPI.dll.manifest" />
+      <arg value='/outputresource:"${configuration}_${platform}\saslGSSAPI.dll;#2"' />
     </exec>
 
     <copy todir="..\..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="false">

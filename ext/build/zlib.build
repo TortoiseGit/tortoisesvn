@@ -24,7 +24,7 @@
     <mkdir dir="${configuration}_${platform}" />
     <if test="${platform == 'win32'}">
       <copy todir="." overwrite="true">
-        <fileset basedir="contrib/masmx86">
+        <fileset basedir="contrib\masmx86">
           <include name="*.asm" />
           <include name="*.c" />
         </fileset>
@@ -35,7 +35,7 @@
     </if>
     <if test="${platform == 'x64'}">
       <copy todir="." overwrite="true">
-        <fileset basedir="contrib/masmx64">
+        <fileset basedir="contrib\masmx64">
           <include name="*.asm" />
           <include name="*.c" />
         </fileset>
