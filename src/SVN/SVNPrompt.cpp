@@ -377,8 +377,6 @@ svn_error_t* SVNPrompt::sslclientprompt(int trycount, svn_auth_cred_ssl_client_c
                 break;
             }
         }
-        if ((incert)&&(cert==NULL))
-            CertFreeCertificateContext(incert);
     }
 
     if (cert == NULL)
@@ -388,10 +386,7 @@ svn_error_t* SVNPrompt::sslclientprompt(int trycount, svn_auth_cred_ssl_client_c
                                                     svn->m_hParentWnd,
                                                     NULL,
                                                     NULL,
-                                                    CRYPTUI_SELECT_EXPIRATION_COLUMN |
-                                                    CRYPTUI_SELECT_LOCATION_COLUMN |
-                                                    CRYPTUI_SELECT_FRIENDLYNAME_COLUMN |
-                                                    CRYPTUI_SELECT_INTENDEDUSE_COLUMN,
+                                                    0,
                                                     0,
                                                     NULL);
         if (cert)
