@@ -1651,7 +1651,6 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
     else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)) || (data->action == svn_wc_notify_resolved))
     {
         // This is a modified file which has been merged on update. Diff it against base
-        CTSVNPath temporaryFile;
         SVNDiff diff(NULL, this->m_hWnd, true); // do not pass 'this' as the SVN instance since that would make the diff command invoke this notify handler
         diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
         svn_revnum_t baseRev = 0;
@@ -2650,7 +2649,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
             return false;
         }
     }
-    if (m_restorepaths.size())
+    if (!m_restorepaths.empty())
     {
         for (auto it = m_restorepaths.cbegin(); it != m_restorepaths.cend(); ++it)
         {
@@ -3552,7 +3551,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
 
     // after an update, show the user the log button, but only if only one single item was updated
     // (either a file or a directory)
-    if ((m_targetPathList.GetCount() == 1)&&(m_UpdateStartRevMap.size()>0))
+    if ((m_targetPathList.GetCount() == 1) && (!m_UpdateStartRevMap.empty()))
         GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
 
     return true;
