@@ -134,7 +134,8 @@ CBaseView::CBaseView()
         m_sConflictedText += _T("??");
     m_sNoLineNr.LoadString(IDS_EMPTYLINETT);
 
-    m_szTip[0] = 0;
+    m_szTip[0]  = 0;
+    m_wszTip[0] = 0;
     SecureZeroMemory(&m_lfBaseFont, sizeof(m_lfBaseFont));
     EnableToolTips();
 }
