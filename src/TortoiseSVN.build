@@ -30,7 +30,6 @@
       <arg value="-f" />
       <arg value="scintilla.mak" />
       <arg value="QUIET=1" />
-      <arg value="DEBUG=1" if="${configuration == 'debug'}" />
       <arg value="x64=1"   if="${platform == 'x64'}" />
     </exec>
     <property name="platformfoldername" value=""   if="${platform == 'win32'}"/>
