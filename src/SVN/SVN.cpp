@@ -1788,9 +1788,8 @@ svn_error_t* SVN::cancel(void *baton)
     SVN * svn = (SVN *)baton;
     if ((svn->Cancel())||((svn->m_pProgressDlg)&&(svn->m_pProgressDlg->HasUserCancelled())))
     {
-        CString temp;
-        temp.LoadString(IDS_SVN_USERCANCELLED);
-        return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
+        CString message(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED));
+        return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(message));
     }
     return SVN_NO_ERROR;
 }
@@ -1799,9 +1798,8 @@ void SVN::cancel()
 {
     if (Cancel() || ((m_pProgressDlg != NULL) && (m_pProgressDlg->HasUserCancelled())))
     {
-        CStringA message;
-        message.LoadString (IDS_SVN_USERCANCELLED);
-        throw SVNError (SVN_ERR_CANCELLED, message);
+        CString message(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED));
+        throw SVNError (SVN_ERR_CANCELLED, CUnicodeUtils::GetUTF8(message));
     }
 }
 
