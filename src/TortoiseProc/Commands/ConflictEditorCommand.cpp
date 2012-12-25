@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2011 - TortoiseSVN
+// Copyright (C) 2008-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -267,6 +267,14 @@ bool ConflictEditorCommand::Execute()
                     break;
                 case svn_wc_conflict_reason_replaced:
                     uReasonID = conflIt->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_REPLACED : IDS_TREECONFLICT_REASON_FILE_REPLACED;
+                    sResolveMine.LoadString(conflIt->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
+                    break;
+                case svn_wc_conflict_reason_moved_away:
+                    uReasonID = conflIt->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_MOVEDAWAY : IDS_TREECONFLICT_REASON_FILE_MOVEDAWAY;
+                    sResolveMine.LoadString(conflIt->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
+                    break;
+                case svn_wc_conflict_reason_moved_here:
+                    uReasonID = conflIt->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_REASON_DIR_MOVEDHERE : IDS_TREECONFLICT_REASON_FILE_MOVEDHERE;
                     sResolveMine.LoadString(conflIt->treeconflict_nodekind == svn_node_dir ? IDS_TREECONFLICT_RESOLVE_KEEPLOCALDIR : IDS_TREECONFLICT_RESOLVE_KEEPLOCALFILE);
                     break;
                 }

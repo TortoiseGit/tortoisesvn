@@ -126,7 +126,7 @@ BOOL CTreeConflictEditorDlg::OnInitDialog()
             GetDlgItem(IDC_RESOLVEUSINGMINE)->ShowWindow(SW_SHOW);
         }
     }
-    else if (conflict_reason == svn_wc_conflict_reason_missing)
+    else if ((conflict_reason == svn_wc_conflict_reason_missing)||(conflict_reason == svn_wc_conflict_reason_moved_away))
     {
         // a missing item leaves as the only option: mark the conflict as resolved :(
         if (conflict_action == svn_wc_conflict_action_edit)
