@@ -874,6 +874,11 @@ CSVNStatusListCtrl::AddNewFileEntry(
         entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->ood_changed_author);
     if ((entry->last_commit_author.IsEmpty())&&(pSVNStatus->changed_author))
         entry->last_commit_author = CUnicodeUtils::GetUnicode(pSVNStatus->changed_author);
+    if (pSVNStatus->moved_from_abspath)
+        entry->moved_from_abspath = CUnicodeUtils::GetUnicode(pSVNStatus->moved_from_abspath);
+    if (pSVNStatus->moved_to_abspath)
+        entry->moved_to_abspath = CUnicodeUtils::GetUnicode(pSVNStatus->moved_to_abspath);
+
 
     entry->isConflicted = (pSVNStatus->conflicted) ? true : false;
     if (pSVNStatus->conflicted)

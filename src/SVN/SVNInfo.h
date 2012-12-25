@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011 - TortoiseSVN
+// Copyright (C) 2003-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,6 +102,9 @@ public:
     CString             changelist;
     svn_depth_t         depth;
     svn_filesize_t      working_size64;
+
+    CString             moved_to_abspath;
+    CString             moved_from_abspath;
 
     std::deque<SVNConflictData> conflicts;
     // convenience methods:

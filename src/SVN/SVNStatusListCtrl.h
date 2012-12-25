@@ -434,6 +434,8 @@ public:
         bool                    file_external;          ///< if the item is a file that was added to the working copy with an svn:externals; if file_external is TRUE, then switched is always FALSE.
         CString                 copyfrom_url_string;    ///< contains the url which this item was copied from. Note: this is not filled in by the status call but only
                                                         ///< filled in when needed. This member is only here as a cache.
+        CString                 moved_from_abspath;     ///< Set to the local absolute path that this node was moved from
+        CString                 moved_to_abspath;       ///< Set to the local absolute path that this node was moved to
         _int64                  id;                     ///< id/index of the entry, stays the same even after resorting
         friend class CSVNStatusListCtrl;
         friend class CSVNStatusListCtrlDropTarget;

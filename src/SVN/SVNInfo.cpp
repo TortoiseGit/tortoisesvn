@@ -206,7 +206,10 @@ svn_error_t * SVNInfo::infoReceiver(void* baton, const char * path, const svn_cl
         data.working_size64 = info->wc_info->recorded_size;
         if (info->wc_info->wcroot_abspath)
             data.wcroot = CUnicodeUtils::GetUnicode(info->wc_info->wcroot_abspath);
-
+        if (info->wc_info->moved_from_abspath)
+            data.moved_from_abspath = CUnicodeUtils::GetUnicode(info->wc_info->moved_from_abspath);
+        if (info->wc_info->moved_to_abspath)
+            data.moved_to_abspath = CUnicodeUtils::GetUnicode(info->wc_info->moved_to_abspath);
 
         if (info->wc_info->conflicts)
         {
