@@ -1095,7 +1095,7 @@
             <Component Id="C__PlatformSettingsShortcuts" Guid="$(var.GuidPlatformSettingsShortcuts)" Win64="$(var.Win64YesNo)">
               <RegistryValue Root="HKCU" Key="Software\TortoiseSVN" KeyPath="yes" Name="TortoiseSVN" Value="TortoiseSVN" Type="string" />
               <Condition>VersionNT64</Condition>
-              <Shortcut Id="S__PlatformConfig" Directory="D_TortoisePrgMenu" Name="Settings $(var.PlatformUserVisible)" Advertise="no"
+              <Shortcut Id="S__PlatformConfig" Directory="D_TortoisePrgMenu" Name="Settings" Advertise="no"
               Target="[INSTALLDIR]bin\TortoiseProc.exe" Description="TortoiseSVN" Arguments="/command:settings" Show="normal" />
             </Component>
 
