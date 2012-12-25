@@ -340,6 +340,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_update_shadowed_delete:
     case svn_wc_notify_delete:
     case svn_wc_notify_update_delete:
+    case svn_wc_notify_exclude:
         data->sActionColumnText.LoadString(IDS_SVNACTION_DELETE);
         m_bMergesAddsDeletesOccurred = true;
         data->color = m_Colors.GetColor(CColors::Deleted);
@@ -733,6 +734,36 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         m_nConflicts++;
         m_bConflictWarningShown = false;
         break;
+    case svn_wc_notify_update_skip_access_denied:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_ACCESSDENIED);
+        data->color = m_Colors.GetColor(CColors::Conflict);
+        data->bConflictedActionItem = true;
+        m_nConflicts++;
+        m_bConflictWarningShown = false;
+        break;
+    case svn_wc_notify_skip_conflicted:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_REMAINSCONFLICTED);
+        data->color = m_Colors.GetColor(CColors::Conflict);
+        data->bConflictedActionItem = true;
+        m_nConflicts++;
+        m_bConflictWarningShown = false;
+        break;
+    case svn_wc_notify_update_broken_lock:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_BROKENLOCKED);
+        break;
+    case svn_wc_notify_left_local_modifications:
+        data->sActionColumnText.LoadString(IDS_SVNACTION_LEFTLOCALMODS);
+        break;
+    case svn_wc_notify_upgraded_path:
+    case svn_wc_notify_failed_conflict:
+    case svn_wc_notify_failed_missing:
+    case svn_wc_notify_failed_out_of_date:
+    case svn_wc_notify_failed_no_parent:
+    case svn_wc_notify_failed_locked:
+    case svn_wc_notify_failed_forbidden_by_server:
+    case svn_wc_notify_failed_obstruction:
+    case svn_wc_notify_conflict_resolver_starting:
+    case svn_wc_notify_conflict_resolver_done:
     default:
         break;
     } // switch (data->action)
@@ -812,6 +843,7 @@ CString CSVNProgressDlg::BuildInfoString()
             break;
         case svn_wc_notify_delete:
         case svn_wc_notify_update_delete:
+        case svn_wc_notify_exclude:
         case svn_wc_notify_commit_deleted:
         case svn_wc_notify_update_shadowed_delete:
             deleted++;
@@ -841,6 +873,7 @@ CString CSVNProgressDlg::BuildInfoString()
             break;
         case svn_wc_notify_skip:
         case svn_wc_notify_update_skip_working_only:
+        case svn_wc_notify_update_skip_access_denied:
             skipped++;
             break;
         case svn_wc_notify_commit_replaced:
