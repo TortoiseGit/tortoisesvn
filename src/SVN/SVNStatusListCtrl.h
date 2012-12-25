@@ -1110,6 +1110,8 @@ private:
 
     ColumnManager               m_ColumnManager;
 
+    WCHAR                       m_tooltipbuf[4096];
+
     std::map<CString,bool>      m_mapFilenameToChecked; ///< Remember manually de-/selected items
     int                         m_bBlockItemChangeHandler;
     std::set<CTSVNPath>         m_externalSet;

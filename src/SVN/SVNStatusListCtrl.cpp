@@ -218,6 +218,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_dwContextMenus(0)
     , m_nIconFolder(0)
 {
+    m_tooltipbuf[0] = 0;
 }
 
 CSVNStatusListCtrl::~CSVNStatusListCtrl()
@@ -5021,6 +5022,8 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
             if (fentry)
             {
                 TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
+                pTTTW->lpszText = m_tooltipbuf;
+                m_tooltipbuf[0] = 0;
                 if (fentry->copied)
                 {
                     // show the copyfrom url in the tooltip
@@ -5033,17 +5036,33 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                     }
                     if (!fentry->copyfrom_url_string.IsEmpty())
                     {
-                        lstrcpyn(pTTTW->szText, (LPCTSTR)fentry->copyfrom_url_string, 80);
+                        StringCchCat(m_tooltipbuf, _countof(m_tooltipbuf), (LPCTSTR)fentry->copyfrom_url_string);
                     }
-                    return TRUE;
+                }
+                if (!fentry->moved_from_abspath.IsEmpty())
+                {
+                    CString p;
+                    p.Format(IDS_STATUSLIST_MOVEDFROM, (LPCTSTR)fentry->moved_from_abspath);
+                    if (m_tooltipbuf[0])
+                        StringCchCat(m_tooltipbuf, _countof(m_tooltipbuf), L"\r\n\r\n");
+                    StringCchCat(m_tooltipbuf, _countof(m_tooltipbuf), (LPCTSTR)p);
+                }
+                if (!fentry->moved_to_abspath.IsEmpty())
+                {
+                    CString p;
+                    p.Format(IDS_STATUSLIST_MOVEDTO, (LPCTSTR)fentry->moved_to_abspath);
+                    if (m_tooltipbuf[0])
+                        StringCchCat(m_tooltipbuf, _countof(m_tooltipbuf), L"\r\n\r\n");
+                    StringCchCat(m_tooltipbuf, _countof(m_tooltipbuf), (LPCTSTR)p);
                 }
                 if (fentry->switched)
                 {
                     // show where the item is switched to in the tooltip
                     CString url;
                     url.Format(IDS_STATUSLIST_SWITCHEDTO, (LPCTSTR)CPathUtils::PathUnescape(fentry->url));
-                    StringCchCopy(pTTTW->szText, _countof(pTTTW->szText), (LPCTSTR)url);
-                    return TRUE;
+                    if (m_tooltipbuf[0])
+                        StringCchCat(m_tooltipbuf, _countof(m_tooltipbuf), L"\r\n\r\n");
+                    StringCchCat(m_tooltipbuf, _countof(m_tooltipbuf), (LPCTSTR)url);
                 }
                 if (!fentry->IsFolder())
                 {
@@ -5064,9 +5083,12 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                     StrFormatByteSize64(wcSize-baseSize, changedBuf, _countof(changedBuf));
                     CString sTemp;
                     sTemp.FormatMessage(IDS_STATUSLIST_WCBASESIZES, wcBuf, baseBuf, changedBuf);
-                    StringCchCopy(pTTTW->szText, _countof(pTTTW->szText), (LPCTSTR)sTemp);
-                    return TRUE;
+                    if (m_tooltipbuf[0])
+                        StringCchCat(m_tooltipbuf, _countof(m_tooltipbuf), L"\r\n\r\n");
+                    StringCchCat(m_tooltipbuf, _countof(m_tooltipbuf), (LPCTSTR)sTemp);
                 }
+                if (m_tooltipbuf[0])
+                    return TRUE;
             }
         }
     }
