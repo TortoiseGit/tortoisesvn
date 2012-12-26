@@ -4,7 +4,7 @@
 
 CD2D* CD2D::m_pInstance = nullptr;
 ID2D1Factory * CD2D::m_pDirect2dFactory = nullptr;
-IDWriteFactory * CD2D::m_pWriteFactory = nullptr;;
+IDWriteFactory * CD2D::m_pWriteFactory = nullptr;
 HMODULE CD2D::m_hD2D1Lib = NULL;
 HMODULE CD2D::m_hWriteLib = NULL;
 

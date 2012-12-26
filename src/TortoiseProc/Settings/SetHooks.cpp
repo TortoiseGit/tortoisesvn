@@ -144,7 +144,7 @@ void CSetHooks::OnBnClickedEditbutton()
         dlg.cmd.commandline = m_cHookList.GetItemText(index, 2);
         dlg.cmd.bWait = (m_cHookList.GetItemText(index, 3).Compare(_T("true"))==0);
         dlg.cmd.bShow = (m_cHookList.GetItemText(index, 4).Compare(_T("show"))==0);
-        dlg.cmd.bEnforce = (m_cHookList.GetItemText(index, 5).Compare(_T("true"))==0);;
+        dlg.cmd.bEnforce = (m_cHookList.GetItemText(index, 5).Compare(_T("true"))==0);
         hookkey key = dlg.key;
         if (dlg.DoModal() == IDOK)
         {
