@@ -46,19 +46,6 @@ Index: src/Editor.h
  	virtual void NotifyStyleToNeeded(int endStyleNeeded);
  	void NotifyChar(int ch);
  	void NotifySavePoint(bool isSavePoint);
-Index: win32/scintilla.mak
-===================================================================
---- win32/scintilla.mak	(revision 23509)
-+++ win32/scintilla.mak	(working copy)
-@@ -21,7 +21,7 @@
- RC=rc
- LD=link
- 
--CXXFLAGS=-Zi -TP -MP -W4 -EHsc -Zc:forScope -Zc:wchar_t -D_CRT_SECURE_NO_DEPRECATE=1
-+CXXFLAGS=-Zi -TP -MP -W0 -EHsc -Zc:forScope -Zc:wchar_t -D_CRT_SECURE_NO_DEPRECATE=1
- CXXDEBUG=-Od -MTd -DDEBUG
- CXXNDEBUG=-O1 -MT -DNDEBUG -GL
- NAME=-Fo
 Index: win32/ScintillaWin.cxx
 ===================================================================
 --- win32/ScintillaWin.cxx	(revision 23509)
