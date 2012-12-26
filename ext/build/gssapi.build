@@ -27,6 +27,7 @@
       <arg value="/nologo" />
       <arg value="/c" />
       <arg value="/Zi" />
+      <arg value="/GL" if="${configuration == 'release'}" />
       <sources>
         <include name="gssapi.cpp" />
       </sources>
