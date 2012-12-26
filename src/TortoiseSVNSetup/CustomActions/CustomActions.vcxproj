@@ -49,6 +49,7 @@
     <ClCompile>
       <PreprocessorDefinitions>_USRDLL;CUSTOMACTIONS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <ModuleDefinitionFile>CustomActions.def</ModuleDefinitionFile>
@@ -58,6 +59,7 @@
     <ClCompile>
       <PreprocessorDefinitions>_USRDLL;CUSTOMACTIONS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <ModuleDefinitionFile>CustomActions.def</ModuleDefinitionFile>
@@ -65,15 +67,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CustomActions.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="CustomActions.def" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

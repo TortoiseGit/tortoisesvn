@@ -22,9 +22,13 @@
    in this custom action dll! The runtimes might not be installed yet!
 */
 
-#include "stdafx.h"
-#include "shlwapi.h"
-#include "shellapi.h"
+#include <windows.h>
+#include <tchar.h>
+#include <msi.h>
+#include <msiquery.h>
+#include <shlwapi.h>
+#include <shellapi.h>
+
 #pragma comment(lib, "shlwapi")
 #pragma comment(lib, "shell32")
 
@@ -69,7 +73,7 @@ UINT __stdcall TerminateCache(MSIHANDLE /*hModule*/)
 
 UINT __stdcall OpenDonatePage(MSIHANDLE /*hModule*/)
 {
-    ShellExecute(NULL, _T("open"), _T("http://tortoisesvn.tigris.org/donate.html"), NULL,NULL, SW_SHOW);
+    ShellExecute(NULL, _T("open"), _T("http://tortoisesvn.tigris.org/donate.html"), NULL, NULL, SW_SHOW);
     return ERROR_SUCCESS;
 }
 
