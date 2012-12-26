@@ -65,25 +65,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30128.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\bin\Debug\bin\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\obj\TortoiseLang\Debug\</IntDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\bin\debug64\bin\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\obj\TortoiseLang\Debug64\</IntDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\bin\release\bin\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\obj\TortoiseLang\Release\</IntDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\bin\release64\bin\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\obj\TortoiseLang\Release64\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\bin\$(Configuration)\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\bin\$(Configuration)64\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\bin\$(Configuration)\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\obj\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\bin\$(Configuration)64\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PostBuildEvent>
-      <Command>..\bin\debug\bin\ResText extract ..\bin\debug\bin\TortoiseProcLang.dll ..\bin\debug\bin\TortoiseMergeLang.dll ..\bin\debug\bin\TortoiseBlameLang.dll ..\bin\debug\bin\TortoiseIDiffLang.dll TortoiseUI.pot</Command>
+      <Command>..\bin\$(Configuration)\bin\ResText extract ..\bin\$(Configuration)\bin\TortoiseProcLang.dll ..\bin\$(Configuration)\bin\TortoiseMergeLang.dll ..\bin\$(Configuration)\bin\TortoiseBlameLang.dll ..\bin\$(Configuration)\bin\TortoiseIDiffLang.dll TortoiseUI.pot</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PostBuildEvent>
-      <Command>..\bin\release\bin\ResText extract ..\bin\release\bin\TortoiseProcLang.dll ..\bin\release\bin\TortoiseMergeLang.dll ..\bin\release\bin\TortoiseBlameLang.dll ..\bin\release\bin\TortoiseIDiffLang.dll -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot</Command>
+      <Command>..\bin\$(Configuration)\bin\ResText extract ..\bin\$(Configuration)\bin\TortoiseProcLang.dll ..\bin\$(Configuration)\bin\TortoiseMergeLang.dll ..\bin\$(Configuration)\bin\TortoiseBlameLang.dll ..\bin\$(Configuration)\bin\TortoiseIDiffLang.dll -useheaderfile TortoiseUIPotHeader.txt TortoiseUI.pot</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

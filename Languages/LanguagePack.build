@@ -63,8 +63,8 @@ NAnt build script for the TortoiseSVN language pack installers
   <target name="doit">
     <property name="platformfolder" value="${configuration}${bindirextension}" />
 
-    <property name="ResTextFileName" value="..\bin\release${bindirextension}\bin\restext.exe" />
-    <property name="ResTextFileName" value="..\bin\release\bin\restext.exe" if="${crosscompile == 'yes'}" />
+    <property name="ResTextFileName" value="..\bin\Release${bindirextension}\bin\restext.exe" />
+    <property name="ResTextFileName" value="..\bin\Release\bin\restext.exe" if="${crosscompile == 'yes'}" />
 
     <regex
       pattern="^(?'langISO'[A-z_@]+);[ \t]+(?'langWIX'[A-z\-]+);[ \t]+(?'langCC'\d+);[ \t]+(?'spellcheck'\d);[ \t]+(?'langUI'.+);[ \t]+(?'translatornames'.+)"
@@ -87,7 +87,7 @@ NAnt build script for the TortoiseSVN language pack installers
     </exec>
     <exec program="${ResTextFileName}" failonerror="false" if="${platform == 'x64'}">
       <arg value="apply" />
-      <arg value="..\bin\release\bin\TortoiseProcLang.dll" />
+      <arg value="..\bin\Release\bin\TortoiseProcLang.dll" />
       <arg value="..\bin\TortoiseProc32${langCC}.dll" />
       <arg value="${langISO}\TortoiseUI.po" />
       <arg value="-adjusteols" />
@@ -245,7 +245,7 @@ NAnt build script for the TortoiseSVN language pack installers
 
     <zip zipfile="..\bin\TortoiseSVN_${verstring}${devrelease}_${platform}_LanguageDlls.zip" ziplevel="9">
       <fileset>
-        <include name="..\bin\release${bindirextension}\bin\*Lang.dll" />
+        <include name="..\bin\Release${bindirextension}\bin\*Lang.dll" />
       </fileset>
     </zip>
   </target>

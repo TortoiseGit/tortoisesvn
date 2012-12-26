@@ -72,20 +72,20 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\..\obj\TreePropSheet\Debug\</OutDir>
-    <IntDir>..\..\obj\TreePropSheet\Debug\</IntDir>
+    <OutDir>..\..\obj\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>..\..\obj\TreePropSheet\Debug64\</OutDir>
-    <IntDir>..\..\obj\TreePropSheet\Debug64\</IntDir>
+    <OutDir>..\..\obj\$(ProjectName)\$(Configuration)64\</OutDir>
+    <IntDir>..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\..\obj\TreePropSheet\Release64\</OutDir>
-    <IntDir>..\..\obj\TreePropSheet\Release64\</IntDir>
+    <OutDir>..\..\obj\$(ProjectName)\$(Configuration)64\</OutDir>
+    <IntDir>..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\..\obj\TreePropSheet\Release\</OutDir>
-    <IntDir>..\..\obj\TreePropSheet\Release\</IntDir>
+    <OutDir>..\..\obj\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -86,16 +86,16 @@
     <IntDir>..\..\..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>..\..\..\..\bin\$(Configuration)$(PlatformArchitecture)\bin\</OutDir>
-    <IntDir>..\..\..\..\obj\$(ProjectName)\$(Configuration)$(Platform)\</IntDir>
+    <OutDir>..\..\..\..\bin\$(Configuration)64\bin\</OutDir>
+    <IntDir>..\..\..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>..\..\..\..\bin\$(Configuration)\bin\</OutDir>
     <IntDir>..\..\..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\..\..\..\bin\$(Configuration)$(PlatformArchitecture)\bin\</OutDir>
-    <IntDir>..\..\..\..\obj\$(ProjectName)\$(Configuration)$(Platform)\</IntDir>
+    <OutDir>..\..\..\..\bin\$(Configuration)64\bin\</OutDir>
+    <IntDir>..\..\..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
