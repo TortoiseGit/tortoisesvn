@@ -17,9 +17,6 @@
     <Filter Include="Utils\3rd Party\hunspell">
       <UniqueIdentifier>{d5e5e600-98a1-4683-bafb-8f319142cf73}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utils\3rd Party\TreePropSheet">
-      <UniqueIdentifier>{bdc9f63d-0b4d-424e-afb3-de546cfa3ad6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Subversion">
       <UniqueIdentifier>{37f2c83f-3536-43d7-a0b5-7b293d3dcdf3}</UniqueIdentifier>
     </Filter>
@@ -370,15 +367,6 @@
     </ClCompile>
     <ClCompile Include="..\..\ext\hunspell\utf_info.cxx">
       <Filter>Utils\3rd Party\hunspell</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\TreePropSheet\PropPageFrame.cpp">
-      <Filter>Utils\3rd Party\TreePropSheet</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\TreePropSheet\PropPageFrameDefault.cpp">
-      <Filter>Utils\3rd Party\TreePropSheet</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Utils\TreePropSheet\TreePropSheet.cpp">
-      <Filter>Utils\3rd Party\TreePropSheet</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVN.cpp">
       <Filter>Subversion</Filter>
@@ -1337,16 +1325,7 @@
       <Filter>Utils\3rd Party\hunspell</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\HighColorTab.hpp">
-      <Filter>Utils\3rd Party\TreePropSheet</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\TreePropSheet\PropPageFrame.h">
-      <Filter>Utils\3rd Party\TreePropSheet</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\TreePropSheet\PropPageFrameDefault.h">
-      <Filter>Utils\3rd Party\TreePropSheet</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Utils\TreePropSheet\TreePropSheet.h">
-      <Filter>Utils\3rd Party\TreePropSheet</Filter>
+      <Filter>Utils\3rd Party</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVN.h">
       <Filter>Subversion</Filter>

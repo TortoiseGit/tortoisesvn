@@ -81,50 +81,50 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc32;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\..\ext\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc32;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SVN_DEBUG;ENABLE_NLS;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>$(IntDir);..\TortoiseShell;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\debug_win32\libsvn_tsvn32.lib;..\..\ext\apr\debug_win32\libapr_tsvn.lib;..\..\ext/cyrus-SASL\debug_win32\libsasl.lib;..\..\ext\apr-util\debug_win32\libaprutil_tsvn.lib;..\..\ext\libintl\debug_win32\lib\intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\debug_win32\libsvn_tsvn32.lib;..\..\ext\apr\debug_win32\libapr_tsvn.lib;..\..\ext\cyrus-SASL\debug_win32\libsasl.lib;..\..\ext\apr-util\debug_win32\libaprutil_tsvn.lib;..\..\ext\libintl\debug_win32\lib\intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc64;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\..\ext\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc64;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SVN_DEBUG;ENABLE_NLS;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>$(IntDir);..\TortoiseShell;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\debug_x64\libsvn_tsvn.lib;..\..\ext\apr\debug_x64\libapr_tsvn.lib;..\..\ext\apr-util\debug_x64\libaprutil_tsvn.lib;..\..\ext\libintl\debug_x64/lib/intl3_tsvn.lib;..\..\ext/cyrus-SASL\debug_x64\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\debug_x64\libsvn_tsvn.lib;..\..\ext\apr\debug_x64\libapr_tsvn.lib;..\..\ext\apr-util\debug_x64\libaprutil_tsvn.lib;..\..\ext\libintl\debug_x64/lib/intl3_tsvn.lib;..\..\ext\cyrus-SASL\debug_x64\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc32;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\..\ext\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc32;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>$(IntDir);..\TortoiseShell;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\release_win32\libsvn_tsvn32.lib;..\..\ext\apr\release_win32\libapr_tsvn.lib;..\..\ext\apr-util\release_win32\libaprutil_tsvn.lib;..\..\ext\libintl\release_win32/lib/intl3_tsvn.lib;..\..\ext/cyrus-SASL\release_win32\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\release_win32\libsvn_tsvn32.lib;..\..\ext\apr\release_win32\libapr_tsvn.lib;..\..\ext\apr-util\release_win32\libaprutil_tsvn.lib;..\..\ext\libintl\release_win32/lib/intl3_tsvn.lib;..\..\ext\cyrus-SASL\release_win32\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc64;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\..\ext\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc64;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>$(IntDir);..\TortoiseShell;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\release_x64\libsvn_tsvn.lib;..\..\ext\apr\release_x64\libapr_tsvn.lib;..\..\ext\apr-util\release_x64\libaprutil_tsvn.lib;..\..\ext\libintl\release_x64\lib\intl3_tsvn.lib;..\..\ext/cyrus-SASL\release_x64\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\release_x64\libsvn_tsvn.lib;..\..\ext\apr\release_x64\libapr_tsvn.lib;..\..\ext\apr-util\release_x64\libaprutil_tsvn.lib;..\..\ext\libintl\release_x64\lib\intl3_tsvn.lib;..\..\ext\cyrus-SASL\release_x64\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -243,9 +243,6 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
-    <ClCompile Include="..\Utils\TreePropSheet\PropPageFrame.cpp" />
-    <ClCompile Include="..\Utils\TreePropSheet\PropPageFrameDefault.cpp" />
-    <ClCompile Include="..\Utils\TreePropSheet\TreePropSheet.cpp" />
     <ClCompile Include="..\SVN\SVN.cpp" />
     <ClCompile Include="..\SVN\SVNAdminDir.cpp" />
     <ClCompile Include="..\SVN\SVNConfig.cpp" />
@@ -575,9 +572,6 @@
     <ClInclude Include="..\..\ext\hunspell\mythes.hxx" />
     <ClInclude Include="..\..\ext\hunspell\suggestmgr.hxx" />
     <ClInclude Include="..\Utils\MiscUI\HighColorTab.hpp" />
-    <ClInclude Include="..\Utils\TreePropSheet\PropPageFrame.h" />
-    <ClInclude Include="..\Utils\TreePropSheet\PropPageFrameDefault.h" />
-    <ClInclude Include="..\Utils\TreePropSheet\TreePropSheet.h" />
     <ClInclude Include="..\SVN\SVN.h" />
     <ClInclude Include="..\SVN\SVNAdminDir.h" />
     <ClInclude Include="..\SVN\SVNConfig.h" />
@@ -951,6 +945,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\ext\ResizableLib\ResizableLib.vcxproj">
       <Project>{4be529fb-c2f2-49f7-a897-054b955564cf}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ext\TreePropSheet\TreePropSheet.vcxproj">
+      <Project>{ab494732-ef6d-44d0-bcf8-80ff04858d10}</Project>
     </ProjectReference>
     <ProjectReference Include="..\AsyncFramework\AsyncFramework.vcxproj">
       <Project>{4fea9603-17c9-4254-82e2-761d99a3a519}</Project>

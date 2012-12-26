@@ -27,6 +27,8 @@
 
 #include "PropPageFrame.h"
 #include <afxtempl.h>
+#include <afxdlgs.h>    // Needed for CPropertySheet
+#include <afxcmn.h>     // Needed for CTreeCtrl
 
 namespace TreePropSheet
 {
