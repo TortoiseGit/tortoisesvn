@@ -76,7 +76,7 @@ OPTIMFLAGS = -FD -O2 -EHsc -Zi
 DEBUGFLAGS = -Zi
 !else
 # Some people prefer -O2 -G6 instead of -O1, but -O2 is not reliable in MSVC5.
-OPTIMFLAGS = -D_NDEBUG -FD -O2 -EHsc -Zi
+OPTIMFLAGS = -D_NDEBUG -FD -O2 -EHsc -Zi -GL
 DEBUGFLAGS = -Zi
 !endif
 
@@ -194,7 +194,7 @@ intl3_tsvn.lib : $(OBJECTS)
 
 # intl.dll and intl.lib are created together.
 intl3_tsvn.lib : $(OBJECTS) $(RESOURCES)
-	$(CC) $(MFLAGS) $(DEBUGFLAGS) -LD $(OBJECTS) $(RESOURCES) -Feintl3_tsvn.dll /link /INCREMENTAL:NO /NOLOGO /MANIFEST /SUBSYSTEM:WINDOWS,5.02
+	$(CC) $(MFLAGS) $(DEBUGFLAGS) -LD $(OBJECTS) $(RESOURCES) -Feintl3_tsvn.dll /link /INCREMENTAL:NO /NOLOGO /RELEASE /LTCG /MANIFEST /SUBSYSTEM:WINDOWS,5.02
 
 intl.res : $(srcdir)\..\windows\intl.rc
 	rc -Fo intl.res $(srcdir)\libintl3-dll.rc
