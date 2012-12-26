@@ -12,9 +12,11 @@
       <delete>
         <fileset>
           <include name="..\openssl\out32\**.*" />
+          <include name="..\openssl\out64\**.*" />
           <include name="..\openssl\out32.dbg\**.*" />
+          <include name="..\openssl\out64.dbg\**.*" />
           <include name="..\openssl\tmp32\**.*" />
-          <include name="..\common\openssl\tmp32.dbg\**.*" />
+          <include name="..\openssl\tmp64\**.*" />
         </fileset>
       </delete>
     </if>
