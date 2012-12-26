@@ -134,7 +134,7 @@ class CMyMemDC
 public:
 
     // constructor sets up the memory DC
-    CMyMemDC(HDC hDC, bool bTempOnly = false, int nOffset = 0)
+    CMyMemDC(HDC hDC, bool bTempOnly = false)
     {
         m_hDC = hDC;
         m_hOldBitmap = NULL;

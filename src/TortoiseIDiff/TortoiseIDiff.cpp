@@ -36,7 +36,7 @@ HCURSOR   curHandDown;
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPTSTR    lpCmdLine,
-                     int       nCmdShow)
+                     int       /*nCmdShow*/)
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
 
