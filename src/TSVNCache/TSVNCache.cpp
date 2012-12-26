@@ -18,7 +18,7 @@
 //
 
 #include "stdafx.h"
-#include "shellapi.h"
+#include <shellapi.h>
 #include "TSVNCache.h"
 #include "SVNStatusCache.h"
 #include "CacheInterface.h"

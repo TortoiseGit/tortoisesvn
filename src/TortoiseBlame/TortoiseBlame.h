@@ -18,7 +18,7 @@
 #pragma once
 
 #include "resource.h"
-#include "Commdlg.h"
+#include <Commdlg.h>
 #include "Scintilla.h"
 #include "SciLexer.h"
 #include "registry.h"

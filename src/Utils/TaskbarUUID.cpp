@@ -24,7 +24,7 @@
 
 #include <Shobjidl.h>
 #include "Win7.h"
-#include "atlbase.h"
+#include <atlbase.h>
 
 #define APPID (_T("TSVN.TSVN.1"))
 

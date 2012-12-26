@@ -18,12 +18,12 @@
 
 #include "stdafx.h"
 #include <olectl.h>
-#include "shlwapi.h"
+#include <Shlwapi.h>
 #include <locale>
 #include <algorithm>
 #include "Picture.h"
 #include "SmartHandle.h"
-#include "atlbase.h"
+#include <atlbase.h>
 
 #pragma comment(lib, "shlwapi.lib")
 #pragma comment(lib, "gdiplus.lib")
