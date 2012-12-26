@@ -47,6 +47,7 @@
           <replacestring from="/Ox /O2" to="/O2 /Oy /GL" if="${configuration == 'release'}" />
           <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${configuration == 'release'}" />
           <replacestring from="/opt:ref /debug" to="/opt:ref,icf /debug /LTCG" if="${configuration == 'release'}" />
+          <replacestring from="all: banner $(TMP_D) $(BIN_D) $(TEST_D) $(LIB_D) $(INCO_D) headers lib exe" to="all: banner $(TMP_D) $(BIN_D) $(TEST_D) $(LIB_D) $(INCO_D) headers lib" />
         </filterchain>
       </loadfile>
     </if>
@@ -74,6 +75,7 @@
           <replacestring from="TMP_D=tmp32" to="TMP_D=tmp64" />
           <replacestring from="INC_D=inc32" to="INC_D=inc64" />
           <replacestring from="INCO_D=inc32\openssl" to="INCO_D=inc64\openssl" />
+          <replacestring from="all: banner $(TMP_D) $(BIN_D) $(TEST_D) $(LIB_D) $(INCO_D) headers lib exe" to="all: banner $(TMP_D) $(BIN_D) $(TEST_D) $(LIB_D) $(INCO_D) headers lib" />
         </filterchain>
       </loadfile>
     </if>
