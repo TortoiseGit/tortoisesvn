@@ -32,7 +32,6 @@
       <arg value="/EHsc" />
       <arg value="/MD" if="${configuration == 'release'}" />
       <arg value="/MDd" if="${configuration == 'debug'}" />
-      <arg value="/Gy" />
       <arg value="/W0" />
       <arg value="/nologo" />
       <arg value="/c" />
@@ -100,7 +99,6 @@
       <arg value="/EHsc" />
       <arg value="/MD" if="${configuration == 'release'}" />
       <arg value="/MDd" if="${configuration == 'debug'}" />
-      <arg value="/Gy" />
       <arg value="/W0" />
       <arg value="/nologo" />
       <arg value="/c" />
@@ -180,7 +178,6 @@
       <arg value="/EHsc" />
       <arg value="/MD" if="${configuration == 'release'}" />
       <arg value="/MDd" if="${configuration == 'debug'}" />
-      <arg value="/Gy" />
       <arg value="/W0" />
       <arg value="/nologo" />
       <arg value="/c" />
