@@ -82,7 +82,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     std::unique_ptr<CMainWindow> mainWindow(new CMainWindow(hResource));
     mainWindow->SetRegistryPath(_T("Software\\TortoiseSVN\\TortoiseIDiffWindowPos"));
     std::wstring leftfile = parser.HasVal(_T("left")) ? parser.GetVal(_T("left")) : _T("");
-    if ((leftfile.size() == 0)&&(lpCmdLine[0] != 0))
+    if ((!leftfile.empty()) && (lpCmdLine[0] != 0))
     {
         leftfile = lpCmdLine;
     }
