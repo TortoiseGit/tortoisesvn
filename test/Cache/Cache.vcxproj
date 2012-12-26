@@ -33,72 +33,42 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\src\TortoiseSVN.common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\src\TortoiseSVN.common.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30128.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\bin\Debug\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\obj\CacheTest\Debug\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\bin\Release\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\obj\CacheTest\Release\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\src\Utils;..\..\src\SVN;..\..\src\TortoiseProc;..\..\src\Utils\MiscUI;..\..\src\TSVNCache;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>true</MinimalRebuild>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>Crypt32.lib;delayimp.lib;wininet.lib;shfolder.lib;shell32.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\debug_win32\libsvn_diff-nonet.lib;..\..\ext\Subversion\debug_win32\libsvn_ra-nonet.lib;..\..\ext\Subversion\debug_win32\libsvn_wc-nonet.lib;..\..\ext\Subversion\debug_win32\libsvn_subr-nonet.lib;..\..\ext\Subversion\debug_win32\libsvn_client-nonet.lib;..\..\ext\Subversion\debug_win32\libsvn_delta-nonet.lib;..\..\ext\apr\debug_win32\libapr_tsvn.lib;..\..\ext\apr-util\debug_win32\libaprutil_tsvn.lib;..\..\ext\libintl\debug_win32\lib\intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\src\Utils;..\..\src\SVN;..\..\src\TortoiseProc;..\..\src\Utils\MiscUI;..\..\src\TSVNCache;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>Crypt32.lib;delayimp.lib;wininet.lib;shfolder.lib;shell32.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\release_win32\libsvn_diff-nonet.lib;..\..\ext\Subversion\release_win32\libsvn_delta-nonet.lib;..\..\ext\Subversion\release_win32\libsvn_wc-nonet.lib;..\..\ext\Subversion\release_win32\libsvn_subr-nonet.lib;..\..\ext\Subversion\release_win32\libsvn_client-nonet.lib;..\..\ext\Subversion\release_win32\libsvn_ra-nonet.lib;..\..\ext\apr\release_win32\libapr_tsvn.lib;..\..\ext\apr-util\release_win32\libaprutil_tsvn.lib;..\..\ext\libintl\release_win32/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -110,13 +80,12 @@
     <ClCompile Include="..\..\src\Utils\PathUtils.cpp" />
     <ClCompile Include="..\..\src\Utils\Registry.cpp" />
     <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\src\Utils\StringUtils.cpp" />
     <ClCompile Include="..\..\src\SVN\SVNAdminDir.cpp" />
     <ClCompile Include="..\..\src\SVN\SVNHelpers.cpp" />
-    <ClCompile Include="..\..\src\Svn\TSVNPath.cpp" />
+    <ClCompile Include="..\..\src\SVN\TSVNPath.cpp" />
     <ClCompile Include="..\..\src\Utils\UnicodeUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -131,7 +100,7 @@
     <ClInclude Include="..\..\src\Utils\StringUtils.h" />
     <ClInclude Include="..\..\src\SVN\SVNAdminDir.h" />
     <ClInclude Include="..\..\src\SVN\SVNHelpers.h" />
-    <ClInclude Include="..\..\src\Svn\TSVNPath.h" />
+    <ClInclude Include="..\..\src\SVN\TSVNPath.h" />
     <ClInclude Include="..\..\src\Utils\UnicodeUtils.h" />
   </ItemGroup>
   <ItemGroup>

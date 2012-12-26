@@ -28,13 +28,11 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v110_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
-    <UseOfAtl>false</UseOfAtl>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v110_xp</PlatformToolset>
   </PropertyGroup>
@@ -42,13 +40,11 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>Unicode</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v110_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfMfc>Dynamic</UseOfMfc>
-    <UseOfAtl>false</UseOfAtl>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v110_xp</PlatformToolset>
   </PropertyGroup>
@@ -57,159 +53,85 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\TortoiseSVN.common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\TortoiseSVN.common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\TortoiseSVN.common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\TortoiseSVN.common.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30128.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\bin\Debug\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\obj\TortoiseProc\Debug\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\bin\Debug64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\obj\TortoiseProc\Debug64\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\bin\Release\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\obj\TortoiseProc\Release\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\bin\Release64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\obj\TortoiseProc\Release64\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext/boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc32;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;SVN_DEBUG;ENABLE_NLS;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>true</MinimalRebuild>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc32;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SVN_DEBUG;ENABLE_NLS;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
       <AdditionalIncludeDirectories>$(IntDir);..\TortoiseShell;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;shell32.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\debug_win32\libsvn_tsvn32.lib;..\..\ext\apr\debug_win32\libapr_tsvn.lib;..\..\ext/cyrus-SASL\debug_win32\libsasl.lib;..\..\ext\apr-util\debug_win32\libaprutil_tsvn.lib;..\..\ext\libintl\debug_win32\lib\intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>shell32;msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\debug_win32\libsvn_tsvn32.lib;..\..\ext\apr\debug_win32\libapr_tsvn.lib;..\..\ext/cyrus-SASL\debug_win32\libsasl.lib;..\..\ext\apr-util\debug_win32\libaprutil_tsvn.lib;..\..\ext\libintl\debug_win32\lib\intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext/boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc64;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN64;_WINDOWS;_DEBUG;SVN_DEBUG;ENABLE_NLS;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>true</MinimalRebuild>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc64;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SVN_DEBUG;ENABLE_NLS;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
       <AdditionalIncludeDirectories>$(IntDir);..\TortoiseShell;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;shell32.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\debug_x64\libsvn_tsvn.lib;..\..\ext\apr\debug_x64\libapr_tsvn.lib;..\..\ext\apr-util\debug_x64\libaprutil_tsvn.lib;..\..\ext\libintl\debug_x64/lib/intl3_tsvn.lib;..\..\ext/cyrus-SASL\debug_x64\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>shell32;msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <TargetMachine>MachineX64</TargetMachine>
+      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\debug_x64\libsvn_tsvn.lib;..\..\ext\apr\debug_x64\libapr_tsvn.lib;..\..\ext\apr-util\debug_x64\libaprutil_tsvn.lib;..\..\ext\libintl\debug_x64/lib/intl3_tsvn.lib;..\..\ext/cyrus-SASL\debug_x64\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext/boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc32;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc32;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
       <AdditionalIncludeDirectories>$(IntDir);..\TortoiseShell;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;shell32.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\release_win32\libsvn_tsvn32.lib;..\..\ext\apr\release_win32\libapr_tsvn.lib;..\..\ext\apr-util\release_win32\libaprutil_tsvn.lib;..\..\ext\libintl\release_win32/lib/intl3_tsvn.lib;..\..\ext/cyrus-SASL\release_win32\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>libcd.lib;libc;shell32;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <TargetMachine>MachineX86</TargetMachine>
-      <Profile>true</Profile>
-      <SetChecksum>true</SetChecksum>
+      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\release_win32\libsvn_tsvn32.lib;..\..\ext\apr\release_win32\libapr_tsvn.lib;..\..\ext\apr-util\release_win32\libaprutil_tsvn.lib;..\..\ext\libintl\release_win32/lib/intl3_tsvn.lib;..\..\ext/cyrus-SASL\release_win32\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext/boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc64;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN64;_WINDOWS;NDEBUG;THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <MinimalRebuild>false</MinimalRebuild>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\Subversion\subversion\libsvn_client;..\..\ext\apr\include;..\..\ext\boost;..\TortoiseProc;..\Utils;..\SVN;..\..\ext\ResizableLib;..\TortoiseShell;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\..\ext\scintilla\include;..\Utils\TreePropSheet;..\Utils\ColourPickerXP;..\Utils\NewMenu;..\Utils\MiscUI;..\LogCache;..\LogCache\Containers;..\AsyncFramework;..\..\ext\cyrus-sasl\include;..\..\ext\openssl\inc64;RevisionGraph;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>THESAURUS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
       <AdditionalIncludeDirectories>$(IntDir);..\TortoiseShell;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;shell32.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\release_x64\libsvn_tsvn.lib;..\..\ext\apr\release_x64\libapr_tsvn.lib;..\..\ext\apr-util\release_x64\libaprutil_tsvn.lib;..\..\ext\libintl\release_x64\lib\intl3_tsvn.lib;..\..\ext/cyrus-SASL\release_x64\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>libcd.lib;libc;shell32;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <TargetMachine>MachineX64</TargetMachine>
-      <SetChecksum>true</SetChecksum>
+      <AdditionalDependencies>Crypt32.lib;Secur32.lib;wininet.lib;shfolder.lib;UxTheme.lib;comctl32.lib;mswsock.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;Version.lib;gdiplus.lib;..\..\ext\Subversion\release_x64\libsvn_tsvn.lib;..\..\ext\apr\release_x64\libapr_tsvn.lib;..\..\ext\apr-util\release_x64\libaprutil_tsvn.lib;..\..\ext\libintl\release_x64\lib\intl3_tsvn.lib;..\..\ext/cyrus-SASL\release_x64\libsasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\SVN\SVNBase.cpp" />
     <ClCompile Include="..\SVN\SVNReadProperties.cpp" />
     <ClCompile Include="..\Utils\accHelper.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Utils\Callback.cpp" />
     <ClCompile Include="..\Utils\CommonAppUtils.cpp" />
@@ -236,14 +158,7 @@
     <ClCompile Include="..\Utils\DebugOutput.cpp" />
     <ClCompile Include="..\Utils\DirFileEnum.cpp" />
     <ClCompile Include="..\Utils\DragDropImpl.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Utils\Hooks.cpp" />
     <ClCompile Include="..\Utils\JumpListHelpers.cpp" />
@@ -266,7 +181,7 @@
     <ClCompile Include="..\Utils\SysImageList.cpp" />
     <ClCompile Include="..\Utils\SysInfo.cpp" />
     <ClCompile Include="..\Utils\TempFile.cpp" />
-    <ClCompile Include="..\Svn\TSVNPath.cpp" />
+    <ClCompile Include="..\SVN\TSVNPath.cpp" />
     <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
     <ClCompile Include="..\Utils\Win7.cpp" />
     <ClCompile Include="..\Utils\MiscUI\AeroControls.cpp" />
@@ -293,150 +208,60 @@
     <ClCompile Include="..\Utils\MiscUI\WaitCursorEx.cpp" />
     <ClCompile Include="..\Utils\MiscUI\WaterEffect.cpp" />
     <ClCompile Include="..\..\ext\hunspell\affentry.cxx">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <ClCompile Include="..\..\ext\hunspell\affixmgr.cxx">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <ClCompile Include="..\..\ext\hunspell\csutil.cxx">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <ClCompile Include="..\..\ext\hunspell\dictmgr.cxx">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <ClCompile Include="..\..\ext\hunspell\hashmgr.cxx">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <ClCompile Include="..\..\ext\hunspell\hunspell.cxx">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <ClCompile Include="..\..\ext\hunspell\mythes.cxx">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <ClCompile Include="..\..\ext\hunspell\suggestmgr.cxx">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <ClCompile Include="..\..\ext\hunspell\utf_info.cxx">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TurnOffAllWarnings</WarningLevel>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </PrecompiledHeader>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TurnOffAllWarnings</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <ClCompile Include="..\Utils\TreePropSheet\PropPageFrame.cpp" />
     <ClCompile Include="..\Utils\TreePropSheet\PropPageFrameDefault.cpp" />
     <ClCompile Include="..\Utils\TreePropSheet\TreePropSheet.cpp" />
     <ClCompile Include="..\SVN\SVN.cpp" />
-    <ClCompile Include="..\Svn\SVNAdminDir.cpp" />
-    <ClCompile Include="..\Svn\SVNConfig.cpp" />
+    <ClCompile Include="..\SVN\SVNAdminDir.cpp" />
+    <ClCompile Include="..\SVN\SVNConfig.cpp" />
     <ClCompile Include="..\SVN\SVNDataObject.cpp" />
-    <ClCompile Include="..\Svn\SVNDiff.cpp" />
+    <ClCompile Include="..\SVN\SVNDiff.cpp" />
     <ClCompile Include="..\SVN\SVNError.cpp" />
     <ClCompile Include="..\SVN\SVNExternals.cpp" />
     <ClCompile Include="..\SVN\SVNGlobal.cpp" />
-    <ClCompile Include="..\Svn\SVNHelpers.cpp" />
-    <ClCompile Include="..\Svn\SVNInfo.cpp" />
+    <ClCompile Include="..\SVN\SVNHelpers.cpp" />
+    <ClCompile Include="..\SVN\SVNInfo.cpp" />
     <ClCompile Include="..\SVN\SVNLogHelper.cpp" />
-    <ClCompile Include="..\Svn\SVNPrompt.cpp" />
-    <ClCompile Include="..\Svn\SVNProperties.cpp" />
-    <ClCompile Include="..\Svn\SVNRev.cpp" />
+    <ClCompile Include="..\SVN\SVNPrompt.cpp" />
+    <ClCompile Include="..\SVN\SVNProperties.cpp" />
+    <ClCompile Include="..\SVN\SVNRev.cpp" />
     <ClCompile Include="..\SVN\SVNStatus.cpp" />
-    <ClCompile Include="..\Svn\SVNStatusListCtrl.cpp" />
+    <ClCompile Include="..\SVN\SVNStatusListCtrl.cpp" />
     <ClCompile Include="..\SVN\SVNStatusListCtrlHelpers.cpp" />
     <ClCompile Include="..\SVN\TSVNAuth.cpp" />
     <ClCompile Include="Commands\Command.cpp" />
@@ -641,10 +466,7 @@
     <ClCompile Include="SVNProgressDlg.cpp" />
     <ClCompile Include="URLDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TortoiseProc.cpp" />
     <ClCompile Include="WaitDlg.cpp" />
@@ -712,7 +534,7 @@
     <ClInclude Include="..\Utils\SysImageList.h" />
     <ClInclude Include="..\Utils\SysInfo.h" />
     <ClInclude Include="..\Utils\TempFile.h" />
-    <ClInclude Include="..\Svn\TSVNPath.h" />
+    <ClInclude Include="..\SVN\TSVNPath.h" />
     <ClInclude Include="..\Utils\UnicodeUtils.h" />
     <ClInclude Include="..\Utils\Win7.h" />
     <ClInclude Include="..\Utils\MiscUI\AeroControls.h" />
@@ -757,21 +579,21 @@
     <ClInclude Include="..\Utils\TreePropSheet\PropPageFrameDefault.h" />
     <ClInclude Include="..\Utils\TreePropSheet\TreePropSheet.h" />
     <ClInclude Include="..\SVN\SVN.h" />
-    <ClInclude Include="..\Svn\SVNAdminDir.h" />
-    <ClInclude Include="..\Svn\SVNConfig.h" />
+    <ClInclude Include="..\SVN\SVNAdminDir.h" />
+    <ClInclude Include="..\SVN\SVNConfig.h" />
     <ClInclude Include="..\SVN\SVNDataObject.h" />
-    <ClInclude Include="..\Svn\SVNDiff.h" />
+    <ClInclude Include="..\SVN\SVNDiff.h" />
     <ClInclude Include="..\SVN\SVNError.h" />
     <ClInclude Include="..\SVN\SVNExternals.h" />
     <ClInclude Include="..\SVN\SVNGlobal.h" />
-    <ClInclude Include="..\Svn\SVNHelpers.h" />
-    <ClInclude Include="..\Svn\SVNInfo.h" />
+    <ClInclude Include="..\SVN\SVNHelpers.h" />
+    <ClInclude Include="..\SVN\SVNInfo.h" />
     <ClInclude Include="..\SVN\SVNLogHelper.h" />
-    <ClInclude Include="..\Svn\SVNPrompt.h" />
-    <ClInclude Include="..\Svn\SVNProperties.h" />
-    <ClInclude Include="..\Svn\SVNRev.h" />
+    <ClInclude Include="..\SVN\SVNPrompt.h" />
+    <ClInclude Include="..\SVN\SVNProperties.h" />
+    <ClInclude Include="..\SVN\SVNRev.h" />
     <ClInclude Include="..\SVN\SVNStatus.h" />
-    <ClInclude Include="..\Svn\SVNStatusListCtrl.h" />
+    <ClInclude Include="..\SVN\SVNStatusListCtrl.h" />
     <ClInclude Include="..\SVN\TSVNAuth.h" />
     <ClInclude Include="Commands\Command.h" />
     <ClInclude Include="Commands\CommitCommand.h" />

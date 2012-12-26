@@ -266,7 +266,7 @@
     <ClCompile Include="..\Utils\TempFile.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\TSVNPath.cpp">
+    <ClCompile Include="..\SVN\TSVNPath.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\UnicodeUtils.cpp">
@@ -383,16 +383,16 @@
     <ClCompile Include="..\SVN\SVN.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
+    <ClCompile Include="..\SVN\SVNAdminDir.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNConfig.cpp">
+    <ClCompile Include="..\SVN\SVNConfig.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVNDataObject.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNDiff.cpp">
+    <ClCompile Include="..\SVN\SVNDiff.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVNError.cpp">
@@ -404,28 +404,28 @@
     <ClCompile Include="..\SVN\SVNGlobal.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNHelpers.cpp">
+    <ClCompile Include="..\SVN\SVNHelpers.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNInfo.cpp">
+    <ClCompile Include="..\SVN\SVNInfo.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVNLogHelper.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNPrompt.cpp">
+    <ClCompile Include="..\SVN\SVNPrompt.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNProperties.cpp">
+    <ClCompile Include="..\SVN\SVNProperties.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNRev.cpp">
+    <ClCompile Include="..\SVN\SVNRev.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVNStatus.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNStatusListCtrl.cpp">
+    <ClCompile Include="..\SVN\SVNStatusListCtrl.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVNStatusListCtrlHelpers.cpp">
@@ -1216,7 +1216,7 @@
     <ClInclude Include="..\Utils\TempFile.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\TSVNPath.h">
+    <ClInclude Include="..\SVN\TSVNPath.h">
       <Filter>Utils\General</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\UnicodeUtils.h">
@@ -1351,16 +1351,16 @@
     <ClInclude Include="..\SVN\SVN.h">
       <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNAdminDir.h">
+    <ClInclude Include="..\SVN\SVNAdminDir.h">
       <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNConfig.h">
+    <ClInclude Include="..\SVN\SVNConfig.h">
       <Filter>Subversion</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVNDataObject.h">
       <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNDiff.h">
+    <ClInclude Include="..\SVN\SVNDiff.h">
       <Filter>Subversion</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVNError.h">
@@ -1372,28 +1372,28 @@
     <ClInclude Include="..\SVN\SVNGlobal.h">
       <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNHelpers.h">
+    <ClInclude Include="..\SVN\SVNHelpers.h">
       <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNInfo.h">
+    <ClInclude Include="..\SVN\SVNInfo.h">
       <Filter>Subversion</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVNLogHelper.h">
       <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNPrompt.h">
+    <ClInclude Include="..\SVN\SVNPrompt.h">
       <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNProperties.h">
+    <ClInclude Include="..\SVN\SVNProperties.h">
       <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNRev.h">
+    <ClInclude Include="..\SVN\SVNRev.h">
       <Filter>Subversion</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVNStatus.h">
       <Filter>Subversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNStatusListCtrl.h">
+    <ClInclude Include="..\SVN\SVNStatusListCtrl.h">
       <Filter>Subversion</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\TSVNAuth.h">

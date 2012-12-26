@@ -48,16 +48,16 @@
     <ClCompile Include="..\Utils\StringUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
+    <ClCompile Include="..\SVN\SVNAdminDir.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVNGlobal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNHelpers.cpp">
+    <ClCompile Include="..\SVN\SVNHelpers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNStatus.cpp">
+    <ClCompile Include="..\SVN\SVNStatus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SVNStatusCache.cpp">
@@ -72,7 +72,7 @@
     <ClCompile Include="TSVNCache.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\TSVNPath.cpp">
+    <ClCompile Include="..\SVN\TSVNPath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\UnicodeUtils.cpp">
@@ -137,16 +137,16 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNAdminDir.h">
+    <ClInclude Include="..\SVN\SVNAdminDir.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVNGlobal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNHelpers.h">
+    <ClInclude Include="..\SVN\SVNHelpers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNStatus.h">
+    <ClInclude Include="..\SVN\SVNStatus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SVNStatusCache.h">
@@ -161,7 +161,7 @@
     <ClInclude Include="TSVNCache.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\TSVNPath.h">
+    <ClInclude Include="..\SVN\TSVNPath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\UnicodeUtils.h">

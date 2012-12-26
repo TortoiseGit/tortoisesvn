@@ -25,30 +25,24 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
     <UseOfAtl>Static</UseOfAtl>
     <CharacterSet>Unicode</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v110_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
     <UseOfAtl>Static</UseOfAtl>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v110_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
     <UseOfAtl>Static</UseOfAtl>
     <CharacterSet>Unicode</CharacterSet>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v110_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
     <UseOfAtl>Static</UseOfAtl>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v110_xp</PlatformToolset>
@@ -58,35 +52,31 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\TortoiseSVN.common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\TortoiseSVN.common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\TortoiseSVN.common.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\TortoiseSVN.common.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30128.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\bin\Debug\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\obj\TortoiseShell\Debug\</IntDir>
-    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\bin\Debug64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\obj\TortoiseShell\Debug64\</IntDir>
-    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\bin\Release\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\obj\TortoiseShell\Release\</IntDir>
-    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\bin\Release64\bin\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\obj\TortoiseShell\Release64\</IntDir>
-    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TortoiseSVN32</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TortoiseSVN32</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TortoiseSVN</TargetName>
@@ -94,124 +84,60 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <Optimization>Disabled</Optimization>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\apr\include;..\Utils;..\TortoiseShell;..\SVN;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SVN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>StackFrameRuntimeCheck</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <PreprocessorDefinitions>_USRDLL;SVN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;TSVNSHELL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>TSVNSHELL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;shfolder.lib;shell32.lib;comctl32.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;wininet.lib;version.lib;..\..\ext\Subversion\debug_win32\libsvn_tsvn32.lib;..\..\ext\apr\debug_win32\libapr_tsvn.lib;..\..\ext\apr-util\debug_win32\libaprutil_tsvn.lib;..\..\ext\libintl\debug_win32\lib\intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <IgnoreSpecificDefaultLibraries>LIBC;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>Crypt32.lib;shfolder.lib;comctl32.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;wininet.lib;version.lib;..\..\ext\Subversion\debug_win32\libsvn_tsvn32.lib;..\..\ext\apr\debug_win32\libapr_tsvn.lib;..\..\ext\apr-util\debug_win32\libaprutil_tsvn.lib;..\..\ext\libintl\debug_win32\lib\intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>ShellExt.def</ModuleDefinitionFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <BaseAddress>0x5960000</BaseAddress>
-      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <Optimization>Disabled</Optimization>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\apr\include;..\Utils;..\TortoiseShell;..\SVN;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN64;_DEBUG;_WINDOWS;_USRDLL;SVN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>StackFrameRuntimeCheck</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>_USRDLL;SVN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;TSVNSHELL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>TSVNSHELL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;shfolder.lib;shell32.lib;comctl32.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;wininet.lib;version.lib;..\..\ext\Subversion\debug_x64\libsvn_tsvn.lib;..\..\ext\apr\debug_x64\libapr_tsvn.lib;..\..\ext\apr-util\debug_x64\libaprutil_tsvn.lib;..\..\ext\libintl\debug_x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <IgnoreSpecificDefaultLibraries>LIBC;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>Crypt32.lib;shfolder.lib;comctl32.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;wininet.lib;version.lib;..\..\ext\Subversion\debug_x64\libsvn_tsvn.lib;..\..\ext\apr\debug_x64\libapr_tsvn.lib;..\..\ext\apr-util\debug_x64\libaprutil_tsvn.lib;..\..\ext\libintl\debug_x64/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>ShellExt.def</ModuleDefinitionFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
       <BaseAddress>0x5960000</BaseAddress>
-      <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <OmitFramePointers>true</OmitFramePointers>
       <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\apr\include;..\TortoiseShell;..\Utils;..\svn;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;TSVNSHELL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>TSVNSHELL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;shfolder.lib;shell32.lib;comctl32.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;wininet.lib;version.lib;..\..\ext\Subversion\release_win32\libsvn_tsvn32.lib;..\..\ext\apr\release_win32\libapr_tsvn.lib;..\..\ext\apr-util\release_win32\libaprutil_tsvn.lib;..\..\ext\libintl\release_win32/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <IgnoreSpecificDefaultLibraries>libcd; libc; shell32;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>Crypt32.lib;shfolder.lib;comctl32.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;wininet.lib;version.lib;..\..\ext\Subversion\release_win32\libsvn_tsvn32.lib;..\..\ext\apr\release_win32\libapr_tsvn.lib;..\..\ext\apr-util\release_win32\libaprutil_tsvn.lib;..\..\ext\libintl\release_win32/lib/intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>ShellExt.def</ModuleDefinitionFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <BaseAddress>0x5960000</BaseAddress>
-      <TargetMachine>MachineX86</TargetMachine>
-      <SetChecksum>true</SetChecksum>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <OmitFramePointers>true</OmitFramePointers>
       <AdditionalIncludeDirectories>..\..\ext\apr-util\include;..\..\ext\apr-util\xml\expat\lib;..\..\ext\Subversion\subversion\include;..\..\ext\apr\include;..\TortoiseShell;..\Utils;..\svn;..\..\ext\libintl\gettext-0.14.6\gettext-runtime\intl;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN64;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;TSVNSHELL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>TSVNSHELL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>Crypt32.lib;shfolder.lib;shell32.lib;comctl32.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;wininet.lib;version.lib;..\..\ext\Subversion\release_x64\libsvn_tsvn.lib;..\..\ext\apr\release_x64\libapr_tsvn.lib;..\..\ext\apr-util\release_x64\libaprutil_tsvn.lib;..\..\ext\libintl\release_x64\lib\intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <IgnoreSpecificDefaultLibraries>libcd; libc; shell32;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>Crypt32.lib;shfolder.lib;comctl32.lib;ws2_32.lib;rpcrt4.lib;shlwapi.lib;wininet.lib;version.lib;..\..\ext\Subversion\release_x64\libsvn_tsvn.lib;..\..\ext\apr\release_x64\libapr_tsvn.lib;..\..\ext\apr-util\release_x64\libaprutil_tsvn.lib;..\..\ext\libintl\release_x64\lib\intl3_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>ShellExt.def</ModuleDefinitionFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <BaseAddress>0x5960000</BaseAddress>
-      <TargetMachine>MachineX64</TargetMachine>
-      <SetChecksum>true</SetChecksum>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -236,16 +162,13 @@
     <ClCompile Include="ShellExtClassFactory.cpp" />
     <ClCompile Include="ShellObjects.cpp" />
     <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Utils\StringUtils.cpp" />
-    <ClCompile Include="..\Svn\SVNAdminDir.cpp" />
+    <ClCompile Include="..\SVN\SVNAdminDir.cpp" />
     <ClCompile Include="..\SVN\SVNFolderStatus.cpp" />
     <ClCompile Include="..\SVN\SVNGlobal.cpp" />
-    <ClCompile Include="..\Svn\SVNHelpers.cpp" />
+    <ClCompile Include="..\SVN\SVNHelpers.cpp" />
     <ClCompile Include="..\SVN\SVNProperties.cpp" />
     <ClCompile Include="SVNPropertyPage.cpp" />
     <ClCompile Include="..\SVN\SVNRev.cpp" />
@@ -253,7 +176,7 @@
     <ClCompile Include="..\Utils\SVNTrace.cpp" />
     <ClCompile Include="..\Utils\SysInfo.cpp" />
     <ClCompile Include="TortoiseSVN.cpp" />
-    <ClCompile Include="..\Svn\TSVNPath.cpp" />
+    <ClCompile Include="..\SVN\TSVNPath.cpp" />
     <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -322,17 +245,17 @@
     <ClInclude Include="ShellExtClassFactory.h" />
     <ClInclude Include="ShellObjects.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="..\Svn\SVNAdminDir.h" />
+    <ClInclude Include="..\SVN\SVNAdminDir.h" />
     <ClInclude Include="..\SVN\SVNFolderStatus.h" />
     <ClInclude Include="..\SVN\SVNGlobal.h" />
-    <ClInclude Include="..\Svn\SVNHelpers.h" />
+    <ClInclude Include="..\SVN\SVNHelpers.h" />
     <ClInclude Include="..\SVN\SVNProperties.h" />
     <ClInclude Include="SVNPropertyPage.h" />
     <ClInclude Include="..\SVN\SVNRev.h" />
     <ClInclude Include="..\SVN\SVNStatus.h" />
     <ClInclude Include="..\Utils\SVNTrace.h" />
     <ClInclude Include="..\Utils\SysInfo.h" />
-    <ClInclude Include="..\Svn\TSVNPath.h" />
+    <ClInclude Include="..\SVN\TSVNPath.h" />
     <ClInclude Include="..\Utils\UnicodeUtils.h" />
   </ItemGroup>
   <ItemGroup>

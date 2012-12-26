@@ -66,7 +66,7 @@
     <ClCompile Include="..\Utils\StringUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNAdminDir.cpp">
+    <ClCompile Include="..\SVN\SVNAdminDir.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVNFolderStatus.cpp">
@@ -75,7 +75,7 @@
     <ClCompile Include="..\SVN\SVNGlobal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\SVNHelpers.cpp">
+    <ClCompile Include="..\SVN\SVNHelpers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\SVN\SVNProperties.cpp">
@@ -99,7 +99,7 @@
     <ClCompile Include="TortoiseSVN.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Svn\TSVNPath.cpp">
+    <ClCompile Include="..\SVN\TSVNPath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Utils\UnicodeUtils.cpp">
@@ -301,7 +301,7 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNAdminDir.h">
+    <ClInclude Include="..\SVN\SVNAdminDir.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVNFolderStatus.h">
@@ -310,7 +310,7 @@
     <ClInclude Include="..\SVN\SVNGlobal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\SVNHelpers.h">
+    <ClInclude Include="..\SVN\SVNHelpers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\SVN\SVNProperties.h">
@@ -331,7 +331,7 @@
     <ClInclude Include="..\Utils\SysInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Svn\TSVNPath.h">
+    <ClInclude Include="..\SVN\TSVNPath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\UnicodeUtils.h">
