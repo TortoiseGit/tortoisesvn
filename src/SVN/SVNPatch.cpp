@@ -38,7 +38,7 @@
 int SVNPatch::abort_on_pool_failure (int /*retcode*/)
 {
     abort ();
-    return -1;
+    //return -1;
 }
 
 SVNPatch::SVNPatch()

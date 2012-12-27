@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011 - TortoiseSVN
+// Copyright (C) 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -254,9 +254,9 @@ WORD CIconExtractor::DIBNumColors(LPSTR lpbi)
     {
         case 1: return 2;
         case 4: return 16;
-        case 8:	return 256;
+        case 8: return 256;
         default:return 0;
     }
-    return 0;
+    //return 0;
 }
 

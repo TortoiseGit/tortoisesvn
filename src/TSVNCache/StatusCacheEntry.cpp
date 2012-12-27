@@ -82,38 +82,31 @@ bool CStatusCacheEntry::LoadFromDisk(FILE * pFile)
 {
 #define LOADVALUEFROMFILE(x) if (fread(&x, sizeof(x), 1, pFile)!=1) return false;
 #define LOADCOPYVALUEFROMFILE(x,T) {int v=fgetc(pFile); if (v==EOF) return false; x=(T)v;}
-    try
-    {
-        unsigned int value = 0;
-        LOADVALUEFROMFILE(value);
-        if (value != CACHEENTRYDISKVERSION)
-            return false;       // not the correct version
+    unsigned int value = 0;
+    LOADVALUEFROMFILE(value);
+    if (value != CACHEENTRYDISKVERSION)
+        return false;       // not the correct version
 
-        LOADCOPYVALUEFROMFILE(m_highestPriorityLocalStatus, svn_wc_status_kind);
-        LOADVALUEFROMFILE(m_lastWriteTime);
-        LOADCOPYVALUEFROMFILE(m_bSet, svn_boolean_t);
-        LOADCOPYVALUEFROMFILE(m_bSVNEntryFieldSet, svn_boolean_t);
-        LOADVALUEFROMFILE(m_commitRevision);
+    LOADCOPYVALUEFROMFILE(m_highestPriorityLocalStatus, svn_wc_status_kind);
+    LOADVALUEFROMFILE(m_lastWriteTime);
+    LOADCOPYVALUEFROMFILE(m_bSet, svn_boolean_t);
+    LOADCOPYVALUEFROMFILE(m_bSVNEntryFieldSet, svn_boolean_t);
+    LOADVALUEFROMFILE(m_commitRevision);
 
-        LOADCOPYVALUEFROMFILE(m_bHasOwner, svn_boolean_t);
-        LOADCOPYVALUEFROMFILE(m_kind, svn_node_kind_t);
-        LOADCOPYVALUEFROMFILE(m_needsLock, svn_boolean_t);
-        LOADCOPYVALUEFROMFILE(m_svnStatus.copied, svn_boolean_t);
-        LOADCOPYVALUEFROMFILE(m_svnStatus.locked, svn_boolean_t);
-        LOADCOPYVALUEFROMFILE(m_svnStatus.node_status, svn_wc_status_kind);
-        LOADCOPYVALUEFROMFILE(m_svnStatus.prop_status, svn_wc_status_kind);
-        LOADCOPYVALUEFROMFILE(m_svnStatus.repos_prop_status, svn_wc_status_kind);
-        LOADCOPYVALUEFROMFILE(m_svnStatus.repos_text_status, svn_wc_status_kind);
-        LOADCOPYVALUEFROMFILE(m_svnStatus.switched, svn_boolean_t);
-        LOADCOPYVALUEFROMFILE(m_svnStatus.text_status, svn_wc_status_kind);
-        LOADCOPYVALUEFROMFILE(m_treeconflict, svn_boolean_t);
+    LOADCOPYVALUEFROMFILE(m_bHasOwner, svn_boolean_t);
+    LOADCOPYVALUEFROMFILE(m_kind, svn_node_kind_t);
+    LOADCOPYVALUEFROMFILE(m_needsLock, svn_boolean_t);
+    LOADCOPYVALUEFROMFILE(m_svnStatus.copied, svn_boolean_t);
+    LOADCOPYVALUEFROMFILE(m_svnStatus.locked, svn_boolean_t);
+    LOADCOPYVALUEFROMFILE(m_svnStatus.node_status, svn_wc_status_kind);
+    LOADCOPYVALUEFROMFILE(m_svnStatus.prop_status, svn_wc_status_kind);
+    LOADCOPYVALUEFROMFILE(m_svnStatus.repos_prop_status, svn_wc_status_kind);
+    LOADCOPYVALUEFROMFILE(m_svnStatus.repos_text_status, svn_wc_status_kind);
+    LOADCOPYVALUEFROMFILE(m_svnStatus.switched, svn_boolean_t);
+    LOADCOPYVALUEFROMFILE(m_svnStatus.text_status, svn_wc_status_kind);
+    LOADCOPYVALUEFROMFILE(m_treeconflict, svn_boolean_t);
 
-        m_discardAtTime = GetTickCount()+cachetimeout;
-    }
-    catch ( CAtlException )
-    {
-        return false;
-    }
+    m_discardAtTime = GetTickCount()+cachetimeout;
     return true;
 }
 
