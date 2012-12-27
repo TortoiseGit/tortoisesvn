@@ -23,8 +23,6 @@
           <Merge Id='MFC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFC_x64.msm' DiskId='1' />
           <Merge Id='MFCLOC' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFCLOC_x64.msm' DiskId='1' />
           <Merge Id='CRT32' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_CRT_x86.msm' DiskId='1' />
-          <Merge Id='MFC32' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFC_x86.msm' DiskId='1' />
-          <Merge Id='MFCLOC32' Language='0' SourceFile='$(env.MergeModules)\Microsoft_VC$(env.VCVERSION)_MFCLOC_x86.msm' DiskId='1' />
           <?endif ?>
 
           <?if $(env.Platform) = "win32" ?>
