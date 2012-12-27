@@ -2879,18 +2879,7 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
         {
             if ((pSVN->m_bShowProgressBar && (progress > 1000LL) && (total > 0LL)))
                 pSVN->m_pProgressDlg->SetProgress64(progress, total);
-
-            CString sTotal;
-            CString temp;
-            if (pSVN->m_SVNProgressMSG.overall_total < 1024LL)
-                sTotal.Format(IDS_SVN_PROGRESS_TOTALBYTESTRANSFERRED, pSVN->m_SVNProgressMSG.overall_total);
-            else if (pSVN->m_SVNProgressMSG.overall_total < 1200000LL)
-                sTotal.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pSVN->m_SVNProgressMSG.overall_total / 1024LL);
-            else
-                sTotal.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pSVN->m_SVNProgressMSG.overall_total / 1024000.0));
-            temp.FormatMessage(IDS_SVN_PROGRESS_TOTALANDSPEED, (LPCTSTR)sTotal, (LPCTSTR)pSVN->m_SVNProgressMSG.SpeedString);
-
-            pSVN->m_pProgressDlg->SetLine(2, temp);
+            pSVN->m_pProgressDlg->SetLine(2, pSVN->m_SVNProgressMSG.SpeedString);
         }
         pSVN->progress_vector.clear();
     }
