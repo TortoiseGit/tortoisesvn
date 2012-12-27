@@ -55,7 +55,7 @@ IIaliaspath =
 
 # Programs used by "make":
 
-CC = cl
+CC = @cl /nologo
 
 # Set to -W3 if you want to see maximum amount of warnings, including stupid
 # ones. Set to -W1 to avoid warnings about signed/unsigned combinations.
