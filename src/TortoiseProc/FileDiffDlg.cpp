@@ -733,8 +733,9 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             CFileDiffDlg::FileDiff fd = m_arFilteredList[index];
             CTSVNPath url1 = CTSVNPath(m_path1.GetSVNPathString() + _T("/") + fd.path.GetSVNPathString());
             CString sCmd;
+            SVNRev rmax = max((LONG)m_rev1, (LONG)m_rev2);
             sCmd.Format(_T("/command:log /path:\"%s\" /startrev:%s /pegrev:%s"),
-                (LPCTSTR)url1.GetSVNPathString(), (LPCTSTR)m_rev1.ToString(), (LPCTSTR)m_peg.ToString());
+                (LPCTSTR)url1.GetSVNPathString(), (LPCTSTR)rmax.ToString(), (LPCTSTR)m_peg.ToString());
             CAppUtils::RunTortoiseProc(sCmd);
         }
         break;
