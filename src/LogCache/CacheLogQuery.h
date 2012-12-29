@@ -25,7 +25,7 @@
 #include "ILogQuery.h"
 #include "ILogReceiver.h"
 
-#include "./Containers/RevisionInfoContainer.h"
+#include "Containers/RevisionInfoContainer.h"
 
 #include "PathToStringMap.h"
 

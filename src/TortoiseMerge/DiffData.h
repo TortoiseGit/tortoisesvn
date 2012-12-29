@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2006-2008, 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@
 #include "apr_pools.h"
 #pragma warning(pop)
 #include "FileTextLines.h"
-#include "Registry.h"
+#include "registry.h"
 #include "WorkingFile.h"
 #include "ViewData.h"
 #include "MovedBlocks.h"

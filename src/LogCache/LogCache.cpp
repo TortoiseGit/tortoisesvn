@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007, 2011 - TortoiseSVN
+// Copyright (C) 2007-2007, 2011-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,18 +20,18 @@
 //
 
 #include "stdafx.h"
-#include "./Streams/RootInStream.h"
-#include "./Streams/RootOutStream.h"
-#include "./Containers/StringDictonary.h"
-#include "./Containers/CachedLogInfo.h"
-#include "./Access/XMLLogReader.h"
-#include "./Access/XMLLogWriter.h"
-#include "./Streams/CompositeInStream.h"
-#include "./Streams/CompositeOutStream.h"
-#include "./Streams/HuffmanEncoder.h"
-#include "./Streams/HuffmanDecoder.h"
+#include "Streams/RootInStream.h"
+#include "Streams/RootOutStream.h"
+#include "Containers/StringDictonary.h"
+#include "Containers/CachedLogInfo.h"
+#include "Access/XMLLogReader.h"
+#include "Access/XMLLogWriter.h"
+#include "Streams/CompositeInStream.h"
+#include "Streams/CompositeOutStream.h"
+#include "Streams/HuffmanEncoder.h"
+#include "Streams/HuffmanDecoder.h"
 #include "HighResClock.h"
-#include "./Access/CopyFollowingLogIterator.h"
+#include "Access/CopyFollowingLogIterator.h"
 
 using namespace LogCache;
 

@@ -21,7 +21,7 @@
 #include "Blame.h"
 #include "ProgressDlg.h"
 #include "TSVNPath.h"
-#include "Registry.h"
+#include "registry.h"
 #include "UnicodeUtils.h"
 #include "TempFile.h"
 

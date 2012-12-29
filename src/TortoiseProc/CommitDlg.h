@@ -22,7 +22,7 @@
 #include "SVNStatusListCtrl.h"
 #include "ProjectProperties.h"
 #include "RegHistory.h"
-#include "Registry.h"
+#include "registry.h"
 #include "SciEdit.h"
 #include "SplitterControl.h"
 #include "LinkControl.h"

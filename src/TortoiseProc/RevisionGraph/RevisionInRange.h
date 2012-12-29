@@ -20,7 +20,7 @@
 
 // include base classes
 
-#include "./Containers/LogCacheGlobals.h"
+#include "Containers/LogCacheGlobals.h"
 #include "CopyFilterOptions.h"
 #include "revisiongraphoptionsimpl.h"
 #include "resource.h"

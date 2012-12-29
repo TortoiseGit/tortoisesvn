@@ -23,7 +23,7 @@
 #include "UnicodeUtils.h"
 #include "RepositoryBrowser.h"
 #include "BrowseFolder.h"
-#include "Registry.h"
+#include "registry.h"
 #include "TSVNPath.h"
 #include "AppUtils.h"
 #include "PathUtils.h"

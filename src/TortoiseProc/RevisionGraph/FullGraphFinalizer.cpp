@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,9 +21,9 @@
 #include "FullHistory.h"
 #include "FullGraph.h"
 #include "CachedLogInfo.h"
-#include "Registry.h"
+#include "registry.h"
 #include "UnicodeUtils.h"
-#include "./Access/CopyFollowingLogIterator.h"
+#include "Access/CopyFollowingLogIterator.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

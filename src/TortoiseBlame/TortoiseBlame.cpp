@@ -1499,9 +1499,9 @@ UINT                uFindReplaceMsg;
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
-                     HINSTANCE /*hPrevInstance*/,
-                     LPTSTR    lpCmdLine,
-                     int       nCmdShow)
+                       HINSTANCE /*hPrevInstance*/,
+                       LPTSTR    lpCmdLine,
+                       int       nCmdShow)
 {
     app.hInstance = hInstance;
 

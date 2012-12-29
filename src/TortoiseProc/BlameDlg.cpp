@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "BlameDlg.h"
-#include "Registry.h"
+#include "registry.h"
 #include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CBlameDlg, CStandAloneDialog)

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -85,9 +85,9 @@
 // Commonly used log cache streams
 // (others may be included locally)
 
-#include "./Streams/DiffIntegerInStream.h"
-#include "./Streams/DiffIntegerOutStream.h"
-#include "./Streams/PackedTime64InStream.h"
-#include "./Streams/PackedTime64OutStream.h"
-#include "./Streams/CompositeInStream.h"
-#include "./Streams/CompositeOutStream.h"
+#include "Streams/DiffIntegerInStream.h"
+#include "Streams/DiffIntegerOutStream.h"
+#include "Streams/PackedTime64InStream.h"
+#include "Streams/PackedTime64OutStream.h"
+#include "Streams/CompositeInStream.h"
+#include "Streams/CompositeOutStream.h"

@@ -26,7 +26,7 @@
 #include "svn_props.h"
 #pragma warning(pop)
 #include "SubWCRev.h"
-#include "Registry.h"
+#include "registry.h"
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
 #include <algorithm>

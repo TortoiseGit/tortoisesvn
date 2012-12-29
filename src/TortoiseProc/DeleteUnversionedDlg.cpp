@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "messagebox.h"
 #include "SVN.h"
-#include "Registry.h"
+#include "registry.h"
 #include "DeleteUnversionedDlg.h"
 #include "AppUtils.h"
 

@@ -27,7 +27,7 @@
 #include "PathUtils.h"
 #include "StringUtils.h"
 #include "SVN.h"
-#include "Registry.h"
+#include "registry.h"
 #include "SVNStatus.h"
 #include "HistoryDlg.h"
 #include "Hooks.h"

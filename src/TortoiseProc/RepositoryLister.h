@@ -21,7 +21,7 @@
 #include "TSVNPath.h"
 #include "SVN.h"
 
-#include "Registry.h"
+#include "registry.h"
 
 #include "JobBase.h"
 #include "JobScheduler.h"

@@ -19,7 +19,7 @@
 #pragma once
 #include "SettingsPropPage.h"
 #include "Tooltip.h"
-#include "Registry.h"
+#include "registry.h"
 #include "ILogReceiver.h"
 
 class CProgressDlg;

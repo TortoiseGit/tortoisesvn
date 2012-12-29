@@ -2,7 +2,7 @@
 #pragma once
 
 //
-// Registry.h
+// registry.h
 //   - Helper functions registering and unregistering a component.
 //
 

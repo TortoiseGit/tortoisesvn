@@ -21,7 +21,7 @@
 #include "SVNProperties.h"
 #include "UnicodeUtils.h"
 #include "Propdlg.h"
-#include "Registry.h"
+#include "registry.h"
 #include "AppUtils.h"
 
 

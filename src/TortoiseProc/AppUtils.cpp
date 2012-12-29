@@ -24,7 +24,7 @@
 #include "SVNProperties.h"
 #include "StringUtils.h"
 #include "MessageBox.h"
-#include "Registry.h"
+#include "registry.h"
 #include "TSVNPath.h"
 #include "SVN.h"
 #include "RepositoryBrowser.h"

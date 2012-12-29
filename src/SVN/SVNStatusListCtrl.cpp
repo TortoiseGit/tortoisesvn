@@ -38,7 +38,7 @@
 #include "Svnstatuslistctrl.h"
 #include "SVNDataObject.h"
 #include "TSVNPath.h"
-#include "Registry.h"
+#include "registry.h"
 #include "SVNStatus.h"
 #include "SVNHelpers.h"
 #include "InputLogDlg.h"

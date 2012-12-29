@@ -21,7 +21,7 @@
 #include "PromptDlg.h"
 #include "SimplePrompt.h"
 #include "Dlgs.h"
-#include "Registry.h"
+#include "registry.h"
 #include "TortoiseProc.h"
 #include "UnicodeUtils.h"
 #include "MessageBox.h"

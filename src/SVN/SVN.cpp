@@ -31,7 +31,7 @@
 #include "DirFileEnum.h"
 #include "TSVNPath.h"
 #include "ShellUpdater.h"
-#include "Registry.h"
+#include "registry.h"
 #include "SVNHelpers.h"
 #include "SVNStatus.h"
 #include "SVNInfo.h"

@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "resource.h"
 #include "CommonAppUtils.h"
-#include "Registry.h"
+#include "registry.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
 #include "ClipboardHelper.h"

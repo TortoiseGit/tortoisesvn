@@ -20,7 +20,7 @@
 #include "TortoiseProc.h"
 #include "MergeWizard.h"
 #include "SVN.h"
-#include "Registry.h"
+#include "registry.h"
 #include "TaskbarUUID.h"
 
 #define BOTTOMMARG 48

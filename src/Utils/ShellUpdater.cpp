@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2012 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "Shellupdater.h"
 #include "../TSVNCache/CacheInterface.h"
-#include "Registry.h"
+#include "registry.h"
 #include "SmartHandle.h"
 
 CShellUpdater::CShellUpdater(void)

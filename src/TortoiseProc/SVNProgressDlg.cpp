@@ -22,7 +22,7 @@
 #include "SVNProgressDlg.h"
 #include "LogDialog\LogDlg.h"
 #include "TSVNPath.h"
-#include "Registry.h"
+#include "registry.h"
 #include "SVNStatus.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
