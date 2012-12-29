@@ -34,12 +34,10 @@ HCURSOR   curHand;
 HCURSOR   curHandDown;
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
-                       HINSTANCE hPrevInstance,
+                       HINSTANCE /*hPrevInstance*/,
                        LPTSTR    lpCmdLine,
                        int       /*nCmdShow*/)
 {
-    UNREFERENCED_PARAMETER(hPrevInstance);
-
     SetDllDirectory(L"");
     CCrashReportTSVN crasher(L"TortoiseIDiff " _T(APP_X64_STRING));
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
