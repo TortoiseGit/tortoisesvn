@@ -101,6 +101,7 @@ bool CommitCommand::Execute()
         }
     }
     CTSVNPathList updatelist = pathList;
+    CTSVNPathList origPathList = pathList;
     std::map<CString, CString> restorepaths;
     while (bFailed)
     {
@@ -138,6 +139,7 @@ bool CommitCommand::Execute()
             progDlg.SetRestorePaths(dlg.m_restorepaths);
             restorepaths = dlg.m_restorepaths;
             progDlg.SetProjectProperties(props);
+            progDlg.SetOrigPathList(origPathList);
             progDlg.DoModal();
 
             if (IsOutOfDate(progDlg.GetSVNError()))

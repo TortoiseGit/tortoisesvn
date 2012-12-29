@@ -126,6 +126,7 @@ public:
     void SetHidden (bool hidden) {m_hidden = hidden;}
     void SetOptions(DWORD opts) {m_options = opts;}
     void SetPathList(const CTSVNPathList& pathList) {m_targetPathList = pathList;}
+    void SetOrigPathList(const CTSVNPathList& oritList) {m_origPathList = oritList;}
     void SetUrl(const CString& url) {m_url.SetFromUnknown(url);}
     void SetSecondUrl(const CString& url) {m_url2.SetFromUnknown(url);}
     void SetCommitMessage(const CString& msg) {m_sMessage = msg;}
@@ -333,6 +334,7 @@ private:
     svn_depth_t             m_depth;
     CTSVNPathList           m_targetPathList;
     CTSVNPathList           m_selectedPaths;
+    CTSVNPathList           m_origPathList;
     CTSVNPath               m_url;
     CTSVNPath               m_url2;
     CString                 m_sMessage;

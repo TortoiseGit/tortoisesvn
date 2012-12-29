@@ -1432,7 +1432,7 @@ UINT CSVNProgressDlg::ProgressThread()
 
 void CSVNProgressDlg::OnBnClickedLogbutton()
 {
-    if (m_targetPathList.GetCount() != 1)
+    if (m_origPathList.GetCount() != 1)
         return;
 
     if (m_Command == SVNProgress_Commit)
@@ -2682,7 +2682,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
 
     // after a commit, show the user the merge button, but only if only one single item was committed
     // (either a file or a directory)
-    if ((m_targetPathList.GetCount() == 1)&&(m_RevisionEnd.IsValid()))
+    if ((m_origPathList.GetCount() == 1)&&(m_RevisionEnd.IsValid()))
     {
         SetDlgItemText(IDC_LOGBUTTON, CString(MAKEINTRESOURCE(IDS_MERGE_MERGE)));
         GetDlgItem(IDC_LOGBUTTON)->ShowWindow(SW_SHOW);
@@ -3721,13 +3721,13 @@ void CSVNProgressDlg::ResetVars()
 
 void CSVNProgressDlg::MergeAfterCommit()
 {
-    CString url = GetURLFromPath(m_targetPathList[0]);
+    CString url = GetURLFromPath(m_origPathList[0]);
     if (url.IsEmpty())
         return;
 
-    CString path = m_targetPathList[0].GetWinPathString();
+    CString path = m_origPathList[0].GetWinPathString();
     bool bGotSavePath = false;
-    if (!m_targetPathList[0].IsDirectory())
+    if (!m_origPathList[0].IsDirectory())
     {
         bGotSavePath = CAppUtils::FileOpenSave(path, NULL, IDS_LOG_MERGETO, IDS_COMMONFILEFILTER, true, GetSafeHwnd());
     }
@@ -3774,12 +3774,17 @@ void CSVNProgressDlg::MergeAfterCommit()
             }
         }
         CSVNProgressDlg dlg(this);
+        dlg.SetOptions(ProgOptIgnoreAncestry|ProgOptForce|ProgOptAllowMixedRev);
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
         dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
         dlg.SetUrl(url);
         dlg.SetSecondUrl(url);
         dlg.SetRevision(m_RevisionEnd);
+        SVNRevRangeArray tempRevArray;
+        tempRevArray.AddRevRange((svn_revnum_t)m_RevisionEnd-1, m_RevisionEnd);
+        dlg.SetRevisionRanges(tempRevArray);
         dlg.SetPegRevision(m_RevisionEnd);
+        dlg.SetDiffOptions(SVN::GetOptionsString(true, svn_diff_file_ignore_space_all));
         dlg.DoModal();
     }
 }
