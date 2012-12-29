@@ -4,14 +4,13 @@
   <property name="solutionname" value="TortoiseSVN.sln" if="${studioversion == '2012'}"/>
 
   <target name="versioninfo">
-    <!-- You can specify path to SubWCRev.exe in SubWCRevFileName property to avoid
+    <!-- You can specify the path to SubWCRev.exe in SubWCRevFileName property to avoid
          setting a bunch of build properties and/or building SubWCRev.exe from scratch.
          This feature is intended mainly for translators and doc maintainers who doesn't
          want to setup full build environment to get version information only -->
 
     <if test="${not property::exists('SubWCRevFileName')}">
-      <!-- When cross-compiling, we need to use the current platform's (win32)
-           native build -->
+      <!-- When cross-compiling, we need to use the current platform's (win32) native build -->
       <property name="SubWCRevFileName" value="bin\${configuration}${bindirextension}\bin\SubWCRev.exe"/>
       <property name="SubWCRevFileName" value="bin\${configuration}\bin\SubWCRev.exe" if="${crosscompile == 'yes'}"/>
 
