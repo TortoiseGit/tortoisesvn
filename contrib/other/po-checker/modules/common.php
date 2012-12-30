@@ -201,8 +201,8 @@ function BuildLanguageList($languagelistFileName) {
         <td><acronym title="Escaped chars (Severity: Low - appearance)"><img src="'.$icons['info'].'" alt="" />ESC</acronym></td>
         <td><img src="'.$icons['note'].'" alt="" />Note</td>
         <td><img src="'.$icons['doc'].'" title="Tortoise DOC" /></td>
-        <td><img src="/images/32/tsvn.jpg" title="TortoiseSVN DOC" /></td>
-        <td><img src="/images/32/tmerge.jpg" title="TortoiseMerge DOC" /></td>
+        <td><img src="/images/32/tsvn.png" title="TortoiseSVN DOC" /></td>
+        <td><img src="/images/32/tmerge.png" title="TortoiseMerge DOC" /></td>
     </tr></thead>
     <tbody>';
 
