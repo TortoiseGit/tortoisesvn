@@ -16,12 +16,12 @@ TXTRUNKDIR=tx
 
 #apt-get install transifex-client
 if [ ! -d trunk.tx ]; then
-	mkdir $TXTRUNKDIR
-	cd $TXTRUNKDIR
-	$TXCMD init --host=https://www.transifex.net
-#	$TXCMD $TXPRM $BASEURL/trunk trunk.replay
-	tx set --auto-remote http://www.transifex.net/projects/p/tortoisesvn/
-	tx pull -a
+    mkdir $TXTRUNKDIR
+    cd $TXTRUNKDIR
+    $TXCMD init --host=https://www.transifex.net
+#   $TXCMD $TXPRM $BASEURL/trunk trunk.replay
+    tx set --auto-remote http://www.transifex.net/projects/p/tortoisesvn/
+    tx pull -a
 fi
 
 

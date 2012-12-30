@@ -8,7 +8,7 @@ include("mysql_user.php");
 $db=mysql_connect($mysqlhost, $mysqluser, $mysqlpass);
 
 if ($db===false) {
-	die(mysql_error());
+    die(mysql_error());
 }
 
 mysql_select_db($mysqldb, $db);

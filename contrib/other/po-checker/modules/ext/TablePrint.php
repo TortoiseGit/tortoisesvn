@@ -62,7 +62,7 @@ function PrintTable($header, $data, $caption = NULL)
    echo "<thead><tr>\n";
    foreach($header as $col_name)
    {
-      #			echo "\t\t<td bgcolor=\"#666600\"><b>$col_name</b></td>\n";
+      #         echo "\t\t<td bgcolor=\"#666600\"><b>$col_name</b></td>\n";
       echo "\t\t<td><b>$col_name</b></td>\n";
    }
    echo "</tr></thead><tbody>\n";
@@ -99,7 +99,7 @@ function PrintTable($header, $data, $caption = NULL)
          }
          else
          {
-         	$html ="";
+            $html ="";
             $isAlt = isset($column['alt']);
             $alt=($isAlt) ? $column['alt'] : NULL;
 

@@ -66,13 +66,13 @@ class html
             break;
 
          case "xhtml10t":
-            //		header("content-type: application/xhtml+xml");
+            //      header("content-type: application/xhtml+xml");
             echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' . NEW_LINE;
             echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">' . NEW_LINE;
             break;
 
          case "xhtml11":
-            //		header("content-type: application/xhtml+xml");
+            //      header("content-type: application/xhtml+xml");
             echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">' . NEW_LINE;
             echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">' . NEW_LINE;
             break;
@@ -475,13 +475,13 @@ function HtmlHeader($HtmlType, $HtmlHeader = NULL, $HtmlBody = NULL)
          break;
 
       case "xhtml10t":
-         //		header("content-type: application/xhtml+xml");
+         //     header("content-type: application/xhtml+xml");
          echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' . NEW_LINE;
          echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">' . NEW_LINE;
          break;
 
       case "xhtml11":
-         //		header("content-type: application/xhtml+xml");
+         //     header("content-type: application/xhtml+xml");
          echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">' . NEW_LINE;
          echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">' . NEW_LINE;
          break;
@@ -501,14 +501,14 @@ function HtmlHeader($HtmlType, $HtmlHeader = NULL, $HtmlBody = NULL)
    echo NEW_LINE_TAB . HtmlElement("title", NULL, $HtmlHeader["title"]);
    echo NEW_LINE;
    echo NEW_LINE_TAB . "<!-- FAVICON -->";
-   //	echo NEW_LINE_TAB."<link rel=\"shortcut icon\" href=\"favicon.ico\" />";
+   //   echo NEW_LINE_TAB."<link rel=\"shortcut icon\" href=\"favicon.ico\" />";
    echo NEW_LINE_TAB . HtmlElement("link", array("rel"=>"shortcut icon", "href"=>"favicon.ico"));
    echo NEW_LINE;
 
-   /*	if (isset($HtmlHeader["style"])) {
-   		echo NEW_LINE_TAB."<!-- STYLE -->";
-   		HtmlHeaderElements($HtmlType, "style", $HtmlHeader["style"]);
-   	}//*/
+   /*   if (isset($HtmlHeader["style"])) {
+        echo NEW_LINE_TAB."<!-- STYLE -->";
+        HtmlHeaderElements($HtmlType, "style", $HtmlHeader["style"]);
+    }//*/
 
    $htmlStyles = $HtmlHeader["style"];
    if(isset($htmlStyles))
@@ -530,28 +530,28 @@ function HtmlHeader($HtmlType, $HtmlHeader = NULL, $HtmlBody = NULL)
    }
 
    $htmlScripts = $HtmlHeader["script"];
-   /*	if (isset($htmlScripts)) {
-   		echo NEW_LINE;
-   		echo NEW_LINE_TAB."<!-- SCRIPT -->";
-   		$styleArgs=array("type" => HTML_STYLE_CSS);
-   		foreach ($htmlStyles as $style) {
-   			if (is_array($style)) {
-   				$args=array_merge($styleArgs, $style);
-   			} else {
-   				$args=array_merge($styleArgs, array("href" => $style));
-   			}
-   			echo NEW_LINE_TAB.HtmlElement("script", $args, NULL, HTML_ELEMENT_SMARTCLOSE);
-   		}
-   	}//*/
+   /*   if (isset($htmlScripts)) {
+        echo NEW_LINE;
+        echo NEW_LINE_TAB."<!-- SCRIPT -->";
+        $styleArgs=array("type" => HTML_STYLE_CSS);
+        foreach ($htmlStyles as $style) {
+            if (is_array($style)) {
+                $args=array_merge($styleArgs, $style);
+            } else {
+                $args=array_merge($styleArgs, array("href" => $style));
+            }
+            echo NEW_LINE_TAB.HtmlElement("script", $args, NULL, HTML_ELEMENT_SMARTCLOSE);
+        }
+    }//*/
    if(isset($htmlScripts))
    {
       echo NEW_LINE;
       echo NEW_LINE_TAB . "<!-- SCRIPT -->";
       HtmlHeaderElements($HtmlType, "script", $htmlScripts, HTML_ELEMENT_CLOSE);
    }
-   /*	if (isset($css)) {
-   		echo "<link rel=\"stylesheet\" href=\"$css\" type=\"text/css\" />";
-   	}//*/
+   /*   if (isset($css)) {
+        echo "<link rel=\"stylesheet\" href=\"$css\" type=\"text/css\" />";
+    }//*/
    echo NEW_LINE;
    echo '</head>';
    echo NEW_LINE;
