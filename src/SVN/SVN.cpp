@@ -2873,6 +2873,9 @@ void SVN::progress_func(apr_off_t progress, apr_off_t total, void *baton, apr_po
             double averagekb = (double)average / 1024.0;
             pSVN->m_SVNProgressMSG.SpeedString.Format(IDS_SVN_PROGRESS_KBYTES_SEC, averagekb);
         }
+        CString s;
+        s.Format(IDS_SVN_PROGRESS_SPEED, (LPCWSTR)pSVN->m_SVNProgressMSG.SpeedString);
+        pSVN->m_SVNProgressMSG.SpeedString = s;
         if (pSVN->m_progressWnd)
             SendMessage(pSVN->m_progressWnd, WM_SVNPROGRESS, 0, (LPARAM)&pSVN->m_SVNProgressMSG);
         else if (pSVN->m_pProgressDlg)
