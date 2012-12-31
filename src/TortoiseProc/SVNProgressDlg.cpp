@@ -1432,15 +1432,17 @@ UINT CSVNProgressDlg::ProgressThread()
 
 void CSVNProgressDlg::OnBnClickedLogbutton()
 {
-    if (m_origPathList.GetCount() != 1)
-        return;
-
     if (m_Command == SVNProgress_Commit)
     {
+        if (m_origPathList.GetCount() != 1)
+            return;
         MergeAfterCommit();
     }
     else
     {
+        if (m_targetPathList.GetCount() != 1)
+            return;
+
         StringRevMap::iterator it = m_UpdateStartRevMap.begin();
         svn_revnum_t rev = -1;
         if (it != m_UpdateStartRevMap.end())
