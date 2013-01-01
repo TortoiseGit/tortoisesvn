@@ -1,8 +1,24 @@
 body {
     background: #27343C;
-    color: #000000;
+    color: black;
     font: 14px Arial, Helvetica, sans-serif;
     margin: 0;
+}
+
+a {
+    border-bottom: 1px dotted #999999;
+    color: #F93D00;
+    text-decoration: none;
+}
+
+blockquote {
+    background: transparent url("../img/quoteleft.png") left top no-repeat;
+}
+
+blockquote div,
+blockquote p {
+    background: transparent url("../img/quoteright.png") right bottom no-repeat;
+    padding: 0 48px;
 }
 
 h1,
@@ -30,34 +46,12 @@ h3 {
     margin-top: 10px;
 }
 
-p,
-ul,
-ol {
-    line-height: 180%;
-    margin-top: 0;
-}
-
-a {
-    border-bottom: 1px dotted #999999;
-    color: #F93D00;
-    text-decoration: none;
-}
-
-
-.fancybox-skin a {
-    border-bottom: none;
-}
-
 img {
     border: none;
 }
 
 table {
     width: 100%;
-}
-
-.hover tr:hover {
-    background-color: #E1EAFE;
 }
 
 th {
@@ -69,14 +63,15 @@ td {
     text-align: left;
 }
 
-blockquote {
-    background: transparent url("../img/quoteleft.png") left top no-repeat;
+p,
+ol,
+ul {
+    line-height: 180%;
+    margin-top: 0;
 }
 
-blockquote div,
-blockquote p {
-    background: transparent url("../img/quoteright.png") right bottom no-repeat;
-    padding: 0 48px;
+.hover tr:hover {
+    background-color: #E1EAFE;
 }
 
 .caution,
@@ -163,9 +158,9 @@ blockquote p {
 
 /* Logo */
 #logo {
-    color: #FFFFFF;
+    color: white;
     float: left;
-    text-shadow: 0 0 2px #FFFFFF;
+    text-shadow: 0 0 2px white;
     width: 640px;
 }
 
@@ -187,7 +182,7 @@ blockquote p {
 #logo a {
     background: none;
     border: none;
-    color: #FFFFFF;
+    color: white;
     text-decoration: none;
 }
 
@@ -218,13 +213,14 @@ blockquote p {
 }
 
 #menu a {
-    background: #FFFFFF;
+    background: white;
     border: none;
-    color: #000000;
+    color: black;
     display: block;
     font-size: 13px;
     margin-right: 3px;
     margin-top: 20px;
+    outline: none;
     padding: 7px 20px;
     text-decoration: none;
 }
@@ -246,7 +242,7 @@ blockquote p {
 
 /* Page */
 #page {
-    background: #FFFFFF;
+    background: white;
     margin: 0 auto;
     padding-top: 20px;
     width: 910px;
@@ -260,7 +256,7 @@ blockquote p {
 }
 
 .post .title {
-    color: #000000;
+    color: black;
 }
 
 .title a {
@@ -287,7 +283,7 @@ blockquote p {
 
 /* Sidebar */
 #sidebar {
-    color: #000000;
+    color: black;
     float: left;
     padding: 20px 0 0 30px;
     width: 220px;
@@ -369,6 +365,10 @@ blockquote p {
 
 .fancybox a {
     border: none;
+}
+
+.fancybox-skin a {
+    border-bottom: none;
 }
 
 /* all A tags whose HREF attribute ends in .pdf */
