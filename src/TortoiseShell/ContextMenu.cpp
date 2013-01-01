@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -860,6 +860,11 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
     if ((itemStates & ITEMIS_INSVN)&&(itemStates & ITEMIS_FOLDER))
         InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPEXPORTCHANGEDMENU, 0, idCmdFirst, ShellMenuDropExportChanged, _T("tsvn_dropexportchanged"));
 
+    // SVN vendorbranch here
+    // available if target is versioned and source is either unversioned or from another repository
+    if ((itemStatesFolder & ITEMIS_FOLDERINSVN)&&(((~itemStates) & ITEMIS_INSVN)||!bSourceAndTargetFromSameRepository))
+        InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPVENDORMENU, 0, idCmdFirst, ShellMenuDropVendor, _T("tsvn_dropvendor"));
+
     // apply patch
     // available if source is a patchfile
     if (itemStates & ITEMIS_PATCHFILE)
@@ -1438,6 +1443,9 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
         case ShellMenuDropExportChanged:
             AddPathFileDropCommand(svnCmd, L"dropexport");
             svnCmd += _T(" /extended:localchanges");
+            break;
+        case ShellMenuDropVendor:
+            AddPathFileDropCommand(svnCmd, L"dropvendor");
             break;
         case ShellMenuLog:
             AddPathCommand(svnCmd, L"log", true);

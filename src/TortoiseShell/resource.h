@@ -174,6 +174,7 @@
 #define IDS_PROPBIN                     263
 #define IDS_CLOSE                       264
 #define IDS_SVN_DEPTH_CUSTOM            265
+#define IDS_DROPVENDORMENU              266
 #define IDS_MENUDELUNVERSIONED          268
 #define IDS_MENUDESCDELUNVERSIONED      269
 #define IDS_MENUREMOVEKEEP              271

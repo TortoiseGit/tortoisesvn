@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@
 #include "DropCopyCommand.h"
 #include "DropExportCommand.h"
 #include "DropMoveCommand.h"
+#include "DropVendorCommand.h"
 #include "EditFileCommand.h"
 #include "ExportCommand.h"
 #include "HelpCommand.h"
@@ -92,6 +93,7 @@ typedef enum
     cmdDropCopyAdd,
     cmdDropExport,
     cmdDropMove,
+    cmdDropVendor,
     cmdEditFile,
     cmdExport,
     cmdHelp,
@@ -151,6 +153,7 @@ static const struct CommandInfo
     {   cmdDropCopyAdd,     _T("dropcopyadd")       },
     {   cmdDropExport,      _T("dropexport")        },
     {   cmdDropMove,        _T("dropmove")          },
+    {   cmdDropVendor,      _T("dropvendor")        },
     {   cmdEditFile,        _T("editfile")          },
     {   cmdExport,          _T("export")            },
     {   cmdHelp,            _T("help")              },
@@ -245,6 +248,8 @@ Command * CommandServer::GetCommand(const CString& sCmd)
         return new DropExportCommand;
     case cmdDropMove:
         return new DropMoveCommand;
+    case cmdDropVendor:
+        return new DropVendorCommand;
     case cmdEditFile:
         return new EditFileCommand;
     case cmdExport:

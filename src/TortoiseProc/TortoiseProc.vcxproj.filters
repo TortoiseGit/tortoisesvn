@@ -1091,6 +1091,9 @@
     <ClCompile Include="WaitDlg.cpp">
       <Filter>Utility Dialogs</Filter>
     </ClCompile>
+    <ClCompile Include="Commands\DropVendorCommand.cpp">
+      <Filter>Commands\Drop</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2091,6 +2094,9 @@
     </ClInclude>
     <ClInclude Include="WaitDlg.h">
       <Filter>Utility Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\DropVendorCommand.h">
+      <Filter>Commands\Drop</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
