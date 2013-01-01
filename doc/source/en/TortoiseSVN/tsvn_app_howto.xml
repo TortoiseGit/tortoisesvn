@@ -371,12 +371,8 @@
         </indexterm>
         <para>
             Sometimes you will want to include another project within
-            your working copy, perhaps some library code. You don't
-            want to make a duplicate of this code in your repository
-            because then you would lose connection with the original
-            (and maintained) code. Or maybe you have several projects
-            which share core code. There are at least 3 ways of dealing
-            with this.
+            your working copy, perhaps some library code. There are at
+			least 4 ways of dealing with this.
         </para>
         <sect2 id="tsvn-howto-common-externals">
             <title>Use svn:externals</title>
@@ -479,6 +475,29 @@ SUBST X: "D:\Documents\framework"
                 and not recommended for general use.
             </para>
         </sect2>
+		<sect2 id="tsvn-howto-common-repository">
+            <title>Add the project to the repository</title>
+			<para>
+				The maybe easiest way is to simply add the project in
+				a subfolder to your own project working copy. However
+				this has the disadvantage that you have to update and
+				upgrade this external project manually.
+			</para>
+			<para>
+				To help with the upgrade, TortoiseSVN provides a command
+				in the explorer right-drag context menu. Simply right-drag
+				the folder where you unzipped the new version of the
+				external library to the folder in your working copy,
+				and then select
+				<menuchoice>
+					<guimenu>Context Menu</guimenu>
+					<guimenuitem>SVN Vendorbranch here</guimenuitem>
+				</menuchoice>.
+				This will then copy the new files over to the target
+				folder while automatically adding new files and removing
+				files that aren't in the new version anymore.
+			</para>
+		</sect2>
     </sect1>
     <sect1 id="tsvn-howto-repo-shortcut">
         <title>Create a shortcut to a repository</title>

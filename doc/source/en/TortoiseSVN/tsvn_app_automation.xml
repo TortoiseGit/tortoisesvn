@@ -353,6 +353,16 @@ Don't touch these lines:
                             </entry>
                         </row>
                         <row>
+                            <entry condition="pot">:dropvendor</entry>
+                            <entry>
+                                Copies the folder in <option>/path</option> recursively
+                                to the directory specified in <option>/droptarget</option>.
+								New files are added automatically, and missing files get
+								removed in the target working copy, basically ensuring
+								that source and destination are exactly the same.
+                            </entry>
+                        </row>
+                        <row>
                             <entry condition="pot">:merge</entry>
                             <entry>
                                 Opens the merge dialog. The <option>/path</option> specifies the
