@@ -13,6 +13,7 @@
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011-2012.
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
 # Lübbe Onken <l.onken@rac.de>, 2011-2012.
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013.
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012.
 # Sven Strickroth <sstrickroth@googlemail.com>, 2012.
 msgid ""
@@ -20,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-17 08:12+0000\n"
+"PO-Revision-Date: 2013-01-02 10:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -266,6 +267,16 @@ msgstr "%s, aber das Verzeichnis wurde lokal bereits bearbeitet."
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s, aber das Verzeichnis wurde lokal bereits gelöscht, verschoben oder umbenannt."
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr "%s, aber das Verzeichnis wurde an einen anderen Ort verschoben"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr "%s, aber das Verzeichnis wurde hierher verschoben"
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -300,6 +311,16 @@ msgstr "%s, aber die Datei wurde lokal bereits bearbeitet."
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s, aber die Datei wurde lokal bereits gelöscht, verschoben oder umbenannt."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr "%s, aber die Datei wurde an einen anderen Ort verschoben"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr "%s, aber die Datei wurde hierher verschoben"
 
 #. Resource IDs: (609)
 #, c-format
@@ -4629,6 +4650,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "Holt den Inhalt von Ordnern im Hintergrund, so dass das Blättern schneller ist"
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr "Hole die Dateiliste der Quelle"
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr "Hole die Dateiliste des Ziels"
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "Hole Datei..."
@@ -5932,6 +5961,10 @@ msgstr "Linke Ansicht: "
 msgid "Left image"
 msgstr "Linkes Bild"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr "Linke lokale Änderungen"
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "Wie oben, aber für umgekehrtes Zusammenführen"
@@ -6040,6 +6073,10 @@ msgstr "Sperrdatum"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Dateien sperren"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr "Sperre aufgebrochen"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6188,6 +6225,10 @@ msgstr "Aktuelle Revision Ihrer Arbeitskopie markieren"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Für Vergleich auswählen"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr "Fehlende Dateien als entfernt markieren"
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6538,6 +6579,13 @@ msgstr "Verschieben\nDie Objekte werden in den Zielpfad verschoben."
 msgid "Moved from"
 msgstr "Verschoben von"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr "Verschoben von\n\n%s"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Im Projektarchiv verschoben"
@@ -6545,6 +6593,13 @@ msgstr "Im Projektarchiv verschoben"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "Verschoben nach"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr "Verschoben nach\n\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8389,6 +8444,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr "SVN &Herstellerzweig hier"
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Autor"
@@ -9159,8 +9218,16 @@ msgid "Skipped obstructing working copy"
 msgstr "Übersprungen: Versperrende Arbeitskopie"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr "Übersprungen: Zugriff verweigert"
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "Übersprungen: Kein versioniertes Elternobjekt"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr "Übersprungen: Bleibt in Konflikt"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -11011,6 +11078,10 @@ msgstr "Überprüfung des Eigenschaftswertes fehlgeschlagen!"
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "Wert"
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr "Herstellerzweig"
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"

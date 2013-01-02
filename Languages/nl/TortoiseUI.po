@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 08:39+0000\n"
+"PO-Revision-Date: 2013-01-02 08:33+0000\n"
 "Last-Translator: Eric van Aert <ericvanaert@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -268,6 +268,16 @@ msgstr "%s, maar de map was al gewijzigd."
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s, maar de map was lokaal verwijderd, verplaatst of hernoemd."
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -302,6 +312,16 @@ msgstr "%s, maar het bestand was al gewijzigd."
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s, maar het bestand was lokaal verwijderd, verplaatst of hernoemd."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
@@ -4631,6 +4651,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "Haalt inhoud van mappen op in de achtergrond voor sneller navigeren"
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "Bestand ophalen..."
@@ -5934,6 +5962,10 @@ msgstr "Linker beeld: "
 msgid "Left image"
 msgstr "Linker beeld"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr ""
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "Zoals bovenstaand, wordt gebruikt voor het ongedaan maken van samenvoegingen"
@@ -6042,6 +6074,10 @@ msgstr "Blokkeerdatum"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Bestanden blokkeren"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6190,6 +6226,10 @@ msgstr "Markeer huidige revisie van uw werkkopie"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Markeer om te vergelijken"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6540,6 +6580,13 @@ msgstr "Verplaats\nDe objecten worden verplaatst naar het doelpad."
 msgid "Moved from"
 msgstr "Verplaatst van"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Op afstand verplaatst"
@@ -6547,6 +6594,13 @@ msgstr "Op afstand verplaatst"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "Verplaatst naar"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8391,6 +8445,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Auteur"
@@ -9161,8 +9219,16 @@ msgid "Skipped obstructing working copy"
 msgstr "Versperde werkkopie overgeslagen"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr ""
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "Overgeslagen, ouder-pad niet onder versiebeheer"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr ""
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -11013,6 +11079,10 @@ msgstr "Validatie van eigenschap waarde mislukt!"
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "Waarde"
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"

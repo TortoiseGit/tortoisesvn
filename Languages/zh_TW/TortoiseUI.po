@@ -13,14 +13,14 @@
 # Arith Hsu <arithmandar@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Nick Vrvilo <nick@vrvilo.com>, 2011.
-#   <zcecil@csie.org>, 2011-2012.
+#   <zcecil@csie.org>, 2011-2013.
 # zcecil <zcecil@csie.org>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 14:27+0000\n"
+"PO-Revision-Date: 2013-01-02 08:33+0000\n"
 "Last-Translator: zcecil <zcecil@csie.org>\n"
 "Language-Team: Chinese (Taiwan) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -266,6 +266,16 @@ msgstr "%s, 但是本地端已經編輯過這個目錄了."
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s, 但是本地端已經刪除, 移動, 或重新命名過這個目錄了."
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr "%s, 但是目錄已經被移走了."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr "%s, 但是目錄已被移到此處."
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -300,6 +310,16 @@ msgstr "%s, 但是本地端已經編輯過這個檔案了."
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s, 但是本地端已經刪除, 移動, 或重新命名過這個檔案了."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr "%s, 但是檔案已經被移走了."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr "%s, 但是檔案已經被移到此處."
 
 #. Resource IDs: (609)
 #, c-format
@@ -1470,11 +1490,11 @@ msgstr "(無行號)"
 
 #. Resource IDs: (277)
 msgid "(no modification but copy created from here)"
-msgstr "(無修改但是複本自此建立)"
+msgstr "(無變更但是複本自此建立)"
 
 #. Resource IDs: (278)
 msgid "(no modification but relevant for working copy)"
-msgstr "(無修改但是與工作複本相關)"
+msgstr "(無變更但是與工作複本相關)"
 
 #. Resource IDs: (214)
 msgid "(no value)"
@@ -2489,7 +2509,7 @@ msgstr "取消\n保留磁碟上的快取."
 msgid ""
 "Cancel\n"
 "Local modifications are kept."
-msgstr "取消\n保留本地端所做的修改。"
+msgstr "取消\n保留本地端所做的變更。"
 
 #. Resource IDs: (315)
 msgid ""
@@ -2672,7 +2692,7 @@ msgstr "檢查更新..."
 
 #. Resource IDs: (276)
 msgid "Check for &modifications"
-msgstr "檢查異動(&M)"
+msgstr "檢查變更(&M)"
 
 #. Resource IDs: (13)
 msgid "Check for modi&fications"
@@ -2680,7 +2700,7 @@ msgstr "檢查異動(&F)"
 
 #. Resource IDs: (65535)
 msgid "Check for modifications"
-msgstr "檢查異動"
+msgstr "檢查變更"
 
 #. Resource IDs: (65535)
 msgid "Check for updates"
@@ -2726,7 +2746,7 @@ msgstr "勾選可在記錄訊息中使用較簡短的日期及時間"
 
 #. Resource IDs: (2052)
 msgid "Check working copy for modifications"
-msgstr "檢查工作複本中的修改"
+msgstr "檢查工作複本中的變更"
 
 #. Resource IDs: (1504)
 msgid "Check:"
@@ -4629,6 +4649,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "在背景載入目錄內容以加速瀏覽"
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "正在取得檔案..."
@@ -5486,7 +5514,7 @@ msgstr "如果在這臺電腦上有使用TortoiseSVN以外的其它SVN用戶端�
 msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
-msgstr "如果你想要破壞鎖定, 請使用檔案庫瀏覽器的「檢查異動」選項。"
+msgstr "如果你想要破壞鎖定, 請使用檔案庫瀏覽器的「檢查變更」選項。"
 
 #. Resource IDs: (563)
 msgid "Ignore"
@@ -5932,6 +5960,10 @@ msgstr "左側檢視:"
 msgid "Left image"
 msgstr "左側影像"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr "左側本地端變更"
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "同上, 但是僅用在反向合併"
@@ -6040,6 +6072,10 @@ msgstr "鎖定日期"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "鎖定檔案"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr "鎖定已被破壞"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6188,6 +6224,10 @@ msgstr "標記工作複本目前版本"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "選取比對用項目"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6422,7 +6462,7 @@ msgstr "混合"
 
 #. Resource IDs: (208)
 msgid "Modification date"
-msgstr "修改日期"
+msgstr "變更日期"
 
 #. Resource IDs: (74, 264, 1511, 65535)
 msgid "Modified"
@@ -6538,6 +6578,13 @@ msgstr "移動\n已移動項目至目標路徑."
 msgid "Moved from"
 msgstr "移動自"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr "自 %s\n移動而來"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "遠端移動完成"
@@ -6545,6 +6592,13 @@ msgstr "遠端移動完成"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "移動至"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr "往 %s\n移動"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8389,6 +8443,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN 作者"
@@ -8945,7 +9003,7 @@ msgstr "在工具列上顯示畫面提示(&T)"
 
 #. Resource IDs: (32831)
 msgid "Show WC &modifications"
-msgstr "顯示工作複本修改(&M)"
+msgstr "顯示工作複本變更(&M)"
 
 #. Resource IDs: (156)
 msgid "Show Whitespaces"
@@ -9140,11 +9198,11 @@ msgstr "未壓縮的快取大小"
 
 #. Resource IDs: (564)
 msgid "Skip"
-msgstr "忽略"
+msgstr "略過"
 
 #. Resource IDs: (564)
 msgid "Skip all"
-msgstr "全部忽略"
+msgstr "全部略過"
 
 #. Resource IDs: (74)
 msgid "Skipped"
@@ -9152,15 +9210,23 @@ msgstr "略過"
 
 #. Resource IDs: (263)
 msgid "Skipped missing target"
-msgstr "已跳過的缺少目標"
+msgstr "已略過的缺少目標"
 
 #. Resource IDs: (265)
 msgid "Skipped obstructing working copy"
-msgstr "已忽略故障中的工作複本"
+msgstr "已略過故障中的工作複本"
+
+#. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr "存取被拒, 已略過"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
-msgstr "已忽略, 無版本控制的上層."
+msgstr "上層目錄無版本控制, 已略過"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr "尚有衝突存在, 已略過"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -10037,13 +10103,13 @@ msgstr "目標工作目錄 '%s' 已有本地變更. 建議先送交變更之後�
 
 #. Resource IDs: (279)
 msgid "The target working copy has local modifications!"
-msgstr "目標工作複本含有本地異動!"
+msgstr "目標工作複本含有本地變更!"
 
 #. Resource IDs: (279)
 msgid ""
 "The target working copy has local modifications.\n"
 "Do you want to merge anyway?"
-msgstr "目標工作複本含有本地異動!\n是否確定要合併?"
+msgstr "目標工作複本含有本地變更!\n是否確定要合併?"
 
 #. Resource IDs: (195)
 msgid ""
@@ -10622,7 +10688,7 @@ msgstr "取消加入..."
 msgid ""
 "Undo the last modifications\n"
 "Undo"
-msgstr "復原最近一次修改\n復原"
+msgstr "復原最近一次變更\n復原"
 
 #. Resource IDs: (3859)
 msgid "Unexpected file format."
@@ -11012,6 +11078,10 @@ msgstr "屬性檢查失敗!"
 msgid "Value"
 msgstr "值"
 
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
+
 #. Resource IDs: (1004, 1075)
 msgid "Version"
 msgstr "版本"
@@ -11348,21 +11418,21 @@ msgid ""
 "Your working copy contains modifications.\n"
 "Lowest revision in working copy: %1!ld!\n"
 "Path: %2!s!"
-msgstr "您的工作複本已經有修改.\n工作複本中最低的版號是: %1!ld!\n路徑: %2!s!"
+msgstr "您的工作複本已經有變更.\n工作複本中最低的版號是: %1!ld!\n路徑: %2!s!"
 
 #. Resource IDs: (88)
 msgid ""
 "Your working copy has local modifications!\n"
 "Note: updating to another revision won't lose those modifications so the working copy\n"
 "won't look exactly as it was in the revision you're updating to!"
-msgstr "您的工作複本已有異動!\n注意:更新至其它版本不會失去目前工作複本的變更.\n所以更新後不會得到與目標版本完全相同的檔案!"
+msgstr "您的工作複本已有變更!\n注意:更新至其它版本不會失去目前工作複本的變更.\n所以更新後不會得到與目標版本完全相同的檔案!"
 
 #. Resource IDs: (89)
 msgid ""
 "Your working copy has local modifications.\n"
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
-msgstr "您的工作複本有本地端的更動.\n如果您從 HEAD 版本分支或標記, 本地的更動將\n不會作用在檔案庫中!"
+msgstr "您的工作複本有本地端的變更.\n如果您從 HEAD 版本分支或標記, 本地的變更將\n不會作用在檔案庫中!"
 
 #. Resource IDs: (221)
 #, c-format
@@ -12029,7 +12099,7 @@ msgstr "工作複本是這個版本"
 
 #. Resource IDs: (583)
 msgid "there are conflicting modifications."
-msgstr "有衝突的更動."
+msgstr "有變更發生衝充."
 
 #. Resource IDs: (3845)
 #, c-format
@@ -12150,7 +12220,7 @@ msgid ""
 "tsvn:logtemplatepropset\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
-msgstr "tsvn:logtemplatepropset\r\n自動加入記錄訊息對話框中的字串.\r\n可以用作讓使用者修改屬性時填寫的記錄訊息模板."
+msgstr "tsvn:logtemplatepropset\n自動加入記錄訊息對話框中的字串.\n可以用作讓使用者變更屬性時填寫的記錄訊息模板."
 
 #. Resource IDs: (578)
 msgid ""

@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-17 09:03+0000\n"
+"PO-Revision-Date: 2013-01-02 08:34+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -264,6 +264,16 @@ msgstr "%s, али фолдер је већ уређен."
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s, али фолдер је већ обрисан, померен или преименован локално."
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -298,6 +308,16 @@ msgstr "%s, али фајл је већ уређен."
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s, али фајл је већ обрисан, померен или преименован локално."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
@@ -4627,6 +4647,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "Добавља садржај фолдера у беграунду тако да је претраживање брже"
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "Дохватање фајла..."
@@ -5930,6 +5958,10 @@ msgstr "Леви поглед:"
 msgid "Left image"
 msgstr "Лева слика"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr ""
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "Као изнад, али коришћењем инверзно стапање"
@@ -6038,6 +6070,10 @@ msgstr "Закључај Датум"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Закључај фајлове"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6186,6 +6222,10 @@ msgstr "Означи текућу ревизију своје радне коп�
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Означи за поређење"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6536,6 +6576,13 @@ msgstr "Померање\nСтавке се померају ка циљној �
 msgid "Moved from"
 msgstr "Премештено од"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Премештено на даљину"
@@ -6543,6 +6590,13 @@ msgstr "Премештено на даљину"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "Премештено у"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8387,6 +8441,10 @@ msgstr "СЦРЛ"
 msgid "SSH"
 msgstr "ССХ"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "СВН аутор"
@@ -9157,8 +9215,16 @@ msgid "Skipped obstructing working copy"
 msgstr "Прескочена оштећена радна копија"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr ""
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "Прескочено, нема верзионисаног претка"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr ""
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -11009,6 +11075,10 @@ msgstr "Провера неисправне вредности особине!"
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "Вредност"
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"

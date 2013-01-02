@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 08:40+0000\n"
+"PO-Revision-Date: 2013-01-02 08:34+0000\n"
 "Last-Translator: Oto BREZINA <otik@e-posta.sk>\n"
 "Language-Team: Slovak <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -216,7 +216,7 @@ msgstr "%s (odpojené)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (rekurzívne)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -263,6 +263,16 @@ msgstr "%s, ale adresár už bol už upravený."
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s, ale adresár už bol miestne zmazaný, presunutý, alebo zmazaný."
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr "%s, ale adresár bol presunutý inam"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr "%s, ale bol sem presunutý adresár"
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -297,6 +307,16 @@ msgstr "%s, ale súbor už bol upravený."
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s, ale súbor už bol miestne zmazaný, presunutý, alebo zmazaný."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr "%s, ale súbor bol presunutý inam"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr "%s, ale bol sem presunutý súbor"
 
 #. Resource IDs: (609)
 #, c-format
@@ -1038,7 +1058,7 @@ msgstr "&Voľby"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "&Iné"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -2145,7 +2165,7 @@ msgstr "Automaticky premenovať"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Automaticky zlúčiť"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2168,7 +2188,7 @@ msgstr "Automatické dokončovanie slov (typicky tried a mien členov)\r\npočas
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Automaticky zlučiť %1!s! do %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3917,7 +3937,7 @@ msgstr "Nezobrazovať kontextovú ponuku pre nasledovné cesty:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge"
-msgstr ""
+msgstr "Aplikovať reintergaciu miesto automatického zlučovania"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4626,6 +4646,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "Načíta obsah adresárov na pozadí aby bolo prehliadanie rýchlejšie"
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "Získavanie súboru..."
@@ -5073,7 +5101,7 @@ msgstr "HEAD (hlavný) uzol"
 #. Resource IDs: (106)
 #, c-format
 msgid "HEAD revision is %s"
-msgstr ""
+msgstr "HEAD reviízia je %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5929,6 +5957,10 @@ msgstr "ľavý pohľad: "
 msgid "Left image"
 msgstr "Ľavý obrázok"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr ""
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "Ako vyššie,ale použité na spätné zlučovanie"
@@ -6037,6 +6069,10 @@ msgstr "Zamknúť dátum"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Zamknúť súbory"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr "Zámok zlomený"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6185,6 +6221,10 @@ msgstr "Označ aktuálnu revíziu vašej pracovnej kópie"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Označiť pre porovnanie"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6535,6 +6575,13 @@ msgstr "Presunúť\nObjekty sú presunuté do cielovej cesty."
 msgid "Moved from"
 msgstr "Presunuté z"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr "Presunuté z\n%s"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Presunuté vzdialene"
@@ -6542,6 +6589,13 @@ msgstr "Presunuté vzdialene"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "Presunuté do"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr "Presunuté do\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6570,7 +6624,7 @@ msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "Meno"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -7305,7 +7359,7 @@ msgstr "Čakajte prosím, prehliadač úložiska sa inicializuje ..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
+msgstr "Prosím, počkajte kým skontrolujeme parametre na slučovanie"
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
@@ -8386,6 +8440,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Autor"
@@ -9156,8 +9214,16 @@ msgid "Skipped obstructing working copy"
 msgstr "Preskočená brániaca pracovná kópia"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr "Preskočené, prístup zamietnutý"
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "Preskočené, neverziovaný rodič"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr "Preskočené, ostáva v konflikte"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -10505,7 +10571,7 @@ msgstr "Doladenie TortoiseSVN"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -10775,7 +10841,7 @@ msgstr "Aktualizácia pamäte denníka"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Vynoviť pracovnú kópiu\ndo nového formátu 1.8."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11008,6 +11074,10 @@ msgstr "Kontrola správnosti hodnoty vlastnosti zlyhala!"
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "Hodnota"
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"
@@ -11697,7 +11767,7 @@ msgstr "udržať zoznam súborov v Angličtine"
 
 #. Resource IDs: (65535)
 msgid "last HEAD update: "
-msgstr ""
+msgstr "posledná aktualizácia HEAD:"
 
 #. Resource IDs: (65535)
 msgid "last read: "
@@ -11944,7 +12014,7 @@ msgstr "svn:externals\nNovými riadkami oddelený zoznam modulov. Každý pozost
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr ""
+msgstr "svn:global-ignores\nNovzmi riadkami oddený zoznam vzorov mien súborov k rekurzívnemu ignorova"
 
 #. Resource IDs: (576)
 msgid ""

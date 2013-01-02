@@ -12,6 +12,7 @@
 # Translators:
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Lübbe Onken <l.onken@rac.de>, 2011-2012.
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013.
 # <peu@rekoba.de>, 2012.
 #   <peu@rekoba.de>, 2012.
 # Stefan Kueng <tortoisesvn@gmail.com>, 2011.
@@ -20,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-19 08:36+0000\n"
+"PO-Revision-Date: 2013-01-02 10:29+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3311,6 +3312,15 @@ msgstr "Fügen Sie diese Dateien mit dem Befehl <menuchoice> <guimenu>TortoiseSV
 
 #. (para)
 msgid ""
+"add the file to the <literal>svn:global-ignores</literal> list using "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list "
+"(recursively)</guimenuitem></menuchoice> This will affect the directory on "
+"which you set the <literal>svn:global-ignores</literal> property and all "
+"subfolders as well."
+msgstr ""
+
+#. (para)
+msgid ""
 "If you think that the commit dialog shows you too many unversioned (e.g. "
 "compiler generated or editor backup) files, there are several ways to handle"
 " this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> "
@@ -5477,6 +5487,7 @@ msgid "View the Subversion properties for the selected item."
 msgstr "Die Subversion-Eigenschaften für das ausgewählte Objekt anzeigen."
 
 #. (term)
+#. (guilabel)
 msgid "Show log"
 msgstr "Zeige Log"
 
@@ -6796,9 +6807,18 @@ msgid ""
 " the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to "
 "Ignore List</guimenuitem></menuchoice> from the context menu, a submenu "
 "appears allowing you to select just that file, or all files with the same "
-"extension. If you select multiple files, there is no submenu and you can "
+"extension. Both submenus also have a <literal>(recursively)</literal> "
+"equivalent. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
-msgstr "Wenn Sie mit der rechten Maustaste auf eine einzelne, nicht versionierte Datei klicken und <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Ignorieren</guimenuitem> </menuchoice> aus dem Kontextmenü wählen, wird Ihnen ein Untermenü angezeigt, das Ihnen erlaubt, nur diese Datei oder alle Dateien mit dieser Endung zu ignorieren. Wenn Sie mehrere Elemente wählen, erscheint kein Untermenü und es werden genau diese Dateien / Ordner zur <emphasis>Ignorieren</emphasis>-Liste hinzugefügt."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you choose the <literal>(recursively)</literal> version of the ignore "
+"context menu, the item will be ignored not just for the selected folder but "
+"all subfolders as well. However this requires SVN clients version 1.8 or "
+"higher."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12167,10 +12187,10 @@ msgstr "Wenn Sie die Subversion Konfigurationsdatei verwenden, um ein <literal>g
 msgid ""
 "This ignore pattern will affect all your projects. It is not versioned, so "
 "it will not affect other users. By contrast you can also use the versioned "
-"<literal>svn:ignore</literal> property to exclude files or directories from "
-"version control. Read <xref linkend=\"tsvn-dug-ignore\"/> for more "
-"information."
-msgstr "Dieses Ausschluss-Muster beeinflusst alle Ihre Projekte. Es ist nicht versioniert, also wird es keine anderen Anwender beeinflussen. Im Gegensatz dazu können Sie auch die versionierte <literal>svn:ignore</literal> Eigenschaft verwenden, um Dateien oder Verzeichnisse von der Versionskontrolle auszuschließen. Lesen Sie <xref linkend=\"tsvn-dug-ignore\"/> für weitere Information."
+"<literal>svn:ignore</literal> or <literal>svn:global-ignores</literal> "
+"property to exclude files or directories from version control. Read <xref "
+"linkend=\"tsvn-dug-ignore\"/> for more information."
+msgstr "Dieses Ausschluss-Muster beeinflusst alle Ihre Projekte. Es ist nicht versioniert, also wird es keine anderen Anwender beeinflussen. Im Gegensatz dazu können Sie auch die versionierte <literal>svn:ignore</literal> oder <literal>svn:global-ignores</literal> Eigenschaft verwenden, um Dateien oder Verzeichnisse von der Versionskontrolle auszuschließen. Lesen Sie <xref linkend=\"tsvn-dug-ignore\"/> für weitere Information."
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
@@ -16235,11 +16255,8 @@ msgstr "Herstellerprojekte"
 #. (para)
 msgid ""
 "Sometimes you will want to include another project within your working copy,"
-" perhaps some library code. You don't want to make a duplicate of this code "
-"in your repository because then you would lose connection with the original "
-"(and maintained) code. Or maybe you have several projects which share core "
-"code. There are at least 3 ways of dealing with this."
-msgstr "Manchmal ist es notwendig, ein anderes Projekt in Ihre Arbeitskopie einzubinden, zum Beispiel eine externe Bibliothek. Sie möchten aber keine Kopie davon in Ihr Projektarchiv aufnehmen, da Sie dann die Verbindung zum Original verlieren. Oder Sie haben mehrere Projekte welche Code-Teile gemeinsam haben. Es gibt mindestens drei verschiedene Wege um diese Situation zu meistern."
+" perhaps some library code. There are at least 4 ways of dealing with this."
+msgstr "Manchmal möchten Sie ein anderes Projekt, vielleicht eine Bibliothek, in ihre Arbeitskopie einbinden. Es gibt mindestens vier Methoden, damit umzugehen."
 
 #. (title)
 msgid "Use svn:externals"
@@ -16325,6 +16342,28 @@ msgid ""
 "mysterious files are. This method is strictly for use in closed development "
 "environments, and not recommended for general use."
 msgstr "Diese Methode funktioniert jedoch nur in einer PC-Umgebung, und Sie müssen genau dokumentieren wie die Laufwerks-Verbindung gemacht werden muss damit die Team-Mitglieder die Projekte auch Kompilieren können und die gemeinsamen Dateien auch finden. Diese Methode ist wirklich nur in geschlossene Umgebungen anwendbar und nicht für die normale Verwendung empfohlen."
+
+#. (title)
+msgid "Add the project to the repository"
+msgstr "Das Projekt zum Projektarchiv hinzufügen"
+
+#. (para)
+msgid ""
+"The maybe easiest way is to simply add the project in a subfolder to your "
+"own project working copy. However this has the disadvantage that you have to"
+" update and upgrade this external project manually."
+msgstr ""
+
+#. (para)
+msgid ""
+"To help with the upgrade, TortoiseSVN provides a command in the explorer "
+"right-drag context menu. Simply right-drag the folder where you unzipped the"
+" new version of the external library to the folder in your working copy, and"
+" then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN "
+"Vendorbranch here</guimenuitem></menuchoice>. This will then copy the new "
+"files over to the target folder while automatically adding new files and "
+"removing files that aren't in the new version anymore."
+msgstr ""
 
 #. (title)
 msgid "Create a shortcut to a repository"
@@ -16960,6 +16999,7 @@ msgstr "Öffnet den <guilabel>Über TortoiseSVN</guilabel>-Dialog. Dies ist das 
 #. (option)
 #. (option)
 #. (option)
+#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -17132,6 +17172,10 @@ msgstr "/includeexternals"
 msgid "/stickydepth"
 msgstr "/stickydepth"
 
+#. (option)
+msgid "/skipprechecks"
+msgstr "/skipprechecks"
+
 #. (entry)
 msgid ""
 "Updates the working copy in <placeholder-1/> to HEAD. If the option "
@@ -17139,8 +17183,11 @@ msgid ""
 "revision the update should go. To avoid the dialog specify a revision number"
 " <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and "
 "<placeholder-6/>. The <placeholder-7/> indicates that the specified depth "
-"should be sticky, creating a sparse checkout."
-msgstr "Aktualisiert die Arbeitskopie in <placeholder-1/> zur HEAD Revision. Bei Angabe von <placeholder-2/> wird ein Dialog angezeigt, in dem der Anwender angeben kann, zu welcher Revision aktualisiert werden soll. Um die Anzeige des Dialogs zu vermeiden, geben Sie eine Revisionsnummer an <placeholder-3/>. Weitere Optionen sind <placeholder-4/>, <placeholder-5/> und <placeholder-6/>. <placeholder-7/> sorgt dafür, dass eine spärliche Arbeitskopie mit fixer Aktualisierungstiefe erstellt werden soll."
+"should be sticky, creating a sparse checkout. The <placeholder-8/> can be "
+"set to skip all checks that are done before an update. If this is specified,"
+" then the <placeholder-9/> button is disabled, and the context menu to show "
+"diffs is also disabled after the update."
+msgstr ""
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -17248,6 +17295,7 @@ msgid ""
 msgstr "Exportiert die Arbeitskopie in <placeholder-1/> in ein anderes Verzeichnis. Wenn <placeholder-2/> auf ein nicht versioniertes Verzeichnis zeigt, wird ein Dialog angezeigt, der eine URL erfragt, die in das in <placeholder-3/> angegebene Verzeichnis exportiert wird. Falls Sie den Schlüssel <placeholder-4/> angeben wird die automatische Anpassung des Exportpfades blockiert."
 
 #. (option)
+#. (option)
 msgid "/droptarget"
 msgstr "/droptarget"
 
@@ -17282,6 +17330,14 @@ msgid ""
 "either <placeholder-6/> to only export files that got changed locally, or "
 "<placeholder-7/> to also export all unversioned items as well."
 msgstr "Exportiert die Arbeitskopie in <placeholder-1/> in das in <placeholder-2/> angegebene Verzeichnis. Dieser Export verwendet nicht den Dialog sondern wird direkt ausgeführt. Mit der Option <placeholder-3/> legen Sie fest, dass vorhandene Dateien ohne Rückfrage überschrieben werden. Die Option <placeholder-4/> bedeutet, dass exportierte Dateien im Konfliktfall umbenannt werden, damit vorhandene Dateien nicht überschrieben werden. Option <placeholder-5/> hat die Parameter <placeholder-6/>, mit dem nur lokal veränderte Objekte exportiert werden und <placeholder-7/> mit dem zusätzlich alle nicht versionierten Objekte exportiert werden."
+
+#. (entry)
+msgid ""
+"Copies the folder in <placeholder-1/> recursively to the directory specified"
+" in <placeholder-2/>. New files are added automatically, and missing files "
+"get removed in the target working copy, basically ensuring that source and "
+"destination are exactly the same."
+msgstr ""
 
 #. (option)
 #. (option)

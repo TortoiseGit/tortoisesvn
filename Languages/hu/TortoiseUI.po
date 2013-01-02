@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 08:40+0000\n"
+"PO-Revision-Date: 2013-01-02 08:34+0000\n"
 "Last-Translator: Baquatelle <abel@abel.hu>\n"
 "Language-Team: Hungarian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -262,6 +262,16 @@ msgstr "%s, de már módosítva van a könyvtár."
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s, de a helyi könyvtár már törlődött, átneveződött vagy el lett mozgatva."
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -295,6 +305,16 @@ msgstr "%s, de a fájl már szerkesztve volt."
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
 msgstr ""
 
 #. Resource IDs: (609)
@@ -4625,6 +4645,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr ""
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "Fájl lekérése..."
@@ -5928,6 +5956,10 @@ msgstr "Bal oldali nézet:"
 msgid "Left image"
 msgstr "Bal oldali kép"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr ""
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr ""
@@ -6036,6 +6068,10 @@ msgstr "Zárolás időpontja"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Fájlok zárolása"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6184,6 +6220,10 @@ msgstr "A jelenlegi munkapéldány megjelenítése"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Megjelölés összehasonlításhoz"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6534,12 +6574,26 @@ msgstr ""
 msgid "Moved from"
 msgstr ""
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Távolról áthelyezve"
 
 #. Resource IDs: (65535)
 msgid "Moved to"
+msgstr ""
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
 msgstr ""
 
 #. Resource IDs: (197)
@@ -8385,6 +8439,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Fejlesztő"
@@ -9155,7 +9213,15 @@ msgid "Skipped obstructing working copy"
 msgstr ""
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr ""
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
+msgstr ""
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
 msgstr ""
 
 #. Resource IDs: (1070)
@@ -11007,6 +11073,10 @@ msgstr ""
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "Érték"
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"

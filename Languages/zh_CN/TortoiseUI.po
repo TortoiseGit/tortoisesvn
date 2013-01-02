@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# Christopher Meng <cickumqt@gmail.com>, 2012.
 # Entong Shen <dexter_shen@hotmail.com>, 2011.
 # fang zheng <fz0000@sina.com>, 2011, 2012.
 # Garfield Yao <field977@gmail.com>, 2011.
@@ -27,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 08:39+0000\n"
-"Last-Translator: loveyu <yuht@qq.com>\n"
+"PO-Revision-Date: 2013-01-02 08:33+0000\n"
+"Last-Translator: Christopher Meng <cickumqt@gmail.com>\n"
 "Language-Team: Chinese (China) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -273,6 +274,16 @@ msgstr "%s，该目录已经在本地被编辑。"
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s，该目录已经在本地被删除、移动或改名。"
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -307,6 +318,16 @@ msgstr "%s，该文件已经在本地被编辑。"
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s，该文件已经在本地被删除、移动或改名。"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
@@ -2155,7 +2176,7 @@ msgstr "自动改名"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "自动合并"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -4636,6 +4657,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "后台下载文件夹内容以加速浏览"
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "正在获取文件..."
@@ -5939,6 +5968,10 @@ msgstr "左侧查看: "
 msgid "Left image"
 msgstr "左侧图片"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr ""
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "和上面的一样，但是反向合并时使用"
@@ -6047,6 +6080,10 @@ msgstr "加锁日期"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "锁定文件"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6195,6 +6232,10 @@ msgstr "标记工作副本的当前版本号"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "为比较标记"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6545,6 +6586,13 @@ msgstr "移动\n这些项已被移动到目标路径。"
 msgid "Moved from"
 msgstr "移动自"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "远程移动完成"
@@ -6552,6 +6600,13 @@ msgstr "远程移动完成"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "移动到"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8396,6 +8451,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN 作者"
@@ -9166,8 +9225,16 @@ msgid "Skipped obstructing working copy"
 msgstr "跳过有问题的工作副本"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr ""
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "跳过了，没有版本控制的父目条"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr ""
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -11019,6 +11086,10 @@ msgstr "检查属性值失败"
 msgid "Value"
 msgstr "值"
 
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
+
 #. Resource IDs: (1004, 1075)
 msgid "Version"
 msgstr "版本"
@@ -11679,7 +11750,7 @@ msgstr "忽略根源"
 
 #. Resource IDs: (618)
 msgid "include properties"
-msgstr ""
+msgstr "包含属性"
 
 #. Resource IDs: (13)
 msgid "incomplete"

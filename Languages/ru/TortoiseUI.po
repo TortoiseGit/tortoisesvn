@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-17 14:10+0000\n"
+"PO-Revision-Date: 2013-01-02 08:34+0000\n"
 "Last-Translator: Nikolay Osinin <nikolay.osinin@gmail.com>\n"
 "Language-Team: Russian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -245,72 +245,92 @@ msgstr "%s [Возвращено]"
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory already exists unversioned locally."
-msgstr "%s, но этот неверсированный элемент уже существует локально."
+msgstr "%s, но директория уже существует локально как неверсированная."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory is missing locally."
-msgstr "%s, но этот элемент локально отсутствует."
+msgstr "%s, но директория отсутствует локально."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already added locally."
-msgstr "%s, но этот элемент был уже добавлен локально."
+msgstr "%s, но директория локально уже была добавлена."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was already edited."
-msgstr "%s, но этот элемент был уже отредактирован."
+msgstr "%s, но директория уже была отредактирована."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was deleted, moved or renamed locally."
-msgstr "%s, но этот элемент был удалён, перемещён или переименован локально."
+msgstr "%s, но директория локально была удалена, перемещена или переименована."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr "%s, но директория была перемещена"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr "%s, но директория была перемещена сюда"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
-msgstr "%s, но этот элемент был мешающим в рабочей копии."
+msgstr "%s, но директория была мешающей в рабочей копии."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was replaced"
-msgstr "%s, но локальный файл был уже отредактирован."
+msgstr "%s, но директория была заменена"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file already exists unversioned locally."
-msgstr "%s, но этот неверсированный элемент уже существует локально."
+msgstr "%s, но файл уже существует локально как неверсированный."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file is missing locally."
-msgstr "%s, но этот элемент локально отсутствует."
+msgstr "%s, но файл отсутствует локально."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already added locally."
-msgstr "%s, но этот элемент был уже добавлен локально."
+msgstr "%s, но файл локально уже был добавлен."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was already edited."
-msgstr "%s, но локальный файл был уже отредактирован."
+msgstr "%s, но файл уже был отредактирован."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
-msgstr "%s, но этот элемент был удалён, перемещён или переименован локально."
+msgstr "%s, но файл локально был удалён, перемещён или переименован."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr "%s, но файл был перемещён"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr "%s, но файл был перемещён сюда"
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was obstructed in the working copy."
-msgstr "%s, но этот элемент был мешающим в рабочей копии."
+msgstr "%s, но файл был мешающим в рабочей копии."
 
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was replaced"
-msgstr "%s, но локальный файл был уже отредактирован."
+msgstr "%s, но файл был заменён"
 
 #. Resource IDs: (376)
 #, c-format
@@ -4630,6 +4650,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "Предварительно получает содержимое папок в фоновом режиме для более быстрого просмотра"
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "Извлечение файла..."
@@ -5933,6 +5961,10 @@ msgstr "Вид слева:"
 msgid "Left image"
 msgstr "Левое изображение"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr "Остались локальные изменения"
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "Как и выше, но используется для обратного слияния"
@@ -6041,6 +6073,10 @@ msgstr "Дата блокировки"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Блокировка файлов"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr "Блокировка повреждена"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6189,6 +6225,10 @@ msgstr "Отметить текущую ревизию вашей рабочей
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Пометить для сравнения"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6539,6 +6579,13 @@ msgstr "Переместить\nЭлементы перемещены по пу�
 msgid "Moved from"
 msgstr "Перемещено из"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr "Перемещено из\r\n%s"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Перемещено удалённо"
@@ -6546,6 +6593,13 @@ msgstr "Перемещено удалённо"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "Перемещено в"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr "Перемещено в\r\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8390,6 +8444,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Автор"
@@ -9160,8 +9218,16 @@ msgid "Skipped obstructing working copy"
 msgstr "Пропущена нарушенная рабочая копия"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr "Пропущено, доступ запрещён"
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "Пропущено, нет версированного родителя"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr "Пропущено, остаётся в состоянии конфликта"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -11012,6 +11078,10 @@ msgstr "Проверка значения свойства неудалась!"
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "Значение"
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"

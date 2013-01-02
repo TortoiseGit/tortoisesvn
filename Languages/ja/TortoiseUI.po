@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 10:23+0000\n"
+"PO-Revision-Date: 2013-01-02 08:34+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -264,6 +264,16 @@ msgstr "%s、しかし、ディレクトリはすでに編集されています�
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s、しかし、ディレクトリはローカルで削除か、移動か、名前の変更が行われています。"
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr "%s、しかし、ディレクトリは移動されました"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr "%s、しかし、ディレクトリはここに移動されました"
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -298,6 +308,16 @@ msgstr "%s、しかし、ファイルはすでに編集されています。"
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s、しかし、ファイルはローカルで削除か、移動か、名前の変更が行われています。"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr "%s、しかし、ファイルは移動されました"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr "%s、しかし、ファイルはここに移動されました"
 
 #. Resource IDs: (609)
 #, c-format
@@ -4627,6 +4647,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "フォルダーの中身をバックグラウンドで先読みし、表示を高速化します"
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "ファイルを取り出す..."
@@ -5930,6 +5958,10 @@ msgstr "左ビュー: "
 msgid "Left image"
 msgstr "左側の画像"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr "ローカルでの変更が残っています"
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "上記と同じ、ただし逆マージで使用されたもの"
@@ -6038,6 +6070,10 @@ msgstr "ロックした日時"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "ファイルをロック"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr "ロックが破壊されました"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6186,6 +6222,10 @@ msgstr "作業コピーの現在のリビジョンをマークする"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "比較対象としてマーク"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6536,6 +6576,13 @@ msgstr "移動\n項目をターゲットパスへ移動する"
 msgid "Moved from"
 msgstr "移動元"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr "%s\r\nから移動"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "リモート操作による移動"
@@ -6543,6 +6590,13 @@ msgstr "リモート操作による移動"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "移動先"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr "%s\r\nへ移動"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8387,6 +8441,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN 作者"
@@ -9157,8 +9215,16 @@ msgid "Skipped obstructing working copy"
 msgstr "妨害している作業コピーをスキップ"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr "スキップ、アクセスが拒否された"
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "スキップ、バージョン管理された親が存在しない"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr "スキップ、競合が残っている"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -11009,6 +11075,10 @@ msgstr "プロパティ値の検証に失敗しました。"
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "値"
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 08:40+0000\n"
+"PO-Revision-Date: 2013-01-02 08:34+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -268,6 +268,16 @@ msgstr "%s, ale katalog był już edytowany."
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s, ale katalog był lokalnie usunięty, przesunięty lub zmieniono jego nazwę."
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr "%s, ale folder został przeniesiony gdzie indziej"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr "%s, ale folder został przeniesiony tutaj"
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -302,6 +312,16 @@ msgstr "%s, ale plik był już edytowany."
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s, ale plik był lokalnie usunięty, przesunięty lub zmieniono jego nazwę."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr "%s, ale plik został przeniesiony gdzie indziej"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr "%s, ale plik został przeniesiony tutaj"
 
 #. Resource IDs: (609)
 #, c-format
@@ -2150,7 +2170,7 @@ msgstr "Automatycznie zmień nazwę"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Auto-Scalanie"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2173,7 +2193,7 @@ msgstr "Podpowiadanie sugeruje w trakcie pisania opisu zmian słowa\r\n(zwykle n
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Auto-scalenie %1!s! do %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3922,7 +3942,7 @@ msgstr "Nie pokazuj menu kontekstowego dla nast. ścieżek:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge"
-msgstr ""
+msgstr "Wykonaj reintegrację zamiast automatycznego scalenia"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4630,6 +4650,14 @@ msgstr "Pobierz wersję HEAD i dostosuj do niej"
 msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "Pobiera zawartość folderów w tle, dzięki czemu przeglądanie jest szybsze"
+
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5934,6 +5962,10 @@ msgstr "Widok lewy: "
 msgid "Left image"
 msgstr "Lewy obraz"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr "Pozostawiono zmiany lokalne"
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "Jak powyżej, ale używane do scaleń odwróconych"
@@ -6042,6 +6074,10 @@ msgstr "Data zablokowania"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Zablokuj pliki"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr "Blokada złamana"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6190,6 +6226,10 @@ msgstr "Zaznacz bieżącą wersję twojej kopii roboczej"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Zaznacz do porównania"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6540,6 +6580,13 @@ msgstr "Przenieś\nElementy są przenoszone na ścieżkę docelową."
 msgid "Moved from"
 msgstr "Przeniesiono z"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr "Przeniesiono z\n%s"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Przeniesiono zdalnie"
@@ -6547,6 +6594,13 @@ msgstr "Przeniesiono zdalnie"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "Przeniesiono do"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr "Przeniesiono do\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -7310,7 +7364,7 @@ msgstr "Proszę czekać na inicjalizację przeglądarki repozytorium..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
+msgstr "Poczekaj na sprawdzenie parametrów scalenia."
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
@@ -7597,7 +7651,7 @@ msgstr "&RAM-dyski"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
+msgstr "R&eintegruj gałąź / scal automatycznie"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -8391,6 +8445,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Autor"
@@ -9161,8 +9219,16 @@ msgid "Skipped obstructing working copy"
 msgstr "Pominięta blokada kopii roboczej"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr "Pominięto, brak dostępu"
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "Pominięto, brak wersjonowanego elementu nadrzędnego"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr "Pominięto, pozostaje w konflikcie"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9975,13 +10041,13 @@ msgstr "Repozytorium zostało utworzone z powodzeniem.\nCzy chcesz teraz stworzy
 msgid ""
 "The required automatic merge is reintegrate like, and the \"only record the "
 "merge\" option can not be used."
-msgstr ""
+msgstr "Wymagane automatyczne scalenie jest jak reintegracja, przez co nie może być użyta opcja \"tylko nagraj scalenie\"."
 
 #. Resource IDs: (279)
 msgid ""
 "The required automatic merge is reintegrate like.\n"
 "Only the merge depth option \"Working copy\" can be used."
-msgstr ""
+msgstr "Wymagane automatyczne scalenie jest jak reintegracja.\nMoże być użyta tylko wartość \"Kopia robocza\" dla głębokości scalenia."
 
 #. Resource IDs: (616)
 #, c-format
@@ -11014,6 +11080,10 @@ msgstr "Sprawdzenie poprawności wartości atrybutu nie powiodło się!"
 msgid "Value"
 msgstr "Wartość"
 
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
+
 #. Resource IDs: (1004, 1075)
 msgid "Version"
 msgstr "Wersja"
@@ -11674,7 +11744,7 @@ msgstr "ignorowane pochodzenie"
 
 #. Resource IDs: (618)
 msgid "include properties"
-msgstr ""
+msgstr "dołącz atrybuty"
 
 #. Resource IDs: (13)
 msgid "incomplete"

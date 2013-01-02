@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-18 10:41+0000\n"
+"PO-Revision-Date: 2013-01-02 08:31+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3310,6 +3310,15 @@ msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リスト�
 
 #. (para)
 msgid ""
+"add the file to the <literal>svn:global-ignores</literal> list using "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list "
+"(recursively)</guimenuitem></menuchoice> This will affect the directory on "
+"which you set the <literal>svn:global-ignores</literal> property and all "
+"subfolders as well."
+msgstr ""
+
+#. (para)
+msgid ""
 "If you think that the commit dialog shows you too many unversioned (e.g. "
 "compiler generated or editor backup) files, there are several ways to handle"
 " this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> "
@@ -5476,6 +5485,7 @@ msgid "View the Subversion properties for the selected item."
 msgstr "選択した項目の Subversion のプロパティを表示します。"
 
 #. (term)
+#. (guilabel)
 msgid "Show log"
 msgstr "ログを表示"
 
@@ -6795,9 +6805,18 @@ msgid ""
 " the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to "
 "Ignore List</guimenuitem></menuchoice> from the context menu, a submenu "
 "appears allowing you to select just that file, or all files with the same "
-"extension. If you select multiple files, there is no submenu and you can "
+"extension. Both submenus also have a <literal>(recursively)</literal> "
+"equivalent. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
-msgstr "バージョン管理外のファイルの上で<action>右クリック</action>し、コンテキストメニューで <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストに追加</guimenuitem></menuchoice> コマンドを選択すると、選択したファイルのみを追加するか、または同じ拡張子を持つファイルすべてを追加するかを選択するサブメニューが表示されます。複数のファイルを選択した場合はサブメニューが表示されずに、指定されたファイル・フォルダーが追加されます。"
+msgstr ""
+
+#. (para)
+msgid ""
+"If you choose the <literal>(recursively)</literal> version of the ignore "
+"context menu, the item will be ignored not just for the selected folder but "
+"all subfolders as well. However this requires SVN clients version 1.8 or "
+"higher."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12166,10 +12185,10 @@ msgstr "Subversion の設定ファイルで <literal>global-ignores</literal> �
 msgid ""
 "This ignore pattern will affect all your projects. It is not versioned, so "
 "it will not affect other users. By contrast you can also use the versioned "
-"<literal>svn:ignore</literal> property to exclude files or directories from "
-"version control. Read <xref linkend=\"tsvn-dug-ignore\"/> for more "
-"information."
-msgstr "この無視パターンはすべてのプロジェクトに影響を与えます。バージョン管理されませんので、他のユーザーには影響しません。一方、バージョン管理の <literal>svn:ignore</literal> プロパティを使用し、バージョン管理からファイルやディレクトリを除外することもできます。詳細は <xref linkend=\"tsvn-dug-ignore\"/> をご覧ください。"
+"<literal>svn:ignore</literal> or <literal>svn:global-ignores</literal> "
+"property to exclude files or directories from version control. Read <xref "
+"linkend=\"tsvn-dug-ignore\"/> for more information."
+msgstr ""
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
@@ -16234,11 +16253,8 @@ msgstr "ベンダプロジェクト"
 #. (para)
 msgid ""
 "Sometimes you will want to include another project within your working copy,"
-" perhaps some library code. You don't want to make a duplicate of this code "
-"in your repository because then you would lose connection with the original "
-"(and maintained) code. Or maybe you have several projects which share core "
-"code. There are at least 3 ways of dealing with this."
-msgstr "時に、作業コピーに別プロジェクト、おそらくライブラリのコードを含めたくなるでしょう。オリジナルの（そしてメンテナンスされる）コードとの関連が切れてしまうので、リポジトリにこのコードの複製を作りたくないでしょう。また、複数のプロジェクトでコアコードを共有したいかもしれません。これに対処する方法が少なくとも３つあります。"
+" perhaps some library code. There are at least 4 ways of dealing with this."
+msgstr ""
 
 #. (title)
 msgid "Use svn:externals"
@@ -16324,6 +16340,28 @@ msgid ""
 "mysterious files are. This method is strictly for use in closed development "
 "environments, and not recommended for general use."
 msgstr "この方法は全てが PC の環境でのみ動作します。また、謎なファイルがどこにあるかチームが知るために、必要なドライブマッピングのドキュメントが必要です。厳密に言えばこの方法は、閉じた開発環境用です。一般的にはお勧めしません。"
+
+#. (title)
+msgid "Add the project to the repository"
+msgstr ""
+
+#. (para)
+msgid ""
+"The maybe easiest way is to simply add the project in a subfolder to your "
+"own project working copy. However this has the disadvantage that you have to"
+" update and upgrade this external project manually."
+msgstr ""
+
+#. (para)
+msgid ""
+"To help with the upgrade, TortoiseSVN provides a command in the explorer "
+"right-drag context menu. Simply right-drag the folder where you unzipped the"
+" new version of the external library to the folder in your working copy, and"
+" then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN "
+"Vendorbranch here</guimenuitem></menuchoice>. This will then copy the new "
+"files over to the target folder while automatically adding new files and "
+"removing files that aren't in the new version anymore."
+msgstr ""
 
 #. (title)
 msgid "Create a shortcut to a repository"
@@ -16959,6 +16997,7 @@ msgstr "「バージョン情報」ダイアログを表示します。コマン
 #. (option)
 #. (option)
 #. (option)
+#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -17131,6 +17170,10 @@ msgstr "/includeexternals"
 msgid "/stickydepth"
 msgstr "/stickydepth"
 
+#. (option)
+msgid "/skipprechecks"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Updates the working copy in <placeholder-1/> to HEAD. If the option "
@@ -17138,8 +17181,11 @@ msgid ""
 "revision the update should go. To avoid the dialog specify a revision number"
 " <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and "
 "<placeholder-6/>. The <placeholder-7/> indicates that the specified depth "
-"should be sticky, creating a sparse checkout."
-msgstr "<placeholder-1/> で指定した作業コピーを HEAD リビジョンに更新します。 <placeholder-2/> を指定すると、どのリビジョンに更新するかをユーザーに確認するダイアログを表示します。ダイアログを表示しないようにするには、 <placeholder-3/> のようにリビジョン番号を指定してください。その他のオプションとして <placeholder-4/> や <placeholder-5/> や <placeholder-6/> があります。 <placeholder-7/> を指定すると、部分的なチェックアウトを行う際に、深さが固定されます。"
+"should be sticky, creating a sparse checkout. The <placeholder-8/> can be "
+"set to skip all checks that are done before an update. If this is specified,"
+" then the <placeholder-9/> button is disabled, and the context menu to show "
+"diffs is also disabled after the update."
+msgstr ""
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -17247,6 +17293,7 @@ msgid ""
 msgstr "<placeholder-1/> で指定された作業コピーを別のディレクトリにエクスポートします。 <placeholder-2/> でバージョン管理外ディレクトリを指定すると、ダイアログが表示されて <placeholder-3/> で指定されたディレクトリにエクスポートする URL を尋ねてきます。 <placeholder-4/> を指定すると、パスの自動調整を抑制します。"
 
 #. (option)
+#. (option)
 msgid "/droptarget"
 msgstr "/droptarget"
 
@@ -17281,6 +17328,14 @@ msgid ""
 "either <placeholder-6/> to only export files that got changed locally, or "
 "<placeholder-7/> to also export all unversioned items as well."
 msgstr "作業コピーを <placeholder-1/> から <placeholder-2/> で指定されたディレクトリにエクスポートします。このコマンドでは、エクスポートダイアログを表示せずに直接実行します。 <placeholder-3/> を指定すると、既存のファイルを確認なしで上書きします。 <placeholder-4/> を指定すると、ファイルが既に存在するとき、上書きせずにエクスポートされたファイルの名前を自動的に変更します。<placeholder-5/>オプションは、<placeholder-6/>と共に指定すると、ローカルで変更されたファイルのみをエクスポートし、<placeholder-7/>と共に指定すると、それに加えてバージョン管理されていない項目もすべてエクスポートします。"
+
+#. (entry)
+msgid ""
+"Copies the folder in <placeholder-1/> recursively to the directory specified"
+" in <placeholder-2/>. New files are added automatically, and missing files "
+"get removed in the target working copy, basically ensuring that source and "
+"destination are exactly the same."
+msgstr ""
 
 #. (option)
 #. (option)

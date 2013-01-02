@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-19 21:55+0000\n"
+"PO-Revision-Date: 2013-01-02 08:31+0000\n"
 "Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3307,6 +3307,15 @@ msgstr "dodajte fajl u <literal>svn:ignore</literal> listu koristeći <menuchoic
 
 #. (para)
 msgid ""
+"add the file to the <literal>svn:global-ignores</literal> list using "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list "
+"(recursively)</guimenuitem></menuchoice> This will affect the directory on "
+"which you set the <literal>svn:global-ignores</literal> property and all "
+"subfolders as well."
+msgstr ""
+
+#. (para)
+msgid ""
 "If you think that the commit dialog shows you too many unversioned (e.g. "
 "compiler generated or editor backup) files, there are several ways to handle"
 " this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> "
@@ -5473,6 +5482,7 @@ msgid "View the Subversion properties for the selected item."
 msgstr "Vidi Subverzijine osobine za izabranu stavku."
 
 #. (term)
+#. (guilabel)
 msgid "Show log"
 msgstr "Prikaži dnevnik "
 
@@ -6792,9 +6802,18 @@ msgid ""
 " the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to "
 "Ignore List</guimenuitem></menuchoice> from the context menu, a submenu "
 "appears allowing you to select just that file, or all files with the same "
-"extension. If you select multiple files, there is no submenu and you can "
+"extension. Both submenus also have a <literal>(recursively)</literal> "
+"equivalent. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
-msgstr "Ako uradite <action>desni klik</action> na pojedini neverzionisani fajl, i izaberete komandu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Dodaj Listi Zanemarenih</guimenuitem></menuchoice> iz kontekst menija, pojaviće se submeni koji vam omogućava da izaberete samo taj fajl, ili sve fajlove sa istom ekstenzijom. Ako izaberete više fajlova, nema submenija i možete samo da dodate te specifčne fajlove/foldere. "
+msgstr ""
+
+#. (para)
+msgid ""
+"If you choose the <literal>(recursively)</literal> version of the ignore "
+"context menu, the item will be ignored not just for the selected folder but "
+"all subfolders as well. However this requires SVN clients version 1.8 or "
+"higher."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12163,10 +12182,10 @@ msgstr "Ako koristite Subverzioni konfiguracioni fajl da podesite <literal>globa
 msgid ""
 "This ignore pattern will affect all your projects. It is not versioned, so "
 "it will not affect other users. By contrast you can also use the versioned "
-"<literal>svn:ignore</literal> property to exclude files or directories from "
-"version control. Read <xref linkend=\"tsvn-dug-ignore\"/> for more "
-"information."
-msgstr "Ovaj model zanemarivanja će uticati na sve vaše projekte. On nije verzionisan, tako da neće uticati na druge korisnike. Zbog kontrasta možete takođe koristiti verzionisanu <literal>svn:ignore</literal> osobinu da isključite fajlove ili foldere iz kontrole verzija. Pročitajte <xref linkend=\"tsvn-dug-ignore\"/> za viže informacija."
+"<literal>svn:ignore</literal> or <literal>svn:global-ignores</literal> "
+"property to exclude files or directories from version control. Read <xref "
+"linkend=\"tsvn-dug-ignore\"/> for more information."
+msgstr ""
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
@@ -16231,11 +16250,8 @@ msgstr "distributerski projekti"
 #. (para)
 msgid ""
 "Sometimes you will want to include another project within your working copy,"
-" perhaps some library code. You don't want to make a duplicate of this code "
-"in your repository because then you would lose connection with the original "
-"(and maintained) code. Or maybe you have several projects which share core "
-"code. There are at least 3 ways of dealing with this."
-msgstr "Ponekad ćete želeti da uključite drugi projekat u okviru vaše radne kopije, možda neki bibliotečki kod. Vi ne želite da napravite duplikat ovog koda u vašem spremištu jer onda gubite vezu sa originalnim (i podržanim) kodom. Ili možda imate više projekata koji dele osnovni kod. Postoji najmanje 3 načina da se radi sa ovim."
+" perhaps some library code. There are at least 4 ways of dealing with this."
+msgstr ""
 
 #. (title)
 msgid "Use svn:externals"
@@ -16321,6 +16337,28 @@ msgid ""
 "mysterious files are. This method is strictly for use in closed development "
 "environments, and not recommended for general use."
 msgstr "Ovaj metod će samo raditi na potpun-PC okolini, i trebaće vam da dokumentujete zahtevano obeležavanje drajva tako da vaš tim zna gde se ovi misteriozni fajlovi nalaze. Ovaj metod je striktno za korišćenje u okolini bliskoj razvoju, i ne preporučuje se za opštu upotrebu."
+
+#. (title)
+msgid "Add the project to the repository"
+msgstr ""
+
+#. (para)
+msgid ""
+"The maybe easiest way is to simply add the project in a subfolder to your "
+"own project working copy. However this has the disadvantage that you have to"
+" update and upgrade this external project manually."
+msgstr ""
+
+#. (para)
+msgid ""
+"To help with the upgrade, TortoiseSVN provides a command in the explorer "
+"right-drag context menu. Simply right-drag the folder where you unzipped the"
+" new version of the external library to the folder in your working copy, and"
+" then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN "
+"Vendorbranch here</guimenuitem></menuchoice>. This will then copy the new "
+"files over to the target folder while automatically adding new files and "
+"removing files that aren't in the new version anymore."
+msgstr ""
 
 #. (title)
 msgid "Create a shortcut to a repository"
@@ -16956,6 +16994,7 @@ msgstr "Prikazuje dijalog sa opisom programa. Ovaj dijalog je takođe prikazan a
 #. (option)
 #. (option)
 #. (option)
+#. (option)
 msgid "/path"
 msgstr "/putanja"
 
@@ -17128,6 +17167,10 @@ msgstr "/uključieksternale"
 msgid "/stickydepth"
 msgstr "/stickydepth"
 
+#. (option)
+msgid "/skipprechecks"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Updates the working copy in <placeholder-1/> to HEAD. If the option "
@@ -17135,8 +17178,11 @@ msgid ""
 "revision the update should go. To avoid the dialog specify a revision number"
 " <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and "
 "<placeholder-6/>. The <placeholder-7/> indicates that the specified depth "
-"should be sticky, creating a sparse checkout."
-msgstr "Obnavlja radnu kopiju u <placeholder-1/> ka GLAVNOJ. Ako je opcija <placeholder-2/> data tada će prikazani dijalog da pita korisnika ka kojoj reviziji obnavljanje, treba da ide. Da bi se izbegao dijalog specificirajte broj revizije <placeholder-3/>. Druge opcije su <placeholder-4/> , <placeholder-5/> i <placeholder-6/>.<placeholder-7/> indicira da  specificirana dubina treba da bude lepljiva, kreiranjem praznog preuzimanja."
+"should be sticky, creating a sparse checkout. The <placeholder-8/> can be "
+"set to skip all checks that are done before an update. If this is specified,"
+" then the <placeholder-9/> button is disabled, and the context menu to show "
+"diffs is also disabled after the update."
+msgstr ""
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -17244,6 +17290,7 @@ msgid ""
 msgstr "Izvozi radnu kopiju u <placeholder-1/> za dugi folder. Ako <placeholder-2/> ukazuje na neverzionisani folder, dijalog će vas pitati za URL za izvoz u folder u  <placeholder-3/>. Ako specificirate taster <placeholder-4/>, automatsko podešavanje izvozne putanje je blokirano."
 
 #. (option)
+#. (option)
 msgid "/droptarget"
 msgstr "/droptarget"
 
@@ -17278,6 +17325,14 @@ msgid ""
 "either <placeholder-6/> to only export files that got changed locally, or "
 "<placeholder-7/> to also export all unversioned items as well."
 msgstr "Izvozi tadnu kopiju u <placeholder-1/> u direktorijum određen u <placeholder-2/>. Izvoz ne koristi izvozni dijalog već se izvodi direktno. Opcija <placeholder-3/> određuje da se postojeći fajlovi prepisuju bez potvrđivanja, a opcija <placeholder-4/> određuje da svi fajlovi već postoje, izvozni fajlovi se automatski preimenuju da se izbegne da se prepišu. Opcija <placeholder-5/> može određuje ili <placeholder-6/> da se samo izvezu fajlovi koji su izmenjeni lokalno, ili <placeholder-7/> da se takođe izvezu sve neverzionisane stavke takođe."
+
+#. (entry)
+msgid ""
+"Copies the folder in <placeholder-1/> recursively to the directory specified"
+" in <placeholder-2/>. New files are added automatically, and missing files "
+"get removed in the target working copy, basically ensuring that source and "
+"destination are exactly the same."
+msgstr ""
 
 #. (option)
 #. (option)

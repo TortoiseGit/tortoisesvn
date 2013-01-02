@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-19 23:45+0000\n"
+"PO-Revision-Date: 2013-01-02 08:31+0000\n"
 "Last-Translator: JustinoAveiro <paulojustino.nec@gmail.com>\n"
 "Language-Team: Portuguese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3312,6 +3312,15 @@ msgstr "Adicionar o ficheiro à lista  <literal>svn:ignore</literal> usando <men
 
 #. (para)
 msgid ""
+"add the file to the <literal>svn:global-ignores</literal> list using "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list "
+"(recursively)</guimenuitem></menuchoice> This will affect the directory on "
+"which you set the <literal>svn:global-ignores</literal> property and all "
+"subfolders as well."
+msgstr ""
+
+#. (para)
+msgid ""
 "If you think that the commit dialog shows you too many unversioned (e.g. "
 "compiler generated or editor backup) files, there are several ways to handle"
 " this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> "
@@ -5478,6 +5487,7 @@ msgid "View the Subversion properties for the selected item."
 msgstr "Ver as propriedades Subversion para o item seleccionado."
 
 #. (term)
+#. (guilabel)
 msgid "Show log"
 msgstr "Mostrar registo"
 
@@ -6797,9 +6807,18 @@ msgid ""
 " the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to "
 "Ignore List</guimenuitem></menuchoice> from the context menu, a submenu "
 "appears allowing you to select just that file, or all files with the same "
-"extension. If you select multiple files, there is no submenu and you can "
+"extension. Both submenus also have a <literal>(recursively)</literal> "
+"equivalent. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
-msgstr "Se tu <action>clicares com o botão direito</action> num único ficheiro não versionado e seleccionares, a partir do menu de contexto, o comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Adiconar à lista de ignorados</guimenuitem></menuchoice>, um submenu aparecerá permitindo-te seleccionar só aquele ficheiro ou todos com a mesma extensão. Se seleccionares múltiplos ficheiros, não haverá submenu e só podes adicionar esses ficheiros/pastas específicos."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you choose the <literal>(recursively)</literal> version of the ignore "
+"context menu, the item will be ignored not just for the selected folder but "
+"all subfolders as well. However this requires SVN clients version 1.8 or "
+"higher."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12168,10 +12187,10 @@ msgstr "Se usares o ficheiro de configuração do Subversion para configurares o
 msgid ""
 "This ignore pattern will affect all your projects. It is not versioned, so "
 "it will not affect other users. By contrast you can also use the versioned "
-"<literal>svn:ignore</literal> property to exclude files or directories from "
-"version control. Read <xref linkend=\"tsvn-dug-ignore\"/> for more "
-"information."
-msgstr "Este padrão de ignorar irá afectar todos os teus projectos. Não é versionado pelo que não afectará outros utilizadores. Por contraste podes também usar a propriedade versionada <literal>svn:ignore</literal> para excluir ficheiros ou pastas do controlo de versões. Consulta <xref linkend=\"tsvn-dug-ignore\"/> para mais informações."
+"<literal>svn:ignore</literal> or <literal>svn:global-ignores</literal> "
+"property to exclude files or directories from version control. Read <xref "
+"linkend=\"tsvn-dug-ignore\"/> for more information."
+msgstr ""
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
@@ -16236,11 +16255,8 @@ msgstr "projectos proprietários"
 #. (para)
 msgid ""
 "Sometimes you will want to include another project within your working copy,"
-" perhaps some library code. You don't want to make a duplicate of this code "
-"in your repository because then you would lose connection with the original "
-"(and maintained) code. Or maybe you have several projects which share core "
-"code. There are at least 3 ways of dealing with this."
-msgstr "Por vezes tu quererás incluir outro projecto na tua cópia de trabalho, talvez uma biblioteca de código. Tu não quererás criar um duplicado deste código no teu repositório, porque então, tu irás perder ligação com o código original (e mantido). Ou talvez tenhas vários projectos que partilham código aqui. Existem pelo menos 3 maneiras de lidar com isto."
+" perhaps some library code. There are at least 4 ways of dealing with this."
+msgstr ""
 
 #. (title)
 msgid "Use svn:externals"
@@ -16326,6 +16342,28 @@ msgid ""
 "mysterious files are. This method is strictly for use in closed development "
 "environments, and not recommended for general use."
 msgstr "Este método só irá funcionar num ambiente apenas-PCs, e precisarás de documentar os mapeamentos de unidade de rede, para que a tua equipa saiba onde estão esses ficheiros misteriosos. Este método é para uso estrito em ambientes de desenvolvimento fechado e não é recomendado para uso geral."
+
+#. (title)
+msgid "Add the project to the repository"
+msgstr ""
+
+#. (para)
+msgid ""
+"The maybe easiest way is to simply add the project in a subfolder to your "
+"own project working copy. However this has the disadvantage that you have to"
+" update and upgrade this external project manually."
+msgstr ""
+
+#. (para)
+msgid ""
+"To help with the upgrade, TortoiseSVN provides a command in the explorer "
+"right-drag context menu. Simply right-drag the folder where you unzipped the"
+" new version of the external library to the folder in your working copy, and"
+" then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN "
+"Vendorbranch here</guimenuitem></menuchoice>. This will then copy the new "
+"files over to the target folder while automatically adding new files and "
+"removing files that aren't in the new version anymore."
+msgstr ""
 
 #. (title)
 msgid "Create a shortcut to a repository"
@@ -16961,6 +16999,7 @@ msgstr "Mosta a caixa de diálogo Sobre. Esta é também mostrada se não é dad
 #. (option)
 #. (option)
 #. (option)
+#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -17133,6 +17172,10 @@ msgstr "/includeexternals"
 msgid "/stickydepth"
 msgstr "/stickydepth"
 
+#. (option)
+msgid "/skipprechecks"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Updates the working copy in <placeholder-1/> to HEAD. If the option "
@@ -17140,8 +17183,11 @@ msgid ""
 "revision the update should go. To avoid the dialog specify a revision number"
 " <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and "
 "<placeholder-6/>. The <placeholder-7/> indicates that the specified depth "
-"should be sticky, creating a sparse checkout."
-msgstr "Actualiza a cópia de trabalho em <placeholder-1/> para a HEAD. Se for dada a opção <placeholder-2/>, então uma caixa de diálogo aparecerá a perguntar ao utilizador para que revisão deverá ser feita a actualização. Para evitar que a caixa de diálogo especifique um número de revisão, usa <placeholder-3/>. Outras opções são <placeholder-4/>, <placeholder-5/> e <placeholder-6/>. O <placeholder-7/> indica que o nível especificado deverá ser persistente, ao criar um checkout disperso."
+"should be sticky, creating a sparse checkout. The <placeholder-8/> can be "
+"set to skip all checks that are done before an update. If this is specified,"
+" then the <placeholder-9/> button is disabled, and the context menu to show "
+"diffs is also disabled after the update."
+msgstr ""
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -17249,6 +17295,7 @@ msgid ""
 msgstr "Exporta a cópia de trabalho em <placeholder-1/> para outra pasta. Se o <placeholder-2/> apontar para uma pasta não versionada, a caixa de diálogo perguntará por um URL para exportar para a pasta em <placeholder-3/>. Se especificares a chave <placeholder-4/>, são bloqueados os ajustamentos automáticos de caminhos de exportação."
 
 #. (option)
+#. (option)
 msgid "/droptarget"
 msgstr "/droptarget"
 
@@ -17283,6 +17330,14 @@ msgid ""
 "either <placeholder-6/> to only export files that got changed locally, or "
 "<placeholder-7/> to also export all unversioned items as well."
 msgstr "Exporta a cópia de trabalho em <placeholder-1/> para a pasta especificada em <placeholder-2/>. Esta exportação não usa a caixa de diálogo exportar, mas executa-a directamente. A opção <placeholder-3/> indica que os ficheiros existentes são sobrepostos sem informação ao utilizador, e a opção <placeholder-4/> indica que se os ficheiros já existirem, os ficheiros exportados serão automaticamente renomeados para evitar sobreposições. A opção <placeholder-5/> pode indicar <placeholder-6/> para só exportar ficheiros que foram alterados localmente, ou <placeholder-7/> exportar também todos os itens não versionados."
+
+#. (entry)
+msgid ""
+"Copies the folder in <placeholder-1/> recursively to the directory specified"
+" in <placeholder-2/>. New files are added automatically, and missing files "
+"get removed in the target working copy, basically ensuring that source and "
+"destination are exactly the same."
+msgstr ""
 
 #. (option)
 #. (option)

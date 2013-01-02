@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 08:40+0000\n"
+"PO-Revision-Date: 2013-01-02 08:34+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Khmer <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -262,6 +262,16 @@ msgstr ""
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr ""
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -295,6 +305,16 @@ msgstr "%s, ប៉ុន្តែឯកសារត្រូវបានកែ�
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
 msgstr ""
 
 #. Resource IDs: (609)
@@ -4625,6 +4645,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr ""
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr ""
@@ -5928,6 +5956,10 @@ msgstr ""
 msgid "Left image"
 msgstr ""
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr ""
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr ""
@@ -6036,6 +6068,10 @@ msgstr "ថ្ងៃចាក់សោរ"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "ចាក់សោរឯកសារ"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6183,6 +6219,10 @@ msgstr ""
 
 #. Resource IDs: (101)
 msgid "Mark for comparison"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
 msgstr ""
 
 #. Resource IDs: (610)
@@ -6534,12 +6574,26 @@ msgstr "ផ្លាស់ទី\nThe items are moved to the target path."
 msgid "Moved from"
 msgstr ""
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Moved to"
+msgstr ""
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
 msgstr ""
 
 #. Resource IDs: (197)
@@ -8385,6 +8439,10 @@ msgstr ""
 msgid "SSH"
 msgstr ""
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr ""
@@ -9155,8 +9213,16 @@ msgid "Skipped obstructing working copy"
 msgstr ""
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr ""
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "ត្រូវបានរំលង, no versioned parent"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr ""
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -11006,6 +11072,10 @@ msgstr ""
 
 #. Resource IDs: (11, 348)
 msgid "Value"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
 msgstr ""
 
 #. Resource IDs: (1004, 1075)

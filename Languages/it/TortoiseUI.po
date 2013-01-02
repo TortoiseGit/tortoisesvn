@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 08:40+0000\n"
+"PO-Revision-Date: 2013-01-02 08:34+0000\n"
 "Last-Translator: bovirus <roberto.boriotti@canon-europe.com>\n"
 "Language-Team: Italian <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -221,7 +221,7 @@ msgstr "%s (offline)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (ricorsivamente)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -268,6 +268,16 @@ msgstr "%s,ma la cartella era già stato modificata."
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s, ma la cartella è stato cancellata, spostata o rinominata localmente."
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr "%s, ma la cartella è stata spostata altrove"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr "%s, ma la cartella è stata spostata qui"
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -302,6 +312,16 @@ msgstr "%s, ma il file era già stato modificato."
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s, ma il file è stato cancellato, spostato o rinominato localmente."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr "%s, ma il file è stata spostato altrove"
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr "%s, ma il file è stata spostato qui"
 
 #. Resource IDs: (609)
 #, c-format
@@ -1043,7 +1063,7 @@ msgstr "&Opzioni"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "Altr&o"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1811,7 +1831,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "Aggiunta la maschera\n%s\nall'elenco globale ignorati."
 
 #. Resource IDs: (145)
 #, c-format
@@ -2150,7 +2170,7 @@ msgstr "Rinomina automaticamente"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Unione automatica"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2173,7 +2193,7 @@ msgstr "L'autocompletamento suggerisce parole (di solito classi o nomi di membri
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Unisci automaticamente %1!s! a %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -2979,7 +2999,7 @@ msgstr "Linea di comando da eseguire:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "Linea di comando da eseguire:\r\nPer specificare un percorso all'interno della copia di lavoro, specifica la URL nel repository con la URL radice del repository come %REPOROOT%, o %REPOROOT+% un livello inferiore alla radice della copia lavoro."
 
 #. Resource IDs: (616)
 msgid "Command failed - Update needed"
@@ -3922,7 +3942,7 @@ msgstr "Non visualizzare il menu contestuale per i seguenti percorsi:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge"
-msgstr ""
+msgstr "Effettua reintegrazione invece di unione automatica"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4630,6 +4650,14 @@ msgstr "Ottieni revisione HEAD e adatta a quel valore"
 msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "Carica il contenuto delle cartelle in sottofondo per una nvagiazione più rapida"
+
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5934,6 +5962,10 @@ msgstr "Vista sinistra:"
 msgid "Left image"
 msgstr "Immagine di sinistra"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr "Modifiche a sinsistra in locale"
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "Come soprastante, ma usato per il ripristino unioni"
@@ -6042,6 +6074,10 @@ msgstr "Data di Lock"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Blocca i file"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr "Blocco interrotto"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6190,6 +6226,10 @@ msgstr "Segna la revisione corrente della tua copia di lavoro"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Marca per la comparazione"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6540,6 +6580,13 @@ msgstr "Sposta\nGli elementi vengono spostati al percorso destinato."
 msgid "Moved from"
 msgstr "Spostato da"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr "Spostato da\r\n%s"
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Spostato in remoto"
@@ -6547,6 +6594,13 @@ msgstr "Spostato in remoto"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "Spostato in"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr "Spostatto da\r\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6575,7 +6629,7 @@ msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -6839,7 +6893,7 @@ msgstr "Avviso"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
+msgstr "Nota: se aggiorni la copia di lavoro, non avrai più accesso alla copia aggiornata usando cliente pre 1.8 SVN!\nVuoi effettuare l'aggiornamento della copia di lavoro?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7310,7 +7364,7 @@ msgstr "Attendere: il browser del repository si sta inizializzando..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
+msgstr "Attendi mentre controllo i parametri per l'unione."
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
@@ -7597,7 +7651,7 @@ msgstr "Dischi R&AM"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
+msgstr "R&eingra un ramo/unione automatica"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -7957,7 +8011,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "Rimuovi file maschera\n%s\ndall'elenco globle ignorati."
 
 #. Resource IDs: (145)
 #, c-format
@@ -8390,6 +8444,10 @@ msgstr "SCRL"
 #. Resource IDs: (1081)
 msgid "SSH"
 msgstr "SSH"
+
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
 
 #. Resource IDs: (16)
 msgid "SVN Author"
@@ -9161,8 +9219,16 @@ msgid "Skipped obstructing working copy"
 msgstr "Non ostruire la copia di lavoro"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr "Ignorato, accesso negato"
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "Saltato"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr "Ignorato, rimane in conflitto"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -9975,13 +10041,13 @@ msgstr "Il repository è stato creato correttamente.\n Si vuole creare la strutt
 msgid ""
 "The required automatic merge is reintegrate like, and the \"only record the "
 "merge\" option can not be used."
-msgstr ""
+msgstr "L'unione automatica richiesta è tipo una reingrazione, e può essre usata solo l'opzione \"only record the merge\" ."
 
 #. Resource IDs: (279)
 msgid ""
 "The required automatic merge is reintegrate like.\n"
 "Only the merge depth option \"Working copy\" can be used."
-msgstr ""
+msgstr "L'unione automatica richiesta è tipo una reintegrazione.\nPuò essere usata solo l'opzione \"Working copy\" come profondità unione."
 
 #. Resource IDs: (616)
 #, c-format
@@ -10270,7 +10336,7 @@ msgstr "Questo cancellerà il record di comandi utilizzati nell'applicazione e r
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Questo aggiornerà la copia di lavoro al nuovo formato 1.8 e la renderà non usabile per i client pre 1.8."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10417,7 +10483,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\r\nSubversione %d.%d.%d, %s\r\napr %d.%d.%d\r\napr-utils %d.%d.%d\r\nserf %d.%d.%d\r\n%s\r\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10510,7 +10576,7 @@ msgstr "Personalizza TortoiseSVN"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -10780,7 +10846,7 @@ msgstr "Aggornamento della cache del log"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Aggiorna la copia di lavoro\nal nuovo formato 1.8."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11013,6 +11079,10 @@ msgstr "Valizaione fallita valore proprietà!"
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "Valore"
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"
@@ -11674,7 +11744,7 @@ msgstr "discendenza ignorata"
 
 #. Resource IDs: (618)
 msgid "include properties"
-msgstr ""
+msgstr "includi proprietà"
 
 #. Resource IDs: (13)
 msgid "incomplete"
@@ -11902,7 +11972,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
+msgstr "svn:auto-props\r\nUn elenco di proprietà, separate da un ritorno a capo, che verranno applicate ricorsivamente e automaticamente quando si aggiungono/importano file.\r\nFormato: <maschera file> = propietà=valore;proprietà=valore\r\nEsempio: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -11949,7 +12019,7 @@ msgstr "svn:externals\r\nUna lista, separata da caratteri di a capo, dei moduli,
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr ""
+msgstr "svn:global-ignores\r\nUn elenco separato da ritorni a capo di maschere da ignorare ricorsivamente."
 
 #. Resource IDs: (576)
 msgid ""

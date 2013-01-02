@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-11-15 08:15+0000\n"
+"PO-Revision-Date: 2013-01-02 08:31+0000\n"
 "Last-Translator: Khoa Dang <dndk82@yahoo.com>\n"
 "Language-Team: Vietnamese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3307,6 +3307,15 @@ msgstr "thêm các tập tin vào danh sách <literal> svn:ignore </literal> s�
 
 #. (para)
 msgid ""
+"add the file to the <literal>svn:global-ignores</literal> list using "
+"<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to ignore list "
+"(recursively)</guimenuitem></menuchoice> This will affect the directory on "
+"which you set the <literal>svn:global-ignores</literal> property and all "
+"subfolders as well."
+msgstr ""
+
+#. (para)
+msgid ""
 "If you think that the commit dialog shows you too many unversioned (e.g. "
 "compiler generated or editor backup) files, there are several ways to handle"
 " this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> "
@@ -5473,6 +5482,7 @@ msgid "View the Subversion properties for the selected item."
 msgstr "Xem các thuộc tính Subversion cho các mục được chọn."
 
 #. (term)
+#. (guilabel)
 msgid "Show log"
 msgstr "Hiện tường trình"
 
@@ -6792,9 +6802,18 @@ msgid ""
 " the command <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add to "
 "Ignore List</guimenuitem></menuchoice> from the context menu, a submenu "
 "appears allowing you to select just that file, or all files with the same "
-"extension. If you select multiple files, there is no submenu and you can "
+"extension. Both submenus also have a <literal>(recursively)</literal> "
+"equivalent. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
-msgstr "Nếu bạn <action> click chuột phải </action> trên một tập tin chưa phiên bản đơn lẻ, và chọn lệnh <menuchoice><guimenu> TortoiseSVN </guimenu><guimenuitem> Thêm vào danh sách bỏ qua </guimenuitem></menuchoice> từ trình đơn ngữ cảnh, một trình đơn phụ xuất hiện cho phép bạn chọn tập tin đó, hoặc tất cả các tập tin với cùng phần mở rộng. Nếu bạn chọn nhiều tập tin, không có trình đơn con và bạn chỉ có thể thêm các tập tin / thư mục cụ thể."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you choose the <literal>(recursively)</literal> version of the ignore "
+"context menu, the item will be ignored not just for the selected folder but "
+"all subfolders as well. However this requires SVN clients version 1.8 or "
+"higher."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -12163,10 +12182,10 @@ msgstr "Nếu bạn sử dụng tập tin cấu hình Subversion để thiết l
 msgid ""
 "This ignore pattern will affect all your projects. It is not versioned, so "
 "it will not affect other users. By contrast you can also use the versioned "
-"<literal>svn:ignore</literal> property to exclude files or directories from "
-"version control. Read <xref linkend=\"tsvn-dug-ignore\"/> for more "
-"information."
-msgstr "Khuôn mẫu bỏ qua này sẽ ảnh hưởng đến tất cả các dự án. Nó không được phiên bản, vì vậy nó sẽ không ảnh hưởng đến những người dùng khác. Ngược lại bạn cũng có thể sử dụng thuộc tính được phiên bản <literal> svn:ignore</literal> để loại trừ các tập tin hoặc thư mục từ kiểm soát phiên bản. Đọc <xref linkend=\"tsvn-dug-ignore\"/> để biết thêm thông tin."
+"<literal>svn:ignore</literal> or <literal>svn:global-ignores</literal> "
+"property to exclude files or directories from version control. Read <xref "
+"linkend=\"tsvn-dug-ignore\"/> for more information."
+msgstr ""
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
@@ -16231,11 +16250,8 @@ msgstr "các dự án của nhà cung cấp"
 #. (para)
 msgid ""
 "Sometimes you will want to include another project within your working copy,"
-" perhaps some library code. You don't want to make a duplicate of this code "
-"in your repository because then you would lose connection with the original "
-"(and maintained) code. Or maybe you have several projects which share core "
-"code. There are at least 3 ways of dealing with this."
-msgstr "Đôi khi bạn sẽ muốn bao gồm một dự án trong bản sao làm việc của bạn, có lẽ một số thư viện mã. Bạn không muốn để làm cho một bản sao của mã này trong kho của bạn bởi vì sau đó bạn sẽ bị mất kết nối với mã ban đầu (và mã được bảo trì). Hoặc có thể bạn có một số dự án chia sẻ mã lõi. Có ít nhất 3 cách đối phó với điều này."
+" perhaps some library code. There are at least 4 ways of dealing with this."
+msgstr ""
 
 #. (title)
 msgid "Use svn:externals"
@@ -16321,6 +16337,28 @@ msgid ""
 "mysterious files are. This method is strictly for use in closed development "
 "environments, and not recommended for general use."
 msgstr "Phương pháp này sẽ chỉ làm việc tốt trong tất cả các môi trường máy tính, và bạn sẽ cần phải lập tài liệu ánh xạ ổ đĩa cần thiết để nhóm của bạn biết nơi có các tập tin bí ẩn. Phương pháp này là nghiêm ngặt cho sử dụng trong môi trường phát triển khép kín, và không được khuyến khích sử dụng chung."
+
+#. (title)
+msgid "Add the project to the repository"
+msgstr ""
+
+#. (para)
+msgid ""
+"The maybe easiest way is to simply add the project in a subfolder to your "
+"own project working copy. However this has the disadvantage that you have to"
+" update and upgrade this external project manually."
+msgstr ""
+
+#. (para)
+msgid ""
+"To help with the upgrade, TortoiseSVN provides a command in the explorer "
+"right-drag context menu. Simply right-drag the folder where you unzipped the"
+" new version of the external library to the folder in your working copy, and"
+" then select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN "
+"Vendorbranch here</guimenuitem></menuchoice>. This will then copy the new "
+"files over to the target folder while automatically adding new files and "
+"removing files that aren't in the new version anymore."
+msgstr ""
 
 #. (title)
 msgid "Create a shortcut to a repository"
@@ -16956,6 +16994,7 @@ msgstr "Hiển thị hộp thoại nói về. Cái này cũng được hiển th
 #. (option)
 #. (option)
 #. (option)
+#. (option)
 msgid "/path"
 msgstr "/path"
 
@@ -17128,6 +17167,10 @@ msgstr "/includeexternals"
 msgid "/stickydepth"
 msgstr "/stickydepth"
 
+#. (option)
+msgid "/skipprechecks"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Updates the working copy in <placeholder-1/> to HEAD. If the option "
@@ -17135,8 +17178,11 @@ msgid ""
 "revision the update should go. To avoid the dialog specify a revision number"
 " <placeholder-3/>. Other options are <placeholder-4/>, <placeholder-5/> and "
 "<placeholder-6/>. The <placeholder-7/> indicates that the specified depth "
-"should be sticky, creating a sparse checkout."
-msgstr "Cập nhật bản sao làm việc trong <placeholder-1/> vào CHÍNH. Nếu tùy chọn <placeholder-2/> được đưa ra sau đó được hiển thị một hộp thoại yêu cầu người sử dụng về bản sửa đổi nào mà cập nhật nên đi. Để tránh hộp thoại chỉ định một số sửa đổi <placeholder-3/> . Lựa chọn khác là <placeholder-4/> , <placeholder-5/> và <placeholder-6/> . Các <placeholder-7/> chỉ ra rằng độ sâu quy định nên được dính, tạo ra một kiểm xuất thưa thớt."
+"should be sticky, creating a sparse checkout. The <placeholder-8/> can be "
+"set to skip all checks that are done before an update. If this is specified,"
+" then the <placeholder-9/> button is disabled, and the context menu to show "
+"diffs is also disabled after the update."
+msgstr ""
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -17244,6 +17290,7 @@ msgid ""
 msgstr "Xuất khẩu bản sao làm việc trong <placeholder-1/> vào một thư mục khác. Nếu <placeholder-2/> chỉ đến một thư mục không phiên bản, một hộp thoại sẽ yêu cầu một URL để xuất khẩu sang các thư mục trong <placeholder-3/> . Nếu bạn chỉ định phím <placeholder-4/> , điều chỉnh đường dẫn xuất khẩu tự động sẽ bị chặn."
 
 #. (option)
+#. (option)
 msgid "/droptarget"
 msgstr "/droptarget"
 
@@ -17278,6 +17325,14 @@ msgid ""
 "either <placeholder-6/> to only export files that got changed locally, or "
 "<placeholder-7/> to also export all unversioned items as well."
 msgstr "Xuất khẩu các bản sao làm việc trong <placeholder-1/> vào thư mục quy định tại <placeholder-2/>. Việc xuất khẩu này không sử dụng hộp thoại xuất khẩu mà thực hiện trực tiếp. <placeholder-3/> Tùy chọn xác định rằng các tập tin có sẵn được ghi đè mà không cần xác nhận của người sử dụng, và tùy chọn <placeholder-4/> xác định rằng nếu các tập tin đã tồn tại, các tập tin được xuất khẩu được tự động đổi tên để tránh ghi đè lên chúng. Tùy chọn <placeholder-5/>  có thể chỉ định một trong <placeholder-6/> để chỉ xuất khẩu các tập tin đã thay đổi cục bộ, hoặc <placeholder-7/> để xuất khẩu tất cả các mục không được phiên bản."
+
+#. (entry)
+msgid ""
+"Copies the folder in <placeholder-1/> recursively to the directory specified"
+" in <placeholder-2/>. New files are added automatically, and missing files "
+"get removed in the target working copy, basically ensuring that source and "
+"destination are exactly the same."
+msgstr ""
 
 #. (option)
 #. (option)

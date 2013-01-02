@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-19 15:11+0000\n"
+"PO-Revision-Date: 2013-01-02 08:33+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -263,6 +263,16 @@ msgstr "%s, ale adresář již byl dříve upraven."
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s, ale adresář již byl lokálně smazán, přesunut nebo přejmenován."
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -297,6 +307,16 @@ msgstr "%s, ale soubor již byl dříve upraven."
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s, ale soubor již byl lokálně smazán, přesunut nebo přejmenován."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
@@ -4626,6 +4646,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "Získá obsahy adresářů v pozadí, takže procházení je rychlejší"
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "Nahrávám soubor..."
@@ -4980,7 +5008,7 @@ msgstr "Získávám Sjednocený rozdíl"
 
 #. Resource IDs: (1517)
 msgid "Global ignore &pattern:"
-msgstr "&Vzorek globálního ignorování:"
+msgstr "&Vzory globálního ignorování:"
 
 #. Resource IDs: (65535)
 msgid "Global settings"
@@ -5929,6 +5957,10 @@ msgstr "Levý pohled: "
 msgid "Left image"
 msgstr "Levý obrázek"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr ""
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "Jako výše, ale použito pro zpětné sloučení"
@@ -6037,6 +6069,10 @@ msgstr "Datum zámku"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Uzamknout soubory"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6185,6 +6221,10 @@ msgstr "Označit aktuální revizi vaší pracovní kopie"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Označit pro porovnání"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6535,6 +6575,13 @@ msgstr "Přesunout\nPoložky jsou přesunuty do cílové cesty."
 msgid "Moved from"
 msgstr "Přesunuto z"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Přesunuto vzdáleně"
@@ -6542,6 +6589,13 @@ msgstr "Přesunuto vzdáleně"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "Přesunout do"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8386,6 +8440,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Autor"
@@ -9156,8 +9214,16 @@ msgid "Skipped obstructing working copy"
 msgstr "Vynechána překážející pracovní kopie"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr ""
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "Přeskočeno, žádný nadřazený bez verze"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr ""
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -11008,6 +11074,10 @@ msgstr "Ověření hodnoty vlastnosti selhalo!"
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "Hodnota"
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"

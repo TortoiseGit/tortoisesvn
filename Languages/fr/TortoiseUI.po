@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2012-12-16 08:39+0000\n"
+"PO-Revision-Date: 2013-01-02 08:33+0000\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -274,6 +274,16 @@ msgstr "%s, mais le répertoire a déjà été édité."
 msgid "%s, but the directory was deleted, moved or renamed locally."
 msgstr "%s, mais le répertoire a été supprimé, déplacé ou renommé localement."
 
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the directory was moved here"
+msgstr ""
+
 #. Resource IDs: (609)
 #, c-format
 msgid "%s, but the directory was obstructed in the working copy."
@@ -308,6 +318,16 @@ msgstr "%s, mais le fichier a déjà été modifié."
 #, c-format
 msgid "%s, but the file was deleted, moved or renamed locally."
 msgstr "%s, mais le fichier a été supprimé, déplacé ou renommé localement."
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved away"
+msgstr ""
+
+#. Resource IDs: (610)
+#, c-format
+msgid "%s, but the file was moved here"
+msgstr ""
 
 #. Resource IDs: (609)
 #, c-format
@@ -4637,6 +4657,14 @@ msgid ""
 "Fetches the contents of folders in the background so browsing is faster"
 msgstr "Récupère le contenu des dossiers en arrière-plan pour que la navigation soit plus rapide"
 
+#. Resource IDs: (92)
+msgid "Fetching file list of source"
+msgstr ""
+
+#. Resource IDs: (92)
+msgid "Fetching file list of target"
+msgstr ""
+
 #. Resource IDs: (313)
 msgid "Fetching file..."
 msgstr "Récupération fichier..."
@@ -5940,6 +5968,10 @@ msgstr "Vue de gauche :"
 msgid "Left image"
 msgstr "Image de gauche"
 
+#. Resource IDs: (266)
+msgid "Left local modifications"
+msgstr ""
+
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
 msgstr "Comme ci-dessus, mais utilisé pour les fusions inversées"
@@ -6048,6 +6080,10 @@ msgstr "Date du Verrouillage"
 #. Resource IDs: (191)
 msgid "Lock Files"
 msgstr "Verrouiller les fichiers"
+
+#. Resource IDs: (265)
+msgid "Lock broken"
+msgstr ""
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6196,6 +6232,10 @@ msgstr "Faire de la révision en court votre copie de travail"
 #. Resource IDs: (101)
 msgid "Mark for comparison"
 msgstr "Marquer à comparer"
+
+#. Resource IDs: (92)
+msgid "Mark missing files as removed"
+msgstr ""
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6546,6 +6586,13 @@ msgstr "Déplacer\nLes éléments sont déplacés vers le chemin cible."
 msgid "Moved from"
 msgstr "Déplacé depuis"
 
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved from\r\n"
+"%s"
+msgstr ""
+
 #. Resource IDs: (126)
 msgid "Moved remotely"
 msgstr "Déplacé à distance"
@@ -6553,6 +6600,13 @@ msgstr "Déplacé à distance"
 #. Resource IDs: (65535)
 msgid "Moved to"
 msgstr "Déplacé vers"
+
+#. Resource IDs: (210)
+#, c-format
+msgid ""
+"Moved to\r\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8397,6 +8451,10 @@ msgstr "SCRL"
 msgid "SSH"
 msgstr "SSH"
 
+#. Resource IDs: (17)
+msgid "SVN &Vendorbranch here"
+msgstr ""
+
 #. Resource IDs: (16)
 msgid "SVN Author"
 msgstr "SVN Auteur"
@@ -9167,8 +9225,16 @@ msgid "Skipped obstructing working copy"
 msgstr "Copie de travail en cours d'obstruction évitée"
 
 #. Resource IDs: (265)
+msgid "Skipped, access denied"
+msgstr ""
+
+#. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
 msgstr "Passé, aucun parent versionné"
+
+#. Resource IDs: (265)
+msgid "Skipped, remains conflicted"
+msgstr ""
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -11019,6 +11085,10 @@ msgstr "La validation de la valeur de la propriété a échoué !"
 #. Resource IDs: (11, 348)
 msgid "Value"
 msgstr "Valeur"
+
+#. Resource IDs: (92)
+msgid "Vendor branch"
+msgstr ""
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"
