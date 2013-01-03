@@ -164,6 +164,12 @@ ul {
     width: 640px;
 }
 
+#logo a {
+    background: none;
+    border: none;
+    color: white;
+}
+
 #logo h1 {
     float: left;
     font-size: 2.6em;
@@ -177,13 +183,6 @@ ul {
     font: italic 14px Georgia, "Times New Roman", Times, serif;
     margin: 0;
     padding: 10px;
-}
-
-#logo a {
-    background: none;
-    border: none;
-    color: white;
-    text-decoration: none;
 }
 
 /* Search */
@@ -221,8 +220,7 @@ ul {
     margin-right: 3px;
     margin-top: 20px;
     outline: none;
-    padding: 7px 20px;
-    text-decoration: none;
+    padding: 8px 20px;
 }
 
 #menu a:hover {
