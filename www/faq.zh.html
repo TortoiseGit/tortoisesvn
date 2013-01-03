@@ -232,7 +232,7 @@
                         <h3>为什么图标覆盖有时会变成一个随机图案？</h3>
                         <p>Windows图标缓存有很多bug。可以使用下面的方法解决这个问题：</p>
                         <ul>
-                            <li>安装Microsoft的<a href="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">TweakUI</a> 通过选项来重新创建图标。</li>
+                            <li>安装Microsoft的<a href="http://windows.microsoft.com/en-US/windows/xp-downloads#2TC=featured">TweakUI</a> 通过选项来重新创建图标。</li>
                             <li>或者增加图标缓存。到<code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> 增加一个新的字符串 <code>Max Cached Icons</code>。他的默认值为500 - 尝试增加到2048（见微软知识库的<a href="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">Q132668</a>）。 </li>
                             <li>或者在Windows目录下删除ShellIconCache文件，然后重启计算机。</li>
                             <li>TortoiseSVN 1.3.0以后的版本，你可以在命令行调用TortoiseProc重建图标缓存，<code>TortoiseProc.exe /command:rebuildiconcache</code></li>

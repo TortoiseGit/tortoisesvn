@@ -331,7 +331,7 @@
                         <p>
                         The Windows icon cache is a fairly buggy creature. You can solve this in one of the following ways:</p>
                         <ul>
-                            <li>Install Microsoft's <a href="http://www.microsoft.com/ntworkstation/downloads/powertoys/networking/nttweakui.asp">TweakUI</a> and run the option to rebuild icons.</li>
+                            <li>Install Microsoft's <a href="http://windows.microsoft.com/en-US/windows/xp-downloads#2TC=featured">TweakUI</a> and run the option to rebuild icons.</li>
                             <li>Or increase the icon cache size. Go to <code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> and add a new String Value called <code>Max Cached Icons</code>. The default value is 500 - try increasing it to 2048 (see <a href="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">Q132668</a> in the Microsoft knowledge base for more details). </li>
                             <li>Or delete the file called ShellIconCache in your Windows directory. And reboot.</li>
                             <li>With TortoiseSVN 1.3.0 and later, you can also rebuild the icon cache by calling TortoiseProc from the command line like this <code>TortoiseProc.exe /command:rebuildiconcache</code></li>
