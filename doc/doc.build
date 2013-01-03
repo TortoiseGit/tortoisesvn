@@ -224,6 +224,8 @@ All user/site specific configuration is stored in doc.build.user.
       <move file="${xslt.target}" tofile="${file.target}" overwrite="true">
         <filterchain>
           <replacestring from=" moreinfo=&quot;none&quot;" to="" />
+          <replacestring from="width=&quot;auto&quot; height=&quot;auto&quot; content-width=&quot;auto&quot; content-height=&quot;auto&quot;"
+                         to="inline-progression-dimension.maximum=&quot;100%&quot; content-width=&quot;scale-down-to-fit&quot; content-height=&quot;scale-down-to-fit&quot;" />
         </filterchain>
       </move>
     </if>
@@ -450,6 +452,8 @@ All user/site specific configuration is stored in doc.build.user.
       <move file="${xslt.target}" tofile="${xslt.final}.fo" overwrite="true">
         <filterchain>
           <replacestring from="span=&quot;inherit&quot; " to="" />
+          <replacestring from="width=&quot;auto&quot; height=&quot;auto&quot; content-width=&quot;auto&quot; content-height=&quot;auto&quot;"
+                         to="inline-progression-dimension.maximum=&quot;100%&quot; content-width=&quot;scale-down-to-fit&quot; content-height=&quot;scale-down-to-fit&quot;" />
         </filterchain>
       </move>
 
@@ -470,7 +474,7 @@ All user/site specific configuration is stored in doc.build.user.
       <property name="commandline" value="-q -fo ${xslt.final}.fo -pdf ${file.target}"/>
       <property name="commandline" value="-c ${userconfig.lang} ${commandline}" if="${file::exists(userconfig.lang)}"/>
 
-      <exec program="fop.bat"
+      <exec program="fop.cmd"
             commandline="${commandline}"
             basedir="${path.fop}"
             verbose="false"/>
