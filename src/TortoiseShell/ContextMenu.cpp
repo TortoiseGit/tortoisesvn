@@ -862,7 +862,7 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
 
     // SVN vendorbranch here
     // available if target is versioned and source is either unversioned or from another repository
-    if ((itemStatesFolder & ITEMIS_FOLDERINSVN)&&(((~itemStates) & ITEMIS_INSVN)||!bSourceAndTargetFromSameRepository))
+    if ((itemStatesFolder & ITEMIS_FOLDERINSVN)&&(itemStates & ITEMIS_FOLDER)&&(((~itemStates) & ITEMIS_INSVN)||!bSourceAndTargetFromSameRepository))
         InsertSVNMenu(FALSE, hMenu, indexMenu++, idCmd++, IDS_DROPVENDORMENU, 0, idCmdFirst, ShellMenuDropVendor, _T("tsvn_dropvendor"));
 
     // apply patch
