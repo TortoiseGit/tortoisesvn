@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -109,7 +109,7 @@ CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
     int len = MultiByteToWideChar(CP_UTF8, 0, string.c_str(), size, buffer, 2*size);
     if (len==0)
         return CString();
-    return CString (buffer, len);
+    return CString (buffer, len-1);
 }
 #endif //_MFC_VER
 
