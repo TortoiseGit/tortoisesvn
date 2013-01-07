@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1772,7 +1772,9 @@ void CSVNProgressDlg::OnTimer(UINT_PTR nIDEvent)
     {
         CString progSpeed;
         progSpeed.Format(IDS_SVN_PROGRESS_BYTES_SEC, 0i64);
-        SetDlgItemText(IDC_PROGRESSLABEL, (LPCTSTR)progSpeed);
+        CString s;
+        s.Format(IDS_SVN_PROGRESS_SPEED, (LPCWSTR)progSpeed);
+        SetDlgItemText(IDC_PROGRESSLABEL, (LPCTSTR)s);
         KillTimer(TRANSFERTIMER);
     }
     if (nIDEvent == VISIBLETIMER)
