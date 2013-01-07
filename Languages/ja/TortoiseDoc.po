@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 08:31+0000\n"
+"PO-Revision-Date: 2013-01-03 18:21+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3258,7 +3258,7 @@ msgid ""
 " and unversioned files. If you don't want a changed file to be committed, "
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
-msgstr "コミットダイアログには変更したファイルや、追加・削除・バージョン管理外のファイルが表示されます。変更したファイルをコミットしたくない場合は、ファイルのチェックをはずしてください。バージョン管理外のファイルを含める場合は、追加・コミットするファイルにチェックをつけてください。"
+msgstr "コミットダイアログには変更されたファイルや、追加・削除・バージョン管理外のファイルが表示されます。変更されたファイルをコミットしたくない場合は、ファイルのチェックをはずしてください。バージョン管理外のファイルを含める場合は、追加・コミットするファイルにチェックをつけてください。"
 
 #. (para)
 msgid ""
@@ -3315,7 +3315,7 @@ msgid ""
 "(recursively)</guimenuitem></menuchoice> This will affect the directory on "
 "which you set the <literal>svn:global-ignores</literal> property and all "
 "subfolders as well."
-msgstr ""
+msgstr "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストに追加（再帰的）</guimenuitem></menuchoice> で <literal>svn:global-ignore</literal> にファイルを追加します。 <literal>svn:global-ignore</literal> プロパティを設定したディレクトリに加え、すべてのサブフォルダーに影響します。"
 
 #. (para)
 msgid ""
@@ -6808,7 +6808,7 @@ msgid ""
 "extension. Both submenus also have a <literal>(recursively)</literal> "
 "equivalent. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
-msgstr ""
+msgstr "バージョン管理外のファイルの上で<action>右クリック</action>し、コンテキストメニューで <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>無視リストに追加</guimenuitem></menuchoice> コマンドを選択すると、選択したファイルのみを追加するか、または同じ拡張子を持つファイルすべてを追加するかを選択するサブメニューが表示されます。どちらのサブメニューにも<literal>（再帰的）</literal>がついたものもあります。複数のファイルを選択した場合はサブメニューが表示されずに、指定されたファイルやフォルダーが追加されます。"
 
 #. (para)
 msgid ""
@@ -6816,7 +6816,7 @@ msgid ""
 "context menu, the item will be ignored not just for the selected folder but "
 "all subfolders as well. However this requires SVN clients version 1.8 or "
 "higher."
-msgstr ""
+msgstr "コンテキストメニューで<literal>（再帰的）</literal>バージョンを選択すると、項目は選択されたフォルダーにとどまらず、すべてのサブフォルダーのものも同様に無視されます。但し、これにはSVNクライアントのバージョン1.8以上が必要です。"
 
 #. (para)
 msgid ""
@@ -12188,7 +12188,7 @@ msgid ""
 "<literal>svn:ignore</literal> or <literal>svn:global-ignores</literal> "
 "property to exclude files or directories from version control. Read <xref "
 "linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr ""
+msgstr "この無視パターンはすべてのプロジェクトに影響します。バージョン管理されませんので、他のユーザーには影響しません。一方、バージョン管理の <literal>svn:ignore</literal> や <literal>svn:global-ignore</literal> プロパティを使用し、バージョン管理からファイルやディレクトリを除外することもできます。詳細は <xref linkend=\"tsvn-dug-ignore\"/> をご覧ください。"
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
@@ -16254,7 +16254,7 @@ msgstr "ベンダプロジェクト"
 msgid ""
 "Sometimes you will want to include another project within your working copy,"
 " perhaps some library code. There are at least 4 ways of dealing with this."
-msgstr ""
+msgstr "作業コピーに別プロジェクト、たとえばライブラリのコードを含めたくなることがあると思います。実現する方法が少なくとも４つあります。"
 
 #. (title)
 msgid "Use svn:externals"
@@ -16343,14 +16343,14 @@ msgstr "この方法は全てが PC の環境でのみ動作します。また�
 
 #. (title)
 msgid "Add the project to the repository"
-msgstr ""
+msgstr "プロジェクトをリポジトリに追加"
 
 #. (para)
 msgid ""
 "The maybe easiest way is to simply add the project in a subfolder to your "
 "own project working copy. However this has the disadvantage that you have to"
 " update and upgrade this external project manually."
-msgstr ""
+msgstr "最も簡単な方法は、単に自分のプロジェクトにおける作業コピーの中にサブフォルダーに追加することでしょう。しかし、この外部プロジェクトの更新やアップグレードを手作業で行わなければならないという欠点があります。"
 
 #. (para)
 msgid ""
@@ -16361,7 +16361,7 @@ msgid ""
 "Vendorbranch here</guimenuitem></menuchoice>. This will then copy the new "
 "files over to the target folder while automatically adding new files and "
 "removing files that aren't in the new version anymore."
-msgstr ""
+msgstr "アップグレードしやすくするよう、 ToretoiseSVN にはエクスプローラーの右ドラッグコンテキストメニューのコマンドを用意しています。新しいバージョンの外部ライブラリを展開したフォルダーを、作業コピー内のフォルダーに右ドラッグして、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN ここにあるベンダーブランチを更新</guimenuitem></menuchoice>を実行するだけです。これでコピー先のフォルダーに新しいファイルがコピーされます。自動的に新規ファイルは追加され、新しいバージョンで無くなったファイルは削除されます。"
 
 #. (title)
 msgid "Create a shortcut to a repository"
@@ -17172,7 +17172,7 @@ msgstr "/stickydepth"
 
 #. (option)
 msgid "/skipprechecks"
-msgstr ""
+msgstr "/skipprechecks"
 
 #. (entry)
 msgid ""
@@ -17185,7 +17185,7 @@ msgid ""
 "set to skip all checks that are done before an update. If this is specified,"
 " then the <placeholder-9/> button is disabled, and the context menu to show "
 "diffs is also disabled after the update."
-msgstr ""
+msgstr "<placeholder-1/> で指定した作業コピーを HEAD リビジョンに更新します。 <placeholder-2/> を指定すると、どのリビジョンに更新するかをユーザーに確認するダイアログを表示します。ダイアログを表示しないようにするには、 <placeholder-3/> のようにリビジョン番号を指定してください。その他のオプションとして <placeholder-4/> や <placeholder-5/> や <placeholder-6/> があります。 <placeholder-7/> を指定すると、部分的なチェックアウトを行う際に、深さが固定されます。 <placeholder-8/> を指定すると、更新前に行われるすべての検査を行いません。これを指定すると <placeholder-9/> ボタンが無効になり、更新後に差分のコンテキストメニューも無効になります。"
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -17335,7 +17335,7 @@ msgid ""
 " in <placeholder-2/>. New files are added automatically, and missing files "
 "get removed in the target working copy, basically ensuring that source and "
 "destination are exactly the same."
-msgstr ""
+msgstr "<placeholder-1/> で指定されたフォルダーを、 <placeholder-2/> で指定されたディレクトリに再帰的にコピーします。ターゲットの作業コピーに対して、新しいファイルは自動的に追加され、見つからないファイルは削除され、基本的にコピー元とコピー先は全く同じになります。"
 
 #. (option)
 #. (option)

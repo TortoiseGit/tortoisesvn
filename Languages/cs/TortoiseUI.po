@@ -11,13 +11,13 @@
 # Authors:
 # Translators:
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011-2012.
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 08:33+0000\n"
+"PO-Revision-Date: 2013-01-05 15:38+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -266,12 +266,12 @@ msgstr "%s, ale adresář již byl lokálně smazán, přesunut nebo přejmenov�
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved away"
-msgstr ""
+msgstr "%s, ale adresář byl přesunut"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved here"
-msgstr ""
+msgstr "%s, ale adresář byl přesunut sem"
 
 #. Resource IDs: (609)
 #, c-format
@@ -311,12 +311,12 @@ msgstr "%s, ale soubor již byl lokálně smazán, přesunut nebo přejmenován.
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved away"
-msgstr ""
+msgstr "%s, ale soubor byl přesunut"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved here"
-msgstr ""
+msgstr "%s, ale soubor byl přesunut sem"
 
 #. Resource IDs: (609)
 #, c-format
@@ -4648,11 +4648,11 @@ msgstr "Získá obsahy adresářů v pozadí, takže procházení je rychlejší
 
 #. Resource IDs: (92)
 msgid "Fetching file list of source"
-msgstr ""
+msgstr "Přinášení seznamu souborů zdroje"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of target"
-msgstr ""
+msgstr "Přinášení seznamu souborů cíle"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5959,7 +5959,7 @@ msgstr "Levý obrázek"
 
 #. Resource IDs: (266)
 msgid "Left local modifications"
-msgstr ""
+msgstr "Zanechal místní změny"
 
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
@@ -6072,7 +6072,7 @@ msgstr "Uzamknout soubory"
 
 #. Resource IDs: (265)
 msgid "Lock broken"
-msgstr ""
+msgstr "Zámek rozbit"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6224,7 +6224,7 @@ msgstr "Označit pro porovnání"
 
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
-msgstr ""
+msgstr "Označit chybějící soubory jako odstraněné"
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6580,7 +6580,7 @@ msgstr "Přesunuto z"
 msgid ""
 "Moved from\r\n"
 "%s"
-msgstr ""
+msgstr "Přesunuto z\n%s"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
@@ -6595,7 +6595,7 @@ msgstr "Přesunout do"
 msgid ""
 "Moved to\r\n"
 "%s"
-msgstr ""
+msgstr "Přesunuto do\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8442,7 +8442,7 @@ msgstr "SSH"
 
 #. Resource IDs: (17)
 msgid "SVN &Vendorbranch here"
-msgstr ""
+msgstr "Zde založit SVN &větev dodavatele"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
@@ -9215,7 +9215,7 @@ msgstr "Vynechána překážející pracovní kopie"
 
 #. Resource IDs: (265)
 msgid "Skipped, access denied"
-msgstr ""
+msgstr "Přeskočeno, přístup zamítnut"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -9223,7 +9223,7 @@ msgstr "Přeskočeno, žádný nadřazený bez verze"
 
 #. Resource IDs: (265)
 msgid "Skipped, remains conflicted"
-msgstr ""
+msgstr "Přeskočeno, zůstává v konfliktu"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -11077,7 +11077,7 @@ msgstr "Hodnota"
 
 #. Resource IDs: (92)
 msgid "Vendor branch"
-msgstr ""
+msgstr "Větev dodavatele"
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"

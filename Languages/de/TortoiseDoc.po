@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 10:29+0000\n"
+"PO-Revision-Date: 2013-01-07 08:44+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3317,7 +3317,7 @@ msgid ""
 "(recursively)</guimenuitem></menuchoice> This will affect the directory on "
 "which you set the <literal>svn:global-ignores</literal> property and all "
 "subfolders as well."
-msgstr ""
+msgstr "Die Datei mittels <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ignorieren (rekursiv)</guimenuitem></menuchoice> zur <literal>svn:global-ignores</literal> hinzufügen. Dies beeinlusst das Verzeichnis, für das Sie die <literal>svn:global-ignores</literal> Eigenschaft setzen und auch alle seine Unterordner."
 
 #. (para)
 msgid ""
@@ -6810,7 +6810,7 @@ msgid ""
 "extension. Both submenus also have a <literal>(recursively)</literal> "
 "equivalent. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
-msgstr ""
+msgstr "Wenn Sie mit der rechten Maustaste auf eine einzelne, nicht versionierte Datei klicken und <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Ignorieren</guimenuitem> </menuchoice> aus dem Kontextmenü wählen, wird Ihnen ein Untermenü angezeigt, das Ihnen erlaubt, nur diese Datei oder alle Dateien mit dieser Endung zu ignorieren. Beide Untermenüs haben auch ein <literal>(rekursives)</literal> Äquivalent. Wenn Sie mehrere Elemente wählen, erscheint kein Untermenü und es werden genau diese Dateien / Ordner zur <emphasis>Ignorieren</emphasis>-Liste hinzugefügt."
 
 #. (para)
 msgid ""
@@ -6818,7 +6818,7 @@ msgid ""
 "context menu, the item will be ignored not just for the selected folder but "
 "all subfolders as well. However this requires SVN clients version 1.8 or "
 "higher."
-msgstr ""
+msgstr "Wenn Sie die <literal>(rekursive)</literal> Version des ignorieren Kontextmenüs gewählt haben, wird das Objekt nicht nur für den gewählten Ordner, sondern auch für alle seine Unterordner ignoriert. Dies erfordert jedoch SVN Clients von Version 1.8 an aufwärts."
 
 #. (para)
 msgid ""
@@ -16352,7 +16352,7 @@ msgid ""
 "The maybe easiest way is to simply add the project in a subfolder to your "
 "own project working copy. However this has the disadvantage that you have to"
 " update and upgrade this external project manually."
-msgstr ""
+msgstr "Die wahrscheinlich einfachste Version ist, das Projekt in einem Unterordner zu ihrer eigenen Arbeitskopie hinzuzufügen. Das hat jedoch den Nachteil, dass Sie das externe Projekt manuell aktualisieren müssen."
 
 #. (para)
 msgid ""
@@ -16363,7 +16363,7 @@ msgid ""
 "Vendorbranch here</guimenuitem></menuchoice>. This will then copy the new "
 "files over to the target folder while automatically adding new files and "
 "removing files that aren't in the new version anymore."
-msgstr ""
+msgstr "Um Sie dabei zu unterstützen, bietet TortoiseSVN einen Befehl im rechts-ziehen Kontextmenü des Explorers an. Ziehen Sie den Ordner, in dem Sie die neue Version abgelegt haben einfach mit der rechten Maustaste auf den Ordner in Ihrer Arbeitskopie und wählen Sie <menuchoice><guimenu>Kontextmenü<guimenuitem><guimenuitem>SVN Herstellerzweig hier</guimenuitem></menuchoice>. Damit werden die neuen Dateien in den Zielordner kopiert und Dateien, die sich nicht mehr in der neuen Version befinden, entfernt."
 
 #. (title)
 msgid "Create a shortcut to a repository"
@@ -17187,7 +17187,7 @@ msgid ""
 "set to skip all checks that are done before an update. If this is specified,"
 " then the <placeholder-9/> button is disabled, and the context menu to show "
 "diffs is also disabled after the update."
-msgstr ""
+msgstr "Aktualisiert die Arbeitskopie in <placeholder-1/> auf HEAD. Mit der Option <placeholder-2/> wird ein Dialog angezeigt, in dem vom Anwender die Zielrevision abgefragt wird. Um den Dialog zu vermeiden, geben Sie in <placeholder-3/> die Revisionsnummer an. Weitere Optionen sind <placeholder-4/>, <placeholder-5/> und <placeholder-6/>. Der <placeholder-7/> sorgt dafür, dass die angegebene Tiefe bestehen bleibt und eine dünn besetzte Arbeitskopie angelegt wird. Mit <placeholder-8/> werden alle Prüfungen vor einer Aktualisierung übersprungen. Dadurch werden auch die <placeholder-9/> Schaltfläche und das Kontextmenü für Vergleiche nach der Aktualisierung deaktiviert."
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -17337,7 +17337,7 @@ msgid ""
 " in <placeholder-2/>. New files are added automatically, and missing files "
 "get removed in the target working copy, basically ensuring that source and "
 "destination are exactly the same."
-msgstr ""
+msgstr "Kopiert die Ordner in <placeholder-1/> rekursiv in das in <placeholder-2/> angegebene Verzeichnis. Neue Dateien werden automatisch hinzugefügt, fehlende Dateien werden aus der Arbeitskopie entfernt, wodurch sichergestellt wird, dass das Zielverzeichnis ein exaktes Abbild des Quellverzeichnisses ist."
 
 #. (option)
 #. (option)

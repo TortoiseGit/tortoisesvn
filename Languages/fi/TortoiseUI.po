@@ -11,6 +11,7 @@
 # Authors:
 # Translators:
 # Kari Granö <kari.grano@gmail.com>, 2011-2012.
+# Kari Granö <kari.grano@gmail.com>, 2011-2012, 2013.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012.
 msgid ""
@@ -18,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 08:33+0000\n"
+"PO-Revision-Date: 2013-01-05 23:00+0000\n"
 "Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -217,7 +218,7 @@ msgstr "%s (yhteydetön)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (palautuvasti)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -267,12 +268,12 @@ msgstr "%s, mutta hakemisto on poistettu, siirretty tai nimetty uudelleen paikal
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved away"
-msgstr ""
+msgstr "%s, mutta hakemisto oli siirretty pois"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved here"
-msgstr ""
+msgstr "%s, mutta hakemisto oli siirretty tänne"
 
 #. Resource IDs: (609)
 #, c-format
@@ -312,12 +313,12 @@ msgstr "%s, mutta tiedosto oli poistettu, siirretty tai nimetty uudelleen paikal
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved away"
-msgstr ""
+msgstr "%s, mutta tiedosto oli siirretty pois"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved here"
-msgstr ""
+msgstr "%s, mutta tiedosto oli siirretty tänne"
 
 #. Resource IDs: (609)
 #, c-format
@@ -1059,7 +1060,7 @@ msgstr "&Asetukset"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "&Muu"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1827,7 +1828,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "Tiedostonimilausekkeet\n%s\nlisättiin globaaliin ohituslistaan."
 
 #. Resource IDs: (145)
 #, c-format
@@ -1835,7 +1836,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the ignore list."
-msgstr "Lisätty tiedostonimihahmo(t)\n%s\nohituslistaan."
+msgstr "Tiedostonimilausekkeet\n%s\nlisättiin ohituslistaan."
 
 #. Resource IDs: (263)
 msgid "Adding"
@@ -2166,7 +2167,7 @@ msgstr "Nimeä uudestaan automaattisesti"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Automaattinen yhdistäminen"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2189,7 +2190,7 @@ msgstr "Automaattinen täydennys ehdottaa lokiviestiä kirjoittaessasi sanoja (y
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "%1!s! yhdistetty automaattisesti kohteeseen %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3938,7 +3939,7 @@ msgstr "Älä näytä kontekstivalikkoa seuraaville poluille:"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge"
-msgstr ""
+msgstr "Tee takaisinyhdistäminen automaattisen yhdistämisen sijaan"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4649,11 +4650,11 @@ msgstr "Noutaa kansioiden sisällöt taustalla käytön nopeuttamiseksi"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of source"
-msgstr ""
+msgstr "Haetaan lähteen tiedostolista"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of target"
-msgstr ""
+msgstr "Haetaan kohteen tiedostolista"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -5960,7 +5961,7 @@ msgstr "Vasen kuva"
 
 #. Resource IDs: (266)
 msgid "Left local modifications"
-msgstr ""
+msgstr "Vasen paikalliset muutokset"
 
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
@@ -6073,7 +6074,7 @@ msgstr "Lukitse tiedostot"
 
 #. Resource IDs: (265)
 msgid "Lock broken"
-msgstr ""
+msgstr "Lukko rikki"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6225,7 +6226,7 @@ msgstr "Valitse vertailua varten"
 
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
-msgstr ""
+msgstr "Merkitse puuttuvat tiedostot poistetuiksi"
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6581,7 +6582,7 @@ msgstr "Siirretty paikasta"
 msgid ""
 "Moved from\r\n"
 "%s"
-msgstr ""
+msgstr "Siirretty paikasta\r\n%s"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
@@ -6596,7 +6597,7 @@ msgstr "Siirretty paikkaan"
 msgid ""
 "Moved to\r\n"
 "%s"
-msgstr ""
+msgstr "Siirretty paikkaan\r\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6889,7 +6890,7 @@ msgstr "Ilmoitus"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
+msgstr "Huomaa: Jos muunnat työkopiosi, et voi enää käyttää sitä versiota 1.8 vanhemmilla SVN-ohjelmilla!\nHaluatko todella muuntaa  tämän työkopion?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7360,7 +7361,7 @@ msgstr "Odota, arkistoselain käynnistyy..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
+msgstr "Odota hetki, tarkistetaan yhdistämiseparametreja."
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
@@ -7647,7 +7648,7 @@ msgstr "&RAM-asemat"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
+msgstr "&Yhdistä haara takaisin päähaaraan / automaattinen yhdistäminen"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -8007,7 +8008,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "Tiedostolausekkeet\n%s\npoistettiin globaalista ohituslistasta."
 
 #. Resource IDs: (145)
 #, c-format
@@ -8015,7 +8016,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the ignore list."
-msgstr "Lauseketta\n%s\nvastaavat tiedostot poistettu ohituslistasta."
+msgstr "Tiedostolausekkeet\n%s\npoistettiin ohituslistasta."
 
 #. Resource IDs: (17)
 msgid "Removes all unversioned and ignored items"
@@ -8443,7 +8444,7 @@ msgstr "SSH"
 
 #. Resource IDs: (17)
 msgid "SVN &Vendorbranch here"
-msgstr ""
+msgstr "SVN: &Päivitä kirjastohaara tänne"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
@@ -8455,11 +8456,11 @@ msgstr "SVN: Kopioi ja lisää tiedostot tähän työkopioon"
 
 #. Resource IDs: (16)
 msgid "SVN Copy and rename versioned item here"
-msgstr "SVN Kopioi ja uudelleennimeä versioitu kohde tänne"
+msgstr "SVN: Kopioi ja uudelleennimeä versioitu kohde tänne"
 
 #. Resource IDs: (13)
 msgid "SVN Copy versioned item(s) here"
-msgstr "SVN Kopioi versioidut kohteet tänne"
+msgstr "SVN: Kopioi versioidut kohteet tänne"
 
 #. Resource IDs: (14)
 msgid "SVN Export all items here"
@@ -8479,11 +8480,11 @@ msgstr "SVN-lukitus (paikallinen)"
 
 #. Resource IDs: (17)
 msgid "SVN Move and rename versioned item here"
-msgstr "SVN Siirrä ja uudelleennimeä versioidut kohteet tänne"
+msgstr "SVN: Siirrä ja uudelleennimeä versioidut kohteet tänne"
 
 #. Resource IDs: (12)
 msgid "SVN Move versioned item(s) here"
-msgstr "SVN Siirrä versioidut kohteet tänne"
+msgstr "SVN: Siirrä versioidut kohteet tänne"
 
 #. Resource IDs: (11)
 msgid "SVN Revision"
@@ -9216,7 +9217,7 @@ msgstr "Estetty työkopio ohitettu"
 
 #. Resource IDs: (265)
 msgid "Skipped, access denied"
-msgstr ""
+msgstr "Ohitettu, pääsy evätty"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -9224,7 +9225,7 @@ msgstr "Ohitettu, ei versioitua vanhempaa"
 
 #. Resource IDs: (265)
 msgid "Skipped, remains conflicted"
-msgstr ""
+msgstr "Ohitettu, säilyy ristiriitaisena"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -10037,13 +10038,13 @@ msgstr "Arkisto luotiin onnistuneesti.\nHaluatko luoda arkistolle oletuskansiora
 msgid ""
 "The required automatic merge is reintegrate like, and the \"only record the "
 "merge\" option can not be used."
-msgstr ""
+msgstr "Tarvittava automaattinen yhdistäminen on takaisin yhdistämisen kaltainen, eikä \"pelkkä yhdistämismerkintä\"-valintaa voida käyttää."
 
 #. Resource IDs: (279)
 msgid ""
 "The required automatic merge is reintegrate like.\n"
 "Only the merge depth option \"Working copy\" can be used."
-msgstr ""
+msgstr "Tarvittava automaattinen yhdistäminen on takaisin yhdistämisen kaltainen.\n\"Työkopio\" on ainoa mahdollinen yhdistämissyvyysvalinta."
 
 #. Resource IDs: (616)
 #, c-format
@@ -10332,7 +10333,7 @@ msgstr "Tämä poistaa tiedot komennoista, joita olet käyttänyt tässä sovell
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Työkopiosi muunnetaan uuteen 1.8-muotoon, jolloin vanhemmat SVN-ohjelmat eivät enää voi käyttää sitä."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10842,7 +10843,7 @@ msgstr "Päivitetään lokiviestien välimuisti"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Muunna työkopio\nuuteen 1.8-muotoon."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11078,7 +11079,7 @@ msgstr "Arvo"
 
 #. Resource IDs: (92)
 msgid "Vendor branch"
-msgstr ""
+msgstr "Kirjastohaara"
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"
@@ -11740,7 +11741,7 @@ msgstr "ohittaen edeltäjät"
 
 #. Resource IDs: (618)
 msgid "include properties"
-msgstr ""
+msgstr "sisällytä ominaisuudet"
 
 #. Resource IDs: (13)
 msgid "incomplete"
@@ -11968,7 +11969,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
+msgstr "svn:autoprops\r\nLuettelo rivinvaihdoin erotettuja ominaisuuksia, jotka otetaan automaattisesti palautuvasti käyttöön lisättäessä/tuotaessa tiedostoja.\r\nMuoto: <tiedostomääritys> = ominaisuus=arvo;ominaisuus=arvo\r\nEsimerkki: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -12015,13 +12016,13 @@ msgstr "svn:externals\r\nRivinvaihdoin eroteltu lista modulimäärityksiä, jois
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr ""
+msgstr "svn:global-ignores\r\nRivinvaihdoin eroteltu lista palautuvasti ohitettavista tiedostonimilausekkeista."
 
 #. Resource IDs: (576)
 msgid ""
 "svn:ignore\r\n"
 "A newline separated list of file patterns to ignore."
-msgstr "svn:ignore\r\nRivinvaihdoin eroteltu lista ohitettavista tiedostohahmoista."
+msgstr "svn:ignore\r\nRivinvaihdoin eroteltu lista ohitettavista tiedostonimilausekkeista."
 
 #. Resource IDs: (317)
 msgid "svn:keywords"

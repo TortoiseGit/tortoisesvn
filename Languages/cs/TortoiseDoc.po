@@ -11,13 +11,13 @@
 # Authors:
 # Translators:
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
-# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011-2012.
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2011-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 08:31+0000\n"
+"PO-Revision-Date: 2013-01-05 22:14+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -3313,7 +3313,7 @@ msgid ""
 "(recursively)</guimenuitem></menuchoice> This will affect the directory on "
 "which you set the <literal>svn:global-ignores</literal> property and all "
 "subfolders as well."
-msgstr ""
+msgstr "přidat soubor do seznamu <literal>svn:global-ignores</literal> pomocí <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Přidat do seznamu k ignorování (rekurzivně)</guimenuitem></menuchoice> To bude mít vliv na adresář, ve kterém nastavíte vlastnost <literal>svn:ignore</literal> a jeho podadresáře."
 
 #. (para)
 msgid ""
@@ -6806,7 +6806,7 @@ msgid ""
 "extension. Both submenus also have a <literal>(recursively)</literal> "
 "equivalent. If you select multiple files, there is no submenu and you can "
 "only add those specific files/folders."
-msgstr ""
+msgstr "Pokud <action>kliknete pravým tlačítkem myši</action> na jeden soubor bez verze a vyberete příkaz <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Přidat do seznamu k ignorování</guimenuitem></menuchoice> z kontextového menu, bude zobrazeno podmenu, umožňující Vám vybrat právě tento soubor, nebo všechny soubory stejného typu. Obě podmenu také mají možnost <literal>(rekurzivně)</literal>. Pokud vyberete více souborů, není žádné dílčí menu a můžete přidat jen zvolené soubory nebo adresáře."
 
 #. (para)
 msgid ""
@@ -6814,7 +6814,7 @@ msgid ""
 "context menu, the item will be ignored not just for the selected folder but "
 "all subfolders as well. However this requires SVN clients version 1.8 or "
 "higher."
-msgstr ""
+msgstr "Pokud zvolíte <literal>(rekurzivní)</literal> verzi kontextového menu pro ignorování, nebude ignorována pouze zvolená složka, ale také její podsložky. Toto ale vyžaduje SVN klienty s verzí 1.8 nebo vyšší."
 
 #. (para)
 msgid ""
@@ -12186,7 +12186,7 @@ msgid ""
 "<literal>svn:ignore</literal> or <literal>svn:global-ignores</literal> "
 "property to exclude files or directories from version control. Read <xref "
 "linkend=\"tsvn-dug-ignore\"/> for more information."
-msgstr ""
+msgstr "Tento vzorec ignorování bude mít vliv na všechny vaše projekty. Nemá verzi, takže se neprojeví u ostatních uživatelů. Naproti tomu můžete také použít vlastnost s verzí <literal>svn:ignore</literal> nebo <literal>svn:global-ignores</literal> k vyloučení souborů nebo adresářů ze správy verzí. Přečtěte si <xref linkend=\"tsvn-dug-ignore\"/> pro více informací."
 
 #. (term)
 msgid "Set file dates to the <quote>last commit time</quote>"
@@ -16252,7 +16252,7 @@ msgstr "projekty dodavatele"
 msgid ""
 "Sometimes you will want to include another project within your working copy,"
 " perhaps some library code. There are at least 4 ways of dealing with this."
-msgstr ""
+msgstr "Někdy budete chtít zahrnout další projekty v rámci vaší pracovní kopie, možná zdrojový kód některých knihoven. Existují minimálně 4 způsoby jak toto řešit."
 
 #. (title)
 msgid "Use svn:externals"
@@ -16341,14 +16341,14 @@ msgstr "Tato metoda bude fungovat pouze v prostředí PC a budete muset zdokumen
 
 #. (title)
 msgid "Add the project to the repository"
-msgstr ""
+msgstr "Přidat projekt do úložiště"
 
 #. (para)
 msgid ""
 "The maybe easiest way is to simply add the project in a subfolder to your "
 "own project working copy. However this has the disadvantage that you have to"
 " update and upgrade this external project manually."
-msgstr ""
+msgstr "Možná nejjednodušším způsobem je prostě projekt přidat do podsložky v pracovní kopii vašeho projektu. To má ale své nedostatky - tento externí projekt musíte aktualizovat ručně."
 
 #. (para)
 msgid ""
@@ -16359,7 +16359,7 @@ msgid ""
 "Vendorbranch here</guimenuitem></menuchoice>. This will then copy the new "
 "files over to the target folder while automatically adding new files and "
 "removing files that aren't in the new version anymore."
-msgstr ""
+msgstr "Abychom Vám pomohli s aktualizací, TortoiseSVN má v kontextové nabídce příkaz, který založí větev dodavatele. Stačí jednoduše přetáhnout pravým tlačítkem složku, kde jste rozbalili novou verzi externí knihovny na složku ve vaší pracovní kopii a pak volit <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>Zde založit SVN větev dodavatele</guimenuitem></menuchoice>. To pak zkopíruje nové soubory do cílové složky a automaticky přidá nové soubory a odstraní ty, které již v nové verzi nejsou."
 
 #. (title)
 msgid "Create a shortcut to a repository"
@@ -17170,7 +17170,7 @@ msgstr "/stickydepth"
 
 #. (option)
 msgid "/skipprechecks"
-msgstr ""
+msgstr "/skipprechecks"
 
 #. (entry)
 msgid ""
@@ -17183,7 +17183,7 @@ msgid ""
 "set to skip all checks that are done before an update. If this is specified,"
 " then the <placeholder-9/> button is disabled, and the context menu to show "
 "diffs is also disabled after the update."
-msgstr ""
+msgstr "Aktualizuje pracovní kopii v <placeholder-1/> na HEAD. Pokud je zadána možnost <placeholder-2/> pak se zobrazí dialogové okno se žádostí, aby uživatel vybral revizi, na kterou by aktualizace měla jít. Aby se zabránilo dialogovému oknu zadávat číslo revize <placeholder-3/>. Další možnosti jsou <placeholder-4/>, <placeholder-5/> a <placeholder-6/>. <placeholder-7/> znamená, že daná hloubka by měla být výchozí, čímž vytvoří řídké získání. <placeholder-8/> může být nastaveno pro přeskočení všech kontrol, které jsou provedeny před aktualizací. Pokud je toto zadáno, pak je tlačítko <placeholder-9/> vypnuté a kontextové menu pro zobrazení rozdílů je po aktualizaci také vypnuté."
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -17333,7 +17333,7 @@ msgid ""
 " in <placeholder-2/>. New files are added automatically, and missing files "
 "get removed in the target working copy, basically ensuring that source and "
 "destination are exactly the same."
-msgstr ""
+msgstr "Zkopíruje složku v <placeholder-1/> rekurzivně do adresáře zadaném v <placeholder-2/>. Nové soubory jsou automaticky přidávány a chybějící soubory jsou odstraněny v cílové pracovní kopii, čímž je zajištěno, že zdroj a cíl jsou naprosto stejné."
 
 #. (option)
 #. (option)

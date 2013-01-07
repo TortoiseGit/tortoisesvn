@@ -11,7 +11,7 @@
 # Authors:
 # Translators:
 # Alexandre Paradis <paradial@hotmail.com>, 2011.
-# Christophe SAUVEUR <christophe@xhaleera.com>, 2012.
+# Christophe SAUVEUR <christophe@xhaleera.com>, 2012-2013.
 #   <christophe@xhaleera.com>, 2011, 2012.
 #   <gobes2@gmail.com>, 2011.
 # <grokwik@gmail.com>, 2011.
@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 08:33+0000\n"
+"PO-Revision-Date: 2013-01-05 16:01+0000\n"
 "Last-Translator: Christophe SAUVEUR <christophe@xhaleera.com>\n"
 "Language-Team: French <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -227,7 +227,7 @@ msgstr "%s (hors-ligne)"
 #. Resource IDs: (15)
 #, c-format
 msgid "%s (recursively)"
-msgstr ""
+msgstr "%s (récursivement)"
 
 #. Resource IDs: (151)
 #, c-format
@@ -277,12 +277,12 @@ msgstr "%s, mais le répertoire a été supprimé, déplacé ou renommé localem
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved away"
-msgstr ""
+msgstr "%s, mais le répertoire a été déplacé ailleurs"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the directory was moved here"
-msgstr ""
+msgstr "%s, mais le répertoire a été déplacé ici"
 
 #. Resource IDs: (609)
 #, c-format
@@ -322,12 +322,12 @@ msgstr "%s, mais le fichier a été supprimé, déplacé ou renommé localement.
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved away"
-msgstr ""
+msgstr "%s, mais le fichier a été déplacé ailleurs"
 
 #. Resource IDs: (610)
 #, c-format
 msgid "%s, but the file was moved here"
-msgstr ""
+msgstr "%s, mais le fichier a été déplacé ici"
 
 #. Resource IDs: (609)
 #, c-format
@@ -1069,7 +1069,7 @@ msgstr "&Options"
 
 #. Resource IDs: (32849)
 msgid "&Other"
-msgstr ""
+msgstr "&Autre"
 
 #. Resource IDs: (32772)
 msgid "&Overlay images"
@@ -1837,7 +1837,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%s\n"
 "to the global ignore list."
-msgstr ""
+msgstr "A ajouté le(s) modèle(s) de fichiers\n%s\nà la liste globale à ignorer."
 
 #. Resource IDs: (145)
 #, c-format
@@ -1877,7 +1877,7 @@ msgstr "Ajuster la configuration\nConfiguration"
 
 #. Resource IDs: (591)
 msgid "Adjust to HEAD revision"
-msgstr ""
+msgstr "Adapter à la révision HEAD"
 
 #. Resource IDs: (307, 32848)
 msgid "Advanced"
@@ -2176,7 +2176,7 @@ msgstr "Renommer automatiquement"
 
 #. Resource IDs: (221)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Auto-Fusionner"
 
 #. Resource IDs: (222)
 msgid "Auto-close if no conflicts"
@@ -2199,7 +2199,7 @@ msgstr "La complétion automatique suggère des mots (habituellement des classes
 #. Resource IDs: (221)
 #, c-format
 msgid "Auto-merge %1!s! into %2!s!"
-msgstr ""
+msgstr "Auto-fusionner %1!s! dans %2!s!"
 
 #. Resource IDs: (438)
 msgid "Automatic"
@@ -3544,7 +3544,7 @@ msgstr "Créer une copie dans le dépôt depuis :"
 
 #. Resource IDs: (1562)
 msgid "Create intermediate folders"
-msgstr ""
+msgstr "Créer des dossiers intermédiaires"
 
 #. Resource IDs: (126)
 #, c-format
@@ -3948,7 +3948,7 @@ msgstr "Ne pas afficher le menu contextuel pour les chemins suivants :"
 
 #. Resource IDs: (1562)
 msgid "Do reintegrate instead of automatic merge"
-msgstr ""
+msgstr "Procéder à une réintégration au lieu d'une fusion automatique"
 
 #. Resource IDs: (90)
 msgid "Do this for all existing files"
@@ -4022,7 +4022,7 @@ msgid ""
 "Do you want to mark the file\n"
 "%s\n"
 "as resolved?"
-msgstr ""
+msgstr "Voulez-vous marquer le fichier\n%s\ncomme résolu ?"
 
 #. Resource IDs: (76)
 msgid "Do you want to proceed?"
@@ -4650,7 +4650,7 @@ msgstr "Échoué !"
 
 #. Resource IDs: (591)
 msgid "Fetch HEAD revision and adjust to it"
-msgstr ""
+msgstr "Récupèrer la révision HEAD et s'y adapter"
 
 #. Resource IDs: (199)
 msgid ""
@@ -4659,11 +4659,11 @@ msgstr "Récupère le contenu des dossiers en arrière-plan pour que la navigati
 
 #. Resource IDs: (92)
 msgid "Fetching file list of source"
-msgstr ""
+msgstr "Récupère la liste des fichiers de la source"
 
 #. Resource IDs: (92)
 msgid "Fetching file list of target"
-msgstr ""
+msgstr "Récupère la liste des fichiers de la destination"
 
 #. Resource IDs: (313)
 msgid "Fetching file..."
@@ -4706,7 +4706,7 @@ msgstr "Différences de fichiers"
 
 #. Resource IDs: (319)
 msgid "File has no conflicts"
-msgstr ""
+msgstr "Le fichier n'a pas de conflit"
 
 #. Resource IDs: (314)
 msgid "File is empty."
@@ -4830,11 +4830,11 @@ msgstr "Rechercher"
 
 #. Resource IDs: (1633)
 msgid "Find &HEAD-Revision"
-msgstr ""
+msgstr "Trouver la révision &HEAD"
 
 #. Resource IDs: (591)
 msgid "Find HEAD revisions"
-msgstr ""
+msgstr "Trouver les révisions HEAD"
 
 #. Resource IDs: (3603)
 msgid ""
@@ -5112,7 +5112,7 @@ msgstr "Noeud HEAD"
 #. Resource IDs: (106)
 #, c-format
 msgid "HEAD revision is %s"
-msgstr ""
+msgstr "La révision HEAD est %s"
 
 #. Resource IDs: (1595)
 msgid "Header"
@@ -5954,7 +5954,7 @@ msgstr "Auteur le moins actif :"
 msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
-msgstr ""
+msgstr "Laisser comme conflictuel\nLe statut de conflit du fichier est conservé"
 
 #. Resource IDs: (1404)
 msgid "Leave conflicted:"
@@ -5970,7 +5970,7 @@ msgstr "Image de gauche"
 
 #. Resource IDs: (266)
 msgid "Left local modifications"
-msgstr ""
+msgstr "Modifications locales restantes"
 
 #. Resource IDs: (590)
 msgid "Like above, but used for reverse merges"
@@ -6083,7 +6083,7 @@ msgstr "Verrouiller les fichiers"
 
 #. Resource IDs: (265)
 msgid "Lock broken"
-msgstr ""
+msgstr "Verrou cassé"
 
 #. Resource IDs: (213)
 msgid "Lock broken!"
@@ -6223,7 +6223,7 @@ msgstr "Marquer comme résolu\nLe conflit est résolu."
 msgid ""
 "Mark as resolved\n"
 "The file status is changed to modified"
-msgstr ""
+msgstr "Marquer comme résolu\nLe statut du fichier change pour modifié"
 
 #. Resource IDs: (2052)
 msgid "Mark current revision of your working copy"
@@ -6235,7 +6235,7 @@ msgstr "Marquer à comparer"
 
 #. Resource IDs: (92)
 msgid "Mark missing files as removed"
-msgstr ""
+msgstr "Marquer les fichiers manquants comme supprimés"
 
 #. Resource IDs: (610)
 msgid "Mark the conflict as resolved"
@@ -6591,7 +6591,7 @@ msgstr "Déplacé depuis"
 msgid ""
 "Moved from\r\n"
 "%s"
-msgstr ""
+msgstr "Déplacé depuis\n%s"
 
 #. Resource IDs: (126)
 msgid "Moved remotely"
@@ -6606,7 +6606,7 @@ msgstr "Déplacé vers"
 msgid ""
 "Moved to\r\n"
 "%s"
-msgstr ""
+msgstr "Déplacé vers\n%s"
 
 #. Resource IDs: (197)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -6635,7 +6635,7 @@ msgstr "NUM"
 
 #. Resource IDs: (1071)
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. Resource IDs: (156)
 msgid "Navigate"
@@ -6899,7 +6899,7 @@ msgstr "Instructions"
 msgid ""
 "Notice: if you upgrade your working copy, you won't be able to access the upgraded working copy with pre 1.8 SVN clients anymore!\n"
 "Do you really want to upgrade this working copy?"
-msgstr ""
+msgstr "Note : si vous mettez à jour votre copie de travail, vous ne serez plus en mesure d'accéder à la copie de travail actualisée avec des clients SVN antérieur à la version 1.8 !\nVoulez-vous vraiment mettre à jour la copie de travail ?"
 
 #. Resource IDs: (247)
 #, c-format
@@ -7370,7 +7370,7 @@ msgstr "Veuillez patienter pendant l'initialisation du navigateur de dépôt..."
 
 #. Resource IDs: (280)
 msgid "Please wait while we check the parameters for the merge."
-msgstr ""
+msgstr "Veuillez patienter pendant que nous vérifier les paramètres pour la fusion."
 
 #. Resource IDs: (1368)
 msgid "Please wait while we gather more information..."
@@ -7657,7 +7657,7 @@ msgstr "D&isques mémoire"
 
 #. Resource IDs: (1469)
 msgid "R&eintegrate a branch / automatic merge"
-msgstr ""
+msgstr "Réintégr&er une branche / fusion automatique"
 
 #. Resource IDs: (16623)
 msgid "R&eset"
@@ -8017,7 +8017,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%s\n"
 "from the global ignore list."
-msgstr ""
+msgstr "A supprimé le(s) modèle(s) de fichiers\n%s\nde la liste globale à ignorer."
 
 #. Resource IDs: (145)
 #, c-format
@@ -8453,7 +8453,7 @@ msgstr "SSH"
 
 #. Resource IDs: (17)
 msgid "SVN &Vendorbranch here"
-msgstr ""
+msgstr "Branche du &vendeur SVN ici"
 
 #. Resource IDs: (16)
 msgid "SVN Author"
@@ -9226,7 +9226,7 @@ msgstr "Copie de travail en cours d'obstruction évitée"
 
 #. Resource IDs: (265)
 msgid "Skipped, access denied"
-msgstr ""
+msgstr "Passé, accès refusé"
 
 #. Resource IDs: (265)
 msgid "Skipped, no versioned parent"
@@ -9234,7 +9234,7 @@ msgstr "Passé, aucun parent versionné"
 
 #. Resource IDs: (265)
 msgid "Skipped, remains conflicted"
-msgstr ""
+msgstr "Passé, reste conflictuel"
 
 #. Resource IDs: (1070)
 msgid "Slide"
@@ -10227,7 +10227,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
+msgstr "Ce dépôt n'est pas récursif, et il y a des répertoires déplacés/renommés/copiés sélectionnés pour le dépôt. Ces déplacements/renommages sont toujours appliqués récursivement dans le référentiel. Voulez-vous procéder au dépôt tout de même ?"
 
 #. Resource IDs: (170)
 msgid ""
@@ -10236,7 +10236,7 @@ msgid ""
 "are always performed recursively in the repository.\n"
 "\n"
 "Do you want to commit anyway?"
-msgstr ""
+msgstr "Ce dépôt n'est pas récursif, et il y a des répertoires déplacés/renommés/copiés\nsélectionnés pour le dépôt. Ces déplacements/renommages\nsont toujours appliqués récursivement dans le référentiel.\n\nVoulez-vous procéder au dépôt tout de même ?"
 
 #. Resource IDs: (251)
 msgid ""
@@ -10342,7 +10342,7 @@ msgstr "Cela supprimera les enregistrements des commandes que vous avez utilisé
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Cela va mettre à jour votre copie de travail vers le nouveau format 1.8 et la rendre inutilisable avec les anciens clients."
 
 #. Resource IDs: (363)
 #, c-format
@@ -10489,7 +10489,7 @@ msgid ""
 "serf %d.%d.%d\r\n"
 "%s\r\n"
 "zlib %s"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %s, %s\nSubversion %d.%d.%d, %s\napr %d.%d.%d\napr-utils %d.%d.%d\nserf %d.%d.%d\n%s\nzlib %s"
 
 #. Resource IDs: (281)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -10582,7 +10582,7 @@ msgstr "Ajuster TortoiseSVN"
 
 #. Resource IDs: (1071)
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #. Resource IDs: (1436)
 msgid "U&pdate"
@@ -10852,7 +10852,7 @@ msgstr "Mise à jour du cache du journal"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Mettre à jour la copie de travail\nvers le nouveau format 1.8."
 
 #. Resource IDs: (15, 99)
 msgid "Upgrade working copy"
@@ -11088,7 +11088,7 @@ msgstr "Valeur"
 
 #. Resource IDs: (92)
 msgid "Vendor branch"
-msgstr ""
+msgstr "Branche du vendeur"
 
 #. Resource IDs: (1004, 1075)
 msgid "Version"
@@ -11206,7 +11206,7 @@ msgid ""
 "When resolving conflicts, you always have to save even if there is no "
 "conflict shown. TortoiseMerge can merge changes that SVN can't and won't "
 "show a conflict for those!"
-msgstr ""
+msgstr "Lors de la résolution de conflits, vous devez toujours sauvegarder même s'il n'y a pas de conflit affiché. TortoiseMerge peut fusionner des modifications que SVN ne peut pas et ne montrera pas de conflit dans ces cas-là !"
 
 #. Resource IDs: (65535)
 msgid "Whitespaces"
@@ -11730,11 +11730,11 @@ msgstr "Fichier externe :"
 
 #. Resource IDs: (591)
 msgid "get HEAD revision:"
-msgstr ""
+msgstr "obtenir la révision HEAD :"
 
 #. Resource IDs: (591)
 msgid "get repository root URLs:"
-msgstr ""
+msgstr "obtenir les URLs de la racine du référentiel :"
 
 #. Resource IDs: (1005)
 msgid "http://tortoisesvn.net"
@@ -11750,7 +11750,7 @@ msgstr "en ignorant l'ascendance"
 
 #. Resource IDs: (618)
 msgid "include properties"
-msgstr ""
+msgstr "inclure les propriétés"
 
 #. Resource IDs: (13)
 msgid "incomplete"
@@ -11778,7 +11778,7 @@ msgstr "garder les listes de fichier en Anglais"
 
 #. Resource IDs: (65535)
 msgid "last HEAD update: "
-msgstr ""
+msgstr "Dernière mise à jour de HEAD :"
 
 #. Resource IDs: (65535)
 msgid "last read: "
@@ -11978,7 +11978,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
+msgstr "svn:auto-props\nUne liste séparée par des sauts de lignes de propriétés qui seront automatiquement appliquées récursivement lors de l'ajout / import de fichiers.\nFormat : <filemask> = property=value;property=value\nExemple : *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (316)
 msgid "svn:eol-style"
@@ -12025,7 +12025,7 @@ msgstr "svn:externals\nUne liste d'identifiants de modules séparée par un saut
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr ""
+msgstr "svn:global-ignores\nUne liste séparée par des sauts de ligne de modèles de fichiers à ignorer récursivement."
 
 #. Resource IDs: (576)
 msgid ""
