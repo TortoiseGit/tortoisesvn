@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -147,6 +147,7 @@ $WCISLOCKED$    True if the item is locked\n"
 #define LOCKCOMMENT      "$WCLOCKCOMMENT$"
 
 // Internal error codes
+// Note: these error codes are documented in /doc/source/en/TortoiseSVN/tsvn_subwcrev.xml
 #define ERR_SYNTAX      1   // Syntax error
 #define ERR_FNF         2   // File/folder not found
 #define ERR_OPEN        3   // File open error

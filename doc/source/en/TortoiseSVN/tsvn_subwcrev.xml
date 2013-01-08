@@ -152,6 +152,97 @@ SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdfe]
                 </tgroup>
             </table>
         </para>
+        <para>
+            If there is no error, SubWCRev returns zero. But in case
+			an error occurs, the error message is written to stderr
+			and shown in the console. And the returned error codes are:
+            <table id="tsvn-subwcrev-error-table">
+                <title>List of SubWCRev error codes</title>
+                <tgroup cols="2">
+                    <colspec colnum="1" colwidth="2*"/>
+                    <colspec colnum="2" colwidth="10*"/>
+                    <thead>
+                        <row>
+                            <entry>Error Code</entry>
+                            <entry>Description</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry condition="pot">1</entry>
+                            <entry>
+								Syntax error. One or more command line
+								parameters are invalid.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">2</entry>
+                            <entry>
+                                The file or folder specified on the
+								command line was not found.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">3</entry>
+                            <entry>
+                                The input file could not be opened, or
+								the target file could not be created.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">4</entry>
+                            <entry>
+                                Could not allocate memory. This could
+								happen if e.g. the source file is too
+								big.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">5</entry>
+                            <entry>
+                                The source file can not be scanned properly.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">6</entry>
+                            <entry>
+                                SVN error: Subversion returned with
+								an error when SubWCRev tried to find
+								the information from the working copy.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">7</entry>
+                            <entry>
+                                The working copy has local modifications.
+								This requires the <literal>-n</literal> switch.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">8</entry>
+                            <entry>
+                                The working copy has mixed revisions.
+								This requires the <literal>-m</literal> switch.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">9</entry>
+                            <entry>
+                                The output file already exists.
+								This requires the <literal>-d</literal> switch.
+                            </entry>
+                        </row>
+                        <row>
+                            <entry condition="pot">10</entry>
+                            <entry>
+                                The specified path is not a working copy or
+								part or one.
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </para>
     </sect1>
     <!-- ================================================================= -->
     <!-- ======================== SECTION 2 ============================== -->
