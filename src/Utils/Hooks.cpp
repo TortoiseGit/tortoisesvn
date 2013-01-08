@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012 - TortoiseSVN
+// Copyright (C) 2007-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -287,11 +287,16 @@ CTSVNPath CHooks::AddMessageFileParam(CString& sCmd, const CString& message)
 
 bool CHooks::StartCommit(HWND hWnd, const CTSVNPathList& pathList, CString& message, DWORD& exitcode, CString& error)
 {
+    exitcode = 0;
     hookiterator it = FindItem(start_commit_hook, pathList);
     if (it == end())
         return false;
     if (!ApproveHook(hWnd, it))
+    {
+        exitcode = 1;
+        error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
         return false;
+    }
     CString sCmd = it->second.commandline;
     AddPathParam(sCmd, pathList);
     CTSVNPath temppath = AddMessageFileParam(sCmd, message);
