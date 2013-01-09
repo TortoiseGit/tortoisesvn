@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -766,7 +766,9 @@ bool CTSVNPath::IsValidOnWindows() const
     wstring checkPath = m_sBackslashPath;
     if (IsUrl())
     {
-        checkPath = m_sBackslashPath.Mid(m_sBackslashPath.Find('\\', m_sBackslashPath.Find(_T(":\\\\"))+3)+1);
+        CString uipath = CPathUtils::PathUnescape(GetSVNPathString());
+        uipath.Replace('/', '\\');
+        checkPath = uipath.Mid(uipath.Find('\\', uipath.Find(_T(":\\\\"))+3)+1);
     }
     try
     {
@@ -1624,7 +1626,8 @@ private:
         ATLASSERT(!testPath.IsValidOnWindows());
         testPath.SetFromSVN(_T("http://localhost:90/repos/trunk/com1"));
         ATLASSERT(!testPath.IsValidOnWindows());
-
+        testPath.SetFromSVN(_T("http://localhost:90/repos/trunk/Blame3-%3Eblame.cpp"));
+        ATLASSERT(!testPath.IsValidOnWindows());
     }
 
 } TSVNPathTestobject;

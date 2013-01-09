@@ -6,6 +6,8 @@ Version 1.7.12
        "Changed Files" dialog. (Stefan)
 - BUG: Issue #449: Invalid quotation in %burl and
        %yurl diff tool arguments. (Stefan)
+- BUG: Issue #450: Windows path check fails if the
+       path/url is escaped. (Stefan)
 
 Version 1.7.11
 - BUG: Issue #428: out-of-date error when modifying
