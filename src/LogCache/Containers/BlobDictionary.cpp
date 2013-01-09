@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2011 - TortoiseSVN 
+// Copyright (C) 2007-2009, 2011, 2013 - TortoiseSVN 
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -110,10 +110,6 @@ CBlobDictionary::CHashFunction::equal
 
 void CBlobDictionary::RebuildIndexes()
 {
-    // start of the blob & offset arrays
-
-    std::vector<index_t>::iterator iter = offsets.begin();
-
     // current position in blob data (i.e. first char of the current string)
 
     index_t offset = 0;
