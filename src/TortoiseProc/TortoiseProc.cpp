@@ -481,6 +481,7 @@ void CTortoiseProcApp::CheckUpgrade()
     // we're starting the first time with a new version!
 
     LONG lVersion = 0;
+    sVersion = L"1, 7, 99, 5555";
     int pos = sVersion.Find(',');
     if (pos > 0)
     {
