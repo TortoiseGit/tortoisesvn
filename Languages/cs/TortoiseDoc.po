@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-05 22:14+0000\n"
+"PO-Revision-Date: 2013-01-09 16:02+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -14743,6 +14743,7 @@ msgstr "Překlopit"
 #. (entry)
 #. (entry)
 #. (entry)
+#. (entry)
 msgid "Description"
 msgstr "Popis"
 
@@ -14826,6 +14827,83 @@ msgid ""
 " If you use more than one, they must be specified as a single group, e.g. "
 "<literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
 msgstr "Existuje celá řada nepovinných přepínačů, které ovlivňují způsob jak SubWCRev funguje. Pokud použijete více než jeden, musí být uvedeny jako jedna skupina, např. <literal>-nm</literal> a ne <literal>-n -m</literal>. <placeholder-1/>"
+
+#. (title)
+msgid "List of SubWCRev error codes"
+msgstr "Seznam kódů chyb SubWCRev"
+
+#. (entry)
+msgid "Error Code"
+msgstr "Kód chyby"
+
+#. (entry)
+msgid "Syntax error. One or more command line parameters are invalid."
+msgstr "Syntaktická chyba. Jeden nebo více parametrů příkazového řádku je neplatných."
+
+#. (entry)
+msgid "The file or folder specified on the command line was not found."
+msgstr "Soubor nebo složka zadaná na příkazovém řádku nebyly nalezeny."
+
+#. (entry)
+msgid ""
+"The input file could not be opened, or the target file could not be created."
+msgstr "Vstupní soubor nemohl být otevřen, nebo cílový soubor nemohl být vytvořen."
+
+#. (entry)
+msgid ""
+"Could not allocate memory. This could happen if e.g. the source file is too "
+"big."
+msgstr "Nelze přidělit paměť. To se může stát např. když je zdrojový soubor příliš velký."
+
+#. (entry)
+msgid "The source file can not be scanned properly."
+msgstr "Zdrojový soubor nemůže být správně zpracován."
+
+#. (entry)
+msgid ""
+"SVN error: Subversion returned with an error when SubWCRev tried to find the"
+" information from the working copy."
+msgstr "Chyba SVN: Subversion vrátil chybu když se SubWCRev pokoušel najít informace z pracovní kopie."
+
+#. (literal)
+msgid "-n"
+msgstr "-n"
+
+#. (entry)
+msgid ""
+"The working copy has local modifications. This requires the <placeholder-1/>"
+" switch."
+msgstr "Pracovní kopie má místní změny. To vyžaduje přepínač <placeholder-1/>."
+
+#. (literal)
+msgid "-m"
+msgstr "-m"
+
+#. (entry)
+msgid ""
+"The working copy has mixed revisions. This requires the <placeholder-1/> "
+"switch."
+msgstr "Pracovní kopie má smíšené revize. To vyžaduje přepínač <placeholder-1/>."
+
+#. (literal)
+msgid "-d"
+msgstr "-d"
+
+#. (entry)
+msgid ""
+"The output file already exists. This requires the <placeholder-1/> switch."
+msgstr "Výstupní soubor existuje. To vyžaduje přepínač <placeholder-1/>."
+
+#. (entry)
+msgid "The specified path is not a working copy or part or one."
+msgstr "Zadaná cesta není pracovní kopie ani její součástí."
+
+#. (para)
+msgid ""
+"If there is no error, SubWCRev returns zero. But in case an error occurs, "
+"the error message is written to stderr and shown in the console. And the "
+"returned error codes are: <placeholder-1/>"
+msgstr "Pokud není žádná chyba, SubWCREV vrací nulu. Ale v případě chyb je chybová zpráva vypsána do stderr a zobrazena v konzoli. A vracívané kódy chyb jsou: <placeholder-1/>"
 
 #. (title)
 msgid "Keyword Substitution"

@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-02 08:31+0000\n"
+"PO-Revision-Date: 2013-01-09 08:30+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -14747,6 +14747,7 @@ msgstr "Optie"
 #. (entry)
 #. (entry)
 #. (entry)
+#. (entry)
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -14829,6 +14830,83 @@ msgid ""
 "There are a number of optional switches which affect the way SubWCRev works."
 " If you use more than one, they must be specified as a single group, e.g. "
 "<literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
+msgstr ""
+
+#. (title)
+msgid "List of SubWCRev error codes"
+msgstr ""
+
+#. (entry)
+msgid "Error Code"
+msgstr ""
+
+#. (entry)
+msgid "Syntax error. One or more command line parameters are invalid."
+msgstr ""
+
+#. (entry)
+msgid "The file or folder specified on the command line was not found."
+msgstr ""
+
+#. (entry)
+msgid ""
+"The input file could not be opened, or the target file could not be created."
+msgstr ""
+
+#. (entry)
+msgid ""
+"Could not allocate memory. This could happen if e.g. the source file is too "
+"big."
+msgstr ""
+
+#. (entry)
+msgid "The source file can not be scanned properly."
+msgstr ""
+
+#. (entry)
+msgid ""
+"SVN error: Subversion returned with an error when SubWCRev tried to find the"
+" information from the working copy."
+msgstr ""
+
+#. (literal)
+msgid "-n"
+msgstr ""
+
+#. (entry)
+msgid ""
+"The working copy has local modifications. This requires the <placeholder-1/>"
+" switch."
+msgstr ""
+
+#. (literal)
+msgid "-m"
+msgstr ""
+
+#. (entry)
+msgid ""
+"The working copy has mixed revisions. This requires the <placeholder-1/> "
+"switch."
+msgstr ""
+
+#. (literal)
+msgid "-d"
+msgstr ""
+
+#. (entry)
+msgid ""
+"The output file already exists. This requires the <placeholder-1/> switch."
+msgstr ""
+
+#. (entry)
+msgid "The specified path is not a working copy or part or one."
+msgstr ""
+
+#. (para)
+msgid ""
+"If there is no error, SubWCRev returns zero. But in case an error occurs, "
+"the error message is written to stderr and shown in the console. And the "
+"returned error codes are: <placeholder-1/>"
 msgstr ""
 
 #. (title)

@@ -13,13 +13,13 @@
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2011-2012.
 # Lübbe  <luebbe.tortoisesvn@gmail.com>, 2011.
 # Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2012.
-# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2012.
+# Masahiro FUJIMOTO <fujimoto@internet.ne.jp>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-03 18:21+0000\n"
+"PO-Revision-Date: 2013-01-10 16:20+0000\n"
 "Last-Translator: Masahiro FUJIMOTO <fujimoto@internet.ne.jp>\n"
 "Language-Team: Japanese <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -14745,6 +14745,7 @@ msgstr "切り替え"
 #. (entry)
 #. (entry)
 #. (entry)
+#. (entry)
 msgid "Description"
 msgstr "説明"
 
@@ -14828,6 +14829,83 @@ msgid ""
 " If you use more than one, they must be specified as a single group, e.g. "
 "<literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
 msgstr "SubWCRev の動作に影響を与えるオプションスイッチが多数あります。複数を使用する場合は、１つにグループ化して指定する必要があります。例えば、 <literal>-n -m</literal> ではなく、 <literal>-nm</literal> と指定します。<placeholder-1/>"
+
+#. (title)
+msgid "List of SubWCRev error codes"
+msgstr "SubWCRevのエラーコードの一覧"
+
+#. (entry)
+msgid "Error Code"
+msgstr "エラーコード"
+
+#. (entry)
+msgid "Syntax error. One or more command line parameters are invalid."
+msgstr "文法エラー。1つまたは複数のコマンドライン引数が無効です。"
+
+#. (entry)
+msgid "The file or folder specified on the command line was not found."
+msgstr "コマンドラインで指定されたファイルまたはフォルダーが見つかりません。"
+
+#. (entry)
+msgid ""
+"The input file could not be opened, or the target file could not be created."
+msgstr "入力ファイルが開けないか、ターゲットファイルが作成できません。"
+
+#. (entry)
+msgid ""
+"Could not allocate memory. This could happen if e.g. the source file is too "
+"big."
+msgstr "メモリを確保できません。これは、ソースファイルが大きすぎる場合などに発生する可能性があります。"
+
+#. (entry)
+msgid "The source file can not be scanned properly."
+msgstr "ソースファイルのプロパティをスキャンできません。"
+
+#. (entry)
+msgid ""
+"SVN error: Subversion returned with an error when SubWCRev tried to find the"
+" information from the working copy."
+msgstr "SVNエラー: SubWCRevが作業コピーから情報を検索しようとする際に、Subversionがエラーで復帰しました。"
+
+#. (literal)
+msgid "-n"
+msgstr "-n"
+
+#. (entry)
+msgid ""
+"The working copy has local modifications. This requires the <placeholder-1/>"
+" switch."
+msgstr "作業コピーはローカルで変更されました。この場合は<placeholder-1/>スイッチが必要です。"
+
+#. (literal)
+msgid "-m"
+msgstr "-m"
+
+#. (entry)
+msgid ""
+"The working copy has mixed revisions. This requires the <placeholder-1/> "
+"switch."
+msgstr "作業コピーに複数のリビジョンが混在しています。この場合は<placeholder-1/>スイッチが必要です。"
+
+#. (literal)
+msgid "-d"
+msgstr "-d"
+
+#. (entry)
+msgid ""
+"The output file already exists. This requires the <placeholder-1/> switch."
+msgstr "出力ファイルが既に存在しています。この場合は<placeholder-1/>スイッチが必要です。"
+
+#. (entry)
+msgid "The specified path is not a working copy or part or one."
+msgstr "指定されたパスは作業コピーやその一部を指すものではありません。"
+
+#. (para)
+msgid ""
+"If there is no error, SubWCRev returns zero. But in case an error occurs, "
+"the error message is written to stderr and shown in the console. And the "
+"returned error codes are: <placeholder-1/>"
+msgstr "エラーがない場合、SubWCRevは0を返します。しかしエラーが発生した場合は、標準エラー出力（コンソール）にエラーメッセージが出力されます。そして、<placeholder-1/>のエラーが返却されます。"
 
 #. (title)
 msgid "Keyword Substitution"

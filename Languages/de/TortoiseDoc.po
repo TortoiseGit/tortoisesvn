@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/tortoisesvn/wiki/IssueTracker?tm=3\n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2013-01-07 08:44+0000\n"
+"PO-Revision-Date: 2013-01-11 08:30+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German <translators@tortoisesvn.tigris.org>\n"
 "MIME-Version: 1.0\n"
@@ -14747,6 +14747,7 @@ msgstr "Wechseln"
 #. (entry)
 #. (entry)
 #. (entry)
+#. (entry)
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -14830,6 +14831,83 @@ msgid ""
 " If you use more than one, they must be specified as a single group, e.g. "
 "<literal>-nm</literal>, not <literal>-n -m</literal>. <placeholder-1/>"
 msgstr "Es gibt mehrere Kommandozeilenoptionen, die die Arbeitsweise von SubWCRev beeinflussen. Wenn Sie mehr als einen verwenden, müssen die Optionen in einer einzelnen Gruppe angegeben werden, z.B. <literal>-nm</literal>, nicht <literal>-n -m</literal>. <placeholder-1/>"
+
+#. (title)
+msgid "List of SubWCRev error codes"
+msgstr "Liste der SubWCRev Fehlercodes"
+
+#. (entry)
+msgid "Error Code"
+msgstr "Fehlercode"
+
+#. (entry)
+msgid "Syntax error. One or more command line parameters are invalid."
+msgstr "Syntaxfehler. Mindestens ein Kommandozeilen-Parameter ist ungültig."
+
+#. (entry)
+msgid "The file or folder specified on the command line was not found."
+msgstr "Die/Der in der Befehlszeile angegebene Datei/Ordner wurde nicht gefunden."
+
+#. (entry)
+msgid ""
+"The input file could not be opened, or the target file could not be created."
+msgstr "Die Eingabedatei konnte nicht geöffnet werden oder die Zieldatei konnte nicht erstellt werden."
+
+#. (entry)
+msgid ""
+"Could not allocate memory. This could happen if e.g. the source file is too "
+"big."
+msgstr "Konnte keinen Speicher reservieren. Dies könnte passieren, wenn z.B. die Quelldatei zu groß ist."
+
+#. (entry)
+msgid "The source file can not be scanned properly."
+msgstr "Die Quelldatei kann nicht ordnungsgemäß gescannt werden."
+
+#. (entry)
+msgid ""
+"SVN error: Subversion returned with an error when SubWCRev tried to find the"
+" information from the working copy."
+msgstr "SVN-Fehler: Subversion gab einen Fehler zurück, als SubWCRev versuchte, die Informationen aus der Arbeitskopie zu ermitteln."
+
+#. (literal)
+msgid "-n"
+msgstr "-n"
+
+#. (entry)
+msgid ""
+"The working copy has local modifications. This requires the <placeholder-1/>"
+" switch."
+msgstr "Die Arbeitskopie enthält lokale Änderungen. Dies erfordert den <placeholder-1/> Schalter."
+
+#. (literal)
+msgid "-m"
+msgstr "-m"
+
+#. (entry)
+msgid ""
+"The working copy has mixed revisions. This requires the <placeholder-1/> "
+"switch."
+msgstr "Die Arbeitskopie enthält gemischte Revisionen. Dies erfordert den <placeholder-1/> Schalter."
+
+#. (literal)
+msgid "-d"
+msgstr "-d"
+
+#. (entry)
+msgid ""
+"The output file already exists. This requires the <placeholder-1/> switch."
+msgstr "Die Ausgabedatei ist bereits vorhanden. Dies erfordert den <placeholder-1/> Schalter."
+
+#. (entry)
+msgid "The specified path is not a working copy or part or one."
+msgstr "Der angegebene Pfad ist keine Arbeitskopie oder ein Teil davon."
+
+#. (para)
+msgid ""
+"If there is no error, SubWCRev returns zero. But in case an error occurs, "
+"the error message is written to stderr and shown in the console. And the "
+"returned error codes are: <placeholder-1/>"
+msgstr "Wenn kein Fehler vorliegt, gibt SubWCRev Null zurück. Falls ein Fehler auftritt, wird die Fehlermeldung nach <literal>stderr</literal> geschrieben und in der Konsole angezeigt. Die zurückgegebenen Fehlercodes sind:<placeholder-1/>"
 
 #. (title)
 msgid "Keyword Substitution"
