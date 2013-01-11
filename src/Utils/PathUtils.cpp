@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -689,7 +689,8 @@ CString CPathUtils::GetVersionFromFile(const CString & p_strDateiname)
                 (LPTSTR)(LPCTSTR)strLangProduktVersion,
                 (LPVOID *)&lpVersion,
                 &nInfoSize);
-            strReturn = (LPCTSTR)lpVersion;
+            if (nInfoSize && lpVersion)
+                strReturn = (LPCTSTR)lpVersion;
             free(pBuffer);
         }
     }
