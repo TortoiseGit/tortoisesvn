@@ -4,7 +4,6 @@
 
 
 <xsl:output encoding='windows-1251' method='html' saxon:character-representation="'native;decimal'" xmlns:saxon="http://saxon.sf.net/" />
-<xsl:param name="chunker.output.encoding" select="'windows-1251'"/>
 
 <!-- produce correct back-of-the-book index for non-English-alphabet languages, 
      don't work with xsltproc (tested up to v.2.06.19)

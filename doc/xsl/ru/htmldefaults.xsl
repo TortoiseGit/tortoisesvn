@@ -5,6 +5,5 @@
 -->
 
   <xsl:param name="htmlhelp.encoding" select="'windows-1251'"/> 
-  <xsl:param name="chunker.output.encoding" select="'windows-1251'"/>
 
 </xsl:stylesheet> 

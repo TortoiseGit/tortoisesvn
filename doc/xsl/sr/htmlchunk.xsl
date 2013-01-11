@@ -2,7 +2,6 @@
 
 <xsl:import href="../htmlchunk.xsl"/> 
 
-<xsl:param name="chunker.output.encoding" select="'windows-1251'"/>
 <xsl:output encoding='windows-1251' method='html' saxon:character-representation="'native;decimal'" xmlns:saxon="http://saxon.sf.net/" />
 
 

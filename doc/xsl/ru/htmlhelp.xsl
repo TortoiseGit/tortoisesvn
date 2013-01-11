@@ -8,5 +8,6 @@
 
   <xsl:import href="../htmlhelp.xsl"/> 
   <xsl:import href="./htmldefaults.xsl"/> 
+  <xsl:param name="chunker.output.encoding" select="'windows-1251'"/>
 
 </xsl:stylesheet> 

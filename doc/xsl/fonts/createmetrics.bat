@@ -3,7 +3,7 @@ rem place the configuration data in config.bat. You need the following four vari
 rem Example config.bat
 rem set LIBDIR=C:\DocTools\fop\lib\
 rem set LOCAL_FOP_HOME=C:\DocTools\fop\
-rem set CMD="java"
+rem set CMD="java" 
 rem set FONT_DIR=C:\Windows\Fonts
 
 rem auto-create configuration file

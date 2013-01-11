@@ -2,7 +2,6 @@
 
 <xsl:import href="../htmlsingle.xsl"/>
 
-<xsl:param name="chunker.output.encoding" select="'Shift_JIS'"/>
 
 <xsl:template name="person.name.family-given">
   <xsl:param name="node" select="."/>
