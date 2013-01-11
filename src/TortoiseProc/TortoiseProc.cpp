@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -481,24 +481,13 @@ void CTortoiseProcApp::CheckUpgrade()
     // we're starting the first time with a new version!
 
     LONG lVersion = 0;
-    int pos = sVersion.Find('.');
+    int pos = sVersion.Find(',');
     if (pos > 0)
     {
         lVersion = (_ttol(sVersion.Left(pos))<<24);
         lVersion |= (_ttol(sVersion.Mid(pos+1))<<16);
-        pos = sVersion.Find('.', pos+1);
+        pos = sVersion.Find(',', pos+1);
         lVersion |= (_ttol(sVersion.Mid(pos+1))<<8);
-    }
-    else
-    {
-        pos = sVersion.Find(',');
-        if (pos > 0)
-        {
-            lVersion = (_ttol(sVersion.Left(pos))<<24);
-            lVersion |= (_ttol(sVersion.Mid(pos+1))<<16);
-            pos = sVersion.Find(',', pos+1);
-            lVersion |= (_ttol(sVersion.Mid(pos+1))<<8);
-        }
     }
 
     CRegDWORD regval = CRegDWORD(_T("Software\\TortoiseSVN\\DontConvertBase"), 999);
