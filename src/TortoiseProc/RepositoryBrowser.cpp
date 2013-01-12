@@ -1633,7 +1633,7 @@ HTREEITEM CRepositoryBrowser::Insert
 
     TVINSERTSTRUCT tvinsert = {0};
     tvinsert.hParent = hParent;
-    tvinsert.hInsertAfter = TVI_SORT;
+    tvinsert.hInsertAfter = TVI_FIRST;
     tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
     tvinsert.itemex.state = state;
     tvinsert.itemex.stateMask = stateMask;
