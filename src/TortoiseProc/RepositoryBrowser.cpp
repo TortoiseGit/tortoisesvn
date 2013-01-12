@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012 - TortoiseSVN
+// Copyright (C) 2003-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -516,16 +516,6 @@ void CRepositoryBrowser::InitRepo()
 
     m_backgroundJobs.WaitForEmptyQueue();
 
-    // let's (try to) access all levels in the folder path
-    SVNRev pegRev = m_repository.peg_revision;
-    if (!m_repository.root.IsEmpty())
-        for ( CString path = m_InitialUrl
-            ; path.GetLength() >= m_repository.root.GetLength()
-            ; path = path.Left (path.ReverseFind ('/')))
-        {
-            m_lister.Enqueue (path, pegRev, m_repository, path==m_InitialUrl, !m_bSparseCheckoutMode && m_bShowExternals);
-        }
-
     // (try to) fetch the HEAD revision
 
     svn_revnum_t headRevision = GetHEADRevision (CTSVNPath (m_InitialUrl));
@@ -535,12 +525,14 @@ void CRepositoryBrowser::InitRepo()
     CString userCancelledError;
     userCancelledError.LoadStringW (IDS_SVN_USERCANCELLED);
 
+    SVNRev pegRev = m_repository.peg_revision;
+
     std::deque<CItem> dummy;
     CString redirectedUrl;
     CString error
         = m_cancelled
         ? userCancelledError
-        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, !m_bSparseCheckoutMode && m_bShowExternals, dummy, redirectedUrl);
+        : m_lister.GetList (m_InitialUrl, pegRev, m_repository, false, false, dummy, redirectedUrl);
 
     if (!redirectedUrl.IsEmpty() && svn_path_is_url(CUnicodeUtils::GetUTF8(m_InitialUrl)))
         m_InitialUrl = CPathUtils::PathUnescape(redirectedUrl);
@@ -556,7 +548,7 @@ void CRepositoryBrowser::InitRepo()
     if (error == wasFileError)
     {
         m_InitialUrl = m_InitialUrl.Left (m_InitialUrl.ReverseFind ('/'));
-        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, true, !m_bSparseCheckoutMode && m_bShowExternals, dummy, redirectedUrl);
+        error = m_lister.GetList (m_InitialUrl, pegRev, m_repository, false, false, dummy, redirectedUrl);
     }
 
     // exit upon cancel
@@ -566,6 +558,17 @@ void CRepositoryBrowser::InitRepo()
         m_InitialUrl.Empty();
         ShowText(error, true);
         return;
+    }
+
+    // let's (try to) access all levels in the folder path
+    if (!m_repository.root.IsEmpty())
+    {
+        for ( CString path = m_InitialUrl
+            ; path.GetLength() >= m_repository.root.GetLength()
+            ; path = path.Left (path.ReverseFind ('/')))
+        {
+            m_lister.Enqueue (path, pegRev, m_repository, false, !m_bSparseCheckoutMode && m_bShowExternals);
+        }
     }
 
     // did our optimistic strategy work?
