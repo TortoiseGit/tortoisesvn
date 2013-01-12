@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2012 - TortoiseSVN
+// Copyright (C) 2009-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -163,7 +163,13 @@ BOOL CRepositoryLister::CListQuery::Cancel()
 void CRepositoryLister::CListQuery::InternalExecute()
 {
     // TODO: let the svn API fetch the externals
-    if (!List (path, GetRevision(), GetPegRevision(), svn_depth_immediates, true, complete, false))
+    if (!List ( path
+               , GetRevision()
+               , GetPegRevision()
+               , svn_depth_immediates
+               , complete       // only fetch locks if we also fetch all list properties
+               , complete
+               , false))
     {
         // something went wrong or query was cancelled
         // -> store error, clear results and terminate sub-queries
