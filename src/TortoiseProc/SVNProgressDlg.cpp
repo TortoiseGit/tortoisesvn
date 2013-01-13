@@ -3905,7 +3905,8 @@ void CSVNProgressDlg::CompareWithWC( NotificationData * data )
         return;
 
     svn_revnum_t rev = -1;
-    StringRevMap::iterator it = m_UpdateStartRevMap.end();
+    StringRevMap::iterator it;
+
     if (data->basepath.IsEmpty())
         it = m_UpdateStartRevMap.begin();
     else
