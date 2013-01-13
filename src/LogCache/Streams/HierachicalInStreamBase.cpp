@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -143,6 +143,7 @@ void CHierachicalInStreamBase::Prefetch()
     {
         // force all stream data to be read from disk
 
+        // cppcheck-suppress unreadVariable
         static volatile BYTE dummy = 0;
         for (const BYTE* prefetch = first; prefetch < last; prefetch += 4096)
             dummy += *prefetch;

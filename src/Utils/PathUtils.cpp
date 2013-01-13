@@ -120,7 +120,6 @@ char* CPathUtils::Unescape(char * psz)
             }
 
             char nValue = '?';
-            const char * pszLow = NULL;
             const char * pszHigh = NULL;
             pszSource++;
 
@@ -131,7 +130,7 @@ char* CPathUtils::Unescape(char * psz)
             {
                 pszSource++;
                 *pszSource = (char) toupper(*pszSource);
-                pszLow = strchr(szHex, *pszSource);
+                const char * pszLow = strchr(szHex, *pszSource);
 
                 if (pszLow != NULL)
                 {

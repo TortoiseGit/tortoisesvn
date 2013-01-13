@@ -2014,7 +2014,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
         }
 
         p = 0;
-        while ( (p=ignoredglobalprops.find(ignoredglobalprops,p )) != -1 )
+        while ( (p=ignoredglobalprops.find(ignoredglobalprops, p)) != -1 )
         {
             if ( (p==0 || ignoredglobalprops[p-1]==TCHAR('\n')) )
             {
