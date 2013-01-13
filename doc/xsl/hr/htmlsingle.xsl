@@ -1,4 +1,4 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"> 
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
 <!--
   Single page HTML help creation
@@ -6,7 +6,7 @@
   and the country specific html defaults
 -->
 
-  <xsl:import href="../htmlsingle.xsl"/> 
-  <xsl:import href="./htmldefaults.xsl"/> 
+  <xsl:import href="../htmlsingle.xsl"/>
+  <xsl:import href="./htmldefaults.xsl"/>
 
-</xsl:stylesheet> 
+</xsl:stylesheet>

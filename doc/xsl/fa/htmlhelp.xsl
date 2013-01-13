@@ -1,8 +1,8 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"> 
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
-<xsl:import href="../htmlhelp.xsl"/> 
- 
-<xsl:param name="htmlhelp.encoding" select="'windows-1256'"/> 
+<xsl:import href="../htmlhelp.xsl"/>
+
+<xsl:param name="htmlhelp.encoding" select="'windows-1256'"/>
 <xsl:param name="chunker.output.encoding" select="'windows-1256'"/>
 <!-- ==================================================================== -->
 <xsl:template name="chunk-element-content">
@@ -49,4 +49,4 @@
   <xsl:value-of select="$chunk.append"/>
 </xsl:template>
 
-</xsl:stylesheet> 
+</xsl:stylesheet>

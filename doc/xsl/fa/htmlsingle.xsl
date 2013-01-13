@@ -1,8 +1,8 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"> 
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
-<xsl:import href="../htmlsingle.xsl"/> 
+<xsl:import href="../htmlsingle.xsl"/>
 
-<xsl:param name="htmlhelp.encoding" select="'utf-8'"/> 
+<xsl:param name="htmlhelp.encoding" select="'utf-8'"/>
 <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
 
 <!-- ==================================================================== -->
@@ -50,4 +50,4 @@
   <xsl:value-of select="$chunk.append"/>
 </xsl:template>
 
-</xsl:stylesheet> 
+</xsl:stylesheet>

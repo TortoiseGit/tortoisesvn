@@ -138,12 +138,12 @@
       </xsl:call-template>
     </xsl:if>
   </xsl:variable>
-  <xsl:variable name="attribute.ok" 
+  <xsl:variable name="attribute.ok"
                 select="not(@*[local-name()=$profile.attribute]) or not($profile.value) or
-                        $attribute.content != '' or 
+                        $attribute.content != '' or
                         @*[local-name()=$profile.attribute] = '' or not($profile.attribute)"/>
 
-  <xsl:if test="$arch.ok and $condition.ok and $conformance.ok and $lang.ok and $os.ok 
+  <xsl:if test="$arch.ok and $condition.ok and $conformance.ok and $lang.ok and $os.ok
                 and $revision.ok and $revisionflag.ok and $role.ok and $security.ok
                 and $userlevel.ok and $vendor.ok and $attribute.ok">
     <xsl:copy>

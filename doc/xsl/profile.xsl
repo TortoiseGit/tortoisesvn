@@ -5,7 +5,7 @@
 <xsl:include href="profile-mode.xsl"/>
 
 <!-- Generate DocBook instance with correct DOCTYPE -->
-<xsl:output method="xml" 
+<xsl:output method="xml"
             encoding="utf-8"
             doctype-system="./dtd/dblite.dtd"/>
 

@@ -72,5 +72,5 @@
       <xsl:apply-templates select="$node//lineage[1]"/>
     </xsl:if>
   </xsl:template>
- 
+
 </xsl:stylesheet>

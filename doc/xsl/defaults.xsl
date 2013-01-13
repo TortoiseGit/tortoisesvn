@@ -10,7 +10,7 @@
 
   <xsl:param name="body.start.indent">0pt</xsl:param>
   <xsl:param name="title.margin.left">-0.5in</xsl:param>
-  
+
 <xsl:attribute-set name="table.cell.padding">
   <xsl:attribute name="padding-left">4pt</xsl:attribute>
   <xsl:attribute name="padding-right">4pt</xsl:attribute>

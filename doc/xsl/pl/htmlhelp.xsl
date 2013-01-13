@@ -1,4 +1,4 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"> 
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
 <!--
   Windows HTML Help creation
@@ -6,8 +6,8 @@
   and the country specific html defaults
 -->
 
-  <xsl:import href="../htmlhelp.xsl"/> 
-  <xsl:import href="./htmldefaults.xsl"/> 
+  <xsl:import href="../htmlhelp.xsl"/>
+  <xsl:import href="./htmldefaults.xsl"/>
   <xsl:param name="chunker.output.encoding" select="'windows-1250'"/>
 
-</xsl:stylesheet> 
+</xsl:stylesheet>
