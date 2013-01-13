@@ -35,6 +35,9 @@
 
 // auto-schedule upon construction
 
+CRegDWORD fetchingLocksEnabled(_T("Software\\TortoiseSVN\\RepoBrowserShowLocks"), TRUE);
+
+
 CRepositoryLister::CQuery::CQuery
     ( const CTSVNPath& path
     , const SVNRev& pegRevision
@@ -163,11 +166,12 @@ BOOL CRepositoryLister::CListQuery::Cancel()
 void CRepositoryLister::CListQuery::InternalExecute()
 {
     // TODO: let the svn API fetch the externals
+    bool fetchLocks = !!(DWORD)fetchingLocksEnabled;
     if (!List ( path
                , GetRevision()
                , GetPegRevision()
                , svn_depth_immediates
-               , complete       // only fetch locks if we also fetch all list properties
+               , complete && fetchLocks     // only fetch locks if we also fetch all list properties
                , complete
                , false))
     {
@@ -446,7 +450,6 @@ CTSVNPath CRepositoryLister::EscapeUrl (const CString& url)
 
 CRepositoryLister::CRepositoryLister()
     : scheduler (8, 0, true, false)
-    , fetchingExternalsEnabled (_T("Software\\TortoiseSVN\\ShowExternalsInBrowser"), TRUE)
 {
 }
 
@@ -469,7 +472,6 @@ void CRepositoryLister::Enqueue
     , bool runSilently)
 {
     CTSVNPath escapedURL = EscapeUrl (url);
-    includeExternals &= (DWORD)fetchingExternalsEnabled == TRUE;
 
     async::CCriticalSectionLock lock (mutex);
 

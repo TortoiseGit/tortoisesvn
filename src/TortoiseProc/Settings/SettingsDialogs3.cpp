@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011 - TortoiseSVN
+// Copyright (C) 2011, 2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,9 +30,11 @@ SettingsDialogs3::SettingsDialogs3()
     : ISettingsPropPage(SettingsDialogs3::IDD)
     , m_bPreFetch(FALSE)
     , m_bIncludeExternals(FALSE)
+    , m_bIncludeLocks(FALSE)
 {
     m_regPreFetch = CRegDWORD(_T("Software\\TortoiseSVN\\RepoBrowserPrefetch"), TRUE);
     m_regIncludeExternals = CRegDWORD(_T("Software\\TortoiseSVN\\RepoBrowserShowExternals"), TRUE);
+    m_regIncludeLocks = CRegDWORD(_T("Software\\TortoiseSVN\\RepoBrowserShowLocks"), TRUE);
 }
 
 SettingsDialogs3::~SettingsDialogs3()
@@ -44,12 +46,14 @@ void SettingsDialogs3::DoDataExchange(CDataExchange* pDX)
     ISettingsPropPage::DoDataExchange(pDX);
     DDX_Check(pDX, IDC_ALLOWPREFETCH, m_bPreFetch);
     DDX_Check(pDX, IDC_SHOWEXTERNALS, m_bIncludeExternals);
+    DDX_Check(pDX, IDC_SHOWLOCKS,     m_bIncludeLocks);
 }
 
 
 BEGIN_MESSAGE_MAP(SettingsDialogs3, ISettingsPropPage)
     ON_BN_CLICKED(IDC_ALLOWPREFETCH, &SettingsDialogs3::OnBnClicked)
     ON_BN_CLICKED(IDC_SHOWEXTERNALS, &SettingsDialogs3::OnBnClicked)
+    ON_BN_CLICKED(IDC_SHOWLOCKS,     &SettingsDialogs3::OnBnClicked)
 END_MESSAGE_MAP()
 
 
@@ -69,10 +73,12 @@ BOOL SettingsDialogs3::OnInitDialog()
 
     m_bPreFetch = m_regPreFetch;
     m_bIncludeExternals = m_regIncludeExternals;
+    m_bIncludeLocks = m_regIncludeLocks;
 
     m_tooltips.Create(this);
     m_tooltips.AddTool(IDC_ALLOWPREFETCH, IDS_SETTINGS_REPOBROWSER_PREFETCH_TT);
     m_tooltips.AddTool(IDC_SHOWEXTERNALS, IDS_SETTINGS_REPOBROWSER_EXTERNALS_TT);
+    m_tooltips.AddTool(IDC_SHOWEXTERNALS, IDS_SETTINGS_REPOBROWSER_LOCKS_TT);
 
     UpdateData(FALSE);
     return TRUE;
@@ -83,6 +89,7 @@ BOOL SettingsDialogs3::OnApply()
     UpdateData();
     Store (m_bPreFetch, m_regPreFetch);
     Store (m_bIncludeExternals, m_regIncludeExternals);
+    Store (m_bIncludeLocks, m_regIncludeLocks);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();

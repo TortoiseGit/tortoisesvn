@@ -166,12 +166,13 @@ void CRepositoryBrowser::ConstructorInit(const SVNRev& rev)
     SecureZeroMemory(&m_arColumnWidths, sizeof(m_arColumnWidths));
     SecureZeroMemory(&m_arColumnAutoWidths, sizeof(m_arColumnAutoWidths));
     m_repository.revision = rev;
-    s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
+    s_bSortLogical   = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
     if (s_bSortLogical)
         s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
     std::fill_n(m_arColumnWidths, _countof(m_arColumnWidths), 0);
     m_bFetchChildren = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", true);
     m_bShowExternals = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowExternals", true);
+    m_bShowLocks     = !!CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowLocks", true);
 }
 
 CRepositoryBrowser::~CRepositoryBrowser()
@@ -1198,10 +1199,13 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
     // column 5: date
     temp.LoadString(IDS_LOG_DATE);
     m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
-    //
-    // column 6: lock owner
-    temp.LoadString(IDS_STATUSLIST_COLLOCK);
-    m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
+    if (m_bShowLocks)
+    {
+        //
+        // column 6: lock owner
+        temp.LoadString(IDS_STATUSLIST_COLLOCK);
+        m_RepoList.InsertColumn(c++, temp, LVCFMT_LEFT, LVSCW_AUTOSIZE_USEHEADER);
+    }
 
     int files = 0;
     int folders = 0;
@@ -4456,8 +4460,11 @@ void CRepositoryBrowser::SetListItemInfo( int index, const CItem * it )
         SVN::formatDate(date_native, (apr_time_t&)it->time, true);
     m_RepoList.SetItemText(index, 5, date_native);
 
-    // lock owner
-    m_RepoList.SetItemText(index, 6, it->lockowner);
+    if (m_bShowLocks)
+    {
+        // lock owner
+        m_RepoList.SetItemText(index, 6, it->lockowner);
+    }
 }
 
 
