@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009, 2011-2012 - TortoiseSVN
+// Copyright (C) 2003-2009, 2011-2013 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,6 @@
 #include "AppUtils.h"
 #include "DirFileEnum.h"
 #include "SVNProgressDlg.h"
-#include "..\version.h"
 #include "setdialogs.h"
 #include "SVN.h"
 #include "BrowseFolder.h"

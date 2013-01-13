@@ -29,7 +29,6 @@
 #include "Dbt.h"
 #include <initguid.h>
 #include "ioevent.h"
-#include "..\version.h"
 #include "svn_dso.h"
 #include "SmartHandle.h"
 #include "DllVersion.h"
